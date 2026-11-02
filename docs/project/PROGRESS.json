@@ -1,9 +1,9 @@
 {
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
-  "updated": "2026-11-02",
-  "phase": "base-built-v2-advanced",
-  "awaiting": "Google Drive link from owner (source-book collection)",
+  "updated": "2026-11-03",
+  "phase": "v2-platform · unit-based authoring cadence",
+  "awaiting": "Google Drive link from owner (source-book collection) + optional fine-grained PAT for direct pushes (README → 'Pushing to GitHub')",
 
   "platform": {
     "status": "working — v2 routed architecture",
@@ -17,7 +17,7 @@
       "quiz scoring with persisted best score + retake",
       "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
       "glossary A–Z + formula sheet pages",
-      "home 'Your desk' dashboard: continue reading, streak, words read, bookmarks"
+      "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)"
     ],
     "verified": [
       "lint clean",
@@ -59,10 +59,11 @@
   },
 
   "workflowRulesReminder": [
-    "One subject at a time; download only that subject's reference books",
-    "Internet research is the sanctioned fallback when Drive lacks a subject",
-    "Delete downloaded working copies after the subject completes (never Drive originals)",
+    "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): a unit = one chapter; research → write → verify → ship → log, then the next unit; never batch-draft",
+    "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
+    "Delete downloaded working copies after the unit is verified (never Drive originals)",
     "Original content only; references inform, never reproduce",
-    "A book is complete only after verification + exam-coverage audit + reader integration"
+    "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
+    "No daily-streak / gamified streak features on the website (owner request 2026-11-03)"
   ]
 }

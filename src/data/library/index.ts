@@ -214,6 +214,8 @@ export type SearchHit =
       subtitle: string
       bookId: string
       lessonId?: undefined
+      /** books never carry snippets; declared so union access stays typed */
+      snippet?: undefined
     }
 
 interface SearchDoc {

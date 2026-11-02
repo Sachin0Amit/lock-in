@@ -90,30 +90,3 @@ export const useProgress = create<ProgressState>()(
     { name: 'lockin-progress', version: 2 },
   ),
 )
-
-/* ---------------------------------------------------------------- */
-/* Derived helpers                                                    */
-/* ---------------------------------------------------------------- */
-
-const dayKey = (ts: number) => {
-  const d = new Date(ts)
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
-}
-
-/**
- * Consecutive-day learning streak, counting back from today (or yesterday,
- * so an alive streak isn't reset at midnight). A day counts when at least
- * one lesson was completed on it.
- */
-export function computeStreak(completed: Record<string, number>): number {
-  const days = new Set(Object.values(completed).map(dayKey))
-  if (days.size === 0) return 0
-  const cursor = new Date()
-  if (!days.has(dayKey(cursor.getTime()))) cursor.setDate(cursor.getDate() - 1)
-  let streak = 0
-  while (days.has(dayKey(cursor.getTime()))) {
-    streak += 1
-    cursor.setDate(cursor.getDate() - 1)
-  }
-  return streak
-}

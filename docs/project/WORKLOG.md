@@ -6,6 +6,54 @@ and what remains.
 
 ---
 
+## 2026-11-03 — Owner directives: unit-by-unit cadence, streak off, push access
+
+**Directives received:** (1) content will be written **one unit of one
+subject at a time** — docs changed to make the unit (chapter) the delivery
+cadence; (2) the **daily streak came off the website**; (3) owner asked how
+to supply a GitHub auth token — instructions added to README ("Pushing to
+GitHub") and given in chat.
+
+**Docs (unit-based workflow):**
+- `MASTER_PLAN.md` §2 rewritten: "Authoring workflow — one unit of one
+  subject at a time"; a unit = one chapter; research → write → verify →
+  ship → log per unit; never batch-draft; storage law now "one unit at a
+  time".
+- §6 quality gates: run per unit, and again per book before completion.
+- `BOOK_FORMAT.md`: new "Authoring cadence" section (unit = `ch-NN.ts`).
+- `README.md`: status notes the cadence; new "Pushing to GitHub" section
+  (fine-grained PAT: only this repo, Contents RW, 7-day expiry, revoke
+  after push).
+- `PROGRESS.json` + `RESUME_POINTER.json` updated (phase, rules, awaiting
+  Drive link + optional PAT).
+
+**Website (streak removal):**
+- Header: flame streak badge removed; the lessons-completed badge now
+  shows whenever > 0 (was previously streak-dependent).
+- Home "Your desk": streak pill + "Learning streak" stat removed; fourth
+  stat is now **Terms mastered** (flashcard know-count from the persisted
+  store) — reads as a real study metric instead of gamification.
+- `progress-store.ts`: `computeStreak`/`dayKey` helpers deleted (persisted
+  shape unchanged — no migration needed).
+- Policy recorded in memory: no streak/gamification features on the site.
+
+**Verified:** lint clean; `tsc --noEmit` clean under `src/` (also fixed a
+pre-existing `SearchHit` union type error — `snippet` now declared on the
+book branch); browser E2E with seeded progress: home renders "Your desk"
+with stats [Lessons completed 1 · Words read 2,852 · Terms mastered 3 ·
+Bookmarks 0], zero occurrences of "streak" anywhere on the page, header
+shows only the lessons-completed badge; lesson page renders fully (54
+KaTeX nodes, quiz present, correct title); no console errors, no
+hydration warnings, dev.log clean.
+
+**Remaining:** awaiting Google Drive link → begin the unit workflow
+(Foundation Mathematics, chapter 1 continuation: lessons 1.2+). Exam
+registry research. Owner PAT → push local commits.
+
+**Git:** commit `docs+ui: unit-by-unit authoring cadence, remove daily streak, push-access guide`.
+
+---
+
 ## 2026-11-02 — Platform v2: routed architecture + advanced study features
 
 **Goal:** owner approved the book structure ("structure of book is ok") and asked

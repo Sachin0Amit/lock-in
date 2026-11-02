@@ -17,6 +17,28 @@ bun run dev        # http://localhost:3000
 bun run lint       # code quality
 ```
 
+## Pushing to GitHub (owner access)
+
+The sandbox holds no write credentials for
+`git@github.com:Sachin0Amit/lock-in.git`. To let the agent push directly,
+create a **fine-grained personal access token**:
+
+1. GitHub → *Settings → Developer settings → Personal access tokens →
+   Fine-grained tokens → Generate new token*
+   (direct link: <https://github.com/settings/personal-access-tokens/new>).
+2. Name it e.g. `lock-in-agent`, expiration **7 days** — it only needs to
+   survive the push session.
+3. *Repository access* → **Only select repositories** → `Sachin0Amit/lock-in`.
+4. *Permissions* → Repository permissions → **Contents: Read and write**
+   (nothing else).
+5. Generate, copy the token (`github_pat_…`) and paste it in chat.
+6. It is used once to configure the remote and push, never echoed back;
+   **revoke it** (token page → Delete) after the session or any time.
+
+A classic token with the `repo` scope also works but grants far more than
+needed — prefer fine-grained. The agent never commits or stores the token
+in files; it lives only in the git remote URL for the session.
+
 ## Project map
 
 ```
@@ -58,8 +80,10 @@ because they key reader progress. Full guide: `docs/project/BOOK_FORMAT.md`.
 ## Status
 
 Foundation Mathematics (Mathematics shelf) — chapter 1 of 11 in progress.
-The full plan lives in `docs/project/SUBJECT_BACKLOG.md`; the workflow and
-rules in `docs/project/MASTER_PLAN.md`.
+**Authoring cadence (owner directive): one unit — one chapter — of one
+subject at a time.** The full plan lives in
+`docs/project/SUBJECT_BACKLOG.md`; the workflow and rules in
+`docs/project/MASTER_PLAN.md`.
 
 All content is original educational material authored for this project.
 Reference books inform and verify concepts; they are never reproduced.

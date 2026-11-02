@@ -1,16 +1,16 @@
 'use client'
 
 /**
- * Site chrome — header (logo, command palette, streak, theme) and footer,
- * shared by every routed page. Lives in the root layout.
+ * Site chrome — header (logo, command palette, lessons-done badge, theme)
+ * and footer, shared by every routed page. Lives in the root layout.
  */
 import Link from 'next/link'
-import { BookOpenCheck, Flame, Library, Moon, Sun } from 'lucide-react'
+import { BookOpenCheck, Library, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import { paths } from '@/data/library/index'
 import { CommandPalette } from './command-palette'
-import { computeStreak, useProgress } from './progress-store'
+import { useProgress } from './progress-store'
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -28,9 +28,7 @@ function ThemeToggle() {
 }
 
 export function SiteHeader() {
-  const completed = useProgress((s) => s.completed)
-  const streak = computeStreak(completed)
-  const completedCount = Object.keys(completed).length
+  const completedCount = Object.keys(useProgress((s) => s.completed)).length
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
@@ -49,26 +47,15 @@ export function SiteHeader() {
         </div>
 
         <div className="flex shrink-0 items-center gap-1">
-          {streak >= 2 ? (
+          {completedCount > 0 && (
             <span
-              className="mr-1 hidden items-center gap-1.5 rounded-full border border-orange-500/40 bg-orange-50 px-2.5 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 sm:inline-flex"
-              title={`${streak}-day learning streak — complete a lesson every day to keep it alive`}
+              className="mr-1 hidden items-center gap-1.5 rounded-full border bg-card px-2.5 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 sm:inline-flex"
+              title={`${completedCount} lessons completed`}
             >
-              <Flame className="h-3.5 w-3.5" aria-hidden />
-              <span className="tabular-nums">{streak}</span>
-              <span className="sr-only">day streak</span>
+              <BookOpenCheck className="h-3.5 w-3.5" aria-hidden />
+              <span className="tabular-nums">{completedCount}</span>
+              <span className="sr-only">lessons completed</span>
             </span>
-          ) : (
-            completedCount > 0 && (
-              <span
-                className="mr-1 hidden items-center gap-1.5 rounded-full border bg-card px-2.5 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 sm:inline-flex"
-                title={`${completedCount} lessons completed`}
-              >
-                <BookOpenCheck className="h-3.5 w-3.5" aria-hidden />
-                <span className="tabular-nums">{completedCount}</span>
-                <span className="sr-only">lessons completed</span>
-              </span>
-            )
           )}
           <ThemeToggle />
         </div>

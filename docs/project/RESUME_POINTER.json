@@ -1,16 +1,12 @@
 {
-  "updated": "2026-11-02",
-  "nextAction": "WAITING FOR OWNER: Google Drive link to the reference book collection. When it arrives: (1) fetch and list the Drive folder, (2) build temporary-references/inventory.json, (3) pick the first subject (default: Mathematics — Foundation Mathematics continuation), (4) download only that subject's books, (5) begin the research-first authoring workflow in docs/project/MASTER_PLAN.md §2. NOTE: the platform is now v2 (routed pages, command palette, flashcards, glossary) — see MASTER_PLAN.md §8 for the architecture map.",
-  "fallback": "If the Drive link is delayed, the sanctioned next work is examination research: fill docs/project/EXAM_REGISTRY.json from official syllabus sources (50+ exams, web research).",
+  "updated": "2026-11-03",
+  "nextAction": "WAITING FOR OWNER: Google Drive link to the reference book collection. When it arrives: (1) fetch and list the Drive folder, (2) build temporary-references/inventory.json, (3) confirm the first subject+book (default: Mathematics — Foundation Mathematics, continuing chapter 1), (4) download ONLY the current unit's reference books, (5) author ONE UNIT (chapter) at a time per MASTER_PLAN.md §2 — research → write → verify → ship → log, then the next unit. ALSO WAITING: optional GitHub PAT from owner (instructions in README 'Pushing to GitHub' + given in chat) — if provided, set remote URL with token, push all local commits, recommend revocation. Fallback while waiting: examination research (EXAM_REGISTRY.json, 50+ exams) and unit-by-unit planning.",
+  "fallback": "If the Drive link is delayed, the sanctioned next work is examination research: fill docs/project/EXAM_REGISTRY.json from official syllabus sources (50+ exams, web research), or quality polish of the platform — but no streak/gamification features (owner removed them 2026-11-03).",
   "lastCompleted": [
-    "Platform v2: real URL routing (/, /book/[id], lesson, /revise, /glossary, 404) with SSG + per-page metadata + JSON-LD",
-    "Command palette (Ctrl/Cmd+K): full-text search over lessons/books/terms with snippets and quick actions",
-    "Reader upgrades: scrollspy TOC, reading-progress bar, keyboard shortcuts, prerequisites, sources",
-    "Quiz scoring with persisted best score; flashcard revision mode from terms blocks; glossary + formula sheet",
-    "Home 'Your desk' dashboard (continue reading, streak, bookmarks, words read)",
-    "Content model v2: formula + algorithm blocks, lesson prerequisites + sources",
-    "Full E2E + VLM visual verification; lint clean",
-    "Memory system: MASTER_PLAN (now with §8 platform architecture), BOOK_FORMAT (new blocks documented), PROGRESS, RESUME_POINTER, WORKLOG, SOURCE_LOG, EXAM_REGISTRY, SUBJECT_BACKLOG"
+    "2026-11-03: authoring cadence changed to ONE UNIT (chapter) OF ONE SUBJECT AT A TIME — MASTER_PLAN §2 rewritten, §6 gates per unit, BOOK_FORMAT cadence note, README status",
+    "2026-11-03: daily streak removed from the website (header flame badge, 'Your desk' streak pill + stat, computeStreak helper); desk stat replaced by 'Terms mastered'; header keeps the lessons-completed badge",
+    "2026-11-03: README gained a 'Pushing to GitHub' section (fine-grained PAT instructions for the owner)",
+    "2026-11-02: Platform v2 — routed SSG pages, command palette, flashcards, glossary, reader upgrades, content model v2 (see WORKLOG)"
   ],
-  "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH). Sandbox cannot push (no credentials); owner pushes, or owner supplies a fine-grained PAT for direct pushes."
+  "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH, no credentials in sandbox). Local commits exist; owner pushes manually OR supplies a fine-grained PAT (README) for direct pushes. Streak removal is one `git revert` away in history if the owner ever changes their mind."
 }

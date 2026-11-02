@@ -16,25 +16,37 @@ understanding, never as the boundary of the content.
 **Core philosophy:** books that make people knowledgeable, not books that
 merely help them pass examinations.
 
-## 2. Source workflow (Google Drive)
+## 2. Authoring workflow — one unit of one subject at a time
+
+**Owner directive (2026-11-03): content is written one unit of one subject
+at a time.** A *unit* = one chapter of one book. The unit is the delivery
+cadence: research → write → verify → ship → log, then the next unit. Books
+complete chapter by chapter; subjects complete book by book. Never plan,
+draft or queue multiple units in one pass.
 
 The owner will supply a Google Drive link with a large reference book
-collection. Workflow per subject:
+collection. Workflow per unit:
 
-1. Survey the Drive listing; identify relevant books for the target subject.
-2. Download **only** that subject's books into `temporary-references/`
-   (gitignored).
-3. Study their TOCs, explanations, derivations, examples and exercises.
-4. Write OUR OWN original textbook — reference books inform and verify
+1. Fix the current subject and book (owner's order; default: Mathematics —
+   Foundation Mathematics, continuing at chapter 1).
+2. Survey the Drive listing (or the internet — the sanctioned fallback)
+   for reference material covering **this unit's topics only**.
+3. Download only that material into `temporary-references/` (gitignored).
+4. Study its TOCs, explanations, derivations, examples and exercises for
+   the unit's topics.
+5. Write OUR OWN original chapter — reference books inform and verify
    concepts; **never** reproduce or imitate protected expression.
-5. Supplement with internet research (official syllabi, university curricula,
-   authoritative references) — **explicitly mandated as the fallback whenever
-   the Drive has no books for a subject/field.**
-6. When the subject's book is complete and verified, delete the downloaded
-   working copies (never the Drive originals) and log it in `SOURCE_LOG.md`.
-7. Move to the next subject.
+6. Supplement with internet research (official syllabi, university
+   curricula, authoritative references) — **explicitly mandated as the
+   fallback whenever the Drive has no books for a topic/field.**
+7. Run the quality gates (§6) for the unit, integrate it into the reading
+   platform, and log it in `PROGRESS.json` + `WORKLOG.md`.
+8. Delete the downloaded working copies (never the Drive originals) once
+   the unit is verified and log it in `SOURCE_LOG.md`.
+9. Move to the next unit of the same book. Switch book or subject only
+   when that book is complete or the owner redirects.
 
-**Storage law:** ~9 GB total. One subject at a time. Never bulk-download.
+**Storage law:** ~9 GB total. One unit at a time. Never bulk-download.
 Keep only final textbooks, assets, metadata, project files.
 
 ## 3. Examination database (research-first)
@@ -82,7 +94,10 @@ instruction §4) and get promoted to real books one at a time.
 
 ## 6. Quality gates before "complete"
 
-1. Chapters drafted → 2. content verified (math recomputed) →
+Gates run **per unit (chapter)** before that unit counts as written, and
+once more over the whole book before the book is marked complete:
+
+1. Unit drafted → 2. content verified (math recomputed) →
 3. examination coverage audit run → 4. structure/navigation verified →
 5. integrated into the reading platform → 6. logged in `PROGRESS.json` +
 `WORKLOG.md`. Drafting alone never means complete.
@@ -109,7 +124,8 @@ src/app/                              Next.js App Router, SSG (generateStaticPar
   book/[bookId]/glossary/             A–Z glossary + formula sheet
 
 src/components/library/
-  site-chrome.tsx                     header (⌘/Ctrl+K palette, streak, theme) + footer
+  site-chrome.tsx                     header (⌘/Ctrl+K palette, lessons-done
+                                      badge, theme) + footer
   command-palette.tsx                 full-text search: books/lessons/terms + actions
   lesson-view.tsx                     reader: scrollspy TOC, reading-progress bar,
                                       prerequisites, sources, keyboard shortcuts
@@ -119,7 +135,9 @@ src/components/library/
   flashcards.tsx                      flip cards, know/again, shuffle, per-term memory
   glossary-view.tsx                   A–Z index + formula cards
   progress-store.ts                   completed · bookmarks · quizBest · knownTerms ·
-                                      fontScale · streak (zustand persist v2)
+                                      fontScale (zustand persist v2)
+                                      — NOTE: daily streak removed by owner
+                                      request 2026-11-03 (never reintroduce)
 ```
 
 Reader keyboard shortcuts: `←`/`→` prev/next lesson · `B` bookmark ·

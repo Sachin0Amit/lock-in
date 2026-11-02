@@ -9,7 +9,6 @@ import {
   Bookmark,
   CircleDashed,
   FileText,
-  Flame,
   Library,
   PlayCircle,
   Sigma,
@@ -29,7 +28,7 @@ import {
   type Book,
 } from '@/data/library/index'
 import { BookCover } from './book-view'
-import { computeStreak, useProgress } from './progress-store'
+import { useProgress } from './progress-store'
 
 /* Discipline icons (kept explicit so tree-shaking works) */
 import {
@@ -80,14 +79,15 @@ const STATUS_BADGE: Record<string, { label: string; className: string }> = {
 function YourDesk() {
   const completed = useProgress((s) => s.completed)
   const bookmarks = useProgress((s) => s.bookmarks)
+  const knownTerms = useProgress((s) => s.knownTerms)
   const lastLessonId = useProgress((s) => s.lastLessonId)
 
   const completedCount = Object.keys(completed).length
+  const masteredCount = Object.keys(knownTerms).length
   const bookmarkList = Object.keys(bookmarks)
     .map((id) => findLesson(id))
     .filter((l): l is NonNullable<typeof l> => !!l)
   const resume = lastLessonId ? findLesson(lastLessonId) : undefined
-  const streak = computeStreak(completed)
   const wordsRead = allLessons
     .filter((l) => completed[l.lesson.id])
     .reduce((n, l) => n + l.words, 0)
@@ -106,20 +106,14 @@ function YourDesk() {
     <section className="mt-10 rounded-2xl border bg-card p-6 shadow-sm sm:p-7" aria-label="Your desk">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="font-reading text-xl font-bold">Your desk</h2>
-        {streak >= 2 && (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/40 bg-orange-50 px-3 py-1 text-sm font-semibold text-orange-700 dark:bg-orange-950/40 dark:text-orange-300">
-            <Flame className="h-4 w-4" aria-hidden />
-            {streak}-day streak
-          </span>
-        )}
       </div>
 
       <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {[
           { label: 'Lessons completed', value: completedCount, icon: BookOpenCheck },
           { label: 'Words read', value: wordsRead.toLocaleString(), icon: FileText },
+          { label: 'Terms mastered', value: masteredCount, icon: Library },
           { label: 'Bookmarks', value: bookmarkList.length, icon: Bookmark },
-          { label: 'Learning streak', value: `${streak} day${streak === 1 ? '' : 's'}`, icon: Flame },
         ].map((s) => {
           const Icon = s.icon
           return (

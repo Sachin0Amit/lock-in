@@ -19,6 +19,13 @@ src/data/library/
         ch-02.ts
 ```
 
+## Authoring cadence (owner directive 2026-11-03)
+
+**One unit of one subject at a time.** A unit = one chapter (`ch-NN.ts`).
+Research, author, verify and ship a single chapter before touching the
+next; never batch-draft multiple chapters. Books complete chapter by
+chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
+
 ## Authoring a chapter
 
 1. **Copy the shape** of an existing chapter file (see
