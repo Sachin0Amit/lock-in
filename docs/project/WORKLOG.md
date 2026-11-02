@@ -6,6 +6,63 @@ and what remains.
 
 ---
 
+## 2026-11-03 — Website v3: arrangement & visual overhaul
+
+**Goal:** owner asked to change how things are arranged ("make arrangement
+more good efficient and nice"). Full IA + visual pass over home, book and
+chrome; reader breadcrumb aligned. No content changes.
+
+**Home (rearranged):**
+- Two-column hero: message + CTAs left, **living book-shelf visual** right
+  (real cover spines for live books, ghost spines for planned shelves, one
+  leaning; shelf bar + caption) on a subtle dotted-paper texture —
+  visually tells "library growing one chapter at a time".
+- Primary CTA is now contextual: "Start reading" (new reader) /
+  "Continue — 1.1" (returning, from persisted lastLesson).
+- Four stat boxes → one inline stat strip with hairline separators.
+- "Your desk": lighter strip — 4 compact tiles + bookmark chips row +
+  inline "Resume" link (big continue card removed; hero CTA covers it).
+- Shelves: count badge ("1 live"), refined book cards (larger cover,
+  StatusBadge shared component, meta strip, progress).
+- "Full shelf plan" → "On the roadmap": only not-yet-live shelves, as
+  compact chips (planned vs live no longer duplicated).
+
+**Book page (rearranged):**
+- Breadcrumb (Library / discipline / book) + chevron separators.
+- Hero: cover + title/badges/description + compact meta strip + progress
+  + actions; primary button contextual (Start chapter 1 / Next — 1.2 /
+  Continue — 1.1).
+- TOC: per-chapter counter chip ("1/1 done" / "5 planned"), **"Next up"**
+  highlight on the first unwritten-not-completed lesson (tint + badge),
+  quiz best-score chips (5/5 with award icon) on completed lessons,
+  tighter rows.
+
+**Reader:** breadcrumb now Library / book / chapter (chevrons, Library
+links home). Footer (site chrome): two-column brand + quick links (home,
+book, glossary, GitHub) + Ctrl-K hint; fine print contrast raised.
+
+**Shared:** new `bits.tsx` (DISCIPLINE_ICONS + StatusBadge) — home and
+book now share one source of visual truth. `paper-dots` + `spine-label`
+CSS utilities. Next.js dev-tools indicator disabled (`devIndicators:
+false`) — it was polluting mobile previews.
+
+**Verified:** lint + tsc clean; all routes 200 (unknown 404); browser
+E2E — hero CTAs, spine labels (6), stat strip, roadmap, footer links,
+breadcrumb, "Next up" + 5/5 quiz chip + "1/1 done" counter, 54 KaTeX
+nodes, C-keyboard toggle, Ctrl-K palette, flashcards; VLM visual review
+rounds: home 9/10 (desktop+mobile; imbalance + ghost-contrast + devtools
+overlap all fixed), book 9/10, reader 8/10 (both "cut-offs" were
+viewport-fold artifacts), dark-mode spine contrast fixed; zero console
+errors.
+
+**Remaining:** awaiting Google Drive link → unit workflow (Foundation
+Mathematics chapter 1, lessons 1.2+). Exam registry research. Push needs
+owner (new PAT or manual).
+
+**Git:** commit `site v3: arrangement & visual overhaul (hero shelf, contextual CTAs, TOC next-up/quiz scores, roadmap, footer)`.
+
+---
+
 ## 2026-11-03 — Owner directives: unit-by-unit cadence, streak off, push access
 
 **Directives received:** (1) content will be written **one unit of one

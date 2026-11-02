@@ -2,14 +2,18 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-03",
-  "phase": "v2-platform · unit-based authoring cadence",
+  "phase": "v3-arrangement · unit-based authoring cadence",
   "awaiting": "Google Drive link from owner (source-book collection) + optional fine-grained PAT for direct pushes (README → 'Pushing to GitHub')",
 
   "platform": {
-    "status": "working — v2 routed architecture",
+    "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
     "routes": ["/", "/book/[bookId]", "/book/[bookId]/lesson/[lessonId]", "/book/[bookId]/revise", "/book/[bookId]/glossary", "404"],
     "features": [
+      "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
+      "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
+      "reader breadcrumb Library/book/chapter; two-column footer with quick links + Ctrl-K hint",
+      "shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS",
       "shareable deep-link URLs, statically generated",
       "command palette (Ctrl/Cmd+K) with full-text search (lessons, books, glossary terms), snippets, actions, random lesson",
       "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",

@@ -17,6 +17,7 @@ import {
   BookmarkCheck,
   BookOpenCheck,
   CheckCircle2,
+  ChevronRight,
   Circle,
   Clock3,
   ExternalLink,
@@ -30,7 +31,6 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import {
-  disciplineOf,
   findLesson,
   lessonHeadings,
   lessonNeighbours,
@@ -49,7 +49,6 @@ interface Props {
 export function LessonView({ ref_ }: Props) {
   const router = useRouter()
   const { book, chapter, lesson, words, readMins } = ref_
-  const discipline = disciplineOf(book)
   const { prev, next } = lessonNeighbours(lesson.id)
   const headings = lessonHeadings(lesson)
 
@@ -110,16 +109,16 @@ export function LessonView({ ref_ }: Props) {
           {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
-            className="mb-5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-muted-foreground"
+            className="mb-5 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"
           >
-            <Link href={paths.book(book.id)} className="hover:text-foreground hover:underline">
-              {discipline.title}
+            <Link href={paths.home()} className="hover:text-foreground hover:underline">
+              Library
             </Link>
-            <span aria-hidden>/</span>
+            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
             <Link href={paths.book(book.id)} className="hover:text-foreground hover:underline">
               {book.title}
             </Link>
-            <span aria-hidden>/</span>
+            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
             <span className="text-foreground/80">
               Chapter {chapter.number}: {chapter.title}
             </span>

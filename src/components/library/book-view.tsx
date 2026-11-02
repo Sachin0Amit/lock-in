@@ -1,15 +1,24 @@
 'use client'
 
-/** Book page — generated cover, stats, progress, study tools and the full table of contents. */
+/**
+ * Book page v3 — arrangement overhaul:
+ *  - breadcrumb (Library / discipline / book)
+ *  - hero: cover + meta + compact stat strip + progress + actions
+ *  - TOC: per-chapter written counters, "Next up" lesson highlighted,
+ *    quiz best scores shown on completed lessons, tighter rows
+ */
 import Link from 'next/link'
 import {
+  Award,
   BookOpenCheck,
-  Layers,
+  ChevronRight,
   CircleDashed,
   Clock3,
   FileText,
   PlayCircle,
+  Layers,
   ScrollText,
+  Sparkles,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,6 +32,7 @@ import {
   paths,
   type Book,
 } from '@/data/library/index'
+import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
 
 export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {
@@ -54,18 +64,6 @@ export function BookCover({ book, large = false }: { book: Book; large?: boolean
   )
 }
 
-const STATUS_BADGE: Record<string, { label: string; className: string }> = {
-  planned: { label: 'Planned', className: 'border-stone-400/50 text-stone-600 dark:text-stone-300' },
-  'in-progress': {
-    label: 'In progress',
-    className: 'border-amber-500/60 bg-amber-50 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300',
-  },
-  complete: {
-    label: 'Complete',
-    className: 'border-emerald-500/60 bg-emerald-50 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300',
-  },
-}
-
 interface Props {
   book: Book
 }
@@ -75,24 +73,52 @@ export function BookView({ book }: Props) {
   const lessons = bookLessons(book)
   const stats = bookStats(book)
   const completedMap = useProgress((s) => s.completed)
+  const quizBest = useProgress((s) => s.quizBest)
   const completed = lessons.filter((l) => completedMap[l.lesson.id]).length
   const lastLessonId = useProgress((s) => s.lastLessonId)
   const resumeLesson =
     lastLessonId && book.id === findLesson(lastLessonId)?.book.id ? findLesson(lastLessonId) : undefined
 
   const percent = lessons.length ? Math.round((completed / lessons.length) * 100) : 0
+  /* first written-but-not-completed lesson → the natural next read */
+  const nextUp = lessons.find((l) => !completedMap[l.lesson.id])?.lesson.id
+  /* the lesson the primary button should open */
+  const startLesson = resumeLesson?.lesson ?? lessons.find((l) => l.lesson.id === nextUp)?.lesson
+  const startLabel = resumeLesson
+    ? `Continue — ${resumeLesson.lesson.number}`
+    : completed > 0 && startLesson
+      ? `Next — ${startLesson.number}`
+      : 'Start chapter 1'
+
+  const metaItems = [
+    { icon: BookOpenCheck, text: `${stats.written} written` },
+    { icon: CircleDashed, text: `${stats.planned} planned` },
+    { icon: FileText, text: `${stats.words.toLocaleString()} words` },
+    { icon: Clock3, text: `${stats.readMins} min` },
+  ]
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 pb-16 pt-8 sm:px-6">
+      {/* Breadcrumb */}
+      <nav
+        aria-label="Breadcrumb"
+        className="mb-6 flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"
+      >
+        <Link href={paths.home()} className="hover:text-foreground hover:underline">
+          Library
+        </Link>
+        <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+        <span>{discipline.title}</span>
+        <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+        <span className="text-foreground/80">{book.title}</span>
+      </nav>
+
       {/* Hero */}
-      <section className="flex flex-col gap-7 sm:flex-row sm:gap-9">
-        <div className="mx-auto w-44 shrink-0 sm:mx-0 sm:w-52">
+      <section className="flex flex-col gap-8 sm:flex-row sm:gap-10">
+        <div className="mx-auto w-48 shrink-0 sm:mx-0 sm:w-52">
           <BookCover book={book} large />
         </div>
         <div className="min-w-0 flex-1">
-          <nav className="mb-2 text-sm text-muted-foreground" aria-label="Discipline">
-            {discipline.title}
-          </nav>
           <h1 className="font-reading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             {book.title}
           </h1>
@@ -100,27 +126,18 @@ export function BookView({ book }: Props) {
             <p className="mt-1.5 font-reading text-lg text-muted-foreground">{book.subtitle}</p>
           )}
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <Badge variant="outline" className={STATUS_BADGE[book.status].className}>
-              {STATUS_BADGE[book.status].label}
-            </Badge>
+            <StatusBadge status={book.status} />
             <Badge variant="secondary" className="font-normal">{book.level}</Badge>
           </div>
           <p className="mt-4 leading-7 text-foreground/90">{book.description}</p>
 
+          {/* compact meta strip */}
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5">
-              <BookOpenCheck className="h-4 w-4" aria-hidden /> {stats.written} lesson
-              {stats.written === 1 ? '' : 's'} written
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <CircleDashed className="h-4 w-4" aria-hidden /> {stats.planned} planned
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <FileText className="h-4 w-4" aria-hidden /> {stats.words.toLocaleString()} words
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Clock3 className="h-4 w-4" aria-hidden /> {stats.readMins} min total
-            </span>
+            {metaItems.map((m) => (
+              <span key={m.text} className="inline-flex items-center gap-1.5">
+                <m.icon className="h-4 w-4" aria-hidden /> {m.text}
+              </span>
+            ))}
           </div>
 
           {lessons.length > 0 && (
@@ -135,15 +152,12 @@ export function BookView({ book }: Props) {
             </div>
           )}
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            {resumeLesson && (
-              <Button
-                asChild
-                className="gap-2"
-              >
-                <Link href={paths.lesson(book.id, resumeLesson.lesson.id)}>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {startLesson && (
+              <Button asChild className="gap-2">
+                <Link href={paths.lesson(book.id, startLesson.id)}>
                   <PlayCircle className="h-4 w-4" aria-hidden />
-                  Continue — {resumeLesson.lesson.number} {resumeLesson.lesson.title}
+                  {startLabel}
                 </Link>
               </Button>
             )}
@@ -173,8 +187,10 @@ export function BookView({ book }: Props) {
         <div className="space-y-8">
           {book.chapters.map((ch) => {
             const chLessons = lessons.filter((l) => l.chapter.number === ch.number)
+            const plannedCount = ch.plannedLessons?.length ?? 0
+            const chDone = chLessons.filter((l) => completedMap[l.lesson.id]).length
             return (
-              <div key={ch.number} className="rounded-xl border">
+              <div key={ch.number} className="overflow-hidden rounded-xl border">
                 <div className="flex items-start gap-4 border-b bg-muted/30 px-5 py-4">
                   <span className="font-reading text-2xl font-bold text-primary/80 tabular-nums">
                     {String(ch.number).padStart(2, '0')}
@@ -182,33 +198,67 @@ export function BookView({ book }: Props) {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="font-reading text-lg font-semibold leading-snug">{ch.title}</h3>
-                      <Badge variant="outline" className={STATUS_BADGE[ch.status].className}>
-                        {STATUS_BADGE[ch.status].label}
-                      </Badge>
+                      <StatusBadge status={ch.status} />
                     </div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">{ch.summary}</p>
                   </div>
+                  <Badge variant="secondary" className="mt-1 shrink-0 font-normal tabular-nums">
+                    {chLessons.length > 0
+                      ? `${chDone}/${chLessons.length} done`
+                      : `${plannedCount} planned`}
+                  </Badge>
                 </div>
                 <ul className="divide-y divide-border/70">
                   {chLessons.map(({ lesson, readMins }) => {
                     const done = !!completedMap[lesson.id]
+                    const isNext = lesson.id === nextUp
+                    const best = quizBest[lesson.id]
                     return (
                       <li key={lesson.id}>
                         <Link
                           href={paths.lesson(book.id, lesson.id)}
-                          className="flex w-full items-center gap-3 px-5 py-3 text-left transition-colors hover:bg-accent/50"
+                          className={`flex w-full items-center gap-3 px-5 py-3 text-left transition-colors hover:bg-accent/50 ${
+                            isNext ? 'bg-primary/[0.06] dark:bg-primary/[0.1]' : ''
+                          }`}
                         >
                           {done ? (
-                            <BookOpenCheck className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
+                            <BookOpenCheck
+                              className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                              aria-hidden
+                            />
                           ) : (
-                            <span className="h-4 w-4 shrink-0 rounded-full border-2 border-muted-foreground/40" aria-hidden />
+                            <span
+                              className={`h-4 w-4 shrink-0 rounded-full border-2 ${
+                                isNext ? 'border-primary' : 'border-muted-foreground/40'
+                              }`}
+                              aria-hidden
+                            />
                           )}
                           <span className="min-w-0 flex-1">
-                            <span className={`block leading-snug ${done ? 'text-muted-foreground' : 'font-medium'}`}>
+                            <span
+                              className={`block leading-snug ${
+                                done ? 'text-muted-foreground' : 'font-medium'
+                              }`}
+                            >
                               <span className="mr-1.5 text-primary">{lesson.number}</span>
                               {lesson.title}
                             </span>
                           </span>
+                          {best && (
+                            <span
+                              className="hidden shrink-0 items-center gap-1 rounded-full border bg-background px-2 py-0.5 text-[11px] font-medium text-muted-foreground tabular-nums sm:inline-flex"
+                              title={`Best quiz score: ${best.best}/${best.total}`}
+                            >
+                              <Award className="h-3 w-3 text-amber-600 dark:text-amber-400" aria-hidden />
+                              {best.best}/{best.total}
+                            </span>
+                          )}
+                          {isNext && (
+                            <span className="hidden shrink-0 items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary sm:inline-flex">
+                              <Sparkles className="h-3 w-3" aria-hidden />
+                              Next up
+                            </span>
+                          )}
                           <span className="shrink-0 text-xs text-muted-foreground">{readMins} min</span>
                         </Link>
                       </li>

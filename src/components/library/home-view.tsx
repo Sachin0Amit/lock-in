@@ -1,6 +1,13 @@
 'use client'
 
-/** Library home — the front door: reader dashboard, hero, discipline shelves, book cards. */
+/**
+ * Library home v3 — arrangement overhaul:
+ *  - two-column hero (message + living book-shelf visual, paper texture)
+ *  - one inline stat strip instead of four stat boxes
+ *  - "Your desk" condensed to a light strip of stat tiles + bookmark chips
+ *  - shelves with count badges and refined book cards
+ *  - roadmap: only the not-yet-live shelves, as compact chips
+ */
 import Link from 'next/link'
 import {
   ArrowDown,
@@ -11,69 +18,166 @@ import {
   FileText,
   Library,
   PlayCircle,
-  Sigma,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import {
+  allBooks,
   allDisciplines,
   allLessons,
   bookStats,
   booksOfDiscipline,
-  disciplineOf,
   findLesson,
   libraryStats,
   paths,
   type Book,
 } from '@/data/library/index'
 import { BookCover } from './book-view'
+import { DISCIPLINE_ICONS, StatusBadge } from './bits'
 import { useProgress } from './progress-store'
 
-/* Discipline icons (kept explicit so tree-shaking works) */
-import {
-  Atom,
-  Cpu,
-  Dna,
-  FlaskConical,
-  Globe2,
-  Languages,
-  Palette,
-  Sigma as SigmaIcon,
-  Stethoscope,
-  TrendingUp,
-  Wrench,
-  type LucideIcon,
-} from 'lucide-react'
+/* ---------------------------------------------------------------- */
+/* Hero — the living shelf visual                                     */
+/* ---------------------------------------------------------------- */
 
-const DISCIPLINE_ICONS: Record<string, LucideIcon> = {
-  mathematics: SigmaIcon,
-  physics: Atom,
-  chemistry: FlaskConical,
-  'computer-science': Cpu,
-  engineering: Wrench,
-  'medical-sciences': Stethoscope,
-  biology: Dna,
-  'economics-commerce': TrendingUp,
-  humanities: Globe2,
-  languages: Languages,
-  'arts-music': Palette,
+const GHOST_HEIGHTS = [196, 172, 204, 182, 200, 176, 188]
+
+function ShelfVisual() {
+  const liveBooks = allBooks
+  const planned = allDisciplines.filter((d) => booksOfDiscipline(d.id).length === 0)
+
+  return (
+    <div
+      aria-hidden
+      className="relative hidden select-none self-center overflow-hidden rounded-2xl border bg-card p-6 shadow-sm lg:block"
+    >
+      <div className="paper-dots pointer-events-none absolute inset-0" />
+      <div className="relative flex h-[236px] items-end justify-center gap-2.5">
+        {/* live spines — real covers, front of the shelf */}
+        {liveBooks.slice(0, 3).map((b) => (
+          <div
+            key={b.id}
+            className="relative flex h-[212px] w-[40px] items-center justify-center rounded-[4px] shadow-[0_6px_14px_-4px_oklch(0_0_0/0.35)]"
+            style={{ background: `linear-gradient(165deg, ${b.accent[0]}, ${b.accent[1]})` }}
+          >
+            <span className="spine-label whitespace-nowrap px-0.5 text-[10px] font-semibold uppercase text-white/95">
+              {b.title}
+            </span>
+            <span className="absolute inset-x-1.5 top-1.5 h-[2px] rounded-full bg-white/25" />
+            <span className="absolute inset-x-1.5 bottom-1.5 h-[2px] rounded-full bg-white/20" />
+          </div>
+        ))}
+        <div className="mx-1 h-[204px] w-px bg-border" aria-hidden />
+        {/* ghost spines — shelves still to be filled */}
+        {planned.slice(0, 5).map((d, i) => (
+          <div
+            key={d.id}
+            className={`flex items-center justify-center rounded-[4px] border border-muted-foreground/45 bg-muted/70 dark:bg-muted/60 dark:border-muted-foreground/35 ${
+              i === 3 ? 'h-[182px] w-[32px] rotate-[7deg] translate-y-[3px]' : ''
+            }`}
+            style={
+              i === 3
+                ? undefined
+                : { height: `${GHOST_HEIGHTS[i % GHOST_HEIGHTS.length]}px`, width: '32px' }
+            }
+          >
+            <span className="spine-label whitespace-nowrap px-0.5 text-[10px] font-medium uppercase text-muted-foreground dark:text-foreground/75">
+              {d.title}
+            </span>
+          </div>
+        ))}
+      </div>
+      {/* the shelf itself */}
+      <div className="relative mt-3.5 h-2.5 rounded-full bg-gradient-to-r from-primary/50 via-primary/70 to-primary/50 shadow-[0_3px_8px_-2px_oklch(0_0_0/0.25)]" />
+      <p className="relative mt-3.5 text-center text-[11px] leading-4 text-muted-foreground">
+        One shelf is live — {planned.length} more being written, one chapter at a time.
+      </p>
+    </div>
+  )
 }
 
-const STATUS_BADGE: Record<string, { label: string; className: string }> = {
-  planned: { label: 'Planned', className: 'border-stone-400/50 text-stone-600 dark:text-stone-300' },
-  'in-progress': {
-    label: 'In progress',
-    className: 'border-amber-500/60 bg-amber-50 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300',
-  },
-  complete: {
-    label: 'Complete',
-    className: 'border-emerald-500/60 bg-emerald-50 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300',
-  },
+function Hero() {
+  const stats = libraryStats()
+  const lastLessonId = useProgress((s) => s.lastLessonId)
+  const resume = lastLessonId ? findLesson(lastLessonId) : undefined
+  const start = allLessons[0]
+  const target = resume ?? start
+
+  const statItems = [
+    { label: 'Disciplines', value: stats.disciplines },
+    { label: 'Books', value: stats.books },
+    { label: 'Lessons written', value: stats.written },
+    { label: 'Words authored', value: stats.words.toLocaleString() },
+  ]
+
+  return (
+    <section className="relative pt-10 sm:pt-14">
+      <div className="paper-dots pointer-events-none absolute inset-0 -z-10" />
+      <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]">
+        <div className="min-w-0">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
+            <Library className="h-3.5 w-3.5 text-primary" aria-hidden />
+            A growing digital library · built one chapter at a time
+          </div>
+          <h1 className="font-reading text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
+            Every subject,
+            <br />
+            <span className="text-primary">from absolute zero to mastery.</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
+            Complete digital textbooks with derivations, figures, worked examples and graded
+            exercises — written to be understood from a standing start, broad enough for
+            competitive examinations, honest enough for university study.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {target ? (
+              <Button asChild size="lg" className="h-11 gap-2 px-6">
+                <Link href={paths.lesson(target.book.id, target.lesson.id)}>
+                  <PlayCircle className="h-4.5 w-4.5" aria-hidden />
+                  {resume ? `Continue — ${resume.lesson.number}` : 'Start reading'}
+                </Link>
+              </Button>
+            ) : (
+              <Button asChild size="lg" className="h-11 gap-2 px-6">
+                <a href="#shelves">
+                  <PlayCircle className="h-4.5 w-4.5" aria-hidden />
+                  Start reading
+                </a>
+              </Button>
+            )}
+            <Button asChild variant="outline" size="lg" className="h-11 gap-2 px-6">
+              <a href="#shelves">
+                Browse the shelves
+                <ArrowDown className="h-4 w-4" aria-hidden />
+              </a>
+            </Button>
+          </div>
+        </div>
+        <ShelfVisual />
+      </div>
+
+      {/* inline stat strip */}
+      <dl className="mt-8 flex flex-wrap items-start gap-x-8 gap-y-4 border-t pt-6 sm:mt-10">
+        {statItems.map((s, i) => (
+          <div key={s.label} className="flex items-start gap-8">
+            {i > 0 && <span className="hidden h-9 w-px bg-border sm:block" aria-hidden />}
+            <div>
+              <dd className="font-reading text-2xl font-bold tabular-nums leading-none">
+                {s.value}
+              </dd>
+              <dt className="mt-1.5 text-xs text-muted-foreground">{s.label}</dt>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
 }
 
 /* ---------------------------------------------------------------- */
-/* Reader dashboard — "Your desk"                                    */
+/* Reader dashboard — "Your desk" (only once reading has begun)       */
 /* ---------------------------------------------------------------- */
 
 function YourDesk() {
@@ -94,97 +198,58 @@ function YourDesk() {
 
   if (completedCount === 0 && bookmarkList.length === 0 && !resume) return null
 
-  const bookProgress = resume
-    ? (() => {
-        const ls = allLessons.filter((l) => l.book.id === resume.book.id)
-        const done = ls.filter((l) => completed[l.lesson.id]).length
-        return { done, total: ls.length, percent: ls.length ? Math.round((done / ls.length) * 100) : 0 }
-      })()
-    : null
+  const tiles = [
+    { label: 'Lessons completed', value: completedCount, icon: BookOpenCheck },
+    { label: 'Words read', value: wordsRead.toLocaleString(), icon: FileText },
+    { label: 'Terms mastered', value: masteredCount, icon: Library },
+    { label: 'Bookmarks', value: bookmarkList.length, icon: Bookmark },
+  ]
 
   return (
-    <section className="mt-10 rounded-2xl border bg-card p-6 shadow-sm sm:p-7" aria-label="Your desk">
+    <section className="mt-10 rounded-2xl border bg-card p-5 shadow-sm sm:mt-12 sm:p-6" aria-label="Your desk">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="font-reading text-xl font-bold">Your desk</h2>
+        <h2 className="font-reading text-lg font-bold">Your desk</h2>
+        {resume && (
+          <Link
+            href={paths.lesson(resume.book.id, resume.lesson.id)}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+          >
+            Resume {resume.lesson.number} {resume.lesson.title}
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
+        )}
       </div>
 
-      <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {[
-          { label: 'Lessons completed', value: completedCount, icon: BookOpenCheck },
-          { label: 'Words read', value: wordsRead.toLocaleString(), icon: FileText },
-          { label: 'Terms mastered', value: masteredCount, icon: Library },
-          { label: 'Bookmarks', value: bookmarkList.length, icon: Bookmark },
-        ].map((s) => {
-          const Icon = s.icon
+      <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        {tiles.map((t) => {
+          const Icon = t.icon
           return (
-            <div key={s.label} className="rounded-xl border bg-background px-4 py-3.5">
-              <dd className="flex items-center gap-2 font-reading text-xl font-bold tabular-nums">
+            <div key={t.label} className="rounded-lg border bg-background px-4 py-3">
+              <dd className="flex items-center gap-2 font-reading text-lg font-bold tabular-nums">
                 <Icon className="h-4 w-4 text-primary" aria-hidden />
-                {s.value}
+                {t.value}
               </dd>
-              <dt className="mt-0.5 text-xs text-muted-foreground">{s.label}</dt>
+              <dt className="mt-0.5 text-xs text-muted-foreground">{t.label}</dt>
             </div>
           )
         })}
-      </dl>
-
-      {resume && (
-        <div className="mt-5 rounded-xl border border-primary/30 bg-primary/5 p-5 dark:bg-primary/10">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                Continue reading
-              </p>
-              <p className="mt-1 font-reading text-lg font-bold leading-snug">
-                {resume.lesson.number} {resume.lesson.title}
-              </p>
-              <p className="mt-0.5 text-sm text-muted-foreground">
-                {resume.book.title} · Chapter {resume.chapter.number}: {resume.chapter.title} ·{' '}
-                {resume.readMins} min read
-              </p>
-              {bookProgress && bookProgress.total > 0 && (
-                <div className="mt-3 max-w-sm">
-                  <div className="mb-1 flex items-center justify-between text-xs text-muted-foreground">
-                    <span>{resume.book.title}</span>
-                    <span className="tabular-nums">
-                      {bookProgress.done}/{bookProgress.total} · {bookProgress.percent}%
-                    </span>
-                  </div>
-                  <Progress value={bookProgress.percent} className="h-1.5" aria-label="Book progress" />
-                </div>
-              )}
-            </div>
-            <Button asChild className="gap-2">
-              <Link href={paths.lesson(resume.book.id, resume.lesson.id)}>
-                <PlayCircle className="h-4 w-4" aria-hidden />
-                Resume lesson
-              </Link>
-            </Button>
-          </div>
-        </div>
-      )}
+      </div>
 
       {bookmarkList.length > 0 && (
-        <div className="mt-5">
-          <p className="mb-2.5 flex items-center gap-1.5 text-sm font-semibold">
-            <Bookmark className="h-4 w-4 text-primary" aria-hidden /> Bookmarked lessons
-          </p>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {bookmarkList.slice(0, 6).map(({ book, lesson }) => (
-              <Link
-                key={lesson.id}
-                href={paths.lesson(book.id, lesson.id)}
-                className="group flex items-center gap-2.5 rounded-lg border px-4 py-2.5 text-sm transition-colors hover:border-primary/50 hover:bg-accent/50"
-              >
-                <span className="font-medium text-primary">{lesson.number}</span>
-                <span className="min-w-0 flex-1 truncate font-medium">{lesson.title}</span>
-                <span className="hidden shrink-0 text-xs text-muted-foreground sm:inline">
-                  {book.title}
-                </span>
-                <ArrowRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground group-hover:text-primary" aria-hidden />
-              </Link>
-            ))}
-          </div>
+        <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-4">
+          <span className="mr-1 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+            <Bookmark className="h-3.5 w-3.5" aria-hidden /> Bookmarked
+          </span>
+          {bookmarkList.slice(0, 6).map(({ book, lesson }) => (
+            <Link
+              key={lesson.id}
+              href={paths.lesson(book.id, lesson.id)}
+              className="inline-flex items-center gap-1.5 rounded-full border bg-background px-3 py-1 text-xs font-medium transition-colors hover:border-primary/50 hover:bg-accent/50"
+            >
+              <span className="text-primary">{lesson.number}</span>
+              <span className="max-w-[180px] truncate">{lesson.title}</span>
+            </Link>
+          ))}
         </div>
       )}
     </section>
@@ -192,7 +257,7 @@ function YourDesk() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Book card                                                         */
+/* Book card                                                          */
 /* ---------------------------------------------------------------- */
 
 function BookCard({ book }: { book: Book }) {
@@ -205,9 +270,9 @@ function BookCard({ book }: { book: Book }) {
   return (
     <Link
       href={paths.book(book.id)}
-      className="group flex w-full flex-col gap-4 rounded-xl border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:flex-row"
+      className="group flex w-full gap-5 rounded-xl border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:p-5"
     >
-      <div className="w-20 shrink-0 self-start">
+      <div className="w-24 shrink-0 self-start">
         <BookCover book={book} />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
@@ -215,9 +280,7 @@ function BookCard({ book }: { book: Book }) {
           <h3 className="font-reading text-lg font-bold leading-snug group-hover:text-primary">
             {book.title}
           </h3>
-          <Badge variant="outline" className={STATUS_BADGE[book.status].className}>
-            {STATUS_BADGE[book.status].label}
-          </Badge>
+          <StatusBadge status={book.status} />
         </div>
         <p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">
           {book.subtitle ?? book.description}
@@ -232,11 +295,6 @@ function BookCard({ book }: { book: Book }) {
           <span className="inline-flex items-center gap-1">
             <FileText className="h-3.5 w-3.5" aria-hidden /> {stats.words.toLocaleString()} words
           </span>
-          {stats.terms > 0 && (
-            <span className="inline-flex items-center gap-1">
-              <Library className="h-3.5 w-3.5" aria-hidden /> {stats.terms} terms
-            </span>
-          )}
         </div>
         {writtenLessons.length > 0 && (
           <div className="mt-2.5">
@@ -249,75 +307,40 @@ function BookCard({ book }: { book: Book }) {
 }
 
 /* ---------------------------------------------------------------- */
-/* Home                                                              */
+/* Home                                                               */
 /* ---------------------------------------------------------------- */
 
 export function HomeView() {
-  const stats = libraryStats()
   const shelvesWithBooks = allDisciplines.filter((d) => booksOfDiscipline(d.id).length > 0)
+  const plannedShelves = allDisciplines.filter((d) => booksOfDiscipline(d.id).length === 0)
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6">
-      {/* Hero */}
-      <section className="pt-10 sm:pt-14">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
-          <Library className="h-3.5 w-3.5 text-primary" aria-hidden />
-          A growing digital library · built one book at a time
-        </div>
-        <h1 className="font-reading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
-          Every subject,
-          <br />
-          <span className="text-primary">from absolute zero to mastery.</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Complete digital textbooks with derivations, figures, worked examples and graded
-          exercises — written to be understood from a standing start, broad enough for
-          competitive examinations, honest enough for university study.
-        </p>
-
-        {/* Stats */}
-        <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {[
-            { label: 'Disciplines', value: stats.disciplines },
-            { label: 'Books', value: stats.books },
-            { label: 'Lessons written', value: stats.written },
-            { label: 'Words authored', value: stats.words.toLocaleString() },
-          ].map((s) => (
-            <div key={s.label} className="rounded-xl border bg-card px-4 py-3.5">
-              <dd className="font-reading text-2xl font-bold tabular-nums">{s.value}</dd>
-              <dt className="mt-0.5 text-xs text-muted-foreground">{s.label}</dt>
-            </div>
-          ))}
-        </dl>
-
-        <a
-          href="#shelves"
-          className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-        >
-          Browse the shelves <ArrowDown className="h-4 w-4" aria-hidden />
-        </a>
-      </section>
-
-      {/* Reader dashboard */}
+      <Hero />
       <YourDesk />
 
-      {/* Shelves with books */}
-      <section id="shelves" className="mt-14 space-y-12 scroll-mt-20">
+      {/* Shelves with live books */}
+      <section id="shelves" className="mt-14 space-y-10 scroll-mt-20">
         {shelvesWithBooks.map((d) => {
-          const Icon = DISCIPLINE_ICONS[d.id] ?? Sigma
+          const Icon = DISCIPLINE_ICONS[d.id]
           const books = booksOfDiscipline(d.id)
           return (
             <div key={d.id}>
-              <div className="mb-4 flex items-start gap-3">
-                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border bg-card">
-                  <Icon className="h-5 w-5 text-primary" aria-hidden />
-                </span>
-                <div>
-                  <h2 className="font-reading text-xl font-bold">{d.title}</h2>
-                  <p className="mt-0.5 max-w-2xl text-sm leading-6 text-muted-foreground">
-                    {d.blurb}
-                  </p>
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border bg-card">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden />
+                  </span>
+                  <div>
+                    <h2 className="font-reading text-xl font-bold">{d.title}</h2>
+                    <p className="mt-0.5 max-w-2xl text-sm leading-6 text-muted-foreground">
+                      {d.blurb}
+                    </p>
+                  </div>
                 </div>
+                <Badge variant="secondary" className="mt-1 shrink-0 font-normal">
+                  {books.length} live
+                </Badge>
               </div>
               <div className="grid gap-4 lg:grid-cols-2">
                 {books.map((b) => (
@@ -329,45 +352,32 @@ export function HomeView() {
         })}
       </section>
 
-      {/* The full shelf plan — every planned discipline */}
-      <section className="mt-16">
-        <h2 className="font-reading text-xl font-bold">The full shelf plan</h2>
-        <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
-          The library grows one subject at a time, research-first. These shelves open as their
-          books are written.
-        </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {allDisciplines.map((d) => {
-            const Icon = DISCIPLINE_ICONS[d.id] ?? Sigma
-            const count = booksOfDiscipline(d.id).length
-            return (
-              <div
-                key={d.id}
-                className="flex items-start gap-3 rounded-xl border border-dashed px-4 py-3.5"
-              >
-                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden />
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <p className="font-medium">{d.title}</p>
-                    {count > 0 ? (
-                      <Badge variant="secondary" className="font-normal">
-                        {count} book{count === 1 ? '' : 's'} live
-                      </Badge>
-                    ) : (
-                      <Badge variant="secondary" className="font-normal opacity-70">
-                        Planned
-                      </Badge>
-                    )}
-                  </div>
-                  <p className="mt-0.5 line-clamp-2 text-xs leading-5 text-muted-foreground">
-                    {d.blurb}
-                  </p>
+      {/* Roadmap — shelves still to come */}
+      {plannedShelves.length > 0 && (
+        <section className="mt-14 border-t pt-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="font-reading text-xl font-bold">On the roadmap</h2>
+            <p className="text-xs text-muted-foreground">
+              {plannedShelves.length} shelves open as their books are written
+            </p>
+          </div>
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {plannedShelves.map((d) => {
+              const Icon = DISCIPLINE_ICONS[d.id]
+              return (
+                <div
+                  key={d.id}
+                  title={d.blurb}
+                  className="flex items-center gap-3 rounded-lg border border-dashed px-3.5 py-2.5 transition-colors hover:border-primary/40"
+                >
+                  <Icon className="h-4 w-4 shrink-0 text-muted-foreground/70" aria-hidden />
+                  <span className="truncate text-sm font-medium">{d.title}</span>
                 </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+              )
+            })}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { BookOpenCheck, Library, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
-import { paths } from '@/data/library/index'
+import { paths, allBooks } from '@/data/library/index'
 import { CommandPalette } from './command-palette'
 import { useProgress } from './progress-store'
 
@@ -67,9 +67,59 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t bg-muted/30">
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-2 px-4 py-4 text-xs text-muted-foreground sm:px-6">
-        <p>LockIn Library — a growing digital library, written to teach understanding.</p>
-        <p>Books are TypeScript data · progress saved on this device.</p>
+      <div className="mx-auto grid w-full max-w-5xl gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:px-6">
+        <div>
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-sm">
+              <Library className="h-3.5 w-3.5" aria-hidden />
+            </span>
+            <span className="font-reading text-base font-bold tracking-tight">
+              LockIn <span className="font-normal text-muted-foreground">Library</span>
+            </span>
+          </div>
+          <p className="mt-3 max-w-md text-xs leading-5 text-foreground/70">
+            A growing digital library of complete textbooks — from absolute zero to
+            research level — written to teach understanding, not memorisation.
+          </p>
+        </div>
+        <nav
+          aria-label="Footer"
+          className="flex flex-col gap-2 text-xs text-muted-foreground sm:items-end"
+        >
+          <Link href={paths.home()} className="font-medium hover:text-foreground hover:underline">
+            Library home
+          </Link>
+          <Link
+            href={paths.book(allBooks[0].id)}
+            className="font-medium hover:text-foreground hover:underline"
+          >
+            {allBooks[0].title}
+          </Link>
+          <Link
+            href={paths.glossary(allBooks[0].id)}
+            className="font-medium hover:text-foreground hover:underline"
+          >
+            Glossary &amp; formulas
+          </Link>
+          <a
+            href="https://github.com/Sachin0Amit/lock-in"
+            className="font-medium hover:text-foreground hover:underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub — Sachin0Amit/lock-in
+          </a>
+        </nav>
+      </div>
+      <div className="border-t">
+        <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-2 px-4 py-3 text-xs text-foreground/70 sm:px-6">
+          <p>Books are TypeScript data · progress saved on this device.</p>
+          <p className="hidden sm:block">
+            Press <kbd className="rounded border bg-card px-1.5 py-0.5 font-sans font-semibold">Ctrl</kbd>{' '}
+            <kbd className="rounded border bg-card px-1.5 py-0.5 font-sans font-semibold">K</kbd> to
+            search the library
+          </p>
+        </div>
       </div>
     </footer>
   )

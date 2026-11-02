@@ -213,6 +213,27 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Hero paper texture — subtle dotted grid, masked towards the bottom  */
+/* ------------------------------------------------------------------ */
+
+.paper-dots {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* Vertical book-spine labels (library shelf visual on the home hero) */
+.spine-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.08em;
+}
+
+/* ------------------------------------------------------------------ */
 /* Flashcards — 3D flip                                               */
 /* ------------------------------------------------------------------ */
 
