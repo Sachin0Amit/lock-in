@@ -1,12 +1,15 @@
 'use client'
 
-/** Book page — generated cover, stats, progress and the full table of contents. */
+/** Book page — generated cover, stats, progress, study tools and the full table of contents. */
+import Link from 'next/link'
 import {
   BookOpenCheck,
+  Layers,
   CircleDashed,
   Clock3,
   FileText,
   PlayCircle,
+  ScrollText,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -17,6 +20,7 @@ import {
   bookStats,
   disciplineOf,
   findLesson,
+  paths,
   type Book,
 } from '@/data/library/index'
 import { useProgress } from './progress-store'
@@ -64,10 +68,9 @@ const STATUS_BADGE: Record<string, { label: string; className: string }> = {
 
 interface Props {
   book: Book
-  onOpenLesson: (bookId: string, lessonId: string) => void
 }
 
-export function BookView({ book, onOpenLesson }: Props) {
+export function BookView({ book }: Props) {
   const discipline = disciplineOf(book)
   const lessons = bookLessons(book)
   const stats = bookStats(book)
@@ -132,15 +135,33 @@ export function BookView({ book, onOpenLesson }: Props) {
             </div>
           )}
 
-          {resumeLesson && (
-            <Button
-              className="mt-5 gap-2"
-              onClick={() => onOpenLesson(book.id, resumeLesson.lesson.id)}
-            >
-              <PlayCircle className="h-4 w-4" aria-hidden />
-              Continue reading — {resumeLesson.lesson.number} {resumeLesson.lesson.title}
+          <div className="mt-5 flex flex-wrap gap-3">
+            {resumeLesson && (
+              <Button
+                asChild
+                className="gap-2"
+              >
+                <Link href={paths.lesson(book.id, resumeLesson.lesson.id)}>
+                  <PlayCircle className="h-4 w-4" aria-hidden />
+                  Continue — {resumeLesson.lesson.number} {resumeLesson.lesson.title}
+                </Link>
+              </Button>
+            )}
+            {stats.terms > 0 && (
+              <Button asChild variant="outline" className="gap-2">
+                <Link href={paths.revise(book.id)}>
+                  <Layers className="h-4 w-4" aria-hidden />
+                  Revise {stats.terms} terms
+                </Link>
+              </Button>
+            )}
+            <Button asChild variant="outline" className="gap-2">
+              <Link href={paths.glossary(book.id)}>
+                <ScrollText className="h-4 w-4" aria-hidden />
+                Glossary &amp; formulas
+              </Link>
             </Button>
-          )}
+          </div>
         </div>
       </section>
 
@@ -173,9 +194,8 @@ export function BookView({ book, onOpenLesson }: Props) {
                     const done = !!completedMap[lesson.id]
                     return (
                       <li key={lesson.id}>
-                        <button
-                          type="button"
-                          onClick={() => onOpenLesson(book.id, lesson.id)}
+                        <Link
+                          href={paths.lesson(book.id, lesson.id)}
                           className="flex w-full items-center gap-3 px-5 py-3 text-left transition-colors hover:bg-accent/50"
                         >
                           {done ? (
@@ -190,7 +210,7 @@ export function BookView({ book, onOpenLesson }: Props) {
                             </span>
                           </span>
                           <span className="shrink-0 text-xs text-muted-foreground">{readMins} min</span>
-                        </button>
+                        </Link>
                       </li>
                     )
                   })}

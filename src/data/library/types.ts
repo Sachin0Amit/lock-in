@@ -102,6 +102,14 @@ export interface Lesson {
   concepts: string[]
   /** optional: what the reader should be able to do afterwards */
   objectives?: string[]
+  /** optional: ids of lessons the reader should already know (links shown in the reader) */
+  prerequisites?: string[]
+  /**
+   * optional: source citations for this lesson, as keys into
+   * docs/project/SOURCE_LOG.md (e.g. "ncert-math-6-en"). Rendered at the
+   * lesson footer. Keep nil for purely original exposition.
+   */
+  sources?: string[]
   blocks: Block[]
   /**
    * approximate prose word count — optional; the registry computes an honest
@@ -175,6 +183,24 @@ export type Block =
   | { kind: 'list'; items: string[]; ordered?: boolean }
   | { kind: 'quiz'; title?: string; items: QuizItem[] }
   | { kind: 'exercises'; title?: string; sets: ExerciseSet[] }
+  /**
+   * Revision formula card — the formulas a reader must eventually recall
+   * cold. Rendered as a compact reference card inline, and aggregated into
+   * the auto-generated "Formula sheet" page of the book.
+   */
+  | { kind: 'formula'; name: string; latex: string; note?: string }
+  /**
+   * Algorithm / procedure block for computer science and stepwise methods:
+   * monospaced numbered pseudocode with an optional per-line explanation.
+   */
+  | {
+      kind: 'algorithm'
+      title: string
+      /** each line of pseudocode, exactly as it should appear */
+      lines: { code: string; note?: string }[]
+      /** optional: complexity, invariant, or why it terminates */
+      note?: string
+    }
 
 /* ------------------------------------------------------------------ */
 /* Derived helpers                                                     */
@@ -234,6 +260,14 @@ export function countLessonWords(lesson: Lesson): number {
       case 'exercises':
         for (const set of b.sets)
           for (const q of set.questions) n += words(clean(q.q)) + words(clean(q.solution))
+        break
+      case 'formula':
+        n += words(clean(b.name)) + (b.note ? words(clean(b.note)) : 0)
+        break
+      case 'algorithm':
+        n += words(clean(b.title))
+        for (const l of b.lines) n += words(l.code) + (l.note ? words(l.note) : 0)
+        n += b.note ? words(clean(b.note)) : 0
         break
     }
   }

@@ -5,9 +5,10 @@
  * The reader should feel like a professionally typeset textbook:
  * headings with rules, boxed definitions/theorems, centred numbered
  * equations, stepped derivations, worked examples, captioned figures,
- * tables, interactive quizzes and collapsible exercise solutions.
+ * tables, revision formula cards, algorithms, interactive quizzes with
+ * score tracking, and collapsible exercise solutions.
  */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AlertTriangle,
   BookMarked,
@@ -18,7 +19,9 @@ import {
   History,
   Lightbulb,
   Landmark,
+  ListOrdered,
   RotateCcw,
+  Sigma,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -31,8 +34,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { headingAnchor } from '@/data/library/index'
 import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem } from '@/data/library/types'
 import { Math, RichText } from './math'
+import { useProgress } from './progress-store'
 
 /* ---------------------------------------------------------------- */
 /* Callouts                                                          */
@@ -152,20 +157,124 @@ function DerivationBlock({
 }
 
 /* ---------------------------------------------------------------- */
+/* Formula card                                                      */
+/* ---------------------------------------------------------------- */
+
+function FormulaBlock({ name, latex, note }: { name: string; latex: string; note?: string }) {
+  return (
+    <aside className="my-6 overflow-hidden rounded-lg border border-emerald-400/60 dark:border-emerald-700/60">
+      <div className="flex items-center gap-2 border-b border-emerald-400/50 bg-emerald-50/80 px-4 py-2 dark:border-emerald-700/50 dark:bg-emerald-950/30">
+        <Sigma className="h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-300" aria-hidden />
+        <span className="text-sm font-semibold tracking-wide text-emerald-900 dark:text-emerald-200">
+          Remember — {name}
+        </span>
+      </div>
+      <div className="bg-card px-4 py-1">
+        <Math tex={latex} display />
+      </div>
+      {note && (
+        <p className="border-t border-emerald-400/40 px-4 py-2.5 text-sm leading-6 text-muted-foreground dark:border-emerald-700/40">
+          <RichText text={note} />
+        </p>
+      )}
+    </aside>
+  )
+}
+
+/* ---------------------------------------------------------------- */
+/* Algorithm                                                         */
+/* ---------------------------------------------------------------- */
+
+function AlgorithmBlock({
+  title,
+  lines,
+  note,
+}: {
+  title: string
+  lines: { code: string; note?: string }[]
+  note?: string
+}) {
+  return (
+    <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
+      <header className="flex items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
+        <ListOrdered className="h-4 w-4 text-primary" aria-hidden />
+        <h3 className="font-reading text-base font-semibold">Algorithm — {title}</h3>
+      </header>
+      <div className="overflow-x-auto px-5 py-4">
+        <ol className="min-w-max space-y-1.5 font-mono text-sm leading-6">
+          {lines.map((l, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="w-6 shrink-0 text-right text-muted-foreground tabular-nums" aria-hidden>
+                {i + 1}
+              </span>
+              <span className="whitespace-pre text-foreground">{l.code}</span>
+              {l.note && (
+                <span className="whitespace-pre-wrap text-muted-foreground" title={l.note}>
+                  {'// '}
+                  <RichText text={l.note} />
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+      {note && (
+        <p className="border-t border-stone-300/70 bg-muted/30 px-5 py-2.5 text-sm leading-6 text-muted-foreground dark:border-stone-700">
+          <RichText text={note} />
+        </p>
+      )}
+    </section>
+  )
+}
+
+/* ---------------------------------------------------------------- */
 /* Quiz                                                              */
 /* ---------------------------------------------------------------- */
 
-function QuizBlock({ items, title }: { items: QuizItem[]; title?: string }) {
+function QuizBlock({
+  items,
+  title,
+  lessonId,
+}: {
+  items: QuizItem[]
+  title?: string
+  lessonId?: string
+}) {
   const [selected, setSelected] = useState<Record<number, number>>({})
+  const recordQuiz = useProgress((s) => s.recordQuiz)
+  const quizBest = useProgress((s) => s.quizBest)
+  const best = lessonId ? quizBest[lessonId] : undefined
+
+  const answeredCount = Object.keys(selected).length
+  const finished = answeredCount === items.length
+  const score = items.reduce((n, it, i) => n + (selected[i] === it.answer ? 1 : 0), 0)
+
+  /* Record the score once every question is answered (works even when
+     several options are clicked in the same batch). */
+  useEffect(() => {
+    if (!lessonId || answeredCount !== items.length || items.length === 0) return
+    const finalScore = items.reduce((n, it, i) => n + (selected[i] === it.answer ? 1 : 0), 0)
+    recordQuiz(lessonId, finalScore, items.length)
+  }, [answeredCount, items, lessonId, recordQuiz, selected])
+
+  const choose = (qi: number, oi: number) => {
+    setSelected((prev) => ({ ...prev, [qi]: oi }))
+  }
 
   return (
     <section className="my-7 rounded-lg border border-stone-300/80 dark:border-stone-700">
-      <header className="flex items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
+      <header className="flex flex-wrap items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
         <BookOpen className="h-4 w-4 text-primary" aria-hidden />
-        <h3 className="font-reading text-base font-semibold">
-          {title ?? 'Check yourself'}
-        </h3>
-        <span className="ml-auto text-xs text-muted-foreground">
+        <h3 className="font-reading text-base font-semibold">{title ?? 'Check yourself'}</h3>
+        <span className="ml-auto flex items-center gap-2 text-xs text-muted-foreground">
+          {best && (
+            <Badge
+              variant="outline"
+              className="border-emerald-500/50 text-emerald-700 dark:text-emerald-300"
+            >
+              Best {best.best}/{best.total}
+            </Badge>
+          )}
           {items.length} question{items.length === 1 ? '' : 's'}
         </span>
       </header>
@@ -195,7 +304,7 @@ function QuizBlock({ items, title }: { items: QuizItem[]; title?: string }) {
                       key={oi}
                       type="button"
                       disabled={answered}
-                      onClick={() => setSelected((s) => ({ ...s, [qi]: oi }))}
+                      onClick={() => choose(qi, oi)}
                       className={`flex min-h-11 items-center gap-2.5 rounded-md border px-3.5 py-2 text-left text-sm transition-colors disabled:cursor-default ${cls}`}
                     >
                       <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[11px] font-semibold">
@@ -239,6 +348,28 @@ function QuizBlock({ items, title }: { items: QuizItem[]; title?: string }) {
           )
         })}
       </div>
+      {finished && (
+        <div
+          className={`flex flex-wrap items-center gap-3 border-t px-5 py-3.5 text-sm ${
+            score === items.length
+              ? 'border-emerald-400/50 bg-emerald-50/60 dark:bg-emerald-950/30'
+              : 'border-stone-300/70 bg-muted/40 dark:border-stone-700'
+          }`}
+        >
+          <span className="font-semibold">
+            You scored {score}/{items.length}
+            {best && best.best >= score && best.best !== score ? ` · best ${best.best}/${best.total}` : score === items.length ? ' · perfect' : ''}
+          </span>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ml-auto h-8 gap-1.5 px-3 text-xs"
+            onClick={() => setSelected({})}
+          >
+            <RotateCcw className="h-3.5 w-3.5" aria-hidden /> Retake quiz
+          </Button>
+        </div>
+      )}
     </section>
   )
 }
@@ -304,7 +435,7 @@ function ExercisesBlock({
 /* Master renderer                                                   */
 /* ---------------------------------------------------------------- */
 
-export function BlockRenderer({ blocks }: { blocks: Block[] }) {
+export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?: string }) {
   // Pre-compute figure numbers (Figure 1, Figure 2, …) in lesson order.
   const figureNumbers: number[] = []
   let fig = 0
@@ -324,7 +455,7 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
             )
           case 'heading':
             return (
-              <h2 key={i} className="lesson-h2">
+              <h2 key={i} id={headingAnchor(b.text)} className="lesson-h2 scroll-mt-28">
                 {b.text}
               </h2>
             )
@@ -466,9 +597,13 @@ export function BlockRenderer({ blocks }: { blocks: Block[] }) {
               </ul>
             )
           case 'quiz':
-            return <QuizBlock key={i} items={b.items} title={b.title} />
+            return <QuizBlock key={i} items={b.items} title={b.title} lessonId={lessonId} />
           case 'exercises':
             return <ExercisesBlock key={i} sets={b.sets} title={b.title} />
+          case 'formula':
+            return <FormulaBlock key={i} name={b.name} latex={b.latex} note={b.note} />
+          case 'algorithm':
+            return <AlgorithmBlock key={i} title={b.title} lines={b.lines} note={b.note} />
           default:
             return null
         }

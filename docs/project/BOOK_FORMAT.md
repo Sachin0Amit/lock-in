@@ -38,17 +38,28 @@ src/data/library/
 | Block | Use for | Notes |
 |---|---|---|
 | `para` | body prose | supports `$inline math$`, `**bold**`, `*italic*` |
-| `heading` | section heading (h2) | auto-styled with rule |
+| `heading` | section heading (h2) | auto-styled with rule; anchor id auto-derived for the scrollspy TOC |
 | `callout` | insight / warn / definition / theorem / historical / exam | `tone` picks the colour |
-| `terms` | definition lists | term + def pairs |
+| `terms` | definition lists | term + def pairs; **feeds the book's flashcards and glossary automatically** |
 | `equation` | display math, centred | KaTeX source; `\tag{n}` numbers it; `note` = "where…" prose |
 | `derivation` | step-by-step proofs | label + formula + why, per step; result boxed |
 | `example` | worked examples | numbered steps |
 | `figure` | inline SVG | self-contained, viewBox, labels match prose text |
 | `table` | tabular data | auto-styled; cells support `$math$` |
 | `list` | bullet/ordered lists | |
-| `quiz` | self-check MCQs | interactive in the reader; `answer` = option index; `explain` says why wrong options fail |
+| `quiz` | self-check MCQs | interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
 | `exercises` | graded question sets | levels L1–L6; every question carries a full `solution` |
+| `formula` | revision formula card | name + KaTeX + note; **aggregated into the auto "Formula sheet" page** — use for every must-recall formula |
+| `algorithm` | pseudocode / procedures | numbered monospace lines with optional per-line notes; for CS books and stepwise methods |
+
+## Lesson-level fields
+
+- `prerequisites?: string[]` — ids of lessons the reader should know first;
+  rendered as completion-aware chips at the top of the lesson.
+- `sources?: string[]` — citation keys into `docs/project/SOURCE_LOG.md`,
+  rendered at the lesson footer. Omit for purely original exposition.
+- `concepts` — 5–8 key phrases (search + recap chips).
+- `objectives?` — "by the end you will be able to…" list.
 
 ## House style (from the master instruction §5–7)
 

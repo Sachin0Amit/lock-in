@@ -95,3 +95,37 @@ instruction §4) and get promoted to real books one at a time.
 7. No duplicate material across books — cross-reference instead.
 8. Preserve completed books forever. 9. Keep the 9 GB workflow honest.
 10. Every book readable in the web reader, not just present in the repo.
+
+## 8. Platform architecture (v2 — routed, advanced)
+
+```
+src/app/                              Next.js App Router, SSG (generateStaticParams)
+  page.tsx                            home: hero, stats, "Your desk" dashboard
+  template.tsx                        per-navigation fade transition
+  not-found.tsx                       friendly 404
+  book/[bookId]/page.tsx              book cover, stats, tools, TOC (JSON-LD)
+  book/[bookId]/lesson/[lessonId]/    the reader (see below)
+  book/[bookId]/revise/               flashcard mode (auto from `terms` blocks)
+  book/[bookId]/glossary/             A–Z glossary + formula sheet
+
+src/components/library/
+  site-chrome.tsx                     header (⌘/Ctrl+K palette, streak, theme) + footer
+  command-palette.tsx                 full-text search: books/lessons/terms + actions
+  lesson-view.tsx                     reader: scrollspy TOC, reading-progress bar,
+                                      prerequisites, sources, keyboard shortcuts
+  on-this-page.tsx                    IntersectionObserver scrollspy
+  reading-progress.tsx                framer-motion scroll bar
+  blocks.tsx                          all 14 block renderers + quiz scoring
+  flashcards.tsx                      flip cards, know/again, shuffle, per-term memory
+  glossary-view.tsx                   A–Z index + formula cards
+  progress-store.ts                   completed · bookmarks · quizBest · knownTerms ·
+                                      fontScale · streak (zustand persist v2)
+```
+
+Reader keyboard shortcuts: `←`/`→` prev/next lesson · `B` bookmark ·
+`C` complete. Palette: `Ctrl/Cmd+K`, ↑↓/↵, actions + recent + results.
+
+URLs are shareable deep links (`/book/<id>/lesson/<id>`) and statically
+generated. cmdk's built-in filter is OFF (`shouldFilter={false}`) —
+`searchLibrary` does its own token-aware scoring (title > concepts >
+chapter > full-text > scattered tokens) with snippets.

@@ -2,16 +2,28 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-02",
-  "phase": "base-built",
+  "phase": "base-built-v2-advanced",
   "awaiting": "Google Drive link from owner (source-book collection)",
 
   "platform": {
-    "status": "working",
-    "stack": "Next.js 16 App Router · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist) · KaTeX · next-themes",
+    "status": "working — v2 routed architecture",
+    "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
+    "routes": ["/", "/book/[bookId]", "/book/[bookId]/lesson/[lessonId]", "/book/[bookId]/revise", "/book/[bookId]/glossary", "404"],
+    "features": [
+      "shareable deep-link URLs, statically generated",
+      "command palette (Ctrl/Cmd+K) with full-text search (lessons, books, glossary terms), snippets, actions, random lesson",
+      "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",
+      "prerequisites chips + sources footer on lessons",
+      "quiz scoring with persisted best score + retake",
+      "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
+      "glossary A–Z + formula sheet pages",
+      "home 'Your desk' dashboard: continue reading, streak, words read, bookmarks"
+    ],
     "verified": [
       "lint clean",
-      "tsc clean under src/",
-      "browser QA: home render, book TOC, lesson render (55 KaTeX nodes, 1 SVG figure), quiz interaction with feedback, exercise solution expansion, mark-complete persistence (localStorage), search dropdown, dark mode, no horizontal overflow at 390px & 1280px, footer layout, no console errors"
+      "all routes 200; unknown ids 404 correctly",
+      "browser E2E: palette multi-word search, palette navigation, quiz scoring + persistence, keyboard shortcuts, flashcard flip/mark/mode-switch, glossary, scrollspy, progress bar, no hydration warnings on fresh loads",
+      "VLM screenshot review of home/lesson/book/revise/glossary pages"
     ]
   },
 
@@ -25,7 +37,8 @@
         "chaptersPlanned": 11,
         "chaptersWritten": 1,
         "lessonsWritten": ["fm-numbers-digits-place-value"],
-        "notes": "Lesson 1.1 authored as pipeline validation; full authoring resumes after Drive survey"
+        "termsAvailableForFlashcards": 5,
+        "notes": "Lesson 1.1 authored as pipeline validation; full authoring resumes after Drive survey. New block types (formula, algorithm) not yet used in content — available for future chapters."
       }
     ],
     "lessonsWritten": 1,

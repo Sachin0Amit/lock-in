@@ -1,11 +1,16 @@
 {
   "updated": "2026-11-02",
-  "nextAction": "WAITING FOR OWNER: Google Drive link to the reference book collection. When it arrives: (1) fetch and list the Drive folder, (2) build temporary-references/inventory.json, (3) pick the first subject (default: Mathematics — Foundation Mathematics continuation), (4) download only that subject's books, (5) begin the research-first authoring workflow in docs/project/MASTER_PLAN.md §2.",
+  "nextAction": "WAITING FOR OWNER: Google Drive link to the reference book collection. When it arrives: (1) fetch and list the Drive folder, (2) build temporary-references/inventory.json, (3) pick the first subject (default: Mathematics — Foundation Mathematics continuation), (4) download only that subject's books, (5) begin the research-first authoring workflow in docs/project/MASTER_PLAN.md §2. NOTE: the platform is now v2 (routed pages, command palette, flashcards, glossary) — see MASTER_PLAN.md §8 for the architecture map.",
   "fallback": "If the Drive link is delayed, the sanctioned next work is examination research: fill docs/project/EXAM_REGISTRY.json from official syllabus sources (50+ exams, web research).",
   "lastCompleted": [
-    "Platform base: content model, disciplines, Foundation Mathematics TOC + lesson 1.1, reader UI (home/book/lesson), KaTeX rendering, quiz/exercises interactivity, progress persistence, dark mode, search",
-    "Browser end-to-end verification passed",
-    "Memory system: MASTER_PLAN, BOOK_FORMAT, PROGRESS, RESUME_POINTER, WORKLOG, SOURCE_LOG, EXAM_REGISTRY, SUBJECT_BACKLOG"
+    "Platform v2: real URL routing (/, /book/[id], lesson, /revise, /glossary, 404) with SSG + per-page metadata + JSON-LD",
+    "Command palette (Ctrl/Cmd+K): full-text search over lessons/books/terms with snippets and quick actions",
+    "Reader upgrades: scrollspy TOC, reading-progress bar, keyboard shortcuts, prerequisites, sources",
+    "Quiz scoring with persisted best score; flashcard revision mode from terms blocks; glossary + formula sheet",
+    "Home 'Your desk' dashboard (continue reading, streak, bookmarks, words read)",
+    "Content model v2: formula + algorithm blocks, lesson prerequisites + sources",
+    "Full E2E + VLM visual verification; lint clean",
+    "Memory system: MASTER_PLAN (now with §8 platform architecture), BOOK_FORMAT (new blocks documented), PROGRESS, RESUME_POINTER, WORKLOG, SOURCE_LOG, EXAM_REGISTRY, SUBJECT_BACKLOG"
   ],
   "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH). Sandbox cannot push (no credentials); owner pushes, or owner supplies a fine-grained PAT for direct pushes."
 }

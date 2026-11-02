@@ -211,3 +211,44 @@
 *::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* ------------------------------------------------------------------ */
+/* Flashcards — 3D flip                                               */
+/* ------------------------------------------------------------------ */
+
+.flashcard-scene {
+  perspective: 1200px;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.06);
+}
+
+.flashcard-front {
+  background: var(--card);
+  overflow-y: auto;
+}
+
+.flashcard-back {
+  background: color-mix(in oklab, var(--primary) 6%, var(--card));
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}

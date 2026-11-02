@@ -21,15 +21,19 @@ bun run lint       # code quality
 
 ```
 src/
-  app/                         Next.js 16 App Router (single-page reader)
-  components/library/          reader UI: home / book / lesson / blocks / math
+  app/                         Next.js 16 App Router — routed, statically generated:
+                                 /  ·  /book/[bookId]  ·  /book/[bookId]/lesson/[lessonId]
+                                 /book/[bookId]/revise (flashcards)  ·  /book/[bookId]/glossary
+  components/library/          site chrome, command palette (Ctrl/Cmd+K), reader
+                                 (scrollspy TOC, progress bar, keyboard shortcuts),
+                                 blocks, flashcards, glossary, progress store
   data/library/
     types.ts                   THE content model (authoring contract)
     disciplines.ts             the 11 shelves
-    index.ts                   registry + search + stats
+    index.ts                   registry + full-text search + stats + paths
     books/<discipline>/<book>/ book.ts + ch-NN.ts chapters
 docs/project/                  the project's memory — READ FIRST each session
-  MASTER_PLAN.md               mission, source workflow, quality gates, rules
+  MASTER_PLAN.md               mission, source workflow, architecture (§8), rules
   BOOK_FORMAT.md               how to author a book (with checklist)
   PROGRESS.json                machine-readable state
   RESUME_POINTER.json          what to do next
@@ -42,11 +46,14 @@ docs/project/                  the project's memory — READ FIRST each session
 ## Authoring in one paragraph
 
 A lesson is an array of typed blocks — `para`, `heading`, `callout`
-(insight/warn/definition/theorem/historical/exam), `terms`, `equation`,
-`derivation`, `example`, `figure` (inline SVG), `table`, `list`, `quiz`,
-`exercises` (levels L1–L6 with worked solutions). Inline math is
-`$...$`. Lesson ids are globally unique and stable forever because they key
-reader progress. Full guide: `docs/project/BOOK_FORMAT.md`.
+(insight/warn/definition/theorem/historical/exam), `terms` (feeds flashcards
+and the glossary automatically), `equation`, `derivation`, `example`,
+`figure` (inline SVG), `table`, `list`, `quiz` (best score remembered),
+`exercises` (levels L1–L6 with worked solutions), `formula` (revision card →
+formula sheet), `algorithm` (pseudocode). Lessons may declare
+`prerequisites` (lesson-id links) and `sources` (SOURCE_LOG.md keys).
+Inline math is `$...$`. Lesson ids are globally unique and stable forever
+because they key reader progress. Full guide: `docs/project/BOOK_FORMAT.md`.
 
 ## Status
 
