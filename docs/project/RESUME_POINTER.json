@@ -1,0 +1,11 @@
+{
+  "updated": "2026-11-02",
+  "nextAction": "WAITING FOR OWNER: Google Drive link to the reference book collection. When it arrives: (1) fetch and list the Drive folder, (2) build temporary-references/inventory.json, (3) pick the first subject (default: Mathematics — Foundation Mathematics continuation), (4) download only that subject's books, (5) begin the research-first authoring workflow in docs/project/MASTER_PLAN.md §2.",
+  "fallback": "If the Drive link is delayed, the sanctioned next work is examination research: fill docs/project/EXAM_REGISTRY.json from official syllabus sources (50+ exams, web research).",
+  "lastCompleted": [
+    "Platform base: content model, disciplines, Foundation Mathematics TOC + lesson 1.1, reader UI (home/book/lesson), KaTeX rendering, quiz/exercises interactivity, progress persistence, dark mode, search",
+    "Browser end-to-end verification passed",
+    "Memory system: MASTER_PLAN, BOOK_FORMAT, PROGRESS, RESUME_POINTER, WORKLOG, SOURCE_LOG, EXAM_REGISTRY, SUBJECT_BACKLOG"
+  ],
+  "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH). Sandbox cannot push (no credentials); owner pushes, or owner supplies a fine-grained PAT for direct pushes."
+}

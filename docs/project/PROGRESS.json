@@ -1,0 +1,55 @@
+{
+  "$schema": "./PROGRESS.schema.json",
+  "project": "LockIn Library",
+  "updated": "2026-11-02",
+  "phase": "base-built",
+  "awaiting": "Google Drive link from owner (source-book collection)",
+
+  "platform": {
+    "status": "working",
+    "stack": "Next.js 16 App Router · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist) · KaTeX · next-themes",
+    "verified": [
+      "lint clean",
+      "tsc clean under src/",
+      "browser QA: home render, book TOC, lesson render (55 KaTeX nodes, 1 SVG figure), quiz interaction with feedback, exercise solution expansion, mark-complete persistence (localStorage), search dropdown, dark mode, no horizontal overflow at 390px & 1280px, footer layout, no console errors"
+    ]
+  },
+
+  "library": {
+    "disciplines": 11,
+    "books": [
+      {
+        "id": "foundation-mathematics",
+        "title": "Foundation Mathematics",
+        "status": "in-progress",
+        "chaptersPlanned": 11,
+        "chaptersWritten": 1,
+        "lessonsWritten": ["fm-numbers-digits-place-value"],
+        "notes": "Lesson 1.1 authored as pipeline validation; full authoring resumes after Drive survey"
+      }
+    ],
+    "lessonsWritten": 1,
+    "wordsAuthored": 2852
+  },
+
+  "research": {
+    "examRegistry": {
+      "target": "50+ examinations (>=10 Indian, >=20 international)",
+      "status": "skeleton created, zero exams researched yet",
+      "file": "docs/project/EXAM_REGISTRY.json"
+    },
+    "sourceCollection": {
+      "driveLink": null,
+      "status": "awaiting link",
+      "ledger": "docs/project/SOURCE_LOG.md"
+    }
+  },
+
+  "workflowRulesReminder": [
+    "One subject at a time; download only that subject's reference books",
+    "Internet research is the sanctioned fallback when Drive lacks a subject",
+    "Delete downloaded working copies after the subject completes (never Drive originals)",
+    "Original content only; references inform, never reproduce",
+    "A book is complete only after verification + exam-coverage audit + reader integration"
+  ]
+}
