@@ -8,5 +8,5 @@
     "2026-11-03: README gained a 'Pushing to GitHub' section (fine-grained PAT instructions for the owner)",
     "2026-11-02: Platform v2 — routed SSG pages, command palette, flashcards, glossary, reader upgrades, content model v2 (see WORKLOG)"
   ],
-  "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH, no credentials in sandbox). Local commits exist; owner pushes manually OR supplies a fine-grained PAT (README) for direct pushes. Streak removal is one `git revert` away in history if the owner ever changes their mind."
+  "notes": "Repo git remote = git@github.com:Sachin0Amit/lock-in.git (SSH, no credentials in sandbox). 2026-11-03: owner supplied a fine-grained PAT; all commits pushed to origin/main; token expected to be revoked by the owner (one-time use). Future syncs: owner pushes manually OR supplies a fresh PAT (README → 'Pushing to GitHub')."
 }

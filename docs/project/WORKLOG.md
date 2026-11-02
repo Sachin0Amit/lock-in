@@ -50,7 +50,7 @@ hydration warnings, dev.log clean.
 (Foundation Mathematics, chapter 1 continuation: lessons 1.2+). Exam
 registry research. Owner PAT → push local commits.
 
-**Git:** commit `docs+ui: unit-by-unit authoring cadence, remove daily streak, push-access guide`.
+**Git:** commit `docs+ui: unit-by-unit authoring cadence, remove daily streak, push-access guide`. Pushed to `origin/main` using the owner's fine-grained PAT (README "Pushing to GitHub"); owner revokes the token afterwards — future pushes need a fresh token or an owner-side `git push`.
 
 ---
 
