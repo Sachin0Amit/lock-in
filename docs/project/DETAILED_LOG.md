@@ -9,9 +9,10 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 5**: lesson 2.4
-shipped and verified, chapter 2 at 4 of 5 lessons; `WORK_INVENTORY.json`
-regenerated in the same run).
+Generated: 2026-11-03 (maintained through **hourly run 6**: lesson 2.5
+shipped and verified — UNIT 2 COMPLETE, chapter 2 closed with the
+unit-2 completion review; `WORK_INVENTORY.json` regenerated in the same
+run).
 
 ---
 
@@ -62,13 +63,15 @@ regenerated in the same run).
 | 11-03 (run 4) | `7d2cac6` | **Push protocol v2** — owner directive: PAT embedded in hourly cron job 498279; all pending commits pushed + verified (origin/main = 7d2cac6) |
 | 11-03 (run 5) | — | **Second sandbox recycle recovered** — local .git rolled back to 647f44c while files survived; anonymous fetch + reset --mixed origin/main; Drive survey re-pulled (`scripts/rebuild_drive_survey.ts`); @types/bun restored |
 | 11-03 (run 5) | (ship) | **LESSON 2.4 Division, Remainders and Why Zero Never Divides** — authored, 269 checks total, E2E green, logged; **first fully automated push** (protocol v2) |
+| 11-03 (run 6) | — | Khattar QA 4e re-downloaded (file id now persisted in the upgraded survey); ch. 4 BODMAS section studied for lesson 2.5; CBSE-aligned BODMAS coverage web-checked |
+| 11-03 (run 6) | (ship) | **UNIT 2 COMPLETE: lesson 2.5 Order of Operations and the Language of Expressions** — authored, 165 script checks (324 unit-cumulative), E2E green, unit-2 completion review run, logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 7
-lessons, 26,993 words, 40 flashcard terms.**
+**Live today: 1 book — 2 chapters complete — 8 lessons, 31,159 words,
+47 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -124,7 +127,7 @@ new terms + formula cards, TOC shows chapter 1 complete with chapter 2
 planned, "Next up" works · mobile 390px exactly no overflow · zero console
 errors.
 
-#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 4 of 5 lessons)**
+#### Chapter 2: The Four Operations — **COMPLETE (unit 2, 2026-11-03; 5 of 5 lessons — unit-2 completion review passed)**
 
 **Lesson 2.1 — Addition and the Art of Carrying** (id `fm-addition-carrying`,
 authored 11-03, commit `64b938c`) — **3,952 words · 17 min read · 6 terms ·
@@ -262,14 +265,71 @@ E2E — KaTeX 148 nodes, quiz 5/5 "perfect", flashcards 34 → 40, glossary
 labels, ÷ glyphs render), mobile 390px exact-fit, dollarInSvg=0, zero
 console errors.
 
-**Planned lessons (2.5):** Order of Operations and the Language of
-Expressions.
+**Lesson 2.5 — Order of Operations and the Language of Expressions** (id
+`fm-order-of-operations`, authored 11-03, hourly-run-6 ship commit) —
+**4,166 words · 21 min read · 7 terms (expression, value, equation,
+precedence, bracket, vinculum, BODMAS) · 5 quiz items · 8 exercises (L1×2,
+L2×2, L4×2, L5×1, L6×1) · 1 original SVG figure (expression trees: treaty
+tree of 8 + 2 × 5 evaluating to 18 vs bracketed tree of (8 + 2) × 5
+evaluating to 50; root operations tinted) · 1 derivation (why × precedes
++ — the compression argument, ending in the notation defending its own
+compression) · 2 equations (the two readings; the full ladder bar → ( ) →
+{ } → [ ] → of → ×/÷ L→R → +/− L→R) · 1 formula card (the order of
+operations) · 1 algorithm block (the full BODMAS procedure: bracket
+peeling, "of" first claim, two left-to-right sweeps) · 2 worked examples
+(the ladder 120 − [2 × (14 − 2 × 5) + {18 ÷ 3 of 2}] = 109 with the
+÷-first slip audit (100 — a nine-error); the estimation gate in action:
+7,218 ÷ 9 + 98 × 63 estimated 6,800, exact 6,976, fingerprint crossing
+the ranks) · 1 table (four wrong roads: 18/50, 4/1, 24/10, 3/12) · 4
+callouts (definition of the treaty; insight: natural vs agreed clauses
+with Lennes 1917 + Cajori honesty; warn: the mnemonic's two traps; exam)
++ historical callout (PEMDAS/BIDMAS/BEDMAS/BODMAS lineages, the 1917
+American Mathematical Monthly dispute, the never-settled
+implicit-multiplication edge) · sources: khattar-qa-4e, ncert-math6-ch2 ·
+prerequisites: lessons 1.3, 2.1–2.4.**
+Contents: the two-clerks opening (one ledger line, two flawless
+computations, a gap of 32); expressions named vs equations claimed (true
+or false; the check equations of 2.1–2.4 revisited as verified
+equations); the treaty as ranks with a reading direction — never a
+letter-by-letter queue; division and subtraction inheriting their twins'
+ranks; the bracket ladder with the vinculum's strength shown (bar over
+3+4: × 2 gives 14 vs 3 + 4 × 2 = 11); the "of" operator (exam
+convention ranks it above ÷/×; 18 ÷ 3 of 2 = 3, not 12); the estimation
+gate from lesson 1.3 taking the referee's chair; L6 the treaty-maker's
+problem (+ and × alone are bracket-independent by associativity —
+exhaustively checked over 0..9 — mixed expressions are not, so a
+convention is unavoidable; forced clauses vs signed clauses). **Verified:**
+60 new arithmetic checks in `scripts/verify-unit-2.ts` (165 in the
+post-recycle script; 324 unit-cumulative) ALL PASS before writing; lint
+clean; tsc FULLY clean repo-wide including scripts/ (literal-narrowing
+TS2367s fixed; rebuild_drive_survey.ts marked as module); routes 200;
+browser E2E — KaTeX 113 nodes, all 6 section headings, 4-row table,
+quiz 5/5 "perfect" (intended options clicked live), flashcards 40 → 47,
+glossary + formula sheet list the new entries, expression-tree figure
+screenshot-verified, mobile 390px exact-fit, dollarInSvg=0, zero
+console/page errors.
+
+**Unit-2 completion review (run 6, per RESUME_POINTER):** BOOK_FORMAT
+verification checklist — all seven boxes pass (math recomputed by script
+pre-writing; figure labels match prose terminology; quiz answer indices
+verified live in the browser; exercise solutions complete and
+numerically verified; lesson ids globally unique; lint clean + chapter
+renders in the reader; logs updated). Exam-coverage audit — every lesson
+2.1–2.5 carries an exam callout; unit-2 topics mapped: four operations +
+laws (NCERT class-6 canon), rapid-arithmetic techniques and BODMAS
+simplification (Khattar ch. 4 audience: bank/SSC/Railway staples),
+order-of-operations + expression/equation vocabulary (CUET/NTSE items);
+no real past-paper questions reproduced (exam-style labelling rule
+honoured). Chapter totals recomputed from live data by
+`build_work_inventory.ts`: chapter 2 = 21,450 words across 5 lessons;
+book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise
+questions.
 
 #### Chapters 3–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
-| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · Order of Operations and the Language of Expressions |
+| 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
 | 3 | Factors, Multiples and Primes | Divisibility and Its Tests · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
@@ -362,6 +422,18 @@ Expressions.
     rebuilt; `scripts/rebuild_drive_survey.ts` added to the recycle kit);
     `@types/bun` restored; `scripts/verify-unit-2.ts` committed this time
     (never untracked again); stray resurrected v1 `app-shell.tsx` removed.
+    **Push protocol v2 activated** (owner directive): the PAT now lives in
+    the hourly cron job payload (job 498279) and pushes happen
+    automatically after gates — pending `f9d22d5` and the ship commit
+    pushed and verified (remote HEAD = local HEAD via ls-remote).
+14. **UNIT 2 COMPLETE — lesson 2.5 shipped + completion review** (11-03,
+    hourly run 6) — see the chapter 2 section above. This run: Khattar QA
+    4e re-downloaded for the BODMAS study (the survey upgrade now persists
+    per-file Drive ids, so future re-downloads are one step); 60 new
+    pre-writing checks (165 script / 324 unit-cumulative); tsc made FULLY
+    clean repo-wide including scripts/; the unit-2 completion review per
+    RESUME_POINTER (BOOK_FORMAT checklist, exam-coverage audit, chapter
+    totals recompute); push per protocol v2.
 
 ### Verification log (quality gates actually passed)
 
@@ -376,6 +448,7 @@ Expressions.
 | Unit 2 (FM ch. 2, lesson 2.2) | 11-03 | 63 new pre-write arithmetic checks (114 total, ALL PASS) · lint · tsc repo-wide (verify-script literal-narrowing fix) · routes 200 (dev restart) · E2E (KaTeX 140, figures geometry-verified via DOM, quiz 5/5 perfect, flashcards 28, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.3) | 11-03 | 50 new pre-write arithmetic checks (164 total, ALL PASS) · lint · tsc repo-wide (31 escape fixes, 2 narrowing fixes, validator regeneration) · routes 200 (dev restart) · E2E (KaTeX 149, figures geometry-verified, quiz 5/5 perfect, flashcards 34, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.4) | 11-03 | 105 new pre-write arithmetic checks (269 total, ALL PASS; exhaustive range loops) · lint · tsc repo-wide (@types/bun restored) · routes 200 · E2E (KaTeX 148, figures DOM-verified, quiz 5/5 perfect, flashcards 40, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
+| Unit 2 (FM ch. 2, lesson 2.5) + completion review | 11-03 | 60 new pre-write arithmetic checks (165 script / 324 unit-cumulative, ALL PASS) · lint · tsc FULLY clean repo-wide incl. scripts/ (module marker + 2 narrowing fixes) · routes 200 · E2E (KaTeX 113, 6 headings, 4-row table, quiz 5/5 perfect with intended options clicked live, flashcards 47, glossary + formula sheet updated, expression-tree figure screenshot-verified, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console/page errors · BOOK_FORMAT checklist 7/7 · exam-coverage audit · totals recomputed |
 
 ## 6. Research & references
 
@@ -405,7 +478,9 @@ aptitude book for exam-style coverage (MASTER_PLAN §2 step 6).
 | Unit | Downloaded | Used for | Working copies deleted |
 |---|---|---|---|
 | unit 1 — FM ch. 1 | Khattar QA 4e PDF (32.4 MB, 1049 pp) + NCERT web outline | lessons 1.2 + 1.3 | yes — 2026-11-03, after unit verification |
-| unit 2 — FM ch. 2 | Khattar QA 4e PDF re-downloaded after sandbox recycle (33.9 MB) + NCERT web outlines | lesson 2.1 (Khattar ch. 4 surveyed, BODMAS reserved for 2.5) · lessons 2.2 + 2.3 (web-only — no new download) | yes — 2026-11-03, after each lesson's verification |
+| unit 2 — FM ch. 2 (lesson 2.1) | Khattar QA 4e PDF re-downloaded after sandbox recycle (33.9 MB) + NCERT web outlines | lesson 2.1 (Khattar ch. 4 surveyed, BODMAS reserved for 2.5) · lessons 2.2 + 2.3 (web-only — no new download) | yes — 2026-11-03, after each lesson's verification |
+| unit 2 — FM ch. 2 (lessons 2.2–2.4) | none — unit's Khattar ch. 4 already surveyed; NCERT class-6 coverage web-checked (sanctioned fallback) | lessons 2.2, 2.3, 2.4 | n/a (no downloads) |
+| unit 2 — FM ch. 2 (lesson 2.5) | Khattar QA 4e PDF re-downloaded (33.9 MB; ch. 4 BODMAS section studied; Drive file id now persisted in the upgraded survey) + CBSE-aligned BODMAS web-check | lesson 2.5 | yes — 2026-11-03, after unit-2 verification |
 
 ### Citation keys (SOURCE_LOG.md)
 
@@ -448,7 +523,9 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 12 | `181f614` | 11-03 | FM lesson 2.2 (114 checks, E2E green) + figure-label fix | +778/−81 · 9 files |
 | 13 | `f9d22d5` | 11-03 | FM lesson 2.3 Multiplication (164 checks, E2E green) — local only | +734/−83 · 9 files |
 | 14 | `7d2cac6` | 11-03 | memory: push protocol v2 (cron 498279, automated pushes authorized) | +38/−3 · 3 files |
-| 15 | (run 5 ship) | 11-03 | FM lesson 2.4 Division & Remainders (269 checks, E2E green) + second-recycle recovery — first automated push | — |
+| 15 | `8e5b681` | 11-03 | FM lesson 2.4 Division & Remainders (269 checks, E2E green) + second-recycle recovery — first automated push | +1,125/−68 · 9 files |
+| 16 | `fecd9c4` | 11-03 | memory: run-5 pointers (origin/main synced; next FM 2.5) | +13/−7 · 2 files |
+| 17 | (run 6 ship) | 11-03 | UNIT 2 COMPLETE: FM lesson 2.5 Order of Operations (165 checks incl. 60 new, E2E green) + unit-2 completion review + survey upgrade | — |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.

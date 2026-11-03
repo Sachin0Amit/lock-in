@@ -5,14 +5,15 @@ import { chapter02 } from './ch-02'
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
  *
- * STATUS: in-progress. Chapter 1 (Numbers and Place Value) is COMPLETE —
- * unit 1 of the unit-by-unit cadence: lessons 1.1, 1.2 (Comparing and
- * Ordering Numbers) and 1.3 (Rounding and Estimating) are authored and
- * verified. Chapter 2 (The Four Operations) is IN PROGRESS — lessons 2.1
- * (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing) and
- * 2.3 (Multiplication as Repeated Addition — and Beyond) shipped in unit
- * 2, 2026-11-03; lessons 2.4–2.5 remain planned. Authoring per
- * docs/project/MASTER_PLAN.md §2.
+ * STATUS: in-progress. Chapter 1 (Numbers and Place Value) COMPLETE —
+ * unit 1, 2026-11-03: lessons 1.1–1.3 authored and verified. Chapter 2
+ * (The Four Operations) COMPLETE — unit 2, 2026-11-03: lessons 2.1
+ * (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing), 2.3
+ * (Multiplication as Repeated Addition — and Beyond), 2.4 (Division,
+ * Remainders and Why Zero Never Divides) and 2.5 (Order of Operations and
+ * the Language of Expressions) shipped, all gates green, unit-2 completion
+ * review passed. Chapter 3 (Factors, Multiples and Primes) opens unit 3.
+ * Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -30,7 +31,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Chapter 2 (The Four Operations) in progress — lessons 2.1 (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing) and 2.3 (Multiplication as Repeated Addition — and Beyond) shipped unit 2, 2026-11-03; lessons 2.4–2.5 next. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) opens unit 3. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

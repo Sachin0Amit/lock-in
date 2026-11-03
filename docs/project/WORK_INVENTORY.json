@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 10:03:30 (Asia/Kolkata)",
+  "generated": "2026-11-03 11:05:28 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "chapters": [
           {
             "number": 1,
@@ -226,11 +226,9 @@
             "slug": "the-four-operations",
             "title": "The Four Operations",
             "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Order of Operations and the Language of Expressions"
-            ],
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-addition-carrying",
@@ -477,9 +475,79 @@
                 },
                 "exerciseQuestions": 8,
                 "termsDefined": 6
+              },
+              {
+                "id": "fm-order-of-operations",
+                "number": "2.5",
+                "title": "Order of Operations and the Language of Expressions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4166,
+                "readMins": 21,
+                "concepts": [
+                  "Order of operations",
+                  "Precedence",
+                  "BODMAS",
+                  "Brackets: bar, parentheses, braces, square brackets",
+                  "The \"of\" operator",
+                  "Left-to-right for equal precedence",
+                  "Expression vs equation",
+                  "Estimation gate"
+                ],
+                "objectives": [
+                  "Read any string of numbers and operations as one expression with a single value — and distinguish expressions from equations",
+                  "State the order-of-operations treaty: brackets first (bar, then ( ), { }, [ ]), then \"of\", then × and ÷ left to right, then + and − left to right",
+                  "Justify why × outranks + by the compression argument, and say precisely which clauses of the treaty are forced and which are agreed",
+                  "Simplify fully nested exam expressions with the bracket ladder, dodging the two great BODMAS traps",
+                  "Gate every simplification with a rounding estimate before trusting it"
+                ],
+                "prerequisites": [
+                  "fm-rounding-and-estimating",
+                  "fm-addition-carrying",
+                  "fm-subtraction-borrowing",
+                  "fm-multiplication-repeated-addition",
+                  "fm-division-remainders-zero"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch2"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "terms": 1,
+                  "heading": 6,
+                  "equation": 2,
+                  "figure": 1,
+                  "callout": 5,
+                  "derivation": 1,
+                  "algorithm": 1,
+                  "example": 2,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 7
               }
             ],
-            "words": 17284
+            "words": 21450
           },
           {
             "number": 3,
@@ -653,12 +721,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 81,
-      "totalLines": 12832,
+      "totalLines": 13225,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 3742,
+        "src/data/library (content model + books)": 4135,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -795,6 +863,18 @@
         "commit": "(hourly run 4 ship commit)",
         "title": "LESSON 2.3 Multiplication as Repeated Addition — and Beyond",
         "detail": "Lesson 2.3 authored (~4,028 words, 36 blocks): equal-groups opening; 6 terms; number-line figure (4×6 four equal jumps vs 6×4 six — both land on 24); laws-retried table (closure/commutative/associative/identity-1/distributive, verified instances incl. 12×(5+4) = 108); zero property derived from distributivity; partial-product algorithm block; worked 247×36 = 1,482 + 7,410 = 8,892 with partial-products seat-map figure (shift + tinted 0); carry-bound derivation ≤ 8 (attained by 999×9 = 8,991); product digit-bound derivation (k+m−1 ≤ digits ≤ k+m); mod-9 fingerprint for products with the 2,223 shift-mistake blind-spot honesty; speed techniques (×9/×11, 198×7, 24×25 = 600); Russian-peasant binary callout (kept rows sum 8,892); 5 quiz; L1–L6 ending in the binary-proof L6. 50 new checks → 164 total, ALL PASS before writing. Pipeline fixes: 31 double-escaped apostrophes caught by tsc and corrected; malformed dev-generated validator.ts removed + regenerated. Committed locally, NOT pushed (cron rule: no push without a fresh owner PAT)."
+      },
+      {
+        "date": "2026-11-03 (hourly run 5)",
+        "commit": "8e5b681 (+ memory fecd9c4)",
+        "title": "LESSON 2.4 Division, Remainders and Why Zero Never Divides + second-recycle recovery + PUSH PROTOCOL v2",
+        "detail": "Second sandbox recycle recovered (local .git rolled back to 647f44c; anonymous fetch + reset --mixed origin/main restored remote HEAD 7d2cac6 byte-identically; casualties were two untracked working files — verify-unit-2.ts recreated AND committed this time with .gitignore !exceptions for scripts; Drive survey rebuilt via new scripts/rebuild_drive_survey.ts; @types/bun reinstalled). Lesson 2.4 authored (4,693 words, 41 blocks): sharing vs grouping readings; number-line figure (24÷6 backward jumps vs 25÷6 landing on remainder 1); laws-retried table with ÷0 bricked shut; two-case ÷0 derivation (undefined vs indeterminate); long-division algorithm + worked 8,892÷36 = 247 r 0 with seat-map figure (un-building 2.3's product); remainder-bound r < b derivation; quotient digit-bound; fingerprint S(a) ≡ S(q)·S(b)+r with dropped-remainder tooth; speed routes ÷5/÷4/÷8 + digit-sum screens; obelus+Euclid callout; 5 quiz; L1–L6 ending in the closed-door L6. 105 new checks → 269 total, ALL PASS. Owner directive 2026-11-03 (push protocol v2): PAT embedded in hourly cron job 498279 — automated pushes authorized after gates; pending lesson-2.3 commit f9d22d5 and this ship pushed (remote HEAD verified = local HEAD via ls-remote; tracking ref re-synced) — FIRST fully automated push."
+      },
+      {
+        "date": "2026-11-03 (hourly run 6)",
+        "commit": "(hourly run 6 ship commit)",
+        "title": "UNIT 2 COMPLETE: lesson 2.5 Order of Operations and the Language of Expressions",
+        "detail": "Lesson 2.5 authored (4,166 words, ~32 blocks) — the unit-2 finale that completes chapter 2: two-clerks opening (8 + 2 × 5 read as 50 vs 18); 7 terms (expression, value, equation, precedence, bracket, vinculum, BODMAS); expression-tree figure (treaty tree = 18 vs bracketed tree = 50); treaty definition callout + ladder equation (bar → ( ) → { } → [ ] → of → ×/÷ L→R → +/− L→R); compression-argument derivation (why × precedes +, natural vs agreed clauses insight callout with Lennes 1917 / Cajori honesty); bracket-ladder para with vinculum mini-example (bar(3+4)×2 = 14 vs 3+4×2 = 11); full BODMAS algorithm block; worked ladder 120 − [2 × (14 − 2 × 5) + {18 ÷ 3 of 2}] = 109 with ÷-first slip audit (100, a 9-error); the-of-operator para (exam convention ranks \"of\"; 18 ÷ 3 of 2 = 3, not 12); mnemonic-traps warn callout (8 ÷ 4 × 2 = 4 not 1; 25 − 8 + 7 = 24 not 10); four-wrong-roads table; expressions-vs-equations section; estimation-gate section + worked example (7,218 ÷ 9 + 98 × 63: estimate 6,800, exact 6,976, fingerprint crosses the ranks); historical callout (PEMDAS/BIDMAS/BEDMAS/BODMAS; Lennes 1917 AMM; Cajori 1920s; viral implicit-multiplication debates); exam callout; 5 quiz (5/5 E2E); L1–L6 exercises ending in the treaty-maker's problem (associativity ⇒ + and × alone are bracket-independent — exhaustive 0..9 checks — mixed expressions are not ⇒ convention unavoidable); BODMAS formula card; chapter-2 finale closing para. 60 new checks → 165 in the post-recycle script (324 unit-cumulative), ALL PASS pre-writing. Unit-2 completion review run: BOOK_FORMAT checklist + exam-coverage audit + chapter totals recompute (ch. 2 = 21,450 words; book = 8 lessons, 31,159 words, 47 terms). Khattar ch. 4 re-downloaded for BODMAS study, working copy deleted after verification."
       }
     ],
     "verificationLog": [
@@ -837,6 +917,16 @@
         "unit": "unit 2 (FM ch. 2, lesson 2.3)",
         "date": "2026-11-03",
         "gates": "50 new arithmetic checks (164 total) verified by scripts/verify-unit-2.ts BEFORE writing, ALL PASS; lint clean; tsc clean repo-wide (31 double-escaped apostrophes fixed after TS1005; 2 verify-script literal-narrowing TS2367s fixed; malformed dev-generated validator.ts removed + regenerated); routes 200 (dev restart); browser E2E: KaTeX 149 nodes, 8 headings, figures geometry-verified via DOM (10 equal-jump arcs + 10 hop labels + 4 landings; 17 digit texts + row labels + shift annotations), algorithm + 2 derivations + laws table + 6 terms + 2 formula cards render, quiz 5/5 \"perfect\", flashcard deck 28 → 34, glossary + formula sheet list new entries, mobile 390px exactly (scrollW=390), dollarInSvg=0, zero console errors."
+      },
+      {
+        "unit": "unit 2 (FM ch. 2, lesson 2.4)",
+        "date": "2026-11-03",
+        "gates": "105 new arithmetic checks (269 total) verified by the recreated+committed scripts/verify-unit-2.ts BEFORE writing, ALL PASS (exhaustive range loops for bounds); lint clean; tsc clean (after @types/bun restore); routes 200; browser E2E: KaTeX 148 nodes, figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render), quiz 5/5 \"perfect\", flashcard deck 34 → 40, glossary + formula sheet list new entries, mobile 390px exactly (scrollW=390), dollarInSvg=0, zero console errors."
+      },
+      {
+        "unit": "unit 2 (FM ch. 2, lesson 2.5) + unit-2 completion review",
+        "date": "2026-11-03",
+        "gates": "60 new arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing (165 in the post-recycle script; 324 unit-cumulative), ALL PASS; lint clean; tsc FULLY clean repo-wide incl. scripts/ (verify-script literal-narrowing TS2367s fixed with compare-before-narrow pattern; rebuild_drive_survey.ts marked as module with export {}); routes 200 incl. the new lesson (no dev restart needed); browser E2E: KaTeX 113 nodes, all 6 section headings, 4-row table renders, quiz 5/5 \"perfect\" (clicked the intended correct options live), flashcard deck 40 → 47, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, mobile 390px exactly (scrollW=390), dollarInSvg=0, zero console/page errors; expression-tree figure screenshot-verified (tinted root operations, correct values). BOOK_FORMAT checklist: all seven boxes pass (math pre-verified; figure labels in prose; quiz indices verified live; solutions complete; ids unique repo-wide; lint/render clean; logs updated). Exam-coverage audit: every lesson 2.1–2.5 carries an exam callout; order-of-operations items mapped to bank/SSC/Railway simplification staples + CUET/NTSE vocabulary items; no real past-paper questions reproduced (exam-style labelling rule)."
       }
     ]
   },
@@ -1217,7 +1307,7 @@
       {
         "key": "khattar-qa-4e",
         "work": "Dinesh Khattar, Quantitative Aptitude for Competitive Examinations, 4th ed., Pearson (2019), ISBN 9789353439552",
-        "usedFor": "FM ch. 1 (unit 1): place-value/face-value definitions, Indian system naming, exam-style digit problems. FM ch. 2 (unit 2): exam-style rapid-arithmetic context, ch. 4 Simplification surveyed (BODMAS material reserved for lesson 2.5). Exposition original."
+        "usedFor": "FM ch. 1 (unit 1): place-value/face-value definitions, Indian system naming, exam-style digit problems. FM ch. 2 (unit 2): exam-style rapid-arithmetic context; ch. 4 \"Simplification\" BODMAS material (bracket ladder bar → ( ) → { } → [ ], the \"of\" rank) used for lesson 2.5. Exposition original."
       },
       {
         "key": "ncert-math6-ch1",
@@ -1227,7 +1317,7 @@
       {
         "key": "ncert-math6-ch2",
         "work": "NCERT Class 6 Mathematics, ch. 2 \"Whole Numbers\" (public curriculum)",
-        "usedFor": "FM ch. 2 (unit 2, lesson 2.1): canonical school-level treatment of addition on the number line and the properties of whole numbers (closure, commutativity, associativity, identity). Coverage web-checked; exposition original."
+        "usedFor": "FM ch. 2 (unit 2, lessons 2.1–2.5): canonical school-level treatment of the four operations on the number line and the properties of whole numbers under each (closure, commutativity, associativity, identity, distributivity and their failures; division algorithm a = q·b + r with 0 ≤ r < b; ÷0 undefined). Lesson 2.5's order-of-operations coverage additionally web-checked against CBSE-aligned BODMAS references (2026-11-03); exposition original."
       }
     ],
     "perUnitDownloadLedger": [
@@ -1242,6 +1332,18 @@
         "downloaded": "Khattar QA 4e PDF (33.9 MB, re-downloaded after sandbox recycle wiped working copies; Drive file id recovered via re-survey) + NCERT class 6 ch. 2 web outline",
         "usedFor": "lesson 2.1 (Addition and the Art of Carrying)",
         "workingCopiesDeleted": "2026-11-03, after E2E verification"
+      },
+      {
+        "unit": "unit 2 — FM ch. 2 (lessons 2.2–2.4)",
+        "downloaded": "none — unit's Khattar ch. 4 already surveyed (BODMAS reserved for 2.5); NCERT class-6 subtraction/multiplication/division coverage web-checked (sanctioned fallback)",
+        "usedFor": "lessons 2.2, 2.3, 2.4",
+        "workingCopiesDeleted": "n/a (no downloads)"
+      },
+      {
+        "unit": "unit 2 — FM ch. 2 (lesson 2.5)",
+        "downloaded": "Khattar QA 4e PDF re-downloaded (33.9 MB; Drive file id 12YnlSYX16Hl-Oze9Io7bBN0hZ_2qRcbi now persisted in the upgraded survey) — ch. 4 BODMAS section studied; CBSE-aligned BODMAS web-check",
+        "usedFor": "lesson 2.5 (Order of Operations and the Language of Expressions)",
+        "workingCopiesDeleted": "2026-11-03, after unit-2 verification"
       }
     ],
     "examRegistry": {
@@ -2425,33 +2527,110 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "8e5b6811e72372a5f91e8b3a58ca83100b1689ab",
+      "short": "8e5b681",
+      "date": "2026-11-03 04:38",
+      "message": "unit 2 continues: FM lesson 2.4 Division, Remainders and Why Zero Never Divides (269 verified checks, E2E green) + second-recycle recovery (verify script now committed, Drive-survey rebuild script, @types/bun) + logs updated",
+      "filesChanged": 9,
+      "insertions": 1125,
+      "deletions": 68,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 90,
+          "del": 25
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 10,
+          "del": 8
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 70,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 177,
+          "del": 30
+        },
+        {
+          "path": "scripts/rebuild_drive_survey.ts",
+          "add": 44,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-2.ts",
+          "add": 242,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 480,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "fecd9c43d0bfdc080c286090610cbe49d7334a93",
+      "short": "fecd9c4",
+      "date": "2026-11-03 04:40",
+      "message": "memory: run-5 pointers — lesson 2.4 pushed and verified (8e5b681), origin/main synced; next: FM 2.5 Order of Operations (unit 2 finale); gitignore /scripts/* trap recorded",
+      "filesChanged": 2,
+      "insertions": 13,
+      "deletions": 7,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 5
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 1,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 7,
-    "wordsAuthored": 26993,
-    "termsDefined": 40,
-    "quizItems": 35,
-    "exerciseQuestions": 57,
+    "chaptersWritten": 2,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 8,
+    "wordsAuthored": 31159,
+    "termsDefined": 47,
+    "quizItems": 40,
+    "exerciseQuestions": 65,
     "blockTotals": {
-      "para": 70,
-      "callout": 21,
-      "heading": 47,
-      "terms": 7,
-      "equation": 6,
-      "derivation": 10,
-      "table": 8,
-      "figure": 11,
-      "example": 13,
-      "quiz": 7,
-      "exercises": 7,
-      "formula": 12,
-      "algorithm": 5
+      "para": 80,
+      "callout": 26,
+      "heading": 53,
+      "terms": 8,
+      "equation": 8,
+      "derivation": 11,
+      "table": 9,
+      "figure": 12,
+      "example": 15,
+      "quiz": 8,
+      "exercises": 8,
+      "formula": 13,
+      "algorithm": 6
     }
   }
 }

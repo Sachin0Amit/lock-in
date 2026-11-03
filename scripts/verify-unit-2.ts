@@ -4,8 +4,10 @@
  *
  * Recreated 2026-11-03 (run 5) for lesson 2.4 "Division, Remainders and Why
  * Zero Never Divides" (the earlier copy was never committed and the sandbox
- * recycle removed it). Every number that will appear in lesson 2.4 prose,
- * figures, tables, quiz and exercises is checked here BEFORE it is written.
+ * recycle removed it). Extended same day (run 6) for lesson 2.5 "Order of
+ * Operations and the Language of Expressions" — section L. Every number
+ * that will appear in lesson prose, figures, tables, quiz and exercises is
+ * checked here BEFORE it is written.
  * Run: bun run scripts/verify-unit-2.ts   (exit 1 on any failure)
  */
 
@@ -225,8 +227,111 @@ check('J10: quiz Q5: quotient window for 8,892 / 36 is [2,3] digits; 247 = 3', 4
 check('J12: quiz Q3 instance: 47 / 8 = 5 r 7 attains the bound r = 7 = 8 - 1', Math.floor(47 / 8) === 5 && 47 % 8 === 7 && 5 * 8 + 7 === 47);
 
 /* ============================================================
- * K. Regression guards — earlier lessons' numbers stay true
+ * L. Lesson 2.5 — Order of Operations (the treaty, traps,
+ *    bracket ladder, 'of', estimation gate, quiz, exercises)
  * ==========================================================*/
+
+/* --- The two readings of one line (opening + figure) --- */
+check('L1: 8 + 2 x 5 = 18 (treaty: multiplication first)', 8 + 2 * 5 === 18);
+check('L2: (8 + 2) x 5 = 50 (add-first reading)', (8 + 2) * 5 === 50);
+check('L3: the two readings differ: 18 !== 50', 8 + 2 * 5 !== (8 + 2) * 5);
+check('L4: 2 x 5 = 10 = 2+2+2+2+2 (compressed addition, lesson 2.3)', 2 * 5 === [2, 2, 2, 2, 2].reduce((a, b) => a + b, 0));
+check('L5: tree values: 8 + (2 x 5) = 18 and (8 + 2) x 5 = 50', 8 + 2 * 5 === 18 && (8 + 2) * 5 === 50);
+
+/* --- The mnemonic's two traps (table + warn callout) --- */
+check('L6: 8 / 4 x 2 left-to-right = 4', (() => { const step1 = 8 / 4; return step1 * 2 === 4; })());
+check('L7: x-first misreading 8 / (4 x 2) = 1 — differs', 8 / (4 * 2) === 1 && 8 / (4 * 2) !== 8 / 4 * 2);
+check('L8: 25 - 8 + 7 left-to-right = 24', (() => { const step1 = 25 - 8; return step1 + 7 === 24; })());
+check('L9: subtract-last misreading 25 - (8 + 7) = 10 — differs', 25 - (8 + 7) === 10 && 25 - (8 + 7) !== 25 - 8 + 7);
+check('L10: 20 - 6 / 2 x 3 = 11 (6/2=3, 3x3=9, 20-9=11)', (() => { const s1 = 6 / 2, s2 = s1 * 3; return s1 === 3 && s2 === 9 && 20 - s2 === 11; })());
+check('L11: M-before-D misreading 20 - (6 x 3) = 2', 20 - 6 * 3 === 2);
+check('L12: full-left-to-right misreading (20 - 6) / 2 x 3 = 21', (() => { const s1 = 20 - 6, s2 = s1 / 2; return s1 === 14 && s2 === 7 && s2 * 3 === 21; })());
+check('L13: 4 + 3 x 2 = 10; (4 + 3) x 2 = 14', 4 + 3 * 2 === 10 && (4 + 3) * 2 === 14);
+
+/* --- The bracket ladder (worked example + bar mini) --- */
+check('L14: (14 - 2 x 5) = 14 - 10 = 4', (() => { const inner = 14 - 2 * 5; return 2 * 5 === 10 && inner === 4; })());
+check("L15: 'of': 3 of 2 = 6; then 18 / 6 = 3", 3 * 2 === 6 && 18 / (3 * 2) === 3);
+check("L16: 'of' trap: (18 / 3) of 2 = 6 of 2 = 12 — differs from 3", (18 / 3) * 2 === 12 && 12 !== 18 / (3 * 2));
+check('L17: [ ]: 2 x 4 + 3 = 8 + 3 = 11', (() => { const prod = 2 * 4; return prod === 8 && prod + 3 === 11; })());
+check('L18: whole ladder 120 - [2 x (14 - 2 x 5) + {18 / 3 of 2}] = 109', 120 - (2 * (14 - 2 * 5) + 18 / (3 * 2)) === 109);
+check('L19: bar forces low rank first: (3 + 4) x 2 = 14 under the bar', (3 + 4) * 2 === 14);
+check('L20: without the bar: 3 + 4 x 2 = 11 — differs from 14', 3 + 4 * 2 === 11 && 3 + 4 * 2 !== (3 + 4) * 2);
+check('L21: ladder exercise: (16 - 7) = 9; 9 x 2 = 18', (() => { const inner = 16 - 7; return inner === 9 && inner * 2 === 18; })());
+check('L22: ladder exercise: 6 of 3 = 18; 18 / 18 = 1; 90 + 1 = 91', 6 * 3 === 18 && 18 / (6 * 3) === 1 && 90 + 1 === 91);
+check('L23: full ladder: 90 + [ { (16 - 7) x 2 } / 6 of 3 ] = 91', 90 + ((16 - 7) * 2) / (6 * 3) === 91);
+
+/* --- The viral implicit-multiplication trap (L5 exercise) --- */
+check('L24: 6 / 2 x (1 + 2) left-to-right = 9', (() => { const inner = 1 + 2, s1 = 6 / 2; return inner === 3 && s1 === 3 && s1 * inner === 9; })());
+check('L25: implicit-first reading 6 / (2 x (1 + 2)) = 1 — differs', 6 / (2 * 3) === 1 && 6 / (2 * 3) !== 6 / 2 * 3);
+
+/* --- The estimation gate (lesson 1.3 returns) --- */
+check('L26: 51 x 49 = 2,550 - 51 = 2,499', 51 * 50 === 2550 && 2550 - 51 === 2499 && 51 * 49 === 2499);
+check('L27: 2,504 / 8 = 313 exactly (8 x 313 = 2,504)', 2504 / 8 === 313 && 8 * 313 === 2504);
+check('L28: exact sum 2,499 + 313 = 2,812', 2499 + 313 === 2812);
+check('L29: estimate 50 x 50 + 2,500 / 8 = 2,500 + 312.5 (close to 2,812)', 50 * 50 === 2500 && 2500 / 8 === 312.5 && Math.abs(2500 + 312.5 - 2812) === 0.5);
+check('L30: estimation instance: 7,218 / 9 = 802 (9 x 802 = 7,218)', 7218 / 9 === 802 && 9 * 802 === 7218);
+check('L31: estimation instance: 98 x 63 = 5,880 + 294 = 6,174', 98 * 60 === 5880 && 98 * 3 === 294 && 5880 + 294 === 6174 && 98 * 63 === 6174);
+check('L32: exact 802 + 6,174 = 6,976', 802 + 6174 === 6976);
+check('L33: estimate 7,200 / 9 + 100 x 60 = 800 + 6,000 = 6,800', 7200 / 9 === 800 && 100 * 60 === 6000 && 800 + 6000 === 6800);
+check('L34: gap honest: |6,976 - 6,800| = 176 (same magnitude)', Math.abs(6976 - 6800) === 176);
+check('L35: fingerprint across the expression: S(802)+S(98)xS(63) -> 1 matches S(6,976) -> 1', (() => {
+  const fp = fingerprint(802) + fingerprint(98) * fingerprint(63);
+  return fp % 9 === fingerprint(6976) % 9 && fingerprint(6976) === 1;
+})());
+
+/* --- Quiz internals --- */
+check('L36: quiz Q1: 8 x 5 = 40 is the wrong-pair product (8x5, not 2x5)', 8 * 5 === 40 && 2 * 5 === 10);
+check('L37: quiz Q2: 6 / 2 = 3; 3 x 3 = 9; 20 - 9 = 11 (recap of L10)', 6 / 2 === 3 && 3 * 3 === 9 && 20 - 9 === 11);
+check('L38: quiz Q3: 18 / 3 = 6; 6 of 2 = 12 — the divided-first trap (recap L16)', 18 / 3 === 6 && 6 * 2 === 12);
+check('L39: quiz Q4: 4 + 3 x 2 = 10 makes the equation true', 4 + 3 * 2 === 10);
+check('L40: quiz Q5: exact 6,976 closest to estimate 6,800 (gap 176 < 680)', 6976 - 6800 === 176 && 176 < 6800);
+
+/* --- Exercise internals --- */
+check('L41: L1a: 4 + 3 x 2 = 10 vs (4 + 3) x 2 = 14 (recap L13)', 4 + 3 * 2 === 10 && (4 + 3) * 2 === 14);
+check('L42: L1b: 5 x 6 - 8 = 22', (() => { const prod = 5 * 6; return prod === 30 && prod - 8 === 22; })());
+check('L43: L1b: 10 - 2 x 3 = 4 vs (10 - 2) x 3 = 24', 10 - 2 * 3 === 4 && (10 - 2) * 3 === 24);
+check('L44: L2a: 36 / 4 x 3 = 27; M-first misreading 36 / 12 = 3', (() => { const s1 = 36 / 4; return s1 === 9 && s1 * 3 === 27 && 36 / (4 * 3) === 3; })());
+check('L45: L2b: 25 - 8 + 7 = 24 (recap L8)', 25 - 8 + 7 === 24);
+check('L46: L4a default: 8 + 4 / 4 + 4 x 2 = 8 + 1 + 8 = 17', 8 + 4 / 4 + 4 * 2 === 17);
+check('L47: L4a largest bracketing: (8 + 4 / 4 + 4) x 2 = 13 x 2 = 26', (() => { const inner = 8 + 4 / 4 + 4; return inner === 13 && inner * 2 === 26; })());
+check('L48: L4a why 26 wins: x2 distributes over the whole additive chain', (() => {
+  // (8 + 1 + 4) x 2 = 8x2 + 1x2 + 4x2 = 16 + 2 + 8 = 26 — distributivity, lesson 2.3
+  return (8 + 1 + 4) * 2 === 8 * 2 + 1 * 2 + 4 * 2 && 8 * 2 + 1 * 2 + 4 * 2 === 26;
+})());
+check('L49: L5: 9 vs 1 — the two readings differ (recap L24/L25)', (() => {
+  const explicit: number = 6 / 2 * (1 + 2);
+  const implicit: number = 6 / (2 * (1 + 2));
+  const differ: boolean = explicit !== implicit;
+  return explicit === 9 && implicit === 1 && differ;
+})());
+
+/* --- L6: the treaty-maker's problem (associativity vs precedence) --- */
+check('L50: + alone is bracket-independent: (8+2)+5 = 8+(2+5) = 15', (8 + 2) + 5 === 8 + (2 + 5) && 8 + 2 + 5 === 15);
+check('L51: exhaustive: (a+b)+c = a+(b+c) for ALL a,b,c in 0..9', (() => {
+  for (let a = 0; a <= 9; a++) for (let b = 0; b <= 9; b++) for (let c = 0; c <= 9; c++)
+    if ((a + b) + c !== a + (b + c)) return false;
+  return true;
+})());
+check('L52: x alone is bracket-independent: (2x3)x4 = 2x(3x4) = 24', (2 * 3) * 4 === 2 * (3 * 4) && 2 * 3 * 4 === 24);
+check('L53: exhaustive: (a x b) x c = a x (b x c) for ALL a,b,c in 0..9', (() => {
+  for (let a = 0; a <= 9; a++) for (let b = 0; b <= 9; b++) for (let c = 0; c <= 9; c++)
+    if ((a * b) * c !== a * (b * c)) return false;
+  return true;
+})());
+check('L54: mixed is bracket-DEPENDENT: 2 + 3 x 4 = 14 vs (2 + 3) x 4 = 20', (() => {
+  const treaty: number = 2 + 3 * 4;
+  const bracketed: number = (2 + 3) * 4;
+  const differ: boolean = treaty !== bracketed;
+  return treaty === 14 && bracketed === 20 && differ;
+})());
+check('L55: brackets cannot change a single number: (7) = 7', (7) === 7);
+check('L56: L4 exercise candidates: (8 + 4) / 4 + 4 x 2 = 11', (8 + 4) / 4 + 4 * 2 === 11);
+check('L57: L4 exercise candidates: 8 + (4 / 4 + 4) x 2 = 18', 8 + (4 / 4 + 4) * 2 === 18);
+check('L58: L4 exercise candidates: (8 + 4) / (4 + 4) x 2 = 3', (8 + 4) / (4 + 4) * 2 === 3);
+check('L59: worked example D-first slip: 120 - (2 x 4 + 18 / 3 of 2 with of last) = 100', 120 - (2 * 4 + (18 / 3) * 2) === 100);
+check('L60: the slip costs 9: 109 - 100 = 9', 109 - 100 === 9);
+
+/* --- Regression guards — earlier lessons' numbers stay true --- */
 check('K1: 2.1: 999 + 1 = 1,000 (echoed by 1,000 / 9 = 111 r 1)', 999 + 1 === 1000);
 check('K2: 2.2: 4,589 - 2,764 = 1,825 (4,589 reused in 2.4)', 4589 - 2764 === 1825);
 check('K3: 2.3: 247 x 36 = 8,892 (undone by 2.4)', 247 * 36 === 8892);
@@ -239,4 +344,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL CHECKS PASS — safe to write lesson 2.4');
+console.log('ALL CHECKS PASS — safe to write lesson 2.5 (unit 2 finale)');

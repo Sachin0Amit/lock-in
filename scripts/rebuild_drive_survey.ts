@@ -20,16 +20,20 @@ const html = await res.text()
 
 // Each entry begins with <div class="flip-entry" id="entry-<id>" ...
 const chunks = html.split('<div class="flip-entry" id="entry-').slice(1)
-const rootItems: { name: string; size: string }[] = []
+const rootItems: { name: string; size: string; id?: string }[] = []
 for (const chunk of chunks) {
   const titleMatch = chunk.match(/flip-entry-title">([^<]+)</)
   if (!titleMatch) continue
   const isFolder = /drive-sprite-folder/.test(chunk)
   const sizeMatch = chunk.match(/>([0-9.]+[KMG])</)
+  // entry id runs until the next quote; folders carry the subfolder id,
+  // files carry the file id — both usable for targeted re-downloads
+  const idMatch = chunk.match(/^([^"']+)/)
   const name = titleMatch[1].trim()
   rootItems.push({
     name: isFolder ? `${name} [folder]` : name,
     size: isFolder ? '' : sizeMatch ? sizeMatch[1] : '',
+    ...(idMatch ? { id: idMatch[1] } : {}),
   })
 }
 
@@ -42,3 +46,6 @@ console.log(`entries: ${rootItems.length} (${folders.length} folders, ${files.le
 console.log(`folders: ${folders.map((f) => f.name.replace(' [folder]', '')).join(', ')}`)
 console.log(`khattar: ${khattar ? `${khattar.name} (${khattar.size})` : 'NOT FOUND'}`)
 if (rootItems.length !== 89) console.log('WARNING: expected 89 entries like the 2026-11-03 survey')
+
+// mark as a module so tsc allows top-level await under the repo tsconfig
+export {}

@@ -3,16 +3,17 @@ import type { Chapter } from '../../../types'
 /**
  * Foundation Mathematics — Chapter 2: The Four Operations
  *
- * LESSONS WRITTEN: 2.1 Addition and the Art of Carrying · 2.2 Subtraction
- * and Borrowing · 2.3 Multiplication as Repeated Addition — and Beyond ·
- * 2.4 Division, Remainders and Why Zero Never Divides.
- * CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence, started
- * 2026-11-03). Lesson 2.5 is planned (see plannedLessons below) and is
- * authored one per unit cycle. References for this unit: Khattar,
- * Quantitative Aptitude for Competitive Examinations (4e) ch. 4
- * "Simplification" + NCERT Class 6 ch. 2 "Whole Numbers" topic coverage —
- * see docs/project/SOURCE_LOG.md. Exposition original; all arithmetic
- * verified by scripts/verify-unit-2.ts (269 checks) BEFORE writing.
+ * LESSONS WRITTEN (CHAPTER COMPLETE): 2.1 Addition and the Art of Carrying ·
+ * 2.2 Subtraction and Borrowing · 2.3 Multiplication as Repeated Addition —
+ * and Beyond · 2.4 Division, Remainders and Why Zero Never Divides · 2.5
+ * Order of Operations and the Language of Expressions.
+ * Unit 2 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
+ * run). References: Khattar, Quantitative Aptitude for Competitive
+ * Examinations (4e) ch. 4 "Simplification" (BODMAS) + NCERT Class 6 ch. 2
+ * "Whole Numbers" topic coverage — see docs/project/SOURCE_LOG.md.
+ * Exposition original; all arithmetic verified by scripts/verify-unit-2.ts
+ * (165 checks in the post-recycle script; 324 unit-cumulative) BEFORE
+ * writing.
  */
 export const chapter02: Chapter = {
   number: 2,
@@ -20,10 +21,7 @@ export const chapter02: Chapter = {
   title: 'The Four Operations',
   summary:
     'Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.',
-  status: 'in-progress',
-  plannedLessons: [
-    'Order of Operations and the Language of Expressions',
-  ],
+  status: 'complete',
   lessons: [
     {
       id: 'fm-addition-carrying',
@@ -1744,6 +1742,400 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Four operations, four retrials, one system. Addition and multiplication close the whole numbers and commute; subtraction and division do neither — each keeps a one-sided identity and each punches a hole (negativity beyond this book\'s horizon, undefinedness beside it). Yet the four are one family: subtraction undoes addition, division undoes multiplication, and the distributive law binds the pair of builders. What happens when all four appear in a single expression — $8 + 2 \\times 5$, say, whose value depends on who moves first? Chapter 2\'s final lesson settles the treaty of precedence: the order of operations, where this chapter\'s four laws meet their referee. And with the remainder in hand, Chapter 3\'s divisibility questions — which numbers divide which, and how to tell at a glance — stand one bound away.',
+        },
+      ],
+    },
+    {
+      id: 'fm-order-of-operations',
+      number: '2.5',
+      title: 'Order of Operations and the Language of Expressions',
+      concepts: [
+        'Order of operations',
+        'Precedence',
+        'BODMAS',
+        'Brackets: bar, parentheses, braces, square brackets',
+        'The "of" operator',
+        'Left-to-right for equal precedence',
+        'Expression vs equation',
+        'Estimation gate',
+      ],
+      objectives: [
+        'Read any string of numbers and operations as one expression with a single value — and distinguish expressions from equations',
+        'State the order-of-operations treaty: brackets first (bar, then ( ), { }, [ ]), then "of", then × and ÷ left to right, then + and − left to right',
+        'Justify why × outranks + by the compression argument, and say precisely which clauses of the treaty are forced and which are agreed',
+        'Simplify fully nested exam expressions with the bracket ladder, dodging the two great BODMAS traps',
+        'Gate every simplification with a rounding estimate before trusting it',
+      ],
+      prerequisites: [
+        'fm-rounding-and-estimating',
+        'fm-addition-carrying',
+        'fm-subtraction-borrowing',
+        'fm-multiplication-repeated-addition',
+        'fm-division-remainders-zero',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Every ledger, every bill, every examination paper keeps its arithmetic in single lines — and a line of arithmetic is a small treaty waiting to be signed. Picture two clerks in the same shop, the same day, reading the same line: $8 + 2 \\times 5$. The first works strictly left to right: $8 + 2 = 12$, then $12 \\times 5 = 50$, and records fifty. The second sees the line differently — *eight, plus two fives* — and records $8 + 10 = 18$. Two careful professionals, one line, two answers, a gap of 32 between them. The trouble is not carelessness: both clerks computed flawlessly. The line itself was ambiguous, and arithmetic — like every precise language — needs a signed agreement about who moves first.',
+        },
+        {
+          kind: 'para',
+          text: 'The string $8 + 2 \\times 5$ is our first proper **expression**: a recipe of numbers, operations and brackets that names one number. Every computation in Chapters 1 and 2 was an expression evaluated in secret — but never a dangerous one, because each line carried a single operation, or a chain of one kind. The moment two different ranks share a line, the recipe needs an unambiguous reading order, and that reading order is the **order of operations**. This lesson signs the treaty — brackets first, then multiplication and division, then addition and subtraction — and then asks the question a rule-book usually skips: *why this order and not another?* The answer, it turns out, is Lesson 2.3\'s compression wearing a judge\'s robe.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Expression',
+              def: 'A recipe of numbers, operations and brackets that names a single number. $8 + 2 \\times 5$ is an expression; carried out in the agreed order, it names 18.',
+            },
+            {
+              term: 'Value (of an expression)',
+              def: 'The number the recipe names — the result of performing the operations in the agreed order. The value of $8 + 2 \\times 5$ is 18, not 50.',
+            },
+            {
+              term: 'Equation',
+              def: 'A sentence claiming that two expressions have equal value, written with $=$. An equation can be true ($4 + 3 \\times 2 = 10$) or false ($8 + 2 \\times 5 = 50$); an expression alone cannot be true or false — it merely names a number.',
+            },
+            {
+              term: 'Precedence',
+              def: 'The agreed ranking that decides which operation acts first when two share an expression and no bracket separates them. Multiplication outranks addition; within one rank, reading direction (left to right) decides.',
+            },
+            {
+              term: 'Bracket (grouping symbol)',
+              def: 'A written device that overrides precedence by grouping: the bar (vinculum), parentheses $( )$, braces $\\{\\ \\}$ and square brackets $[\\ ]$. Always worked innermost first.',
+            },
+            {
+              term: 'Vinculum (the bar)',
+              def: 'The oldest grouping symbol: a horizontal bar drawn over the expression it binds, as in $\\overline{3 + 4}$. Exam convention removes it before all other brackets.',
+            },
+            {
+              term: 'BODMAS',
+              def: 'The examination mnemonic for the treaty: Brackets, Of, Division, Multiplication, Addition, Subtraction — read as ranks, never as a strict letter-by-letter queue.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Two readings of one line' },
+        {
+          kind: 'para',
+          text: 'Dissect the clerks\' dispute. Reading left to right treats the line as the sentence *"(eight plus two), taken five times"*: the addition happens first and the multiplication sweeps up its result — $(8 + 2) \\times 5 = 50$. Reading by compression treats it as *"eight, plus two fives"*: the product $2 \\times 5$ is one tight packet — five additions compressed by Lesson 2.3 — and the eight stands outside it: $8 + (2 \\times 5) = 18$. Both readings are grammatical; they are different sentences. Without a convention the line names no number at all — and an expression\'s value must be unique, because that is the entire point of naming one.',
+        },
+        {
+          kind: 'equation',
+          latex: '8 + 2 \\times 5 \\;=\\; 8 + (2 \\times 5) \\;=\\; 18 \\qquad\\text{but}\\qquad (8 + 2) \\times 5 \\;=\\; 50',
+          note: 'The same seven symbols, two values: the left evaluation is the treaty\'s, the right one belongs to a different sentence. Precedence is what forces the left tree when the brackets stay silent.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One line, two trees. Left: without brackets the treaty groups 2 × 5 first, so the multiplication sits one level down and the tree evaluates to 18. Right: the brackets of (8 + 2) × 5 rebuild the tree — the addition moves under the multiplication and the value jumps to 50. Precedence is exactly the rule that chooses the tree when the brackets are silent; brackets are the writer\'s way of choosing it anyway.',
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two expression trees for 8 + 2 x 5: the treaty grouping evaluates to 18, the bracketed grouping to 50">
+  <g font-size="13" fill="currentColor">
+    <text x="195" y="30" text-anchor="middle" opacity="0.75">8 + 2 × 5 — treaty reading</text>
+    <line x1="195" y1="90" x2="115" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="195" y1="90" x2="275" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="275" y1="166" x2="225" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="275" y1="166" x2="325" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <g text-anchor="middle">
+      <rect x="169" y="58" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="195" y="79">+</text>
+      <rect x="89" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="115" y="155">8</text>
+      <rect x="249" y="134" width="52" height="32" rx="7" fill="none" stroke="#b45309" stroke-width="2"/>
+      <text x="275" y="155" fill="#b45309" font-weight="700">×</text>
+      <rect x="199" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="225" y="231">2</text>
+      <rect x="299" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="325" y="231">5</text>
+    </g>
+    <text x="195" y="282" text-anchor="middle" font-weight="700" fill="#b45309">value 18</text>
+    <text x="565" y="30" text-anchor="middle" opacity="0.75">(8 + 2) × 5 — brackets rebuild the tree</text>
+    <line x1="565" y1="90" x2="485" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="565" y1="90" x2="665" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="485" y1="166" x2="435" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="485" y1="166" x2="555" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <g text-anchor="middle">
+      <rect x="539" y="58" width="52" height="32" rx="7" fill="none" stroke="#b45309" stroke-width="2"/>
+      <text x="565" y="79" fill="#b45309" font-weight="700">×</text>
+      <rect x="459" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="485" y="155">+</text>
+      <rect x="639" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="665" y="155">5</text>
+      <rect x="409" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="435" y="231">8</text>
+      <rect x="529" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
+      <text x="555" y="231">2</text>
+    </g>
+    <text x="565" y="282" text-anchor="middle" font-weight="700" fill="#b45309">value 50</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The figure makes the disagreement physical: brackets build expression trees, and different trees are different recipes even when the digits match. The treaty exists so that when the brackets stay silent, the tree is still forced. One agreement, learned once, works for every line ever written — which is precisely what a shop, a bank and an examination board each require of arithmetic.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The order of operations (the treaty)',
+          text: 'When an expression mixes operations and the brackets do not say otherwise, evaluate in this order: **(1)** brackets, innermost first — the bar, then $( )$, then $\\{\\ \\}$, then $[\\ ]$; **(2)** the word **of** (examination convention: multiplication with first claim); **(3)** $\\times$ and $\\div$ — one shared rank, acted left to right exactly as written; **(4)** $+$ and $-$ — one shared rank, acted left to right. Brackets always override the ranks; the ranks always override reading direction.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{bar} \\;\\to\\; (\\ \\ ) \\;\\to\\; \\{\\ \\ \\} \\;\\to\\; [\\ \\ ] \\;\\to\\; \\text{of} \\;\\to\\; \\times,\\ \\div\\ (\\text{left} \\to \\text{right}) \\;\\to\\; +,\\ -\\ (\\text{left} \\to \\text{right})',
+          note: 'The full treaty as a ladder: top rungs first; within the two shared rungs, left to right as the line was written. Every examination in this book\'s orbit marks simplifications against this ladder.',
+        },
+        { kind: 'heading', text: 'Why multiplication binds tighter: the compression argument' },
+        {
+          kind: 'derivation',
+          title: 'Why × precedes +',
+          statement:
+            'Claim: in a bracket-free mixture of addition and multiplication, the multiplication must act first — not by taste, but because the notation itself is compressed language.',
+          steps: [
+            {
+              label: 'Unpack the product',
+              formula: '2 \\times 5 = 2 + 2 + 2 + 2 + 2',
+              explanation:
+                'Lesson 2.3 built multiplication as compressed addition: the product $2 \\times 5$ is not a new quantity but five twos written short. So $8 + 2 \\times 5$ literally reads "eight, plus five twos" — and in that sentence the fives are counted before the eight ever meets them.',
+            },
+            {
+              label: 'Evaluate the sentence as written',
+              formula: '8 + (2 \\times 5) = 8 + 10 = 18',
+              explanation:
+                'The treaty computes the packet first and lands on 18 — the value of the sentence the writer actually wrote. No other step order evaluates this sentence; every other order evaluates a different one.',
+            },
+            {
+              label: 'Audit the rival reading against its own sentence',
+              formula: '(8 + 2) \\times 5 = 50',
+              explanation:
+                'Add-first is the sentence "(eight plus two), taken five times" — a different collection entirely: ten objects five times over, not eight objects plus five twos. The notation must distinguish two different sentences without the writer\'s help, and precedence is exactly how it does — silently, with no brackets needed.',
+            },
+            {
+              label: 'Generalise: tighter compression binds tighter',
+              explanation:
+                'The pattern is a hierarchy of compression: multiplication compresses addition, and powers (Chapter 5\'s territory) compress multiplication. The more a notation compresses, the tighter it binds — which is why the treaty\'s ranks feel natural rather than arbitrary.',
+            },
+          ],
+          result:
+            'Multiplication precedes addition because a product is already an addition in disguise: reading $8 + 2 \\times 5$ left to right silently rewrites the writer\'s sentence. The treaty is the notation defending its own compression.',
+        },
+        {
+          kind: 'para',
+          text: 'Division and subtraction inherit their places as twins. Lesson 2.4 built division as the un-building of multiplication — every division carries its check equation $a = q \\times b + r$ — so a division wants the same rank as the multiplication it undoes. Lesson 2.2 built subtraction as the un-building of addition, so it sits beside addition. Hence two ranks of two: $\\times$ with $\\div$, and $+$ with $-$. But honesty demands the split made below: some of this treaty is discovered, and some of it is signed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Natural clauses and agreed clauses',
+          text: '**Forced by the notation (natural):** brackets override everything; $\\times$ before $+$; tighter compression binds tighter. These follow from what the symbols *mean*. **Signed by usage (agreed):** equal rank inside each twin-pair, resolved left to right; the special rank for the word "of". Nothing in the meaning of $8 \\div 4 \\times 2$ forces either grouping — both readings are grammatical — so the community chose left to right, the direction we read. A 1917 debate in the American Mathematical Monthly (Lennes) shows the ÷-versus-× question was still formally argued a century ago, and the notation historian Cajori found it unsettled into the 1920s. Agreement is not weakness — it is what a convention is. But it is why careful writers, and every examination board, add brackets whenever the ranks alone might not carry the meaning.',
+        },
+        { kind: 'heading', text: 'The bracket ladder' },
+        {
+          kind: 'para',
+          text: 'Brackets are the treaty\'s escape hatch: they let the writer override precedence outright. Examination convention recognises four kinds, removed in a fixed order — the **bar** (vinculum) first, then parentheses $( )$, then braces $\\{\\ \\}$, then square brackets $[\\ ]$ — though all four mean the same thing: *this packet first*. The different shapes are not different powers; they are visibility, so the eye can match an opening to its closing across a long line. Work from the inside out. The bar shows its strength on a line like $\\overline{3 + 4} \\times 2$: the bar drags the low-rank addition into first place and the value is $7 \\times 2 = 14$, whereas the unbarred line $3 + 4 \\times 2$ evaluates by treaty to $3 + 8 = 11$. One small stroke, three of difference.',
+        },
+        {
+          kind: 'algorithm',
+          title: 'Evaluating any expression (the full BODMAS procedure)',
+          lines: [
+            { code: 'Scan for the innermost bracket — bar first, then ( ), { }, [ ] — and evaluate everything inside it to a single number.', note: 'If that packet itself mixes operations, apply this same procedure to it: the treaty is recursive.' },
+            { code: 'Repeat until no brackets remain, always working outward.' },
+            { code: 'Scan the bracket-free line for the word OF; compute every "a of b" as a multiplication, before any ÷ or ×.', note: 'Examination convention gives "of" first claim: 18 ÷ 3 of 2 = 18 ÷ (3 × 2) = 3, not 12.' },
+            { code: 'Scan left to right; each time a × or ÷ is met, compute it and replace the triple (number, sign, number) with its value.', note: 'One shared rank — the scan direction decides, never the alphabet.' },
+            { code: 'Scan left to right again; each time a + or − is met, compute it and replace.' },
+            { code: 'One number remains: that number is the value of the expression.', note: 'Why it terminates: each act erases one operation, and a written line holds only finitely many.' },
+          ],
+          note:
+            'Two sweeps over the line, plus bracket-peeling — that is the whole machine. Steps 4 and 5 are why the mnemonic must be read as ranks: ÷ and × are swept together, as are + and −. The letter order of BODMAS is a memory hook for the four rungs, not a queue of six commands.',
+        },
+        {
+          kind: 'example',
+          title: 'Worked example: one line, every rung of the ladder',
+          steps: [
+            'Simplify $120 - \\left[\\, 2 \\times (14 - 2 \\times 5) + \\left\\{ 18 \\div 3 \\text{ of } 2 \\right\\} \\,\\right]$.',
+            'Innermost parentheses: $(14 - 2 \\times 5)$ — multiplication first inside: $14 - 10 = 4$.',
+            'Braces: $18 \\div 3$ of $2$ — "of" claims first: $3$ of $2 = 6$; then $18 \\div 6 = 3$.',
+            'Square brackets: $2 \\times 4 + 3$ — multiplication first: $8 + 3 = 11$.',
+            'Bracket-free remainder: $120 - 11 = 109$. The value is 109.',
+            'Audit the near-miss: had the ÷ been done before the "of", the braces would hold $(18 \\div 3)$ of $2 = 12$, and the whole line would land on $120 - 20 = 100$ — a nine-mark error from one rank slip. This is the exact slip examination options are built to catch.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: '**Of** deserves its own paragraph, because the mnemonic reserves a letter for it and international readers deserve a translation. In "3 of 2", the word *of* means multiply — the phrase is English for $3 \\times 2$ ("half of" and "two-thirds of" belong to Chapter 4\'s fractions, but the grammar is the same). Indian examination convention, and the reference texts that feed it, promotes "of" to its own rung above $\\div$ and $\\times$, so $18 \\div 3$ of $2$ evaluates as $18 \\div (3 \\times 2) = 3$ rather than $(18 \\div 3) \\times 2 = 12$. Treatments that drop the special rung and read "of" as ordinary multiplication, scanned left to right, would return 12. The honest summary: *examination convention ranks "of" above the ÷/× rank; some modern books make it a plain multiplication.* Either way the cure is identical — write the brackets — and when a paper says "of" without them, it means the ranked reading.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The mnemonic\'s two traps',
+          text: 'The letters of BODMAS are rank labels, not a queue. **Trap 1 — "D before M"?** No: $8 \\div 4 \\times 2$ is $2 \\times 2 = 4$ by the left-to-right sweep, not $8 \\div 8 = 1$. **Trap 2 — "A before S"?** No: $25 - 8 + 7$ is $17 + 7 = 24$ by the sweep, not $25 - 15 = 10$. In both cases the wrong value comes from obeying the alphabet instead of the treaty. The mnemonic survives because its rungs are real; it misleads exactly where two letters share a rank — which is why this lesson states the treaty as ranks with a reading direction, and keeps the word only as a handle.',
+        },
+        {
+          kind: 'table',
+          caption: 'One line, four wrong roads — each "misreading value" comes from a real, computable mistake',
+          head: ['Expression', 'Treaty value', 'The misreading', 'Its value'],
+          rows: [
+            ['$8 + 2 \\times 5$', '18', 'add first: $(8 + 2) \\times 5$', '50'],
+            ['$8 \\div 4 \\times 2$', '4', 'multiply before divide: $8 \\div (4 \\times 2)$', '1'],
+            ['$25 - 8 + 7$', '24', 'subtract last: $25 - (8 + 7)$', '10'],
+            ['$18 \\div 3$ of $2$', '3', 'divide first: $(18 \\div 3)$ of $2$', '12'],
+          ],
+        },
+        { kind: 'heading', text: 'Expressions and equations' },
+        {
+          kind: 'para',
+          text: 'One vocabulary distinction, made once and kept forever. An **expression** — $8 + 2 \\times 5$, the whole ladder $120 - [\\,\\cdots\\,]$, even a bare $7$ — is a recipe that names a number: it has a **value** and cannot be true or false. An **equation** is a sentence with $=$ that *claims* two expressions share a value: $4 + 3 \\times 2 = 10$ is a true equation; $8 + 2 \\times 5 = 50$ is a false one; both are claims, not values. This chapter has been writing and checking equations all along — every inverse check, every fingerprint match, every "check equation" of Lessons 2.1–2.4 is an equation that was verified rather than assumed. The distinction becomes load-bearing the moment a letter arrives for an unknown: solving an equation is not evaluating an expression, and the door to that subject (Chapter 11 here, then Elementary Algebra) opens on exactly this line.',
+        },
+        { kind: 'heading', text: 'The estimation gate' },
+        {
+          kind: 'para',
+          text: 'Lesson 1.3\'s rounding now takes the referee\'s own chair — the check that runs before the treaty does. The habit is two moves: **estimate first**, by rounding every operand to one comfortable digit and evaluating the rounded line under the same treaty; **compute exactly**, then compare magnitudes. A match certifies the shape of the work; a mismatch exposes a rank slip before it reaches the answer box — rank errors usually change a value by whole factors, not small remainders, which is precisely what a magnitude comparison sees.',
+        },
+        {
+          kind: 'example',
+          title: 'The estimation gate in action',
+          steps: [
+            'Line to evaluate: $7{,}218 \\div 9 + 98 \\times 63$.',
+            'Estimate by rounding: $7{,}200 \\div 9 + 100 \\times 60 = 800 + 6{,}000 = 6{,}800$ — a magnitude, nothing more.',
+            'Compute exactly, by treaty: $7{,}218 \\div 9 = 802$ (check: $9 \\times 802 = 7{,}218$) and $98 \\times 63 = 5{,}880 + 294 = 6{,}174$; so the value is $802 + 6{,}174 = 6{,}976$.',
+            'Compare: $6{,}976$ against the estimate $6{,}800$ — a gap of 176, comfortably the same magnitude. The shape of the computation is certified.',
+            'Certify deeper with the fingerprint: $S(6{,}976) = 28 \\to 1$, while the expression\'s own fingerprint gives $S(802) + S(98) \\times S(63) \\to 1 + 1 \\times 0 = 1$. Match — the checksum respects precedence because the fingerprint of a sum is the sum of fingerprints and the fingerprint of a product is the product of fingerprints (Lessons 2.1 and 2.3). The value 6,976 stands double-checked.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'A treaty with a history',
+          text: 'The treaty is younger than it feels. Multiplication-before-addition is as old as modern algebraic notation itself — the symbols forced it, as the compression argument shows — but the equal-rank and left-to-right clauses were argued in print well into the twentieth century: the American Mathematical Monthly carried a formal dispute about expressions like $a \\div b \\times c$ in 1917 (Lennes), and Cajori\'s classic history of mathematical notations found the ÷-versus-× question unsettled in the 1920s. The mnemonics arrived with the mass textbook industry: PEMDAS ("Please Excuse My Dear Aunt Sally") in America, BIDMAS and BEDMAS in other English traditions, BODMAS in the Indian examination world — different letters, one treaty, with BODMAS alone reserving a rank for "of". And the arguments never quite end: internet disputes over lines like $6 \\div 2(1 + 2)$ flare up every few years, always at the same edge — implicit multiplication meeting explicit division. The moral is the bracket ladder\'s: when a line\'s grouping could matter, the careful writer brackets it.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Simplification items are the bread of bank, SSC and railway papers: one fully nested bracket line, one mark, forty seconds — marked exactly against the ladder above. The "of" trap and the D/M trap are the two harvest fields: the wrong options are computed by obeying the alphabet, so knowing the treaty converts a guess into a rejection. Insert-the-brackets puzzles (make $8 + 4 \\div 4 + 4 \\times 2$ as large as possible) run the ladder in reverse; "which equation is true?" items test the expression/equation vocabulary; and the estimation gate kills two or three options before any exact work — no option that fails a rounding check survives a careful mark-scheme. Every long simplification in Chapter 3\'s HCF/LCM work and Chapter 5\'s powers will run on this referee.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'What is the treaty value of 8 + 2 × 5?',
+              options: ['50', '18', '40', '10'],
+              answer: 1,
+              explain:
+                'Multiplication first: 2 × 5 = 10, then 8 + 10 = 18. Option 50 is the value of a different sentence — (8 + 2) × 5, the add-first reading. Option 40 is the wrong-pair product: 8 × 5 = 40 (the 2 never multiplied anything). Option 10 is the product alone — the 8 went missing.',
+            },
+            {
+              q: 'Evaluate 20 − 6 ÷ 2 × 3.',
+              options: ['11', '2', '21', '9'],
+              answer: 0,
+              explain:
+                '÷ and × share a rank, swept left to right: 6 ÷ 2 = 3, then 3 × 3 = 9, then 20 − 9 = 11. Option 2 obeyed the alphabet (M before D): 6 × 3 = 18, then 20 − 18 = 2. Option 21 swept the subtraction into the left-to-right run too: (20 − 6) ÷ 2 × 3 = 21. Option 9 finished the ÷/× chain and forgot the subtraction entirely.',
+            },
+            {
+              q: 'In examination convention, what is 18 ÷ 3 of 2?',
+              options: ['3', '12', '6', '36'],
+              answer: 0,
+              explain:
+                '"Of" claims before the division: 3 of 2 = 6, then 18 ÷ 6 = 3. Option 12 is the ÷-first reading, (18 ÷ 3) of 2 — the harvest trap this lesson\'s worked example nearly fell into. Option 6 is the bare quotient, ignoring the "of"; option 36 is 18 × 2, ignoring the ÷ and the 3 alike.',
+            },
+            {
+              q: 'Which of these is an equation?',
+              options: ['4 + 3 × 2', '4 + 3 × 2 = 10', '4 + 3 × 2 + 1', 'the value of 4 + 3 × 2'],
+              answer: 1,
+              explain:
+                'An equation is a sentence with = that claims two expressions share a value — and this one is true, since 4 + 6 = 10. Options 1 and 3 are expressions: recipes with values, incapable of being true or false. Option 4 is a phrase, not even an expression as written.',
+            },
+            {
+              q: 'Before computing 7,218 ÷ 9 + 98 × 63 exactly, the estimation gate says the value is closest to:',
+              options: ['680', '6,800', '68,000', 'It cannot be estimated without exact division'],
+              answer: 1,
+              explain:
+                'Round and rank: 7,218 ÷ 9 ≈ 7,200 ÷ 9 = 800, and 98 × 63 ≈ 100 × 60 = 6,000; total ≈ 6,800. The exact value is 802 + 6,174 = 6,976 — same magnitude, gap 176. Options 1 and 3 are magnitude errors by factors of ten; option 4 forgets Lesson 1.3 — rounding exists precisely so you can check a computation\'s shape before (and after) you do it.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Evaluate $4 + 3 \\times 2$ and $(4 + 3) \\times 2$. Same digits, same operations — explain in one sentence why the values differ.',
+                  solution:
+                    'Treaty reading: $4 + 3 \\times 2 = 4 + (3 \\times 2) = 4 + 6 = 10$ — four, plus three twos. Bracketed reading: $(4 + 3) \\times 2 = 7 \\times 2 = 14$ — a seven, taken twice. One pair of brackets moved the addition under the multiplication\'s grip: the expression tree changed, so the recipe names a different number. Brackets are the writer\'s override; precedence is only the default.',
+                },
+                {
+                  q: 'Evaluate $5 \\times 6 - 8$. Then evaluate $10 - 2 \\times 3$ and $(10 - 2) \\times 3$, naming the sentence each reading hears.',
+                  solution:
+                    '$5 \\times 6 - 8$: multiplication first, $30 - 8 = 22$. Next, $10 - 2 \\times 3 = 10 - 6 = 4$ — the sentence "ten, minus two threes". And $(10 - 2) \\times 3 = 8 \\times 3 = 24$ — the sentence "(ten minus two), taken three times". The second pair differs by two brackets alone; 4 and 24 are different numbers because they are values of different sentences.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Evaluate $36 \\div 4 \\times 3$ two ways — the treaty way and the alphabet way. Which value does the treaty certify, and what exactly is the trap?',
+                  solution:
+                    'Treaty (÷ and × one rank, left to right): $36 \\div 4 = 9$, then $9 \\times 3 = 27$. Alphabet way (M before D): $4 \\times 3 = 12$, then $36 \\div 12 = 3$. The treaty certifies 27. The trap is reading BODMAS as a queue of six letters instead of four ranks: D and M are rank-mates, and inside the rank the reading direction decides — the very clause Lennes debated in 1917.',
+                },
+                {
+                  q: 'Evaluate $25 - 8 + 7$ two ways. Which is correct, and which misreading produced the other?',
+                  solution:
+                    'Treaty (+ and − one rank, left to right): $25 - 8 = 17$, then $17 + 7 = 24$. The misreading (A before S): $8 + 7 = 15$, then $25 - 15 = 10$ — which is the value of the different sentence $25 - (8 + 7)$. Correct: 24. Subtraction is non-associative (Lesson 2.2), which is exactly why the rank\'s left-to-right clause matters: the brackets the misreading silently inserts are not free.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: '(Exam-style) Simplify $90 + \\left[\\, \\left\\{ (16 - 7) \\times 2 \\right\\} \\div 6 \\text{ of } 3 \\,\\right]$, narrating every rung of the bracket ladder and every rank decision.',
+                  solution:
+                    'Parentheses: $(16 - 7) = 9$. Braces: $9 \\times 2 = 18$. Inside the square brackets, "of" claims before ÷: $6$ of $3 = 18$; then $18 \\div 18 = 1$. Bracket-free remainder: $90 + 1 = 91$. The value is 91. Rank audit: one ladder (three rungs, inside out), one "of" before the division, no ÷/× tie to sweep — a line built to exercise the ladder, and the estimation gate agrees with the magnitude (ninety-odd, plus one).',
+                },
+                {
+                  q: '(Exam-style) The line $8 + 4 \\div 4 + 4 \\times 2$ has value 17 as written. Insert exactly one pair of brackets to make the value as large as possible, and prove your placement wins among all bracketings that keep every division exact.',
+                  solution:
+                    'As written: $8 + 1 + 8 = 17$. The winning placement wraps the whole additive chain: $(8 + 4 \\div 4 + 4) \\times 2 = 13 \\times 2 = 26$. Enumeration of the whole-number candidates: $(8 + 4) \\div 4 + 4 \\times 2 = 3 + 8 = 11$; $8 + (4 \\div 4 + 4) \\times 2 = 8 + 10 = 18$; $(8 + 4 \\div 4 + 4) \\times 2 = 26$; $(8 + 4) \\div (4 + 4) \\times 2 = 12 \\div 8 \\times 2 = 3$; and any bracketing that strands $4 \\div (4 + \\cdots)$ leaves the division inexact — outside this book\'s whole numbers. Why the whole chain wins is the distributive law (Lesson 2.3): multiplying the chain multiplies every term, $13 \\times 2 = 8 \\times 2 + 1 \\times 2 + 4 \\times 2$ — the bracket harvests the largest possible sub-chain under the ×2.',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'The line 6 ÷ 2(1 + 2) is an internet-famous argument. (a) Give the value the treaty certifies for the explicit form 6 ÷ 2 × (1 + 2). (b) Give the value of the rival reading 6 ÷ (2 × (1 + 2)). (c) Explain why the debate exists at all, and what a careful writer does.',
+                  solution:
+                    '(a) Left to right in the ÷/× rank: $6 \\div 2 = 3$, then $3 \\times 3 = 9$. (b) Grouping-first: $2 \\times 3 = 6$, then $6 \\div 6 = 1$. The values differ — both readings are grammatical, so the original line, with its silent juxtaposition $2(1 + 2)$, is genuinely ambiguous. (c) The debate lives exactly on the treaty\'s agreed edge: implicit multiplication by juxtaposition was never fully pinned down — notation historians record the ÷-versus-× question still argued in the 1920s — so the juxtaposition invites the grouping-first reading. The cure is the writer\'s tool: brackets. Examinations never set the ambiguous form; they write $6 \\div 2 \\times (1 + 2)$ or $6 \\div \\left(2 \\times (1 + 2)\\right)$ explicitly.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The treaty-maker\'s problem. (a) Prove that an expression built from + alone has the same value under every bracketing. (b) Prove the same for × alone. (c) Exhibit a mixed expression whose two bracketings differ, and conclude that a precedence convention is unavoidable. (d) Which clauses of the treaty are forced by the notation, and which are pure agreement?',
+                  solution:
+                    '(a) Associativity of addition (Lesson 2.1): $(a + b) + c = a + (b + c)$ for all whole numbers — instance $(8 + 2) + 5 = 8 + (2 + 5) = 15$, and exhaustive checking of every $a, b, c$ from 0 to 9 confirms it everywhere; longer chains follow by re-parenthesising one adjacent pair at a time, each step licensed by the law. (b) Associativity of multiplication (Lesson 2.3): $(2 \\times 3) \\times 4 = 2 \\times (3 \\times 4) = 24$ — same instance-plus-exhaustive proof. (c) Mixed: $2 + 3 \\times 4 = 14$ under the treaty, but $(2 + 3) \\times 4 = 20$ bracketed the other way — the values differ, so when two ranks share a line, *something* must choose the tree. That something is the convention; without it, the line names two numbers and therefore names none. (d) Forced by meaning: brackets override everything; × before + (compression); tighter compression binds tighter. Pure agreement: equal rank within each twin-pair resolved left to right, and the special rank of "of". Knowing which clauses are discovered and which are signed is the difference between mathematics and a rule-book — and it is the final entry in this chapter\'s honesty ledger.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The order of operations (BODMAS)',
+          latex: '\\text{bar} \\to (\\ \\ ) \\to \\{\\ \\ \\} \\to [\\ \\ ] \\to \\text{of} \\to \\times,\\ \\div\\ (\\text{L} \\to \\text{R}) \\to +,\\ -\\ (\\text{L} \\to \\text{R})',
+          note: 'Brackets innermost first; "of" before ÷ and × by examination convention; equal ranks swept left to right as written. Brackets override everything — when in doubt, bracket it.',
+        },
+        {
+          kind: 'para',
+          text: 'Chapter 2 closes with its referee in place, and the arc is worth seeing whole. One lesson per operation: addition built and carried, subtraction built and borrowed, multiplication compressed and distributed, division un-built and bounded — each retried the four laws, each left behind a bound, a checksum, a speed route. Then the four met on one line and needed a judge, and the judge turned out to be the chapter itself: precedence is the compression argument and the agreed clauses wearing robes. With the treaty signed, the whole-numbers floor is finished — every line of arithmetic in this book\'s future, from Chapter 3\'s divisibility tests to Chapter 5\'s powers, will be read exactly as this lesson prescribes. And the treaty\'s honest last word doubles as the chapter\'s: some rules are discovered and some are agreed, and knowing which is which is what separates understanding a rule from merely obeying it.',
         },
       ],
     },

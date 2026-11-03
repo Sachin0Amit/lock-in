@@ -6,6 +6,82 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 6: lesson 2.5 Order of Operations shipped — UNIT 2 COMPLETE (chapter 2 closed with the completion review)
+
+**Situation at start:** tree clean at `fecd9c4` = origin/main; RESUME_POINTER
+named FM 2.5 "Order of Operations and the Language of Expressions" as the
+unit-2 finale. No in-flight lessons. Dev server still alive from run 5.
+
+**Research:** Khattar QA 4e re-downloaded from Drive (33.9 MB) — this time
+the survey script was upgraded to persist per-file Drive ids
+(`scripts/rebuild_drive_survey.ts` now records each entry's id; Khattar =
+`12YnlSYX16Hl-Oze9Io7bBN0hZ_2qRcbi`), so future re-downloads are one step.
+Chapter 4's BODMAS section studied (bracket ladder bar → ( ) → { } → [ ];
+"of" ranked above ÷/×; worked nested illustrations). CBSE-aligned BODMAS
+coverage web-checked plus historical grounding (order-of-operations
+conventions; Cajori's *A History of Mathematical Notations* via The Math
+Doctors' caveats; Lennes 1917 *American Mathematical Monthly* dispute —
+real citations, honestly framed as history not fabrication).
+
+**Shipped: lesson 2.5 "Order of Operations and the Language of
+Expressions"** (ch-02.ts, 4,166 words): two-clerks opening (8 + 2 × 5 read
+as 50 vs 18, a gap of 32); 7 terms (expression, value, equation,
+precedence, bracket, vinculum, BODMAS); expression-tree figure (treaty
+tree = 18 vs bracketed tree = 50, root operations tinted — plain labels,
+dollarInSvg=0); treaty definition callout + ladder equation (bar → ( ) →
+{ } → [ ] → of → ×/÷ L→R → +/− L→R); compression-argument derivation (why
+× precedes +) with the natural-vs-agreed insight callout (Lennes 1917,
+Cajori honesty); bracket ladder + vinculum mini-example (bar(3+4) × 2 = 14
+vs 3 + 4 × 2 = 11); full BODMAS algorithm block; worked ladder 120 −
+[2 × (14 − 2 × 5) + {18 ÷ 3 of 2}] = 109 with the ÷-first slip audit
+(lands on 100 — a nine-error); "of"-operator para (exam convention ranks
+it; 18 ÷ 3 of 2 = 3, not 12); mnemonic-traps warn callout (8 ÷ 4 × 2 = 4
+not 1; 25 − 8 + 7 = 24 not 10); four-wrong-roads table; expressions vs
+equations; estimation gate (7,218 ÷ 9 + 98 × 63: estimate 6,800, exact
+6,976, fingerprint crosses the ranks); historical callout (PEMDAS/BIDMAS/
+BEDMAS/BODMAS lineages, viral implicit-multiplication debates); exam
+callout; 5 quiz (5/5 E2E); L1–L6 exercises ending in the treaty-maker's
+problem L6 (associativity ⇒ + and × alone bracket-independent — exhaustive
+0..9 checks; mixed expressions not ⇒ a convention is unavoidable); BODMAS
+formula card; chapter-finale closing para.
+
+**Verification:** 60 new checks in `scripts/verify-unit-2.ts` BEFORE
+writing (165 in the post-recycle script; 324 unit-cumulative), ALL PASS —
+including the L-section's exhaustive associativity loops and every
+worked-example/quiz/exercise number. Pipeline fix: two literal-narrowing
+TS2367s in the new checks fixed with a compare-before-narrow pattern;
+`rebuild_drive_survey.ts` marked as module (`export {}`) — tsc is now
+FULLY clean repo-wide including scripts/ (previously the recorded gate
+was "tsc clean (src/)"). Gates: lint clean; tsc clean; routes 200 (new
+lesson served without a dev restart); browser E2E — KaTeX 113 nodes, all
+6 section headings, 4-row table, quiz 5/5 "perfect" with the intended
+correct options clicked live, flashcards 40 → 47, glossary lists
+BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS
+card, expression-tree figure screenshot-verified, mobile 390px exact-fit
+(scrollW=390), zero console/page errors.
+
+**Unit-2 completion review** (RESUME_POINTER directive for the chapter
+finale): BOOK_FORMAT verification checklist — all seven boxes pass (math
+pre-verified by script; figure labels match prose; quiz indices verified
+live; exercise solutions complete + verified; lesson id globally unique;
+lint + render clean; logs updated). Exam-coverage audit — every lesson
+2.1–2.5 carries an exam callout; topics mapped to bank/SSC/Railway
+simplification staples + CUET/NTSE vocabulary items; no real past-paper
+questions reproduced. Chapter totals recomputed by
+`build_work_inventory.ts`: chapter 2 = 21,450 words across 5 lessons
+(3,952 + 4,611 + 4,028 + 4,693 + 4,166); book = 8 lessons, 31,159 words,
+47 terms, 40 quiz items, 65 exercise questions; chapters complete 2 of
+11. Working copies deleted (Khattar PDF + text dump); only the gitignored
+survey remains.
+
+**Next:** unit 3 opens — chapter 3 "Factors, Multiples and Primes"
+(5 planned lessons), starting with 3.1 "Divisibility and Its Tests";
+research via Khattar (number-theory chapters) + NCERT class 6 ch. 3
+"Playing with Numbers" web fallback. Standing reminder: the
+gitignore `/scripts/*` trap — new scripts need `!/scripts/<name>` lines.
+
+---
+
 ## 2026-11-03 — HOURLY RUN 5: lesson 2.4 Division, Remainders and Why Zero Never Divides shipped + second recycle recovered
 
 **Situation at start:** a second sandbox recycle since run 4. Local `.git`

@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-03",
-  "phase": "unit 2 in progress (lessons 2.1–2.4 shipped) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
-  "awaiting": "next lesson: FM 2.5 'Order of Operations and the Language of Expressions' (unit 2 finale — chapter 2 at 4 of 5 lessons; hourly cadence runs the cycle)",
+  "phase": "unit 2 COMPLETE (chapter 2 = 5/5 lessons + completion review) · unit 3 next · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
+  "awaiting": "next unit: FM chapter 3 'Factors, Multiples and Primes' (5 planned lessons), starting with 3.1 'Divisibility and Its Tests'; hourly cadence runs the cycle",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -39,6 +39,7 @@
       "unit 2 lesson 2.2 E2E: quiz 5/5 perfect, flashcards 28 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figure geometry verified via DOM",
       "unit 2 lesson 2.3 E2E: quiz 5/5 perfect, flashcards 34 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures geometry-verified via DOM (equal-jump arcs, partial-product rows, shift annotations)",
       "unit 2 lesson 2.4 E2E: quiz 5/5 perfect, flashcards 40 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render)",
+      "unit 2 lesson 2.5 E2E (unit-2 completion review): quiz 5/5 perfect with intended options clicked live, flashcards 47 cards, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, expression-tree figure screenshot-verified, mobile exact-fit (scrollW=390), zero console/page errors; KaTeX 113 nodes, dollarInSvg=0; BOOK_FORMAT checklist 7/7; exam-coverage audit run; chapter totals recomputed (ch. 2 = 21,450 words; book = 8 lessons / 31,159 words / 47 terms)",
       "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)"
     ]
   },
@@ -50,7 +51,7 @@
         "title": "Foundation Mathematics",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "lessonsWritten": [
           "fm-numbers-digits-place-value",
           "fm-comparing-ordering-numbers",
@@ -58,14 +59,15 @@
           "fm-addition-carrying",
           "fm-subtraction-borrowing",
           "fm-multiplication-repeated-addition",
-          "fm-division-remainders-zero"
+          "fm-division-remainders-zero",
+          "fm-order-of-operations"
         ],
-        "termsAvailableForFlashcards": 40,
-        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words. Chapter 2 IN PROGRESS (unit 2, 2026-11-03): lesson 2.1 'Addition and the Art of Carrying' (3,952 words; 51 checks), lesson 2.2 'Subtraction and Borrowing' (4,611 words; 63 more → 114), lesson 2.3 'Multiplication as Repeated Addition — and Beyond' (4,028 words; 50 more → 164) and lesson 2.4 'Division, Remainders and Why Zero Never Divides' (4,693 words, 41 blocks: laws-retried table with ÷0 bricked shut, two-case ÷0 derivation, long-division algorithm + 8,892÷36=247 seat-map figure un-building 2.3's product, remainder-bound r<b and quotient digit-bound derivations, fingerprint S(a) ≡ S(q)·S(b)+r with dropped-remainder guard tooth, speed routes ÷5/÷4/÷8, obelus+Euclid callout, 5 quiz, 8 exercises; 105 more → 269 total) shipped; lesson 2.5 completes the chapter. Full per-lesson detail in docs/project/WORK_INVENTORY.json."
+        "termsAvailableForFlashcards": 47,
+        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words. Chapter 2 COMPLETE (unit 2, 2026-11-03): 5 lessons, 21,450 words — lesson 2.1 'Addition and the Art of Carrying' (3,952), 2.2 'Subtraction and Borrowing' (4,611), 2.3 'Multiplication as Repeated Addition — and Beyond' (4,028), 2.4 'Division, Remainders and Why Zero Never Divides' (4,693), 2.5 'Order of Operations and the Language of Expressions' (4,166; 7 terms, expression-tree figure, compression-argument derivation, BODMAS algorithm + worked ladder 109, estimation gate, L1–L6 treaty-maker's finale; 60 new checks → 165 script / 324 unit-cumulative). Unit-2 completion review passed (BOOK_FORMAT checklist 7/7, exam-coverage audit, totals recompute). Unit 3 next: chapter 3 'Factors, Multiples and Primes' (5 planned lessons). Full per-lesson detail in docs/project/WORK_INVENTORY.json."
       }
     ],
-    "lessonsWritten": 7,
-    "wordsAuthored": 26993
+    "lessonsWritten": 8,
+    "wordsAuthored": 31159
   },
   "research": {
     "examRegistry": {

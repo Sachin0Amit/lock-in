@@ -25,30 +25,34 @@ step 6).
 
 - `khattar-qa-4e` — Dinesh Khattar, *Quantitative Aptitude for Competitive
   Examinations*, 4th ed., Pearson (2019), ISBN 9789353439552. Drive file
-  `Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf` (32.4 MB).
-  Used for: ch. 1 "Numbers" — place-value/face-value definitions, Indian
-  system naming, exam-style digit problems. Exposition is original; no text
-  reproduced.
+  `Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf` (32.4 MB;
+  file id persisted in the survey since run 6). Used for: ch. 1 "Numbers" —
+  place-value/face-value definitions, Indian system naming, exam-style digit
+  problems; ch. 4 "Simplification" — the BODMAS material for FM ch. 2
+  lesson 2.5 (bracket ladder bar → ( ) → { } → [ ], the "of" rank above
+  ÷/×, nested-illustration style — exposition original, no text reproduced).
 - `ncert-math6-ch1` — NCERT Class 6 Mathematics, ch. 1 "Knowing Our Numbers"
   (public curriculum). Used for: canonical school-level topic coverage
   (comparing numbers, ascending/descending, forming greatest/smallest,
   estimation). Coverage cross-checked via published syllabus outlines;
   exposition original.
 - `ncert-math6-ch2` — NCERT Class 6 Mathematics, ch. 2 "Whole Numbers"
-  (public curriculum). Used for: FM ch. 2 lessons 2.1, 2.2 and 2.3 —
-  canonical school-level treatment of addition, subtraction and
-  multiplication on the number line and the properties of whole numbers
-  under each operation (closure, commutativity, associativity, identity,
-  distributivity — and their failures for subtraction;
-  decomposition/regrouping). Coverage web-checked (searches 2026-11-03:
-  property tables incl. distributive a×(b+c) = a×b + a×c, multiplication
-  as repeated jumps); exposition original.
+  (public curriculum). Used for: FM ch. 2 lessons 2.1–2.5 — canonical
+  school-level treatment of the four operations on the number line and the
+  properties of whole numbers under each operation (closure,
+  commutativity, associativity, identity, distributivity — and their
+  failures for subtraction; decomposition/regrouping; division algorithm
+  a = q·b + r with 0 ≤ r < b; ÷0 undefined). Lesson 2.5's
+  order-of-operations coverage additionally web-checked against
+  CBSE-aligned BODMAS references plus historical sources (Cajori's
+  notation history; Lennes 1917, *American Mathematical Monthly*)
+  (searches 2026-11-03); exposition original.
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3 (2.2 + 2.3 researched via web — unit's Khattar copy already surveyed, no new download) | yes — after each unit's verification | foundation-mathematics in-progress (**1/11 chapters complete · ch. 2 in progress, lessons 2.1–2.3 shipped**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2; CBSE-aligned BODMAS web-check) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) + 33.9 (run 6 re-download for 2.5) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3, 2.4 (web-checks; no new downloads) and 2.5 (Khattar ch. 4 BODMAS studied from the run-6 re-download) | yes — after each unit's verification | foundation-mathematics in-progress (**2/11 chapters complete — ch. 1 and ch. 2 CLOSED; ch. 3 next**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -87,3 +91,10 @@ step 6).
   web-checked. The gitignored Drive survey was re-pulled after the second
   sandbox recycle via the new scripts/rebuild_drive_survey.ts (89 entries,
   4 folders, Khattar id intact — matches the original survey).
+- 2026-11-03 (mathematics, unit 2, lesson 2.5): Khattar QA 4e
+  re-downloaded (33.9 MB) — ch. 4 "Simplification" BODMAS section studied
+  (bracket ladder, "of" rank, nested illustrations); CBSE-aligned BODMAS
+  coverage + historical grounding web-checked (sanctioned fallback). The
+  survey script was upgraded to persist per-file Drive ids, so this is the
+  last time a re-download needed an id hunt. Working copies (PDF + text
+  dump) deleted after unit-2 verification; only inventory.json retained.
