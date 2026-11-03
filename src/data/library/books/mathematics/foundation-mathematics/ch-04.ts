@@ -10,16 +10,18 @@ import type { Chapter } from '../../../types'
  * Fractions (the comparison engines: shared rulers, the cross-multiplication
  * test wielded as a verdict machine, common-denominator method, the banked
  * SSC MTS 2017 item settled, benchmark halves, completing the whole,
- * wholes-first rule for mixed numbers).
- * PLANNED NEXT: 4.4 Adding and Subtracting Fractions · 4.5 Multiplying and
- * Dividing Fractions.
+ * wholes-first rule for mixed numbers); 4.4 Adding and Subtracting Fractions
+ * (like-ruler counting, the LCM as standard equipment, subtraction as
+ * gap-naming, mixed-number regrouping, Egyptian two-term openings, the
+ * straight-across fraud theorem).
+ * PLANNED NEXT: 4.5 Multiplying and Dividing Fractions.
  * Unit 4 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
  * Examinations (4e) ch. 1 "Numbers" (fraction comparison exam items, the
  * HCF/LCM-of-fractions rules that later lessons will draw on) + NCERT
  * Class 6 ch. 7 "Fractions" topic coverage — see docs/project/SOURCE_LOG.md.
  * Exposition original; all arithmetic verified by scripts/verify-unit-4.ts
- * (148 checks) BEFORE writing.
+ * (259 checks, sections AA–AH for this lesson) BEFORE writing.
  * Honours the ties promised in Lesson 3.5's closing paragraph: "between any
  * two whole numbers, fractions grow dense, and the four operations learn to
  * live there. The atoms remain atoms — but from here on, they divide." —
@@ -2040,9 +2042,638 @@ export const chapter04: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-adding-subtracting-fractions',
+      number: '4.4',
+      title: 'Adding and Subtracting Fractions',
+      concepts: [
+        'Like fractions share a ruler',
+        'Unlike fractions and the LCM method',
+        'Sums and differences in lowest terms',
+        'Subtraction as gap-naming',
+        'Complement from the whole',
+        'Regrouping mixed numbers',
+        'Egyptian two-term openings',
+        'The straight-across fraud',
+      ],
+      objectives: [
+        'Add and subtract fractions on a shared ruler by counting pieces, and simplify every result to lowest terms',
+        'Raise any two unlike fractions to one common ruler — the LCM as standard equipment — and add or subtract the raised counts, with mixed numbers handled storey by storey',
+        'Read subtraction as gap-naming and complements, and decide when a subtraction has an answer at all',
+        'Split fractions into two-term sums of distinct unit fractions by the greedy choice, and prove why adding straight across never works',
+      ],
+      prerequisites: [
+        'fm-idea-of-a-fraction',
+        'fm-equivalent-fractions-simplification',
+        'fm-comparing-fractions',
+        'fm-lowest-common-multiple',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch7'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 4.3 closed with a quiet calculation hiding inside a comparison: fourteen twenty-fourths plus one twenty-fourth is fifteen twenty-fourths. Nothing was made of it at the time — the count merely recorded a verdict. But look at what the sentence actually did: it **added two fractions**. The whole machinery of this chapter — rulers, raisings, atoms, the LCM — has been built for comparisons; this lesson turns the same machinery onto the arithmetic itself. The question changes shape: no longer "which point sits further right?" but "how much bread in two baskets together?", "how much of the tank is filled?", "how much of the salary is left?"',
+        },
+        {
+          kind: 'para',
+          text: 'The ruler language makes the plan almost obvious. A fraction is a count of equal pieces; addition is combining counts; subtraction is finding the gap between counts. Combining three eighths with two eighths is easy — the pieces are the same size, so the counts simply add. The entire difficulty of fraction arithmetic lives in one place: the addends often arrive measured on *different* rulers, and pieces of different sizes cannot be counted together. Every method in this lesson is a way of getting the addends onto one ruler before the counting begins — and the lessons of 4.2 and 4.3 have already supplied every move needed.',
+        },
+        { kind: 'heading', text: 'Like rulers: counting the pieces' },
+        {
+          kind: 'para',
+          text: 'Fractions with the **same denominator** are called **like fractions** — counts of pieces of one size, cut from one ruler. To add $\\tfrac{2}{9} + \\tfrac{4}{9}$: two ninths fill two cells of the ninth-ruler, four ninths fill four more of the very same cells; together they fill $2 + 4 = 6$ cells. Nothing is re-cut, nothing is raised — the ruler was already shared. Whole-number addition does the work on the counts, and the denominator rides along untouched, because it records the piece size, which never changed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Adding and subtracting like fractions',
+          text: 'For whole numbers $a$, $c$ and a positive denominator $d$: $\\tfrac{a}{d} + \\tfrac{c}{d} = \\tfrac{a + c}{d}$ and, when $a \\geq c$, $\\tfrac{a}{d} - \\tfrac{c}{d} = \\tfrac{a - c}{d}$. Thus, $\\tfrac{2}{9} + \\tfrac{4}{9} = \\tfrac{6}{9}$ and $\\tfrac{9}{11} - \\tfrac{4}{11} = \\tfrac{5}{11}$ — the counts add or subtract, the common piece size is carried through. In symbols the rule says the denominator is inert: only the numerators do arithmetic.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the like-ruler rule settles a whole run of computations at a glance:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$\\tfrac{3}{13} + \\tfrac{4}{13} = \\tfrac{7}{13}$ — thirteen pieces each, three plus four shaded;',
+            '$\\tfrac{9}{11} - \\tfrac{4}{11} = \\tfrac{5}{11}$ — nine cells less four cells, the gap read off the counts;',
+            '$\\tfrac{7}{7} - \\tfrac{3}{7} = \\tfrac{4}{7}$ — the whole is seven sevenths, so what remains after three are taken is the complement $1 - \\tfrac{3}{7}$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The rule deserves its one-line proof, and the distributive law of Lesson 2.2 supplies it. The fraction $\\tfrac{a}{d}$ means $a$ copies of the piece $\\tfrac{1}{d}$, and $\\tfrac{c}{d}$ means $c$ more copies of the same piece; copies of one thing add by the distributive law: $a \\cdot \\tfrac{1}{d} + c \\cdot \\tfrac{1}{d} = (a + c) \\cdot \\tfrac{1}{d} = \\tfrac{a+c}{d}$. Exercise L6 asks for the full argument. This is the first time the four operations of chapter 2 reach into fraction land with a proof rather than a picture — and notice what made it work: the pieces were *equal*, so the counts could be pooled. Every rule that follows is a way of manufacturing that equality.',
+        },
+        {
+          kind: 'example',
+          title: 'Add 2/9 + 4/9 — and give the sum in its lowest terms',
+          steps: [
+            'Now, the ruler is shared: two ninths and four ninths are counts of equal pieces, so the counts add: $2 + 4 = 6$.',
+            'So $\\tfrac{2}{9} + \\tfrac{4}{9} = \\tfrac{6}{9}$.',
+            'Next, simplify: $\\gcd(6, 9) = 3$, and one division by the HCF of Lesson 3.3 gives $\\tfrac{6}{9} = \\tfrac{2}{3}$.',
+            'Hence $\\tfrac{2}{9} + \\tfrac{4}{9} = \\tfrac{2}{3}$ — the counting was the arithmetic, and the atoms of Lesson 4.2 finished the name.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Two habits begin here and run through the whole lesson. First, **simplify the result**: sums and differences arrive with whatever denominator the common ruler had, and they often carry hidden atoms — $\\tfrac{7}{8} - \\tfrac{5}{8} = \\tfrac{2}{8} = \\tfrac{1}{4}$, $\\tfrac{5}{10} + \\tfrac{3}{10} = \\tfrac{8}{10} = \\tfrac{4}{5}$. A correct answer in unlowest terms is half an answer. Second, **watch the whole**: nothing confines a sum to the interval between $0$ and $1$. Five eighths plus seven eighths is twelve eighths — past the whole, an improper fraction, $\\tfrac{12}{8} = \\tfrac{3}{2} = 1\\tfrac{1}{2}$. The number line does not stop at $1$, and neither does fraction addition.',
+        },
+        {
+          kind: 'para',
+          text: 'The number line adds its own reading of the rule. Addition is a **walk**: to compute $\\tfrac{2}{9} + \\tfrac{4}{9}$, stand at $\\tfrac{2}{9}$ and walk four ninth-steps right — the walk lands on the sixth cell, $\\tfrac{6}{9}$, and subtraction would walk left. Equal steps tile the walk cleanly only when both numbers speak in steps of the *same* size, which is the whole lesson in one picture: like fractions add by walking one ruler, and every unlike-ruler method below is a way of re-cutting the two step sizes until they match.',
+        },
+        {
+          kind: 'para',
+          text: 'The laws that governed whole-number addition in Lesson 2.2 climb the ladder intact, because pooling counts is still whole-number arithmetic — the verified instances say so:',
+        },
+        {
+          kind: 'list',
+          items: [
+            '**Commutative**: $\\tfrac{1}{4} + \\tfrac{1}{6} = \\tfrac{1}{6} + \\tfrac{1}{4} = \\tfrac{5}{12}$ — the raised counts 3 and 2 pool in either order;',
+            '**Associative**: $(\\tfrac{1}{2} + \\tfrac{1}{3}) + \\tfrac{1}{9} = \\tfrac{15}{18} + \\tfrac{2}{18} = \\tfrac{17}{18}$, and $\\tfrac{1}{2} + (\\tfrac{1}{3} + \\tfrac{1}{9}) = \\tfrac{9}{18} + \\tfrac{8}{18} = \\tfrac{17}{18}$ — the same ruler, the same 17, grouped either way;',
+            '**Identity 0**: $\\tfrac{5}{9} + 0 = \\tfrac{5}{9}$ — zero is $\\tfrac{0}{9}$ on the ruler, a walk of no steps;',
+            '**Subtraction inherits none of this**: $\\tfrac{5}{8} - \\tfrac{3}{8} = \\tfrac{2}{8}$ but $\\tfrac{3}{8} - \\tfrac{5}{8}$ names no gap at all — the failure of chapter 2 repeats on every ruler.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The straight-across fraud',
+          text: 'The numerators may be added only when the denominators already agree. Adding straight across — $\\tfrac{1}{2} + \\tfrac{1}{3} = \\tfrac{2}{5}$? — is the oldest fraud in fraction arithmetic, and $\\tfrac{2}{5}$ is not even random noise: it is exactly the **mediant** of the addends, so Lesson 4.3\'s L6 theorem guarantees $\\tfrac{1}{3} < \\tfrac{2}{5} < \\tfrac{1}{2}$. The fake answer always lands *between* the two true values — smaller than the larger addend, larger than the smaller one — which is why the fraud survives a glance-test so often. Exercise L6 proves the stronger fact: the straight-across answer is always strictly *less than the true sum*.',
+        },
+        { kind: 'heading', text: 'Unlike rulers: the LCM becomes standard equipment' },
+        {
+          kind: 'para',
+          text: 'Now remove the coincidence. $\\tfrac{1}{4} + \\tfrac{1}{6}$ asks one quarter plus one sixth — a quarter-piece and a sixth-piece — and no counting pools them: the pieces differ in size, and "one of each" is a description, not a number. The fix is the raising move of Lesson 4.2, wielded today for arithmetic instead of comparison: re-cut both amounts onto **one common ruler**, where the pieces are equal and the counts can finally pool. Any common multiple of the denominators is a legal ruler; the *smallest* legal ruler is the LCM (Lesson 3.4), which Lesson 4.3 promoted for comparisons and which now takes the standard-equipment role for arithmetic.',
+        },
+        {
+          kind: 'example',
+          title: 'Add 1/4 + 1/6 on the twelve-ruler',
+          steps: [
+            'Now, find the common ruler: $\\mathrm{LCM}(4, 6) = 12$ — twelfths are legal pieces for both fractions.',
+            'So raise each addend by its own multiplier: $\\tfrac{1}{4} = \\tfrac{1 \\times 3}{4 \\times 3} = \\tfrac{3}{12}$ and $\\tfrac{1}{6} = \\tfrac{1 \\times 2}{6 \\times 2} = \\tfrac{2}{12}$.',
+            'Now the pieces are equal and the counts pool: $\\tfrac{3}{12} + \\tfrac{2}{12} = \\tfrac{5}{12}$.',
+            'Hence $\\tfrac{1}{4} + \\tfrac{1}{6} = \\tfrac{5}{12}$ — and $\\gcd(5, 12) = 1$, so the sum is already in lowest terms: no atoms left to remove.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Addition happens on one ruler. A fourth and a sixth live on different rulers (top): their pieces cannot be pooled. Raised to the twelve-ruler, the fourth is 3/12 and the sixth is 2/12 — three twelfths shade exactly as much as the fourth did, two twelfths exactly as much as the sixth (the raising changed the name, not the amount). On the sum bar the two contributions stack: 3 + 2 = 5 twelfths, the boundary between them dashed.',
+          svg: `<svg viewBox="0 0 760 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bars showing 1/4 and 1/6 on their own rulers, both re-measured in twelfths as 3/12 and 2/12, and the sum bar 5/12 with the two contributions stacked">
+  <g font-size="13" fill="currentColor">
+    <text x="70" y="34">cut into 4 equal pieces — 1 shaded: 1/4</text>
+    <rect x="70" y="44" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="44" width="155" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="225" y1="44" x2="225" y2="88"/>
+      <line x1="380" y1="44" x2="380" y2="88"/>
+      <line x1="535" y1="44" x2="535" y2="88"/>
+    </g>
+    <text x="706" y="71" font-weight="700">1/4</text>
+    <text x="70" y="122">cut into 6 equal pieces — 1 shaded: 1/6</text>
+    <rect x="70" y="132" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="132" width="103.33" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="173.33" y1="132" x2="173.33" y2="176"/>
+      <line x1="276.67" y1="132" x2="276.67" y2="176"/>
+      <line x1="380" y1="132" x2="380" y2="176"/>
+      <line x1="483.33" y1="132" x2="483.33" y2="176"/>
+      <line x1="586.67" y1="132" x2="586.67" y2="176"/>
+    </g>
+    <text x="706" y="159" font-weight="700">1/6</text>
+    <text x="70" y="210">raised to the 12-ruler: 1/4 = 3/12</text>
+    <rect x="70" y="220" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="220" width="51.67" height="44"/>
+      <rect x="121.67" y="220" width="51.67" height="44"/>
+      <rect x="173.33" y="220" width="51.67" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="121.67" y1="220" x2="121.67" y2="264"/>
+      <line x1="173.33" y1="220" x2="173.33" y2="264"/>
+      <line x1="225" y1="220" x2="225" y2="264"/>
+      <line x1="276.67" y1="220" x2="276.67" y2="264"/>
+      <line x1="328.33" y1="220" x2="328.33" y2="264"/>
+      <line x1="380" y1="220" x2="380" y2="264"/>
+      <line x1="431.67" y1="220" x2="431.67" y2="264"/>
+      <line x1="483.33" y1="220" x2="483.33" y2="264"/>
+      <line x1="535" y1="220" x2="535" y2="264"/>
+      <line x1="586.67" y1="220" x2="586.67" y2="264"/>
+      <line x1="638.33" y1="220" x2="638.33" y2="264"/>
+    </g>
+    <text x="706" y="247" font-weight="700">3/12</text>
+    <text x="70" y="298">raised to the 12-ruler: 1/6 = 2/12</text>
+    <rect x="70" y="308" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="308" width="51.67" height="44"/>
+      <rect x="121.67" y="308" width="51.67" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="121.67" y1="308" x2="121.67" y2="352"/>
+      <line x1="173.33" y1="308" x2="173.33" y2="352"/>
+      <line x1="225" y1="308" x2="225" y2="352"/>
+      <line x1="276.67" y1="308" x2="276.67" y2="352"/>
+      <line x1="328.33" y1="308" x2="328.33" y2="352"/>
+      <line x1="380" y1="308" x2="380" y2="352"/>
+      <line x1="431.67" y1="308" x2="431.67" y2="352"/>
+      <line x1="483.33" y1="308" x2="483.33" y2="352"/>
+      <line x1="535" y1="308" x2="535" y2="352"/>
+      <line x1="586.67" y1="308" x2="586.67" y2="352"/>
+      <line x1="638.33" y1="308" x2="638.33" y2="352"/>
+    </g>
+    <text x="706" y="335" font-weight="700">2/12</text>
+    <text x="70" y="386">the sum on one ruler: 3 + 2 = 5 twelfths</text>
+    <rect x="70" y="396" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.3">
+      <rect x="70" y="396" width="51.67" height="44"/>
+      <rect x="121.67" y="396" width="51.67" height="44"/>
+      <rect x="173.33" y="396" width="51.67" height="44"/>
+      <rect x="225" y="396" width="51.67" height="44"/>
+      <rect x="276.67" y="396" width="51.67" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="121.67" y1="396" x2="121.67" y2="440"/>
+      <line x1="173.33" y1="396" x2="173.33" y2="440"/>
+      <line x1="225" y1="396" x2="225" y2="440"/>
+      <line x1="276.67" y1="396" x2="276.67" y2="440"/>
+      <line x1="328.33" y1="396" x2="328.33" y2="440"/>
+      <line x1="380" y1="396" x2="380" y2="440"/>
+      <line x1="431.67" y1="396" x2="431.67" y2="440"/>
+      <line x1="483.33" y1="396" x2="483.33" y2="440"/>
+      <line x1="535" y1="396" x2="535" y2="440"/>
+      <line x1="586.67" y1="396" x2="586.67" y2="440"/>
+      <line x1="638.33" y1="396" x2="638.33" y2="440"/>
+    </g>
+    <text x="706" y="423" font-weight="700">5/12</text>
+  <line x1="225" y1="390" x2="225" y2="446" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <text x="380" y="473" text-anchor="middle" font-weight="700">the contributions stack on one ruler: 1/4 + 1/6 = 3/12 + 2/12 = 5/12</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The product of the denominators is always a legal ruler too — $\\tfrac{1}{4} + \\tfrac{1}{6}$ could run on twenty-fourths: $\\tfrac{6}{24} + \\tfrac{4}{24} = \\tfrac{10}{24} = \\tfrac{5}{12}$, the same sum with bigger counts. The LCM keeps the numbers small, and small counts mean fewer simplification debts at the end; but when the LCM is not obvious, the product always answers. The next Illustration runs one sum on both rulers and watches them agree.',
+        },
+        {
+          kind: 'example',
+          title: 'Add 7/12 + 3/10 — two rulers, one sum',
+          steps: [
+            'Now, the LCM route: $\\mathrm{LCM}(12, 10) = 60$, so raise by $5$ and $6$ — $\\tfrac{7}{12} = \\tfrac{35}{60}$ and $\\tfrac{3}{10} = \\tfrac{18}{60}$.',
+            'So the counts pool on the sixty-ruler: $\\tfrac{35}{60} + \\tfrac{18}{60} = \\tfrac{53}{60}$, already lowest ($\\gcd(53, 60) = 1$).',
+            'Or the product route: on $120$, $\\tfrac{7}{12} = \\tfrac{70}{120}$ and $\\tfrac{3}{10} = \\tfrac{36}{120}$, so the sum is $\\tfrac{106}{120}$ — and one division by the HCF $2$ returns $\\tfrac{53}{60}$.',
+            'Hence $\\tfrac{7}{12} + \\tfrac{3}{10} = \\tfrac{53}{60}$ — two rulers, one verdict, and the LCM route arrived with half-sized counts and no simplification owed.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Lists of three or more fractions run on the same principle, and the choice of ruler matters more with every extra denominator. One ruler for the whole list — the LCM of all the denominators at once (Lesson 3.4 builds it pairwise: $\\mathrm{LCM}(2, 3) = 6$, then $\\mathrm{LCM}(6, 9) = 18$) — and every addend is raised once, after which the whole computation is whole-number bookkeeping. Exercise L5 adds $\\tfrac{1}{2} + \\tfrac{1}{3} + \\tfrac{1}{9}$ on exactly this eighteen-ruler: counts $9 + 6 + 2 = 17$, and the whole retains $\\tfrac{1}{18}$. Raising pairwise and adding as you go works too, but it re-raises intermediate sums and multiplies the chances of an arithmetic slip; one ruler for the list is the professional habit.',
+        },
+        {
+          kind: 'formula',
+          name: 'Like-ruler addition and subtraction',
+          latex: '\\frac{a}{d} \\pm \\frac{c}{d} = \\frac{a \\pm c}{d} \\qquad (\\text{subtract only when } a \\geq c)',
+          note: 'Like fractions are counts of equal pieces, so whole-number addition and subtraction act on the numerators while the common denominator rides through untouched. Simplify the result afterwards — sums carry hidden atoms as often as any other fraction.',
+        },
+        {
+          kind: 'formula',
+          name: 'The LCM method (unlike rulers)',
+          latex: '\\frac{a}{b} \\pm \\frac{c}{d} = \\frac{a k_1 \\pm c k_2}{R}, \\quad R = \\mathrm{LCM}(b, d), \\quad k_1 = \\frac{R}{b}, \\; k_2 = \\frac{R}{d}',
+          note: 'Raise both fractions to the common ruler R by the multiplying rule of Lesson 4.2, then add or subtract the raised counts. The product bd is always a legal R when the LCM is not visible; the LCM keeps every count small.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Like fractions',
+              def: 'Fractions sharing one denominator — counts of pieces of one size. They add and subtract by pooling counts: 2/9 + 4/9 = 6/9. The denominator is inert.',
+            },
+            {
+              term: 'Unlike fractions',
+              def: 'Fractions on different rulers, such as 1/4 and 1/6. Their pieces cannot be counted together until both are raised to one common ruler.',
+            },
+            {
+              term: 'LCM method',
+              def: 'The standard addition/subtraction procedure: raise every fraction to the LCM of the denominators (or the product, always legal) and operate on the raised counts. 1/4 + 1/6 = 3/12 + 2/12 = 5/12.',
+            },
+            {
+              term: 'Regrouping',
+              def: 'Moving one whole between the storeys of a mixed number: an overflowing fractional part (5/4 = 1 1/4) carries a whole upward; an underflowing subtraction borrows 1 = d/d from the wholes (3 1/5 = 2 6/5).',
+            },
+            {
+              term: 'Complement',
+              def: 'The missing piece of a fraction below the whole: 1 − a/b = (d − a)/d. The completing-the-whole comparisons of Lesson 4.3 are this number, met arithmetically.',
+            },
+            {
+              term: 'Greedy split',
+              def: 'The Egyptian two-term opening: take the largest unit fraction that fits under the target, subtract, and often the remainder is unit too — 3/10 = 1/4 + 1/20, since 1/3 > 3/10 > 1/4 and 3/10 − 1/4 = 1/20.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Subtraction as gap-naming' },
+        {
+          kind: 'para',
+          text: 'Subtraction on a shared ruler mirrors addition — counts subtract, $\\tfrac{9}{11} - \\tfrac{4}{11} = \\tfrac{5}{11}$ — but its *meaning* deserves the wider reading. The number line says what subtraction of fractions really asks: **name the gap between two points**. Lesson 4.3 measured the gap between $\\tfrac{7}{12}$ and $\\tfrac{5}{8}$ to settle a comparison; the very same gap, written as an arithmetic sentence, is $\\tfrac{5}{8} - \\tfrac{7}{12} = \\tfrac{1}{24}$. Comparison and subtraction are one skill seen twice — the verdict machine of last lesson was computing a difference all along.',
+        },
+        {
+          kind: 'example',
+          title: "Subtract 5/8 − 7/12 — Lesson 4.3's gap, promoted",
+          steps: [
+            'Now, the rulers differ, so raise both to the common ruler $24$: $\\tfrac{5}{8} = \\tfrac{15}{24}$ and $\\tfrac{7}{12} = \\tfrac{14}{24}$.',
+            'So the gap is the difference of the raised counts: $\\tfrac{15}{24} - \\tfrac{14}{24} = \\tfrac{1}{24}$.',
+            'Check it by the licence of Lesson 4.2, subtracting across the product ruler at once: $\\tfrac{5 \\times 12 - 7 \\times 8}{8 \\times 12} = \\tfrac{60 - 56}{96} = \\tfrac{4}{96} = \\tfrac{1}{24}$ — the HCF $4$ clears the atom.',
+            'Hence $\\tfrac{5}{8} - \\tfrac{7}{12} = \\tfrac{1}{24}$ — last lesson\'s "single extra twenty-fourth," now standing on its own as an answer.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Subtraction names a gap. On the line, 7/12 and 5/8 are two points; the arc spans the distance between them, and that distance is the answer: 5/8 − 7/12 = 1/24. One twenty-fourth of the whole unit line, drawn to scale — the gap in the figure is exactly 1/24 of the span from 0 to 1.',
+          svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 0 to 1 with ticks at 7/12 and 5/8 and an arc naming the gap between them as 1/24">
+  <g font-size="13" fill="currentColor">
+  <line x1="40" y1="170" x2="720" y2="170" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M 720 170 l -9 -4 v 8 z" fill="currentColor"/>
+  <line x1="40" y1="162" x2="40" y2="178" stroke="currentColor" stroke-width="1.5"/>
+  <text x="40" y="198" text-anchor="middle" font-weight="700">0</text>
+  <line x1="436.67" y1="162" x2="436.67" y2="178" stroke="currentColor" stroke-width="1.5"/>
+  <text x="436.67" y="198" text-anchor="middle" font-weight="700">7/12</text>
+  <line x1="465" y1="162" x2="465" y2="178" stroke="currentColor" stroke-width="1.5"/>
+  <text x="465" y="198" text-anchor="middle" font-weight="700">5/8</text>
+  <line x1="720" y1="162" x2="720" y2="178" stroke="currentColor" stroke-width="1.5"/>
+  <text x="720" y="198" text-anchor="middle" font-weight="700">1</text>
+  <path d="M 436.67 170 A 14.17 26 0 0 1 465 170" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <text x="450.83" y="134" text-anchor="middle" font-weight="700">1/24</text>
+  <text x="380" y="232" text-anchor="middle" font-weight="700">subtraction names the gap between the points: 5/8 − 7/12 = 1/24</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The most useful gap of all is the one below the whole. "How much is left?" after $\\tfrac{5}{9}$ of a job is done asks for $1 - \\tfrac{5}{9}$ — and $1$ wears its own ruler: $1 = \\tfrac{9}{9}$, so $1 - \\tfrac{5}{9} = \\tfrac{9}{9} - \\tfrac{5}{9} = \\tfrac{4}{9}$. Lesson 4.3 compared fractions near the top by their missing pieces; the arithmetic makes that comparison a number. One caution draws the boundary of the whole operation: counts can subtract only when the gap exists. $\\tfrac{5}{8} - \\tfrac{3}{8}$ names a real gap of two eighths; $\\tfrac{3}{8} - \\tfrac{5}{8}$ asks for a gap from a point to a point *right of it* — there is no such distance among the fractions above zero, and larger-from-smaller must wait for negative numbers in a later chapter.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The complement',
+          text: 'For any proper fraction, the complement $1 - \\tfrac{a}{b} = \\tfrac{b - a}{b}$ is what the whole still owes. Complements add back to the whole: $\\tfrac{5}{9} + \\tfrac{4}{9} = 1$, $\\tfrac{7}{8} + \\tfrac{1}{8} = 1$. Tank and salary questions run on complements: a tank $\\tfrac{7}{12}$ full has $\\tfrac{12}{12} - \\tfrac{7}{12} = \\tfrac{5}{12}$ empty — and the two parts must add to the whole, a free check that catches arithmetic slips.',
+        },
+        { kind: 'heading', text: 'Mixed numbers: the two storeys' },
+        {
+          kind: 'para',
+          text: 'Mixed numbers carry their two-storey structure into the arithmetic, and the storeys are worked in order: **wholes with wholes, fractional parts with fractional parts** — after the parts, like any fractions, are brought to one ruler. The only new event is traffic *between* the storeys. When the fractional parts of a sum overflow past $1$, a whole must be carried up; when the parts of a difference underflow below $0$, a whole must be borrowed down. Lesson 1.3\'s carrying and borrowing return, played one storey lower.',
+        },
+        {
+          kind: 'example',
+          title: 'Add 2 3/4 + 1 1/2 — storeys with an overflow',
+          steps: [
+            'Now, work the storeys: wholes $2 + 1 = 3$; parts $\\tfrac{3}{4} + \\tfrac{1}{2}$ on the twelve-ruler — or the fourth-ruler, since $\\tfrac{1}{2} = \\tfrac{2}{4}$.',
+            'So the parts give $\\tfrac{3}{4} + \\tfrac{2}{4} = \\tfrac{5}{4}$ — an overflow: the fractional storey holds more than a whole.',
+            'Next, regroup: $\\tfrac{5}{4} = 1\\tfrac{1}{4}$, so one whole is carried up: $3 + 1 = 4$ wholes, $\\tfrac{1}{4}$ left below.',
+            'Hence $2\\tfrac{3}{4} + 1\\tfrac{1}{2} = 4\\tfrac{1}{4}$ — and the improper route agrees: $\\tfrac{11}{4} + \\tfrac{6}{4} = \\tfrac{17}{4} = 4\\tfrac{1}{4}$, since $17 = 4 \\times 4 + 1$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Regrouping a mixed number',
+          text: 'An **overflow** in addition: fractional parts summing to $\\tfrac{n}{d}$ with $n \\geq d$ carry $\\lfloor n/d \\rfloor$ wholes up and leave the remainder below — $\\tfrac{5}{4} = 1\\tfrac{1}{4}$. An **underflow** in subtraction: when $\\tfrac{n}{d} < \\tfrac{m}{e}$, borrow $1 = \\tfrac{d}{d}$ from the wholes — $3\\tfrac{1}{5} = 2\\tfrac{6}{5}$ — and subtract on the shared ruler. Both moves are the division algorithm of Lesson 2.4, run on the fractional storey.',
+        },
+        {
+          kind: 'example',
+          title: 'Subtract 3 1/5 − 1 2/5 — storeys with an underflow',
+          steps: [
+            'Now, the fractional parts face the wrong way: $\\tfrac{1}{5} < \\tfrac{2}{5}$ — the underflow case, so no subtraction of parts is legal yet.',
+            'So borrow one whole from the $3$ and pay it to the parts: $3\\tfrac{1}{5} = 2\\tfrac{5}{5} + \\tfrac{1}{5} = 2\\tfrac{6}{5}$.',
+            'Now both storeys subtract cleanly: wholes $2 - 1 = 1$; parts $\\tfrac{6}{5} - \\tfrac{2}{5} = \\tfrac{4}{5}$.',
+            'Hence $3\\tfrac{1}{5} - 1\\tfrac{2}{5} = 1\\tfrac{4}{5}$ — and the improper route confirms: $\\tfrac{16}{5} - \\tfrac{7}{5} = \\tfrac{9}{5} = 1\\tfrac{4}{5}$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The two routes — storeys and improper conversion — never disagree, because they are the same computation with the wholes either held apart or folded in. That makes the improper route the systematic *check* rather than a second method to memorise: convert, operate once on single fractions, convert back with the division algorithm. When no regrouping is needed the storey route is faster on the page ($1\\tfrac{2}{7} + 2\\tfrac{3}{7} = 3\\tfrac{5}{7}$, parts staying under the whole); when regrouping happens twice, the improper route often outruns it.',
+        },
+        { kind: 'heading', text: 'Egyptian openings: two-term sums' },
+        {
+          kind: 'para',
+          text: 'Lesson 4.1 buried a promise in its history corner: the Egyptian scribes wrote every fraction (except $\\tfrac{2}{3}$) as a **sum of distinct unit fractions**, and $\\tfrac{3}{10} = \\tfrac{1}{4} + \\tfrac{1}{20}$ was banked there for this lesson. The machinery is now on the table, because finding such a split is an exercise in *comparison plus subtraction*. The **greedy split** takes the largest unit fraction that fits under the target, and the remainder — found by subtraction on a common ruler — is often a unit fraction already.',
+        },
+        {
+          kind: 'example',
+          title: 'Split 3/10 as a two-term Egyptian sum — the greedy opening',
+          steps: [
+            'Now, find the largest unit fraction below $\\tfrac{3}{10}$ by comparison: $\\tfrac{1}{3} > \\tfrac{3}{10}$ ($10 > 9$) fails, but $\\tfrac{1}{4} < \\tfrac{3}{10}$ ($12 > 10$) fits — the greedy choice is $\\tfrac{1}{4}$.',
+            'So subtract on the common ruler $20$: $\\tfrac{3}{10} - \\tfrac{1}{4} = \\tfrac{6}{20} - \\tfrac{5}{20} = \\tfrac{1}{20}$ — the remainder is already unit.',
+            'Check the split by adding back: $\\tfrac{1}{4} + \\tfrac{1}{20} = \\tfrac{5}{20} + \\tfrac{1}{20} = \\tfrac{6}{20} = \\tfrac{3}{10}$, and the two unit fractions are distinct as Egyptian style demands.',
+            'Hence $\\tfrac{3}{10} = \\tfrac{1}{4} + \\tfrac{1}{20}$ — the promise of Lesson 4.2 paid in two moves: one comparison, one subtraction.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The greedy split is not the only opening — $\\tfrac{3}{10} = \\tfrac{1}{5} + \\tfrac{1}{10}$ is equally Egyptian ($\\tfrac{2}{10} + \\tfrac{1}{10}$, the numerator $3$ split as $2 + 1$) but not greedy, since $\\tfrac{1}{4}$ is larger and still fits. Nor is two terms always enough: on $\\tfrac{5}{6}$ the greedy choice $\\tfrac{1}{2}$ leaves $\\tfrac{5}{6} - \\tfrac{1}{2} = \\tfrac{1}{3}$ — two terms, done; other targets leave non-unit remainders that need a second greedy pass. What the method always delivers is a *procedure*: compare to pin the opening, subtract to name the remainder, repeat. The remainders shrink as the ladder of unit fractions steps down — $\\tfrac{1}{20} < \\tfrac{1}{4}$ — which is why the process terminates and why Egyptian tables could be built at all.',
+        },
+        { kind: 'heading', text: 'Putting it to work' },
+        {
+          kind: 'para',
+          text: 'From the above discussion, the methods collect into one table — six recurring situations, six routes, each with its worked instance from this lesson:',
+        },
+        {
+          kind: 'table',
+          head: ['Situation', 'Route', 'Worked instance', 'Result'],
+          rows: [
+            ['Same ruler (like fractions)', 'add or subtract the counts, then simplify', '2/9 + 4/9 = 6/9', '= 2/3'],
+            ['One ruler a multiple of the other', 'raise only the smaller denominator', '3/5 + 7/10 = 6/10 + 7/10', '= 13/10 = 1 3/10'],
+            ['Unlike rulers', 'raise both to the LCM (or the product)', '7/12 + 3/10 = 35/60 + 18/60', '= 53/60'],
+            ['A list of three or more', 'one ruler for the whole list', '1/2 + 1/3 + 1/9 on the 18-ruler: 9 + 6 + 2', '= 17/18'],
+            ['From the whole', 'complement: d/d − a/d = (d − a)/d', '1 − (1/4 + 2/5) = 20/20 − 13/20', '= 7/20'],
+            ['Mixed numbers', 'storeys first; regroup the overflow or underflow', '3 1/5 − 1 2/5 = 2 6/5 − 1 2/5', '= 1 4/5'],
+          ],
+        },
+        {
+          kind: 'equation',
+          latex: '\\frac{a}{d} \\pm \\frac{c}{d} = \\frac{a \\pm c}{d} \\qquad \\frac{a}{b} \\pm \\frac{c}{d} = \\frac{a k_1 \\pm c k_2}{R}, \\; R = \\mathrm{LCM}(b, d) \\qquad 1 - \\frac{a}{d} = \\frac{d - a}{d}',
+          note: 'The three arithmetic laws on one line: like rulers operate on their counts; unlike rulers rise to the LCM and let the raised counts do the work; and the whole surrenders its complement in one move. Mixed numbers run the storeys separately, regrouping across the boundary as needed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Addition and subtraction in the exam hall',
+          text: 'The exam shapes repeat. (i) *Remainder items* — "spends $\\tfrac{1}{4}$ on rent and $\\tfrac{2}{5}$ on food": add the spent fractions, then subtract from $1$ via the complement ($1 - \\tfrac{13}{20} = \\tfrac{7}{20}$). (ii) *Fill-and-empty items* — tanks, pipes, journeys: combine the filled fractions and read the empty part as the complement; the two must add to $1$. (iii) *Mixed-number quantities* — lengths and weights: storeys with regrouping, or the improper route as a check. The LCMs of small denominator sets — $12$, $20$, $24$, $60$ — are worth knowing on sight; chapter 3\'s Euclid finds any that are not.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: '3/11 + 5/11 = ?',
+              options: [
+                '8/22 — add the numerators and the denominators',
+                '8/11 — eleven pieces each, so three plus five of them',
+                '15/11 — multiply the numerators',
+                '8/121 — add across both storeys',
+              ],
+              answer: 1,
+              explain:
+                'Like fractions: the ruler is shared, so the counts pool, 3 + 5 = 8, and the denominator rides through (Option 2). Option 1 is the straight-across fraud — and its victim 8/22 = 4/11 is exactly half the true sum, twice as many pieces of half the size... of the same ruler, which no move licenses. Option 3 invents a multiplication the rule never sold. Option 4 doubles the denominator as if the pieces shrank during addition — the piece size is fixed by the shared ruler.',
+            },
+            {
+              q: '1/4 + 1/6 = ?',
+              options: [
+                '2/10 = 1/5 — add straight across',
+                '1/12 — take the smaller piece',
+                '5/12 — the LCM 12 raises both: 3/12 + 2/12',
+                '5/24 — raise both to the product 24 and halve',
+              ],
+              answer: 2,
+              explain:
+                'Unlike rulers need one common ruler: LCM(4, 6) = 12, and the raised counts 3 + 2 = 5 give 5/12 (Option 3). Option 1 is the mediant fraud — 1/5 sits strictly between the addends (1/6 < 1/5 < 1/4), Lesson 4.3\'s theorem in action, and below the true sum. Option 2 names a piece size, not an amount. Option 4 actually computes 10/24 = 5/12 in disguise and then mislabels it: 6/24 + 4/24 = 10/24, which simplifies to 5/12 — the 24-ruler was legal, the halving was not.',
+            },
+            {
+              q: '7/8 − 5/8 = ?',
+              options: [
+                '2/16 — subtract the denominators too',
+                '2/8 — and it must stay, because differences are never simplified',
+                '1/4 — 2/8 simplifies by its HCF, 2',
+                '3/8 — round the counts first',
+              ],
+              answer: 2,
+              explain:
+                'The counts subtract: 7 − 5 = 2, so 2/8 — and then Lesson 4.2\'s one-step simplification finishes the job: HCF(2, 8) = 2, giving 1/4 (Option 3). Option 1 subtracts the piece size, which never changed. Option 2 is the exact half-answer the lesson warns about: a correct count with its atoms left in. Option 4 invents a rounding step that no ruler supports.',
+            },
+            {
+              q: '3 1/5 − 1 2/5 = ?',
+              options: [
+                '2 1/5 — subtract the parts larger-from-smaller and leave the wholes',
+                '1 4/5 — borrow one whole as 5/5: 2 6/5 − 1 2/5',
+                '2 4/5 — borrow, but forget the borrowed whole in the final count',
+                '1 1/5 — treat the underflow as zero after a wrong borrow',
+              ],
+              answer: 1,
+              explain:
+                'The parts underflow (1/5 < 2/5), so one whole is borrowed and paid to the parts: 3 1/5 = 2 6/5, then 2 − 1 = 1 and 6/5 − 2/5 = 4/5 (Option 2). Option 1 flips the illegal subtraction to look legal — 2 1/5 = 11/5 is not 9/5. Option 3 borrows correctly and then forgets to spend the borrowed whole in the wholesale subtraction. The improper route (16/5 − 7/5 = 9/5) arbitrates all three disputes in one line.',
+            },
+            {
+              q: 'The greedy opening of 3/10 — the largest unit fraction that fits beneath it — is:',
+              options: [
+                '1/4, and the remainder is exactly 1/20: 3/10 − 1/4 = 6/20 − 5/20',
+                '1/3, with remainder 1/30',
+                '1/5, with remainder 1/10 — a valid Egyptian split, but not the greedy one',
+                '1/2, with remainder −1/5',
+              ],
+              answer: 0,
+              explain:
+                'Compare: 1/3 > 3/10 (10 > 9), so thirds overshoot; 1/4 < 3/10 (12 > 10) fits — and the subtraction on the 20-ruler leaves exactly 1/20 (Option 1). Option 2 subtracts a fraction larger than the target: 3/10 − 1/3 = −1/30, no gap exists. Option 3 is the honourable non-greedy split 1/5 + 1/10 — correct as Egyptian writing, but 1/4 also fits and is larger, so greed points elsewhere. Option 4 overshoots worse and produces a negative remainder — the sign that the choice was too big.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Compute: (a) 3/13 + 4/13; (b) 9/11 − 4/11; (c) 7/7 − 3/7.',
+                  solution: [
+                    'Now, all three pairs are like fractions — shared rulers, so the counts do the arithmetic.',
+                    'So (a) $\\tfrac{3}{13} + \\tfrac{4}{13} = \\tfrac{7}{13}$ ($3 + 4 = 7$); (b) $\\tfrac{9}{11} - \\tfrac{4}{11} = \\tfrac{5}{11}$ ($9 - 4 = 5$).',
+                    'And (c): the whole is $\\tfrac{7}{7}$, so $\\tfrac{7}{7} - \\tfrac{3}{7} = \\tfrac{4}{7}$ — the complement of $\\tfrac{3}{7}$.',
+                    'Hence (a) $\\tfrac{7}{13}$, (b) $\\tfrac{5}{11}$, (c) $\\tfrac{4}{7}$ — each already in lowest terms, no atoms to clear.',
+                  ],
+                  answer: '(a) 7/13; (b) 5/11; (c) 4/7',
+                },
+                {
+                  q: 'Add 5/10 + 3/10, and give the answer in lowest terms.',
+                  solution: [
+                    'Now, the ruler is shared: the counts pool, $5 + 3 = 8$, so the sum is $\\tfrac{8}{10}$.',
+                    'So simplify before celebrating: $\\gcd(8, 10) = 2$, and one division gives $\\tfrac{8}{10} = \\tfrac{4}{5}$.',
+                    'Hence $\\tfrac{5}{10} + \\tfrac{3}{10} = \\tfrac{4}{5}$ — the count 8 was honest but carried the atom $2$.',
+                  ],
+                  answer: '4/5 (8/10 simplified by the HCF 2)',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Add 3/5 + 7/10, and read the answer both as an improper fraction and as a mixed number.',
+                  solution: [
+                    'Now, the rulers differ, but $10$ is a multiple of $5$ — only the fifths need raising.',
+                    'So $\\tfrac{3}{5} = \\tfrac{6}{10}$, and the counts pool on the ten-ruler: $\\tfrac{6}{10} + \\tfrac{7}{10} = \\tfrac{13}{10}$.',
+                    'Next, read it both ways: $\\tfrac{13}{10}$ is improper ($13 > 10$), and the division algorithm splits it — $13 = 1 \\times 10 + 3$ — into $1\\tfrac{3}{10}$.',
+                    'Hence $\\tfrac{3}{5} + \\tfrac{7}{10} = \\tfrac{13}{10} = 1\\tfrac{3}{10}$ — the sum passed the whole, as sums may.',
+                  ],
+                  answer: '13/10 = 1 3/10 (on the ten-ruler: 6 + 7 = 13)',
+                },
+                {
+                  q: 'Subtract 5/6 − 1/2.',
+                  solution: [
+                    'Now, halves and sixths: $6$ is a multiple of $2$, so $\\tfrac{1}{2} = \\tfrac{3}{6}$ and the six-ruler serves both.',
+                    'So $\\tfrac{5}{6} - \\tfrac{3}{6} = \\tfrac{2}{6}$.',
+                    'Next, simplify: $\\gcd(2, 6) = 2$, so $\\tfrac{2}{6} = \\tfrac{1}{3}$.',
+                    'Hence $\\tfrac{5}{6} - \\tfrac{1}{2} = \\tfrac{1}{3}$ — the gap, named on the six-ruler and cleaned by the atoms.',
+                  ],
+                  answer: '1/3 (5/6 − 3/6 = 2/6 = 1/3)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Add 2/3 + 1/4 on the smallest legal ruler; name the ruler.',
+                  solution: [
+                    'Now, the smallest legal ruler is $\\mathrm{LCM}(3, 4) = 12$ — the product $12$ here, since $3$ and $4$ share no factor.',
+                    'So raise each: $\\tfrac{2}{3} = \\tfrac{8}{12}$ (by $4$) and $\\tfrac{1}{4} = \\tfrac{3}{12}$ (by $3$).',
+                    'Now the counts pool: $\\tfrac{8}{12} + \\tfrac{3}{12} = \\tfrac{11}{12}$, and $\\gcd(11, 12) = 1$.',
+                    'Hence $\\tfrac{2}{3} + \\tfrac{1}{4} = \\tfrac{11}{12}$ on the twelve-ruler — one short of the whole, as the complement would say: $1 - \\tfrac{11}{12} = \\tfrac{1}{12}$ left over.',
+                  ],
+                  answer: '11/12 (on the 12-ruler: 8/12 + 3/12)',
+                },
+                {
+                  q: 'A water tank is 1/3 full. After another 1/4 of the tank is poured in, what fraction is full — and what fraction is still empty?',
+                  solution: [
+                    'Now, combine on the common ruler $12$: $\\tfrac{1}{3} = \\tfrac{4}{12}$ and $\\tfrac{1}{4} = \\tfrac{3}{12}$.',
+                    'So the filled part is $\\tfrac{4}{12} + \\tfrac{3}{12} = \\tfrac{7}{12}$.',
+                    'Next, the empty part is the complement: $1 - \\tfrac{7}{12} = \\tfrac{12}{12} - \\tfrac{7}{12} = \\tfrac{5}{12}$.',
+                    'Hence the tank is $\\tfrac{7}{12}$ full and $\\tfrac{5}{12}$ empty — and the free check holds: $\\tfrac{7}{12} + \\tfrac{5}{12} = 1$.',
+                  ],
+                  answer: '7/12 full, 5/12 empty (4/12 + 3/12; the parts add to the whole)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'exam-style: A salary spends 1/4 on rent and 2/5 on food. What fraction of the salary remains?',
+                  solution: [
+                    'Now, the spent fractions first, on the common ruler $\\mathrm{LCM}(4, 5) = 20$: $\\tfrac{1}{4} = \\tfrac{5}{20}$ and $\\tfrac{2}{5} = \\tfrac{8}{20}$.',
+                    'So total spent: $\\tfrac{5}{20} + \\tfrac{8}{20} = \\tfrac{13}{20}$.',
+                    'Next, the remainder is the complement: $1 - \\tfrac{13}{20} = \\tfrac{20}{20} - \\tfrac{13}{20} = \\tfrac{7}{20}$, already lowest ($\\gcd(7, 20) = 1$).',
+                    'Hence $\\tfrac{7}{20}$ of the salary remains — spend, complement, done: the exam shape of subtraction from the whole.',
+                  ],
+                  answer: '7/20 remains (1/4 + 2/5 = 13/20 spent; complement 7/20)',
+                },
+                {
+                  q: 'Add 2 3/4 + 1 1/2 two ways — by storeys with regrouping, and by improper conversion.',
+                  solution: [
+                    'Now, the storey route: wholes $2 + 1 = 3$; parts $\\tfrac{3}{4} + \\tfrac{1}{2} = \\tfrac{3}{4} + \\tfrac{2}{4} = \\tfrac{5}{4}$ — an overflow.',
+                    'So regroup: $\\tfrac{5}{4} = 1\\tfrac{1}{4}$, one whole carried up — $3 + 1 = 4$ wholes with $\\tfrac{1}{4}$ below.',
+                    'Or the improper route: $2\\tfrac{3}{4} = \\tfrac{11}{4}$ and $1\\tfrac{1}{2} = \\tfrac{6}{4}$, so $\\tfrac{11}{4} + \\tfrac{6}{4} = \\tfrac{17}{4}$, and $17 = 4 \\times 4 + 1$ reads back as $4\\tfrac{1}{4}$.',
+                    'Hence $2\\tfrac{3}{4} + 1\\tfrac{1}{2} = 4\\tfrac{1}{4}$ by both routes — the overflow carried honestly in each.',
+                  ],
+                  answer: '4 1/4 (storeys: 3 + 1 1/4; improper: 17/4 = 4 1/4)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Add 1/2 + 1/3 + 1/9 on the smallest common ruler.',
+                  solution: [
+                    'Now, the smallest ruler for all three is $\\mathrm{LCM}(2, 3, 9) = 18$ — eighteen covers $2$, $3$ and $9$ and no smaller number does.',
+                    'So raise each: $\\tfrac{1}{2} = \\tfrac{9}{18}$ (by $9$), $\\tfrac{1}{3} = \\tfrac{6}{18}$ (by $6$), $\\tfrac{1}{9} = \\tfrac{2}{18}$ (by $2$).',
+                    'Now pool all three counts: $\\tfrac{9}{18} + \\tfrac{6}{18} + \\tfrac{2}{18} = \\tfrac{17}{18}$, and $\\gcd(17, 18) = 1$.',
+                    'Hence $\\tfrac{1}{2} + \\tfrac{1}{3} + \\tfrac{1}{9} = \\tfrac{17}{18}$ — one ruler, three raisings, and the complement $\\tfrac{1}{18}$ is all the whole has left.',
+                  ],
+                  answer: '17/18 (on the 18-ruler: 9 + 6 + 2)',
+                },
+                {
+                  q: 'Compute 5/6 − 1/4 + 1/12, and give the answer in lowest terms.',
+                  solution: [
+                    'Now, one ruler serves the whole chain: $\\mathrm{LCM}(6, 4, 12) = 12$.',
+                    'So raise each term: $\\tfrac{5}{6} = \\tfrac{10}{12}$ (by $2$), $\\tfrac{1}{4} = \\tfrac{3}{12}$ (by $3$), $\\tfrac{1}{12}$ stays.',
+                    'Now read left to right: $\\tfrac{10}{12} - \\tfrac{3}{12} + \\tfrac{1}{12} = \\tfrac{8}{12}$.',
+                    'Hence $\\tfrac{8}{12} = \\tfrac{2}{3}$ after the HCF $4$ — a chain of unlike rulers collapsed onto one and swept clean by the atoms.',
+                  ],
+                  answer: '2/3 (10/12 − 3/12 + 1/12 = 8/12 = 2/3)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the like-ruler rule: for whole numbers a, c and positive d, a/d + c/d = (a+c)/d — using what a/d means and the distributive law.',
+                  solution: [
+                    'Licence: $\\tfrac{a}{d}$ means $a$ copies of the piece $\\tfrac{1}{d}$ — the fraction-of-a-quantity reading of Lesson 4.1.',
+                    'Now, $\\tfrac{a}{d} + \\tfrac{c}{d} = a \\cdot \\tfrac{1}{d} + c \\cdot \\tfrac{1}{d}$ — both addends are multiples of one and the same piece.',
+                    'So the distributive law of Lesson 2.2 pools the copies: $a \\cdot \\tfrac{1}{d} + c \\cdot \\tfrac{1}{d} = (a + c) \\cdot \\tfrac{1}{d} = \\tfrac{a + c}{d}$.',
+                    'Hence $\\tfrac{a}{d} + \\tfrac{c}{d} = \\tfrac{a + c}{d}$ — the denominator never entered the arithmetic because the piece size never changed; the rule is distributivity wearing a vinculum. □',
+                  ],
+                  answer: 'a/d + c/d = (a+c)/d (a copies plus c copies of 1/d, pooled by distributivity)',
+                },
+                {
+                  q: 'Prove the straight-across fraud theorem: for positive fractions, a/b + c/d > (a+c)/(b+d) — the true sum always beats the mediant — and state where the mediant lands relative to the addends.',
+                  solution: [
+                    'Licence: for positive denominators, $\\tfrac{x}{y} < \\tfrac{z}{w} \\iff xy \\cdot w < y \\cdot zw$ — the cross-multiplication test of Lesson 4.2.',
+                    'Now, the true sum is $\\tfrac{ad + bc}{bd}$; compare it with the mediant $\\tfrac{a + c}{b + d}$ cross-wise: $(ad + bc)(b + d)$ against $(a + c)bd$.',
+                    'So expand: $(ad + bc)(b + d) = abd + ad^2 + b^2c + bcd$, while $(a + c)bd = abd + bcd$ — the difference is $ad^2 + b^2c$, strictly positive since all parts are.',
+                    'Hence $(ad + bc)(b + d) > (a + c)bd$, so $\\tfrac{a}{b} + \\tfrac{c}{d} > \\tfrac{a + c}{b + d}$ always — and by the mediant ordering of Lesson 4.3, the loser sits strictly between the addends ($\\tfrac{1}{3} < \\tfrac{2}{5} < \\tfrac{1}{2}$ for the classic fraud). The straight-across answer is not merely wrong; it is trapped between the values it should join. □',
+                  ],
+                  answer: 'a/b + c/d > (a+c)/(b+d) always (difference ad² + b²c > 0); the mediant lands strictly between the addends',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The ruler that joined pieces for comparison now runs the arithmetic itself: like rulers pool their counts, unlike rulers rise to the LCM and pool the raised counts, gaps become differences, and complements name what the whole still owes. Two debts were paid on the way — Lesson 4.3\'s extra twenty-fourth now stands as a subtraction, and the Egyptian two-term openings promised twice over are a comparison and a subtraction long. One operation set remains to make the fraction line fully arithmetical: multiplication and division, where fractions stop being pooled and start scaling each other — and where the HCF and LCM-of-fractions shortcuts banked from the reference shelf since Lesson 4.1 finally take the stage. Lesson 4.5 opens there.',
+        },
+      ],
+    },
   ],
   plannedLessons: [
-    'Adding and Subtracting Fractions',
     'Multiplying and Dividing Fractions',
   ],
 }

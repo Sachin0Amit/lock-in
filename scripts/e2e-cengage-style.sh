@@ -14,6 +14,7 @@ LESSONS=(
   fm-idea-of-a-fraction
   fm-equivalent-fractions-simplification
   fm-comparing-fractions
+  fm-adding-subtracting-fractions
 )
 
 for L in "${LESSONS[@]}"; do

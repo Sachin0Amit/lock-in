@@ -6,6 +6,112 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 19 (cron, Job 498279): FM lesson 4.4 "Adding and Subtracting Fractions" authored in the Cengage voice + solution chain — the common ruler becomes arithmetic, 4.3's gap promoted to a method, the Egyptian two-term openings cashed
+
+**Run open (push check first):** tree clean at `814cdae` = local HEAD =
+origin/main (run 18's memory commit, verified at run open by one-time-URL
+ls-remote: HEAD = refs/heads/main = `814cdae...`) — nothing queued, no
+push debt. Task per RESUME_POINTER: FM lesson 4.4 "Adding and Subtracting
+Fractions".
+
+**Arithmetic pre-verified BEFORE writing:** `scripts/verify-unit-4.ts`
+extended 199 → **261 checks** (new sections AA–AH: AA like-ruler
+arithmetic + sums past the whole, AB the LCM method incl. the chapter-2
+laws returning (commutativity, associativity on the 18-ruler 15 + 2 =
+9 + 8 = 17, identity 0), AC subtraction as gap-naming + complements +
+the licence form (60 − 56)/96 = 4/96, AD mixed-number regroupings both
+routes (overflow 17/4, underflow 9/5), AE the greedy Egyptian splits
+(1/3 > 3/10 > 1/4; 6/20 − 5/20 = 1/20), AF the straight-across fraud
+theorem (ad² + b²c > 0; the mediant trapped between the addends),
+AG quiz + exercise arithmetic, AH figure geometry) — ALL PASS before a
+word was written; verify-unit-2 (165) and verify-unit-3 (260)
+regressions green.
+
+**Lesson 4.4 authored** (`fm-adding-subtracting-fractions`, 4,916 words;
+ch. 4 now 4/5) — the ruler that joined pieces for comparison now runs
+the arithmetic:
+
+- **Like rulers: counting the pieces** — like fractions defined, the
+  like-ruler rule as a definition callout with the symbolic
+  Thus-restatement; the distributive one-line proof (Lesson 2.2
+  returns); the walk-on-the-line reading; a verified properties list
+  (commutative / associative / identity 0 / subtraction inherits none);
+  the simplify-always habit (6/9 → 2/3, 2/8 → 1/4, 8/10 → 4/5) and sums
+  passing the whole (12/8 = 3/2 = 1 1/2); the **straight-across fraud**
+  Caution — 1/2 + 1/3 ≠ 2/5, and the fake answer is exactly the mediant,
+  trapped strictly between the addends (Exercise L6 proves the stronger
+  fact: true sum always wins, difference ad² + b²c > 0).
+- **Unlike rulers: the LCM becomes standard equipment** — 4.2's raising
+  move now load-bearing: 1/4 + 1/6 = 3/12 + 2/12 = 5/12 with the
+  **five-bar figure** (1/4 and 1/6 on their own rulers, both re-measured
+  in twelfths — the 3-twelfths shading exactly the 155px of the fourth,
+  the sum bar with the two contributions stacked and the boundary
+  dashed); the product ruler agrees (7/12 + 3/10 = 53/60 via 35 + 18 on
+  the 60-ruler and 70 + 36 on the 120-ruler); lists on one ruler (the
+  18-ruler for 1/2 + 1/3 + 1/9); two formula cards (like-ruler ±, the
+  LCM method).
+- **Subtraction as gap-naming** — 5/8 − 7/12 = 15/24 − 14/24 = 1/24:
+  **Lesson 4.3's "single extra twenty-fourth" now stands as an answer**,
+  licence check (60 − 56)/96 = 4/96; the number-line figure whose arc
+  spans exactly 1/24 of the unit (28.33 px = 680/24); complements
+  (1 − 5/9 = 4/9; 7/8 + 1/8 = 1; tank 7/12 full → 5/12 empty with the
+  add-to-one free check); the legality boundary (3/8 − 5/8 names no gap
+  among the fractions above zero).
+- **Mixed numbers: the two storeys** — wholes with wholes, parts with
+  parts; **overflow** regrouping (2 3/4 + 1 1/2: 3/4 + 2/4 = 5/4 = 1 1/4
+  → 4 1/4; improper route 11/4 + 6/4 = 17/4 agrees) and **underflow**
+  borrowing (3 1/5 − 1 2/5: 2 6/5 − 1 2/5 = 1 4/5; improper route 16/5 −
+  7/5 = 9/5 agrees); the regrouping definition callout ties both moves
+  to the division algorithm of Lesson 2.4.
+- **Egyptian openings: two-term sums** — the promise banked twice
+  (4.1's history corner, 4.2's note) cashed by the **greedy split**:
+  compare (1/3 > 3/10 > 1/4), subtract on the 20-ruler
+  (6/20 − 5/20 = 1/20), so 3/10 = 1/4 + 1/20; 5/6 = 1/2 + 1/3 the same
+  way; 1/5 + 1/10 valid but not greedy; remainders shrink down the
+  unit-fraction ladder, which is why the process terminates.
+- **Putting it to work** — six-row toolkit table, the three-laws
+  equation (like-ruler ± / LCM method / complement), the exam corner
+  (remainder items 1 − 13/20 = 7/20; fill-and-empty with the add-to-one
+  check; mixed quantities; LCMs 12/20/24/60 on sight).
+- 7 Illustrations with Sol.-inline Cengage chains, 6 new terms
+  (Like fractions, Unlike fractions, LCM method, Regrouping, Complement,
+  Greedy split), 2 formula cards, 2 figures (0 audit issues FIRST pass
+  each), 5-quiz (answers spread 1/2/2/1/0), 12 exercises L1–L6 as
+  Cengage chains — L6 proves the like-ruler rule from the distributive
+  law and the straight-across fraud theorem in full algebra.
+
+**Verified:** lint clean; tsc clean; all routes 200 + unknown id 404 (dev
+server restarted for the new lesson — stale param cache); Cengage E2E
+extended to 7 lessons — on 4.4: 7 caps-over-rule headings, 7 ILLUSTRATION
+pills, 7 Sol. pills ALL inline (inlineSolPills = solPills = 7),
+stepNumberBadges = 0, legacyAnswerBoxes = 0, 21 KaTeX ∴ glyphs, note
+boxes Definition/Caution/Remember ×2/Note/Definition/Exam corner,
+exercises bar 12 questions, quiz bar 5 questions, KaTeX 162 nodes,
+dollarInSvg = 0; quiz answered live with intended options (indices
+1/2/2/1/0) → **"You scored 5/5 · perfect"** + Retake; all 12 exercise
+solutions expand; mobile 390px exact-fit (docScrollW = 390, no SVG wider
+than the viewport); zero console errors on fresh load; SVG overlap audit
+both figures **0 issues FIRST pass**; direct screenshot review of both
+figures and the Illustration chain (Sol. pill inline, staircase intact,
+dashed contribution boundary, arc label clear of the axis); glossary
+102 → 108 terms (+6); flashcards pick up the new terms; book TOC shows
+4.4 written, plannedLessons down to one. Totals recomputed by the honest
+counter: **17 lessons / 80,762 words / 108 terms** (ch. 4 = 21,733).
+
+**No new downloads:** references already logged (Khattar ch. 1/2 items
+banked since runs 6/12; NCERT class-6 ch. 7) — the class-6
+addition/subtraction coverage was web-checked and the `ncert-math6-ch7`
+citation extended in SOURCE_LOG; zero temporary-references footprint.
+
+**Git:** ship commit `fm 4.4 adding and subtracting fractions…` +
+inventory bookkeeping commit; BOTH pushed per protocol v2 in one command
+via the one-time HTTPS URL; remote HEAD verified by one-time-URL
+ls-remote; origin/main tracking ref resynced. PAT never written to any
+file, config, or log; origin untouched as the SSH remote. The run-19
+memory commit (this entry) pushes immediately after.
+
+---
+
 ## 2026-11-04 — RUN 18 (cron, Job 498279): FM lesson 4.3 "Comparing Fractions" authored in the Cengage voice + solution chain — the comparison engines collected, the banked SSC MTS 2017 item settled, all 4.1/4.2 debts honoured
 
 **Run open (push check first):** tree clean at `76d9949`; per run 17's

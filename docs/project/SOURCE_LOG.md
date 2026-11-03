@@ -103,14 +103,20 @@ step 6).
   on the number line, proper / improper and mixed fractions), with
   equivalence, simplest form and comparison left scheduled for lessons
   4.2–4.3 exactly as the NCERT chapter orders them after the basics;
-  coverage cross-checked via published syllabus outlines (searches
-  2026-11-03); exposition original — the mediant theorem and its density
-  consequence, the division-algorithm reading of improper↔mixed, and the
-  Egyptian unit-fraction material are the book's own additions
-  (Rhind-papyrus facts web-verified 2026-11-03: Ahmes ~1650 BCE copy of
-  an Amenemhat-III-era text, Rhind's 1858 Luxor purchase, British Museum
-  since 1865, unit fractions with 2/3 the lone exception, 2/n table for
-  odd n from 3 to 101).
+  lesson 4.4 — canonical addition/subtraction sequence mirrored (like
+  denominators added by counting equal pieces, unlike denominators via a
+  common denominator / the LCM, mixed numbers via the two storeys and
+  improper conversion), web-checked against the current Ganita Prakash
+  edition's exercise sequence (7.1–7.9) and published syllabus outlines
+  (search 2026-11-04); coverage cross-checked via published syllabus
+  outlines (searches 2026-11-03); exposition original — the mediant
+  theorem and its density consequence, the division-algorithm reading of
+  improper↔mixed, the Egyptian unit-fraction material, the greedy-split
+  procedure and the straight-across fraud theorem are the book's own
+  additions (Rhind-papyrus facts web-verified 2026-11-03: Ahmes ~1650 BCE
+  copy of an Amenemhat-III-era text, Rhind's 1858 Luxor purchase, British
+  Museum since 1865, unit fractions with 2/3 the lone exception, 2/n
+  table for odd n from 3 to 101).
 
 ## Per-subject ledger
 
@@ -225,3 +231,13 @@ step 6).
   no Khattar text reproduced, instances recomposed or canon forms
   re-derived. Working copies (PDF + text dump) deleted after the lesson's
   E2E verification; only inventory.json retained.
+- 2026-11-04 (mathematics, unit 4, lesson 4.4, run 19): no new downloads —
+  zero temporary-references footprint. NCERT class-6 ch. 7
+  addition/subtraction coverage (like denominators by counting, unlike via
+  common denominators/LCM, mixed numbers) web-checked against the current
+  Ganita Prakash exercise sequence and syllabus outlines (sanctioned
+  fallback); the `ncert-math6-ch7` citation extended. All lesson arithmetic
+  re-verified by script (62 new checks in sections AA–AH of
+  scripts/verify-unit-4.ts, 261 total) BEFORE writing; exposition original —
+  the greedy-split procedure and the straight-across fraud theorem are the
+  book's own derivations, instances recomposed.

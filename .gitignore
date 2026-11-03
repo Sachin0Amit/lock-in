@@ -82,8 +82,12 @@ server.log
 !/scripts/e2e-cengage-style.page.js
 # exception: run-18 lesson-4.3 targeted interactivity checker (quiz 5/5 live + solution expansion; reusable pattern)
 !/scripts/e2e-43.page.js
+# exception: run-19 lesson-4.4 targeted interactivity checker (quiz 5/5 live + solution expansion; reusable pattern)
+!/scripts/e2e-44.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-43-figures.py
+# exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)
+!/scripts/gen-44-figures.py
 # exception: one-shot run-14 log updater (2026-11-03, historical record)
 !/scripts/update_progress_run14.py
 /.zscripts/

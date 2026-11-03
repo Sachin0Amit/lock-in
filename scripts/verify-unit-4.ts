@@ -479,6 +479,113 @@ check('Z6: fig B — the order on the line: 70 < 239.09 < 276.67 < 442 < 690 ⟺
 check('Z7: fig B — the 7/11 and 2/3 marks are 37.58px apart; labels alternate above/below to stay clear', Math.abs(276.67 - 239.09 - 37.58) < 0.01);
 
 /* ============================================================
+ * AA. Lesson 4.4 — like-ruler arithmetic (counts of equal pieces)
+ * ==========================================================*/
+check('AA1: 2/9 + 4/9 = 6/9 (2 + 4 counts) and the sum simplifies: HCF(6,9) = 3 → 2/3', feq(2 + 4, 9, 6, 9) && gcd(6, 9) === 3 && feq(6, 9, 2, 3));
+check('AA2: 3/11 + 5/11 = 8/11, already lowest (gcd(8,11) = 1)', feq(3 + 5, 11, 8, 11) && gcd(8, 11) === 1);
+check('AA3: 9/11 − 4/11 = 5/11 (counts subtract), lowest terms', feq(9 - 4, 11, 5, 11) && gcd(5, 11) === 1);
+check('AA4: 7/8 − 5/8 = 2/8 = 1/4 (HCF(2,8) = 2) — differences simplify too', feq(7 - 5, 8, 2, 8) && gcd(2, 8) === 2 && feq(2, 8, 1, 4));
+check('AA5: 5/10 + 3/10 = 8/10 = 4/5 (HCF(8,10) = 2)', feq(5 + 3, 10, 8, 10) && gcd(8, 10) === 2 && feq(8, 10, 4, 5));
+check('AA6: 3/13 + 4/13 = 7/13; 7/7 − 3/7 = 4/7 and 7/7 = 1 (the complement reading 1 − 3/7)', feq(3 + 4, 13, 7, 13) && feq(7 - 3, 7, 4, 7) && feq(7, 7, 1, 1));
+check('AA7: like-ruler rule a/d + c/d = (a+c)/d for samples (d = 7, counts under the whole)', [
+  [1, 2],
+  [2, 3],
+  [3, 4],
+].every(([a, c]) => feq(a, 7, a, 7) && feq(a + c, 7, a + c, 7)));
+check('AA8: sums may pass the whole: 5/8 + 7/8 = 12/8 = 3/2 = 1 1/2 (improper, two-storey reading)', feq(5 + 7, 8, 12, 8) && feq(12, 8, 3, 2) && 12 > 8 && 1 * 2 + 1 === 3);
+
+/* ============================================================
+ * AB. Lesson 4.4 — the LCM method (unlike rulers)
+ * ==========================================================*/
+check('AB1: 1/4 + 1/6 on the 12-ruler: LCM(4,6) = 12; 3/12 + 2/12 = 5/12, lowest (gcd(5,12) = 1)', (() => { const l = (4 * 6) / gcd(4, 6); return l === 12 && 12 / 4 === 3 && 12 / 6 === 2 && feq(3 + 2, 12, 5, 12) && gcd(5, 12) === 1; })());
+check('AB2: the product ruler agrees: 6/24 + 4/24 = 10/24 = 5/12', feq(6 + 4, 24, 10, 24) && feq(10, 24, 5, 12));
+check('AB3: 7/12 + 3/10 on the 60-ruler: LCM(12,10) = 60; 35/60 + 18/60 = 53/60, lowest (gcd(53,60) = 1)', (() => { const l = (12 * 10) / gcd(12, 10); return l === 60 && 60 / 12 === 5 && 7 * 5 === 35 && 60 / 10 === 6 && 3 * 6 === 18 && feq(35 + 18, 60, 53, 60) && gcd(53, 60) === 1; })());
+check('AB4: the same sum on the product ruler 120: 70/120 + 36/120 = 106/120 = 53/60 — both rulers, one verdict', feq(7 * 10, 120, 70, 120) && feq(3 * 12, 120, 36, 120) && feq(70 + 36, 120, 106, 120) && feq(106, 120, 53, 60));
+check('AB5: subtraction on the 24-ruler: 5/8 − 7/12 = 15/24 − 14/24 = 1/24 — Lesson 4.3\'s gap promoted to arithmetic', feq(5 * 3, 24, 15, 24) && feq(7 * 2, 24, 14, 24) && feq(15 - 14, 24, 1, 24));
+check('AB6: the LCM keeps counts small: LCM(12,10) = 60 < 120 = product; raisings 5,6 vs 10,12 and counts 35,18 vs 70,36', 60 < 120 && 5 < 10 && 6 < 12 && 35 < 70 && 18 < 36);
+check('AB7: 2/3 + 1/4 = 8/12 + 3/12 = 11/12, lowest (gcd(11,12) = 1)', 12 / 3 === 4 && 2 * 4 === 8 && 12 / 4 === 3 && 1 * 3 === 3 && feq(8 + 3, 12, 11, 12) && gcd(11, 12) === 1);
+check('AB8: three fractions on one ruler: 1/2 + 1/3 + 1/9 — LCM(2,3,9) = 18; 9/18 + 6/18 + 2/18 = 17/18, lowest', (() => { const l = (a: number, b: number): number => (a * b) / gcd(a, b); return l(2, 3) === 6 && l(6, 9) === 18 && 18 / 2 === 9 && 18 / 3 === 6 && 18 / 9 === 2 && feq(9 + 6 + 2, 18, 17, 18) && gcd(17, 18) === 1; })());
+check('AB9: add-subtract chain: 5/6 − 1/4 + 1/12 on the 12-ruler: 10/12 − 3/12 + 1/12 = 8/12 = 2/3 (HCF(8,12) = 4)', feq(5 * 2, 12, 10, 12) && feq(1 * 3, 12, 3, 12) && feq(10 - 3 + 1, 12, 8, 12) && gcd(8, 12) === 4 && feq(8, 12, 2, 3));
+check('AB10: one-multiple case: 3/5 + 7/10 = 6/10 + 7/10 = 13/10 — improper; two-storey reading 1 3/10', feq(3 * 2, 10, 6, 10) && feq(6 + 7, 10, 13, 10) && 13 > 10 && feq(13, 10, 1 * 10 + 3, 10));
+check('AB11: 5/6 − 1/2 = 5/6 − 3/6 = 2/6 = 1/3 (HCF(2,6) = 2)', feq(5 - 3, 6, 2, 6) && gcd(2, 6) === 2 && feq(2, 6, 1, 3));
+check('AB12: the laws return — commutativity: 1/4 + 1/6 = 1/6 + 1/4 (same raised counts, 3 + 2); identity: 5/9 + 0 = 5/9', feq(3 + 2, 12, 2 + 3, 12) && feq(5, 9, 5, 9) && feq(5 + 0, 9, 5, 9));
+check('AB13: associativity on the 18-ruler: (1/2 + 1/3) + 1/9 = 15/18 + 2/18 = 17/18 and 1/2 + (1/3 + 1/9) = 9/18 + 8/18 = 17/18', feq(9 + 6, 18, 15, 18) && feq(15 + 2, 18, 17, 18) && feq(6 + 2, 18, 8, 18) && feq(9 + 8, 18, 17, 18));
+
+/* ============================================================
+ * AC. Lesson 4.4 — subtraction as gap-naming; complements
+ * ==========================================================*/
+check('AC1: complement from the whole: 1 − 5/9 = 9/9 − 5/9 = 4/9 — the missing piece named', feq(9 - 5, 9, 4, 9) && 5 + 4 === 9);
+check('AC2: completing the whole, arithmetised: 1 − 7/8 = 1/8 and 7/8 + 1/8 = 1', feq(8 - 7, 8, 1, 8) && feq(7 + 1, 8, 8, 8) && feq(8, 8, 1, 1));
+check('AC3: tank problem: 1/3 + 1/4 = 4/12 + 3/12 = 7/12 full; the empty part is 12/12 − 7/12 = 5/12', feq(4 + 3, 12, 7, 12) && feq(12 - 7, 12, 5, 12) && 7 + 5 === 12);
+check('AC4: salary problem: 1/4 + 2/5 = 5/20 + 8/20 = 13/20 spent; 1 − 13/20 = 7/20 remains', feq(5 + 8, 20, 13, 20) && feq(20 - 13, 20, 7, 20) && gcd(7, 20) === 1);
+check('AC5: the licence form of the gap: (5×12 − 7×8)/(8×12) = (60−56)/96 = 4/96 = 1/24 — agrees with the 24-ruler', feq(5 * 12 - 7 * 8, 8 * 12, 4, 96) && feq(4, 96, 1, 24) && gcd(4, 96) === 4);
+check('AC6: counts subtract only when the gap exists: 5/8 − 3/8 legal (5 ≥ 3); 3/8 − 5/8 has no whole-number count answer (3 < 5)', 5 - 3 === 2 && 3 < 5 && feq(5 - 3, 8, 2, 8));
+
+/* ============================================================
+ * AD. Lesson 4.4 — mixed numbers: the two storeys
+ * ==========================================================*/
+check('AD1: overflow addition: 2 3/4 + 1 1/2 — parts 3/4 + 2/4 = 5/4 = 1 1/4 regroups: 2 + 1 + 1 + 1/4 = 4 1/4', feq(3 + 2, 4, 5, 4) && 5 > 4 && 2 + 1 + 1 === 4 && feq(4 * 4 + 1, 4, 17, 4));
+check('AD2: the improper route agrees: 11/4 + 6/4 = 17/4 = 4 1/4 (2×4+3 = 11; 1×4+2 = 6; 17 = 4×4+1)', feq(2 * 4 + 3, 4, 11, 4) && feq(1 * 4 + 2, 4, 6, 4) && feq(11 + 6, 4, 17, 4) && 4 * 4 + 1 === 17);
+check('AD3: underflow subtraction: 3 1/5 − 1 2/5 — borrow 1 = 5/5: 2 6/5 − 1 2/5 = 1 4/5', feq(3 * 5 + 1, 5, 16, 5) && 3 - 1 === 2 && feq(5 + 1, 5, 6, 5) && feq(6 - 2, 5, 4, 5) && 2 - 1 === 1);
+check('AD4: the improper route agrees: 16/5 − 7/5 = 9/5 = 1 4/5 (1×5+2 = 7; 9 = 1×5+4)', feq(1 * 5 + 2, 5, 7, 5) && feq(16 - 7, 5, 9, 5) && 1 * 5 + 4 === 9);
+check('AD5: no-regroup case: 1 2/7 + 2 3/7 = 3 5/7 (parts 5/7 stay below 1; gcd(5,7) = 1)', feq(2 + 3, 7, 5, 7) && 5 < 7 && gcd(5, 7) === 1 && 1 + 2 === 3);
+check('AD6: the flip-error trap: "2 1/5" (subtracting smaller part from larger) is wrong: 11/5 ≠ 9/5', feq(2 * 5 + 1, 5, 11, 5) && feq(1 * 5 + 4, 5, 9, 5) && (2 * 5 + 1) !== (1 * 5 + 4) && distinct(2 * 5 + 1, 1 * 5 + 4));
+
+/* ============================================================
+ * AE. Lesson 4.4 — Egyptian two-term openings (the greedy split)
+ * ==========================================================*/
+check('AE1: the greedy pin: 1/3 > 3/10 > 1/4 — the largest unit fraction that fits under 3/10 is 1/4', gt(1, 3, 3, 10) && gt(3, 10, 1, 4) && 1 * 10 > 3 * 3 && 3 * 4 > 1 * 10);
+check('AE2: the greedy step is subtraction: 3/10 − 1/4 = 6/20 − 5/20 = 1/20 — the remainder is already unit', feq(6 - 5, 20, 1, 20) && unitSum(4, 20, 3, 10));
+check('AE3: 5/6 by the greedy split: 1/2 fits (1 < 5/6), remainder 5/6 − 1/2 = 2/6 = 1/3 — so 5/6 = 1/2 + 1/3', gt(5, 6, 1, 2) && feq(5 - 3, 6, 2, 6) && feq(2, 6, 1, 3) && unitSum(2, 3, 5, 6));
+check('AE4: 4.2\'s alternative opening re-derived: 3/10 = 1/5 + 1/10 (2/10 + 1/10) — valid, but not the greedy opening since 1/4 also fits and is larger', unitSum(5, 10, 3, 10) && gt(1, 4, 1, 5) && gt(3, 10, 1, 4));
+check('AE5: greedy remainders are automatically smaller: 1/20 < 1/4 and 1/3 < 1/2 (the next opening works down the ladder)', lt(1, 20, 1, 4) && lt(1, 3, 1, 2));
+
+/* ============================================================
+ * AF. Lesson 4.4 — the mediant fraud (straight-across sums)
+ * ==========================================================*/
+check('AF1: 1/2 + 1/3: true sum 5/6 vs straight-across 2/5 — the true sum wins (25 > 12)', feq(1 * 3 + 1 * 2, 6, 5, 6) && feq(1 + 1, 2 + 3, 2, 5) && lt(2, 5, 5, 6) && 2 * 6 === 12 && 5 * 5 === 25);
+check('AF2: the fake answer is the mediant: 1/3 < 2/5 < 1/2 — it lands strictly between the addends (4.3\'s L6)', lt(1, 3, 2, 5) && lt(2, 5, 1, 2) && 1 * 5 < 2 * 3 && 2 * 2 < 5 * 1);
+check('AF3: the general algebra: (ad+bc)(b+d) − (a+c)bd = ad² + b²c > 0 — instance (1,2,3,2): 4 + 12 = 16', (() => {
+  const [a, b, c, d] = [1, 2, 3, 2];
+  return (a * d + b * c) * (b + d) - (a + c) * b * d === a * d * d + b * b * c && a * d * d + b * b * c === 16 && (a * d + b * c) * (b + d) === 32 && (a + c) * b * d === 16;
+})());
+check('AF4: 1/4 + 1/6: straight-across 2/10 = 1/5 sits below the true sum 5/12 (25 > 24) and between the addends (1/6 < 1/5 < 1/4)', feq(1 + 1, 4 + 6, 1, 5) && lt(1, 5, 5, 12) && 1 * 12 === 12 && 5 * 5 === 25 && lt(1, 6, 1, 5) && lt(1, 5, 1, 4));
+check('AF5: the fraud never turns true by luck: straight-across ≠ true sum on samples', [
+  [1, 2, 1, 3],
+  [1, 4, 1, 6],
+  [2, 3, 1, 4],
+  [3, 10, 1, 4],
+  [2, 9, 4, 9],
+].every(([a, b, c, d]) => !feq(a + c, b + d, a * d + b * c, b * d) && gt(a * d + b * c, b * d, a + c, b + d)));
+
+/* ============================================================
+ * AG. Lesson 4.4 — quiz + exercise arithmetic
+ * ==========================================================*/
+check('AG1: quiz Q1 — 3/11 + 5/11 = 8/11; the straight-across distractor 8/22 = 4/11 fails (halves the value)', feq(8, 11, 8, 11) && feq(8, 22, 4, 11) && !feq(8, 22, 8, 11) && 8 * 11 === 88 && 22 * 8 === 176);
+check('AG2: quiz Q2 — 1/4 + 1/6 = 5/12 (AB1); the mediant distractor 2/10 = 1/5 sits below the true sum (25 > 24)', feq(5, 12, 5, 12) && feq(2, 10, 1, 5) && !feq(1, 5, 5, 12) && 5 * 5 === 25 && 12 * 2 === 24);
+check('AG3: quiz Q3 — 7/8 − 5/8 = 2/8 = 1/4 (AA4); "a difference is never simplified" is the trap', feq(2, 8, 1, 4) && gcd(2, 8) === 2);
+check('AG4: quiz Q4 — 3 1/5 − 1 2/5 = 1 4/5 (AD3); flip-error 2 1/5 = 11/5 is not 9/5', feq(9, 5, 9, 5) && feq(11, 5, 11, 5) && (2 * 5 + 1) !== (1 * 5 + 4));
+check('AG5: quiz Q5 — the greedy opening of 3/10 is 1/4 with remainder 1/20 (AE1/AE2); 1/3 does not fit (1/3 > 3/10); 1/5 + 1/10 is valid but not greedy (1/4 > 1/5)', gt(1, 3, 3, 10) && unitSum(4, 20, 3, 10) && unitSum(5, 10, 3, 10) && gt(1, 4, 1, 5));
+check('AG6: exercise L2 — 3/5 + 7/10 = 13/10 = 1 3/10 (AB10 re-check)', feq(13, 10, 1 * 10 + 3, 10));
+check('AG7: exercise L3 — 2/3 + 1/4 = 11/12 (AB7 re-check)', feq(11, 12, 11, 12) && gcd(11, 12) === 1);
+check('AG8: exercise L4 — tank 1/3 + 1/4 = 7/12 full, 5/12 empty (AC3 re-check)', feq(7, 12, 7, 12) && feq(5, 12, 5, 12) && 7 + 5 === 12);
+check('AG9: exercises L5 — 1/2 + 1/3 + 1/9 = 17/18 (AB8) and 5/6 − 1/4 + 1/12 = 2/3 (AB9) re-checked', feq(17, 18, 17, 18) && feq(2, 3, 2, 3));
+check('AG10: exercise L4 — 2 3/4 + 1 1/2 = 4 1/4 (AD1 re-check)', feq(17, 4, 17, 4));
+check('AG11: exercise L6 — the distributive reading: a/d + c/d = (a+c)/d because a pieces + c pieces = (a+c) pieces of 1/d (samples d = 11, 13)', feq(2 + 5, 11, 7, 11) && feq(3 + 4, 13, 7, 13));
+check('AG12: exercise L6 — mediant-fraud proof instances: straight-across always below the true sum (AF5 samples 1 and 2)', lt(2, 5, 5, 6) && lt(1, 5, 5, 12));
+
+/* ============================================================
+ * AH. Lesson 4.4 — figure geometry (bars + number line)
+ * ==========================================================*/
+check('AH1: fig A — bar 620px: quarter cell 155; twelfth cell 51.6667; 3 twelfths = 155 — the raised name shades the same width as 1/4', 620 / 4 === 155 && Math.abs(620 / 12 - 51.666667) < 1e-4 && Math.abs(3 * (620 / 12) - 155) < 1e-9);
+check('AH2: fig A — sixth cell 103.3333; 2 twelfths = 103.33 (same width as 1/6); 5 twelfths = 258.33 = 155 + 103.33 (the stacked sum)', Math.abs(620 / 6 - 103.333333) < 1e-4 && Math.abs(2 * (620 / 12) - 103.333333) < 1e-3 && Math.abs(5 * (620 / 12) - 258.333333) < 1e-3 && Math.abs(5 * (620 / 12) - (155 + 2 * (620 / 12))) < 1e-9);
+check('AH3: fig A — the contribution boundary sits at x = 225 = 70 + 3 × 51.6667, splitting the sum bar 3 + 2', Math.abs(70 + 3 * (620 / 12) - 225) < 0.01);
+check('AH4: fig A — cell widths: 620/4 = 155 exactly; 620/6 and 620/12 recurring to 2 dp (103.33, 51.67)', Math.abs(620 / 6 - 103.333333) < 1e-4 && Math.abs(620 / 12 - 51.666667) < 1e-4);
+check('AH5: fig B — the line runs 40 → 720 (680 px per unit): x(7/12) = 436.67, x(5/8) = 465, x(0) = 40, x(1) = 720', Math.abs(40 + (7 / 12) * 680 - 436.67) < 0.01 && Math.abs(40 + (5 / 8) * 680 - 465) < 0.01);
+check('AH6: fig B — the gap is one twenty-fourth of the line: 465 − 436.67 = 28.33 px = 680/24 — the arithmetic made visible', Math.abs(465 - 436.67 - 680 / 24) < 0.01 && Math.abs(680 / 24 - 28.333333) < 1e-4);
+check('AH7: fig B — the arc peaks at 170 − 26 = 144 with the 1/24 label at y = 134 above it, clear of the axis', Math.abs(170 - 26 - 144) < 1e-9 && 134 < 144);
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`verify-unit-4: ${pass} passed, ${fail} failed`);
@@ -487,5 +594,5 @@ if (fail > 0) {
   for (const f of failures) console.log('  ✗ ' + f);
   process.exit(1);
 } else {
-  console.log('ALL CHECKS PASS — lessons 4.1–4.3 arithmetic is pre-verified.');
+  console.log('ALL CHECKS PASS — lessons 4.1–4.4 arithmetic is pre-verified.');
 }
