@@ -96,8 +96,12 @@ copies deleted after E2E (storage law honoured).
 a Fraction" (create ch-04.ts + verify-unit-4.ts with its gitignore
 exception). Exam registry research pending.
 
-**Git:** ship commit pending at write time — see the memory commit that
-follows for the push verification under protocol v2.
+**Git:** ship commit `342f629` pushed under protocol v2 as
+`8640085..342f629 HEAD -> main` (one-time HTTPS URL in a single git
+command; token never on disk, output sanitised). Remote HEAD verified
+`342f629c8eb8bbaa08f4a5b86706bea1cbade300` via one-time-URL ls-remote
+(= local HEAD); tracking ref re-synced by anonymous HTTPS fetch
+(origin/main = 342f629); working tree clean.
 
 ---
 

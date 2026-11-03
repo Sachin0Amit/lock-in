@@ -72,7 +72,7 @@ review passed; `WORK_INVENTORY.json` regenerated in the same run).
 | 11-03 (run 9) | (ship) | **LESSON 3.3 Highest Common Factor** — authored, 192 pre-writing checks (sections V–Y, 40 new), Bézout/crossroads debt discharged, E2E green (quiz 5/5 live, flashcards 68, Venn figure verified, 390px exact-fit with ten solutions expanded), two over-escape hits fixed + head/header fix, logged; pushed (protocol v2) |
 | 11-03 (figure-fix run) | `87f0f8a` | **Owner-reported figure defects fixed** — six overlapping/clipped SVG figures relaid out (37 patches); `scripts/audit-svg-overlaps.sh` + page-side getBBox-exact detector built and wired into the gates (15 figures re-audited, 0 issues; VLM PASS on all six); logged; pushed (protocol v2) |
 | 11-03 (run 10) | (ship) | **LESSON 3.4 Lowest Common Multiple** — authored, 227 pre-writing checks (section Z, 35 new), timetable figure 0 audit issues first pass, E2E green (quiz 5/5 live, flashcards 75, 390px exact-fit with ten solutions expanded), exercises `sets` schema fix, logged; pushed (protocol v2) |
-| 11-03 (run 11) | (ship) | **UNIT 3 COMPLETE: lesson 3.5 HCF, LCM and How They Relate** — authored, 260 pre-writing checks (section AA, 33 new), rectangle figure 0 audit issues FIRST pass, E2E green (quiz 5/5 live, flashcards 82, 390px exact-fit with eleven solutions expanded), unit-3 completion review run (BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, totals recompute 59,076 words), logged (push follows under protocol v2) |
+| 11-03 (run 11) | (ship) | **UNIT 3 COMPLETE: lesson 3.5 HCF, LCM and How They Relate** — authored, 260 pre-writing checks (section AA, 33 new), rectangle figure 0 audit issues FIRST pass, E2E green (quiz 5/5 live, flashcards 82, 390px exact-fit with eleven solutions expanded), unit-3 completion review run (BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, totals recompute 59,076 words), logged; pushed (protocol v2) as 8640085..342f629, remote HEAD verified |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -858,13 +858,15 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-11 ship commit (FM lesson 3.5 HCF, LCM and How
-  They Relate + unit-3 completion review + logs). The owner-reported
-  figure-defect run (six figures fixed + `audit-svg-overlaps.sh` wired
-  into the gates) shipped as `87f0f8a` between run 9 and run 10. Push
-  verification is recorded in WORKLOG.md after the run-11 push under
-  protocol v2 (one-time-URL ls-remote; tracking ref re-synced via
-  anonymous HTTPS fetch — this sandbox has no ssh binary).
+- HEAD: the hourly-run-11 ship commit `342f629` (FM lesson 3.5 HCF, LCM
+  and How They Relate + unit-3 completion review + logs); working tree
+  clean after the push. origin/main is synced through the run-11 push
+  under protocol v2 (pushed as 8640085..342f629; remote HEAD verified
+  `342f629` via one-time-URL ls-remote; tracking ref re-synced via
+  anonymous HTTPS fetch — this sandbox has no ssh binary). The
+  owner-reported figure-defect run (six figures fixed +
+  `audit-svg-overlaps.sh` wired into the gates) shipped as `87f0f8a`
+  between run 9 and run 10.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
