@@ -68,11 +68,15 @@ DOM-verified (23 + 32 labels, ÷ glyphs render), mobile 390px exact-fit
 only), WORK_INVENTORY.json regenerated (7 lessons, 26,993 words, 40 terms,
 35 quiz items, 57 exercise solutions), DETAILED_LOG.md updated.
 
-**Git:** ship commit pushed under **push protocol v2 — the first fully
-automated push**: one-time HTTPS URL in a single git command, ALL
-unpushed commits on main pushed, remote HEAD verified equal to local
-HEAD, tracking ref re-synced (shas in RESUME_POINTER.json). The token
-exists only in the cron payload and chat context — never on disk.
+**Git:** ship commit `8e5b681` pushed under **push protocol v2 — the first
+fully automated push**: one-time HTTPS URL in a single git command, ALL
+unpushed commits on main pushed, remote HEAD verified equal to local HEAD
+(`8e5b681` — ls-remote via the one-time URL form), tracking ref
+`refs/remotes/origin/main` re-synced to `8e5b681`. The token exists only
+in the cron payload and chat context — never on disk. Pipeline note:
+`.gitignore`'s `/scripts/*` rule (exception: build_work_inventory.ts only)
+was what ate run-2's uncommitted verify script — exceptions added for
+`verify-unit-2.ts` and `rebuild_drive_survey.ts` so they survive recycles.
 
 ---
 
