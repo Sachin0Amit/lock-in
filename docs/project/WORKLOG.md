@@ -6,6 +6,161 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 25 (cron, Job 498279): FM lesson 5.5 "Percentage Change, Discounts and Simple Interest" authored in the Cengage voice + solution chain — the chapter's final lesson closes unit 5 under one discipline (every percent names a base: "of what?"), and the RichText parser is upgraded to render $math$ inside **bold**/*italic* site-wide
+
+**Run open (push check first):** tree clean at `700ba0f` = local HEAD =
+remote HEAD (the run-24 memory commit, verified at run open via a
+one-time-URL push dry-run: "Everything up-to-date") — no push debt; the
+pre-run summary (run-15 era) was stale: runs 16–24 had already happened
+and the ledger confirmed the run-16 Cengage-solution directive completed.
+Task per RESUME_POINTER: FM lesson 5.5 "Percentage Change, Discounts and
+Simple Interest" (extend verify-unit-5.ts BEFORE writing; sections BT+),
+then the unit-5 completion review.
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT class-7 ch. 8 §§8.5–8.6 ("Prices Related to an Item or Buying and
+Selling — Profit or Loss", "Charge Given on Borrowed Money or Simple
+Interest") + NCERT class-8 ch. 8 §§8.2–8.4 ("Finding the Increase or
+Decrease Per cent", "Finding Discounts", "Prices Related to Buying and
+Selling (Profit and Loss)") — the canonical change/discount/interest
+sequence, section sequences web-checked 2026-11-04 (searches: NCERT
+class-7 + class-8 Comparing Quantities outlines); Khattar QA 4e
+percentage/profit-loss exam staples for the exam corner. One new citation
+key: `ncert-math8-ch8`. No temporary-references footprint; the gitignored
+Drive survey was rebuilt once (`rebuild_drive_survey.ts`, 89 entries
+intact) solely to regenerate WORK_INVENTORY.json after the recycle.
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-5.ts extended
+394 → **455 checks** (sections BT–CC, 61 new) ALL PASS before a word was
+written: BT percentage-change instances (250→300 = +20%; 48,000→44,640
+= −7%; 800→720 = −10%; salary 12,500→14,000 = 12%; the Rs 8,000 round
+trip −6.25%); BU the factor law (+25% = ×5/4, −10% = ×9/10, +12% =
+×28/25), the return ticket (15,000 × 5/6 = 12,500; the wrong −20% ticket
+lands 12,000, five hundred short), the round-trip net −r²/100 % law
+(r = 25 → 6.25%; r = 20 → 4%; order-independence ×1.2 × 0.8 = ×0.8 × 1.2)
+and the original-find (12,500 × 6/5 = 15,000); BV profit/loss on cost
+(360/2,400 = 15%; the SP-base fraud ≈13.04% ≠ 15%; the chair 12%; the
+fridge CP 12,000 from SP 10,200 at a 15% loss); BW discount on the tag
+(the sweater 1,600 → 1,360; quiz numbers 800 → 680 with all three frauds
+killed; the lamp 600 +40% −20% → 672, profit 12%; the net multiplier law
+1.40 × 0.80 = 1.12; exercise lamp 800 +35% −20% → 864, profit 8%); BX
+simple interest (one-year unit 400; three years 1,200, amount 6,200; the
+rate recovered 900 = 120R → R = 7.5%; the months conversion 8/12 = 2/3 →
+Rs 360; the halving-chain one-liner 12,000/16 = 750 × 2.5 = 1,875; the
+simple promise — flat rent); BY/BZ both figures' geometry (the
+round-trip map's two stations, forward arrow and the two return tickets
+40px apart; the two-lane map's three boxes, lanes 10px clear, labels
+riding the gaps); CA the quiz key 0/1/1/2/3 with every distractor killed
+numerically; CB the 12 exercise keys; CC structural sanity (8 terms,
+4 cards, 9 Illustrations, 12 exercises). The pre-writing audit caught
+**3 real defects before any content existed** (a malformed fraction
+check in BT4, an M()-scaling error in BU2, a float slip in BW4) — fixed,
+then 455/455. Regressions green: 330/260/165 (units 4/3/2).
+
+**The lesson** (id `fm-percentage-change-discounts-simple-interest`,
+number 5.5, ~3,700 honest words by the counter delta — 104,922 →
+110,548 book total): the opening ties 5.4's closing promise and names
+the discipline (**the one question — "of what?"** — Note box listing the
+four named bases: original, cost price, marked price, principal); the
+**Definition callout** in the formal Cengage shape (percentage change
+judged on the ORIGINAL, $r = (N − O)/O × 100$, Thus-line) with the roman
+example run (250→300 +20%; 48,000→44,640 −7%; 800→720 −10%); **the
+factor law as equation tag 1** ($N = O(100 ± r)/100$) PROVED as a
+derivation block (definition rearranged → distributivity → the bracket
+as one fraction → the HCF-trimmed brackets ×5/4, ×9/10); Illustrations
+(the salary 12%; the Rs 8,000 round trip −6.25%; the phone Rs 15,000
+after +20% recovered to Rs 12,500 by the return ticket AND the unitary
+method at 120%); the **two-base trap Caution** (+25% then −25% ≠ flat);
+**figure 1: the round-trip map** (both return tickets drawn — the wrong
+−20% lands 500 short in amber dashed, the right ×5/6 lands home; audit
+0 issues FIRST pass, VLM 10/10 math + 9/10 clarity FIRST pass); the
+**r²/100 % round-trip law** named and proved in the exercises; profit
+and loss on the COST price (**Definition callout** + the ledger dress
+of the factor law as equation tag 2, SP = CP(100 ± p)/100; the cycle
+15%; the SP-base fraud Caution; the fridge CP recovered at a loss);
+discount on the MARKED price (**Definition callout**, SP = M(100 −
+d)/100; the sweater 1,360; the lamp markup-then-discount Illustration
+— the festival never undoes the markup); the **multiplier law Note**
+(factors multiply, percents never add: 1.40 × 0.80 = 1.12);
+**figure 2: the two-lane map** (CP 600 +15% and MP 750 −8% landing on
+one SP 690; audit 0 issues FIRST pass, VLM PASS all three checks —
+math, layout, rendering); simple interest from the **one-percent-a-year
+unit** (I = PRT/100 PROVED as a derivation block from 5.4's percent-of
++ repeated addition; A = P + I as equation tag 3; the loan 1,200/6,200;
+the rate recovered 7.5%; the **per-annum trap Caution** — T strictly in
+years, 8 months = 2/3; the "simple" promise Note — flat rent, the
+compound-interest door left open); 8 new terms, 4 formula cards, exam
+corner (NCERT class-7 §§8.5–8.6 + class-8 §§8.2–8.4 canon; the five
+classic traps), 5-quiz (0/1/1/2/3 verified live 5/5 perfect + VLM
+screenshot of the "You scored 5/5 · perfect" bar), 12 exercises L1–L6
+(L6 proves the r²/100 % law with chapter 2's (a+b)(a−b) identity and
+works the halving chain: Rs 12,000 at 6.25% for 2½ years = Rs 1,875).
+
+**Platform catch (site-wide repair):** the VLM pass on figure 1 flagged
+raw LaTeX below the figure — root cause: `RichText`'s single-pass
+tokenizer matched `**…**` before the `$…$` it enclosed, so **math inside
+bold (or italic) never rendered**, leaking raw `$…$` into the page. A
+repo-wide scan found **12 latent instances across chs. 2–5 (7
+pre-existing, live since their ships)**; fixed at the platform level by
+making the bold/italic branches recurse into `RichText` (zero content
+edits, all 12 repaired at once); verified on the SSR HTML — 0 visible
+raw-`$` leaks on 5.5, bold-wrapped math now renders as KaTeX. E2E
+re-run green after the change.
+
+**Quality gates:** lint clean; tsc clean; route 200 (SSR 9 ILLUSTRATION
+pills); both figures pass scripts/audit-svg-overlaps.sh with **0 issues
+FIRST pass**; E2E extended to **13 lessons** with a dedicated 5.5 block
+(4 caps-over-rule headings, 9 Illustration pills, 9 Sol. pills ALL
+inline (inlineSolPills = solPills), 32 step rows, stepNumberBadges 0,
+legacyAnswerBoxes 0, thereforeTags 27 on the chain (33 with exercises),
+KaTeX 229, dollarInSvg 0, note boxes Note/Definition/Caution ×2
+definitions ×3 + Exam corner, exercises bar 12 questions, quiz bar 5;
+quiz answered live with intended options (0/1/1/2/3) → "You scored 5/5"
++ Retake; all 12 exercise solutions expand (36 open collapsibles);
+2 svg figures render; mobile 390px exact-fit (docScrollW = 390,
+articleW = 358); zero console errors; VLM: round-trip 10/10 math +
+9/10 clarity (its prose/figure mismatch note FIXED by aligning the
+paragraphs to the figure's 20% story), two-lane PASS ×3, quiz score
+bar PASS).
+
+**Unit-5 completion review (run-6/11/20 precedent):** BOOK_FORMAT
+verification checklist 7/7 (math pre-verified by script; figure labels
+match prose; quiz answer indices verified live in browser; exercise
+solutions complete + verified; lesson ids globally unique — grep clean;
+lint + render clean; logs updated) · exam-coverage audit 5/5 lessons
+(each carries an exam corner; topics mapped: percentage change + the
+factor law → NCERT class-8 §8.2; discounts → §8.3; profit/loss →
+class-7 §8.5 + class-8 §8.4; simple interest → class-7 §8.6; the
+SSC/bank/Railway staples per Khattar; no real past-paper questions
+reproduced) · chapter totals recomputed by build_work_inventory.ts
+(ch. 5 = 24,614 words; book = **23 lessons / 110,548 words / 150 terms /
+115 quiz items / 233 exercise questions**) · ch-05 status flipped to
+`complete`, plannedLessons emptied, ch-05 header comment + book.ts
+STATUS/notes updated (ch. 5 CLOSED, next chapter 6 Ratio, Rate and
+Proportion).
+
+**Contracts updated:** `docs/project/WORKLOG.md` (this entry),
+`docs/project/PROGRESS.json`, `docs/project/DETAILED_LOG.md` (run-25
+row), `docs/project/SOURCE_LOG.md` (ncert-math8-ch8 key + ledger row +
+free-space entry), `docs/project/WORK_INVENTORY.json` (regenerated
+post-recycle), `docs/project/RESUME_POINTER.json`, `scripts/verify-unit-5.ts`
+(sections BT–CC), `scripts/e2e-cengage-style.sh` (LESSONS + dedicated
+5.5 block), `src/components/library/math.tsx` (recursive RichText),
+`ch-05.ts` header comment (5.5 paragraph + 455 checks), `book.ts`
+(STATUS + notes).
+
+**Next:** chapter 6 "Ratio, Rate and Proportion" (lessons: Ratio as a
+Comparison; Rates and Unit Rates; Proportion and Cross-Multiplication;
+Direct and Inverse Variation; Scaling: Maps, Models and Recipes) —
+verify-unit-6.ts to be created pre-writing (the verify-unit-4.ts
+gitignore-exception pattern). Also queued: voice polish of the 14
+pre-4.2 lessons (one per run, 1.1 first); EXAM_REGISTRY.json research
+(44 skeleton entries).
+
+**Git:** commit `fm 5.5 percentage change, discounts and simple interest
+(unit 5, run 25): …` + inventory bookkeeping commit; pushed per protocol
+v2 (see the run-25 memory commit for the verified sha).
+
 ## 2026-11-04 — RUN 24 (cron, Job 498279): FM lesson 5.4 "Percent and Its Meaning" authored in the Cengage voice + solution chain — percent as the standardised fraction of 100: the x/100 definition on the 100-square, the two-hop law proved from the point-shift, the benchmark ladder, and the unitary method returning to recover wholes from parts
 
 **Run open (push check first):** tree clean at `c35cfe0` = local HEAD =

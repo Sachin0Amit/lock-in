@@ -170,6 +170,20 @@ step 6).
   the 100-square figure, the two-hop law derivation, the benchmark ladder
   and the halving chain, the commutativity gem and the unitary-method
   return are the book's own derivations.
+- `ncert-math8-ch8` — NCERT Class 8 Mathematics, ch. 8 "Comparing
+  Quantities" (old-edition canon; public curriculum). Used for: FM ch. 5
+  lesson 5.5 — the canonical change/discount/interest canon mirrored
+  (§8.2 "Finding the Increase or Decrease Per cent" — the change judged
+  on the original; §8.3 "Finding Discounts" — the discount as a
+  reduction on the marked price; §8.4 "Prices Related to Buying and
+  Selling (Profit and Loss)" — profit/loss percent on the cost price),
+  web-checked 2026-11-04 (published chapter outlines confirm the section
+  sequence 8.1 Recalling Ratios and Percentages → 8.2 Increase/Decrease
+  Per cent → 8.3 Finding Discounts (8.3.1 Estimation in Percentages) →
+  8.4 Prices Related to Buying and Selling); exposition original — the
+  factor law derivation, the round-trip r²/100 % law, the multiplier
+  law (1.40 × 0.80 = 1.12) and the two-lane figure are the book's own
+  derivations.
 - `ncert-math9-ch1` — NCERT Class 9 Mathematics, ch. 1 "Number Systems"
   (public curriculum). Used for: FM ch. 5 lesson 5.2 — the canonical
   classification of rational decimal expansions as terminating or
@@ -185,7 +199,7 @@ step 6).
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-7 ch. 8 + class-9 ch. 1; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps), lesson 5.3 (no downloads; NCERT class-6 ch. 8 + class-7 ch. 2 §§2.3–2.4 web-checked; Khattar point-hop family), lesson 5.4 (no downloads; NCERT class-7 ch. 8 §§8.3–8.4 web-checked — new citation key ncert-math7-ch8; Khattar percent conversion items) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete; ch. 5 OPEN at 5.4, run 24**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-7 ch. 8 §§8.3–8.6 + class-8 ch. 8 §§8.2–8.4 + class-9 ch. 1; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps), lesson 5.3 (no downloads; NCERT class-6 ch. 8 + class-7 ch. 2 §§2.3–2.4 web-checked; Khattar point-hop family), lesson 5.4 (no downloads; NCERT class-7 ch. 8 §§8.3–8.4 web-checked — new citation key ncert-math7-ch8; Khattar percent conversion items), lesson 5.5 (no downloads; NCERT class-7 ch. 8 §§8.5–8.6 + class-8 ch. 8 §§8.2–8.4 web-checked — new citation key ncert-math8-ch8; Khattar percentage/profit-loss exam staples) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**5/11 chapters complete; ch. 5 CLOSED at 5.5, run 25**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -340,3 +354,17 @@ step 6).
   exposition original — the re-cutting ruler proof, the bd-ruler measuring
   proof, the scaling/two-frauds cautions and the cross-cancellation licence
   are the book's own derivations, instances recomposed.
+**Run 25 (2026-11-04) — FM lesson 5.5 "Percentage Change, Discounts and
+Simple Interest" (unit 5 closes):** web-checked only, zero downloads.
+NCERT class-7 ch. 8 §§8.5–8.6 ("Prices Related to an Item or Buying and
+Selling — Profit or Loss", "Charge Given on Borrowed Money or Simple
+Interest") + NCERT class-8 ch. 8 §§8.2–8.4 ("Finding the Increase or
+Decrease Per cent", "Finding Discounts", "Prices Related to Buying and
+Selling (Profit and Loss)") — the canonical change/discount/interest
+sequence (sanctioned fallback); new `ncert-math8-ch8` citation key added;
+Khattar percentage/profit-loss exam staples mined for the exam corner
+(no text reproduced). All lesson arithmetic re-verified by script (61 new
+checks in sections BT–CC of scripts/verify-unit-5.ts, 455 total) BEFORE
+writing; exposition original — the factor-law derivation, the
+round-trip r²/100 % law, the multiplier law and the two-lane figure are
+the book's own derivations.

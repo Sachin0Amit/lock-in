@@ -27,19 +27,22 @@ import { chapter05 } from './ch-05'
  * fractions shortcuts cashed, mixed numbers converted first) shipped,
  * all gates green (330 unit-4 checks), lessons 4.2–4.5 authored natively
  * in the Cengage voice + solution chain. Chapter 5 (Decimals and
- * Percents) OPEN — unit 5, 2026-11-04: 5.1 (Decimal Places and the
- * Point — the point as the landmark, tenths/hundredths/thousandths, the
- * extended place-value mirror, the fraction–decimal bridge with the
- * atom test proved from the multiplying rule and uniqueness of
- * factorisation, locating by zooming, comparing by aligning the points,
- * money/length/mass conversions) shipped with 165 unit-5 checks; 5.2
- * (Decimals and Fractions, Two Ways of Writing the Same Numbers — long
- * division past the point, the dresses theorem, the 1/7 remainder carousel,
- * pure vs mixed recurrence with the head-length theorem, the 142857
- * rotation family, shift-and-subtract both ways, the 0.(9) = 1 Caution and
- * the atoms-of-the-base Note) shipped with verify-unit-5.ts extended to 273
- * checks. Next: lesson 5.3 (Operating on Decimals). Authoring per
- * docs/project/MASTER_PLAN.md §2.
+ * Percents) COMPLETE — unit 5, 2026-11-04: 5.1 (Decimal Places and the
+ * Point — the extended place-value mirror, the atom test, locating by
+ * zooming, comparing by aligning the points), 5.2 (Decimals and
+ * Fractions, Two Ways of Writing the Same Numbers — the dresses theorem,
+ * the remainder carousel, the head-length theorem, the 142857 family),
+ * 5.3 (Operating on Decimals — align the points, the places-add rule,
+ * the point-shift rule, clearing the divisor, the unitary method), 5.4
+ * (Percent and Its Meaning — the x/100 definition on the 100-square, the
+ * two-hop law proved from the point-shift, the benchmark ladder, the
+ * commutativity gem) and 5.5 (Percentage Change, Discounts and Simple
+ * Interest — the factor law on the original, the round-trip r²/100 %
+ * law, profit/loss on cost, discount on the tag, the multiplier law,
+ * simple interest I = PRT/100) shipped, all gates green (455 unit-5
+ * checks), 5.2–5.5 authored natively in the Cengage voice + solution
+ * chain, unit-5 completion review passed. Next: chapter 6 (Ratio, Rate
+ * and Proportion). Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -57,7 +60,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–4 complete (units 1–4 shipped 2026-11-03/04): ch. 1 lessons 1.1–1.3 Numbers and Place Value (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1–4.5 Fractions (26,905 words: 4.1 The Idea of a Fraction — part–whole + division faces, the number line made dense via the mediant theorem, proper/improper/mixed, Egyptian unit fractions; 4.2 Equivalent Fractions and Simplification — the equivalence family, the multiplying rule, HCF simplification, the cross-multiplication licence paid in full, uniqueness of the lowest-terms name; 4.3 Comparing Fractions — the cross-multiplication verdict machine, the common-denominator method, benchmark halves, completing the whole, wholes-first; 4.4 Adding and Subtracting Fractions — like-ruler counting proved by distributivity, the LCM as standard equipment, subtraction as gap-naming, mixed-number regrouping, the greedy Egyptian split, the straight-across fraud theorem; 4.5 Multiplying and Dividing Fractions — multiplication as of and the re-cutting rule proved from the rulers, scaling and the retired makes-bigger reflex, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 cashed with the product rule surviving, mixed numbers converted before operating). Chapter 5 open: 5.1 Decimal Places and the Point (run 21 — the point as the hinge of the extended place-value mirror, tenths/hundredths/thousandths, the atom test for exact decimal dress proved from the multiplying rule and uniqueness of factorisation, the trailing-zero licence, the more-digits fraud retired, the zero-filling trap, money/length/mass conversions); 5.2 Decimals and Fractions, Two Ways of Writing the Same Numbers (run 22 — long division past the point as the universal bridge-builder, terminating vs recurring by the dresses theorem and the pigeonhole carousel, pure vs mixed recurrence with the head-length theorem, cycle lengths as orders of 10, the 142857 rotation family, shift-and-subtract conversions both ways, the 0.(9) = 1 trap and the atoms-of-the-base note; 5.1\'s 22/7 waltz digits corrected to 3.142857…). Lessons from 4.2 on authored natively in the Cengage voice + solution chain; the 14 pre-4.2 lessons\' prose voice polish remains queued. Math script-verified (273 unit-5 checks + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (10 lessons), quiz keys verified live. Next: lesson 5.3 Operating on Decimals (the four operations with the point in play). Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–4 complete (units 1–4 shipped 2026-11-03/04): ch. 1 lessons 1.1–1.3 Numbers and Place Value (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1–4.5 Fractions (26,905 words: 4.1 The Idea of a Fraction — part–whole + division faces, the number line made dense via the mediant theorem, proper/improper/mixed, Egyptian unit fractions; 4.2 Equivalent Fractions and Simplification — the equivalence family, the multiplying rule, HCF simplification, the cross-multiplication licence paid in full, uniqueness of the lowest-terms name; 4.3 Comparing Fractions — the cross-multiplication verdict machine, the common-denominator method, benchmark halves, completing the whole, wholes-first; 4.4 Adding and Subtracting Fractions — like-ruler counting proved by distributivity, the LCM as standard equipment, subtraction as gap-naming, mixed-number regrouping, the greedy Egyptian split, the straight-across fraud theorem; 4.5 Multiplying and Dividing Fractions — multiplication as of and the re-cutting rule proved from the rulers, scaling and the retired makes-bigger reflex, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 cashed with the product rule surviving, mixed numbers converted before operating). Chapter 5 lessons 5.1–5.5 Decimals and Percents: 5.1 Decimal Places and the Point (run 21 — the extended place-value mirror, the atom test for exact decimal dress, the trailing-zero licence, comparing by aligning the points, money/length/mass conversions); 5.2 Decimals and Fractions, Two Ways of Writing the Same Numbers (run 22 — long division past the point, the dresses theorem and the pigeonhole carousel, pure vs mixed recurrence with the head-length theorem, the 142857 rotation family, shift-and-subtract both ways, the 0.(9) = 1 trap; 5.1\'s 22/7 waltz digits corrected to 3.142857…); 5.3 Operating on Decimals (run 23 — aligning the points, the whole-number engine + the places-add rule, the point-shift rule, clearing the divisor, the long-division tableau, the unitary method); 5.4 Percent and Its Meaning (run 24 — the x/100 definition on the 100-square, the two-hop law proved from the point-shift at k = 2, the conversion-map figure, the benchmark ladder and halving chain, percent-of and the unitary method returned, the commutativity gem); 5.5 Percentage Change, Discounts and Simple Interest (run 25, the chapter\'s final lesson — every percent names a base: \"of what?\"; the factor law N = O(100 ± r)/100 proved as a derivation block; the round-trip r²/100 % law with both return tickets drawn; finding the original by the return ticket; profit/loss percent on the cost price, discount percent on the marked price, the two-lane figure to one SP; the multiplier law — factors multiply, percents never add; simple interest I = PRT/100 from the one-percent-a-year unit, the per-annum trap, the compound door left open). RichText parser upgraded run 25: $math$ now renders inside **bold** and *italic* site-wide (12 latent raw-LaTeX leaks repaired across chs. 2–5, zero content edits). Lessons from 4.2 on authored natively in the Cengage voice + solution chain; the 14 pre-4.2 lessons\' prose voice polish remains queued. Math script-verified (455 unit-5 checks + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (13 lessons), quiz keys verified live. Next: chapter 6 Ratio, Rate and Proportion. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

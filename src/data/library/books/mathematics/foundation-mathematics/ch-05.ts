@@ -60,8 +60,31 @@ import type { Chapter } from '../../../types'
  * = 27 boys) and savings (30% of Rs 18,500 = Rs 5,550); finding the whole
  * by the unitary method returned (8% of n = 56 → n = 700); the
  * commutativity gem x% of y = y% of x (16% of 25 = 25% of 16 = 4).
- * Planned next: 5.5 Percentage Change, Discounts and Simple Interest (the
- * chapter's final lesson).
+ * 5.5 Percentage Change, Discounts and Simple Interest (run 25, 2026-11-04,
+ * the chapter's final lesson) — the percent dress put to work under one
+ * discipline (every percent names a base: "of what?"): percentage change
+ * judged on the ORIGINAL (the factor law N = O(100 ± r)/100 PROVED as a
+ * derivation block from the definition + distributivity; +25% = ×5/4,
+ * −10% = ×9/10); the two-base trap (+25% then −25% nets −6.25%, the
+ * r²/100 % round-trip law proved in the exercises); the round-trip figure
+ * (both return tickets drawn — the wrong −20% lands 500 short, the right
+ * ×5/6 lands home); finding the original by the return ticket (the
+ * unitary method at 120%: Rs 15,000 after +20% came from Rs 12,500);
+ * profit/loss percent reckoned on the COST price (the ledger dress of the
+ * factor law, SP = CP(100 ± p)/100 as equation tag 2; the wrong-base
+ * fraud 13.04% ≠ 15%; CP recovered from SP at a loss); discount reckoned
+ * on the MARKED price (SP = M(100 − d)/100; the two-lane figure — CP 600
+ * +15% and MP 750 −8% landing on one SP 690); the multiplier law (factors
+ * multiply, percents never add: markup 40% then discount 20% = 1.4 × 0.8
+ * = 1.12, a net +12% — the festival never undoes the markup); simple
+ * interest from the one-percent-a-year unit (I = PRT/100 PROVED as a
+ * derivation block from 5.4's percent-of + repeated addition; A = P + I
+ * as equation tag 3; the per-annum trap — T strictly in years, 8 months
+ * = 2/3; the rate recovered 900 = 120R → R = 7.5%; the "simple" promise —
+ * flat rent on the original principal, compound interest the open door);
+ * 8 terms, 4 formula cards, 9 Illustrations, 2 figures, exam corner,
+ * 5-quiz (0/1/1/2/3), 12 exercises L1–L6 (L6 proves the r²/100 % law and
+ * works the halving chain: Rs 12,000 at 6.25% for 2 1/2 years = Rs 1,875).
  * References: Khattar, Quantitative Aptitude (4e) — decimal-fraction exam
  * items, recurring-to-fraction shortcuts and comparison traps; NCERT Class 6
  * ch. 8 "Decimals" (tenths, hundredths, place-value extension, comparing,
@@ -73,13 +96,19 @@ import type { Chapter } from '../../../types'
  * sequence web-checked 2026-11-04); NCERT Class 7 ch. 8 "Comparing
  * Quantities" (§8.3 "Percentage — Another Way of Comparing Quantities" and
  * §8.4 "Use of Percentages" — the canonical percent introduction, section
- * sequence web-checked 2026-11-04); NCERT Class 9 ch. 1
+ * sequence web-checked 2026-11-04); NCERT Class 7 ch. 8 §§8.5–8.6 ("Prices
+ * Related to an Item or Buying and Selling — Profit or Loss" and "Charge
+ * Given on Borrowed Money or Simple Interest") and NCERT Class 8 ch. 8
+ * §§8.2–8.4 ("Finding the Increase or Decrease Per cent", "Finding
+ * Discounts", "Prices Related to Buying and Selling (Profit and Loss)") —
+ * the canonical change/discount/interest canon for 5.5, section sequences
+ * web-checked 2026-11-04; NCERT Class 9 ch. 1
  * "Number Systems" (the terminating/non-terminating-recurring classification
  * of rational decimal expansions, web-checked 2026-11-04) — see
  * docs/project/SOURCE_LOG.md.
  * Exposition original; all arithmetic verified by scripts/verify-unit-5.ts
- * (394 checks: sections A–O for 5.1, P–AC for 5.2, AD–BJ for 5.3, BK–BS for
- * 5.4) BEFORE writing.
+ * (455 checks: sections A–O for 5.1, P–AC for 5.2, AD–BJ for 5.3, BK–BS for
+ * 5.4, BT–CC for 5.5) BEFORE writing.
  * Honours the tie promised in Lesson 4.5's closing paragraph: "One veil
  * remains between the fractions and the exam hall's favourite costume: the
  * decimal point, where every fraction agrees to wear powers of ten." — this
@@ -92,7 +121,7 @@ export const chapter05: Chapter = {
   title: 'Decimals and Percents',
   summary:
     'Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'fm-decimal-places-and-the-point',
@@ -2624,8 +2653,674 @@ export const chapter05: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-percentage-change-discounts-simple-interest',
+      number: '5.5',
+      title: 'Percentage Change, Discounts and Simple Interest',
+      concepts: [
+        'Percentage change',
+        'The base of comparison',
+        'The factor law',
+        'Profit and loss percent',
+        'Marked price and discount',
+        'Simple interest',
+        'The amount',
+      ],
+      objectives: [
+        'Compute percentage increases and decreases as a percent of the original value, and carry them out as one multiplication by the factor (100 ± r)/100',
+        'Undo a percent change correctly — divide by the factor, never subtract the percent — and recover an original value from the changed one by the unitary method',
+        'Read the trader’s ledger: profit and loss percent reckoned on the cost price, discounts reckoned on the marked price, and the net effect of a markup followed by a discount computed by multiplying the factors',
+        'Price borrowed money with simple interest I = PRT/100 from the one-percent-a-year unit, form the amount A = P + I, and recover any missing letter of the formula',
+      ],
+      prerequisites: [
+        'fm-percent-and-its-meaning',
+        'fm-operating-on-decimals',
+        'fm-multiplying-dividing-fractions',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math7-ch8', 'ncert-math8-ch8'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 5.4 armed the reader with the percent dress — one denominator for every fraction — and closed on a promise: the exam hall rarely asks what a percent **is**; it asks how much a price **changed**. This lesson keeps that promise, and it is the working heart of the chapter. Prices rise and fall, traders buy and sell, shops hang tags and then discount them, money is lent and returned with a rent on top — and every one of those stories is the same mathematics wearing a different coat.',
+        },
+        {
+          kind: 'para',
+          text: 'The coats share one lining. Every percent statement is really two statements — a number and a **base** — and the whole skill of this lesson is asking, before anything is computed, the one question every percent problem must answer: ***of what?*** A change of 50 on 250 and a change of 50 on 2,500 are both "a change of 50", yet the first is 20% and the second is 2%. The percent lives not in the change but in the change **judged against its base**. Name the base first, divide second — that one discipline, plus a two-line algebraic squeeze, will run the entire lesson.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The one question',
+          text: 'This lesson meets four percents, each with a base of its own: a **percentage change** is judged on the **original** value; a **profit or loss percent** is judged on the **cost price**; a **discount** is judged on the **marked price**; and **simple interest** is judged on the **principal**, once for each year of the loan. When a problem says "15%", stop and ask — 15% *of what*? The answer decides every calculation that follows.',
+        },
+        { kind: 'heading', text: 'Percentage change: the change judged against the original' },
+        {
+          kind: 'para',
+          text: 'A bicycle was marked at Rs 250 and now sells at Rs 300. The price has risen by 50 — but is that a large rise? The number 50 cannot say by itself; fifty rupees is a fortune to a pencil and a pittance to a motorcycle. A percentage change answers the question by judging the change against the value the motion started from — the **original**.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Percentage change',
+          text: 'A quantity whose original value is $O$ and whose new value is $N$ is said to have undergone a **percentage change** of $r\\%$ when $r = \\tfrac{N - O}{O} \\times 100$; the change is a **percentage increase** when $N > O$ and a **percentage decrease** when $N < O$. Thus, $N = 300$ with $O = 250$ gives $r = \\tfrac{50}{250} \\times 100 = 20$: the bicycle has undergone a $20\\%$ increase — the change, judged in hundredths of the original.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the definition prices a first shelf of changes at once:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '250 to 300: the change is $+50$, and $\\tfrac{50}{250} \\times 100 = 20$ — a $20\\%$ increase;',
+            '48,000 to 44,640: the change is $-3{,}360$, and $\\tfrac{3360}{48000} \\times 100 = 7$ — a $7\\%$ decrease;',
+            '800 to 720: the change is $-80$, and $\\tfrac{80}{800} \\times 100 = 10$ — a $10\\%$ decrease.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Notice where the divisor sits in every line: beneath the change lies the **original**, never the new value. This is not a convention but the meaning of the words — "a $20\\%$ increase" says the price grew by twenty hundredths **of what it was**, so what it was must supply the denominator. A change judged on the new value instead is not a different answer; it is a different question, and the exam sets it as a trap.',
+        },
+        {
+          kind: 'equation',
+          latex: 'N = O \\times \\frac{100 \\pm r}{100} \\qquad \\text{(the factor law)}',
+          note: 'The definition rearranges into a single multiplication: an increase of $r\\%$ multiplies the original by $\\tfrac{100 + r}{100}$, a decrease by $\\tfrac{100 - r}{100}$. One bracket, one product — no separate "find the change, then add" stage. The derivation is two lines of arithmetic.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The factor law',
+          statement:
+            'Claim: a percent change of $r\\%$ acts on an original $O$ as **one multiplication** — $N = O \\times \\tfrac{100 \\pm r}{100}$ — with the sign chosen by the direction of the change.',
+          steps: [
+            {
+              label: 'The definition, rearranged',
+              formula: 'N = O \\pm \\tfrac{r}{100} \\cdot O',
+              explanation:
+                'The new value is the original plus (or minus) the change, and the definition says the change is $\\tfrac{r}{100}$ **of the original** — hence the factor $O$ on the right.',
+            },
+            {
+              label: 'Distributivity gathers the terms',
+              formula: 'N = O\\left(1 \\pm \\tfrac{r}{100}\\right)',
+              explanation:
+                'Chapter 2’s distributive law factors out the common $O$: original and change are both multiples of the same quantity, so the sum is one product.',
+            },
+            {
+              label: 'The bracket is one fraction',
+              formula: '1 \\pm \\tfrac{r}{100} = \\tfrac{100 \\pm r}{100}',
+              explanation:
+                'One whole is a hundred hundredths (Lesson 5.4: $100\\%$ of anything is the whole of it), so the bracket collects into the single fraction $\\tfrac{100 \\pm r}{100}$.',
+            },
+            {
+              label: 'The bracket reduces when it can',
+              formula: '1 + \\tfrac{25}{100} = \\tfrac{125}{100} = \\tfrac{5}{4}, \\qquad 1 - \\tfrac{10}{100} = \\tfrac{90}{100} = \\tfrac{9}{10}',
+              explanation:
+                'The chapter 3 HCF machinery trims the bracket: a 25% rise is one multiplication by $\\tfrac{5}{4}$, a 10% fall one multiplication by $\\tfrac{9}{10}$. The fraction dress is often the fastest dress.',
+            },
+          ],
+          result:
+            'N = O × (100 ± r)/100: every percent change is one multiplication by a factor close to 1 — increase by (100 + r)/100, decrease by (100 − r)/100.',
+        },
+        {
+          kind: 'para',
+          text: 'The factor law is the whole machine. An increase of $25\\%$ is one multiplication by $\\tfrac{5}{4}$; a decrease of $10\\%$ is one multiplication by $\\tfrac{9}{10}$; an increase of $20\\%$ is one multiplication by $\\tfrac{6}{5}$. No "find the change, then add it" stage survives — the bracket does everything in one product, and the fraction dress lets chapter 4’s cancellations carry the arithmetic.',
+        },
+        {
+          kind: 'example',
+          title: 'A salary rises from Rs 12,500 to Rs 14,000. Find the percentage increase.',
+          steps: [
+            'Now, the change is $14000 - 12500 = 1500$, and the base is the **original** salary, $12500$.',
+            'So the change judged on the original: $\\tfrac{1500}{12500} \\times 100 = \\tfrac{3}{25} \\times 100 = 12$ — the HCF of $1500$ and $12500$ is $500$.',
+            'Hence the increase is $12\\%$; the forward check dresses it back: $12500 \\times \\tfrac{112}{100} = 125 \\times 112 = 14000$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The two-base trap',
+          text: 'A rise of $25\\%$ followed by a fall of $25\\%$ is **not** a round trip. The rise is judged on the original, but the fall is judged on the **new** value — a different, larger base. The two percents share a face value and nothing else; subtracting them ($25 - 25 = 0$) is arithmetic done on numbers that never belonged to the same base.',
+        },
+        {
+          kind: 'example',
+          title: 'A price of Rs 8,000 rises 25% in the festival season, then falls 25% after it. What net change has the customer seen?',
+          steps: [
+            'Now, the rise is one multiplication by $\\tfrac{5}{4}$: $8000 \\times \\tfrac{5}{4} = 10000$.',
+            'So the fall is one multiplication by $\\tfrac{3}{4}$ — judged on the **new** price: $10000 \\times \\tfrac{3}{4} = 7500$.',
+            'And the net: $8000 - 7500 = 500$ **below** where the story began, and $\\tfrac{500}{8000} \\times 100 = 6.25$ — a net fall of $6.25\\%$, not zero.',
+            'Hence the customer is worse off by $6.25\\%$; the two $25\\%$s never cancelled, because they were judged on two different bases — $8000$ and $10000$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The same asymmetry runs the reverse errand, and this is where marks are won. To **undo** a change, do not subtract the percent — divide by its factor. If a rise of $20\\%$ carried $O$ to $N = \\tfrac{6}{5}O$, then $O = \\tfrac{5}{6}N$: the return ticket is a multiplication by $\\tfrac{5}{6}$. Subtracting $20\\%$ of the new value would instead multiply by $\\tfrac{4}{5}$ and land at $\\tfrac{24}{25}O$ — short of home by the missing twenty-fifth. Figure 1 draws both tickets.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The round-trip map. A rise of 20% carries the original 12,500 to 15,000 — one multiplication by 6/5. Two tickets claim to return: the wrong one (amber, dashed) subtracts 20% of the NEW price and lands at 12,000, five hundred short; the right one multiplies by 5/6 — divides by the factor — and lands home at 12,500. Percents do not undo themselves; factors do.',
+          svg: `<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rise of twenty percent carries twelve thousand five hundred to fifteen thousand by multiplying by six fifths; the wrong return ticket subtracts twenty percent of the new price and lands at twelve thousand, while the right ticket multiplies by five sixths and lands home">
+  <rect x="40" y="170" width="160" height="60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="560" y="170" width="160" height="60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="120" y="192">original</text>
+    <text x="120" y="218" font-size="15">12,500</text>
+    <text x="640" y="192">after +20%</text>
+    <text x="640" y="218" font-size="15">15,000</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <line x1="210" y1="200" x2="548" y2="200"/>
+  </g>
+  <polygon points="548,194 548,206 558,200" fill="currentColor"/>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="380" y="185">+20%: x 6/5</text>
+    <text x="380" y="223" font-size="12">12,500 × 6/5 = 15,000</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 640 230 L 640 300 L 120 300 L 120 238"/>
+  </g>
+  <polygon points="114,240 126,240 120,230" fill="currentColor"/>
+  <text x="380" y="288" font-size="13" fill="currentColor" text-anchor="middle">the return ticket: x 5/6 (divide by the factor) — home at 12,500</text>
+  <g stroke="#b45309" stroke-width="1.4" fill="none" stroke-dasharray="6 5">
+    <path d="M 600 230 L 600 390 L 160 390 L 160 238"/>
+  </g>
+  <polygon points="154,240 166,240 160,230" fill="#b45309"/>
+  <text x="380" y="378" font-size="13" fill="#b45309" text-anchor="middle">the wrong ticket: − 20% of the new price — 12,000, five hundred short</text>
+  <text x="380" y="445" font-size="13" fill="currentColor" text-anchor="middle">percents do not undo themselves — the factor is the ticket</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Figure 1 is the lesson’s first law in miniature. The forward hop and the return hop are **different multiplications** — $\\times \\tfrac{6}{5}$ out, $\\times \\tfrac{5}{6}$ back — because each is judged on the value it starts from. The general shape of the round trip is worth naming now and proving in the exercises: up $r\\%$ then down $r\\%$ multiplies by $\\left(1 + \\tfrac{r}{100}\\right)\\left(1 - \\tfrac{r}{100}\\right) = 1 - \\tfrac{r^2}{10000}$, a **net fall** of $\\tfrac{r^2}{100}\\%$ — for $r = 20$, exactly the missing twenty-fifth of Figure 1; for $r = 25$, the $6.25\\%$ the next illustration finds. The round trip always loses, and the loss is the square of the percent over a hundred.',
+        },
+        {
+          kind: 'example',
+          title: 'After a 20% increase a phone costs Rs 15,000. What did it cost before?',
+          steps: [
+            'Now, the $20\\%$ rise is one multiplication by $\\tfrac{6}{5}$: the old price $\\times \\tfrac{6}{5} = 15000$.',
+            'So the return ticket divides by the factor — multiply by $\\tfrac{5}{6}$: $15000 \\times \\tfrac{5}{6} = 2500 \\times 5 = 12500$.',
+            'And the unitary method says the same thing in percent dress: Rs 15,000 is $120\\%$ of the old price, so $1\\%$ of it is $15000 \\div 120 = 125$, and $100\\%$ is $125 \\times 100 = 12500$.',
+            'Hence the phone cost Rs 12,500 before the rise; the forward check: $12500 \\times \\tfrac{6}{5} = 15000$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Finding the original is the return ticket worn as a method, and it is the unitary method of Lesson 5.3 standing in percent dress once more. In general $N = O \\times \\tfrac{100 \\pm r}{100}$ rearranges to $O = N \\times \\tfrac{100}{100 \\pm r}$: multiply the new value by a hundred, divide by $100 \\pm r$. The changed value carries a known percent **of** the original — $120\\%$ after a $20\\%$ rise, $85\\%$ after a $15\\%$ fall — and one division walks back down the ladder to $100\\%$.',
+        },
+        { kind: 'heading', text: 'Profit and loss: the trader’s percent reckoned on cost' },
+        {
+          kind: 'para',
+          text: 'The marketplace adds two more prices with names of their own. The **cost price** (CP) is what the trader paid for the article; the **selling price** (SP) is what the buyer pays the trader. When the selling price exceeds the cost the trader has a **profit** of $SP - CP$; when the cost exceeds the selling price, a **loss** of $CP - SP$. The bare difference says little — a profit of Rs 360 is handsome on a cycle and nothing on a car — so the trader, like everyone else in this lesson, judges it as a percent.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Profit percent and loss percent',
+          text: 'A trader is said to make a **profit of $p\\%$** when the profit $SP - CP$, expressed as a percent **of the cost price**, equals $p$: $p = \\tfrac{SP - CP}{CP} \\times 100$. Likewise a **loss of $l\\%$** means $l = \\tfrac{CP - SP}{CP} \\times 100$. Thus, profit and loss percents are reckoned on the **cost price** unless the question states another base — the money risked is the money that must earn the return.',
+        },
+        {
+          kind: 'equation',
+          latex: 'SP = CP \\times \\frac{100 \\pm p}{100} \\qquad \\text{(the ledger dress of the factor law)}',
+          note: 'The factor law of this lesson’s first section with the names changed: $O = CP$, $N = SP$, and the percent reckoned on the cost. A profit of $15\\%$ is one multiplication by $\\tfrac{23}{20}$; a loss of $15\\%$ one multiplication by $\\tfrac{17}{20}$. Nothing new — one machine, new labels.',
+        },
+        {
+          kind: 'para',
+          text: 'Why the cost price? Because the cost is the trader’s **investment** — the money that was risked and must earn. "A profit of $15\\%$" is trader’s language for: on every Rs 100 tied up, Rs 15 came back on top of it. The exam hall keeps this convention so firmly that a percent of profit unaccompanied by a base **means** cost price; the reader only needs to remember that the base was named, even when silently.',
+        },
+        {
+          kind: 'example',
+          title: 'A cycle bought for Rs 2,400 is sold for Rs 2,760. Find the profit percent.',
+          steps: [
+            'Now, the profit is $2760 - 2400 = 360$, and the base is the **cost**, $2400$.',
+            'So the profit judged on cost: $\\tfrac{360}{2400} \\times 100 = \\tfrac{3}{20} \\times 100 = 15$.',
+            'Hence the profit is $15\\%$; the forward check rides the factor: $2400 \\times \\tfrac{23}{20} = 120 \\times 23 = 2760$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The wrong base reads a different percent',
+          text: 'Judged on the **selling** price, the cycle’s Rs 360 profit is $\\tfrac{360}{2760} \\times 100 \\approx 13.04\\%$ — a different number from a different question ("profit on sales", a bookkeeper’s measure). The exam’s profit percent is on **cost**; Rs 15 of profit per Rs 100 paid out, not per Rs 100 received. One base, firmly named — the cost price.',
+        },
+        {
+          kind: 'example',
+          title: 'A fridge sold at Rs 10,200 brought the dealer a loss of 15%. What did it cost the dealer?',
+          steps: [
+            'Now, a loss of $15\\%$ sells at $85\\%$ of cost — one multiplication by $\\tfrac{17}{20}$: $CP \\times \\tfrac{17}{20} = 10200$.',
+            'So the return ticket divides by the factor: $CP = 10200 \\times \\tfrac{20}{17} = 600 \\times 20 = 12000$.',
+            'And the unitary method reads the same ladder: Rs 10,200 is $85\\%$ of the cost, so $1\\%$ is $10200 \\div 85 = 120$, and $100\\%$ is $120 \\times 100 = 12000$.',
+            'Hence the cost price was Rs 12,000; the check: $12000 \\times \\tfrac{17}{20} = 600 \\times 17 = 10200$, and the loss $12000 - 10200 = 1800$ is indeed $15\\%$ of $12000$.',
+          ],
+        },
+        { kind: 'heading', text: 'Discount: the percent taken off the marked price' },
+        {
+          kind: 'para',
+          text: 'The shop writes a price on the tag — the **marked price** (MP), also called the list price — and then, in the sale week, grants a **reduction** on it. That reduction is the **discount**, and its percent is judged — the reader may finish the sentence — on the price the reduction starts from: the marked price. The customer never pays the tag; the customer pays the tag **less its discount**, which is the selling price once more.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Discount',
+          text: 'An article whose marked price is $M$, sold at a **discount of $d\\%$**, sells for $SP = M - \\tfrac{d}{100} \\cdot M = M\\left(1 - \\tfrac{d}{100}\\right) = M \\times \\tfrac{100 - d}{100}$; the discount itself is $M - SP$, expressed as a percent **of the marked price**. Thus, a $15\\%$ discount on a tag of Rs 1,600 takes off $\\tfrac{15}{100} \\times 1600 = 240$ and sells for Rs 1,360 — one multiplication by $\\tfrac{17}{20}$.',
+        },
+        {
+          kind: 'para',
+          text: 'Two percents, two bases — and the pairing is worth fixing in the mind. The **profit percent lives on the cost price**; the **discount percent lives on the marked price**. Both obey the same grammar: a percent of the price you start from. The discount is computed on the tag because the tag is where the reduction begins; the profit is computed on the cost because the cost is where the trade begins. *Of what?* — asked once per percent, every time.',
+        },
+        {
+          kind: 'example',
+          title: 'A sweater tagged Rs 1,600 is sold at a discount of 15%. Find the discount and the selling price.',
+          steps: [
+            'Now, the discount is $15\\%$ **of the tag**: $\\tfrac{15}{100} \\times 1600 = 240$.',
+            'So the selling price is the tag less its discount: $1600 - 240 = 1360$ — or in one factor, $1600 \\times \\tfrac{85}{100} = 16 \\times 85 = 1360$.',
+            'Hence the discount is Rs 240 and the sweater sells for Rs 1,360; the check works backwards: $\\tfrac{240}{1600} \\times 100 = 15$ — the discount is $15\\%$ of the **tag**, as advertised.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A trader buys a lamp for Rs 600, marks it 40% above cost, then announces a festival discount of 20%. Does the festival spare the customer the markup?',
+          steps: [
+            'Now, the markup is a $40\\%$ rise on the cost: $MP = 600 \\times \\tfrac{140}{100} = 600 \\times \\tfrac{7}{5} = 840$.',
+            'So the discount is $20\\%$ **of the marked price**, not of the cost: $SP = 840 \\times \\tfrac{80}{100} = 840 \\times \\tfrac{4}{5} = 672$.',
+            'And the net: $672 - 600 = 72$ above cost, and $\\tfrac{72}{600} \\times 100 = 12$ — the trader still banks a $12\\%$ profit.',
+            'Hence the festival does **not** undo the markup: $40\\%$ up and $20\\%$ off is a net $+12\\%$, because the two percents rode two different bases — $600$ and $840$. The factors tell it in one line: $\\tfrac{7}{5} \\times \\tfrac{4}{5} = \\tfrac{28}{25} = 1.12$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The multiplier law',
+          text: 'Successive percent changes **multiply their factors**; the percents themselves never add. A markup of $40\\%$ then a discount of $20\\%$ is $1.40 \\times 0.80 = 1.12$ — a net $+12\\%$, not $+20\\%$. The same law ran the round trip of the first section ($1.25 \\times 0.75 = 0.9375$, a net $-6.25\\%$) and it will run every chain of changes: convert each percent to its factor, multiply the factors, and read the net percent off the product.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The two-lane map to one selling price. Left lane: a cost of 600 marked up 15% sells at 690 — the percent rides the cost. Right lane: a tag of 750 discounted 8% also sells at 690 — the percent rides the tag. Two percents, two bases, one price; profit 90 is 15% of 600 and discount 60 is 8% of 750. Every percent answers "of what?"',
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two lanes reach one selling price of six hundred and ninety: a cost of six hundred marked up fifteen percent, and a tag of seven hundred fifty discounted eight percent, each percent riding its own base">
+  <rect x="40" y="95" width="150" height="55" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="320" y="95" width="120" height="55" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="570" y="95" width="150" height="55" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="115" y="116">CP — money in</text>
+    <text x="115" y="140" font-size="15">600</text>
+    <text x="380" y="116">SP — one price</text>
+    <text x="380" y="140" font-size="15">690</text>
+    <text x="645" y="116">MP — the tag</text>
+    <text x="645" y="140" font-size="15">750</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <line x1="200" y1="122" x2="300" y2="122"/>
+    <line x1="560" y1="122" x2="460" y2="122"/>
+  </g>
+  <polygon points="300,116 300,128 310,122" fill="currentColor"/>
+  <polygon points="460,116 460,128 450,122" fill="currentColor"/>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="255" y="108">+15% on cost</text>
+    <text x="505" y="108">8% off the tag</text>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="195" y="210">600 × 115/100 = 690 — profit 90, 15% of the cost</text>
+    <text x="565" y="210">750 × 92/100 = 690 — discount 60, 8% of the tag</text>
+    <text x="380" y="240">two percents, two bases, one selling price</text>
+    <text x="380" y="285" font-size="13">every percent answers "of what?" — name the base first</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Figure 2 earns its keep as a map of the whole trade. One selling price — Rs 690 — is reached from two directions: the left lane multiplies the cost by $\\tfrac{23}{20}$ and calls the difference profit; the right lane multiplies the tag by $\\tfrac{92}{100}$ and calls the difference discount. The lanes never share a base, so their percents never compare directly — $15\\%$ of 600 and $8\\%$ of 750 are both "small fractions of their own starts", and the map says so visually. When an exam problem offers two lanes at once (a markup, then a discount), multiply the two factors and let the single product confess the net.',
+        },
+        { kind: 'heading', text: 'Simple interest: the rent on borrowed money' },
+        {
+          kind: 'para',
+          text: 'Money borrowed is money rented. The sum lent is the **principal** ($P$); the rent paid for its use is the **interest**; and the rent is quoted as a rate **per annum** — percent per year. Lesson 5.4’s definition gives the phrase its teeth immediately: a rate of $R\\%$ per annum means Rs $R$ of interest for every Rs 100 of principal, for **each year** the money stays out. The base is named — the principal — and the time is counted in years; everything else is the percent-of machinery of 5.4 working at an annual rhythm.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The simple interest law',
+          statement:
+            'Claim: money lent at $R\\%$ per annum gathers interest $I = \\tfrac{PRT}{100}$ over $T$ years, and the borrower returns the **amount** $A = P + I$.',
+          steps: [
+            {
+              label: 'One year, from the percent definition',
+              formula: 'I_1 = R\\% \\text{ of } P = \\tfrac{R}{100} \\times P',
+              explanation:
+                'The rate is a percent **of the principal** (Lesson 5.4, percent of a quantity): $R$ hundredths of $P$ for one year. On Rs 100 of principal the rent is exactly Rs $R$ — the rate read literally.',
+            },
+            {
+              label: 'T years, by repeated addition',
+              formula: 'I = \\underbrace{I_1 + I_1 + \\cdots + I_1}_{T \\text{ times}} = T \\times \\tfrac{R}{100} \\times P',
+              explanation:
+                '**Simple** interest is rent on the original principal alone: each year charges the same $I_1$, because the base never moves. T copies of one rent are T times one rent — chapter 2’s multiplication as repeated addition.',
+            },
+            {
+              label: 'The formula in its standard dress',
+              formula: 'I = \\tfrac{PRT}{100}, \\qquad A = P + I',
+              explanation:
+                'Reordering the factors costs nothing (multiplication commutes, chapter 2), and the **amount** — what the borrower actually returns — is principal plus interest, never principal times something.',
+            },
+          ],
+          result:
+            'I = PRT/100 and A = P + I: the rate prices one year on Rs 100; the principal counts how many hundreds; the time counts how many years.',
+        },
+        {
+          kind: 'equation',
+          latex: 'I = \\frac{PRT}{100}, \\qquad A = P + I \\qquad \\text{(simple interest)}',
+          note: '$P$ = principal (Rs lent), $R$ = rate percent **per annum**, $T$ = time **in years**. The formula is the unitary method read sideways: $\\tfrac{P}{100}$ counts the hundreds in the loan, $R$ prices one year on each hundred, $T$ counts the years.',
+        },
+        {
+          kind: 'example',
+          title: 'Rs 5,000 is borrowed at 8% per annum simple interest for 3 years. Find the interest and the amount.',
+          steps: [
+            'Now, one year’s rent on Rs 5,000 at 8%: $\\tfrac{8}{100} \\times 5000 = 400$ — Rs 8 for each of the fifty hundreds in the loan.',
+            'So three years charge three such rents — the base never moves: $I = 400 \\times 3 = 1200$, or in one stroke $\\tfrac{5000 \\times 8 \\times 3}{100} = 1200$.',
+            'And the amount is principal plus interest: $A = 5000 + 1200 = 6200$.',
+            'Hence the interest is Rs 1,200 and Rs 6,200 is returned; the per-year read-back: $\\tfrac{PRT}{100} = \\tfrac{5000 \\times 8 \\times 3}{100}$ reproduces the same product exactly.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The letter $T$ counts **years**, and the loan’s calendar must meet the formula in its own currency. Eight months is $\\tfrac{8}{12} = \\tfrac{2}{3}$ of a year; two years six months is $2\\tfrac{1}{2}$; a loan from March 5 to October 5 of the same year runs seven months, $\\tfrac{7}{12}$ of a year. The rate carries *per annum* in its very name — it prices a year — so the time must arrive in years before $\\tfrac{PRT}{100}$ is allowed to speak.',
+        },
+        {
+          kind: 'example',
+          title: 'What rate per annum yields Rs 900 as simple interest on Rs 6,000 in 2 years?',
+          steps: [
+            'Now, the law with the unknown left standing: $900 = \\tfrac{6000 \\times R \\times 2}{100} = 120R$.',
+            'So the rate is the interest divided by the year-price of the loan: $R = \\tfrac{900}{120} = 7.5$.',
+            'Hence the rate is $7.5\\%$ per annum; the check: $\\tfrac{6000 \\times 7.5 \\times 2}{100} = 60 \\times 15 = 900$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The same inversion recovers **any** missing letter — the law has four quantities and one equation, so naming three fixes the fourth: a principal from $P = \\tfrac{100 \\, I}{RT}$, a time from $T = \\tfrac{100 \\, I}{PR}$. The exam asks all four directions, and one formula answers them all; the reader who keeps the one-percent-a-year picture — Rs $R$ per Rs 100 per year — never needs to memorise which way the rearrangement runs.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The per-annum trap',
+          text: 'A rate quoted **per annum** must meet a time in **years**. Feeding months straight into $T$ — Rs 9,000 at $6\\%$ "for 8" with $T = 8$ — charges eight years of rent, twelve times the truth ($8$ months is $T = \\tfrac{2}{3}$, and the interest is Rs 360, not Rs 4,320). Check the unit of $T$ before the formula runs; it is the most silent mark-loser in this chapter.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why "simple"?',
+          text: 'The word is a promise: the interest is computed on the **original principal alone**, year after year — a flat rent, the same Rs 400 each year on the Rs 5,000 loan however long it runs. When instead each year’s interest is **added to the principal** and begins earning rent of its own, the interest compounds — the next books’ story, and a richer one. The door is now open; this chapter closes it gently.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Percentage change',
+              def: 'The change in a quantity, expressed as a percent of the ORIGINAL value: r = (N − O)/O × 100. Example: 250 to 300 is a 20% increase; 48,000 to 44,640 is a 7% decrease.',
+            },
+            {
+              term: 'Cost price (CP)',
+              def: 'What the trader paid for an article — the base on which profit and loss percents are reckoned. Example: a cycle bought for Rs 2,400 and sold for Rs 2,760 earns a profit of 15% on cost.',
+            },
+            {
+              term: 'Selling price (SP)',
+              def: 'What the buyer pays the trader: SP = CP + profit or SP = CP − loss. Example: the cycle’s SP of Rs 2,760 is CP 2,400 raised by its 15%.',
+            },
+            {
+              term: 'Marked price (MP)',
+              def: 'The price written on the tag (the list price) — the base on which discounts are reckoned. Example: a lamp costing Rs 600 marked 40% above cost carries a tag of Rs 840.',
+            },
+            {
+              term: 'Discount',
+              def: 'The reduction granted on the marked price: discount = M − SP, a percent OF THE TAG. Example: 15% off a Rs 1,600 tag takes off Rs 240 and sells at Rs 1,360.',
+            },
+            {
+              term: 'Principal',
+              def: 'The sum lent or borrowed — the base on which interest is reckoned, once per year. Example: Rs 5,000 borrowed at 8% per annum pays Rs 400 rent each year.',
+            },
+            {
+              term: 'Simple interest',
+              def: 'Interest computed on the original principal alone: I = PRT/100, with R the rate per annum and T the time in years. Example: Rs 5,000 at 8% for 3 years gathers Rs 1,200.',
+            },
+            {
+              term: 'Amount',
+              def: 'What the borrower returns: A = P + I, principal plus interest. Example: the Rs 5,000 loan returns Rs 6,200 after 3 years.',
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The factor law',
+          latex: 'N = O \\times \\frac{100 \\pm r}{100}',
+          note: 'Every percent change is one multiplication: +25% is ×5/4, −10% is ×9/10. To UNDO a change, divide by its factor — never subtract the percent (a +r% then −r% round trip nets −r²/100 %).',
+        },
+        {
+          kind: 'formula',
+          name: 'The ledger law (profit and loss)',
+          latex: 'SP = CP \\times \\frac{100 \\pm p}{100}',
+          note: 'Profit and loss percents live on the COST price: Rs 10,200 taken at a 15% loss came from a cost of Rs 12,000 (CP = SP × 100/(100 − p)). A profit of 15% multiplies cost by 23/20; a loss of 15% by 17/20.',
+        },
+        {
+          kind: 'formula',
+          name: 'The discount law',
+          latex: 'SP = M \\times \\frac{100 - d}{100}',
+          note: 'The discount percent lives on the MARKED price: 15% off a Rs 1,600 tag sells at Rs 1,360. Markup then discount multiplies the factors: 1.40 × 0.80 = 1.12, a net +12%.',
+        },
+        {
+          kind: 'formula',
+          name: 'Simple interest',
+          latex: 'I = \\frac{PRT}{100}, \\qquad A = P + I',
+          note: 'R% per annum prices one year on Rs 100; P counts the hundreds; T counts the years (months → /12). Any missing letter follows: R = 100I/(PT), and so on.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'This lesson is printed marks across every competitive paper: (i) **two-base discipline** decides the fill-in-the-blanks — a change of 50 on 250 is 20% but on 300 is 16 2/3%; profit percent on cost, discount percent on tag; (ii) the **factor law** prices chains in one line: 1.4 × 0.8 = 1.12 (markup 40%, discount 20%, net +12%), and the round trip (1 + r/100)(1 − r/100) = 1 − r²/10000 always nets a fall of r²/100 % — 25% up and down is −6.25%; (iii) **return tickets** recover originals: Rs 15,000 after +20% came from Rs 12,500 by one division (the unitary method at 120%); (iv) **simple interest** runs all four directions from I = PRT/100 — interest, amount, rate, time — with T strictly in years (8 months = 2/3); (v) the classic traps: subtracting the percent to undo a change (lands short), profit judged on SP (13.04% ≠ 15%), discount judged on SP (it lives on the tag), months fed to T as if years. The NCERT canon sets the syllabus (class 7 §§8.5–8.6: buying and selling, simple interest; class 8 §§8.2–8.4: increase/decrease per cent, discounts, profit and loss), and the SSC/bank/Railway papers drill it yearly (Khattar QA, chs. on percentage and profit & loss) — no past-paper text is reproduced here.',
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'A score rises from 250 to 300. The percentage increase is:',
+              options: [
+                '20% — the change 50 judged on the original 250',
+                '25% — the change 50 judged on a base of 200',
+                '50% — the change 50 judged on itself',
+                '16 2/3% — the change 50 judged on the new 300',
+              ],
+              answer: 0,
+              explain:
+                'The base is where the motion started: 50/250 × 100 = 20% (Option 1). Option 4 is the new-base fraud — 50/300 is "the change on the new value", a different question. Option 3 judges 50 on 100 (itself), and Option 2 divides by a 200 that appears nowhere in the problem.',
+            },
+            {
+              q: 'A price rose 25%. To bring it back to the original, one should:',
+              options: [
+                'subtract 25% of the new price',
+                'divide the new price by 1.25',
+                'subtract 1.25 from the new price',
+                'multiply the new price by 1.25',
+              ],
+              answer: 1,
+              explain:
+                'The rise multiplied by 5/4; only dividing by 5/4 (= 1.25) returns home (Option 2). Option 1 multiplies by 3/4 and lands at 93.75 on a base of 100 — short of home by 6.25%, the r²/100 law. Option 3 subtracts a rupee-and-a-quarter from a percent story, and Option 4 walks further up. (Elegance aside: multiplying by 4/5 — a fall of 20% of the new price — also lands home, since 4/5 × 5/4 = 1; the percent that undoes +25% is 20%, not 25%.)',
+            },
+            {
+              q: 'An article tagged Rs 800 is sold at a discount of 15%. The selling price is:',
+              options: ['Rs 720', 'Rs 680', 'Rs 120', 'Rs 785'],
+              answer: 1,
+              explain:
+                'The discount is 15% of the TAG: 800 × 85/100 = 680 (Option 2). Option 1 granted a 10% discount, Option 3 is the discount itself rather than the price that remains, and Option 4 read the 15% as Rs 15 flat.',
+            },
+            {
+              q: 'A cycle bought for Rs 2,400 sells for Rs 2,760. The profit percent is:',
+              options: [
+                'about 13% — the profit judged on the selling price',
+                '12.5% — the profit Rs 300 on the cost',
+                '15% — the profit Rs 360 judged on the cost',
+                '1.5% — the decimal 0.15 read as a percent',
+              ],
+              answer: 2,
+              explain:
+                'Profit 2,760 − 2,400 = 360, judged on the COST: 360/2,400 × 100 = 15% (Option 3). Option 1 is the wrong base — 360/2,760 ≈ 13.04% answers "profit on sales". Option 2 subtracted as if the profit were 300, and Option 4 slipped the decimal dress: 0.15 is 15%, not 1.5% (one hop of the ladder, Lesson 5.4).',
+            },
+            {
+              q: 'Rs 4,000 is lent at 5% per annum simple interest for 2 years. The interest is:',
+              options: ['Rs 200', 'Rs 4,400', 'Rs 40', 'Rs 400'],
+              answer: 3,
+              explain:
+                'One year rents Rs 200 (5% of 4,000); two years rent twice that: 4,000 × 5 × 2/100 = Rs 400 (Option 4). Option 1 stopped at one year, Option 2 quoted the AMOUNT (4,000 + 400) instead of the interest, and Option 4’s neighbour Rs 40 is the 1% slip — 4,000 × 1/100.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Find the percentage increase from 40 to 50.',
+                  solution: [
+                    'Now, the change is $50 - 40 = 10$, and the base is the original, $40$.',
+                    'So the change judged on the original: $\\tfrac{10}{40} \\times 100 = 25$.',
+                    'Hence the increase is $25\\%$; the check: $40 \\times \\tfrac{5}{4} = 50$.',
+                  ],
+                  answer: '25%',
+                },
+                {
+                  q: 'Find the percentage decrease from 90 to 72.',
+                  solution: [
+                    'Now, the change is $90 - 72 = 18$, judged on the original $90$.',
+                    'So $\\tfrac{18}{90} \\times 100 = 20$ — one fifth of the original lost.',
+                    'Hence the decrease is $20\\%$; the check: $90 \\times \\tfrac{4}{5} = 72$.',
+                  ],
+                  answer: '20%',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A trader buys a chair for Rs 850 and sells it for Rs 952. Find the profit percent.',
+                  solution: [
+                    'Now, the profit is $952 - 850 = 102$, and the base is the cost, $850$.',
+                    'So the profit judged on cost: $\\tfrac{102}{850} \\times 100 = 12$ — the HCF of $102$ and $850$ is $34$.',
+                    'Hence the profit is $12\\%$; the forward check: $850 \\times \\tfrac{28}{25} = 34 \\times 28 = 952$.',
+                  ],
+                  answer: '12%',
+                },
+                {
+                  q: 'A coat tagged Rs 2,400 is sold at a discount of 25%. Find the discount and the selling price.',
+                  solution: [
+                    'Now, the discount is $25\\%$ of the tag: $\\tfrac{25}{100} \\times 2400 = 600$.',
+                    'So the selling price is $2400 - 600 = 1800$ — in one factor, $2400 \\times \\tfrac{3}{4} = 1800$.',
+                    'Hence the discount is Rs 600 and the coat sells for Rs 1,800; the read-back $\\tfrac{600}{2400} \\times 100 = 25$ confirms the tag as the base.',
+                  ],
+                  answer: 'Discount Rs 600; SP Rs 1,800',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'After a 10% decrease a town’s population is 43,200. What was it before?',
+                  solution: [
+                    'Now, a $10\\%$ fall leaves $90\\%$ standing: $O \\times \\tfrac{9}{10} = 43200$.',
+                    'So the return ticket multiplies by $\\tfrac{10}{9}$: $O = 43200 \\times \\tfrac{10}{9} = 4800 \\times 10 = 48000$.',
+                    'Hence the town numbered 48,000 before; the check: $48000 \\times \\tfrac{9}{10} = 43200$.',
+                  ],
+                  answer: '48,000',
+                },
+                {
+                  q: 'Rs 7,200 is lent at 4% per annum simple interest for 3 years. Find the interest and the amount.',
+                  solution: [
+                    'Now, one year’s rent: $\\tfrac{4}{100} \\times 7200 = 288$ — Rs 4 on each of 72 hundreds.',
+                    'So three years charge three rents: $I = 288 \\times 3 = 864$, or $\\tfrac{7200 \\times 4 \\times 3}{100} = 864$.',
+                    'And the amount: $A = 7200 + 864 = 8064$.',
+                    'Hence the interest is Rs 864 and Rs 8,064 is returned.',
+                  ],
+                  answer: 'Interest Rs 864; amount Rs 8,064',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A fridge sold for Rs 10,200 brought the dealer a loss of 15%. Find the cost price.',
+                  solution: [
+                    'Now, a $15\\%$ loss sells at $85\\%$ of cost: $CP \\times \\tfrac{17}{20} = 10200$.',
+                    'So the return ticket divides: $CP = 10200 \\times \\tfrac{20}{17} = 600 \\times 20 = 12000$.',
+                    'Hence the cost was Rs 12,000; the check: the loss $12000 - 10200 = 1800$ is $\\tfrac{1800}{12000} \\times 100 = 15\\%$ of the cost.',
+                  ],
+                  answer: 'Rs 12,000',
+                },
+                {
+                  q: 'A trader buys a lamp for Rs 800, marks it 35% above cost, then allows a 20% discount. Find the selling price and the profit percent.',
+                  solution: [
+                    'Now, the markup: $MP = 800 \\times \\tfrac{135}{100} = 800 \\times \\tfrac{27}{20} = 1080$.',
+                    'So the discount rides the tag, not the cost: $SP = 1080 \\times \\tfrac{80}{100} = 1080 \\times \\tfrac{4}{5} = 864$.',
+                    'And the profit: $864 - 800 = 64$, judged on cost — $\\tfrac{64}{800} \\times 100 = 8\\%$.',
+                    'Hence the lamp sells for Rs 864 and the trader still banks $8\\%$; the factors confess it in one line: $\\tfrac{27}{20} \\times \\tfrac{4}{5} = \\tfrac{27}{25} = 1.08$ — a net $+8\\%$, not $35 - 20$.',
+                  ],
+                  answer: 'SP Rs 864; profit 8%',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Rs 9,000 is lent at 6% per annum simple interest for 8 months. Find the interest.',
+                  solution: [
+                    'Now, the rate speaks per annum, so the time must arrive in years: $T = \\tfrac{8}{12} = \\tfrac{2}{3}$.',
+                    'So $I = \\tfrac{PRT}{100} = \\tfrac{9000 \\times 6 \\times 2/3}{100}$ — one year’s rent is $\\tfrac{6}{100} \\times 9000 = 540$, and two-thirds of it: $\\tfrac{2}{3} \\times 540 = 360$.',
+                    'Hence the interest is Rs 360; feeding $T = 8$ would have charged eight years — Rs 4,320, twelve times the truth. The unit of $T$ is the silent trap.',
+                  ],
+                  answer: 'Rs 360',
+                },
+                {
+                  q: 'One price rises 20% and then falls 20%. A second price falls 20% and then rises 20%. Show that both land in the same place, and name the net change.',
+                  solution: [
+                    'Now, take any start $O$ — say Rs 500 — and walk the first order: $500 \\times \\tfrac{6}{5} = 600$, then $600 \\times \\tfrac{4}{5} = 480$.',
+                    'So the second order: $500 \\times \\tfrac{4}{5} = 400$, then $400 \\times \\tfrac{6}{5} = 480$ — the same landing.',
+                    'And the reason sits in chapter 2: multiplication commutes, so $\\tfrac{6}{5} \\times \\tfrac{4}{5} = \\tfrac{4}{5} \\times \\tfrac{6}{5}$ — the factors cannot disagree about the product, whatever order they meet in.',
+                    'Hence both prices land at $\\tfrac{24}{25}O$: a net fall of $\\tfrac{1}{25} = 4\\%$ — the $r^2/100$ law with $r = 20$ — whichever way the round trip ran.',
+                  ],
+                  answer: 'Both land at 96% of the start; net −4%',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove: a rise of r% followed by a fall of r% leaves the quantity at (10000 − r²)/10000 of itself — a net decrease of r²/100 %. Hence find the net change when r = 25, and state the operation that truly undoes a 25% rise.',
+                  solution: [
+                    'Now, the rise multiplies by $1 + \\tfrac{r}{100}$ and the fall by $1 - \\tfrac{r}{100}$ — each judged on the value it starts from, so the pair multiplies:',
+                    'So $\\left(1 + \\tfrac{r}{100}\\right)\\left(1 - \\tfrac{r}{100}\\right) = 1 - \\tfrac{r^2}{10000}$ by chapter 2’s identity $(a + b)(a - b) = a^2 - b^2$ with $a = 1$, $b = \\tfrac{r}{100}$.',
+                    'And the net: the quantity stands at $\\tfrac{10000 - r^2}{10000}$ of itself — short of the whole by $\\tfrac{r^2}{10000}$, which as a percent is $\\tfrac{r^2}{100}\\%$.',
+                    'Hence for $r = 25$: a net fall of $\\tfrac{625}{100} = 6.25\\%$ — exactly the round trip of Illustration 2 — and the true undo of a $25\\%$ rise is a **division by $\\tfrac{5}{4}$**, equivalently a fall of $20\\%$ of the new value, never a fall of $25\\%$.',
+                  ],
+                  answer: 'Net fall r²/100 %; for r = 25, −6.25%; undo = divide by 5/4',
+                },
+                {
+                  q: 'Rs 12,000 is lent at 6.25% per annum for 2 1/2 years. Find the interest in one line using Lesson 5.4’s halving chain, then verify with PRT/100.',
+                  solution: [
+                    'Now, the halving chain dresses the rate: $6.25\\% = \\tfrac{1}{16}$ — the fourth rung of 100, 50, 25, 12.5, 6.25 (the fives never block a halving).',
+                    'So one year’s rent is $\\tfrac{1}{16}$ of the principal: $12000 \\div 16 = 750$; and $2\\tfrac{1}{2}$ years charge $2\\tfrac{1}{2}$ rents: $750 \\times 2.5 = 1875$.',
+                    'And the verification rides the formula: $\\tfrac{12000 \\times 6.25 \\times 2.5}{100} = 120 \\times 6.25 \\times 2.5 = 750 \\times 2.5 = 1875$ — the same product, as it must be.',
+                    'Hence the interest is Rs 1,875 (amount Rs 13,875): the chain read the rate’s dress, the formula confirmed the bill.',
+                  ],
+                  answer: 'Rs 1,875',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'And with that the chapter’s promise is paid in full. The point of Lesson 5.1 gave hundredths a home; the bridge of 5.2 dressed every fraction in decimal cloth or taught its waltz; the machines of 5.3 added, multiplied and divided with the point in play; the standardised denominator of 5.4 gave every fraction a percent dress; and this lesson put the dress to work where the world wears it — on prices that rise and fall, on tags and their discounts, on the trader’s cost and the lender’s year. One question ran through all of it — ***of what?*** — and one machine did all of it: a percent is a fraction of a named base, and every fraction in this book knows how to be one. Chapter 6 will find the same unitary method growing up into ratio and proportion; the percent it leaves behind is no longer a topic but a habit.',
+        },
+      ],
+    },
   ],
-  plannedLessons: [
-    'Percentage Change, Discounts and Simple Interest',
-  ],
+  plannedLessons: [],
 }

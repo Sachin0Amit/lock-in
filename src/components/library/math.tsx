@@ -43,12 +43,16 @@ export function RichText({ text, className }: { text: string; className?: string
         if (part.length > 4 && part.startsWith('**') && part.endsWith('**')) {
           return (
             <strong key={i} className="font-semibold text-foreground">
-              {part.slice(2, -2)}
+              <RichText text={part.slice(2, -2)} />
             </strong>
           )
         }
         if (part.length > 2 && part.startsWith('*') && part.endsWith('*')) {
-          return <em key={i}>{part.slice(1, -1)}</em>
+          return (
+            <em key={i}>
+              <RichText text={part.slice(1, -1)} />
+            </em>
+          )
         }
         return <span key={i}>{part}</span>
       })}

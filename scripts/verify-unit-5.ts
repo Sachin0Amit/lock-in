@@ -1025,6 +1025,153 @@ check('BS4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
 check('BS5: quiz answers planned as indices 0/1/1/2/2', JSON.stringify([0, 1, 1, 2, 2]) === '[0,1,1,2,2]');
 check('BS6: prerequisites — 5.1 (the ladder), 5.3 (the point-shift), 4.2 (lowest terms), 4.5 (of = multiplication)', true);
 
+/* ============================================================
+ * 5.5 — BT. Percentage change: the change judged on the ORIGINAL
+ * ==========================================================*/
+check('BT1: 250 to 300 — change 50, judged on the original 250: 50 x 100/250 = 20% (not 16 2/3%, the new-base fraud)',
+  300 - 250 === 50 && (50 * 100) / 250 === 20 && M((50 * 100) / 300) === 16667 && (50 * 100) / 300 !== 20);
+check('BT2: 48,000 to 44,640 — decrease 3,360, 3,360 x 100/48,000 = 7%; forward check 48,000 x 93/100 = 44,640',
+  48000 - 44640 === 3360 && (3360 * 100) / 48000 === 7 && (48000 * 93) / 100 === 44640);
+check('BT3: 800 to 720 — decrease 80, 80 x 100/800 = 10%', (800 - 720) * 100 / 800 === 10);
+check('BT4: salary 12,500 to 14,000 — increase 1,500, 1,500 x 100/12,500 = 12% (the fraction 1,500/12,500 is exactly 3/25)',
+  14000 - 12500 === 1500 && (1500 * 100) / 12500 === 12 && 1500 * 25 === 12500 * 3 && gcd(1500, 12500) === 500);
+check('BT5: the round-trip run on Rs 8,000 — x 5/4 to 10,000, x 3/4 to 7,500; net -500 on 8,000 = -6.25%',
+  (8000 * 5) / 4 === 10000 && (10000 * 3) / 4 === 7500 && 10000 - 7500 === 2500 && 8000 - 7500 === 500 && M((500 * 100) / 8000) === 6250);
+
+/* ============================================================
+ * 5.5 — BU. The factor law, the round trip, finding the original
+ * ==========================================================*/
+check('BU1: the factor law — +25% means x 5/4, -10% means x 9/10, +12% means x 28/25; bracket (100 +/- r)/100',
+  (100 + 25) / 100 === 1.25 && (100 - 10) / 100 === 0.9 && (100 + 12) / 100 === 1.12 &&
+  gcd(112, 100) === 4 && gcd(28, 25) === 1 && 125 * 4 === 5 * 100);
+check('BU2: the phone — after +20% the price is 15,000: 12,500 x 6/5 = 15,000; the return ticket 15,000 x 5/6 = 12,500',
+  (12500 * 6) / 5 === 15000 && (15000 * 5) / 6 === 12500 && M(15000 / 1.2) === 12500000);
+check('BU3: the wrong ticket — subtracting 20% of the NEW price: 15,000 x 8/10 = 12,000, five hundred short of home',
+  (15000 * 8) / 10 === 12000 && 12500 - 12000 === 500);
+check('BU4: the round trip is a net -r^2/100 % — r = 25: 1.25 x 0.75 = 0.9375 = 1 - 0.0625 and 625/100 = 6.25; r = 20: 1.2 x 0.8 = 0.96 and 400/100 = 4',
+  1.25 * 0.75 === 0.9375 && Math.abs(1 - (25 * 25) / 10000 - 0.9375) < 1e-12 && 625 / 100 === 6.25 &&
+  Math.abs(1.2 * 0.8 - 0.96) < 1e-12 && (20 * 20) / 100 === 4);
+check('BU5: order does not matter — 500 x 1.2 x 0.8 = 480 = 500 x 0.8 x 1.2 (multiplication commutes even when the percents do not add)',
+  500 * 1.2 * 0.8 === 480 && 500 * 0.8 * 1.2 === 480 && M((500 - 480) * 100 / 500) === 4000);
+
+/* ============================================================
+ * 5.5 — BV. Profit and loss, reckoned on the cost price
+ * ==========================================================*/
+check('BV1: the cycle — bought 2,400, sold 2,760: profit 360 = 15% of cost; forward check 2,400 x 23/20 = 2,760',
+  2760 - 2400 === 360 && (360 * 100) / 2400 === 15 && (2400 * 23) / 20 === 2760);
+check('BV2: the profit-on-SP fraud — 360 judged on 2,760 is about 13.04%, NOT the profit percent',
+  Math.abs((360 * 100) / 2760 - 15) > 1.5 && M((360 * 100) / 2760) === 13043);
+check('BV3: the chair — bought 850, sold 952: profit 102 = 12% of cost; 850 x 28/25 = 952',
+  952 - 850 === 102 && (102 * 100) / 850 === 12 && (850 * 28) / 25 === 952);
+check('BV4: the fridge — sold 10,200 at 15% loss: CP x 85/100 = 10,200 so CP = 12,000; loss 1,800 = 15% of 12,000',
+  (10200 * 100) / 85 === 12000 && (12000 * 85) / 100 === 10200 && 12000 - 10200 === 1800 && (1800 * 100) / 12000 === 15);
+
+/* ============================================================
+ * 5.5 — BW. Discount, reckoned on the marked price; nets
+ * ==========================================================*/
+check('BW1: the sweater — tag 1,600 at 15% off: discount 240, SP 1,360 = 1,600 x 17/20',
+  (1600 * 15) / 100 === 240 && 1600 - 240 === 1360 && (1600 * 85) / 100 === 1360 && (1600 * 17) / 20 === 1360);
+check('BW2: quiz-3 numbers — tag 800 at 15% off: SP 680; the frauds 720 (a 10% read), 120 (the discount itself), 785 (Rs 15 off)',
+  (800 * 85) / 100 === 680 && (800 * 90) / 100 === 720 && 800 - (800 * 15) / 100 === 680 && 800 - 15 === 785);
+check('BW3: the lamp — cost 600, markup 40% to 840, discount 20% to 672: profit 72 = 12% of cost',
+  (600 * 140) / 100 === 840 && (840 * 80) / 100 === 672 && 672 - 600 === 72 && (72 * 100) / 600 === 12);
+check('BW4: the net multiplier law — 1.40 x 0.80 = 1.12: markup 40% then discount 20% is a net +12%, while the percents subtract only to 20',
+  Math.abs(1.4 * 0.8 - 112 / 100) < 1e-12 && Math.abs((1.4 * 0.8 - 1) * 100 - 12) < 1e-12);
+check('BW5: exercise-8 lamp — cost 800, markup 35% to 1,080, discount 20% to 864: profit 64 = 8% of cost',
+  (800 * 135) / 100 === 1080 && (1080 * 80) / 100 === 864 && 864 - 800 === 64 && (64 * 100) / 800 === 8);
+
+/* ============================================================
+ * 5.5 — BX. Simple interest: I = PRT/100, A = P + I
+ * ==========================================================*/
+check('BX1: the 1%-a-year unit — 8% per annum on 5,000: one year 400, three years 1,200; amount 6,200',
+  (5000 * 8) / 100 === 400 && (5000 * 8 * 3) / 100 === 1200 && 5000 + 1200 === 6200);
+check('BX2: the rate recovered — 900 interest on 6,000 for 2 years: 6,000 x R x 2/100 = 120R = 900 so R = 7.5%',
+  (6000 * 2) / 100 === 120 && 900 / 120 === 7.5 && M((6000 * 7.5 * 2) / 100) === 900000);
+check('BX3: quiz-5 numbers — 4,000 at 5% for 2 years: I = 400; one year 200; the amount 4,400; the 1%-slip 40',
+  (4000 * 5 * 2) / 100 === 400 && (4000 * 5) / 100 === 200 && 4000 + 400 === 4400 && (4000 * 1) / 100 === 40);
+check('BX4: exercise-6 — 7,200 at 4% for 3 years: I = 864, amount 8,064',
+  (7200 * 4 * 3) / 100 === 864 && 7200 + 864 === 8064);
+check('BX5: exercise-9 months — 9,000 at 6% for 8 months: T = 8/12 = 2/3 year, I = 9,000 x 6 x 2/3/100 = 360',
+  8 / 12 === 2 / 3 && (9000 * 6 * 2) / 3 / 100 === 360 && (9000 * 6) / 100 === 540 && (540 * 2) / 3 === 360);
+check('BX6: exercise-12 — 12,000 at 6.25% for 2 1/2 years: PRT/100 = 1,875; the halving chain one-liner 12,000/16 = 750, 750 x 2.5 = 1,875',
+  (12000 * 625 * 25) / (10000 * 10) === 1875 && M((12000 * 6.25 * 2.5) / 100) === 1875000 && 12000 / 16 === 750 && 750 * 2.5 === 1875);
+check('BX7: the simple promise — interest on the ORIGINAL principal alone: year k pays the same 400 on the 5,000 loan (3 x 400 = 1,200, not compounding)',
+  400 + 400 + 400 === 1200 && (5000 * 8) / 100 === (5000 * 8) / 100 && 6200 === 5000 + 3 * 400);
+
+/* ============================================================
+ * 5.5 — BY. Figure 1 geometry: the round-trip map
+ * ==========================================================*/
+check('BY1: two stations — original box x 40..200, new box x 560..720, both y 170..230 in the 760 x 470 viewBox; the forward arrow spans x 210..550 at y 200',
+  200 - 40 === 160 && 720 - 560 === 160 && 230 - 170 === 60 && 210 - 200 === 10 && 560 - 550 === 10);
+check('BY2: arrow labels ride the free middle zone — "+20% => x 6/5" at (380, 185) clears the boxes (labels fit x 300..460)',
+  380 > 210 && 380 < 550 && 200 - 185 === 15);
+check('BY3: the return ticket — solid path 640,230 down to y 300, across to x 120, up into the original box; label at (380, 288) rides 12 above the line',
+  640 - 600 === 40 && 120 - 160 === -40 && 390 - 300 === 90 && 300 - 288 === 12);
+check('BY4: the wrong ticket — amber dashed path 600,230 down to y 390, across to x 160, up; its label at (380, 378) clears both horizontal lines',
+  378 < 390 && 390 - 378 === 12 && 378 - 300 === 78);
+check('BY5: the takeaway line at y 445 clears the wrong ticket (390) by 55', 445 - 390 === 55 && 445 < 470);
+
+/* ============================================================
+ * 5.5 — BZ. Figure 2 geometry: the two-lane map to one SP
+ * ==========================================================*/
+check('BZ1: three boxes — CP 40..190, SP 320..440, MP 570..720, all y 95..150 in the 760 x 320 viewBox',
+  190 - 40 === 150 && 440 - 320 === 120 && 720 - 570 === 150 && 150 - 95 === 55);
+check('BZ2: the lanes — left arrow x 200..310 at y 122 lands 10 short of the SP box; right arrow x 450..560 points left, 10 clear of both boxes',
+  200 - 190 === 10 && 320 - 310 === 10 && 450 - 440 === 10 && 570 - 560 === 10);
+check('BZ3: lane labels ride the gaps — "+15% on cost" centered 255 spans about x 205..305; "8% off the tag" centered 505 spans about x 455..555; both clear the boxes and sit 14 above the arrows',
+  255 - 190 > 10 && 320 - 305 > 10 && 455 - 440 > 10 && 570 - 555 > 10 && 122 - 108 === 14);
+check('BZ4: the numbers agree — 600 x 115/100 = 690 and 750 x 92/100 = 690; profit 90 = 15% of 600, discount 60 = 8% of 750',
+  (600 * 115) / 100 === 690 && (750 * 92) / 100 === 690 && 690 - 600 === 90 && (90 * 100) / 600 === 15 && 750 - 690 === 60 && (60 * 100) / 750 === 8);
+check('BZ5: explainer rows — row 1 at y 210 (left centered 195, right centered 565), row 2 at y 240 centered, takeaway at y 285; all inside 760 x 320',
+  210 - 150 === 60 && 240 - 210 === 30 && 285 - 240 === 45 && 285 < 320);
+check('BZ6: the closing question — "of what?" maps percent to base: change on the original, profit on the cost, discount on the tag, interest on the principal', true);
+
+/* ============================================================
+ * 5.5 — CA. Quiz key audit (5 answers, every distractor killed)
+ * ==========================================================*/
+check('CA1: quiz-1 answer index 0 — 250 to 300 is +20%; 16 2/3% judges 50 on the NEW 300, 50% judges it on itself, 25% judges it on a 200 that appears nowhere',
+  (50 * 100) / 250 === 20 && Math.abs((50 * 100) / 300 - 20) > 3 && (50 * 100) / 100 === 50 && (50 * 100) / 200 === 25);
+check('CA2: quiz-2 answer index 1 — undo a +25% rise by dividing by 1.25 (x 4/5); subtracting 25% lands at 93.75, subtracting 1.25 at 123.75, multiplying at 156.25; the aside -20% (x 4/5) also returns home',
+  Math.abs(125 / 1.25 - 100) < 1e-12 && Math.abs(125 * 0.75 - 93.75) < 1e-12 && 125 - 1.25 === 123.75 && 125 * 1.25 === 156.25 && 125 * 0.8 === 100);
+check('CA3: quiz-3 answer index 1 — tag 800 at 15% off: SP 680; 720 is a 10% read, 120 is the discount not the price, 785 took Rs 15 off',
+  (800 * 85) / 100 === 680 && (800 * 90) / 100 === 720 && 800 - (800 * 15) / 100 === 680 && 800 - 15 === 785);
+check('CA4: quiz-4 answer index 2 — 2,400 to 2,760 is +15% on cost; about 13.04% is the SP-base fraud, 12.5% is the profit 300 (a mis-subtraction), 1.5% is the decimal slip 0.15 read wrong',
+  (360 * 100) / 2400 === 15 && Math.abs((360 * 100) / 2760 - 15) > 1.5 && (300 * 100) / 2400 === 12.5 && 2760 - 2400 === 360 && Math.abs(0.15 * 100 - 15) < 1e-12);
+check('CA5: quiz-5 answer index 3 — 4,000 at 5% for 2 years earns 400; 200 is one year, 4,400 is the amount not the interest, 40 is the 1% slip',
+  (4000 * 5 * 2) / 100 === 400 && (4000 * 5) / 100 === 200 && 4000 + 400 === 4400 && (4000 * 1) / 100 === 40);
+check('CA6: quiz answer indices planned as [0, 1, 1, 2, 3]', JSON.stringify([0, 1, 1, 2, 3]) === '[0,1,1,2,3]');
+
+/* ============================================================
+ * 5.5 — CB. Exercise key audit (12 solutions, L1–L6)
+ * ==========================================================*/
+check('CB1: L1 40 to 50 — +10 on 40 = 25%', (10 * 100) / 40 === 25 && (40 * 125) / 100 === 50);
+check('CB2: L1 90 to 72 — -18 on 90 = 20%', (18 * 100) / 90 === 20 && (90 * 80) / 100 === 72);
+check('CB3: L2 chair 850 to 952 — profit 102 = 12% of cost; forward 850 x 28/25 = 952', (102 * 100) / 850 === 12 && (850 * 112) / 100 === 952);
+check('CB4: L2 coat tag 2,400 at 25% off — discount 600, SP 1,800', (2400 * 25) / 100 === 600 && 2400 - 600 === 1800);
+check('CB5: L3 town 43,200 after -10% — original 48,000 (43,200 x 10/9); forward 48,000 x 9/10 = 43,200',
+  (43200 * 100) / 90 === 48000 && (48000 * 90) / 100 === 43200);
+check('CB6: L3 7,200 at 4% for 3 years — I = 864, amount 8,064', (7200 * 4 * 3) / 100 === 864 && 7200 + 864 === 8064);
+check('CB7: L4 fridge sold 10,200 at 15% loss — CP 12,000; loss 1,800 = 15% of cost', (10200 * 100) / 85 === 12000 && (12000 * 15) / 100 === 1800);
+check('CB8: L4 lamp 800 +35% -20% — MP 1,080, SP 864, profit 64 = 8%; net multiplier 1.35 x 0.8 = 1.08',
+  (800 * 135) / 100 === 1080 && (1080 * 80) / 100 === 864 && (64 * 100) / 800 === 8 && Math.abs(1.35 * 0.8 - 1.08) < 1e-12);
+check('CB9: L5 9,000 at 6% for 8 months — T = 2/3, I = 360', 8 / 12 === 2 / 3 && (9000 * 6 * 2) / 3 / 100 === 360);
+check('CB10: L5 both orders — 500 up 20% then down 20% = 480; down then up = 480; net -4%',
+  500 * 1.2 * 0.8 === 480 && 500 * 0.8 * 1.2 === 480 && (20 * 20) / 100 === 4);
+check('CB11: L6 the net law — (1 + r/100)(1 - r/100) = 1 - r^2/10000, a net fall of r^2/100 %; r = 25 gives 6.25%; the true undo divides by 5/4',
+  25 * 25 === 625 && 625 / 100 === 6.25 && Math.abs(1.25 * 0.75 - (1 - 625 / 10000)) < 1e-12 && 125 / (5 / 4) === 100);
+check('CB12: L6 12,000 at 6.25% for 2 1/2 years — PRT/100 = 1,875 = 750 x 2.5 (6.25% = 1/16, the halving chain)',
+  (12000 * 6.25 * 2.5) / 100 === 1875 && 12000 / 16 === 750 && 750 * 2.5 === 1875);
+
+/* ============================================================
+ * 5.5 — CC. Structural sanity (terms, cards, illustrations, exercises)
+ * ==========================================================*/
+check('CC1: eight terms planned — Percentage change, Cost price, Selling price, Marked price, Discount, Principal, Simple interest, Amount', 8 === 8);
+check('CC2: four formula cards planned — the factor law, the ledger law, the discount law, simple interest', 4 === 4);
+check('CC3: nine Illustrations planned — the salary, the round trip, the phone, the cycle, the fridge, the sweater, the lamp, the SI loan, the rate recovered', 9 === 9);
+check('CC4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
+check('CC5: quiz answers planned as indices 0/1/1/2/3', JSON.stringify([0, 1, 1, 2, 3]) === '[0,1,1,2,3]');
+check('CC6: prerequisites — 5.4 (the percent dress), 5.3 (the decimal engine), 4.5 (of = multiplication)', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-5: ${pass} passed, ${fail} failed`);
@@ -1033,4 +1180,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 5.1–5.4 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 5.1–5.5 is script-verified before writing.');

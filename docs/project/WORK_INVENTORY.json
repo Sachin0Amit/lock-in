@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 04:15:07 (Asia/Kolkata)",
+  "generated": "2026-11-04 05:24:18 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 4,
+        "chaptersWritten": 5,
         "chapters": [
           {
             "number": 1,
@@ -1240,11 +1240,9 @@
             "slug": "decimals-and-percents",
             "title": "Decimals and Percents",
             "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Percentage Change, Discounts and Simple Interest"
-            ],
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-decimal-places-and-the-point",
@@ -1513,9 +1511,75 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-percentage-change-discounts-simple-interest",
+                "number": "5.5",
+                "title": "Percentage Change, Discounts and Simple Interest",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5626,
+                "readMins": 28,
+                "concepts": [
+                  "Percentage change",
+                  "The base of comparison",
+                  "The factor law",
+                  "Profit and loss percent",
+                  "Marked price and discount",
+                  "Simple interest",
+                  "The amount"
+                ],
+                "objectives": [
+                  "Compute percentage increases and decreases as a percent of the original value, and carry them out as one multiplication by the factor (100 ± r)/100",
+                  "Undo a percent change correctly — divide by the factor, never subtract the percent — and recover an original value from the changed one by the unitary method",
+                  "Read the trader’s ledger: profit and loss percent reckoned on the cost price, discounts reckoned on the marked price, and the net effect of a markup followed by a discount computed by multiplying the factors",
+                  "Price borrowed money with simple interest I = PRT/100 from the one-percent-a-year unit, form the amount A = P + I, and recover any missing letter of the formula"
+                ],
+                "prerequisites": [
+                  "fm-percent-and-its-meaning",
+                  "fm-operating-on-decimals",
+                  "fm-multiplying-dividing-fractions"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math7-ch8",
+                  "ncert-math8-ch8"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "callout": 10,
+                  "heading": 4,
+                  "list": 1,
+                  "equation": 3,
+                  "derivation": 2,
+                  "example": 9,
+                  "figure": 2,
+                  "terms": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "definition": 3,
+                  "warn": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 18988
+            "words": 24614
           },
           {
             "number": 6,
@@ -1638,12 +1702,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 84,
-      "totalLines": 22619,
+      "totalLines": 23321,
       "byArea": {
         "src/app (routes, pages)": 586,
-        "src/components/library (reader platform)": 2991,
+        "src/components/library (reader platform)": 2995,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 13363,
+        "src/data/library (content model + books)": 14061,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -1685,16 +1749,16 @@
           "lines": 93
         },
         {
+          "file": "math.tsx",
+          "lines": 62
+        },
+        {
           "file": "on-this-page.tsx",
           "lines": 62
         },
         {
           "file": "bits.tsx",
           "lines": 59
-        },
-        {
-          "file": "math.tsx",
-          "lines": 58
         },
         {
           "file": "reading-progress.tsx",
@@ -5362,34 +5426,76 @@
           "del": 5
         }
       ]
+    },
+    {
+      "sha": "26312a1a51af8b7c3004526290570d6b3dd65914",
+      "short": "26312a1",
+      "date": "2026-11-03 22:45",
+      "message": "inventory: record run-24 ship (fm 5.4 percent and its meaning live) — 22 lessons / 104,922 words / 142 terms / 110 quiz items / 221 exercise questions, ch. 5 open 4/5; next 5.5 percentage change, discounts and simple interest (closes the chapter)",
+      "filesChanged": 1,
+      "insertions": 179,
+      "deletions": 24,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 179,
+          "del": 24
+        }
+      ]
+    },
+    {
+      "sha": "700ba0f0308a1b8a2d708fc1eb14262882110243",
+      "short": "700ba0f",
+      "date": "2026-11-03 22:46",
+      "message": "memory: record run-24 push verification (26312a1), origin/main synced — FM 5.4 percent and its meaning operating live (the x/100 definition, the two-hop law proved from the point-shift at k = 2, the 100-square + conversion-map figures, the benchmark ladder + halving chain, the unitary method returned, the commutativity gem), ch. 5 open 4/5; next 5.5 percentage change, discounts and simple interest (closes the chapter)",
+      "filesChanged": 3,
+      "insertions": 36,
+      "deletions": 21,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 26,
+          "del": 17
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 4,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 22,
-    "wordsAuthored": 104922,
-    "termsDefined": 142,
-    "quizItems": 110,
-    "exerciseQuestions": 221,
+    "chaptersWritten": 5,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 23,
+    "wordsAuthored": 110548,
+    "termsDefined": 150,
+    "quizItems": 115,
+    "exerciseQuestions": 233,
     "blockTotals": {
-      "para": 315,
-      "callout": 105,
-      "heading": 145,
-      "terms": 23,
-      "equation": 27,
-      "derivation": 40,
+      "para": 333,
+      "callout": 115,
+      "heading": 149,
+      "terms": 24,
+      "equation": 30,
+      "derivation": 42,
       "table": 23,
-      "figure": 35,
-      "example": 75,
-      "quiz": 22,
-      "exercises": 22,
-      "formula": 51,
+      "figure": 37,
+      "example": 84,
+      "quiz": 23,
+      "exercises": 23,
+      "formula": 55,
       "algorithm": 8,
-      "list": 14
+      "list": 15
     }
   }
 }
