@@ -135,6 +135,6 @@
   "e2e": "8 lessons in scripts/e2e-cengage-style.sh (fm-multiplying-dividing-fractions added) + a dedicated 4.5 block (correct-index quiz click 5/5 live, force-expand 12/12, mobile 390px)",
   "downloads": "NONE — zero temporary-references footprint; NCERT class-7 ch. 2 multiplication/division coverage web-checked and the new ncert-math7-ch2 citation key added to SOURCE_LOG",
   "unitReview": "unit-4 completion review passed (run-6/run-11 precedent): BOOK_FORMAT checklist 7/7, exam-coverage 5/5, totals recomputed (ch. 4 = 26,905 words / 32 terms; book = 18 / 85,934 / 114), ch-04 status flipped to complete, book.ts header + notes updated",
-  "push": "run-20 ship + bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2)"
+  "push": "run-20 ship (79693b1) + inventory bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2): ef2d5bd..54f88c5 HEAD -> main; remote HEAD verified 54f88c5 by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log"
  }
 }

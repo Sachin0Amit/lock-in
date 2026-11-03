@@ -137,7 +137,7 @@ HCF/LCM-of-fractions rules cashed (no text reproduced).
 queue unchanged (14 pre-4.2 lessons, one per run, 1.1 first).
 EXAM_REGISTRY research still pending.
 
-**Git:** commit `fm 4.5 multiplying and dividing fractions (unit 4 finale, run 20): ...` + inventory bookkeeping commit; both pushed per protocol v2 at run end (see the run-20 memory commit for the verified sha).
+**Git:** ship commit `79693b1` (fm 4.5 multiplying and dividing fractions — unit 4 finale, run 20) + inventory bookkeeping commit `54f88c5`, both pushed per protocol v2 in one command: ef2d5bd..54f88c5 HEAD -> main; remote HEAD verified 54f88c5 by one-time-URL ls-remote (HEAD = refs/heads/main = local HEAD); origin/main tracking ref resynced via anonymous HTTPS fetch; PAT never written to any file/config/log.
 
 ---
 
