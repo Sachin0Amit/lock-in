@@ -6,6 +6,64 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER-REPORTED FIGURE DEFECTS: six overlapping/clipped SVG figures fixed; exact-geometry overlap audit built into the pipeline
+
+**Situation at start:** owner messaged two screenshots (lesson 2.3's
+commutativity number line and the 247 x 36 column layout) asking to "fix
+such overlapping issues everywhere". Tree clean at cdeac41 = origin/main
+(run-9 memory commit; ship b9864f6 already pushed). No in-flight lessons —
+pure maintenance on shipped figures.
+
+**Audit built first (measure, then fix):** scripts/audit-svg-overlaps.sh +
+scripts/audit-svg-overlaps.page.js — evaluated by agent-browser inside each
+LIVE lesson page (exact fonts, exact layout): getBBox() on every <text>,
+densely sampled points on every path/line/circle/rect; flags TEXT/TEXT,
+TEXT/PATH|LINE|CIRCLE|RECT and CLIP (viewBox escape). Intentional patterns
+whitelisted: a circle fully enclosing its digit (rings), text inside
+flowchart boxes, and strikethrough lines (both endpoints outside the glyph,
+segment passing through — the borrow notation). 11 lessons / 15 figures
+audited in one pass.
+
+**Defects found and fixed (37 patches; scripts/fix-figure-overlaps.py with
+match-exactly-once assertions):**
+- ch-02 multiplication number line (REPORTED): both panel labels collided
+  with the jump arcs and +6/+4 labels — top label to y15, bottom panel
+  pushed down (line y230, arcs peak 182), viewBox 258->300; arcs re-anchored
+  to the exact tick positions 50/206/.../674 (previously 6px off).
+- ch-02 multiplication column (REPORTED): "36 = 30 + 6" overlapped the
+  multiplier digit 6 (11.3 x 12.4px) — moved to the left label column x150
+  (aligned with "= 247 x 6" / "product"); x-sign moved to x520 beside the
+  multiplier, the textbook position.
+- ch-02 division number line (same defect family): top label to y15, bottom
+  panel to line y222, -6 labels to y166, "lands on 1" to y272, closing note
+  to y292, viewBox 258->310.
+- ch-02 addition carry: "each carry = 1" touched the third carry pill —
+  start-anchored at x655, dashed connector extended left to touch the pill
+  it annotates.
+- ch-01 comparing: bottom annotation clipped 28px past the right viewBox
+  edge — centered on the chart centre x425.
+- ch-03 factor tree: 12 connector lines crossed the 6/10/4/15 digit glyphs
+  (endpoints INSIDE the glyph boxes) — trimmed to stop 6px clear
+  (y102->94, y116->122, y182->180).
+
+**Verified:** re-audit = 15 figures, **0 issues**; VLM visual review of all
+six fixed figures = PASS "no defects" plus semantic spot-checks (annotation
+clear of all digits, panel labels clear of arcs, arcs landing on ticks,
+bottom formula uncut); lint clean; tsc clean; all 11 lesson routes 200;
+zero console errors on the five changed lessons. Quiz/KaTeX untouched.
+
+**Tooling wired in:** audit scripts committed (gitignore exceptions added);
+RESUME_POINTER/PROGRESS now carry the FIGURE OVERLAP RULE — every new
+figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0
+issues before ship.
+
+**Remaining:** unit 3 continues — FM 3.4 Lowest Common Multiple next (per
+RESUME_POINTER). Exam registry research pending.
+
+**Git:** commit `figures: fix six overlapping/clipped SVG figures (owner-reported) + exact-geometry overlap audit wired into gates` then pushed under protocol v2 (verification note appended below after push).
+
+---
+
 ## 2026-11-03 — HOURLY RUN 9: lesson 3.3 Highest Common Factor shipped (unit 3 = 3/5 lessons)
 
 **Situation at start:** tree clean at `f3ebbb8` = origin/main (run-8 memory

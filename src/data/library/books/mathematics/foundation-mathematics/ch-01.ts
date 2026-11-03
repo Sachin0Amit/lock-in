@@ -487,7 +487,7 @@ export const chapter01: Chapter = {
     <text x="355" y="186" font-size="22" font-weight="700">5</text>
     <text x="495" y="186" font-size="22" font-weight="700" fill="#b45309">9</text>
     <text x="635" y="186" font-size="22" font-weight="700">8</text>
-    <text x="380" y="232" font-size="12" opacity="0.8" text-anchor="start">first difference at the tens seat → 4,598 wins by 9, the ones digit cannot rescue 4,589</text>
+    <text x="425" y="232" font-size="12" opacity="0.8">first difference at the tens seat → 4,598 wins by 9, the ones digit cannot rescue 4,589</text>
   </g>
 </svg>`,
         },

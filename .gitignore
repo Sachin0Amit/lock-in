@@ -65,6 +65,11 @@ server.log
 !/scripts/rebuild_drive_survey.ts
 # exception: the unit-3 pre-write arithmetic verifier (committed every ship)
 !/scripts/verify-unit-3.ts
+# exception: SVG figure overlap audit (run for every new figure — owner directive 2026-11-03)
+!/scripts/audit-svg-overlaps.sh
+!/scripts/audit-svg-overlaps.page.js
+# exception: one-shot patcher that fixed the six overlapping figures (2026-11-03, historical record)
+!/scripts/fix-figure-overlaps.py
 /.zscripts/
 /examples/
 /tests/

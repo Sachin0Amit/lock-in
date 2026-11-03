@@ -176,8 +176,8 @@ export const chapter02: Chapter = {
     <text x="320" y="46" font-weight="700" fill="#b45309">1</text>
     <text x="460" y="46" font-weight="700" fill="#b45309">1</text>
     <text x="600" y="46" font-weight="700" fill="#b45309">1</text>
-    <line x1="655" y1="41" x2="700" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
-    <text x="660" y="30" font-size="11" opacity="0.75">each carry = 1</text>
+    <line x1="632" y1="41" x2="700" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
+    <text x="655" y="30" font-size="11" opacity="0.75" text-anchor="start">each carry = 1</text>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
     <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
@@ -926,25 +926,25 @@ export const chapter02: Chapter = {
           kind: 'figure',
           caption:
             'Multiplication as equal jumps. Top: 4 × 6 — four jumps of 6 land on 24 (tinted). Bottom: 6 × 4 — six jumps of 4 land on the same 24. The hop length and the hop count swap roles, but the landing point is fixed: the commutative property, drawn as choreography. Contrast Lesson 2.1\'s addition figure, where the hops could all differ — multiplication\'s hops are equal by definition.',
-          svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 4 times 6 as four jumps of six, and 6 times 4 as six jumps of four, both landing on 24">
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 4 times 6 as four jumps of six, and 6 times 4 as six jumps of four, both landing on 24">
   <g font-size="13" fill="currentColor">
-    <text x="30" y="40" opacity="0.75" text-anchor="start">4 x 6: four jumps of 6</text>
+    <text x="30" y="15" opacity="0.75" text-anchor="start">4 x 6: four jumps of 6</text>
     <line x1="40" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3].map((j) => `<path d="M ${56 + j * 156} 62 Q ${128 + j * 156} 18 ${200 + j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${128 + j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">+6</text>`).join('\\n    ')}
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${50 + j * 156} 62 Q ${128 + j * 156} 18 ${206 + j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${128 + j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">+6</text>`).join('\\n    ')}
     <circle cx="50" cy="88" r="5" fill="currentColor" opacity="0.85"/>
     <circle cx="674" cy="88" r="7" fill="#b45309"/>
-    <text x="700" y="164" opacity="0.75" text-anchor="end">6 x 4: six jumps of 4</text>
-    <line x1="40" y1="200" x2="700" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <text x="700" y="140" opacity="0.75" text-anchor="end">6 x 4: six jumps of 4</text>
+    <line x1="40" y1="230" x2="700" y2="230" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
-      ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="194" x2="${50 + n * 26}" y2="206" stroke="currentColor" stroke-width="${n % 4 === 0 ? 1.5 : 1}" opacity="${n % 4 === 0 ? 0.6 : 0.3}"/>${n % 4 === 0 ? `<text x="${50 + n * 26}" y="226" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+      ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="224" x2="${50 + n * 26}" y2="236" stroke="currentColor" stroke-width="${n % 4 === 0 ? 1.5 : 1}" opacity="${n % 4 === 0 ? 0.6 : 0.3}"/>${n % 4 === 0 ? `<text x="${50 + n * 26}" y="256" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3, 4, 5].map((j) => `<path d="M ${56 + j * 104} 174 Q ${102 + j * 104} 136 ${148 + j * 104} 174" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${102 + j * 104}" y="146" text-anchor="middle" font-weight="700" fill="#b45309">+4</text>`).join('\\n    ')}
-    <circle cx="50" cy="200" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="674" cy="200" r="7" fill="#b45309"/>
-    <text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">unequal rhythms, identical destination — both orders land on 24</text>
+    ${[0, 1, 2, 3, 4, 5].map((j) => `<path d="M ${50 + j * 104} 204 Q ${102 + j * 104} 160 ${154 + j * 104} 204" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${102 + j * 104}" y="174" text-anchor="middle" font-weight="700" fill="#b45309">+4</text>`).join('\\n    ')}
+    <circle cx="50" cy="230" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="674" cy="230" r="7" fill="#b45309"/>
+    <text x="380" y="284" text-anchor="middle" font-size="11.5" opacity="0.7">unequal rhythms, identical destination — both orders land on 24</text>
   </g>
 </svg>`,
         },
@@ -1011,8 +1011,8 @@ export const chapter02: Chapter = {
       <text x="450" y="110">2</text><text x="580" y="110">4</text><text x="710" y="110">7</text>
       <text x="580" y="172">3</text><text x="710" y="172">6</text>
     </g>
-    <text x="200" y="172" font-size="22" font-weight="700" text-anchor="middle">x</text>
-    <text x="740" y="172" font-size="12" opacity="0.75" text-anchor="end">36 = 30 + 6</text>
+    <text x="520" y="172" font-size="22" font-weight="700" text-anchor="middle">x</text>
+    <text x="150" y="172" font-size="12" opacity="0.75" text-anchor="start">36 = 30 + 6</text>
     <line x1="280" y1="200" x2="740" y2="200" stroke="currentColor" stroke-width="2"/>
     <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
       <text x="320" y="240">1</text><text x="450" y="240">4</text><text x="580" y="240">8</text><text x="710" y="240">2</text>
@@ -1338,9 +1338,9 @@ export const chapter02: Chapter = {
           kind: 'figure',
           caption:
             'Division as equal jumps run backwards. Top: 24 ÷ 6 — four jumps of 6 land exactly on 0 (tinted): the grouping reading asks how many sixes fit in 24, and the answer is the jump count 4. Bottom: 25 ÷ 6 — the same four jumps leave 1 (tinted): one sheep no pen of six can absorb. That leftover is the remainder, and the check $4 \\times 6 + 1 = 25$ rebuilds the flock. Contrast Lesson 2.1\'s forward hops and 2.3\'s equal forward jumps — division is the same film in reverse.',
-          svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 24 divided by 6 as four backward jumps of six landing on zero, and 25 divided by 6 as four backward jumps landing on one, the remainder">
+          svg: `<svg viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 24 divided by 6 as four backward jumps of six landing on zero, and 25 divided by 6 as four backward jumps landing on one, the remainder">
   <g font-size="13" fill="currentColor">
-    <text x="30" y="40" opacity="0.75" text-anchor="start">24 ÷ 6: four jumps of 6 backward</text>
+    <text x="30" y="15" opacity="0.75" text-anchor="start">24 ÷ 6: four jumps of 6 backward</text>
     <line x1="40" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
@@ -1348,16 +1348,16 @@ export const chapter02: Chapter = {
     ${[0, 1, 2, 3].map((j) => `<path d="M ${674 - j * 156} 62 Q ${596 - j * 156} 18 ${518 - j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${596 - j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
     <circle cx="674" cy="88" r="5" fill="currentColor" opacity="0.85"/>
     <circle cx="50" cy="88" r="7" fill="#b45309"/>
-    <text x="700" y="164" opacity="0.75" text-anchor="end">25 ÷ 6: four jumps of 6, one left over</text>
-    <line x1="40" y1="200" x2="700" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <text x="700" y="140" opacity="0.75" text-anchor="end">25 ÷ 6: four jumps of 6, one left over</text>
+    <line x1="40" y1="222" x2="700" y2="222" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
-      ${Array.from({ length: 26 }, (_, n) => `<line x1="${50 + n * 26}" y1="194" x2="${50 + n * 26}" y2="206" stroke="currentColor" stroke-width="${n % 6 === 0 || n === 25 ? 1.5 : 1}" opacity="${n % 6 === 0 || n === 25 ? 0.6 : 0.3}"/>${n % 6 === 0 || n === 25 ? `<text x="${50 + n * 26}" y="226" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+      ${Array.from({ length: 26 }, (_, n) => `<line x1="${50 + n * 26}" y1="216" x2="${50 + n * 26}" y2="228" stroke="currentColor" stroke-width="${n % 6 === 0 || n === 25 ? 1.5 : 1}" opacity="${n % 6 === 0 || n === 25 ? 0.6 : 0.3}"/>${n % 6 === 0 || n === 25 ? `<text x="${50 + n * 26}" y="248" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3].map((j) => `<path d="M ${700 - j * 156} 174 Q ${622 - j * 156} 136 ${544 - j * 156} 174" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${622 - j * 156}" y="146" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
-    <circle cx="700" cy="200" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="76" cy="200" r="7" fill="#b45309"/>
-    <text x="76" y="240" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1 — the remainder</text>
-    <text x="400" y="252" text-anchor="middle" font-size="11.5" opacity="0.7">equal jumps run backwards — four full sixes leave one sheep the pens cannot absorb</text>
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${700 - j * 156} 196 Q ${622 - j * 156} 152 ${544 - j * 156} 196" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${622 - j * 156}" y="166" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
+    <circle cx="700" cy="222" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="76" cy="222" r="7" fill="#b45309"/>
+    <text x="76" y="272" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1 — the remainder</text>
+    <text x="400" y="292" text-anchor="middle" font-size="11.5" opacity="0.7">equal jumps run backwards — four full sixes leave one sheep the pens cannot absorb</text>
   </g>
 </svg>`,
         },
