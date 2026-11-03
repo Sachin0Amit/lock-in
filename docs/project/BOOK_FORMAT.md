@@ -55,7 +55,7 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 | `table` | tabular data | auto-styled; cells support `$math$` |
 | `list` | bullet/ordered lists | |
 | `quiz` | self-check MCQs | interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
-| `exercises` | graded question sets | levels L1–L6; every question carries a full `solution` |
+| `exercises` | graded question sets | levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see below) |
 | `formula` | revision formula card | name + KaTeX + note; **aggregated into the auto "Formula sheet" page** — use for every must-recall formula |
 | `algorithm` | pseudocode / procedures | numbered monospace lines with optional per-line notes; for CS books and stepwise methods |
 
@@ -76,6 +76,16 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
   Figure numbers are auto-assigned by the reader.
 - **Questions**: 6 difficulty levels (L1 beginner → L6 research/olympiad);
   solutions include strategy, not just answers.
+- **Worked-solution format (owner directive 2026-11-03)**: every
+  `solution` is written as an **array of short steps** — one worked line per
+  array entry, words + `$math$` mixed, like a handwritten worked solution
+  ("Seat the digits right to left: …", "Expanded form: $…$", "…").
+  Lead-in words per step (Split / Take / Check / Hence …); keep each step to
+  one move. End with `answer: '…'` (a single result line) whenever the
+  question has a crisp final result — it renders as a boxed Answer row.
+  Never one dense paragraph. All 125 pre-existing solutions were migrated
+  to this format on 2026-11-03 (`scripts/convert-solutions-to-steps.py`,
+  token-preserving).
 - **Exams**: label items "exam-style" unless sourced from an official paper;
   add an `exam` callout mapping the lesson to real examinations.
 - **Honesty**: `words`/`readMins` are computed automatically — never inflate.

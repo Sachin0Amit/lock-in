@@ -378,11 +378,50 @@ function QuizBlock({
 /* Exercises                                                         */
 /* ---------------------------------------------------------------- */
 
+/* A worked solution: numbered steps (one line each, words + math), with an
+ * optional boxed final answer — styled after handwritten worked solutions
+ * (owner directive 2026-11-03). Legacy string solutions stay paragraphs. */
+function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string } }) {
+  if (!Array.isArray(q.solution)) return <RichText text={q.solution} />
+  return (
+    <div className="space-y-2.5">
+      <ol className="list-none space-y-2">
+        {q.solution.map((s, i) => (
+          <li key={i} className="flex gap-3">
+            <span
+              aria-hidden
+              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/5 text-[11px] font-semibold leading-none text-primary tabular-nums dark:bg-primary/10"
+            >
+              {i + 1}
+            </span>
+            <span className="min-w-0 leading-7">
+              <RichText text={s} />
+            </span>
+          </li>
+        ))}
+      </ol>
+      {q.answer && (
+        <div className="flex items-start gap-2.5 rounded-r-md border-l-2 border-primary/70 bg-primary/5 px-3.5 py-2 dark:bg-primary/10">
+          <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+            Answer
+          </span>
+          <span className="min-w-0 font-medium leading-7">
+            <RichText text={q.answer} />
+          </span>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function ExercisesBlock({
   sets,
   title,
 }: {
-  sets: { level: keyof typeof LEVEL_LABELS; questions: { q: string; solution: string }[] }[]
+  sets: {
+    level: keyof typeof LEVEL_LABELS
+    questions: { q: string; solution: string | string[]; answer?: string }[]
+  }[]
   title?: string
 }) {
   return (
@@ -418,7 +457,7 @@ function ExercisesBlock({
                       Show solution
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-2 rounded-md border-l-2 border-primary/50 bg-muted/40 px-4 py-2.5 text-sm leading-7 text-foreground/90">
-                      <RichText text={q.solution} />
+                      <SolutionBody q={q} />
                     </CollapsibleContent>
                   </Collapsible>
                 </li>

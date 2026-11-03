@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-03",
- "phase": "UNIT 4 OPEN: FM chapter 4 'Fractions' — lesson 4.1 'The Idea of a Fraction' shipped (ch-04.ts created, 6,054 words, 84 pre-write checks, E2E green, both figures 0 audit issues first pass) · also this run: owner chat directive shipped — lesson reader widened (article 768→962px, container 6xl→7xl, figures 2xl→3xl, TOC/glossary 4xl→5xl, chrome aligned) and the visible permalink URL chip removed from every lesson (commit 8fd776e) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
- "awaiting": "FM lesson 4.2 'Equivalent Fractions and Simplification' next (ties to honour: the cross-multiplication licence proof debt from 4.1's mediant derivation, and 3.4 = 12/16 equivalence teaser — the atoms of chapter 3 return to divide numerator and denominator; HCF simplification) ; hourly cadence runs the cycle",
+ "phase": "SOLUTION FORMAT MIGRATED (owner chat directive, run 13): all 125 exercise solutions converted from prose paragraphs to numbered worked steps + boxed Answer rows (platform: ExerciseQuestion.solution string|string[] + answer, SolutionBody renderer; content: scripts/convert-solutions-to-steps.py, token-preserving) · UNIT 4 OPEN: FM chapter 4 'Fractions' at 1/5 — lesson 4.1 shipped (run 12) · reader widened + permalink chip removed (run 12, commit 8fd776e) · detailed-logging era maintained",
+ "awaiting": "FM lesson 4.2 'Equivalent Fractions and Simplification' next (ties to honour: the cross-multiplication licence proof debt from 4.1's mediant derivation, and 3/4 = 12/16 equivalence teaser — the atoms of chapter 3 return to divide numerator and denominator; HCF simplification) — author its solutions in the NEW worked-step format (solution: [...], answer: '…') per BOOK_FORMAT; hourly cadence runs the cycle",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -27,7 +27,8 @@
    "quiz scoring with persisted best score + retake",
    "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
    "glossary A–Z + formula sheet pages",
-   "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)"
+   "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)",
+   "reader exercises: worked-solution steps format — numbered chip rows, one worked line each (words + inline KaTeX), boxed Answer row; legacy prose solutions still supported"
   ],
   "verified": [
    "lint clean; tsc clean (src/)",
@@ -46,7 +47,8 @@
    "unit 3 lesson 3.4 E2E: quiz 5/5 perfect (C/D/B/C/D clicked live), flashcards 75 cards, glossary + formula sheet pick up the 7 new terms and 3 new cards, timetable figure passes scripts/audit-svg-overlaps.sh with 0 issues first pass and is screenshot-verified, mobile 390px exact-fit (overflowX = 0) with all ten solutions expanded, zero console errors; KaTeX 249 nodes, dollarInSvg = 0",
    "unit 3 lesson 3.5 E2E (unit closer + unit-3 completion review): quiz 5/5 perfect with intended options clicked live (indices 2/1/2/3/1), flashcards 82 cards (75 + 7 new terms), glossary lists all 7 new terms + the product-rule formula card, KaTeX 165 nodes, dollarInSvg = 0, zero console errors, mobile 390px exact-fit (overflowX = 0) with all 11 exercise solutions expanded; rectangle figure passes scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; verify-unit-3.ts 260/260 pre-writing (section AA, 33 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean; chapter 3 status flipped to complete with totals recomputed (13 lessons / 59,076 words / 82 terms)",
    "unit 4 lesson 4.1 E2E: route 200; KaTeX 221 nodes; dollarInSvg = 0; quiz 5/5 with intended options clicked live (indices 1/2/0/3/1), best score persisted; glossary 82 → 91 terms (+9); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (number-line two-panel + Egyptian bar); mobile 390px exact-fit (docScrollW = 390) with ALL 10 exercise solutions force-revealed; zero console/page errors; verify-unit-4.ts 84/84 pre-writing, unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
-   "reader width + permalink fix (owner chat directive, commit 8fd776e): lesson article 768px → 962px measured at 1440px (container max-w-7xl, article fills grid at xl, figures max-w-3xl, book TOC + glossary max-w-5xl, site chrome aligned max-w-7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed — repo grep confirms it was the only URL rendered as page text; geometry verified (40px article↔TOC gap), 1440/390px no overflow, full SVG audit re-run on all 12 lessons — 0 issues, zero console errors"
+   "reader width + permalink fix (owner chat directive, commit 8fd776e): lesson article 768px → 962px measured at 1440px (container max-w-7xl, article fills grid at xl, figures max-w-3xl, book TOC + glossary max-w-5xl, site chrome aligned max-w-7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed — repo grep confirms it was the only URL rendered as page text; geometry verified (40px article↔TOC gap), 1440/390px no overflow, full SVG audit re-run on all 12 lessons — 0 issues, zero console errors",
+   "worked-solution format (owner chat directive, run 13): ExerciseQuestion.solution now string | string[] with optional answer — steps render as numbered chip rows (one worked line each, words + KaTeX inline), the answer as a boxed row; command-palette search + word counter handle both shapes; all 125 pre-existing solutions migrated by scripts/convert-solutions-to-steps.py (sentence/enumeration/semicolon-aware splitter, never cuts inside $…$ math or parentheticals; strict \\w+ token-multiset preservation asserted per solution; 5 boxed answers extracted); E2E: lesson 1.1 36 steps / 31 KaTeX-in-steps, lesson 3.1 47 steps + the Factors answer box, lessons 2.5/3.5/4.1 53–60 steps each, mobile 390px exact-fit with every solution expanded, zero console/page errors; tsc + lint clean; verify-unit-2 165/165 + unit-3 260/260 + unit-4 84/84 regressions green; word totals recomputed 65,080 (−50 = dropped standalone ';' tokens the old counter counted as words — honest deflation, all real words preserved)"
   ]
  },
  "library": {
@@ -75,11 +77,11 @@
      "fm-idea-of-a-fraction"
     ],
     "termsAvailableForFlashcards": 91,
-    "notes": "Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Chapter 4 Fractions opened 2026-11-03: lesson 4.1 The Idea of a Fraction (part–whole + division faces, number line and density via the mediant theorem, proper/improper/mixed, Egyptian unit fractions). Math script-verified (84 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green. Next: lesson 4.2 Equivalent Fractions and Simplification. Reference collection surveyed (Google Drive \"books\"); per-unit downloads per MASTER_PLAN §2."
+    "notes": "Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Chapter 4 Fractions opened 2026-11-03: lesson 4.1 The Idea of a Fraction (6,051 words: part–whole + division faces, number line and density via the mediant theorem, proper/improper/mixed, Egyptian unit fractions). Math script-verified (84 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green. Next: lesson 4.2 Equivalent Fractions and Simplification. Reference collection surveyed (Google Drive \"books\"); per-unit downloads per MASTER_PLAN §2."
    }
   ],
   "lessonsWritten": 14,
-  "wordsAuthored": 65130
+  "wordsAuthored": 65080
  },
  "research": {
   "examRegistry": {

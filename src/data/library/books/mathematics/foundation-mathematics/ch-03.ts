@@ -518,13 +518,24 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'List the first five multiples of 13, and decide whether 91 is a multiple of 13.',
-                  solution:
-                    'Multiples of 13: $13, 26, 39, 52, 65$ (that is $13 \\times 1$ through $13 \\times 5$). For 91, screen directly: does $13 \\times 7$ land there? $13 \\times 7 = 91$ — yes, 91 is the seventh multiple. (A quick cross-check the other way: $91 = 7 \\times 13$, so 7 is a factor of 91 and 91 is a multiple of 7 — the same multiplication read from both ends.)',
+                  solution: [
+                    'Multiples of 13: $13, 26, 39, 52, 65$ (that is $13 \\times 1$ through $13 \\times 5$).',
+                    'For 91, screen directly: does $13 \\times 7$ land there?',
+                    '$13 \\times 7 = 91$ — yes, 91 is the seventh multiple.',
+                    '(A quick cross-check the other way: $91 = 7 \\times 13$, so 7 is a factor of 91 and 91 is a multiple of 7 — the same multiplication read from both ends.)',
+                  ],
                 },
                 {
                   q: 'Find all factors of 48 by walking its factor pairs in order.',
-                  solution:
-                    'Pair from both ends: $1 \\times 48$, then $2 \\times 24$ (48 is even), then $3 \\times 16$ (digit sum 12, divisible by 3), then $4 \\times 12$ (last two digits 48 pass the 4-test), then $6 \\times 8$ ($6$ passes via even + digit sum 12). The next candidate, 5, fails (48 does not end in 0 or 5), and $7 \\times 7 = 49$ overshoots — so the pairs close up at the square root. Factors: $1, 2, 3, 4, 6, 8, 12, 16, 24, 48$ — ten of them, five pairs.',
+                  solution: [
+                    'Pair from both ends: $1 \\times 48$,',
+                    'then $2 \\times 24$ (48 is even),',
+                    'then $3 \\times 16$ (digit sum 12, divisible by 3),',
+                    'then $4 \\times 12$ (last two digits 48 pass the 4-test),',
+                    'then $6 \\times 8$ ($6$ passes via even + digit sum 12).',
+                    'The next candidate, 5, fails (48 does not end in 0 or 5), and $7 \\times 7 = 49$ overshoots — so the pairs close up at the square root.',
+                  ],
+                  answer: 'Factors: $1, 2, 3, 4, 6, 8, 12, 16, 24, 48$ — ten of them, five pairs.',
                 },
               ],
             },
@@ -533,13 +544,24 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Decide, with reasons, which of 2, 3, 4, 5, 6, 9, 10 divide 2,730 — without long division.',
-                  solution:
-                    'Ends in 0: divisible by 2, 5 and 10. Digit sum $2 + 7 + 3 + 0 = 12$: divisible by 3, not by 9 (12 is not a multiple of 9). Last two digits 30: not divisible by 4 (30 leaves 2), so 4 fails. Compound 6 = 2 × 3: even and digit sum divisible by 3, so divisible by 6 — indeed $2{,}730 \\div 6 = 455$. Verdicts: yes for 2, 3, 5, 6, 10; no for 4 and 9. (Cross-checks: $2{,}730 = 3 \\times 910 = 10 \\times 273$; on ÷9 the remainder is 3, matching the digit sum 12 leaving 3.)',
+                  solution: [
+                    'Ends in 0: divisible by 2, 5 and 10.',
+                    'Digit sum $2 + 7 + 3 + 0 = 12$: divisible by 3, not by 9 (12 is not a multiple of 9).',
+                    'Last two digits 30: not divisible by 4 (30 leaves 2), so 4 fails.',
+                    'Compound 6 = 2 × 3: even and digit sum divisible by 3, so divisible by 6 — indeed $2{,}730 \\div 6 = 455$.',
+                    'Verdicts: yes for 2, 3, 5, 6, 10; no for 4 and 9.',
+                    '(Cross-checks: $2{,}730 = 3 \\times 910 = 10 \\times 273$; on ÷9 the remainder is 3, matching the digit sum 12 leaving 3.)',
+                  ],
                 },
                 {
                   q: 'Does 2,376 pass the tests for 6 and for 12? Show each screen.',
-                  solution:
-                    'For 6 = 2 × 3: 2,376 is even, and its digit sum is $2 + 3 + 7 + 6 = 18$, divisible by 3 — both screens pass, so $6 \\mid 2{,}376$; indeed $2{,}376 \\div 6 = 396$. For 12 = 3 × 4 (coprime): the 3-screen passes (digit sum 18), and the 4-screen reads the last two digits 76 = 4 × 19 — both pass, so $12 \\mid 2{,}376$; indeed $2{,}376 \\div 12 = 198$. Note the discipline: 12 was tested as 3 × 4, never as 2 × 6 — the coprime split is what makes the two-pass verdict binding.',
+                  solution: [
+                    'For 6 = 2 × 3: 2,376 is even, and its digit sum is $2 + 3 + 7 + 6 = 18$, divisible by 3 — both screens pass, so $6 \\mid 2{,}376$',
+                    'indeed $2{,}376 \\div 6 = 396$.',
+                    'For 12 = 3 × 4 (coprime): the 3-screen passes (digit sum 18), and the 4-screen reads the last two digits 76 = 4 × 19 — both pass, so $12 \\mid 2{,}376$',
+                    'indeed $2{,}376 \\div 12 = 198$.',
+                    'Note the discipline: 12 was tested as 3 × 4, never as 2 × 6 — the coprime split is what makes the two-pass verdict binding.',
+                  ],
                 },
               ],
             },
@@ -548,13 +570,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: '(Exam-style) Replace * with the digit that makes 84*2 divisible by 9, and verify your answer.',
-                  solution:
-                    'The digit-sum test: $8 + 4 + 2 = 14$, so the full digit sum is $14 + *$, which must be a multiple of 9. The only reachable multiple is 18, so $* = 4$. Verify: $8{,}442 = 9 \\times 938$ — exact. (Watch the trap: "divisible by 9" does not also demand evenness — 8,442 happens to be even, but that was not required by the 9-test.)',
+                  solution: [
+                    'The digit-sum test: $8 + 4 + 2 = 14$, so the full digit sum is $14 + *$, which must be a multiple of 9.',
+                    'The only reachable multiple is 18, so $* = 4$.',
+                    'Verify: $8{,}442 = 9 \\times 938$ — exact.',
+                    '(Watch the trap: "divisible by 9" does not also demand evenness — 8,442 happens to be even, but that was not required by the 9-test.)',
+                  ],
                 },
                 {
                   q: 'Screen 91,083 against 11, 3 and 9. Where it fails, give the remainder — without long division.',
-                  solution:
-                    '11: alternating sum $3 - 8 + 0 - 1 + 9 = 3$ — not divisible, remainder 3. Indeed $91{,}083 = 11 \\times 8{,}280 + 3$. Digit sum: $9 + 1 + 0 + 8 + 3 = 21$ — divisible by 3 ($91{,}083 \\div 3 = 30{,}361$), not by 9 (21 leaves 3, and indeed the remainder on ÷9 is 3). Two different tests, coincidentally the same leftover 3 — the mod-9 and mod-11 remainders are independent facts that happen to agree here.',
+                  solution: [
+                    '11: alternating sum $3 - 8 + 0 - 1 + 9 = 3$ — not divisible, remainder 3.',
+                    'Indeed $91{,}083 = 11 \\times 8{,}280 + 3$.',
+                    'Digit sum: $9 + 1 + 0 + 8 + 3 = 21$ — divisible by 3 ($91{,}083 \\div 3 = 30{,}361$), not by 9 (21 leaves 3, and indeed the remainder on ÷9 is 3).',
+                    'Two different tests, coincidentally the same leftover 3 — the mod-9 and mod-11 remainders are independent facts that happen to agree here.',
+                  ],
                 },
               ],
             },
@@ -563,8 +593,13 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Without dividing, find the remainder when 43,291 is divided by 9, and the remainder when it is divided by 11. Then verify both by reconstruction.',
-                  solution:
-                    'By 9: digit sum $4 + 3 + 2 + 9 + 1 = 19$, and $19 = 9 \\times 2 + 1$, so the remainder is 1. Verify: $43{,}291 = 9 \\times 4{,}810 + 1$. By 11: alternating sum $1 - 9 + 2 - 3 + 4 = -5$; adding 11 gives 6, so the remainder is 6. Verify: $43{,}291 = 11 \\times 3{,}935 + 6$. Both verifications confirm the screens to the last unit — the tests are not approximations but restatements of the division algorithm along different seats.',
+                  solution: [
+                    'By 9: digit sum $4 + 3 + 2 + 9 + 1 = 19$, and $19 = 9 \\times 2 + 1$, so the remainder is 1.',
+                    'Verify: $43{,}291 = 9 \\times 4{,}810 + 1$.',
+                    'By 11: alternating sum $1 - 9 + 2 - 3 + 4 = -5$; adding 11 gives 6, so the remainder is 6.',
+                    'Verify: $43{,}291 = 11 \\times 3{,}935 + 6$.',
+                    'Both verifications confirm the screens to the last unit — the tests are not approximations but restatements of the division algorithm along different seats.',
+                  ],
                 },
               ],
             },
@@ -573,8 +608,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'The a ± kb family. (a) Show that 13 divides n = 10a + b exactly when 13 divides a + 4b, and explain what makes the trick legal. (b) Run the chain on 2,795 and on 78, and describe what you observe about 26, 39 and 13 under the chain. (c) Derive the analogous test for 19 and verify it on 1,919. (d) State Pascal\'s 1654 criterion and explain why every divisor coprime to 10 must admit some test of this shape.',
-                  solution:
-                    '(a) Multiply n = 10a + b by 4: $4n = 40a + 4b = 39a + (a + 4b)$. Since 39a is a multiple of 13 and $\\gcd(4, 13) = 1$, dividing by 13 divides 4n exactly when it divides a + 4b — legality from cancellation, the same step that licensed the 7-gadget. (b) $2{,}795 = 13 \\times 215$: chain $279 + 20 = 299$, $29 + 36 = 65$, $6 + 20 = 26$ — and 26 is a fixed point: $2 + 24 = 26$. Similarly $78 = 13 \\times 6$ maps to $7 + 32 = 39$, and 39 is fixed: $3 + 36 = 39$. Every multiple of 13 lands on 13, 26 or 39 and stays; non-multiples (try 100 → 10 → 1) wander to small non-multiples. (c) For 19: multiply by 2, $2n = 20a + 2b = 19a + (a + 2b)$, with $\\gcd(2, 19) = 1$ — so test a + 2b. Verify: $1{,}919 = 19 \\times 101$; chain $191 + 18 = 209 = 19 \\times 11$, then $20 + 18 = 38 = 19 \\times 2$, then $3 + 16 = 19$. (d) Pascal\'s criterion: for d coprime to 10, compute each seat\'s remainder $10^i \\bmod d$, form the weighted digit sum, and divisibility by d is equivalent to that sum being divisible by d. Since 10 and d share no factor, the seats\' remainders form a repeating pattern, and the whole number compresses into a fixed small combination of its digits — so a finite, memorisable test always exists; the five families of this lesson are the cases where the pattern is specially simple (all 1s: 3 and 9; alternating ±1: 11; tame enough to need one gadget step: 7, 13, 17, 19).',
+                  solution: [
+                    '(a) Multiply n = 10a + b by 4: $4n = 40a + 4b = 39a + (a + 4b)$.',
+                    'Since 39a is a multiple of 13 and $\\gcd(4, 13) = 1$, dividing by 13 divides 4n exactly when it divides a + 4b — legality from cancellation, the same step that licensed the 7-gadget.',
+                    '(b) $2{,}795 = 13 \\times 215$: chain $279 + 20 = 299$, $29 + 36 = 65$, $6 + 20 = 26$ — and 26 is a fixed point: $2 + 24 = 26$.',
+                    'Similarly $78 = 13 \\times 6$ maps to $7 + 32 = 39$, and 39 is fixed: $3 + 36 = 39$.',
+                    'Every multiple of 13 lands on 13, 26 or 39 and stays; non-multiples (try 100 → 10 → 1) wander to small non-multiples.',
+                    '(c) For 19: multiply by 2, $2n = 20a + 2b = 19a + (a + 2b)$, with $\\gcd(2, 19) = 1$ — so test a + 2b.',
+                    'Verify: $1{,}919 = 19 \\times 101$',
+                    'chain $191 + 18 = 209 = 19 \\times 11$,',
+                    'then $20 + 18 = 38 = 19 \\times 2$,',
+                    'then $3 + 16 = 19$.',
+                    '(d) Pascal\'s criterion: for d coprime to 10, compute each seat\'s remainder $10^i \\bmod d$, form the weighted digit sum, and divisibility by d is equivalent to that sum being divisible by d.',
+                    'Since 10 and d share no factor, the seats\' remainders form a repeating pattern, and the whole number compresses into a fixed small combination of its digits — so a finite, memorisable test always exists',
+                    'the five families of this lesson are the cases where the pattern is specially simple (all 1s: 3 and 9; alternating ±1: 11; tame enough to need one gadget step: 7, 13, 17, 19).',
+                  ],
                 },
               ],
             },
@@ -1047,13 +1095,29 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Classify each of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 as prime, composite, or neither — and give the factor count that decides each.',
-                  solution:
-                    'Count the factors of each. $1$: just $\{1\}$ — one factor, **neither** (outside the treaty). $2, 3, 5, 7, 11$: each has exactly the two factors $\{1, n\}$ — **prime**. $4$: $\{1, 2, 4\}$ (three factors); $6$: $\{1, 2, 3, 6\}$ (four); $8$: $\{1, 2, 4, 8\}$ (four); $9$: $\{1, 3, 9\}$ (three); $10$: $\{1, 2, 5, 10\}$ (four); $12$: $\{1, 2, 3, 4, 6, 12\}$ (six) — all **composite**. The treaty in action: one factor, exactly two, or three or more.',
+                  solution: [
+                    'Count the factors of each.',
+                    '$1$: just $\{1\}$ — one factor, **neither** (outside the treaty).',
+                    '$2, 3, 5, 7, 11$: each has exactly the two factors $\{1, n\}$ — **prime**.',
+                    '$4$: $\{1, 2, 4\}$ (three factors)',
+                    '$6$: $\{1, 2, 3, 6\}$ (four)',
+                    '$8$: $\{1, 2, 4, 8\}$ (four)',
+                    '$9$: $\{1, 3, 9\}$ (three)',
+                    '$10$: $\{1, 2, 5, 10\}$ (four)',
+                    '$12$: $\{1, 2, 3, 4, 6, 12\}$ (six) — all **composite**.',
+                    'The treaty in action: one factor, exactly two, or three or more.',
+                  ],
                 },
                 {
                   q: 'Explain why 2 is the only even prime, and why 9 is the smallest odd composite.',
-                  solution:
-                    'If $n$ is even and $n > 2$, then $n = 2 \\times (n \\div 2)$ where both factors exceed $1$, so $2$ sits strictly between $1$ and $n$ and divides it: $n$ has at least three factors and is composite. Hence no even number above $2$ is prime, and $2$ itself is prime — the only even one. For the second claim: the odd numbers begin $1, 3, 5, 7, 9$. Now $1$ is outside the treaty, and $3, 5, 7$ each have exactly two factors (nothing between $1$ and the number divides them — check by the licence: $\sqrt{7} < 3$, so only $2$ needed testing, and they are odd). Then $9 = 3 \\times 3$ has the three factors $\{1, 3, 9\}$ — composite, and the first odd number that is.',
+                  solution: [
+                    'If $n$ is even and $n > 2$,',
+                    'then $n = 2 \\times (n \\div 2)$ where both factors exceed $1$, so $2$ sits strictly between $1$ and $n$ and divides it: $n$ has at least three factors and is composite.',
+                    'Hence no even number above $2$ is prime, and $2$ itself is prime — the only even one.',
+                    'For the second claim: the odd numbers begin $1, 3, 5, 7, 9$.',
+                    'Now $1$ is outside the treaty, and $3, 5, 7$ each have exactly two factors (nothing between $1$ and the number divides them — check by the licence: $\sqrt{7} < 3$, so only $2$ needed testing, and they are odd).',
+                    'Then $9 = 3 \\times 3$ has the three factors $\{1, 3, 9\}$ — composite, and the first odd number that is.',
+                  ],
                 },
               ],
             },
@@ -1062,13 +1126,31 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'List every prime between 20 and 50, and show the sieve reasoning that retires each composite in that range.',
-                  solution:
-                    'The primes are $23, 29, 31, 37, 41, 43, 47$ — seven of them. The composites retire as follows. Even: $22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50$ (factor $2$). Fives: $25 = 5^2$, $35 = 5 \\times 7$, $45 = 5 \\times 9$. Threes: $21 = 3 \\times 7$, $27 = 3^3$, $33 = 3 \\times 11$, $39 = 3 \\times 13$. Sevens: $49 = 7^2$. The survivors each need the licence: $\sqrt{47} < 7$, so $23, 29, 31, 37, 41, 43, 47$ need no test beyond $2, 3, 5$ — odd, digit sums $5, 11, 4, 10, 5, 7, 11$ (none divisible by $3$), and no tail of $0$ or $5$. Seven primes, each certified, none guessed.',
+                  solution: [
+                    'The primes are $23, 29, 31, 37, 41, 43, 47$ — seven of them.',
+                    'The composites retire as follows.',
+                    'Even: $22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50$ (factor $2$).',
+                    'Fives: $25 = 5^2$, $35 = 5 \\times 7$, $45 = 5 \\times 9$.',
+                    'Threes: $21 = 3 \\times 7$, $27 = 3^3$, $33 = 3 \\times 11$, $39 = 3 \\times 13$.',
+                    'Sevens: $49 = 7^2$.',
+                    'The survivors each need the licence: $\sqrt{47} < 7$, so $23, 29, 31, 37, 41, 43, 47$ need no test beyond $2, 3, 5$ — odd, digit sums $5, 11, 4, 10, 5, 7, 11$ (none divisible by $3$), and no tail of $0$ or $5$.',
+                    'Seven primes, each certified, none guessed.',
+                  ],
                 },
                 {
                   q: 'Is 221 prime? Use the square-root licence, and name the trap this number sets.',
-                  solution:
-                    'Fix the boundary: $14^2 = 196 < 221 < 225 = 15^2$, so the candidates are the primes up to $14$: $2, 3, 5, 7, 11, 13$. Run them: $221$ is odd (retire $2$); digit sum $2 + 2 + 1 = 5$ (retire $3$); tail $1$ (retire $5$); $221 = 7 \\times 31 + 4$ (retire $7$); alternating sum $1 - 2 + 2 - 2 = -1$ (retire $11$); $221 = 13 \\times 17$ — **hit**. So $221$ is composite, and the trap is that it survives every cheap screen: odd, innocent digit sum, no tail, no $7$-gadget hit, no $11$ verdict. The licence is what forces testing $13$ — and $13$ is exactly where the factor hides. (Its partner $17$ sits above $\sqrt{221}$: the pair straddles the root, as the licence promises.)',
+                  solution: [
+                    'Fix the boundary: $14^2 = 196 < 221 < 225 = 15^2$, so the candidates are the primes up to $14$: $2, 3, 5, 7, 11, 13$.',
+                    'Run them: $221$ is odd (retire $2$)',
+                    'digit sum $2 + 2 + 1 = 5$ (retire $3$)',
+                    'tail $1$ (retire $5$)',
+                    '$221 = 7 \\times 31 + 4$ (retire $7$)',
+                    'alternating sum $1 - 2 + 2 - 2 = -1$ (retire $11$)',
+                    '$221 = 13 \\times 17$ — **hit**.',
+                    'So $221$ is composite, and the trap is that it survives every cheap screen: odd, innocent digit sum, no tail, no $7$-gadget hit, no $11$ verdict.',
+                    'The licence is what forces testing $13$ — and $13$ is exactly where the factor hides.',
+                    '(Its partner $17$ sits above $\sqrt{221}$: the pair straddles the root, as the licence promises.)',
+                  ],
                 },
               ],
             },
@@ -1077,8 +1159,13 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Factorise 84 and 126 completely into primes, then circle the primes they share — and say what the shared product 42 might be called.',
-                  solution:
-                    '$84 = 2 \\times 42 = 2 \\times 2 \\times 21 = 2^2 \\times 3 \\times 7$ (verify: $4 \\times 21 = 84$). $126 = 2 \\times 63 = 2 \\times 9 \\times 7 = 2 \\times 3^2 \\times 7$ (verify: $2 \\times 63 = 126$, $63 = 9 \\times 7$). Shared atoms: one $2$, one $3$, one $7$ — the product $2 \\times 3 \\times 7 = 42$, and indeed $42$ divides both ($84 = 2 \\times 42$, $126 = 3 \\times 42$). It is the **greatest common factor** of the two numbers — the object Lesson 3.3 builds formally. Notice the rule that will emerge there: shared primes, taken at the **smaller** exponent ($2^1$ not $2^2$, $3^1$ not $3^2$).',
+                  solution: [
+                    '$84 = 2 \\times 42 = 2 \\times 2 \\times 21 = 2^2 \\times 3 \\times 7$ (verify: $4 \\times 21 = 84$).',
+                    '$126 = 2 \\times 63 = 2 \\times 9 \\times 7 = 2 \\times 3^2 \\times 7$ (verify: $2 \\times 63 = 126$, $63 = 9 \\times 7$).',
+                    'Shared atoms: one $2$, one $3$, one $7$ — the product $2 \\times 3 \\times 7 = 42$, and indeed $42$ divides both ($84 = 2 \\times 42$, $126 = 3 \\times 42$).',
+                    'It is the **greatest common factor** of the two numbers — the object Lesson 3.3 builds formally.',
+                    'Notice the rule that will emerge there: shared primes, taken at the **smaller** exponent ($2^1$ not $2^2$, $3^1$ not $3^2$).',
+                  ],
                 },
               ],
             },
@@ -1087,13 +1174,25 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Certify that 113 is prime, using the licence and the Lesson 3.1 screens.',
-                  solution:
-                    'Boundary: $10^2 = 100 < 113 < 121 = 11^2$, so candidates are the primes up to $10$: $2, 3, 5, 7$. $113$ is odd (retire $2$); digit sum $1 + 1 + 3 = 5$, not divisible by $3$ (retire $3$); tail $3$ (retire $5$); $113 = 7 \\times 16 + 1$, remainder $1$ (retire $7$). Four tests, four failures — and the licence forbids testing $11$ ($121$ has already overshot): $113$ is **prime**.',
+                  solution: [
+                    'Boundary: $10^2 = 100 < 113 < 121 = 11^2$, so candidates are the primes up to $10$: $2, 3, 5, 7$.',
+                    '$113$ is odd (retire $2$)',
+                    'digit sum $1 + 1 + 3 = 5$, not divisible by $3$ (retire $3$)',
+                    'tail $3$ (retire $5$)',
+                    '$113 = 7 \\times 16 + 1$, remainder $1$ (retire $7$).',
+                    'Four tests, four failures — and the licence forbids testing $11$ ($121$ has already overshot): $113$ is **prime**.',
+                  ],
                 },
                 {
                   q: 'Factorise 2,401 completely. Then explain why it needs no factor tree, and count its divisors two ways.',
-                  solution:
-                    'Lesson 3.1\'s $7$-gadget chain certified $2{,}401 = 7 \\times 343$, and the chain continued: $343 = 7^3$, $49 = 7^2$, $7$ — so $2{,}401 = 7^4$. No tree is needed because every branch is the same prime: the number is a **prime power**. Divisor count, by the formula: $(4 + 1) = 5$. By listing: $\{1, 7, 49, 343, 2{,}401\}$ — one divisor per exponent level $7^0, 7^1, 7^2, 7^3, 7^4$. Two roads, one count. (Cross-check from Chapter 3.1: $2{,}401 = 49^2$, and a square\'s factor count is odd — five is odd, as it must be.)',
+                  solution: [
+                    'Lesson 3.1\'s $7$-gadget chain certified $2{,}401 = 7 \\times 343$, and the chain continued: $343 = 7^3$, $49 = 7^2$, $7$ — so $2{,}401 = 7^4$.',
+                    'No tree is needed because every branch is the same prime: the number is a **prime power**.',
+                    'Divisor count, by the formula: $(4 + 1) = 5$.',
+                    'By listing: $\{1, 7, 49, 343, 2{,}401\}$ — one divisor per exponent level $7^0, 7^1, 7^2, 7^3, 7^4$.',
+                    'Two roads, one count.',
+                    '(Cross-check from Chapter 3.1: $2{,}401 = 49^2$, and a square\'s factor count is odd — five is odd, as it must be.)',
+                  ],
                 },
               ],
             },
@@ -1102,13 +1201,27 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Predict the number of divisors of 96 without listing any, then verify by listing them all.',
-                  solution:
-                    'Factorise: $96 = 2 \\times 48 = 2 \\times 2 \\times 24 = 2^5 \\times 3$ (verify: $32 \\times 3 = 96$). Formula: $(5 + 1)(1 + 1) = 12$ divisors. List, organised by the atoms $2^a 3^b$: for $b = 0$ — $1, 2, 4, 8, 16, 32$; for $b = 1$ — $3, 6, 12, 24, 48, 96$. Twelve in all, matching the prediction, and every one visibly of the form $2^a \\times 3^b$. The formula predicted the count from the factorisation alone — that is what "master key" means.',
+                  solution: [
+                    'Factorise: $96 = 2 \\times 48 = 2 \\times 2 \\times 24 = 2^5 \\times 3$ (verify: $32 \\times 3 = 96$).',
+                    'Formula: $(5 + 1)(1 + 1) = 12$ divisors.',
+                    'List, organised by the atoms $2^a 3^b$: for $b = 0$ — $1, 2, 4, 8, 16, 32$',
+                    'for $b = 1$ — $3, 6, 12, 24, 48, 96$.',
+                    'Twelve in all, matching the prediction, and every one visibly of the form $2^a \\times 3^b$.',
+                    'The formula predicted the count from the factorisation alone — that is what "master key" means.',
+                  ],
                 },
                 {
                   q: 'Write 2,025 (the year just past) as a product of primes, and use the atoms to count its divisors. Verify the factorisation first by a square.',
-                  solution:
-                    'Spot the square: $2{,}025 = 45^2$ (since $45^2 = 2{,}025$; check $40^2 = 1{,}600 < 2{,}025 < 2{,}500 = 50^2$ and $45^2$ lands exactly). Then $45 = 9 \\times 5 = 3^2 \\times 5$, so $2{,}025 = (3^2 \\times 5)^2 = 3^4 \\times 5^2$. Rebuild: $81 \\times 25 = 2{,}025$. Divisor count: $(4 + 1)(2 + 1) = 15$. The listing, organised by exponents $3^a 5^b$: $1, 3, 9, 27, 81$; times $5$: $5, 15, 45, 135, 405$; times $25$: $25, 75, 225, 675, 2{,}025$ — fifteen, as predicted. A year that is a perfect square of a composite makes the atoms show off.',
+                  solution: [
+                    'Spot the square: $2{,}025 = 45^2$ (since $45^2 = 2{,}025$; check $40^2 = 1{,}600 < 2{,}025 < 2{,}500 = 50^2$ and $45^2$ lands exactly).',
+                    'Then $45 = 9 \\times 5 = 3^2 \\times 5$, so $2{,}025 = (3^2 \\times 5)^2 = 3^4 \\times 5^2$.',
+                    'Rebuild: $81 \\times 25 = 2{,}025$.',
+                    'Divisor count: $(4 + 1)(2 + 1) = 15$.',
+                    'The listing, organised by exponents $3^a 5^b$: $1, 3, 9, 27, 81$',
+                    'times $5$: $5, 15, 45, 135, 405$',
+                    'times $25$: $25, 75, 225, 675, 2{,}025$ — fifteen, as predicted.',
+                    'A year that is a perfect square of a composite makes the atoms show off.',
+                  ],
                 },
               ],
             },
@@ -1117,8 +1230,23 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'The master key, end to end. (a) Factorise 4,896 — the exam-hall number of Lesson 3.1 — completely into primes. (b) Predict its divisor count with the formula. (c) Verify by enumerating all divisors from the atoms 2^a 3^b 17^c, and spot-check three: 48, 272 and 144. (d) Explain in one sentence why the three choice-counts multiply rather than add, and what the count becomes for a prime p.',
-                  solution:
-                    '(a) Strip the $2$s: $4{,}896 = 2 \\times 2{,}448 = 2^2 \\times 1{,}224 = 2^3 \\times 612 = 2^4 \\times 306 = 2^5 \\times 153$; $153$ is odd, and $153 = 3 \\times 51 = 3 \\times 3 \\times 17$, with $17$ prime ($4^2 = 16 < 17 < 25$; test $2, 3$: fail). So $4{,}896 = 2^5 \\times 3^2 \\times 17$. (b) $(5 + 1)(2 + 1)(1 + 1) = 6 \\times 3 \\times 2 = 36$. (c) Enumerate $2^a 3^b 17^c$ for $a \\in 0..5$, $b \\in 0..2$, $c \\in 0..1$: with $c = 0$ the $2^a 3^b$ grid gives $1, 2, 4, 8, 16, 32$; $3, 6, 12, 24, 48, 96$; $9, 18, 36, 72, 144, 288$ — eighteen; each times $17$ gives the other eighteen: $17, 34, 68, 136, 272, 544$; $51, 102, 204, 408, 816, 1{,}632$; $153, 306, 612, 1{,}224, 2{,}448, 4{,}896$ — thirty-six in all, no duplicates (the factorisation is unique, so no grid cell can collide). Spot checks: $48 = 2^4 \\times 3$ divides ($4{,}896 = 102 \\times 48$); $272 = 2^4 \\times 17$ divides ($4{,}896 = 18 \\times 272$); $144 = 2^4 \\times 3^2$ divides ($4{,}896 = 34 \\times 144$). (d) The choices are **independent** — deciding how many $2$s to use constrains nothing about the $3$s or the $17$ — so the total number of combined decisions is the product $6 \\times 3 \\times 2$; a prime $p$ has $(1 + 1) = 2$ divisors, $\{1, p\}$, which is the two-factor treaty read straight off the formula.',
+                  solution: [
+                    '(a) Strip the $2$s: $4{,}896 = 2 \\times 2{,}448 = 2^2 \\times 1{,}224 = 2^3 \\times 612 = 2^4 \\times 306 = 2^5 \\times 153$',
+                    '$153$ is odd, and $153 = 3 \\times 51 = 3 \\times 3 \\times 17$, with $17$ prime ($4^2 = 16 < 17 < 25$; test $2, 3$: fail).',
+                    'So $4{,}896 = 2^5 \\times 3^2 \\times 17$.',
+                    '(b) $(5 + 1)(2 + 1)(1 + 1) = 6 \\times 3 \\times 2 = 36$.',
+                    '(c) Enumerate $2^a 3^b 17^c$ for $a \\in 0..5$, $b \\in 0..2$, $c \\in 0..1$: with $c = 0$ the $2^a 3^b$ grid gives $1, 2, 4, 8, 16, 32$',
+                    '$3, 6, 12, 24, 48, 96$',
+                    '$9, 18, 36, 72, 144, 288$ — eighteen',
+                    'each times $17$ gives the other eighteen: $17, 34, 68, 136, 272, 544$',
+                    '$51, 102, 204, 408, 816, 1{,}632$',
+                    '$153, 306, 612, 1{,}224, 2{,}448, 4{,}896$ — thirty-six in all, no duplicates (the factorisation is unique, so no grid cell can collide).',
+                    'Spot checks: $48 = 2^4 \\times 3$ divides ($4{,}896 = 102 \\times 48$)',
+                    '$272 = 2^4 \\times 17$ divides ($4{,}896 = 18 \\times 272$)',
+                    '$144 = 2^4 \\times 3^2$ divides ($4{,}896 = 34 \\times 144$).',
+                    '(d) The choices are **independent** — deciding how many $2$s to use constrains nothing about the $3$s or the $17$ — so the total number of combined decisions is the product $6 \\times 3 \\times 2$',
+                    'a prime $p$ has $(1 + 1) = 2$ divisors, $\{1, p\}$, which is the two-factor treaty read straight off the formula.',
+                  ],
                 },
               ],
             },
@@ -1599,13 +1727,23 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'List all the factors of 36 and of 54. Circle the common factors and state the HCF — then check that the circled list is exactly the set of divisors of the HCF.',
-                  solution:
-                    'The factors of $36$: $1, 2, 3, 4, 6, 9, 12, 18, 36$ — nine, as Lesson 3.2\'s formula promised for $2^2 \\times 3^2$: $(2 + 1)(2 + 1) = 9$. The factors of $54$: $1, 2, 3, 6, 9, 18, 27, 54$ — eight, since $54 = 2 \\times 3^3$ gives $(1 + 1)(3 + 1) = 8$. Common: $1, 2, 3, 6, 9, 18$ — so the HCF is $18$. And the divisors of $18$ are exactly $\\{1, 2, 3, 6, 9, 18\\}$: the circled list. Not a coincidence — the common factors of a pair are always precisely the divisors of their HCF, because the smaller-power rule caps every common divisor\'s exponents at the HCF\'s own.',
+                  solution: [
+                    'The factors of $36$: $1, 2, 3, 4, 6, 9, 12, 18, 36$ — nine, as Lesson 3.2\'s formula promised for $2^2 \\times 3^2$: $(2 + 1)(2 + 1) = 9$.',
+                    'The factors of $54$: $1, 2, 3, 6, 9, 18, 27, 54$ — eight, since $54 = 2 \\times 3^3$ gives $(1 + 1)(3 + 1) = 8$.',
+                    'Common: $1, 2, 3, 6, 9, 18$ — so the HCF is $18$.',
+                    'And the divisors of $18$ are exactly $\\{1, 2, 3, 6, 9, 18\\}$: the circled list.',
+                    'Not a coincidence — the common factors of a pair are always precisely the divisors of their HCF, because the smaller-power rule caps every common divisor\'s exponents at the HCF\'s own.',
+                  ],
                 },
                 {
                   q: 'Without factorising anything, explain why 1,000 and 1,001 are coprime — and generalise.',
-                  solution:
-                    'They are consecutive. Suppose $d$ divides both: then $d$ divides the difference $1{,}001 - 1{,}000 = 1$, and the only positive divisor of $1$ is $1$ itself. So the HCF is $1$ — coprime. The generalisation costs nothing: **any** two consecutive whole numbers are coprime, because any common divisor divides their difference, which is $1$. The same difference argument drives the swap lemma and the exam patterns below: a common divisor of two numbers always divides their difference.',
+                  solution: [
+                    'They are consecutive.',
+                    'Suppose $d$ divides both: then $d$ divides the difference $1{,}001 - 1{,}000 = 1$, and the only positive divisor of $1$ is $1$ itself.',
+                    'So the HCF is $1$ — coprime.',
+                    'The generalisation costs nothing: **any** two consecutive whole numbers are coprime, because any common divisor divides their difference, which is $1$.',
+                    'The same difference argument drives the swap lemma and the exam patterns below: a common divisor of two numbers always divides their difference.',
+                  ],
                 },
               ],
             },
@@ -1614,13 +1752,24 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Find, by the atoms route: (a) HCF(36, 84)  (b) HCF(34, 102)  (c) HCF(27, 63).',
-                  solution:
-                    '(a) $36 = 2^2 \\times 3^2$ and $84 = 2^2 \\times 3 \\times 7$: the $2$ is shared at $\\min(2, 2) = 2$ and the $3$ at $\\min(2, 1) = 1$, so the HCF is $2^2 \\times 3 = 12$. (b) $34 = 2 \\times 17$ and $102 = 2 \\times 3 \\times 17$: everything of $34$ is shared, so the HCF is $34$ itself — indeed $102 = 3 \\times 34$, and when one number divides the other, the HCF is the smaller. (c) $27 = 3^3$ and $63 = 3^2 \\times 7$: the $3$ is shared at $\\min(3, 2) = 2$, so $3^2 = 9$.',
+                  solution: [
+                    '(a) $36 = 2^2 \\times 3^2$ and $84 = 2^2 \\times 3 \\times 7$: the $2$ is shared at $\\min(2, 2) = 2$ and the $3$ at $\\min(2, 1) = 1$, so the HCF is $2^2 \\times 3 = 12$.',
+                    '(b) $34 = 2 \\times 17$ and $102 = 2 \\times 3 \\times 17$: everything of $34$ is shared, so the HCF is $34$ itself — indeed $102 = 3 \\times 34$, and when one number divides the other, the HCF is the smaller.',
+                    '(c) $27 = 3^3$ and $63 = 3^2 \\times 7$: the $3$ is shared at $\\min(3, 2) = 2$, so $3^2 = 9$.',
+                  ],
                 },
                 {
                   q: 'Find HCF(70, 105, 175) by atoms; then confirm by the ladder with the folding rule HCF(a, b, c) = HCF(HCF(a, b), c).',
-                  solution:
-                    'Atoms: $70 = 2 \\times 5 \\times 7$, $105 = 3 \\times 5 \\times 7$, $175 = 5^2 \\times 7$. The prime $5$ appears at powers $1, 1, 2$ — take the smaller: $1$. The prime $7$ at $1, 1, 1$. HCF $= 5 \\times 7 = 35$. Ladder: $\\gcd(70, 105)$ — $105 = 1 \\times 70 + 35$, then $70 = 2 \\times 35 + 0$ — gives $35$. Fold in the third: $175 = 5 \\times 35$ exactly, so $\\gcd(35, 175) = 35$. Same answer, and the order of folding never matters: each fold preserves the set of common divisors, by the swap lemma.',
+                  solution: [
+                    'Atoms: $70 = 2 \\times 5 \\times 7$, $105 = 3 \\times 5 \\times 7$, $175 = 5^2 \\times 7$.',
+                    'The prime $5$ appears at powers $1, 1, 2$ — take the smaller: $1$.',
+                    'The prime $7$ at $1, 1, 1$.',
+                    'HCF $= 5 \\times 7 = 35$.',
+                    'Ladder: $\\gcd(70, 105)$ — $105 = 1 \\times 70 + 35$,',
+                    'then $70 = 2 \\times 35 + 0$ — gives $35$.',
+                    'Fold in the third: $175 = 5 \\times 35$ exactly, so $\\gcd(35, 175) = 35$.',
+                    'Same answer, and the order of folding never matters: each fold preserves the set of common divisors, by the swap lemma.',
+                  ],
                 },
               ],
             },
@@ -1629,8 +1778,13 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'The seed repaid. Lesson 3.2\'s Exercise L3 found the shared atoms of 84 and 126. Now run the ladder on (126, 84) and confirm it lands on the same 42 — then explain why the two routes must always agree.',
-                  solution:
-                    'Ladder: $126 = 1 \\times 84 + 42$, then $84 = 2 \\times 42 + 0$ — the last nonzero remainder is $42$. Atoms: $84 = 2^2 \\times 3 \\times 7$ and $126 = 2 \\times 3^2 \\times 7$ give $2 \\times 3 \\times 7 = 42$. The two routes must agree because they compute the same object: the swap lemma says the ladder never changes the set of common divisors, and the smaller-power rule says the greatest member of that set is exactly the shared-atom product. Two languages, one theorem.',
+                  solution: [
+                    'Ladder: $126 = 1 \\times 84 + 42$,',
+                    'then $84 = 2 \\times 42 + 0$ — the last nonzero remainder is $42$.',
+                    'Atoms: $84 = 2^2 \\times 3 \\times 7$ and $126 = 2 \\times 3^2 \\times 7$ give $2 \\times 3 \\times 7 = 42$.',
+                    'The two routes must agree because they compute the same object: the swap lemma says the ladder never changes the set of common divisors, and the smaller-power rule says the greatest member of that set is exactly the shared-atom product.',
+                    'Two languages, one theorem.',
+                  ],
                 },
               ],
             },
@@ -1639,13 +1793,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Test 44,100 for divisibility by 63 = 7 × 9 using the coprime split, and explain why the split is legal here.',
-                  solution:
-                    '$7 \\mid 44{,}100$ (indeed $44{,}100 = 7 \\times 6{,}300$) and $9 \\mid 44{,}100$ (digit sum $4 + 4 + 1 = 9$). The parts are coprime: $7$ is prime, $9 = 3^2$, no shared atom — $\\gcd(7, 9) = 1$. The coprime-split theorem licenses the product: $63 \\mid 44{,}100$. Rebuild: $44{,}100 = 63 \\times 700$. The split is legal **because** the parts are coprime — $7 \\times 9$ passes where $2 \\times 6$ would not.',
+                  solution: [
+                    '$7 \\mid 44{,}100$ (indeed $44{,}100 = 7 \\times 6{,}300$) and $9 \\mid 44{,}100$ (digit sum $4 + 4 + 1 = 9$).',
+                    'The parts are coprime: $7$ is prime, $9 = 3^2$, no shared atom — $\\gcd(7, 9) = 1$.',
+                    'The coprime-split theorem licenses the product: $63 \\mid 44{,}100$.',
+                    'Rebuild: $44{,}100 = 63 \\times 700$.',
+                    'The split is legal **because** the parts are coprime — $7 \\times 9$ passes where $2 \\times 6$ would not.',
+                  ],
                 },
                 {
                   q: 'Is 1,053,060 divisible by 63? Answer with the same split, naming exactly which part fails.',
-                  solution:
-                    'The digit sum is $1 + 0 + 5 + 3 + 0 + 6 + 0 = 15$, which is not a multiple of $9$ — so $9$ does not divide $1{,}053{,}060$ (the leftover is $6$: $1{,}053{,}060 = 9 \\times 117{,}006 + 6$). One part of the coprime split has failed, and the theorem needs **both** parts: $63$ does not divide $1{,}053{,}060$. (The $7$ also misses it — $1{,}053{,}060 = 7 \\times 150{,}437 + 1$ — but one failure settles the verdict; that is the economy of the split.)',
+                  solution: [
+                    'The digit sum is $1 + 0 + 5 + 3 + 0 + 6 + 0 = 15$, which is not a multiple of $9$ — so $9$ does not divide $1{,}053{,}060$ (the leftover is $6$: $1{,}053{,}060 = 9 \\times 117{,}006 + 6$).',
+                    'One part of the coprime split has failed, and the theorem needs **both** parts: $63$ does not divide $1{,}053{,}060$.',
+                    '(The $7$ also misses it — $1{,}053{,}060 = 7 \\times 150{,}437 + 1$ — but one failure settles the verdict; that is the economy of the split.)',
+                  ],
                 },
               ],
             },
@@ -1654,13 +1816,25 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Find the greatest number that divides 689, 1,124 and 1,706 leaving remainders 5, 8 and 14 respectively.',
-                  solution:
-                    'Subtract the remainders: $689 - 5 = 684$, $1{,}124 - 8 = 1{,}116$, $1{,}706 - 14 = 1{,}692$. The wanted number divides all three leftovers exactly. Atoms: $684 = 2^2 \\times 3^2 \\times 19$, $1{,}116 = 2^2 \\times 3^2 \\times 31$, $1{,}692 = 2^2 \\times 3^2 \\times 47$ — the shared part is $2^2 \\times 3^2 = 36$. Answer: $36$. Rebuild: $689 = 19 \\times 36 + 5$, $1{,}124 = 31 \\times 36 + 8$, $1{,}706 = 47 \\times 36 + 14$. Note the quotients $19, 31, 47$ are prime — so no larger number can divide all three leftovers, and the answer is forced.',
+                  solution: [
+                    'Subtract the remainders: $689 - 5 = 684$, $1{,}124 - 8 = 1{,}116$, $1{,}706 - 14 = 1{,}692$.',
+                    'The wanted number divides all three leftovers exactly.',
+                    'Atoms: $684 = 2^2 \\times 3^2 \\times 19$, $1{,}116 = 2^2 \\times 3^2 \\times 31$, $1{,}692 = 2^2 \\times 3^2 \\times 47$ — the shared part is $2^2 \\times 3^2 = 36$.',
+                    'Answer: $36$.',
+                    'Rebuild: $689 = 19 \\times 36 + 5$, $1{,}124 = 31 \\times 36 + 8$, $1{,}706 = 47 \\times 36 + 14$.',
+                    'Note the quotients $19, 31, 47$ are prime — so no larger number can divide all three leftovers, and the answer is forced.',
+                  ],
                 },
                 {
                   q: 'Find the greatest number that divides 152, 277 and 427 leaving the same remainder in each case — and identify that remainder.',
-                  solution:
-                    'The remainder is unknown, so work with the differences: $277 - 152 = 125$, $427 - 277 = 150$, $427 - 152 = 275$. Atoms: $125 = 5^3$, $150 = 2 \\times 3 \\times 5^2$, $275 = 5^2 \\times 11$ — shared $5^2 = 25$. Answer: $25$. Divide back to recover the secret: $152 = 6 \\times 25 + 2$, $277 = 11 \\times 25 + 2$, $427 = 17 \\times 25 + 2$ — the common remainder is $2$. Why differences suffice: if $x = d \\cdot q_1 + s$ and $y = d \\cdot q_2 + s$, then $x - y = d \\cdot (q_1 - q_2)$ — the unknown $s$ cancels.',
+                  solution: [
+                    'The remainder is unknown, so work with the differences: $277 - 152 = 125$, $427 - 277 = 150$, $427 - 152 = 275$.',
+                    'Atoms: $125 = 5^3$, $150 = 2 \\times 3 \\times 5^2$, $275 = 5^2 \\times 11$ — shared $5^2 = 25$.',
+                    'Answer: $25$.',
+                    'Divide back to recover the secret: $152 = 6 \\times 25 + 2$, $277 = 11 \\times 25 + 2$, $427 = 17 \\times 25 + 2$ — the common remainder is $2$.',
+                    'Why differences suffice: if $x = d \\cdot q_1 + s$ and $y = d \\cdot q_2 + s$,',
+                    'then $x - y = d \\cdot (q_1 - q_2)$ — the unknown $s$ cancels.',
+                  ],
                 },
               ],
             },
@@ -1669,8 +1843,15 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'The composer\'s problem. Find every pair of numbers whose HCF is 12 and whose sum is 156 — and prove the list is complete.',
-                  solution:
-                    'Write the numbers as $12a$ and $12b$ with $\\gcd(a, b) = 1$: any atom shared by $a$ and $b$ would ride through the $12$ and enlarge the HCF. Then $12(a + b) = 156$, so $a + b = 13$. Now every split of $13$ is automatically coprime: a common divisor of $a$ and $13 - a$ divides their sum $13$, so it is $1$ or $13$ — and $0 < a < 13$ rules out $13$. (Thirteen being prime is the gift; the sum was chosen so the reduced sum is prime, making **every** pair work.) The pairs with $a < b$: $(1, 12), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)$ — giving $(12, 144)$, $(24, 132)$, $(36, 120)$, $(48, 108)$, $(60, 96)$, $(72, 84)$. Completeness: any solution must take the form $12a, 12b$ with $a + b = 13$, and the six pairs exhaust $a < b$; each has HCF exactly $12$, since $\\gcd(12a, 12b) = 12 \\times \\gcd(a, b) = 12$. Six answers, no seventh.',
+                  solution: [
+                    'Write the numbers as $12a$ and $12b$ with $\\gcd(a, b) = 1$: any atom shared by $a$ and $b$ would ride through the $12$ and enlarge the HCF.',
+                    'Then $12(a + b) = 156$, so $a + b = 13$.',
+                    'Now every split of $13$ is automatically coprime: a common divisor of $a$ and $13 - a$ divides their sum $13$, so it is $1$ or $13$ — and $0 < a < 13$ rules out $13$.',
+                    '(Thirteen being prime is the gift; the sum was chosen so the reduced sum is prime, making **every** pair work.) The pairs with $a < b$: $(1, 12), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)$ — giving $(12, 144)$, $(24, 132)$, $(36, 120)$, $(48, 108)$, $(60, 96)$, $(72, 84)$.',
+                    'Completeness: any solution must take the form $12a, 12b$ with $a + b = 13$, and the six pairs exhaust $a < b$',
+                    'each has HCF exactly $12$, since $\\gcd(12a, 12b) = 12 \\times \\gcd(a, b) = 12$.',
+                    'Six answers, no seventh.',
+                  ],
                 },
               ],
             },
@@ -2041,13 +2222,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'List the first five multiples of 7, and find the first common multiple of 7 and 14. Which extreme makes this one immediate?',
-                  solution:
-                    'Multiples: $7, 14, 21, 28, 35$. The first common multiple of $7$ and $14$ is $14$ itself: $14 = 2 \\times 7 = 1 \\times 14$. The extreme at work is divisibility — $7 \\mid 14$, so the LCM is the larger number, $14$. Every multiple of $14$ is automatically a multiple of $7$: the smaller timetable adds no new stops.',
+                  solution: [
+                    'Multiples: $7, 14, 21, 28, 35$.',
+                    'The first common multiple of $7$ and $14$ is $14$ itself: $14 = 2 \\times 7 = 1 \\times 14$.',
+                    'The extreme at work is divisibility — $7 \\mid 14$, so the LCM is the larger number, $14$.',
+                    'Every multiple of $14$ is automatically a multiple of $7$: the smaller timetable adds no new stops.',
+                  ],
                 },
                 {
                   q: 'Find every common multiple of 4 and 6 below 50, and state the LCM. Check the timetable structure theorem on your list.',
-                  solution:
-                    'Multiples of $4$ below $50$: $4, 8, 12, \\ldots, 48$; of $6$: $6, 12, 18, \\ldots, 48$. Common: $12, 24, 36, 48$ — and each is a multiple of $12$, exactly as the theorem claims: $12 = 1 \\times 12$, $24 = 2 \\times 12$, $36 = 3 \\times 12$, $48 = 4 \\times 12$. The first shared stop is $\\mathrm{lcm}(4, 6) = 12$.',
+                  solution: [
+                    'Multiples of $4$ below $50$: $4, 8, 12, \\ldots, 48$',
+                    'of $6$: $6, 12, 18, \\ldots, 48$.',
+                    'Common: $12, 24, 36, 48$ — and each is a multiple of $12$, exactly as the theorem claims: $12 = 1 \\times 12$, $24 = 2 \\times 12$, $36 = 3 \\times 12$, $48 = 4 \\times 12$.',
+                    'The first shared stop is $\\mathrm{lcm}(4, 6) = 12$.',
+                  ],
                 },
               ],
             },
@@ -2056,13 +2245,20 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Find the LCM of 18 and 24 by prime factorisation, and verify by division.',
-                  solution:
-                    '$18 = 2 \\times 3^2$ and $24 = 2^3 \\times 3$. Larger powers: $2^3$ and $3^2$, so the LCM is $8 \\times 9 = 72$. Verify: $72 = 4 \\times 18 = 3 \\times 24$ — both exact. (The HCF of the same pair is $2 \\times 3 = 6$: shared primes at the smaller powers. And $6 \\times 72 = 432 = 18 \\times 24$ — the product rule whispering again.)',
+                  solution: [
+                    '$18 = 2 \\times 3^2$ and $24 = 2^3 \\times 3$.',
+                    'Larger powers: $2^3$ and $3^2$, so the LCM is $8 \\times 9 = 72$.',
+                    'Verify: $72 = 4 \\times 18 = 3 \\times 24$ — both exact.',
+                    '(The HCF of the same pair is $2 \\times 3 = 6$: shared primes at the smaller powers. And $6 \\times 72 = 432 = 18 \\times 24$ — the product rule whispering again.)',
+                  ],
                 },
                 {
                   q: 'What is the LCM of 9 and 35? Answer in one line, naming the extreme that makes it immediate.',
-                  solution:
-                    '$\\gcd(9, 35) = 1$ — Lesson 3.3\'s coprime pair — so the coprime extreme applies: the LCM is the product, $9 \\times 35 = 315$. Nothing is shared, so everything must be taken. No method is needed beyond the one-line check that no prime is shared: $9 = 3^2$ and $35 = 5 \\times 7$.',
+                  solution: [
+                    '$\\gcd(9, 35) = 1$ — Lesson 3.3\'s coprime pair — so the coprime extreme applies: the LCM is the product, $9 \\times 35 = 315$.',
+                    'Nothing is shared, so everything must be taken.',
+                    'No method is needed beyond the one-line check that no prime is shared: $9 = 3^2$ and $35 = 5 \\times 7$.',
+                  ],
                 },
               ],
             },
@@ -2071,13 +2267,27 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Run the common-division ladder on 8, 12, 15 and 20. Explain one place where you switched primes.',
-                  solution:
-                    'Rows: divide by $2$ → line 4, 6, 15, 10 (the 15 carries); by $2$ again → 2, 3, 15, 5; by $2$ once more (only the 2 yields) → 1, 3, 15, 5; now switch to $3$, since no even number remains → 1, 1, 5, 5; finish with $5$ → 1, 1, 1, 1. Product of divisors: $2 \\times 2 \\times 2 \\times 3 \\times 5 = 120$. The switch after the third row is forced: $2$ has no customer left — its largest demand is met. Check: $120 = 15 \\times 8 = 10 \\times 12 = 8 \\times 15 = 6 \\times 20$.',
+                  solution: [
+                    'Rows: divide by $2$ → line 4, 6, 15, 10 (the 15 carries)',
+                    'by $2$ again → 2, 3, 15, 5',
+                    'by $2$ once more (only the 2 yields) → 1, 3, 15, 5',
+                    'now switch to $3$, since no even number remains → 1, 1, 5, 5',
+                    'finish with $5$ → 1, 1, 1, 1.',
+                    'Product of divisors: $2 \\times 2 \\times 2 \\times 3 \\times 5 = 120$.',
+                    'The switch after the third row is forced: $2$ has no customer left — its largest demand is met.',
+                    'Check: $120 = 15 \\times 8 = 10 \\times 12 = 8 \\times 15 = 6 \\times 20$.',
+                  ],
                 },
                 {
                   q: 'Find the LCM of 16, 28 and 40 by the larger-power rule, then confirm with the ladder.',
-                  solution:
-                    '$16 = 2^4$, $28 = 2^2 \\times 7$, $40 = 2^3 \\times 5$. Larger powers: $2^4$, $7$, $5$ — the LCM is $16 \\times 35 = 560$. Divide back: $560 = 35 \\times 16 = 20 \\times 28 = 14 \\times 40$ — exact. Ladder confirmation: rows 2, 2, 2, 2 (the 7 of 28 carries from the third row on), then 5, then 7 — product $2^4 \\times 5 \\times 7 = 560$: the same atoms, no factorisation needed.',
+                  solution: [
+                    '$16 = 2^4$, $28 = 2^2 \\times 7$, $40 = 2^3 \\times 5$.',
+                    'Larger powers: $2^4$, $7$, $5$ — the LCM is $16 \\times 35 = 560$.',
+                    'Divide back: $560 = 35 \\times 16 = 20 \\times 28 = 14 \\times 40$ — exact.',
+                    'Ladder confirmation: rows 2, 2, 2, 2 (the 7 of 28 carries from the third row on),',
+                    'then 5,',
+                    'then 7 — product $2^4 \\times 5 \\times 7 = 560$: the same atoms, no factorisation needed.',
+                  ],
                 },
               ],
             },
@@ -2086,13 +2296,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Find the least number exactly divisible by 10, 14 and 15.',
-                  solution:
-                    'The LCM: $10 = 2 \\times 5$, $14 = 2 \\times 7$, $15 = 3 \\times 5$ — larger powers give $2 \\times 3 \\times 5 \\times 7 = 210$. Divide back: $210 = 21 \\times 10 = 15 \\times 14 = 14 \\times 15$. Each prime enters once, because each is demanded at power 1 by somebody: $3$ only by $15$, $7$ only by $14$.',
+                  solution: [
+                    'The LCM: $10 = 2 \\times 5$, $14 = 2 \\times 7$, $15 = 3 \\times 5$ — larger powers give $2 \\times 3 \\times 5 \\times 7 = 210$.',
+                    'Divide back: $210 = 21 \\times 10 = 15 \\times 14 = 14 \\times 15$.',
+                    'Each prime enters once, because each is demanded at power 1 by somebody: $3$ only by $15$, $7$ only by $14$.',
+                  ],
                 },
                 {
                   q: 'Find the smallest four-digit number divisible by 18, 24 and 32.',
-                  solution:
-                    'Atoms: $18 = 2 \\times 3^2$, $24 = 2^3 \\times 3$, $32 = 2^5$ — larger powers give $2^5 \\times 3^2 = 288$. The four-digit world starts at $1{,}000 = 3 \\times 288 + 136$: three laps are not enough. Step to the fourth lap, $4 \\times 288 = 1{,}152$. Check: $1{,}152 = 64 \\times 18 = 48 \\times 24 = 36 \\times 32$. Answer: $1{,}152$ — the structure theorem turning a search into one division.',
+                  solution: [
+                    'Atoms: $18 = 2 \\times 3^2$, $24 = 2^3 \\times 3$, $32 = 2^5$ — larger powers give $2^5 \\times 3^2 = 288$.',
+                    'The four-digit world starts at $1{,}000 = 3 \\times 288 + 136$: three laps are not enough.',
+                    'Step to the fourth lap, $4 \\times 288 = 1{,}152$.',
+                    'Check: $1{,}152 = 64 \\times 18 = 48 \\times 24 = 36 \\times 32$.',
+                  ],
+                  answer: 'Answer: $1{,}152$ — the structure theorem turning a search into one division.',
                 },
               ],
             },
@@ -2101,13 +2319,21 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'Find the least number which, divided by 16, 24 and 30, leaves remainder 7 in each case.',
-                  solution:
-                    'LCM first: $16 = 2^4$, $24 = 2^3 \\times 3$, $30 = 2 \\times 3 \\times 5$ — larger powers give $2^4 \\times 3 \\times 5 = 240$. Then the pattern: $N = 240 + 7 = 247$. Rebuild: $247 = 16 \\times 15 + 7 = 24 \\times 10 + 7 = 30 \\times 8 + 7$. (Zero laps — $N = 7$ — leaves remainder $7$ with quotient $0$; the convention is one lap.) Answer: $247$.',
+                  solution: [
+                    'LCM first: $16 = 2^4$, $24 = 2^3 \\times 3$, $30 = 2 \\times 3 \\times 5$ — larger powers give $2^4 \\times 3 \\times 5 = 240$.',
+                    'Then the pattern: $N = 240 + 7 = 247$.',
+                    'Rebuild: $247 = 16 \\times 15 + 7 = 24 \\times 10 + 7 = 30 \\times 8 + 7$.',
+                    '(Zero laps — $N = 7$ — leaves remainder $7$ with quotient $0$; the convention is one lap.) Answer: $247$.',
+                  ],
                 },
                 {
                   q: 'Find the least number which, divided by 12, 15 and 20, leaves remainders 3, 6 and 11 respectively.',
-                  solution:
-                    'The deficiencies match: $12 - 3 = 9$, $15 - 6 = 9$, $20 - 11 = 9$. So $N + 9$ is a common multiple of all three: $\\mathrm{lcm}(12, 15, 20) = 2^2 \\times 3 \\times 5 = 60$, giving $N = 60 - 9 = 51$. Rebuild: $51 = 12 \\times 4 + 3$, $51 = 15 \\times 3 + 6$, $51 = 20 \\times 2 + 11$. Answer: $51$ — the deficiency twin of the $+r$ pattern.',
+                  solution: [
+                    'The deficiencies match: $12 - 3 = 9$, $15 - 6 = 9$, $20 - 11 = 9$.',
+                    'So $N + 9$ is a common multiple of all three: $\\mathrm{lcm}(12, 15, 20) = 2^2 \\times 3 \\times 5 = 60$, giving $N = 60 - 9 = 51$.',
+                    'Rebuild: $51 = 12 \\times 4 + 3$, $51 = 15 \\times 3 + 6$, $51 = 20 \\times 2 + 11$.',
+                  ],
+                  answer: 'Answer: $51$ — the deficiency twin of the $+r$ pattern.',
                 },
               ],
             },
@@ -2116,8 +2342,17 @@ export const chapter03: Chapter = {
               questions: [
                 {
                   q: 'The pair-hunter\'s problem. Find every pair (a, b) with a < b and LCM(a, b) = 18 — and prove the list is complete.',
-                  solution:
-                    'First, where can the pair live? Each of $a$ and $b$ divides its own LCM, so both divide $18$: the candidates are the divisors $1, 2, 3, 6, 9, 18$ — fifteen pairs with $a < b$. Test the larger-power coverage of each. Winners (7): $(1, 18)$ — 18 alone carries $2 \\times 3^2$; $(2, 9)$ — coprime, product $18$; $(2, 18)$, $(3, 18)$, $(6, 18)$, $(9, 18)$ — the divisibility extreme with 18 in the pair; $(6, 9)$ — $6 = 2 \\times 3$, $9 = 3^2$, union $2 \\times 3^2 = 18$. Losers (8), with their actual LCMs: $(1,2) \\to 2$, $(1,3) \\to 3$, $(1,6) \\to 6$, $(1,9) \\to 9$, $(2,3) \\to 6$, $(2,6) \\to 6$, $(3,6) \\to 6$, $(3,9) \\to 9$. Seven winners, eight losers, fifteen pairs — the list is complete because every possible pair had to be a pair of divisors of 18, and all fifteen were tested.',
+                  solution: [
+                    'First, where can the pair live?',
+                    'Each of $a$ and $b$ divides its own LCM, so both divide $18$: the candidates are the divisors $1, 2, 3, 6, 9, 18$ — fifteen pairs with $a < b$.',
+                    'Test the larger-power coverage of each.',
+                    'Winners (7): $(1, 18)$ — 18 alone carries $2 \\times 3^2$',
+                    '$(2, 9)$ — coprime, product $18$',
+                    '$(2, 18)$, $(3, 18)$, $(6, 18)$, $(9, 18)$ — the divisibility extreme with 18 in the pair',
+                    '$(6, 9)$ — $6 = 2 \\times 3$, $9 = 3^2$, union $2 \\times 3^2 = 18$.',
+                    'Losers (8), with their actual LCMs: $(1,2) \\to 2$, $(1,3) \\to 3$, $(1,6) \\to 6$, $(1,9) \\to 9$, $(2,3) \\to 6$, $(2,6) \\to 6$, $(3,6) \\to 6$, $(3,9) \\to 9$.',
+                    'Seven winners, eight losers, fifteen pairs — the list is complete because every possible pair had to be a pair of divisors of 18, and all fifteen were tested.',
+                  ],
                 },
               ],
             },
@@ -2469,13 +2704,24 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'The HCF of two numbers is 5 and their LCM is 60. One member is 15. Find the other, and verify it against both demands.',
-                    solution:
-                      'Product rule: the pair\'s product is $5 \\times 60 = 300$; divide by the known member: $300 \\div 15 = 20$. Verify: $15 = 3 \\times 5$ and $20 = 2^2 \\times 5$ — shared primes at smaller powers give $5$, the HCF; all primes at larger powers give $2^2 \\times 3 \\times 5 = 60$, the LCM. The other member is $20$.',
+                    solution: [
+                      'Product rule: the pair\'s product is $5 \\times 60 = 300$',
+                      'divide by the known member: $300 \\div 15 = 20$.',
+                      'Verify: $15 = 3 \\times 5$ and $20 = 2^2 \\times 5$ — shared primes at smaller powers give $5$, the HCF',
+                      'all primes at larger powers give $2^2 \\times 3 \\times 5 = 60$, the LCM.',
+                    ],
+                    answer: 'The other member is $20$.',
                   },
                   {
                     q: 'Verify the product rule on the pair 45 and 60, computing all four quantities from scratch.',
-                    solution:
-                      'Atoms: $45 = 3^2 \\times 5$ and $60 = 2^2 \\times 3 \\times 5$. HCF — shared primes at the smaller powers: $3 \\times 5 = 15$. LCM — all primes at the larger powers: $2^2 \\times 3^2 \\times 5 = 180$. Product of the pair: $45 \\times 60 = 2{,}700$. Product of the objects: $15 \\times 180 = 2{,}700$. Equal — the rule holds, and the Venn reading says why: $45 = 15 \\times 3$, $60 = 15 \\times 4$, with coprime leftovers 3 and 4.',
+                    solution: [
+                      'Atoms: $45 = 3^2 \\times 5$ and $60 = 2^2 \\times 3 \\times 5$.',
+                      'HCF — shared primes at the smaller powers: $3 \\times 5 = 15$.',
+                      'LCM — all primes at the larger powers: $2^2 \\times 3^2 \\times 5 = 180$.',
+                      'Product of the pair: $45 \\times 60 = 2{,}700$.',
+                      'Product of the objects: $15 \\times 180 = 2{,}700$.',
+                      'Equal — the rule holds, and the Venn reading says why: $45 = 15 \\times 3$, $60 = 15 \\times 4$, with coprime leftovers 3 and 4.',
+                    ],
                   },
                 ],
               },
@@ -2484,13 +2730,22 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'The HCF of two numbers is 12 and their product is 4,032. Find the LCM — then find every pair that shares this fingerprint.',
-                    solution:
-                    'LCM = product ÷ HCF $= 4{,}032 \\div 12 = 336$ (and $336 = 28 \\times 12$, so the fingerprint passes feasibility). The leftovers\' product is $336 \\div 12 = 28$, whose coprime splits are $(1, 28)$ and $(4, 7)$ — the split $(2, 14)$ shares a 2. Multiply back by 12: the pairs $(12, 336)$ and $(48, 84)$. Check the second: $\\gcd(48, 84) = 12$ and $\\mathrm{lcm}(48, 84) = 2^4 \\times 3 \\times 7 = 336$. Exact.',
+                    solution: [
+                      'LCM = product ÷ HCF $= 4{,}032 \\div 12 = 336$ (and $336 = 28 \\times 12$, so the fingerprint passes feasibility).',
+                      'The leftovers\' product is $336 \\div 12 = 28$, whose coprime splits are $(1, 28)$ and $(4, 7)$ — the split $(2, 14)$ shares a 2.',
+                      'Multiply back by 12: the pairs $(12, 336)$ and $(48, 84)$.',
+                      'Check the second: $\\gcd(48, 84) = 12$ and $\\mathrm{lcm}(48, 84) = 2^4 \\times 3 \\times 7 = 336$.',
+                      'Exact.',
+                    ],
                   },
                   {
                     q: 'Can two numbers have 18 as their HCF and 380 as their LCM? Give a reason in one division.',
-                    solution:
-                      'No. The HCF must divide the LCM, and $380 \\div 18 = 21$ remainder $2$ — not exact. Since every member is a multiple of the HCF $18$ and the LCM is a multiple of every member, the chain $18 \\mid \\text{member} \\mid 380$ would force $18 \\mid 380$ — it fails. No pair anywhere wears this fingerprint.',
+                    solution: [
+                      'No.',
+                      'The HCF must divide the LCM, and $380 \\div 18 = 21$ remainder $2$ — not exact.',
+                      'Since every member is a multiple of the HCF $18$ and the LCM is a multiple of every member, the chain $18 \\mid \\text{member} \\mid 380$ would force $18 \\mid 380$ — it fails.',
+                      'No pair anywhere wears this fingerprint.',
+                    ],
                   },
                 ],
               },
@@ -2499,13 +2754,25 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'Rebuild every pair (a < b) with HCF 6 and LCM 36, and check each rebuilt pair against both demands.',
-                    solution:
-                      'Leftovers\' product: $36 \\div 6 = 6$, coprime splits $(1, 6)$ and $(2, 3)$. Pairs: $(6, 36)$ and $(12, 18)$. Checks — $(6, 36)$: HCF $6$ (divisibility extreme), LCM $36$. $(12, 18)$: $12 = 2^2 \\times 3$, $18 = 2 \\times 3^2$; smaller powers $2 \\times 3 = 6$, larger powers $2^2 \\times 3^2 = 36$. Both pairs pass. The fingerprint is worn by two pairs — reconstruction can be ambiguous.',
+                    solution: [
+                      'Leftovers\' product: $36 \\div 6 = 6$, coprime splits $(1, 6)$ and $(2, 3)$.',
+                      'Pairs: $(6, 36)$ and $(12, 18)$.',
+                      'Checks — $(6, 36)$: HCF $6$ (divisibility extreme), LCM $36$.',
+                      '$(12, 18)$: $12 = 2^2 \\times 3$, $18 = 2 \\times 3^2$',
+                      'smaller powers $2 \\times 3 = 6$, larger powers $2^2 \\times 3^2 = 36$.',
+                      'Both pairs pass.',
+                      'The fingerprint is worn by two pairs — reconstruction can be ambiguous.',
+                    ],
                   },
                   {
                     q: 'Rebuild every pair (a < b) with HCF 10 and LCM 90. What is different about this fingerprint?',
-                    solution:
-                      'Leftovers\' product: $90 \\div 10 = 9 = 3^2$. Factor splits: $(1, 9)$ and $(3, 3)$ — but $(3, 3)$ shares the factor 3, leaving the single coprime split $(1, 9)$. So exactly one pair: $(10, 90)$ — the divisibility extreme, since $10 \\mid 90$. The difference: when the leftovers\' product is a prime power, one member must take the whole thing, and the fingerprint forces a unique pair. Verify: $\\gcd(10, 90) = 10$, $\\mathrm{lcm}(10, 90) = 90$.',
+                    solution: [
+                      'Leftovers\' product: $90 \\div 10 = 9 = 3^2$.',
+                      'Factor splits: $(1, 9)$ and $(3, 3)$ — but $(3, 3)$ shares the factor 3, leaving the single coprime split $(1, 9)$.',
+                      'So exactly one pair: $(10, 90)$ — the divisibility extreme, since $10 \\mid 90$.',
+                      'The difference: when the leftovers\' product is a prime power, one member must take the whole thing, and the fingerprint forces a unique pair.',
+                      'Verify: $\\gcd(10, 90) = 10$, $\\mathrm{lcm}(10, 90) = 90$.',
+                    ],
                   },
                 ],
               },
@@ -2514,13 +2781,24 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'The HCF and LCM of two numbers are 12 and 720; one member is 48. Find the other and verify both demands.',
-                    solution:
-                      'Product rule: $12 \\times 720 = 8{,}640$; $8{,}640 \\div 48 = 180$. Verify the HCF: $48 = 2^4 \\times 3$, $180 = 2^2 \\times 3^2 \\times 5$ — smaller powers $2^2 \\times 3 = 12$. Verify the LCM: larger powers $2^4 \\times 3^2 \\times 5 = 720$. Both exact, and the guard was legal from the start: $48 = 4 \\times 12$ is a multiple of the HCF. The missing member is $180$.',
+                    solution: [
+                      'Product rule: $12 \\times 720 = 8{,}640$',
+                      '$8{,}640 \\div 48 = 180$.',
+                      'Verify the HCF: $48 = 2^4 \\times 3$, $180 = 2^2 \\times 3^2 \\times 5$ — smaller powers $2^2 \\times 3 = 12$.',
+                      'Verify the LCM: larger powers $2^4 \\times 3^2 \\times 5 = 720$.',
+                      'Both exact, and the guard was legal from the start: $48 = 4 \\times 12$ is a multiple of the HCF.',
+                    ],
+                    answer: 'The missing member is $180$.',
                   },
                   {
                     q: 'The HCF of two numbers is 16 and their product is 6,400. Find the LCM, then show that the pair itself is forced — no other pair wears the fingerprint.',
-                    solution:
-                      'LCM $= 6{,}400 \\div 16 = 400$ (feasible: $400 = 25 \\times 16$). Leftovers\' product: $400 \\div 16 = 25 = 5^2$. Factor splits: $(1, 25)$ and $(5, 5)$ — but $(5, 5)$ shares the factor 5, so the only coprime split is $(1, 25)$. One pair: $(16, 400)$. Uniqueness came from the leftovers\' product being a perfect square of a prime: any split other than $1$-and-all would share the prime.',
+                    solution: [
+                      'LCM $= 6{,}400 \\div 16 = 400$ (feasible: $400 = 25 \\times 16$).',
+                      'Leftovers\' product: $400 \\div 16 = 25 = 5^2$.',
+                      'Factor splits: $(1, 25)$ and $(5, 5)$ — but $(5, 5)$ shares the factor 5, so the only coprime split is $(1, 25)$.',
+                      'One pair: $(16, 400)$.',
+                      'Uniqueness came from the leftovers\' product being a perfect square of a prime: any split other than $1$-and-all would share the prime.',
+                    ],
                   },
                 ],
               },
@@ -2529,13 +2807,25 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'Draw the rectangle identity for 8 and 12: find the largest square that tiles an 8 × 12 rectangle and the smallest square that rectangle tiles. Verify all three products.',
-                    solution:
-                      'Largest fitting square: side $\\gcd(8, 12) = 4$ — the rectangle splits into $(8 \\div 4) \\times (12 \\div 4) = 2 \\times 3 = 6$ squares of side 4. Smallest filled square: side $\\mathrm{lcm}(8, 12) = 24$ — it packs $(24 \\div 8) \\times (24 \\div 12) = 3 \\times 2 = 6$ copies of the rectangle. The three products agree: $8 \\times 12 = 96$; $4 \\times 24 = 96$; and $24 \\times 24 = 576 = 6 \\times 96$ — the big square\'s area is six rectangles. The identity $4 \\times 24 = 8 \\times 12$ is the product rule on the pair (8, 12).',
+                    solution: [
+                      'Largest fitting square: side $\\gcd(8, 12) = 4$ — the rectangle splits into $(8 \\div 4) \\times (12 \\div 4) = 2 \\times 3 = 6$ squares of side 4.',
+                      'Smallest filled square: side $\\mathrm{lcm}(8, 12) = 24$ — it packs $(24 \\div 8) \\times (24 \\div 12) = 3 \\times 2 = 6$ copies of the rectangle.',
+                      'The three products agree: $8 \\times 12 = 96$',
+                      '$4 \\times 24 = 96$',
+                      'and $24 \\times 24 = 576 = 6 \\times 96$ — the big square\'s area is six rectangles.',
+                      'The identity $4 \\times 24 = 8 \\times 12$ is the product rule on the pair (8, 12).',
+                    ],
                   },
                   {
                     q: 'For each fingerprint, decide whether some pair wears it, and give a witness pair when possible: (i) HCF 9, LCM 45; (ii) HCF 9, LCM 50; (iii) HCF 9, LCM 72.',
-                    solution:
-                      '(i) $45 \\div 9 = 5$ — exact, feasible; witness $(9, 45)$ itself: HCF $9$, LCM $45$. (ii) $50 \\div 9$ leaves remainder $5$ — infeasible; no pair exists. (iii) $72 \\div 9 = 8$ — exact, feasible; witness $(9, 72)$: HCF $9$, LCM $72$ (the divisibility extreme again). The lesson of the trio: feasibility is one division, and the witness is free — the pair (h, l) always certifies a passing fingerprint.',
+                    solution: [
+                      '(i) $45 \\div 9 = 5$ — exact, feasible',
+                      'witness $(9, 45)$ itself: HCF $9$, LCM $45$.',
+                      '(ii) $50 \\div 9$ leaves remainder $5$ — infeasible; no pair exists.',
+                      '(iii) $72 \\div 9 = 8$ — exact, feasible',
+                      'witness $(9, 72)$: HCF $9$, LCM $72$ (the divisibility extreme again).',
+                      'The lesson of the trio: feasibility is one division, and the witness is free — the pair (h, l) always certifies a passing fingerprint.',
+                    ],
                   },
                 ],
               },
@@ -2544,8 +2834,15 @@ export const chapter03: Chapter = {
                 questions: [
                   {
                     q: 'The fingerprint collector\'s problem. Find every pair (a, b) with a < b, HCF 14 and LCM 1,260 — and prove the list is complete.',
-                    solution:
-                      'Leftovers\' product: $1{,}260 \\div 14 = 90 = 2 \\times 3^2 \\times 5$. A split of 90 works exactly when each prime-power block — $2$, $3^2$, $5$ — goes wholly to one side; three blocks give $2^3 = 8$ ordered splits, folded into $4$ unordered ones: $(1, 90)$, $(2, 45)$, $(5, 18)$, $(9, 10)$ — every split sharing a factor (like $(3, 30)$ or $(6, 15)$) is struck. Multiply back by 14: $(14, 1{,}260)$, $(28, 630)$, $(70, 252)$, $(126, 140)$. Completeness: any pair with this fingerprint must be $14$ times a coprime split of 90, and all eight ordered splits were enumerated — four pairs, no more. Spot-check $(126, 140)$: $126 = 2 \\times 3^2 \\times 7$, $140 = 2^2 \\times 5 \\times 7$ — HCF $2 \\times 7 = 14$, LCM $2^2 \\times 3^2 \\times 5 \\times 7 = 1{,}260$. (Notice the LCM: the same $1{,}260$ the exam genre opened this lesson with — one fingerprint, four pairs, every one of them wearing both demands.)',
+                    solution: [
+                      'Leftovers\' product: $1{,}260 \\div 14 = 90 = 2 \\times 3^2 \\times 5$.',
+                      'A split of 90 works exactly when each prime-power block — $2$, $3^2$, $5$ — goes wholly to one side',
+                      'three blocks give $2^3 = 8$ ordered splits, folded into $4$ unordered ones: $(1, 90)$, $(2, 45)$, $(5, 18)$, $(9, 10)$ — every split sharing a factor (like $(3, 30)$ or $(6, 15)$) is struck.',
+                      'Multiply back by 14: $(14, 1{,}260)$, $(28, 630)$, $(70, 252)$, $(126, 140)$.',
+                      'Completeness: any pair with this fingerprint must be $14$ times a coprime split of 90, and all eight ordered splits were enumerated — four pairs, no more.',
+                      'Spot-check $(126, 140)$: $126 = 2 \\times 3^2 \\times 7$, $140 = 2^2 \\times 5 \\times 7$ — HCF $2 \\times 7 = 14$, LCM $2^2 \\times 3^2 \\times 5 \\times 7 = 1{,}260$.',
+                      '(Notice the LCM: the same $1{,}260$ the exam genre opened this lesson with — one fingerprint, four pairs, every one of them wearing both demands.)',
+                    ],
                   },
                 ],
               },

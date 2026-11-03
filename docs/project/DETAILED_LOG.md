@@ -75,6 +75,7 @@ review passed; `WORK_INVENTORY.json` regenerated in the same run).
 | 11-03 (run 11) | (ship) | **UNIT 3 COMPLETE: lesson 3.5 HCF, LCM and How They Relate** — authored, 260 pre-writing checks (section AA, 33 new), rectangle figure 0 audit issues FIRST pass, E2E green (quiz 5/5 live, flashcards 82, 390px exact-fit with eleven solutions expanded), unit-3 completion review run (BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, totals recompute 59,076 words), logged; pushed (protocol v2) as 8640085..342f629, remote HEAD verified |
 | 11-03 (run 12, owner chat) | `8fd776e` | **Reader width + permalink fix (owner directive)** — lesson article 768→962px measured (container 7xl, article fills grid at xl, figures 3xl, TOC/glossary 5xl, chrome 7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed from every lesson; all 12 lessons re-audited 0 SVG issues; audit default list extended with 3.4/3.5/4.1 |
 | 11-03 (run 12, owner chat) | (ship) | **UNIT 4 OPENED: lesson 4.1 The Idea of a Fraction** (ch-04.ts created) — authored, 84 pre-writing checks (`verify-unit-4.ts`, gitignore exception added FIRST), both new figures 0 audit issues FIRST pass, E2E green (quiz 5/5 live, KaTeX 221, glossary 91 terms, 390px exact-fit with all ten solutions force-revealed), mediant theorem delivers 3.5's density promise (cross-multiplication licence on credit for 4.2/4.3), logged; pushed (protocol v2) |
+| 11-03 (run 13, owner chat) | (ship) | **WORKED-SOLUTION FORMAT shipped** — handwritten-notes style: all 125 exercise solutions converted from prose paragraphs to numbered step lines + boxed Answer rows; platform (solution string\|string[] + answer, SolutionBody renderer) + migration script with per-solution token-preservation assertion (125/125); E2E green incl. 390px exact-fit with every solution expanded; BOOK_FORMAT contract updated; logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -660,6 +661,24 @@ terms / 70 quiz items / 125 exercise questions**; ch. 4 in-progress at
 1/5). Khattar re-downloaded (no dedicated fractions chapter — ch. 1 exam
 items mined, ch. 2 HCF/LCM-of-fractions rules banked for 4.5); NCERT
 class-6 ch. 7 web-checked; working copies deleted after E2E.
+
+**WORKED-SOLUTION FORMAT (run 13, owner chat directive with a
+handwritten-notes photo as the style reference):** exercise solutions now
+render like handwritten worked solutions — numbered step lines with words
+("Seat the digits right to left…", "Expanded form: $…$", "Thousands seat:
+3."), never prose paragraphs. Platform: `ExerciseQuestion.solution`
+accepts `string | string[]` + optional `answer` (boxed row); SolutionBody
+renderer with numbered chips; search + word-counter handle both shapes.
+Content: all 125 solutions migrated by
+`scripts/convert-solutions-to-steps.py` with a strict per-solution
+`\w+` token-multiset preservation assertion (125/125 — no content lost or
+altered; 5 boxed answers extracted). E2E: 1.1 = 36 steps / 31 KaTeX
+inside steps; 3.1 = 47 steps + the boxed Factors answer; 2.5/3.5/4.1 =
+53/60/60 steps; 390px exact-fit with every solution expanded; zero
+console errors. Totals recomputed: **14 lessons / 65,080 words** (−50 =
+dropped standalone ';' tokens the old counter counted as words) / 91
+terms / 70 quiz / 125 exercises. BOOK_FORMAT now mandates the format for
+all future lessons.
 
 #### Chapters 4–11 — planned (not yet written)
 

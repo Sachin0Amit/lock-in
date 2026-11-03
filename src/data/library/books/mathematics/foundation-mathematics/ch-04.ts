@@ -538,13 +538,21 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'For the fraction 5/8: name the numerator and the denominator, state what each one tells you, and write "eleven sixteenths" as a fraction.',
-                  solution:
-                    'In $\\tfrac{5}{8}$: the numerator is $5$ — five parts are taken; the denominator is $8$ — the whole was cut into $8$ equal parts, so the parts are eighths. Read aloud: "five eighths", count then name. "Eleven sixteenths" puts the count on top and the name below: $\\tfrac{11}{16}$. (Check the jobs with the treaty: $11 < 16$, so this one is proper and lives between $0$ and $1$.)',
+                  solution: [
+                    'In $\\tfrac{5}{8}$: the numerator is $5$ — five parts are taken',
+                    'the denominator is $8$ — the whole was cut into $8$ equal parts, so the parts are eighths.',
+                    'Read aloud: "five eighths", count then name. "Eleven sixteenths" puts the count on top and the name below: $\\tfrac{11}{16}$.',
+                    '(Check the jobs with the treaty: $11 < 16$, so this one is proper and lives between $0$ and $1$.)',
+                  ],
                 },
                 {
                   q: 'A strip is cut into 7 equal cells and 3 of them are shaded. What fraction of the strip is shaded — and would the answer be the same if the 7 cells were of unequal sizes?',
-                  solution:
-                    'With equal cells, the shaded amount is $\\tfrac{3}{7}$: denominator $7$ names the parts (sevenths), numerator $3$ counts them. If the cells are *unequal*, the reading collapses — the treaty requires **equal** parts, because the denominator names a single part-size. Seven unequal scraps shaded would be some amount, but it is not "three sevenths" of anything; you could not even say which seventh a given scrap is. Equal parts are not a detail of the notation; they are its foundation.',
+                  solution: [
+                    'With equal cells, the shaded amount is $\\tfrac{3}{7}$: denominator $7$ names the parts (sevenths), numerator $3$ counts them.',
+                    'If the cells are *unequal*, the reading collapses — the treaty requires **equal** parts, because the denominator names a single part-size.',
+                    'Seven unequal scraps shaded would be some amount, but it is not "three sevenths" of anything; you could not even say which seventh a given scrap is.',
+                    'Equal parts are not a detail of the notation; they are its foundation.',
+                  ],
                 },
               ],
             },
@@ -553,13 +561,28 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'Classify each as proper, improper, or mixed: 3/11, 11/3, 8/8, 2 1/6, 15/4, 4/15, 9/9 — and convert the improper ones to mixed numbers.',
-                  solution:
-                    'Run the numerator-vs-denominator comparison on each. $\\tfrac{3}{11}$: $3 < 11$ — proper. $\\tfrac{11}{3}$: $11 \\ge 3$ — improper; the algorithm gives $11 = 3 \\times 3 + 2$, so $\\tfrac{11}{3} = 3\\tfrac{2}{3}$. $\\tfrac{8}{8}$: $8 \\ge 8$ — improper *at the boundary*, worth exactly $1$. $2\\tfrac{1}{6}$: already mixed (and secretly improper: $(2 \\times 6 + 1) = \\tfrac{13}{6}$). $\\tfrac{15}{4}$: improper; $15 = 3 \\times 4 + 3$, so $3\\tfrac{3}{4}$. $\\tfrac{4}{15}$: proper. $\\tfrac{9}{9}$: improper at the boundary, worth $1$. The two boundary cases are the point of the exercise: "improper" includes equality, and both $\\tfrac{8}{8}$ and $\\tfrac{9}{9}$ stand exactly on the frontier post $1$.',
+                  solution: [
+                    'Run the numerator-vs-denominator comparison on each.',
+                    '$\\tfrac{3}{11}$: $3 < 11$ — proper.',
+                    '$\\tfrac{11}{3}$: $11 \\ge 3$ — improper',
+                    'the algorithm gives $11 = 3 \\times 3 + 2$, so $\\tfrac{11}{3} = 3\\tfrac{2}{3}$.',
+                    '$\\tfrac{8}{8}$: $8 \\ge 8$ — improper *at the boundary*, worth exactly $1$.',
+                    '$2\\tfrac{1}{6}$: already mixed (and secretly improper: $(2 \\times 6 + 1) = \\tfrac{13}{6}$).',
+                    '$\\tfrac{15}{4}$: improper',
+                    '$15 = 3 \\times 4 + 3$, so $3\\tfrac{3}{4}$.',
+                    '$\\tfrac{4}{15}$: proper.',
+                    '$\\tfrac{9}{9}$: improper at the boundary, worth $1$.',
+                    'The two boundary cases are the point of the exercise: "improper" includes equality, and both $\\tfrac{8}{8}$ and $\\tfrac{9}{9}$ stand exactly on the frontier post $1$.',
+                  ],
                 },
                 {
                   q: 'Convert: (a) 17/5 to a mixed number; (b) 2 3/8 to an improper fraction; (c) 100/7 to a mixed number.',
-                  solution:
-                    '(a) $\\tfrac{17}{5}$ is the division $17 \\div 5$: quotient $3$, remainder $2$ (since $17 = 3 \\times 5 + 2$), so $\\tfrac{17}{5} = 3\\tfrac{2}{5}$ — three wholes and two fifths more. (b) $2\\tfrac{3}{8}$ rebuilds: multiply the whole by the denominator ($2 \\times 8 = 16$), add the numerator ($16 + 3 = 19$), keep the denominator: $\\tfrac{19}{8}$, which sits in the gap between $2$ and $3$. (c) $\\tfrac{100}{7}$: $100 = 14 \\times 7 + 2$, so $14\\tfrac{2}{7}$ — the exact value that whole-number division could only stammer as "14 remainder 2". All three are the division algorithm of Lesson 2.4, reread through the vinculum.',
+                  solution: [
+                    '(a) $\\tfrac{17}{5}$ is the division $17 \\div 5$: quotient $3$, remainder $2$ (since $17 = 3 \\times 5 + 2$), so $\\tfrac{17}{5} = 3\\tfrac{2}{5}$ — three wholes and two fifths more.',
+                    '(b) $2\\tfrac{3}{8}$ rebuilds: multiply the whole by the denominator ($2 \\times 8 = 16$), add the numerator ($16 + 3 = 19$), keep the denominator: $\\tfrac{19}{8}$, which sits in the gap between $2$ and $3$.',
+                    '(c) $\\tfrac{100}{7}$: $100 = 14 \\times 7 + 2$, so $14\\tfrac{2}{7}$ — the exact value that whole-number division could only stammer as "14 remainder 2".',
+                    'All three are the division algorithm of Lesson 2.4, reread through the vinculum.',
+                  ],
                 },
               ],
             },
@@ -568,13 +591,25 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'Compute: (a) 3/4 of 84; (b) 5/8 of 56; (c) 7/12 of 144.',
-                  solution:
-                    '(a) Split $84$ into $4$ shares: $84 \\div 4 = 21$; take three: $3 \\times 21 = 63$. (b) The eighth-share of $56$ is $56 \\div 8 = 7$; five of them make $5 \\times 7 = 35$. (c) The twelfth-share of $144$ is $144 \\div 12 = 12$; seven of them make $7 \\times 12 = 84$. In each case the exam-friendly structure is the same: the quantity divides cleanly by the denominator, so the unit share is a small whole number and the taking is a small multiplication. That is the division face of the fraction doing all the work.',
+                  solution: [
+                    '(a) Split $84$ into $4$ shares: $84 \\div 4 = 21$',
+                    'take three: $3 \\times 21 = 63$.',
+                    '(b) The eighth-share of $56$ is $56 \\div 8 = 7$',
+                    'five of them make $5 \\times 7 = 35$.',
+                    '(c) The twelfth-share of $144$ is $144 \\div 12 = 12$',
+                    'seven of them make $7 \\times 12 = 84$.',
+                    'In each case the exam-friendly structure is the same: the quantity divides cleanly by the denominator, so the unit share is a small whole number and the taking is a small multiplication.',
+                    'That is the division face of the fraction doing all the work.',
+                  ],
                 },
                 {
                   q: 'How many 1/6-pieces does it take to build 5 wholes? And what fraction of one whole is each piece?',
-                  solution:
-                    'Each whole is $6$ sixths, so $5$ wholes need $5 \\times 6 = 30$ pieces. Each piece is $\\tfrac{1}{6}$ of a whole — a unit fraction, the atom out of which the five wholes are stacked. This is Lesson 2.4\'s grouping division in fraction dress: "how many $\\tfrac{1}{6}$s fit in $5$?" is the same question as "$5 \\div \\tfrac{1}{6}$", and counting pieces answers it without any new machinery. (The full rule for dividing *by* a fraction arrives in Lesson 4.5 — but the grouping picture you just used is the reason that rule will work.)',
+                  solution: [
+                    'Each whole is $6$ sixths, so $5$ wholes need $5 \\times 6 = 30$ pieces.',
+                    'Each piece is $\\tfrac{1}{6}$ of a whole — a unit fraction, the atom out of which the five wholes are stacked.',
+                    'This is Lesson 2.4\'s grouping division in fraction dress: "how many $\\tfrac{1}{6}$s fit in $5$?" is the same question as "$5 \\div \\tfrac{1}{6}$", and counting pieces answers it without any new machinery.',
+                    '(The full rule for dividing *by* a fraction arrives in Lesson 4.5 — but the grouping picture you just used is the reason that rule will work.)',
+                  ],
                 },
               ],
             },
@@ -583,13 +618,26 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'Express each division exactly as a fraction, and as a mixed number where it is improper: (a) 23 ÷ 6; (b) 8 ÷ 25; (c) 144 ÷ 12.',
-                  solution:
-                    '(a) $23 \\div 6 = \\tfrac{23}{6}$ exactly; improper, and the algorithm reports $23 = 3 \\times 6 + 5$, so $\\tfrac{23}{6} = 3\\tfrac{5}{6}$ — three wholes and five sixths more, sitting between $3$ and $4$ on the line. (b) $8 \\div 25 = \\tfrac{8}{25}$ — and here is the instructive twist: the fraction is *proper* ($8 < 25$), worth less than one whole, living between $0$ and $1$. A division can absolutely land there; there is no rule that quotients exceed $1$. (c) $144 \\div 12 = 12$ exactly, and the fraction is $\\tfrac{144}{12}$ — which *is* $12 = \\tfrac{12}{1}$: whole numbers are just fractions whose denominators have nothing left to name. Three divisions, three wardrobe boxes — same vinculum throughout.',
+                  solution: [
+                    '(a) $23 \\div 6 = \\tfrac{23}{6}$ exactly',
+                    'improper, and the algorithm reports $23 = 3 \\times 6 + 5$, so $\\tfrac{23}{6} = 3\\tfrac{5}{6}$ — three wholes and five sixths more, sitting between $3$ and $4$ on the line.',
+                    '(b) $8 \\div 25 = \\tfrac{8}{25}$ — and here is the instructive twist: the fraction is *proper* ($8 < 25$), worth less than one whole, living between $0$ and $1$.',
+                    'A division can absolutely land there',
+                    'there is no rule that quotients exceed $1$.',
+                    '(c) $144 \\div 12 = 12$ exactly, and the fraction is $\\tfrac{144}{12}$ — which *is* $12 = \\tfrac{12}{1}$: whole numbers are just fractions whose denominators have nothing left to name.',
+                    'Three divisions, three wardrobe boxes — same vinculum throughout.',
+                  ],
                 },
                 {
                   q: 'Egyptian style: open 3/10 as a sum of two distinct unit fractions (find at least one valid pair).',
-                  solution:
-                    'Hunt for unit fractions that tile a 10-cell strip\'s 3 shaded cells. Try $\\tfrac{1}{4}$: a quarter of the strip is $2.5$ cells — not a whole number of cells, but unit fractions need not respect *this* strip; the honest test is the value. $\\tfrac{1}{4} + \\tfrac{1}{20} = \\tfrac{5}{20} + \\tfrac{1}{20} = \\tfrac{6}{20} = \\tfrac{3}{10}$ ✓ — one valid opening. Another: $\\tfrac{1}{5} + \\tfrac{1}{10} = \\tfrac{2}{10} + \\tfrac{1}{10} = \\tfrac{3}{10}$ ✓. Both are pairs of *distinct* unit fractions, as Egyptian style demands. (A systematic way, previewing Lesson 4.2\'s toolkit: take the largest unit fraction not exceeding $\\tfrac{3}{10}$ — that is $\\tfrac{1}{4}$, since $\\tfrac{1}{3} \\approx 0.333$ overshoots — and study the remainder $\\tfrac{3}{10} - \\tfrac{1}{4} = \\tfrac{1}{20}$, itself a unit fraction. Done in two steps. The Rhind scribes\' own choices followed preferences — fewer terms, smaller denominators — that historians still debate.)',
+                  solution: [
+                    'Hunt for unit fractions that tile a 10-cell strip\'s 3 shaded cells.',
+                    'Try $\\tfrac{1}{4}$: a quarter of the strip is $2.5$ cells — not a whole number of cells, but unit fractions need not respect *this* strip; the honest test is the value.',
+                    '$\\tfrac{1}{4} + \\tfrac{1}{20} = \\tfrac{5}{20} + \\tfrac{1}{20} = \\tfrac{6}{20} = \\tfrac{3}{10}$ ✓ — one valid opening.',
+                    'Another: $\\tfrac{1}{5} + \\tfrac{1}{10} = \\tfrac{2}{10} + \\tfrac{1}{10} = \\tfrac{3}{10}$ ✓.',
+                    'Both are pairs of *distinct* unit fractions, as Egyptian style demands.',
+                    '(A systematic way, previewing Lesson 4.2\'s toolkit: take the largest unit fraction not exceeding $\\tfrac{3}{10}$ — that is $\\tfrac{1}{4}$, since $\\tfrac{1}{3} \\approx 0.333$ overshoots — and study the remainder $\\tfrac{3}{10} - \\tfrac{1}{4} = \\tfrac{1}{20}$, itself a unit fraction. Done in two steps. The Rhind scribes\' own choices followed preferences — fewer terms, smaller denominators — that historians still debate.)',
+                  ],
                 },
               ],
             },
@@ -598,8 +646,12 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'Without finding common denominators, insert a fraction strictly between 3/7 and 4/9 — then insert another strictly between your insertion and 4/9. Verify both placements.',
-                  solution:
-                    'Mediant machine, twice. First: add numerators $3 + 4 = 7$, add denominators $7 + 9 = 16$: the fraction $\\tfrac{7}{16} = 0.4375$ sits strictly between $\\tfrac{3}{7} \\approx 0.42857$ and $\\tfrac{4}{9} \\approx 0.44444$ ✓ — guaranteed by the mediant theorem, but verified by division anyway: $0.42857 < 0.4375 < 0.44444$. Second: take the mediant of $\\tfrac{7}{16}$ and $\\tfrac{4}{9}$: numerators $7 + 4 = 11$, denominators $16 + 9 = 25$, giving $\\tfrac{11}{25} = 0.44$, and indeed $0.4375 < 0.44 < 0.44444$ ✓. The interval has been squeezed from width $0.0159$ to $0.0044$, and the machine can keep going forever — that endlessly repeatable squeeze *is* density.',
+                  solution: [
+                    'Mediant machine, twice.',
+                    'First: add numerators $3 + 4 = 7$, add denominators $7 + 9 = 16$: the fraction $\\tfrac{7}{16} = 0.4375$ sits strictly between $\\tfrac{3}{7} \\approx 0.42857$ and $\\tfrac{4}{9} \\approx 0.44444$ ✓ — guaranteed by the mediant theorem, but verified by division anyway: $0.42857 < 0.4375 < 0.44444$.',
+                    'Second: take the mediant of $\\tfrac{7}{16}$ and $\\tfrac{4}{9}$: numerators $7 + 4 = 11$, denominators $16 + 9 = 25$, giving $\\tfrac{11}{25} = 0.44$, and indeed $0.4375 < 0.44 < 0.44444$ ✓.',
+                    'The interval has been squeezed from width $0.0159$ to $0.0044$, and the machine can keep going forever — that endlessly repeatable squeeze *is* density.',
+                  ],
                 },
               ],
             },
@@ -608,8 +660,16 @@ export const chapter04: Chapter = {
               questions: [
                 {
                   q: 'Prove the mediant theorem in general: for positive whole numbers a, b, c, d with a/b < c/d, the fraction (a+c)/(b+d) satisfies a/b < (a+c)/(b+d) < c/d. State your licence explicitly.',
-                  solution:
-                    'Licence (borrowed on credit, to be proved with common denominators in Lessons 4.2–4.3): for positive fractions, $\\tfrac{a}{b} < \\tfrac{c}{d}$ is equivalent to $ad < bc$ — cross-multiply the outer pair against the inner pair. With the licence in hand, the hypothesis gives $ad < bc$, and both bounds follow by adding the same positive number to both sides (Lesson 1.2\'s domination rule for inequalities). Left bound: add $ab$ to both sides of $ad < bc$, getting $ab + ad < ab + bc$, which regroups as $a(b + d) < b(a + c)$. By the licence read right-to-left, this says $\\tfrac{a}{b} < \\tfrac{a+c}{b+d}$ — the mediant beats the left end. Right bound: add $cd$ to both sides of $ad < bc$ instead, getting $ad + cd < bc + cd$, which regroups as $d(a + c) < c(b + d)$. By the licence, $\\tfrac{a+c}{b+d} < \\tfrac{c}{d}$ — the mediant loses to the right end. Stringing the two together: $\\tfrac{a}{b} < \\tfrac{a+c}{b+d} < \\tfrac{c}{d}$. □ Note what was *not* used: no fraction addition, no common denominators, no simplification — only integer multiplication, integer addition, and the order rules of whole numbers. Density of the fraction line rests on the arithmetic of chapter 1.',
+                  solution: [
+                    'Licence (borrowed on credit, to be proved with common denominators in Lessons 4.2–4.3): for positive fractions, $\\tfrac{a}{b} < \\tfrac{c}{d}$ is equivalent to $ad < bc$ — cross-multiply the outer pair against the inner pair.',
+                    'With the licence in hand, the hypothesis gives $ad < bc$, and both bounds follow by adding the same positive number to both sides (Lesson 1.2\'s domination rule for inequalities).',
+                    'Left bound: add $ab$ to both sides of $ad < bc$, getting $ab + ad < ab + bc$, which regroups as $a(b + d) < b(a + c)$.',
+                    'By the licence read right-to-left, this says $\\tfrac{a}{b} < \\tfrac{a+c}{b+d}$ — the mediant beats the left end.',
+                    'Right bound: add $cd$ to both sides of $ad < bc$ instead, getting $ad + cd < bc + cd$, which regroups as $d(a + c) < c(b + d)$.',
+                    'By the licence, $\\tfrac{a+c}{b+d} < \\tfrac{c}{d}$ — the mediant loses to the right end.',
+                    'Stringing the two together: $\\tfrac{a}{b} < \\tfrac{a+c}{b+d} < \\tfrac{c}{d}$. □ Note what was *not* used: no fraction addition, no common denominators, no simplification — only integer multiplication, integer addition, and the order rules of whole numbers.',
+                    'Density of the fraction line rests on the arithmetic of chapter 1.',
+                  ],
                 },
               ],
             },

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 17:08:03 (Asia/Kolkata)",
+  "generated": "2026-11-03 17:29:02 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -48,7 +48,7 @@
                 "authoredOn": "2026-11-02",
                 "authoredInCommit": "1369d26",
                 "unit": "platform base (lesson 1.1 authored with the platform as pipeline validation)",
-                "words": 2852,
+                "words": 2851,
                 "readMins": 14,
                 "concepts": [
                   "Number versus numeral versus digit",
@@ -219,7 +219,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 9709
+            "words": 9708
           },
           {
             "number": 2,
@@ -237,7 +237,7 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "64b938c",
                 "unit": "unit 2 (lesson 2.1 of 5; chapter 2 in progress)",
-                "words": 3952,
+                "words": 3948,
                 "readMins": 20,
                 "concepts": [
                   "Addition as counting on",
@@ -299,7 +299,7 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "181f614",
                 "unit": "unit 2 (lesson 2.2 of 5; chapter 2 in progress)",
-                "words": 4611,
+                "words": 4603,
                 "readMins": 23,
                 "concepts": [
                   "Subtraction as the inverse of addition",
@@ -361,7 +361,7 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "(hourly run 4 ship commit)",
                 "unit": "unit 2 (lesson 2.3 of 5; chapter 2 in progress)",
-                "words": 4028,
+                "words": 4024,
                 "readMins": 20,
                 "concepts": [
                   "Multiplication as repeated addition",
@@ -422,7 +422,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4693,
+                "words": 4689,
                 "readMins": 23,
                 "concepts": [
                   "Sharing and grouping — the two readings",
@@ -483,7 +483,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4166,
+                "words": 4161,
                 "readMins": 21,
                 "concepts": [
                   "Order of operations",
@@ -547,7 +547,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 21450
+            "words": 21425
           },
           {
             "number": 3,
@@ -565,7 +565,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6477,
+                "words": 6474,
                 "readMins": 32,
                 "concepts": [
                   "Divisible means remainder zero",
@@ -630,7 +630,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6089,
+                "words": 6080,
                 "readMins": 30,
                 "concepts": [
                   "Primes have exactly two factors",
@@ -696,7 +696,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5564,
+                "words": 5563,
                 "readMins": 28,
                 "concepts": [
                   "Common factors of two numbers",
@@ -763,7 +763,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5014,
+                "words": 5011,
                 "readMins": 25,
                 "concepts": [
                   "Common multiples of two numbers",
@@ -828,7 +828,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4773,
+                "words": 4768,
                 "readMins": 24,
                 "concepts": [
                   "The HCF–LCM product rule",
@@ -887,7 +887,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 27917
+            "words": 27896
           },
           {
             "number": 4,
@@ -910,7 +910,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6054,
+                "words": 6051,
                 "readMins": 30,
                 "concepts": [
                   "Fractions name parts of a whole",
@@ -970,7 +970,7 @@
                 "termsDefined": 9
               }
             ],
-            "words": 6054
+            "words": 6051
           },
           {
             "number": 5,
@@ -1109,20 +1109,20 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 82,
-      "totalLines": 15756,
+      "srcFilesTracked": 83,
+      "totalLines": 17225,
       "byArea": {
         "src/app (routes, pages)": 547,
-        "src/components/library (reader platform)": 2859,
+        "src/components/library (reader platform)": 2898,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 6671,
+        "src/data/library (content model + books)": 8101,
         "src/hooks": 214,
         "src/lib": 20
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 614
+          "lines": 653
         },
         {
           "file": "home-view.tsx",
@@ -3619,6 +3619,88 @@
           "del": 3
         }
       ]
+    },
+    {
+      "sha": "68b1eab1f14ca55c595578819cb8292403f7e6c2",
+      "short": "68b1eab",
+      "date": "2026-11-03 11:42",
+      "message": "unit 4: FM lesson 4.1 The Idea of a Fraction (~6,054 words, 84 verified checks, mediant density theorem, Egyptian unit fractions, both figures 0 audit issues, E2E green) + logs + inventory regen",
+      "filesChanged": 11,
+      "insertions": 1272,
+      "deletions": 71,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 26,
+          "del": 10
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 12,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 15,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 108,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 215,
+          "del": 31
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.sh",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-4.ts",
+          "add": 252,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 3,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 631,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "7200a69b306cd3a6a5385bde11766f4fb2b811b8",
+      "short": "7200a69",
+      "date": "2026-11-03 11:43",
+      "message": "memory: record run-12 ship push verification (68b1eab), origin/main synced; unit 4 open at 4.1 — next: FM 4.2 Equivalent Fractions and Simplification",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 4
+        }
+      ]
     }
   ],
   "totals": {
@@ -3628,7 +3710,7 @@
     "chaptersWritten": 3,
     "chaptersInProgress": 1,
     "lessonsWritten": 14,
-    "wordsAuthored": 65130,
+    "wordsAuthored": 65080,
     "termsDefined": 91,
     "quizItems": 70,
     "exerciseQuestions": 125,

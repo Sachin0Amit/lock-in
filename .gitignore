@@ -72,6 +72,8 @@ server.log
 !/scripts/audit-svg-overlaps.page.js
 # exception: one-shot patcher that fixed the six overlapping figures (2026-11-03, historical record)
 !/scripts/fix-figure-overlaps.py
+# exception: one-shot migration of exercise solutions to the worked-step format (2026-11-03, historical record)
+!/scripts/convert-solutions-to-steps.py
 /.zscripts/
 /examples/
 /tests/

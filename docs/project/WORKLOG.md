@@ -6,6 +6,67 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER CHAT DIRECTIVE (run 13): worked-solution format shipped — all 125 exercise solutions converted from prose paragraphs to numbered steps + boxed Answer rows
+
+**Situation at start:** owner message with a handwritten maths-notes photo
+(trig proof, quadratic formula, cone volume, AP term — each solved as
+short step lines with words): "i want the solution of questions look like
+this not just solution in single line … explained with words also but not
+like paragraph — edits all things accordingly and logs and jsons if
+needed". Tree clean at `7200a69` = origin/main.
+
+**Platform (types + renderer):** `ExerciseQuestion.solution` is now
+`string | string[]` with an optional `answer` field. New `SolutionBody`
+component in blocks.tsx renders array solutions as **numbered chip rows**
+(one worked line per step — words + inline KaTeX, hanging indent) with a
+**boxed Answer row** (accent border, uppercase label) when `answer` is
+present; legacy string solutions still render as paragraphs (backward
+compatible). `countLessonWords` and the command-palette search index
+handle both shapes. The quiz `explain` fields are untouched (different
+feature: option post-mortems, not worked solutions).
+
+**Content migration:** `scripts/convert-solutions-to-steps.py` (committed
+with a .gitignore exception, like the other one-shot historical scripts)
+rewrote every `solution: '…'` in ch-01/02/03/04 into
+`solution: ['step', …]` + `answer: '…'`. Splitter rules: sentence ends
+(". " + A-Z/(/$/\*; "? " always), enumeration (", then " — "then…"
+opens the next step), and semicolons ONLY when the remainder is a genuine
+sub-step (contains math or ≥ 12 words) so prose semicolons stay glued;
+never cuts inside `$…$` math or parentheticals. Two conversion bugs caught
+and fixed en route: a `],,` double-comma from the original trailing comma
+(regex now consumes it — files reverted and re-run clean), and an indent
+doubling in the emitted arrays. **Safety net: a strict `\w+` token-multiset
+assertion per solution — no content lost, duplicated or altered** (125/125
+pass). 5 boxed answers extracted (So/Hence/Thus/Therefore/Factors:/Answer:/
+"The other member is"/"The missing member is" finals).
+
+**Gates:** tsc clean; lint clean; verify-unit-2 165/165 + unit-3 260/260 +
+unit-4 84/84 (arithmetic untouched); routes 200 (1.1, 2.5, 3.1, 3.5, 4.1);
+browser E2E with solutions genuinely clicked open: lesson 1.1 = 36 steps /
+31 KaTeX nodes inside steps, lesson 3.1 = 47 steps + the boxed
+"Factors: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48" answer, lessons 2.5 / 3.5 /
+4.1 = 53 / 60 / 60 steps (3.5 shows 2 answer boxes), step text renders
+with inline math ("Seat the digits right to left: …" / "Expanded form:
+$…$" / "Thousands seat: 3." / "Hundreds: 9." — the handwritten look);
+mobile 390px exact-fit with EVERY solution expanded (docScrollW = 390);
+zero console/page errors.
+
+**Inventory regenerated:** 14 lessons / **65,080 words** (was 65,130 —
+the −50 is the dropped standalone `;` tokens the old counter counted as
+"words"; every real word preserved, honest deflation) / 91 terms / 70 quiz
+/ 125 exercise questions / 19 figures. Book notes in book.ts + PROGRESS
+updated to the recomputed chapter totals (9,708 / 21,425 / 27,896 / 6,051).
+
+**Contract updated:** BOOK_FORMAT.md — exercises row now mandates the
+steps-array format; new "Worked-solution format" house-style bullet
+(lead-in words per step, one move per step, `answer:` for crisp results,
+never a dense paragraph; migration noted). Future lessons (4.2 onward)
+author solutions in this format directly.
+
+**Push:** this run's ship commit pushed under PUSH PROTOCOL v2; remote
+HEAD verified via one-time-URL ls-remote and tracking ref re-synced —
+see the memory commit that follows this entry.
+
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 12): reader width + permalink-chip fix shipped; UNIT 4 OPENS — lesson 4.1 The Idea of a Fraction shipped (chapter 4 of Foundation Mathematics opens)
 
 **Situation at start:** owner message (not a cron delivery): (1) "lots of

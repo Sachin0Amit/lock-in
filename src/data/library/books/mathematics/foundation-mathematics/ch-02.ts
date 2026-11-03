@@ -373,13 +373,23 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $342 + 158$ by column addition, and state every carry.',
-                  solution:
-                    'Ones: $2 + 8 = 10$ — write 0, carry 1. Tens: $4 + 5 + 1 = 10$ — write 0, carry 1. Hundreds: $3 + 1 + 1 = 5$ — write 5, no carry. Sum: $500$, with two carries, each a 1. Notice both written digits in the middle are zeros — genuine placeholder digits, and a favourite quick-check target: whenever a column total hits exactly 10, the written digit is 0 and the carry is 1.',
+                  solution: [
+                    'Ones: $2 + 8 = 10$ — write 0, carry 1.',
+                    'Tens: $4 + 5 + 1 = 10$ — write 0, carry 1.',
+                    'Hundreds: $3 + 1 + 1 = 5$ — write 5, no carry.',
+                    'Sum: $500$, with two carries, each a 1.',
+                    'Notice both written digits in the middle are zeros — genuine placeholder digits, and a favourite quick-check target: whenever a column total hits exactly 10, the written digit is 0 and the carry is 1.',
+                  ],
                 },
                 {
                   q: 'Compute $607 + 296$ by column addition, and state every carry.',
-                  solution:
-                    'Ones: $7 + 6 = 13$ — write 3, carry 1. Tens: $0 + 9 + 1 = 10$ — write 0, carry 1. Hundreds: $6 + 2 + 1 = 9$ — write 9. Sum: $903$, two carries. The zero inside 607 earned its keep as a placeholder: the tens column had a real digit (0) to receive the incoming carry, and $0 + 9 + 1$ is a complete column total, not an empty seat.',
+                  solution: [
+                    'Ones: $7 + 6 = 13$ — write 3, carry 1.',
+                    'Tens: $0 + 9 + 1 = 10$ — write 0, carry 1.',
+                    'Hundreds: $6 + 2 + 1 = 9$ — write 9.',
+                    'Sum: $903$, two carries.',
+                    'The zero inside 607 earned its keep as a placeholder: the tens column had a real digit (0) to receive the incoming carry, and $0 + 9 + 1$ is a complete column total, not an empty seat.',
+                  ],
                 },
               ],
             },
@@ -388,13 +398,32 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $4{,}589 + 2{,}764$ and list the column totals, written digits and carries in order.',
-                  solution:
-                    'Column totals: $9+4 = 13$, then $8+6+1 = 15$, then $5+7+1 = 13$, then $4+2+1 = 7$. Written digits: 3, 5, 3, 7. Carries: 1, 1, 1 — three of them, out of the ones, tens and hundreds columns. Sum: $7{,}353$. Reading the totals as a list is the habit that makes carries auditable: if a later check disagrees, you can compare column by column instead of redoing everything.',
+                  solution: [
+                    'Column totals: $9+4 = 13$,',
+                    'then $8+6+1 = 15$,',
+                    'then $5+7+1 = 13$,',
+                    'then $4+2+1 = 7$.',
+                    'Written digits: 3, 5, 3, 7.',
+                    'Carries: 1, 1, 1 — three of them, out of the ones, tens and hundreds columns.',
+                    'Sum: $7{,}353$.',
+                    'Reading the totals as a list is the habit that makes carries auditable: if a later check disagrees, you can compare column by column instead of redoing everything.',
+                  ],
                 },
                 {
                   q: 'Compute $7{,}052 + 3{,}148$, then verify the answer with the digit-sum checksum, showing every fingerprint.',
-                  solution:
-                    'Column addition: ones $2+8 = 10$ (write 0, carry 1); tens $5+4+1 = 10$ (write 0, carry 1); hundreds $0+1+1 = 2$ (write 2); thousands $7+3 = 10$ (write 0, carry 1); final carry 1. Sum: $10{,}200$. Checksum: fingerprint of $7{,}052$ is $7+0+5+2 = 14 \\to 5$; of $3{,}148$ is $3+1+4+8 = 16 \\to 7$; combined $5+7 = 12 \\to 3$. Fingerprint of $10{,}200$: $1+0+2+0+0 = 3$. Match — the sum survives the check. (And this sum demonstrates the final-carry door: four-digit addends produced a five-digit sum through exactly one leading 1.)',
+                  solution: [
+                    'Column addition: ones $2+8 = 10$ (write 0, carry 1)',
+                    'tens $5+4+1 = 10$ (write 0, carry 1)',
+                    'hundreds $0+1+1 = 2$ (write 2)',
+                    'thousands $7+3 = 10$ (write 0, carry 1); final carry 1.',
+                    'Sum: $10{,}200$.',
+                    'Checksum: fingerprint of $7{,}052$ is $7+0+5+2 = 14 \\to 5$',
+                    'of $3{,}148$ is $3+1+4+8 = 16 \\to 7$',
+                    'combined $5+7 = 12 \\to 3$.',
+                    'Fingerprint of $10{,}200$: $1+0+2+0+0 = 3$.',
+                    'Match — the sum survives the check.',
+                    '(And this sum demonstrates the final-carry door: four-digit addends produced a five-digit sum through exactly one leading 1.)',
+                  ],
                 },
               ],
             },
@@ -403,13 +432,29 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) Add $2{,}847$ to its reverse $7{,}482$, and explain why the digit-sum checksum must pass for any number-plus-its-reverse.',
-                  solution:
-                    'Ones: $7+2 = 9$ (write 9, no carry). Tens: $4+8 = 12$ (write 2, carry 1). Hundreds: $8+4+1 = 13$ (write 3, carry 1). Thousands: $2+7+1 = 10$ (write 0, carry 1). Final carry 1. Sum: $10{,}329$. Why the check must pass: a number and its reverse have the *same* digits, hence the same digit sum — call it $d$. The two addends\' fingerprints are each $d$, so the combined fingerprint is $d + d = 2d$; and the answer\'s fingerprint must match by the mod-9 law of addition itself. Here $d = 21 \\to 3$, and $3 + 3 = 6$, matching $1+0+3+2+9 = 15 \\to 6$. No computation was needed to know the check would pass — that is the difference between checking and understanding.',
+                  solution: [
+                    'Ones: $7+2 = 9$ (write 9, no carry).',
+                    'Tens: $4+8 = 12$ (write 2, carry 1).',
+                    'Hundreds: $8+4+1 = 13$ (write 3, carry 1).',
+                    'Thousands: $2+7+1 = 10$ (write 0, carry 1).',
+                    'Final carry 1.',
+                    'Sum: $10{,}329$.',
+                    'Why the check must pass: a number and its reverse have the *same* digits, hence the same digit sum — call it $d$.',
+                    'The two addends\' fingerprints are each $d$, so the combined fingerprint is $d + d = 2d$',
+                    'and the answer\'s fingerprint must match by the mod-9 law of addition itself.',
+                    'Here $d = 21 \\to 3$, and $3 + 3 = 6$, matching $1+0+3+2+9 = 15 \\to 6$.',
+                    'No computation was needed to know the check would pass — that is the difference between checking and understanding.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) How many carry events occur in $999{,}999 + 999{,}999$, and what is the sum?',
-                  solution:
-                    'Every one of the six columns overflows: units $9+9 = 18$ (carry 1), then each remaining column $9+9+1 = 19$ (carry 1) — six carry events, one per column, and the sixth becomes the new leading digit. Sum: $1{,}999{,}998$. This is the maximal-carry configuration for six-digit addends: the column bound $9+9+1 = 19$ is attained five times and the base bound $9+9 = 18$ once. A useful exam reflex: a wall of nines is the fastest place to count carries, because the outcome never depends on which digits sit opposite.',
+                  solution: [
+                    'Every one of the six columns overflows: units $9+9 = 18$ (carry 1),',
+                    'then each remaining column $9+9+1 = 19$ (carry 1) — six carry events, one per column, and the sixth becomes the new leading digit.',
+                    'Sum: $1{,}999{,}998$.',
+                    'This is the maximal-carry configuration for six-digit addends: the column bound $9+9+1 = 19$ is attained five times and the base bound $9+9 = 18$ once.',
+                    'A useful exam reflex: a wall of nines is the fastest place to count carries, because the outcome never depends on which digits sit opposite.',
+                  ],
                 },
               ],
             },
@@ -418,8 +463,15 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'What is the greatest number of carry events possible when adding two 4-digit numbers? Exhibit the addends that achieve it, and prove no two 4-digit addends can do better.',
-                  solution:
-                    'Greatest: 4 — one carry out of *every* column. Achieved by $9{,}999 + 9{,}999 = 19{,}998$: units $9+9 = 18$ (carry), then tens, hundreds and thousands each $9+9+1 = 19$ (carry). The last carry becomes the leading 1. Why nothing beats 4: a four-column walk produces at most one carry per column by the carry-bound proof, and there are only four columns — so 4 is a hard ceiling, attained here. Note the subtlety in the count: some textbooks count the final leading 1 as a fifth "carry into a new column"; under that convention the answer would be 5. State your convention explicitly in an exam — the mathematics is identical, only the bookkeeping differs.',
+                  solution: [
+                    'Greatest: 4 — one carry out of *every* column.',
+                    'Achieved by $9{,}999 + 9{,}999 = 19{,}998$: units $9+9 = 18$ (carry),',
+                    'then tens, hundreds and thousands each $9+9+1 = 19$ (carry).',
+                    'The last carry becomes the leading 1.',
+                    'Why nothing beats 4: a four-column walk produces at most one carry per column by the carry-bound proof, and there are only four columns — so 4 is a hard ceiling, attained here.',
+                    'Note the subtlety in the count: some textbooks count the final leading 1 as a fifth "carry into a new column"; under that convention the answer would be 5.',
+                    'State your convention explicitly in an exam — the mathematics is identical, only the bookkeeping differs.',
+                  ],
                 },
               ],
             },
@@ -428,8 +480,18 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'The digit-sum checksum passed for $4{,}589 + 2{,}764 = 7{,}353$. (a) Exhibit two different *incorrect* answers that also pass the check, one via digit rearrangement and one via a slip of exactly 9. (b) Prove that the checksum must fail for any error of $\\pm 1, \\pm 2, \\ldots, \\pm 8$, and explain in one paragraph why this makes the guard worthwhile despite its blind spots.',
-                  solution:
-                    '(a) Rearrangement: $7{,}335$ — the final 5 and 3 swapped; digit sums are identical ($18$), so the fingerprint stays 9. Slip of nine: $7{,}362 = 7{,}353 + 9$; digit sum $7+3+6+2 = 18$ again, fingerprint 9. Both wrong, both pass. (b) Suppose the true sum $T$ is replaced by $T + e$ with $1 \\le |e| \\le 8$. A number and that number plus a small nonzero $e$ cannot leave the same remainder on division by 9, because two numbers with the same remainder differ by a multiple of 9 — and no number of magnitude 1 through 8 is a multiple of 9. So the fingerprint of $T + e$ differs from the fingerprint of $T$ (by $e$ mod 9), while the addends\' fingerprints are unchanged: the mismatch is detected. Why worthwhile: exam-day additions go wrong overwhelmingly through dropped carries, transcribed digits and one-off slips — error classes that either change the remainder by a small non-multiple of 9 (caught instantly) or require genuinely unlucky structure (a transposition *and* a compensating slip together) to escape. The guard costs ten seconds and catches nearly everything that actually happens; perfection was never its claim.',
+                  solution: [
+                    '(a) Rearrangement: $7{,}335$ — the final 5 and 3 swapped',
+                    'digit sums are identical ($18$), so the fingerprint stays 9.',
+                    'Slip of nine: $7{,}362 = 7{,}353 + 9$',
+                    'digit sum $7+3+6+2 = 18$ again, fingerprint 9.',
+                    'Both wrong, both pass.',
+                    '(b) Suppose the true sum $T$ is replaced by $T + e$ with $1 \\le |e| \\le 8$.',
+                    'A number and that number plus a small nonzero $e$ cannot leave the same remainder on division by 9, because two numbers with the same remainder differ by a multiple of 9 — and no number of magnitude 1 through 8 is a multiple of 9.',
+                    'So the fingerprint of $T + e$ differs from the fingerprint of $T$ (by $e$ mod 9), while the addends\' fingerprints are unchanged: the mismatch is detected.',
+                    'Why worthwhile: exam-day additions go wrong overwhelmingly through dropped carries, transcribed digits and one-off slips — error classes that either change the remainder by a small non-multiple of 9 (caught instantly) or require genuinely unlucky structure (a transposition *and* a compensating slip together) to escape.',
+                    'The guard costs ten seconds and catches nearly everything that actually happens; perfection was never its claim.',
+                  ],
                 },
               ],
             },
@@ -790,13 +852,26 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $758 - 432$ by column subtraction and state how many borrows occurred.',
-                  solution:
-                    'Ones: $8 - 2 = 6$. Tens: $5 - 3 = 2$. Hundreds: $7 - 4 = 3$. Every column pays outright — **zero borrows**. Difference: $326$; inverse check: $326 + 432 = 758$. A no-borrow subtraction is the baseline case: know where the borrows are (here, nowhere) before you trust the layout.',
+                  solution: [
+                    'Ones: $8 - 2 = 6$.',
+                    'Tens: $5 - 3 = 2$.',
+                    'Hundreds: $7 - 4 = 3$.',
+                    'Every column pays outright — **zero borrows**.',
+                    'Difference: $326$',
+                    'inverse check: $326 + 432 = 758$.',
+                    'A no-borrow subtraction is the baseline case: know where the borrows are (here, nowhere) before you trust the layout.',
+                  ],
                 },
                 {
                   q: 'Compute $607 - 296$ by column subtraction, and say what the zero in the minuend contributed.',
-                  solution:
-                    'Ones: $7 - 6 = 1$. Tens: $0 < 9$ — borrow from the hundreds: the 6 becomes 5, the 0 becomes 10, and $10 - 9 = 1$. Hundreds: $5 - 2 = 3$. Difference: $311$, one borrow; inverse check: $311 + 296 = 607$. The zero in 607 was a load-bearing placeholder: it sat in the tens seat, received the incoming 10, and paid the 9 — a genuine digit doing genuine work, not an absence (Lesson 1.1).',
+                  solution: [
+                    'Ones: $7 - 6 = 1$.',
+                    'Tens: $0 < 9$ — borrow from the hundreds: the 6 becomes 5, the 0 becomes 10, and $10 - 9 = 1$.',
+                    'Hundreds: $5 - 2 = 3$.',
+                    'Difference: $311$, one borrow',
+                    'inverse check: $311 + 296 = 607$.',
+                    'The zero in 607 was a load-bearing placeholder: it sat in the tens seat, received the incoming 10, and paid the 9 — a genuine digit doing genuine work, not an absence (Lesson 1.1).',
+                  ],
                 },
               ],
             },
@@ -805,13 +880,32 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $4{,}589 - 2{,}764$, listing each column\'s decision (pay or borrow), then certify the answer by the inverse check and the digit-sum check.',
-                  solution:
-                    'Ones: $9 - 4 = 5$ (pay). Tens: $8 - 6 = 2$ (pay). Hundreds: $5 < 7$ — borrow: thousands $4 \\to 3$, hundreds $5 \\to 15$, and $15 - 7 = 8$. Thousands: $3 - 2 = 1$ (the lender pays reduced). Difference: $1{,}825$ — exactly one borrow, undoing Lesson 2.1\'s three carries for the same pair. Inverse: $1{,}825 + 2{,}764 = 4{,}589$ — certified. Digit sums: $4{,}589 \\to 26 \\to 8$ and $2{,}764 \\to 19 \\to 1$, so the difference must fingerprint to $8 - 1 = 7$; actual: $1{,}825 \\to 16 \\to 7$ — the weak gate passes too.',
+                  solution: [
+                    'Ones: $9 - 4 = 5$ (pay).',
+                    'Tens: $8 - 6 = 2$ (pay).',
+                    'Hundreds: $5 < 7$ — borrow: thousands $4 \\to 3$, hundreds $5 \\to 15$, and $15 - 7 = 8$.',
+                    'Thousands: $3 - 2 = 1$ (the lender pays reduced).',
+                    'Difference: $1{,}825$ — exactly one borrow, undoing Lesson 2.1\'s three carries for the same pair.',
+                    'Inverse: $1{,}825 + 2{,}764 = 4{,}589$ — certified.',
+                    'Digit sums: $4{,}589 \\to 26 \\to 8$ and $2{,}764 \\to 19 \\to 1$, so the difference must fingerprint to $8 - 1 = 7$',
+                    'actual: $1{,}825 \\to 16 \\to 7$ — the weak gate passes too.',
+                  ],
                 },
                 {
                   q: 'Compute $5{,}200 - 1{,}847$ (the ones and tens digits of the minuend are both 0 — expect the ripple).',
-                  solution:
-                    'Ones: $0 < 7$ — borrow, but the tens seat is 0 and cannot lend. The hundreds seat (2) lends to the tens: hundreds $2 \\to 1$, tens becomes 10; the tens lends to the ones: tens $10 \\to 9$, ones becomes 10. Ones: $10 - 7 = 3$. Tens: $9 - 4 = 5$. Hundreds: $1 < 8$ — borrow from the thousands: thousands $5 \\to 4$, hundreds $1 \\to 11$; $11 - 8 = 3$. Thousands: $4 - 1 = 3$. Difference: $3{,}353$; inverse check: $3{,}353 + 1{,}847 = 5{,}200$. A mini-ripple and a regular borrow in one sum — read the walk aloud and the bookkeeping stays honest.',
+                  solution: [
+                    'Ones: $0 < 7$ — borrow, but the tens seat is 0 and cannot lend.',
+                    'The hundreds seat (2) lends to the tens: hundreds $2 \\to 1$, tens becomes 10',
+                    'the tens lends to the ones: tens $10 \\to 9$, ones becomes 10.',
+                    'Ones: $10 - 7 = 3$.',
+                    'Tens: $9 - 4 = 5$.',
+                    'Hundreds: $1 < 8$ — borrow from the thousands: thousands $5 \\to 4$, hundreds $1 \\to 11$',
+                    '$11 - 8 = 3$.',
+                    'Thousands: $4 - 1 = 3$.',
+                    'Difference: $3{,}353$',
+                    'inverse check: $3{,}353 + 1{,}847 = 5{,}200$.',
+                    'A mini-ripple and a regular borrow in one sum — read the walk aloud and the bookkeeping stays honest.',
+                  ],
                 },
               ],
             },
@@ -820,13 +914,32 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) Compute $10{,}000 - 4{,}567$ — with the column walk or without it — and verify.',
-                  solution:
-                    'Column view: the ones, tens, hundreds and thousands seats of the minuend are all 0, so the ten-thousands seat (1) lends down the chain: it becomes 0; thousands receives 10, lends 1, keeps 9; hundreds receives 10, lends 1, keeps 9; tens receives 10, lends 1, keeps 9; ones receives 10. Ones: $10 - 7 = 3$; tens: $9 - 6 = 3$; hundreds: $9 - 5 = 4$; thousands: $9 - 4 = 5$. Difference: $5{,}433$; inverse: $5{,}433 + 4{,}567 = 10{,}000$. Speed view (the complement habit): subtract each digit of 4,567 from 9 — $5{,}432$ — then add 1: $5{,}433$. Both routes land together; Exercise L6 proves why the shortcut is lawful.',
+                  solution: [
+                    'Column view: the ones, tens, hundreds and thousands seats of the minuend are all 0, so the ten-thousands seat (1) lends down the chain: it becomes 0',
+                    'thousands receives 10, lends 1, keeps 9',
+                    'hundreds receives 10, lends 1, keeps 9; tens receives 10, lends 1, keeps 9; ones receives 10.',
+                    'Ones: $10 - 7 = 3$',
+                    'tens: $9 - 6 = 3$',
+                    'hundreds: $9 - 5 = 4$',
+                    'thousands: $9 - 4 = 5$.',
+                    'Difference: $5{,}433$',
+                    'inverse: $5{,}433 + 4{,}567 = 10{,}000$.',
+                    'Speed view (the complement habit): subtract each digit of 4,567 from 9 — $5{,}432$ — then add 1: $5{,}433$.',
+                    'Both routes land together; Exercise L6 proves why the shortcut is lawful.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) How many borrow events does $2{,}000 - 1{,}999$ need, and what is the difference? Justify the count.',
-                  solution:
-                    'Difference: $1$ — inverse check: $1 + 1{,}999 = 2{,}000$. Borrow count: three. The ones seat (0) owes 9 and cannot pay; the tens and hundreds seats are 0 and cannot lend; the thousands seat (2) lends to the hundreds — borrow one; the hundreds (now 10) lends to the tens — borrow two; the tens (now 10) lends to the ones — borrow three. Then ones $10 - 9 = 1$, tens $9 - 9 = 0$, hundreds $9 - 9 = 0$, thousands $1 - 1 = 0$: the answer $0001 = 1$. The lesson: a trivial-looking difference can conceal the maximum bookkeeping — never judge a subtraction by the size of its answer.',
+                  solution: [
+                    'Difference: $1$ — inverse check: $1 + 1{,}999 = 2{,}000$.',
+                    'Borrow count: three.',
+                    'The ones seat (0) owes 9 and cannot pay',
+                    'the tens and hundreds seats are 0 and cannot lend',
+                    'the thousands seat (2) lends to the hundreds — borrow one',
+                    'the hundreds (now 10) lends to the tens — borrow two; the tens (now 10) lends to the ones — borrow three.',
+                    'Then ones $10 - 9 = 1$, tens $9 - 9 = 0$, hundreds $9 - 9 = 0$, thousands $1 - 1 = 0$: the answer $0001 = 1$.',
+                    'The lesson: a trivial-looking difference can conceal the maximum bookkeeping — never judge a subtraction by the size of its answer.',
+                  ],
                 },
               ],
             },
@@ -835,8 +948,20 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'What is the greatest number of borrow events possible when subtracting two 4-digit numbers? Exhibit an attaining pair, prove no pair can exceed it, and explain why the answer differs from Lesson 2.1\'s carry maximum for two 4-digit addends.',
-                  solution:
-                    'Greatest: **3**. Attained by $1{,}111 - 999 = 112$: ones $1 < 9$ (borrow); tens, after its lender drops, is $0 < 9$ (borrow); hundreds, after its lender drops, is $0 < 9$ (borrow); thousands $0 - 0$ — three events, and $112 + 999 = 1{,}111$ certifies. Also attained by $2{,}000 - 1{,}999 = 1$, verified in L4b. Why 3 is the ceiling: a borrow out of a column requires a lender to its left, and among four seats only the ones, tens and hundreds have one — the thousands seat has nobody to its left, so at most three columns can ever borrow, and the borrow bound caps each at a single event. Why the mirror differs: Lesson 2.1\'s carry maximum for two 4-digit addends was **4** — every column could carry *and* the final carry could mint a brand-new fifth seat ($9{,}999 + 9{,}999 = 19{,}998$). Borrowing moves value from higher seats to lower; it can burn a leading seat ($1{,}000 - 1$ drops to three digits) but can never create one. Addition grows digit counts; subtraction only shrinks or preserves them — so carries max out at $k$ for k-digit numbers, borrows at $k - 1$.',
+                  solution: [
+                    'Greatest: **3**.',
+                    'Attained by $1{,}111 - 999 = 112$: ones $1 < 9$ (borrow)',
+                    'tens, after its lender drops, is $0 < 9$ (borrow)',
+                    'hundreds, after its lender drops, is $0 < 9$ (borrow)',
+                    'thousands $0 - 0$ — three events, and $112 + 999 = 1{,}111$ certifies.',
+                    'Also attained by $2{,}000 - 1{,}999 = 1$, verified in L4b.',
+                    'Why 3 is the ceiling: a borrow out of a column requires a lender to its left, and among four seats only the ones, tens and hundreds have one — the thousands seat has nobody to its left, so at most three columns can ever borrow, and the borrow bound caps each at a single event.',
+                    'Why the mirror differs: Lesson 2.1\'s carry maximum for two 4-digit addends was **4** — every column could carry *and* the final carry could mint a brand-new fifth seat ($9{,}999 + 9{,}999 = 19{,}998$).',
+                    'Borrowing moves value from higher seats to lower',
+                    'it can burn a leading seat ($1{,}000 - 1$ drops to three digits) but can never create one.',
+                    'Addition grows digit counts',
+                    'subtraction only shrinks or preserves them — so carries max out at $k$ for k-digit numbers, borrows at $k - 1$.',
+                  ],
                 },
               ],
             },
@@ -845,8 +970,17 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'The nines complement. For an n-digit subtrahend $b$, define $b^{*} = 10^{n} - 1 - b$ (each digit $d$ of $b$ becomes $9 - d$ in $b^{*}$). (a) Prove $a - b = a + b^{*} + 1 - 10^{n}$. (b) Use it to compute $4{,}589 - 2{,}764$ by addition only, and explain the "end-around carry". (c) Run $2{,}764 - 4{,}589$ the same way and interpret what the absence of the leading carry means.',
-                  solution:
-                    '(a) Expand the right-hand side: $a + (10^{n} - 1 - b) + 1 - 10^{n} = a - b$ — the $10^{n}$ and the $-1$ cancel identically; only the distributive law is used. (b) For $b = 2{,}764$ with $n = 4$: digitwise $9-2,\\; 9-7,\\; 9-6,\\; 9-4$ gives $b^{*} = 7{,}235$. Add: $4{,}589 + 7{,}235 = 11{,}824$. The leading 1 is the $10^{4}$ we owe: drop it ($11{,}824 - 10{,}000 = 1{,}824$) and add back the compensating $+1$ — the **end-around carry** — to land on $1{,}825$. The same difference as the column algorithm, found with zero borrows: this is how machines that dislike borrowing (and examiners who like speed) do it. The L4a shortcut is this identity seen from the side: $10{,}000 - 4{,}567 = (9{,}999 - 4{,}567) + 1 = 5{,}432 + 1 = 5{,}433$. (c) Now $2{,}764 - 4{,}589$: complement the new subtrahend, $9{,}999 - 4{,}589 = 5{,}410$, and add: $2{,}764 + 5{,}410 = 8{,}174$ — **no leading carry appears**. The method is signalling a negative difference: the answer is $-(9{,}999 - 8{,}174) = -1{,}825$, exactly the off-the-edge quantity the number line showed at the top of this lesson. Early computers exploited precisely this — complement arithmetic lets one adder serve both operations, with negatives stored as complements — the idea that returns when this library reaches integers in Chapter 7.',
+                  solution: [
+                    '(a) Expand the right-hand side: $a + (10^{n} - 1 - b) + 1 - 10^{n} = a - b$ — the $10^{n}$ and the $-1$ cancel identically; only the distributive law is used.',
+                    '(b) For $b = 2{,}764$ with $n = 4$: digitwise $9-2,\\; 9-7,\\; 9-6,\\; 9-4$ gives $b^{*} = 7{,}235$.',
+                    'Add: $4{,}589 + 7{,}235 = 11{,}824$.',
+                    'The leading 1 is the $10^{4}$ we owe: drop it ($11{,}824 - 10{,}000 = 1{,}824$) and add back the compensating $+1$ — the **end-around carry** — to land on $1{,}825$.',
+                    'The same difference as the column algorithm, found with zero borrows: this is how machines that dislike borrowing (and examiners who like speed) do it.',
+                    'The L4a shortcut is this identity seen from the side: $10{,}000 - 4{,}567 = (9{,}999 - 4{,}567) + 1 = 5{,}432 + 1 = 5{,}433$.',
+                    '(c) Now $2{,}764 - 4{,}589$: complement the new subtrahend, $9{,}999 - 4{,}589 = 5{,}410$, and add: $2{,}764 + 5{,}410 = 8{,}174$ — **no leading carry appears**.',
+                    'The method is signalling a negative difference: the answer is $-(9{,}999 - 8{,}174) = -1{,}825$, exactly the off-the-edge quantity the number line showed at the top of this lesson.',
+                    'Early computers exploited precisely this — complement arithmetic lets one adder serve both operations, with negatives stored as complements — the idea that returns when this library reaches integers in Chapter 7.',
+                  ],
                 },
               ],
             },
@@ -1202,13 +1336,25 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $34 \\times 7$ by column multiplication and state every carry.',
-                  solution:
-                    'Ones: $7 \\times 4 = 28$ — write 8, carry 2. Tens: $7 \\times 3 + 2 = 23$ — write 3, final carry 2 becomes the new leading digit. Product: $238$. Two carry events, one of them (the 2) growing a digit — carries here are already livelier than any addition carry, as the bound predicts.',
+                  solution: [
+                    'Ones: $7 \\times 4 = 28$ — write 8, carry 2.',
+                    'Tens: $7 \\times 3 + 2 = 23$ — write 3, final carry 2 becomes the new leading digit.',
+                    'Product: $238$.',
+                    'Two carry events, one of them (the 2) growing a digit — carries here are already livelier than any addition carry, as the bound predicts.',
+                  ],
                 },
                 {
                   q: 'Compute $58 \\times 6$ by column multiplication, and check the answer by the digit-sum fingerprint.',
-                  solution:
-                    'Ones: $6 \\times 8 = 48$ — write 8, carry 4. Tens: $6 \\times 5 + 4 = 34$ — write 4, final carry 3. Product: $348$. Fingerprint: $58 \\to 13 \\to 4$; $6 \\to 6$; expected $4 \\times 6 = 24 \\to 6$. Actual: $3+4+8 = 15 \\to 6$. Match — the product survives the check.',
+                  solution: [
+                    'Ones: $6 \\times 8 = 48$ — write 8, carry 4.',
+                    'Tens: $6 \\times 5 + 4 = 34$ — write 4, final carry 3.',
+                    'Product: $348$.',
+                    'Fingerprint: $58 \\to 13 \\to 4$',
+                    '$6 \\to 6$',
+                    'expected $4 \\times 6 = 24 \\to 6$.',
+                    'Actual: $3+4+8 = 15 \\to 6$.',
+                    'Match — the product survives the check.',
+                  ],
                 },
               ],
             },
@@ -1217,13 +1363,32 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Compute $247 \\times 36$ by column multiplication, listing both partial products with their carries, and certify the answer with the digit-count bound and the fingerprint.',
-                  solution:
-                    'Row one, $247 \\times 6$: $42 \\to$ write 2 carry 4; $28 \\to$ write 8 carry 2; $14 \\to$ write 4, final carry 1: $1{,}482$. Row two, $247 \\times 30$: $21 \\to$ write 1 carry 2; $14 \\to$ write 4 carry 1; $7$: $741$, shifted to $7{,}410$. Sum: $8{,}892$. Digit count: 4, inside the promised window $[3+2-1,\\; 3+2] = [4, 5]$. Fingerprint: $247 \\to 4$, $36 \\to 9$, expected $4 \\times 9 = 36 \\to 9$; actual $27 \\to 9$. Certified twice over.',
+                  solution: [
+                    'Row one, $247 \\times 6$: $42 \\to$ write 2 carry 4',
+                    '$28 \\to$ write 8 carry 2',
+                    '$14 \\to$ write 4, final carry 1: $1{,}482$.',
+                    'Row two, $247 \\times 30$: $21 \\to$ write 1 carry 2',
+                    '$14 \\to$ write 4 carry 1',
+                    '$7$: $741$, shifted to $7{,}410$.',
+                    'Sum: $8{,}892$.',
+                    'Digit count: 4, inside the promised window $[3+2-1,\\; 3+2] = [4, 5]$.',
+                    'Fingerprint: $247 \\to 4$, $36 \\to 9$, expected $4 \\times 9 = 36 \\to 9$',
+                    'actual $27 \\to 9$.',
+                    'Certified twice over.',
+                  ],
                 },
                 {
                   q: 'Compute $63 \\times 45$ by column multiplication and verify with the fingerprint.',
-                  solution:
-                    'Row one, $63 \\times 5$: $15 \\to$ write 5 carry 1; $31 \\to$ write 1, final carry 3: $315$. Row two, $63 \\times 40$: $63 \\times 4$: $12 \\to$ write 2 carry 1; $25 \\to$ write 5, final carry 2: $252$, shifted to $2{,}520$. Sum: $315 + 2{,}520 = 2{,}835$. Fingerprint: $63 \\to 9$, $45 \\to 9$ — both factors are multiples of 9, so the product must be too (expected fingerprint $9 \\times 9 = 81 \\to 9$); actual $2+8+3+5 = 18 \\to 9$. A nice special case: the checksum knew the answer had to be a multiple of 9 before any multiplication happened.',
+                  solution: [
+                    'Row one, $63 \\times 5$: $15 \\to$ write 5 carry 1',
+                    '$31 \\to$ write 1, final carry 3: $315$.',
+                    'Row two, $63 \\times 40$: $63 \\times 4$: $12 \\to$ write 2 carry 1',
+                    '$25 \\to$ write 5, final carry 2: $252$, shifted to $2{,}520$.',
+                    'Sum: $315 + 2{,}520 = 2{,}835$.',
+                    'Fingerprint: $63 \\to 9$, $45 \\to 9$ — both factors are multiples of 9, so the product must be too (expected fingerprint $9 \\times 9 = 81 \\to 9$)',
+                    'actual $2+8+3+5 = 18 \\to 9$.',
+                    'A nice special case: the checksum knew the answer had to be a multiple of 9 before any multiplication happened.',
+                  ],
                 },
               ],
             },
@@ -1232,13 +1397,22 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) Compute $198 \\times 7$ by the close-number route, and prove the route is lawful by naming the law and showing the two products it adds.',
-                  solution:
-                    '$198 = 200 - 2$, so $198 \\times 7 = (200 - 2) \\times 7 = 200 \\times 7 - 2 \\times 7 = 1{,}400 - 14 = 1{,}386$. The law is distributivity with a subtraction inside: $a \\times (b - c) = a \\times b - a \\times c$ — the same spreading, pointed the other way (it follows from the addition form since $200 - 2 = 198 + $ a correction, or directly: $(b-c) + c = b$). Fingerprint: $198 \\to 18 \\to 9$ (a multiple of 9), so the product must fingerprint to $9 \\times 7 = 63 \\to 9$; actual $1+3+8+6 = 18 \\to 9$. The speed route and the checksum agree.',
+                  solution: [
+                    '$198 = 200 - 2$, so $198 \\times 7 = (200 - 2) \\times 7 = 200 \\times 7 - 2 \\times 7 = 1{,}400 - 14 = 1{,}386$.',
+                    'The law is distributivity with a subtraction inside: $a \\times (b - c) = a \\times b - a \\times c$ — the same spreading, pointed the other way (it follows from the addition form since $200 - 2 = 198 + $ a correction, or directly: $(b-c) + c = b$).',
+                    'Fingerprint: $198 \\to 18 \\to 9$ (a multiple of 9), so the product must fingerprint to $9 \\times 7 = 63 \\to 9$',
+                    'actual $1+3+8+6 = 18 \\to 9$.',
+                    'The speed route and the checksum agree.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) Compute $24 \\times 25$ two ways: by halving-and-doubling, and by using associativity with the factorisation $25 = 4 \\times 6 \\ldots$ or any grouping you find friendlier. Confirm both routes land on the same product and say which law guarantees that.',
-                  solution:
-                    'Route one: $24 \\times 25 = 12 \\times 50 = 600$ (halve one factor, double the other — repeatable because the two changes cancel). Route two: $24 \\times 25 = 24 \\times (4 \\times 6) \\ldots$ friendlier still: $25 \\times 4 = 100$ first — $24 \\times 25 = 24 \\times (25) = 6 \\times (4 \\times 25) = 6 \\times 100 = 600$, where the regrouping $24 \\times (4 \\times 25)$ from $(24 \\times 4) \\times 25$ uses associativity (with a commutative reorder along the way). Same product, 600, guaranteed by commutativity + associativity: multiplication\'s grouping and order are free, so every route must land together. (In full: $24 \\times 25 = (6 \\times 4) \\times 25 = 6 \\times (4 \\times 25) = 6 \\times 100$.)',
+                  solution: [
+                    'Route one: $24 \\times 25 = 12 \\times 50 = 600$ (halve one factor, double the other — repeatable because the two changes cancel).',
+                    'Route two: $24 \\times 25 = 24 \\times (4 \\times 6) \\ldots$ friendlier still: $25 \\times 4 = 100$ first — $24 \\times 25 = 24 \\times (25) = 6 \\times (4 \\times 25) = 6 \\times 100 = 600$, where the regrouping $24 \\times (4 \\times 25)$ from $(24 \\times 4) \\times 25$ uses associativity (with a commutative reorder along the way).',
+                    'Same product, 600, guaranteed by commutativity + associativity: multiplication\'s grouping and order are free, so every route must land together.',
+                    '(In full: $24 \\times 25 = (6 \\times 4) \\times 25 = 6 \\times (4 \\times 25) = 6 \\times 100$.)',
+                  ],
                 },
               ],
             },
@@ -1247,8 +1421,17 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Prove that the carry inside a partial product never exceeds 8, exhibit a multiplication that attains a carry of 8, and explain precisely why the answer differs from addition\'s carry bound of Lesson 2.1.',
-                  solution:
-                    'Proof by induction on the columns. Base: the ones column receives no incoming carry, so its total is at most $9 \\times 9 = 81$, and $\\lfloor 81/10 \\rfloor = 8$. Step: if the incoming carry is at most 8, a column totals at most $81 + 8 = 89$, and $\\lfloor 89/10 \\rfloor = 8$ — the bound reproduces itself. Attainment: $999 \\times 9$: ones $9 \\times 9 = 81$ (write 1, carry 8); tens $9 \\times 9 + 8 = 89$ (write 9, carry 8); hundreds $9 \\times 9 + 8 = 89$ (write 9, final carry 8) — product $8{,}991$, with a carry of 8 born in every column. Why different from addition: addition\'s column combined *two digits plus a carry* ($9 + 9 + 1 = 19$), a sum capped at 19 whose carry cannot exceed 1; a partial-product column combines a *product of two digits plus a carry* ($9 \\times 9 + 8 = 89$) — the multiplication inside is what inflates the carry. The moral: the carry bound is not a property of "carrying" in the abstract; it is a property of what the column actually computes.',
+                  solution: [
+                    'Proof by induction on the columns.',
+                    'Base: the ones column receives no incoming carry, so its total is at most $9 \\times 9 = 81$, and $\\lfloor 81/10 \\rfloor = 8$.',
+                    'Step: if the incoming carry is at most 8, a column totals at most $81 + 8 = 89$, and $\\lfloor 89/10 \\rfloor = 8$ — the bound reproduces itself.',
+                    'Attainment: $999 \\times 9$: ones $9 \\times 9 = 81$ (write 1, carry 8)',
+                    'tens $9 \\times 9 + 8 = 89$ (write 9, carry 8)',
+                    'hundreds $9 \\times 9 + 8 = 89$ (write 9, final carry 8) — product $8{,}991$, with a carry of 8 born in every column.',
+                    'Why different from addition: addition\'s column combined *two digits plus a carry* ($9 + 9 + 1 = 19$), a sum capped at 19 whose carry cannot exceed 1',
+                    'a partial-product column combines a *product of two digits plus a carry* ($9 \\times 9 + 8 = 89$) — the multiplication inside is what inflates the carry.',
+                    'The moral: the carry bound is not a property of "carrying" in the abstract; it is a property of what the column actually computes.',
+                  ],
                 },
               ],
             },
@@ -1257,8 +1440,18 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Russian peasant multiplication. (a) Use it to compute $247 \\times 36$: list the halving column, the doubling column, mark the kept rows, and sum them. (b) Prove the method must give the true product by writing 247 in base two and matching each kept row to a power of two. (c) The discarded row corresponds to which power of two, and how does the halving column "know" to discard it?',
-                  solution:
-                    '(a) Halves of 247: $123, 61, 30, 15, 7, 3, 1$ (each $\\lfloor n/2 \\rfloor$, remainder discarded); doubles of 36: $72, 144, 288, 576, 1{,}152, 2{,}304, 4{,}608$. Keep rows whose half is odd — all but the $30$ row. Kept sum: $36 + 72 + 144 + 576 + 1{,}152 + 2{,}304 + 4{,}608 = 8{,}892$. (b) Base two: $247 = 128 + 64 + 32 + 16 + 4 + 2 + 1$ (binary $11110111$). The doubling column walks $36 \\times 2^{0}, 36 \\times 2^{1}, \\ldots, 36 \\times 2^{6}$, and the kept rows are exactly those with a 1 in the binary expansion: $36 \\times 1 + 36 \\times 2 + 36 \\times 4 + 36 \\times 16 + 36 \\times 32 + 36 \\times 64 + 36 \\times 128 = 36 \\times 247$. Distributivity collects them into the product. (c) The discarded row is $36 \\times 8 = 288$, the power $2^{3}$ — and the halving column knows because 30 is even: $247$\'s halving chain hits $30$ exactly when the accumulated odd/even pattern has encoded a 0 in position $2^{3}$ of the binary expansion. Oddness of the half is the bit; the method is long multiplication in base two, which is why processors still do it this way.',
+                  solution: [
+                    '(a) Halves of 247: $123, 61, 30, 15, 7, 3, 1$ (each $\\lfloor n/2 \\rfloor$, remainder discarded)',
+                    'doubles of 36: $72, 144, 288, 576, 1{,}152, 2{,}304, 4{,}608$.',
+                    'Keep rows whose half is odd — all but the $30$ row.',
+                    'Kept sum: $36 + 72 + 144 + 576 + 1{,}152 + 2{,}304 + 4{,}608 = 8{,}892$.',
+                    '(b) Base two: $247 = 128 + 64 + 32 + 16 + 4 + 2 + 1$ (binary $11110111$).',
+                    'The doubling column walks $36 \\times 2^{0}, 36 \\times 2^{1}, \\ldots, 36 \\times 2^{6}$, and the kept rows are exactly those with a 1 in the binary expansion: $36 \\times 1 + 36 \\times 2 + 36 \\times 4 + 36 \\times 16 + 36 \\times 32 + 36 \\times 64 + 36 \\times 128 = 36 \\times 247$.',
+                    'Distributivity collects them into the product.',
+                    '(c) The discarded row is $36 \\times 8 = 288$, the power $2^{3}$ — and the halving column knows because 30 is even: $247$\'s halving chain hits $30$ exactly when the accumulated odd/even pattern has encoded a 0 in position $2^{3}$ of the binary expansion.',
+                    'Oddness of the half is the bit',
+                    'the method is long multiplication in base two, which is why processors still do it this way.',
+                  ],
                 },
               ],
             },
@@ -1677,13 +1870,20 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Run 24 ÷ 6 backwards on the number line: start at 24 and subtract 6 until you cannot. Count the jumps, name the quotient and remainder, and confirm with a multiplication.',
-                  solution:
-                    'Jumps: $24 \\to 18 \\to 12 \\to 6 \\to 0$ — four of them, landing exactly on 0. Quotient 4, remainder 0. Confirm: $6 \\times 4 = 24$ — the flock rebuilt. The grouping reading says the same thing in pens: four pens of six.',
+                  solution: [
+                    'Jumps: $24 \\to 18 \\to 12 \\to 6 \\to 0$ — four of them, landing exactly on 0.',
+                    'Quotient 4, remainder 0.',
+                    'Confirm: $6 \\times 4 = 24$ — the flock rebuilt.',
+                    'The grouping reading says the same thing in pens: four pens of six.',
+                  ],
                 },
                 {
                   q: 'Divide 47 by 5: state the quotient and remainder, then certify with the check equation.',
-                  solution:
-                    '$45 = 9 \\times 5$ fits with 2 left over: $47 \\div 5 = 9$ r $2$. Check: $9 \\times 5 + 2 = 45 + 2 = 47$. The remainder 2 sits below the divisor 5, as the bound demands ($r \\le 4$ here) — and below 4 it is, so the loop truly was finished.',
+                  solution: [
+                    '$45 = 9 \\times 5$ fits with 2 left over: $47 \\div 5 = 9$ r $2$.',
+                    'Check: $9 \\times 5 + 2 = 45 + 2 = 47$.',
+                    'The remainder 2 sits below the divisor 5, as the bound demands ($r \\le 4$ here) — and below 4 it is, so the loop truly was finished.',
+                  ],
                 },
               ],
             },
@@ -1692,13 +1892,30 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Run the full long division 4,589 ÷ 6, narrating every multiply–subtract–bring-down, then certify with the check equation and the mod-9 fingerprint.',
-                  solution:
-                    '$45 \\div 6 = 7$ ($7 \\times 6 = 42$; $45 - 42 = 3$); bring down 8 → $38 \\div 6 = 6$ ($6 \\times 6 = 36$; $38 - 36 = 2$); bring down 9 → $29 \\div 6 = 4$ ($4 \\times 6 = 24$; $29 - 24 = 5$). Quotient 764, remainder 5. Check: $764 \\times 6 + 5 = 4{,}584 + 5 = 4{,}589$. Fingerprint: $S(4{,}589) = 26 \\to 8$; rebuild $S(764) \\times S(6) + 5 = 8 \\times 6 + 5 = 53 \\to 8$. Match — certified twice. (The dividend is Lesson 2.2\'s minuend, revisited by a new operation.)',
+                  solution: [
+                    '$45 \\div 6 = 7$ ($7 \\times 6 = 42$; $45 - 42 = 3$)',
+                    'bring down 8 → $38 \\div 6 = 6$ ($6 \\times 6 = 36$; $38 - 36 = 2$)',
+                    'bring down 9 → $29 \\div 6 = 4$ ($4 \\times 6 = 24$; $29 - 24 = 5$).',
+                    'Quotient 764, remainder 5.',
+                    'Check: $764 \\times 6 + 5 = 4{,}584 + 5 = 4{,}589$.',
+                    'Fingerprint: $S(4{,}589) = 26 \\to 8$',
+                    'rebuild $S(764) \\times S(6) + 5 = 8 \\times 6 + 5 = 53 \\to 8$.',
+                    'Match — certified twice.',
+                    '(The dividend is Lesson 2.2\'s minuend, revisited by a new operation.)',
+                  ],
                 },
                 {
                   q: 'Divide 1,248 by 24 and verify by the fingerprint alone. Why is the remainder term absent?',
-                  solution:
-                    '$124 \\div 24 = 5$ ($5 \\times 24 = 120$; $124 - 120 = 4$); bring down 8 → $48 \\div 24 = 2$ ($2 \\times 24 = 48$; $48 - 48 = 0$). Quotient 52, remainder 0. Check: $52 \\times 24 = 1{,}248$. Fingerprint: $S(1{,}248) = 15 \\to 6$; rebuild $S(52) \\times S(24) + 0 = 7 \\times 6 = 42 \\to 6$. Match. The $r$ term vanishes because $r = 0$: an exact division fingerprints exactly like a multiplication — Lesson 2.3\'s check run in reverse.',
+                  solution: [
+                    '$124 \\div 24 = 5$ ($5 \\times 24 = 120$; $124 - 120 = 4$)',
+                    'bring down 8 → $48 \\div 24 = 2$ ($2 \\times 24 = 48$; $48 - 48 = 0$).',
+                    'Quotient 52, remainder 0.',
+                    'Check: $52 \\times 24 = 1{,}248$.',
+                    'Fingerprint: $S(1{,}248) = 15 \\to 6$',
+                    'rebuild $S(52) \\times S(24) + 0 = 7 \\times 6 = 42 \\to 6$.',
+                    'Match.',
+                    'The $r$ term vanishes because $r = 0$: an exact division fingerprints exactly like a multiplication — Lesson 2.3\'s check run in reverse.',
+                  ],
                 },
               ],
             },
@@ -1707,13 +1924,20 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) A stadium has 8,892 seats, arranged in equal rows of 36. (a) Before computing: how many digits will the row count have? (b) How many full rows, and does any seat go spare?',
-                  solution:
-                    '(a) 4-digit ÷ 2-digit: between $k - m = 2$ and $k - m + 1 = 3$ digits. (b) $8{,}892 \\div 36 = 247$ r $0$ (the worked example): 247 full rows and no spare seat — the check $247 \\times 36 = 8{,}892$ is exactly the seating plan. Exam technique: the digit-bound answer (a) rejects any option of 1 or 4 digits before any division happens.',
+                  solution: [
+                    '(a) 4-digit ÷ 2-digit: between $k - m = 2$ and $k - m + 1 = 3$ digits.',
+                    '(b) $8{,}892 \\div 36 = 247$ r $0$ (the worked example): 247 full rows and no spare seat — the check $247 \\times 36 = 8{,}892$ is exactly the seating plan.',
+                    'Exam technique: the digit-bound answer (a) rejects any option of 1 or 4 digits before any division happens.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) Without any long division, find the remainder when 4,589 is divided by 10 — and by 100 — and explain the place-value secret both answers share.',
-                  solution:
-                    '$4{,}589 \\div 10$: quotient 458, remainder 9 ($458 \\times 10 + 9 = 4{,}589$). $\\div 100$: quotient 45, remainder 89 ($45 \\times 100 + 89 = 4{,}589$). The remainder on dividing by $10^{n}$ is exactly the last $n$ digits: place value hands it over for free, because quotient × $10^{n}$ rebuilds everything except the trailing digits. The remainder bound shows why the leftover must be smaller than 10 (or 100): anything larger would afford another full ten (or hundred).',
+                  solution: [
+                    '$4{,}589 \\div 10$: quotient 458, remainder 9 ($458 \\times 10 + 9 = 4{,}589$).',
+                    '$\\div 100$: quotient 45, remainder 89 ($45 \\times 100 + 89 = 4{,}589$).',
+                    'The remainder on dividing by $10^{n}$ is exactly the last $n$ digits: place value hands it over for free, because quotient × $10^{n}$ rebuilds everything except the trailing digits.',
+                    'The remainder bound shows why the leftover must be smaller than 10 (or 100): anything larger would afford another full ten (or hundred).',
+                  ],
                 },
               ],
             },
@@ -1722,8 +1946,17 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Prove the remainder bound: in any division of a by b (b ≥ 1), the remainder r satisfies 0 ≤ r < b. Then prove uniqueness: if a = q·b + r = q′·b + r′ with both remainders in range, then q = q′ and r = r′. Illustrate with 29 ÷ 6 by exhibiting the illegal pair (3, 11) and the legal one.',
-                  solution:
-                    'Bound: $r = a - q \\times b \\ge 0$, because $q$ counts complete subtractions and the loop stops when nothing more fits. If $r \\ge b$, then $r - b \\ge 0$ and $a = (q + 1) \\times b + (r - b)$: one more complete group fits, contradicting that $q$ counted them all. Hence $r \\le b - 1$. Attainment: $29 \\div 6 = 4$ r $5$ attains $r = 5 = 6 - 1$. Uniqueness: $q \\times b + r = q\' \\times b + r\'$ rearranges to $(q - q\') \\times b = r\' - r$; the left side is a multiple of $b$, the right side satisfies $|r\' - r| < b$, so both must be 0: $r\' = r$ and $q = q\'$. For $29 \\div 6$: $q = 3$ forces $r = 29 - 18 = 11 \\ge 6$ — illegal, exactly one more six hiding inside it; $q = 4$ gives $r = 5$ — legal, and uniqueness says no other pair works.',
+                  solution: [
+                    'Bound: $r = a - q \\times b \\ge 0$, because $q$ counts complete subtractions and the loop stops when nothing more fits.',
+                    'If $r \\ge b$,',
+                    'then $r - b \\ge 0$ and $a = (q + 1) \\times b + (r - b)$: one more complete group fits, contradicting that $q$ counted them all.',
+                    'Hence $r \\le b - 1$.',
+                    'Attainment: $29 \\div 6 = 4$ r $5$ attains $r = 5 = 6 - 1$.',
+                    'Uniqueness: $q \\times b + r = q\' \\times b + r\'$ rearranges to $(q - q\') \\times b = r\' - r$',
+                    'the left side is a multiple of $b$, the right side satisfies $|r\' - r| < b$, so both must be 0: $r\' = r$ and $q = q\'$.',
+                    'For $29 \\div 6$: $q = 3$ forces $r = 29 - 18 = 11 \\ge 6$ — illegal, exactly one more six hiding inside it',
+                    '$q = 4$ gives $r = 5$ — legal, and uniqueness says no other pair works.',
+                  ],
                 },
               ],
             },
@@ -1732,8 +1965,19 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'The closed door. (a) Prove that a ÷ 0 is undefined for every a ≠ 0. (b) Show that 0 ÷ 0 is not saved either — and diagnose precisely how its failure differs. (c) The check equation a = q·b + r guarded every division in this lesson. Substitute b = 0 and explain why the guardian goes silent exactly when the divisor vanishes.',
-                  solution:
-                    '(a) Division must name a $q$ with $q \\times 0 = a$. The zero property (Lesson 2.3) says $q \\times 0 = 0$ for every $q$; since $a \\ne 0$, no candidate survives — the answer set is empty. (b) For $0 \\div 0$, every $q$ passes: $3 \\times 0 = 0$ and $17 \\times 0 = 0$ alike. The failure inverts — not an empty answer set but a universal one: indeterminate, no unique answer. Both verdicts deny an answer; one because nothing works, one because everything does. (c) With $b = 0$ the check reads $a = q \\times 0 + r = 0 + r$, i.e. $a = r$: the equation constrains only the remainder and says nothing about $q$. All the bookkeeping power of $a = q \\times b + r$ lived in the $b$ — division by zero removes it. The whole numbers stay closed under + and × (NCERT\'s note); − and ÷ each punch holes, and ÷\'s hole sits precisely in the divisor seat.',
+                  solution: [
+                    '(a) Division must name a $q$ with $q \\times 0 = a$.',
+                    'The zero property (Lesson 2.3) says $q \\times 0 = 0$ for every $q$',
+                    'since $a \\ne 0$, no candidate survives — the answer set is empty.',
+                    '(b) For $0 \\div 0$, every $q$ passes: $3 \\times 0 = 0$ and $17 \\times 0 = 0$ alike.',
+                    'The failure inverts — not an empty answer set but a universal one: indeterminate, no unique answer.',
+                    'Both verdicts deny an answer; one because nothing works, one because everything does.',
+                    '(c) With $b = 0$ the check reads $a = q \\times 0 + r = 0 + r$, i.e.',
+                    '$a = r$: the equation constrains only the remainder and says nothing about $q$.',
+                    'All the bookkeeping power of $a = q \\times b + r$ lived in the $b$ — division by zero removes it.',
+                    'The whole numbers stay closed under + and × (NCERT\'s note)',
+                    '− and ÷ each punch holes, and ÷\'s hole sits precisely in the divisor seat.',
+                  ],
                 },
               ],
             },
@@ -2065,13 +2309,22 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Evaluate $4 + 3 \\times 2$ and $(4 + 3) \\times 2$. Same digits, same operations — explain in one sentence why the values differ.',
-                  solution:
-                    'Treaty reading: $4 + 3 \\times 2 = 4 + (3 \\times 2) = 4 + 6 = 10$ — four, plus three twos. Bracketed reading: $(4 + 3) \\times 2 = 7 \\times 2 = 14$ — a seven, taken twice. One pair of brackets moved the addition under the multiplication\'s grip: the expression tree changed, so the recipe names a different number. Brackets are the writer\'s override; precedence is only the default.',
+                  solution: [
+                    'Treaty reading: $4 + 3 \\times 2 = 4 + (3 \\times 2) = 4 + 6 = 10$ — four, plus three twos.',
+                    'Bracketed reading: $(4 + 3) \\times 2 = 7 \\times 2 = 14$ — a seven, taken twice.',
+                    'One pair of brackets moved the addition under the multiplication\'s grip: the expression tree changed, so the recipe names a different number.',
+                    'Brackets are the writer\'s override; precedence is only the default.',
+                  ],
                 },
                 {
                   q: 'Evaluate $5 \\times 6 - 8$. Then evaluate $10 - 2 \\times 3$ and $(10 - 2) \\times 3$, naming the sentence each reading hears.',
-                  solution:
-                    '$5 \\times 6 - 8$: multiplication first, $30 - 8 = 22$. Next, $10 - 2 \\times 3 = 10 - 6 = 4$ — the sentence "ten, minus two threes". And $(10 - 2) \\times 3 = 8 \\times 3 = 24$ — the sentence "(ten minus two), taken three times". The second pair differs by two brackets alone; 4 and 24 are different numbers because they are values of different sentences.',
+                  solution: [
+                    '$5 \\times 6 - 8$: multiplication first, $30 - 8 = 22$.',
+                    'Next, $10 - 2 \\times 3 = 10 - 6 = 4$ — the sentence "ten, minus two threes".',
+                    'And $(10 - 2) \\times 3 = 8 \\times 3 = 24$ — the sentence "(ten minus two), taken three times".',
+                    'The second pair differs by two brackets alone',
+                    '4 and 24 are different numbers because they are values of different sentences.',
+                  ],
                 },
               ],
             },
@@ -2080,13 +2333,25 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'Evaluate $36 \\div 4 \\times 3$ two ways — the treaty way and the alphabet way. Which value does the treaty certify, and what exactly is the trap?',
-                  solution:
-                    'Treaty (÷ and × one rank, left to right): $36 \\div 4 = 9$, then $9 \\times 3 = 27$. Alphabet way (M before D): $4 \\times 3 = 12$, then $36 \\div 12 = 3$. The treaty certifies 27. The trap is reading BODMAS as a queue of six letters instead of four ranks: D and M are rank-mates, and inside the rank the reading direction decides — the very clause Lennes debated in 1917.',
+                  solution: [
+                    'Treaty (÷ and × one rank, left to right): $36 \\div 4 = 9$,',
+                    'then $9 \\times 3 = 27$.',
+                    'Alphabet way (M before D): $4 \\times 3 = 12$,',
+                    'then $36 \\div 12 = 3$.',
+                    'The treaty certifies 27.',
+                    'The trap is reading BODMAS as a queue of six letters instead of four ranks: D and M are rank-mates, and inside the rank the reading direction decides — the very clause Lennes debated in 1917.',
+                  ],
                 },
                 {
                   q: 'Evaluate $25 - 8 + 7$ two ways. Which is correct, and which misreading produced the other?',
-                  solution:
-                    'Treaty (+ and − one rank, left to right): $25 - 8 = 17$, then $17 + 7 = 24$. The misreading (A before S): $8 + 7 = 15$, then $25 - 15 = 10$ — which is the value of the different sentence $25 - (8 + 7)$. Correct: 24. Subtraction is non-associative (Lesson 2.2), which is exactly why the rank\'s left-to-right clause matters: the brackets the misreading silently inserts are not free.',
+                  solution: [
+                    'Treaty (+ and − one rank, left to right): $25 - 8 = 17$,',
+                    'then $17 + 7 = 24$.',
+                    'The misreading (A before S): $8 + 7 = 15$,',
+                    'then $25 - 15 = 10$ — which is the value of the different sentence $25 - (8 + 7)$.',
+                    'Correct: 24.',
+                    'Subtraction is non-associative (Lesson 2.2), which is exactly why the rank\'s left-to-right clause matters: the brackets the misreading silently inserts are not free.',
+                  ],
                 },
               ],
             },
@@ -2095,13 +2360,28 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: '(Exam-style) Simplify $90 + \\left[\\, \\left\\{ (16 - 7) \\times 2 \\right\\} \\div 6 \\text{ of } 3 \\,\\right]$, narrating every rung of the bracket ladder and every rank decision.',
-                  solution:
-                    'Parentheses: $(16 - 7) = 9$. Braces: $9 \\times 2 = 18$. Inside the square brackets, "of" claims before ÷: $6$ of $3 = 18$; then $18 \\div 18 = 1$. Bracket-free remainder: $90 + 1 = 91$. The value is 91. Rank audit: one ladder (three rungs, inside out), one "of" before the division, no ÷/× tie to sweep — a line built to exercise the ladder, and the estimation gate agrees with the magnitude (ninety-odd, plus one).',
+                  solution: [
+                    'Parentheses: $(16 - 7) = 9$.',
+                    'Braces: $9 \\times 2 = 18$.',
+                    'Inside the square brackets, "of" claims before ÷: $6$ of $3 = 18$',
+                    'then $18 \\div 18 = 1$.',
+                    'Bracket-free remainder: $90 + 1 = 91$.',
+                    'The value is 91.',
+                    'Rank audit: one ladder (three rungs, inside out), one "of" before the division, no ÷/× tie to sweep — a line built to exercise the ladder, and the estimation gate agrees with the magnitude (ninety-odd, plus one).',
+                  ],
                 },
                 {
                   q: '(Exam-style) The line $8 + 4 \\div 4 + 4 \\times 2$ has value 17 as written. Insert exactly one pair of brackets to make the value as large as possible, and prove your placement wins among all bracketings that keep every division exact.',
-                  solution:
-                    'As written: $8 + 1 + 8 = 17$. The winning placement wraps the whole additive chain: $(8 + 4 \\div 4 + 4) \\times 2 = 13 \\times 2 = 26$. Enumeration of the whole-number candidates: $(8 + 4) \\div 4 + 4 \\times 2 = 3 + 8 = 11$; $8 + (4 \\div 4 + 4) \\times 2 = 8 + 10 = 18$; $(8 + 4 \\div 4 + 4) \\times 2 = 26$; $(8 + 4) \\div (4 + 4) \\times 2 = 12 \\div 8 \\times 2 = 3$; and any bracketing that strands $4 \\div (4 + \\cdots)$ leaves the division inexact — outside this book\'s whole numbers. Why the whole chain wins is the distributive law (Lesson 2.3): multiplying the chain multiplies every term, $13 \\times 2 = 8 \\times 2 + 1 \\times 2 + 4 \\times 2$ — the bracket harvests the largest possible sub-chain under the ×2.',
+                  solution: [
+                    'As written: $8 + 1 + 8 = 17$.',
+                    'The winning placement wraps the whole additive chain: $(8 + 4 \\div 4 + 4) \\times 2 = 13 \\times 2 = 26$.',
+                    'Enumeration of the whole-number candidates: $(8 + 4) \\div 4 + 4 \\times 2 = 3 + 8 = 11$',
+                    '$8 + (4 \\div 4 + 4) \\times 2 = 8 + 10 = 18$',
+                    '$(8 + 4 \\div 4 + 4) \\times 2 = 26$',
+                    '$(8 + 4) \\div (4 + 4) \\times 2 = 12 \\div 8 \\times 2 = 3$',
+                    'and any bracketing that strands $4 \\div (4 + \\cdots)$ leaves the division inexact — outside this book\'s whole numbers.',
+                    'Why the whole chain wins is the distributive law (Lesson 2.3): multiplying the chain multiplies every term, $13 \\times 2 = 8 \\times 2 + 1 \\times 2 + 4 \\times 2$ — the bracket harvests the largest possible sub-chain under the ×2.',
+                  ],
                 },
               ],
             },
@@ -2110,8 +2390,17 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'The line 6 ÷ 2(1 + 2) is an internet-famous argument. (a) Give the value the treaty certifies for the explicit form 6 ÷ 2 × (1 + 2). (b) Give the value of the rival reading 6 ÷ (2 × (1 + 2)). (c) Explain why the debate exists at all, and what a careful writer does.',
-                  solution:
-                    '(a) Left to right in the ÷/× rank: $6 \\div 2 = 3$, then $3 \\times 3 = 9$. (b) Grouping-first: $2 \\times 3 = 6$, then $6 \\div 6 = 1$. The values differ — both readings are grammatical, so the original line, with its silent juxtaposition $2(1 + 2)$, is genuinely ambiguous. (c) The debate lives exactly on the treaty\'s agreed edge: implicit multiplication by juxtaposition was never fully pinned down — notation historians record the ÷-versus-× question still argued in the 1920s — so the juxtaposition invites the grouping-first reading. The cure is the writer\'s tool: brackets. Examinations never set the ambiguous form; they write $6 \\div 2 \\times (1 + 2)$ or $6 \\div \\left(2 \\times (1 + 2)\\right)$ explicitly.',
+                  solution: [
+                    '(a) Left to right in the ÷/× rank: $6 \\div 2 = 3$,',
+                    'then $3 \\times 3 = 9$.',
+                    '(b) Grouping-first: $2 \\times 3 = 6$,',
+                    'then $6 \\div 6 = 1$.',
+                    'The values differ — both readings are grammatical, so the original line, with its silent juxtaposition $2(1 + 2)$, is genuinely ambiguous.',
+                    '(c) The debate lives exactly on the treaty\'s agreed edge: implicit multiplication by juxtaposition was never fully pinned down — notation historians record the ÷-versus-× question still argued in the 1920s — so the juxtaposition invites the grouping-first reading.',
+                    'The cure is the writer\'s tool: brackets.',
+                    'Examinations never set the ambiguous form',
+                    'they write $6 \\div 2 \\times (1 + 2)$ or $6 \\div \\left(2 \\times (1 + 2)\\right)$ explicitly.',
+                  ],
                 },
               ],
             },
@@ -2120,8 +2409,16 @@ export const chapter02: Chapter = {
               questions: [
                 {
                   q: 'The treaty-maker\'s problem. (a) Prove that an expression built from + alone has the same value under every bracketing. (b) Prove the same for × alone. (c) Exhibit a mixed expression whose two bracketings differ, and conclude that a precedence convention is unavoidable. (d) Which clauses of the treaty are forced by the notation, and which are pure agreement?',
-                  solution:
-                    '(a) Associativity of addition (Lesson 2.1): $(a + b) + c = a + (b + c)$ for all whole numbers — instance $(8 + 2) + 5 = 8 + (2 + 5) = 15$, and exhaustive checking of every $a, b, c$ from 0 to 9 confirms it everywhere; longer chains follow by re-parenthesising one adjacent pair at a time, each step licensed by the law. (b) Associativity of multiplication (Lesson 2.3): $(2 \\times 3) \\times 4 = 2 \\times (3 \\times 4) = 24$ — same instance-plus-exhaustive proof. (c) Mixed: $2 + 3 \\times 4 = 14$ under the treaty, but $(2 + 3) \\times 4 = 20$ bracketed the other way — the values differ, so when two ranks share a line, *something* must choose the tree. That something is the convention; without it, the line names two numbers and therefore names none. (d) Forced by meaning: brackets override everything; × before + (compression); tighter compression binds tighter. Pure agreement: equal rank within each twin-pair resolved left to right, and the special rank of "of". Knowing which clauses are discovered and which are signed is the difference between mathematics and a rule-book — and it is the final entry in this chapter\'s honesty ledger.',
+                  solution: [
+                    '(a) Associativity of addition (Lesson 2.1): $(a + b) + c = a + (b + c)$ for all whole numbers — instance $(8 + 2) + 5 = 8 + (2 + 5) = 15$, and exhaustive checking of every $a, b, c$ from 0 to 9 confirms it everywhere',
+                    'longer chains follow by re-parenthesising one adjacent pair at a time, each step licensed by the law.',
+                    '(b) Associativity of multiplication (Lesson 2.3): $(2 \\times 3) \\times 4 = 2 \\times (3 \\times 4) = 24$ — same instance-plus-exhaustive proof.',
+                    '(c) Mixed: $2 + 3 \\times 4 = 14$ under the treaty, but $(2 + 3) \\times 4 = 20$ bracketed the other way — the values differ, so when two ranks share a line, *something* must choose the tree.',
+                    'That something is the convention; without it, the line names two numbers and therefore names none.',
+                    '(d) Forced by meaning: brackets override everything; × before + (compression); tighter compression binds tighter.',
+                    'Pure agreement: equal rank within each twin-pair resolved left to right, and the special rank of "of".',
+                    'Knowing which clauses are discovered and which are signed is the difference between mathematics and a rule-book — and it is the final entry in this chapter\'s honesty ledger.',
+                  ],
                 },
               ],
             },

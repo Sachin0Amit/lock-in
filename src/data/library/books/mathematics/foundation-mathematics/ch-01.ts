@@ -276,23 +276,39 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Write $6{,}045$ in expanded form.',
-                  solution:
-                    'Seat the digits right to left: ones 5, tens 4, hundreds 0, thousands 6. Expanded form: $6045 = 6\\times1000 + 0\\times100 + 4\\times10 + 5$. The zero is written explicitly — that is the point of expanded form: it exposes the empty seat rather than hiding it.',
+                  solution: [
+                    'Seat the digits right to left: ones 5, tens 4, hundreds 0, thousands 6.',
+                    'Expanded form: $6045 = 6\\times1000 + 0\\times100 + 4\\times10 + 5$.',
+                    'The zero is written explicitly — that is the point of expanded form: it exposes the empty seat rather than hiding it.',
+                  ],
                 },
                 {
                   q: 'What is the place value of 7 in $71{,}432$?',
-                  solution:
-                    'The 7 is the leftmost digit; counting seats from the right (ones→tens→hundreds→thousands→ten-thousands) it sits in the ten-thousands seat. Its place value is $7 \\times 10^{4} = 70{,}000$. "Ten-thousands" is the name of the *seat*; 70,000 is the *value contributed* — examiners accept the seat name, but be ready to produce either.',
+                  solution: [
+                    'The 7 is the leftmost digit',
+                    'counting seats from the right (ones→tens→hundreds→thousands→ten-thousands) it sits in the ten-thousands seat.',
+                    'Its place value is $7 \\times 10^{4} = 70{,}000$. "Ten-thousands" is the name of the *seat*',
+                    '70,000 is the *value contributed* — examiners accept the seat name, but be ready to produce either.',
+                  ],
                 },
                 {
                   q: 'Write "three thousand nine hundred four" as a numeral.',
-                  solution:
-                    'Thousands seat: 3. Hundreds: 9. Tens: nothing was said — so 0 holds the seat. Ones: 4. The numeral is $3{,}904$. The spoken name skips silent seats; the numeral cannot.',
+                  solution: [
+                    'Thousands seat: 3.',
+                    'Hundreds: 9.',
+                    'Tens: nothing was said — so 0 holds the seat.',
+                    'Ones: 4.',
+                    'The numeral is $3{,}904$.',
+                    'The spoken name skips silent seats; the numeral cannot.',
+                  ],
                 },
                 {
                   q: 'Which is greater: $12{,}012$ or $12{,}102$?',
-                  solution:
-                    'Both have five digits and the same ten-thousands (1) and thousands (2) seats, so compare the hundreds: 0 versus 1. Since $1 > 0$, $12{,}102$ is larger — no further seats matter. This seat-by-seat comparison is exactly how computers compare numbers digit by digit, and later, how you will compare polynomials term by term.',
+                  solution: [
+                    'Both have five digits and the same ten-thousands (1) and thousands (2) seats, so compare the hundreds: 0 versus 1.',
+                    'Since $1 > 0$, $12{,}102$ is larger — no further seats matter.',
+                    'This seat-by-seat comparison is exactly how computers compare numbers digit by digit, and later, how you will compare polynomials term by term.',
+                  ],
                 },
               ],
             },
@@ -301,18 +317,32 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'A number has 4 thousands, 0 hundreds, 8 tens and 1 one. Write the numeral. Then reverse its digits and find how much larger the original is than the reversed.',
-                  solution:
-                    'Numeral: $4081$. Reversed: $1804$. Difference: $4081 - 1804$. Subtract seat by seat (borrowing where needed): $4081 - 1804 = 2277$. Check by addition: $2277 + 1804 = 4081$ ✓. A beautiful general fact hides here: for a four-digit number $\\overline{abcd}$, expanded form gives $\\overline{abcd} - \\overline{dcba} = 999(a-d) + 90(b-c)$. Test it: $999(4-1) + 90(0-8) = 2997 - 720 = 2277$ ✓. Try to prove this yourself — it is a one-line argument once today\'s notation is fluent.',
+                  solution: [
+                    'Numeral: $4081$.',
+                    'Reversed: $1804$.',
+                    'Difference: $4081 - 1804$.',
+                    'Subtract seat by seat (borrowing where needed): $4081 - 1804 = 2277$.',
+                    'Check by addition: $2277 + 1804 = 4081$ ✓.',
+                    'A beautiful general fact hides here: for a four-digit number $\\overline{abcd}$, expanded form gives $\\overline{abcd} - \\overline{dcba} = 999(a-d) + 90(b-c)$.',
+                    'Test it: $999(4-1) + 90(0-8) = 2997 - 720 = 2277$ ✓.',
+                    'Try to prove this yourself — it is a one-line argument once today\'s notation is fluent.',
+                  ],
                 },
                 {
                   q: 'Insert international-system commas in $9876543$ and state how many "thousand-period" groups it has; then insert Indian-system commas in the same number.',
-                  solution:
-                    'International, grouping in threes from the right: $9{,}876{,}543$ — two complete groups beyond the ones period (876 and 9), so it reads "nine million, eight hundred seventy-six thousand, five hundred forty-three". Indian, first three then twos: $98{,}76{,}543$ — "ninety-eight lakh, seventy-six thousand, five hundred forty-three". Same quantity, two dialects; get comfortable switching, because Indian entrance papers do.',
+                  solution: [
+                    'International, grouping in threes from the right: $9{,}876{,}543$ — two complete groups beyond the ones period (876 and 9), so it reads "nine million, eight hundred seventy-six thousand, five hundred forty-three".',
+                    'Indian, first three then twos: $98{,}76{,}543$ — "ninety-eight lakh, seventy-six thousand, five hundred forty-three".',
+                    'Same quantity, two dialects; get comfortable switching, because Indian entrance papers do.',
+                  ],
                 },
                 {
                   q: 'Start at $-4$ on the number line and take 7 unit steps to the right. Where do you land?',
-                  solution:
-                    'Count aloud as you walk: from −4, step to −3 (1), −2 (2), −1 (3), 0 (4), 1 (5), 2 (6), 3 (7). You land on $3$. Formally this is $-4 + 7 = 3$, and the number line picture *is* the explanation of why adding a positive number means walking right — a fact we will lean on heavily in the integers chapter.',
+                  solution: [
+                    'Count aloud as you walk: from −4, step to −3 (1), −2 (2), −1 (3), 0 (4), 1 (5), 2 (6), 3 (7).',
+                    'You land on $3$.',
+                    'Formally this is $-4 + 7 = 3$, and the number line picture *is* the explanation of why adding a positive number means walking right — a fact we will lean on heavily in the integers chapter.',
+                  ],
                 },
               ],
             },
@@ -321,13 +351,22 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) The digit 6 in $26{,}453$ is replaced by 9. By how much does the number increase?',
-                  solution:
-                    'The 6 is in the thousands seat, contributing $6{,}000$; after replacement that seat contributes $9{,}000$. Every other seat is untouched, so the increase is exactly $9{,}000 - 6{,}000 = 3{,}000$. Strategy note: never recompute the whole number in exam conditions — locate the seat, take the difference *within that seat*. New number, for checking: $29{,}453$, and indeed $29{,}453 - 26{,}453 = 3{,}000$ ✓.',
+                  solution: [
+                    'The 6 is in the thousands seat, contributing $6{,}000$',
+                    'after replacement that seat contributes $9{,}000$.',
+                    'Every other seat is untouched, so the increase is exactly $9{,}000 - 6{,}000 = 3{,}000$.',
+                    'Strategy note: never recompute the whole number in exam conditions — locate the seat, take the difference *within that seat*.',
+                    'New number, for checking: $29{,}453$, and indeed $29{,}453 - 26{,}453 = 3{,}000$ ✓.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) How many whole numbers strictly between 20 and 40 are exactly divisible by 3?',
-                  solution:
-                    'Multiples of 3 in that open interval: the smallest above 20 is $21 = 3\\times7$, the largest below 40 is $39 = 3\\times13$. Counting from $3\\times7$ to $3\\times13$ inclusive gives $13 - 7 + 1 = 7$ numbers (21, 24, 27, 30, 33, 36, 39). The "$+1$" is the classic counting trap — the number of integers from $a$ to $b$ is $b - a + 1$, not $b - a$. Check by listing: seven numbers, confirmed.',
+                  solution: [
+                    'Multiples of 3 in that open interval: the smallest above 20 is $21 = 3\\times7$, the largest below 40 is $39 = 3\\times13$.',
+                    'Counting from $3\\times7$ to $3\\times13$ inclusive gives $13 - 7 + 1 = 7$ numbers (21, 24, 27, 30, 33, 36, 39).',
+                    'The "$+1$" is the classic counting trap — the number of integers from $a$ to $b$ is $b - a + 1$, not $b - a$.',
+                    'Check by listing: seven numbers, confirmed.',
+                  ],
                 },
               ],
             },
@@ -614,13 +653,21 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Compare $45{,}306$ and $45{,}036$: which seat decides, which number is larger, and what is their difference?',
-                  solution:
-                    'Same digit count (5), so scan from the left: ten-thousands $4 = 4$, thousands $5 = 5$, hundreds $3$ vs $0$ — the hundreds seat decides, and $3 > 0$, so $45{,}306$ is larger. For the exact difference, settle seat by seat: hundreds contribute $3\\times100 - 0 = +300$, tens contribute $0 - 3\\times10 = -30$, ones cancel ($6 = 6$). Total: $300 - 30 = 270$ ✓. Note how the domination bound predicted the *sign* instantly, while the exact difference needed the lower seats too — comparison is cheaper than subtraction.',
+                  solution: [
+                    'Same digit count (5), so scan from the left: ten-thousands $4 = 4$, thousands $5 = 5$, hundreds $3$ vs $0$ — the hundreds seat decides, and $3 > 0$, so $45{,}306$ is larger.',
+                    'For the exact difference, settle seat by seat: hundreds contribute $3\\times100 - 0 = +300$, tens contribute $0 - 3\\times10 = -30$, ones cancel ($6 = 6$).',
+                    'Total: $300 - 30 = 270$ ✓.',
+                    'Note how the domination bound predicted the *sign* instantly, while the exact difference needed the lower seats too — comparison is cheaper than subtraction.',
+                  ],
                 },
                 {
                   q: 'Arrange in ascending order: $88$, $8{,}008$, $808$, $8{,}080$.',
-                  solution:
-                    'Bucket by digit count: $\{88\}$ (2 digits) $< \{808\}$ (3 digits) $< \{8{,}008, 8{,}080\}$ (4 digits). Within the four-digit bucket: thousands $8 = 8$, hundreds $0 = 0$, tens $0$ vs $8$ — the tens seat decides, so $8{,}008 < 8{,}080$. Ascending order: $88 < 808 < 8{,}008 < 8{,}080$. Observe how three of the four positions were settled by digit count alone — always count digits before comparing anything.',
+                  solution: [
+                    'Bucket by digit count: $\{88\}$ (2 digits) $< \{808\}$ (3 digits) $< \{8{,}008, 8{,}080\}$ (4 digits).',
+                    'Within the four-digit bucket: thousands $8 = 8$, hundreds $0 = 0$, tens $0$ vs $8$ — the tens seat decides, so $8{,}008 < 8{,}080$.',
+                    'Ascending order: $88 < 808 < 8{,}008 < 8{,}080$.',
+                    'Observe how three of the four positions were settled by digit count alone — always count digits before comparing anything.',
+                  ],
                 },
               ],
             },
@@ -629,13 +676,22 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'From the digits $9, 0, 1, 5, 4, 7$ (each used once), form the greatest and the smallest six-digit numbers, and find their difference.',
-                  solution:
-                    'Greatest: digits descending into descending seats: $9{,}75{,}410$. Smallest: digits ascending but 0 cannot lead — promote the smallest non-zero digit (1) to the lakhs seat, then 0: $1{,}04{,}579$. Difference: $9{,}75{,}410 - 1{,}04{,}579 = 8{,}70{,}831$. Check the rearrangement fingerprint: both numbers have digit sum $9+0+1+5+4+7 = 26$, and the difference\'s digit sum is $8+7+0+8+3+1 = 27 = 9 \\times 3$, a multiple of 9 — as the L5/L6 problems below will prove it must always be.',
+                  solution: [
+                    'Greatest: digits descending into descending seats: $9{,}75{,}410$.',
+                    'Smallest: digits ascending but 0 cannot lead — promote the smallest non-zero digit (1) to the lakhs seat,',
+                    'then 0: $1{,}04{,}579$.',
+                    'Difference: $9{,}75{,}410 - 1{,}04{,}579 = 8{,}70{,}831$.',
+                    'Check the rearrangement fingerprint: both numbers have digit sum $9+0+1+5+4+7 = 26$, and the difference\'s digit sum is $8+7+0+8+3+1 = 27 = 9 \\times 3$, a multiple of 9 — as the L5/L6 problems below will prove it must always be.',
+                  ],
                 },
                 {
                   q: 'Write $90703005$ with international commas and with Indian commas, and read each aloud.',
-                  solution:
-                    'International (groups of three from the right): $90{,}703{,}005$ — "ninety million, seven hundred three thousand, five". Indian (first three, then twos): $9{,}07{,}03{,}005$ — "nine crore, seven lakh, three thousand, five". Verify by expansion: $9 \\times 10^{7} + 7 \\times 10^{5} + 3 \\times 10^{3} + 5 = 90703005$ ✓. The silent zeros hold the ten-millions and ten-thousands seats in both systems — same quantity, two dialects, as Lesson 1.1 established.',
+                  solution: [
+                    'International (groups of three from the right): $90{,}703{,}005$ — "ninety million, seven hundred three thousand, five".',
+                    'Indian (first three, then twos): $9{,}07{,}03{,}005$ — "nine crore, seven lakh, three thousand, five".',
+                    'Verify by expansion: $9 \\times 10^{7} + 7 \\times 10^{5} + 3 \\times 10^{3} + 5 = 90703005$ ✓.',
+                    'The silent zeros hold the ten-millions and ten-thousands seats in both systems — same quantity, two dialects, as Lesson 1.1 established.',
+                  ],
                 },
               ],
             },
@@ -644,13 +700,23 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) From the digits $4, 5, 7, 9$ (each used once), find the difference between the greatest and smallest four-digit numbers, and show that it is divisible by 9.',
-                  solution:
-                    'Greatest: $9754$. Smallest: $4579$ (no zero here, so ascending order works directly). Difference: $9754 - 4579 = 5175$. Divisibility check: $5+1+7+5 = 18$, a multiple of 9, and indeed $5175 = 9 \\times 575$ ✓. Why it *must* happen: both numbers are rearrangements of the same digits, so their digit sums are equal ($25$ each), and any number differs from its digit sum by a multiple of 9 — hence their difference is a multiple of 9. In an examination, this is the ten-second sanity check that catches arithmetic slips.',
+                  solution: [
+                    'Greatest: $9754$.',
+                    'Smallest: $4579$ (no zero here, so ascending order works directly).',
+                    'Difference: $9754 - 4579 = 5175$.',
+                    'Divisibility check: $5+1+7+5 = 18$, a multiple of 9, and indeed $5175 = 9 \\times 575$ ✓.',
+                    'Why it *must* happen: both numbers are rearrangements of the same digits, so their digit sums are equal ($25$ each), and any number differs from its digit sum by a multiple of 9 — hence their difference is a multiple of 9.',
+                    'In an examination, this is the ten-second sanity check that catches arithmetic slips.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) Write the three rotations of $257$ in ascending order, and verify that the difference between the largest and smallest is a multiple of 9.',
-                  solution:
-                    'Rotations: $257$, $572$, $725$. Ascending: $257 < 572 < 725$ — each step moves a larger digit one seat left (the 7 travels from ones to tens to hundreds), which the domination bound guarantees is an increase. Largest minus smallest: $725 - 257 = 468$, and $468 = 9 \\times 52$ ✓. Same fingerprint as the previous problem: identical digit multiset $\{2,5,7\}$, digit sum $14$ for all three, so every pairwise difference is a multiple of 9.',
+                  solution: [
+                    'Rotations: $257$, $572$, $725$.',
+                    'Ascending: $257 < 572 < 725$ — each step moves a larger digit one seat left (the 7 travels from ones to tens to hundreds), which the domination bound guarantees is an increase.',
+                    'Largest minus smallest: $725 - 257 = 468$, and $468 = 9 \\times 52$ ✓.',
+                    'Same fingerprint as the previous problem: identical digit multiset $\{2,5,7\}$, digit sum $14$ for all three, so every pairwise difference is a multiple of 9.',
+                  ],
                 },
               ],
             },
@@ -659,8 +725,15 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Prove the domination bound: for any seat $j \\ge 1$, the combined maximum contribution of all seats below $j$ is $10^{j} - 1$, which is strictly less than a single step of seat $j$.',
-                  solution:
-                    'A seat below $j$ has value $10^{k}$ with $0 \\le k \\le j-1$, and a digit difference at that seat is at most 9 in absolute value. So the largest possible combined contribution of all lower seats is $9(10^{j-1} + 10^{j-2} + \\dots + 10^{1} + 10^{0})$. The powers form a geometric series with ratio 10: $10^{j-1} + \\dots + 10^{0} = \\frac{10^{j} - 1}{10 - 1} = \\frac{10^{j} - 1}{9}$. Multiplying by 9: the bound is exactly $10^{j} - 1$. Meanwhile the smallest non-zero contribution of seat $j$ itself is $1 \\times 10^{j} = 10^{j}$, and $10^{j} > 10^{j} - 1$ always. Hence no configuration of lower seats — even nine at every position — can cancel one step of the deciding seat. For $j = 3$: lower seats max out at $999 < 1000$.',
+                  solution: [
+                    'A seat below $j$ has value $10^{k}$ with $0 \\le k \\le j-1$, and a digit difference at that seat is at most 9 in absolute value.',
+                    'So the largest possible combined contribution of all lower seats is $9(10^{j-1} + 10^{j-2} + \\dots + 10^{1} + 10^{0})$.',
+                    'The powers form a geometric series with ratio 10: $10^{j-1} + \\dots + 10^{0} = \\frac{10^{j} - 1}{10 - 1} = \\frac{10^{j} - 1}{9}$.',
+                    'Multiplying by 9: the bound is exactly $10^{j} - 1$.',
+                    'Meanwhile the smallest non-zero contribution of seat $j$ itself is $1 \\times 10^{j} = 10^{j}$, and $10^{j} > 10^{j} - 1$ always.',
+                    'Hence no configuration of lower seats — even nine at every position — can cancel one step of the deciding seat.',
+                    'For $j = 3$: lower seats max out at $999 < 1000$.',
+                  ],
                 },
               ],
             },
@@ -669,8 +742,18 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Prove that any two numbers formed by rearranging the same digits differ by a multiple of 9. Then explain why seat-by-seat comparison from the left defines a *total order* on equal-length numerals (every pair comparable, and the order is transitive).',
-                  solution:
-                    'Part 1. A numeral with digits $d_n \\dots d_0$ equals $\\sum d_k 10^{k}$, and each power satisfies $10^{k} = (9 + 1)^{k} = 9 \\cdot (\\text{something}) + 1$ by the binomial expansion — so $10^{k} \\equiv 1 \\pmod{9}$ for every $k$. Therefore the whole number $\\equiv \\sum d_k \\pmod 9$: every number is congruent to its digit sum modulo 9. Two rearrangements have identical digit sums, hence identical remainders mod 9, so their difference $\\equiv 0 \\pmod 9$ — a multiple of 9. Part 2. Seat-by-seat comparison is exactly lexicographic (dictionary) order on the digit strings, read from the left. Every pair of distinct equal-length strings has a leftmost differing position, so comparability holds. Transitivity: if $A$ beats $B$ at position $p$ and $B$ beats $C$ at position $q$, then at the first position where $A$ and $C$ differ, careful case analysis on whether that position is above, at, or below $\min(p, q)$ shows $A$ beats $C$ — the domination bound supplies each case. This is the same argument by which alphabetical order is transitive, and it is why machines can sort millions of keys with a single left-to-right scan per comparison.',
+                  solution: [
+                    'Part 1.',
+                    'A numeral with digits $d_n \\dots d_0$ equals $\\sum d_k 10^{k}$, and each power satisfies $10^{k} = (9 + 1)^{k} = 9 \\cdot (\\text{something}) + 1$ by the binomial expansion — so $10^{k} \\equiv 1 \\pmod{9}$ for every $k$.',
+                    'Therefore the whole number $\\equiv \\sum d_k \\pmod 9$: every number is congruent to its digit sum modulo 9.',
+                    'Two rearrangements have identical digit sums, hence identical remainders mod 9, so their difference $\\equiv 0 \\pmod 9$ — a multiple of 9.',
+                    'Part 2.',
+                    'Seat-by-seat comparison is exactly lexicographic (dictionary) order on the digit strings, read from the left.',
+                    'Every pair of distinct equal-length strings has a leftmost differing position, so comparability holds.',
+                    'Transitivity: if $A$ beats $B$ at position $p$ and $B$ beats $C$ at position $q$,',
+                    'then at the first position where $A$ and $C$ differ, careful case analysis on whether that position is above, at, or below $\min(p, q)$ shows $A$ beats $C$ — the domination bound supplies each case.',
+                    'This is the same argument by which alphabetical order is transitive, and it is why machines can sort millions of keys with a single left-to-right scan per comparison.',
+                  ],
                 },
               ],
             },
@@ -973,13 +1056,22 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Round $6{,}749$ to the nearest ten, hundred and thousand.',
-                  solution:
-                    'Nearest ten: keep the tens digit (4), inspect ones $9 \\ge 5$ — step up: $6{,}750$. Nearest hundred: keep the hundreds digit (7), inspect tens $4 < 5$ — stay: $6{,}700$. Nearest thousand: keep the thousands digit (6), inspect hundreds $7 \\ge 5$ — step up: $7{,}000$. Note the three answers move by different amounts (1, 49, 251) — the finer the place, the smaller the guaranteed error, and the more the answer depends on the digit structure.',
+                  solution: [
+                    'Nearest ten: keep the tens digit (4), inspect ones $9 \\ge 5$ — step up: $6{,}750$.',
+                    'Nearest hundred: keep the hundreds digit (7), inspect tens $4 < 5$ — stay: $6{,}700$.',
+                    'Nearest thousand: keep the thousands digit (6), inspect hundreds $7 \\ge 5$ — step up: $7{,}000$.',
+                    'Note the three answers move by different amounts (1, 49, 251) — the finer the place, the smaller the guaranteed error, and the more the answer depends on the digit structure.',
+                  ],
                 },
                 {
                   q: 'Estimate $3{,}912 + 4{,}882$ to the nearest hundred, then compute the exact sum and the error.',
-                  solution:
-                    'Round each addend to hundreds: $3{,}912 \\to 3{,}900$ (tens digit 1, stay) and $4{,}882 \\to 4{,}900$ (tens digit 8, step up). Estimate: $3{,}900 + 4{,}900 = 8{,}800$. Exact: $3{,}912 + 4{,}882 = 8{,}794$. Error: $8{,}800 - 8{,}794 = 6$ — one addend rounded down by 12, the other up by 18, and the errors nearly cancelled. The error bound for two hundred-rounded numbers is $2 \\times 50 = 100$; actual error 6 shows how much cancellation is typical.',
+                  solution: [
+                    'Round each addend to hundreds: $3{,}912 \\to 3{,}900$ (tens digit 1, stay) and $4{,}882 \\to 4{,}900$ (tens digit 8, step up).',
+                    'Estimate: $3{,}900 + 4{,}900 = 8{,}800$.',
+                    'Exact: $3{,}912 + 4{,}882 = 8{,}794$.',
+                    'Error: $8{,}800 - 8{,}794 = 6$ — one addend rounded down by 12, the other up by 18, and the errors nearly cancelled.',
+                    'The error bound for two hundred-rounded numbers is $2 \\times 50 = 100$; actual error 6 shows how much cancellation is typical.',
+                  ],
                 },
               ],
             },
@@ -988,13 +1080,22 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'A school must transport $1{,}293$ students. Each bus seats $55$. How many buses are needed, and why is "rounding to nearest" the wrong tool here?',
-                  solution:
-                    'Bracket the count: $55 \\times 23 = 1{,}265$ (short by $28$ students — unacceptable), while $55 \\times 24 = 1{,}320 \\ge 1{,}293$ (everyone seated). Answer: $24$ buses. Plain nearest-rounding of the quotient $1{,}293 \\div 55 \\approx 23.5$ happens to give 24 here, but for an accidental reason: the exact quotient sits almost exactly at a midpoint, and if it had been $23.4$ the "nearest" rule would have delivered 23 buses and twenty-eight stranded students. Capacity questions demand the ceiling — the first whole number that works — because the cost of a shortfall (stranded students) is not symmetric with the cost of a spare bus.',
+                  solution: [
+                    'Bracket the count: $55 \\times 23 = 1{,}265$ (short by $28$ students — unacceptable), while $55 \\times 24 = 1{,}320 \\ge 1{,}293$ (everyone seated).',
+                    'Answer: $24$ buses.',
+                    'Plain nearest-rounding of the quotient $1{,}293 \\div 55 \\approx 23.5$ happens to give 24 here, but for an accidental reason: the exact quotient sits almost exactly at a midpoint, and if it had been $23.4$ the "nearest" rule would have delivered 23 buses and twenty-eight stranded students.',
+                    'Capacity questions demand the ceiling — the first whole number that works — because the cost of a shortfall (stranded students) is not symmetric with the cost of a spare bus.',
+                  ],
                 },
                 {
                   q: 'A calculator displays $4{,}327 + 2{,}845 = 32{,}777$. Use estimation to prove the display is wrong, and identify the likely typo.',
-                  solution:
-                    'Estimate to the nearest thousand: $4{,}000 + 3{,}000 = 7{,}000$ (even the crudest leading-digit view: "four thousand plus three thousand"). The displayed $32{,}777$ is roughly five times too large — no honest rounding of these inputs can reach it. The likely typo: the comma or a stray digit turned $2{,}845$ into $28{,}450$, since $4{,}327 + 28{,}450 = 32{,}777$ exactly. This is estimation\'s highest daily use: not replacing exact arithmetic, but standing guard over it. The exact sum, for the record, is $7{,}172$.',
+                  solution: [
+                    'Estimate to the nearest thousand: $4{,}000 + 3{,}000 = 7{,}000$ (even the crudest leading-digit view: "four thousand plus three thousand").',
+                    'The displayed $32{,}777$ is roughly five times too large — no honest rounding of these inputs can reach it.',
+                    'The likely typo: the comma or a stray digit turned $2{,}845$ into $28{,}450$, since $4{,}327 + 28{,}450 = 32{,}777$ exactly.',
+                    'This is estimation\'s highest daily use: not replacing exact arithmetic, but standing guard over it.',
+                    'The exact sum, for the record, is $7{,}172$.',
+                  ],
                 },
               ],
             },
@@ -1003,13 +1104,24 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: '(Exam-style, foundation level) Estimate $12{,}903 + 2{,}891 - 3{,}905$ to the nearest thousand, and compare with the exact value.',
-                  solution:
-                    'Round each to the nearest thousand: $12{,}903 \\to 13{,}000$ (hundreds digit 9), $2{,}891 \\to 3{,}000$ (hundreds digit 8), $3{,}905 \\to 4{,}000$ (hundreds digit 9). Estimate: $13{,}000 + 3{,}000 - 4{,}000 = 12{,}000$. Exact: $12{,}903 + 2{,}891 - 3{,}905 = 11{,}889$. Error: $111$, comfortably inside the guaranteed bound of $3 \\times 500 = 1{,}500$ for three thousand-rounded numbers. Strategy note for exams: with mixed operations, round *before* combining — rounding the intermediate results instead compounds the error.',
+                  solution: [
+                    'Round each to the nearest thousand: $12{,}903 \\to 13{,}000$ (hundreds digit 9), $2{,}891 \\to 3{,}000$ (hundreds digit 8), $3{,}905 \\to 4{,}000$ (hundreds digit 9).',
+                    'Estimate: $13{,}000 + 3{,}000 - 4{,}000 = 12{,}000$.',
+                    'Exact: $12{,}903 + 2{,}891 - 3{,}905 = 11{,}889$.',
+                    'Error: $111$, comfortably inside the guaranteed bound of $3 \\times 500 = 1{,}500$ for three thousand-rounded numbers.',
+                    'Strategy note for exams: with mixed operations, round *before* combining — rounding the intermediate results instead compounds the error.',
+                  ],
                 },
                 {
                   q: '(Exam-style, foundation level) A shop bill reads ₹249, ₹375, ₹89 and ₹1,299. Estimate the total to a useful figure, and state whether your estimate is safe for a wallet containing exactly that estimate.',
-                  solution:
-                    'Round to the nearest fifty or hundred for speed: $250 + 400 + 90 + 1{,}300 = 2{,}040$. (A ₹50-grain estimate: $250 + 400 + 100 + 1{,}300 = 2{,}050$; to hundreds: $200 + 400 + 100 + 1{,}300 = 2{,}000$.) Exact total: $249 + 375 + 89 + 1{,}299 = 2{,}012$. The ₹2,040 estimate is *not* wallet-safe in general: estimates straddle the truth, and a wallet funded with an estimate below the bill fails at the counter. For purchases the safe figure rounds every price UP — here $250 + 400 + 90 + 1{,}300 = 2{,}040$ already sits above $2{,}012$ by luck of the digits; the guaranteed-safe bound is the ceiling-style $300 + 400 + 100 + 1{,}300 = 2{,}100$. Direction, not closeness, is what "safe" means.',
+                  solution: [
+                    'Round to the nearest fifty or hundred for speed: $250 + 400 + 90 + 1{,}300 = 2{,}040$.',
+                    '(A ₹50-grain estimate: $250 + 400 + 100 + 1{,}300 = 2{,}050$; to hundreds: $200 + 400 + 100 + 1{,}300 = 2{,}000$.) Exact total: $249 + 375 + 89 + 1{,}299 = 2{,}012$.',
+                    'The ₹2,040 estimate is *not* wallet-safe in general: estimates straddle the truth, and a wallet funded with an estimate below the bill fails at the counter.',
+                    'For purchases the safe figure rounds every price UP — here $250 + 400 + 90 + 1{,}300 = 2{,}040$ already sits above $2{,}012$ by luck of the digits',
+                    'the guaranteed-safe bound is the ceiling-style $300 + 400 + 100 + 1{,}300 = 2{,}100$.',
+                    'Direction, not closeness, is what "safe" means.',
+                  ],
                 },
               ],
             },
@@ -1018,8 +1130,13 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'Four quantities are each rounded to the nearest hundred before being added. (a) Show the total error cannot exceed 200. (b) Exhibit four numbers for which the error equals exactly 200.',
-                  solution:
-                    '(a) Each rounding replaces $x$ by the nearer multiple of 100, so the individual error satisfies $|r - x| \\le 50$ (equality exactly at midpoints, which round up). Summing four: $|\\sum (r_i - x_i)| \\le \\sum |r_i - x_i| \\le 4 \\times 50 = 200$ — errors in opposite directions cancel, so the worst case is all four pushing the same way. (b) Take four exact midpoints: $150 + 250 + 350 + 450 = 1{,}200$, while each rounds up to its next hundred: $200 + 300 + 400 + 500 = 1{,}400$. The estimate exceeds the truth by exactly $4 \\times 50 = 200$ — the bound is attained, so no smaller ceiling is guaranteed. (One hundred-grain refinement: with round-half-to-even, 250 and 450 would round *down*, and this worst case would soften to +100 — conventions have consequences.)',
+                  solution: [
+                    '(a) Each rounding replaces $x$ by the nearer multiple of 100, so the individual error satisfies $|r - x| \\le 50$ (equality exactly at midpoints, which round up).',
+                    'Summing four: $|\\sum (r_i - x_i)| \\le \\sum |r_i - x_i| \\le 4 \\times 50 = 200$ — errors in opposite directions cancel, so the worst case is all four pushing the same way.',
+                    '(b) Take four exact midpoints: $150 + 250 + 350 + 450 = 1{,}200$, while each rounds up to its next hundred: $200 + 300 + 400 + 500 = 1{,}400$.',
+                    'The estimate exceeds the truth by exactly $4 \\times 50 = 200$ — the bound is attained, so no smaller ceiling is guaranteed.',
+                    '(One hundred-grain refinement: with round-half-to-even, 250 and 450 would round *down*, and this worst case would soften to +100 — conventions have consequences.)',
+                  ],
                 },
               ],
             },
@@ -1028,8 +1145,19 @@ export const chapter01: Chapter = {
               questions: [
                 {
                   q: 'The ten possible final digits 0–9 are rounded to the nearest ten with the school (ties-up) rule. (a) Tabulate the ten rounding errors and their sum. (b) Show how round-half-to-even makes the midpoint errors cancel in pairs, and explain in one paragraph why the IEEE 754 floating-point standard chose it.',
-                  solution:
-                    '(a) Final digit 0: error $0$. Digits 1–4 round down: errors $-1, -2, -3, -4$. Digit 5 is a tie and rounds up: $+5$. Digits 6–9 round up: $+4, +3, +2, +1$. Sum: $0 - 10 + 15 = +5$ — an average bias of $+0.5$ per rounded number, always in the *upward* direction. (b) Round-half-to-even sends a tie to whichever neighbouring ten is even. The midpoints 15, 25, 35, 45 round to 20, 20, 40, 40 — errors $+5, -5, +5, -5$ — cancelling in pairs, so the drift over many roundings is zero (the digit-level sum becomes 0). Why IEEE 754 cares: computer arithmetic rounds *billions* of times per second in long pipelines (summations, matrix products, interest accruals). A systematic +0.5-per-operation bias would grow without bound, quietly inflating totals and skewing statistics; an unbiased rule makes the rounding noise behave like random noise that grows only as the square root of the count. The "even" target is chosen because it needs no extra information beyond the digits already present — an odd/even test is the cheapest possible tie-breaker.',
+                  solution: [
+                    '(a) Final digit 0: error $0$.',
+                    'Digits 1–4 round down: errors $-1, -2, -3, -4$.',
+                    'Digit 5 is a tie and rounds up: $+5$.',
+                    'Digits 6–9 round up: $+4, +3, +2, +1$.',
+                    'Sum: $0 - 10 + 15 = +5$ — an average bias of $+0.5$ per rounded number, always in the *upward* direction.',
+                    '(b) Round-half-to-even sends a tie to whichever neighbouring ten is even.',
+                    'The midpoints 15, 25, 35, 45 round to 20, 20, 40, 40 — errors $+5, -5, +5, -5$ — cancelling in pairs, so the drift over many roundings is zero (the digit-level sum becomes 0).',
+                    'Why IEEE 754 cares: computer arithmetic rounds *billions* of times per second in long pipelines (summations, matrix products, interest accruals).',
+                    'A systematic +0.5-per-operation bias would grow without bound, quietly inflating totals and skewing statistics',
+                    'an unbiased rule makes the rounding noise behave like random noise that grows only as the square root of the count.',
+                    'The "even" target is chosen because it needs no extra information beyond the digits already present — an odd/even test is the cheapest possible tie-breaker.',
+                  ],
                 },
               ],
             },

@@ -268,7 +268,11 @@ function lessonText(lesson: Lesson): string {
         for (const it of b.items) parts.push(it.q, it.explain, ...it.options)
         break
       case 'exercises':
-        for (const set of b.sets) for (const q of set.questions) parts.push(q.q, q.solution)
+        for (const set of b.sets)
+          for (const q of set.questions) {
+            const sol = Array.isArray(q.solution) ? q.solution.join(' ') : q.solution
+            parts.push(q.q, sol, q.answer ?? '')
+          }
         break
       case 'formula':
         parts.push(b.name, b.note ?? '')

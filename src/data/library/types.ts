@@ -146,8 +146,17 @@ export interface QuizItem {
 
 export interface ExerciseQuestion {
   q: string
-  /** complete worked solution — strategy, steps, final answer */
-  solution: string
+  /**
+   * Complete worked solution. Two authoring formats:
+   *  - **Steps (preferred, owner directive 2026-11-03):** an array of short
+   *    worked lines — one step per line, words + $math$ mixed, exactly like a
+   *    handwritten worked solution ("Split 84 into 4 shares", "84 ÷ 4 = 21",
+   *    …). Rendered as numbered steps with an optional boxed answer.
+   *  - **Prose (legacy):** a single paragraph string, rendered as before.
+   */
+  solution: string | string[]
+  /** Final result line, rendered boxed and emphasised after the steps. */
+  answer?: string
 }
 
 export interface ExerciseSet {
@@ -259,7 +268,10 @@ export function countLessonWords(lesson: Lesson): number {
         break
       case 'exercises':
         for (const set of b.sets)
-          for (const q of set.questions) n += words(clean(q.q)) + words(clean(q.solution))
+          for (const q of set.questions) {
+            const sol = Array.isArray(q.solution) ? q.solution.join(' ') : q.solution
+            n += words(clean(q.q)) + words(clean(sol)) + (q.answer ? words(clean(q.answer)) : 0)
+          }
         break
       case 'formula':
         n += words(clean(b.name)) + (b.note ? words(clean(b.note)) : 0)
