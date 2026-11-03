@@ -6,6 +6,113 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 9: lesson 3.3 Highest Common Factor shipped (unit 3 = 3/5 lessons)
+
+**Situation at start:** tree clean at `f3ebbb8` = origin/main (run-8 memory
+commit; ship commit 500a028 already pushed). RESUME_POINTER named FM 3.3
+"Highest Common Factor" — the fifth delivery of job 498279 (16:04 +08:00),
+previous four had not landed a lesson. No in-flight lessons. **Fifth sandbox
+recycle** found: gitignored `temporary-references/` wiped again; dev server
+already up (200), node_modules intact. Recovered in one command per recipe:
+`bun run scripts/rebuild_drive_survey.ts` → 89 entries, 4 folders, Khattar
+file id intact.
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id
+(33.9 MB) — ch. 2 "H.C.F. and L.C.M. of Numbers" studied: the
+prime-factorisation method (common factors at lowest powers), the division
+method (successive ladder; 3556/3444 → 28; three-number folding), HCF/GCD/
+GCM naming, the greatest-number patterns (exact divide; same remainder
+known/unknown — Khattar's 148/246/623 → 12, 772/2778 → 59, 152/277/427),
+co-prime pairs with a given sum, and the product rule noted as Lesson 3.5
+material. NCERT Class 6 ch. 3 §3.8 HCF coverage web-checked (Exercise 3.6
+works every item by prime factorisation). All exposition original — no
+Khattar text reproduced; instances recomposed (cords 1,152/768/1,248;
+remainder triple 689/1,124/1,706; composer's sum 156).
+
+**Pre-write verification:** `scripts/verify-unit-3.ts` extended with
+sections V–Y (helpers gcd/gcd3 + 40 checks) — **192 checks, ALL PASS before
+one word was written** (up from 152). Covers: the seed 42 (84/126 by atoms
+and ladder); listing route 48 & 60 (full factor lists, common set, HCF 12);
+min-exponent atoms route (96 & 720 → 48 with exhaustive common-divisor
+enumeration; 4,896 & 720 → 144; 2,025 & 4,896 → 9; coprime pairs 9/35,
+8/15, 16/17; consecutive pairs; gcd(n,n) and gcd(1,n) edges); Euclidean
+ladders (4,896/720 three rows with every quotient; swap-lemma divisor-set
+equality; 126/84 → 42; three-cord chain → 96 with atoms cross-check; the
+8-row 2,025/4,896 ladder); Bézout back-substitution (7×720 − 4,896 = 144;
+certificate 2×4 − 1×7 = 1 for the crossroads instance 7 | 4×35);
+coprime-split instances (2,376 = 12 × 198 via S=18 + tail 76; counter 18);
+remainder patterns (689−5/1,124−8/1,706−14 → 2²×3² = 36 with prime
+quotients 19/31/47; 152/277/427 differences → 25, remainder 2); exercise
+and quiz numbers (Y1–Y14 incl. the six HCF-12/sum-156 pairs, exhaustive
+no-seventh-pair check, Venn products 48 × 1,440 = 96 × 720).
+verify-unit-2.ts still 165/165.
+
+**Shipped: lesson 3.3 "Highest Common Factor"** (ch-03.ts, 5,564 honest
+words, 49 blocks): craft-studio cords opening (84 & 126 cm — 3.2's L3 seed
+made physical) + the two-debts framing; 7 terms; HCF definition callout
+(GCD/GCM aliases; edges gcd(n,n) = n, gcd(1,n) = 1); Route 1 listing
+(48 & 60 → 12; the common-factors-are-divisors-of-the-HCF observation);
+Route 2 smaller-power derivation (FTA caps + independence; gallery pair
+96 & 720 → 48 — 3.2's opener returns; missing-prime-is-exponent-0 →
+2,025 & 4,896 → 9; seed equation 42; formula card + warn callout on the
+larger-power slip 288 and the one-divides-the-other shortcut 34); coprime
+definition callout + consecutive-numbers insight (difference argument);
+Route 3 Euclidean ladder (worked 4,896 & 720 → 144 in three rows; swap-
+lemma derivation — common divisors preserved both directions, termination
+via 3.1's r < b; ladder formula card; three-cords example 1,152/768/1,248
+→ 96 by ladder folding AND atoms; Venn-territories figure — overlap =
+HCF 48, union = LCM 1,440 preview, plain labels; route-choice table);
+back-substitution derivation → Bézout theorem callout (7 × 720 − 4,896 =
+144); Euclid's crossroads lemma DISCHARGED in five steps (the 3.2 proof
+debt paid; chapter-arc para: every theorem hangs from 2.4's division
+algorithm); coprime-split theorem callout (2,376 = 12 × 198 instance; 18
+counter; 3.1's trap explained at last); three greatest-number patterns
+table + why-it-works para + remainder-patterns formula card; historical
+callout (Euclid VII.1–2, al-Khwārizmī, Bachet 1624, Bézout 1779); exam
+callout (SSC/bank/Railway staples; product-rule promise banked for 3.5);
+**5 quiz** (answers spread 1/3/2/0/1); L1–L6 exercises — 10 questions,
+L3 repays the seed by ladder, L6 the composer's problem (six pairs with
+HCF 12 summing to 156; completeness because 13 is prime).
+
+**Two escape/defect hits, both fixed at source:** (1) over-escaped
+backslashes in two of the three authoring edits (`\\\\` where `\\`
+was meant, `\\'` where `\'` — the run-4 disease resurfacing); tsc
+caught the string-terminator break at ch-03.ts:1294; a python normaliser
+(regex 4+-run → 2, 2+-run-before-apostrophe → 1) applied and verified by
+bun string evaluation (0 double-backslash fields, 0 tabs, KaTeX sources
+single-escaped). New ESCAPE RULE logged in RESUME_POINTER. (2) tsc TS2561:
+table blocks take `head`, not `header` — fixed in both new tables.
+
+**E2E:** dev routes 200 (home/book/3.2/3.3/revise/glossary; unknown id
+404). agent-browser on the 3.3 page — KaTeX 392 expanded (257 collapsed),
+**dollarInSvg = 0**, zero console errors. Quiz answered live with the
+intended options (indices 1/3/2/0/1) → **"You scored 5/5 · perfect"**,
+best score persisted (book-page chip). Flashcards 61 → **68**; glossary
+lists the 7 new terms; Venn figure screenshot-verified (both headers,
+overlap product, bottom annotations, plain labels). **Mobile 390px exact-
+fit (scrollWidth = 390) with ALL TEN solutions expanded** — three wide
+display blocks scroll inside the `math-display` overflow-x:auto guard,
+max SVG width 324. lint clean; tsc clean; verify scripts 192/165.
+
+**Logs:** PROGRESS.json (phase 3/5, awaiting 3.4, lessonsWritten +
+fm-highest-common-factor → 11, wordsAuthored 49,289, flashcards 68,
+3.3 record + E2E entry), RESUME_POINTER.json (nextAction = 3.4 LCM;
+unit3 record; lastCompleted prepended; ESCAPE RULE added; recycle count
+five), SOURCE_LOG.md (run-9 re-download + ch. 2 study + NCERT §3.8),
+WORK_INVENTORY.json regenerated (book = 11 lessons, 49,289 words, 68
+terms, 55 quiz items, 93 exercise questions; 3.3 = 5,564 words, 10
+exercise questions), DETAILED_LOG.md updated. book.ts notes now record
+3.3 shipped.
+
+**Remaining:** unit 3 continues with 3.4 Lowest Common Multiple (ties:
+3.3's Venn union named the LCM; bells/buses/timetables opening promised;
+LCM twins of the remainder patterns; product rule banked for 3.5), then
+3.5 HCF, LCM and How They Relate. Exam-registry research still pending.
+
+**Git:** commit `unit 3: FM lesson 3.3 Highest Common Factor (5,564 words, 192 verified checks, E2E green incl. Bézout debt repaid) + logs`; PUSHED under protocol v2 (see memory note for shas).
+
+---
+
 ## 2026-11-03 — HOURLY RUN 8: lesson 3.2 Prime Numbers and Factorisation shipped (unit 3 = 2/5 lessons)
 
 **Situation at start:** tree clean at `ea0441f` = origin/main (verified via

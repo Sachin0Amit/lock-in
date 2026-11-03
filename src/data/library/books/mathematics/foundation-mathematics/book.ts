@@ -34,7 +34,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) open: 3.1 Divisibility and Its Tests shipped (unit 3). Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) in progress: 3.1 Divisibility and Its Tests, 3.2 Prime Numbers and Factorisation and 3.3 Highest Common Factor shipped (unit 3; HCF via three routes — listing, atoms at the smaller powers, Euclidean ladder — plus Bézout paying 3.2\'s crossroads-lemma debt). Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

@@ -341,6 +341,141 @@ check('U12: sieve block: crossing 2 from 4, 3 from 9, 5 from 25, 7 from 49 — a
 check('U13: primes in 80..100 are 83, 89, 97 (three) vs ten below 30 — the sieve thins out', JSON.stringify(primesUpTo(100).filter((p) => p >= 80)) === JSON.stringify([83, 89, 97]) && primesUpTo(29).length === 10);
 
 /* ============================================================
+ * V. Lesson 3.3 "Highest Common Factor" — definitions and the
+ *    atoms route (shared primes at the smaller powers)
+ * ==========================================================*/
+function gcd(a: number, b: number): number {
+  let x = a, y = b;
+  while (y > 0) { const r = x % y; x = y; y = r; }
+  return x;
+}
+function gcd3(a: number, b: number, c: number): number {
+  return gcd(gcd(a, b), c);
+}
+// V1: the definition — a common divisor divides both; the HCF is the
+// greatest one; divisibility cross-checks for the opening scene
+check('V1: 42 divides 84 and 126 (84 = 2x42, 126 = 3x42); no larger common divisor exists', 84 % 42 === 0 && 126 % 42 === 0 && gcd(84, 126) === 42 && divisorsOf(84).filter((d) => 126 % d === 0).every((d) => d <= 42) && divisorsOf(84).filter((d) => 126 % d === 0).includes(42));
+// V2: listing route — factors of 48 and 60, common {1,2,3,4,6,12}, HCF 12
+check('V2: factors of 48 = {1,2,3,4,6,8,12,16,24,48}; of 60 = {1,2,3,4,5,6,10,12,15,20,30,60}; common {1,2,3,4,6,12}; HCF 12', JSON.stringify(divisorsOf(48)) === JSON.stringify([1, 2, 3, 4, 6, 8, 12, 16, 24, 48]) && JSON.stringify(divisorsOf(60)) === JSON.stringify([1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]) && JSON.stringify(divisorsOf(48).filter((d) => divisorsOf(60).includes(d))) === JSON.stringify([1, 2, 3, 4, 6, 12]) && gcd(48, 60) === 12);
+// V3: the atoms route — HCF(96, 720): 96 = 2^5 x 3, 720 = 2^4 x 3^2 x 5,
+// shared primes at the SMALLER powers: 2^4 x 3 = 48 (Lesson 3.2's opener)
+check('V3: 96 = 2^5 x 3 and 720 = 2^4 x 3^2 x 5; HCF = 2^4 x 3 = 48 = gcd(96,720)', JSON.stringify(primeFactors(96)) === JSON.stringify([2, 2, 2, 2, 2, 3]) && JSON.stringify(primeFactors(720)) === JSON.stringify([2, 2, 2, 2, 3, 3, 5]) && 2 ** 4 * 3 === 48 && gcd(96, 720) === 48);
+// V4: min-exponent logic verified by exhaustive divisor enumeration
+check('V4: 48 is a divisor of both 96 and 720, and every common divisor of the pair divides 48 (greatest, not just a)', divisorsOf(96).includes(48) && divisorsOf(720).includes(48) && divisorsOf(96).filter((d) => 720 % d === 0).every((d) => 48 % d === 0));
+// V5: the exam-hall pair — HCF(4896, 720) = 2^4 x 3^2 = 144
+check('V5: 4896 = 2^5 x 3^2 x 17 and 720 = 2^4 x 3^2 x 5; HCF = 2^4 x 3^2 = 144 = gcd(4896,720)', 2 ** 4 * 3 ** 2 === 144 && gcd(4896, 720) === 144 && 4896 % 144 === 0 && 720 % 144 === 0);
+// V6: a missing prime is exponent 0 — HCF(2025, 4896): 2025 = 3^4 x 5^2,
+// 4896 = 2^5 x 3^2 x 17; only 3 is shared: 3^2 = 9
+check('V6: 2025 = 3^4 x 5^2, 4896 = 2^5 x 3^2 x 17; HCF = 3^2 = 9 (the 2 and 5 and 17 are min(.,0) = 0)', JSON.stringify(primeFactors(2025)) === JSON.stringify([3, 3, 3, 3, 5, 5]) && 3 ** 2 === 9 && gcd(2025, 4896) === 9 && gcd(2025, 4896) === 3 ** Math.min(4, 2));
+// V7: coprime pairs — no shared atom means HCF 1
+check('V7: coprime: gcd(9, 35) = 1 (3^2 vs 5x7); gcd(8, 15) = 1; gcd(16, 17) = 1 (Khattar ch.1 pair)', gcd(9, 35) === 1 && gcd(8, 15) === 1 && gcd(16, 17) === 1);
+// V8: consecutive integers are always coprime — d | n and d | n+1 forces d | 1
+check('V8: consecutive pairs are coprime: gcd(87,88) = gcd(1000,1001) = gcd(48,49) = 1', gcd(87, 88) === 1 && gcd(1000, 1001) === 1 && gcd(48, 49) === 1);
+// V9: HCF of a number with itself is the number; 1 divides everything, HCF(1, n) = 1
+check('V9: gcd(n, n) = n (take 48, 60, 4896); gcd(1, n) = 1 (take 1, 96)', [48, 60, 4896].every((n) => gcd(n, n) === n) && gcd(1, 96) === 1);
+
+/* ============================================================
+ * W. Lesson 3.3 — the Euclidean division method (ladder) and
+ *    Bézout's identity (the proof debt from 3.2)
+ * ==========================================================*/
+// W1: the ladder for (4896, 720): 4896 = 6x720 + 576; 720 = 1x576 + 144;
+// 576 = 4x144 + 0. Last nonzero remainder 144 = the HCF (V5 cross)
+check('W1: ladder 4896 = 6x720 + 576; 720 = 1x576 + 144; 576 = 4x144 + 0 -> HCF 144', 4896 === 6 * 720 + 576 && 720 === 1 * 576 + 144 && 576 === 4 * 144 + 0 && gcd(4896, 720) === 144);
+// W2: the swap lemma — any common divisor of (a, b) divides r = a - qb,
+// and any common divisor of (b, r) divides a; so the pairs share divisors
+check('W2: swap on step 1: common divisors of {4896, 720} = common divisors of {720, 576}; 576 = 4896 - 6x720', divisorsOf(4896).filter((d) => 720 % d === 0).join(',') === divisorsOf(720).filter((d) => 576 % d === 0).join(',') && 576 === 4896 - 6 * 720);
+// W3: the seed repaid by ladder — gcd(126, 84): 126 = 1x84 + 42; 84 = 2x42 + 0 -> 42
+check('W3: ladder 126 = 1x84 + 42; 84 = 2x42 + 0 -> HCF 42 (the 3.2 Exercise L3 seed)', 126 === 1 * 84 + 42 && 84 === 2 * 42 + 0 && gcd(126, 84) === 42);
+// W4: three numbers by ladder chaining — gcd(1152, 768) = 384, then
+// gcd(384, 1248): 1248 = 3x384 + 96; 384 = 4x96 + 0 -> 96 (the worked example)
+check('W4: 1152 = 1x768 + 384; 768 = 2x384 + 0; 1248 = 3x384 + 96; 384 = 4x96 + 0 -> HCF(1152,768,1248) = 96', 1152 === 1 * 768 + 384 && 768 === 2 * 384 + 0 && 1248 === 3 * 384 + 96 && 384 === 4 * 96 + 0 && gcd3(1152, 768, 1248) === 96);
+// W5: the worked-example atoms cross-check — 1152 = 2^7 x 3^2,
+// 768 = 2^8 x 3, 1248 = 2^5 x 3 x 13 -> min powers 2^5 x 3 = 96
+check('W5: atoms 2^7x3^2, 2^8x3, 2^5x3x13 -> HCF 2^5 x 3 = 96 (W4 cross); rebuild 32x3 = 96', 2 ** 7 * 3 ** 2 === 1152 && 2 ** 8 * 3 === 768 && 2 ** 5 * 3 * 13 === 1248 && 2 ** 5 * 3 === 96 && 32 * 3 === 96);
+// W6: Bézout back-substitution on (4896, 720): 144 = 720 - 576 =
+// 720 - (4896 - 6x720) = 7x720 - 4896 — an integer combination
+check('W6: Bezout: 7x720 - 1x4896 = 144 = gcd; the back-substitution arithmetic', 7 * 720 - 4896 === 144 && 720 - (4896 - 6 * 720) === 144);
+// W7: the termination guard — remainders strictly shrink (3.1's r < b),
+// so the ladder must reach zero: spot-check monotone 576 > 144 > 0
+check('W7: ladder remainders strictly decrease: 720 > 576 > 144 > 0 (the 3.1 bound r < b at work)', 720 > 576 && 576 > 144 && 144 > 0);
+// W8: the crossroads lemma, instance — 7 divides 4 x 35 = 140, 7 does not
+// divide 4, so 7 must divide 35 (Bézout's engine in action)
+check('W8: 140 = 7 x 20 (7 | 4x35); 4 = 7x0 + 4 (7 ∤ 4); 35 = 7x5 (7 | 35)', 4 * 35 === 140 && 140 === 7 * 20 && 4 % 7 === 4 && 35 % 7 === 0);
+// W9: Bézout instance for the lemma — gcd(7, 4) = 1 and 2x7 - 3x4 = 2? No:
+// the certificate is 2x4 - 1x7 = 1 (2x4 - 1x7 = 8 - 7 = 1)
+check('W9: Bezout certificate for gcd(7,4) = 1: 2x4 - 1x7 = 1; multiply by 35: 70x4 - 35x7 = 35, and 7 | 35', 2 * 4 - 1 * 7 === 1 && 70 * 4 - 35 * 7 === 35);
+// W10: the ladder for a LONG pair — atoms win over ladders sometimes:
+// gcd(2025, 4896) takes 8 steps vs one glance at the atoms (V6 cross)
+check('W10: ladder steps for (2025, 4896): 4896 = 2x2025 + 846; 2025 = 2x846 + 333; 846 = 2x333 + 180; 333 = 1x180 + 153; 180 = 1x153 + 27; 153 = 5x27 + 18; 27 = 1x18 + 9; 18 = 2x9 + 0 -> 9', 4896 === 2 * 2025 + 846 && 2025 === 2 * 846 + 333 && 846 === 2 * 333 + 180 && 333 === 1 * 180 + 153 && 180 === 1 * 153 + 27 && 153 === 5 * 27 + 18 && 27 === 1 * 18 + 9 && 18 === 2 * 9 + 0 && gcd(2025, 4896) === 9);
+
+/* ============================================================
+ * X. Lesson 3.3 — coprime-split theorem (3.1's trap generalised)
+ *    and the remainder-variant exam patterns
+ * ==========================================================*/
+// X1: the theorem instance — gcd(3, 4) = 1, 3 | 2376 (S = 18), 4 | 2376
+// (tail 76), so 12 | 2376: 2376 = 12 x 198
+check('X1: S(2376) = 18 and tail 76 divisible by 4 -> 12 | 2376; 2376 = 12 x 198', String(2376).split('').reduce((s, d) => s + Number(d), 0) === 18 && 76 % 4 === 0 && 2376 === 12 * 198 && 2376 % 12 === 0);
+// X2: the counter-instance — 2 | 18 and 6 | 18 but 12 ∤ 18 (gcd(2, 6) = 2)
+check('X2: 18 % 2 = 0, 18 % 6 = 0, 18 % 12 = 6 — the 2x6 split over-admits (3.1 trap)', 18 % 2 === 0 && 18 % 6 === 0 && 18 % 12 === 6 && gcd(2, 6) === 2);
+// X3: the remainder-variant — greatest d dividing 689, 1124, 1706 leaving
+// remainders 5, 8, 14: HCF(684, 1116, 1692) = 2^2 x 3^2 = 36
+check('X3: 689-5 = 684, 1124-8 = 1116, 1706-14 = 1692; atoms 2^2x3^2x19, 2^2x3^2x31, 2^2x3^2x47 -> HCF 36; rebuilds: 689 = 19x36 + 5, 1124 = 31x36 + 8, 1706 = 47x36 + 14', 689 - 5 === 684 && 1124 - 8 === 1116 && 1706 - 14 === 1692 && JSON.stringify(primeFactors(684)) === JSON.stringify([2, 2, 3, 3, 19]) && JSON.stringify(primeFactors(1116)) === JSON.stringify([2, 2, 3, 3, 31]) && JSON.stringify(primeFactors(1692)) === JSON.stringify([2, 2, 3, 3, 47]) && 2 ** 2 * 3 ** 2 === 36 && gcd3(684, 1116, 1692) === 36 && 689 === 19 * 36 + 5 && 1124 === 31 * 36 + 8 && 1706 === 47 * 36 + 14);
+// X4: 19, 31, 47 are prime and pairwise coprime (why the HCF is exactly 36)
+check('X4: 19, 31, 47 all prime; gcds pairwise 1', [19, 31, 47].every((p) => isPrime(p)) && gcd(19, 31) === 1 && gcd(31, 47) === 1 && gcd(19, 47) === 1);
+// X5: the same-remainder-unknown pattern — greatest d dividing 152, 277,
+// 427 leaving equal remainders: HCF of pairwise differences
+check('X5: differences 277-152 = 125, 427-277 = 150, 427-152 = 275; HCF = 25; instance check: 152 = 6x25 + 2, 277 = 11x25 + 2, 427 = 17x25 + 2 (equal remainder 2)', 277 - 152 === 125 && 427 - 277 === 150 && 427 - 152 === 275 && gcd3(125, 150, 275) === 25 && 152 === 6 * 25 + 2 && 277 === 11 * 25 + 2 && 427 === 17 * 25 + 2);
+// X6: why differences suffice — if d divides all three with the same
+// remainder r, then d divides each pairwise difference
+check('X6: d | 152 and d | 277 => d | 125 (277 - 152); d | 277 and d | 427 => d | 150', 125 % 25 === 0 && 150 % 25 === 0 && 275 % 25 === 0);
+
+/* ============================================================
+ * Y. Lesson 3.3 — exercises and quiz numbers
+ * ==========================================================*/
+// Y1: L1 factors of 36 and 54: common {1,2,3,6,9,18}, HCF 18
+check('Y1: factors of 36 = {1,2,3,4,6,9,12,18,36}; of 54 = {1,2,3,6,9,18,27,54}; common {1,2,3,6,9,18}; HCF 18', JSON.stringify(divisorsOf(36)) === JSON.stringify([1, 2, 3, 4, 6, 9, 12, 18, 36]) && JSON.stringify(divisorsOf(54)) === JSON.stringify([1, 2, 3, 6, 9, 18, 27, 54]) && JSON.stringify(divisorsOf(36).filter((d) => divisorsOf(54).includes(d))) === JSON.stringify([1, 2, 3, 6, 9, 18]) && gcd(36, 54) === 18);
+// Y2: L1 every common factor of 48 and 60 (V2 pair) divides the HCF 12
+check('Y2: common factors of 48 and 60 are exactly the divisors of 12: {1,2,3,4,6,12}', JSON.stringify(divisorsOf(48).filter((d) => divisorsOf(60).includes(d))) === JSON.stringify(divisorsOf(12)));
+// Y3: L2 atoms route — HCF(36, 84) = 2^2 x 3 = 12; HCF(34, 102) = 34
+// (102 = 3 x 34 — the larger IS the HCF); HCF(27, 63) = 9
+check('Y3: 36 = 2^2x3^2, 84 = 2^2x3x7 -> HCF 12; 34 = 2x17, 102 = 2x3x17 -> HCF 34; 27 = 3^3, 63 = 3^2x7 -> HCF 9', JSON.stringify(primeFactors(36)) === JSON.stringify([2, 2, 3, 3]) && JSON.stringify(primeFactors(84)) === JSON.stringify([2, 2, 3, 7]) && gcd(36, 84) === 12 && JSON.stringify(primeFactors(34)) === JSON.stringify([2, 17]) && JSON.stringify(primeFactors(102)) === JSON.stringify([2, 3, 17]) && gcd(34, 102) === 34 && JSON.stringify(primeFactors(27)) === JSON.stringify([3, 3, 3]) && JSON.stringify(primeFactors(63)) === JSON.stringify([3, 3, 7]) && gcd(27, 63) === 9);
+// Y4: L2 the three-number atoms case — HCF(70, 105, 175) = 5 x 7 = 35
+check('Y4: 70 = 2x5x7, 105 = 3x5x7, 175 = 5^2x7 -> HCF 5x7 = 35', JSON.stringify(primeFactors(70)) === JSON.stringify([2, 5, 7]) && JSON.stringify(primeFactors(105)) === JSON.stringify([3, 5, 7]) && JSON.stringify(primeFactors(175)) === JSON.stringify([5, 5, 7]) && gcd3(70, 105, 175) === 35 && 5 * 7 === 35);
+// Y5: L3 the seed repaid — gcd(84, 126) by ladder = 42 = 2 x 3 x 7 (W3,
+// U5 cross): 4896-hall style verification that 42 = HCF from atoms too
+check('Y5: atoms of 84 = {2,2,3,7} and 126 = {2,3,3,7}: shared 2,3,7 at smaller powers 2^1x3^1x7^1 = 42 (U4/U5/W3 cross)', 2 * 3 * 7 === 42 && gcd(84, 126) === 42 && Math.min(2, 1) === 1 && Math.min(1, 2) === 1);
+// Y6: L4 coprime-split needs BOTH parts — n = 1,053,060: S = 15 (9 ∤, since
+// 15 is not a multiple of 9) and n = 7 x 150437 + 1 (7 ∤) -> 63 ∤
+check('Y6: S(1053060) = 15 so 9 does NOT divide it (1053060 = 9x117006 + 6); 1053060 = 7x150437 + 1 so 7 does NOT divide it; hence 63 does not divide it either', String(1053060).split('').reduce((s, d) => s + Number(d), 0) === 15 && 1053060 % 9 === 6 && 1053060 % 7 === 1 && 9 * 117006 === 1053054 && 7 * 150437 === 1053059);
+// Y6b: corrected pick — n = 44,100: 7 | 44100 (6300 x 7), 9 | 44100 (S = 9),
+// gcd(7, 9) = 1 -> 63 | 44100: 44100 = 63 x 700
+check('Y6b: 44100 = 63x700; S(44100) = 9 -> 9 |; 44100 = 7x6300 -> 7 |; gcd(7,9) = 1', 44100 === 63 * 700 && String(44100).split('').reduce((s, d) => s + Number(d), 0) === 9 && 44100 === 7 * 6300 && gcd(7, 9) === 1 && 44100 % 63 === 0);
+// Y7: L5 the remainder-variant problem (X3 numbers): 36 with quotients
+// 19, 31, 47 and remainders 5, 8, 14
+check('Y7: quiz/verify remainder variant: 689 = 36x19 + 5; 1124 = 36x31 + 8; 1706 = 36x47 + 14', 689 === 36 * 19 + 5 && 1124 === 36 * 31 + 8 && 1706 === 36 * 47 + 14);
+// Y8: L6 the composer's problem — numbers with HCF 12 summing to 156:
+// 12(a + b) = 156, a + b = 13; all six reduced pairs coprime because
+// gcd(a, 13 - a) divides 13, and 0 < a < 13 rules out 13
+check('Y8: six pairs (12,144),(24,132),(36,120),(48,108),(60,96),(72,84); each sums 156 and has HCF 12; reduced pairs (1,12),(2,11),(3,10),(4,9),(5,8),(6,7) all coprime', [[12, 144], [24, 132], [36, 120], [48, 108], [60, 96], [72, 84]].every(([a, b]) => a + b === 156 && gcd(a, b) === 12) && [[1, 12], [2, 11], [3, 10], [4, 9], [5, 8], [6, 7]].every(([a, b]) => a + b === 13 && gcd(a, b) === 1) && 12 * 13 === 156);
+// Y9: L6 exhaustive check — no seventh pair exists (quotients 0 < a < b, a + b = 13)
+check('Y9: exactly six coprime splits of 13: a in 1..6, b = 13 - a; a = 7..12 mirror the six', (() => {
+  const pairs: number[][] = [];
+  for (let a = 1; a < 13; a++) { const b = 13 - a; if (a < b && gcd(a, b) === 1) pairs.push([a, b]); }
+  return pairs.length === 6 && JSON.stringify(pairs.map(([a, b]) => [12 * a, 12 * b])) === JSON.stringify([[12, 144], [24, 132], [36, 120], [48, 108], [60, 96], [72, 84]]);
+})());
+// Y10: quiz Q — ladder reading: the HCF is the LAST NONZERO remainder
+check('Y10: quiz cross: last nonzero remainder of (4896, 720) ladder is 144 (W1); of (126, 84) ladder is 42 (W3)', gcd(4896, 720) === 144 && gcd(126, 84) === 42);
+// Y11: quiz Q — which pair is coprime: (9, 35) yes; (14, 21) no (7); (15, 25) no (5); (12, 18) no (6)
+check('Y11: quiz coprime pick: gcd(9,35) = 1; gcd(14,21) = 7; gcd(15,25) = 5; gcd(12,18) = 6', gcd(9, 35) === 1 && gcd(14, 21) === 7 && gcd(15, 25) === 5 && gcd(12, 18) === 6);
+// Y12: quiz Q — HCF(91, 112, 49) = 7 (91 = 7x13, 112 = 2^4x7, 49 = 7^2)
+check('Y12: HCF(91,112,49) = 7; atoms 7x13, 2^4x7, 7^2 -> shared 7 at power 1', gcd3(91, 112, 49) === 7 && 91 === 7 * 13 && 112 === 2 ** 4 * 7 && 49 === 7 ** 2);
+// Y13: quiz Q — the Bézout combination for (4896, 720) is -1 x 4896 + 7 x 720
+check('Y13: -1x4896 + 7x720 = 144 (W6 cross); the wrong signs fail: +1x4896 - 7x720 = -144 ≠ 144', -4896 + 7 * 720 === 144 && 4896 - 7 * 720 === -144);
+// Y14: quiz Q — Venn preview: LCM(96, 720) = 2 x 48 x 15 = 1440 and
+// HCF x LCM = 96 x 720 (the product rule, Lesson 3.5 preview)
+check('Y14: Venn: 96-only 2, shared 48, 720-only 15 -> LCM 2x48x15 = 1440; 48x1440 = 96x720 = 69120', 2 * 48 * 15 === 1440 && 48 * 1440 === 96 * 720 && 96 * 720 === 69120);
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`\nverify-unit-3: ${pass} passed, ${fail} failed`);
@@ -349,4 +484,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2');
+console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2 + 3.3');

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 13:07:03 (Asia/Kolkata)",
+  "generated": "2026-11-03 14:13:11 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -555,9 +555,8 @@
             "title": "Factors, Multiples and Primes",
             "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Highest Common Factor",
               "Lowest Common Multiple",
               "HCF, LCM and How They Relate"
             ],
@@ -692,9 +691,76 @@
                 },
                 "exerciseQuestions": 10,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-highest-common-factor",
+                "number": "3.3",
+                "title": "Highest Common Factor",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5564,
+                "readMins": 28,
+                "concepts": [
+                  "Common factors of two numbers",
+                  "HCF as the greatest common divisor",
+                  "Shared primes at the smaller powers",
+                  "Coprime numbers and HCF 1",
+                  "The Euclidean ladder (division method)",
+                  "Bézout's identity and the crossroads lemma",
+                  "Greatest-number exam patterns"
+                ],
+                "objectives": [
+                  "Define common factors and the highest common factor, and read the HCF off two prime factorisations as the shared primes taken at the smaller powers",
+                  "Run the Euclidean division method — the ladder of remainders — for two and three numbers, and justify it with the swap lemma",
+                  "State Bézout's identity, prove it by back-substitution, and use it to discharge the crossroads-lemma debt that Lesson 3.2 left open",
+                  "Generalise Lesson 3.1's coprime split into a theorem and deploy the three \"greatest number\" patterns that examinations recycle"
+                ],
+                "prerequisites": [
+                  "fm-divisibility-and-its-tests",
+                  "fm-prime-numbers-factorisation",
+                  "fm-division-remainders-zero"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch3"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 7,
+                  "callout": 8,
+                  "terms": 1,
+                  "derivation": 4,
+                  "equation": 2,
+                  "formula": 3,
+                  "example": 2,
+                  "figure": 1,
+                  "table": 2,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "theorem": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 1,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 10,
+                "termsDefined": 7
               }
             ],
-            "words": 12566
+            "words": 18130
           },
           {
             "number": 4,
@@ -851,12 +917,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 82,
-      "totalLines": 14348,
+      "totalLines": 14900,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 5258,
+        "src/data/library (content model + books)": 5810,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2918,6 +2984,88 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "500a02825c0d333c4abbc3903d23347a3b720e10",
+      "short": "500a028",
+      "date": "2026-11-03 07:43",
+      "message": "unit 3: FM lesson 3.2 Prime Numbers and Factorisation (6,089 words, 152 verified checks, E2E green incl. 390px fix) + logs",
+      "filesChanged": 9,
+      "insertions": 1158,
+      "deletions": 151,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 86,
+          "del": 16
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 95,
+          "del": 94
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 15,
+          "del": 5
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 102,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 177,
+          "del": 25
+        },
+        {
+          "path": "scripts/verify-unit-3.ts",
+          "add": 127,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 551,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "f3ebbb8506fe7bfad69b78b6f4aacf75e6d23378",
+      "short": "f3ebbb8",
+      "date": "2026-11-03 07:45",
+      "message": "memory: run-8 pointers — lesson 3.2 pushed and verified (500a028), origin/main synced; next: FM 3.3 Highest Common Factor",
+      "filesChanged": 3,
+      "insertions": 11,
+      "deletions": 6,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 9,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -2926,24 +3074,24 @@
     "booksLive": 1,
     "chaptersWritten": 2,
     "chaptersInProgress": 1,
-    "lessonsWritten": 10,
-    "wordsAuthored": 43725,
-    "termsDefined": 61,
-    "quizItems": 50,
-    "exerciseQuestions": 83,
+    "lessonsWritten": 11,
+    "wordsAuthored": 49289,
+    "termsDefined": 68,
+    "quizItems": 55,
+    "exerciseQuestions": 93,
     "blockTotals": {
-      "para": 114,
-      "callout": 36,
-      "heading": 66,
-      "terms": 10,
-      "equation": 11,
-      "derivation": 19,
-      "table": 11,
-      "figure": 14,
-      "example": 17,
-      "quiz": 10,
-      "exercises": 10,
-      "formula": 20,
+      "para": 131,
+      "callout": 44,
+      "heading": 73,
+      "terms": 11,
+      "equation": 13,
+      "derivation": 23,
+      "table": 13,
+      "figure": 15,
+      "example": 19,
+      "quiz": 11,
+      "exercises": 11,
+      "formula": 23,
       "algorithm": 8
     }
   }

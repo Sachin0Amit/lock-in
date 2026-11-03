@@ -9,9 +9,9 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 8**: lesson 3.2
-Prime Numbers and Factorisation shipped and verified; chapter 3 of
-Foundation Mathematics at 2/5 lessons; `WORK_INVENTORY.json` regenerated in
+Generated: 2026-11-03 (maintained through **hourly run 9**: lesson 3.3
+Highest Common Factor shipped and verified; chapter 3 of
+Foundation Mathematics at 3/5 lessons; `WORK_INVENTORY.json` regenerated in
 the same run).
 
 ---
@@ -67,6 +67,9 @@ the same run).
 | 11-03 (run 6) | (ship) | **UNIT 2 COMPLETE: lesson 2.5 Order of Operations and the Language of Expressions** — authored, 165 script checks (324 unit-cumulative), E2E green, unit-2 completion review run, logged; pushed (protocol v2) |
 | 11-03 (run 7) | — | **Third sandbox recycle** — only the gitignored Drive survey lost; rebuilt in one command (`rebuild_drive_survey.ts`, ids persisted). Khattar QA 4e re-downloaded via the persisted id; ch. 1 "Numbers" divisibility/prime material studied; NCERT class-6 ch. 3 web-checked |
 | 11-03 (run 7) | (ship) | **UNIT 3 OPENED: lesson 3.1 Divisibility and Its Tests** (ch-03.ts created) — authored, 96 pre-writing checks (`verify-unit-3.ts`, gitignore exception added FIRST), E2E green (quiz 5/5, KaTeX 370, flashcards 54), logged; pushed (protocol v2) |
+| 11-03 (run 8) | (ship) | **LESSON 3.2 Prime Numbers and Factorisation** — authored, 152 pre-writing checks, E2E green incl. the 390px inline-math fix + INLINE-MATH RULE, fourth recycle rebuilt in one command, logged; pushed (protocol v2) |
+| 11-03 (run 9) | — | **Fifth sandbox recycle** — only the gitignored Drive survey lost; rebuilt in one command (`rebuild_drive_survey.ts`, 89 entries, Khattar id intact). Khattar QA 4e re-downloaded via the persisted id; ch. 2 "H.C.F. and L.C.M. of Numbers" studied; NCERT §3.8 web-checked |
+| 11-03 (run 9) | (ship) | **LESSON 3.3 Highest Common Factor** — authored, 192 pre-writing checks (sections V–Y, 40 new), Bézout/crossroads debt discharged, E2E green (quiz 5/5 live, flashcards 68, Venn figure verified, 390px exact-fit with ten solutions expanded), two over-escape hits fixed + head/header fix, logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -455,12 +458,84 @@ the L6 solution chain; re-verified with all ten solutions expanded
 (scrollWidth 390, escapers empty); quiz re-run 5/5. New standing rule:
 INLINE-MATH RULE (no inline $…$ chain over ~35 chars).
 
+**Lesson 3.3 — Highest Common Factor** (id
+`fm-highest-common-factor`, authored 11-03, hourly-run-9 ship commit;
+appended to ch-03.ts) — **5,564 words · 7 terms (Common factor, Highest
+common factor, Coprime, Euclidean algorithm, Back-substitution, Bézout's
+identity, Coprime split) · 5 quiz items (answers spread 1/3/2/0/1) · 10
+exercises (L1×2, L2×2, L3×1, L4×2, L5×2, L6×1) · 1 original SVG figure
+(Venn territories for 96 vs 720 — left-only 2, overlap 2·2·2·2·3 = 48 =
+HCF, right-only 3 × 5, bottom annotations overlap = HCF = 48 and
+everything = 2 × 48 × 15 = 1,440 = LCM preview; plain labels) · 3
+derivations (the smaller-power rule — divisor caps from the FTA,
+independence makes the maximum easy, every common divisor divides the
+HCF; the swap lemma — common divisors preserved both directions across
+a = q·b + r, termination via 3.1's r < b, HCF = last nonzero remainder;
+back-substitution → Bézout — 144 = 720 − 576 = 7 × 720 − 4,896, every
+remainder is a difference of multiples) · 2 equations (the min-exponent
+formula ∏ p^min(α,β); the seed gcd(84, 126) = 2·3·7 = 42) · 4 formula
+cards (HCF from the atoms; the Euclidean ladder gcd(a,b) = r_k where
+r_{k+1} = 0; the remainder patterns gcd(x−r₁, y−r₂, z−r₃)) · 2 worked
+examples (the ladder for 4,896 & 720 — three rows to 144, atoms
+cross-check; three cords 1,152/768/1,248 → 96 cm by ladder folding and
+atoms, 12/8/13 pieces) · 2 tables (choosing the route — listing/atoms/
+ladder with costs and instances; the three greatest-number patterns —
+exact divide, same remainder known → HCF of leftovers 689/1,124/1,706 →
+36, same remainder unknown → HCF of differences 152/277/427 → 25) · 7
+callouts (definition — HCF with GCD/GCM aliases and edge behaviours;
+warn — the larger-power slip 288 and the one-divides-the-other
+shortcut 34; definition — coprime; insight — consecutive numbers are
+always coprime; theorem — Bézout's identity; theorem — the coprime split
+generalised, 2,376 = 12 × 198 instance and 18 counter; historical —
+Euclid VII.1–2, al-Khwārizmī, Bachet 1624, Bézout 1779; exam —
+SSC/bank/Railway staples, product-rule promise banked for 3.5) · the
+crossroads-lemma derivation (five steps: gcd(p,a) = 1 → Bézout → ×b →
+p divides both terms → p | b) DISCHARGING 3.2's proof debt · chapter-arc
+para (every theorem in the chapter hangs from 2.4's division algorithm) ·
+sources: khattar-qa-4e, ncert-math6-ch3 · prerequisites: lessons 3.1,
+3.2, 2.4.** Contents: craft-studio cords opening (84 & 126 cm — 3.2's L3
+seed made physical; the two-debts framing); what "common" means; Route 1
+listing (48 & 60 → 12; the common-factors-are-divisors-of-the-HCF
+observation; why listing dies for 4,896/720); Route 2 atoms (96 & 720 →
+48 — 3.2's opener returns as the HCF of the gallery pair; 2,025 & 4,896
+→ 9; the seed equation); coprime section (sharing not size — 1,024 vs
+2,025; consecutive pairs; 3.1's 3×4-vs-2×6 trap named at last, theorem
+teased); Route 3 ladder (the machine needs only the division algorithm;
+swap lemma; termination; the exam-hall pair in three rows; which route
+when); the debt (back-substitution; Bézout; crossroads discharged; the
+arc completed; coprime split generalised); the exam patterns (three
+costumes; why subtracting remainders works; the unknown-s cancellation).
+Closing para hands to 3.4 (the union territory 1,440 named the LCM;
+bells/buses/timetables promised).
+**Verified:** 40 new checks (sections V–Y: helpers gcd/gcd3) →
+`scripts/verify-unit-3.ts` **192/192 ALL PASS before writing** (the seed
+42 by atoms and ladder; full 48/60 factor lists + common set + HCF 12;
+min-exponent route with exhaustive common-divisor enumeration; coprime
+pairs and edges; ladders with every quotient incl. the 8-row 2,025/4,896
+one; swap-lemma divisor-set equality; Bézout arithmetic; coprime-split
+instances 2,376 = 12 × 198 and the 18 counter; remainder patterns with
+prime quotients 19/31/47; the six HCF-12/sum-156 pairs with an
+exhaustive no-seventh-pair check; Venn products 48 × 1,440 = 96 × 720);
+verify-unit-2.ts still 165/165; lint clean; tsc clean (after the
+`header` → `head` TS2561 fix and the over-escape normalisation — two
+authoring edits had written \\\\ for \\ and \\\' for \',
+caught by tsc at ch-03.ts:1294 and fixed by a python normaliser, then
+verified by bun string evaluation: zero double-backslash fields, zero
+tabs); routes 200 (unknown id 404); browser E2E — KaTeX 392 expanded
+(257 collapsed), dollarInSvg=0, quiz answered live with the intended
+options (1/3/2/0/1) → "You scored 5/5 · perfect" with the best score
+persisted on the book page, flashcards 61 → 68, glossary lists all 7
+new terms, Venn figure screenshot-verified, zero console errors, and
+**mobile 390px exact-fit with ALL TEN solutions expanded** (scrollWidth
+390; three wide display blocks scroll inside the math-display
+overflow-x:auto guard; max SVG width 324).
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
-| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · HCF · LCM · HCF, LCM and How They Relate |
+| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |

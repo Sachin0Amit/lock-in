@@ -127,3 +127,22 @@ step 6).
   coverage web-checked (sanctioned fallback). Working copies (PDF + text
   dumps) deleted after the lesson's E2E verification; inventory.json
   retained.
+- 2026-11-03 (mathematics, unit 3, lesson 3.3): fifth sandbox recycle wiped
+  the gitignored survey; rebuilt in one step via scripts/rebuild_drive_survey.ts
+  (89 entries, Khattar id intact). Khattar QA 4e re-downloaded via the
+  persisted id (33.9 MB) — ch. 2 "H.C.F. and L.C.M. of Numbers" studied for
+  the HCF lesson: the prime-factorisation method (common factors with lowest
+  powers; illustrations 70/90 → 10, 3332/3724/4508 → 196), the division
+  method (successive division ladder; 3556/3444 → 28; three-number folding
+  13915/9499/2553 → 23), the HCF/GCD/GCM naming, the greatest-number
+  patterns (exact division; equal remainder r known → HCF of x−r; unknown →
+  HCF of pairwise differences; illustrations 148/246/623 → 12, 772/2778 →
+  59, 152/277/427), co-prime pairs with a given sum (sum 8 → (1,7),(3,5)),
+  and the HCF×LCM product rule noted as Lesson 3.5 material. NCERT class-6
+  ch. 3 §3.8 "Highest Common Factor" coverage web-checked (sanctioned
+  fallback; Exercise 3.6 uses the prime-factorisation route throughout).
+  All lesson arithmetic re-verified by script (40 new checks in sections
+  V–Y of scripts/verify-unit-3.ts, 192 total) BEFORE writing; exposition
+  original — no Khattar text reproduced, instances recomposed. Working
+  copies (PDF + text dumps) deleted after the lesson's E2E verification;
+  only inventory.json retained.

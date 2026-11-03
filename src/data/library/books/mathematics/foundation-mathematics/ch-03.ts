@@ -4,15 +4,16 @@ import type { Chapter } from '../../../types'
  * Foundation Mathematics — Chapter 3: Factors, Multiples and Primes
  *
  * LESSONS WRITTEN (UNIT 3 IN PROGRESS): 3.1 Divisibility and Its Tests ·
- * 3.2 Prime Numbers and Factorisation. Planned: 3.3 Highest Common
- * Factor · 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate.
+ * 3.2 Prime Numbers and Factorisation · 3.3 Highest Common Factor.
+ * Planned: 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate.
  * Unit 3 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
- * Examinations (4e) ch. 1 "Numbers" (prime/composite definitions, prime
- * list to 100, co-primes) + NCERT Class 6 ch. 3 "Playing with Numbers"
- * topic coverage — see docs/project/SOURCE_LOG.md. Exposition original;
- * all arithmetic verified by scripts/verify-unit-3.ts (152 checks for
- * 3.1 + 3.2) BEFORE writing.
+ * Examinations (4e) ch. 1 "Numbers" + ch. 2 "H.C.F. and L.C.M. of
+ * Numbers" (prime-factorisation and division methods for the H.C.F.,
+ * greatest-number exam patterns) + NCERT Class 6 ch. 3 "Playing with
+ * Numbers" topic coverage — see docs/project/SOURCE_LOG.md. Exposition
+ * original; all arithmetic verified by scripts/verify-unit-3.ts (192
+ * checks for 3.1 + 3.2 + 3.3) BEFORE writing.
  * Honours the ties promised in Lesson 2.4: the digit-sum screens become
  * the mod-9/mod-3 rules, the ÷10^n corollary becomes the tail tests, and
  * the remainder bound underlies "r = 0 means divisible".
@@ -25,7 +26,6 @@ export const chapter03: Chapter = {
     'The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.',
   status: 'in-progress',
   plannedLessons: [
-    'Highest Common Factor',
     'Lowest Common Multiple',
     'HCF, LCM and How They Relate',
   ],
@@ -1130,6 +1130,557 @@ export const chapter03: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-highest-common-factor',
+      number: '3.3',
+      title: 'Highest Common Factor',
+      concepts: [
+        'Common factors of two numbers',
+        'HCF as the greatest common divisor',
+        'Shared primes at the smaller powers',
+        'Coprime numbers and HCF 1',
+        'The Euclidean ladder (division method)',
+        "Bézout's identity and the crossroads lemma",
+        'Greatest-number exam patterns',
+      ],
+      objectives: [
+        'Define common factors and the highest common factor, and read the HCF off two prime factorisations as the shared primes taken at the smaller powers',
+        'Run the Euclidean division method — the ladder of remainders — for two and three numbers, and justify it with the swap lemma',
+        "State Bézout's identity, prove it by back-substitution, and use it to discharge the crossroads-lemma debt that Lesson 3.2 left open",
+        'Generalise Lesson 3.1\'s coprime split into a theorem and deploy the three "greatest number" patterns that examinations recycle',
+      ],
+      prerequisites: ['fm-divisibility-and-its-tests', 'fm-prime-numbers-factorisation', 'fm-division-remainders-zero'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch3'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'A craft studio keeps two leftover cords: one $84$ cm long, one $126$ cm. The plan is to cut both into pieces of one equal length — and to have nothing left over from either cord. Many lengths oblige: $1$, $2$, $3$, $6$ and $7$ cm all work. The studio wants the **longest** such length, because every join is a weak point and fewer joins make a stronger product. Lesson 3.2 already planted the answer as an exercise: the shared atoms of $84 = 2^2 \\times 3 \\times 7$ and $126 = 2 \\times 3^2 \\times 7$ multiply to $2 \\times 3 \\times 7 = 42$, and indeed $84 = 2 \\times 42$ and $126 = 3 \\times 42$. This lesson turns that lucky observation into machinery — and then pays two debts that earlier lessons deliberately ran up.',
+        },
+        {
+          kind: 'para',
+          text: 'The object of the hunt wears three names in the wild: **highest common factor** (HCF), **greatest common divisor** (GCD) and — in older British texts — **greatest common measure** (GCM). Whatever the label, the question is the one Lesson 3.2 promised: two numbers, side by side in their atoms — which primes do they share, and at which powers? The shared primes, taken at the **smaller** powers, build the answer. But this lesson also carries a heavier cargo. Lesson 3.2 proved that prime factorisation is unique, and its proof stood on a "crossroads lemma" it did not prove: a prime dividing a product must divide one of the factors. The debt is due now — and the ladder of this lesson is what pays it.',
+        },
+        { kind: 'heading', text: 'What "common" means' },
+        {
+          kind: 'para',
+          text: 'Start from the ground floor. A **common factor** of two numbers is a number that divides each of them exactly — one division test passed twice. The number $6$ is a common factor of $48$ and $60$ because $48 = 8 \\times 6$ and $60 = 10 \\times 6$; the number $5$ divides $60$ but not $48$, so it helps only one customer and is not common; $7$ divides neither. Every pair of whole numbers has at least one common factor — the number $1$, which divides everything — so the real question is never whether common factors exist but how **large** they get.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Highest common factor (HCF)',
+          text: 'For whole numbers $a$ and $b$ (not both zero), the **highest common factor** is the greatest number that divides both $a$ and $b$. Written $\\gcd(a, b)$, or HCF; also called the **greatest common divisor** (GCD) and the **greatest common measure** (GCM). So $\\gcd(48, 60) = 12$: twelve divides both, and nothing larger does. Two edge behaviours fall straight out of the definition: $\\gcd(n, n) = n$, and $\\gcd(1, n) = 1$ for every $n$. The HCF is never below $1$ — one is common to every pair — and never above the smaller of $a$ and $b$: a common factor of $48$ and $60$ cannot exceed $48$, because it has to fit inside both.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Common factor',
+              def: 'A number that divides each of the given numbers exactly. 6 is a common factor of 48 and 60 (48 = 8 × 6, 60 = 10 × 6). Any pair shares at least the factor 1.',
+            },
+            {
+              term: 'Highest common factor (HCF)',
+              def: 'The greatest of the common factors, written gcd(a, b); also called GCD or GCM. gcd(48, 60) = 12. Finding it is this lesson\'s whole business.',
+            },
+            {
+              term: 'Coprime',
+              def: 'Two whole numbers whose HCF is 1 — they share no prime atom. 8 and 15 are coprime (2³ against 3 × 5); 12 and 18 are not (they share 2 × 3).',
+            },
+            {
+              term: 'Euclidean algorithm',
+              def: 'The ladder of remainders: divide the larger number by the smaller, then keep dividing the last divisor by the last remainder until a remainder of 0. The last nonzero remainder is the HCF. Also called the division method.',
+            },
+            {
+              term: 'Back-substitution',
+              def: 'Reading the ladder from the bottom up to express the HCF as a whole-number combination of the original pair, such as 144 = 7 × 720 − 4,896.',
+            },
+            {
+              term: "Bézout's identity",
+              def: 'The theorem that gcd(a, b) can always be written as a·u + b·v for some (possibly negative) integers u and v — the guarantee that back-substitution always succeeds.',
+            },
+            {
+              term: 'Coprime split',
+              def: 'The theorem that if coprime a and b both divide n, then ab divides n. It legalises splitting a divisibility test into coprime parts: 3 and 4 for a test of 12, never 2 and 6.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Route 1: listing — the honest survey' },
+        {
+          kind: 'para',
+          text: 'The most honest method is also the most tiring: list every factor of each number, keep the entries that appear in both lists, take the largest. For $48$ and $60$ it is perfectly fair. Lesson 3.1 counted the factors of $48$ — ten of them, $1, 2, 3, 4, 6, 8, 12, 16, 24, 48$ — and $60$ offers twelve: $1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60$. Side by side, the shared entries are $1, 2, 3, 4, 6, 12$, so $\\gcd(48, 60) = 12$.',
+        },
+        {
+          kind: 'para',
+          text: 'Look once more at that shared list — $1, 2, 3, 4, 6, 12$. It is exactly the list of divisors of $12$: the common factors of a pair are precisely the divisors of their HCF. That structure — not the listing — is the real discovery, and the atoms below will prove it. Listing itself dies quickly: Lesson 3.2\'s gallery gave $4{,}896$ thirty-six factors and $720$ thirty, and intersecting those lists by eye is a minute of error-prone scanning; for a pair like $9{,}499$ and $13{,}915$ it is hopeless. The vantage point of Lesson 3.2 — everything is atoms — offers a better road.',
+        },
+        { kind: 'heading', text: 'Route 2: the atoms decide' },
+        {
+          kind: 'para',
+          text: 'Put two factorisations side by side: $96 = 2^5 \\times 3$ and $720 = 2^4 \\times 3^2 \\times 5$ — both from Lesson 3.2\'s gallery. Now ask what a common divisor of the two may look like. If $d$ divides $96$, every atom of $d$ must come from $\\{2, 3\\}$, with the $2$ used at most five times and the $3$ at most once — any other prime, or a higher power, would leave $d$ carrying a factor $96$ cannot absorb. If $d$ divides $720$, its atoms come from $\\{2, 3, 5\\}$ with caps $4$, $2$ and $1$. Dividing **both** numbers means respecting both sets of caps at once.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The smaller-power rule',
+          statement:
+            'A number divides both a and b exactly when each of its prime exponents stays within the smaller of the two factorisations\' caps. The greatest such number takes every exponent at its cap: the shared primes at the smaller powers.',
+          steps: [
+            {
+              label: 'Write the caps',
+              formula: '96 = 2^5 \\cdot 3^1, \\qquad 720 = 2^4 \\cdot 3^2 \\cdot 5^1',
+              explanation:
+                'A prime absent from one factorisation has cap 0 there: the 5 is capped at 0 on the 96 side.',
+            },
+            {
+              label: 'A common divisor respects every cap',
+              formula: 'd = 2^i \\cdot 3^j \\cdot 5^k, \\quad i \\le 4, \\; j \\le 1, \\; k \\le 0',
+              explanation:
+                'That is i ≤ min(5, 4) = 4, j ≤ min(1, 2) = 1, k ≤ min(0, 1) = 0. Lesson 3.2\'s uniqueness theorem is doing the work: a divisor\'s atoms cannot outrun the number\'s own.',
+            },
+            {
+              label: 'Independence makes the maximum easy',
+              formula: '\\gcd(96, 720) = 2^4 \\cdot 3^1 \\cdot 5^0 = 48',
+              explanation:
+                'The exponent choices are independent — the same engine as the divisor-count formula of 3.2 — so the largest divisor simply takes every exponent at its cap. No trade-offs exist.',
+            },
+          ],
+          result:
+            'HCF(96, 720) = 2⁴ × 3 = 48 — and every common divisor of the pair divides 48, which is why Route 1\'s shared list kept turning out to be exactly the divisors of the HCF.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\gcd(a, b) = p_1^{\\min(\\alpha_1, \\beta_1)} \\cdot p_2^{\\min(\\alpha_2, \\beta_2)} \\cdots p_k^{\\min(\\alpha_k, \\beta_k)}',
+          note: 'where $a$ and $b$ are written in atoms as products of the primes $p_1, \\ldots, p_k$. The function min picks the smaller exponent; a prime missing from either number enters with exponent 0 and stays home.',
+        },
+        {
+          kind: 'para',
+          text: 'Two payoffs — one quiet, one theatrical. Quiet: the rule survives missing primes gracefully. The gallery pair $2{,}025 = 3^4 \\times 5^2$ and $4{,}896 = 2^5 \\times 3^2 \\times 17$ share only the prime $3$, at powers $4$ and $2$, so $\\gcd(2{,}025, 4{,}896) = 3^2 = 9$; the $2$, the $5$ and the $17$ are capped at $0$ on one side and simply stay out. Theatrical: the answer for the first pair is $48$ — the very number that opened Lesson 3.2, whose five mosaic rectangles started this whole chapter. The opening tiles have been the greatest common factor of $96$ and $720$ all along.',
+        },
+        {
+          kind: 'formula',
+          name: 'HCF from the atoms',
+          latex: '\\gcd(a, b) = \\prod p^{\\min(\\alpha, \\beta)}',
+          note: 'For each prime: take the SMALLER exponent from the two factorisations. Primes missing from either side enter with exponent 0. The larger powers belong to the LCM — Lesson 3.4\'s rule, not this one\'s.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The classic slip: reaching for the larger power',
+          text: 'The smaller-power rule is one glance\'s worth of arithmetic, and the most common examination slip is grabbing the larger exponent instead. From $96 = 2^5 \\times 3$ and $720 = 2^4 \\times 3^2 \\times 5$, the product $2^5 \\times 3^2 = 288$ is **not** a common factor of anything here — it exceeds $96$ itself, and no divisor of $96$ can do that. The larger-power product is genuine mathematics, but it belongs to the **lowest common multiple** (Lesson 3.4). A second slip worth naming: when one number divides the other — $102 = 3 \\times 34$ — the HCF is the smaller number itself, $34$; no ladder and no atoms are needed.',
+        },
+        {
+          kind: 'para',
+          text: 'And the studio\'s cords? The atoms finish the story in one line:',
+        },
+        {
+          kind: 'equation',
+          latex: '\\gcd(84, 126) = 2^{\\min(2,1)} \\cdot 3^{\\min(1,2)} \\cdot 7^{\\min(1,1)} = 2 \\cdot 3 \\cdot 7 = 42',
+          note: 'The seed from Exercise L3 of Lesson 3.2, promoted from observation to computation: cords of 84 cm and 126 cm cut into 42 cm pieces — two pieces from the first cord, three from the second, nothing wasted.',
+        },
+        { kind: 'heading', text: 'Coprime: when nothing is shared' },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Coprime (relatively prime)',
+          text: 'Two whole numbers are **coprime** when their HCF is $1$ — when the only common factor is the unavoidable $1$. Equivalently: they share no prime atom. Examples: $8$ and $15$ ($2^3$ against $3 \\times 5$), $9$ and $35$ ($3^2$ against $5 \\times 7$), $16$ and $17$. Coprimality is about **sharing**, not size: $1{,}024 = 2^{10}$ and $2{,}025 = 3^4 \\times 5^2$ are both four digits long and share nothing at all. Examination papers lean on the word constantly, and so will Lessons 3.4 and 3.5.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Any two consecutive numbers are coprime',
+          text: 'If $d$ divides both $n$ and $n + 1$, it divides their difference $1$ — and the only positive divisor of $1$ is $1$ itself. So $\\gcd(n, n + 1) = 1$ always: $16$ and $17$, $87$ and $88$, even $1{,}000$ and $1{,}001$. The difference argument behind this one-liner is the same engine the ladder will use below — a common divisor of two numbers always divides their difference.',
+        },
+        {
+          kind: 'para',
+          text: 'Now Lesson 3.1\'s loose thread can be named. Its compound test for $12$ insisted on the split $12 = 3 \\times 4$ and forbade $2 \\times 6$, warning that the second over-admits numbers like $18$ — divisible by $2$ and by $6$, but not by $12$. The reason is finally visible: $3$ and $4$ are **coprime**, so divisibility by each forces divisibility by their product; $2$ and $6$ share the atom $2$, so divisibility by each says almost nothing about the product. The general statement deserves a theorem — but its proof needs one more tool, so the ladder comes first.',
+        },
+        { kind: 'heading', text: 'Route 3: the Euclidean ladder' },
+        {
+          kind: 'para',
+          text: 'Factorising $4{,}896$ cost real work in Lesson 3.2 — a strip chain of five divisions before the primes gave in. But look back at what the atoms route actually used: not the full factorisations, only the **shared** part. A machine that could reach the shared part without factorising at all would make big numbers stop being a problem. The machine is $2{,}400$ years old and needs nothing but the division algorithm from Lesson 2.4: divide the larger number by the smaller, then keep dividing the last divisor by the last remainder. The remainders shrink — Lesson 3.1\'s guard rail $r < b$ guarantees it — so the process must end, and the last nonzero remainder is the HCF.',
+        },
+        {
+          kind: 'example',
+          title: 'The ladder for 4,896 and 720',
+          steps: [
+            'Divide the larger by the smaller: $4{,}896 = 6 \\times 720 + 576$. The remainder is $576$.',
+            'Divide the last divisor by the last remainder: $720 = 1 \\times 576 + 144$. The remainder is $144$.',
+            'Once more: $576 = 4 \\times 144 + 0$. The remainder is $0$ — the ladder has ended.',
+            'Read the answer off the last **nonzero** remainder: $\\gcd(4{,}896, 720) = 144$. Cross-check with the atoms: $2^4 \\times 3^2 = 144$ — the same shared part, reached with three divisions and no factorisation.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Why is the last nonzero remainder the whole answer? Because every rung of the ladder preserves the set of common divisors — and that is a two-line consequence of the division algorithm.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The swap lemma',
+          statement:
+            'The pairs (a, b) and (b, a − q·b) have exactly the same common divisors. So each rung of the ladder swaps the pair for a smaller one without changing the HCF — and the last nonzero remainder is the HCF of the original pair.',
+          steps: [
+            {
+              label: 'Down the ladder: a common divisor survives',
+              formula: 'd \\mid a, \\; d \\mid b \\;\\Rightarrow\\; d \\mid (a - q\\,b)',
+              explanation:
+                'd divides both terms of the difference, so it divides the difference. Writing r = a − q·b: every common divisor of (a, b) also divides (b, r).',
+            },
+            {
+              label: 'Up the ladder: and back again',
+              formula: 'd \\mid b, \\; d \\mid (a - q\\,b) \\;\\Rightarrow\\; d \\mid (a - q\\,b) + q\\,b = a',
+              explanation:
+                'The reverse walk rebuilds a out of b and r. So the two pairs share not merely some divisors but ALL of them — in particular the same greatest one.',
+            },
+            {
+              label: 'Termination is guaranteed',
+              formula: '720 > 576 > 144 > 0',
+              explanation:
+                'Lesson 3.1\'s remainder bound r < b makes each remainder strictly smaller than the divisor above it. A strictly shrinking list of whole numbers must reach 0 — the ladder cannot run forever.',
+            },
+            {
+              label: 'Read the last nonzero row',
+              formula: '\\gcd(4{,}896, 720) = \\gcd(720, 576) = \\gcd(576, 144) = 144',
+              explanation:
+                'Chaining the swaps: each HCF equals the next. When the final division comes out exact, the divisor of that row — the last nonzero remainder — divides both numbers above it, and by the swap argument divides every row above that: it is a common divisor. And nothing larger can be one: any larger common divisor would survive all the swaps down the ladder and divide a positive remainder smaller than itself, which is impossible.',
+            },
+          ],
+          result:
+            'The HCF survives every swap unchanged and ends as the last nonzero remainder: gcd(a, b) = gcd(b, r₁) = gcd(r₁, r₂) = ⋯ = r_k.',
+        },
+        {
+          kind: 'formula',
+          name: 'The Euclidean ladder (division method)',
+          latex: '\\gcd(a, b) = r_k \\quad \\text{where } r_{k+1} = 0',
+          note: 'Divide larger by smaller, then each divisor by its remainder, until a remainder of 0. The last nonzero remainder is the HCF — no factorisation required. For three or more numbers: gcd(a, b, c) = gcd(gcd(a, b), c), in any order.',
+        },
+        {
+          kind: 'example',
+          title: 'Three cords, one longest piece',
+          steps: [
+            'The studio gains a third cord: $1{,}248$ cm. All three are to be cut into equal longest pieces with nothing wasted — the wanted length divides all three numbers: HCF($1{,}152$, $768$, $1{,}248$).',
+            'Ladder the first pair: $1{,}152 = 1 \\times 768 + 384$, then $768 = 2 \\times 384 + 0$. So $\\gcd(1{,}152, 768) = 384$.',
+            'Fold in the third: $1{,}248 = 3 \\times 384 + 96$, then $384 = 4 \\times 96 + 0$. So $\\gcd(384, 1{,}248) = 96$ — and by the chaining rule, HCF($1{,}152$, $768$, $1{,}248$) $= 96$ cm.',
+            'Atoms agree: $2^7 \\times 3^2$, $2^8 \\times 3$ and $2^5 \\times 3 \\times 13$ share $2^5 \\times 3 = 96$ — the spare $2$s, the spare $3$ and the lonely $13$ all fall away. Two routes, one answer: pieces of $96$ cm — twelve from the first cord, eight from the second, thirteen from the third.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Two factorisations as overlapping territories. Everything of 96 = 2⁵ × 3 lives in the left circle; everything of 720 = 2⁴ × 3² × 5 lives in the right. The overlap holds exactly the shared atoms — 2⁴ × 3 = 48 — which is why the overlap\'s product is the HCF. The union, every atom at its larger power (2 × 48 × 15 = 1,440), previews Lesson 3.4: that product is the LCM. And the picture is quietly doing double duty — its two products multiply to 48 × 1,440 = 69,120 = 96 × 720, a coincidence worth suspecting. Lesson 3.5 settles it.',
+          svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two overlapping circles for 96 and 720. The left-only region holds 2, the overlap holds 2 x 2 x 2 x 2 x 3 equal 48, the right-only region holds 3 x 5. The overlap is the HCF 48; the union is the LCM 1,440.">
+  <g font-size="14" fill="currentColor">
+    <text x="205" y="30" text-anchor="middle" font-weight="700">96 = 2·2·2·2·2·3</text>
+    <text x="555" y="30" text-anchor="middle" font-weight="700">720 = 2·2·2·2·3·3·5</text>
+    <circle cx="275" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <circle cx="485" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <text x="222" y="206" text-anchor="middle">2</text>
+    <text x="222" y="228" text-anchor="middle" font-size="12" opacity="0.75">the spare two</text>
+    <text x="380" y="176" text-anchor="middle">2·2·2·2·3</text>
+    <text x="380" y="202" text-anchor="middle" font-weight="700">= 48</text>
+    <text x="380" y="226" text-anchor="middle" font-size="12" opacity="0.75">the shared part</text>
+    <text x="538" y="206" text-anchor="middle">3 × 5</text>
+    <text x="538" y="228" text-anchor="middle" font-size="12" opacity="0.75">the spare 3 and the 5</text>
+    <line x1="380" y1="370" x2="380" y2="351" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+    <text x="380" y="394" text-anchor="middle" font-weight="700">overlap = HCF = 48</text>
+    <text x="380" y="418" text-anchor="middle">everything = 2 × 48 × 15 = 1,440 — the LCM, Lesson 3.4</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Which route deserves the work? The ladder and the atoms are honest rivals, and each has days when it shines. Watch one pair from both sides: $\\gcd(2{,}025, 4{,}896)$ by ladder takes eight rows — $4{,}896 = 2 \\times 2{,}025 + 846$, then $2{,}025 = 2 \\times 846 + 333$, and so on down to $18 = 2 \\times 9 + 0$ — while the atoms answer in one glance: only the prime $3$ is shared, at powers $4$ and $2$, so the HCF is $9$. For $4{,}896$ and $720$ the trade reverses: three ladder rows beat two full factorisations. The exam-hall habit worth drilling:',
+        },
+        {
+          kind: 'table',
+          caption: 'Choosing the route',
+          head: ['Route', 'Reach for it when', 'Cost', 'This chapter\'s instance'],
+          rows: [
+            ['Listing every factor', 'both numbers are small — two digits, at a pinch three', 'minutes, and easy to drop a factor', '48 and 60 → 12'],
+            ['Atoms (prime factorisation)', 'the numbers factorise easily — small primes, Lessons 3.1–3.2 trained', 'one glance per shared prime', '96 and 720 → 48'],
+            ['Euclidean ladder', 'the numbers are big, or factorisation looks ugly', 'one division per row', '4,896 and 720 → 144'],
+          ],
+        },
+        { kind: 'heading', text: 'The debt comes due: Bézout and the crossroads lemma' },
+        {
+          kind: 'para',
+          text: 'Now the promise. Lesson 3.2 proved the Fundamental Theorem — every number factors into primes in exactly one way — but its uniqueness argument leaned on Euclid\'s **crossroads lemma**: if a prime $p$ divides a product $a \\times b$, then $p$ divides $a$ or $p$ divides $b$. The lemma was stated, used, and honestly marked as a debt. The ladder pays it — and the payment begins with a curious piece of bookkeeping: read the ladder backwards.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Back-substitution: the HCF as a combination',
+          statement:
+            'Every remainder in the ladder is a difference of multiples of earlier rows — so the HCF itself can be rebuilt out of the original pair using nothing but whole-number arithmetic, negative signs allowed.',
+          steps: [
+            {
+              label: 'Start at the answer row',
+              formula: '144 = 720 - 1 \\times 576',
+              explanation:
+                'The ladder\'s second row says exactly this: 720 = 1 × 576 + 144.',
+            },
+            {
+              label: 'Substitute the row above',
+              formula: '576 = 4{,}896 - 6 \\times 720 \\;\\Rightarrow\\; 144 = 720 - (4{,}896 - 6 \\times 720)',
+              explanation:
+                'The first row of the ladder expresses 576 in terms of the original pair. Substituting removes the remainder from the story.',
+            },
+            {
+              label: 'Tidy',
+              formula: '144 = 7 \\times 720 - 4{,}896',
+              explanation:
+                'Expand: 720 + 6 × 720 = 7 × 720. Check the arithmetic: 5,040 − 4,896 = 144. The HCF of the pair has become a combination of the pair — one negative coefficient, nothing exotic.',
+            },
+          ],
+          result:
+            '7 × 720 − 4,896 = 144 = gcd(4,896, 720). The ladder always allows this: every remainder is a difference of multiples of the rows above it, so climbing back up builds the HCF out of a and b.',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'Bézout\'s identity',
+          text: 'For any whole numbers $a$ and $b$ (not both zero) there exist **integers** $u$ and $v$ — possibly negative — with $a \\cdot u + b \\cdot v = \\gcd(a, b)$. Conversely, every positive number of the form $a \\cdot u + b \\cdot v$ is a multiple of $\\gcd(a, b)$: the HCF divides every combination. Back-substitution on the ladder is the constructive proof — it always delivers the coefficients. Étienne Bézout proved the polynomial version in 1779; the integer form had appeared a century and a half earlier in Bachet\'s Problèmes plaisants of 1624.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Euclid\'s crossroads lemma, discharged',
+          statement:
+            'If a prime p divides a × b but does not divide a, then p must divide b. A prime cannot straddle the crossroads — it must take one of the two roads.',
+          steps: [
+            {
+              label: 'The HCF of p and a is 1',
+              formula: '\\gcd(p, a) = 1',
+              explanation:
+                'p is prime: its only divisors are 1 and p. The assumption p does not divide a removes p, so 1 is the greatest common divisor. The pair is coprime — this lesson\'s word doing proof work.',
+            },
+            {
+              label: 'Bézout speaks',
+              formula: 'u \\cdot p + v \\cdot a = 1',
+              explanation:
+                'Bézout\'s identity with gcd 1: integers u and v exist. This is exactly what the ladder\'s back-substitution guarantees.',
+            },
+            {
+              label: 'Multiply through by b',
+              formula: 'u \\cdot p \\cdot b + v \\cdot a \\cdot b = b',
+              explanation:
+                'Multiply the identity by b — the product that p is accused of dividing.',
+            },
+            {
+              label: 'p divides both terms on the left',
+              formula: 'p \\mid u \\cdot p \\cdot b \\quad \\text{and} \\quad p \\mid v \\cdot a \\cdot b',
+              explanation:
+                'The first term contains p outright. The second contains a × b, which p divides by assumption.',
+            },
+            {
+              label: 'So p divides the sum',
+              formula: 'p \\mid b',
+              explanation:
+                'p divides both summands, hence their sum — which is b. The prime went down the b road. Together with the obvious case p | a, every prime dividing a product divides at least one factor.',
+            },
+          ],
+          result:
+            'The crossroads lemma is proved — and with it, Lesson 3.2\'s uniqueness argument for the Fundamental Theorem stands on nothing deeper than the division algorithm.',
+        },
+        {
+          kind: 'para',
+          text: 'Stand back and look at what the chapter has become. Lesson 2.4 signed the division algorithm $n = q \\times d + r$. Lesson 3.1 turned remainders into screening tests. Lesson 3.2 used the algorithm to factor numbers into atoms and built uniqueness on the crossroads lemma. This lesson ran the algorithm as a ladder, read the ladder backwards into Bézout\'s identity, and used Bézout to prove the crossroads lemma. Every theorem in the chapter hangs, directly or indirectly, from that one hook — division with remainder. Even the coprime split now yields:',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The coprime split, generalised',
+          text: 'If $\\gcd(a, b) = 1$, $a \\mid n$ and $b \\mid n$, then $ab \\mid n$. The proof is Bézout\'s trick once more: write $n = a \\cdot s$; since $b$ divides $a \\cdot s$ while sharing nothing with $a$, the same argument as the crossroads lemma (with the coprime pair standing where the prime stood) forces $b \\mid s$ — so $n = a \\cdot b \\cdot t$. Instance: $3 \\mid 2{,}376$ (digit sum $18$) and $4 \\mid 2{,}376$ (tail $76$), and $\\gcd(3, 4) = 1$ — so $12 \\mid 2{,}376$: indeed $2{,}376 = 12 \\times 198$. Counter-instance: $2 \\mid 18$ and $6 \\mid 18$ but $12$ does not divide $18$ — the parts share $2$, so the licence was never valid. Lesson 3.1\'s trap is explained at last, not just survived.',
+        },
+        {
+          kind: 'para',
+          text: 'Examinations dress the HCF in story clothes, and three costumes recur so often that they deserve their own table. All three are the definition read backwards: the wanted number is a greatest common divisor, and the story only needs translating into "divides what, exactly?".',
+        },
+        {
+          kind: 'table',
+          caption: 'The three "greatest number" patterns',
+          head: ['The story', 'The translation', 'Instance'],
+          rows: [
+            ['A greatest length or size that measures several things exactly', 'HCF of the measures — no adjustment', 'cords of 1,152, 768 and 1,248 cm → 96 cm'],
+            ['A greatest number dividing x, y, z and leaving remainders r₁, r₂, r₃', 'subtract each remainder, then take the HCF: gcd(x − r₁, y − r₂, z − r₃)', '689, 1,124, 1,706 leaving 5, 8, 14 → HCF(684, 1,116, 1,692) = 36'],
+            ['A greatest number dividing x, y, z and leaving the same unknown remainder', 'take the HCF of the pairwise differences', '152, 277, 427 → HCF(125, 150, 275) = 25, remainder 2'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Why the moves work — pattern two, done once and believed forever: if $x = d \\cdot q_1 + r_1$, then $x - r_1 = d \\cdot q_1$ exactly, so the number the story wants is a common divisor of the reduced numbers $x - r_1$, $y - r_2$, $z - r_3$ — and the greatest such is their HCF. Pattern three hides a small subtraction identity: if $x = d \\cdot q_1 + s$ and $y = d \\cdot q_2 + s$ with the same leftover $s$, then $x - y = d \\cdot (q_1 - q_2)$ — the unknown $s$ cancels, which is why the differences know the answer even though $s$ was never told. Dividing back recovers the table\'s secret: $152 = 6 \\times 25 + 2$, $277 = 11 \\times 25 + 2$, $427 = 17 \\times 25 + 2$ — the remainder was $2$ all along.',
+        },
+        {
+          kind: 'formula',
+          name: 'The remainder patterns',
+          latex: '\\gcd(x - r_1, \\; y - r_2, \\; z - r_3)',
+          note: 'Subtract what each division leaves behind; the HCF of the leftovers is the greatest number the story wants. Exact division is the case r = 0. Unknown common remainder: use the pairwise differences — it cancels in every x − y. (The LCM twins of these patterns arrive in Lessons 3.4–3.5.)',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The oldest algorithm in the classroom (c. 300 BCE — 1779)',
+          text: 'The ladder is Book VII of **Euclid\'s Elements**: proposition 2 is the method itself — given two numbers not relatively prime, to find their greatest common measure — and proposition 1 is the difference engine behind it. It is, by wide agreement, the oldest algorithm still in daily use; the very word *algorithm* reached Europe through the name of the ninth-century Baghdad scholar **al-Khwārizmī**. The combination viewpoint has its own story: **Bachet\'s Problèmes plaisants (1624)** asked when $a x + b y = c$ has whole-number solutions, and **Étienne Bézout (1779)** carried the question to polynomials — lending the identity a name it did not quite own. Two millennia of teachers have kept the ladder because it never needs factorisation: divide, swap, repeat.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Direct HCF items are permanent fixtures of SSC, Railway and bank papers: "find the HCF of 18 and 48" ($6$), "the HCF of 91, 112 and 49" ($7$ — all three carry a seven: $91 = 7 \\times 13$, $112 = 2^4 \\times 7$, $49 = 7^2$), and the three greatest-number patterns of the table above. Co-prime hunting is its own genre — how many coprime pairs have sum $8$? Two: $1 + 7$ and $3 + 5$ — and the coprime-split theorem powers compound divisibility tests across NTSE and CUET papers. CBSE Class 6 meets the HCF in its chapter on playing with numbers, via the listing route and the atoms route exactly as built here. One promise to bank for Lesson 3.5: HCF and LCM always satisfy $\\gcd(a, b) \\times \\mathrm{lcm}(a, b) = a \\times b$ — the Venn figure\'s two products already whispered it ($48 \\times 1{,}440 = 96 \\times 720$).',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Side by side: 96 = 2⁵ × 3 and 720 = 2⁴ × 3² × 5. The HCF is:',
+              options: [
+                '288',
+                '48',
+                '1,440',
+                '144',
+              ],
+              answer: 1,
+              explain:
+                'Shared primes at the smaller powers: 2⁴ × 3 = 48 (Option 2). Option 1 grabbed the larger powers — 288 = 2⁵ × 3² exceeds 96 itself, so it divides neither number. Option 3 is the union product 2 × 48 × 15 = 1,440 — the LCM, Lesson 3.4\'s object. Option 4 is HCF(4,896, 720) = 2⁴ × 3²: the right rule applied to the wrong pair — here the 3 is capped at 1 by the 96 side.',
+            },
+            {
+              q: 'Which pair is coprime?',
+              options: [
+                '14 and 21',
+                '15 and 25',
+                '12 and 18',
+                '9 and 35',
+              ],
+              answer: 3,
+              explain:
+                '9 = 3² and 35 = 5 × 7 share no prime atom (Option 4). Option 1 shares 7 (14 = 2 × 7, 21 = 3 × 7). Option 2 shares 5. Option 3 shares 6 — gcd(12, 18) = 6, the very pair that broke the 2 × 6 split in Lesson 3.1.',
+            },
+            {
+              q: 'You run the ladder: 126 = 1 × 84 + 42, then 84 = 2 × 42 + 0. The HCF of 126 and 84 is:',
+              options: [
+                '21 — half of 42',
+                '84 — the divisor of the row above',
+                '42 — the last nonzero remainder',
+                '126 — the larger number',
+              ],
+              answer: 2,
+              explain:
+                'The ladder\'s reading rule: the last nonzero remainder (Option 3). The atoms confirm: 84 = 2² × 3 × 7 and 126 = 2 × 3² × 7 share 2 × 3 × 7 = 42 — the seed Exercise L3 planted in Lesson 3.2. Option 1 is numerology. Option 2 mistakes the divisor of the row above the answer for the answer itself. Option 4 confuses the HCF with a dividend.',
+            },
+            {
+              q: 'The greatest number that divides 689, 1,124 and 1,706 leaving remainders 5, 8 and 14 respectively is:',
+              options: [
+                '36',
+                '12',
+                '6',
+                '4',
+              ],
+              answer: 0,
+              explain:
+                'Subtract the remainders: 684, 1,116, 1,692 — atoms 2² × 3² × 19, 2² × 3² × 31, 2² × 3² × 47 — so the HCF of the leftovers is 2² × 3² = 36 (Option 1). Options 2, 3 and 4 are genuine common factors of the leftovers — but every common divisor divides 36, so none of them is the greatest. Rebuild: 689 = 19 × 36 + 5, 1,124 = 31 × 36 + 8, 1,706 = 47 × 36 + 14.',
+            },
+            {
+              q: 'Back-substitution on the ladder for 4,896 and 720 expresses the HCF as a combination. Which line is right?',
+              options: [
+                '6 × 720 − 4,896',
+                '7 × 720 − 4,896',
+                '4,896 − 7 × 720',
+                '4,896 − 6 × 720',
+              ],
+              answer: 1,
+              explain:
+                '144 = 720 − 576 = 720 − (4,896 − 6 × 720) = 7 × 720 − 4,896, and 5,040 − 4,896 = 144 (Option 2). Option 1 evaluates to −576 — the first remainder with the sign unreversed. Option 3 gives −144. Option 4 is the ladder\'s first row — 576 — the back-substitution never performed.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'List all the factors of 36 and of 54. Circle the common factors and state the HCF — then check that the circled list is exactly the set of divisors of the HCF.',
+                  solution:
+                    'The factors of $36$: $1, 2, 3, 4, 6, 9, 12, 18, 36$ — nine, as Lesson 3.2\'s formula promised for $2^2 \\times 3^2$: $(2 + 1)(2 + 1) = 9$. The factors of $54$: $1, 2, 3, 6, 9, 18, 27, 54$ — eight, since $54 = 2 \\times 3^3$ gives $(1 + 1)(3 + 1) = 8$. Common: $1, 2, 3, 6, 9, 18$ — so the HCF is $18$. And the divisors of $18$ are exactly $\\{1, 2, 3, 6, 9, 18\\}$: the circled list. Not a coincidence — the common factors of a pair are always precisely the divisors of their HCF, because the smaller-power rule caps every common divisor\'s exponents at the HCF\'s own.',
+                },
+                {
+                  q: 'Without factorising anything, explain why 1,000 and 1,001 are coprime — and generalise.',
+                  solution:
+                    'They are consecutive. Suppose $d$ divides both: then $d$ divides the difference $1{,}001 - 1{,}000 = 1$, and the only positive divisor of $1$ is $1$ itself. So the HCF is $1$ — coprime. The generalisation costs nothing: **any** two consecutive whole numbers are coprime, because any common divisor divides their difference, which is $1$. The same difference argument drives the swap lemma and the exam patterns below: a common divisor of two numbers always divides their difference.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Find, by the atoms route: (a) HCF(36, 84)  (b) HCF(34, 102)  (c) HCF(27, 63).',
+                  solution:
+                    '(a) $36 = 2^2 \\times 3^2$ and $84 = 2^2 \\times 3 \\times 7$: the $2$ is shared at $\\min(2, 2) = 2$ and the $3$ at $\\min(2, 1) = 1$, so the HCF is $2^2 \\times 3 = 12$. (b) $34 = 2 \\times 17$ and $102 = 2 \\times 3 \\times 17$: everything of $34$ is shared, so the HCF is $34$ itself — indeed $102 = 3 \\times 34$, and when one number divides the other, the HCF is the smaller. (c) $27 = 3^3$ and $63 = 3^2 \\times 7$: the $3$ is shared at $\\min(3, 2) = 2$, so $3^2 = 9$.',
+                },
+                {
+                  q: 'Find HCF(70, 105, 175) by atoms; then confirm by the ladder with the folding rule HCF(a, b, c) = HCF(HCF(a, b), c).',
+                  solution:
+                    'Atoms: $70 = 2 \\times 5 \\times 7$, $105 = 3 \\times 5 \\times 7$, $175 = 5^2 \\times 7$. The prime $5$ appears at powers $1, 1, 2$ — take the smaller: $1$. The prime $7$ at $1, 1, 1$. HCF $= 5 \\times 7 = 35$. Ladder: $\\gcd(70, 105)$ — $105 = 1 \\times 70 + 35$, then $70 = 2 \\times 35 + 0$ — gives $35$. Fold in the third: $175 = 5 \\times 35$ exactly, so $\\gcd(35, 175) = 35$. Same answer, and the order of folding never matters: each fold preserves the set of common divisors, by the swap lemma.',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The seed repaid. Lesson 3.2\'s Exercise L3 found the shared atoms of 84 and 126. Now run the ladder on (126, 84) and confirm it lands on the same 42 — then explain why the two routes must always agree.',
+                  solution:
+                    'Ladder: $126 = 1 \\times 84 + 42$, then $84 = 2 \\times 42 + 0$ — the last nonzero remainder is $42$. Atoms: $84 = 2^2 \\times 3 \\times 7$ and $126 = 2 \\times 3^2 \\times 7$ give $2 \\times 3 \\times 7 = 42$. The two routes must agree because they compute the same object: the swap lemma says the ladder never changes the set of common divisors, and the smaller-power rule says the greatest member of that set is exactly the shared-atom product. Two languages, one theorem.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Test 44,100 for divisibility by 63 = 7 × 9 using the coprime split, and explain why the split is legal here.',
+                  solution:
+                    '$7 \\mid 44{,}100$ (indeed $44{,}100 = 7 \\times 6{,}300$) and $9 \\mid 44{,}100$ (digit sum $4 + 4 + 1 = 9$). The parts are coprime: $7$ is prime, $9 = 3^2$, no shared atom — $\\gcd(7, 9) = 1$. The coprime-split theorem licenses the product: $63 \\mid 44{,}100$. Rebuild: $44{,}100 = 63 \\times 700$. The split is legal **because** the parts are coprime — $7 \\times 9$ passes where $2 \\times 6$ would not.',
+                },
+                {
+                  q: 'Is 1,053,060 divisible by 63? Answer with the same split, naming exactly which part fails.',
+                  solution:
+                    'The digit sum is $1 + 0 + 5 + 3 + 0 + 6 + 0 = 15$, which is not a multiple of $9$ — so $9$ does not divide $1{,}053{,}060$ (the leftover is $6$: $1{,}053{,}060 = 9 \\times 117{,}006 + 6$). One part of the coprime split has failed, and the theorem needs **both** parts: $63$ does not divide $1{,}053{,}060$. (The $7$ also misses it — $1{,}053{,}060 = 7 \\times 150{,}437 + 1$ — but one failure settles the verdict; that is the economy of the split.)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Find the greatest number that divides 689, 1,124 and 1,706 leaving remainders 5, 8 and 14 respectively.',
+                  solution:
+                    'Subtract the remainders: $689 - 5 = 684$, $1{,}124 - 8 = 1{,}116$, $1{,}706 - 14 = 1{,}692$. The wanted number divides all three leftovers exactly. Atoms: $684 = 2^2 \\times 3^2 \\times 19$, $1{,}116 = 2^2 \\times 3^2 \\times 31$, $1{,}692 = 2^2 \\times 3^2 \\times 47$ — the shared part is $2^2 \\times 3^2 = 36$. Answer: $36$. Rebuild: $689 = 19 \\times 36 + 5$, $1{,}124 = 31 \\times 36 + 8$, $1{,}706 = 47 \\times 36 + 14$. Note the quotients $19, 31, 47$ are prime — so no larger number can divide all three leftovers, and the answer is forced.',
+                },
+                {
+                  q: 'Find the greatest number that divides 152, 277 and 427 leaving the same remainder in each case — and identify that remainder.',
+                  solution:
+                    'The remainder is unknown, so work with the differences: $277 - 152 = 125$, $427 - 277 = 150$, $427 - 152 = 275$. Atoms: $125 = 5^3$, $150 = 2 \\times 3 \\times 5^2$, $275 = 5^2 \\times 11$ — shared $5^2 = 25$. Answer: $25$. Divide back to recover the secret: $152 = 6 \\times 25 + 2$, $277 = 11 \\times 25 + 2$, $427 = 17 \\times 25 + 2$ — the common remainder is $2$. Why differences suffice: if $x = d \\cdot q_1 + s$ and $y = d \\cdot q_2 + s$, then $x - y = d \\cdot (q_1 - q_2)$ — the unknown $s$ cancels.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The composer\'s problem. Find every pair of numbers whose HCF is 12 and whose sum is 156 — and prove the list is complete.',
+                  solution:
+                    'Write the numbers as $12a$ and $12b$ with $\\gcd(a, b) = 1$: any atom shared by $a$ and $b$ would ride through the $12$ and enlarge the HCF. Then $12(a + b) = 156$, so $a + b = 13$. Now every split of $13$ is automatically coprime: a common divisor of $a$ and $13 - a$ divides their sum $13$, so it is $1$ or $13$ — and $0 < a < 13$ rules out $13$. (Thirteen being prime is the gift; the sum was chosen so the reduced sum is prime, making **every** pair work.) The pairs with $a < b$: $(1, 12), (2, 11), (3, 10), (4, 9), (5, 8), (6, 7)$ — giving $(12, 144)$, $(24, 132)$, $(36, 120)$, $(48, 108)$, $(60, 96)$, $(72, 84)$. Completeness: any solution must take the form $12a, 12b$ with $a + b = 13$, and the six pairs exhaust $a < b$; each has HCF exactly $12$, since $\\gcd(12a, 12b) = 12 \\times \\gcd(a, b) = 12$. Six answers, no seventh.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Two objects now live at the vantage point — one built, one promised. The shared primes at the smaller powers assembled the HCF, and the ladder reached the same answers without ever factorising; between them, the coprime split and Bézout\'s identity turned Lesson 3.1\'s warning and Lesson 3.2\'s debt into theorems. Still waiting in the picture: the primes at the **larger** powers. The Venn figure has already drawn them — the union territory $2 \\times 48 \\times 15 = 1{,}440$, the smallest number that both $96$ and $720$ divide. That is the **lowest common multiple**, and it has a story of its own: bells that ring together, buses that leave together, timetables that collide. Lesson 3.4 begins there.',
+        },
+      ],
+    },
   ],
 }
-
