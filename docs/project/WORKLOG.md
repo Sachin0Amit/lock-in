@@ -60,7 +60,7 @@ issues before ship.
 **Remaining:** unit 3 continues — FM 3.4 Lowest Common Multiple next (per
 RESUME_POINTER). Exam registry research pending.
 
-**Git:** commit `figures: fix six overlapping/clipped SVG figures (owner-reported) + exact-geometry overlap audit wired into gates` then pushed under protocol v2 (verification note appended below after push).
+**Git:** commit `figures: fix six overlapping/clipped SVG figures (owner-reported) + exact-geometry overlap audit wired into gates` = `87f0f8a`, pushed under protocol v2 as `cdeac41..87f0f8a` — remote HEAD verified `87f0f8a` via one-time-URL ls-remote; tracking ref re-synced by anonymous HTTPS fetch; token never on disk, output sanitised.
 
 ---
 
