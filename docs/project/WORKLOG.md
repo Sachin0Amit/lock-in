@@ -74,6 +74,15 @@ questions reproduced. Chapter totals recomputed by
 11. Working copies deleted (Khattar PDF + text dump); only the gitignored
 survey remains.
 
+**Push (protocol v2):** after the ship commit landed, one push of all
+unpushed commits on main — `fecd9c4..52cc8c4 HEAD -> main` — one-time
+HTTPS URL in a single git command, token never written anywhere, URL
+anonymized in output; remote verified via one-time-URL ls-remote:
+remote HEAD = local HEAD = `52cc8c471cb80040db5d1f776a64b90ca8ed91f8`;
+tracking ref re-synced (anonymous fetch). Third successful automated
+push; first fully-automated unit CLOSURE (ship + push + verify in one
+run).
+
 **Next:** unit 3 opens — chapter 3 "Factors, Multiples and Primes"
 (5 planned lessons), starting with 3.1 "Divisibility and Its Tests";
 research via Khattar (number-theory chapters) + NCERT class 6 ch. 3

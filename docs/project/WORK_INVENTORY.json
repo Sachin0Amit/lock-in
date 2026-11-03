@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 11:05:28 (Asia/Kolkata)",
+  "generated": "2026-11-03 11:06:36 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -2602,6 +2602,72 @@
           "path": "docs/project/WORKLOG.md",
           "add": 9,
           "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "52cc8c471cb80040db5d1f776a64b90ca8ed91f8",
+      "short": "52cc8c4",
+      "date": "2026-11-03 05:35",
+      "message": "unit 2 complete: FM lesson 2.5 Order of Operations and the Language of Expressions (60 new checks, 165 total, E2E green) + unit-2 completion review (BOOK_FORMAT 7/7, exam audit, totals) + survey upgrade (persisted Drive ids) + logs updated",
+      "filesChanged": 11,
+      "insertions": 956,
+      "deletions": 97,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 88,
+          "del": 11
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 10,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 6,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 24,
+          "del": 13
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 76,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 211,
+          "del": 32
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 8,
+          "del": 2
+        },
+        {
+          "path": "scripts/rebuild_drive_survey.ts",
+          "add": 8,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-unit-2.ts",
+          "add": 109,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 10,
+          "del": 9
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 406,
+          "del": 14
         }
       ]
     }
