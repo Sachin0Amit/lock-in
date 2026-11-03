@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 02:18:54 (Asia/Kolkata)",
+  "generated": "2026-11-04 02:24:48 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4998,6 +4998,67 @@
       "insertions": 0,
       "deletions": 0,
       "files": []
+    },
+    {
+      "sha": "43b1c864afd3cf5aa73efcc24d7a80dc09289d95",
+      "short": "43b1c86",
+      "date": "2026-11-03 20:54",
+      "message": "fm 5.2 decimals and fractions, two ways of writing the same numbers (unit 5, run 22): long division past the point becomes the universal bridge-builder — the step machine equation tag 1 (next digit = floor(10r/b), next remainder = 10r mod b, justified from lesson 4.2's multiplying rule), terminating decimals (illustration 1: 3/8 = 0.375 — the remainders die after exactly max(m, n) places; the division-side atom test: each step adds one 2-atom and one 5-atom of paying power), recurring decimals (illustration 2: 5/12 = 0.416bar — remainder 8 returns, the digit 6 waltzes forever; the head is the 2^2-part paying out), THE DRESSES THEOREM proved as a derivation block (the machine is a deterministic walk on the b remainder cells; cell 0 ends the walk — the 2-and-5 family from the division side; pigeonhole on the b-1 nonzero cells forces a return; determinism replays the block — the repetend, at most b-1 digits; no third dress exists), figure 1: the remainder carousel of 1/7 (cells 1->3->2->6->4->5->1 on a ring with amber arrowheads and the emitted digits 1 4 2 8 5 7 in walking order; geometry script-verified, audit 0 issues after moving node labels outside the circles, VLM 10/10), the slow carousel walk (10 = 1x7+3 ... 50 = 7x7+1), pure vs mixed recurrence (roman run: 1/3 cycle 1, 1/11 cycle 2 via 10 = -1, 1/37 cycle 3 via 999 = 27 x 37, 1/7 cycle 6; mixed instances 1/6, 7/30, 13/22, 11/150), THE HEAD-LENGTH THEOREM proved as a derivation block (head = exactly max(m, n) places — the 2-and-5 part pays out, then the coprime-to-ten tail walks purely; shorter shifts cannot clear the 2/5 atoms), figure 2: the map of the bridge (three-lane classifier terminating / mixed recurring / pure recurring with instances 7/8, 5/12, 1/3; audit 0 issues, VLM 9/10), the bridge backwards by shift-and-subtract (illustrations 3-5: 0.3bar = 1/3; 0.142857bar = 1/7 over six nines with 142857 x 7 = 999999 confirming; 0.245bar45bar = (245-2)/990 = 27/110; the shift rule as equation tag 2; lesson 2.5's vinculum returns as the repetend bar), the 0.9bar = 1 caution (two names, one number) and the atoms-of-the-base note (10 = 2 x 5 owns base ten; in base twelve thirds terminate and sevenths still waltz with cycle 6), the exam-style 2/7 vs 0.2857 illustration (cross-multiply 20000 > 19999 — the fraction wins by exactly 1/70000) and the 22/7 != pi warning (3.142857bar, about 0.0013 from pi — 5.1's 3.14159 misprint for 22/7 found and corrected this run), the 6-row dress catalogue + census equation + 3 formula cards + exam corner — 5,407 words in the Cengage voice and solution chain; 6 illustrations, 2 figures (0 audit issues), 7 new terms (long division step, terminating decimal, recurring decimal, repetend, pure recurring decimal, mixed recurring decimal, cycle length), 5-quiz (0/2/2/1/0 verified live 5/5 perfect), 12 exercises L1-L6 (L6 proves the dresses theorem and the 142857 rotation family); verify-unit-5.ts extended 165 -> 273 checks (P-AC incl. exact long-division sims, determinism + pigeonhole sweeps, the division-side atom test sweep, order-of-10 vs observed cycles, the 142857 family, head-length numerics, shift-and-subtract round-trips, the base-twelve sweep, figure geometry, quiz + exercise key audits) ALL PASS pre-writing + regressions 330/260/165 green; E2E extended to 10 lessons with a dedicated 5.2 block (quiz 5/5 live, 12/12 solutions expand, 18 sol. pills, 30 therefore tags, KaTeX 307, dollarInSvg 0, badges 0, legacy boxes 0, 390px exact-fit); SOURCE_LOG gains ncert-math9-ch1 (web-checked, zero downloads); 5.1's 22/7 waltz digits corrected; logs + inventory updated; ch. 5 open 2/5, next 5.3 operating on decimals",
+      "filesChanged": 10,
+      "insertions": 1535,
+      "deletions": 73,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 80,
+          "del": 18
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 28,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 153,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 115,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-5.ts",
+          "add": 385,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 9,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 676,
+          "del": 12
+        }
+      ]
     }
   ],
   "totals": {
