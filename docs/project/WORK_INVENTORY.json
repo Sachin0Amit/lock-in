@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 02:24:48 (Asia/Kolkata)",
+  "generated": "2026-11-04 03:17:59 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1241,9 +1241,8 @@
             "title": "Decimals and Percents",
             "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Operating on Decimals",
               "Percent and Its Meaning",
               "Percentage Change, Discounts and Simple Interest"
             ],
@@ -1380,9 +1379,76 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-operating-on-decimals",
+                "number": "5.3",
+                "title": "Operating on Decimals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4462,
+                "readMins": 22,
+                "concepts": [
+                  "Aligning the points",
+                  "The trailing-zero licence at work",
+                  "Borrowing across the point",
+                  "The whole-number engine and the places-add rule",
+                  "The point-shift rule",
+                  "Clearing the divisor",
+                  "The unitary method"
+                ],
+                "objectives": [
+                  "Add and subtract any decimals by aligning the points, padding with the trailing-zero licence and borrowing across the point, and check every subtraction by the inverse test",
+                  "Multiply decimals with the whole-number engine and land the point by the places-add rule, proving the rule from the fraction reading, and shift the point by powers of ten without reordering a digit",
+                  "Divide by whole numbers with the quotient's point riding the dividend's, and divide by decimals by clearing the divisor — scaling both numbers by the same power of ten and leaving the quotient untouched",
+                  "Settle money, length and mass problems by converting first and operating second, and reduce every rate problem to one unit with the unitary method"
+                ],
+                "prerequisites": [
+                  "fm-decimal-places-and-the-point",
+                  "fm-decimals-and-fractions-two-ways",
+                  "fm-multiplying-dividing-fractions",
+                  "fm-adding-subtracting-fractions"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch8",
+                  "ncert-math7-ch2"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 4,
+                  "callout": 7,
+                  "example": 6,
+                  "equation": 2,
+                  "derivation": 1,
+                  "list": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 10757
+            "words": 15219
           },
           {
             "number": 6,
@@ -1505,12 +1571,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 84,
-      "totalLines": 21386,
+      "totalLines": 22014,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 12130,
+        "src/data/library (content model + books)": 12758,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -5059,6 +5125,32 @@
           "del": 12
         }
       ]
+    },
+    {
+      "sha": "00676d171ec2e06203365c7fb9f079d8488485a2",
+      "short": "00676d1",
+      "date": "2026-11-03 20:54",
+      "message": "inventory: record run-22 ship (fm 5.2 decimals and fractions two ways live) — 20 lessons / 96,691 words / 128 terms, ch. 5 open 2/5; next 5.3 operating on decimals",
+      "filesChanged": 1,
+      "insertions": 62,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 62,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c830cd867596964f8baa097b5af9beffd421ef91",
+      "short": "c830cd8",
+      "date": "2026-11-03 20:55",
+      "message": "memory: record run-22 push verification (00676d1), origin/main synced — FM 5.2 decimals and fractions, two ways of writing the same numbers live (the dresses theorem, the 1/7 carousel, shift-and-subtract both ways; 5.1's 22/7 waltz digits corrected), ch. 5 open 2/5; next FM 5.3 operating on decimals",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
     }
   ],
   "totals": {
@@ -5067,26 +5159,26 @@
     "booksLive": 1,
     "chaptersWritten": 4,
     "chaptersInProgress": 1,
-    "lessonsWritten": 20,
-    "wordsAuthored": 96691,
-    "termsDefined": 128,
-    "quizItems": 100,
-    "exerciseQuestions": 197,
+    "lessonsWritten": 21,
+    "wordsAuthored": 101153,
+    "termsDefined": 135,
+    "quizItems": 105,
+    "exerciseQuestions": 209,
     "blockTotals": {
-      "para": 282,
-      "callout": 93,
-      "heading": 137,
-      "terms": 21,
-      "equation": 23,
-      "derivation": 38,
+      "para": 299,
+      "callout": 100,
+      "heading": 141,
+      "terms": 22,
+      "equation": 25,
+      "derivation": 39,
       "table": 22,
-      "figure": 31,
-      "example": 63,
-      "quiz": 20,
-      "exercises": 20,
-      "formula": 45,
+      "figure": 33,
+      "example": 69,
+      "quiz": 21,
+      "exercises": 21,
+      "formula": 48,
       "algorithm": 8,
-      "list": 10
+      "list": 12
     }
   }
 }

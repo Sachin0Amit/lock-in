@@ -6,6 +6,171 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 23 (cron, Job 498279): FM lesson 5.3 "Operating on Decimals" authored in the Cengage voice + solution chain — the decimal dress goes to work: align the points, let the engine multiply with the places adding, let the step machine divide with the quotient's point riding the dividend's
+
+**Run open (push check first):** tree clean at `c830cd8` = local HEAD =
+remote HEAD (the run-22 memory commit, verified at run open via the
+one-time-URL `git ls-remote`: remote HEAD `c830cd8…` = refs/heads/main =
+local; `git log origin/main..HEAD` empty after the tracking ref was
+refreshed by fetch + `git update-ref`) — nothing queued, no push debt;
+every run since 17 has pushed at run end. Task per RESUME_POINTER: FM
+lesson 5.3 "Operating on Decimals" (the four operations with the point
+in play; extend verify-unit-5.ts BEFORE writing).
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT Class 6 ch. 8 "Decimals" addition/subtraction-by-alignment
+exercises (the canonical school presentation of column work with the
+points lined up — web-checked 2026-11-04); NCERT Class 7 ch. 2 "Fractions
+and Decimals" §§2.3–2.4 "Multiplication of Decimal Numbers" / "Division
+of Decimal Numbers" (× 10/100/1000 shifts, the standard
+multiply-as-wholes-then-count algorithm, division by whole numbers and
+by another decimal — section sequence web-checked 2026-11-04; both keys
+already in SOURCE_LOG, `ncert-math7-ch2` extended); Khattar QA 4e
+decimal exam patterns (the one-engine point-hop family, the classic
+frauds). No new citation keys; no temporary-references footprint. The
+gitignored Drive survey was rebuilt once (`rebuild_drive_survey.ts`, 89
+entries intact) solely to regenerate WORK_INVENTORY.json after the
+recycle.
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-5.ts extended
+273 → **341 checks** (sections AD–BJ, 68 new) ALL PASS before a word was
+written: AD exact addition/subtraction at the thousandths scale (15.75 +
+8.4 + 0.905 = 25.055; 34.60 − 18.87 = 15.73 with the inverse closure
+15.73 + 18.87 = 34.60; 2.3 + 4.55 = 6.85; 9.4 − 6.78 = 2.62; 0.9 + 0.09
++ 0.009 = 0.999; the bill 42.75 + 18.60 + 96.05 = 157.40 and change
+42.60; the licence equality 8.4 = 8.400); AE the places-add law (342 ×
+56 = 19152 → 19.152; 0.3 × 0.2 = 0.06; 0.75 × 0.4 = 0.3 after the trim;
+1.5 × 2.25 = 3.375 with the max-places fraud 33.75 off by exactly 10;
+0.45 × 0.067 = 0.03015; the point-shift hops 4.75 → 47.5 → 475 and →
+0.475 → 0.0475; the roman run 2.9 × 10 = 29, 0.035 × 100 = 3.5, 46.7 ÷
+1000 = 0.0467; the 36-combo dress re-read sweep; the closure check);
+AF division (12876 ÷ 12 = 1073 → 10.73 with the four tableau steps
+verified; 12.75 ÷ 5 = 2.55; 7.2 ÷ 0.9 = 8; 16.24 ÷ 2.8 = 5.8 via 162.4
+÷ 28; 20.4 ÷ 1.2 = 17; 0.144 ÷ 1.2 = 0.12; 18.6 ÷ 1.5 = 12.4; the
+eight-row quotient-identity sweep n₁·d₂·q_D = d₁·n₂·q_N; 9.1 ÷ 5 = 1.82
+by the step machine with the written zero; 45.6 ÷ 100 = 0.456); AG both
+figures' geometry (ladder rooms x = 28 + 104k, width 92, 10px gaps, last
+box 732 ≤ 760; the point dot on the ones/tenths boundary at x 431; the
+vertical air chain 20 < 52 < 68 < 92 < 108 < 150 < 236 < 254 < 278 <
+296 < 318 < 336 < 395 < 430; the strip arithmetic; tableau quotient row
+y 48 riding dividend columns 348/396/444/492 with both points at cx
+420; row spacing ≥ 44px; the arrow/label air gaps); AH the quiz key (2/1/
+2/0/1 with every distractor numerically killed); AI the exercise keys
+(all 12 + the cloth run 48.50 × 3.5 = 169.75 — one true place — with
+change 30.25; the 25-combo law sweep; 12.5 × 0.08 = 1; 0.5 × 0.3̄ = 1/6
+= 0.16̄ via longDivide; the length/mass roman run 2.4 ÷ 6 = 0.4, 375 ÷
+25 = 15, 42 mm = 4.2 cm, 7.5 − 4.2 = 3.3); AJ structural sanity (7
+terms, 3 cards, 6 illustrations, 12 exercises, quiz indices,
+prerequisites). Two check-side scale slips caught and fixed during
+authoring (AD3 mixed scales — 18.87 at thousandths is 18870; AH5's
+45.6/10 float artifact replaced by decimalOf string checks) — the lesson
+mathematics itself never moved. Regressions: unit-4 330, unit-3 260,
+unit-2 165 ALL PASS.
+
+**Lesson 5.3 authored** (`fm-operating-on-decimals`, 4,462 words; ch. 5
+now 3/5): the opening (like units only — the fractions' law worn
+positionally; three movements: align, count, scale); **addition and
+subtraction by aligning the points** — the point as the fencepost that
+fixes the columns, the aligning-the-points Definition callout with its
+Thus-restatement, Illustration 1 (15.75 + 8.4 + 0.905 = 25.055 with the
+licence padding and the carry chain), the borrowing paragraph
+(Lesson 2.1's borrows walk straight across the point), Illustration 2
+(34.60 − 18.87 = 15.73, the borrow chain named rung by rung, the inverse
+test closing the ledger), the **inverse-test Note** (a − b = c iff c + b
+= a — the exam hall's cheapest insurance) and the **digit-add fraud
+Caution** (0.9 + 0.09 + 0.009 = 0.999, not 0.27/0.027); **multiplication
+as engine + count** — deliberately no alignment, the two stages named,
+the fraction reading (0.3 × 0.2 = 3/10 × 2/10 = 6/100), **the places-add
+law as equation tag 1** ((a/10^j)(b/10^k) = ab/10^(j+k)), **the
+places-add rule PROVED as a derivation block** (fraction reading →
+Lesson 4.2's multiplying rule → the law of powers; alignment never
+enters the argument, which is why none is needed; trailing zeros are
+licence, not places), Illustration 3 (342 × 56 = 19152 → 19.152 with the
+partial rows), the roman run ending whole (0.3 × 0.2 = 0.06; 0.75 × 0.4
+= 0.3; 12.5 × 0.08 = 1 — the licence trims even the whole), **the
+point-shift rule** paragraph, **figure 1: the point-hops ladder** (seven
+rooms THOUSAND→THOUSANDTH at x = 28 + 104k with 4.75 in place and the
+point dot on the ones/tenths boundary at x 431; amber climb arrows ×100/
+×10 above and slide arrows ÷10/÷100 below; the worked strip 4.75 → 47.5
+→ 475 / → 0.475 at the foot; the reading paragraph walks the digits
+climbing room by room), the **max-places fraud Caution** (1.5 × 2.25:
+engine 3375, places 1 + 2 = 3 → 3.375; the max reading 33.75 is off by
+exactly a factor of 10 — the standard entrance-paper trap) and the
+**counting-places-counts-the-dress Note** (48.50 wears one true place;
+48.50 × 3.5 = 169.75, not 16.975); **division: the step machine
+continued** — the quotient's point rides the dividend's, Illustration 4
+(128.76 ÷ 12 = 10.73 with the machine's four steps), **figure 2: the
+full tableau** (divisor bracket at x 284, dividend digits at 48px
+pitches, the amber point dropping into the quotient exactly when the
+bring-down crosses, bring-down arrows labelled, subtraction rows
+12/84/36 with rules, the final 0, the check line 12 × 10.73 = 128.76),
+the what-it-does-not-contain paragraph, **clearing the divisor**
+(16.24 ÷ 2.8 asks what the divisor wears; the equivalent-fraction
+licence scales both; **the scaling law as equation tag 2**
+((A/10^j)/(B/10^k) = (A × 10^k)/(B × 10^j)); Illustration 5: 162.4 ÷ 28
+= 5.8 with the machine's steps and the inverse test 2.8 × 5.8 = 16.24),
+the past-the-point step (9.1 ÷ 5 = 1.82 — bring down a written zero) and
+the dresses-theorem tie (one machine, two exits: land on remainder 0 or
+cycle), the **÷ 100 fraud Caution** (45.6 ÷ 100 = 0.456, not 4560 — the
+hop has a direction); **word problems: money, length, mass** — money's
+fixed two-place dress, Illustration 6 (the bill 42.75 + 18.60 + 96.05 =
+157.40 with the carry chain shown column by column; change 200.00 −
+157.40 = 42.60), the length/mass roman run (2.4 kg ÷ 6 = 0.4 kg = 400 g;
+3.75 m ÷ 0.25 m = 15 pieces with the inverse test; 7.5 cm − 42 mm = 3.3
+cm convert-first), **the unitary method** (18.6 km on 1.5 L → 18.6 ÷ 1.5
+= 12.4 km/L; 4 L → 49.6 km — divide to the one, multiply to the many);
+7 new terms (Aligning the points, Borrowing across the point,
+Whole-number engine, Places-add rule, Point-shift rule, Clearing the
+divisor, Unitary method); 3 formula cards (the alignment rule, the
+places-add rule, the clearing rule); exam corner (the one-engine hop
+family 0.45 × 0.067 = 0.045 × 0.67 = 4.5 × 0.0067 = 0.03015; the three
+classic traps; convert-first; the unitary method); 5-quiz (2/1/2/0/1);
+12 exercises L1–L6 — L6 proves the places-add rule from the fraction
+reading, deduces the closure of the terminating family (pooled atoms
+still only 2s and 5s) and names where the proof breaks (a recurring
+factor owns no whole-over-power-of-ten dress; 0.5 × 0.3̄ = 0.16̄, the
+waltz slowed but not stopped).
+
+**Verified:** lint clean; tsc clean; routes 200 (dev server alive);
+both new figures pass scripts/audit-svg-overlaps.sh with **0 issues
+FIRST pass** (ladder 17 texts, tableau 26 texts); E2E extended to **11
+lessons** (LESSONS array + a dedicated 5.3 block): 4 caps-over-rule
+headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills
+= solPills = 6, 18 with the exercises expanded), stepNumberBadges = 0,
+legacyAnswerBoxes = 0, 18 ∴ tags on the illustration chain (30 with
+exercises), KaTeX 248 nodes, dollarInSvg = 0, note boxes
+Definition/Note/3 Cautions/2 formula cards visible (+ Exam corner),
+exercises bar 12 questions, quiz bar 5; quiz answered live with intended
+options (indices 2/1/2/0/1) → **"You scored 5/5 · perfect"** + Retake
+(score read after a separate wait — the same-eval read races React's
+flush, run-21/22 precedent); all 12 exercise solutions expand (36 open
+collapsibles); 2 svg figures render; mobile 390px exact-fit (docScrollW
+= 390, articleW = 358); zero console errors on fresh load; VLM review:
+ladder **10/10 mathematical correctness + 9/10 clarity** (cosmetic
+arrow-span nitpicks only); tableau 8/10 with its two "alignment defect"
+complaints **DISPROVEN by exact DOM measurement** — both point circles
+render at cx = 420.0 exactly and the quotient digits ride
+348/396/444/492 (the standard last-consumed-digit convention), the
+VLM's offsets being JPEG-scale misreads; direct screenshot inspection of
+the tableau confirms the clean render; quiz key re-verified live 5/5 ·
+perfect; glossary picks up the 7 new terms (128 → 135); book TOC shows
+5.3 written, plannedLessons down to two; totals recomputed by
+build_work_inventory.ts (after the survey rebuild): **21 lessons /
+101,153 words / 135 terms / 105 quiz items / 209 exercise questions**.
+
+**Logged:** WORKLOG (this entry), DETAILED_LOG (generated line + timeline
+row + lesson 5.3 block + current state + the stale §1 live-count line
+repaired), PROGRESS.json (phase/awaiting/verified/library), 
+RESUME_POINTER.json (nextAction + run23Extras), SOURCE_LOG.md
+(ncert-math7-ch2 extended with the §§2.3–2.4 reuse + free-space entry),
+WORK_INVENTORY.json regenerated. Zero downloads; storage law honoured.
+
+**Git:** run-23 ship commit + inventory bookkeeping commit, pushed per
+protocol v2 at run end — see the run-23 memory commit for the verified
+sha.
+
+---
+
 ## 2026-11-04 — RUN 22 (cron, Job 498279): FM lesson 5.2 "Decimals and Fractions, Two Ways of Writing the Same Numbers" authored in the Cengage voice + solution chain — long division past the point becomes the universal bridge-builder, the dresses theorem proves every fraction terminates or recurs, and the 1/7 carousel shows the dance
 
 **Run open (push check first):** tree clean at `f2a7e9d` = local HEAD =

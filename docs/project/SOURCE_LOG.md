@@ -130,7 +130,15 @@ step 6).
   proof of the division theorem, the scaling/two-frauds cautions, the
   cross-cancellation licence and the HCF/LCM-of-fractions measuring
   treatment are the book's own derivations (the shortcut formulas were
-  banked from Khattar ch. 2's rules, re-derived and verified here).
+  banked from Khattar ch. 2's rules, re-derived and verified here). Re-used for FM ch. 5 lesson 5.3 (run 23): §2.3 "Multiplication of
+  Decimal Numbers" + §2.4 "Division of Decimal Numbers" (by 10/100/1000,
+  by a whole number, by another decimal) — section sequence web-checked
+  2026-11-04 (Khan Academy's NCERT-class-7 skill map confirmed 2.3
+  multiplication incl. × 10/100/1000 and the standard-algorithm items,
+  2.4 division incl. hundredths); exposition original — the fraction
+  reading proof of the places-add law, the point-hops ladder, the
+  quotient-point-rides-the-dividend convention and the clearing law are
+  the book's own derivations.
 - `ncert-math6-ch8` — NCERT Class 6 Mathematics, ch. 8 "Decimals"
   (old-edition canon; public curriculum). Used for: FM ch. 5 lesson 5.1 —
   the canonical school-level sequence mirrored (tenths, hundredths,
@@ -179,6 +187,14 @@ step 6).
 
 ## Free-space checkpoint
 
+- 2026-11-04 (mathematics, unit 5, lesson 5.3): no downloads — NCERT
+  class-6 ch. 8 addition/subtraction-by-alignment exercises and class-7
+  ch. 2 §§2.3–2.4 multiplication/division-of-decimals section sequences
+  web-checked (sanctioned fallback; both keys already in the ledger —
+  ncert-math6-ch8, ncert-math7-ch2 extended, no new keys); zero
+  temporary-references footprint this lesson (the gitignored survey was
+  rebuilt once after the recycle solely to regenerate
+  WORK_INVENTORY.json — content unchanged, 89 entries).
 - 2026-11-04 (mathematics, unit 5, lesson 5.2): no downloads — NCERT
   class-9 ch. 1 classification of decimal expansions, class-6 ch. 8
   "Fractions as decimals" long-division coverage and Khattar's

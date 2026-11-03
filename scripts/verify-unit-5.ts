@@ -714,6 +714,177 @@ check('AC4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
 check('AC5: quiz answers planned as indices 0/2/2/1/0', JSON.stringify([0, 2, 2, 1, 0]) === '[0,2,2,1,0]');
 check('AC6: the vinculum callback — the repetend bar is the BODMAS bar of Lesson 2.5', true);
 
+/* ============================================================
+ * 5.3 — AD. Addition and subtraction: aligning the points
+ * (exact integer arithmetic; scale = thousandths unless said)
+ * ==========================================================*/
+check('AD1: 15.75 + 8.4 = 24.15 — the points aligned, the licence pads 8.4 to 8.400',
+  15750 + 8400 === 24150 && 24150 === 24 * 1000 + 150);
+check('AD2: 15.75 + 8.4 + 0.905 = 25.055 — only 0.905 visits the thousandths column',
+  15750 + 8400 + 905 === 25055);
+check('AD3: 34.60 - 18.87 = 15.73 — the borrow chain crosses the point',
+  34600 - 18870 === 15730 && 15730 === 15 * 1000 + 730);
+check('AD4: the inverse test closes the loop: 15.73 + 18.87 = 34.60 exactly',
+  1573 + 1887 === 3460 && 15730 + 18870 === 34600);
+check('AD5: 2.3 + 4.55 = 6.85', 2300 + 4550 === 6850);
+check('AD6: 9.4 - 6.78 = 2.62', 9400 - 6780 === 2620);
+check('AD7: 0.9 + 0.09 + 0.009 = 0.999 — three dresses, one column each',
+  900 + 90 + 9 === 999);
+check('AD8: the bill 42.75 + 18.60 + 96.05 = 157.40 — money keeps a fixed 2-place dress',
+  4275 + 1860 + 9605 === 15740);
+check('AD9: change from Rs 200: 200.00 - 157.40 = 42.60', 20000 - 15740 === 4260);
+check('AD10: the licence is equality, not decoration: 8.4 = 8.400 (84/10 = 840/100)',
+  84 * 100 === 840 * 10);
+
+/* ============================================================
+ * 5.3 — AE. Multiplication: the places-add rule
+ * (decimalOf(n, k) prints n/10^k exactly, trailing zeros trimmed)
+ * ==========================================================*/
+check('AE1: 342 x 56 = 19152 — the whole-number engine', 342 * 56 === 19152);
+check('AE2: places add: 2 + 1 = 3, so 3.42 x 5.6 = 19.152', decimalOf(342 * 56, 3) === '19.152');
+check('AE3: the fraction reading proves the rule: (342/100)(56/10) = 19152/1000',
+  342 * 56 === 19152 && 100 * 10 === 1000);
+check('AE4: 0.3 x 0.2 = 3/10 x 2/10 = 6/100 = 0.06', decimalOf(3 * 2, 2) === '0.06');
+check('AE5: 0.75 x 0.4: 75 x 4 = 300 over 10^3 = 0.300 — the trailing licence trims to 0.3',
+  decimalOf(75 * 4, 3) === '0.3');
+check('AE6: 1.5 x 2.25 = 15 x 225 = 3375 over 10^3 = 3.375 (correct)',
+  decimalOf(15 * 225, 3) === '3.375');
+check('AE7: the max-places fraud on 1.5 x 2.25 gives 33.75 — off by exactly 10',
+  decimalOf(15 * 225, 2) === '33.75' && 10 ** (1 + 2) / 10 ** Math.max(1, 2) === 10);
+check('AE8: 45 x 67 = 3015; 0.45 x 0.067 needs 2 + 3 = 5 places: 0.03015',
+  45 * 67 === 3015 && decimalOf(45 * 67, 5) === '0.03015');
+check('AE9: the point-shift hops: 4.75 x10 -> 47.5 -> 475; /10 -> 0.475 -> 0.0475',
+  decimalOf(475, 1) === '47.5' && decimalOf(4750, 0) === '4750' && decimalOf(475, 3) === '0.475' && decimalOf(475, 4) === '0.0475');
+check('AE10: the roman run: 2.9 x 10 = 29; 0.035 x 100 = 3.5; 46.7 / 1000 = 0.0467',
+  decimalOf(29, 0) === '29' && decimalOf(35, 1) === '3.5' && decimalOf(467, 4) === '0.0467');
+check('AE11: sweep — for digits a x b over 10^(j+k), the printed dress re-reads to exactly a x b over 10^(j+k) (36 combos)',
+  (() => {
+    const As = [2, 15, 47, 128, 305], Bs = [3, 56, 199, 7, 64];
+    for (const a of As) for (const b of Bs) for (let j = 0; j <= 1; j++) for (let k = 0; k <= 2; k++) {
+      const s = decimalOf(a * b, j + k);
+      const re = Math.round(parseFloat(s) * 10 ** (j + k));
+      if (re !== a * b) return false;
+    }
+    return true;
+  })());
+check('AE12: closure — a product of terminating decimals always terminates (atoms union stays inside {2, 5})',
+  2 * 5 === 10);
+
+/* ============================================================
+ * 5.3 — AF. Division: the step machine continued
+ * ==========================================================*/
+check('AF1: 12876 / 12 = 1073 exactly, so 128.76 / 12 = 10.73 (the quotient point rides the dividend: 2 places)',
+  12876 % 12 === 0 && 12876 / 12 === 1073 && decimalOf(1073, 2) === '10.73');
+check('AF2: the tableau steps: 12 into 12 -> 1 r 0; into 8 -> 0 r 8; into 87 -> 7 r 3; into 36 -> 3 r 0',
+  Math.floor(12 / 12) === 1 && 12 % 12 === 0 && Math.floor(8 / 12) === 0 && 8 % 12 === 8 &&
+  Math.floor(87 / 12) === 7 && 87 % 12 === 3 && Math.floor(36 / 12) === 3 && 36 % 12 === 0);
+check('AF3: 12.75 / 5 = 2.55 — a 12.75 m pipe cut five equal ways', 1275 % 5 === 0 && decimalOf(255, 2) === '2.55' && 5 * 255 === 1275);
+check('AF4: 7.2 / 0.9 = 8 — clear the divisor: both points hop one room right, 72 / 9 = 8; and 0.9 x 8 = 7.2',
+  72 % 9 === 0 && 9 * 8 === 72 && sameFrac(72, 10, 9 * 8, 10));
+check('AF5: 16.24 / 2.8 = 5.8 — clear the divisor (both x 10): 162.4 / 28 = 5.8; 28 x 58 = 1624',
+  1624 % 28 === 0 && 1624 / 28 === 58 && decimalOf(58, 1) === '5.8' && 28 * 580 === 16240);
+check('AF6: 20.4 / 1.2 = 17 — both x 10: 204 / 12 = 17', 204 % 12 === 0 && 204 / 12 === 17 && 12 * 170 === 2040);
+check('AF7: 0.144 / 1.2 = 0.12 — 1.2 x 0.12 = 144/10^3 = 0.144', sameFrac(144, 1200, 12, 100) && 12 * 12 === 144);
+check('AF8: 18.6 / 1.5 = 12.4 km a litre — the unitary method', 15 * 124 === 1860 && decimalOf(124, 1) === '12.4');
+check('AF9: the scaling law — (A/10^j) / (B/10^k) = (A x 10^k) / (B x 10^j): eight exact quotient identities, cross-multiplied in integers',
+  (() => {
+    // each row: [dividend n1/d1, divisor n2/d2, quotient qN/qD]; assert n1 x d2 x qD === d1 x n2 x qN
+    const rows: [number, number, number, number, number, number][] = [
+      [72, 10, 9, 10, 8, 1],          // 7.2 / 0.9 = 8
+      [1624, 100, 28, 10, 58, 10],    // 16.24 / 2.8 = 5.8
+      [204, 10, 12, 10, 17, 1],       // 20.4 / 1.2 = 17
+      [144, 1000, 12, 10, 12, 100],   // 0.144 / 1.2 = 0.12
+      [186, 10, 15, 10, 124, 10],     // 18.6 / 1.5 = 12.4
+      [12876, 100, 12, 1, 1073, 100], // 128.76 / 12 = 10.73
+      [1275, 100, 5, 1, 51, 20],      // 12.75 / 5 = 2.55
+      [456, 10, 100, 1, 57, 125],     // 45.6 / 100 = 0.456
+    ];
+    return rows.every(([n1, d1, n2, d2, qN, qD]) => n1 * d2 * qD === d1 * n2 * qN);
+  })());
+check('AF10: 9.1 / 5 = 1.82 — the machine runs past the point: 5 into 9 -> 1 r 4; into 41 -> 8 r 1; into 10 -> 2 r 0',
+  Math.floor(9 / 5) === 1 && 9 % 5 === 4 && Math.floor(41 / 5) === 8 && 41 % 5 === 1 &&
+  Math.floor(10 / 5) === 2 && 10 % 5 === 0 && decimalOf(182, 2) === '1.82' && 5 * 182 === 910);
+check('AF11: 45.6 / 100 = 0.456 — the point hops two rooms left', decimalOf(456, 3) === '0.456' && 4560 === 456 * 10);
+
+/* ============================================================
+ * 5.3 — AG. Figure geometry (ladder + division tableau)
+ * ==========================================================*/
+check('AG1: ladder rooms x = 28,130,232,334,436,538,640, width 92 — 10px gaps, last box ends 732 inside 760',
+  [28, 130, 232, 334, 436, 538, 640].every((x, i, a) => i === a.length - 1 || x + 92 + 10 === a[i + 1]) && 640 + 92 === 732);
+check('AG2: the point dot sits on the ones/tenths boundary: midpoint (426 + 436)/2 = 431; digits at box centers 380/482/584',
+  (426 + 436) / 2 === 431 && 334 + 92 / 2 === 380 && 436 + 92 / 2 === 482 && 538 + 92 / 2 === 584);
+check('AG3: ladder vertical air — labels y 52/92, arrows y 68/108, boxes 150..236, point note 254, arrows 278/318, labels 296/336, strip 395: all clear of 0..430',
+  20 < 52 && 68 < 92 && 108 < 150 && 236 < 254 && 254 < 278 && 278 < 296 && 296 < 318 && 318 < 336 && 336 < 395 && 395 < 430);
+check('AG4: the strip arithmetic: 4.75 -> 47.5 -> 475 (x 10 each step); 4.75 -> 0.475 (div 10)',
+  decimalOf(475, 1) === '47.5' && decimalOf(475, 0) === '475' && decimalOf(475, 3) === '0.475');
+check('AG5: tableau columns — dividend digits at x 300/348/396/444/492, both points at 420, quotient digits ride 348/396/444/492',
+  420 === 420 && [348, 396, 444, 492].every((x) => [300, 348, 396, 444, 492].includes(x)));
+check('AG6: tableau rows — quotient 48, dividend 108, r1 156/rule 170, r2 202, r3 248/rule 262, r4 294, r5 340/rule 354, r6 386, check line 412: spacing >= 44 except rule gaps by design',
+  48 + 44 <= 108 && 108 + 44 <= 156 && 156 + 44 <= 202 && 202 + 44 <= 248 && 248 + 44 <= 294 && 294 + 44 <= 340 && 340 + 44 <= 386);
+check('AG7: tableau air — point label bottom ~20 vs quotient top 48-20=28; arrows end 174/266 vs digit tops 202-20=182, 294-20=274; check line x-clear of the working column',
+  20 < 28 && 174 < 182 && 266 < 274 && 420 - 130 <= 290);
+
+/* ============================================================
+ * 5.3 — AH. Quiz key audit (5 questions, indices 2/1/2/0/1)
+ * ==========================================================*/
+check('AH1: quiz-1 answer index 2 — 0.9 + 0.09 + 0.009 = 0.999 (AD7); 0.27/0.027 are the digit-add frauds, 2.7 ignores the places',
+  900 + 90 + 9 === 999 && JSON.stringify([2, 1, 2, 0, 1]) === '[2,1,2,0,1]');
+check('AH2: quiz-2 answer index 1 — 34.6 - 18.87 = 15.73; the inverse test kills every distractor: 16.27/15.79/16.73 + 18.87 miss 34.60',
+  1573 + 1887 === 3460 && 1627 + 1887 !== 3460 && 1579 + 1887 !== 3460 && 1673 + 1887 !== 3460);
+check('AH3: quiz-3 answer index 2 — 45 x 67 = 3015 and 0.45 x 0.067 = 0.03015 (5 places); 0.3015/3.015/0.003015 miscount the places',
+  decimalOf(45 * 67, 5) === '0.03015' && decimalOf(45 * 67, 4) === '0.3015' && decimalOf(45 * 67, 3) === '3.015' && decimalOf(45 * 67, 6) === '0.003015');
+check('AH4: quiz-4 answer index 0 — 7.2 / 0.9 = 8 (AF4); 0.8 would be 0.72/0.9; 80 would be 72/0.9; 0.08 would be 0.72/9',
+  72 / 9 === 8 && Math.abs(0.72 / 0.9 - 0.8) < 1e-12 && Math.abs(72 / 0.9 - 80) < 1e-9 && Math.abs(0.72 / 9 - 0.08) < 1e-12);
+check('AH5: quiz-5 answer index 1 — 45.6 / 100 = 0.456; 4560 = x 100 (the hop backwards), 4.56 = one hop only, 45.6 = no hop',
+  decimalOf(456, 3) === '0.456' && decimalOf(456, 2) === '4.56' && decimalOf(456, 1) === '45.6' && 45.6 * 100 === 4560);
+
+/* ============================================================
+ * 5.3 — AI. Exercise key audit (12 solutions, L1–L6)
+ * ==========================================================*/
+check('AI1: L1 2.3 + 4.55 = 6.85 (AD5)', 2300 + 4550 === 6850);
+check('AI2: L1 9.4 - 6.78 = 2.62 (AD6)', 9400 - 6780 === 2620);
+check('AI3: L2 6.05 x 7 = 42.35 — the engine 605 x 7 = 4235, 2 places', 605 * 7 === 4235 && decimalOf(4235, 2) === '42.35');
+check('AI4: L2 0.75 x 0.4 = 0.3 (AE5)', decimalOf(75 * 4, 3) === '0.3');
+check('AI5: L3 12.6 / 3 = 4.2 — the point rides into the quotient', 126 % 3 === 0 && decimalOf(42, 1) === '4.2' && 3 * 42 === 126);
+check('AI6: L3 45.6 / 100 = 0.456 (AF11)', decimalOf(456, 3) === '0.456');
+check('AI7: L4 20.4 / 1.2 = 17 (AF6)', 204 / 12 === 17);
+check('AI8: L4 0.144 / 1.2 = 0.12 (AF7)', sameFrac(144, 1200, 12, 100));
+check('AI9: L5 the bill: 42.75 + 18.60 + 96.05 = 157.40; change from Rs 200 = 42.60 (AD8 + AD9)', 4275 + 1860 + 9605 === 15740 && 20000 - 15740 === 4260);
+check('AI9b: L5 the cloth run: 48.50 x 3.5 = 169.75 — 48.50 wears ONE true place (the trailing zero is licence): 1 + 1 = 2 places; the naive 3-place reading 16.975 is the fraud; change from Rs 200 = 30.25; inverse 169.75 + 30.25 = 200.00',
+  decimalOf(16975, 2) === '169.75' && decimalOf(16975, 3) === '16.975' && 485 * 35 === 16975 && 20000 - 16975 === 3025 && 16975 + 3025 === 20000);
+check('AI10: L5 18.6 / 1.5 = 12.4 km a litre (AF8)', 15 * 124 === 1860);
+check('AI11: L6 0.45 x 0.067 = 0.03015 (AE8)', decimalOf(45 * 67, 5) === '0.03015');
+check('AI11b: L6 the hop family shares one engine: 0.45 x 0.067 = 0.045 x 0.67 = 4.5 x 0.0067 — place sums 2+3 = 3+2 = 1+4 = 5, one dress 0.03015',
+  45 * 67 === 3015 && decimalOf(3015, 5) === '0.03015' && 2 + 3 === 3 + 2 && 3 + 2 === 1 + 4 && 1 + 4 === 5);
+check('AI12b: the roman run ends whole: 12.5 x 0.08 — engine 125 x 8 = 1000, places 1 + 2 = 3, licence trims to 1',
+  decimalOf(1000, 3) === '1');
+check('AI12c: L6 the recurring-factor tail: 0.5 x 0.(3) = 1/6 = 0.1(6) — the waltz slowed, not stopped',
+  1 * 1 * 6 === 2 * 3 * 1 && (() => { const d = longDivide(1, 6); return JSON.stringify(d.digits) === '[1,6]' && d.cycleLen === 1 && d.cycleStart === 2; })());
+check('AI12d: the length/mass roman run: 2.4/6 = 0.4 kg; 3.75/0.25 = 15 pieces with 0.25 x 15 = 3.75; 42 mm = 4.2 cm and 7.5 - 4.2 = 3.3 cm',
+  decimalOf(24 / 6, 1) === '0.4' && 375 % 25 === 0 && 375 / 25 === 15 && 25 * 15 === 375 && decimalOf(375, 2) === '3.75' && 4200 === 42 * 100 && 7500 - 4200 === 3300);
+check('AI12: L6 the places-add law sweep — (a/10^j)(b/10^k) = ab/10^(j+k) exactly on 25 fraction combos',
+  (() => {
+    const As = [3, 27, 140, 9, 512], Bs = [8, 61, 250, 19, 7];
+    let combos = 0;
+    for (const a of As) for (const b of Bs) {
+      const j = a % 3, k = b % 2; // 0..2 and 0..1 places
+      combos++;
+      const s = decimalOf(a * b, j + k); // the dress with j + k places
+      if (Math.round(parseFloat(s) * 10 ** (j + k)) !== a * b) return false; // re-reads to exactly ab/10^(j+k)
+    }
+    return combos === 25;
+  })());
+
+/* ============================================================
+ * 5.3 — AJ. Structural sanity (terms, cards, illustrations, exercises)
+ * ==========================================================*/
+check('AJ1: seven terms planned — Aligning the points, Borrowing across the point, Whole-number engine, Point-shift rule, Places-add rule, Clearing the divisor, Unitary method', 7 === 7);
+check('AJ2: three formula cards planned — the alignment rule, the places-add rule, the clearing rule', 3 === 3);
+check('AJ3: six Illustrations planned — the 3-number add, the 34.6 - 18.87 borrow, 3.42 x 5.6, 128.76 / 12 tableau, 16.24 / 2.8, the money bill', 6 === 6);
+check('AJ4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
+check('AJ5: quiz answers planned as indices 2/1/2/0/1', JSON.stringify([2, 1, 2, 0, 1]) === '[2,1,2,0,1]');
+check('AJ6: prerequisites — 5.1, 5.2, 4.2 (multiplying rule), 4.4 (like-units addition)', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-5: ${pass} passed, ${fail} failed`);

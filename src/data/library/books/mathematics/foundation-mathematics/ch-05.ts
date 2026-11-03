@@ -29,19 +29,39 @@ import type { Chapter } from '../../../types'
  * Caution, the atoms-of-the-base Note (in base twelve thirds terminate),
  * the 2/7 vs 0.2857 comparison (fraction wins by exactly 1/70000), the
  * 22/7 = 3.(142857) not-pi trap; 5.1's 3.14159 misprint for 22/7 corrected.
- * Planned next: 5.3 Operating on Decimals; 5.4 Percent and Its Meaning;
+ * 5.3 Operating on Decimals (run 23, 2026-11-04) — the four operations with
+ * the point in play, one idea governing all of them (like units only):
+ * addition and subtraction by aligning the points with the trailing-zero
+ * licence padding and borrowing walking straight across the point; the
+ * inverse test as the universal subtraction check; multiplication as the
+ * whole-number engine + the places-add rule, proved from the fraction
+ * reading ((a/10^j)(b/10^k) = ab/10^(j+k)) as a derivation block; the
+ * point-shift rule (× 10^k hops k rooms right, ÷ 10^k k left) with the
+ * point-hops ladder figure; the max-places fraud and the trim-the-licence
+ * count cautions; division by whole numbers with the quotient's point
+ * riding the dividend's (the 128.76 ÷ 12 tableau figure), division by
+ * decimals by clearing the divisor (the scaling law as equation tag 2),
+ * the step machine running past the point, and the dresses-theorem tie for
+ * the never-landing case; word problems on money (the fixed 2-place dress),
+ * length/mass (convert first, operate second) and the unitary method
+ * (18.6 km on 1.5 L → 12.4 km/L).
+ * Planned next: 5.4 Percent and Its Meaning;
  * 5.5 Percentage Change, Discounts and Simple Interest.
  * References: Khattar, Quantitative Aptitude (4e) — decimal-fraction exam
  * items, recurring-to-fraction shortcuts and comparison traps; NCERT Class 6
  * ch. 8 "Decimals" (tenths, hundredths, place-value extension, comparing,
- * fractions as decimals by long division; old-edition canon, web-checked
- * 2026-11-04); NCERT Class 7 (Ganita Prakash) ch. 3 "A Peek Beyond the
- * Point" (section sequence web-checked 2026-11-04); NCERT Class 9 ch. 1
+ * fractions as decimals by long division; addition/subtraction by aligning
+ * the points — old-edition canon, web-checked 2026-11-04); NCERT Class 7
+ * (Ganita Prakash) ch. 3 "A Peek Beyond the Point" (section sequence
+ * web-checked 2026-11-04); NCERT Class 7 ch. 2 "Fractions and Decimals"
+ * (multiplication and division of decimal numbers, §§2.3–2.4 — section
+ * sequence web-checked 2026-11-04); NCERT Class 9 ch. 1
  * "Number Systems" (the terminating/non-terminating-recurring classification
  * of rational decimal expansions, web-checked 2026-11-04) — see
  * docs/project/SOURCE_LOG.md.
  * Exposition original; all arithmetic verified by scripts/verify-unit-5.ts
- * (273 checks: sections A–O for 5.1, P–AC for 5.2) BEFORE writing.
+ * (340 checks: sections A–O for 5.1, P–AC for 5.2, AD–BJ for 5.3) BEFORE
+ * writing.
  * Honours the tie promised in Lesson 4.5's closing paragraph: "One veil
  * remains between the fractions and the exam hall's favourite costume: the
  * decimal point, where every fraction agrees to wear powers of ten." — this
@@ -1389,9 +1409,617 @@ export const chapter05: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-operating-on-decimals',
+      number: '5.3',
+      title: 'Operating on Decimals',
+      concepts: [
+        'Aligning the points',
+        'The trailing-zero licence at work',
+        'Borrowing across the point',
+        'The whole-number engine and the places-add rule',
+        'The point-shift rule',
+        'Clearing the divisor',
+        'The unitary method',
+      ],
+      objectives: [
+        'Add and subtract any decimals by aligning the points, padding with the trailing-zero licence and borrowing across the point, and check every subtraction by the inverse test',
+        'Multiply decimals with the whole-number engine and land the point by the places-add rule, proving the rule from the fraction reading, and shift the point by powers of ten without reordering a digit',
+        'Divide by whole numbers with the quotient\'s point riding the dividend\'s, and divide by decimals by clearing the divisor — scaling both numbers by the same power of ten and leaving the quotient untouched',
+        'Settle money, length and mass problems by converting first and operating second, and reduce every rate problem to one unit with the unitary method',
+      ],
+      prerequisites: [
+        'fm-decimal-places-and-the-point',
+        'fm-decimals-and-fractions-two-ways',
+        'fm-multiplying-dividing-fractions',
+        'fm-adding-subtracting-fractions',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch8', 'ncert-math7-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 5.2 handed every fraction its decimal name — terminating when the atoms of the denominator are $2$s and $5$s, recurring otherwise. A name is only the beginning; the exam hall wants the decimal dress to **work**: bills totalled, cloth measured, rates reduced, change counted. This lesson teaches the four operations to decimals, and one idea governs all of them — the idea that has run through this book since the fractions — **like units only**. Tenths may meet tenths, hundredths may meet hundredths; a tenth and a hundredth are different denominations, exactly as a tenth and a fifth were for Lesson 4.4. Everything that follows is that one idea worn four ways.',
+        },
+        {
+          kind: 'para',
+          text: 'For addition and subtraction, like units demand a column alignment: digits that share a column share a unit, so the columns must line up before anything is combined. For multiplication, like units demand a **count**: multiplying a dress of $10^j$ by a dress of $10^k$ produces a dress of $10^{j + k}$ — the places add. For division, like units demand a **fair trade**: divisor and dividend may hop across the rooms together, because scaling both by the same power of ten leaves the quotient untouched. Three movements — align, count, scale — and the whole arithmetic of decimals follows.',
+        },
+        { kind: 'heading', text: 'Addition and subtraction: align the points' },
+        {
+          kind: 'para',
+          text: 'Column addition of whole numbers worked because each column carried one unit: ones with ones, tens with tens. The decimal columns continue past the point — tenths, hundredths, thousandths — and the same law holds: a column may be totalled only when every digit in it counts the same unit. The **decimal point is the fencepost that fixes the columns**: write two decimals with their points in one vertical line, and every column is automatically like with like — ones over ones, tenths over tenths. This is **aligning the points**, and it is the whole secret of decimal addition and subtraction.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Aligning the points',
+          text: 'Two decimals are said to be **added (or subtracted) by aligning the points** when they are written one under the other with their decimal points in a single vertical line, and the columns — ones, tenths, hundredths, ... — are then combined column by column from right to left. Thus, $15.75 + 8.4 + 0.905$ is computed as $15.750 + 8.400 + 0.905$: the trailing-zero licence of Lesson 5.1 pads each dress to a common width, and no column is ever left guessing what unit its digits count.',
+        },
+        {
+          kind: 'example',
+          title: 'Add 15.75, 8.4 and 0.905',
+          steps: [
+            'Now, align the points and let the trailing-zero licence pad the shorter dresses: $15.750 + 8.400 + 0.905$.',
+            'So, from the thousandths column rightwards: $0 + 0 + 5 = 5$; the hundredths: $5 + 0 + 0 = 5$; the tenths: $7 + 4 + 9 = 20$ — write $0$, carry $2$.',
+            'And the ones column takes the carry: $5 + 8 + 0 + 2 = 15$ — write $5$, carry $1$; the tens column: $1 + 1 = 2$.',
+            'Hence $15.75 + 8.4 + 0.905 = 25.055$ — the thousandths column shows a $5$ although neither $15.75$ nor $8.4$ owns one: the padding kept every column honest.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Subtraction aligns the same way, and the borrowing of Lesson 2.1 walks straight across the point without ceremony — a hundredth borrows from a tenth, a tenth from the one, each rung of Lesson 5.1\'s ladder worth exactly ten of the rung below it. The point does not interrupt the borrow; it only marks where the ladder turns.',
+        },
+        {
+          kind: 'example',
+          title: 'Subtract 18.87 from 34.6',
+          steps: [
+            'Now, align the points and pad the shorter dress: $34.60 - 18.87$.',
+            'So the hundredths: $0$ cannot pay $7$ — borrow one tenth: $10 - 7 = 3$.',
+            'And the tenths, now $5$: cannot pay $8$ — borrow one one: $15 - 8 = 7$.',
+            'And the ones, now $3$: cannot pay $8$ — borrow one ten: $13 - 8 = 5$; the tens, now $2$: $2 - 1 = 1$.',
+            'Hence $34.6 - 18.87 = 15.73$ — and the inverse test closes the ledger: $15.73 + 18.87 = 34.60$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The inverse test',
+          text: 'Every subtraction is a hidden addition: $a - b = c$ holds exactly when $c + b = a$. One inverse addition is the cheapest insurance in the exam hall — it catches every slipped borrow and every misaligned column in a single line. Illustration 2 passed it; so should every subtraction performed under time pressure.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The digit-add fraud',
+          text: '$0.9 + 0.09 + 0.009$ is neither $0.27$ nor $0.027$. Adding the bare digits ($9 + 9 + 9 = 27$) ignores the columns: nine tenths, nine hundredths and nine thousandths are three different denominations. Aligned — $0.900 + 0.090 + 0.009$ — the columns give $0.999$, a hair short of $1$; $0.27$ is not even a third of the way there.',
+        },
+        { kind: 'heading', text: 'Multiplication: the engine and the count' },
+        {
+          kind: 'para',
+          text: 'Multiplication breaks the alignment habit — deliberately. Nothing requires the points to line up, and indeed $2.5 \\times 0.4$ and $25 \\times 0.04$ share one engine run. The working has two stages. **Stage one: the whole-number engine.** Ignore both points and multiply the digit strings exactly as Lesson 2.2\'s column engine taught. **Stage two: the count.** Count the decimal places worn by each factor, add the two counts, and hop the point that many rooms in from the right of the engine\'s answer.',
+        },
+        {
+          kind: 'para',
+          text: 'The count is not a trick; it is the fraction reading of Lesson 5.2 standing in plain sight. A decimal with $j$ places is a whole over $10^j$; multiplying two such fractions multiplies the wholes and multiplies the denominators. So $0.3 \\times 0.2 = \\tfrac{3}{10} \\times \\tfrac{2}{10} = \\tfrac{6}{100}$: the engine ran $3 \\times 2 = 6$, and the point landed two rooms in because the two denominators together contributed $10 \\times 10 = 100$ — the product counts hundredths.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\tfrac{a}{10^j} \\times \\tfrac{b}{10^k} = \\tfrac{a \\times b}{10^{j + k}} \\qquad \\text{(the places-add law: } j + k \\text{ places)}',
+          note: 'The engine multiplies $a \\times b$; the law of powers — $10^j \\times 10^k = 10^{j + k}$ — fixes the dress. One factor of ten per decimal place, so the places add.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The places-add rule',
+          statement:
+            'Claim: if $x$ wears $j$ decimal places and $y$ wears $k$, then $x \\times y$ is exactly $\\tfrac{a \\times b}{10^{j + k}}$, where $a$ and $b$ are the engine values — the digit strings with the points removed.',
+          steps: [
+            {
+              label: 'The fraction reading',
+              formula: 'x = \\tfrac{a}{10^j}, \\qquad y = \\tfrac{b}{10^k}',
+              explanation:
+                'A decimal with $j$ places is a count of $10^j$-ths — Lesson 5.1\'s bridge read backwards. Trailing zeros are licence, not places: $48.50$ wears one true place, since $48.50 = 48.5 = \\tfrac{485}{10}$ — the trimming of Lesson 5.2\'s terminating dresses.',
+            },
+            {
+              label: 'The multiplying rule',
+              formula: 'x \\times y = \\tfrac{a}{10^j} \\times \\tfrac{b}{10^k} = \\tfrac{a \\times b}{10^j \\times 10^k}',
+              explanation:
+                'Multiply the wholes; multiply the denominators — Lesson 4.2\'s multiplying rule for fractions, with no simplification needed or wanted.',
+            },
+            {
+              label: 'The law of powers',
+              formula: '10^j \\times 10^k = 10^{j + k} \\;\\Rightarrow\\; x \\times y = \\tfrac{a \\times b}{10^{j + k}}',
+              explanation:
+                'One factor of ten per decimal place; $j$ of them meet $k$ of them and make $j + k$. The product therefore wears $j + k$ places. Notice what never entered the argument: any alignment of points — which is why none is needed.',
+            },
+          ],
+          result:
+            '$x \\times y$ is the engine product wearing $j + k$ decimal places. A product of terminating decimals always terminates — the pooled atoms are still only $2$s and $5$s.',
+        },
+        {
+          kind: 'example',
+          title: 'Multiply 3.42 by 5.6',
+          steps: [
+            'Now, run the engine on the digit strings: $342 \\times 56$ — $342 \\times 6 = 2052$ and $342 \\times 50 = 17100$; the sum is $19152$.',
+            'So count the places: $3.42$ wears $2$, $5.6$ wears $1$ — the product wears $2 + 1 = 3$.',
+            'And hop the point three rooms in from the right of $19152$: $19.152$.',
+            'Hence $3.42 \\times 5.6 = 19.152$ — and the fraction reading confirms it: $\\tfrac{342}{100} \\times \\tfrac{56}{10} = \\tfrac{19152}{1000}$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'For example, watch the two stages at their simplest:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$0.3 \\times 0.2$: the engine runs $3 \\times 2 = 6$; the places add $1 + 1 = 2$ — $0.06$, a count of hundredths;',
+            '$0.75 \\times 0.4$: the engine runs $75 \\times 4 = 300$; the places add $2 + 1 = 3$ — $0.300$, and the trailing licence trims the dress to $0.3$;',
+            '$12.5 \\times 0.08$: the engine runs $125 \\times 8 = 1000$; the places add $1 + 2 = 3$ — $1.000$, which is simply $1$: the licence trims even the whole.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Small multipliers earn a shorthand of their own. Multiplying by $10$ hands every digit one room more worth — the point, read along the fixed string, hops one room **right**; multiplying by $100$ hops it two rooms; dividing by $10$ and by $100$ hop it one and two rooms **left**. This is the **point-shift rule** — the place-value mirror of Lesson 5.1, set in motion:',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The point-hops ladder. The rooms never move — thousand down to thousandth, ten times finer at every step right, exactly the mirror of Lesson 5.1. Under × 10 every digit climbs one room toward the bigger units (so the point, read along the string, hops one room right); under ÷ 10 every digit slides one room finer. The strip walks 4.75 up to 475 and down to 0.475.',
+          svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The place-value rooms from thousand to thousandth with the digits of 4.75 in place, and arrows showing x 10 climbing rooms and divide-by 10 sliding rooms finer">
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <rect x="28" y="150" width="92" height="86"/>
+    <rect x="130" y="150" width="92" height="86"/>
+    <rect x="232" y="150" width="92" height="86"/>
+    <rect x="334" y="150" width="92" height="86"/>
+    <rect x="436" y="150" width="92" height="86"/>
+    <rect x="538" y="150" width="92" height="86"/>
+    <rect x="640" y="150" width="92" height="86"/>
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle" letter-spacing="0.5">
+    <text x="74" y="172">THOUSAND</text>
+    <text x="176" y="172">HUNDRED</text>
+    <text x="278" y="172">TEN</text>
+    <text x="380" y="172">ONE</text>
+    <text x="482" y="172">TENTH</text>
+    <text x="584" y="172">HUNDREDTH</text>
+    <text x="686" y="172">THOUSANDTH</text>
+  </g>
+  <g font-size="30" fill="currentColor" text-anchor="middle">
+    <text x="380" y="214">4</text>
+    <text x="482" y="214">7</text>
+    <text x="584" y="214">5</text>
+  </g>
+  <circle cx="431" cy="204" r="4" fill="currentColor"/>
+  <text x="431" y="254" font-size="12" fill="currentColor" text-anchor="middle">the point</text>
+  <g stroke="#b45309" stroke-width="1.6" fill="none">
+    <line x1="602" y1="68" x2="294" y2="68"/>
+    <line x1="500" y1="108" x2="414" y2="108"/>
+    <line x1="396" y1="278" x2="482" y2="278"/>
+    <line x1="380" y1="318" x2="568" y2="318"/>
+  </g>
+  <polygon points="294,68 306,63 306,73" fill="#b45309"/>
+  <polygon points="414,108 426,103 426,113" fill="#b45309"/>
+  <polygon points="482,278 470,273 470,283" fill="#b45309"/>
+  <polygon points="568,318 556,313 556,323" fill="#b45309"/>
+  <g font-size="13" fill="#b45309" text-anchor="middle">
+    <text x="448" y="52">× 100: climb two rooms</text>
+    <text x="448" y="92">× 10: climb one room</text>
+    <text x="431" y="296">÷ 10: slide one room finer</text>
+    <text x="474" y="336">÷ 100: slide two rooms finer</text>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="170" y="399">4.75 × 10 = 47.5 × 10 = 475</text>
+    <text x="560" y="399">4.75 ÷ 10 = 0.475</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Read the figure with the string $4.75$ in its rooms. Multiply by $10$ and every digit climbs one room — the $4$ reaches the tens, the $7$ the ones, the $5$ the tenths: $47.5$. The rooms never move and the digit string never reorders; only the point\'s position along the string changes. The same walk runs backwards: divide $4.75$ by $10$ and every digit slides one room finer — $0.475$, and another such step reaches $0.0475$. The exam-hall form is the strip at the foot of the figure: $4.75 \\times 10 = 47.5$, $\\times 10$ again $= 475$; $4.75 \\div 10 = 0.475$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The max-places fraud',
+          text: 'The point lands by the **sum** of the places, never by the longer factor. Compute $1.5 \\times 2.25$ honestly — engine $15 \\times 225 = 3375$, places $1 + 2 = 3$ — and the product is $3.375$. Count only the longer factor\'s $2$ places and the same engine digits read $33.75$: ten times too big. The sum-versus-max slip costs exactly a factor of $10$, and it is the standard trap on entrance papers.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Counting places counts the dress',
+          text: 'Places are counted after the trailing licence has spoken: $48.50$ wears one true place ($48.5$), so $48.50 \\times 3.5$ takes $1 + 1 = 2$ places — $169.75$, not the $16.975$ a naive count of written digits would print. The licence may pad a dress for column work, but it never adds places to a product.',
+        },
+        { kind: 'heading', text: 'Division: the step machine, continued' },
+        {
+          kind: 'para',
+          text: 'Division by a whole number needs no new machine — Lesson 5.2\'s long-division step machine already knows how to run past the point. The only new convention is where the quotient\'s point stands, and the answer is the natural one: **the quotient\'s point rides the dividend\'s**. When a bring-down crosses the dividend\'s point, the quotient writes its own point at that same moment. Nothing else about the tableau changes — same subtractions, same brings-down, same landing on remainder $0$.',
+        },
+        {
+          kind: 'example',
+          title: 'Divide 128.76 by 12',
+          steps: [
+            'Now, run the machine: $12$ into $12$ gives $1$, remainder $0$; the next digit $8$ is too small, so the quotient writes $0$ above it.',
+            'So the bring-down crosses the dividend\'s point — the quotient writes its own point and takes the $7$: $12$ into $87$ gives $7$ ($84$), remainder $3$.',
+            'And bring down the $6$: $12$ into $36$ gives $3$, remainder $0$ — the machine lands.',
+            'Hence $128.76 \\div 12 = 10.73$, the quotient\'s point riding the dividend\'s — and the inverse test reads $12 \\times 10.73 = 128.76$. Figure 2 shows the full tableau.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The long-division tableau of 128.76 ÷ 12. The quotient\'s point (amber) drops in exactly when the bring-down crosses the dividend\'s point; the two amber arrows mark the digits 7 and 6 joining the working. The inverse test closes the loop: 12 × 10.73 = 128.76.',
+          svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Long division tableau: 128.76 divided by 12 gives 10.73, with the quotient point dropping in when the bring-down crosses the dividend point">
+  <text x="420" y="16" font-size="14" fill="#b45309" text-anchor="middle">the point hops into the quotient</text>
+  <g font-size="26" fill="currentColor" text-anchor="middle">
+    <text x="348" y="48">1</text>
+    <text x="396" y="48">0</text>
+    <text x="444" y="48">7</text>
+    <text x="492" y="48">3</text>
+    <text x="224" y="108">1</text>
+    <text x="252" y="108">2</text>
+    <text x="300" y="108">1</text>
+    <text x="348" y="108">2</text>
+    <text x="396" y="108">8</text>
+    <text x="444" y="108">7</text>
+    <text x="492" y="108">6</text>
+    <text x="300" y="156">1</text>
+    <text x="348" y="156">2</text>
+    <text x="396" y="202">8</text>
+    <text x="444" y="202">7</text>
+    <text x="396" y="248">8</text>
+    <text x="444" y="248">4</text>
+    <text x="444" y="294">3</text>
+    <text x="492" y="294">6</text>
+    <text x="444" y="340">3</text>
+    <text x="492" y="340">6</text>
+    <text x="492" y="386">0</text>
+  </g>
+  <circle cx="420" cy="40" r="4" fill="#b45309"/>
+  <circle cx="420" cy="100" r="3.5" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.4">
+    <line x1="284" y1="86" x2="284" y2="138"/>
+    <line x1="284" y1="86" x2="272" y2="86"/>
+    <line x1="284" y1="138" x2="272" y2="138"/>
+    <line x1="292" y1="170" x2="410" y2="170"/>
+    <line x1="388" y1="262" x2="460" y2="262"/>
+    <line x1="436" y1="354" x2="510" y2="354"/>
+  </g>
+  <g stroke="#b45309" stroke-width="1.4" fill="none">
+    <line x1="444" y1="122" x2="444" y2="174"/>
+    <line x1="492" y1="122" x2="492" y2="266"/>
+  </g>
+  <polygon points="438,164 450,164 444,174" fill="#b45309"/>
+  <polygon points="486,256 498,256 492,266" fill="#b45309"/>
+  <g font-size="12.5" fill="currentColor">
+    <text x="472" y="160">bring down 7</text>
+    <text x="516" y="210">bring down 6</text>
+  </g>
+  <text x="280" y="412" font-size="14" fill="currentColor" text-anchor="middle">check: 12 × 10.73 = 128.76</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Figure 2 is worth a second look for what it does **not** contain: no new rule, no alignment of any points in a divisor, no guessing. The dividend\'s digits feed the machine one room at a time, the quotient records each step above the last digit consumed, and the point simply crosses from dividend to quotient when the bring-down does. The same convention divides $12.75$ by $5$: the machine lands at $2.55$, and the inverse test $5 \\times 2.55 = 12.75$ closes it.',
+        },
+        {
+          kind: 'para',
+          text: 'Dividing **by** a decimal — $16.24 \\div 2.8$ — asks one question first: what does the divisor wear? The divisor $2.8$ wears one place, and the equivalent-fraction licence of chapter 4 permits scaling the top and bottom of a fraction by the same power of ten. Scale both numbers until the divisor is whole — hop **both** points one room right — and the problem re-dresses as $162.4 \\div 28$, a division by a whole number that the machine already owns.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\frac{A/10^{j}}{B/10^{k}} = \\frac{A \\times 10^{k}}{B \\times 10^{j}} \\qquad \\text{(the clearing law)}',
+          note: 'The quotient never notices the hop: scaling dividend and divisor by the same $10^k$ — chapter 4\'s equivalent-fraction licence — leaves the value alone. In procedure form: shift both points right by the divisor\'s $k$ places, then divide whole by whole.',
+        },
+        {
+          kind: 'example',
+          title: 'Divide 16.24 by 2.8',
+          steps: [
+            'Now, the divisor $2.8$ wears one place: hop both points one room right — the clearing law scales dividend and divisor by $10$: $162.4 \\div 28$.',
+            'So run the machine: $28$ into $162$ gives $5$ ($140$), remainder $22$; bring down the $4$: $28$ into $224$ gives $8$ ($224$), remainder $0$.',
+            'And the quotient\'s point rode the dividend\'s — one place after the $5$: $5.8$.',
+            'Hence $16.24 \\div 2.8 = 5.8$; the inverse test: $2.8 \\times 5.8 = 16.24$ — engine $28 \\times 58 = 1624$, places $1 + 1 = 2$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'When the machine exhausts the dividend\'s digits with a remainder still alive, Lesson 5.2\'s step runs again: bring down a written zero and keep walking — $9.1 \\div 5$ lands after exactly one such step ($5$ into $9$ gives $1$, into $41$ gives $8$, into $10$ gives $2$: $1.82$). And when the remainders never die, the dresses theorem of 5.2 says precisely what appears: a recurring decimal, the machine waltzing in its cycle — $1 \\div 3$ walks $0.333\\ldots$ forever. Division in decimal dress is one machine with two exits: land on remainder $0$, or cycle.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The ÷ 100 fraud',
+          text: '$45.6 \\div 100 = 0.456$ — the point hops two rooms **left**. Writing $4560$ (the whole-number reflex of "two zeros") is the hop backwards: $45.6 \\times 100 = 4560$, while $\\div 100$ walks the other way along the mirror. The point-shift rule has a direction; read the sign before you hop.',
+        },
+        { kind: 'heading', text: 'Word problems: money, length, mass' },
+        {
+          kind: 'para',
+          text: 'The exam\'s decimal problems arrive wearing units, and the units dictate the order of work. **Money** keeps a fixed two-place dress — the paise are hundredths of the rupee, as Lesson 5.1 established — so every amount is padded to two places before the columns combine. **Length and mass** convert first and operate second: metres into centimetres, kilograms into grams, by 5.1\'s chart, so that each operation meets one unit rather than two. And every rate — a price per metre, a distance per litre — reduces to one unit by the **unitary method**: divide to reach the single unit, multiply to scale back up.',
+        },
+        {
+          kind: 'example',
+          title: 'A notebook costs Rs 42.75, a pen Rs 18.60 and a geometry box Rs 96.05. What change follows from a Rs 200 note?',
+          steps: [
+            'Now, money keeps its two-place dress, and the columns already align: $42.75 + 18.60 + 96.05$.',
+            'So from the hundredths: $5 + 0 + 5 = 10$ — write $0$, carry $1$; the tenths: $7 + 6 + 0 + 1 = 14$ — write $4$, carry $1$; the ones: $2 + 8 + 6 + 1 = 17$ — write $7$, carry $1$; the tens: $4 + 1 + 9 + 1 = 15$. The bill is $157.40$.',
+            'And the change: $200.00 - 157.40 = 42.60$ — the borrow walks across the point exactly as Illustration 2 taught.',
+            'Hence the change is Rs $42.60$ — and the inverse test closes it: $157.40 + 42.60 = 200.00$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The unitary method runs on division, and its division is the clearing law in the wild. A car covers $18.6$ km on $1.5$ litres of petrol: one litre\'s distance is $18.6 \\div 1.5$ — clear the divisor, both points one room right, $186 \\div 15$ — and the machine lands at $12.4$. Twelve and four-tenths kilometres a litre; on $4$ litres, $4 \\times 12.4 = 49.6$ km. Divide to the one, multiply to the many — the whole method in one breath.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the length and mass conversions keep their side of the bargain — convert first, operate second:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$2.4$ kg of rice split into $6$ equal bags: the machine runs $24 \\div 6 = 4$ and the point rides in after the first digit — each bag holds $0.4$ kg, which is $400$ g;',
+            'a $3.75$ m ribbon cut into pieces of $0.25$ m: clear the divisor — $375 \\div 25 = 15$ — fifteen pieces, and the inverse test $0.25 \\times 15 = 3.75$ closes it;',
+            'a pencil of $7.5$ cm laid beside one of $42$ mm: convert first — $42$ mm $= 4.2$ cm — then subtract by the aligned points: $7.5 - 4.2 = 3.3$ cm of difference.',
+          ],
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Aligning the points',
+              def: 'Writing decimals one under another with their points in one vertical line, so that every column counts one unit — the working rule for decimal addition and subtraction. Example: 15.750 + 8.400 + 0.905 = 25.055.',
+            },
+            {
+              term: 'Borrowing across the point',
+              def: 'A borrow that crosses the decimal point, taking one one as ten tenths or one tenth as ten hundredths — 5.1\'s ladder in reverse gear. Example: 34.60 − 18.87 borrows at the hundredths, the tenths and the ones.',
+            },
+            {
+              term: 'Whole-number engine',
+              def: 'The stage of decimal multiplication that ignores both points and multiplies the digit strings as whole numbers. Example: 3.42 × 5.6 runs the engine 342 × 56 = 19152.',
+            },
+            {
+              term: 'Places-add rule',
+              def: 'The product of a j-place and a k-place decimal wears j + k places, since (a/10^j) × (b/10^k) = ab/10^(j+k). Example: 0.3 × 0.2 = 0.06; 0.75 × 0.4 = 0.300 = 0.3 after the licence trims.',
+            },
+            {
+              term: 'Point-shift rule',
+              def: 'Multiplying by 10^k hops the point k rooms right; dividing by 10^k hops it k rooms left; the digit string never reorders. Example: 4.75 × 10 = 47.5; 45.6 ÷ 100 = 0.456.',
+            },
+            {
+              term: 'Clearing the divisor',
+              def: 'Scaling dividend and divisor by the same power of ten until the divisor is whole — the quotient never notices. Example: 16.24 ÷ 2.8 = 162.4 ÷ 28 = 5.8.',
+            },
+            {
+              term: 'Unitary method',
+              def: 'Solving rate problems by reducing to one unit first (divide) and scaling back up (multiply). Example: 18.6 km on 1.5 L gives 12.4 km/L; on 4 L, 49.6 km.',
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The alignment rule',
+          latex: 'a.bc + d.ef:\\ \\text{align the points, pad by the licence, add the columns}',
+          note: 'Subtraction aligns identically, and every difference is checked by the inverse addition. Money pads to its fixed two-place dress before anything combines.',
+        },
+        {
+          kind: 'formula',
+          name: 'The places-add rule',
+          latex: '(j \\text{ places}) \\times (k \\text{ places}) \\;\\Rightarrow\\; (j + k) \\text{ places}',
+          note: 'Engine first (whole numbers), then the point lands j + k rooms in. Count true places — trim the trailing licence first: 48.50 × 3.5 = 169.75, not 16.975.',
+        },
+        {
+          kind: 'formula',
+          name: 'The clearing rule',
+          latex: '\\div \\text{ a } k\\text{-place decimal} \\;\\Rightarrow\\; \\text{hop both points } k \\text{ right, then divide whole by whole}',
+          note: '16.24 ÷ 2.8 → 162.4 ÷ 28 = 5.8. Past the dividend, bring down written zeros; if the remainders cycle, the answer recurs — the dresses theorem of 5.2.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'The decimal operations are marks printed on every paper: (i) clerical and banking papers total bills and balances — align, pad, and check by the inverse test; (ii) the places-add count decides the fill-in-the-blank products — one engine run (45 × 67 = 3015) prices a whole family of point positions: 0.45 × 0.067 = 0.045 × 0.67 = 4.5 × 0.0067 = 0.03015; (iii) unit conversions hide inside word problems — convert first (1 m = 100 cm, 1 kg = 1000 g), operate second; (iv) the classic traps: the max-places fraud (1.5 × 2.25 = 3.375, not 33.75), the ÷ 100 hop backwards (45.6 ÷ 100 = 0.456, not 4560), and the digit-add fraud (0.9 + 0.09 + 0.009 = 0.999, not 0.27); (v) rate problems bow to the unitary method — divide to the one, multiply to the many.',
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: '0.9 + 0.09 + 0.009 = ?',
+              options: [
+                '0.27 — the digits 9 + 9 + 9 = 27, placed after the point',
+                '2.7 — the points ignored and the digits summed',
+                '0.999 — tenths, hundredths and thousandths, each in its own column',
+                '0.027 — the digits concatenated under one place',
+              ],
+              answer: 2,
+              explain:
+                'Aligned — 0.900 + 0.090 + 0.009 — the columns total 0.999: nine tenths, nine hundredths and nine thousandths, each in its own denomination (Option 3). Options 1 and 4 are the digit-add fraud in two dresses, and Option 2 ignores the columns completely; indeed 0.999 is a hair short of 1, where none of the others is close.',
+            },
+            {
+              q: '34.6 − 18.87 = ?',
+              options: ['16.27', '15.73', '15.79', '16.73'],
+              answer: 1,
+              explain:
+                'Align, pad and borrow: 34.60 − 18.87 = 15.73 (Option 2), and the inverse test closes it — 15.73 + 18.87 = 34.60 exactly. Each other option fails the same test: 16.27 + 18.87 = 35.14, 15.79 + 18.87 = 34.66, 16.73 + 18.87 = 35.60 — a slipped borrow apiece.',
+            },
+            {
+              q: 'Given 45 × 67 = 3015, the product 0.45 × 0.067 equals:',
+              options: ['0.3015', '3.015', '0.03015', '0.003015'],
+              answer: 2,
+              explain:
+                'The engine already ran: 45 × 67 = 3015. The places add — 2 + 3 = 5 — so the point hops five rooms in: 0.03015 (Option 3). Option 1 counted four places, Option 2 three, Option 4 six; only five matches 2 + 3.',
+            },
+            {
+              q: '7.2 ÷ 0.9 = ?',
+              options: ['8', '0.8', '80', '0.08'],
+              answer: 0,
+              explain:
+                'Clear the divisor: both points hop one room right and the question becomes 72 ÷ 9 = 8 (Option 1). Option 2 answers 0.72 ÷ 0.9, Option 3 answers 72 ÷ 0.9, Option 4 answers 0.72 ÷ 9 — each shifted the wrong number of rooms.',
+            },
+            {
+              q: '45.6 ÷ 100 = ?',
+              options: ['4560', '0.456', '4.56', '45.6'],
+              answer: 1,
+              explain:
+                'Dividing hops the point LEFT — two rooms for 100: 0.456 (Option 2). Option 1 is the multiplication hop (45.6 × 100 = 4560), Option 3 hopped one room only (that would be ÷ 10), and Option 4 never hopped at all.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Find: 2.3 + 4.55.',
+                  solution: [
+                    'Now, align the points and let the licence pad: $2.30 + 4.55$.',
+                    'So the columns from the right: hundredths $0 + 5 = 5$; tenths $3 + 5 = 8$; ones $2 + 4 = 6$.',
+                    'Hence $2.3 + 4.55 = 6.85$.',
+                  ],
+                  answer: '6.85',
+                },
+                {
+                  q: 'Find: 9.4 − 6.78.',
+                  solution: [
+                    'Now, pad to two places: $9.40 - 6.78$.',
+                    'So the hundredths: $0$ borrows — $10 - 8 = 2$; the tenths, now $3$: $3 - 7$ borrows — $13 - 7 = 6$; the ones, now $8$: $8 - 6 = 2$.',
+                    'Hence $9.4 - 6.78 = 2.62$ — checked by the inverse test: $2.62 + 6.78 = 9.40$.',
+                  ],
+                  answer: '2.62',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Multiply: 6.05 × 7.',
+                  solution: [
+                    'Now, the engine: $605 \\times 7 = 4235$.',
+                    'So count the places: $6.05$ wears $2$; $7$ wears none — the product wears $2$.',
+                    'Hence $6.05 \\times 7 = 42.35$ — the zero inside $6.05$ held the tenths column for the engine and holds the point here.',
+                  ],
+                  answer: '42.35',
+                },
+                {
+                  q: 'Multiply: 0.75 × 0.4.',
+                  solution: [
+                    'Now, the engine: $75 \\times 4 = 300$.',
+                    'So the places add: $2 + 1 = 3$ — $0.300$.',
+                    'Hence $0.75 \\times 0.4 = 0.3$, the trailing licence trimming the dress; and indeed $\\tfrac{3}{4} \\times \\tfrac{4}{10} = \\tfrac{3}{10}$.',
+                  ],
+                  answer: '0.3',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Divide: 12.6 ÷ 3.',
+                  solution: [
+                    'Now, run the machine: $3$ into $12$ gives $4$, remainder $0$.',
+                    'So the bring-down crosses the point — the quotient writes its point and takes the $6$: $3$ into $6$ gives $2$.',
+                    'Hence $12.6 \\div 3 = 4.2$ — checked: $3 \\times 4.2 = 12.6$.',
+                  ],
+                  answer: '4.2',
+                },
+                {
+                  q: 'Divide: 45.6 ÷ 100.',
+                  solution: [
+                    'Now, dividing by $10^2$ hops the point two rooms left — no engine needed.',
+                    'So $45.6 \\div 100 = 0.456$: the digits $456$ keep their order; the point lands in front of them.',
+                    'Hence $45.6 \\div 100 = 0.456$ — not $4560$; the hop has a direction.',
+                  ],
+                  answer: '0.456',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Divide: 20.4 ÷ 1.2.',
+                  solution: [
+                    'Now, the divisor wears one place: clear it — both points hop one room right: $204 \\div 12$.',
+                    'So the machine: $12$ into $20$ gives $1$, remainder $8$; the point rides into the quotient; $12$ into $84$ gives $7$, remainder $0$.',
+                    'Hence $20.4 \\div 1.2 = 17$ — checked: $1.2 \\times 17 = 20.4$ (engine $12 \\times 17 = 204$, one place).',
+                  ],
+                  answer: '17',
+                },
+                {
+                  q: 'Divide: 0.144 ÷ 1.2.',
+                  solution: [
+                    'Now, clear the divisor: both points hop one room right — $1.44 \\div 12$.',
+                    'So the machine: $12$ into $1$ gives $0$; into $14$ gives $1$, remainder $2$; the point rides; $12$ into $24$ gives $2$.',
+                    'Hence $0.144 \\div 1.2 = 0.12$ — checked: $1.2 \\times 0.12 = 0.144$ (engine $12 \\times 12 = 144$, three places).',
+                  ],
+                  answer: '0.12',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'exam-style: Cloth sells at Rs 48.50 a metre. Ravi buys 3.5 m and pays with a Rs 200 note. Find the change.',
+                  solution: [
+                    'Now, the cost first: $48.50 \\times 3.5$ — engine $485 \\times 35 = 16975$.',
+                    'So count the true places: $48.50$ wears one (the trailing zero is licence), $3.5$ wears one — $1 + 1 = 2$ places: Rs $169.75$.',
+                    'And the change: $200.00 - 169.75 = 30.25$.',
+                    'Hence the change is Rs $30.25$ — and the inverse test: $169.75 + 30.25 = 200.00$.',
+                  ],
+                  answer: 'Rs 30.25',
+                },
+                {
+                  q: 'A car covers 18.6 km on 1.5 litres of petrol. How far does it go on one litre? On 4 litres?',
+                  solution: [
+                    'Now, the unitary method — divide to the one: $18.6 \\div 1.5$.',
+                    'So clear the divisor: both points hop one room right — $186 \\div 15$: $15$ into $186$ gives $12$, remainder $6$; the point rides; $15$ into $60$ gives $4$: $12.4$.',
+                    'And scale to the many: $4 \\times 12.4 = 49.6$ — the places add $0 + 1 = 1$.',
+                    'Hence $12.4$ km a litre, and $49.6$ km on $4$ litres.',
+                  ],
+                  answer: '12.4 km/L; 49.6 km on 4 L',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'exam-style: Given 45 × 67 = 3015, write down 0.45 × 0.067, 0.045 × 0.67 and 4.5 × 0.0067 without running any engine.',
+                  solution: [
+                    'Now, the engine ran once and for all: $45 \\times 67 = 3015$ — every product here shares the same two digit strings; only the points have moved between the factors.',
+                    'So only the places move, and they add: $0.45 \\times 0.067$ wears $2 + 3 = 5$ places — $0.03015$; $0.045 \\times 0.67$ wears $3 + 2 = 5$ — $0.03015$; $4.5 \\times 0.0067$ wears $1 + 4 = 5$ — $0.03015$.',
+                    'And the pattern is the deep one: hopping the point one room out of one factor and one room into the other adds $1$ and subtracts $1$ — the places still sum to $5$, and the product never notices.',
+                    'Hence all three equal $0.03015$ — one engine, three point positions, one value.',
+                  ],
+                  answer: 'all 0.03015',
+                },
+                {
+                  q: 'Prove the places-add rule from the fraction reading, and deduce that a product of terminating decimals always terminates. Where does the proof break if a factor is recurring?',
+                  solution: [
+                    'Licence: a $j$-place decimal is $\\tfrac{a}{10^j}$ with $a$ whole — Lesson 5.1\'s bridge read backwards, trailing zeros trimmed so the dress counts true places.',
+                    'Now, multiply by 4.2\'s rule: $\\tfrac{a}{10^j} \\times \\tfrac{b}{10^k} = \\tfrac{ab}{10^j \\times 10^k}$, and the law of powers folds the denominator to $10^{j + k}$.',
+                    'So $x \\times y = \\tfrac{ab}{10^{j + k}}$ — a whole over a power of ten, hence a terminating decimal with at most $j + k$ places: the pooled atoms of the two denominators are still only $2$s and $5$s, so the atom test of 5.1 approves the dress without a look at the numbers.',
+                    'And the break: a recurring factor owns no whole-over-power-of-ten dress — $\\tfrac{1}{3}$ refuses every $10^m$ (5.2\'s theorem) — so the engine has no finite $a$ to run and no places to count; the product\'s dress is decided by the remainders, not by addition.',
+                    'Hence terminating $\\times$ terminating terminates in at most $j + k$ places — and terminating $\\times$ recurring recurs: $0.5 \\times 0.\\overline{3} = 0.1\\overline{6}$, the waltz slowed but not stopped. □',
+                  ],
+                  answer: 'The places-add law (a/10^j)(b/10^k) = ab/10^(j+k); products of terminating decimals terminate in at most j + k places; a recurring factor breaks the whole-over-power-of-ten reading',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The decimal dress now works for its living. The columns add and subtract under the aligned points, with the licence padding and the borrows walking straight across; the engine multiplies and the places-add law — proved, not memorised — lands the point; the step machine divides with the quotient\'s point riding the dividend\'s and the clearing law evicting the divisor\'s own; and money, length and mass followed the same rules with their units in view, the unitary method reducing every rate to one. One costume remains before the chapter closes: 5.4 hands over **percent**, the fraction that agreed to be measured out of $100$ — and the arithmetic of this lesson will do its work.',
+        },
+      ],
+    },
   ],
   plannedLessons: [
-    'Operating on Decimals',
     'Percent and Its Meaning',
     'Percentage Change, Discounts and Simple Interest',
   ],
