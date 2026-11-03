@@ -67,12 +67,26 @@ step 6).
   7-gadget, Pascal's 1654 criterion) and the uniqueness-of-factorisation
   treatment (crossroads lemma, 1-exclusion argument) are the book's own
   derivations (web-checked 2026-11-03); exposition original.
+- `ncert-math6-ch7` — NCERT Class 6 Mathematics, ch. 7 "Fractions"
+  (public curriculum). Used for: FM ch. 4 lesson 4.1 — canonical
+  school-level sequence mirrored (a fraction as part of a whole, fraction
+  on the number line, proper / improper and mixed fractions), with
+  equivalence, simplest form and comparison left scheduled for lessons
+  4.2–4.3 exactly as the NCERT chapter orders them after the basics;
+  coverage cross-checked via published syllabus outlines (searches
+  2026-11-03); exposition original — the mediant theorem and its density
+  consequence, the division-algorithm reading of improper↔mixed, and the
+  Egyptian unit-fraction material are the book's own additions
+  (Rhind-papyrus facts web-verified 2026-11-03: Ahmes ~1650 BCE copy of
+  an Amenemhat-III-era text, Rhind's 1858 Luxor purchase, British Museum
+  since 1865, unit fractions with 2/3 the lone exception, 2/n table for
+  odd n from 3 to 101).
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3; CBSE-aligned BODMAS web-check) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) + 33.9 (run 6 re-download for 2.5) + 33.9 (run 7 re-download for 3.1) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3, 2.4 (web-checks; no new downloads) and 2.5 (Khattar ch. 4 BODMAS studied from the run-6 re-download) · FM ch. 3 (unit 3): lesson 3.1 (Khattar ch. 1 divisibility/prime material from the run-7 re-download + NCERT ch. 3 web-check) | yes — after each unit's verification (run 7 deleted its working copies after the lesson's E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**2/11 chapters complete — ch. 1 and ch. 2 CLOSED; ch. 3 OPEN at 3.1**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**3/11 chapters complete — ch. 1–3 CLOSED; ch. 4 OPEN at 4.1**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |

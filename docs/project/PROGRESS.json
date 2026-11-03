@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-03",
- "phase": "unit 3 COMPLETE (chapter 3 = 5/5 lessons: 3.1 Divisibility and Its Tests + 3.2 Prime Numbers and Factorisation + 3.3 Highest Common Factor + 3.4 Lowest Common Multiple + 3.5 HCF, LCM and How They Relate shipped; unit-3 completion review passed) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
- "awaiting": "UNIT 4: FM chapter 4 'Fractions', lesson 4.1 'The Idea of a Fraction' next (opens the new unit — create ch-04.ts + scripts/verify-unit-4.ts with its .gitignore exception added FIRST); hourly cadence runs the cycle",
+ "phase": "UNIT 4 OPEN: FM chapter 4 'Fractions' — lesson 4.1 'The Idea of a Fraction' shipped (ch-04.ts created, 6,054 words, 84 pre-write checks, E2E green, both figures 0 audit issues first pass) · also this run: owner chat directive shipped — lesson reader widened (article 768→962px, container 6xl→7xl, figures 2xl→3xl, TOC/glossary 4xl→5xl, chrome aligned) and the visible permalink URL chip removed from every lesson (commit 8fd776e) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
+ "awaiting": "FM lesson 4.2 'Equivalent Fractions and Simplification' next (ties to honour: the cross-multiplication licence proof debt from 4.1's mediant derivation, and 3.4 = 12/16 equivalence teaser — the atoms of chapter 3 return to divide numerator and denominator; HCF simplification) ; hourly cadence runs the cycle",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -44,7 +44,9 @@
    "unit 3 lesson 3.3 E2E: routes 200 (home/book/3.2/3.3/revise/glossary; unknown id 404); KaTeX 392 expanded (257 collapsed); dollarInSvg=0; quiz answered live with intended options (indices 1/3/2/0/1) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 68 cards (61 + 7 new terms); glossary lists Highest common factor/Euclidean algorithm/Bézout's identity/Coprime split; Venn figure screenshot-verified (both headers, overlap 2·2·2·2·3 = 48, bottom annotations, plain labels); mobile 390px exact-fit (scrollW=390) with ALL TEN solutions expanded — 3 wide display blocks scroll inside the math-display overflow-x:auto guard, max SVG width 324; zero console/page errors; verify-unit-3.ts 192/192 pre-writing (sections V–Y, 40 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean",
    "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)",
    "unit 3 lesson 3.4 E2E: quiz 5/5 perfect (C/D/B/C/D clicked live), flashcards 75 cards, glossary + formula sheet pick up the 7 new terms and 3 new cards, timetable figure passes scripts/audit-svg-overlaps.sh with 0 issues first pass and is screenshot-verified, mobile 390px exact-fit (overflowX = 0) with all ten solutions expanded, zero console errors; KaTeX 249 nodes, dollarInSvg = 0",
-   "unit 3 lesson 3.5 E2E (unit closer + unit-3 completion review): quiz 5/5 perfect with intended options clicked live (indices 2/1/2/3/1), flashcards 82 cards (75 + 7 new terms), glossary lists all 7 new terms + the product-rule formula card, KaTeX 165 nodes, dollarInSvg = 0, zero console errors, mobile 390px exact-fit (overflowX = 0) with all 11 exercise solutions expanded; rectangle figure passes scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; verify-unit-3.ts 260/260 pre-writing (section AA, 33 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean; chapter 3 status flipped to complete with totals recomputed (13 lessons / 59,076 words / 82 terms)"
+   "unit 3 lesson 3.5 E2E (unit closer + unit-3 completion review): quiz 5/5 perfect with intended options clicked live (indices 2/1/2/3/1), flashcards 82 cards (75 + 7 new terms), glossary lists all 7 new terms + the product-rule formula card, KaTeX 165 nodes, dollarInSvg = 0, zero console errors, mobile 390px exact-fit (overflowX = 0) with all 11 exercise solutions expanded; rectangle figure passes scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; verify-unit-3.ts 260/260 pre-writing (section AA, 33 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean; chapter 3 status flipped to complete with totals recomputed (13 lessons / 59,076 words / 82 terms)",
+   "unit 4 lesson 4.1 E2E: route 200; KaTeX 221 nodes; dollarInSvg = 0; quiz 5/5 with intended options clicked live (indices 1/2/0/3/1), best score persisted; glossary 82 → 91 terms (+9); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (number-line two-panel + Egyptian bar); mobile 390px exact-fit (docScrollW = 390) with ALL 10 exercise solutions force-revealed; zero console/page errors; verify-unit-4.ts 84/84 pre-writing, unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
+   "reader width + permalink fix (owner chat directive, commit 8fd776e): lesson article 768px → 962px measured at 1440px (container max-w-7xl, article fills grid at xl, figures max-w-3xl, book TOC + glossary max-w-5xl, site chrome aligned max-w-7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed — repo grep confirms it was the only URL rendered as page text; geometry verified (40px article↔TOC gap), 1440/390px no overflow, full SVG audit re-run on all 12 lessons — 0 issues, zero console errors"
   ]
  },
  "library": {
@@ -69,14 +71,15 @@
      "fm-prime-numbers-factorisation",
      "fm-highest-common-factor",
      "fm-lowest-common-multiple",
-     "fm-hcf-lcm-and-how-they-relate"
+     "fm-hcf-lcm-and-how-they-relate",
+     "fm-idea-of-a-fraction"
     ],
-    "termsAvailableForFlashcards": 82,
-    "notes": "Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Math script-verified (260 unit-3 checks), E2E green, unit completion reviews passed. Next unit: chapter 4 Fractions. Reference collection surveyed (Google Drive \"books\"); per-unit downloads per MASTER_PLAN §2."
+    "termsAvailableForFlashcards": 91,
+    "notes": "Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Chapter 4 Fractions opened 2026-11-03: lesson 4.1 The Idea of a Fraction (part–whole + division faces, number line and density via the mediant theorem, proper/improper/mixed, Egyptian unit fractions). Math script-verified (84 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green. Next: lesson 4.2 Equivalent Fractions and Simplification. Reference collection surveyed (Google Drive \"books\"); per-unit downloads per MASTER_PLAN §2."
    }
   ],
-  "lessonsWritten": 13,
-  "wordsAuthored": 59076
+  "lessonsWritten": 14,
+  "wordsAuthored": 65130
  },
  "research": {
   "examRegistry": {
@@ -87,7 +90,7 @@
   "sourceCollection": {
    "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
    "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
-   "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2)"
+   "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2, ncert-math6-ch3, ncert-math6-ch7)"
   }
  },
  "workflowRulesReminder": [

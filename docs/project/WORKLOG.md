@@ -6,6 +6,114 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER CHAT DIRECTIVE (run 12): reader width + permalink-chip fix shipped; UNIT 4 OPENS — lesson 4.1 The Idea of a Fraction shipped (chapter 4 of Foundation Mathematics opens)
+
+**Situation at start:** owner message (not a cron delivery): (1) "lots of
+space in left and right side" of every lesson page — widen the book; (2) a
+link symbol followed by `/book/Foundation-Mathematics/lesson/FM-…` shows on
+the page — remove it everywhere; (3) "proceed with Module 4". Tree clean at
+`9681d34` = origin/main. Dev server up, all routes 200.
+
+**UI fix (owner directive, commit `8fd776e`):** the lesson reader's article
+was capped at `max-w-3xl` (768px) inside a `max-w-6xl` (1152px) grid — on a
+1920px screen roughly a third of the width was empty margins. Changes:
+lesson container `max-w-6xl` → `max-w-7xl` (1280px); article now fills the
+grid column at xl (`max-w-4xl` below xl, `xl:max-w-none`) → **962px
+measured** at 1440px viewport (+25% reading width); figures
+`[&_svg]:max-w-2xl` → `max-w-3xl` (+ figcaption) so diagrams grow with the
+column; book TOC + glossary `max-w-4xl` → `max-w-5xl`; site header/footer
+aligned to `max-w-7xl`. The visible URL chip (Link2 icon +
+`/book/${book.id}/lesson/${lesson.id}` in the lesson header meta row) —
+removed entirely; a repo grep confirmed it was the ONLY place a URL was
+rendered as page text, so the single removal covers every lesson
+("do this for all"). Verified: measured article/TOC geometry (40px clean
+gap, no overlap), 1440px + 390px no horizontal overflow, TOC/glossary/home
+pages clean, zero console/page errors, and the full SVG overlap audit
+re-run on ALL 12 previously-audited lessons — 0 issues everywhere with the
+wider figure rendering.
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id
+(33.9 MB, 1,049 pp). No dedicated fractions chapter — the material lives in
+ch. 1 (exam items: SSC CGL Tier-II 2018 comparison of 5/113, 7/120, 13/145,
+17/160; SSC MTS 2017 comparisons 2/3-4/5-7/11 and 3/7-5/11-6/13;
+"fraction becomes" items) and ch. 2's end (HCF/LCM-of-fractions rules —
+NOTED AND BANKED for lesson 4.5, not used today). NCERT class-6 ch. 7
+"Fractions" coverage web-checked (fraction on the number line, proper,
+improper and mixed — the canonical sequence lesson 4.1 mirrors while
+equivalence/comparison stay scheduled for 4.2/4.3). Historical facts
+web-verified: Rhind Mathematical Papyrus copied by the scribe Ahmes
+~1650 BCE from an older Amenemhat-III-era text; purchased in Luxor by
+Alexander Henry Rhind (1858); British Museum since 1865; unit fractions
+with 2/3 the lone exception; the 2/n table covers odd n from 3 to 101 —
+its decompositions still debated. SSC MTS 2017 comparison items cited from
+Khattar's drill set in the exam callout, banked for 4.3.
+
+**Pre-write verification:** `scripts/verify-unit-4.ts` created with
+**84 checks — ALL PASS before one word was written** (two check-side bugs
+fixed en route: H7 staircase identity comparison typo, K4 eighths map
+missing the 7/4 tick; regressions green: verify-unit-3 260/260,
+verify-unit-2 165/165). Covers: the chapati scene (3×4=12, 12÷4=3,
+3÷4=0.75); the division face (17÷5, 100÷7, 22/7 incl. the π overestimate,
+23÷6, 8÷25, 144÷12); fraction-of-quantity (15/70/84/63/35/70 answers);
+number-line and eighths-zoom coordinates vs the drawn SVG (tick x-positions
+exact); proper/improper/mixed classification + conversions; Egyptian
+decompositions (5/6=1/2+1/3, Rhind 2/5=1/3+1/15, 2/7=1/4+1/28, 3/10 both
+openings, greedy check); the mediant theorem numerically on fixed pairs +
+20 random positive pairs + the two integer-algebra proof steps (3/7 < 4/9
+sample: 27 < 28 ⇒ 48 < 49 and 63 < 64); quiz and exercise arithmetic;
+figure-2 bar geometry (3 cells = 310px = half).
+
+**Lesson 4.1 shipped (`ch-04.ts` created, 6,054 words):** dinner-table
+opening (3 chapatis among 4 children — long division's "0 remainder 3"
+useless, cutting delivers 3/4), opening paragraph quoting 3.5's closing
+promise verbatim; part–whole reading with the Latin job descriptions
+(numerare/denominare) and the vinculum; fraction-as-a-division derivation
+(pure whole-number arithmetic: cut, deal, reassemble); the 2.4 remainder
+wound healed (17÷5 exact); 4 formula cards (fraction-is-division,
+fraction-of-quantity, improper↔mixed via the division algorithm, mediant
+sits between); 3 worked-example blocks; number-line figure (two panels:
+quarters 0–2 with 3/4 and 7/4 dotted, eighths zoom of the 1–2 gap with a
+dashed magnifier connector — 7/4 reappears as 14/8); proper/improper/mixed
+wardrobe table (6 rows incl. the 8/8 frontier case); four-traps warn
+callout (unequal parts, denominator-size inversion, mixed ≠ product,
+d ≠ 0); Egyptian section with the Rhind historical callout + the 6-cell
+bar figure (5/6 = 1/2 + 1/3, brackets over 3-cell and 2-cell groups) +
+the 2/7 = 1/4 + 1/28 Rhind equation; density section delivering 3.5's
+promise — the mediant derivation (licence stated on credit, proof steps
+pure integer algebra: add ab / add cd to ad < bc), the 7/16 and 11/25
+insertion chain, the Farey staircase identity, "no neighbours" insight
+callout with the not-yet-gapless honesty whisper (√2 banked for a much
+later chapter); exam callout (fraction-of-quantity staples, SSC comparison
+lineage banked for 4.3, both-faces reading habit); 5 quiz (answers spread
+1/2/0/3/1, 5/5 clicked live); 10 exercises L1–L6 ending in the general
+mediant proof with the licence stated explicitly; closing para banking
+4.2's two ties (the cross-multiplication licence debt + 3/4 = 12/16
+equivalence teaser) with the atoms returning to divide.
+
+**Gates:** verify-unit-4 84/84 + unit-3 260/260 + unit-2 165/165; lint
+clean; tsc clean repo-wide (one missing callout `title` fixed, five
+literal-narrowing TS2367s in the verify script fixed via a `distinct()`
+helper); route 200; browser E2E: KaTeX 221 nodes rendered, dollarInSvg = 0,
+2 figures, 7 headings, quiz 5/5 live-clicked (Best 5/5 recorded), glossary
+82 → **91 terms** (+9: Fraction, Numerator, Denominator, Vinculum, Unit
+fraction, Proper, Improper, Mixed number, Fraction of a quantity), mobile
+390px exact-fit with ALL 10 exercise solutions force-revealed
+(docScrollW = 390 = viewport, worst-case rightmost element contained by the
+figure scroll container), zero console/page errors; **both new figures
+passed the SVG overlap audit with 0 issues on the FIRST pass**; audit
+script's default lesson list extended (3.4, 3.5, 4.1 added — 3.4/3.5 had
+only ever been audited via explicit args).
+
+**Inventory regenerated** (`bun run scripts/build_work_inventory.ts` +
+DETAILED_LOG.md mirror): **14 lessons / 65,130 words / 91 terms / 70 quiz
+items / 125 exercise questions / 19 figures**; chapter 4 in-progress
+(1/5). Khattar working copies deleted after E2E (inventory.json kept).
+
+**Push:** UI-fix commit `8fd776e` + this run's ship commit pushed under
+PUSH PROTOCOL v2 (PAT from the cron job payload, one-time HTTPS URL, never
+stored); remote HEAD verified via one-time-URL ls-remote and tracking ref
+re-synced — see the memory commit that follows this entry.
+
 ## 2026-11-03 — HOURLY RUN 11: lesson 3.5 HCF, LCM and How They Relate shipped — UNIT 3 COMPLETE (5/5 lessons)
 
 **Situation at start:** eighth delivery of job 498279 (18:35 +08:00). Tree

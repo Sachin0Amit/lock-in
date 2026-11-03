@@ -73,6 +73,8 @@ review passed; `WORK_INVENTORY.json` regenerated in the same run).
 | 11-03 (figure-fix run) | `87f0f8a` | **Owner-reported figure defects fixed** — six overlapping/clipped SVG figures relaid out (37 patches); `scripts/audit-svg-overlaps.sh` + page-side getBBox-exact detector built and wired into the gates (15 figures re-audited, 0 issues; VLM PASS on all six); logged; pushed (protocol v2) |
 | 11-03 (run 10) | (ship) | **LESSON 3.4 Lowest Common Multiple** — authored, 227 pre-writing checks (section Z, 35 new), timetable figure 0 audit issues first pass, E2E green (quiz 5/5 live, flashcards 75, 390px exact-fit with ten solutions expanded), exercises `sets` schema fix, logged; pushed (protocol v2) |
 | 11-03 (run 11) | (ship) | **UNIT 3 COMPLETE: lesson 3.5 HCF, LCM and How They Relate** — authored, 260 pre-writing checks (section AA, 33 new), rectangle figure 0 audit issues FIRST pass, E2E green (quiz 5/5 live, flashcards 82, 390px exact-fit with eleven solutions expanded), unit-3 completion review run (BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, totals recompute 59,076 words), logged; pushed (protocol v2) as 8640085..342f629, remote HEAD verified |
+| 11-03 (run 12, owner chat) | `8fd776e` | **Reader width + permalink fix (owner directive)** — lesson article 768→962px measured (container 7xl, article fills grid at xl, figures 3xl, TOC/glossary 5xl, chrome 7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed from every lesson; all 12 lessons re-audited 0 SVG issues; audit default list extended with 3.4/3.5/4.1 |
+| 11-03 (run 12, owner chat) | (ship) | **UNIT 4 OPENED: lesson 4.1 The Idea of a Fraction** (ch-04.ts created) — authored, 84 pre-writing checks (`verify-unit-4.ts`, gitignore exception added FIRST), both new figures 0 audit issues FIRST pass, E2E green (quiz 5/5 live, KaTeX 221, glossary 91 terms, 390px exact-fit with all ten solutions force-revealed), mediant theorem delivers 3.5's density promise (cross-multiplication licence on credit for 4.2/4.3), logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -647,13 +649,25 @@ ch. 2 product-rule sections studied (Illustration 14) via the persisted-id
 re-download; NCERT Ex 3.7 feasibility genre web-checked; working copies
 deleted after E2E.
 
+**UNIT 4 OPENED (run 12, owner chat directive):** lesson 4.1 "The Idea
+of a Fraction" — 6,054 words, 84 pre-writing checks (verify-unit-4.ts),
+both figures 0 audit issues first pass, E2E green; the part–whole and
+division faces, improper↔mixed via the division algorithm, Egyptian unit
+fractions with the web-verified Rhind callout, and the mediant theorem
+delivering 3.5's density promise (licence on credit). Totals recomputed
+by build_work_inventory.ts (book = **14 lessons / 65,130 words / 91
+terms / 70 quiz items / 125 exercise questions**; ch. 4 in-progress at
+1/5). Khattar re-downloaded (no dedicated fractions chapter — ch. 1 exam
+items mined, ch. 2 HCF/LCM-of-fractions rules banked for 4.5); NCERT
+class-6 ch. 7 web-checked; working copies deleted after E2E.
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
 | 3 | Factors, Multiples and Primes — **COMPLETE** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · ~~HCF, LCM and How They Relate~~ **WRITTEN** |
-| 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
+| 4 | Fractions — **IN PROGRESS (1/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · Equivalent Fractions and Simplification · Comparing Fractions · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
 | 7 | Integers | Negative Numbers · Adding/Subtracting · Multiplying + Sign Rules · Absolute Value as Distance |
@@ -872,15 +886,17 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
-  4.1 "The Idea of a Fraction"** — opens the next unit (chapter 3 is
-  COMPLETE: 3.1–3.5 shipped, completion review passed, working copies
-  deleted). Research per MASTER_PLAN §2: Khattar QA 4e fractions material
-  via the persisted Drive id + NCERT class-6 fractions-chapter web-check
-  (sanctioned fallback); create ch-04.ts per the BOOK_FORMAT contract;
-  create scripts/verify-unit-4.ts for pre-writing arithmetic checks and
-  add its .gitignore exception FIRST. Standing rules: one lesson per run;
-  original content; lesson ids stable forever; every new figure passes
+  4.2 "Equivalent Fractions and Simplification"** (4.1 SHIPPED run 12 —
+  chapter 4 is open at 1/5). Ties to honour from 4.1: prove the
+  cross-multiplication licence via common denominators and pay the debt;
+  open with the 3/4 = 12/16 equivalence teaser; the atoms of chapter 3
+  (HCF) return to simplify; Khattar ch. 2's HCF/LCM-of-fractions rules
+  stay BANKED for 4.5. Research per MASTER_PLAN §2: Khattar QA 4e via the
+  persisted Drive id + NCERT class-6 ch. 7 equivalence/simplest-form
+  web-check. Standing rules: one lesson per run; original content; lesson
+  ids stable forever; every new figure passes
   `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues; quiz
   answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly two
-  backslashes in source; table blocks use `head:`; exercises use `sets`.
+  backslashes in source; table blocks use `head:`; exercises use `sets`;
+  callout blocks need `title`.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

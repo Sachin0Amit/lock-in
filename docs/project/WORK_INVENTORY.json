@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 16:37:25 (Asia/Kolkata)",
+  "generated": "2026-11-03 17:08:03 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -894,17 +894,83 @@
             "slug": "fractions",
             "title": "Fractions",
             "summary": "Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "The Idea of a Fraction",
               "Equivalent Fractions and Simplification",
               "Comparing Fractions",
               "Adding and Subtracting Fractions",
               "Multiplying and Dividing Fractions"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-idea-of-a-fraction",
+                "number": "4.1",
+                "title": "The Idea of a Fraction",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6054,
+                "readMins": 30,
+                "concepts": [
+                  "Fractions name parts of a whole",
+                  "Numerator and denominator",
+                  "A fraction is a division",
+                  "Fractions on the number line",
+                  "Proper, improper and mixed numbers",
+                  "Unit fractions and Egyptian reckoning",
+                  "Density: fractions between fractions"
+                ],
+                "objectives": [
+                  "Say precisely what a fraction is — both as equal parts of a whole and as an exact division — and name its parts (numerator, denominator, vinculum)",
+                  "Place any fraction on the number line between the right whole numbers, and convert between improper fractions and mixed numbers using the division algorithm of Lesson 2.4",
+                  "Compute a fraction of a quantity, and read \"how many 1/d-pieces fit in m\" as the grouping division of Lesson 2.4",
+                  "Prove that between any two different fractions there always lies another — the density that Lesson 3.5 promised — using the mediant"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-division-remainders-zero",
+                  "fm-hcf-lcm-and-how-they-relate"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch7"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 7,
+                  "terms": 2,
+                  "callout": 5,
+                  "equation": 2,
+                  "derivation": 3,
+                  "formula": 3,
+                  "example": 2,
+                  "figure": 2,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 10,
+                "termsDefined": 9
+              }
+            ],
+            "words": 6054
           },
           {
             "number": 5,
@@ -1044,12 +1110,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 82,
-      "totalLines": 15775,
+      "totalLines": 15756,
       "byArea": {
         "src/app (routes, pages)": 547,
-        "src/components/library (reader platform)": 2864,
+        "src/components/library (reader platform)": 2859,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 6685,
+        "src/data/library (content model + books)": 6671,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -1063,12 +1129,12 @@
           "lines": 384
         },
         {
-          "file": "lesson-view.tsx",
-          "lines": 369
-        },
-        {
           "file": "flashcards.tsx",
           "lines": 367
+        },
+        {
+          "file": "lesson-view.tsx",
+          "lines": 364
         },
         {
           "file": "book-view.tsx",
@@ -3435,6 +3501,124 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "342f629c8eb8bbaa08f4a5b86706bea1cbade300",
+      "short": "342f629",
+      "date": "2026-11-03 11:07",
+      "message": "unit 3: FM lesson 3.5 HCF, LCM and How They Relate (~4,773 words, 260 verified checks, 11 exercises, E2E green) + unit-3 completion review + logs",
+      "filesChanged": 9,
+      "insertions": 1004,
+      "deletions": 116,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 88,
+          "del": 26
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 11,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 33,
+          "del": 31
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 95,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 174,
+          "del": 28
+        },
+        {
+          "path": "scripts/verify-unit-3.ts",
+          "add": 138,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 10,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 440,
+          "del": 11
+        }
+      ]
+    },
+    {
+      "sha": "9681d3473961481090ce7fb82514730ec25d7f01",
+      "short": "9681d34",
+      "date": "2026-11-03 11:08",
+      "message": "memory: record run-11 ship push verification (342f629), origin/main synced; unit 3 closed — next: FM 4.1 The Idea of a Fraction",
+      "filesChanged": 3,
+      "insertions": 17,
+      "deletions": 11,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "8fd776e83d6e9265a9e8fa2b71ed368cd9fe9313",
+      "short": "8fd776e",
+      "date": "2026-11-03 11:19",
+      "message": "reader: widen lesson column (article 768->~960px filling grid, container max-w-6xl->7xl), figures max-w-2xl->3xl, book TOC + glossary 4xl->5xl, site chrome aligned to 7xl; remove visible permalink URL chip (link icon + /book/.../lesson/...) from lesson header per owner directive",
+      "filesChanged": 5,
+      "insertions": 9,
+      "deletions": 14,
+      "files": [
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/glossary-view.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 2,
+          "del": 7
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 3,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
@@ -3442,25 +3626,25 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 3,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 13,
-    "wordsAuthored": 59076,
-    "termsDefined": 82,
-    "quizItems": 65,
-    "exerciseQuestions": 115,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 14,
+    "wordsAuthored": 65130,
+    "termsDefined": 91,
+    "quizItems": 70,
+    "exerciseQuestions": 125,
     "blockTotals": {
-      "para": 162,
-      "callout": 56,
-      "heading": 88,
-      "terms": 13,
-      "equation": 13,
-      "derivation": 27,
-      "table": 15,
-      "figure": 17,
-      "example": 24,
-      "quiz": 13,
-      "exercises": 13,
-      "formula": 27,
+      "para": 180,
+      "callout": 61,
+      "heading": 95,
+      "terms": 15,
+      "equation": 15,
+      "derivation": 30,
+      "table": 16,
+      "figure": 19,
+      "example": 26,
+      "quiz": 14,
+      "exercises": 14,
+      "formula": 30,
       "algorithm": 8
     }
   }

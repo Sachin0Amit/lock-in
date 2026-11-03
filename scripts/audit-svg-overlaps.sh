@@ -19,6 +19,9 @@ ALL_LESSONS=(
   fm-divisibility-and-its-tests
   fm-prime-numbers-factorisation
   fm-highest-common-factor
+  fm-lowest-common-multiple
+  fm-hcf-lcm-and-how-they-relate
+  fm-idea-of-a-fraction
 )
 if [ "$#" -gt 0 ]; then LESSONS=("$@"); else LESSONS=("${ALL_LESSONS[@]}"); fi
 

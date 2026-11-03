@@ -2,6 +2,7 @@ import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
+import { chapter04 } from './ch-04'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -34,27 +35,12 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Math script-verified (260 unit-3 checks), E2E green, unit completion reviews passed. Next unit: chapter 4 Fractions. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Chapter 4 Fractions opened 2026-11-03: lesson 4.1 The Idea of a Fraction (part–whole + division faces, number line and density via the mediant theorem, proper/improper/mixed, Egyptian unit fractions). Math script-verified (84 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green. Next: lesson 4.2 Equivalent Fractions and Simplification. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,
     chapter03,
-    {
-      number: 4,
-      slug: 'fractions',
-      title: 'Fractions',
-      summary:
-        'Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'The Idea of a Fraction',
-        'Equivalent Fractions and Simplification',
-        'Comparing Fractions',
-        'Adding and Subtracting Fractions',
-        'Multiplying and Dividing Fractions',
-      ],
-    },
+    chapter04,
     {
       number: 5,
       slug: 'decimals-and-percents',
