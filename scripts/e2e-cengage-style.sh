@@ -13,6 +13,7 @@ LESSONS=(
   fm-highest-common-factor
   fm-idea-of-a-fraction
   fm-equivalent-fractions-simplification
+  fm-comparing-fractions
 )
 
 for L in "${LESSONS[@]}"; do

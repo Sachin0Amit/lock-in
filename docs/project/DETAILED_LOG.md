@@ -9,13 +9,13 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **cron run 17, Job 498279**: all
-four queued run-15/16 commits PUSHED first — origin/main synced at
-`b788c06` — then FM lesson 4.2 "Equivalent Fractions and Simplification"
-authored natively in the Cengage voice + solution chain, 5,598 words;
-run 16: solutions restyled as the Cengage solution chain; run 15: step
-numbers removed; run 14: Cengage book-style theory live platform-wide;
-`WORK_INVENTORY.json` regenerated with every ship).
+Generated: 2026-11-03/04 (maintained through **cron run 18, Job 498279**:
+FM lesson 4.3 "Comparing Fractions" authored in the Cengage voice +
+solution chain, 5,168 words — the comparison engines collected and the
+banked SSC MTS 2017 item settled; run 17: push-first (4 queued commits)
++ lesson 4.2; run 16: solutions restyled as the Cengage solution chain;
+run 15: step numbers removed; run 14: Cengage book-style theory live
+platform-wide; `WORK_INVENTORY.json` regenerated with every ship).
 
 ---
 
@@ -84,13 +84,14 @@ numbers removed; run 14: Cengage book-style theory live platform-wide;
 | 11-03 (run 16, owner chat) | (ship) | **CENGAGE-STYLE SOLUTIONS (owner directive "the solution should also be in cengage style")** — M2/01 solution pages re-studied (OCR + vision; surveys rebuilt after recycle; no content reproduced): Sol. pill INLINE on the first solution line, hanging-indent chain with a connective tag column (∴ for Hence/Thus/Therefore, or, Now,/So,/But/And; Case (i): bold), terminal ∴ answer line in green ink (literal Answer:/Hence: prefix stripped), boxed Answer rows retired — display-only parseStepTag, zero content edits, all 15 lessons at once; BOOK_FORMAT/types/SOURCE_LOG/E2E contracts updated (solutionChain check; KaTeX \therefore is mrel amsrm, not mord); E2E + force-expanded DOM + VLM all green; logged; **push deferred — no PAT in this chat session** (local ahead by three commits: run-15 ship + inventory + this) |
 | 11-03 (run 17, cron Job 498279) | (push) | **PUSH FIRST per RESUME_POINTER** — all four queued run-15/16 commits pushed in one command via the one-time HTTPS URL: `d5a1b43..b788c06 HEAD -> main`; remote HEAD verified `b788c06` by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log — the runs-15/16 push debt is cleared |
 | 11-03 (run 17, cron Job 498279) | (ship) | **LESSON 4.2 Equivalent Fractions and Simplification** — authored NATIVELY in the Cengage voice + solution chain, 5,598 words: equivalence family + roman run + three-bar figure (465px invariant shading), multiplying rule PROVED by regrouping, additive-trap Caution ((n+k)/(d+k) = mediant with 1 dressed k/k — always strictly between), HCF simplification one-step (12/16→3/4, 84/126→2/3, 91/104→7/8 via Euclid), **cross-multiplication licence PAID IN FULL** (both = and < directions via the common bd-ruler; 18-piece ruler figure for 2/3 = 4/6 = 12/18; 4.1's 3/7<4/9 ⟺ 27<28 loan settled), raising to higher terms + 6-row registry, properties list, L6 proofs (lowest-terms uniqueness via Lesson 3.2's crossroads lemma; mediant closure of the family); 6 illustrations, 2 figures, 5-quiz, 12 exercises L1–L6 with terminal ∴ answers; verify-unit-4.ts 84→**148 checks** (sections L–R); E2E extended to 5 lessons — 6 Sol. pills ALL inline, stepNumberBadges 0, legacyAnswerBoxes 0, 18 KaTeX ∴ tags, KaTeX 263, quiz 5/5 live, 12 solutions expand, 390px exact-fit, zero console errors, VLM + screenshot review green; totals: **15 lessons / 70,678 words / 96 terms**; logged; commits push at the next cron run |
+| 11-04 (run 18, cron Job 498279) | (ship) | **LESSON 4.3 Comparing Fractions** — authored in the Cengage voice + solution chain, 5,168 words: same-whole proviso (number-line frame), same-denominator + same-numerator rules (definition callouts with Thus-restatements; roman run; inversion-trap Caution 4/11 < 4/7; unit-fraction ladder), **cross-multiplication test wielded as a verdict machine** (3/4 vs 4/5 = 15 < 16 with the 20-ruler check; 7/12 vs 5/8 = 56 < 60 — 4.2's L5 debt PAID, gap 4/96 = 1/24 named), common-denominator method (24-ruler 14 vs 15 with the four-bar figure + highlighted extra cell), **the banked SSC MTS 2017 item SETTLED on the 165-ruler** (7/11 < 2/3 < 4/5, largest 4/5) + zoomed number-line figure, benchmark-1/2 method (2n > d), shared-numerator lists, completing-the-whole insight (7/8 vs 8/9 via 1/8 > 1/9; 9/10 vs 11/12 = 108 < 110), wholes-first rule (3 2/5 vs 3 3/8: 16 > 15; 136/40 > 135/40), six-row toolkit table + three-laws equation + common-denominator formula card; 8 illustrations, 2 figures (0 audit issues FIRST pass each), 6 new terms, 2 formula cards, 5-quiz (1/1/2/3/2), 12 exercises L1–L6 — L6 proves the same-numerator rule and the **mediant ordering** a/b < (a+c)/(b+d) < c/d from the licence; verify-unit-4.ts 148→**199 checks** (sections S–Z) ALL PASS pre-writing; E2E extended to 6 lessons — 8 Sol. pills ALL inline, stepNumberBadges 0, 24 KaTeX ∴ glyphs, KaTeX 177, quiz 5/5 live (B/B/C/D/C), 12 solutions expand, 390px exact-fit, zero console errors, VLM green; totals: **16 lessons / 75,846 words / 102 terms**; logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.4 — 12
-lessons, 54,303 words, 75 flashcard terms.**
+**Live today: 1 book — 3 chapters complete + chapter 4 open at 4.3 — 16
+lessons, 75,846 words, 102 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -723,13 +724,65 @@ dropped standalone ';' tokens the old counter counted as words) / 91
 terms / 70 quiz / 125 exercises. BOOK_FORMAT now mandates the format for
 all future lessons.
 
+**LESSON 4.3 (run 18, cron Job 498279):** "Comparing Fractions" — 5,168
+words, the second lesson authored natively in the Cengage voice + solution
+chain. Content: the same-whole proviso (the number line makes "larger"
+exactly "further right"); the two easy cases as formal definition callouts
+with symbolic Thus-restatements (same denominator → count;
+same numerator → invert) plus the roman (i)–(iii) run and the
+inversion-trap Caution (4/11 < 4/7 despite 11 > 7; 1/100 the smallest
+despite 100 the biggest) and the unit-fraction ladder; the
+cross-multiplication test WIELDED (formula card; "verdict machine, not a
+transformation" fine print) with Illustrations 3/4 vs 4/5 (15 < 16 + the
+20-ruler check + the additive-trap fraction placed above) and 7/12 vs 5/8
+(56 < 60 — Lesson 4.2's exercise L5 debt paid with the gap named
+4/96 = 1/24); the common-denominator method (any legal ruler; LCM
+smallest — Lesson 3.4; product always) with the four-bar figure: 12-cut
+and 8-cut rulers, then both re-measured on 24-cell rulers (14/24 vs
+15/24) with the single extra twenty-fourth highlighted between dashed
+boundaries; the ordering section — the trio banked in 4.1's exam callout
+(SSC Multi-Tasking Staff 2017, via Khattar's ch. 1 drill set) settled on
+the 165-ruler (110, 132, 105 → 7/11 < 2/3 < 4/5, largest 4/5) with the
+zoomed [1/2, 1] number-line figure (marks at 239.09/276.67/442px,
+labels alternating above/below), the benchmark-1/2 method (2n > d with
+zero products) sorting 2/5, 3/7, 5/9 down to one cross-test, and
+shared-numerator lists read backwards; anchors 0, 1/2, 1 (proper <
+improper across 1 with no computation) + the completing-the-whole
+insight (7/8 vs 8/9 via the missing pieces 1/8 > 1/9, cross-checked
+63 < 64) + the 9/10 vs 11/12 Illustration (108 < 110); mixed numbers by
+the wholes-first rule (4 1/8 > 3 9/10 instantly; 3 2/5 vs 3 3/8 goes to
+the fractions 16 > 15, confirmed 136/40 > 135/40); the comparison
+toolkit harvest (six-row engines table, the three-laws summary equation,
+the common-denominator formula card R = LCM or product, the Note
+planting 4.4 via the gap 15/24 − 14/24 = 1/24). 8 Illustrations as
+Sol.-inline Cengage chains, 6 new terms (Cross-multiplication test,
+Common denominator, Benchmark, Completing the whole, Ascending order,
+Wholes-first rule), 2 formula cards, 2 figures, 5-quiz (answers spread
+1/1/2/3/2), 12 exercises L1–L6 with terminal ∴ answers — L6 proves the
+SAME-NUMERATOR RULE from the licence (cancel a > 0) and the MEDIANT
+ORDERING a/b < (a+c)/(b+d) < c/d in two lines (both halves reduce to
+ad < bc — 4.1's density machine re-derived from the comparison engine;
+instance 2/5 < 5/12 < 3/7 via 24 < 25 and 35 < 36). All ties honoured:
+4.2's closing "borrowed time" para cashed, 4.2's L5 exercise answered,
+4.1's exam-corner promise paid. verify-unit-4.ts extended 148 → 199
+checks (sections S–Z) ALL PASS pre-writing. E2E extended to 6 lessons:
+8 ILLUSTRATION pills + 8 Sol. pills ALL inline, 33 step rows,
+stepNumberBadges = 0, legacyAnswerBoxes = 0, 24 KaTeX ∴ glyphs, KaTeX
+177 nodes, dollarInSvg = 0, quiz answered live (B/B/C/D/C) → "You scored
+5/5 · perfect", 12 solutions expand, 390px exact-fit (wide display
+equations scroll inside the .math-display guard), zero console errors,
+both figures 0 audit issues FIRST pass, VLM green (one JPEG misread of
+the terminal ∴ colour DOM-verified book-green). Totals: book = **16
+lessons / 75,846 words / 102 terms** (ch. 4 in-progress at 3/5). No new
+downloads (references already logged).
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
 | 3 | Factors, Multiples and Primes — **COMPLETE** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · ~~HCF, LCM and How They Relate~~ **WRITTEN** |
-| 4 | Fractions — **IN PROGRESS (2/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · ~~Equivalent Fractions and Simplification~~ **WRITTEN** · Comparing Fractions · Adding/Subtracting · Multiplying/Dividing |
+| 4 | Fractions — **IN PROGRESS (3/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · ~~Equivalent Fractions and Simplification~~ **WRITTEN** · ~~Comparing Fractions~~ **WRITTEN** · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
 | 7 | Integers | Negative Numbers · Adding/Subtracting · Multiplying + Sign Rules · Absolute Value as Distance |
@@ -847,6 +900,7 @@ all future lessons.
 | Unit 2 (FM ch. 2, lesson 2.3) | 11-03 | 50 new pre-write arithmetic checks (164 total, ALL PASS) · lint · tsc repo-wide (31 escape fixes, 2 narrowing fixes, validator regeneration) · routes 200 (dev restart) · E2E (KaTeX 149, figures geometry-verified, quiz 5/5 perfect, flashcards 34, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.4) | 11-03 | 105 new pre-write arithmetic checks (269 total, ALL PASS; exhaustive range loops) · lint · tsc repo-wide (@types/bun restored) · routes 200 · E2E (KaTeX 148, figures DOM-verified, quiz 5/5 perfect, flashcards 40, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.5) + completion review | 11-03 | 60 new pre-write arithmetic checks (165 script / 324 unit-cumulative, ALL PASS) · lint · tsc FULLY clean repo-wide incl. scripts/ (module marker + 2 narrowing fixes) · routes 200 · E2E (KaTeX 113, 6 headings, 4-row table, quiz 5/5 perfect with intended options clicked live, flashcards 47, glossary + formula sheet updated, expression-tree figure screenshot-verified, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console/page errors · BOOK_FORMAT checklist 7/7 · exam-coverage audit · totals recomputed |
+| Unit 4 (FM ch. 4, lesson 4.3) | 11-04 | 51 new pre-write arithmetic checks (199 total, sections S–Z, ALL PASS before writing) · verify-unit-2 165 + verify-unit-3 260 regressions green · lint · tsc clean · routes 200 + unknown 404 · E2E on 6 lessons (4.3: 8 caps headings, 8 ILLUSTRATION pills, 8 inline Sol. pills, 24 KaTeX ∴, stepNumberBadges 0, legacyAnswerBoxes 0, quiz 5/5 live B/B/C/D/C, 12 solutions expand, KaTeX 177, dollarInSvg 0) · both figures 0 audit issues FIRST pass · mobile 390px exact-fit (wide display math inside the .math-display guard) · zero console errors · VLM green on 5 screenshots (one JPEG misread DOM-verified book-green) |
 
 ## 6. Research & references
 
@@ -945,14 +999,16 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
-  4.3 "Comparing Fractions" NEXT** (4.1 shipped run 12, **4.2 SHIPPED
-  run 17** — chapter 4 is open at 2/5). 4.3 plan: the cross-multiplication
-  test as the comparison engine (now PROVED in 4.2 — both directions),
-  common-denominator comparison via 4.2's raising move, comparing unit
-  fractions (bigger denominator = smaller part), the which-is-largest
-  exam family banked in 4.1's exam callout (2/3 vs 4/5 vs 7/11), optional
-  decimals bridge. **Authored IN THE CENGAGE VOICE per the run-14 owner
-  directive + BOOK_FORMAT house style WITH solutions as Cengage chains**
+  4.4 "Adding and Subtracting Fractions" NEXT** (4.1 shipped run 12,
+  4.2 shipped run 17, **4.3 SHIPPED run 18** — chapter 4 is open at 3/5).
+  4.4 plan: the common ruler becomes arithmetic — same-denominator
+  addition by counting, the LCM as the standard ruler (4.3's engines
+  carried over), addition via raising (4.2's move now load-bearing),
+  subtraction as the gap-naming 4.3 demonstrated (15/24 − 14/24),
+  mixed-number storeys added separately, the Egyptian two-term openings
+  4.2 promised (3/10 = 1/4 + 1/20 etc.), word problems. **Authored IN
+  THE CENGAGE VOICE per the run-14 owner directive + BOOK_FORMAT house
+  style WITH solutions as Cengage chains**
   (steps arrays led by natural connectives, ending `answer: '…'`; no
   step-number badges; no boxed Answer rows). Standing rules: one lesson
   per run; original content; lesson ids stable forever; every new figure
@@ -961,8 +1017,8 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   two backslashes in source; table blocks use `head:`; exercises use
   `sets`; callout blocks need `title`.
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 15 lessons; lesson 4.2 is the FIRST authored natively in the
-  Cengage voice + solution chain (the exemplar for 4.3 onward); the prose
+  all 16 lessons; lessons 4.2 and 4.3 are authored natively in the
+  Cengage voice + solution chain (the exemplars going forward); the prose
   VOICE polish of the 14 pre-4.2 lessons (1.1 first as the exemplar, one
   lesson per run) is queued alongside unit-4 progression — never
   batch-draft.

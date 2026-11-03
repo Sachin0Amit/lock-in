@@ -6,9 +6,13 @@ import type { Chapter } from '../../../types'
  * LESSONS WRITTEN: 4.1 The Idea of a Fraction (unit 4 opens); 4.2 Equivalent
  * Fractions and Simplification (the equivalence family, the multiplying rule,
  * HCF simplification, the cross-multiplication licence paid in full, raising
- * to higher terms, uniqueness of the lowest-terms name).
- * PLANNED NEXT: 4.3 Comparing Fractions · 4.4 Adding and Subtracting
- * Fractions · 4.5 Multiplying and Dividing Fractions.
+ * to higher terms, uniqueness of the lowest-terms name); 4.3 Comparing
+ * Fractions (the comparison engines: shared rulers, the cross-multiplication
+ * test wielded as a verdict machine, common-denominator method, the banked
+ * SSC MTS 2017 item settled, benchmark halves, completing the whole,
+ * wholes-first rule for mixed numbers).
+ * PLANNED NEXT: 4.4 Adding and Subtracting Fractions · 4.5 Multiplying and
+ * Dividing Fractions.
  * Unit 4 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
  * Examinations (4e) ch. 1 "Numbers" (fraction comparison exam items, the
@@ -1342,9 +1346,702 @@ export const chapter04: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-comparing-fractions',
+      number: '4.3',
+      title: 'Comparing Fractions',
+      concepts: [
+        'Same-denominator comparison',
+        'Same-numerator comparison',
+        'Unit fractions shrink as denominators grow',
+        'Cross-multiplication test',
+        'Common denominators',
+        'Benchmarks: 0, 1/2 and 1',
+        'Comparing mixed numbers',
+        'Ordering three or more fractions',
+      ],
+      objectives: [
+        'Decide which of two fractions with the same denominator or the same numerator is larger, and justify the verdict in terms of piece size and count',
+        'Compare any two positive fractions with the cross-multiplication test — two multiplications — and say why the products decide, on the common bd-ruler',
+        'Raise any set of fractions to one common ruler (the product of denominators or the LCM) and arrange them in ascending or descending order',
+        'Use the anchors 0, 1/2 and 1, the completing-the-whole view, and the wholes-first rule to compare mixed numbers and exam-style lists quickly',
+      ],
+      prerequisites: [
+        'fm-idea-of-a-fraction',
+        'fm-equivalent-fractions-simplification',
+        'fm-comparing-ordering-numbers',
+        'fm-lowest-common-multiple',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch7'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 4.2 ended with one engine still running on borrowed time. Everything in that lesson compared fractions for *equality* — the cross-multiplication test was proved for $=$ and for $<$ together, but every use it was put to asked only "are these two names of one point?" The richer question went unanswered: given two genuinely different fractions — different points, not different spellings — **which is larger, and by what right?** This lesson answers it. The question is not a formality. Comparing is the fraction skill the exam hall demands most often, and the one daily life asks for whenever two recipes, two discounts, two fuel consumptions must be ranked.',
+        },
+        {
+          kind: 'para',
+          text: 'One proviso comes before any comparing. "Which is larger, $\\tfrac{3}{4}$ or $\\tfrac{2}{3}$?" is a complete question only when both fractions speak of the *same whole* — the same chapati, the same litre, the same strip. Three quarters of a large chapati is more bread than two thirds of a small one, and no fraction rule will say otherwise, because there is nothing to decide: the wholes differ. The number line of Lesson 4.1 dissolves the worry. Every fraction is a **point** on one universal line — one infinite whole, marked off in pieces of every size — and for two points "larger" has an exact meaning: the point that sits further to the right. From here on, every comparison is a question about positions on the line, and every method in this lesson is a way of locating the two points precisely enough for their order to show.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Same whole, or no question',
+          text: 'Comparing $\\tfrac{a}{b}$ with $\\tfrac{c}{d}$ silently assumes both are measured against the same whole. On the number line this is automatic — there is only one line. In the world of chapatis and litres it is a real condition: check the wholes match before trusting any verdict, cross-multiplied or otherwise.',
+        },
+        { kind: 'heading', text: 'Two easy cases: a ruler already shared' },
+        {
+          kind: 'para',
+          text: 'Two situations need no new machinery at all — the whole-number order of Lesson 1.2 decides them directly. The first: fractions with the **same denominator**. $\\tfrac{5}{9}$ and $\\tfrac{7}{9}$ are counts of pieces of one size — five ninths, seven ninths — and comparing counts of equal pieces is exactly what whole-number order was built for. Five ninths fills five cells of the ninth-ruler; seven ninths fills seven of the very same cells; seven cells hold more than five. The larger numerator wins, and nothing else is consulted.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The same-denominator rule',
+          text: 'Fractions with the same positive denominator are ordered by their numerators: for whole numbers $n < m$, $\\tfrac{n}{d} < \\tfrac{m}{d}$. Thus, $\\tfrac{5}{9} < \\tfrac{7}{9}$ and $\\tfrac{3}{16} < \\tfrac{11}{16}$ — equal pieces, so the count decides. On the number line: same ruler, more cells shaded, the point sits further right.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the same-denominator rule settles a whole run of comparisons at a glance:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$\\tfrac{5}{9} < \\tfrac{7}{9}$ — nine pieces each, seven is the bigger count;',
+            '$\\tfrac{3}{16} < \\tfrac{11}{16}$ — and the gap is eight sixteenths, read straight off the counts;',
+            '$\\tfrac{6}{6} = \\tfrac{13}{13}$ — both fill their ruler completely: each is the whole, the point $1$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The second easy case: fractions with the **same numerator**. Now the count is fixed and the *piece size* varies. $\\tfrac{5}{8}$ and $\\tfrac{5}{11}$ both hold five pieces; but eighths are cut from a coarser ruler than elevenths — an eighth is a larger piece than an eleventh — so five eighths hold more than five elevenths. **Same count, finer cut, smaller holding.** The rule inverts the whole-number reflex: with numerators equal, the *smaller* denominator names the larger fraction.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The same-numerator rule',
+          text: 'Fractions with the same positive numerator are ordered inversely by their denominators: for whole numbers $b < c$, $\\tfrac{a}{b} > \\tfrac{a}{c}$. Thus, $\\tfrac{5}{8} > \\tfrac{5}{11}$ — the same five pieces, but eighths outsize elevenths. The licence proves it in one line (Exercise L6): $\\tfrac{a}{b} > \\tfrac{a}{c}$ holds exactly when $a \\times c > b \\times a$, that is, when $c > b$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The inversion trap',
+          text: 'Everything in whole-number land primed you to read "bigger number, bigger thing" — and the same-numerator rule breaks that habit on purpose: $\\tfrac{4}{11} < \\tfrac{4}{7}$ even though $11 > 7$. The denominator grew, the *pieces* shrank, and four shrunken pieces hold less. The reflex fails hardest on unit fractions: $\\tfrac{1}{100}$ is the *smallest* fraction in this paragraph although $100$ is the biggest number in it. When numerators match, read the denominators backwards.',
+        },
+        {
+          kind: 'para',
+          text: 'The unit fractions — numerators fixed at $1$, the pure piece sizes — are the same-numerator case in its cleanest form, and they tidy up an observation Lesson 4.1 made in passing. Piece size falls as the denominator rises: $\\tfrac{1}{2} > \\tfrac{1}{3} > \\tfrac{1}{4} > \\cdots$, a ladder that steps down forever without reaching $0$. Halving a piece keeps it positive; there is no smallest piece, only ever a smaller one — the first whisper of the density Lesson 4.1 proved, heard this time in the vocabulary of piece size.',
+        },
+        {
+          kind: 'example',
+          title: 'Arrange 1/2, 1/5, 1/8 and 1/3 in ascending order',
+          steps: [
+            'Now, all four fractions share the numerator $1$ — they are four pure piece sizes, one from each of the rulers for $2$, $5$, $8$ and $3$.',
+            'So the same-numerator rule orders them by their denominators, read backwards: the largest denominator cuts the finest pieces and holds the least.',
+            'The denominators in decreasing order are $8$, $5$, $3$, $2$ — so the fractions in increasing order are $\\tfrac{1}{8}$, $\\tfrac{1}{5}$, $\\tfrac{1}{3}$, $\\tfrac{1}{2}$.',
+            'Hence $\\tfrac{1}{8} < \\tfrac{1}{5} < \\tfrac{1}{3} < \\tfrac{1}{2}$ — no products computed, no rulers raised: one rule, read in the right direction.',
+          ],
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Cross-multiplication test',
+              def: 'The two-multiplication comparison of a/b with c/d: compute ad and bc and let the whole-number products vote (ad = bc means equal; ad < bc means a/b < c/d). Proved in Lesson 4.2 by raising both fractions to the common bd-ruler.',
+            },
+            {
+              term: 'Common denominator',
+              def: 'A denominator shared by several fractions after raising — any common multiple of their denominators (the product bd always works; the smallest is the LCM). Fractions on a common denominator are counts of equal pieces, so whole-number order compares them.',
+            },
+            {
+              term: 'Benchmark',
+              def: 'A reference fraction used to sort comparisons before any products are computed — 0, 1/2 and 1 above all. A fraction clears 1/2 exactly when twice its numerator exceeds its denominator (2n > d).',
+            },
+            {
+              term: 'Completing the whole',
+              def: 'Comparing fractions just under 1 by their missing pieces: 7/8 is missing 1/8, 8/9 is missing 1/9; the smaller hole holds more, so 8/9 > 7/8.',
+            },
+            {
+              term: 'Ascending order',
+              def: 'An arrangement of fractions from smallest to largest (descending: largest to smallest). Built by raising the whole list to one common ruler and sorting the counts, or by the easy rules when numerators or denominators are shared.',
+            },
+            {
+              term: 'Wholes-first rule',
+              def: 'Mixed numbers are compared by whole parts first; only on a tie do the fractional parts face off, with the engines of comparison. 4 1/8 > 3 9/10 instantly; 3 2/5 vs 3 3/8 goes to the fractions (2/5 > 3/8).',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Unlike rulers: the cross-multiplication engine' },
+        {
+          kind: 'para',
+          text: 'Remove the coincidences — different numerators *and* different denominators — and the easy cases fall silent. Is $\\tfrac{3}{4}$ more or less than $\\tfrac{4}{5}$? The pieces differ (quarters against fifths) and the counts differ (three against four), so no single glance decides. This is precisely the situation the licence of Lesson 4.2 was proved for, and the proof now becomes the working tool: raise both fractions to the common $bd$-ruler — $\\tfrac{a}{b}$ becomes $\\tfrac{ad}{bd}$ and $\\tfrac{c}{d}$ becomes $\\tfrac{bc}{bd}$ — where they are counts of equal pieces, and whole-number order reads the verdict off the two products. Two multiplications, one comparison of whole numbers: the **cross-multiplication test**.',
+        },
+        {
+          kind: 'formula',
+          name: 'The cross-multiplication test',
+          latex: '\\frac{a}{b} \\;\\text{vs}\\; \\frac{c}{d} \\qquad\\Longleftrightarrow\\qquad ad \\;\\text{vs}\\; bc \\qquad (b, d > 0)',
+          note: 'Multiply across the suspected pair — numerator of the first by denominator of the second, and vice versa — and let the whole-number products vote: ad = bc means equal, ad < bc means a/b < c/d, ad > bc means a/b > c/d. Proved in Lesson 4.2 on the common bd-ruler.',
+        },
+        {
+          kind: 'para',
+          text: 'The picture behind the products deserves one slow look, because the test is often memorised without it. The product $ad$ is not an accident of notation: it is the *count* of $bd$-pieces that $\\tfrac{a}{b}$ holds after raising. The test is the common-ruler method with the bookkeeping suppressed — the raising never written down, only its two counts kept. Keeping the picture in view explains the test\'s fine print: it compares products of parts, so it is a **verdict machine, not a transformation** — nothing has been done to either fraction — and it needs positive denominators, which is automatic in this book\'s whole-number world.',
+        },
+        {
+          kind: 'example',
+          title: 'Compare 3/4 and 4/5',
+          steps: [
+            'Now, cross-multiply the pair: $3 \\times 5 = 15$ and $4 \\times 4 = 16$.',
+            'So $15 < 16$, and the licence reads the verdict directly: $\\tfrac{3}{4} < \\tfrac{4}{5}$.',
+            'Check it on the common $20$-ruler the products came from: $\\tfrac{3}{4} = \\tfrac{15}{20}$ and $\\tfrac{4}{5} = \\tfrac{16}{20}$ — fifteen cells against sixteen, the same story the products told.',
+            'Hence $\\tfrac{4}{5}$ is the larger — and Lesson 4.2\'s additive-trap callout now reads as a comparison: $\\tfrac{4}{5}$, the "add $1$ to both" fraud, is not merely *different* from $\\tfrac{3}{4}$, it sits strictly *above* it on the way to $1$, exactly where the mediant theorem parked it.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Compare 7/12 and 5/8 — the Lesson 4.2 exercise, answered',
+          steps: [
+            'Now, Lesson 4.2 left this pair mounted on one $96$-piece ruler ($\\tfrac{7}{12} = \\tfrac{56}{96}$, $\\tfrac{5}{8} = \\tfrac{60}{96}$) and promised the verdict in this lesson; the cross-test pays without the ruler.',
+            'So cross-multiply: $7 \\times 8 = 56$ and $12 \\times 5 = 60$.',
+            'So $56 < 60$, hence $\\tfrac{7}{12} < \\tfrac{5}{8}$ — the products are exactly the two raised counts, with the ruler itself suppressed.',
+            'Hence $\\tfrac{5}{8}$ is larger, by $\\tfrac{4}{96} = \\tfrac{1}{24}$ — the debt from Lesson 4.2\'s exercise settled, gap and all.',
+          ],
+        },
+        { kind: 'heading', text: 'The common-denominator method' },
+        {
+          kind: 'para',
+          text: 'The cross-test answers two-fraction questions in two multiplications, but its honest parent — raising both fractions to a **common denominator** and counting — deserves its own section, for two reasons. First, seeing the method explicitly is seeing *why* the test works: the products $ad$ and $bc$ are the raised counts. Second, and practically: a common ruler serves a whole *list* of fractions at once, where pairwise cross-tests would multiply into a tournament. The raising move is Lesson 4.2\'s, used today exactly as that lesson advertised: "the move that powers common denominators."',
+        },
+        {
+          kind: 'para',
+          text: 'Which common ruler? Any common multiple of the denominators is legal — a ruler into $b \\times d$ pieces always exists, and so does one into any common multiple. The *smallest* legal ruler is the LCM of the denominators (Lesson 3.4), and it keeps the numbers pleasant; but for verdicts, legality is all that matters, and a bigger ruler answers the same question with bigger counts. Lesson 4.4 will promote the LCM to the standard tool for addition; today, any legal ruler is welcome.',
+        },
+        {
+          kind: 'example',
+          title: 'Re-measure 7/12 and 5/8 in twenty-fourths',
+          steps: [
+            'Now, find a common multiple of the denominators: $24 = 12 \\times 2 = 8 \\times 3$ — a legal ruler, and smaller than the product $96$.',
+            'So raise each fraction by its own multiplier: $\\tfrac{7}{12} = \\tfrac{7 \\times 2}{12 \\times 2} = \\tfrac{14}{24}$ and $\\tfrac{5}{8} = \\tfrac{5 \\times 3}{8 \\times 3} = \\tfrac{15}{24}$.',
+            'Now both are counts of twenty-fourths: $14 < 15$, so $\\tfrac{7}{12} < \\tfrac{5}{8}$ — the cross-test\'s verdict again, this time with the ruler on display.',
+            'Hence the gap is exactly $\\tfrac{15}{24} - \\tfrac{14}{24} = \\tfrac{1}{24}$: one extra twenty-fourth holds the entire difference. Turning such observations into a systematic arithmetic of fractions is Lesson 4.4\'s opening business; today, the count already told the story.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The common ruler decides. The same strip is measured as 7/12 and as 5/8 on their own rulers (top), then both amounts are re-measured in twenty-fourths (below): 7/12 = 14/24 and 5/8 = 15/24. Fourteen shaded cells against fifteen — the single extra twenty-fourth (highlighted) is the whole verdict, 5/8 > 7/12, visible without a single product.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bars showing 7/12 and 5/8, then both re-measured on 24-cell rulers as 14/24 and 15/24 with one extra cell highlighted">
+  <g font-size="13" fill="currentColor">
+    <text x="70" y="34">cut into 12 equal pieces — 7 shaded: 7/12</text>
+    <rect x="70" y="44" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="44" width="51.67" height="44"/>
+      <rect x="121.67" y="44" width="51.67" height="44"/>
+      <rect x="173.33" y="44" width="51.67" height="44"/>
+      <rect x="225" y="44" width="51.67" height="44"/>
+      <rect x="276.67" y="44" width="51.67" height="44"/>
+      <rect x="328.33" y="44" width="51.67" height="44"/>
+      <rect x="380" y="44" width="51.67" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="121.67" y1="44" x2="121.67" y2="88"/>
+      <line x1="173.33" y1="44" x2="173.33" y2="88"/>
+      <line x1="225" y1="44" x2="225" y2="88"/>
+      <line x1="276.67" y1="44" x2="276.67" y2="88"/>
+      <line x1="328.33" y1="44" x2="328.33" y2="88"/>
+      <line x1="380" y1="44" x2="380" y2="88"/>
+      <line x1="431.67" y1="44" x2="431.67" y2="88"/>
+      <line x1="483.33" y1="44" x2="483.33" y2="88"/>
+      <line x1="535" y1="44" x2="535" y2="88"/>
+      <line x1="586.67" y1="44" x2="586.67" y2="88"/>
+      <line x1="638.33" y1="44" x2="638.33" y2="88"/>
+    </g>
+    <text x="706" y="71" font-weight="700">7/12</text>
+    <text x="70" y="122">cut into 8 equal pieces — 5 shaded: 5/8</text>
+    <rect x="70" y="132" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="132" width="77.5" height="44"/>
+      <rect x="147.5" y="132" width="77.5" height="44"/>
+      <rect x="225" y="132" width="77.5" height="44"/>
+      <rect x="302.5" y="132" width="77.5" height="44"/>
+      <rect x="380" y="132" width="77.5" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="147.5" y1="132" x2="147.5" y2="176"/>
+      <line x1="225" y1="132" x2="225" y2="176"/>
+      <line x1="302.5" y1="132" x2="302.5" y2="176"/>
+      <line x1="380" y1="132" x2="380" y2="176"/>
+      <line x1="457.5" y1="132" x2="457.5" y2="176"/>
+      <line x1="535" y1="132" x2="535" y2="176"/>
+      <line x1="612.5" y1="132" x2="612.5" y2="176"/>
+    </g>
+    <text x="706" y="159" font-weight="700">5/8</text>
+    <text x="70" y="210">raised to the 24-ruler: 7/12 = 14/24</text>
+    <rect x="70" y="220" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="220" width="25.83" height="44"/>
+      <rect x="95.83" y="220" width="25.83" height="44"/>
+      <rect x="121.67" y="220" width="25.83" height="44"/>
+      <rect x="147.5" y="220" width="25.83" height="44"/>
+      <rect x="173.33" y="220" width="25.83" height="44"/>
+      <rect x="199.17" y="220" width="25.83" height="44"/>
+      <rect x="225" y="220" width="25.83" height="44"/>
+      <rect x="250.83" y="220" width="25.83" height="44"/>
+      <rect x="276.67" y="220" width="25.83" height="44"/>
+      <rect x="302.5" y="220" width="25.83" height="44"/>
+      <rect x="328.33" y="220" width="25.83" height="44"/>
+      <rect x="354.17" y="220" width="25.83" height="44"/>
+      <rect x="380" y="220" width="25.83" height="44"/>
+      <rect x="405.83" y="220" width="25.83" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.5">
+      <line x1="95.83" y1="220" x2="95.83" y2="264"/>
+      <line x1="121.67" y1="220" x2="121.67" y2="264"/>
+      <line x1="147.5" y1="220" x2="147.5" y2="264"/>
+      <line x1="173.33" y1="220" x2="173.33" y2="264"/>
+      <line x1="199.17" y1="220" x2="199.17" y2="264"/>
+      <line x1="225" y1="220" x2="225" y2="264"/>
+      <line x1="250.83" y1="220" x2="250.83" y2="264"/>
+      <line x1="276.67" y1="220" x2="276.67" y2="264"/>
+      <line x1="302.5" y1="220" x2="302.5" y2="264"/>
+      <line x1="328.33" y1="220" x2="328.33" y2="264"/>
+      <line x1="354.17" y1="220" x2="354.17" y2="264"/>
+      <line x1="380" y1="220" x2="380" y2="264"/>
+      <line x1="405.83" y1="220" x2="405.83" y2="264"/>
+      <line x1="431.67" y1="220" x2="431.67" y2="264"/>
+      <line x1="457.5" y1="220" x2="457.5" y2="264"/>
+      <line x1="483.33" y1="220" x2="483.33" y2="264"/>
+      <line x1="509.17" y1="220" x2="509.17" y2="264"/>
+      <line x1="535" y1="220" x2="535" y2="264"/>
+      <line x1="560.83" y1="220" x2="560.83" y2="264"/>
+      <line x1="586.67" y1="220" x2="586.67" y2="264"/>
+      <line x1="612.5" y1="220" x2="612.5" y2="264"/>
+      <line x1="638.33" y1="220" x2="638.33" y2="264"/>
+      <line x1="664.17" y1="220" x2="664.17" y2="264"/>
+    </g>
+    <text x="706" y="247" font-weight="700">14/24</text>
+    <text x="70" y="298">raised to the 24-ruler: 5/8 = 15/24</text>
+    <rect x="70" y="308" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.15">
+      <rect x="70" y="308" width="25.83" height="44"/>
+      <rect x="95.83" y="308" width="25.83" height="44"/>
+      <rect x="121.67" y="308" width="25.83" height="44"/>
+      <rect x="147.5" y="308" width="25.83" height="44"/>
+      <rect x="173.33" y="308" width="25.83" height="44"/>
+      <rect x="199.17" y="308" width="25.83" height="44"/>
+      <rect x="225" y="308" width="25.83" height="44"/>
+      <rect x="250.83" y="308" width="25.83" height="44"/>
+      <rect x="276.67" y="308" width="25.83" height="44"/>
+      <rect x="302.5" y="308" width="25.83" height="44"/>
+      <rect x="328.33" y="308" width="25.83" height="44"/>
+      <rect x="354.17" y="308" width="25.83" height="44"/>
+      <rect x="380" y="308" width="25.83" height="44"/>
+      <rect x="405.83" y="308" width="25.83" height="44"/>
+      <rect x="431.67" y="308" width="25.83" height="44"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1" opacity="0.5">
+      <line x1="95.83" y1="308" x2="95.83" y2="352"/>
+      <line x1="121.67" y1="308" x2="121.67" y2="352"/>
+      <line x1="147.5" y1="308" x2="147.5" y2="352"/>
+      <line x1="173.33" y1="308" x2="173.33" y2="352"/>
+      <line x1="199.17" y1="308" x2="199.17" y2="352"/>
+      <line x1="225" y1="308" x2="225" y2="352"/>
+      <line x1="250.83" y1="308" x2="250.83" y2="352"/>
+      <line x1="276.67" y1="308" x2="276.67" y2="352"/>
+      <line x1="302.5" y1="308" x2="302.5" y2="352"/>
+      <line x1="328.33" y1="308" x2="328.33" y2="352"/>
+      <line x1="354.17" y1="308" x2="354.17" y2="352"/>
+      <line x1="380" y1="308" x2="380" y2="352"/>
+      <line x1="405.83" y1="308" x2="405.83" y2="352"/>
+      <line x1="431.67" y1="308" x2="431.67" y2="352"/>
+      <line x1="457.5" y1="308" x2="457.5" y2="352"/>
+      <line x1="483.33" y1="308" x2="483.33" y2="352"/>
+      <line x1="509.17" y1="308" x2="509.17" y2="352"/>
+      <line x1="535" y1="308" x2="535" y2="352"/>
+      <line x1="560.83" y1="308" x2="560.83" y2="352"/>
+      <line x1="586.67" y1="308" x2="586.67" y2="352"/>
+      <line x1="612.5" y1="308" x2="612.5" y2="352"/>
+      <line x1="638.33" y1="308" x2="638.33" y2="352"/>
+      <line x1="664.17" y1="308" x2="664.17" y2="352"/>
+    </g>
+    <text x="706" y="335" font-weight="700">15/24</text>
+  <line x1="431.67" y1="214" x2="431.67" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <line x1="457.5" y1="214" x2="457.5" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <rect x="431.67" y="308" width="25.83" height="44" fill="#b45309" opacity="0.45"/>
+  <text x="380" y="385" text-anchor="middle" font-weight="700">the single extra twenty-fourth decides: 5/8 &gt; 7/12</text>
+  </g>
+</svg>`,
+        },
+        { kind: 'heading', text: 'Ordering three or more: the exam workhorse' },
+        {
+          kind: 'para',
+          text: 'Exam papers rarely compare two fractions; they order three, or five, and ask for the largest. Pairwise cross-tests work but waste effort — three fractions already mean three pairs, five would mean ten. The common ruler answers every order at once: raise the whole list to one ruler, and the original question becomes whole-number sorting.',
+        },
+        {
+          kind: 'example',
+          title: 'Which is the largest: 2/3, 4/5 or 7/11?',
+          steps: [
+            'Now, this is the item Lesson 4.1\'s exam corner banked for this lesson — an SSC Multi-Tasking Staff 2017 question (from Khattar\'s chapter 1 drill set) — and the debt comes due here.',
+            'So find a common ruler: $165 = 3 \\times 5 \\times 11$ is a multiple of all three denominators.',
+            'So raise each fraction: $\\tfrac{2}{3} = \\tfrac{110}{165}$ (by $55$), $\\tfrac{4}{5} = \\tfrac{132}{165}$ (by $33$), $\\tfrac{7}{11} = \\tfrac{105}{165}$ (by $15$).',
+            'Now read the counts: $105 < 110 < 132$, hence $\\tfrac{7}{11} < \\tfrac{2}{3} < \\tfrac{4}{5}$.',
+            'Hence $\\tfrac{4}{5}$ is the largest — the banked item settled by one ruler and three raisings, no pair tested twice.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The banked item, read off the line. Between the half and the whole, 7/11 sits just above the halfway mark, 2/3 a shade further right, and 4/5 well clear of both: the ascending order 7/11 < 2/3 < 4/5 is visible as left-to-right position before any product is computed. Zooming the line is honest — only the order of the marked points matters.',
+          svg: `<svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 1/2 to 1 with 7/11 just above the half, 2/3 a shade further right and 4/5 well clear">
+  <g font-size="13" fill="currentColor">
+  <line x1="40" y1="130" x2="720" y2="130" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M 720 130 l -9 -4 v 8 z" fill="currentColor"/>
+  <line x1="70" y1="122" x2="70" y2="138" stroke="currentColor" stroke-width="1.5"/>
+  <text x="70" y="162" text-anchor="middle" font-weight="700">1/2</text>
+  <line x1="239.09" y1="122" x2="239.09" y2="138" stroke="currentColor" stroke-width="1.5"/>
+  <text x="239.09" y="104" text-anchor="middle" font-weight="700">7/11</text>
+  <line x1="276.67" y1="122" x2="276.67" y2="138" stroke="currentColor" stroke-width="1.5"/>
+  <text x="276.67" y="162" text-anchor="middle" font-weight="700">2/3</text>
+  <line x1="442" y1="122" x2="442" y2="138" stroke="currentColor" stroke-width="1.5"/>
+  <text x="442" y="104" text-anchor="middle" font-weight="700">4/5</text>
+  <line x1="690" y1="122" x2="690" y2="138" stroke="currentColor" stroke-width="1.5"/>
+  <text x="690" y="162" text-anchor="middle" font-weight="700">1</text>
+  <text x="380" y="190" text-anchor="middle" font-weight="700">between the half and the whole: 7/11 &lt; 2/3 &lt; 4/5</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Before building any big ruler, two free checks often shrink the job. The first is the **benchmark $\\tfrac{1}{2}$**: a fraction clears the half exactly when its numerator is more than half its denominator — $2n > d$ — a comparison needing no multiplication at all. Sorting a list into below-half and above-half piles can settle a "which is largest" item outright, or leave only the top pile to be ranked.',
+        },
+        {
+          kind: 'example',
+          title: 'Find the largest of 2/5, 3/7 and 5/9 — benchmarks first',
+          steps: [
+            'Now, test each fraction against the half by doubling its numerator: $2 \\times 2 = 4 < 5$ (below), $2 \\times 3 = 6 < 7$ (below), $2 \\times 5 = 10 > 9$ (above).',
+            'So $\\tfrac{5}{9}$ alone clears the half — it is larger than both competitors immediately, and no products have been needed.',
+            'The below-half pair still needs one cross-test for the full ascending order: $2 \\times 7 = 14 < 15 = 3 \\times 5$, so $\\tfrac{2}{5} < \\tfrac{3}{7}$.',
+            'Hence $\\tfrac{2}{5} < \\tfrac{3}{7} < \\tfrac{5}{9}$ — the benchmark did the sorting, and one small cross-test finished the tail.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'A second free check applies when a list shares its numerator: the same-numerator rule sorts the whole list in one stroke, denominators read backwards. Arranging $\\tfrac{2}{3}, \\tfrac{2}{5}, \\tfrac{2}{7}$ in descending order needs no machinery at all: $3 < 5 < 7$, so $\\tfrac{2}{3} > \\tfrac{2}{5} > \\tfrac{2}{7}$. Exam lists are built from these shapes — shared numerators, shared denominators, benchmark-clearing stragglers — and the habit of scanning for the shape before computing is worth marks every time.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Comparison in the exam hall',
+          text: 'The largest-fraction MCQ is a fixture of every quantitative paper, and the shapes repeat. (i) *Shared numerator*: the order runs opposite to the denominators — instant. (ii) *Stragglers around $\\tfrac{1}{2}$*: benchmark first, products only for the survivors. (iii) *Genuine unlike rulers*: one common ruler — the LCM if it is visible, the product if not — and the counts sort everything in a single pass. The decimals route ("$\\tfrac{4}{5} = 0.8$, $\\tfrac{2}{3} \\approx 0.67$, $\\tfrac{7}{11} \\approx 0.64$") gives the same verdict and becomes systematic in chapter 5 — but the fraction engines above need no decimal tables and never round. Practise both; trust the fraction engine when the decimals run long.',
+        },
+        { kind: 'heading', text: 'Anchors: 0, 1/2 and 1' },
+        {
+          kind: 'para',
+          text: 'The half is one of three anchors worth installing in permanent memory. Every proper fraction lives strictly between $0$ and $1$ (Lesson 4.1), so $0$ and $1$ bracket the whole family: any improper fraction — worth $1$ or more — beats any proper fraction outright, no computation invited. Between the brackets, a fraction\'s address is sketched by two questions: how far from $0$ (a small numerator on a large denominator sits near the floor), and how far from $1$ (a numerator close to its denominator sits near the ceiling). The second question has a beautiful shortcut when two fractions both hover near the top.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Completing the whole',
+          text: 'For fractions just under $1$, compare what is *missing* instead of what is held. $\\tfrac{7}{8}$ is one eighth short of the whole; $\\tfrac{8}{9}$ is one ninth short. Since $\\tfrac{1}{9} < \\tfrac{1}{8}$, the ninth-short fraction is missing less — so it holds more: $\\tfrac{8}{9} > \\tfrac{7}{8}$. The cross-test confirms from its own side: $7 \\times 9 = 63 < 64 = 8 \\times 8$. In general, among fractions one piece short of the whole — the $\\tfrac{b-1}{b}$ family — the larger denominator wins, because the missing piece $\\tfrac{1}{d}$ shrinks as $d$ grows (Exercise L6, second half).',
+        },
+        {
+          kind: 'example',
+          title: 'Compare 9/10 and 11/12 by completing the whole',
+          steps: [
+            'Now, both fractions sit one piece below the whole: $\\tfrac{9}{10}$ is missing $\\tfrac{1}{10}$, and $\\tfrac{11}{12}$ is missing $\\tfrac{1}{12}$.',
+            'So compare the missing pieces instead: unit fractions order inversely, and $\\tfrac{1}{12} < \\tfrac{1}{10}$ — the twelfth is the smaller hole.',
+            'So the fraction with the smaller hole is larger: $\\tfrac{11}{12} > \\tfrac{9}{10}$.',
+            'Hence $\\tfrac{9}{10} < \\tfrac{11}{12}$ — and the cross-test agrees: $9 \\times 12 = 108 < 110 = 11 \\times 10$. Two views, one verdict: near the top of the line, count the holes.',
+          ],
+        },
+        { kind: 'heading', text: 'Mixed numbers: wholes first' },
+        {
+          kind: 'para',
+          text: 'Mixed numbers bring their two-storey structure to the comparison, and the storeys are settled in order: **whole parts first**, fractional parts only on a tie. This is Lesson 1.2\'s ordering applied to the whole storey — $3$ of anything beats $2$ of anything — and it routinely saves all the work: $4\\tfrac{1}{8} > 3\\tfrac{9}{10}$ instantly, the impressive-looking fractional part notwithstanding, because $4 > 3$. When the wholes tie, the fractional parts inherit the question, and every engine of this lesson applies to them: same denominators, same numerators, cross-tests, benchmarks.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The wholes-first rule',
+          text: 'To compare mixed numbers $W\\tfrac{n}{d}$ and $V\\tfrac{m}{e}$ (all parts positive): if $W < V$ then $W\\tfrac{n}{d} < V\\tfrac{m}{e}$, whatever the fractional parts; if $W = V$, compare $\\tfrac{n}{d}$ with $\\tfrac{m}{e}$ by this lesson\'s engines. Thus, $4\\tfrac{1}{8} > 3\\tfrac{9}{10}$ (the wholes differ), while $3\\tfrac{2}{5}$ against $3\\tfrac{3}{8}$ goes to the fractions: $\\tfrac{2}{5} > \\tfrac{3}{8}$ ($16 > 15$).',
+        },
+        {
+          kind: 'para',
+          text: 'Two boundary notes complete the rule. First, the anchor $1$ already splits the field: every proper fraction is smaller than every improper one, so $\\tfrac{5}{6} < \\tfrac{9}{8}$ is decided before any engine warms up. Second, when a tie in wholes leaves fractional parts on *different rulers* — as with $\\tfrac{2}{5}$ against $\\tfrac{3}{8}$ — the cross-test is the default tool; the common-ruler route (fortieths here: $\\tfrac{16}{40}$ against $\\tfrac{15}{40}$) is the same verdict with the machinery shown.',
+        },
+        {
+          kind: 'example',
+          title: 'Compare 3 2/5 and 3 3/8',
+          steps: [
+            'Now, the whole parts tie: $3 = 3$ — so the decision passes to the fractional storey.',
+            'So cross-multiply the fractional parts: $2 \\times 8 = 16$ and $3 \\times 5 = 15$.',
+            'So $16 > 15$, hence $\\tfrac{2}{5} > \\tfrac{3}{8}$: the fifths-storey holds more.',
+            'Hence $3\\tfrac{2}{5} > 3\\tfrac{3}{8}$ — and converting both to improper fractions confirms it on the $40$-ruler: $\\tfrac{17}{5} = \\tfrac{136}{40} > \\tfrac{135}{40} = \\tfrac{27}{8}$, a one-part difference exactly where the fractional cross-test put it.',
+          ],
+        },
+        { kind: 'heading', text: 'The comparison toolkit' },
+        {
+          kind: 'para',
+          text: 'From the above discussion, the engines collect into one table — six recurring situations, six tools, each with its worked instance from this lesson:',
+        },
+        {
+          kind: 'table',
+          head: ['Situation', 'Engine', 'Worked instance', 'Verdict'],
+          rows: [
+            ['Same denominator', 'count the equal pieces', '5/9 vs 7/9: 5 < 7', '5/9 < 7/9'],
+            ['Same numerator', 'invert: finer cut, smaller holding', '5/8 vs 5/11: 8 < 11', '5/8 > 5/11'],
+            ['Unlike rulers, two fractions', 'cross-multiply: ad vs bc', '5/6 vs 8/11: 55 > 48', '5/6 > 8/11'],
+            ['A list of fractions', 'raise all to one common ruler', 'the trio on the 165-ruler: 105, 110, 132', '7/11 < 2/3 < 4/5'],
+            ['Near 1 (one piece short)', 'compare the missing pieces', '9/10 vs 11/12: 1/12 < 1/10', '9/10 < 11/12'],
+            ['Mixed numbers', 'wholes first, then fractional parts', '3 2/5 vs 3 3/8: 2/5 > 3/8', '3 2/5 > 3 3/8'],
+          ],
+        },
+        {
+          kind: 'equation',
+          latex: '\\frac{n}{d} < \\frac{m}{d} \\iff n < m \\qquad \\frac{n}{d} < \\frac{n}{e} \\iff e < d \\qquad \\frac{a}{b} < \\frac{c}{d} \\iff ad < bc',
+          note: 'The three comparison laws on one line: equal rulers obey the counting order, equal counts invert the ruler order, and unlike rulers defer to the products. For lists, raise everything to one common ruler and let whole-number order sort the counts.',
+        },
+        {
+          kind: 'formula',
+          name: 'The common-denominator method',
+          latex: '\\text{to compare } \\tfrac{a}{b}, \\tfrac{c}{d}, \\ldots: \\quad \\tfrac{a}{b} = \\tfrac{a k_1}{R}, \\; \\tfrac{c}{d} = \\tfrac{c k_2}{R}, \\quad R = \\mathrm{LCM}(b, d, \\ldots) \\text{ (or the product)}',
+          note: 'Raise every fraction to one ruler R (the LCM keeps the numbers small; the product always works), then order the numerators — whole-number order does the rest. The cross-multiplication test is this method with R = bd and the bookkeeping suppressed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Which is larger — and how much larger?',
+          text: 'Every engine in this lesson returns a verdict — which point sits further right. On a common ruler they also quietly contain the *gap*: larger count minus smaller count, over the ruler ($\\tfrac{15}{24} - \\tfrac{14}{24} = \\tfrac{1}{24}$ above). Turning that observation into a systematic arithmetic of fraction addition and subtraction is Lesson 4.4\'s opening business, where the LCM ruler becomes standard equipment.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Which is larger: 8/13 or 5/13?',
+              options: [
+                '5/13, because 5 is the smaller number',
+                '8/13 — the pieces are equal in size, so the larger count wins',
+                'They are equal',
+                'Cannot be decided without a common denominator',
+              ],
+              answer: 1,
+              explain:
+                'Both fractions are counts of thirteenths — the ruler is already shared, so whole-number order settles it: 8 > 5 (Option 2). Option 1 misapplies the same-numerator inversion to a pair that shares its *denominator* instead — read which storey matches before choosing a rule. Option 3 is false: 8 ≠ 5. Option 4 describes the unlike-ruler case, which this pair simply is not in.',
+            },
+            {
+              q: 'Which is smaller: 4/7 or 4/11?',
+              options: [
+                '4/7',
+                '4/11',
+                'They are equal',
+                'The cross-test is needed to decide',
+              ],
+              answer: 1,
+              explain:
+                'Same numerator, so the same-numerator rule reads the denominators backwards: 7 < 11 makes 4/7 the *larger* and 4/11 the smaller (Option 2). The cross-test confirms rather than rescues: 4 × 11 = 44 > 28 = 7 × 4, so 4/7 > 4/11 — no "need" to run it (Option 4). Option 1 reverses the rule. The trap is real: eleven is the bigger number, but elevenths are the smaller pieces.',
+            },
+            {
+              q: 'By the cross-multiplication test, 5/8 compared with 7/12 gives —',
+              options: [
+                '5/8 < 7/12, because 5 < 7 and 8 < 12',
+                '5/8 = 7/12, because both are proper fractions',
+                '5/8 > 7/12, because 5 × 12 = 60 beats 7 × 8 = 56',
+                '7/12 > 5/8, because twelfths are finer than eighths',
+              ],
+              answer: 2,
+              explain:
+                'The test computes the two cross-products — 5 × 12 = 60 against 7 × 8 = 56 — and 60 > 56 gives 5/8 > 7/12 (Option 3). Options 1 and 4 compare the parts pairwise, numerator with numerator or denominator with denominator, which is not a move the licence ever sold. Option 2 is doubly wrong: both being proper says only that both sit below 1, not that they sit together. On the 24-ruler the verdict repeats: 15/24 against 14/24.',
+            },
+            {
+              q: 'Using the 1/2 benchmark only — no products — which of these is instantly the largest: 3/7, 9/20, 4/9, 6/11?',
+              options: ['3/7', '9/20', '4/9', '6/11'],
+              answer: 3,
+              explain:
+                'Double each numerator and compare with the denominator: 6 < 7, 18 < 20, 8 < 9 — three fractions sit below the half — while 12 > 11 lifts 6/11 above it (Option 4). One candidate above the half outranks every candidate below it; the benchmark alone decided an exam-style item without a single multiplication. Should the list have held two above-half fractions, one cross-test between the survivors would finish the job.',
+            },
+            {
+              q: 'Which is larger: 4 2/9 or 4 1/4?',
+              options: [
+                '4 2/9, because 2/9 has the larger numerator',
+                '4 2/9, because ninths are larger pieces than quarters',
+                '4 1/4 — the wholes tie, and 1/4 > 2/9 since 2 × 4 = 8 < 9 = 1 × 9',
+                'They are equal, because both wholes are 4',
+              ],
+              answer: 2,
+              explain:
+                'Equal wholes push the decision to the fractional storey, where the cross-test votes: 2 × 4 = 8 < 9 = 1 × 9, so 2/9 < 1/4 and 4 1/4 wins (Option 3). Option 1 compares numerators across different rulers — not a legal reading. Option 2 inverts the same-numerator rule: ninths are *smaller* pieces than quarters, so 2/9 < 1/4. Option 4 stops one storey short: equal wholes make the fractional parts *decisive*, not irrelevant.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Fill in the correct sign (<, > or =): (a) 4/11 ▢ 7/11; (b) 5/9 ▢ 5/12; (c) 6/6 ▢ 13/13.',
+                  solution: [
+                    'Now, (a) shares the ruler — elevenths against elevenths — so the counts decide: $4 < 7$.',
+                    'So (a) reads $\\tfrac{4}{11} < \\tfrac{7}{11}$.',
+                    'Next, (b) shares the count: five pieces each, but ninths are coarser than twelfths, so the ninths holding is larger: $\\tfrac{5}{9} > \\tfrac{5}{12}$ (licence check: $5 \\times 12 = 60 > 45 = 9 \\times 5$).',
+                    'And (c): $\\tfrac{6}{6} = 1 = \\tfrac{13}{13}$ — two complete rulers, one point.',
+                    'Hence (a) $<$, (b) $>$, (c) $=$ — the first two by the easy rules, the third by the anchor $1$.',
+                  ],
+                  answer: '(a) <; (b) >; (c) =',
+                },
+                {
+                  q: 'Which is larger: 3/5 or 7/10? Decide by raising to a common ruler, then confirm with the cross-test.',
+                  solution: [
+                    'Now, $10$ is a multiple of $5$, so tenths are a legal common ruler — only the smaller denominator needs raising.',
+                    'So $\\tfrac{3}{5} = \\tfrac{3 \\times 2}{5 \\times 2} = \\tfrac{6}{10}$, and the counts line up: $6 < 10$.',
+                    'So the ruler says $\\tfrac{3}{5} < \\tfrac{7}{10}$.',
+                    'Check by the cross-test: $3 \\times 10 = 30$ against $7 \\times 5 = 35$ — $30 < 35$, the same verdict with the raising suppressed.',
+                    'Hence $\\tfrac{7}{10}$ is larger, by $\\tfrac{1}{10}$ — one cell of the shared ruler.',
+                  ],
+                  answer: '7/10 (3/5 = 6/10 < 7/10)',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Arrange in ascending order: 1/2, 1/9, 1/4, 1/100, 1/3.',
+                  solution: [
+                    'Now, all five share the numerator $1$ — five piece sizes, no counts to weigh against each other.',
+                    'So the same-numerator rule applies: ascending order of the fractions is descending order of the denominators.',
+                    'So read the denominators from largest to smallest: $100, 9, 4, 3, 2$.',
+                    'Hence $\\tfrac{1}{100} < \\tfrac{1}{9} < \\tfrac{1}{4} < \\tfrac{1}{3} < \\tfrac{1}{2}$ — the finest cut first, the half last.',
+                  ],
+                  answer: '1/100 < 1/9 < 1/4 < 1/3 < 1/2',
+                },
+                {
+                  q: 'Without computing any cross-products, decide which of 8/15 and 11/24 is larger.',
+                  solution: [
+                    'Now, test both against the benchmark $\\tfrac{1}{2}$ by doubling each numerator: $2 \\times 8 = 16 > 15$ and $2 \\times 11 = 22 < 24$.',
+                    'So $\\tfrac{8}{15}$ clears the half and $\\tfrac{11}{24}$ falls short — one point above $\\tfrac{1}{2}$, one below.',
+                    'Hence $\\tfrac{8}{15} > \\tfrac{11}{24}$ — the anchor decided it; the cross-test ($8 \\times 24 = 192 > 165 = 15 \\times 11$) merely confirms.',
+                  ],
+                  answer: '8/15 (it clears 1/2; 11/24 does not)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'One recipe uses 5/8 kg of flour, another uses 2/3 kg. Which recipe uses more flour? Decide twice: by the cross-test and by a common ruler.',
+                  solution: [
+                    'Now, by the cross-test: $5 \\times 3 = 15$ against $8 \\times 2 = 16$.',
+                    'So $15 < 16$, and $\\tfrac{5}{8} < \\tfrac{2}{3}$ — the two-thirds recipe is hungrier.',
+                    'Again, by the ruler: $24$ is a common multiple of $8$ and $3$, and $\\tfrac{5}{8} = \\tfrac{15}{24}$ while $\\tfrac{2}{3} = \\tfrac{16}{24}$.',
+                    'So fifteen cells against sixteen on one ruler — the same verdict, the difference exactly $\\tfrac{1}{24}$ kg.',
+                    'Hence the second recipe uses more flour: $\\tfrac{2}{3} \\text{ kg} > \\tfrac{5}{8} \\text{ kg}$, by a twenty-fourth of a kilo.',
+                  ],
+                  answer: '2/3 kg (15/24 < 16/24; the gap is 1/24 kg)',
+                },
+                {
+                  q: 'exam-style: Of 5/6 and 8/11, which is larger? Settle it with the cross-multiplication test and confirm on a common ruler.',
+                  solution: [
+                    'Now, cross-multiply: $5 \\times 11 = 55$ against $8 \\times 6 = 48$.',
+                    'So $55 > 48$, hence $\\tfrac{5}{6} > \\tfrac{8}{11}$.',
+                    'Confirm on the product ruler $66$: $\\tfrac{5}{6} = \\tfrac{55}{66}$ (raised by $11$) and $\\tfrac{8}{11} = \\tfrac{48}{66}$ (raised by $6$) — the products reappear as the raised counts.',
+                    'Hence $\\tfrac{5}{6}$ is the larger — $\\tfrac{55}{66} > \\tfrac{48}{66}$, seven sixty-sixths clear.',
+                  ],
+                  answer: '5/6 (55 > 48; on the 66-ruler, 55/66 > 48/66)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: "exam-style: Which is the largest fraction — 2/3, 4/5 or 7/11? (The item Lesson 4.1 banked: an SSC Multi-Tasking Staff 2017 question, via Khattar's chapter 1 drill set.)",
+                  solution: [
+                    'Now, all three clear the half ($4 > 3$, $8 > 5$, $14 > 11$), so the benchmark cannot separate them — build the ruler.',
+                    'So raise everything to $165 = 3 \\times 5 \\times 11$: $\\tfrac{2}{3} = \\tfrac{110}{165}$, $\\tfrac{4}{5} = \\tfrac{132}{165}$, $\\tfrac{7}{11} = \\tfrac{105}{165}$.',
+                    'Now the counts sort themselves: $105 < 110 < 132$.',
+                    'Hence $\\tfrac{7}{11} < \\tfrac{2}{3} < \\tfrac{4}{5}$ — the largest is $\\tfrac{4}{5}$, the banked item settled in one pass of the common ruler.',
+                  ],
+                  answer: '4/5 (7/11 < 2/3 < 4/5)',
+                },
+                {
+                  q: 'exam-style: A student writes "9/10 > 11/12 is false, because 11 and 12 are bigger numbers." Give the correct verdict — first by completing the whole, then by the cross-test.',
+                  solution: [
+                    'Now, both fractions sit one piece below the whole: $\\tfrac{9}{10}$ is missing $\\tfrac{1}{10}$, $\\tfrac{11}{12}$ is missing $\\tfrac{1}{12}$.',
+                    'So compare the holes: $\\tfrac{1}{12} < \\tfrac{1}{10}$ — the twelfth-short fraction is missing less, so it holds more: $\\tfrac{11}{12} > \\tfrac{9}{10}$.',
+                    'Check by the cross-test: $9 \\times 12 = 108$ against $11 \\times 10 = 110$ — $108 < 110$, so $\\tfrac{9}{10} < \\tfrac{11}{12}$ ✓.',
+                    "Hence the student's verdict is wrong and backwards: bigger recorded numbers can mean smaller missing pieces — $\\tfrac{11}{12}$ is the larger fraction, and \"bigger numbers\" never decided a comparison of unlike rulers.",
+                  ],
+                  answer: '11/12 is larger (108 < 110; it is missing the smaller piece 1/12 < 1/10)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Arrange in ascending order: 5/8, 3/5, 7/10, 2/3 — and name the ruler you used.',
+                  solution: [
+                    'Now, the denominators $8, 5, 10, 3$ share the common multiple $120$ — and it is in fact the LCM, the smallest legal ruler here.',
+                    'So raise each fraction: $\\tfrac{5}{8} = \\tfrac{75}{120}$ (by $15$), $\\tfrac{3}{5} = \\tfrac{72}{120}$ (by $24$), $\\tfrac{7}{10} = \\tfrac{84}{120}$ (by $12$), $\\tfrac{2}{3} = \\tfrac{80}{120}$ (by $40$).',
+                    'Now sort the counts: $72 < 75 < 80 < 84$.',
+                    'Hence $\\tfrac{3}{5} < \\tfrac{5}{8} < \\tfrac{2}{3} < \\tfrac{7}{10}$ — one ruler, four raisings, the whole order at once.',
+                  ],
+                  answer: '3/5 < 5/8 < 2/3 < 7/10 (on the 120-ruler: 72 < 75 < 80 < 84)',
+                },
+                {
+                  q: 'Arrange 5/6, 7/9 and 11/12 in ascending order on their smallest common ruler, and say what that ruler is.',
+                  solution: [
+                    'Now, the smallest ruler is $\\mathrm{LCM}(6, 9, 12)$: $\\mathrm{LCM}(6, 9) = 18$ and $\\mathrm{LCM}(18, 12) = 36$.',
+                    'So raise to $36$: $\\tfrac{5}{6} = \\tfrac{30}{36}$ (by $6$), $\\tfrac{7}{9} = \\tfrac{28}{36}$ (by $4$), $\\tfrac{11}{12} = \\tfrac{33}{36}$ (by $3$).',
+                    'Now the counts run $28 < 30 < 33$.',
+                    'Hence $\\tfrac{7}{9} < \\tfrac{5}{6} < \\tfrac{11}{12}$ on the $36$-ruler — the LCM kept every count small enough to sort at a glance.',
+                  ],
+                  answer: '7/9 < 5/6 < 11/12 (the 36-ruler: 28 < 30 < 33)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the same-numerator rule: for positive fractions with equal numerators, a/b > a/c if and only if b < c. Then state the unit-fraction case it contains.',
+                  solution: [
+                    'Licence: $\\tfrac{a}{b} > \\tfrac{a}{c}$ holds exactly when $a \\times c > b \\times a$ — the cross-multiplication test of Lesson 4.2.',
+                    'Now, both products carry the factor $a$: $a \\times c$ against $b \\times a$. Since $a > 0$, dividing both by $a$ is legal and leaves $c$ against $b$.',
+                    'So $\\tfrac{a}{b} > \\tfrac{a}{c} \\iff c > b$ — with the numerators equal, the smaller denominator wins, proved rather than pictorialised.',
+                    'Setting $a = 1$ gives the unit-fraction case: $\\tfrac{1}{b} > \\tfrac{1}{c} \\iff b < c$ — the ladder $\\tfrac{1}{2} > \\tfrac{1}{3} > \\tfrac{1}{4} > \\cdots$ is this line, stepped.',
+                    'Hence the same-numerator rule is a one-line corollary of the licence: equal counts, so the piece sizes — encoded in the denominators — decide, inversely. □',
+                  ],
+                  answer: 'a/b > a/c ⟺ c > b (equal numerators; the licence with a > 0 cancelled)',
+                },
+                {
+                  q: "Prove the mediant ordering: if a/b < c/d (all positive), then a/b < (a+c)/(b+d) < c/d — Lesson 4.1's density machine, derived in two lines from the licence.",
+                  solution: [
+                    'Licence: for positive fractions, $\\tfrac{x}{y} < \\tfrac{z}{w} \\iff xw < yz$.',
+                    'Left half: $\\tfrac{a}{b} < \\tfrac{a+c}{b+d} \\iff a(b+d) < b(a+c) \\iff ab + ad < ab + bc \\iff ad < bc$ — true by hypothesis, so the first inequality holds.',
+                    'Right half: $\\tfrac{a+c}{b+d} < \\tfrac{c}{d} \\iff d(a+c) < c(b+d) \\iff ad + cd < bc + cd \\iff ad < bc$ — true by the same hypothesis.',
+                    'Hence both ends hold at once: $\\tfrac{a}{b} < \\tfrac{a+c}{b+d} < \\tfrac{c}{d}$ whenever $\\tfrac{a}{b} < \\tfrac{c}{d}$. Instance: $\\tfrac{2}{5} < \\tfrac{3}{7}$ ($14 < 15$) traps the mediant $\\tfrac{5}{12}$ between them ($24 < 25$ and $35 < 36$).',
+                    'So the theorem Lesson 4.1 proved by regrouping pieces is also a two-line corollary of the licence — the density of the fraction line, re-derived from the comparison engine itself. □',
+                  ],
+                  answer: 'a/b < (a+c)/(b+d) < c/d whenever a/b < c/d (both halves reduce to ad < bc)',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The chapter\'s slowest debt is paid. Equivalence said when two names meet; comparison now says when one point outranks another — by counting shared pieces, by inverting finer rulers, by letting two products vote, or by mounting a whole list on one common ruler. The raising move built in Lesson 4.2 has done today\'s lifting, and it is not finished: the moment gaps become additions — $\\tfrac{14}{24} + \\tfrac{1}{24} = \\tfrac{15}{24}$ was this lesson\'s quiet calculation — the common ruler stops being a comparison device and becomes the arithmetic of fractions itself. Lesson 4.4 starts there, with the LCM as the standard ruler and the Egyptian scribes\' two-term openings finally within reach.',
+        },
+      ],
+    },
   ],
   plannedLessons: [
-    'Comparing Fractions',
     'Adding and Subtracting Fractions',
     'Multiplying and Dividing Fractions',
   ],

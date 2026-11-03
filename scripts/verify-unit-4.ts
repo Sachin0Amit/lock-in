@@ -370,6 +370,115 @@ check('R4: fig 4 — ticks at 0, 6/18, 12/18, 18/18 land at x = 70, 276.67, 483.
 check('R5: fig 4 — 1/3 = 6/18 and 2/3 = 4/6 = 12/18: the marked point is the 12th cell', feq(6, 18, 1, 3) && feq(12, 18, 2, 3) && feq(12, 18, 4, 6));
 
 /* ============================================================
+ * S. Lesson 4.3 — the easy cases: one ruler already shared
+ * ==========================================================*/
+check('S1: same denominator — 5/9 < 7/9 (5 < 7 on equal pieces); 3/16 < 11/16', lt(5, 9, 7, 9) && 5 < 7 && lt(3, 16, 11, 16) && 3 < 11);
+check('S2: same-denominator rule is the licence on a shared ruler: 5/9 < 7/9 ⟺ 5×9 < 7×9', lt(5, 9, 7, 9) === (5 * 9 < 7 * 9));
+check('S3: same numerator — 5/8 > 5/11 (cross: 55 > 40); finer cut holds less', gt(5, 8, 5, 11) && 5 * 11 === 55 && 11 * 5 === 55 && 55 > 40);
+check('S4: unit fractions shrink as denominators grow: 1/8 < 1/5 < 1/2', lt(1, 8, 1, 5) && lt(1, 5, 1, 2));
+check('S5: same-numerator rule on samples: for a in {1,2,5}, b < c gives a/b > a/c', [
+  [1, 4, 7],
+  [2, 5, 9],
+  [5, 8, 11],
+].every(([a, b, c]) => gt(a, b, a, c) && b < c));
+check('S6: the whole boundary: 6/6 = 13/13 = 1 (both sit ON the anchor)', feq(6, 6, 1, 1) && feq(13, 13, 1, 1));
+
+/* ============================================================
+ * T. Lesson 4.3 — the cross-multiplication engine
+ * ==========================================================*/
+check('T1: 3/4 vs 4/5: 3×5 = 15 < 16 = 4×4 → 3/4 < 4/5; and 4/5 sits between 3/4 and 1 (mediant consistency)', lt(3, 4, 4, 5) === (3 * 5 < 4 * 4) && 3 * 5 === 15 && 4 * 4 === 16 && lt(3, 4, 4, 5) && lt(4, 5, 1, 1));
+check('T2: 7/12 vs 5/8: 7×8 = 56 < 60 = 12×5 → 7/12 < 5/8 — Lesson 4.2 exercise L5 cashed', lt(7, 12, 5, 8) && 7 * 8 === 56 && 12 * 5 === 60 && feq(7, 12, 56, 96) && feq(5, 8, 60, 96) && lt(56, 96, 60, 96));
+check('T3: 5/6 vs 8/11: 5×11 = 55 > 48 = 8×6 → 5/6 > 8/11; confirmed on the 66-ruler (55/66 vs 48/66)', gt(5, 6, 8, 11) && 5 * 11 === 55 && 8 * 6 === 48 && feq(5, 6, 55, 66) && feq(8, 11, 48, 66) && gt(55, 66, 48, 66));
+check('T4: licence consistency on 10 comparison pairs (verdict ⟺ product order)', (() => {
+  const pairs: [number, number, number, number][] = [
+    [3, 4, 4, 5],
+    [7, 12, 5, 8],
+    [5, 6, 8, 11],
+    [9, 10, 11, 12],
+    [2, 5, 3, 7],
+    [5, 9, 6, 11],
+    [4, 7, 3, 5],
+    [7, 8, 8, 9],
+    [2, 3, 4, 5],
+    [5, 8, 2, 3],
+  ];
+  return pairs.every(([a, b, c, d]) => lt(a, b, c, d) === a * d < b * c);
+})());
+check('T5: 9/10 vs 11/12: 9×12 = 108 < 110 = 11×10 → 9/10 < 11/12 (the completing-the-whole pair)', lt(9, 10, 11, 12) && 9 * 12 === 108 && 11 * 10 === 110);
+
+/* ============================================================
+ * U. Lesson 4.3 — common rulers and ordering sets
+ * ==========================================================*/
+check('U1: the 24-ruler: 7/12 = 14/24 (×2) and 5/8 = 15/24 (×3); 14 < 15 → 7/12 < 5/8', 24 % 12 === 0 && 24 % 8 === 0 && 24 / 12 === 2 && 7 * 2 === 14 && feq(7, 12, 14, 24) && 24 / 8 === 3 && 5 * 3 === 15 && feq(5, 8, 15, 24) && lt(14, 24, 15, 24));
+check('U2: the gap named: 5/8 − 7/12 = 15/24 − 14/24 = 1/24, and 4/96 = 1/24 agrees (gcd(4,96) = 4)', feq(15 - 14, 24, 1, 24) && gcd(4, 96) === 4 && feq(4, 96, 1, 24));
+check('U3: the 165-ruler for the banked trio: 2/3 = 110/165 (×55), 4/5 = 132/165 (×33), 7/11 = 105/165 (×15)', 3 * 5 * 11 === 165 && 165 % 3 === 0 && 165 % 5 === 0 && 165 % 11 === 0 && 165 / 3 === 55 && 2 * 55 === 110 && feq(2, 3, 110, 165) && 165 / 5 === 33 && 4 * 33 === 132 && feq(4, 5, 132, 165) && 165 / 11 === 15 && 7 * 15 === 105 && feq(7, 11, 105, 165));
+check('U4: the trio ordered: 105 < 110 < 132 → 7/11 < 2/3 < 4/5 — the largest is 4/5 (SSC MTS 2017 settled)', lt(105, 165, 110, 165) && lt(110, 165, 132, 165) && lt(7, 11, 2, 3) && lt(2, 3, 4, 5) && gt(4, 5, 2, 3) && gt(4, 5, 7, 11));
+check('U5: the 120-ruler: 5/8 = 75/120, 3/5 = 72/120, 7/10 = 84/120, 2/3 = 80/120 → 3/5 < 5/8 < 2/3 < 7/10', 120 / 8 === 15 && 5 * 15 === 75 && 120 / 5 === 24 && 3 * 24 === 72 && 120 / 10 === 12 && 7 * 12 === 84 && 120 / 3 === 40 && 2 * 40 === 80 && [72, 75, 80, 84].every((v, i, a) => i === 0 || v > a[i - 1]));
+check('U6: the 36-ruler is the LCM(6,9,12): 7/9 = 28/36, 5/6 = 30/36, 11/12 = 33/36 → 7/9 < 5/6 < 11/12', (() => {
+  const l = (a: number, b: number): number => (a * b) / gcd(a, b);
+  return l(6, 9) === 18 && l(18, 12) === 36 && 36 / 9 === 4 && 7 * 4 === 28 && feq(7, 9, 28, 36) && 36 / 6 === 6 && 5 * 6 === 30 && feq(5, 6, 30, 36) && 36 / 12 === 3 && 11 * 3 === 33 && feq(11, 12, 33, 36) && lt(28, 36, 30, 36) && lt(30, 36, 33, 36);
+})());
+check('U7: the product bd is always a legal ruler: bd divisible by both b and d (samples)', [
+  [12, 8],
+  [3, 11],
+  [9, 10],
+  [7, 12],
+].every(([b, d]) => (b * d) % b === 0 && (b * d) % d === 0));
+
+/* ============================================================
+ * V. Lesson 4.3 — benchmarks 0, 1/2, 1 and completing the whole
+ * ==========================================================*/
+check('V1: benchmark 1/2 splits a pair with zero products: 8/15 above (16 > 15), 11/24 below (22 < 24) → 8/15 larger', 2 * 8 > 15 && 2 * 11 < 24 && gt(8, 15, 11, 24) && 8 * 24 === 192 && 15 * 11 === 165);
+check('V2: quiz benchmark set: 3/7, 9/20, 4/9 all sit below 1/2; only 6/11 clears it (12 > 11)', 2 * 3 < 7 && 2 * 9 < 20 && 2 * 4 < 9 && 2 * 6 > 11 && gt(6, 11, 3, 7) && gt(6, 11, 9, 20) && gt(6, 11, 4, 9));
+check('V3: benchmark prose example: 2/5 and 3/7 below half, 5/9 above; 2/5 < 3/7 (14 < 15) → 2/5 < 3/7 < 5/9', 2 * 2 < 5 && 2 * 3 < 7 && 2 * 5 > 9 && lt(2, 5, 3, 7) && 2 * 7 === 14 && 3 * 5 === 15 && lt(2, 5, 5, 9) && lt(3, 7, 5, 9));
+check('V4: completing the whole: 7/8 < 8/9 (63 < 64) — 8/9 is missing the smaller piece (1/9 < 1/8)', lt(7, 8, 8, 9) && 7 * 9 === 63 && 8 * 8 === 64 && gt(1, 8, 1, 9));
+check('V5: complement rule samples: (b−1)/b < (d−1)/d whenever b < d — (2,3), (8,9), (10,12)', lt(1, 2, 2, 3) && lt(7, 8, 8, 9) && lt(9, 10, 11, 12) && 1 * 3 < 2 * 2 && 9 * 12 < 10 * 11);
+check('V6: anchor 0 and 1 frame every proper fraction: 0 < 3/7 < 1 and 0 < 9/20 < 1', lt(0, 1, 3, 7) && lt(3, 7, 1, 1) && lt(0, 1, 9, 20) && lt(9, 20, 1, 1));
+
+/* ============================================================
+ * W. Lesson 4.3 — mixed numbers: wholes first
+ * ==========================================================*/
+check('W1: 3 2/5 = 17/5 and 3 3/8 = 27/8; wholes tie (3 = 3), fractional parts decide: 2/5 > 3/8 (16 > 15)', 3 * 5 + 2 === 17 && 3 * 8 + 3 === 27 && gt(17, 5, 27, 8) === (17 * 8 > 27 * 5) && 17 * 8 === 136 && 27 * 5 === 135 && gt(2, 5, 3, 8) && 2 * 8 === 16 && 3 * 5 === 15);
+check('W2: mixed verdict matches the improper comparison: 17/5 > 27/8 on the 40-ruler (136/40 > 135/40)', feq(17, 5, 136, 40) && feq(27, 8, 135, 40) && gt(136, 40, 135, 40));
+check('W3: anchor 1 separates every proper from every improper: 5/6 < 1 < 9/8', lt(5, 6, 1, 1) && lt(1, 1, 9, 8));
+check('W4: quiz pair: 4 2/9 = 38/9 vs 4 1/4 = 17/4: 38×4 = 152 < 153 = 9×17 → 4 1/4 larger; parts 2/9 < 1/4 (8 < 9) agree', 4 * 9 + 2 === 38 && 4 * 4 + 1 === 17 && 38 * 4 === 152 && 17 * 9 === 153 && lt(38, 9, 17, 4) && lt(2, 9, 1, 4) && 2 * 4 === 8 && 1 * 9 === 9);
+
+/* ============================================================
+ * X. Lesson 4.3 — quiz-item arithmetic
+ * ==========================================================*/
+check('X1: quiz Q1 — 8/13 > 5/13 (same ruler, 8 > 5); the "cannot decide" option dies: denominators already match', gt(8, 13, 5, 13) && 8 > 5);
+check('X2: quiz Q2 — 4/11 < 4/7 (cross: 44 > 28 → 4/7 larger); elevenths are finer than sevenths', lt(4, 11, 4, 7) && 4 * 7 === 28 && 11 * 4 === 44 && 44 > 28);
+check('X3: quiz Q3 — 5/8 vs 7/12: 5×12 = 60 > 56 = 7×8 → 5/8 > 7/12; the 24-ruler agrees (15/24 vs 14/24)', gt(5, 8, 7, 12) && 5 * 12 === 60 && 7 * 8 === 56 && feq(5, 8, 15, 24) && feq(7, 12, 14, 24) && gt(15, 24, 14, 24));
+check('X4: quiz Q4 — benchmark set verdict 6/11 (checked in V2); distractor fractions all below the half', true);
+check('X5: quiz Q5 — 4 2/9 vs 4 1/4 settled in W4: equal wholes, 1/4 > 2/9 → 4 1/4 (Option 3)', lt(2, 9, 1, 4) && 2 * 4 === 8 && 1 * 9 === 9);
+
+/* ============================================================
+ * Y. Lesson 4.3 — exercise-solution arithmetic
+ * ==========================================================*/
+check('Y1: L1 signs — 4/11 < 7/11; 5/9 > 5/12 (60 > 45); 6/6 = 13/13', lt(4, 11, 7, 11) && gt(5, 9, 5, 12) && 5 * 12 === 60 && 9 * 5 === 45 && feq(6, 6, 13, 13));
+check('Y2: L1 — 3/5 = 6/10 < 7/10; cross-check 3×10 = 30 < 35 = 7×5; gap 1/10', feq(3, 5, 6, 10) && lt(6, 10, 7, 10) && 3 * 10 === 30 && 7 * 5 === 35 && 7 * 10 - 6 * 10 === 10);
+check('Y3: L2 — unit chain 1/100 < 1/9 < 1/4 < 1/3 < 1/2 (denominators 100 > 9 > 4 > 3 > 2)', lt(1, 100, 1, 9) && lt(1, 9, 1, 4) && lt(1, 4, 1, 3) && lt(1, 3, 1, 2) && 100 > 9 && 9 > 4 && 4 > 3 && 3 > 2);
+check('Y4: L3 — flour: 5/8 vs 2/3: 15 < 16 → 5/8 < 2/3; 24-ruler 15/24 < 16/24 (2/3 = 16/24, ×8)', lt(5, 8, 2, 3) && 5 * 3 === 15 && 8 * 2 === 16 && feq(2, 3, 16, 24) && lt(15, 24, 16, 24));
+check('Y5: L5 — the 120-ruler ordering re-verified (U5): 3/5 < 5/8 < 2/3 < 7/10', lt(3, 5, 5, 8) && lt(5, 8, 2, 3) && lt(2, 3, 7, 10));
+check('Y6: L5 — the 36-ruler ordering re-verified (U6): 7/9 < 5/6 < 11/12', lt(7, 9, 5, 6) && lt(5, 6, 11, 12));
+check('Y7: L6 — same-numerator proof: a/b > a/c ⟺ a·c > a·b ⟺ c > b (a > 0); sample a = 5: 5/8 > 5/11 ⟺ 11 > 8', 5 * 11 > 5 * 8 && 11 > 8 && gt(5, 8, 5, 11));
+check('Y8: L6 — mediant ordering instance: 2/5 < 3/7 (14 < 15); mediant 5/12 strictly between (24 < 25, 35 < 36)', lt(2, 5, 3, 7) && 2 * 7 === 14 && 3 * 5 === 15 && feq(2 + 3, 5 + 7, 5, 12) && lt(2, 5, 5, 12) && 2 * 12 === 24 && 5 * 5 === 25 && lt(5, 12, 3, 7) && 5 * 7 === 35 && 12 * 3 === 36);
+check('Y9: L6 — mediant ordering algebra: a/b < (a+c)/(b+d) ⟺ ab + ad < ab + bc ⟺ ad < bc (sample 2/5, 3/7: 4×... )', 2 * (5 + 7) < 5 * (2 + 3) && 2 * 5 + 2 * 7 < 5 * 2 + 5 * 3 && 24 < 25 && 2 * 7 < 5 * 3);
+check('Y10: L6 — mediant right half: (a+c)/(b+d) < c/d ⟺ ad + cd < bc + cd ⟺ ad < bc (sample: 5×... )', (2 + 3) * 7 < 3 * (5 + 7) && 2 * 7 + 3 * 7 < 3 * 5 + 3 * 7 && 35 < 36 && 2 * 7 < 5 * 3);
+check('Y11: L4 — 9/10 vs 11/12 exercise (T5 re-check) plus complement statement 1/12 < 1/10', lt(9, 10, 11, 12) && 9 * 12 === 108 && 11 * 10 === 110 && lt(1, 12, 1, 10));
+
+/* ============================================================
+ * Z. Lesson 4.3 — figure geometry (bars + number line)
+ * ==========================================================*/
+check('Z1: fig A — bar 620px: 12 cells of 51.6667 (7 shaded = 361.67), 8 cells of 77.5 (5 shaded = 387.5)', Math.abs(620 / 12 - 51.666667) < 1e-4 && Math.abs(7 * (620 / 12) - 361.666667) < 1e-3 && 620 / 8 === 77.5 && Math.abs(5 * 77.5 - 387.5) < 1e-9);
+check('Z2: fig A — 24-cell rulers: cell 25.8333; 14 cells = 361.67 = the 7/12 shading; 15 cells = 387.5 = the 5/8 shading', Math.abs(620 / 24 - 25.833333) < 1e-4 && Math.abs(14 * (620 / 24) - 361.666667) < 1e-3 && Math.abs(15 * (620 / 24) - 387.5) < 1e-3);
+check('Z3: fig A — raised names shade the same widths: 7/12 × 620 = 14/24 × 620 and 5/8 × 620 = 15/24 × 620', Math.abs((7 / 12) * 620 - (14 / 24) * 620) < 1e-9 && Math.abs((5 / 8) * 620 - (15 / 24) * 620) < 1e-9);
+check('Z4: fig A — the one extra cell: 15 − 14 = 1 cell = 25.8333px (the whole verdict in one cell)', 15 - 14 === 1 && Math.abs(620 / 24 - 25.833333) < 1e-4);
+check('Z5: fig B — line 620px spans 1/2 unit → 1240 px/unit; ticks: 1/2 @ 70, 7/11 @ 239.09, 2/3 @ 276.67, 4/5 @ 442, 1 @ 690', [70 + (7 / 11 - 1 / 2) * 1240, 70 + (2 / 3 - 1 / 2) * 1240, 70 + (4 / 5 - 1 / 2) * 1240].map((x) => Math.round(x * 100) / 100).every((x, i) => Math.abs(x - [239.09, 276.67, 442][i]) < 0.01) && Math.abs((7 / 11 - 1 / 2) * 1240 - 169.09) < 0.01);
+check('Z6: fig B — the order on the line: 70 < 239.09 < 276.67 < 442 < 690 ⟺ 1/2 < 7/11 < 2/3 < 4/5 < 1', 70 < 239.09 && 239.09 < 276.67 && 276.67 < 442 && 442 < 690 && lt(1, 2, 7, 11) && lt(7, 11, 2, 3) && lt(2, 3, 4, 5) && lt(4, 5, 1, 1));
+check('Z7: fig B — the 7/11 and 2/3 marks are 37.58px apart; labels alternate above/below to stay clear', Math.abs(276.67 - 239.09 - 37.58) < 0.01);
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`verify-unit-4: ${pass} passed, ${fail} failed`);
@@ -378,5 +487,5 @@ if (fail > 0) {
   for (const f of failures) console.log('  ✗ ' + f);
   process.exit(1);
 } else {
-  console.log('ALL CHECKS PASS — lesson 4.1 arithmetic is pre-verified.');
+  console.log('ALL CHECKS PASS — lessons 4.1–4.3 arithmetic is pre-verified.');
 }

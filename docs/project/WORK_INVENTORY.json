@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 21:15:33 (Asia/Kolkata)",
+  "generated": "2026-11-03 22:35:26 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -895,9 +895,8 @@
             "title": "Fractions",
             "summary": "Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Comparing Fractions",
               "Adding and Subtracting Fractions",
               "Multiplying and Dividing Fractions"
             ],
@@ -1034,9 +1033,76 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 5
+              },
+              {
+                "id": "fm-comparing-fractions",
+                "number": "4.3",
+                "title": "Comparing Fractions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5168,
+                "readMins": 26,
+                "concepts": [
+                  "Same-denominator comparison",
+                  "Same-numerator comparison",
+                  "Unit fractions shrink as denominators grow",
+                  "Cross-multiplication test",
+                  "Common denominators",
+                  "Benchmarks: 0, 1/2 and 1",
+                  "Comparing mixed numbers",
+                  "Ordering three or more fractions"
+                ],
+                "objectives": [
+                  "Decide which of two fractions with the same denominator or the same numerator is larger, and justify the verdict in terms of piece size and count",
+                  "Compare any two positive fractions with the cross-multiplication test — two multiplications — and say why the products decide, on the common bd-ruler",
+                  "Raise any set of fractions to one common ruler (the product of denominators or the LCM) and arrange them in ascending or descending order",
+                  "Use the anchors 0, 1/2 and 1, the completing-the-whole view, and the wholes-first rule to compare mixed numbers and exam-style lists quickly"
+                ],
+                "prerequisites": [
+                  "fm-idea-of-a-fraction",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-comparing-ordering-numbers",
+                  "fm-lowest-common-multiple"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch7"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "callout": 8,
+                  "heading": 8,
+                  "list": 1,
+                  "example": 8,
+                  "terms": 1,
+                  "formula": 2,
+                  "figure": 2,
+                  "table": 1,
+                  "equation": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "definition": 3,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 6
               }
             ],
-            "words": 11649
+            "words": 16817
           },
           {
             "number": 5,
@@ -1176,12 +1242,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 18026,
+      "totalLines": 18723,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 8770,
+        "src/data/library (content model + books)": 9467,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4231,6 +4297,53 @@
           "del": 6
         }
       ]
+    },
+    {
+      "sha": "63404d035ca009013024c1902c6f6acc6d03883c",
+      "short": "63404d0",
+      "date": "2026-11-03 15:45",
+      "message": "inventory: record run-17 ship (e008f7b) — FM 4.2 equivalent fractions live; push-first run cleared the runs-15/16 debt (origin/main was synced at b788c06)",
+      "filesChanged": 1,
+      "insertions": 52,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 52,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "76d9949aa939efe0f9bfe491fdc469a5ee6ef1eb",
+      "short": "76d9949",
+      "date": "2026-11-03 15:46",
+      "message": "memory: record run-17 push verification (63404d0), origin/main synced — FM 4.2 equivalent fractions live; next FM 4.3 comparing fractions in the Cengage voice",
+      "filesChanged": 4,
+      "insertions": 14,
+      "deletions": 13,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 6,
+          "del": 7
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
@@ -4239,26 +4352,26 @@
     "booksLive": 1,
     "chaptersWritten": 3,
     "chaptersInProgress": 1,
-    "lessonsWritten": 15,
-    "wordsAuthored": 70678,
-    "termsDefined": 96,
-    "quizItems": 75,
-    "exerciseQuestions": 137,
+    "lessonsWritten": 16,
+    "wordsAuthored": 75846,
+    "termsDefined": 102,
+    "quizItems": 80,
+    "exerciseQuestions": 149,
     "blockTotals": {
-      "para": 196,
-      "callout": 66,
-      "heading": 102,
-      "terms": 16,
-      "equation": 16,
+      "para": 214,
+      "callout": 74,
+      "heading": 110,
+      "terms": 17,
+      "equation": 17,
       "derivation": 32,
-      "table": 17,
-      "figure": 21,
-      "example": 32,
-      "quiz": 15,
-      "exercises": 15,
-      "formula": 32,
+      "table": 18,
+      "figure": 23,
+      "example": 40,
+      "quiz": 16,
+      "exercises": 16,
+      "formula": 34,
       "algorithm": 8,
-      "list": 2
+      "list": 3
     }
   }
 }

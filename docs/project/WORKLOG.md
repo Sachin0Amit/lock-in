@@ -6,7 +6,104 @@ and what remains.
 
 ---
 
-## 2026-11-03 — RUN 17 (cron, Job 498279): PUSH FIRST (4 queued commits → origin/main synced at b788c06), then FM lesson 4.2 "Equivalent Fractions and Simplification" authored natively in the Cengage voice + solution chain — the cross-multiplication licence paid in full
+## 2026-11-04 — RUN 18 (cron, Job 498279): FM lesson 4.3 "Comparing Fractions" authored in the Cengage voice + solution chain — the comparison engines collected, the banked SSC MTS 2017 item settled, all 4.1/4.2 debts honoured
+
+**Run open (push check first):** tree clean at `76d9949`; per run 17's
+verification origin/main = `63404d0` = the run-17 push — nothing queued, no
+push debt. Task per RESUME_POINTER: FM lesson 4.3 "Comparing Fractions".
+
+**Arithmetic pre-verified BEFORE writing:** `scripts/verify-unit-4.ts`
+extended 148 → **199 checks** (new sections S–Z: S easy cases/same-numerator
+proof samples, T cross-test engine incl. a 10-pair licence-consistency sweep,
+U common rulers (24/66/120/165/36 + product-legality), V benchmarks and
+completing-the-whole, W mixed numbers, X quiz arithmetic, Y exercise
+arithmetic incl. both L6 proof algebras, Z figure geometry) — ALL PASS
+before a word was written; verify-unit-2 (165) and verify-unit-3 (260)
+regressions green.
+
+**Lesson 4.3 authored** (`fm-comparing-fractions`, 5,168 words; ch. 4 now
+3/5) — the engines Lesson 4.2 left "running on borrowed time" are collected:
+
+- **Same whole, or no question** — the number-line frame: comparison is
+  well-posed only against one whole; on the line, larger = further right.
+- **Two easy cases** — same-denominator rule (counts of equal pieces;
+  definition callout with symbolic Thus-restatement) and same-numerator
+  rule (finer cut, smaller holding; proved from the licence in L6), with
+  a roman (i)–(iii) example run, the inversion-trap Caution
+  (4/11 < 4/7 despite 11 > 7; 1/100 smallest despite 100 biggest), and
+  the unit-fraction ladder 1/2 > 1/3 > 1/4 > ⋯ never reaching 0.
+- **The cross-multiplication engine** — the licence of 4.2 wielded as a
+  verdict machine (formula card; "products of parts, not a
+  transformation" fine-print para); Illustrations compare 3/4 vs 4/5
+  (15 < 16, with the 20-ruler check and the additive-trap fraction now
+  placed *above* 3/4) and 7/12 vs 5/8 (56 < 60 — **Lesson 4.2's L5
+  exercise debt paid, gap and all: 4/96 = 1/24**).
+- **The common-denominator method** — raising to one legal ruler
+  (product always works; LCM smallest, Lesson 3.4; LCM promoted in 4.4):
+  7/12 and 5/8 re-measured in twenty-fourths (14 vs 15) with a four-bar
+  figure — 12-cut, 8-cut, then both on 24-cell rulers with the single
+  extra twenty-fourth highlighted between dashed boundaries (geometry
+  361.67/387.5px verified by script and generator
+  `scripts/gen-43-figures.py`).
+- **Ordering three or more: the exam workhorse** — the trio from 4.1's
+  banked exam callout (**SSC Multi-Tasking Staff 2017**, via Khattar's
+  ch. 1 drill set) settled on the 165-ruler: 2/3 = 110/165, 4/5 = 132/165,
+  7/11 = 105/165 → **7/11 < 2/3 < 4/5, largest 4/5**, plus a zoomed
+  number-line figure reading the order straight off the line;
+  benchmark-1/2 method (2n > d, zero products — Illustration sorts
+  2/5, 3/7, 5/9 leaving one cross-test) and shared-numerator lists
+  (2/3 > 2/5 > 2/7); Exam-corner callout maps the three exam shapes.
+- **Anchors 0, 1/2, 1** — proper < improper across the anchor 1 with no
+  computation (5/6 < 9/8); **completing the whole** insight (7/8 vs 8/9:
+  missing 1/8 vs 1/9 → 8/9 larger; 63 < 64 cross-check) and the
+  9/10 vs 11/12 Illustration (108 < 110).
+- **Mixed numbers: wholes first** — definition callout (wholes decide,
+  fractional parts only on a tie; 4 1/8 > 3 9/10 instantly), boundary
+  notes (proper < improper; fortieths route 16/40 vs 15/40), and the
+  3 2/5 vs 3 3/8 Illustration (16 > 15 on the fractional storey;
+  136/40 > 135/40 improper confirmation).
+- **The comparison toolkit** — six-row engines table, the three-laws
+  summary equation (count / invert / cross-multiply), the
+  common-denominator formula card (R = LCM or product), and the Note
+  planting 4.4 (the gap 15/24 − 14/24 = 1/24 becomes addition).
+- 8 Illustrations with Sol.-inline Cengage chains, 6 new terms
+  (Cross-multiplication test, Common denominator, Benchmark, Completing
+  the whole, Ascending order, Wholes-first rule), 2 formula cards, 2
+  figures (0 audit issues FIRST pass each), 5-quiz (answers spread
+  1/1/2/3/2), 12 exercises L1–L6 as Cengage chains — L6 proves the
+  same-numerator rule from the licence (a > 0 cancellation) and the
+  **mediant ordering** a/b < (a+c)/(b+d) < c/d in two lines (4.1's
+  density machine re-derived from the comparison engine).
+
+**Verified:** lint clean; tsc clean; all routes 200 + unknown id 404 (dev
+server restarted for the new lesson); Cengage E2E extended to 6 lessons —
+on 4.3: 8 caps-over-rule headings, 8 ILLUSTRATION pills, 8 Sol. pills ALL
+inline (inlineSolPills = solPills = 8), stepNumberBadges = 0,
+legacyAnswerBoxes = 0, 24 KaTeX ∴ glyphs, note boxes
+Note/Definition/Definition/Caution/Remember/Exam corner/Note/Definition,
+exercises bar 12 questions, quiz bar 5 questions, KaTeX 177 nodes,
+dollarInSvg = 0; quiz answered live with intended options
+(B, B, C, D, C) → **"You scored 5/5 · perfect"** + Retake; all 12 exercise
+solutions expand; desktop 1280 and mobile 390px exact-fit (docScrollW =
+390; the 3 wide display equations scroll inside the .math-display
+overflow-x guard, same accepted pattern as 3.3/4.2); zero console errors
+on fresh load; SVG overlap audit both figures **0 issues FIRST pass**;
+VLM review of five screenshots green (opener, Illustration + staircase
+chain, both figures, toolkit table; one JPEG misread of the terminal ∴
+line's colour was DOM-verified — book-green lab(33.93 −29.42 17.64),
+weight 500, text complete); glossary lists all 6 new terms; book TOC
+shows 4.3 written, plannedLessons down to two; flashcards deck picks up
+the new terms (102 total). Totals recomputed by the honest counter:
+**16 lessons / 75,846 words / 102 terms** (ch. 4 = 16,817).
+
+**No new downloads:** references already logged (Khattar ch. 1 exam item
+banked in 4.1; NCERT class-6 ch. 7) — SOURCE_LOG unchanged.
+
+**Git:** ship commit `fm 4.3 comparing fractions …` + inventory
+bookkeeping commit; pushed per protocol v2 (see the run-18 memory entry
+for the verified sha).
+
+---
 
 **Push before work (protocol v2, cron-delivered PAT):** the run opened with
 `git status` clean at `b788c06` = local HEAD = four unpushed commits from
