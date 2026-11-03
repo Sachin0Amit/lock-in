@@ -264,6 +264,6 @@
    "scripts/e2e-cengage-style.sh (LESSONS + dedicated 5.4 block)",
    "ch-05.ts header comment (5.4 paragraph + 394 checks)"
   ],
-  "pushNote": "fill after the protocol-v2 push at run end"
+  "pushNote": "both run-24 commits pushed at run end via one-time HTTPS URL (protocol v2): c35cfe0..26312a1 HEAD -> main (ship b4f023d + inventory bookkeeping 26312a1); remote HEAD verified 26312a1a51af8b7c3004526290570d6b3dd65914 by one-time-URL ls-remote; origin/main tracking ref resynced by anonymous HTTPS fetch; origin/main..HEAD empty; PAT never written to any file/config/log"
  }
 }

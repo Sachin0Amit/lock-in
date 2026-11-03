@@ -1049,13 +1049,15 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-23 memory commit — **everything is PUSHED**: the
-  run-22 memory commit `c830cd8` was verified synced at run-23 open
-  (remote HEAD = local = `c830cd8`), then the run-23 ship `6b0e99f` +
-  inventory bookkeeping `0ace05b` went up (`c830cd8..0ace05b HEAD ->
-  main`, verified by one-time-URL ls-remote), then this memory commit
-  completes the record; remote HEAD = local HEAD after the final push
-  (verified per protocol v2; shas in WORKLOG.md). Nothing queued.
+- HEAD: the run-24 memory commit — **everything is PUSHED**: the
+  run-23 memory commit `c35cfe0` was verified synced at run-24 open
+  (remote HEAD = local = `c35cfe0`), then the run-24 ship `b4f023d` +
+  inventory bookkeeping `26312a1` went up (`c35cfe0..26312a1 HEAD ->
+  main`, verified by one-time-URL ls-remote — remote HEAD
+  `26312a1a51af8b7c3004526290570d6b3dd65914` = refs/heads/main = local,
+  `origin/main..HEAD` empty), then this memory commit completes the
+  record; remote HEAD = local HEAD after the final push (verified per
+  protocol v2; shas in WORKLOG.md). Nothing queued.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
@@ -1063,16 +1065,23 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 5 — FM chapter 5 "Decimals and
-  Percents", lesson 5.4 "Percent and Its Meaning" NEXT** (ch. 1–4
-  COMPLETE; **5.1 shipped run 21 — the point as the hinge of the
-  place-value mirror; 5.2 shipped run 22 — the dresses theorem, the 1/7
-  carousel, shift-and-subtract both ways; 5.3 shipped run 23 — the
-  four operations: align the points, the places-add engine, the step
-  machine's point-riding quotient and the clearing law**). Next: 5.4 —
-  percent as a standardised fraction of 100 (the percent-dress of
-  ch. 4's fractions, the × 100 / ÷ 100 point-shift of 5.3 doing the
-  conversions), then 5.5 Percentage Change, Discounts and Simple
-  Interest.
+  Percents", lesson 5.5 "Percentage Change, Discounts and Simple
+  Interest" NEXT — the chapter's final lesson** (ch. 1–4 COMPLETE;
+  **5.1 shipped run 21 — the point as the hinge of the place-value
+  mirror; 5.2 shipped run 22 — the dresses theorem, the 1/7 carousel,
+  shift-and-subtract both ways; 5.3 shipped run 23 — the four
+  operations: align the points, the places-add engine, the step
+  machine's point-riding quotient and the clearing law; 5.4 shipped
+  run 24 — the x/100 definition, the two-hop law proved from the
+  point-shift at k = 2, the 100-square and the conversion-map figures,
+  the benchmark ladder + halving chain, the unitary method returned,
+  the commutativity gem**). Next: 5.5 — percentage increase/decrease
+  (the change ratio as a percent of the ORIGINAL; the x(1 ± r/100)
+  factors), finding the original, discounts (MP − discount = SP),
+  profit/loss percent on cost price, and simple interest (I = PRT/100
+  from the 1%-a-year unit; amount = P + I) — then the unit-5
+  completion review (run-6/11/20 precedent) and ch. 6 Ratio, Rate and
+  Proportion.
 **LESSON 5.3 (run 23, cron Job 498279):** "Operating on Decimals" —
 4,462 words, the lesson where the decimal dress goes to work. One idea
 governs all four operations: **like units only** — tenths with tenths,

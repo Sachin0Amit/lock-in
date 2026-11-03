@@ -132,9 +132,15 @@ free-space entry), WORK_INVENTORY.json regenerated post-recycle
 progress **4/5**; next lesson 5.5 "Percentage Change, Discounts and
 Simple Interest" closes the chapter.
 
-**Git:** run-24 ship commit (lesson + E2E + verify script) then the
-inventory bookkeeping commit, then PUSH per protocol v2 — see the
-push-verification note appended below.
+**Push verification (protocol v2):** both run-24 commits pushed at
+run end via the one-time HTTPS URL: `c35cfe0..26312a1 HEAD -> main`
+(ship `b4f023d` + inventory bookkeeping `26312a1`); remote HEAD
+verified `26312a1a51af8b7c3004526290570d6b3dd65914` = refs/heads/main
+= local by one-time-URL `ls-remote`; `origin/main` tracking ref
+resynced by anonymous HTTPS fetch (`c35cfe0..26312a1 main ->
+origin/main`); `git log origin/main..HEAD` empty. The PAT was never
+written to any file, config, log or commit; origin remains the SSH
+remote; no verbose/trace flags used.
 
 ---
 
