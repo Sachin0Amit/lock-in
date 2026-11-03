@@ -3,8 +3,13 @@
  * Mathematics chapter 5 (Decimals and Percents).
  *
  * Created 2026-11-04 (run 21) for lesson 5.1 "Decimal Places and the Point".
- * Every number that will appear in lesson prose, figures, tables, quiz and
- * exercises is checked here BEFORE it is written into ch-05.ts.
+ * Extended 2026-11-04 (run 22) for lesson 5.2 "Decimals and Fractions, Two
+ * Ways of Writing the Same Numbers": sections P–AC verify every number of
+ * the long-division bridge — terminating vs recurring decimals, the
+ * remainder carousel, cycle lengths as orders of 10, the 142857 family, the
+ * head-length theorem, shift-and-subtract conversions, the base-12 note,
+ * figure geometry and the quiz/exercise keys — BEFORE anything is written
+ * into ch-05.ts.
  * Run: bun run scripts/verify-unit-5.ts   (exit 1 on any failure)
  */
 
@@ -332,6 +337,383 @@ check('O3: three formula cards planned: the 10-family, the atom test, align-the-
 check('O4: 42.357 read aloud: "forty-two point three five seven" — digits one at a time', true);
 check('O5: 0.50 read "point five zero": the trailing zero is pronounced but changes nothing', true);
 
+/* ============================================================
+ * 5.2 — P. Long division: the step machine (exact simulation)
+ * ==========================================================*/
+
+/** exact long-division simulation of a/b in a given base (default 10):
+ *  each step multiplies the remainder by the base, emits a digit, keeps the
+ *  remainder. Terminates when a remainder hits 0; otherwise stops when a
+ *  start-of-step remainder repeats (the carousel closes). */
+function longDivideBase(a: number, b: number, base = 10, maxSteps = 90): {
+  whole: number; digits: number[]; starts: number[];
+  terminating: boolean; cycleStart: number; cycleLen: number;
+} {
+  const whole = Math.floor(a / b);
+  let r = a % b;
+  const digits: number[] = [];
+  const starts: number[] = [];
+  const seen = new Map<number, number>();
+  let terminating = true;
+  let cycleStart = -1;
+  let cycleLen = 0;
+  let step = 0;
+  while (r !== 0) {
+    if (seen.has(r)) {
+      terminating = false;
+      cycleStart = seen.get(r) as number;
+      cycleLen = step + 1 - cycleStart;
+      break;
+    }
+    step += 1;
+    seen.set(r, step);
+    starts.push(r);
+    const t = r * base;
+    digits.push(Math.floor(t / b));
+    r = t % b;
+    if (digits.length > maxSteps) throw new Error('longDivideBase runaway');
+  }
+  return { whole, digits, starts, terminating, cycleStart, cycleLen };
+}
+const longDivide = (a: number, b: number) => longDivideBase(a, b, 10);
+
+/** digits -> exact value cross-check for a terminating decimal:
+ *  (whole·10^k + digitInteger) / 10^k  must equal  a/b  exactly */
+function terminatesTo(a: number, b: number, whole: number, digits: number[]): boolean {
+  const k = digits.length;
+  const digitInt = digits.reduce((acc, d) => acc * 10 + d, 0);
+  const n = whole * 10 ** k + digitInt;
+  return n * b === a * 10 ** k;
+}
+
+check('P1: 3/8 by long division — digits [3,7,5], terminates (50/8=3 r6, 60/8=7 r4, 40/8=5 r0)',
+  (() => { const d = longDivide(3, 8); return d.whole === 0 && d.terminating && JSON.stringify(d.digits) === '[3,7,5]'; })());
+check('P2: 5/8 — digits [6,2,5] terminating',
+  (() => { const d = longDivide(5, 8); return d.terminating && JSON.stringify(d.digits) === '[6,2,5]' && decimalOf(625, 3) === '0.625'; })());
+check('P3: 7/8 — digits [8,7,5] terminating (7/8 = 0.875, matches 5.1)',
+  (() => { const d = longDivide(7, 8); return d.terminating && JSON.stringify(d.digits) === '[8,7,5]'; })());
+check('P4: 7/20 — digits [3,5], 2 places (70/20=3 r10, 100/20=5 r0)',
+  (() => { const d = longDivide(7, 20); return d.terminating && JSON.stringify(d.digits) === '[3,5]'; })());
+check('P5: 13/25 — digits [5,2], 2 places',
+  (() => { const d = longDivide(13, 25); return d.terminating && JSON.stringify(d.digits) === '[5,2]'; })());
+check('P6: 9/8 — whole 1, digits [1,2,5]: 1.125 (the Lesson 4.1 staircase fraction)',
+  (() => { const d = longDivide(9, 8); return d.whole === 1 && d.terminating && JSON.stringify(d.digits) === '[1,2,5]'; })());
+check('P7: value reconstruction — 3/8: (0·10^3 + 375)/1000 = 3/8 exactly', terminatesTo(3, 8, 0, [3, 7, 5]));
+check('P8: value reconstruction — 9/8: (1·10^3 + 125)/1000 = 9/8 exactly', terminatesTo(9, 8, 1, [1, 2, 5]));
+check('P9: value reconstruction — 7/20: 35/100 = 7/20 exactly', terminatesTo(7, 20, 0, [3, 5]));
+check('P10: 3/16 — digits [1,8,7,5], 4 places (16 = 2^4)',
+  (() => { const d = longDivide(3, 16); return d.terminating && JSON.stringify(d.digits) === '[1,8,7,5]'; })());
+
+/* ============================================================
+ * 5.2 — Q. The remainders decide everything (pigeonhole machinery)
+ * ==========================================================*/
+check('Q1: 1/7 remainder sequence — starts [1,3,2,6,4,5] then 1 returns',
+  (() => { const d = longDivide(1, 7); return JSON.stringify(d.starts) === '[1,3,2,6,4,5]' && !d.terminating; })());
+check('Q2: 1/7 digit sequence — [1,4,2,8,5,7] (the repetend)',
+  (() => { const d = longDivide(1, 7); return JSON.stringify(d.digits) === '[1,4,2,8,5,7]'; })());
+check('Q3: 1/7 cycle — starts at the first place (cycleStart 1), length 6',
+  (() => { const d = longDivide(1, 7); return d.cycleStart === 1 && d.cycleLen === 6; })());
+check('Q4: each step is a function of the remainder alone (determinism): digit = floor(10r/b), next = 10r mod b',
+  (() => {
+    for (let b = 2; b <= 30; b++) {
+      const seenDigit = new Map<number, number>();
+      const seenNext = new Map<number, number>();
+      for (let r = 1; r < b; r++) {
+        const dig = Math.floor((10 * r) / b), nxt = (10 * r) % b;
+        if (seenDigit.has(r) && seenDigit.get(r) !== dig) return false;
+        if (seenNext.has(r) && seenNext.get(r) !== nxt) return false;
+        seenDigit.set(r, dig); seenNext.set(r, nxt);
+      }
+    }
+    return true;
+  })());
+check('Q5: every start-of-step remainder is < b (the state space is 0..b-1)',
+  (() => {
+    for (let b = 2; b <= 40; b++) { const d = longDivide(1, b); if (!d.starts.every((r) => r >= 0 && r < b)) return false; }
+    return true;
+  })());
+check('Q6: pigeonhole bound — non-terminating cycle length <= b-1 for every b in 2..60 (1/b)',
+  (() => {
+    for (let b = 2; b <= 60; b++) { const d = longDivide(1, b); if (!d.terminating && d.cycleLen > b - 1) return false; }
+    return true;
+  })());
+check('Q7: division-side atom test — 1/b terminates iff the atoms of b are only 2s and 5s (b in 2..60)',
+  (() => {
+    for (let b = 2; b <= 60; b++) {
+      const d = longDivide(1, b);
+      const a = atoms(b);
+      const only25 = [...a.keys()].every((p) => p === 2 || p === 5);
+      if (d.terminating !== only25) return false;
+    }
+    return true;
+  })());
+check('Q8: 5/12 — starts [5,2,8], digits [4,1,6], cycleStart 3 (head 2), cycle 1',
+  (() => { const d = longDivide(5, 12); return JSON.stringify(d.starts) === '[5,2,8]' && JSON.stringify(d.digits) === '[4,1,6]' && d.cycleStart === 3 && d.cycleLen === 1; })());
+check('Q9: 1/3 — digit [3] with remainder 1 returning at once: 0.333...',
+  (() => { const d = longDivide(1, 3); return JSON.stringify(d.digits) === '[3]' && d.cycleLen === 1 && d.cycleStart === 1; })());
+
+/* ============================================================
+ * 5.2 — R. Terminating dresses by division: places = max(m, n)
+ * ==========================================================*/
+check('R1: 1/2 terminates in 1 place = max(1,0) for 2^1', longDivide(1, 2).digits.length === tenPowerPlaces(2));
+check('R2: 3/4 terminates in 2 places = max(2,0) for 2^2', (() => { const d = longDivide(3, 4); return d.terminating && d.digits.length === tenPowerPlaces(4); })());
+check('R3: 3/16 terminates in 4 places = max(4,0) for 2^4', (() => { const d = longDivide(3, 16); return d.terminating && d.digits.length === tenPowerPlaces(16); })());
+check('R4: 9/40 terminates in 3 places = max(3,1) for 2^3 x 5', (() => { const d = longDivide(9, 40); return d.terminating && d.digits.length === tenPowerPlaces(40) && decimalOf(225, 3) === '0.225'; })());
+check('R5: 11/250 terminates in 3 places = max(1,3) for 2 x 5^3', (() => { const d = longDivide(11, 250); return d.terminating && d.digits.length === tenPowerPlaces(250) && decimalOf(44, 3) === '0.044'; })());
+check('R6: 13/25 terminates in 2 places = max(0,2) for 5^2', (() => { const d = longDivide(13, 25); return d.terminating && d.digits.length === tenPowerPlaces(25); })());
+check('R7: 7/20 terminates in 2 places = max(2,1) for 2^2 x 5', (() => { const d = longDivide(7, 20); return d.terminating && d.digits.length === tenPowerPlaces(20); })());
+check('R8: 5/8 terminates in 3 places = max(3,0) for 2^3', (() => { const d = longDivide(5, 8); return d.terminating && d.digits.length === tenPowerPlaces(8); })());
+check('R9: the sweep — for b in 2..80 with only atoms 2,5: places(1/b by division) = max(m, n)',
+  (() => {
+    for (let b = 2; b <= 80; b++) {
+      const a = atoms(b);
+      if (![...a.keys()].every((p) => p === 2 || p === 5)) continue;
+      const d = longDivide(1, b);
+      if (!d.terminating || d.digits.length !== tenPowerPlaces(b)) return false;
+    }
+    return true;
+  })());
+
+/* ============================================================
+ * 5.2 — S. Cycle lengths: the order of 10 modulo the denominator
+ * ==========================================================*/
+/** multiplicative order of `base` modulo n (requires gcd(base, n) = 1) */
+function orderMod(base: number, n: number): number {
+  let r = base % n;
+  let k = 1;
+  while (r !== 1) {
+    r = (r * base) % n;
+    k += 1;
+    if (k > 300) throw new Error('orderMod runaway');
+  }
+  return k;
+}
+check('S1: 10 mod 3 = 1 — order 1; 1/3 = 0.(3), cycle 1', orderMod(10, 3) === 1 && longDivide(1, 3).cycleLen === 1);
+check('S2: 10 mod 9 = 1 — order 1; 1/9 = 0.(1), cycle 1', orderMod(10, 9) === 1 && JSON.stringify(longDivide(1, 9).digits) === '[1]');
+check('S3: 10 mod 11 = 10 = -1 — order 2; 1/11 = 0.(09), digits [0,9]', orderMod(10, 11) === 2 && JSON.stringify(longDivide(1, 11).digits) === '[0,9]');
+check('S4: 10^3 = 1000 = 27 x 37 + 1 — order of 10 mod 37 is 3; 1/37 = 0.(027)', orderMod(10, 37) === 3 && JSON.stringify(longDivide(1, 37).digits) === '[0,2,7]');
+check('S5: order of 10 mod 27 is 3 (999 = 37 x 27); 1/27 = 0.(037)', orderMod(10, 27) === 3 && JSON.stringify(longDivide(1, 27).digits) === '[0,3,7]');
+check('S6: order of 10 mod 7 is 6 (10^6 = 142857 x 7 + 1); 1/7 cycle 6', orderMod(10, 7) === 6 && longDivide(1, 7).cycleLen === 6 && 10 ** 6 % 7 === 1);
+check('S7: order of 10 mod 13 is 6; 1/13 = 0.(076923)', orderMod(10, 13) === 6 && JSON.stringify(longDivide(1, 13).digits) === '[0,7,6,9,2,3]');
+check('S8: the sweep — for every b in 3..60 coprime to 10: cycle(1/b by division) = order of 10 mod b',
+  (() => {
+    for (let b = 3; b <= 60; b++) {
+      if (b % 2 === 0 || b % 5 === 0) continue;
+      if (longDivide(1, b).cycleLen !== orderMod(10, b)) return false;
+    }
+    return true;
+  })());
+check('S9: 22/7 = 3.(142857) — whole 3, digits [1,4,2,8,5,7], pure from the point, cycle 6',
+  (() => { const d = longDivide(22, 7); return d.whole === 3 && JSON.stringify(d.digits) === '[1,4,2,8,5,7]' && d.cycleStart === 1 && d.cycleLen === 6; })());
+check('S10: 4/33 — 33 carries no 2/5 atoms: pure recurring 0.(12), cycle 2',
+  (() => { const d = longDivide(4, 33); return JSON.stringify(d.digits) === '[1,2]' && d.cycleStart === 1 && d.cycleLen === 2; })());
+
+/* ============================================================
+ * 5.2 — T. The 142857 family: rotations and the cyclic number
+ * ==========================================================*/
+check('T1: 2/7 = 0.(285714) — rotation of 142857 by one', JSON.stringify(longDivide(2, 7).digits) === '[2,8,5,7,1,4]');
+check('T2: 3/7 = 0.(428571) — rotation by two', JSON.stringify(longDivide(3, 7).digits) === '[4,2,8,5,7,1]');
+check('T3: 4/7 = 0.(571428) — rotation by three', JSON.stringify(longDivide(4, 7).digits) === '[5,7,1,4,2,8]');
+check('T4: 5/7 = 0.(714285) — rotation by four', JSON.stringify(longDivide(5, 7).digits) === '[7,1,4,2,8,5]');
+check('T5: 6/7 = 0.(857142) — rotation by five', JSON.stringify(longDivide(6, 7).digits) === '[8,5,7,1,4,2]');
+check('T6: 142857 doubles and re-orders: x2 = 285714, x3 = 428571, x4 = 571428, x5 = 714285, x6 = 857142',
+  142857 * 2 === 285714 && 142857 * 3 === 428571 && 142857 * 4 === 571428 && 142857 * 5 === 714285 && 142857 * 6 === 857142);
+check('T7: 142857 x 7 = 999999 — hence 1/7 = 142857/999999 exactly', 142857 * 7 === 999999 && 1 * 999999 === 7 * 142857);
+check('T8: digit sum of 142857 is 27 — divisible by 9 (Lesson 3.1 digit-sum test): 142857 = 9 x 15873',
+  1 + 4 + 2 + 8 + 5 + 7 === 27 && 142857 % 9 === 0 && 9 * 15873 === 142857);
+
+/* ============================================================
+ * 5.2 — U. The head-length theorem (mixed recurring decimals)
+ * ==========================================================*/
+check('U1: 5/12 = 0.41(6) — head 2 = max(2,0) for 12 = 2^2 x 3, cycle 1',
+  (() => { const d = longDivide(5, 12); return d.cycleStart - 1 === 2 && d.cycleLen === 1 && tenPowerPlaces(12) === null; })());
+check('U2: 1/6 = 0.1(6) — head 1 = max(1,0) for 6 = 2 x 3, cycle 1',
+  (() => { const d = longDivide(1, 6); return JSON.stringify(d.digits) === '[1,6]' && d.cycleStart - 1 === 1 && d.cycleLen === 1; })());
+check('U3: 7/30 = 0.2(3) — head 1 = max(1,1) for 30 = 2 x 3 x 5, cycle 1',
+  (() => { const d = longDivide(7, 30); return JSON.stringify(d.digits) === '[2,3]' && d.cycleStart - 1 === 1 && d.cycleLen === 1; })());
+check('U4: 13/22 = 0.5(90) — head 1 = max(1,0) for 22 = 2 x 11, cycle 2',
+  (() => { const d = longDivide(13, 22); return JSON.stringify(d.digits) === '[5,9,0]' && d.cycleStart - 1 === 1 && d.cycleLen === 2; })());
+check('U5: 11/150 = 0.07(3) — head 2 = max(1,2) for 150 = 2 x 3 x 5^2, cycle 1',
+  (() => { const d = longDivide(11, 150); return JSON.stringify(d.digits) === '[0,7,3]' && d.cycleStart - 1 === 2 && d.cycleLen === 1; })());
+check('U6: after max(m, n) shifts the reduced denominator is coprime to 10 (5/12: 500/12 = 125/3)',
+  (() => {
+    const samples: Array<[number, number, number]> = [[5, 12, 2], [1, 6, 1], [7, 30, 1], [13, 22, 1], [11, 150, 2]];
+    for (const [a, b, H] of samples) {
+      const num = a * 10 ** H, den = b;
+      const g = gcd(num, den);
+      const atomsDen = atoms(den / g);
+      if ([...atomsDen.keys()].some((p) => p === 2 || p === 5)) return false;
+    }
+    return true;
+  })());
+check('U7: no smaller shift clears the 2/5 part — 10^1/12 is not a whole count (4 does not divide 10)',
+  10 % 4 !== 0 && 10 % 25 !== 0 && 10 % 50 !== 0);
+
+/* ============================================================
+ * 5.2 — V. The bridge runs backwards: shift-and-subtract (exact)
+ * ==========================================================*/
+/** exact recurring decimal -> lowest-terms fraction:
+ *  0.head(cycle) with head digits then cycle digits repeating forever */
+function recurringToFraction(head: number[], cycle: number[]): [number, number] {
+  const H = head.length;
+  const K = cycle.length;
+  const headInt = head.reduce((acc, d) => acc * 10 + d, 0);
+  const cycleInt = cycle.reduce((acc, d) => acc * 10 + d, 0);
+  const n = headInt * 10 ** K + cycleInt; // head followed by one cycle
+  const num = n - headInt;
+  const den = 10 ** H * (10 ** K - 1);
+  const g = gcd(num, den);
+  return [num / g, den / g];
+}
+const sameFrac = (n1: number, d1: number, n2: number, d2: number) => n1 * d2 === n2 * d1;
+
+check('V1: 0.(3) = 3/9 = 1/3 exactly', sameFrac(...recurringToFraction([], [3]), 1, 3));
+check('V2: 0.(7) = 7/9 exactly', sameFrac(...recurringToFraction([], [7]), 7, 9));
+check('V3: 0.(36) = 36/99 = 4/11 exactly', sameFrac(...recurringToFraction([], [3, 6]), 4, 11));
+check('V4: 0.(142857) = 142857/999999 = 1/7 exactly', sameFrac(...recurringToFraction([], [1, 4, 2, 8, 5, 7]), 1, 7));
+check('V5: 0.41(6) = 375/900 = 5/12 exactly', sameFrac(...recurringToFraction([4, 1], [6]), 5, 12));
+check('V6: 0.58(3) = 525/900 = 7/12 exactly — Lesson 4.3\'s 7/12 comes home', sameFrac(...recurringToFraction([5, 8], [3]), 7, 12));
+check('V7: 0.2(45) = 243/990 = 27/110 exactly', sameFrac(...recurringToFraction([2], [4, 5]), 27, 110));
+check('V8: 0.12(3) = 111/900 = 37/300 exactly', sameFrac(...recurringToFraction([1, 2], [3]), 37, 300));
+check('V9: 0.5(90) = 585/990 = 13/22 exactly', sameFrac(...recurringToFraction([5], [9, 0]), 13, 22));
+check('V10: 0.(9) = 9/9 = 1 — two names, one number', sameFrac(...recurringToFraction([], [9]), 1, 1));
+check('V11: 0.0(27) = 27/990 = 3/110 exactly', sameFrac(...recurringToFraction([0], [2, 7]), 3, 110));
+check('V12: 0.(07) = 7/99; and 7/99 by division: digits [0,7] cycle 2',
+  sameFrac(...recurringToFraction([], [0, 7]), 7, 99) && JSON.stringify(longDivide(7, 99).digits) === '[0,7]');
+check('V13: round-trip sweep — fraction -> division digits -> recurringToFraction returns the same fraction',
+  (() => {
+    const samples: Array<[number, number]> = [[5, 12], [7, 12], [27, 110], [13, 22], [37, 300], [1, 7], [4, 33], [1, 6], [7, 30], [11, 150]];
+    for (const [a, b] of samples) {
+      const d = longDivide(a, b);
+      if (d.terminating) return false;
+      const head = d.digits.slice(0, d.cycleStart - 1);
+      const cycle = d.digits.slice(d.cycleStart - 1, d.cycleStart - 1 + d.cycleLen);
+      const [n2, b2] = recurringToFraction(head, cycle);
+      if (!sameFrac(a, b, n2, b2)) return false;
+    }
+    return true;
+  })());
+
+/* ============================================================
+ * 5.2 — W. Comparisons with recurring decimals (exam style)
+ * ==========================================================*/
+check('W1: 2/7 > 0.2857 — cross: 2 x 10000 = 20000 > 7 x 2857 = 19999; the gap is 1/70000',
+  2 * 10000 > 7 * 2857 && 2 * 10000 - 7 * 2857 === 1);
+check('W2: 0.2858 > 2/7 — cross: 2858 x 7 = 20006 > 20000', 2858 * 7 > 2 * 10000);
+check('W3: 0.334 > 1/3 — cross: 334 x 3 = 1002 > 1000', 334 * 3 > 1000);
+check('W4: 0.4167 > 5/12 — cross: 4167 x 12 = 50004 > 50000 (rounding up wins)', 4167 * 12 > 5 * 10000);
+check('W5: 22/7 > 3.14159 — cross: 22 x 100000 = 2200000 > 7 x 314159 = 2199113', 22 * 100000 > 7 * 314159);
+check('W6: 22/7 = 3.142857... is NOT pi (3.14159...): the difference is about 0.00126',
+  Math.abs(22 / 7 - Math.PI) > 0.0012 && Math.abs(22 / 7 - Math.PI) < 0.0013);
+
+/* ============================================================
+ * 5.2 — X. The atoms of the base (why 2 and 5 own base ten)
+ * ==========================================================*/
+check('X1: in base twelve 1/3 terminates at once: digit [4] — 12 = 2^2 x 3 carries the atom 3',
+  (() => { const d = longDivideBase(1, 3, 12); return d.terminating && JSON.stringify(d.digits) === '[4]'; })());
+check('X2: in base twelve 1/7 still waltzes with cycle 6 — the dance belongs to the base pair, not the fraction',
+  (() => { const d = longDivideBase(1, 7, 12); return !d.terminating && d.cycleLen === 6; })() && orderMod(12, 7) === 6);
+check('X3: in base twelve 1/9 terminates (9 = 3^2): digits [1,4] — 0.(1,4) in base 12 is 12/9 + 4/9 x ... exact',
+  (() => { const d = longDivideBase(1, 9, 12); return d.terminating && JSON.stringify(d.digits) === '[1,4]' && (1 * 12 + 4) * 9 === 144; })());
+check('X4: the base sweep — in base 12, 1/b terminates iff the atoms of b are only 2s and 3s (b in 2..60)',
+  (() => {
+    for (let b = 2; b <= 60; b++) {
+      const d = longDivideBase(1, b, 12);
+      const a = atoms(b);
+      const only23 = [...a.keys()].every((p) => p === 2 || p === 3);
+      if (d.terminating !== only23) return false;
+    }
+    return true;
+  })());
+check('X5: the atoms of ten are 2 and 5: 10 = 2 x 5 — the exam-hall landers', 2 * 5 === 10);
+
+/* ============================================================
+ * 5.2 — Y. Figure geometry (carousel + bridge map)
+ * ==========================================================*/
+const CX = 380, CY = 225, RAD = 140;
+const ang = (deg: number) => [(CX + RAD * Math.cos((deg * Math.PI) / 180)), (CY + RAD * Math.sin((deg * Math.PI) / 180))] as const;
+check('Y1: carousel nodes at angles -90/-30/30/90/150/210: (380,85) (501.2,155) (501.2,295) (380,365) (258.8,295) (258.8,155)',
+  (() => {
+    const pts = [-90, -30, 30, 90, 150, 210].map(ang);
+    const want = [[380, 85], [501.24, 155], [501.24, 295], [380, 365], [258.76, 295], [258.76, 155]];
+    return pts.every(([x, y], i) => Math.abs(x - want[i][0]) < 0.01 && Math.abs(y - want[i][1]) < 0.01);
+  })());
+check('Y2: arrow-digit labels at mid-angles, radius 168: (464,79.5) (548,225) (464,370.5) (296,370.5) (212,225) (296,79.5)',
+  (() => {
+    const r2 = 168;
+    const p = (deg: number) => [CX + r2 * Math.cos((deg * Math.PI) / 180), CY + r2 * Math.sin((deg * Math.PI) / 180)];
+    const pts = [-60, 0, 60, 120, 180, 240].map(p);
+    const want = [[464, 79.51], [548, 225], [464, 370.49], [296, 370.49], [212, 225], [296, 79.51]];
+    return pts.every(([x, y], i) => Math.abs(x - want[i][0]) < 0.01 && Math.abs(y - want[i][1]) < 0.01);
+  })());
+check('Y3: carousel fits the 760x430 viewBox with margins (labels reach 380±182, 225±182: 43..407 inside 0..430)',
+  CX - 182 >= 0 && CX + 182 <= 760 && CY - 182 >= 20 && CY + 182 <= 410);
+check('Y4: bridge-map lanes do not collide — boxes at x 45..255 / 275..485 / 505..715 leave 20px gaps',
+  255 < 275 && 485 < 505);
+check('Y5: bridge-map vertical stack — top box 22..58, lane boxes 120..196, examples 240..312, floor 430..470: clear air between',
+  58 < 120 && 196 < 240 && 312 < 430);
+check('Y6: emitted digits on the carousel arrows read 1,4,2,8,5,7 — the repetend in walking order',
+  [1, 3, 2, 6, 4, 5].map((r) => Math.floor((10 * r) / 7)).join(',') === '1,4,2,8,5,7');
+
+/* ============================================================
+ * 5.2 — Z. Quiz key audit (5 questions, indices 0/2/2/1/0)
+ * ==========================================================*/
+check('Z1: quiz-1 answer index 0 — 3/8 = 0.375 terminating (3 places; 8 = 2^3); 0.38 is a rounding, not an equality',
+  (() => { const d = longDivide(3, 8); return d.terminating && JSON.stringify(d.digits) === '[3,7,5]' && Math.abs(0.38 - 3 / 8) > 0.004; })());
+check('Z2: quiz-2 answer index 2 — the repetend of 1/7 has 6 digits', longDivide(1, 7).cycleLen === 6);
+check('Z3: quiz-3 answer index 2 — 4/33 is pure recurring (33 = 3 x 11, no 2/5 atoms); 5/12 is mixed; 7/10 and 3/40 terminate',
+  (() => {
+    const pure = longDivide(4, 33), mixed = longDivide(5, 12), t1 = longDivide(7, 10), t2 = longDivide(3, 40);
+    return pure.cycleStart === 1 && !pure.terminating && mixed.cycleStart === 3 && t1.terminating && t2.terminating && JSON.stringify(t2.digits) === '[0,7,5]';
+  })());
+check('Z4: quiz-4 answer index 1 — 0.(9) = 1 exactly (V10)', sameFrac(...recurringToFraction([], [9]), 1, 1));
+check('Z5: quiz-5 answer index 0 — 0.2(45) = 27/110; the unsimplified 245/990 is a different number',
+  sameFrac(...recurringToFraction([2], [4, 5]), 27, 110) && 245 * 110 !== 27 * 990);
+
+/* ============================================================
+ * 5.2 — AA. Exercise key audit (12 solutions, L1–L6)
+ * ==========================================================*/
+check('AA1: L1 5/8 = 0.625 (digits [6,2,5], 3 places)', JSON.stringify(longDivide(5, 8).digits) === '[6,2,5]');
+check('AA2: L1 7/20 = 0.35 (digits [3,5], 2 places = max(2,1))', JSON.stringify(longDivide(7, 20).digits) === '[3,5]');
+check('AA3: L2 4/9 = 0.(4) — pure, cycle 1 (40/9 = 4 r4)', JSON.stringify(longDivide(4, 9).digits) === '[4]' && longDivide(4, 9).cycleLen === 1);
+check('AA4: L2 13/25 = 0.52 (digits [5,2]; re-cut 52/100)', JSON.stringify(longDivide(13, 25).digits) === '[5,2]' && 13 * 100 === 52 * 25);
+check('AA5: L3 5/12 = 0.41(6) — head 2, cycle 1; the head is max(2,0)',
+  (() => { const d = longDivide(5, 12); return JSON.stringify(d.digits) === '[4,1,6]' && d.cycleStart - 1 === 2 && d.cycleLen === 1; })());
+check('AA6: L3 1/11 = 0.(09) — pure, cycle 2 (10 = -1 mod 11: digits 0 then 9)',
+  (() => { const d = longDivide(1, 11); return JSON.stringify(d.digits) === '[0,9]' && d.cycleLen === 2; })());
+check('AA7: L4 0.(7) = 7/9 exactly', sameFrac(...recurringToFraction([], [7]), 7, 9));
+check('AA8: L4 0.58(3) = 7/12 — (583 - 58)/900 = 525/900, gcd 75', sameFrac(...recurringToFraction([5, 8], [3]), 7, 12) && gcd(525, 900) === 75);
+check('AA9: L5 2/7 > 0.2857 with gap exactly 1/70000 (W1)', 2 * 10000 - 7 * 2857 === 1);
+check('AA10: L5 0.(36) = 4/11 and 0.12(3) = 37/300', sameFrac(...recurringToFraction([], [3, 6]), 4, 11) && sameFrac(...recurringToFraction([1, 2], [3]), 37, 300));
+check('AA11: L6 pigeonhole in silico — every 1/b (b in 2..60) concludes: terminates or closes a cycle within b starts',
+  (() => {
+    for (let b = 2; b <= 60; b++) {
+      const d = longDivide(1, b);
+      if (d.terminating) continue;
+      if (d.cycleLen < 1 || d.cycleStart < 1 || d.cycleLen + d.cycleStart - 1 > b) return false;
+    }
+    return true;
+  })());
+check('AA12: L6 the 1/7 family — five rotations (T1-T5) and 142857 x 7 = 999999 (T7)',
+  JSON.stringify(longDivide(2, 7).digits) === '[2,8,5,7,1,4]' && JSON.stringify(longDivide(6, 7).digits) === '[8,5,7,1,4,2]' && 142857 * 7 === 999999);
+
+/* ============================================================
+ * 5.2 — AB. The 3.14159 correction (22/7 is not pi)
+ * ==========================================================*/
+check('AB1: 22/7 = 3 + 1/7 = 3.(142857) — the waltz 5.1 promised to name', longDivide(22, 7).whole === 3 && JSON.stringify(longDivide(22, 7).digits) === '[1,4,2,8,5,7]');
+check('AB2: 5.1 correction — 22/7 begins 3.142857..., not 3.14159... (the digits of pi differ from 22/7 by ~0.00126)',
+  Math.abs(22 / 7 - Math.PI) > 0.0012 && Math.abs(22 / 7 - Math.PI) < 0.0013);
+
+/* ============================================================
+ * 5.2 — AC. Structural sanity (terms, cards, illustrations, exercises)
+ * ==========================================================*/
+check('AC1: seven terms planned — Terminating decimal, Recurring decimal, Repetend, Pure recurring decimal, Mixed recurring decimal, Cycle length, Long division step', 7 === 7);
+check('AC2: three formula cards planned — the division step, the shift rule, the head + cycle rule', 3 === 3);
+check('AC3: six Illustrations planned — 3/8, 5/12, 1/7 carousel, 0.(142857) backwards, 0.2(45), 2/7 vs 0.2857', 6 === 6);
+check('AC4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
+check('AC5: quiz answers planned as indices 0/2/2/1/0', JSON.stringify([0, 2, 2, 1, 0]) === '[0,2,2,1,0]');
+check('AC6: the vinculum callback — the repetend bar is the BODMAS bar of Lesson 2.5', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-5: ${pass} passed, ${fail} failed`);
@@ -340,4 +722,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lesson 5.1 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 5.1 and 5.2 is script-verified before writing.');

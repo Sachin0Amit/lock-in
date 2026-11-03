@@ -17,6 +17,7 @@ LESSONS=(
   fm-adding-subtracting-fractions
   fm-multiplying-dividing-fractions
   fm-decimal-places-and-the-point
+  fm-decimals-and-fractions-two-ways
 )
 
 for L in "${LESSONS[@]}"; do
@@ -251,4 +252,66 @@ agent-browser eval "
 agent-browser screenshot /tmp/cengage-e2e/mobile-5-1.png >/dev/null 2>&1 || true
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*5-1*.png 2>/dev/null | head -4
+
+# ---- lesson 5.2 dedicated: quiz live + all solutions expand + mobile 390px (run 22) ----
+agent-browser set viewport 1280 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-decimals-and-fractions-two-ways" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+# click the correct-index option per quiz (verify AC5: indices 0/2/2/1/0)
+agent-browser eval "
+(function(){
+  var quizSec = Array.prototype.slice.call(document.querySelectorAll('section')).find(function(s){
+    var h = s.querySelector('header'); return h && /CHECK YOURSELF/i.test(h.textContent);
+  });
+  if (!quizSec) return 'NO QUIZ SECTION';
+  var correct = [0, 2, 2, 1, 0];
+  var groups = quizSec.querySelectorAll('div.px-5');
+  var clicked = 0;
+  groups.forEach(function(qdiv, qi){
+    var btns = qdiv.querySelectorAll('button[type=button]');
+    var pick = btns[correct[qi]] || btns[0];
+    if (pick) { pick.click(); clicked++; }
+  });
+  return 'clicked ' + clicked + ' correct options; score: ' + (quizSec.textContent.match(/You scored[^\u00b7]*/)||['n/a'])[0].trim();
+})()
+" 2>/dev/null | head -3
+agent-browser wait 800 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('button')).filter(function(b){ return /Show solution/.test(b.textContent); });
+  var n = links.length;
+  links.forEach(function(b){ b.click(); });
+  return 'expanded ' + n + ' solutions of 12';
+})()
+" 2>/dev/null | head -2
+agent-browser wait 800 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var sol = Array.prototype.slice.call(document.querySelectorAll('span')).filter(function(s){ return s.textContent.trim()==='Sol.'; }).length;
+  var th = Array.prototype.slice.call(document.querySelectorAll('.katex')).filter(function(k){ return k.textContent.indexOf('\u2234') >= 0; }).length;
+  var open = document.querySelectorAll('[data-state=open]').length;
+  var figs = document.querySelectorAll('figure svg, svg[role=img]').length;
+  return '5.2 Sol. pills: ' + sol + ' | KaTeX with \u2234: ' + th + ' | open collapsibles: ' + open + ' | svg figures: ' + figs;
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/desktop-5-2-quiz.png >/dev/null 2>&1 || true
+agent-browser eval "window.scrollBy(0, 2400)" >/dev/null 2>&1 || true
+agent-browser wait 400 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-5-2-carousel.png >/dev/null 2>&1 || true
+# mobile 390px on the new lesson
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-decimals-and-fractions-two-ways" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '5.2 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-5-2.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*5-2*.png 2>/dev/null | head -4
 echo "done"

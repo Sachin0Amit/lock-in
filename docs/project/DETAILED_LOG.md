@@ -9,16 +9,19 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **cron run 21, Job 498279**:
-FM lesson 5.1 "Decimal Places and the Point" authored in the Cengage
-voice + solution chain, 5,350 words — the point becomes the hinge of
-the place-value mirror, the atom test legislates the fraction↔decimal
-bridge, chapter 5 opens; run 20: lesson 4.5 + unit-4 completion review;
-run 19: lesson 4.4; run 18: lesson 4.3; run 17: push-first (4 queued
-commits) + lesson 4.2; run 16: solutions restyled as the Cengage
-solution chain; run 15: step numbers removed; run 14: Cengage
-book-style theory live platform-wide; `WORK_INVENTORY.json` regenerated
-with every ship).
+Generated: 2026-11-03/04 (maintained through **cron run 22, Job 498279**:
+FM lesson 5.2 "Decimals and Fractions, Two Ways of Writing the Same
+Numbers" authored in the Cengage voice + solution chain, 5,407 words —
+long division past the point as the universal bridge-builder, the
+dresses theorem (terminating or recurring, no third dress), the 1/7
+remainder carousel figure, pure vs mixed recurrence with the
+head-length theorem, the 142857 rotation family, shift-and-subtract
+both ways, the 0.9̄ = 1 trap; run 21: lesson 5.1; run 20: lesson 4.5 +
+unit-4 completion review; run 19: lesson 4.4; run 18: lesson 4.3;
+run 17: push-first (4 queued commits) + lesson 4.2; run 16: solutions
+restyled as the Cengage solution chain; run 15: step numbers removed;
+run 14: Cengage book-style theory live platform-wide;
+`WORK_INVENTORY.json` regenerated with every ship).
 
 ---
 
@@ -91,6 +94,7 @@ with every ship).
 | 11-04 (run 19, cron Job 498279) | (ship) | **LESSON 4.4 Adding and Subtracting Fractions** — authored in the Cengage voice + solution chain, 4,916 words; 4.3's quiet calculation promoted to arithmetic: like-ruler counting (distributive proof, walk-on-the-line, the ch. 2 laws verified: commutative/associative/identity 0, subtraction's failure), simplify-always (6/9 → 2/3, 2/8 → 1/4, 8/10 → 4/5), sums past the whole (12/8 = 3/2), the straight-across fraud Caution (2/5 = the mediant, trapped between addends), the **LCM as standard equipment** (1/4 + 1/6 = 3/12 + 2/12 = 5/12, five-bar figure with stacked contributions + dashed boundary; 7/12 + 3/10 = 53/60 on both the 60- and 120-rulers; lists on the 18-ruler), **subtraction as gap-naming** (5/8 − 7/12 = 15/24 − 14/24 = 1/24 — 4.3's extra twenty-fourth an answer; licence form (60−56)/96; number-line arc exactly 1/24 of the unit), complements (1 − 5/9 = 4/9; tank 7/12 full → 5/12 empty), mixed-number storeys (overflow 2 3/4 + 1 1/2 = 4 1/4; underflow 3 1/5 − 1 2/5 = 1 4/5 via 2 6/5; improper routes agree), **Egyptian two-term openings** (greedy: 3/10 = 1/4 + 1/20; 5/6 = 1/2 + 1/3; 1/5 + 1/10 non-greedy), 6-row toolkit table + three-laws equation + exam corner; 7 illustrations, 2 figures (0 audit issues FIRST pass), 6 new terms, 2 formula cards, 5-quiz (1/2/2/1/0), 12 exercises L1–L6 — L6 proves the like-ruler rule (distributivity) and the straight-across fraud theorem (ad² + b²c > 0); verify-unit-4.ts 199 → **261 checks** (AA–AH) ALL PASS pre-writing; E2E 7 lessons — 7 Sol. pills ALL inline, badges 0, 21 ∴ glyphs, KaTeX 162, quiz 5/5 live, 390px exact-fit, zero console errors; totals: **17 lessons / 80,762 words / 108 terms**; logged; pushed (protocol v2) |
 | 11-04 (run 20, cron Job 498279) | (ship) | **LESSON 4.5 Multiplying and Dividing Fractions — UNIT 4 FINALE + completion review** — authored in the Cengage voice + solution chain, 5,172 words: multiplication as 'of' (the re-cutting reading, half of three quarters = six shaded eighths), the multiplying rule ac/bd **proved from the rulers** as a derivation block (cut every piece into b, sieve a of every b, read ac of bd), the area figure (2/3 × 3/5 = 6/15 = 2/5, the doubly-shaded overlap exactly 2/5 of the pixels), scaling and the retired makes-bigger reflex (the two-frauds Caution: straight-across × is the truth, hunting a common ruler for a product is the new fraud), cross-cancellation licensed across × (5/6 × 3/10 = 1/2 × 1/2 = 1/4), the reciprocal (0 has none — why division by 0 is banned), the division theorem **proved on the bd-ruler** (5/6 ÷ 2/3 = 10/8 = 5/4; the flip IS the measuring count; division figure: six 85px eighth-steps arcing 0 → 3/4), the see-saw (÷ proper grows / × 1/2 IS ÷ 2), the flip-only-the-divisor Caution, **the HCF/LCM-of-fractions shortcuts banked since run 12 cashed** (measuring defined; HCF 2/9 / LCM 8/3 for 2/3 & 8/9; the product rule survives: 2/9 × 8/3 = 16/27 = 2/3 × 8/9), mixed numbers converted first (2 1/2 × 1 3/4 = 4 3/8; 1 1/2 ÷ 2 1/4 = 2/3), 6-row toolkit + three-laws equation + exam corner; 5 illustrations, 2 figures, 6 new terms, 3 formula cards, 5-quiz (1/2/1/0/3 verified live 5/5), 12 exercises L1–L6 — L6 proves the sieve-and-ruler rule and the division theorem with the zero ban; verify-unit-4.ts 261 → **330 checks** (AI–AN) ALL PASS pre-writing (AM caught the real 14/9-not-10/9 quiz distractor); **unit-4 completion review: BOOK_FORMAT 7/7, exam-coverage 5/5, ch. 4 = 26,905 words / 32 terms, book = 18 lessons / 85,934 words / 114 terms, ch. 4 status 'complete'**; E2E 8 lessons — 5 Sol. pills inline, badges 0, legacy boxes 0, KaTeX 204, 12/12 expand, quiz 5/5 live, 390px exact-fit, VLM 8.5/10 (division arc fixed to a smooth 255/46 ellipse and re-verified), zero console errors; logged; pushed (protocol v2) |
 | 11-04 (run 21, cron Job 498279) | (ship) | **LESSON 5.1 Decimal Places and the Point — CHAPTER 5 OPENS** — authored in the Cengage voice + solution chain, 5,350 words: the opening scene (the 7-and-a-bit mm screw, the rupee's 100 paise, the kilo's 1000 grams — keep cutting into tens), the decimal-point treaty Definition (the point as the fraction bar standing upright; 2.74 = 2 + 7/10 + 4/100), the tenths→hundredths→thousandths ladder (ten of each piece rebuild the next coarser), the **place-value mirror** (figure 1: ×10 left / ÷10 right about the hinge at the ones; 305.274 dissected digit by digit at columns x = 40/144/248 \| 396/500/604, hinge x = 374), reading rules ("point two seven four" — digits one at a time, the roman example run) + expanded form + 7 = 7.0, Illustrations 1–2 run the bridge both ways (7/10, 47/100, 305/1000 ⇄ 0.7, 0.47, 0.305 = 305/1000 = 61/200), **the atom test as a derivation block** (lowest terms a/b wears an exact decimal dress ⟺ b = 2^m·5^n, needing max(m, n) places — re-cut direction multiplies by 5^(m−n) to reach 10^m; refusal direction: 10^k = 2^k·5^k carries no other atoms by Lesson 3.2's uniqueness, 10^k mod 3 = 1 forever; 5/12 and 22/7 named as 5.2's recurring territory), **locating by zooming** (Illustration 3 walks 2.74; figure 2: two-panel zoom 2.7 → 2.74, 62 px steps, dashed trapezoid connectors), **comparing by aligning the points** with the **trailing-zero licence as a derivation block** (appending a zero = multiplying rule with 10/10 = 1; 7 = 70/10) + the more-digits Caution (0.5 > 0.45; 0.05 ≠ 0.5 — leading zeros load-bearing), Illustration 4 settles 5.64 vs 5.603 (hundredths 4 > 0), the equivalent-decimals Definition, **money/length/mass** + the zero-filling-trap Caution (₹8.05 not ₹8.5; 3 kg 60 g = 3.06 kg) + Illustration 5 (₹8 and 5 paise; 9 cm 8 mm = 9.8 cm), 6-row toolkit table + bridge-on-one-line equation + 3 formula cards + exam corner (the two comparison decoys, "the single most examined zero"); 5 illustrations, 2 figures (0 audit issues after figure 2's zoom-box/connector fix), 7 new terms, 3 formula cards, 5-quiz (1/2/3/1/2 verified live 5/5), 12 exercises L1–L6 — L6 proves the trailing-zero licence and the atom test with applications; new **verify-unit-5.ts: 165 checks** ALL PASS pre-writing (+ regressions 330/260/165; the 2..500 sweep proves divides-a-power-of-ten ⟺ atoms ⊆ {2,5}); E2E extended to **9 lessons** — 5 Sol. pills ALL inline, badges 0, legacy boxes 0, 15 ∴ tags, KaTeX 209, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, zero console errors, VLM 9/10 across opener/mirror/zoom/illustration; totals: **19 lessons / 91,284 words / 121 terms**, ch. 5 in progress 1/5; logged; pushed (protocol v2) |
+| 11-04 (run 22, cron Job 498279) | (ship) | **LESSON 5.2 Decimals and Fractions, Two Ways of Writing the Same Numbers — THE BRIDGE FINISHED** — authored in the Cengage voice + solution chain, 5,407 words: the opening fence (the refuseniks need decimal names; let division run past the point), the **step machine** equation tag 1 (digit ⌊10r/b⌋, remainder 10r mod b, justified from Lesson 4.2's multiplying rule), **terminating decimals** (Illustration 1: 3 ÷ 8 → 0.375, remainder 0 after three places = max(3, 0); the division-side atom test: each step adds one 2-atom + one 5-atom of paying power), **recurring decimals** (Illustration 2: 5 ÷ 12 → 0.416̄ — remainder 8 returns, the digit 6 waltzes; the head is the 2²-part paying out), **the dresses theorem as a derivation block** (deterministic walk on b remainder cells; cell 0 ends the walk; pigeonhole on the b − 1 nonzero cells forces a return; determinism replays the block — repetend ≤ b − 1 digits; no third dress), **figure 1: the remainder carousel of 1/7** (cells 1→3→2→6→4→5→1, amber arrowheads + emitted digits 1 4 2 8 5 7 in walking order; geometry script-verified, audit 0 issues after moving node labels outside the circles, VLM 10/10), the slow walk (10 = 1×7+3 … 50 = 7×7+1), **pure vs mixed recurrence** (roman run: 1/3 cycle 1, 1/11 cycle 2 via 10 ≡ −1, 1/37 cycle 3 via 999 = 27 × 37, 1/7 cycle 6; mixed: 1/6, 7/30, 13/22 = 0.590̄, 11/150 = 0.073̄), **the head-length theorem as a derivation block** (head = exactly max(m, n) places, then the coprime-to-ten tail walks purely), **figure 2: the map of the bridge** (three-lane classifier with instances 7/8, 5/12, 1/3; audit 0 issues, VLM 9/10), **shift-and-subtract backwards** (Illustrations 3–5: 0.3̄ = 1/3; 0.142857̄ = 1/7 over six nines; 0.245̄45̄ = 27/110 over 990; the shift rule as equation tag 2; Lesson 2.5's vinculum returns as the repetend bar), the **0.9̄ = 1 Caution** and the **atoms-of-the-base Note** (base twelve: thirds terminate, sevenths still cycle 6), the exam-style **2/7 vs 0.2857** Illustration (20000 > 19999 — the fraction wins by exactly 1/70000) and the **22/7 ≠ π warning** (3.142857̄ vs 3.14159…, ≈ 0.0013 apart — **5.1's misprint corrected this run**), the 6-row dress catalogue + census equation + 3 formula cards + exam corner; 6 illustrations, 2 figures (0 audit issues), 7 new terms, 5-quiz (0/2/2/1/0 verified live 5/5 · perfect), 12 exercises L1–L6 — L6 proves the dresses theorem and the 142857 rotation family from 142857 × 7 = 999999; verify-unit-5.ts 165 → **273 checks** (P–AC) ALL PASS pre-writing (+ regressions 330/260/165); E2E extended to **10 lessons** with a dedicated 5.2 block (6 inline Sol. pills, 18 with exercises, 30 ∴ tags, KaTeX 307, dollarInSvg 0, badges 0, legacy boxes 0, 12/12 expand, 390px exact-fit, zero console errors); totals: **20 lessons / 96,691 words / 128 terms**, ch. 5 in progress 2/5; logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -1048,14 +1052,72 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 5 — FM chapter 5 "Decimals and
-  Percents", lesson 5.2 "Decimals and Fractions, Two Ways of Writing
-  the Same Numbers" NEXT** (ch. 1–4 COMPLETE; **5.1 shipped run 21 —
-  the point as the hinge of the place-value mirror, the atom test
-  legislating the bridge**). Next: 5.2 — long division as the
-  universal bridge-builder; terminating vs recurring decimals; why
-  the refuseniks (atom 3, 7, …) recur; converting every fraction to a
-  decimal and back, then 5.3 Operating on Decimals, 5.4 Percent and
-  Its Meaning, 5.5 Percentage Change, Discounts and Simple Interest.
+  Percents", lesson 5.3 "Operating on Decimals" NEXT** (ch. 1–4
+  COMPLETE; **5.1 shipped run 21 — the point as the hinge of the
+  place-value mirror; 5.2 shipped run 22 — the dresses theorem, the 1/7
+  carousel, shift-and-subtract both ways**). Next: 5.3 — the four
+  operations on decimals (aligning the points for + and −; the digit
+  counting for ×; the bring-down-zero continuation of the step machine
+  for ÷), then 5.4 Percent and Its Meaning, 5.5 Percentage Change,
+  Discounts and Simple Interest.
+**LESSON 5.2 (run 22, cron Job 498279):** "Decimals and Fractions, Two
+Ways of Writing the Same Numbers" — 5,407 words, the long-division
+lesson that finishes the bridge 5.1 left half-built. Content: the
+opening fence (the atom test's refuseniks have no exact dress, yet the
+number line has no gaps — let the division run past the point); the
+**step machine** equation tag 1 (next digit = ⌊10r/b⌋, next remainder
+= 10r mod b) justified from Lesson 4.2's multiplying rule
+(r/b = (1/10)·(10r/b)); **terminating decimals** — Illustration 1 runs
+3 ÷ 8 to remainder 0 (0.375, three places, exactly max(3, 0) for
+8 = 2³) and the division-side reading of the atom test (each step adds
+one 2-atom and one 5-atom of paying power); **recurring decimals** —
+Illustration 2 runs 5 ÷ 12 (remainder 8 returns; 6 waltzes forever;
+0.416̄; the head is the 2²-part paying out); **the dresses theorem as a
+derivation block** (the machine is a deterministic walk on the b
+remainder cells; cell 0 ends the walk — the 2-and-5 family from the
+division side; pigeonhole on the b − 1 nonzero cells forces a return;
+determinism replays the block — the repetend, at most b − 1 digits;
+no third dress exists); **figure 1: the remainder carousel of 1/7** —
+six cells 1→3→2→6→4→5→1 on a ring with amber arrowheads and the
+emitted digits 1 4 2 8 5 7 in walking order (nodes at radius 140,
+labels outside at 184, arrowheads at mid-angles; geometry
+script-verified, audit 0 issues after moving the node digits outside
+their circles, VLM 10/10); the slow carousel walk (10 = 1×7 + 3,
+30 = 4×7 + 2, …, 50 = 7×7 + 1 — the start); **pure vs mixed
+recurrence** (the roman run: 1/3 cycle 1, 1/11 cycle 2 via 10 ≡ −1,
+1/37 cycle 3 via 999 = 27 × 37, 1/7 cycle 6; mixed instances 1/6,
+7/30, 13/22 = 0.590̄, 11/150 = 0.073̄); **the head-length theorem as a
+derivation block** (head = exactly max(m, n) places — the 2-and-5
+part pays out and the reduced denominator c walks purely; shorter
+shifts cannot clear the 2/5 atoms); **figure 2: the map of the
+bridge** — three-lane classifier TERMINATING / MIXED RECURRING / PURE
+RECURRING with worked instances 7/8, 5/12, 1/3 (audit 0 issues, VLM
+9/10); **the bridge backwards** — shift-and-subtract: Illustrations
+3–5 convert 0.3̄ = 1/3 (9x = 3), 0.142857̄ = 1/7 (six nines;
+142857 × 7 = 999999 confirms), 0.245̄45̄ = 27/110 ((245 − 2)/990);
+equation tag 2 states the shift rule; the **vinculum of Lesson 2.5
+returns as the repetend bar**; the **0.9̄ = 1 Caution** (9x = 9, two
+names one number) and the **atoms-of-the-base Note** (10 = 2 × 5 owns
+base ten; in base twelve thirds terminate — 1/3 = 0.4 twelve — and
+sevenths still waltz with cycle 6); the exam-style **2/7 vs 0.2857
+Illustration** (cross-multiply 20000 > 19999 — the fraction wins by
+exactly 1/70000) and the **22/7 ≠ π warning** (3.142857̄, differing
+from π by ≈ 0.0013; **5.1's "3.14159…" misprint for 22/7 found and
+corrected this run**); the 6-row dress-catalogue table; the census
+equation (1/3 = 0.3̄, 5/12 = 0.416̄, 22/7 = 3.142857̄, 0.9̄ = 1); 3
+formula cards (the division step, the shift rule, the head + cycle
+rule); exam corner; 7 new terms (Long division step, Terminating
+decimal, Recurring decimal, Repetend, Pure recurring decimal, Mixed
+recurring decimal, Cycle length); 5-quiz (0/2/2/1/0 verified live 5/5
+· perfect), 12 exercises L1–L6 — L6 proves the dresses theorem
+(pigeonhole + determinism) and the 142857 rotation family from
+142857 × 7 = 999999. Arithmetic pre-verified by verify-unit-5.ts
+extended 165 → **273 checks** (sections P–AC, incl. the base-twelve
+sweep and the ten-sample round-trip). E2E extended to **10 lessons**
+with a dedicated 5.2 block (6 inline Sol. pills, 18 with exercises,
+30 ∴ tags, KaTeX 307, quiz 5/5 live, 12/12 expand, 390px exact-fit,
+2 figures 0 audit issues); totals: **20 lessons / 96,691 words / 128
+terms**, ch. 5 in progress 2/5; logged; pushed (protocol v2).
 **LESSON 5.1 (run 21, cron Job 498279):** "Decimal Places and the
 Point" — 5,350 words, chapter 5's opener and the first lesson past
 the run-20 closing veil. Content: the opening scene (the 7-and-a-bit

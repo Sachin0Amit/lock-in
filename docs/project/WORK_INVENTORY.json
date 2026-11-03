@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 01:21:40 (Asia/Kolkata)",
+  "generated": "2026-11-04 02:18:54 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1241,9 +1241,8 @@
             "title": "Decimals and Percents",
             "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Decimals and Fractions, Two Ways of Writing the Same Numbers",
               "Operating on Decimals",
               "Percent and Its Meaning",
               "Percentage Change, Discounts and Simple Interest"
@@ -1315,9 +1314,75 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-decimals-and-fractions-two-ways",
+                "number": "5.2",
+                "title": "Decimals and Fractions, Two Ways of Writing the Same Numbers",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5407,
+                "readMins": 27,
+                "concepts": [
+                  "Long division as the decimal machine",
+                  "Terminating decimals",
+                  "Recurring decimals and the repetend",
+                  "The remainder carousel (pigeonhole)",
+                  "Pure and mixed recurrence",
+                  "Shift-and-subtract: the bridge backwards",
+                  "The atoms of the base"
+                ],
+                "objectives": [
+                  "Run the long-division step machine past the point — multiply the remainder by ten, divide, record the digit — and justify why each step is legal",
+                  "Classify any fraction in advance: terminating in max(m, n) places (only 2s and 5s), pure recurring (no 2s or 5s), or mixed recurring (a head of max(m, n) places, then a cycle)",
+                  "Prove the dresses theorem by the pigeonhole argument on remainders, and read cycle lengths as the order of 10 modulo the denominator",
+                  "Convert every recurring decimal back to its fraction by shift-and-subtract, and compare recurring decimals with truncated ones without being fooled"
+                ],
+                "prerequisites": [
+                  "fm-division-remainders-zero",
+                  "fm-decimal-places-and-the-point",
+                  "fm-prime-numbers-factorisation"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch8",
+                  "ncert-math9-ch1"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "equation": 3,
+                  "heading": 5,
+                  "example": 6,
+                  "derivation": 2,
+                  "figure": 2,
+                  "list": 1,
+                  "terms": 1,
+                  "callout": 3,
+                  "table": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 5350
+            "words": 10757
           },
           {
             "number": 6,
@@ -1440,12 +1505,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 84,
-      "totalLines": 20717,
+      "totalLines": 21386,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 11461,
+        "src/data/library (content model + books)": 12130,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4907,6 +4972,32 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "6b2cff3787d988e6a3b1f04c8e01167f009a2dc6",
+      "short": "6b2cff3",
+      "date": "2026-11-03 19:51",
+      "message": "inventory: record run-21 ship (fm 5.1 decimal places and the point live) — 19 lessons / 91,284 words / 121 terms, ch. 5 open 1/5; next 5.2 terminating vs recurring decimals",
+      "filesChanged": 1,
+      "insertions": 70,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 70,
+          "del": 4
+        }
+      ]
+    },
+    {
+      "sha": "f2a7e9d4cf448f347fa2dfa29e8f2cc4b23e52b0",
+      "short": "f2a7e9d",
+      "date": "2026-11-03 19:52",
+      "message": "memory: record run-21 push verification (6b2cff3), origin/main synced — FM 5.1 decimal places and the point live, ch. 5 open 1/5; next FM 5.2 decimals and fractions, two ways of writing the same numbers",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
     }
   ],
   "totals": {
@@ -4915,26 +5006,26 @@
     "booksLive": 1,
     "chaptersWritten": 4,
     "chaptersInProgress": 1,
-    "lessonsWritten": 19,
-    "wordsAuthored": 91284,
-    "termsDefined": 121,
-    "quizItems": 95,
-    "exerciseQuestions": 185,
+    "lessonsWritten": 20,
+    "wordsAuthored": 96691,
+    "termsDefined": 128,
+    "quizItems": 100,
+    "exerciseQuestions": 197,
     "blockTotals": {
-      "para": 267,
-      "callout": 90,
-      "heading": 132,
-      "terms": 20,
-      "equation": 20,
-      "derivation": 36,
-      "table": 21,
-      "figure": 29,
-      "example": 57,
-      "quiz": 19,
-      "exercises": 19,
-      "formula": 42,
+      "para": 282,
+      "callout": 93,
+      "heading": 137,
+      "terms": 21,
+      "equation": 23,
+      "derivation": 38,
+      "table": 22,
+      "figure": 31,
+      "example": 63,
+      "quiz": 20,
+      "exercises": 20,
+      "formula": 45,
       "algorithm": 8,
-      "list": 9
+      "list": 10
     }
   }
 }

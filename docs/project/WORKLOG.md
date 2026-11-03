@@ -6,6 +6,159 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 22 (cron, Job 498279): FM lesson 5.2 "Decimals and Fractions, Two Ways of Writing the Same Numbers" authored in the Cengage voice + solution chain — long division past the point becomes the universal bridge-builder, the dresses theorem proves every fraction terminates or recurs, and the 1/7 carousel shows the dance
+
+**Run open (push check first):** tree clean at `f2a7e9d` = local HEAD =
+origin/main (run 21's memory commit, verified anonymously via
+`git ls-remote https://github.com/Sachin0Amit/lock-in.git` — remote
+HEAD `f2a7e9d4…` = refs/heads/main = local; `git rev-list --count
+origin/main..HEAD` = 0) — nothing queued, no push debt. Task per
+RESUME_POINTER: FM lesson 5.2 "Decimals and Fractions, Two Ways of
+Writing the Same Numbers" (long division as the universal bridge;
+terminating vs recurring; extend verify-unit-5.ts BEFORE writing).
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT Class 9 ch. 1 "Number Systems" (the canonical terminating /
+non-terminating-recurring classification of rational decimal
+expansions and the long-division construction — web-checked
+2026-11-04; the atom-test criterion is the same theorem in its
+class-9 dress); NCERT Class 6 ch. 8 "Decimals" "Fractions as
+decimals" long-division coverage (confirmed canon, extends the
+existing `ncert-math6-ch8` key); Khattar QA 4e decimal-fraction
+patterns (recurring-to-fraction shortcuts, truncation comparisons,
+the 22/7 trap). One new citation key in SOURCE_LOG.md:
+`ncert-math9-ch1`. No temporary-references footprint; the Drive
+survey was rebuilt once (`rebuild_drive_survey.ts`) solely to
+regenerate WORK_INVENTORY.json after the recycle.
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-5.ts extended
+165 → **273 checks** (sections P–AC, 108 new) ALL PASS before a word
+was written: P exact long-division simulations (3/8 → [3,7,5];
+5/8 → 0.625; 7/8 → 0.875; 7/20 → 0.35; 13/25 → 0.52; 9/8 → 1.125;
+3/16 → 0.1875; value-reconstruction cross-multiplications); Q the
+pigeonhole machinery (1/7 remainder walk [1,3,2,6,4,5] closing on the
+seventh step, digits [1,4,2,8,5,7], cycleStart 1/cycleLen 6;
+determinism of r → (⌊10r/b⌋, 10r mod b) swept b = 2..30; every
+start-remainder < b; cycle ≤ b − 1 swept b = 2..60; the division-side
+atom test — 1/b terminates ⟺ atoms ⊆ {2, 5} swept b = 2..60; 5/12 →
+[4,1,6] head 2 cycle 1); R terminating places = max(m, n) by division
+(swept b = 2..80 over the 2-and-5 family); S cycle lengths as orders
+of 10 (3/9 → 1; 11 → 2; 27/37 → 3; 7/13 → 6 — order10mod verified
+digit-exactly and swept against the observed cycles for all b in
+3..60 coprime to 10; 22/7 = 3.(142857); 4/33 = 0.(12)); T the 142857
+family (2/7..6/7 rotations verified; ×2..×6 products re-order the
+block; ×7 = 999999; digit sum 27 → 9 × 15873); U the head-length
+theorem numerics (5/12 head 2, 1/6 head 1, 7/30 head 1, 13/22 head 1
+cycle 2, 11/150 head 2; after max(m, n) shifts the reduced
+denominator is coprime to 10 in all five samples); V shift-and-subtract
+exact integer conversions (0.(3) = 1/3; 0.(7) = 7/9; 0.(36) = 4/11;
+0.(142857) = 1/7; 0.41(6) = 5/12; 0.58(3) = 7/12; 0.2(45) = 27/110;
+0.12(3) = 37/300; 0.5(90) = 13/22; 0.(9) = 1; 0.0(27) = 3/110; a
+ten-sample fraction → digits → fraction round-trip sweep); W
+comparisons (2/7 vs 0.2857 by exact cross — gap exactly 1/70000;
+0.2858 > 2/7; 0.334 > 1/3; 0.4167 > 5/12; 22/7 > 3.14159 with
+|22/7 − π| ≈ 0.00126); X the atoms of the base (in base twelve 1/3 =
+0.4 twelve terminating, 1/9 = 0.14 twelve, 1/7 still cycle 6, and
+the b = 2..60 sweep: terminates-in-base-12 ⟺ atoms ⊆ {2, 3}); Y
+figure geometry (carousel nodes/labels/arrowheads at verified
+coordinates; bridge-map lanes/boxes non-overlap); Z quiz key audit
+(indices 0/2/2/1/0, every distractor's arithmetic checked); AA
+exercise key audit (all 12 solutions' numbers); AB the 22/7
+correction (22/7 = 3.(142857), NOT π — the defect found and fixed in
+5.1's prose this run); AC structural sanity. Regressions: unit-4 330,
+unit-3 260, unit-2 165 ALL PASS.
+
+**Defect fixed in 5.1:** the closing-bridge paragraph said chapter 1's
+22/7 "began its endless waltz 3.14159…" — those are π's digits;
+22/7 = 3.142857… (≈ π + 0.00126, the examiners' trap the new lesson's
+exam corner names). Prose corrected in place; no other 3.14159
+anywhere in the book (chapter 1 grep clean).
+
+**Lesson 5.2 authored** (`fm-decimals-and-fractions-two-ways`, 5,407
+words; ch. 5 now 2/5): the opening fence (the atom test's refuseniks
+have no exact dress, yet the line has no gaps — let the division run
+past the point); the **step machine** equation (tag 1: next digit =
+⌊10r/b⌋, next remainder = 10r mod b) justified from Lesson 4.2's
+multiplying rule; **terminating decimals** (Illustration 1 runs 3 ÷ 8
+to remainder 0 — three places, exactly max(3, 0); the division-side
+reading of the atom test: each step adds one 2-atom and one
+5-atom of paying power); **recurring decimals** (Illustration 2 runs
+5 ÷ 12 — remainder 8 returns, 6 waltzes forever, 0.416̄; the
+pigeonhole preview); **the dresses theorem as a derivation block**
+(deterministic walk on b cells; cell 0 ends the walk; b − 1 nonzero
+cells force a return; determinism replays the block — repetend
+≤ b − 1 digits); **figure 1: the remainder carousel of 1/7** (six
+cells 1→3→2→6→4→5→1 on a ring, amber arrowheads + the emitted digits
+1 4 2 8 5 7 in walking order, center explainer — geometry
+script-verified, audit 0 issues, VLM 10/10); the slow carousel walk
+(10 = 1×7 + 3 … 50 = 7×7 + 1); **pure vs mixed recurrence** (the
+roman example run: 1/3 cycle 1, 1/11 cycle 2 via 10 ≡ −1, 1/37 cycle
+3 via 999 = 27 × 37, 1/7 cycle 6; the mixed instances 1/6, 7/30,
+13/22, 11/150); **the head-length theorem as a derivation block**
+(head = exactly max(m, n) places — the 2-and-5 part pays out, then
+the coprime-to-ten tail walks purely; shorter shifts cannot clear
+the 2/5 atoms); **figure 2: the map of the bridge** (three-lane
+classifier TERMINATING / MIXED RECURRING / PURE RECURRING with
+worked instances 7/8, 5/12, 1/3 — audit 0 issues, VLM 9/10); **the
+bridge backwards** (shift-and-subtract: Illustrations 3-5 convert
+0.3̄ = 1/3, 0.142857̄ = 1/7 over six nines, 0.245̄45̄ = 27/110 over
+990; the general rule as equation tag 2; the vinculum of Lesson 2.5
+returns as the repetend bar); the **0.9̄ = 1 Caution** and the
+**atoms-of-the-base Note** (in base twelve thirds terminate —
+1/3 = 0.4 twelve — and sevenths still waltz with cycle 6); the
+exam-style **2/7 vs 0.2857 Illustration** (cross-multiply: 20000 >
+19999, the fraction wins by exactly 1/70000) and the not-π warning
+for 22/7; the 6-row dress-catalogue table; the census equation
+(1/3 = 0.3̄, 5/12 = 0.416̄, 22/7 = 3.142857̄, 0.9̄ = 1); 3 formula
+cards (the division step, the shift rule, the head + cycle rule);
+exam corner (fast conversions, classification before division,
+truncation traps, the 22/7 trap, the 142857 rotation family on SSC
+and banking papers); 7 new terms (Long division step, Terminating
+decimal, Recurring decimal, Repetend, Pure recurring decimal, Mixed
+recurring decimal, Cycle length); 5-quiz (0/2/2/1/0 verified live
+5/5 · perfect); 12 exercises L1–L6 — L6 proves the dresses theorem
+(pigeonhole + determinism) and the 142857 rotation family from
+142857 × 7 = 999999.
+
+**Verified:** lint clean; tsc clean; routes 200 (dev server alive
+from run 21); both new figures pass scripts/audit-svg-overlaps.sh
+with 0 issues (carousel first pass had 4 contacts — node digits
+inside their circles and the bottom annotation crossing the ring —
+fixed by moving node labels radially outside at radius 184 and
+folding the waltz-closes line into the center stack; re-audited
+clean); E2E extended to **10 lessons** (LESSONS array + a dedicated
+5.2 block): 5 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol.
+pills ALL inline (inlineSolPills = solPills = 6, 18 Sol. pills with
+the exercises expanded), stepNumberBadges = 0, legacyAnswerBoxes = 0,
+18 ∴ tags on the illustration chain (30 with exercises), KaTeX 307
+nodes, dollarInSvg = 0, note boxes Caution/Note/3 formula cards/Exam
+corner, exercises bar 12 questions, quiz bar 5; quiz answered live
+with intended options (indices 0/2/2/1/0) → "You scored 5/5 ·
+perfect" + Retake (score read after a separate wait — the same-eval
+read races React's flush, run-21 precedent); all 12 exercise
+solutions expand (36 open collapsibles); 2 svg figures render; mobile
+390px exact-fit (docScrollW = 390, articleW = 358); VLM review:
+carousel 10/10 (mathematically correct, no overlaps), bridge map
+9/10 (clean, minor bottom-margin nitpick); quiz key re-verified live
+5/5 · perfect; glossary picks up the 7 new terms (121 → 128); book
+TOC shows 5.2 written, plannedLessons down to three; totals
+recomputed by build_work_inventory.ts: **20 lessons / 96,691 words /
+128 terms / 100 quiz items / 197 exercise questions**.
+
+**Logged:** WORKLOG (this entry), DETAILED_LOG (generated line +
+timeline row + lesson 5.2 block + current state), PROGRESS.json
+(phase/awaiting/verified/library), RESUME_POINTER.json (nextAction +
+run22Extras), SOURCE_LOG.md (ncert-math9-ch1 key + free-space entry +
+per-subject ledger row), WORK_INVENTORY.json regenerated (drive
+survey rebuilt once after the recycle — content unchanged, 89
+entries). Zero downloads; storage law honoured.
+
+**Git:** run-22 ship commit + inventory bookkeeping commit, pushed per
+protocol v2 at run end — see the run-22 memory commit for the
+verified sha.
+
+---
+
 ## 2026-11-04 — RUN 21 (cron, Job 498279): FM lesson 5.1 "Decimal Places and the Point" authored in the Cengage voice + solution chain — the point becomes the hinge of the place-value mirror, the atom test legislates the fraction↔decimal bridge, and chapter 5 opens
 
 **Run open (push check first):** tree clean at `77c4a2a` = local HEAD =
