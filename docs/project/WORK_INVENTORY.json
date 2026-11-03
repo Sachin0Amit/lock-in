@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 22:36:37 (Asia/Kolkata)",
+  "generated": "2026-11-03 23:23:39 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -895,9 +895,8 @@
             "title": "Fractions",
             "summary": "Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Adding and Subtracting Fractions",
               "Multiplying and Dividing Fractions"
             ],
             "lessons": [
@@ -1100,9 +1099,76 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 6
+              },
+              {
+                "id": "fm-adding-subtracting-fractions",
+                "number": "4.4",
+                "title": "Adding and Subtracting Fractions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4916,
+                "readMins": 25,
+                "concepts": [
+                  "Like fractions share a ruler",
+                  "Unlike fractions and the LCM method",
+                  "Sums and differences in lowest terms",
+                  "Subtraction as gap-naming",
+                  "Complement from the whole",
+                  "Regrouping mixed numbers",
+                  "Egyptian two-term openings",
+                  "The straight-across fraud"
+                ],
+                "objectives": [
+                  "Add and subtract fractions on a shared ruler by counting pieces, and simplify every result to lowest terms",
+                  "Raise any two unlike fractions to one common ruler — the LCM as standard equipment — and add or subtract the raised counts, with mixed numbers handled storey by storey",
+                  "Read subtraction as gap-naming and complements, and decide when a subtraction has an answer at all",
+                  "Split fractions into two-term sums of distinct unit fractions by the greedy choice, and prove why adding straight across never works"
+                ],
+                "prerequisites": [
+                  "fm-idea-of-a-fraction",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-comparing-fractions",
+                  "fm-lowest-common-multiple"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch7"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 7,
+                  "callout": 5,
+                  "list": 2,
+                  "example": 7,
+                  "figure": 2,
+                  "formula": 2,
+                  "terms": 1,
+                  "table": 1,
+                  "equation": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 6
               }
             ],
-            "words": 16817
+            "words": 21733
           },
           {
             "number": 5,
@@ -1242,12 +1308,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 18723,
+      "totalLines": 19354,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 9467,
+        "src/data/library (content model + books)": 10098,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4415,6 +4481,38 @@
           "del": 4
         }
       ]
+    },
+    {
+      "sha": "576224328b779b18ec510202cd16d60be0ef6d66",
+      "short": "5762243",
+      "date": "2026-11-03 17:06",
+      "message": "inventory: record run-18 ship (fd39676) — FM 4.3 comparing fractions live; next FM 4.4 adding and subtracting fractions in the Cengage voice",
+      "filesChanged": 1,
+      "insertions": 72,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 72,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "814cdae643a99283f95af892d668fe70070e2adf",
+      "short": "814cdae",
+      "date": "2026-11-03 17:07",
+      "message": "memory: record run-18 push verification (5762243), origin/main synced — FM 4.3 comparing fractions live; next FM 4.4 adding and subtracting fractions in the Cengage voice",
+      "filesChanged": 1,
+      "insertions": 8,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 8,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
@@ -4423,26 +4521,26 @@
     "booksLive": 1,
     "chaptersWritten": 3,
     "chaptersInProgress": 1,
-    "lessonsWritten": 16,
-    "wordsAuthored": 75846,
-    "termsDefined": 102,
-    "quizItems": 80,
-    "exerciseQuestions": 149,
+    "lessonsWritten": 17,
+    "wordsAuthored": 80762,
+    "termsDefined": 108,
+    "quizItems": 85,
+    "exerciseQuestions": 161,
     "blockTotals": {
-      "para": 214,
-      "callout": 74,
-      "heading": 110,
-      "terms": 17,
-      "equation": 17,
+      "para": 233,
+      "callout": 79,
+      "heading": 117,
+      "terms": 18,
+      "equation": 18,
       "derivation": 32,
-      "table": 18,
-      "figure": 23,
-      "example": 40,
-      "quiz": 16,
-      "exercises": 16,
-      "formula": 34,
+      "table": 19,
+      "figure": 25,
+      "example": 47,
+      "quiz": 17,
+      "exercises": 17,
+      "formula": 36,
       "algorithm": 8,
-      "list": 3
+      "list": 5
     }
   }
 }
