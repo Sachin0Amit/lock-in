@@ -1,101 +1,103 @@
 {
-  "$schema": "./PROGRESS.schema.json",
-  "project": "LockIn Library",
-  "updated": "2026-11-03",
-  "phase": "unit 3 IN PROGRESS (chapter 3 = 3/5 lessons: 3.1 Divisibility and Its Tests + 3.2 Prime Numbers and Factorisation + 3.3 Highest Common Factor shipped) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
-  "awaiting": "continue unit 3: FM chapter 3 'Factors, Multiples and Primes' lesson 3.4 'Lowest Common Multiple' next; then 3.5 HCF/LCM relation; hourly cadence runs the cycle",
-  "platform": {
-    "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
-    "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
-    "routes": [
-      "/",
-      "/book/[bookId]",
-      "/book/[bookId]/lesson/[lessonId]",
-      "/book/[bookId]/revise",
-      "/book/[bookId]/glossary",
-      "404"
-    ],
-    "features": [
-      "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
-      "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
-      "reader breadcrumb Library/book/chapter; two-column footer with quick links + Ctrl-K hint",
-      "shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS",
-      "shareable deep-link URLs, statically generated",
-      "command palette (Ctrl/Cmd+K) with full-text search (lessons, books, glossary terms), snippets, actions, random lesson",
-      "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",
-      "prerequisites chips + sources footer on lessons",
-      "quiz scoring with persisted best score + retake",
-      "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
-      "glossary A–Z + formula sheet pages",
-      "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)"
-    ],
-    "verified": [
-      "lint clean; tsc clean (src/)",
-      "all routes 200; unknown ids 404 correctly",
-      "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
-      "mobile 390px: no horizontal overflow on home/book/all lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
-      "KaTeX 154 nodes (1.2) / 114 (1.3) / 118 (2.1) / 140 (2.2) / 149 (2.3) / 148 (2.4); figures, algorithm blocks, 11-col table all render",
-      "unit 2 lesson 2.1 E2E: quiz 5/5 perfect, flashcards 22 cards, glossary + formula sheet updated, mobile exact-fit, zero console errors",
-      "unit 2 lesson 2.2 E2E: quiz 5/5 perfect, flashcards 28 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figure geometry verified via DOM",
-      "unit 2 lesson 2.3 E2E: quiz 5/5 perfect, flashcards 34 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures geometry-verified via DOM (equal-jump arcs, partial-product rows, shift annotations)",
-      "unit 2 lesson 2.4 E2E: quiz 5/5 perfect, flashcards 40 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render)",
-      "unit 2 lesson 2.5 E2E (unit-2 completion review): quiz 5/5 perfect with intended options clicked live, flashcards 47 cards, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, expression-tree figure screenshot-verified, mobile exact-fit (scrollW=390), zero console/page errors; KaTeX 113 nodes, dollarInSvg=0; BOOK_FORMAT checklist 7/7; exam-coverage audit run; chapter totals recomputed (ch. 2 = 21,450 words; book = 8 lessons / 31,159 words / 47 terms)",
-      "unit 3 lesson 3.1 E2E: routes 200 (home/book/lesson/glossary/revise); KaTeX 370 nodes; dollarInSvg=0; quiz answered live with intended options (indices 2/3/1/2/3) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 54 cards (47 + 7 new terms); glossary lists new terms; formula sheet lists all 4 new cards (treaty, tail, digit-sum, alternating); screening-desk figure screenshot-verified with plain labels; mobile 390px exact-fit (scrollW=390); zero console/page errors; verify-unit-3.ts 96/96 pre-writing, verify-unit-2.ts still 165/165; tsc fully clean repo-wide incl. both scripts",
-      "unit 3 lesson 3.3 E2E: routes 200 (home/book/3.2/3.3/revise/glossary; unknown id 404); KaTeX 392 expanded (257 collapsed); dollarInSvg=0; quiz answered live with intended options (indices 1/3/2/0/1) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 68 cards (61 + 7 new terms); glossary lists Highest common factor/Euclidean algorithm/Bézout's identity/Coprime split; Venn figure screenshot-verified (both headers, overlap 2·2·2·2·3 = 48, bottom annotations, plain labels); mobile 390px exact-fit (scrollW=390) with ALL TEN solutions expanded — 3 wide display blocks scroll inside the math-display overflow-x:auto guard, max SVG width 324; zero console/page errors; verify-unit-3.ts 192/192 pre-writing (sections V–Y, 40 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean",
-      "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)"
-    ]
-  },
-  "library": {
-    "disciplines": 11,
-    "books": [
-      {
-        "id": "foundation-mathematics",
-        "title": "Foundation Mathematics",
-        "status": "in-progress",
-        "chaptersPlanned": 11,
-        "chaptersWritten": 2,
-        "lessonsWritten": [
-          "fm-numbers-digits-place-value",
-          "fm-comparing-ordering-numbers",
-          "fm-rounding-and-estimating",
-          "fm-addition-carrying",
-          "fm-subtraction-borrowing",
-          "fm-multiplication-repeated-addition",
-          "fm-division-remainders-zero",
-          "fm-order-of-operations",
-          "fm-divisibility-and-its-tests",
-          "fm-prime-numbers-factorisation",
-          "fm-highest-common-factor"
-        ],
-        "termsAvailableForFlashcards": 68,
-        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words. Chapter 2 COMPLETE (unit 2, 2026-11-03): 5 lessons, 21,450 words — lesson 2.1 'Addition and the Art of Carrying' (3,952), 2.2 'Subtraction and Borrowing' (4,611), 2.3 'Multiplication as Repeated Addition — and Beyond' (4,028), 2.4 'Division, Remainders and Why Zero Never Divides' (4,693), 2.5 'Order of Operations and the Language of Expressions' (4,166; 7 terms, expression-tree figure, compression-argument derivation, BODMAS algorithm + worked ladder 109, estimation gate, L1–L6 treaty-maker's finale; 60 new checks → 165 script total; unit-2 completion review: BOOK_FORMAT checklist 7/7, exam-coverage audit, totals recomputed). Chapter 3 OPEN (unit 3, 2026-11-03): lesson 3.1 'Divisibility and Its Tests' (6,477 words; 7 terms; screening-desk figure; five families derived with reasons; master table 2–12; worked 4,896 screen; Pascal 1654 + Fibonacci 1202; 96 checks) and lesson 3.2 'Prime Numbers and Factorisation' (6,089 words; 7 terms; two-trees-for-60 figure; two-factor treaty; sieve algorithm + 25-prime harvest; square-root licence derivation + 397 worked certification; false primes 91/51/87/221; FTA uniqueness derivation with Euclid's crossroads lemma + 1-exclusion load-bearing argument; exam-hall 4,896 = 2^5 × 3^2 × 17 display chain; divisor-count derivation + gallery table; 55 new checks → 152 unit-3 script total) shipped 2026-11-03 (runs 7–8), all gates green. Lesson 3.3 'Highest Common Factor' (5,564 words; 7 terms; Venn-territories figure for 96 vs 720 whose overlap is HCF 48 and whose union previews LCM 1,440; three routes — listing (48 & 60 → 12), atoms at the smaller powers (smaller-power derivation; gallery pair 96 & 720 → 48; missing-prime-is-exponent-0: 2,025 & 4,896 → 9), Euclidean ladder (4,896 & 720 → 144 in three rows) — route-choice table; swap-lemma derivation from the division algorithm + termination via 3.1's r < b; three-cords worked example 1,152/768/1,248 → 96 by ladder and atoms; back-substitution derivation → Bézout theorem callout (7 × 720 − 4,896 = 144); crossroads-lemma derivation DISCHARGING 3.2's proof debt; coprime-split theorem generalising 3.1's trap with 2,376 = 12 × 198 instance and 18 counter; three greatest-number exam patterns table (cords → 96; 689/1,124/1,706 − 5/8/14 → 36; 152/277/427 equal-remainder → 25); historical callout Euclid VII.1–2 + al-Khwārizmī + Bachet 1624 + Bézout 1779; 5 quiz (answers spread 1/3/2/0/1, 5/5 live); L1–L6 exercises incl. the seed repaid (gcd(84,126) = 42 by ladder) and the composer's problem (six pairs, HCF 12, sum 156, completeness via 13 prime); 40 new checks → 192 unit-3 script total) shipped 2026-11-03 (run 9), all gates green. Remaining: 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate."
-      }
-    ],
-    "lessonsWritten": 11,
-    "wordsAuthored": 49289
-  },
-  "research": {
-    "examRegistry": {
-      "target": "50+ examinations (>=10 Indian, >=20 international)",
-      "status": "skeleton created, zero exams researched yet",
-      "file": "docs/project/EXAM_REGISTRY.json"
-    },
-    "sourceCollection": {
-      "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
-      "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
-      "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2)"
-    }
-  },
-  "workflowRulesReminder": [
-    "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): a unit = one chapter; research → write → verify → ship → log, then the next unit; never batch-draft",
-    "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
-    "Delete downloaded working copies after the unit is verified (never Drive originals)",
-    "Original content only; references inform, never reproduce",
-    "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
-    "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
-    "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
-    "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) — owner never resends it",
-    "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner's fine-grained PAT lives ONLY in the hourly cron job payload (job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits — one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README 'Pushing to GitHub')"
+ "$schema": "./PROGRESS.schema.json",
+ "project": "LockIn Library",
+ "updated": "2026-11-03",
+ "phase": "unit 3 IN PROGRESS (chapter 3 = 4/5 lessons: 3.1 Divisibility and Its Tests + 3.2 Prime Numbers and Factorisation + 3.3 Highest Common Factor + 3.4 Lowest Common Multiple shipped) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
+ "awaiting": "continue unit 3: FM chapter 3 lesson 3.5 'HCF, LCM and How They Relate' next (closes the unit — the product rule gcd × lcm = a × b + pair reconstruction + unit-3 completion review); hourly cadence runs the cycle",
+ "platform": {
+  "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
+  "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
+  "routes": [
+   "/",
+   "/book/[bookId]",
+   "/book/[bookId]/lesson/[lessonId]",
+   "/book/[bookId]/revise",
+   "/book/[bookId]/glossary",
+   "404"
   ],
-  "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship — exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too."
+  "features": [
+   "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
+   "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
+   "reader breadcrumb Library/book/chapter; two-column footer with quick links + Ctrl-K hint",
+   "shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS",
+   "shareable deep-link URLs, statically generated",
+   "command palette (Ctrl/Cmd+K) with full-text search (lessons, books, glossary terms), snippets, actions, random lesson",
+   "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",
+   "prerequisites chips + sources footer on lessons",
+   "quiz scoring with persisted best score + retake",
+   "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
+   "glossary A–Z + formula sheet pages",
+   "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)"
+  ],
+  "verified": [
+   "lint clean; tsc clean (src/)",
+   "all routes 200; unknown ids 404 correctly",
+   "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
+   "mobile 390px: no horizontal overflow on home/book/all lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
+   "KaTeX 154 nodes (1.2) / 114 (1.3) / 118 (2.1) / 140 (2.2) / 149 (2.3) / 148 (2.4); figures, algorithm blocks, 11-col table all render",
+   "unit 2 lesson 2.1 E2E: quiz 5/5 perfect, flashcards 22 cards, glossary + formula sheet updated, mobile exact-fit, zero console errors",
+   "unit 2 lesson 2.2 E2E: quiz 5/5 perfect, flashcards 28 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figure geometry verified via DOM",
+   "unit 2 lesson 2.3 E2E: quiz 5/5 perfect, flashcards 34 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures geometry-verified via DOM (equal-jump arcs, partial-product rows, shift annotations)",
+   "unit 2 lesson 2.4 E2E: quiz 5/5 perfect, flashcards 40 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render)",
+   "unit 2 lesson 2.5 E2E (unit-2 completion review): quiz 5/5 perfect with intended options clicked live, flashcards 47 cards, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, expression-tree figure screenshot-verified, mobile exact-fit (scrollW=390), zero console/page errors; KaTeX 113 nodes, dollarInSvg=0; BOOK_FORMAT checklist 7/7; exam-coverage audit run; chapter totals recomputed (ch. 2 = 21,450 words; book = 8 lessons / 31,159 words / 47 terms)",
+   "unit 3 lesson 3.1 E2E: routes 200 (home/book/lesson/glossary/revise); KaTeX 370 nodes; dollarInSvg=0; quiz answered live with intended options (indices 2/3/1/2/3) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 54 cards (47 + 7 new terms); glossary lists new terms; formula sheet lists all 4 new cards (treaty, tail, digit-sum, alternating); screening-desk figure screenshot-verified with plain labels; mobile 390px exact-fit (scrollW=390); zero console/page errors; verify-unit-3.ts 96/96 pre-writing, verify-unit-2.ts still 165/165; tsc fully clean repo-wide incl. both scripts",
+   "unit 3 lesson 3.3 E2E: routes 200 (home/book/3.2/3.3/revise/glossary; unknown id 404); KaTeX 392 expanded (257 collapsed); dollarInSvg=0; quiz answered live with intended options (indices 1/3/2/0/1) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 68 cards (61 + 7 new terms); glossary lists Highest common factor/Euclidean algorithm/Bézout's identity/Coprime split; Venn figure screenshot-verified (both headers, overlap 2·2·2·2·3 = 48, bottom annotations, plain labels); mobile 390px exact-fit (scrollW=390) with ALL TEN solutions expanded — 3 wide display blocks scroll inside the math-display overflow-x:auto guard, max SVG width 324; zero console/page errors; verify-unit-3.ts 192/192 pre-writing (sections V–Y, 40 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean",
+   "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)",
+   "unit 3 lesson 3.4 E2E: quiz 5/5 perfect (C/D/B/C/D clicked live), flashcards 75 cards, glossary + formula sheet pick up the 7 new terms and 3 new cards, timetable figure passes scripts/audit-svg-overlaps.sh with 0 issues first pass and is screenshot-verified, mobile 390px exact-fit (overflowX = 0) with all ten solutions expanded, zero console errors; KaTeX 249 nodes, dollarInSvg = 0"
+  ]
+ },
+ "library": {
+  "disciplines": 11,
+  "books": [
+   {
+    "id": "foundation-mathematics",
+    "title": "Foundation Mathematics",
+    "status": "in-progress",
+    "chaptersPlanned": 11,
+    "chaptersWritten": 2,
+    "lessonsWritten": [
+     "fm-numbers-digits-place-value",
+     "fm-comparing-ordering-numbers",
+     "fm-rounding-and-estimating",
+     "fm-addition-carrying",
+     "fm-subtraction-borrowing",
+     "fm-multiplication-repeated-addition",
+     "fm-division-remainders-zero",
+     "fm-order-of-operations",
+     "fm-divisibility-and-its-tests",
+     "fm-prime-numbers-factorisation",
+     "fm-highest-common-factor",
+     "fm-lowest-common-multiple"
+    ],
+    "termsAvailableForFlashcards": 68,
+    "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words. Chapter 2 COMPLETE (unit 2, 2026-11-03): 5 lessons, 21,450 words — lesson 2.1 'Addition and the Art of Carrying' (3,952), 2.2 'Subtraction and Borrowing' (4,611), 2.3 'Multiplication as Repeated Addition — and Beyond' (4,028), 2.4 'Division, Remainders and Why Zero Never Divides' (4,693), 2.5 'Order of Operations and the Language of Expressions' (4,166; 7 terms, expression-tree figure, compression-argument derivation, BODMAS algorithm + worked ladder 109, estimation gate, L1–L6 treaty-maker's finale; 60 new checks → 165 script total; unit-2 completion review: BOOK_FORMAT checklist 7/7, exam-coverage audit, totals recomputed). Chapter 3 OPEN (unit 3, 2026-11-03): lesson 3.1 'Divisibility and Its Tests' (6,477 words; 7 terms; screening-desk figure; five families derived with reasons; master table 2–12; worked 4,896 screen; Pascal 1654 + Fibonacci 1202; 96 checks) and lesson 3.2 'Prime Numbers and Factorisation' (6,089 words; 7 terms; two-trees-for-60 figure; two-factor treaty; sieve algorithm + 25-prime harvest; square-root licence derivation + 397 worked certification; false primes 91/51/87/221; FTA uniqueness derivation with Euclid's crossroads lemma + 1-exclusion load-bearing argument; exam-hall 4,896 = 2^5 × 3^2 × 17 display chain; divisor-count derivation + gallery table; 55 new checks → 152 unit-3 script total) shipped 2026-11-03 (runs 7–8), all gates green. Lesson 3.3 'Highest Common Factor' (5,564 words; 7 terms; Venn-territories figure for 96 vs 720 whose overlap is HCF 48 and whose union previews LCM 1,440; three routes — listing (48 & 60 → 12), atoms at the smaller powers (smaller-power derivation; gallery pair 96 & 720 → 48; missing-prime-is-exponent-0: 2,025 & 4,896 → 9), Euclidean ladder (4,896 & 720 → 144 in three rows) — route-choice table; swap-lemma derivation from the division algorithm + termination via 3.1's r < b; three-cords worked example 1,152/768/1,248 → 96 by ladder and atoms; back-substitution derivation → Bézout theorem callout (7 × 720 − 4,896 = 144); crossroads-lemma derivation DISCHARGING 3.2's proof debt; coprime-split theorem generalising 3.1's trap with 2,376 = 12 × 198 instance and 18 counter; three greatest-number exam patterns table (cords → 96; 689/1,124/1,706 − 5/8/14 → 36; 152/277/427 equal-remainder → 25); historical callout Euclid VII.1–2 + al-Khwārizmī + Bachet 1624 + Bézout 1779; 5 quiz (answers spread 1/3/2/0/1, 5/5 live); L1–L6 exercises incl. the seed repaid (gcd(84,126) = 42 by ladder) and the composer's problem (six pairs, HCF 12, sum 156, completeness via 13 prime); 40 new checks → 192 unit-3 script total) shipped 2026-11-03 (run 9), all gates green. Lesson 3.4 'Lowest Common Multiple' (5,014 words; 7 terms Common multiple/LCM/Shared primes at the larger powers/Common-division ladder/Coprime extreme/Divisibility extreme/Overlap and union territories; two-lane timetable figure with rings at the shared departures 0/36/72/108; three routes — listing (16 & 24 → 48) + the timetable structure theorem derived (common multiples = exactly the multiples of the LCM), atoms at the larger powers (96 & 720 → 1,440 = 2 × 48 × 15, the Venn union territory; warn callouts on the smaller-power slip 48 and the dropped-5 slip 288), common-division ladder (12/15/20/54 → 540 with the switch-to-3; cords flipped 1,152/768/1,248 → 29,952 cm); four least-number patterns table (5,040; 144+5 = 149 with the k = 0 honesty note; 90−5 = 85; counting 300/35 → 8) + formula card completing 3.3's remainder-pattern pair; Metonic-cycle historical callout (19 years ≈ 235 months within ~2 h); 5 quiz (answers spread 2/3/1/2/3, 5/5 live); L1–L6 exercises ending in the pair-hunter's problem (seven pairs with LCM 18, completeness by divisor enumeration); 35 new checks (section Z) → 227 unit-3 script total) shipped 2026-11-03 (run 10), all gates green incl. the SVG overlap audit 0 issues first pass. Remaining: 3.5 HCF, LCM and How They Relate + unit-3 completion review."
+   }
+  ],
+  "lessonsWritten": 12,
+  "wordsAuthored": 54303
+ },
+ "research": {
+  "examRegistry": {
+   "target": "50+ examinations (>=10 Indian, >=20 international)",
+   "status": "skeleton created, zero exams researched yet",
+   "file": "docs/project/EXAM_REGISTRY.json"
+  },
+  "sourceCollection": {
+   "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
+   "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
+   "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2)"
+  }
+ },
+ "workflowRulesReminder": [
+  "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): a unit = one chapter; research → write → verify → ship → log, then the next unit; never batch-draft",
+  "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
+  "Delete downloaded working copies after the unit is verified (never Drive originals)",
+  "Original content only; references inform, never reproduce",
+  "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
+  "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
+  "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
+  "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) — owner never resends it",
+  "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner's fine-grained PAT lives ONLY in the hourly cron job payload (job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits — one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README 'Pushing to GitHub')"
+ ],
+ "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship — exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too."
 }

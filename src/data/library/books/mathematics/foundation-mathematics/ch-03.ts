@@ -4,16 +4,16 @@ import type { Chapter } from '../../../types'
  * Foundation Mathematics — Chapter 3: Factors, Multiples and Primes
  *
  * LESSONS WRITTEN (UNIT 3 IN PROGRESS): 3.1 Divisibility and Its Tests ·
- * 3.2 Prime Numbers and Factorisation · 3.3 Highest Common Factor.
- * Planned: 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate.
+ * 3.2 Prime Numbers and Factorisation · 3.3 Highest Common Factor ·
+ * 3.4 Lowest Common Multiple. Planned: 3.5 HCF, LCM and How They Relate.
  * Unit 3 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
  * Examinations (4e) ch. 1 "Numbers" + ch. 2 "H.C.F. and L.C.M. of
  * Numbers" (prime-factorisation and division methods for the H.C.F.,
  * greatest-number exam patterns) + NCERT Class 6 ch. 3 "Playing with
  * Numbers" topic coverage — see docs/project/SOURCE_LOG.md. Exposition
- * original; all arithmetic verified by scripts/verify-unit-3.ts (192
- * checks for 3.1 + 3.2 + 3.3) BEFORE writing.
+ * original; all arithmetic verified by scripts/verify-unit-3.ts (227
+ * checks for 3.1 + 3.2 + 3.3 + 3.4) BEFORE writing.
  * Honours the ties promised in Lesson 2.4: the digit-sum screens become
  * the mod-9/mod-3 rules, the ÷10^n corollary becomes the tail tests, and
  * the remainder bound underlies "r = 0 means divisible".
@@ -26,7 +26,6 @@ export const chapter03: Chapter = {
     'The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.',
   status: 'in-progress',
   plannedLessons: [
-    'Lowest Common Multiple',
     'HCF, LCM and How They Relate',
   ],
   lessons: [
@@ -1679,6 +1678,453 @@ export const chapter03: Chapter = {
         {
           kind: 'para',
           text: 'Two objects now live at the vantage point — one built, one promised. The shared primes at the smaller powers assembled the HCF, and the ladder reached the same answers without ever factorising; between them, the coprime split and Bézout\'s identity turned Lesson 3.1\'s warning and Lesson 3.2\'s debt into theorems. Still waiting in the picture: the primes at the **larger** powers. The Venn figure has already drawn them — the union territory $2 \\times 48 \\times 15 = 1{,}440$, the smallest number that both $96$ and $720$ divide. That is the **lowest common multiple**, and it has a story of its own: bells that ring together, buses that leave together, timetables that collide. Lesson 3.4 begins there.',
+        },
+      ],
+    },
+    {
+      id: 'fm-lowest-common-multiple',
+      number: '3.4',
+      title: 'Lowest Common Multiple',
+      concepts: [
+        'Common multiples of two numbers',
+        'LCM as the first shared departure',
+        'Shared primes at the larger powers',
+        'The common-division ladder',
+        'Coprime extreme: LCM = product',
+        'Divisibility extreme: LCM = the larger',
+        'Least-number exam patterns',
+      ],
+      objectives: [
+        'Define common multiples and the lowest common multiple, and prove that the common multiples of a pair are exactly the multiples of their LCM',
+        'Compute the LCM by three routes — listing, prime factorisation at the larger powers, and the common-division ladder — and choose the right route for the job',
+        'Read the LCM off the Venn picture Lesson 3.3 drew, as the product of all three territories, and recognise the coprime and divisibility extremes',
+        'Deploy the four "least number" exam patterns — exact division, same remainder, equal deficiencies, and counting multiples — with reasons',
+      ],
+      prerequisites: ['fm-divisibility-and-its-tests', 'fm-prime-numbers-factorisation', 'fm-highest-common-factor'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch3'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Two buses leave the depot at 6:00 am sharp — same gate, same corner. Bus A runs every $12$ minutes; bus B runs every $18$. A passenger who can take either bus wants to know: when do they next leave **together**? Bus A\'s departures are the multiples of $12$ — $12$, $24$, $36$, $48$, $60$ — and bus B\'s are the multiples of $18$ — $18$, $36$, $54$, $72$. The two lists climb the number line by different stairs, and the first landing they share is $36$: three bus-A intervals, two bus-B intervals. After that they part, and meet again at $72$, then $108$. Lesson 3.3 promised exactly this picture — "bells that ring together, buses that leave together, timetables that collide" — and the object it promised has a name: the **lowest common multiple**.',
+        },
+        {
+          kind: 'para',
+          text: 'The lesson is the mirror image of Lesson 3.3, with the same two numbers in the lead. There, the question was: what is the **largest** number that divides both $96$ and $720$? Here it is: what is the **smallest** number that both $96$ and $720$ divide? Dividing and being divided — factor and multiple — are the two ends of $n = q \\times d$, and every question about one end has a twin at the other. The HCF hunt assembled the **shared** primes at the **smaller** powers; the LCM hunt assembles **all** the primes at the **larger** powers — the promise Lesson 3.2 made when it closed. Even the three routes mirror: walking lists instead of walking factors, the atoms read top-down instead of bottom-up, and a ladder that now multiplies where the old one divided.',
+        },
+        { kind: 'heading', text: 'What "common" means, multiplicatively' },
+        {
+          kind: 'para',
+          text: 'A **common multiple** of two numbers is a number that each of them divides exactly. It is the old definition with the arrow turned around: a common **factor** of $48$ and $60$ had to be small enough to fit inside both; a common **multiple** must be large enough for both timetables to reach. The number $48$ is a common multiple of $16$ and $24$ because $48 = 3 \\times 16$ and $48 = 2 \\times 24$. Two things are immediately different from the factor case. First, the list of common multiples is **infinite** — $48$, $96$, $144$, and so on forever — so nothing is gained by finding one; the prize is the **first** one. Second, a greatest common factor existed because factors cannot outrun the numbers themselves; a least common multiple needs its own promise of existence. The promise is easy: the product $a \\times b$ is always a common multiple of $a$ and $b$ — $16 \\times 24 = 384$ is reached by both timetables — so the set is never empty, and any nonempty list of positive numbers has a least entry.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Lowest common multiple (LCM)',
+          text: 'The **lowest common multiple** of whole numbers $a$ and $b$ — written $\\mathrm{lcm}(a, b)$, and often called the **least** common multiple — is the smallest number that is a multiple of each of them. For the buses: $\\mathrm{lcm}(12, 18) = 36$. Three behaviours are worth naming now, because every method must respect them. The LCM is never smaller than the **larger** of the two numbers (a multiple of $96$ cannot be $48$). A number is its own LCM with itself: $\\mathrm{lcm}(a, a) = a$. And $\\mathrm{lcm}(1, n) = n$, because everything is a multiple of $1$, so the only demand left is $n$\'s. At the other end, $\\mathrm{lcm}(a, b)$ never exceeds the product $a \\times b$ — with equality exactly when the pair shares nothing, a sentence Route 2 will explain.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Common multiple',
+              def: 'A number that each of the given numbers divides exactly — a stop on every timetable in the story. 48 is a common multiple of 16 and 24 because 48 = 3 × 16 = 2 × 24.',
+            },
+            {
+              term: 'Lowest common multiple (LCM)',
+              def: 'The least of the common multiples; also called the least common multiple. The first shared departure of the timetables. lcm(12, 18) = 36.',
+            },
+            {
+              term: 'Shared primes at the larger powers',
+              def: 'The atom-level rule for the LCM: take every prime that occurs in any of the numbers, at the highest power it reaches anywhere. The HCF rule — shared primes at the smaller powers — is its twin.',
+            },
+            {
+              term: 'Common-division ladder',
+              def: 'The division method for the LCM: write the numbers in a line, divide by primes as long as any number yields, carry the undivided down, then multiply every divisor together with the surviving line.',
+            },
+            {
+              term: 'Coprime extreme',
+              def: 'When gcd(a, b) = 1, the LCM is the product a × b: nothing is shared, so everything must be taken. 9 and 35 → 315.',
+            },
+            {
+              term: 'Divisibility extreme',
+              def: 'When a divides b, the LCM is b itself: the larger timetable already stops everywhere the smaller does. 48 | 720, so lcm(48, 720) = 720.',
+            },
+            {
+              term: 'Overlap and union territories',
+              def: 'In the Venn picture of two factorisations (Lesson 3.3), the HCF is the overlap product and the LCM is the union product — every territory multiplied in exactly once. So the LCM always contains the HCF.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Route 1: walking the timetables' },
+        {
+          kind: 'para',
+          text: 'The honest, hands-on route is the one the bus passenger used: line up one timetable and test it against the other. The efficient version walks the multiples of the **larger** number — its list grows faster, so it reaches each candidate region sooner — and at every stop asks the smaller number\'s question: does $16$ divide this? The first yes is the LCM, and everything after it is structure.',
+        },
+        {
+          kind: 'example',
+          title: 'The listing route for 16 and 24',
+          steps: [
+            'Walk the multiples of the larger number: $24$, $48$, $72$, $96$, and onward.',
+            'Stop one: $24$. Does $16$ divide it? $24 = 1 \\times 16 + 8$ — no.',
+            'Stop two: $48$. $48 = 3 \\times 16$ — yes. The first shared departure is $\\mathrm{lcm}(16, 24) = 48$.',
+            'Keep walking to see the shape of the list: $96 = 4 \\times 24 = 6 \\times 16$, then $144$, then $192$. The shared stops run $48$, $96$, $144$, $192$ — each one a multiple of $48$. That is not luck; the next paragraph proves it is the law.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Why do two timetables that share a stop share **exactly** the stops of a third timetable running on the LCM? The claim deserves proof, and the proof is two moves — both old friends: the division algorithm from Lesson 2.4, and the fact that differences of multiples are multiples.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The timetable structure theorem',
+          statement:
+            'The common multiples of a and b are precisely the multiples of L = lcm(a, b). The shared timetable is one timetable.',
+          steps: [
+            {
+              label: 'Every multiple of L is a common multiple',
+              formula: 'k \\cdot L = a \\cdot (k \\cdot s) \\quad \\text{when } L = a \\cdot s',
+              explanation:
+                'L is a multiple of a — say L = a × s — so any multiple of L is a multiple of a: k·L = a·(k·s). The same argument works for b. So L, 2L, 3L, … are all common multiples.',
+            },
+            {
+              label: 'Every common multiple is a multiple of L',
+              formula: 'm = q \\cdot L + r, \\quad 0 \\le r < L',
+              explanation:
+                'Divide any common multiple m by L, as Lesson 2.4 licenses. Suppose the remainder r is not zero. Both m and L are multiples of a, so their difference m − q·L = r is a multiple of a too; the same holds for b. Then r is a common multiple of a and b **smaller than L** — impossible, since L was the least. So r = 0.',
+            },
+            {
+              label: 'Read the conclusion',
+              formula: 'L,\\; 2L,\\; 3L,\\; 4L, \\ldots',
+              explanation:
+                'The common multiples are exactly the stops of a single timetable that runs every L minutes. Two timetables in coincidence always resolve into one.',
+            },
+          ],
+          result:
+            'The common multiples of a and b are the multiples of lcm(a, b) — nothing more, nothing less.',
+        },
+        {
+          kind: 'para',
+          text: 'The theorem turns counting problems into division. How many numbers up to $300$ are divisible by both $5$ and $7$? Divisible by both means a common multiple, which means a multiple of $\\mathrm{lcm}(5, 7) = 35$ — and the multiples of $35$ up to $300$ run from $35$ to $280$: exactly $8$ of them, because $300 = 8 \\times 35 + 20$. The eighth stop is $280$; the ninth, $315$, has left the range. One division with remainder replaces a hundred ticks of a sieve.',
+        },
+        { kind: 'heading', text: 'Route 2: the atoms, at the larger powers' },
+        {
+          kind: 'para',
+          text: 'Lesson 3.3 drew the Venn picture for $96$ and $720$ and left one territory unclaimed. The atoms: $96 = 2^5 \\times 3$ and $720 = 2^4 \\times 3^2 \\times 5$. The overlap held the shared part $2^4 \\times 3 = 48$ — the HCF. The two outside territories held what each number owns alone: one extra $2$ on the $96$ side; a $3$ and a $5$ on the $720$ side. The LCM is the **whole picture** — overlap and both outside territories, each multiplied in exactly once.',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The larger-power rule',
+          text: 'Write each number in atoms, giving missing primes the power $0$: $a = \\prod p^{\\alpha_p}$ and $b = \\prod p^{\\beta_p}$. Then $\\mathrm{lcm}(a, b) = \\prod p^{\\max(\\alpha_p, \\, \\beta_p)}$ — every prime that occurs in **either** number, at the **larger** of its two powers. For the buses, $12 = 2^2 \\times 3$ and $18 = 2 \\times 3^2$ give $2^2 \\times 3^2 = 36$. For the Venn pair the exponents are $\\max(5, 4)$, $\\max(1, 2)$ and $\\max(0, 1)$ — so $2^5 \\times 3^2 \\times 5 = 1{,}440$: the union territory Lesson 3.3 promised, $2 \\times 48 \\times 15$. The HCF rule sits beside it — shared primes at the **smaller** powers. Min for dividing; max for being divided.',
+        },
+        {
+          kind: 'para',
+          text: 'The rule almost argues itself. A common multiple of $96$ and $720$ must, first, be a multiple of $96$ — so its atoms include $2$ at least five times and $3$ at least once. It must also be a multiple of $720$ — so $2$ at least four times (already arranged), $3$ at least **twice**, and $5$ at least once. Every demand must be met, so each prime is carried at the **largest** demand made of it. And nothing more is forced: take each prime at exactly the largest demand, and every number divides the result. Least because nothing extra; common because nothing missing.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the larger power, exactly',
+          statement:
+            'For each prime p, a common multiple of a and b must carry p at least to the larger of the two exponents — and the product of these larger powers is itself a common multiple, hence the least one.',
+          steps: [
+            {
+              label: 'Common means meeting the larger demand',
+              formula: 'p^{\\max(\\alpha, \\beta)} \\mid m',
+              explanation:
+                'If m is a multiple of a, its p-exponent is at least α; if m is also a multiple of b, its p-exponent is at least β. One number must clear both bars, so it clears the taller one: max(α, β).',
+            },
+            {
+              label: 'The larger powers clear every bar',
+              formula: 'L = \\prod_p p^{\\max(\\alpha_p, \\, \\beta_p)}',
+              explanation:
+                'L\'s exponent for each prime is at least as large as either number\'s, so a | L and b | L: L is a common multiple. A prime absent from both numbers never enters — its two exponents are 0 and 0.',
+            },
+            {
+              label: 'Nothing smaller survives',
+              formula: 'M < L \\implies M \\text{ misses a demand}',
+              explanation:
+                'If a candidate M carries some prime below the larger demand, then the number that made that demand does not divide M — M is not a common multiple at all. So every common multiple is at least L, and L is one.',
+            },
+          ],
+          result:
+            'lcm(a, b) is the product of every prime in sight at the larger power — the union of the two atom pictures, taken once.',
+        },
+        {
+          kind: 'formula',
+          name: 'The atoms route to the LCM',
+          latex: '\\mathrm{lcm}(a, b) = \\prod_p p^{\\max(\\alpha_p, \\; \\beta_p)}',
+          note: 'Every prime that occurs in either number, at the larger of its powers; missing primes sit at power 0 and enter only if the other number carries them. Twin rule: the HCF takes shared primes at the smaller powers. Min for dividing, max for being divided.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The classic slip: reaching for the smaller power',
+          text: 'Ten minutes of HCF practice and the hand reaches for min automatically. On $96$ and $720$ it produces $2^4 \\times 3 = 48$ — the HCF, not the LCM. A one-second guard: a multiple of $96$ can never be smaller than $96$, and $48$ is. The LCM is always at least the larger number. The second slip drops a prime only one number carries: forgetting the $5$ gives $2^5 \\times 3^2 = 288$, and no multiple of $720$ can lack a five. Guard two: after building the LCM, divide it back — $1{,}440 = 15 \\times 96 = 2 \\times 720$ — and both divisions must come out exact.',
+        },
+        {
+          kind: 'para',
+          text: 'One more structure is now visible, and it has been banked twice already. The Venn picture makes the LCM **contain** the HCF — the overlap is part of the union, so $48 \\mid 1{,}440$ in this case, always. And the two products match: $48 \\times 1{,}440 = 96 \\times 720$, and on the buses $6 \\times 36 = 12 \\times 18$. Lesson 3.5 will prove the product rule $\\gcd(a, b) \\times \\mathrm{lcm}(a, b) = a \\times b$ and put it to work rebuilding pairs from their fingerprints. Here it is a whisper; there it will be a theorem.',
+        },
+        { kind: 'heading', text: 'Route 3: the common-division ladder' },
+        {
+          kind: 'para',
+          text: 'Four numbers resist the atoms route politely — four factorisations, four chances to slip — so the ladder returns for duty. Lesson 3.3\'s ladder chewed a **pair** down to its shared part by repeated division. The LCM version lines up **all** the numbers, divides by primes as long as **any** number in the line yields, carries the undivided numbers down untouched, and multiplies **everything** at the end: every divisor used, and whatever survives the last row. Where the HCF ladder collected only what all the numbers still shared, this one collects every prime anyone still needs.',
+        },
+        {
+          kind: 'example',
+          title: 'The ladder for 12, 15, 20 and 54',
+          steps: [
+            'Line up the numbers: 12, 15, 20, 54. Divide by $2$ wherever possible: $12 \\to 6$, $20 \\to 10$, $54 \\to 27$; the odd $15$ carries down. New line: 6, 15, 10, 27.',
+            'Divide by $2$ again: $6 \\to 3$, $10 \\to 5$; the $15$ and the $27$ carry. New line: 3, 15, 5, 27.',
+            'No even number remains, so switch to $3$: $3 \\to 1$, $15 \\to 5$, $27 \\to 9$; the $5$ carries. New line: 1, 5, 5, 9.',
+            'Divide by $5$: both 5s step down to 1; the 9 carries. New line: 1, 1, 1, 9.',
+            'Multiply the divisors and the survivors: $2 \\times 2 \\times 3 \\times 5 \\times 9 = 540$. Atoms cross-check: the largest demand for $2$ is $2^2$ (from $12$ or $20$), for $3$ it is $3^3$ (from $54$), for $5$ just $5$ — and $4 \\times 27 \\times 5 = 540$. Every quotient confirms: $540 = 45 \\times 12 = 36 \\times 15 = 27 \\times 20 = 10 \\times 54$.'
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Why the ladder works: it is the atoms route with the bookkeeping spread across rows. Each time a prime $p$ heads a row, one more factor $p$ enters the product — and the rows keep calling $p$ until no number in the line still needs it. That is precisely "carry $p$ at its largest demand": a demand survives as an undivided number, and the ladder cannot stop while any demand is alive. Carrying the undivided down is what keeps the not-yet-satisfied customers in the game. And when the survivors are pairwise coprime you may stop early and multiply them straight in — the 9 riding the final line above is exactly that shortcut, and it is honest because 9 shares no prime with anything still to come.',
+        },
+        {
+          kind: 'example',
+          title: 'The cords, flipped',
+          steps: [
+            'Lesson 3.3 cut three cords — 1,152 cm, 768 cm and 1,248 cm — into equal 96-cm pieces, their HCF. Flip the question the way a supplier meets it: the studio now orders one ribbon that can be cut into whole numbers of strips of **each** length — some job lots of 1,152-cm strips, some of 768, some of 1,248. The shortest ribbon that works is the smallest number all three cords divide.',
+            'Atoms: $1{,}152 = 2^7 \\times 3^2$, $768 = 2^8 \\times 3$, $1{,}248 = 2^5 \\times 3 \\times 13$.',
+            'Larger powers: $2^8$ (from $768$), $3^2$ (from $1{,}152$), $13$ (from $1{,}248$). The LCM is $256 \\times 9 \\times 13 = 29{,}952$.',
+            'Divide back to confirm: $29{,}952 = 26 \\times 1{,}152 = 39 \\times 768 = 24 \\times 1{,}248$ — exact, three times over. Answer: 29,952 cm — a ribbon a shade under 300 m. The HCF asked "what fits inside all three?"; the LCM asks "what contains all three?" — 96 cm versus 299.52 m, the same three cords seen from the two ends.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The ladder product',
+          latex: '\\mathrm{lcm} = (\\text{every left divisor}) \\times (\\text{the surviving line})',
+          note: 'Line up the numbers; divide by a prime as long as any number yields; carry the undivided down. Stop when the survivors are pairwise coprime (or all 1) and multiply everything. Each row headed by p contributes one p — that is how the larger powers get built without a single factorisation.',
+        },
+        {
+          kind: 'para',
+          text: 'Two special cases, both already whispered, now become one-line checks. If two numbers are **coprime**, no prime is shared, so every prime enters the LCM at full strength: $\\mathrm{lcm}(9, 35) = 315$, $\\mathrm{lcm}(8, 15) = 120$, $\\mathrm{lcm}(16, 17) = 272$ — each the plain product. Lesson 3.3\'s coprime pairs return with their meaning inverted: sharing nothing makes the HCF as small as possible ($1$) and the LCM as large as allowed (the product). And if one number **divides** the other — $48 \\mid 720$, since $720 = 15 \\times 48$ — the larger timetable already stops at every stop the smaller demands: $\\mathrm{lcm}(48, 720) = 720$. Do not confuse this pair with $96$ and $720$: there $96$ does **not** divide $720$ ($720 = 7 \\times 96 + 48$), so the answer is the union product $1{,}440$, not $720$.',
+        },
+        { kind: 'heading', text: 'Two timetables, drawn together' },
+        {
+          kind: 'para',
+          text: 'The bus story earns its picture. Lane A ticks off the 12-minute timetable, lane B the 18-minute one, and the rings mark the minutes when both buses stand at the gate together: the stops $36$, $72$, $108$ — the multiples of $36$ the structure theorem promised, arriving on schedule.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Two buses, one depot. Bus A leaves every 12 minutes (upper lane), bus B every 18 (lower lane); the rings mark their shared departures — one every 36 minutes, the LCM made visible.',
+          svg: `<svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two timelines: bus A leaving every 12 minutes and bus B every 18 minutes, with rings marking their shared departures at the start, 36, 72 and 108 minutes">
+  <g fill="currentColor" font-size="13">
+    <text x="30" y="48" font-weight="700">bus A: every 12 min</text>
+    <text x="30" y="178" font-weight="700">bus B: every 18 min</text>
+    <line x1="30" y1="70" x2="690" y2="70" stroke="currentColor" stroke-width="1.5" opacity="0.65"/>
+    <line x1="30" y1="150" x2="690" y2="150" stroke="currentColor" stroke-width="1.5" opacity="0.65"/>
+    <g stroke="currentColor" stroke-width="2" opacity="0.8">
+      <line x1="40" y1="62" x2="40" y2="70"/><line x1="106.7" y1="62" x2="106.7" y2="70"/><line x1="173.3" y1="62" x2="173.3" y2="70"/><line x1="240" y1="62" x2="240" y2="70"/><line x1="306.7" y1="62" x2="306.7" y2="70"/><line x1="373.3" y1="62" x2="373.3" y2="70"/><line x1="440" y1="62" x2="440" y2="70"/><line x1="506.7" y1="62" x2="506.7" y2="70"/><line x1="573.3" y1="62" x2="573.3" y2="70"/><line x1="640" y1="62" x2="640" y2="70"/>
+      <line x1="40" y1="150" x2="40" y2="158"/><line x1="140" y1="150" x2="140" y2="158"/><line x1="240" y1="150" x2="240" y2="158"/><line x1="340" y1="150" x2="340" y2="158"/><line x1="440" y1="150" x2="440" y2="158"/><line x1="540" y1="150" x2="540" y2="158"/><line x1="640" y1="150" x2="640" y2="158"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1.2" opacity="0.45" stroke-dasharray="3 4">
+      <line x1="40" y1="74" x2="40" y2="95"/><line x1="40" y1="125" x2="40" y2="146"/>
+      <line x1="240" y1="74" x2="240" y2="95"/><line x1="240" y1="125" x2="240" y2="146"/>
+      <line x1="440" y1="74" x2="440" y2="95"/><line x1="440" y1="125" x2="440" y2="146"/>
+      <line x1="640" y1="74" x2="640" y2="95"/><line x1="640" y1="125" x2="640" y2="146"/>
+    </g>
+    <g fill="none" stroke="currentColor" stroke-width="1.8">
+      <circle cx="40" cy="110" r="13"/><circle cx="240" cy="110" r="13"/><circle cx="440" cy="110" r="13"/><circle cx="640" cy="110" r="13"/>
+    </g>
+    <g font-size="11" text-anchor="middle" font-weight="700">
+      <text x="240" y="114">36</text>
+      <text x="440" y="114">72</text>
+      <text x="640" y="114">108</text>
+    </g>
+    <g text-anchor="middle" font-size="12">
+      <text x="40" y="200">start</text>
+      <text x="240" y="200">36</text>
+      <text x="440" y="200">72</text>
+      <text x="640" y="200">108</text>
+    </g>
+    <text x="360" y="230" text-anchor="middle">minutes after the 6:00 am departure</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The rings sit $36$ minutes apart — evenly spaced, as the structure theorem said they must be: the shared timetable is a single timetable. Notice also what the picture does **not** show: any shared stop between the start and $36$. The first coincidence is the LCM itself; everything before it is the two buses missing each other. When exam stories say "bells that ring together", this picture is what they mean — swap minutes for any period and the mathematics does not notice.',
+        },
+        { kind: 'heading', text: 'The least-number patterns' },
+        {
+          kind: 'para',
+          text: 'Examinations dress the LCM in story clothes, and four costumes recur. All four are the definition or the structure theorem read backwards, so each needs one translation move and one LCM computation. Two are remainder stories — the twins of Lesson 3.3\'s greatest-number patterns, with the arithmetic flipped.',
+        },
+        {
+          kind: 'table',
+          caption: 'The four "least number" patterns',
+          head: ['The story', 'The translation', 'Instance'],
+          rows: [
+            ['A least number exactly divisible by each of x, y, z', 'the LCM, no adjustment', 'by 36, 45, 63, 80 → 5,040'],
+            ['A least number dividing by x, y, z and leaving the same remainder r', 'add the remainder: LCM + r', 'by 12, 16, 18 leaving 5 → 144 + 5 = 149'],
+            ['A least number dividing by x, y, z and leaving remainders whose deficiencies match (x − r₁ = y − r₂ = z − r₃)', 'subtract the common deficiency: LCM − d', 'by 9, 10, 15 leaving 4, 5, 10 → 90 − 5 = 85'],
+            ['How many numbers up to N are divisible by both a and b', 'walk the LCM: N ÷ lcm(a, b), rounded down', 'up to 300, by 5 and 7 → 300 ÷ 35 → 8'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The second pattern, argued once: if $N$ leaves remainder $5$ on division by $12$, $16$ and $18$, then $N - 5$ is divisible by all three — so $N - 5$ is a common multiple, hence a multiple of $\\mathrm{lcm}(12, 16, 18) = 144$. The least serious candidate takes one lap: $N = 144 + 5 = 149$. Rebuild to trust it: $149 = 12 \\times 12 + 5$, $149 = 16 \\times 9 + 5$, $149 = 18 \\times 8 + 5$ — three exact rows, one shared leftover. What about zero laps, $N = 5$? It does leave remainder $5$ in all three divisions — with quotient $0$. No examiner intends a number smaller than its divisors, so the convention is one lap. The third pattern flips the sign: remainders $4$, $5$, $10$ on $9$, $10$, $15$ fall short of their divisors by the **same** $5$, so $N + 5$ must be a common multiple — $N + 5 = 90$, giving $N = 85$, and $85 = 9 \\times 9 + 4$ confirms the first row. Same remainder: add it. Equal deficiency: subtract it. The fourth pattern is the structure theorem wearing a floor function.',
+        },
+        {
+          kind: 'formula',
+          name: 'The remainder patterns, LCM side',
+          latex: '\\mathrm{lcm}(x, y, z) + r \\quad \\text{or} \\quad \\mathrm{lcm}(x, y, z) - d',
+          note: 'A least number leaving the same remainder r: add r — one lap of the LCM. Remainders with equal deficiencies d = x − r₁ = y − r₂ = z − r₃: subtract d, because N + d is the common multiple. Exact division is the case r = 0. Counting multiples up to N: divide N by the LCM and round down. The HCF twins of these patterns live in Lesson 3.3 — the pair is now complete.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Matching the sky (c. 432 BCE)',
+          text: 'The oldest common-multiple problem on record hangs in the sky. A lunar month lasts about $29.5306$ days; a solar year about $365.2422$ — and no whole number of either fits the other, which is why calendars drift. Around $432$ BCE the Athenian astronomer **Meton** found the famous patch: $19$ years and $235$ months both span about $6{,}940$ days, agreeing within roughly two hours. Every luni-solar calendar since — Babylonian, Hebrew, Chinese, Hindu — inserts its seven extra months per $19$-year cycle on Meton\'s lattice. The computation is this lesson in spirit: two periods, hunted for their first realignment. When the bells of this lesson ring together, they do quietly what the calendar does grandly — wait for two cycles to meet at a shared stop.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'LCM items are permanent fixtures of SSC, Railway and bank papers: the direct computation (the LCM of $12$, $15$ and $20$ is $60$), the bells ("five bells toll at intervals of $2$, $4$, $6$, $8$ and $10$ minutes; how often do they toll together in a day?" — every $\\mathrm{lcm} = 120$ minutes, so $12$ times after the starting stroke, $13$ counting it), and all four least-number patterns of the table above. Counting-multiple items — how many numbers up to $300$ are divisible by both $5$ and $7$ — reward anyone holding the structure theorem: one division, answer $8$. CBSE Class 6 meets the LCM through exactly the routes built here, listing first and the ladder second, in its chapter on playing with numbers. One promise stays banked for Lesson 3.5: $\\gcd(a, b) \\times \\mathrm{lcm}(a, b) = a \\times b$, verified twice today — $48 \\times 1{,}440 = 96 \\times 720$ and $6 \\times 36 = 12 \\times 18$.'
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Side by side: 96 = 2⁵ × 3 and 720 = 2⁴ × 3² × 5. The LCM is:',
+              options: ['48', '288', '1,440', '69,120'],
+              answer: 2,
+              explain:
+                'Shared primes at the **larger** powers: $2^5 \\times 3^2 \\times 5 = 1{,}440$ (Option 3). Option 1 took the smaller powers — that is the HCF, $48$, smaller than $96$ itself. Option 2 dropped the $5$, which $720$ demands: no multiple of $720$ can lack a five. Option 4 is the raw product $96 \\times 720$ — a common multiple, but not the least: it carries every prime past the largest demand.',
+            },
+            {
+              q: 'A ladder for 12, 15, 20 and 54 has used divisors 2, 2, 3 and 5, leaving the survivor line 1, 1, 1, 9. The LCM is:',
+              options: ['12 × 15 × 20 × 54 = 194,400', '2 × 3 × 5 = 30', '2 × 2 × 3 × 5 = 60', '2 × 2 × 3 × 5 × 9 = 540'],
+              answer: 3,
+              explain:
+                'Every divisor **and** the surviving line multiply in: Option 4. Option 1 is the raw product — a common multiple, not the least. Option 2 collected only one use of each prime: $30$ divides all four numbers, but $54$ does not divide $30$, so it is not even a common multiple. Option 3 forgot the carried 9 — $60$ is not a multiple of $54$; the carried 9 is 54\'s unpaid demand for two more 3s.',
+            },
+            {
+              q: 'The least number that leaves remainder 5 when divided by 12, 16 and 18 is:',
+              options: ['144', '149', '139', '5'],
+              answer: 1,
+              explain:
+                'One lap of the LCM plus the remainder: $144 + 5 = 149$ (Option 2). Option 1 forgot the remainder — $144$ leaves $0$ every time. Option 3 subtracted; subtraction belongs to the equal-deficiency pattern, not this one. Option 4 does leave remainder $5$ in all three divisions — with quotient $0$ — and no examiner intends a number smaller than its divisors.',
+            },
+            {
+              q: 'How many numbers up to 100 are divisible by both 4 and 6?',
+              options: ['25', '16', '8', '12'],
+              answer: 2,
+              explain:
+                'Common multiples of $4$ and $6$ are exactly the multiples of $\\mathrm{lcm}(4, 6) = 12$ — the structure theorem. One division: $100 \\div 12$ gives $8$ (Option 3), the eighth stop being $96$. Option 1 counted multiples of $4$; Option 2 of $6$; Option 4 mistook the LCM for the answer slot.',
+            },
+            {
+              q: 'Two numbers are coprime. Their LCM is:',
+              options: ['always 1', 'the smaller of them', 'their HCF', 'their product'],
+              answer: 3,
+              explain:
+                'Nothing is shared, so every prime enters at full strength: $\\mathrm{lcm}(9, 35) = 9 \\times 35 = 315$ (Option 4). Option 1 confuses the LCM with the HCF — coprime makes the **HCF** equal to $1$ and the LCM as large as allowed. Option 3 is $1$ again. Option 4 fails direction: the LCM is never smaller than the larger number.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'List the first five multiples of 7, and find the first common multiple of 7 and 14. Which extreme makes this one immediate?',
+                  solution:
+                    'Multiples: $7, 14, 21, 28, 35$. The first common multiple of $7$ and $14$ is $14$ itself: $14 = 2 \\times 7 = 1 \\times 14$. The extreme at work is divisibility — $7 \\mid 14$, so the LCM is the larger number, $14$. Every multiple of $14$ is automatically a multiple of $7$: the smaller timetable adds no new stops.',
+                },
+                {
+                  q: 'Find every common multiple of 4 and 6 below 50, and state the LCM. Check the timetable structure theorem on your list.',
+                  solution:
+                    'Multiples of $4$ below $50$: $4, 8, 12, \\ldots, 48$; of $6$: $6, 12, 18, \\ldots, 48$. Common: $12, 24, 36, 48$ — and each is a multiple of $12$, exactly as the theorem claims: $12 = 1 \\times 12$, $24 = 2 \\times 12$, $36 = 3 \\times 12$, $48 = 4 \\times 12$. The first shared stop is $\\mathrm{lcm}(4, 6) = 12$.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Find the LCM of 18 and 24 by prime factorisation, and verify by division.',
+                  solution:
+                    '$18 = 2 \\times 3^2$ and $24 = 2^3 \\times 3$. Larger powers: $2^3$ and $3^2$, so the LCM is $8 \\times 9 = 72$. Verify: $72 = 4 \\times 18 = 3 \\times 24$ — both exact. (The HCF of the same pair is $2 \\times 3 = 6$: shared primes at the smaller powers. And $6 \\times 72 = 432 = 18 \\times 24$ — the product rule whispering again.)',
+                },
+                {
+                  q: 'What is the LCM of 9 and 35? Answer in one line, naming the extreme that makes it immediate.',
+                  solution:
+                    '$\\gcd(9, 35) = 1$ — Lesson 3.3\'s coprime pair — so the coprime extreme applies: the LCM is the product, $9 \\times 35 = 315$. Nothing is shared, so everything must be taken. No method is needed beyond the one-line check that no prime is shared: $9 = 3^2$ and $35 = 5 \\times 7$.',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Run the common-division ladder on 8, 12, 15 and 20. Explain one place where you switched primes.',
+                  solution:
+                    'Rows: divide by $2$ → line 4, 6, 15, 10 (the 15 carries); by $2$ again → 2, 3, 15, 5; by $2$ once more (only the 2 yields) → 1, 3, 15, 5; now switch to $3$, since no even number remains → 1, 1, 5, 5; finish with $5$ → 1, 1, 1, 1. Product of divisors: $2 \\times 2 \\times 2 \\times 3 \\times 5 = 120$. The switch after the third row is forced: $2$ has no customer left — its largest demand is met. Check: $120 = 15 \\times 8 = 10 \\times 12 = 8 \\times 15 = 6 \\times 20$.',
+                },
+                {
+                  q: 'Find the LCM of 16, 28 and 40 by the larger-power rule, then confirm with the ladder.',
+                  solution:
+                    '$16 = 2^4$, $28 = 2^2 \\times 7$, $40 = 2^3 \\times 5$. Larger powers: $2^4$, $7$, $5$ — the LCM is $16 \\times 35 = 560$. Divide back: $560 = 35 \\times 16 = 20 \\times 28 = 14 \\times 40$ — exact. Ladder confirmation: rows 2, 2, 2, 2 (the 7 of 28 carries from the third row on), then 5, then 7 — product $2^4 \\times 5 \\times 7 = 560$: the same atoms, no factorisation needed.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Find the least number exactly divisible by 10, 14 and 15.',
+                  solution:
+                    'The LCM: $10 = 2 \\times 5$, $14 = 2 \\times 7$, $15 = 3 \\times 5$ — larger powers give $2 \\times 3 \\times 5 \\times 7 = 210$. Divide back: $210 = 21 \\times 10 = 15 \\times 14 = 14 \\times 15$. Each prime enters once, because each is demanded at power 1 by somebody: $3$ only by $15$, $7$ only by $14$.',
+                },
+                {
+                  q: 'Find the smallest four-digit number divisible by 18, 24 and 32.',
+                  solution:
+                    'Atoms: $18 = 2 \\times 3^2$, $24 = 2^3 \\times 3$, $32 = 2^5$ — larger powers give $2^5 \\times 3^2 = 288$. The four-digit world starts at $1{,}000 = 3 \\times 288 + 136$: three laps are not enough. Step to the fourth lap, $4 \\times 288 = 1{,}152$. Check: $1{,}152 = 64 \\times 18 = 48 \\times 24 = 36 \\times 32$. Answer: $1{,}152$ — the structure theorem turning a search into one division.',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Find the least number which, divided by 16, 24 and 30, leaves remainder 7 in each case.',
+                  solution:
+                    'LCM first: $16 = 2^4$, $24 = 2^3 \\times 3$, $30 = 2 \\times 3 \\times 5$ — larger powers give $2^4 \\times 3 \\times 5 = 240$. Then the pattern: $N = 240 + 7 = 247$. Rebuild: $247 = 16 \\times 15 + 7 = 24 \\times 10 + 7 = 30 \\times 8 + 7$. (Zero laps — $N = 7$ — leaves remainder $7$ with quotient $0$; the convention is one lap.) Answer: $247$.',
+                },
+                {
+                  q: 'Find the least number which, divided by 12, 15 and 20, leaves remainders 3, 6 and 11 respectively.',
+                  solution:
+                    'The deficiencies match: $12 - 3 = 9$, $15 - 6 = 9$, $20 - 11 = 9$. So $N + 9$ is a common multiple of all three: $\\mathrm{lcm}(12, 15, 20) = 2^2 \\times 3 \\times 5 = 60$, giving $N = 60 - 9 = 51$. Rebuild: $51 = 12 \\times 4 + 3$, $51 = 15 \\times 3 + 6$, $51 = 20 \\times 2 + 11$. Answer: $51$ — the deficiency twin of the $+r$ pattern.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The pair-hunter\'s problem. Find every pair (a, b) with a < b and LCM(a, b) = 18 — and prove the list is complete.',
+                  solution:
+                    'First, where can the pair live? Each of $a$ and $b$ divides its own LCM, so both divide $18$: the candidates are the divisors $1, 2, 3, 6, 9, 18$ — fifteen pairs with $a < b$. Test the larger-power coverage of each. Winners (7): $(1, 18)$ — 18 alone carries $2 \\times 3^2$; $(2, 9)$ — coprime, product $18$; $(2, 18)$, $(3, 18)$, $(6, 18)$, $(9, 18)$ — the divisibility extreme with 18 in the pair; $(6, 9)$ — $6 = 2 \\times 3$, $9 = 3^2$, union $2 \\times 3^2 = 18$. Losers (8), with their actual LCMs: $(1,2) \\to 2$, $(1,3) \\to 3$, $(1,6) \\to 6$, $(1,9) \\to 9$, $(2,3) \\to 6$, $(2,6) \\to 6$, $(3,6) \\to 6$, $(3,9) \\to 9$. Seven winners, eight losers, fifteen pairs — the list is complete because every possible pair had to be a pair of divisors of 18, and all fifteen were tested.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The chapter now holds both halves of the multiplicative picture. The HCF collects what numbers share; the LCM collects what they demand; both are readable off one Venn drawing — the overlap and the union — and both come off ladders, one dividing down to the shared part, one multiplying through every demand. One chord remains unheard: the two objects are not independent. Their product equals the product of the numbers — $48 \\times 1{,}440 = 96 \\times 720$, $6 \\times 36 = 12 \\times 18$ — every single time. Lesson 3.5 proves the product rule and shows what it can rebuild: whole pairs, from their HCF and LCM alone.',
         },
       ],
     },

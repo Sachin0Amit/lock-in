@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 14:13:11 (Asia/Kolkata)",
+  "generated": "2026-11-03 15:57:03 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -555,9 +555,8 @@
             "title": "Factors, Multiples and Primes",
             "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Lowest Common Multiple",
               "HCF, LCM and How They Relate"
             ],
             "lessons": [
@@ -758,9 +757,74 @@
                 },
                 "exerciseQuestions": 10,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-lowest-common-multiple",
+                "number": "3.4",
+                "title": "Lowest Common Multiple",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5014,
+                "readMins": 25,
+                "concepts": [
+                  "Common multiples of two numbers",
+                  "LCM as the first shared departure",
+                  "Shared primes at the larger powers",
+                  "The common-division ladder",
+                  "Coprime extreme: LCM = product",
+                  "Divisibility extreme: LCM = the larger",
+                  "Least-number exam patterns"
+                ],
+                "objectives": [
+                  "Define common multiples and the lowest common multiple, and prove that the common multiples of a pair are exactly the multiples of their LCM",
+                  "Compute the LCM by three routes — listing, prime factorisation at the larger powers, and the common-division ladder — and choose the right route for the job",
+                  "Read the LCM off the Venn picture Lesson 3.3 drew, as the product of all three territories, and recognise the coprime and divisibility extremes",
+                  "Deploy the four \"least number\" exam patterns — exact division, same remainder, equal deficiencies, and counting multiples — with reasons"
+                ],
+                "prerequisites": [
+                  "fm-divisibility-and-its-tests",
+                  "fm-prime-numbers-factorisation",
+                  "fm-highest-common-factor"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch3"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 7,
+                  "callout": 5,
+                  "terms": 1,
+                  "example": 3,
+                  "derivation": 2,
+                  "formula": 3,
+                  "figure": 1,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 11,
+                "termsDefined": 7
               }
             ],
-            "words": 18130
+            "words": 23144
           },
           {
             "number": 4,
@@ -917,12 +981,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 82,
-      "totalLines": 14900,
+      "totalLines": 15346,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 5810,
+        "src/data/library (content model + books)": 6256,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -3066,6 +3130,165 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "b9864f623c934019422927b2ff42236e2bda165b",
+      "short": "b9864f6",
+      "date": "2026-11-03 08:50",
+      "message": "unit 3: FM lesson 3.3 Highest Common Factor (5,564 words, 192 verified checks, E2E green incl. Bezout debt repaid) + logs",
+      "filesChanged": 9,
+      "insertions": 1085,
+      "deletions": 47,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 79,
+          "del": 4
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 107,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 171,
+          "del": 23
+        },
+        {
+          "path": "scripts/verify-unit-3.ts",
+          "add": 136,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 560,
+          "del": 9
+        }
+      ]
+    },
+    {
+      "sha": "cdeac41d4369539dc87ef83b3e912cf22cc044ed",
+      "short": "cdeac41",
+      "date": "2026-11-03 08:51",
+      "message": "memory: run-9 pointers — lesson 3.3 pushed and verified (b9864f6), origin/main synced; next: FM 3.4 Lowest Common Multiple",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "87f0f8a777120a19ceef91424857c8c9b71b064c",
+      "short": "87f0f8a",
+      "date": "2026-11-03 09:30",
+      "message": "figures: fix six overlapping/clipped SVG figures (owner-reported) + exact-geometry overlap audit wired into gates",
+      "filesChanged": 10,
+      "insertions": 607,
+      "deletions": 134,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 97,
+          "del": 96
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.page.js",
+          "add": 172,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.sh",
+          "add": 49,
+          "del": 0
+        },
+        {
+          "path": "scripts/fix-figure-overlaps.py",
+          "add": 187,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 24,
+          "del": 24
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 12,
+          "del": 12
+        }
+      ]
+    },
+    {
+      "sha": "4fd7746b23d010b4f3c94a66867c10b41acfef4d",
+      "short": "4fd7746",
+      "date": "2026-11-03 09:32",
+      "message": "memory: figure-fix run pushed and verified (87f0f8a), origin/main synced; next unchanged: FM 3.4 Lowest Common Multiple",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -3074,24 +3297,24 @@
     "booksLive": 1,
     "chaptersWritten": 2,
     "chaptersInProgress": 1,
-    "lessonsWritten": 11,
-    "wordsAuthored": 49289,
-    "termsDefined": 68,
-    "quizItems": 55,
-    "exerciseQuestions": 93,
+    "lessonsWritten": 12,
+    "wordsAuthored": 54303,
+    "termsDefined": 75,
+    "quizItems": 60,
+    "exerciseQuestions": 104,
     "blockTotals": {
-      "para": 131,
-      "callout": 44,
-      "heading": 73,
-      "terms": 11,
+      "para": 148,
+      "callout": 49,
+      "heading": 80,
+      "terms": 12,
       "equation": 13,
-      "derivation": 23,
-      "table": 13,
-      "figure": 15,
-      "example": 19,
-      "quiz": 11,
-      "exercises": 11,
-      "formula": 23,
+      "derivation": 25,
+      "table": 14,
+      "figure": 16,
+      "example": 22,
+      "quiz": 12,
+      "exercises": 12,
+      "formula": 26,
       "algorithm": 8
     }
   }

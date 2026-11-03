@@ -6,6 +6,97 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 10: lesson 3.4 Lowest Common Multiple shipped (unit 3 = 4/5 lessons)
+
+**Situation at start:** sixth delivery of job 498279 (17:57 +08:00). Tree
+clean at `4fd7746` = origin/main (the figure-fix run's memory commit; ship
+`87f0f8a` already pushed). No in-flight lessons — the owner-reported
+overlap fix had landed in its own run. RESUME_POINTER named FM 3.4 "Lowest
+Common Multiple". Dev server already up (all routes 200).
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id (33.9
+MB) — ch. 2 LCM sections studied: the definition pair 12 & 18 → 36; Method
+I prime factors at the highest powers (32/48/60/320 → 960); Method II the
+common-division ladder (12/15/20/54 → 540, undivided numbers carried); and
+the LCM-side exam shortcuts — least number exactly divisible (36/45/63/80 →
+5,040), same-remainder +r (12/16/18 with r = 5 → 149), equal-deficiency −d
+(9/10/15 leaving 4/5/10 → 85), counting multiples (up to 300 by 5 and 7 →
+8), the bells genre. NCERT Class 6 Ex 3.7 coverage web-checked (LCM(12,18) =
+36 canon; HCF-divides-LCM property; the two-method school treatment). All
+exposition original; instances recomposed (buses 12 & 18; listing 16 & 24;
+the cords flipped — 1,152/768/1,248 → 29,952 cm of ribbon).
+
+**Pre-write verification:** `scripts/verify-unit-3.ts` extended with section
+Z (lcm2/lcm3 helpers + 35 checks) — **227 checks, ALL PASS before one word
+was written** (up from 192). Covers: the definition pair with a brute-force
+multiples check to 500 (13 shared stops, all multiples of 36); listing
+route 16 & 24 → 48; the Venn atoms 96/720 → 1,440 = 2 × 48 × 15 with both
+product-rule crosses (48 × 1,440 = 96 × 720; 6 × 36 = 12 × 18); the
+smaller-power slip (2⁴ × 3 = 48 is the HCF); missing-prime LCM(48, 60) =
+240; divisibility extreme 48 | 720 → 720 vs 96 ∤ 720 → 1,440; coprime
+extremes 315/120/272; identity edges lcm(n,n) = n, lcm(1,n) = n; the ladder
+12/15/20/54 → 540 with every carry verified row by row; the cords flip →
+29,952 (quotients 26/39/24); exam patterns 5,040 / 149 / 85 / 51; counting
+8 / 9 / 41; the bells (2,4,6,8,10 → 120 min; 12 coincidences after the
+start); the figure's tick geometry (lanes to 108 min, shared 0/36/72/108);
+smallest 4-digit 1,152; the L6 seven-pairs enumeration for LCM 18; Metonic
+19 × 365.2422 vs 235 × 29.5306 within ~2.1 h; the product rule brute-forced
+over every pair ≤ 40. Two check-side bugs fixed during verification (a
+carried 5 wrongly required to be divisible by 3 in the Z12 ladder row; 2²
+miswritten as 2³ in the Z18 instance 51) — the arithmetic itself was never
+wrong.
+
+**Lesson 3.4 written** (appended to ch-03.ts, ~5,014 words): depot opening
+honouring 3.3's closing promise (bells/buses/timetables); 7 terms (Common
+multiple, LCM, Shared primes at the larger powers, Common-division ladder,
+Coprime extreme, Divisibility extreme, Overlap and union territories);
+definition callout with edge behaviours (LCM ≥ max, lcm(n,n) = n, lcm(1,n) =
+n, ≤ product with the coprime equality); Route 1 listing (16 & 24 → 48) +
+the timetable structure theorem derived from the division algorithm (common
+multiples = exactly the multiples of the LCM) + the counting consequence
+(300 ÷ 35 → 8); Route 2 larger-power rule (theorem callout + three-step
+derivation; Venn tie 2 × 48 × 15 = 1,440; warn callout on both slips —
+smaller powers 48 and the dropped 5 giving 288; product-rule whisper banked
+again for 3.5); Route 3 common-division ladder (12/15/20/54 → 540 with the
+switch-to-3 explained; why-it-works para — each row headed by p contributes
+one p; the cords flipped 29,952 cm ≈ 300 m; ladder-product formula card;
+coprime + divisibility extremes para incl. 48 | 720 → 720 vs 96 ∤ 720);
+timetable figure (two lanes, rings at start/36/72/108, split dashed
+connectors so nothing crosses a digit — plain labels only); four
+least-number patterns table + why-para (149 = one lap of the LCM with the
+k = 0 honesty note; 85 = LCM − d via the equal deficiency; counting = the
+structure theorem with a floor); remainder-patterns formula card completing
+Lesson 3.3's pair; Metonic-cycle historical callout (19 years ≈ 235 months,
+agreeing within ~2 hours); exam callout (bells counted 12 + the start;
+product-rule promise for 3.5); 5 quiz (answers spread 2/3/1/2/3, 5/5
+clicked live); L1–L6 exercises — 11 questions ending in the pair-hunter's
+problem (seven pairs with LCM 18, completeness by divisor enumeration);
+closing para pointing at the product rule for 3.5.
+
+**Verified (gates):** verify-unit-3 227/227 (+ verify-unit-2 still 165/165);
+lint clean; tsc clean (two fix-ups on the way: the exercises block wants
+`sets` not `intro/levels` per types.ts; Z22's lane arrays typed
+`number[]`); 6 routes 200; live E2E on the new lesson: KaTeX 249 nodes,
+dollarInSvg = 0, quiz 5/5 perfect, flashcards 75 in deck (68 → 75),
+glossary 7/7 new terms + 3/3 formula cards, zero console errors, 390px
+exact-fit (overflowX = 0) with all 11 exercise solutions expanded; SVG
+audit `bash scripts/audit-svg-overlaps.sh fm-lowest-common-multiple` = 0
+issues on the FIRST pass; figure screenshot eyeballed clean.
+
+**Logging:** WORK_INVENTORY.json regenerated via
+`bun run scripts/build_work_inventory.ts` (54,303 words / 12 lessons / 75
+terms / 60 quiz items / 104 exercise questions); DETAILED_LOG.md,
+PROGRESS.json, RESUME_POINTER.json updated; Khattar working copies deleted
+after E2E (storage law honoured).
+
+**Remaining:** unit 3 closes with FM 3.5 "HCF, LCM and How They Relate"
+(the product rule gcd × lcm = a × b, pair reconstruction) + the unit-3
+completion review. Exam registry research pending.
+
+**Git:** commit `unit 3: FM lesson 3.4 Lowest Common Multiple (~5,014 words, 227 verified checks, 11 exercises, E2E green) + logs` — pushed under protocol v2; see the memory commit note for the verified remote HEAD.
+
+---
+
 ## 2026-11-03 — OWNER-REPORTED FIGURE DEFECTS: six overlapping/clipped SVG figures fixed; exact-geometry overlap audit built into the pipeline
 
 **Situation at start:** owner messaged two screenshots (lesson 2.3's

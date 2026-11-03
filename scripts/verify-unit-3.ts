@@ -476,6 +476,162 @@ check('Y13: -1x4896 + 7x720 = 144 (W6 cross); the wrong signs fail: +1x4896 - 7x
 check('Y14: Venn: 96-only 2, shared 48, 720-only 15 -> LCM 2x48x15 = 1440; 48x1440 = 96x720 = 69120', 2 * 48 * 15 === 1440 && 48 * 1440 === 96 * 720 && 96 * 720 === 69120);
 
 /* ============================================================
+ * SECTION Z — Lesson 3.4 "Lowest Common Multiple"
+ * Every number below is verified BEFORE it is written into ch-03.ts.
+ * ==========================================================*/
+function lcm2(a: number, b: number): number {
+  return (a * b) / gcd(a, b);
+}
+function lcm3(a: number, b: number, c: number): number {
+  return lcm2(lcm2(a, b), c);
+}
+
+// Z1: the definition pair — multiples of 12 and 18 up to 120; common
+// multiples are 36, 72, 108; the least is 36 = 3 x 12 = 2 x 18
+{
+  const m12 = [12, 24, 36, 48, 60, 72, 84, 96, 108, 120];
+  const m18 = [18, 36, 54, 72, 90, 108];
+  const common = m12.filter((m) => m18.includes(m));
+  check('Z1: common multiples of 12 and 18 up to 120 are exactly 36, 72, 108; 36 = 3x12 = 2x18', JSON.stringify(common) === JSON.stringify([36, 72, 108]) && 36 === 3 * 12 && 36 === 2 * 18);
+}
+// Z2: the counting structure — every common multiple of 12 and 18 up to 500
+// is a multiple of 36, and there are floor(500/36) = 13 of them
+check('Z2: common multiples of 12 and 18 up to 500 are exactly the 13 multiples of 36 (36x1..468)', (() => {
+  const commons: number[] = [];
+  for (let n = 1; n <= 500; n++) if (n % 12 === 0 && n % 18 === 0) commons.push(n);
+  const mults36: number[] = [];
+  for (let k = 1; k * 36 <= 500; k++) mults36.push(k * 36);
+  return JSON.stringify(commons) === JSON.stringify(mults36) && commons.length === 13 && mults36[12] === 468;
+})());
+// Z3: the listing route pair — 16 and 24: common multiples up to 100 are
+// 48, 96; the least is 48 = 2 x 24 = 3 x 16
+check('Z3: multiples of 16 up to 100: 16,32,48,64,80,96; of 24: 24,48,72,96; common = 48, 96; LCM 48 = 2x24 = 3x16', [16, 32, 48, 64, 80, 96].every((m, i) => m === 16 * (i + 1)) && [24, 48, 72, 96].every((m, i) => m === 24 * (i + 1)) && 16 % 48 === 16 && 48 === lcm2(16, 24) && 48 === 2 * 24 && 48 === 3 * 16 && 48 % 16 === 0 && 48 % 24 === 0);
+// Z4: every common multiple of 16 and 24 up to 400 is a multiple of 48
+check('Z4: common multiples of 16 and 24 up to 400 = the 8 multiples of 48 (48x1..384)', (() => {
+  const commons: number[] = [];
+  for (let n = 1; n <= 400; n++) if (n % 16 === 0 && n % 24 === 0) commons.push(n);
+  const mults48: number[] = [];
+  for (let k = 1; k * 48 <= 400; k++) mults48.push(k * 48);
+  return JSON.stringify(commons) === JSON.stringify(mults48) && commons.length === 8 && mults48[7] === 384;
+})());
+// Z5: the atoms route on 3.3's Venn pair — 96 = 2^5 x 3, 720 = 2^4 x 3^2 x 5,
+// LCM = 2^5 x 3^2 x 5 = 1440 = 2 x 48 x 15 (the Venn union territory)
+check('Z5: 96 = 2^5x3 (160? no: 32x3), 720 = 2^4x3^2x5 (16x9x5), LCM = 2^5x3^2x5 = 32x9x5 = 1440 = 2x48x15; 1440/96 = 15, 1440/720 = 2', 32 * 3 === 96 && 16 * 9 * 5 === 720 && 32 * 9 * 5 === 1440 && 2 * 48 * 15 === 1440 && 1440 % 96 === 0 && 1440 % 720 === 0 && 1440 / 96 === 15 && 1440 / 720 === 2 && lcm2(96, 720) === 1440);
+// Z6: the smaller-power slip — taking the SMALLER powers gives 2^4 x 3 = 48,
+// which is the HCF, not the LCM; 48 divides neither 96 nor... (48 | 96 but
+// 48 does not divide 720; and 48 < 96 so it cannot be a multiple of 96)
+check('Z6: smaller-power slip 2^4x3 = 48 is the HCF(96, 720); 48 divides 96 but not 720 (720 = 15x48 - 0? no: 720/48 = 15 exactly — the slip fails because 48 < 96 cannot be a multiple of 96)', gcd(96, 720) === 48 && 2 ** 4 * 3 === 48 && 48 * 2 === 96 && 720 % 48 === 0 && 96 % 48 === 0 && 48 < 96 && 96 % 48 === 0 && 720 % 96 !== 0);
+// Z7: the product-rule cross (banked for 3.5) — 48 x 1440 = 69120 = 96 x 720
+check('Z7: 48x1440 = 69120 = 96x720 (product rule whisper, Lesson 3.5 owns the theorem)', 48 * 1440 === 69120 && 96 * 720 === 69120 && gcd(96, 720) * lcm2(96, 720) === 96 * 720);
+// Z8: the missing prime is exponent 0 — LCM(48, 60) = 2^4 x 3 x 5 = 240
+// (the 5 lives only in 60, so the LCM carries it at power 1)
+check('Z8: 48 = 2^4x3, 60 = 2^2x3x5 -> LCM = 2^4x3x5 = 240; 240/48 = 5, 240/60 = 4; listing: multiples of 48 up to 240 are 48,96,144,192,240 and of 60 are 60,120,180,240 — first common 240', 16 * 3 * 5 === 240 && 240 / 48 === 5 && 240 / 60 === 4 && [48, 96, 144, 192, 240].every((m, i) => m === 48 * (i + 1)) && [60, 120, 180, 240].every((m, i) => m === 60 * (i + 1)) && lcm2(48, 60) === 240);
+// Z9: the divisibility extreme — when a | b, LCM(a, b) = b: 48 | 720
+// (720 = 15 x 48) so LCM(48, 720) = 720, NOT 1440 (that pair was 96 and 720)
+check('Z9: 720 = 15x48 so 48 | 720 and LCM(48, 720) = 720; contrast 96 does NOT divide 720 (720/96 = 7.5) so LCM(96, 720) = 1440', 48 * 15 === 720 && 720 % 48 === 0 && lcm2(48, 720) === 720 && 720 % 96 !== 0 && 96 * 7.5 === 720 && lcm2(96, 720) === 1440);
+// Z10: the coprime extreme — 3.3's coprime pairs return: LCM = product
+check('Z10: gcd(9,35)=1 -> LCM 315 = 9x35; gcd(8,15)=1 -> LCM 120 = 8x15; gcd(16,17)=1 -> LCM 272 = 16x17', lcm2(9, 35) === 315 && 9 * 35 === 315 && lcm2(8, 15) === 120 && 8 * 15 === 120 && lcm2(16, 17) === 272 && 16 * 17 === 272);
+// Z11: the identity edges — LCM(n, n) = n and LCM(1, n) = n
+check('Z11: LCM(12, 12) = 12; LCM(1, 720) = 720; and LCM(a, b) >= max(a, b) for the text pairs', lcm2(12, 12) === 12 && lcm2(1, 720) === 720 && lcm2(12, 18) >= 18 && lcm2(96, 720) >= 720 && lcm2(16, 24) >= 24);
+// Z12: the ladder route (Khattar Method II) — 12, 15, 20, 54:
+// rows 2 -> 6,15,10,27; 2 -> 3,15,5,27; 3 -> 1,5,5,9; 5 -> 1,1,1,9;
+// LCM = 2 x 2 x 3 x 5 x 9 = 540
+check('Z12: ladder rows for 12,15,20,54: 2|-> 6,15,10,27; 2|-> 3,15,5,27; 3|-> 1,5,5,9 (5 carried); 5|-> 1,1,1,9 (9 carried); product 2x2x3x5x9 = 540', 12 % 2 === 0 && 20 % 2 === 0 && 54 % 2 === 0 && 15 % 2 !== 0 && [12, 20, 54].every((n) => n % 2 === 0) && [6, 15, 10, 27].filter((n) => n % 3 === 0).join(',') === '6,15,27' && [3, 15, 27].every((n) => n % 3 === 0) && [1, 5, 5, 9].filter((n) => n % 5 === 0).join(',') === '5,5' && 2 * 2 * 3 * 5 * 9 === 540);
+// Z13: ladder cross-check by atoms — 12 = 2^2x3, 15 = 3x5, 20 = 2^2x5,
+// 54 = 2x3^3 -> LCM = 2^2 x 3^3 x 5 = 540
+check('Z13: atoms LCM(12,15,20,54) = 2^2 x 3^3 x 5 = 4x27x5 = 540; 540/12 = 45, 540/15 = 36, 540/20 = 27, 540/54 = 10', 4 * 27 * 5 === 540 && 540 % 12 === 0 && 540 % 15 === 0 && 540 % 20 === 0 && 540 % 54 === 0 && 540 / 12 === 45 && 540 / 15 === 36 && 540 / 20 === 27 && 540 / 54 === 10);
+// Z14: the cords flip — LCM(1152, 768, 1248): 1152 = 2^7 x 3^2,
+// 768 = 2^8 x 3, 1248 = 2^5 x 3 x 13 -> LCM = 2^8 x 3^2 x 13 = 29952
+check('Z14: 1152 = 128x9, 768 = 256x3, 1248 = 32x39 = 2^5x3x13; LCM = 2^8x3^2x13 = 256x9x13 = 29952; 29952/1152 = 26, /768 = 39, /1248 = 24; 29952 cm = 299.52 m', 128 * 9 === 1152 && 256 * 3 === 768 && 32 * 39 === 1248 && 1248 % 13 === 0 && 1248 / 13 === 96 && 256 * 9 * 13 === 29952 && 29952 % 1152 === 0 && 29952 % 768 === 0 && 29952 % 1248 === 0 && 29952 / 1152 === 26 && 29952 / 768 === 39 && 29952 / 1248 === 24 && 29952 / 100 === 299.52);
+// Z15: exam pattern 1 — least number exactly divisible by 36, 45, 63, 80:
+// LCM = 2^4 x 3^2 x 5 x 7 = 5040
+check('Z15: 36 = 2^2x3^2, 45 = 3^2x5, 63 = 3^2x7, 80 = 2^4x5 -> LCM 2^4x3^2x5x7 = 16x9x35 = 5040; quotients 140, 112, 80, 63', 16 * 9 * 5 * 7 === 5040 && 5040 % 36 === 0 && 5040 % 45 === 0 && 5040 % 63 === 0 && 5040 % 80 === 0 && 5040 / 36 === 140 && 5040 / 45 === 112 && 5040 / 63 === 80 && 5040 / 80 === 63);
+// Z16: exam pattern 2 — least number divided by 12, 16, 18 leaving
+// remainder 5 in each case: LCM(12,16,18) = 2^4 x 3^2 = 144, N = 144 + 5 = 149
+check('Z16: LCM(12,16,18) = 2^4x3^2 = 144; 149 = 12x12+5 = 16x9+5 = 18x8+5; k=0 gives 5 = 0x12+5 (quotient 0 — not a serious division)', lcm3(12, 16, 18) === 144 && 2 ** 4 * 3 ** 2 === 144 && 144 + 5 === 149 && 149 === 12 * 12 + 5 && 149 === 16 * 9 + 5 && 149 === 18 * 8 + 5 && 5 === 0 * 12 + 5 && 5 === 0 * 16 + 5 && 5 === 0 * 18 + 5);
+// Z17: the deficiency twin — least number divided by 9, 10, 15 leaving
+// remainders 4, 5, 10: deficiencies 9-4 = 10-5 = 15-10 = 5; LCM(9,10,15) = 90
+// (2 x 3^2 x 5); N = 90 - 5 = 85
+check('Z17: 9-4 = 10-5 = 15-10 = 5; LCM(9,10,15) = 2x3^2x5 = 90; 85 = 9x9+4 = 10x8+5 = 15x5+10; N + 5 = 90 = LCM', 9 - 4 === 5 && 10 - 5 === 5 && 15 - 10 === 5 && lcm3(9, 10, 15) === 90 && 2 * 9 * 5 === 90 && 90 - 5 === 85 && 85 === 9 * 9 + 4 && 85 === 10 * 8 + 5 && 85 === 15 * 5 + 10 && 85 + 5 === 90);
+// Z18: the deficiency twin, three-number instance (exercise L5) — remainders
+// 3, 6, 11 for 12, 15, 20: deficiencies all 9; LCM(12,15,20) = 60; N = 51
+check('Z18: 12-3 = 15-6 = 20-11 = 9; LCM(12,15,20) = 2^2x3x5 = 60; 60 - 9 = 51 = 12x4+3 = 15x3+6 = 20x2+11', 12 - 3 === 9 && 15 - 6 === 9 && 20 - 11 === 9 && lcm3(12, 15, 20) === 60 && 4 * 3 * 5 === 60 && 60 - 9 === 51 && 51 === 12 * 4 + 3 && 51 === 15 * 3 + 6 && 51 === 20 * 2 + 11);
+// Z19: counting multiples — up to 300 divisible by 5 and 7: LCM 35,
+// floor(300/35) = 8 (the eighth is 280)
+check('Z19: LCM(5,7) = 35; floor(300/35) = 8; 8x35 = 280, 9x35 = 315 > 300', lcm2(5, 7) === 35 && Math.floor(300 / 35) === 8 && 8 * 35 === 280 && 9 * 35 === 315);
+// Z20: counting multiples, the between-bounds version — numbers between
+// 100 and 500 divisible by 42: floor(500/42) = 11, floor(100/42) = 2 -> 9
+check('Z20: LCM(6,7) = 42; floor(500/42) = 11 (462), floor(100/42) = 2 (84); 11 - 2 = 9', lcm2(6, 7) === 42 && Math.floor(500 / 42) === 11 && 11 * 42 === 462 && Math.floor(100 / 42) === 2 && 2 * 42 === 84 && 11 - 2 === 9);
+// Z21: the bells — five bells toll at intervals 2, 4, 6, 8, 10 minutes,
+// starting together: together every LCM = 2^3 x 3 x 5 = 120 min = 2 h;
+// in one day (1440 min) they coincide 1440/120 = 12 times after the start
+check('Z21: LCM(2,4,6,8,10) = 2^3x3x5 = 120; 1440/120 = 12 coincidences after the start (13 with it)', lcm2(lcm2(lcm2(2, 4), lcm2(6, 8)), 10) === 120 && 8 * 3 * 5 === 120 && 24 * 60 === 1440 && 1440 / 120 === 12 && 120 === 2 * 60);
+// Z22: the bus figure — ticks for 12-min and 18-min lanes to 108 minutes;
+// shared departure minutes are 0, 36, 72, 108
+check('Z22: figure lanes: multiples of 12 up to 108 (10 ticks) and of 18 up to 108 (7 ticks); shared = 0, 36, 72, 108; scale 600/108 px per minute puts them at x = 40, 240, 440, 640', (() => {
+  const laneA: number[] = []; for (let m = 0; m <= 108; m += 12) laneA.push(m);
+  const laneB: number[] = []; for (let m = 0; m <= 108; m += 18) laneB.push(m);
+  const shared = laneA.filter((m) => laneB.includes(m));
+  const x = (m: number) => 40 + (m * 600) / 108;
+  return laneA.length === 10 && laneB.length === 7 && JSON.stringify(shared) === JSON.stringify([0, 36, 72, 108]) && [0, 36, 72, 108].every((m) => Math.abs(x(m) - [40, 240, 440, 640][[0, 36, 72, 108].indexOf(m)]) < 1e-9);
+})());
+// Z23: the smallest 4-digit number divisible by 18, 24, 32 (exercise L4):
+// LCM = 2^5 x 3^2 = 288; 1000 = 3x288 + 136 -> k = 4 -> 1152
+check('Z23: LCM(18,24,32) = 2^5x3^2 = 288; 1000/288 = 3.47 so k = 4; 4x288 = 1152 = 18x64 = 24x48 = 32x36', lcm3(18, 24, 32) === 288 && 32 * 9 === 288 && 288 * 3 === 864 && 1000 - 864 === 136 && 288 * 4 === 1152 && 1152 % 18 === 0 && 1152 % 24 === 0 && 1152 % 32 === 0 && 1152 / 18 === 64 && 1152 / 24 === 48 && 1152 / 32 === 36);
+// Z24: the L6 completeness problem — pairs (a, b), a < b, with
+// LCM(a, b) = 18: both divide 18, and the seven pairs are
+// (1,18), (2,9), (2,18), (3,18), (6,9), (6,18), (9,18)
+check('Z24: exactly seven pairs a < b with lcm 18, found by exhaustive search over the divisors of 18', (() => {
+  const pairs: number[][] = [];
+  for (let a = 1; a <= 18; a++) for (let b = a + 1; b <= 18; b++) if (lcm2(a, b) === 18) pairs.push([a, b]);
+  const want = [[1, 18], [2, 9], [2, 18], [3, 18], [6, 9], [6, 18], [9, 18]];
+  return pairs.length === 7 && JSON.stringify(pairs) === JSON.stringify(want) && want.every(([a, b]) => 18 % a === 0 && 18 % b === 0);
+})());
+// Z25: exercise L2 — LCM(18, 24) = 2^3 x 3^2 = 72
+check('Z25: 18 = 2x3^2, 24 = 2^3x3 -> LCM 2^3x3^2 = 72; 72/18 = 4, 72/24 = 3', 8 * 9 === 72 && lcm2(18, 24) === 72 && 72 / 18 === 4 && 72 / 24 === 3);
+// Z26: exercise L3 ladders — 8, 12, 15, 20 -> 120; 16, 28, 40 -> 560
+check('Z26: LCM(8,12,15,20) = 2^3x3x5 = 120 (120/8=15, /12=10, /15=8, /20=6); LCM(16,28,40) = 2^4x5x7 = 560 (560/16=35, /28=20, /40=14)', (() => {
+  const l1 = lcm2(lcm2(8, 12), lcm2(15, 20));
+  const l2 = lcm2(lcm2(16, 28), 40);
+  return l1 === 120 && 8 * 3 * 5 === 120 && [15, 10, 8, 6].every((q, i) => 120 % [8, 12, 15, 20][i] === 0 && 120 / [8, 12, 15, 20][i] === q) && l2 === 560 && 16 * 5 * 7 === 560 && [35, 20, 14].every((q, i) => 560 / [16, 28, 40][i] === q);
+})());
+// Z27: exercise L4 — least number exactly divisible by 10, 14, 15: 210
+check('Z27: LCM(10,14,15) = 2x3x5x7 = 210; 210/10 = 21, /14 = 15, /15 = 14', 2 * 3 * 5 * 7 === 210 && lcm2(lcm2(10, 14), 15) === 210 && 210 / 10 === 21 && 210 / 14 === 15 && 210 / 15 === 14);
+// Z28: exercise L4 — least number divided by 16, 24, 30 leaving remainder 7:
+// LCM(16,24,30) = 2^4 x 3 x 5 = 240; N = 240 + 7 = 247
+check('Z28: LCM(16,24,30) = 2^4x3x5 = 240; 247 = 16x15+7 = 24x10+7 = 30x8+7', lcm3(16, 24, 30) === 240 && 16 * 3 * 5 === 240 && 240 + 7 === 247 && 247 === 16 * 15 + 7 && 247 === 24 * 10 + 7 && 247 === 30 * 8 + 7);
+// Z29: exercise L5 — numbers up to 1000 divisible by both 6 and 8:
+// LCM 24, floor(1000/24) = 41 (the 41st is 984)
+check('Z29: LCM(6,8) = 24; floor(1000/24) = 41; 41x24 = 984, 42x24 = 1008 > 1000', lcm2(6, 8) === 24 && Math.floor(1000 / 24) === 41 && 41 * 24 === 984 && 42 * 24 === 1008);
+// Z30: quiz Q1/Q2 crosses — LCM(12, 18) = 36 with distractor 216 = product;
+// LCM(96, 720) = 1440 with distractors 48 (HCF), 144, 69120 (product)
+check('Z30: quiz crosses: 36 = lcm(12,18) and 216 = 12x18 (product distractor); 1440 = lcm(96,720); 48 = gcd; 144 = 2^4x3^2; 69120 = product', lcm2(12, 18) === 36 && 12 * 18 === 216 && gcd(12, 18) === 6 && lcm2(96, 720) === 1440 && gcd(96, 720) === 48 && 2 ** 4 * 3 ** 2 === 144 && 96 * 720 === 69120);
+// Z31: quiz Q3 — which product is the LCM of 12, 15, 20, 54:
+// 2x2x3x5x9 = 540; wrong: 2x3x5 = 30 (divisors), 2x2x3x5 = 60 (forgot 9),
+// 12x15x20x54 = 194400 (raw product)
+check('Z31: 2x2x3x5x9 = 540 = LCM; 2x3x5 = 30 divides all four but is not a multiple of 54; 2x2x3x5 = 60 not a multiple of 54 (60/54 not whole); 12x15x20x54 = 194400', 2 * 2 * 3 * 5 * 9 === 540 && 2 * 3 * 5 === 30 && 30 % 54 !== 0 && 54 % 30 !== 0 && 2 * 2 * 3 * 5 === 60 && 60 % 54 !== 0 && 12 * 15 * 20 * 54 === 194400);
+// Z32: quiz Q4 — least number divided by 12, 16, 18 leaving remainder 5:
+// 149; distractors: 144 (forgot the remainder), 139 (subtracted), 5 (k = 0)
+check('Z32: 149 correct; 144 = LCM without remainder; 139 = 144 - 5 (wrong sign); 5 leaves 5,5,5 with quotient 0', 144 + 5 === 149 && 144 - 5 === 139 && 5 % 12 === 5 && 5 < 12);
+// Z33: quiz Q5 — numbers up to 100 divisible by both 4 and 6:
+// LCM 12, floor(100/12) = 8 (the 8th is 96); distractors 25 (by 4), 16 (by 6)
+check('Z33: LCM(4,6) = 12; floor(100/12) = 8; 8x12 = 96; floor(100/4) = 25; floor(100/6) = 16', lcm2(4, 6) === 12 && Math.floor(100 / 12) === 8 && 8 * 12 === 96 && Math.floor(100 / 4) === 25 && Math.floor(100 / 6) === 16);
+// Z34: the Metonic cycle (historical callout) — 19 tropical years of
+// 365.2422 days and 235 synodic months of 29.5306 days agree within ~2 hours
+check('Z34: 19x365.2422 = 6939.60; 235x29.5306 = 6939.69; difference 0.09 day = 2.1 h', Math.abs(19 * 365.2422 - 6939.6) < 0.01 && Math.abs(235 * 29.5306 - 6939.69) < 0.01 && Math.abs(235 * 29.5306 - 19 * 365.2422) < 0.1 && Math.abs(235 * 29.5306 - 19 * 365.2422) * 24 < 2.2);
+// Z35: structural sanity — LCM divides every common multiple (12, 18 case
+// re-derived by brute force up to 1000) and LCM(a,b) x gcd(a,b) = ab holds
+// for every pair up to 40 (the full product rule, checked broadly here,
+// proved in 3.5)
+check('Z35: brute force to 1000: common multiples of 12,18 = multiples of 36; product rule holds for all 1 <= a < b <= 40', (() => {
+  const commons: number[] = [];
+  for (let n = 1; n <= 1000; n++) if (n % 12 === 0 && n % 18 === 0) commons.push(n);
+  for (let k = 1; k * 36 <= 1000; k++) if (commons[k - 1] !== k * 36) return false;
+  for (let a = 1; a <= 40; a++) for (let b = a; b <= 40; b++) if (lcm2(a, b) * gcd(a, b) !== a * b) return false;
+  return commons.length === Math.floor(1000 / 36);
+})());
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`\nverify-unit-3: ${pass} passed, ${fail} failed`);
@@ -484,4 +640,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2 + 3.3');
+console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2 + 3.3 + 3.4');

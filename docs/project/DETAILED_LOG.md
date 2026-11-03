@@ -9,9 +9,9 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 9**: lesson 3.3
-Highest Common Factor shipped and verified; chapter 3 of
-Foundation Mathematics at 3/5 lessons; `WORK_INVENTORY.json` regenerated in
+Generated: 2026-11-03 (maintained through **hourly run 10**: lesson 3.4
+Lowest Common Multiple shipped and verified; chapter 3 of
+Foundation Mathematics at 4/5 lessons; `WORK_INVENTORY.json` regenerated in
 the same run).
 
 ---
@@ -70,13 +70,15 @@ the same run).
 | 11-03 (run 8) | (ship) | **LESSON 3.2 Prime Numbers and Factorisation** — authored, 152 pre-writing checks, E2E green incl. the 390px inline-math fix + INLINE-MATH RULE, fourth recycle rebuilt in one command, logged; pushed (protocol v2) |
 | 11-03 (run 9) | — | **Fifth sandbox recycle** — only the gitignored Drive survey lost; rebuilt in one command (`rebuild_drive_survey.ts`, 89 entries, Khattar id intact). Khattar QA 4e re-downloaded via the persisted id; ch. 2 "H.C.F. and L.C.M. of Numbers" studied; NCERT §3.8 web-checked |
 | 11-03 (run 9) | (ship) | **LESSON 3.3 Highest Common Factor** — authored, 192 pre-writing checks (sections V–Y, 40 new), Bézout/crossroads debt discharged, E2E green (quiz 5/5 live, flashcards 68, Venn figure verified, 390px exact-fit with ten solutions expanded), two over-escape hits fixed + head/header fix, logged; pushed (protocol v2) |
+| 11-03 (figure-fix run) | `87f0f8a` | **Owner-reported figure defects fixed** — six overlapping/clipped SVG figures relaid out (37 patches); `scripts/audit-svg-overlaps.sh` + page-side getBBox-exact detector built and wired into the gates (15 figures re-audited, 0 issues; VLM PASS on all six); logged; pushed (protocol v2) |
+| 11-03 (run 10) | (ship) | **LESSON 3.4 Lowest Common Multiple** — authored, 227 pre-writing checks (section Z, 35 new), timetable figure 0 audit issues first pass, E2E green (quiz 5/5 live, flashcards 75, 390px exact-fit with ten solutions expanded), exercises `sets` schema fix, logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.2 — 10
-lessons, 43,725 words, 61 flashcard terms.**
+**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.4 — 12
+lessons, 54,303 words, 75 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -330,7 +332,7 @@ honoured). Chapter totals recomputed from live data by
 book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise
 questions.
 
-#### Chapter 3: Factors, Multiples and Primes — **OPEN (unit 3, started 2026-11-03; 2 of 5 lessons)**
+#### Chapter 3: Factors, Multiples and Primes — **OPEN (unit 3, started 2026-11-03; 4 of 5 lessons)**
 
 **Lesson 3.1 — Divisibility and Its Tests** (id `fm-divisibility-and-its-tests`,
 authored 11-03, hourly-run-7 ship commit; ch-03.ts created) — **6,477 words ·
@@ -530,12 +532,64 @@ new terms, Venn figure screenshot-verified, zero console errors, and
 390; three wide display blocks scroll inside the math-display
 overflow-x:auto guard; max SVG width 324).
 
+**Lesson 3.4 — Lowest Common Multiple** (id `fm-lowest-common-multiple`,
+authored 11-03, hourly-run-10 ship commit; appended to ch-03.ts) — **5,014
+words · 7 terms (Common multiple, Lowest common multiple, Shared primes at
+the larger powers, Common-division ladder, Coprime extreme, Divisibility
+extreme, Overlap and union territories) · 5 quiz items (answers spread
+2/3/1/2/3) · 11 exercises (L1×2, L2×2, L3×2, L4×2, L5×2, L6×1) · 1
+original SVG figure (the two-lane timetable: bus A every 12 min, bus B
+every 18 min, rings at the shared departures 0/36/72/108, split dashed
+connectors so no line crosses a ring digit, plain labels; 0 audit issues
+on the FIRST pass of scripts/audit-svg-overlaps.sh) · 2 derivations (the
+timetable structure theorem — common multiples are exactly the multiples
+of the LCM: every multiple of L is common by L = a·s; every common
+multiple m gives r = m − qL a smaller common multiple unless r = 0, via
+Lesson 2.4's algorithm and differences of multiples; why the larger power
+— common clears max(α, β), the larger-power product clears every bar,
+nothing smaller misses a demand) · 1 theorem callout (the larger-power
+rule ∏ p^max(α,β) beside 3.3's min rule; Venn pair 96 & 720 →
+2⁵ × 3² × 5 = 1,440 = 2 × 48 × 15) · 3 formula cards (the atoms route
+∏ p^max; the ladder product = every left divisor × the surviving line;
+the remainder patterns LCM side — LCM + r for a same remainder, LCM − d
+for equal deficiencies x−r₁ = y−r₂ = z−r₃, floor(N/LCM) for counting) ·
+3 worked examples (the listing route 16 & 24 → 48 with the multiples-of-48
+shape; the ladder 12/15/20/54 → 540 row by row — 2, 2, then the forced
+switch to 3, then 5, survivor 9; the cords flipped 1,152/768/1,248 →
+29,952 cm ≈ 300 m of ribbon, quotients 26/39/24) · 2 warn/theorem-adjacent
+callouts (the smaller-power slip 48 = HCF not LCM + the dropped-5 slip
+288; the divide-back guard 1,440 = 15 × 96 = 2 × 720) · the four
+least-number patterns table (36/45/63/80 → 5,040; 12/16/18 r 5 →
+144 + 5 = 149 with the k = 0 quotient-0 honesty note; 9/10/15 leaving
+4/5/10 → 90 − 5 = 85; up to 300 by 5 & 7 → 8) · Metonic-cycle historical
+callout (19 × 365.2422 days vs 235 × 29.5306, agreeing within ~2 hours;
+luni-solar calendars live on the common multiple) · exam callout (bells
+2,4,6,8,10 → every 120 min, 12 times after the start + 1; product-rule
+promise banked for 3.5) · closing para pointing at the product rule and
+pair reconstruction. Exercise highlights: the smallest 4-digit number
+divisible by 18/24/32 (1,152 = 4 × 288), the 51 deficiency twin (12/15/20
+leaving 3/6/11), and the pair-hunter's problem — seven pairs with LCM 18
+((1,18), (2,9), (2,18), (3,18), (6,9), (6,18), (9,18)), completeness by
+divisor enumeration (fifteen divisor pairs, eight losers named with their
+LCMs). 35 new checks (section Z, helpers lcm2/lcm3) → verify-unit-3.ts
+**227 checks ALL PASS pre-writing**; verify-unit-2 still 165/165. E2E:
+6 routes 200; KaTeX 249 nodes; dollarInSvg = 0; quiz answered live with
+the intended options (2/3/1/2/3) → "You scored 5/5 · perfect"; flashcards
+68 → 75; glossary lists all 7 new terms + 3/3 formula cards; zero console
+errors; **mobile 390px exact-fit with ALL ELEVEN solutions expanded**
+(overflowX = 0; the patterns table scrolls inside its wrapper); timetable
+figure 0 audit issues first pass + screenshot-verified. Fix-ups en route:
+exercises block schema wants `sets` (types.ts), not `intro`/`levels`; Z22
+lane arrays typed `number[]`. Khattar ch. 2 LCM sections studied via the
+persisted-id re-download; NCERT Ex 3.7 web-checked; working copies
+deleted after E2E.
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
-| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · LCM · HCF, LCM and How They Relate |
+| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
@@ -741,24 +795,28 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-8 ship commit `500a028` (FM lesson 3.2 Prime
-  Numbers and Factorisation + logs); working tree clean. origin/main is
-  synced through the run-8 push under protocol v2: push `ea0441f..500a028`,
-  remote HEAD verified = `500a028` via one-time-URL ls-remote, tracking
-  ref re-synced via anonymous HTTPS fetch (this sandbox has no ssh binary
-  — `git ls-remote origin` fails; use the anonymous HTTPS form).
-  (Run-7 shas in WORKLOG.md run-7 memory note.)
-- **Sandbox recycle note:** recycled FOUR times on 11-03, fully
-  recovered each time; runs 7 and 8 were the mildest (only the gitignored
+- HEAD: the hourly-run-10 ship commit (FM lesson 3.4 Lowest Common
+  Multiple + logs); working tree clean after the push. origin/main is
+  synced through the run-10 push under protocol v2 (remote HEAD verified
+  via one-time-URL ls-remote, tracking ref re-synced via anonymous HTTPS
+  fetch — this sandbox has no ssh binary; use the anonymous HTTPS form).
+  The owner-reported figure-defect run (six figures fixed +
+  `audit-svg-overlaps.sh` wired into the gates) shipped as `87f0f8a`
+  between run 9 and run 10.
+- **Sandbox recycle note:** recycled FIVE times on 11-03, fully
+  recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
-- **CURRENT (hourly cadence): lesson 3.3 — "Highest Common
-  Factor"** — continues chapter 3 (2/5 lessons done: 3.1, 3.2). Ties to
-  honour: 3.2's closing promise (shared primes at the smaller powers →
-  HCF; all primes at the larger powers → LCM), Exercise L3's seed
-  gcd(84, 126) = 42 = 2 × 3 × 7, the Bézout proof debt from 3.2's
-  uniqueness derivation, 3.1's coprime trap generalised. References:
-  Khattar ch. 2 "H.C.F. and L.C.M. of Numbers" (prime factorisation
-  method; id persisted) + NCERT class-6 ch. 3 common-factor sections via
-  web; verify → write → gates → log; unit-3 completion review after 3.5.
+- **CURRENT (hourly cadence): lesson 3.5 — "HCF, LCM and How They
+  Relate"** — closes chapter 3 (4/5 lessons done: 3.1–3.4). Ties to
+  honour: the product rule promise banked THREE times (3.3's exam
+  callout 48 × 1,440 = 96 × 720; 3.4's Route-2 para and exam callout,
+  also 6 × 36 = 12 × 18) — prove gcd × lcm = a × b via the Venn
+  territories or the atoms (min powers × max powers = every prime at
+  α + β), then reconstruct pairs from HCF & LCM (Khattar Illustration 14:
+  HCF 63, LCM 1,260, one number 315 → other 252); unite the two route
+  tables; close the chapter arc on 2.4's division algorithm. After 3.5
+  ships: run the UNIT-3 COMPLETION REVIEW (BOOK_FORMAT checklist,
+  exam-coverage audit, totals recompute) and delete
+  temporary-references/ working copies.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).
