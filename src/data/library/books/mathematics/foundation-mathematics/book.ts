@@ -9,9 +9,10 @@ import { chapter02 } from './ch-02'
  * unit 1 of the unit-by-unit cadence: lessons 1.1, 1.2 (Comparing and
  * Ordering Numbers) and 1.3 (Rounding and Estimating) are authored and
  * verified. Chapter 2 (The Four Operations) is IN PROGRESS — lessons 2.1
- * (Addition and the Art of Carrying) and 2.2 (Subtraction and Borrowing)
- * shipped in unit 2, 2026-11-03; lessons 2.3–2.5 remain planned.
- * Authoring per docs/project/MASTER_PLAN.md §2.
+ * (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing) and
+ * 2.3 (Multiplication as Repeated Addition — and Beyond) shipped in unit
+ * 2, 2026-11-03; lessons 2.4–2.5 remain planned. Authoring per
+ * docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -29,7 +30,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Chapter 2 (The Four Operations) in progress — lessons 2.1 (Addition and the Art of Carrying) and 2.2 (Subtraction and Borrowing) shipped unit 2, 2026-11-03; lessons 2.3–2.5 next. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Chapter 2 (The Four Operations) in progress — lessons 2.1 (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing) and 2.3 (Multiplication as Repeated Addition — and Beyond) shipped unit 2, 2026-11-03; lessons 2.4–2.5 next. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

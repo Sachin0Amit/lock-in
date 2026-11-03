@@ -6,6 +6,64 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 4: lesson 2.3 Multiplication as Repeated Addition — and Beyond shipped
+
+**Lesson 2.3 (chapter 2 The Four Operations, lesson 3 of 5):**
+- References: NCERT class 6 ch. 2 multiplication topics web-checked
+  (repeated equal jumps on the number line; closure/commutative/
+  associative restored, identity = 1, **distributive over addition**
+  a×(b+c) = a×b + a×c — the canonical 12×(5+4) = 108 instance) — the
+  unit's Khattar ch. 4 was already surveyed in run 2; no new downloads.
+- Authored `ch-02.ts` lesson 2.3 (~4,028 words, 36 blocks): equal-groups
+  opening + two-readings paragraph; 6 terms (factor, product, distributive,
+  partial product, multiplicative identity, binary expansion); number-line
+  figure with 4×6 as four equal jumps vs 6×4 as six (both land on 24 —
+  commutativity as choreography); rectangle/times-table symmetry paragraph;
+  laws-retried table (closure/commutative/associative/identity-1/
+  **distributive**, verified instances incl. 12×(5+4) = 108); zero-property
+  paragraph derived from distributivity (a×0 = a×0 + a×0 ⇒ 0);
+  column-multiplication **algorithm block** (partial products, the shift);
+  worked 247×36 = 1,482 + 7,410 = 8,892 with **partial-products seat-map
+  figure** (shift annotation, tinted trailing 0); **partial-product
+  carry-bound derivation** (9×9+8 = 89 fixed point ⇒ carries ≤ 8, attained
+  by 999×9 = 8,991 — contrasted with addition's 1); **product digit-bound
+  derivation** (k+m−1 ≤ digits ≤ k+m; 999×999 = 998,001, 100×100 = 10,000);
+  partial-product identity equation; 2 formula cards (digit bound,
+  mod-9 for multiplication); fingerprint section with the honest
+  multiplication-specific blind spot (the 2,223 shift-mistake PASSES the
+  fingerprint because it is a genuine product of 247 — guards must be
+  multiplied); speed techniques (×9/×11 ten-routes, 198×7, 24×25 = 600);
+  **Russian-peasant historical callout** (halves 123…1 × doubles 72…4,608,
+  kept rows sum to 8,892 via binary 247 = 11110111₂); exam callout; 5 quiz
+  items; L1–L6 exercises (8 questions) ending in the binary-proof L6;
+  closing pointer to lesson 2.4 (division and why zero never divides).
+- **164 arithmetic checks** (50 new for 2.3) in `scripts/verify-unit-2.ts`
+  — ALL PASS *before* writing.
+
+**Gates:** verify 164/164 · lint clean · tsc clean repo-wide (fixed 31
+double-escaped apostrophes introduced by the authoring edit — caught by
+tsc as TS1005 at ch-02.ts:880; fixed two literal-narrowing TS2367s in the
+verify script; removed a malformed dev-generated `.next/dev/types/
+validator.ts` and let the dev server regenerate it) · lesson route 404 →
+dev-server restart → 200 · browser E2E: KaTeX 149 nodes, 8 headings, both
+figures geometry-verified via DOM (10 equal-jump arcs, 10 hop labels,
+4 landing circles; 17 digit texts, row labels "= 247 x 6"/"= 247 x 30,
+shifted", "36 = 30 + 6" chip, "0 marks the shift" note), algorithm +
+2 derivations + laws table + 6 terms + 2 formula cards render, quiz 5/5
+"perfect", flashcard deck 28 → 34, glossary lists Factor / Partial product
+/ Base-two expansion, formula sheet lists both new cards, mobile 390px
+exact (scrollW=390), dollarInSvg=0, zero console errors.
+
+**Logged:** PROGRESS / RESUME_POINTER / SOURCE_LOG updated;
+WORK_INVENTORY.json regenerated (lesson 2.3 included); DETAILED_LOG.md
+updated. Committed locally. **NOT pushed** — the cron payload's standing
+rule is no-push without a fresh owner PAT; per protocol the owner pastes
+a token in chat when they want the run's commits released (the run-3
+session PAT was a paste-once exception, and per the never-store rule it
+is not reused for autonomous runs).
+
+---
+
 ## 2026-11-03 — HOURLY RUN 3: lesson 2.2 Subtraction and Borrowing shipped + SVG figure-label defect found & fixed
 
 **Lesson 2.2 (chapter 2 The Four Operations, lesson 2 of 5):**

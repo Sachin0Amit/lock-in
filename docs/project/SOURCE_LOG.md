@@ -35,19 +35,20 @@ step 6).
   estimation). Coverage cross-checked via published syllabus outlines;
   exposition original.
 - `ncert-math6-ch2` — NCERT Class 6 Mathematics, ch. 2 "Whole Numbers"
-  (public curriculum). Used for: FM ch. 2 lessons 2.1 and 2.2 — canonical
-  school-level treatment of addition and subtraction on the number line
-  and the properties of whole numbers under both operations (closure,
-  commutativity, associativity, identity — and their failures for
-  subtraction; decomposition/regrouping). Coverage web-checked (searches
-  2026-11-03: "not closed under subtraction", "neither commutative nor
-  associative", decomposition method); exposition original.
+  (public curriculum). Used for: FM ch. 2 lessons 2.1, 2.2 and 2.3 —
+  canonical school-level treatment of addition, subtraction and
+  multiplication on the number line and the properties of whole numbers
+  under each operation (closure, commutativity, associativity, identity,
+  distributivity — and their failures for subtraction;
+  decomposition/regrouping). Coverage web-checked (searches 2026-11-03:
+  property tables incl. distributive a×(b+c) = a×b + a×c, multiplication
+  as repeated jumps); exposition original.
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2 (2.2 researched via web — unit's Khattar copy already surveyed, no new download) | yes — after each unit's verification | foundation-mathematics in-progress (**1/11 chapters complete · ch. 2 in progress, lessons 2.1–2.2 shipped**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3 (2.2 + 2.3 researched via web — unit's Khattar copy already surveyed, no new download) | yes — after each unit's verification | foundation-mathematics in-progress (**1/11 chapters complete · ch. 2 in progress, lessons 2.1–2.3 shipped**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -75,3 +76,6 @@ step 6).
   unit's Khattar ch. 4 was already surveyed in run 2 (BODMAS reserved for
   lesson 2.5) and NCERT class-6 subtraction coverage was web-checked
   (sanctioned fallback); zero temporary-references footprint this lesson.
+- 2026-11-03 (mathematics, unit 2, lesson 2.3): no new downloads — same
+  basis as 2.2; NCERT class-6 multiplication coverage (number-line jumps,
+  property set incl. distributivity) web-checked.

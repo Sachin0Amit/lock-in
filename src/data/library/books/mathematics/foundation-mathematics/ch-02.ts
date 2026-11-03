@@ -4,13 +4,14 @@ import type { Chapter } from '../../../types'
  * Foundation Mathematics — Chapter 2: The Four Operations
  *
  * LESSONS WRITTEN: 2.1 Addition and the Art of Carrying · 2.2 Subtraction
- * and Borrowing. CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence,
- * started 2026-11-03). Lessons 2.3–2.5 are planned (see plannedLessons below)
- * and are authored one per unit cycle. References for this unit: Khattar,
+ * and Borrowing · 2.3 Multiplication as Repeated Addition — and Beyond.
+ * CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence, started
+ * 2026-11-03). Lessons 2.4–2.5 are planned (see plannedLessons below) and
+ * are authored one per unit cycle. References for this unit: Khattar,
  * Quantitative Aptitude for Competitive Examinations (4e) ch. 4
- * "Simplification" + NCERT Class 6 ch. 2 "Whole Numbers" topic coverage — see
- * docs/project/SOURCE_LOG.md. Exposition original; all arithmetic verified by
- * scripts/verify-unit-2.ts (114 checks) BEFORE writing.
+ * "Simplification" + NCERT Class 6 ch. 2 "Whole Numbers" topic coverage —
+ * see docs/project/SOURCE_LOG.md. Exposition original; all arithmetic
+ * verified by scripts/verify-unit-2.ts (164 checks) BEFORE writing.
  */
 export const chapter02: Chapter = {
   number: 2,
@@ -20,7 +21,6 @@ export const chapter02: Chapter = {
     'Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.',
   status: 'in-progress',
   plannedLessons: [
-    'Multiplication as Repeated Addition — and Beyond',
     'Division, Remainders and Why Zero Never Divides',
     'Order of Operations and the Language of Expressions',
   ],
@@ -857,6 +857,418 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Subtraction, then, is addition read backwards. Its inverse definition supplies a check that addition never had; its dead laws explain the strictness of the layout; and its borrow is the carry running in reverse — always a single 1, occasionally rippling through a wall of zeros. The next lesson introduces the operation that makes both of these look slow: multiplication — addition performed many times at once, and then, quietly, a law unto itself.',
+        },
+      ],
+    },
+    {
+      id: 'fm-multiplication-repeated-addition',
+      number: '2.3',
+      title: 'Multiplication as Repeated Addition — and Beyond',
+      concepts: [
+        'Multiplication as repeated addition',
+        'Equal jumps on the number line',
+        'Factor and product',
+        'The laws that return: closure, commutative, associative, identity 1',
+        'Distributivity over addition',
+        'Column multiplication as shifted partial products',
+        'The mod-9 fingerprint for products',
+      ],
+      objectives: [
+        'Explain multiplication as repeated addition and as equal jumps on the number line — and why the two orders land in the same place',
+        'State the four laws multiplication shares with addition plus the new distributive law, and use each deliberately',
+        'Execute column multiplication as shifted partial products, knowing why the shift exists and how large its carries may grow',
+        'Bound a product\'s digit count before computing it, and check any product with the mod-9 fingerprint',
+      ],
+      prerequisites: ['fm-addition-carrying'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'The herder\'s flock has grown organised: four pens, six sheep each. Counting every animal gives the same slow walk as ever — twenty-four. Adding pen by pen is faster: $6 + 6 + 6 + 6 = 24$. But when the herd scales to forty pens, even addition limps. Multiplication is the operation built for **equal groups**: $4 \\times 6$ means "four sixes, combined" — and it answers instantly what forty additions would merely crawl to. Every multiplication is a compressed addition: $4 \\times 6$ is four hops of $6$; the numbers multiplied are the **factors**, the result is the **product**. Yet compression is only the beginning. Multiplication brings back every law that subtraction broke, adds a law of its own — and grows into something repeated addition can barely describe: area, scaling, and the arithmetic of "times". That growth is the *beyond* of this lesson\'s title.',
+        },
+        {
+          kind: 'para',
+          text: 'Read $4 \\times 6$ two ways: four groups of six, or six groups of four. A six-person table set four times, or a four-person table set six times — different arrangements, same twenty-four chairs. The two readings look different and *are* different, as pictures; the remarkable fact is that the totals agree, always. That agreement is the commutative property, and it is not a rule to memorise but a structure to see — on the number line first, then in rectangles, then in the shape of the times table itself.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Factor',
+              def: 'Any one of the numbers being multiplied. In $4 \\times 6 = 24$, both 4 and 6 are factors.',
+            },
+            {
+              term: 'Product',
+              def: 'The result of multiplication — the total built from equal groups. In $4 \\times 6 = 24$, the product is 24.',
+            },
+            {
+              term: 'Distributive property',
+              def: 'Multiplication spreads over addition: $a \\times (b + c) = a \\times b + a \\times c$. The one law that ties the two operations together.',
+            },
+            {
+              term: 'Partial product',
+              def: 'One row of a column multiplication: the top number times a single digit of the bottom number, shifted to its proper seat. Their sum is the full product.',
+            },
+            {
+              term: 'Multiplicative identity',
+              def: 'One is the number that changes nothing under multiplication: $a \\times 1 = a$ for every whole number $a$ (multiplication\'s answer to addition\'s zero).',
+            },
+            {
+              term: 'Base-two (binary) expansion',
+              def: 'Writing a number as a sum of distinct powers of two, e.g. $247 = 128 + 64 + 32 + 16 + 4 + 2 + 1$. The engine behind the Russian-peasant method and the way computers multiply.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Multiplication on the number line' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 drew $4 + 3$ as one hop of three; multiplication draws $4 \\times 6$ as **four hops, each of exactly six**. The hops are equal now — that is the signature of multiplication, and the reason it covers ground so much faster. Start at $0$, jump to $6$, $12$, $18$, $24$: four jumps, landing on $24$. Now run $6 \\times 4$: six hops of four — $4$, $8$, $12$, $16$, $20$, $24$. Different rhythm, different number of hops, **the same landing place**. The two panels below are the commutative property drawn as choreography: unequal groups arranged either way arrive together.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Multiplication as equal jumps. Top: 4 × 6 — four jumps of 6 land on 24 (tinted). Bottom: 6 × 4 — six jumps of 4 land on the same 24. The hop length and the hop count swap roles, but the landing point is fixed: the commutative property, drawn as choreography. Contrast Lesson 2.1\'s addition figure, where the hops could all differ — multiplication\'s hops are equal by definition.',
+          svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 4 times 6 as four jumps of six, and 6 times 4 as six jumps of four, both landing on 24">
+  <g font-size="13" fill="currentColor">
+    <text x="30" y="40" opacity="0.75" text-anchor="start">4 x 6: four jumps of 6</text>
+    <line x1="40" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <g text-anchor="middle">
+      ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+    </g>
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${56 + j * 156} 62 Q ${128 + j * 156} 18 ${200 + j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${128 + j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">+6</text>`).join('\\n    ')}
+    <circle cx="50" cy="88" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="674" cy="88" r="7" fill="#b45309"/>
+    <text x="700" y="164" opacity="0.75" text-anchor="end">6 x 4: six jumps of 4</text>
+    <line x1="40" y1="200" x2="700" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <g text-anchor="middle">
+      ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="194" x2="${50 + n * 26}" y2="206" stroke="currentColor" stroke-width="${n % 4 === 0 ? 1.5 : 1}" opacity="${n % 4 === 0 ? 0.6 : 0.3}"/>${n % 4 === 0 ? `<text x="${50 + n * 26}" y="226" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+    </g>
+    ${[0, 1, 2, 3, 4, 5].map((j) => `<path d="M ${56 + j * 104} 174 Q ${102 + j * 104} 136 ${148 + j * 104} 174" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${102 + j * 104}" y="146" text-anchor="middle" font-weight="700" fill="#b45309">+4</text>`).join('\\n    ')}
+    <circle cx="50" cy="200" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="674" cy="200" r="7" fill="#b45309"/>
+    <text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">unequal rhythms, identical destination — both orders land on 24</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The rectangle says the same thing in space. Lay the twenty-four sheep out as a grid: four rows of six, or six rows of four — the *same rectangle*, stood upright. This is why the times table is symmetric: the row for 4 and the column for 4 carry identical entries, because $4 \\times b$ and $b \\times 4$ are the same rectangle rotated. Learn half the table and you know all of it — the first dividend commutativity ever pays. The rectangle also previews where multiplication is going: a product is not only a total, it is an **area** (rows times columns), and Chapter 8 will collect that debt with interest.',
+        },
+        { kind: 'heading', text: 'The laws that return — and the new one that joins' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.2 watched three laws die under subtraction. Multiplication resurrects them all, swaps the identity, and contributes one genuinely new law. Here is the full statute book, each entry with a verified instance.',
+        },
+        {
+          kind: 'table',
+          caption: 'The laws of multiplication on the whole numbers — three resurrected, one re-identified, one brand new',
+          head: ['Law', 'Statement', 'Verified instance', 'What it buys you'],
+          rows: [
+            ['Closure', '$a \\times b$ is a whole number', '$247 \\times 36 = 8{,}892$', 'Products stay in the system — the set is safe again'],
+            ['Commutative', '$a \\times b = b \\times a$', '$7 \\times 8 = 8 \\times 7 = 56$', 'Half the times table is the other half; choose the easier order'],
+            ['Associative', '$(a \\times b) \\times c = a \\times (b \\times c)$', '$(5 \\times 4) \\times 3 = 5 \\times (4 \\times 3) = 60$', 'Group for convenience: $(5 \\times 4) \\times 3$ makes a friendlier $20 \\times 3$'],
+            ['Identity', '$a \\times 1 = a$', '$8{,}892 \\times 1 = 8{,}892$', 'One is the "do nothing" multiplier — the answer to addition\'s zero'],
+            ['Distributive', '$a \\times (b + c) = a \\times b + a \\times c$', '$12 \\times (5 + 4) = 60 + 48 = 108$', 'The bridge between the two operations — every column method below stands on it'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'One more law hides in plain sight — the **zero property**: $a \\times 0 = 0$ for every $a$. It is not an extra axiom; it falls out of distributivity. Since $0 + 0 = 0$, we have $a \\times 0 = a \\times (0 + 0) = a \\times 0 + a \\times 0$. So $a \\times 0$ is a whole number equal to its own double — and the only whole number with that property is $0$. Multiplication\'s annihilator: nothing times anything is nothing. Watch it work in the layout below — and notice how unlike addition\'s identity this is. Zero *absorbs* under multiplication ($247 \\times 0 = 0$) exactly where it *vanishes* under addition ($247 + 0 = 247$).',
+        },
+        { kind: 'heading', text: 'Column multiplication: distributivity laid out in rows' },
+        {
+          kind: 'para',
+          text: 'Now the algorithm — and this time the justification is a single law instead of two. Expanded form (Lesson 1.1) turns $247 \\times 36$ into $(2 \\cdot 100 + 4 \\cdot 10 + 7) \\times (3 \\cdot 10 + 6)$ — and distributivity licenses splitting the *second* factor: $247 \\times 36 = 247 \\times (30 + 6) = 247 \\times 6 + 247 \\times 30$. Each piece is a **partial product**: $247 \\times 6 = 1{,}482$ and $247 \\times 30 = 7{,}410$. Their sum is the product: $1{,}482 + 7{,}410 = 8{,}892$. That is the whole secret of the column layout — two small multiplications and one addition, arranged so the shift does the place-value bookkeeping automatically.',
+        },
+        {
+          kind: 'algorithm',
+          title: 'Column multiplication of two whole numbers (partial products)',
+          lines: [
+            { code: 'Write the factor with more digits on top, the other below it, ones digits aligned.', note: 'Order is free (commutativity), but more digits on top means fewer partial-product rows.' },
+            { code: 'Multiply the top number by the ONES digit of the bottom number, column by column from the right, carrying as needed. Write this partial product below the line.' },
+            { code: 'Multiply the top number by the TENS digit of the bottom number, and write this partial product ONE SEAT LEFT — or write a 0 in the ones seat first.', note: 'The digit stands for tens: 3 in 36 is worth 30, so its partial product shifts one whole seat.' },
+            { code: 'Repeat for each remaining digit of the bottom number, shifting one more seat left each time.' },
+            { code: 'Add all the partial products (Lesson 2.1\'s column addition — for two rows, every carry is again at most 1).', note: 'The sum of the partial products is the product — distributivity, assembled.' },
+          ],
+          note:
+            'Right-to-left, like every layout in this chapter. Two kinds of carrying now coexist: the carries *inside* each partial product (which can reach 8 — proved below) and the carries of the final addition (which cannot exceed 1). Keeping the two separate is most of the discipline this algorithm needs.',
+        },
+        {
+          kind: 'example',
+          title: '247 × 36, row by row',
+          steps: [
+            'Split the multiplier by place value: $36 = 30 + 6$. Distributivity says the product splits with it.',
+            'Row one — $247 \\times 6$: ones $6 \\times 7 = 42$, write 2, carry 4; tens $6 \\times 4 + 4 = 28$, write 8, carry 2; hundreds $6 \\times 2 + 2 = 14$, write 4, carry 1. Row: $1{,}482$. (The final carry becomes the new leading digit — same door as Lesson 2.1.)',
+            'Row two — $247 \\times 30$: compute $247 \\times 3$: ones $3 \\times 7 = 21$, write 1, carry 2; tens $3 \\times 4 + 2 = 14$, write 4, carry 1; hundreds $3 \\times 2 + 1 = 7$. Row: $741$ — **shifted one seat left** to become $7{,}410$, because the 3 was worth three tens.',
+            'Add the partial products: $1{,}482 + 7{,}410 = 8{,}892$. Product: $8{,}892$ — four digits, exactly where the digit bound below predicts.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The partial-product layout as a seat map. Row one multiplies by the 6 of 36 outright. Row two multiplies by the 3 — but that 3 is three tens, so its product 741 enters one seat left, its trailing 0 (tinted) filling the ones seat. The two rows add by Lesson 2.1\'s column addition to 8,892. The layout IS the distributive law: $247 \\times (30 + 6) = 247 \\times 6 + 247 \\times 30$, with place value doing the filing.',
+          svg: `<svg viewBox="0 0 760 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column multiplication of 247 and 36 showing the two partial products 1482 and 7410, the shifted zero, and the product 8892">
+  <g font-size="13" fill="currentColor">
+    <g font-size="22" font-weight="700" text-anchor="middle">
+      <text x="450" y="110">2</text><text x="580" y="110">4</text><text x="710" y="110">7</text>
+      <text x="580" y="172">3</text><text x="710" y="172">6</text>
+    </g>
+    <text x="200" y="172" font-size="22" font-weight="700" text-anchor="middle">x</text>
+    <text x="740" y="172" font-size="12" opacity="0.75" text-anchor="end">36 = 30 + 6</text>
+    <line x1="280" y1="200" x2="740" y2="200" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+      <text x="320" y="240">1</text><text x="450" y="240">4</text><text x="580" y="240">8</text><text x="710" y="240">2</text>
+    </g>
+    <text x="150" y="240" font-size="12" opacity="0.75" text-anchor="start">= 247 x 6</text>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+      <text x="320" y="302">7</text><text x="450" y="302">4</text><text x="580" y="302">1</text><text x="710" y="302">0</text>
+    </g>
+    <text x="150" y="302" font-size="12" opacity="0.75" text-anchor="start">= 247 x 30, shifted</text>
+    <circle cx="710" cy="295" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <text x="740" y="265" font-size="11.5" fill="#b45309" text-anchor="end">0 marks the shift</text>
+    <line x1="280" y1="330" x2="740" y2="330" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309">
+      <text x="320" y="368">8</text><text x="450" y="368">8</text><text x="580" y="368">9</text><text x="710" y="368">2</text>
+    </g>
+    <text x="150" y="368" font-size="12" opacity="0.75" text-anchor="start">product</text>
+    <text x="60" y="400" font-size="12" opacity="0.8" text-anchor="start">247 x 36 = 247 x (30 + 6) = 247 x 6 + 247 x 30 = 1,482 + 7,410 = 8,892 — distributivity, laid out as rows</text>
+  </g>
+</svg>`,
+        },
+        { kind: 'heading', text: 'How large can the carries grow now?' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 proved addition\'s carry can never exceed 1. Multiplication changes the arithmetic inside a partial product: there we multiply a digit by a *digit of the multiplier* — two digits up to 9 each — and $9 \\times 9 = 81$ already spills eight tens before any incoming carry arrives. The carries inside partial products are genuinely bigger, and a careless pencil drops them. Exactly how big can they get? The same induction that served Lesson 2.1 answers.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The partial-product carry bound',
+          statement:
+            'Inside a partial product (a whole number times a single digit), every carry is at most 8 — and 8 is attained.',
+          steps: [
+            {
+              label: 'Bound one column\'s work',
+              formula: 'x \\cdot d + c \\;\\le\\; 9 \\cdot 9 + 8 \\;=\\; 89',
+              explanation:
+                'The column multiplies a top digit $x \\le 9$ by the multiplier digit $d \\le 9$, then adds the incoming carry $c$. Whatever $c$ is, we may assume $c \\le 8$ — the claim being proved — which makes the base case below honest.',
+            },
+            {
+              label: 'Base case: the ones column',
+              formula: 'c_{1} = \\lfloor (x \\cdot d + 0)/10 \\rfloor \\;\\le\\; \\lfloor 81/10 \\rfloor \\;=\\; 8',
+              explanation:
+                'The first column receives no incoming carry, so its total is at most $9 \\times 9 = 81$: write the ones digit, carry at most 8. The bound holds for the first column.',
+            },
+            {
+              label: 'Inductive step (the fixed point)',
+              formula: 'c_{k+1} = \\lfloor (x \\cdot d + c_{k})/10 \\rfloor \\;\\le\\; \\lfloor 89/10 \\rfloor \\;=\\; 8',
+              explanation:
+                'If every carry so far has been at most 8, the next column totals at most $81 + 8 = 89$, whose carry is again at most 8. The bound reproduces itself — a fixed point, exactly as Lesson 2.1\'s bound of 1 did.',
+            },
+          ],
+          result:
+            'Carries inside a partial product never exceed 8, and $999 \\times 9 = 8{,}991$ attains them: $81$ carries 8, then $89$ and $89$ again. So multiplication\'s inner margin is eight times addition\'s — roomy, but still finite, and still independent of how long the number is. (The final *addition* of two partial products is ordinary two-row addition: its carries are back to at most 1.)',
+        },
+        { kind: 'heading', text: 'How big can a product be?' },
+        {
+          kind: 'para',
+          text: 'Before computing any product, a good examiner\'s habit: predict its *size*. Addition of two k-digit numbers gained at most one digit (Lesson 2.1). Multiplication is far more generous — digits pool, not merely spill — and the exact accounting is one expansion long.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The product digit bound',
+          statement:
+            'A k-digit number times an m-digit number has at least k + m − 1 and at most k + m digits.',
+          steps: [
+            {
+              label: 'Cap the factors',
+              formula: 'a \\;\\le\\; 10^{k} - 1, \\quad b \\;\\le\\; 10^{m} - 1',
+              explanation:
+                'A k-digit number never reaches $10^{k}$: its ceiling is $10^{k} - 1$ (all nines), and its floor is $10^{k-1}$ (a 1 followed by zeros) — both facts from Lesson 1.2\'s digit-count rule.',
+            },
+            {
+              label: 'Multiply the caps',
+              formula: 'a \\cdot b \\;\\le\\; (10^{k} - 1)(10^{m} - 1) \\;=\\; 10^{k+m} - 10^{k} - 10^{m} + 1 \\;<\\; 10^{k+m}',
+              explanation:
+                'The all-nines worst case: $999 \\times 999 = 998{,}001$ — six digits from three plus three, and still short of $10^{6}$. Whatever the factors are, the product stays below $10^{k+m}$, so it has at most $k + m$ digits.',
+            },
+            {
+              label: 'Floor the factors (the lower bound)',
+              formula: 'a \\cdot b \\;\\ge\\; 10^{k-1} \\cdot 10^{m-1} \\;=\\; 10^{k+m-2}',
+              explanation:
+                'The smallest k-digit factor is $10^{k-1}$, and likewise for m digits. A product of at least $10^{k+m-2}$ has at least $k + m - 1$ digits: $100 \\times 100 = 10{,}000$ — five digits, exactly $3 + 3 - 1$. The size is bracketed, not merely capped.',
+            },
+          ],
+          result:
+            'k + m − 1 ≤ digits of a product ≤ k + m. Our worked product $247 \\times 36 = 8{,}892$ has 4 digits, inside the promised window $3 + 2 - 1 = 4$ to $3 + 2 = 5$. Before you multiply, you already know how many digits to expect — a sanity check that costs nothing and catches shifted or dropped digits instantly.',
+        },
+        {
+          kind: 'equation',
+          latex: 'a \\times (10t + u) \\;=\\; (a \\times u) \\;+\\; 10 \\times (a \\times t)',
+          note: 'Every multiplication by a two-digit number is two partial products, the tens one shifted: $a \\times 36 = (a \\times 6) + 10 \\times (a \\times 3)$. The column layout is this identity drawn as rows — the shift is not a convention but the $\\times 10$.',
+        },
+        {
+          kind: 'formula',
+          name: 'Product digit bound',
+          latex: '10^{k+m-2} \\;\\le\\; a \\cdot b \\;<\\; 10^{k+m}',
+          note: 'A k-digit × m-digit product has between k + m − 1 and k + m digits. Example: 999 × 999 = 998,001 (six = 3 + 3); 100 × 100 = 10,000 (five = 3 + 3 − 1). Predict the size, then multiply.',
+        },
+        { kind: 'heading', text: 'Checking multiplication: the fingerprint multiplies' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1\'s mod-9 fingerprint survives multiplication, and now it *multiplies*: the fingerprint of a product must equal the product of the fingerprints. For $247 \\times 36$: fingerprint of $247$ is $2+4+7 = 13 \\to 4$; of $36$ is $9$ (a fingerprint of 9 stands for 0); and $4 \\times 9 = 36 \\to 9$. The answer must fingerprint to 9 — and $8{,}892$ has digit sum $27 \\to 9$. The deep reason: a number\'s fingerprint is its remainder on division by 9, and remainders multiply like the numbers do. One consequence is worth memorising: **if either factor is a multiple of 9, the product must be too** ($36$ fingerprints to 9 ≡ 0, and zero times anything is zero — the annihilator reappearing inside the checksum).',
+        },
+        {
+          kind: 'formula',
+          name: 'Digit-sum (mod 9) check for multiplication',
+          latex: 'S(a \\times b) \\;\\equiv\\; S(a) \\times S(b) \\pmod{9}',
+          note: 'S(n) = digit sum reduced to a single digit (9 standing for 0). Mismatch ⇒ certainly wrong; match ⇒ probably right. Same blind family as always: transpositions and ±9 slips pass (8,982 fingerprints like 8,892).',
+        },
+        {
+          kind: 'para',
+          text: 'Honesty about the blind spots — sharpened by a subtlety specific to multiplication. The misalignment trap below turns $247 \\times 36$ into $2{,}223$ — and $2{,}223$ **passes the fingerprint check**, because it is not an arithmetic error at all: it is the perfectly correct product $247 \\times 9$. The fingerprint certifies that the answer is *some* consistent product, not that it is the product you intended. So multiply the guards: the digit-count check first (expect 4 or 5 digits here — both candidates pass it too, honestly admitted), the fingerprint second, and for full certification use the check the next lesson will supply: division, the actual inverse of multiplication. Each guard narrows the net; none alone is a jailer.',
+        },
+        { kind: 'heading', text: 'Speed techniques: distributivity in disguise' },
+        {
+          kind: 'para',
+          text: 'Examination arithmetic rewards one habit above all: splitting before multiplying. **Nines**: $247 \\times 9 = 247 \\times 10 - 247 \\times 1 = 2{,}470 - 247 = 2{,}223$ — multiply by ten, take back one factor. **Elevens**: $247 \\times 11 = 2{,}470 + 247 = 2{,}717$ — multiply by ten, give one more. **Close numbers**: $198 \\times 7 = 200 \\times 7 - 2 \\times 7 = 1{,}400 - 14 = 1{,}386$. **Complementary pairs**: $24 \\times 25 = 12 \\times 50 = 600$ — halve one factor, double the other, and the product holds ($24 \\times 25 = (24 \\div 2) \\times (25 \\times 2)$), because two by two, the halves and doublings cancel. None of these is a trick to memorise: each is the distributive or associative law with the numbers dressed for speed, and each is verified by the fingerprint in the exercises.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Russian peasants, binary, and the machine on your desk',
+          text: 'Halve one factor (discarding remainders), double the other, keep the doubles beside **odd** halves, and add the kept rows — Russian peasant multiplication, old enough to appear in Egyptian papyri and still running inside every computer. Our worked pair: halves of $247$ run $123, 61, 30, 15, 7, 3, 1$ against doubles of $36$: $72, 144, 288, 576, 1{,}152, 2{,}304, 4{,}608$. The even half $30$ discards its double $288$; the kept rows sum $36 + 72 + 144 + 576 + 1{,}152 + 2{,}304 + 4{,}608 = 8{,}892$ — the true product. Why it works: the kept rows are exactly $36$ times the powers of two hiding in $247 = 128 + 64 + 32 + 16 + 4 + 2 + 1$ — its **binary expansion** — and the discarded row is the one power of two (8, hiding in the discarded $30$) that $247$ does not contain. Halving reads the number in base two; doubling builds the product additively. Your processor multiplies by precisely this shift-and-add choreography — the peasants were doing computer science all along.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Bank and SSC quantitative sections open with speed-multiplication items whose intended tools are exactly this lesson\'s: ×9/×11 via the ten-route ($247 \\times 9 = 2{,}470 - 247$), close-number compensation ($198 \\times 7$), and complementary pairs ($24 \\times 25 = 600$). "Which property is this?" questions (CUET/NTSE) hinge on distinguishing commutative from distributive — remember distributivity is the only law that involves *both* operations. The digit-sum check appears as an answer-option filter: options that are not multiples of 9 can be eliminated instantly when a factor is. And column-multiplication errors are tested through *misalignment* options — the $2{,}223$ trap — which the digit-count and fingerprint checks together expose.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Writing 247 × 36 as 247 × 6 + 247 × 30 uses which law?',
+              options: ['Associative', 'Commutative', 'Distributive over addition', 'Identity'],
+              answer: 2,
+              explain:
+                'Distributivity splits the multiplier: $247 \\times (30 + 6) = 247 \\times 30 + 247 \\times 6$. It is the only law on the list that involves both operations — and it is the entire justification of the column layout. Associativity regroups a chain of multiplications; commutativity reorders two factors; neither can split an addition inside a factor.',
+            },
+            {
+              q: 'The identity for multiplication — the number that changes nothing — is:',
+              options: ['0', '1', 'Every whole number', 'There is none'],
+              answer: 1,
+              explain:
+                '$a \\times 1 = a$ for every whole number: one is to multiplication exactly what zero is to addition. Option 1 tempts anyone carrying over addition\'s habit — but $247 \\times 0 = 0$, not 247: zero is multiplication\'s annihilator, the opposite of a do-nothing.',
+            },
+            {
+              q: 'In column multiplication of 247 × 36, the second partial product is written one seat to the left because:',
+              options: [
+                'The 3 in 36 stands for 3 tens — the row is really 247 × 30',
+                'Carries must be kept aligned with each other',
+                '36 is even, so the layout shifts',
+                'It is decoration; the answer is the same either way',
+              ],
+              answer: 0,
+              explain:
+                'The tens digit contributes $247 \\times 30 = 7{,}410$, and writing $741$ one seat left is exactly the $\\times 10$. Skip the shift and you compute $247 \\times 6 + 247 \\times 3 = 247 \\times 9 = 2{,}223$ — a real product, but of the wrong number, and the fingerprint check cannot save you (it is internally consistent!). Only understanding the shift does.',
+            },
+            {
+              q: 'Inside one partial product, the carry from a column can be at most:',
+              options: ['1', '8', '9', 'Unbounded — any size'],
+              answer: 1,
+              explain:
+                'Worst column: $9 \\times 9 = 81$, carrying 8; with the largest legal incoming carry, $81 + 8 = 89$, still carrying 8 — a fixed point. So the carry never exceeds 8, and $999 \\times 9 = 8{,}991$ attains it ($81$, then $89$, $89$). Option 3 overcounts: 9 would need a column total of 90+, but $81 + 8 = 89$ is the ceiling. Option 1 is addition\'s bound — the right answer to the wrong lesson.',
+            },
+            {
+              q: 'Before computing 999 × 999, the digit bound promises the product has:',
+              options: [
+                '5 digits — products stay within the larger factor\'s count',
+                '6 digits — the k + m ceiling, attained here',
+                '7 digits — carries always add one',
+                '9 digits — three digits plus three digits',
+              ],
+              answer: 1,
+              explain:
+                'The bound says between $k + m - 1 = 5$ and $k + m = 6$ digits. The all-nines case attains the ceiling: $999 \\times 999 = 998{,}001$, six digits. Option 4 confuses multiplying with concatenating ($999999$ is not $999 \\times 999$); option 2\'s "always adds a digit" describes neither operation — addition gains a digit only on final-carry overflow, and multiplication pools digits by the bound.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Compute $34 \\times 7$ by column multiplication and state every carry.',
+                  solution:
+                    'Ones: $7 \\times 4 = 28$ — write 8, carry 2. Tens: $7 \\times 3 + 2 = 23$ — write 3, final carry 2 becomes the new leading digit. Product: $238$. Two carry events, one of them (the 2) growing a digit — carries here are already livelier than any addition carry, as the bound predicts.',
+                },
+                {
+                  q: 'Compute $58 \\times 6$ by column multiplication, and check the answer by the digit-sum fingerprint.',
+                  solution:
+                    'Ones: $6 \\times 8 = 48$ — write 8, carry 4. Tens: $6 \\times 5 + 4 = 34$ — write 4, final carry 3. Product: $348$. Fingerprint: $58 \\to 13 \\to 4$; $6 \\to 6$; expected $4 \\times 6 = 24 \\to 6$. Actual: $3+4+8 = 15 \\to 6$. Match — the product survives the check.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Compute $247 \\times 36$ by column multiplication, listing both partial products with their carries, and certify the answer with the digit-count bound and the fingerprint.',
+                  solution:
+                    'Row one, $247 \\times 6$: $42 \\to$ write 2 carry 4; $28 \\to$ write 8 carry 2; $14 \\to$ write 4, final carry 1: $1{,}482$. Row two, $247 \\times 30$: $21 \\to$ write 1 carry 2; $14 \\to$ write 4 carry 1; $7$: $741$, shifted to $7{,}410$. Sum: $8{,}892$. Digit count: 4, inside the promised window $[3+2-1,\\; 3+2] = [4, 5]$. Fingerprint: $247 \\to 4$, $36 \\to 9$, expected $4 \\times 9 = 36 \\to 9$; actual $27 \\to 9$. Certified twice over.',
+                },
+                {
+                  q: 'Compute $63 \\times 45$ by column multiplication and verify with the fingerprint.',
+                  solution:
+                    'Row one, $63 \\times 5$: $15 \\to$ write 5 carry 1; $31 \\to$ write 1, final carry 3: $315$. Row two, $63 \\times 40$: $63 \\times 4$: $12 \\to$ write 2 carry 1; $25 \\to$ write 5, final carry 2: $252$, shifted to $2{,}520$. Sum: $315 + 2{,}520 = 2{,}835$. Fingerprint: $63 \\to 9$, $45 \\to 9$ — both factors are multiples of 9, so the product must be too (expected fingerprint $9 \\times 9 = 81 \\to 9$); actual $2+8+3+5 = 18 \\to 9$. A nice special case: the checksum knew the answer had to be a multiple of 9 before any multiplication happened.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: '(Exam-style, foundation level) Compute $198 \\times 7$ by the close-number route, and prove the route is lawful by naming the law and showing the two products it adds.',
+                  solution:
+                    '$198 = 200 - 2$, so $198 \\times 7 = (200 - 2) \\times 7 = 200 \\times 7 - 2 \\times 7 = 1{,}400 - 14 = 1{,}386$. The law is distributivity with a subtraction inside: $a \\times (b - c) = a \\times b - a \\times c$ — the same spreading, pointed the other way (it follows from the addition form since $200 - 2 = 198 + $ a correction, or directly: $(b-c) + c = b$). Fingerprint: $198 \\to 18 \\to 9$ (a multiple of 9), so the product must fingerprint to $9 \\times 7 = 63 \\to 9$; actual $1+3+8+6 = 18 \\to 9$. The speed route and the checksum agree.',
+                },
+                {
+                  q: '(Exam-style, foundation level) Compute $24 \\times 25$ two ways: by halving-and-doubling, and by using associativity with the factorisation $25 = 4 \\times 6 \\ldots$ or any grouping you find friendlier. Confirm both routes land on the same product and say which law guarantees that.',
+                  solution:
+                    'Route one: $24 \\times 25 = 12 \\times 50 = 600$ (halve one factor, double the other — repeatable because the two changes cancel). Route two: $24 \\times 25 = 24 \\times (4 \\times 6) \\ldots$ friendlier still: $25 \\times 4 = 100$ first — $24 \\times 25 = 24 \\times (25) = 6 \\times (4 \\times 25) = 6 \\times 100 = 600$, where the regrouping $24 \\times (4 \\times 25)$ from $(24 \\times 4) \\times 25$ uses associativity (with a commutative reorder along the way). Same product, 600, guaranteed by commutativity + associativity: multiplication\'s grouping and order are free, so every route must land together. (In full: $24 \\times 25 = (6 \\times 4) \\times 25 = 6 \\times (4 \\times 25) = 6 \\times 100$.)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Prove that the carry inside a partial product never exceeds 8, exhibit a multiplication that attains a carry of 8, and explain precisely why the answer differs from addition\'s carry bound of Lesson 2.1.',
+                  solution:
+                    'Proof by induction on the columns. Base: the ones column receives no incoming carry, so its total is at most $9 \\times 9 = 81$, and $\\lfloor 81/10 \\rfloor = 8$. Step: if the incoming carry is at most 8, a column totals at most $81 + 8 = 89$, and $\\lfloor 89/10 \\rfloor = 8$ — the bound reproduces itself. Attainment: $999 \\times 9$: ones $9 \\times 9 = 81$ (write 1, carry 8); tens $9 \\times 9 + 8 = 89$ (write 9, carry 8); hundreds $9 \\times 9 + 8 = 89$ (write 9, final carry 8) — product $8{,}991$, with a carry of 8 born in every column. Why different from addition: addition\'s column combined *two digits plus a carry* ($9 + 9 + 1 = 19$), a sum capped at 19 whose carry cannot exceed 1; a partial-product column combines a *product of two digits plus a carry* ($9 \\times 9 + 8 = 89$) — the multiplication inside is what inflates the carry. The moral: the carry bound is not a property of "carrying" in the abstract; it is a property of what the column actually computes.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Russian peasant multiplication. (a) Use it to compute $247 \\times 36$: list the halving column, the doubling column, mark the kept rows, and sum them. (b) Prove the method must give the true product by writing 247 in base two and matching each kept row to a power of two. (c) The discarded row corresponds to which power of two, and how does the halving column "know" to discard it?',
+                  solution:
+                    '(a) Halves of 247: $123, 61, 30, 15, 7, 3, 1$ (each $\\lfloor n/2 \\rfloor$, remainder discarded); doubles of 36: $72, 144, 288, 576, 1{,}152, 2{,}304, 4{,}608$. Keep rows whose half is odd — all but the $30$ row. Kept sum: $36 + 72 + 144 + 576 + 1{,}152 + 2{,}304 + 4{,}608 = 8{,}892$. (b) Base two: $247 = 128 + 64 + 32 + 16 + 4 + 2 + 1$ (binary $11110111$). The doubling column walks $36 \\times 2^{0}, 36 \\times 2^{1}, \\ldots, 36 \\times 2^{6}$, and the kept rows are exactly those with a 1 in the binary expansion: $36 \\times 1 + 36 \\times 2 + 36 \\times 4 + 36 \\times 16 + 36 \\times 32 + 36 \\times 64 + 36 \\times 128 = 36 \\times 247$. Distributivity collects them into the product. (c) The discarded row is $36 \\times 8 = 288$, the power $2^{3}$ — and the halving column knows because 30 is even: $247$\'s halving chain hits $30$ exactly when the accumulated odd/even pattern has encoded a 0 in position $2^{3}$ of the binary expansion. Oddness of the half is the bit; the method is long multiplication in base two, which is why processors still do it this way.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Multiplication, then, is repeated addition that outgrew its teacher: the equal jumps land where unequal ones could not, the laws of addition return with a new identity, and distributivity welds the two operations into one system — a system the column layout writes out as shifted partial products, sized by a digit bound you can state before you compute, and guarded by a fingerprint that now multiplies. One operation remains, and it is the strangest of the four: division, which undoes all of this — and refuses, absolutely, to undo it by zero.',
         },
       ],
     },

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 08:00:51 (Asia/Kolkata)",
+  "generated": "2026-11-03 08:24:23 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -227,9 +227,8 @@
             "title": "The Four Operations",
             "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Multiplication as Repeated Addition — and Beyond",
               "Division, Remainders and Why Zero Never Divides",
               "Order of Operations and the Language of Expressions"
             ],
@@ -301,7 +300,7 @@
                 "number": "2.2",
                 "title": "Subtraction and Borrowing",
                 "authoredOn": "2026-11-03",
-                "authoredInCommit": "(hourly run 3 ship commit)",
+                "authoredInCommit": "181f614",
                 "unit": "unit 2 (lesson 2.2 of 5; chapter 2 in progress)",
                 "words": 4611,
                 "readMins": 23,
@@ -357,9 +356,70 @@
                 },
                 "exerciseQuestions": 8,
                 "termsDefined": 6
+              },
+              {
+                "id": "fm-multiplication-repeated-addition",
+                "number": "2.3",
+                "title": "Multiplication as Repeated Addition — and Beyond",
+                "authoredOn": "2026-11-03",
+                "authoredInCommit": "(hourly run 4 ship commit)",
+                "unit": "unit 2 (lesson 2.3 of 5; chapter 2 in progress)",
+                "words": 4028,
+                "readMins": 20,
+                "concepts": [
+                  "Multiplication as repeated addition",
+                  "Equal jumps on the number line",
+                  "Factor and product",
+                  "The laws that return: closure, commutative, associative, identity 1",
+                  "Distributivity over addition",
+                  "Column multiplication as shifted partial products",
+                  "The mod-9 fingerprint for products"
+                ],
+                "objectives": [
+                  "Explain multiplication as repeated addition and as equal jumps on the number line — and why the two orders land in the same place",
+                  "State the four laws multiplication shares with addition plus the new distributive law, and use each deliberately",
+                  "Execute column multiplication as shifted partial products, knowing why the shift exists and how large its carries may grow",
+                  "Bound a product's digit count before computing it, and check any product with the mod-9 fingerprint"
+                ],
+                "prerequisites": [
+                  "fm-addition-carrying"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch2"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "terms": 1,
+                  "heading": 8,
+                  "figure": 2,
+                  "table": 1,
+                  "algorithm": 1,
+                  "example": 1,
+                  "derivation": 2,
+                  "equation": 1,
+                  "formula": 2,
+                  "callout": 2,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 6
               }
             ],
-            "words": 8563
+            "words": 12591
           },
           {
             "number": 3,
@@ -533,12 +593,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 81,
-      "totalLines": 11944,
+      "totalLines": 12357,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 2854,
+        "src/data/library (content model + books)": 3267,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -666,9 +726,15 @@
       },
       {
         "date": "2026-11-03 (hourly run 3)",
-        "commit": "(hourly run 3 ship commit)",
+        "commit": "181f614",
         "title": "LESSON 2.2 Subtraction and Borrowing + SVG figure-label rule",
         "detail": "Lesson 2.2 authored (~4,611 words, 37 blocks): inverse definition + three faces; 6 terms; number-line figure with 3−7 off-the-edge panel; four-laws-retried table (DEAD/DEAD/DEAD/HALF); decomposition algorithm; worked 4,589−2,764 with borrow seat-map figure (one borrow undoing 2.1’s three carries); borrow-bound derivation; seat-exchange equation; 1,000−1 zero-ripple dissolve; traps callout; inverse-check + digit-sum formula cards; compensation 4,312−2,998; shopkeeper counting-up; equal-additions historical callout; exam callout; 5 quiz; L1–L6 ending in nines-complement L6 (end-around carry). 63 new checks → 114 total, ALL PASS before writing. DEFECT FOUND & FIXED: lesson 2.1’s figure labels rendered literal $4+3$/$3+4$ (SVG injected raw — KaTeX never runs inside); plain-label rule + dollarInSvg=0 E2E assertion added. Run also pushed pending 64b938c and the new commit with the owner’s session PAT (one-time HTTPS URLs, token never stored)."
+      },
+      {
+        "date": "2026-11-03 (hourly run 4)",
+        "commit": "(hourly run 4 ship commit)",
+        "title": "LESSON 2.3 Multiplication as Repeated Addition — and Beyond",
+        "detail": "Lesson 2.3 authored (~4,028 words, 36 blocks): equal-groups opening; 6 terms; number-line figure (4×6 four equal jumps vs 6×4 six — both land on 24); laws-retried table (closure/commutative/associative/identity-1/distributive, verified instances incl. 12×(5+4) = 108); zero property derived from distributivity; partial-product algorithm block; worked 247×36 = 1,482 + 7,410 = 8,892 with partial-products seat-map figure (shift + tinted 0); carry-bound derivation ≤ 8 (attained by 999×9 = 8,991); product digit-bound derivation (k+m−1 ≤ digits ≤ k+m); mod-9 fingerprint for products with the 2,223 shift-mistake blind-spot honesty; speed techniques (×9/×11, 198×7, 24×25 = 600); Russian-peasant binary callout (kept rows sum 8,892); 5 quiz; L1–L6 ending in the binary-proof L6. 50 new checks → 164 total, ALL PASS before writing. Pipeline fixes: 31 double-escaped apostrophes caught by tsc and corrected; malformed dev-generated validator.ts removed + regenerated. Committed locally, NOT pushed (cron rule: no push without a fresh owner PAT)."
       }
     ],
     "verificationLog": [
@@ -706,6 +772,11 @@
         "unit": "unit 2 (FM ch. 2, lesson 2.2)",
         "date": "2026-11-03",
         "gates": "63 new arithmetic checks (114 total) verified by scripts/verify-unit-2.ts BEFORE writing, ALL PASS; lint clean; tsc clean repo-wide (one literal-narrowing TS error in the verify script fixed); routes 200 (new lesson needed a dev-server restart); browser E2E: KaTeX 140 nodes, 8 headings, both figures geometry-verified via DOM (dashed negative stretch + dashed landing circle; 2 strike lines, correction digits 3/15, borrow chip, dashed lend arrow), algorithm + derivation + four-laws table + 6 terms + 2 formula cards render, quiz 5/5 \"perfect\", flashcard deck 22 → 28, glossary lists Minuend/Subtrahend/Nines complement, formula sheet lists both new cards, mobile 390px exactly (scrollW=390), dollarInSvg=0 on both ch-02 lessons, zero console errors."
+      },
+      {
+        "unit": "unit 2 (FM ch. 2, lesson 2.3)",
+        "date": "2026-11-03",
+        "gates": "50 new arithmetic checks (164 total) verified by scripts/verify-unit-2.ts BEFORE writing, ALL PASS; lint clean; tsc clean repo-wide (31 double-escaped apostrophes fixed after TS1005; 2 verify-script literal-narrowing TS2367s fixed; malformed dev-generated validator.ts removed + regenerated); routes 200 (dev restart); browser E2E: KaTeX 149 nodes, 8 headings, figures geometry-verified via DOM (10 equal-jump arcs + 10 hop labels + 4 landings; 17 digit texts + row labels + shift annotations), algorithm + 2 derivations + laws table + 6 terms + 2 formula cards render, quiz 5/5 \"perfect\", flashcard deck 28 → 34, glossary + formula sheet list new entries, mobile 390px exactly (scrollW=390), dollarInSvg=0, zero console errors."
       }
     ]
   },
@@ -2151,6 +2222,62 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "181f614f8c2d2ea841727cfd506628db0b521851",
+      "short": "181f614",
+      "date": "2026-11-03 02:32",
+      "message": "unit 2 continues: FM lesson 2.2 Subtraction and Borrowing (114 verified checks, E2E green) + SVG figure-label rule (lesson 2.1 literal-$ labels fixed) + logs/memory updated",
+      "filesChanged": 9,
+      "insertions": 778,
+      "deletions": 81,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 74,
+          "del": 19
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 12,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 6,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 12,
+          "del": 5
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 176,
+          "del": 28
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 5,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 427,
+          "del": 11
+        }
+      ]
     }
   ],
   "totals": {
@@ -2159,25 +2286,25 @@
     "booksLive": 1,
     "chaptersWritten": 1,
     "chaptersInProgress": 1,
-    "lessonsWritten": 5,
-    "wordsAuthored": 18272,
-    "termsDefined": 28,
-    "quizItems": 25,
-    "exerciseQuestions": 41,
+    "lessonsWritten": 6,
+    "wordsAuthored": 22300,
+    "termsDefined": 34,
+    "quizItems": 30,
+    "exerciseQuestions": 49,
     "blockTotals": {
-      "para": 42,
-      "callout": 17,
-      "heading": 30,
-      "terms": 5,
-      "equation": 4,
-      "derivation": 5,
-      "table": 6,
-      "figure": 7,
-      "example": 11,
-      "quiz": 5,
-      "exercises": 5,
-      "formula": 7,
-      "algorithm": 3
+      "para": 55,
+      "callout": 19,
+      "heading": 38,
+      "terms": 6,
+      "equation": 5,
+      "derivation": 7,
+      "table": 7,
+      "figure": 9,
+      "example": 12,
+      "quiz": 6,
+      "exercises": 6,
+      "formula": 9,
+      "algorithm": 4
     }
   }
 }

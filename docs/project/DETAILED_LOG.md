@@ -56,14 +56,15 @@ recycle recovered, unit 2 opened with lesson 2.1 shipped and verified.
 | 11-03 | `647f44c` | Owner preference protocol: Drive link persisted (never resend); PATs never stored |
 | 11-03 (run 2) | — | **Sandbox recycle recovered**: git history restored from GitHub (public repo), deps + dev server rebuilt, Drive survey re-pulled (89 entries, Khattar id recovered) |
 | 11-03 (run 2) | `64b938c` | **UNIT 2 OPENED: lesson 2.1 Addition and the Art of Carrying** — authored, 51 checks verified, E2E green, logged (pushed 11-03 run 3) |
-| 11-03 (run 3) | (ship) | **LESSON 2.2 Subtraction and Borrowing** — authored, 114 checks total, E2E green, figure-label defect found & fixed, logged + pushed with session PAT |
+| 11-03 (run 3) | `181f614` | **LESSON 2.2 Subtraction and Borrowing** — authored, 114 checks total, E2E green, figure-label defect found & fixed, logged + pushed with session PAT |
+| 11-03 (run 4) | (ship) | **LESSON 2.3 Multiplication as Repeated Addition — and Beyond** — authored, 164 checks total, E2E green, logged; committed locally (no push — cron rule) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 5
-lessons, 18,272 words, 28 flashcard terms.**
+**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 6
+lessons, 22,300 words, 34 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -119,7 +120,7 @@ new terms + formula cards, TOC shows chapter 1 complete with chapter 2
 planned, "Next up" works · mobile 390px exactly no overflow · zero console
 errors.
 
-#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 2 of 5 lessons)**
+#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 3 of 5 lessons)**
 
 **Lesson 2.1 — Addition and the Art of Carrying** (id `fm-addition-carrying`,
 authored 11-03, commit `64b938c`) — **3,952 words · 17 min read · 6 terms ·
@@ -178,15 +179,44 @@ KaTeX 140 nodes, quiz 5/5 "perfect", flashcards 22 → 28, glossary + formula
 sheet list the new terms/cards, figures geometry-verified via DOM, mobile
 390px exact-fit, dollarInSvg=0, zero console errors.
 
-**Planned lessons (2.3–2.5):** Multiplication as Repeated Addition — and
-Beyond · Division, Remainders and Why Zero Never Divides · Order of
-Operations and the Language of Expressions.
+**Lesson 2.3 — Multiplication as Repeated Addition — and Beyond** (id
+`fm-multiplication-repeated-addition`, authored 11-03, hourly-run-4 ship
+commit) — **4,028 words · 21 min read · 6 terms · 5 quiz items · 8
+exercises (L1×2, L2×2, L4×2, L5×1, L6×1) · 2 original SVG figures
+(number line: 4×6 as four equal jumps vs 6×4 as six, both landing on 24;
+partial-products seat map for 247×36 with shift annotation and tinted
+trailing 0) · 2 derivations (partial-product carry bound ≤ 8, fixed point
+9×9+8 = 89, attained by 999×9 = 8,991; product digit bound
+k+m−1 ≤ digits ≤ k+m) · 1 partial-product identity equation + 2 formula
+cards (product digit bound; digit-sum mod-9 for multiplication) · 1
+algorithm block (column multiplication) · 1 worked example · 1 laws table
+(closure/commutative/associative/identity-1/distributive with verified
+instances incl. 12×(5+4) = 108) · 2 callouts (historical Russian-peasant
+binary; exam) · sources: khattar-qa-4e, ncert-math6-ch2 · prerequisites:
+lesson 2.1.** Contents: multiplication as compressed addition for equal
+groups; the two readings of 4×6 and the times-table symmetry they explain;
+the zero property derived from distributivity (a×0 = a×0 + a×0 ⇒ 0);
+column multiplication as distributivity laid out in rows — worked 247×36
+= 1,482 + 7,410 = 8,892 with the shift explained as the ×10 it is; the
+honest checksum section (the 2,223 misalignment product PASSES the
+fingerprint because it is a genuine product of 247 — multiply the
+guards); speed techniques (×9/×11 ten-routes, 198×7 = 1,386,
+24×25 = 600); Russian-peasant multiplication with the binary proof
+(247 = 11110111₂, kept rows sum to the product). **Verified:** 50 new
+arithmetic checks (164 total) in `scripts/verify-unit-2.ts` ALL PASS
+before writing; lint + tsc clean repo-wide; routes 200; browser E2E —
+KaTeX 149 nodes, quiz 5/5 "perfect", flashcards 28 → 34, glossary +
+formula sheet list the new entries, figures geometry-verified via DOM,
+mobile 390px exact-fit, dollarInSvg=0, zero console errors.
+
+**Planned lessons (2.4–2.5):** Division, Remainders and Why Zero Never
+Divides · Order of Operations and the Language of Expressions.
 
 #### Chapters 3–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
-| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · Multiplication as Repeated Addition — and Beyond · Division, Remainders and Why Zero Never Divides · Order of Operations |
+| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · Division, Remainders and Why Zero Never Divides · Order of Operations |
 | 3 | Factors, Multiples and Primes | Divisibility and Its Tests · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
@@ -264,6 +294,13 @@ Operations and the Language of Expressions.
     the page-wide KaTeX-node count had masked it. Fixed to plain labels;
     standing rule recorded (plain labels only in SVG, E2E asserts
     `dollarInSvg=0`).
+12. **Lesson 2.3 shipped** (11-03, hourly run 4) — see the chapter 2
+    section above. Pipeline fixes this run: 31 double-escaped apostrophes
+    in the lesson edit caught by tsc (TS1005) and bulk-corrected; a
+    malformed dev-generated `.next/dev/types/validator.ts` removed and
+    regenerated (new standing note: delete + curl any route to fix).
+    Committed locally — **not pushed** (cron rule: runs never push; the
+    owner pastes a fresh PAT when they want commits released).
 
 ### Verification log (quality gates actually passed)
 
@@ -276,6 +313,7 @@ Operations and the Language of Expressions.
 | Unit 1 (FM ch. 1) | 11-03 | 66 pre-write arithmetic checks · verify-unit-1.ts ALL PASS · lint · tsc · routes · E2E (KaTeX 154/114, quiz 5/5, 16 flashcards, glossary) · mobile 390px exact · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.1) | 11-03 | 51 pre-write arithmetic checks (verify-unit-2.ts ALL PASS, incl. digital-root convention fix) · lint · tsc repo-wide · routes 200 · E2E (KaTeX 118, quiz 5/5 perfect, flashcards 22, glossary + formula sheet, mobile exact-fit) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.2) | 11-03 | 63 new pre-write arithmetic checks (114 total, ALL PASS) · lint · tsc repo-wide (verify-script literal-narrowing fix) · routes 200 (dev restart) · E2E (KaTeX 140, figures geometry-verified via DOM, quiz 5/5 perfect, flashcards 28, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
+| Unit 2 (FM ch. 2, lesson 2.3) | 11-03 | 50 new pre-write arithmetic checks (164 total, ALL PASS) · lint · tsc repo-wide (31 escape fixes, 2 narrowing fixes, validator regeneration) · routes 200 (dev restart) · E2E (KaTeX 149, figures geometry-verified, quiz 5/5 perfect, flashcards 34, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 
 ## 6. Research & references
 
@@ -305,7 +343,7 @@ aptitude book for exam-style coverage (MASTER_PLAN §2 step 6).
 | Unit | Downloaded | Used for | Working copies deleted |
 |---|---|---|---|
 | unit 1 — FM ch. 1 | Khattar QA 4e PDF (32.4 MB, 1049 pp) + NCERT web outline | lessons 1.2 + 1.3 | yes — 2026-11-03, after unit verification |
-| unit 2 — FM ch. 2 | Khattar QA 4e PDF re-downloaded after sandbox recycle (33.9 MB) + NCERT web outlines | lesson 2.1 (Khattar ch. 4 surveyed, BODMAS reserved for 2.5) · lesson 2.2 (web-only — no new download) | yes — 2026-11-03, after each lesson's verification |
+| unit 2 — FM ch. 2 | Khattar QA 4e PDF re-downloaded after sandbox recycle (33.9 MB) + NCERT web outlines | lesson 2.1 (Khattar ch. 4 surveyed, BODMAS reserved for 2.5) · lessons 2.2 + 2.3 (web-only — no new download) | yes — 2026-11-03, after each lesson's verification |
 
 ### Citation keys (SOURCE_LOG.md)
 
@@ -317,10 +355,11 @@ aptitude book for exam-style coverage (MASTER_PLAN §2 step 6).
   Used for FM ch. 1: canonical school-level topic coverage (comparing,
   ordering, greatest/smallest, estimation). Exposition original.
 - `ncert-math6-ch2` — NCERT Class 6 Mathematics, ch. 2 "Whole Numbers".
-  Used for FM ch. 2 lessons 2.1 + 2.2: canonical school-level treatment of
-  addition and subtraction on the number line and the properties of whole
-  numbers under both (including their failures for subtraction).
-  Exposition original.
+  Used for FM ch. 2 lessons 2.1 + 2.2 + 2.3: canonical school-level
+  treatment of addition, subtraction and multiplication on the number
+  line and the properties of whole numbers under each (including their
+  failures for subtraction and the new distributive law for
+  multiplication). Exposition original.
 
 ### Exam registry
 
@@ -344,24 +383,27 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 9 | `a5c9c42` | 11-03 | detailed work-inventory logging system | +2,526/−9 · 8 files |
 | 10 | `647f44c` | 11-03 | standing owner preferences (Drive link persisted, PAT protocol) | +30/−2 · 3 files |
 | 11 | `64b938c` | 11-03 | unit 2 opens: FM lesson 2.1 + sandbox-recycle recovery + logs | +955/−207 · 13 files |
-| 12 | (run 3 ship) | 11-03 | FM lesson 2.2 Subtraction and Borrowing (114 checks, E2E green) + figure-label fix | — |
+| 12 | `181f614` | 11-03 | FM lesson 2.2 (114 checks, E2E green) + figure-label fix | +778/−81 · 9 files |
+| 13 | (run 4 ship) | 11-03 | FM lesson 2.3 Multiplication (164 checks, E2E green) — local only | — |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-3 ship commit (lesson 2.2 + figure-label fix +
-  logs/memory); origin/main in sync through the same commit (pushed with
-  the owner's session PAT during run 3); working tree clean.
+- HEAD: the hourly-run-4 ship commit (lesson 2.3 + logs/memory);
+  working tree clean. origin/main is in sync **through `181f614`** (run
+  3's push); run 4's ship commit and later accumulate locally until the
+  owner pastes a fresh PAT (cron runs never push).
 - **Sandbox recycle note:** the workspace was recycled once on 11-03 and
   fully recovered — git history restored from the public GitHub repo; the
   recovery protocol is recorded in RESUME_POINTER.json (nextAction) for any
   future recycle.
-- **CURRENT (hourly cadence): lesson 2.3 — "Multiplication as Repeated
-  Addition — and Beyond"** next, into ch-02.ts. References: NCERT class 6
-  multiplication topics via web (number-line jumps, the property set incl.
-  distributivity over addition); Khattar ch. 4 multiplication-speed material
-  if applicable (BODMAS stays reserved for lesson 2.5); verify → write →
-  gates → log; lessons 2.4–2.5 follow to complete the chapter.
+- **CURRENT (hourly cadence): lesson 2.4 — "Division, Remainders and Why
+  Zero Never Divides"** next, into ch-02.ts. References: NCERT class 6
+  division topics via web (sharing vs grouping, the division algorithm
+  a = q·b + r, why division by zero is undefined); Khattar ch. 4
+  speed-division material if applicable (BODMAS stays reserved for lesson
+  2.5); verify → write → gates → log; lesson 2.5 (Order of Operations)
+  completes the chapter.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).
