@@ -131,12 +131,31 @@ step 6).
   cross-cancellation licence and the HCF/LCM-of-fractions measuring
   treatment are the book's own derivations (the shortcut formulas were
   banked from Khattar ch. 2's rules, re-derived and verified here).
+- `ncert-math6-ch8` — NCERT Class 6 Mathematics, ch. 8 "Decimals"
+  (old-edition canon; public curriculum). Used for: FM ch. 5 lesson 5.1 —
+  the canonical school-level sequence mirrored (tenths, hundredths,
+  thousandths as successive ten-fold re-cuts; the place-value table
+  extended right of the ones; representing decimals; comparing decimals),
+  web-checked 2026-11-04 (published chapter outlines confirm the section
+  order and the money/length/mass application set); exposition original —
+  the place-value mirror framing, the atom test, the trailing-zero
+  licence and the comparison decoys are the book's own derivations.
+- `ncert-math7-ch3` — NCERT Class 7 Mathematics (Ganita Prakash), ch. 3
+  "A Peek Beyond the Point" (public curriculum). Used for: FM ch. 5
+  lesson 5.1 — the current-edition canonical sequence mirrored and
+  web-checked 2026-11-04 (3.1 The Need for Smaller Units → 3.2 A Tenth
+  Part → 3.3 A Hundredth Part → 3.4 Decimal Place Value → 3.5 Units of
+  Measurement → 3.6 Locating and Comparing Decimals → 3.7 Addition and
+  Subtraction of Decimals; 5.1 covers the front half and leaves 3.7 for
+  lesson 5.3); exposition original — the screw/workshop opening scene,
+  the mirror symmetry, the zoom figure and the atom test are the book's
+  own derivations.
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete — ch. 1–4 CLOSED; ch. 5 NEXT at 5.1**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete; ch. 5 OPEN at 5.1, run 21**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -150,6 +169,11 @@ step 6).
 
 ## Free-space checkpoint
 
+- 2026-11-04 (mathematics, unit 5, lesson 5.1): no downloads — NCERT
+  class-7 Ganita Prakash ch. 3 section sequence and old class-6 ch. 8
+  coverage web-checked (sanctioned fallback); zero temporary-references
+  footprint this lesson; two citation keys added (ncert-math7-ch3,
+  ncert-math6-ch8).
 - Working storage total: ~9.9 GB
 - 2026-11-03 (mathematics, unit 1): `df -h /` → 46% used, project footprint
   `du -sh /home/z/my-project` → ~1.2 GB incl. node_modules; Khattar PDF

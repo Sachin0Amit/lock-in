@@ -6,6 +6,137 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 21 (cron, Job 498279): FM lesson 5.1 "Decimal Places and the Point" authored in the Cengage voice + solution chain — the point becomes the hinge of the place-value mirror, the atom test legislates the fraction↔decimal bridge, and chapter 5 opens
+
+**Run open (push check first):** tree clean at `77c4a2a` = local HEAD =
+origin/main (run 20's memory commit, verified at run open via the
+tracking ref: main...origin/main in sync, both at `77c4a2a`) — nothing
+queued, no push debt; the run-15/16 push debt was cleared at run 17 and
+every run since has pushed at run end. Task per RESUME_POINTER: FM
+lesson 5.1 "Decimal Places and the Point" (chapter 5 opener — the
+4.5 closing paragraph's promised decimal veil).
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT Class 7 (Ganita Prakash) ch. 3 "A Peek Beyond the Point" section
+sequence web-checked 2026-11-04 (3.1 The Need for Smaller Units → 3.2 A
+Tenth Part → 3.3 A Hundredth Part → 3.4 Decimal Place Value → 3.5 Units
+of Measurement → 3.6 Locating and Comparing Decimals → 3.7 Addition and
+Subtraction of Decimals) — 5.1 mirrors the front half and leaves
+3.7 for lesson 5.3; old NCERT Class 6 ch. 8 "Decimals" (tenths,
+hundredths, thousandths, place-value extension, comparing) confirmed as
+the classic canon; Khattar QA 4e decimal-fraction exam items (place-
+value IDs, comparison traps, money/length/mass conversions). Two new
+citation keys added to SOURCE_LOG.md: `ncert-math7-ch3`,
+`ncert-math6-ch8`. No temporary-references footprint.
+
+**Arithmetic pre-verified BEFORE writing:** new `scripts/verify-unit-5.ts`
+(gitignore exception added) — **165 checks** ALL PASS before a word was
+written: sections A–O (A the need for smaller units — 1 mm = 0.1 cm,
+1 paise = ₹0.01, 1 g = 0.001 kg; B the 10-family recursion counts; C the
+place-value mirror with 305.274 = 300 + 0 + 5 + 0.2 + 0.07 + 0.004
+dissected digit by digit; D reading/expanded form incl. the load-bearing
+zero of 2.05; E the 10-family bridge both ways incl. 0.305 = 305/1000 =
+61/200; F fourteen re-cuts to 10-power rulers (1/2 = 0.5 … 7/8 = 0.875,
+11/250 = 0.044); G **the atom test** — tenPowerPlaces() sweep: b = 2^m·5^n
+wears max(m, n) places (2/4/5/8/20/25/40/200/250/125 all verified) and
+every other denominator refuses (no 10^k divisible by 3 — 10^k mod 3 = 1
+for k = 1..12 — or by 7; 10^k = 2^k·5^k carries no other atoms; the
+2..500 sweep `divides ⟺ only atoms 2, 5` ALL TRUE); H the trailing-zero
+licence (5/10 = 50/100 = 500/1000; 7 = 70/10; the LEADING-zero trap
+0.05 ≠ 0.5); I twelve comparisons incl. 5.640 vs 5.603, 0.5 > 0.45
+(more digits is not more value), the ascending chain 0.099 < 0.1 < 0.21
+< 0.35 < 0.4; J money/length/mass conversions incl. ₹8.05 ≠ ₹8.5 and
+3 kg 60 g = 3.06 kg; K–L exact figure geometry (mirror chart columns at
+x = 40/144/248 | 396/500/604 of width 104 with the 44 px point band,
+hinge x = 374; zoom figure 62 px steps, 2.7 at x = 504, 2.74 at x = 318,
+connectors (504,102)→(70,292)/(566,102)→(690,292)); M quiz key audit
+(indices 1/2/3/1/2, every distractor's arithmetic verified); N exercise
+key audit (all 12 solutions' numbers incl. the L6 atom-test
+applications 7/8 = 0.875, 5/12 refuses, 9/40 = 0.225, 11/250 = 0.044);
+O structural sanity) — plus regressions verify-unit-4 (330),
+verify-unit-3 (260), verify-unit-2 (165) ALL PASS.
+
+**Lesson 5.1 authored** (`fm-decimal-places-and-the-point`, 5,350
+words; ch. 5 now 1/5): the opening scene (the 7-and-a-bit mm screw,
+the rupee's 100 paise, the kilo's 1000 grams — three arenas, one
+reflex: keep cutting into tens); the **decimal-point treaty**
+definition callout (digits left count wholes, digits right count the
+10-family; "the point is the fraction bar standing upright"; 2.74 = 2 +
+7/10 + 4/100); tenths → hundredths → thousandths with the ladder of
+tens; 7 new terms (Decimal, Decimal point, Tenths, Hundredths,
+Thousandths, Decimal places, Equivalent decimals); the **place-value
+mirror** (figure 1: ×10 left / ÷10 right about the hinge at the ones,
+305.274 dissected digit by digit — geometry script-verified), reading
+rules ("point two seven four", digits one at a time — the roman
+example run), expanded form, 7 = 7.0; Illustrations 1–2 run the bridge
+both ways (7/10, 47/100, 305/1000 ⇄ 0.7, 0.47, 0.305 = 61/200); the
+**atom test as a derivation block** — re-cut direction (b = 2^m·5^n ⇒
+multiply by 5^(m−n) to reach 10^m; places = max(m, n)), refusal
+direction (10^k = 2^k·5^k carries no other atoms — uniqueness of
+factorisation, lesson 3.2; 10^k mod 3 = 1 forever), why the refusal is
+total (5/12 would need infinitely many places — 5.2's recurring
+territory, 22/7's endless waltz named), place-counting instances; the
+formula card; **locating by zooming** (Illustration 3 walks 2.74 as
+wholes → tenths → hundredths; figure 2: the two-panel zoom 2.7 on the
+tenths ruler → 2.74 on the re-cut hundredths ruler, dashed trapezoid
+connectors, geometry 62 px steps verified); **comparing by aligning
+the points** with the **trailing-zero licence as a derivation block**
+(appending a zero = the multiplying rule with 10/10 = 1; iterate;
+wholes join: 7 = 70/10) and the **more-digits Caution** (0.5 > 0.45 —
+tail length is fineness, not size; leading zeros load-bearing:
+0.05 ≠ 0.5); Illustration 4 settles 5.64 vs 5.603 (5.640: hundredths
+4 > 0, the trailing 3 never gets a vote); the **equivalent decimals**
+definition; **money/length/mass** with the **zero-filling trap**
+Caution (₹8.05 not ₹8.5 — "the single most examined zero in school
+arithmetic"; 3 kg 60 g = 3.06 kg) and Illustration 5 (₹8 and 5 paise;
+9 cm 8 mm); six-row toolkit table, the bridge-on-one-line equation
+(10-family / re-cut / atom test ⇒ max(m, n) places), 3 formula cards
+(the 10-family, the atom test, align-the-points), exam corner
+(place-value walks, one-line bridges, the two comparison decoys, money
+items); closing paragraph promises 5.2 (long division builds the
+refuseniks' endless decimals — and recurs) and 5.4 (percent).
+
+**Quality gates:** verify-unit-5 165/165 pre-writing (+ unit-4/3/2
+regressions 330/260/165); lint clean; tsc clean; route 200; both new
+figures pass `bash scripts/audit-svg-overlaps.sh
+fm-decimal-places-and-the-point` with **0 issues** (figure 2's first
+pass flagged 4 contacts — zoom-box/connectors touching the 2.7/2.8
+tick labels — fixed by shortening the box to y 72–102, re-anchoring
+the connectors at (·,102) and dropping the label row to y = 124, then
+re-audited clean); Cengage E2E extended to **9 lessons** (new lesson
+added to scripts/e2e-cengage-style.sh): 5.1 = 8 caps-over-rule
+headings, 5 ILLUSTRATION pills, 5 Sol. pills ALL inline
+(inlineSolPills = solPills = 5), stepNumberBadges 0, legacyAnswerBoxes
+0, 15 KaTeX ∴ tags, KaTeX 209 nodes, dollarInSvg 0, note boxes
+Definition/Remember/Caution/Definition/Caution/Remember/Remember/Exam
+corner, exercises bar 12 questions, quiz bar 5 questions; **quiz
+answered live with intended options (indices 1/2/3/1/2) → "You scored
+5/5" + Retake** (score text read after a separate wait — the same-eval
+read races React's flush); all 12 exercise solutions expand (17 Sol.
+pills with the chain, 29 KaTeX ∴, 36 open collapsibles); mobile 390px
+exact-fit (docScrollW = 390, articleW = 358); zero console errors;
+VLM review — opener 9/10, mirror figure 9/10, zoom figure 9/10,
+Illustration chain 9/10 (pill inline, staircase clean, KaTeX typeset,
+no raw dollars; one mis-aimed screenshot re-taken — not a defect).
+
+**Logged:** WORKLOG.md (this entry); DETAILED_LOG.md (header line,
+session-table run-21 row, tail CURRENT pointer, LESSON 5.1 narrative);
+PROGRESS.json (phase/awaiting/verified/library: 19 lessons, 91,284
+words, 121 terms); RESUME_POINTER.json (nextAction + run21Extras);
+SOURCE_LOG.md (two new citation keys + dated run-21 entry);
+WORK_INVENTORY.json regenerated (`bun run
+scripts/build_work_inventory.ts`).
+
+**Remaining:** lesson 5.2 "Decimals and Fractions, Two Ways of Writing
+the Same Numbers" (long division as the universal bridge-builder;
+terminating vs recurring; why the refuseniks recur); the queued voice
+polish of the 14 pre-4.2 lessons (one per run); EXAM_REGISTRY research.
+
+**Git:** ship commit + inventory bookkeeping commit, then push per
+protocol v2 (see the run-21 memory commit for the verified sha).
+
+---
+
 ## 2026-11-04 — RUN 20 (cron, Job 498279): FM lesson 4.5 "Multiplying and Dividing Fractions" authored in the Cengage voice + solution chain — fractions scale each other, the banked HCF/LCM shortcuts are cashed, and chapter 4 closes COMPLETE (unit-4 completion review passed)
 
 **Run open (push check first):** tree clean at `ef2d5bd` = local HEAD =

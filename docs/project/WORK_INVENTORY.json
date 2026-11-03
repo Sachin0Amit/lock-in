@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 00:19:37 (Asia/Kolkata)",
+  "generated": "2026-11-04 01:16:36 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1240,17 +1240,84 @@
             "slug": "decimals-and-percents",
             "title": "Decimals and Percents",
             "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Decimal Places and the Point",
               "Decimals and Fractions, Two Ways of Writing the Same Numbers",
               "Operating on Decimals",
               "Percent and Its Meaning",
               "Percentage Change, Discounts and Simple Interest"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-decimal-places-and-the-point",
+                "number": "5.1",
+                "title": "Decimal Places and the Point",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5350,
+                "readMins": 27,
+                "concepts": [
+                  "The decimal point as a landmark",
+                  "Tenths, hundredths and thousandths",
+                  "The extended place-value chart",
+                  "Reading and writing decimals",
+                  "The fraction–decimal bridge",
+                  "The atom test for exact decimal dress",
+                  "Comparing and equivalent decimals"
+                ],
+                "objectives": [
+                  "Explain what the decimal point marks, read any decimal aloud correctly, and write decimals in expanded form across the extended place-value chart",
+                  "Convert both ways across the fraction–decimal bridge: 10-family denominators directly, and any denominator built from 2s and 5s by re-cutting with the multiplying rule of Lesson 4.2",
+                  "Prove and apply the atom test — a lowest-terms fraction wears an exact decimal dress if and only if its denominator carries no atoms but 2s and 5s, and the dress needs max(m, n) places",
+                  "Locate decimals on the number line by zooming, compare and order them by aligning the points, and convert money, length and mass without the zero-filling traps"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-idea-of-a-fraction",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-prime-numbers-factorisation"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch8",
+                  "ncert-math7-ch3"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 8,
+                  "callout": 5,
+                  "terms": 1,
+                  "figure": 2,
+                  "list": 2,
+                  "example": 5,
+                  "derivation": 2,
+                  "formula": 3,
+                  "table": 1,
+                  "equation": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
+              }
+            ],
+            "words": 5350
           },
           {
             "number": 6,
@@ -1373,12 +1440,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 19989,
+      "totalLines": 19982,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 10733,
+        "src/data/library (content model + books)": 10726,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4737,6 +4804,43 @@
           "del": 20
         }
       ]
+    },
+    {
+      "sha": "54f88c5e1c8b3e538fdb33f0b99485c7c48db17e",
+      "short": "54f88c5",
+      "date": "2026-11-03 18:49",
+      "message": "inventory: record run-20 ship (79693b1) — FM 4.5 multiplying and dividing fractions live, chapter 4 COMPLETE 5/5 (unit-4 completion review passed); next FM 5.1 decimal places and the point in the Cengage voice",
+      "filesChanged": 1,
+      "insertions": 62,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 62,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "77c4a2a1d2889d56c6d577797f27ca3956e64a9f",
+      "short": "77c4a2a",
+      "date": "2026-11-03 18:50",
+      "message": "memory: record run-20 push verification (54f88c5), origin/main synced — FM 4.5 multiplying and dividing fractions live, chapter 4 COMPLETE 5/5 with unit-4 completion review passed; next FM 5.1 decimal places and the point in the Cengage voice",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -4744,27 +4848,27 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 4,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 18,
-    "wordsAuthored": 85934,
-    "termsDefined": 114,
-    "quizItems": 90,
-    "exerciseQuestions": 173,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 19,
+    "wordsAuthored": 91284,
+    "termsDefined": 121,
+    "quizItems": 95,
+    "exerciseQuestions": 185,
     "blockTotals": {
-      "para": 250,
-      "callout": 85,
-      "heading": 124,
-      "terms": 19,
-      "equation": 19,
-      "derivation": 34,
-      "table": 20,
-      "figure": 27,
-      "example": 52,
-      "quiz": 18,
-      "exercises": 18,
-      "formula": 39,
+      "para": 267,
+      "callout": 90,
+      "heading": 132,
+      "terms": 20,
+      "equation": 20,
+      "derivation": 36,
+      "table": 21,
+      "figure": 29,
+      "example": 57,
+      "quiz": 19,
+      "exercises": 19,
+      "formula": 42,
       "algorithm": 8,
-      "list": 7
+      "list": 9
     }
   }
 }

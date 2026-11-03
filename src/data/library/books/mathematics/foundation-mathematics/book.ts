@@ -3,6 +3,7 @@ import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
+import { chapter05 } from './ch-05'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -25,8 +26,15 @@ import { chapter04 } from './ch-04'
  * the reciprocal and the division theorem, the banked HCF/LCM-of-
  * fractions shortcuts cashed, mixed numbers converted first) shipped,
  * all gates green (330 unit-4 checks), lessons 4.2–4.5 authored natively
- * in the Cengage voice + solution chain. Next: chapter 5 (Decimals and
- * Percents). Authoring per docs/project/MASTER_PLAN.md §2.
+ * in the Cengage voice + solution chain. Chapter 5 (Decimals and
+ * Percents) OPEN — unit 5, 2026-11-04: 5.1 (Decimal Places and the
+ * Point — the point as the landmark, tenths/hundredths/thousandths, the
+ * extended place-value mirror, the fraction–decimal bridge with the
+ * atom test proved from the multiplying rule and uniqueness of
+ * factorisation, locating by zooming, comparing by aligning the points,
+ * money/length/mass conversions) shipped with 165 unit-5 checks. Next:
+ * lesson 5.2 (Decimals and Fractions, Two Ways of Writing the Same
+ * Numbers). Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -44,28 +52,13 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–4 complete (units 1–4 shipped 2026-11-03/04): ch. 1 lessons 1.1–1.3 Numbers and Place Value (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1–4.5 Fractions (26,905 words: 4.1 The Idea of a Fraction — part–whole + division faces, the number line made dense via the mediant theorem, proper/improper/mixed, Egyptian unit fractions; 4.2 Equivalent Fractions and Simplification — the equivalence family, the multiplying rule, HCF simplification, the cross-multiplication licence paid in full, uniqueness of the lowest-terms name; 4.3 Comparing Fractions — the cross-multiplication verdict machine, the common-denominator method, benchmark halves, completing the whole, wholes-first; 4.4 Adding and Subtracting Fractions — like-ruler counting proved by distributivity, the LCM as standard equipment, subtraction as gap-naming, mixed-number regrouping, the greedy Egyptian split, the straight-across fraud theorem; 4.5 Multiplying and Dividing Fractions — multiplication as of and the re-cutting rule proved from the rulers, scaling and the retired makes-bigger reflex, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 cashed with the product rule surviving, mixed numbers converted before operating). Lessons from 4.2 on authored natively in the Cengage voice + solution chain; the 14 pre-4.2 lessons\' prose voice polish remains queued. Math script-verified (330 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green (8 lessons), quiz keys verified live. Next: chapter 5 Decimals and Percents (5 lessons planned). Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–4 complete (units 1–4 shipped 2026-11-03/04): ch. 1 lessons 1.1–1.3 Numbers and Place Value (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1–4.5 Fractions (26,905 words: 4.1 The Idea of a Fraction — part–whole + division faces, the number line made dense via the mediant theorem, proper/improper/mixed, Egyptian unit fractions; 4.2 Equivalent Fractions and Simplification — the equivalence family, the multiplying rule, HCF simplification, the cross-multiplication licence paid in full, uniqueness of the lowest-terms name; 4.3 Comparing Fractions — the cross-multiplication verdict machine, the common-denominator method, benchmark halves, completing the whole, wholes-first; 4.4 Adding and Subtracting Fractions — like-ruler counting proved by distributivity, the LCM as standard equipment, subtraction as gap-naming, mixed-number regrouping, the greedy Egyptian split, the straight-across fraud theorem; 4.5 Multiplying and Dividing Fractions — multiplication as of and the re-cutting rule proved from the rulers, scaling and the retired makes-bigger reflex, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 cashed with the product rule surviving, mixed numbers converted before operating). Chapter 5 open: 5.1 Decimal Places and the Point (run 21 — the point as the hinge of the extended place-value mirror, tenths/hundredths/thousandths, the atom test for exact decimal dress proved from the multiplying rule and uniqueness of factorisation, the trailing-zero licence, the more-digits fraud retired, the zero-filling trap, money/length/mass conversions). Lessons from 4.2 on authored natively in the Cengage voice + solution chain; the 14 pre-4.2 lessons\' prose voice polish remains queued. Math script-verified (165 unit-5 checks + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (9 lessons), quiz keys verified live. Next: lesson 5.2 Decimals and Fractions, Two Ways of Writing the Same Numbers (long division as the universal bridge; terminating vs recurring). Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,
     chapter03,
     chapter04,
-    {
-      number: 5,
-      slug: 'decimals-and-percents',
-      title: 'Decimals and Percents',
-      summary:
-        'Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Decimal Places and the Point',
-        'Decimals and Fractions, Two Ways of Writing the Same Numbers',
-        'Operating on Decimals',
-        'Percent and Its Meaning',
-        'Percentage Change, Discounts and Simple Interest',
-      ],
-    },
+    chapter05,
     {
       number: 6,
       slug: 'ratio-rate-proportion',

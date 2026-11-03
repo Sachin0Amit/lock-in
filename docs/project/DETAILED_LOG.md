@@ -9,15 +9,16 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **cron run 20, Job 498279**:
-FM lesson 4.5 "Multiplying and Dividing Fractions" authored in the Cengage
-voice + solution chain, 5,172 words — fractions scale each other, the
-banked HCF/LCM-of-fractions shortcuts are cashed, and chapter 4 closes
-COMPLETE with the unit-4 completion review; run 19: lesson 4.4; run 18:
-lesson 4.3; run 17: push-first (4 queued commits) + lesson 4.2; run 16:
-solutions restyled as the Cengage solution chain; run 15: step numbers
-removed; run 14: Cengage book-style theory live platform-wide;
-`WORK_INVENTORY.json` regenerated with every ship).
+Generated: 2026-11-03/04 (maintained through **cron run 21, Job 498279**:
+FM lesson 5.1 "Decimal Places and the Point" authored in the Cengage
+voice + solution chain, 5,350 words — the point becomes the hinge of
+the place-value mirror, the atom test legislates the fraction↔decimal
+bridge, chapter 5 opens; run 20: lesson 4.5 + unit-4 completion review;
+run 19: lesson 4.4; run 18: lesson 4.3; run 17: push-first (4 queued
+commits) + lesson 4.2; run 16: solutions restyled as the Cengage
+solution chain; run 15: step numbers removed; run 14: Cengage
+book-style theory live platform-wide; `WORK_INVENTORY.json` regenerated
+with every ship).
 
 ---
 
@@ -89,6 +90,7 @@ removed; run 14: Cengage book-style theory live platform-wide;
 | 11-04 (run 18, cron Job 498279) | (ship) | **LESSON 4.3 Comparing Fractions** — authored in the Cengage voice + solution chain, 5,168 words: same-whole proviso (number-line frame), same-denominator + same-numerator rules (definition callouts with Thus-restatements; roman run; inversion-trap Caution 4/11 < 4/7; unit-fraction ladder), **cross-multiplication test wielded as a verdict machine** (3/4 vs 4/5 = 15 < 16 with the 20-ruler check; 7/12 vs 5/8 = 56 < 60 — 4.2's L5 debt PAID, gap 4/96 = 1/24 named), common-denominator method (24-ruler 14 vs 15 with the four-bar figure + highlighted extra cell), **the banked SSC MTS 2017 item SETTLED on the 165-ruler** (7/11 < 2/3 < 4/5, largest 4/5) + zoomed number-line figure, benchmark-1/2 method (2n > d), shared-numerator lists, completing-the-whole insight (7/8 vs 8/9 via 1/8 > 1/9; 9/10 vs 11/12 = 108 < 110), wholes-first rule (3 2/5 vs 3 3/8: 16 > 15; 136/40 > 135/40), six-row toolkit table + three-laws equation + common-denominator formula card; 8 illustrations, 2 figures (0 audit issues FIRST pass each), 6 new terms, 2 formula cards, 5-quiz (1/1/2/3/2), 12 exercises L1–L6 — L6 proves the same-numerator rule and the **mediant ordering** a/b < (a+c)/(b+d) < c/d from the licence; verify-unit-4.ts 148→**199 checks** (sections S–Z) ALL PASS pre-writing; E2E extended to 6 lessons — 8 Sol. pills ALL inline, stepNumberBadges 0, 24 KaTeX ∴ glyphs, KaTeX 177, quiz 5/5 live (B/B/C/D/C), 12 solutions expand, 390px exact-fit, zero console errors, VLM green; totals: **16 lessons / 75,846 words / 102 terms**; logged; pushed (protocol v2) |
 | 11-04 (run 19, cron Job 498279) | (ship) | **LESSON 4.4 Adding and Subtracting Fractions** — authored in the Cengage voice + solution chain, 4,916 words; 4.3's quiet calculation promoted to arithmetic: like-ruler counting (distributive proof, walk-on-the-line, the ch. 2 laws verified: commutative/associative/identity 0, subtraction's failure), simplify-always (6/9 → 2/3, 2/8 → 1/4, 8/10 → 4/5), sums past the whole (12/8 = 3/2), the straight-across fraud Caution (2/5 = the mediant, trapped between addends), the **LCM as standard equipment** (1/4 + 1/6 = 3/12 + 2/12 = 5/12, five-bar figure with stacked contributions + dashed boundary; 7/12 + 3/10 = 53/60 on both the 60- and 120-rulers; lists on the 18-ruler), **subtraction as gap-naming** (5/8 − 7/12 = 15/24 − 14/24 = 1/24 — 4.3's extra twenty-fourth an answer; licence form (60−56)/96; number-line arc exactly 1/24 of the unit), complements (1 − 5/9 = 4/9; tank 7/12 full → 5/12 empty), mixed-number storeys (overflow 2 3/4 + 1 1/2 = 4 1/4; underflow 3 1/5 − 1 2/5 = 1 4/5 via 2 6/5; improper routes agree), **Egyptian two-term openings** (greedy: 3/10 = 1/4 + 1/20; 5/6 = 1/2 + 1/3; 1/5 + 1/10 non-greedy), 6-row toolkit table + three-laws equation + exam corner; 7 illustrations, 2 figures (0 audit issues FIRST pass), 6 new terms, 2 formula cards, 5-quiz (1/2/2/1/0), 12 exercises L1–L6 — L6 proves the like-ruler rule (distributivity) and the straight-across fraud theorem (ad² + b²c > 0); verify-unit-4.ts 199 → **261 checks** (AA–AH) ALL PASS pre-writing; E2E 7 lessons — 7 Sol. pills ALL inline, badges 0, 21 ∴ glyphs, KaTeX 162, quiz 5/5 live, 390px exact-fit, zero console errors; totals: **17 lessons / 80,762 words / 108 terms**; logged; pushed (protocol v2) |
 | 11-04 (run 20, cron Job 498279) | (ship) | **LESSON 4.5 Multiplying and Dividing Fractions — UNIT 4 FINALE + completion review** — authored in the Cengage voice + solution chain, 5,172 words: multiplication as 'of' (the re-cutting reading, half of three quarters = six shaded eighths), the multiplying rule ac/bd **proved from the rulers** as a derivation block (cut every piece into b, sieve a of every b, read ac of bd), the area figure (2/3 × 3/5 = 6/15 = 2/5, the doubly-shaded overlap exactly 2/5 of the pixels), scaling and the retired makes-bigger reflex (the two-frauds Caution: straight-across × is the truth, hunting a common ruler for a product is the new fraud), cross-cancellation licensed across × (5/6 × 3/10 = 1/2 × 1/2 = 1/4), the reciprocal (0 has none — why division by 0 is banned), the division theorem **proved on the bd-ruler** (5/6 ÷ 2/3 = 10/8 = 5/4; the flip IS the measuring count; division figure: six 85px eighth-steps arcing 0 → 3/4), the see-saw (÷ proper grows / × 1/2 IS ÷ 2), the flip-only-the-divisor Caution, **the HCF/LCM-of-fractions shortcuts banked since run 12 cashed** (measuring defined; HCF 2/9 / LCM 8/3 for 2/3 & 8/9; the product rule survives: 2/9 × 8/3 = 16/27 = 2/3 × 8/9), mixed numbers converted first (2 1/2 × 1 3/4 = 4 3/8; 1 1/2 ÷ 2 1/4 = 2/3), 6-row toolkit + three-laws equation + exam corner; 5 illustrations, 2 figures, 6 new terms, 3 formula cards, 5-quiz (1/2/1/0/3 verified live 5/5), 12 exercises L1–L6 — L6 proves the sieve-and-ruler rule and the division theorem with the zero ban; verify-unit-4.ts 261 → **330 checks** (AI–AN) ALL PASS pre-writing (AM caught the real 14/9-not-10/9 quiz distractor); **unit-4 completion review: BOOK_FORMAT 7/7, exam-coverage 5/5, ch. 4 = 26,905 words / 32 terms, book = 18 lessons / 85,934 words / 114 terms, ch. 4 status 'complete'**; E2E 8 lessons — 5 Sol. pills inline, badges 0, legacy boxes 0, KaTeX 204, 12/12 expand, quiz 5/5 live, 390px exact-fit, VLM 8.5/10 (division arc fixed to a smooth 255/46 ellipse and re-verified), zero console errors; logged; pushed (protocol v2) |
+| 11-04 (run 21, cron Job 498279) | (ship) | **LESSON 5.1 Decimal Places and the Point — CHAPTER 5 OPENS** — authored in the Cengage voice + solution chain, 5,350 words: the opening scene (the 7-and-a-bit mm screw, the rupee's 100 paise, the kilo's 1000 grams — keep cutting into tens), the decimal-point treaty Definition (the point as the fraction bar standing upright; 2.74 = 2 + 7/10 + 4/100), the tenths→hundredths→thousandths ladder (ten of each piece rebuild the next coarser), the **place-value mirror** (figure 1: ×10 left / ÷10 right about the hinge at the ones; 305.274 dissected digit by digit at columns x = 40/144/248 \| 396/500/604, hinge x = 374), reading rules ("point two seven four" — digits one at a time, the roman example run) + expanded form + 7 = 7.0, Illustrations 1–2 run the bridge both ways (7/10, 47/100, 305/1000 ⇄ 0.7, 0.47, 0.305 = 305/1000 = 61/200), **the atom test as a derivation block** (lowest terms a/b wears an exact decimal dress ⟺ b = 2^m·5^n, needing max(m, n) places — re-cut direction multiplies by 5^(m−n) to reach 10^m; refusal direction: 10^k = 2^k·5^k carries no other atoms by Lesson 3.2's uniqueness, 10^k mod 3 = 1 forever; 5/12 and 22/7 named as 5.2's recurring territory), **locating by zooming** (Illustration 3 walks 2.74; figure 2: two-panel zoom 2.7 → 2.74, 62 px steps, dashed trapezoid connectors), **comparing by aligning the points** with the **trailing-zero licence as a derivation block** (appending a zero = multiplying rule with 10/10 = 1; 7 = 70/10) + the more-digits Caution (0.5 > 0.45; 0.05 ≠ 0.5 — leading zeros load-bearing), Illustration 4 settles 5.64 vs 5.603 (hundredths 4 > 0), the equivalent-decimals Definition, **money/length/mass** + the zero-filling-trap Caution (₹8.05 not ₹8.5; 3 kg 60 g = 3.06 kg) + Illustration 5 (₹8 and 5 paise; 9 cm 8 mm = 9.8 cm), 6-row toolkit table + bridge-on-one-line equation + 3 formula cards + exam corner (the two comparison decoys, "the single most examined zero"); 5 illustrations, 2 figures (0 audit issues after figure 2's zoom-box/connector fix), 7 new terms, 3 formula cards, 5-quiz (1/2/3/1/2 verified live 5/5), 12 exercises L1–L6 — L6 proves the trailing-zero licence and the atom test with applications; new **verify-unit-5.ts: 165 checks** ALL PASS pre-writing (+ regressions 330/260/165; the 2..500 sweep proves divides-a-power-of-ten ⟺ atoms ⊆ {2,5}); E2E extended to **9 lessons** — 5 Sol. pills ALL inline, badges 0, legacy boxes 0, 15 ∴ tags, KaTeX 209, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, zero console errors, VLM 9/10 across opener/mirror/zoom/illustration; totals: **19 lessons / 91,284 words / 121 terms**, ch. 5 in progress 1/5; logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -1045,16 +1047,77 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
-- **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
-  4.5 "Multiplying and Dividing Fractions" NEXT** (4.1 shipped run 12,
-  4.2 run 17, 4.3 run 18, 4.4 run 19, **4.5 SHIPPED run 20 — CHAPTER 4
-  COMPLETE 5/5, completion review passed**). Next: chapter 5 'Decimals
-  and Percents', lesson 5.1 'Decimal Places and the Point' — place value
-  extended past the ones, the point as the new landmark, tenths/
-  hundredths as the 10-ruler family fractions already own, the decimal
-  place-value chart, reading/writing/comparing decimals, the
-  fraction↔decimal bridge (denominators 2 and 5 join the powers of
-  ten).
+- **CURRENT (hourly cadence): UNIT 5 — FM chapter 5 "Decimals and
+  Percents", lesson 5.2 "Decimals and Fractions, Two Ways of Writing
+  the Same Numbers" NEXT** (ch. 1–4 COMPLETE; **5.1 shipped run 21 —
+  the point as the hinge of the place-value mirror, the atom test
+  legislating the bridge**). Next: 5.2 — long division as the
+  universal bridge-builder; terminating vs recurring decimals; why
+  the refuseniks (atom 3, 7, …) recur; converting every fraction to a
+  decimal and back, then 5.3 Operating on Decimals, 5.4 Percent and
+  Its Meaning, 5.5 Percentage Change, Discounts and Simple Interest.
+**LESSON 5.1 (run 21, cron Job 498279):** "Decimal Places and the
+Point" — 5,350 words, chapter 5's opener and the first lesson past
+the run-20 closing veil. Content: the opening scene (the 7-and-a-bit
+mm screw the millimetre scale cannot name, the rupee's 100 paise, the
+kilo's 1000 grams — three arenas, one reflex: keep cutting into
+tens); the **decimal-point treaty** Definition (digits left count
+wholes in Lesson 1.1's powers of ten, digits right count the
+10-family — tenths, hundredths, thousandths; "the point is the
+fraction bar standing upright"; the Thus-line 2.74 = 2 + 7/10 +
+4/100, 0.7 = 7/10 exactly); tenths (1 mm = 0.1 cm; 2.7 = 2 + 7/10),
+hundredths (1 paise = ₹0.01; the load-bearing zero of ₹0.05),
+thousandths (1 g = 0.001 kg) with the ladder of tens; the 7-term
+block (Decimal, Decimal point, Tenths, Hundredths, Thousandths,
+Decimal places, Equivalent decimals); **the place-value mirror** —
+figure 1 with the ×10/÷10 arrows about the hinge, the sample
+305.274 dissected digit by digit (columns at x = 40/144/248 \|
+396/500/604 of width 104, the 44 px point band, hinge x = 374 —
+geometry script-verified), the reading rules ("point two seven four"
+— digits one at a time; the roman example run 7.9 / 42.357 /
+305.274), expanded form 305.274 = 3 × 100 + … + 4 × 1/1000, and 7 =
+7.0; **Illustrations 1–2 run the bridge both ways** (7/10, 47/100,
+305/1000 drop into their places; 0.7, 0.47, 0.305 read back — 0.305
+= 305/1000 = 61/200 via the atom 5); **the atom test as a derivation
+block** — the re-cut direction (b = 2^m·5^n, m ≥ n: multiply by
+5^(m−n) to reach 10^m; places = max(m, n); symmetric otherwise), the
+refusal direction (10^k = 2^k·5^k carries no other atoms — Lesson
+3.2's uniqueness of factorisation; 10^k mod 3 = 1 forever, the
+digit-sum test in action), why the refusal is total (5/12 would need
+infinitely many places; 22/7's endless waltz named as 5.2's
+territory), and the place-counting instances (1/8 → 0.125, 3/25 →
+0.12, 9/40 → 0.225, 11/250 → 0.044) + the atom-test formula card;
+**locating by zooming** — Illustration 3 walks 2.74 (2 wholes → 7
+tenths → 4 hundredths), figure 2's two-panel zoom (the tenths ruler
+2.0–3.0 with 2.7 highlighted at x = 504, the re-cut hundredths ruler
+2.70–2.80 with 2.74 at x = 318, dashed trapezoid connectors, 62 px
+steps — geometry script-verified); **comparing by aligning the
+points** — wholes first, then digits left to right (the coarse cut
+outvotes the fine), the **trailing-zero licence as a derivation
+block** (appending a zero = the multiplying rule with 10/10 = 1;
+iterate 5/10 = 50/100 = 500/1000; wholes join: 7 = 70/10 = 7.0), the
+**more-digits Caution** (0.5 > 0.45 — tail length is fineness, not
+size; leading zeros load-bearing: 0.05 ≠ 0.5), Illustration 4 settles
+5.64 vs 5.603 (5.640: tenths tied, hundredths 4 > 0 — the trailing 3
+never gets a vote), the **equivalent-decimals Definition**; **money,
+length and mass** — the small unit names the place, the
+**zero-filling-trap Caution** (₹8.05 not ₹8.5 — "the single most
+examined zero in school arithmetic"; 3 kg 60 g = 3.06 kg),
+Illustration 5 (₹8 and 5 paise; 9 cm 8 mm = 9.8 cm); six-row toolkit
+table, the bridge-on-one-line equation (10-family drop-in / re-cut /
+the atom test ⇒ max(m, n) places), 3 formula cards (the 10-family,
+the atom test, align-the-points), exam corner (place-value walks;
+one-line bridges; the two comparison decoys — more-digits and
+zero-shift; money items); 5 illustrations, 2 figures (0 audit issues
+after figure 2's zoom-box/connector fix), 7 new terms, 3 formula
+cards, 5-quiz (1/2/3/1/2 verified live 5/5), 12 exercises L1–L6 — L6
+proves the trailing-zero licence (the 10/10 = 1 argument) and the
+atom test (both directions + the applications 7/8 = 0.875, 5/12
+refuses, 9/40 = 0.225, 11/250 = 0.044). New **verify-unit-5.ts: 165
+checks** ALL PASS pre-writing (sections A–O incl. the 2..500 sweep
+proving divides-a-power-of-ten ⟺ atoms ⊆ {2, 5}); regressions
+green (330/260/165). E2E extended to 9 lessons; VLM 9/10 across the
+opener, both figures and the Illustration chain.
 **LESSON 4.5 (run 20, cron Job 498279):** "Multiplying and Dividing
 Fractions" — 5,172 words, the fourth lesson authored natively in the
 Cengage voice + solution chain; the chapter finale that lets fractions
@@ -1126,7 +1189,7 @@ header + notes updated, plannedLessons emptied.
   two backslashes in source; table blocks use `head:`; exercises use
   `sets`; callout blocks need `title`.
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 18 lessons; lessons 4.2, 4.3, 4.4 and 4.5 are authored natively in
+  all 19 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
   the Cengage voice + solution chain (the exemplars going forward); the
   prose VOICE polish of the 14 pre-4.2 lessons (1.1 first as the
   exemplar, one lesson per run) is queued alongside chapter-5
