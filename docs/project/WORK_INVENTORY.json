@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 03:24:02 (Asia/Kolkata)",
+  "generated": "2026-11-04 04:15:07 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1241,9 +1241,8 @@
             "title": "Decimals and Percents",
             "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Percent and Its Meaning",
               "Percentage Change, Discounts and Simple Interest"
             ],
             "lessons": [
@@ -1446,9 +1445,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-percent-and-its-meaning",
+                "number": "5.4",
+                "title": "Percent and Its Meaning",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 3769,
+                "readMins": 19,
+                "concepts": [
+                  "Percent as a fraction of 100",
+                  "The standardised denominator",
+                  "The two-hop conversion",
+                  "Percent of a quantity",
+                  "Benchmark percents",
+                  "The 1% unit",
+                  "x% of y = y% of x"
+                ],
+                "objectives": [
+                  "Read any percent as a fraction with denominator 100 and reduce it to lowest terms, including percents beyond 100 and decimal percents such as 12.5% and 6.25%",
+                  "Convert both ways along the fraction–decimal–percent map with the two-hop law (÷ 100 one way, × 100 the other), and know where 33 1/3% is exact while 33.3% is not",
+                  "Find x% of a quantity by the direct fraction-of and by the benchmark builds, and lighten the arithmetic with the commutativity gem x% of y = y% of x",
+                  "Answer \"what percent\" and \"find the whole\" questions — the unitary method returning as the percent ladder — and read marks, shares and savings problems correctly"
+                ],
+                "prerequisites": [
+                  "fm-decimal-places-and-the-point",
+                  "fm-operating-on-decimals",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-multiplying-dividing-fractions"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math7-ch8"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "callout": 5,
+                  "heading": 4,
+                  "list": 2,
+                  "figure": 2,
+                  "equation": 2,
+                  "derivation": 1,
+                  "example": 6,
+                  "table": 1,
+                  "terms": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 15219
+            "words": 18988
           },
           {
             "number": 6,
@@ -1571,12 +1638,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 84,
-      "totalLines": 22014,
+      "totalLines": 22619,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 12758,
+        "src/data/library (content model + books)": 13363,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -5207,6 +5274,94 @@
           "del": 6
         }
       ]
+    },
+    {
+      "sha": "0ace05b530da332ee86b546b04e43194b0943c0a",
+      "short": "0ace05b",
+      "date": "2026-11-03 21:54",
+      "message": "inventory: record run-23 ship (fm 5.3 operating on decimals live) — 21 lessons / 101,153 words / 135 terms / 105 quiz items / 209 exercise questions, ch. 5 open 3/5; next 5.4 percent and its meaning",
+      "filesChanged": 1,
+      "insertions": 57,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 57,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c35cfe085737dae18b0f5b6eeb84eee6a10037ac",
+      "short": "c35cfe0",
+      "date": "2026-11-03 21:54",
+      "message": "memory: record run-23 push verification (0ace05b), origin/main synced — FM 5.3 operating on decimals live (align the points, the places-add engine, the point-riding quotient + the clearing law; the ladder + tableau figures), ch. 5 open 3/5; next FM 5.4 percent and its meaning",
+      "filesChanged": 2,
+      "insertions": 14,
+      "deletions": 9,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 7,
+          "del": 6
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 7,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "b4f023da06e22084699185e758653251742299f8",
+      "short": "b4f023d",
+      "date": "2026-11-03 22:45",
+      "message": "fm 5.4 percent and its meaning (unit 5, run 24): percent as the standardised fraction of 100 under one law (the x/100 definition — the % sign an instruction to divide by 100, not a unit; per centum etymology + the historical callout from the Italian per-cento ledgers through P c-zero) — the Definition callout with the roman example run (35% = 7/20; 8% = 2/25; 120% = 6/5 legal beyond the whole; 0.5% = 1/200), figure 1 the 100-square (10 x 10 grid, 35 cells shaded as the 25% + 10% benchmark build with amber brackets + the three-dress strip; audit 0 issues FIRST pass, VLM 9/10 math + 8/10 clarity, its one bracket-alignment complaint DISPROVEN by exact DOM measurement — rail 2 right end = 280 = shaded block right edge), the two-hop law as equation tag 1 (x% = x/100; p = x/100 iff x = 100p) PROVED as a derivation block from 5.3's point-shift at k = 2 (exact, no rounding), figure 2 the conversion map (FRACTION/DECIMAL/PERCENT stations joined by the step machine (5.2), the place reading (5.1), x 100 / divide-by 100 two-room arrows and the direct-hop arc; worked strip incl. 1/3 = 0.(3) = 33 1/3%; audit 0 issues, VLM 9.5/10 + 9/10), Illustrations 35% -> 7/20 by the HCF, 7/8 -> 0.875 -> 87.5% (atom test + two hops), 0.065 -> 6.5% not 65% (one room = a factor of ten), the 33 1/3% Caution (mixed form exact, 33.3% = 333/1000 a thousandth short), percent-of as equation tag 2 (x% of A = (x/100) x A; A = part x 100/x — the unitary method in percent dress) with the benchmark ladder table (100/75/50/25/20/12.5/10/5/1%) and the halving chain explained by the atoms (100 = 2^2 x 5^2 — the fives never block a halving: 12.5% = 1/8, 6.25% = 1/16, 3.125% = 1/32), 15% of 460 = 69 by benchmark build AND direct dress, 348/500 = 69.6% (cancel then the step machine), 8% of n = 56 -> 1% = 7 -> n = 700 (the unitary method returned with the forward check closing the loop), the roman word-problem run (33% of 600 = 198 pass mark, 210 clears by 12 = 2% of the paper; 60% of 45 = 27 boys + 18 girls = 45; 30% of Rs 18,500 = Rs 5,550 saved, Rs 12,950 left) and the commutativity gem Note (x% of y = y% of x — flip the ugly percent onto the friendly number: 16% of 25 = 25% of 16 = 4) — 3,769 words in the Cengage voice and solution chain; 6 illustrations, 2 figures (0 audit issues), 7 new terms (Percent, The % sign, Standardised denominator, Two-hop conversion, Percent of a quantity, Benchmark percents, The 1% unit), 3 formula cards, exam corner (the halving chain prices 512 and 640 in one step; the standing traps 0.5% != 50%, 120% legal, 33 1/3% exact), 5-quiz (0/1/1/2/2 verified live 5/5 perfect), 12 exercises L1-L6 (L6 proves the gem + works the halving chain: 6.25% of 512 = 32, 3.125% of 640 = 20); verify-unit-5.ts extended 341 -> 394 checks (sections BK-BS) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 2 real defects — a float artifact in BP4 and a wrong kill-condition in BQ4 — before any content existed); E2E extended to 12 lessons with a dedicated 5.4 block (6 Illustration pills, 6 inline Sol. pills, 22 step rows, stepNumberBadges 0, inlineSolPills = solPills, thereforeTags 18, legacyAnswerBoxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, zero console errors); SOURCE_LOG gains the ncert-math7-ch8 citation key + ledger row + free-space entry; logs + pointer updated; ch. 5 open 4/5, next 5.5 percentage change, discounts and simple interest (closes the chapter)",
+      "filesChanged": 8,
+      "insertions": 1114,
+      "deletions": 85,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 14,
+          "del": 9
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 36,
+          "del": 36
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 76,
+          "del": 33
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 132,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-5.ts",
+          "add": 141,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 610,
+          "del": 5
+        }
+      ]
     }
   ],
   "totals": {
@@ -5215,26 +5370,26 @@
     "booksLive": 1,
     "chaptersWritten": 4,
     "chaptersInProgress": 1,
-    "lessonsWritten": 21,
-    "wordsAuthored": 101153,
-    "termsDefined": 135,
-    "quizItems": 105,
-    "exerciseQuestions": 209,
+    "lessonsWritten": 22,
+    "wordsAuthored": 104922,
+    "termsDefined": 142,
+    "quizItems": 110,
+    "exerciseQuestions": 221,
     "blockTotals": {
-      "para": 299,
-      "callout": 100,
-      "heading": 141,
-      "terms": 22,
-      "equation": 25,
-      "derivation": 39,
-      "table": 22,
-      "figure": 33,
-      "example": 69,
-      "quiz": 21,
-      "exercises": 21,
-      "formula": 48,
+      "para": 315,
+      "callout": 105,
+      "heading": 145,
+      "terms": 23,
+      "equation": 27,
+      "derivation": 40,
+      "table": 23,
+      "figure": 35,
+      "example": 75,
+      "quiz": 22,
+      "exercises": 22,
+      "formula": 51,
       "algorithm": 8,
-      "list": 12
+      "list": 14
     }
   }
 }
