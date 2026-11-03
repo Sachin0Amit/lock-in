@@ -98,7 +98,7 @@ export function BookView({ book }: Props) {
   ]
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 pb-16 pt-8 sm:px-6">
+    <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-8 sm:px-6">
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"

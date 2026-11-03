@@ -32,7 +32,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-14 w-full max-w-5xl items-center gap-3 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 w-full max-w-7xl items-center gap-3 px-4 sm:px-6">
         <Link href={paths.home()} className="flex shrink-0 items-center gap-2.5" aria-label="LockIn Library home">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-sm">
             <Library className="h-4 w-4" aria-hidden />
@@ -67,7 +67,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t bg-muted/30">
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:px-6">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:px-6">
         <div>
           <div className="flex items-center gap-2.5">
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-sm">
@@ -112,7 +112,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="border-t">
-        <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-2 px-4 py-3 text-xs text-foreground/70 sm:px-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-3 text-xs text-foreground/70 sm:px-6">
           <p>Books are TypeScript data · progress saved on this device.</p>
           <p className="hidden sm:block">
             Press <kbd className="rounded border bg-card px-1.5 py-0.5 font-sans font-semibold">Ctrl</kbd>{' '}

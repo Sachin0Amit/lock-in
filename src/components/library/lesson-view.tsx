@@ -21,7 +21,6 @@ import {
   Circle,
   Clock3,
   ExternalLink,
-  Link2,
   ListTree,
   Minus,
   Plus,
@@ -104,8 +103,8 @@ export function LessonView({ ref_ }: Props) {
   return (
     <div className="relative w-full pb-16 pt-6">
       <ReadingProgress />
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 xl:grid-cols-[minmax(0,1fr)_230px]">
-        <article className="mx-auto w-full max-w-3xl xl:mx-0">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 xl:grid-cols-[minmax(0,1fr)_230px]">
+        <article className="mx-auto w-full max-w-4xl xl:mx-0 xl:max-w-none">
           {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
@@ -138,10 +137,6 @@ export function LessonView({ ref_ }: Props) {
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <ListTree className="h-3.5 w-3.5" aria-hidden /> {words.toLocaleString()} words
-              </span>
-              <span className="hidden items-center gap-1 sm:inline-flex">
-                <Link2 className="h-3.5 w-3.5" aria-hidden />
-                <span className="font-mono text-xs">{`/book/${book.id}/lesson/${lesson.id}`}</span>
               </span>
             </div>
             {lesson.concepts.length > 0 && (

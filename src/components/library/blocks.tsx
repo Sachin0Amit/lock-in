@@ -529,10 +529,10 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
             return (
               <figure key={i} className="my-8">
                 <div
-                  className="overflow-x-auto rounded-lg border border-stone-300/80 bg-card px-4 py-5 text-foreground dark:border-stone-700 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:w-full [&_svg]:max-w-2xl"
+                  className="overflow-x-auto rounded-lg border border-stone-300/80 bg-card px-4 py-5 text-foreground dark:border-stone-700 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:w-full [&_svg]:max-w-3xl"
                   dangerouslySetInnerHTML={{ __html: b.svg }}
                 />
-                <figcaption className="mx-auto mt-2.5 max-w-2xl text-center text-sm leading-6 text-muted-foreground">
+                <figcaption className="mx-auto mt-2.5 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
                   <span className="font-semibold text-foreground/80">Figure {no}</span> —{' '}
                   <RichText text={b.caption} />
                 </figcaption>

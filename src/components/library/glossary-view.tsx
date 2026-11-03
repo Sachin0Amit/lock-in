@@ -26,7 +26,7 @@ export function GlossaryView({ book }: { book: Book }) {
   const letters = [...groups.keys()].sort()
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 pb-16 pt-8 sm:px-6">
+    <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-8 sm:px-6">
       <Link
         href={paths.book(book.id)}
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
