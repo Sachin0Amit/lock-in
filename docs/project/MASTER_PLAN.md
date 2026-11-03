@@ -40,7 +40,10 @@ collection. Workflow per unit:
    curricula, authoritative references) — **explicitly mandated as the
    fallback whenever the Drive has no books for a topic/field.**
 7. Run the quality gates (§6) for the unit, integrate it into the reading
-   platform, and log it in `PROGRESS.json` + `WORKLOG.md`.
+   platform, and log it in `PROGRESS.json` + `WORKLOG.md` **and regenerate
+   `WORK_INVENTORY.json` + `DETAILED_LOG.md`** (owner directive 2026-11-03:
+   maintain a detailed log of everything written/worked on — regenerate the
+   inventory with `bun run scripts/build_work_inventory.ts`).
 8. Delete the downloaded working copies (never the Drive originals) once
    the unit is verified and log it in `SOURCE_LOG.md`.
 9. Move to the next unit of the same book. Switch book or subject only
@@ -100,7 +103,8 @@ once more over the whole book before the book is marked complete:
 1. Unit drafted → 2. content verified (math recomputed) →
 3. examination coverage audit run → 4. structure/navigation verified →
 5. integrated into the reading platform → 6. logged in `PROGRESS.json` +
-`WORKLOG.md`. Drafting alone never means complete.
+`WORKLOG.md`, with `WORK_INVENTORY.json` + `DETAILED_LOG.md` regenerated
+(owner directive 2026-11-03). Drafting alone never means complete.
 
 ## 7. Non-negotiable rules
 

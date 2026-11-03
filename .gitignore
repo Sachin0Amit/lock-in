@@ -56,7 +56,9 @@ server.log
 # sandbox working dirs (not part of the platform repo)
 /upload/
 /download/
-/scripts/
+/scripts/*
+# exception: the WORK_INVENTORY.json generator is part of the logging system
+!/scripts/build_work_inventory.ts
 /.zscripts/
 /examples/
 /tests/

@@ -1,0 +1,1866 @@
+{
+  "project": "LockIn Library",
+  "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
+  "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
+  "generated": "2026-11-03 06:51:22 (Asia/Kolkata)",
+  "methodology": {
+    "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
+    "readingMinutes": "words / 200, rounded up, minimum 1",
+    "lessonStats": "computed live from the chapter data files — this file never hand-edits numbers"
+  },
+  "standingRules": [
+    "ONE UNIT (chapter) OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): research → write → verify → ship → log, then the next unit; never batch-draft",
+    "No daily-streak / gamified streak features on the website, ever (owner directive 2026-11-03 — removed; never reintroduce)",
+    "Original content only — reference books inform and verify, never reproduce protected expression",
+    "Download only the current unit's reference books into temporary-references/ (gitignored); delete working copies after the unit is verified; never touch Drive originals",
+    "Accuracy over volume: no fabricated formulas, history, data, or exam questions; exam-style items labelled \"exam-style\"",
+    "Maintain WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (this file's own directive, 2026-11-03)"
+  ],
+  "content": {
+    "disciplinesPlanned": 11,
+    "backlogPlan": "docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit).",
+    "booksLive": 1,
+    "books": [
+      {
+        "id": "foundation-mathematics",
+        "title": "Foundation Mathematics",
+        "subtitle": "From counting to the doorstep of algebra",
+        "discipline": "mathematics",
+        "level": "Absolute beginner → Secondary school",
+        "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
+        "status": "in-progress",
+        "chaptersPlanned": 11,
+        "chaptersWritten": 1,
+        "chapters": [
+          {
+            "number": 1,
+            "slug": "numbers-and-place-value",
+            "title": "Numbers and Place Value",
+            "summary": "Starts from the act of counting itself: what a number is, how numerals encode them with just ten digits, why place value makes the whole system powerful, and how the number line lets us see order at a glance. Closes with the two great naming conventions for large numbers — international and Indian.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "fm-numbers-digits-place-value",
+                "number": "1.1",
+                "title": "Numbers, Digits and Place Value",
+                "authoredOn": "2026-11-02",
+                "authoredInCommit": "1369d26",
+                "unit": "platform base (lesson 1.1 authored with the platform as pipeline validation)",
+                "words": 2852,
+                "readMins": 14,
+                "concepts": [
+                  "Number versus numeral versus digit",
+                  "Positional (place-value) notation in base ten",
+                  "Expanded form",
+                  "Zero as a placeholder",
+                  "The number line and ordering",
+                  "International and Indian systems of numeration"
+                ],
+                "objectives": [
+                  "Say precisely what a number, a numeral and a digit are — and never confuse them again",
+                  "Break any whole number into its place values and write it in expanded form",
+                  "Read and compare numbers in both the international and the Indian naming systems",
+                  "Locate integers on the number line and use it to compare them"
+                ],
+                "prerequisites": [],
+                "sources": [],
+                "blockCounts": {
+                  "para": 6,
+                  "callout": 4,
+                  "heading": 5,
+                  "terms": 1,
+                  "equation": 1,
+                  "derivation": 1,
+                  "table": 2,
+                  "figure": 1,
+                  "example": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 3,
+                  "L4": 2
+                },
+                "exerciseQuestions": 9,
+                "termsDefined": 5
+              },
+              {
+                "id": "fm-comparing-ordering-numbers",
+                "number": "1.2",
+                "title": "Comparing and Ordering Numbers",
+                "authoredOn": "2026-11-03",
+                "authoredInCommit": "a29d1b8",
+                "unit": "unit 1",
+                "words": 3421,
+                "readMins": 17,
+                "concepts": [
+                  "Digit count as the first comparison test",
+                  "Seat-by-seat (left-to-right) comparison",
+                  "The domination bound: why the leftmost differing seat decides",
+                  "Ascending and descending order",
+                  "Greatest and smallest numbers from given digits",
+                  "Successor and predecessor",
+                  "Digit rearrangements preserve the digit sum"
+                ],
+                "objectives": [
+                  "Compare any two whole numbers instantly and say which seat decided the answer",
+                  "Arrange a mixed list of large numbers in ascending or descending order without pairwise struggle",
+                  "Build the greatest and smallest possible numbers from a given set of digits",
+                  "Explain, with a proof, why the leftmost differing digit always settles the comparison"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch1"
+                ],
+                "blockCounts": {
+                  "para": 7,
+                  "heading": 5,
+                  "terms": 1,
+                  "derivation": 1,
+                  "equation": 1,
+                  "figure": 1,
+                  "example": 2,
+                  "callout": 4,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "historical": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 6
+              },
+              {
+                "id": "fm-rounding-and-estimating",
+                "number": "1.3",
+                "title": "Rounding and Estimating",
+                "authoredOn": "2026-11-03",
+                "authoredInCommit": "a29d1b8",
+                "unit": "unit 1",
+                "words": 3436,
+                "readMins": 17,
+                "concepts": [
+                  "Rounding to the nearest ten, hundred and thousand",
+                  "The midpoint convention: ties round up",
+                  "Estimating sums, differences and products",
+                  "Overestimates and underestimates",
+                  "Leading-digit estimation",
+                  "Error bounds for rounded sums",
+                  "When to round up on purpose (capacity problems)"
+                ],
+                "objectives": [
+                  "Round any whole number to a named place and say which digit made the decision",
+                  "Estimate sums, differences and products to a chosen level of coarseness — and choose the right level",
+                  "Recognise when rounding a subtraction of close numbers destroys the answer, and what to do instead",
+                  "State a guaranteed error bound for a sum of rounded numbers"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-comparing-ordering-numbers"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch1"
+                ],
+                "blockCounts": {
+                  "para": 5,
+                  "heading": 5,
+                  "figure": 1,
+                  "terms": 1,
+                  "algorithm": 1,
+                  "example": 3,
+                  "callout": 3,
+                  "derivation": 1,
+                  "formula": 2,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 5
+              }
+            ],
+            "words": 9709
+          },
+          {
+            "number": 2,
+            "slug": "the-four-operations",
+            "title": "The Four Operations",
+            "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Addition and the Art of Carrying",
+              "Subtraction and Borrowing",
+              "Multiplication as Repeated Addition — and Beyond",
+              "Division, Remainders and Why Zero Never Divides",
+              "Order of Operations and the Language of Expressions"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 3,
+            "slug": "factors-multiples-primes",
+            "title": "Factors, Multiples and Primes",
+            "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Divisibility and Its Tests",
+              "Prime Numbers and Factorisation",
+              "Highest Common Factor",
+              "Lowest Common Multiple",
+              "HCF, LCM and How They Relate"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 4,
+            "slug": "fractions",
+            "title": "Fractions",
+            "summary": "Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Idea of a Fraction",
+              "Equivalent Fractions and Simplification",
+              "Comparing Fractions",
+              "Adding and Subtracting Fractions",
+              "Multiplying and Dividing Fractions"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 5,
+            "slug": "decimals-and-percents",
+            "title": "Decimals and Percents",
+            "summary": "Place value extended to the right of the point, the natural marriage of decimals and fractions, percent as a standardised fraction of 100, and the practical arithmetic of increase, decrease, discount and interest.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Decimal Places and the Point",
+              "Decimals and Fractions, Two Ways of Writing the Same Numbers",
+              "Operating on Decimals",
+              "Percent and Its Meaning",
+              "Percentage Change, Discounts and Simple Interest"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 6,
+            "slug": "ratio-rate-proportion",
+            "title": "Ratio, Rate and Proportion",
+            "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Ratio as a Comparison",
+              "Rates and Unit Rates",
+              "Proportion and Cross-Multiplication",
+              "Direct and Inverse Variation",
+              "Scaling: Maps, Models and Recipes"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 7,
+            "slug": "integers",
+            "title": "Integers",
+            "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Negative Numbers and Why They Exist",
+              "Adding and Subtracting Integers",
+              "Multiplying Integers and the Sign Rules",
+              "Absolute Value as Distance"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 8,
+            "slug": "geometry-foundations",
+            "title": "Geometry Foundations",
+            "summary": "The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Points, Lines and Planes",
+              "Angles and Their Measurement",
+              "Parallel Lines and Transversals",
+              "Triangles and the Angle Sum",
+              "Perimeter and Area of Rectangles, Triangles and Circles"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 9,
+            "slug": "measurement",
+            "title": "Measurement",
+            "summary": "What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Units as Agreements",
+              "The Metric System",
+              "Converting Units Without Memorising Tables",
+              "Precision, Accuracy and Rounding in Measurement"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 10,
+            "slug": "data-and-graphs",
+            "title": "Data and Graphs",
+            "summary": "Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Collecting and Tallying Data",
+              "Bar Charts, Line Graphs and Pie Charts",
+              "Reading Graphs Critically",
+              "Mean, Median and Mode"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 11,
+            "slug": "patterns-and-algebra-preview",
+            "title": "Patterns and the Doorstep of Algebra",
+            "summary": "Number patterns, sequences built by rules, matchstick and tile patterns expressed as formulas, and the first use of a letter for an unknown — the exact point where Elementary Algebra takes over the climb.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Patterns and Rules",
+              "From Patterns to Formulas",
+              "A Letter for the Unknown"
+            ],
+            "lessons": [],
+            "words": 0
+          }
+        ]
+      }
+    ]
+  },
+  "engineering": {
+    "stack": "Next.js 16 App Router (SSG) · TypeScript · Tailwind 4 · shadcn/ui · zustand (persist v2) · KaTeX · next-themes · framer-motion · cmdk · bun",
+    "routes": [
+      "/",
+      "/book/[bookId]",
+      "/book/[bookId]/lesson/[lessonId]",
+      "/book/[bookId]/revise",
+      "/book/[bookId]/glossary",
+      "404"
+    ],
+    "featureHighlights": [
+      "v3 home: living book-shelf hero (real + ghost spines), contextual CTAs, inline stat strip, compact Your desk, roadmap chips",
+      "v3 book page: breadcrumb, contextual primary button, TOC counters + Next-up highlight + quiz best-score chips",
+      "command palette (Ctrl/Cmd+K): token-aware full-text search over books/lessons/glossary + actions",
+      "reader: scrollspy, reading-progress bar, keyboard shortcuts, prerequisites, sources footer, KaTeX",
+      "quiz with persisted best score + retake; flashcard revision (auto deck from terms blocks); A–Z glossary + formula sheet",
+      "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
+    ],
+    "codebase": {
+      "srcFilesTracked": 80,
+      "totalLines": 11091,
+      "byArea": {
+        "src/app (routes, pages)": 547,
+        "src/components/library (reader platform)": 2864,
+        "src/components/ui (shadcn primitives)": 5445,
+        "src/data/library (content model + books)": 2001,
+        "src/hooks": 214,
+        "src/lib": 20
+      },
+      "libraryComponents": [
+        {
+          "file": "blocks.tsx",
+          "lines": 614
+        },
+        {
+          "file": "home-view.tsx",
+          "lines": 384
+        },
+        {
+          "file": "lesson-view.tsx",
+          "lines": 369
+        },
+        {
+          "file": "flashcards.tsx",
+          "lines": 367
+        },
+        {
+          "file": "book-view.tsx",
+          "lines": 294
+        },
+        {
+          "file": "command-palette.tsx",
+          "lines": 257
+        },
+        {
+          "file": "glossary-view.tsx",
+          "lines": 156
+        },
+        {
+          "file": "site-chrome.tsx",
+          "lines": 127
+        },
+        {
+          "file": "progress-store.ts",
+          "lines": 93
+        },
+        {
+          "file": "on-this-page.tsx",
+          "lines": 62
+        },
+        {
+          "file": "bits.tsx",
+          "lines": 59
+        },
+        {
+          "file": "math.tsx",
+          "lines": 58
+        },
+        {
+          "file": "reading-progress.tsx",
+          "lines": 24
+        }
+      ]
+    },
+    "milestones": [
+      {
+        "date": "2026-11-02 14:15",
+        "commit": "526add7",
+        "title": "Repository initialised",
+        "detail": "Sandbox scaffold: .env, .gitignore, download/README."
+      },
+      {
+        "date": "2026-11-02 15:09",
+        "commit": "8a37a0b",
+        "title": "Stack scaffolded",
+        "detail": "Next.js 16 App Router + TypeScript + Tailwind 4 + shadcn/ui (62 UI primitives) + Prisma schema + ESLint; bun package management."
+      },
+      {
+        "date": "2026-11-02 15:31",
+        "commit": "1369d26",
+        "title": "Platform base (v1), project memory, lesson 1.1",
+        "detail": "Content model with 14 block types + honest word counter (types.ts); 11-discipline taxonomy; reader UI (library home, book page, lesson reader with KaTeX, interactive quiz, bookmark/complete, font scale, dark mode, progress persistence); Foundation Mathematics full 11-chapter TOC; lesson 1.1 authored (~2.8k words); docs/project memory system (MASTER_PLAN, BOOK_FORMAT, PROGRESS, RESUME_POINTER, EXAM_REGISTRY, SOURCE_LOG, SUBJECT_BACKLOG, WORKLOG)."
+      },
+      {
+        "date": "2026-11-02 16:13",
+        "commit": "8f1e37c",
+        "title": "Platform v2: routed architecture + advanced study features",
+        "detail": "SSG routes (/, /book/[bookId], /book/[bookId]/lesson/[lessonId], /revise, /glossary, custom 404) with shareable deep links + JSON-LD; command palette (Ctrl/Cmd+K) with token-aware full-text search over books/lessons/glossary; reader: scrollspy On-this-page, reading-progress bar, keyboard shortcuts (←/→, B, C), prerequisites chips, sources footer; quiz best-score persistence + retake; flashcard revision mode (3D flip, know/again, per-term memory); A–Z glossary + auto formula sheet; content model v2 (prerequisites, sources, formula + algorithm blocks)."
+      },
+      {
+        "date": "2026-11-02 16:22",
+        "commit": "74d0f93",
+        "title": "Owner directives: unit cadence, streak off, push guide",
+        "detail": "Authoring cadence changed to ONE UNIT (chapter) OF ONE SUBJECT AT A TIME (MASTER_PLAN §2 rewritten, §6 gates per unit, BOOK_FORMAT cadence section); daily streak removed from the website (header flame badge, Your-desk streak pill + stat, computeStreak/dayKey helpers deleted; desk stat replaced by Terms mastered); README gained \"Pushing to GitHub\" (fine-grained PAT guide). Pushed to origin/main with the owner PAT."
+      },
+      {
+        "date": "2026-11-02 16:32",
+        "commit": "59b1ff9",
+        "title": "Memory: PAT push workflow recorded",
+        "detail": "RESUME_POINTER/WORKLOG record that pushes use a fresh owner-supplied fine-grained PAT (revoked after push) or an owner-side git push."
+      },
+      {
+        "date": "2026-11-02 16:52",
+        "commit": "b4f461c",
+        "title": "Website v3: arrangement & visual overhaul",
+        "detail": "Home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start reading / Continue / Next), inline stat strip, compact Your desk, roadmap chips for not-yet-live shelves. Book page: breadcrumb, contextual primary button, TOC per-chapter counters, \"Next up\" highlight, quiz best-score chips. Reader breadcrumb Library/book/chapter; two-column footer. Shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS; dev-tools indicator disabled. VLM visual review: home 9/10, book 9/10, reader 8/10 (desktop + mobile + dark mode)."
+      },
+      {
+        "date": "2026-11-03 01:08",
+        "commit": "a29d1b8",
+        "title": "UNIT 1 SHIPPED: Foundation Mathematics chapter 1 complete",
+        "detail": "Lessons 1.2 (Comparing and Ordering Numbers — domination-bound derivation, place-value comparison figure, digit-rotation mod-9 fingerprint, L1–L6 exercises) and 1.3 (Rounding and Estimating — midpoint figure, rounding algorithm block, error-bound derivation, banker's rounding / IEEE 754 insight, L1–L6 exercises) authored (~6,900 words). 66 arithmetic checks recomputed by script BEFORE writing; verify-unit-1.ts ALL CHECKS PASS. Google Drive collection surveyed (89 root items + MATHS/CHEMISTRY/PHYSICS/_DPPs subfolders → temporary-references/inventory.json); Khattar QA 4e downloaded for the unit, chapter 1 studied, working copy deleted after verification. Platform fixes shipped with the unit: mobile 390px horizontal overflow (grid-cols-1 base on three responsive grids) + concept-badge wrapping. E2E: KaTeX 154 (1.2) / 114 (1.3) nodes, figures + algorithm + 11-column table render, quiz scored 5/5, 16-term flashcard deck, glossary + formula cards, no console errors."
+      }
+    ],
+    "verificationLog": [
+      {
+        "unit": "platform base (lesson 1.1)",
+        "date": "2026-11-02",
+        "gates": "lint clean; tsc --noEmit clean (src/); agent-browser E2E: home/book/lesson render, 55 KaTeX nodes + 1 SVG, quiz feedback, solution expansion, completion persistence, search, dark mode, no overflow at 390px/1280px, no console errors. Accuracy pass fixed 4 issues (numeral paragraph, 10^11 kharab column, modular-arithmetic wording, digit-reversal formula verified by substitution)."
+      },
+      {
+        "unit": "platform v2",
+        "date": "2026-11-02",
+        "gates": "lint clean; all routes 200 (unknown ids 404); browser E2E: palette multi-word search + navigation, quiz answered-all → 5/5 + quizBest persisted + retake reset, keyboard C/B, flashcards flip/mark/mode switch, scrollspy, progress bar, Your desk, localStorage persistence; per-page fresh loads show zero hydration warnings; VLM screenshot review."
+      },
+      {
+        "unit": "streak removal + cadence docs",
+        "date": "2026-11-03",
+        "gates": "lint clean; tsc clean (fixed pre-existing SearchHit union type error); E2E with seeded progress: desk stats [Lessons completed 1 · Words read 2,852 · Terms mastered 3 · Bookmarks 0], zero \"streak\" occurrences anywhere, 54 KaTeX nodes, no console errors, no hydration warnings."
+      },
+      {
+        "unit": "site v3",
+        "date": "2026-11-03",
+        "gates": "lint + tsc clean; all routes 200; browser E2E: hero CTAs, 6 spine labels, stat strip, roadmap, footer links, breadcrumb, Next-up + 5/5 quiz chip + 1/1-done counter, 54 KaTeX nodes, C-keyboard toggle, Ctrl-K palette, flashcards; VLM visual review rounds: home 9/10 (desktop + mobile; imbalance, ghost-contrast, devtools overlap fixed), book 9/10, reader 8/10; dark-mode spine contrast fixed; zero console errors."
+      },
+      {
+        "unit": "unit 1 (Foundation Mathematics ch. 1)",
+        "date": "2026-11-03",
+        "gates": "66 arithmetic checks recomputed by script before writing (incl. half-up vs half-even error sums +5 vs 0); verify-unit-1.ts ALL CHECKS PASS (ids unique, quiz indices valid, solutions complete, prereqs resolve, sources resolve); lint clean; tsc clean; routes 200; browser E2E: KaTeX 154/114 nodes per lesson, figures + algorithm block + 11-col table render, quiz scored 5/5 \"perfect\" with feedback, 16-term flashcard deck, glossary lists new terms + formula cards, TOC shows ch. 1 complete with ch. 2 planned, Next-up works; mobile 390px exactly no overflow; no console errors."
+      }
+    ]
+  },
+  "research": {
+    "driveCollection": {
+      "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
+      "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
+      "surveyed": "2026-11-03",
+      "rootFileCount": 85,
+      "subfolders": [
+        "_DPPs",
+        "CHEMISTRY",
+        "MATHS",
+        "PHYSICS"
+      ],
+      "approxTotalSizeMB": 2855.1,
+      "fullMachineListing": "temporary-references/inventory.json (gitignored — survey metadata)",
+      "rootItems": [
+        {
+          "name": "_DPPs [folder]",
+          "size": ""
+        },
+        {
+          "name": "CHEMISTRY [folder]",
+          "size": ""
+        },
+        {
+          "name": "MATHS [folder]",
+          "size": ""
+        },
+        {
+          "name": "PHYSICS [folder]",
+          "size": ""
+        },
+        {
+          "name": "A-Brief-History-of-Modern-India-Spectrum.pdf",
+          "size": "1.4 MB"
+        },
+        {
+          "name": "A-History-of-Western-Philosophy-Bertrand-Russell.pdf",
+          "size": "4.9 MB"
+        },
+        {
+          "name": "A-Tour-of-C++-2nd-Edition-Bjarne-Stroustrup.pdf",
+          "size": "4.3 MB"
+        },
+        {
+          "name": "Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf",
+          "size": "29.7 MB"
+        },
+        {
+          "name": "advanced-engineering-mathematics.pdf",
+          "size": "21.5 MB"
+        },
+        {
+          "name": "Aho-Lam-Sethi-Ullman-Compilers-Principles-Techniques-and-Tools-2007.pdf",
+          "size": "5.3 MB"
+        },
+        {
+          "name": "Algorithms-4th-Edition-Sedgewick-Wayne.pdf",
+          "size": "11.9 MB"
+        },
+        {
+          "name": "applied-physics-11th-edition.pdf",
+          "size": "77.6 MB"
+        },
+        {
+          "name": "atkins-physical-chemistry-12th-ed.pdf",
+          "size": "41.4 MB"
+        },
+        {
+          "name": "C++-Primer-5th-Edition-Lippman.pdf",
+          "size": "39.9 MB"
+        },
+        {
+          "name": "Calculus Early Transcendentals 9th Edition SOLUTIONS (Stewart, Clegg).pdf",
+          "size": "24 MB"
+        },
+        {
+          "name": "calculus-10th-edition-anton.pdf",
+          "size": "22.8 MB"
+        },
+        {
+          "name": "Calculus-11th-Edition-Larson-Edwards.pdf",
+          "size": "60.9 MB"
+        },
+        {
+          "name": "Calculus-Early-Transcendental-Functions-7th-Larson.pdf",
+          "size": "65.3 MB"
+        },
+        {
+          "name": "calculus-early-transcendentals-international-metric-edition.pdf",
+          "size": "86.8 MB"
+        },
+        {
+          "name": "Campbell-Biology-11th-Edition.pdf",
+          "size": "119.5 MB"
+        },
+        {
+          "name": "Chemistry-11th-Edition-Steven-Zumdahl.pdf",
+          "size": "101.6 MB"
+        },
+        {
+          "name": "Classical-Mechanics-3rd-Edition-Goldstein.pdf",
+          "size": "45.2 MB"
+        },
+        {
+          "name": "Computer-Networking-A-Top-Down-Approach-Kurose-8th.pdf",
+          "size": "20.5 MB"
+        },
+        {
+          "name": "computer-networks-tanenbaum-5th-edition.pdf",
+          "size": "8.1 MB"
+        },
+        {
+          "name": "Computer-Organization-Architecture-11th.pdf",
+          "size": "52.8 MB"
+        },
+        {
+          "name": "Computer-Systems-A-Programmers-Perspective-3rd.pdf",
+          "size": "5.2 MB"
+        },
+        {
+          "name": "core-java-volume-1-fundamental-volume-2-12th-edition.pdf",
+          "size": "35.8 MB"
+        },
+        {
+          "name": "Database-System-Concepts-Silberschatz-Korth-7th.pdf",
+          "size": "16.6 MB"
+        },
+        {
+          "name": "Deep-Learning-Ian-Goodfellow-MIT-Press.pdf",
+          "size": "15.9 MB"
+        },
+        {
+          "name": "Design-Patterns-GoF.pdf",
+          "size": "17.2 MB"
+        },
+        {
+          "name": "desktop.ini (ignore)",
+          "size": "113 B"
+        },
+        {
+          "name": "Digital Logic and Computer Design (M. Morris Mano).pdf",
+          "size": "34.1 MB"
+        },
+        {
+          "name": "Digital-Logic-Computer-Design.pdf",
+          "size": "6 MB"
+        },
+        {
+          "name": "atkins-physical-chemistry-12th-ed (dokumen.pub copy).pdf",
+          "size": "41.4 MB"
+        },
+        {
+          "name": "calculus-8th-ed (dokumen.pub copy).pdf",
+          "size": "118.9 MB"
+        },
+        {
+          "name": "full-stack-web-development-the-comprehensive-guide.epub",
+          "size": "20.1 MB"
+        },
+        {
+          "name": "halliday-resnick-fundamentals-of-physics-11th-extended (dokumen.pub).pdf",
+          "size": "39.9 MB"
+        },
+        {
+          "name": "javascript-the-definitive-guide-7th-ed.pdf",
+          "size": "6.6 MB"
+        },
+        {
+          "name": "linear-algebra-done-right-4th-ed.pdf",
+          "size": "6.5 MB"
+        },
+        {
+          "name": "Effective-Java-3rd-Edition-Bloch.pdf",
+          "size": "2.2 MB"
+        },
+        {
+          "name": "electric-circuits-12th-ed.pdf",
+          "size": "25.2 MB"
+        },
+        {
+          "name": "Electrical & Electronic Technology Hughes 12th Ed.pdf",
+          "size": "27.6 MB"
+        },
+        {
+          "name": "Elementary-Algebra_text.pdf",
+          "size": "22.6 MB"
+        },
+        {
+          "name": "English-Grammar-in-Use-Raymond-Murphy.pdf",
+          "size": "6.2 MB"
+        },
+        {
+          "name": "Genki-Elementary-Japanese-I.pdf",
+          "size": "37.8 MB"
+        },
+        {
+          "name": "Grokking-Algorithms-Aditya-Bhargava.pdf",
+          "size": "23.6 MB"
+        },
+        {
+          "name": "halliday-resnick-fundamentals-of-physics-11th-extended.pdf",
+          "size": "39.9 MB"
+        },
+        {
+          "name": "Hammers-German-Grammar-and-Usage.pdf",
+          "size": "8.6 MB"
+        },
+        {
+          "name": "Head-First-Design-Patterns-2nd-Freeman.pdf",
+          "size": "47.6 MB"
+        },
+        {
+          "name": "Higher Algebra - Hall & Knight.pdf",
+          "size": "30.5 MB"
+        },
+        {
+          "name": "HigherAlgebra_10021865.pdf (Hall & Knight alt).pdf",
+          "size": "23.4 MB"
+        },
+        {
+          "name": "How-Linux-Works-3rd-Edition-Brian-Ward.pdf",
+          "size": "5.4 MB"
+        },
+        {
+          "name": "Indian-Polity-Laxmikanth.pdf",
+          "size": "7.6 MB"
+        },
+        {
+          "name": "Introduction-To-Algorithms-CLRS.pdf",
+          "size": "5.4 MB"
+        },
+        {
+          "name": "Introduction-to-Electrodynamics-Griffiths.pdf",
+          "size": "21.1 MB"
+        },
+        {
+          "name": "Introduction-to-Linear-Algebra-Gilbert-Strang-5th.pdf",
+          "size": "59.6 MB"
+        },
+        {
+          "name": "Introduction-to-Quantum-Mechanics-Griffiths-3rd.pdf",
+          "size": "26.4 MB"
+        },
+        {
+          "name": "Introduction-To-The-Theory-Of-Computation-Sipser.pdf",
+          "size": "17 MB"
+        },
+        {
+          "name": "Invoice order.pdf (ignore)",
+          "size": "77 KB"
+        },
+        {
+          "name": "Java-Concurrency-in-Practice-Goetz.pdf",
+          "size": "2.8 MB"
+        },
+        {
+          "name": "Lee-JD-Concise-inorganic-Chemistry-5ed.pdf",
+          "size": "34.1 MB"
+        },
+        {
+          "name": "Lehninger-Principles-of-Biochemistry-8th.pdf",
+          "size": "87.1 MB"
+        },
+        {
+          "name": "Lin-Algebra-Schaum-6th-Edition.pdf",
+          "size": "4.4 MB"
+        },
+        {
+          "name": "Linear-Algebra-and-Its-Applications-4th-Strang.pdf",
+          "size": "4.5 MB"
+        },
+        {
+          "name": "Linear-Algebra-and-Its-Applications-Lay-5th.pdf",
+          "size": "39 MB"
+        },
+        {
+          "name": "Microelectronic Circuits (8th Ed.).pdf",
+          "size": "268.2 MB"
+        },
+        {
+          "name": "microelectronic-circuits-8th-edition.pdf",
+          "size": "268.1 MB"
+        },
+        {
+          "name": "organic-chemistry-clayden-greeves-warren.pdf",
+          "size": "12.3 MB"
+        },
+        {
+          "name": "physics-fundamental.pdf",
+          "size": "91.9 MB"
+        },
+        {
+          "name": "Principles-of-Economics-Mankiw-8th-Edition.pdf",
+          "size": "28.2 MB"
+        },
+        {
+          "name": "Principles-of-Mathematical-Analysis-Rudin-3rd.pdf",
+          "size": "12.3 MB"
+        },
+        {
+          "name": "prompt.tex (ignore)",
+          "size": "12 KB"
+        },
+        {
+          "name": "Python-Crash-Course-2nd-Edition.pdf",
+          "size": "6.7 MB"
+        },
+        {
+          "name": "Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf",
+          "size": "32.4 MB"
+        },
+        {
+          "name": "RosenDiscreteMath8Ed.pdf",
+          "size": "35 MB"
+        },
+        {
+          "name": "sachincertificate.pdf (ignore)",
+          "size": "391 KB"
+        },
+        {
+          "name": "Spring-in-Action-6th-Edition-Craig-Walls.pdf",
+          "size": "28 MB"
+        },
+        {
+          "name": "The Feynman Lectures on Physics Vol I,II,III.pdf",
+          "size": "large"
+        },
+        {
+          "name": "The-Algorithm-Design-Manual-Skiena-3rd.pdf",
+          "size": "9.9 MB"
+        },
+        {
+          "name": "the-art-of-electronics.pdf",
+          "size": "36.9 MB"
+        },
+        {
+          "name": "The-Elements-of-Style-4th-Strunk-White.pdf",
+          "size": "243 KB"
+        },
+        {
+          "name": "The-Linux-Programming-Interface-Kerrisk.pdf",
+          "size": "6.9 MB"
+        },
+        {
+          "name": "Thinking-in-Java-4th-Edition-Bruce-Eckel.pdf",
+          "size": "9.5 MB"
+        },
+        {
+          "name": "Thomas-Calculus-14th-Edition.pdf",
+          "size": "29 MB"
+        },
+        {
+          "name": "toaz.info-jd-lee.pdf (JD Lee alt).pdf",
+          "size": "15.7 MB"
+        },
+        {
+          "name": "Trigonometry-Loney.pdf",
+          "size": "7.9 MB"
+        },
+        {
+          "name": "University Physics with Modern Physics 15th Young.pdf",
+          "size": "62.5 MB"
+        },
+        {
+          "name": "University-Chemistry-by-Bruce-H.-Mahan.pdf",
+          "size": "44.7 MB"
+        },
+        {
+          "name": "Wileys Solomons Fryhle Snyder Organic Chemistry.pdf",
+          "size": "29.1 MB"
+        }
+      ]
+    },
+    "citationKeys": [
+      {
+        "key": "khattar-qa-4e",
+        "work": "Dinesh Khattar, Quantitative Aptitude for Competitive Examinations, 4th ed., Pearson (2019), ISBN 9789353439552",
+        "usedFor": "FM ch. 1 (unit 1): place-value/face-value definitions, Indian system naming, exam-style digit problems. Exposition original."
+      },
+      {
+        "key": "ncert-math6-ch1",
+        "work": "NCERT Class 6 Mathematics, ch. 1 \"Knowing Our Numbers\" (public curriculum)",
+        "usedFor": "FM ch. 1 (unit 1): canonical school-level topic coverage (comparing, ordering, greatest/smallest, estimation). Coverage cross-checked via web; exposition original."
+      }
+    ],
+    "perUnitDownloadLedger": [
+      {
+        "unit": "unit 1 — FM ch. 1",
+        "downloaded": "Khattar QA 4e PDF (32.4 MB, 1049 pp) + NCERT web outline (0 MB)",
+        "usedFor": "lessons 1.2 + 1.3",
+        "workingCopiesDeleted": "2026-11-03, after unit verification"
+      }
+    ],
+    "examRegistry": {
+      "file": "docs/project/EXAM_REGISTRY.json",
+      "target": "50+ examinations (≥10 Indian, ≥20 international)",
+      "status": "skeleton created — entry shells only, none researched yet",
+      "entries": 44
+    }
+  },
+  "gitHistory": [
+    {
+      "sha": "526add78a0c82413fd80517d85f44d6ada346511",
+      "short": "526add7",
+      "date": "2026-11-02 14:15",
+      "message": "Initial commit",
+      "filesChanged": 3,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".env",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "download/README.md",
+          "add": 1,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "8a37a0b786af3d74436cf9cf2be2aee269024253",
+      "short": "8a37a0b",
+      "date": "2026-11-02 15:09",
+      "message": "3394f591-3587-489f-8103-a23e27f2a653",
+      "filesChanged": 69,
+      "insertions": 8239,
+      "deletions": 2,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 69,
+          "del": 2
+        },
+        {
+          "path": "bun.lock",
+          "add": 1965,
+          "del": 0
+        },
+        {
+          "path": "components.json",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "eslint.config.mjs",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "mini-services/.gitkeep",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "next.config.ts",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "package.json",
+          "add": 94,
+          "del": 0
+        },
+        {
+          "path": "postcss.config.mjs",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "add": 32,
+          "del": 0
+        },
+        {
+          "path": "public/logo.svg",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "public/robots.txt",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/route.ts",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 122,
+          "del": 0
+        },
+        {
+          "path": "src/app/layout.tsx",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "src/app/page.tsx",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/accordion.tsx",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/alert-dialog.tsx",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/alert.tsx",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/aspect-ratio.tsx",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/badge.tsx",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/breadcrumb.tsx",
+          "add": 109,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/button.tsx",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "add": 213,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/card.tsx",
+          "add": 92,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/carousel.tsx",
+          "add": 241,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/chart.tsx",
+          "add": 353,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "add": 32,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/collapsible.tsx",
+          "add": 33,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/command.tsx",
+          "add": 184,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/context-menu.tsx",
+          "add": 252,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "add": 143,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/drawer.tsx",
+          "add": 135,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/dropdown-menu.tsx",
+          "add": 257,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/form.tsx",
+          "add": 167,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/hover-card.tsx",
+          "add": 44,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/input-otp.tsx",
+          "add": 77,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/input.tsx",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/label.tsx",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/menubar.tsx",
+          "add": 276,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/navigation-menu.tsx",
+          "add": 168,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/pagination.tsx",
+          "add": 127,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/popover.tsx",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/progress.tsx",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/radio-group.tsx",
+          "add": 45,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/resizable.tsx",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/scroll-area.tsx",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/select.tsx",
+          "add": 185,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/separator.tsx",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/sheet.tsx",
+          "add": 139,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/sidebar.tsx",
+          "add": 726,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/skeleton.tsx",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/slider.tsx",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/sonner.tsx",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/switch.tsx",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/table.tsx",
+          "add": 116,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/textarea.tsx",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/toast.tsx",
+          "add": 129,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/toaster.tsx",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/toggle-group.tsx",
+          "add": 73,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/toggle.tsx",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "src/hooks/use-toast.ts",
+          "add": 194,
+          "del": 0
+        },
+        {
+          "path": "src/lib/db.ts",
+          "add": 13,
+          "del": 0
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "tailwind.config.ts",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 42,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1369d26a77b33ebcfd97d925748d654dc0b8ea33",
+      "short": "1369d26",
+      "date": "2026-11-02 15:31",
+      "message": "base: LockIn Library platform — content model, reader UI, Foundation Mathematics ch1 §1.1, project memory",
+      "filesChanged": 26,
+      "insertions": 3300,
+      "deletions": 100,
+      "files": [
+        {
+          "path": "README.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "bun.lock",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 75,
+          "del": 0
+        },
+        {
+          "path": "docs/project/EXAM_REGISTRY.json",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 33,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 133,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "package.json",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 141,
+          "del": 50
+        },
+        {
+          "path": "src/app/layout.tsx",
+          "add": 14,
+          "del": 21
+        },
+        {
+          "path": "src/app/page.tsx",
+          "add": 3,
+          "del": 29
+        },
+        {
+          "path": "src/components/library/app-shell.tsx",
+          "add": 249,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 478,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 223,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 239,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 222,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/math.tsx",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/progress-store.ts",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 187,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 348,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/disciplines.ts",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 180,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 241,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "8f1e37c8eb09b5b2a7753987e43a1b160ed88132",
+      "short": "8f1e37c",
+      "date": "2026-11-02 16:13",
+      "message": "v2: routed platform, command palette, flashcards, glossary, reader upgrades, content model v2",
+      "filesChanged": 29,
+      "insertions": 2324,
+      "deletions": 502,
+      "files": [
+        {
+          "path": "README.md",
+          "add": 16,
+          "del": 9
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 14,
+          "del": 3
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 34,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 19,
+          "del": 6
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 4
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "src/app/book/[bookId]/glossary/page.tsx",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "src/app/book/[bookId]/lesson/[lessonId]/page.tsx",
+          "add": 38,
+          "del": 0
+        },
+        {
+          "path": "src/app/book/[bookId]/page.tsx",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "src/app/book/[bookId]/revise/page.tsx",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 41,
+          "del": 0
+        },
+        {
+          "path": "src/app/layout.tsx",
+          "add": 10,
+          "del": 2
+        },
+        {
+          "path": "src/app/not-found.tsx",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "src/app/page.tsx",
+          "add": 7,
+          "del": 2
+        },
+        {
+          "path": "src/app/template.tsx",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/app-shell.tsx",
+          "add": 0,
+          "del": 249
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 147,
+          "del": 12
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 35,
+          "del": 15
+        },
+        {
+          "path": "src/components/library/command-palette.tsx",
+          "add": 256,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/flashcards.tsx",
+          "add": 366,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/glossary-view.tsx",
+          "add": 155,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 158,
+          "del": 18
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 309,
+          "del": 166
+        },
+        {
+          "path": "src/components/library/on-this-page.tsx",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/progress-store.ts",
+          "add": 62,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/reading-progress.tsx",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 89,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 229,
+          "del": 15
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 34,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "74d0f935e4f8e207448259556b1134e9fb2ea0db",
+      "short": "74d0f93",
+      "date": "2026-11-02 16:22",
+      "message": "unit-by-unit authoring cadence; daily streak removed; push-access guide",
+      "filesChanged": 10,
+      "insertions": 152,
+      "deletions": 102,
+      "files": [
+        {
+          "path": "README.md",
+          "add": 26,
+          "del": 2
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 37,
+          "del": 19
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 12
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 4,
+          "del": 10
+        },
+        {
+          "path": "src/components/library/progress-store.ts",
+          "add": 0,
+          "del": 27
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 11,
+          "del": 24
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "59b1ff918c07d6a144661b83372c792df37d75cf",
+      "short": "59b1ff9",
+      "date": "2026-11-02 16:32",
+      "message": "memory: record PAT push workflow",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "b4f461cdcba8ac5bc5551016536184e1519b84ad",
+      "short": "b4f461c",
+      "date": "2026-11-02 16:52",
+      "message": "site v3: arrangement & visual overhaul",
+      "filesChanged": 10,
+      "insertions": 539,
+      "deletions": 287,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 6,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "next.config.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/bits.tsx",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 101,
+          "del": 51
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 233,
+          "del": 223
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 6,
+          "del": 7
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 54,
+          "del": 4
+        }
+      ]
+    },
+    {
+      "sha": "a29d1b8d7898907a4bb060d0d845ae292c8c2d77",
+      "short": "a29d1b8",
+      "date": "2026-11-03 01:08",
+      "message": "unit 1: Foundation Mathematics chapter 1 complete",
+      "filesChanged": 10,
+      "insertions": 867,
+      "deletions": 61,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 27,
+          "del": 19
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 7,
+          "del": 6
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 45,
+          "del": 19
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 6,
+          "del": 2
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 710,
+          "del": 7
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "disciplinesPlanned": 11,
+    "booksPlannedBacklog": 281,
+    "booksLive": 1,
+    "chaptersWritten": 1,
+    "lessonsWritten": 3,
+    "wordsAuthored": 9709,
+    "termsDefined": 16,
+    "quizItems": 15,
+    "exerciseQuestions": 25,
+    "blockTotals": {
+      "para": 18,
+      "callout": 11,
+      "heading": 15,
+      "terms": 3,
+      "equation": 2,
+      "derivation": 3,
+      "table": 4,
+      "figure": 3,
+      "example": 6,
+      "quiz": 3,
+      "exercises": 3,
+      "formula": 3,
+      "algorithm": 1
+    }
+  }
+}

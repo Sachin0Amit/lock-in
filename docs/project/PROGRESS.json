@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-03",
-  "phase": "v3-arrangement · unit-based authoring cadence · unit 1 shipped",
-  "awaiting": "optional fine-grained PAT for direct pushes (README → Pushing to GitHub); Drive link received & surveyed 2026-11-03",
+  "phase": "unit 1 shipped · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
+  "awaiting": "next unit: Foundation Mathematics chapter 2 'The Four Operations' (research → write → verify → ship → log + regenerate WORK_INVENTORY.json / DETAILED_LOG.md)",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -52,7 +52,7 @@
           "fm-rounding-and-estimating"
         ],
         "termsAvailableForFlashcards": 16,
-        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, ~9,700 words, 2 figures, 3 derivations, 2 formula cards, 10 quiz items, 14 exercise solutions — all math verified by script. Next unit: Chapter 2 The Four Operations."
+        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words, 3 figures, 3 derivations, 3 formula cards, 15 quiz items, 25 exercise solutions (all levels L1-L6 represented) — all math verified by script; full per-lesson detail in docs/project/WORK_INVENTORY.json. Next unit: Chapter 2 The Four Operations."
       }
     ],
     "lessonsWritten": 3,
@@ -76,6 +76,7 @@
     "Delete downloaded working copies after the unit is verified (never Drive originals)",
     "Original content only; references inform, never reproduce",
     "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
-    "No daily-streak / gamified streak features on the website (owner request 2026-11-03)"
+    "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
+    "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'"
   ]
 }
