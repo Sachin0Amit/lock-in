@@ -107,8 +107,14 @@ SOURCE_LOG.md (new citation key `ncert-math6-ch3` + ledger row + entry)
 updated; Khattar working copies deleted after E2E verification
 (inventory.json retained).
 
-**Push:** owner directive 2026-11-03 (protocol v2) — push executed after
-gates; result recorded below in the run-7 memory note.
+**Push (RESULT, run-7 memory note):** owner directive 2026-11-03 (protocol
+v2) — push executed after gates with the one-time HTTPS URL in a single git
+command; ALL unpushed commits went up: `8e2e1b1..a498f25 HEAD -> main`
+(run-6 memory note 8e2e1b1 + this run's ship commit a498f25). Remote HEAD
+verified via one-time-URL ls-remote = `a498f25716c230b227f696ca2dd69b72adc2af24`
+= local HEAD; refs/remotes/origin/main re-synced; token never written to
+any file, config, log or commit (push output carried no credentials).
+Third automated push under protocol v2 — the pipeline is stable.
 
 **Remaining:** unit 3 continues — FM 3.2 "Prime Numbers and Factorisation"
 next run; then 3.3 HCF, 3.4 LCM, 3.5 HCF/LCM relation; unit-3 completion
