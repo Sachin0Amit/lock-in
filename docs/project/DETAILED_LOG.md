@@ -9,8 +9,9 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 07:31 IST — maintained through **hourly run 2**: sandbox
-recycle recovered, unit 2 opened with lesson 2.1 shipped and verified.
+Generated: 2026-11-03 (maintained through **hourly run 5**: lesson 2.4
+shipped and verified, chapter 2 at 4 of 5 lessons; `WORK_INVENTORY.json`
+regenerated in the same run).
 
 ---
 
@@ -21,7 +22,7 @@ recycle recovered, unit 2 opened with lesson 2.1 shipped and verified.
 | Project | **LockIn Library** — `github.com/Sachin0Amit/lock-in` |
 | Mission | A full-stack educational platform where anyone can learn any major subject **from absolute zero to research level** through complete, professionally written digital textbooks — derivations, figures, worked examples, graded exercises; exam coverage as a by-product of understanding, never the boundary |
 | Stack | Next.js 16 App Router (SSG) · TypeScript · Tailwind 4 · shadcn/ui · zustand (persist v2) · KaTeX · next-themes · framer-motion · cmdk · bun |
-| Codebase | 80 tracked files under `src/`, **11,091 lines** — 2,864 reader-platform components · 5,445 shadcn/ui primitives · 2,001 content model + book data · 547 routes/pages · 234 hooks + lib |
+| Codebase | 81 tracked files under `src/`, **12,832 lines** — 2,864 reader-platform components · 5,445 shadcn/ui primitives · 3,742 content model + book data · 547 routes/pages · 234 hooks + lib |
 | Authoring cadence | **One unit (chapter) of one subject at a time** — research → write → verify → ship → log; never batch-draft |
 
 ## 2. Standing rules (owner directives — never violate)
@@ -58,13 +59,16 @@ recycle recovered, unit 2 opened with lesson 2.1 shipped and verified.
 | 11-03 (run 2) | `64b938c` | **UNIT 2 OPENED: lesson 2.1 Addition and the Art of Carrying** — authored, 51 checks verified, E2E green, logged (pushed 11-03 run 3) |
 | 11-03 (run 3) | `181f614` | **LESSON 2.2 Subtraction and Borrowing** — authored, 114 checks total, E2E green, figure-label defect found & fixed, logged + pushed with session PAT |
 | 11-03 (run 4) | (ship) | **LESSON 2.3 Multiplication as Repeated Addition — and Beyond** — authored, 164 checks total, E2E green, logged; committed locally (no push — cron rule) |
+| 11-03 (run 4) | `7d2cac6` | **Push protocol v2** — owner directive: PAT embedded in hourly cron job 498279; all pending commits pushed + verified (origin/main = 7d2cac6) |
+| 11-03 (run 5) | — | **Second sandbox recycle recovered** — local .git rolled back to 647f44c while files survived; anonymous fetch + reset --mixed origin/main; Drive survey re-pulled (`scripts/rebuild_drive_survey.ts`); @types/bun restored |
+| 11-03 (run 5) | (ship) | **LESSON 2.4 Division, Remainders and Why Zero Never Divides** — authored, 269 checks total, E2E green, logged; **first fully automated push** (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 6
-lessons, 22,300 words, 34 flashcard terms.**
+**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 7
+lessons, 26,993 words, 40 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -120,7 +124,7 @@ new terms + formula cards, TOC shows chapter 1 complete with chapter 2
 planned, "Next up" works · mobile 390px exactly no overflow · zero console
 errors.
 
-#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 3 of 5 lessons)**
+#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 4 of 5 lessons)**
 
 **Lesson 2.1 — Addition and the Art of Carrying** (id `fm-addition-carrying`,
 authored 11-03, commit `64b938c`) — **3,952 words · 17 min read · 6 terms ·
@@ -209,14 +213,63 @@ KaTeX 149 nodes, quiz 5/5 "perfect", flashcards 28 → 34, glossary +
 formula sheet list the new entries, figures geometry-verified via DOM,
 mobile 390px exact-fit, dollarInSvg=0, zero console errors.
 
-**Planned lessons (2.4–2.5):** Division, Remainders and Why Zero Never
-Divides · Order of Operations and the Language of Expressions.
+**Lesson 2.4 — Division, Remainders and Why Zero Never Divides** (id
+`fm-division-remainders-zero`, authored 11-03, hourly-run-5 ship commit) —
+**4,693 words · 23 min read · 6 terms · 5 quiz items · 8 exercises (L1×2,
+L2×2, L4×2, L5×1, L6×1) · 2 original SVG figures (number line: 24÷6 as
+four backward jumps landing on 0 vs 25÷6 landing on 1, the remainder stub;
+long-division seat map of 8,892 ÷ 36 with brought-down digits
+dashed-circled and quotient digits above their seats) · 3 derivations
+(the two-case ÷0 proof — undefined vs indeterminate; the remainder bound
+0 ≤ r < b; the quotient digit bound k−m ≤ digits ≤ k−m+1) · 1
+division-algorithm equation + 3 formula cards (division check; quotient
+size bound; digit-sum mod-9 for division) · 1 algorithm block (long
+division, multiply–subtract–bring-down) · 1 worked example (8,892 ÷ 36 =
+247 — the un-building of 2.3's product) · 1 laws table (closure fails,
+commutative fails, associative fails, one-sided identity, ÷0 bricked
+shut) · 2 callouts (historical obelus Rahn 1659 + Euclid Book VII; exam)
+· sources: khattar-qa-4e, ncert-math6-ch2 · prerequisites: lesson 2.3.**
+Contents: the herder's flock undone — sharing (partitive) vs grouping
+(quotative) readings; division as repeated subtraction / equal jumps
+backwards; the division-algorithm treaty a = q·b + r with
+4,589 = 764 × 6 + 5 (2.2's minuend returns); the laws retried one last
+time (25 ÷ 4 = 6 r 1 kills closure; 8 ÷ 4 ≠ 4 ÷ 8; (8 ÷ 4) ÷ 2 ≠
+8 ÷ (4 ÷ 2); a ÷ 1 one-sided); the two-case ÷0 proof (7 ÷ 0 no candidate
+survives — undefined; 0 ÷ 0 every candidate survives — indeterminate;
+0 ÷ b = 0 legal, the hole sits in the divisor seat); long division
+left-to-right as the chapter's mirror layout with place-value seat
+scaling (the 72 under the leading 88 is really 72 hundreds = 7,200); the
+remainder bound as the third guard rail (carry ≤ 1, partial-product
+carry ≤ 8, remainder < b) with the ÷10ⁿ corollary (remainder = last n
+digits: 4,589 ÷ 10 = 458 r 9, ÷ 100 = 45 r 89); the quotient size bound
+(division shaves digits where multiplication pooled them; 1,000 ÷ 9 =
+111 r 1 echoes 2.1's 999 + 1); the fingerprint read backwards S(a) ≡
+S(q)·S(b) + r (dropped remainders now caught: 8 × 6 = 48 → 3 ≠ 8;
+transpositions still pass the fingerprint but the rebuild catches them:
+746 × 6 + 5 = 4,481 ≠ 4,589); speed routes (÷5 double-then-÷10: 340 → 68;
+÷4/÷8 halving: 248 ÷ 4 = 62, 496 ÷ 8 = 62) + digit-sum screens (8,892 ÷ 9
+= 988 exactly); L5 remainder-bound proof + uniqueness via
+(q−q′)·b = r′−r with |r′−r| < b; L6 the closed-door essay (the check
+equation goes silent exactly when b = 0). **Verified:** 105 new
+arithmetic checks (269 total) in `scripts/verify-unit-2.ts` ALL PASS
+before writing — the script was recreated after the second recycle ate
+the uncommitted run-2 copy, now with exhaustive range loops (check
+equation + remainder bound for ALL a ≤ 200 × b ≤ 12; quotient digit
+bound for ALL 4-digit dividends × 1–2-digit divisors) and committed;
+lint + tsc clean repo-wide (@types/bun restored); routes 200; browser
+E2E — KaTeX 148 nodes, quiz 5/5 "perfect", flashcards 34 → 40, glossary
++ formula sheet list the 3 new cards, figures DOM-verified (23 + 32
+labels, ÷ glyphs render), mobile 390px exact-fit, dollarInSvg=0, zero
+console errors.
+
+**Planned lessons (2.5):** Order of Operations and the Language of
+Expressions.
 
 #### Chapters 3–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
-| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · Division, Remainders and Why Zero Never Divides · Order of Operations |
+| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · Order of Operations and the Language of Expressions |
 | 3 | Factors, Multiples and Primes | Divisibility and Its Tests · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
@@ -301,6 +354,14 @@ Divides · Order of Operations and the Language of Expressions.
     regenerated (new standing note: delete + curl any route to fix).
     Committed locally — **not pushed** (cron rule: runs never push; the
     owner pastes a fresh PAT when they want commits released).
+13. **Lesson 2.4 shipped** (11-03, hourly run 5) — see the chapter 2
+    section above. Pipeline notes this run: second sandbox recycle
+    recovered via the recorded protocol (anonymous fetch +
+    `git reset --mixed origin/main`; only casualties were untracked
+    working files — the run-2 verify script and the Drive survey — both
+    rebuilt; `scripts/rebuild_drive_survey.ts` added to the recycle kit);
+    `@types/bun` restored; `scripts/verify-unit-2.ts` committed this time
+    (never untracked again); stray resurrected v1 `app-shell.tsx` removed.
 
 ### Verification log (quality gates actually passed)
 
@@ -314,6 +375,7 @@ Divides · Order of Operations and the Language of Expressions.
 | Unit 2 (FM ch. 2, lesson 2.1) | 11-03 | 51 pre-write arithmetic checks (verify-unit-2.ts ALL PASS, incl. digital-root convention fix) · lint · tsc repo-wide · routes 200 · E2E (KaTeX 118, quiz 5/5 perfect, flashcards 22, glossary + formula sheet, mobile exact-fit) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.2) | 11-03 | 63 new pre-write arithmetic checks (114 total, ALL PASS) · lint · tsc repo-wide (verify-script literal-narrowing fix) · routes 200 (dev restart) · E2E (KaTeX 140, figures geometry-verified via DOM, quiz 5/5 perfect, flashcards 28, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 | Unit 2 (FM ch. 2, lesson 2.3) | 11-03 | 50 new pre-write arithmetic checks (164 total, ALL PASS) · lint · tsc repo-wide (31 escape fixes, 2 narrowing fixes, validator regeneration) · routes 200 (dev restart) · E2E (KaTeX 149, figures geometry-verified, quiz 5/5 perfect, flashcards 34, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
+| Unit 2 (FM ch. 2, lesson 2.4) | 11-03 | 105 new pre-write arithmetic checks (269 total, ALL PASS; exhaustive range loops) · lint · tsc repo-wide (@types/bun restored) · routes 200 · E2E (KaTeX 148, figures DOM-verified, quiz 5/5 perfect, flashcards 40, glossary + formula sheet, mobile exact-fit scrollW=390, dollarInSvg=0) · zero console errors |
 
 ## 6. Research & references
 
@@ -384,26 +446,29 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 10 | `647f44c` | 11-03 | standing owner preferences (Drive link persisted, PAT protocol) | +30/−2 · 3 files |
 | 11 | `64b938c` | 11-03 | unit 2 opens: FM lesson 2.1 + sandbox-recycle recovery + logs | +955/−207 · 13 files |
 | 12 | `181f614` | 11-03 | FM lesson 2.2 (114 checks, E2E green) + figure-label fix | +778/−81 · 9 files |
-| 13 | (run 4 ship) | 11-03 | FM lesson 2.3 Multiplication (164 checks, E2E green) — local only | — |
+| 13 | `f9d22d5` | 11-03 | FM lesson 2.3 Multiplication (164 checks, E2E green) — local only | +734/−83 · 9 files |
+| 14 | `7d2cac6` | 11-03 | memory: push protocol v2 (cron 498279, automated pushes authorized) | +38/−3 · 3 files |
+| 15 | (run 5 ship) | 11-03 | FM lesson 2.4 Division & Remainders (269 checks, E2E green) + second-recycle recovery — first automated push | — |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-4 ship commit (lesson 2.3 + logs/memory);
-  working tree clean. origin/main is in sync **through `181f614`** (run
-  3's push); run 4's ship commit and later accumulate locally until the
-  owner pastes a fresh PAT (cron runs never push).
-- **Sandbox recycle note:** the workspace was recycled once on 11-03 and
-  fully recovered — git history restored from the public GitHub repo; the
-  recovery protocol is recorded in RESUME_POINTER.json (nextAction) for any
-  future recycle.
-- **CURRENT (hourly cadence): lesson 2.4 — "Division, Remainders and Why
-  Zero Never Divides"** next, into ch-02.ts. References: NCERT class 6
-  division topics via web (sharing vs grouping, the division algorithm
-  a = q·b + r, why division by zero is undefined); Khattar ch. 4
-  speed-division material if applicable (BODMAS stays reserved for lesson
-  2.5); verify → write → gates → log; lesson 2.5 (Order of Operations)
-  completes the chapter.
+- HEAD: the hourly-run-5 ship commit (lesson 2.4 + logs + recycle
+  recovery); working tree clean. origin/main is in sync through the
+  run-5 push — the **first fully automated push** under protocol v2
+  (sha in RESUME_POINTER.json notes / WORKLOG.md).
+- **Sandbox recycle note:** the workspace was recycled TWICE on 11-03
+  and fully recovered both times — git history restored from the public
+  GitHub repo; the recovery protocol is recorded in
+  RESUME_POINTER.json (nextAction); `scripts/rebuild_drive_survey.ts`
+  now rebuilds the gitignored Drive survey, and `verify-unit-2.ts` is
+  committed (recycle-proof).
+- **CURRENT (hourly cadence): lesson 2.5 — "Order of Operations and the
+  Language of Expressions"** — completes chapter 2. References: Khattar
+  ch. 4 "Simplification" (BODMAS material; download as needed) + NCERT
+  class-6 expressions/order coverage via web; verify → write → gates →
+  log; then the unit-2 completion review (BOOK_FORMAT verification
+  checklist + exam-coverage audit) before unit 3 opens.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

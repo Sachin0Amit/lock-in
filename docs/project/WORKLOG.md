@@ -6,6 +6,76 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 5: lesson 2.4 Division, Remainders and Why Zero Never Divides shipped + second recycle recovered
+
+**Situation at start:** a second sandbox recycle since run 4. Local `.git`
+had rolled back to the pre-unit-2 snapshot (HEAD `647f44c`, reflog ending
+there) while the working files survived — the classic partial-restore
+pattern. GitHub's real HEAD was `7d2cac6` (all four unit-2 commits present
+on the remote). Recovery per the recorded protocol: anonymous fetch from
+the public repo + `git reset --mixed origin/main` + `core.filemode false`.
+Tracked tree came back byte-identical (status clean after reset — zero
+content loss). Casualties were both untracked working files: run-2's
+`scripts/verify-unit-2.ts` (never committed — lesson for the future) and
+the gitignored Drive survey. Both rebuilt: the verify script recreated
+with the full lesson-2.4 check battery (and committed this time), the
+survey re-pulled via the new `scripts/rebuild_drive_survey.ts`
+(embeddedfolderview → 89 entries, 4 folders, Khattar id intact — matches
+the original survey; script added to the recycle kit). One stray file:
+a resurrected v1 `app-shell.tsx` (imported nowhere) — deleted.
+`@types/bun` restored (`bun add -d @types/bun`); the recycle had dropped
+it and `tsc` flagged `Bun` in `build_work_inventory.ts`.
+
+**Shipped: lesson 2.4 "Division, Remainders and Why Zero Never Divides"**
+(ch-02.ts, 4,693 words, 41 blocks): the herder's flock undone — sharing
+(partitive) vs grouping (quotative) readings; 6 terms; number-line figure
+(24÷6 four backward jumps land on 0 vs 25÷6 landing on 1, the remainder
+stub); the division-algorithm treaty a = q·b + r (4,589 = 764×6+5 — 2.2's
+minuend returns); laws-retried table (closure DEAD via 25÷4 = 6 r 1,
+commutative DEAD 8÷4 ≠ 4÷8, associative DEAD (8÷4)÷2 ≠ 8÷(4÷2), identity
+one-sided a÷1 = a, ÷0 bricked shut); two-case ÷0 derivation (7÷0: no
+candidate survives — undefined; 0÷0: every candidate survives —
+indeterminate; 0÷b = 0 legal); long-division algorithm block
+(multiply–subtract–bring-down, left-to-right as the chapter's mirror
+layout); worked 8,892 ÷ 36 = 247 r 0 with seat-map figure (brought-down
+digits dashed-circled, quotient digits above their seats; seat-scaling
+honesty: 72 under 88 is really 72 hundreds = 7,200) — the un-building of
+2.3's product, full circle; remainder-bound derivation (0 ≤ r < b — third
+in the guard family carry ≤ 1 / carry ≤ 8 / remainder < b) + ÷10ⁿ
+corollary (remainder = last n digits: 4,589÷10 = 458 r 9, ÷100 = 45 r 89);
+quotient digit-bound derivation (k−m ≤ digits ≤ k−m+1 — division shaves
+where multiplication pooled; 1,000÷9 = 111 r 1 echoes 2.1's 999+1);
+fingerprint read backwards S(a) ≡ S(q)×S(b) + r (new guard tooth: dropped
+remainders caught, 8×6 = 48 → 3 ≠ 8; honest blind spot: transpositions
+pass the fingerprint but the rebuild catches them, 746×6+5 = 4,481 ≠
+4,589); speed routes ÷5 (double-then-÷10: 340→68), ÷4/÷8 (halving:
+248÷4 = 62, 496÷8 = 62) + digit-sum screens (8,892÷9 = 988 exactly);
+historical callout (obelus, Rahn 1659 + Euclid Book VII remainder loop);
+exam callout; 5 quiz items (5/5 E2E); L1–L6 exercises ending in the
+closed-door L6 (the check equation goes silent at b = 0).
+
+**Verification:** 105 new pre-write checks (269 total) in
+`scripts/verify-unit-2.ts` ALL PASS before writing — including exhaustive
+loops: the check equation and remainder bound for ALL a ≤ 200 × b ≤ 12,
+and the quotient digit bound for ALL 4-digit dividends × 1–2-digit
+divisors. lint clean; tsc clean repo-wide; routes 200; browser E2E:
+KaTeX 148 nodes, dollarInSvg=0, quiz 5/5 "perfect" (persisted), flashcards
+34 → 40, glossary + formula sheet list the 3 new formula cards, figures
+DOM-verified (23 + 32 labels, ÷ glyphs render), mobile 390px exact-fit
+(scrollW = 390), zero console errors.
+
+**Logs:** PROGRESS.json, SOURCE_LOG.md (no new downloads — web research
+only), WORK_INVENTORY.json regenerated (7 lessons, 26,993 words, 40 terms,
+35 quiz items, 57 exercise solutions), DETAILED_LOG.md updated.
+
+**Git:** ship commit pushed under **push protocol v2 — the first fully
+automated push**: one-time HTTPS URL in a single git command, ALL
+unpushed commits on main pushed, remote HEAD verified equal to local
+HEAD, tracking ref re-synced (shas in RESUME_POINTER.json). The token
+exists only in the cron payload and chat context — never on disk.
+
+---
+
 ## 2026-11-03 — Owner directive: PAT moved into the hourly cron job; automated pushes enabled
 
 **Directive:** the owner pasted the fine-grained GitHub PAT in chat and asked

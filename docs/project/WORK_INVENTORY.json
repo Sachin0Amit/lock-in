@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 08:24:23 (Asia/Kolkata)",
+  "generated": "2026-11-03 10:03:30 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -227,9 +227,8 @@
             "title": "The Four Operations",
             "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Division, Remainders and Why Zero Never Divides",
               "Order of Operations and the Language of Expressions"
             ],
             "lessons": [
@@ -417,9 +416,70 @@
                 },
                 "exerciseQuestions": 8,
                 "termsDefined": 6
+              },
+              {
+                "id": "fm-division-remainders-zero",
+                "number": "2.4",
+                "title": "Division, Remainders and Why Zero Never Divides",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4693,
+                "readMins": 23,
+                "concepts": [
+                  "Sharing and grouping — the two readings",
+                  "Dividend, divisor, quotient, remainder",
+                  "Equal jumps backwards: division as repeated subtraction",
+                  "Division as the inverse of multiplication",
+                  "The division algorithm a = q·b + r",
+                  "The remainder bound r < b",
+                  "Why division by zero is undefined"
+                ],
+                "objectives": [
+                  "Read division both ways — equal sharing and grouping — and see each as undoing a multiplication",
+                  "Execute long division as the multiply–subtract–bring-down loop, knowing why each step is lawful and where place value hides",
+                  "Prove and use the remainder bound r < b, predict a quotient's digit count, and certify any division with the check a = q·b + r and the mod-9 fingerprint",
+                  "Prove why division by zero has no answer — and why 0 ÷ 0 fails differently from 7 ÷ 0"
+                ],
+                "prerequisites": [
+                  "fm-multiplication-repeated-addition"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch2"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "terms": 1,
+                  "heading": 9,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 3,
+                  "algorithm": 1,
+                  "example": 1,
+                  "equation": 1,
+                  "formula": 3,
+                  "callout": 2,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 6
               }
             ],
-            "words": 12591
+            "words": 17284
           },
           {
             "number": 3,
@@ -593,12 +653,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 81,
-      "totalLines": 12357,
+      "totalLines": 12832,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 3267,
+        "src/data/library (content model + books)": 3742,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -785,25 +845,30 @@
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
       "surveyed": "2026-11-03",
-      "rootFileCount": 89,
-      "subfolders": [],
+      "rootFileCount": 85,
+      "subfolders": [
+        "_DPPs",
+        "CHEMISTRY",
+        "MATHS",
+        "PHYSICS"
+      ],
       "approxTotalSizeMB": 0,
       "fullMachineListing": "temporary-references/inventory.json (gitignored — survey metadata)",
       "rootItems": [
         {
-          "name": "_DPPs",
+          "name": "_DPPs [folder]",
           "size": ""
         },
         {
-          "name": "CHEMISTRY",
+          "name": "CHEMISTRY [folder]",
           "size": ""
         },
         {
-          "name": "MATHS",
+          "name": "MATHS [folder]",
           "size": ""
         },
         {
-          "name": "PHYSICS",
+          "name": "PHYSICS [folder]",
           "size": ""
         },
         {
@@ -2278,6 +2343,88 @@
           "del": 11
         }
       ]
+    },
+    {
+      "sha": "f9d22d537e89856f7b6d8679f5c59c86a92fb200",
+      "short": "f9d22d5",
+      "date": "2026-11-03 02:56",
+      "message": "unit 2 continues: FM lesson 2.3 Multiplication as Repeated Addition — and Beyond (164 verified checks, E2E green, dollarInSvg=0) + logs/memory updated — local only (no push per cron rule)",
+      "filesChanged": 9,
+      "insertions": 734,
+      "deletions": 83,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 65,
+          "del": 23
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 11,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 12,
+          "del": 8
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 153,
+          "del": 26
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 5,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 419,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "7d2cac65187cabbfc58a682933f2b5fc7d00275b",
+      "short": "7d2cac6",
+      "date": "2026-11-03 03:06",
+      "message": "memory: push protocol v2 — PAT embedded in hourly cron job 498279, automated pushes authorized (owner directive)",
+      "filesChanged": 3,
+      "insertions": 38,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 34,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -2286,25 +2433,25 @@
     "booksLive": 1,
     "chaptersWritten": 1,
     "chaptersInProgress": 1,
-    "lessonsWritten": 6,
-    "wordsAuthored": 22300,
-    "termsDefined": 34,
-    "quizItems": 30,
-    "exerciseQuestions": 49,
+    "lessonsWritten": 7,
+    "wordsAuthored": 26993,
+    "termsDefined": 40,
+    "quizItems": 35,
+    "exerciseQuestions": 57,
     "blockTotals": {
-      "para": 55,
-      "callout": 19,
-      "heading": 38,
-      "terms": 6,
-      "equation": 5,
-      "derivation": 7,
-      "table": 7,
-      "figure": 9,
-      "example": 12,
-      "quiz": 6,
-      "exercises": 6,
-      "formula": 9,
-      "algorithm": 4
+      "para": 70,
+      "callout": 21,
+      "heading": 47,
+      "terms": 7,
+      "equation": 6,
+      "derivation": 10,
+      "table": 8,
+      "figure": 11,
+      "example": 13,
+      "quiz": 7,
+      "exercises": 7,
+      "formula": 12,
+      "algorithm": 5
     }
   }
 }

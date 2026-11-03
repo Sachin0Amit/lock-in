@@ -59,6 +59,10 @@ server.log
 /scripts/*
 # exception: the WORK_INVENTORY.json generator is part of the logging system
 !/scripts/build_work_inventory.ts
+# exception: the unit-2 pre-write arithmetic verifier (committed every ship)
+!/scripts/verify-unit-2.ts
+# exception: rebuilds the gitignored Drive survey after sandbox recycles
+!/scripts/rebuild_drive_survey.ts
 /.zscripts/
 /examples/
 /tests/

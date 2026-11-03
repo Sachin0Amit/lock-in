@@ -79,3 +79,11 @@ step 6).
 - 2026-11-03 (mathematics, unit 2, lesson 2.3): no new downloads — same
   basis as 2.2; NCERT class-6 multiplication coverage (number-line jumps,
   property set incl. distributivity) web-checked.
+- 2026-11-03 (mathematics, unit 2, lesson 2.4): no new downloads — same
+  basis as 2.2/2.3 (Khattar ch. 4 already surveyed; BODMAS reserved for
+  2.5); NCERT class-6 division coverage (equal sharing vs grouping,
+  dividend–divisor–quotient–remainder vocabulary, the division algorithm
+  a = q·b + r with 0 ≤ r < b, why division by zero is undefined)
+  web-checked. The gitignored Drive survey was re-pulled after the second
+  sandbox recycle via the new scripts/rebuild_drive_survey.ts (89 entries,
+  4 folders, Khattar id intact — matches the original survey).

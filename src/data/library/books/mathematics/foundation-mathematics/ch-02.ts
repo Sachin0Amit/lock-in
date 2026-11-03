@@ -4,14 +4,15 @@ import type { Chapter } from '../../../types'
  * Foundation Mathematics — Chapter 2: The Four Operations
  *
  * LESSONS WRITTEN: 2.1 Addition and the Art of Carrying · 2.2 Subtraction
- * and Borrowing · 2.3 Multiplication as Repeated Addition — and Beyond.
+ * and Borrowing · 2.3 Multiplication as Repeated Addition — and Beyond ·
+ * 2.4 Division, Remainders and Why Zero Never Divides.
  * CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence, started
- * 2026-11-03). Lessons 2.4–2.5 are planned (see plannedLessons below) and
- * are authored one per unit cycle. References for this unit: Khattar,
+ * 2026-11-03). Lesson 2.5 is planned (see plannedLessons below) and is
+ * authored one per unit cycle. References for this unit: Khattar,
  * Quantitative Aptitude for Competitive Examinations (4e) ch. 4
  * "Simplification" + NCERT Class 6 ch. 2 "Whole Numbers" topic coverage —
  * see docs/project/SOURCE_LOG.md. Exposition original; all arithmetic
- * verified by scripts/verify-unit-2.ts (164 checks) BEFORE writing.
+ * verified by scripts/verify-unit-2.ts (269 checks) BEFORE writing.
  */
 export const chapter02: Chapter = {
   number: 2,
@@ -21,7 +22,6 @@ export const chapter02: Chapter = {
     'Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.',
   status: 'in-progress',
   plannedLessons: [
-    'Division, Remainders and Why Zero Never Divides',
     'Order of Operations and the Language of Expressions',
   ],
   lessons: [
@@ -1269,6 +1269,481 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Multiplication, then, is repeated addition that outgrew its teacher: the equal jumps land where unequal ones could not, the laws of addition return with a new identity, and distributivity welds the two operations into one system — a system the column layout writes out as shifted partial products, sized by a digit bound you can state before you compute, and guarded by a fingerprint that now multiplies. One operation remains, and it is the strangest of the four: division, which undoes all of this — and refuses, absolutely, to undo it by zero.',
+        },
+      ],
+    },
+    {
+      id: 'fm-division-remainders-zero',
+      number: '2.4',
+      title: 'Division, Remainders and Why Zero Never Divides',
+      concepts: [
+        'Sharing and grouping — the two readings',
+        'Dividend, divisor, quotient, remainder',
+        'Equal jumps backwards: division as repeated subtraction',
+        'Division as the inverse of multiplication',
+        'The division algorithm a = q·b + r',
+        'The remainder bound r < b',
+        'Why division by zero is undefined',
+      ],
+      objectives: [
+        'Read division both ways — equal sharing and grouping — and see each as undoing a multiplication',
+        'Execute long division as the multiply–subtract–bring-down loop, knowing why each step is lawful and where place value hides',
+        'Prove and use the remainder bound r < b, predict a quotient\'s digit count, and certify any division with the check a = q·b + r and the mod-9 fingerprint',
+        'Prove why division by zero has no answer — and why 0 ÷ 0 fails differently from 7 ÷ 0',
+      ],
+      prerequisites: ['fm-multiplication-repeated-addition'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 2.3 closed with a promise: one operation remains, and it refuses to undo by zero. Time to collect. The herder\'s flock — twenty-four sheep, four pens, six each — now faces its first reverse question: the pens are built and the sheep stand equal; division asks how the flock came to be arranged this way. Undoing $4 \\times 6 = 24$ has two directions, and each is a genuine question: $24 \\div 4 = 6$ (twenty-four sheep among four pens — six per pen) and $24 \\div 6 = 4$ (pens of six — four pens fill). Then the flock grows by one stray, and arithmetic meets its first honest failure: $25 \\div 6 = 4$ with one sheep left over — four full pens and a **remainder** that no pen of six can absorb. That remainder, and the door that stays shut beside it, are this lesson\'s two subjects: how division computes, and why it refuses to compute by zero.',
+        },
+        {
+          kind: 'para',
+          text: 'Both questions undo the same multiplication, but the divisor changes jobs. Read $24 \\div 4$ as **sharing** (the old name is *partitive*): twenty-four dealt out among four receivers — the divisor counts the sharers, the answer sizes each share. Read $24 \\div 6$ as **grouping** (*quotative*): packing twenty-four into bags of six — the divisor sizes the bags, the answer counts them. Same dividend, same quotient, different story. Keep both readings live: word problems signal which one they mean ("how much each?" versus "how many groups?"), and the long-division algorithm below quietly uses grouping — it counts how many thirty-sixes fit into each leading chunk of $8{,}892$.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Dividend',
+              def: 'The total being divided — the number at the division\'s front door. In $25 \\div 6 = 4$ remainder $1$, the dividend is 25.',
+            },
+            {
+              term: 'Divisor',
+              def: 'The number you divide BY — the size of each group (grouping reading) or the count of sharers (sharing reading). It sits in the one seat zero may never occupy.',
+            },
+            {
+              term: 'Quotient',
+              def: 'The whole-number count division returns: how many groups (or how much per share) before anything is left over. In $25 \\div 6$, the quotient is 4.',
+            },
+            {
+              term: 'Remainder',
+              def: 'The leftover after the last full group — always smaller than the divisor (proved below). In $25 \\div 6 = 4$ remainder $1$, the check $4 \\times 6 + 1 = 25$ rebuilds the dividend.',
+            },
+            {
+              term: 'Sharing (partitive) reading',
+              def: 'Division as dealing out: $24 \\div 4$ asks "24 shared equally among 4 — how much each?" The divisor counts the sharers.',
+            },
+            {
+              term: 'Grouping (quotative) reading',
+              def: 'Division as packing: $24 \\div 6$ asks "how many groups of 6 fit in 24?" The divisor sizes the groups. Same undoing of $4 \\times 6 = 24$ — the divisor merely changes jobs.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Division on the number line' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 drew addition as one forward hop; Lesson 2.3 drew multiplication as equal forward jumps. Division runs the same film backwards: start at the dividend and subtract the divisor in equal jumps until nothing (or almost nothing) remains. For $24 \\div 6$: $24 \\to 18 \\to 12 \\to 6 \\to 0$ — four jumps, and **the jump count is the quotient**. This is also the plainest definition of division: **repeated subtraction**. For $25 \\div 6$ the film ends differently — four full jumps land on 1, one short of a fifth: the leftover is the remainder, and the count of jumps is still 4.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Division as equal jumps run backwards. Top: 24 ÷ 6 — four jumps of 6 land exactly on 0 (tinted): the grouping reading asks how many sixes fit in 24, and the answer is the jump count 4. Bottom: 25 ÷ 6 — the same four jumps leave 1 (tinted): one sheep no pen of six can absorb. That leftover is the remainder, and the check $4 \\times 6 + 1 = 25$ rebuilds the flock. Contrast Lesson 2.1\'s forward hops and 2.3\'s equal forward jumps — division is the same film in reverse.',
+          svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 24 divided by 6 as four backward jumps of six landing on zero, and 25 divided by 6 as four backward jumps landing on one, the remainder">
+  <g font-size="13" fill="currentColor">
+    <text x="30" y="40" opacity="0.75" text-anchor="start">24 ÷ 6: four jumps of 6 backward</text>
+    <line x1="40" y1="88" x2="700" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <g text-anchor="middle">
+      ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+    </g>
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${674 - j * 156} 62 Q ${596 - j * 156} 18 ${518 - j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${596 - j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
+    <circle cx="674" cy="88" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="50" cy="88" r="7" fill="#b45309"/>
+    <text x="700" y="164" opacity="0.75" text-anchor="end">25 ÷ 6: four jumps of 6, one left over</text>
+    <line x1="40" y1="200" x2="700" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <g text-anchor="middle">
+      ${Array.from({ length: 26 }, (_, n) => `<line x1="${50 + n * 26}" y1="194" x2="${50 + n * 26}" y2="206" stroke="currentColor" stroke-width="${n % 6 === 0 || n === 25 ? 1.5 : 1}" opacity="${n % 6 === 0 || n === 25 ? 0.6 : 0.3}"/>${n % 6 === 0 || n === 25 ? `<text x="${50 + n * 26}" y="226" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
+    </g>
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${700 - j * 156} 174 Q ${622 - j * 156} 136 ${544 - j * 156} 174" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${622 - j * 156}" y="146" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
+    <circle cx="700" cy="200" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="76" cy="200" r="7" fill="#b45309"/>
+    <text x="76" y="240" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1 — the remainder</text>
+    <text x="400" y="252" text-anchor="middle" font-size="11.5" opacity="0.7">equal jumps run backwards — four full sixes leave one sheep the pens cannot absorb</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Now name the roles permanently. In $a \\div b$, $a$ is the **dividend** (what is being divided), $b$ the **divisor** (what divides it), the jump count the **quotient**, and any leftover the **remainder**. Division is multiplication undone — but with a built-in honesty clause multiplication never needed: the undoing is allowed to miss. Every division in this lesson obeys one treaty, the **division algorithm**: the dividend equals the quotient times the divisor plus the remainder. $24 = 4 \\times 6 + 0$; $25 = 4 \\times 6 + 1$. The check is not decoration — it is the definition of the four words, written as an equation, and at the end of a long-division tableau it is what you multiply back to certify the answer.',
+        },
+        { kind: 'heading', text: 'The laws, tried one last time' },
+        {
+          kind: 'para',
+          text: 'Each operation in this chapter has faced the same tribunal: which of addition\'s four laws survive? Subtraction kept one (a half-truth: $a - 0 = a$). Multiplication resurrected all four and added a fifth. Division faces the harshest retrial yet — and the verdict below leaves the statute book nearly bare.',
+        },
+        {
+          kind: 'table',
+          caption:
+            'The laws of division on the whole numbers — closure fails, grouping fails, and one door is bricked shut. Compare Lessons 2.2 and 2.3: the statute book empties as the operations reach division.',
+          head: ['Law', 'Statement', 'Verified instance', 'What it buys you'],
+          rows: [
+            ['Closure', 'Fails — quotients need not be whole', '$25 \\div 4 = 6$ r $1$, and $6 \\times 4 + 1 = 25$', 'No whole number times 4 rebuilds 25: remainders are real, and division can leave the whole numbers'],
+            ['Commutative', 'Fails — $a \\div b \\ne b \\div a$', '$8 \\div 4 = 2$, but $4 \\div 8 = 0$ r $4$', 'Order matters now: read every division left to right, divisor in its seat'],
+            ['Associative', 'Fails — regrouping changes the result', '$(8 \\div 4) \\div 2 = 1$, but $8 \\div (4 \\div 2) = 4$', 'Brackets bind: each grouping is a different question'],
+            ['Identity (one-sided)', '$a \\div 1 = a$', '$8{,}892 \\div 1 = 8{,}892$', 'One does nothing — but only from the divisor seat ($1 \\div 8{,}892 = 0$ r $1$)'],
+            ['Division by zero', 'Never defined — for any dividend', '$7 \\div 0$: no $q$ with $q \\times 0 = 7$', 'The one bricked-shut door — proved two blocks from here'],
+          ],
+        },
+        { kind: 'heading', text: 'The one closed door: dividing by zero' },
+        {
+          kind: 'para',
+          text: 'One row of the table deserves its own room. Lesson 2.3 derived the zero property — $a \\times 0 = 0$ for every $a$ — as a consequence of distributivity. That harmless-looking fact is division\'s bouncer: it stands at the divisor\'s seat and turns every candidate answer away. The proof is two cases and one line each, and it earns its place as the only *theorem about what cannot be done* in this chapter.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why nothing can be divided by zero',
+          statement:
+            'For $a \\ne 0$, $a \\div 0$ has no answer; $0 \\div 0$ has no unique answer; only $0 \\div b = 0$ (with $b \\ne 0$) is legal.',
+          steps: [
+            {
+              label: 'What division demands',
+              formula: 'a \\div b = q \\;\\Longleftrightarrow\\; q \\times b = a',
+              explanation:
+                'Division is multiplication undone (Lesson 2.3): to divide is to name the number that, multiplied by the divisor, rebuilds the dividend. Every candidate answer must survive this test.',
+            },
+            {
+              label: 'Case one: $7 \\div 0$ — no candidate survives',
+              formula: 'q \\times 0 = 0 \\;\\ne\\; 7 \\quad \\text{for every } q',
+              explanation:
+                'The zero property is absolute: every whole number times zero gives zero. No candidate — 0, 7, a million — passes the rebuild test. The answer set is empty: **undefined**.',
+            },
+            {
+              label: 'Case two: $0 \\div 0$ — every candidate survives',
+              formula: '3 \\times 0 = 0, \\quad 17 \\times 0 = 0, \\quad q \\times 0 = 0 \\text{ always}',
+              explanation:
+                'Now every whole number passes the test, so no single answer is picked out: **indeterminate**. Undefined because nothing works; indeterminate because everything does. Different failures, same verdict: no answer.',
+            },
+          ],
+          result:
+            'Division by zero is undefined — the one closed door in whole-number arithmetic. Note the asymmetry: zero may be divided ($0 \\div 5 = 0$, since $0 \\times 5 = 0$) but may never divide. The hole sits in the divisor seat — which is why the check equation below, guardian of every division, goes silent exactly when the divisor does.',
+        },
+        { kind: 'heading', text: 'Long division: the multiply–subtract–bring-down loop' },
+        {
+          kind: 'para',
+          text: 'Subtracting 6 four times is child\'s play; subtracting 36 from 8,892 four hundred–odd times is not. Long division is repeated subtraction **compressed by place value**: instead of removing one 36 at a time, each loop removes as many thirty-sixes as the leading chunk can hold — dozens at a stroke, hundreds at the next. The layout is also this chapter\'s mirror image: addition, subtraction and multiplication all worked right-to-left; division reads left-to-right, because its question is "how big is the leading chunk?" — and place value scales each answer on the spot, exactly as the shift scaled Lesson 2.3\'s partial products.',
+        },
+        {
+          kind: 'algorithm',
+          title: 'Long division of a ÷ b (the multiply–subtract–bring-down loop)',
+          lines: [
+            { code: 'Set up: dividend under the bar, divisor outside left. Work LEFT TO RIGHT — the mirror of every layout so far.', note: 'Addition, subtraction and multiplication ran right-to-left; division starts at the leading chunk because it asks how many b\'s fit into the big end first.' },
+            { code: 'Take the smallest leading chunk of the dividend that reaches b. Its quotient digit is the first digit of the answer — write it above the chunk\'s last seat.' },
+            { code: 'MULTIPLY: divisor x quotient-digit. Write the product under the chunk.' },
+            { code: 'SUBTRACT: chunk minus product. The difference is what is left so far — and it must be smaller than b (the remainder bound, proved below).' },
+            { code: 'BRING DOWN the next dividend digit beside the difference. Repeat the loop: multiply, subtract, bring down.' },
+            { code: 'When no digits remain to bring down, the last difference is the remainder r. Certify: quotient x divisor + r must rebuild the dividend.' },
+          ],
+          note:
+            'Three verbs — multiply, subtract, bring down — looped until the digits run out. Every subtraction here is a Lesson 2.2 borrowing exercise; every product a Lesson 2.3 one-digit multiplication. The loop is just repeated subtraction kept tidy by place value.',
+        },
+        {
+          kind: 'example',
+          title: '8,892 ÷ 36, stage by stage',
+          steps: [
+            'Left to right. The smallest leading chunk of $8{,}892$ that reaches 36 is $88$ (8 alone is too small). Its quotient digit: $88 \\div 36 = 2$, since $2 \\times 36 = 72$. Write 2 above the second 8.',
+            'MULTIPLY and SUBTRACT: $2 \\times 36 = 72$; $88 - 72 = 16$ — smaller than 36, as the remainder bound demands.',
+            'BRING DOWN the 9 beside the 16: $169$. Loop: $169 \\div 36 = 4$ (because $4 \\times 36 = 144$); $169 - 144 = 25$ — again below 36. Write 4 in the quotient.',
+            'BRING DOWN the 2 beside the 25: $252$. Loop: $252 \\div 36 = 7$ (because $7 \\times 36 = 252$); $252 - 252 = 0$. Write 7. Digits exhausted, remainder 0.',
+            'Quotient: 247, remainder 0. The check rebuilds the dividend: $247 \\times 36 + 0 = 8{,}892$ — the very product Lesson 2.3 assembled row by row, now taken apart stage by stage. Division closed the circle.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The long-division tableau as a seat map. Tinted rows are the multiply products (72, 144, 252); dashed circles mark the brought-down digits — the 9, then the 2 — threading the dividend into the working rows. Quotient digits sit above the seat where each chunk ends: 2 above the second 8 (chunk 88), 4 above the 9 (chunk 169), 7 above the 2 (chunk 252), reading 247. The seat scaling is invisible but real: the 72 written under the leading 88 is 72 hundreds ($2 \\times 3{,}600 = 7{,}200$), the same $\\times 10$ seat-scaling that shifted Lesson 2.3\'s partial products. Final difference 0 — an exact division, certified by $247 \\times 36 + 0 = 8{,}892$.',
+          svg: `<svg viewBox="0 0 760 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Long division tableau of 8892 divided by 36 giving quotient 247 remainder 0, with multiply, subtract and bring-down rows labelled">
+  <g font-size="13" fill="currentColor">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309">
+      <text x="450" y="54">2</text><text x="580" y="54">4</text><text x="710" y="54">7</text>
+    </g>
+    <text x="60" y="54" font-size="12" opacity="0.75" text-anchor="start">quotient 247</text>
+    <text x="170" y="110" font-size="18" font-weight="700" text-anchor="middle">÷ 36</text>
+    <g font-size="22" font-weight="700" text-anchor="middle">
+      <text x="320" y="110">8</text><text x="450" y="110">8</text><text x="580" y="110">9</text><text x="710" y="110">2</text>
+    </g>
+    <line x1="280" y1="128" x2="740" y2="128" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+      <text x="320" y="170">7</text><text x="450" y="170">2</text>
+    </g>
+    <text x="60" y="170" font-size="12" opacity="0.75" text-anchor="start">2 x 36 = 72</text>
+    <line x1="280" y1="184" x2="740" y2="184" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle">
+      <text x="320" y="258">1</text><text x="450" y="258">6</text><text x="580" y="258" fill="#b45309">9</text>
+    </g>
+    <circle cx="580" cy="251" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <text x="60" y="258" font-size="12" opacity="0.75" text-anchor="start">88 - 72 = 16; bring down the 9</text>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+      <text x="320" y="302">1</text><text x="450" y="302">4</text><text x="580" y="302">4</text>
+    </g>
+    <text x="60" y="302" font-size="12" opacity="0.75" text-anchor="start">4 x 36 = 144</text>
+    <line x1="280" y1="318" x2="740" y2="318" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle">
+      <text x="450" y="360">2</text><text x="580" y="360">5</text><text x="710" y="360" fill="#b45309">2</text>
+    </g>
+    <circle cx="710" cy="353" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <text x="60" y="360" font-size="12" opacity="0.75" text-anchor="start">169 - 144 = 25; bring down the 2</text>
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+      <text x="450" y="404">2</text><text x="580" y="404">5</text><text x="710" y="404">2</text>
+    </g>
+    <text x="60" y="404" font-size="12" opacity="0.75" text-anchor="start">7 x 36 = 252</text>
+    <line x1="280" y1="418" x2="740" y2="418" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" text-anchor="middle">
+      <text x="710" y="446">0</text>
+    </g>
+    <text x="60" y="446" font-size="12" opacity="0.75" text-anchor="start">252 - 252 = 0: remainder</text>
+    <text x="60" y="474" font-size="11.5" opacity="0.7" text-anchor="start">each loop: multiply, subtract, bring down</text>
+    <text x="740" y="474" font-size="11.5" fill="#b45309" text-anchor="end">check: 247 x 36 + 0 = 8,892</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The tableau\'s last difference is the remainder, and the treaty closes the case: $247 \\times 36 + 0 = 8{,}892$. Multiply back — quotient times divisor — add the remainder, and the dividend must reappear. This is the strongest check in the chapter: unlike the fingerprint (which certifies consistency), the rebuild certifies the claim itself, because it *is* the definition of what the division asserted. Lesson 2.3\'s honesty paragraph promised that division would supply the certification its own checks could not — here it is, and the next lesson, which finally mixes all four operations in one expression, will lean on it.',
+        },
+        {
+          kind: 'equation',
+          latex: 'a \\;=\\; q \\times b + r, \\qquad 0 \\le r < b',
+          note: 'The division algorithm — the treaty every division signs. $q$ (quotient) counts the complete groups of $b$ (divisor) inside $a$ (dividend); $r$ (remainder) is the unmatched leftover, fenced below $b$. When $r = 0$ we say $b$ **divides** $a$ — the phrase Chapter 3 is built on.',
+        },
+        {
+          kind: 'formula',
+          name: 'Division check (the division algorithm)',
+          latex: 'a \\;=\\; q \\times b + r, \\qquad 0 \\le r < b',
+          note: 'Dividend = quotient × divisor + remainder, the remainder strictly smaller than the divisor. Example: 4,589 = 764 × 6 + 5. Before dividing by b you already know r ≤ b − 1; after dividing, the check must hold exactly.',
+        },
+        { kind: 'heading', text: 'How large can the remainder be?' },
+        {
+          kind: 'para',
+          text: 'Every algorithm in this chapter has grown a guard rail, and the guards form a family: addition\'s carry never exceeds 1 (a column sums two digits plus one carry); a partial product\'s carry never exceeds 8 (a column multiplies two digits plus a carry). Division\'s guard is the remainder bound — and it is also the reason the long-division loop must terminate: each loop\'s subtraction removes at least one full group, so the leftover keeps shrinking until it can afford no more.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The remainder bound',
+          statement:
+            'In any division of $a$ by $b$ (with $b \\ge 1$), the remainder satisfies $0 \\le r < b$ — that is, $r \\le b - 1$.',
+          steps: [
+            {
+              label: 'What the loop guarantees',
+              formula: 'r \\;=\\; a - q \\times b \\;\\ge\\; 0',
+              explanation:
+                'The quotient counts complete subtractions: the loop stops exactly when the leftover can no longer afford a full group of $b$. So the remainder is never negative.',
+            },
+            {
+              label: 'Why the leftover stays below the divisor',
+              formula: 'r \\ge b \\;\\Rightarrow\\; a = (q + 1) \\times b + (r - b)',
+              explanation:
+                'If the remainder could afford one more full group, the loop was not finished — the quotient undercounted. Since $q$ counts *all* complete groups, $r < b$. In figure terms: a jump of size $b$ is still available whenever the landing point is $b$ or beyond.',
+            },
+          ],
+          result:
+            '0 ≤ r ≤ b − 1, always. Dividing by 6, the remainder tops out at 5 — attained by 29 ÷ 6 = 4 r 5; by 36, at 35. The family of bounds is complete: carry ≤ 1, partial-product carry ≤ 8, remainder < b — each algorithm\'s leftover fenced by what one more step could absorb.',
+        },
+        {
+          kind: 'para',
+          text: 'The bound pays a place-value dividend on the spot. Divide by 10 and the remainder is the ones digit: $4{,}589 \\div 10 = 458$ r $9$ (check: $458 \\times 10 + 9 = 4{,}589$). Divide by 100 and it is the last two digits: $4{,}589 \\div 100 = 45$ r $89$. The divisor\'s seat value absorbs everything except the trailing digits — which is why remainders on 10 and its powers are free, and why the bound $r < b$ is exactly the statement that the leftover fits in the seats the divisor could not reach.',
+        },
+        { kind: 'heading', text: 'How big can a quotient be?' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.3 predicted a product\'s digit count before computing it. Division can do the same, and the formula is the mirror image: multiplication pooled digits ($k + m - 1$ to $k + m$); division shaves them.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The quotient size bound',
+          statement:
+            'A k-digit dividend divided by an m-digit divisor (dividend ≥ divisor) yields a quotient of at least k − m and at most k − m + 1 digits.',
+          steps: [
+            {
+              label: 'Cap the dividend, floor the divisor',
+              formula: 'b \\;\\ge\\; 10^{m-1}, \\qquad a \\;<\\; 10^{k}',
+              explanation:
+                'The same digit furniture as Lesson 2.3: an m-digit number never starts below $10^{m-1}$, a k-digit number never reaches $10^{k}$ (Lesson 1.2\'s digit-count rule).',
+            },
+            {
+              label: 'The ceiling',
+              formula: 'q \\;\\le\\; a/b \\;<\\; 10^{k} / 10^{m-1} \\;=\\; 10^{k-m+1}',
+              explanation:
+                'The quotient times the divisor never exceeds the dividend, so $q < 10^{k-m+1}$: at most $k - m + 1$ digits.',
+            },
+            {
+              label: 'The floor',
+              formula: 'q \\;>\\; a/b - 1 \\;>\\; 10^{k-1}/10^{m} - 1 \\;=\\; 10^{k-m-1} - 1',
+              explanation:
+                'A quotient overshoots the true ratio by less than 1 (the remainder bound at work: $q \\times b > a - b$). Since $b \\le 10^{m} - 1 < 10^{m}$, the ratio exceeds $10^{k-m-1}$; a whole number greater than $10^{k-m-1} - 1$ is at least $10^{k-m-1}$, which has $k - m$ digits.',
+            },
+          ],
+          result:
+            'k − m ≤ digits of q ≤ k − m + 1. Our worked quotient 247 (from 4-digit ÷ 2-digit) sits at the ceiling of the window [2, 3]. The floor is real too: 1,000 ÷ 9 = 111 r 1 shaves exactly k − m = 3 digits — and that r 1 is Lesson 2.1\'s 999 + 1 returning as a remainder. Predict the size, then divide; reject any option that promises the wrong magnitude.',
+        },
+        {
+          kind: 'formula',
+          name: 'Quotient size bound',
+          latex: 'k - m \\;\\le\\; \\text{digits}(q) \\;\\le\\; k - m + 1',
+          note: 'A k-digit ÷ m-digit quotient has k − m to k − m + 1 digits: 8,892 ÷ 36 → 247 (three digits, the ceiling of [2, 3]); 1,000 ÷ 9 → 111 r 1 (three digits, the floor of [3, 4]). Division subtracts digit counts where multiplication pooled them.',
+        },
+        { kind: 'heading', text: 'Checking division: the fingerprint, read backwards' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 fingerprinted sums; Lesson 2.3 products. Division\'s fingerprint reads the multiplication one backwards — with one new term, the remainder. For $4{,}589 \\div 6 = 764$ r $5$: the dividend\'s fingerprint is $S(4{,}589) = 26 \\to 8$; the rebuild side is $S(764) \\times S(6) + 5 = 8 \\times 6 + 5 = 53 \\to 8$. Match — probably right. The deep reason is the same mod-9 story as always: the fingerprint respects every true equation, and the division check is true. Note the new guard tooth: **forget the remainder and the check bites** — $8 \\times 6 = 48 \\to 3$, not 8. The $+\\,r$ term is not optional punctuation; dropped remainders are the classic long-division slip, and the fingerprint now catches them.',
+        },
+        {
+          kind: 'formula',
+          name: 'Digit-sum (mod 9) check for division',
+          latex: 'S(a) \\;\\equiv\\; S(q) \\times S(b) + r \\pmod{9}',
+          note: 'Rebuild the dividend\'s fingerprint from quotient, divisor and remainder. Example: 4,589 = 764 × 6 + 5: 8 × 6 + 5 = 53 → 8, and S(4,589) = 26 → 8. Transpositions still slip past (764 ↔ 746 both fingerprint 8), but dropped remainders no longer do.',
+        },
+        {
+          kind: 'para',
+          text: 'The blind spots, as always, deserve their honest sentence. The fingerprint alone cannot catch a transposed quotient — 746 fingerprints exactly like 764. The rebuild can ($746 \\times 6 + 5 = 4{,}481$, not $4{,}589$), which is why it comes first among the guards — but it certifies only the pair you feed it, and mid-tableau slips can still feed it wrong digits. So multiply the guards: the size bound first (reject wrong magnitudes), the rebuild second ($a = q \\times b + r$, exact), the fingerprint last (cheap, catches scattered slips). No single guard is a jailer; three together hang a net few pencil slips escape.',
+        },
+        { kind: 'heading', text: 'Speed techniques: halving, doubling and the quick screens' },
+        {
+          kind: 'para',
+          text: 'Examination division rewards the same splitting habit as multiplication, run in reverse. **Divide by 5**: double, then divide by 10 — $340 \\div 5 = 680 \\div 10 = 68$, because $5 = 10 \\div 2$. **Divide by 4**: halve twice — $248 \\div 4 = 124 \\div 2 = 62$. **Divide by 8**: halve thrice — $496 \\div 8 = 248 \\div 2 = 124 \\div 2 = 62$ (the same 62 — no coincidence, since $496 = 2 \\times 248$). Each route is the associative law re-bracketing a division into friendlier pieces. And before any division, the digit-sum screens return: $8{,}892$ is even and its digit sum 27 is a multiple of 9, so $8{,}892 \\div 9 = 988$ exactly; $4{,}589$ is odd with digit sum 26 — divisible by neither 3 nor 9. Chapter 3 turns these screens into a systematic science: divisibility rules.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The obelus, and a two-thousand-year-old loop',
+          text: 'The ÷ sign — the **obelus** — entered print in Johann Rahn\'s Teutsche Algebra (1659) and spread through European textbooks within a generation; the fraction bar and the slash are its working cousins. But the loop it abbreviates is far older: Euclid\'s Elements (c. 300 BCE, Book VII) builds greatest common divisors by exactly the divide-with-remainder step this lesson proved — compute $a = q \\cdot b + r$, replace $a$ with $b$ and $b$ with $r$, repeat until $r$ hits zero. That remainder-chasing loop is the oldest algorithm still in daily use; Chapter 3\'s divisibility work runs on it, and every computer\'s division circuit is long division in base two — Rahn\'s symbol marking a trail Euclid blazed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Remainder questions are a bank/SSC staple: "find the remainder when 4,589 is divided by 10" is free marks via place value (the last n digits), and "which expression is undefined" options fall instantly to the ÷ 0 proof — any option with a zero divisor is the answer. The inverse check $a = q \\times b + r$ is an answer-eliminator: options whose quotient times divisor misses the dividend by more than the divisor\'s reach cannot be right. Quotient-size estimation ($k - m$ to $k - m + 1$ digits) rejects wrong magnitudes before any division happens. CUET/NTSE property questions now contrast all four operations: only + and × are closed, commutative and associative; − and ÷ each keep a one-sided identity only ($a - 0 = a$, $a \\div 1 = a$). And long-division items with a dropped remainder are caught by the fingerprint\'s new tooth: the $+\\,r$ term.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The sharing reading of 24 ÷ 4 asks "24 among 4 — how much each?" Which question is the grouping reading of the same 24 ÷ 4?',
+              options: [
+                'How much does each of 4 sharers get?',
+                'How many groups of 4 fit into 24?',
+                'What is 4 groups of 6?',
+                'How many sheep are left over?',
+              ],
+              answer: 1,
+              explain:
+                'In the grouping reading the divisor sizes the bags: how many pens of 4 does 24 fill — six. Amusingly, both readings of 24 ÷ 4 return 6 (four sharers get 6 each; six groups of 4) — but they are different questions, and only problems like "how many groups?" signal the grouping reading. Option 3 changes the divisor to 6 (that is 24 ÷ 6\'s grouping reading); option 4 assumes a remainder, but 24 divides exactly here.',
+            },
+            {
+              q: 'Which statement is exactly right?',
+              options: [
+                '7 ÷ 0 = 0, because nothing times nothing is nothing',
+                '7 ÷ 0 = 7, because dividing by nothing leaves things alone',
+                '7 ÷ 0 has no answer: every candidate q gives q × 0 = 0, never 7',
+                '7 ÷ 0 = infinity — the answer is just very large',
+              ],
+              answer: 2,
+              explain:
+                'Division must name the q with q × 0 = 7, and the zero property (Lesson 2.3) makes q × 0 = 0 for every q: the answer set is empty — undefined. Options 1 and 2 fail the rebuild test (0 ≠ 7 either way). Option 4 smuggles in a number outside the whole numbers — and even that would not help, since infinity times zero is not defined either. Only 0 ÷ b (b ≠ 0) is legal; the hole sits in the divisor seat.',
+            },
+            {
+              q: 'Dividing whole numbers by 8, the largest remainder you can ever get is:',
+              options: ['8', '7', '9', 'It depends on the dividend'],
+              answer: 1,
+              explain:
+                'The remainder bound says r ≤ b − 1 = 7: a remainder of 8 would afford one more complete group of 8, so the quotient undercounted. Attainment: 47 ÷ 8 = 5 r 7. Option 4 mistakes the remainder\'s value (which does vary with the dividend) for its ceiling (which never does) — every remainder is below the divisor by exactly the argument that the long-division loop is finished.',
+            },
+            {
+              q: 'You divide 4,589 by 6 and believe the quotient is 764. The remainder must be:',
+              options: ['1', '3', '5', '9'],
+              answer: 2,
+              explain:
+                'The check equation forces it: 764 × 6 = 4,584, and 4,589 − 4,584 = 5 — which is below the divisor 6, as the bound demands. This is the inverse check in action: the remainder is not chosen, it is whatever the treaty leaves over. (And the fingerprint agrees: 8 × 6 + 5 = 53 → 8, matching S(4,589) = 26 → 8.)',
+            },
+            {
+              q: 'Before computing 8,892 ÷ 36, the size bound promises a quotient of:',
+              options: [
+                'exactly 2 digits',
+                '2 or 3 digits — and it will be 3 (247)',
+                'exactly 4 digits',
+                'unpredictable without dividing',
+              ],
+              answer: 1,
+              explain:
+                '4-digit ÷ 2-digit: between k − m = 2 and k − m + 1 = 3 digits; the actual quotient 247 takes the ceiling. Option 2\'s two values are both possible in general: 8,892 ÷ 6 lands on the higher window (1,482, four digits — a 1-digit divisor shaves only 3), while 1,000 ÷ 9 = 111 r 1 sits on a floor. Division subtracts digit counts exactly where multiplication pooled them.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Run 24 ÷ 6 backwards on the number line: start at 24 and subtract 6 until you cannot. Count the jumps, name the quotient and remainder, and confirm with a multiplication.',
+                  solution:
+                    'Jumps: $24 \\to 18 \\to 12 \\to 6 \\to 0$ — four of them, landing exactly on 0. Quotient 4, remainder 0. Confirm: $6 \\times 4 = 24$ — the flock rebuilt. The grouping reading says the same thing in pens: four pens of six.',
+                },
+                {
+                  q: 'Divide 47 by 5: state the quotient and remainder, then certify with the check equation.',
+                  solution:
+                    '$45 = 9 \\times 5$ fits with 2 left over: $47 \\div 5 = 9$ r $2$. Check: $9 \\times 5 + 2 = 45 + 2 = 47$. The remainder 2 sits below the divisor 5, as the bound demands ($r \\le 4$ here) — and below 4 it is, so the loop truly was finished.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Run the full long division 4,589 ÷ 6, narrating every multiply–subtract–bring-down, then certify with the check equation and the mod-9 fingerprint.',
+                  solution:
+                    '$45 \\div 6 = 7$ ($7 \\times 6 = 42$; $45 - 42 = 3$); bring down 8 → $38 \\div 6 = 6$ ($6 \\times 6 = 36$; $38 - 36 = 2$); bring down 9 → $29 \\div 6 = 4$ ($4 \\times 6 = 24$; $29 - 24 = 5$). Quotient 764, remainder 5. Check: $764 \\times 6 + 5 = 4{,}584 + 5 = 4{,}589$. Fingerprint: $S(4{,}589) = 26 \\to 8$; rebuild $S(764) \\times S(6) + 5 = 8 \\times 6 + 5 = 53 \\to 8$. Match — certified twice. (The dividend is Lesson 2.2\'s minuend, revisited by a new operation.)',
+                },
+                {
+                  q: 'Divide 1,248 by 24 and verify by the fingerprint alone. Why is the remainder term absent?',
+                  solution:
+                    '$124 \\div 24 = 5$ ($5 \\times 24 = 120$; $124 - 120 = 4$); bring down 8 → $48 \\div 24 = 2$ ($2 \\times 24 = 48$; $48 - 48 = 0$). Quotient 52, remainder 0. Check: $52 \\times 24 = 1{,}248$. Fingerprint: $S(1{,}248) = 15 \\to 6$; rebuild $S(52) \\times S(24) + 0 = 7 \\times 6 = 42 \\to 6$. Match. The $r$ term vanishes because $r = 0$: an exact division fingerprints exactly like a multiplication — Lesson 2.3\'s check run in reverse.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: '(Exam-style, foundation level) A stadium has 8,892 seats, arranged in equal rows of 36. (a) Before computing: how many digits will the row count have? (b) How many full rows, and does any seat go spare?',
+                  solution:
+                    '(a) 4-digit ÷ 2-digit: between $k - m = 2$ and $k - m + 1 = 3$ digits. (b) $8{,}892 \\div 36 = 247$ r $0$ (the worked example): 247 full rows and no spare seat — the check $247 \\times 36 = 8{,}892$ is exactly the seating plan. Exam technique: the digit-bound answer (a) rejects any option of 1 or 4 digits before any division happens.',
+                },
+                {
+                  q: '(Exam-style, foundation level) Without any long division, find the remainder when 4,589 is divided by 10 — and by 100 — and explain the place-value secret both answers share.',
+                  solution:
+                    '$4{,}589 \\div 10$: quotient 458, remainder 9 ($458 \\times 10 + 9 = 4{,}589$). $\\div 100$: quotient 45, remainder 89 ($45 \\times 100 + 89 = 4{,}589$). The remainder on dividing by $10^{n}$ is exactly the last $n$ digits: place value hands it over for free, because quotient × $10^{n}$ rebuilds everything except the trailing digits. The remainder bound shows why the leftover must be smaller than 10 (or 100): anything larger would afford another full ten (or hundred).',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Prove the remainder bound: in any division of a by b (b ≥ 1), the remainder r satisfies 0 ≤ r < b. Then prove uniqueness: if a = q·b + r = q′·b + r′ with both remainders in range, then q = q′ and r = r′. Illustrate with 29 ÷ 6 by exhibiting the illegal pair (3, 11) and the legal one.',
+                  solution:
+                    'Bound: $r = a - q \\times b \\ge 0$, because $q$ counts complete subtractions and the loop stops when nothing more fits. If $r \\ge b$, then $r - b \\ge 0$ and $a = (q + 1) \\times b + (r - b)$: one more complete group fits, contradicting that $q$ counted them all. Hence $r \\le b - 1$. Attainment: $29 \\div 6 = 4$ r $5$ attains $r = 5 = 6 - 1$. Uniqueness: $q \\times b + r = q\' \\times b + r\'$ rearranges to $(q - q\') \\times b = r\' - r$; the left side is a multiple of $b$, the right side satisfies $|r\' - r| < b$, so both must be 0: $r\' = r$ and $q = q\'$. For $29 \\div 6$: $q = 3$ forces $r = 29 - 18 = 11 \\ge 6$ — illegal, exactly one more six hiding inside it; $q = 4$ gives $r = 5$ — legal, and uniqueness says no other pair works.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The closed door. (a) Prove that a ÷ 0 is undefined for every a ≠ 0. (b) Show that 0 ÷ 0 is not saved either — and diagnose precisely how its failure differs. (c) The check equation a = q·b + r guarded every division in this lesson. Substitute b = 0 and explain why the guardian goes silent exactly when the divisor vanishes.',
+                  solution:
+                    '(a) Division must name a $q$ with $q \\times 0 = a$. The zero property (Lesson 2.3) says $q \\times 0 = 0$ for every $q$; since $a \\ne 0$, no candidate survives — the answer set is empty. (b) For $0 \\div 0$, every $q$ passes: $3 \\times 0 = 0$ and $17 \\times 0 = 0$ alike. The failure inverts — not an empty answer set but a universal one: indeterminate, no unique answer. Both verdicts deny an answer; one because nothing works, one because everything does. (c) With $b = 0$ the check reads $a = q \\times 0 + r = 0 + r$, i.e. $a = r$: the equation constrains only the remainder and says nothing about $q$. All the bookkeeping power of $a = q \\times b + r$ lived in the $b$ — division by zero removes it. The whole numbers stay closed under + and × (NCERT\'s note); − and ÷ each punch holes, and ÷\'s hole sits precisely in the divisor seat.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Four operations, four retrials, one system. Addition and multiplication close the whole numbers and commute; subtraction and division do neither — each keeps a one-sided identity and each punches a hole (negativity beyond this book\'s horizon, undefinedness beside it). Yet the four are one family: subtraction undoes addition, division undoes multiplication, and the distributive law binds the pair of builders. What happens when all four appear in a single expression — $8 + 2 \\times 5$, say, whose value depends on who moves first? Chapter 2\'s final lesson settles the treaty of precedence: the order of operations, where this chapter\'s four laws meet their referee. And with the remainder in hand, Chapter 3\'s divisibility questions — which numbers divide which, and how to tell at a glance — stand one bound away.',
         },
       ],
     },
