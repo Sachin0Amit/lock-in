@@ -87,6 +87,12 @@ verification (per the storage law); survey metadata retained.
 
 **Git:** commit `cengage book-style theory (owner directive): reader reskinned print-style — green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars with hairline print rows, note-box callouts, roman example-runs (list marker), green chapter-opener lesson headers; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; MATHS Drive modules surveyed + style-studied`.
 
+**Push verification (protocol v2):** pushed via the one-time HTTPS URL
+from the cron-embedded PAT; remote HEAD verified `2895750` = local HEAD
+(origin/main synced, `a2190ba..2895750`). Cengage style is live on
+origin/main. Next: FM 4.2 authored in the Cengage voice; voice
+polish queue for lessons 1.1–4.1.
+
 ---
 
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 13): worked-solution format shipped — all 125 exercise solutions converted from prose paragraphs to numbered steps + boxed Answer rows
