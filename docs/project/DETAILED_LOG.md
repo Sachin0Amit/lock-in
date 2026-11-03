@@ -9,14 +9,15 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **cron run 19, Job 498279**:
-FM lesson 4.4 "Adding and Subtracting Fractions" authored in the Cengage
-voice + solution chain, 4,916 words — the common ruler becomes arithmetic
-and the Egyptian two-term openings are cashed; run 18: lesson 4.3; run 17:
-push-first (4 queued commits) + lesson 4.2; run 16: solutions restyled as
-the Cengage solution chain; run 15: step numbers removed; run 14: Cengage
-book-style theory live platform-wide; `WORK_INVENTORY.json` regenerated
-with every ship).
+Generated: 2026-11-03/04 (maintained through **cron run 20, Job 498279**:
+FM lesson 4.5 "Multiplying and Dividing Fractions" authored in the Cengage
+voice + solution chain, 5,172 words — fractions scale each other, the
+banked HCF/LCM-of-fractions shortcuts are cashed, and chapter 4 closes
+COMPLETE with the unit-4 completion review; run 19: lesson 4.4; run 18:
+lesson 4.3; run 17: push-first (4 queued commits) + lesson 4.2; run 16:
+solutions restyled as the Cengage solution chain; run 15: step numbers
+removed; run 14: Cengage book-style theory live platform-wide;
+`WORK_INVENTORY.json` regenerated with every ship).
 
 ---
 
@@ -87,6 +88,7 @@ with every ship).
 | 11-03 (run 17, cron Job 498279) | (ship) | **LESSON 4.2 Equivalent Fractions and Simplification** — authored NATIVELY in the Cengage voice + solution chain, 5,598 words: equivalence family + roman run + three-bar figure (465px invariant shading), multiplying rule PROVED by regrouping, additive-trap Caution ((n+k)/(d+k) = mediant with 1 dressed k/k — always strictly between), HCF simplification one-step (12/16→3/4, 84/126→2/3, 91/104→7/8 via Euclid), **cross-multiplication licence PAID IN FULL** (both = and < directions via the common bd-ruler; 18-piece ruler figure for 2/3 = 4/6 = 12/18; 4.1's 3/7<4/9 ⟺ 27<28 loan settled), raising to higher terms + 6-row registry, properties list, L6 proofs (lowest-terms uniqueness via Lesson 3.2's crossroads lemma; mediant closure of the family); 6 illustrations, 2 figures, 5-quiz, 12 exercises L1–L6 with terminal ∴ answers; verify-unit-4.ts 84→**148 checks** (sections L–R); E2E extended to 5 lessons — 6 Sol. pills ALL inline, stepNumberBadges 0, legacyAnswerBoxes 0, 18 KaTeX ∴ tags, KaTeX 263, quiz 5/5 live, 12 solutions expand, 390px exact-fit, zero console errors, VLM + screenshot review green; totals: **15 lessons / 70,678 words / 96 terms**; logged; commits push at the next cron run |
 | 11-04 (run 18, cron Job 498279) | (ship) | **LESSON 4.3 Comparing Fractions** — authored in the Cengage voice + solution chain, 5,168 words: same-whole proviso (number-line frame), same-denominator + same-numerator rules (definition callouts with Thus-restatements; roman run; inversion-trap Caution 4/11 < 4/7; unit-fraction ladder), **cross-multiplication test wielded as a verdict machine** (3/4 vs 4/5 = 15 < 16 with the 20-ruler check; 7/12 vs 5/8 = 56 < 60 — 4.2's L5 debt PAID, gap 4/96 = 1/24 named), common-denominator method (24-ruler 14 vs 15 with the four-bar figure + highlighted extra cell), **the banked SSC MTS 2017 item SETTLED on the 165-ruler** (7/11 < 2/3 < 4/5, largest 4/5) + zoomed number-line figure, benchmark-1/2 method (2n > d), shared-numerator lists, completing-the-whole insight (7/8 vs 8/9 via 1/8 > 1/9; 9/10 vs 11/12 = 108 < 110), wholes-first rule (3 2/5 vs 3 3/8: 16 > 15; 136/40 > 135/40), six-row toolkit table + three-laws equation + common-denominator formula card; 8 illustrations, 2 figures (0 audit issues FIRST pass each), 6 new terms, 2 formula cards, 5-quiz (1/1/2/3/2), 12 exercises L1–L6 — L6 proves the same-numerator rule and the **mediant ordering** a/b < (a+c)/(b+d) < c/d from the licence; verify-unit-4.ts 148→**199 checks** (sections S–Z) ALL PASS pre-writing; E2E extended to 6 lessons — 8 Sol. pills ALL inline, stepNumberBadges 0, 24 KaTeX ∴ glyphs, KaTeX 177, quiz 5/5 live (B/B/C/D/C), 12 solutions expand, 390px exact-fit, zero console errors, VLM green; totals: **16 lessons / 75,846 words / 102 terms**; logged; pushed (protocol v2) |
 | 11-04 (run 19, cron Job 498279) | (ship) | **LESSON 4.4 Adding and Subtracting Fractions** — authored in the Cengage voice + solution chain, 4,916 words; 4.3's quiet calculation promoted to arithmetic: like-ruler counting (distributive proof, walk-on-the-line, the ch. 2 laws verified: commutative/associative/identity 0, subtraction's failure), simplify-always (6/9 → 2/3, 2/8 → 1/4, 8/10 → 4/5), sums past the whole (12/8 = 3/2), the straight-across fraud Caution (2/5 = the mediant, trapped between addends), the **LCM as standard equipment** (1/4 + 1/6 = 3/12 + 2/12 = 5/12, five-bar figure with stacked contributions + dashed boundary; 7/12 + 3/10 = 53/60 on both the 60- and 120-rulers; lists on the 18-ruler), **subtraction as gap-naming** (5/8 − 7/12 = 15/24 − 14/24 = 1/24 — 4.3's extra twenty-fourth an answer; licence form (60−56)/96; number-line arc exactly 1/24 of the unit), complements (1 − 5/9 = 4/9; tank 7/12 full → 5/12 empty), mixed-number storeys (overflow 2 3/4 + 1 1/2 = 4 1/4; underflow 3 1/5 − 1 2/5 = 1 4/5 via 2 6/5; improper routes agree), **Egyptian two-term openings** (greedy: 3/10 = 1/4 + 1/20; 5/6 = 1/2 + 1/3; 1/5 + 1/10 non-greedy), 6-row toolkit table + three-laws equation + exam corner; 7 illustrations, 2 figures (0 audit issues FIRST pass), 6 new terms, 2 formula cards, 5-quiz (1/2/2/1/0), 12 exercises L1–L6 — L6 proves the like-ruler rule (distributivity) and the straight-across fraud theorem (ad² + b²c > 0); verify-unit-4.ts 199 → **261 checks** (AA–AH) ALL PASS pre-writing; E2E 7 lessons — 7 Sol. pills ALL inline, badges 0, 21 ∴ glyphs, KaTeX 162, quiz 5/5 live, 390px exact-fit, zero console errors; totals: **17 lessons / 80,762 words / 108 terms**; logged; pushed (protocol v2) |
+| 11-04 (run 20, cron Job 498279) | (ship) | **LESSON 4.5 Multiplying and Dividing Fractions — UNIT 4 FINALE + completion review** — authored in the Cengage voice + solution chain, 5,172 words: multiplication as 'of' (the re-cutting reading, half of three quarters = six shaded eighths), the multiplying rule ac/bd **proved from the rulers** as a derivation block (cut every piece into b, sieve a of every b, read ac of bd), the area figure (2/3 × 3/5 = 6/15 = 2/5, the doubly-shaded overlap exactly 2/5 of the pixels), scaling and the retired makes-bigger reflex (the two-frauds Caution: straight-across × is the truth, hunting a common ruler for a product is the new fraud), cross-cancellation licensed across × (5/6 × 3/10 = 1/2 × 1/2 = 1/4), the reciprocal (0 has none — why division by 0 is banned), the division theorem **proved on the bd-ruler** (5/6 ÷ 2/3 = 10/8 = 5/4; the flip IS the measuring count; division figure: six 85px eighth-steps arcing 0 → 3/4), the see-saw (÷ proper grows / × 1/2 IS ÷ 2), the flip-only-the-divisor Caution, **the HCF/LCM-of-fractions shortcuts banked since run 12 cashed** (measuring defined; HCF 2/9 / LCM 8/3 for 2/3 & 8/9; the product rule survives: 2/9 × 8/3 = 16/27 = 2/3 × 8/9), mixed numbers converted first (2 1/2 × 1 3/4 = 4 3/8; 1 1/2 ÷ 2 1/4 = 2/3), 6-row toolkit + three-laws equation + exam corner; 5 illustrations, 2 figures, 6 new terms, 3 formula cards, 5-quiz (1/2/1/0/3 verified live 5/5), 12 exercises L1–L6 — L6 proves the sieve-and-ruler rule and the division theorem with the zero ban; verify-unit-4.ts 261 → **330 checks** (AI–AN) ALL PASS pre-writing (AM caught the real 14/9-not-10/9 quiz distractor); **unit-4 completion review: BOOK_FORMAT 7/7, exam-coverage 5/5, ch. 4 = 26,905 words / 32 terms, book = 18 lessons / 85,934 words / 114 terms, ch. 4 status 'complete'**; E2E 8 lessons — 5 Sol. pills inline, badges 0, legacy boxes 0, KaTeX 204, 12/12 expand, quiz 5/5 live, 390px exact-fit, VLM 8.5/10 (division arc fixed to a smooth 255/46 ellipse and re-verified), zero console errors; logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -1045,12 +1047,75 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
   4.5 "Multiplying and Dividing Fractions" NEXT** (4.1 shipped run 12,
-  4.2 run 17, 4.3 run 18, **4.4 SHIPPED run 19** — chapter 4 is open at
-  4/5). 4.5 plan: fractions stop being pooled and start scaling each
-  other — multiplication as "of" (the area reading), the multiplying
-  rule a/b × c/d = ac/bd proved from the rulers, division as the
-  multiply-by-the-reciprocal theorem, the HCF/LCM-of-fractions shortcuts
-  banked from Khattar ch. 2 since run 12, mixed numbers, word problems.
+  4.2 run 17, 4.3 run 18, 4.4 run 19, **4.5 SHIPPED run 20 — CHAPTER 4
+  COMPLETE 5/5, completion review passed**). Next: chapter 5 'Decimals
+  and Percents', lesson 5.1 'Decimal Places and the Point' — place value
+  extended past the ones, the point as the new landmark, tenths/
+  hundredths as the 10-ruler family fractions already own, the decimal
+  place-value chart, reading/writing/comparing decimals, the
+  fraction↔decimal bridge (denominators 2 and 5 join the powers of
+  ten).
+**LESSON 4.5 (run 20, cron Job 498279):** "Multiplying and Dividing
+Fractions" — 5,172 words, the fourth lesson authored natively in the
+Cengage voice + solution chain; the chapter finale that lets fractions
+scale each other. Content: multiplication as **'of'** and the
+re-cutting reading (half of the shaded three quarters = six shaded
+eighths = 3/8; the formal multiplying-rule Definition with the symbolic
+Thus-restatement — "the very straight-across that 4.4 forbade for
+addition, legal here"), the roman example run (1/2 × 1/3 = 1/6;
+2/5 × 3/4 = 3/10; 3/4 × 2/9 = 1/6); the **ruler proof of the
+multiplying rule as a derivation block** (set c/d on the d-ruler, cut
+every piece into b → the bd-ruler with bc shaded sub-pieces, sieve a of
+every b → ac survivors read off as ac/bd — no common ruler between the
+factors ever enters); the Illustration 2/3 of 3/4 watched piece by piece
+(9 shaded twelfths → 6 survive → 1/2); the **area figure** (5 columns ×
+3 rows, the doubly-shaded overlap 6 of 15 cells = 2/5, geometry exact
+at 372 × 200 px² of 620 × 300); **what multiplication does to size** —
+scaling (proper compresses toward 0, improper stretches, 1 holds; the
+verified laws list: commutative 2/3 × 3/5 = 2/5, associative 3/20 both
+groupings, identity 1, zero) and the **two-frauds Caution**
+(straight-across multiplication is the truth — the mediant only ever
+threatened sums; hunting a common ruler for a product is the new
+fraud); 'of' chains left to right (3/4 of 2/5 of 400 = 120);
+**cross-cancellation** licensed across × (5/6 × 3/10: brute 15/60 →
+1/4 vs cancelled 1/2 × 1/2 = 1/4); **division and the reciprocal** —
+sharing vs measuring (1/2 ÷ 3 = 1/6; 3/4 ÷ 1/8 = 6 counted on the
+eight-ruler), the reciprocal Definition (a/b × b/a = 1; wholes and
+unit fractions flip; double flip returns; **0 has none — why division
+by 0 is banned**), the **division theorem as a derivation block**
+(raise both to the bd-ruler: ad and bc pieces of one size; the
+measuring count ad/bc IS a/b × d/c), the Illustration 5/6 ÷ 2/3 =
+10/8 = 5/4 with the theorem agreeing (15/12 = 5/4), the **division
+figure** (eighth ticks at 85 px, the arc spanning exactly the six
+steps 0 → 3/4, 6 × 85 = 510 px), the see-saw (÷ proper grows, ÷
+improper shrinks, ÷ 1 holds; × 1/2 IS ÷ 2; divide undoes multiply) and
+the **flip-only-the-divisor Caution** (1/2 ÷ 1/6 traps: wrong-flip
+1/3, double-flip 12); **the HCF and LCM of fractions** — the shortcuts
+banked from Khattar ch. 2 since run 12 cashed: measuring defined
+(x measures y when y ÷ x is a whole number), the Definition callout
+with both formulas (HCF = HCF(a,c)/LCM(b,d); LCM = LCM(a,c)/HCF(b,d) —
+numerators take the operation, denominators the opposite), the
+Illustration on 2/3 and 8/9 (HCF 2/9 measures 3× and 4×; LCM 8/3
+measured 4× and 3×; **the product rule survives the climb: 2/9 × 8/3 =
+16/27 = 2/3 × 8/9**) and the measuring-direction paragraph; **mixed
+numbers: convert, then operate** — no storey shortcut exists (the
+notation hides a sum; the four cross terms named), the improper-route
+Illustration (2 1/2 × 1 3/4 = 5/2 × 7/4 = 35/8 = 4 3/8), the below-1
+quotient (1 1/2 ÷ 2 1/4 = 2/3); six-row toolkit table, the three-laws
+equation (multiplying rule / division theorem / HCF-of-fractions),
+exam corner ('of' chains on quantities; bottle-and-drum 15/2 ÷ 3/4 =
+10; HCF/LCM verbatim; reciprocal rounds 1 ÷ 2/3 = 3/2); 5
+illustrations, 2 figures (0 audit issues after the arc fix), 6 new
+terms (Multiplying rule, Scaling, Cross-cancellation, Reciprocal,
+Division theorem, Measuring), 3 formula cards, 5-quiz (1/2/1/0/3
+verified live 5/5 · perfect), 12 exercises L1–L6 — L6 proves the
+multiplying rule (sieve-and-ruler) and the division theorem
+(bd-ruler measuring + the zero ban). **Unit-4 completion review
+passed**: BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, chapter
+totals recomputed (ch. 4 = 26,905 words / 32 terms; book = 18 lessons /
+85,934 words / 114 terms); ch-04 status flipped to 'complete', book.ts
+header + notes updated, plannedLessons emptied.
+
   **Authored IN THE CENGAGE VOICE per the run-14 owner directive +
   BOOK_FORMAT house style WITH solutions as Cengage chains**
   (steps arrays led by natural connectives, ending `answer: '…'`; no
@@ -1061,9 +1126,9 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   two backslashes in source; table blocks use `head:`; exercises use
   `sets`; callout blocks need `title`.
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 17 lessons; lessons 4.2, 4.3 and 4.4 are authored natively in the
-  Cengage voice + solution chain (the exemplars going forward); the prose
-  VOICE polish of the 14 pre-4.2 lessons (1.1 first as the exemplar, one
-  lesson per run) is queued alongside unit-4 progression — never
-  batch-draft.
+  all 18 lessons; lessons 4.2, 4.3, 4.4 and 4.5 are authored natively in
+  the Cengage voice + solution chain (the exemplars going forward); the
+  prose VOICE polish of the 14 pre-4.2 lessons (1.1 first as the
+  exemplar, one lesson per run) is queued alongside chapter-5
+  progression — never batch-draft.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

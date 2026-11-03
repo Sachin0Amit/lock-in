@@ -16,8 +16,17 @@ import { chapter04 } from './ch-04'
  * 3.3 (Highest Common Factor), 3.4 (Lowest Common Multiple) and 3.5
  * (HCF, LCM and How They Relate — the product rule, coprime splits,
  * pair reconstruction, feasibility, the rectangle identity) shipped,
- * all gates green, unit-3 completion review passed. Next: chapter 4
- * (Fractions). Authoring per docs/project/MASTER_PLAN.md §2.
+ * all gates green, unit-3 completion review passed. Chapter 4
+ * (Fractions) COMPLETE — unit 4, 2026-11-04: 4.1 (The Idea of a
+ * Fraction), 4.2 (Equivalent Fractions and Simplification), 4.3
+ * (Comparing Fractions), 4.4 (Adding and Subtracting Fractions) and
+ * 4.5 (Multiplying and Dividing Fractions — multiplication as 'of', the
+ * re-cutting rule proved from the rulers, scaling, cross-cancellation,
+ * the reciprocal and the division theorem, the banked HCF/LCM-of-
+ * fractions shortcuts cashed, mixed numbers converted first) shipped,
+ * all gates green (330 unit-4 checks), lessons 4.2–4.5 authored natively
+ * in the Cengage voice + solution chain. Next: chapter 5 (Decimals and
+ * Percents). Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -35,7 +44,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Chapter 4 Fractions: lesson 4.1 The Idea of a Fraction (6,051 words: part–whole + division faces, number line and density via the mediant theorem, proper/improper/mixed, Egyptian unit fractions) + lesson 4.2 Equivalent Fractions and Simplification (5,598 words: the equivalence family, the multiplying rule proved by regrouping, HCF simplification in one step, the cross-multiplication licence paid in full — both = and < directions via the common bd-ruler, raising to higher terms, uniqueness of the lowest-terms name via Euclid\'s crossroads lemma, mediant closure of the family) + lesson 4.3 Comparing Fractions (5,168 words: the comparison engines — same-denominator and same-numerator rules proved, the cross-multiplication test wielded as a verdict machine, the common-denominator method with the 24/120/36-rulers, the banked SSC MTS 2017 item settled on the 165-ruler, benchmark halves, completing the whole, wholes-first rule for mixed numbers; 8 illustrations, 2 figures, 5-quiz, 12 exercises L1–L6). Math script-verified (199 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green. Next: lesson 4.4 Adding and Subtracting Fractions. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–4 complete (units 1–4 shipped 2026-11-03/04): ch. 1 lessons 1.1–1.3 Numbers and Place Value (9,708 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,425 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1–4.5 Fractions (26,905 words: 4.1 The Idea of a Fraction — part–whole + division faces, the number line made dense via the mediant theorem, proper/improper/mixed, Egyptian unit fractions; 4.2 Equivalent Fractions and Simplification — the equivalence family, the multiplying rule, HCF simplification, the cross-multiplication licence paid in full, uniqueness of the lowest-terms name; 4.3 Comparing Fractions — the cross-multiplication verdict machine, the common-denominator method, benchmark halves, completing the whole, wholes-first; 4.4 Adding and Subtracting Fractions — like-ruler counting proved by distributivity, the LCM as standard equipment, subtraction as gap-naming, mixed-number regrouping, the greedy Egyptian split, the straight-across fraud theorem; 4.5 Multiplying and Dividing Fractions — multiplication as of and the re-cutting rule proved from the rulers, scaling and the retired makes-bigger reflex, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 cashed with the product rule surviving, mixed numbers converted before operating). Lessons from 4.2 on authored natively in the Cengage voice + solution chain; the 14 pre-4.2 lessons\' prose voice polish remains queued. Math script-verified (330 unit-4 checks + 260 unit-3 + 165 unit-2), E2E green (8 lessons), quiz keys verified live. Next: chapter 5 Decimals and Percents (5 lessons planned). Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

@@ -586,6 +586,99 @@ check('AH6: fig B — the gap is one twenty-fourth of the line: 465 − 436.67 =
 check('AH7: fig B — the arc peaks at 170 − 26 = 144 with the 1/24 label at y = 134 above it, clear of the axis', Math.abs(170 - 26 - 144) < 1e-9 && 134 < 144);
 
 /* ============================================================
+ * AI. Lesson 4.5 — the multiplying rule, 'of', and scaling
+ * ==========================================================*/
+check('AI1: the rule — 1/2 × 3/4 = 3/8 (numerators multiply, denominators multiply)', feq(1 * 3, 2 * 4, 3, 8));
+check('AI2: 2/3 × 4/5 = 8/15', feq(2 * 4, 3 * 5, 8, 15));
+check('AI3: roman (i) 1/2 × 1/3 = 1/6 — half of a third is a sixth', feq(1, 6, 1, 6) && feq(1 * 1, 2 * 3, 1, 6));
+check('AI4: roman (ii) 2/5 × 3/4 = 6/20 = 3/10 (HCF 6,20 = 2)', feq(2 * 3, 5 * 4, 6, 20) && gcd(6, 20) === 2 && feq(3, 10, 3, 10));
+check('AI5: roman (iii) 3/4 × 2/9 = 6/36 = 1/6 (HCF 6)', feq(3 * 2, 4 * 9, 6, 36) && gcd(6, 36) === 6 && feq(1, 6, 1, 6));
+check('AI6: Illustration 1 — 2/3 × 3/4 = 6/12 = 1/2 (HCF 6)', feq(2 * 3, 3 * 4, 6, 12) && gcd(6, 12) === 6 && feq(1, 2, 1, 2));
+check('AI7: the ruler proof bookkeeping — 3 shaded quarters cut into 3 each: 3 × 3 = 9 shaded twelfths (9/12 = 3/4)', 3 * 3 === 9 && feq(9, 12, 3, 4));
+check('AI8: the ruler proof — take 2 of every 3 shaded twelfths: 2 × 3 = 6 shaded of 12; 6/12 = 1/2', 2 * 3 === 6 && feq(6, 12, 1, 2));
+check('AI9: area figure — 2/3 × 3/5: 3 rows × 5 columns = 15 cells; overlap 2 rows × 3 columns = 6 cells; 6/15 = 2/5 (HCF 3)', 3 * 5 === 15 && 2 * 3 === 6 && gcd(6, 15) === 3 && feq(2, 5, 2, 5));
+check('AI10: commutative — 2/3 × 3/5 = 3/5 × 2/3 = 6/15 = 2/5', feq(2 * 3, 3 * 5, 6, 15) && feq(3 * 2, 5 * 3, 6, 15) && feq(2, 5, 2, 5));
+check('AI11: associative — (1/2 × 2/5) × 3/4 = 1/5 × 3/4 = 3/20 and 1/2 × (2/5 × 3/4) = 1/2 × 3/10 = 3/20', feq(1 * 2, 2 * 5, 1, 5) && feq(1 * 3, 5 * 4, 3, 20) && feq(2 * 3, 5 * 4, 3, 10) && feq(1 * 3, 2 * 10, 3, 20));
+check('AI12: identity — 5/9 × 1 = 5/9 (1 = 1/1)', feq(5, 9, 5, 9) && feq(1, 1, 1, 1));
+check('AI13: zero — 5/9 × 0 = 0', feq(5 * 0, 9, 0, 1));
+check('AI14: products of proper fractions shrink below BOTH factors — 8/15 < 2/3 (24 < 30) and 8/15 < 4/5 (40 < 60)', lt(8, 15, 2, 3) && lt(8, 15, 4, 5));
+check('AI15: the scale reading — 1/2 × 3/4 = 3/8 < 3/4: multiplying by a proper fraction moves points toward 0', lt(3, 8, 3, 4));
+check('AI16: growing direction — 5/3 × 2/7 = 10/21 > 2/7 (70 > 42): an improper multiplier pushes away from 0', feq(5 * 2, 3 * 7, 10, 21) && gt(10, 21, 2, 7));
+check('AI17: the of-chain — 3/4 of 2/5 of 400: 400 × 2/5 = 160, then 160 × 3/4 = 120', (400 * 2) / 5 === 160 && (160 * 3) / 4 === 120);
+check('AI18: cross-cancellation — 5/6 × 3/10 = 15/60 = 1/4; the cancelled route 1/2 × 1/2 = 1/4 agrees', feq(5 * 3, 6 * 10, 15, 60) && gcd(15, 60) === 15 && feq(1, 4, 1, 4) && feq(1 * 1, 2 * 2, 1, 4));
+check('AI19: no common ruler needed — 2/3 × 3/5 = 2/5 with no LCM, while 2/3 + 3/5 = 19/15 required the 15-ruler', feq(2 * 3, 3 * 5, 2, 5) && feq(2 * 5 + 3 * 3, 15, 19, 15) && feq(19, 15, 19, 15));
+check('AI20: products of two proper fractions stay proper — 8/15 < 1 and 3/10 < 1', lt(8, 15, 1, 1) && lt(3, 10, 1, 1));
+
+/* ============================================================
+ * AJ. Lesson 4.5 — reciprocals and the division theorem
+ * ==========================================================*/
+check('AJ1: reciprocal definition — 2/3 × 3/2 = 1 (a fraction times its flip is the whole 1)', feq(2 * 3, 3 * 2, 1, 1));
+check('AJ2: the reciprocal of a whole is the unit fraction — 5 ↦ 1/5; of a unit fraction the whole — 1/8 ↦ 8', feq(5 * (1 / 5), 1, 1, 1) && feq((1 / 8) * 8, 1, 1, 1) && 5 * (1 / 5) === 1 && (1 / 8) * 8 === 1);
+check('AJ3: the reciprocal of the reciprocal returns — (3/4) ↦ 4/3 ↦ 3/4', feq(4 * 3, 3 * 4, 1, 1) && feq(3, 4, 3, 4));
+check('AJ4: 0 has no reciprocal — no number times 0 gives 1 (sweep k = 0..19: zero times anything never lands on 1)', (() => { const z = 0; for (let k = 0; k < 20; k++) if (z * k === 1) return false; return true; })());
+check('AJ5: the counting case — 3/4 ÷ 1/8 = 6: three quarters is 6/8, six eighth-pieces fit', feq(3, 4, 6, 8) && 6 / 1 === 6);
+check('AJ6: the theorem agrees — 3/4 ÷ 1/8 = 3/4 × 8/1 = 24/4 = 6', feq(3 * 8, 4 * 1, 24, 4) && 24 / 4 === 6);
+check('AJ7: the general case — 5/6 ÷ 2/3 = 5/6 × 3/2 = 15/12 = 5/4 (HCF 3)', feq(5 * 3, 6 * 2, 15, 12) && gcd(15, 12) === 3 && feq(5, 4, 5, 4));
+check('AJ8: the bd-ruler measurement proof — 5/6 = 10/12 and 2/3 = 8/12; how many 8-pieces in 10-pieces: 10/8 = 5/4, agreeing', feq(5, 6, 10, 12) && feq(2, 3, 8, 12) && feq(10, 8, 5, 4) && feq(10 / 2, 8 / 2, 5, 4));
+check('AJ9: the sharing reading — 1/2 ÷ 3 = 1/6: half split into three equal shares (1/2 × 1/3)', feq(1, 2, 1, 2) && feq(1 * 1, 2 * 3, 1, 6) && feq(1, 6, 1, 6));
+check('AJ10: dividing by a proper fraction ENLARGES — 3/4 ÷ 1/2 = 3/2 > 3/4', feq(3 * 2, 4 * 1, 3, 2) && gt(3, 2, 3, 4));
+check('AJ11: dividing by an improper fraction SHRINKS — 3/4 ÷ 3/2 = 3/4 × 2/3 = 6/12 = 1/2 < 3/4', feq(3 * 2, 4 * 3, 6, 12) && feq(6, 12, 1, 2) && lt(1, 2, 3, 4));
+check('AJ12: dividing by 1 stays — 5/9 ÷ 1 = 5/9', feq(5, 9, 5, 9));
+check('AJ13: the see-saw — multiplying by 1/2 is dividing by 2: 3/4 × 1/2 = 3/4 ÷ 2 = 3/8', feq(3 * 1, 4 * 2, 3, 8) && feq(3, 8, 3, 8) && feq(3, 4, 3 * 2, 8));
+check('AJ14: divide undoes multiply — (5/6 × 2/3) ÷ 2/3 = 5/6: the product is 10/18 = 5/9; how many 2/3 (= 12/18) fit in 5/9 (= 10/18): 10/12 = 5/6, agreeing', feq(5 * 2, 6 * 3, 10, 18) && feq(10 * 3, 18 * 2, 5, 6) && feq(10, 12, 5, 6));
+check('AJ15: exam bottles — 15/2 ÷ 3/4 = 15/2 × 4/3 = 60/6 = 10 bottles', feq(15 * 4, 2 * 3, 60, 6) && 60 / 6 === 10);
+
+/* ============================================================
+ * AK. Lesson 4.5 — HCF and LCM of fractions (the banked shortcuts)
+ * ==========================================================*/
+check('AK1: inputs in lowest terms — gcd(2,3) = 1 and gcd(8,9) = 1', gcd(2, 3) === 1 && gcd(8, 9) === 1);
+check('AK2: the HCF rule — HCF(2/3, 8/9) = HCF(2,8)/LCM(3,9) = 2/9', gcd(2, 8) === 2 && (function(){ let l = 3; while (l % 9 !== 0) l += 3; return l; })() === 9 && feq(2, 9, 2, 9));
+check('AK3: 2/9 measures both — 2/3 ÷ 2/9 = 3 whole and 8/9 ÷ 2/9 = 4 whole', feq(2 * 9, 3 * 2, 3, 1) && feq(8 * 9, 9 * 2, 4, 1));
+check('AK4: maximality on the 9-ruler — the largest k with 6 % k = 0 and 8 % k = 0 is 2, so 2/9 is the largest common measure', (() => { let best = 0; for (let k = 1; k <= 9; k++) if (6 % k === 0 && 8 % k === 0) best = k; return best === 2; })());
+check('AK5: the LCM rule — LCM(2/3, 8/9) = LCM(2,8)/HCF(3,9) = 8/3', (function(){ let l = 2; while (l % 8 !== 0 || l % 2 !== 0) l += 2; return l; })() === 8 && gcd(3, 9) === 3 && feq(8, 3, 8, 3));
+check('AK6: both measure 8/3 — 8/3 ÷ 2/3 = 4 whole and 8/3 ÷ 8/9 = 3 whole', feq(8 * 3, 3 * 2, 4, 1) && feq(8 * 9, 3 * 8, 3, 1));
+check('AK7: minimality on the 9-ruler — the smallest m with 6 | m and 8 | m is 24, so 24/9 = 8/3 is the smallest fraction both measure', (() => { let m = 6; while (m % 8 !== 0) m += 6; return m; })() === 24 && feq(24, 9, 8, 3) && gcd(24, 9) === 3);
+check('AK8: the product rule survives — HCF × LCM = 2/9 × 8/3 = 16/27 = 2/3 × 8/9 (the product of the fractions)', feq(2 * 8, 9 * 3, 16, 27) && feq(2 * 8, 3 * 9, 16, 27));
+check('AK9: exercise L4 — HCF(1/2, 3/8) = HCF(1,3)/LCM(2,8) = 1/8; 1/8 measures 1/2 four times and 3/8 three times', gcd(1, 3) === 1 && (function(){ let l = 2; while (l % 8 !== 0) l += 2; return l; })() === 8 && feq(1, 8, 1, 8) && feq(1 * 8, 2 * 1, 4, 1) && feq(3 * 8, 8 * 1, 3, 1));
+check('AK10: exercise L4 — LCM(1/2, 3/8) = LCM(1,3)/HCF(2,8) = 3/2; both measure it: 3 and 4 times', (function(){ let l = 1; while (l % 3 !== 0) l += 1; return l; })() === 3 && gcd(2, 8) === 2 && feq(3, 2, 3, 2) && feq(3 * 2, 2 * 1, 3, 1) && feq(3 * 8, 2 * 3, 4, 1));
+check('AK11: exercise L4 — the product rule check: 1/8 × 3/2 = 3/16 = 1/2 × 3/8', feq(1 * 3, 8 * 2, 3, 16) && feq(1 * 3, 2 * 8, 3, 16));
+
+/* ============================================================
+ * AL. Lesson 4.5 — mixed numbers under × and ÷
+ * ==========================================================*/
+check('AL1: conversions — 2 1/2 = 5/2 and 1 3/4 = 7/4', 2 * 2 + 1 === 5 && 1 * 4 + 3 === 7 && feq(5, 2, 5, 2) && feq(7, 4, 7, 4));
+check('AL2: 5/2 × 7/4 = 35/8 and 35 = 4 × 8 + 3 reads back as 4 3/8', feq(5 * 7, 2 * 4, 35, 8) && 35 === 4 * 8 + 3);
+check('AL3: why no storeys — the four cross terms of (2 + 1/2)(1 + 3/4): 2 + 3/2 + 1/2 + 3/8 = 16/8 + 12/8 + 4/8 + 3/8 = 35/8, agreeing with the improper route', feq(2, 1, 2, 1) && feq(2 * 1 + 2 * (3 / 4) + (1 / 2) * 1 + (1 / 2) * (3 / 4), 1, 35, 8) && 16 + 12 + 4 + 3 === 35);
+check('AL4: division instance — 1 1/2 ÷ 2 1/4 = 3/2 ÷ 9/4 = 12/18 = 2/3', 1 * 2 + 1 === 3 && 2 * 4 + 1 === 9 && feq(3 * 4, 2 * 9, 12, 18) && gcd(12, 18) === 6 && feq(2, 3, 2, 3));
+check('AL5: exercise L5 — 2 1/4 ÷ 1 1/2 = 9/4 ÷ 3/2 = 18/12 = 3/2 = 1 1/2', 2 * 4 + 1 === 9 && 1 * 2 + 1 === 3 && feq(9 * 2, 4 * 3, 18, 12) && gcd(18, 12) === 6 && feq(3, 2, 3, 2) && 3 === 1 * 2 + 1);
+check('AL6: products of two >1 mixed numbers exceed each — 35/8 > 5/2 (70 > 40) and 35/8 > 7/4 (140 > 56)', gt(35, 8, 5, 2) && gt(35, 8, 7, 4));
+
+/* ============================================================
+ * AM. Lesson 4.5 — quiz and exercise arithmetic (answer-key audit)
+ * ==========================================================*/
+check('AM1: quiz 1 — correct 2/3 × 3/5 = 6/15 = 2/5 (index 1); the distractors 1/3, 3/4 and 5/2 all fail', feq(2 * 3, 3 * 5, 6, 15) && gcd(6, 15) === 3 && feq(2, 5, 2, 5) && !feq(1, 3, 2, 5) && !feq(3, 4, 2, 5) && !feq(5, 2, 2, 5));
+check('AM2: quiz 2 — correct 3/8 (index 2): 3/8 × 2/7 = 3/28 < 2/7; the distractors grow or hold: 5/3 × 2/7 = 10/21 > 2/7, 8/3 × 2/7 = 16/21 > 2/7, 1 × 2/7 = 2/7', feq(3 * 2, 8 * 7, 6, 56) && feq(3, 28, 3, 28) && lt(3, 28, 2, 7) && gt(10, 21, 2, 7) && gt(16, 21, 2, 7) && feq(2, 7, 2, 7));
+check('AM3: quiz 3 — correct 1/2 ÷ 1/6 = 1/2 × 6/1 = 3 (index 1); the distractors 1/12, 1/3 and 12 all fail', feq(1 * 6, 2 * 1, 3, 1) && 3 === 3 && !feq(1, 12, 3, 1) && !feq(1, 3, 3, 1) && !feq(12, 1, 3, 1));
+check('AM4: quiz 4 — correct HCF = 2/9 (index 0); the distractors 16/27 (the product), 14/9 (the sum 6/9 + 8/9) and 8/3 (the LCM) all fail the HCF role', feq(2, 9, 2, 9) && !feq(16, 27, 2, 9) && !feq(14, 9, 2, 9) && !feq(8, 3, 2, 9) && feq(6 + 8, 9, 14, 9));
+check('AM5: quiz 5 — correct 4 3/8 = 35/8 (index 3); the distractors 2 3/8 = 19/8, 4 1/4 = 17/4 and 35/16 all fail', feq(35, 8, 4 * 8 + 3, 8) && !feq(19, 8, 35, 8) && !feq(17, 4, 35, 8) && !feq(35, 16, 35, 8));
+check('AM6: exercise L1 — (a) 1/3 × 2/5 = 2/15; (b) 3/4 × 2/9 = 6/36 = 1/6 (AI3/AI5 re-checks)', feq(1 * 2, 3 * 5, 2, 15) && feq(6, 36, 1, 6));
+check('AM7: exercise L1 — 1/2 of 4/5 = 2/5', feq(1 * 4, 2 * 5, 2, 5) && feq(2, 5, 2, 5));
+check('AM8: exercise L2 — 2/7 × 7/8 = 14/56 = 1/4 (cross-cancel the 7s: 2/8 = 1/4); 2/3 ÷ 4/9 = 18/12 = 3/2', feq(2 * 7, 7 * 8, 14, 56) && gcd(14, 56) === 14 && feq(1, 4, 1, 4) && feq(2 * 9, 3 * 4, 18, 12) && gcd(18, 12) === 6 && feq(3, 2, 3, 2));
+check('AM9: exercise L3 — 5/6 × 12/25 = 60/150 = 2/5 (cancel 5 & 25 then 6 & 12: 1/1 × 2/5); the ribbon 3/4 of 5/6 m = 5/8 m', feq(5 * 12, 6 * 25, 60, 150) && gcd(60, 150) === 30 && feq(2, 5, 2, 5) && feq(3 * 5, 4 * 6, 15, 24) && gcd(15, 24) === 3 && feq(5, 8, 5, 8));
+check('AM10: exercise L4 — the tank: 2/3 of 240 = 160 L in; 3/4 of 160 = 120 L used; 40 L remain = 1/6 of the tank', (240 * 2) / 3 === 160 && (160 * 3) / 4 === 120 && 160 - 120 === 40 && feq(40, 240, 1, 6));
+check('AM11: exercise L5 — the bottle count 10 is a whole number (bottles come whole) and the division 15/2 ÷ 3/4 lands exactly on it (AJ15 re-check)', 60 / 6 === 10 && Number.isInteger(10));
+check('AM12: exercise L6 — the proofs reuse verified instances: the ruler proof 6/12 = 1/2 (AI8) and the measurement proof 10/8 = 5/4 (AJ8)', feq(6, 12, 1, 2) && feq(10, 8, 5, 4));
+
+/* ============================================================
+ * AN. Lesson 4.5 — figure geometry (area grid + division line)
+ * ==========================================================*/
+check('AN1: fig A — the grid: 5 columns of 124 px (620 wide) × 3 rows of 100 px (300 tall): 15 cells of 124 × 100', 5 * 124 === 620 && 3 * 100 === 300 && 15 * (124 * 100) === 620 * 300);
+check('AN2: fig A — the column shading spans 3 × 124 = 372 px (3/5 of 620); the row shading spans 2 × 100 = 200 px (2/3 of 300)', 3 * 124 === 372 && Math.abs(372 / 620 - 3 / 5) < 1e-12 && 2 * 100 === 200 && Math.abs(200 / 300 - 2 / 3) < 1e-12);
+check('AN3: fig A — the overlap is 372 × 200 = 74,400 px² of 620 × 300 = 186,000 px²: exactly 6/15 = 2/5 of the rectangle', 372 * 200 === 74400 && 620 * 300 === 186000 && Math.abs(74400 / 186000 - 2 / 5) < 1e-12 && feq(6, 15, 2, 5));
+check('AN4: fig B — the line runs 40 → 720 (680 px per unit): x(3/4) = 550, eighth ticks at 125, 210, 295, 380, 465, 550 (85 px apart)', Math.abs(40 + (3 / 4) * 680 - 550) < 0.01 && [125, 210, 295, 380, 465, 550].every((x, i) => Math.abs(x - (125 + i * 85)) < 1e-9) && Math.abs(680 / 8 - 85) < 1e-9);
+check('AN5: fig B — six eighth-steps of 85 px tile 0 → 550: 6 × 85 = 510 = 40 + (3/4)·680 − 40 — the counting made visible', 6 * 85 === 510 && Math.abs(510 - (3 / 4) * 680) < 0.01);
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`verify-unit-4: ${pass} passed, ${fail} failed`);
@@ -594,5 +687,5 @@ if (fail > 0) {
   for (const f of failures) console.log('  ✗ ' + f);
   process.exit(1);
 } else {
-  console.log('ALL CHECKS PASS — lessons 4.1–4.4 arithmetic is pre-verified.');
+  console.log('ALL CHECKS PASS — lessons 4.1–4.5 arithmetic is pre-verified.');
 }

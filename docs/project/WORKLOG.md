@@ -6,6 +6,141 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 20 (cron, Job 498279): FM lesson 4.5 "Multiplying and Dividing Fractions" authored in the Cengage voice + solution chain — fractions scale each other, the banked HCF/LCM shortcuts are cashed, and chapter 4 closes COMPLETE (unit-4 completion review passed)
+
+**Run open (push check first):** tree clean at `ef2d5bd` = local HEAD =
+origin/main (run 19's memory commit, verified at run open by one-time-URL
+ls-remote: HEAD = refs/heads/main = `ef2d5bd...`) — nothing queued, no
+push debt. Task per RESUME_POINTER: FM lesson 4.5 "Multiplying and
+Dividing Fractions" (the last lesson of chapter 4).
+
+**Arithmetic pre-verified BEFORE writing:** `scripts/verify-unit-4.ts`
+extended 261 → **330 checks** (new sections AI–AN: AI the multiplying
+rule + 'of' + the area-figure bookkeeping (2/3 × 3/4 = 6/12 = 1/2 via 9
+shaded twelfths; 2/3 × 3/5 = 6/15 = 2/5 in the 3×5 grid) + scaling
+directions + the laws + cross-cancellation (5/6 × 3/10 = 1/2 × 1/2 =
+1/4) + the no-common-ruler contrast with addition; AJ reciprocals and
+the division theorem (2/3 × 3/2 = 1, 0's empty reciprocal sweep, 3/4 ÷
+1/8 = 6 counted then theorem'd, 5/6 ÷ 2/3 = 10/8 = 5/4 on the bd-ruler,
+sharing 1/2 ÷ 3 = 1/6, see-saw × 1/2 = ÷ 2, undo, the bottle item 15/2 ÷
+3/4 = 10); AK the HCF/LCM-of-fractions shortcuts with measuring checks
+and maximality/minimality sweeps on the 9-ruler (HCF 2/9 measures 3× and
+4×, LCM 8/3 measured 4× and 3×, product rule 2/9 × 8/3 = 16/27 = 2/3 ×
+8/9; the 1/2 & 3/8 exercise instance); AL mixed numbers under × ÷ (2
+1/2 × 1 3/4 = 35/8 = 4 3/8 with the four cross terms summed; 1 1/2 ÷ 2
+1/4 = 2/3; 2 1/4 ÷ 1 1/2 = 3/2); AM quiz + exercise key audit (the
+pre-verify caught a REAL error: the sum 2/3 + 8/9 is 14/9, not 10/9 —
+quiz distractor corrected before writing); AN figure geometry (grid 124
+× 100 px cells, overlap 372 × 200 px² = exactly 2/5 of 620 × 300; line
+x(3/4) = 550, eighth ticks 85 px, 6 × 85 = 510 px tiling)) — ALL PASS
+before a word was written; verify-unit-2 (165) and verify-unit-3 (260)
+regressions green.
+
+**Lesson 4.5 authored** (`fm-multiplying-dividing-fractions`, 5,172
+words; ch. 4 now 5/5 — **UNIT 4 COMPLETE**):
+
+- **Multiplication as 'of': the re-cutting reading** — the phrase "of"
+  does the work (half of three quarters = six shaded eighths = 3/8); the
+  formal multiplying-rule Definition callout (ac/bd, "the very
+  straight-across that 4.4 forbade for addition — legal here"); roman
+  example run (1/2 × 1/3 = 1/6; 2/5 × 3/4 = 3/10; 3/4 × 2/9 = 1/6); the
+  **ruler proof as a derivation block** (set c/d on the d-ruler, cut
+  every piece into b → the bd-ruler with bc shaded sub-pieces, sieve a
+  of every b → ac survivors read off as ac/bd); Illustration: 2/3 of 3/4
+  watched piece by piece (9 shaded twelfths → 6 survive → 1/2); the
+  **area figure** (5 columns × 3 rows, 3 columns shaded 3/5 + 2 rows
+  shaded 2/3, the doubly-shaded overlap 6 of 15 cells = 2/5; geometry
+  124/100 px cells, overlap 372 × 200 px² exactly 2/5).
+- **What multiplication does to size** — the makes-bigger reflex
+  retired: scaling (proper compresses toward 0, improper stretches, 1
+  holds); the verified laws list (commutative 2/3 × 3/5 = 3/5 × 2/3 =
+  2/5; associative 3/20 both groupings; identity 1; zero); the **two
+  frauds Caution** — straight-across multiplication is the truth (the
+  mediant only ever threatened sums) but hunting a common ruler for a
+  product is the new fraud; 'of' chains left to right (3/4 of 2/5 of 400
+  = 120); **cross-cancellation** licensed across × (never across +) with
+  the two-route Illustration 5/6 × 3/10 (15/60 → 1/4 brute; 1/2 × 1/2 =
+  1/4 cancelled).
+- **Division and the reciprocal** — sharing (1/2 ÷ 3 = 1/6) vs measuring
+  (3/4 ÷ 1/8 = 6 counted on the eight-ruler); the reciprocal Definition
+  (a/b × b/a = 1, wholes and unit fractions flip, double flip returns,
+  **0 has none — why division by 0 is banned**); the **division theorem
+  as a derivation block** (raise both to the bd-ruler: ad and bc pieces
+  of one size; the measuring count ad/bc IS a/b × d/c — the flip is the
+  measuring count wearing its shortest name); Illustration 5/6 ÷ 2/3 =
+  10/8 = 5/4 measured, theorem agrees 15/12 = 5/4; the **division
+  figure** (eighth ticks at 85 px, arc spanning exactly the six steps 0 →
+  3/4, 6 × 85 = 510 px); the see-saw (÷ proper grows, ÷ improper shrinks,
+  ÷ 1 holds; × 1/2 is ÷ 2; divide undoes multiply); the **flip-only-the-
+  divisor Caution** (1/2 ÷ 1/6 traps: 1/3 wrong-flip, 12 double-flip);
+  2 formula cards.
+- **The HCF and LCM of fractions** — the shortcuts banked from Khattar
+  ch. 2 since run 12 finally cashed: **measuring** defined (x measures y
+  when y ÷ x is a whole number); the Definition callout with both
+  formulas (HCF = HCF(a,c)/LCM(b,d); LCM = LCM(a,c)/HCF(b,d) —
+  numerators take the operation, denominators the opposite); the
+  Illustration on 2/3 and 8/9 (HCF 2/9 measures 3× and 4×; LCM 8/3
+  measured 4× and 3×; **the product rule survives the climb: 2/9 × 8/3 =
+  16/27 = 2/3 × 8/9**); the measuring-direction paragraph (HCF below
+  both, LCM above both).
+- **Mixed numbers: convert, then operate** — no storey shortcut exists
+  for × ÷ (the notation hides a sum); the improper-route Illustration (2
+  1/2 × 1 3/4 = 5/2 × 7/4 = 35/8 = 4 3/8, the four cross terms named);
+  the below-1 quotient surprise (1 1/2 ÷ 2 1/4 = 2/3); 1 formula card.
+- **Putting it to work** — six-row toolkit table, the three-laws
+  equation (multiplying rule / division theorem / HCF-of-fractions),
+  the exam corner ('of' chains on quantities; bottle-and-drum items;
+  HCF/LCM-of-fractions verbatim; reciprocal speed rounds 1 ÷ 2/3 = 3/2);
+  6 new terms (Multiplying rule, Scaling, Cross-cancellation, Reciprocal,
+  Division theorem, Measuring); 3 formula cards; 5-quiz (answers spread
+  1/2/1/0/3), 12 exercises L1–L6 as Cengage chains — L6 proves the
+  multiplying rule (the sieve-and-ruler argument) and the division
+  theorem (bd-ruler measuring + the zero ban).
+- **Closing para**: the chapter's five-lesson arc recapped — dense line,
+  named, ordered, pooled, scaled — and chapter 5 (Decimals and Percents)
+  previewed.
+
+**Quality gates ALL green:** verify-unit-4 330/330; `bun run lint` clean;
+`bunx tsc --noEmit` clean; dev restarted cleanly (nohup, fresh dev.log,
+0 errors, routes 200); E2E extended to 8 lessons — 4.5: h2 7 uppercase
+green, 5 Illustrations / 5 Sol. pills ALL inline, 15 ∴ tags,
+stepNumberBadges 0, legacyAnswerBoxes 0, KaTeX 204, dollarInSvg 0, 12/12
+solutions expand (17 Sol. pills total, 29 ∴ glyphs force-expanded), quiz
+key 1/2/1/0/3 verified LIVE "You scored 5/5 · perfect", mobile 390px
+exact-fit (docScrollW 390, overflowX none); figure text-overflow audit 0
+issues; VLM fidelity 8.5/10 (KaTeX clean, figures labeled, Cengage
+styling intact; the one fixable note — the division arc rendering as
+endpoint strokes — fixed to a smooth 255/46 ellipse and re-verified);
+zero console errors (stale browser-session buffer cleared and re-tested).
+
+**Unit-4 completion review (run-6/run-11 precedent, chapter closes):**
+BOOK_FORMAT verification checklist 7/7 (math script-verified 330 checks;
+figure labels match prose; quiz indices verified live in the browser;
+12 exercise solutions complete + expandable; lesson ids globally unique
+(18 ids, no duplicates); lint + render clean; logs updated); exam-
+coverage audit 5/5 lessons carry an exam callout mapping to real exams;
+chapter totals recomputed by the platform counter: **ch. 4 = 26,905
+words / 32 terms / 5 lessons**; book = **18 lessons / 85,934 words / 114
+terms**. Chapter 4 status flipped to `complete` in ch-04.ts; book.ts
+header + notes updated; plannedLessons emptied.
+
+**Sources:** no downloads — zero temporary-references footprint
+(consistency with run 19's storage law). NCERT class-7 ch. 2 "Fractions
+and Decimals" §2.1–2.2 (multiplication of fractions, the reciprocal,
+division of fractions) web-checked as the canonical school sequence
+class-6 ch. 7 stops at addition/subtraction; new citation key
+`ncert-math7-ch2` added to SOURCE_LOG; Khattar ch. 2's banked
+HCF/LCM-of-fractions rules cashed (no text reproduced).
+
+**Remaining:** FM chapter 5 "Decimals and Percentages" opens next unit —
+5.1 "Decimal Places and the Point" per the planned TOC. Voice-polish
+queue unchanged (14 pre-4.2 lessons, one per run, 1.1 first).
+EXAM_REGISTRY research still pending.
+
+**Git:** commit `fm 4.5 multiplying and dividing fractions (unit 4 finale, run 20): ...` + inventory bookkeeping commit; both pushed per protocol v2 at run end (see the run-20 memory commit for the verified sha).
+
+---
+
 ## 2026-11-04 — RUN 19 (cron, Job 498279): FM lesson 4.4 "Adding and Subtracting Fractions" authored in the Cengage voice + solution chain — the common ruler becomes arithmetic, 4.3's gap promoted to a method, the Egyptian two-term openings cashed
 
 **Run open (push check first):** tree clean at `814cdae` = local HEAD =

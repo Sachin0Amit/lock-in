@@ -117,12 +117,26 @@ step 6).
   copy of an Amenemhat-III-era text, Rhind's 1858 Luxor purchase, British
   Museum since 1865, unit fractions with 2/3 the lone exception, 2/n
   table for odd n from 3 to 101).
+- `ncert-math7-ch2` — NCERT Class 7 Mathematics, ch. 2 "Fractions and
+  Decimals" (public curriculum). Used for: FM ch. 4 lesson 4.5 — the
+  canonical school sequence mirrored (multiplication of fractions as
+  'of'/area reading, the reciprocal of a fraction and its product-gives-1
+  property, division of fractions as multiply-by-the-reciprocal),
+  web-checked 2026-11-04 (search: class-7 ch. 2 section sequence 2.1
+  Multiplication of Fractions / 2.2 Division of Fractions; confirmed the
+  class-6 Ganita Prakash fraction chapter stops at addition/subtraction,
+  so × ÷ of fractions is class-7 material); exposition original — the
+  re-cutting ruler proof of the multiplying rule, the bd-ruler measuring
+  proof of the division theorem, the scaling/two-frauds cautions, the
+  cross-cancellation licence and the HCF/LCM-of-fractions measuring
+  treatment are the book's own derivations (the shortcut formulas were
+  banked from Khattar ch. 2's rules, re-derived and verified here).
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**3/11 chapters complete — ch. 1–3 CLOSED; ch. 4 OPEN at 4.1**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete — ch. 1–4 CLOSED; ch. 5 NEXT at 5.1**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -241,3 +255,16 @@ step 6).
   scripts/verify-unit-4.ts, 261 total) BEFORE writing; exposition original —
   the greedy-split procedure and the straight-across fraud theorem are the
   book's own derivations, instances recomposed.
+- 2026-11-04 (mathematics, unit 4, lesson 4.5, run 20): no new downloads —
+  zero temporary-references footprint. NCERT class-7 ch. 2 multiplication/
+  division-of-fractions coverage (multiplication as 'of', the reciprocal,
+  division via the reciprocal) web-checked as the canonical school
+  sequence (sanctioned fallback); new `ncert-math7-ch2` citation key added.
+  Khattar ch. 2's HCF/LCM-of-fractions rules (banked since run 12) cashed —
+  formulas re-derived from the measuring definition and script-verified
+  (maximality/minimality sweeps + the product-rule check); no Khattar text
+  reproduced. All lesson arithmetic re-verified by script (69 new checks in
+  sections AI–AN of scripts/verify-unit-4.ts, 330 total) BEFORE writing;
+  exposition original — the re-cutting ruler proof, the bd-ruler measuring
+  proof, the scaling/two-frauds cautions and the cross-cancellation licence
+  are the book's own derivations, instances recomposed.

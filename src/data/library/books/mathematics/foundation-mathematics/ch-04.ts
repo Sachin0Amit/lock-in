@@ -3,25 +3,32 @@ import type { Chapter } from '../../../types'
 /**
  * Foundation Mathematics — Chapter 4: Fractions
  *
- * LESSONS WRITTEN: 4.1 The Idea of a Fraction (unit 4 opens); 4.2 Equivalent
- * Fractions and Simplification (the equivalence family, the multiplying rule,
- * HCF simplification, the cross-multiplication licence paid in full, raising
- * to higher terms, uniqueness of the lowest-terms name); 4.3 Comparing
- * Fractions (the comparison engines: shared rulers, the cross-multiplication
- * test wielded as a verdict machine, common-denominator method, the banked
- * SSC MTS 2017 item settled, benchmark halves, completing the whole,
- * wholes-first rule for mixed numbers); 4.4 Adding and Subtracting Fractions
- * (like-ruler counting, the LCM as standard equipment, subtraction as
- * gap-naming, mixed-number regrouping, Egyptian two-term openings, the
- * straight-across fraud theorem).
- * PLANNED NEXT: 4.5 Multiplying and Dividing Fractions.
+ * LESSONS WRITTEN (UNIT 4 COMPLETE): 4.1 The Idea of a Fraction; 4.2
+ * Equivalent Fractions and Simplification (the equivalence family, the
+ * multiplying rule, HCF simplification, the cross-multiplication licence,
+ * raising to higher terms, uniqueness of the lowest-terms name); 4.3
+ * Comparing Fractions (the comparison engines, the cross-multiplication
+ * verdict machine, the common-denominator method, benchmark halves,
+ * completing the whole, wholes-first rule); 4.4 Adding and Subtracting
+ * Fractions (like-ruler counting, the LCM as standard equipment,
+ * subtraction as gap-naming, mixed-number regrouping, Egyptian two-term
+ * openings, the straight-across fraud theorem); 4.5 Multiplying and
+ * Dividing Fractions (multiplication as 'of' and the re-cutting reading,
+ * the multiplying rule proved from the rulers, multiplication as scaling,
+ * cross-cancellation, the reciprocal and the division theorem proved on
+ * the bd-ruler, the HCF/LCM-of-fractions shortcuts banked since 4.1 and
+ * cashed here, mixed numbers converted before operating — the chapter
+ * closes with all four operations living on the fraction line).
  * Unit 4 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
- * Examinations (4e) ch. 1 "Numbers" (fraction comparison exam items, the
- * HCF/LCM-of-fractions rules that later lessons will draw on) + NCERT
- * Class 6 ch. 7 "Fractions" topic coverage — see docs/project/SOURCE_LOG.md.
+ * Examinations (4e) ch. 1 "Numbers" (fraction exam items; the ch. 2
+ * HCF/LCM-of-fractions rules banked since run 12) + NCERT Class 7 ch. 2
+ * "Fractions and Decimals" §2.1–2.2 (multiplication of fractions, the
+ * reciprocal, division of fractions — web-checked 2026-11-04; the class-6
+ * fraction chapter stops at addition/subtraction) — see
+ * docs/project/SOURCE_LOG.md.
  * Exposition original; all arithmetic verified by scripts/verify-unit-4.ts
- * (259 checks, sections AA–AH for this lesson) BEFORE writing.
+ * (330 checks; sections AI–AN for this lesson) BEFORE writing.
  * Honours the ties promised in Lesson 3.5's closing paragraph: "between any
  * two whole numbers, fractions grow dense, and the four operations learn to
  * live there. The atoms remain atoms — but from here on, they divide." —
@@ -35,7 +42,7 @@ export const chapter04: Chapter = {
   title: 'Fractions',
   summary:
     'Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'fm-idea-of-a-fraction',
@@ -2672,8 +2679,627 @@ export const chapter04: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-multiplying-dividing-fractions',
+      number: '4.5',
+      title: 'Multiplying and Dividing Fractions',
+      concepts: [
+        "Multiplication as 'of'",
+        'The multiplying rule ac/bd',
+        'Multiplication as scaling',
+        'Cross-cancellation before multiplying',
+        'The reciprocal',
+        'The division theorem',
+        'HCF and LCM of fractions',
+        'Improper conversion before operating',
+      ],
+      objectives: [
+        "Multiply fractions straight across and simplify, read 'of' chains left to right, and cancel atoms before multiplying to keep every count small",
+        'Predict what multiplication does to size — proper multipliers shrink, improper ones grow, 1 holds — and verify the commutative, associative, identity and zero laws on fractions',
+        'Divide by any fraction through the reciprocal theorem, with the bd-ruler measurement count as the proof and the sharing reading as the small-divisor check',
+        'Compute the HCF and LCM of fractions with the banked shortcuts, push mixed numbers through the improper conversion, and settle exam word problems of the bottle, tank and ribbon families',
+      ],
+      prerequisites: [
+        'fm-idea-of-a-fraction',
+        'fm-equivalent-fractions-simplification',
+        'fm-adding-subtracting-fractions',
+        'fm-hcf-lcm-and-how-they-relate',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math7-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 4.4 closed with a promise: one operation set remained to make the fraction line fully arithmetical — multiplication and division, where fractions stop being pooled and start scaling each other. Everything so far ran on a single move: get both fractions onto one ruler, so the counts can pool. This lesson breaks the pattern, and the break is the point. Multiplication needs **no common ruler at all** — because it does not pool pieces; it **re-cuts** them. The questions change shape once more: no longer "how much together?", but "how much is $\\tfrac{2}{3}$ **of** $\\tfrac{3}{4}$?" and "how many eighth-pieces fit in three quarters?"',
+        },
+        {
+          kind: 'para',
+          text: 'The word **of** carries the whole lesson. Take half **of** the shaded three quarters: the shaded amount is three quarter-pieces, and halving cuts every piece in two — three shaded quarters become six shaded eighths, and $\\tfrac{6}{8} = \\tfrac{3}{8}$. Nothing was pooled, no LCM was summoned; the new ruler simply has $2 \\times 4 = 8$ pieces and the shaded count is $1 \\times 3 = 3$. Multiplying by a fraction re-cuts the ruler and thins the count — denominators multiply, numerators multiply — and every result of this lesson grows from that one picture.',
+        },
+        { kind: 'heading', text: "Multiplication as 'of': the re-cutting reading" },
+        {
+          kind: 'para',
+          text: 'In whole-number land, "$\\tfrac{3}{4}$ of $56$" meant the fraction-of-a-quantity reading of Lesson 4.1: divide 56 into 4 shares, take 3 — and Lesson C\'s arithmetic delivered $3 \\times 56 \\div 4 = 42$. Now both factors can be fractions, and the same phrase does the same work: $\\tfrac{1}{2}$ of $\\tfrac{3}{4}$ means cut every piece of the three quarters into $2$, keep $1$ from each pair. The general statement deserves its formal dress:',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Multiplying fractions',
+          text: 'For positive denominators $b$ and $d$, the product of $\\tfrac{a}{b}$ and $\\tfrac{c}{d}$ is said to be the fraction with numerator $a \\times c$ and denominator $b \\times d$: $\\tfrac{a}{b} \\times \\tfrac{c}{d} = \\tfrac{ac}{bd}$. Thus, $\\tfrac{1}{2} \\times \\tfrac{3}{4} = \\tfrac{3}{8}$ and $\\tfrac{2}{3} \\times \\tfrac{4}{5} = \\tfrac{8}{15}$ — the denominators multiply into the new ruler, the numerators multiply into the new count. In symbols the rule is the very "straight across" that Lesson 4.4 forbade for addition — legal here, because re-cutting never asked the two factors to share a piece size.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the rule settles a first run of products at sight:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$\\tfrac{1}{2} \\times \\tfrac{1}{3} = \\tfrac{1}{6}$ — half of a third is a sixth: cutting thirds in half builds sixths;',
+            '$\\tfrac{2}{5} \\times \\tfrac{3}{4} = \\tfrac{6}{20} = \\tfrac{3}{10}$ — six cells of the twenty-ruler, simplified by the atom $2$;',
+            '$\\tfrac{3}{4} \\times \\tfrac{2}{9} = \\tfrac{6}{36} = \\tfrac{1}{6}$ — the atom $6$ clears itself at the end.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The rule deserves its proof, and the rulers supply it — no common ruler between the *factors* is ever needed, because the second factor\'s own ruler does the cutting while the first does the choosing:',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the multiplying rule holds',
+          statement:
+            'Claim: for positive denominators, $\\tfrac{a}{b} \\times \\tfrac{c}{d} = \\tfrac{ac}{bd}$. The argument reads the product as $\\tfrac{a}{b}$ of $\\tfrac{c}{d}$ and tracks the shaded pieces through one re-cutting.',
+          steps: [
+            {
+              label: 'Set the scene on the d-ruler',
+              formula: '\\tfrac{c}{d} \\;=\\; c \\text{ shaded pieces of the } d \\text{-ruler}',
+              explanation:
+                'The fraction c/d is c shaded cells of a ruler cut into d equal pieces — the part–whole reading of Lesson 4.1. Nothing is done to the amount yet; it is only placed on the table.',
+            },
+            {
+              label: 'Cut every piece into b sub-pieces',
+              formula: 'd \\text{ pieces} \\;\\to\\; b \\times d = bd \\text{ sub-pieces}',
+              explanation:
+                'Cutting each of the d pieces into b equal parts rebuilds the ruler as the bd-ruler. The shaded c pieces become c × b = bc shaded sub-pieces — the same amount under a new name, since bc/bd = c/d by the multiplying rule of Lesson 4.2.',
+            },
+            {
+              label: 'Take a of every b shaded sub-pieces',
+              formula: 'a \\times c \\text{ shaded sub-pieces survive}',
+              explanation:
+                'Taking a/b of the shaded amount means keeping a out of every group of b. The bc shaded sub-pieces fall into c blocks of b (one block per original shaded piece), and a from each block survives: a × c shaded sub-pieces.',
+            },
+            {
+              label: 'Read the result off the bd-ruler',
+              formula: '\\tfrac{a \\times c}{b \\times d} \\;=\\; \\tfrac{ac}{bd}',
+              explanation:
+                'The survivors sit on the bd-ruler, so their amount is ac/bd. No step used a shared piece size between the two factors — the second factor supplied the ruler, the first supplied the sieve.',
+            },
+          ],
+          result:
+            'a/b × c/d = ac/bd. Multiplying fractions re-cuts the second factor\'s ruler and sieves the shaded count — denominators multiply, numerators multiply, and no common ruler ever enters.',
+        },
+        {
+          kind: 'example',
+          title: 'Take 2/3 of 3/4 — the re-cutting, watched piece by piece',
+          steps: [
+            'Now, "of" is the multiplication: $\\tfrac{2}{3}$ of $\\tfrac{3}{4} = \\tfrac{2}{3} \\times \\tfrac{3}{4}$ — keep two of every three pieces of the shaded three quarters.',
+            'So cut every quarter into $3$: the four-ruler becomes the twelve-ruler, and the $3$ shaded quarters become $3 \\times 3 = 9$ shaded twelfths — the same amount renamed, since $\\tfrac{9}{12} = \\tfrac{3}{4}$.',
+            'Next, keep $2$ of every $3$ shaded twelfths: the $9$ shaded twelfths fall into $3$ blocks of $3$, and $2 \\times 3 = 6$ shaded twelfths survive.',
+            'Hence $\\tfrac{2}{3} \\times \\tfrac{3}{4} = \\tfrac{6}{12} = \\tfrac{1}{2}$ — half a whole — and the rule agrees in one line: $\\tfrac{2 \\times 3}{3 \\times 4} = \\tfrac{6}{12}$.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Multiplication re-cuts in two directions at once. The rectangle is cut into 5 columns (fifths) and 3 rows (thirds). Shading 3 columns shows 3/5; shading 2 rows shows 2/3. The overlap — doubly shaded — covers 2 × 3 = 6 of the 15 equal cells: 2/3 × 3/5 = 6/15 = 2/5. The rows supplied the sieve (2 of every 3), the columns supplied the ruler (5 pieces), and the product needs no common ruler at all.',
+          svg: `<svg viewBox="0 0 760 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rectangle cut into 5 columns and 3 rows with 3 columns and 2 rows shaded, their 6-cell overlap showing 2/3 of 3/5 = 6/15 = 2/5">
+  <g font-size="13" fill="currentColor">
+    <text x="70" y="40">cut into 5 columns — 3 shaded: 3/5</text>
+    <rect x="70" y="60" width="620" height="300" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g fill="#b45309" opacity="0.18">
+      <rect x="70" y="60" width="372" height="300"/>
+    </g>
+    <g fill="#78350f" opacity="0.12">
+      <rect x="70" y="60" width="620" height="200"/>
+    </g>
+    <rect x="70" y="60" width="372" height="200" fill="none" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <g stroke="currentColor" stroke-width="1" opacity="0.7">
+      <line x1="194" y1="60" x2="194" y2="360"/>
+      <line x1="318" y1="60" x2="318" y2="360"/>
+      <line x1="442" y1="60" x2="442" y2="360"/>
+      <line x1="566" y1="60" x2="566" y2="360"/>
+      <line x1="70" y1="160" x2="690" y2="160"/>
+      <line x1="70" y1="260" x2="690" y2="260"/>
+    </g>
+    <text x="706" y="215" font-weight="700">3/5</text>
+    <text x="70" y="400">the overlap: 2 rows × 3 columns = 6 cells of 15</text>
+    <text x="380" y="440" text-anchor="middle" font-weight="700">the doubly shaded cells are the product: 2/3 × 3/5 = 6/15 = 2/5</text>
+  </g>
+</svg>`,
+        },
+
+        { kind: 'heading', text: 'What multiplication does to size' },
+        {
+          kind: 'para',
+          text: 'Whole-number arithmetic trained a reflex: multiplying makes bigger. Fraction land retires the reflex. Multiplying by $\\tfrac{1}{2}$ **halves** — $\\tfrac{1}{2} \\times \\tfrac{3}{4} = \\tfrac{3}{8}$, well left of where the walk started. The honest reading is **scaling**: multiplying any amount by $\\tfrac{a}{b}$ stretches it when $a > b$, compresses it when $a < b$, and holds it when $a = b$. The number-line picture is exact — multiplying by $\\tfrac{3}{4}$ carries every point three quarters of the way toward $0$. A product of two proper fractions shrinks below **both** factors: $\\tfrac{2}{3} \\times \\tfrac{4}{5} = \\tfrac{8}{15}$, and $\\tfrac{8}{15} < \\tfrac{2}{3}$ as $\\tfrac{10}{15}$ and $\\tfrac{8}{15} < \\tfrac{4}{5}$ as $\\tfrac{12}{15}$ — the count thinned twice.',
+        },
+        {
+          kind: 'para',
+          text: 'The laws that governed addition climb intact, because multiplying counts is still whole-number arithmetic — the verified instances say so:',
+        },
+        {
+          kind: 'list',
+          items: [
+            '**Commutative**: $\\tfrac{2}{3} \\times \\tfrac{3}{5} = \\tfrac{3}{5} \\times \\tfrac{2}{3} = \\tfrac{2}{5}$ — the sieve and the ruler may swap jobs, the product does not move;',
+            '**Associative**: $(\\tfrac{1}{2} \\times \\tfrac{2}{5}) \\times \\tfrac{3}{4} = \\tfrac{1}{5} \\times \\tfrac{3}{4} = \\tfrac{3}{20}$ and $\\tfrac{1}{2} \\times (\\tfrac{2}{5} \\times \\tfrac{3}{4}) = \\tfrac{1}{2} \\times \\tfrac{3}{10} = \\tfrac{3}{20}$ — grouped either way, the same cells survive;',
+            '**Identity 1**: $\\tfrac{5}{9} \\times 1 = \\tfrac{5}{9}$ — the multiplier that re-cuts nothing; every other multiplier moves the point;',
+            '**Zero**: $\\tfrac{5}{9} \\times 0 = 0$ — the sieve that keeps nothing.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Two frauds, one lesson apart',
+          text: 'Lesson 4.4\'s straight-across fraud is now a truth: $\\tfrac{2}{3} \\times \\tfrac{3}{5} = \\tfrac{2 \\times 3}{3 \\times 5} = \\tfrac{2}{5}$ is exactly right — multiplying straight across is the rule, and the mediant trap only ever threatened sums. But a new fraud takes its place: hunting a common ruler for a product. $\\tfrac{2}{3} \\times \\tfrac{3}{5}$ needs no LCM; $\\tfrac{2}{3} + \\tfrac{3}{5}$ does. Re-cutting shares no pieces, so it never asks for equal ones — and "$\\tfrac{2}{3} \\times \\tfrac{3}{5} = \\tfrac{5}{8}$" (numerators and denominators *added*) is addition\'s fraud wearing multiplication\'s clothes. The two operations share nothing across the sign: pool on one ruler, or re-cut both — never both at once.',
+        },
+        {
+          kind: 'para',
+          text: "Chains of 'of' run left to right, one sieve at a time: $\\tfrac{3}{4}$ of $\\tfrac{2}{5}$ of $400$ is $\\tfrac{2}{5}$ of $400 = 160$, then $\\tfrac{3}{4}$ of $160 = 120$ — the tank drained in two moves, no combined fraction ever formed. And the atoms of Lesson 4.2 now cross the multiplication sign legally: cancelling a numerator against a *denominator* divides both by the same number, so the product is unchanged. Cancelling across **addition** was never licensed; across **multiplication** it is standard professional practice, and the next Illustration runs both routes side by side.",
+        },
+        {
+          kind: 'example',
+          title: 'Multiply 5/6 × 3/10 — brute force and the cancelled route',
+          steps: [
+            'Now, the brute route: $\\tfrac{5}{6} \\times \\tfrac{3}{10} = \\tfrac{5 \\times 3}{6 \\times 10} = \\tfrac{15}{60}$.',
+            'So simplify the result: $\\gcd(15, 60) = 15$, and one division gives $\\tfrac{15}{60} = \\tfrac{1}{4}$.',
+            'Or cancel before multiplying: the atom $5$ divides the $10$ and the atom $3$ divides the $6$ — $\\tfrac{5}{6} \\times \\tfrac{3}{10} = \\tfrac{1}{2} \\times \\tfrac{1}{2} = \\tfrac{1}{4}$, licensed because each cancellation divides a numerator and a denominator by the same number.',
+            'Hence $\\tfrac{5}{6} \\times \\tfrac{3}{10} = \\tfrac{1}{4}$ — the same verdict either way, but the cancelled route never touched a two-digit count: simplify early, multiply small.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The multiplying rule',
+          latex: '\\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd}',
+          note: 'No common ruler is ever needed: multiplication re-cuts the second factor\'s ruler and sieves the count by the first. Simplify before or after — cancelling a numerator against a denominator across the × sign is licensed; across + it never was. Proper multipliers shrink, improper ones grow, 1 holds, 0 empties.',
+        },
+        { kind: 'heading', text: 'Division and the reciprocal' },
+        {
+          kind: 'para',
+          text: 'Division asks two questions, and both survive the climb into fractions. The **sharing** reading — $\\tfrac{1}{2} \\div 3$ splits half a roti into three equal shares — delivers $\\tfrac{1}{2} \\times \\tfrac{1}{3} = \\tfrac{1}{6}$: dividing by a whole number multiplies by its unit fraction. The **measuring** reading asks how many of one amount fit inside another: $\\tfrac{3}{4} \\div \\tfrac{1}{8}$ asks how many eighth-pieces fit in three quarters. On the eight-ruler the answer is a count: $\\tfrac{3}{4} = \\tfrac{6}{8}$, and six eighth-pieces fit — so $\\tfrac{3}{4} \\div \\tfrac{1}{8} = 6$. Measuring is division\'s native habitat in fraction land, and the general case is a theorem away.',
+        },
+        {
+          kind: 'para',
+          text: 'The theorem needs one new object. Multiplication by $\\tfrac{c}{d}$ undoes nothing by itself — but the fraction $\\tfrac{d}{c}$, the same fraction **flipped**, multiplies it back to the whole: $\\tfrac{c}{d} \\times \\tfrac{d}{c} = 1$. Formally:',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The reciprocal',
+          text: 'A fraction $\\tfrac{a}{b}$ with $a \\neq 0$ is said to have the **reciprocal** $\\tfrac{b}{a}$ — the flip — because $\\tfrac{a}{b} \\times \\tfrac{b}{a} = \\tfrac{ab}{ba} = 1$. Thus, the reciprocal of $\\tfrac{2}{3}$ is $\\tfrac{3}{2}$; the reciprocal of a whole number $n$ is $\\tfrac{1}{n}$ ($n = \\tfrac{n}{1}$ flipped); the reciprocal of the unit fraction $\\tfrac{1}{n}$ is the whole $n$; and the reciprocal of the reciprocal returns the original. The number $0$ has no reciprocal — no number times $0$ gives $1$ — and this absence is exactly why division by zero is forbidden, here and everywhere after.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The division theorem',
+          statement:
+            'Claim: for positive denominators and $c \\neq 0$, $\\tfrac{a}{b} \\div \\tfrac{c}{d} = \\tfrac{a}{b} \\times \\tfrac{d}{c}$. The argument runs the measuring question on the common bd-ruler and watches the theorem fall out.',
+          steps: [
+            {
+              label: 'Raise both fractions to the bd-ruler',
+              formula: '\\tfrac{a}{b} = \\tfrac{ad}{bd} \\qquad \\tfrac{c}{d} = \\tfrac{bc}{bd}',
+              explanation:
+                'The product bd is a legal common ruler for any two denominators (Lesson 4.2), and raising is multiplication by 1 = d/d and 1 = b/b — no new licence is spent, the multiplying rule of this lesson does the work.',
+            },
+            {
+              label: 'Ask the measuring question on one ruler',
+              formula: '\\tfrac{ad}{bd} \\div \\tfrac{bc}{bd} \\;=\\; ad \\div bc \\text{ (pieces of one size)}',
+              explanation:
+                'Once both amounts speak in bd-pieces, "how many bc-pieces fit in ad-pieces" is a ratio of whole counts — and the division face of Lesson 4.1 names it exactly: the fraction ad/bc.',
+            },
+            {
+              label: 'Run the multiply-by-the-reciprocal route',
+              formula: '\\tfrac{a}{b} \\times \\tfrac{d}{c} = \\tfrac{ad}{bc}',
+              explanation:
+                'The multiplying rule applied to a/b and the flipped divisor d/c delivers the very same fraction ad/bc — the same count on the same ruler.',
+            },
+            {
+              label: 'Conclude',
+              formula: '\\tfrac{a}{b} \\div \\tfrac{c}{d} = \\tfrac{a}{b} \\times \\tfrac{d}{c}',
+              explanation:
+                'Both routes answer the same measuring question with the same number, so they are one rule: dividing by a fraction is multiplying by its reciprocal. The flip is not a trick to memorise — it is the measuring count, wearing its shortest name.',
+            },
+          ],
+          result:
+            'a/b ÷ c/d = a/b × d/c (c ≠ 0). One flip — the divisor\'s — turns every fraction division into the multiplication this lesson already proved.',
+        },
+        {
+          kind: 'example',
+          title: 'Divide 5/6 ÷ 2/3 — the measuring count and the theorem agree',
+          steps: [
+            'Now, the question: how many two-thirds fit in five sixths?',
+            'So measure on the common ruler $12$: $\\tfrac{5}{6} = \\tfrac{10}{12}$ and $\\tfrac{2}{3} = \\tfrac{8}{12}$ — the question becomes: how many $8$-pieces fit in $10$-pieces?',
+            'Next, the count: $\\tfrac{10}{8} = \\tfrac{5}{4}$ — five sixths is five quarters of a two-thirds, and the answer need not be a whole number of pieces.',
+            'Hence $\\tfrac{5}{6} \\div \\tfrac{2}{3} = \\tfrac{5}{4}$ — and the theorem agrees in one flip: $\\tfrac{5}{6} \\times \\tfrac{3}{2} = \\tfrac{15}{12} = \\tfrac{5}{4}$.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Division measures. The line is cut into eighths (85 px each); 3/4 sits at 550 px, six eighth-steps from 0. The arc spans exactly those six steps — 6 × 85 = 510 px of the 680 px unit — so 3/4 ÷ 1/8 = 6: six eighths fit in three quarters. The theorem says the same in one flip: 3/4 × 8/1 = 24/4 = 6.',
+          svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 0 to 1 cut into eighths with an arc spanning the six eighth-steps from 0 to 3/4, naming 3/4 divided by 1/8 as 6">
+  <g font-size="13" fill="currentColor">
+  <line x1="40" y1="170" x2="720" y2="170" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M 720 170 l -9 -4 v 8 z" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1" opacity="0.7">
+    <line x1="125" y1="164" x2="125" y2="176"/>
+    <line x1="210" y1="164" x2="210" y2="176"/>
+    <line x1="295" y1="164" x2="295" y2="176"/>
+    <line x1="380" y1="164" x2="380" y2="176"/>
+    <line x1="465" y1="164" x2="465" y2="176"/>
+    <line x1="550" y1="164" x2="550" y2="176"/>
+    <line x1="635" y1="164" x2="635" y2="176"/>
+  </g>
+  <line x1="40" y1="160" x2="40" y2="180" stroke="currentColor" stroke-width="1.5"/>
+  <text x="40" y="200" text-anchor="middle" font-weight="700">0</text>
+  <line x1="550" y1="158" x2="550" y2="182" stroke="#b45309" stroke-width="1.5"/>
+  <text x="550" y="200" text-anchor="middle" font-weight="700">3/4</text>
+  <line x1="720" y1="160" x2="720" y2="180" stroke="currentColor" stroke-width="1.5"/>
+  <text x="720" y="200" text-anchor="middle" font-weight="700">1</text>
+  <path d="M 40 170 A 255 46 0 0 1 550 170" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <text x="295" y="96" text-anchor="middle" font-weight="700">6 × 1/8 = 6 eighth-steps</text>
+  <text x="380" y="232" text-anchor="middle" font-weight="700">division measures: 3/4 ÷ 1/8 = 6 — six eighths fit in three quarters</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The scale reading now completes its see-saw. Multiplying by a proper fraction shrank; **dividing** by one enlarges: $\\tfrac{3}{4} \\div \\tfrac{1}{2} = \\tfrac{3}{2}$, well right of $\\tfrac{3}{4}$ — how many halves in three quarters is a bigger count than how much is three quarters. Dividing by an improper fraction shrinks ($\\tfrac{3}{4} \\div \\tfrac{3}{2} = \\tfrac{1}{2}$), and dividing by $1$ holds ($\\tfrac{5}{9} \\div 1 = \\tfrac{5}{9}$). The two operations are mirror moves: multiplying by $\\tfrac{1}{2}$ **is** dividing by $2$ — $\\tfrac{3}{4} \\times \\tfrac{1}{2} = \\tfrac{3}{4} \\div 2 = \\tfrac{3}{8}$ — and dividing undoes multiplying exactly: multiply $\\tfrac{5}{6}$ by $\\tfrac{2}{3}$ and divide the result by $\\tfrac{2}{3}$ again, and $\\tfrac{5}{6}$ returns. The reciprocal is multiplication\'s undo button, which is the whole point of it.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Flip the divisor — only the divisor',
+          text: 'The theorem flips one fraction: $\\tfrac{a}{b} \\div \\tfrac{c}{d} = \\tfrac{a}{b} \\times \\tfrac{d}{c}$. Flip the first fraction too — $\\tfrac{2}{1} \\times \\tfrac{1}{6} = \\tfrac{1}{3}$ for $\\tfrac{1}{2} \\div \\tfrac{1}{6}$ — and the answer lands at a third of the truth ($3$, not $\\tfrac{1}{3}$). Flip nothing and divide "straight across", and no rule answers you at all: division of fractions has no straight-across form. And the sharing reading keeps small divisors honest: $\\tfrac{1}{2} \\div 3 = \\tfrac{1}{2} \\times \\tfrac{1}{3} = \\tfrac{1}{6}$ — three shares of half a roti, each a sixth.',
+        },
+        {
+          kind: 'formula',
+          name: 'The division theorem',
+          latex: '\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c} \\qquad (c \\neq 0)',
+          note: 'Measure or share — then flip the divisor and multiply. The bd-ruler proof: both fractions speak in bd-pieces, the measuring count ad ÷ bc is the fraction ad/bc, and the flipped product a/b × d/c delivers the same ad/bc. Answers need not be whole; dividing by a proper fraction enlarges, by an improper one shrinks.',
+        },
+        { kind: 'heading', text: 'The HCF and LCM of fractions' },
+        {
+          kind: 'para',
+          text: 'Since Lesson 4.1, the reference shelf has kept two shortcuts banked for exactly this moment: the exam hall asks for the HCF and LCM **of fractions**, and chapter 3\'s machinery — built for whole numbers — generalises cleanly now that division is on the table. The bridge is a definition of "measuring" that makes sense between fractions: a fraction $x$ is said to **measure** a fraction $y$ when $y \\div x$ is a whole number — when $y$ is a whole number of $x$-pieces. Thus $\\tfrac{2}{9}$ measures $\\tfrac{2}{3}$, because $\\tfrac{2}{3} \\div \\tfrac{2}{9} = 3$: three ninth-pieces of size $\\tfrac{2}{9}$ rebuild $\\tfrac{2}{3}$ exactly.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'HCF and LCM of fractions',
+          text: 'For fractions in lowest terms, the **HCF** is the largest fraction measuring both, and the **LCM** is the smallest fraction both measure. In symbols, with $\\tfrac{a}{b}$ and $\\tfrac{c}{d}$ in lowest terms: $\\mathrm{HCF}\\left(\\tfrac{a}{b}, \\tfrac{c}{d}\\right) = \\tfrac{\\mathrm{HCF}(a, c)}{\\mathrm{LCM}(b, d)}$ and $\\mathrm{LCM}\\left(\\tfrac{a}{b}, \\tfrac{c}{d}\\right) = \\tfrac{\\mathrm{LCM}(a, c)}{\\mathrm{HCF}(b, d)}$ — the numerators take the chapter-3 operation, the denominators take the opposite one. On the common ruler the reason is visible: measuring runs on the numerators\' divisibility, and the denominators swap roles because a bigger piece size means a smaller count.',
+        },
+        {
+          kind: 'example',
+          title: 'Find the HCF and the LCM of 2/3 and 8/9 — and check the product rule',
+          steps: [
+            'Now, both fractions are in lowest terms ($\\gcd(2, 3) = 1$, $\\gcd(8, 9) = 1$), so the shortcuts apply directly.',
+            'So the HCF: $\\tfrac{\\mathrm{HCF}(2, 8)}{\\mathrm{LCM}(3, 9)} = \\tfrac{2}{9}$ — and it measures both: $\\tfrac{2}{3} \\div \\tfrac{2}{9} = \\tfrac{6}{9} \\times \\tfrac{9}{2} = 3$ and $\\tfrac{8}{9} \\div \\tfrac{2}{9} = 4$.',
+            'Next, the LCM: $\\tfrac{\\mathrm{LCM}(2, 8)}{\\mathrm{HCF}(3, 9)} = \\tfrac{8}{3}$ — and both measure it: $\\tfrac{8}{3} \\div \\tfrac{2}{3} = 4$ and $\\tfrac{8}{3} \\div \\tfrac{8}{9} = 3$.',
+            'Hence the HCF is $\\tfrac{2}{9}$ and the LCM is $\\tfrac{8}{3}$ — and Lesson 3.5\'s product rule survives the climb into fractions intact: $\\tfrac{2}{9} \\times \\tfrac{8}{3} = \\tfrac{16}{27} = \\tfrac{2}{3} \\times \\tfrac{8}{9}$, the product of the two fractions themselves.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The measuring direction is worth fixing in mind, because the exam options play on it. The HCF $\\tfrac{2}{9}$ sits **below** both fractions — the biggest piece that tiles each an exact whole number of times. The LCM $\\tfrac{8}{3}$ sits **above** both — the smallest amount each can tile an exact whole number of times. And the product rule ties them: HCF $\\times$ LCM $=$ the product of the fractions, exactly as $63 \\times 1260 = 315 \\times 252$ did in Lesson 3.5. The atoms, the containers and their rule all climbed the ladder together.',
+        },
+        { kind: 'heading', text: 'Mixed numbers: convert, then operate' },
+        {
+          kind: 'para',
+          text: 'Lesson 4.4 gave mixed numbers a storey-by-storey treatment for $+$ and $-$: wholes with wholes, parts with parts, regrouping across the boundary. Multiplication and division get **no such courtesy** — and the reason is structural. The mixed notation $a\\,\\tfrac{c}{d}$ hides a sum: $a + \\tfrac{c}{d}$. Multiplying two hidden sums is legal (distributivity would find all four cross terms) but wasteful bookkeeping; the professional habit converts everything to improper fractions first, operates once, and converts back with the division algorithm.',
+        },
+        {
+          kind: 'example',
+          title: 'Multiply 2 1/2 × 1 3/4 — the improper route',
+          steps: [
+            'Now, convert both factors: $2\\tfrac{1}{2} = \\tfrac{2 \\times 2 + 1}{2} = \\tfrac{5}{2}$ and $1\\tfrac{3}{4} = \\tfrac{1 \\times 4 + 3}{4} = \\tfrac{7}{4}$.',
+            'So multiply the impropers: $\\tfrac{5}{2} \\times \\tfrac{7}{4} = \\tfrac{35}{8}$.',
+            'Next, read it back with the division algorithm: $35 = 4 \\times 8 + 3$, so $\\tfrac{35}{8} = 4\\tfrac{3}{8}$.',
+            'Hence $2\\tfrac{1}{2} \\times 1\\tfrac{3}{4} = 4\\tfrac{3}{8}$ — and the storey route, legal but tangled, must dig up all four cross terms ($2 + \\tfrac{3}{2} + \\tfrac{1}{2} + \\tfrac{3}{8}$) before it agrees.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Division converts the same way, and the outcome can surprise: $1\\tfrac{1}{2} \\div 2\\tfrac{1}{4} = \\tfrac{3}{2} \\div \\tfrac{9}{4} = \\tfrac{3}{2} \\times \\tfrac{4}{9} = \\tfrac{12}{18} = \\tfrac{2}{3}$ — a quotient that lands **below** $1$, because dividing by a bigger number shrinks. Products of two mixed numbers past $1$ must exceed each factor ($\\tfrac{35}{8} > \\tfrac{5}{2}$ and $> \\tfrac{7}{4}$), but quotients owe no such courtesy: the see-saw of the scale reading keeps every result honest before the arithmetic is checked.',
+        },
+        {
+          kind: 'formula',
+          name: 'Mixed numbers under × and ÷',
+          latex: 'a\\tfrac{c}{d} = \\frac{ad + c}{d} \\quad \\text{first, always} \\qquad \\text{then } \\times \\text{ or } \\div \\text{ on the impropers}',
+          note: 'No storey shortcut exists for multiplication or division: the mixed notation hides a sum, and sums must be resolved before the product or quotient can be formed. Convert with ad + c over d, operate once, convert back with the division algorithm n = q × d + r.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Multiplying rule',
+              def: 'The straight-across product: a/b × c/d = ac/bd — denominators multiply into the new ruler, numerators into the new count. No common ruler is ever needed: multiplication re-cuts, it does not pool.',
+            },
+            {
+              term: 'Scaling',
+              def: 'What multiplication does to size: multiplying by a/b stretches when a > b, compresses when a < b, holds when a = b. Proper multipliers shrink — "multiplication makes bigger" is retired in fraction land.',
+            },
+            {
+              term: 'Cross-cancellation',
+              def: 'Dividing a numerator and the other factor\'s denominator by their common atom BEFORE multiplying, across the × sign: 5/6 × 3/10 = 1/2 × 1/2. Licensed by Lesson 4.2\'s atoms; across a + sign it never was.',
+            },
+            {
+              term: 'Reciprocal',
+              def: 'The flip of a/b is b/a, and a/b × b/a = 1. The reciprocal of a whole n is 1/n, of the unit fraction 1/n is n, and of the reciprocal the original. 0 has none — which is exactly why division by 0 is forbidden.',
+            },
+            {
+              term: 'Division theorem',
+              def: 'a/b ÷ c/d = a/b × d/c — measure on the common bd-ruler, or flip the divisor and multiply. Only the divisor flips; the answer need not be a whole number of pieces.',
+            },
+            {
+              term: 'Measuring',
+              def: 'A fraction x measures y when y ÷ x is a whole number. The HCF of fractions is the largest fraction measuring both; the LCM is the smallest fraction both measure — computed by HCF(a,c)/LCM(b,d) and LCM(a,c)/HCF(b,d) on lowest terms.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Putting it to work' },
+        {
+          kind: 'para',
+          text: 'From the above discussion, the methods collect into one table — six recurring situations, six routes, each with its worked instance from this lesson:',
+        },
+        {
+          kind: 'table',
+          head: ['Situation', 'Route', 'Worked instance', 'Result'],
+          rows: [
+            ['Fraction × fraction', 'multiply straight across, then simplify', '2/3 × 3/5 = 6/15', '= 2/5'],
+            ["An 'of' chain", 'work left to right, one sieve at a time', '3/4 of 2/5 of 400 = 3/4 × 160', '= 120'],
+            ['Big counts in sight', 'cancel atoms across the × sign first', '5/6 × 3/10 = 1/2 × 1/2', '= 1/4'],
+            ['HCF / LCM of fractions', 'numerators take the operation, denominators the opposite', 'HCF, LCM of 2/3 and 8/9', '= 2/9 and 8/3'],
+            ['Fraction ÷ fraction', 'multiply by the divisor\'s reciprocal', '5/6 ÷ 2/3 = 5/6 × 3/2', '= 5/4'],
+            ['Mixed numbers', 'convert to improper first — no storey shortcut', '2 1/2 × 1 3/4 = 5/2 × 7/4', '= 35/8 = 4 3/8'],
+          ],
+        },
+        {
+          kind: 'equation',
+          latex: '\\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd} \\qquad \\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c} \\qquad \\mathrm{HCF}\\!\\left(\\tfrac{a}{b}, \\tfrac{c}{d}\\right) = \\frac{\\mathrm{HCF}(a,c)}{\\mathrm{LCM}(b,d)}',
+          note: 'The three laws of scaling on one line: multiplication re-cuts both rulers at once; division measures by flipping the divisor; and the HCF shortcut rides the same vinculum — numerators take the operation, denominators its partner. Mixed numbers convert first; products of proper fractions shrink; quotients by proper fractions grow.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Multiplication and division in the exam hall',
+          text: 'The exam shapes repeat. (i) *\'of\' chains on quantities* — "a tank holds 240 L and is $\\tfrac{2}{3}$ full; $\\tfrac{3}{4}$ of the water is used": $\\tfrac{2}{3} \\times 240 = 160$ L, then $\\tfrac{3}{4} \\times 160 = 120$ L used, $\\tfrac{40}{240} = \\tfrac{1}{6}$ remaining. (ii) *Bottle-and-drum items* — "how many $\\tfrac{3}{4}$-litre bottles fill $\\tfrac{15}{2}$ litres": $(\\tfrac{15}{2}) \\div (\\tfrac{3}{4}) = \\tfrac{15}{2} \\times \\tfrac{4}{3} = 10$ bottles exactly. (iii) *HCF/LCM-of-fractions items* — the banked shortcuts verbatim, both fractions in lowest terms first. (iv) *Reciprocal speed rounds* — $1 \\div \\tfrac{2}{3} = \\tfrac{3}{2}$: dividing $1$ by a fraction hands back its reciprocal, worth knowing on sight. Chapter 3\'s Euclid remains on call for any LCM the eye misses.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: '2/3 × 3/5 = ?',
+              options: [
+                '5/15 = 1/3 — add the numerators and the denominators',
+                '2/5 — multiply straight across: 6/15, then simplify by the atom 3',
+                '3/4 — multiply numerators, add denominators',
+                '5/2 — multiply and flip the result',
+              ],
+              answer: 1,
+              explain:
+                'Multiplication is the operation where straight across is legal: 2 × 3 = 6 over 3 × 5 = 15, and the atom 3 clears to 2/5 (Option 2). Option 1 is Lesson 4.4\'s addition fraud dragged across the sign — sums and products share nothing. Option 3 mixes the two operations in one fraction. Option 4 flips for no reason: flipping is division\'s move, and no division is in sight.',
+            },
+            {
+              q: 'Multiplying 2/7 by which fraction moves the point 2/7 to the LEFT — toward 0?',
+              options: [
+                '5/3 — an improper multiplier',
+                '1 — the identity',
+                '3/8 — a proper fraction: 3/8 × 2/7 = 3/28, strictly left of 2/7',
+                '8/3 — another improper multiplier',
+              ],
+              answer: 2,
+              explain:
+                'Multiplying by a proper fraction compresses: 3/8 × 2/7 = 6/56 = 3/28 < 2/7 (Option 3). Options 1 and 4 are improper multipliers — 10/21 and 16/21 both land right of 2/7. Option 2 holds the point still: the identity does not move anything, so it is not a move to the left at all.',
+            },
+            {
+              q: '1/2 ÷ 1/6 = ?',
+              options: [
+                '1/12 — multiply the fractions instead of dividing',
+                '3 — the theorem: 1/2 × 6/1; three sixths fit in one half',
+                '1/3 — flip the first fraction: 2/1 × 1/6',
+                '12 — flip both fractions',
+              ],
+              answer: 1,
+              explain:
+                'How many sixths in a half? The six-ruler answers by counting: 1/2 = 3/6, three pieces (Option 2). The theorem agrees: 1/2 × 6/1 = 6/2 = 3. Option 1 multiplies when the question asked it to measure. Option 3 flips the wrong fraction — the theorem flips only the divisor. Option 4 flips both fractions — 2/1 × 6/1 = 12 — compounding one wrong flip with a second.',
+            },
+            {
+              q: 'The HCF of 2/3 and 8/9 is:',
+              options: [
+                '2/9 — HCF(2, 8)/LCM(3, 9), and it measures both: 3 times and 4 times',
+                '16/27 — the product of the two fractions',
+                '14/9 — their sum, 6/9 + 8/9',
+                '8/3 — their LCM',
+              ],
+              answer: 0,
+              explain:
+                'The shortcut reads HCF(a, c)/LCM(b, d) = 2/9 (Option 1), and the measuring test confirms: 2/3 = 3 × 2/9 and 8/9 = 4 × 2/9. Option 2 is the product — which is what HCF × LCM returns (Lesson 3.5\'s rule surviving the climb), not the HCF. Option 3 is the sum: the wrong operation family entirely. Option 4 is the LCM — both fractions measure IT (4 and 3 times), the measuring arrow pointing the other way.',
+            },
+            {
+              q: '2 1/2 × 1 3/4 = ?',
+              options: [
+                '2 3/8 — multiply the storeys separately: 2 × 1 wholes and 1/2 × 3/4',
+                '4 1/4 — the sum 2 1/2 + 1 3/4',
+                '35/16 — flip the second factor while multiplying',
+                '4 3/8 — improper first: 5/2 × 7/4 = 35/8',
+              ],
+              answer: 3,
+              explain:
+                '× and ÷ have no storey shortcut: the mixed notation hides a sum, so convert first — 5/2 × 7/4 = 35/8, and 35 = 4 × 8 + 3 reads back as 4 3/8 (Option 4). Option 1 multiplies the storeys separately and loses the cross terms 2 × 3/4 and 1/2 × 1 entirely. Option 2 computes the addition. Option 3 flips a factor with no division anywhere in the problem.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Compute: (a) 1/3 × 2/5; (b) 3/4 × 2/9.',
+                  solution: [
+                    'Now, both are straight-across multiplications — no common ruler is ever needed.',
+                    'So (a) $\\tfrac{1}{3} \\times \\tfrac{2}{5} = \\tfrac{1 \\times 2}{3 \\times 5} = \\tfrac{2}{15}$, already lowest ($\\gcd(2, 15) = 1$).',
+                    'And (b): $\\tfrac{3}{4} \\times \\tfrac{2}{9} = \\tfrac{6}{36}$, and the atom $6$ clears in one division: $\\tfrac{6}{36} = \\tfrac{1}{6}$.',
+                    'Hence (a) $\\tfrac{2}{15}$, (b) $\\tfrac{1}{6}$ — re-cutting done, atoms swept.',
+                  ],
+                  answer: '(a) 2/15; (b) 1/6 (6/36 simplified)',
+                },
+                {
+                  q: 'How much is 1/2 of 4/5?',
+                  solution: [
+                    'Now, "of" is the multiplication: $\\tfrac{1}{2}$ of $\\tfrac{4}{5} = \\tfrac{1}{2} \\times \\tfrac{4}{5}$.',
+                    'So cut every fifth in half — $\\tfrac{1 \\times 4}{2 \\times 5} = \\tfrac{4}{10}$.',
+                    'Next, simplify: $\\gcd(4, 10) = 2$, so $\\tfrac{4}{10} = \\tfrac{2}{5}$ — or cancel first: $\\tfrac{1}{2} \\times \\tfrac{4}{5} = \\tfrac{1}{1} \\times \\tfrac{2}{5}$.',
+                    'Hence $\\tfrac{1}{2}$ of $\\tfrac{4}{5} = \\tfrac{2}{5}$ — half of four fifths is two fifths, as the sieve promises.',
+                  ],
+                  answer: '2/5 (4/10 simplified; or cancel the 2s before multiplying)',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Compute 2/7 × 7/8, and explain why no common ruler was needed.',
+                  solution: [
+                    'Now, the brute count: $\\tfrac{2 \\times 7}{7 \\times 8} = \\tfrac{14}{56}$.',
+                    'So the atom $7$ clears: $\\tfrac{14}{56} = \\tfrac{1}{4}$ — or cancel first, $7$ against $7$: $\\tfrac{2}{7} \\times \\tfrac{7}{8} = \\tfrac{2}{1} \\times \\tfrac{1}{8} = \\tfrac{2}{8} = \\tfrac{1}{4}$.',
+                    'Next, why no common ruler: multiplication re-cuts the second factor\'s ruler and sieves by the first — it never pools pieces, so equal piece sizes are never required. Only $+$ and $-$ summon the LCM.',
+                    'Hence $\\tfrac{2}{7} \\times \\tfrac{7}{8} = \\tfrac{1}{4}$ — and the cancelled route shows the deeper truth: a factor sharing an atom with the other\'s denominator dissolves it for free.',
+                  ],
+                  answer: '1/4 (14/56; the 7s cancel across the × sign)',
+                },
+                {
+                  q: 'Divide 2/3 ÷ 4/9.',
+                  solution: [
+                    'Now, the theorem: flip the divisor, and only the divisor — $\\tfrac{2}{3} \\div \\tfrac{4}{9} = \\tfrac{2}{3} \\times \\tfrac{9}{4}$.',
+                    'So multiply: $\\tfrac{2 \\times 9}{3 \\times 4} = \\tfrac{18}{12}$.',
+                    'Next, simplify: $\\gcd(18, 12) = 6$, so $\\tfrac{18}{12} = \\tfrac{3}{2}$ — or cancel first: $\\tfrac{2}{3} \\times \\tfrac{9}{4} = \\tfrac{1}{1} \\times \\tfrac{3}{2}$.',
+                    'Hence $\\tfrac{2}{3} \\div \\tfrac{4}{9} = \\tfrac{3}{2}$ — how many four-ninths in two thirds: one and a half, the measuring count made honest.',
+                  ],
+                  answer: '3/2 (2/3 × 9/4 = 18/12)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Simplify first, then multiply: 5/6 × 12/25.',
+                  solution: [
+                    'Now, hunt the atoms across the sign: $5$ divides $25$, and $6$ divides $12$.',
+                    'So cancel both: $\\tfrac{5}{6} \\times \\tfrac{12}{25} = \\tfrac{1}{1} \\times \\tfrac{2}{5} = \\tfrac{2}{5}$ — the cancelled route never sees a two-digit number.',
+                    'Or brute force first: $\\tfrac{5 \\times 12}{6 \\times 25} = \\tfrac{60}{150}$, and $\\gcd(60, 150) = 30$ delivers $\\tfrac{2}{5}$ — the same verdict, larger counts.',
+                    'Hence $\\tfrac{5}{6} \\times \\tfrac{12}{25} = \\tfrac{2}{5}$ — simplify early, multiply small: the professional habit, licensed by the atoms of Lesson 4.2.',
+                  ],
+                  answer: '2/5 (cancel 5 & 25, then 6 & 12: 1 × 2/5)',
+                },
+                {
+                  q: 'A ribbon is 5/6 m long. How long is 3/4 of the ribbon?',
+                  solution: [
+                    'Now, "of" is the multiplication: $\\tfrac{3}{4}$ of $\\tfrac{5}{6} = \\tfrac{3}{4} \\times \\tfrac{5}{6}$.',
+                    'So multiply: $\\tfrac{3 \\times 5}{4 \\times 6} = \\tfrac{15}{24}$.',
+                    'Next, simplify: $\\gcd(15, 24) = 3$, so $\\tfrac{15}{24} = \\tfrac{5}{8}$.',
+                    'Hence $\\tfrac{3}{4}$ of the ribbon is $\\tfrac{5}{8}$ m — and the check reads upward: since $\\tfrac{3}{4} < 1$, the piece must be shorter than the whole, and $\\tfrac{5}{8} < \\tfrac{5}{6}$ agrees.',
+                  ],
+                  answer: '5/8 m (3/4 × 5/6 = 15/24)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Find the HCF and the LCM of 1/2 and 3/8, and check the product rule.',
+                  solution: [
+                    'Now, both are in lowest terms ($\\gcd(1, 2) = 1$, $\\gcd(3, 8) = 1$), so the shortcuts apply.',
+                    'So the HCF: $\\tfrac{\\mathrm{HCF}(1, 3)}{\\mathrm{LCM}(2, 8)} = \\tfrac{1}{8}$ — it measures both: $\\tfrac{1}{2} \\div \\tfrac{1}{8} = 4$ and $\\tfrac{3}{8} \\div \\tfrac{1}{8} = 3$.',
+                    'Next, the LCM: $\\tfrac{\\mathrm{LCM}(1, 3)}{\\mathrm{HCF}(2, 8)} = \\tfrac{3}{2}$ — both measure it: $\\tfrac{3}{2} \\div \\tfrac{1}{2} = 3$ and $\\tfrac{3}{2} \\div \\tfrac{3}{8} = 4$.',
+                    'Hence HCF $= \\tfrac{1}{8}$, LCM $= \\tfrac{3}{2}$, and the product rule closes the case: $\\tfrac{1}{8} \\times \\tfrac{3}{2} = \\tfrac{3}{16} = \\tfrac{1}{2} \\times \\tfrac{3}{8}$ — Lesson 3.5\'s identity, now in fraction land.',
+                  ],
+                  answer: 'HCF 1/8, LCM 3/2 (product rule: 3/16 = 1/2 × 3/8)',
+                },
+                {
+                  q: 'exam-style: A tank holds 240 L and is 2/3 full. Then 3/4 of the water in it is used. How many litres are used, and what fraction of the tank remains?',
+                  solution: [
+                    'Now, the water first: $\\tfrac{2}{3}$ of $240 = \\tfrac{2 \\times 240}{3} = 160$ L.',
+                    'So the usage: $\\tfrac{3}{4}$ of $160 = \\tfrac{3 \\times 160}{4} = 120$ L used.',
+                    'Next, the remainder: $160 - 120 = 40$ L, and as a fraction of the tank, $\\tfrac{40}{240} = \\tfrac{1}{6}$ — the chain $\\tfrac{1}{4}$ of the water left, times $\\tfrac{2}{3}$ of the tank, agrees: $\\tfrac{1}{4} \\times \\tfrac{2}{3} = \\tfrac{2}{12} = \\tfrac{1}{6}$.',
+                    'Hence $120$ L are used and $\\tfrac{1}{6}$ of the tank remains — two sieves in a row, each read on its own quantity.',
+                  ],
+                  answer: '120 L used; 1/6 of the tank remains (40 L of 240 L)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Divide 2 1/4 ÷ 1 1/2, giving the answer as a mixed number.',
+                  solution: [
+                    'Now, convert both: $2\\tfrac{1}{4} = \\tfrac{9}{4}$ and $1\\tfrac{1}{2} = \\tfrac{3}{2}$ — the mixed notation hides sums, so resolve them first.',
+                    'So flip the divisor: $\\tfrac{9}{4} \\div \\tfrac{3}{2} = \\tfrac{9}{4} \\times \\tfrac{2}{3}$.',
+                    'Next, multiply and simplify: $\\tfrac{9 \\times 2}{4 \\times 3} = \\tfrac{18}{12} = \\tfrac{3}{2}$ (the atom $6$ clears), and $3 = 1 \\times 2 + 1$ reads back as $1\\tfrac{1}{2}$.',
+                    'Hence $2\\tfrac{1}{4} \\div 1\\tfrac{1}{2} = 1\\tfrac{1}{2}$ — one and a half copies of one and a half fit in two and a quarter, as the measuring count demands.',
+                  ],
+                  answer: '1 1/2 (9/4 × 2/3 = 18/12 = 3/2)',
+                },
+                {
+                  q: 'exam-style: How many 3/4-litre bottles fill a drum of 15/2 litres?',
+                  solution: [
+                    'Now, the question is measuring: how many $\\tfrac{3}{4}$-pieces fit in $\\tfrac{15}{2}$ — the division $\\tfrac{15}{2} \\div \\tfrac{3}{4}$.',
+                    'So flip the divisor: $\\tfrac{15}{2} \\times \\tfrac{4}{3} = \\tfrac{60}{6}$.',
+                    'Next, the count lands exactly: $\\tfrac{60}{6} = 10$ — a whole number, as bottle-counts must be.',
+                    'Hence $10$ bottles fill the drum — and the improper $\\tfrac{15}{2}$ never frightened anyone who could flip: $\\tfrac{15}{2} \\times \\tfrac{4}{3}$, cancelled the honest way, is $5 \\times 2 = 10$.',
+                  ],
+                  answer: '10 bottles (15/2 ÷ 3/4 = 60/6)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the multiplying rule: for positive denominators, a/b × c/d = ac/bd — by re-cutting the shaded pieces of the d-ruler, with no common ruler between the factors.',
+                  solution: [
+                    'Licence: $\\tfrac{c}{d}$ means $c$ shaded pieces of a ruler cut into $d$ equal pieces — the part–whole reading of Lesson 4.1.',
+                    'Now, cut every piece of the $d$-ruler into $b$ sub-pieces: the ruler becomes the $bd$-ruler, and the shaded amount becomes $c \\times b = bc$ shaded sub-pieces — the same amount, since $\\tfrac{bc}{bd} = \\tfrac{c}{d}$ by the multiplying rule of Lesson 4.2.',
+                    'So taking $\\tfrac{a}{b}$ of the shaded amount means keeping $a$ from every group of $b$: the $bc$ shaded sub-pieces fall into $c$ blocks of $b$, and $a \\times c$ sub-pieces survive.',
+                    'Hence the product is $\\tfrac{a \\times c}{b \\times d} = \\tfrac{ac}{bd}$ — the second factor supplied the ruler, the first supplied the sieve, and no common ruler between the factors ever entered. □',
+                  ],
+                  answer: 'a/b × c/d = ac/bd (re-cut to the bd-ruler; a of every b shaded sub-pieces survive: ac of bd)',
+                },
+                {
+                  q: 'Prove the division theorem a/b ÷ c/d = a/b × d/c on the bd-ruler, and explain why division by a fraction with numerator 0 has no answer.',
+                  solution: [
+                    'Licence: the product $bd$ is a legal common ruler for any two denominators, and raising is multiplication by $1$ — $\\tfrac{a}{b} = \\tfrac{ad}{bd}$ and $\\tfrac{c}{d} = \\tfrac{bc}{bd}$.',
+                    'Now, the measuring question on one ruler: how many $bc$-pieces fit in $ad$-pieces? Both are counts of the same $bd$-piece, so the answer is the ratio $ad : bc$ — named exactly by the fraction $\\tfrac{ad}{bc}$, the division face of Lesson 4.1.',
+                    'So the theorem\'s route delivers the same fraction: $\\tfrac{a}{b} \\times \\tfrac{d}{c} = \\tfrac{ad}{bc}$ by the multiplying rule — one flip, the same measuring count.',
+                    'Hence $\\tfrac{a}{b} \\div \\tfrac{c}{d} = \\tfrac{a}{b} \\times \\tfrac{d}{c}$. And the zero case: $\\tfrac{0}{n} = 0$ has no reciprocal — no number times $0$ gives $1$ — so no amount $\\tfrac{a}{b}$ can be built as a whole number of zero-pieces: the measuring question "how many zeros in $\\tfrac{a}{b}$?" has no answer, which is division by zero\'s ban, met at the definition. □',
+                  ],
+                  answer: 'a/b ÷ c/d = ad/bc = a/b × d/c; division by 0/n is forbidden (0 has no reciprocal — no k satisfies a/b = k × 0)',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The chapter is complete. Lesson 4.1 put fractions on the line and proved them dense; 4.2 taught the line\'s names to multiply and divide by their atoms; 4.3 ordered the points; 4.4 pooled and measured them; and this lesson let them scale each other — multiplication re-cutting rulers without a common measure, division measuring by one honest flip, and the HCF/LCM shortcuts banked four lessons ago cashed in full. Every operation of chapter 2 now has its fraction-land double, proved rather than announced. One veil remains between the fractions and the exam hall\'s favourite costume: the decimal point, where every fraction agrees to wear powers of ten. Chapter 5 dresses the same line in decimals and percents.',
+        },
+      ],
+    },
   ],
-  plannedLessons: [
-    'Multiplying and Dividing Fractions',
-  ],
+  plannedLessons: [],
 }
