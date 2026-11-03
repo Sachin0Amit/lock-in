@@ -157,9 +157,13 @@ gitignore-exception pattern). Also queued: voice polish of the 14
 pre-4.2 lessons (one per run, 1.1 first); EXAM_REGISTRY.json research
 (44 skeleton entries).
 
-**Git:** commit `fm 5.5 percentage change, discounts and simple interest
-(unit 5, run 25): …` + inventory bookkeeping commit; pushed per protocol
-v2 (see the run-25 memory commit for the verified sha).
+**Push (protocol v2):** both run-25 commits pushed at run end via the
+one-time HTTPS URL: `700ba0f..94f1962 HEAD -> main` (ship `c265eb7` +
+inventory bookkeeping `94f1962`); remote HEAD verified
+`94f19627e93762d0e052a8deb27a7f8ceb3d3301` by one-time-URL ls-remote
+(= refs/heads/main = local), origin/main tracking ref resynced by
+anonymous HTTPS fetch, `origin/main..HEAD` empty; PAT never written to
+any file/config/log.
 
 ## 2026-11-04 — RUN 24 (cron, Job 498279): FM lesson 5.4 "Percent and Its Meaning" authored in the Cengage voice + solution chain — percent as the standardised fraction of 100: the x/100 definition on the 100-square, the two-hop law proved from the point-shift, the benchmark ladder, and the unitary method returning to recover wholes from parts
 

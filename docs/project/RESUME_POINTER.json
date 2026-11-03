@@ -310,6 +310,6 @@
    "ch-05.ts header comment (5.5 paragraph + 455 checks + status complete)",
    "book.ts (STATUS + notes: ch. 5 CLOSED, next chapter 6)"
   ],
-  "pushNote": "run-25 ship + inventory bookkeeping + memory commits pushed at run end via one-time HTTPS URL (protocol v2); see the run-25 memory commit for the verified sha"
+  "pushNote": "both run-25 commits pushed at run end via one-time HTTPS URL (protocol v2): 700ba0f..94f1962 HEAD -> main (ship c265eb7 + inventory bookkeeping 94f1962); remote HEAD verified 94f19627e93762d0e052a8deb27a7f8ceb3d3301 by one-time-URL ls-remote (= refs/heads/main = local); origin/main tracking ref resynced by anonymous HTTPS fetch; origin/main..HEAD empty; PAT never written to any file/config/log"
  }
 }
