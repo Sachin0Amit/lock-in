@@ -9,10 +9,10 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 10**: lesson 3.4
-Lowest Common Multiple shipped and verified; chapter 3 of
-Foundation Mathematics at 4/5 lessons; `WORK_INVENTORY.json` regenerated in
-the same run).
+Generated: 2026-11-03 (maintained through **hourly run 11**: lesson 3.5
+HCF, LCM and How They Relate shipped and verified — **UNIT 3 COMPLETE**,
+chapter 3 of Foundation Mathematics at 5/5 lessons + unit-3 completion
+review passed; `WORK_INVENTORY.json` regenerated in the same run).
 
 ---
 
@@ -23,7 +23,7 @@ the same run).
 | Project | **LockIn Library** — `github.com/Sachin0Amit/lock-in` |
 | Mission | A full-stack educational platform where anyone can learn any major subject **from absolute zero to research level** through complete, professionally written digital textbooks — derivations, figures, worked examples, graded exercises; exam coverage as a by-product of understanding, never the boundary |
 | Stack | Next.js 16 App Router (SSG) · TypeScript · Tailwind 4 · shadcn/ui · zustand (persist v2) · KaTeX · next-themes · framer-motion · cmdk · bun |
-| Codebase | 81 tracked files under `src/`, **12,832 lines** — 2,864 reader-platform components · 5,445 shadcn/ui primitives · 3,742 content model + book data · 547 routes/pages · 234 hooks + lib |
+| Codebase | 82 tracked files under `src/`, **15,775 lines** — 2,864 reader-platform components · 5,445 shadcn/ui primitives · 6,685 content model + book data · 547 routes/pages · 254 hooks + lib |
 | Authoring cadence | **One unit (chapter) of one subject at a time** — research → write → verify → ship → log; never batch-draft |
 
 ## 2. Standing rules (owner directives — never violate)
@@ -72,6 +72,7 @@ the same run).
 | 11-03 (run 9) | (ship) | **LESSON 3.3 Highest Common Factor** — authored, 192 pre-writing checks (sections V–Y, 40 new), Bézout/crossroads debt discharged, E2E green (quiz 5/5 live, flashcards 68, Venn figure verified, 390px exact-fit with ten solutions expanded), two over-escape hits fixed + head/header fix, logged; pushed (protocol v2) |
 | 11-03 (figure-fix run) | `87f0f8a` | **Owner-reported figure defects fixed** — six overlapping/clipped SVG figures relaid out (37 patches); `scripts/audit-svg-overlaps.sh` + page-side getBBox-exact detector built and wired into the gates (15 figures re-audited, 0 issues; VLM PASS on all six); logged; pushed (protocol v2) |
 | 11-03 (run 10) | (ship) | **LESSON 3.4 Lowest Common Multiple** — authored, 227 pre-writing checks (section Z, 35 new), timetable figure 0 audit issues first pass, E2E green (quiz 5/5 live, flashcards 75, 390px exact-fit with ten solutions expanded), exercises `sets` schema fix, logged; pushed (protocol v2) |
+| 11-03 (run 11) | (ship) | **UNIT 3 COMPLETE: lesson 3.5 HCF, LCM and How They Relate** — authored, 260 pre-writing checks (section AA, 33 new), rectangle figure 0 audit issues FIRST pass, E2E green (quiz 5/5 live, flashcards 82, 390px exact-fit with eleven solutions expanded), unit-3 completion review run (BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, totals recompute 59,076 words), logged (push follows under protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -584,12 +585,74 @@ lane arrays typed `number[]`. Khattar ch. 2 LCM sections studied via the
 persisted-id re-download; NCERT Ex 3.7 web-checked; working copies
 deleted after E2E.
 
+**Lesson 3.5 — HCF, LCM and How They Relate** (id `fm-hcf-lcm-and-how-they-relate`,
+authored 11-03, hourly-run-11 ship commit; appended to ch-03.ts) — **4,773
+words · 7 terms (Product rule (HCF–LCM), Coprime leftovers, Coprime split,
+Pair reconstruction, Feasibility check, Rectangle identity, Two-number
+treaty) · 5 quiz items (answers spread 2/1/2/3/1) · 11 exercises (L1×2,
+L2×2, L3×2, L4×2, L5×2, L6×1) · 1 original SVG figure (one rectangle, two
+squares: a 6 × 4 rectangle tiled by six 2 × 2 squares — side gcd = 2 — and
+the same rectangle packing a 12 × 12 square in six copies — side lcm = 12;
+middle identity 2 × 12 = 24 = 6 × 4; plain labels; 0 audit issues FIRST
+pass of scripts/audit-svg-overlaps.sh) · 2 derivations (why the products
+agree — a = O·A, b = O·B, gcd = O, lcm = O·A·B, and O²AB = O·(OAB): the
+product double-counts the overlap and the HCF is that second copy; the
+coprime-split engine — pairs with gcd h and lcm l are exactly (h·m, h·n)
+with m·n = l ÷ h and gcd(m, n) = 1) · 2 theorem callouts (the product rule
+with the buses 6 × 36 = 216 = 12 × 18 and the Venn pair 48 × 1,440 = 69,120
+= 96 × 720; the feasibility check — a fingerprint (h, l) is worn by some
+pair exactly when h | l, with the pair (h, l) itself as free witness) · 1
+formula card (the product rule) · 3 worked examples (one member given:
+63/1,260/315 → 252 with both demands verified; the richer fingerprint
+HCF 12 LCM 720 → four pairs (12,720), (36,240), (48,180), (60,144) via the
+coprime splits (1,60), (3,20), (4,15), (5,12) of 60) · 2 warn callouts (the
+guard: the HCF divides every member — "HCF 40, one number 315" is a blunder
+since 40 × 7 + 35 = 315; the classic slip: forgetting coprimality —
+splitting 60 as (2,30) gives (24,360) with gcd 24 and lcm 360, both demands
+broken; (6,10) → (72,120) fails identically) · the united pattern table
+(3.3's three greatest-number rows + 3.4's least-number rows + the counting
+row + the new product-rule row 63/1,260/315 → 252) · Gauss 1801 historical
+callout (Disquisitiones Arithmeticae at age 24; the division algorithm as
+foundation; the gcd fixed as a first-class object; congruence notation) ·
+exam callout (missing member 12/720/48 → 180; product given 16/6,400 → 400
+with the pair forced to (16,400); feasibility 24 ∤ 200 — the NCERT genre) ·
+two-seats insight callout (the triple 12/18/24: gcd 6, lcm 72,
+6 × 72 = 432 ≠ 5,184 = 12 × 18 × 24, yet every pair inside the triple obeys
+the rule) · chapter-arc closing para (everything hangs from 2.4's division
+algorithm; next unit fractions). Exercise highlights: rebuild HCF 10 LCM 90
+→ the unique pair (10,90) via the prime-power leftover 9; HCF 16 product
+6,400 → LCM 400 with the pair forced; the 8 × 12 rectangle identity
+(4 × 24 = 96 with tile counts 2 × 3 and 3 × 2); the feasibility trio
+(9,45) yes / (9,50) no / (9,72) yes with witnesses; and the fingerprint
+collector's problem — every pair with HCF 14 LCM 1,260 ((14,1,260),
+(28,630), (70,252), (126,140)), completeness by the block argument (three
+prime-power blocks of 90 = 2 × 3² × 5 → 2³ ordered → 4 unordered splits).
+33 new checks (section AA) → verify-unit-3.ts **260 checks ALL PASS
+pre-writing**; verify-unit-2 still 165/165. E2E: 6 routes 200; KaTeX 165
+nodes; dollarInSvg = 0; quiz answered live with the intended options
+(2/1/2/3/1) → "You scored 5/5 · perfect"; flashcards 75 → 82; glossary
+lists all 7 new terms + the product-rule formula card; zero console errors;
+**mobile 390px exact-fit with ALL ELEVEN solutions expanded** (overflowX =
+0; max SVG width 324). UNIT-3 COMPLETION REVIEW run in the same ship:
+BOOK_FORMAT verification checklist 7/7 (math pre-verified by script;
+figure labels match prose; quiz answer indices verified live; exercise
+solutions complete + verified; lesson ids globally unique — 0 duplicates;
+lint + render clean; logs updated), exam-coverage audit (all five lessons
+3.1–3.5 carry an exam callout; topics mapped: divisibility, primes/FTA,
+HCF/LCM three routes, product rule → NCERT class-6 canon + Khattar ch. 2
+patterns; no real past-paper questions reproduced), totals recomputed by
+build_work_inventory.ts (book = 13 lessons / 59,076 words / 82 terms /
+65 quiz items / 115 exercise questions; ch. 3 = 27,917 words). Khattar
+ch. 2 product-rule sections studied (Illustration 14) via the persisted-id
+re-download; NCERT Ex 3.7 feasibility genre web-checked; working copies
+deleted after E2E.
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
-| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · HCF, LCM and How They Relate |
+| 3 | Factors, Multiples and Primes — **COMPLETE** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · ~~HCF, LCM and How They Relate~~ **WRITTEN** |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
@@ -795,28 +858,27 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-10 ship commit (FM lesson 3.4 Lowest Common
-  Multiple + logs); working tree clean after the push. origin/main is
-  synced through the run-10 push under protocol v2 (remote HEAD verified
-  via one-time-URL ls-remote, tracking ref re-synced via anonymous HTTPS
-  fetch — this sandbox has no ssh binary; use the anonymous HTTPS form).
-  The owner-reported figure-defect run (six figures fixed +
-  `audit-svg-overlaps.sh` wired into the gates) shipped as `87f0f8a`
-  between run 9 and run 10.
+- HEAD: the hourly-run-11 ship commit (FM lesson 3.5 HCF, LCM and How
+  They Relate + unit-3 completion review + logs). The owner-reported
+  figure-defect run (six figures fixed + `audit-svg-overlaps.sh` wired
+  into the gates) shipped as `87f0f8a` between run 9 and run 10. Push
+  verification is recorded in WORKLOG.md after the run-11 push under
+  protocol v2 (one-time-URL ls-remote; tracking ref re-synced via
+  anonymous HTTPS fetch — this sandbox has no ssh binary).
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
-- **CURRENT (hourly cadence): lesson 3.5 — "HCF, LCM and How They
-  Relate"** — closes chapter 3 (4/5 lessons done: 3.1–3.4). Ties to
-  honour: the product rule promise banked THREE times (3.3's exam
-  callout 48 × 1,440 = 96 × 720; 3.4's Route-2 para and exam callout,
-  also 6 × 36 = 12 × 18) — prove gcd × lcm = a × b via the Venn
-  territories or the atoms (min powers × max powers = every prime at
-  α + β), then reconstruct pairs from HCF & LCM (Khattar Illustration 14:
-  HCF 63, LCM 1,260, one number 315 → other 252); unite the two route
-  tables; close the chapter arc on 2.4's division algorithm. After 3.5
-  ships: run the UNIT-3 COMPLETION REVIEW (BOOK_FORMAT checklist,
-  exam-coverage audit, totals recompute) and delete
-  temporary-references/ working copies.
+- **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
+  4.1 "The Idea of a Fraction"** — opens the next unit (chapter 3 is
+  COMPLETE: 3.1–3.5 shipped, completion review passed, working copies
+  deleted). Research per MASTER_PLAN §2: Khattar QA 4e fractions material
+  via the persisted Drive id + NCERT class-6 fractions-chapter web-check
+  (sanctioned fallback); create ch-04.ts per the BOOK_FORMAT contract;
+  create scripts/verify-unit-4.ts for pre-writing arithmetic checks and
+  add its .gitignore exception FIRST. Standing rules: one lesson per run;
+  original content; lesson ids stable forever; every new figure passes
+  `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues; quiz
+  answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly two
+  backslashes in source; table blocks use `head:`; exercises use `sets`.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

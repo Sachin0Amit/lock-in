@@ -146,3 +146,18 @@ step 6).
   original — no Khattar text reproduced, instances recomposed. Working
   copies (PDF + text dumps) deleted after the lesson's E2E verification;
   only inventory.json retained.
+
+- 2026-11-03 (mathematics, unit 3, lesson 3.5): Khattar QA 4e re-downloaded
+  via the persisted id (33.9 MB) — ch. 2 "H.C.F. and L.C.M. of Numbers"
+  product-rule section studied for the unit closer: "Product of two numbers
+  = L.C.M. of the numbers × H.C.F. of the numbers" with Illustration 14's
+  reconstruction (HCF 63, LCM 1,260, one number 315 → other 252); the
+  HCF/LCM-of-fractions shortcuts noted and deliberately left out of scope.
+  NCERT class-6 ch. 3 Exercise 3.7 feasibility genre web-checked (sanctioned
+  fallback; "Can two numbers have 24 as their HCF and 200 as their LCM?" —
+  no, since the HCF must divide the LCM and 24 does not divide 200). All
+  lesson arithmetic re-verified by script (33 new checks in section AA of
+  scripts/verify-unit-3.ts, 260 total) BEFORE writing; exposition original —
+  no Khattar text reproduced, instances recomposed or canon forms
+  re-derived. Working copies (PDF + text dump) deleted after the lesson's
+  E2E verification; only inventory.json retained.

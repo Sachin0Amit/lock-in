@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 15:57:03 (Asia/Kolkata)",
+  "generated": "2026-11-03 16:37:25 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 2,
+        "chaptersWritten": 3,
         "chapters": [
           {
             "number": 1,
@@ -554,11 +554,9 @@
             "slug": "factors-multiples-primes",
             "title": "Factors, Multiples and Primes",
             "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "HCF, LCM and How They Relate"
-            ],
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-divisibility-and-its-tests",
@@ -822,9 +820,74 @@
                 },
                 "exerciseQuestions": 11,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-hcf-lcm-and-how-they-relate",
+                "number": "3.5",
+                "title": "HCF, LCM and How They Relate",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4773,
+                "readMins": 24,
+                "concepts": [
+                  "The HCF–LCM product rule",
+                  "Coprime leftovers",
+                  "The coprime split",
+                  "Pair reconstruction from a fingerprint",
+                  "Feasibility: the HCF must divide the LCM",
+                  "The rectangle identity",
+                  "The two-number treaty"
+                ],
+                "objectives": [
+                  "Prove the product rule gcd(a, b) × lcm(a, b) = a × b from the Venn territories and the atoms",
+                  "Rebuild a missing member from HCF, LCM and the known member — with the guard that the HCF divides every member",
+                  "Rebuild whole pairs with the coprime-split engine, and count how many pairs share one fingerprint",
+                  "Test any fingerprint for feasibility with one division, and unite the chapter's exam patterns in a single table"
+                ],
+                "prerequisites": [
+                  "fm-prime-numbers-factorisation",
+                  "fm-highest-common-factor",
+                  "fm-lowest-common-multiple"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch3"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "terms": 1,
+                  "heading": 8,
+                  "derivation": 2,
+                  "callout": 7,
+                  "formula": 1,
+                  "example": 2,
+                  "figure": 1,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 2,
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 11,
+                "termsDefined": 7
               }
             ],
-            "words": 23144
+            "words": 27917
           },
           {
             "number": 4,
@@ -981,12 +1044,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 82,
-      "totalLines": 15346,
+      "totalLines": 15775,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 6256,
+        "src/data/library (content model + books)": 6685,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -3289,32 +3352,115 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "bf67ba7ea8cd8d7cd3042d624b759e0746a680d7",
+      "short": "bf67ba7",
+      "date": "2026-11-03 10:32",
+      "message": "unit 3: FM lesson 3.4 Lowest Common Multiple (~5,014 words, 227 verified checks, 11 exercises, E2E green) + logs",
+      "filesChanged": 7,
+      "insertions": 1131,
+      "deletions": 154,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 83,
+          "del": 25
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 100,
+          "del": 98
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 245,
+          "del": 22
+        },
+        {
+          "path": "scripts/verify-unit-3.ts",
+          "add": 157,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 451,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "a108eba548ec8e924914a0b58575b3d3b2d0e7ca",
+      "short": "a108eba",
+      "date": "2026-11-03 10:33",
+      "message": "memory: run-10 pointers — lesson 3.4 pushed and verified (bf67ba7), origin/main synced; next: FM 3.5 HCF, LCM and How They Relate",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "86400859f0231f797bd91acfc8c532317a515681",
+      "short": "8640085",
+      "date": "2026-11-03 10:33",
+      "message": "memory: record run-10 memory-commit push verification (a108eba)",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 2,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 12,
-    "wordsAuthored": 54303,
-    "termsDefined": 75,
-    "quizItems": 60,
-    "exerciseQuestions": 104,
+    "chaptersWritten": 3,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 13,
+    "wordsAuthored": 59076,
+    "termsDefined": 82,
+    "quizItems": 65,
+    "exerciseQuestions": 115,
     "blockTotals": {
-      "para": 148,
-      "callout": 49,
-      "heading": 80,
-      "terms": 12,
+      "para": 162,
+      "callout": 56,
+      "heading": 88,
+      "terms": 13,
       "equation": 13,
-      "derivation": 25,
-      "table": 14,
-      "figure": 16,
-      "example": 22,
-      "quiz": 12,
-      "exercises": 12,
-      "formula": 26,
+      "derivation": 27,
+      "table": 15,
+      "figure": 17,
+      "example": 24,
+      "quiz": 13,
+      "exercises": 13,
+      "formula": 27,
       "algorithm": 8
     }
   }

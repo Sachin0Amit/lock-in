@@ -8,15 +8,15 @@ import { chapter03 } from './ch-03'
  *
  * STATUS: in-progress. Chapter 1 (Numbers and Place Value) COMPLETE —
  * unit 1, 2026-11-03: lessons 1.1–1.3 authored and verified. Chapter 2
- * (The Four Operations) COMPLETE — unit 2, 2026-11-03: lessons 2.1
- * (Addition and the Art of Carrying), 2.2 (Subtraction and Borrowing), 2.3
- * (Multiplication as Repeated Addition — and Beyond), 2.4 (Division,
- * Remainders and Why Zero Never Divides) and 2.5 (Order of Operations and
- * the Language of Expressions) shipped, all gates green, unit-2 completion
- * review passed. Chapter 3 (Factors, Multiples and Primes) OPEN — unit 3:
- * lesson 3.1 (Divisibility and Its Tests) shipped 2026-11-03; lesson 3.2
- * (Prime Numbers and Factorisation) shipped 2026-11-03; 3.3–3.5
- * planned. Authoring per docs/project/MASTER_PLAN.md §2.
+ * (The Four Operations) COMPLETE — unit 2, 2026-11-03: lessons 2.1–2.5
+ * shipped, all gates green, unit-2 completion review passed. Chapter 3
+ * (Factors, Multiples and Primes) COMPLETE — unit 3, 2026-11-03: 3.1
+ * (Divisibility and Its Tests), 3.2 (Prime Numbers and Factorisation),
+ * 3.3 (Highest Common Factor), 3.4 (Lowest Common Multiple) and 3.5
+ * (HCF, LCM and How They Relate — the product rule, coprime splits,
+ * pair reconstruction, feasibility, the rectangle identity) shipped,
+ * all gates green, unit-3 completion review passed. Next: chapter 4
+ * (Fractions). Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -34,7 +34,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) in progress: 3.1 Divisibility and Its Tests, 3.2 Prime Numbers and Factorisation and 3.3 Highest Common Factor shipped (unit 3; HCF via three routes — listing, atoms at the smaller powers, Euclidean ladder — plus Bézout paying 3.2\'s crossroads-lemma debt). Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–3 complete (units 1–3 shipped 2026-11-03): ch. 1 lessons 1.1–1.3 (9,709 words), ch. 2 lessons 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS), ch. 3 lessons 3.1–3.5 Factors, Multiples and Primes (27,917 words: divisibility tests, primes and the FTA, HCF via three routes plus Bézout, LCM via three routes, and the product rule closing the unit — gcd × lcm = a × b, coprime splits, pair reconstruction, feasibility, rectangle identity). Math script-verified (260 unit-3 checks), E2E green, unit completion reviews passed. Next unit: chapter 4 Fractions. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,

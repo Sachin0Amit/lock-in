@@ -632,6 +632,143 @@ check('Z35: brute force to 1000: common multiples of 12,18 = multiples of 36; pr
 })());
 
 /* ============================================================
+ * SECTION AA — Lesson 3.5 "HCF, LCM and How They Relate"
+ * The product rule, coprime splits, pair reconstruction,
+ * feasibility, the rectangle identity, and the united table.
+ * ==========================================================*/
+// AA1: the two banked whispers — 48 x 1440 = 96 x 720 and 6 x 36 = 12 x 18
+check('AA1: 48x1440 = 69120 = 96x720 (3.3/3.4 banked cross)', 48 * 1440 === 69120 && 96 * 720 === 69120);
+check('AA2: 6x36 = 216 = 12x18 (3.4 exam-callout cross)', 6 * 36 === 216 && 12 * 18 === 216);
+check('AA3: gcd(96,720) = 48, lcm(96,720) = 1440; gcd(12,18) = 6, lcm(12,18) = 36', gcd(96, 720) === 48 && lcm2(96, 720) === 1440 && gcd(12, 18) === 6 && lcm2(12, 18) === 36);
+// AA4: the atoms identity, prime by prime, for 96 = 2^5 x 3 and 720 = 2^4 x 3^2 x 5:
+// min+max = alpha+beta for every prime; the product carries 2^9 x 3^3 x 5 = 69120
+check('AA4: per-prime min+max = alpha+beta (2: 4+5=9; 3: 1+2=3; 5: 0+1=1) and 2^9x3^3x5 = 69120', 4 + 5 === 9 && 1 + 2 === 3 && 0 + 1 === 1 && 2 ** 9 * 3 ** 3 * 5 === 69120);
+// AA5: the Venn double-count algebra — O = overlap = 48, A = 2, B = 15:
+// a = O*A, b = O*B, gcd = O, lcm = O*A*B, and O^2*A*B = O*(O*A*B) = a*b
+check('AA5: 96 = 48x2, 720 = 48x15, lcm = 48x2x15 = 1440; 48^2 x 2 x 15 = 69120 = 48 x 1440', 48 * 2 === 96 && 48 * 15 === 720 && 48 * 2 * 15 === 1440 && 48 * 48 * 2 * 15 === 69120 && 48 * 1440 === 69120);
+// AA6: the coprime leftovers — a/h and b/h share nothing, and lcm/h = their product
+check('AA6: 96/48 = 2, 720/48 = 15, gcd(2,15) = 1, lcm/48 = 30 = 2x15, 48x30 = 1440', 96 / 48 === 2 && 720 / 48 === 15 && gcd(2, 15) === 1 && 1440 / 48 === 30 && 2 * 15 === 30 && 48 * 30 === 1440);
+check('AA7: buses: 12/6 = 2, 18/6 = 3, gcd(2,3) = 1, lcm/6 = 6 = 2x3', 12 / 6 === 2 && 18 / 6 === 3 && gcd(2, 3) === 1 && 36 / 6 === 6 && 2 * 3 === 6);
+// AA8: brute-force product rule, every pair 1 <= a <= b <= 60 (broadened from Z35's 40)
+check('AA8: gcd(a,b) x lcm(a,b) = a x b for every 1 <= a <= b <= 60', (() => {
+  for (let a = 1; a <= 60; a++) for (let b = a; b <= 60; b++) if (gcd(a, b) * lcm2(a, b) !== a * b) return false;
+  return true;
+})());
+// AA9: the Illustration-14 genre (Khattar ch. 2): HCF 63, LCM 1260, one member 315
+// -> other = 63 x 1260 / 315 = 252; atoms 315 = 3^2 x 5 x 7, 252 = 2^2 x 3^2 x 7
+check('AA9: 63x1260 = 79380; 79380/315 = 252; gcd(315,252) = 63; lcm(315,252) = 1260', 63 * 1260 === 79380 && 79380 / 315 === 252 && gcd(315, 252) === 63 && lcm2(315, 252) === 1260);
+check('AA10: atoms: 315 = 3^2x5x7 (315 = 9x35), 252 = 2^2x3^2x7 (252 = 4x63); shared 3^2x7 = 63', 9 * 35 === 315 && 4 * 9 * 7 === 252 && 9 * 7 === 63 && 2 ** 2 * 3 ** 2 * 5 * 7 === 1260);
+check('AA11: guards: 63 | 315 (x5), 63 | 252 (x4), 63 | 1260 (x20)', 315 / 63 === 5 && 252 / 63 === 4 && 1260 / 63 === 20);
+// AA12: rebuild the whole pair, HCF 6 & LCM 36: m x n = 6, coprime splits (1,6),(2,3)
+// -> pairs (6,36) and (12,18); brute-force confirms exactly two with a < b
+check('AA12: pairs with gcd 6 lcm 36: exactly (6,36),(12,18) by exhaustive search 1..36', (() => {
+  const pairs: number[][] = [];
+  for (let a = 1; a <= 36; a++) for (let b = a + 1; b <= 36; b++) if (gcd(a, b) === 6 && lcm2(a, b) === 36) pairs.push([a, b]);
+  return JSON.stringify(pairs) === JSON.stringify([[6, 36], [12, 18]]);
+})());
+// AA13: HCF 12 & LCM 720: m x n = 60; coprime splits (1,60),(3,20),(4,15),(5,12) —
+// non-coprime splits (2,30) and (6,10) produce wrong HCFs (24)
+check('AA13: coprime splits of 60: (1,60),(3,20),(4,15),(5,12); (2,30) and (6,10) share a factor', (() => {
+  const splits: number[][] = [];
+  for (let m = 1; m * m <= 60; m++) if (60 % m === 0 && gcd(m, 60 / m) === 1) splits.push([m, 60 / m]);
+  return JSON.stringify(splits) === JSON.stringify([[1, 60], [3, 20], [4, 15], [5, 12]]) && gcd(2, 30) === 2 && gcd(6, 10) === 2;
+})());
+check('AA14: the four pairs (12,720),(36,240),(48,180),(60,144): gcd 12, lcm 720 each; brute-force finds exactly these', (() => {
+  const pairs: number[][] = [];
+  for (let a = 1; a <= 720; a++) for (let b = a + 1; b <= 720; b++) if (gcd(a, b) === 12 && lcm2(a, b) === 720) pairs.push([a, b]);
+  const ok = [[12, 720], [36, 240], [48, 180], [60, 144]].every(([a, b]) => gcd(a, b) === 12 && lcm2(a, b) === 720);
+  return JSON.stringify(pairs) === JSON.stringify([[12, 720], [36, 240], [48, 180], [60, 144]]) && ok;
+})());
+check('AA15: the wrong splits: (24,360) has gcd 24 not 12; (72,120) has gcd 24 not 12; both lcm 360, not 720', (() => {
+  const g1 = gcd(24, 360), g2 = gcd(72, 120), l1 = lcm2(24, 360), l2 = lcm2(72, 120);
+  // g1 = g2 = 24 and l1 = l2 = 360 — and 24 != 12, 360 != 720, so both demands are broken
+  return g1 === 24 && g2 === 24 && l1 === 360 && l2 === 360 && 24 * 360 === 8640 && 72 * 120 === 8640;
+})());
+// AA16: feasibility, the NCERT canon: 24 does not divide 200 (200 = 8x24 + 8);
+// 18 does not divide 380 (380 = 21x18 + 2); 25 divides 300 and (25,300) certifies it
+check('AA16: 24 | 200 fails (r 8); 18 | 380 fails (r 2); 25 | 300 holds; gcd(25,300) = 25, lcm = 300', 200 % 24 === 8 && 200 === 8 * 24 + 8 && 380 % 18 === 2 && 380 === 21 * 18 + 2 && 300 % 25 === 0 && gcd(25, 300) === 25 && lcm2(25, 300) === 300);
+// AA17: necessity AND sufficiency by brute force: h | l iff some pair realises it,
+// and the pair (h, l) itself always works when h | l
+check('AA17: for all h <= 60, l <= 600: some pair has gcd h lcm l exactly when h | l, and (h,l) itself is such a pair', (() => {
+  for (let h = 1; h <= 60; h++) {
+    for (let l = 1; l <= 600; l++) {
+      const realised = (() => {
+        for (let a = 1; a <= l; a++) if (l % a === 0 && gcd(a, l) === h && lcm2(a, l) === l) return true;
+        return false;
+      })();
+      if (realised !== (l % h === 0)) return false;
+      if (l % h === 0 && (gcd(h, l) !== h || lcm2(h, l) !== l)) return false;
+    }
+  }
+  return true;
+})());
+// AA18: the HCF divides the LCM for every pair up to 60 (the necessity theorem, brute-forced)
+check('AA18: gcd(a,b) | lcm(a,b) for every 1 <= a <= b <= 60', (() => {
+  for (let a = 1; a <= 60; a++) for (let b = a; b <= 60; b++) if (lcm2(a, b) % gcd(a, b) !== 0) return false;
+  return true;
+})());
+// AA19: the product rule has exactly two seats — the triple 12, 18, 24 breaks it,
+// while every pair inside the triple still satisfies it
+check('AA19: gcd(12,18,24) = 6, lcm = 72, 6x72 = 432 != 5184 = 12x18x24; pairs: 6x36 = 216, 6x72 = 432 = 18x24, 12x24 = 288', gcd3(12, 18, 24) === 6 && lcm3(12, 18, 24) === 72 && 6 * 72 === 432 && 12 * 18 * 24 === 5184 && gcd(18, 24) === 6 && lcm2(18, 24) === 72 && 6 * 72 === 432 && 18 * 24 === 432 && gcd(12, 24) === 12 && lcm2(12, 24) === 24 && 12 * 24 === 288);
+// AA20: the rectangle identity, 6 x 4: gcd 2, lcm 12, 2 x 12 = 24 = 6 x 4;
+// six 2x2 squares tile it (3 x 2); six 6x4 rectangles tile a 12x12 square (2 x 3); 12x12 = 144 = 6 x 24
+check('AA20: 6x4: gcd 2, lcm 12, 2x12 = 24; (6/2)x(4/2) = 6 tiles; (12/6)x(12/4) = 6 tiles; 144 = 6x24', gcd(6, 4) === 2 && lcm2(6, 4) === 12 && 2 * 12 === 24 && (6 / 2) * (4 / 2) === 6 && (12 / 6) * (12 / 4) === 6 && 12 * 12 === 144 && 6 * 24 === 144 && 6 * 4 === 24);
+// AA21: the rectangle identity, 8 x 12 (exercise): gcd 4, lcm 24, 4 x 24 = 96 = 8 x 12;
+// (8/4)x(12/4) = 2 x 3 = 6 gcd-squares; (24/8)x(24/12) = 3 x 2 = 6 rectangles; 24^2 = 576 = 6 x 96
+check('AA21: 8x12: gcd 4, lcm 24, 4x24 = 96; 2x3 = 6 tiles; 3x2 = 6 rectangles; 576 = 6x96', gcd(8, 12) === 4 && lcm2(8, 12) === 24 && 4 * 24 === 96 && (8 / 4) * (12 / 4) === 6 && (24 / 8) * (24 / 12) === 6 && 24 * 24 === 576 && 6 * 96 === 576);
+// AA22: united-table instances re-verified (3.3 rows): HCF(144,240,612) = 12
+// (148/246/623 leaving 4/6/11); HCF(125,150,275) = 25 (152/277/427, unknown remainders)
+check('AA22: gcd3(144,240,612) = 12; gcd3(125,150,275) = 25', gcd3(144, 240, 612) === 12 && 2 ** 2 * 3 === 12 && gcd3(125, 150, 275) === 25 && 5 ** 2 === 25);
+// AA23: united-table instances re-verified (3.4 rows): LCM(36,45,63,80) = 5040;
+// 149 = LCM(12,16,18) + 5 = 144 + 5; 85 = LCM(9,10,15) - 5 = 90 - 5
+check('AA23: lcm3(36,45,63) x 80: lcm(36,45,63,80) = 5040; 144+5 = 149; 90-5 = 85', (() => {
+  const l1 = lcm2(lcm2(36, 45), lcm2(63, 80));
+  return l1 === 5040 && lcm3(12, 16, 18) === 144 && 144 + 5 === 149 && lcm3(9, 10, 15) === 90 && 90 - 5 === 85;
+})());
+// AA24: exam genre — missing member: HCF 12, LCM 720, one member 48 -> 180;
+// product genre — HCF 16, product 6400 -> LCM 400, and the pair is forced: (16,400)
+check('AA24: 12x720/48 = 180, gcd(48,180) = 12, lcm(48,180) = 720; 6400/16 = 400; m x n = 25 forces (16,400)', (12 * 720) / 48 === 180 && gcd(48, 180) === 12 && lcm2(48, 180) === 720 && 6400 / 16 === 400 && 400 / 16 === 25 && gcd(16, 400) === 16 && lcm2(16, 400) === 400 && gcd(5, 5) !== 1 && 25 === 5 * 5);
+// AA25: exercise L2 — HCF 12, product 4032 -> LCM 336; m x n = 28: (1,28) -> (12,336), (4,7) -> (48,84)
+check('AA25: 4032/12 = 336; 336/12 = 28; coprime splits of 28: (1,28),(4,7); gcd(48,84) = 12, lcm(48,84) = 336; gcd(12,336) = 12', 4032 / 12 === 336 && 336 / 12 === 28 && gcd(1, 28) === 1 && gcd(4, 7) === 1 && gcd(2, 14) === 2 && gcd(48, 84) === 12 && lcm2(48, 84) === 336 && gcd(12, 336) === 12 && lcm2(12, 336) === 336);
+// AA26: exercise L1 — HCF 5, LCM 60, one member 15 -> other 20; and the
+// verification genre on 45 & 60: gcd 15, lcm 180, 15x180 = 2700 = 45x60
+check('AA26: 5x60/15 = 20; gcd(15,20) = 5, lcm(15,20) = 60; gcd(45,60) = 15, lcm(45,60) = 180, 15x180 = 2700 = 45x60', (5 * 60) / 15 === 20 && gcd(15, 20) === 5 && lcm2(15, 20) === 60 && gcd(45, 60) === 15 && lcm2(45, 60) === 180 && 15 * 180 === 2700 && 45 * 60 === 2700);
+// AA27: exercise L3 — HCF 6 & LCM 36 rebuilt (2 pairs); HCF 10 & LCM 90:
+// m x n = 9 = 3^2, coprime splits (1,9) only -> the pair is forced: (10,90)
+check('AA27: 90/10 = 9; coprime splits of 9: (1,9) only ((3,3) shares 3); gcd(10,90) = 10, lcm(10,90) = 90', 90 / 10 === 9 && gcd(1, 9) === 1 && gcd(3, 3) === 3 && gcd(10, 90) === 10 && lcm2(10, 90) === 90);
+// AA28: exercise L5 feasibility trio — (9,45): 9 | 45 ok; (9,50): 9 does not divide 50 (r 5);
+// (9,72): 9 | 72 (x8) ok
+check('AA28: 45 % 9 = 0 and (9,45) works; 50 % 9 = 5; 72 % 9 = 0 and (9,72) works; gcd(9,45) = 9, gcd(9,72) = 9', 45 % 9 === 0 && gcd(9, 45) === 9 && lcm2(9, 45) === 45 && 50 % 9 === 5 && 72 % 9 === 0 && 72 === 8 * 9 && gcd(9, 72) === 9 && lcm2(9, 72) === 72);
+// AA29: the L6 fingerprint collector — HCF 14, LCM 1260: m x n = 90 = 2 x 3^2 x 5;
+// three prime-power blocks -> 2^3 = 8 ordered, 4 unordered coprime splits:
+// (1,90),(2,45),(5,18),(9,10) -> pairs (14,1260),(28,630),(70,252),(126,140)
+check('AA29: 1260/14 = 90 = 2x9x5; coprime splits of 90: (1,90),(2,45),(5,18),(9,10) exactly; 2^3 = 8 ordered, 4 unordered', (() => {
+  const splits: number[][] = [];
+  for (let m = 1; m * m <= 90; m++) if (90 % m === 0 && gcd(m, 90 / m) === 1) splits.push([m, 90 / m]);
+  return 1260 / 14 === 90 && 2 * 9 * 5 === 90 && JSON.stringify(splits) === JSON.stringify([[1, 90], [2, 45], [5, 18], [9, 10]]) && 2 ** 3 === 8;
+})());
+check('AA30: the four rebuilt pairs all carry gcd 14, lcm 1260; brute-force finds exactly these', (() => {
+  const pairs: number[][] = [];
+  for (let a = 1; a <= 1260; a++) for (let b = a + 1; b <= 1260; b++) if (gcd(a, b) === 14 && lcm2(a, b) === 1260) pairs.push([a, b]);
+  const ok = [[14, 1260], [28, 630], [70, 252], [126, 140]].every(([a, b]) => gcd(a, b) === 14 && lcm2(a, b) === 1260);
+  return JSON.stringify(pairs) === JSON.stringify([[14, 1260], [28, 630], [70, 252], [126, 140]]) && ok;
+})());
+// AA31: quiz crosses — Q1: 6x36/12 = 18 (distractors 3, 72, 24); Q2: 6400/16 = 400
+// (distractors 6384, 25, 160); Q3: 380 % 18 = 2 (infeasible); Q4: four pairs for
+// (12, 720); Q5: 6 x 72 = 432 vs 12 x 18 x 24 = 5184
+check('AA31: quiz crosses: 6x36/12 = 18; 6400/16 = 400; 380 % 18 = 2; four (12,720) pairs; 432 != 5184', (6 * 36) / 12 === 18 && 6400 / 16 === 400 && 380 % 18 === 2 && 6 * 72 === 432 && 12 * 18 * 24 === 5184);
+// AA32: structure theorem echoes for the chapter close — every number that
+// gcd 6 and lcm 36 pairs divide 36, and the chapter-arc counts hold
+check('AA32: both members of every rebuilt pair divide their lcm: 6,36 | 36 and 12,18 | 36', 36 % 6 === 0 && 36 % 36 === 0 && 36 % 12 === 0 && 36 % 18 === 0);
+
+// AA33: the warn-callout guard instance (HCF 40 cannot own member 315) and
+// quiz-distractor cross-checks; the L6 pairs are all 14 x (1, 90, 45, 18, 10)
+check('AA33: 315 % 40 = 35 (guard fails); 12x72 = 864 != 216, gcd(12,72) = 12; 12x24 = 288, gcd(12,24) = 12; 16x160 = 2560 != 6400; 14x1 = 14, 14x90 = 1260, 14x45 = 630, 14x18 = 252, 14x10 = 140', (() => {
+  const p1 = 12 * 72, p2 = 12 * 24, p3 = 16 * 160;
+  return 315 % 40 === 35 && p1 !== 216 && gcd(12, 72) === 12 && p2 !== 216 && gcd(12, 24) === 12 && p3 !== 6400 && 14 * 1 === 14 && 14 * 90 === 1260 && 14 * 45 === 630 && 14 * 18 === 252 && 14 * 10 === 140;
+})());
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`\nverify-unit-3: ${pass} passed, ${fail} failed`);
@@ -640,4 +777,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2 + 3.3 + 3.4');
+console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2 + 3.3 + 3.4 + 3.5');

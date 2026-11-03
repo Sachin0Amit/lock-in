@@ -3,17 +3,21 @@ import type { Chapter } from '../../../types'
 /**
  * Foundation Mathematics — Chapter 3: Factors, Multiples and Primes
  *
- * LESSONS WRITTEN (UNIT 3 IN PROGRESS): 3.1 Divisibility and Its Tests ·
+ * LESSONS WRITTEN (UNIT 3 COMPLETE): 3.1 Divisibility and Its Tests ·
  * 3.2 Prime Numbers and Factorisation · 3.3 Highest Common Factor ·
- * 3.4 Lowest Common Multiple. Planned: 3.5 HCF, LCM and How They Relate.
+ * 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate (the
+ * unit closer: the product rule proved from the Venn territories, the
+ * coprime-split engine, pair reconstruction, feasibility, the rectangle
+ * identity, and the united pattern table).
  * Unit 3 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
  * Examinations (4e) ch. 1 "Numbers" + ch. 2 "H.C.F. and L.C.M. of
- * Numbers" (prime-factorisation and division methods for the H.C.F.,
- * greatest-number exam patterns) + NCERT Class 6 ch. 3 "Playing with
- * Numbers" topic coverage — see docs/project/SOURCE_LOG.md. Exposition
- * original; all arithmetic verified by scripts/verify-unit-3.ts (227
- * checks for 3.1 + 3.2 + 3.3 + 3.4) BEFORE writing.
+ * Numbers" (prime-factorisation and division methods, greatest/least
+ * number patterns, the product-of-two-numbers rule with Illustration
+ * 14's reconstruction) + NCERT Class 6 ch. 3 "Playing with Numbers"
+ * topic coverage — see docs/project/SOURCE_LOG.md. Exposition
+ * original; all arithmetic verified by scripts/verify-unit-3.ts (260
+ * checks for 3.1 + 3.2 + 3.3 + 3.4 + 3.5) BEFORE writing.
  * Honours the ties promised in Lesson 2.4: the digit-sum screens become
  * the mod-9/mod-3 rules, the ÷10^n corollary becomes the tail tests, and
  * the remainder bound underlies "r = 0 means divisible".
@@ -24,10 +28,7 @@ export const chapter03: Chapter = {
   title: 'Factors, Multiples and Primes',
   summary:
     'The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.',
-  status: 'in-progress',
-  plannedLessons: [
-    'HCF, LCM and How They Relate',
-  ],
+  status: 'complete',
   lessons: [
     {
       id: 'fm-divisibility-and-its-tests',
@@ -2128,5 +2129,433 @@ export const chapter03: Chapter = {
         },
       ],
     },
+    {
+        id: 'fm-hcf-lcm-and-how-they-relate',
+        number: '3.5',
+        title: 'HCF, LCM and How They Relate',
+        concepts: [
+          'The HCF–LCM product rule',
+          'Coprime leftovers',
+          'The coprime split',
+          'Pair reconstruction from a fingerprint',
+          'Feasibility: the HCF must divide the LCM',
+          'The rectangle identity',
+          'The two-number treaty',
+        ],
+        objectives: [
+          'Prove the product rule gcd(a, b) × lcm(a, b) = a × b from the Venn territories and the atoms',
+          'Rebuild a missing member from HCF, LCM and the known member — with the guard that the HCF divides every member',
+          'Rebuild whole pairs with the coprime-split engine, and count how many pairs share one fingerprint',
+          'Test any fingerprint for feasibility with one division, and unite the chapter\'s exam patterns in a single table',
+        ],
+        prerequisites: ['fm-prime-numbers-factorisation', 'fm-highest-common-factor', 'fm-lowest-common-multiple'],
+        sources: ['khattar-qa-4e', 'ncert-math6-ch3'],
+        blocks: [
+          {
+            kind: 'para',
+            text: 'Three times in this chapter an equality has flashed past without stopping to be proved. Lesson 3.3 drew the Venn picture of $96$ and $720$ — the overlap $2^4 \\times 3 = 48$, the union $2^5 \\times 3^2 \\times 5 = 1{,}440$ — and its examination callout noticed that $48 \\times 1{,}440 = 96 \\times 720$. Lesson 3.4 rebuilt the same pair by the larger-power rule, watched the crossing again, and banked it once more on the buses: $6 \\times 36 = 12 \\times 18$. A coincidence does not survive three appearances. This closing lesson stops, turns the equality over, and proves it — then puts it to work. By the end, a pair of numbers will be rebuildable from a bare fingerprint: their HCF, their LCM, and at most one member.',
+          },
+          {
+            kind: 'para',
+            text: 'The exam hall has been setting this genre for a century: *the HCF and LCM of two numbers are $63$ and $1{,}260$; one of the numbers is $315$; find the other*. The paper hands you a fingerprint — a pair summarised by the two objects this chapter taught — and asks you to run the film backwards. Three questions hang in the air, and they arrange the lesson. Is the fingerprint even possible — do numbers exist that wear it? If they exist, how many pairs share it? And can the missing member, or the whole pair, be rebuilt without any search? The answers are one theorem (the product rule), one engine (the coprime split), and one guard (the HCF must divide the LCM) — every one of them a corollary of the Venn picture already drawn.',
+          },
+          {
+            kind: 'terms',
+            items: [
+              {
+                term: 'Product rule (HCF–LCM)',
+                def: 'The theorem of this lesson: for two whole numbers, the HCF times the LCM equals the product of the pair. 48 × 1,440 = 96 × 720 and 6 × 36 = 12 × 18 are the same sentence. Knowing any three of the four quantities determines the fourth.',
+              },
+              {
+                term: 'Coprime leftovers',
+                def: 'Writing a = h·m and b = h·n with h the HCF, the leftovers m and n share no prime — any shared prime would push the common factor past h. 96 = 48 × 2 and 720 = 48 × 15, and gcd(2, 15) = 1.',
+              },
+              {
+                term: 'Coprime split',
+                def: 'Splitting l ÷ h (LCM divided by HCF) into two coprime factors m and n. Each prime-power block of the quotient goes wholly to one side, so k blocks give 2^k ordered splits. 90 = 2 × 3² × 5 has three blocks and four unordered splits.',
+              },
+              {
+                term: 'Pair reconstruction',
+                def: 'Rebuilding numbers from their fingerprint — HCF and LCM, plus at most one member. The outcome can be impossible, unique, or a shortlist: HCF 6 with LCM 36 fits two pairs, (6, 36) and (12, 18).',
+              },
+              {
+                term: 'Feasibility check',
+                def: 'A fingerprint (h, l) is worn by some pair exactly when h divides l — one division decides. 24 does not divide 200, so that fingerprint is a forgery; 25 divides 300, and the pair (25, 300) itself is the witness.',
+              },
+              {
+                term: 'Rectangle identity',
+                def: 'The largest square that tiles an a × b rectangle has side gcd(a, b); the smallest square that rectangle tiles has side lcm(a, b); and the two sides multiply to the rectangle\'s area. For 6 × 4: sides 2 and 12, and 2 × 12 = 24.',
+              },
+              {
+                term: 'Two-number treaty',
+                def: 'The product rule\'s scope: exactly two seats. For 12, 18, 24 the HCF is 6 and the LCM is 72, and 6 × 72 = 432 — not the product 5,184 — yet every pair inside the triple still obeys the rule.',
+              },
+            ],
+          },
+          { kind: 'heading', text: 'The crossing products' },
+          {
+            kind: 'para',
+            text: 'Lay the picture out again and watch the two products multiply. The atoms of $96$ and $720$ fall into three territories: the overlap $O = 2^4 \\times 3 = 48$ of shared primes at their smaller powers, the $96$-only strip holding one spare $2$, and the $720$-only strip holding a spare $3$ and the $5$. So $A = 2$ and $B = 15$, giving $96 = 48 \\times 2$ and $720 = 48 \\times 15$. Now multiply the two numbers: $96 \\times 720$ counts the overlap **twice**, once inside each factor. Multiply the chapter\'s two objects instead: $48 \\times 1{,}440 = 48 \\times 48 \\times 2 \\times 15$ — and the overlap enters once on its own and once more inside the union. Both products are $48^2 \\times 2 \\times 15 = 69{,}120$. The agreement is not luck; it is bookkeeping. The product of the pair double-counts the shared territory, and the HCF is exactly that second copy.',
+          },
+          {
+            kind: 'derivation',
+            title: 'Why the products agree',
+            statement:
+              'For any two whole numbers a and b, the HCF times the LCM equals the product of the pair. The Venn territories prove it in one line.',
+            steps: [
+              {
+                label: 'Name the territories',
+                formula: 'a = O \\cdot A, \\qquad b = O \\cdot B',
+                explanation:
+                  'O is the overlap — the shared primes at their smaller powers, which is the HCF by Lesson 3.3. A and B are the outside strips: what each number owns alone. Nothing is lost — every prime of a and of b sits in exactly one territory.',
+              },
+              {
+                label: 'Read both objects off the picture',
+                formula: '\\gcd(a, b) = O, \\qquad \\mathrm{lcm}(a, b) = O \\cdot A \\cdot B',
+                explanation:
+                  'The HCF is the overlap product. The LCM is the union product — Lesson 3.4\'s whole picture, every territory multiplied in exactly once.',
+              },
+              {
+                label: 'Multiply each side its own way',
+                formula: 'a \\cdot b = O^2 A B = O \\cdot (O A B)',
+                explanation:
+                  'The product a × b counts the overlap twice — once inside each number. But O times (O × A × B) is exactly the HCF times the LCM. The double count is paid, to the atom, by the HCF.',
+              },
+            ],
+            result:
+              'The product rule: gcd(a, b) × lcm(a, b) = a × b. The HCF is the double-counted overlap.',
+          },
+          {
+            kind: 'para',
+            text: 'The same proof in the atom language takes one breath per prime. For each prime, the HCF carries it at the **smaller** power and the LCM at the **larger** — so between them the two objects carry every prime once at min and once at max. And min + max is the full power the prime holds in the product. Check the exponents on the Venn pair: for $2$, $\\min(5, 4) + \\max(5, 4) = 4 + 5 = 9$; for $3$, $1 + 2 = 3$; for $5$, $0 + 1 = 1$. So the two objects must multiply to $2^9 \\times 3^3 \\times 5 = 69{,}120$ — and they do. Whether read off territories or atoms, the sentence is the same: the two objects share nothing with each other except the overlap, and together they rebuild the product exactly.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'The product rule',
+            text: 'For whole numbers a and b: **the HCF times the LCM equals the product of the pair**. The buses: $\\gcd(12, 18) = 6$ and $\\mathrm{lcm}(12, 18) = 36$, and $6 \\times 36 = 216 = 12 \\times 18$. The Venn pair: $48 \\times 1{,}440 = 69{,}120 = 96 \\times 720$. The rule has exactly two seats — for three numbers it fails outright, as a section below shows — and one immediate corollary: knowing any three of the four quantities (the two numbers, their HCF, their LCM) determines the fourth.',
+          },
+          {
+            kind: 'formula',
+            name: 'The product rule',
+            latex: '\\gcd(a, b) \\times \\mathrm{lcm}(a, b) = a \\times b',
+            note: 'Proved from the Venn territories: the product double-counts the overlap, and the HCF is that second copy. Per prime: min + max = the full exponent. Two numbers only — the treaty has two seats. Immediate use: any three of the four quantities determine the fourth.',
+          },
+          { kind: 'heading', text: 'Rebuilding the missing member' },
+          {
+            kind: 'para',
+            text: 'The fingerprint plus one member pins the other member by pure algebra. Write $h$ for the HCF and $l$ for the LCM. The product rule says the pair\'s product is $h \\times l$; divide by the known member, and the unknown falls out. Nothing else is needed — no factorisation, no listing, no ladder. Exam papers dress this in story clothes, but underneath there is only the rule and one division.',
+          },
+          {
+            kind: 'example',
+            title: 'One member given: 63, 1,260 and 315',
+            steps: [
+              'The fingerprint: HCF $63$, LCM $1{,}260$, one member $315$. The product rule fixes the pair\'s product: $63 \\times 1{,}260 = 79{,}380$.',
+              'Divide by the known member: $79{,}380 \\div 315 = 252$. The missing member is $252$.',
+              'Verify the HCF demand: $315 = 3^2 \\times 5 \\times 7$ and $252 = 2^2 \\times 3^2 \\times 7$ — shared primes at the smaller powers give $3^2 \\times 7 = 63$. Exact.',
+              'Verify the LCM demand: all primes at the larger powers give $2^2 \\times 3^2 \\times 5 \\times 7 = 1{,}260$. Exact. Both demands met — the pair $315$ and $252$ is honestly rebuilt.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'The guard: the HCF divides every member',
+            text: 'Before dividing, look at the data. The HCF of a pair divides both members — that is its job description — so a handed member must be a multiple of the handed HCF. A paper that says "HCF $40$, one number $315$" has blundered: $40$ goes into $315$ seven times with $35$ left over, so no pair anywhere can wear that fingerprint. One division rejects it. The same reflex matters even more in a moment: a fingerprint must first be **possible** before any recipe may touch it.',
+          },
+          { kind: 'heading', text: 'Rebuilding the whole pair' },
+          {
+            kind: 'para',
+            text: 'Harder, and more beautiful: rebuild **both** members from the fingerprint alone. Where can a pair with HCF $h$ live? Both members are multiples of $h$ — write them as $a = h \\cdot m$ and $b = h \\cdot n$. The leftovers $m$ and $n$ are **coprime**: any prime shared by $m$ and $n$ would sneak an extra factor into the pair\'s common part past $h$, contradicting $h$\'s greatest-ness — Lesson 3.3\'s leftover argument, now load-bearing. And the LCM fixes their product: the union territory of the pair is the overlap $h$ times both leftovers, so $\\mathrm{lcm} = h \\cdot m \\cdot n$, which forces $m \\cdot n = l \\div h$. The recipe: divide the LCM by the HCF, split the quotient into two **coprime** factors, and multiply each back by $h$.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The coprime-split engine',
+            statement:
+              'The pairs with HCF exactly h and LCM exactly l are precisely the pairs (h·m, h·n) where m · n = l ÷ h and gcd(m, n) = 1.',
+            steps: [
+              {
+                label: 'Both members wear the HCF',
+                formula: 'a = h \\cdot m, \\quad b = h \\cdot n',
+                explanation:
+                  'h divides both members — that is what HCF means — so the leftovers m and n are forced, not chosen.',
+              },
+              {
+                label: 'The leftovers share nothing',
+                formula: '\\gcd(m, n) = 1',
+                explanation:
+                  'If a prime divided both m and n, then h times that prime would divide both a and b — a common factor larger than h. Contradiction. The Venn pair shows it: $96 = 48 \\times 2$ and $720 = 48 \\times 15$, and $\\gcd(2, 15) = 1$.',
+              },
+              {
+                label: 'The LCM is the whole picture',
+                formula: '\\mathrm{lcm}(h \\cdot m, \\; h \\cdot n) = h \\cdot m \\cdot n',
+                explanation:
+                  'The LCM must carry the overlap h once and each outside strip once: h, then m, then n. Setting this equal to l gives m · n = l ÷ h. It is the LCM, not the HCF, that the leftovers\' product obeys.',
+              },
+            ],
+            result:
+              'Reconstruction recipe: compute l ÷ h, split it into two coprime factors m and n, and read off (h·m, h·n). The coprimality is the whole difficulty — and the whole guarantee.',
+          },
+          {
+            kind: 'para',
+            text: 'A small fingerprint warms up the engine: HCF $6$, LCM $36$. The quotient is $36 \\div 6 = 6$, whose coprime splits are $(1, 6)$ and $(2, 3)$ — and that is all. Multiply back by $6$: the pairs are $(6, 36)$ and $(12, 18)$. Two pairs wear the same fingerprint — and the second is the buses\' own $(12, 18)$, which is why $6 \\times 36 = 12 \\times 18$ kept crossing this chapter. A fingerprint narrows a pair to a shortlist; it does not always name a single suspect.',
+          },
+          {
+            kind: 'example',
+            title: 'A richer fingerprint: HCF 12, LCM 720',
+            steps: [
+              'Quotient first: $720 \\div 12 = 60$. Every candidate pair is $12$ times a coprime split of $60$.',
+              'List the factor splits of 60: (1, 60), (2, 30), (3, 20), (4, 15), (5, 12), (6, 10). Strike the splits that share a factor — (2, 30) and (6, 10) each have gcd 2. Four survive.',
+              'Multiply each survivor back by 12: the pairs (12, 720), (36, 240), (48, 180), (60, 144). Four pairs wear this fingerprint.',
+              'Spot-check one: $48 = 2^4 \\times 3$ and $180 = 2^2 \\times 3^2 \\times 5$. Smaller powers: $2^2 \\times 3 = 12$ — the HCF. Larger powers: $2^4 \\times 3^2 \\times 5 = 720$ — the LCM. Exact twice. The other three check the same way.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'The classic slip: forgetting coprimality',
+            text: 'The strike-through list is the whole method. Split $60$ as $(2, 30)$ and the rebuilt pair is $(24, 360)$ — whose HCF is $24$, not $12$: the shared $2$ between the leftovers doubled the common factor. Its LCM is $360$, not $720$ — both demands broken at once. Split as $(6, 10)$ and $(72, 120)$ fails identically: HCF $24$, LCM $360$. Guard, every time: divide the rebuilt candidates by $h$ — the quotients must be coprime — or run the direct check that the HCF lands on $h$ and the LCM on $l$.',
+          },
+          { kind: 'heading', text: 'When the fingerprint is impossible' },
+          {
+            kind: 'para',
+            text: 'Some fingerprints belong to no pair at all, and rejecting them costs one division. The HCF $h$ divides both members; both members divide the LCM $l$; so $h$ divides $l$ — a divisor-of-a-divisor chain of the kind Lesson 2.4 proved. Every honest fingerprint obeys it: $63 \\mid 1{,}260$, $48 \\mid 1{,}440$, $12 \\mid 720$. A fingerprint that breaks the chain is a forgery.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'The feasibility check',
+            text: 'A fingerprint (h, l) is worn by some pair **exactly when** h divides l. Necessity: h divides a, and a divides l, so h divides l. Sufficiency is free of charge: when h | l, the pair **(h, l) itself** does the job — its HCF is h (nothing bigger divides both), and its LCM is l by Lesson 3.4\'s divisibility extreme. Every feasible fingerprint carries its own witness pair.',
+          },
+          {
+            kind: 'para',
+            text: 'The school canon drills exactly this. *Can two numbers have $24$ as their HCF and $200$ as their LCM?* Divide: $200 = 8 \\times 24 + 8$ — remainder $8$, so no. Nothing about $24$ or $200$ alone is strange; together they are impossible. *What about $25$ and $300$?* $300 = 12 \\times 25$ — the check passes, and the witness is immediate: the pair $(25, 300)$ itself, whose HCF is $25$ and whose LCM is $300$. One division, one verdict, and a free witness whenever the verdict is yes. (And for the record: $18$ and $380$ fail, since $380 = 21 \\times 18 + 2$.)',
+          },
+          { kind: 'heading', text: 'One rectangle, two squares' },
+          {
+            kind: 'para',
+            text: 'The product rule has a picture that needs no algebra at all. Take a rectangle $6$ across and $4$ up — the rectangle whose area is the product $6 \\times 4$. The **largest square that tiles it** exactly has side $\\gcd(6, 4) = 2$: six of them fill the rectangle, three across and two down. The **smallest square the rectangle tiles** — the square that $6 \\times 4$ rectangles pack without gaps — has side $\\mathrm{lcm}(6, 4) = 12$: six rectangles fill it, two across and three up. And the identity reads the two squares together: $2 \\times 12 = 24 = 6 \\times 4$. The chapter\'s two objects are the two special square-sides of one rectangle.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The product rule, drawn. Left: a 6 × 4 rectangle tiles into six 2 × 2 squares — the largest square that fits, side gcd = 2. Right: the same 6 × 4 rectangle packs a 12 × 12 square in six copies — the smallest square it fills, side lcm = 12. The identity 2 × 12 = 6 × 4 is the product rule itself.',
+            svg: `<svg viewBox="0 0 720 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A 6 by 4 rectangle tiled by six 2 by 2 squares, and a 12 by 12 square tiled by six 6 by 4 rectangles, illustrating gcd times lcm equals the area">
+  <g fill="currentColor" font-size="13">
+    <text x="120" y="44" text-anchor="middle" font-weight="700">a 6 by 4 rectangle</text>
+    <g fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="48" y="70" width="144" height="96"/>
+      <path d="M72 70V166 M96 70V166 M120 70V166 M144 70V166 M168 70V166" stroke-width="0.9" opacity="0.5"/>
+      <path d="M48 94H192 M48 118H192 M48 142H192" stroke-width="0.9" opacity="0.5"/>
+    </g>
+    <text x="120" y="198" text-anchor="middle" font-size="12">tile side 2 — the largest square that fits</text>
+    <text x="120" y="218" text-anchor="middle" font-size="12">six 2 by 2 squares (3 across, 2 down)</text>
+    <text x="326" y="112" text-anchor="middle" font-weight="700" font-size="15">2 × 12 = 24 = 6 × 4</text>
+    <text x="326" y="136" text-anchor="middle" font-size="12">gcd × lcm = a × b</text>
+    <text x="532" y="44" text-anchor="middle" font-weight="700">a 12 by 12 square</text>
+    <g fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="460" y="58" width="144" height="144"/>
+      <path d="M532 58V202" stroke-width="0.9" opacity="0.5"/>
+      <path d="M460 106H604 M460 154H604" stroke-width="0.9" opacity="0.5"/>
+    </g>
+    <text x="532" y="232" text-anchor="middle" font-size="12">rectangle side 12 — the smallest square it fills</text>
+    <text x="532" y="252" text-anchor="middle" font-size="12">six 6 by 4 copies (2 across, 3 up)</text>
+  </g>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'The twins return with their meanings intact. The square that **fits inside** is ruled by the number that divides both sides — the HCF, min powers, Lesson 3.3\'s object. The square that **contains** them is ruled by the number both sides divide — the LCM, max powers, Lesson 3.4\'s object. Exercise 9 reruns the drawing on $8$ and $12$, where the fitting square has side $4$ and the filled square side $24$, and $4 \\times 24 = 96 = 8 \\times 12$ once more. Geometry, territories, atoms: three languages, one sentence.',
+          },
+          { kind: 'heading', text: 'The product rule has exactly two seats' },
+          {
+            kind: 'para',
+            text: 'Attempt the rule on three numbers and it collapses politely. Take $12$, $18$ and $24$: the HCF is $6$, the LCM is $72$, and $6 \\times 72 = 432$ — but the product $12 \\times 18 \\times 24 = 5{,}184$. Nothing was miscomputed; the rule simply was never a three-number promise. The Venn proof shows why: with three circles, a prime can be shared by two of the numbers while missing from the third, and then no single smaller-power/larger-power bookkeeping can reconcile one overlap with three outside strips. Meanwhile every pair inside the triple still obeys the treaty: $6 \\times 36 = 216 = 12 \\times 18$, and $6 \\times 72 = 432 = 18 \\times 24$, and $12 \\times 24 = 288$ — the divisibility extreme. The rule lives with pairs and dies with triples.',
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'Two seats, no more',
+            text: 'This is the first result of the chapter whose scope is exactly two — and the scope is structural, not technical. The pair (HCF, LCM) is the (overlap, union) of **two** sets of prime territories; three sets have a subtler overlap lattice and no identity this clean. Every examination instance of the product rule involves exactly two numbers. When a paper says "the HCF and LCM of two numbers", the treaty applies; the moment a third number enters, put the rule away.',
+          },
+          { kind: 'heading', text: 'One table to finish the chapter' },
+          {
+            kind: 'para',
+            text: 'Lessons 3.3 and 3.4 each closed with a table of exam patterns — the greatest-number family and the least-number family. Set side by side they are one table, and the product rule adds a final row. The logic that sorts the two families is a single sentence: a number that **divides all** of $x$, $y$, $z$ is hunted down by the HCF (subtract the remainders to reach exact division), and a number that **is divisible by all** of them is built up by the LCM (add the laps to reach the remainder).',
+          },
+          {
+            kind: 'table',
+            caption: "The chapter's pattern table, united",
+            head: ['The story', 'The object', 'The translation', 'Instance'],
+            rows: [
+              ['Greatest number dividing x, y, z exactly', 'HCF', 'the HCF, no adjustment', 'cords 1,152, 768, 1,248 → 96'],
+              ['Greatest dividing x, y, z, same remainder r', 'HCF', 'HCF of (x − r), (y − r), (z − r)', '148, 246, 623 leaving 4, 6, 11 → 12'],
+              ['Greatest dividing x, y, z, equal unknown remainders', 'HCF', 'HCF of the pairwise differences', '152, 277, 427 → 25'],
+              ['Least number exactly divisible by x, y, z', 'LCM', 'the LCM, no adjustment', '36, 45, 63, 80 → 5,040'],
+              ['Least divided by x, y, z, same remainder r', 'LCM', 'LCM + r — one lap', '12, 16, 18 leaving 5 → 149'],
+              ['Least divided by x, y, z, equal deficiencies d', 'LCM', 'LCM − d', '9, 10, 15 leaving 4, 5, 10 → 85'],
+              ['How many up to N divisible by both a and b', 'LCM', 'N ÷ lcm(a, b), rounded down', 'up to 300, by 5 and 7 → 8'],
+              ['One member known; HCF and LCM known', 'product rule', 'HCF × LCM ÷ the known member', '63, 1,260, member 315 → 252'],
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'historical',
+            title: 'Gauss draws the ground rules (1801)',
+            text: 'In 1801 a 24-year-old Carl Friedrich Gauss published the **Disquisitiones Arithmeticae**, and number theory became a subject with foundations. Gauss built the edifice on the step this book has leaned on since Lesson 2.4: divide, take the remainder, continue — the Euclidean algorithm, stated the modern way. His treatment fixed the greatest common divisor as a first-class object rather than a computational trick, and the congruence notation introduced there — $a \\equiv b \\pmod m$ — gave the remainders of Lesson 3.1 a language of their own. The product rule proved in this lesson was part of the toolkit he inherited and systematised: pair the shared part with the common container, and the product is conserved. Two centuries of examination papers have been rephrasing that conservation ever since.',
+          },
+          {
+            kind: 'callout',
+            tone: 'exam',
+            title: 'Where this shows up in examinations',
+            text: 'The product rule is a permanent fixture in three costumes. **Missing member**: "the HCF and LCM of two numbers are $12$ and $720$; one number is $48$ — find the other" — $12 \\times 720 \\div 48 = 180$, then verify both demands. **Product given**: "the HCF of two numbers is $16$ and their product is $6{,}400$ — find the LCM" — $6{,}400 \\div 16 = 400$, and the pair is forced: $(16, 400)$. **Feasibility**: "can two numbers have HCF $24$ and LCM $200$?" — no, since $200 = 8 \\times 24 + 8$. CBSE Class 6 closes its chapter on playing with numbers with exactly the feasibility genre; SSC, bank and Railway papers drill the reconstruction. And the whispers banked across Lessons 3.3 and 3.4 are hereby honoured: $48 \\times 1{,}440 = 96 \\times 720$ and $6 \\times 36 = 12 \\times 18$ are, as of this lesson, theorems.',
+          },
+          { kind: 'heading', text: 'Check yourself' },
+          {
+            kind: 'quiz',
+            items: [
+              {
+                q: 'The HCF of two numbers is 6 and their LCM is 36. One member is 12. The other is:',
+                options: ['3', '72', '18', '24'],
+                answer: 2,
+                explain:
+                  'The product rule: $6 \\times 36 = 216$, and $216 \\div 12 = 18$ (Option 3). Option 1 ($3$) divides both numbers but is not a member of a pair with product $216$. Option 2 is the LCM itself — $12 \\times 72 = 864$, not $216$, and the HCF of $12$ and $72$ is $12$, not $6$. Option 4: $12 \\times 24 = 288$, and that pair\'s HCF is $12$ again. The rebuilt answer also checks: $\\gcd(12, 18) = 6$ and $\\mathrm{lcm}(12, 18) = 36$.',
+              },
+              {
+                q: 'The HCF of two numbers is 16 and their product is 6,400. Their LCM is:',
+                options: ['6,384', '400', '25', '160'],
+                answer: 1,
+                explain:
+                  'The product rule rearranged: LCM = product ÷ HCF $= 6{,}400 \\div 16 = 400$ (Option 2). Option 1 subtracted the HCF instead of dividing. Option 3 divided twice — $400 \\div 16$. Option 4 gives LCM $160$, which would force the product to be $16 \\times 160 = 2{,}560$, not $6{,}400$. Bonus: the fingerprint (16, 400) forces the pair — the leftovers\' product is $25$, whose only coprime split is $(1, 25)$.',
+              },
+              {
+                q: 'Can two numbers have 18 as their HCF and 380 as their LCM?',
+                options: [
+                  'Yes — 18 × 380 works out',
+                  'Yes — any HCF and LCM can pair up',
+                  'No — the HCF must divide the LCM, and 18 does not divide 380',
+                  'No — the LCM must divide the HCF',
+                ],
+                answer: 2,
+                explain:
+                  'One division settles it: $380 = 21 \\times 18 + 2$ — remainder $2$, so the feasibility check fails (Option 3). Option 4 reverses the arrow: the LCM is the bigger object and never divides the HCF (except in the trivial equal case). The options that say yes skip the only check that matters.',
+              },
+              {
+                q: 'How many pairs (a, b) with a < b have HCF 12 and LCM 720?',
+                options: ['1', '2', '3', '4'],
+                answer: 3,
+                explain:
+                  'The leftovers\' product is $720 \\div 12 = 60 = 2^2 \\times 3 \\times 5$, and its coprime splits are $(1, 60)$, $(3, 20)$, $(4, 15)$, $(5, 12)$ — four of them, so four pairs (Option 4): $(12, 720)$, $(36, 240)$, $(48, 180)$, $(60, 144)$. Option 1 counts only the divisibility-extreme pair $(12, 720)$. Options 2 and 3 dropped honest splits.',
+              },
+              {
+                q: 'For 12, 18 and 24: the HCF is 6, the LCM is 72, and 6 × 72 = 432 — but 12 × 18 × 24 = 5,184. What went wrong?',
+                options: [
+                  'Nothing — 432 is the true product of the three',
+                  'The product rule is a two-number treaty; it never applies to three numbers',
+                  'The LCM should have been 864',
+                  'The HCF should have been 12',
+                ],
+                answer: 1,
+                explain:
+                  'The rule was proved from one Venn picture — two circles, one overlap (Option 2). Every pair inside the triple still obeys it: $6 \\times 36 = 216 = 12 \\times 18$, $6 \\times 72 = 432 = 18 \\times 24$, $12 \\times 24 = 288$. Options 3 and 4 miscompute the triple itself: the LCM of 12, 18, 24 really is 72 and the HCF really is 6.',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'The HCF of two numbers is 5 and their LCM is 60. One member is 15. Find the other, and verify it against both demands.',
+                    solution:
+                      'Product rule: the pair\'s product is $5 \\times 60 = 300$; divide by the known member: $300 \\div 15 = 20$. Verify: $15 = 3 \\times 5$ and $20 = 2^2 \\times 5$ — shared primes at smaller powers give $5$, the HCF; all primes at larger powers give $2^2 \\times 3 \\times 5 = 60$, the LCM. The other member is $20$.',
+                  },
+                  {
+                    q: 'Verify the product rule on the pair 45 and 60, computing all four quantities from scratch.',
+                    solution:
+                      'Atoms: $45 = 3^2 \\times 5$ and $60 = 2^2 \\times 3 \\times 5$. HCF — shared primes at the smaller powers: $3 \\times 5 = 15$. LCM — all primes at the larger powers: $2^2 \\times 3^2 \\times 5 = 180$. Product of the pair: $45 \\times 60 = 2{,}700$. Product of the objects: $15 \\times 180 = 2{,}700$. Equal — the rule holds, and the Venn reading says why: $45 = 15 \\times 3$, $60 = 15 \\times 4$, with coprime leftovers 3 and 4.',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'The HCF of two numbers is 12 and their product is 4,032. Find the LCM — then find every pair that shares this fingerprint.',
+                    solution:
+                    'LCM = product ÷ HCF $= 4{,}032 \\div 12 = 336$ (and $336 = 28 \\times 12$, so the fingerprint passes feasibility). The leftovers\' product is $336 \\div 12 = 28$, whose coprime splits are $(1, 28)$ and $(4, 7)$ — the split $(2, 14)$ shares a 2. Multiply back by 12: the pairs $(12, 336)$ and $(48, 84)$. Check the second: $\\gcd(48, 84) = 12$ and $\\mathrm{lcm}(48, 84) = 2^4 \\times 3 \\times 7 = 336$. Exact.',
+                  },
+                  {
+                    q: 'Can two numbers have 18 as their HCF and 380 as their LCM? Give a reason in one division.',
+                    solution:
+                      'No. The HCF must divide the LCM, and $380 \\div 18 = 21$ remainder $2$ — not exact. Since every member is a multiple of the HCF $18$ and the LCM is a multiple of every member, the chain $18 \\mid \\text{member} \\mid 380$ would force $18 \\mid 380$ — it fails. No pair anywhere wears this fingerprint.',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'Rebuild every pair (a < b) with HCF 6 and LCM 36, and check each rebuilt pair against both demands.',
+                    solution:
+                      'Leftovers\' product: $36 \\div 6 = 6$, coprime splits $(1, 6)$ and $(2, 3)$. Pairs: $(6, 36)$ and $(12, 18)$. Checks — $(6, 36)$: HCF $6$ (divisibility extreme), LCM $36$. $(12, 18)$: $12 = 2^2 \\times 3$, $18 = 2 \\times 3^2$; smaller powers $2 \\times 3 = 6$, larger powers $2^2 \\times 3^2 = 36$. Both pairs pass. The fingerprint is worn by two pairs — reconstruction can be ambiguous.',
+                  },
+                  {
+                    q: 'Rebuild every pair (a < b) with HCF 10 and LCM 90. What is different about this fingerprint?',
+                    solution:
+                      'Leftovers\' product: $90 \\div 10 = 9 = 3^2$. Factor splits: $(1, 9)$ and $(3, 3)$ — but $(3, 3)$ shares the factor 3, leaving the single coprime split $(1, 9)$. So exactly one pair: $(10, 90)$ — the divisibility extreme, since $10 \\mid 90$. The difference: when the leftovers\' product is a prime power, one member must take the whole thing, and the fingerprint forces a unique pair. Verify: $\\gcd(10, 90) = 10$, $\\mathrm{lcm}(10, 90) = 90$.',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'The HCF and LCM of two numbers are 12 and 720; one member is 48. Find the other and verify both demands.',
+                    solution:
+                      'Product rule: $12 \\times 720 = 8{,}640$; $8{,}640 \\div 48 = 180$. Verify the HCF: $48 = 2^4 \\times 3$, $180 = 2^2 \\times 3^2 \\times 5$ — smaller powers $2^2 \\times 3 = 12$. Verify the LCM: larger powers $2^4 \\times 3^2 \\times 5 = 720$. Both exact, and the guard was legal from the start: $48 = 4 \\times 12$ is a multiple of the HCF. The missing member is $180$.',
+                  },
+                  {
+                    q: 'The HCF of two numbers is 16 and their product is 6,400. Find the LCM, then show that the pair itself is forced — no other pair wears the fingerprint.',
+                    solution:
+                      'LCM $= 6{,}400 \\div 16 = 400$ (feasible: $400 = 25 \\times 16$). Leftovers\' product: $400 \\div 16 = 25 = 5^2$. Factor splits: $(1, 25)$ and $(5, 5)$ — but $(5, 5)$ shares the factor 5, so the only coprime split is $(1, 25)$. One pair: $(16, 400)$. Uniqueness came from the leftovers\' product being a perfect square of a prime: any split other than $1$-and-all would share the prime.',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'Draw the rectangle identity for 8 and 12: find the largest square that tiles an 8 × 12 rectangle and the smallest square that rectangle tiles. Verify all three products.',
+                    solution:
+                      'Largest fitting square: side $\\gcd(8, 12) = 4$ — the rectangle splits into $(8 \\div 4) \\times (12 \\div 4) = 2 \\times 3 = 6$ squares of side 4. Smallest filled square: side $\\mathrm{lcm}(8, 12) = 24$ — it packs $(24 \\div 8) \\times (24 \\div 12) = 3 \\times 2 = 6$ copies of the rectangle. The three products agree: $8 \\times 12 = 96$; $4 \\times 24 = 96$; and $24 \\times 24 = 576 = 6 \\times 96$ — the big square\'s area is six rectangles. The identity $4 \\times 24 = 8 \\times 12$ is the product rule on the pair (8, 12).',
+                  },
+                  {
+                    q: 'For each fingerprint, decide whether some pair wears it, and give a witness pair when possible: (i) HCF 9, LCM 45; (ii) HCF 9, LCM 50; (iii) HCF 9, LCM 72.',
+                    solution:
+                      '(i) $45 \\div 9 = 5$ — exact, feasible; witness $(9, 45)$ itself: HCF $9$, LCM $45$. (ii) $50 \\div 9$ leaves remainder $5$ — infeasible; no pair exists. (iii) $72 \\div 9 = 8$ — exact, feasible; witness $(9, 72)$: HCF $9$, LCM $72$ (the divisibility extreme again). The lesson of the trio: feasibility is one division, and the witness is free — the pair (h, l) always certifies a passing fingerprint.',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'The fingerprint collector\'s problem. Find every pair (a, b) with a < b, HCF 14 and LCM 1,260 — and prove the list is complete.',
+                    solution:
+                      'Leftovers\' product: $1{,}260 \\div 14 = 90 = 2 \\times 3^2 \\times 5$. A split of 90 works exactly when each prime-power block — $2$, $3^2$, $5$ — goes wholly to one side; three blocks give $2^3 = 8$ ordered splits, folded into $4$ unordered ones: $(1, 90)$, $(2, 45)$, $(5, 18)$, $(9, 10)$ — every split sharing a factor (like $(3, 30)$ or $(6, 15)$) is struck. Multiply back by 14: $(14, 1{,}260)$, $(28, 630)$, $(70, 252)$, $(126, 140)$. Completeness: any pair with this fingerprint must be $14$ times a coprime split of 90, and all eight ordered splits were enumerated — four pairs, no more. Spot-check $(126, 140)$: $126 = 2 \\times 3^2 \\times 7$, $140 = 2^2 \\times 5 \\times 7$ — HCF $2 \\times 7 = 14$, LCM $2^2 \\times 3^2 \\times 5 \\times 7 = 1{,}260$. (Notice the LCM: the same $1{,}260$ the exam genre opened this lesson with — one fingerprint, four pairs, every one of them wearing both demands.)',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'The unit is complete, and its whole argument hangs from one move. Lesson 2.4 proved that division leaves a remainder smaller than the divisor; Lesson 3.1 turned remainders read from digits into divisibility tests; Lesson 3.2 factorised numbers into atoms and proved the factorisation unique; Lessons 3.3 and 3.4 assembled the shared part and the common container; and this lesson closed the circle — the overlap counted twice **is** the product rule, the coprime leftovers **are** the reconstruction engine, and one division of LCM by HCF settles whether a fingerprint can exist at all. Next unit the number line itself changes character: between any two whole numbers, fractions grow dense, and the four operations learn to live there. The atoms remain atoms — but from here on, they divide.',
+          },
+        ],
+      },
   ],
 }

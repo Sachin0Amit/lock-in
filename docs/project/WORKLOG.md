@@ -6,6 +6,101 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 11: lesson 3.5 HCF, LCM and How They Relate shipped — UNIT 3 COMPLETE (5/5 lessons)
+
+**Situation at start:** eighth delivery of job 498279 (18:35 +08:00). Tree
+clean at `8640085` = origin/main (the run-10 memory commit; ship `bf67ba7`
+already pushed). No in-flight lessons. RESUME_POINTER named FM 3.5 "HCF,
+LCM and How They Relate" — the unit closer. Dev server already up (all
+routes 200).
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id
+(33.9 MB) — ch. 2's product-rule section studied: "Product of two numbers
+= L.C.M. of the numbers × H.C.F. of the numbers" with Illustration 14's
+reconstruction (HCF 63, LCM 1,260, one number 315 → other 252); the
+HCF/LCM-of-fractions shortcuts noted and left out of scope. NCERT class-6
+Ex 3.7 feasibility genre web-checked ("Can two numbers have 24 as their
+HCF and 200 as their LCM?" — no: the HCF must divide the LCM). All
+exposition original; instances recomposed or canon forms re-derived.
+
+**Pre-write verification:** `scripts/verify-unit-3.ts` extended with
+section AA (33 checks) — **260 checks, ALL PASS before one word was
+written** (up from 227). Covers: the three banked crosses (48 × 1,440 =
+96 × 720; 6 × 36 = 12 × 18); the per-prime min+max = α+β identity for
+96/720; the Venn double-count algebra O²AB = O·(OAB); coprime leftovers
+gcd(2,15) = 1; the product rule brute-forced over every pair ≤ 60;
+Illustration-14 recomposition (63 × 1,260 = 79,380 ÷ 315 = 252 with both
+demand checks); coprime splits of 60 → exactly 4 → the four (12,720)
+pairs brute-forced; wrong splits (2,30)/(6,10) → gcd 24, lcm 360; the
+feasibility canon (24 ∤ 200, 18 ∤ 380, 25 | 300) plus brute-forced
+necessity AND sufficiency over h ≤ 60, l ≤ 600; h | l brute-forced over
+all pairs ≤ 60; the two-seats counterexample (triple 12/18/24: 6 × 72 =
+432 ≠ 5,184, every pair inside obeys); the rectangle identity for 6 × 4
+and 8 × 12 with all tile counts; united-table instances re-verified
+(12; 25; 5,040; 149; 85); exam-genre numbers (48 → 180; 400 forced;
+336/28 splits); and the L6 enumeration — coprime splits of 90 = 2 × 3² × 5
+→ exactly (1,90), (2,45), (5,18), (9,10) → the four HCF-14/LCM-1,260 pairs
+brute-forced. Two check-side fixes en route (unordered-split enumeration
+bounds; a wrong expected lcm in AA15 — the arithmetic itself was never
+wrong).
+
+**Lesson 3.5 written** (appended to ch-03.ts, 4,773 words): opening
+honouring the three banked whispers; 7 terms; the crossing-products para +
+"why the products agree" derivation (overlap double-count) + atoms reading
+(min + max = α + β per prime); product-rule theorem callout + formula
+card; rebuilding the missing member (63/1,260/315 → 252) with the guard
+callout (HCF 40 with member 315 is a blunder); rebuilding whole pairs —
+coprime-split engine derivation, warm-up fingerprint HCF 6 LCM 36 →
+(6,36) + (12,18), the richer HCF 12 LCM 720 → four pairs, warn callout on
+forgetting coprimality ((24,360) and (72,120) both break both demands);
+feasibility — h | l chain para + theorem callout with the free witness
+pair (h, l) + NCERT canon para (24/200 no; 25/300 yes); the rectangle
+identity (6 × 4 figure: six 2 × 2 squares tile it, six 6 × 4 rectangles
+pack a 12 × 12 square, 2 × 12 = 24 = 6 × 4 — plain labels, 0 audit issues
+FIRST pass); the two-seats section (triple counterexample + insight
+callout); the united pattern table (8 rows uniting 3.3 + 3.4 + the
+product-rule row); Gauss 1801 historical callout; exam callout (missing
+member, product given, feasibility — and the three whispers honoured as
+theorems); 5 quiz (answers spread 2/1/2/3/1, 5/5 clicked live); L1–L6
+exercises — 11 questions ending in the fingerprint collector's problem
+(four pairs with HCF 14 LCM 1,260, completeness by the block argument);
+chapter-arc closing para (everything hangs from 2.4's division algorithm;
+next unit fractions).
+
+**Unit-3 completion review (same ship):** BOOK_FORMAT verification
+checklist 7/7; exam-coverage audit — all five lessons 3.1–3.5 carry an
+exam callout, topics mapped to the NCERT class-6 canon + Khattar ch. 2
+patterns, no past-paper reproduction; totals recomputed via
+`bun run scripts/build_work_inventory.ts` (book = 13 lessons / 59,076
+words / 82 terms / 65 quiz items / 115 exercise questions; ch. 3 =
+27,917 words); chapter status flipped to `complete`, `plannedLessons`
+cleared, ch-03.ts + book.ts headers updated.
+
+**Verified (gates):** verify-unit-3 260/260 (+ verify-unit-2 still
+165/165); lint clean; tsc clean (two fix-ups: literal-narrowing TS2367 in
+two AA checks — the !==-tautologies dropped, the ===-checks kept; the
+3.5 object initially landed inside 3.4's blocks array and was re-anchored
+as a proper sibling lesson); 6 routes 200; live E2E on the new lesson:
+KaTeX 165 nodes, dollarInSvg = 0, quiz 5/5 perfect, flashcards 82 in deck
+(75 → 82), glossary lists all 7 new terms + the formula card, zero console
+errors, 390px exact-fit (overflowX = 0) with all 11 exercise solutions
+expanded; SVG audit `bash scripts/audit-svg-overlaps.sh
+fm-hcf-lcm-and-how-they-relate` = 0 issues on the FIRST pass.
+
+**Logging:** WORK_INVENTORY.json regenerated via
+`bun run scripts/build_work_inventory.ts`; DETAILED_LOG.md,
+PROGRESS.json, RESUME_POINTER.json, SOURCE_LOG.md updated; Khattar working
+copies deleted after E2E (storage law honoured).
+
+**Remaining:** UNIT 4 — FM chapter 4 "Fractions", lesson 4.1 "The Idea of
+a Fraction" (create ch-04.ts + verify-unit-4.ts with its gitignore
+exception). Exam registry research pending.
+
+**Git:** ship commit pending at write time — see the memory commit that
+follows for the push verification under protocol v2.
+
+---
+
 ## 2026-11-03 — HOURLY RUN 10: lesson 3.4 Lowest Common Multiple shipped (unit 3 = 4/5 lessons)
 
 **Situation at start:** sixth delivery of job 498279 (17:57 +08:00). Tree
