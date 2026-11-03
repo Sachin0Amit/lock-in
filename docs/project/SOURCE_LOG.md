@@ -158,6 +158,18 @@ step 6).
   lesson 5.3); exposition original — the screw/workshop opening scene,
   the mirror symmetry, the zoom figure and the atom test are the book's
   own derivations.
+- `ncert-math7-ch8` — NCERT Class 7 Mathematics, ch. 8 "Comparing
+  Quantities" (old-edition canon; public curriculum). Used for: FM ch. 5
+  lesson 5.4 — the canonical percent introduction mirrored (percent as
+  "another way of comparing quantities" with denominator fixed at 100;
+  interpreting percentages; converting fractions/decimals to percentages
+  and back; using percentages in word problems), web-checked 2026-11-04
+  (published chapter outlines confirm §8.3 "Percentage — Another Way of
+  Comparing Quantities" (8.3.1 meaning of percentage) and §8.4 "Use of
+  Percentages" as the percent-teaching sections); exposition original —
+  the 100-square figure, the two-hop law derivation, the benchmark ladder
+  and the halving chain, the commutativity gem and the unitary-method
+  return are the book's own derivations.
 - `ncert-math9-ch1` — NCERT Class 9 Mathematics, ch. 1 "Number Systems"
   (public curriculum). Used for: FM ch. 5 lesson 5.2 — the canonical
   classification of rational decimal expansions as terminating or
@@ -173,7 +185,7 @@ step 6).
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-9 ch. 1; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete; ch. 5 OPEN at 5.2, run 22**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-7 ch. 8 + class-9 ch. 1; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps), lesson 5.3 (no downloads; NCERT class-6 ch. 8 + class-7 ch. 2 §§2.3–2.4 web-checked; Khattar point-hop family), lesson 5.4 (no downloads; NCERT class-7 ch. 8 §§8.3–8.4 web-checked — new citation key ncert-math7-ch8; Khattar percent conversion items) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**4/11 chapters complete; ch. 5 OPEN at 5.4, run 24**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -187,6 +199,10 @@ step 6).
 
 ## Free-space checkpoint
 
+- 2026-11-04 (mathematics, unit 5, lesson 5.4): no downloads — NCERT
+  class-7 ch. 8 "Comparing Quantities" §§8.3–8.4 percent coverage
+  web-checked (sanctioned fallback; one new citation key added:
+  ncert-math7-ch8); zero temporary-references footprint this lesson.
 - 2026-11-04 (mathematics, unit 5, lesson 5.3): no downloads — NCERT
   class-6 ch. 8 addition/subtraction-by-alignment exercises and class-7
   ch. 2 §§2.3–2.4 multiplication/division-of-decimals section sequences

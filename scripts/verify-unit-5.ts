@@ -11,6 +11,15 @@
  * figure geometry and the quiz/exercise keys — BEFORE anything is written
  * into ch-05.ts.
  * Run: bun run scripts/verify-unit-5.ts   (exit 1 on any failure)
+ *
+ * Extended 2026-11-04 (run 24) for lesson 5.4 "Percent and Its Meaning":
+ * sections BK–BS verify every number of the percent dress — the x/100
+ * definition and its cross-products, the two-hop conversions both ways,
+ * the 1/3 caution (33 1/3% exact vs 33.3% approximate), percent of a
+ * quantity, the benchmark ladder, the halving chain and the commutativity
+ * gem x% of y = y% of x, the word problems (marks, shares, the whole),
+ * both figures' geometry and the quiz/exercise keys — BEFORE anything is
+ * written into ch-05.ts.
  */
 
 // module marker: keeps this file's top-level names out of the global
@@ -885,6 +894,137 @@ check('AJ4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
 check('AJ5: quiz answers planned as indices 2/1/2/0/1', JSON.stringify([2, 1, 2, 0, 1]) === '[2,1,2,0,1]');
 check('AJ6: prerequisites — 5.1, 5.2, 4.2 (multiplying rule), 4.4 (like-units addition)', true);
 
+/* ============================================================
+ * 5.4 — BK. The percent definition and the two-hop conversions
+ * ==========================================================*/
+// x% = n/d in lowest terms iff x * d === n * 100 (exact cross-product)
+const pctFrac = (x: number, n: number, d: number) => x * d === n * 100 && gcd(n, d) === 1;
+
+check('BK1: definition cross-checks — 35% = 7/20, 64% = 16/25, 45% = 9/20, 120% = 6/5, all lowest terms',
+  pctFrac(35, 7, 20) && pctFrac(64, 16, 25) && pctFrac(45, 9, 20) && pctFrac(120, 6, 5));
+check('BK2: the hundredth dresses — 12.5% = 1/8 (125 x 8 = 1000), 6.25% = 1/16 (625 x 16 = 10000), 0.5% = 1/200 (50 x 2 = 100)',
+  125 * 8 === 1000 && pctFrac(12.5, 1, 8) && 625 * 16 === 10000 && pctFrac(6.25, 1, 16) && pctFrac(0.5, 1, 200));
+check('BK3: percent to decimal is the two-hop LEFT — 45% = 0.45, 8% = 0.08, 6.5% = 0.065, 0.5% = 0.005, 120% = 1.2',
+  M(0.45) === 450 && M(0.08) === 80 && M(0.065) === 65 && M(0.005) === 5 && M(1.2) === 1200);
+check('BK4: decimal to percent is the two-hop RIGHT — 0.375 = 37.5%, 0.06 = 6%, 0.09 = 9%, 0.35 = 35%, 1.2 = 120%',
+  Math.abs(0.375 * 100 - 37.5) < 1e-12 && Math.abs(0.06 * 100 - 6) < 1e-12 && Math.abs(0.09 * 100 - 9) < 1e-12 && Math.abs(0.35 * 100 - 35) < 1e-12 && 100 * 1.2 === 120);
+check('BK5: fraction to percent — 3/4 = 75%, 2/5 = 40%, 7/20 = 35%, 5/8 = 62.5%, 3/8 = 37.5%, 7/8 = 87.5%',
+  300 / 4 === 75 && 200 / 5 === 40 && 700 / 20 === 35 && Math.abs(5000 / 8 - 625) < 1e-9 && Math.abs(3000 / 8 - 375) < 1e-9 && Math.abs(7000 / 8 - 875) < 1e-9);
+check('BK6: the 1/3 caution — 33 1/3% = (100/3)/100 = 1/3 exactly; 33.3% = 333/1000 is a hair short (333 x 3 = 999 < 1000); 2/3 = 66 2/3%',
+  Math.abs((100 / 3) / 100 - 1 / 3) < 1e-12 && 333 * 3 === 999 && 999 < 1000 && Math.abs((200 / 3) / 100 - 2 / 3) < 1e-12);
+check('BK7: the two-hop law as an equivalence — p = x/100 iff x = 100p; pairs (45, 0.45), (6.5, 0.065), (120, 1.2), (0.5, 0.005)',
+  100 * 0.45 === 45 && Math.abs(100 * 0.065 - 6.5) < 1e-12 && 100 * 1.2 === 120 && Math.abs(100 * 0.005 - 0.5) < 1e-12);
+
+/* ============================================================
+ * 5.4 — BL. Percent of a quantity and the benchmarks
+ * ==========================================================*/
+check('BL1: percent of a quantity = (x/100) x A — 15% of 460 = 69, 8% of 2500 = 200, 12.5% of 640 = 80, 18% of 2500 = 450',
+  (15 * 460) / 100 === 69 && (8 * 2500) / 100 === 200 && (125 * 640) / 1000 === 80 && (18 * 2500) / 100 === 450);
+check('BL2: the benchmark identities — 50% = 1/2, 25% = 1/4, 20% = 1/5, 12.5% = 1/8, 10% = 1/10, 5% = 1/20, 1% = 1/100',
+  pctFrac(50, 1, 2) && pctFrac(25, 1, 4) && pctFrac(20, 1, 5) && pctFrac(12.5, 1, 8) && pctFrac(10, 1, 10) && pctFrac(5, 1, 20) && pctFrac(1, 1, 100));
+check('BL3: benchmark builds — 35% of 200 = 25% + 10% = 50 + 20 = 70 = (35 x 200)/100; 15% of 460 = 10% + 5% = 46 + 23 = 69; 35% of 460 = 115 + 46 = 161',
+  200 / 4 === 50 && 200 / 10 === 20 && 50 + 20 === 70 && 35 * 2 === 70 &&
+  460 / 10 === 46 && 460 / 20 === 23 && 46 + 23 === 69 &&
+  460 / 4 === 115 && 115 + 46 === 161 && 35 * 460 === 16100 && 16100 / 100 === 161);
+check('BL4: the benchmark ladder on 460 — 50% = 230, 25% = 115, 20% = 92, 10% = 46, 5% = 23, 1% = 4.6',
+  460 / 2 === 230 && 460 / 4 === 115 && 460 / 5 === 92 && 460 / 10 === 46 && 460 / 20 === 23 && M(460 / 100) === 4600);
+check('BL5: the halving chain at work — 6.25% of 512 = 32 (512/16) and 3.125% of 640 = 20 (640/32)',
+  512 / 16 === 32 && 640 / 32 === 20 && M(6.25) === 6250 && 625 * 16 === 10000);
+
+/* ============================================================
+ * 5.4 — BM. The commutativity gem and the halving chain
+ * ==========================================================*/
+check('BM1: x% of y = y% of x — xy/100 both ways: 8% of 50 = 50% of 8 = 4; 16% of 25 = 25% of 16 = 4; 12% of 25 = 3; 4% of 75 = 3',
+  (8 * 50) / 100 === 4 && (50 * 8) / 100 === 4 && (16 * 25) / 100 === 4 && (25 * 16) / 100 === 4 && (12 * 25) / 100 === 3 && (4 * 75) / 100 === 3);
+check('BM2: the halving chain — 100 halved repeatedly: 50, 25, 12.5, 6.25, 3.125 with fraction dresses 1/2, 1/4, 1/8, 1/16, 1/32',
+  100 / 2 === 50 && 50 / 2 === 25 && 25 / 2 === 12.5 && 12.5 / 2 === 6.25 && 6.25 / 2 === 3.125 &&
+  pctFrac(50, 1, 2) && pctFrac(25, 1, 4) && pctFrac(12.5, 1, 8) && pctFrac(6.25, 1, 16) && pctFrac(3.125, 1, 32));
+check('BM3: the atoms explain the chain — 100 = 2^2 x 5^2; after two halvings the fives alone remain (25 = 5^2), then each half rides on',
+  100 === 4 * 25 && 25 === 5 * 5 && 12.5 === 100 / 8 && 6.25 === 100 / 16 && 3.125 === 100 / 32);
+
+/* ============================================================
+ * 5.4 — BN. Word problems: marks, shares, the whole
+ * ==========================================================*/
+check('BN1: marks — 348 of 500 = (348 x 100)/500 = 348/5 = 69.6%',
+  348 * 100 === 34800 && 34800 / 500 === 69.6 && M(69.6) === 69600 && 348 * 2 === 696);
+check('BN2: shares — 55% of 40 are girls: 22 girls, 18 boys; 60% of 45 are boys: 27 boys, 18 girls; both total back',
+  (55 * 40) / 100 === 22 && 40 - 22 === 18 && 22 + 18 === 40 && (60 * 45) / 100 === 27 && 45 - 27 === 18 && 27 + 18 === 45);
+check('BN3: find the whole by the unitary method — 8% of n = 56: 1% = 7, n = 700; 12% of n = 84: 1% = 7, n = 700; 30% of n = 96: n = 320',
+  56 / 8 === 7 && 7 * 100 === 700 && Math.abs((8 / 100) * 700 - 56) < 1e-9 &&
+  84 / 12 === 7 && 7 * 100 === 700 && (96 * 100) / 30 === 320 && 30 * 320 === 9600 && M(320 / 100) === 3200);
+check('BN4: what percent — 36 of 90 is 40% (3600/90); 66 of 240 is 27.5% (6600/240)',
+  (36 * 100) / 90 === 40 && (66 * 100) / 240 === 27.5);
+check('BN5: the pass mark — 33% of 600 = 198; a score of 210 passes by 12 marks',
+  (33 * 600) / 100 === 198 && 210 - 198 === 12);
+check('BN6: savings — 30% of Rs 18,500 = Rs 5,550 saved; Rs 12,950 remains',
+  (30 * 18500) / 100 === 5550 && 18500 - 5550 === 12950);
+
+/* ============================================================
+ * 5.4 — BO. Figure 1 geometry: the 100-square (35% shaded)
+ * ==========================================================*/
+check('BO1: grid geometry — 10 x 10 cells of 30px at (70, 110); grid ends (370, 410) inside the 760 x 470 viewBox',
+  70 + 10 * 30 === 370 && 110 + 10 * 30 === 410 && 370 < 760 && 410 < 470);
+check('BO2: the shaded block is cols 0-6 by rows 0-4 — 210px x 150px = 7 x 5 = 35 cells, each cell exactly 1% of 100',
+  210 / 30 === 7 && 150 / 30 === 5 && 7 * 5 === 35 && 35 === 25 + 10);
+check('BO3: air chains — top label baseline 80, bracket rail 88, grid 110; bottom strip baseline 445 vs grid 410; right legend at x >= 400 vs grid edge 370',
+  88 - 80 === 8 && 110 - 88 === 22 && 445 - 410 === 35 && 400 - 370 === 30);
+check('BO4: the two bracket rails — 25% rail spans x 70..220 (5 cells), 10% rail spans x 220..280 (2 cells); labels "25%" at 145 and "10%" at 250 clear each other',
+  220 - 70 === 150 && 150 / 30 === 5 && 280 - 220 === 60 && 60 / 30 === 2 && 250 - 145 === 105);
+
+/* ============================================================
+ * 5.4 — BP. Figure 2 geometry: the conversion map
+ * ==========================================================*/
+check('BP1: three stations — FRACTION 30..210, DECIMAL 300..460, PERCENT 550..730, all y 150..214; the gaps are 90px each',
+  210 - 30 === 180 && 460 - 300 === 160 && 730 - 550 === 180 && 300 - 210 === 90 && 550 - 460 === 90);
+check('BP2: label air — gap labels at y 132 and y 252 clear the boxes (150..214); the arc label at y 50 clears the arc peak ~85; the example strip sits at y 330',
+  150 - 132 === 18 && 252 - 214 === 38 && 85 - 50 === 35 && 330 - 214 === 116);
+check('BP3: the arc runs station-top to station-top — (120, 150) to (640, 150), peak y ~85, inside the viewBox',
+  120 > 30 && 640 < 730 && 85 > 50 && 150 === 150);
+check('BP4: the example strip line — 3/4 = 0.75 = 75%, 7/20 = 0.35 = 35%, 0.065 = 6.5%, 1/3 = 0.(3) = 33 1/3% exact',
+  300 / 4 === 75 && 700 / 20 === 35 && M(0.065) === 65 && Math.abs(0.065 * 100 - 6.5) < 1e-12 && Math.abs((100 / 3) / 100 - 1 / 3) < 1e-12);
+
+/* ============================================================
+ * 5.4 — BQ. Quiz key audit (5 answers, every distractor killed)
+ * ==========================================================*/
+check('BQ1: quiz-1 answer index 0 — 3/8 = 37.5% exactly; 3.75% is one hop left, 375% is three hops right (0.375 x 1000), 38% rounds away the exact half',
+  Math.abs((3 * 1000) / 8 - 375) < 1e-9 && Math.abs(0.375 * 100 - 37.5) < 1e-12 && Math.abs(0.375 * 10 - 3.75) < 1e-12 && Math.abs(0.375 * 1000 - 375) < 1e-9);
+check('BQ2: quiz-2 answer index 1 — 0.06 = 6% (x 100); 0.6% is one hop left, 60% = 0.6, 600% = 6.0',
+  Math.abs(0.06 * 100 - 6) < 1e-12 && Math.abs(0.06 * 10 - 0.6) < 1e-12 && Math.abs(0.6 * 100 - 60) < 1e-12 && Math.abs(6 * 100 - 600) < 1e-12);
+check('BQ3: quiz-3 answer index 1 — 45% of 800 = 360; 36 hops one room extra, 3.6 two, 450 would be 45% of 1000',
+  (45 * 800) / 100 === 360 && (45 * 800) / 1000 === 36 && 360 / 10 === 36 && (45 * 1000) / 100 === 450);
+check('BQ4: quiz-4 answer index 2 — 12.5 x 8 = 100 so 12.5% = 1/8; 1/6 = 16.6%, 1/12 = 8.3%, 1/5 = 20% — none is 12.5%',
+  12.5 * 8 === 100 && pctFrac(12.5, 1, 8) && Math.abs((1 / 6) * 100 - 12.5) > 4 && Math.abs((1 / 12) * 100 - 12.5) > 4 && Math.abs((1 / 5) * 100 - 12.5) > 7);
+check('BQ5: quiz-5 answer index 2 — 8% of n = 56 gives n = 700; 448 = 56 x 8, 48 = 56 - 8, 7000 = the three-room hop',
+  (56 * 100) / 8 === 700 && 56 * 8 === 448 && 56 - 8 === 48 && (56 * 1000) / 8 === 7000);
+check('BQ6: quiz answer indices planned as [0, 1, 1, 2, 2]', JSON.stringify([0, 1, 1, 2, 2]) === '[0,1,1,2,2]');
+
+/* ============================================================
+ * 5.4 — BR. Exercise key audit (12 solutions, L1–L6)
+ * ==========================================================*/
+check('BR1: L1 45% = 9/20 — HCF 5, cross-check 9 x 100 = 900 = 45 x 20', pctFrac(45, 9, 20) && gcd(45, 100) === 5);
+check('BR2: L1 7% = 0.07 — two hops left', M(0.07) === 70 && Math.abs(7 * 0.01 - 0.07) < 1e-12);
+check('BR3: L2 3/5 = 60%', 300 / 5 === 60);
+check('BR4: L2 25% of 320 = 80 — a quarter of it', (25 * 320) / 100 === 80 && 320 / 4 === 80);
+check('BR5: L3 0.375 = 37.5%', Math.abs(0.375 * 100 - 37.5) < 1e-12);
+check('BR6: L3 18% of 2500 = 450', (18 * 2500) / 100 === 450);
+check('BR7: L4 36 of 90 is 40%', (36 * 100) / 90 === 40);
+check('BR8: L4 12% of n = 84 gives n = 700 — the unitary method: 1% = 7', 84 / 12 === 7 && 7 * 100 === 700 && Math.abs((12 / 100) * 700 - 84) < 1e-9);
+check('BR9: L5 the pass-mark run — 33% of 600 = 198; 210 - 198 = 12', (33 * 600) / 100 === 198 && 210 - 198 === 12);
+check('BR10: L5 the class run — 60% of 45 = 27 boys, 18 girls, 27 + 18 = 45', (60 * 45) / 100 === 27 && 45 - 27 === 18 && 27 + 18 === 45);
+check('BR11: L6 the commutativity gem — 16% of 25 = 25% of 16 = 4', (16 * 25) / 100 === 4 && (25 * 16) / 100 === 4);
+check('BR12: L6 the halving chain — 6.25% of 512 = 32 and 3.125% of 640 = 20; chain 50/25/12.5/6.25/3.125',
+  512 / 16 === 32 && 640 / 32 === 20 && JSON.stringify([100 / 2, 50 / 2, 25 / 2, 12.5 / 2, 6.25 / 2]) === '[50,25,12.5,6.25,3.125]');
+
+/* ============================================================
+ * 5.4 — BS. Structural sanity (terms, cards, illustrations, exercises)
+ * ==========================================================*/
+check('BS1: seven terms planned — Percent, The % sign, Standardised denominator, Two-hop conversion, Percent of a quantity, Benchmark percents, The 1% unit', 7 === 7);
+check('BS2: three formula cards planned — the percent definition, the two-hop conversion, percent of a quantity', 3 === 3);
+check('BS3: six Illustrations planned — 35% to 7/20, 7/8 to 87.5%, 0.065 to 6.5%, 15% of 460, 348/500, the 8%-is-56 inverse', 6 === 6);
+check('BS4: twelve exercises planned across L1-L6, two each', 6 * 2 === 12);
+check('BS5: quiz answers planned as indices 0/1/1/2/2', JSON.stringify([0, 1, 1, 2, 2]) === '[0,1,1,2,2]');
+check('BS6: prerequisites — 5.1 (the ladder), 5.3 (the point-shift), 4.2 (lowest terms), 4.5 (of = multiplication)', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-5: ${pass} passed, ${fail} failed`);
@@ -893,4 +1033,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 5.1 and 5.2 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 5.1–5.4 is script-verified before writing.');

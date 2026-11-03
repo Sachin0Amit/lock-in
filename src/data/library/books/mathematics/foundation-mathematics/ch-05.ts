@@ -45,8 +45,23 @@ import type { Chapter } from '../../../types'
  * the never-landing case; word problems on money (the fixed 2-place dress),
  * length/mass (convert first, operate second) and the unitary method
  * (18.6 km on 1.5 L → 12.4 km/L).
- * Planned next: 5.4 Percent and Its Meaning;
- * 5.5 Percentage Change, Discounts and Simple Interest.
+ * 5.4 Percent and Its Meaning (run 24, 2026-11-04) — percent as the
+ * standardised fraction of 100 (per centum, the % sign from the Italian
+ * per cento ledgers): the x/100 definition with the 100-square figure (35%
+ * shaded as the 25% + 10% benchmark build); the two-hop law PROVED as a
+ * derivation block (x% = x/100 = x/10^2 — the point-shift rule of 5.3 at
+ * k = 2; p = x/100 iff x = 100p, equation tag 1) with the fraction–decimal–
+ * percent conversion-map figure; percents beyond the whole (120% = 6/5) and
+ * decimal percents (12.5% = 1/8, 6.25% = 1/16, 0.5% = 1/200); the 33 1/3%
+ * Caution (the mixed form exact, 33.3% one thousandth short); percent of a
+ * quantity (x% of A = (x/100) × A, equation tag 2) with the benchmark
+ * ladder table (50/25/20/12.5/10/5/1%) and the halving chain explained by
+ * the atoms (100 = 2^2 × 5^2); marks (348/500 = 69.6%), shares (60% of 45
+ * = 27 boys) and savings (30% of Rs 18,500 = Rs 5,550); finding the whole
+ * by the unitary method returned (8% of n = 56 → n = 700); the
+ * commutativity gem x% of y = y% of x (16% of 25 = 25% of 16 = 4).
+ * Planned next: 5.5 Percentage Change, Discounts and Simple Interest (the
+ * chapter's final lesson).
  * References: Khattar, Quantitative Aptitude (4e) — decimal-fraction exam
  * items, recurring-to-fraction shortcuts and comparison traps; NCERT Class 6
  * ch. 8 "Decimals" (tenths, hundredths, place-value extension, comparing,
@@ -55,13 +70,16 @@ import type { Chapter } from '../../../types'
  * (Ganita Prakash) ch. 3 "A Peek Beyond the Point" (section sequence
  * web-checked 2026-11-04); NCERT Class 7 ch. 2 "Fractions and Decimals"
  * (multiplication and division of decimal numbers, §§2.3–2.4 — section
+ * sequence web-checked 2026-11-04); NCERT Class 7 ch. 8 "Comparing
+ * Quantities" (§8.3 "Percentage — Another Way of Comparing Quantities" and
+ * §8.4 "Use of Percentages" — the canonical percent introduction, section
  * sequence web-checked 2026-11-04); NCERT Class 9 ch. 1
  * "Number Systems" (the terminating/non-terminating-recurring classification
  * of rational decimal expansions, web-checked 2026-11-04) — see
  * docs/project/SOURCE_LOG.md.
  * Exposition original; all arithmetic verified by scripts/verify-unit-5.ts
- * (340 checks: sections A–O for 5.1, P–AC for 5.2, AD–BJ for 5.3) BEFORE
- * writing.
+ * (394 checks: sections A–O for 5.1, P–AC for 5.2, AD–BJ for 5.3, BK–BS for
+ * 5.4) BEFORE writing.
  * Honours the tie promised in Lesson 4.5's closing paragraph: "One veil
  * remains between the fractions and the exam hall's favourite costume: the
  * decimal point, where every fraction agrees to wear powers of ten." — this
@@ -2018,9 +2036,596 @@ export const chapter05: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-percent-and-its-meaning',
+      number: '5.4',
+      title: 'Percent and Its Meaning',
+      concepts: [
+        'Percent as a fraction of 100',
+        'The standardised denominator',
+        'The two-hop conversion',
+        'Percent of a quantity',
+        'Benchmark percents',
+        'The 1% unit',
+        'x% of y = y% of x',
+      ],
+      objectives: [
+        'Read any percent as a fraction with denominator 100 and reduce it to lowest terms, including percents beyond 100 and decimal percents such as 12.5% and 6.25%',
+        'Convert both ways along the fraction–decimal–percent map with the two-hop law (÷ 100 one way, × 100 the other), and know where 33 1/3% is exact while 33.3% is not',
+        'Find x% of a quantity by the direct fraction-of and by the benchmark builds, and lighten the arithmetic with the commutativity gem x% of y = y% of x',
+        'Answer "what percent" and "find the whole" questions — the unitary method returning as the percent ladder — and read marks, shares and savings problems correctly',
+      ],
+      prerequisites: [
+        'fm-decimal-places-and-the-point',
+        'fm-operating-on-decimals',
+        'fm-equivalent-fractions-simplification',
+        'fm-multiplying-dividing-fractions',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-math7-ch8'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 5.3 set the decimal dress to work, and the promise of Lesson 4.5 stands one costume from being kept in full. Fractions, the reader will remember, are free: $\\tfrac{7}{20}$, $\\tfrac{3}{8}$, $\\tfrac{9}{25}$ — a hundred fractions may wear a hundred different denominators, and every comparison between them costs an LCM. The exam hall has no patience for that tax. It wants **one denominator for everyone**, and the one it chose — for reasons the ledger books made — is $100$. A fraction expressed in hundredths is said to be in **percent** form, and the whole of this lesson is the study of that one redressing.',
+        },
+        {
+          kind: 'para',
+          text: 'The name carries the contract. **Per cent** is Latin *per centum* — "for every hundred" — so a percent counts how many parts are taken out of every hundred the whole is cut into. Nothing deeper. The percent dress is a fraction dress with the denominator fixed at $100$, and because $100 = 10^2$ is the two-place power of Lesson 5.1\'s ladder, every percent also wears a two-place decimal dress: the three stations — fraction, decimal, percent — are one number in three costumes, and the walks between them are the point-shift of Lesson 5.3 doing its shortest trick.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'A sign born in the ledger books',
+          text: 'The word is Latin, but the sign is Italian bookkeeping. Fifteenth-century merchant ledgers, charging rates "per cento", abbreviated the phrase to "P c°"; across the following two centuries the small circle — the tail of *cento* — split in two and drifted until the two rings of today\'s % remained, with the stem of the P as the slash between them. The contract never changed through all that drift: so many parts for every hundred.',
+        },
+        { kind: 'heading', text: 'Percent: the fraction dressed in hundredths' },
+        {
+          kind: 'para',
+          text: 'The definition deserves its full formality, because every rule of this lesson falls out of it.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Percent',
+          text: 'A number $x$ is said to be **expressed as a percent** when it is written as a fraction with denominator $100$; the notation $x\\%$, read "$x$ per cent", means $\\tfrac{x}{100}$. Thus, $35\\% = \\tfrac{35}{100}$, $8\\% = \\tfrac{8}{100}$, and $120\\% = \\tfrac{120}{100}$ — the percent sign is not a unit but an instruction to divide by one hundred. Consequently $x\\%$ of a quantity $A$ is the fraction $\\tfrac{x}{100}$ of $A$, and $100\\%$ of anything is the whole of it.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the definition prices a whole shelf of percents at once:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$35\\% = \\tfrac{35}{100} = \\tfrac{7}{20}$ — thirty-five hundredths reduce to seven twentieths (the HCF machinery of chapter 3).',
+            '$8\\% = \\tfrac{8}{100} = \\tfrac{2}{25}$ — eight hundredths, a small slice.',
+            '$120\\% = \\tfrac{120}{100} = \\tfrac{6}{5}$ — percents may pass the whole: a fifth more than all of it.',
+            '$0.5\\% = \\tfrac{0.5}{100} = \\tfrac{1}{200}$ — half a hundredth, one part in two hundred.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The last two rows repay a second look. That $120\\%$ is legal — a quantity can grow to more than its whole — surprises nobody who has paid a festival-season price; but $0.5\\%$ shows how small the percent ruler can count: two hundredths of a hundredth. The dress spans everything from $\\tfrac{1}{200}$ upward, always with the same denominator, and that uniformity is its entire service. To compare $\\tfrac{7}{20}$ with $\\tfrac{3}{8}$ the old way costs the LCM of $20$ and $8$; in percent dress they simply become $35\\%$ and $37.5\\%$, and the eye decides. **The standardised denominator is the common currency of fractions** — the reason every marksheet, interest rate and discount ticket in the world speaks percent.',
+        },
+        {
+          kind: 'para',
+          text: 'There is a picture that makes the whole idea visible, and it is worth keeping on the desk for the rest of the chapter: cut a square into $100$ equal cells, ten by ten. Each cell is one hundredth of the whole — one percent. Any fraction whose denominator divides $100$ shades a clean block of cells; any percent at all shades an exact count of them.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The 100-square: the percent ruler made visible. Each of the hundred cells is one hundredth of the whole, so each cell is 1%. The shaded block holds 35 cells — a 5 × 5 quarter (25%, the top-left bracket) joined to two columns of five (10%, the second bracket): the benchmark build 25% + 10% = 35%. The legend walks the three dresses of one number — 35 cells, 35/100, 7/20, 0.35 — which are all the same fact.',
+          svg: `<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A ten by ten square of one hundred cells with thirty five cells shaded, showing twenty five percent as a five by five quarter and ten percent as two columns of five, each cell one percent">
+  <g stroke="#b45309" stroke-width="1.4" fill="none">
+    <line x1="70" y1="88" x2="220" y2="88"/>
+    <line x1="70" y1="88" x2="70" y2="96"/>
+    <line x1="220" y1="88" x2="220" y2="96"/>
+    <line x1="220" y1="88" x2="280" y2="88"/>
+    <line x1="280" y1="88" x2="280" y2="96"/>
+  </g>
+  <g font-size="12" fill="#b45309" text-anchor="middle">
+    <text x="145" y="80">25%</text>
+    <text x="250" y="80">10%</text>
+  </g>
+  <rect x="70" y="110" width="210" height="150" fill="#b45309" fill-opacity="0.28"/>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <line x1="70" y1="110" x2="370" y2="110"/>
+    <line x1="70" y1="140" x2="370" y2="140"/>
+    <line x1="70" y1="170" x2="370" y2="170"/>
+    <line x1="70" y1="200" x2="370" y2="200"/>
+    <line x1="70" y1="230" x2="370" y2="230"/>
+    <line x1="70" y1="260" x2="370" y2="260"/>
+    <line x1="70" y1="290" x2="370" y2="290"/>
+    <line x1="70" y1="320" x2="370" y2="320"/>
+    <line x1="70" y1="350" x2="370" y2="350"/>
+    <line x1="70" y1="380" x2="370" y2="380"/>
+    <line x1="70" y1="410" x2="370" y2="410"/>
+    <line x1="70" y1="110" x2="70" y2="410"/>
+    <line x1="100" y1="110" x2="100" y2="410"/>
+    <line x1="130" y1="110" x2="130" y2="410"/>
+    <line x1="160" y1="110" x2="160" y2="410"/>
+    <line x1="190" y1="110" x2="190" y2="410"/>
+    <line x1="220" y1="110" x2="220" y2="410"/>
+    <line x1="250" y1="110" x2="250" y2="410"/>
+    <line x1="280" y1="110" x2="280" y2="410"/>
+    <line x1="310" y1="110" x2="310" y2="410"/>
+    <line x1="340" y1="110" x2="340" y2="410"/>
+    <line x1="370" y1="110" x2="370" y2="410"/>
+  </g>
+  <g font-size="13" fill="currentColor">
+    <text x="400" y="150">35 of the 100 cells are shaded</text>
+    <rect x="400" y="170" width="22" height="22" fill="#b45309" fill-opacity="0.28" stroke="currentColor" stroke-width="1"/>
+    <text x="432" y="186">35 cells = 35% = 7/20 of the square</text>
+    <rect x="400" y="230" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"/>
+    <text x="432" y="246">each cell = 1% of the whole</text>
+    <text x="400" y="300">the benchmarks build the block:</text>
+    <text x="400" y="326">25% + 10% = 35%</text>
+  </g>
+  <text x="380" y="445" font-size="14" fill="currentColor" text-anchor="middle">35% = 35/100 = 7/20 = 0.35 — three dresses of one number</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Read the figure with the benchmarks of chapter 4 in hand. The shaded quarter is $25\\%$ because $25$ cells is $\\tfrac{25}{100} = \\tfrac{1}{4}$ of the square; the two joined columns are $10\\%$ because $\\tfrac{10}{100} = \\tfrac{1}{10}$; and the build $25\\% + 10\\%$ shows the deeper habit this lesson will drill — friendly percents assemble unfriendly ones, exactly as friendly fractions assembled $\\tfrac{3}{10} = \\tfrac{1}{4} + \\tfrac{1}{20}$ in Lesson 4.4. The bottom strip is the promise of the next section: one number, three dresses, and a two-hop walk between any two of them.',
+        },
+        { kind: 'heading', text: 'Converting both ways: the two-hop law' },
+        {
+          kind: 'para',
+          text: 'The percent contract, written symbolically, is one line with two readings:',
+        },
+        {
+          kind: 'equation',
+          latex: 'x\\% = \\tfrac{x}{100} \\qquad\\qquad p = \\tfrac{x}{100} \\;\\Longleftrightarrow\\; x = 100p \\tag{1}',
+          note: 'Left: the definition — a percent is a fraction with denominator 100. Right: the same line read both ways — a number $p$ wears the percent $100p$, so decimal and percent dress one number exactly.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The two-hop law',
+          statement:
+            'Claim: a percent $x\\%$ converts to a decimal by dividing by $100$ — the point hopping two rooms left — and any number $p$ converts to its percent $100p$ by multiplying by $100$ — two rooms right.',
+          steps: [
+            {
+              label: 'The definition',
+              formula: 'x\\% = \\tfrac{x}{100}',
+              explanation:
+                'The percent dress is a fraction dress with the denominator fixed at $100$ — no approximation has entered, and none may.',
+            },
+            {
+              label: 'The division as a point-shift',
+              formula: '\\tfrac{x}{100} = \\tfrac{x}{10^2} \\;\\Rightarrow\\; x\\% = x \\div 10^2',
+              explanation:
+                'One factor of ten per room of Lesson 5.1\'s ladder; dividing by $10^k$ hops the point $k$ rooms left (Lesson 5.3\'s point-shift rule). Here $k = 2$: exactly two rooms, never one, never three.',
+            },
+            {
+              label: 'The reverse reading',
+              formula: 'p = \\tfrac{x}{100} \\;\\Longleftrightarrow\\; x = 100p',
+              explanation:
+                'Multiplying both sides by $100$ undoes the division — the equivalence runs both ways. A number $p$ wears the percent $100p$, which is why $0.065$ and $6.5\\%$ name one number.',
+            },
+          ],
+          result:
+            '$x\\% = x \\div 100$ and $p \\times 100 = $ the percent of $p$: the **two-hop law**. It is the point-shift rule of Lesson 5.3 with $k = 2$, and it is exact — a change of dress introduces no rounding.',
+        },
+        {
+          kind: 'example',
+          title: 'Express 35% as a fraction in its lowest terms',
+          steps: [
+            'Now, by definition $35\\% = \\tfrac{35}{100}$ — the dress itself.',
+            'So reduce to lowest terms as chapter 3 taught: $\\gcd(35, 100) = 5$, and $\\tfrac{35}{100} = \\tfrac{35 \\div 5}{100 \\div 5} = \\tfrac{7}{20}$.',
+            'Hence $35\\% = \\tfrac{7}{20}$ — and the cross-check closes it: $7 \\times 100 = 700 = 35 \\times 20$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Decimal percents ride the same definition one storey higher: $12.5\\% = \\tfrac{12.5}{100} = \\tfrac{125}{1000} = \\tfrac{1}{8}$ and $6.25\\% = \\tfrac{625}{10000} = \\tfrac{1}{16}$ — the point-shift inside the numerator landing on famous fractions. In the reverse direction, a fraction reaches its percent by two routes: **fair trade** to denominator $100$ when the denominator divides it ($\\tfrac{3}{5} = \\tfrac{60}{100}$), or the **decimal route** when it does not — dress as a decimal first, then hop twice right.',
+        },
+        {
+          kind: 'example',
+          title: 'Express 7/8 as a percent',
+          steps: [
+            'Now, percent asks for hundredths, and $8$ does not divide $100$ — no fair trade lands the 100-ruler directly.',
+            'So take the decimal route: by the atom test of Lesson 5.1 ($8 = 2^3$), the dress terminates in $3$ places, and the step machine gives $\\tfrac{7}{8} = 0.875$.',
+            'And the two-hop law dresses it: $0.875 \\times 100 = 87.5$ — the point hops two rooms right.',
+            'Hence $\\tfrac{7}{8} = 87.5\\%$ — checked from the definition: $\\tfrac{87.5}{100} = \\tfrac{875}{1000} = \\tfrac{7}{8}$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Express 0.065 as a percent',
+          steps: [
+            'Now, decimal to percent is $\\times 100$ — two rooms right: $0.065 \\rightarrow 6.5$.',
+            'So $0.065 = 6.5\\%$ — sixty-five thousandths are six and a half hundredths.',
+            'Hence $0.065 = 6.5\\%$, not $65\\%$ — that would be $0.65$, ten times larger. One room of the ladder is always a factor of ten (Lesson 5.1).',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The 33 1/3% caution',
+          text: '$\\tfrac{1}{3} = 0.(3)$ never terminates, so no finite decimal percent is exact — but the **mixed form** is: $33\\tfrac{1}{3}\\% = \\tfrac{100/3}{100} = \\tfrac{1}{3}$ exactly, the fraction riding inside the percent. The rounded $33.3\\% = \\tfrac{333}{1000}$ is a hair short ($333 \\times 3 = 999$, one thousandth behind). Exam convention keeps the pair $33\\tfrac{1}{3}\\% = \\tfrac{1}{3}$ and $66\\tfrac{2}{3}\\% = \\tfrac{2}{3}$ — trust the fraction inside the percent, never the rounded decimal.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The conversion map. Three stations, one number in three dresses. Between fraction and decimal run the step machine of Lesson 5.2 (forward) and the place reading of Lesson 5.1 (back); between decimal and percent runs the two-hop law — × 100 two rooms right, ÷ 100 two rooms left. The arc above is the direct hop: multiply by 100 and write %.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The conversion map joining the fraction, decimal and percent stations, with arrows labelled by the step machine, the place reading, and the times or divide by one hundred two-hop law">
+  <path d="M 120 150 C 200 60, 560 60, 640 150" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <polygon points="640,150 635.8,136.4 627,144.4" fill="#b45309"/>
+  <text x="380" y="50" font-size="13" fill="#b45309" text-anchor="middle">the direct hop: × 100, then write %</text>
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="30" y="150" width="180" height="64"/>
+    <rect x="300" y="150" width="160" height="64"/>
+    <rect x="550" y="150" width="180" height="64"/>
+  </g>
+  <g font-size="15" fill="currentColor" text-anchor="middle" letter-spacing="1">
+    <text x="120" y="177">FRACTION</text>
+    <text x="380" y="177">DECIMAL</text>
+    <text x="640" y="177">PERCENT</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle" font-style="italic">
+    <text x="120" y="200">3/4, 7/20</text>
+    <text x="380" y="200">0.75, 0.35</text>
+    <text x="640" y="200">75%, 35%</text>
+  </g>
+  <g stroke="#b45309" stroke-width="1.6">
+    <line x1="214" y1="166" x2="296" y2="166"/>
+    <line x1="296" y1="198" x2="214" y2="198"/>
+    <line x1="464" y1="166" x2="546" y2="166"/>
+    <line x1="546" y1="198" x2="464" y2="198"/>
+  </g>
+  <polygon points="296,166 285,161 285,171" fill="#b45309"/>
+  <polygon points="214,198 225,193 225,203" fill="#b45309"/>
+  <polygon points="546,166 535,161 535,171" fill="#b45309"/>
+  <polygon points="464,198 475,193 475,203" fill="#b45309"/>
+  <g font-size="12" fill="#b45309" text-anchor="middle">
+    <text x="255" y="132">the step machine (5.2)</text>
+    <text x="255" y="252">the place reading (5.1)</text>
+    <text x="505" y="132">× 100: two rooms right</text>
+    <text x="505" y="252">÷ 100: two rooms left</text>
+  </g>
+  <text x="380" y="330" font-size="14" fill="currentColor" text-anchor="middle">3/4 = 0.75 = 75% · 7/20 = 0.35 = 35% · 0.065 = 6.5% · 1/3 = 0.(3) = 33 1/3%</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The map rewards a slow reading. Every journey is two hops or fewer: fraction to percent runs through the decimal station (the step machine, then two rooms right) or takes the direct arc — multiply by $100$, write the sign. Percent to fraction runs the arc backwards and simplifies by the HCF. The one habit that poisons exam answers is hopping the wrong number of rooms, and the figure is the antidote: $0.06 = 6\\%$ but $0.6 = 60\\%$, and the two wrongs $0.6\\%$ and $600\\%$ each live exactly one room from the truth in opposite directions.',
+        },
+        { kind: 'heading', text: 'Percent of a quantity' },
+        {
+          kind: 'para',
+          text: 'The definition already announced the working rule, and Lesson 4.5 supplies its grammar: "**of** means multiply". So the percent of a quantity is a fraction-of, with the fraction fixed at hundredths:',
+        },
+        {
+          kind: 'equation',
+          latex: 'x\\% \\text{ of } A = \\tfrac{x}{100} \\times A \\qquad\\qquad \\tfrac{x}{100} \\times A = \\text{part} \\;\\Rightarrow\\; A = \\text{part} \\times \\tfrac{100}{x} \\tag{2}',
+          note: 'Left: fraction-of with hundredths — the direct percent-of rule. Right: the whole recovered from a known part — the unitary method of Lesson 5.3 in percent dress: divide to the 1%, scale to the 100%.',
+        },
+        {
+          kind: 'para',
+          text: 'The direct rule is mechanical, but the exam hall rewards the **benchmarks** — the percents whose fraction dresses are famous — because they turn percent-of into division by a small whole number. Half the skill of percentages is knowing this ladder by heart:',
+        },
+        {
+          kind: 'table',
+          head: ['Percent', 'Fraction dress', 'Decimal dress', 'Read as'],
+          rows: [
+            ['100%', '1', '1', 'the whole'],
+            ['75%', '3/4', '0.75', 'half plus a quarter'],
+            ['50%', '1/2', '0.5', 'the half'],
+            ['25%', '1/4', '0.25', 'the quarter'],
+            ['20%', '1/5', '0.2', 'the fifth'],
+            ['12.5%', '1/8', '0.125', 'half of a quarter'],
+            ['10%', '1/10', '0.1', 'the tenth'],
+            ['5%', '1/20', '0.05', 'half of a tenth'],
+            ['1%', '1/100', '0.01', 'the unit share'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The builds ride on the ladder: $35\\% = 25\\% + 10\\%$, $15\\% = 10\\% + 5\\%$, $18\\% = 20\\% - 2\\%$. And the halving chain extends it forever: $100$ halved is $50$, $25$, $12.5$, $6.25$, $3.125$, ... — so $12.5\\% = \\tfrac{1}{8}$, $6.25\\% = \\tfrac{1}{16}$, $3.125\\% = \\tfrac{1}{32}$. The atoms of chapter 3 explain the exactness: $100 = 2^2 \\times 5^2$, and dividing by $2^k$ leaves the fives in place, so every rung of the chain keeps a terminating dress.',
+        },
+        {
+          kind: 'example',
+          title: 'Find 15% of 460',
+          steps: [
+            'Now, by the rule: $15\\%$ of $460 = \\tfrac{15}{100} \\times 460$ — "of" is Lesson 4.5\'s multiplication.',
+            'So by the benchmarks: $10\\%$ of $460 = 46$ and $5\\%$ is half of that, $23$ — the build $15\\% = 10\\% + 5\\%$ gives $46 + 23 = 69$.',
+            'Or in one direct dress: $\\tfrac{15 \\times 460}{100} = \\tfrac{6900}{100} = 69$ — and the cross-cancellation route agrees: $\\tfrac{15}{100} = \\tfrac{3}{20}$, so $\\tfrac{3}{20} \\times 460 = 3 \\times 23 = 69$.',
+            'Hence $15\\%$ of $460 = 69$ — both routes must agree, and they do.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Ravi scored 348 marks out of 500. Express his score as a percent',
+          steps: [
+            'Now, a score "out of" $500$ is the fraction $\\tfrac{348}{500}$; the percent dress multiplies by $100$: $\\tfrac{348}{500} \\times 100$.',
+            'So cancel first — $\\tfrac{100}{500} = \\tfrac{1}{5}$ — and the question shrinks to $\\tfrac{348}{5}$.',
+            'And the step machine divides: $5$ into $34$ gives $6$, remainder $4$; the point rides into the quotient; $5$ into $48$ gives $9$, remainder $3$; one written zero pays the last digit — $69.6$.',
+            'Hence $\\tfrac{348}{500} = 69.6\\%$ — a fraction of five hundred redressed as hundredths.',
+          ],
+        },
+        { kind: 'heading', text: 'Finding the whole: the unitary method returns' },
+        {
+          kind: 'para',
+          text: 'Percent-of points one way: whole known, part wanted. The exam\'s favourite reversal points the other way: a **part and its percent are known, the whole is wanted**. "8% of a number is 56" hides the number, and equation $(2)$\'s right-hand form names the hunt — divide to the $1\\%$, scale to the $100\\%$. This is the unitary method of Lesson 5.3, the same divide-to-the-one that priced petrol, now wearing the percent dress.',
+        },
+        {
+          kind: 'example',
+          title: '8% of a number is 56. Find the number',
+          steps: [
+            'Now, the unitary method — divide to the one: $8\\%$ of the number is $56$, so $1\\%$ of it is $\\tfrac{56}{8} = 7$.',
+            'So scale to the whole: the number is $100\\%$ of itself — $7 \\times 100 = 700$.',
+            'And the forward check closes the loop: $8\\%$ of $700 = \\tfrac{8}{100} \\times 700 = 56$ — exactly the part we started from.',
+            'Hence the number is $700$ — or in one line, $56 \\times \\tfrac{100}{8} = 700$, equation $(2)$\'s right-hand form.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The same ladder answers "what percent" questions by running the percent-of forward and reporting the count: $36$ out of $90$ asks for $\\tfrac{36}{90} \\times 100 = 40\\%$; $66$ out of $240$ gives $\\tfrac{6600}{240} = 27.5\\%$. Three problem families cover the exam territory:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '**Marks and pass marks:** an examination of $600$ marks passes at $33\\%$ — the pass mark is $\\tfrac{33}{100} \\times 600 = 198$, and a candidate on $210$ passes by $12$ marks, a margin of $\\tfrac{12}{600} \\times 100 = 2\\%$ of the paper.',
+            '**Shares of a class:** of $45$ students, $60\\%$ are boys — $\\tfrac{60}{100} \\times 45 = 27$ boys — and the $18$ girls are the complement; the census closes at $27 + 18 = 45$.',
+            '**Savings and spending:** $30\\%$ of a salary of Rs $18{,}500$ is saved — Rs $5{,}550$ — leaving Rs $12{,}950$ to spend; the parts always answer to $100\\%$ of the whole.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The commutativity gem',
+          text: '$x\\%$ of $y$ and $y\\%$ of $x$ are the same number — both are $\\tfrac{xy}{100}$, and multiplication commutes. So $16\\%$ of $25 = 25\\%$ of $16 = \\tfrac{16}{4} = 4$; $8\\%$ of $50 = 50\\%$ of $8 = 4$. The exam use is one move: **flip the ugly percent onto the friendly number** — a percent-of product is only ever as hard as the friendlier of its two readings.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Percent',
+              def: 'A fraction with denominator 100: x% means x/100. Example: 35% = 35/100 = 7/20; 120% = 6/5 is legal — percents may pass the whole.',
+            },
+            {
+              term: 'The % sign',
+              def: 'The symbol read "per cent", evolved from the Italian merchants\' per cento ("for every hundred") through the ledger abbreviation P c° to today\'s two rings and slash. Example: 6% = 6/100 = 0.06.',
+            },
+            {
+              term: 'Standardised denominator',
+              def: 'The service percent renders: every fraction redressed with denominator 100, so unlike fractions compare, rank and total without hunting LCMs. Example: 7/20 and 3/8 meet as 35% and 37.5%.',
+            },
+            {
+              term: 'Two-hop conversion',
+              def: 'The point-shift of Lesson 5.3 at k = 2: percent to decimal is ÷ 100 (two rooms left); decimal to percent is × 100 (two rooms right). Example: 45% = 0.45; 0.065 = 6.5%.',
+            },
+            {
+              term: 'Percent of a quantity',
+              def: 'x% of A = (x/100) × A — "of" is Lesson 4.5\'s multiplication. Example: 15% of 460 = 69 by the build 10% + 5% or the direct dress.',
+            },
+            {
+              term: 'Benchmark percents',
+              def: 'The friendly percents whose fraction dresses are halves, quarters, fifths and tenths — built by halving 100. Example: 50% = 1/2, 25% = 1/4, 12.5% = 1/8, 10% = 1/10, 1% = 1/100.',
+            },
+            {
+              term: 'The 1% unit',
+              def: 'One hundredth of the quantity — the unit share the percent ladder divides to before scaling to 100%. Example: if 8% of a number is 56, the 1% unit is 7 and the number is 700.',
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The percent definition',
+          latex: 'x\\% = \\dfrac{x}{100}',
+          note: 'The % sign is an instruction to divide by 100, not a unit. 100% is the whole; 120% = 6/5 is more than the whole and is perfectly legal; 0.5% = 1/200 reaches deep.',
+        },
+        {
+          kind: 'formula',
+          name: 'The two-hop conversion',
+          latex: 'x\\% \\leftrightarrow x \\div 100 \\qquad p \\leftrightarrow 100p \\qquad \\text{(two rooms each way)}',
+          note: 'The point-shift rule of Lesson 5.3 at k = 2. Trust the fraction inside the percent: 33 1/3% = 1/3 exactly, while 33.3% is only close (333 × 3 = 999, one thousandth short).',
+        },
+        {
+          kind: 'formula',
+          name: 'Percent of a quantity',
+          latex: 'x\\% \\text{ of } A = \\dfrac{x}{100} \\times A \\qquad A = \\text{part} \\times \\dfrac{100}{x}',
+          note: 'Fraction-of on the left; the unitary method on the right — divide to the 1% (part ÷ x), scale to the 100% (× 100). The gem x% of y = y% of x flips ugly percents onto friendly numbers.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Percent is the most examined dress in arithmetic: (i) conversion fill-ins run both ways — $\\tfrac{3}{8} = 37.5\\%$, $0.06 = 6\\%$, $\\tfrac{5}{8} = 62.5\\%$ — and the direction of the two-hop is the whole question; (ii) the benchmark family prices mental arithmetic — $12.5\\% = \\tfrac{1}{8}$ and $6.25\\% = \\tfrac{1}{16}$ turn $512$ and $640$ into one-step quotients ($32$ and $20$); (iii) the commutativity gem turns $16\\%$ of $25$ into $25\\%$ of $16 = 4$; (iv) marks, pass marks and margins are percent-of problems — $33\\%$ of $600 = 198$, a $210$ clears it by $12$; (v) "find the whole" is the unitary method — divide to the $1\\%$, scale to the $100\\%$ ($8\\%$ of $n$ is $56 \\Rightarrow n = 700$); (vi) the standing traps: $0.5\\%$ is not $50\\%$ (two rooms apart), $120\\%$ is legal ($\\tfrac{6}{5}$), and $\\tfrac{1}{3}$ is exactly $33\\tfrac{1}{3}\\%$ but only approximately $33.3\\%$.',
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Expressed as a percent, 3/8 equals:',
+              options: ['37.5%', '3.75%', '375%', '38%'],
+              answer: 0,
+              explain:
+                'Percent multiplies by 100: 3/8 = 0.375 (the atom test — 8 = 2³ terminates in 3 places), and 0.375 × 100 = 37.5 (Option 1). Option 2 hopped one room left (that is 0.0375), Option 3 hopped three rooms right (0.375 × 1000), and Option 4 rounds away an exact half that needs no rounding.',
+            },
+            {
+              q: '0.06 expressed as a percent is:',
+              options: ['0.6%', '6%', '60%', '600%'],
+              answer: 1,
+              explain:
+                'The two-hop law sends a decimal to a percent by × 100: 0.06 × 100 = 6 (Option 2). Option 1 hopped one room only (0.6% = 0.006), Option 3 answered for 0.6, and Option 4 answered for 6.0 — each a ladder room away from the true hundredth.',
+            },
+            {
+              q: '45% of 800 = ?',
+              options: ['36', '360', '3.6', '450'],
+              answer: 1,
+              explain:
+                '(45/100) × 800 = 45 × 8 = 360 (Option 2). Option 1 slipped one room down (45 × 0.8 = 36), Option 3 two, and Option 4 would be 45% of 1000 — the wrong whole.',
+            },
+            {
+              q: '12.5% of a quantity is the same as which fraction of it?',
+              options: ['1/6', '1/12', '1/8', '1/5'],
+              answer: 2,
+              explain:
+                '12.5 × 8 = 100, so 12.5% = 12.5/100 = 1/8 (Option 3) — the halving chain: half of 25% = 1/4. Option 1 is 16.6%, Option 2 is 8.3%, Option 4 is 20% — different rungs of the ladder altogether.',
+            },
+            {
+              q: '8% of a number is 56. The number is:',
+              options: ['448', '48', '700', '7000'],
+              answer: 2,
+              explain:
+                'The unitary method: 1% of the number is 56/8 = 7, so the whole — 100% — is 7 × 100 = 700 (Option 3), and indeed 8% of 700 = 56. Option 1 multiplied 56 × 8, Option 2 subtracted, and Option 4 scaled by 1000/8 — three rooms too generous.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Express 45% as a fraction in its lowest terms.',
+                  solution: [
+                    'Now, by definition $45\\% = \\tfrac{45}{100}$ — the dress itself.',
+                    'So reduce as chapter 3 taught: $\\gcd(45, 100) = 5$, and $\\tfrac{45}{100} = \\tfrac{9}{20}$.',
+                    'Hence $45\\% = \\tfrac{9}{20}$ — the cross-check: $9 \\times 100 = 900 = 45 \\times 20$.',
+                  ],
+                  answer: '9/20',
+                },
+                {
+                  q: 'Write 7% as a decimal.',
+                  solution: [
+                    'Now, percent divides by $100$ — the point hops two rooms left.',
+                    'So $7\\% = \\tfrac{7}{100} = 0.07$: the digit $7$ lands in the hundredths room.',
+                    'Hence $7\\% = 0.07$ — and $0.07 \\times 100 = 7$ walks it back.',
+                  ],
+                  answer: '0.07',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Express 3/5 as a percent.',
+                  solution: [
+                    'Now, $5$ divides $100$ — a fair trade lands directly on the 100-ruler: $\\tfrac{3}{5} = \\tfrac{3 \\times 20}{5 \\times 20} = \\tfrac{60}{100}$.',
+                    'So $\\tfrac{60}{100}$ is the percent dress by definition: $60\\%$.',
+                    'Hence $\\tfrac{3}{5} = 60\\%$ — the decimal route agrees: $0.6 \\times 100 = 60$.',
+                  ],
+                  answer: '60%',
+                },
+                {
+                  q: 'Find 25% of 320.',
+                  solution: [
+                    'Now, $25\\% = \\tfrac{1}{4}$ — the benchmark quarter.',
+                    'So $25\\%$ of $320 = \\tfrac{320}{4} = 80$.',
+                    'Hence $25\\%$ of $320 = 80$ — the direct dress agrees: $\\tfrac{25 \\times 320}{100} = \\tfrac{8000}{100} = 80$.',
+                  ],
+                  answer: '80',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Express 0.375 as a percent.',
+                  solution: [
+                    'Now, decimal to percent is $\\times 100$ — two rooms right.',
+                    'So $0.375 \\times 100 = 37.5$.',
+                    'Hence $0.375 = 37.5\\%$ — three hundred and seventy-five thousandths are thirty-seven and a half hundredths.',
+                  ],
+                  answer: '37.5%',
+                },
+                {
+                  q: 'Find 18% of 2500.',
+                  solution: [
+                    'Now, $18\\%$ of $2500 = \\tfrac{18}{100} \\times 2500$.',
+                    'So the hundreds cancel: $\\tfrac{18}{100} \\times 2500 = 18 \\times 25 = 450$.',
+                    'Hence $18\\%$ of $2500 = 450$ — the benchmark route agrees: $20\\%$ of $2500 = 500$ and $2\\% = 50$, so $500 - 50 = 450$.',
+                  ],
+                  answer: '450',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'What percent of 90 is 36?',
+                  solution: [
+                    'Now, "what percent" asks for the fraction $\\tfrac{36}{90}$ dressed in hundredths: $\\tfrac{36}{90} \\times 100$.',
+                    'So cancel first — $\\gcd(36, 90) = 18$, so $\\tfrac{36}{90} = \\tfrac{2}{5}$ — and the fair trade finishes it: $\\tfrac{2}{5} = \\tfrac{40}{100}$.',
+                    'Hence $36$ is $40\\%$ of $90$ — the direct run agrees: $\\tfrac{36 \\times 100}{90} = \\tfrac{3600}{90} = 40$.',
+                  ],
+                  answer: '40%',
+                },
+                {
+                  q: '12% of a number is 84. Find the number.',
+                  solution: [
+                    'Now, the unitary method: $12\\%$ of the number is $84$, so $1\\%$ of it is $\\tfrac{84}{12} = 7$.',
+                    'So the whole — $100\\%$ — is $7 \\times 100 = 700$.',
+                    'Hence the number is $700$ — checked: $\\tfrac{12}{100} \\times 700 = 84$.',
+                  ],
+                  answer: '700',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'exam-style: An examination carries 600 marks and the pass mark is 33%. A candidate scores 210 marks. Does the candidate pass, and by how many marks?',
+                  solution: [
+                    'Now, the pass mark first: $33\\%$ of $600 = \\tfrac{33 \\times 600}{100} = 33 \\times 6 = 198$.',
+                    'So the candidate\'s $210$ clears it: $210 - 198 = 12$.',
+                    'Hence the candidate passes by $12$ marks — and in percent dress the margin is $\\tfrac{12}{600} \\times 100 = 2\\%$ of the paper.',
+                  ],
+                  answer: 'passes by 12 marks (2% of the paper)',
+                },
+                {
+                  q: 'exam-style: In a class of 45 students, 60% are boys. How many girls are there?',
+                  solution: [
+                    'Now, the boys: $60\\%$ of $45 = \\tfrac{60 \\times 45}{100} = \\tfrac{3 \\times 45}{5} = 27$.',
+                    'So the girls are the rest: $45 - 27 = 18$.',
+                    'Hence there are $18$ girls — and the census closes: $27 + 18 = 45$, the whole class accounted for.',
+                  ],
+                  answer: '18 girls',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove that x% of y equals y% of x for all numbers x and y, and use the result to compute 16% of 25 in one line.',
+                  solution: [
+                    'Now, both sides divide by the same $100$: $x\\%$ of $y = \\tfrac{x}{100} \\times y = \\tfrac{xy}{100}$, and $y\\%$ of $x = \\tfrac{y}{100} \\times x = \\tfrac{yx}{100}$.',
+                    'So the two products are one number — $xy = yx$ (multiplication commutes, Lesson 2.2) — and the percent dress inherits the commutativity.',
+                    'And the use: $16\\%$ of $25$ is unfriendly, but its twin $25\\%$ of $16 = \\tfrac{16}{4} = 4$ is a benchmark quarter.',
+                    'Hence $x\\%$ of $y = y\\%$ of $x$ for all $x, y$, and $16\\%$ of $25 = 25\\%$ of $16 = 4$ — flip the ugly percent onto the friendly number.',
+                  ],
+                  answer: 'x% of y = y% of x; 16% of 25 = 4',
+                },
+                {
+                  q: 'The halving chain: starting from 100%, halve repeatedly and express each result as a fraction of the quantity. Hence find 6.25% of 512 and 3.125% of 640.',
+                  solution: [
+                    'Now, halve the whole: $100\\% \\rightarrow 50\\% \\rightarrow 25\\% \\rightarrow 12.5\\% \\rightarrow 6.25\\% \\rightarrow 3.125\\%$.',
+                    'So the fraction dresses halve in step: $\\tfrac{1}{2}, \\tfrac{1}{4}, \\tfrac{1}{8}, \\tfrac{1}{16}, \\tfrac{1}{32}$ — each rung is $\\tfrac{100}{2^k}$, and since $100 = 2^2 \\times 5^2$ the fives never block a halving: every rung terminates.',
+                    'And the fractions of the given quantities: $6.25\\% = \\tfrac{1}{16}$ of $512 = 32$; $3.125\\% = \\tfrac{1}{32}$ of $640 = 20$.',
+                    'Hence $6.25\\%$ of $512 = 32$ and $3.125\\%$ of $640 = 20$ — the chain halves the percent and halves the fraction in step.',
+                  ],
+                  answer: '6.25% of 512 = 32; 3.125% of 640 = 20',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The percent dress is now on every fraction the book has worn, and it behaves: the definition fixed the denominator at $100$, the two-hop law walked between the three stations without rounding, the benchmarks turned percent-of into small divisions, and the unitary method recovered wholes from parts as it once recovered petrol from litres. One task remains before the chapter closes — the exam hall rarely asks what a percent **is**; it asks how much a price **changed**. Lesson 5.5 puts the dress to work on increase, decrease, discount and simple interest, and the arithmetic of 5.3 will do the rest.',
+        },
+      ],
+    },
   ],
   plannedLessons: [
-    'Percent and Its Meaning',
     'Percentage Change, Discounts and Simple Interest',
   ],
 }

@@ -6,6 +6,138 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 24 (cron, Job 498279): FM lesson 5.4 "Percent and Its Meaning" authored in the Cengage voice + solution chain — percent as the standardised fraction of 100: the x/100 definition on the 100-square, the two-hop law proved from the point-shift, the benchmark ladder, and the unitary method returning to recover wholes from parts
+
+**Run open (push check first):** tree clean at `c35cfe0` = local HEAD =
+remote HEAD (the run-23 memory commit, verified at run open via the
+one-time-URL `git ls-remote`: remote HEAD `c35cfe0…` = refs/heads/main =
+local) — nothing queued, no push debt; every run since 17 has pushed at
+run end. The pre-run summary (run-15 era, two commits in debt) was
+stale: runs 16–23 had already happened and the ledger confirmed the
+run-16 Cengage-solution directive completed. Task per RESUME_POINTER:
+FM lesson 5.4 "Percent and Its Meaning" (extend verify-unit-5.ts BEFORE
+writing; sections BK+).
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT Class 7 ch. 8 "Comparing Quantities" §8.3 "Percentage — Another
+Way of Comparing Quantities" (8.3.1 meaning of percentage) + §8.4 "Use
+of Percentages" — the canonical percent introduction, section sequence
+web-checked 2026-11-04 (searches: NCERT class-7 comparing-quantities
+outlines; the new Ganita Prakash class-7 book carries no dedicated
+percent chapter — ch. 8 "Working with Fractions" confirmed by the
+part-1 contents); Khattar QA 4e percent conversion and percent-of exam
+items. One new citation key: `ncert-math7-ch8`. No
+temporary-references footprint; the gitignored Drive survey was
+rebuilt once (`rebuild_drive_survey.ts`, 89 entries intact) solely to
+regenerate WORK_INVENTORY.json after the recycle.
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-5.ts extended
+341 → **394 checks** (sections BK–BS, 53 new) ALL PASS before a word
+was written: BK the definition cross-products (35% = 7/20, 64% = 16/25,
+45% = 9/20, 120% = 6/5, 12.5% = 1/8, 6.25% = 1/16, 0.5% = 1/200) and
+the two-hop both ways (45% = 0.45, 6.5% = 0.065, 0.375 = 37.5%,
+0.06 = 6%; 3/4 = 75%, 7/8 = 87.5%, 5/8 = 62.5%, 3/8 = 37.5%) plus the
+33 1/3% caution (mixed form exact, 33.3% = 333/1000 one thousandth
+short) and the equivalence p = x/100 ⟺ x = 100p; BL percent-of
+(15% of 460 = 69, 8% of 2500 = 200, 12.5% of 640 = 80, 18% of 2500 =
+450), the benchmark identities (50/25/20/12.5/10/5/1%), the builds
+(35% of 200 = 50 + 20 = 70; 15% of 460 = 46 + 23 = 69; 35% of 460 =
+115 + 46 = 161) and the halving-chain instances (6.25% of 512 = 32,
+3.125% of 640 = 20); BM the commutativity gem x% of y = y% of x (four
+instances incl. 16% of 25 = 25% of 16 = 4) and the chain itself
+(50/25/12.5/6.25/3.125 ↔ 1/2..1/32, explained by 100 = 2² × 5²);
+BN the word problems (348/500 = 69.6%; 55% of 40 = 22 girls, 60% of 45
+= 27 boys; 8% of n = 56 → n = 700, 12% of n = 84 → n = 700, 30% of n =
+96 → n = 320; 36 of 90 = 40%, 66 of 240 = 27.5%; 33% of 600 = 198 pass
+mark, 210 clears by 12; 30% of Rs 18,500 = Rs 5,550 saved, Rs 12,950
+left); BO figure-1 geometry (the 100-square: grid 70..370 × 110..410,
+cell 30, shaded 210 × 150 = 7 × 5 = 35 cells, bracket rails 70..220 and
+220..280, air chains 8/22/35/30); BP figure-2 geometry (three stations
+30..210 / 300..460 / 550..730 at y 150..214, 90px gaps, label air
+18/38/35, arc (120,150)→(640,150) peak ~85, example strip y 330);
+BQ the quiz key 0/1/1/2/2 with every distractor numerically killed;
+BR the 12 exercise keys; BS structural sanity (7 terms, 3 cards,
+6 illustrations, 12 exercises, indices, prerequisites). The pre-writing
+audit caught 2 real defects before any content existed (a float
+artifact in BP4, a wrong kill-condition in BQ4) — fixed, then 394/394.
+Regressions green: 330/260/165 (units 4/3/2).
+
+**The lesson** (id `fm-percent-and-its-meaning`, number 5.4, ~3,769
+honest words by the counter delta — 101,153 → 104,922 book total): the
+opening ties 5.3's closing promise and names the service (one
+denominator for everyone — the standardised denominator as the common
+currency of fractions); per centum etymology + **historical callout**
+(the % sign from Italian "per cento" ledgers through "P c°" — no
+content reproduced); **Definition callout** in the formal Cengage shape
+("$x$ is said to be expressed as a percent when ...", Thus-line, the %
+sign as an instruction to divide by 100, not a unit); roman example run
+(35% = 7/20, 8% = 2/25, 120% = 6/5 beyond the whole, 0.5% = 1/200);
+**figure 1: the 100-square** (10 × 10 grid at 30px cells, 35 shaded as
+the 25% + 10% benchmark build with amber brackets, legend + three-dress
+strip; audit 0 issues FIRST pass, VLM 9/10 math + 8/10 clarity — its
+one bracket-alignment complaint DISPROVEN by exact DOM measurement:
+rail 2 right end = 280 = shaded block right edge, viewBox units); the
+**two-hop law as equation tag 1** (x% = x/100; p = x/100 ⟺ x = 100p)
+and the **derivation block** (definition → x/10² as the point-shift at
+k = 2 → the reverse reading; exact, no rounding); Illustrations 1–3
+(35% → 7/20 by the HCF; 7/8 → 0.875 → 87.5% by the atom test + two
+hops; 0.065 → 6.5%, not 65% — one room = a factor of ten); the
+**33 1/3% Caution** (33 1/3% = 1/3 exactly, 33.3% a thousandth short);
+**figure 2: the conversion map** (FRACTION/DECIMAL/PERCENT stations,
+step machine + place reading + × 100 / ÷ 100 arrows, the direct-hop
+arc, worked strip incl. 1/3 = 0.(3) = 33 1/3%; audit 0 issues, VLM
+9.5/10 structure + 9/10 clarity); **percent-of as equation tag 2**
+(x% of A = (x/100) × A; A = part × 100/x on the right); the **benchmark
+ladder table** (100/75/50/25/20/12.5/10/5/1% with fraction + decimal
+dresses); the halving chain explained by the atoms (100 = 2² × 5² — the
+fives never block a halving); Illustrations 4–6 (15% of 460 = 69 by
+benchmark build AND direct dress; 348/500 = 69.6% with the step
+machine; 8% of n = 56 → n = 700 — the unitary method returned); the
+roman word-problem run (pass mark 198 of 600, cleared by 12 = 2% of the
+paper; 27 boys + 18 girls = 45; Rs 5,550 of Rs 18,500 saved); the
+**commutativity gem Note** (x% of y = y% of x — flip the ugly percent
+onto the friendly number); 7 new terms (Percent, The % sign,
+Standardised denominator, Two-hop conversion, Percent of a quantity,
+Benchmark percents, The 1% unit); 3 formula cards (percent definition /
+two-hop conversion / percent-of + the whole); exam corner (the halving
+chain prices 512 and 640 in one step; the gem; the standing traps
+0.5% ≠ 50%, 120% legal, 33 1/3% exact); 5-quiz (0/1/1/2/2 verified
+LIVE 5/5 perfect); 12 exercises L1–L6 — L6 proves x% of y = y% of x and
+works the halving chain (6.25% of 512 = 32; 3.125% of 640 = 20).
+
+**Verified:** lint clean; `tsc --noEmit` clean; routes 200 (the new
+lesson route needed the known `.next/dev/types/validator.ts` delete +
+re-curl after the edit — back to 200); figure audit
+`audit-svg-overlaps.sh fm-percent-and-its-meaning` → 0 issues on both
+SVGs; E2E extended to **12 lessons** (`fm-percent-and-its-meaning`
+added to the sweep + a dedicated 5.4 block: 6 Illustration pills, 6
+inline Sol. pills, 22 step rows, stepNumberBadges 0, inlineSolPills =
+solPills, thereforeTags 18, legacyAnswerBoxes 0, KaTeX 229, dollarInSvg
+0, note boxes Historical/Definition/Caution/Note/3 formula cards/Exam
+corner, exercises 12, quiz 5 — answered live with the intended options
+0/1/1/2/2 → **5/5 perfect**, 12/12 solutions expand (36 open
+collapsibles), 2 svg figures, mobile 390px exact-fit (docScrollW 390,
+articleW 358), console clean); VLM reviews of both figures (9/10 + 8/10
+math/clarity on the 100-square with the alignment complaint disproven
+by DOM measurement; 9.5/10 + 9/10 on the conversion map).
+
+**Logged:** WORKLOG.md (this entry), PROGRESS.json (phase/awaiting/
+library 22 lessons 104,922 words 142 terms 110 quiz items 221 exercise
+questions), RESUME_POINTER.json (nextAction + run24Extras),
+DETAILED_LOG.md (header paragraph + run-24 session row + tail),
+SOURCE_LOG.md (new `ncert-math7-ch8` key, per-subject ledger row,
+free-space entry), WORK_INVENTORY.json regenerated post-recycle
+(rebuild_drive_survey.ts → build_work_inventory.ts: 22 lessons /
+104,922 words / 142 terms / 110 quiz / 221 exercises). ch. 5 in
+progress **4/5**; next lesson 5.5 "Percentage Change, Discounts and
+Simple Interest" closes the chapter.
+
+**Git:** run-24 ship commit (lesson + E2E + verify script) then the
+inventory bookkeeping commit, then PUSH per protocol v2 — see the
+push-verification note appended below.
+
+---
+
 ## 2026-11-04 — RUN 23 (cron, Job 498279): FM lesson 5.3 "Operating on Decimals" authored in the Cengage voice + solution chain — the decimal dress goes to work: align the points, let the engine multiply with the places adding, let the step machine divide with the quotient's point riding the dividend's
 
 **Run open (push check first):** tree clean at `c830cd8` = local HEAD =
