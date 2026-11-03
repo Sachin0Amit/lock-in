@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 05:24:18 (Asia/Kolkata)",
+  "generated": "2026-11-04 05:29:06 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5466,6 +5466,72 @@
           "path": "docs/project/WORKLOG.md",
           "add": 9,
           "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "c265eb73a829bcf322bfca2836a27a627259d17f",
+      "short": "c265eb7",
+      "date": "2026-11-03 23:58",
+      "message": "fm 5.5 percentage change, discounts and simple interest (unit 5, run 25): the chapter's final lesson under one discipline — every percent names a base ('of what?'): percentage change judged on the ORIGINAL (Definition callout r = (N−O)/O x 100; roman run 250→300 = +20%, 48,000→44,640 = −7%, 800→720 = −10%); the factor law N = O(100 ± r)/100 PROVED as a derivation block (definition → distributivity → one fraction → HCF-trimmed brackets ×5/4, ×9/10) as equation tag 1; figure 1 the round-trip map (both return tickets drawn — the wrong −20% lands 500 short in amber dashed, the right ×5/6 lands home; audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity); Illustrations: the salary 12%; the Rs 8,000 round trip −6.25%; the phone Rs 15,000 after +20% recovered to Rs 12,500 by the return ticket AND the unitary method at 120%; the two-base trap Caution (+25% then −25% is not flat); the r²/100 % round-trip law named from the figure and PROVED in exercise L6 via chapter 2's (a+b)(a−b) identity; profit/loss percent on the COST price (the ledger dress of the factor law as equation tag 2, SP = CP(100 ± p)/100; the cycle 15%; the SP-base fraud Caution ≈13.04% ≠ 15%; the fridge CP 12,000 recovered from SP 10,200 at a 15% loss); discount on the MARKED price (SP = M(100 − d)/100; the sweater 1,360; the lamp 600 +40% −20% → 672 — the festival never undoes the markup); the multiplier law Note (factors multiply, percents never add: 1.40 x 0.80 = 1.12); figure 2 the two-lane map (CP 600 +15% and MP 750 −8% landing on ONE SP 690; audit 0 issues, VLM PASS x3); simple interest from the one-percent-a-year unit (I = PRT/100 PROVED as a derivation block from 5.4's percent-of + repeated addition; A = P + I as equation tag 3; the loan Rs 1,200/6,200; the rate recovered 900 = 120R → R = 7.5%; the per-annum trap Caution — T strictly in years, 8 months = 2/3; the 'simple' promise Note — flat rent, the compound-interest door left open); 8 new terms, 4 formula cards, exam corner (NCERT class-7 §§8.5–8.6 + class-8 §§8.2–8.4 canon; the five classic traps), 5-quiz (0/1/1/2/3 verified live 5/5 perfect + VLM screenshot of the score bar), 12 exercises L1–L6 (L6 proves the r²/100 % law and works the halving chain: Rs 12,000 at 6.25% for 2.5 years = Rs 1,875); PLATFORM: RichText parser upgraded — $math$ now renders inside **bold** and *italic* site-wide (12 latent raw-LaTeX leaks across chs. 2–5, 7 pre-existing, repaired with zero content edits; verified 0 raw-$ leaks on the SSR HTML); verify-unit-5.ts extended 394 → 455 checks (sections BT–CC) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 3 real defects before any content existed); E2E extended to 13 lessons with a dedicated 5.5 block (9 Illustration pills, 9 inline Sol. pills, 32 step rows, badges 0, thereforeTags 27, legacy boxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, console clean); UNIT-5 COMPLETION REVIEW PASSED (checklist 7/7, exam-coverage 5/5, ids unique, ch-05 status → complete, plannedLessons emptied, book.ts STATUS/notes updated — ch. 5 CLOSED, next chapter 6 Ratio, Rate and Proportion); new citation key ncert-math8-ch8; logs + pointer + inventory updated",
+      "filesChanged": 11,
+      "insertions": 1388,
+      "deletions": 117,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 47,
+          "del": 46
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 47,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 29,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 155,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 140,
+          "del": 34
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-5.ts",
+          "add": 148,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/math.tsx",
+          "add": 6,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 17,
+          "del": 14
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 704,
+          "del": 9
         }
       ]
     }
