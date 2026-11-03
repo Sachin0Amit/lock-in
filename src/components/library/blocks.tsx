@@ -90,10 +90,96 @@ function CalloutBlock({ tone, title, text }: { tone: CalloutTone; title: string;
 }
 
 /* ---------------------------------------------------------------- */
-/* Illustration — the Cengage worked example (owner directive          */
-/* 2026-11-03): green pill label, problem on a sage band, "Sol." pill   */
-/* leading the worked steps. Step numbers are NOT shown (owner          */
-/* directive 2026-11-03: "no need to show the steps number").           */
+/* Cengage solution chain (owner directive 2026-11-03: "the solution   */
+/* should also be in cengage style" — grounded by re-studying M2/01):   */
+/* the Sol. pill sits INLINE at the start of the first solution line,   */
+/* and the work runs as a hanging-indent chain whose lines carry a      */
+/* connective tag in a fixed left column — ∴ for Hence/Thus/Therefore,  */
+/* "or" for alternatives, Now,/So,/But/And as word tags — exactly the   */
+/* staircase of the Cengage worked solutions. Prose lines without a    */
+/* connective run full width, as in the book. The final answer is a    */
+/* terminal ∴ line (Cengage prints no boxed Answer row). No step       */
+/* numbers anywhere (owner directive 2026-11-03).                       */
+/* ---------------------------------------------------------------- */
+
+const TAG_THEREFORE = /^\s*(?:Hence|Thus|Therefore)\b[,:]?\s*/
+const TAG_OR = /^\s*or\b\s+/
+const TAG_WORD = /^\s*(Now|So|But|And)\b[,:]?\s*/
+const CASE_LEAD = /^\s*(Case\s*\([ivxIVX]+\)[:.]?)\s*/
+const ANSWER_LABEL = /^\s*(?:Answer|Hence|Thus|Therefore)\b[,:]?\s*/
+
+/** Display-only parse: splits a worked line into its Cengage connective
+ * tag (or bold Case lead) and the remaining text. Content files are
+ * never rewritten — the renderer reads the lead-in words the author
+ * already wrote (Split / Take / Check / Hence …). */
+function parseStepTag(s: string): { tag: string | null; caseLead: string | null; text: string } {
+  let m = s.match(TAG_THEREFORE)
+  if (m) return { tag: '∴', caseLead: null, text: s.slice(m[0].length) }
+  m = s.match(TAG_OR)
+  if (m) return { tag: 'or', caseLead: null, text: s.slice(m[0].length) }
+  m = s.match(TAG_WORD)
+  if (m) return { tag: m[1] + ',', caseLead: null, text: s.slice(m[0].length) }
+  m = s.match(CASE_LEAD)
+  if (m) return { tag: null, caseLead: m[1], text: s.slice(m[0].length) }
+  return { tag: null, caseLead: null, text: s }
+}
+
+function StepTag({ tag }: { tag: string }) {
+  if (tag === '∴') return <Math tex="\therefore" />
+  return <span>{tag}</span>
+}
+
+function SolPill() {
+  return (
+    <span className="absolute left-0 top-0 inline-flex items-center rounded-full bg-[var(--book-green)] px-2.5 py-[2px] text-[11px] font-bold leading-none text-white">
+      Sol.
+    </span>
+  )
+}
+
+function SolutionSteps({ steps, answer }: { steps: string[]; answer?: string }) {
+  return (
+    <div className="relative font-reading text-[0.95em] leading-7 text-foreground/90">
+      <SolPill />
+      <ol className="list-none space-y-1.5 pl-[3.4rem]">
+        {steps.map((s, i) => {
+          const { tag, caseLead, text } = parseStepTag(s)
+          const body = (
+            <>
+              {caseLead && <strong className="font-semibold text-foreground">{caseLead} </strong>}
+              <RichText text={text} />
+            </>
+          )
+          return (
+            <li key={i} className={tag ? 'flex items-start gap-2' : undefined}>
+              {tag && (
+                <span className="w-9 shrink-0 leading-7 text-foreground/70" aria-hidden>
+                  <StepTag tag={tag} />
+                </span>
+              )}
+              <span className="min-w-0 leading-7">{body}</span>
+            </li>
+          )
+        })}
+        {answer && (
+          <li className="mt-1 flex items-start gap-2 font-medium text-[var(--book-green-ink)]">
+            <span className="w-9 shrink-0 leading-7" aria-hidden>
+              <StepTag tag="∴" />
+            </span>
+            <span className="min-w-0 leading-7">
+              <RichText text={answer.replace(ANSWER_LABEL, '')} />
+            </span>
+          </li>
+        )}
+      </ol>
+    </div>
+  )
+}
+
+/* ---------------------------------------------------------------- */
+/* Illustration — the Cengage worked example: green pill label, the    */
+/* problem on a sage band, then the Cengage solution chain (Sol. pill  */
+/* inline + connective tag column).                                    */
 /* ---------------------------------------------------------------- */
 
 function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no: number }) {
@@ -109,19 +195,7 @@ function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no
         {title}
       </p>
       <div className="mt-4">
-        <div className="mb-2.5 flex items-center gap-2.5">
-          <span className="inline-flex items-center rounded-full bg-[var(--book-green)] px-2.5 py-[2px] text-[11px] font-bold text-white">
-            Sol.
-          </span>
-          <span className="h-px flex-1 bg-[var(--book-sage-line)]/70" aria-hidden />
-        </div>
-        <ol className="list-none space-y-2.5">
-          {steps.map((s, si) => (
-            <li key={si} className="leading-7 text-foreground/90">
-              <RichText text={s} />
-            </li>
-          ))}
-        </ol>
+        <SolutionSteps steps={steps} />
       </div>
     </section>
   )
@@ -395,34 +469,15 @@ function QuizBlock({
 /* Exercises                                                         */
 /* ---------------------------------------------------------------- */
 
-/* A worked solution: one step per line, words + math, with an optional
- * boxed final answer — styled after handwritten worked solutions (owner
- * directive 2026-11-03). Step numbers are NOT shown (owner directive
- * 2026-11-03: "no need to show the steps number"). Legacy string
- * solutions stay paragraphs. */
+/* A worked solution in the Cengage chain style (owner directive
+ * 2026-11-03: "the solution should also be in cengage style"):
+ * Sol. pill inline on the first line, connective tag column (∴/or/
+ * Now,/So,), terminal ∴ answer line — no step numbers (owner
+ * directive 2026-11-03), no boxed Answer row (Cengage prints none).
+ * Legacy string solutions stay paragraphs. */
 function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string } }) {
   if (!Array.isArray(q.solution)) return <RichText text={q.solution} />
-  return (
-    <div className="space-y-2.5">
-      <ol className="list-none space-y-2">
-        {q.solution.map((s, i) => (
-          <li key={i} className="leading-7">
-            <RichText text={s} />
-          </li>
-        ))}
-      </ol>
-      {q.answer && (
-        <div className="flex items-start gap-2.5 rounded-r-md border-l-2 border-[var(--book-green)] bg-[var(--book-sage)] px-3.5 py-2">
-          <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--book-green-ink)]">
-            Answer
-          </span>
-          <span className="min-w-0 font-medium leading-7">
-            <RichText text={q.answer} />
-          </span>
-        </div>
-      )}
-    </div>
-  )
+  return <SolutionSteps steps={q.solution} answer={q.answer} />
 }
 
 function ExercisesBlock({
@@ -473,13 +528,7 @@ function ExercisesBlock({
                       <ChevronRight className="h-3.5 w-3.5 transition-transform group-data-[state=open]:rotate-90" aria-hidden />
                       Show solution
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="mt-2 rounded-md border-l-2 border-[var(--book-green)]/60 bg-[var(--book-sage)]/50 px-4 py-2.5 text-sm leading-7 text-foreground/90">
-                      <div className="mb-2 flex items-center gap-2.5">
-                        <span className="inline-flex items-center rounded-full bg-[var(--book-green)] px-2.5 py-[2px] text-[11px] font-bold text-white">
-                          Sol.
-                        </span>
-                        <span className="h-px flex-1 bg-[var(--book-sage-line)]/70" aria-hidden />
-                      </div>
+                    <CollapsibleContent className="mt-2 rounded-md border-l-2 border-[var(--book-green)]/60 bg-[var(--book-sage)]/50 px-4 py-3 text-sm leading-7 text-foreground/90">
                       <SolutionBody q={q} />
                     </CollapsibleContent>
                   </Collapsible>

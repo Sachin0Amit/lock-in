@@ -148,16 +148,23 @@ export interface ExerciseQuestion {
   q: string
   /**
    * Complete worked solution. Two authoring formats:
-   *  - **Steps (preferred, owner directive 2026-11-03):** an array of short
-   *    worked lines — one step per line, words + $math$ mixed, exactly like a
-   *    handwritten worked solution ("Split 84 into 4 shares", "84 ÷ 4 = 21",
-   *    …). Rendered as clean UNNUMBERED lines with an optional boxed answer
-   *    (owner directive 2026-11-03: "no need to show the steps number" —
-   *    no step-number badges anywhere).
+   *  - **Steps (preferred, owner directives 2026-11-03):** an array of short
+   *    worked lines — one move per line, words + $math$ mixed, led by the
+   *    natural connectives (Split / Take / Check / Now, / So, / or / Hence …).
+   *    The renderer prints them as the **Cengage solution chain**: "Sol."
+   *    pill inline on the first line, a connective tag column (∴ for
+   *    Hence/Thus/Therefore, "or", Now,/So,) creating the staircase,
+   *    prose lines full width, and the `answer` as a terminal ∴ line —
+   *    unnumbered throughout ("no need to show the steps number") and
+   *    with no boxed Answer row (Cengage prints none).
    *  - **Prose (legacy):** a single paragraph string, rendered as before.
    */
   solution: string | string[]
-  /** Final result line, rendered boxed and emphasised after the steps. */
+  /**
+   * Final result, rendered as the terminal ∴ line of the Cengage chain
+   * (green-ink, medium weight). A literal "Answer: / Hence: " prefix is
+   * stripped at display time — write the result itself.
+   */
   answer?: string
 }
 

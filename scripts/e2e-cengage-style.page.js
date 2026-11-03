@@ -19,7 +19,8 @@
     };
   }
 
-  /* 2. Illustrations: pill label + sage band + Sol. pill + unnumbered steps */
+  /* 2. Illustrations: pill label + sage band + Cengage solution chain
+     (Sol. pill INLINE on the first line + connective tag column). */
   var pills = Array.prototype.slice
     .call(document.querySelectorAll('section[aria-label^="Illustration"]'))
     .map(function (s) {
@@ -34,6 +35,27 @@
         return s.textContent.trim() === 'Sol.';
       }).length,
     stepRows: document.querySelectorAll('section[aria-label^="Illustration"] ol > li').length,
+  };
+
+  /* 2c. Cengage solution chain (owner directive 2026-11-03): the Sol. pill
+     must sit inline at the start of the first solution line (its chain
+     container also carries the first step text), ∴ tags render (KaTeX
+     mord glyphs), and the old boxed Answer rows are gone. */
+  var solPillEls = Array.prototype.slice
+    .call(document.querySelectorAll('span'))
+    .filter(function (s) { return s.textContent.trim() === 'Sol.'; });
+  r.solutionChain = {
+    solPills: solPillEls.length,
+    inlineSolPills: solPillEls.filter(function (s) {
+      var chain = s.closest('div.relative');
+      return !!chain && chain.querySelector('ol > li') !== null;
+    }).length,
+    thereforeTags: Array.prototype.slice
+      .call(document.querySelectorAll('.lesson-body .katex span'))
+      .filter(function (m) { return m.textContent.trim() === '\u2234'; }).length,
+    legacyAnswerBoxes: document.querySelectorAll(
+      '.lesson-body .rounded-r-md.border-l-2'
+    ).length,
   };
 
   /* 2b. No step numbers anywhere (owner directive 2026-11-03):

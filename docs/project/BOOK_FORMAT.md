@@ -50,12 +50,12 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 | `terms` | definition lists | term + def pairs; **feeds the book's flashcards and glossary automatically**; terms print in ink-green |
 | `equation` | display math, centred | KaTeX source; `\tag{n}` numbers it; `note` = "where…" prose |
 | `derivation` | step-by-step proofs | green-ruled title, steps on a green rail (no step numbers — owner directive 2026-11-03), boxed Result — the book's reasoned-argument presentation |
-| `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, a `Sol.` pill leading the worked steps — **without step numbers** (owner directive 2026-11-03). `title` must be a crisp problem statement |
+| `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, then the **Cengage solution chain** — `Sol.` pill inline on the first line + connective tag column, unnumbered (owner directive 2026-11-03). `title` must be a crisp problem statement |
 | `figure` | inline SVG | self-contained, viewBox, labels match prose text; thin uniform strokes + plain labels (Cengage figure manner) |
 | `table` | tabular data | sage header row in ink-green + alternating tinted rows; cells support `$math$` |
 | `list` | bullet/ordered lists | `marker: 'roman'` renders the Cengage `(i) (ii) (iii)` example-run enumeration |
 | `quiz` | self-check MCQs | green bar header; interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
-| `exercises` | graded question sets | green bar header (Cengage exercise banner); hairline-separated questions, no cards; levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see below), opened by a `Sol.` pill |
+| `exercises` | graded question sets | green bar header (Cengage exercise banner); hairline-separated questions, no cards; levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see the Cengage solution chain below), printed with the `Sol.` pill inline + tag column + terminal ∴ answer line |
 | `formula` | revision formula card | name + KaTeX + note; **aggregated into the auto "Formula sheet" page** — use for every must-recall formula |
 | `algorithm` | pseudocode / procedures | monospace lines with optional per-line notes, **unnumbered** (owner directive 2026-11-03); for CS books and stepwise methods |
 
@@ -93,28 +93,43 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
     property per bullet, each with a verified instance.
   - **Illustrations**: `example.title` is a crisp problem statement
     ("Round 5,768 to the nearest ten, hundred and thousand"), `steps` the
-    worked solution in the worked-step format below — first step states
-    the setup, later steps make one move each, final step concludes
-    ("Hence …").
+    worked solution in the Cengage solution-chain format below — first
+    step states the setup, later steps make one move each, final step
+    concludes ("Hence …").
   - **Notes and cautions**: short, boxed, single-idea — the `insight`
     callout prints as a "Note" box, `warn` as "Caution".
   - **Summary lines** that harvest a section ("From the above discussion,
     it follows that …") use `list marker: 'roman'` or an `equation` with
     `\tag`.
-- **Worked-solution format (owner directive 2026-11-03)**: every
-  `solution` is written as an **array of short steps** — one worked line per
-  array entry, words + `$math$` mixed, like a handwritten worked solution
-  ("Seat the digits right to left: …", "Expanded form: $…$", "…").
-  Lead-in words per step (Split / Take / Check / Hence …); keep each step to
-  one move. End with `answer: '…'` (a single result line) whenever the
-  question has a crisp final result — it renders as a boxed Answer row.
-  **Step numbers are NOT rendered** (owner directive 2026-11-03, "no need to
-  show the steps number"): each array entry prints as a clean unnumbered
-  line, in Illustrations, exercise solutions, derivations and algorithm
-  lines alike — the lead-in words carry the sequence. Never one dense
-  paragraph. All 125 pre-existing solutions were migrated
-  to this format on 2026-11-03 (`scripts/convert-solutions-to-steps.py`,
-  token-preserving).
+- **Cengage solution chain (owner directive 2026-11-03: "the solution
+  should also be in cengage style" — style re-grounded by studying the
+  M2/01 worked solutions + S.x solutions pages, no content reproduced)**:
+  every `solution` is written as an **array of short worked lines** — one
+  move per entry, words + `$math$` mixed — and the renderer prints them
+  exactly as Cengage prints its solutions:
+  - the **"Sol." pill sits inline at the start of the first solution
+    line** (never on a row of its own), the remaining lines hanging
+    under it;
+  - lines that open with a connective get it parsed into a **fixed left
+    tag column** — the staircase: `Hence/Thus/Therefore` → **∴** (KaTeX),
+    `or` → **or**, `Now,/So,/But/And` → the word; lines with no
+    connective run full width as prose (the book interleaves both);
+    `Case (i):`-led lines print the lead bold;
+  - the **`answer` prints as the terminal ∴ line** of the chain
+    (green-ink, medium weight) — Cengage boxes nothing and labels
+    nothing "Answer:"; a literal `Answer:`/`Hence:` prefix in the data
+    is stripped at display time;
+  - **no step numbers anywhere** (owner directive 2026-11-03, "no need
+    to show the steps number") — the lead-in connectives carry the
+    sequence; **no boxed Answer row** (removed 2026-11-03 to match
+    Cengage).
+  Authoring rules: lead lines with the natural connectives (Split /
+  Take / Check / Now, / So, / or / Hence …), one move per line, never a
+  dense paragraph; end with `answer: '…'` whenever there is a crisp
+  final result. All 125 pre-existing solutions were migrated to the
+  steps format on 2026-11-03 (`scripts/convert-solutions-to-steps.py`,
+  token-preserving) — the chain layout is display-only, so every one of
+  them renders in the Cengage manner with zero content edits.
 - **Exams**: label items "exam-style" unless sourced from an official paper;
   add an `exam` callout mapping the lesson to real examinations.
 - **Honesty**: `words`/`readMins` are computed automatically — never inflate.

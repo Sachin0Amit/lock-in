@@ -9,11 +9,12 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **owner-chat run 15**: step
-numbers removed from every worked-step surface — Illustration Sol. steps,
-derivation steps, exercise solutions, algorithm lines; run 14 before it:
-Cengage book-style theory live platform-wide; run 11 before that: UNIT 3
-COMPLETE; `WORK_INVENTORY.json` regenerated with every ship).
+Generated: 2026-11-03 (maintained through **owner-chat run 16**: solutions
+restyled as the Cengage solution chain — Sol. pill inline on the first
+line, connective tag column (∴/or/Now,), terminal ∴ answer line, boxed
+Answer rows retired; run 15 before it: step numbers removed; run 14:
+Cengage book-style theory live platform-wide; `WORK_INVENTORY.json`
+regenerated with every ship).
 
 ---
 
@@ -79,6 +80,7 @@ COMPLETE; `WORK_INVENTORY.json` regenerated with every ship).
 | 11-03 (run 13, owner chat) | (ship) | **WORKED-SOLUTION FORMAT shipped** — handwritten-notes style: all 125 exercise solutions converted from prose paragraphs to numbered step lines + boxed Answer rows; platform (solution string\|string[] + answer, SolutionBody renderer) + migration script with per-solution token-preservation assertion (125/125); E2E green incl. 390px exact-fit with every solution expanded; BOOK_FORMAT contract updated; logged; pushed (protocol v2) |
 | 11-03 (run 14, owner chat) | (ship) | **CENGAGE BOOK-STYLE THEORY shipped platform-wide** — Drive MATHS modules surveyed (5 modules, 42 chapter PDFs, ids persisted); Cengage M2/01 style-studied (OCR + vision; no content reproduced); reader reskinned print-style (green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars, hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, green chapter-opener headers) — all 14 lessons restyled at once; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; E2E green (VLM fidelity 8.5/10); logged; pushed (protocol v2) |
 | 11-03 (run 15, owner chat) | (ship) | **STEP NUMBERS REMOVED (owner directive "no need to show the steps number")** — circled digit badges deleted from all four worked-step renderers (Illustration Sol. steps, derivation rail, exercise solutions, algorithm lines); lead-in words carry the sequence; ILLUSTRATION n / Q-n / roman (i)(ii)(iii) / \tag{n} numbering deliberately kept; BOOK_FORMAT + types.ts contracts updated; E2E gains stepNumberBadges=0 check (KaTeX aria-hidden layer excluded); E2E green on 1.1/2.5/3.2/4.1 + VLM visual clean; logged; **push deferred — no PAT in this chat session** (local commit only; remote HEAD stays `d5a1b43` until the next cron run pushes) |
+| 11-03 (run 16, owner chat) | (ship) | **CENGAGE-STYLE SOLUTIONS (owner directive "the solution should also be in cengage style")** — M2/01 solution pages re-studied (OCR + vision; surveys rebuilt after recycle; no content reproduced): Sol. pill INLINE on the first solution line, hanging-indent chain with a connective tag column (∴ for Hence/Thus/Therefore, or, Now,/So,/But/And; Case (i): bold), terminal ∴ answer line in green ink (literal Answer:/Hence: prefix stripped), boxed Answer rows retired — display-only parseStepTag, zero content edits, all 15 lessons at once; BOOK_FORMAT/types/SOURCE_LOG/E2E contracts updated (solutionChain check; KaTeX \therefore is mrel amsrm, not mord); E2E + force-expanded DOM + VLM all green; logged; **push deferred — no PAT in this chat session** (local ahead by three commits: run-15 ship + inventory + this) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -894,12 +896,14 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-15 ship commit (step numbers removed from every
-  worked-step surface, owner chat directive) — local only: the owner chat
-  session carries no PAT, so the push is deferred to the next
-  cron-delivered run (protocol v2; remote HEAD `d5a1b43` = run-14
-  Cengage reskin + memory commit, verified synced by ls-remote at the
-  run-14 push). Working tree clean after the commit.
+- HEAD: the run-16 ship commit (Cengage-style solution chain) on top of
+  the run-15 commits — all LOCAL ONLY: neither owner chat session carried
+  a PAT, so the pushes are deferred to the next cron-delivered run
+  (protocol v2 one-time HTTPS URL; remote HEAD `d5a1b43` = run-14
+  Cengage reskin + memory commit, verified synced anonymously). Local is
+  ahead by three commits: run-15 ship `11703ab`, its inventory
+  bookkeeping commit, and the run-16 ship — push ALL at the next cron
+  run BEFORE any new work.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting

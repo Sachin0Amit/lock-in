@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 19:56:04 (Asia/Kolkata)",
+  "generated": "2026-11-03 20:18:32 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1110,19 +1110,19 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 17310,
+      "totalLines": 17366,
       "byArea": {
         "src/app (routes, pages)": 586,
-        "src/components/library (reader platform)": 2942,
+        "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 8103,
+        "src/data/library (content model + books)": 8110,
         "src/hooks": 214,
         "src/lib": 20
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 697
+          "lines": 746
         },
         {
           "file": "home-view.tsx",
@@ -3989,6 +3989,32 @@
           "path": "src/data/library/types.ts",
           "add": 3,
           "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c86a2dd10d949919ecff5c3c3f2245663b497b3f",
+      "short": "c86a2dd",
+      "date": "2026-11-03 14:26",
+      "message": "inventory: record run-15 ship (11703ab) — step numbers removed platform-wide; push-notes name both unpushed commits",
+      "filesChanged": 3,
+      "insertions": 11,
+      "deletions": 9,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 5,
+          "del": 5
         }
       ]
     }

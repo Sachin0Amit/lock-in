@@ -6,6 +6,100 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER CHAT DIRECTIVE (run 16): solutions restyled as the Cengage solution chain — "Sol." pill inline on the first line, connective tag column (∴ / or / Now,), terminal ∴ answer line; boxed Answer rows retired
+
+**Situation at start:** owner message (chat `47dcb175`, trace
+`1a1a1ce4e94992c9`): "the solution should also be in cengage style
+solution do anlaysiis on it and update it everywhere solution and all
+docs". Tree clean at `c86a2dd` = local HEAD (run-15 commits still
+unpushed — no PAT in chat sessions).
+
+**Analysis (grounding, per the directive's "do analysis on it"):** the
+MATHS Drive surveys had been wiped by a recycle — rebuilt in one command
+(`rebuild_drive_survey.ts`, 89 entries) + `list_drive_folder.ts` for the
+MATHS root and the M2 subfolder (ids persisted to
+`temporary-references/maths-root.json` / `maths-m2.json`). Cengage M2/01
+"Set Theory and the Real Number System" re-downloaded (24 MB, 35 pp) and
+the SOLUTION pages studied with OCR + vision:
+
+- **In-text illustrations (1.9, 1.22):** "Sol." green pill sits INLINE at
+  the start of the first solution line (never on its own row); the work
+  runs as a hanging-indent chain with a fixed left connective tag column —
+  `⇒`, `or`, `∴`, and word tags "Now," / "So," / "But" — one
+  transformation per line; prose sentences interleave full-width;
+  multi-part answers as bold (i)(ii)(iii); "Case (i):" /
+  "Alternative Method:" bold leads; conclusions in plain "Thus/Hence"
+  text. Very compact — single-word connectives, no padding.
+- **Solutions section (S.6):** bold question number + bold option index
+  "(4)", hanging-indent equation chains, "From (1) and (2)" references,
+  terminal `⇒`/`∴` line gives the answer set — **no boxed Answer rows, no
+  "Answer:" labels, no step numbers anywhere.**
+
+**Platform (renderer only — zero content-file edits, all 15 lessons at
+once):** new `SolutionSteps` component + display-only `parseStepTag()`
+in `blocks.tsx`, shared by `ExampleBlock` (Illustrations) and
+`SolutionBody` (exercise solutions):
+
+- "Sol." pill absolute at the left, first solution line starts right
+  after it — inline, the Cengage manner; all chain lines hang at the
+  same stop under it.
+- Lines opening with a connective get it parsed into a fixed-width left
+  tag column — `Hence/Thus/Therefore` → **∴** (KaTeX `\therefore`,
+  guaranteed glyph), `or` → **or**, `Now,/So,/But/And` → the word;
+  `Case (i):`-led lines print the lead bold; untagged lines run full
+  width as prose. The staircase emerges from the lead-in words the
+  content already carries (run-13 inserted them deliberately).
+- **`answer` now prints as the terminal ∴ line** of the chain —
+  green-ink, medium weight, a literal `Answer:`/`Hence:` prefix in the
+  data stripped at display time (fixes a pre-existing "ANSWER Answer:"
+  duplication). The old boxed Answer row is retired: Cengage boxes
+  nothing.
+- The exercise collapsible's separate "Sol." pill row + hairline is
+  gone (the chain carries the pill); the sage tint panel stays.
+- Derivations keep their green-rail presentation (already the reasoned-
+  argument print manner; labels act as the tag column).
+
+**Contracts updated ("update it everywhere solution and all docs"):**
+`BOOK_FORMAT.md` — the worked-solution-format section rewritten as the
+**Cengage solution chain** contract (pill inline, tag column mapping,
+terminal ∴ line, no boxes, no numbers, authoring rules) + the
+`example`/`exercises` block-table rows; `src/data/library/types.ts` —
+`ExerciseQuestion.solution`/`answer` doc comments;
+`scripts/e2e-cengage-style.page.js` — new `solutionChain` check
+(`inlineSolPills` must equal `solPills`, `thereforeTags` counts KaTeX ∴
+glyphs — first draft queried `.mord` but KaTeX emits `\therefore` as
+`mrel amsrm`, fixed to any `.katex span`, `legacyAnswerBoxes` must be 0)
++ comment fixes; `scripts/e2e-cengage-style.sh` prints it;
+`SOURCE_LOG.md` — the `cengage-jee-style` entry extended with the
+run-16 solution-pages study + a dated log entry (no content reproduced;
+PDF + renders deleted after verification per the storage law).
+
+**Verified:** lint clean; tsc clean; routes 200; browser E2E on
+1.1/2.5/3.2/4.1 — stepNumberBadges = 0, inlineSolPills = solPills on
+every lesson, legacyAnswerBoxes = 0, Illustration pills/bands/note
+boxes/green bars/KaTeX counts unchanged, quiz scored live + retake,
+solution expansion works, mobile 390px exact-fit (docScrollW = 390);
+force-expanded DOM audits: lesson 1.2 → 10 Sol. pills all inline,
+tagColumn {So,:1, ∴:2}, 6 KaTeX ∴ glyphs; lesson 3.3 → word tags
+And,/So,/Now, render, 0 ∴ (correct — that lesson's data has no
+Hence-led steps and no `answer` fields; same for 4.1: its 5 "answer:"
+matches are quiz option indices, not string answers); lesson 3.4 → 6
+terminal ∴ lines. VLM visual review: pill inline with first line ✓,
+tag-column staircase renders with tagged lines offset from full-width
+prose ✓, terminal ∴ answer line in green ink with the "Answer:" label
+stripped ✓, no boxes/overlaps ✓.
+
+**Git:** commit `cengage-style solutions (owner directive): Sol. pill inline on the first solution line + connective tag column (∴/or/Now,) + terminal ∴ answer line — boxed Answer rows retired; analysis grounded on the re-downloaded M2/01 solution pages (Sol. inline, ⇒/or/∴ chains, no boxes); SolutionSteps + display-only parseStepTag shared by illustrations and exercise solutions, zero content edits; BOOK_FORMAT/types/SOURCE_LOG/E2E contracts updated`.
+
+**Push (protocol v2):** another direct owner web chat message with no
+PAT — push still deferred; local is now ahead of origin/main
+(`d5a1b43`, verified anonymously) by THREE commits: run-15 ship
+`11703ab`, its inventory bookkeeping commit, and this run-16 commit.
+Push all at the next cron-delivered run before new work. Nothing
+token-related recorded anywhere.
+
+---
+
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 15): step numbers removed from every worked-step surface — Illustration "Sol." steps, derivation steps, exercise solutions and algorithm lines now print as clean unnumbered lines
 
 **Situation at start:** owner message (chat `47dcb175`, trace

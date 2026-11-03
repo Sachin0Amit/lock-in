@@ -46,7 +46,14 @@ step 6).
   ink-green section heads over rules, definitions in running prose with
   symbolic "Thus," restatements, "For example," runs as (i)(ii)(iii)
   enumerated items, ILLUSTRATION pills + sage problem bands + "Sol."
-  solutions, green exercise banner bars, sage table headers. **No text,
+  solutions, green exercise banner bars, sage table headers. Re-studied
+  the same file 2026-11-03 (run 16, owner directive "the solution should
+  also be in cengage style") with the analysis focused on the **solution
+  pages** (1.9/1.22 illustrations, S.6 solutions): "Sol." pill inline at
+  the start of the first solution line, hanging-indent chains with a
+  fixed left connective tag column (∴/or/Now,/So,), Case (i):/Alternative
+  Method: bold leads, prose lines full width, terminal ∴ or Hence line as
+  the answer — no boxed Answer rows, no step numbers. **No text,
   examples, exercises or figures reproduced** — all LockIn content remains
   original. Working copy (PDF + page renders) deleted after the run's E2E
   verification, per the storage law.
@@ -191,6 +198,19 @@ step 6).
   MATHS subfolder surveyed into temporary-references/maths-*.json. Working
   copies (PDF + page renders) deleted after verification; survey metadata
   retained.
+- 2026-11-03 (mathematics, run 16, style study, owner directive "the
+  solution should also be in cengage style"): the same Cengage M2/01
+  re-downloaded (24 MB; MATHS root + M2 subfolder surveys rebuilt first via
+  `rebuild_drive_survey.ts` + `list_drive_folder.ts` after a sandbox
+  recycle) and the solution pages studied with OCR + vision: illustrations
+  1.14/1.15/1.65-1.70 ("Sol." pill inline with the first line, ⇒/or/∴/
+  Now,/So, tag-column chains, Case (i):/Alternative Method: bold leads,
+  "Thus/Hence" plain-text conclusions) and the S.6 solutions section
+  (bold question number + bold option index, hanging-indent equation
+  chains, "From (1) and (2)" references, terminal ⇒/∴ answer lines, no
+  boxes). Used ONLY as the presentation reference for the Cengage solution
+  chain renderer — no content reproduced. Working copy (PDF + page renders)
+  deleted after verification; survey metadata retained.
 - 2026-11-03 (mathematics, unit 3, lesson 3.5): Khattar QA 4e re-downloaded
   via the persisted id (33.9 MB) — ch. 2 "H.C.F. and L.C.M. of Numbers"
   product-rule section studied for the unit closer: "Product of two numbers
