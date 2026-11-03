@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 07:31:39 (Asia/Kolkata)",
+  "generated": "2026-11-03 08:00:51 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -227,9 +227,8 @@
             "title": "The Four Operations",
             "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Subtraction and Borrowing",
               "Multiplication as Repeated Addition — and Beyond",
               "Division, Remainders and Why Zero Never Divides",
               "Order of Operations and the Language of Expressions"
@@ -240,7 +239,7 @@
                 "number": "2.1",
                 "title": "Addition and the Art of Carrying",
                 "authoredOn": "2026-11-03",
-                "authoredInCommit": "(unit-2 ship commit)",
+                "authoredInCommit": "64b938c",
                 "unit": "unit 2 (lesson 2.1 of 5; chapter 2 in progress)",
                 "words": 3952,
                 "readMins": 20,
@@ -296,9 +295,71 @@
                 },
                 "exerciseQuestions": 8,
                 "termsDefined": 6
+              },
+              {
+                "id": "fm-subtraction-borrowing",
+                "number": "2.2",
+                "title": "Subtraction and Borrowing",
+                "authoredOn": "2026-11-03",
+                "authoredInCommit": "(hourly run 3 ship commit)",
+                "unit": "unit 2 (lesson 2.2 of 5; chapter 2 in progress)",
+                "words": 4611,
+                "readMins": 23,
+                "concepts": [
+                  "Subtraction as the inverse of addition",
+                  "Minuend, subtrahend and difference",
+                  "Subtraction breaks closure, commutativity and associativity",
+                  "Column subtraction and the borrow",
+                  "Why one borrow is always enough",
+                  "Borrowing across zeros",
+                  "The inverse check and the nines complement"
+                ],
+                "objectives": [
+                  "Explain subtraction as the missing-addend question — the inverse of addition — and read it as take-away or comparison",
+                  "Show exactly which laws of addition die for subtraction, with a counterexample for each",
+                  "Execute column subtraction with borrowing reliably, including the borrow-across-zeros ripple",
+                  "Prove why a column ever needs to borrow exactly one — never two — and check any subtraction two independent ways"
+                ],
+                "prerequisites": [
+                  "fm-addition-carrying"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch2"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "terms": 1,
+                  "heading": 8,
+                  "figure": 2,
+                  "table": 1,
+                  "algorithm": 1,
+                  "example": 2,
+                  "derivation": 1,
+                  "equation": 1,
+                  "callout": 3,
+                  "formula": 2,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 6
               }
             ],
-            "words": 3952
+            "words": 8563
           },
           {
             "number": 3,
@@ -471,13 +532,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 80,
-      "totalLines": 11078,
+      "srcFilesTracked": 81,
+      "totalLines": 11944,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 1988,
+        "src/data/library (content model + books)": 2854,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -599,9 +660,15 @@
       },
       {
         "date": "2026-11-03 (hourly run 2)",
-        "commit": "(unit-2 ship commit)",
+        "commit": "64b938c",
         "title": "UNIT 2 OPENED: lesson 2.1 Addition and the Art of Carrying",
-        "detail": "Chapter 2 (The Four Operations) started per the unit cadence: lesson 2.1 authored (~3,600 words): counting-on, number-line figure with commutativity drawn as geometry, four-law property table, column-addition algorithm block, worked 4,589+2,764 with carry seat-map figure, carry-bound derivation (9+9+1=19 induction), sum-bound equation + formula card, 999+1 seat-creation example, four carrying-traps callout, mod-9 checksum section with verified fingerprint example + blindness analysis (transpositions, ±9 slips), compensation technique, Gauss pairing historical callout, exam callout, 5 quiz items, L1–L6 exercises. 51 arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing. Khattar QA 4e re-downloaded from Drive for the unit (working copies deleted after verification); NCERT class 6 ch. 2 topics web-checked. Chapter 2 registered in book.ts (in-progress; lessons 2.2–2.5 planned)."
+        "detail": "Chapter 2 (The Four Operations) started per the unit cadence: lesson 2.1 authored (~3,950 words): counting-on, number-line figure with commutativity drawn as geometry, four-law property table, column-addition algorithm block, worked 4,589+2,764 with carry seat-map figure, carry-bound derivation (9+9+1=19 induction), sum-bound equation + formula card, 999+1 seat-creation example, four carrying-traps callout, mod-9 checksum section with verified fingerprint example + blindness analysis (transpositions, ±9 slips), compensation technique, Gauss pairing historical callout, exam callout, 5 quiz items, L1–L6 exercises. 51 arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing. Khattar QA 4e re-downloaded from Drive for the unit (working copies deleted after verification); NCERT class 6 ch. 2 topics web-checked. Chapter 2 registered in book.ts (in-progress; lessons 2.2–2.5 planned)."
+      },
+      {
+        "date": "2026-11-03 (hourly run 3)",
+        "commit": "(hourly run 3 ship commit)",
+        "title": "LESSON 2.2 Subtraction and Borrowing + SVG figure-label rule",
+        "detail": "Lesson 2.2 authored (~4,611 words, 37 blocks): inverse definition + three faces; 6 terms; number-line figure with 3−7 off-the-edge panel; four-laws-retried table (DEAD/DEAD/DEAD/HALF); decomposition algorithm; worked 4,589−2,764 with borrow seat-map figure (one borrow undoing 2.1’s three carries); borrow-bound derivation; seat-exchange equation; 1,000−1 zero-ripple dissolve; traps callout; inverse-check + digit-sum formula cards; compensation 4,312−2,998; shopkeeper counting-up; equal-additions historical callout; exam callout; 5 quiz; L1–L6 ending in nines-complement L6 (end-around carry). 63 new checks → 114 total, ALL PASS before writing. DEFECT FOUND & FIXED: lesson 2.1’s figure labels rendered literal $4+3$/$3+4$ (SVG injected raw — KaTeX never runs inside); plain-label rule + dollarInSvg=0 E2E assertion added. Run also pushed pending 64b938c and the new commit with the owner’s session PAT (one-time HTTPS URLs, token never stored)."
       }
     ],
     "verificationLog": [
@@ -634,6 +701,11 @@
         "unit": "unit 2 (FM ch. 2, lesson 2.1)",
         "date": "2026-11-03",
         "gates": "51 arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing (ALL PASS — incl. digit-root convention fix: multiples of 9 root to 9, compared mod 9); lint clean; tsc clean repo-wide (tsconfig excludes sandbox dirs; @types/bun added); routes 200 (lesson 2.1 needed a dev-server restart to pick up new generateStaticParams); browser E2E: KaTeX 118 nodes, 14 headings, both figures + algorithm + formula cards + 6 terms render, quiz answered 5/5 \"perfect\" with feedback, flashcard deck grew 16 → 22 cards, glossary lists Addend/Carry/Commutative + Sum-bound formula card, mobile 390px exactly no overflow (scrollW=390); zero console errors."
+      },
+      {
+        "unit": "unit 2 (FM ch. 2, lesson 2.2)",
+        "date": "2026-11-03",
+        "gates": "63 new arithmetic checks (114 total) verified by scripts/verify-unit-2.ts BEFORE writing, ALL PASS; lint clean; tsc clean repo-wide (one literal-narrowing TS error in the verify script fixed); routes 200 (new lesson needed a dev-server restart); browser E2E: KaTeX 140 nodes, 8 headings, both figures geometry-verified via DOM (dashed negative stretch + dashed landing circle; 2 strike lines, correction digits 3/15, borrow chip, dashed lend arrow), algorithm + derivation + four-laws table + 6 terms + 2 formula cards render, quiz 5/5 \"perfect\", flashcard deck 22 → 28, glossary lists Minuend/Subtrahend/Nines complement, formula sheet lists both new cards, mobile 390px exactly (scrollW=390), dollarInSvg=0 on both ch-02 lessons, zero console errors."
       }
     ]
   },
@@ -2003,6 +2075,82 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "64b938c43c95d443291c07da6fb2cd023df9d4d6",
+      "short": "64b938c",
+      "date": "2026-11-03 02:06",
+      "message": "unit 2 opens: FM lesson 2.1 Addition and the Art of Carrying (51 verified checks, E2E green) + sandbox-recycle recovery + logs/memory updated",
+      "filesChanged": 13,
+      "insertions": 955,
+      "deletions": 207,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "bun.lock",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 68,
+          "del": 15
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 13,
+          "del": 11
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 13,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 323,
+          "del": 154
+        },
+        {
+          "path": "package.json",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 12,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 6,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 448,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 3,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -2011,25 +2159,25 @@
     "booksLive": 1,
     "chaptersWritten": 1,
     "chaptersInProgress": 1,
-    "lessonsWritten": 4,
-    "wordsAuthored": 13661,
-    "termsDefined": 22,
-    "quizItems": 20,
-    "exerciseQuestions": 33,
+    "lessonsWritten": 5,
+    "wordsAuthored": 18272,
+    "termsDefined": 28,
+    "quizItems": 25,
+    "exerciseQuestions": 41,
     "blockTotals": {
-      "para": 29,
-      "callout": 14,
-      "heading": 22,
-      "terms": 4,
-      "equation": 3,
-      "derivation": 4,
-      "table": 5,
-      "figure": 5,
-      "example": 9,
-      "quiz": 4,
-      "exercises": 4,
-      "formula": 5,
-      "algorithm": 2
+      "para": 42,
+      "callout": 17,
+      "heading": 30,
+      "terms": 5,
+      "equation": 4,
+      "derivation": 5,
+      "table": 6,
+      "figure": 7,
+      "example": 11,
+      "quiz": 5,
+      "exercises": 5,
+      "formula": 7,
+      "algorithm": 3
     }
   }
 }

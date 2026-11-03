@@ -3,14 +3,14 @@ import type { Chapter } from '../../../types'
 /**
  * Foundation Mathematics — Chapter 2: The Four Operations
  *
- * LESSONS WRITTEN: 2.1 Addition and the Art of Carrying
- * CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence, started 2026-11-03).
- * Lessons 2.2–2.5 are planned (see plannedLessons below) and are authored one
- * per unit cycle. References for this unit: Khattar, Quantitative Aptitude for
- * Competitive Examinations (4e) ch. 4 "Simplification" + NCERT Class 6 ch. 2
- * "Whole Numbers" topic coverage — see docs/project/SOURCE_LOG.md.
- * Exposition original; all arithmetic verified by scripts/verify-unit-2.ts
- * (51 checks) BEFORE writing.
+ * LESSONS WRITTEN: 2.1 Addition and the Art of Carrying · 2.2 Subtraction
+ * and Borrowing. CHAPTER IN PROGRESS (unit 2 of the unit-by-unit cadence,
+ * started 2026-11-03). Lessons 2.3–2.5 are planned (see plannedLessons below)
+ * and are authored one per unit cycle. References for this unit: Khattar,
+ * Quantitative Aptitude for Competitive Examinations (4e) ch. 4
+ * "Simplification" + NCERT Class 6 ch. 2 "Whole Numbers" topic coverage — see
+ * docs/project/SOURCE_LOG.md. Exposition original; all arithmetic verified by
+ * scripts/verify-unit-2.ts (114 checks) BEFORE writing.
  */
 export const chapter02: Chapter = {
   number: 2,
@@ -20,7 +20,6 @@ export const chapter02: Chapter = {
     'Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.',
   status: 'in-progress',
   plannedLessons: [
-    'Subtraction and Borrowing',
     'Multiplication as Repeated Addition — and Beyond',
     'Division, Remainders and Why Zero Never Divides',
     'Order of Operations and the Language of Expressions',
@@ -96,7 +95,7 @@ export const chapter02: Chapter = {
             'Addition as jumps on the number line. Top: $4 + 3$ — start at 4, hop 3 right, land on 7. Bottom: $3 + 4$ — start at 3, hop 4 right, land on the same 7. The landing point (tinted) is the sum; the starting point and hop length may swap roles freely, which is the commutative property drawn as geometry.',
           svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 4+3 and 3+4 landing on the same point 7">
   <g font-size="13" fill="currentColor">
-    <text x="30" y="52" opacity="0.75" text-anchor="start">$4+3$: start at 4, hop 3</text>
+    <text x="30" y="52" opacity="0.75" text-anchor="start">4 + 3: start at 4, hop 3</text>
     <line x1="50" y1="88" x2="710" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
@@ -105,7 +104,7 @@ export const chapter02: Chapter = {
     <circle cx="550" cy="88" r="7" fill="#b45309"/>
     <path d="M 348 66 Q 445 18 542 66" fill="none" stroke="#b45309" stroke-width="2.5"/>
     <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#b45309">+3</text>
-    <text x="30" y="164" opacity="0.75" text-anchor="start">$3+4$: start at 3, hop 4</text>
+    <text x="30" y="164" opacity="0.75" text-anchor="start">3 + 4: start at 3, hop 4</text>
     <line x1="50" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="194" x2="${60 + n * 70}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="226" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
@@ -441,6 +440,423 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'Addition, then, is counting-on grown up: the commutative and associative laws supply the license, place value supplies the seats, and the carry — always a humble 1 — is the overflow argument from Lesson 1.1 doing honest work. The next lesson runs the same machinery backwards. Subtraction asks "what must be added to $b$ to reach $a$?", and where addition overflowed seats, subtraction will sometimes find a seat that cannot pay — and must go borrowing from its richer neighbour to the left.',
+        },
+      ],
+    },
+    {
+      id: 'fm-subtraction-borrowing',
+      number: '2.2',
+      title: 'Subtraction and Borrowing',
+      concepts: [
+        'Subtraction as the inverse of addition',
+        'Minuend, subtrahend and difference',
+        'Subtraction breaks closure, commutativity and associativity',
+        'Column subtraction and the borrow',
+        'Why one borrow is always enough',
+        'Borrowing across zeros',
+        'The inverse check and the nines complement',
+      ],
+      objectives: [
+        'Explain subtraction as the missing-addend question — the inverse of addition — and read it as take-away or comparison',
+        'Show exactly which laws of addition die for subtraction, with a counterexample for each',
+        'Execute column subtraction with borrowing reliably, including the borrow-across-zeros ripple',
+        'Prove why a column ever needs to borrow exactly one — never two — and check any subtraction two independent ways',
+      ],
+      prerequisites: ['fm-addition-carrying'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch2'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Turn Lesson 2.1\'s machinery around and a question appears that addition never asked. The herder knows the flock stood at seven animals this morning — and that three of them were lent to a neighbour for the day. How many are *mine* right now? The question is not "how many altogether" but "how many remain": start from 7 and *undo* an addition of 3. Subtraction is the operation of removing a quantity — and, looked at more closely, of running addition backwards: $a - b$ is **the number that must be added to $b$ to reach $a$**. That one sentence, the *inverse definition*, is the spine of this whole lesson: the column algorithm, the error checks and the shopkeeper\'s technique at the end are all that sentence wearing different clothes.',
+        },
+        {
+          kind: 'para',
+          text: 'The same subtraction answers three differently-flavoured questions, and fluent calculators drift between them without noticing. **Take-away**: 7 pencils, give 3 away — how many remain? **Missing addend**: what must be added to 3 to reach 7? **Comparison**: how far apart are 7 and 3 on the number line? All three are answered by the same number, $4$ — the **difference** — but the faces have different jobs. The take-away face drives the column algorithm below; the missing-addend face drives the checks and the counting-up technique; the comparison face will drive distance, gaps and measurement later in the library.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Minuend',
+              def: 'The number being subtracted from — the top number $a$ in $a - b$. From Latin minuere, "to lessen".',
+            },
+            {
+              term: 'Subtrahend',
+              def: 'The number being taken away — the bottom number $b$ in $a - b$. It is the one "subtracted".',
+            },
+            {
+              term: 'Difference',
+              def: 'The result of a subtraction $a - b$; also the name for the gap between $a$ and $b$ on the number line.',
+            },
+            {
+              term: 'Borrowing (decomposition)',
+              def: 'Exchanging one unit from the next seat left for ten of the current seat, so that a column which cannot pay becomes one that can. Also called regrouping.',
+            },
+            {
+              term: 'Counting-up method',
+              def: 'Finding $a - b$ by adding up from the subtrahend until the minuend is reached — subtraction performed as addition; the way shopkeepers make change.',
+            },
+            {
+              term: 'Nines complement',
+              def: 'Of an $n$-digit number $b$: the number $10^{n} - 1 - b$, written digit-by-digit as $9 - d$. It converts subtraction into addition plus a tiny correction.',
+            },
+          ],
+        },
+        { kind: 'heading', text: 'Subtraction on the number line — and the edge of the world' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 drew addition as rightward hops; subtraction draws as leftward ones. To compute $7 - 3$, stand at $7$ and hop three steps **left**, landing at $4$. Nothing new so far. But now ask the question addition could never ask: what does $3 - 7$ look like? Stand at $3$ and hop left — after three steps you stand on $0$, the very first whole number, with four hops still owed. The walk continues off the end of the line: whole numbers simply *stop* there, and $3 - 7$ is **not a whole number at all**. For the first time, an operation on two members of the club has produced a non-member. That crack in the system is exactly where negative numbers will one day enter — Chapter 7 extends the line leftward — but until it does, every subtraction in this book obeys one standing law: **the minuend must be at least the subtrahend**.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Subtraction as leftward hops on the number line. Top: $7 - 3$ — start at 7, hop 3 left, land on 4 (tinted). Bottom: $3 - 7$ — start at 3, hop 7 left, and the walk crosses 0 (dashed stretch) before running out of whole numbers: the landing point would be −4, which is not a whole number at all. Where addition could never leave the line, subtraction leans against its left edge — the crack through which negative numbers (Chapter 7) eventually enter.',
+          svg: `<svg viewBox="0 0 760 258" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line showing 7 minus 3 landing on 4, and 3 minus 7 falling off the left edge of the whole numbers">
+  <g font-size="13" fill="currentColor">
+    <text x="30" y="52" opacity="0.75" text-anchor="start">7 - 3: start at 7, hop 3 left</text>
+    <line x1="50" y1="88" x2="710" y2="88" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <g text-anchor="middle">
+      ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
+    </g>
+    <circle cx="550" cy="88" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="340" cy="88" r="7" fill="#b45309"/>
+    <path d="M 542 66 Q 445 18 348 66" fill="none" stroke="#b45309" stroke-width="2.5"/>
+    <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#b45309">-3</text>
+    <text x="730" y="164" opacity="0.75" text-anchor="end">3 - 7: start at 3, hop 7 left</text>
+    <line x1="260" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+    <line x1="60" y1="200" x2="260" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.45" stroke-dasharray="4 4"/>
+    <g text-anchor="middle">
+      ${[-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + (n + 4) * 50}" y1="194" x2="${60 + (n + 4) * 50}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="${n < 0 ? 0.4 : 0.55}"/><text x="${60 + (n + 4) * 50}" y="226" text-anchor="middle" opacity="${n < 0 ? 0.55 : 0.85}">${n}</text>`).join('\n      ')}
+    </g>
+    <circle cx="410" cy="200" r="5" fill="currentColor" opacity="0.85"/>
+    <circle cx="60" cy="200" r="7" fill="none" stroke="#b45309" stroke-width="2.5" stroke-dasharray="3 3"/>
+    <path d="M 402 178 Q 230 132 68 178" fill="none" stroke="#b45309" stroke-width="2.5"/>
+    <text x="230" y="148" text-anchor="middle" font-weight="700" fill="#b45309">-7</text>
+    <text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">whole numbers end at 0 — the landing point -4 lies beyond the edge (Chapter 7: Integers)</text>
+  </g>
+</svg>`,
+        },
+        { kind: 'heading', text: 'The laws that die — and the one that half-survives' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 built addition on four laws. Subtraction walks into the same courtroom and loses three of the four — and the table of failures is worth reading slowly, because every rule of subtraction\'s *layout* is a compensation for one of these deaths.',
+        },
+        {
+          kind: 'table',
+          caption: 'The four laws of addition, retried under subtraction — with the counterexample that decides each verdict',
+          head: ['Law', 'Addition said', 'Verdict for subtraction', 'The counterexample'],
+          rows: [
+            ['Closure', '$a + b$ is always a whole number', 'DEAD', '$5 - 3 = 2$ works, but $3 - 7$ is not a whole number — the result can fall off the set'],
+            ['Commutative', '$a + b = b + a$', 'DEAD', '$7 - 3 = 4$ while $3 - 7$ is not a whole number; order is now a real decision'],
+            ['Associative', '$(a+b)+c = a+(b+c)$', 'DEAD', '$(8 - 5) - 2 = 1$ but $8 - (5 - 2) = 5$ — regrouping changes the answer'],
+            ['Identity', '$a + 0 = a$', 'HALF', '$a - 0 = a$ always (right identity), but $0 - a$ is not a whole number for $a > 0$ — zero works on one side only'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Three deaths and a half — and each one has consequences on the page. Because commutativity died, the **minuend goes on top and stays there**: swapping the rows changes the problem into a different (possibly impossible) one. Because associativity died, the columns are marched **in a fixed order** — the grouping is not ours to choose. And because closure died, we agree in advance never to subtract a larger whole number from a smaller — the algorithm assumes it and the number line explains it. Notice the asymmetry of the identity row, too: $a - 0 = a$ is why the right edge of every subtrahend can be shorter than the minuend\'s (missing digits are zeros, Lesson 1.1) without any ceremony.',
+        },
+        { kind: 'heading', text: 'Column subtraction and the art of borrowing' },
+        {
+          kind: 'para',
+          text: 'The layout is addition\'s layout — right-aligned digits, ones anchoring the right edge — but the walk now needs a rule for **seats that cannot pay**. Take $4{,}589 - 2{,}764$, the exact pair Lesson 2.1 added. Ones column: $9 - 4 = 5$, paid outright. Tens: $8 - 6 = 2$, paid outright. Hundreds: the minuend offers a 5, the subtrahend demands a 7 — **$5 < 7$: the seat cannot pay**. The seat does not panic; it sends one request leftward. The thousands seat holds 4 and lends one of its counters — worth *ten* hundreds at the Lesson 1.1 exchange rate. The lender drops from 4 to 3; the hundreds seat rises from 5 to 15; and $15 - 7 = 8$ settles the column. The thousands then pays its own bill reduced: $3 - 2 = 1$. Difference: $1{,}825$. One borrow — where *adding* this same pair needed three carries.',
+        },
+        {
+          kind: 'algorithm',
+          title: 'Column subtraction of two whole numbers (decomposition method)',
+          lines: [
+            { code: 'Write the minuend on top, the subtrahend below, ones digits aligned in one column.', note: 'The minuend must be at least the subtrahend — otherwise the answer is not a whole number.' },
+            { code: 'Start at the ones column: if the top digit is at least the bottom digit, subtract and write the difference below the line.' },
+            { code: 'If the top digit is smaller, BORROW: take 1 from the next seat left (that digit drops by 1) and add 10 to this column\'s top digit. Then subtract.', note: 'One of the next seat is ten of this seat — the Lesson 1.1 exchange, run in reverse.' },
+            { code: 'If the next seat left holds 0 it cannot lend: it first borrows from ITS left neighbour, becomes 10, lends 1 and keeps 9 — the zero ripple.' },
+            { code: 'March left, column by column, repeating the pay-or-borrow decision.' },
+            { code: 'Drop leading zeros of the answer: 2,000 - 1,999 = 0001 is written 1.', note: 'Borrowing can empty a leading seat but never creates one — subtraction never grows the digit count.' },
+          ],
+          note:
+            'Right-to-left, exactly like addition: the direction the dependencies flow. The algorithm\'s entire memory is one fact per column — whether a borrow happened. The name "borrowing" is a bookkeeping fiction (nothing is returned), which is why modern textbooks often say regrouping or decomposition instead: a ten is decomposed into ten ones.',
+        },
+        {
+          kind: 'example',
+          title: '4,589 − 2,764, column by column',
+          steps: [
+            'Ones column: $9 - 4 = 5$. The seat pays outright. Write 5.',
+            'Tens column: $8 - 6 = 2$. Pays outright. Write 2.',
+            'Hundreds column: $5 < 7$ — cannot pay. Borrow 1 from the thousands seat: the 4 becomes 3, the 5 becomes 15. Now $15 - 7 = 8$. Write 8.',
+            'Thousands column: the lender, reduced to 3, pays $3 - 2 = 1$. Write 1. Difference: $1{,}825$. One borrow — undoing the three carries that Lesson 2.1 needed for the same pair of numbers.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The borrow as a seat exchange. The hundreds seat cannot pay ($5 < 7$), so the thousands seat lends one of its counters — worth ten hundreds — and drops from 4 to 3 (struck digits show the pencil bookkeeping; small digits the corrections: 4 → 3, 5 → 15). The receiving seat then computes $15 - 7 = 8$. The ones and tens columns pay outright ($9 - 4$ and $8 - 6$): only one borrow undoes the three carries of adding this same pair.',
+          svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column subtraction of 4589 minus 2764 with one borrow: the thousands seat lends one to the hundreds seat">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="30" y="37" opacity="0.75" text-anchor="start">the borrow</text>
+    <rect x="205" y="20" width="170" height="24" rx="12" fill="#b45309" opacity="0.16" stroke="#b45309" stroke-width="1.5"/>
+    <text x="290" y="37" font-weight="700" font-size="12" fill="#b45309">1 thousand = 10 hundreds</text>
+    <path d="M 225 92 Q 290 60 345 92" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
+    <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
+    <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
+      <rect x="150" y="94" width="130" height="46" rx="6"/><rect x="290" y="94" width="130" height="46" rx="6"/><rect x="430" y="94" width="130" height="46" rx="6"/><rect x="570" y="94" width="130" height="46" rx="6"/>
+      <rect x="150" y="156" width="130" height="46" rx="6"/><rect x="290" y="156" width="130" height="46" rx="6"/><rect x="430" y="156" width="130" height="46" rx="6"/><rect x="570" y="156" width="130" height="46" rx="6"/>
+    </g>
+    <g font-size="22" font-weight="700">
+      <text x="215" y="124">4</text><text x="355" y="124">5</text><text x="495" y="124">8</text><text x="635" y="124">9</text>
+      <text x="215" y="186">2</text><text x="355" y="186">7</text><text x="495" y="186">6</text><text x="635" y="186">4</text>
+    </g>
+    <g stroke="currentColor" stroke-width="1.5" opacity="0.8">
+      <line x1="203" y1="121" x2="227" y2="107"/>
+      <line x1="343" y1="121" x2="367" y2="107"/>
+    </g>
+    <g font-size="13" font-weight="700" fill="#b45309">
+      <text x="252" y="112">3</text>
+      <text x="388" y="112">15</text>
+    </g>
+    <line x1="130" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
+    <g font-size="22" font-weight="700" fill="#b45309">
+      <text x="215" y="252">1</text><text x="355" y="252">8</text><text x="495" y="252">2</text><text x="635" y="252">5</text>
+    </g>
+    <text x="80" y="282" font-size="12" opacity="0.8" text-anchor="start">hundreds: 5 &lt; 7 → borrow → 15 - 7 = 8 · lender 4 → 3, pays 3 - 2 · ones and tens pay outright: 9 - 4, 8 - 6</text>
+  </g>
+</svg>`,
+        },
+        { kind: 'heading', text: 'Why one borrow is always enough — and never two' },
+        {
+          kind: 'para',
+          text: 'A column borrows when its top digit is smaller than its bottom digit. The deficit looks alarming until you measure it: the top digit is at least 0, the bottom digit is at most 9, so the worst deficit any column can ever face is 9 (top 0 against bottom 9). A single borrow delivers 10 — and 10 beats 9. That is the entire proof, but it deserves the same careful writing as Lesson 2.1\'s carry bound, because the two results are mirrors and each explains the other\'s architecture.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The borrow bound',
+          statement:
+            'Whenever a column must borrow, borrowing exactly 1 always settles it; no column ever needs to borrow 2 or more.',
+          steps: [
+            {
+              label: 'What one borrow delivers',
+              formula: 'd_{\\text{top}} \\;\\mapsto\\; d_{\\text{top}} + 10',
+              explanation:
+                'The lender hands over one unit of the next seat, which is worth ten of this seat at the fixed exchange rate. The receiving top digit becomes $d_{\\text{top}} + 10$, somewhere between 10 and 19.',
+            },
+            {
+              label: 'Why one delivery suffices',
+              formula: 'd_{\\text{top}} + 10 \\;\\ge\\; 10 \\;>\\; 9 \\;\\ge\\; d_{\\text{bot}}',
+              explanation:
+                'Ten of this seat already exceeds the largest bottom digit there is. After one borrow the column computes $d_{\\text{top}} + 10 - d_{\\text{bot}}$, which lies between 1 (worst case $0 + 10 - 9$) and 19 (best top against zero bottom) — always writable, always settled. The comparison flips from deficit to surplus with a single exchange.',
+            },
+            {
+              label: 'Why two would be absurd',
+              formula: 'd_{\\text{top}} + 20 - 9 \\;\\ge\\; 11',
+              explanation:
+                'A second borrow would push the top to at least $20$ against a bottom of at most 9 — a surplus of 11 or more that no single seat can record. Worse, the lender would be charged 2, and a digit of 1 would be driven below zero: the bookkeeping itself would leave the whole numbers. The system never asks for this: the borrow is a unit of account, and one unit is always enough.',
+            },
+          ],
+          result:
+            'Each column borrows at most once, and the amount is always exactly 1. The algorithm\'s memory is a single mark per column — the precise mirror of addition, whose carry was also always a single 1. Two symmetric bounds, two algorithms that never need more than a one-digit margin.',
+        },
+        {
+          kind: 'equation',
+          latex: '1 \\cdot 10^{k+1} \\;=\\; 10 \\cdot 10^{k}',
+          note: 'The exchange rate both operations ride on: one counter of seat $k+1$ equals ten counters of seat $k$. Carrying converts an overflow of ten into one counter moving left; borrowing converts one leftward counter into the ten this seat needs. The same identity — opposite directions of travel.',
+        },
+        { kind: 'heading', text: 'Borrowing across zeros: the 1,000 − 1 dissolve' },
+        {
+          kind: 'para',
+          text: 'One case remains: what if the neighbour is broke? Try $1{,}000 - 1$. The ones seat holds 0 and owes 1, so it asks the tens seat — which is also 0, and asks the hundreds seat — also 0, which asks the thousands seat, which holds a 1 and can finally lend. Now watch the cash flow back down the chain. The thousands seat gives up its only counter ($1 \\to 0$). The hundreds seat receives 10, lends 1 to the tens and keeps 9. The tens seat receives 10, lends 1 to the ones and keeps 9. The ones seat receives 10 and pays $10 - 1 = 9$. The answer: $999$ — the lone thousands counter has **dissolved into three nines**. Set Lesson 2.1\'s $999 + 1 = 1{,}000$ beside it and the symmetry is exact: there, three nines condensed into one new seat; here, one seat evaporates back into three nines. Addition mints seats; subtraction burns them.',
+        },
+        {
+          kind: 'example',
+          title: '1,000 − 1, seat by seat',
+          steps: [
+            'Ones: 0 cannot pay 1. The tens and hundreds seats are also 0 — nobody nearby can lend — so the request travels to the thousands seat.',
+            'Thousands lends: $1 \\to 0$. The hundreds seat becomes 10, lends 1 downward, keeps 9. The tens seat becomes 10, lends 1, keeps 9. The ones seat becomes 10.',
+            'Ones pays: $10 - 1 = 9$. Tens: $9 - 0 = 9$. Hundreds: $9 - 0 = 9$. Thousands: empty — its digit drops away.',
+            'Difference: $999$, certified instantly by the inverse: $999 + 1 = 1{,}000$. Three digits of the answer were manufactured entirely by the borrow chain — which is why a wall of zeros in a minuend is a warning sign, not a rest sign.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Four classic borrowing traps',
+          text: 'One: **the "smaller from larger" reflex** — computing $7 - 5 = 2$ whenever a 5 sits under a 7, regardless of which is on top. In our worked example it manufactures $2{,}225$, and the inverse check detonates it: $2{,}225 + 2{,}764 = 4{,}989 \\ne 4{,}589$. Two: **forgetting to reduce the lender** — taking the borrowed 10 ($15 - 7 = 8$) but still computing $4 - 2$ in the thousands: the answer $2{,}825$ fails the same way ($+2{,}764$ gives $5{,}589$). Three: **skipping the zero ripple** — a neighbour holding 0 cannot lend until it has borrowed for itself; writing "$10 - $ something" without walking the chain is how $1{,}000 - 1$ turns into 900 or 990. Four: **dropping the wrong zeros** — leading zeros of the *answer* go ($2{,}000 - 1{,}999 = 0001 = 1$), but zeros *inside* numbers are load-bearing placeholders (Lesson 1.1). The cure for all four is the same: run the inverse check — it catches every one of them.',
+        },
+        { kind: 'heading', text: 'Checking subtraction: run addition backwards' },
+        {
+          kind: 'para',
+          text: 'Lesson 2.1 guarded its sums with a mod-9 fingerprint — a cheap gate with known blind spots. Subtraction gets something better, because subtraction is *defined by* addition: $a - b = d$ means exactly "$d$ must be added to $b$ to reach $a$". So the **inverse check** — add the difference back to the subtrahend and confirm you land on the minuend — is not a heuristic at all; it is the definition wearing work clothes. It catches every error of every size with no blind spots whatsoever: if $d + b \\ne a$, the subtraction is wrong, full stop. For $4{,}589 - 2{,}764$: compute $1{,}825 + 2{,}764 = 4{,}589$ — the answer is *certified*, not merely fingerprinted.',
+        },
+        {
+          kind: 'formula',
+          name: 'The inverse check (total certification)',
+          latex: 'a - b = d \\;\\iff\\; d + b = a',
+          note: 'Recover the minuend by adding the difference to the subtrahend. Unlike the mod-9 checksum this check has no blind spots: any wrong difference fails it. Cost: one addition — the very operation Lesson 2.1 made cheap.',
+        },
+        {
+          kind: 'para',
+          text: 'The mod-9 fingerprint survives too, and now it *subtracts*: the fingerprint of a difference must equal the fingerprints of minuend and subtrahend, subtracted. For $4{,}589 - 2{,}764$: fingerprints 8 and 1, so the difference must fingerprint to $8 - 1 = 7$; and indeed $1{,}825$ has digit sum $1+8+2+5 = 16 \\to 7$. The familiar blind spots carry over unchanged — transposed digits and slips of $\\pm 9$ still sail through — so the division of labour stands: the nine-check is the ten-second gate, the inverse check is the seal.',
+        },
+        {
+          kind: 'formula',
+          name: 'Digit-sum (mod 9) check for subtraction',
+          latex: 'S(a-b) \\;\\equiv\\; S(a) - S(b) \\pmod{9}',
+          note: 'S(n) = digit sum reduced to a single digit. A mismatch proves an error; a match proves nothing (±9 slips and transpositions still pass). The weak gate — but nearly free.',
+        },
+        { kind: 'heading', text: 'Close numbers and the shopkeeper\'s route' },
+        {
+          kind: 'para',
+          text: 'Examination subtraction loves numbers that sit just below something round — Lesson 1.3\'s close-number territory. **Compensation, sign flipped**: for $4{,}312 - 2{,}998$, notice $2{,}998 = 3{,}000 - 2$. Subtracting 2,998 is subtracting 3,000 and then *giving back* 2: $4{,}312 - 3{,}000 = 1{,}312$, and $1{,}312 + 2 = 1{,}314$. No borrow ever occurs — the round number made every column pay outright. Check by the inverse: $1{,}314 + 2{,}998 = 4{,}312$. This is Lesson 2.1\'s compensation running in reverse, and it is the intended speed tool wherever an exam plants a subtrahend ending in a string of nines.',
+        },
+        {
+          kind: 'para',
+          text: 'The second technique is older than examination halls. A shopkeeper making change from ₹100 against a bill of ₹63 rarely computes $100 - 63$; she counts *up*: hand over 2 (to ₹65), then 5 (to ₹70), then 30 (to ₹100) — change, 37. Subtraction performed as addition, because counting coins upward is harder to get wrong than borrowing across zeros. The same route handles our worked example: start at the subtrahend and climb to the minuend — $+36$ reaches $2{,}800$; $+200$ reaches $3{,}000$; $+1{,}500$ reaches $4{,}500$; $+89$ reaches $4{,}589$. The change totals $36 + 200 + 1{,}500 + 89 = 1{,}825$ — the same difference the column algorithm found, reached without a single borrow. The missing-addend definition, promoted from philosophy to working method.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Two bookkeepings for one borrow',
+          text: 'Decomposition — reduce the lender — is the modern school standard, but for centuries the favoured bookkeeping in Europe and America was **equal additions**: instead of reducing the next-left top digit, *raise the next-left bottom digit by 1*. Try $42 - 17$ both ways. Decomposition: the ones borrow ($12 - 7 = 5$) and the tens top drops ($4 \\to 3$), so $3 - 1 = 2$ — answer 25. Equal additions: the same ones work ($12 - 7 = 5$), but the tens *bottom* rises ($1 \\to 2$), so $4 - 2 = 2$ — also 25. Both are correct because they change both sides by the same value: ten of this seat added to the minuend\'s column, one of the next seat charged to the subtrahend\'s — equal amounts, so the difference is untouched. Equal additions dominated printed arithmetic well into the twentieth century; decomposition won the schools because it matches the place-value story this book tells. Three centuries of teachers argued the merits; the difference never noticed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Bank and SSC papers plant close-number subtractions exactly of the $4{,}312 - 2{,}998$ shape — compensation is the intended speed tool, and the planted trap answer is $1{,}312$ (subtracting the round 3,000 and forgetting the +2). Clerical and CUET-style papers ask error-detection: "which digit is wrong in this subtraction?" — the inverse check locates the column, the digit-sum check flags the row. Zero-ripple items ($10{,}000 - 4{,}567$) are speed-graded: the complement habit — subtract each digit from 9, then add 1 to the result ($5{,}432 + 1 = 5{,}433$) — answers them in one stroke, and Exercise L6 proves why that trick is lawful. Borrow-count questions ("how many borrows does this subtraction need?") are the mirror of Lesson 2.1\'s carry-count items: walk the columns, count the exchanges.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'How many borrow events does the subtraction 8,341 − 5,779 need?',
+              options: ['1', '2', '3', '4'],
+              answer: 2,
+              explain:
+                'Walk the columns: ones $1 < 9$ — borrow ($11 - 9 = 2$). The tens top becomes $4 \\to 3$, and $3 < 7$ — borrow ($13 - 7 = 6$). The hundreds top becomes $3 \\to 2$, and $2 < 7$ — borrow ($12 - 7 = 5$). The thousands pays after lending: $7 - 5 = 2$. Three borrows, answer $2{,}562$ — check it: $2{,}562 + 5{,}779 = 8{,}341$. Option 4 is the addition-style count: a 4-digit minus 4-digit subtraction can never borrow four times, because the leftmost seat has nobody to its left to borrow from.',
+            },
+            {
+              q: 'After a column borrows once, its top digit is d + 10. Why does the subtraction now always go through?',
+              options: [
+                'Because you may borrow a second time if needed',
+                'Because d + 10 is at least 10, and the bottom digit is at most 9 — ten of a seat beats any single digit',
+                'Because the borrow also reduces the bottom digit',
+                'Because the bottom digit is always small',
+              ],
+              answer: 1,
+              explain:
+                'The worst top after one borrow is $0 + 10 = 10$; the worst bottom is 9; and $10 > 9$. Even the unluckiest column settles with one exchange ($10 - 9 = 1$). Option 1 describes a situation that can never arise — the borrow bound proves no column ever needs a second loan. Option 3 confuses decomposition with the equal-additions bookkeeping, which raises the *next* column\'s bottom digit, not this one\'s.',
+            },
+            {
+              q: 'In 1,000 − 1 = 999, the two middle zeros of the minuend become:',
+              options: [
+                '0s — untouched bystanders',
+                '1s — each recorded the borrow',
+                '9s — each received 10, lent 1, and kept 9',
+                '10s — each kept its full loan',
+              ],
+              answer: 2,
+              explain:
+                'The chain: the thousands seat lends ($1 \\to 0$); the hundreds receives 10, lends 1 down, keeps 9; the tens receives 10, lends 1, keeps 9; the ones receives 10 and pays $10 - 1 = 9$. Every middle seat ends as a 9 — the standard signature of a borrow that travelled across zeros, and the fastest visual diagnostic of the ripple at work.',
+            },
+            {
+              q: 'Which check is guaranteed to catch ANY arithmetic error in a subtraction?',
+              options: [
+                'The digit-sum (mod 9) checksum',
+                'Adding the difference to the subtrahend and confirming the minuend',
+                'Both are equally reliable',
+                'Neither — subtraction has no complete check',
+              ],
+              answer: 1,
+              explain:
+                'The inverse check is total: $a - b = d$ *means* $d + b = a$, so a wrong $d$ cannot possibly reconstruct the minuend. The digit-sum check inherits its blind spots (transpositions, $\\pm 9$ slips). This is the one structural luxury subtraction enjoys over addition: its definition is already a check.',
+            },
+            {
+              q: 'Compute (8 − 5) − 2 and 8 − (5 − 2). What does the pair tell you?',
+              options: [
+                'Both equal 1 — subtraction is associative',
+                'Both equal 5 — brackets are free',
+                '1 and 5 respectively — subtraction is not associative: grouping changes the answer',
+                'The second is not a whole number',
+              ],
+              answer: 2,
+              explain:
+                '$(8-5)-2 = 3-2 = 1$, while $8-(5-2) = 8-3 = 5$. Unlike addition, where brackets were a free choice, subtraction fixes its order and grouping — which is exactly why the column algorithm pins the minuend on top and marches strictly right-to-left.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Compute $758 - 432$ by column subtraction and state how many borrows occurred.',
+                  solution:
+                    'Ones: $8 - 2 = 6$. Tens: $5 - 3 = 2$. Hundreds: $7 - 4 = 3$. Every column pays outright — **zero borrows**. Difference: $326$; inverse check: $326 + 432 = 758$. A no-borrow subtraction is the baseline case: know where the borrows are (here, nowhere) before you trust the layout.',
+                },
+                {
+                  q: 'Compute $607 - 296$ by column subtraction, and say what the zero in the minuend contributed.',
+                  solution:
+                    'Ones: $7 - 6 = 1$. Tens: $0 < 9$ — borrow from the hundreds: the 6 becomes 5, the 0 becomes 10, and $10 - 9 = 1$. Hundreds: $5 - 2 = 3$. Difference: $311$, one borrow; inverse check: $311 + 296 = 607$. The zero in 607 was a load-bearing placeholder: it sat in the tens seat, received the incoming 10, and paid the 9 — a genuine digit doing genuine work, not an absence (Lesson 1.1).',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Compute $4{,}589 - 2{,}764$, listing each column\'s decision (pay or borrow), then certify the answer by the inverse check and the digit-sum check.',
+                  solution:
+                    'Ones: $9 - 4 = 5$ (pay). Tens: $8 - 6 = 2$ (pay). Hundreds: $5 < 7$ — borrow: thousands $4 \\to 3$, hundreds $5 \\to 15$, and $15 - 7 = 8$. Thousands: $3 - 2 = 1$ (the lender pays reduced). Difference: $1{,}825$ — exactly one borrow, undoing Lesson 2.1\'s three carries for the same pair. Inverse: $1{,}825 + 2{,}764 = 4{,}589$ — certified. Digit sums: $4{,}589 \\to 26 \\to 8$ and $2{,}764 \\to 19 \\to 1$, so the difference must fingerprint to $8 - 1 = 7$; actual: $1{,}825 \\to 16 \\to 7$ — the weak gate passes too.',
+                },
+                {
+                  q: 'Compute $5{,}200 - 1{,}847$ (the ones and tens digits of the minuend are both 0 — expect the ripple).',
+                  solution:
+                    'Ones: $0 < 7$ — borrow, but the tens seat is 0 and cannot lend. The hundreds seat (2) lends to the tens: hundreds $2 \\to 1$, tens becomes 10; the tens lends to the ones: tens $10 \\to 9$, ones becomes 10. Ones: $10 - 7 = 3$. Tens: $9 - 4 = 5$. Hundreds: $1 < 8$ — borrow from the thousands: thousands $5 \\to 4$, hundreds $1 \\to 11$; $11 - 8 = 3$. Thousands: $4 - 1 = 3$. Difference: $3{,}353$; inverse check: $3{,}353 + 1{,}847 = 5{,}200$. A mini-ripple and a regular borrow in one sum — read the walk aloud and the bookkeeping stays honest.',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: '(Exam-style, foundation level) Compute $10{,}000 - 4{,}567$ — with the column walk or without it — and verify.',
+                  solution:
+                    'Column view: the ones, tens, hundreds and thousands seats of the minuend are all 0, so the ten-thousands seat (1) lends down the chain: it becomes 0; thousands receives 10, lends 1, keeps 9; hundreds receives 10, lends 1, keeps 9; tens receives 10, lends 1, keeps 9; ones receives 10. Ones: $10 - 7 = 3$; tens: $9 - 6 = 3$; hundreds: $9 - 5 = 4$; thousands: $9 - 4 = 5$. Difference: $5{,}433$; inverse: $5{,}433 + 4{,}567 = 10{,}000$. Speed view (the complement habit): subtract each digit of 4,567 from 9 — $5{,}432$ — then add 1: $5{,}433$. Both routes land together; Exercise L6 proves why the shortcut is lawful.',
+                },
+                {
+                  q: '(Exam-style, foundation level) How many borrow events does $2{,}000 - 1{,}999$ need, and what is the difference? Justify the count.',
+                  solution:
+                    'Difference: $1$ — inverse check: $1 + 1{,}999 = 2{,}000$. Borrow count: three. The ones seat (0) owes 9 and cannot pay; the tens and hundreds seats are 0 and cannot lend; the thousands seat (2) lends to the hundreds — borrow one; the hundreds (now 10) lends to the tens — borrow two; the tens (now 10) lends to the ones — borrow three. Then ones $10 - 9 = 1$, tens $9 - 9 = 0$, hundreds $9 - 9 = 0$, thousands $1 - 1 = 0$: the answer $0001 = 1$. The lesson: a trivial-looking difference can conceal the maximum bookkeeping — never judge a subtraction by the size of its answer.',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'What is the greatest number of borrow events possible when subtracting two 4-digit numbers? Exhibit an attaining pair, prove no pair can exceed it, and explain why the answer differs from Lesson 2.1\'s carry maximum for two 4-digit addends.',
+                  solution:
+                    'Greatest: **3**. Attained by $1{,}111 - 999 = 112$: ones $1 < 9$ (borrow); tens, after its lender drops, is $0 < 9$ (borrow); hundreds, after its lender drops, is $0 < 9$ (borrow); thousands $0 - 0$ — three events, and $112 + 999 = 1{,}111$ certifies. Also attained by $2{,}000 - 1{,}999 = 1$, verified in L4b. Why 3 is the ceiling: a borrow out of a column requires a lender to its left, and among four seats only the ones, tens and hundreds have one — the thousands seat has nobody to its left, so at most three columns can ever borrow, and the borrow bound caps each at a single event. Why the mirror differs: Lesson 2.1\'s carry maximum for two 4-digit addends was **4** — every column could carry *and* the final carry could mint a brand-new fifth seat ($9{,}999 + 9{,}999 = 19{,}998$). Borrowing moves value from higher seats to lower; it can burn a leading seat ($1{,}000 - 1$ drops to three digits) but can never create one. Addition grows digit counts; subtraction only shrinks or preserves them — so carries max out at $k$ for k-digit numbers, borrows at $k - 1$.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The nines complement. For an n-digit subtrahend $b$, define $b^{*} = 10^{n} - 1 - b$ (each digit $d$ of $b$ becomes $9 - d$ in $b^{*}$). (a) Prove $a - b = a + b^{*} + 1 - 10^{n}$. (b) Use it to compute $4{,}589 - 2{,}764$ by addition only, and explain the "end-around carry". (c) Run $2{,}764 - 4{,}589$ the same way and interpret what the absence of the leading carry means.',
+                  solution:
+                    '(a) Expand the right-hand side: $a + (10^{n} - 1 - b) + 1 - 10^{n} = a - b$ — the $10^{n}$ and the $-1$ cancel identically; only the distributive law is used. (b) For $b = 2{,}764$ with $n = 4$: digitwise $9-2,\\; 9-7,\\; 9-6,\\; 9-4$ gives $b^{*} = 7{,}235$. Add: $4{,}589 + 7{,}235 = 11{,}824$. The leading 1 is the $10^{4}$ we owe: drop it ($11{,}824 - 10{,}000 = 1{,}824$) and add back the compensating $+1$ — the **end-around carry** — to land on $1{,}825$. The same difference as the column algorithm, found with zero borrows: this is how machines that dislike borrowing (and examiners who like speed) do it. The L4a shortcut is this identity seen from the side: $10{,}000 - 4{,}567 = (9{,}999 - 4{,}567) + 1 = 5{,}432 + 1 = 5{,}433$. (c) Now $2{,}764 - 4{,}589$: complement the new subtrahend, $9{,}999 - 4{,}589 = 5{,}410$, and add: $2{,}764 + 5{,}410 = 8{,}174$ — **no leading carry appears**. The method is signalling a negative difference: the answer is $-(9{,}999 - 8{,}174) = -1{,}825$, exactly the off-the-edge quantity the number line showed at the top of this lesson. Early computers exploited precisely this — complement arithmetic lets one adder serve both operations, with negatives stored as complements — the idea that returns when this library reaches integers in Chapter 7.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Subtraction, then, is addition read backwards. Its inverse definition supplies a check that addition never had; its dead laws explain the strictness of the layout; and its borrow is the carry running in reverse — always a single 1, occasionally rippling through a wall of zeros. The next lesson introduces the operation that makes both of these look slow: multiplication — addition performed many times at once, and then, quietly, a law unto itself.',
         },
       ],
     },

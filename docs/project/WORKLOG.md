@@ -6,6 +6,67 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 3: lesson 2.2 Subtraction and Borrowing shipped + SVG figure-label defect found & fixed
+
+**Lesson 2.2 (chapter 2 The Four Operations, lesson 2 of 5):**
+- References: NCERT class 6 ch. 2 subtraction topics web-checked (whole
+  numbers not closed under subtraction; neither commutative nor
+  associative; decomposition/regrouping) — the unit's Khattar ch. 4 was
+  already surveyed in run 2 (BODMAS reserved for lesson 2.5); no new
+  downloads, zero temporary-references footprint.
+- Authored `ch-02.ts` lesson 2.2 "Subtraction and Borrowing" (~4,611
+  words, 37 blocks): inverse-definition opening + three-faces paragraph;
+  6-term block (minuend, subtrahend, difference, borrowing, counting-up,
+  nines complement); number-line figure with the 3−7 off-the-edge panel
+  (dashed negative stretch + dashed landing circle, Chapter 7 cross-ref);
+  four-laws-retried table (DEAD/DEAD/DEAD/HALF, counterexample per row);
+  column-subtraction **algorithm block** (decomposition method, zero
+  ripple, leading-zero drop); worked 4,589−2,764 — one borrow undoing
+  2.1's three carries — with **borrow seat-map figure** (struck digits,
+  4→3 / 5→15 corrections, "1 thousand = 10 hundreds" chip, dashed lend
+  arrow); **borrow-bound derivation** (d+10 ≥ 10 > 9 ≥ bottom; why two
+  would be absurd); seat-exchange equation 1·10^(k+1) = 10·10^k;
+  1,000−1 zero-ripple dissolve (mirror of 2.1's 999+1); four
+  borrowing-traps warn callout (reflex 2,225 / no-reduce 2,825, both
+  detonated by the inverse check); **inverse-check formula card** (total
+  certification) + digit-sum subtraction card with honest blind spots;
+  compensation 4,312−2,998; shopkeeper counting-up (36+200+1,500+89 =
+  1,825); equal-additions-vs-decomposition historical callout; exam
+  callout (complement habit 5,432+1 = 5,433); 5 quiz items; L1–L6
+  exercises (8 questions) ending in the nines-complement L6 with
+  end-around carry and negative-result interpretation; closing pointer
+  to lesson 2.3.
+- **114 arithmetic checks** (63 new for 2.2) in `scripts/verify-unit-2.ts`
+  — ALL PASS *before* writing.
+
+**Defect found & fixed (E2E hardening):** lesson 2.1's number-line figure
+labels rendered literal `$4+3$` / `$3+4$` — figure SVGs are injected raw
+(`dangerouslySetInnerHTML`), so KaTeX `$…$` never runs inside SVG text;
+the page-wide KaTeX-node count had masked it. Fixed to plain "4 + 3" /
+"3 + 4" labels; lesson 2.2's figures authored with plain labels from the
+start; `dollarInSvg = 0` added to the E2E assertions (both ch-02 lessons
+verified clean).
+
+**Gates:** verify 114/114 · lint clean · tsc clean repo-wide (one
+literal-narrowing TS error in the verify script itself fixed:
+`2225 + 2764 !== 4589`) · lesson route 404 → dev-server restart → 200 ·
+browser E2E: KaTeX 140 nodes, 8 headings, both figures geometry-verified
+via DOM (dashed negative stretch, dashed landing circle; 2 strike lines,
+correction digits 3/15, borrow chip, dashed lend arrow), algorithm +
+derivation + four-laws table + 6 terms + 2 formula cards render, quiz
+5/5 "perfect", flashcard deck 22 → 28, glossary lists Minuend /
+Subtrahend / Nines complement, formula sheet lists both new cards,
+mobile 390px exactly (scrollW = 390), zero console errors.
+
+**Logged:** PROGRESS / RESUME_POINTER / SOURCE_LOG updated;
+WORK_INVENTORY.json regenerated (lesson 2.2 included); DETAILED_LOG.md
+updated. Committed locally, then pushed with the owner's session PAT
+(pasted in chat this run — also used first to push the pending lesson
+2.1 commit `64b938c`) over one-time HTTPS push URLs; token never written
+to disk.
+
+---
+
 ## 2026-11-03 — Owner preference recorded: Drive link permanent, PAT never stored
 
 **Directive:** owner asked for the Google Drive link and the GitHub PAT to be
