@@ -93,7 +93,7 @@ after E2E (storage law honoured).
 (the product rule gcd × lcm = a × b, pair reconstruction) + the unit-3
 completion review. Exam registry research pending.
 
-**Git:** commit `unit 3: FM lesson 3.4 Lowest Common Multiple (~5,014 words, 227 verified checks, 11 exercises, E2E green) + logs` — pushed under protocol v2; see the memory commit note for the verified remote HEAD.
+**Git:** commit `unit 3: FM lesson 3.4 Lowest Common Multiple (~5,014 words, 227 verified checks, 11 exercises, E2E green) + logs` = `bf67ba7`, pushed under protocol v2 as `4fd7746..bf67ba7` — remote HEAD verified `bf67ba7` via one-time-URL ls-remote; tracking ref re-synced by anonymous HTTPS fetch; token never on disk, output sanitised.
 
 ---
 
