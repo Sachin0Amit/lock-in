@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 21:14:44 (Asia/Kolkata)",
+  "generated": "2026-11-03 21:15:33 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4178,6 +4178,57 @@
           "path": "docs/project/WORK_INVENTORY.json",
           "add": 67,
           "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "e008f7b9367bcc71a7402eb395aa02674c24586a",
+      "short": "e008f7b",
+      "date": "2026-11-03 15:45",
+      "message": "fm 4.2 equivalent fractions and simplification (unit 4, run 17): equivalence family + multiplying rule proved by regrouping + HCF simplification one-step + cross-multiplication licence paid in full (= and < via the common bd-ruler) + raising to higher terms + uniqueness via Euclid's crossroads lemma + mediant closure — 5,598 words in the Cengage voice and solution chain; verify-unit-4.ts 148 checks; E2E + quiz 5/5 + VLM green",
+      "filesChanged": 8,
+      "insertions": 1117,
+      "deletions": 74,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 72,
+          "del": 35
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 23,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 94,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 122,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-4.ts",
+          "add": 130,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 666,
+          "del": 6
         }
       ]
     }
