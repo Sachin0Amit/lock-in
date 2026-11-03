@@ -658,16 +658,21 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 17 | `52cc8c4` | 11-03 | UNIT 2 COMPLETE: FM lesson 2.5 Order of Operations (165 checks incl. 60 new, E2E green) + unit-2 completion review + survey upgrade | +956/−97 · 11 files |
 | 18 | `8e2e1b1` | 11-03 | memory: run-6 pointers — unit 2 closed, origin/main synced; next unit 3 | +7/−3 · 2 files |
 | 19 | `a498f25` | 11-03 | UNIT 3 OPENED: FM lesson 3.1 Divisibility and Its Tests (96 checks incl. all new, E2E green) + verify-unit-3.ts committed + third-recycle one-command rebuild — pushed (protocol v2) | +1,184/−85 · 11 files |
+| 20 | `ea0441f` | 11-03 | memory: run-7 pointers — unit 3 opened, origin/main synced; next FM 3.2 | +7/−3 · 2 files |
+| 21 | `500a028` | 11-03 | FM lesson 3.2 Prime Numbers and Factorisation (152 checks incl. 55 new, E2E green incl. 390px inline-math fix) + fourth-recycle one-command rebuild — pushed (protocol v2) | +1,158/−151 · 9 files |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-7 ship commit (UNIT 3 OPENED — lesson 3.1
-  Divisibility and Its Tests + logs + verify-unit-3.ts); working tree
-  clean. origin/main is synced through the run-7 push under protocol v2
-  (shas in WORKLOG.md run-7 memory note).
+- HEAD: the hourly-run-8 ship commit `500a028` (FM lesson 3.2 Prime
+  Numbers and Factorisation + logs); working tree clean. origin/main is
+  synced through the run-8 push under protocol v2: push `ea0441f..500a028`,
+  remote HEAD verified = `500a028` via one-time-URL ls-remote, tracking
+  ref re-synced via anonymous HTTPS fetch (this sandbox has no ssh binary
+  — `git ls-remote origin` fails; use the anonymous HTTPS form).
+  (Run-7 shas in WORKLOG.md run-7 memory note.)
 - **Sandbox recycle note:** recycled FOUR times on 11-03, fully
   recovered each time; runs 7 and 8 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting

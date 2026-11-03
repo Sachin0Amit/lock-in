@@ -104,7 +104,7 @@ gcd(84,126) = 42 seed; the Bézout proof debt; 3.1's coprime trap
 generalised), then 3.4 LCM, 3.5 HCF/LCM relation. Exam-registry research
 still pending.
 
-**Git:** commit `unit 3: FM lesson 3.2 Prime Numbers and Factorisation (6,089 words, 152 verified checks, E2E green incl. 390px fix) + logs` — then PUSH under protocol v2 (see the run-8 memory note below for shas).
+**Git:** commit `unit 3: FM lesson 3.2 Prime Numbers and Factorisation (6,089 words, 152 verified checks, E2E green incl. 390px fix) + logs` shipped as `500a028` (+1,158/−151 · 9 files); PUSHED under protocol v2 — `ea0441f..500a028 HEAD -> main`, exit 0; remote HEAD verified `500a028` via one-time-URL ls-remote (output credential-redacted); tracking ref re-synced via anonymous HTTPS fetch. Memory note (shas above) follows as the run-8 memory commit.
 
 ---
 
