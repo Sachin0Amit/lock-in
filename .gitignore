@@ -63,6 +63,8 @@ server.log
 !/scripts/verify-unit-2.ts
 # exception: rebuilds the gitignored Drive survey after sandbox recycles
 !/scripts/rebuild_drive_survey.ts
+# exception: the unit-3 pre-write arithmetic verifier (committed every ship)
+!/scripts/verify-unit-3.ts
 /.zscripts/
 /examples/
 /tests/

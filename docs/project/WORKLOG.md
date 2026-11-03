@@ -6,6 +6,116 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 7: UNIT 3 OPENED — lesson 3.1 Divisibility and Its Tests shipped (chapter 3 of Foundation Mathematics opens)
+
+**Situation at start:** tree clean at `8e2e1b1` = origin/main; RESUME_POINTER
+named FM 3.1 "Divisibility and Its Tests" as the unit-3 opener (chapter 2
+closed by run 6's completion review). No in-flight lessons. **Third sandbox
+recycle discovered** — the gitignored `temporary-references/` survey was
+gone again (tracked files unaffected, node_modules intact, dev server
+already up and answering 200). Recovered in one step per the recipe in
+RESUME_POINTER: `bun run scripts/rebuild_drive_survey.ts` rebuilt
+inventory.json (89 entries, 4 folders, per-file ids persisted — Khattar id
+intact).
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id
+(33.9 MB, 1,049 pages verified) — ch. 1 "Numbers" studied: the thirteen
+"Tests of Divisibility" (2/3/4/5/6/7/8/9/10/11/12/18/25/88), the
+even/odd/prime/composite/co-prime definitions, prime list to 100. The
+exposition reason-work (10^k = 2^k·5^k tails; 10^k ≡ 1 mod 9; 10 ≡ −1 mod
+11; the 2n = 21a − (a−2b) rearrangement) is this book's own derivation
+style — no Khattar text reproduced. NCERT Class 6 ch. 3 "Playing with
+Numbers" coverage web-checked (factors/multiples vocabulary, tests 2–11,
+common factors — canonical school framing).
+
+**Pre-write verification:** `.gitignore` gained the
+`!/scripts/verify-unit-3.ts` exception FIRST (the /scripts/* trap); then
+`scripts/verify-unit-3.ts` written and run — **96 checks, ALL PASS before
+one word was written**. Covers every number in the lesson: opening scene
+(2,340/9 = 260; 2,341 = 9×260+1), tail tests (5,836 = 25×233+11;
+48,216 = 8×6,027 = 125×385+91; 13,675 = 25×547), digit sums (4,731 =
+9×525+6; 921 trap; 87,543 = 9×9,727), alternating (2,728 = 11×248; 1,012 =
+11×92; 91,083 = 11×8,280+3; 43,291 = 11×3,935+6), compounds (2,376/6,396
+and /12,198; 4,788 = 18×266; 4,965 = 15×331; 9,888 = 24×412; 12,144 =
+88×138; the 18-vs-12 coprime trap), the 7-gadget (2,401 = 7⁴ chain
+2401→238→7; 3,192→315→21→0; 1,000 = 7×142+6; residue ×(−2) honesty), the
+full 4,896 screen (nine verdicts incl. r₁ mod 11 and r₃ mod 7), Pascal
+spot-checks (1,000 = 13×76+12; 1,234,567 = 13×94,966+9), the L6 a±kb
+family (13: 507→78→39 fixed; 2795→299→65→26 fixed; 19: 1919→209→38→19;
+17: 867→51→0), and all exercise/quiz numbers. Two of the script's own
+check-constants were corrected during authoring (G6 −4 slip; B7/F7
+constant-fold complaints) — final 96/96. Both verify scripts became
+modules (`export {}`) after cross-file top-level collisions appeared under
+tsc once unit-3's script joined unit-2's; verify-unit-2.ts still passes
+165/165.
+
+**Shipped: lesson 3.1 "Divisibility and Its Tests"** (ch-03.ts created —
+6,477 honest words): confectioner opening (2,340 sweets ÷ 9 jars answered
+by digit sum 9; exam-hall 4,896 ÷ 12); treaty definition callout (d | n ⟺
+r = 0, from Lesson 2.4's division algorithm) + treaty formula card;
+factor/multiple two-ends para with 48's ten factor pairs and 7's fourteen
+multiples below 100; 7 terms (Divisible, Factor/divisor, Multiple, Digit
+sum, Alternating digit sum, Coprime factors, Divisibility test);
+finiteness asymmetry + 0/1 edges. Family 1 tail tests: tail-theorem
+derivation (10^k = 2^k×5^k; n ≡ last-k-digits mod 2^k/5^k), 2.4's ÷10ⁿ
+corollary honoured as the engine, tail formula card. Family 2 digit-sum
+tests: digit-sum-theorem derivation (10^k = 99…9+1 walked through 4,731;
+n ≡ S(n) mod 9 and mod 3), casting-out-nines para, formula card, warn
+callout (digit sum 12 does NOT certify ÷6 — 921 odd; 87,543). Family 3
+alternating test: theorem derivation (10 ≡ −1, 10² ≡ +1 mod 11; 2,728 and
+1,012), remainder-reading para (91,083 → r 3; 43,291: −5 → r 6), formula
+card. Family 4 compound tests: coprime-split derivation (12 = 3×4 works;
+2×6 over-admits — 18 counterexample). Family 5 the stubborn 7: powers of
+10 mod 7 cycle 1,3,2,6,4,5 (no tail/digit/alternating test), double-
+and-subtract derivation (2n = 21a − (a−2b), gcd(2,7) = 1), chains
+2,401 = 7⁴ → 238 → 7 and 3,192 → 315 → 21 → 0, honesty para (residue
+×(−2) per step — verdict preserved, remainder not). Screening-desk SVG
+figure (7 screens cheapest-first, accent divisor labels, plain text only,
+dollarInSvg=0); master test table (divisors 2–12, verified instances);
+screening algorithm block (cost order); worked full screen of 4,896
+(nine verdicts, zero long divisions); remainder-reading para (8,241 ÷ 9
+→ r 6) + find-the-digit examples (27*4 → {2,5,8}; 7,2*8 → 1); four-traps
+warn callout; historical callout (Pascal 1654 De numeris multiplicibus as
+the one criterion; Fibonacci Liber Abaci 1202 casting out nines); exam
+callout (bank/SSC/Railway/NTSE/CUET/CBSE mapping); 5 quiz items — answers
+deliberately spread across indices 2/3/1/2/3 (uniform-index flaw caught
+and fixed before E2E), explains renumbered to match; L1–L6 exercises
+(multiples of 13 + 48's factors; 2,730 seven-way screen + 2,376 for 6/12;
+find-the-digit 84*2 + 91,083 triple screen; 43,291 remainders by 9 and
+11; L6 the a±kb family culminating in Pascal's criterion). Closing para
+bridges to 3.2 primes (the tests are a story about how a number relates
+to 10).
+
+**Gates (all green):** `bun run lint` clean; `bunx tsc --noEmit` fully
+clean repo-wide (incl. both scripts/ verifiers); all routes 200
+(home, book, **new lesson**, glossary, revise); browser E2E — KaTeX 370
+nodes, dollarInSvg = 0, quiz answered live with the intended options →
+"You scored 5/5 · perfect", best score persisted (book-page chip 5/5),
+flashcards deck 54 cards (47 + the 7 new terms), glossary lists the new
+terms, formula sheet lists all 4 new cards, mobile 390 px exact-fit
+(scrollW = 390), zero console/page errors (only HMR + React-DevTools
+info lines); screening-desk figure screenshot-verified. Book page shows
+chapter 3 with 3.1 as "Next up". Book.ts: chapter03 imported, planned
+chapter-3 stub replaced, notes updated; plannedLessons now the remaining
+4 titles (3.2–3.5). Lesson id `fm-divisibility-and-its-tests` grepped
+unique; stable forever.
+
+**Logs:** WORK_INVENTORY.json regenerated (`bun run
+scripts/build_work_inventory.ts` — 9 lessons, 37,636 words, +6,477);
+DETAILED_LOG.md updated; PROGRESS.json, RESUME_POINTER.json,
+SOURCE_LOG.md (new citation key `ncert-math6-ch3` + ledger row + entry)
+updated; Khattar working copies deleted after E2E verification
+(inventory.json retained).
+
+**Push:** owner directive 2026-11-03 (protocol v2) — push executed after
+gates; result recorded below in the run-7 memory note.
+
+**Remaining:** unit 3 continues — FM 3.2 "Prime Numbers and Factorisation"
+next run; then 3.3 HCF, 3.4 LCM, 3.5 HCF/LCM relation; unit-3 completion
+review after 3.5. EXAM_REGISTRY research still pending.
+
+---
+
 ## 2026-11-03 — HOURLY RUN 6: lesson 2.5 Order of Operations shipped — UNIT 2 COMPLETE (chapter 2 closed with the completion review)
 
 **Situation at start:** tree clean at `fecd9c4` = origin/main; RESUME_POINTER

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 11:06:36 (Asia/Kolkata)",
+  "generated": "2026-11-03 12:02:56 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -554,17 +554,82 @@
             "slug": "factors-multiples-primes",
             "title": "Factors, Multiples and Primes",
             "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Divisibility and Its Tests",
               "Prime Numbers and Factorisation",
               "Highest Common Factor",
               "Lowest Common Multiple",
               "HCF, LCM and How They Relate"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-divisibility-and-its-tests",
+                "number": "3.1",
+                "title": "Divisibility and Its Tests",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6477,
+                "readMins": 32,
+                "concepts": [
+                  "Divisible means remainder zero",
+                  "Factors and multiples",
+                  "Tail tests for 2, 5, 10, 4, 25, 8, 125",
+                  "Digit-sum tests for 9 and 3",
+                  "Alternating-sum test for 11",
+                  "Compound tests and the coprime split",
+                  "The double-and-subtract test for 7"
+                ],
+                "objectives": [
+                  "Define divisibility through the division algorithm of Lesson 2.4 — d divides n exactly when the remainder is 0 — and use the d | n notation",
+                  "Apply the tail tests for 2, 5, 10, 4, 25, 8 and 125, and derive them from the fact that 10^k = 2^k × 5^k",
+                  "Prove the digit-sum tests for 9 and 3, apply the alternating-sum test for 11, and read actual remainders off both",
+                  "Screen any number against every divisor from 2 to 12 in seconds, using the cheapest test first — and know why the parts in a compound test must be coprime"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-addition-carrying",
+                  "fm-division-remainders-zero"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch3"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 7,
+                  "callout": 5,
+                  "terms": 1,
+                  "formula": 4,
+                  "derivation": 5,
+                  "equation": 1,
+                  "figure": 1,
+                  "table": 1,
+                  "algorithm": 1,
+                  "example": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 7
+              }
+            ],
+            "words": 6477
           },
           {
             "number": 4,
@@ -721,12 +786,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 81,
-      "totalLines": 13225,
+      "totalLines": 13212,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 4135,
+        "src/data/library (content model + books)": 4122,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2670,6 +2735,37 @@
           "del": 14
         }
       ]
+    },
+    {
+      "sha": "8e2e1b1ddbd40c81335f00eee5472c93de317800",
+      "short": "8e2e1b1",
+      "date": "2026-11-03 05:36",
+      "message": "memory: run-6 pointers — unit 2 closed, lesson 2.5 pushed and verified (52cc8c4), origin/main synced; next: unit 3 opens with FM 3.1 Divisibility and Its Tests",
+      "filesChanged": 4,
+      "insertions": 79,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 67,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -2677,26 +2773,26 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 2,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 8,
-    "wordsAuthored": 31159,
-    "termsDefined": 47,
-    "quizItems": 40,
-    "exerciseQuestions": 65,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 9,
+    "wordsAuthored": 37636,
+    "termsDefined": 54,
+    "quizItems": 45,
+    "exerciseQuestions": 73,
     "blockTotals": {
-      "para": 80,
-      "callout": 26,
-      "heading": 53,
-      "terms": 8,
-      "equation": 8,
-      "derivation": 11,
-      "table": 9,
-      "figure": 12,
-      "example": 15,
-      "quiz": 8,
-      "exercises": 8,
-      "formula": 13,
-      "algorithm": 6
+      "para": 96,
+      "callout": 31,
+      "heading": 60,
+      "terms": 9,
+      "equation": 9,
+      "derivation": 16,
+      "table": 10,
+      "figure": 13,
+      "example": 16,
+      "quiz": 9,
+      "exercises": 9,
+      "formula": 17,
+      "algorithm": 7
     }
   }
 }

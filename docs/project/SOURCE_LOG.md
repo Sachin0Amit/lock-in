@@ -28,9 +28,11 @@ step 6).
   `Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf` (32.4 MB;
   file id persisted in the survey since run 6). Used for: ch. 1 "Numbers" —
   place-value/face-value definitions, Indian system naming, exam-style digit
-  problems; ch. 4 "Simplification" — the BODMAS material for FM ch. 2
-  lesson 2.5 (bracket ladder bar → ( ) → { } → [ ], the "of" rank above
-  ÷/×, nested-illustration style — exposition original, no text reproduced).
+  problems, and (unit 3) the "Tests of Divisibility" list + prime/composite/
+  co-prime definitions for FM ch. 3 lesson 3.1; ch. 4 "Simplification" — the
+  BODMAS material for FM ch. 2 lesson 2.5 (bracket ladder bar → ( ) → { } →
+  [ ], the "of" rank above ÷/×, nested-illustration style — exposition
+  original, no text reproduced).
 - `ncert-math6-ch1` — NCERT Class 6 Mathematics, ch. 1 "Knowing Our Numbers"
   (public curriculum). Used for: canonical school-level topic coverage
   (comparing numbers, ascending/descending, forming greatest/smallest,
@@ -47,12 +49,20 @@ step 6).
   CBSE-aligned BODMAS references plus historical sources (Cajori's
   notation history; Lennes 1917, *American Mathematical Monthly*)
   (searches 2026-11-03); exposition original.
+- `ncert-math6-ch3` — NCERT Class 6 Mathematics, ch. 3 "Playing with
+  Numbers" (public curriculum). Used for: FM ch. 3 lesson 3.1 — canonical
+  school-level framing of factors and multiples ("a factor is an exact
+  divisor"), prime/composite vocabulary, and the divisibility tests for
+  2/3/4/5/6/8/9/10(/11) as syllabus items; the reasons behind the tests
+  (tail theorem, mod-9 digit-sum, alternating ±1, coprime splits, the
+  7-gadget, Pascal's 1654 criterion) are the book's own derivations
+  (web-checked 2026-11-03); exposition original.
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2; CBSE-aligned BODMAS web-check) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) + 33.9 (run 6 re-download for 2.5) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3, 2.4 (web-checks; no new downloads) and 2.5 (Khattar ch. 4 BODMAS studied from the run-6 re-download) | yes — after each unit's verification | foundation-mathematics in-progress (**2/11 chapters complete — ch. 1 and ch. 2 CLOSED; ch. 3 next**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3; CBSE-aligned BODMAS web-check) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) + 33.9 (run 6 re-download for 2.5) + 33.9 (run 7 re-download for 3.1) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1, 2.2, 2.3, 2.4 (web-checks; no new downloads) and 2.5 (Khattar ch. 4 BODMAS studied from the run-6 re-download) · FM ch. 3 (unit 3): lesson 3.1 (Khattar ch. 1 divisibility/prime material from the run-7 re-download + NCERT ch. 3 web-check) | yes — after each unit's verification (run 7 deleted its working copies after the lesson's E2E, per the per-lesson pattern) | foundation-mathematics in-progress (**2/11 chapters complete — ch. 1 and ch. 2 CLOSED; ch. 3 OPEN at 3.1**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -98,3 +108,12 @@ step 6).
   survey script was upgraded to persist per-file Drive ids, so this is the
   last time a re-download needed an id hunt. Working copies (PDF + text
   dump) deleted after unit-2 verification; only inventory.json retained.
+- 2026-11-03 (mathematics, unit 3, lesson 3.1): third sandbox recycle
+  wiped the gitignored survey; rebuilt in one step via the id-persisting
+  scripts/rebuild_drive_survey.ts (89 entries, Khattar id intact).
+  Khattar QA 4e re-downloaded via the persisted id (33.9 MB, 1,049 pp) —
+  ch. 1 "Numbers" divisibility-test list and prime/composite/co-prime
+  definitions studied; NCERT class-6 ch. 3 "Playing with Numbers"
+  coverage web-checked (sanctioned fallback). Working copies (PDF + text
+  dumps) deleted after the lesson's E2E verification; inventory.json
+  retained.

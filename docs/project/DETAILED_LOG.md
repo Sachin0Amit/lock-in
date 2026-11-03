@@ -9,10 +9,10 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 6**: lesson 2.5
-shipped and verified — UNIT 2 COMPLETE, chapter 2 closed with the
-unit-2 completion review; `WORK_INVENTORY.json` regenerated in the same
-run).
+Generated: 2026-11-03 (maintained through **hourly run 7**: UNIT 3 OPENED —
+lesson 3.1 Divisibility and Its Tests shipped and verified; chapter 3 of
+Foundation Mathematics in progress; `WORK_INVENTORY.json` regenerated in
+the same run).
 
 ---
 
@@ -65,13 +65,15 @@ run).
 | 11-03 (run 5) | (ship) | **LESSON 2.4 Division, Remainders and Why Zero Never Divides** — authored, 269 checks total, E2E green, logged; **first fully automated push** (protocol v2) |
 | 11-03 (run 6) | — | Khattar QA 4e re-downloaded (file id now persisted in the upgraded survey); ch. 4 BODMAS section studied for lesson 2.5; CBSE-aligned BODMAS coverage web-checked |
 | 11-03 (run 6) | (ship) | **UNIT 2 COMPLETE: lesson 2.5 Order of Operations and the Language of Expressions** — authored, 165 script checks (324 unit-cumulative), E2E green, unit-2 completion review run, logged; pushed (protocol v2) |
+| 11-03 (run 7) | — | **Third sandbox recycle** — only the gitignored Drive survey lost; rebuilt in one command (`rebuild_drive_survey.ts`, ids persisted). Khattar QA 4e re-downloaded via the persisted id; ch. 1 "Numbers" divisibility/prime material studied; NCERT class-6 ch. 3 web-checked |
+| 11-03 (run 7) | (ship) | **UNIT 3 OPENED: lesson 3.1 Divisibility and Its Tests** (ch-03.ts created) — authored, 96 pre-writing checks (`verify-unit-3.ts`, gitignore exception added FIRST), E2E green (quiz 5/5, KaTeX 370, flashcards 54), logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 2 chapters complete — 8 lessons, 31,159 words,
-47 flashcard terms.**
+**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.1 — 9
+lessons, 37,636 words, 54 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -325,12 +327,72 @@ honoured). Chapter totals recomputed from live data by
 book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise
 questions.
 
-#### Chapters 3–11 — planned (not yet written)
+#### Chapter 3: Factors, Multiples and Primes — **OPEN (unit 3, started 2026-11-03; 1 of 5 lessons)**
+
+**Lesson 3.1 — Divisibility and Its Tests** (id `fm-divisibility-and-its-tests`,
+authored 11-03, hourly-run-7 ship commit; ch-03.ts created) — **6,477 words ·
+32 min read · 7 terms (Divisible, Factor/divisor, Multiple, Digit sum,
+Alternating digit sum, Coprime factors, Divisibility test) · 5 quiz items
+(answers deliberately spread 2/3/1/2/3) · 8 exercises (L1×2, L2×2, L4×2,
+L5×1, L6×1) · 1 original SVG figure (the screening desk: seven screens
+cheapest-first — last digit / last two / last three / digit sum / alternating
+sum / coprime split / double-and-subtract — divisor labels tinted, plain text
+only) · 4 derivations (the tail theorem n ≡ last-k-digits mod 2^k·5^k via
+10^k = 2^k×5^k; the digit-sum theorem n ≡ S(n) mod 9 and mod 3 via
+10^k = 99…9+1, walked through 4,731; the alternating theorem n ≡ d₀ − d₁ +…
+mod 11 via 10 ≡ −1; the 7-gadget equivalence 7 | n ⟺ 7 | (a − 2b) via
+2n = 21a − (a − 2b) with gcd(2,7) = 1) · 1 coprime-split derivation (12 = 3×4
+works; 2×6 over-admits — 18 passes 2 and 6 but fails 12) · 4 formula cards
+(divisibility treaty d | n ⟺ r = 0; tail test; digit-sum test; alternating
+test) · 1 algorithm block (screening order = cost order) · 2 worked examples
+(the full screen of 4,896 — nine verdicts incl. remainder-1 mod 11 matching
+the alternating sum and the 7-chain ending −3; find-the-digit 27*4 → {2,5,8}
+and 7,2*8 → 1) · 1 master test table (divisors 2–12, verified instances) · 5
+callouts (definition; warn — the digit-sum impersonation 921; warn — four
+screening traps; historical — Pascal 1654 *De numeris multiplicibus* as the
+one criterion + Fibonacci 1202 casting out nines; exam — bank/SSC/Railway/
+NTSE/CUET/CBSE mapping) · sources: khattar-qa-4e, ncert-math6-ch3 ·
+prerequisites: lessons 1.1, 2.1, 2.4.** Contents: the confectioner opening
+(2,340 sweets ÷ 9 jars answered in five seconds by digit sum 9 vs a full
+minute of long division; the exam-hall number 4,896 ÷ 12); the treaty from
+Lesson 2.4 (d | n ⟺ remainder 0, with the remainder bound making it crisp);
+factors and multiples as the two ends of one multiplication (48's ten factors
+in five pairs; multiples of 7 below 100 = fourteen; factors finite, multiples
+infinite; the 0/1 edges with Lesson 2.4's blessing); Family 1 tail tests
+(5,836 = 25×233 + 11 — the tail even reports the failure size; 48,216 =
+8×6,027 = 125×385 + 91; 13,675 = 25×547; Lesson 2.4's ÷10ⁿ corollary
+honoured as the engine); Family 2 digit-sum tests (casting out nines; the
+screen reports remainders — 8,241 ÷ 9 → r 6; the 921/87,543 impersonation
+trap); Family 3 the alternating test (2,728 = 11×248; 1,012 = 11×92;
+remainder-reading 91,083 → 3 and 43,291: −5 → 6; units-first sign
+convention); Family 4 compound tests (2,376 for 6 and 12; 4,788 = 18×266;
+4,965 = 15×331; 9,888 = 24×412; 12,144 = 88×138); Family 5 the stubborn 7
+(powers of 10 mod 7 cycle 1,3,2,6,4,5 — no tail/digit/alternating test;
+chains 2,401 = 7⁴ → 238 → 7 and 3,192 → 315 → 21 → 0; honesty para — each
+step multiplies the residue by −2, so the chain preserves the verdict, not
+the remainder); the master table; the screening algorithm; the worked 4,896
+screen (nine verdicts, zero long divisions); L6 the a±kb family (13:
+a + 4b with 2,795 → 299 → 65 → 26 fixed; 19: a + 2b with 1,919 → 209 → 38 →
+19; 17: a − 5b with 867 → 51 → 0; ending in Pascal's criterion — every d
+coprime to 10 admits a digit test). Closing para bridges to 3.2 primes (the
+tests are a story about how a number relates to 10). **Verified:** 96
+arithmetic checks by `scripts/verify-unit-3.ts` ALL PASS before writing
+(gitignore exception added FIRST — the /scripts/* trap; the script covers
+every prose/figure/table/quiz/exercise number incl. the L6 chains; both
+verify scripts made modules after cross-file tsc collisions);
+verify-unit-2.ts still passes 165/165; lint clean; tsc fully clean
+repo-wide; routes 200; browser E2E — KaTeX 370 nodes, dollarInSvg=0, quiz
+answered live with the intended options → "You scored 5/5 · perfect", best
+score persisted, flashcards 47 → 54, glossary + formula sheet list the new
+entries, screening-desk figure screenshot-verified, mobile 390px exact-fit,
+zero console/page errors.
+
+#### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
-| 3 | Factors, Multiples and Primes | Divisibility and Its Tests · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
+| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
@@ -526,26 +588,26 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 15 | `8e5b681` | 11-03 | FM lesson 2.4 Division & Remainders (269 checks, E2E green) + second-recycle recovery — first automated push | +1,125/−68 · 9 files |
 | 16 | `fecd9c4` | 11-03 | memory: run-5 pointers (origin/main synced; next FM 2.5) | +13/−7 · 2 files |
 | 17 | `52cc8c4` | 11-03 | UNIT 2 COMPLETE: FM lesson 2.5 Order of Operations (165 checks incl. 60 new, E2E green) + unit-2 completion review + survey upgrade | +956/−97 · 11 files |
+| 18 | `8e2e1b1` | 11-03 | memory: run-6 pointers — unit 2 closed, origin/main synced; next unit 3 | +7/−3 · 2 files |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-5 ship commit (lesson 2.4 + logs + recycle
-  recovery); working tree clean. origin/main is in sync through the
-  run-5 push — the **first fully automated push** under protocol v2
-  (sha in RESUME_POINTER.json notes / WORKLOG.md).
-- **Sandbox recycle note:** the workspace was recycled TWICE on 11-03
-  and fully recovered both times — git history restored from the public
-  GitHub repo; the recovery protocol is recorded in
-  RESUME_POINTER.json (nextAction); `scripts/rebuild_drive_survey.ts`
-  now rebuilds the gitignored Drive survey, and `verify-unit-2.ts` is
-  committed (recycle-proof).
-- **CURRENT (hourly cadence): lesson 2.5 — "Order of Operations and the
-  Language of Expressions"** — completes chapter 2. References: Khattar
-  ch. 4 "Simplification" (BODMAS material; download as needed) + NCERT
-  class-6 expressions/order coverage via web; verify → write → gates →
-  log; then the unit-2 completion review (BOOK_FORMAT verification
-  checklist + exam-coverage audit) before unit 3 opens.
+- HEAD: the hourly-run-7 ship commit (UNIT 3 OPENED — lesson 3.1
+  Divisibility and Its Tests + logs + verify-unit-3.ts); working tree
+  clean. origin/main is synced through the run-7 push under protocol v2
+  (shas in WORKLOG.md run-7 memory note).
+- **Sandbox recycle note:** recycled THREE times on 11-03, fully
+  recovered each time; run 7's was the mildest (only the gitignored
+  Drive survey lost — rebuilt with one command via the id-persisting
+  `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
+- **CURRENT (hourly cadence): lesson 3.2 — "Prime Numbers and
+  Factorisation"** — continues chapter 3. Ties to honour: 3.1's closing
+  promise ("factoring all the way down"), the factor-pair square-root
+  bound → trial division, coprime → unique factorisation, 1's exclusion
+  from the primes. References: Khattar ch. 1 prime material (id
+  persisted) + NCERT class-6 ch. 3 via web; verify → write → gates →
+  log; unit-3 completion review after 3.5.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

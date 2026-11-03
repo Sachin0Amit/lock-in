@@ -1,6 +1,7 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
+import { chapter03 } from './ch-03'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -12,8 +13,9 @@ import { chapter02 } from './ch-02'
  * (Multiplication as Repeated Addition — and Beyond), 2.4 (Division,
  * Remainders and Why Zero Never Divides) and 2.5 (Order of Operations and
  * the Language of Expressions) shipped, all gates green, unit-2 completion
- * review passed. Chapter 3 (Factors, Multiples and Primes) opens unit 3.
- * Authoring per docs/project/MASTER_PLAN.md §2.
+ * review passed. Chapter 3 (Factors, Multiples and Primes) OPEN — unit 3:
+ * lesson 3.1 (Divisibility and Its Tests) shipped 2026-11-03; 3.2–3.5
+ * planned. Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -31,26 +33,11 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) opens unit 3. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapters 1–2 complete (units 1–2 shipped 2026-11-03): lessons 1.1–1.3 (9,709 words) and 2.1–2.5 The Four Operations (21,450 words, incl. order of operations / BODMAS) — math script-verified, E2E green, unit completion reviews passed. Chapter 3 (Factors, Multiples and Primes) open: 3.1 Divisibility and Its Tests shipped (unit 3). Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     chapter02,
-    {
-      number: 3,
-      slug: 'factors-multiples-primes',
-      title: 'Factors, Multiples and Primes',
-      summary:
-        'The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Divisibility and Its Tests',
-        'Prime Numbers and Factorisation',
-        'Highest Common Factor',
-        'Lowest Common Multiple',
-        'HCF, LCM and How They Relate',
-      ],
-    },
+    chapter03,
     {
       number: 4,
       slug: 'fractions',

@@ -11,6 +11,9 @@
  * Run: bun run scripts/verify-unit-2.ts   (exit 1 on any failure)
  */
 
+// module marker: isolate this file's top-level names from other scripts under tsc --noEmit
+export {}
+
 let pass = 0;
 let fail = 0;
 const failures: string[] = [];
