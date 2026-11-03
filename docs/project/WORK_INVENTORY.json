@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 01:16:36 (Asia/Kolkata)",
+  "generated": "2026-11-04 01:21:40 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1439,13 +1439,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 83,
-      "totalLines": 19982,
+      "srcFilesTracked": 84,
+      "totalLines": 20717,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 10726,
+        "src/data/library (content model + books)": 11461,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4839,6 +4839,72 @@
           "path": "docs/project/WORKLOG.md",
           "add": 1,
           "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "74a341994e4abb0f2019ae7463eba45679c440c5",
+      "short": "74a3419",
+      "date": "2026-11-03 19:51",
+      "message": "fm 5.1 decimal places and the point (unit 5 opener, run 21): the point becomes the hinge of the place-value mirror — the decimal-point treaty (digits left count wholes, digits right count the 10-family; the point as the fraction bar standing upright), tenths/hundredths/thousandths with the ladder of tens (1 mm = 0.1 cm, 1 paise = Rs 0.01, 1 g = 0.001 kg; ten of each piece rebuild the next coarser), the mirror figure (x10 left / /10 right about the ones, 305.274 dissected digit by digit), reading rules (point two seven four — digits one at a time) + expanded form + 7 = 7.0, Illustrations 1-2 running the fraction-decimal bridge both ways (7/10, 47/100, 305/1000 <=> 0.7, 0.47, 0.305 = 61/200), THE ATOM TEST proved as a derivation block (lowest terms a/b wears an exact decimal dress iff b = 2^m x 5^n needing max(m, n) places — re-cut direction multiplies by 5^(m-n) to reach 10^m, refusal direction from 10^k = 2^k x 5^k carrying no other atoms by Lesson 3.2's uniqueness of factorisation; 10^k mod 3 = 1 forever; 5/12 and 22/7 named as 5.2's recurring territory), locating by zooming (Illustration 3 walks 2.74; two-panel zoom figure 2.7 -> 2.74, 62 px steps, trapezoid connectors), comparing by aligning the points with the trailing-zero licence proved as a derivation block (appending a zero = the multiplying rule with 10/10 = 1; 7 = 70/10) and the more-digits fraud retired (0.5 > 0.45; 0.05 != 0.5 — leading zeros load-bearing), Illustration 4 settling 5.64 vs 5.603, the equivalent-decimals Definition, money/length/mass conversions with the zero-filling trap Caution (Rs 8.05 not Rs 8.5 — the single most examined zero in school arithmetic; 3 kg 60 g = 3.06 kg), 6-row toolkit table + bridge-on-one-line equation + 3 formula cards + exam corner — 5,350 words in the Cengage voice and solution chain; 5 illustrations, 2 figures (0 audit issues after the zoom-box/connector fix), 7 new terms, 5-quiz (1/2/3/1/2 verified live 5/5), 12 exercises L1-L6 (L6 proves the trailing-zero licence and the atom test with applications); NEW scripts/verify-unit-5.ts 165 checks (A-O incl. the 2..500 sweep: divides a power of ten <=> atoms subset of {2,5}) ALL PASS pre-writing + regressions 330/260/165 green; E2E extended to 9 lessons with a dedicated 5.1 block (quiz 5/5 live, 12/12 solutions expand, 390px exact-fit, KaTeX 209, dollarInSvg 0, zero console errors); VLM 9/10 across opener, both figures and the Illustration chain; SOURCE_LOG gains ncert-math7-ch3 + ncert-math6-ch8 (web-checked, zero downloads); logs + inventory updated; ch. 5 open 1/5, next 5.2 terminating vs recurring",
+      "filesChanged": 11,
+      "insertions": 1565,
+      "deletions": 79,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 83,
+          "del": 20
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 11,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 33,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 25,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 131,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 131,
+          "del": 27
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-5.ts",
+          "add": 343,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 12,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 734,
+          "del": 0
         }
       ]
     }
