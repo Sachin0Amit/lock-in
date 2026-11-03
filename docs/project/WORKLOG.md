@@ -63,9 +63,12 @@ steps-array format; new "Worked-solution format" house-style bullet
 never a dense paragraph; migration noted). Future lessons (4.2 onward)
 author solutions in this format directly.
 
-**Push:** this run's ship commit pushed under PUSH PROTOCOL v2; remote
-HEAD verified via one-time-URL ls-remote and tracking ref re-synced —
-see the memory commit that follows this entry.
+**Push:** ship commit `79af69a` pushed under PUSH PROTOCOL v2 as
+`7200a69..79af69a` (PAT from the cron job payload, one-time HTTPS URL,
+never stored, no verbose flags). Remote HEAD verified via one-time-URL
+ls-remote = `79af69a84fdbebecc76081a33bc20825ca0b99ad` = local HEAD;
+tracking ref re-synced by anonymous HTTPS fetch; 0 unpushed commits
+remain.
 
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 12): reader width + permalink-chip fix shipped; UNIT 4 OPENS — lesson 4.1 The Idea of a Fraction shipped (chapter 4 of Foundation Mathematics opens)
 
