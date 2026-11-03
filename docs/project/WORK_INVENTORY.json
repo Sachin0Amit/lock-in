@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 19:55:48 (Asia/Kolkata)",
+  "generated": "2026-11-03 19:56:04 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3932,12 +3932,12 @@
       ]
     },
     {
-      "sha": "23c67feb9b540b4cf039d69d71a78e0e22d423a3",
-      "short": "23c67fe",
+      "sha": "11703ab5138c302e5ab75749d9dbaf0cde351ffe",
+      "short": "11703ab",
       "date": "2026-11-03 14:24",
       "message": "no step numbers anywhere (owner directive): Sol. steps, derivations, exercise solutions and algorithm lines render as clean unnumbered lines — circled digit badges removed from all four renderers; BOOK_FORMAT/types contracts updated; E2E gains stepNumberBadges=0 check (KaTeX aria-hidden layer excluded)",
       "filesChanged": 10,
-      "insertions": 317,
+      "insertions": 322,
       "deletions": 67,
       "files": [
         {
@@ -3967,7 +3967,7 @@
         },
         {
           "path": "docs/project/WORK_INVENTORY.json",
-          "add": 183,
+          "add": 188,
           "del": 5
         },
         {

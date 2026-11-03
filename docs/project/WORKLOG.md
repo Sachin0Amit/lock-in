@@ -64,8 +64,10 @@ cron-delivered run (PAT arrives embedded there). Remote HEAD verified
 anonymously (ls-remote, no token): `d5a1b43` — the run-14 cengage commit
 `2895750` AND its memory commit `d5a1b43` are already on origin/main (the
 stale local tracking ref was re-synced via anonymous fetch; the earlier
-"origin ahead" reading was a tracking artifact). Local is ahead by
-exactly this run-15 commit. Nothing token-related recorded anywhere.
+"origin ahead" reading was a tracking artifact). Local is ahead by the
+run-15 ship commit `11703ab` + its inventory bookkeeping commit — push
+both at the next cron-delivered run. Nothing token-related recorded
+anywhere.
 
 ---
 
