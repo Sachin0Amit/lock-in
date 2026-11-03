@@ -109,7 +109,7 @@ exercise questions), DETAILED_LOG.md updated. book.ts notes now record
 LCM twins of the remainder patterns; product rule banked for 3.5), then
 3.5 HCF, LCM and How They Relate. Exam-registry research still pending.
 
-**Git:** commit `unit 3: FM lesson 3.3 Highest Common Factor (5,564 words, 192 verified checks, E2E green incl. Bézout debt repaid) + logs`; PUSHED under protocol v2 (see memory note for shas).
+**Git:** commit `unit 3: FM lesson 3.3 Highest Common Factor (5,564 words, 192 verified checks, E2E green incl. Bézout debt repaid) + logs` shipped as `b9864f6` (+1,085/−47 · 9 files); PUSHED under protocol v2 — `f3ebbb8..b9864f6 HEAD -> main`, exit 0; remote HEAD verified `b9864f6` via one-time-URL ls-remote (output credential-redacted); tracking ref re-synced via anonymous HTTPS fetch. Memory note (shas above) follows as the run-9 memory commit.
 
 ---
 
