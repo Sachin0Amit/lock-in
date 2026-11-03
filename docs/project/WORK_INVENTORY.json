@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 20:18:42 (Asia/Kolkata)",
+  "generated": "2026-11-03 21:14:44 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -895,9 +895,8 @@
             "title": "Fractions",
             "summary": "Why we need numbers between the integers, what a fraction really is, equivalence, comparison, the four operations on fractions, and the number line made dense.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Equivalent Fractions and Simplification",
               "Comparing Fractions",
               "Adding and Subtracting Fractions",
               "Multiplying and Dividing Fractions"
@@ -968,9 +967,76 @@
                 },
                 "exerciseQuestions": 10,
                 "termsDefined": 9
+              },
+              {
+                "id": "fm-equivalent-fractions-simplification",
+                "number": "4.2",
+                "title": "Equivalent Fractions and Simplification",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5598,
+                "readMins": 28,
+                "concepts": [
+                  "Equivalent fractions",
+                  "The multiplying rule",
+                  "Lowest terms",
+                  "Simplification and the HCF",
+                  "Cross-multiplication test",
+                  "Raising to higher terms",
+                  "The additive trap"
+                ],
+                "objectives": [
+                  "Recognise and generate equivalent fractions with the multiplying rule n/d = nk/dk, and explain it by regrouping equal pieces",
+                  "Simplify any fraction to its lowest terms in one step via the HCF of chapter 3, and say why that name is the canonical one",
+                  "Prove the cross-multiplication test a/b = c/d ⟺ ad = bc — paying, in full, the licence Lesson 4.1 borrowed for the mediant proof",
+                  "Raise a fraction to any target denominator that is a multiple of its own — the move that powers common denominators in Lessons 4.3–4.4"
+                ],
+                "prerequisites": [
+                  "fm-idea-of-a-fraction",
+                  "fm-prime-numbers-factorisation",
+                  "fm-highest-common-factor",
+                  "fm-hcf-lcm-and-how-they-relate"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch7"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 7,
+                  "callout": 5,
+                  "list": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "derivation": 2,
+                  "formula": 2,
+                  "example": 6,
+                  "table": 1,
+                  "equation": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 5
               }
             ],
-            "words": 6051
+            "words": 11649
           },
           {
             "number": 5,
@@ -1110,12 +1176,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 17366,
+      "totalLines": 18026,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2991,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 8110,
+        "src/data/library (content model + books)": 8770,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4083,6 +4149,37 @@
           "del": 7
         }
       ]
+    },
+    {
+      "sha": "b788c06941cf516e938b02feea077d3dd320c4c5",
+      "short": "b788c06",
+      "date": "2026-11-03 14:48",
+      "message": "inventory: record run-16 ship (a87c06a) — Cengage solution chain live; four unpushed commits queued for the next cron push",
+      "filesChanged": 4,
+      "insertions": 82,
+      "deletions": 15,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 67,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -4091,25 +4188,26 @@
     "booksLive": 1,
     "chaptersWritten": 3,
     "chaptersInProgress": 1,
-    "lessonsWritten": 14,
-    "wordsAuthored": 65080,
-    "termsDefined": 91,
-    "quizItems": 70,
-    "exerciseQuestions": 125,
+    "lessonsWritten": 15,
+    "wordsAuthored": 70678,
+    "termsDefined": 96,
+    "quizItems": 75,
+    "exerciseQuestions": 137,
     "blockTotals": {
-      "para": 180,
-      "callout": 61,
-      "heading": 95,
-      "terms": 15,
-      "equation": 15,
-      "derivation": 30,
-      "table": 16,
-      "figure": 19,
-      "example": 26,
-      "quiz": 14,
-      "exercises": 14,
-      "formula": 30,
-      "algorithm": 8
+      "para": 196,
+      "callout": 66,
+      "heading": 102,
+      "terms": 16,
+      "equation": 16,
+      "derivation": 32,
+      "table": 17,
+      "figure": 21,
+      "example": 32,
+      "quiz": 15,
+      "exercises": 15,
+      "formula": 32,
+      "algorithm": 8,
+      "list": 2
     }
   }
 }

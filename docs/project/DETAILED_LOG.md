@@ -9,12 +9,13 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **owner-chat run 16**: solutions
-restyled as the Cengage solution chain — Sol. pill inline on the first
-line, connective tag column (∴/or/Now,), terminal ∴ answer line, boxed
-Answer rows retired; run 15 before it: step numbers removed; run 14:
-Cengage book-style theory live platform-wide; `WORK_INVENTORY.json`
-regenerated with every ship).
+Generated: 2026-11-03 (maintained through **cron run 17, Job 498279**: all
+four queued run-15/16 commits PUSHED first — origin/main synced at
+`b788c06` — then FM lesson 4.2 "Equivalent Fractions and Simplification"
+authored natively in the Cengage voice + solution chain, 5,598 words;
+run 16: solutions restyled as the Cengage solution chain; run 15: step
+numbers removed; run 14: Cengage book-style theory live platform-wide;
+`WORK_INVENTORY.json` regenerated with every ship).
 
 ---
 
@@ -81,6 +82,8 @@ regenerated with every ship).
 | 11-03 (run 14, owner chat) | (ship) | **CENGAGE BOOK-STYLE THEORY shipped platform-wide** — Drive MATHS modules surveyed (5 modules, 42 chapter PDFs, ids persisted); Cengage M2/01 style-studied (OCR + vision; no content reproduced); reader reskinned print-style (green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars, hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, green chapter-opener headers) — all 14 lessons restyled at once; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; E2E green (VLM fidelity 8.5/10); logged; pushed (protocol v2) |
 | 11-03 (run 15, owner chat) | (ship) | **STEP NUMBERS REMOVED (owner directive "no need to show the steps number")** — circled digit badges deleted from all four worked-step renderers (Illustration Sol. steps, derivation rail, exercise solutions, algorithm lines); lead-in words carry the sequence; ILLUSTRATION n / Q-n / roman (i)(ii)(iii) / \tag{n} numbering deliberately kept; BOOK_FORMAT + types.ts contracts updated; E2E gains stepNumberBadges=0 check (KaTeX aria-hidden layer excluded); E2E green on 1.1/2.5/3.2/4.1 + VLM visual clean; logged; **push deferred — no PAT in this chat session** (local commit only; remote HEAD stays `d5a1b43` until the next cron run pushes) |
 | 11-03 (run 16, owner chat) | (ship) | **CENGAGE-STYLE SOLUTIONS (owner directive "the solution should also be in cengage style")** — M2/01 solution pages re-studied (OCR + vision; surveys rebuilt after recycle; no content reproduced): Sol. pill INLINE on the first solution line, hanging-indent chain with a connective tag column (∴ for Hence/Thus/Therefore, or, Now,/So,/But/And; Case (i): bold), terminal ∴ answer line in green ink (literal Answer:/Hence: prefix stripped), boxed Answer rows retired — display-only parseStepTag, zero content edits, all 15 lessons at once; BOOK_FORMAT/types/SOURCE_LOG/E2E contracts updated (solutionChain check; KaTeX \therefore is mrel amsrm, not mord); E2E + force-expanded DOM + VLM all green; logged; **push deferred — no PAT in this chat session** (local ahead by three commits: run-15 ship + inventory + this) |
+| 11-03 (run 17, cron Job 498279) | (push) | **PUSH FIRST per RESUME_POINTER** — all four queued run-15/16 commits pushed in one command via the one-time HTTPS URL: `d5a1b43..b788c06 HEAD -> main`; remote HEAD verified `b788c06` by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log — the runs-15/16 push debt is cleared |
+| 11-03 (run 17, cron Job 498279) | (ship) | **LESSON 4.2 Equivalent Fractions and Simplification** — authored NATIVELY in the Cengage voice + solution chain, 5,598 words: equivalence family + roman run + three-bar figure (465px invariant shading), multiplying rule PROVED by regrouping, additive-trap Caution ((n+k)/(d+k) = mediant with 1 dressed k/k — always strictly between), HCF simplification one-step (12/16→3/4, 84/126→2/3, 91/104→7/8 via Euclid), **cross-multiplication licence PAID IN FULL** (both = and < directions via the common bd-ruler; 18-piece ruler figure for 2/3 = 4/6 = 12/18; 4.1's 3/7<4/9 ⟺ 27<28 loan settled), raising to higher terms + 6-row registry, properties list, L6 proofs (lowest-terms uniqueness via Lesson 3.2's crossroads lemma; mediant closure of the family); 6 illustrations, 2 figures, 5-quiz, 12 exercises L1–L6 with terminal ∴ answers; verify-unit-4.ts 84→**148 checks** (sections L–R); E2E extended to 5 lessons — 6 Sol. pills ALL inline, stepNumberBadges 0, legacyAnswerBoxes 0, 18 KaTeX ∴ tags, KaTeX 263, quiz 5/5 live, 12 solutions expand, 390px exact-fit, zero console errors, VLM + screenshot review green; totals: **15 lessons / 70,678 words / 96 terms**; logged; commits push at the next cron run |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -667,6 +670,41 @@ terms / 70 quiz items / 125 exercise questions**; ch. 4 in-progress at
 items mined, ch. 2 HCF/LCM-of-fractions rules banked for 4.5); NCERT
 class-6 ch. 7 web-checked; working copies deleted after E2E.
 
+**LESSON 4.2 (run 17, cron Job 498279 — push-first run):** "Equivalent
+Fractions and Simplification" — 5,598 words, the FIRST lesson authored
+natively in the Cengage voice + solution chain (the exemplar for 4.3
+onward). Formal definition callouts ("… are said to be equivalent if …",
+"… is said to be in its lowest terms …") each with a symbolic
+Thus-restatement; "For example," roman (i)–(iv) runs; Illustration
+titles as crisp problem statements; solutions as connective-led step
+chains with terminal ∴ answers. Content: the equivalence family
+(3/4 = 6/8 = 9/12 = 12/16 = 15/20) + three-bar figure with the 465px
+invariant shading; the multiplying rule n/d = nk/dk PROVED by the
+regrouping derivation; the additive-trap Caution ((n+k)/(d+k) = the
+mediant of n/d and the whole 1 dressed as k/k — always strictly between,
+so equal additions never stand still: 15 ≠ 16, 888 ≠ 900); HCF
+simplification — the ch. 3 atoms returning (12/16 → 3/4 desk-pair;
+84/126 → 2/3 with HCF 42 both routes; 91/104 → 7/8 with the hidden atom
+13 via Euclid's algorithm); the **cross-multiplication licence PAID IN
+FULL** — the derivation raises a/b by k = d and c/d by k = b onto the
+common bd-ruler (both applications of the just-proved equivalence rule)
+where comparison is whole-number counting, settling BOTH directions
+(a/b = c/d ⟺ ad = bc AND a/b < c/d ⟺ ad < bc), with the 18-piece ruler
+figure for 2/3 = 4/6 = 12/18 (ad = bc = 12) and the 64-piece arithmetic
+check for the desk-pair; 4.1's mediant loan (3/7 < 4/9 ⟺ 27 < 28)
+explicitly settled; raising to higher terms (multiple-of-d rule) with
+the 3/4 + 5/6 → forty-eighths Illustration and a 6-row registry table;
+properties list with verified instances (3/4 of 20 = 15 = 12/16 of 20);
+summary equation; Note + Exam-corner callouts; 5-quiz; 12 exercises
+L1–L6 as Cengage chains — L6 proves the UNIQUENESS of the lowest-terms
+name (licence + Lesson 3.2's crossroads lemma) and the MEDIANT CLOSURE
+of the equivalence family ((a+ka)/(b+kb) = a/b raised by 1+k). All three
+4.1 ties honoured. verify-unit-4.ts extended 84 → **148 checks**
+(sections L–R); E2E extended to 5 lessons; quiz 5/5 live; totals: book =
+**15 lessons / 70,678 words / 96 terms / 75 quiz items / 137 exercise
+questions** (ch. 4 in-progress at 2/5). No new downloads (references
+already logged).
+
 **WORKED-SOLUTION FORMAT (run 13, owner chat directive with a
 handwritten-notes photo as the style reference):** exercise solutions now
 render like handwritten worked solutions — numbered step lines with words
@@ -691,7 +729,7 @@ all future lessons.
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
 | 3 | Factors, Multiples and Primes — **COMPLETE** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · ~~HCF, LCM and How They Relate~~ **WRITTEN** |
-| 4 | Fractions — **IN PROGRESS (1/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · Equivalent Fractions and Simplification · Comparing Fractions · Adding/Subtracting · Multiplying/Dividing |
+| 4 | Fractions — **IN PROGRESS (2/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · ~~Equivalent Fractions and Simplification~~ **WRITTEN** · Comparing Fractions · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
 | 7 | Integers | Negative Numbers · Adding/Subtracting · Multiplying + Sign Rules · Absolute Value as Distance |
@@ -896,38 +934,37 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-16 inventory bookkeeping commit on top of the run-16
-  ship (Cengage-style solution chain) and the run-15 commits — all LOCAL
-  ONLY: neither owner chat session carried a PAT, so the pushes are
-  deferred to the next cron-delivered run (protocol v2 one-time HTTPS
-  URL; remote HEAD `d5a1b43` = run-14 Cengage reskin + memory commit,
-  verified synced anonymously). Local is ahead by FOUR commits: run-15
-  ship `11703ab` + bookkeeping `c86a2dd`, run-16 ship `a87c06a` +
-  bookkeeping — push ALL at the next cron run BEFORE any new work.
+- HEAD: the run-17 ship (lesson 4.2) on top of the pushed run-15/16
+  commits — **origin/main was synced at `b788c06` at run start** (all four
+  queued run-15/16 commits pushed via the one-time HTTPS URL and verified
+  by one-time-URL ls-remote: `d5a1b43..b788c06`), so this run's own
+  commits (the 4.2 ship + the inventory bookkeeping) are the only local
+  lead — they push at the next cron-delivered run BEFORE any new work,
+  per the standing push-first rule.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
-  4.2 "Equivalent Fractions and Simplification"** (4.1 SHIPPED run 12 —
-  chapter 4 is open at 1/5), **authored IN THE CENGAGE VOICE per the
-  run-14 owner directive + BOOK_FORMAT house style** (formal definition
-  sentences + "Thus," restatements, "For example," roman-marker runs,
-  illustration titles as crisp problem statements — the print LOOK is
-  already automatic in the renderer). Ties to honour from 4.1: prove the
-  cross-multiplication licence via common denominators and pay the debt;
-  open with the 3/4 = 12/16 equivalence teaser; the atoms of chapter 3
-  (HCF) return to simplify; Khattar ch. 2's HCF/LCM-of-fractions rules
-  stay BANKED for 4.5. Research per MASTER_PLAN §2: Khattar QA 4e via the
-  persisted Drive id + NCERT class-6 ch. 7 equivalence/simplest-form
-  web-check. Standing rules: one lesson per run; original content; lesson
-  ids stable forever; every new figure passes
-  `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues; quiz
-  answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly two
-  backslashes in source; table blocks use `head:`; exercises use `sets`;
-  callout blocks need `title`.
+  4.3 "Comparing Fractions" NEXT** (4.1 shipped run 12, **4.2 SHIPPED
+  run 17** — chapter 4 is open at 2/5). 4.3 plan: the cross-multiplication
+  test as the comparison engine (now PROVED in 4.2 — both directions),
+  common-denominator comparison via 4.2's raising move, comparing unit
+  fractions (bigger denominator = smaller part), the which-is-largest
+  exam family banked in 4.1's exam callout (2/3 vs 4/5 vs 7/11), optional
+  decimals bridge. **Authored IN THE CENGAGE VOICE per the run-14 owner
+  directive + BOOK_FORMAT house style WITH solutions as Cengage chains**
+  (steps arrays led by natural connectives, ending `answer: '…'`; no
+  step-number badges; no boxed Answer rows). Standing rules: one lesson
+  per run; original content; lesson ids stable forever; every new figure
+  passes `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues;
+  quiz answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly
+  two backslashes in source; table blocks use `head:`; exercises use
+  `sets`; callout blocks need `title`.
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 14 lessons; the prose VOICE polish of the existing lessons (1.1
-  first as the exemplar, one lesson per run) is queued alongside unit-4
-  progression — never batch-draft.
+  all 15 lessons; lesson 4.2 is the FIRST authored natively in the
+  Cengage voice + solution chain (the exemplar for 4.3 onward); the prose
+  VOICE polish of the 14 pre-4.2 lessons (1.1 first as the exemplar, one
+  lesson per run) is queued alongside unit-4 progression — never
+  batch-draft.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

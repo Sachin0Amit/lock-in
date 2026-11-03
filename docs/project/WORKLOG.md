@@ -6,6 +6,100 @@ and what remains.
 
 ---
 
+## 2026-11-03 — RUN 17 (cron, Job 498279): PUSH FIRST (4 queued commits → origin/main synced at b788c06), then FM lesson 4.2 "Equivalent Fractions and Simplification" authored natively in the Cengage voice + solution chain — the cross-multiplication licence paid in full
+
+**Push before work (protocol v2, cron-delivered PAT):** the run opened with
+`git status` clean at `b788c06` = local HEAD = four unpushed commits from
+runs 15–16 (ship `11703ab` + bookkeeping `c86a2dd`, ship `a87c06a` +
+bookkeeping `b788c06`). Pushed all four in one command via the one-time
+HTTPS URL; `d5a1b43..b788c06 HEAD -> main`; remote HEAD verified `b788c06`
+by ls-remote with the one-time URL form; origin/main tracking ref
+resynchronised. PAT never written to any file, config, or log. The push
+debt logged in runs 15–16 is cleared.
+
+**Lesson 4.2 authored** (`fm-equivalent-fractions-simplification`, 5,598
+words; ch. 4 now 2/5): the two debts Lesson 4.1 left on the desk are the
+lesson's spine, and all three promised ties are honoured:
+
+- **Same amount, different names** — equivalence defined formally ("said
+  to be equivalent if …" + symbolic Thus-restatement), the 3/4 = 6/8 =
+  12/16 family as the roman (i)–(iv) example run, and a three-bar figure
+  (4/8/16 cells, 3/6/12 shaded, one dashed stop-line) making the teaser
+  from 4.1 visible.
+- **The multiplying rule** — proved by a derivation (regroup each 1/d
+  piece into k sub-pieces: nk pieces of size 1/(dk), same holding), plus
+  the **additive trap** callout: (n+k)/(d+k) is the mediant of n/d and
+  the whole 1 dressed as k/k, so equal additions always land strictly
+  between n/d and 1 (3/4 → 4/5: 15 ≠ 16; 24/36 → 25/37: 888 ≠ 900).
+- **Simplification: the atoms return** — 4.1's closing promise cashed:
+  lowest terms defined (HCF(n, d) = 1), stepwise vs one-step routes, and
+  three Illustrations: 12/16 → 3/4 (the desk-pair), 84/126 → 2/3 (three
+  small divisions or one by HCF 42), 91/104 → 7/8 (hidden atom 13, found
+  by Euclid — 104 = 1×91 + 13, 91 = 7×13).
+- **The cross-multiplication licence, paid in full** — the 4.1 mediant
+  proof's borrowed rule is now a theorem: raise a/b by k = d and c/d by
+  k = b onto the common bd-ruler (both applications of the just-proved
+  equivalence rule), where comparison is whole-number counting — hence
+  a/b = c/d ⟺ ad = bc AND a/b < c/d ⟺ ad < bc, both directions. A
+  second figure draws the 18-piece ruler for 2/3 = 4/6 = 12/18 (ad =
+  bc = 12); the 64-piece check for the desk-pair (3×16 = 48 = 4×12) is
+  verified by arithmetic in the prose. The 4.1 loan (3/7 < 4/9 ⟺ 27 <
+  28) is explicitly settled — nothing in the unit remains borrowed.
+- **Building fractions on purpose** — raising to a target denominator
+  (multiple-of-d rule, multiplier = target ÷ d), Illustration raising
+  3/4 and 5/6 to forty-eighths (36/48, 40/48) with licence checks, plus
+  a six-row raising registry table; non-multiples called out (50 is not
+  a multiple of 6; the LCM arrives in 4.4).
+- **Properties + close** — five-bullet properties list with verified
+  instances (incl. 3/4 of 20 = 15 = 12/16 of 20), a \tag-less summary
+  equation (the rule + the test on two lines), Note ("Same point,
+  shortest name") and Exam-corner callouts, 5-quiz (incl. the additive
+  trap and which-pair-is-NOT items), and 12 exercises L1–L6 whose
+  solutions are Cengage chains with terminal ∴ answers — including L6
+  proofs of **uniqueness of the lowest-terms name** (via the licence +
+  Lesson 3.2's crossroads lemma) and **mediant closure** (the mediant of
+  equivalent fractions is equivalent to them: (a+ka)/(b+kb) = a/b raised
+  by 1+k — the family never escapes its own point).
+
+**Pre-writing verification:** `scripts/verify-unit-4.ts` extended with
+sections L–R — 64 new checks covering every number in the prose, figures,
+tables, quiz and exercises (family equalities by exact cross-products,
+HCFs via gcd, the additive-trap products 15/16 and 888/900, the mediant
+trap checks, the licence both directions on 12 pairs, all raising
+registry rows, quiz/option arithmetic, brute-force uniqueness sweep
+d ≤ 40, figure geometry: 155/77.5/38.75 cells with 465px invariant
+shading, and 620/18 licence-ruler ticks at 70/276.67/483.33/690). Run:
+**148 passed, 0 failed** (84 original 4.1 checks still green).
+
+**Quality gates:** lint clean; tsc clean; route
+`/book/foundation-mathematics/lesson/fm-equivalent-fractions-simplification`
+200 with 6 ILLUSTRATION pills SSR'd; `e2e-cengage-style.sh` extended with
+the new lesson (now 5 lessons) — 4.2 reports 7 caps-over-rule headings,
+6 Sol. pills ALL inline (inlineSolPills = solPills = 6), stepNumberBadges
+= 0, legacyAnswerBoxes = 0, **18 KaTeX ∴ tags**, note boxes
+Definition/Remember/Caution/Definition/Remember/Note/Exam corner,
+exercises bar "12 questions · full solutions", quiz bar "5 questions",
+KaTeX 263 nodes, dollarInSvg = 0. Interactivity: quiz answered live with
+the intended options (12/16, 3/4, 7, "5/6 and 9/11", 16/20) → **"You
+scored 5/5"** + Retake; all 12 exercise solution toggles expand with ∴
+terminal lines; fresh-load console: zero errors (only stale buffered
+Fast Refresh notices from earlier HMR); KaTeX errors 0; mobile 390px
+exact-fit (docScrollW = 390). Visual: VLM review + direct screenshot
+inspection — ILLUSTRATION pill above sage band ✓, Sol. pill inline with
+the Now,/So,/∴ staircase ✓, ink-green caps heading over rule ✓,
+definition note box ✓, clean math throughout ✓.
+
+**Contracts updated:** `scripts/e2e-cengage-style.sh` lesson list + PROGRESS
+/ RESUME_POINTER / DETAILED_LOG / WORK_INVENTORY (regenerated via
+`bun run scripts/build_work_inventory.ts`). No new source downloads this
+run (references already logged in SOURCE_LOG.md; exposition original).
+
+**Git:** commit `fm 4.2 equivalent fractions and simplification (unit 4, run 17): equivalence family + multiplying rule proved by regrouping + HCF simplification one-step + cross-multiplication licence paid in full (= and < via the common bd-ruler) + raising to higher terms + uniqueness via Euclid's crossroads lemma + mediant closure — 5,598 words in the Cengage voice and solution chain; verify-unit-4.ts 148 checks; E2E + quiz 5/5 + VLM green`.
+
+**Push:** this run's commits push at the next cron-delivered run (or
+immediately if the payload PAT is present at that time); origin/main was
+synced at `b788c06` before this run's work began.
+
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 16): solutions restyled as the Cengage solution chain — "Sol." pill inline on the first line, connective tag column (∴ / or / Now,), terminal ∴ answer line; boxed Answer rows retired
 
 **Situation at start:** owner message (chat `47dcb175`, trace
