@@ -189,7 +189,7 @@ export type Block =
   | { kind: 'example'; title: string; steps: string[] }
   | { kind: 'figure'; caption: string; svg: string }
   | { kind: 'table'; caption?: string; head: string[]; rows: string[][] }
-  | { kind: 'list'; items: string[]; ordered?: boolean }
+  | { kind: 'list'; items: string[]; ordered?: boolean; marker?: 'disc' | 'decimal' | 'roman' }
   | { kind: 'quiz'; title?: string; items: QuizItem[] }
   | { kind: 'exercises'; title?: string; sets: ExerciseSet[] }
   /**

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 17:29:02 (Asia/Kolkata)",
+  "generated": "2026-11-03 18:04:54 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1110,10 +1110,10 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 17225,
+      "totalLines": 17330,
       "byArea": {
-        "src/app (routes, pages)": 547,
-        "src/components/library (reader platform)": 2898,
+        "src/app (routes, pages)": 586,
+        "src/components/library (reader platform)": 2964,
         "src/components/ui (shadcn primitives)": 5445,
         "src/data/library (content model + books)": 8101,
         "src/hooks": 214,
@@ -1122,7 +1122,7 @@
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 653
+          "lines": 719
         },
         {
           "file": "home-view.tsx",
@@ -3699,6 +3699,113 @@
           "path": "docs/project/WORKLOG.md",
           "add": 6,
           "del": 4
+        }
+      ]
+    },
+    {
+      "sha": "79af69a84fdbebecc76081a33bc20825ca0b99ad",
+      "short": "79af69a",
+      "date": "2026-11-03 12:03",
+      "message": "worked-solution format (owner directive): all 125 exercise solutions migrated from prose paragraphs to numbered step lines + boxed Answer rows (handwritten-notes style); platform string|string[]+answer with SolutionBody renderer; token-preserving migration script; BOOK_FORMAT contract updated; E2E green incl. 390px exact-fit",
+      "filesChanged": 16,
+      "insertions": 1498,
+      "deletions": 290,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 11,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 105,
+          "del": 23
+        },
+        {
+          "path": "scripts/convert-solutions-to-steps.py",
+          "add": 193,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 41,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 178,
+          "del": 50
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 377,
+          "del": 80
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 397,
+          "del": 100
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 80,
+          "del": 20
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 5,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 15,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "a2190ba7486edce7bab152317f2666229aeb9806",
+      "short": "a2190ba",
+      "date": "2026-11-03 12:03",
+      "message": "memory: record run-13 ship push verification (79af69a), origin/main synced — worked-solution format live; next: FM 4.2 in steps format",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 3
         }
       ]
     }

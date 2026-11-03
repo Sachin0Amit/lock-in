@@ -10,15 +10,9 @@
  */
 import { useEffect, useState } from 'react'
 import {
-  AlertTriangle,
-  BookMarked,
   BookOpen,
   Check,
   ChevronRight,
-  GraduationCap,
-  History,
-  Lightbulb,
-  Landmark,
   ListOrdered,
   RotateCcw,
   Sigma,
@@ -40,64 +34,103 @@ import { Math, RichText } from './math'
 import { useProgress } from './progress-store'
 
 /* ---------------------------------------------------------------- */
-/* Callouts                                                          */
+/* Callouts — Cengage-style note boxes (owner directive 2026-11-03):   */
+/* tinted panels with a small-caps label lead-in, the book's "Note:"   */
+/* family. Tone colours stay semantic; the geometry is pure print.     */
 /* ---------------------------------------------------------------- */
 
-const CALLOUT_STYLES: Record<
-  CalloutTone,
-  { icon: typeof Lightbulb; box: string; label: string; chip: string }
-> = {
+const CALLOUT_STYLES: Record<CalloutTone, { label: string; box: string; ink: string }> = {
   insight: {
-    icon: Lightbulb,
+    label: 'Note',
     box: 'border-amber-300/70 bg-amber-50/80 dark:border-amber-800/60 dark:bg-amber-950/30',
-    label: 'text-amber-900 dark:text-amber-200',
-    chip: 'bg-amber-100 text-amber-900 dark:bg-amber-900/50 dark:text-amber-200',
+    ink: 'text-amber-900 dark:text-amber-200',
   },
   warn: {
-    icon: AlertTriangle,
+    label: 'Caution',
     box: 'border-rose-300/70 bg-rose-50/80 dark:border-rose-800/60 dark:bg-rose-950/30',
-    label: 'text-rose-900 dark:text-rose-200',
-    chip: 'bg-rose-100 text-rose-900 dark:bg-rose-900/50 dark:text-rose-200',
+    ink: 'text-rose-900 dark:text-rose-200',
   },
   definition: {
-    icon: BookMarked,
-    box: 'border-emerald-300/70 bg-emerald-50/80 dark:border-emerald-800/60 dark:bg-emerald-950/30',
-    label: 'text-emerald-900 dark:text-emerald-200',
-    chip: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-900/50 dark:text-emerald-200',
+    label: 'Definition',
+    box: 'border-[var(--book-sage-line)] bg-[var(--book-sage)]',
+    ink: 'text-[var(--book-green-ink)]',
   },
   theorem: {
-    icon: Landmark,
+    label: 'Theorem',
     box: 'border-stone-400/70 bg-stone-100/90 dark:border-stone-600/60 dark:bg-stone-800/40',
-    label: 'text-stone-800 dark:text-stone-200',
-    chip: 'bg-stone-200 text-stone-800 dark:bg-stone-700 dark:text-stone-200',
+    ink: 'text-stone-800 dark:text-stone-200',
   },
   historical: {
-    icon: History,
+    label: 'Historical note',
     box: 'border-orange-300/70 bg-orange-50/80 dark:border-orange-800/60 dark:bg-orange-950/30',
-    label: 'text-orange-900 dark:text-orange-200',
-    chip: 'bg-orange-100 text-orange-900 dark:bg-orange-900/50 dark:text-orange-200',
+    ink: 'text-orange-900 dark:text-orange-200',
   },
   exam: {
-    icon: GraduationCap,
+    label: 'Exam corner',
     box: 'border-teal-300/70 bg-teal-50/80 dark:border-teal-800/60 dark:bg-teal-950/30',
-    label: 'text-teal-900 dark:text-teal-200',
-    chip: 'bg-teal-100 text-teal-900 dark:bg-teal-900/50 dark:text-teal-200',
+    ink: 'text-teal-900 dark:text-teal-200',
   },
 }
 
 function CalloutBlock({ tone, title, text }: { tone: CalloutTone; title: string; text: string }) {
   const s = CALLOUT_STYLES[tone]
-  const Icon = s.icon
   return (
-    <aside className={`my-6 rounded-lg border px-5 py-4 ${s.box}`}>
-      <div className="mb-1.5 flex items-center gap-2">
-        <Icon className={`h-4 w-4 shrink-0 ${s.label}`} aria-hidden />
-        <span className={`text-sm font-semibold tracking-wide ${s.label}`}>{title}</span>
+    <aside className={`my-6 rounded-lg border px-5 py-3.5 ${s.box}`}>
+      <div className="mb-1 flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+        <span className={`text-[0.68rem] font-bold uppercase tracking-[0.16em] ${s.ink}`}>
+          {s.label}
+        </span>
+        <span className="font-reading text-[0.95em] font-semibold text-foreground/90">{title}</span>
       </div>
       <p className="text-[0.95em] leading-7 text-foreground/90">
         <RichText text={text} />
       </p>
     </aside>
+  )
+}
+
+/* ---------------------------------------------------------------- */
+/* Illustration — the Cengage worked example (owner directive          */
+/* 2026-11-03): green pill label, problem on a sage band, "Sol." pill   */
+/* leading the numbered worked steps.                                   */
+/* ---------------------------------------------------------------- */
+
+function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no: number }) {
+  return (
+    <section className="my-7" aria-label={`Illustration ${no}`}>
+      <div className="flex items-center gap-3">
+        <span className="inline-flex items-center rounded-full bg-[var(--book-green)] px-3 py-[3px] text-[11px] font-bold tracking-[0.14em] text-white">
+          ILLUSTRATION {no}
+        </span>
+        <span className="h-px flex-1 bg-[var(--book-sage-line)]" aria-hidden />
+      </div>
+      <p className="mt-2.5 rounded-lg bg-[var(--book-sage)] px-5 py-3 font-reading text-[0.98em] font-semibold leading-7 text-foreground/95">
+        {title}
+      </p>
+      <div className="mt-4">
+        <div className="mb-2.5 flex items-center gap-2.5">
+          <span className="inline-flex items-center rounded-full bg-[var(--book-green)] px-2.5 py-[2px] text-[11px] font-bold text-white">
+            Sol.
+          </span>
+          <span className="h-px flex-1 bg-[var(--book-sage-line)]/70" aria-hidden />
+        </div>
+        <ol className="space-y-2.5">
+          {steps.map((s, si) => (
+            <li key={si} className="flex gap-3">
+              <span
+                className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--book-green)]/50 bg-[var(--book-sage)] text-[11px] font-semibold leading-none text-[var(--book-green-ink)] tabular-nums"
+                aria-hidden
+              >
+                {si + 1}
+              </span>
+              <p className="leading-7 text-foreground/90">
+                <RichText text={s} />
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
   )
 }
 
@@ -117,20 +150,19 @@ function DerivationBlock({
   result: string
 }) {
   return (
-    <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
-      <header className="flex items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
-        <ChevronRight className="h-4 w-4 text-primary" aria-hidden />
-        <h3 className="font-reading text-base font-semibold">Derivation — {title}</h3>
-      </header>
-      <div className="px-5 py-4">
+    <section className="my-7">
+      <h3 className="border-t-2 border-[var(--book-green)] pt-2 font-reading text-[0.95em] font-bold uppercase tracking-[0.08em] text-[var(--book-green-ink)]">
+        Derivation — {title}
+      </h3>
+      <div className="mt-3">
         <p className="text-[0.95em] leading-7 text-foreground/90">
           <RichText text={statement} />
         </p>
-        <ol className="mt-4 space-y-0 border-l-2 border-primary/40 dark:border-primary/50">
+        <ol className="mt-4 space-y-0 border-l-2 border-[var(--book-green)]/40">
           {steps.map((step, i) => (
             <li key={i} className="relative pb-4 pl-6 last:pb-1">
               <span
-                className="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-primary/60 bg-background text-[10px] leading-[12px] text-center font-semibold text-primary"
+                className="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-[var(--book-green)]/70 bg-background text-[10px] leading-[12px] text-center font-semibold text-[var(--book-green-ink)]"
                 aria-hidden
               >
                 {i + 1}
@@ -143,8 +175,8 @@ function DerivationBlock({
             </li>
           ))}
         </ol>
-        <div className="mt-2 rounded-md border border-primary/40 bg-primary/5 px-4 py-3 dark:bg-primary/10">
-          <span className="mr-2 rounded bg-primary/15 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary dark:text-primary-foreground/90">
+        <div className="mt-2 rounded-md border border-[var(--book-green)]/40 bg-[var(--book-sage)] px-4 py-3">
+          <span className="mr-2 rounded bg-[var(--book-green)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
             Result
           </span>
           <span className="text-[0.95em] leading-7 text-foreground">
@@ -162,10 +194,10 @@ function DerivationBlock({
 
 function FormulaBlock({ name, latex, note }: { name: string; latex: string; note?: string }) {
   return (
-    <aside className="my-6 overflow-hidden rounded-lg border border-emerald-400/60 dark:border-emerald-700/60">
-      <div className="flex items-center gap-2 border-b border-emerald-400/50 bg-emerald-50/80 px-4 py-2 dark:border-emerald-700/50 dark:bg-emerald-950/30">
-        <Sigma className="h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-300" aria-hidden />
-        <span className="text-sm font-semibold tracking-wide text-emerald-900 dark:text-emerald-200">
+    <aside className="my-6 overflow-hidden rounded-lg border border-[var(--book-sage-line)]">
+      <div className="flex items-center gap-2 border-b border-[var(--book-sage-line)] bg-[var(--book-sage)] px-4 py-2">
+        <Sigma className="h-4 w-4 shrink-0 text-[var(--book-green-ink)]" aria-hidden />
+        <span className="text-sm font-semibold tracking-wide text-[var(--book-green-ink)]">
           Remember — {name}
         </span>
       </div>
@@ -173,7 +205,7 @@ function FormulaBlock({ name, latex, note }: { name: string; latex: string; note
         <Math tex={latex} display />
       </div>
       {note && (
-        <p className="border-t border-emerald-400/40 px-4 py-2.5 text-sm leading-6 text-muted-foreground dark:border-emerald-700/40">
+        <p className="border-t border-[var(--book-sage-line)]/60 px-4 py-2.5 text-sm leading-6 text-muted-foreground">
           <RichText text={note} />
         </p>
       )}
@@ -196,9 +228,11 @@ function AlgorithmBlock({
 }) {
   return (
     <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
-      <header className="flex items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
-        <ListOrdered className="h-4 w-4 text-primary" aria-hidden />
-        <h3 className="font-reading text-base font-semibold">Algorithm — {title}</h3>
+      <header className="border-b border-[var(--book-sage-line)] bg-[var(--book-sage)] px-5 py-2.5">
+        <div className="flex items-center gap-2">
+          <ListOrdered className="h-4 w-4 text-[var(--book-green-ink)]" aria-hidden />
+          <h3 className="font-reading text-base font-semibold text-[var(--book-green-ink)]">Algorithm — {title}</h3>
+        </div>
       </header>
       <div className="overflow-x-auto px-5 py-4">
         <ol className="min-w-max space-y-1.5 font-mono text-sm leading-6">
@@ -262,16 +296,15 @@ function QuizBlock({
   }
 
   return (
-    <section className="my-7 rounded-lg border border-stone-300/80 dark:border-stone-700">
-      <header className="flex flex-wrap items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
-        <BookOpen className="h-4 w-4 text-primary" aria-hidden />
-        <h3 className="font-reading text-base font-semibold">{title ?? 'Check yourself'}</h3>
-        <span className="ml-auto flex items-center gap-2 text-xs text-muted-foreground">
+    <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
+      <header className="flex flex-wrap items-center gap-2 bg-[var(--book-green)] px-5 py-2.5 text-white">
+        <BookOpen className="h-4 w-4 text-white/90" aria-hidden />
+        <h3 className="font-reading text-sm font-bold uppercase tracking-[0.14em]">
+          {title ?? 'Check yourself'}
+        </h3>
+        <span className="ml-auto flex items-center gap-2 text-xs text-white/80">
           {best && (
-            <Badge
-              variant="outline"
-              className="border-emerald-500/50 text-emerald-700 dark:text-emerald-300"
-            >
+            <Badge variant="outline" className="border-white/50 text-white">
               Best {best.best}/{best.total}
             </Badge>
           )}
@@ -390,7 +423,7 @@ function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string
           <li key={i} className="flex gap-3">
             <span
               aria-hidden
-              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/5 text-[11px] font-semibold leading-none text-primary tabular-nums dark:bg-primary/10"
+              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--book-green)]/50 bg-[var(--book-sage)] text-[11px] font-semibold leading-none text-[var(--book-green-ink)] tabular-nums"
             >
               {i + 1}
             </span>
@@ -401,8 +434,8 @@ function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string
         ))}
       </ol>
       {q.answer && (
-        <div className="flex items-start gap-2.5 rounded-r-md border-l-2 border-primary/70 bg-primary/5 px-3.5 py-2 dark:bg-primary/10">
-          <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
+        <div className="flex items-start gap-2.5 rounded-r-md border-l-2 border-[var(--book-green)] bg-[var(--book-sage)] px-3.5 py-2">
+          <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--book-green-ink)]">
             Answer
           </span>
           <span className="min-w-0 font-medium leading-7">
@@ -425,11 +458,12 @@ function ExercisesBlock({
   title?: string
 }) {
   return (
-    <section className="my-7 rounded-lg border border-stone-300/80 dark:border-stone-700">
-      <header className="flex items-center gap-2 border-b border-stone-300/80 bg-stone-100/80 px-5 py-2.5 dark:border-stone-700 dark:bg-stone-800/60">
-        <BookOpen className="h-4 w-4 text-primary" aria-hidden />
-        <h3 className="font-reading text-base font-semibold">{title ?? 'Exercises'}</h3>
-        <span className="ml-auto text-xs text-muted-foreground">
+    <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
+      <header className="flex flex-wrap items-center gap-2 bg-[var(--book-green)] px-5 py-2.5 text-white">
+        <h3 className="font-reading text-sm font-bold uppercase tracking-[0.14em]">
+          {title ?? 'Exercises'}
+        </h3>
+        <span className="ml-auto text-xs text-white/80">
           {sets.reduce((n, s) => n + s.questions.length, 0)} questions · full solutions
         </span>
       </header>
@@ -437,26 +471,37 @@ function ExercisesBlock({
         {sets.map((set, si) => (
           <div key={si}>
             <div className="mb-3 flex items-center gap-2">
-              <Badge variant="outline" className="border-primary/40 text-primary">
+              <Badge
+                variant="outline"
+                className="border-[var(--book-green)]/50 text-[var(--book-green-ink)]"
+              >
                 {LEVEL_LABELS[set.level]}
               </Badge>
               <span className="text-xs text-muted-foreground">
                 {set.questions.length} question{set.questions.length === 1 ? '' : 's'}
               </span>
             </div>
-            <ol className="space-y-3">
+            <ol className="divide-y divide-[var(--book-sage-line)]/60">
               {set.questions.map((q, qi) => (
-                <li key={qi} className="rounded-md border bg-card/60 px-4 py-3">
+                <li key={qi} className="py-3.5 first:pt-1 last:pb-1">
                   <p className="font-medium leading-7">
-                    <span className="mr-2 text-primary">Q{qi + 1}.</span>
+                    <span className="mr-2 font-reading font-bold text-[var(--book-green-ink)]">
+                      Q{qi + 1}.
+                    </span>
                     <RichText text={q.q} />
                   </p>
                   <Collapsible>
-                    <CollapsibleTrigger className="group mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+                    <CollapsibleTrigger className="group mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-[var(--book-green-ink)] hover:underline">
                       <ChevronRight className="h-3.5 w-3.5 transition-transform group-data-[state=open]:rotate-90" aria-hidden />
                       Show solution
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="mt-2 rounded-md border-l-2 border-primary/50 bg-muted/40 px-4 py-2.5 text-sm leading-7 text-foreground/90">
+                    <CollapsibleContent className="mt-2 rounded-md border-l-2 border-[var(--book-green)]/60 bg-[var(--book-sage)]/50 px-4 py-2.5 text-sm leading-7 text-foreground/90">
+                      <div className="mb-2 flex items-center gap-2.5">
+                        <span className="inline-flex items-center rounded-full bg-[var(--book-green)] px-2.5 py-[2px] text-[11px] font-bold text-white">
+                          Sol.
+                        </span>
+                        <span className="h-px flex-1 bg-[var(--book-sage-line)]/70" aria-hidden />
+                      </div>
                       <SolutionBody q={q} />
                     </CollapsibleContent>
                   </Collapsible>
@@ -481,6 +526,15 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
   for (const b of blocks) if (b.kind === 'figure') figureNumbers.push(++fig)
 
   let figureCursor = 0
+
+  // Illustrations (worked examples) are numbered in lesson order —
+  // Illustration 1, 2, … — the Cengage-style presentation (owner
+  // directive 2026-11-03).
+  const illustrationNumbers: number[] = []
+  let ill = 0
+  for (const b of blocks) if (b.kind === 'example') illustrationNumbers.push(++ill)
+
+  let illustrationCursor = 0
 
   return (
     <>
@@ -510,7 +564,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                       ti !== b.items.length - 1 ? 'border-b border-border/70' : ''
                     } ${ti % 2 === 1 ? 'bg-muted/30' : ''}`}
                   >
-                    <dt className="font-reading text-base font-bold text-foreground">{t.term}</dt>
+                    <dt className="font-reading text-base font-bold text-[var(--book-green-ink)]">{t.term}</dt>
                     <dd className="text-[0.92em] leading-6 text-foreground/90">
                       <RichText text={t.def} />
                     </dd>
@@ -541,27 +595,12 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
             )
           case 'example':
             return (
-              <section key={i} className="my-7 rounded-lg border border-stone-300/80 bg-stone-50/60 dark:border-stone-700 dark:bg-stone-900/40">
-                <header className="flex items-center gap-2 border-b border-stone-300/80 px-5 py-2.5 dark:border-stone-700">
-                  <BookOpen className="h-4 w-4 text-primary" aria-hidden />
-                  <h3 className="font-reading text-base font-semibold">Worked example — {b.title}</h3>
-                </header>
-                <ol className="space-y-3 px-5 py-4">
-                  {b.steps.map((s, si) => (
-                    <li key={si} className="flex gap-3">
-                      <span
-                        className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-[11px] font-bold text-primary"
-                        aria-hidden
-                      >
-                        {si + 1}
-                      </span>
-                      <p className="leading-7 text-foreground/90">
-                        <RichText text={s} />
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              </section>
+              <ExampleBlock
+                key={i}
+                title={b.title}
+                steps={b.steps}
+                no={illustrationNumbers[illustrationCursor++] ?? 0}
+              />
             )
           case 'figure': {
             const no = figureNumbers[figureCursor++]
@@ -590,9 +629,16 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                   <Table>
                     {b.head.length > 1 && (
                       <TableHeader>
-                        <TableRow className="bg-muted/60 hover:bg-muted/60">
+                        <TableRow className="bg-[var(--book-sage)] hover:bg-[var(--book-sage)]">
                           {b.head.map((h, hi) => (
-                            <TableHead key={hi} className={hi === 0 ? '' : 'text-center font-reading'}>
+                            <TableHead
+                              key={hi}
+                              className={
+                                hi === 0
+                                  ? 'font-semibold text-[var(--book-green-ink)]'
+                                  : 'text-center font-reading font-semibold text-[var(--book-green-ink)]'
+                              }
+                            >
                               <RichText text={h} />
                             </TableHead>
                           ))}
@@ -601,7 +647,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                     )}
                     <TableBody>
                       {b.rows.map((r, ri) => (
-                        <TableRow key={ri}>
+                        <TableRow key={ri} className={ri % 2 === 1 ? 'bg-[var(--book-sage)]/40' : ''}>
                           {r.map((c, ci) => (
                             <TableCell
                               key={ci}
@@ -618,6 +664,26 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               </figure>
             )
           case 'list':
+            if (b.marker === 'roman') {
+              const ROMAN = [
+                'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+                'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx',
+              ]
+              return (
+                <ul key={i} className="lesson-list roman-list">
+                  {b.items.map((it, ii) => (
+                    <li key={ii}>
+                      <span className="roman-mark" aria-hidden>
+                        ({ROMAN[ii] ?? ii + 1})
+                      </span>
+                      <span>
+                        <RichText text={it} />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
             return b.ordered ? (
               <ol key={i} className="lesson-list list-decimal">
                 {b.items.map((it, ii) => (

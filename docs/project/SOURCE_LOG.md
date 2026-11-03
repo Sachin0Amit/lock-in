@@ -16,7 +16,12 @@ step 6).
   CHEMISTRY, PHYSICS, _DPPs (practice sheets). Full machine-readable listing:
   `temporary-references/inventory.json` (gitignored). Re-confirmed 2026-11-03
   after a sandbox recycle wiped the gitignored listing — embeddedfolderview
-  re-pull, same 89 entries, file ids intact.
+  re-pull, same 89 entries, file ids intact. The MATHS subfolder was itself
+  surveyed 2026-11-03 (run 14, owner style directive): 5 module folders,
+  42 chapter PDFs total — per-module machine listings persisted at
+  `temporary-references/maths-*.json` (gitignored; rebuild with
+  `scripts/list_drive_folder.ts <folderId>`; module ids live in
+  maths-inventory.json).
 - Note: the Drive is exam/higher-ed oriented; school-level foundation topics
   rely on the internet fallback (NCERT-class curricula) plus the Khattar
   aptitude book for exam-style coverage. Re-downloaded again 2026-11-03
@@ -27,6 +32,24 @@ step 6).
   than 1 and not prime", the four notes incl. 1-is-neither and 2-only-even
   prime, the 25-primes-below-100 list, co-primes with the 16 & 17 example);
   working copies deleted after the lesson's E2E. Exposition original.
+
+## Style references (presentation, not content)
+
+- `cengage-jee-style` — the Drive `MATHS` M1–M5 modules are the Cengage JEE
+  mathematics series (per-chapter PDFs). Studied 2026-11-03 (run 14, owner
+  directive "i want my book to look like in cengage book"): M2/01 "Set Theory
+  and The Real Number System" (file id persisted in
+  `temporary-references/maths-M2.json`; 24 MB, 35 pp) downloaded via
+  `scripts/download_drive_file.sh` and examined with OCR + vision analysis
+  on rendered pages. Used ONLY as the **presentation style reference** for
+  the reader reskin and the BOOK_FORMAT theory-voice contract: ALL-CAPS
+  ink-green section heads over rules, definitions in running prose with
+  symbolic "Thus," restatements, "For example," runs as (i)(ii)(iii)
+  enumerated items, ILLUSTRATION pills + sage problem bands + "Sol."
+  solutions, green exercise banner bars, sage table headers. **No text,
+  examples, exercises or figures reproduced** — all LockIn content remains
+  original. Working copy (PDF + page renders) deleted after the run's E2E
+  verification, per the storage law.
 
 ## Citation keys (used by lesson `sources` fields)
 
@@ -161,6 +184,13 @@ step 6).
   copies (PDF + text dumps) deleted after the lesson's E2E verification;
   only inventory.json retained.
 
+- 2026-11-03 (mathematics, run 14, style study): Cengage M2/01 Set Theory
+  and The Real Number System re-downloaded from the MATHS subfolder
+  (persisted id; 24 MB) and OCR/vision-studied as the presentation style
+  reference for the Cengage book-style reader reskin — no content reproduced;
+  MATHS subfolder surveyed into temporary-references/maths-*.json. Working
+  copies (PDF + page renders) deleted after verification; survey metadata
+  retained.
 - 2026-11-03 (mathematics, unit 3, lesson 3.5): Khattar QA 4e re-downloaded
   via the persisted id (33.9 MB) — ch. 2 "H.C.F. and L.C.M. of Numbers"
   product-rule section studied for the unit closer: "Product of two numbers

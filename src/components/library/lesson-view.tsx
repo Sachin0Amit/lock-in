@@ -123,12 +123,12 @@ export function LessonView({ ref_ }: Props) {
             </span>
           </nav>
 
-          {/* Lesson header */}
-          <header className="mb-8">
-            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+          {/* Lesson header — Cengage chapter-opener family (green ink) */}
+          <header className="mb-8 border-t-2 border-[var(--book-green)] pt-4">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[var(--book-green-ink)]">
               Lesson {lesson.number}
             </p>
-            <h1 className="font-reading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            <h1 className="font-reading text-3xl font-bold leading-tight tracking-tight text-[var(--book-green-ink)] sm:text-4xl">
               {lesson.title}
             </h1>
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
@@ -144,8 +144,8 @@ export function LessonView({ ref_ }: Props) {
                 {lesson.concepts.map((c) => (
                   <Badge
                     key={c}
-                    variant="secondary"
-                    className="h-auto font-normal whitespace-normal text-left leading-relaxed"
+                    variant="outline"
+                    className="h-auto whitespace-normal rounded-full border-[var(--book-sage-line)] bg-[var(--book-sage)]/60 font-normal text-[var(--book-green-ink)] text-left leading-relaxed"
                   >
                     {c}
                   </Badge>
@@ -191,8 +191,8 @@ export function LessonView({ ref_ }: Props) {
             )}
 
             {lesson.objectives && (
-              <div className="mt-5 rounded-lg border border-primary/30 bg-primary/5 px-5 py-4 dark:bg-primary/10">
-                <p className="mb-1.5 text-sm font-semibold text-primary">
+              <div className="mt-5 rounded-lg border border-[var(--book-sage-line)] bg-[var(--book-sage)] px-5 py-4">
+                <p className="mb-1.5 text-sm font-semibold text-[var(--book-green-ink)]">
                   By the end of this lesson you will be able to
                 </p>
                 <ul className="list-inside list-disc space-y-0.5 text-sm leading-6 text-foreground/90">

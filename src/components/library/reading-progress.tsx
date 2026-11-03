@@ -17,7 +17,7 @@ export function ReadingProgress() {
     <motion.div
       aria-hidden
       style={{ scaleX }}
-      className="fixed left-0 right-0 top-14 z-40 h-0.5 origin-left bg-gradient-to-r from-primary to-accent"
+      className="fixed left-0 right-0 top-14 z-40 h-0.5 origin-left bg-[var(--book-green)]"
     />
   )
 }

@@ -74,6 +74,14 @@ server.log
 !/scripts/fix-figure-overlaps.py
 # exception: one-shot migration of exercise solutions to the worked-step format (2026-11-03, historical record)
 !/scripts/convert-solutions-to-steps.py
+# exception: Drive folder listing + file download tools (run 14 style study; reusable)
+!/scripts/list_drive_folder.ts
+!/scripts/download_drive_file.sh
+# exception: Cengage-style reader reskin E2E (run 14, owner directive)
+!/scripts/e2e-cengage-style.sh
+!/scripts/e2e-cengage-style.page.js
+# exception: one-shot run-14 log updater (2026-11-03, historical record)
+!/scripts/update_progress_run14.py
 /.zscripts/
 /examples/
 /tests/

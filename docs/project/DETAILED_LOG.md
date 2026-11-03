@@ -76,6 +76,7 @@ review passed; `WORK_INVENTORY.json` regenerated in the same run).
 | 11-03 (run 12, owner chat) | `8fd776e` | **Reader width + permalink fix (owner directive)** — lesson article 768→962px measured (container 7xl, article fills grid at xl, figures 3xl, TOC/glossary 5xl, chrome 7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed from every lesson; all 12 lessons re-audited 0 SVG issues; audit default list extended with 3.4/3.5/4.1 |
 | 11-03 (run 12, owner chat) | (ship) | **UNIT 4 OPENED: lesson 4.1 The Idea of a Fraction** (ch-04.ts created) — authored, 84 pre-writing checks (`verify-unit-4.ts`, gitignore exception added FIRST), both new figures 0 audit issues FIRST pass, E2E green (quiz 5/5 live, KaTeX 221, glossary 91 terms, 390px exact-fit with all ten solutions force-revealed), mediant theorem delivers 3.5's density promise (cross-multiplication licence on credit for 4.2/4.3), logged; pushed (protocol v2) |
 | 11-03 (run 13, owner chat) | (ship) | **WORKED-SOLUTION FORMAT shipped** — handwritten-notes style: all 125 exercise solutions converted from prose paragraphs to numbered step lines + boxed Answer rows; platform (solution string\|string[] + answer, SolutionBody renderer) + migration script with per-solution token-preservation assertion (125/125); E2E green incl. 390px exact-fit with every solution expanded; BOOK_FORMAT contract updated; logged; pushed (protocol v2) |
+| 11-03 (run 14, owner chat) | (ship) | **CENGAGE BOOK-STYLE THEORY shipped platform-wide** — Drive MATHS modules surveyed (5 modules, 42 chapter PDFs, ids persisted); Cengage M2/01 style-studied (OCR + vision; no content reproduced); reader reskinned print-style (green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars, hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, green chapter-opener headers) — all 14 lessons restyled at once; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; E2E green (VLM fidelity 8.5/10); logged; pushed (protocol v2) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -906,7 +907,11 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
 - **CURRENT (hourly cadence): UNIT 4 — FM chapter 4 "Fractions", lesson
   4.2 "Equivalent Fractions and Simplification"** (4.1 SHIPPED run 12 —
-  chapter 4 is open at 1/5). Ties to honour from 4.1: prove the
+  chapter 4 is open at 1/5), **authored IN THE CENGAGE VOICE per the
+  run-14 owner directive + BOOK_FORMAT house style** (formal definition
+  sentences + "Thus," restatements, "For example," roman-marker runs,
+  illustration titles as crisp problem statements — the print LOOK is
+  already automatic in the renderer). Ties to honour from 4.1: prove the
   cross-multiplication licence via common denominators and pay the debt;
   open with the 3/4 = 12/16 equivalence teaser; the atoms of chapter 3
   (HCF) return to simplify; Khattar ch. 2's HCF/LCM-of-fractions rules
@@ -918,4 +923,8 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly two
   backslashes in source; table blocks use `head:`; exercises use `sets`;
   callout blocks need `title`.
+- **Style queue (run-14 owner directive):** the Cengage LOOK is live for
+  all 14 lessons; the prose VOICE polish of the existing lessons (1.1
+  first as the exemplar, one lesson per run) is queued alongside unit-4
+  progression — never batch-draft.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

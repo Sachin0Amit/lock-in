@@ -45,17 +45,17 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 | Block | Use for | Notes |
 |---|---|---|
 | `para` | body prose | supports `$inline math$`, `**bold**`, `*italic*` |
-| `heading` | section heading (h2) | auto-styled with rule; anchor id auto-derived for the scrollspy TOC |
-| `callout` | insight / warn / definition / theorem / historical / exam | `tone` picks the colour |
-| `terms` | definition lists | term + def pairs; **feeds the book's flashcards and glossary automatically** |
+| `heading` | theory section heading | rendered Cengage-style: ink-green ALL-CAPS over a thin green rule (authors write Title Case — the reader uppercases); anchor id auto-derived for the scrollspy TOC |
+| `callout` | insight / warn / definition / theorem / historical / exam | rendered as printed **note boxes** — tinted panel, small-caps label lead-in (Note / Caution / Definition / Theorem / Historical note / Exam corner) + bold title; `tone` picks the colour |
+| `terms` | definition lists | term + def pairs; **feeds the book's flashcards and glossary automatically**; terms print in ink-green |
 | `equation` | display math, centred | KaTeX source; `\tag{n}` numbers it; `note` = "where…" prose |
-| `derivation` | step-by-step proofs | label + formula + why, per step; result boxed |
-| `example` | worked examples | numbered steps |
-| `figure` | inline SVG | self-contained, viewBox, labels match prose text |
-| `table` | tabular data | auto-styled; cells support `$math$` |
-| `list` | bullet/ordered lists | |
-| `quiz` | self-check MCQs | interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
-| `exercises` | graded question sets | levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see below) |
+| `derivation` | step-by-step proofs | green-ruled title, numbered steps, boxed Result — the book's reasoned-argument presentation |
+| `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, a `Sol.` pill leading numbered worked steps. `title` must be a crisp problem statement |
+| `figure` | inline SVG | self-contained, viewBox, labels match prose text; thin uniform strokes + plain labels (Cengage figure manner) |
+| `table` | tabular data | sage header row in ink-green + alternating tinted rows; cells support `$math$` |
+| `list` | bullet/ordered lists | `marker: 'roman'` renders the Cengage `(i) (ii) (iii)` example-run enumeration |
+| `quiz` | self-check MCQs | green bar header; interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
+| `exercises` | graded question sets | green bar header (Cengage exercise banner); hairline-separated questions, no cards; levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see below), opened by a `Sol.` pill |
 | `formula` | revision formula card | name + KaTeX + note; **aggregated into the auto "Formula sheet" page** — use for every must-recall formula |
 | `algorithm` | pseudocode / procedures | numbered monospace lines with optional per-line notes; for CS books and stepwise methods |
 
@@ -76,6 +76,31 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
   Figure numbers are auto-assigned by the reader.
 - **Questions**: 6 difficulty levels (L1 beginner → L6 research/olympiad);
   solutions include strategy, not just answers.
+- **Cengage theory presentation (owner directive 2026-11-03)**: the theory
+  of every lesson is written and laid out in the manner of the Cengage JEE
+  mathematics books (the Drive `MATHS` M1–M5 modules — style reference
+  studied 2026-11-03, no content reproduced). The **look** is automatic —
+  the reader renders section heads as ink-green caps over a rule,
+  illustrations as green pills + sage bands, exercises under green bars.
+  The **voice** is the author's job:
+  - **Definitions** open formally — "*X* is said to be … if …" — and are
+    followed by a symbolic restatement on its own line: "Thus,
+    $A \subseteq B \Leftrightarrow x \in A \Rightarrow x \in B$." Keep
+    the `definition` callout + `terms` entries for the same idea.
+  - **Example runs** after a definition use "For example," followed by a
+    `list` with `marker: 'roman'` — items `(i)`, `(ii)`, `(iii)`.
+  - **Properties lists** ("Properties of …") are plain bullet lists, one
+    property per bullet, each with a verified instance.
+  - **Illustrations**: `example.title` is a crisp problem statement
+    ("Round 5,768 to the nearest ten, hundred and thousand"), `steps` the
+    worked solution in the worked-step format below — first step states
+    the setup, later steps make one move each, final step concludes
+    ("Hence …").
+  - **Notes and cautions**: short, boxed, single-idea — the `insight`
+    callout prints as a "Note" box, `warn` as "Caution".
+  - **Summary lines** that harvest a section ("From the above discussion,
+    it follows that …") use `list marker: 'roman'` or an `equation` with
+    `\tag`.
 - **Worked-solution format (owner directive 2026-11-03)**: every
   `solution` is written as an **array of short steps** — one worked line per
   array entry, words + `$math$` mixed, like a handwritten worked solution

@@ -90,6 +90,14 @@ instruction §4) and get promoted to real books one at a time.
   → research/olympiad) → summary → formula sheet → further reading.
 - Teaching voice: intuitive first, formal second; every symbol explained;
   assumptions stated; answers verified; alternative methods shown.
+- **Theory presentation: Cengage JEE-book manner (owner directive
+  2026-11-03)** — the Drive `MATHS` M1–M5 modules are the style reference
+  (studied, never reproduced). Formal definition sentences + symbolic
+  "Thus, …" restatements, "For example," runs with (i)(ii)(iii) items,
+  worked examples as Illustrations with Sol. steps, properties as bullet
+  lists, boxed notes. The reader renders the print look (ink-green caps
+  heads, green pills/bars, sage bands); the authoring contract is
+  `BOOK_FORMAT.md` § House style.
 - Accuracy over volume: never fabricate formulas, history, data, or exam
   questions. Exam-style items must be labelled "exam-style" unless verified
   against official sources.

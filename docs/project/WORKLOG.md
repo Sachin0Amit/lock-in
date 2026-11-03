@@ -6,6 +6,89 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER CHAT DIRECTIVE (run 14): Cengage book-style theory shipped platform-wide — the reader now renders every lesson in the print manner of the Cengage JEE mathematics books
+
+**Situation at start:** owner message (chat `47dcb175`): "i want theory in
+such a way or you can say style of book so update all .md .json etc logs and
+edit already written books. i want my book to look like in cengage book you
+can download it from the google drive link and see it siagratm theory etc".
+Tree clean at `a2190ba` = origin/main. Directive: the whole book should
+read and look like the Cengage JEE reference modules on the Drive.
+
+**Style study (grounding):** MATHS Drive subfolder surveyed
+(`scripts/list_drive_folder.ts`, 5 module folders → 42 chapter PDFs,
+ids persisted in gitignored `temporary-references/maths-*.json`);
+M2/01 "Set Theory and The Real Number System" (24 MB, 35 pp) downloaded
+via the new `scripts/download_drive_file.sh` (usercontent endpoint +
+confirm token) and studied with OCR + vision analysis on rendered pages:
+ALL-CAPS ink-green section heads over a thin rule; definitions in running
+prose with symbolic "Thus, …" restatement lines; "For example," runs as
+(i)(ii)(iii) enumerated items; ILLUSTRATION n.m pills + problem on a sage
+band + "Sol." pill + roman-part solutions; green CONCEPT APPLICATION
+EXERCISE banner bars over tinted panels; sage table headers; two-column
+dense serif setting. Style only — no content reproduced.
+
+**Platform reskin (look — applies to ALL 14 existing lessons at once,
+zero content-file edits):**
+- `globals.css`: book palette vars (light+dark: `--book-green`,
+  `--book-green-ink`, `--book-sage`, `--book-sage-line`), scoped to lesson
+  furniture (app chrome keeps the warm academic palette); `.lesson-h2`
+  reworked to Cengage heads (ink-green ALL-CAPS, 2px green rule above,
+  no underline); body leading 1.8 → 1.75 and paragraph rhythm tightened;
+  new `.roman-list` styles for (i)(ii)(iii) enumeration.
+- `blocks.tsx`: `example` blocks render as **Illustrations** — auto-numbered
+  `ILLUSTRATION n` green pill + hairline, `title` on a sage band, `Sol.`
+  pill + rule leading the numbered worked steps (worked-step format
+  preserved). Callouts became printed **note boxes** — tinted panels,
+  small-caps label lead-ins (Note / Caution / Definition / Theorem /
+  Historical note / Exam corner), icons dropped from static content.
+  Quiz + Exercises headers became solid green banner bars (all-caps
+  letter-spaced, white) — the exercise questions switched from boxed cards
+  to **hairline-separated print rows** with serif bold green Q-numbers;
+  solutions open under a `Sol.` pill. Derivations/Algorithm/Formula/tables
+  reskinned into the same green family (sage table headers + alternating
+  tinted rows; green step rails and Result boxes). `list` gained
+  `marker: 'roman'` (types.ts) rendering `(i) (ii) (iii)` items.
+- `lesson-view.tsx`: lesson header committed to the chapter-opener family —
+  green rule over the header, green kicker + serif green title, concept
+  chips as sage outline pills, objectives box sage-tinted;
+  `reading-progress.tsx` bar recoloured book green.
+
+**Logs/contracts updated (the "update all .md/.json" ask):**
+`BOOK_FORMAT.md` (block-table rows + a full "Cengage theory presentation"
+house-style section: definition voice, Thus-lines, For-example roman runs,
+illustration title = problem statement), `MASTER_PLAN.md` §5 bullet,
+`PROGRESS.json` phase/features/verified, `RESUME_POINTER.json`
+(nextAction now requires FM 4.2+ authored in the Cengage voice; style
+queue for the 14 existing lessons' voice polish), `SOURCE_LOG.md`
+(style-reference entry), `WORK_INVENTORY.json` regenerated.
+
+**Voice queue (honest scope):** the LOOK is done for every existing
+lesson via the renderer; the deeper prose VOICE migration (formal
+definition sentences, Thus-lines, roman example runs) is a content-level
+edit — new lessons (4.2+) are authored natively in the voice per
+BOOK_FORMAT; the 14 existing lessons are queued for voice polish in
+later runs (1.1 first as the exemplar), same cadence as the run-13
+worked-solution migration.
+
+**Verified:** lint clean; tsc clean; 6 routes 200; browser E2E on
+1.1/2.5/3.2/4.1 — h2 computed style uppercase + 2px green rule +
+ink-green colour, Illustration pills/bands/Sol. pills render (1.1: 1
+illustration/5 steps; 2.5: 2/11; 3.2: 2/8; 4.1: 2/8), note-box labels
+correct, exercises + quiz bars solid green, KaTeX 54/113/257/221 nodes,
+dollarInSvg = 0, quiz answered live with score + retake working,
+solution expansion with Sol. pill + numbered steps, mobile 390px
+exact-fit (docScrollW = 390); SVG overlap audit re-run (1.1/3.2/4.1) —
+0 issues; VLM visual review of header/illustration/exercises
+screenshots: fidelity 5.5 → 8.5/10 after the exercise-row + green-header
+fixes (remaining nits: level-pill baseline, chip row-gap — cosmetic,
+deliberately not chased). Cengage PDF + page renders deleted after
+verification (per the storage law); survey metadata retained.
+
+**Git:** commit `cengage book-style theory (owner directive): reader reskinned print-style — green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars with hairline print rows, note-box callouts, roman example-runs (list marker), green chapter-opener lesson headers; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; MATHS Drive modules surveyed + style-studied`.
+
+---
+
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 13): worked-solution format shipped — all 125 exercise solutions converted from prose paragraphs to numbered steps + boxed Answer rows
 
 **Situation at start:** owner message with a handwritten maths-notes photo
