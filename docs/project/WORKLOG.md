@@ -99,9 +99,14 @@ the new terms (102 total). Totals recomputed by the honest counter:
 **No new downloads:** references already logged (Khattar ch. 1 exam item
 banked in 4.1; NCERT class-6 ch. 7) — SOURCE_LOG unchanged.
 
-**Git:** ship commit `fm 4.3 comparing fractions …` + inventory
-bookkeeping commit; pushed per protocol v2 (see the run-18 memory entry
-for the verified sha).
+**Git:** ship commit `fd39676` (fm 4.3 comparing fractions — 12 files,
++1,314/−90) + inventory bookkeeping commit `5762243`; BOTH pushed per
+protocol v2 in one command via the one-time HTTPS URL:
+`76d9949..5762243 HEAD -> main`; remote HEAD verified `5762243` by
+ls-remote with the one-time URL form (HEAD = refs/heads/main =
+`576224328b7...` = local HEAD); origin/main tracking ref resynced. PAT
+never written to any file, config, or log; origin untouched as the SSH
+remote. The run-18 memory commit (this entry) pushes immediately after.
 
 ---
 
