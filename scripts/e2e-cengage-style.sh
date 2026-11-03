@@ -26,7 +26,7 @@ for L in "${LESSONS[@]}"; do
     if (!raw) { console.log('  NO OUTPUT'); process.exit(0); }
     const d = JSON.parse(raw.replace(/^\"/, '').replace(/\"$/, '').replace(/\\\\\"/g, '\"').replace(/\\\\n/g, ' '));
     console.log('  h2:', JSON.stringify(d.h2));
-    console.log('  illustrations:', d.illustrations && d.illustrations.count, '| first:', d.illustrations && d.illustrations.first, '| Sol. pills:', d.illustrations && d.illustrations.solPills, '| step rows:', d.illustrations && d.illustrations.stepRows);
+    console.log('  illustrations:', d.illustrations && d.illustrations.count, '| first:', d.illustrations && d.illustrations.first, '| Sol. pills:', d.illustrations && d.illustrations.solPills, '| step rows:', d.illustrations && d.illustrations.stepRows, '| stepNumberBadges (must be 0):', d.stepNumberBadges);
     console.log('  noteBoxes:', JSON.stringify((d.noteBoxes||[]).slice(0, 8)));
     console.log('  exercisesBar:', JSON.stringify(d.exercisesBar));
     console.log('  quizBar:', JSON.stringify(d.quizBar));

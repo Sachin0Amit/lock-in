@@ -49,15 +49,15 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 | `callout` | insight / warn / definition / theorem / historical / exam | rendered as printed **note boxes** — tinted panel, small-caps label lead-in (Note / Caution / Definition / Theorem / Historical note / Exam corner) + bold title; `tone` picks the colour |
 | `terms` | definition lists | term + def pairs; **feeds the book's flashcards and glossary automatically**; terms print in ink-green |
 | `equation` | display math, centred | KaTeX source; `\tag{n}` numbers it; `note` = "where…" prose |
-| `derivation` | step-by-step proofs | green-ruled title, numbered steps, boxed Result — the book's reasoned-argument presentation |
-| `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, a `Sol.` pill leading numbered worked steps. `title` must be a crisp problem statement |
+| `derivation` | step-by-step proofs | green-ruled title, steps on a green rail (no step numbers — owner directive 2026-11-03), boxed Result — the book's reasoned-argument presentation |
+| `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, a `Sol.` pill leading the worked steps — **without step numbers** (owner directive 2026-11-03). `title` must be a crisp problem statement |
 | `figure` | inline SVG | self-contained, viewBox, labels match prose text; thin uniform strokes + plain labels (Cengage figure manner) |
 | `table` | tabular data | sage header row in ink-green + alternating tinted rows; cells support `$math$` |
 | `list` | bullet/ordered lists | `marker: 'roman'` renders the Cengage `(i) (ii) (iii)` example-run enumeration |
 | `quiz` | self-check MCQs | green bar header; interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
 | `exercises` | graded question sets | green bar header (Cengage exercise banner); hairline-separated questions, no cards; levels L1–L6; every question carries a full worked `solution` — **as a steps array** (see below), opened by a `Sol.` pill |
 | `formula` | revision formula card | name + KaTeX + note; **aggregated into the auto "Formula sheet" page** — use for every must-recall formula |
-| `algorithm` | pseudocode / procedures | numbered monospace lines with optional per-line notes; for CS books and stepwise methods |
+| `algorithm` | pseudocode / procedures | monospace lines with optional per-line notes, **unnumbered** (owner directive 2026-11-03); for CS books and stepwise methods |
 
 ## Lesson-level fields
 
@@ -108,7 +108,11 @@ chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
   Lead-in words per step (Split / Take / Check / Hence …); keep each step to
   one move. End with `answer: '…'` (a single result line) whenever the
   question has a crisp final result — it renders as a boxed Answer row.
-  Never one dense paragraph. All 125 pre-existing solutions were migrated
+  **Step numbers are NOT rendered** (owner directive 2026-11-03, "no need to
+  show the steps number"): each array entry prints as a clean unnumbered
+  line, in Illustrations, exercise solutions, derivations and algorithm
+  lines alike — the lead-in words carry the sequence. Never one dense
+  paragraph. All 125 pre-existing solutions were migrated
   to this format on 2026-11-03 (`scripts/convert-solutions-to-steps.py`,
   token-preserving).
 - **Exams**: label items "exam-style" unless sourced from an official paper;

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 18:04:54 (Asia/Kolkata)",
+  "generated": "2026-11-03 19:55:48 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1110,19 +1110,19 @@
     ],
     "codebase": {
       "srcFilesTracked": 83,
-      "totalLines": 17330,
+      "totalLines": 17310,
       "byArea": {
         "src/app (routes, pages)": 586,
-        "src/components/library (reader platform)": 2964,
+        "src/components/library (reader platform)": 2942,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 8101,
+        "src/data/library (content model + books)": 8103,
         "src/hooks": 214,
         "src/lib": 20
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 719
+          "lines": 697
         },
         {
           "file": "home-view.tsx",
@@ -3806,6 +3806,189 @@
           "path": "docs/project/WORKLOG.md",
           "add": 6,
           "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "2895750c8864085d8cfb29f46119ee4395a35225",
+      "short": "2895750",
+      "date": "2026-11-03 12:35",
+      "message": "cengage book-style theory (owner directive): reader reskinned print-style — green caps section heads over rules, examples as ILLUSTRATION pills + sage bands + Sol. steps, green exercise/quiz bars with hairline print question rows, note-box callouts, roman (i)(ii)(iii) example runs (list marker), green chapter-opener lesson headers; style grounded by studying Cengage M2/01 from the Drive MATHS modules (survey + ids persisted, no content reproduced); BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG/DETAILED_LOG updated; E2E green (VLM fidelity 8.5/10)",
+      "filesChanged": 19,
+      "insertions": 918,
+      "deletions": 143,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 35,
+          "del": 10
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 1
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 31,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 83,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 112,
+          "del": 5
+        },
+        {
+          "path": "scripts/download_drive_file.sh",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.page.js",
+          "add": 84,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 129,
+          "del": 0
+        },
+        {
+          "path": "scripts/list_drive_folder.ts",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/update_progress_run14.py",
+          "add": 117,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 47,
+          "del": 8
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 167,
+          "del": 101
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 8,
+          "del": 8
+        },
+        {
+          "path": "src/components/library/reading-progress.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "d5a1b43e2b7b10aabde5a43b0821b3de35cba1c9",
+      "short": "d5a1b43",
+      "date": "2026-11-03 12:36",
+      "message": "memory: record run-14 ship push verification (2895750), origin/main synced — Cengage book-style theory live; next: FM 4.2 in the Cengage voice + voice-polish queue 1.1-4.1",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "23c67feb9b540b4cf039d69d71a78e0e22d423a3",
+      "short": "23c67fe",
+      "date": "2026-11-03 14:24",
+      "message": "no step numbers anywhere (owner directive): Sol. steps, derivations, exercise solutions and algorithm lines render as clean unnumbered lines — circled digit badges removed from all four renderers; BOOK_FORMAT/types contracts updated; E2E gains stepNumberBadges=0 check (KaTeX aria-hidden layer excluded)",
+      "filesChanged": 10,
+      "insertions": 317,
+      "deletions": 67,
+      "files": [
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 8,
+          "del": 4
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 12,
+          "del": 13
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 15,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 183,
+          "del": 5
+        },
+        {
+          "path": "scripts/e2e-cengage-style.page.js",
+          "add": 13,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 14,
+          "del": 36
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 3,
+          "del": 1
         }
       ]
     }

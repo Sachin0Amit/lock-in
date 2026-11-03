@@ -92,7 +92,8 @@ function CalloutBlock({ tone, title, text }: { tone: CalloutTone; title: string;
 /* ---------------------------------------------------------------- */
 /* Illustration — the Cengage worked example (owner directive          */
 /* 2026-11-03): green pill label, problem on a sage band, "Sol." pill   */
-/* leading the numbered worked steps.                                   */
+/* leading the worked steps. Step numbers are NOT shown (owner          */
+/* directive 2026-11-03: "no need to show the steps number").           */
 /* ---------------------------------------------------------------- */
 
 function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no: number }) {
@@ -114,18 +115,10 @@ function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no
           </span>
           <span className="h-px flex-1 bg-[var(--book-sage-line)]/70" aria-hidden />
         </div>
-        <ol className="space-y-2.5">
+        <ol className="list-none space-y-2.5">
           {steps.map((s, si) => (
-            <li key={si} className="flex gap-3">
-              <span
-                className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--book-green)]/50 bg-[var(--book-sage)] text-[11px] font-semibold leading-none text-[var(--book-green-ink)] tabular-nums"
-                aria-hidden
-              >
-                {si + 1}
-              </span>
-              <p className="leading-7 text-foreground/90">
-                <RichText text={s} />
-              </p>
+            <li key={si} className="leading-7 text-foreground/90">
+              <RichText text={s} />
             </li>
           ))}
         </ol>
@@ -158,15 +151,9 @@ function DerivationBlock({
         <p className="text-[0.95em] leading-7 text-foreground/90">
           <RichText text={statement} />
         </p>
-        <ol className="mt-4 space-y-0 border-l-2 border-[var(--book-green)]/40">
+        <ol className="mt-4 list-none space-y-0 border-l-2 border-[var(--book-green)]/40">
           {steps.map((step, i) => (
             <li key={i} className="relative pb-4 pl-6 last:pb-1">
-              <span
-                className="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-[var(--book-green)]/70 bg-background text-[10px] leading-[12px] text-center font-semibold text-[var(--book-green-ink)]"
-                aria-hidden
-              >
-                {i + 1}
-              </span>
               <span className="text-sm font-medium text-foreground">{step.label}</span>
               {step.formula && <Math tex={step.formula} display />}
               <p className="text-[0.92em] leading-6 text-muted-foreground">
@@ -235,12 +222,9 @@ function AlgorithmBlock({
         </div>
       </header>
       <div className="overflow-x-auto px-5 py-4">
-        <ol className="min-w-max space-y-1.5 font-mono text-sm leading-6">
+        <ol className="min-w-max list-none space-y-1.5 font-mono text-sm leading-6">
           {lines.map((l, i) => (
             <li key={i} className="flex gap-3">
-              <span className="w-6 shrink-0 text-right text-muted-foreground tabular-nums" aria-hidden>
-                {i + 1}
-              </span>
               <span className="whitespace-pre text-foreground">{l.code}</span>
               {l.note && (
                 <span className="whitespace-pre-wrap text-muted-foreground" title={l.note}>
@@ -411,25 +395,19 @@ function QuizBlock({
 /* Exercises                                                         */
 /* ---------------------------------------------------------------- */
 
-/* A worked solution: numbered steps (one line each, words + math), with an
- * optional boxed final answer — styled after handwritten worked solutions
- * (owner directive 2026-11-03). Legacy string solutions stay paragraphs. */
+/* A worked solution: one step per line, words + math, with an optional
+ * boxed final answer — styled after handwritten worked solutions (owner
+ * directive 2026-11-03). Step numbers are NOT shown (owner directive
+ * 2026-11-03: "no need to show the steps number"). Legacy string
+ * solutions stay paragraphs. */
 function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string } }) {
   if (!Array.isArray(q.solution)) return <RichText text={q.solution} />
   return (
     <div className="space-y-2.5">
       <ol className="list-none space-y-2">
         {q.solution.map((s, i) => (
-          <li key={i} className="flex gap-3">
-            <span
-              aria-hidden
-              className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[var(--book-green)]/50 bg-[var(--book-sage)] text-[11px] font-semibold leading-none text-[var(--book-green-ink)] tabular-nums"
-            >
-              {i + 1}
-            </span>
-            <span className="min-w-0 leading-7">
-              <RichText text={s} />
-            </span>
+          <li key={i} className="leading-7">
+            <RichText text={s} />
           </li>
         ))}
       </ol>

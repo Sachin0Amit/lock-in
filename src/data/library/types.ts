@@ -151,7 +151,9 @@ export interface ExerciseQuestion {
    *  - **Steps (preferred, owner directive 2026-11-03):** an array of short
    *    worked lines — one step per line, words + $math$ mixed, exactly like a
    *    handwritten worked solution ("Split 84 into 4 shares", "84 ÷ 4 = 21",
-   *    …). Rendered as numbered steps with an optional boxed answer.
+   *    …). Rendered as clean UNNUMBERED lines with an optional boxed answer
+   *    (owner directive 2026-11-03: "no need to show the steps number" —
+   *    no step-number badges anywhere).
    *  - **Prose (legacy):** a single paragraph string, rendered as before.
    */
   solution: string | string[]

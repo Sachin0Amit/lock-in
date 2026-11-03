@@ -19,7 +19,7 @@
     };
   }
 
-  /* 2. Illustrations: pill label + sage band + Sol. pill + numbered steps */
+  /* 2. Illustrations: pill label + sage band + Sol. pill + unnumbered steps */
   var pills = Array.prototype.slice
     .call(document.querySelectorAll('section[aria-label^="Illustration"]'))
     .map(function (s) {
@@ -35,6 +35,18 @@
       }).length,
     stepRows: document.querySelectorAll('section[aria-label^="Illustration"] ol > li').length,
   };
+
+  /* 2b. No step numbers anywhere (owner directive 2026-11-03):
+     no aria-hidden span outside KaTeX may be a bare digit — the old
+     circled step badges (Sol. steps, derivations, solutions, algorithm
+     lines) are all gone. (.katex-html is KaTeX's own aria-hidden render
+     layer for math like $6$ — not a badge, excluded.) */
+  r.stepNumberBadges = Array.prototype.slice
+    .call(document.querySelectorAll('.lesson-body span[aria-hidden="true"]'))
+    .filter(function (s) {
+      if (s.closest('.katex')) return false;
+      return /^\d+$/.test(s.textContent.trim());
+    }).length;
 
   /* 3. Note boxes: small-caps label lead-ins */
   r.noteBoxes = Array.prototype.slice

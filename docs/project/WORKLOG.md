@@ -6,6 +6,69 @@ and what remains.
 
 ---
 
+## 2026-11-03 — OWNER CHAT DIRECTIVE (run 15): step numbers removed from every worked-step surface — Illustration "Sol." steps, derivation steps, exercise solutions and algorithm lines now print as clean unnumbered lines
+
+**Situation at start:** owner message (chat `47dcb175`, trace
+`1a1a1c436d904971`): "no need to show the steps number". Tree clean at
+`d5a1b43` = origin/main (run-14 Cengage reskin + its memory commit).
+
+**Directive interpretation:** the worked-step format itself stays (run 13,
+owner-directed); only the NUMBERING is withdrawn. The lead-in words
+(Split / Take / Check / Hence …) carry the sequence, exactly like the
+handwritten worked solutions the format imitates. Removed from ALL four
+renderers in `blocks.tsx`, so the change is platform-wide (all 15
+lessons) with zero content-file edits:
+
+- `ExampleBlock` (Illustrations): the circled digit badges beside each
+  "Sol." step line are gone — plain stacked lines, `list-none`.
+- `DerivationBlock`: the numbered circle markers on the green rail are
+  gone; the rail, labels, formulas and boxed Result stay.
+- `SolutionBody` (exercise worked solutions): circled digit badges gone;
+  unnumbered lines + boxed Answer row stay.
+- `AlgorithmBlock`: leading line numbers gone; monospace lines + `//`
+  per-line notes stay (the `ListOrdered` header icon stays — icon, not a
+  number).
+
+**What deliberately stays:** `ILLUSTRATION n` pill numbers and figure
+numbers (chapter-level structure, Cengage convention), `Q1./Q2.` exercise
+question numbers, quiz question numbering, roman `(i)(ii)(iii)` list
+markers (run-14 owner directive), `\tag{n}` equation numbers, and the
+`Sol.` / `Answer` labels — the directive targets step numbering only.
+
+**Contracts updated:** `BOOK_FORMAT.md` (block-table rows for
+derivation/example/algorithm + the worked-solution-format section now
+state "step numbers are NOT rendered" with the directive quoted),
+`src/data/library/types.ts` (`ExerciseQuestion.solution` doc comment),
+`scripts/e2e-cengage-style.page.js` (new check `stepNumberBadges` — no
+aria-hidden bare-digit span outside KaTeX; `.katex-html` excluded as
+KaTeX's own aria-hidden render layer for math like `$6$`, first draft
+falsely flagged 15/6/98/71 KaTeX spans before the exclusion),
+`scripts/e2e-cengage-style.sh` (prints the new check).
+
+**Verified:** lint clean; tsc clean; 4 routes 200; browser E2E re-run on
+1.1/2.5/3.2/4.1 — stepNumberBadges = **0** on every lesson (1.1: 5 step
+rows; 2.5: 11; 3.2: 8; 4.1: 8 — rows intact, badges gone), Illustration
+pills + Sol. pills + note boxes + green bars all unchanged, KaTeX
+54/113/257/221 nodes, dollarInSvg = 0, quiz scored live + retake,
+solution expansion works, mobile 390px exact-fit (docScrollW = 390);
+VLM visual review of the Illustration area, the Derivation rail and an
+expanded exercise solution on 3.3: no circled numbers or leading digits
+anywhere, clean consistent left alignment, no glitches.
+
+**Git:** commit `no step numbers anywhere (owner directive): Sol. steps, derivations, exercise solutions and algorithm lines render as clean unnumbered lines — circled digit badges removed from all four renderers; BOOK_FORMAT/types contracts updated; E2E gains stepNumberBadges=0 check`.
+
+**Push (protocol v2):** this session is a direct owner web chat message
+with NO PAT in context — the one-time HTTPS push URL cannot be
+constructed. Committed locally only; push deferred to the next
+cron-delivered run (PAT arrives embedded there). Remote HEAD verified
+anonymously (ls-remote, no token): `d5a1b43` — the run-14 cengage commit
+`2895750` AND its memory commit `d5a1b43` are already on origin/main (the
+stale local tracking ref was re-synced via anonymous fetch; the earlier
+"origin ahead" reading was a tracking artifact). Local is ahead by
+exactly this run-15 commit. Nothing token-related recorded anywhere.
+
+---
+
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 14): Cengage book-style theory shipped platform-wide — the reader now renders every lesson in the print manner of the Cengage JEE mathematics books
 
 **Situation at start:** owner message (chat `47dcb175`): "i want theory in

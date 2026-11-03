@@ -9,10 +9,11 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 11**: lesson 3.5
-HCF, LCM and How They Relate shipped and verified — **UNIT 3 COMPLETE**,
-chapter 3 of Foundation Mathematics at 5/5 lessons + unit-3 completion
-review passed; `WORK_INVENTORY.json` regenerated in the same run).
+Generated: 2026-11-03 (maintained through **owner-chat run 15**: step
+numbers removed from every worked-step surface — Illustration Sol. steps,
+derivation steps, exercise solutions, algorithm lines; run 14 before it:
+Cengage book-style theory live platform-wide; run 11 before that: UNIT 3
+COMPLETE; `WORK_INVENTORY.json` regenerated with every ship).
 
 ---
 
@@ -77,6 +78,7 @@ review passed; `WORK_INVENTORY.json` regenerated in the same run).
 | 11-03 (run 12, owner chat) | (ship) | **UNIT 4 OPENED: lesson 4.1 The Idea of a Fraction** (ch-04.ts created) — authored, 84 pre-writing checks (`verify-unit-4.ts`, gitignore exception added FIRST), both new figures 0 audit issues FIRST pass, E2E green (quiz 5/5 live, KaTeX 221, glossary 91 terms, 390px exact-fit with all ten solutions force-revealed), mediant theorem delivers 3.5's density promise (cross-multiplication licence on credit for 4.2/4.3), logged; pushed (protocol v2) |
 | 11-03 (run 13, owner chat) | (ship) | **WORKED-SOLUTION FORMAT shipped** — handwritten-notes style: all 125 exercise solutions converted from prose paragraphs to numbered step lines + boxed Answer rows; platform (solution string\|string[] + answer, SolutionBody renderer) + migration script with per-solution token-preservation assertion (125/125); E2E green incl. 390px exact-fit with every solution expanded; BOOK_FORMAT contract updated; logged; pushed (protocol v2) |
 | 11-03 (run 14, owner chat) | (ship) | **CENGAGE BOOK-STYLE THEORY shipped platform-wide** — Drive MATHS modules surveyed (5 modules, 42 chapter PDFs, ids persisted); Cengage M2/01 style-studied (OCR + vision; no content reproduced); reader reskinned print-style (green caps section heads, ILLUSTRATION pills + sage bands + Sol., green exercise/quiz bars, hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, green chapter-opener headers) — all 14 lessons restyled at once; BOOK_FORMAT/MASTER_PLAN/PROGRESS/RESUME_POINTER/SOURCE_LOG updated; E2E green (VLM fidelity 8.5/10); logged; pushed (protocol v2) |
+| 11-03 (run 15, owner chat) | (ship) | **STEP NUMBERS REMOVED (owner directive "no need to show the steps number")** — circled digit badges deleted from all four worked-step renderers (Illustration Sol. steps, derivation rail, exercise solutions, algorithm lines); lead-in words carry the sequence; ILLUSTRATION n / Q-n / roman (i)(ii)(iii) / \tag{n} numbering deliberately kept; BOOK_FORMAT + types.ts contracts updated; E2E gains stepNumberBadges=0 check (KaTeX aria-hidden layer excluded); E2E green on 1.1/2.5/3.2/4.1 + VLM visual clean; logged; **push deferred — no PAT in this chat session** (local commit only; remote HEAD stays `d5a1b43` until the next cron run pushes) |
 
 ## 4. Content written so far (the actual textbooks)
 
@@ -892,15 +894,12 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the hourly-run-11 ship commit `342f629` (FM lesson 3.5 HCF, LCM
-  and How They Relate + unit-3 completion review + logs); working tree
-  clean after the push. origin/main is synced through the run-11 push
-  under protocol v2 (pushed as 8640085..342f629; remote HEAD verified
-  `342f629` via one-time-URL ls-remote; tracking ref re-synced via
-  anonymous HTTPS fetch — this sandbox has no ssh binary). The
-  owner-reported figure-defect run (six figures fixed +
-  `audit-svg-overlaps.sh` wired into the gates) shipped as `87f0f8a`
-  between run 9 and run 10.
+- HEAD: the run-15 ship commit (step numbers removed from every
+  worked-step surface, owner chat directive) — local only: the owner chat
+  session carries no PAT, so the push is deferred to the next
+  cron-delivered run (protocol v2; remote HEAD `d5a1b43` = run-14
+  Cengage reskin + memory commit, verified synced by ls-remote at the
+  run-14 push). Working tree clean after the commit.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
