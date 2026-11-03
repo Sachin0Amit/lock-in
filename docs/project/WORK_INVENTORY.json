@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 03:17:59 (Asia/Kolkata)",
+  "generated": "2026-11-04 03:24:02 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5151,6 +5151,62 @@
       "insertions": 0,
       "deletions": 0,
       "files": []
+    },
+    {
+      "sha": "6b0e99fee290983c43fd542ce4efa5e73682f714",
+      "short": "6b0e99f",
+      "date": "2026-11-03 21:53",
+      "message": "fm 5.3 operating on decimals (unit 5, run 23): the four operations with the point in play under one law — like units only; addition and subtraction by aligning the points (the point as the fencepost that fixes the columns, the trailing-zero licence padding, borrowing walking straight across the point, the inverse test as the universal subtraction check, the digit-add fraud 0.9+0.09+0.009 = 0.999 retired), multiplication as the whole-number engine + the places-add rule PROVED as a derivation block from the fraction reading ((a/10^j)(b/10^k) = ab/10^(j+k), equation tag 1; alignment never enters the argument — that is why none is needed), the point-shift rule (x 10^k hops k rooms right, / 10^k k left) with figure 1: the point-hops ladder (seven rooms thousand->thousandth, 4.75 in place, the point on the ones/tenths boundary, amber climb/slide arrows + the worked strip; audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity), the max-places fraud Caution (1.5 x 2.25 = 3.375, not 33.75 — the sum-vs-max slip costs exactly 10x) and the counting-places-counts-the-dress Note (48.50 wears one true place: 48.50 x 3.5 = 169.75, not 16.975), division by whole numbers with the quotient's point riding the dividend's (Illustration 128.76 / 12 = 10.73; figure 2: the full tableau with the amber point-drop and bring-down arrows; audit 0 issues FIRST pass; the VLM's two alignment complaints DISPROVEN by exact DOM measurement — both point circles cx = 420.0, quotient digits at exact 48px pitches in the standard last-consumed-digit convention), clearing the divisor by the scaling law ((A/10^j)/(B/10^k) = (A x 10^k)/(B x 10^j), equation tag 2; 16.24 / 2.8 = 5.8; 9.1 / 5 = 1.82 past the point; the dresses-theorem tie: one machine, two exits), the / 100 fraud (45.6 / 100 = 0.456, not 4560), word problems on money (the fixed 2-place dress; the bill 42.75 + 18.60 + 96.05 = 157.40, change 42.60), length/mass (2.4 kg / 6 = 0.4 kg; 3.75 m / 0.25 m = 15 pieces; 7.5 cm - 42 mm = 3.3 cm convert-first) and the unitary method (18.6 km on 1.5 L = 12.4 km/L; 4 L -> 49.6 km) — 4,462 words in the Cengage voice and solution chain; 6 illustrations, 2 figures (0 audit issues), 7 new terms (Aligning the points, Borrowing across the point, Whole-number engine, Places-add rule, Point-shift rule, Clearing the divisor, Unitary method), 3 formula cards (alignment / places-add / clearing), exam corner (the one-engine hop family 0.45 x 0.067 = 0.045 x 0.67 = 4.5 x 0.0067 = 0.03015), 5-quiz (2/1/2/0/1 verified live 5/5 perfect), 12 exercises L1-L6 with full solution chains (L6 proves the places-add law from the fraction reading + the termination closure: terminating x recurring recurs — 0.5 x 0.(3) = 0.1(6)); verify-unit-5.ts extended 273 -> 341 checks (sections AD-BJ: exact integer arithmetic at the stated scales, decimalOf dress re-reads incl. the trailing-licence trim, the eight-row quotient-identity sweep, the 36-combo places-add sweep, both figures' geometry, quiz + exercise keys) ALL PASS pre-writing + regressions 330/260/165 green; E2E extended to 11 lessons with a dedicated 5.3 block (6 inline Sol. pills, 18 with exercises, 30 therefore tags, KaTeX 248, dollarInSvg 0, badges 0, legacy boxes 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, zero console errors); SOURCE_LOG gains the ncert-math7-ch2 sections-2.3-2.4 reuse note + free-space entry; logs + inventory updated; ch. 5 open 3/5, next 5.4 percent and its meaning",
+      "filesChanged": 9,
+      "insertions": 1395,
+      "deletions": 121,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 112,
+          "del": 23
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 39,
+          "del": 38
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 61,
+          "del": 30
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 165,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 115,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 81,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-5.ts",
+          "add": 171,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 634,
+          "del": 6
+        }
+      ]
     }
   ],
   "totals": {
