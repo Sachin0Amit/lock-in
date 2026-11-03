@@ -3,15 +3,16 @@ import type { Chapter } from '../../../types'
 /**
  * Foundation Mathematics — Chapter 3: Factors, Multiples and Primes
  *
- * LESSONS WRITTEN (UNIT 3 IN PROGRESS): 3.1 Divisibility and Its Tests.
- * Planned: 3.2 Prime Numbers and Factorisation · 3.3 Highest Common
+ * LESSONS WRITTEN (UNIT 3 IN PROGRESS): 3.1 Divisibility and Its Tests ·
+ * 3.2 Prime Numbers and Factorisation. Planned: 3.3 Highest Common
  * Factor · 3.4 Lowest Common Multiple · 3.5 HCF, LCM and How They Relate.
  * Unit 3 of the unit-by-unit cadence (2026-11-03, one lesson per hourly
  * run). References: Khattar, Quantitative Aptitude for Competitive
- * Examinations (4e) ch. 1 "Numbers" (tests of divisibility, prime/composite
- * definitions) + NCERT Class 6 ch. 3 "Playing with Numbers" topic coverage
- * — see docs/project/SOURCE_LOG.md. Exposition original; all arithmetic
- * verified by scripts/verify-unit-3.ts (96 checks) BEFORE writing.
+ * Examinations (4e) ch. 1 "Numbers" (prime/composite definitions, prime
+ * list to 100, co-primes) + NCERT Class 6 ch. 3 "Playing with Numbers"
+ * topic coverage — see docs/project/SOURCE_LOG.md. Exposition original;
+ * all arithmetic verified by scripts/verify-unit-3.ts (152 checks for
+ * 3.1 + 3.2) BEFORE writing.
  * Honours the ties promised in Lesson 2.4: the digit-sum screens become
  * the mod-9/mod-3 rules, the ÷10^n corollary becomes the tail tests, and
  * the remainder bound underlies "r = 0 means divisible".
@@ -24,7 +25,6 @@ export const chapter03: Chapter = {
     'The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.',
   status: 'in-progress',
   plannedLessons: [
-    'Prime Numbers and Factorisation',
     'Highest Common Factor',
     'Lowest Common Multiple',
     'HCF, LCM and How They Relate',
@@ -583,6 +583,550 @@ export const chapter03: Chapter = {
         {
           kind: 'para',
           text: 'The screening desk is now staffed for every divisor from $2$ to $12$, and every screen runs on the same fuel: place value\'s hidden remainders. But step back and notice what the family portrait reveals. The divisors with clean, one-glance tests — $2, 4, 5, 8, 10$ — are exactly the ones built from $2$s and $5$s, the factors of ten itself. The divisors with digit tests — $3, 9$ — are the ones dividing $10 - 1$. Eleven divides $10 + 1$. And seven, dividing none of $9$, $10$, or $11$ cleanly, needed a gadget. Divisibility, it turns out, is a story about how a number relates to $10$ — and the natural next question is deeper: what does a number look like when we factor it **all the way down**, into parts that no longer factor at all? That is the business of primes, and Lesson 3.2 begins there.',
+        },
+      ],
+    },
+    {
+      id: 'fm-prime-numbers-factorisation',
+      number: '3.2',
+      title: 'Prime Numbers and Factorisation',
+      concepts: [
+        'Primes have exactly two factors',
+        'Composites have three or more',
+        'Why 1 and 0 sit outside the treaty',
+        'The sieve of Eratosthenes',
+        'Trial division and the square-root licence',
+        'Prime factorisation is unique',
+        'Counting divisors from the atoms',
+      ],
+      objectives: [
+        'Define prime and composite numbers by counting factors, and explain why 1 (and 0) belong to neither family',
+        'Run the sieve of Eratosthenes up to 100 and recall the 25 primes it leaves behind',
+        'Certify primality by trial division, using the square-root licence to stop testing at √n — and spot the false primes 91, 87 and 221',
+        'Factorise any number completely into primes and state the Fundamental Theorem of Arithmetic: every road reaches the same atoms',
+        'Predict the number of divisors of any number from its prime exponents, via (a₁ + 1)(a₂ + 1)⋯(aₖ + 1)',
+      ],
+      prerequisites: ['fm-divisibility-and-its-tests', 'fm-numbers-digits-place-value'],
+      sources: ['khattar-qa-4e', 'ncert-math6-ch3'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'A mosaic maker has two trays of square tiles. The first holds $48$ tiles: they can be pushed into five different perfect rectangles — $1 \\times 48$ (a strip), $2 \\times 24$, $3 \\times 16$, $4 \\times 12$, and a tidy $6 \\times 8$. Those five rectangles are exactly the five factor pairs Lesson 3.1 walked out, producing $48$\'s ten factors. The second tray holds $47$ tiles, and here the maker hits a wall: every arrangement except the bare line $1 \\times 47$ leaves ragged leftovers. The screens of Lesson 3.1 explain the refusal — $47$ is odd, its digit sum is $11$ (not divisible by $3$), it does not end in $0$ or $5$ — and the factor walk stops there because the next candidate, $7$, already overshoots: $7 \\times 7 = 49 > 47$. Some numbers simply refuse to be built. This lesson is about them.',
+        },
+        {
+          kind: 'para',
+          text: 'The refusers are the **primes**, and they are not a curiosity — they are the load-bearing beams of multiplication. Lesson 3.1 ended with a promise: to factor numbers **all the way down, into parts that no longer factor**. The primes are those bottom parts. The plan of this lesson: pin down the definition and its famous edge cases (why $1$ belongs to neither family — and why that exclusion is not pedantry but the foundation of everything that follows); run the ancient sieve that harvests all primes below $100$; derive the square-root licence that makes testing one number cheap; push numbers all the way down to their prime atoms and meet the theorem that says every road lands on the same atoms; and cash the whole enterprise in with a formula that counts a number\'s divisors straight off its atoms.',
+        },
+        { kind: 'heading', text: 'Primes, composites, and the two-factor treaty' },
+        {
+          kind: 'para',
+          text: 'Lesson 3.1 defined factors: $d$ is a factor of $n$ when $d \\mid n$. Every whole number $n \\ge 2$ carries at least the trivial pair: $1 \\times n$. The interesting question is how much company those two have. $47$ has nobody — its complete factor list is $\{1, 47\}$. $48$ has a crowd — $\{1, 2, 3, 4, 6, 8, 12, 16, 24, 48\}$. So count the factors, and every number from $2$ upward sorts itself into one of two families: those with **exactly two** factors, and those with **three or more**.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Prime and composite (the two-factor treaty)',
+          text: 'A natural number $n \\ge 2$ is **prime** when it has exactly two factors: $1$ and $n$ itself — so nothing between $1$ and $n$ divides it. Examples: $2, 3, 5, 7, 11, 47$. A natural number $n \\ge 2$ is **composite** when it has more than two factors — some $d$ with $1 < d < n$ divides it. Examples: $4$ (factors $1, 2, 4$), $6$, $48$. The two families together exhaust every natural number from $2$ up: a number either has a factor strictly between $1$ and itself, or it does not. Note the phrasing "exactly two", not "divisible by 1 and itself" alone — every number is divisible by $1$ and itself; a prime is divisible by **nothing else**.',
+        },
+        {
+          kind: 'para',
+          text: 'Two numbers are deliberately left outside this treaty. The number $1$ has exactly **one** factor — itself — so it fits neither family: too few for the primes, too few for the composites. And $0$ is divisible by **every** nonzero number ($0 = 0 \\times d$ for any $d$, Lesson 3.1\'s edge rule), giving it infinitely many factors — too many for either family too. So prime and composite are questions asked of natural numbers from $2$ upward. Keep this scoping in mind; exam options love offering $1$ and $0$ where they do not belong.',
+        },
+        {
+          kind: 'para',
+          text: 'The smallest entries settle the families\' faces. The primes begin $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$ — ten of them below $30$. And notice $2$\'s special position: it is **the only even prime**. The reason is a one-liner with Lesson 3.1\'s tail test inside it: any even number $n > 2$ satisfies $n = 2 \\times (n \\div 2)$ with **both** factors greater than $1$, so $2$ sits strictly between $1$ and $n$ and divides it — $n$ has at least three factors and is composite. Evenness, the cheapest screen of all, clears out every candidate above $2$. After that the odd numbers take over: $3$ is the smallest odd prime, and $9 = 3 \\times 3$ is the smallest odd composite.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Prime number',
+              def: 'A natural number n ≥ 2 with exactly two factors: 1 and n. Examples: 2, 3, 5, 7, 11, 47, 97. 2 is the only even one.',
+            },
+            {
+              term: 'Composite number',
+              def: 'A natural number n ≥ 2 with more than two factors — some d with 1 < d < n divides it. Examples: 4, 6, 8, 9, 12, 91. Every composite is a product of smaller numbers.',
+            },
+            {
+              term: 'Sieve of Eratosthenes',
+              def: 'The procedure that finds all primes up to a bound by crossing out multiples: keep each survivor p and cross its multiples starting at p × p. Leaves exactly 25 primes below 100.',
+            },
+            {
+              term: 'Trial division',
+              def: 'Testing whether n is prime by dividing by candidate factors in turn. The square-root licence stops the hunt at √n, and only primes need apply.',
+            },
+            {
+              term: 'Prime factorisation',
+              def: 'Writing n ≥ 2 as a product of primes only: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. Every road of splitting reaches the same final cargo.',
+            },
+            {
+              term: 'Fundamental theorem of arithmetic',
+              def: 'Every n ≥ 2 factors into primes in exactly one way, order aside: n = p₁^a₁ × p₂^a₂ × … × pₖ^aₖ. Gauss named it fundamental (1801).',
+            },
+            {
+              term: 'Factor tree',
+              def: 'A diagram that splits a number into two factors, then splits those, until only primes remain. Different first cuts draw different trees — but all trees end at the same leaves.',
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'One more observation before the machinery starts. Every composite hides a prime inside: $4 = 2 \\times 2$, $6 = 2 \\times 3$, $9 = 3 \\times 3$, $12 = 3 \\times 4 = 3 \\times 2 \\times 2$. If a number is composite, some factor $d$ with $1 < d < n$ exists, and either $d$ is prime or $d$ itself splits — so chasing factors downward must eventually land on a prime. This innocent remark is the seed of the whole lesson: composites are **buildings**, primes are the **material**. The sieve below finds the material; the second half of the lesson studies the buildings.',
+        },
+        { kind: 'heading', text: 'Finding the primes: the sieve of Eratosthenes' },
+        {
+          kind: 'para',
+          text: 'How do we list all primes below $100$ without testing each number separately? Eratosthenes of Alexandria (the chief librarian who also measured the Earth\'s circumference) saw that the composites can be retired **in bulk**. Keep $2$ — it is prime — and cross out every second number from $4$ onward: $4, 6, 8, \\ldots$, all composite in one sweep. The next surviving number is $3$: nothing smaller divides it, so it is prime; cross out its multiples — but not $6$, which is already gone: start at $3 \\times 3 = 9$. Next survivor $5$ is prime; start crossing at $5 \\times 5 = 25$, since $10, 15, 20$ were retired by $2$\'s or $3$\'s sweep. Next survivor $7$ is prime; start at $7 \\times 7 = 49$. And now the decisive step: the next survivor is $11$, but $11 \\times 11 = 121 > 100$ — there is nothing left to cross. Why? Every composite below $100$ has some prime factor $\le \\sqrt{100} = 10$, and the primes up to $10$ — $2, 3, 5, 7$ — have each done their sweep. The survivors are exactly the primes.',
+        },
+        {
+          kind: 'algorithm',
+          title: 'The sieve of Eratosthenes up to 100',
+          lines: [
+            { code: 'List the numbers 2, 3, 4, …, 100; mark them all "uncrossed".', note: 'Working from a 10 × 10 grid keeps the sweeps visible.' },
+            { code: 'Take the smallest uncrossed number p (start: p = 2). Declare p prime.', note: 'Nothing smaller divides p — smaller candidates were crossed or skipped earlier.' },
+            { code: 'IF p × p > 100: stop. Every remaining uncrossed number is prime.', note: 'Any composite ≤ 100 has a prime factor ≤ 10, and 7 was the last prime ≤ 10 (11² = 121).' },
+            { code: 'ELSE cross out p × p, p × p + p, p × p + 2p, … up to 100.', note: 'Crossing starts at p² because smaller multiples of p contain a smaller prime factor and were crossed in earlier sweeps.' },
+            { code: 'Repeat with the next uncrossed number.', note: 'The sequence of workers is 2, 3, 5, 7 — then the stop rule fires.' },
+            { code: 'Read off the survivors: exactly 25 numbers.', note: 'The primes below 100 — the harvest verified in the table of the next section.' },
+          ],
+          note:
+            'Each worker retires an entire infinite family of composites in one sweep, and each worker only begins where the previous workers\' coverage ends — at its own square. The sieve is bulk pricing: one action per prime, not per number.',
+        },
+        {
+          kind: 'para',
+          text: 'The harvest deserves to be seen whole. The $25$ survivors below $100$ are: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29,$ then $31, 37, 41, 43, 47, 53, 59, 61, 67, 71,$ and finally $73, 79, 83, 89, 97$. Three habits of the family jump out. **The largest two-digit prime is $97$**: $98 = 2 \\times 49$ and $99 = 9 \\times 11$ are swept, so $97$ is the last survivor — and this exact question ("largest two-digit prime?") is a competitive-exam staple. **The primes thin out as they grow**: ten of them live below $30$, but only three — $83, 89, 97$ — live in the eighties and nineties. **They sometimes crowd**: $3$ and $5$, $5$ and $7$, $11$ and $13$, $17$ and $19$, $29$ and $31$, $41$ and $43$ — six pairs below $50$ differing by exactly $2$ (the **twin primes**). The thinning has a reason, and it is the same tension the whole lesson runs on: the bigger a number, the more room there is below it for something to divide it — and yet primes keep appearing. That tension is one of the oldest stories in mathematics, and Chapter 3 returns to it in its final lesson.',
+        },
+        { kind: 'heading', text: 'Testing one number: trial division and the square-root licence' },
+        {
+          kind: 'para',
+          text: 'The sieve finds every prime in a range at once, but the exam asks about **one** number: is $397$ prime? The direct strategy is **trial division** — divide by candidate factors in turn and watch for a clean hit. Lesson 3.1 already performed a miniature of this: the factor-pair walk for $48$ tried candidates $1, 2, 3, 4, 6$ and then simply **stopped** — nobody bothered dividing $48$ by $7, 8, 9, \\ldots, 47$ separately. That early exit felt like luck. It was not. The walk closes at the square root, and the reason is worth a derivation, because it converts a search of $n - 2$ candidates into a search of a handful.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The square-root licence',
+          statement:
+            'If n has any factor d with 1 < d < n, then n has such a factor with d ≤ √n. So to decide whether n is prime, it suffices to test candidate factors up to √n — beyond that point, an empty report certifies primality.',
+          steps: [
+            {
+              label: 'Factor pairs always straddle the square root',
+              formula: 'n = d \\times e, \\quad 1 < d \\le e < n \\;\\Longrightarrow\\; d \\le \\sqrt{n} \\le e',
+              explanation:
+                'Write the factor pair with the smaller member first. If both members were greater than √n, their product would exceed n — for 48, two factors both above ~6.93 would multiply to more than 48. But their product is exactly n. Contradiction.',
+            },
+            {
+              label: 'The smaller member is the one worth hunting',
+              formula: 'd \\le \\sqrt{n} \\quad \\text{(with } d \\cdot e = n,\\ e \\ge d\\text{)}',
+              explanation:
+                'Concretely: 7 × 7 = 49 > 48, so no pair of 48 can have both members at 7 or above — which is exactly why the Lesson 3.1 walk closed at 6 × 8. Every factor pair of every number has its smaller member at or below the square root.',
+            },
+            {
+              label: 'Contrapositive: an empty search below √n certifies primality',
+              formula: 'd \\nmid n \\text{ for all } 1 < d \\le \\sqrt{n} \\;\\Longrightarrow\\; n \\text{ is prime}',
+              explanation:
+                'If no candidate at or below √n divides n, then no factor pair exists at all — any pair would contribute a smaller member below √n, and none was found. The verdict is settled without looking above the square root.',
+            },
+            {
+              label: 'Refinement: only primes need apply',
+              formula: '4 \\mid n \\Rightarrow 2 \\mid n, \\quad 6 \\mid n \\Rightarrow 2 \\mid n, \\quad 9 \\mid n \\Rightarrow 3 \\mid n',
+              explanation:
+                'If a composite candidate divided n, its own prime factors would divide n too — the hit would have been scored earlier. So the candidate list shrinks to the primes up to √n. This is Lesson 3.1\'s compound-test logic running in reverse: the primes are the atoms that govern every composite\'s verdict.',
+            },
+          ],
+          result:
+            'n ≥ 2 is prime ⟺ no prime p with p ≤ √n divides n. Testing 397 needs the eight primes up to 19 — not 395 candidates. Testing 47 needs 2, 3 and 5 only, because 7² = 49 has already overshot.',
+        },
+        {
+          kind: 'para',
+          text: 'Watch the licence retell Lesson 3.1\'s stories. The pairs of $48$ close at $6 \\times 8$ because $\\sqrt{48}$ sits between $6$ and $7$ ($36 < 48 < 49$): every smaller member found — $1, 2, 3, 4, 6$ — is at most $6$, and the search rightly refused to look further. The mosaic maker\'s $47$ needs only $2, 3, 5$: it is odd (retiring $2$), its digit sum $11$ is not divisible by $3$, its tail is $7$ (retiring $5$), and $7$ itself lies beyond $\\sqrt{47}$ — three checks, verdict prime. And the sieve\'s mysterious stop rule is now plain: crossing may stop at $11$ because any composite $\le 100$ would have a factor at or below $\\sqrt{100} = 10$, and those workers already swept.',
+        },
+        {
+          kind: 'example',
+          title: 'Certifying 397 prime — eight tests, then the licence speaks',
+          steps: [
+            'Fix the boundary: $19^2 = 361 < 397 < 400 = 20^2$, so $\\sqrt{397}$ sits just under $20$. The candidate list is the primes $2, 3, 5, 7, 11, 13, 17, 19$ — nothing else.',
+            '$2$: $397$ is odd — retired by the tail test. $3$: digit sum $3 + 9 + 7 = 19$, not divisible by $3$ — retired by the digit-sum screen. $5$: ends in $7$ — retired by the tail test.',
+            '$7$: divide once — $397 = 7 \\times 56 + 5$, remainder $5$. Out. $11$: alternating sum $7 - 9 + 3 = 1$ — out (and $397 = 11 \\times 36 + 1$, the screen\'s remainder confirmed).',
+            '$13$: $397 = 13 \\times 30 + 7$. Out. $17$: $397 = 17 \\times 23 + 6$. Out. $19$: $397 = 19 \\times 20 + 17$. Out.',
+            'Eight primes tried, eight failures, and the licence says that is the whole trial: no factor exists, so $397$ is prime. (A near neighbour tells the other story: $391 = 17 \\times 23$ — same screens, one hit at $17$, composite.)',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Beware the **false primes** — odd numbers with innocent-looking digit sums that hide a factor just past the cheap screens. The classic is $91$: odd, digit sum $10$, tail $1$ — yet $91 = 7 \\times 13$, and $7 \\le \\sqrt{91}$ is exactly why the licence forces running the $7$-test. Its cousins: $51 = 3 \\times 17$ (digit sum $6$ — the $3$-screen catches this one), $87 = 3 \\times 29$, and the exam favourite $221 = 13 \\times 17$: odd, digit sum $5$, tail $1$, no help from $2, 3, 5, 7, 11$ — but $14^2 = 196 < 221 < 225 = 15^2$ forces testing $13$, and $13$ lands the blow. Meanwhile $97$, the largest two-digit prime, certifies in four moves: primes $\le 9$ are $2, 3, 5, 7$; $97$ is odd, its digit sum is $16$, its tail is $7$, and $97 = 7 \\times 13 + 6$ — four failures, prime. Eyes do not decide primality; the licence does.',
+        },
+        {
+          kind: 'formula',
+          name: 'The trial-division licence',
+          latex: 'n \\;\\text{prime} \\;\\Longleftrightarrow\\; p \\nmid n \\text{ for every prime } p \\le \\sqrt{n}',
+          note: 'Fix the boundary by squaring: find k with k² < n < (k+1)², then test the primes up to k. Never test composites (their primes already ran), never test past √n (the licence forbids the detour). For n below 10,000 the candidate list never exceeds the primes up to 97 — because √10,000 = 100 and 97 is the largest prime below 100.',
+        },
+        { kind: 'heading', text: 'Factoring all the way down: prime factorisation' },
+        {
+          kind: 'para',
+          text: 'Now the promise from Lesson 3.1 comes due: factor a number **all the way down**, into parts that no longer factor. Take the mosaic maker\'s other favourite, $60$. One cut gives $60 = 6 \\times 10$ — but $6$ and $10$ still factor. Push down: $6 = 2 \\times 3$ and $10 = 2 \\times 5$, so $60 = 2 \\times 3 \\times 2 \\times 5$. A different first cut, $60 = 4 \\times 15$, pushes down to $60 = 2 \\times 2 \\times 3 \\times 5$. Different trees, different order — **the same four atoms**: two $2$s, one $3$, one $5$. Regrouped with the exponent shorthand met in Lesson 3.1 ($7^4 = 2{,}401$): $60 = 2^2 \\times 3 \\times 5$.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Two factor trees for 60. Tree A opens with the cut 6 × 10; tree B opens with 4 × 15. The intermediate pieces differ, but both trees terminate in exactly the same leaves — 2, 2, 3, 5. The leaves are the prime factorisation; the branches are scaffolding.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two factor trees for 60, one splitting into 6 and 10, the other into 4 and 15, both ending in the same leaves 2, 2, 3, 5">
+  <g font-size="14" fill="currentColor">
+    <g text-anchor="middle" font-weight="700">
+      <text x="190" y="34">60</text>
+      <text x="570" y="34">60</text>
+    </g>
+    <g stroke="currentColor" stroke-width="1.4" opacity="0.55" fill="none">
+      <line x1="182" y1="42" x2="128" y2="102"/>
+      <line x1="198" y1="42" x2="252" y2="102"/>
+      <line x1="562" y1="42" x2="508" y2="102"/>
+      <line x1="578" y1="42" x2="632" y2="102"/>
+      <line x1="120" y1="116" x2="90" y2="182"/>
+      <line x1="130" y1="116" x2="160" y2="182"/>
+      <line x1="248" y1="116" x2="222" y2="182"/>
+      <line x1="258" y1="116" x2="292" y2="182"/>
+      <line x1="500" y1="116" x2="470" y2="182"/>
+      <line x1="510" y1="116" x2="540" y2="182"/>
+      <line x1="628" y1="116" x2="606" y2="182"/>
+      <line x1="638" y1="116" x2="672" y2="182"/>
+    </g>
+    <g text-anchor="middle" font-weight="700">
+      <text x="124" y="112">6</text>
+      <text x="256" y="112">10</text>
+      <text x="504" y="112">4</text>
+      <text x="636" y="112">15</text>
+    </g>
+    <g text-anchor="middle" font-weight="700" fill="#b45309">
+      <text x="86" y="198">2</text>
+      <text x="164" y="198">3</text>
+      <text x="218" y="198">2</text>
+      <text x="296" y="198">5</text>
+      <text x="466" y="198">2</text>
+      <text x="544" y="198">2</text>
+      <text x="602" y="198">3</text>
+      <text x="676" y="198">5</text>
+    </g>
+    <g text-anchor="middle" opacity="0.7" font-size="13">
+      <text x="190" y="238">first cut: 6 × 10</text>
+      <text x="570" y="238">first cut: 4 × 15</text>
+    </g>
+    <g stroke="#b45309" stroke-width="1.4" opacity="0.6" fill="none" stroke-dasharray="5 4">
+      <path d="M190 252 C 190 292, 320 300, 366 316"/>
+      <path d="M570 252 C 570 292, 440 300, 394 316"/>
+    </g>
+    <g text-anchor="middle" font-weight="700" fill="#b45309" font-size="16">
+      <text x="380" y="340">2 · 2 · 3 · 5</text>
+    </g>
+    <g text-anchor="middle" opacity="0.75" font-size="13">
+      <text x="380" y="366">both roads end at the same four atoms</text>
+      <text x="380" y="386" opacity="0.7">60 = 2 · 2 · 3 · 5, regrouped as 2² · 3 · 5</text>
+    </g>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The pushing-down always finishes. Each split replaces one part with two **smaller** parts, both at least $2$ — $6$ yields $2$ and $3$, never $1$ and $6$. Smaller parts cannot shrink forever (nothing below $2$ is splittable), so the process must halt; and it can only halt when **every** part is prime, because any composite part could be split again. The finished cargo — a product of primes and nothing else — is called a **prime factorisation** of $n$. For $60$ it is $2 \\times 2 \\times 3 \\times 5$; for the exam-hall number it will be, in a moment, $2^5 \\times 3^2 \\times 17$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Prime factorisation',
+          text: 'A **prime factorisation** of $n \\ge 2$ is a way of writing $n$ as a product of primes only: $n = p_1 \\times p_2 \\times \\cdots \\times p_m$ with every $p_i$ prime. Writing the same primes in a different order, or regrouping equal ones as powers ($2 \\times 2 \\times 3 \\times 5 = 2^2 \\times 3 \\times 5$), does not create a different factorisation — the **multiset** of atoms is the mathematics. The figure above shows two roads; the theorem below says all roads share one destination.',
+        },
+        {
+          kind: 'equation',
+          latex: '60 = 6 \\times 10 = (2 \\times 3)(2 \\times 5) = 4 \\times 15 = (2 \\times 2)(3 \\times 5) = 2 \\times 2 \\times 3 \\times 5 = 2^2 \\times 3 \\times 5',
+          note: 'Order and grouping are bookkeeping; the cargo {2, 2, 3, 5} is the fact. The exponent shorthand 2² compresses the repeated atom — nothing more.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why every road reaches the same atoms (uniqueness)',
+          statement:
+            'The Fundamental Theorem of Arithmetic: every n ≥ 2 has a prime factorisation, and it is unique — any two ways of writing n as a product of primes contain exactly the same primes with exactly the same multiplicities.',
+          steps: [
+            {
+              label: 'Existence: the push-down terminates',
+              formula: 'n = a \\times b \\;\\Rightarrow\\; a < n,\\ b < n \\;(\\text{when } a, b > 1)',
+              explanation:
+                'Every split replaces a part by strictly smaller parts ≥ 2, so the parts cannot shrink forever; the process halts only when every part is prime. (Seen concretely in the figure: two trees, each ending in leaves.)',
+            },
+            {
+              label: 'The near-miss that tempts disbelief',
+              formula: '2 \\times 6 = 3 \\times 4 = 12 \\quad \\text{but pushed down: } 2 \\times 2 \\times 3 = 2 \\times 2 \\times 3',
+              explanation:
+                'At first glance 12 seems to have two different factorisations. It does not: 6 and 4 are not atoms. Split every composite part and both roads arrive at 2 × 2 × 3. Roads differ only while unfactored parts remain.',
+            },
+            {
+              label: 'The engine: a prime dividing a product divides a factor',
+              formula: 'p \\text{ prime},\\; p \\mid (a \\times b) \\;\\Longrightarrow\\; p \\mid a \\text{ or } p \\mid b',
+              explanation:
+                'Euclid\'s crossroads lemma (Elements, Book VII) — the oldest engine in this book\'s garage. It is why two genuinely different prime multisets cannot build the same number: if a prime from one multiset divided the product of the other, it would have to divide one of that multiset\'s factors, and chasing down the tree forces a match at the leaves.',
+            },
+            {
+              label: 'The coprime idea, promoted to its highest job',
+              formula: '\\gcd(2, 6) = 2 \\text{ broke the compound test;} \\quad \\text{primes are coprime to everything but themselves}',
+              explanation:
+                'Lesson 3.1\'s compound-test trap (12 = 2 × 6 fails because 2 and 6 share a factor) was the shadow of this lemma: distinct primes are the only parts that govern a product independently. Uniqueness of factorisation is the coprime idea with all scaffolding removed.',
+            },
+            {
+              label: 'An honest word about scope',
+              formula: '\\text{full proof of the lemma} \\;\\rightarrow\\; \\text{Lesson 3.3\'s machinery}',
+              explanation:
+                'The crossroads lemma\'s complete proof needs the HCF machinery (Bézout\'s identity) that the next lesson builds. Here we verify it on every example we meet and lean on Euclid\'s licence — 2,300 years of verification stand behind it.',
+            },
+          ],
+          result:
+            'Every n ≥ 2 factors into primes (existence), and the prime multiset is the same along every road (uniqueness). Order and grouping are human conveniences; the atoms and their counts are the number\'s identity.',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The Fundamental Theorem of Arithmetic (and why 1 stands outside)',
+          text: 'Every natural number $n \\ge 2$ can be written as a product of primes, and in exactly one way, apart from order: $n = p_1^{a_1} \\times p_2^{a_2} \\times \\cdots \\times p_k^{a_k}$ with distinct primes $p_1 < p_2 < \\cdots$ and exponents $a_i \\ge 1$. Carl Friedrich Gauss published the theorem under the name **fundamental** in his Disquisitiones Arithmeticae (1801) — fundamental because the rest of arithmetic builds on it. And here is where Lesson 3.1\'s trap callout becomes load-bearing: if $1$ were counted as a prime, uniqueness would collapse instantly, since $60 = 2^2 \\times 3 \\times 5$, then $1 \\times 2^2 \\times 3 \\times 5$, then $1 \\times 1 \\times 2^2 \\times 3 \\times 5$, and so on forever — infinitely many "factorisations" of the same number, all differing by padding. Excluding $1$ is not a technicality; it is what makes the theorem say anything at all.',
+        },
+        {
+          kind: 'para',
+          text: 'The exam-hall number from Lesson 3.1 returns, now fully atomised. Strip its $2$s seat by seat:',
+        },
+        {
+          kind: 'equation',
+          latex: '4{,}896 = 2 \\times 2{,}448 = 2^2 \\times 1{,}224 = 2^3 \\times 612 = 2^4 \\times 306 = 2^5 \\times 153',
+          note: 'Five seats of $2$ come out; the spigot runs dry because 153 is odd.',
+        },
+        {
+          kind: 'para',
+          text: 'Then the odd part gives way: $153 = 3 \\times 51 = 3 \\times 3 \\times 17$, and $17$ is prime (the licence: $16 < 17 < 25$, primes $2, 3$ fail). So $4{,}896 = 2^5 \\times 3^2 \\times 17$ — check it by rebuilding: $32 \\times 153 = 4{,}896$, or $32 \\times 9 \\times 17 = 4{,}896$. At the other extreme sits Lesson 3.1\'s chain target $2{,}401 = 7^4$: one prime, four copies — a **prime power**, with nothing but $7$s in its factorisation and factors $\{1, 7, 49, 343, 2{,}401\}$. Every number from the packed $2^5 \\times 3^2 \\times 17$ to the pure $7^4$ is now a sentence written in the same alphabet.',
+        },
+        {
+          kind: 'formula',
+          name: 'The prime factorisation (existence + uniqueness)',
+          latex: 'n = p_1^{a_1} \\times p_2^{a_2} \\times \\cdots \\times p_k^{a_k}, \\quad p_1 < p_2 < \\cdots \\text{ prime}, \\; a_i \\ge 1',
+          note: 'Exactly one such form per n ≥ 2 (order aside). 1 is the empty product — no primes at all — which is the formula\'s way of repeating that 1 sits outside the treaty. 0 has no prime factorisation (nothing multiplies to 0).',
+        },
+        { kind: 'heading', text: 'The master key: counting divisors from the atoms' },
+        {
+          kind: 'para',
+          text: 'Why push everything down to atoms? Because the atomised form answers questions the raw numeral hides. Take $4{,}896 = 2^5 \\times 3^2 \\times 17$ and ask: how many divisors does it have? Lesson 3.1 could only have answered by listing. The atoms answer by counting **choices**. Every divisor of $4{,}896$ is itself built from the same three primes — nothing else is available — so a divisor is a decision: how many $2$s ($0$ to $5$: six options), how many $3$s ($0$ to $2$: three options), whether to include the $17$ ($0$ or $1$: two options). The three decisions are independent, so the counts multiply: $6 \\times 3 \\times 2 = 36$ divisors — predicted in one line, no listing.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The divisor-count formula',
+          statement:
+            'If n = p₁^a₁ × p₂^a₂ × … × pₖ^aₖ is the prime factorisation, then n has exactly (a₁ + 1)(a₂ + 1)⋯(aₖ + 1) divisors.',
+          steps: [
+            {
+              label: 'Every divisor is a choice of exponents',
+              formula: 'd \\mid n \\;\\Longleftrightarrow\\; d = p_1^{b_1} p_2^{b_2} \\cdots p_k^{b_k} \\text{ with } 0 \\le b_i \\le a_i',
+              explanation:
+                'A divisor d of n cannot contain a prime that n lacks, and its exponent on each prime cannot exceed n\'s — 2³ × 5 does not divide 4,896 because 4,896 has no 5, and 2⁶ × 3 × 17 overshoots because 6 > 5. (The forward direction is the crossroads lemma of this lesson; the reverse is one-line arithmetic: the quotient is what remains of the exponents.)',
+            },
+            {
+              label: 'Every choice really does divide',
+              formula: 'd = p_1^{b_1} \\cdots p_k^{b_k} \\;\\Longrightarrow\\; n = d \\times (p_1^{a_1 - b_1} \\cdots p_k^{a_k - b_k})',
+              explanation:
+                'Pick any allowed exponents b₁, …, bₖ; the leftover exponents form a whole number, so the choice is a genuine divisor. Choices and divisors correspond perfectly — nothing missed, nothing spurious.',
+            },
+            {
+              label: 'Independent choices multiply',
+              formula: '(a_1 + 1)(a_2 + 1) \\cdots (a_k + 1)',
+              explanation:
+                'Prime p₁ offers the exponents 0, 1, …, a₁ — that is a₁ + 1 options, the "+1" being the choice "use none of this prime". With k independent dials, the total is the product of the option counts. For 4,896: (5+1)(2+1)(1+1) = 36.',
+            },
+          ],
+          result:
+            'd(n) = (a₁ + 1)(a₂ + 1)⋯(aₖ + 1). The factorisation is the master key: listing divisors is for small numbers, the formula is for all of them.',
+        },
+        {
+          kind: 'para',
+          text: 'Verify the formula against the counts this book already earned. Lesson 3.1 listed $48$\'s ten factors by walking pairs — now the atoms explain the ten: $48 = 2^4 \\times 3$, so $(4 + 1)(1 + 1) = 10$; the list was never arbitrary, it was $2^a \\times 3^b$ for $a \\in \\{0,\\ldots,4\\}$, $b \\in \\{0, 1\\}$. The mosaic maker\'s $60 = 2^2 \\times 3 \\times 5$ carries $(2 + 1)(1 + 1)(1 + 1) = 12$ divisors. A bare prime $p$ carries $(1 + 1) = 2$ — the treaty, read off a formula: exactly the divisors $1$ and $p$. And a prime power $7^4$ carries $4 + 1 = 5$: the divisors $1, 7, 49, 343, 2{,}401$, one per exponent level.',
+        },
+        {
+          kind: 'table',
+          caption: 'The divisor-count gallery — every row verified, several against counts already earned in Lessons 3.1 and 3.2',
+          head: ['Number', 'Prime factorisation', 'Divisor count', 'Cross-check'],
+          rows: [
+            ['$48$', '$2^4 \\times 3$', '$(4+1)(1+1) = 10$', 'matches the ten factors listed in Lesson 3.1'],
+            ['$60$', '$2^2 \\times 3 \\times 5$', '$3 \\times 2 \\times 2 = 12$', 'the five rectangles of this lesson\'s opening, doubled by their transposes'],
+            ['$96$', '$2^5 \\times 3$', '$6 \\times 2 = 12$', 'all twelve listed in Exercise L5'],
+            ['$720$', '$2^4 \\times 3^2 \\times 5$', '$5 \\times 3 \\times 2 = 30$', 'thirty, enumerated by script'],
+            ['$2{,}401$', '$7^4$', '$4 + 1 = 5$', 'one per power: $1, 7, 49, 343, 2{,}401$'],
+            ['$2{,}025$', '$3^4 \\times 5^2$', '$5 \\times 3 = 15$', 'all fifteen listed in Exercise L5'],
+            ['$4{,}896$', '$2^5 \\times 3^2 \\times 17$', '$6 \\times 3 \\times 2 = 36$', 'all thirty-six enumerated in Exercise L6'],
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'Divisor count from the atoms',
+          latex: 'd(n) = (a_1 + 1)(a_2 + 1) \\cdots (a_k + 1) \\quad \\text{where } n = p_1^{a_1} \\cdots p_k^{a_k}',
+          note: 'Each +1 counts the exponent 0 — the choice "skip this prime". A prime has d = 2; a prime power p^a has d = a + 1. The formula needs the FULL factorisation: 48 as 6 × 8 or 2 × 24 reveals no counts, only 2⁴ × 3 does.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The librarians and the geometers (c. 300 BCE — 1801)',
+          text: 'The sieve carries the name of **Eratosthenes of Cyrene** (c. 240 BCE), chief librarian of Alexandria — the same scholar who measured the Earth\'s circumference with shadows and wells, and whose sieve remains, twenty-two centuries on, the standard classroom method for harvesting primes. The deeper structure was **Euclid\'s**, two generations earlier: Book VII of the Elements contains the crossroads lemma (a prime dividing a product divides one factor), and Book IX wields it — proposition 14 stops a least common multiple from admitting stray primes, the uniqueness seed this lesson borrowed. The theorem kept its informal status for two millennia until **Gauss\'s Disquisitiones Arithmeticae (1801)** stated it cleanly and named it fundamental — and Gauss, ever exact, pointed out that earlier authors had used it without proving it. The lesson\'s own honesty section stands in good company.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'Prime/composite questions are perennial openers in SSC, Railway and bank papers: "how many primes lie between 1 and 100?" ($25$), "which is the largest two-digit prime?" ($97$), "is $91$ prime?" (no: $7 \\times 13$ — the false-prime trap this lesson drills alongside $51$, $87$ and $221$). Trial-division items ask for the **smallest** or **largest** prime factor of a four-digit number, which is exactly licence-discipline: fix the square-root boundary, run the 3.1 screens, test primes in order. The divisor-count formula powers NTSE and CUET aptitude items ("how many divisors does $720$ have?"). Most importantly, prime factorisation is the **engine of the next two lessons**: Khattar\'s chapter on HCF and LCM works every problem by prime factorisation first — the method Lessons 3.3 and 3.4 develop — so factorising accurately (and verifying by rebuilding the product) is the exam skill underneath the exam skill. CBSE Class 6 lists prime and composite numbers, the sieve and co-primes exactly as met here.',
+        },
+        { kind: 'heading', text: 'Check yourself' },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Which of these numbers is prime?',
+              options: [
+                '91',
+                '87',
+                '89',
+                '51',
+              ],
+              answer: 2,
+              explain:
+                '89 is prime: with 9² = 81 < 89 < 100, the licence demands only 2, 3, 5, 7 — 89 is odd, its digit sum 17 is not divisible by 3, its tail is 9, and 89 = 7 × 12 + 5 (Option 3). Option 1 hides 91 = 7 × 13. Option 2 hides 87 = 3 × 29 (digit sum 15 — the 3-screen catches it). Option 4 hides 51 = 3 × 17 (digit sum 6). All three false primes look innocent until a screen runs.',
+            },
+            {
+              q: 'Why may trial division stop testing candidates once the square root of n has passed?',
+              options: [
+                'Because numbers larger than √n are always composite',
+                'Because any factor larger than √n would have to pair with one smaller than √n — and that smaller partner was already tested',
+                'Because primes above √n cannot divide n, by definition of prime',
+                'Because the sieve has already crossed out all multiples up to √n',
+              ],
+              answer: 1,
+              explain:
+                'Factor pairs straddle the square root: n = d × e with d ≤ e forces d ≤ √n (Option 2 — 91 shows the point: its factor 13 sits above √91 ≈ 9.5, but it pairs with 7, which sits below and gets caught). Option 1 is false — 13 is prime and larger than √91. Option 3 garbles the definition: primality of the candidate is irrelevant, the pairing is what matters. Option 4 confuses the sieve (a bulk hunt for primes) with trial division (a test of one number).',
+            },
+            {
+              q: 'How many prime numbers are there below 100?',
+              options: [
+                '21',
+                '24',
+                '25',
+                '27',
+              ],
+              answer: 2,
+              explain:
+                'Exactly 25 — the sieve\'s harvest, listed in full in this lesson (Option 3). Option 2 misses one (a common slip is forgetting 2, the only even prime). Option 4 overcounts by including a composite — 91 = 7 × 13 is the usual culprit. Option 1 is not even close; recite the sieve: workers 2, 3, 5, 7, then stop at 11 because 11² = 121.',
+            },
+            {
+              q: 'Which line shows the genuine prime factorisation of 60?',
+              options: [
+                '60 = 2² × 3 × 5',
+                '60 = 2 × 30',
+                '60 = 4 × 15',
+                '60 = 2 × 3 × 10',
+              ],
+              answer: 0,
+              explain:
+                'Only Option 1 is written entirely in primes (Option 1). Options 2, 3 and 4 are true products equal to 60 — but 30, 4, 15 and 10 are composites, so each line is merely a factorisation, not the prime factorisation. The Fundamental Theorem\'s demand is that every part is an atom: push 2 × 30 down and you reach 2² × 3 × 5 anyway.',
+            },
+            {
+              q: 'Lesson 3.1 listed ten factors for 48. Given 48 = 2⁴ × 3, the divisor-count formula says:',
+              options: [
+                '(4 + 1) × (1 + 1) = 10 — the same ten, now explained',
+                '4 × 3 = 12 — the exponents multiplied',
+                '4 + 3 = 7 — the exponents added',
+                '2⁴ × 3 has 8 divisors — the exponents doubled',
+              ],
+              answer: 3,
+              explain:
+                'Each prime offers "exponent + 1" choices (0 through a): (4 + 1)(1 + 1) = 10, reproducing Lesson 3.1\'s pair-walk count (Option 4). Option 2 multiplies the exponents themselves — forgetting the "+1" that counts "skip this prime" (and forgetting the second +1). Option 3 adds where the choices multiply: independence multiplies. Option 4 invents a rule with no counting behind it.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Classify each of 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 as prime, composite, or neither — and give the factor count that decides each.',
+                  solution:
+                    'Count the factors of each. $1$: just $\{1\}$ — one factor, **neither** (outside the treaty). $2, 3, 5, 7, 11$: each has exactly the two factors $\{1, n\}$ — **prime**. $4$: $\{1, 2, 4\}$ (three factors); $6$: $\{1, 2, 3, 6\}$ (four); $8$: $\{1, 2, 4, 8\}$ (four); $9$: $\{1, 3, 9\}$ (three); $10$: $\{1, 2, 5, 10\}$ (four); $12$: $\{1, 2, 3, 4, 6, 12\}$ (six) — all **composite**. The treaty in action: one factor, exactly two, or three or more.',
+                },
+                {
+                  q: 'Explain why 2 is the only even prime, and why 9 is the smallest odd composite.',
+                  solution:
+                    'If $n$ is even and $n > 2$, then $n = 2 \\times (n \\div 2)$ where both factors exceed $1$, so $2$ sits strictly between $1$ and $n$ and divides it: $n$ has at least three factors and is composite. Hence no even number above $2$ is prime, and $2$ itself is prime — the only even one. For the second claim: the odd numbers begin $1, 3, 5, 7, 9$. Now $1$ is outside the treaty, and $3, 5, 7$ each have exactly two factors (nothing between $1$ and the number divides them — check by the licence: $\sqrt{7} < 3$, so only $2$ needed testing, and they are odd). Then $9 = 3 \\times 3$ has the three factors $\{1, 3, 9\}$ — composite, and the first odd number that is.',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'List every prime between 20 and 50, and show the sieve reasoning that retires each composite in that range.',
+                  solution:
+                    'The primes are $23, 29, 31, 37, 41, 43, 47$ — seven of them. The composites retire as follows. Even: $22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50$ (factor $2$). Fives: $25 = 5^2$, $35 = 5 \\times 7$, $45 = 5 \\times 9$. Threes: $21 = 3 \\times 7$, $27 = 3^3$, $33 = 3 \\times 11$, $39 = 3 \\times 13$. Sevens: $49 = 7^2$. The survivors each need the licence: $\sqrt{47} < 7$, so $23, 29, 31, 37, 41, 43, 47$ need no test beyond $2, 3, 5$ — odd, digit sums $5, 11, 4, 10, 5, 7, 11$ (none divisible by $3$), and no tail of $0$ or $5$. Seven primes, each certified, none guessed.',
+                },
+                {
+                  q: 'Is 221 prime? Use the square-root licence, and name the trap this number sets.',
+                  solution:
+                    'Fix the boundary: $14^2 = 196 < 221 < 225 = 15^2$, so the candidates are the primes up to $14$: $2, 3, 5, 7, 11, 13$. Run them: $221$ is odd (retire $2$); digit sum $2 + 2 + 1 = 5$ (retire $3$); tail $1$ (retire $5$); $221 = 7 \\times 31 + 4$ (retire $7$); alternating sum $1 - 2 + 2 - 2 = -1$ (retire $11$); $221 = 13 \\times 17$ — **hit**. So $221$ is composite, and the trap is that it survives every cheap screen: odd, innocent digit sum, no tail, no $7$-gadget hit, no $11$ verdict. The licence is what forces testing $13$ — and $13$ is exactly where the factor hides. (Its partner $17$ sits above $\sqrt{221}$: the pair straddles the root, as the licence promises.)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Factorise 84 and 126 completely into primes, then circle the primes they share — and say what the shared product 42 might be called.',
+                  solution:
+                    '$84 = 2 \\times 42 = 2 \\times 2 \\times 21 = 2^2 \\times 3 \\times 7$ (verify: $4 \\times 21 = 84$). $126 = 2 \\times 63 = 2 \\times 9 \\times 7 = 2 \\times 3^2 \\times 7$ (verify: $2 \\times 63 = 126$, $63 = 9 \\times 7$). Shared atoms: one $2$, one $3$, one $7$ — the product $2 \\times 3 \\times 7 = 42$, and indeed $42$ divides both ($84 = 2 \\times 42$, $126 = 3 \\times 42$). It is the **greatest common factor** of the two numbers — the object Lesson 3.3 builds formally. Notice the rule that will emerge there: shared primes, taken at the **smaller** exponent ($2^1$ not $2^2$, $3^1$ not $3^2$).',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Certify that 113 is prime, using the licence and the Lesson 3.1 screens.',
+                  solution:
+                    'Boundary: $10^2 = 100 < 113 < 121 = 11^2$, so candidates are the primes up to $10$: $2, 3, 5, 7$. $113$ is odd (retire $2$); digit sum $1 + 1 + 3 = 5$, not divisible by $3$ (retire $3$); tail $3$ (retire $5$); $113 = 7 \\times 16 + 1$, remainder $1$ (retire $7$). Four tests, four failures — and the licence forbids testing $11$ ($121$ has already overshot): $113$ is **prime**.',
+                },
+                {
+                  q: 'Factorise 2,401 completely. Then explain why it needs no factor tree, and count its divisors two ways.',
+                  solution:
+                    'Lesson 3.1\'s $7$-gadget chain certified $2{,}401 = 7 \\times 343$, and the chain continued: $343 = 7^3$, $49 = 7^2$, $7$ — so $2{,}401 = 7^4$. No tree is needed because every branch is the same prime: the number is a **prime power**. Divisor count, by the formula: $(4 + 1) = 5$. By listing: $\{1, 7, 49, 343, 2{,}401\}$ — one divisor per exponent level $7^0, 7^1, 7^2, 7^3, 7^4$. Two roads, one count. (Cross-check from Chapter 3.1: $2{,}401 = 49^2$, and a square\'s factor count is odd — five is odd, as it must be.)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Predict the number of divisors of 96 without listing any, then verify by listing them all.',
+                  solution:
+                    'Factorise: $96 = 2 \\times 48 = 2 \\times 2 \\times 24 = 2^5 \\times 3$ (verify: $32 \\times 3 = 96$). Formula: $(5 + 1)(1 + 1) = 12$ divisors. List, organised by the atoms $2^a 3^b$: for $b = 0$ — $1, 2, 4, 8, 16, 32$; for $b = 1$ — $3, 6, 12, 24, 48, 96$. Twelve in all, matching the prediction, and every one visibly of the form $2^a \\times 3^b$. The formula predicted the count from the factorisation alone — that is what "master key" means.',
+                },
+                {
+                  q: 'Write 2,025 (the year just past) as a product of primes, and use the atoms to count its divisors. Verify the factorisation first by a square.',
+                  solution:
+                    'Spot the square: $2{,}025 = 45^2$ (since $45^2 = 2{,}025$; check $40^2 = 1{,}600 < 2{,}025 < 2{,}500 = 50^2$ and $45^2$ lands exactly). Then $45 = 9 \\times 5 = 3^2 \\times 5$, so $2{,}025 = (3^2 \\times 5)^2 = 3^4 \\times 5^2$. Rebuild: $81 \\times 25 = 2{,}025$. Divisor count: $(4 + 1)(2 + 1) = 15$. The listing, organised by exponents $3^a 5^b$: $1, 3, 9, 27, 81$; times $5$: $5, 15, 45, 135, 405$; times $25$: $25, 75, 225, 675, 2{,}025$ — fifteen, as predicted. A year that is a perfect square of a composite makes the atoms show off.',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The master key, end to end. (a) Factorise 4,896 — the exam-hall number of Lesson 3.1 — completely into primes. (b) Predict its divisor count with the formula. (c) Verify by enumerating all divisors from the atoms 2^a 3^b 17^c, and spot-check three: 48, 272 and 144. (d) Explain in one sentence why the three choice-counts multiply rather than add, and what the count becomes for a prime p.',
+                  solution:
+                    '(a) Strip the $2$s: $4{,}896 = 2 \\times 2{,}448 = 2^2 \\times 1{,}224 = 2^3 \\times 612 = 2^4 \\times 306 = 2^5 \\times 153$; $153$ is odd, and $153 = 3 \\times 51 = 3 \\times 3 \\times 17$, with $17$ prime ($4^2 = 16 < 17 < 25$; test $2, 3$: fail). So $4{,}896 = 2^5 \\times 3^2 \\times 17$. (b) $(5 + 1)(2 + 1)(1 + 1) = 6 \\times 3 \\times 2 = 36$. (c) Enumerate $2^a 3^b 17^c$ for $a \\in 0..5$, $b \\in 0..2$, $c \\in 0..1$: with $c = 0$ the $2^a 3^b$ grid gives $1, 2, 4, 8, 16, 32$; $3, 6, 12, 24, 48, 96$; $9, 18, 36, 72, 144, 288$ — eighteen; each times $17$ gives the other eighteen: $17, 34, 68, 136, 272, 544$; $51, 102, 204, 408, 816, 1{,}632$; $153, 306, 612, 1{,}224, 2{,}448, 4{,}896$ — thirty-six in all, no duplicates (the factorisation is unique, so no grid cell can collide). Spot checks: $48 = 2^4 \\times 3$ divides ($4{,}896 = 102 \\times 48$); $272 = 2^4 \\times 17$ divides ($4{,}896 = 18 \\times 272$); $144 = 2^4 \\times 3^2$ divides ($4{,}896 = 34 \\times 144$). (d) The choices are **independent** — deciding how many $2$s to use constrains nothing about the $3$s or the $17$ — so the total number of combined decisions is the product $6 \\times 3 \\times 2$; a prime $p$ has $(1 + 1) = 2$ divisors, $\{1, p\}$, which is the two-factor treaty read straight off the formula.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The alphabet is complete. Every number from $2$ onward is now a sentence in the primes, written exactly one way — and the divisor-count formula showed why that is power and not pedantry: the atoms and their exponents answer, in one line, questions that listing would take minutes to settle. But the deepest use of the alphabet is **comparison**. Two numbers, side by side in their atoms: which primes do they share, and at what powers? The shared primes at the smaller powers will build the **highest common factor**; all the primes at the larger powers will build the **lowest common multiple**. Factoring all the way down was never the destination — it is the vantage point. Lesson 3.3 begins the comparison.',
         },
       ],
     },

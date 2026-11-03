@@ -19,7 +19,14 @@ step 6).
   re-pull, same 89 entries, file ids intact.
 - Note: the Drive is exam/higher-ed oriented; school-level foundation topics
   rely on the internet fallback (NCERT-class curricula) plus the Khattar
-  aptitude book for exam-style coverage.
+  aptitude book for exam-style coverage. Re-downloaded again 2026-11-03
+  (hourly run 8, after the fourth recycle wiped the gitignored survey —
+  rebuilt in one command via `scripts/rebuild_drive_survey.ts`; PDF 33.9 MB
+  via the persisted file id) for FM ch. 3 lesson 3.2; ch. 1 prime material
+  studied (prime = "divisible by 1 and itself only", composite = "greater
+  than 1 and not prime", the four notes incl. 1-is-neither and 2-only-even
+  prime, the 25-primes-below-100 list, co-primes with the 16 & 17 example);
+  working copies deleted after the lesson's E2E. Exposition original.
 
 ## Citation keys (used by lesson `sources` fields)
 
@@ -50,13 +57,16 @@ step 6).
   notation history; Lennes 1917, *American Mathematical Monthly*)
   (searches 2026-11-03); exposition original.
 - `ncert-math6-ch3` — NCERT Class 6 Mathematics, ch. 3 "Playing with
-  Numbers" (public curriculum). Used for: FM ch. 3 lesson 3.1 — canonical
+  Numbers" (public curriculum). Used for: FM ch. 3 lessons 3.1 and 3.2 —
+  canonical
   school-level framing of factors and multiples ("a factor is an exact
-  divisor"), prime/composite vocabulary, and the divisibility tests for
+  divisor"), prime/composite vocabulary, the Eratosthenes sieve as the
+  syllabus method for finding primes, and the divisibility tests for
   2/3/4/5/6/8/9/10(/11) as syllabus items; the reasons behind the tests
   (tail theorem, mod-9 digit-sum, alternating ±1, coprime splits, the
-  7-gadget, Pascal's 1654 criterion) are the book's own derivations
-  (web-checked 2026-11-03); exposition original.
+  7-gadget, Pascal's 1654 criterion) and the uniqueness-of-factorisation
+  treatment (crossroads lemma, 1-exclusion argument) are the book's own
+  derivations (web-checked 2026-11-03); exposition original.
 
 ## Per-subject ledger
 

@@ -215,6 +215,132 @@ check('M2: 2616/4 = 654 (last two 16 | 4)', 2616 / 4 === 654 && 16 % 4 === 0);
 check('M3: 3792 digit sum 21 -> /3 = 1264', S(3792) === 21 && 3792 / 3 === 1264);
 
 /* ============================================================
+ * N. Lesson 3.2 "Prime Numbers and Factorisation" — helpers
+ * ==========================================================*/
+function divisorsOf(n: number): number[] {
+  const out: number[] = [];
+  for (let d = 1; d <= n; d++) if (n % d === 0) out.push(d);
+  return out;
+}
+function isPrime(n: number): boolean {
+  if (n < 2) return false;
+  for (let d = 2; d * d <= n; d++) if (n % d === 0) return false;
+  return true;
+}
+function primesUpTo(n: number): number[] {
+  const out: number[] = [];
+  for (let k = 2; k <= n; k++) if (isPrime(k)) out.push(k);
+  return out;
+}
+function primeFactors(n: number): number[] {
+  // sorted multiset of prime factors (with repetition)
+  const out: number[] = [];
+  let m = n;
+  for (let p = 2; p * p <= m; p++) while (m % p === 0) { out.push(p); m /= p; }
+  if (m > 1) out.push(m);
+  return out;
+}
+
+/* ============================================================
+ * O. Lesson 3.2 — opening scene (mosaic tiles: 48 vs 47)
+ * ==========================================================*/
+check('O1: 48 has exactly ten factors = five rectangles 1x48, 2x24, 3x16, 4x12, 6x8', JSON.stringify(divisorsOf(48)) === JSON.stringify([1, 2, 3, 4, 6, 8, 12, 16, 24, 48]));
+check('O2: 47 is prime — its only factor pair is 1x47 (one line, no rectangle)', isPrime(47) && divisorsOf(47).length === 2);
+check('O3: 47 passes the 3.1 screens: odd, S(47) = 11, tail 7 not 0/5', 47 % 2 === 1 && S(47) === 11 && 47 % 5 !== 0);
+check('O4: the walks close because 7^2 = 49 > 48 and > 47', 7 * 7 === 49 && 49 > 48 && 49 > 47);
+check('O5: every smaller member of 48\'s pairs (1,2,3,4,6) is <= 6 < sqrt(48) ~ 6.93', [1, 2, 3, 4, 6].every((d) => d * d <= 48) && 6 * 6 < 48 && 7 * 7 > 48);
+
+/* ============================================================
+ * P. Lesson 3.2 — the two-factor treaty (prime / composite / 1 / 0)
+ * ==========================================================*/
+check('P1: factor counts 1..12: 1 has one factor; primes exactly two; composites three or more', divisorsOf(1).length === 1 && [2, 3, 5, 7, 11].every((p) => divisorsOf(p).length === 2) && [4, 6, 8, 9, 10, 12].every((c) => divisorsOf(c).length >= 3));
+check('P2: primes below 30 are 2,3,5,7,11,13,17,19,23,29 (ten)', JSON.stringify(primesUpTo(29)) === JSON.stringify([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]));
+check('P3: 4 has three factors 1,2,4; 9 has three 1,3,9; 12 has six 1,2,3,4,6,12', JSON.stringify(divisorsOf(4)) === JSON.stringify([1, 2, 4]) && JSON.stringify(divisorsOf(9)) === JSON.stringify([1, 3, 9]) && JSON.stringify(divisorsOf(12)) === JSON.stringify([1, 2, 3, 4, 6, 12]));
+check('P4: 2 is the only even prime — every even n in 4..100 is composite', isPrime(2) && Array.from({ length: 49 }, (_, i) => 2 * (i + 2)).every((n) => !isPrime(n)));
+check('P5: 0 sits outside the treaty (every d divides 0, infinitely many divisors)', [2, 7, 100].every((d) => 0 % d === 0));
+check('P6: 1 sits outside (exactly one factor; if padded, 1x2x3 = 6 and 1x1x2x3 = 6)', divisorsOf(1).length === 1 && 1 * 2 * 3 === 6 && 1 * 1 * 2 * 3 === 6);
+
+/* ============================================================
+ * Q. Lesson 3.2 — the sieve of Eratosthenes up to 100
+ * ==========================================================*/
+check('Q1: exactly 25 primes below 100 (sieve result)', primesUpTo(97).length === 25 && primesUpTo(100).length === 25);
+check('Q2: the Khattar list: 2..97 in 25 entries', JSON.stringify(primesUpTo(97)) === JSON.stringify([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]));
+check('Q3: sieve starts crossing at p^2: 4, 9, 25, 49; stops after 7 because 11^2 = 121 > 100', 2 * 2 === 4 && 3 * 3 === 9 && 5 * 5 === 25 && 7 * 7 === 49 && 11 * 11 === 121);
+check('Q4: 97 is the largest two-digit prime; 98 = 2x49, 99 = 9x11 composite', isPrime(97) && 98 === 2 * 49 && 99 === 9 * 11 && !isPrime(98) && !isPrime(99) && primesUpTo(97).every((p) => p <= 97) && [91, 93, 95, 99].every((n) => !isPrime(n)));
+check('Q5: twin-prime pairs below 50: (3,5),(5,7),(11,13),(17,19),(29,31),(41,43)', [[3, 5], [5, 7], [11, 13], [17, 19], [29, 31], [41, 43]].every(([a, b]) => isPrime(a) && isPrime(b) && b - a === 2));
+check('Q6: smallest prime 2, smallest odd prime 3; 1 is not prime', isPrime(2) && isPrime(3) && !isPrime(1));
+
+/* ============================================================
+ * R. Lesson 3.2 — the square-root licence (trial division)
+ * ==========================================================*/
+check('R1: bound square windows: 36 < 48,47 < 49; 81 < 91 < 100; 361 < 397 < 400; 196 < 221 < 225; 100 < 113 < 121', 36 < 48 && 48 < 49 && 36 < 47 && 81 < 91 && 91 < 100 && 361 < 397 && 397 < 400 && 196 < 221 && 221 < 225 && 100 < 113 && 113 < 121);
+check('R2: if both factors exceeded sqrt(n), their product would exceed n (7x7 = 49 > 48)', 7 * 7 > 48);
+check('R3: the false primes: 91 = 7x13, 51 = 3x17, 87 = 3x29, 221 = 13x17', 91 === 7 * 13 && 51 === 3 * 17 && 87 === 3 * 29 && 221 === 13 * 17 && !isPrime(91) && !isPrime(51) && !isPrime(87) && !isPrime(221));
+check('R4: 97 certified: primes <= 9 are 2,3,5,7; 97 = 7x13 + 6 fails the last test', primesUpTo(9).length === 4 && 7 * 13 + 6 === 97 && 97 % 7 === 6 && isPrime(97));
+check('R5: 397 verdicts: odd; S = 19 not /3; tail 7; %7 = 5 (7x56 = 392); alt 7-9+3 = 1; %13 = 7 (13x30 = 390); %17 = 6 (17x23 = 391); %19 = 17 (19x20 = 380)', 397 % 2 === 1 && S(397) === 19 && 397 % 3 !== 0 && 397 % 5 !== 0 && 397 % 7 === 5 && 7 * 56 === 392 && altSum(397) === 1 && 397 % 13 === 7 && 13 * 30 === 390 && 397 % 17 === 6 && 17 * 23 === 391 && 397 % 19 === 17 && 19 * 20 === 380);
+check('R6: 397 is prime', isPrime(397));
+check('R7: 113 certified: S(113) = 5; 113 = 7x16 + 1; prime', S(113) === 5 && 113 === 7 * 16 + 1 && 113 % 7 === 1 && isPrime(113));
+check('R8: 221 needs 13: primes <= 14 are 2,3,5,7,11,13 and 13x17 = 221 (14^2 = 196 < 221 < 225 = 15^2)', JSON.stringify(primesUpTo(14)) === JSON.stringify([2, 3, 5, 7, 11, 13]) && 13 * 17 === 221 && 14 * 14 < 221 && 15 * 15 > 221);
+check('R9: testing only primes (not composites) is enough: every composite test d = pxq is covered by p', isPrime(2) && isPrime(3) && isPrime(5) && isPrime(7) && isPrime(11) && isPrime(13) && isPrime(17) && isPrime(19));
+
+/* ============================================================
+ * S. Lesson 3.2 — factorisation, uniqueness, the exam-hall return
+ * ==========================================================*/
+check('S1: 60 via tree A: 6x10 -> (2x3)x(2x5) = 2x2x3x5', 6 * 10 === 60 && JSON.stringify(primeFactors(60)) === JSON.stringify([2, 2, 3, 5]));
+check('S2: 60 via tree B: 4x15 -> (2x2)x(3x5) = 2x2x3x5 (same multiset)', 4 * 15 === 60 && JSON.stringify([2, 2].concat([3, 5]).sort((a, b) => a - b)) === JSON.stringify([2, 2, 3, 5]) && 2 * 2 * 3 * 5 === 60);
+check('S3: 60 = 2^2 x 3 x 5 (exponent regrouping)', 2 ** 2 * 3 * 5 === 60);
+check('S4: the near-miss: 2x6 = 3x4 = 12, but pushed down both reach 2x2x3', 2 * 6 === 12 && 3 * 4 === 12 && JSON.stringify(primeFactors(12)) === JSON.stringify([2, 2, 3]));
+check('S5: the exam-hall number returns: 4896 = 2x2448 = 2^2x1224 = 2^3x612 = 2^4x306 = 2^5x153; 153 = 3x51 = 3x3x17', 4896 / 2 === 2448 && 2448 / 2 === 1224 && 1224 / 2 === 612 && 612 / 2 === 306 && 306 / 2 === 153 && 153 === 3 * 51 && 51 === 3 * 17);
+check('S6: 4896 = 2^5 x 3^2 x 17; 32 x 153 = 4896; 32 x 9 x 17 = 4896; 17 is prime', 2 ** 5 * 3 ** 2 * 17 === 4896 && 32 * 153 === 4896 && 32 * 9 * 17 === 4896 && isPrime(17));
+check('S7: 2401 = 7^4 = 49^2 (Lesson 3.1 chain cross); a prime power with five divisors 1,7,49,343,2401', 7 ** 4 === 2401 && 49 * 49 === 2401 && 49 === 7 ** 2 && JSON.stringify(divisorsOf(2401)) === JSON.stringify([1, 7, 49, 343, 2401]));
+check('S8: uniqueness would die under padding: 1x(2^2x3x5) = 60 and 1x1x(2^2x3x5) = 60', 1 * 60 === 60 && 1 * 1 * 60 === 60);
+
+/* ============================================================
+ * T. Lesson 3.2 — divisor-count formula (the master key)
+ * ==========================================================*/
+function countDivisors(n: number): number { return divisorsOf(n).length; }
+check('T1: 48 = 2^4 x 3 -> (4+1)(1+1) = 10 divisors (Lesson 3.1 count explained)', (4 + 1) * (1 + 1) === 10 && countDivisors(48) === 10);
+check('T2: 60 = 2^2 x 3 x 5 -> 3x2x2 = 12 divisors, enumerated', 3 * 2 * 2 === 12 && countDivisors(60) === 12 && JSON.stringify(divisorsOf(60)) === JSON.stringify([1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]));
+check('T3: 4896 = 2^5 x 3^2 x 17 -> 6x3x2 = 36 divisors, enumerated', 6 * 3 * 2 === 36 && countDivisors(4896) === 36);
+check('T4: 4896 divisor list (36, from atoms 2^a 3^b 17^c)', (() => {
+  const set = new Set<number>();
+  for (let a = 0; a <= 5; a++) for (let b = 0; b <= 2; b++) for (let c = 0; c <= 1; c++) set.add(2 ** a * 3 ** b * 17 ** c);
+  const list = Array.from(set).sort((x, y) => x - y);
+  return list.length === 36 && list.every((d) => 4896 % d === 0);
+})());
+check('T5: 720 = 2^4 x 3^2 x 5 -> 5x3x2 = 30 divisors, enumerated', 720 === 2 ** 4 * 3 ** 2 * 5 && 5 * 3 * 2 === 30 && countDivisors(720) === 30);
+check('T6: 96 = 2^5 x 3 -> 6x2 = 12 divisors, enumerated', 96 === 2 ** 5 * 3 && 6 * 2 === 12 && JSON.stringify(divisorsOf(96)) === JSON.stringify([1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 96]));
+check('T7: 2025 = 3^4 x 5^2 -> 5x3 = 15 divisors, enumerated; 2025 = 45^2; 81x25 = 2025', 2025 === 3 ** 4 * 5 ** 2 && 5 * 3 === 15 && countDivisors(2025) === 15 && 45 * 45 === 2025 && 81 * 25 === 2025 && JSON.stringify(divisorsOf(2025)) === JSON.stringify([1, 3, 5, 9, 15, 25, 27, 45, 75, 81, 135, 225, 405, 675, 2025]));
+check('T8: a prime p has exactly two divisors 1 and p (the treaty in counting form)', [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47].every((p) => JSON.stringify(divisorsOf(p)) === JSON.stringify([1, p])));
+check('T9: 2401 = 7^4 -> (4+1) = 5 divisors (prime-power row of the gallery)', 4 + 1 === 5 && countDivisors(2401) === 5);
+
+/* ============================================================
+ * U. Lesson 3.2 — exercises and quiz numbers
+ * ==========================================================*/
+check('U1: L1 classify 1..12: primes {2,3,5,7,11}, composites {4,6,8,9,10,12}, 1 neither', (() => {
+  let ok = true;
+  for (let n = 1; n <= 12; n++) {
+    const c = divisorsOf(n).length;
+    if (n === 1) ok = ok && c === 1;
+    else if ([2, 3, 5, 7, 11].includes(n)) ok = ok && c === 2;
+    else ok = ok && c >= 3;
+  }
+  return ok;
+})());
+check('U2: L2 primes between 20 and 50: 23,29,31,37,41,43,47 (seven)', JSON.stringify(primesUpTo(50).filter((p) => p > 20)) === JSON.stringify([23, 29, 31, 37, 41, 43, 47]));
+check('U3: L2 the other 20..50 numbers are composite (21,22,24,25,26,27,28,30,32,33,34,35,36,38,39,40,42,44,45,46,48,49,50)', [21, 22, 24, 25, 26, 27, 28, 30, 32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50].every((n) => !isPrime(n)) && 21 === 3 * 7 && 25 === 5 * 5 && 27 === 3 ** 3 && 33 === 3 * 11 && 35 === 5 * 7 && 39 === 3 * 13 && 49 === 7 * 7);
+check('U4: L3 84 = 2^2 x 3 x 7 (84 = 2x42 = 2x2x21); 126 = 2 x 3^2 x 7 (126 = 2x63 = 2x9x7)', 84 === 2 ** 2 * 3 * 7 && JSON.stringify(primeFactors(84)) === JSON.stringify([2, 2, 3, 7]) && 126 === 2 * 3 ** 2 * 7 && JSON.stringify(primeFactors(126)) === JSON.stringify([2, 3, 3, 7]));
+check('U5: L3 what 84 and 126 share: 2x3x7 = 42 (the HCF seed)', 2 * 3 * 7 === 42 && 84 % 42 === 0 && 126 % 42 === 0);
+check('U6: L6 divisors of 4896 spot checks: 48 = 16x3 divides 4896 (102x48); 272 = 16x17 divides (18x272); 144 = 16x9 divides (34x144)', 4896 === 102 * 48 && 4896 === 18 * 272 && 4896 === 34 * 144);
+check('U7: quiz Q1: 89 prime (S = 17, 89 = 7x12 + 5); wrong options 91 = 7x13, 87 = 3x29, 51 = 3x17', isPrime(89) && S(89) === 17 && 7 * 12 + 5 === 89 && 91 === 7 * 13 && 87 === 3 * 29 && 51 === 3 * 17);
+check('U8: quiz Q3: 25 primes below 100 (cross Q1)', primesUpTo(97).length === 25);
+check('U9: quiz Q4: 60 = 2^2 x 3 x 5 all-prime; distractors 30, 15, 10 composite', 2 ** 2 * 3 * 5 === 60 && [30, 15, 10].every((n) => !isPrime(n)));
+check('U10: quiz Q5: 48 has 10 divisors (cross T1)', countDivisors(48) === 10);
+check('U11: quiz Q2 rationale: 91 has the large factor 13 > sqrt(91) ~ 9.5, paired with 7 < sqrt(91)', 91 === 7 * 13 && 7 * 7 < 91 && 91 < 10 * 10);
+check('U12: sieve block: crossing 2 from 4, 3 from 9, 5 from 25, 7 from 49 — all smaller multiples already crossed', [4, 9, 25, 49].every((s) => !isPrime(s)));
+check('U13: primes in 80..100 are 83, 89, 97 (three) vs ten below 30 — the sieve thins out', JSON.stringify(primesUpTo(100).filter((p) => p >= 80)) === JSON.stringify([83, 89, 97]) && primesUpTo(29).length === 10);
+
+/* ============================================================
  * Report
  * ==========================================================*/
 console.log(`\nverify-unit-3: ${pass} passed, ${fail} failed`);
@@ -223,4 +349,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL CHECKS PASS — safe to write lesson 3.1');
+console.log('ALL CHECKS PASS — safe to write lessons 3.1 + 3.2');

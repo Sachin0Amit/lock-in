@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 12:02:56 (Asia/Kolkata)",
+  "generated": "2026-11-03 13:07:03 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -555,9 +555,8 @@
             "title": "Factors, Multiples and Primes",
             "summary": "The multiplicative structure of whole numbers: divisibility tests with reasons, prime factorisation, HCF and LCM by three routes, and a first meeting with the infinitude of primes.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Prime Numbers and Factorisation",
               "Highest Common Factor",
               "Lowest Common Multiple",
               "HCF, LCM and How They Relate"
@@ -627,9 +626,75 @@
                 },
                 "exerciseQuestions": 8,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-prime-numbers-factorisation",
+                "number": "3.2",
+                "title": "Prime Numbers and Factorisation",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6089,
+                "readMins": 30,
+                "concepts": [
+                  "Primes have exactly two factors",
+                  "Composites have three or more",
+                  "Why 1 and 0 sit outside the treaty",
+                  "The sieve of Eratosthenes",
+                  "Trial division and the square-root licence",
+                  "Prime factorisation is unique",
+                  "Counting divisors from the atoms"
+                ],
+                "objectives": [
+                  "Define prime and composite numbers by counting factors, and explain why 1 (and 0) belong to neither family",
+                  "Run the sieve of Eratosthenes up to 100 and recall the 25 primes it leaves behind",
+                  "Certify primality by trial division, using the square-root licence to stop testing at √n — and spot the false primes 91, 87 and 221",
+                  "Factorise any number completely into primes and state the Fundamental Theorem of Arithmetic: every road reaches the same atoms",
+                  "Predict the number of divisors of any number from its prime exponents, via (a₁ + 1)(a₂ + 1)⋯(aₖ + 1)"
+                ],
+                "prerequisites": [
+                  "fm-divisibility-and-its-tests",
+                  "fm-numbers-digits-place-value"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch3"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 6,
+                  "callout": 5,
+                  "terms": 1,
+                  "algorithm": 1,
+                  "derivation": 3,
+                  "example": 1,
+                  "formula": 3,
+                  "figure": 1,
+                  "equation": 2,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 1,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 10,
+                "termsDefined": 7
               }
             ],
-            "words": 6477
+            "words": 12566
           },
           {
             "number": 4,
@@ -785,13 +850,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 81,
-      "totalLines": 13212,
+      "srcFilesTracked": 82,
+      "totalLines": 14348,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 4122,
+        "src/data/library (content model + books)": 5258,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2766,6 +2831,93 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "a498f25716c230b227f696ca2dd69b72adc2af24",
+      "short": "a498f25",
+      "date": "2026-11-03 06:40",
+      "message": "unit 3 opens: FM lesson 3.1 Divisibility and Its Tests (96 verified checks, E2E green) + verify-unit-3.ts (gitignore exception) + third-recycle one-command survey rebuild + logs updated",
+      "filesChanged": 11,
+      "insertions": 1184,
+      "deletions": 85,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 86,
+          "del": 24
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 23,
+          "del": 4
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 110,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 123,
+          "del": 27
+        },
+        {
+          "path": "scripts/verify-unit-2.ts",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-3.ts",
+          "add": 226,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 6,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 591,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ea0441f2f31106a971a879b0424f741e5af1f98d",
+      "short": "ea0441f",
+      "date": "2026-11-03 06:41",
+      "message": "memory: run-7 pointers — unit 3 opened, lesson 3.1 pushed and verified (a498f25), origin/main synced; next: FM 3.2 Prime Numbers and Factorisation",
+      "filesChanged": 2,
+      "insertions": 9,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 8,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -2774,25 +2926,25 @@
     "booksLive": 1,
     "chaptersWritten": 2,
     "chaptersInProgress": 1,
-    "lessonsWritten": 9,
-    "wordsAuthored": 37636,
-    "termsDefined": 54,
-    "quizItems": 45,
-    "exerciseQuestions": 73,
+    "lessonsWritten": 10,
+    "wordsAuthored": 43725,
+    "termsDefined": 61,
+    "quizItems": 50,
+    "exerciseQuestions": 83,
     "blockTotals": {
-      "para": 96,
-      "callout": 31,
-      "heading": 60,
-      "terms": 9,
-      "equation": 9,
-      "derivation": 16,
-      "table": 10,
-      "figure": 13,
-      "example": 16,
-      "quiz": 9,
-      "exercises": 9,
-      "formula": 17,
-      "algorithm": 7
+      "para": 114,
+      "callout": 36,
+      "heading": 66,
+      "terms": 10,
+      "equation": 11,
+      "derivation": 19,
+      "table": 11,
+      "figure": 14,
+      "example": 17,
+      "quiz": 10,
+      "exercises": 10,
+      "formula": 20,
+      "algorithm": 8
     }
   }
 }

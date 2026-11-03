@@ -6,6 +6,108 @@ and what remains.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 8: lesson 3.2 Prime Numbers and Factorisation shipped (unit 3 = 2/5 lessons)
+
+**Situation at start:** tree clean at `ea0441f` = origin/main (verified via
+anonymous HTTPS fetch — this sandbox has **no ssh binary**, so
+`git ls-remote origin` fails; use
+`git fetch https://github.com/Sachin0Amit/lock-in.git refs/heads/main:refs/remotes/origin/main`).
+No in-flight lessons. **Fourth sandbox recycle** found: gitignored
+`temporary-references/` wiped again; dev server already up (200) and
+node_modules intact. Recovered per recipe: `bun run scripts/rebuild_drive_survey.ts`
+→ 89 entries, 4 folders, Khattar file id intact.
+
+**Research:** Khattar QA 4e re-downloaded via the persisted Drive id
+(33.9 MB) — ch. 1 "Numbers" prime material studied: prime ("divisible by 1
+and itself only" beyond 1), composite ("greater than 1, not prime"), the
+four notes (1 neither; 2 the only even prime; the 25 primes below 100
+listed; co-primes with 16 & 17 as the non-prime-pair example). NCERT
+Class 6 ch. 3 coverage web-checked (prime/composite, Eratosthenes sieve,
+co-primes as syllabus items). Exposition original — no Khattar text
+reproduced.
+
+**Pre-write verification:** `scripts/verify-unit-3.ts` extended with
+sections N–U (helpers divisorsOf/isPrime/primesUpTo/primeFactors + 55
+checks) — **152 checks, ALL PASS before one word was written** (up from
+96). One script-side fix during authoring: R8's square-window comparison
+was written backwards (14² = 196 < 221 < 225 = 15², not 14² > 221). Covers:
+opening 48-vs-47 tiles; the two-factor treaty; factor counts 1–12; the 25
+primes (sieve-computed, Khattar list equality); 97/98/99; twins; sieve
+squares 4/9/25/49 + stop at 11² = 121; square windows for
+48/47/91/397/221/113; false primes 91 = 7×13, 51 = 3×17, 87 = 3×29,
+221 = 13×17; the 397 verdict battery (7×56+5, alt 1, 13×30+7, 17×23+6,
+19×20+17); 113 certification; 60 via both trees → 2²×3×5; near-miss
+2×6 = 3×4 → 2×2×3; 4,896 = 2⁵×3²×17 (strip chain + rebuild 32×153);
+2,401 = 7⁴ = 49² + its five divisors; divisor counts (4+1)(1+1) = 10 for
+48, 12 for 60, 36 for 4,896 (enumerated from atoms), 30 for 720, 12 for
+96 (listed), 15 for 2,025 (listed; = 45² = 3⁴×5²); padding identities;
+L1–L6 exercise numbers; quiz numbers (89 prime, 91/87/51 factorings).
+verify-unit-2.ts still 165/165.
+
+**Shipped: lesson 3.2 "Prime Numbers and Factorisation"** (ch-03.ts,
+6,089 honest words): mosaic-tile opening (48's five rectangles vs 47's
+bare line); 7 terms (Prime, Composite, Sieve, Trial division, Prime
+factorisation, FTA, Factor tree); two-factor treaty definition callout +
+1/0 exclusion para; 2-only-even-prime parity one-liner; sieve algorithm
+block (workers 2, 3, 5, 7; stop when 11² = 121 > 100) + harvest para (25
+primes; thinning 10-below-30 vs 3-in-the-80s/90s; six twin pairs below 50;
+97 the largest two-digit prime); square-root licence **derivation** (pairs
+straddle the root; 7² = 49 > 48 closes 3.1's walk; primes-only
+refinement) + formula card; worked **example**: certifying 397 (eight
+primes to 19, every remainder quoted); false-primes para (91, 51, 87,
+221 — 221 survives every cheap screen until the licence forces 13);
+two-trees-for-60 **figure** (SVG, plain labels, both trees converge on
+2 · 2 · 3 · 5); termination para; prime-factorisation definition callout +
+regrouping equation; uniqueness **derivation** (existence by shrink;
+near-miss 2×6 = 3×4 = 12; Euclid's crossroads lemma as engine; coprime
+idea promoted; honest Bézout debt → Lesson 3.3); FTA **theorem** callout
+with the 1-exclusion load-bearing padding argument (the 3.1 trap callout
+comes due); exam-hall 4,896 atomised as a **display equation**
+(2⁵×153 strip chain) + prime power 2,401 = 7⁴; FTA formula card;
+divisor-count **derivation** (choices multiply) + verification against
+3.1's ten factors; gallery **table** (48/60/96/720/2,401/2,025/4,896 →
+10/12/12/30/5/15/36); divisor formula card; Eratosthenes–Euclid
+(VII.30, IX.14)–Gauss 1801 historical callout; exam callout; **5 quiz**
+(answers spread 2/1/2/0/3); L1–L6 exercises (L3 plants the HCF seed:
+gcd(84, 126) = 42; L6 walks the master key end-to-end, 36 divisors
+enumerated from the atoms).
+
+**E2E + a caught defect:** dev routes 200 (home/book/3.1/3.2/revise/
+glossary); agent-browser on the 3.2 page — KaTeX 316 nodes, **dollarInSvg
+= 0**, quiz answered live **5/5 · perfect**, zero console errors. **Mobile
+390px check caught a real defect**: document scrollWidth 589 vs 390 — a
+573px **inline** KaTeX chain (the 4,896 strip chain) escapes the page;
+inline math cannot wrap and has no scroll guard (display math is protected
+by the `math-display` wrapper). Fixed at the source: the strip chain
+promoted to an `equation` block (para split around it), the harvest's
+25-prime list split into three inline maths, the FTA padding chain split
+into three, the L6 solution chain rewritten as short inline pieces.
+Re-verified: scrollWidth 390 with **all ten solutions expanded**, escapers
+list empty; KaTeX 493 expanded; quiz re-run 5/5; console still zero.
+New standing rule logged in RESUME_POINTER: **INLINE-MATH RULE** — no
+inline $…$ chain longer than ~35 chars; promote long chains to display
+equations or split them.
+
+**Logs:** PROGRESS.json (phase 2/5, awaiting 3.3, lessonsWritten +
+fm-prime-numbers-factorisation, flashcards 54 → 61, notes extended),
+RESUME_POINTER.json (nextAction = 3.3 Highest Common Factor; unit3 record;
+lastCompleted prepended; push protocol notes carry the no-ssh fact),
+SOURCE_LOG.md (run-8 re-download + lesson-3.2 usage), WORK_INVENTORY.json
+regenerated (`bun run scripts/build_work_inventory.ts`: book = 10 lessons,
+43,725 words, 61 terms, 50 quiz, 83 exercise questions; 3.2 = 6,089 words,
+10 exercise questions), DETAILED_LOG.md updated. `book.ts` status comment
+now records 3.2 shipped.
+
+**Remaining:** unit 3 continues with 3.3 Highest Common Factor (ties to
+honour: 3.2's closing promise — shared primes at the smaller powers; L3's
+gcd(84,126) = 42 seed; the Bézout proof debt; 3.1's coprime trap
+generalised), then 3.4 LCM, 3.5 HCF/LCM relation. Exam-registry research
+still pending.
+
+**Git:** commit `unit 3: FM lesson 3.2 Prime Numbers and Factorisation (6,089 words, 152 verified checks, E2E green incl. 390px fix) + logs` — then PUSH under protocol v2 (see the run-8 memory note below for shas).
+
+---
+
 ## 2026-11-03 — HOURLY RUN 7: UNIT 3 OPENED — lesson 3.1 Divisibility and Its Tests shipped (chapter 3 of Foundation Mathematics opens)
 
 **Situation at start:** tree clean at `8e2e1b1` = origin/main; RESUME_POINTER

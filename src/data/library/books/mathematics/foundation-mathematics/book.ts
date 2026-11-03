@@ -14,7 +14,8 @@ import { chapter03 } from './ch-03'
  * Remainders and Why Zero Never Divides) and 2.5 (Order of Operations and
  * the Language of Expressions) shipped, all gates green, unit-2 completion
  * review passed. Chapter 3 (Factors, Multiples and Primes) OPEN — unit 3:
- * lesson 3.1 (Divisibility and Its Tests) shipped 2026-11-03; 3.2–3.5
+ * lesson 3.1 (Divisibility and Its Tests) shipped 2026-11-03; lesson 3.2
+ * (Prime Numbers and Factorisation) shipped 2026-11-03; 3.3–3.5
  * planned. Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:

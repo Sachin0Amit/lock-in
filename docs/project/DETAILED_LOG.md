@@ -9,9 +9,9 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 (maintained through **hourly run 7**: UNIT 3 OPENED —
-lesson 3.1 Divisibility and Its Tests shipped and verified; chapter 3 of
-Foundation Mathematics in progress; `WORK_INVENTORY.json` regenerated in
+Generated: 2026-11-03 (maintained through **hourly run 8**: lesson 3.2
+Prime Numbers and Factorisation shipped and verified; chapter 3 of
+Foundation Mathematics at 2/5 lessons; `WORK_INVENTORY.json` regenerated in
 the same run).
 
 ---
@@ -72,8 +72,8 @@ the same run).
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.1 — 9
-lessons, 37,636 words, 54 flashcard terms.**
+**Live today: 1 book — 2 chapters complete + chapter 3 open at 3.2 — 10
+lessons, 43,725 words, 61 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -327,7 +327,7 @@ honoured). Chapter totals recomputed from live data by
 book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise
 questions.
 
-#### Chapter 3: Factors, Multiples and Primes — **OPEN (unit 3, started 2026-11-03; 1 of 5 lessons)**
+#### Chapter 3: Factors, Multiples and Primes — **OPEN (unit 3, started 2026-11-03; 2 of 5 lessons)**
 
 **Lesson 3.1 — Divisibility and Its Tests** (id `fm-divisibility-and-its-tests`,
 authored 11-03, hourly-run-7 ship commit; ch-03.ts created) — **6,477 words ·
@@ -387,12 +387,80 @@ score persisted, flashcards 47 → 54, glossary + formula sheet list the new
 entries, screening-desk figure screenshot-verified, mobile 390px exact-fit,
 zero console/page errors.
 
+**Lesson 3.2 — Prime Numbers and Factorisation** (id
+`fm-prime-numbers-factorisation`, authored 11-03, hourly-run-8 ship commit;
+appended to ch-03.ts) — **6,089 words · 7 terms (Prime number, Composite
+number, Sieve of Eratosthenes, Trial division, Prime factorisation,
+Fundamental theorem of arithmetic, Factor tree) · 5 quiz items (answers
+spread 2/1/2/0/3) · 10 exercises (L1×2, L2×2, L3×1, L4×2, L5×2, L6×1) · 1
+original SVG figure (two factor trees for 60 — tree A splits 6 × 10, tree B
+splits 4 × 15, both converge on the leaves 2 · 2 · 3 · 5; prime leaves
+tinted, plain text only) · 3 derivations (the square-root licence — factor
+pairs straddle √n, 7² = 49 > 48 closes 3.1's pair walk, primes-only
+refinement; uniqueness of prime factorisation — existence by shrink, the
+near-miss 2×6 = 3×4 = 12 pushed down to 2×2×3 both ways, Euclid's
+crossroads lemma as engine, coprime idea promoted, honest Bézout debt →
+Lesson 3.3; the divisor-count formula d(n) = (a₁+1)(a₂+1)⋯(aₖ+1) — every
+divisor is a choice of exponents, choices multiply) · 2 equations (the 60
+regrouping chain 6×10 → 2×3×2×5 → 2²×3×5; the exam-hall 4,896 strip chain
+2×2,448 → 2⁵×153, promoted to display math by the run-8 INLINE-MATH fix) ·
+3 formula cards (trial-division licence n prime ⟺ no prime p ≤ √n divides
+n; the FTA n = p₁^a₁⋯pₖ^aₖ unique with 1 = the empty product; divisor count
+from the atoms) · 1 algorithm block (the sieve of Eratosthenes up to 100 —
+workers 2, 3, 5, 7, crossing starts at p², stop when 11² = 121 > 100, 25
+survivors) · 1 worked example (certifying 397 prime — eight primes to 19,
+every remainder quoted: 7×56+5, alt-sum 1, 13×30+7, 17×23+6, 19×20+17) · 1
+gallery table (divisor counts 48/60/96/720/2,401/2,025/4,896 →
+10/12/12/30/5/15/36, each row cross-checked) · 6 callouts (definition — the
+two-factor treaty; theorem — the FTA with the 1-exclusion load-bearing
+padding argument; definition — prime factorisation; historical —
+Eratosthenes c. 240 BCE + Euclid VII.30/IX.14 + Gauss 1801; exam —
+25-below-100, largest-two-digit 97, false-prime traps 91/51/87/221,
+divisor-count items, HCF/LCM engine preview) · sources: khattar-qa-4e,
+ncert-math6-ch3 · prerequisites: lessons 3.1, 1.1.** Contents: mosaic-tile
+opening (48's five rectangles vs 47's bare line; the 3.1 screens certify
+47; 7² = 49 overshoots foreshadows the licence); the two-factor treaty
+(exactly two vs three-or-more; 1 has one factor, 0 infinitely many — both
+outside); 2 the only even prime (n = 2 × (n÷2) one-liner); composites hide
+primes (4 = 2×2, 6 = 2×3, 9 = 3×3); the sieve + harvest (25 primes; 97 the
+last — 98 = 2×49, 99 = 9×11; thinning: 10 below 30 vs 3 in the 80s/90s —
+83, 89, 97; six twin pairs below 50); the licence retells 3.1 (48's pairs
+close at 6×8 since √48 sits between 6 and 7; 47 needs only 2, 3, 5); the
+false primes (91 = 7×13 classic; 221 survives 2/3/5/7/11 until the licence
+forces 13; 97 certified in four moves); pushing 60 down via two trees →
+same atoms (the figure); termination (parts strictly shrink ≥ 2); the FTA
+callout (Gauss 1801; if 1 were prime: 60 = 1×60 = 1×1×60 … uniqueness
+dies — 3.1's trap callout becomes load-bearing); the exam-hall number
+returns atomised (4,896 = 2⁵×3²×17, rebuild 32×153; 2,401 = 7⁴ prime power
+with factors {1, 7, 49, 343, 2,401}); the master key (divisors of 4,896 =
+choices 6×3×2 = 36; 3.1's ten factors of 48 explained as (4+1)(1+1);
+prime p → 2; prime power 7⁴ → 5). Closing para promises 3.3 (shared primes
+at the smaller powers → HCF; all primes at the larger powers → LCM).
+**Verified:** 55 new checks → `scripts/verify-unit-3.ts` **152/152 ALL
+PASS before writing** (sections N–U: helpers divisorsOf/isPrime/primesUpTo/
+primeFactors; the 25-prime sieve list equality; all square windows
+36<48,47<49 · 81<91<100 · 361<397<400 · 196<221<225 · 100<113<121; the
+397 verdict battery; divisor counts enumerated from the atoms incl. all 36
+of 4,896 and 15 of 2,025; exercise + quiz numbers; one script-side fix —
+R8's window comparison initially written backwards); verify-unit-2.ts
+still 165/165; lint clean; tsc clean repo-wide; routes 200; browser E2E —
+KaTeX 316 nodes (493 with solutions expanded), dollarInSvg=0, quiz answered
+live with the intended options → "You scored 5/5 · perfect", flashcards
+54 → 61, zero console errors, and **mobile 390px exact-fit after a caught
+defect**: a 573px inline-KaTeX chain escaped the page (inline math cannot
+wrap and has no scroll guard, unlike the math-display wrapper) — fixed by
+promoting the 4,896 chain to a display equation, splitting the 25-prime
+list and the FTA padding chain into separate inline maths, and shortening
+the L6 solution chain; re-verified with all ten solutions expanded
+(scrollWidth 390, escapers empty); quiz re-run 5/5. New standing rule:
+INLINE-MATH RULE (no inline $…$ chain over ~35 chars).
+
 #### Chapters 4–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
-| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
+| 3 | Factors, Multiples and Primes — **OPEN** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
 | 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
@@ -600,15 +668,17 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   Divisibility and Its Tests + logs + verify-unit-3.ts); working tree
   clean. origin/main is synced through the run-7 push under protocol v2
   (shas in WORKLOG.md run-7 memory note).
-- **Sandbox recycle note:** recycled THREE times on 11-03, fully
-  recovered each time; run 7's was the mildest (only the gitignored
+- **Sandbox recycle note:** recycled FOUR times on 11-03, fully
+  recovered each time; runs 7 and 8 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Full protocol in RESUME_POINTER.json.
-- **CURRENT (hourly cadence): lesson 3.2 — "Prime Numbers and
-  Factorisation"** — continues chapter 3. Ties to honour: 3.1's closing
-  promise ("factoring all the way down"), the factor-pair square-root
-  bound → trial division, coprime → unique factorisation, 1's exclusion
-  from the primes. References: Khattar ch. 1 prime material (id
-  persisted) + NCERT class-6 ch. 3 via web; verify → write → gates →
-  log; unit-3 completion review after 3.5.
+- **CURRENT (hourly cadence): lesson 3.3 — "Highest Common
+  Factor"** — continues chapter 3 (2/5 lessons done: 3.1, 3.2). Ties to
+  honour: 3.2's closing promise (shared primes at the smaller powers →
+  HCF; all primes at the larger powers → LCM), Exercise L3's seed
+  gcd(84, 126) = 42 = 2 × 3 × 7, the Bézout proof debt from 3.2's
+  uniqueness derivation, 3.1's coprime trap generalised. References:
+  Khattar ch. 2 "H.C.F. and L.C.M. of Numbers" (prime factorisation
+  method; id persisted) + NCERT class-6 ch. 3 common-factor sections via
+  web; verify → write → gates → log; unit-3 completion review after 3.5.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).
