@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 00:18:50 (Asia/Kolkata)",
+  "generated": "2026-11-04 00:19:37 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4674,6 +4674,67 @@
           "path": "docs/project/WORKLOG.md",
           "add": 9,
           "del": 6
+        }
+      ]
+    },
+    {
+      "sha": "79693b197a7d3fa19590fe9601237c1debdb9ddb",
+      "short": "79693b1",
+      "date": "2026-11-03 18:49",
+      "message": "fm 4.5 multiplying and dividing fractions (unit 4 finale, run 20): fractions stop being pooled and start scaling each other — multiplication as 'of' with the re-cutting rule ac/bd proved from the rulers (cut every piece into b, sieve a of every b, read ac of bd), the area figure 2/3 x 3/5 = 6/15 = 2/5 with the overlap exactly 2/5 of the pixels, scaling and the retired makes-bigger reflex (the two-frauds Caution: straight-across x is the truth, the mediant only ever threatened sums; hunting a common ruler for a product is the new fraud), cross-cancellation licensed across the x sign (5/6 x 3/10 = 1/2 x 1/2 = 1/4, brute and cancelled routes agree), the reciprocal (a/b x b/a = 1, wholes and unit fractions flip, 0 has none — why division by 0 is banned), the division theorem proved on the bd-ruler (5/6 / 2/3 = 10/8 = 5/4 measured; the flip IS the measuring count; division figure: six 85px eighth-steps arcing 0 to 3/4), the see-saw (dividing by proper fractions grows, x 1/2 IS dividing by 2, divide undoes multiply), the flip-only-the-divisor Caution, the HCF/LCM-of-fractions shortcuts banked from Khattar ch. 2 since run 12 cashed (measuring defined, HCF = HCF(a,c)/LCM(b,d) = 2/9 and LCM = LCM(a,c)/HCF(b,d) = 8/3 for 2/3 and 8/9 with maximality/minimality sweeps, the product rule surviving the climb: 2/9 x 8/3 = 16/27 = 2/3 x 8/9), mixed numbers converted before operating (no storey shortcut: 2 1/2 x 1 3/4 = 4 3/8; 1 1/2 / 2 1/4 = 2/3), 6-row toolkit table + three-laws equation + exam corner — 5,172 words in the Cengage voice and solution chain; 5 illustrations, 2 figures (0 audit issues after the arc fix), 6 new terms, 3 formula cards, 5-quiz (1/2/1/0/3 verified live 5/5), 12 exercises L1–L6; verify-unit-4.ts 261 → 330 checks (AI–AN) ALL PASS pre-writing (AM caught the real 14/9-not-10/9 quiz distractor); UNIT-4 COMPLETION REVIEW: BOOK_FORMAT checklist 7/7, exam-coverage 5/5, ch. 4 = 26,905 words / 32 terms / 5 lessons, book = 18 lessons / 85,934 words / 114 terms, ch. 4 status complete, book.ts notes updated, plannedLessons emptied; E2E 8 lessons (5 Sol. pills inline, badges 0, legacy boxes 0, KaTeX 204, 12/12 solutions expand, quiz 5/5 live, 390px exact-fit, figure text-overflow 0, VLM 8.5/10 with the division arc re-verified, zero console errors); chapter 5 Decimals and Percents opens next",
+      "filesChanged": 10,
+      "insertions": 1293,
+      "deletions": 105,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 84,
+          "del": 19
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 27
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 31,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 28,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 135,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 193,
+          "del": 30
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-4.ts",
+          "add": 94,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 12,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 646,
+          "del": 20
         }
       ]
     }
