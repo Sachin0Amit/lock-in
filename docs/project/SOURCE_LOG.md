@@ -14,7 +14,9 @@ step 6).
   economics, languages…) + 4 subfolders — MATHS (M1 Trigonometry, M2 Algebra,
   M3 Coordinate Geometry, M4 Calculus, M5 3D Geometry — JEE module PDFs),
   CHEMISTRY, PHYSICS, _DPPs (practice sheets). Full machine-readable listing:
-  `temporary-references/inventory.json` (gitignored).
+  `temporary-references/inventory.json` (gitignored). Re-confirmed 2026-11-03
+  after a sandbox recycle wiped the gitignored listing — embeddedfolderview
+  re-pull, same 89 entries, file ids intact.
 - Note: the Drive is exam/higher-ed oriented; school-level foundation topics
   rely on the internet fallback (NCERT-class curricula) plus the Khattar
   aptitude book for exam-style coverage.
@@ -32,12 +34,17 @@ step 6).
   (comparing numbers, ascending/descending, forming greatest/smallest,
   estimation). Coverage cross-checked via published syllabus outlines;
   exposition original.
+- `ncert-math6-ch2` — NCERT Class 6 Mathematics, ch. 2 "Whole Numbers"
+  (public curriculum). Used for: FM ch. 2 lesson 2.1 — canonical school-level
+  treatment of addition on the number line and the properties of whole
+  numbers (closure, commutativity, associativity, zero identity). Coverage
+  web-checked; exposition original.
 
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outline) | 33.9 | FM ch. 1 (unit 1): lessons 1.2, 1.3 | yes — after unit verification 2026-11-03 | foundation-mathematics in-progress (**1/11 chapters complete**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2) | 33.9 (unit 1) + 33.9 (unit 2, re-download after recycle) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lesson 2.1 | yes — after each unit's verification | foundation-mathematics in-progress (**1/11 chapters complete · ch. 2 in progress, lesson 2.1 shipped**) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -57,3 +64,7 @@ step 6).
   (33.9 MB) downloaded to temporary-references/, chapter dumped to text for
   study, both deleted after unit verification (inventory.json retained as
   survey metadata).
+- 2026-11-03 (mathematics, unit 2, lesson 2.1): sandbox recycle wiped the
+  gitignored listing and working copies; re-downloaded Khattar (33.9 MB),
+  dumped ch. 4 text for study, deleted after E2E verification. Only
+  inventory.json retained.

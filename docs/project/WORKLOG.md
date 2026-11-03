@@ -32,6 +32,64 @@ placeholder; Drive link present in 5 files; JSON files valid.
 
 ---
 
+## 2026-11-03 — HOURLY RUN 2: sandbox recycle recovered + UNIT 2 opened (lesson 2.1 Addition and the Art of Carrying)
+
+**Recycle recovery (before any content work):**
+- Platform re-bootstrapped the workspace: fresh scaffold git repo (single
+  "Initial commit", no remote), the whole project intact as untracked files,
+  dev server dead, gitignored artifacts (temporary-references/) wiped.
+- Recovery: anonymous `git fetch` from the public GitHub repo → full
+  history restored via `git reset --mixed origin/main` + remote/upstream
+  reconfigured; the recycle's +x filemode noise silenced with
+  `core.filemode=false` (diffs were 0 insertions/deletions — content
+  byte-identical); resurrected obsolete v1 `app-shell.tsx` deleted;
+  `bun install` (830 packages); dev server restarted, all routes 200.
+- Drive survey rebuilt from the embeddedfolderview HTML via curl — 89
+  entries confirmed, Khattar file id recovered
+  (`scripts/rebuild_drive_inventory.py`, sandbox-side).
+- tsc scope hygiene: tsconfig now excludes sandbox-only `skills/` and
+  `mini-services/`; `@types/bun` added so the tracked `scripts/`
+  type-check — tsc clean repo-wide.
+
+**Unit 2 — lesson 2.1 (chapter 2 The Four Operations, lesson 1 of 5):**
+- References: Khattar QA 4e re-downloaded (33.9 MB), ch. 4 "Simplification"
+  dumped and studied (BODMAS material noted for lesson 2.5); NCERT class 6
+  ch. 2 "Whole Numbers" topic coverage web-checked (number line addition;
+  closure, commutative, associative, identity). Working copies deleted
+  after verification (SOURCE_LOG ledger row added; new citation key
+  `ncert-math6-ch2`).
+- Authored `ch-02.ts` lesson 2.1 "Addition and the Art of Carrying"
+  (~3,950 words): counting-on opening + 6-term block; number-line figure
+  with commutativity drawn as geometry; four-law property table; column
+  addition **algorithm block**; worked 4,589+2,764 with carry seat-map
+  figure; **carry-bound derivation** (9+9+1=19, induction on columns);
+  sum-bound equation + formula card; 999+1 seat-creation example; four
+  carrying-traps warn callout; **mod-9 checksum section** (verified
+  fingerprint example + honest blind-spot analysis: transpositions and ±9
+  slips pass); compensation technique; Gauss 5,050 historical callout; exam
+  callout; 5 quiz items; L1–L6 exercises (8 questions, full solutions);
+  closing pointer to lesson 2.2.
+- **51 arithmetic checks** in `scripts/verify-unit-2.ts` — ALL PASS *before*
+  writing (caught one convention bug pre-ship: digital roots of multiples
+  of 9 are 9, compared mod 9, not 0).
+- Chapter 2 registered in `book.ts` (in-progress; lessons 2.2–2.5 planned,
+  carried by ch-02.ts).
+
+**Gates:** lint clean · tsc clean repo-wide · routes 200 (lesson 2.1 needed
+a dev-server restart to pick up new static params) · browser E2E: KaTeX 118
+nodes, 14 headings, both figures + algorithm + formula cards + 6 terms
+render, quiz answered 5/5 "perfect", flashcard deck 16 → 22 cards, glossary
++ formula sheet list new terms, mobile 390px exactly no overflow
+(scrollW=390), zero console errors.
+
+**Logged:** PROGRESS / RESUME_POINTER / SOURCE_LOG updated;
+WORK_INVENTORY.json regenerated (lesson 2.1 included; `chaptersWritten` now
+counts only complete chapters, `chaptersInProgress` added); DETAILED_LOG.md
+updated. Committed locally — no push (PAT protocol: owner pastes a fresh
+token when a push is wanted).
+
+---
+
 ## 2026-11-03 — Detailed work-inventory logging system (owner directive) + PAT push
 
 **Goal:** owner directive — "before this [using the new PAT], maintain a log

@@ -1,5 +1,6 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
+import { chapter02 } from './ch-02'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -7,8 +8,9 @@ import { chapter01 } from './ch-01'
  * STATUS: in-progress. Chapter 1 (Numbers and Place Value) is COMPLETE —
  * unit 1 of the unit-by-unit cadence: lessons 1.1, 1.2 (Comparing and
  * Ordering Numbers) and 1.3 (Rounding and Estimating) are authored and
- * verified. Chapters 2–11 remain planned; the next unit is Chapter 2,
- * The Four Operations (authoring per docs/project/MASTER_PLAN.md §2).
+ * verified. Chapter 2 (The Four Operations) is IN PROGRESS — lesson 2.1
+ * (Addition and the Art of Carrying) shipped in unit 2, 2026-11-03;
+ * lessons 2.2–2.5 remain planned. Authoring per docs/project/MASTER_PLAN.md §2.
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -26,25 +28,10 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Next unit: Chapter 2, The Four Operations. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
+    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Chapter 2 (The Four Operations) in progress — lesson 2.1 (Addition and the Art of Carrying) shipped unit 2, 2026-11-03; lessons 2.2–2.5 next. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
-    {
-      number: 2,
-      slug: 'the-four-operations',
-      title: 'The Four Operations',
-      summary:
-        'Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Addition and the Art of Carrying',
-        'Subtraction and Borrowing',
-        'Multiplication as Repeated Addition — and Beyond',
-        'Division, Remainders and Why Zero Never Divides',
-        'Order of Operations and the Language of Expressions',
-      ],
-    },
+    chapter02,
     {
       number: 3,
       slug: 'factors-multiples-primes',

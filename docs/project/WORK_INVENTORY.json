@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 06:51:22 (Asia/Kolkata)",
+  "generated": "2026-11-03 07:31:39 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -226,17 +226,79 @@
             "slug": "the-four-operations",
             "title": "The Four Operations",
             "summary": "Addition, subtraction, multiplication and division — first as actions on quantities, then as algorithms on numerals, where the overflow argument from Chapter 1 returns as carrying and borrowing. Includes order of operations, estimation checks, and why division by zero is undefined.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Addition and the Art of Carrying",
               "Subtraction and Borrowing",
               "Multiplication as Repeated Addition — and Beyond",
               "Division, Remainders and Why Zero Never Divides",
               "Order of Operations and the Language of Expressions"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-addition-carrying",
+                "number": "2.1",
+                "title": "Addition and the Art of Carrying",
+                "authoredOn": "2026-11-03",
+                "authoredInCommit": "(unit-2 ship commit)",
+                "unit": "unit 2 (lesson 2.1 of 5; chapter 2 in progress)",
+                "words": 3952,
+                "readMins": 20,
+                "concepts": [
+                  "Addition as counting on",
+                  "Addend and sum",
+                  "Commutative and associative properties",
+                  "Additive identity (zero)",
+                  "Column addition and the carry",
+                  "Why the carry is never more than 1",
+                  "Mod-9 digit-sum checksum"
+                ],
+                "objectives": [
+                  "Explain addition as counting on, and show it as a jump on the number line",
+                  "State and use the commutative, associative and identity properties of addition",
+                  "Execute column addition with carries reliably — and prove why a carry can never exceed 1",
+                  "Use the mod-9 digit-sum checksum to catch errors, and know exactly when it fails"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-math6-ch2"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "terms": 1,
+                  "heading": 7,
+                  "figure": 2,
+                  "table": 1,
+                  "algorithm": 1,
+                  "example": 3,
+                  "derivation": 1,
+                  "equation": 1,
+                  "formula": 2,
+                  "callout": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 8,
+                "termsDefined": 6
+              }
+            ],
+            "words": 3952
           },
           {
             "number": 3,
@@ -410,12 +472,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 80,
-      "totalLines": 11091,
+      "totalLines": 11078,
       "byArea": {
         "src/app (routes, pages)": 547,
         "src/components/library (reader platform)": 2864,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 2001,
+        "src/data/library (content model + books)": 1988,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -522,6 +584,24 @@
         "commit": "a29d1b8",
         "title": "UNIT 1 SHIPPED: Foundation Mathematics chapter 1 complete",
         "detail": "Lessons 1.2 (Comparing and Ordering Numbers — domination-bound derivation, place-value comparison figure, digit-rotation mod-9 fingerprint, L1–L6 exercises) and 1.3 (Rounding and Estimating — midpoint figure, rounding algorithm block, error-bound derivation, banker's rounding / IEEE 754 insight, L1–L6 exercises) authored (~6,900 words). 66 arithmetic checks recomputed by script BEFORE writing; verify-unit-1.ts ALL CHECKS PASS. Google Drive collection surveyed (89 root items + MATHS/CHEMISTRY/PHYSICS/_DPPs subfolders → temporary-references/inventory.json); Khattar QA 4e downloaded for the unit, chapter 1 studied, working copy deleted after verification. Platform fixes shipped with the unit: mobile 390px horizontal overflow (grid-cols-1 base on three responsive grids) + concept-badge wrapping. E2E: KaTeX 154 (1.2) / 114 (1.3) nodes, figures + algorithm + 11-column table render, quiz scored 5/5, 16-term flashcard deck, glossary + formula cards, no console errors."
+      },
+      {
+        "date": "2026-11-03 (hourly run 1)",
+        "commit": "647f44c",
+        "title": "Owner preference protocol recorded",
+        "detail": "Drive link persisted in project memory (owner never resends it); GitHub PATs never stored (paste-when-pushing or owner pushes). WORKLOG/RESUME_POINTER/PROGRESS updated."
+      },
+      {
+        "date": "2026-11-03 (hourly run 2)",
+        "commit": "(recycle recovery)",
+        "title": "Sandbox recycle recovery",
+        "detail": "Platform re-bootstrapped the workspace: fresh scaffold git repo (no remote, full project as untracked files), dev server dead, gitignored artifacts wiped. Recovery: anonymous fetch from the public GitHub repo restored the full 9-commit history; git reset --mixed origin/main + remote/upstream reconfigured; recycle filemode noise silenced (core.filemode=false — content byte-identical, 0 insertions/deletions); resurrected obsolete v1 app-shell.tsx removed; bun install (830 packages); dev server restarted, all routes 200. Drive survey rebuilt from embeddedfolderview via curl (89 entries confirmed, Khattar file id recovered). tsconfig excludes sandbox-only dirs (skills, mini-services); @types/bun added for tracked scripts."
+      },
+      {
+        "date": "2026-11-03 (hourly run 2)",
+        "commit": "(unit-2 ship commit)",
+        "title": "UNIT 2 OPENED: lesson 2.1 Addition and the Art of Carrying",
+        "detail": "Chapter 2 (The Four Operations) started per the unit cadence: lesson 2.1 authored (~3,600 words): counting-on, number-line figure with commutativity drawn as geometry, four-law property table, column-addition algorithm block, worked 4,589+2,764 with carry seat-map figure, carry-bound derivation (9+9+1=19 induction), sum-bound equation + formula card, 999+1 seat-creation example, four carrying-traps callout, mod-9 checksum section with verified fingerprint example + blindness analysis (transpositions, ±9 slips), compensation technique, Gauss pairing historical callout, exam callout, 5 quiz items, L1–L6 exercises. 51 arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing. Khattar QA 4e re-downloaded from Drive for the unit (working copies deleted after verification); NCERT class 6 ch. 2 topics web-checked. Chapter 2 registered in book.ts (in-progress; lessons 2.2–2.5 planned)."
       }
     ],
     "verificationLog": [
@@ -549,6 +629,11 @@
         "unit": "unit 1 (Foundation Mathematics ch. 1)",
         "date": "2026-11-03",
         "gates": "66 arithmetic checks recomputed by script before writing (incl. half-up vs half-even error sums +5 vs 0); verify-unit-1.ts ALL CHECKS PASS (ids unique, quiz indices valid, solutions complete, prereqs resolve, sources resolve); lint clean; tsc clean; routes 200; browser E2E: KaTeX 154/114 nodes per lesson, figures + algorithm block + 11-col table render, quiz scored 5/5 \"perfect\" with feedback, 16-term flashcard deck, glossary lists new terms + formula cards, TOC shows ch. 1 complete with ch. 2 planned, Next-up works; mobile 390px exactly no overflow; no console errors."
+      },
+      {
+        "unit": "unit 2 (FM ch. 2, lesson 2.1)",
+        "date": "2026-11-03",
+        "gates": "51 arithmetic checks verified by scripts/verify-unit-2.ts BEFORE writing (ALL PASS — incl. digit-root convention fix: multiples of 9 root to 9, compared mod 9); lint clean; tsc clean repo-wide (tsconfig excludes sandbox dirs; @types/bun added); routes 200 (lesson 2.1 needed a dev-server restart to pick up new generateStaticParams); browser E2E: KaTeX 118 nodes, 14 headings, both figures + algorithm + formula cards + 6 terms render, quiz answered 5/5 \"perfect\" with feedback, flashcard deck grew 16 → 22 cards, glossary lists Addend/Carry/Commutative + Sum-bound formula card, mobile 390px exactly no overflow (scrollW=390); zero console errors."
       }
     ]
   },
@@ -557,371 +642,366 @@
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
       "surveyed": "2026-11-03",
-      "rootFileCount": 85,
-      "subfolders": [
-        "_DPPs",
-        "CHEMISTRY",
-        "MATHS",
-        "PHYSICS"
-      ],
-      "approxTotalSizeMB": 2855.1,
+      "rootFileCount": 89,
+      "subfolders": [],
+      "approxTotalSizeMB": 0,
       "fullMachineListing": "temporary-references/inventory.json (gitignored — survey metadata)",
       "rootItems": [
         {
-          "name": "_DPPs [folder]",
+          "name": "_DPPs",
           "size": ""
         },
         {
-          "name": "CHEMISTRY [folder]",
+          "name": "CHEMISTRY",
           "size": ""
         },
         {
-          "name": "MATHS [folder]",
+          "name": "MATHS",
           "size": ""
         },
         {
-          "name": "PHYSICS [folder]",
+          "name": "PHYSICS",
           "size": ""
         },
         {
           "name": "A-Brief-History-of-Modern-India-Spectrum.pdf",
-          "size": "1.4 MB"
+          "size": ""
         },
         {
           "name": "A-History-of-Western-Philosophy-Bertrand-Russell.pdf",
-          "size": "4.9 MB"
+          "size": ""
         },
         {
           "name": "A-Tour-of-C++-2nd-Edition-Bjarne-Stroustrup.pdf",
-          "size": "4.3 MB"
+          "size": ""
         },
         {
           "name": "Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf",
-          "size": "29.7 MB"
+          "size": ""
         },
         {
           "name": "advanced-engineering-mathematics.pdf",
-          "size": "21.5 MB"
+          "size": ""
         },
         {
-          "name": "Aho-Lam-Sethi-Ullman-Compilers-Principles-Techniques-and-Tools-2007.pdf",
-          "size": "5.3 MB"
+          "name": "Alfred-V.-Aho-Monica-S.-Lam-Ravi-Sethi-Jeffrey-D.-Ullman-Compilers-Principles-Techniques-and-Tools-Pearson_Addison-Wesley-2007.pdf",
+          "size": ""
         },
         {
           "name": "Algorithms-4th-Edition-Sedgewick-Wayne.pdf",
-          "size": "11.9 MB"
+          "size": ""
         },
         {
-          "name": "applied-physics-11th-edition.pdf",
-          "size": "77.6 MB"
+          "name": "applied-physics-11th-edition - Copy.pdf",
+          "size": ""
         },
         {
-          "name": "atkins-physical-chemistry-12th-ed.pdf",
-          "size": "41.4 MB"
+          "name": "atkins-physical-chemistry-12th-12nbsped-9780198847816_compress - Copy.pdf",
+          "size": ""
         },
         {
           "name": "C++-Primer-5th-Edition-Lippman.pdf",
-          "size": "39.9 MB"
+          "size": ""
         },
         {
-          "name": "Calculus Early Transcendentals 9th Edition SOLUTIONS (Stewart, Clegg).pdf",
-          "size": "24 MB"
+          "name": "Calculus Early Transcendentals 9th Edition SOLUTIONS (James Stewart, Daniel K. Clegg etc.) (z-library.sk, 1lib.sk, z-lib.sk)-1.pdf",
+          "size": ""
         },
         {
           "name": "calculus-10th-edition-anton.pdf",
-          "size": "22.8 MB"
+          "size": ""
         },
         {
           "name": "Calculus-11th-Edition-Larson-Edwards.pdf",
-          "size": "60.9 MB"
+          "size": ""
         },
         {
           "name": "Calculus-Early-Transcendental-Functions-7th-Larson.pdf",
-          "size": "65.3 MB"
+          "size": ""
         },
         {
           "name": "calculus-early-transcendentals-international-metric-edition.pdf",
-          "size": "86.8 MB"
+          "size": ""
         },
         {
           "name": "Campbell-Biology-11th-Edition.pdf",
-          "size": "119.5 MB"
+          "size": ""
         },
         {
           "name": "Chemistry-11th-Edition-Steven-Zumdahl.pdf",
-          "size": "101.6 MB"
+          "size": ""
         },
         {
           "name": "Classical-Mechanics-3rd-Edition-Goldstein.pdf",
-          "size": "45.2 MB"
+          "size": ""
         },
         {
           "name": "Computer-Networking-A-Top-Down-Approach-Kurose-8th.pdf",
-          "size": "20.5 MB"
+          "size": ""
         },
         {
           "name": "computer-networks-tanenbaum-5th-edition.pdf",
-          "size": "8.1 MB"
+          "size": ""
         },
         {
           "name": "Computer-Organization-Architecture-11th.pdf",
-          "size": "52.8 MB"
+          "size": ""
         },
         {
           "name": "Computer-Systems-A-Programmers-Perspective-3rd.pdf",
-          "size": "5.2 MB"
+          "size": ""
         },
         {
-          "name": "core-java-volume-1-fundamental-volume-2-12th-edition.pdf",
-          "size": "35.8 MB"
+          "name": "core-java-volume-1-fundamental-volume-2-twelfth-edition.pdf",
+          "size": ""
         },
         {
           "name": "Database-System-Concepts-Silberschatz-Korth-7th.pdf",
-          "size": "16.6 MB"
+          "size": ""
         },
         {
           "name": "Deep-Learning-Ian-Goodfellow-MIT-Press.pdf",
-          "size": "15.9 MB"
+          "size": ""
         },
         {
-          "name": "Design-Patterns-GoF.pdf",
-          "size": "17.2 MB"
+          "name": "Design-Patterns-Elements-of-Reusable-Object-Oriented-Software-GoF.pdf",
+          "size": ""
         },
         {
-          "name": "desktop.ini (ignore)",
-          "size": "113 B"
+          "name": "desktop.ini",
+          "size": ""
         },
         {
-          "name": "Digital Logic and Computer Design (M. Morris Mano).pdf",
-          "size": "34.1 MB"
+          "name": "Digital Logic and Computer Design. (M. Morris Mano.) (Z-Library).pdf",
+          "size": ""
         },
         {
           "name": "Digital-Logic-Computer-Design.pdf",
-          "size": "6 MB"
+          "size": ""
         },
         {
-          "name": "atkins-physical-chemistry-12th-ed (dokumen.pub copy).pdf",
-          "size": "41.4 MB"
+          "name": "dokumen.pub_atkins-physical-chemistry-12th-12nbsped-9780198847816.pdf",
+          "size": ""
         },
         {
-          "name": "calculus-8th-ed (dokumen.pub copy).pdf",
-          "size": "118.9 MB"
+          "name": "dokumen.pub_calculus-8thnbsped-1285740629-9781285740621.pdf",
+          "size": ""
         },
         {
-          "name": "full-stack-web-development-the-comprehensive-guide.epub",
-          "size": "20.1 MB"
+          "name": "dokumen.pub_full-stack-web-development-the-comprehensive-guide-1159836532-1682920144-2023024562-9781493224371-9781493224388-9781493224395.epub",
+          "size": ""
         },
         {
-          "name": "halliday-resnick-fundamentals-of-physics-11th-extended (dokumen.pub).pdf",
-          "size": "39.9 MB"
+          "name": "dokumen.pub_halliday-amp-resnick-fundamentals-of-physics-11th-ed-extended-edition-9781119460138-1119460131.pdf",
+          "size": ""
         },
         {
-          "name": "javascript-the-definitive-guide-7th-ed.pdf",
-          "size": "6.6 MB"
+          "name": "dokumen.pub_javascript-the-definitive-guide-7nbsped-1491952024-9781491952023.pdf",
+          "size": ""
         },
         {
-          "name": "linear-algebra-done-right-4th-ed.pdf",
-          "size": "6.5 MB"
+          "name": "dokumen.pub_linear-algebra-done-right-4nbsped-3031410254-9783031410253-9783031410260.pdf",
+          "size": ""
         },
         {
           "name": "Effective-Java-3rd-Edition-Bloch.pdf",
-          "size": "2.2 MB"
+          "size": ""
         },
         {
-          "name": "electric-circuits-12th-ed.pdf",
-          "size": "25.2 MB"
+          "name": "electric-circuits-12nbsped-9780137648375-0137648375-013764843x-9780137648436.pdf",
+          "size": ""
         },
         {
-          "name": "Electrical & Electronic Technology Hughes 12th Ed.pdf",
-          "size": "27.6 MB"
+          "name": "Electrical &amp; Electronic Technology Hughes 12th Ed.pdf",
+          "size": ""
         },
         {
           "name": "Elementary-Algebra_text.pdf",
-          "size": "22.6 MB"
+          "size": ""
         },
         {
           "name": "English-Grammar-in-Use-Raymond-Murphy.pdf",
-          "size": "6.2 MB"
+          "size": ""
         },
         {
           "name": "Genki-Elementary-Japanese-I.pdf",
-          "size": "37.8 MB"
+          "size": ""
         },
         {
           "name": "Grokking-Algorithms-Aditya-Bhargava.pdf",
-          "size": "23.6 MB"
+          "size": ""
         },
         {
-          "name": "halliday-resnick-fundamentals-of-physics-11th-extended.pdf",
-          "size": "39.9 MB"
+          "name": "halliday-amp-resnick-fundamentals-of-physics-11th-ed-extended-edition-.pdf",
+          "size": ""
         },
         {
           "name": "Hammers-German-Grammar-and-Usage.pdf",
-          "size": "8.6 MB"
+          "size": ""
         },
         {
           "name": "Head-First-Design-Patterns-2nd-Freeman.pdf",
-          "size": "47.6 MB"
+          "size": ""
         },
         {
-          "name": "Higher Algebra - Hall & Knight.pdf",
-          "size": "30.5 MB"
+          "name": "Higher Algebra - Hall _ Knight.pdf",
+          "size": ""
         },
         {
-          "name": "HigherAlgebra_10021865.pdf (Hall & Knight alt).pdf",
-          "size": "23.4 MB"
+          "name": "HigherAlgebra_10021865.pdf",
+          "size": ""
         },
         {
           "name": "How-Linux-Works-3rd-Edition-Brian-Ward.pdf",
-          "size": "5.4 MB"
+          "size": ""
         },
         {
           "name": "Indian-Polity-Laxmikanth.pdf",
-          "size": "7.6 MB"
+          "size": ""
         },
         {
           "name": "Introduction-To-Algorithms-CLRS.pdf",
-          "size": "5.4 MB"
+          "size": ""
         },
         {
           "name": "Introduction-to-Electrodynamics-Griffiths.pdf",
-          "size": "21.1 MB"
+          "size": ""
         },
         {
           "name": "Introduction-to-Linear-Algebra-Gilbert-Strang-5th.pdf",
-          "size": "59.6 MB"
+          "size": ""
         },
         {
           "name": "Introduction-to-Quantum-Mechanics-Griffiths-3rd.pdf",
-          "size": "26.4 MB"
+          "size": ""
         },
         {
-          "name": "Introduction-To-The-Theory-Of-Computation-Sipser.pdf",
-          "size": "17 MB"
+          "name": "Introduction-To-The-Theory-Of-Computation-Michael-Sipser.pdf",
+          "size": ""
         },
         {
-          "name": "Invoice order.pdf (ignore)",
-          "size": "77 KB"
+          "name": "Invoice order .pdf",
+          "size": ""
         },
         {
           "name": "Java-Concurrency-in-Practice-Goetz.pdf",
-          "size": "2.8 MB"
+          "size": ""
         },
         {
-          "name": "Lee-JD-Concise-inorganic-Chemistry-5ed.pdf",
-          "size": "34.1 MB"
+          "name": "Lee-JD-Concise-inorganic-Chemistry_lee-5ed.pdf_18-2-2022.pdf",
+          "size": ""
         },
         {
           "name": "Lehninger-Principles-of-Biochemistry-8th.pdf",
-          "size": "87.1 MB"
+          "size": ""
         },
         {
           "name": "Lin-Algebra-Schaum-6th-Edition.pdf",
-          "size": "4.4 MB"
+          "size": ""
         },
         {
           "name": "Linear-Algebra-and-Its-Applications-4th-Strang.pdf",
-          "size": "4.5 MB"
+          "size": ""
         },
         {
           "name": "Linear-Algebra-and-Its-Applications-Lay-5th.pdf",
-          "size": "39 MB"
+          "size": ""
         },
         {
           "name": "Microelectronic Circuits (8th Ed.).pdf",
-          "size": "268.2 MB"
+          "size": ""
         },
         {
           "name": "microelectronic-circuits-8th-edition.pdf",
-          "size": "268.1 MB"
+          "size": ""
         },
         {
-          "name": "organic-chemistry-clayden-greeves-warren.pdf",
-          "size": "12.3 MB"
+          "name": "organic-chemistry-by-jonathan-clayden-nick-greeves-stuart-warren-z-lib.org_-847123c1.pdf",
+          "size": ""
         },
         {
           "name": "physics-fundamental.pdf",
-          "size": "91.9 MB"
+          "size": ""
         },
         {
           "name": "Principles-of-Economics-Mankiw-8th-Edition.pdf",
-          "size": "28.2 MB"
+          "size": ""
         },
         {
           "name": "Principles-of-Mathematical-Analysis-Rudin-3rd.pdf",
-          "size": "12.3 MB"
+          "size": ""
         },
         {
-          "name": "prompt.tex (ignore)",
-          "size": "12 KB"
+          "name": "prompt.tex",
+          "size": ""
         },
         {
           "name": "Python-Crash-Course-2nd-Edition.pdf",
-          "size": "6.7 MB"
+          "size": ""
         },
         {
           "name": "Quantitative-Aptitude-Competitive-Examinations-Khattar.pdf",
-          "size": "32.4 MB"
+          "size": ""
         },
         {
           "name": "RosenDiscreteMath8Ed.pdf",
-          "size": "35 MB"
+          "size": ""
         },
         {
-          "name": "sachincertificate.pdf (ignore)",
-          "size": "391 KB"
+          "name": "sachincertificate.pdf",
+          "size": ""
         },
         {
           "name": "Spring-in-Action-6th-Edition-Craig-Walls.pdf",
-          "size": "28 MB"
+          "size": ""
         },
         {
-          "name": "The Feynman Lectures on Physics Vol I,II,III.pdf",
-          "size": "large"
+          "name": "The Feynman Lectures on Physics, Vol. I,II,III The New Millennium Edition by Richard P. Feynman (z-lib.org).pdf",
+          "size": ""
         },
         {
           "name": "The-Algorithm-Design-Manual-Skiena-3rd.pdf",
-          "size": "9.9 MB"
+          "size": ""
         },
         {
           "name": "the-art-of-electronics.pdf",
-          "size": "36.9 MB"
+          "size": ""
         },
         {
           "name": "The-Elements-of-Style-4th-Strunk-White.pdf",
-          "size": "243 KB"
+          "size": ""
         },
         {
           "name": "The-Linux-Programming-Interface-Kerrisk.pdf",
-          "size": "6.9 MB"
+          "size": ""
         },
         {
           "name": "Thinking-in-Java-4th-Edition-Bruce-Eckel.pdf",
-          "size": "9.5 MB"
+          "size": ""
         },
         {
           "name": "Thomas-Calculus-14th-Edition.pdf",
-          "size": "29 MB"
+          "size": ""
         },
         {
-          "name": "toaz.info-jd-lee.pdf (JD Lee alt).pdf",
-          "size": "15.7 MB"
+          "name": "toaz.info-jd-leepdf-pr_dcdf23d5207402daeb1e78917ebbb825.pdf",
+          "size": ""
         },
         {
           "name": "Trigonometry-Loney.pdf",
-          "size": "7.9 MB"
+          "size": ""
         },
         {
-          "name": "University Physics with Modern Physics 15th Young.pdf",
-          "size": "62.5 MB"
+          "name": "University Physics with Modern Physics 15th Edition By Hugh D. Young_compressed.pdf",
+          "size": ""
         },
         {
           "name": "University-Chemistry-by-Bruce-H.-Mahan.pdf",
-          "size": "44.7 MB"
+          "size": ""
         },
         {
-          "name": "Wileys Solomons Fryhle Snyder Organic Chemistry.pdf",
-          "size": "29.1 MB"
+          "name": "Wileys Solomons, Fryhle  Snyder Organ... (iitjeebooks.com).pdf",
+          "size": ""
         }
       ]
     },
@@ -929,20 +1009,31 @@
       {
         "key": "khattar-qa-4e",
         "work": "Dinesh Khattar, Quantitative Aptitude for Competitive Examinations, 4th ed., Pearson (2019), ISBN 9789353439552",
-        "usedFor": "FM ch. 1 (unit 1): place-value/face-value definitions, Indian system naming, exam-style digit problems. Exposition original."
+        "usedFor": "FM ch. 1 (unit 1): place-value/face-value definitions, Indian system naming, exam-style digit problems. FM ch. 2 (unit 2): exam-style rapid-arithmetic context, ch. 4 Simplification surveyed (BODMAS material reserved for lesson 2.5). Exposition original."
       },
       {
         "key": "ncert-math6-ch1",
         "work": "NCERT Class 6 Mathematics, ch. 1 \"Knowing Our Numbers\" (public curriculum)",
         "usedFor": "FM ch. 1 (unit 1): canonical school-level topic coverage (comparing, ordering, greatest/smallest, estimation). Coverage cross-checked via web; exposition original."
+      },
+      {
+        "key": "ncert-math6-ch2",
+        "work": "NCERT Class 6 Mathematics, ch. 2 \"Whole Numbers\" (public curriculum)",
+        "usedFor": "FM ch. 2 (unit 2, lesson 2.1): canonical school-level treatment of addition on the number line and the properties of whole numbers (closure, commutativity, associativity, identity). Coverage web-checked; exposition original."
       }
     ],
     "perUnitDownloadLedger": [
       {
         "unit": "unit 1 — FM ch. 1",
-        "downloaded": "Khattar QA 4e PDF (32.4 MB, 1049 pp) + NCERT web outline (0 MB)",
+        "downloaded": "Khattar QA 4e PDF (32.4 MB, 1049 pp) + NCERT web outline",
         "usedFor": "lessons 1.2 + 1.3",
         "workingCopiesDeleted": "2026-11-03, after unit verification"
+      },
+      {
+        "unit": "unit 2 — FM ch. 2 (lesson 2.1)",
+        "downloaded": "Khattar QA 4e PDF (33.9 MB, re-downloaded after sandbox recycle wiped working copies; Drive file id recovered via re-survey) + NCERT class 6 ch. 2 web outline",
+        "usedFor": "lesson 2.1 (Addition and the Art of Carrying)",
+        "workingCopiesDeleted": "2026-11-03, after E2E verification"
       }
     ],
     "examRegistry": {
@@ -1835,6 +1926,83 @@
           "del": 7
         }
       ]
+    },
+    {
+      "sha": "a5c9c42930f24c2bd4ef7da6625b3371bbf39ae6",
+      "short": "a5c9c42",
+      "date": "2026-11-03 01:25",
+      "message": "docs: detailed work-inventory logging system (WORK_INVENTORY.json + DETAILED_LOG.md + tracked generator) per owner directive",
+      "filesChanged": 8,
+      "insertions": 2526,
+      "deletions": 9,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 259,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 6,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 40,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 1866,
+          "del": 0
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 344,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "647f44c901f2aed385d1854f58edef70309eb07b",
+      "short": "647f44c",
+      "date": "2026-11-03 01:32",
+      "message": "memory: standing owner preferences — Drive link persisted (never resend), PAT protocol (never stored; paste-when-pushing or owner pushes)",
+      "filesChanged": 3,
+      "insertions": 30,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 26,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -1842,25 +2010,26 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 1,
-    "lessonsWritten": 3,
-    "wordsAuthored": 9709,
-    "termsDefined": 16,
-    "quizItems": 15,
-    "exerciseQuestions": 25,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 4,
+    "wordsAuthored": 13661,
+    "termsDefined": 22,
+    "quizItems": 20,
+    "exerciseQuestions": 33,
     "blockTotals": {
-      "para": 18,
-      "callout": 11,
-      "heading": 15,
-      "terms": 3,
-      "equation": 2,
-      "derivation": 3,
-      "table": 4,
-      "figure": 3,
-      "example": 6,
-      "quiz": 3,
-      "exercises": 3,
-      "formula": 3,
-      "algorithm": 1
+      "para": 29,
+      "callout": 14,
+      "heading": 22,
+      "terms": 4,
+      "equation": 3,
+      "derivation": 4,
+      "table": 5,
+      "figure": 5,
+      "example": 9,
+      "quiz": 4,
+      "exercises": 4,
+      "formula": 5,
+      "algorithm": 2
     }
   }
 }

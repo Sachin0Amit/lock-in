@@ -68,4 +68,5 @@ server.log
 /study-ref/
 /agent-ctx/
 /temporary-references/
+/tool-results/
 /public/diagrams-tmp/

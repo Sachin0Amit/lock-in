@@ -9,8 +9,8 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03 06:51 IST — after unit 1 shipped, at the start of the
-detailed-logging era.
+Generated: 2026-11-03 07:31 IST — maintained through **hourly run 2**: sandbox
+recycle recovered, unit 2 opened with lesson 2.1 shipped and verified.
 
 ---
 
@@ -52,13 +52,17 @@ detailed-logging era.
 | 11-02 16:32 | `59b1ff9` | Memory: PAT push workflow recorded (last commit on origin/main) |
 | 11-02 16:52 | `b4f461c` | **Website v3**: arrangement & visual overhaul |
 | 11-03 01:08 | `a29d1b8` | **UNIT 1 SHIPPED** — Foundation Mathematics chapter 1 complete (lessons 1.2 + 1.3), Drive survey, mobile fixes |
-| 11-03 (this) | — | **Detailed logging system** (this file + `WORK_INVENTORY.json`) per owner directive; commits pushed with owner PAT |
+| 11-03 | `a5c9c42` | **Detailed logging system** (this file + `WORK_INVENTORY.json` + tracked generator) per owner directive |
+| 11-03 | `647f44c` | Owner preference protocol: Drive link persisted (never resend); PATs never stored |
+| 11-03 (run 2) | — | **Sandbox recycle recovered**: git history restored from GitHub (public repo), deps + dev server rebuilt, Drive survey re-pulled (89 entries, Khattar id recovered) |
+| 11-03 (run 2) | (ship) | **UNIT 2 OPENED: lesson 2.1 Addition and the Art of Carrying** — authored, 51 checks verified, E2E green, logged |
 
 ## 4. Content written so far (the actual textbooks)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book, 1 complete chapter, 3 lessons, 9,709 words.**
+**Live today: 1 book — 1 chapter complete, 1 chapter in progress — 4
+lessons, 13,661 words, 22 flashcard terms.**
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -114,11 +118,37 @@ new terms + formula cards, TOC shows chapter 1 complete with chapter 2
 planned, "Next up" works · mobile 390px exactly no overflow · zero console
 errors.
 
-#### Chapters 2–11 — planned (not yet written)
+#### Chapter 2: The Four Operations — **IN PROGRESS (unit 2, opened 2026-11-03; 1 of 5 lessons)**
+
+**Lesson 2.1 — Addition and the Art of Carrying** (id `fm-addition-carrying`,
+authored 11-03, unit-2 ship commit) — **3,952 words · 17 min read · 6 terms ·
+5 quiz items · 8 exercises (L1×2, L2×2, L4×2, L5×1, L6×1) · 2 original SVG
+figures (number-line commutativity; carry seat-map for 4,589+2,764) · 1
+derivation (the carry bound: 9+9+1 = 19, induction on columns) · 1 sum-bound
+equation + 2 formula cards · 1 algorithm block (column addition) · 3 worked
+examples · 1 property table · 4 callouts (warn traps, historical Gauss 5,050,
+exam, insight) · sources: khattar-qa-4e, ncert-math6-ch2 · prerequisites:
+lesson 1.1.** Contents: counting-on vs counting-all; the four laws of
+addition (closure, commutative, associative, identity) with verified
+instances; column addition algorithm and why right-alignment + units-first;
+why the carry can never exceed 1 (proved); when a sum grows a new seat
+(999+1); the mod-9 digit-sum checksum — with an honest blind-spot analysis
+(transpositions and ±9 slips pass: 7,335 and 7,362 both fingerprint-match);
+compensation (8,999+437); Gauss pairing. **Verified:** 51 arithmetic checks
+by `scripts/verify-unit-2.ts` ALL PASS before writing (caught one digital-root
+convention bug pre-ship); lint + tsc clean repo-wide; routes 200; browser E2E
+— KaTeX 118 nodes, quiz 5/5 "perfect", flashcards 16 → 22, glossary + formula
+sheet updated, mobile 390px exact-fit, zero console errors.
+
+**Planned lessons (2.2–2.5):** Subtraction and Borrowing · Multiplication as
+Repeated Addition — and Beyond · Division, Remainders and Why Zero Never
+Divides · Order of Operations and the Language of Expressions.
+
+#### Chapters 3–11 — planned (not yet written)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
-| 2 | The Four Operations | Carrying · Borrowing · Multiplication as Repeated Addition — and Beyond · Division, Remainders and Why Zero Never Divides · Order of Operations |
+| 2 | The Four Operations — **in progress** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · Subtraction and Borrowing · Multiplication as Repeated Addition — and Beyond · Division, Remainders and Why Zero Never Divides · Order of Operations |
 | 3 | Factors, Multiples and Primes | Divisibility and Its Tests · Prime Numbers and Factorisation · HCF · LCM · HCF, LCM and How They Relate |
 | 4 | Fractions | The Idea of a Fraction · Equivalent Fractions · Comparing · Adding/Subtracting · Multiplying/Dividing |
 | 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
@@ -172,6 +202,20 @@ errors.
    horizontal overflow (implicit grid track forced max-content → base
    `grid-cols-1` on the three responsive grids) and concept-badge wrapping
    (`whitespace-nowrap` → wrap).
+9. **Sandbox recycle recovered** (11-03, hourly run 2) — the platform
+   re-bootstrapped the workspace (fresh scaffold git repo with no remote,
+   full project intact as untracked files, dev server dead, gitignored
+   artifacts wiped). Recovery: anonymous fetch from the public GitHub repo
+   restored the full history (`git reset --mixed origin/main`, remote +
+   upstream reconfigured); recycle's chmod noise silenced
+   (`core.filemode=false` — content byte-identical); resurrected v1
+   `app-shell.tsx` removed; `bun install`; dev server restarted; Drive
+   survey rebuilt from embeddedfolderview (89 entries, Khattar id
+   recovered); tsconfig excludes sandbox dirs; `@types/bun` added.
+10. **Unit 2 opened — lesson 2.1 shipped** (11-03, hourly run 2) — see the
+    chapter 2 section above; the detailed-logging pipeline ran end-to-end
+    (inventory regenerated, DETAILED_LOG + WORKLOG + PROGRESS +
+    RESUME_POINTER + SOURCE_LOG updated).
 
 ### Verification log (quality gates actually passed)
 
@@ -182,6 +226,7 @@ errors.
 | Streak removal + docs | 11-03 | lint · tsc (SearchHit union fix) · E2E (zero "streak" occurrences, desk stats correct) |
 | Site v3 | 11-03 | lint · tsc · routes · E2E (hero, spines, TOC Next-up, palette) · VLM rounds 8–9/10 · zero console errors |
 | Unit 1 (FM ch. 1) | 11-03 | 66 pre-write arithmetic checks · verify-unit-1.ts ALL PASS · lint · tsc · routes · E2E (KaTeX 154/114, quiz 5/5, 16 flashcards, glossary) · mobile 390px exact · zero console errors |
+| Unit 2 (FM ch. 2, lesson 2.1) | 11-03 | 51 pre-write arithmetic checks (verify-unit-2.ts ALL PASS, incl. digital-root convention fix) · lint · tsc repo-wide · routes 200 · E2E (KaTeX 118, quiz 5/5 perfect, flashcards 22, glossary + formula sheet, mobile exact-fit) · zero console errors |
 
 ## 6. Research & references
 
@@ -221,6 +266,9 @@ aptitude book for exam-style coverage (MASTER_PLAN §2 step 6).
 - `ncert-math6-ch1` — NCERT Class 6 Mathematics, ch. 1 "Knowing Our Numbers".
   Used for FM ch. 1: canonical school-level topic coverage (comparing,
   ordering, greatest/smallest, estimation). Exposition original.
+- `ncert-math6-ch2` — NCERT Class 6 Mathematics, ch. 2 "Whole Numbers".
+  Used for FM ch. 2 lesson 2.1: canonical school-level treatment of addition
+  on the number line and the properties of whole numbers. Exposition original.
 
 ### Exam registry
 
@@ -241,19 +289,24 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 6 | `59b1ff9` | 11-02 16:32 | PAT push workflow memory | +2/−2 · 2 files |
 | 7 | `b4f461c` | 11-02 16:52 | site v3 overhaul | +539/−287 · 10 files |
 | 8 | `a29d1b8` | 11-03 01:08 | unit 1: FM chapter 1 complete | +867/−61 · 10 files |
+| 9 | `a5c9c42` | 11-03 | detailed work-inventory logging system | +2,526/−9 · 8 files |
+| 10 | `647f44c` | 11-03 | standing owner preferences (Drive link persisted, PAT protocol) | +30/−2 · 3 files |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: `a29d1b8` + the commit that adds this logging system; working tree
-  clean.
-- origin/main held `59b1ff9`; `b4f461c`, `a29d1b8` and the logging commit
-  pushed 2026-11-03 with the owner's fresh fine-grained PAT (one-time use;
-  owner revokes the token after the push, per README policy).
-- **NEXT UNIT (per RESUME_POINTER): Foundation Mathematics chapter 2 — "The
-  Four Operations"** (5 planned lessons). References: Drive MATHS folder /
-  Khattar ch. 4 "Simplification" + NCERT class 6 "Whole Numbers"; download
-  only that unit's books; verify, ship, and update this log + the inventory.
+- HEAD: `647f44c` + the unit-2 ship commit (lesson 2.1); working tree clean;
+  origin/main in sync through `647f44c` (unit-2 commits accumulate locally
+  until the next owner PAT or owner-side push).
+- **Sandbox recycle note:** the workspace was recycled once on 11-03 and
+  fully recovered — git history restored from the public GitHub repo; the
+  recovery protocol is recorded in RESUME_POINTER.json (nextAction) for any
+  future recycle.
+- **CURRENT (hourly cadence): lesson 2.2 — "Subtraction and Borrowing"**
+  next, into ch-02.ts. References: Khattar (ch. 4 already surveyed; BODMAS
+  reserved for lesson 2.5) + NCERT class 6 topics via web; download →
+  verify → write → gates → log → delete working copies; lessons 2.3–2.5
+  follow to complete the chapter.
 - Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).

@@ -2,8 +2,8 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-03",
-  "phase": "unit 1 shipped · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
-  "awaiting": "next unit: Foundation Mathematics chapter 2 'The Four Operations' (research → write → verify → ship → log + regenerate WORK_INVENTORY.json / DETAILED_LOG.md)",
+  "phase": "unit 2 in progress (lesson 2.1 shipped) · detailed-logging era (WORK_INVENTORY.json + DETAILED_LOG.md maintained per owner directive)",
+  "awaiting": "next lesson: FM 2.2 'Subtraction and Borrowing' (unit 2 continues — chapter 2 at 1 of 5 lessons; hourly cadence runs the cycle)",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -33,8 +33,9 @@
       "lint clean; tsc clean (src/)",
       "all routes 200; unknown ids 404 correctly",
       "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
-      "mobile 390px: no horizontal overflow on home/book/all three lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
-      "KaTeX 154 nodes (1.2) / 114 (1.3); figures, algorithm block, 11-col table all render"
+      "mobile 390px: no horizontal overflow on home/book/all lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
+      "KaTeX 154 nodes (1.2) / 114 (1.3) / 118 (2.1); figures, algorithm blocks, 11-col table all render",
+      "unit 2 lesson 2.1 E2E: quiz 5/5 perfect, flashcards 22 cards, glossary + formula sheet updated, mobile exact-fit, zero console errors"
     ]
   },
   "library": {
@@ -49,14 +50,15 @@
         "lessonsWritten": [
           "fm-numbers-digits-place-value",
           "fm-comparing-ordering-numbers",
-          "fm-rounding-and-estimating"
+          "fm-rounding-and-estimating",
+          "fm-addition-carrying"
         ],
-        "termsAvailableForFlashcards": 16,
-        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words, 3 figures, 3 derivations, 3 formula cards, 15 quiz items, 25 exercise solutions (all levels L1-L6 represented) — all math verified by script; full per-lesson detail in docs/project/WORK_INVENTORY.json. Next unit: Chapter 2 The Four Operations."
+        "termsAvailableForFlashcards": 22,
+        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, 9,709 words. Chapter 2 IN PROGRESS (unit 2, 2026-11-03): lesson 2.1 'Addition and the Art of Carrying' shipped — 3,952 words, carry-bound derivation, mod-9 checksum section, 5 quiz items, L1–L6 exercises; 51 arithmetic checks verified pre-writing; lessons 2.2–2.5 next. Full per-lesson detail in docs/project/WORK_INVENTORY.json."
       }
     ],
-    "lessonsWritten": 3,
-    "wordsAuthored": 9709
+    "lessonsWritten": 4,
+    "wordsAuthored": 13661
   },
   "research": {
     "examRegistry": {
@@ -66,8 +68,8 @@
     },
     "sourceCollection": {
       "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
-      "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; machine listing at temporary-references/inventory.json",
-      "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1)"
+      "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
+      "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2)"
     }
   },
   "workflowRulesReminder": [
