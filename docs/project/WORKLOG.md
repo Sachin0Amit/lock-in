@@ -109,10 +109,12 @@ DETAILED_LOG.md mirror): **14 lessons / 65,130 words / 91 terms / 70 quiz
 items / 125 exercise questions / 19 figures**; chapter 4 in-progress
 (1/5). Khattar working copies deleted after E2E (inventory.json kept).
 
-**Push:** UI-fix commit `8fd776e` + this run's ship commit pushed under
-PUSH PROTOCOL v2 (PAT from the cron job payload, one-time HTTPS URL, never
-stored); remote HEAD verified via one-time-URL ls-remote and tracking ref
-re-synced — see the memory commit that follows this entry.
+**Push:** UI-fix commit `8fd776e` + ship commit `68b1eab` pushed under
+PUSH PROTOCOL v2 as `9681d34..68b1eab` (PAT from the cron job payload,
+one-time HTTPS URL, never stored, no verbose flags). Remote HEAD verified
+via one-time-URL ls-remote = `68b1eab1f14ca55c595578819cb8292403f7e6c2` =
+local HEAD; tracking ref re-synced by anonymous HTTPS fetch; 0 unpushed
+commits remain.
 
 ## 2026-11-03 — HOURLY RUN 11: lesson 3.5 HCF, LCM and How They Relate shipped — UNIT 3 COMPLETE (5/5 lessons)
 
