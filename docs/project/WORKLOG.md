@@ -96,9 +96,11 @@ run (references already logged in SOURCE_LOG.md; exposition original).
 
 **Git:** commit `fm 4.2 equivalent fractions and simplification (unit 4, run 17): equivalence family + multiplying rule proved by regrouping + HCF simplification one-step + cross-multiplication licence paid in full (= and < via the common bd-ruler) + raising to higher terms + uniqueness via Euclid's crossroads lemma + mediant closure — 5,598 words in the Cengage voice and solution chain; verify-unit-4.ts 148 checks; E2E + quiz 5/5 + VLM green`.
 
-**Push:** this run's commits push at the next cron-delivered run (or
-immediately if the payload PAT is present at that time); origin/main was
-synced at `b788c06` before this run's work began.
+**Push (protocol v2, this run):** both run-17 commits pushed immediately
+after the bookkeeping — `b788c06..63404d0 HEAD -> main` via the one-time
+HTTPS URL; remote HEAD verified `63404d0` by one-time-URL ls-remote;
+origin/main tracking ref resynced. Nothing token-related recorded anywhere:
+the PAT lived only in the job payload and the one-time push URLs.
 
 ## 2026-11-03 — OWNER CHAT DIRECTIVE (run 16): solutions restyled as the Cengage solution chain — "Sol." pill inline on the first line, connective tag column (∴ / or / Now,), terminal ∴ answer line; boxed Answer rows retired
 

@@ -934,13 +934,12 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-17 ship (lesson 4.2) on top of the pushed run-15/16
-  commits — **origin/main was synced at `b788c06` at run start** (all four
-  queued run-15/16 commits pushed via the one-time HTTPS URL and verified
-  by one-time-URL ls-remote: `d5a1b43..b788c06`), so this run's own
-  commits (the 4.2 ship + the inventory bookkeeping) are the only local
-  lead — they push at the next cron-delivered run BEFORE any new work,
-  per the standing push-first rule.
+- HEAD: the run-17 memory commit — **everything is PUSHED**: at run
+  start the four queued run-15/16 commits went up (`d5a1b43..b788c06`),
+  then the run-17 ship `e008f7b` + inventory bookkeeping, then this
+  memory commit (`b788c06..63404d0` covering ship + bookkeeping) — each
+  push via the one-time HTTPS URL and verified by one-time-URL
+  ls-remote; remote HEAD = local HEAD = `63404d0`. Nothing queued.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
