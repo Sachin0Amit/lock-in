@@ -165,9 +165,13 @@ RESUME_POINTER.json (nextAction + run23Extras), SOURCE_LOG.md
 (ncert-math7-ch2 extended with the §§2.3–2.4 reuse + free-space entry),
 WORK_INVENTORY.json regenerated. Zero downloads; storage law honoured.
 
-**Git:** run-23 ship commit + inventory bookkeeping commit, pushed per
-protocol v2 at run end — see the run-23 memory commit for the verified
-sha.
+**Git:** run-23 ship commit `6b0e99f` + inventory bookkeeping commit
+`0ace05b`, pushed per protocol v2 at run end — one command via the
+one-time HTTPS URL (`c830cd8..0ace05b HEAD -> main`), verified by
+one-time-URL ls-remote (remote HEAD = refs/heads/main = `0ace05b`), the
+origin/main tracking ref resynced (`rev-list --count origin/main..HEAD`
+= 0); PAT never written to any file/config/log — see the run-23 memory
+commit for the final record.
 
 ---
 

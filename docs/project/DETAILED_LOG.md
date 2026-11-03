@@ -1044,12 +1044,13 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-23 ship — **everything is PUSHED**: the run-22
-  memory commit `c830cd8` was verified synced at run-23 open (remote
-  HEAD = local = `c830cd8`), then the run-23 ship + inventory
-  bookkeeping + this memory commit went up per protocol v2 via the
-  one-time HTTPS URL and was verified by one-time-URL ls-remote
-  (synced sha recorded in WORKLOG.md). Nothing queued.
+- HEAD: the run-23 memory commit — **everything is PUSHED**: the
+  run-22 memory commit `c830cd8` was verified synced at run-23 open
+  (remote HEAD = local = `c830cd8`), then the run-23 ship `6b0e99f` +
+  inventory bookkeeping `0ace05b` went up (`c830cd8..0ace05b HEAD ->
+  main`, verified by one-time-URL ls-remote), then this memory commit
+  completes the record; remote HEAD = local HEAD after the final push
+  (verified per protocol v2; shas in WORKLOG.md). Nothing queued.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
