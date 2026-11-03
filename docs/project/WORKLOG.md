@@ -6,6 +6,40 @@ and what remains.
 
 ---
 
+## 2026-11-03 — Owner directive: PAT moved into the hourly cron job; automated pushes enabled
+
+**Directive:** the owner pasted the fine-grained GitHub PAT in chat and asked
+for it to be put into the scheduled task so commits get pushed automatically.
+
+**Done:**
+- Hourly cron job replaced: old job 498092 deleted, new job **498279**
+  created (same name "LockIn Library — hourly unit run", same schedule —
+  fixed_rate 3600 s, tz Asia/Kolkata, priority 5). The new payload embeds
+  the PAT and its step (4) now reads "commit locally, THEN PUSH" with a
+  strict push protocol: one-time HTTPS push URL inside a single git
+  command, push ALL unpushed commits on main, never write/echo/commit the
+  token, retry a failed push once then log it without the token, keep
+  origin as the SSH remote, and verify remote HEAD after pushing.
+- PAT validated before wiring: GitHub API 200 with push permission on
+  Sachin0Amit/lock-in; ls-remote and push both work with the one-time URL
+  form; no git credential helper configured (nothing persists to disk).
+- Pending run-4 ship commit `f9d22d5` (lesson 2.3) **pushed and verified**
+  (remote HEAD = local HEAD = f9d22d5); local origin/main tracking ref
+  re-synced to match.
+- Memory updated to PUSH PROTOCOL v2 so future runs don't refuse to push:
+  RESUME_POINTER.json (nextAction note, notes §2, lastCompleted) and
+  PROGRESS.json workflowRulesReminder. Historical entries below are left
+  as-is (append-only journal).
+
+**Security posture (unchanged on disk):** the token exists ONLY in the cron
+job payload (platform-side scheduler storage) and the chat context — no
+file, env, git config, remote URL, script, log or commit contains it. Risk
+note for the owner: the token persists in the scheduler until the job is
+deleted; revoking/rotating it on GitHub invalidates it instantly, after
+which the fallback is the old paste-when-pushing protocol.
+
+**Git:** commit `memory: push protocol v2 — PAT embedded in hourly cron job 498279, automated pushes authorized (owner directive)` — pushed with the session PAT (one-time URL).
+
 ## 2026-11-03 — HOURLY RUN 4: lesson 2.3 Multiplication as Repeated Addition — and Beyond shipped
 
 **Lesson 2.3 (chapter 2 The Four Operations, lesson 3 of 5):**
