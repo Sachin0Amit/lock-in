@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 22:35:26 (Asia/Kolkata)",
+  "generated": "2026-11-03 22:36:37 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4342,6 +4342,77 @@
           "path": "docs/project/WORKLOG.md",
           "add": 5,
           "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "fd39676bdfceb48ec7a04eb5a7e372188cefaa83",
+      "short": "fd39676",
+      "date": "2026-11-03 17:06",
+      "message": "fm 4.3 comparing fractions (unit 4, run 18): the comparison engines — same-denominator and same-numerator rules proved, the cross-multiplication test wielded as a verdict machine (3/4 vs 4/5; 7/12 vs 5/8 paying 4.2's L5 debt with the gap named 1/24), the common-denominator method (24/120/36-rulers), the banked SSC MTS 2017 item settled on the 165-ruler (7/11 < 2/3 < 4/5, largest 4/5), benchmark halves, completing the whole, wholes-first rule for mixed numbers, comparison-toolkit harvest — 5,168 words in the Cengage voice and solution chain; verify-unit-4.ts 199 checks; E2E + quiz 5/5 + VLM green",
+      "filesChanged": 12,
+      "insertions": 1314,
+      "deletions": 90,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 76,
+          "del": 20
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 10,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 28,
+          "del": 32
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 98,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 136,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-43.page.js",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen-43-figures.py",
+          "add": 98,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-4.ts",
+          "add": 110,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 701,
+          "del": 4
         }
       ]
     }
