@@ -103,12 +103,15 @@ banked since runs 6/12; NCERT class-6 ch. 7) — the class-6
 addition/subtraction coverage was web-checked and the `ncert-math6-ch7`
 citation extended in SOURCE_LOG; zero temporary-references footprint.
 
-**Git:** ship commit `fm 4.4 adding and subtracting fractions…` +
-inventory bookkeeping commit; BOTH pushed per protocol v2 in one command
-via the one-time HTTPS URL; remote HEAD verified by one-time-URL
-ls-remote; origin/main tracking ref resynced. PAT never written to any
-file, config, or log; origin untouched as the SSH remote. The run-19
-memory commit (this entry) pushes immediately after.
+**Git:** ship commit `328c1e7` (fm 4.4 adding and subtracting fractions —
+12 files) + inventory bookkeeping commit `929b845`; BOTH pushed per
+protocol v2 in one command via the one-time HTTPS URL:
+`814cdae..929b845 HEAD -> main`; remote HEAD verified `929b845` by
+ls-remote with the one-time URL form (refs/heads/main =
+`929b8452ca0549f5ce9ab4ae688f339d9aab6b54` = local HEAD); origin/main
+tracking ref resynced. PAT never written to any file, config, or log;
+origin untouched as the SSH remote. The run-19 memory commit (this
+entry's sha record) pushes immediately after.
 
 ---
 
