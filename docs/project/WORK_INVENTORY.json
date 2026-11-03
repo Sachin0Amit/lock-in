@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-03 20:18:32 (Asia/Kolkata)",
+  "generated": "2026-11-03 20:18:42 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4015,6 +4015,72 @@
           "path": "docs/project/WORK_INVENTORY.json",
           "add": 5,
           "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "a87c06a4dbb89205c49747274d068703799b5246",
+      "short": "a87c06a",
+      "date": "2026-11-03 14:48",
+      "message": "cengage-style solutions (owner directive): Sol. pill inline on the first solution line + connective tag column (therefore/or/Now,) + terminal therefore answer line — boxed Answer rows retired; analysis grounded on the re-downloaded M2/01 solution pages (Sol. inline, tag-column chains, no boxes); SolutionSteps + display-only parseStepTag shared by illustrations and exercise solutions, zero content edits; BOOK_FORMAT/types/SOURCE_LOG/E2E contracts updated",
+      "filesChanged": 11,
+      "insertions": 354,
+      "deletions": 99,
+      "files": [
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 34,
+          "del": 19
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 15,
+          "del": 11
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 21,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 94,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 31,
+          "del": 5
+        },
+        {
+          "path": "scripts/e2e-cengage-style.page.js",
+          "add": 23,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 99,
+          "del": 50
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 14,
+          "del": 7
         }
       ]
     }

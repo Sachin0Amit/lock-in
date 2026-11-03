@@ -93,10 +93,11 @@ stripped ✓, no boxes/overlaps ✓.
 
 **Push (protocol v2):** another direct owner web chat message with no
 PAT — push still deferred; local is now ahead of origin/main
-(`d5a1b43`, verified anonymously) by THREE commits: run-15 ship
-`11703ab`, its inventory bookkeeping commit, and this run-16 commit.
-Push all at the next cron-delivered run before new work. Nothing
-token-related recorded anywhere.
+(`d5a1b43`, verified anonymously) by FOUR commits: the run-15 ship
+`11703ab`, its inventory bookkeeping `c86a2dd`, the run-16 ship
+`a87c06a`, and this run's inventory bookkeeping. Push all at the next
+cron-delivered run before new work. Nothing token-related recorded
+anywhere.
 
 ---
 

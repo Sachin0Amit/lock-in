@@ -896,14 +896,14 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-16 ship commit (Cengage-style solution chain) on top of
-  the run-15 commits — all LOCAL ONLY: neither owner chat session carried
-  a PAT, so the pushes are deferred to the next cron-delivered run
-  (protocol v2 one-time HTTPS URL; remote HEAD `d5a1b43` = run-14
-  Cengage reskin + memory commit, verified synced anonymously). Local is
-  ahead by three commits: run-15 ship `11703ab`, its inventory
-  bookkeeping commit, and the run-16 ship — push ALL at the next cron
-  run BEFORE any new work.
+- HEAD: the run-16 inventory bookkeeping commit on top of the run-16
+  ship (Cengage-style solution chain) and the run-15 commits — all LOCAL
+  ONLY: neither owner chat session carried a PAT, so the pushes are
+  deferred to the next cron-delivered run (protocol v2 one-time HTTPS
+  URL; remote HEAD `d5a1b43` = run-14 Cengage reskin + memory commit,
+  verified synced anonymously). Local is ahead by FOUR commits: run-15
+  ship `11703ab` + bookkeeping `c86a2dd`, run-16 ship `a87c06a` +
+  bookkeeping — push ALL at the next cron run BEFORE any new work.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
