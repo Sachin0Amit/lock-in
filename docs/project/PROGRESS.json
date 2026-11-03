@@ -77,6 +77,8 @@
     "Original content only; references inform, never reproduce",
     "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
     "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
-    "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'"
+    "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
+    "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) — owner never resends it",
+    "GitHub PATs are never stored in files/env/remote config; for pushes the owner pastes a fresh token in chat or pushes themselves (README 'Pushing to GitHub')"
   ]
 }

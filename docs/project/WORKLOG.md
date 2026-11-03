@@ -6,6 +6,32 @@ and what remains.
 
 ---
 
+## 2026-11-03 — Owner preference recorded: Drive link permanent, PAT never stored
+
+**Directive:** owner asked for the Google Drive link and the GitHub PAT to be
+"remembered" so they never have to resend them.
+
+**Resolved:**
+- **Drive link — already permanent.** It lives in PROGRESS.json
+  (research.sourceCollection.driveLink), SOURCE_LOG.md, WORK_INVENTORY.json
+  (research.driveCollection.link) and temporary-references/inventory.json;
+  every session reads these files first, so the owner never needs to resend
+  it. Recorded explicitly in RESUME_POINTER notes + PROGRESS rules.
+- **PAT — cannot and will not be stored** (security policy, README
+  "Pushing to GitHub"): a live token written to any file in a pushed repo is
+  a permanent leak risk, and the sandbox is not a secrets vault. Verified no
+  PAT exists anywhere in the project (only the README's `github_pat_…`
+  instructional placeholder). Standing protocol recorded instead: when a
+  push is needed, the owner pastes a fresh token in chat (used on the
+  command line, never written to disk — reusable within the session it was
+  pasted in) or runs `git push origin main` themselves; commits accumulate
+  locally meanwhile, so nothing is ever blocked.
+
+**Verified:** `rg github_pat_` across the project → only the README
+placeholder; Drive link present in 5 files; JSON files valid.
+
+---
+
 ## 2026-11-03 — Detailed work-inventory logging system (owner directive) + PAT push
 
 **Goal:** owner directive — "before this [using the new PAT], maintain a log
