@@ -114,7 +114,7 @@ function Hero() {
   return (
     <section className="relative pt-10 sm:pt-14">
       <div className="paper-dots pointer-events-none absolute inset-0 -z-10" />
-      <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]">
+      <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div className="min-w-0">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
             <Library className="h-3.5 w-3.5 text-primary" aria-hidden />

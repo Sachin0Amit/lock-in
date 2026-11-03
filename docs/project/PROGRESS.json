@@ -2,13 +2,19 @@
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
   "updated": "2026-11-03",
-  "phase": "v3-arrangement · unit-based authoring cadence",
-  "awaiting": "Google Drive link from owner (source-book collection) + optional fine-grained PAT for direct pushes (README → 'Pushing to GitHub')",
-
+  "phase": "v3-arrangement · unit-based authoring cadence · unit 1 shipped",
+  "awaiting": "optional fine-grained PAT for direct pushes (README → Pushing to GitHub); Drive link received & surveyed 2026-11-03",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
-    "routes": ["/", "/book/[bookId]", "/book/[bookId]/lesson/[lessonId]", "/book/[bookId]/revise", "/book/[bookId]/glossary", "404"],
+    "routes": [
+      "/",
+      "/book/[bookId]",
+      "/book/[bookId]/lesson/[lessonId]",
+      "/book/[bookId]/revise",
+      "/book/[bookId]/glossary",
+      "404"
+    ],
     "features": [
       "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
       "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
@@ -24,13 +30,13 @@
       "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)"
     ],
     "verified": [
-      "lint clean",
+      "lint clean; tsc clean (src/)",
       "all routes 200; unknown ids 404 correctly",
-      "browser E2E: palette multi-word search, palette navigation, quiz scoring + persistence, keyboard shortcuts, flashcard flip/mark/mode-switch, glossary, scrollspy, progress bar, no hydration warnings on fresh loads",
-      "VLM screenshot review of home/lesson/book/revise/glossary pages"
+      "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
+      "mobile 390px: no horizontal overflow on home/book/all three lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
+      "KaTeX 154 nodes (1.2) / 114 (1.3); figures, algorithm block, 11-col table all render"
     ]
   },
-
   "library": {
     "disciplines": 11,
     "books": [
@@ -40,15 +46,18 @@
         "status": "in-progress",
         "chaptersPlanned": 11,
         "chaptersWritten": 1,
-        "lessonsWritten": ["fm-numbers-digits-place-value"],
-        "termsAvailableForFlashcards": 5,
-        "notes": "Lesson 1.1 authored as pipeline validation; full authoring resumes after Drive survey. New block types (formula, algorithm) not yet used in content — available for future chapters."
+        "lessonsWritten": [
+          "fm-numbers-digits-place-value",
+          "fm-comparing-ordering-numbers",
+          "fm-rounding-and-estimating"
+        ],
+        "termsAvailableForFlashcards": 16,
+        "notes": "Chapter 1 COMPLETE (unit 1, 2026-11-03): 3 lessons, ~9,700 words, 2 figures, 3 derivations, 2 formula cards, 10 quiz items, 14 exercise solutions — all math verified by script. Next unit: Chapter 2 The Four Operations."
       }
     ],
-    "lessonsWritten": 1,
-    "wordsAuthored": 2852
+    "lessonsWritten": 3,
+    "wordsAuthored": 9709
   },
-
   "research": {
     "examRegistry": {
       "target": "50+ examinations (>=10 Indian, >=20 international)",
@@ -56,12 +65,11 @@
       "file": "docs/project/EXAM_REGISTRY.json"
     },
     "sourceCollection": {
-      "driveLink": null,
-      "status": "awaiting link",
-      "ledger": "docs/project/SOURCE_LOG.md"
+      "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
+      "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; machine listing at temporary-references/inventory.json",
+      "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1)"
     }
   },
-
   "workflowRulesReminder": [
     "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): a unit = one chapter; research → write → verify → ship → log, then the next unit; never batch-draft",
     "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",

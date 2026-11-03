@@ -104,7 +104,7 @@ export function LessonView({ ref_ }: Props) {
   return (
     <div className="relative w-full pb-16 pt-6">
       <ReadingProgress />
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 sm:px-6 xl:grid-cols-[minmax(0,1fr)_230px]">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 xl:grid-cols-[minmax(0,1fr)_230px]">
         <article className="mx-auto w-full max-w-3xl xl:mx-0">
           {/* Breadcrumb */}
           <nav
@@ -147,7 +147,11 @@ export function LessonView({ ref_ }: Props) {
             {lesson.concepts.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {lesson.concepts.map((c) => (
-                  <Badge key={c} variant="secondary" className="font-normal">
+                  <Badge
+                    key={c}
+                    variant="secondary"
+                    className="h-auto font-normal whitespace-normal text-left leading-relaxed"
+                  >
                     {c}
                   </Badge>
                 ))}

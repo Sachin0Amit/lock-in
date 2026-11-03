@@ -6,6 +6,69 @@ and what remains.
 
 ---
 
+## 2026-11-03 — UNIT 1 SHIPPED: Foundation Mathematics chapter 1 complete (lessons 1.2 + 1.3) + Drive survey + mobile-overflow fixes
+
+**Goal:** first full unit of the unit-by-unit cadence (owner directive).
+Owner supplied the Google Drive reference collection mid-session.
+
+**Drive survey (MASTER_PLAN §2 steps 1–4):**
+- Folder "books" (link-shared): 89 root items — Khattar QA 4e, calculus,
+  linear algebra, physics, chemistry, CS, economics, language references —
+  plus MATHS (M1–M5 JEE modules incl. Set Theory/Real Numbers), CHEMISTRY,
+  PHYSICS, _DPPs subfolders. Machine listing → `temporary-references/
+  inventory.json` (gitignored). Headless-browser extraction (virtualized
+  grid scrolled to exhaustion; `usp=sharing` link works without login).
+- Downloaded ONLY unit 1's reference: Khattar *Quantitative Aptitude for
+  Competitive Examinations* 4e (32.4 MB, 1049 pp), ch. 1 "Numbers" dumped
+  to text and studied; NCERT class 6 "Knowing Our Numbers" topic coverage
+  cross-checked via web (sanctioned supplement). Working copies deleted
+  after verification; ledger + citation keys in SOURCE_LOG.md.
+
+**Content authored (ch-01.ts, ~6,900 new words):**
+- **Lesson 1.2 Comparing and Ordering Numbers** — digit-count rule,
+  seat-by-seat comparison, full *domination bound* derivation (geometric
+  series → 10^j − 1 < 10^j), place-value comparison figure (4,589 vs
+  4,598, deciding tens seat tinted), greatest/smallest construction,
+  digit-rotation + mod-9 fingerprint, Roman-numeral historical callout,
+  5 quiz items, L1–L6 exercises (L6: lexicographic total order + mod-9
+  rearrangement proof), formula card.
+- **Lesson 1.3 Rounding and Estimating** — midpoint figure (43/47 on the
+  40–50 line), rounding **algorithm block** (first content usage), close-
+  numbers subtraction trap (4,851−4,829), ceiling-vs-nearest (bus problem),
+  error-bound derivation (k × ½·10^n, tight example 1,200→1,400), banker's
+  rounding / IEEE 754 insight + error-by-digit table, 5 quiz items, L1–L6
+  exercises, 2 formula cards.
+
+**Verification (§6 gates):**
+- 66 arithmetic checks recomputed by script BEFORE writing (incl. half-up
+  vs half-even error sums: +5 vs 0 at digit level); verify-unit-1.ts:
+  ALL CHECKS PASS (ids unique, quiz indices valid, solutions complete,
+  prereqs resolve, sources resolve).
+- lint clean · `tsc --noEmit` clean (src/) · routes 200.
+- Browser E2E: KaTeX 154/114 nodes per lesson, figures + algorithm + 11-col
+  table render, quiz scored 5/5 "perfect" with feedback, flashcards now a
+  16-term deck, glossary lists all new terms + formula sheet cards, TOC
+  shows ch. 1 (3 lessons) with planned ch. 2 intact, "Next up" works.
+- No console errors on any page.
+
+**Platform fixes found during E2E (shipped with the unit):**
+- Mobile 390px horizontal overflow on all lesson pages (article forced to
+  max-content width by implicit grid track): added base `grid-cols-1` to
+  the three responsive grids (lesson reader, home hero, footer).
+- Concept badges (`whitespace-nowrap`) overflowed with long concept
+  phrases → now wrap (`whitespace-normal h-auto text-left leading-relaxed`).
+- Re-tested: home/book/lessons all exactly 390px, desktop unchanged, quiz
+  interaction still green. (Diagnosis note: `[minmax` in tool output
+  renders as `inmax` — ANSI `[m` escape eaten by display; files were fine.)
+
+**Project memory updated:** PROGRESS.json (unit 1 shipped, 9,709 words,
+16 flashcard terms), RESUME_POINTER.json (next = chapter 2 The Four
+Operations), SOURCE_LOG.md (Drive ledger + citation keys), book.ts notes,
+ch-01.ts header. Local commit follows; push needs a fresh PAT or an
+owner-run `git push origin main`.
+
+---
+
 ## 2026-11-03 — Website v3: arrangement & visual overhaul
 
 **Goal:** owner asked to change how things are arranged ("make arrangement

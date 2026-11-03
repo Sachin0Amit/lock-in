@@ -4,10 +4,11 @@ import { chapter01 } from './ch-01'
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
  *
- * STATUS: in-progress. Chapter 1 lesson 1.1 is authored (pipeline validation);
- * the remaining TOC is planned but NOT yet written. Full authoring begins
- * after the Google Drive reference collection is surveyed, per the master
- * plan's research-first workflow (docs/project/MASTER_PLAN.md §2 & §11).
+ * STATUS: in-progress. Chapter 1 (Numbers and Place Value) is COMPLETE —
+ * unit 1 of the unit-by-unit cadence: lessons 1.1, 1.2 (Comparing and
+ * Ordering Numbers) and 1.3 (Rounding and Estimating) are authored and
+ * verified. Chapters 2–11 remain planned; the next unit is Chapter 2,
+ * The Four Operations (authoring per docs/project/MASTER_PLAN.md §2).
  *
  * TO GROW THIS BOOK:
  *  1. Create ch-NN.ts exporting a Chapter (copy the shape of ch-01.ts).
@@ -25,7 +26,7 @@ export const foundationMathematics: Book = {
   status: 'in-progress',
   accent: ['#b45309', '#78350f'],
   notes:
-    'Chapter 1 lesson 1.1 authored as the platform pipeline-validation lesson. Chapters 2–11 are planned; authoring resumes after the Google Drive source collection is surveyed for this subject.',
+    'Chapter 1 (Numbers and Place Value) complete — unit 1 shipped 2026-11-03: lessons 1.1–1.3 authored, math verified, sources logged. Next unit: Chapter 2, The Four Operations. Reference collection surveyed (Google Drive "books"); per-unit downloads per MASTER_PLAN §2.',
   chapters: [
     chapter01,
     {
