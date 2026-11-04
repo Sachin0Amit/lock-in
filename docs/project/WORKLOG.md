@@ -139,6 +139,19 @@ citation key `ncert-sci7-motion` recorded in SOURCE_LOG.md; ch-06 header
 + book.ts notes updated; logs + pointer + inventory updated. ch. 6 open
 2/5, next 6.3 Proportion and Cross-Multiplication.
 
+**Remaining:** ch. 6 lessons 6.3 Proportion and Cross-Multiplication →
+6.5 Scaling; voice polish of the 12 remaining pre-4.2 lessons (one per
+run); EXAM_REGISTRY.json research (44 skeleton entries).
+
+**Git:** ship `d98ba02` (fm 6.2 rates and unit rates + the 1.2 voice
+polish + verify-unit-6.ts L–U + E2E 6.2 block + contracts/logs) and
+inventory bookkeeping `0380e71` pushed at run end via the one-time HTTPS
+URL (protocol v2): `d505977..0380e71 HEAD -> main`; remote HEAD verified
+`0380e7192878b0980fd98bdbb98d3f93856a82b3` = refs/heads/main = local by
+one-time-URL ls-remote; origin/main tracking ref resynced via anonymous
+fetch; PAT never written to any file/config/log. This memory commit
+completes the record.
+
 
 
 **Run open (push check first):** tree clean at `b490cf7` = local HEAD =
