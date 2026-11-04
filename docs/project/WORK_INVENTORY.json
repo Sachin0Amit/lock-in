@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 07:24:12 (Asia/Kolkata)",
+  "generated": "2026-11-04 08:17:17 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1839,10 +1839,10 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 24696,
+      "totalLines": 24701,
       "byArea": {
         "src/app (routes, pages)": 586,
-        "src/components/library (reader platform)": 2995,
+        "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
         "src/data/library (content model + books)": 15436,
         "src/hooks": 214,
@@ -1858,12 +1858,12 @@
           "lines": 384
         },
         {
-          "file": "flashcards.tsx",
-          "lines": 367
+          "file": "lesson-view.tsx",
+          "lines": 369
         },
         {
-          "file": "lesson-view.tsx",
-          "lines": 364
+          "file": "flashcards.tsx",
+          "lines": 367
         },
         {
           "file": "book-view.tsx",
@@ -5885,6 +5885,90 @@
           "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
           "add": 656,
           "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "0380e7192878b0980fd98bdbb98d3f93856a82b3",
+      "short": "0380e71",
+      "date": "2026-11-04 01:54",
+      "message": "inventory: record run-27 ship (fm 6.2 rates and unit rates live) — 25 lessons / 119,489 words / 164 terms / 125 quiz items / 257 exercise questions, ch. 6 open 2/5; next 6.3 proportion and cross-multiplication",
+      "filesChanged": 1,
+      "insertions": 199,
+      "deletions": 29,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 199,
+          "del": 29
+        }
+      ]
+    },
+    {
+      "sha": "dc0a48992d9e9304c9453d995a731e2c8c9d3250",
+      "short": "dc0a489",
+      "date": "2026-11-04 01:55",
+      "message": "memory: record run-27 push verification (0380e71), origin/main synced — FM 6.2 rates and unit rates operating live (the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine — divide, scale to a friendly unit, run it backwards —, the same-way comparison law with the direction-fraud and bulk-illusion cautions, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 km-h <-> m-s law proved, rates at work, the honest average), the 1.2 voice polish landed (the comparison-rule Definition callout + roman run + Thus-line), ch. 6 open 2/5; next 6.3 proportion and cross-multiplication",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "d920f20dc50b23374bcdff4c579493a5ba40e340",
+      "short": "d920f20",
+      "date": "2026-11-04 01:56",
+      "message": "memory: complete the run-27 WORKLOG record (push verification 0380e71, remaining work, git block)",
+      "filesChanged": 1,
+      "insertions": 13,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 13,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "038805e5676cefe15827cf1a9963a3848d2339a8",
+      "short": "038805e",
+      "date": "2026-11-04 02:47",
+      "message": "platform: objectives math fix + run-28 reconciliation memory — lesson-view objectives render through RichText so $...$ typesets (6.1 and 6.2 were the only affected objectives); sandbox restored to a pre-commit snapshot after run 27's push recovered against remote d920f20 by anonymous fetch (run-27 logs verbatim-true); scripts/check-objectives-math.py scan tool; verified lint/tsc/build/routes/E2E (15 lessons) + live quiz 5/5 + VLM re-checks",
+      "filesChanged": 5,
+      "insertions": 95,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 21,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 6,
+          "del": 1
         }
       ]
     }
