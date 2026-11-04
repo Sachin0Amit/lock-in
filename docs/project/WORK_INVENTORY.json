@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 21:21:35 (Asia/Kolkata)",
+  "generated": "2026-11-04 23:17:24 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 6,
+        "chaptersWritten": 7,
         "chapters": [
           {
             "number": 1,
@@ -576,7 +576,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6474,
+                "words": 6449,
                 "readMins": 32,
                 "concepts": [
                   "Divisible means remainder zero",
@@ -898,7 +898,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 27896
+            "words": 27871
           },
           {
             "number": 4,
@@ -1947,12 +1947,10 @@
             "number": 7,
             "slug": "integers",
             "title": "Integers",
-            "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.",
-            "status": "in-progress",
-            "lessonsWritten": 3,
-            "plannedLessons": [
-              "Absolute Value as Distance"
-            ],
+            "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance, every counted gap recomputed as one subtraction in bars.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-negative-numbers-why-they-exist",
@@ -2158,9 +2156,78 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-absolute-value-as-distance",
+                "number": "7.4",
+                "title": "Absolute Value as Distance",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4207,
+                "readMins": 21,
+                "concepts": [
+                  "Absolute value as distance from zero",
+                  "The piecewise rule",
+                  "The mirror property",
+                  "Ordering by magnitude",
+                  "The multiplicative property",
+                  "The triangle fact",
+                  "The distance between two numbers",
+                  "Reading equations in bars"
+                ],
+                "objectives": [
+                  "Define absolute value as distance from zero, evaluate it by the piecewise rule, and justify why the rule never returns a negative",
+                  "Verify the properties — non-negativity, the mirror property, the duality, the multiplicative property, the triangle fact — with instances and counterexamples",
+                  "Order integers by magnitude and separate \"greater number\" from \"greater size\"",
+                  "Compute the distance between any two integers as |a − b| = |b − a|, and re-read the chapter’s counted gaps — the lift, the Everest–Dead Sea gap, the Vostok–Phalodi gap — as one subtraction in bars",
+                  "Solve absolute-value equations |x| = k — two answers for k > 0, one for k = 0, none for k < 0 — and explain each verdict geometrically"
+                ],
+                "prerequisites": [
+                  "fm-negative-numbers-why-they-exist",
+                  "fm-adding-subtracting-integers",
+                  "fm-multiplying-integers-sign-rules"
+                ],
+                "sources": [
+                  "ncert-math7-p2-ch2",
+                  "ncert-math6-ch10",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 4,
+                  "callout": 5,
+                  "list": 2,
+                  "equation": 2,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 8,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 12513
+            "words": 16720
           },
           {
             "number": 8,
@@ -2250,12 +2317,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 86,
-      "totalLines": 28652,
+      "totalLines": 29328,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 19387,
+        "src/data/library (content model + books)": 20063,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6932,32 +6999,155 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "dba732a0fd0c4e27f1e7b0fc330c8d65323336cd",
+      "short": "dba732a",
+      "date": "2026-11-04 15:55",
+      "message": "fm 7.3 multiplying integers and the sign rules shipped (ch. 7 3/4, run 35) — verify-first: verify-unit-7.ts extended sections T-AB BEFORE writing (231 checks ALL PASS: W1 brute-forces the multiplication sign rule over all 441 pairs in [-10,10]^2; the staircase chain for (-5)xm, m=3..-3, -15..15 with common difference +5; the distributive derivation grid-checked (-a)xb = -(axb) and (-a)x(-b) = axb over 625 pairs; the six properties each with its sweep or instance incl. the distributive law over 9,261 triples; sign parity brute-forced over every signed chain of length 1-5; every word problem, both figures' geometry, quiz keys 2/1/1/0/3 and all 12 exercise keys); the lesson authored in ch-07.ts (3,899 words): the repeated-walk Definition callout + roman run, figure 1 the repeated walk 3x(-5)=-15 (three arcs with solid heads, 34-px line, 15-step brace), the two easy sign cases + commutativity carrying the third, the staircase derivation + figure 2 the product staircase (bar ends collinear, crossing zero at m=0), the distributive derivation (equation tag 1) + the general sign law (tag 2), the sign-case table, the six properties + the identity-vs-mirror-maker Caution, sign parity + the parity-is-products-only Caution, the waived-penalty Rs 600 and missing-factor -8 Illustrations, exam corner, Brahmagupta's 628 CE multiplication verses historical callout (Colebrooke 1817, paraphrased then derived), 8 terms, 5-quiz live 5/5 - perfect, 12 exercises L1-L6 (L6a the distributive derivation of (-1)xa = -a; L6b the parity chain -120); audits 0/0 both figures; VLM fig 1 10 math/9 clarity, fig 2 10 math/9 clarity; 21-lesson E2E sweep exit 0 with a dedicated 7.3 block (19 Sol. pills inline, 96 therefore glyphs live, KaTeX 285, dollarInSvg 0, mobile 390 exact, console clean); VOICE POLISH 2.3: lesson 2.3's formal repeated-addition Definition callout + Thus-line + the two table settings as the roman run (zero new numerals), live-verified; SOURCE_LOG extended (ncert-math7-p2-ch2 -> the sign rules and the three laws); WORK_INVENTORY regenerated 31 lessons / 146,077 words / 209 terms / 155 quiz / 329 exercise questions; WORKLOG + PROGRESS + RESUME_POINTER + DETAILED_LOG updated (ch. 7 catalog OPEN 3/4); e2e-73.page.js gitignore exception added",
+      "filesChanged": 12,
+      "insertions": 1165,
+      "deletions": 38,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 35,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 17,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 175,
+          "del": 28
+        },
+        {
+          "path": "scripts/e2e-73.page.js",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-7.ts",
+          "add": 187,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 19,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-07.ts",
+          "add": 641,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "d802d62ef9aa5c8a41ab07d7bcf5b5da85f646fa",
+      "short": "d802d62",
+      "date": "2026-11-04 15:55",
+      "message": "memory: run-35 synced sha recorded (dba732a0fd0c4e27f1e7b0fc330c8d65323336cd) — ship commit remote-verified via one-time-URL ls-remote = local HEAD; next run 36 completes FM ch. 7 at 7.4 Absolute Value as Distance (extends verify-unit-7 first), voice polish 3.1 queued",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "ab19d647d8a8c70c5bac202cd0abf50bb5a10af1",
+      "short": "ab19d64",
+      "date": "2026-11-04 16:56",
+      "message": "ffa5f1a7-249f-4ff3-986d-563acf4547da-cron",
+      "filesChanged": 5,
+      "insertions": 881,
+      "deletions": 4,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-74.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-7.ts",
+          "add": 142,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-07.ts",
+          "add": 679,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 6,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 31,
-    "wordsAuthored": 146077,
-    "termsDefined": 209,
-    "quizItems": 155,
-    "exerciseQuestions": 329,
+    "chaptersWritten": 7,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 32,
+    "wordsAuthored": 150259,
+    "termsDefined": 217,
+    "quizItems": 160,
+    "exerciseQuestions": 341,
     "blockTotals": {
-      "para": 473,
-      "callout": 171,
-      "heading": 204,
-      "list": 36,
-      "terms": 32,
-      "equation": 46,
-      "derivation": 54,
-      "table": 32,
-      "figure": 53,
-      "example": 148,
-      "quiz": 31,
-      "exercises": 31,
+      "para": 485,
+      "callout": 176,
+      "heading": 208,
+      "list": 38,
+      "terms": 33,
+      "equation": 48,
+      "derivation": 56,
+      "table": 33,
+      "figure": 55,
+      "example": 156,
+      "quiz": 32,
+      "exercises": 32,
       "formula": 72,
       "algorithm": 8
     }

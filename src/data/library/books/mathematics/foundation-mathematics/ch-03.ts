@@ -69,11 +69,11 @@ export const chapter03: Chapter = {
           kind: 'callout',
           tone: 'definition',
           title: 'Divisible (the treaty condition)',
-          text: 'A whole number $n$ is **divisible** by a whole number $d$ (with $d \\ne 0$) when the remainder upon dividing $n$ by $d$ is $0$ — equivalently, when $n = q \\times d$ for some whole number $q$. In symbols we write $d \\mid n$, read "$d$ divides $n$". So $6 \\mid 48$ because $48 = 8 \\times 6$; the notation $d \\nmid n$ means $d$ does not divide $n$. The remainder bound $0 \\le r < d$ from Lesson 2.4 is what makes the definition crisp: there is no third state between "remainder 0" and "remainder at least 1".',
+          text: 'For whole numbers $n$ and $d$ with $d \\ne 0$, $n$ is said to be **divisible** by $d$ when $n = q \\times d$ for some whole number $q$ — $d$ copied $q$ times, nothing left over; the remainder upon dividing $n$ by $d$ is then $0$, and the bound $0 \\le r < d$ from Lesson 2.4 leaves no third state between "remainder 0" and "remainder at least 1". In symbols we write $d \\mid n$, read "$d$ divides $n$"; the notation $d \\nmid n$ means $d$ does not divide $n$. Reading the equation $n = q \\times d$ from its two ends names the players: $d$ is a **factor** (or **divisor**) of $n$, and $n$ is a **multiple** of $d$.',
         },
         {
           kind: 'para',
-          text: 'The same fact wears two names, one for each end of the multiplication $n = q \\times d$. Looking from $d$\'s side: $d$ is a **factor** (or **divisor**) of $n$ — it goes into $n$ exactly. Looking from $n$\'s side: $n$ is a **multiple** of $d$ — it is what you get by multiplying $d$ by some whole number. $6 \\mid 48$ says "$6$ is a factor of $48$" and "$48$ is a multiple of $6$" in one breath. The factor pairs of $48$ make the picture concrete: $1 \\times 48$, $2 \\times 24$, $3 \\times 16$, $4 \\times 12$, $6 \\times 8$ — so $48$ has exactly ten factors, $1, 2, 3, 4, 6, 8, 12, 16, 24, 48$. Every pair found halves the search: once you know $3$ is a factor, $16$ comes free.',
+          text: 'Thus, $6 \\mid 48$ because $48 = 8 \\times 6$ — one sentence that says "$6$ is a factor of $48$" and "$48$ is a multiple of $6$" in the same breath. The factor pairs of $48$ make the picture concrete: $1 \\times 48$, $2 \\times 24$, $3 \\times 16$, $4 \\times 12$, $6 \\times 8$ — so $48$ has exactly ten factors, $1, 2, 3, 4, 6, 8, 12, 16, 24, 48$. Every pair found halves the search: once you know $3$ is a factor, $16$ comes free.',
         },
         {
           kind: 'terms',

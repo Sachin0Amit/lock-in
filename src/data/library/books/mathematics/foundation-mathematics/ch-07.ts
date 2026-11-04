@@ -145,8 +145,8 @@ export const chapter07: Chapter = {
   slug: 'integers',
   title: 'Integers',
   summary:
-    'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.',
-  status: 'in-progress',
+    'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance, every counted gap recomputed as one subtraction in bars.',
+  status: 'complete',
   plannedLessons: [],
   lessons: [
     {

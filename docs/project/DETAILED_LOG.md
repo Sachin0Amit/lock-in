@@ -9,7 +9,63 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 35, Job 498279**:
+Generated: 2026-11-03/04 (maintained through **run 36, Job 498279**:
+**FM 7.4 "Absolute Value as Distance" shipped — CHAPTER 7 CLOSED + voice
+polish 3.1** (4,207 body words): run 36 opened on the 7.4 lesson IN
+FLIGHT (auto-checkpoint commit `ab19d64`: verify-unit-7.ts extended
++143 lines, ch-07.ts +682 lines, e2e-74.page.js created) and finished
+it per standing rule 0. The chapter's closing lesson, and the full
+treatment 7.1 promised: the bars read the SIZE of a number, direction
+discarded — the distance Definition callout (is-said-to-be shape) +
+the piecewise rule as equation tag 1 (the minus inside the bars is
+7.1's INSTRUCTION, not a verdict — the double reflection paying off
+again) + the roman run |7| |−11| |0|; the rule's derivation (distance
+is a count — never negative; x itself on the non-negative side; the
+mirror twin −x on the negative side; both lines meeting at |0| = 0);
+figure 1 the distance-from-zero braces (|−8| = 8 and |5| = 5 at 40 px
+per step, direction never mentioned); the ordering-by-magnitude cash
+of 7.1's trap (−8 is the smaller number with the bigger size); the
+five properties with instances and grid certificates (non-negativity
+with its zero edge; the mirror property swept on [−60,60]; the duality
+|x| ∈ {x, −x}; the multiplicative property on all 441 pairs in
+[−10,10]²; the triangle fact with the equality condition ab ≥ 0
+brute-forced on the same grid); the outside-minus Caution (|−9| = 9
+but −|9| = −9); figure 2 the two-panel distance-between-points
+(opposite sides: the gap |5−(−3)| = 8 splits at zero into 3 + 5; same
+side: the gap |7−2| = 5 is the leftover of 7 after 2 borrows its share
+— nested braces); the distance formula gap(a,b) = |a−b| = |b−a| as
+equation tag 2 with its derivation (the walk from a to b is b − a by
+7.2's movement model; the reversed walk is the opposite displacement
+with the same size) — CASHING every gap the chapter counted: the lift
+9 (both orders), the mall 12/24, the Everest–Dead Sea 9288.64 m, the
+Vostok–Phalodi 140.2°; the opposite-sides split |a−b| = |a|+|b| and
+the same-side difference both grid-verified; the verdict table for
+|x| = k (two answers for k > 0 — the two-answer signature; one at
+k = 0; none for k < 0); the bars-erase-exactly-one-bit insight; the
+historical callout (Argand's 1806 modulus; Weierstrass's 1841 |x| in
+"Zur Theorie der Potenzreihen", MacTutor-grounded); 8 terms, 5-quiz
+keys 2/1/0/1/3 (live 5/5 · perfect), 12 exercises L1–L6 (L6: the
+distance derivation cashed at (−5,8); the equality condition ab ≥ 0
+proved by cases). Scope guard held: no integer division, no coordinate
+plane, no exponent notation. Verify-first: verify-unit-7.ts extended
+to 302 checks (AC–AH) BEFORE writing. Unit-7 completion review passed
+(BOOK_FORMAT checklist 7/7, ids globally unique, totals recomputed —
+ch. 7 = 4 lessons / 16,720 words / 32 terms / 20 quiz / 48 exercises;
+book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341
+exercises per the regenerated WORK_INVENTORY); ch-07.ts status flipped
+to **complete** with the summary corrected to the delivered scope (the
+coordinate-plane preview claim removed — 7.4's scope guard owns that
+door); book.ts ch. 7 catalog appended + "Next chapter: 8 Geometry
+Foundations". Gates: audits 0/0 both figures; VLM fig 1 10 math/9
+clarity, fig 2 10 math/9 clarity (all complaints cosmetic); 22-lesson
+E2E sweep exit 0 with a dedicated 7.4 block (quiz live 5/5 · perfect,
+12/12 solutions expand, 36 collapsibles, mobile 390 exact-fit,
+console clean). Voice polish 3.1: the formal "Divisible (the treaty
+condition)" Definition callout rewritten in the is-said-to-be shape
+naming factor and multiple + the Thus-line "Thus, 6 | 48 because
+48 = 8 × 6" + the two-names para merged into the instance run — zero
+new numerals; live-verified (KaTeX 369, errors 0, dollarInText 0).
+|| Previous run 35:
 **FM 7.3 "Multiplying Integers and the Sign Rules" shipped + voice
 polish 2.3** (3,899 body words): multiplication as the repeated-walk
 model — the formal Definition callout ("the product $m \times b$ is
@@ -277,6 +333,11 @@ recycle)
 | 11-04 (run 30, cron Job 498279) | (finish + ship + queued extra) | **LESSON 6.4 Direct and Inverse Variation — THE TWO LOCKS NAMED** — finished from the interrupted 15:18 delivery's in-flight commit `407c0fe` (the lesson, verify sections AF–AP and the e2e registration were authored; gates/bookkeeping/push were not) and shipped in the Cengage voice + solution chain, 5,373 words: 6.3's off-line gatekeeper promoted to the definition (the shop's own rice line 96/3 = 160/5 = 256/8 = 32 as **direct variation** y/x = k, y ∝ x, the constant of variation k named; **Definition callout** + equation tag 1); **the parking-table fraud** (4 h Rs 60, 8 h Rs 100, 12 h Rs 140, 24 h Rs 180 — 15 → 12.5 → 35/3 → 7.5 per hour: growing WITHOUT agreeing, contrasted with the rice line 65/1 = 130/2 = 325/5); **the direct engine** (machine 840/6 = 140 bottles/h → 700 in 5 h; truck 14/25 km/min → 168 km in 300 min; pole 560/320 = 7/4 per cm of shadow ↔ 1,050 cm pole → 600 cm shadow; bacteria 5/50,000 cm × 20,000 = 2 cm by engine AND factor m = 2/5); **inverse variation** xy = k (**Definition callout** + equation tag 2; sweets 24 × 5 = 120; game show Rs 1,00,000 — 4 → 25,000, 5 → 20,000, 8 → 12,500, 10 → 10,000, 20 → 5,000; spokes 360°; periods 8 × 45 = 360 min); **one journey, two bindings** — figure 1 the two panels (line d = 60t with (1, 60), (3, 180) vs the hyperbola xy = 240 with (3, 80), (4, 60), (6, 40) and dotted guides; TITLES RAISED 48 → 40, km/h tag cleared of the 90 tick, the "3 × 80" label relocated into the guides' empty pocket (480, 108) after VLM flagged the crowding twice — final VLM 10/10 math + 9/10 clarity); **the factor laws PROVED from the constants** (x₂ = m x₁ ⟹ y₂ = m y₁ direct, y₂ = y₁/m inverse; van 120 → 240 doubled; journey 6 h → 3 h at double speed; the m = 3/2 guard 240/90 = 8/3 h = 2 h 40 min); **the recognition drill** (7 rows with verified constants — rewiring 12, speed 60, journey 240, yield 4 t/ha, land 12,000, shadow 1.75, spokes 360); **the flip** — figure 2 REBUILT after VLM scored the single one-way arrow 6/10: TWO crossing legs (the 4 leg (470, 122) → (566, 178), the d leg (566, 122) → (470, 178), crossing at (518, 150)), the label moved to the band's clear left region, title/captions recentered onto the box grid x 358 — final VLM 10/10 + 9/10; invertendo cashed (3 : 4 :: d : 4 → d = 3; the naive direct layout 3 : 4 :: 4 : d → 16/3 absurd); **the work problems** (rewiring 3 × 4 = 12 person-days → 3 days; machines 42 × 63 = 2,646 → 49; cattle 20 × 6 = 120 → 4 days; windows 2 × 3 = 6; boxes 300 → 15); exam corner (NCERT class-8 ch. 13 §§13.1–13.2 + Ex. 13.1/13.2 canon, class-6 ch. 12, class-7 ch. 8, Khattar staples); 8 terms, 5-quiz (2/1/1/2/1 verified live 5/5), 12 exercises L1–L6 (L6: the van 240 km by product AND factor; the flip proved); **E2E gap fixed:** the interrupted run had registered the lesson in the e2e LESSONS array but never written the dedicated block — added this run (keys 2/1/1/2/1 clicked → "You scored 5/5" live, 12/12 expand, 21 Sol. pills, mobile 390 exact, console clean; full 17-lesson suite exit 0); verify-unit-6.ts 253 → **361 checks** ALL PASS (AJ10/AJ13/AJ14 + AM4/AM5 rewritten for the polished figures); audits 0/0 both figures; lint + tsc clean; routes 200/200/200/404; **VOICE POLISH 2.1** (queued per-run extra, fourth): the formal is-said-to-be Definition callout "Expression" + the roman run (8 + 2 × 5 = 18; (8 + 2) × 5 = 50; 18 ÷ 3 of 2 = 3 — the lesson's own numbers only) + the Thus-line handing the ladder to figure 1's expression trees; queue corrected (ch. 1 closed at 3 lessons — remaining pre-4.2 = 2.2–2.5, 3.1–3.5, 4.1); the gitignored Drive survey rebuilt after the recycle (89 entries); totals: **27 lessons / 128,994 words / 178 terms / 135 quiz items / 281 exercise questions**, ch. 6 open 4/5, next 6.5 Scaling: Maps, Models and Recipes; logged; pushed (protocol v2) |
 | 11-04 (run 29, cron Job 498279) | (ship + queued extra) | **LESSON 6.3 Proportion and Cross-Multiplication — 6.2'S CLOSING QUESTION MADE OFFICIAL** — authored in the Cengage voice + solution chain, 4,132 words: the opening pays the 6.2 debt with the Illustration (pantry 3 kg for Rs 96 vs shop 5 kg for Rs 160 — both 32 : 1, cross 96 × 5 = 480 = 3 × 160 — "one rate, said twice") + the roman run of the shop's line (96:3, 160:5, 256:8 — one simplest name, uniqueness of 6.1 doing the legitimating); **Definition callout 'Proportion'** in the formal shape (four non-zero quantities in order; a : b = c : d; written a : b :: c : d, read "a is to b as c is to d"; a SENTENCE, not a number — 2.2's equation–expression split in new dress) as **equation tag 1** + the order-fraud paragraph (5 : 3 :: 6 : 10 false — 5/3 ≠ 3/5); **figure 1: one statement, four seats** (boxes a:b::c:d at pitch 160 with first/second/third/fourth beneath, the extremes arc over the outer pair, the means arc under the inner pair, the cross law as the bold bottom strip; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity); **the cross law PROVED as a derivation block in BOTH directions** (multiply by bd — the b and d cancel to ad and bc; divide by bd — back to the ratios; the iff closes; \xrightarrow arrows; balance licence of ch. 2 named) + **formula card** + **the extremes-means recognition table** (8:12::10:15 → 120 = 120 both 2:3; 21:14::33:22 → 462; 9:4::27:12 → 108; the failing row 6:10::9:16 — 96 ≠ 90) + **the flip Caution** (3 : 5 :: 10 : 6 false, 18 ≠ 50 — multiply the terms in their printed seats); **the test-and-fill engine**: **equation tag 2** (a : b = c : x ⟹ x = bc/a — the missing term is the means' product divided by the term opposite it; every seat has its own dress); Illustrations — the test pass 45 : 63 :: 35 : 49 (products 2205 both; both ratios 5 : 7) and the test fail 30 : 42 vs 24 : 35 (1050 ≠ 1008); the fourth seat 8 : 12 = 10 : □ → 15; the 6-9-12 fourth → 18; **the harder first seat** □ : 24 :: 30 : 45 → first 16; **the unit-rate identity** (the fill engine IS the one-part engine's third dress — 10 × 12/8 = 15 the same scaling; the cross law survives unfriendly numbers: 45x = 720 → 16) + **the gatekeeper** (rival stall 4 kg for Rs 120 → 120 : 4 = 30 ≠ 32 — off the shop's line); **alternendo and invertendo proved free** (a : c :: b : d cross-multiplies to the SAME two products ad and bc; b : a :: d : c flips both — verified: 3 : 5 :: 6 : 10 → 3 : 6 :: 5 : 10 both 1 : 2 and → 5 : 3 :: 10 : 6 both 5 : 3 — two lines each because the cross law compresses everything into ad = bc); **continued proportion** (a : b :: b : c — the middle term in BOTH mean seats) with **the mean proportional** b² = ac, b = √ac > 0 (**formula card**; Illustration 8 & 50 → 20, check 8 : 20 = 2 : 5 = 20 : 50; the **arithmetic-mean Caution** — between 5 and 45 the average 25 does NOT finish the chain, only 15 does: averages add, proportions multiply; positivity named — the negative algebraic root is not a proportional) and **the third proportional** x = b²/a (**formula card**; Illustration to 8 and 12 → 18; 4 and 6 → 9 in prose); **proportion at work**: **figure 2: the line of agreement** (the Rs 32/kg double ruler — kg 0–8 over Rs 0–256 at 80 px per kg, dashed connectors, dots on (3, 96), (5, 160), (8, 256), two proportion brackets reading 3 : 5 :: 96 : 160 and 5 : 8 :: 160 : 256 with the cross-law arithmetic in the caption (480 = 480; 1280 = 1280); audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity); the **tea Illustration** (5 kg → Rs 480, 8 kg → Rs 768 — cross law 5x = 3840 AND unit-rate engine 96 × 8, the same answer twice); **the off-line gatekeeper paragraph launching 6.4** (the line forces quantities to grow TOGETHER — double the rice, double the price — direct variation named as next lesson's business); **properties of proportions** (6 bullets: statement-not-number, order part of the claim 80 ≠ 180, alternendo, invertendo, the law runs both ways, the mean in both seats — each with a verified instance); exam corner (NCERT class-6 ch. 12 §12.2 + Ex. 12.2 canon — definition, :: notation, extremes/means — + class-7 ch. 8 bridge + Khattar staples; SSC/bank/RRB/CUET/NTSE shapes — test, fill any seat, name the couples, mean/third proportional, extend-a-rate word problems); 7 new terms (Proportion, Extremes, Means, Fourth proportional, Continued proportion, Mean proportional, Third proportional), 3 formula cards (the fourth proportional lives as equation tag 2), 2 equation tags + 1 derivation, 9 illustrations, 2 figures (0 audit issues), 5-quiz (0/1/2/3/2 verified live 5/5), 12 exercises L1–L6 — L6 carries the recovered partner (mean 20, one number 16 → other 25 via 20² = 16c) and alternendo proved + verified; **RUN-OPENER NOTE: the 13:18 delivery died before starting work — every filesystem tool call failed (Bash/Read/Glob) while internal tools responded; blocker reported in-session per protocol (tree clean, 0 unpushed, PAT untouched); this delivery recovered on the restarted sandbox**; verify-unit-6.ts extended 165 → **253 checks** (V–AE) ALL PASS pre-writing — the audit caught 3 of the run's own check bugs (a nonsense W6 instance, a 516-for-518 colon typo, a reversed 496−540 gap); post-writing drift reconciled (quiz Q5 renumbered 18/24/36 → 12 to avoid duplicating the 24/30/45 Illustration; L5a renumbered to 12 & 18 → 27; formula cards honestly 3; properties order-flip instance added as W10); 4 TS2367 literal-comparison errors in new check lines rewritten as computed expressions; regressions 455/330/260/165; lint + tsc clean; production build 26 lesson pages; routes 200/200/404; E2E extended to **16 lessons** + a dedicated 6.3 block (7 caps-over-rule headings, 9 Illustration pills, 21 Sol. pills ALL inline, 27 step rows, badges 0, thereforeTags 33 with exercises, legacy boxes 0, note boxes Definition/Theorem/Caution ×2 + 3 Remember cards + Exam corner, KaTeX 291, dollarInSvg 0, 2 svg figures, quiz 5/5 live with 0/1/2/3/2, 12/12 expand, 36 collapsibles, 390px exact-fit, console clean); **VOICE POLISH 1.3** (queued per-run extra, 1.3 third): the formal Definition callout "The rounding rule" (is-said-to-be shape + the deciding digit named + the midpoint convention) + the roman run (43 → 40, 47 → 50, 45 → 50 — every number reused from the lesson's own text, zero new numerals) + the Thus-line handing the rule to figure 1's geometry; totals: **26 lessons / 123,621 words / 171 terms / 130 quiz items / 269 exercise questions**, ch. 6 open 3/5, next 6.4 Direct and Inverse Variation; logged; pushed (protocol v2) |
 | 11-04 (run 28, cron Job 498279) | (platform fix + reconciliation) | **OBJECTIVES MATH FIX + SANDBOX-ROLLBACK RECONCILIATION** — run open found local HEAD `d505977` with run 27's whole 6.2 work sitting uncommitted while its Git: block claimed ship `d98ba02` + bookkeeping `0380e71` pushed (both SHAs nonexistent locally); **anonymous ls-remote returned remote HEAD `d920f20`** — run 27 HAD pushed four commits (`d98ba02` ship / `0380e71` inventory / `dc0a489` push-verification memory / `d920f20` WORKLOG-record completion) and the sandbox was then restored to a **pre-commit disk snapshot**, deleting the local objects while the remote kept them; reconciled by anonymous fetch + `git diff FETCH_HEAD` (working tree matched the remote exactly except this run's fix) + reset --hard + origin/main tracking-ref resync — run-27's logs verified **verbatim-true, zero corrections**; the untracked `app-shell.tsx` leftover (index-deleted since v2, resurrected by the snapshot restore) removed; **the fix:** VLM review of fresh E2E screenshots flagged raw LaTeX in 6.2's objectives box — `lesson-view.tsx` rendered `lesson.objectives` as plain `<li>{o}</li>`, the one header surface that never passed the math renderer; repo-wide scan (`scripts/check-objectives-math.py`, kept as tooling) found exactly **two affected objectives** (6.1's ratio $a : b$ vs fraction $a/b$; 6.2's $\tfrac{5}{18}$ km/h ↔ m/s law); objectives now render through the same **RichText** used by every block; verified: lint clean, tsc clean, production build SSG (25 lesson paths), prod routes 6.2/5.1 200 + unknown 404, objectives KaTeX 1 node (6.2) / 2 nodes (6.1) with zero raw-TeX leakage, full **15-lesson E2E green** (badges 0, legacy boxes 0, KaTeX counts unchanged, mobile 390px exact-fit), quiz live beyond the harness's score read-race (5.1 manual replay with correct indices 1/2/3/1/2 → "You scored 5/5 · perfect"; 6.2 answered live 5/5), VLM double-ruler re-check 10/10 math + 9/10 clarity; no content numbers changed — render-path fix only; logged; pushed (protocol v2) |
+| 11-04 (run 32, cron Job 498279) | (ship) | **LESSON 6.5 Scaling: Maps, Models and Recipes — CHAPTER 6 CLOSED (5/5)** — scale in three dresses, RF 1 cm : 18 km = 1 : 18,00,000, atlas bar-scale figure (road exactly four bar-segments long), photocopy insight, model van 1 : 24, area law (areas carry m²), recipe multiplier + khichdi table, clock-is-not-an-ingredient Caution; unit-6 completion review; details in WORKLOG.md |
+| 11-04 (run 33, cron Job 498279) | (ship) | **CHAPTER 7 OPENED: LESSON 7.1 Negative Numbers and Why They Exist** — the two-direction failure + the chosen zero, ℤ as tag 1 + ℕ ⊂ W ⊂ ℤ as tag 2, the ordering law with the −8 < −3 trap, opposites via the double reflection, absolute value's first look, elevation-section figure, rods-to-Brahmagupta-to-Descartes historical callout; 70 verify checks; site-wide raw-$ Illustration-title leak fixed in ExampleBlock; details in WORKLOG.md |
+| 11-04 (run 34, cron Job 498279) | (ship) | **LESSON 7.2 Adding and Subtracting Integers** — the movement model, five-case sign table, subtraction as adding the opposite (tag 2), double-sign table, two-panel walk + subtraction-map figures, Brahmagupta's subtraction verses; 148 verify checks; details in WORKLOG.md |
+| 11-04 (run 35, cron Job 498279) | (ship) | **LESSON 7.3 Multiplying Integers and the Sign Rules** — the repeated-walk model, the staircase + distributive derivations of minus-times-minus (tags 1–2), six properties, sign parity, Brahmagupta's multiplication verses; 231 verify checks; details in WORKLOG.md |
+| 11-05 (run 36, cron Job 498279) | (finish + ship + queued extra + chapter close) | **LESSON 7.4 Absolute Value as Distance — CHAPTER 7 CLOSED (4/4)** — finished from the in-flight auto-checkpoint `ab19d64` per standing rule 0 and shipped in the Cengage voice + solution chain, 4,207 words: the distance Definition callout (is-said-to-be) + the piecewise rule as equation tag 1 + the roman run |7| |−11| |0|; the rule's derivation (distance is a count — never negative; the mirror twin −x; both lines meeting at |0| = 0); figure 1 the distance-from-zero braces (|−8| = 8, |5| = 5 at 40 px/step); ordering-by-magnitude cash of 7.1's trap; the five properties with grid certificates (mirror sweep on [−60,60]; multiplicative on 441 pairs; triangle fact with the equality condition ab ≥ 0 brute-forced); the outside-minus Caution; figure 2 the two-panel distance-between-points (opposite sides |5−(−3)| = 8 = 3 + 5; same side |7−2| = 5 nested braces); the distance formula gap(a,b) = |a−b| = |b−a| as tag 2 CASHING every counted gap (the lift 9 both orders, the mall 12/24, the Everest–Dead Sea 9288.64 m, the Vostok–Phalodi 140.2°); the |x| = k verdict table (two/one/none) + the bars-erase-one-bit insight; the historical callout (Argand 1806 modulus; Weierstrass 1841 bars, MacTutor-grounded); 8 terms, 5-quiz keys 2/1/0/1/3 live 5/5 · perfect, 12 exercises L1–L6 (L6 the distance derivation at (−5,8); the equality condition proved by cases); verify-unit-7.ts 231→**302 checks** (AC–AH) ALL PASS pre-writing; unit-7 completion review passed (ids unique, totals recomputed: ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises), ch-07 status **complete** + summary corrected, book.ts catalog appended; audits 0/0 both figures; VLM 10 math/9 clarity each; 22-lesson E2E sweep exit 0 + dedicated 7.4 block (mobile 390 exact-fit, console clean); **voice polish 3.1** (the is-said-to-be treaty callout + Thus-line at 6 | 48, zero new numerals, live-verified); stale top-level library counters corrected (26/133,379/171 → 32/150,259/217); logged; pushed (protocol v2, one-time URL from the 01:27 payload) |
 | 11-04 (run 27, cron Job 498279) | (ship) | **LESSON 6.2 Rates and Unit Rates — THE BOUNDARY CROSSED ON PURPOSE** — authored in the Cengage voice + solution chain, 4,152 words: the opening names 6.1's same-kind boundary and crosses it deliberately (the grocer weighs rupees against kilograms, the driver counts kilometres against litres, the typist races words against minutes — the units can no longer cancel, so they ride); **Definition callout 'Rate'** in the formal shape (different kinds, division, *per* = "for each", units attached — a rate is NOT a pure number) as **equation tag 1** with the two-direction note (18 km/L vs its twin 1/18 L/km); the roman run of rates in the wild (Rs 40/kg → 120 kg costs 4,800; 18 km/L → 3 L carries 54 km; 72 wpm → 360 words in 5 min; 60 beats/min → 45 beats in 45 s), each with the rate × quantity read-back; **the unit rate** as the one-part engine of 5.3/6.1 wearing units (Illustration Rs 96 for 3 kg → Rs 32/kg with the rebuild check; **formula card**; the **scale-to-friendly-unit road** — Rs 22.50 per 250 g ×4 → Rs 90/kg, no decimal division, 6.1's equivalence family in rate dress; the **inverse read** in prose — Rs 90 for 6 pens → Rs 15/pen → Rs 210 buys 14 pens); **comparing rates by the same-way law** (Illustration shops 96/3 = 32 vs 155/5 = 31 with the Rs 5 saving on the 5-kg buy; the **direction-fraud Caution** — Rs 32/kg vs 0.03125 kg/Rs face away and compare nothing; the **bulk-illusion Illustration** — 2 kg at Rs 30 vs 4 kg at Rs 30.50, the bigger sack dearer); **figure 1: one rate, two rulers** (0–5 kg locked to Rs 0–160 at 128 px per kg, dashed connectors, the constant Rs 32 step annotated; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity); **the recognition table** of five offers with the tie (A Rs 87/3 kg = B Rs 232/8 kg = Rs 29/kg — one unit rate in two sizes — and E the largest bag dearest at Rs 31: the bulk illusion caught in the act); **speed: the flagship rate** (the **Definition callout** — distance per time, uniform speed named; **equation tag 2** with the speed family — the two extra doors opened by ch. 2's balance licence; **formula card**; Illustration 240 km in 4 h → 60 km/h; **figure 2: the journey map** — four equal hourly cells of 60 km, uniform speed drawn, audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity; the sprint Illustration 100 m in 12.5 s → 8 m/s — the definition never changes, only the units dress); **changing the units of a rate** (conversion factors as names for 1; the **km/h ↔ m/s law PROVED as a derivation block**: 1 km = 1000 m, 1 h = 3600 s → 1 km/h = 1000/3600 = 5/18 m/s (HCF 200 from ch. 3), the reciprocal 18/5 = 3.6; **formula card** with anchors 5 m/s = 18 km/h, 20 m/s = 72 km/h, 25 m/s = 90 km/h; Illustrations 72 km/h → 20 m/s and 12 m/s → 43.2 km/h); **rates at work** (the tank Illustration 5,400 L at 45 L/min → 120 min = 2 h; masons/couriers/printers as the same two-pedal engine); **average speed** (the **Caution**: total distance ÷ total time, the plain mean a fraud on unequal times; Illustration 120 km out at 60 + 120 km back at 40 → 240 km in 5 h → 48 km/h, NOT 50 — the mean would claim 250 km driven; **formula card**); **properties of rates** (5 bullets with verified instances); exam corner (NCERT class-6 ch. 12 Ex. 12.3 unitary-method canon + class-7 science Motion and Time + Khattar speed staples; SSC/bank/RRB shapes — best buys, the speed triad, the 5/18 drill, average-speed traps, pipe rates); 7 new terms (Rate, Unit rate, Unit price, Speed, Uniform speed, Average speed, Conversion factor), 4 formula cards, 2 equation tags + 1 derivation, 10 illustrations, 2 figures (0 audit issues), 5-quiz (1/0/1/2/1 verified live 5/5), 12 exercises L1–L6 — L6 carries the typists' 45 vs 50 wpm and the unequal-legs average (70 ≠ 75, the mean fraud exposed); **VOICE POLISH 1.2** (queued per-run extra, 1.2 second): the formal Definition callout "The comparison rule" (is-said-to-be shape — a is greater than b when the first differing seat on a left-to-right reading carries the larger digit; the deciding seat named, every seat to its right overruled) + the roman example run (9,999 vs 10,000; 98,341 vs 9,843; 4,589 vs 4,598) + the Thus-line handing the rule to the domination-bound proof — every number reused from the lesson's own text, zero new numerals; **verify-unit-6.ts extended 93 → 165 checks** (sections L–U) ALL PASS pre-writing (+ regressions 455/330/260/165; the audit caught the pens inverse-read being misplanned as an 11th Illustration — it lives in prose; U1 corrected); new citation key **ncert-sci7-motion**; E2E extended to **15 lessons** with a dedicated 6.2 block (8 caps-over-rule headings, 10 Illustration pills, 22 Sol. pills ALL inline, 30 step rows, badges 0, thereforeTags 30, legacy boxes 0, note boxes Definition ×2 / Caution ×2 + 4 Remember cards + Exam corner, KaTeX 117, dollarInSvg 0, 2 svg figures, quiz 5/5 live with 1/0/1/2/1, 12/12 expand, 36 collapsibles, 390px exact-fit, zero console errors); SANDBOX NOTE: quality gate again against the **PRODUCTION build** (dev-mode lesson routes 404 regression persists in this recycled instance — new lesson 200, old 200, bogus 404); the gitignored Drive survey rebuilt after the recycle before the inventory regen; totals: **25 lessons / 119,489 words / 164 terms / 125 quiz items / 257 exercise questions**, ch. 6 open 2/5, next 6.3 Proportion and Cross-Multiplication; logged; pushed (protocol v2) |
 | 11-04 (run 25, cron Job 498279) | (ship + platform + unit review) | **LESSON 5.5 Percentage Change, Discounts and Simple Interest — THE PERCENT AT WORK (CH. 5 CLOSES)** — authored in the Cengage voice + solution chain, ~3,700 words: the opening ties 5.4's closing promise and names the discipline — **the one question "of what?"** (Note box: four named bases — original, cost price, marked price, principal); **Definition callout** (percentage change judged on the ORIGINAL, r = (N − O)/O × 100, Thus-line) + the roman run (250→300 = +20%; 48,000→44,640 = −7%; 800→720 = −10%); **the factor law as equation tag 1** (N = O(100 ± r)/100) **PROVED as a derivation block** (definition rearranged → distributivity → the bracket as one fraction → the HCF-trimmed brackets: +25% = ×5/4, −10% = ×9/10); Illustration 1 the salary (12,500 → 14,000 = 12% with the forward check ×112/100); **the two-base trap Caution** (+25% then −25% is not flat — the bases differ); Illustration 2 the round trip (Rs 8,000 × 5/4 → 10,000 × 3/4 → 7,500; net −6.25%); the return-ticket paragraph (undo = divide by the factor, never subtract the percent); **figure 1: the round-trip map** (12,500 → +20% ×6/5 → 15,000; the wrong −20% ticket lands 12,000 — five hundred short, amber dashed; the right ×5/6 ticket lands home; audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity); **the r²/100 % law** named from the figure and PROVED in exercise L6 via chapter 2's (a+b)(a−b) identity (up r% then down r% multiplies to 1 − r²/10000, a net fall of r²/100 %); Illustration 3 the phone (Rs 15,000 after +20% → Rs 12,500 by the return ticket AND the unitary method at 120%); **profit/loss percent on the COST price** (Definition callout with the Thus-line; **equation tag 2** SP = CP(100 ± p)/100 — the ledger dress of the factor law; Illustration 4 the cycle 2,400 → 2,760 = 15%; the **wrong-base fraud Caution** — 360 judged on SP ≈ 13.04% answers a different question; Illustration 5 the fridge CP 12,000 recovered from SP 10,200 at a 15% loss by the return ticket AND the 85% ladder); **discount on the MARKED price** (Definition callout SP = M(100 − d)/100; Illustration 6 the sweater 1,600 → 1,360 with the backwards check; Illustration 7 the lamp 600 +40% markup −20% discount → 672 — the festival never undoes the markup); **the multiplier law Note** (successive changes MULTIPLY their factors: 1.40 × 0.80 = 1.12, a net +12% — percents never add across moving bases); **figure 2: the two-lane map** (CP 600 +15% → 690 and MP 750 −8% → 690: two percents, two bases, ONE selling price; audit 0 issues, VLM PASS math/layout/rendering); **simple interest from the one-percent-a-year unit** (I = PRT/100 **PROVED as a derivation block** from 5.4's percent-of + repeated addition — R% of P for one year, T copies of the same rent because the base never moves; **equation tag 3** I = PRT/100, A = P + I; Illustration 8 the loan Rs 5,000 at 8% for 3 years → Rs 1,200, amount Rs 6,200; Illustration 9 the rate recovered 900 = 120R → R = 7.5%; the **per-annum trap Caution** — T strictly in years, 8 months = 2/3, the silent mark-loser; the **"simple" promise Note** — flat rent on the original principal, compound interest the open door); 8 new terms (Percentage change, Cost price, Selling price, Marked price, Discount, Principal, Simple interest, Amount), 4 formula cards (the factor law / the ledger law / the discount law / simple interest), exam corner (NCERT class-7 §§8.5–8.6 + class-8 §§8.2–8.4 canon; the SSC/bank/Railway staples per Khattar; the five classic traps); 9 illustrations, 2 figures (0 audit issues), 5-quiz (0/1/1/2/3 verified live 5/5 perfect + VLM screenshot of the score bar), 12 exercises L1–L6 — L6 proves the r²/100 % law and works the halving chain (Rs 12,000 at 6.25% for 2½ years = Rs 1,875 by 12,000/16 × 2.5); **PLATFORM CATCH: the RichText parser matched **…** before the $…$ it enclosed, so math inside bold/italic never rendered (raw $…$ leaked into the page) — a repo-wide scan found 12 latent instances across chs. 2–5 (7 pre-existing, live since their ships); fixed by making the bold/italic branches recurse into RichText — zero content edits, all 12 repaired; verified 0 raw-$ leaks on the SSR HTML**; verify-unit-5.ts 394 → **455 checks** (BT–CC) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 3 real defects — a malformed BT4 fraction check, a BU2 M()-scaling error, a BW4 float slip — before any content existed); E2E extended to **13 lessons** with a dedicated 5.5 block (4 caps-over-rule headings, 9 Illustration pills, 9 Sol. pills ALL inline, 32 step rows, badges 0, thereforeTags 27, legacy boxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, console clean); **UNIT-5 COMPLETION REVIEW PASSED** (BOOK_FORMAT checklist 7/7; exam-coverage 5/5; ids unique; ch-05 status → complete; plannedLessons emptied; book.ts STATUS/notes updated); totals: **23 lessons / 110,548 words / 150 terms / 115 quiz items / 233 exercise questions**, ch. 5 CLOSED 5/5, next chapter 6 Ratio, Rate and Proportion; logged; pushed (protocol v2) |
 | 11-04 (run 24, cron Job 498279) | (ship) | **LESSON 5.4 Percent and Its Meaning — THE STANDARDISED DRESS** — authored in the Cengage voice + solution chain, 3,769 words: the opening (one denominator for everyone — the standardised denominator as the common currency of fractions; per centum etymology + the % sign historical callout from the Italian per-cento ledgers through "P c°"); **Definition callout** ("x is said to be expressed as a percent when…", Thus-line, the % sign an instruction to divide by 100 not a unit) + the roman example run (35% = 7/20; 8% = 2/25; 120% = 6/5 legal beyond the whole; 0.5% = 1/200); **figure 1: the 100-square** (10 × 10 grid at 30px cells, 35 shaded as the 25% + 10% benchmark build with amber brackets + legend + three-dress strip; audit 0 issues FIRST pass, VLM 9/10 math + 8/10 clarity — its one bracket-alignment complaint DISPROVEN by exact DOM measurement: rail 2 right end = 280 = shaded block right edge); **the two-hop law as equation tag 1** (x% = x/100; p = x/100 ⟺ x = 100p) **PROVED as a derivation block** (definition → x/10² as the point-shift of 5.3 at k = 2 → the reverse reading; exact, no rounding); Illustrations 1–3 (35% → 7/20 by the HCF; 7/8 → 0.875 → 87.5% by the atom test + two hops; 0.065 → 6.5% NOT 65% — one room = a factor of ten); **the 33 1/3% Caution** (33 1/3% = 1/3 exactly, 33.3% = 333/1000 a thousandth short); **figure 2: the conversion map** (FRACTION/DECIMAL/PERCENT stations, the step machine (5.2) forward + the place reading (5.1) back, × 100 / ÷ 100 two-room arrows, the direct-hop arc, worked strip incl. 1/3 = 0.(3) = 33 1/3%; audit 0 issues, VLM 9.5/10 + 9/10); **percent-of as equation tag 2** (x% of A = (x/100) × A; A = part × 100/x — the unitary method in percent dress) + **the benchmark ladder table** (100/75/50/25/20/12.5/10/5/1% with fraction + decimal dresses) + the halving chain explained by the atoms (100 = 2² × 5² — the fives never block a halving: 12.5% = 1/8, 6.25% = 1/16, 3.125% = 1/32); Illustrations 4–6 (15% of 460 = 69 by benchmark build AND direct dress; 348/500 = 69.6% — cancel 100/500 = 1/5 then the step machine; 8% of n = 56 → 1% = 7 → n = 700, the unitary method returned with the forward check closing the loop); the roman word-problem run (33% of 600 = 198 pass mark, 210 clears by 12 = 2% of the paper; 60% of 45 = 27 boys + 18 girls = 45; 30% of Rs 18,500 = Rs 5,550 saved, Rs 12,950 left); **the commutativity gem Note** (x% of y = y% of x — flip the ugly percent onto the friendly number); 7 new terms (Percent, The % sign, Standardised denominator, Two-hop conversion, Percent of a quantity, Benchmark percents, The 1% unit), 3 formula cards (percent definition / two-hop conversion / percent-of + the whole), exam corner (the halving chain prices 512 and 640 in one step; the standing traps 0.5% ≠ 50%, 120% legal, 33 1/3% exact); 6 illustrations, 2 figures (0 audit issues), 5-quiz (0/1/1/2/2 verified live 5/5 perfect), 12 exercises L1–L6 — L6 proves the gem and works the halving chain (6.25% of 512 = 32; 3.125% of 640 = 20); verify-unit-5.ts 341 → **394 checks** (BK–BS) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 2 real defects — a float artifact in BP4 and a wrong kill-condition in BQ4 — before any content existed); E2E extended to **12 lessons** with a dedicated 5.4 block (6 Illustration pills, 6 inline Sol. pills, 22 step rows, badges 0, thereforeTags 18, legacy boxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, console clean); totals: **22 lessons / 104,922 words / 142 terms**, ch. 5 in progress 4/5; logged; pushed (protocol v2) |
@@ -286,8 +347,8 @@ recycle)
 
 **Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 4 chapters complete + chapter 6 open at 6.3 — 26
-lessons, 123,621 words, 171 flashcard terms.**
+**Live today: 1 book — 7 chapters complete (1–7) — 32
+lessons, 150,259 words, 217 flashcard terms** (regenerated 11-05, run 36).
 
 ### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
 
@@ -1024,7 +1085,7 @@ downloads (references already logged).
 | 4 | Fractions — **COMPLETE (5/5, run 20)** | ~~The Idea of a Fraction~~ · ~~Equivalent Fractions and Simplification~~ · ~~Comparing Fractions~~ · ~~Adding/Subtracting Fractions~~ · ~~Multiplying/Dividing Fractions~~ — all **WRITTEN** |
 | 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
-| 7 | Integers — **OPEN (3/4, run 35)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · Absolute Value as Distance |
+| 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations | Points/Lines/Planes · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
@@ -1129,6 +1190,7 @@ downloads (references already logged).
 
 | What | Date | Gates passed |
 |---|---|---|
+| Unit 7 (FM ch. 7, lesson 7.4) + unit-7 completion review | 11-05 | 71 new pre-write checks (302 total, sections AC–AH, ALL PASS before writing; regressions 231/148/70) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 10 math/9 clarity + fig 2 10 math/9 clarity · 22-lesson E2E sweep exit 0 + dedicated 7.4 block (quiz keys 2/1/0/1/3 live "You scored 5/5 · perfect", 12/12 solutions expand, 36 collapsibles, Sol. pills 8 inline, thereforeGlyphs 24, KaTeX 276, dollarInText 0, katexErrors 0, rawDollarInSvg 0, tables 1, mobile 390 exact-fit docScrollW 390 articleW 358, fresh-load console clean) · BOOK_FORMAT checklist 7/7 · ids globally unique · totals recomputed (ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms) · voice polish 3.1 live-verified (KaTeX 369, errors 0, dollarInText 0) |
 | Platform base + lesson 1.1 | 11-02 | lint · tsc · E2E (55 KaTeX nodes, quiz, persistence, dark mode, no overflow 390/1280px, no console errors) · 4 accuracy fixes |
 | Platform v2 | 11-02 | lint · routes 200/404 · E2E (palette search, quiz 5/5 + persistence, keyboard, flashcards, scrollspy, hydration-clean) · VLM review |
 | Streak removal + docs | 11-03 | lint · tsc (SearchHit union fix) · E2E (zero "streak" occurrences, desk stats correct) |
@@ -1237,314 +1299,34 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-26 ship `dcff4f6` + inventory bookkeeping `adb18f9`
-  pushed and verified (one-time-URL ls-remote: remote HEAD =
-  refs/heads/main = `adb18f9eb3ae8afda98d3d0042d8b938536ee20a`, `origin
-  /main..HEAD` empty), then this memory commit completes the record
-  (verified per protocol v2; shas in WORKLOG.md). Nothing queued.
+- HEAD: the run-35 ship `dba732a` + memory `d802d62` pushed and
+  remote-verified, then the 7.4 in-flight auto-checkpoint `ab19d64`
+  arrived (00:56 +08:00); run 36 finished the lesson and ships this
+  entry — the push + synced sha land in WORKLOG.md / RESUME_POINTER.json
+  (protocol v2, one-time URL from the 01:27 payload).
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 6 OPEN 4/5 — FM lesson 6.4 "Direct and
-  Inverse Variation" shipped run 30 (5,373 words — the two locks y/x = k
-  and xy = k, the parking fraud, both engines, the factor laws, the
-  recognition drill, the flip with two crossing legs, the work problems;
-  voice polish landed on 2.1)** (ch. 1–5 COMPLETE; 6.1 shipped run 26 —
-  the two lenses; 6.2 shipped run 27 — rates and unit rates; 6.3 shipped
-  run 29 — proportion and the cross law; **5.1 shipped run 21 — the point as the
-  hinge of the place-value mirror; 5.2 shipped run 22 — the dresses
-  theorem, the 1/7 carousel, shift-and-subtract both ways; 5.3 shipped
-  run 23 — the four operations: align the points, the places-add
-  engine, the step machine's point-riding quotient and the clearing
-  law; 5.4 shipped run 24 — the x/100 definition, the two-hop law
-  proved from the point-shift, the benchmark ladder + halving chain,
-  the unitary method returned, the commutativity gem; 5.5 shipped
-  run 25 — the factor law on the original, the round-trip r²/100 % law
-  with both return tickets drawn, finding the original by the return
-  ticket, profit/loss on cost, discount on the tag, the two-lane
-  figure, the multiplier law, simple interest I = PRT/100 with the
-  per-annum trap and the compound door open**). Next: chapter 6
-  "Ratio, Rate and Proportion" open 4/5 — final lesson 6.5 "Scaling:
-  Maps, Models and Recipes", then the unit-6 completion review — extend
-  verify-unit-6.ts pre-writing (the verify-unit-4.ts gitignore-exception
-  pattern); queued extras: voice polish one per run (2.2 next), then the
-  remaining pre-4.2 lessons 2.3–2.5, 3.1–3.5, 4.1; EXAM_REGISTRY research
-  (44 skeleton entries).
-**LESSON 5.3 (run 23, cron Job 498279):** "Operating on Decimals" —
-4,462 words, the lesson where the decimal dress goes to work. One idea
-governs all four operations: **like units only** — tenths with tenths,
-hundredths with hundredths, the law that governed the fractions of
-Lesson 4.4 now worn positionally. Content: the two-paragraph opening
-(align for + and −, count for ×, scale for ÷ — three movements and the
-arithmetic of decimals follows); **addition and subtraction by aligning
-the points** — the point as the fencepost that fixes the columns, the
-Definition callout ("two decimals are said to be added by aligning the
-points when ..."), Illustration 1 padding 15.75 + 8.4 + 0.905 to
-25.055, Illustration 2 walking the borrow chain straight across the
-point (34.60 − 18.87 = 15.73), the **inverse test Note** (a − b = c
-iff c + b = a — the exam hall's cheapest insurance) and the
-**digit-add fraud Caution** (0.9 + 0.09 + 0.009 = 0.999, not 0.27);
-**multiplication as engine + count** — deliberately no alignment, two
-stages (the whole-number engine, then the point lands), the fraction
-reading 0.3 × 0.2 = 3/10 × 2/10 = 6/100, the **places-add law as
-equation tag 1** ((a/10^j) × (b/10^k) = ab/10^(j+k)) and **the
-places-add rule PROVED as a derivation block** (fraction reading →
-Lesson 4.2's multiplying rule → the law of powers 10^j × 10^k =
-10^(j+k); alignment never enters the argument, which is why none is
-needed), Illustration 3 (342 × 56 = 19152 → 19.152), the roman run
-ending whole (0.3 × 0.2 = 0.06; 0.75 × 0.4 = 0.3; 12.5 × 0.08 = 1),
-**the point-shift rule** (× 10^k hops the point k rooms right, ÷ 10^k
-k rooms left) with **figure 1: the point-hops ladder** (seven rooms
-THOUSAND→THOUSANDTH, 4.75 in place with the point on the ones/tenths
-boundary at x 431, amber climb arrows ×100/×10 above and slide arrows
-÷10/÷100 below, the worked strip 4.75 → 47.5 → 475 / → 0.475; rooms at
-x = 28+104k, width 92; audit 0 issues FIRST pass; VLM 10/10
-mathematical correctness, 9/10 clarity), the **max-places fraud
-Caution** (1.5 × 2.25: engine 15 × 225 = 3375, places 1 + 2 = 3 →
-3.375; the max-places reading 33.75 is off by exactly a factor of 10)
-and the **counting-places-counts-the-dress Note** (48.50 wears one
-true place; 48.50 × 3.5 takes 1 + 1 = 2 places — 169.75, not 16.975);
-**division: the step machine continued** — division by a whole number
-with **the quotient's point riding the dividend's** (Illustration 4:
-128.76 ÷ 12 = 10.73; **figure 2: the full tableau** — divisor bracket
-at x 284, dividend digits at 48px pitches, the amber point dropping
-into the quotient at the moment the bring-down crosses, bring-down
-arrows with labels, subtraction rows 12/84/36 with rules, the final 0,
-the check line 12 × 10.73 = 128.76; audit 0 issues FIRST pass; the
-VLM's two "alignment defect" complaints DISPROVEN by exact DOM
-measurement — both point circles render at cx = 420.0 exactly and the
-quotient digits ride 348/396/444/492, the standard
-last-consumed-digit convention); **clearing the divisor** — dividing
-BY a decimal asks what the divisor wears, the equivalent-fraction
-licence scales both numbers by the same power of ten, **the scaling
-law as equation tag 2** ((A/10^j)/(B/10^k) = (A × 10^k)/(B × 10^j)),
-Illustration 5 (16.24 ÷ 2.8 → 162.4 ÷ 28 = 5.8, checked 2.8 × 5.8 =
-16.24), the past-the-point step (9.1 ÷ 5 = 1.82 — bring down a
-written zero) and the dresses-theorem tie (when the remainders never
-die the answer recurs — one machine, two exits: land on 0 or cycle);
-the **÷ 100 fraud Caution** (45.6 ÷ 100 = 0.456, not 4560 — the hop
-has a direction); **word problems** — money keeps its fixed two-place
-dress (Illustration 6: the bill 42.75 + 18.60 + 96.05 = 157.40, change
-from Rs 200 = 42.60, the carry chain shown column by column), length
-and mass convert first and operate second (the roman run: 2.4 kg ÷ 6 =
-0.4 kg = 400 g; 3.75 m ÷ 0.25 m = 15 pieces with the inverse test;
-7.5 cm − 42 mm = 7.5 − 4.2 = 3.3 cm), and **the unitary method** —
-divide to the one, multiply to the many (18.6 km on 1.5 L →
-18.6 ÷ 1.5 = 12.4 km/L; 4 L → 49.6 km); 7 new terms (Aligning the
-points, Borrowing across the point, Whole-number engine, Places-add
-rule, Point-shift rule, Clearing the divisor, Unitary method), 3
-formula cards (the alignment rule, the places-add rule, the clearing
-rule), exam corner (the one-engine hop family 0.45 × 0.067 =
-0.045 × 0.67 = 4.5 × 0.0067 = 0.03015 — the hops cancel; the three
-classic traps; convert-first), 5-quiz (2/1/2/0/1 verified live 5/5 ·
-perfect), 12 exercises L1–L6 with full solution chains and terminal ∴
-answers — L6 proves the places-add rule from the fraction reading,
-deduces the closure of the terminating family (pooled atoms still
-only 2s and 5s) and names where the proof breaks (a recurring factor
-owns no whole-over-power-of-ten dress; 0.5 × 0.3̄ = 0.16̄, the waltz
-slowed but not stopped). Arithmetic pre-verified by verify-unit-5.ts
-extended 273 → **341 checks** (sections AD–BJ: exact integer
-arithmetic at the stated scales, the decimalOf dress re-reads, the
-eight-row quotient-identity sweep, both figures' geometry, the quiz
-and exercise keys). E2E extended to **11 lessons** with a dedicated
-5.3 block (6 inline Sol. pills, 18 with exercises expanded, 30 ∴
-tags, KaTeX 248, dollarInSvg 0, stepNumberBadges 0,
-legacyAnswerBoxes 0, quiz 5/5 live, 390px exact-fit, zero console
-errors); totals: **21 lessons / 101,153 words / 135 terms**, ch. 5 in
-progress 3/5; logged; pushed (protocol v2).
-**LESSON 5.2 (run 22, cron Job 498279):** "Decimals and Fractions, Two
-Ways of Writing the Same Numbers" — 5,407 words, the long-division
-lesson that finishes the bridge 5.1 left half-built. Content: the
-opening fence (the atom test's refuseniks have no exact dress, yet the
-number line has no gaps — let the division run past the point); the
-**step machine** equation tag 1 (next digit = ⌊10r/b⌋, next remainder
-= 10r mod b) justified from Lesson 4.2's multiplying rule
-(r/b = (1/10)·(10r/b)); **terminating decimals** — Illustration 1 runs
-3 ÷ 8 to remainder 0 (0.375, three places, exactly max(3, 0) for
-8 = 2³) and the division-side reading of the atom test (each step adds
-one 2-atom and one 5-atom of paying power); **recurring decimals** —
-Illustration 2 runs 5 ÷ 12 (remainder 8 returns; 6 waltzes forever;
-0.416̄; the head is the 2²-part paying out); **the dresses theorem as a
-derivation block** (the machine is a deterministic walk on the b
-remainder cells; cell 0 ends the walk — the 2-and-5 family from the
-division side; pigeonhole on the b − 1 nonzero cells forces a return;
-determinism replays the block — the repetend, at most b − 1 digits;
-no third dress exists); **figure 1: the remainder carousel of 1/7** —
-six cells 1→3→2→6→4→5→1 on a ring with amber arrowheads and the
-emitted digits 1 4 2 8 5 7 in walking order (nodes at radius 140,
-labels outside at 184, arrowheads at mid-angles; geometry
-script-verified, audit 0 issues after moving the node digits outside
-their circles, VLM 10/10); the slow carousel walk (10 = 1×7 + 3,
-30 = 4×7 + 2, …, 50 = 7×7 + 1 — the start); **pure vs mixed
-recurrence** (the roman run: 1/3 cycle 1, 1/11 cycle 2 via 10 ≡ −1,
-1/37 cycle 3 via 999 = 27 × 37, 1/7 cycle 6; mixed instances 1/6,
-7/30, 13/22 = 0.590̄, 11/150 = 0.073̄); **the head-length theorem as a
-derivation block** (head = exactly max(m, n) places — the 2-and-5
-part pays out and the reduced denominator c walks purely; shorter
-shifts cannot clear the 2/5 atoms); **figure 2: the map of the
-bridge** — three-lane classifier TERMINATING / MIXED RECURRING / PURE
-RECURRING with worked instances 7/8, 5/12, 1/3 (audit 0 issues, VLM
-9/10); **the bridge backwards** — shift-and-subtract: Illustrations
-3–5 convert 0.3̄ = 1/3 (9x = 3), 0.142857̄ = 1/7 (six nines;
-142857 × 7 = 999999 confirms), 0.245̄45̄ = 27/110 ((245 − 2)/990);
-equation tag 2 states the shift rule; the **vinculum of Lesson 2.5
-returns as the repetend bar**; the **0.9̄ = 1 Caution** (9x = 9, two
-names one number) and the **atoms-of-the-base Note** (10 = 2 × 5 owns
-base ten; in base twelve thirds terminate — 1/3 = 0.4 twelve — and
-sevenths still waltz with cycle 6); the exam-style **2/7 vs 0.2857
-Illustration** (cross-multiply 20000 > 19999 — the fraction wins by
-exactly 1/70000) and the **22/7 ≠ π warning** (3.142857̄, differing
-from π by ≈ 0.0013; **5.1's "3.14159…" misprint for 22/7 found and
-corrected this run**); the 6-row dress-catalogue table; the census
-equation (1/3 = 0.3̄, 5/12 = 0.416̄, 22/7 = 3.142857̄, 0.9̄ = 1); 3
-formula cards (the division step, the shift rule, the head + cycle
-rule); exam corner; 7 new terms (Long division step, Terminating
-decimal, Recurring decimal, Repetend, Pure recurring decimal, Mixed
-recurring decimal, Cycle length); 5-quiz (0/2/2/1/0 verified live 5/5
-· perfect), 12 exercises L1–L6 — L6 proves the dresses theorem
-(pigeonhole + determinism) and the 142857 rotation family from
-142857 × 7 = 999999. Arithmetic pre-verified by verify-unit-5.ts
-extended 165 → **273 checks** (sections P–AC, incl. the base-twelve
-sweep and the ten-sample round-trip). E2E extended to **10 lessons**
-with a dedicated 5.2 block (6 inline Sol. pills, 18 with exercises,
-30 ∴ tags, KaTeX 307, quiz 5/5 live, 12/12 expand, 390px exact-fit,
-2 figures 0 audit issues); totals: **20 lessons / 96,691 words / 128
-terms**, ch. 5 in progress 2/5; logged; pushed (protocol v2).
-**LESSON 5.1 (run 21, cron Job 498279):** "Decimal Places and the
-Point" — 5,350 words, chapter 5's opener and the first lesson past
-the run-20 closing veil. Content: the opening scene (the 7-and-a-bit
-mm screw the millimetre scale cannot name, the rupee's 100 paise, the
-kilo's 1000 grams — three arenas, one reflex: keep cutting into
-tens); the **decimal-point treaty** Definition (digits left count
-wholes in Lesson 1.1's powers of ten, digits right count the
-10-family — tenths, hundredths, thousandths; "the point is the
-fraction bar standing upright"; the Thus-line 2.74 = 2 + 7/10 +
-4/100, 0.7 = 7/10 exactly); tenths (1 mm = 0.1 cm; 2.7 = 2 + 7/10),
-hundredths (1 paise = ₹0.01; the load-bearing zero of ₹0.05),
-thousandths (1 g = 0.001 kg) with the ladder of tens; the 7-term
-block (Decimal, Decimal point, Tenths, Hundredths, Thousandths,
-Decimal places, Equivalent decimals); **the place-value mirror** —
-figure 1 with the ×10/÷10 arrows about the hinge, the sample
-305.274 dissected digit by digit (columns at x = 40/144/248 \|
-396/500/604 of width 104, the 44 px point band, hinge x = 374 —
-geometry script-verified), the reading rules ("point two seven four"
-— digits one at a time; the roman example run 7.9 / 42.357 /
-305.274), expanded form 305.274 = 3 × 100 + … + 4 × 1/1000, and 7 =
-7.0; **Illustrations 1–2 run the bridge both ways** (7/10, 47/100,
-305/1000 drop into their places; 0.7, 0.47, 0.305 read back — 0.305
-= 305/1000 = 61/200 via the atom 5); **the atom test as a derivation
-block** — the re-cut direction (b = 2^m·5^n, m ≥ n: multiply by
-5^(m−n) to reach 10^m; places = max(m, n); symmetric otherwise), the
-refusal direction (10^k = 2^k·5^k carries no other atoms — Lesson
-3.2's uniqueness of factorisation; 10^k mod 3 = 1 forever, the
-digit-sum test in action), why the refusal is total (5/12 would need
-infinitely many places; 22/7's endless waltz named as 5.2's
-territory), and the place-counting instances (1/8 → 0.125, 3/25 →
-0.12, 9/40 → 0.225, 11/250 → 0.044) + the atom-test formula card;
-**locating by zooming** — Illustration 3 walks 2.74 (2 wholes → 7
-tenths → 4 hundredths), figure 2's two-panel zoom (the tenths ruler
-2.0–3.0 with 2.7 highlighted at x = 504, the re-cut hundredths ruler
-2.70–2.80 with 2.74 at x = 318, dashed trapezoid connectors, 62 px
-steps — geometry script-verified); **comparing by aligning the
-points** — wholes first, then digits left to right (the coarse cut
-outvotes the fine), the **trailing-zero licence as a derivation
-block** (appending a zero = the multiplying rule with 10/10 = 1;
-iterate 5/10 = 50/100 = 500/1000; wholes join: 7 = 70/10 = 7.0), the
-**more-digits Caution** (0.5 > 0.45 — tail length is fineness, not
-size; leading zeros load-bearing: 0.05 ≠ 0.5), Illustration 4 settles
-5.64 vs 5.603 (5.640: tenths tied, hundredths 4 > 0 — the trailing 3
-never gets a vote), the **equivalent-decimals Definition**; **money,
-length and mass** — the small unit names the place, the
-**zero-filling-trap Caution** (₹8.05 not ₹8.5 — "the single most
-examined zero in school arithmetic"; 3 kg 60 g = 3.06 kg),
-Illustration 5 (₹8 and 5 paise; 9 cm 8 mm = 9.8 cm); six-row toolkit
-table, the bridge-on-one-line equation (10-family drop-in / re-cut /
-the atom test ⇒ max(m, n) places), 3 formula cards (the 10-family,
-the atom test, align-the-points), exam corner (place-value walks;
-one-line bridges; the two comparison decoys — more-digits and
-zero-shift; money items); 5 illustrations, 2 figures (0 audit issues
-after figure 2's zoom-box/connector fix), 7 new terms, 3 formula
-cards, 5-quiz (1/2/3/1/2 verified live 5/5), 12 exercises L1–L6 — L6
-proves the trailing-zero licence (the 10/10 = 1 argument) and the
-atom test (both directions + the applications 7/8 = 0.875, 5/12
-refuses, 9/40 = 0.225, 11/250 = 0.044). New **verify-unit-5.ts: 165
-checks** ALL PASS pre-writing (sections A–O incl. the 2..500 sweep
-proving divides-a-power-of-ten ⟺ atoms ⊆ {2, 5}); regressions
-green (330/260/165). E2E extended to 9 lessons; VLM 9/10 across the
-opener, both figures and the Illustration chain.
-**LESSON 4.5 (run 20, cron Job 498279):** "Multiplying and Dividing
-Fractions" — 5,172 words, the fourth lesson authored natively in the
-Cengage voice + solution chain; the chapter finale that lets fractions
-scale each other. Content: multiplication as **'of'** and the
-re-cutting reading (half of the shaded three quarters = six shaded
-eighths = 3/8; the formal multiplying-rule Definition with the symbolic
-Thus-restatement — "the very straight-across that 4.4 forbade for
-addition, legal here"), the roman example run (1/2 × 1/3 = 1/6;
-2/5 × 3/4 = 3/10; 3/4 × 2/9 = 1/6); the **ruler proof of the
-multiplying rule as a derivation block** (set c/d on the d-ruler, cut
-every piece into b → the bd-ruler with bc shaded sub-pieces, sieve a of
-every b → ac survivors read off as ac/bd — no common ruler between the
-factors ever enters); the Illustration 2/3 of 3/4 watched piece by piece
-(9 shaded twelfths → 6 survive → 1/2); the **area figure** (5 columns ×
-3 rows, the doubly-shaded overlap 6 of 15 cells = 2/5, geometry exact
-at 372 × 200 px² of 620 × 300); **what multiplication does to size** —
-scaling (proper compresses toward 0, improper stretches, 1 holds; the
-verified laws list: commutative 2/3 × 3/5 = 2/5, associative 3/20 both
-groupings, identity 1, zero) and the **two-frauds Caution**
-(straight-across multiplication is the truth — the mediant only ever
-threatened sums; hunting a common ruler for a product is the new
-fraud); 'of' chains left to right (3/4 of 2/5 of 400 = 120);
-**cross-cancellation** licensed across × (5/6 × 3/10: brute 15/60 →
-1/4 vs cancelled 1/2 × 1/2 = 1/4); **division and the reciprocal** —
-sharing vs measuring (1/2 ÷ 3 = 1/6; 3/4 ÷ 1/8 = 6 counted on the
-eight-ruler), the reciprocal Definition (a/b × b/a = 1; wholes and
-unit fractions flip; double flip returns; **0 has none — why division
-by 0 is banned**), the **division theorem as a derivation block**
-(raise both to the bd-ruler: ad and bc pieces of one size; the
-measuring count ad/bc IS a/b × d/c), the Illustration 5/6 ÷ 2/3 =
-10/8 = 5/4 with the theorem agreeing (15/12 = 5/4), the **division
-figure** (eighth ticks at 85 px, the arc spanning exactly the six
-steps 0 → 3/4, 6 × 85 = 510 px), the see-saw (÷ proper grows, ÷
-improper shrinks, ÷ 1 holds; × 1/2 IS ÷ 2; divide undoes multiply) and
-the **flip-only-the-divisor Caution** (1/2 ÷ 1/6 traps: wrong-flip
-1/3, double-flip 12); **the HCF and LCM of fractions** — the shortcuts
-banked from Khattar ch. 2 since run 12 cashed: measuring defined
-(x measures y when y ÷ x is a whole number), the Definition callout
-with both formulas (HCF = HCF(a,c)/LCM(b,d); LCM = LCM(a,c)/HCF(b,d) —
-numerators take the operation, denominators the opposite), the
-Illustration on 2/3 and 8/9 (HCF 2/9 measures 3× and 4×; LCM 8/3
-measured 4× and 3×; **the product rule survives the climb: 2/9 × 8/3 =
-16/27 = 2/3 × 8/9**) and the measuring-direction paragraph; **mixed
-numbers: convert, then operate** — no storey shortcut exists (the
-notation hides a sum; the four cross terms named), the improper-route
-Illustration (2 1/2 × 1 3/4 = 5/2 × 7/4 = 35/8 = 4 3/8), the below-1
-quotient (1 1/2 ÷ 2 1/4 = 2/3); six-row toolkit table, the three-laws
-equation (multiplying rule / division theorem / HCF-of-fractions),
-exam corner ('of' chains on quantities; bottle-and-drum 15/2 ÷ 3/4 =
-10; HCF/LCM verbatim; reciprocal rounds 1 ÷ 2/3 = 3/2); 5
-illustrations, 2 figures (0 audit issues after the arc fix), 6 new
-terms (Multiplying rule, Scaling, Cross-cancellation, Reciprocal,
-Division theorem, Measuring), 3 formula cards, 5-quiz (1/2/1/0/3
-verified live 5/5 · perfect), 12 exercises L1–L6 — L6 proves the
-multiplying rule (sieve-and-ruler) and the division theorem
-(bd-ruler measuring + the zero ban). **Unit-4 completion review
-passed**: BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, chapter
-totals recomputed (ch. 4 = 26,905 words / 32 terms; book = 18 lessons /
-85,934 words / 114 terms); ch-04 status flipped to 'complete', book.ts
-header + notes updated, plannedLessons emptied.
-
-  **Authored IN THE CENGAGE VOICE per the run-14 owner directive +
-  BOOK_FORMAT house style WITH solutions as Cengage chains**
-  (steps arrays led by natural connectives, ending `answer: '…'`; no
-  step-number badges; no boxed Answer rows). Standing rules: one lesson
-  per run; original content; lesson ids stable forever; every new figure
-  passes `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues;
-  quiz answer indices spread; inline math ≤ ~35 chars; LaTeX with exactly
-  two backslashes in source; table blocks use `head:`; exercises use
-  `sets`; callout blocks need `title`.
+- **CURRENT (hourly cadence): CH. 7 CLOSED — FM 7.4 "Absolute Value as
+  Distance" shipped run 36, finishing the 7.4 work found in flight
+  (auto-checkpoint `ab19d64`) and completing chapter 7 Integers 4/4
+  (7.1 run 33 — negatives earn their place; 7.2 run 34 — the movement
+  model + the five-case sign table + subtraction as adding the
+  opposite; 7.3 run 35 — the repeated-walk model + minus-times-minus
+  derived twice; 7.4 run 36 — the distance definition + the piecewise
+  rule, the properties with grid certificates, the distance formula
+  cashing every counted gap, the |x| = k verdict table; voice polish
+  3.1 delivered — the is-said-to-be treaty callout + Thus-line at
+  6 | 48). Book state: 32 lessons / 150,259 words / 217 terms / 160
+  quiz / 341 exercises; chs. 1–7 COMPLETE.**
+- **NEXT (hourly cadence): chapter 8 Geometry Foundations OPENS at
+  8.1 Points, Lines and Planes** — create scripts/verify-unit-8.ts
+  sections BEFORE writing, register ch. 8 in book.ts as in-progress
+  with plannedLessons trimmed, follow ch-01.ts + BOOK_FORMAT.md; one
+  lesson per run; queued voice polish 3.2 (then 3.3–3.5, 4.1).
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
   all 20 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
   the Cengage voice + solution chain (the exemplars going forward); the
