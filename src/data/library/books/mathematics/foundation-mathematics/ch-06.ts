@@ -33,7 +33,42 @@ import type { Chapter } from '../../../types'
  * L1–L6 (L6: the 6 : 10 : 15 justification and the A:B:C chain with Rs 1,020
  * → 240/360/420). Authored natively in the Cengage voice + solution chain;
  * every number pre-verified by scripts/verify-unit-6.ts (93 checks, A–K).
- * NEXT in this chapter: 6.2 Rates and Unit Rates.
+ *
+ * LESSONS WRITTEN: 6.2 Rates and Unit Rates (run 27, 2026-11-04) — the
+ * boundary 6.1 drew is crossed on purpose: a rate is a division comparison
+ * of quantities of DIFFERENT kinds (rupees against kilograms, kilometres
+ * against litres, words against minutes), written with the word per, and
+ * its units ride along because nothing cancels. The Definition callout in
+ * the formal shape + equation tag 1 (units attached) with the two-direction
+ * note (18 km/L vs its twin 1/18 L/km); the roman run of rates in the wild
+ * (Rs 40/kg, 18 km/L, 72 wpm, 60 beats/min) each with the rate × quantity
+ * read-back; the unit rate as the one-part engine of 5.3/6.1 wearing units
+ * (Rs 96 for 3 kg → Rs 32/kg; the scale-to-friendly-unit road Rs 22.50 per
+ * 250 g ×4 → Rs 90/kg — 6.1's equivalence family in rate dress; the inverse
+ * read Rs 15/pen → Rs 210 buys 14 pens); comparing rates by the same-way
+ * law (shops 32 vs 31 with the Rs 5 saving; the bulk illusion 30 vs 30.5 —
+ * the bigger sack dearer; the direction-fraud Caution 32 Rs/kg vs 0.03125
+ * kg/Rs); figure 1 the double ruler (0–5 kg locked to Rs 0–160, the
+ * constant Rs 32 step); the recognition table of five offers with the tie
+ * (Rs 87/3 kg = Rs 232/8 kg = 29) and the ladder to 31; speed as the
+ * flagship rate — the Definition callout + equation tag 2 with the speed
+ * family (speed = distance/time, and the two doors the balance licence
+ * opens), figure 2 the journey map (240 km in 4 equal hourly cells of
+ * 60 km, uniform speed drawn), the sprint Illustration (100 m in 12.5 s →
+ * 8 m/s); the km/h ↔ m/s conversion PROVED as a derivation block (1 km/h =
+ * 1000 m/3600 s = 5/18 m/s; the reciprocal 18/5 = 3.6; anchors 5 m/s = 18
+ * km/h, 20 m/s = 72 km/h, 25 m/s = 90 km/h) with Illustrations 72 km/h →
+ * 20 m/s and 12 m/s → 43.2 km/h; rates at work (the tank 5,400 L at 45
+ * L/min → 120 min = 2 h; wages/prices as the same two-pedal engine); the
+ * average-speed Caution (total distance ÷ total time — the equal-weight
+ * mean fraud killed: 240 km in 5 h → 48 km/h, not 50) and the average-speed
+ * formula card; properties list, exam corner (NCERT class-6 ch. 12 Ex. 12.3
+ * unitary-method canon + class-7 science Motion and Time + Khattar speed
+ * staples), 7 terms, 5-quiz (keys 1/0/1/2/1) and 12
+ * exercises L1–L6 (L6: the typists' 45 vs 50 wpm and the unequal-legs
+ * average 70 ≠ 75). Every number pre-verified by verify-unit-6.ts sections
+ * L–U (165 checks total, A–U).
+ * NEXT in this chapter: 6.3 Proportion and Cross-Multiplication.
  */
 
 export const chapter06: Chapter = {
@@ -680,7 +715,626 @@ export const chapter06: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-rates-and-unit-rates',
+      number: '6.2',
+      title: 'Rates and Unit Rates',
+      concepts: [
+        'Rate',
+        'Per — the units ride',
+        'Unit rate',
+        'Unit price',
+        'Speed',
+        'Uniform speed',
+        'Average speed',
+        'The one-part engine',
+      ],
+      objectives: [
+        'Recognise a rate as a division comparison of quantities of different kinds, keep its units attached, and read it in either direction',
+        'Compute the unit rate by dividing — or by scaling to a friendly unit — and run it backwards to recover totals and counts',
+        'Compare offers, workers and journeys on one unit ground and in one direction, and expose the bulk and direction frauds',
+        'Use the speed family and the $\\tfrac{5}{18}$ law between km/h and m/s, and average a journey honestly over its whole time',
+      ],
+      prerequisites: ['fm-ratio-as-a-comparison', 'fm-operating-on-decimals'],
+      sources: ['ncert-math6-ch12', 'ncert-sci7-motion', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 6.1 drew a boundary: a ratio speaks only when its terms are of the **same kind**, wearing the **same unit**. This lesson crosses that boundary on purpose — because the comparisons that run daily life live on the other side. The grocer weighs rupees against kilograms; the driver counts kilometres against litres and hours; the typist races words against minutes. None of these is a category error. What changes is one thing only: the units can no longer cancel each other away, so they stay attached to the answer and ride with it wherever it goes.',
+        },
+        {
+          kind: 'para',
+          text: 'The word that carries the idea is **per** — *for each*. Thirty-two rupees per kilogram; eighteen kilometres per litre; sixty beats per minute. A comparison by division whose units survive is called a **rate**, and one dress of it — the rate reduced so the second quantity is exactly $1$ — will do more work in this book than any other number besides the percent.',
+        },
+        { kind: 'heading', text: 'From ratio to rate' },
+        {
+          kind: 'para',
+          text: 'The definition deserves the same formality the ratio received.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Rate',
+          text: 'A **rate** is a comparison of two quantities of **different kinds** by division, written with the word **per** ("for each"): $a$ of the first kind per $b$ of the second kind. The two units ride along — a rate is **not** a pure number. Thus, Rs $96$ for $3$ kg gives the rate Rs $32$ **per kg**, and $54$ km on $3$ litres gives the rate $18$ km **per litre**.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{rate} \\;=\\; \\tfrac{\\text{quantity of the first kind}}{\\text{quantity of the second kind}} \\qquad \\text{(units attached)}',
+          note: 'Unlike the ratio of Lesson 6.1, nothing cancels: the kinds differ, so the units survive the division and belong to the answer. The bare numeral $18$ is homeless — $18$ km per litre and its twin $\\tfrac{1}{18}$ litre per km are different statements about the same driving. Every rate owns two legal directions; pick one, and stay in it while comparing.',
+        },
+        {
+          kind: 'para',
+          text: 'Rates are everywhere once the eye learns to look. For example:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'Rs $40$ **per kg** — the grocer\'s rate: one kilogram costs forty rupees, so $120$ kg cost $120 \\times 40 = 4800$ rupees.',
+            '$18$ km **per litre** — the car\'s rate: three litres carry it $3 \\times 18 = 54$ km.',
+            '$72$ words **per minute** — the typist\'s rate: five minutes produce $72 \\times 5 = 360$ words.',
+            '$60$ beats **per minute** — the pulse: $45$ seconds hold $60 \\times \\tfrac{45}{60} = 45$ beats.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Each line multiplies the rate by a quantity to rebuild a total — the read-back habit from the sharing problems of Lesson 6.1, now with units on board. And each rate owns a **twin** spoken the other way round: $18$ km per litre is the same driving as $\\tfrac{1}{18}$ litre per km, the mechanic\'s "fuel consumption" dress. Both directions are legal; mixing them in one comparison is not. Among all the dresses a rate can wear, one is canonical — the one that makes two different-sized offers meet on common ground.',
+        },
+        { kind: 'heading', text: 'The unit rate' },
+        {
+          kind: 'para',
+          text: 'A **unit rate** is a rate whose second quantity is exactly $1$ — one kilogram, one litre, one minute. Finding it is the one-part engine of Lesson 5.3 and the one part of Lesson 6.1 wearing units: **divide** to reach the single unit, **multiply** to scale back up. The grocer\'s name for it is the **unit price**.',
+        },
+        {
+          kind: 'example',
+          title: 'A 3 kg bag of rice costs Rs 96. Find the unit price.',
+          steps: [
+            'Now, the unit price is the price of one kilogram: divide the price by the quantity, $96 \\div 3 = 32$.',
+            'So the rate is Rs 32 per kg; the read-back multiplies, $3 \\times 32 = 96$.',
+            'Hence Rs 32 per kg — the one-part engine in the grocer\'s apron.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The unit rate',
+          latex: '\\text{unit rate} = \\tfrac{\\text{first quantity}}{\\text{second quantity}} \\qquad (\\text{the second quantity becomes } 1)',
+          note: 'Divide so the second kind counts exactly one. Read back with multiplication: quantity × unit rate rebuilds the total. Rs 96 for 3 kg → Rs 32 per kg; 180 words in 4 min → 45 wpm; 300 L in 6 min → 50 L/min.',
+        },
+        {
+          kind: 'para',
+          text: 'Division is not the only road to one. When the second quantity divides the unit neatly, **scaling** is lighter: grow the whole offer to a friendly size and the unit appears without any long division. Scaling both quantities by the same number changes nothing essential — Lesson 6.1 proved it for ratios ($a : b = ka : kb$), and a rate inherits the licence with its units still attached.',
+        },
+        {
+          kind: 'example',
+          title: 'A 250 g pack of cashews costs Rs 22.50. Find the price per kilogram.',
+          steps: [
+            'Now, a kilogram is four packs: $250 \\times 4 = 1000$ g. Scale the whole offer by $4$.',
+            'So Rs $22.50 \\times 4 = 90$ buys exactly one kilogram.',
+            'Hence Rs 90 per kg — no decimal division anywhere; the equivalence family carried the offer to a friendly size.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The engine has a second pedal: it runs **backwards**. A unit rate known, the total it produces over many units is one multiplication — and the count a sum will buy is one division. If pens sell at Rs $90$ for $6$, the rate is $90 \\div 6 = 15$ rupees per pen, and then Rs $210$ buys $210 \\div 15 = 14$ pens. Divide to the unit, multiply to scale up, divide again to count the units a sum will buy: the whole traffic of the bazaar runs on these two pedals.',
+        },
+        { kind: 'heading', text: 'Comparing rates' },
+        {
+          kind: 'para',
+          text: 'Two offers of different sizes cannot be compared as they stand — Rs 96 for 3 kg and Rs 155 for 5 kg name different batches. But once both wear the unit dress, the numbers meet on common ground and the comparison is one glance.',
+        },
+        {
+          kind: 'example',
+          title: 'Shop A sells a 3 kg bag for Rs 96; shop B sells a 5 kg bag for Rs 155. Which shop sells rice cheaper?',
+          steps: [
+            'Now, dress both offers in rupees per kilogram: A gives $96 \\div 3 = 32$; B gives $155 \\div 5 = 31$.',
+            'So B runs cheaper — Rs 31 against Rs 32 per kg.',
+            'Hence shop B; buying the full 5 kg there costs Rs 155 where shop A would charge $5 \\times 32 = 160$ — a saving of Rs 5.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Divide the same way',
+          text: 'A comparison lives on one ground, in one direction. Rs 32 per kg and $0.03125$ kg per rupee describe the same shopping in opposite directions — and $32 > 0.03125$ says nothing at all, because the two numbers face away from each other. Before comparing, dress every rate in the **same units facing the same way**: rupees per kilogram against rupees per kilogram.',
+        },
+        {
+          kind: 'para',
+          text: 'The second fraud is quieter and more expensive. Shopping instinct says the bigger sack must be the bargain — *bulk is cheaper*. Sometimes. The unit price does not care how the sack feels; it divides, and reports.',
+        },
+        {
+          kind: 'example',
+          title: 'Which is the better buy: a 2 kg bag for Rs 60 or a 4 kg bag for Rs 122?',
+          steps: [
+            'Now, the same-way law: $60 \\div 2 = 30$ and $122 \\div 4 = 30.5$, both in rupees per kg.',
+            'So the smaller bag runs cheaper — Rs 30 against Rs 30.50 per kg.',
+            'Hence the 2 kg bag. The bigger sack is dearer here: size is not evidence, the unit price is.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One rate, two rulers. The kilogram ruler and the rupee ruler are locked together by the rate: every extra kilogram lands the price exactly Rs 32 higher, so each position on the top ruler sits directly above its price on the bottom one. Read any size off the pair — 4 kg costs Rs 128 — and the constant step between neighbours is the unit rate Rs 32 per kg.',
+          svg: `<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two aligned rulers showing the unit rate of thirty-two rupees per kilogram: zero to five kilograms on the top ruler locked step by step to zero to one hundred and sixty rupees on the bottom ruler, each extra kilogram costing the same thirty-two rupees">
+  <text x="380" y="30" font-size="13" fill="currentColor" text-anchor="middle">one rate, two rulers — 3 kg costs Rs 96, so the step is Rs 32</text>
+  <g stroke="currentColor" stroke-width="1.5" opacity="0.75">
+    <line x1="60" y1="84" x2="700" y2="84"/>
+    <line x1="60" y1="276" x2="700" y2="276"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="60" y1="78" x2="60" y2="90"/><line x1="188" y1="78" x2="188" y2="90"/><line x1="316" y1="78" x2="316" y2="90"/><line x1="444" y1="78" x2="444" y2="90"/><line x1="572" y1="78" x2="572" y2="90"/><line x1="700" y1="78" x2="700" y2="90"/>
+    <line x1="60" y1="270" x2="60" y2="282"/><line x1="188" y1="270" x2="188" y2="282"/><line x1="316" y1="270" x2="316" y2="282"/><line x1="444" y1="270" x2="444" y2="282"/><line x1="572" y1="270" x2="572" y2="282"/><line x1="700" y1="270" x2="700" y2="282"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3">
+    <line x1="60" y1="92" x2="60" y2="268"/><line x1="188" y1="92" x2="188" y2="268"/><line x1="316" y1="92" x2="316" y2="268"/><line x1="444" y1="92" x2="444" y2="268"/><line x1="572" y1="92" x2="572" y2="268"/><line x1="700" y1="92" x2="700" y2="268"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="60" y="68">0</text><text x="188" y="68">1</text><text x="316" y="68">2</text><text x="444" y="68">3</text><text x="572" y="68">4</text><text x="700" y="68">5</text>
+    <text x="60" y="298">0</text><text x="188" y="298">32</text><text x="316" y="298">64</text><text x="444" y="298">96</text><text x="572" y="298">128</text><text x="700" y="298">160</text>
+  </g>
+  <text x="380" y="52" font-size="12" fill="currentColor" text-anchor="middle">rice bought (kg)</text>
+  <text x="380" y="318" font-size="12" fill="currentColor" text-anchor="middle">price paid (Rs)</text>
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="322" y1="124" x2="438" y2="124"/><line x1="322" y1="119" x2="322" y2="129"/><line x1="438" y1="119" x2="438" y2="129"/>
+    <line x1="322" y1="232" x2="438" y2="232"/><line x1="322" y1="227" x2="322" y2="237"/><line x1="438" y1="227" x2="438" y2="237"/>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="380" y="112">one more kg</text>
+    <text x="380" y="254">+ Rs 32 more</text>
+  </g>
+  <text x="380" y="348" font-size="13" fill="currentColor" text-anchor="middle">every extra kg costs the same Rs 32 — the constant step is the unit rate</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The unit-price ladder is worth keeping near the top of the mind, the way Lesson 5.4 kept a benchmark ladder of percents. Five offers of the same rice, priced and reduced:',
+        },
+        {
+          kind: 'table',
+          head: ['Offer', 'Price', 'Quantity', 'Unit price', 'Verdict'],
+          rows: [
+            ['A', 'Rs $87$', '$3$ kg', 'Rs $29$ per kg', 'joint cheapest (tie)'],
+            ['B', 'Rs $232$', '$8$ kg', 'Rs $29$ per kg', 'joint cheapest (tie)'],
+            ['C', 'Rs $60$', '$2$ kg', 'Rs $30$ per kg', 'middle'],
+            ['D', 'Rs $122$', '$4$ kg', 'Rs $30.50$ per kg', 'second dearest'],
+            ['E', 'Rs $155$', '$5$ kg', 'Rs $31$ per kg', 'dearest'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Two rows repay a second look. Offers A and B **tie** — Rs 87 for 3 kg and Rs 232 for 8 kg both sit at Rs 29 per kg, because $232 = 8 \\times 29$ and $87 = 3 \\times 29$: one unit rate, two sizes, the equivalence family at the shop counter. And the dearest offer in the hall is E, the **largest bag on the shelf** — the bulk illusion caught in the act. A reader who can produce this ladder mentally holds most of the exam hall\'s "best buy" questions before they are asked.',
+        },
+        { kind: 'heading', text: 'Speed: the flagship rate' },
+        {
+          kind: 'para',
+          text: 'One rate is so old, so useful and so examined that it has carried its own name for centuries. Distance against time governs every journey on foot, by wheel, by air — and every "how long will it take?" ever asked. It deserves the full formality.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Speed',
+          text: 'The **speed** of a moving body is the rate that compares **distance** with **time**: the distance covered per unit of time, read in kilometres per hour or metres per second — the units are part of the answer. A body that covers **equal distances in equal times** is said to move with **uniform speed**.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{speed} = \\tfrac{\\text{distance}}{\\text{time}}, \\qquad \\text{distance} = \\text{speed} \\times \\text{time}, \\qquad \\text{time} = \\tfrac{\\text{distance}}{\\text{speed}}',
+          note: 'The first statement is the definition; the other two follow by the balance licence of chapter 2 — multiply both sides by the time, then divide by the speed. One definition, three doors: every speed problem hides exactly one of the three and hands you the other two.',
+        },
+        {
+          kind: 'formula',
+          name: 'The speed family',
+          latex: '\\text{speed} = \\tfrac{d}{t} \\qquad d = \\text{speed} \\times t \\qquad t = \\tfrac{d}{\\text{speed}}',
+          note: 'Cover 240 km in 4 h → 60 km/h; run 100 m in 12.5 s → 8 m/s. Given any two of distance, time and speed, the third follows from the definition — no fourth formula is ever needed.',
+        },
+        {
+          kind: 'example',
+          title: 'A car covers 240 km in 4 hours. Find its speed.',
+          steps: [
+            'Now, the definition: speed $= 240 \\div 4 = 60$ km per hour.',
+            'So the car runs at 60 km/h — every hour of driving buys 60 more kilometres.',
+            'Hence 60 km/h; the read-back: $60 \\times 4 = 240$ — the journey rebuilt.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The journey map. Four equal hours fill the 240 km bar with four equal cells of 60 km — the picture of uniform speed. Run the picture backwards and it computes: 240 km ÷ 4 h = 60 km/h. This is the one-part engine of Lesson 6.1 on wheels: the bar is the whole, the hour is the part.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A bar of two hundred and forty kilometres divided into four equal hourly cells of sixty kilometres each, with hour marks above and kilometre marks below, showing a uniform speed of sixty kilometres per hour">
+  <text x="380" y="34" font-size="13" fill="currentColor" text-anchor="middle">one journey, four equal hours — 240 km in all</text>
+  <rect x="60" y="110" width="160" height="60" fill="currentColor" opacity="0.08"/>
+  <rect x="380" y="110" width="160" height="60" fill="currentColor" opacity="0.08"/>
+  <g stroke="currentColor" stroke-width="1.5" opacity="0.75">
+    <line x1="60" y1="110" x2="700" y2="110"/>
+    <line x1="60" y1="170" x2="700" y2="170"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="60" y1="104" x2="60" y2="176"/><line x1="220" y1="104" x2="220" y2="176"/><line x1="380" y1="104" x2="380" y2="176"/><line x1="540" y1="104" x2="540" y2="176"/><line x1="700" y1="104" x2="700" y2="176"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="60" y="96">0 h</text><text x="220" y="96">1 h</text><text x="380" y="96">2 h</text><text x="540" y="96">3 h</text><text x="700" y="96">4 h</text>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="140" y="145">60 km</text><text x="300" y="145">60 km</text><text x="460" y="145">60 km</text><text x="620" y="145">60 km</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="60" y="194">0 km</text><text x="220" y="194">60 km</text><text x="380" y="194">120 km</text><text x="540" y="194">180 km</text><text x="700" y="194">240 km</text>
+  </g>
+  <text x="380" y="232" font-size="13" fill="currentColor" text-anchor="middle">equal hours, equal cells of 60 km — the speed is uniform at 60 km/h</text>
+  <text x="380" y="262" font-size="13" fill="currentColor" text-anchor="middle">run it backwards: 240 km ÷ 4 h = 60 km/h — the one-part engine on wheels</text>
+  <text x="380" y="290" font-size="13" fill="currentColor" text-anchor="middle">distance = speed × time: 60 × 4 = 240 — the read-back closes the loop</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The definition never changes; only the units dress to fit the journey. A race lives in metres and seconds, so its speed wears m/s; a road trip lives in kilometres and hours, so its speed wears km/h. Same division, different clothes.',
+        },
+        {
+          kind: 'example',
+          title: 'A sprinter runs 100 m in 12.5 s. Find the speed.',
+          steps: [
+            'Now, the same definition in smaller units: $100 \\div 12.5 = 8$.',
+            'So the speed is 8 m/s — each second carries 8 metres of track.',
+            'Hence 8 m/s; the read-back: $8 \\times 12.5 = 100$.',
+          ],
+        },
+        { kind: 'heading', text: 'Changing the units of a rate' },
+        {
+          kind: 'para',
+          text: 'Because a rate\'s units ride along, a rate can be **re-dressed** — the same driving spoken in km/h or in m/s. The tool is chapter 5\'s conversion chart plus one honest observation: a statement like "$1000$ m $= 1$ km" is a **name for the number 1**, so multiplying by it changes the unit and nothing else. Two such names convert any speed.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The km/h ↔ m/s law',
+          statement:
+            'Claim: $1$ km/h $= \\tfrac{5}{18}$ m/s, and $1$ m/s $= \\tfrac{18}{5} = 3.6$ km/h.',
+          steps: [
+            {
+              label: 'Dress the kilometre',
+              formula: '1 \\text{ km} = 1000 \\text{ m}',
+              explanation:
+                'The kilometre is a name for a thousand metres — Lesson 5.1\'s conversion chart, still true.',
+            },
+            {
+              label: 'Dress the hour',
+              formula: '1 \\text{ h} = 60 \\times 60 = 3600 \\text{ s}',
+              explanation:
+                'An hour holds sixty minutes of sixty seconds each.',
+            },
+            {
+              label: 'Divide the dresses',
+              formula: '1 \\tfrac{\\text{km}}{\\text{h}} = \\tfrac{1000 \\text{ m}}{3600 \\text{ s}} = \\tfrac{5}{18} \\tfrac{\\text{m}}{\\text{s}}',
+              explanation:
+                'Reduce $\\tfrac{1000}{3600}$ by the HCF $200$ — chapter 3\'s machinery, once more. So one kilometre per hour is a small stroll in m/s units: five-eighteenths of a metre each second.',
+            },
+            {
+              label: 'Turn it round',
+              formula: '1 \\tfrac{\\text{m}}{\\text{s}} = \\tfrac{3600}{1000} \\tfrac{\\text{km}}{\\text{h}} = \\tfrac{18}{5} = 3.6 \\tfrac{\\text{km}}{\\text{h}}',
+              explanation:
+                'The reciprocal direction of the same law: one metre each second is a brisk 3.6 km every hour.',
+            },
+          ],
+          result:
+            'km/h → m/s: multiply by $\\tfrac{5}{18}$. m/s → km/h: multiply by $\\tfrac{18}{5} = 3.6$. Two multipliers, one law.',
+        },
+        {
+          kind: 'formula',
+          name: 'The conversion law',
+          latex: '1 \\text{ km/h} = \\tfrac{5}{18} \\text{ m/s} \\qquad 1 \\text{ m/s} = \\tfrac{18}{5} = 3.6 \\text{ km/h}',
+          note: 'Down to m/s, multiply by 5/18; up to km/h, multiply by 18/5. Anchors worth memorising: 5 m/s = 18 km/h, 20 m/s = 72 km/h, 25 m/s = 90 km/h.',
+        },
+        {
+          kind: 'example',
+          title: 'Express 72 km/h in m/s.',
+          steps: [
+            'Now, going down to m/s multiplies by $\\tfrac{5}{18}$: $72 \\times \\tfrac{5}{18} = \\tfrac{360}{18} = 20$.',
+            'So 72 km/h $= 20$ m/s.',
+            'Hence 20 m/s; the anchor agrees — $20 \\times 3.6 = 72$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Express 12 m/s in km/h.',
+          steps: [
+            'Now, going up to km/h multiplies by $\\tfrac{18}{5}$: $12 \\times \\tfrac{18}{5} = \\tfrac{216}{5} = 43.2$.',
+            'So 12 m/s $= 43.2$ km/h.',
+            'Hence 43.2 km/h — a city speed limit, spoken in the scientist\'s units.',
+          ],
+        },
+        { kind: 'heading', text: 'Rates at work' },
+        {
+          kind: 'para',
+          text: 'The engine fills and drains as readily as it drives. A pipe pouring $45$ litres per minute is a rate with a simple question attached: how many such minutes does a tank of $5400$ litres ask for? A mason\'s day-rate, a courier\'s charge per parcel, a printer\'s cost per page — every one is a unit rate, and every one of their problems is the same two-pedal ride: divide to the unit, multiply or divide again to answer.',
+        },
+        {
+          kind: 'example',
+          title: 'A pipe pours 45 L per minute. How long does it take to fill a 5,400 L tank?',
+          steps: [
+            'Now, the rate names 45 litres for each minute; the tank asks how many such minutes make 5400 litres.',
+            'So the time is $5400 \\div 45 = 120$ minutes; the read-back: $45 \\times 120 = 5400$.',
+            'Hence 120 minutes — two hours; the inverse read of the unit rate, at work.',
+          ],
+        },
+        { kind: 'heading', text: 'Average speed' },
+        {
+          kind: 'para',
+          text: 'Real journeys rarely run at one polite speed: traffic, hills and tea stops see to that. When the speeds vary, the journey still deserves one number — and the definition insists on which one. Speed is distance per time, so the journey\'s speed is the **whole distance divided by the whole time**. Nothing else is the average speed, however promising it looks.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Average over the whole, not over the numbers',
+          text: 'The average speed belongs to the whole journey: total distance ÷ total time. The plain mean of the leg speeds is a **fraud** whenever the legs take different times — it weights the fast hour and the slow hour equally when the journey does not. Compute times first, add, then divide once.',
+        },
+        {
+          kind: 'example',
+          title: 'A car goes 120 km out at 60 km/h and returns the same 120 km at 40 km/h. Find its average speed for the whole trip.',
+          steps: [
+            'Now, take each leg to its time: $120 \\div 60 = 2$ h out, and $120 \\div 40 = 3$ h back.',
+            'So the whole journey is $120 + 120 = 240$ km in $2 + 3 = 5$ h, and the average speed is $240 \\div 5 = 48$ km/h.',
+            'Hence 48 km/h — **not** 50. The plain mean $(60 + 40) \\div 2 = 50$ would claim $50 \\times 5 = 250$ km of driving, and the car never drove 250 km. The extra hour at 40 km/h drags the honest average below the mean.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'Average speed',
+          latex: '\\text{average speed} = \\tfrac{\\text{total distance}}{\\text{total time}}',
+          note: 'Weight every leg by the time it took. The plain mean of two speeds is correct only when the legs take equal times — and then it is correct because the definition says so, not because means are lucky.',
+        },
+        { kind: 'heading', text: 'Properties of rates' },
+        {
+          kind: 'para',
+          text: 'From the discussion above, the working properties of rates collect into one list — each with a verified instance.',
+        },
+        {
+          kind: 'list',
+          marker: 'disc',
+          items: [
+            '**A rate keeps its units.** Rs 32 per kg is homeless without them — the bare 32 could be 32 rupees, 32 kg, or nonsense. The kinds differ, so nothing cancels.',
+            '**The two directions are different statements.** 18 km per litre and 1/18 litre per km describe one driving in two dresses; a comparison must pick one direction and stay in it.',
+            '**The unit rate is the common ground.** Rs 96 for 3 kg and Rs 155 for 5 kg meet only when both are reduced to one kilogram — 32 against 31 — and then the verdict is one glance.',
+            '**Rate × quantity rebuilds the total.** $32 \\times 5 = 160$ rupees for 5 kg; $60 \\times 4 = 240$ km in 4 hours; $45 \\times 120 = 5400$ litres in 120 minutes — the read-back check on every answer.',
+            '**An average rate belongs to the whole journey.** 240 km in 5 hours is 48 km/h even though no single hour ran at 48 — total distance ÷ total time, never the plain mean of unequal-time legs.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Rates in the examination hall',
+          text: 'Rate questions are fixtures of SSC CGL and CHSL, banking clerical papers, RRB NTPC and CUET — and the shapes recur: the unit-price "best buy" among bags of different sizes (the same-way law, with the bulk illusion laid for the unwary); the speed–time–distance triad, any two given; the km/h ↔ m/s conversion drill (the $\\tfrac{5}{18}$ and $3.6$ multipliers); the average-speed trap built on legs of unequal time; and filling or draining pipes, which seed the work-rate chains of later study. The canon behind them: the unitary method of NCERT class-6 chapter 12 (Exercise 12.3), speed as distance per time from NCERT class-7 science (Motion and Time — m/s the basic unit, km/h the road\'s dress), and the aptitude staples of Khattar\'s Quantitative Aptitude. No past-paper question is reproduced here; the drills above are built in the same shapes.',
+        },
+        {
+          kind: 'para',
+          text: 'The rate, then, is the ratio\'s braver sibling: it compares different kinds, keeps its units on, and reduces every offer, journey and pipeline to one friendly unit. Two rates facing the same way invite one more question — are they the **same** rate? The shop\'s Rs 32 per kg and the pantry\'s 3 kg for Rs 96 say the same thing twice, and mathematics has a name for such agreement: **proportion**. Lesson 6.3 makes it official.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Rate',
+              def: 'A comparison of two quantities of different kinds by division, written with per — Rs 32 per kg, 18 km per litre; unlike a ratio, its units ride along and nothing cancels.',
+            },
+            {
+              term: 'Unit rate',
+              def: 'A rate reduced so its second quantity is exactly one unit, found by dividing (or by scaling to a friendly unit); the one-part engine of Lesson 5.3 wearing units.',
+            },
+            {
+              term: 'Unit price',
+              def: 'The unit rate of a purchase — price divided by quantity — the common ground on which offers of different sizes are compared.',
+            },
+            {
+              term: 'Speed',
+              def: 'The rate comparing distance with time: distance ÷ time; distance = speed × time and time = distance ÷ speed follow by the balance licence.',
+            },
+            {
+              term: 'Uniform speed',
+              def: 'Speed that stays the same in every equal time interval, so equal hours cover equal distances; real journeys vary around it.',
+            },
+            {
+              term: 'Average speed',
+              def: 'Total distance divided by total time for the whole journey; it weights each leg by the time it took, so it never equals the plain mean of leg speeds unless the legs took equal times.',
+            },
+            {
+              term: 'Conversion factor',
+              def: 'A name for the number 1 written as a fraction of equal quantities in different units, such as 1000 m per 1 km; multiplying by it changes the unit and nothing else.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'A 3 kg bag of rice costs Rs 96. The unit price is',
+              options: [
+                'Rs 30 per kg — as if the bag cost Rs 90',
+                'Rs 32 per kg — 96 ÷ 3',
+                'Rs 33 per kg — as if the bag cost Rs 99',
+                'Rs 96 — the price tag itself',
+              ],
+              answer: 1,
+              explain:
+                'The unit price divides the price by the quantity: 96 ÷ 3 = 32 (Option 2). Option 1 answers 90 ÷ 3 and Option 3 answers 99 ÷ 3 — both misread the tag. Option 4 forgets to divide at all: Rs 96 is the price of 3 kg, not of 1.',
+            },
+            {
+              q: 'Which offer of rice is the cheapest?',
+              options: [
+                'Rs 60 for 2 kg — Rs 30 per kg',
+                'Rs 122 for 4 kg — Rs 30.50 per kg',
+                'Rs 155 for 5 kg — Rs 31 per kg',
+                'All three cost the same per kg',
+              ],
+              answer: 0,
+              explain:
+                'On the common ground of rupees per kg: 30, then 30.50, then 31 — the 2 kg bag wins (Option 1). The dearest is the 5 kg bag: the bulk illusion. Option 4 is false — equal prices would need equal unit prices, and 30 ≠ 30.50 ≠ 31.',
+            },
+            {
+              q: 'A train covers 180 km in 3 hours. Its speed is',
+              options: ['63 km/h', '60 km/h', '54 km/h', '180 km/h'],
+              answer: 1,
+              explain:
+                'Speed = distance ÷ time: 180 ÷ 3 = 60 (Option 2). Option 1 added the divisor, Option 3 subtracted 6 — arithmetic out of thin air. Option 4 reported the distance and ignored the time: km are not km/h.',
+            },
+            {
+              q: '12 m/s expressed in km/h is',
+              options: ['4.32 km/h', '30 km/h', '43.2 km/h', '60 km/h'],
+              answer: 2,
+              explain:
+                'Going up to km/h multiplies by 18/5 = 3.6: 12 × 3.6 = 43.2 (Option 3). Option 1 is the ÷10 slip, Option 2 multiplies by 2.5, and Option 4 multiplies by 5 — half of the law remembered, half forgotten.',
+            },
+            {
+              q: 'A car goes 120 km out at 60 km/h and returns the same 120 km at 40 km/h. Its average speed for the whole trip is',
+              options: ['40 km/h', '48 km/h', '50 km/h', '60 km/h'],
+              answer: 1,
+              explain:
+                'Times first: 2 h out, 3 h back — 240 km in 5 h, and 240 ÷ 5 = 48 (Option 2). Option 3 is the equal-weight mean (60 + 40)/2 = 50, which would claim 50 × 5 = 250 km of driving. Options 1 and 4 are the two legs\' speeds, not the journey\'s.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'A roll of ribbon costs Rs 240 for 8 m. Find the price per metre.',
+                  solution: [
+                    'Now, the unit price divides the price by the length: $240 \\div 8 = 30$.',
+                    'So the rate is Rs 30 per metre; the read-back: $8 \\times 30 = 240$.',
+                    'Hence Rs 30 per metre.',
+                  ],
+                  answer: 'Rs 30 per metre',
+                },
+                {
+                  q: 'A typist types 250 words in 10 minutes. Find the typing rate.',
+                  solution: [
+                    'Now, the rate divides words by minutes: $250 \\div 10 = 25$.',
+                    'So the rate is 25 words per minute; the read-back: $25 \\times 10 = 250$.',
+                    'Hence 25 words per minute.',
+                  ],
+                  answer: '25 words per minute',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A dozen pencils cost Rs 42. Find the price of one pencil.',
+                  solution: [
+                    'Now, one dozen is 12, so the unit price is $42 \\div 12 = 3.5$.',
+                    'So each pencil costs Rs 3.50; the read-back: $12 \\times 3.5 = 42$.',
+                    'Hence Rs 3.50 per pencil.',
+                  ],
+                  answer: 'Rs 3.50 per pencil',
+                },
+                {
+                  q: 'Pens sell at Rs 90 for 6. Find the unit price, and the number of pens Rs 210 will buy.',
+                  solution: [
+                    'Now, the unit price is $90 \\div 6 = 15$ rupees per pen.',
+                    'So Rs 210 buys $210 \\div 15 = 14$ pens — the second pedal of the engine.',
+                    'Hence Rs 15 per pen, and 14 pens for Rs 210; the check: $14 \\times 15 = 210$.',
+                  ],
+                  answer: 'Rs 15 per pen; 14 pens',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A bus covers 240 km in 4 hours. Find its speed, and the distance it covers in 7 hours at that speed.',
+                  solution: [
+                    'Now, the speed is $240 \\div 4 = 60$ km/h.',
+                    'So in 7 hours it covers $60 \\times 7 = 420$ km.',
+                    'Hence 60 km/h and 420 km; the checks: $60 \\times 4 = 240$ and 420 km in 7 h returns $420 \\div 7 = 60$.',
+                  ],
+                  answer: '60 km/h; 420 km',
+                },
+                {
+                  q: 'Which is the better buy: 3 kg for Rs 87 or 4 kg for Rs 116?',
+                  solution: [
+                    'Now, dress both in rupees per kg: $87 \\div 3 = 29$ and $116 \\div 4 = 29$.',
+                    'So the unit prices are equal — the comparison ties.',
+                    'Hence neither: both offers run at Rs 29 per kg, one unit rate in two sizes.',
+                  ],
+                  answer: 'Neither — a tie at Rs 29 per kg',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Express 54 km/h in m/s.',
+                  solution: [
+                    'Now, going down to m/s multiplies by $\\tfrac{5}{18}$: $54 \\times \\tfrac{5}{18} = \\tfrac{270}{18} = 15$.',
+                    'So 54 km/h $= 15$ m/s.',
+                    'Hence 15 m/s; the read-back: $15 \\times 3.6 = 54$.',
+                  ],
+                  answer: '15 m/s',
+                },
+                {
+                  q: 'Express 10 m/s in km/h.',
+                  solution: [
+                    'Now, going up to km/h multiplies by $\\tfrac{18}{5}$: $10 \\times \\tfrac{18}{5} = \\tfrac{180}{5} = 36$.',
+                    'So 10 m/s $= 36$ km/h.',
+                    'Hence 36 km/h.',
+                  ],
+                  answer: '36 km/h',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'A pump delivers 45 L per minute. How long does it take to fill a 6,300 L tank? Give the answer in hours and minutes.',
+                  solution: [
+                    'Now, the time is $6300 \\div 45 = 140$ minutes.',
+                    'So 140 minutes is $120 + 20$ minutes, that is 2 hours 20 minutes.',
+                    'Hence 2 h 20 min; the check: $45 \\times 140 = 6300$.',
+                  ],
+                  answer: '2 hours 20 minutes',
+                },
+                {
+                  q: 'A journey has two legs: 150 km at 50 km/h, then 120 km at 60 km/h. Find the average speed for the whole journey.',
+                  solution: [
+                    'Now, the times: $150 \\div 50 = 3$ h, then $120 \\div 60 = 2$ h.',
+                    'So the whole journey is $150 + 120 = 270$ km in $3 + 2 = 5$ h, and the average speed is $270 \\div 5 = 54$ km/h.',
+                    'Hence 54 km/h; the plain mean $(50 + 60) \\div 2 = 55$ is the fraud — $55 \\times 5 = 275$ km, and the journey ran 270.',
+                  ],
+                  answer: '54 km/h',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Typist A types 540 words in 12 minutes; typist B types 700 words in 14 minutes. Who types faster, and by how much?',
+                  solution: [
+                    'Now, reduce both to words per minute: A gives $540 \\div 12 = 45$; B gives $700 \\div 14 = 50$.',
+                    'So B types faster — 50 against 45 wpm.',
+                    'Hence B, by $50 - 45 = 5$ words per minute; the checks: $45 \\times 12 = 540$ and $50 \\times 14 = 700$.',
+                  ],
+                  answer: 'B, by 5 words per minute',
+                },
+                {
+                  q: 'A car covers 120 km in 2 hours and the next 90 km in 1 hour. Find its average speed for the whole trip, and explain why the plain mean of the two leg speeds fails.',
+                  solution: [
+                    'Now, the legs run at $120 \\div 2 = 60$ km/h and $90 \\div 1 = 90$ km/h.',
+                    'So the whole journey is $120 + 90 = 210$ km in $2 + 1 = 3$ h, and the average speed is $210 \\div 3 = 70$ km/h.',
+                    'The plain mean $(60 + 90) \\div 2 = 75$ weights the 2-hour leg and the 1-hour leg equally, but the journey does not: it spent twice as long at 60.',
+                    'Hence 70 km/h — and the fraud exposed: $75 \\times 3 = 225$ km, while the car drove 210. Average over the whole, not over the numbers.',
+                  ],
+                  answer: '70 km/h; the mean 75 ignores the unequal leg times',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
-  plannedLessons: ['Rates and Unit Rates', 'Proportion and Cross-Multiplication', 'Direct and Inverse Variation', 'Scaling: Maps, Models and Recipes'],
+  plannedLessons: ['Proportion and Cross-Multiplication', 'Direct and Inverse Variation', 'Scaling: Maps, Models and Recipes'],
 }
 

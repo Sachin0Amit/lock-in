@@ -428,7 +428,30 @@ export const chapter01: Chapter = {
         { kind: 'heading', text: 'Two numbers, one question: which is larger?' },
         {
           kind: 'para',
-          text: 'The full procedure has two steps, applied in order. **Step 1 — count the digits.** If one numeral has more digits than the other (ignoring any leading zeros), the longer one is automatically larger. A 5-digit number is at least $10{,}000$, while even the largest 4-digit number is $9{,}999$ — and $9{,}999 + 1 = 10{,}000$ is exactly the boundary. The successor of the greatest 4-digit number is the smallest 5-digit number, and that single fact settles every unequal-length comparison. **Step 2 — if the digit counts are equal, compare seats from the LEFT, and let the first differing seat decide.** Read both numerals left to right; the first seat where the digits differ is the verdict. Everything to the right of that seat is irrelevant, no matter how impressive its digits look.',
+          text: 'The full procedure has two steps, applied in order. **Step 1 — count the digits.** If one numeral has more digits than the other (ignoring any leading zeros), the longer one is automatically larger: even the largest 4-digit number is $9{,}999$, and its successor, $9{,}999 + 1 = 10{,}000$, is the smallest 5-digit number — one seat further left, a whole power of ten above. **Step 2** speaks only when the digit counts agree, and it deserves the formality of a definition.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The comparison rule',
+          text: 'A whole number $a$ is said to be **greater than** a whole number $b$ — written $a > b$ — when, the digit counts being equal, the first seat of their numerals that differs on a left-to-right reading carries a larger digit in $a$ than in $b$. That first differing seat is the **deciding seat**; every seat to its right is overruled, however impressive its digits. Thus, $4{,}598 > 4{,}589$ because at the tens seat $9$ beats $8$ — and the ones digits, though they differ the other way, sit too far right to matter.',
+        },
+        {
+          kind: 'para',
+          text: 'The rule in action, one pair per step:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$9{,}999$ against $10{,}000$ — four digits against five: Step 1 decides before any seat is read.',
+            '$98{,}341$ against $9{,}843$ — five digits against four: again the count alone; no four-digit tail can answer a five-digit head.',
+            '$4{,}589$ against $4{,}598$ — equal counts, so Step 2 reads from the left: thousands agree, hundreds agree, and the tens seat\'s $9$ over $8$ gives the verdict to $4{,}598$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Thus, every comparison between whole numbers yields to two questions asked in order: *how many digits?* and, the counts agreeing, *where do the numerals first disagree?* Why the second question may be trusted with such confidence is the business of the next paragraphs, which prove it.',
         },
         {
           kind: 'terms',

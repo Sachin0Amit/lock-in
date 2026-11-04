@@ -6,7 +6,140 @@ and what remains.
 
 ---
 
-## 2026-11-04 — RUN 26 (cron, Job 498279): FM lesson 6.1 "Ratio as a Comparison" authored in the Cengage voice + solution chain — chapter 6 opens with the division lens (definition + same-units law, simplest form by the HCF, equivalent ratios as ch. 4's family, three-term ratios, and sharing as the unitary method's next dress); plus the queued per-run voice polish landed on lesson 1.1
+## 2026-11-04 — RUN 27 (cron, Job 498279): FM lesson 6.2 "Rates and Unit Rates" authored in the Cengage voice + solution chain — the boundary 6.1 drew is crossed on purpose (rates keep their units riding; the unit rate is the one-part engine wearing units; the same-way law for comparisons; speed as the flagship rate with the 5/18 conversion law proved; honest averages) — plus the queued per-run voice polish landed on lesson 1.2
+
+**Run open (push check first):** tree clean at `d505977` = local HEAD =
+remote HEAD (run-26 memory commit) — no push debt. Task per
+RESUME_POINTER: FM lesson 6.2 "Rates and Unit Rates" (extend
+verify-unit-6.ts sections L+ BEFORE writing), then the queued per-run
+extra: voice polish of lesson 1.2.
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT class-6 ch. 12 exercise 12.3 — the unitary method ("determining one
+unit value and then the desired number of units"), the canonical home of
+the engine this lesson re-dresses — `ncert-math6-ch12` extended to Ex.
+12.3; NCERT class-7 science "Motion and Time" — speed = distance/time,
+m/s the basic unit, km/h the road's dress (the 3.6 anchor lives in the
+2025 Curiosity edition's Measurement of Time and Motion) — **new citation
+key `ncert-sci7-motion`**; Khattar QA 4e speed/unitary-method staples for
+the exam corner. No temporary-references footprint (the recycled sandbox
+had wiped the gitignored Drive survey; rebuilt via
+`rebuild_drive_survey.ts` — 89 entries intact — solely to regenerate
+WORK_INVENTORY.json).
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-6.ts extended
+with sections L–U — **72 new checks, 165 total, ALL PASS** before a word
+of the lesson was written (regressions green: unit-5 455, unit-4 330,
+unit-3 260, unit-2 165): L the rate idea (54 km on 3 L → 18 km/L; the
+inverse twin 1/18 L/km; units ride because kinds differ); M the unit rate
+(96/3 = 32 with the rebuild check; 180/4 = 45 wpm; 300/6 = 50 L/min; the
+inverse read 210 ÷ 15 = 14 pens; the scale-to-friendly-unit road
+22.50 × 4 = 90 per kg); N comparing rates by the same-way law (32 vs 31
+with the Rs 5 saving; the bulk illusion 30 vs 30.5; the tie 87/3 = 116/4
+= 29; the direction fraud 32 vs 0.03125); O speed (240 km in 4 h → 60;
+100 m in 12.5 s → 8; the distance and time doors 60 × 7 = 420, 420 ÷ 60
+= 7); P the conversion law (1000/3600 = 5/18; 18/5 = 3.6; 72 → 20; 12 →
+43.2; 54 → 15; 10 → 36; 90 → 25; anchors 5 m/s = 18 km/h, 20 m/s = 72
+km/h); Q averages and rates at work (240 km in 5 h → 48, the mean 50
+killed by 50 × 5 = 250 ≠ 240; tank 5400 ÷ 45 = 120 min = 2 h; typists 45
+vs 50 wpm; legs 150/50 + 120/60 → 270 km in 5 h → 54; legs 60 + 90 → 210
+km in 3 h → 70 ≠ 75); R both figures' geometry (double ruler: 5
+intervals of 128 px over 640, ticks 60/188/316/444/572/700, price line
+0..160 in 32-steps; journey map: 4 cells of 160 px, boundaries
+60/220/380/540/700, km labels 0/60/120/180/240); S the quiz keys 1/0/1/2/1
+with every distractor killed numerically (30 and 33 from 90 and 99; the
+bulk illusion; 63/54/180 for the train; 4.32/30/60 for the m/s slip;
+40/50/60 for the average); T the 12 exercise keys incl. the tie (87/3 =
+116/4), the pump (6300 ÷ 45 = 140 min = 2 h 20 min), the unequal-legs
+average (70, fraud 75) and the recognition table's ladder with the tie
+(87/3 = 232/8 = 29); U structural sanity (10 Illustrations, 4 formula
+cards, 2 equation tags + 1 derivation, 7 terms). The pre-writing audit
+caught one plan defect: the pens inverse-read was first counted as an
+11th Illustration but lives in prose — U1 corrected before writing.
+
+**The lesson** (id `fm-rates-and-unit-rates`, number 6.2, 4,152 honest
+words by the counter — book total 115,172 → 119,489 with the 1.2 polish
+adding ~165): the opening names 6.1's boundary and crosses it on purpose
+(the grocer weighs rupees against kilograms; the driver counts kilometres
+against litres; the typist races words against minutes); the **Definition
+callout** in the formal shape (different kinds, division, *per* = "for
+each", units ride — a rate is NOT a pure number) with **equation tag 1**
+(units attached) and the two-direction note (18 km/L vs its twin 1/18
+L/km); the roman run of rates in the wild (Rs 40/kg → 120 kg costs
+4,800; 18 km/L → 3 L carries 54 km; 72 wpm → 360 words in 5 min; 60
+beats/min → 45 beats in 45 s), each with the rate × quantity read-back;
+**the unit rate** as the one-part engine of 5.3/6.1 wearing units
+(Illustration Rs 96 for 3 kg → Rs 32/kg; **formula card**; the
+**scale-to-friendly-unit road** — Rs 22.50 per 250 g ×4 → Rs 90/kg, no
+decimal division, 6.1's equivalence family in rate dress; the **inverse
+read** in prose — Rs 90 for 6 pens → Rs 15/pen → Rs 210 buys 14 pens);
+**comparing rates by the same-way law** (Illustration shops 32 vs 31 with
+the Rs 5 saving on 5 kg; the **direction-fraud Caution** — Rs 32/kg vs
+0.03125 kg/Rs face away, compare nothing; the **bulk illusion**
+Illustration — 2 kg at Rs 30 vs 4 kg at Rs 30.50, the bigger sack dearer);
+**figure 1: one rate, two rulers** (0–5 kg locked to Rs 0–160 at 128 px
+per kg, dashed connectors, the constant Rs 32 step annotated; audit 0
+issues FIRST pass, VLM 10/10 math + 10/10 clarity); **the recognition
+table** of five offers with the tie (A Rs 87/3 kg = B Rs 232/8 kg = 29 —
+one unit rate in two sizes — and E the largest bag dearest at 31: the
+bulk illusion caught in the act); **speed: the flagship rate** (the
+**Definition callout** — distance per time, uniform speed named;
+**equation tag 2** with the speed family — the two extra doors opened by
+the balance licence of ch. 2; **formula card**; Illustration 240 km in
+4 h → 60 km/h; **figure 2: the journey map** — four equal hourly cells of
+60 km, uniform speed drawn, audit 0 issues FIRST pass, VLM 10/10 math +
+10/10 clarity; the sprint Illustration 100 m in 12.5 s → 8 m/s — the
+definition never changes, only the units dress); **changing the units of
+a rate** (conversion factors as names for 1; the **km/h ↔ m/s law PROVED
+as a derivation block**: 1 km = 1000 m, 1 h = 3600 s, so 1 km/h =
+1000/3600 = 5/18 m/s, the reciprocal 18/5 = 3.6 — HCF 200 from ch. 3;
+**formula card** with the anchors 5/18, 72 = 20, 90 = 25; Illustrations
+72 km/h → 20 m/s and 12 m/s → 43.2 km/h); **rates at work** (the tank
+Illustration 5,400 L at 45 L/min → 120 min = 2 h; masons/couriers/
+printers named as the same two-pedal engine); **average speed** (the
+**Caution**: total distance ÷ total time, the plain mean a fraud on
+unequal times; Illustration 120 out at 60 + 120 back at 40 → 240 km in
+5 h → 48 km/h, NOT 50 — the mean would claim 250 km driven; **formula
+card**); **properties of rates** (5 bullets with verified instances);
+exam corner (NCERT class-6 ch. 12 Ex. 12.3 unitary-method canon +
+class-7 science Motion and Time + Khattar speed staples; SSC/bank/RRB
+shapes: best buys, the speed triad, the 5/18 drill, average-speed traps,
+pipe rates seeding work-rate chains); 7 new terms (Rate, Unit rate, Unit
+price, Speed, Uniform speed, Average speed, Conversion factor); 5-quiz
+(keys 1/0/1/2/1 verified live 5/5 + VLM score screenshots); 12 exercises
+L1–L6 (L6: the typists' 45 vs 50 wpm and the unequal-legs average 70 ≠
+75). **VOICE POLISH (queued per-run extra, 1.2 second):** lesson 1.2
+gains the formal Definition callout "The comparison rule" (is-said-to-be
+shape: a whole number a is said to be greater than b when the first
+differing seat on a left-to-right reading carries the larger digit — the
+deciding seat named, every seat to its right overruled) + the roman
+example run (9,999 vs 10,000 — the count alone; 98,341 vs 9,843 — again
+the count; 4,589 vs 4,598 — the tens seat decides) + the Thus-line
+handing the rule to the domination-bound proof — every number reused
+from the lesson's own text, zero new numerals, tsc + lint clean.
+**PLATFORM:** E2E extended to **15 lessons** with a dedicated 6.2 block
+(8 caps-over-rule headings, 10 Illustration pills, 22 Sol. pills ALL
+inline with exercises, 30 step rows, stepNumberBadges 0, thereforeTags
+30 on the chain, legacyAnswerBoxes 0, note boxes Definition ×2 / Caution
+×2 + 4 Remember cards + Exam corner, KaTeX 117, dollarInSvg 0, 2 svg
+figures, quiz answered live with intended options 1/0/1/2/1 → "You
+scored 5/5" + Retake, all 12 exercise solutions expand (36 open
+collapsibles), mobile 390px exact-fit docScrollW = 390 articleW = 358,
+zero console errors); both figures pass scripts/audit-svg-overlaps.sh
+with 0 issues FIRST pass; VLM: double ruler 10/10 math + 10/10 clarity,
+journey map 10/10 math + 10/10 clarity; glossary 157 → 164 terms (+7);
+book TOC shows 6.1–6.2 written, plannedLessons down to three. **SANDBOX
+NOTE (carried from run 26):** the dev server's lesson routes 404 in this
+recycled instance for ALL lessons — the quality gate ran against the
+PRODUCTION build (bun run build + bun run start, restarted fresh: new
+lesson 200, old lessons 200, unknown id 404 — platform contract
+preserved); the gitignored Drive survey was wiped by the recycle and
+rebuilt via rebuild_drive_survey.ts before the inventory regen. New
+citation key `ncert-sci7-motion` recorded in SOURCE_LOG.md; ch-06 header
++ book.ts notes updated; logs + pointer + inventory updated. ch. 6 open
+2/5, next 6.3 Proportion and Cross-Multiplication.
+
+
 
 **Run open (push check first):** tree clean at `b490cf7` = local HEAD =
 remote HEAD (run-25 memory commit) — no push debt; the incoming run

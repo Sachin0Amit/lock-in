@@ -10,6 +10,15 @@
  * subtlety, sharing a quantity in a given ratio with the one-part engine,
  * both figures' geometry and the quiz/exercise keys — BEFORE anything is
  * written into ch-06.ts.
+ *
+ * Extended 2026-11-04 (run 27) for lesson 6.2 "Rates and Unit Rates":
+ * sections L–U verify every number of the rates lesson — the rate as a
+ * ratio of different kinds with units riding, the unit rate as the
+ * one-part engine, comparing rates by the same-way law (the bulk
+ * illusion, the tie, the direction fraud), speed as the flagship rate,
+ * the km/h ↔ m/s conversion law and its derivation, average speed and
+ * the equal-weight fraud, the tank/typist rate-at-work instances, both
+ * figures' geometry and the quiz/exercise keys — again BEFORE writing.
  * Run: bun run scripts/verify-unit-6.ts   (exit 1 on any failure)
  */
 
@@ -178,6 +187,119 @@ check('K6: 7 terms planned (Ratio, Terms, Simplest form, Equivalent ratios, Cont
 check('K7: prerequisites — ch. 3 HCF, 4.2 equivalence family, 5.3 unitary method', true);
 check('K8: sources — ncert-math6-ch12 (new), ncert-math7-ch8 (extended §§8.1–8.2), khattar-qa-4e', true);
 
+/* ============================================================
+ * L. The rate — a ratio of different kinds, units riding
+ * ==========================================================*/
+check('L1: 54 km on 3 L → 18 km per litre', 54 / 3 === 18);
+check('L2: 120 kg at Rs 40/kg costs Rs 4,800 (rate × quantity)', 120 * 40 === 4800);
+check('L3: 72 words per minute for 5 min → 360 words', 72 * 5 === 360);
+check('L4: pulse 60 beats/min → 45 beats in 45 s', 60 * (45 / 60) === 45);
+check('L5: the inverse rate is a different statement: 18 km/L ↔ 1/18 L/km', 1 / (54 / 3) === 1 / 18);
+check('L6: a rate keeps its units — kinds differ, so nothing cancels (unlike 6.1)', 18 !== 1 / 18);
+
+/* ============================================================
+ * M. The unit rate — the one-part engine of 5.3/6.1 again
+ * ==========================================================*/
+check('M1: Rs 96 for 3 kg → Rs 32 per kg (96 ÷ 3)', 96 / 3 === 32);
+check('M2: read-back: 3 kg × Rs 32/kg = Rs 96 (the rebuild check)', 3 * 32 === 96);
+check('M3: 180 words in 4 min → 45 wpm', 180 / 4 === 45);
+check('M4: 300 L in 6 min → 50 L/min', 300 / 6 === 50);
+check('M5: inverse read: at Rs 15/pen, Rs 210 buys 210 ÷ 15 = 14 pens', 90 / 6 === 15 && 210 / 15 === 14);
+check('M6: scale-to-friendly-unit: Rs 22.50 per 250 g ×4 → Rs 90 per 1000 g = Rs 90/kg', 22.5 * 4 === 90 && 250 * 4 === 1000);
+
+/* ============================================================
+ * N. Comparing rates — the same-way law (all in Rs per kg)
+ * ==========================================================*/
+check('N1: shop A Rs 96/3 kg = 32; shop B Rs 155/5 kg = 31 → B cheaper', 96 / 3 === 32 && 155 / 5 === 31 && 31 < 32);
+check('N2: 5 kg at B costs 155; 5 kg at A costs 5 × 32 = 160 → saving Rs 5', 5 * 32 === 160 && 160 - 155 === 5);
+check('N3: the bulk illusion: Rs 60/2 kg = 30; Rs 122/4 kg = 30.5 → the smaller bag wins', 60 / 2 === 30 && 122 / 4 === 30.5 && 30 < 30.5);
+check('N4: the tie: Rs 87/3 kg = 29 and Rs 116/4 kg = 29 — neither', 87 / 3 === 29 && 116 / 4 === 29 && 87 / 3 === 116 / 4);
+check('N5: the direction fraud: 32 Rs/kg vs 0.03125 kg/Rs are incomparable directions', 1 / 32 === 0.03125 && 32 > 0.03125);
+
+/* ============================================================
+ * O. Speed — the flagship rate
+ * ==========================================================*/
+check('O1: 240 km in 4 h → 60 km/h; read-back 60 × 4 = 240', 240 / 4 === 60 && 60 * 4 === 240);
+check('O2: 100 m in 12.5 s → 8 m/s; read-back 8 × 12.5 = 100', 100 / 12.5 === 8 && 8 * 12.5 === 100);
+check('O3: distance law: 60 km/h for 7 h → 420 km', 60 * 7 === 420);
+check('O4: time law: 420 km at 60 km/h → 7 h', 420 / 60 === 7);
+check('O5: uniform speed: four hourly cells of 60 km rebuild 240 km', 4 * 60 === 240);
+
+/* ============================================================
+ * P. The km/h ↔ m/s conversion law
+ * ==========================================================*/
+check('P1: 1 km/h = 1000 m / 3600 s = 5/18 m/s', 1000 / 3600 === 5 / 18);
+check('P2: 1 m/s = 3600/1000 = 18/5 = 3.6 km/h', 3600 / 1000 === 3.6 && 18 / 5 === 3.6);
+check('P3: 72 km/h = 72 × 5/18 = 20 m/s', (72 * 5) / 18 === 20);
+check('P4: 12 m/s = 12 × 18/5 = 43.2 km/h', (12 * 18) / 5 === 43.2);
+check('P5: 54 km/h = 54 × 5/18 = 15 m/s', (54 * 5) / 18 === 15);
+check('P6: 10 m/s = 10 × 18/5 = 36 km/h', (10 * 18) / 5 === 36);
+check('P7: the anchors: 20 m/s × 3.6 = 72; 5 m/s = 18 km/h', 20 * 3.6 === 72 && 5 * 3.6 === 18);
+check('P8: 90 km/h = 90 × 5/18 = 25 m/s', (90 * 5) / 18 === 25);
+
+/* ============================================================
+ * Q. Average speed and the rate at work (tank, typists)
+ * ==========================================================*/
+check('Q1: 120 km at 60 → 2 h; 120 km at 40 → 3 h; 240 km in 5 h → 48 km/h', 120 / 60 === 2 && 120 / 40 === 3 && 240 / 5 === 48);
+check('Q2: the equal-weight fraud: (60+40)/2 = 50, but 50 × 5 = 250 ≠ 240 — dead', (60 + 40) / 2 === 50 && 50 * 5 !== 240);
+check('Q3: tank: 45 L/min × 8 min = 360 L; 5,400 L at 45 L/min → 120 min = 2 h', 45 * 8 === 360 && 5400 / 45 === 120);
+check('Q4: typists: 540 words/12 min = 45 wpm; 700/14 = 50 wpm → B faster by 5', 540 / 12 === 45 && 700 / 14 === 50 && 50 - 45 === 5);
+check('Q5: legs 150 km at 50 (3 h) + 120 km at 60 (2 h) → 270 km in 5 h → 54 km/h', 150 / 50 === 3 && 120 / 60 === 2 && (150 + 120) / (3 + 2) === 54);
+check('Q6: legs 60 km/h (2 h) + 90 km/h (1 h) → 210 km in 3 h → 70; the mean 75 ≠ 70', 120 / 2 === 60 && 90 / 1 === 90 && 210 / 3 === 70 && (60 + 90) / 2 === 75 && (60 + 90) / 2 !== 70);
+
+/* ============================================================
+ * R. Figure geometry — figure 1 the double ruler (Rs 32/kg),
+ * bar 0..5 kg over x 60..700 (640 px), price line 0..Rs 160
+ * ==========================================================*/
+check('R1: five kg-intervals of 128 px across 640 px', (700 - 60) / 5 === 128);
+check('R2: kg ticks at x 60, 188, 316, 444, 572, 700', JSON.stringify([0,1,2,3,4,5].map(k => 60 + 128 * k)) === '[60,188,316,444,572,700]');
+check('R3: the price line climbs in steps of Rs 32: 0..160', JSON.stringify([0,1,2,3,4,5].map(k => 32 * k)) === '[0,32,64,96,128,160]');
+check('R4: every kg tick lands on its price tick (x positions identical by design)', 60 + 128 * 3 === 444 && 32 * 3 === 96);
+check('R5: figure 2 journey map: bar x 60..700, 4 hourly cells of 160 px', (700 - 60) / 4 === 160);
+check('R6: cell boundaries at 60, 220, 380, 540, 700', JSON.stringify([0,1,2,3,4].map(k => 60 + 160 * k)) === '[60,220,380,540,700]');
+check('R7: km labels 0/60/120/180/240 sit under the same boundaries; 60 × 4 = 240', JSON.stringify([0,1,2,3,4].map(k => 60 * k)) === '[0,60,120,180,240]');
+
+/* ============================================================
+ * S. Quiz keys for 6.2 (indices 1/0/1/2/1)
+ * ==========================================================*/
+check('S1: Q1 Rs 96 for 3 kg → Rs 32/kg (idx 1); 30 and 33 come from 90 and 99', 96 / 3 === 32 && 90 / 3 === 30 && 99 / 3 === 33);
+check('S2: Q2 cheapest unit price 30 → Rs 60 for 2 kg (idx 0); the 5-kg bag is dearest at 31', 60 / 2 === 30 && 122 / 4 === 30.5 && 155 / 5 === 31 && 30 < 30.5 && 30.5 < 31);
+check('S3: Q3 180 km in 3 h → 60 km/h (idx 1); 63 added, 54 subtracted, 180 ignored time', 180 / 3 === 60 && 180 / 3 + 3 === 63 && 180 / 3 - 6 === 54);
+check('S4: Q4 12 m/s → 43.2 km/h (idx 2); 4.32 is the ÷10 slip, 30 the ×2.5 slip, 60 the ×5 slip', (12 * 18) / 5 === 43.2 && 12 * 3.6 === 43.2 && 12 * 2.5 === 30 && 12 * 5 === 60);
+check('S5: Q5 average 48 km/h (idx 1); 40 the slow leg, 50 the mean fraud, 60 the fast leg', 240 / 5 === 48 && (60 + 40) / 2 === 50 && 50 * 5 !== 240);
+check('S6: quiz answers planned as indices 1/0/1/2/1', JSON.stringify([1, 0, 1, 2, 1]) === '[1,0,1,2,1]');
+
+/* ============================================================
+ * T. Exercise keys for 6.2 (12 questions, L1–L6)
+ * ==========================================================*/
+check('T1: L1a Rs 240 for 8 m of ribbon → Rs 30 per metre', 240 / 8 === 30);
+check('T2: L1b 250 words in 10 min → 25 wpm', 250 / 10 === 25);
+check('T3: L2a Rs 42 for 12 pencils → Rs 3.50 per pencil', 42 / 12 === 3.5);
+check('T4: L2b Rs 90 for 6 pens → Rs 15/pen; Rs 210 buys 14 pens', 90 / 6 === 15 && 210 / 15 === 14);
+check('T5: L3a 240 km in 4 h → 60 km/h; at that speed 7 h → 420 km', 240 / 4 === 60 && 60 * 7 === 420);
+check('T6: L3b Rs 87/3 kg = 29 and Rs 116/4 kg = 29 — a tie, neither is better', 87 / 3 === 29 && 116 / 4 === 29);
+check('T7: L4a 54 km/h = 15 m/s', (54 * 5) / 18 === 15);
+check('T8: L4b 10 m/s = 36 km/h', (10 * 18) / 5 === 36);
+check('T9: L5a 6,300 L at 45 L/min → 140 min = 2 h 20 min', 6300 / 45 === 140 && 140 === 2 * 60 + 20);
+check('T10: L5b 150 km at 50 + 120 km at 60 → 270 km in 5 h → 54 km/h', 150 / 50 + 120 / 60 === 5 && (150 + 120) / 5 === 54);
+check('T11: L6a typists 45 vs 50 wpm → B faster by 5 wpm', 540 / 12 === 45 && 700 / 14 === 50 && 50 - 45 === 5);
+check('T12: L6b legs 60 + 90 → 210 km in 3 h → 70 km/h; the equal-weight 75 is the fraud', (120 + 90) / (2 + 1) === 70 && (60 + 90) / 2 === 75 && (60 + 90) / 2 !== 70);
+check('T13: L3a read-backs: 60 × 4 = 240 and 60 × 7 = 420', 60 * 4 === 240 && 60 * 7 === 420);
+check('T14: L5a the check: 45 L/min × 140 min = 6,300 L', 45 * 140 === 6300);
+check('T15: recognition table — 232/8 = 29 ties 87/3 = 29; ladder 29/29/30/30.5/31', 232 / 8 === 29 && 87 / 3 === 29 && 60 / 2 === 30 && 122 / 4 === 30.5 && 155 / 5 === 31 && 29 === 29 && 29 < 30 && 30 < 30.5 && 30.5 < 31);
+
+/* ============================================================
+ * U. Structural sanity for lesson 6.2
+ * ==========================================================*/
+check('U1: 10 Illustrations planned (unit price, scale-to-friendly-unit, shops, bulk illusion, 240 km, 100 m sprint, 72 km/h, 12 m/s, tank, average speed) — the pens inverse read lives in prose', true);
+check('U2: 4 formula cards (unit rate, the speed family, the conversion law, average speed)', true);
+check('U3: 2 equation tags (the rate; the speed definition) + 1 derivation (the 5/18 law)', true);
+check('U4: 7 terms planned (Rate, Unit rate, Unit price, Speed, Uniform speed, Average speed, Conversion factor)', true);
+check('U5: 5 quiz items with verified keys 1/0/1/2/1', true);
+check('U6: 12 exercises across L1–L6 (2 each), all with steps + terminal answers', true);
+check('U7: prerequisites — 6.1 ratio (the same-kind boundary Note), 5.3 operating on decimals (the unitary method)', true);
+check('U8: sources — ncert-math6-ch12 (extended to Ex. 12.3, the unitary method), ncert-sci7-motion (new), khattar-qa-4e', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-6: ${pass} passed, ${fail} failed`);
@@ -186,4 +308,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lesson 6.1 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 6.1 and 6.2 is script-verified before writing.');
