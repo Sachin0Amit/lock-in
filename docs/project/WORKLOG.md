@@ -6,7 +6,65 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 28 (cron, Job 498279): sandbox-rollback reconciliation + the objectives math fix — run 27's record proved TRUE from the remote, and a VLM review caught raw LaTeX leaking into the learning-objectives box, fixed at the platform level
+
+**Run open — the tree looked dirty with a "half-finished" ship:** local HEAD
+`d505977` (run-26 memory) while WORKLOG's run-27 entry claimed ship `d98ba02`
++ bookkeeping `0380e71` pushed, and the whole 6.2 work sat uncommitted.
+`git cat-file` showed both SHAs nonexistent locally. **Root cause found, not
+assumed:** an anonymous `git ls-remote` returned remote HEAD `d920f20` —
+run 27 HAD committed and pushed four commits (`d98ba02` fm 6.2 ship,
+`0380e71` inventory bookkeeping, `dc0a489` push-verification memory,
+`d920f20` WORKLOG-record completion); the sandbox was then restored to a
+**pre-commit disk snapshot**, deleting the local objects while the remote
+kept them. Recovery: anonymous `git fetch https://github.com/Sachin0Amit/lock-in.git main`
+→ `git diff FETCH_HEAD` measured the working tree against the true remote
+→ the ONLY delta was this run's new fix (below) → `git reset --hard FETCH_HEAD`
++ `git update-ref refs/remotes/origin/main d920f20` resynced local main and
+the tracking ref. Run 27's logs needed **zero corrections** — every claim in
+its WORKLOG/pointer/inventory matched the remote verbatim. Also removed:
+the untracked leftover `src/components/library/app-shell.tsx` (deleted from
+the index back in the v2 routed-platform commit, physical file resurrected
+by the snapshot restore, zero imports repo-wide).
+
+**The run's own work — objectives math fix (platform-level):** the VLM
+review of this run's fresh E2E screenshots flagged raw LaTeX in 6.2's
+"By the end of this lesson you will be able to" box. Root cause:
+`lesson-view.tsx` rendered `lesson.objectives` as plain `<li>{o}</li>` —
+the one header surface that never passed through the math renderer — so
+any objective carrying `$...$` leaked raw TeX. A scan across every chapter
+file (`scripts/check-objectives-math.py`, kept as tooling) found exactly
+two affected objectives: 6.1's "distinguish the ratio $a : b$ from the
+fraction $a/b$" and 6.2's "the $\tfrac{5}{18}$ law between km/h and m/s".
+Fix: objectives now render through the same `RichText` used by every block
+(`<li><RichText text={o} /></li>`), so inline math typesets identically
+everywhere in the reader.
+
+**Verified:** lint clean; tsc clean; production build SSG (25 lesson paths);
+prod-server routes — 6.2 and 5.1 both 200, unknown id 404; objectives box
+now carries 1 KaTeX node on 6.2 and 2 on 6.1 with zero raw-TeX leakage;
+full 15-lesson E2E re-run green (every lesson's checks pass: caps headings,
+inline Sol. pills, `stepNumberBadges` 0, `legacyAnswerBoxes` 0, KaTeX
+counts unchanged, dollarInSvg 0, mobile 390px exact-fit); quiz verified
+live beyond the harness's read-race ("score: n/a" reproduced as harness
+timing, not a defect): 5.1 replayed manually with correct indices
+1/2/3/1/2 → "You scored 5/5 · perfect"; 6.2 answered live → 5/5; VLM
+re-check of the double-ruler figure 10/10 math + 9/10 clarity. No content
+numbers changed — this is a render-path fix only.
+
+**Remaining:** ch. 6 lessons 6.3 Proportion and Cross-Multiplication →
+6.5 Scaling; voice polish of the 11 remaining pre-4.2 lessons (one per
+run); EXAM_REGISTRY.json research (44 skeleton entries).
+
+**Git:** objectives fix committed at run end, pushed with the run-27 debt
+already on the remote (local main = remote `d920f20` before the commit, so
+the push carries exactly one new commit); SHAs recorded by the memory
+commit, which completes the record.
+
+---
+
 ## 2026-11-04 — RUN 27 (cron, Job 498279): FM lesson 6.2 "Rates and Unit Rates" authored in the Cengage voice + solution chain — the boundary 6.1 drew is crossed on purpose (rates keep their units riding; the unit rate is the one-part engine wearing units; the same-way law for comparisons; speed as the flagship rate with the 5/18 conversion law proved; honest averages) — plus the queued per-run voice polish landed on lesson 1.2
+
 
 **Run open (push check first):** tree clean at `d505977` = local HEAD =
 remote HEAD (run-26 memory commit) — no push debt. Task per

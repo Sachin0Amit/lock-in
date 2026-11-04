@@ -37,6 +37,7 @@ import {
   type LessonRef,
 } from '@/data/library/index'
 import { BlockRenderer } from './blocks'
+import { RichText } from './math'
 import { OnThisPage } from './on-this-page'
 import { useProgress } from './progress-store'
 import { ReadingProgress } from './reading-progress'
@@ -196,8 +197,12 @@ export function LessonView({ ref_ }: Props) {
                   By the end of this lesson you will be able to
                 </p>
                 <ul className="list-inside list-disc space-y-0.5 text-sm leading-6 text-foreground/90">
+                  {/* RichText so $...$ inline math in an objective typesets
+                      instead of leaking raw LaTeX into the objectives box. */}
                   {lesson.objectives.map((o, i) => (
-                    <li key={i}>{o}</li>
+                    <li key={i}>
+                      <RichText text={o} />
+                    </li>
                   ))}
                 </ul>
               </div>
