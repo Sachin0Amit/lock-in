@@ -1054,18 +1054,17 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 23 | `6b0e99f` (+ `0ace05b`, `c35cfe0`) | 11-04 | FM lesson 5.3 Operating on Decimals (341 checks incl. 68 new, align-the-points + places-add + point-shift + clearing + unitary method, ladder + tableau figures) — pushed (protocol v2) | ~+4,900/−60 · 7 files |
 | 24 | `b4f023d` (+ `26312a1`, `700ba0f`) | 11-04 | FM lesson 5.4 Percent and Its Meaning (394 checks incl. 53 new, x/100 definition + two-hop law + benchmark ladder + unitary return, 100-square + conversion map) — pushed (protocol v2) | ~+4,200/−50 · 7 files |
 | 25 | `c265eb7` (+ `94f1962`, `b490cf7`) | 11-04 | FM lesson 5.5 Percentage Change, Discounts and Simple Interest — ch. 5 CLOSED (455 checks incl. 61 new; RichText parser upgraded: $math$ inside bold/italic, 12 latent leaks repaired site-wide; unit-5 completion review passed) — pushed (protocol v2) | ~+4,800/−70 · 9 files |
-| 26 | (ship, this run) | 11-04 | FM lesson 6.1 Ratio as a Comparison — ch. 6 opens (verify-unit-6.ts created, 93 checks A–K; 4,442 words; dots-family + sharing-map figures; voice polish landed on 1.1; quality gates run against the PRODUCTION build after dev-mode route regression in the recycled sandbox — bisected against pre-change code) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
+| 26 | `dcff4f6` (+ `adb18f9`, memory) | 11-04 | FM lesson 6.1 Ratio as a Comparison — ch. 6 opens (verify-unit-6.ts created, 93 checks A–K; 4,442 words; dots-family + sharing-map figures; voice polish landed on 1.1; quality gates run against the PRODUCTION build after dev-mode route regression in the recycled sandbox — bisected against pre-change code) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: this file's run-26 updates are part of the run-26 ship commit;
-  the run-25 memory commit `b490cf7` was verified synced at run-26 open
-  (anonymous fetch: `origin/main..HEAD` empty at open), and the run-26
-  ship + inventory + pointer commits push at run end per protocol v2
-  (one-time HTTPS URL; remote HEAD verified by one-time-URL ls-remote;
-  shas recorded in WORKLOG.md as usual).
+- HEAD: the run-26 ship `dcff4f6` + inventory bookkeeping `adb18f9`
+  pushed and verified (one-time-URL ls-remote: remote HEAD =
+  refs/heads/main = `adb18f9eb3ae8afda98d3d0042d8b938536ee20a`, `origin
+  /main..HEAD` empty), then this memory commit completes the record
+  (verified per protocol v2; shas in WORKLOG.md). Nothing queued.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting

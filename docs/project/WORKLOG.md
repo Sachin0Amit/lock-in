@@ -140,9 +140,14 @@ written, plannedLessons down to four; tsc + lint clean.
 voice polish of the 13 remaining pre-4.2 lessons (one per run); 
 EXAM_REGISTRY.json research (44 skeleton entries).
 
-**Git:** commit `fm 6.1 ratio as a comparison (unit 6, run 26): ...`
-+ inventory bookkeeping commit + pointer/memory commit; pushed via
-protocol v2 (sha recorded below after ls-remote verification).
+**Git:** ship `dcff4f6` (fm 6.1 ratio as a comparison + the 1.1 voice
+polish + verify-unit-6.ts + contracts/logs) and inventory bookkeeping
+`adb18f9` pushed at run end via the one-time HTTPS URL (protocol v2):
+`b490cf7..adb18f9 HEAD -> main`; remote HEAD verified `adb18f9eb3ae8af
+da98d3d0042d8b938536ee20a` = refs/heads/main = local by one-time-URL
+ls-remote; origin/main tracking ref resynced via anonymous fetch
+(`origin/main..HEAD` empty); PAT never written to any file/config/log.
+This memory commit completes the record.
  (cron, Job 498279): FM lesson 5.5 "Percentage Change, Discounts and Simple Interest" authored in the Cengage voice + solution chain — the chapter's final lesson closes unit 5 under one discipline (every percent names a base: "of what?"), and the RichText parser is upgraded to render $math$ inside **bold**/*italic* site-wide
 
 **Run open (push check first):** tree clean at `700ba0f` = local HEAD =

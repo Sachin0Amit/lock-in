@@ -343,6 +343,6 @@
   "voicePolish": "lesson 1.1 (queued per-run extra, 1.1 first): formal Definition callout 'Number, numeral and digit' (is-said-to-be shape + Thus-line) + roman example run (the number / the numerals / the digits incl. Devanagari ११ = eleven) + Thus-line on the base-ten para (same digit 5 worth 5, 50, 500 by its seat) — zero numbers changed, tsc + lint clean",
   "sandboxNote": "dev-mode lesson routes 404 for ALL lessons (old and new) in this recycled sandbox instance — bisected by stashing the run's changes and re-testing pre-change code (still 404); quality gate run against the PRODUCTION build (bun run build + bun run start): new lesson 200, old lessons 200, unknown id 404; logged in WORKLOG.md",
   "chapter": "ch-06.ts created; book.ts registers chapter06 with status 'in-progress', plannedLessons trimmed to Rates/Proportion/Variation/Scaling",
-  "push": "run-26 ship + bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2) — sha verified and recorded in WORKLOG"
+  "push": "ship dcff4f6 + inventory bookkeeping adb18f9 pushed at run end via one-time HTTPS URL (protocol v2): b490cf7..adb18f9 HEAD -> main; remote HEAD verified adb18f9 (full sha adb18f9eb3ae8afda98d3d0042d8b938536ee20a) = refs/heads/main = local by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log; the memory commit completes the record"
  }
 }
