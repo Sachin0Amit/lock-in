@@ -22,7 +22,7 @@ and what remains.
 
 **Ship:** SOURCE_LOG.md (run-37 zero-downloads entry; **two NEW citation keys**: `ncert-math6-ch4` Basic Geometrical Ideas + `ncert-math9-ch5` Introduction to Euclid's Geometry — both chapter identities web-checked; the Elements facts grounded against David Joyce's Clark University edition of Book I); WORK_INVENTORY.json regenerated (33 lessons / 155,553 words / 225 terms / 165 quiz / 353 exercises; ch. 8 OPEN 1/5 with 8.1 at 5,245 words); DETAILED_LOG.md (header + ch. 8 catalog row OPEN 1/5 + verification-log row + timeline row 37 + section-8 CURRENT/NEXT refreshed); PROGRESS.json (phase CH. 8 OPEN, run37Extras, library counters 33/225) + RESUME_POINTER.json (next: FM 8.2 Angles and Their Measurement — extend verify-unit-8.ts first; voice polish 3.3 next) updated; book.ts notes gained the ch. 8 opening catalog line.
 
-**Git:** this entry ships in the run-37 ship commit; the push follows immediately per PUSH PROTOCOL (one-time HTTPS URL from the 02:27 job payload; remote HEAD verified by one-time-URL ls-remote; the synced sha is recorded in the follow-up memory commit, which is itself pushed).
+**Git:** ship commit `7bd78c5` pushed per PUSH PROTOCOL (one-time HTTPS URL from the 02:27 job payload): `6a5131e..7bd78c5 HEAD -> main`; remote HEAD verified `7bd78c5cba349110554eb58073b003102f006752` by one-time-URL ls-remote (= refs/heads/main = local HEAD); origin/main tracking ref resynced by anonymous fetch; origin/main..HEAD empty; PAT never written to any file/config/log. This memory commit completes the record and is itself pushed.
 
 ---
 
