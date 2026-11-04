@@ -22,7 +22,7 @@ and what remains.
 
 **Next:** run 41 = FM 8.5 "Perimeter and Area of Rectangles, Triangles and Circles" (extend verify-unit-8.ts FIRST), the chapter closes 5/5 and takes the unit completion review; voice polish 4.1 queued (the pre-4.2 queue then empty).
 
-**Git:** commit `fm 8.4 triangles and the angle sum (unit 8, run 40): …` + memory commit; push per protocol.
+**Git:** ship commit `dedc21e` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote: remote HEAD `dedc21edd7b996178f5ac692f8d490a00a0950a8` = local HEAD; refs/remotes/origin/main resynced by one-time-URL fetch; the PAT never written to any file, config, log or message.
 
 ---
 
