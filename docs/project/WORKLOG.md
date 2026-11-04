@@ -26,7 +26,7 @@ and what remains.
 
 **Next:** run 42 = FM 9.1 "Units as Agreements" (verify-unit-9.ts created FIRST, gitignore exception FIRST), chapter 9 Measurement opens; voice queue empty — per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.
 
-**Git:** ship commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote: remote HEAD = local HEAD; refs/remotes/origin/main resynced by one-time-URL fetch; the PAT never written to any file, config, log or message.
+**Git:** ship commit `b17a1a8` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote: remote HEAD `b17a1a8aee2c64087bb8268121fcf74a9fc75f8d` = refs/heads/main = local HEAD; refs/remotes/origin/main resynced by one-time-URL fetch; origin/main..HEAD = 0; the PAT never written to any file, config, log or message.
 
 ## 2026-11-05 — RUN 40 (cron job 498279, 05:27 delivery): PRE-FLIGHT REPAIR of run 39's broken book.ts + FM 8.4 "Triangles and the Angle Sum" SHIPPED verify-first (verify-unit-8.ts extended 253 → 339 checks AF–AN, the angle sum DERIVED and swept, the inequality swept over 5832 triples), voice polish 3.5 delivered; tree clean, push per protocol
 
