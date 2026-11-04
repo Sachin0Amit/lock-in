@@ -9,11 +9,49 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 32, Job 498279**:
-push debt cleared first — all five unpushed commits (407c0fe, 7fed46b,
-108b1d6, 9d20434, 5aa10ed) pushed via the protocol's one-time URL and
-ls-remote-verified (5aa10ede…) — then **FM 6.5 "Scaling: Maps, Models
-and Recipes" shipped as the chapter's final lesson** (~4,400 words,
+Generated: 2026-11-03/04 (maintained through **run 33, Job 498279**:
+**FM 7.1 "Negative Numbers and Why They Exist" shipped — chapter 7
+(Integers) opened** (~3,576 body words, 4,753 by the platform counter):
+the chosen zero (sea level / freezing point / ground floor / UTC) with
+one direction named positive, the opposite negative; the integers
+defined as the wholes plus every natural's mirror — equation tag 1
+ℤ = {…, −3, −2, −1, 0, 1, 2, 3, …} (the letter from German *Zahlen*)
+and tag 2 the nesting ℕ ⊂ W ⊂ ℤ; the zero-is-neither Caution; figure 1
+the number line grown a left half (50 px steps, dashed mirror, the
+−3/3 pair braced 3 steps each, solid triangular arrowheads in the
+run-31 manner); the ordering law right-beats-left with the −8 < −3 trap
+("more debt is less wealth") and the closer-to-zero-wins Note; the
+opposites Definition (additive inverse) with the double duty of −
+(name vs instruction) and the double-reflection derivation
+−(−n) = n; absolute value's first look (|−8| = |8| = 8 — full
+development queued at 7.4); the wild-readings table (temperature /
+elevation / balance / floor / time zone) + figure 2 the elevation
+section (Everest +8848.86 m by the 2020 survey; the Dead Sea
+−439.78 m as of 2025; the altitude line drawn apex-to-datum inside the
+triangle; a two-headed dimension guide; an in-figure "not drawn to one
+scale" note — the two measures deliberately share no scale, since at
+the mountain's scale the depth would be 3.7 px); Illustrations on the
+sign-fill −40 < +4, the ascending five, opposites, absolute values,
+the lift B2 → level 7 (9 storeys), the Delhi–New York clock (9:00 pm
+IST = 10:30 am, the 10.5-hour gap) and the Vostok −89.2 °C ↔ Phalodi
+51.0 °C line distance (140.2 degrees); the historical callout (Chinese
+red/black rods ~200 BCE, the Nine Chapters + Liu Hui 263 CE,
+Brahmagupta's fortunes-and-debts 628 CE, Descartes's "false roots"
+1637, Maseres 1758, 19th-century acceptance); the exam corner (shapes
+cited, none reproduced); 8 terms, 5-quiz keys 1/2/2/0/1 (live 5/5),
+12 exercises L1–L6 (L6: the mirror-symmetry proof; the underground
+mall 12/24). verify-unit-7.ts created BEFORE writing — **70 checks ALL
+PASS**; audits 0/0; **plus a site-wide renderer fix the E2E surfaced**:
+Illustration titles rendered plain text, so every $math$-carrying
+title leaked raw dollars (7 on 6.5 alone, 20+ site-wide) —
+`ExampleBlock` now renders titles through RichText (the run-28
+objectives-fix pattern), leaks 0 everywhere; 19-lesson E2E suite exit
+0; lint/tsc clean. Pushed per protocol, remote-verified.
+Previous **run 32, Job 498279 (20:27 delivery)**: push debt cleared —
+all five unpushed commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed)
+pushed via the protocol's one-time URL and ls-remote-verified
+(5aa10ede…) — then **FM 6.5 "Scaling: Maps, Models and Recipes"
+shipped as the chapter's final lesson** (~4,400 words,
 ch. 6 COMPLETE 5/5): the scale defined in three dresses (verbal pair,
 representative fraction, bar scale) with the RF proved as a derivation
 (1 cm : 18 km = 1 : 18,00,000, a pure number valid in every unit
@@ -1451,7 +1489,7 @@ header + notes updated, plannedLessons emptied.
   two backslashes in source; table blocks use `head:`; exercises use
   `sets`; callout blocks need `title`.
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 19 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
+  all 20 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
   the Cengage voice + solution chain (the exemplars going forward); the
   prose VOICE polish of the 14 pre-4.2 lessons (1.1 first as the
   exemplar, one lesson per run) is queued alongside chapter-5

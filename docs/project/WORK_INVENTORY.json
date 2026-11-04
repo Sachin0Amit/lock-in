@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 18:26:07 (Asia/Kolkata)",
+  "generated": "2026-11-04 19:25:52 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1944,16 +1944,84 @@
             "slug": "integers",
             "title": "Integers",
             "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Negative Numbers and Why They Exist",
               "Adding and Subtracting Integers",
               "Multiplying Integers and the Sign Rules",
               "Absolute Value as Distance"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-negative-numbers-why-they-exist",
+                "number": "7.1",
+                "title": "Negative Numbers and Why They Exist",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4753,
+                "readMins": 24,
+                "concepts": [
+                  "Counting numbers cannot name direction",
+                  "Opposite quantities and the chosen zero",
+                  "The integers and the symbol ℤ",
+                  "The number line grows a left half",
+                  "Ordering: right beats left",
+                  "Opposite (additive inverse) numbers",
+                  "Absolute value as distance from zero",
+                  "Signed numbers in the wild"
+                ],
+                "objectives": [
+                  "Say precisely why a system of counting numbers freezes the moment a quantity changes direction",
+                  "Read any signed number by naming its chosen zero and its two directions",
+                  "Locate, compare and order integers on the extended number line — including the −8 versus −3 trap",
+                  "Find the opposite of any integer, and read the two hats the − sign wears",
+                  "Evaluate first-look absolute values as distances from zero"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-comparing-ordering-numbers"
+                ],
+                "sources": [
+                  "ncert-math6-ch10",
+                  "ncert-math7-p2-ch2",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 7,
+                  "list": 3,
+                  "callout": 8,
+                  "equation": 2,
+                  "figure": 2,
+                  "example": 7,
+                  "derivation": 1,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "warn": 1,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 4753
           },
           {
             "number": 8,
@@ -2043,12 +2111,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 26648,
+      "totalLines": 26635,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 17383,
+        "src/data/library (content model + books)": 17370,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6469,6 +6537,88 @@
           "del": 7
         }
       ]
+    },
+    {
+      "sha": "ee48d024dc974f504a56161c8a33145cbf445ab8",
+      "short": "ee48d02",
+      "date": "2026-11-04 12:57",
+      "message": "fm 6.5 scaling maps models and recipes shipped (unit 6 final, run 32) — push debt cleared first (5 commits 407c0fe..5aa10ed via one-time URL, ls-remote verified 5aa10ede) then the chapter's last lesson written verify-first: verify-unit-6.ts sections AQ-AZ BEFORE writing (444 checks ALL PASS, was 361; float-precision fix 7.2x0.2 vs 1e-9), the scale in three dresses (verbal pair, RF, bar scale) with the RF proved as a derivation (1 cm : 18 km = 1 : 18,00,000 — a pure number in every unit system), the atlas bar-scale figure whose road is drawn to EXACTLY four bar-segments (400 px = 4 x 100) after the first VLM pass found the old road unmeasurable at its own scale (9/10 math -> 9.5/8 after redraw + internal dividers + a relocated hub label the audit caught), the photocopy insight (80 percent copy: the printed RF lies, 1 : 22,50,000, the bar stays true), the scale engine both ways, the model van 1 : 24, the courtyard plan and the AREA LAW (areas carry m^2, never m — 1000 m^2 / 500^2 = 40 cm^2) as Caution + formula card, equation tag 2 the scale factor m (reduction/life-size/enlargement) with the properties list, the x5 stamp, figure 2 two-direction factor bars at one common px-per-cm per panel upgraded with shared baselines + dashed end guides after VLM clarity 7 -> 9 (final 10 math / 9 clarity), the similarity-door insight, the recipe multiplier PROVED from the per-serving constant (q2 = q1 x s2/s1) with the khichdi table across 2/4/6/10 servings (water : rice 3 : 1 at every scale) and the clock-is-not-an-ingredient Caution, the five-instrument chapter harvest and the exam corner (RRB NTPC + state-police map items verified in the wild; NCERT class-8 Example-1 dress cited not reproduced); 7 terms, 5-quiz keys 0/1/0/2/1 (live 5/5), 12 exercises L1-L6 (L6: the multiplier proved; the photocopied survey map 15 km true vs 12 km by the lying RF); ch. 6 CLOSED 5/5 (status complete, plannedLessons [], book.ts notes rewritten — one apostrophe syntax break caught by tsc and fixed); audits 0/0 both figures; 18-lesson E2E suite exit 0 (6.5 block added: quiz 5/5 live, 12/12 expand, 407 KaTeX nodes, mobile 390 clean); lint + tsc clean; routes 200/200/200/404; inventory regenerated 28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters; WORKLOG + PROGRESS + RESUME_POINTER + SOURCE_LOG + DETAILED_LOG updated; ship commit pushed per protocol, remote-verified",
+      "filesChanged": 10,
+      "insertions": 1111,
+      "deletions": 48,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 30,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 19,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 153,
+          "del": 30
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 145,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 608,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "9475dccdf5a7893e791268a8025ea786a64aa1a0",
+      "short": "9475dcc",
+      "date": "2026-11-04 12:58",
+      "message": "memory: run-32 synced sha recorded (ee48d024dc974f504a56161c8a33145cbf445ab8) — push debt + ship commit both remote-verified; next run 33 opens FM ch. 7 Integers at 7.1, voice polish 2.2 queued",
+      "filesChanged": 2,
+      "insertions": 4,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -6476,25 +6626,25 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 6,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 28,
-    "wordsAuthored": 133379,
-    "termsDefined": 185,
-    "quizItems": 140,
-    "exerciseQuestions": 293,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 29,
+    "wordsAuthored": 138132,
+    "termsDefined": 193,
+    "quizItems": 145,
+    "exerciseQuestions": 305,
     "blockTotals": {
-      "para": 422,
-      "callout": 149,
-      "heading": 186,
-      "list": 27,
-      "terms": 29,
-      "equation": 40,
-      "derivation": 49,
-      "table": 28,
-      "figure": 47,
-      "example": 127,
-      "quiz": 28,
-      "exercises": 28,
+      "para": 439,
+      "callout": 157,
+      "heading": 193,
+      "list": 30,
+      "terms": 30,
+      "equation": 42,
+      "derivation": 50,
+      "table": 29,
+      "figure": 49,
+      "example": 134,
+      "quiz": 29,
+      "exercises": 29,
       "formula": 72,
       "algorithm": 8
     }

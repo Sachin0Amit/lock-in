@@ -216,6 +216,23 @@ step 6).
   dresses theorem and the head-length theorem are the book's own
   derivations.
 
+- `ncert-math6-ch10` — NCERT Ganita Prakash Class 6 Mathematics, ch. 10
+  "The Other Side of Zero" (fegp110). Used for: FM ch. 7 lesson 7.1 —
+  the canonical negative-numbers charter mirrored (the other side of
+  the number line, lift/floor and temperature readings as signed
+  quantities), web-checked 2026-11-04 (run 33): chapter number and
+  title verified against the NCERT PDF listing and solution guides; the
+  lesson's own instances (Vostok, Everest/Dead Sea, the lift, the
+  underground mall, the Delhi–New York clocks) are original — no
+  textbook question reproduced.
+- `ncert-math7-p2-ch2` — NCERT Ganita Prakash Class 7 Mathematics,
+  part 2, ch. 2 "Operations with Integers" (gegp202). Used for: FM ch. 7
+  as the operations sequel for lessons 7.2–7.3, web-checked 2026-11-04
+  (run 33) against the class-7 Ganita Prakash chapter list (part 1
+  chs. 1–8; part 2 opens with Geometric Twins, Operations with Integers
+  second); cited in 7.1's sources as the promised continuation — no
+  content reproduced.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
@@ -397,3 +414,7 @@ Lesson 6.5 "Scaling: Maps, Models and Recipes" was verified against the already-
 ## 2026-11-04 — Run 30 (FM 6.4): zero downloads
 
 Lesson 6.4 was verified against the already-persisted citation set (ncert-math8-ch13 §§13.1–13.2 + Ex. 13.1/13.2, ncert-math6-ch12, ncert-math7-ch8, khattar-qa-4e) via web-check only — no new reference files downloaded, no working copies to delete. The gitignored Drive survey (temporary-references/inventory.json, 89 entries) was rebuilt after the sandbox recycle for the WORK_INVENTORY regeneration — survey metadata only, not a content download.
+
+## 2026-11-04 — Run 33 (FM 7.1): zero downloads
+
+Lesson 7.1 "Negative Numbers and Why They Exist" was verified against two NEW citation keys added this run — `ncert-math6-ch10` (Ganita Prakash class-6 ch. 10 "The Other Side of Zero", the canonical negative-number charter) and `ncert-math7-p2-ch2` (Ganita Prakash class-7 part-2 ch. 2 "Operations with Integers", the operations sequel cited as the promised continuation) — plus the carried `khattar-qa-4e`. Both chapter identities web-checked (sanctioned fallback; fegp110/gegp202 PDF listings + solution-guide listings); no content reproduced. History grounded by web-check: NRICH "The History of Negative Numbers" (Chinese red/black counting rods ~200 BCE; Maseres 1758 "darken the very whole doctrines of the equations"; 19th-century acceptance via De Morgan/Peacock), MacTutor's Brahmagupta biography (Brahmasphutasiddhanta 628 CE, fortunes/debts). Figures grounded: Everest 8848.86 m (2020 Nepal–China joint survey), the Dead Sea surface 439.78 m below sea level as of 2025 (falling ~1 m/yr), Vostok −89.2 °C (21 July 1983), Phalodi 51.0 °C (19 May 2016). Exam-corner shapes grounded by web-check: sign-fill items (−40 □ +4) in SSC CHSL / RRB NTPC CBT-I banks, greatest-negative-integer and additive-inverse match-the-column items — shapes cited, no question reproduced. No reference files downloaded, no working copies to delete.

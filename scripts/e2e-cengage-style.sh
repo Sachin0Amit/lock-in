@@ -26,6 +26,7 @@ LESSONS=(
   fm-proportion-and-cross-multiplication
   fm-direct-and-inverse-variation
   fm-scaling-maps-models-and-recipes
+  fm-negative-numbers-why-they-exist
 )
 
 for L in "${LESSONS[@]}"; do

@@ -6,6 +6,87 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 33 (cron job 498279, 21:27 delivery): FM 7.1 "Negative Numbers and Why They Exist" SHIPPED — chapter 7 opened verify-first (70 checks), a site-wide raw-$ leak in Illustration titles found on the E2E pass and fixed in the renderer, both new figures VLM-reviewed; tree clean, no push debt
+
+**Reconciliation:** tree clean at HEAD 9475dcc (run-32 memory commit), origin/main..HEAD = 0 — no
+push debt, nothing in flight. Chapter 6 confirmed complete (5/5, run 32); this run opened **chapter 7
+"Integers"** per RESUME_POINTER. The owner's arrow directive was confirmed already delivered in run 31
+(commit 5aa10ed, pushed and remote-verified in run 32) — no rework needed.
+
+**FM 7.1 authored (verify-first):** `scripts/verify-unit-7.ts` created BEFORE writing — sections A–I,
+**70 checks ALL PASS**: the two-direction failure of the counting numbers and the chosen-zero
+convention; the integers set (equation tag 1, ℤ = {…, −3, −2, −1, 0, 1, 2, 3, …}, the symbol from
+German *Zahlen*) and the nesting ℕ ⊂ W ⊂ ℤ (tag 2); the ordering law right-beats-left with the
+−8 < −3 trap ("more debt is less wealth") and closer-to-zero-wins among negatives (three-facts list);
+opposites as mirror pairs with the double-duty of − (name vs instruction) and the double-reflection
+derivation −(−n) = n; absolute value's first look (|−8| = |8| = 8, |0| = 0 — full development queued
+at 7.4); the signed-numbers-in-the-wild table (temperature / elevation / balance / floor / time zone);
+real readings script-verified — Vostok −89.2 °C (21 July 1983), Phalodi 51.0 °C (19 May 2016), their
+line distance 140.2°, Everest 8848.86 m (2020 survey), the Dead Sea surface −439.78 m as of 2025,
+their vertical gap 9288.64 m (float-precision guard 1e-9, the run-32 lesson reapplied), IST +5:30 vs
+New York −5 → 10.5 h with both clock conversions (6:30 pm → 8:00 am; 9:00 pm → 10:30 am in minutes),
+the lift B2 → level 7 = 9 storeys, the underground mall B3 → level 9 = 12 one way / 24 return; both
+figures' geometry (the number line mirror-symmetric at 50 px/step with the −3/3 braces; the elevation
+section drawn apex-to-datum inside the triangle with the two vertical measures deliberately NOT at one
+scale — 74 px ↔ 8848.86 m vs 30 px ↔ 439.78 m, flagged in-figure); quiz keys 1/2/2/0/1 and all 12
+exercise keys. One verify-script self-correction en route: the first C4 check was a tautology
+(|x−x| < 1e-9) — rewritten to a real epsilon check before any content was written.
+
+**The lesson (~3,576 body words):** the wall at zero and the world that reverses direction; the
+chosen-zero Definition + the roman instance run (temperature, elevation, money, floors, time zones);
+the integers Definition + both equation tags + the zero-is-neither Caution; figure 1 the number line
+grown a left half (solid triangular arrowheads, dashed mirror, the −3/3 pair with two 3-step braces —
+run-31 arrow manner); ordering Illustrations (−40 < +4 sign-fill; the ascending five); the
+opposites Definition + the double-reflection derivation + Illustration; the absolute-value first look
++ a "full treatment waits at 7.4" Note; the wild-readings table + figure 2 the elevation section
+(Everest +8848.86 m, the Dead Sea −439.78 m in 2025, the altitude line apex-to-datum, a two-headed
+dimension guide, the in-figure "not drawn to one scale" note) + the Delhi–New York clock, the lift,
+and the Vostok–Phalodi gap Illustrations; the historical callout (Chinese red/black rods ~200 BCE and
+the Nine Chapters with Liu Hui's 263 CE commentary, Brahmagupta's fortunes-and-debts of 628 CE,
+Descartes's 1637 "false roots", Maseres's 1758 complaint, 19th-century acceptance — web-grounded);
+the exam corner (sign-fill, greatest negative integer = −1, additive-inverse matching, ordering and
+temperature shapes in the SSC CHSL / RRB NTPC / banking banks — shapes cited, no question
+reproduced); 8 terms, 5-quiz (keys 1/2/2/0/1, live **5/5**), 12 exercises L1–L6 (L6: the
+mirror-symmetry proof cashed at n = 5; the underground mall 12/24). Scope guard held: no integer
+arithmetic taught — every distance counted in steps on the line; 7.2 owns the operations.
+
+**Site-wide renderer fix (found by the E2E, fixed for every chapter):** the Illustration title band
+rendered `example.title` as PLAIN TEXT — every title carrying $math$ leaked raw dollars site-wide
+(7 leaked titles on 6.5 alone; 20+ across chs. 1–6; all 7 of 7.1's). `ExampleBlock` in
+`src/components/library/blocks.tsx` now renders the title through the same `RichText` used by every
+other text surface (the run-28 objectives fix's pattern). Verified: 6.5's leaks → 0; 7.1's leaks → 0
+(`dollarInText: 0`, `dollarInSvg: 0`), KaTeX 266 nodes, 0 katex-errors.
+
+**VLM fix iteration (the run-31/32 bar):** figure 1 first pass **10 math / 9 clarity** — pass (the
+"clipped paragraph" the VLM noted is page prose at the screenshot edge, not the figure). Figure 2
+first pass 9 math / **7 clarity** → redrawn (deeper shaded lake with the name set inside it, the
+depth guide converted to a two-headed dimension line with larger heads, the right flank closed to the
+frame, viewBox 340 → 220, the altitude line lightened with a foot dot) → re-audit 0/0 → second pass
+8 clarity with convention-preference nitpicks only (datum-crossing convention, label-beside-vs-below
+taste; the 30 px guide size is the honest schematic itself) → one final pass added the in-figure
+"not drawn to one scale" note + foot dot + frame stub; verdicts hover at the run-32 floor (9/8 band)
+across passes with 0 audit issues — accepted and recorded honestly.
+
+**Quality gates:** verify-unit-7 70/70; tsc --noEmit clean; lint clean; routes 200/200/200/404
+(home, /book/foundation-mathematics, /book/foundation-mathematics/lesson/fm-negative-numbers-why-they-exist,
+404 control); SVG overlap audits 0/0 both figures; **19-lesson E2E suite exit 0** (7.1 added to the
+list — 7 Illustrations, 7 Sol. pills pre-expansion, 21 step rows, 266 KaTeX nodes, dollarInSvg 0,
+Cengage headings verified); dedicated 7.1 E2E — quiz clicked 5/5 → live "You scored 5/5" with keys
+1/2/2/0/1, 12/12 solutions expand, 19 Sol. pills after render, 93 ∴ glyphs, mobile 390 no overflow
+(articleW 358), browser console clean (HMR info only). book.ts: chapter07 imported and registered
+(status 'in-progress', plannedLessons now the remaining three); one tsc break en route (invalid
+`answer` fields on `example` blocks — the field exists only on quiz/exercise questions) fixed by
+folding the answers into the terminal Hence lines.
+
+**Ship:** SOURCE_LOG.md extended with the run-33 zero-downloads entry and two new citation keys
+(`ncert-math6-ch10`, `ncert-math7-p2-ch2`); WORK_INVENTORY.json regenerated via
+`bun run scripts/build_work_inventory.ts`; PROGRESS.json, RESUME_POINTER.json and DETAILED_LOG.md
+updated; ship commit pushed per protocol (one-time URL; token never written anywhere) and
+remote-verified — synced sha recorded in RESUME_POINTER.json. Voice polish 2.2 remains queued (next
+run); ch. 7 continues at 7.2 "Adding and Subtracting Integers".
+
+---
+
 ## 2026-11-04 — RUN 32 (cron job 498279, 20:27 delivery): PUSH DEBT CLEARED + FM 6.5 "Scaling: Maps, Models and Recipes" SHIPPED — the chapter's final lesson written verify-first (444 checks), the atlas figure made honestly measurable after the first VLM pass, chapter 6 complete at 5/5; all five debt commits pushed and the run's ship commit pushed
 
 **Push debt (protocol steps a/b/d/e):** one-time HTTPS URL form, single command, token never

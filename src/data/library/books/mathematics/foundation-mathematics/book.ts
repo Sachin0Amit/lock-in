@@ -5,6 +5,7 @@ import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
+import { chapter07 } from './ch-07'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -79,21 +80,7 @@ export const foundationMathematics: Book = {
     chapter04,
     chapter05,
     chapter06,
-    {
-      number: 7,
-      slug: 'integers',
-      title: 'Integers',
-      summary:
-        'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Negative Numbers and Why They Exist',
-        'Adding and Subtracting Integers',
-        'Multiplying Integers and the Sign Rules',
-        'Absolute Value as Distance',
-      ],
-    },
+    chapter07,
     {
       number: 8,
       slug: 'geometry-foundations',

@@ -71,6 +71,8 @@ server.log
 !/scripts/verify-unit-5.ts
 # exception: the unit-6 pre-write arithmetic verifier (committed every ship)
 !/scripts/verify-unit-6.ts
+# exception: the unit-7 pre-write arithmetic verifier (committed every ship)
+!/scripts/verify-unit-7.ts
 # exception: SVG figure overlap audit (run for every new figure — owner directive 2026-11-03)
 !/scripts/audit-svg-overlaps.sh
 !/scripts/audit-svg-overlaps.page.js
@@ -88,6 +90,8 @@ server.log
 !/scripts/e2e-43.page.js
 # exception: run-19 lesson-4.4 targeted interactivity checker (quiz 5/5 live + solution expansion; reusable pattern)
 !/scripts/e2e-44.page.js
+# exception: run-33 lesson-7.1 targeted interactivity checker (quiz 5/5 live + solution expansion; reusable pattern)
+!/scripts/e2e-71.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)

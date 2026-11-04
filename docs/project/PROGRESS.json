@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-04",
- "phase": "CH. 6 COMPLETE (5/5) — run 32: push debt cleared (all five commits 407c0fe..5aa10ed pushed, remote verified 5aa10ede...) and FM 6.5 'Scaling: Maps, Models and Recipes' shipped — the scale in three dresses, the RF proved (1 cm : 18 km = 1 : 18,00,000), the atlas bar-scale figure with the road drawn exactly four bar-segments long, the photocopy insight, the scale engine, the model van 1 : 24, the area law (m^2), the two-direction factor bars, the recipe multiplier proved from the per-serving constant, the clock Caution, the five-instrument chapter harvest. 444 unit-6 checks ALL PASS (A-AZ); audits 0/0; VLM figure 1 9.5/8 after one fix iteration, figure 2 10/9; 18-lesson E2E exit 0, quiz live 5/5 (keys 0/1/0/2/1); lint/tsc clean. Totals: 28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters written.",
- "awaiting": "FM Chapter 7 'Integers' (next planned chapter — open it per the cadence: one lesson per run, extend scripts/verify-unit-7.ts BEFORE writing). Also queued: voice polish of the 12 remaining pre-4.2 lessons (2.2-2.5, 3.1-3.5, 4.1; 1.1 run 26, 1.2 run 27, 1.3 run 29, 2.1 run 30 — next up 2.2); EXAM_REGISTRY.json research (44 skeleton entries). No push debt: run 32's ship commit is pushed and remote-synced.",
+ "phase": "CH. 7 OPEN (1/4) — run 33: FM 7.1 'Negative Numbers and Why They Exist' shipped verify-first (verify-unit-7.ts created BEFORE writing, 70 checks ALL PASS; ~3,576 words; 2 figures audit-0/0 + VLM-reviewed; quiz live 5/5 keys 1/2/2/0/1; 12 exercises L1-L6; 19-lesson E2E suite exit 0) — plus a site-wide renderer fix: ExampleBlock titles now render RichText (raw-$ leaks in Illustration titles eliminated on every chapter). Chapter 6 COMPLETE (5/5, run 32). Ship commit pushed per protocol and remote-verified (sha in RESUME_POINTER.json).",
+ "awaiting": "FM 7.2 'Adding and Subtracting Integers' (extend scripts/verify-unit-7.ts with sections J+ BEFORE writing; one lesson per run); queued voice polish 2.2 (then 2.3-2.5, 3.1-3.5, 4.1).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -71,7 +71,7 @@
     "status": "in-progress",
     "chaptersPlanned": 11,
     "chaptersWritten": 6,
-    "lessonsWritten": 28,
+    "lessonsWritten": 29,
     "termsAvailableForFlashcards": 185,
     "notes": "STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the 14 pre-4.2 lessons' prose VOICE polish queued one per run — 1.1 DONE (run 26: formal Definition callout + roman run + Thus-line), 1.2 DONE (run 27: the comparison-rule Definition callout + roman run + Thus-line), 11 remain (2.2 next). Chapters 1-5 complete (units 1-5 shipped 2026-11-03/04): ch. 1 lessons 1.1-1.3 Numbers and Place Value (9,708 words + the run-26 1.1 voice polish), ch. 2 lessons 2.1-2.5 The Four Operations (21,425 words, incl. BODMAS), ch. 3 lessons 3.1-3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1-4.5 Fractions (26,905 words), ch. 5 lessons 5.1-5.5 Decimals and Percents (24,614 words). Chapter 6 lessons 6.1-6.5 Ratio, Rate and Proportion (open 2/5): 6.1 Ratio as a Comparison (run 26, 4,442 words — the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, three-term ratios, sharing with the share formula proved); 6.2 Rates and Unit Rates (run 27, 4,152 words — the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine (divide, or scale to a friendly unit, or run it backwards), comparisons by the same-way law with the direction and bulk frauds exposed, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 conversion law proved as a derivation block with anchors, rates at work, the average-speed Caution and formula card). RichText parser upgraded run 25 ($math$ inside bold/italic). Math script-verified (165 unit-6 checks + 455 unit-5 + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (15 lessons), quiz keys verified live. Next: 6.5 Scaling, Maps, Models and Recipes. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2. Run 30 shipped 6.4 Direct and Inverse Variation (5,373 words: the two locks, the parking fraud, both engines, the factor laws, the recognition drill, the flip, the work problems; figures polished to VLM 9/10+10/10) and the 2.1 voice polish; unit-6 verification now 361 checks (455/330/260/165 regressions), E2E 17 lessons with a dedicated 6.4 block (quiz 2/1/1/2/1 live 5/5)."
    }
@@ -129,5 +129,15 @@
   "e2e": "18-lesson suite exit 0; 6.5 quiz live 5/5 (keys 0/1/0/2/1); 12/12 solutions; mobile 390 clean; console clean",
   "inventory": "28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters",
   "downloads": "none — web-check of ncert-math8-ch13 (Example 1 road-map dress) only; citation keys extended, no files"
+ },
+ "run33Extras": {
+  "lesson": "fm-negative-numbers-why-they-exist (FM 7.1, ch. 7 opens)",
+  "words": "~3,576",
+  "verifyChecks": "70 (A-I; new file verify-unit-7.ts, created BEFORE writing)",
+  "figures": "2 (the mirror-symmetric number line with -3/3 braces; the Everest/Dead-Sea elevation section, two-headed dimension guide, in-figure not-to-one-scale note)",
+  "vlm": "figure 1 10 math / 9 clarity (first pass); figure 2 9/7 -> redrawn -> 8-band across passes, 0 audit issues, accepted honestly",
+  "siteWideFix": "ExampleBlock titles now render through RichText (blocks.tsx) — raw-$ leaks in Illustration titles eliminated site-wide (7 on 6.5 alone, 20+ across chs. 1-6)",
+  "e2e": "19-lesson suite exit 0; 7.1 quiz live 5/5 (keys 1/2/2/0/1); 12/12 solutions; 19 Sol. pills; 93 therefore glyphs; mobile 390 clean; console clean",
+  "downloads": "none — two NEW citation keys (ncert-math6-ch10, ncert-math7-p2-ch2) web-checked; history/elevations/exam shapes web-grounded; no files"
  }
 }

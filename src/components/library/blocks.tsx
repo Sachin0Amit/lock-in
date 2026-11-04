@@ -192,7 +192,7 @@ function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no
         <span className="h-px flex-1 bg-[var(--book-sage-line)]" aria-hidden />
       </div>
       <p className="mt-2.5 rounded-lg bg-[var(--book-sage)] px-5 py-3 font-reading text-[0.98em] font-semibold leading-7 text-foreground/95">
-        {title}
+        <RichText text={title} />
       </p>
       <div className="mt-4">
         <SolutionSteps steps={steps} />
