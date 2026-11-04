@@ -375,6 +375,6 @@
   ],
   "e2e": "15 lessons in scripts/e2e-cengage-style.sh (fm-rates-and-unit-rates added) + a dedicated 6.2 block (quiz correct-index clicks 1/0/1/2/1 -> 5/5 live, force-expand 12/12, 36 collapsibles, mobile 390px exact-fit)",
   "sandboxNote": "dev-mode lesson routes 404 for ALL lessons in this recycled sandbox instance (persists from run 26) — quality gate ran against the PRODUCTION build (bun run build + bun run start restarted fresh): new lesson 200, old lessons 200, unknown id 404; the gitignored Drive survey was wiped by the recycle and rebuilt via rebuild_drive_survey.ts (89 entries intact) before WORK_INVENTORY regen; logged in WORKLOG.md",
-  "push": "pending at entry-write time — ship commit + inventory commit pushed via one-time HTTPS URL (protocol v2), remote HEAD verified by one-time-URL ls-remote; the memory commit completes the record"
+  "push": "ship d98ba02 + inventory bookkeeping 0380e71 pushed at run end via one-time HTTPS URL (protocol v2): d505977..0380e71 HEAD -> main; remote HEAD verified 0380e71 (full sha 0380e7192878b0980fd98bdbb98d3f93856a82b3) = refs/heads/main = local by one-time-URL ls-remote; origin/main tracking ref resynced via anonymous fetch; PAT never written to any file/config/log; the memory commit completes the record"
  }
 }
