@@ -54,9 +54,15 @@ lessons are 2.2–2.5, 3.1–3.5 and 4.1 (10 lessons; 1.1 run 26, 1.2 run 27, 1.
 items / 281 exercise questions. Zero reference downloads this run (verify-first + web-check only).
 
 **Git:** in-flight commit `407c0fe` (the 15:18 delivery's authored lesson) + this run's ship commit
-(figure polish + the dedicated 6.4 E2E block + the 2.1 voice polish) → bookkeeping commit (logs +
-inventory) → push + ls-remote verification per protocol v2, recorded in the memory commit that
-follows. Next unit 6.5 "Scaling: Maps, Models and Recipes" per plannedLessons.
+`7fed46b` (figure polish + the dedicated 6.4 E2E block + the 2.1 voice polish) + bookkeeping commit
+`108b1d6` (logs + inventory) — then **PUSH BLOCKED by GitHub's backend, not by auth**: two attempts
+per protocol (the first rejected "Internal Server Error" with a GitHub request ID, the single
+sanctioned retry rejected "fatal error in commit_refs" — both remote-side server errors, the
+repository's own refs backend failing; a bad token would have returned 401/403 instead). Per protocol
+(d) the failure is recorded here WITHOUT the token and the run's push effort ends — the lesson work
+is not degraded: all three commits sit local and clean on main with every gate green. **Next run:
+push ALL unpushed commits (`407c0fe`, `7fed46b`, `108b1d6` + this memory commit) FIRST, per protocol
+(b), before any new work.** Next unit 6.5 "Scaling: Maps, Models and Recipes" per plannedLessons.
 
 ---
 
