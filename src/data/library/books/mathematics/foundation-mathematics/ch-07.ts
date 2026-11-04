@@ -70,6 +70,30 @@ import type { Chapter } from '../../../types'
  * or division — 7.3 owns the products. Every number pre-verified by
  * scripts/verify-unit-7.ts (148 checks, A–S).
  *
+ * LESSON 7.3 Multiplying Integers and the Sign Rules (run 35,
+ * 2026-11-04) — the walk repeats: multiplication is m legs of one
+ * length (figure 1 the repeated walk 3 × (−5) = −15, three cubic arcs
+ * with solid heads at −5/−10/−15 on a 34-px line); the positive
+ * walk-count settles two sign cases, commutativity (grid-checked)
+ * buys the third, and the fourth — minus × minus — is derived TWICE:
+ * figure 2 the product staircase (bars for (−5)×m, m = 3..−3, at
+ * 7 px per unit — the bar ends lie on one straight line crossing zero
+ * at m = 0) + the staircase derivation (each rung down in the
+ * multiplier adds the length, forced by distributivity to continue
+ * past zero) and the distributive derivation ((−1)×(−5) + (−1)×5 =
+ * (−1)×0 = 0, so (−1)×(−5) = −(−5) = 5 — 7.1's double reflection
+ * cashed again); equation tag 1 the distributive law (9,261-triple
+ * grid), tag 2 the general sign law (−a)×(−b) = a×b; the sign-case
+ * table; the six properties with instances (identity vs the
+ * mirror-maker Caution); sign parity for chains (Y-section
+ * brute-forced over every signed chain of length 1–5); Brahmagupta's
+ * 628 CE multiplication verses (debt × debt = fortune — Colebrooke
+ * 1817, paraphrased then derived); 8 terms, 5-quiz keys 2/1/1/0/3,
+ * 12 exercises L1–L6 (L6: the distributive derivation of (−1)×a = −a
+ * and the parity chain −120). Scope guard: no integer division, no
+ * exponent notation. Every number pre-verified by
+ * scripts/verify-unit-7.ts (231 checks, A–AB).
+ *
  * References for this unit: NCERT Ganita Prakash class-6 ch. 10 "The
  * Other Side of Zero" (the other side of the number line — narrative
  * cited, not reproduced) + class-7 part-2 ch. 2 "Operations with
@@ -85,7 +109,6 @@ export const chapter07: Chapter = {
     'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.',
   status: 'in-progress',
   plannedLessons: [
-    'Multiplying Integers and the Sign Rules',
     'Absolute Value as Distance',
   ],
   lessons: [
@@ -1324,6 +1347,623 @@ export const chapter07: Chapter = {
                     'Hence the set $\\{-1, 0, 1, 2\\}$ with sum $2$ — Lesson 7.1\u2019s ordering and this lesson\u2019s operations in one breath.',
                   ],
                   answer: '$\\{-1, 0, 1, 2\\}$; the sum is $2$',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-multiplying-integers-sign-rules',
+      number: '7.3',
+      title: 'Multiplying Integers and the Sign Rules',
+      concepts: [
+        'Multiplication as a walk repeated',
+        'The sign rules derived, not decreed',
+        'The staircase descent argument',
+        'The distributive law as the engine',
+        'A debt times a debt is a fortune',
+        'Sign parity for chains of factors',
+        'The multiplicative identity and the mirror-maker',
+        'The zero product property',
+      ],
+      objectives: [
+        'Multiply any two integers by the two-step rule — magnitudes multiply, the sign table aims — and justify all four cases from the repeated-walk model',
+        'Reproduce both derivations of minus-times-minus: the forced staircase and the distributive argument',
+        'Verify closure, commutativity, associativity, the identity, the zero product property and the distributive law for integer multiplication with instances',
+        'Evaluate chains of factors by sign parity — an even count of minus signs lands positive, an odd count negative',
+        'Narrate products as signed quantities — falls per hour, waived penalties — and recover missing factors by the times table plus the sign rules',
+      ],
+      prerequisites: [
+        'fm-negative-numbers-why-they-exist',
+        'fm-adding-subtracting-integers',
+        'fm-multiplication-repeated-addition',
+      ],
+      sources: ['ncert-math7-p2-ch2', 'ncert-math6-ch10', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 7.2 taught the line to walk: every sum became a journey, and subtraction turned out to be addition wearing a disguise. One operation of the second storey is still missing — the one the times table was built for. This lesson gives the walk a drumbeat: multiplication is a walk *repeated*, and the four sign cases — including the notorious minus-times-minus — will be *derived*, not decreed, by a staircase anyone can climb and a law everyone already owns.',
+        },
+        {
+          kind: 'para',
+          text: 'The stakes are worth stating plainly. In 7.2 the addition rules fell straight out of the walk; here the hardest rule — that the product of two debts is a fortune — has troubled thinkers for centuries, and classrooms still hand it over as an incantation to be memorised. It need not be. Two arguments pin it down completely: one visual (the staircase of products) and one algebraic (the distributive law). Together they turn the incantation into a theorem.',
+        },
+        { kind: 'heading', text: 'Multiplication is a walk repeated' },
+        {
+          kind: 'para',
+          text: 'Chapter 2 built multiplication from repeated addition: $3 \\times 5$ meant $5 + 5 + 5$, three copies of five. On the walking line the same sentence reads differently — **stand at zero and take three walks, each of length $5$ rightward**. The copies of five become the equal legs of one longer journey, and the landing point is the product. Every whole-number product of chapter 2 re-reads as a walk with several equal legs.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Multiplying integers (the repeated-walk model)',
+          text: 'For a positive walk-count $m$ and any integer $b$, the product $m \\times b$ is said to be the position reached by taking $m$ walks of length $|b|$ each in $b$\u2019s direction — rightward when $b$ is positive, leftward when $b$ is negative, no walk at all when $b$ is zero. Thus $3 \\times (-5)$ is three leftward legs of $5$, and the landing is $-15$.',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$3 \\times 5$: stand at $0$, take three rightward legs of $5$ — land on $15$. Chapter 2\u2019s $5 + 5 + 5$, seen as one journey.',
+            '$3 \\times (-5)$: stand at $0$, take three leftward legs of $5$ — land on $-15$. The same drumbeat, the opposite direction.',
+            '$0 \\times (-9)$: zero walks, no journey — the product is $0$. The zero product property, working before it is even named.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The model answers every product whose first factor is positive. But arithmetic will not be fenced in: the commutative instinct from chapter 2 asks $(-5) \\times 3$ to equal $3 \\times (-5)$, and worse is waiting — what could $(-4) \\times 6$ possibly mean? *Take $-4$ walks* names no motion; a negative number of legs is not a journey anyone can take. The direct reading halts exactly where the interesting cases begin.',
+        },
+        {
+          kind: 'para',
+          text: 'Two roads lead past the halt, and they arrive at the same gate. The first follows the *pattern* the known products trace — a staircase whose next step is forced. The second invokes the distributive law, the one bridge between adding and multiplying that chapter 2 certified on the wholes. We walk both.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Multiplication as a walk repeated: $3 \\times (-5) = -15$. Standing at $0$, each leg walks $5$ steps leftward; three legs later the journey has moved $15$ steps left of its start. The times table sizes the answer — $3 \\times 5 = 15$; the sign of the length $-5$ aims it.',
+          svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three leftward legs of five steps each, walked from zero, landing at minus five, minus ten and minus fifteen">
+  <line x1="10" y1="150" x2="730" y2="150" stroke="currentColor" stroke-width="2"/>
+  <polygon points="10,150 24,143 24,157" fill="currentColor"/>
+  <polygon points="730,150 716,143 716,157" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="656" y1="143" x2="656" y2="157"/><line x1="622" y1="143" x2="622" y2="157"/>
+    <line x1="588" y1="143" x2="588" y2="157"/><line x1="554" y1="143" x2="554" y2="157"/>
+    <line x1="486" y1="143" x2="486" y2="157"/><line x1="452" y1="143" x2="452" y2="157"/>
+    <line x1="418" y1="143" x2="418" y2="157"/><line x1="384" y1="143" x2="384" y2="157"/>
+    <line x1="316" y1="143" x2="316" y2="157"/><line x1="282" y1="143" x2="282" y2="157"/>
+    <line x1="248" y1="143" x2="248" y2="157"/><line x1="214" y1="143" x2="214" y2="157"/>
+    <line x1="146" y1="143" x2="146" y2="157"/><line x1="112" y1="143" x2="112" y2="157"/>
+    <line x1="78" y1="143" x2="78" y2="157"/><line x1="44" y1="143" x2="44" y2="157"/>
+  </g>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="690" y1="138" x2="690" y2="162"/><line x1="520" y1="138" x2="520" y2="162"/>
+    <line x1="350" y1="138" x2="350" y2="162"/><line x1="180" y1="138" x2="180" y2="162"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="690" y="176">0</text><text x="520" y="176">−5</text>
+    <text x="350" y="176">−10</text><text x="180" y="176">−15</text>
+  </g>
+  <circle cx="690" cy="150" r="5" fill="currentColor"/>
+  <circle cx="520" cy="150" r="5" fill="currentColor"/>
+  <circle cx="350" cy="150" r="5" fill="currentColor"/>
+  <circle cx="180" cy="150" r="5" fill="currentColor"/>
+  <path d="M 682 141 C 642 106, 572 108, 534 138" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="520,150 534,142 534,158" fill="currentColor"/>
+  <path d="M 512 141 C 472 106, 402 108, 364 138" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="350,150 364,142 364,158" fill="currentColor"/>
+  <path d="M 342 141 C 302 106, 232 108, 194 138" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="180,150 194,142 194,158" fill="currentColor"/>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="608" y="92">leg 1 — 5 left</text>
+    <text x="438" y="92">leg 2 — 5 left</text>
+    <text x="268" y="92">leg 3 — 5 left</text>
+  </g>
+  <line x1="180" y1="190" x2="690" y2="190" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="180" y1="184" x2="180" y2="196" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="690" y1="184" x2="690" y2="196" stroke="currentColor" stroke-width="1.5"/>
+  <text x="435" y="216" font-size="12.5" fill="currentColor" text-anchor="middle">three legs of 5 left — the product −15</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $4 \\times (-6)$ by the repeated-walk model.',
+          steps: [
+            'Now, the walk-count $4$ is positive, so the model speaks directly: four legs, each of the length $-6$ — that is, $6$ steps leftward.',
+            'So the magnitudes multiply: $4 \\times 6 = 24$ steps in all; the length\u2019s sign aims them left.',
+            'Hence $-24$ — the walk lands $24$ steps left of its start. Every product with a positive walk-count surrenders to the same two moves: the times table sizes it, the sign of the length aims it.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Figure 1 shows the walk of $3 \\times (-5)$: three legs, each $5$ steps leftward, landing at $-5$, then $-10$, then $-15$. Read the picture in the language every product will use from now on. The **magnitude** of the product is the total distance — $3 \\times 5 = 15$ steps, the old times table underneath. The **sign** is fixed by the legs\u2019 direction — leftward, because the length $-5$ points left. Magnitude from the times table, sign from the walk: that division of labour is the whole lesson in one sentence.',
+        },
+        { kind: 'heading', text: 'The positive walk-count: two sign cases settled' },
+        {
+          kind: 'para',
+          text: 'When the walk-count is positive, the model settles two of the four sign cases at once. A positive length walked repeatedly keeps its direction: $3 \\times 5 = 15$ — sign $+$, magnitude $15$. A negative length walked repeatedly deepens the debt: $3 \\times (-5) = -15$ — sign $-$, magnitude $15$. In both, the times table sizes the answer and the length\u2019s sign aims it.',
+        },
+        {
+          kind: 'para',
+          text: 'The third case borrows a law from the wholes. Multiplication was found commutative in chapter 2 because order never mattered for copies of a number; on the integers the law *extends* — the grid check in the properties section confirms $a \\times b = b \\times a$ on all $625$ pairs in $[-12, 12]^2$ — so $(-5) \\times 3 = 3 \\times (-5) = -15$. A negative length with a positive walk-count is the same journey told from the other end: three legs of five leftward, whoever counts first. Three cases are now on the books: agreeing signs and a positive length keep $+$; a negative length (in either position) takes $-$. One case remains — the famous one.',
+        },
+        { kind: 'heading', text: 'The staircase to the minus side' },
+        {
+          kind: 'para',
+          text: 'Fix the length $-5$ and let the walk-count *descend* one rung at a time. The known side reads: $3 \\times (-5) = -15$; then $2 \\times (-5) = -10$; then $1 \\times (-5) = -5$; then $0 \\times (-5) = 0$. Watch the rungs: each step down in the multiplier *raised* the product by exactly $5$ — from $-15$ up to $-10$, up to $-5$, up to $0$. The reason is not luck: removing one leftward leg of five steps moves the landing five steps back to the right.',
+        },
+        {
+          kind: 'para',
+          text: 'The descent law does not know it was only ever meant for positive counts. Held to *every* integer, it forces the minus side of the staircase: from $0 \\times (-5) = 0$, one more step down must add $5$ again — so $(-1) \\times (-5) = 5$; and again — $(-2) \\times (-5) = 10$; and again — $(-3) \\times (-5) = 15$. A debt multiplied by a minus lands on the positive side. The staircase cannot bend without breaking the very law that built its known side.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The staircase that forces the minus side: the products of $(-5)$ with multipliers $m = 3, 2, 1, 0, -1, -2, -3$. Each rung down in the multiplier raises the product by exactly $5$, so the climb cannot stop at zero: $(-5) \\times (-1) = 5$, $(-5) \\times (-2) = 10$, $(-5) \\times (-3) = 15$. The bar ends and the zero dot lie on one straight line, crossing the zero line exactly at $m = 0$.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A bar staircase of the products of minus five with multipliers three, two, one, zero, minus one, minus two and minus three, climbing five units per rung and crossing zero at multiplier zero">
+  <g fill="currentColor" fill-opacity="0.3" stroke="currentColor" stroke-width="1.5">
+    <rect x="610" y="150" width="44" height="105"/>
+    <rect x="526" y="150" width="44" height="70"/>
+    <rect x="442" y="150" width="44" height="35"/>
+    <rect x="274" y="115" width="44" height="35"/>
+    <rect x="190" y="80" width="44" height="70"/>
+    <rect x="106" y="45" width="44" height="105"/>
+  </g>
+  <circle cx="380" cy="150" r="4.5" fill="currentColor"/>
+  <line x1="40" y1="150" x2="740" y2="150" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.6"/>
+  <text x="740" y="142" font-size="12" fill="currentColor" text-anchor="end">zero line</text>
+  <line x1="632" y1="255" x2="128" y2="45" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+  <text x="470" y="22" font-size="12.5" fill="currentColor" text-anchor="middle">as the multiplier falls, the product climbs</text>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="632" y="268">−15</text><text x="548" y="236">−10</text><text x="464" y="201">−5</text>
+    <text x="380" y="136">0</text>
+    <text x="296" y="107">5</text><text x="212" y="72">10</text><text x="128" y="36">15</text>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="632" y="288">3</text><text x="548" y="288">2</text><text x="464" y="288">1</text>
+    <text x="380" y="288">0</text>
+    <text x="296" y="288">−1</text><text x="212" y="288">−2</text><text x="128" y="288">−3</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Read the staircase: evaluate $(-5) \\times m$ for $m = 2, 1, 0, -1$.',
+          steps: [
+            'Now, descend from the known side: $2 \\times (-5) = -10$, $1 \\times (-5) = -5$, $0 \\times (-5) = 0$ — each rung down adding $5$.',
+            'So the pattern owes one more rung: $(-1) \\times (-5) = 0 + 5 = 5$.',
+            'Hence $-10$, $-5$, $0$, $5$ — the staircase crosses the zero line between $m = 0$ and $m = -1$, exactly as the figure draws it.',
+          ],
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the staircase must keep climbing',
+          statement:
+            'Fix the length $-5$ and descend the walk-count one rung at a time: $3 \\times (-5)$, $2 \\times (-5)$, $1 \\times (-5)$, $0 \\times (-5)$ — and onward. Why must each step down change the product by exactly $5$, and why may the descent not stop at zero?',
+          steps: [
+            {
+              label: 'Descend by one rung',
+              formula: 'm \\times (-5) \\;=\\; (m-1) \\times (-5) + 1 \\times (-5)',
+              explanation:
+                'Split $m$ walks into $(m-1)$ walks and $1$ walk — the distributive law at work already on the positive side. Removing the last walk shortens the journey by exactly one full leg: $5$ leftward steps.',
+            },
+            {
+              label: 'Evaluate the known side',
+              formula: '3 \\times (-5) = -15,\\;\\; 2 \\times (-5) = -10,\\;\\; 1 \\times (-5) = -5,\\;\\; 0 \\times (-5) = 0',
+              explanation:
+                'Each rung down adds $+5$: the legs removed were leftward, so removing one moves the landing $5$ steps back to the right.',
+            },
+            {
+              label: 'Demand the law hold everywhere',
+              formula: '(-1) \\times (-5) \\;=\\; 0 \\times (-5) + 5 \\;=\\; 5',
+              explanation:
+                'Nothing in the descent law knows that $m$ started positive. Held to every integer, it forces the next rung: from $0$, one more step down must again add $5$.',
+            },
+            {
+              label: 'Continue the climb',
+              formula: '(-2) \\times (-5) = 10, \\qquad (-3) \\times (-5) = 15',
+              explanation:
+                'Rung after rung, the same $+5$. The staircase cannot bend without breaking the law that built it — the pattern is forced, not lucky.',
+            },
+          ],
+          result:
+            'Descending the walk-count raises the product by the length at every rung: $(-1) \\times (-5) = 5$ — a debt times a minus lands on the positive side.',
+        },
+        {
+          kind: 'para',
+          text: 'The staircase persuades; the next heading *compels*. One law and four lines will settle every minus-times-minus product at once.',
+        },
+        { kind: 'heading', text: 'The distributive argument' },
+        {
+          kind: 'para',
+          text: 'Chapter 2 certified the distributive law on the wholes: multiplying a sum multiplies each part. On the integers the law extends — the grid check below re-certifies it on all $9{,}261$ triples in $[-10, 10]^3$ — and it is the bridge that carries the sign rules the last mile.',
+        },
+        {
+          kind: 'equation',
+          latex: 'a \\times (b + c) \\;=\\; a \\times b + a \\times c',
+          note: 'The distributive law — the one bridge between the two operations. It held on the wholes of chapter 2; the grid check holds it on the integers with no exception. Every sign rule below is this law, cashed.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The distributive argument for a debt times a debt',
+          statement:
+            'The staircase showed the shape; the laws of algebra can pin it. One application of the distributive law settles $(-1) \\times (-5)$ — and with it, every minus-times-minus product at once.',
+          steps: [
+            {
+              label: 'Build a sum that must vanish',
+              formula: '(-1) \\times (-5) + (-1) \\times 5 \\;=\\; (-1) \\times \\big((-5) + 5\\big)',
+              explanation:
+                'Factor out the common multiplier $(-1)$ — the distributive law, equation tag 1, applied with a negative multiplier.',
+            },
+            {
+              label: 'The bracket is zero',
+              formula: '= \\; (-1) \\times 0 \\;=\\; 0',
+              explanation:
+                '$-5$ and $5$ are additive inverses (Lesson 7.1), so their sum is $0$; and the zero product property multiplies it to $0$.',
+            },
+            {
+              label: 'Read the sentence',
+              formula: '(-1) \\times (-5) \\;=\\; -\\big((-1) \\times 5\\big) \\;=\\; -(-5)',
+              explanation:
+                'A sum of $0$ demands its addends be opposites: $(-1) \\times (-5)$ must undo $(-1) \\times 5 = -5$ exactly.',
+            },
+            {
+              label: 'The double reflection finishes it',
+              formula: '-(-5) \\;=\\; 5',
+              explanation:
+                'Lesson 7.1\u2019s derivation returns: the opposite of the opposite returns home. Two minus signs cancel into a plus.',
+            },
+          ],
+          result:
+            'For every pair of integers, $(-a) \\times (-b) = a \\times b$ and $(-a) \\times b = a \\times (-b) = -(a \\times b)$: minus-times-minus is plus, minus-times-plus is minus, magnitudes untouched.',
+        },
+        {
+          kind: 'equation',
+          latex: '(-a) \\times b \\;=\\; a \\times (-b) \\;=\\; -(a \\times b), \\qquad (-a) \\times (-b) \\;=\\; a \\times b',
+          note: 'The general sign law. Script-verified: on all $441$ pairs in $[-10, 10]^2$ both identities hold with zero exceptions — the seed $(-1) \\times (-1) = 1$ multiplies through both sides of every case.',
+        },
+        { kind: 'heading', text: 'The sign rules, collected' },
+        {
+          kind: 'para',
+          text: 'Four cases, one table, one rule underneath them all: the magnitudes multiply exactly as the times table always did — the signs never touch the size of the answer, they only aim it.',
+        },
+        {
+          kind: 'table',
+          head: ['The two signs', 'Agree or differ', 'The rule', 'Instance'],
+          rows: [
+            ['$+$ and $+$', 'agree', 'multiply the magnitudes, keep $+$', '$3 \\times 5 = 15$'],
+            ['$-$ and $-$', 'agree', 'multiply the magnitudes, keep $+$', '$(-3) \\times (-5) = 15$'],
+            ['$+$ and $-$', 'differ', 'multiply the magnitudes, take $-$', '$3 \\times (-5) = -15$'],
+            ['$-$ and $+$', 'differ', 'multiply the magnitudes, take $-$', '$(-3) \\times 5 = -15$'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Two steps, every time: multiply the magnitudes by the old times table; then let the signs vote — agreeing signs land positive, differing signs land negative. The staircase of the last heading is the second step made visible, and the distributive argument is its certificate.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $(-8) \\times (-9)$.',
+          steps: [
+            'Now, both factors are negative — agreeing signs.',
+            'So multiply the magnitudes: $8 \\times 9 = 72$; agreement lands positive.',
+            'Hence $72$ — a debt of eight nines is a fortune of seventy-two, as the old verses say; the table\u2019s second row, worked.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A cold wave drops the temperature by $6$°C every hour. Write the four-hour change as one product.',
+          steps: [
+            'Now, each hour\u2019s change wears $-6$°C, and the walk-count is the $4$ hours.',
+            'So the total change is $(-6) \\times 4$: differing signs take $-$; magnitudes $6 \\times 4 = 24$.',
+            'Hence $-24$°C — the thermometer reads $24$ degrees lower than it began. The third row of the table, wearing units.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Zero is signed by no one',
+          text: 'Zero is neither positive nor negative (Lesson 7.1), so no sign table can decide its products — and none needs to: $a \\times 0 = 0$ for every integer $a$, by the zero product property. Examination answer keys see the error often enough: there is no \u201csign of zero\u201d to argue about, and a product that touches zero lands exactly on zero.',
+        },
+        { kind: 'heading', text: 'Properties of integer multiplication' },
+        {
+          kind: 'para',
+          text: 'Around the four cases, the old laws stand up and introduce themselves to the new numbers — as addition\u2019s did in 7.2. Each carries a script-verified instance, and each is a licence the exercises will spend.',
+        },
+        {
+          kind: 'list',
+          items: [
+            '**closure**: the product of two integers is an integer — $(-7) \\times 12 = -84$ never leaves $\\mathbb{Z}$. The times table has no gaps to fall through.',
+            '**commutativity**: $a \\times b = b \\times a$; instance $(-8) \\times 7 = -56 = 7 \\times (-8)$. Grid-checked on all $625$ pairs in $[-12, 12]^2$ — the licence behind reading either factor as the walk-count.',
+            '**associativity**: $(a \\times b) \\times c = a \\times (b \\times c)$; instance $((-2) \\times 3) \\times (-5) = (-6) \\times (-5) = 30$ and $(-2) \\times (3 \\times (-5)) = (-2) \\times (-15) = 30$. Chains may be grouped wherever convenient.',
+            '**the multiplicative identity**: $a \\times 1 = a$; instance $(-25) \\times 1 = -25$. One walks you nowhere new. Its shadow: $(-1) \\times a = -a$ — one\u2019s mirror twin flips every integer to its opposite, the *mirror-maker*.',
+            '**the zero product property**: $a \\times 0 = 0$; instance $(-13) \\times 0 = 0$. Zero walks, zero landing, no sign to argue with.',
+            '**the distributive law**: $a \\times (b + c) = a \\times b + a \\times c$; instance $5 \\times (6 + (-4)) = 5 \\times 2 = 10 = 30 + (-20)$. The bridge that derived today\u2019s hardest rule — and tomorrow\u2019s fastest simplifications.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'One and minus one are not twins',
+          text: 'The identity $1$ *preserves* every integer: $1 \\times a = a$. The mirror-maker $-1$ *reverses* every integer: $(-1) \\times a = -a$. Confusing them is the classic slip: $1 \\times (-6) = -6$, but $(-1) \\times (-6) = 6$. The mirror-maker applied twice restores the original — $(-1) \\times (-1) \\times a = a$ — two reflections, one homecoming.',
+        },
+        {
+          kind: 'example',
+          title: 'A bank waives a Rs $200$ penalty three times. Write the total effect as one product.',
+          steps: [
+            'Now, the ledger wears each penalty as Rs $-200$; a waiver is a *removal* of a penalty — and there are three removals.',
+            'So the total is $(-3) \\times (-200)$: magnitudes $3 \\times 200 = 600$; agreeing signs land positive.',
+            'Hence Rs $+600$ — the account stands Rs $600$ richer than before the penalties existed. Removing debts is earning; that is minus-times-minus in the language of the passbook.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Find the integer: $(-9) \\times \\square = 72$.',
+          steps: [
+            'Now, the product $72$ is positive while the known factor $-9$ is negative — so the hidden factor must be negative too: agreeing signs are the only road to a positive product.',
+            'So the magnitudes must satisfy $9 \\times |\\square| = 72$, and the times table answers $8$.',
+            'Hence $\\square = -8$; the check closes: $(-9) \\times (-8) = 72$.',
+          ],
+        },
+        { kind: 'heading', text: 'Products of many factors' },
+        {
+          kind: 'para',
+          text: 'Chains of factors need no new machinery: multiply two, multiply by the next, and let each sign vote. But a shortcut reveals itself — **count the minus signs**. An *even* number of negative factors cancels into a positive product; an *odd* number leaves it negative. The magnitudes multiply as always.',
+        },
+        {
+          kind: 'para',
+          text: 'The reason sits in the mirror-maker. Every negative factor is $(-1)$ walking alongside a magnitude, and $(-1) \\times (-1) = 1$ — derived above. So pairs of minus signs annihilate, and a lone survivor turns the product negative: three minus signs leave one survivor; five leave one; two leave none. Count to odd or even, and the sign is decided before any magnitude is touched.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $(-2) \\times (-3) \\times (-4)$.',
+          steps: [
+            'Now, three factors carry minus signs — an odd count — so exactly one $(-1)$ survives the annihilation and the product is negative.',
+            'So the magnitudes multiply: $2 \\times 3 \\times 4 = 24$; the survivor aims it.',
+            'Hence $-24$ — and the long way agrees: $(-2) \\times (-3) = 6$, then $6 \\times (-4) = -24$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Parity belongs to products only',
+          text: 'The minus-count shortcut is licensed by $(-1) \\times (-1) = 1$ *inside a product*. Sums obey nothing of the sort: $(-2) + (-3) + (-4) = -9$ — three minuses did not make a plus. Read the operation before reading the signs; the parity habit applied to a sum is a guaranteed wrong answer.',
+        },
+        {
+          kind: 'para',
+          text: 'From the above discussion, it follows that the integers multiply under a rule that was never decreed: the times table sizes every product, the sign table aims it, and the aim is forced — once by the staircase the known products trace, once by the distributive law they obey. What 7.2 did for addition and subtraction, this lesson has done for multiplication: no incantation survives that a derivation cannot replace.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Integers in the examination hall',
+          text: 'Integer multiplication appears in every aptitude paper as sign discipline under time pressure. SSC CHSL/MTS banks ask straight products and three-factor chains where the parity count decides in one glance; RRB NTPC CBT-I items embed signed products inside simplifications — shapes like $(-6) \\times 47 + (-6) \\times 53$, where factoring out the $-6$ saves a full minute; banking clerical preliminaries wrap products in narration — fines waived, deposits reversed — where the first task is translating words into signs. The shapes are cited from these banks\u2019 published patterns; none is reproduced. One habit pays for the whole topic: count minus signs first, magnitudes second.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Brahmagupta\u2019s verses on fortune and debt',
+          text: 'In 628 CE, Brahmagupta\u2019s *Brahmasphutasiddhanta* stated the sign laws in the language of fortune and debt: a fortune multiplied by a fortune is a fortune; a fortune by a debt is a debt; and a debt by a debt — a fortune (surviving through Colebrooke\u2019s 1817 Sanscrit translation; paraphrased here, and *derived* — not recited — in the staircase and distributive arguments above). Europe needed centuries to stop flinching: as Lesson 7.1 recorded, negative roots were still being called darkness in 1758. What Brahmagupta saw, and this lesson rebuilt from the ground, is that the rule is not a convention at all — it is the distributive law\u2019s unavoidable verdict. The verses earned their fame; the derivation earns more.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Product',
+              def: 'The landing point of the repeated walk: for integers $a$ and $b$, the product $a \\times b$ has magnitude $|a| \\times |b|$ and sign $+$ when $a, b$ agree, $-$ when they differ.',
+            },
+            {
+              term: 'Repeated-walk model',
+              def: 'Multiplication read as a walk taken many times: $m \\times b$ with $m$ positive is $m$ legs of length $|b|$ in $b$\u2019s direction; the staircase of products extends the reading to negative walk-counts.',
+            },
+            {
+              term: 'Sign rules for multiplication',
+              def: 'Agreeing signs multiply to a positive product, differing signs to a negative — derived from the walk and forced by the distributive law, never decreed.',
+            },
+            {
+              term: 'Sign parity',
+              def: 'In a chain of factors, an even count of minus signs lands positive and an odd count lands negative: pairs of $(-1)$s annihilate, a survivor flips.',
+            },
+            {
+              term: 'Multiplicative identity',
+              def: '$a \\times 1 = a$ — one preserves every integer. Its mirror twin: $(-1) \\times a = -a$, the mirror-maker that reverses every integer.',
+            },
+            {
+              term: 'Zero product property',
+              def: '$a \\times 0 = 0$ for every integer $a$ — zero walks, zero landing; zero carries no sign to argue with.',
+            },
+            {
+              term: 'Commutative law of multiplication',
+              def: '$a \\times b = b \\times a$ — carried over from the wholes and grid-verified on the integers; the licence to read either factor as the walk-count.',
+            },
+            {
+              term: 'Distributive law',
+              def: '$a \\times (b + c) = a \\times b + a \\times c$ — the bridge between the two operations, and the engine that forces minus-times-minus to land positive.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Evaluate $(-7) \\times 5$.',
+              options: ['$35$', '$-12$', '$-35$', '$12$'],
+              answer: 2,
+              explain:
+                'Differing signs: magnitudes $7 \\times 5 = 35$, take $-$ (Option 3). Option 1 drops the sign; Options 2 and 4 misapply the *addition* rule, adding the magnitudes $7 + 5 = 12$ instead of multiplying them.',
+            },
+            {
+              q: 'Evaluate $(-9) \\times (-6)$.',
+              options: ['$-54$', '$54$', '$15$', '$-15$'],
+              answer: 1,
+              explain:
+                'Agreeing signs: $9 \\times 6 = 54$, keep $+$ (Option 2). Option 1 drops the sign; Options 3 and 4 add the magnitudes $9 + 6 = 15$ — the addition rule creeping in where the times table rules.',
+            },
+            {
+              q: 'The chain $(-1) \\times (-1) \\times (-1)$ equals',
+              options: ['$1$', '$-1$', '$3$', '$-3$'],
+              answer: 1,
+              explain:
+                'Three minus signs — an odd count — so the product is negative (Option 2), and every factor is $\u00b11$, so the size is $1$. Option 1 miscounts the parity; Options 3 and 4 tinker with the size, which three ones can only ever multiply to $1$.',
+            },
+            {
+              q: 'The product $(-2) \\times (-5) \\times (-3) \\times 4$ is',
+              options: ['$-120$', '$120$', '$-60$', '$60$'],
+              answer: 0,
+              explain:
+                'Three minus signs — odd — so the sign is $-$; magnitudes $2 \\times 5 \\times 3 \\times 4 = 120$ (Option 1). Option 2 miscounts the parity; Options 3 and 4 halve a factor ($2 \\times 5 \\times 3 \\times 2 = 60$) instead of multiplying all four.',
+            },
+            {
+              q: 'A temperature falls $6$°C every hour for $4$ hours. The signed change over the four hours is',
+              options: ['$24$°C', '$-10$°C', '$10$°C', '$-24$°C'],
+              answer: 3,
+              explain:
+                'Each hour contributes $-6$; the walk-count is $4$: $(-6) \\times 4 = -24$ (Option 4). Option 1 drops the sign; Options 2 and 3 add the magnitudes $6 + 4 = 10$ — the addition rule, not the times table.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Evaluate $(-6) \\times 8$.',
+                  solution: [
+                    'Now, the signs differ, so the product takes $-$.',
+                    'So multiply the magnitudes: $6 \\times 8 = 48$.',
+                    'Hence $-48$.',
+                  ],
+                  answer: '$-48$',
+                },
+                {
+                  q: 'Evaluate $(-3) \\times (-12)$.',
+                  solution: [
+                    'Now, the signs agree — two negatives — so the product lands positive.',
+                    'So multiply the magnitudes: $3 \\times 12 = 36$.',
+                    'Hence $36$.',
+                  ],
+                  answer: '$36$',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Evaluate $9 \\times (-7)$.',
+                  solution: [
+                    'Now, the signs differ: the product takes $-$.',
+                    'So the magnitudes: $9 \\times 7 = 63$.',
+                    'Hence $-63$.',
+                  ],
+                  answer: '$-63$',
+                },
+                {
+                  q: 'Evaluate $(-5) \\times 0$.',
+                  solution: [
+                    'Now, zero carries no sign and takes no walk — the zero product property decides before any table is consulted.',
+                    'So $(-5) \\times 0 = 0$: five walks of no length land nowhere.',
+                    'Hence $0$.',
+                  ],
+                  answer: '$0$',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Evaluate $(-4) \\times (-25)$.',
+                  solution: [
+                    'Now, agreeing signs — the product lands positive.',
+                    'So the magnitudes: $4 \\times 25 = 100$.',
+                    'Hence $100$.',
+                  ],
+                  answer: '$100$',
+                },
+                {
+                  q: 'Evaluate $(-2) \\times (-5) \\times (-6)$.',
+                  solution: [
+                    'Now, count the minus signs: three — odd — so one $(-1)$ survives the annihilation and the product is negative.',
+                    'So the magnitudes: $2 \\times 5 \\times 6 = 60$.',
+                    'Hence $-60$ — and the long way agrees: $(-2) \\times (-5) = 10$, then $10 \\times (-6) = -60$.',
+                  ],
+                  answer: '$-60$',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A cold wave lowers the temperature by $6$°C each hour. What is the signed change after $5$ hours?',
+                  solution: [
+                    'Now, each hour wears $-6$°C and the walk-count is $5$: the product is $(-6) \\times 5$.',
+                    'So differing signs take $-$; magnitudes $6 \\times 5 = 30$.',
+                    'Hence $-30$°C — thirty degrees colder than the reading at hour zero.',
+                  ],
+                  answer: '$-30$°C',
+                },
+                {
+                  q: 'Find the integer: $(-9) \\times \\square = 72$.',
+                  solution: [
+                    'Now, the product $72$ is positive while the known factor $-9$ is negative — so the hidden factor must be negative too: agreeing signs are the only road to a positive product.',
+                    'So the magnitudes must satisfy $9 \\times |\\square| = 72$, and the times table answers $8$.',
+                    'Hence $\\square = -8$; the check closes: $(-9) \\times (-8) = 72$.',
+                  ],
+                  answer: '$-8$',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Evaluate $(-6) \\times 47 + (-6) \\times 53$ without multiplying both terms out in full.',
+                  solution: [
+                    'Now, both terms share the factor $-6$ — the distributive law factors it out.',
+                    'So $(-6) \\times 47 + (-6) \\times 53 = (-6) \\times (47 + 53) = (-6) \\times 100$.',
+                    'And $(-6) \\times 100 = -600$ — differing signs, magnitude $600$.',
+                    'Hence $-600$; the long way agrees: $-282 + (-318) = -600$.',
+                  ],
+                  answer: '$-600$',
+                },
+                {
+                  q: 'A school waives three pending fines of Rs $250$ each. Write the total effect as one signed product.',
+                  solution: [
+                    'Now, each fine sits on the books as Rs $-250$; a waiver is a removal — and there are three removals.',
+                    'So the total is $(-3) \\times (-250)$: agreeing signs, magnitude $3 \\times 250 = 750$.',
+                    'Hence Rs $+750$ — the books stand Rs $750$ better off than before the fines existed. Removing debts is gaining.',
+                  ],
+                  answer: 'Rs $+750$',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Using only the distributive law, the identity and the zero product property, derive $(-1) \\times a = -a$ for every integer $a$; cash it at $a = 13$; and state the consequence for $(-a) \\times (-b)$.',
+                  solution: [
+                    'Now, start from the split $1 = 1 + (-1)$ — the inverse law of 7.2 — and multiply by $a$: $a = a \\times 1 = a \\times (1 + (-1))$.',
+                    'So distributing: $a \\times (1 + (-1)) = a \\times 1 + a \\times (-1) = a + a \\times (-1)$.',
+                    'And the bracket $1 + (-1) = 0$, so the whole right side is $a \\times 0 = 0$ — the zero product property.',
+                    'Thus $a + a \\times (-1) = 0$: the product $a \\times (-1)$ must be the additive inverse of $a$, which is $-a$ — and the opposite is unique (Lesson 7.1).',
+                    'Cashed at $a = 13$: $(-1) \\times 13 = -13$, and indeed $13 + (-13) = 0$.',
+                    'Hence the consequence: $(-a) \\times (-b) = (-1) \\times a \\times (-1) \\times b = (-1) \\times (-1) \\times a \\times b = 1 \\times a \\times b = a \\times b$ — the seed $(-1) \\times (-1) = 1$ in the middle, the whole sign rule around it.',
+                  ],
+                  answer: '$(-1) \\times a = -a$; at $a = 13$: $-13$; and $(-a) \\times (-b) = a \\times b$',
+                },
+                {
+                  q: 'Evaluate $(-2) \\times (-3) \\times 4 \\times (-5)$ and state, in one sentence, the parity rule the chain exhibits.',
+                  solution: [
+                    'Now, three factors wear minus signs — odd — so exactly one $(-1)$ survives the annihilation and the product is negative.',
+                    'So the magnitudes: $2 \\times 3 \\times 4 \\times 5 = 120$.',
+                    'Hence $-120$ — and the rule: a product of integers is positive when an even number of its factors are negative and negative when the count is odd, because pairs of minus signs multiply to $1$ and a survivor multiplies to $-1$.',
+                  ],
+                  answer: '$-120$',
                 },
               ],
             },

@@ -9,7 +9,40 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 34, Job 498279**:
+Generated: 2026-11-03/04 (maintained through **run 35, Job 498279**:
+**FM 7.3 "Multiplying Integers and the Sign Rules" shipped + voice
+polish 2.3** (3,899 body words): multiplication as the repeated-walk
+model — the formal Definition callout ("the product $m \times b$ is
+said to be the position reached by taking $m$ walks of length $|b|$ in
+$b$'s direction") + the roman run (3×5; 3×(−5); 0×(−9)); figure 1 the
+repeated walk 3 × (−5) = −15 (three cubic arcs with solid heads
+landing at −5/−10/−15, one 34-px step scale, the 15-step brace); the
+positive walk-count settles two sign cases and commutativity
+(grid-checked, 625 pairs) buys the third; the fourth — minus × minus —
+derived TWICE: figure 2 the product staircase (bars for (−5)×m,
+m = 3..−3 at 7 px per unit; the bar ends on one straight line crossing
+zero at m = 0) with the staircase derivation (each rung down adds the
+length — forced by distributivity to continue past zero) and the
+distributive derivation ((−1)×(−5) + (−1)×5 = (−1)×0 = 0, so
+(−1)×(−5) = −(−5) = 5, cashing 7.1's double reflection again);
+equation tag 1 the distributive law (9,261-triple grid), tag 2 the
+general sign law (−a)×(−b) = a×b (441-pair grid); the sign-case table;
+the six properties with instances + the identity-vs-mirror-maker
+Caution; sign parity for chains (brute-forced over every signed chain
+of length 1–5) + the parity-is-products-only Caution; the waived
+penalty Rs (−200)×(−3) = 600; the missing factor (−9)×□ = 72 → −8;
+exam corner (SSC CHSL/MTS parity chains, RRB NTPC distributive
+simplifications, banking narrations); Brahmagupta's 628 CE
+multiplication verses (fortune × fortune, fortune × debt, debt × debt
+— Colebrooke 1817, paraphrased then derived); 8 terms, 5-quiz keys
+2/1/1/0/3 (live 5/5 · perfect), 12 exercises L1–L6 (L6: the
+distributive derivation of (−1)×a = −a cashed at 13; the parity chain
+−120). Verify-first: verify-unit-7.ts extended to 231 checks (T–AB)
+BEFORE writing, incl. the 441-pair multiplication brute force, the
+9,261-triple distributive grid and the 5-length parity sweep. Voice
+polish 2.3: the formal repeated-addition Definition callout + Thus-line
++ the two table settings as the roman run in lesson 2.3 — zero new
+numerals. || Previous run 34:
 **FM 7.2 "Adding and Subtracting Integers" shipped + voice polish 2.2**
 (3,861 body words): the movement model — final position = starting
 position + the second movement — formalised as the walk Definition and
@@ -991,7 +1024,7 @@ downloads (references already logged).
 | 4 | Fractions — **COMPLETE (5/5, run 20)** | ~~The Idea of a Fraction~~ · ~~Equivalent Fractions and Simplification~~ · ~~Comparing Fractions~~ · ~~Adding/Subtracting Fractions~~ · ~~Multiplying/Dividing Fractions~~ — all **WRITTEN** |
 | 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
-| 7 | Integers — **OPEN (2/4, run 34)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · Multiplying Integers and the Sign Rules · Absolute Value as Distance |
+| 7 | Integers — **OPEN (3/4, run 35)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · Absolute Value as Distance |
 | 8 | Geometry Foundations | Points/Lines/Planes · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |

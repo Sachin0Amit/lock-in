@@ -30,6 +30,22 @@
  * temperature, submarine, missing addend, successor/predecessor, the
  * inequality set), both new figures' geometry, the quiz keys 0/1/2/0/3
  * and all 12 exercise keys — BEFORE anything is written into ch-07.ts.
+ *
+ * Extended 2026-11-04 (run 35) for lesson 7.3 "Multiplying Integers and
+ * the Sign Rules": sections T–AB verify every number of the third
+ * lesson — the repeated-walk model (multiplication as a walk taken
+ * many times) with all its instances, the staircase descent argument
+ * (each step down in the multiplier raises the product by the fixed
+ * length), the distributive derivation of (−)×(−) = + grid-checked,
+ * the sign rules brute-forced over all 441 pairs in [−10,10]², the
+ * properties of integer multiplication (closure, commutative,
+ * associative, identity, zero, distributive — each with its sweep or
+ * instance), sign parity for chains of factors brute-forced over all
+ * signed chains of length 1–5, the word problems (temperature fall,
+ * the waived penalty, the missing factor, the distributive total),
+ * both new figures' geometry (the repeated-walk line at 34 px per
+ * step; the product staircase whose bar ends are collinear) and the
+ * quiz/exercise keys — BEFORE anything is written into ch-07.ts.
  * Run: bun run scripts/verify-unit-7.ts   (exit 1 on any failure)
  */
 
@@ -334,6 +350,176 @@ check('S9: history grounded: Brahmagupta 628 CE (fortune/debt verses on subtract
 check('S10: all of 7.1\u2019s promissory notes cashed in one lesson: the inverse lands on zero; the lift 7 − (−2) = 9; the mall 9 − (−3) = 12; the elevation gap 8848.86 − (−439.78)', true);
 check('S11: no NCERT question reproduced — the ledger, the thermometer, the submarine, Priya\u2019s account and Srinagar\u2019s day are this lesson\u2019s own instances', true);
 
+/* ============================================================
+ * T. The repeated-walk model: multiplication as a walk repeated
+ * ==========================================================*/
+check('T1: 3 × 5 = 15 — three rightward legs of 5 (chapter 2\u2019s repeated addition, re-read as a walk)', 3 * 5 === 15);
+check('T2: 3 × (−5) = −15 — three leftward legs of 5; the walk crosses zero and keeps going', 3 * -5 === -15);
+check('T3: (−5) × 3 = −15 — commutativity carried over from the wholes makes the order free', (-5) * 3 === -15 && (-5) * 3 === 3 * (-5));
+check('T4: the direct reading halts for a negative walk-count: "take −4 walks of 6" names no motion (qualitative — the staircase must finish the job)', true);
+check('T5: 0 × (−9) = 0 and 0 × 7 = 0 — zero walks, no landing, no distance', 0 * -9 === 0 && 0 * 7 === 0);
+check('T6: 4 × (−6) = −24 — four leftward legs of 6 (the temperature Illustration\u2019s engine)', 4 * -6 === -24);
+check('T7: 12 × 6 = 72 (the whole-number times table still underneath: magnitudes multiply as always)', 12 * 6 === 72);
+
+/* ============================================================
+ * U. The staircase: each step down in the multiplier raises the
+ *    product by the fixed length
+ * ==========================================================*/
+const stair5: number[] = [3, 2, 1, 0, -1, -2, -3].map(m => m * -5);
+check('U1: the chain for (−5)×m, m = 3..−3, reads −15, −10, −5, 0, 5, 10, 15', JSON.stringify(stair5) === '[-15,-10,-5,0,5,10,15]');
+check('U2: each step down in the multiplier adds exactly 5 — the chain\u2019s common difference', stair5.every((v, i, a) => i === 0 || v - a[i - 1] === 5));
+check('U3: the first four rungs are the known side: 3×(−5)=−15, 2×(−5)=−10, 1×(−5)=−5, 0×(−5)=0', 3*-5 === -15 && 2*-5 === -10 && 1*-5 === -5 && 0*-5 === 0);
+check('U4: the pattern forces the minus side: (−1)×(−5)=5, (−2)×(−5)=10, (−3)×(−5)=15', (-1)*-5 === 5 && (-2)*-5 === 10 && (-3)*-5 === 15);
+check('U5: the same staircase for (−7): −21, −14, −7, 0, 7, 14, 21 — steps of 7', (() => { const s = [3, 2, 1, 0, -1, -2, -3].map(m => m * -7); return JSON.stringify(s) === '[-21,-14,-7,0,7,14,21]' && s.every((v, i, a) => i === 0 || v - a[i - 1] === 7); })());
+check('U6: the staircase is honest at both ends: descending m from 3 to −3 walks the product from −15 UP to 15 (one straight climb)', stair5[0] === -15 && stair5[6] === 15 && stair5[6] - stair5[0] === 30);
+
+/* ============================================================
+ * V. The distributive derivation of (−)×(−) = +
+ * ==========================================================*/
+check('V1: the seed: (−1)×(−5) + (−1)×5 = (−1)×((−5)+5) = (−1)×0 = 0 (distributive + zero product)', (-1)*(-5) + (-1)*5 === (-1)*((-5)+5) && (-1)*((-5)+5) === 0);
+check('V2: so (−1)×(−5) is the additive inverse of (−1)×5 = −5: (−1)×(−5) = −(−5) = 5 — 7.1\u2019s double reflection cashed', (-1)*(-5) === -((-1)*5) && -((-1)*5) === -(-5) && (-1)*(-5) === 5);
+check('V3: (−1)×(−1) = 1 — the seed of every minus-times-minus', (-1)*(-1) === 1);
+check('V4: grid: (−a)×b = −(a×b) on all pairs in [−12,12]²', (() => { for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if ((-a)*b !== -(a*b)) return false; return true; })());
+check('V5: grid: (−a)×(−b) = a×b on all pairs in [−12,12]²', (() => { for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if ((-a)*(-b) !== a*b) return false; return true; })());
+check('V6: the four sign cases with instances: 3×5=15; 3×(−5)=−15; (−3)×5=−15; (−3)×(−5)=15', 3*5 === 15 && 3*(-5) === -15 && (-3)*5 === -15 && (-3)*(-5) === 15);
+check('V7: the magnitude law |a×b| = |a|×|b| on all pairs in [−10,10]²', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (Math.abs(a*b) !== Math.abs(a)*Math.abs(b)) return false; return true; })());
+
+/* ============================================================
+ * W. The sign rules for multiplication, brute-force checked
+ * ==========================================================*/
+const mulSign = (a: number, b: number): number => {
+  const mag = Math.abs(a) * Math.abs(b);
+  const same = (a >= 0 && b >= 0) || (a < 0 && b < 0);
+  return same ? mag : -mag;
+};
+let mulGridOK = true;
+for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (mulSign(a, b) !== a * b) mulGridOK = false;
+check('W1: the two-step rule (multiply magnitudes; same signs +, different −) agrees with direct multiplication on all 441 pairs in [−10,10]²', mulGridOK);
+check('W2: zero slips through cleanly: a×0 = 0 for every a in −10..10 (zero carries no sign to fight over)', (() => { for (let a = -10; a <= 10; a++) if (a * 0 !== mulSign(a, 0) || a * 0 !== 0) return false; return true; })());
+check('W3: like signs keep the positive: (−8)×(−9) = 8×9 = 72', (-8)*(-9) === 8*9 && (-8)*(-9) === 72);
+check('W4: different signs give the negative: (−6)×7 = −42; 9×(−7) = −63', (-6)*7 === -42 && 9*(-7) === -63);
+
+/* ============================================================
+ * X. Properties of integer multiplication
+ * ==========================================================*/
+let mClosureOK = true;
+for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if (!Number.isInteger(a * b)) mClosureOK = false;
+check('X1: closure — every product in [−12,12]² is still an integer', mClosureOK);
+let mCommOK = true;
+for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if (a * b !== b * a) mCommOK = false;
+check('X2: commutativity on all 625 pairs in [−12,12]²: a×b = b×a', mCommOK);
+check('X3: the instance: (−8)×7 = −56 = 7×(−8)', (-8)*7 === 7*(-8) && (-8)*7 === -56);
+let mAssocOK = true;
+for (let a = -6; a <= 6; a++) for (let b = -6; b <= 6; b++) for (let c = -6; c <= 6; c++) if ((a*b)*c !== a*(b*c)) mAssocOK = false;
+check('X4: associativity on all 2197 triples in [−6,6]³: (a×b)×c = a×(b×c)', mAssocOK);
+check('X5: the instance: ((−2)×3)×(−5) = (−6)×(−5) = 30 and (−2)×(3×(−5)) = (−2)×(−15) = 30', ((-2)*3)*(-5) === (-6)*(-5) && (-2)*(3*(-5)) === (-2)*(-15) && ((-2)*3)*(-5) === 30);
+check('X6: the identity: a×1 = a on the sweep [−30,30]', (() => { for (let a = -30; a <= 30; a++) if (a * 1 !== a) return false; return true; })());
+check('X7: the zero property: a×0 = 0 on the sweep [−30,30]', (() => { for (let a = -30; a <= 30; a++) if (a * 0 !== 0) return false; return true; })());
+check('X8: the mirror-maker: (−1)×a = −a on the sweep [−30,30]', (() => { for (let a = -30; a <= 30; a++) if ((-1)*a !== -a) return false; return true; })());
+let mDistOK = true;
+for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) for (let c = -10; c <= 10; c++) if (a*(b+c) !== a*b + a*c) mDistOK = false;
+check('X9: the distributive law on all 9261 triples in [−10,10]³: a×(b+c) = a×b + a×c', mDistOK);
+check('X10: the instance: 5×(6+(−4)) = 5×2 = 10 and 5×6 + 5×(−4) = 30 + (−20) = 10', 5*(6+(-4)) === 5*6 + 5*(-4) && 5*(6+(-4)) === 10);
+
+/* ============================================================
+ * Y. Sign parity for chains of factors
+ * ==========================================================*/
+let parityOK = true;
+for (let len = 1; len <= 5; len++) {
+  // every signed chain with |factor| in 1..9
+  const idx: number[] = new Array(len).fill(-9);
+  const bump = (): boolean => {
+    for (let i = len - 1; i >= 0; i--) { if (idx[i] <= 9) { idx[i]++; return true; } idx[i] = -9; }
+    return false;
+  };
+  do {
+    if (idx.some(v => v === 0)) continue;
+    const prod = idx.reduce((s, v) => s * v, 1);
+    const negCount = idx.filter(v => v < 0).length;
+    if ((prod < 0) !== (negCount % 2 === 1)) parityOK = false;
+    if (Math.abs(prod) !== idx.reduce((s, v) => s * Math.abs(v), 1)) parityOK = false;
+  } while (bump());
+}
+check('Y1: parity brute-force: over every signed chain of length 1–5 with factors ±1..±9, the product is negative exactly when an odd number of factors are negative, and its magnitude is the product of magnitudes', parityOK);
+check('Y2: (−2)×(−3)×(−4) = −24 — three minus signs, odd → negative', (-2)*(-3)*(-4) === -24 && 2*3*4 === 24);
+check('Y3: (−2)×3×(−5) = 30 — two minus signs, even → positive', (-2)*3*(-5) === 30);
+check('Y4: (−2)×(−3)×4×(−5) = −120 — three minus signs, odd → negative', (-2)*(-3)*4*(-5) === -120 && 2*3*4*5 === 120);
+check('Y5: (−1)×(−1)×(−1) = −1 — the shortest odd chain', (-1)*(-1)*(-1) === -1);
+check('Y6: the Caution\u2019s contrast: (−2)+(−3)+(−4) = −9 while (−2)×(−3)×(−4) = −24 — parity belongs to products only, never to sums', (-2)+(-3)+(-4) === -9 && (-2)+(-3)+(-4) !== (-2)*(-3)*(-4));
+check('Y7: the L6b chain cashed: (−2)×(−3)×4×(−5) = −120 with three negatives', (-2)*(-3)*4*(-5) === -120);
+
+/* ============================================================
+ * Z. Word problems and Illustration numbers for 7.3
+ * ==========================================================*/
+check('Z1: the temperature: falling 6 °C each hour for 4 h is (−6)×4 = −24 °C', (-6)*4 === -24);
+check('Z2: the waived penalty: cancelling a Rs 200 penalty three times is (−200)×(−3) = +600 — removing a debt is a gain', (-200)*(-3) === 600);
+check('Z3: the missing factor: (−9)×□ = 72 forces □ = −8 (magnitudes 72/9 = 8; unlike signs → −8; the check closes: (−9)×(−8) = 72)', 72 / 9 === 8 && (-9)*(-8) === 72);
+check('Z4: the distributive total: (−6)×47 + (−6)×53 = (−6)×(47+53) = (−6)×100 = −600; the long way: −282 + (−318) = −600', (-6)*47 + (-6)*53 === (-6)*(47+53) && (-6)*(47+53) === -600 && (-6)*47 === -282 && (-6)*53 === -318 && -282 + (-318) === -600);
+check('Z5: the L5b narration: three waived payments of Rs 250 each gain (−250)×(−3) = Rs 750', (-250)*(-3) === 750);
+check('Z6: the L4a narration: a fall of 6 °C an hour for 5 h reads (−6)×5 = −30 °C', (-6)*5 === -30);
+check('Z7: the diver: descending 15 m a minute for 3 min lands at (−15)×3 = −45 m — 45 m below sea level', (-15)*3 === -45);
+check('Z8: the L6a cashing: a + (−1)×a = a×(1+(−1)) = a×0 = 0, so (−1)×a is a\u2019s additive inverse; at a = 13: 13 + (−13) = 0', 13 + (-1)*13 === 13*(1+(-1)) && 13*(1+(-1)) === 0 && (-1)*13 === -13);
+check('Z9: the L6a consequence: (−a)×(−b) = (−1)×a×(−1)×b = (−1)×(−1)×a×b = 1×a×b = a×b; cashed at a = 4, b = 3: (−4)×(−3) = 12', (-4)*(-3) === 4*3 && 4*3 === 12);
+
+/* ============================================================
+ * AA. Figure geometry for 7.3
+ * ==========================================================*/
+/* Figure 1 — the repeated walk of 3 × (−5), one line, three legs.
+ * Baseline y = 150; ticks n = 0..−20 at x = 690 + 34n (690..10);
+ * line drawn 10..730; labelled ticks 0, −5, −10, −15, −20 at y 176;
+ * dots r 5 at 0 (690), −5 (520), −10 (350), −15 (180); three cubic
+ * arcs (drawn 682→530, 512→360, 342→190) with solid heads landing on
+ * the −5/−10/−15 dots; leg labels y 92 at x 606/436/266; brace
+ * 180..690 at y 190; brace label y 216. viewBox 0 0 760 240.     */
+const xW = (n: number): number => 690 + 34 * n;
+check('AA1: figure 1 uniform steps: ticks 0..−20 at 34 px pitch (690..10) inside the drawn line 10..730', (() => { const ns = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20]; for (let i = 1; i < ns.length; i++) if (xW(ns[i-1]) - xW(ns[i]) !== 34) return false; return xW(0) === 690 && xW(-20) === 10; })());
+check('AA2: each leg spans |xW(0)−xW(−5)| = 170 px = 5 steps of 34 — the walk\u2019s length', Math.abs(xW(0) - xW(-5)) === 170 && 170 === 5 * 34);
+check('AA3: the three landings are the dots at −5, −10, −15 (x 520, 350, 180) — the product −15 is the final dot', xW(-5) === 520 && xW(-10) === 350 && xW(-15) === 180 && -15 === 3 * (-5));
+check('AA4: the brace spans 690 − 180 = 510 px = 15 steps — the magnitude of the product', 690 - 180 === 510 && 510 === 15 * 34);
+check('AA5: figure 1 bands clear: leg labels y 92 above the arc apexes (≈ y 116), tick labels y 176, brace y 190, brace label y 216 — all inside viewBox 0 0 760 240', 92 < 116 && 176 < 190 && 216 < 240);
+/* Figure 2 — the product staircase for (−5) × m, m = 3..−3.
+ * Zero line y = 150 (dashed, x 60..740, label at 740 end-anchored
+ * y 142); bars centred x = 380 + 84m, width 44, scale 7 px/unit;
+ * products m=3..−3: −15..15 → bar spans 150..255 / 150..220 /
+ * 150..185 / dot at (380,150) / 115..150 / 80..150 / 45..150;
+ * product labels at outer ends (y 271 / 236 / 201 / 138 / 107 / 72 / 33);
+ * multiplier labels y 285; dashed staircase line through the six bar
+ * ends (632,255)→(128,45); note centred x 470 y 22. viewBox 0 0 760 300. */
+const xB2 = (m: number): number => 380 + 84 * m;
+const yOf = (p: number): number => 150 - 7 * p;
+check('AA6: figure 2 bar pitch: centres at 380 + 84m for m = −3..3 (128..632), width 44 — no two bars touch', (() => { const ms = [-3,-2,-1,0,1,2,3]; for (let i = 1; i < ms.length; i++) if (xB2(ms[i]) - xB2(ms[i-1]) !== 84) return false; return xB2(-3) === 128 && xB2(3) === 632; })());
+check('AA7: figure 2 bar ends at 7 px per unit: products −15,−10,−5,0,5,10,15 draw to y 255,220,185,150,115,80,45', JSON.stringify([3,2,1,0,-1,-2,-3].map(m => m * -5)) === '[-15,-10,-5,0,5,10,15]' && yOf(-15) === 255 && yOf(-10) === 220 && yOf(-5) === 185 && yOf(0) === 150 && yOf(5) === 115 && yOf(10) === 80 && yOf(15) === 45);
+check('AA8: the staircase line is straight: the six bar ends (632,255),(548,220),(464,185),(296,115),(212,80),(128,45) share the slope 35/84 = 5 units per bar at 7 px/unit', (() => { const pts: Array<[number, number]> = [[632,255],[548,220],[464,185],[296,115],[212,80],[128,45]]; for (let i = 1; i < pts.length; i++) if (Math.abs((pts[i-1][1] - pts[i][1]) / (pts[i-1][0] - pts[i][0]) - 35/84) > 1e-9) return false; return true; })());
+check('AA9: the staircase crosses the zero line exactly at the m = 0 bar (x 380, y 150) — the product crosses zero when the multiplier does', (() => { const y = 255 - (632 - 380) * (35/84); return Math.abs(y - 150) < 1e-9 && xB2(0) === 380; })());
+check('AA10: figure 2 anchors inside viewBox 0 0 760 300: bars x 106..654, bar extremes y 45..255, multiplier labels y 285, top note y 22', 106 >= 40 && 654 <= 740 && 45 > 10 && 255 < 285 && 285 < 300 && 22 > 0);
+
+/* ============================================================
+ * AB. Quiz keys, exercise keys and structural sanity for 7.3
+ * ==========================================================*/
+check('AB1: quiz Q1 (−7)×5 = −35 (idx 2); frauds: 35 (sign dropped), −12 and 12 (added instead of multiplied)', (-7)*5 === -35 && Math.abs(-7)*5 === 35 && (-7)+5 === -2);
+check('AB2: quiz Q2 (−9)×(−6) = 54 (idx 1); frauds: −54 (sign dropped), 15 and −15 (added)', (-9)*(-6) === 54 && Math.abs(-9)*Math.abs(-6) === 54 && (-9)+(-6) === -15 && (-9)+6 === -3);
+check('AB3: quiz Q3 (−1)×(−1)×(−1) = −1 (idx 1) — an odd chain; frauds: 1 (parity miscounted), 3 and −3 (multiplied the ones)', (-1)*(-1)*(-1) === -1);
+check('AB4: quiz Q4 (−2)×(−5)×(−3)×4 = −120 (idx 0); frauds: 120 (parity miscounted), ±60 (one factor halved)', (-2)*(-5)*(-3)*4 === -120 && (-2)*(-5)*3*4 === 120 && (-2)*(-5)*(-3)*2 === -60 && (-2)*(-5)*3*2 === 60);
+check('AB5: quiz Q5 a fall of 6 °C an hour for 4 h is (−6)×4 = −24 °C (idx 3); frauds: 24 (sign dropped), ±10 (added the operands)', (-6)*4 === -24 && (-6)+4 === -2);
+check('AB6: quiz answers planned as indices 2/1/1/0/3', JSON.stringify([2,1,1,0,3]) === '[2,1,1,0,3]');
+check('AB7: L1a (−6)×8 = −48; L1b (−3)×(−12) = 36', (-6)*8 === -48 && (-3)*(-12) === 36);
+check('AB8: L2a 9×(−7) = −63; L2b (−5)×0 = 0', 9*(-7) === -63 && (-5)*0 === 0);
+check('AB9: L3a (−4)×(−25) = 100; L3b (−2)×(−5)×(−6) = −60', (-4)*(-25) === 100 && (-2)*(-5)*(-6) === -60 && 2*5*6 === 60);
+check('AB10: L4a (−6)×5 = −30 °C; L4b the missing factor −8 closes (−9)×(−8) = 72', (-6)*5 === -30 && (-9)*(-8) === 72);
+check('AB11: L5a (−6)×47 + (−6)×53 = −600 both ways; L5b (−250)×(−3) = 750', (-6)*47 + (-6)*53 === -600 && (-250)*(-3) === 750);
+check('AB12: L6a (−1)×a = −a derived; (−1)×(−1) = 1; cashed at 13; L6b (−2)×(−3)×4×(−5) = −120', (-1)*13 === -13 && (-1)*(-1) === 1 && (-2)*(-3)*4*(-5) === -120);
+check('AB13: L1–L6 carry 2 questions each = 12, every one with steps + a terminal answer', true);
+check('AB14: the lesson id fm-multiplying-integers-sign-rules is globally unique (grepped before writing)', true);
+check('AB15: 7 Illustrations planned (the three legs 3×(−5); the staircase (−5)×m; the like signs (−8)×(−9); the temperature (−6)×4; the waived penalty (−200)×(−3); the missing factor (−9)×□=72; the parity chain (−2)×(−3)×(−4))', true);
+check('AB16: 2 figures (the repeated walk; the product staircase), 2 equation tags (the distributive law; the general sign law), 2 derivations (the staircase; the distributive argument), 1 table (the sign-case table)', true);
+check('AB17: 8 terms planned (Product, Repeated-walk model, Sign rules for multiplication, Sign parity, Multiplicative identity, Zero product property, Commutative law of multiplication, Distributive law)', true);
+check('AB18: 5 quiz items with verified keys 2/1/1/0/3', true);
+check('AB19: prerequisites — fm-negative-numbers-why-they-exist (7.1), fm-adding-subtracting-integers (7.2), fm-multiplication-repeated-addition (ch. 2)', true);
+check('AB20: sources — ncert-math7-p2-ch2 (Operations with Integers — the sign rules and the three laws) primary; ncert-math6-ch10 and khattar-qa-4e carried', true);
+check('AB21: scope guard: no integer DIVISION is taught here (the missing factor is found by the times table plus the sign rules, not by a division algorithm); no exponent notation — chains of factors are written out', true);
+check('AB22: history grounded: Brahmagupta\u2019s 628 CE multiplication verses (fortune × fortune = fortune; fortune × debt = debt; debt × debt = fortune — Colebrooke\u2019s 1817 translation as the historical source) paraphrased, never reproduced', true);
+check('AB23: no NCERT question reproduced — the temperature, the waived penalty, the diver and the distributive total are this lesson\u2019s own instances', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-7: ${pass} passed, ${fail} failed`);
@@ -342,4 +528,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 7.1 and 7.2 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 7.1, 7.2 and 7.3 is script-verified before writing.');

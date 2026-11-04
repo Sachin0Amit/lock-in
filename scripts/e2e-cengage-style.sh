@@ -28,6 +28,7 @@ LESSONS=(
   fm-scaling-maps-models-and-recipes
   fm-negative-numbers-why-they-exist
   fm-adding-subtracting-integers
+  fm-multiplying-integers-sign-rules
 )
 
 for L in "${LESSONS[@]}"; do

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 20:28:10 (Asia/Kolkata)",
+  "generated": "2026-11-04 21:21:35 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -369,8 +369,8 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "(hourly run 4 ship commit)",
                 "unit": "unit 2 (lesson 2.3 of 5; chapter 2 in progress)",
-                "words": 4024,
-                "readMins": 20,
+                "words": 4101,
+                "readMins": 21,
                 "concepts": [
                   "Multiplication as repeated addition",
                   "Equal jumps on the number line",
@@ -394,7 +394,9 @@
                   "ncert-math6-ch2"
                 ],
                 "blockCounts": {
-                  "para": 13,
+                  "para": 14,
+                  "callout": 3,
+                  "list": 1,
                   "terms": 1,
                   "heading": 8,
                   "figure": 2,
@@ -404,11 +406,11 @@
                   "derivation": 2,
                   "equation": 1,
                   "formula": 2,
-                  "callout": 2,
                   "quiz": 1,
                   "exercises": 1
                 },
                 "calloutTones": {
+                  "definition": 1,
                   "historical": 1,
                   "exam": 1
                 },
@@ -556,7 +558,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 21802
+            "words": 21879
           },
           {
             "number": 3,
@@ -1947,9 +1949,8 @@
             "title": "Integers",
             "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Multiplying Integers and the Sign Rules",
               "Absolute Value as Distance"
             ],
             "lessons": [
@@ -2088,9 +2089,78 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-multiplying-integers-sign-rules",
+                "number": "7.3",
+                "title": "Multiplying Integers and the Sign Rules",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 3899,
+                "readMins": 19,
+                "concepts": [
+                  "Multiplication as a walk repeated",
+                  "The sign rules derived, not decreed",
+                  "The staircase descent argument",
+                  "The distributive law as the engine",
+                  "A debt times a debt is a fortune",
+                  "Sign parity for chains of factors",
+                  "The multiplicative identity and the mirror-maker",
+                  "The zero product property"
+                ],
+                "objectives": [
+                  "Multiply any two integers by the two-step rule — magnitudes multiply, the sign table aims — and justify all four cases from the repeated-walk model",
+                  "Reproduce both derivations of minus-times-minus: the forced staircase and the distributive argument",
+                  "Verify closure, commutativity, associativity, the identity, the zero product property and the distributive law for integer multiplication with instances",
+                  "Evaluate chains of factors by sign parity — an even count of minus signs lands positive, an odd count negative",
+                  "Narrate products as signed quantities — falls per hour, waived penalties — and recover missing factors by the times table plus the sign rules"
+                ],
+                "prerequisites": [
+                  "fm-negative-numbers-why-they-exist",
+                  "fm-adding-subtracting-integers",
+                  "fm-multiplication-repeated-addition"
+                ],
+                "sources": [
+                  "ncert-math7-p2-ch2",
+                  "ncert-math6-ch10",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 7,
+                  "callout": 6,
+                  "list": 2,
+                  "figure": 2,
+                  "example": 7,
+                  "derivation": 2,
+                  "equation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 8614
+            "words": 12513
           },
           {
             "number": 8,
@@ -2180,12 +2250,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 86,
-      "totalLines": 27994,
+      "totalLines": 28652,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 18729,
+        "src/data/library (content model + books)": 19387,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6785,6 +6855,83 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "c8abb9e96c92eb91d4466aa18f6bb1c1f3d4d46b",
+      "short": "c8abb9e",
+      "date": "2026-11-04 15:02",
+      "message": "fm 7.2 adding and subtracting integers shipped (ch. 7 2/4, run 34) — verify-first: verify-unit-7.ts extended sections J-S BEFORE writing (148 checks ALL PASS: K1 brute-forces the two sign rules over all 441 pairs in [-10,10]^2; N1 grid-checks a-b = a+(-b); inverse sweep a+(-a)=0 over [-60,60]; properties sweeps closure/commutative/associative + the subtraction-not-commutative counterexample; every double-sign case incl. the three-sign stack; Brahmagupta's zero rules cashed 0-5=-5, 0-(-5)=5; net-change chains ledger/thermometer/Priya/Srinagar/submarine/missing-addend/successor-predecessor/inequality-set; both figures' geometry; quiz keys 0/1/2/0/3; all 12 exercise keys); the lesson authored in ch-07.ts (3,861 words): the movement-model walk Definition + roman run, figure 1 the two-leg walk as two stacked panels (redesigned twice to the run-31 manner), the like-signs derivation, the five-case sign table, the five properties with instances, the inverse law as equation tag 1 CASHING 7.1's promissory note, the non-commutativity Caution, the subtraction derivation as equation tag 2 cashing the lift 7-(-2)=9 and the Everest-Dead-Sea gap 8848.86-(-439.78)=9288.64, figure 2 the subtraction map (mirror flip + walk), the mall 9-(-3)=12 cashed, the double-sign table + three-sign-stack Caution, net-change Illustrations + grouping-is-free Note, successor/predecessor/missing-addend, exam corner, Brahmagupta's 628 CE subtraction verses historical callout (paraphrased then derived), 8 terms, 5-quiz keys 0/1/2/0/3 (live 5/5), 12 exercises L1-L6; audits 0/0 both figures; VLM fig 1 10 math/8 clarity (one false scale complaint disproven by DOM measurement), fig 2 9/9 after fixes; 20-lesson E2E suite exit 0 with a dedicated 7.2 block (12/12 solutions, 19 Sol. pills inline, 31 therefore glyphs, KaTeX 429, raw-$ 0, mobile 390 clean, console clean); VOICE POLISH 2.2: formal inverse-definition callout + Thus-line + the three faces as the roman run, zero new numerals, live-verified; SOURCE_LOG extended (ncert-math7-p2-ch2 -> the movement model); WORK_INVENTORY regenerated 30 lessons / 142,101 words; WORKLOG + PROGRESS + RESUME_POINTER + DETAILED_LOG updated (stale ch. 4-7 catalog refreshed)",
+      "filesChanged": 10,
+      "insertions": 1227,
+      "deletions": 43,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 29,
+          "del": 5
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 13,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 9,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 195,
+          "del": 29
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-7.ts",
+          "add": 180,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 24,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-07.ts",
+          "add": 675,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "cc12f68545b546143dd029133da7d2cace832759",
+      "short": "cc12f68",
+      "date": "2026-11-04 15:03",
+      "message": "memory: run-34 synced sha recorded (c8abb9e96c92eb91d4466aa18f6bb1c1f3d4d46b) — ship commit remote-verified via one-time-URL ls-remote = local HEAD; next run 35 continues FM ch. 7 at 7.3 Multiplying Integers and the Sign Rules, voice polish 2.3 queued",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -6793,24 +6940,24 @@
     "booksLive": 1,
     "chaptersWritten": 6,
     "chaptersInProgress": 1,
-    "lessonsWritten": 30,
-    "wordsAuthored": 142101,
-    "termsDefined": 201,
-    "quizItems": 150,
-    "exerciseQuestions": 317,
+    "lessonsWritten": 31,
+    "wordsAuthored": 146077,
+    "termsDefined": 209,
+    "quizItems": 155,
+    "exerciseQuestions": 329,
     "blockTotals": {
-      "para": 454,
-      "callout": 164,
-      "heading": 197,
-      "list": 33,
-      "terms": 31,
-      "equation": 44,
-      "derivation": 52,
-      "table": 31,
-      "figure": 51,
-      "example": 141,
-      "quiz": 30,
-      "exercises": 30,
+      "para": 473,
+      "callout": 171,
+      "heading": 204,
+      "list": 36,
+      "terms": 32,
+      "equation": 46,
+      "derivation": 54,
+      "table": 32,
+      "figure": 53,
+      "example": 148,
+      "quiz": 31,
+      "exercises": 31,
       "formula": 72,
       "algorithm": 8
     }

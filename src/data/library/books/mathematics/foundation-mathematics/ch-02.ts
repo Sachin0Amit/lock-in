@@ -1042,8 +1042,26 @@ export const chapter02: Chapter = {
           text: 'The herder\'s flock has grown organised: four pens, six sheep each. Counting every animal gives the same slow walk as ever — twenty-four. Adding pen by pen is faster: $6 + 6 + 6 + 6 = 24$. But when the herd scales to forty pens, even addition limps. Multiplication is the operation built for **equal groups**: $4 \\times 6$ means "four sixes, combined" — and it answers instantly what forty additions would merely crawl to. Every multiplication is a compressed addition: $4 \\times 6$ is four hops of $6$; the numbers multiplied are the **factors**, the result is the **product**. Yet compression is only the beginning. Multiplication brings back every law that subtraction broke, adds a law of its own — and grows into something repeated addition can barely describe: area, scaling, and the arithmetic of "times". That growth is the *beyond* of this lesson\'s title.',
         },
         {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Multiplication (the repeated-addition definition)',
+          text: 'For whole numbers $a$ and $b$, the **product** $a \\times b$ is said to be the total reached when $b$ is combined with itself $a$ times — the sum of $a$ addends, each equal to $b$. The numbers multiplied are the **factors**; the result is the **product**.',
+        },
+        {
           kind: 'para',
-          text: 'Read $4 \\times 6$ two ways: four groups of six, or six groups of four. A six-person table set four times, or a four-person table set six times — different arrangements, same twenty-four chairs. The two readings look different and *are* different, as pictures; the remarkable fact is that the totals agree, always. That agreement is the commutative property, and it is not a rule to memorise but a structure to see — on the number line first, then in rectangles, then in the shape of the times table itself.',
+          text: 'Thus, $4 \\times 6 = 6 + 6 + 6 + 6 = 24$: the product is a repeated addition wearing its compressed dress. For example, the same product wears two faces:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '**four groups of six**: a six-person table set four times — $6 + 6 + 6 + 6$, twenty-four chairs;',
+            '**six groups of four**: a four-person table set six times — $4 + 4 + 4 + 4 + 4 + 4$, the same twenty-four chairs.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The two faces look different and *are* different, as pictures; the remarkable fact is that the totals agree — always. That agreement is the commutative property, and it is not a rule to memorise but a structure to see — on the number line first (the two panels below), then in rectangles, then in the shape of the times table itself.',
         },
         {
           kind: 'terms',

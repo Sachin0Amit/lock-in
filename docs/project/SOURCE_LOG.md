@@ -234,6 +234,10 @@ step 6).
   (2026-11-04, lesson 7.2) used it as the primary reference: the
   chapter's movement/token model ("final position = first movement +
   second movement") is the lesson's walk model retold in its own words —
+  no content reproduced. Run 35 (2026-11-04, lesson 7.3) used it as the
+  primary reference again: the chapter's token-model products, sign
+  rules and the three laws (commutative, associative, distributive) are
+  re-derived in the lesson's own repeated-walk/staircase presentation —
   no content reproduced.
 
 ## Per-subject ledger
@@ -425,3 +429,7 @@ Lesson 6.4 was verified against the already-persisted citation set (ncert-math8-
 ## 2026-11-04 — Run 33 (FM 7.1): zero downloads
 
 Lesson 7.1 "Negative Numbers and Why They Exist" was verified against two NEW citation keys added this run — `ncert-math6-ch10` (Ganita Prakash class-6 ch. 10 "The Other Side of Zero", the canonical negative-number charter) and `ncert-math7-p2-ch2` (Ganita Prakash class-7 part-2 ch. 2 "Operations with Integers", the operations sequel cited as the promised continuation) — plus the carried `khattar-qa-4e`. Both chapter identities web-checked (sanctioned fallback; fegp110/gegp202 PDF listings + solution-guide listings); no content reproduced. History grounded by web-check: NRICH "The History of Negative Numbers" (Chinese red/black counting rods ~200 BCE; Maseres 1758 "darken the very whole doctrines of the equations"; 19th-century acceptance via De Morgan/Peacock), MacTutor's Brahmagupta biography (Brahmasphutasiddhanta 628 CE, fortunes/debts). Figures grounded: Everest 8848.86 m (2020 Nepal–China joint survey), the Dead Sea surface 439.78 m below sea level as of 2025 (falling ~1 m/yr), Vostok −89.2 °C (21 July 1983), Phalodi 51.0 °C (19 May 2016). Exam-corner shapes grounded by web-check: sign-fill items (−40 □ +4) in SSC CHSL / RRB NTPC CBT-I banks, greatest-negative-integer and additive-inverse match-the-column items — shapes cited, no question reproduced. No reference files downloaded, no working copies to delete.
+
+## 2026-11-04 — Run 35 (FM 7.3 + voice polish 2.3): zero downloads
+
+Lesson 7.3 "Multiplying Integers and the Sign Rules" was verified against the already-persisted citation set (`ncert-math7-p2-ch2` primary — the sign rules and the three laws; `ncert-math6-ch10` and `khattar-qa-4e` carried) via web-check only — no new reference files downloaded, no working copies to delete. Web-checks: the class-7 Ganita Prakash part-2 ch. 2 identity re-confirmed (gegp202; the chapter teaches multiplication before division via the token/repeated-addition model with the sign rules and the commutative/associative/distributive properties — the lesson derives the same rules from its own walk model and staircase, no content reproduced). History grounded by web-check: Brahmagupta's *Brahmasphutasiddhanta* 628 CE multiplication verses (fortune × fortune = fortune; fortune × debt = debt; debt × debt = fortune — surviving through Colebrooke's 1817 Sanscrit translation, verified against the archive.org/hist-math text listings; paraphrased in the historical callout, derived twice in the lesson's own staircase and distributive arguments). Exam-corner shapes (straight products, three-factor parity chains, distributive simplifications like (−6)×47 + (−6)×53, waived-fine narrations in SSC CHSL/MTS, RRB NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no question reproduced. Voice polish 2.3 reused only that lesson's own numbers (4, 6, 24; the definition sentence generic in $a$ and $b$).
