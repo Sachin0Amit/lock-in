@@ -93,11 +93,16 @@ Models and Recipes), then the unit-6 completion review; queued extras: voice pol
 the 9 remaining pre-4.2 lessons (1.4–1.11, 2.1–2.5 — one per run); EXAM_REGISTRY.json
 research (44 skeleton entries).
 
-**Git:** ship commit (ch-06.ts 6.3 + verify-unit-6.ts V–AE + e2e 6.3 block + ch-01.ts
-1.3 polish) → bookkeeping commit (logs + inventory) → PUSH via protocol v2
-(one-time HTTPS URL, all unpushed commits, origin kept as SSH remote, PAT never
-written anywhere) → ls-remote verification → memory commit recording the synced sha
-→ second push. Details in the memory commit message.
+**Git:** ship commit `356a52b` (ch-06.ts 6.3 + verify-unit-6.ts V–AE + e2e 6.3 block +
+ch-01.ts 1.3 polish) → bookkeeping commit `67bb017` (logs + inventory) → **PUSH
+verified via protocol v2**: one-time HTTPS URL, `e3f1158..67bb017 HEAD -> main`, exit 0
+(all unpushed commits moved; origin kept as the SSH remote; the PAT lived only in the
+one-time command URLs — never written to any file, config, log or commit; output
+credential-redacted by pattern as belt-and-braces); remote HEAD verified by one-time-URL
+`ls-remote` = `67bb01787cb7e2445f35b058103c1836cc6ff912` = local HEAD; origin/main
+tracking ref resynced by anonymous fetch; `git rev-list --count origin/main..HEAD` = 0.
+This memory commit records the verification; it is pushed immediately after, so the
+run ends with everything on the remote.
 
 ## 2026-11-04 — RUN 28 (cron, Job 498279): sandbox-rollback reconciliation + the objectives math fix — run 27's record proved TRUE from the remote, and a VLM review caught raw LaTeX leaking into the learning-objectives box, fixed at the platform level
 
