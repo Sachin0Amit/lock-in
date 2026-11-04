@@ -427,7 +427,7 @@
   "nextUnit": "FM 7.4 'Absolute Value as Distance' — extends verify-unit-7.ts sections before writing; completes chapter 7"
  },
  "run36Extras": {
-  "syncedSha": "PENDING_PUSH (record after the one-time-URL ls-remote verification)",
+  "syncedSha": "90943bf0de61c13e8ccc8eeae92c89420f71cb28 (ship commit 90943bf remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; origin/main tracking ref resynced by anonymous HTTPS fetch)",
   "inFlightRecovery": "7.4 found half-landed as auto-checkpoint ab19d64 — finished, gated, shipped this run",
   "unitReview": "chapter 7 CLOSED (4/4): ch-07.ts status complete; BOOK_FORMAT checklist 7/7; ids unique; totals recomputed via scripts/count-unit-7.ts",
   "newCitationKeys": [],

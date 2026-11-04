@@ -22,7 +22,7 @@ and what remains.
 
 **Ship:** SOURCE_LOG.md (run-36 zero-downloads entry: Argand 1806 + Weierstrass 1841 MacTutor-grounded; citation set carried from 7.1–7.3); WORK_INVENTORY.json regenerated (32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises); DETAILED_LOG.md header + the timeline rows for runs 32–36 (the 32–35 rows had been skipped — added compact) + ch. 7 catalog line CLOSED + verification-log row + section-8 CURRENT/NEXT refreshed; PROGRESS.json (phase CH. 7 CLOSED, run36Extras, totals) + RESUME_POINTER.json (next: FM 8.1 Points, Lines and Planes — chapter 8 opens with verify-unit-8.ts first; voice polish 3.2 next) updated.
 
-**Git:** this entry ships in the run-36 ship commit; the push follows immediately per PUSH PROTOCOL (one-time HTTPS URL from the 01:27 job payload; remote HEAD verified by one-time-URL ls-remote; the synced sha is recorded in the follow-up memory commit, which is itself pushed).
+**Git:** ship commit `90943bf` pushed per PUSH PROTOCOL (one-time HTTPS URL from the 01:27 job payload): `d802d62..90943bf HEAD -> main`; remote HEAD verified `90943bf0de61c13e8ccc8eeae92c89420f71cb28` by one-time-URL ls-remote (= refs/heads/main = local HEAD); origin/main tracking ref resynced by anonymous HTTPS fetch; origin/main..HEAD empty; PAT never written to any file/config/log. This memory commit completes the record and is itself pushed.
 
 ---
 
