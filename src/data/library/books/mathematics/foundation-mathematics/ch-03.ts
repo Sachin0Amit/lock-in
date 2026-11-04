@@ -2468,7 +2468,7 @@ export const chapter03: Chapter = {
             kind: 'callout',
             tone: 'theorem',
             title: 'The product rule',
-            text: 'For whole numbers a and b: **the HCF times the LCM equals the product of the pair**. The buses: $\\gcd(12, 18) = 6$ and $\\mathrm{lcm}(12, 18) = 36$, and $6 \\times 36 = 216 = 12 \\times 18$. The Venn pair: $48 \\times 1{,}440 = 69{,}120 = 96 \\times 720$. The rule has exactly two seats — for three numbers it fails outright, as a section below shows — and one immediate corollary: knowing any three of the four quantities (the two numbers, their HCF, their LCM) determines the fourth.',
+            text: 'Whole numbers $a$ and $b$ are said to **obey the product rule** when their HCF times their LCM equals their product — and the theorem of this lesson is that **every pair obeys it**: $\\gcd(a, b) \\times \\mathrm{lcm}(a, b) = a \\times b$. The buses: $\\gcd(12, 18) = 6$ and $\\mathrm{lcm}(12, 18) = 36$, and $6 \\times 36 = 216 = 12 \\times 18$. The Venn pair: $48 \\times 1{,}440 = 69{,}120 = 96 \\times 720$. The rule has exactly two seats — for three numbers it fails outright, as a section below shows. Thus, knowing any three of the four quantities (the two numbers, their HCF, their LCM) determines the fourth — and the rebuilding work of this lesson is the rule run backwards.',
           },
           {
             kind: 'formula',
@@ -2500,7 +2500,7 @@ export const chapter03: Chapter = {
           { kind: 'heading', text: 'Rebuilding the whole pair' },
           {
             kind: 'para',
-            text: 'Harder, and more beautiful: rebuild **both** members from the fingerprint alone. Where can a pair with HCF $h$ live? Both members are multiples of $h$ — write them as $a = h \\cdot m$ and $b = h \\cdot n$. The leftovers $m$ and $n$ are **coprime**: any prime shared by $m$ and $n$ would sneak an extra factor into the pair\'s common part past $h$, contradicting $h$\'s greatest-ness — Lesson 3.3\'s leftover argument, now load-bearing. And the LCM fixes their product: the union territory of the pair is the overlap $h$ times both leftovers, so $\\mathrm{lcm} = h \\cdot m \\cdot n$, which forces $m \\cdot n = l \\div h$. The recipe: divide the LCM by the HCF, split the quotient into two **coprime** factors, and multiply each back by $h$.',
+            text: 'Harder, and more beautiful: rebuild **both** members from the fingerprint alone. Where can a pair with HCF $h$ live? Both members are multiples of $h$ — write them as $a = h \\cdot m$ and $b = h \\cdot n$. The leftovers $m$ and $n$ are **coprime**: any prime shared by $m$ and $n$ would sneak an extra factor into the pair\'s common part past $h$, contradicting $h$\'s greatest-ness — Lesson 3.3\'s leftover argument, now load-bearing. And the LCM fixes their product: the union territory of the pair is the overlap $h$ times both leftovers, so $\\mathrm{lcm} = h \\cdot m \\cdot n$, which forces $m \\cdot n = l \\div h$. Thus, to rebuild a pair from its fingerprint: divide the LCM by the HCF, split the quotient into two **coprime** factors, and multiply each back by $h$.',
           },
           {
             kind: 'derivation',

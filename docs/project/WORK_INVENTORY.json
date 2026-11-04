@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 02:32:08 (Asia/Kolkata)",
+  "generated": "2026-11-05 03:33:47 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -839,7 +839,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4768,
+                "words": 4802,
                 "readMins": 24,
                 "concepts": [
                   "The HCF–LCM product rule",
@@ -898,7 +898,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 27991
+            "words": 28025
           },
           {
             "number": 4,
@@ -2235,9 +2235,8 @@
             "title": "Geometry Foundations",
             "summary": "The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Triangles and the Angle Sum",
               "Perimeter and Area of Rectangles, Triangles and Circles"
             ],
             "lessons": [
@@ -2442,9 +2441,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 11
+              },
+              {
+                "id": "fm-triangles-and-the-angle-sum",
+                "number": "8.4",
+                "title": "Triangles and the Angle Sum",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5382,
+                "readMins": 27,
+                "concepts": [
+                  "The triangle",
+                  "Vertices, sides and interior angles",
+                  "The exterior angle",
+                  "The angle sum property",
+                  "The exterior angle property",
+                  "Scalene, isosceles, equilateral",
+                  "Acute, right, obtuse",
+                  "The triangle inequality"
+                ],
+                "objectives": [
+                  "Define the triangle — three non-collinear points, three joining segments, and the region they enclose — and name its parts in both the capital-letter and the small-letter dress",
+                  "Prove the angle sum property from the parallel through one vertex, spending exactly three tools already owned: the straight angle of 8.2, the alternate-interior theorem of 8.3, and the uniqueness of the parallel through a point",
+                  "Derive the exterior angle property (exterior = the sum of the two remote interior angles) and its inequality reading, and use both to run exterior-angle chases",
+                  "Classify triangles by sides (scalene, isosceles, equilateral) and by angles (acute, right, obtuse), and prove the one-right/one-obtuse law and the right-triangle complement reflex from the angle sum",
+                  "Decide from three lengths alone whether a triangle exists, using the triangle inequality in its three-dress and largest-side forms"
+                ],
+                "prerequisites": [
+                  "fm-parallel-lines-and-transversals",
+                  "fm-angles-and-their-measurement"
+                ],
+                "sources": [
+                  "ncert-math7-ch6",
+                  "ncert-math6-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "callout": 9,
+                  "list": 2,
+                  "figure": 3,
+                  "derivation": 2,
+                  "equation": 4,
+                  "example": 6,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 2,
+                  "insight": 3,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 12
               }
             ],
-            "words": 14919
+            "words": 20301
           },
           {
             "number": 9,
@@ -2517,12 +2584,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 87,
-      "totalLines": 31398,
+      "totalLines": 32118,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 22133,
+        "src/data/library (content model + books)": 22853,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2730,7 +2797,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-04",
+      "surveyed": "2026-11-03",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -7578,6 +7645,88 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "416a63b3af569e4f2478718a77b9dbb3d9c03ed2",
+      "short": "416a63b",
+      "date": "2026-11-04 21:04",
+      "message": "fm 8.3 parallel lines and transversals (unit 8, run 39): the transversal defined is-said-to-be (distinct-points clause tied to 8.1's concurrency) + figure 1 the eight-angle scene (tinted interior band, angles 1-8 clockwise from top-left at each crossing, every label box script-swept) + the pair-families roman run with the census (8 linear + 4 VO + 4 corr + 2 alt-int + 2 co-int + 2 alt-ext + 2 co-ext = 24 named of 28, four unnamed); the linear-pair law derived from 8.2's straight angle as tag 1 + the vertically-opposite theorem derived from two linear pairs (the 8.2 cancellation); the corresponding-angles axiom presented honestly as THE assumption (Euclid's Postulate 5 in school dress) with alternate-interior-equal + co-interior-supplementary DERIVED from it as tag 2; figure 2 the F/Z/C memory patterns at 60 deg; the three parallel tests as biconditionals as tag 3 with the co-interior test chain derived through the converse axiom + the Playfair uniqueness Note (Proclus c. 450, Ludlam 1785, Playfair 1795); Illustrations 1-6 (74 deg crossing read; full 130 deg eight-angle read with reasons; 2:3 co-int ratio 72/108; 74+106=180 verdict; (x+85)/(2x-25) -> x=40, 125/55; census 24+4=28); the exam corner (SSC/RRB/banking angle-chase shapes cited, none reproduced); the historical callout (Postulate 5's full dress; I.27 without vs I.29 with the postulate; the two-millennia struggle; Lobachevsky 1826/1829-30 + Bolyai 1832, Gauss unpublished; the non-Euclidean forward pointer) - 5,114 words in the Cengage voice and solution chain; 11 terms, 5-quiz (keys 1/2/1/0/2 verified live 5/5), 12 exercises L1-L6 (L6: the co-interior-supplementary proof chained through VO + the converse axiom; the co-exterior 96/84 verdict with the full eight-angle read); verify-unit-8.ts EXTENDED 189 -> 253 checks (X-AE) ALL PASS pre-writing (a vector engine + half-plane classification of the 28 pairs swept over six transversal slopes; the three parallel tests swept as biconditionals over five slopes of the second line; both figures' label boxes swept incl. arcs; the web-checked history) + e2e-83.page.js registered (25-lesson sweep exit 0 + dedicated 8.3 block: quiz live 5/5 twice, 12/12 solutions, 36 collapsibles, 18 Sol. pills, KaTeX 468, dollarInText 0, mobile 390 exact-fit); audits 0/0 both figures; VLM fig 1 10 math/10 clarity AFTER one REAL fix (the t-label merged with the figure title - relocated to (222,78), stale emission positions for l/m/P/Q synced to the box-swept values), fig 2 10 math/9 clarity publishable as-is; both figures self-reviewed on rendered screenshots; VOICE POLISH 3.4 (queued per-run extra): lesson 3.4's LCM Definition rewritten is-said-to-be (a|m and b|m; the LCM the smallest such m) + the Thus-line, zero new numerals, live-verified (KaTeX 259, errors 0); SOURCE_LOG gains ncert-math7-gp-ch5 (Ganita Prakash class-7 ch. 5 Parallel and Intersecting Lines, gegp105 web-checked) + ncert-math9-ch6 (class-9 ch. 6 Lines and Angles web-checked) + ledger row through ch. 8; logs + pointer + inventory updated (35 lessons / 165,298 words / 247 terms / 175 quiz / 377 exercises); ch. 8 open 3/5, next 8.4 triangles and the angle sum",
+      "filesChanged": 11,
+      "insertions": 1574,
+      "deletions": 45,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 21,
+          "del": 13
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 11,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 28,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 19,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 178,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-8.ts",
+          "add": 503,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-08.ts",
+          "add": 747,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "cd1d480e9ec7c71132c28b2e14ce90211616586d",
+      "short": "cd1d480",
+      "date": "2026-11-04 21:05",
+      "message": "memory: run-39 synced sha recorded (416a63b) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 8 Geometry Foundations OPEN 3/5; next run 40 continues at FM 8.4 Triangles and the Angle Sum (extend verify-unit-8.ts with the triangle angle-sum + exterior-angle sections first), voice polish 3.5 queued",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -7586,24 +7735,24 @@
     "booksLive": 1,
     "chaptersWritten": 7,
     "chaptersInProgress": 1,
-    "lessonsWritten": 35,
-    "wordsAuthored": 165298,
-    "termsDefined": 247,
-    "quizItems": 175,
-    "exerciseQuestions": 377,
+    "lessonsWritten": 36,
+    "wordsAuthored": 170714,
+    "termsDefined": 259,
+    "quizItems": 180,
+    "exerciseQuestions": 390,
     "blockTotals": {
-      "para": 532,
-      "callout": 204,
-      "heading": 221,
-      "list": 44,
-      "terms": 36,
-      "equation": 56,
-      "derivation": 64,
-      "table": 34,
-      "figure": 61,
-      "example": 172,
-      "quiz": 35,
-      "exercises": 35,
+      "para": 546,
+      "callout": 213,
+      "heading": 226,
+      "list": 46,
+      "terms": 37,
+      "equation": 60,
+      "derivation": 66,
+      "table": 35,
+      "figure": 64,
+      "example": 178,
+      "quiz": 36,
+      "exercises": 36,
       "formula": 72,
       "algorithm": 8
     }

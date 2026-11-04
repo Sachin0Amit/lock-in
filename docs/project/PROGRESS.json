@@ -71,8 +71,8 @@
     "status": "in-progress",
     "chaptersPlanned": 11,
     "chaptersWritten": 7,
-    "lessonsWritten": 33,
-    "termsAvailableForFlashcards": 225,
+    "lessonsWritten": 36,
+    "termsAvailableForFlashcards": 259,
     "notes": "STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the 14 pre-4.2 lessons' prose VOICE polish queued one per run — 1.1 DONE (run 26: formal Definition callout + roman run + Thus-line), 1.2 DONE (run 27: the comparison-rule Definition callout + roman run + Thus-line), 11 remain (2.2 next). Chapters 1-5 complete (units 1-5 shipped 2026-11-03/04): ch. 1 lessons 1.1-1.3 Numbers and Place Value (9,708 words + the run-26 1.1 voice polish), ch. 2 lessons 2.1-2.5 The Four Operations (21,425 words, incl. BODMAS), ch. 3 lessons 3.1-3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1-4.5 Fractions (26,905 words), ch. 5 lessons 5.1-5.5 Decimals and Percents (24,614 words). Chapter 6 lessons 6.1-6.5 Ratio, Rate and Proportion (open 2/5): 6.1 Ratio as a Comparison (run 26, 4,442 words — the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, three-term ratios, sharing with the share formula proved); 6.2 Rates and Unit Rates (run 27, 4,152 words — the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine (divide, or scale to a friendly unit, or run it backwards), comparisons by the same-way law with the direction and bulk frauds exposed, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 conversion law proved as a derivation block with anchors, rates at work, the average-speed Caution and formula card). RichText parser upgraded run 25 ($math$ inside bold/italic). Math script-verified (165 unit-6 checks + 455 unit-5 + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (15 lessons), quiz keys verified live. Next: 6.5 Scaling, Maps, Models and Recipes. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2. Run 30 shipped 6.4 Direct and Inverse Variation (5,373 words: the two locks, the parking fraud, both engines, the factor laws, the recognition drill, the flip, the work problems; figures polished to VLM 9/10+10/10) and the 2.1 voice polish; unit-6 verification now 361 checks (455/330/260/165 regressions), E2E 17 lessons with a dedicated 6.4 block (quiz 2/1/1/2/1 live 5/5). Run 35 shipped 7.3 Multiplying Integers and the Sign Rules (3,899 words: the repeated-walk definition, the forced staircase + the distributive derivation of minus-times-minus, the sign-case table, the six properties, sign parity, Brahmagupta's 628 CE multiplication verses; figures VLM 10 math/9 clarity each, audits 0/0; quiz keys 2/1/1/0/3 live 5/5) and the 2.3 voice polish (formal repeated-addition Definition callout + Thus-line + the two table settings as the roman run, zero new numerals); verify-unit-7.ts now 231 checks (A-AB; the 441-pair multiplication brute force, the 9,261-triple distributive grid, the 5-length parity sweep), E2E 21 lessons with a dedicated 7.3 block (quiz live 5/5 - perfect). Voice polish queue: 1.1, 1.2, 2.1, 2.2, 2.3 DONE; 3.1 next (then 3.2-3.5, 4.1). Next unit: 7.4 Absolute Value as Distance. Run 36 (2026-11-05, cron 01:27 delivery) FINISHED the 7.4 lesson found in flight (auto-checkpoint commit ab19d64) and CLOSED chapter 7: 7.4 Absolute Value as Distance (4,207 words — the distance definition + the piecewise rule as equation tag 1, the mirror/multiplicative/triangle properties with grid certificates, the outside-minus Caution, the distance formula gap(a,b) = |a-b| = |b-a| as tag 2 cashing every counted gap (the lift 9, the mall 12/24, the Everest-Dead Sea 9288.64 m, the Vostok-Phalodi 140.2 deg), the |x| = k verdict table, the bars-erase-one-bit insight, Argand's 1806 modulus + Weierstrass's 1841 bars; figures VLM 10 math/9 clarity each, audits 0/0; quiz keys 2/1/0/1/3 live 5/5 - perfect; 12 exercises L1-L6). Unit-7 completion review passed (ids unique, totals recomputed: ch. 7 = 4 lessons / 16,720 words / 32 terms / 20 quiz / 48 exercises; ch-07 status flipped complete, summary corrected to the delivered scope — no coordinate-plane preview). Verify-unit-7.ts now 302 checks (A-AH; the [−60,60] mirror sweep, the 441-pair multiplicative grid, the triangle-fact equality condition brute-forced on the same grid). E2E 22 lessons exit 0 with a dedicated 7.4 block (e2e-74.page.js: quiz live 5/5 - perfect, 12/12 solutions expand, 36 collapsibles, mobile 390 exact-fit). Voice polish 3.1 delivered (the formal 'Divisible (the treaty condition)' is-said-to-be callout naming factor and multiple + the Thus-line cashed at 6 | 48 — zero new numerals; live-verified KaTeX 369, dollarInText 0). Voice polish queue: 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 3.1 DONE; 3.2 next (then 3.3-3.5, 4.1). Next unit: 8.1 Points, Lines and Planes (chapter 8 Geometry Foundations opens; verify-unit-8.ts first)."
    }
   ],
@@ -234,5 +234,27 @@
   "voicePolish": "3.4 done: lesson 3.4 LCM Definition rewritten is-said-to-be (a | m and b | m) + the Thus-line, zero new numerals; live-verified (katex 259, errors 0)",
   "sources": "new citation keys ncert-math7-gp-ch5 (Ganita Prakash class-7 ch. 5 Parallel and Intersecting Lines) + ncert-math9-ch6 (class-9 ch. 6 Lines and Angles); history web-checked (Joyce Post. 5/I.27/I.29; Proclus, Ludlam 1785, Playfair 1795; Lobachevsky 1826/1829-30 + Bolyai 1832)",
   "inventory": "35 lessons / 165,298 words / 247 terms / 175 quiz / 377 exercises"
+ },
+ "run40Extras": {
+  "lesson": "fm-triangles-and-the-angle-sum",
+  "words": 5382,
+  "verifyChecks": "339 total (sections AF-AN added: 86 new; 253 -> 339) ALL PASS pre-writing",
+  "figures": [
+   "figure 1: the anatomy (A(250,70), B(120,320), C(600,320), side BC produced to D(700,320); interior arcs r30, dashed exterior arc r20; labels a/b/c opposite their capitals; audit 0 issues)",
+   "figure 2: the parallel proof (A(300,120), B(130,340), C(590,340), XY the horizontal through A; equal-mark arcs 1/1 and 3/3, double arc on 2; wedge-membership + clearance swept; audit 0 issues)",
+   "figure 3: the six-panel gallery (scalene/isosceles/equilateral with perpendicular ticks at side midpoints; acute/right/obtuse with the square corner mark; all measures recomputed from panel coordinates; audit 0 issues)"
+  ],
+  "quizKeys": [
+   1,
+   2,
+   1,
+   1,
+   2
+  ],
+  "newCitationKey": "ncert-math7-ch6",
+  "voicePolish": "3.5 done (lesson 3.5 product-rule theorem callout recast is-said-to-be + the Thus-lines, zero new numerals; live-verified)",
+  "preFlightRepair": "run 39's ship commit carried book.ts with four unescaped apostrophes in the notes string (module failed to parse; dev server 500) — repaired first thing this run, gates re-run green",
+  "nextPolish": "4.1 (lesson 4.1 The Idea of a Fraction)",
+  "nextUnit": "FM 8.5 'Perimeter and Area of Rectangles, Triangles and Circles' — extends verify-unit-8.ts with the area/perimeter sections BEFORE writing; completes chapter 8"
  }
 }

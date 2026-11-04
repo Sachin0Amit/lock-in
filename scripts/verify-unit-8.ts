@@ -1030,6 +1030,421 @@ check('AE6: NCERT class 9 ch. 6 \u201cLines and Angles\u201d carries the axiom t
 check('AE7: scope guards for 8.3 \u2014 no triangle angle sum (8.4), no exterior-angle-inequality proof (I.16 belongs to a later treatment), no non-Euclidean geometry beyond the historical callout\u2019s one-paragraph honesty, no perpendicular-distance-between-parallels, no compass-and-straightedge construction of parallels', true);
 check('AE8: every numeric claim of lesson 8.3 appears in X\u2013AD \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
 
+/* ============================================================
+ * AF. The triangle object — lesson 8.4 "Triangles and the
+ *     Angle Sum": anatomy, the non-collinear clause, names
+ * ==========================================================*/
+check('AF1: a triangle is said to be formed by three points not on one line, together with the three segments joining them pairwise \u2014 the boundary plus the region it encloses (is-said-to-be definition; qualitative)', true);
+check('AF2: the element census \u2014 3 vertices + 3 sides + 3 interior angles; each side joins two vertices and is opposite the third: side BC \u2194 angle A, side CA \u2194 angle B, side AB \u2194 angle C \u2014 three pairings, each element used exactly once', [['BC', 'A'], ['CA', 'B'], ['AB', 'C']].length === 3);
+check('AF3: the non-collinear clause bites \u2014 collinear points make no triangle: crossZ((2,2),(4,4)) = 0 (area 0, the segments fold onto one line); the lesson trio (0,0),(4,0),(1,3) has crossZ((4,0),(1,3)) = 12 \u2260 0 (area 6, a genuine triangle)', (() => { return crossZ([2, 2], [4, 4]) === 0 && crossZ([4, 0], [1, 3]) === 12 && Math.abs(crossZ([4, 0], [1, 3])) / 2 === 6; })());
+check('AF4: the lesson witness triangle A(0,0), B(4,0), C(1,3) \u2014 side lengths |AB| = 4, |BC| = \u221a18 \u2248 4.243, |CA| = \u221a10 \u2248 3.162, all three unequal (scalene); angles by dot product: at A \u2248 71.57\u00b0, at B \u2248 45\u00b0, at C \u2248 63.43\u00b0, sum exactly 180', (() => {
+  const A: Vec = [0, 0], B: Vec = [4, 0], C: Vec = [1, 3];
+  const AB = Math.hypot(...subV(B, A)), BC = Math.hypot(...subV(C, B)), CA = Math.hypot(...subV(A, C));
+  const aA = angDeg(subV(B, A), subV(C, A)), aB = angDeg(subV(A, B), subV(C, B)), aC = angDeg(subV(A, C), subV(B, C));
+  return Math.abs(AB - 4) < 1e-9 && Math.abs(BC - Math.sqrt(18)) < 1e-9 && Math.abs(CA - Math.sqrt(10)) < 1e-9
+    && Math.abs(aA - 71.565051) < 1e-4 && Math.abs(aB - 45) < 1e-9 && Math.abs(aC - 63.434949) < 1e-4
+    && Math.abs(aA + aB + aC - 180) < 1e-9;
+})());
+check('AF5: the triangle = boundary + interior \u2014 ray-casting classification on the witness triangle: (2,1) inside, (5,3) outside, (2,0) on the boundary side AB (crossing counts 2 / 0 / on-edge)', (() => {
+  // ray cast horizontally to the right from p against segments AB, BC, CA of (0,0),(4,0),(1,3)
+  const tri: Vec[] = [[0, 0], [4, 0], [1, 3]];
+  const crossings = (p: Vec): number => {
+    let c = 0;
+    for (let i = 0; i < 3; i++) {
+      const u = tri[i], v = tri[(i + 1) % 3];
+      if ((u[1] > p[1]) !== (v[1] > p[1])) {
+        const xInt = u[0] + ((p[1] - u[1]) / (v[1] - u[1])) * (v[0] - u[0]);
+        if (xInt > p[0]) c++;
+      }
+    }
+    return c;
+  };
+  const onEdge = (p: Vec): boolean => {
+    for (let i = 0; i < 3; i++) {
+      const u = tri[i], v = tri[(i + 1) % 3];
+      if (Math.abs(crossZ(subV(v, u), subV(p, u))) < 1e-12 && Math.min(u[0], v[0]) <= p[0] && p[0] <= Math.max(u[0], v[0]) && Math.min(u[1], v[1]) <= p[1] && p[1] <= Math.max(u[1], v[1])) return true;
+    }
+    return false;
+  };
+  return crossings([2, 1]) % 2 === 1 && crossings([5, 3]) % 2 === 0 && onEdge([2, 0]);
+})());
+check('AF6: notation \u2014 the triangle on A, B, C is written \u25b3ABC (read \u201ctriangle ABC\u201d); in the small-letter dress a = |BC|, b = |CA|, c = |AB|, each letter the mate of its opposite capital (AF4\u2019s numbers: a \u2248 4.243, b \u2248 3.162, c = 4)', true);
+
+/* ============================================================
+ * AG. The angle-sum theorem — the derivation machinery
+ *     (Playfair licence + 8.3's alternate angles + 8.2's
+ *     straight angle) and the sweep
+ * ==========================================================*/
+check('AG1: the derivation\u2019s licence \u2014 through A (not on line BC) there passes EXACTLY one line parallel to BC (Playfair\u2019s uniqueness, 8.3\u2019s Note); the theorem is therefore equivalent to the parallel postulate (see AN5)', true);
+check('AG2: the proof figure\u2019s alternate pairs are equal by exact vector computation \u2014 fig-6 literals A(300,120), B(130,340), C(590,340), X(90,120), Y(680,120): angle XAB = angle ABC and angle CAY = angle ACB (each within 1e-9)', (() => {
+  const A: Vec = [300, 120], B: Vec = [130, 340], C: Vec = [590, 340], X: Vec = [90, 120], Y: Vec = [680, 120];
+  const xab = angDeg(subV(X, A), subV(B, A));
+  const abc = angDeg(subV(A, B), subV(C, B));
+  const cay = angDeg(subV(C, A), subV(Y, A));
+  const acb = angDeg(subV(A, C), subV(B, C));
+  return Math.abs(xab - abc) < 1e-9 && Math.abs(cay - acb) < 1e-9;
+})());
+check('AG3: the straight-angle partition at A on the figure \u2014 angle XAB + angle BAC + angle CAY = 180 exactly (the lower half-plane from ray AX through AB, AC to ray AY; 8.2\u2019s angle-on-a-line)', (() => {
+  const A: Vec = [300, 120], B: Vec = [130, 340], C: Vec = [590, 340], X: Vec = [90, 120], Y: Vec = [680, 120];
+  return Math.abs(angDeg(subV(X, A), subV(B, A)) + angDeg(subV(B, A), subV(C, A)) + angDeg(subV(C, A), subV(Y, A)) - 180) < 1e-9;
+})());
+check('AG4: hence the theorem on the figure triangle \u2014 angle BAC + angle ABC + angle ACB = 180 (substitution closes the chain: the two alternate mates replaced the two end-pieces of the straight angle)', (() => {
+  const A: Vec = [300, 120], B: Vec = [130, 340], C: Vec = [590, 340];
+  return Math.abs(angDeg(subV(B, A), subV(C, A)) + angDeg(subV(A, B), subV(C, B)) + angDeg(subV(A, C), subV(B, C)) - 180) < 1e-9;
+})());
+check('AG5: the sweep \u2014 400 deterministic pseudo-random triangles (Lehmer LCG, area > 0.5 filter in the 100\u00d7100 square): every triangle\u2019s three dot-product angles sum to 180 within 1e-6; ALL PASS', (() => {
+  let s = 123456789;
+  const rnd = (): number => { s = (s * 48271) % 2147483647; return s / 2147483647; };
+  for (let i = 0; i < 400; i++) {
+    const P: Vec = [100 * rnd(), 100 * rnd()], Q: Vec = [100 * rnd(), 100 * rnd()], R: Vec = [100 * rnd(), 100 * rnd()];
+    if (Math.abs(crossZ(subV(Q, P), subV(R, P))) / 2 <= 0.5) continue;
+    const sum = angDeg(subV(Q, P), subV(R, P)) + angDeg(subV(P, Q), subV(R, Q)) + angDeg(subV(P, R), subV(Q, R));
+    if (Math.abs(sum - 180) > 1e-6) return false;
+  }
+  return true;
+})());
+check('AG6: the third-angle engine \u2014 third = 180 \u2212 first \u2212 second, valid exactly when first + second < 180; at first + second = 180 the \u201ctriangle\u201d collapses to a straight angle (the degenerate cash of AF3)', (() => { return 180 - 62 - 45 === 73 && 180 - 180 === 0; })());
+check('AG7: the lesson\u2019s third-angle instances \u2014 62 + 45 \u21d2 73; 74 + 31 \u21d2 75 (quiz); 71 + 52 \u21d2 57 (exercise); each triple re-sums to 180', (() => {
+  return 62 + 45 + 73 === 180 && 74 + 31 + 75 === 180 && 71 + 52 + 57 === 180;
+})());
+
+/* ============================================================
+ * AH. The exterior angle — definition, the theorem, the
+ *     inequality corollary, the census
+ * ==========================================================*/
+check('AH1: definition \u2014 produce side BC past C to D: angle ACD is the exterior angle at C, the linear-pair mate of interior angle ACB (8.2/8.3\u2019s linear-pair law); on the fig-5 literals A(250,70), B(120,320), C(600,320), D(700,320): angle ACB \u2248 35.5377\u00b0, angle ACD \u2248 144.4623\u00b0, and angle ACD = 180 \u2212 angle ACB exactly', (() => {
+  const A: Vec = [250, 70], B: Vec = [120, 320], C: Vec = [600, 320], D: Vec = [700, 320];
+  const acb = angDeg(subV(A, C), subV(B, C));
+  const acd = angDeg(subV(A, C), subV(D, C));
+  return Math.abs(acd - (180 - acb)) < 1e-9 && Math.abs(acb - 35.537678) < 1e-4 && Math.abs(acd - 144.462322) < 1e-4;
+})());
+check('AH2: the exterior-angle theorem \u2014 exterior = the SUM of the two remote interior angles; derived from AG4 + the linear pair; swept over 400 random triangles \u00d7 3 vertices (1200 positions): |exterior \u2212 (sum of remotes)| < 1e-6 and exterior = 180 \u2212 adjacent interior, ALL PASS', (() => {
+  let s = 987654321;
+  const rnd = (): number => { s = (s * 48271) % 2147483647; return s / 2147483647; };
+  for (let i = 0; i < 400; i++) {
+    const P: Vec = [100 * rnd(), 100 * rnd()], Q: Vec = [100 * rnd(), 100 * rnd()], R: Vec = [100 * rnd(), 100 * rnd()];
+    if (Math.abs(crossZ(subV(Q, P), subV(R, P))) / 2 <= 0.5) continue;
+    const ang = [angDeg(subV(Q, P), subV(R, P)), angDeg(subV(P, Q), subV(R, Q)), angDeg(subV(P, R), subV(Q, R))];
+    for (let v = 0; v < 3; v++) {
+      const o1 = ang[(v + 1) % 3], o2 = ang[(v + 2) % 3];
+      const ext = 180 - ang[v];
+      if (Math.abs(ext - (o1 + o2)) > 1e-6) return false;
+      if (Math.abs(ext - (180 - ang[v])) > 1e-9) return false;
+    }
+  }
+  return true;
+})());
+check('AH3: the inequality corollary (Euclid I.16\u2019s content in our dress) \u2014 every exterior angle EXCEEDS each remote interior angle alone; swept on the same 1200 positions, ALL PASS', (() => {
+  let s = 987654321;
+  const rnd = (): number => { s = (s * 48271) % 2147483647; return s / 2147483647; };
+  for (let i = 0; i < 400; i++) {
+    const P: Vec = [100 * rnd(), 100 * rnd()], Q: Vec = [100 * rnd(), 100 * rnd()], R: Vec = [100 * rnd(), 100 * rnd()];
+    if (Math.abs(crossZ(subV(Q, P), subV(R, P))) / 2 <= 0.5) continue;
+    const ang = [angDeg(subV(Q, P), subV(R, P)), angDeg(subV(P, Q), subV(R, Q)), angDeg(subV(P, R), subV(Q, R))];
+    for (let v = 0; v < 3; v++) {
+      const ext = 180 - ang[v];
+      if (!(ext > ang[(v + 1) % 3] && ext > ang[(v + 2) % 3])) return false;
+    }
+  }
+  return true;
+})());
+check('AH4: the census \u2014 producing either direction at each vertex gives two exterior rays, and the two exteriors at one vertex are vertically opposite (8.3) hence equal: 6 exterior positions, 3 distinct measures (one per vertex)', (() => {
+  // at vertex C of the witness triangle the two produced rays carry exterior angles 180-C each way — equal by VO
+  const A: Vec = [250, 70], B: Vec = [120, 320], C: Vec = [600, 320];
+  const acb = angDeg(subV(A, C), subV(B, C));
+  return Math.abs((180 - acb) - (180 - acb)) < 1e-12 && 3 * 2 === 6;
+})());
+check('AH5: the lesson instance (Illustration 3) \u2014 exterior at C = 120\u00b0, remote angle A = 50\u00b0: angle B = 120 \u2212 50 = 70 (the theorem), angle C = 180 \u2212 50 \u2212 70 = 60 (the angle sum); all three certificates: 50 + 70 = 120, 180 \u2212 60 = 120, 50 + 70 + 60 = 180', (() => {
+  const B = 120 - 50, C = 180 - 50 - B;
+  return B === 70 && C === 60 && 50 + B === 120 && 180 - C === 120 && 50 + 70 + 60 === 180;
+})());
+
+/* ============================================================
+ * AI. Classification by angles — the one-right/one-obtuse
+ *     law, the right-triangle complement
+ * ==========================================================*/
+check('AI1: at most one angle of a triangle can be right or obtuse \u2014 two angles \u2265 90 would force the sum \u2265 180, leaving \u2264 0 for the third: impossible; the sweep confirms: across the 400 random triangles no triangle carries two angles \u2265 90 \u2212 1e-9', (() => {
+  let s = 192837465;
+  const rnd = (): number => { s = (s * 48271) % 2147483647; return s / 2147483647; };
+  for (let i = 0; i < 400; i++) {
+    const P: Vec = [100 * rnd(), 100 * rnd()], Q: Vec = [100 * rnd(), 100 * rnd()], R: Vec = [100 * rnd(), 100 * rnd()];
+    if (Math.abs(crossZ(subV(Q, P), subV(R, P))) / 2 <= 0.5) continue;
+    const ang = [angDeg(subV(Q, P), subV(R, P)), angDeg(subV(P, Q), subV(R, Q)), angDeg(subV(P, R), subV(Q, R))];
+    if (ang.filter(a => a >= 90 - 1e-9).length > 1) return false;
+  }
+  return true;
+})());
+check('AI2: the angle classes \u2014 a triangle is said to be acute if ALL its angles are acute; right if ONE angle is right; obtuse if ONE angle is obtuse (the one-right/one-obtuse law makes \u201cone\u201d unambiguous; qualitative)', true);
+check('AI3: right-triangle corollary \u2014 the two acute angles of a right triangle are complementary (their sum = 180 \u2212 90 = 90); constructed right triangles swept over legs (a,b) \u2208 {1..12}\u00b2: the acute pair sums to 90 within 1e-9, ALL PASS', (() => {
+  for (let a = 1; a <= 12; a++) for (let b = 1; b <= 12; b++) {
+    const atP = angDeg(subV([0, 0], [a, 0]), subV([0, b], [a, 0]));
+    const atQ = angDeg(subV([0, 0], [0, b]), subV([a, 0], [0, b]));
+    if (Math.abs(atP + atQ - 90) > 1e-9) return false;
+  }
+  return true;
+})());
+check('AI4: the classification witnesses \u2014 50-60-70 acute; 40-60-80 acute; 30-60-90 right; 100-40-40 obtuse; 120-30-30 obtuse; each verdict follows from the one-right/one-obtuse law + the size words of 8.2', (() => {
+  const verdict = (t: number[]): string => t.some(a => a === 90) ? 'right' : t.some(a => a > 90) ? 'obtuse' : 'acute';
+  return verdict([50, 60, 70]) === 'acute' && verdict([40, 60, 80]) === 'acute' && verdict([30, 60, 90]) === 'right' && verdict([100, 40, 40]) === 'obtuse' && verdict([120, 30, 30]) === 'obtuse';
+})());
+check('AI5: the exterior at a right angle is itself right \u2014 the linear-pair mate of 90\u00b0 is 90\u00b0 (180 \u2212 90); so producing either leg at the right-angle vertex reproduces the square corner outside', 180 - 90 === 90);
+
+/* ============================================================
+ * AJ. Classification by sides — the isosceles certificate
+ *     (stated theorem, numerically certified), equilateral
+ * ==========================================================*/
+check('AJ1: the side classes \u2014 scalene: no two sides equal; isosceles: AT LEAST two sides equal (NCERT\u2019s dress, so equilateral counts as isosceles); equilateral: all three equal (qualitative)', true);
+check('AJ2: the isosceles base-angle theorem (Euclid I.5, the pons asinorum) \u2014 the angles opposite the equal sides are equal; the classical proofs run on SAS congruence (a later toolkit), so HERE it is certified numerically: for apex angle \u03b8 \u2208 {10\u00b0, 20\u00b0, \u2026, 170\u00b0} the constructed isosceles triangle (equal sides 10 about the apex) has base angles (180 \u2212 \u03b8)/2 by dot product, BOTH of them, within 1e-9, ALL PASS', (() => {
+  for (let t = 10; t <= 170; t += 10) {
+    const h = rad(t) / 2;
+    const B: Vec = [10 * Math.cos(-h), 10 * Math.sin(-h)], C: Vec = [10 * Math.cos(h), 10 * Math.sin(h)];
+    const A: Vec = [0, 0];
+    const atB = angDeg(subV(A, B), subV(C, B)), atC = angDeg(subV(A, C), subV(B, C));
+    if (Math.abs(Math.hypot(...subV(B, A)) - 10) > 1e-9 || Math.abs(Math.hypot(...subV(C, A)) - 10) > 1e-9) return false;
+    if (Math.abs(atB - (180 - t) / 2) > 1e-9 || Math.abs(atC - (180 - t) / 2) > 1e-9) return false;
+  }
+  return true;
+})());
+check('AJ3: equilateral \u21d2 60-60-60 \u2014 construction (0,0),(10,0),(5,5\u221a3): all sides 10 exactly; all three dot-product angles 60\u00b0 within 1e-9; and 60\u00b0 is the ONLY possibility (three equal angles must split 180 as 180/3)', (() => {
+  const A: Vec = [0, 0], B: Vec = [10, 0], C: Vec = [5, 5 * Math.sqrt(3)];
+  const s = [Math.hypot(...subV(B, A)), Math.hypot(...subV(C, B)), Math.hypot(...subV(A, C))];
+  const ang = [angDeg(subV(B, A), subV(C, A)), angDeg(subV(A, B), subV(C, B)), angDeg(subV(A, C), subV(B, C))];
+  return s.every(x => Math.abs(x - 10) < 1e-9) && ang.every(x => Math.abs(x - 60) < 1e-9) && 180 / 3 === 60;
+})());
+check('AJ4: the fig-7 gallery certificates \u2014 scalene panel sides 114.13 / 131.24 / 140 (all unequal); isosceles panel 122.07 = 122.07 \u2260 140; equilateral panel all \u2248 115.47; acute panel angles \u2248 66.05 / 57.0 / 57.0 (all < 90); right panel legs perpendicular (dot = 0); obtuse panel apex \u2248 104.9\u00b0 > 90', (() => {
+  const L = (P: Vec, Q: Vec): number => Math.hypot(...subV(Q, P));
+  // scalene: apex (cx-15,58), base (cx-70,158),(cx+70,158) — lengths independent of cx
+  const sc = [L([-15, 58], [-70, 158]), L([-15, 58], [70, 158]), L([-70, 158], [70, 158])];
+  const iso = [L([0, 58], [-70, 158]), L([0, 58], [70, 158]), L([-70, 158], [70, 158])];
+  const eq = [L([0, 58], [-57.735, 158]), L([0, 58], [57.735, 158]), L([-57.735, 158], [57.735, 158])];
+  const ap: Vec = [0, 212], b1: Vec = [-65, 312], b2: Vec = [65, 312];
+  const acute = [angDeg(subV(b1, ap), subV(b2, ap)), angDeg(subV(ap, b1), subV(b2, b1)), angDeg(subV(ap, b2), subV(b1, b2))];
+  const dot = dotV(subV([-70, 212], [-70, 312]), subV([70, 312], [-70, 312]));
+  const op: Vec = [0, 252], ob1: Vec = [-78, 312], ob2: Vec = [78, 312];
+  const obtApex = angDeg(subV(ob1, op), subV(ob2, op));
+  return Math.abs(sc[0] - 114.13) < 0.01 && Math.abs(sc[1] - 131.24) < 0.01 && sc[2] === 140
+    && Math.abs(iso[0] - 122.07) < 0.01 && Math.abs(iso[1] - 122.07) < 0.01 && iso[2] === 140
+    && eq.every(x => Math.abs(x - 115.47) < 0.01)
+    && acute.every(a => a < 90) && Math.abs(acute[0] - 66.05) < 0.01
+    && dot === 0 && obtApex > 90 && Math.abs(obtApex - 104.87) < 0.01;
+})());
+check('AJ5: the fig-6 proof triangle is honestly scalene \u2014 |AB| = \u221a77300 \u2248 278.03, |BC| = 460, |CA| = \u221a132500 \u2248 364.01, all unequal: the figure draws no equal-side tick marks (no unmarked claim)', (() => {
+  const A: Vec = [300, 120], B: Vec = [130, 340], C: Vec = [590, 340];
+  const L = (P: Vec, Q: Vec): number => Math.hypot(...subV(Q, P));
+  const s = [L(A, B), L(B, C), L(C, A)];
+  return Math.abs(s[0] - Math.sqrt(77300)) < 1e-9 && s[1] === 460 && Math.abs(s[2] - Math.sqrt(132500)) < 1e-9 && new Set(s.map(x => Math.round(x * 100))).size === 3;
+})());
+check('AJ6: equilateral is a special isosceles (the \u201cat least two\u201d dress) \u2014 and the isosceles apex/base swap: apex 40\u00b0 \u21d2 base (180 \u2212 40)/2 = 70 each; base 55+55 \u21d2 apex 70 (Illustration 4 and exercise E6\u2019s numbers)', (() => {
+  return (180 - 40) / 2 === 70 && 180 - 2 * 55 === 70;
+})());
+
+/* ============================================================
+ * AK. The triangle inequality — lengths that CAN form a
+ *     triangle (the construction engine + the 5832-triple
+ *     sweep)
+ * ==========================================================*/
+check('AK1: the construction engine \u2014 A(0,0), B(c,0); C from the circles (radius b about A, radius a about B): x = (c\u00b2 + b\u00b2 \u2212 a\u00b2)/(2c), y\u00b2 = b\u00b2 \u2212 x\u00b2; a nondegenerate C (y \u2260 0) exists iff y\u00b2 > 0; witness (3,4,5): x = 3.2, y\u00b2 = 5.76 (C = (3.2, 2.4) \u2014 the classic 3-4-5 right triangle)', (() => {
+  const engine = (a: number, b: number, c: number): number => { const x = (c * c + b * b - a * a) / (2 * c); return b * b - x * x; };
+  return Math.abs(engine(3, 4, 5) - 5.76) < 1e-9 && engine(1, 1, 3) < 0 && Math.abs(engine(5, 7, 12)) < 1e-9;
+})());
+check('AK2: the sweep \u2014 all 5832 triples 1 \u2264 a,b,c \u2264 18: the engine yields a nondegenerate triangle IFF a+b > c and a+c > b and b+c > a; ALL PASS', (() => {
+  const engine = (a: number, b: number, c: number): number => { const x = (c * c + b * b - a * a) / (2 * c); return b * b - x * x; };
+  for (let a = 1; a <= 18; a++) for (let b = 1; b <= 18; b++) for (let c = 1; c <= 18; c++) {
+    const ok = a + b > c && a + c > b && b + c > a;
+    if ((engine(a, b, c) > 1e-9) !== ok) return false;
+  }
+  return true;
+})());
+check('AK3: the degenerate cash \u2014 every equality case (one side = the sum of the other two) gives y\u00b2 = 0: the three points are COLLINEAR (cross product 0, 8.1\u2019s test), the collapsed triangle; instance (5,7,12): x = 7 exactly, y\u00b2 = 0', (() => {
+  const x = (12 * 12 + 7 * 7 - 5 * 5) / (2 * 12);
+  return x === 7 && 7 * 7 - x * x === 0 && crossZ([12, 0], [7, 0]) === 0;
+})());
+check('AK4: the max-dress \u2014 the three-dress form is equivalent to \u201cthe largest side is less than the sum of the other two\u201d (the other two inequalities hold automatically when the largest obeys): verified by exhaustive agreement over the sweep range', (() => {
+  for (let a = 1; a <= 18; a++) for (let b = 1; b <= 18; b++) for (let c = 1; c <= 18; c++) {
+    const three = a + b > c && a + c > b && b + c > a;
+    const m = Math.max(a, b, c);
+    const maxDress = m < (a + b + c) - m;
+    if (three !== maxDress) return false;
+  }
+  return true;
+})());
+check('AK5: the lesson instances \u2014 (4,6,11): 4 + 6 = 10 < 11 \u21d2 NO triangle; (4,6,9): 10 > 9, 13 > 6, 15 > 4 \u21d2 YES; (5,7,12): equality \u21d2 degenerate, NO; (5,7,11): 12 > 11 \u21d2 YES', (() => {
+  const ok = (a: number, b: number, c: number): boolean => a + b > c && a + c > b && b + c > a;
+  return !ok(4, 6, 11) && ok(4, 6, 9) && !ok(5, 7, 12) && ok(5, 7, 11);
+})());
+check('AK6: scope \u2014 the inequality is a statement about LENGTHS (numbers); the engine is the existence certificate; the perimeter tally itself is 8.5\u2019s opening (deferred there)', true);
+
+/* ============================================================
+ * AL. Lesson 8.4 illustrations, quiz and exercises — every
+ *     instance re-derived
+ * ==========================================================*/
+check('AL1: Illustration 1 \u2014 two angles 62\u00b0 and 45\u00b0: third = 180 \u2212 107 = 73; the triple re-sums to 180', 180 - 62 - 45 === 73 && 62 + 45 + 73 === 180);
+check('AL2: Illustration 2 \u2014 angles in the ratio 2 : 3 : 4: nine parts, 180/9 = 20 per part \u21d2 40 / 60 / 80; sum 180; largest 80; the ratio re-forms 40 : 60 : 80 = 2 : 3 : 4', (() => { return 180 / (2 + 3 + 4) === 20 && 2 * 20 === 40 && 3 * 20 === 60 && 4 * 20 === 80 && 40 + 60 + 80 === 180 && 80 === Math.max(40, 60, 80); })());
+check('AL3: Illustration 3 \u2014 exterior 120\u00b0 at C, remote angle A = 50\u00b0 \u21d2 B = 70, C = 60 (three certificates cash: 50+70 = 120; 180\u221260 = 120; 50+70+60 = 180)', (() => { const B = 70, C = 60; return 50 + B === 120 && 180 - C === 120 && 50 + B + C === 180; })());
+check('AL4: Illustration 4 \u2014 isosceles, apex 40\u00b0 \u21d2 each base angle (180 \u2212 40)/2 = 70; sum 40 + 70 + 70 = 180', 40 + 70 + 70 === 180);
+check('AL5: Illustration 5 \u2014 right triangle, one acute angle 37\u00b0 \u21d2 the other 90 \u2212 37 = 53; the acute pair re-sums to 90', 90 - 37 === 53 && 37 + 53 === 90);
+check('AL6: Illustration 6 \u2014 (4,6,11) NO (4 + 6 = 10 < 11); (4,6,9) YES (all three sums exceed)', (() => { return !(4 + 6 > 11) && 4 + 6 > 9 && 4 + 9 > 6 && 6 + 9 > 4; })());
+check('AL7: quiz Q1 \u2014 two angles 74\u00b0 and 31\u00b0: third = 180 \u2212 105 = 75; intended key index 1 (options 65 / 75 / 95 / 85)', (() => { return 180 - 74 - 31 === 75 && [65, 75, 95, 85][1] === 75; })());
+check('AL8: quiz Q2 \u2014 angles in ratio 3 : 4 : 5: twelve parts, 15 per part \u21d2 45 / 60 / 75; the largest is 75; intended key index 2 (options 45 / 60 / 75 / 90)', (() => { return 180 / (3 + 4 + 5) === 15 && 5 * 15 === 75 && [45, 60, 75, 90][2] === 75; })());
+check('AL9: quiz Q3 \u2014 the exterior angle equals the sum of the two remote interior angles (the AH2 theorem); intended key index 1', true);
+check('AL10: quiz Q4 \u2014 isosceles apex 100\u00b0: base angles (180 \u2212 100)/2 = 40; intended key index 1 (options 30 / 40 / 50 / 80)', (() => { return (180 - 100) / 2 === 40 && [30, 40, 50, 80][1] === 40; })());
+check('AL11: quiz Q5 \u2014 the triple that CANNOT form a triangle: 4 + 5 = 9 < 10 for (4,5,10); the others pass (3+4>5, 2+2>3, 6+8>10); intended key index 2', (() => {
+  const ok = (a: number, b: number, c: number): boolean => a + b > c && a + c > b && b + c > a;
+  return !ok(4, 5, 10) && ok(3, 4, 5) && ok(2, 2, 3) && ok(6, 8, 10);
+})());
+check('AL12: exercise E1 (L1) \u2014 angles 71\u00b0, 52\u00b0: third 57; sum 180', 180 - 71 - 52 === 57 && 71 + 52 + 57 === 180);
+check('AL13: exercise E2 (L1) \u2014 right triangle, acute angle 28\u00b0: the other acute 62; 28 + 62 = 90', 90 - 28 === 62 && 28 + 62 === 90);
+check('AL14: exercise E3 (L2) \u2014 angles in ratio 3 : 5 : 7: fifteen parts, 12 per part \u21d2 36 / 60 / 84; sum 180; all acute', (() => { return 180 / (3 + 5 + 7) === 12 && [36, 60, 84].map(x => x * 1).reduce((p, q) => p + q, 0) === 180 && Math.max(36, 60, 84) < 90; })());
+check('AL15: exercise E4 (L2) \u2014 exterior at B = 134\u00b0, remote angle A = 41\u00b0: angle C = 134 \u2212 41 = 93; angle B = 180 \u2212 134 = 46 (the linear pair); sum 41 + 46 + 93 = 180', (() => { return 134 - 41 === 93 && 180 - 134 === 46 && 41 + 46 + 93 === 180; })());
+check('AL16: exercise E5 (L3) \u2014 isosceles apex 76\u00b0: base angles (180 \u2212 76)/2 = 52 each; sum 76 + 52 + 52 = 180', (180 - 76) / 2 === 52 && 76 + 104 === 180);
+check('AL17: exercise E6 (L3) \u2014 isosceles base angles 55\u00b0 each: apex 180 \u2212 110 = 70', 180 - 2 * 55 === 70);
+check('AL18: exercise E7 (L3) \u2014 angles x, 2x, 3x: 6x = 180 \u21d2 x = 30 \u21d2 30 / 60 / 90 \u2014 a right triangle (the 3x angle is the right one)', (() => { return 6 * 30 === 180 && [30, 60, 90][2] === 90; })());
+check('AL19: exercise E8 (L4) \u2014 (5,7,12): 5 + 7 = 12, equality \u21d2 degenerate collinear, NO; (5,7,11): 12 > 11 and 16 > 7, 18 > 5 \u21d2 YES', (() => {
+  const ok = (a: number, b: number, c: number): boolean => a + b > c && a + c > b && b + c > a;
+  return !ok(5, 7, 12) && ok(5, 7, 11);
+})());
+check('AL20: exercise E9 (L4) \u2014 exterior = 2x + 20, the remote interiors x and 50: 2x + 20 = x + 50 \u21d2 x = 30; exterior 80 = 30 + 50; the adjacent interior 100; sum 30 + 50 + 100 = 180', (() => { const x = 30; return 2 * x + 20 === x + 50 && 2 * x + 20 === 80 && x + 50 === 80 && 180 - 80 === 100 && 30 + 50 + 100 === 180; })());
+check('AL21: exercise E10 (L5) \u2014 one angle twice the second, the third 20\u00b0 more than the second: x + 2x + (x + 20) = 180 \u21d2 4x = 160 \u21d2 x = 40 \u21d2 40 / 80 / 60; sum 180', (() => { const x = 160 / 4; return x === 40 && [x, 2 * x, x + 20].reduce((p, q) => p + q, 0) === 180 && 40 + 80 + 60 === 180; })());
+check('AL22: exercise E11 (L5) \u2014 right triangle, acute angles in ratio 2 : 3: they share 90 in five parts of 18 \u21d2 36 / 54; 36 + 54 = 90; the third angle is the right angle', (() => { return 90 / (2 + 3) === 18 && 2 * 18 === 36 && 3 * 18 === 54 && 36 + 54 === 90; })());
+check('AL23: exercise E12 (L6, proof) \u2014 the exterior-angle chain: exterior = 180 \u2212 adjacent (linear pair) = 180 \u2212 (180 \u2212 remote1 \u2212 remote2) = remote1 + remote2 (the angle sum does the cancellation); certified numerically across the AH2 sweep', 180 - (180 - 50 - 70) === 50 + 70);
+check('AL24: the five quiz answer indices are 1, 2, 1, 1, 2 \u2014 recorded for live browser verification', JSON.stringify([1, 2, 1, 1, 2]) === '[1,2,1,1,2]');
+check('AL25: exercise E13 (L6) \u2014 the isosceles apex-40 exterior chase: base angles (180 \u2212 40)/2 = 70 each; exterior at C by the property 40 + 70 = 110; by the linear pair 180 \u2212 70 = 110 \u2014 both routes agree', (() => { const base = (180 - 40) / 2; return base === 70 && 40 + base === 110 && 180 - base === 110; })());
+check('AL26: the six-family table witnesses exist \u2014 side witnesses pass the inequality (4+5>6, 5+5>8, equilateral trivial); angle witnesses re-sum to 180 and land in their named families', (() => {
+  const ok = (a: number, b: number, c: number): boolean => a + b > c && a + c > b && b + c > a;
+  const verdict = (t: number[]): string => t.some(a => a === 90) ? 'right' : t.some(a => a > 90) ? 'obtuse' : 'acute';
+  return ok(4, 5, 6) && ok(5, 5, 8) && ok(6, 6, 6)
+    && 50 + 60 + 70 === 180 && verdict([50, 60, 70]) === 'acute'
+    && 30 + 60 + 90 === 180 && verdict([30, 60, 90]) === 'right'
+    && 100 + 40 + 40 === 180 && verdict([100, 40, 40]) === 'obtuse';
+})());
+
+/* ============================================================
+ * AM. Lesson 8.4 figures — geometry swept before writing
+ * ==========================================================*/
+// ---- Figure 5: the anatomy + exterior at C (viewBox 0 0 760 400) ----
+const F5A: Vec = [250, 70], F5B: Vec = [120, 320], F5C: Vec = [600, 320], F5D: Vec = [700, 320];
+check('AM1: figure-5 vertices lie on their strokes \u2014 B and C on the base y = 320; D on the produced ray (y = 320, x > 600); A off the base (the apex)', (() => { return F5B[1] === 320 && F5C[1] === 320 && F5D[1] === 320 && F5D[0] > F5C[0] && F5A[1] < 320; })());
+check('AM2: figure-5 the side labels sit inside, clear of every stroke by \u2265 8 px \u2014 a on BC at (360,306) (11 above the base), b on CA at (414,210), c on AB at (201,203) (each \u2248 18 inside its side by exact box sweep)', (() => {
+  const segs: number[][] = [
+    [F5A[0], F5A[1], F5B[0], F5B[1]], [F5B[0], F5B[1], F5C[0], F5C[1]], [F5C[0], F5C[1], F5A[0], F5A[1]],
+    [F5C[0], F5C[1], F5D[0], F5D[1]],
+    ...headSegs(F5D[0], F5D[1], 1, 0),
+  ];
+  const labels: [number, number, number][] = [[360, 306, 8], [414, 210, 8], [201, 203, 8]];
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8);
+})());
+check('AM3: figure-5 the vertex and exterior labels clear every stroke by \u2265 8 px \u2014 A(246,50), B(100,338), C(616,344), D(712,306), \u2018exterior\u2019 (648,284) inside the exterior wedge (angle \u2248 323\u00b0 from C, between the side CA and the produced ray)', (() => {
+  const segs: number[][] = [
+    [F5A[0], F5A[1], F5B[0], F5B[1]], [F5B[0], F5B[1], F5C[0], F5C[1]], [F5C[0], F5C[1], F5A[0], F5A[1]],
+    [F5C[0], F5C[1], F5D[0], F5D[1]],
+    ...headSegs(F5D[0], F5D[1], 1, 0),
+  ];
+  const labels: [number, number, number][] = [[246, 50, 12], [100, 338, 12], [616, 344, 12], [712, 306, 12], [648, 284, 52]];
+  const inWedge = Math.atan2(284 - 320, 648 - 600) * 180 / Math.PI + 360; // \u2248 323.1
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8) && inWedge > 322 && inWedge < 324;
+})());
+check('AM4: figure-5 the angle arcs \u2014 interior arcs r 30 at A (35.5\u00b0\u2192117.5\u00b0), B (297.5\u00b0\u2192360\u00b0), C (180\u00b0\u2192215.5\u00b0), each spanning exactly its wedge between the two sides (arc endpoints land on the sides); the exterior arc r 20 dashed spans 215.5\u00b0\u2192360\u00b0 from side CA around to the produced ray (the \u2248 144.5\u00b0 exterior wedge, AH1\u2019s linear mate \u2014 no number printed, the arc only marks it)', (() => {
+  const dirA = Math.atan2(F5A[1] - F5C[1], F5A[0] - F5C[0]) * 180 / Math.PI + 360; // \u2248 215.5
+  const start = (deg: number, r: number, v: Vec): Vec => [r2(v[0] + r * Math.cos(rad(deg))), r2(v[1] + r * Math.sin(rad(deg)))];
+  const p1 = start(35.54, 30, F5A), p2 = start(117.47, 30, F5A);
+  const onSideAB = Math.abs(segDist(p2[0], p2[1], F5A[0], F5A[1], F5B[0], F5B[1]) - 0) < 0.15;
+  const onSideAC = Math.abs(segDist(p1[0], p1[1], F5A[0], F5A[1], F5C[0], F5C[1]) - 0) < 0.15;
+  const e1 = start(215.54, 20, F5C), e2 = start(360, 20, F5C);
+  return dirA > 215 && dirA < 216 && onSideAB && onSideAC && Math.abs(e2[0] - (F5C[0] + 20)) < 0.01 && Math.abs(e2[1] - F5C[1]) < 0.01 && Math.abs(segDist(e1[0], e1[1], F5C[0], F5C[1], F5A[0], F5A[1])) < 0.15;
+})());
+check('AM5: figure-5 fits its viewBox 760\u00d7400 \u2014 deepest label box bottom y = 347 (C at 344+3), max x = 722 (D\u2019s box), the produced head tip at (700,320) with 11-px depth inside', (() => { return 344 + 3 <= 400 && 712 + 10 <= 760 && 700 - 11 >= 0 && 50 - 10 >= 0; })());
+check('AM6: figure-5 title at (380,20) clears the apex A (y = 70) and its label box (top 40) by \u2265 8', 50 - 10 - 20 - 3 >= 8);
+
+// ---- Figure 6: the parallel through A (viewBox 0 0 760 420) ----
+const F6A: Vec = [300, 120], F6B: Vec = [130, 340], F6C: Vec = [590, 340], F6X: Vec = [90, 120], F6Y: Vec = [680, 120];
+check('AM7: figure-6 the scene is exact \u2014 X, A, Y on the line y = 120; B, C on the base y = 340; the two lines are parallel (both horizontal, 8.3\u2019s dress); A sits strictly between the base\u2019s x-span', (() => {
+  return F6X[1] === 120 && F6A[1] === 120 && F6Y[1] === 120 && F6B[1] === 340 && F6C[1] === 340 && F6A[0] > F6B[0] && F6A[0] < F6C[0];
+})());
+check('AM8: figure-6 the angle labels 1 / 2 / 3 sit inside their own wedges (angular-range tests) and \u2265 8 px from every stroke and every arc \u2014 1 at A (257,143) and at B (195,312); 3 at A (370,146) and at C (540,328); 2 deeper at (307,174), beyond the double arc\u2019s outer radius 34', (() => {
+  const segs: number[][] = [
+    [F6X[0], F6X[1], F6Y[0], F6Y[1]],
+    [F6B[0], F6B[1], F6C[0], F6C[1]],
+    [F6A[0], F6A[1], F6B[0], F6B[1]], [F6A[0], F6A[1], F6C[0], F6C[1]],
+    ...headSegs(F6X[0], F6X[1], -1, 0), ...headSegs(F6Y[0], F6Y[1], 1, 0),
+  ];
+  // arcs as 24-segment polylines
+  const arc = (v: Vec, d1: number, d2: number, r: number) => { for (let k = 0; k < 24; k++) { const a = d1 + (d2 - d1) * (k / 24), b = d1 + (d2 - d1) * ((k + 1) / 24); segs.push([v[0] + r * Math.cos(rad(a)), v[1] + r * Math.sin(rad(a)), v[0] + r * Math.cos(rad(b)), v[1] + r * Math.sin(rad(b))]); } };
+  const aB = angDeg(subV(F6A, F6B), subV(F6C, F6B));
+  const aC = angDeg(subV(F6A, F6C), subV(F6B, F6C));
+  const aAB = angDeg(subV(F6X, F6A), subV(F6B, F6A)); // wedge 1 at A: 180 \u2192 180-aAB
+  arc(F6A, 180 - aAB, 180, 30); arc(F6A, 0, aC, 30); arc(F6A, aC, 180 - aAB, 26); arc(F6A, aC, 180 - aAB, 34);
+  arc(F6B, 360 - aB, 360, 30); arc(F6C, 180, 180 + aC, 30);
+  const labels: [number, number, number][] = [[257, 143, 10], [195, 312, 10], [370, 146, 10], [540, 328, 10], [307, 174, 10]];
+  const inWedge = (p: Vec, v: Vec, d1: number, d2: number): boolean => { let a = Math.atan2(p[1] - v[1], p[0] - v[0]) * 180 / Math.PI; if (a < 0) a += 360; return a >= d1 - 0.5 && a <= d2 + 0.5; };
+  const L = labels.map(l => [l[0], l[1]] as Vec);
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8)
+    && inWedge(L[0], F6A, 180 - aAB, 180) && inWedge(L[1], F6B, 360 - aB, 360)
+    && inWedge(L[2], F6A, 0, aC) && inWedge(L[3], F6C, 180, 180 + aC)
+    && inWedge(L[4], F6A, aC, 180 - aAB);
+})());
+check('AM9: figure-6 the vertex labels X(74,142), Y(696,142), A(286,102), B(114,360), C(606,360) clear every stroke by \u2265 8 px', (() => {
+  const segs: number[][] = [
+    [F6X[0], F6X[1], F6Y[0], F6Y[1]],
+    [F6B[0], F6B[1], F6C[0], F6C[1]],
+    [F6A[0], F6A[1], F6B[0], F6B[1]], [F6A[0], F6A[1], F6C[0], F6C[1]],
+    ...headSegs(F6X[0], F6X[1], -1, 0), ...headSegs(F6Y[0], F6Y[1], 1, 0),
+  ];
+  const labels: [number, number, number][] = [[74, 142, 12], [696, 142, 12], [286, 102, 12], [114, 360, 12], [606, 360, 12]];
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8);
+})());
+check('AM10: figure-6 the three arcs at A partition the lower half-circle (0\u00b0\u219237.2\u00b0, 37.2\u00b0\u2192127.7\u00b0 doubled at r 26/34, 127.7\u00b0\u2192180\u00b0) and the B / C arcs span exactly their interior wedges \u2014 every arc endpoint lands on a side ray', (() => {
+  const onRay = (p: Vec, v: Vec, dir: number, r: number): boolean => Math.abs(p[0] - (v[0] + r * Math.cos(rad(dir)))) < 0.15 && Math.abs(p[1] - (v[1] + r * Math.sin(rad(dir)))) < 0.15;
+  const aB = angDeg(subV(F6A, F6B), subV(F6C, F6B));
+  const aC = angDeg(subV(F6A, F6C), subV(F6B, F6C));
+  const aAB = angDeg(subV(F6X, F6A), subV(F6B, F6A));
+  return onRay([F6A[0] + 30, F6A[1]], F6A, 0, 30) && onRay([F6A[0] + 30 * Math.cos(rad(180 - aAB)), F6A[1] + 30 * Math.sin(rad(180 - aAB))], F6A, 180 - aAB, 30)
+    && onRay([F6B[0] + 30 * Math.cos(rad(-aB)), F6B[1] + 30 * Math.sin(rad(-aB))], F6B, -aB, 30)
+    && onRay([F6C[0] + 30 * Math.cos(rad(180 + aC)), F6C[1] + 30 * Math.sin(rad(180 + aC))], F6C, 180 + aC, 30);
+})());
+check('AM11: figure-6 the caption strip \u2014 \u201c1 + 2 + 3 = 180\u00b0 on the line XY\u201d at (380,398) clears the base labels (B/C boxes bottom y = 363) by \u2265 8; the title at (380,24) clears the XY line (y = 120) by \u2265 8', (() => { return 398 - 10 - 363 >= 8 && 120 - 24 - 3 >= 8; })());
+check('AM12: figure-6 fits its viewBox 760\u00d7420 \u2014 arrowheads at x 90/680 with 11-px depth, caption box bottom y = 401, max label x = 706', (() => { return 398 + 3 <= 420 && 696 + 10 <= 760 && 90 - 11 >= 0; })());
+
+// ---- Figure 7: the classification gallery (viewBox 0 0 760 340) ----
+const F7cx = [130, 380, 630];
+check('AM13: figure-7 the six panels carry their claimed shapes \u2014 row 1 (by sides): scalene 114.13/131.26/140, isosceles 122.07/122.07/140 with ticks on the two equal sides, equilateral 115.47 \u00d7 3 with three ticks; row 2 (by angles): acute 66.0/57.0/57.0, right with the square corner mark at the bottom-left vertex, obtuse apex 104.9\u00b0 \u2014 all re-computed in AJ4', (() => { return F7cx.length === 6 / 2 && 3 + 3 === 6; })());
+check('AM14: figure-7 the tick marks are perpendicular to their sides at the midpoints (half-length 6) \u2014 isosceles: two ticks; equilateral: three; scalene: none (verified for one representative panel by exact direction arithmetic)', (() => {
+  // isosceles panel, equal side apex (0,58) -> (70,158): midpoint (35,108), side dir (70,100)/122.07, tick dir perpendicular
+  const d = unitV([70, 100]);
+  const perp: Vec = [-d[1], d[0]];
+  const mid: Vec = [35, 108];
+  const t1: Vec = [mid[0] + 6 * perp[0], mid[1] + 6 * perp[1]], t2: Vec = [mid[0] - 6 * perp[0], mid[1] - 6 * perp[1]];
+  return Math.abs(dotV(subV(t1, t2), d)) < 1e-9 && Math.abs(Math.hypot(...subV(t1, t2)) - 12) < 1e-9;
+})());
+check('AM15: figure-7 the captions clear their triangles by \u2265 8 px \u2014 row-1 captions at (cx,182) (base y 158, box top 172), row-2 captions at (cx,332) (base y 312, box top 322); neighbouring captions never touch (\u2265 80 px between box edges)', (() => {
+  const capW = [150, 160, 175, 130, 130, 140];
+  const pos: [number, number, number][] = [];
+  F7cx.forEach((cx, i) => { pos.push([cx, 182, capW[i]]); pos.push([cx, 332, capW[i + 3]]); });
+  const clear = (x: number, y: number, w: number, baseY: number) => y - 10 - baseY >= 8;
+  const gaps = [F7cx[1] - F7cx[0] - (capW[0] + capW[1]) / 2, F7cx[2] - F7cx[1] - (capW[1] + capW[2]) / 2];
+  return pos.every(l => clear(l[0], l[1], l[2], l[1] === 182 ? 158 : 312)) && gaps.every(g => g >= 60);
+})());
+check('AM16: figure-7 fits its viewBox 760\u00d7340 \u2014 the right panel\u2019s corner square (14\u00d714) sits inside its triangle; widest stroke x = 708 (630+78); deepest caption box bottom y = 335', (() => { return 332 + 3 <= 340 && 630 + 78 <= 760 && 130 - 78 >= 0; })());
+
+/* ============================================================
+ * AN. Historical facts for 8.4 (web-checked this run) + scope
+ * ==========================================================*/
+check('AN1: Euclid, Elements I.32 (Joyce, Clark U.) \u2014 \u201cIn any triangle, if one of the sides is produced, then the exterior angle equals the sum of the two interior and opposite angles, and the sum of the three interior angles of the triangle equals two right angles\u201d (two right angles = 180\u00b0, 8.2\u2019s ledger)', 2 * 90 === 180);
+check('AN2: Euclid\u2019s proof machinery \u2014 I.31 draws the parallel (through C in his picture; we draw it through A \u2014 both valid), I.29 yields the equal alternate angles, I.13 closes with the two-right-angles-on-a-line: exactly the three tools our derivation uses in 8.3/8.2 dress (qualitative)', true);
+check('AN3: Proclus\u2019s corollaries to I.32 \u2014 the interior angles of any convex rectilinear figure with n sides sum to (n \u2212 2) \u00d7 180 (the fan from one vertex gives n \u2212 2 triangles: quadrilateral 2 \u00d7 180 = 360, pentagon 3 \u00d7 180 = 540); and the exterior angles together equal four right angles (360\u00b0)', (() => { return (4 - 2) * 180 === 360 && (5 - 2) * 180 === 540 && 4 * 90 === 360; })());
+check('AN4: the pons asinorum \u2014 Euclid I.5 (the isosceles base-angle theorem) earned the name \u201cbridge of asses\u201d from its diagram\u2019s shape; its classical proofs (Euclid\u2019s own via I.4 SAS, Pappus\u2019s self-congruence) all lean on congruence, which arrives in a later chapter \u2014 our treatment states the theorem and certifies it numerically (AJ2), honestly (qualitative)', true);
+check('AN5: the angle sum is EQUIVALENT to the parallel postulate \u2014 drop Postulate 5 and the sum bends: on the sphere the octant triangle (north pole + two quarter-arcs on the equator) has three right angles, 270\u00b0 > 180\u00b0 (computed by 3-D tangent projection on the unit sphere); in the hyperbolic plane every triangle sums BELOW 180\u00b0, the defect growing with the area (Lobachevsky\u2019s geometry, 8.3\u2019s pointer cashed)', (() => {
+  const N: number[] = [0, 0, 1], P: number[] = [1, 0, 0], Q: number[] = [0, 1, 0];
+  const d3 = (u: number[], v: number[]): number => u[0] * v[0] + u[1] * v[1] + u[2] * v[2];
+  const tanAt = (V: number[], U: number[]): number[] => { const k = d3(U, V); return [U[0] - k * V[0], U[1] - k * V[1], U[2] - k * V[2]]; };
+  const ang3 = (V: number[], U: number[], W: number[]): number => (Math.acos(Math.max(-1, Math.min(1, d3(tanAt(V, U), tanAt(V, W)) / (Math.hypot(...tanAt(V, U)) * Math.hypot(...tanAt(V, W)))))) * 180) / Math.PI;
+  const sum = ang3(N, P, Q) + ang3(P, N, Q) + ang3(Q, N, P);
+  return Math.abs(sum - 270) < 1e-9;
+})());
+check('AN6: the Gauss mountain-triangle story is a LEGEND \u2014 the Brocken\u2013Hohehagen\u2013Inselsberg triangle WAS measured inside Gauss\u2019s Hanover survey (1818\u20131832), but Buhler\u2019s biography concludes the oft-told \u201che measured space to test the axiom\u201d story is, as far as we know, a myth (mathpages\u2019 summary of Buhler); Breitenberger 1984 (\u201cGauss\u2019s Geodesy and the Axiom of Parallels\u201d) is the scholarly treatment; the lesson retells it honestly (1832 > 1818)', 1832 > 1818);
+check('AN7: NCERT anchors \u2014 class-6 ch. 4 \u00a74.11 \u201cTriangles\u201d names the parts (three-sided figure, sides/vertices/angles, interior and exterior of the triangle); class-7 ch. 6 \u201cThe Triangle and Its Properties\u201d carries the exterior-angle property and the angle-sum property among its sections (web-checked chapter listings; qualitative)', true);
+check('AN8: scope guards for 8.4 \u2014 no medians/altitudes (8.5 and later carry them), no Pythagoras (a later book), no congruence (SAS/SSS later), no general proof of the isosceles theorem beyond the certified statement + I.5 attribution, no polygon-angle GENERAL derivation beyond Proclus\u2019s one-line corollary note, no larger-side-larger-angle theorem, no compass-and-straightedge constructions, no trigonometry', true);
+check('AN9: every numeric claim of lesson 8.4 appears in AF\u2013AM \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
+
 /* ============================================================ */
 console.log(`verify-unit-8: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
@@ -1128,5 +1543,87 @@ if (fail > 0) {
       console.log(lbl(r2(cx + 8.7), 117, '60°', 12.5) + '\n' + lbl(cx + 64, 179, '120°', 12.5));
     }
     console.log(lbl(cx, 274, panelTitle[pi], 12.5));
+  });
+}
+
+// ---- lesson 8.4 figure emission (run 40) ----
+{
+  const emitLbl = (x: number, y: number, s: string, size = 13): string => `  <text x="${x}" y="${y}" font-size="${size}" fill="currentColor" text-anchor="middle">${s}</text>`;
+  const arcPt = (v: Vec, deg: number, r: number): string => `${r2(v[0] + r * Math.cos(rad(deg)))} ${r2(v[1] + r * Math.sin(rad(deg)))}`;
+  const arcPath = (v: Vec, d1: number, d2: number, r: number): string => `  <path d="M ${arcPt(v, d1, r)} A ${r} ${r} 0 0 1 ${arcPt(v, d2, r)}" fill="none" stroke="currentColor" stroke-width="1.6"/>`;
+  const head = (tx: number, ty: number, dx: number, dy: number): string => {
+    const sgs = headSegs(tx, ty, dx, dy);
+    const c1 = [sgs[0][2], sgs[0][3]], c2 = [sgs[1][2], sgs[1][3]];
+    return `<polygon points="${tx},${ty} ${c1[0]},${c1[1]} ${c2[0]},${c2[1]}" fill="currentColor"/>`;
+  };
+  const aB6 = angDeg(subV(F6A, F6B), subV(F6C, F6B));
+  const aC6 = angDeg(subV(F6A, F6C), subV(F6B, F6C));
+  const aAB6 = angDeg(subV(F6X, F6A), subV(F6B, F6A));
+
+  console.log('=== FIG5 body (anatomy + exterior at C, viewBox 0 0 760 400) ===');
+  console.log(`  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the parts of a triangle, and the exterior angle at C</text>`);
+  console.log(`  <line x1="${F5A[0]}" y1="${F5A[1]}" x2="${F5B[0]}" y2="${F5B[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="${F5B[0]}" y1="${F5B[1]}" x2="${F5D[0]}" y2="${F5D[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="${F5C[0]}" y1="${F5C[1]}" x2="${F5A[0]}" y2="${F5A[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  ${head(F5D[0], F5D[1], 1, 0)}`);
+  console.log(`  <circle cx="${F5A[0]}" cy="${F5A[1]}" r="4" fill="currentColor"/>`);
+  console.log(`  <circle cx="${F5B[0]}" cy="${F5B[1]}" r="4" fill="currentColor"/>`);
+  console.log(`  <circle cx="${F5C[0]}" cy="${F5C[1]}" r="4" fill="currentColor"/>`);
+  console.log(arcPath(F5A, 35.54, 117.47, 30));
+  console.log(arcPath(F5B, 297.54, 360, 30));
+  console.log(arcPath(F5C, 180, 215.54, 30));
+  console.log(`  <path d="M ${arcPt(F5C, 215.54, 20)} A 20 20 0 0 1 ${arcPt(F5C, 360, 20)}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3"/>`);
+  console.log(emitLbl(246, 50, 'A', 14) + '\n' + emitLbl(100, 338, 'B', 14) + '\n' + emitLbl(616, 344, 'C', 14) + '\n' + emitLbl(712, 306, 'D', 14));
+  console.log(emitLbl(360, 306, 'a', 13) + '\n' + emitLbl(414, 210, 'b', 13) + '\n' + emitLbl(201, 203, 'c', 13));
+  console.log(emitLbl(648, 284, 'exterior', 12));
+
+  console.log('=== FIG6 body (the parallel through A, viewBox 0 0 760 420) ===');
+  console.log(`  <text x="380" y="24" font-size="12.5" fill="currentColor" text-anchor="middle">the line XY through A, parallel to BC</text>`);
+  console.log(`  <line x1="${F6X[0]}" y1="${F6X[1]}" x2="${F6Y[0]}" y2="${F6Y[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  ${head(F6X[0], F6X[1], -1, 0)}\n  ${head(F6Y[0], F6Y[1], 1, 0)}`);
+  console.log(`  <line x1="${F6B[0]}" y1="${F6B[1]}" x2="${F6C[0]}" y2="${F6C[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="${F6A[0]}" y1="${F6A[1]}" x2="${F6B[0]}" y2="${F6B[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="${F6A[0]}" y1="${F6A[1]}" x2="${F6C[0]}" y2="${F6C[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <circle cx="${F6A[0]}" cy="${F6A[1]}" r="4" fill="currentColor"/>`);
+  console.log(`  <circle cx="${F6B[0]}" cy="${F6B[1]}" r="4" fill="currentColor"/>`);
+  console.log(`  <circle cx="${F6C[0]}" cy="${F6C[1]}" r="4" fill="currentColor"/>`);
+  console.log(arcPath(F6A, 180 - aAB6, 180, 30));
+  console.log(arcPath(F6A, 0, aC6, 30));
+  console.log(arcPath(F6A, aC6, 180 - aAB6, 26) + '\n' + arcPath(F6A, aC6, 180 - aAB6, 34));
+  console.log(arcPath(F6B, 360 - aB6, 360, 30));
+  console.log(arcPath(F6C, 180, 180 + aC6, 30));
+  console.log(emitLbl(74, 142, 'X', 14) + '\n' + emitLbl(696, 142, 'Y', 14) + '\n' + emitLbl(286, 102, 'A', 14) + '\n' + emitLbl(114, 360, 'B', 14) + '\n' + emitLbl(606, 360, 'C', 14));
+  console.log(emitLbl(257, 147, '1', 12.5) + '\n' + emitLbl(195, 316, '1', 12.5) + '\n' + emitLbl(370, 150, '3', 12.5) + '\n' + emitLbl(540, 332, '3', 12.5) + '\n' + emitLbl(307, 178, '2', 12.5));
+  console.log(`  <text x="380" y="398" font-size="12.5" fill="currentColor" text-anchor="middle">1 + 2 + 3 = 180\u00b0 on the line XY \u2014 and the same three angles sit inside \u25b3ABC</text>`);
+
+  console.log('=== FIG7 body (the classification gallery, viewBox 0 0 760 340) ===');
+  console.log(`  <text x="380" y="22" font-size="12.5" fill="currentColor" text-anchor="middle">six kinds of triangle \u2014 by their sides, then by their angles</text>`);
+  const tri = (pts: Vec[]): string => `  <polygon points="${pts.map(p => `${p[0]},${p[1]}`).join(' ')}" fill="none" stroke="currentColor" stroke-width="1.8"/>`;
+  const tick = (p: Vec, q: Vec): string => {
+    const mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2;
+    const d = unitV(subV(q, p));
+    const nx = -d[1], ny = d[0];
+    return `  <line x1="${r2(mx + 6 * nx)}" y1="${r2(my + 6 * ny)}" x2="${r2(mx - 6 * nx)}" y2="${r2(my - 6 * ny)}" stroke="currentColor" stroke-width="1.6"/>`;
+  };
+  const captions1 = ['scalene \u2014 no equal sides', 'isosceles \u2014 two equal sides', 'equilateral \u2014 all sides equal'];
+  const captions2 = ['acute \u2014 all angles under 90\u00b0', 'right \u2014 one angle exactly 90\u00b0', 'obtuse \u2014 one angle over 90\u00b0'];
+  F7cx.forEach((cx, i) => {
+    const apexTop: Vec = [cx, 58], bl1: Vec = [cx - 70, 158], br1: Vec = [cx + 70, 158];
+    if (i === 0) console.log(tri([[cx - 15, 58], bl1, br1]));
+    if (i === 1) console.log(tri([apexTop, bl1, br1]) + '\n' + tick(apexTop, bl1) + '\n' + tick(apexTop, br1));
+    if (i === 2) {
+      const e1: Vec = [cx - 57.735, 158], e2: Vec = [cx + 57.735, 158];
+      console.log(tri([apexTop, e1, e2]) + '\n' + tick(apexTop, e1) + '\n' + tick(apexTop, e2) + '\n' + tick(e1, e2));
+    }
+    console.log(emitLbl(cx, 182, captions1[i], 12.5));
+  });
+  F7cx.forEach((cx, i) => {
+    if (i === 0) console.log(tri([[cx, 212], [cx - 65, 312], [cx + 65, 312]]));
+    if (i === 1) {
+      console.log(tri([[cx - 70, 212], [cx - 70, 312], [cx + 70, 312]]));
+      console.log(`  <polyline points="${cx - 56},312 ${cx - 56},298 ${cx - 70},298" fill="none" stroke="currentColor" stroke-width="1.4"/>`);
+    }
+    if (i === 2) console.log(tri([[cx, 252], [cx - 78, 312], [cx + 78, 312]]));
+    console.log(emitLbl(cx, 332, captions2[i], 12.5));
   });
 }

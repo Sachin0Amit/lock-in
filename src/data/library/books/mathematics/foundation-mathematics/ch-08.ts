@@ -133,20 +133,75 @@ import type { Chapter } from '../../../types'
  * non-Euclidean forward pointer); 11 terms, 5-quiz (keys 1/2/1/0/2
  * verified live), 12 exercises L1–L6 (L6: the co-interior-supplementary
  * proof chained through VO + the converse axiom; the co-exterior
- * 96/84 verdict with the full eight-angle read). Scope guard: no
- * triangle angle sum (8.4), no exterior-angle-inequality proof (I.16),
- * no non-Euclidean content beyond the callout, no
- * perpendicular-distance-between-parallels, no compass construction
- * of parallels. Authored in the Cengage voice + solution chain;
- * every number pre-verified by verify-unit-8.ts sections X–AE
- * (253 checks total) BEFORE writing.
+ * 96/84 verdict with the full eight-angle read). Authored in the
+ * Cengage voice + solution chain; every number pre-verified by
+ * verify-unit-8.ts sections X–AE BEFORE writing.
+ *
+ * LESSON 8.4 Triangles and the Angle Sum (run 40, 2026-11-05) — the
+ * chapter's three tools converge on the first closed figure: the
+ * triangle defined in the is-said-to-be shape with the non-collinear
+ * clause tied back to 8.1's collinearity test (three collinear points
+ * give area 0), vertices/sides/interior angles named in both the
+ * capital and small-letter dress with the opposite-pairing roman run,
+ * figure 1 the anatomy with side BC produced to D and the dashed
+ * exterior angle at C (linear-pair mate of interior ∠C); the angle sum
+ * property DERIVED as the derivation block's five-step chain (tag 1):
+ * the parallel XY through A (Playfair's uniqueness the licence),
+ * alternate-interior equalities ∠XAB = ∠ABC and ∠CAY = ∠ACB (8.3's
+ * Z pattern), the straight-angle partition at A (8.2's ledger), the
+ * substitution — figure 2 the whole exchange drawn (equal-mark arcs
+ * 1/1 and 3/3, the double arc on the staying angle 2, the caption
+ * 1 + 2 + 3 = 180°); the third-angle engine ∠C = 180 − ∠A − ∠B; the
+ * exterior angle property DERIVED as tag 2 (linear pair + tag 1, the
+ * 8.3 cancellation) with the inequality reading (∠ACD > each remote,
+ * Euclid I.16's content) — swept over 400 pseudo-random triangles × 3
+ * vertices (1200 positions); classifications both axes with the
+ * one-right/one-obtuse law derived from the budget argument, tag 3 the
+ * right-triangle complement ∠A + ∠B = 90°, the isosceles base-angle
+ * theorem stated honestly (Euclid I.5 pons asinorum; classical proofs
+ * need SAS congruence — certified numerically over apex 10°…170°,
+ * proved when congruence arrives), equilateral 60-60-60 as the only
+ * equiangular possibility, the six-family witness table (side
+ * witnesses pass the inequality, angle witnesses re-sum), figure 3 the
+ * six-panel gallery (scalene/isosceles/equilateral with tick marks;
+ * acute/right/obtuse with the square corner mark; all measures
+ * recomputed from the panel coordinates); the triangle inequality from
+ * the two-circle construction engine swept over all 5832 integer
+ * triples 1–18 in three dresses (three-dress, largest-side, the
+ * degenerate collinear equality = 8.1's test), Illustrations 1–6
+ * (62/45→73; ratio 2:3:4→40/60/80; exterior 120+remote 50→70/60;
+ * isosceles apex 40→70/70; right 37→53; (4,6,11) no / (4,6,9) yes);
+ * the Proclus polygon Note ((n−2)×180, exterior sum 360°); the exam
+ * corner (SSC/RRB/banking angle-chase staples, none reproduced); the
+ * historical callout (Euclid I.32's two-part statement and its
+ * I.31/I.29/I.13 machinery = our tools; the pons asinorum naming; the
+ * angle sum EQUIVALENT to Postulate 5 — the spherical octant triangle
+ * computed at 270° > 180°, the hyperbolic defect; the Gauss
+ * Brocken–Hohehagen–Inselsberg legend told honestly — Hanover survey
+ * 1818–32, Buhler: the space-testing motive a myth); 12 terms, 5-quiz
+ * (keys 1/2/1/1/2 verified live), 13 exercises L1–L6 (L6: the
+ * exterior-angle proof quoted tool by tool; the isosceles apex-40
+ * exterior chase cashed both routes 110° = 110°). Scope guards: no
+ * medians/altitudes (8.5), no Pythagoras, no congruence proofs, no
+ * polygon-angle general derivation beyond Proclus's Note, no
+ * larger-side-larger-angle theorem, no compass constructions, no
+ * trigonometry. Authored in the Cengage voice + solution chain; every
+ * number pre-verified by verify-unit-8.ts sections AF–AN (339 checks
+ * total, extended 253 → 339) BEFORE writing.
+ *
+ * LESSON 8.3 scope guards (run 39): no triangle angle sum (8.4), no
+ * exterior-angle-inequality proof (I.16), no non-Euclidean content
+ * beyond the callout, no perpendicular-distance-between-parallels, no
+ * compass construction of parallels.
  *
  * References for this unit: NCERT class-6 ch. 4 "Basic Geometrical
- * Ideas" (the point/segment/line/ray charter; parallel lines) + NCERT
- * class-9 ch. 5 "Introduction to Euclid's Geometry" (Euclid's
- * definitions, axioms and postulates) + Khattar, Quantitative Aptitude
- * (4e) geometry-counting staples — both NCERT chapter identities
- * web-checked this run (sanctioned fallback), no content reproduced;
+ * Ideas" (the point/segment/line/ray charter; parallel lines; §4.11
+ * the triangle's parts) + NCERT class-7 ch. 6 "The Triangle and Its
+ * Properties" (the exterior-angle and angle-sum properties; web-checked
+ * run 40) + NCERT class-9 ch. 5 "Introduction to Euclid's Geometry"
+ * (Euclid's definitions, axioms and postulates) + Khattar, Quantitative
+ * Aptitude (4e) geometry-counting staples — the NCERT chapter identities
+ * web-checked (sanctioned fallback), no content reproduced;
  * see docs/project/SOURCE_LOG.md. Exposition original.
  */
 export const chapter08: Chapter = {
@@ -157,7 +212,6 @@ export const chapter08: Chapter = {
     'The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.',
   status: 'in-progress',
   plannedLessons: [
-    'Triangles and the Angle Sum',
     'Perimeter and Area of Rectangles, Triangles and Circles',
   ],
   lessons: [
@@ -2072,6 +2126,672 @@ export const chapter08: Chapter = {
                       'Hence parallel; the eight angles read $96, 84, 96, 84, 96, 84, 96, 84$ \u2014 every adjacent sum $180^\\circ$, both families verified.',
                     ],
                     answer: 'parallel; $\\{1,3,5,7\\} = 96^\\circ$, $\\{2,4,6,8\\} = 84^\\circ$',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'fm-triangles-and-the-angle-sum',
+        number: '8.4',
+        title: 'Triangles and the Angle Sum',
+        concepts: [
+          'The triangle',
+          'Vertices, sides and interior angles',
+          'The exterior angle',
+          'The angle sum property',
+          'The exterior angle property',
+          'Scalene, isosceles, equilateral',
+          'Acute, right, obtuse',
+          'The triangle inequality',
+        ],
+        objectives: [
+          'Define the triangle — three non-collinear points, three joining segments, and the region they enclose — and name its parts in both the capital-letter and the small-letter dress',
+          'Prove the angle sum property from the parallel through one vertex, spending exactly three tools already owned: the straight angle of 8.2, the alternate-interior theorem of 8.3, and the uniqueness of the parallel through a point',
+          'Derive the exterior angle property (exterior = the sum of the two remote interior angles) and its inequality reading, and use both to run exterior-angle chases',
+          'Classify triangles by sides (scalene, isosceles, equilateral) and by angles (acute, right, obtuse), and prove the one-right/one-obtuse law and the right-triangle complement reflex from the angle sum',
+          'Decide from three lengths alone whether a triangle exists, using the triangle inequality in its three-dress and largest-side forms',
+        ],
+        prerequisites: ['fm-parallel-lines-and-transversals', 'fm-angles-and-their-measurement'],
+        sources: ['ncert-math7-ch6', 'ncert-math6-ch4', 'khattar-qa-4e'],
+        blocks: [
+          {
+            kind: 'para',
+            text: 'Three lessons of instruments, and now the bill falls due. Lesson 8.1 forged the ideal objects — points, segments, lines — and taught the two-point rule that fixes a line from any two of its points. Lesson 8.2 built the angle and its degree ledger, and closed with the straight angle: a half-turn, $180^\\circ$, the amount that fills any line at any of its points. Lesson 8.3 attached handles to the parallels — the alternate-interior theorem and its companions — all derived from the single honest axiom the chapter admits. Each instrument was built for a purpose that was pointedly not revealed. This lesson collects: the triangle, the first *closed* figure in the book, is the stage on which the three tools meet, and the angle sum — the oldest famous fact in geometry — is the receipt.',
+          },
+          {
+            kind: 'para',
+            text: 'The plan is worth watching as it unfolds, because it is the chapter\u2019s method in miniature. First the object is defined and its parts named (every drawing in this chapter is a map, never the territory — 8.1\u2019s Caution still governs). Then the headline theorem is *derived*, not asserted, and the derivation is audited: exactly three borrowed facts enter, each quoted from the lesson that earned it. From the headline, corollaries tumble in a chain — the exterior angle property, the one-right/one-obtuse law, the right-triangle complement — each a one-line consequence, each script-verified before it was written here. The lesson ends with a question about *lengths* instead of angles: which triples of numbers can be the sides of a triangle at all? The answer is the triangle inequality, and it ties the chapter back to 8.1\u2019s collinearity test in a single stroke.',
+          },
+          { kind: 'heading', text: 'The triangle and its parts' },
+          {
+            kind: 'para',
+            text: 'Take three points. If they all sit on one line — 8.1 called such points *collinear* — the three joining segments fold onto that line and enclose nothing; the figure collapses into a segment wearing three names. So the definition refuses that case outright, in exactly the is-said-to-be dress the book\u2019s definitions wear.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'Triangle',
+            text: 'A **triangle** is said to be formed by **three points not on one line**, called its **vertices**, together with the **three segments** $AB$, $BC$ and $CA$ that join them pairwise; the segments are its **sides**, and the region bounded by the three sides belongs to the figure. The triangle on vertices $A$, $B$, $C$ is written $\\triangle ABC$ (read: *triangle ABC*).',
+          },
+          {
+            kind: 'para',
+            text: 'Every triangle, then, carries three of each: three vertices, three sides, three **interior angles** — one at each vertex, opening into the region the sides enclose. The parts pair up by opposition, and the pairing is the triangle\u2019s own address book:',
+          },
+          {
+            kind: 'list',
+            marker: 'roman',
+            items: [
+              'the side $BC$ lies opposite the vertex $A$, so it faces the interior angle $\\angle BAC$ — written $\\angle A$ for short;',
+              'the side $CA$ lies opposite the vertex $B$, facing $\\angle ABC$ — written $\\angle B$;',
+              'the side $AB$ lies opposite the vertex $C$, facing $\\angle ACB$ — written $\\angle C$.',
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'For algebra it pays to dress the sides in small letters, each the mate of its opposite capital: $a = |BC|$, $b = |CA|$, $c = |AB|$. Figure 1 shows the whole apparatus at once — the named vertices, the small-letter sides, the three interior angles — and one more object worth meeting early: a side *produced*.',
+          },
+          {
+            kind: 'para',
+            text: 'Produce (extend) the side $BC$ past $C$ to a point $D$. At the vertex $C$ the new ray $CD$ and the old side $CA$ now form an angle that lives *outside* the triangle: an **exterior angle**. It is no stranger — 8.2 and 8.3 already own the machinery — because $\\angle ACD$ and the interior $\\angle ACB$ are two angles on one line at one point: a **linear pair**, summing to $180^\\circ$. Each vertex of a triangle owns two exterior angles this way (produce either neighbouring side), and the two at one vertex are vertically opposite — 8.3\u2019s theorem — so they measure the same. Six positions, three distinct measures.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The parts of $\\triangle ABC$: vertices $A$, $B$, $C$; sides $a = |BC|$, $b = |CA|$, $c = |AB|$ (each letter opposite its capital); the three interior angles marked with plain arcs. The side $BC$ is produced past $C$ to $D$, and the angle between $CA$ and the produced ray — marked with a dashed arc — is the exterior angle at $C$: the linear-pair mate of interior $\\angle C$, so $\\angle ACD = 180^\\circ - \\angle ACB$.',
+            svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangle ABC with vertices, sides a b c, interior angle arcs, and side BC produced to D with the dashed exterior angle at C">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the parts of a triangle, and the exterior angle at C</text>
+  <line x1="250" y1="70" x2="120" y2="320" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="120" y1="320" x2="700" y2="320" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="600" y1="320" x2="250" y2="70" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="700,320 689,324.5 689,315.5" fill="currentColor"/>
+  <circle cx="250" cy="70" r="4" fill="currentColor"/>
+  <circle cx="120" cy="320" r="4" fill="currentColor"/>
+  <circle cx="600" cy="320" r="4" fill="currentColor"/>
+  <path d="M 274.41 87.44 A 30 30 0 0 1 236.16 96.62" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 133.87 293.4 A 30 30 0 0 1 150 320" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 570 320 A 30 30 0 0 1 575.59 302.56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 583.73 308.37 A 20 20 0 0 1 620 320" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="246" y="50" font-size="14" fill="currentColor" text-anchor="middle">A</text>
+  <text x="100" y="338" font-size="14" fill="currentColor" text-anchor="middle">B</text>
+  <text x="616" y="344" font-size="14" fill="currentColor" text-anchor="middle">C</text>
+  <text x="712" y="306" font-size="14" fill="currentColor" text-anchor="middle">D</text>
+  <text x="360" y="306" font-size="13" fill="currentColor" text-anchor="middle">a</text>
+  <text x="414" y="210" font-size="13" fill="currentColor" text-anchor="middle">b</text>
+  <text x="201" y="203" font-size="13" fill="currentColor" text-anchor="middle">c</text>
+  <text x="648" y="284" font-size="12" fill="currentColor" text-anchor="middle">exterior</text>
+</svg>`,
+          },
+          { kind: 'heading', text: 'The angle sum property' },
+          {
+            kind: 'para',
+            text: 'Cut any triangle out of paper, tear off its three corners, and lay the three angles side by side along a ruler edge: they compose a straight angle. The claim is older than the paper it gets demonstrated on — but a paper demonstration only shows the claim is *plausible*, and this book settles for nothing less than *derived*. The derivation needs nothing new. Its cast: one straight angle (8.2), one alternate-interior theorem (8.3), and the uniqueness of the parallel through a point (8.3\u2019s Playfair note). The idea is to carry the two far angles of the triangle to the vertex of the third — and the vehicle that carries angles without changing them is precisely a parallel line.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The three interior angles of a triangle total 180°',
+            statement:
+              'Let $\\triangle ABC$ be any triangle. Draw the line $XY$ through $A$ parallel to the side $BC$ — it exists, and by Playfair\u2019s uniqueness it is the *only* such line. Claim: $\\angle A + \\angle B + \\angle C = 180^\\circ$.',
+            steps: [
+              {
+                label: 'The parallel collects the first far angle',
+                formula: '\\angle XAB = \\angle ABC',
+                explanation:
+                  'The parallels $XY$ and $BC$ are cut by the transversal $AB$; the angles $\\angle XAB$ and $\\angle ABC$ are alternate interior partners in 8.3\u2019s Z pattern, and alternate interior angles with parallels are **equal**.',
+              },
+              {
+                label: 'It collects the second far angle',
+                formula: '\\angle CAY = \\angle ACB',
+                explanation:
+                  'The same two parallels are cut by the transversal $AC$; $\\angle CAY$ and $\\angle ACB$ are again alternate interior partners, hence equal.',
+              },
+              {
+                label: 'The straight angle at A splits three ways',
+                formula: '\\angle XAB + \\angle BAC + \\angle CAY = 180^\\circ',
+                explanation:
+                  'The rays $AX$, $AB$, $AC$, $AY$ leave $A$ in order through the lower half-plane, and $XAY$ is a straight line: the three angles on it sum to the straight angle (8.2\u2019s ledger).',
+              },
+              {
+                label: 'Substitute the two equalities',
+                formula: '\\angle ABC + \\angle BAC + \\angle ACB = 180^\\circ',
+                explanation:
+                  'Replace $\\angle XAB$ by its mate $\\angle ABC$ and $\\angle CAY$ by its mate $\\angle ACB$: the three angles of the triangle now stand where the three angles on the line stood.',
+              },
+              {
+                label: 'Read the receipt',
+                formula: '\\angle A + \\angle B + \\angle C = 180^\\circ',
+                explanation:
+                  'Every claim used is quoted: the straight angle from 8.2, the alternate-interior equality from 8.3 (itself derived from the corresponding-angles axiom), and the parallel\u2019s existence-and-uniqueness from 8.3\u2019s Playfair note. Nothing was asserted; the theorem is *earned*. The figure below shows the whole exchange at one glance.',
+              },
+            ],
+            result: '\\angle A + \\angle B + \\angle C = 180^\\circ',
+          },
+          {
+            kind: 'equation',
+            latex: '\\angle A + \\angle B + \\angle C \\;=\\; 180^\\circ \\qquad \\text{(the angle sum property)}',
+            note: 'Tag 1. Script-verified twice before this sentence was written: once symbol-by-symbol on the proof figure\u2019s own triangle, and once on a sweep of $400$ pseudo-random triangles — every dot-product-measured triple summing to $180^\\circ$ within a tolerance a billionth of a degree.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The derivation as a picture. The line $XY$ through $A$ is parallel to $BC$. The transversal $AB$ makes $\\angle XAB$ (arc marked $1$ at $A$) alternate-interior with $\\angle ABC$ (arc marked $1$ at $B$) — equal. The transversal $AC$ makes $\\angle CAY$ (marked $3$ at $A$) alternate-interior with $\\angle ACB$ (marked $3$ at $C$) — equal. The angle $\\angle BAC$ (marked $2$) never left home. But $1 + 2 + 3 = 180^\\circ$, because the three of them fill the straight angle on the line $XY$ — and those same three numbers are exactly the interior angles of $\\triangle ABC$.',
+            svg: `<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangle ABC with line XY through A parallel to BC; the three angles at A marked 1, 2, 3 and the matching marks at B and C">
+  <text x="380" y="24" font-size="12.5" fill="currentColor" text-anchor="middle">the line XY through A, parallel to BC</text>
+  <line x1="90" y1="120" x2="680" y2="120" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="90,120 101,115.5 101,124.5" fill="currentColor"/>
+  <polygon points="680,120 669,124.5 669,115.5" fill="currentColor"/>
+  <line x1="130" y1="340" x2="590" y2="340" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="300" y1="120" x2="130" y2="340" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="300" y1="120" x2="590" y2="340" stroke="currentColor" stroke-width="1.8"/>
+  <circle cx="300" cy="120" r="4" fill="currentColor"/>
+  <circle cx="130" cy="340" r="4" fill="currentColor"/>
+  <circle cx="590" cy="340" r="4" fill="currentColor"/>
+  <path d="M 281.66 143.74 A 30 30 0 0 1 270 120" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 330 120 A 30 30 0 0 1 323.9 138.13" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 320.71 135.71 A 26 26 0 0 1 284.1 140.57" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 327.09 140.55 A 34 34 0 0 1 279.21 146.9" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 148.34 316.26 A 30 30 0 0 1 160 340" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 560 340 A 30 30 0 0 1 566.1 321.87" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <text x="74" y="142" font-size="14" fill="currentColor" text-anchor="middle">X</text>
+  <text x="696" y="142" font-size="14" fill="currentColor" text-anchor="middle">Y</text>
+  <text x="286" y="102" font-size="14" fill="currentColor" text-anchor="middle">A</text>
+  <text x="114" y="360" font-size="14" fill="currentColor" text-anchor="middle">B</text>
+  <text x="606" y="360" font-size="14" fill="currentColor" text-anchor="middle">C</text>
+  <text x="257" y="147" font-size="12.5" fill="currentColor" text-anchor="middle">1</text>
+  <text x="195" y="316" font-size="12.5" fill="currentColor" text-anchor="middle">1</text>
+  <text x="370" y="150" font-size="12.5" fill="currentColor" text-anchor="middle">3</text>
+  <text x="540" y="332" font-size="12.5" fill="currentColor" text-anchor="middle">3</text>
+  <text x="307" y="178" font-size="12.5" fill="currentColor" text-anchor="middle">2</text>
+  <text x="380" y="398" font-size="12.5" fill="currentColor" text-anchor="middle">1 + 2 + 3 = 180° on the line XY — and the same three angles sit inside △ABC</text>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'The derivation\u2019s engine converts instantly into a formula for everyday use: any one angle of a triangle is determined by the other two.',
+          },
+          {
+            kind: 'equation',
+            latex: '\\angle C \\;=\\; 180^\\circ - \\angle A - \\angle B',
+            note: 'The third-angle engine. Given any two interior angles, the third follows by one subtraction — the five-seconds reflex behind half of the angle chases on every examination paper at this level.',
+          },
+          {
+            kind: 'example',
+            title: 'Two angles of a triangle measure $62^\\circ$ and $45^\\circ$. Find the third.',
+            steps: [
+              'Now, the angle sum property says the three interior angles total $180^\\circ$.',
+              'So the third angle measures $180 - 62 - 45 = 73^\\circ$.',
+              'And the check re-sums: $62 + 45 + 73 = 180$ — the ledger closes.',
+              'Hence the third angle is $73^\\circ$.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'The angles of a triangle stand in the ratio $2 : 3 : 4$. Find all three.',
+            steps: [
+              'Now, name the angles $2x$, $3x$ and $4x$ — the ratio\u2019s parts (chapter 6\u2019s sharing dress).',
+              'So the angle sum reads $2x + 3x + 4x = 180$, giving $9x = 180$ and $x = 20$.',
+              'And the angles are $2 \\times 20 = 40^\\circ$, $3 \\times 20 = 60^\\circ$, $4 \\times 20 = 80^\\circ$ — check: $40 + 60 + 80 = 180$, and $40 : 60 : 80$ really is $2 : 3 : 4$.',
+              'Hence $40^\\circ$, $60^\\circ$, $80^\\circ$ — all acute, as $80 < 90$ confirms.',
+            ],
+          },
+          { kind: 'heading', text: 'The exterior angle property' },
+          {
+            kind: 'para',
+            text: 'Figure 1\u2019s dashed angle now earns its keep. The exterior angle at $C$ is the linear-pair mate of the interior $\\angle C$, so it measures $180^\\circ - \\angle C$; but the angle sum property makes $180^\\circ - \\angle C$ exactly $\\angle A + \\angle B$. One substitution, and a new theorem falls out — no drawing required.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The exterior angle equals the sum of the two remote interior angles',
+            statement:
+              'In $\\triangle ABC$, produce the side $BC$ past $C$ to $D$, making the exterior angle $\\angle ACD$. Claim: $\\angle ACD = \\angle A + \\angle B$.',
+            steps: [
+              {
+                label: 'The linear pair at C',
+                formula: '\\angle ACD + \\angle ACB = 180^\\circ',
+                explanation:
+                  'The exterior angle and its adjacent interior angle sit on the produced line $BD$ — a linear pair (8.2\u2019s law), so they sum to the straight angle.',
+              },
+              {
+                label: 'The angle sum spends its budget',
+                formula: '\\angle ACB = 180^\\circ - \\angle A - \\angle B',
+                explanation:
+                  'Rearranging tag 1: the interior $\\angle C$ is exactly the amount left of $180^\\circ$ after the two remote angles take theirs.',
+              },
+              {
+                label: 'Substitute and cancel',
+                formula: '\\angle ACD = 180^\\circ - (180^\\circ - \\angle A - \\angle B) = \\angle A + \\angle B',
+                explanation:
+                  'The two $180^\\circ$s cancel — the same cancellation 8.3 used to derive the vertically-opposite theorem — and the exterior angle is revealed as the *sum* of the two interior angles it does not touch.',
+              },
+              {
+                label: 'The inequality reading',
+                formula: '\\angle ACD > \\angle A \\quad \\text{and} \\quad \\angle ACD > \\angle B',
+                explanation:
+                  'Each remote angle is a positive part of the sum, so the exterior angle exceeds each of them alone — Euclid\u2019s Proposition I.16 in modern dress. An exterior angle never loses to a remote interior angle.',
+              },
+            ],
+            result: '\\angle ACD = \\angle A + \\angle B',
+          },
+          {
+            kind: 'equation',
+            latex: '\\angle ACD \\;=\\; \\angle A + \\angle B \\qquad \\text{(the exterior angle property)}',
+            note: 'Tag 2, where $D$ lies on $BC$ produced. Script-verified on all $1200$ exterior positions of the $400$-triangle sweep: at every one, the exterior equals the sum of the two remote interiors and exceeds each of them.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'Exterior angle property',
+            text: 'When any side of a triangle is produced, the **exterior angle** so formed is **equal to the sum of the two remote interior angles** — the two that do not share the produced vertex — and therefore **greater than either of them alone**. Thus in figure 1\u2019s dress: $\\angle ACD = \\angle A + \\angle B > \\angle A$ and $> \\angle B$.',
+          },
+          {
+            kind: 'example',
+            title: 'An exterior angle of a triangle measures $120^\\circ$, and one of its remote interior angles measures $50^\\circ$. Find the other two interior angles.',
+            steps: [
+              'Now, the exterior angle property points straight at the unknown remote angle: $\\angle B = 120 - 50 = 70^\\circ$.',
+              'So the adjacent interior angle is its linear-pair mate: $\\angle C = 180 - 120 = 60^\\circ$.',
+              'And the angle sum re-checks everything: $50 + 70 + 60 = 180$ — and $50 + 70 = 120$ is exactly the given exterior.',
+              'Hence the interior angles are $50^\\circ$, $70^\\circ$, $60^\\circ$; both routes to $\\angle C$ agree.',
+            ],
+          },
+          { kind: 'heading', text: 'Classifying triangles' },
+          {
+            kind: 'para',
+            text: 'Triangles sort into families along two independent axes — by their *sides* and by their *angles* — and the angle sum property is the referee for the second sorting. Neither sorting asks about the other: a triangle from any side-family may land in any angle-family.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'The side families and the angle families',
+            text: 'A triangle is said to be **scalene** if it has **no two equal sides**; **isosceles** if it has **at least two equal sides**; **equilateral** if **all three sides are equal** (so every equilateral triangle is also isosceles — the *at least* is doing quiet work). Independently, a triangle is said to be **acute** if **all three angles are acute**; **right** if **one angle is a right angle**; **obtuse** if **one angle is obtuse**.',
+          },
+          {
+            kind: 'para',
+            text: 'The angle families need a licence before the definitions even make sense: why does no triangle carry *two* right angles, or two obtuse ones? Because two angles of $90^\\circ$ or more would already fill the whole $180^\\circ$ budget of tag 1, leaving nothing — less than nothing — for the third. So *one* right angle, or *one* obtuse angle, is the most any triangle can hold, and the definitions are unambiguous. The same licence converts a right triangle into a two-angle machine: with $\\angle C = 90^\\circ$, tag 1 reads $\\angle A + \\angle B + 90^\\circ = 180^\\circ$, so',
+          },
+          {
+            kind: 'equation',
+            latex: '\\angle A + \\angle B \\;=\\; 90^\\circ \\qquad \\text{(in a right triangle)}',
+            note: 'Tag 3: the two acute angles of a right triangle are **complementary** — the angle-sum property with the right angle paid upfront. Swept over all right triangles with legs $1$ through $12$: every acute pair sums to $90^\\circ$ exactly.',
+          },
+          {
+            kind: 'para',
+            text: 'One theorem about the isosceles family gets stated here and used for the rest of the book, and honesty requires saying exactly what was done to it. Euclid\u2019s Proposition I.5 — the *pons asinorum*, the “bridge of asses” — says the angles at the base of an isosceles triangle are equal; every classical proof of it (Euclid\u2019s own, and Pappus\u2019s clever self-congruence) leans on the congruence toolkit, which this book does not yet own. So the theorem is **stated**, **certified numerically** — swept over apex angles from $10^\\circ$ to $170^\\circ$, the base angles by exact dot-product computation landing on $(180^\\circ - \\text{apex})/2$ every time — and **proved for real when congruence arrives**.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'Isosceles base angles (Euclid I.5, stated and certified)',
+            text: 'In an isosceles triangle, the angles opposite the equal sides — the **base angles** — are **equal**. Consequently an apex angle $\\theta$ forces both base angles to $\\frac{180^\\circ - \\theta}{2}$, and an equilateral triangle, being isosceles twice over, forces all three angles to $60^\\circ$.',
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'Why 60° is the only equiangular answer',
+            text: 'If all three angles of a triangle are equal, tag 1 splits the budget three equal ways: $180^\\circ \\div 3 = 60^\\circ$. No other value is possible — the equilateral triangle is the angle sum\u2019s most democratic citizen. (The paper-fold test shows the isosceles base-angle fact at a glance: crease an isosceles triangle along the line from apex to base midpoint and the two halves match — but a fold is a demonstration, not a derivation, which is why Euclid\u2019s theorem above is only certified here.)',
+          },
+          {
+            kind: 'table',
+            caption: 'The six families, with a verified witness each — the side witnesses pass the triangle inequality (the lesson\u2019s last section), the angle witnesses re-sum to 180 degrees.',
+            head: ['Family', 'Defined by', 'Witness', 'Verdict check'],
+            rows: [
+              ['scalene', 'no two sides equal', 'sides $4$, $5$, $6$', '$4+5 > 6$, all sides distinct'],
+              ['isosceles', 'at least two equal sides', 'sides $5$, $5$, $8$', '$5+5 > 8$, the two $5$s equal'],
+              ['equilateral', 'all three sides equal', 'sides $6$, $6$, $6$', 'angles forced to $60^\\circ$, $60^\\circ$, $60^\\circ$'],
+              ['acute', 'all angles $< 90^\\circ$', '$50^\\circ$, $60^\\circ$, $70^\\circ$', 'sums to $180$; largest $70 < 90$'],
+              ['right', 'one angle $= 90^\\circ$', '$30^\\circ$, $60^\\circ$, $90^\\circ$', 'sums to $180$; acute pair $30 + 60 = 90$'],
+              ['obtuse', 'one angle $> 90^\\circ$', '$100^\\circ$, $40^\\circ$, $40^\\circ$', 'sums to $180$; largest $100 > 90$'],
+            ],
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The six families as drawn shapes. Top row, by sides: the scalene panel (no tick marks — no two sides claim equality), the isosceles panel (one tick on each of the two equal sides), the equilateral panel (ticks on all three sides; its angles are forced to $60^\\circ$ apiece). Bottom row, by angles: the acute panel ($66^\\circ$, $57^\\circ$, $57^\\circ$ computed from the drawn shape), the right panel (the square corner mark at the bottom-left vertex), the obtuse panel (apex $105^\\circ$, computed). Every measure in this caption was recomputed from the panel coordinates by script before printing.',
+            svg: `<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six panels: scalene, isosceles, equilateral triangles with tick marks, then acute, right and obtuse triangles">
+  <text x="380" y="22" font-size="12.5" fill="currentColor" text-anchor="middle">six kinds of triangle — by their sides, then by their angles</text>
+  <polygon points="115,58 60,158 200,158" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <text x="130" y="182" font-size="12.5" fill="currentColor" text-anchor="middle">scalene — no equal sides</text>
+  <polygon points="380,58 310,158 450,158" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="340.08" y1="104.56" x2="349.92" y2="111.44" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="410.08" y1="111.44" x2="419.92" y2="104.56" stroke="currentColor" stroke-width="1.6"/>
+  <text x="380" y="182" font-size="12.5" fill="currentColor" text-anchor="middle">isosceles — two equal sides</text>
+  <polygon points="630,58 572.265,158 687.735,158" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="595.94" y1="105" x2="606.33" y2="111" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="653.67" y1="111" x2="664.06" y2="105" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="630" y1="164" x2="630" y2="152" stroke="currentColor" stroke-width="1.6"/>
+  <text x="630" y="182" font-size="12.5" fill="currentColor" text-anchor="middle">equilateral — all sides equal</text>
+  <polygon points="130,212 65,312 195,312" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <text x="130" y="332" font-size="12.5" fill="currentColor" text-anchor="middle">acute — all angles under 90°</text>
+  <polygon points="310,212 310,312 450,312" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <polyline points="324,312 324,298 310,298" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <text x="380" y="332" font-size="12.5" fill="currentColor" text-anchor="middle">right — one angle exactly 90°</text>
+  <polygon points="630,252 552,312 708,312" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <text x="630" y="332" font-size="12.5" fill="currentColor" text-anchor="middle">obtuse — one angle over 90°</text>
+</svg>`,
+          },
+          {
+            kind: 'example',
+            title: 'An isosceles triangle has apex angle $40^\\circ$. Find its base angles.',
+            steps: [
+              'Now, the base angles of an isosceles triangle are equal (Euclid I.5, certified above) — name them each $b$.',
+              'So the angle sum gives $40 + b + b = 180$, whence $2b = 140$ and $b = 70$.',
+              'And the check: $40 + 70 + 70 = 180$ — and $70 = \\frac{180 - 40}{2}$, the formula\u2019s dress.',
+              'Hence each base angle is $70^\\circ$.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'A right triangle has one acute angle of $37^\\circ$. Find the other.',
+            steps: [
+              'Now, the two acute angles of a right triangle are complementary (tag 3).',
+              'So the other acute angle measures $90 - 37 = 53^\\circ$.',
+              'And the full ledger: $37 + 53 + 90 = 180$ — the angle sum agrees.',
+              'Hence the other acute angle is $53^\\circ$.',
+            ],
+          },
+          { kind: 'heading', text: 'Which lengths make a triangle?' },
+          {
+            kind: 'para',
+            text: 'Angles had their property; now lengths ask for theirs. Fix three positive numbers $a$, $b$, $c$ and try to build a triangle whose sides measure them: lay the side $c$ from $A$ to $B$, then hunt for a point $C$ sitting at distance $b$ from $A$ and $a$ from $B$ — the intersection of two circles. The circles either cross twice (one point above the line, its mirror below — two triangles, congruent in fact), touch at exactly one point on the line, or miss each other entirely. The touching case is the revealing one: the “triangle” has collapsed onto the segment $AB$, with $C$ lying *on* it — which forces $c$ to equal $a + b$ (or the corresponding collapse with another side). Collinearity, 8.1\u2019s old test, is exactly the sound of a triangle failing to exist.',
+          },
+          {
+            kind: 'para',
+            text: 'Running the two-circle construction over every integer triple from $1$ to $18$ — $5832$ of them — confirms the pattern in both directions: the circles cross at a genuine off-line point precisely when each length is less than the sum of the other two, and touch on the line precisely when one length *equals* the sum of the other two. This is the **triangle inequality**, stated in its three equal dresses:',
+          },
+          {
+            kind: 'list',
+            marker: 'roman',
+            items: [
+              'the three-dress: $a + b > c$, $\\;b + c > a$, and $\\;c + a > b$ — every side less than the other two together;',
+              'the largest-side dress: the largest of the three lengths is less than the sum of the other two (the other two inequalities then hold of themselves);',
+              'the failed-triangle dress: three lengths make NO triangle exactly when one of them is at least the sum of the other two — with equality giving the degenerate collinear case.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'The inequality sees the boundary, not just the inside',
+            text: 'The test $a + b > c$ is strict on purpose: at equality the two circles touch on the line and the three points are collinear — a segment, not a triangle. The lesson\u2019s exercise set includes exactly such a triple, $(5, 7, 12)$, so the reflex “$5 + 7 = 12$, equality, therefore NO” gets practised on purpose rather than met by surprise in an examination hall.',
+          },
+          {
+            kind: 'example',
+            title: 'Decide whether lengths $4$, $6$, $11$ can form a triangle; then decide $4$, $6$, $9$.',
+            steps: [
+              'Now, apply the largest-side test: for $(4, 6, 11)$ the largest side is $11$, and $4 + 6 = 10 < 11$.',
+              'So the two circles miss each other: no triangle exists — the sum falls short.',
+              'And for $(4, 6, 9)$: the largest side is $9$, and $4 + 6 = 10 > 9$; the other two sums ($13 > 6$, $15 > 4$) hold of themselves.',
+              'Hence $(4, 6, 11)$: no; $(4, 6, 9)$: yes — one unit of shortfall decides.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'From triangles to polygons: Proclus\u2019s corollaries',
+            text: 'The angle sum scales. Draw all the diagonals from one vertex of a convex polygon with $n$ sides: they fan the polygon into $n - 2$ triangles, each contributing its $180^\\circ$ — so a quadrilateral carries $2 \\times 180 = 360^\\circ$ of interior angle, a pentagon $3 \\times 180 = 540^\\circ$, and the pattern $(n - 2) \\times 180^\\circ$ continues. Proclus (5th century) recorded this and its companion as corollaries to Euclid I.32: the *exterior* angles of any convex polygon, one per vertex, together make four right angles — $360^\\circ$ — the full turn you make walking around any closed loop. Both await the polygon chapter; the triangle just paid the deposit.',
+          },
+          {
+            kind: 'callout',
+            tone: 'exam',
+            title: 'Triangles in the examination hall',
+            text: 'The angle-sum machinery is a standing question bank. The third-angle engine ($\\angle C = 180^\\circ - \\angle A - \\angle B$) and the ratio-of-angles items (parts of $180^\\circ$) are SSC CGL/CHSL and RRB NTPC staples, usually worded with one twist — a ratio, or “one angle is twice the second”. Isosceles apex/base swaps and right-triangle complement reflexes ($90^\\circ$ minus what you see) recur in banking clerical prelims, where the five-seconds target is the point. Exterior-angle chases — find the unknown from the *outside* of the triangle — appear in both SSC and NTSE banks, rewarding tag 2 over tag 1 for speed. Existence checks (“which of these can be the sides of a triangle?”) are CBSE class-7 favourites and Railway group-D regulars: apply the largest-side dress and answer in one line. No past-paper question is reproduced here; every number above is fresh and script-verified.',
+          },
+          {
+            kind: 'callout',
+            tone: 'historical',
+            title: 'Two right angles, twenty centuries, and a mountain legend',
+            text: 'The angle sum is Proposition I.32 of Euclid\u2019s *Elements* (c. 300 BCE), and its statement is a two-for-one: “In any triangle, if one of the sides is produced, then the exterior angle equals the sum of the two interior and opposite angles, and the sum of the three interior angles of the triangle equals two right angles.” Euclid\u2019s proof is the one this lesson ran — he draws the parallel through the *other* end (through $C$, by his I.31), quotes equal alternate angles (his I.29), and closes with the two-right-angles-on-a-line (his I.13): the very tools 8.2 and 8.3 spent two lessons forging. The isosceles theorem behind Illustration 4 is his I.5, the *pons asinorum*, nicknamed for its shaggy-looking diagram and the crowd of students it allegedly weeded out. And the angle sum carries the chapter\u2019s deepest honesty: it is *equivalent* to the parallel postulate. Loosen Postulate 5 and the sum bends — on a sphere, the triangle formed by the north pole and two quarter-arcs of the equator has three right angles inside it, $270^\\circ$ in all (computed on the unit sphere for this lesson); in Lobachevsky\u2019s hyperbolic plane every triangle sums to *less* than $180^\\circ$, the shortfall growing with the triangle\u2019s area. The $180^\\circ$ is not a universal law of nature — it is the flat plane\u2019s signature, purchased with the parallel axiom. A famous story credits Gauss with measuring the great triangle between the mountain peaks Brocken, Hohehagen and Inselsberg to test whether space itself is Euclidean; the triangle really was measured, in his Hanover survey of $1818$–$1832$, but his biographer Buhler calls the space-testing motive a legend — the survey was cartography, not cosmology. The truth is anyway the prettier half: the geometry was settled not on mountains but on paper, by daring to *drop* the axiom.',
+          },
+          {
+            kind: 'terms',
+            items: [
+              {
+                term: 'Triangle',
+                def: 'The figure formed by three points not on one line (its vertices) together with the three joining segments (its sides) and the region they enclose; written $\\triangle ABC$.',
+              },
+              {
+                term: 'Interior angle',
+                def: 'The angle of a triangle at one of its vertices, opening into the region the sides enclose; the three of them total $180^\\circ$ (the angle sum property).',
+              },
+              {
+                term: 'Exterior angle',
+                def: 'The angle a side of a triangle makes with a neighbouring side produced; the linear-pair mate of the adjacent interior angle, equal to the sum of the two remote interior angles.',
+              },
+              {
+                term: 'Angle sum property',
+                def: 'The theorem that the three interior angles of any triangle total $180^\\circ$; derived from the straight angle and the alternate-interior theorem via the parallel through one vertex.',
+              },
+              {
+                term: 'Exterior angle property',
+                def: 'The theorem that an exterior angle of a triangle equals the sum of the two remote interior angles, and so is greater than either alone.',
+              },
+              {
+                term: 'Scalene triangle',
+                def: 'A triangle with no two equal sides.',
+              },
+              {
+                term: 'Isosceles triangle',
+                def: 'A triangle with at least two equal sides; the angles opposite the equal sides (the base angles) are equal (Euclid I.5).',
+              },
+              {
+                term: 'Equilateral triangle',
+                def: 'A triangle with all three sides equal — a special isosceles triangle; all three angles are forced to $60^\\circ$.',
+              },
+              {
+                term: 'Acute triangle',
+                def: 'A triangle all three of whose angles are acute.',
+              },
+              {
+                term: 'Right triangle',
+                def: 'A triangle with one right angle; its two acute angles are complementary ($\\angle A + \\angle B = 90^\\circ$).',
+              },
+              {
+                term: 'Obtuse triangle',
+                def: 'A triangle with one obtuse angle; no triangle can hold two right angles or two obtuse ones, since two such angles already exhaust the $180^\\circ$ budget.',
+              },
+              {
+                term: 'Triangle inequality',
+                def: 'The existence test for lengths: three lengths form a triangle exactly when each is less than the sum of the other two — equivalently, when the largest is less than the sum of the other two. Equality gives the degenerate collinear case.',
+              },
+            ],
+          },
+          {
+            kind: 'quiz',
+            title: 'Check yourself',
+            items: [
+              {
+                q: 'Two angles of a triangle measure $74^\\circ$ and $31^\\circ$. The third measures —',
+                options: ['$65^\\circ$', '$75^\\circ$', '$95^\\circ$', '$85^\\circ$'],
+                answer: 1,
+                explain: '$180 - 74 - 31 = 75^\\circ$. The traps: $65^\\circ$ subtracts from $139$ by a slip ($180 - 74 - 41$), $95^\\circ$ adds instead of subtracts ($74 + 31 = 105 \\ne 95$-related), and $85^\\circ$ is the complement reflex $180 - 95$ doing someone else\u2019s problem.',
+              },
+              {
+                q: 'The angles of a triangle stand in the ratio $3 : 4 : 5$. The largest measures —',
+                options: ['$45^\\circ$', '$60^\\circ$', '$75^\\circ$', '$90^\\circ$'],
+                answer: 2,
+                explain: 'Twelve parts share $180^\\circ$, so one part is $15^\\circ$ and the largest is $5 \\times 15 = 75^\\circ$ (the angles are $45^\\circ$, $60^\\circ$, $75^\\circ$). The trap $90^\\circ$ is the reflex answer for the “3-4-5 triangle” — but that famous $3$-$4$-$5$ shape is about SIDE lengths with a right angle; for ANGLES in ratio $3:4:5$ the triangle is acute.',
+              },
+              {
+                q: 'An exterior angle of a triangle equals —',
+                options: ['its adjacent interior angle', 'the sum of the two remote interior angles', 'half the sum of all three interior angles', '$90^\\circ$ always'],
+                answer: 1,
+                explain: 'The exterior angle property (tag 2): exterior = sum of the two remote interiors, which is also why it exceeds each of them. It equals $180^\\circ$ minus the ADJACENT interior angle — so option (a) gets the wrong partner, and (c) and (d) have no theorem at all behind them.',
+              },
+              {
+                q: 'An isosceles triangle has apex angle $100^\\circ$. Each base angle measures —',
+                options: ['$30^\\circ$', '$40^\\circ$', '$50^\\circ$', '$80^\\circ$'],
+                answer: 1,
+                explain: 'The base angles are equal, so $2b = 180 - 100 = 80$ and $b = 40^\\circ$. The trap $80^\\circ$ is the SUM of the two base angles (one of them, not both); $50^\\circ$ halves $100$ instead of subtracting it.',
+              },
+              {
+                q: 'Which of these CANNOT be the sides of a triangle?',
+                options: ['$3$, $4$, $5$', '$2$, $2$, $3$', '$4$, $5$, $10$', '$6$, $8$, $10$'],
+                answer: 2,
+                explain: 'The largest-side test: $4 + 5 = 9 < 10$, so the circles miss and no triangle exists. The others all pass: $3 + 4 > 5$, $2 + 2 > 3$, $6 + 8 > 10$. (The $4$-$5$-$10$ trap is set for readers who check only ONE sum — all three dresses must hold, or just use the largest side.)',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises 8.4',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'Two angles of a triangle measure $71^\\circ$ and $52^\\circ$. Find the third angle.',
+                    solution: [
+                      'Now, the angle sum property: the three interior angles total $180^\\circ$.',
+                      'So the third angle measures $180 - 71 - 52 = 57^\\circ$.',
+                      'And the check: $71 + 52 + 57 = 180$ — the ledger closes.',
+                      'Hence the third angle is $57^\\circ$.',
+                    ],
+                    answer: '$57^\\circ$',
+                  },
+                  {
+                    q: 'A right triangle has one acute angle of $28^\\circ$. Find the other acute angle.',
+                    solution: [
+                      'Now, tag 3: the two acute angles of a right triangle are complementary.',
+                      'So the other acute angle measures $90 - 28 = 62^\\circ$.',
+                      'And the check: $28 + 62 = 90$ and $28 + 62 + 90 = 180$.',
+                      'Hence $62^\\circ$.',
+                    ],
+                    answer: '$62^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'The angles of a triangle stand in the ratio $3 : 5 : 7$. Find all three and name the family.',
+                    solution: [
+                      'Now, name them $3x$, $5x$, $7x$: the angle sum gives $15x = 180$, so $x = 12$.',
+                      'So the angles are $36^\\circ$, $60^\\circ$, $84^\\circ$ — check: $36 + 60 + 84 = 180$.',
+                      'And the family: the largest is $84 < 90$ and no angle is right or obtuse — the triangle is acute.',
+                      'Hence $36^\\circ$, $60^\\circ$, $84^\\circ$; an acute triangle.',
+                    ],
+                    answer: '$36^\\circ$, $60^\\circ$, $84^\\circ$; acute',
+                  },
+                  {
+                    q: 'An exterior angle at $B$ of a triangle measures $134^\\circ$, and a remote interior angle at $A$ measures $41^\\circ$. Find the interior angles.',
+                    solution: [
+                      'Now, the exterior angle property at $B$: the other remote interior angle (at $C$) measures $134 - 41 = 93^\\circ$.',
+                      'So the adjacent interior angle is the linear-pair mate: $\\angle B = 180 - 134 = 46^\\circ$.',
+                      'And the angle sum re-checks the set: $41 + 46 + 93 = 180$ — and $41 + 93 = 134$, the given exterior.',
+                      'Hence the interior angles are $41^\\circ$, $46^\\circ$, $93^\\circ$.',
+                    ],
+                    answer: '$41^\\circ$, $46^\\circ$, $93^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'An isosceles triangle has apex angle $76^\\circ$. Find its base angles.',
+                    solution: [
+                      'Now, the base angles are equal (Euclid I.5): name them each $b$.',
+                      'So $76 + 2b = 180$, giving $2b = 104$ and $b = 52$.',
+                      'And the check: $76 + 52 + 52 = 180$.',
+                      'Hence each base angle is $52^\\circ$.',
+                    ],
+                    answer: '$52^\\circ$ each',
+                  },
+                  {
+                    q: 'An isosceles triangle has base angles of $55^\\circ$ each. Find its apex angle.',
+                    solution: [
+                      'Now, the angle sum with the two equal bases: $55 + 55 + a = 180$.',
+                      'So the apex angle $a = 180 - 110 = 70^\\circ$.',
+                      'And the check: $70 = 180 - 2 \\times 55$ — the apex/base swap of the isosceles formula.',
+                      'Hence the apex angle is $70^\\circ$.',
+                    ],
+                    answer: '$70^\\circ$',
+                  },
+                  {
+                    q: 'The angles of a triangle measure $x^\\circ$, $2x^\\circ$ and $3x^\\circ$. Find $x$ and all three angles, and name the family.',
+                    solution: [
+                      'Now, the angle sum: $x + 2x + 3x = 180$, giving $6x = 180$ and $x = 30$.',
+                      'So the angles are $30^\\circ$, $60^\\circ$, $90^\\circ$.',
+                      'And the family: one angle is exactly $90^\\circ$ — a right triangle, and indeed the acute pair $30 + 60 = 90$ is complementary (tag 3 agrees).',
+                      'Hence $x = 30$; the angles $30^\\circ$, $60^\\circ$, $90^\\circ$ — right, with the $3x$ angle the right one.',
+                    ],
+                    answer: '$x = 30$; $30^\\circ$, $60^\\circ$, $90^\\circ$; right',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'Decide whether lengths $5$, $7$, $12$ can form a triangle; then decide $5$, $7$, $11$.',
+                    solution: [
+                      'Now, $(5, 7, 12)$: the largest side is $12$ and $5 + 7 = 12$ — equality, not strictness.',
+                      'So the two circles touch on the line: the three points would be collinear (8.1\u2019s test), a segment and not a triangle. NO.',
+                      'And $(5, 7, 11)$: $5 + 7 = 12 > 11$, and the other sums ($16 > 7$, $18 > 5$) hold of themselves.',
+                      'Hence $(5, 7, 12)$: no (degenerate); $(5, 7, 11)$: yes.',
+                    ],
+                    answer: '$(5,7,12)$ no; $(5,7,11)$ yes',
+                  },
+                  {
+                    q: 'In a triangle, an exterior angle measures $(2x + 20)^\\circ$ and the two remote interior angles measure $x^\\circ$ and $50^\\circ$. Find $x$, the exterior angle, and the third interior angle.',
+                    solution: [
+                      'Now, the exterior angle property reads as an equation: $2x + 20 = x + 50$.',
+                      'So $x = 30$, and the exterior angle measures $2 \\times 30 + 20 = 80^\\circ$ — check: $30 + 50 = 80$, the remote sum.',
+                      'And the adjacent interior angle is the linear-pair mate: $180 - 80 = 100^\\circ$.',
+                      'Hence $x = 30$; the exterior angle $80^\\circ$; the remaining interior angle $100^\\circ$ (the triangle is obtuse).',
+                    ],
+                    answer: '$x = 30$; exterior $80^\\circ$; third interior $100^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'One angle of a triangle is twice the second, and the third is $20^\\circ$ more than the second. Find all three.',
+                    solution: [
+                      'Now, name the second angle $x$: the angles are $2x$, $x$ and $x + 20$.',
+                      'So the angle sum: $2x + x + x + 20 = 180$, giving $4x = 160$ and $x = 40$.',
+                      'And the angles are $80^\\circ$, $40^\\circ$, $60^\\circ$ — check: $80 + 40 + 60 = 180$, and the relations hold ($80 = 2 \\times 40$, $60 = 40 + 20$).',
+                      'Hence $80^\\circ$, $40^\\circ$, $60^\\circ$ — an acute triangle (largest $80 < 90$).',
+                    ],
+                    answer: '$80^\\circ$, $40^\\circ$, $60^\\circ$',
+                  },
+                  {
+                    q: 'In a right triangle the two acute angles stand in the ratio $2 : 3$. Find both acute angles.',
+                    solution: [
+                      'Now, tag 3 says the acute pair shares $90^\\circ$: name them $2x$ and $3x$, so $2x + 3x = 90$.',
+                      'So $5x = 90$ and $x = 18$: the acute angles are $36^\\circ$ and $54^\\circ$.',
+                      'And the checks: $36 + 54 = 90$, the ratio $36 : 54 = 2 : 3$ holds, and the full sum $36 + 54 + 90 = 180$.',
+                      'Hence $36^\\circ$ and $54^\\circ$.',
+                    ],
+                    answer: '$36^\\circ$ and $54^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'Prove the exterior angle property — when any side of $\\triangle ABC$ is produced past $C$ to $D$, the exterior angle $\\angle ACD$ equals $\\angle A + \\angle B$ — quoting every theorem used.',
+                    solution: [
+                      'Now, the produced line $BD$ runs straight through $C$, so $\\angle ACD$ and the interior $\\angle ACB$ form a linear pair: $\\angle ACD + \\angle ACB = 180^\\circ$ (8.2\u2019s linear-pair law).',
+                      'So the angle sum property (tag 1) rearranges to $\\angle ACB = 180^\\circ - \\angle A - \\angle B$: the interior angle is what the two remote angles leave of the budget.',
+                      'And substitute: $\\angle ACD = 180^\\circ - (180^\\circ - \\angle A - \\angle B) = \\angle A + \\angle B$ — the two straight angles cancel, and the exterior angle is the remote sum.',
+                      'Hence $\\angle ACD = \\angle A + \\angle B$; and since each remote angle is a positive part of the sum, $\\angle ACD > \\angle A$ and $\\angle ACD > \\angle B$ — Euclid I.16\u2019s inequality rides free.',
+                    ],
+                    answer: '$\\angle ACD = 180^\\circ - \\angle ACB$ (linear pair) $= 180^\\circ - (180^\\circ - \\angle A - \\angle B)$ (tag 1) $= \\angle A + \\angle B$',
+                  },
+                  {
+                    q: 'An isosceles triangle has apex angle $40^\\circ$ at $A$, with the side $BC$ produced past $C$ to $D$. Find the exterior angle at $C$ twice — once by the exterior angle property, once by the linear pair — and reconcile the two answers.',
+                    solution: [
+                      'Now, the isosceles base angles: each is $\\frac{180 - 40}{2} = 70^\\circ$ (Euclid I.5, certified in the lesson).',
+                      'So route one, the exterior angle property: $\\angle ACD = \\angle A + \\angle B = 40 + 70 = 110^\\circ$.',
+                      'And route two, the linear pair: the adjacent interior is $\\angle ACB = 70^\\circ$, so $\\angle ACD = 180 - 70 = 110^\\circ$.',
+                      'Hence both routes return $110^\\circ$ — they must agree, because tag 2 was DERIVED from tag 1 plus the very linear pair used here; the two answers are one answer wearing two dresses.',
+                    ],
+                    answer: '$110^\\circ$ by both routes (exterior sum $40 + 70$; linear pair $180 - 70$)',
                   },
                 ],
               },

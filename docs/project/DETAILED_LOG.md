@@ -9,62 +9,55 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04/05 (maintained through **run 37, Job 498279**:
-**FM 8.1 "Points, Lines and Planes" shipped — CHAPTER 8 OPENS + voice
-polish 3.2** (5,245 body words): the visual half of mathematics begins
-and chapter 7's ruler line is re-read as a geometric object wearing
-coordinates — the ideal objects (point, line, plane) defined in the
-is-said-to-be shape, the segment (two endpoints, measurable length =
-7.4's distance formula re-read) and the ray (one endpoint, one
-direction) as the line's bounded cousins, figure 1 the three avatars,
-the drawn-vs-ideal Caution, the two-point rule as equation tag 1
-(existence from Euclid's Postulate 1; the modern incidence dress made
-explicit) with the at-most-one-common-point derivation, the meeting
-verdict (intersecting / parallel — Euclid's Definition 23 dress with
-its load-bearing "same plane" clause — and concurrent as the group
-portrait) with figure 2's three layouts, the counting law
-N = n(n−1)/2 as equation tag 2 with its double-count derivation and
-the segments-don't-care-lines-do collinearity trap (3 collinear
-points: 3 segments but 1 line; 4 points with 3 collinear: 6 segments
-but 4 lines), Illustrations on the ruler-line reading, the consistent
-two-meetings-plus-one-parallel configuration, the 5-marble census
-(10 & 10) and the exam classic 8 points (28 & 28), the Euclid
-*Elements* historical callout (13 books, 465 propositions, Book I's
-23 definitions + 5 postulates + 5 common notions; Hilbert's 1899
-*Grundlagen*), 8 terms, 5-quiz keys 3/1/1/2/3 live 5/5, 12 exercises
-L1–L6. Verify-first: `scripts/verify-unit-8.ts` created with sections
-A–N — 104 checks ALL PASS before writing (plus the I-series extended
-through two figure iterations). Voice polish 3.2: lesson 3.2's
-Definition callout rewritten in the is-said-to-be shape + the Thus-line
-(47 prime by its complete factor list; 48 composite by the witness
-4 | 48) + "no third state" — zero new numerals.
-
-Previously through **cron run 27, Job 498279**:
-FM lesson 6.2 "Rates and Unit Rates" authored in the Cengage voice +
-solution chain, 4,152 words — the same-kind boundary of 6.1 crossed on
-purpose: the rate as a division comparison of DIFFERENT kinds with its
-units riding (Definition callout + equation tag 1; the two-direction
-note), the unit rate as the one-part engine wearing units (divide, or
-scale to a friendly unit, or run it backwards), comparisons by the
-same-way law with the direction-fraud and bulk-illusion Cautions, figure
-1 the double ruler (0–5 kg locked to Rs 0–160, audit 0 FIRST pass, VLM
-10/10 + 10/10), the recognition table of five offers with the tie and
-the largest bag dearest, speed as the flagship rate (Definition callout
-+ equation tag 2 with the speed family; figure 2 the journey map — 240
-km in 4 equal hourly cells of 60 km, audit 0 FIRST pass, VLM 10/10 +
-10/10), the km/h ↔ m/s conversion law PROVED as a derivation block
-(5/18 and 3.6; anchors 5/18, 72 = 20, 90 = 25), rates at work (the tank
-5,400 L at 45 L/min → 2 h), the average-speed Caution (240 km in 5 h →
-48 km/h, not 50) + formula card; PLUS the queued per-run voice polish
-landed on lesson 1.2 (the comparison-rule Definition callout + roman
-run + Thus-line — zero new numerals);
-verify-unit-6.ts extended to 165 checks (A–U) ALL PASS pre-writing;
-new citation key ncert-sci7-motion; E2E extended to 15 lessons;
-SANDBOX NOTE: quality gate again run against the PRODUCTION build (the
-dev-mode lesson-route 404 environment regression persists in this
-recycled instance); the gitignored Drive survey rebuilt after the
-recycle)
-
+Generated: 2026-11-03/04/05 (maintained through **run 40, Job 498279**:
+**FM 8.4 "Triangles and the Angle Sum" shipped + voice polish 3.5**
+(5,382 body words): the chapter's three tools converge on the first
+closed figure — the triangle defined is-said-to-be (three non-collinear
+points + three joining segments + the enclosed region; the clause tied
+to 8.1's collinearity test), the parts named in both dresses with the
+opposite-pairing roman run, figure 1 the anatomy with BC produced to D
+and the dashed exterior angle; the angle sum property DERIVED as tag 1
+(the parallel XY through A — Playfair's uniqueness the licence; 8.3's
+alternate-interior theorem carrying the two far angles to A; 8.2's
+straight angle splitting three ways; the substitution), figure 2 the
+proof as a picture (equal-mark arcs 1/1 and 3/3, the double arc on the
+staying angle 2); the third-angle engine C = 180 − A − B; the exterior
+angle property DERIVED as tag 2 (linear pair + tag 1, the 8.3
+cancellation) with the inequality reading (greater than each remote
+alone — Euclid I.16's content), swept over 400 pseudo-random triangles
+× 3 vertices (1,200 positions); classification both axes (the
+one-right/one-obtuse budget law; tag 3 the right-triangle complement
+∠A + ∠B = 90°; the isosceles base-angle theorem stated honestly —
+Euclid I.5, the pons asinorum, certified numerically over apex angles
+10°…170° and proved when congruence arrives; equilateral 60-60-60 as
+the only equiangular split); the six-family witness table; figure 3
+the six-panel gallery (ticks perpendicular at side midpoints, the
+square corner mark, all measures recomputed from the panel
+coordinates); the triangle inequality from the two-circle construction
+engine swept over ALL 5,832 integer triples 1–18 in three dresses
+(three-dress, largest-side, the degenerate collinear equality =
+8.1's test — with (5,7,12) as the deliberate equality case);
+Illustrations 1–6 (62/45→73; ratio 2:3:4→40/60/80; exterior
+120+remote 50→70/60; isosceles apex 40→70/70; right 37→53; (4,6,11)
+no / (4,6,9) yes); the Proclus polygon Note ((n−2)×180, exteriors
+360°); the exam corner; the historical callout (Euclid I.32's
+two-part statement and its I.31/I.29/I.13 machinery = this book's own
+tools; the angle sum EQUIVALENT to the parallel postulate — the
+spherical octant triangle computed at 270° > 180° on the unit sphere,
+the hyperbolic defect; the Gauss Brocken–Hohehagen–Inselsberg legend
+told honestly — Hanover survey 1818–32, Buhler: the space-testing
+motive a myth); 12 terms, 5-quiz (keys 1/2/1/1/2 verified live 5/5),
+13 exercises L1–L6 in the steps format; verify-unit-8.ts extended
+253 → 339 checks (AF–AN) ALL PASS pre-writing; audits 0/0/0 on the
+three figures; VLM math 9/9/9 clarity 8/9/9; E2E suite 26 lessons +
+dedicated 8.4 block; PRE-FLIGHT REPAIR: run 39's committed book.ts
+carried four unescaped apostrophes (module unparseable, dev 500) —
+fixed + e2e-83.page.js reconstructed and both e2e-83/e2e-84
+whitelisted in .gitignore; PLUS the queued voice polish 3.5 (the
+product-rule theorem callout recast is-said-to-be + the Thus-lines,
+zero new numerals); new citation key ncert-math7-ch6; inventory
+regenerated (36 lessons / 170,714 words / 259 terms / 180 quiz /
+390 exercises)
 ---
 
 ## 1. Project identity
