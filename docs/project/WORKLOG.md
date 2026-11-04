@@ -82,8 +82,11 @@ folding the answers into the terminal Hence lines.
 (`ncert-math6-ch10`, `ncert-math7-p2-ch2`); WORK_INVENTORY.json regenerated via
 `bun run scripts/build_work_inventory.ts`; PROGRESS.json, RESUME_POINTER.json and DETAILED_LOG.md
 updated; ship commit pushed per protocol (one-time URL; token never written anywhere) and
-remote-verified — synced sha recorded in RESUME_POINTER.json. Voice polish 2.2 remains queued (next
-run); ch. 7 continues at 7.2 "Adding and Subtracting Integers".
+remote-verified: `9475dcc..64a315b HEAD -> main`, exit 0; ls-remote (one-time URL form) returned
+`64a315bf977c0b211437086ec45958f6142d4d1e refs/heads/main` = local HEAD. Tracking ref resynced
+(origin/main..HEAD = 0; the sandbox blocked `git fetch origin` with 'unable to fork', so the ref was
+moved to the ls-remote-verified sha directly); origin remote URL untouched (SSH). Voice polish 2.2
+remains queued (next run); ch. 7 continues at 7.2 "Adding and Subtracting Integers".
 
 ---
 

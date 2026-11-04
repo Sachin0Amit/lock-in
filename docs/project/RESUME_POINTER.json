@@ -411,7 +411,7 @@
   "push": "DEFERRED — no PAT in the owner chat session; five unpushed commits (run-30 x4 + run-31 ship) await the next cron-delivered run, which must push them BEFORE any new work"
  },
  "run33Extras": {
-  "syncedSha": "recorded-after-push (see WORKLOG entry / git log)",
+  "syncedSha": "64a315bf977c0b211437086ec45958f6142d4d1e (ship commit 64a315b remote-verified via one-time-URL ls-remote = local HEAD)",
   "siteWideFix": "ExampleBlock titles -> RichText (blocks.tsx)",
   "newCitationKeys": [
    "ncert-math6-ch10",
