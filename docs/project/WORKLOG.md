@@ -6,6 +6,60 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 30 (cron, Job 498279): FM lesson 6.4 "Direct and Inverse Variation" finished and shipped — the interrupted 15:18 delivery's in-flight commit recovered, the missing dedicated E2E block written, both figures polished to the 9/10 VLM bar, plus the queued per-run voice polish landed on lesson 2.1
+
+**Run open — in-flight recovery:** reconciliation found the sandbox recycled with local HEAD carrying
+an unpushed auto-named cron commit (`407c0fe`, "6f16ccde-…-cron", authored 15:54 +08:00): the 15:18
+delivery had authored lesson 6.4 END-TO-END (lesson blocks + verify-unit-6.ts sections AF–AP + the e2e
+LESSONS registration) but died before the quality gates, bookkeeping and push. Tree clean, no junk, PAT
+untouched. Per standing rule 0 this run finished that lesson instead of starting anything new.
+
+**Lesson finished — fm-direct-and-inverse-variation (5,373 words; ch. 6 open 4/5):**
+- verify-unit-6.ts extended AF–AP by the interrupted run ran ALL PASS (359 checks) before any edit of
+  this run: the direct definition (y/x = k on the shop's own rice line 96/3 = 160/5 = 256/8 = 32), the
+  parking-table fraud (15 → 12.5 → 35/3 → 7.5 per hour — growing without agreeing), the direct engine
+  (machine 840/6 = 140 → 700 in 5 h; truck 14/25 km/min → 168 km; pole 560/320 = 7/4 ↔ shadow 600 cm;
+  bacteria 5/50000 cm × 20000 = 2 cm), the inverse canon (sweets 24×5 = 120; game show Rs 1,00,000;
+  spokes 360°; periods 8×45 = 360), one journey's two bindings (the 240 km line vs the constant
+  product), the factor laws proved from the constants (van 120 → 240 doubled; journey 6 h → 3 h at
+  double speed; the m = 3/2 guard 240/90 = 8/3 h), the recognition drill, the flip (3 : 4 :: d : 4 →
+  d = 3, invertendo cashed), the work problems (rewiring 12 person-days, machines 2646 machine-days →
+  49, cattle 120 → 4 days, windows 6, boxes 300 → 15) and the quiz/exercise keys.
+- **Quality gates:** lint clean; tsc clean; routes 200/200/200/404 (new lesson, book, home, bogus);
+  audit-svg-overlaps 0 issues on both figures; full 17-lesson E2E exit 0; dedicated 6.4 block (the
+  interrupted run never wrote it — added this run): quiz clicked 2/1/1/2/1 → "You scored 5/5" live,
+  12/12 solutions expand, 21 Sol. pills inline, KaTeX ∴ tags 33, 2 SVG figures, mobile 390 px exact-fit,
+  console clean.
+- **Figure polish (VLM-driven, both figures to the shipped bar):** figure 1 (one journey, two bindings)
+  — panel titles raised 48 → 40 (VLM: title/label crowding), the km/h tag nudged clear of the 90 tick,
+  and the "3 × 80" label relocated into the guides' empty pocket at (480, 108) after two crowding flags;
+  figure 2 (the flip) — the single one-way arc replaced by TWO crossing legs (the 4 leg (470,122)→(566,178)
+  and the d leg (566,122)→(470,178), crossing at (518,150)) so the swap reads as an exchange, the label
+  moved to the band's clear left region ("the flip: the two right seats trade places"), and title/caption
+  x recentered 380 → 358 onto the box grid; verify checks AJ10/AJ13/AJ14 + AM4/AM5 rewritten to the new
+  geometry (359 → 361 checks, ALL PASS), re-audits 0 issues, VLM re-reviews: figure 1 math 10/10 +
+  clarity 9/10 (from 7.5), figure 2 math 10/10 + clarity 9/10 (from 6 — the one-arrow swap complaint).
+
+**Queued extra landed — lesson 2.1 voice polish (fourth; queue corrected):** the formal is-said-to-be
+Definition callout "Expression" (the treaty assigns exactly one value; expression names, equation claims)
+inserted where the object debuts, + the roman run of the treaty in action (8 + 2 × 5 = 18 no-brackets
+first; (8 + 2) × 5 = 50 brackets override; 18 ÷ 3 of 2 = 3 the of-rung — every number the lesson's own),
++ the Thus-line handing the ladder to figure 1's expression trees. Verified live: KaTeX 133 nodes, roman
+run/callout/Thus-line all present, figure renders, console clean; lint + tsc clean. Bookkeeping correction
+recorded: ch. 1 closed at 3 lessons, so the polish queue's "1.4–1.11" was stale — the remaining pre-4.2
+lessons are 2.2–2.5, 3.1–3.5 and 4.1 (10 lessons; 1.1 run 26, 1.2 run 27, 1.3 run 29, 2.1 run 30).
+
+**Ledger:** the gitignored Drive survey was rebuilt after the recycle (scripts/rebuild_drive_survey.ts,
+89 entries) before WORK_INVENTORY.json regenerated: 27 lessons / 128,994 words / 178 terms / 135 quiz
+items / 281 exercise questions. Zero reference downloads this run (verify-first + web-check only).
+
+**Git:** in-flight commit `407c0fe` (the 15:18 delivery's authored lesson) + this run's ship commit
+(figure polish + the dedicated 6.4 E2E block + the 2.1 voice polish) → bookkeeping commit (logs +
+inventory) → push + ls-remote verification per protocol v2, recorded in the memory commit that
+follows. Next unit 6.5 "Scaling: Maps, Models and Recipes" per plannedLessons.
+
+---
+
 ## 2026-11-04 — RUN 29 (cron, Job 498279): FM lesson 6.3 "Proportion and Cross-Multiplication" authored in the Cengage voice + solution chain — 6.2's closing question made official: the proportion as the statement that two ratios agree, the cross law proved in both directions, the test-and-fill engine in every seat, alternendo and invertendo as free theorems, the mean and third proportional, and the rate line revealed as a factory of proportions — plus the queued per-run voice polish landed on lesson 1.3
 
 **Run open:** the previous delivery (13:18) died before starting work — every filesystem

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 12:35:38 (Asia/Kolkata)",
+  "generated": "2026-11-04 16:04:16 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -489,8 +489,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4161,
-                "readMins": 21,
+                "words": 4430,
+                "readMins": 22,
                 "concepts": [
                   "Order of operations",
                   "Precedence",
@@ -520,12 +520,13 @@
                   "ncert-math6-ch2"
                 ],
                 "blockCounts": {
-                  "para": 10,
+                  "para": 12,
+                  "callout": 6,
                   "terms": 1,
                   "heading": 6,
                   "equation": 2,
                   "figure": 1,
-                  "callout": 5,
+                  "list": 1,
                   "derivation": 1,
                   "algorithm": 1,
                   "example": 2,
@@ -535,7 +536,7 @@
                   "formula": 1
                 },
                 "calloutTones": {
-                  "definition": 1,
+                  "definition": 2,
                   "insight": 1,
                   "warn": 1,
                   "historical": 1,
@@ -553,7 +554,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 21425
+            "words": 21694
           },
           {
             "number": 3,
@@ -1593,9 +1594,8 @@
             "title": "Ratio, Rate and Proportion",
             "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
             "status": "in-progress",
-            "lessonsWritten": 3,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Direct and Inverse Variation",
               "Scaling: Maps, Models and Recipes"
             ],
             "lessons": [
@@ -1800,9 +1800,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-direct-and-inverse-variation",
+                "number": "6.4",
+                "title": "Direct and Inverse Variation",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4842,
+                "readMins": 24,
+                "concepts": [
+                  "Direct variation",
+                  "Constant of variation",
+                  "Inverse variation",
+                  "Constant product",
+                  "Factor method",
+                  "The flip",
+                  "Person-days",
+                  "Recognition drill"
+                ],
+                "objectives": [
+                  "State the definition of direct variation ($y/x = k$) and inverse variation ($xy = k$), and write both in the proportionality notation $\\propto$",
+                  "Certify which lock binds a table or a story — the constant-ratio test against the constant-product test — and refuse the grows-together fraud",
+                  "Extend a certified direct rate and solve fixed-total problems by the constant product, the factor method and the flip, checking every answer against the fixed thing",
+                  "Connect the chapter: the unit rate as $k$, the cross law inside the flip, and the line and hyperbola as the two graphs of the two locks"
+                ],
+                "prerequisites": [
+                  "fm-rates-and-unit-rates",
+                  "fm-proportion-and-cross-multiplication",
+                  "fm-ratio-as-a-comparison"
+                ],
+                "sources": [
+                  "ncert-math8-ch13",
+                  "ncert-math6-ch12",
+                  "ncert-math7-ch8",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 9,
+                  "example": 9,
+                  "callout": 7,
+                  "equation": 2,
+                  "formula": 3,
+                  "figure": 2,
+                  "derivation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 3,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 12726
+            "words": 17568
           },
           {
             "number": 7,
@@ -1908,12 +1976,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 25381,
+      "totalLines": 26039,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 16116,
+        "src/data/library (content model + books)": 16774,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6066,6 +6134,120 @@
       "insertions": 0,
       "deletions": 0,
       "files": []
+    },
+    {
+      "sha": "356a52b33c6c66de1c877e0413f111db8f80cada",
+      "short": "356a52b",
+      "date": "2026-11-04 07:09",
+      "message": "fm 6.3 proportion and cross-multiplication (unit 6, run 29): 6.2's closing question made official — the proportion as the STATEMENT that two ratios agree (a : b :: c : d, the double colon read 'is to as'; a ratio a number, a proportion a true-or-false sentence — 2.2's equation-expression split in new dress); the opening Illustration pays the 6.2 debt (pantry 3 kg for Rs 96 vs shop 5 kg for Rs 160 — both 32 : 1, cross 96 x 5 = 480 = 3 x 160) with the roman run of the shop's line (96:3, 160:5, 256:8 — one simplest name); Definition callout in the formal shape + equation tag 1 (all four terms non-zero; the order-fraud paragraph 5 : 3 :: 6 : 10 false); figure 1 one statement four seats (boxes a:b::c:d at pitch 160, extremes arc above the outer pair, means arc below the inner pair, the cross law as the bottom strip; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity); the cross law PROVED as a derivation block in BOTH directions (multiply by bd / divide by bd — the balance licence of ch. 2, xrightarrow arrows) + formula card + the extremes-means recognition table (8:12::10:15, 21:14::33:22, 9:4::27:12 all verified, the failing 6:10::9:16 row 96 != 90) + the flip Caution (3 : 5 :: 10 : 6 false, 18 != 50); the test-and-fill engine: equation tag 2 (a : b = c : x => x = bc/a) + Illustrations 45:63::35:49 pass (both 5:7, products 2205) and 30:42 vs 24:35 fail (1050 != 1008), the fourth seat 8:12 = 10:square -> 15, the 6-9-12 fourth -> 18, the harder first seat 24/30/45 -> first 16, the unit-rate identity (the fill engine IS the one-part engine's third dress) and the gatekeeper (4 kg for Rs 120 -> 30 != 32, off the line); alternendo and invertendo proved free by the unchanged cross products (3:5::6:10 -> 3:6::5:10 both 1:2; -> 5:3::10:6 both 5:3); continued proportion (the mean in BOTH mean seats) with the mean proportional b^2 = ac (8 & 50 -> 20; formula card; the arithmetic-mean Caution 25 != 15 for 5 & 45 — averages add, proportions multiply) and the third proportional x = b^2/a (to 8 and 12 -> 18; formula card; 4 & 6 -> 9 in prose); proportion at work: figure 2 the line of agreement (the Rs 32/kg double ruler, kg 0-8 over Rs 0-256 at 80 px per kg, dots on (3,96), (5,160), (8,256), brackets 3 : 5 :: 96 : 160 and 5 : 8 :: 160 : 256; audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity) + the tea Illustration (5 kg -> Rs 480, 8 kg -> Rs 768 by cross law AND unit-rate engine) + the off-line gatekeeper paragraph launching 6.4 (quantities locked to one line grow together — direct variation teased); properties list (6 bullets with verified instances), exam corner (NCERT class-6 ch. 12 s12.2 + Ex. 12.2 canon + class-7 ch. 8 bridge + Khattar staples), 7 terms (Proportion, Extremes, Means, Fourth proportional, Continued proportion, Mean proportional, Third proportional), 5-quiz (keys 0/1/2/3/2), 12 exercises L1-L6 (L6: the recovered partner mean 20 one number 16 other 25 via b^2 = ac; alternendo proved + verified on 3 : 5 :: 6 : 10) — 4,132 words, book total 123,621; VOICE POLISH (queued per-run extra, 1.3 third): lesson 1.3 gains the formal Definition callout 'The rounding rule' (is-said-to-be shape + the deciding digit named + the midpoint convention round-up) + the roman run (43 -> 40, 47 -> 50, 45 -> 50 — every number reused from the lesson's own text and figure, zero new numerals) + the Thus-line handing the rule to figure 1's geometry; verify-unit-6.ts extended 165 -> 253 checks (sections V-AE) ALL PASS pre-writing — the audit caught 3 of the run's own check bugs (a nonsense W6 instance, a 516-for-518 colon typo, a reversed 496-540 gap subtraction); post-writing drift reconciled (quiz Q5 renumbered 18/24/36 -> 12 to avoid duplicating the 24/30/45 Illustration; L5a renumbered to 12 & 18 -> 27; formula cards honestly 3 — the fourth proportional lives as equation tag 2; the properties order-flip instance 80 != 180 added as W10); 4 TS2367 literal-comparison errors in new check lines fixed by rewriting claims as computed expressions; regressions 455/330/260/165; lint + tsc clean; production build 26 lesson pages; routes 200/200/404 on the live server; E2E extended to 16 lessons + dedicated 6.3 block (9 ILLUSTRATION pills, 21 Sol. pills all inline, badges 0, legacy boxes 0, KaTeX 291, thereforeTags 33 with exercises, quiz live 5/5 with intended keys 0/1/2/3/2, 12/12 expand, 36 collapsibles, mobile 390 exact-fit, console clean); audit-svg-overlaps 0 issues FIRST pass both figures; VLM PASS both (10/10+10/10 seats, 10/10+9/10 line); plannedLessons trimmed to Direct and Inverse Variation / Scaling: Maps, Models and Recipes; ch. 6 open 3/5, next 6.4 Direct and Inverse Variation",
+      "filesChanged": 4,
+      "insertions": 912,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 144,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 659,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "67bb01787cb7e2445f35b058103c1836cc6ff912",
+      "short": "67bb017",
+      "date": "2026-11-04 07:12",
+      "message": "inventory: record run-29 ship (fm 6.3 proportion and cross-multiplication live) — 26 lessons / 123,621 words / 171 terms / 130 quiz items / 269 exercise questions, ch. 6 open 3/5; next 6.4 direct and inverse variation",
+      "filesChanged": 6,
+      "insertions": 254,
+      "deletions": 48,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 15,
+          "del": 3
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 6,
+          "del": 6
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 14,
+          "del": 8
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 93,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 124,
+          "del": 29
+        }
+      ]
+    },
+    {
+      "sha": "18625d91a8fe82e58672fbccead45d6ddf101f51",
+      "short": "18625d9",
+      "date": "2026-11-04 07:13",
+      "message": "memory: record run-29 push verification (67bb017), origin/main synced — fm 6.3 proportion and cross-multiplication operating live (the proportion as the statement that two ratios agree, the cross law proved both directions, the fill engine in every seat, alternendo/invertendo free, mean + third proportional, the rate line as a factory of proportions), lesson 1.3 voice polish landed (the rounding rule + roman run + Thus-line); run 29 opener: the 13:18 delivery died pre-work on dead filesystem tools (blocker logged in-session; tree clean, 0 unpushed — PAT untouched); ch. 6 open 3/5; next 6.4 proportion-and-cross-multiplication's successor: direct and inverse variation",
+      "filesChanged": 1,
+      "insertions": 10,
+      "deletions": 5,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "407c0fed9b92f84ccf0ed2a22dfec42cdaca20e6",
+      "short": "407c0fe",
+      "date": "2026-11-04 07:54",
+      "message": "6f16ccde-a656-4562-967d-1b96e1aad62a-cron",
+      "filesChanged": 3,
+      "insertions": 806,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 169,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 636,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -6074,25 +6256,25 @@
     "booksLive": 1,
     "chaptersWritten": 5,
     "chaptersInProgress": 1,
-    "lessonsWritten": 26,
-    "wordsAuthored": 123883,
-    "termsDefined": 171,
-    "quizItems": 130,
-    "exerciseQuestions": 269,
+    "lessonsWritten": 27,
+    "wordsAuthored": 128994,
+    "termsDefined": 178,
+    "quizItems": 135,
+    "exerciseQuestions": 281,
     "blockTotals": {
-      "para": 397,
-      "callout": 135,
-      "heading": 172,
-      "list": 25,
-      "terms": 27,
-      "equation": 36,
-      "derivation": 45,
-      "table": 26,
-      "figure": 43,
-      "example": 111,
-      "quiz": 26,
-      "exercises": 26,
-      "formula": 66,
+      "para": 414,
+      "callout": 143,
+      "heading": 181,
+      "list": 26,
+      "terms": 28,
+      "equation": 38,
+      "derivation": 47,
+      "table": 27,
+      "figure": 45,
+      "example": 120,
+      "quiz": 27,
+      "exercises": 27,
+      "formula": 69,
       "algorithm": 8
     }
   }

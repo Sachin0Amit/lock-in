@@ -389,3 +389,7 @@ checks in sections BT–CC of scripts/verify-unit-5.ts, 455 total) BEFORE
 writing; exposition original — the factor-law derivation, the
 round-trip r²/100 % law, the multiplier law and the two-lane figure are
 the book's own derivations.
+
+## 2026-11-04 — Run 30 (FM 6.4): zero downloads
+
+Lesson 6.4 was verified against the already-persisted citation set (ncert-math8-ch13 §§13.1–13.2 + Ex. 13.1/13.2, ncert-math6-ch12, ncert-math7-ch8, khattar-qa-4e) via web-check only — no new reference files downloaded, no working copies to delete. The gitignored Drive survey (temporary-references/inventory.json, 89 entries) was rebuilt after the sandbox recycle for the WORK_INVENTORY regeneration — survey metadata only, not a content download.
