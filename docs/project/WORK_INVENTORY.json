@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 08:17:17 (Asia/Kolkata)",
+  "generated": "2026-11-04 12:35:38 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -167,8 +167,8 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "a29d1b8",
                 "unit": "unit 1",
-                "words": 3436,
-                "readMins": 17,
+                "words": 3698,
+                "readMins": 18,
                 "concepts": [
                   "Rounding to the nearest ten, hundred and thousand",
                   "The midpoint convention: ties round up",
@@ -193,13 +193,14 @@
                   "ncert-math6-ch1"
                 ],
                 "blockCounts": {
-                  "para": 5,
+                  "para": 7,
                   "heading": 5,
+                  "callout": 4,
+                  "list": 1,
                   "figure": 1,
                   "terms": 1,
                   "algorithm": 1,
                   "example": 3,
-                  "callout": 3,
                   "derivation": 1,
                   "formula": 2,
                   "table": 1,
@@ -207,6 +208,7 @@
                   "exercises": 1
                 },
                 "calloutTones": {
+                  "definition": 1,
                   "warn": 1,
                   "insight": 1,
                   "exam": 1
@@ -223,7 +225,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 10055
+            "words": 10317
           },
           {
             "number": 2,
@@ -1591,9 +1593,8 @@
             "title": "Ratio, Rate and Proportion",
             "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Proportion and Cross-Multiplication",
               "Direct and Inverse Variation",
               "Scaling: Maps, Models and Recipes"
             ],
@@ -1731,9 +1732,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-proportion-and-cross-multiplication",
+                "number": "6.3",
+                "title": "Proportion and Cross-Multiplication",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4132,
+                "readMins": 21,
+                "concepts": [
+                  "Proportion",
+                  "Extremes and means",
+                  "Cross-multiplication law",
+                  "Fourth proportional",
+                  "Continued proportion",
+                  "Mean proportional",
+                  "Alternendo",
+                  "Testing and filling"
+                ],
+                "objectives": [
+                  "State the definition of proportion, write it in the :: notation, and distinguish the statement $a : b :: c : d$ from the two ratios that build it",
+                  "Prove and apply the cross law — the product of the extremes equals the product of the means — to test any claimed proportion with one multiplication per side",
+                  "Fill a missing term in any seat of a proportion and solve rate-and-cost problems by proportion, checking against the unit-rate engine",
+                  "Recognise continued proportion, find the mean and third proportional, and verify claims with $b^2 = ac$"
+                ],
+                "prerequisites": [
+                  "fm-ratio-as-a-comparison",
+                  "fm-comparing-fractions",
+                  "fm-rates-and-unit-rates"
+                ],
+                "sources": [
+                  "ncert-math6-ch12",
+                  "ncert-math7-ch8",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 20,
+                  "heading": 7,
+                  "example": 9,
+                  "list": 2,
+                  "callout": 5,
+                  "equation": 2,
+                  "figure": 2,
+                  "derivation": 1,
+                  "formula": 3,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 8594
+            "words": 12726
           },
           {
             "number": 7,
@@ -1839,12 +1908,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 24701,
+      "totalLines": 25381,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 15436,
+        "src/data/library (content model + books)": 16116,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -5971,6 +6040,32 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "a78a30d2930bf83919c65025ccb10abcdf022c84",
+      "short": "a78a30d",
+      "date": "2026-11-04 02:47",
+      "message": "inventory: regenerate after run-28 (objectives math fix live) — 25 lessons / 119,489 words / 164 terms / 125 quiz items / 257 exercise questions unchanged (render-path fix only); drive survey rebuilt after the recycle",
+      "filesChanged": 1,
+      "insertions": 91,
+      "deletions": 7,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 91,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "e3f11587075ee03985874d174ede1306e8c1f9b3",
+      "short": "e3f1158",
+      "date": "2026-11-04 02:48",
+      "message": "memory: record run-28 push verification (a78a30d), origin/main synced — objectives math fix operating live (lesson-view objectives render through RichText, 6.1/6.2 the only math-bearing objectives, zero raw-TeX leakage), run-27's push record verified TRUE against remote d920f20 after the pre-commit-snapshot restore (zero log corrections), reconciliation by anonymous fetch + reset --hard; ch. 6 open 2/5; next 6.3 proportion and cross-multiplication",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
     }
   ],
   "totals": {
@@ -5979,25 +6074,25 @@
     "booksLive": 1,
     "chaptersWritten": 5,
     "chaptersInProgress": 1,
-    "lessonsWritten": 25,
-    "wordsAuthored": 119489,
-    "termsDefined": 164,
-    "quizItems": 125,
-    "exerciseQuestions": 257,
+    "lessonsWritten": 26,
+    "wordsAuthored": 123883,
+    "termsDefined": 171,
+    "quizItems": 130,
+    "exerciseQuestions": 269,
     "blockTotals": {
-      "para": 375,
-      "callout": 129,
-      "heading": 165,
-      "list": 22,
-      "terms": 26,
-      "equation": 34,
-      "derivation": 44,
-      "table": 25,
-      "figure": 41,
-      "example": 102,
-      "quiz": 25,
-      "exercises": 25,
-      "formula": 63,
+      "para": 397,
+      "callout": 135,
+      "heading": 172,
+      "list": 25,
+      "terms": 27,
+      "equation": 36,
+      "derivation": 45,
+      "table": 26,
+      "figure": 43,
+      "example": 111,
+      "quiz": 26,
+      "exercises": 26,
+      "formula": 66,
       "algorithm": 8
     }
   }

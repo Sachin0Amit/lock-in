@@ -6,6 +6,99 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 29 (cron, Job 498279): FM lesson 6.3 "Proportion and Cross-Multiplication" authored in the Cengage voice + solution chain — 6.2's closing question made official: the proportion as the statement that two ratios agree, the cross law proved in both directions, the test-and-fill engine in every seat, alternendo and invertendo as free theorems, the mean and third proportional, and the rate line revealed as a factory of proportions — plus the queued per-run voice polish landed on lesson 1.3
+
+**Run open:** the previous delivery (13:18) died before starting work — every filesystem
+tool call (Bash/Read/Glob) failed while only internal tools responded; the blocker was
+reported in-session per protocol (nothing was at risk: the tree was clean and 0 commits
+were unpushed, so the PAT was never touched). This delivery (14:18) found the sandbox
+recovered: tree clean, HEAD `e3f1158`, 0 unpushed. The blocker is recorded here as the
+standing rule requires.
+
+**Lesson authored — fm-proportion-and-cross-multiplication (4,132 words; ch. 6 open 3/5):**
+- **The definition section** pays 6.2's closing debt with the opening Illustration
+  (pantry's 3 kg for Rs 96 vs shop's 5 kg for Rs 160 — both $32 : 1$, the proportion
+  $96 : 3 :: 160 : 5$), the roman run of the shop's line (96:3, 160:5, 256:8 — one name),
+  the formal Definition callout in the is-said-to-be shape + equation tag 1
+  ($a : b :: c : d \Longleftrightarrow a/b = c/d$, all terms non-zero), the
+  statement-vs-number distinction (2.2's equation–expression split in new dress), the
+  order-fraud paragraph ($5 : 3 :: 6 : 10$ false), and figure 1 "one statement, four
+  seats" (boxes a:b::c:d, extremes arc above, means arc below, the cross law as the
+  bottom strip; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity).
+- **The cross law section**: Theorem callout + the derivation block proving
+  $ad = bc$ in BOTH directions (multiply by $bd$ / divide by $bd$ — the balance licence
+  of ch. 2; \xrightarrow arrows in KaTeX), formula card, the recognition table
+  (8:12::10:15, 21:14::33:22, 9:4::27:12, and the failing 6:10::9:16 row — 96 ≠ 90),
+  and the flip Caution ($3 : 5 :: 10 : 6$ false, 18 ≠ 50).
+- **The test-and-fill section**: Illustrations 45:63::35:49 pass (both 5:7, products
+  2205), 30:42 vs 24:35 fail (1050 ≠ 1008), the fourth seat $8 : 12 = 10 : \square → 15$,
+  the 6-9-12 fourth → 18, the harder first seat 24/30/45 → first 16; equation tag 2
+  ($x = bc/a$); the unit-rate connection made explicit (the fill engine IS the one-part
+  engine's third dress; the gatekeeper instance 4 kg for Rs 120 → 30 ≠ 32).
+- **Alternendo and invertendo** proved by the unchanged cross products (3:5::6:10 →
+  3:6::5:10 both 1:2; → 5:3::10:6 both 5:3) — free theorems, two lines each.
+- **Continued proportion**: the mean in both mean seats, mean proportional $b^2 = ac$
+  (8 & 50 → 20; formula card; the arithmetic-mean Caution 25 ≠ 15 for 5 & 45 — averages
+  add, proportions multiply), third proportional $x = b^2/a$ (to 8 and 12 → 18;
+  formula card).
+- **Proportion at work**: figure 2 "the line of agreement" (the Rs 32/kg double ruler,
+  kg 0–8 over Rs 0–256 at 80 px per kg, dots on (3,96), (5,160), (8,256), brackets
+  $3 : 5 :: 96 : 160$ and $5 : 8 :: 160 : 256$; audit 0 issues FIRST pass, VLM 10/10
+  math + 9/10 clarity); the tea Illustration (5 kg → Rs 480, 8 kg → Rs 768, cross law
+  and unit-rate engine agreeing); the off-line gatekeeper paragraph launching 6.4
+  (direct variation teased: the line forces quantities to grow together).
+- Properties list (6 bullets with verified instances), exam corner (NCERT class-6
+  ch. 12 §12.2 + Ex. 12.2 canon + class-7 ch. 8 bridge + Khattar staples), 7 terms
+  (Proportion, Extremes, Means, Fourth proportional, Continued proportion, Mean
+  proportional, Third proportional), 5-quiz (keys 0/1/2/3/2), 12 exercises L1–L6
+  (L6: the recovered partner — mean 20, one number 16, other 25 — and alternendo
+  proved + verified). plannedLessons trimmed to Direct and Inverse Variation /
+  Scaling: Maps, Models and Recipes.
+
+**Verification (verify-first discipline held):** verify-unit-6.ts extended 165 → **253
+checks** (sections V–AE, 88 new) ALL PASS BEFORE writing; the pre-writing audit caught
+3 of the run's own check bugs (a nonsense W6 instance, a 516-for-518 colon typo, a
+reversed 496−540 gap) — exactly the defect class the gate exists for. Post-writing
+design drift caught and reconciled: quiz Q5 renumbered to 18/24/36 → 12 (the 24/30/45
+instance stayed an Illustration, avoiding duplication), L5a renumbered to 12 & 18 → 27
+(the 8 & 12 instance stayed Illustration 7), formula cards counted honestly at 3 (the
+fourth proportional lives as equation tag 2), and the properties' order-flip instance
+(80 ≠ 180) added as check W10. Regressions green: 455/330/260/165 (units 5/4/3/2).
+tsc: 4 literal-comparison TS2367s in the new check lines fixed by rewriting the claims
+as computed expressions. lint clean; production build clean (26 lesson pages, the new
+route among them); routes on the live server 200/200/404; full E2E extended to 16
+lessons + a dedicated 6.3 block — 9 ILLUSTRATION pills, 21 Sol. pills all inline,
+27+∴ chains (33 KaTeX with ∴ incl. exercises), stepNumberBadges 0, legacyAnswerBoxes
+0, KaTeX 291, dollarInSvg 0, quiz answered live with intended keys (0/1/2/3/2) →
+"You scored 5/5", 12/12 solutions expand (36 collapsibles), 2 svg figures, mobile
+390px exact-fit (docScrollW 390, articleW 358), console clean (HMR + DevTools info
+only); audit-svg-overlaps 0 issues FIRST pass on both figures; z-ai vision on both
+figure screenshots PASS (10/10+10/10 seats; 10/10+9/10 line — one cosmetic kg-caption
+nit, and the first line screenshot missed the figure, re-captured, VLM re-run).
+
+**Queued per-run extra — voice polish of lesson 1.3** (third of the pre-4.2 batch,
+after 1.1 run 26 and 1.2 run 27): lesson 1.3 gains the formal Definition callout "The
+rounding rule" (is-said-to-be shape + the deciding digit named + the midpoint
+convention), the roman run (43 → 40, 47 → 50, 45 → 50 — every number reused from the
+lesson's own text and figure, zero new numerals), and the Thus-line handing the rule
+to figure 1's geometry. Lint + tsc clean; renders on the live server.
+
+**Logs:** SOURCE_LOG ncert-math6-ch12 extended to §12.2 + Ex. 12.2 (run-29 row),
+ledger row updated (ch. 6 open 3/5); WORK_INVENTORY regenerated after the recycle's
+survey rebuild (89 root entries re-confirmed; book 123,621 words, 26 lessons, ch. 6 =
+12,726); DETAILED_LOG.md updated; PROGRESS.json + RESUME_POINTER.json advanced to 6.4.
+
+**Remaining:** ch. 6 lessons 6.4 (Direct and Inverse Variation) and 6.5 (Scaling: Maps,
+Models and Recipes), then the unit-6 completion review; queued extras: voice polish of
+the 9 remaining pre-4.2 lessons (1.4–1.11, 2.1–2.5 — one per run); EXAM_REGISTRY.json
+research (44 skeleton entries).
+
+**Git:** ship commit (ch-06.ts 6.3 + verify-unit-6.ts V–AE + e2e 6.3 block + ch-01.ts
+1.3 polish) → bookkeeping commit (logs + inventory) → PUSH via protocol v2
+(one-time HTTPS URL, all unpushed commits, origin kept as SSH remote, PAT never
+written anywhere) → ls-remote verification → memory commit recording the synced sha
+→ second push. Details in the memory commit message.
+
 ## 2026-11-04 — RUN 28 (cron, Job 498279): sandbox-rollback reconciliation + the objectives math fix — run 27's record proved TRUE from the remote, and a VLM review caught raw LaTeX leaking into the learning-objectives box, fixed at the platform level
 
 **Run open — the tree looked dirty with a "half-finished" ship:** local HEAD
