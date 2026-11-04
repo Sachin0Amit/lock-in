@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 03:33:47 (Asia/Kolkata)",
+  "generated": "2026-11-05 04:43:44 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 7,
+        "chaptersWritten": 8,
         "chapters": [
           {
             "number": 1,
@@ -916,7 +916,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6051,
+                "words": 6069,
                 "readMins": 30,
                 "concepts": [
                   "Fractions name parts of a whole",
@@ -1244,7 +1244,7 @@
                 "termsDefined": 6
               }
             ],
-            "words": 26905
+            "words": 26923
           },
           {
             "number": 5,
@@ -2233,12 +2233,10 @@
             "number": 8,
             "slug": "geometry-foundations",
             "title": "Geometry Foundations",
-            "summary": "The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Perimeter and Area of Rectangles, Triangles and Circles"
-            ],
+            "summary": "The visual half of mathematics begins and pays: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the walk (perimeter) and fill (area) of the rectangle, the triangle and the circle — every formula derived from the tools before it.",
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-points-lines-and-planes",
@@ -2509,9 +2507,77 @@
                 },
                 "exerciseQuestions": 13,
                 "termsDefined": 12
+              },
+              {
+                "id": "fm-perimeter-and-area-rectangles-triangles-circles",
+                "number": "8.5",
+                "title": "Perimeter and Area of Rectangles, Triangles and Circles",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5998,
+                "readMins": 30,
+                "concepts": [
+                  "Perimeter as the walk around",
+                  "Area as the fill inside",
+                  "The unit square",
+                  "P = 2(l + b), A = l × b",
+                  "A = ½ × base × height",
+                  "Circumference C = 2πr",
+                  "Area of the circle πr²",
+                  "Hectares and unit conversion"
+                ],
+                "objectives": [
+                  "Define perimeter and area honestly — the walk around a figure and the fill inside it — and keep the two questions (and their units) apart for life",
+                  "Derive the rectangle laws P = 2(l + b) and A = l × b from the walk and the tiling, and prove that a fixed perimeter never fixes an area (the square sweeps the board)",
+                  "Derive the triangle formula A = ½ × base × height from the rectangle — two copies tile the box, and the altitude split cancels — and choose base-height dresses safely",
+                  "Define π as the constant ratio C/d, derive C = 2πr and A = πr² (the sector rearrangement), and compute with both working values 22/7 and 3.14 at known accuracy",
+                  "Convert area units by rescaling the tile (1 m² = 10⁴ cm², 1 hectare = 10⁴ m²) and dissect composite figures into the three measured shapes"
+                ],
+                "prerequisites": [
+                  "fm-triangles-and-the-angle-sum",
+                  "fm-angles-and-their-measurement"
+                ],
+                "sources": [
+                  "ncert-math6-gp-ch6",
+                  "ncert-math7-ch11",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 8,
+                  "callout": 9,
+                  "list": 1,
+                  "derivation": 4,
+                  "equation": 6,
+                  "example": 7,
+                  "table": 1,
+                  "figure": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "warn": 4,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 12
               }
             ],
-            "words": 20301
+            "words": 26299
           },
           {
             "number": 9,
@@ -2584,12 +2650,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 87,
-      "totalLines": 32118,
+      "totalLines": 32856,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 22853,
+        "src/data/library (content model + books)": 23591,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2797,7 +2863,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-03",
+      "surveyed": "2026-11-04",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -7727,32 +7793,129 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "dedc21edd7b996178f5ac692f8d490a00a0950a8",
+      "short": "dedc21e",
+      "date": "2026-11-04 22:12",
+      "message": "fm 8.4 triangles and the angle sum (unit 8, run 40): the triangle defined is-said-to-be (non-collinear clause tied to 8.1's collinearity test, crossZ((2,2),(4,4)) = 0 the cash) + figure 1 the anatomy with BC produced to D and the dashed exterior angle; the angle sum DERIVED as tag 1 through the parallel XY drawn through A (Playfair's uniqueness the licence + 8.3's alternate-interior theorem + 8.2's straight angle — every tool quoted from its lesson), figure 2 the proof picture (equal-mark arcs 1/1 and 3/3, the double arc on the staying angle 2, the caption 1+2+3=180); the third-angle engine; the exterior angle property DERIVED as tag 2 (linear pair + tag 1, the 8.3 cancellation) with the inequality reading (> each remote, Euclid I.16's content) swept over 400 random triangles x 3 vertices; classification both axes (the one-right/one-obtuse budget law; tag 3 the right-triangle complement; the isosceles base-angle theorem stated honestly — I.5, pons asinorum, certified numerically over apex 10-170, congruence later; equilateral 60-60-60 the only equiangular split) + the six-family witness table + figure 3 the six-panel gallery (perpendicular ticks, the square corner mark); the triangle inequality from the two-circle engine swept over ALL 5832 integer triples 1-18 in three dresses (the degenerate collinear equality = 8.1's test; (5,7,12) the deliberate case); Illustrations 1-6 (62/45->73; 2:3:4->40/60/80; ext 120+remote 50->70/60; apex 40->70/70; 37->53; (4,6,11) no/(4,6,9) yes); the Proclus polygon Note ((n-2)x180, exteriors 360); the exam corner; the historical callout (I.32's two-part statement + the I.31/I.29/I.13 machinery = our tools; the angle sum EQUIVALENT to Postulate 5 — the spherical octant computed at 270 > 180 on the unit sphere; the Gauss BHI legend told honestly per Buhler: Hanover 1818-32, the space-testing motive a myth); 12 terms, 5-quiz (keys 1/2/1/1/2 verified live 5/5), 13 exercises L1-L6 (L6: the exterior-angle proof quoted tool by tool; the isosceles apex-40 chase cashed both routes 110 = 110); 5,382 words in the Cengage voice + solution chain; verify-unit-8.ts EXTENDED 253 -> 339 checks (AF-AN) ALL PASS pre-writing (the 400-triangle sweep, the 1200-position exterior sweep, the 5832-triple inequality sweep, the isosceles certification, the wedge-membership + >=8px clearance figure sweeps incl. arc polylines, the web-checked history); e2e-84.page.js registered + the dedicated 8.4 block (quiz live 5/5, 13 solutions, mobile 390 exact-fit); audits 0/0/0 on the three figures; VLM math 9/9/9 clarity 8/9/9; E2E suite 26 lessons exit 0. PRE-FLIGHT REPAIR: run 39's committed book.ts carried four unescaped apostrophes in the notes string (module unparseable, dev 500) — escaped + gates re-green; e2e-83.page.js reconstructed (created run 39, never gitignore-whitelisted, lost to the rollback) and BOTH e2e-83/e2e-84 whitelisted. VOICE POLISH 3.5 (queued per-run extra): lesson 3.5's product-rule theorem callout recast is-said-to-be + the Thus-lines, zero new numerals, live-verified. SOURCE_LOG gains ncert-math7-ch6 (class-7 ch. 6 The Triangle and Its Properties, web-checked) + the run-40 row; logs + pointer + inventory updated (36 lessons / 170,714 words / 259 terms / 180 quiz / 390 exercises); ch. 8 open 4/5, next 8.5 perimeter and area",
+      "filesChanged": 14,
+      "insertions": 1698,
+      "deletions": 102,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 49,
+          "del": 56
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 24,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 175,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-83.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-84.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 72,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-8.ts",
+          "add": 497,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-08.ts",
+          "add": 733,
+          "del": 13
+        }
+      ]
+    },
+    {
+      "sha": "8c93d5ae2833aa893094a507ad53f35531e21d2c",
+      "short": "8c93d5a",
+      "date": "2026-11-04 22:12",
+      "message": "memory: run-40 synced sha recorded (dedc21e) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 8 Geometry Foundations OPEN 4/5; next run 41 continues at FM 8.5 Perimeter and Area of Rectangles, Triangles and Circles (extend verify-unit-8.ts with the perimeter/area sections first), voice polish 4.1 queued",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 7,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 36,
-    "wordsAuthored": 170714,
-    "termsDefined": 259,
-    "quizItems": 180,
-    "exerciseQuestions": 390,
+    "chaptersWritten": 8,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 37,
+    "wordsAuthored": 176730,
+    "termsDefined": 271,
+    "quizItems": 185,
+    "exerciseQuestions": 402,
     "blockTotals": {
-      "para": 546,
-      "callout": 213,
-      "heading": 226,
-      "list": 46,
-      "terms": 37,
-      "equation": 60,
-      "derivation": 66,
-      "table": 35,
-      "figure": 64,
-      "example": 178,
-      "quiz": 36,
-      "exercises": 36,
+      "para": 565,
+      "callout": 222,
+      "heading": 234,
+      "list": 47,
+      "terms": 38,
+      "equation": 66,
+      "derivation": 70,
+      "table": 36,
+      "figure": 67,
+      "example": 185,
+      "quiz": 37,
+      "exercises": 37,
       "formula": 72,
       "algorithm": 8
     }

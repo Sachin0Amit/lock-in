@@ -9,55 +9,51 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04/05 (maintained through **run 40, Job 498279**:
-**FM 8.4 "Triangles and the Angle Sum" shipped + voice polish 3.5**
-(5,382 body words): the chapter's three tools converge on the first
-closed figure — the triangle defined is-said-to-be (three non-collinear
-points + three joining segments + the enclosed region; the clause tied
-to 8.1's collinearity test), the parts named in both dresses with the
-opposite-pairing roman run, figure 1 the anatomy with BC produced to D
-and the dashed exterior angle; the angle sum property DERIVED as tag 1
-(the parallel XY through A — Playfair's uniqueness the licence; 8.3's
-alternate-interior theorem carrying the two far angles to A; 8.2's
-straight angle splitting three ways; the substitution), figure 2 the
-proof as a picture (equal-mark arcs 1/1 and 3/3, the double arc on the
-staying angle 2); the third-angle engine C = 180 − A − B; the exterior
-angle property DERIVED as tag 2 (linear pair + tag 1, the 8.3
-cancellation) with the inequality reading (greater than each remote
-alone — Euclid I.16's content), swept over 400 pseudo-random triangles
-× 3 vertices (1,200 positions); classification both axes (the
-one-right/one-obtuse budget law; tag 3 the right-triangle complement
-∠A + ∠B = 90°; the isosceles base-angle theorem stated honestly —
-Euclid I.5, the pons asinorum, certified numerically over apex angles
-10°…170° and proved when congruence arrives; equilateral 60-60-60 as
-the only equiangular split); the six-family witness table; figure 3
-the six-panel gallery (ticks perpendicular at side midpoints, the
-square corner mark, all measures recomputed from the panel
-coordinates); the triangle inequality from the two-circle construction
-engine swept over ALL 5,832 integer triples 1–18 in three dresses
-(three-dress, largest-side, the degenerate collinear equality =
-8.1's test — with (5,7,12) as the deliberate equality case);
-Illustrations 1–6 (62/45→73; ratio 2:3:4→40/60/80; exterior
-120+remote 50→70/60; isosceles apex 40→70/70; right 37→53; (4,6,11)
-no / (4,6,9) yes); the Proclus polygon Note ((n−2)×180, exteriors
-360°); the exam corner; the historical callout (Euclid I.32's
-two-part statement and its I.31/I.29/I.13 machinery = this book's own
-tools; the angle sum EQUIVALENT to the parallel postulate — the
-spherical octant triangle computed at 270° > 180° on the unit sphere,
-the hyperbolic defect; the Gauss Brocken–Hohehagen–Inselsberg legend
-told honestly — Hanover survey 1818–32, Buhler: the space-testing
-motive a myth); 12 terms, 5-quiz (keys 1/2/1/1/2 verified live 5/5),
-13 exercises L1–L6 in the steps format; verify-unit-8.ts extended
-253 → 339 checks (AF–AN) ALL PASS pre-writing; audits 0/0/0 on the
-three figures; VLM math 9/9/9 clarity 8/9/9; E2E suite 26 lessons +
-dedicated 8.4 block; PRE-FLIGHT REPAIR: run 39's committed book.ts
-carried four unescaped apostrophes (module unparseable, dev 500) —
-fixed + e2e-83.page.js reconstructed and both e2e-83/e2e-84
-whitelisted in .gitignore; PLUS the queued voice polish 3.5 (the
-product-rule theorem callout recast is-said-to-be + the Thus-lines,
-zero new numerals); new citation key ncert-math7-ch6; inventory
-regenerated (36 lessons / 170,714 words / 259 terms / 180 quiz /
-390 exercises)
+Generated: 2026-11-03/04/05 (maintained through **run 41, Job 498279**:
+**FM 8.5 "Perimeter and Area of Rectangles, Triangles and Circles" shipped
+and CHAPTER 8 CLOSED 5/5 + voice polish 4.1** (5,998 body words): the two
+paying questions, the walk around (perimeter, length units) and the fill
+inside (area, square units); P = 2(l + b) derived from the walk as tag 1
+with the half-walk named (Illustration 1 the fence 82 m at Rs 15/m); the
+fixed-perimeter table (nine rectangles of P = 36, areas 17 to 81 climbing
+to the square), the square-wins law swept over every even perimeter 4..200,
+the fixed-area mirror, the perimeter-never-fixes-area Caution; A = l × b
+from the tiling as tag 2 (figure 1 the tiled 5 × 3 rectangle halved by its
+diagonal; Illustration 2 the 80-tile floor both ways); area units by the
+rescaled tile (1 m² = 10⁴ cm² with the ×100-reflex Caution; 1 hectare =
+10⁴ m², the 3-hectare field); the triangle's area derived as tag 3 — two
+copies of a right triangle tile its leg-rectangle (the half-turn about the
+hypotenuse midpoint, swept p, q = 1..12), the altitude split whose x
+cancels (500 pseudo-random triangles, apex outside the base included), the
+perpendicular-height Caution (½·4·5 = 10 refused against 6), Illustration 3
+the 3-4-5 audited through all three base-height dresses (hypotenuse
+altitude 12/5 = 2.4); π DEFINED as the constant C/d, C = πd = 2πr as tag 4
+with figure 2 the circumference unrolled straight to scale (2π × 90 ≈ 565.5
+px for r = 90 px), the working values priced (22/7 +0.04%, 3.14 −0.05%),
+Illustration 5 the r = 7 round-trip and C = 132 → d = 42; the sector
+rearrangement drawn FLUSH (tips interleaved between the edges, every
+straight edge continuing its neighbour's, arcs tiling both edges) as
+figure 3 behind tag 5 A = πr² = πd²/4 — redesigned once after the first
+VLM pass came in 7/6 (midpoint-tip construction looked ragged; the flush
+classic pass scored 9/9); the diameter-fraud Caution (πd² overshoots ×4),
+Illustration 6 the fill/walk round-trip at r = 7 with the A = 154 inverse;
+composite dissection (L-shape 88 m² walk 42 m; interior cuts never walked)
+and Illustration 7 the arched window (glass 13,982 cm², beading 471.4 cm);
+the exam corner and the historical callout (Archimedes' 96-gon squeeze
+3 10/71 < π < 3 1/7; Aryabhata's 62832/20000 = 3.1416; Zu Chongzhi's Milü
+355/113; Lambert 1761; Lindemann 1882; William Jones 1706 the letter,
+Euler's adoption); 12 terms, 5-quiz (keys 1/2/3/1/2 verified live 5/5),
+12 exercises L1–L6; verify-unit-8.ts EXTENDED 339 → 429 checks (AO–AZ) ALL
+PASS pre-writing; E2E 27 lessons exit 0 + dedicated 8.5 block (quiz live
+5/5, 12 solutions, 3 figures, mobile 390 exact-fit, 0 raw-$, 0 katex
+errors); SVG audits 0/0/0 FIRST pass; VLM figures 10/9, 9/8, 9/9; UNIT-8
+COMPLETION REVIEW PASSED (checklist 7/7, exam coverage, ids unique; ch. 8
+= 26,299 words / 54 terms / 25 quiz / 61 exercises; book = 37 lessons /
+176,712 words / 271 terms / 185 quiz / 402 exercises); ch-08 status →
+complete; VOICE POLISH 4.1 (the treaty definition recast is-said-to-be +
+the Thus-line, zero new numerals) with the bonus repair of a latent
+katex-error (\tfrac{\text{Rs } 20} → plain Rs dress) — the pre-4.2 voice
+queue now EMPTY; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11.
 ---
 
 ## 1. Project identity
@@ -140,6 +136,11 @@ regenerated (36 lessons / 170,714 words / 259 terms / 180 quiz /
 | 11-04 (run 34, cron Job 498279) | (ship) | **LESSON 7.2 Adding and Subtracting Integers** — the movement model, five-case sign table, subtraction as adding the opposite (tag 2), double-sign table, two-panel walk + subtraction-map figures, Brahmagupta's subtraction verses; 148 verify checks; details in WORKLOG.md |
 | 11-04 (run 35, cron Job 498279) | (ship) | **LESSON 7.3 Multiplying Integers and the Sign Rules** — the repeated-walk model, the staircase + distributive derivations of minus-times-minus (tags 1–2), six properties, sign parity, Brahmagupta's multiplication verses; 231 verify checks; details in WORKLOG.md |
 | 11-05 (run 36, cron Job 498279) | (finish + ship + queued extra + chapter close) | **LESSON 7.4 Absolute Value as Distance — CHAPTER 7 CLOSED (4/4)** — finished from the in-flight auto-checkpoint `ab19d64` per standing rule 0 and shipped in the Cengage voice + solution chain, 4,207 words: the distance Definition callout (is-said-to-be) + the piecewise rule as equation tag 1 + the roman run |7| |−11| |0|; the rule's derivation (distance is a count — never negative; the mirror twin −x; both lines meeting at |0| = 0); figure 1 the distance-from-zero braces (|−8| = 8, |5| = 5 at 40 px/step); ordering-by-magnitude cash of 7.1's trap; the five properties with grid certificates (mirror sweep on [−60,60]; multiplicative on 441 pairs; triangle fact with the equality condition ab ≥ 0 brute-forced); the outside-minus Caution; figure 2 the two-panel distance-between-points (opposite sides |5−(−3)| = 8 = 3 + 5; same side |7−2| = 5 nested braces); the distance formula gap(a,b) = |a−b| = |b−a| as tag 2 CASHING every counted gap (the lift 9 both orders, the mall 12/24, the Everest–Dead Sea 9288.64 m, the Vostok–Phalodi 140.2°); the |x| = k verdict table (two/one/none) + the bars-erase-one-bit insight; the historical callout (Argand 1806 modulus; Weierstrass 1841 bars, MacTutor-grounded); 8 terms, 5-quiz keys 2/1/0/1/3 live 5/5 · perfect, 12 exercises L1–L6 (L6 the distance derivation at (−5,8); the equality condition proved by cases); verify-unit-7.ts 231→**302 checks** (AC–AH) ALL PASS pre-writing; unit-7 completion review passed (ids unique, totals recomputed: ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises), ch-07 status **complete** + summary corrected, book.ts catalog appended; audits 0/0 both figures; VLM 10 math/9 clarity each; 22-lesson E2E sweep exit 0 + dedicated 7.4 block (mobile 390 exact-fit, console clean); **voice polish 3.1** (the is-said-to-be treaty callout + Thus-line at 6 | 48, zero new numerals, live-verified); stale top-level library counters corrected (26/133,379/171 → 32/150,259/217); logged; pushed (protocol v2, one-time URL from the 01:27 payload) |
+| 11-05 (run 37) | (ship) | **LESSON 8.1 Points, Lines and Planes — CHAPTER 8 OPENS** — 104 pre-writing checks (verify-unit-8.ts created, A–N), 5,245 words, two figures 0-audit, VLM-reviewed to the bar; details in WORKLOG.md and §7 |
+| 11-05 (run 38) | (ship) | **LESSON 8.2 Angles and Their Measurement** — 189 checks (O–W), 4,560 words, five-sizes gallery + protractor figures, quiz live 5/5; details in WORKLOG.md and §7 |
+| 11-05 (run 39) | (ship) | **LESSON 8.3 Parallel Lines and Transversals** — 253 checks (X–AE), 5,114 words, the eight-angle scene + F/Z/C patterns, quiz live 5/5; details in WORKLOG.md and §7 |
+| 11-05 (run 40) | (ship + repair + queued extra) | **LESSON 8.4 Triangles and the Angle Sum** — PRE-FLIGHT REPAIR of run 39's unescaped-apostrophe book.ts (dev 500) + e2e-83 reconstruction; 339 checks (AF–AN); 5,382 words; the angle sum DERIVED through the parallel XY, the exterior angle, classification, the triangle inequality swept over all 5,832 integer triples; VLM 9/9/9; quiz live 5/5; voice polish 3.5; details in WORKLOG.md and §7 |
+| 11-05 (run 41, cron Job 498279) | (ship + chapter close + unit review + queued extra) | **LESSON 8.5 Perimeter and Area of Rectangles, Triangles and Circles — CHAPTER 8 CLOSED (5/5)** — authored in the Cengage voice + solution chain, 5,998 words: see the header narrative above; 429 pre-writing checks (AO–AZ, 90 new); E2E 27 lessons + dedicated 8.5 block (quiz live 5/5); SVG audits 0/0/0 FIRST pass; VLM 10/9, 9/8, then figure 3 redesigned to the flush construction and re-reviewed 9/9; unit-8 completion review passed (totals recomputed, ch-08 → complete); voice polish 4.1 + the Rs-tfrac katex repair (queue empty); new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11; logged; pushed (protocol v2) |
 | 11-04 (run 27, cron Job 498279) | (ship) | **LESSON 6.2 Rates and Unit Rates — THE BOUNDARY CROSSED ON PURPOSE** — authored in the Cengage voice + solution chain, 4,152 words: the opening names 6.1's same-kind boundary and crosses it deliberately (the grocer weighs rupees against kilograms, the driver counts kilometres against litres, the typist races words against minutes — the units can no longer cancel, so they ride); **Definition callout 'Rate'** in the formal shape (different kinds, division, *per* = "for each", units attached — a rate is NOT a pure number) as **equation tag 1** with the two-direction note (18 km/L vs its twin 1/18 L/km); the roman run of rates in the wild (Rs 40/kg → 120 kg costs 4,800; 18 km/L → 3 L carries 54 km; 72 wpm → 360 words in 5 min; 60 beats/min → 45 beats in 45 s), each with the rate × quantity read-back; **the unit rate** as the one-part engine of 5.3/6.1 wearing units (Illustration Rs 96 for 3 kg → Rs 32/kg with the rebuild check; **formula card**; the **scale-to-friendly-unit road** — Rs 22.50 per 250 g ×4 → Rs 90/kg, no decimal division, 6.1's equivalence family in rate dress; the **inverse read** in prose — Rs 90 for 6 pens → Rs 15/pen → Rs 210 buys 14 pens); **comparing rates by the same-way law** (Illustration shops 96/3 = 32 vs 155/5 = 31 with the Rs 5 saving on the 5-kg buy; the **direction-fraud Caution** — Rs 32/kg vs 0.03125 kg/Rs face away and compare nothing; the **bulk-illusion Illustration** — 2 kg at Rs 30 vs 4 kg at Rs 30.50, the bigger sack dearer); **figure 1: one rate, two rulers** (0–5 kg locked to Rs 0–160 at 128 px per kg, dashed connectors, the constant Rs 32 step annotated; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity); **the recognition table** of five offers with the tie (A Rs 87/3 kg = B Rs 232/8 kg = Rs 29/kg — one unit rate in two sizes — and E the largest bag dearest at Rs 31: the bulk illusion caught in the act); **speed: the flagship rate** (the **Definition callout** — distance per time, uniform speed named; **equation tag 2** with the speed family — the two extra doors opened by ch. 2's balance licence; **formula card**; Illustration 240 km in 4 h → 60 km/h; **figure 2: the journey map** — four equal hourly cells of 60 km, uniform speed drawn, audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity; the sprint Illustration 100 m in 12.5 s → 8 m/s — the definition never changes, only the units dress); **changing the units of a rate** (conversion factors as names for 1; the **km/h ↔ m/s law PROVED as a derivation block**: 1 km = 1000 m, 1 h = 3600 s → 1 km/h = 1000/3600 = 5/18 m/s (HCF 200 from ch. 3), the reciprocal 18/5 = 3.6; **formula card** with anchors 5 m/s = 18 km/h, 20 m/s = 72 km/h, 25 m/s = 90 km/h; Illustrations 72 km/h → 20 m/s and 12 m/s → 43.2 km/h); **rates at work** (the tank Illustration 5,400 L at 45 L/min → 120 min = 2 h; masons/couriers/printers as the same two-pedal engine); **average speed** (the **Caution**: total distance ÷ total time, the plain mean a fraud on unequal times; Illustration 120 km out at 60 + 120 km back at 40 → 240 km in 5 h → 48 km/h, NOT 50 — the mean would claim 250 km driven; **formula card**); **properties of rates** (5 bullets with verified instances); exam corner (NCERT class-6 ch. 12 Ex. 12.3 unitary-method canon + class-7 science Motion and Time + Khattar speed staples; SSC/bank/RRB shapes — best buys, the speed triad, the 5/18 drill, average-speed traps, pipe rates); 7 new terms (Rate, Unit rate, Unit price, Speed, Uniform speed, Average speed, Conversion factor), 4 formula cards, 2 equation tags + 1 derivation, 10 illustrations, 2 figures (0 audit issues), 5-quiz (1/0/1/2/1 verified live 5/5), 12 exercises L1–L6 — L6 carries the typists' 45 vs 50 wpm and the unequal-legs average (70 ≠ 75, the mean fraud exposed); **VOICE POLISH 1.2** (queued per-run extra, 1.2 second): the formal Definition callout "The comparison rule" (is-said-to-be shape — a is greater than b when the first differing seat on a left-to-right reading carries the larger digit; the deciding seat named, every seat to its right overruled) + the roman example run (9,999 vs 10,000; 98,341 vs 9,843; 4,589 vs 4,598) + the Thus-line handing the rule to the domination-bound proof — every number reused from the lesson's own text, zero new numerals; **verify-unit-6.ts extended 93 → 165 checks** (sections L–U) ALL PASS pre-writing (+ regressions 455/330/260/165; the audit caught the pens inverse-read being misplanned as an 11th Illustration — it lives in prose; U1 corrected); new citation key **ncert-sci7-motion**; E2E extended to **15 lessons** with a dedicated 6.2 block (8 caps-over-rule headings, 10 Illustration pills, 22 Sol. pills ALL inline, 30 step rows, badges 0, thereforeTags 30, legacy boxes 0, note boxes Definition ×2 / Caution ×2 + 4 Remember cards + Exam corner, KaTeX 117, dollarInSvg 0, 2 svg figures, quiz 5/5 live with 1/0/1/2/1, 12/12 expand, 36 collapsibles, 390px exact-fit, zero console errors); SANDBOX NOTE: quality gate again against the **PRODUCTION build** (dev-mode lesson routes 404 regression persists in this recycled instance — new lesson 200, old 200, bogus 404); the gitignored Drive survey rebuilt after the recycle before the inventory regen; totals: **25 lessons / 119,489 words / 164 terms / 125 quiz items / 257 exercise questions**, ch. 6 open 2/5, next 6.3 Proportion and Cross-Multiplication; logged; pushed (protocol v2) |
 | 11-04 (run 25, cron Job 498279) | (ship + platform + unit review) | **LESSON 5.5 Percentage Change, Discounts and Simple Interest — THE PERCENT AT WORK (CH. 5 CLOSES)** — authored in the Cengage voice + solution chain, ~3,700 words: the opening ties 5.4's closing promise and names the discipline — **the one question "of what?"** (Note box: four named bases — original, cost price, marked price, principal); **Definition callout** (percentage change judged on the ORIGINAL, r = (N − O)/O × 100, Thus-line) + the roman run (250→300 = +20%; 48,000→44,640 = −7%; 800→720 = −10%); **the factor law as equation tag 1** (N = O(100 ± r)/100) **PROVED as a derivation block** (definition rearranged → distributivity → the bracket as one fraction → the HCF-trimmed brackets: +25% = ×5/4, −10% = ×9/10); Illustration 1 the salary (12,500 → 14,000 = 12% with the forward check ×112/100); **the two-base trap Caution** (+25% then −25% is not flat — the bases differ); Illustration 2 the round trip (Rs 8,000 × 5/4 → 10,000 × 3/4 → 7,500; net −6.25%); the return-ticket paragraph (undo = divide by the factor, never subtract the percent); **figure 1: the round-trip map** (12,500 → +20% ×6/5 → 15,000; the wrong −20% ticket lands 12,000 — five hundred short, amber dashed; the right ×5/6 ticket lands home; audit 0 issues FIRST pass, VLM 10/10 math + 9/10 clarity); **the r²/100 % law** named from the figure and PROVED in exercise L6 via chapter 2's (a+b)(a−b) identity (up r% then down r% multiplies to 1 − r²/10000, a net fall of r²/100 %); Illustration 3 the phone (Rs 15,000 after +20% → Rs 12,500 by the return ticket AND the unitary method at 120%); **profit/loss percent on the COST price** (Definition callout with the Thus-line; **equation tag 2** SP = CP(100 ± p)/100 — the ledger dress of the factor law; Illustration 4 the cycle 2,400 → 2,760 = 15%; the **wrong-base fraud Caution** — 360 judged on SP ≈ 13.04% answers a different question; Illustration 5 the fridge CP 12,000 recovered from SP 10,200 at a 15% loss by the return ticket AND the 85% ladder); **discount on the MARKED price** (Definition callout SP = M(100 − d)/100; Illustration 6 the sweater 1,600 → 1,360 with the backwards check; Illustration 7 the lamp 600 +40% markup −20% discount → 672 — the festival never undoes the markup); **the multiplier law Note** (successive changes MULTIPLY their factors: 1.40 × 0.80 = 1.12, a net +12% — percents never add across moving bases); **figure 2: the two-lane map** (CP 600 +15% → 690 and MP 750 −8% → 690: two percents, two bases, ONE selling price; audit 0 issues, VLM PASS math/layout/rendering); **simple interest from the one-percent-a-year unit** (I = PRT/100 **PROVED as a derivation block** from 5.4's percent-of + repeated addition — R% of P for one year, T copies of the same rent because the base never moves; **equation tag 3** I = PRT/100, A = P + I; Illustration 8 the loan Rs 5,000 at 8% for 3 years → Rs 1,200, amount Rs 6,200; Illustration 9 the rate recovered 900 = 120R → R = 7.5%; the **per-annum trap Caution** — T strictly in years, 8 months = 2/3, the silent mark-loser; the **"simple" promise Note** — flat rent on the original principal, compound interest the open door); 8 new terms (Percentage change, Cost price, Selling price, Marked price, Discount, Principal, Simple interest, Amount), 4 formula cards (the factor law / the ledger law / the discount law / simple interest), exam corner (NCERT class-7 §§8.5–8.6 + class-8 §§8.2–8.4 canon; the SSC/bank/Railway staples per Khattar; the five classic traps); 9 illustrations, 2 figures (0 audit issues), 5-quiz (0/1/1/2/3 verified live 5/5 perfect + VLM screenshot of the score bar), 12 exercises L1–L6 — L6 proves the r²/100 % law and works the halving chain (Rs 12,000 at 6.25% for 2½ years = Rs 1,875 by 12,000/16 × 2.5); **PLATFORM CATCH: the RichText parser matched **…** before the $…$ it enclosed, so math inside bold/italic never rendered (raw $…$ leaked into the page) — a repo-wide scan found 12 latent instances across chs. 2–5 (7 pre-existing, live since their ships); fixed by making the bold/italic branches recurse into RichText — zero content edits, all 12 repaired; verified 0 raw-$ leaks on the SSR HTML**; verify-unit-5.ts 394 → **455 checks** (BT–CC) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 3 real defects — a malformed BT4 fraction check, a BU2 M()-scaling error, a BW4 float slip — before any content existed); E2E extended to **13 lessons** with a dedicated 5.5 block (4 caps-over-rule headings, 9 Illustration pills, 9 Sol. pills ALL inline, 32 step rows, badges 0, thereforeTags 27, legacy boxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, console clean); **UNIT-5 COMPLETION REVIEW PASSED** (BOOK_FORMAT checklist 7/7; exam-coverage 5/5; ids unique; ch-05 status → complete; plannedLessons emptied; book.ts STATUS/notes updated); totals: **23 lessons / 110,548 words / 150 terms / 115 quiz items / 233 exercise questions**, ch. 5 CLOSED 5/5, next chapter 6 Ratio, Rate and Proportion; logged; pushed (protocol v2) |
 | 11-04 (run 24, cron Job 498279) | (ship) | **LESSON 5.4 Percent and Its Meaning — THE STANDARDISED DRESS** — authored in the Cengage voice + solution chain, 3,769 words: the opening (one denominator for everyone — the standardised denominator as the common currency of fractions; per centum etymology + the % sign historical callout from the Italian per-cento ledgers through "P c°"); **Definition callout** ("x is said to be expressed as a percent when…", Thus-line, the % sign an instruction to divide by 100 not a unit) + the roman example run (35% = 7/20; 8% = 2/25; 120% = 6/5 legal beyond the whole; 0.5% = 1/200); **figure 1: the 100-square** (10 × 10 grid at 30px cells, 35 shaded as the 25% + 10% benchmark build with amber brackets + legend + three-dress strip; audit 0 issues FIRST pass, VLM 9/10 math + 8/10 clarity — its one bracket-alignment complaint DISPROVEN by exact DOM measurement: rail 2 right end = 280 = shaded block right edge); **the two-hop law as equation tag 1** (x% = x/100; p = x/100 ⟺ x = 100p) **PROVED as a derivation block** (definition → x/10² as the point-shift of 5.3 at k = 2 → the reverse reading; exact, no rounding); Illustrations 1–3 (35% → 7/20 by the HCF; 7/8 → 0.875 → 87.5% by the atom test + two hops; 0.065 → 6.5% NOT 65% — one room = a factor of ten); **the 33 1/3% Caution** (33 1/3% = 1/3 exactly, 33.3% = 333/1000 a thousandth short); **figure 2: the conversion map** (FRACTION/DECIMAL/PERCENT stations, the step machine (5.2) forward + the place reading (5.1) back, × 100 / ÷ 100 two-room arrows, the direct-hop arc, worked strip incl. 1/3 = 0.(3) = 33 1/3%; audit 0 issues, VLM 9.5/10 + 9/10); **percent-of as equation tag 2** (x% of A = (x/100) × A; A = part × 100/x — the unitary method in percent dress) + **the benchmark ladder table** (100/75/50/25/20/12.5/10/5/1% with fraction + decimal dresses) + the halving chain explained by the atoms (100 = 2² × 5² — the fives never block a halving: 12.5% = 1/8, 6.25% = 1/16, 3.125% = 1/32); Illustrations 4–6 (15% of 460 = 69 by benchmark build AND direct dress; 348/500 = 69.6% — cancel 100/500 = 1/5 then the step machine; 8% of n = 56 → 1% = 7 → n = 700, the unitary method returned with the forward check closing the loop); the roman word-problem run (33% of 600 = 198 pass mark, 210 clears by 12 = 2% of the paper; 60% of 45 = 27 boys + 18 girls = 45; 30% of Rs 18,500 = Rs 5,550 saved, Rs 12,950 left); **the commutativity gem Note** (x% of y = y% of x — flip the ugly percent onto the friendly number); 7 new terms (Percent, The % sign, Standardised denominator, Two-hop conversion, Percent of a quantity, Benchmark percents, The 1% unit), 3 formula cards (percent definition / two-hop conversion / percent-of + the whole), exam corner (the halving chain prices 512 and 640 in one step; the standing traps 0.5% ≠ 50%, 120% legal, 33 1/3% exact); 6 illustrations, 2 figures (0 audit issues), 5-quiz (0/1/1/2/2 verified live 5/5 perfect), 12 exercises L1–L6 — L6 proves the gem and works the halving chain (6.25% of 512 = 32; 3.125% of 640 = 20); verify-unit-5.ts 341 → **394 checks** (BK–BS) ALL PASS pre-writing (+ regressions 330/260/165; the pre-writing audit caught 2 real defects — a float artifact in BP4 and a wrong kill-condition in BQ4 — before any content existed); E2E extended to **12 lessons** with a dedicated 5.4 block (6 Illustration pills, 6 inline Sol. pills, 22 step rows, badges 0, thereforeTags 18, legacy boxes 0, KaTeX 229, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 390px exact-fit, console clean); totals: **22 lessons / 104,922 words / 142 terms**, ch. 5 in progress 4/5; logged; pushed (protocol v2) |
@@ -888,7 +889,7 @@ downloads (references already logged).
 | 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
-| 8 | Geometry Foundations — **OPEN (3/5, run 39)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · Triangles and Angle Sum · Perimeter and Area |
+| 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
@@ -1101,38 +1102,42 @@ before any book may be marked complete (MASTER_PLAN §3).
 
 | 38 | ship + bookkeeping + memory | 11-05 | FM lesson 8.2 Angles and Their Measurement — verify-unit-8.ts extended to 189 checks O–W (85 new); 4,560 words; five-sizes gallery + protractor figures (fig 2 through two VLM passes: crossing dot + end ticks added); the supp − comp = 90° identity derived; voice polish landed on 3.3; new citation key ncert-math6-gp-ch2 — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 | 39 | ship + bookkeeping + memory | 11-05 | FM lesson 8.3 Parallel Lines and Transversals — verify-unit-8.ts extended to 253 checks X–AE (64 new: the transversal facts derived geometrically via half-plane classification swept over six slopes; the three parallel tests swept as biconditionals over five slopes; both figures' label clearances swept); 5,114 words; the eight-angle scene + F/Z/C pattern figures (fig 1 through one REAL fix: the t-label relocated out of the title's band; audits 0/0 both; VLM 10/10+10/10 and 10/10+9/10); the corresponding-angles axiom presented as THE assumption + everything else derived; quiz keys 1/2/1/0/2 verified live 5/5; 12/12 solutions expand; 390px exact-fit; voice polish landed on 3.4; new citation keys ncert-math7-gp-ch5 + ncert-math9-ch6 — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
+| 40 | ship + bookkeeping + memory | 11-05 | FM lesson 8.4 Triangles and the Angle Sum + the pre-flight repair (escaped apostrophes, e2e-83/84 whitelisted) — verify-unit-8.ts 253 → 339 checks (AF–AN); 5,382 words; quiz live 5/5; voice polish 3.5; pushed per protocol (dedc21e, remote-verified) |
+| 41 | ship + bookkeeping + memory | 11-05 | FM lesson 8.5 Perimeter and Area of Rectangles, Triangles and Circles — CHAPTER 8 CLOSED — verify-unit-8.ts 339 → 429 checks (AO–AZ); 5,998 words; figure 3 redesigned to the flush rearrangement after VLM 7/6 → 9/9; quiz live 5/5; unit-8 completion review; voice polish 4.1 + Rs-tfrac katex repair; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11; pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the run-35 ship `dba732a` + memory `d802d62` pushed and
-  remote-verified, then the 7.4 in-flight auto-checkpoint `ab19d64`
-  arrived (00:56 +08:00); run 36 finished the lesson and ships this
-  entry — the push + synced sha land in WORKLOG.md / RESUME_POINTER.json
-  (protocol v2, one-time URL from the 01:27 payload).
+- HEAD: the run-40 ship `dedc21e` + memory `8c93d5a` pushed and
+  remote-verified (protocol v2); run 41 ships this entry — the push +
+  synced sha land in WORKLOG.md / RESUME_POINTER.json (one-time URL from
+  the 06:27 payload).
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 8 OPEN — FM 8.3 "Parallel Lines and
-  Transversals" shipped run 39** (cron 04:27 delivery, job 498279).
-  verify-unit-8.ts extended to 253 checks (X–AE) before a word was
-  written — the transversal facts DERIVED geometrically (half-plane
-  classification swept over six transversal slopes; the three parallel
-  tests swept as biconditionals over five slopes of the second line);
-  5,114 words in the Cengage voice + solution chain; both figures
-  audited 0/0 and VLM-reviewed (fig 1 10/10 + 10/10 after the t-label
-  relocation out of the title's band; fig 2 10/10 + 9/10
-  publishable-as-is); quiz keys 1/2/1/0/2 verified live 5/5; voice
-  polish landed on 3.4 (the LCM definition in the is-said-to-be shape
-  with the Thus-line, zero new numerals); new citation keys
-  ncert-math7-gp-ch5 + ncert-math9-ch6. Chapter 8 now 3/5.
-- **NEXT (hourly cadence): FM 8.4 "Triangles and the Angle Sum"** —
-  extend verify-unit-8.ts with the triangle sections first (the angle-
-  sum derivation via the parallel walk, the exterior-angle theorem),
-  then author per BOOK_FORMAT + ch-01 exemplar. Voice polish 3.5
-  (lesson 3.5 HCF, LCM and How They Relate) queued. Chapter 8 at 3/5;
-  two lessons remain.
+- **CURRENT (hourly cadence): CH. 8 COMPLETE — FM 8.5 "Perimeter and
+  Area of Rectangles, Triangles and Circles" shipped run 41** (cron
+  06:27 delivery, job 498279). verify-unit-8.ts extended to 429 checks
+  (AO–AZ) before a word was written; 5,998 words in the Cengage voice +
+  solution chain; the three figures audited 0/0/0 first pass and
+  VLM-reviewed (10/9, 9/8, and 9/9 after figure 3's redesign to the
+  flush construction); quiz keys 1/2/3/1/2 verified live 5/5; voice
+  polish landed on 4.1 (the treaty definition is-said-to-be + Thus-line;
+  plus the Rs-tfrac katex repair) — the pre-4.2 queue is now EMPTY;
+  new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11. Chapter 8
+  CLOSED 5/5; the unit completion review passed (checklist 7/7, exam
+  coverage, ids unique, totals recomputed: book = 37 lessons / 176,712
+  words / 271 terms / 185 quiz / 402 exercises).
+- **NEXT (hourly cadence): CH. 9 "Measurement" OPENS — FM 9.1 "Units as
+  Agreements"** — create verify-unit-9.ts (add the .gitignore exception
+  FIRST — the /scripts/* trap) and extend it with the unit-9 sections
+  before writing; author per BOOK_FORMAT + the ch-01 exemplar. The voice
+  queue is empty: per-run extras shift to unit reviews, exam-registry
+  research, or DETAILED_LOG/SOURCE_LOG upkeep until a new queue is
+  named. Chapter 9 planned: Units as Agreements · The Metric System ·
+  Converting Units Without Memorising Tables · Precision, Accuracy and
+  Rounding in Measurement.

@@ -116,7 +116,7 @@ export const chapter04: Chapter = {
           kind: 'callout',
           tone: 'definition',
           title: 'Fraction (the treaty)',
-          text: 'For whole numbers $n$ (the numerator) and $d$ (the denominator), the fraction $\\frac{n}{d}$ is the number made of $n$ copies of the part $\\frac{1}{d}$ — the part you get by cutting a unit into $d$ **equal** pieces. The denominator is never $0$: Lesson 2.4 bricked that door shut when it showed that division by zero has no consistent answer at all. The two requirements are load-bearing: **equal** parts (five unequal scraps of a chapati are not "five sixths" of anything) and **$d \\ne 0$** (a cut into zero pieces is no cut at all).',
+          text: 'Whole numbers $n$ (the numerator) and $d$ (the denominator) are said to form the **fraction** $\\frac{n}{d}$ when it is the number made of $n$ copies of the part $\\frac{1}{d}$ — the part you get by cutting a unit into $d$ **equal** pieces. The denominator is never $0$: Lesson 2.4 bricked that door shut when it showed that division by zero has no consistent answer at all. Thus, the two requirements are load-bearing — **equal** parts (five unequal scraps of a chapati are not "five sixths" of anything) and **$d \\ne 0$** (a cut into zero pieces is no cut at all) — and when both hold, the name $\\frac{n}{d}$ is earned.',
         },
         {
           kind: 'para',
@@ -172,7 +172,7 @@ export const chapter04: Chapter = {
         },
         {
           kind: 'para',
-          text: 'The division face immediately pays rent: it powers the phrase that fills exam papers — *a fraction of a quantity*. "$\\tfrac{3}{4}$ of $\\tfrac{\\text{Rs } 20}$" means: perform the sharing behind the words. Split $20$ into $4$ equal shares ($20 \\div 4 = 5$), then take $3$ of them ($3 \\times 5 = 15$). The part–whole reading and the division reading are the same machine, so either route lands on the same number.',
+          text: 'The division face immediately pays rent: it powers the phrase that fills exam papers — *a fraction of a quantity*. "$\\tfrac{3}{4}$ of Rs $20$" means: perform the sharing behind the words. Split $20$ into $4$ equal shares ($20 \\div 4 = 5$), then take $3$ of them ($3 \\times 5 = 15$). The part–whole reading and the division reading are the same machine, so either route lands on the same number.',
         },
         {
           kind: 'formula',

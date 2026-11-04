@@ -1446,6 +1446,381 @@ check('AN8: scope guards for 8.4 \u2014 no medians/altitudes (8.5 and later carr
 check('AN9: every numeric claim of lesson 8.4 appears in AF\u2013AM \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
 
 /* ============================================================ */
+/* ============================================================
+ * AO. Perimeter — the walk around (8.5)
+ * ==========================================================*/
+check('AO1: perimeter of a polygon = the sum of its side lengths — the 3-4-5 triangle walks 3 + 4 + 5 = 12', 3 + 4 + 5 === 12);
+check('AO2: the 8.4 witness triangle A(0,0), B(4,0), C(0,3) has perimeter 4 + 3 + 5 = 12', (() => { const AB = 4, BC = Math.hypot(4, 3), CA = 3; return Math.abs(AB + BC + CA - 12) < 1e-9; })());
+check('AO3: the rectangle 8 by 5 walks 8 + 5 + 8 + 5 = 26', 8 + 5 + 8 + 5 === 26);
+check('AO4: the square of side 7 walks 7 × 4 = 28', 7 * 4 === 28);
+check('AO5: a regular polygon walks n × s — swept n = 3..12, s = 1..9 against the side-by-side sum', (() => {
+  for (let n = 3; n <= 12; n++) for (let s = 1; s <= 9; s++) {
+    let sum = 0; for (let k = 0; k < n; k++) sum += s;
+    if (sum !== n * s) return false;
+  }
+  return true;
+})());
+check('AO6: the fence instance — a 24 m × 17 m garden needs 2(24 + 17) = 82 m of fence; at Rs 15/m the fence costs 82 × 15 = Rs 1,230', (() => { const P = 2 * (24 + 17); return P === 82 && P * 15 === 1230; })());
+check('AO7: perimeter is measured in UNITS OF LENGTH (cm, m, km) — it is a walk, not a fill (qualitative; area gets square units below)', true);
+
+/* ============================================================
+ * AP. The rectangle perimeter law (equation tag 1)
+ * ==========================================================*/
+check('AP1: P = 2(l + b) because the walk is l + b + l + b — swept l, b = 1..60', (() => {
+  for (let l = 1; l <= 60; l++) for (let b = 1; b <= 60; b++) if (l + b + l + b !== 2 * (l + b)) return false;
+  return true;
+})());
+check('AP2: the square is the case l = b: 2(a + a) = 4a — swept a = 1..100', (() => {
+  for (let a = 1; a <= 100; a++) if (2 * (a + a) !== 4 * a) return false;
+  return true;
+})());
+check('AP3: the half-perimeter is l + b — for the 8 × 5 rectangle, P/2 = 13 = 8 + 5', 26 / 2 === 8 + 5);
+check('AP4: the semicircle\u2019s walk = half the circumference + the diameter = \u03c0r + 2r — r = 10: with 22/7 gives 220/7 + 20 \u2248 51.43, with \u03c0 exactly 31.4159 + 20 = 51.4159', (() => {
+  const a = 220 / 7 + 20, b = 10 * Math.PI + 20;
+  return Math.abs(a - b) < 0.02 && Math.abs(a - 51.42857142857143) < 1e-9;
+})());
+check('AP5: the cost law — fencing cost = perimeter × rate; the exercise-8 instance: field 250 m × 180 m has P = 2(430) = 860 m, and 860 × 12 = Rs 10,320; swept 40 witness pairs against the explicit repeated addition of the rate', (() => {
+  const P = 2 * (250 + 180);
+  if (P !== 860 || 860 * 12 !== 10320) return false;
+  for (let P2 = 20; P2 <= 200; P2 += 20) for (let r = 5; r <= 25; r += 5) {
+    let cost = 0; for (let m = 0; m < P2; m++) cost += r;
+    if (cost !== P2 * r) return false;
+  }
+  return true;
+})());
+check('AP6: the half-walk fraud — l + b = 13 is HALF the 8 × 5 perimeter; quoting 13 m of fence for the 26 m walk leaves two sides open', Number(13) !== Number(26));
+
+/* ============================================================
+ * AQ. Fixed perimeter, wandering area
+ * ==========================================================*/
+const AQ36: { l: number; b: number; A: number }[] = [];
+for (let b = 1; b <= 18; b++) { const l = 18 - b; if (l >= b) AQ36.push({ l, b, A: l * b }); }
+check('AQ1: the integer rectangles of perimeter 36 (l \u2265 b) are exactly 9 — (17,1) \u2026 (9,9) \u2014 with areas 17, 32, 45, 56, 65, 72, 77, 80, 81', (() => {
+  if (AQ36.length !== 9) return false;
+  const areas = AQ36.map(r => r.A);
+  return JSON.stringify(areas) === JSON.stringify([17, 32, 45, 56, 65, 72, 77, 80, 81]);
+})());
+check('AQ2: along the sweep the area strictly increases as the rectangle squares off — 17 < 32 < 45 < 56 < 65 < 72 < 77 < 80 < 81', (() => {
+  for (let i = 1; i < AQ36.length; i++) if (!(AQ36[i - 1].A < AQ36[i].A)) return false;
+  return true;
+})());
+check('AQ3: among all rectangles of a FIXED perimeter, the square encloses the most area — swept every even perimeter 4..200: the best integer rectangle is the balanced one, floor(P/4) × ceil(P/4) (exactly the square when P divides by 4)', (() => {
+  for (let P = 4; P <= 200; P += 2) {
+    let best = -1;
+    for (let b = 1; b <= P / 2; b++) { const l = P / 2 - b; if (l * b > best) best = l * b; }
+    if (best !== Math.floor(P / 4) * Math.ceil(P / 4)) return false;
+  }
+  return true;
+})());
+check('AQ4: the skinny fraud — (17, 1) has the same walk 36 as (9, 9), but its area is 17 against 81: perimeter alone never fixes area', 17 * 1 === 17 && 9 * 9 === 81 && Number(17) !== Number(81));
+check('AQ5: the mirror image — fixed AREA 36, wandering perimeter: (36,1) 74, (18,2) 40, (12,3) 30, (9,4) 26, (6,6) 24 — the perimeter SHRINKS to the square', (() => {
+  const rows = [[36, 1, 74], [18, 2, 40], [12, 3, 30], [9, 4, 26], [6, 6, 24]];
+  for (const [l, b, P] of rows) if (2 * (l + b) !== P) return false;
+  for (let i = 1; i < rows.length; i++) if (!(rows[i - 1][2] > rows[i][2])) return false;
+  return true;
+})());
+
+/* ============================================================
+ * AR. Area by tiling (equation tag 2)
+ * ==========================================================*/
+check('AR1: the unit square — 1 cm by 1 cm — carries area 1 cm\u00b2; it is the tile every rectangle is counted in', true);
+check('AR2: the rectangle l \u00d7 b is tiled by exactly l \u00b7 b unit squares — brute-forced cell enumeration vs the product for every l, b = 1..40', (() => {
+  for (let l = 1; l <= 40; l++) for (let b = 1; b <= 40; b++) {
+    let cells = 0; for (let i = 0; i < l; i++) for (let j = 0; j < b; j++) cells++;
+    if (cells !== l * b) return false;
+  }
+  return true;
+})());
+check('AR3: the 12 by 8 rectangle holds 96 unit squares', 12 * 8 === 96);
+check('AR4: the square of side 7 holds 7 \u00d7 7 = 49 unit squares', 7 * 7 === 49);
+check('AR5: the floor instance — 5 m \u00d7 4 m = 20 m\u00b2; in 50-cm square tiles the room is 10 tiles by 8 tiles = 80 tiles; cross-check by area: 20 m\u00b2 = 2,00,000 cm\u00b2 and one 50-cm tile is 2,500 cm\u00b2, and 2,00,000 / 2,500 = 80', (() => {
+  const roomCm = 500 * 400, tile = 50 * 50;
+  return 5 * 4 === 20 && (500 / 50) * (400 / 50) === 80 && roomCm / tile === 80;
+})());
+check('AR6: A = l \u00d7 b reads as b rows of l tiles each — the tiling argument IS the derivation (qualitative restatement of AR2)', true);
+check('AR7: the two perimeter-36 champions differ in area — the 9 \u00d7 9 square tiles 81 squares against the 17 \u00d7 1 strip\u2019s 17 (AQ4 re-cashed in area units)', Number(81) !== Number(17));
+
+/* ============================================================
+ * AS. Units of area
+ * ==========================================================*/
+check('AS1: 1 m\u00b2 = 100 cm \u00d7 100 cm = 10,000 cm\u00b2 — the unit square itself rescales, swept: an a \u00d7 b metre rectangle is (100a) \u00d7 (100b) cm, area (10,000 ab) cm\u00b2, for a, b = 0.5..6 step 0.5', (() => {
+  for (let a = 0.5; a <= 6; a += 0.5) for (let b = 0.5; b <= 6; b += 0.5) {
+    if (Math.abs(100 * a * (100 * b) - 10000 * a * b) > 1e-9) return false;
+  }
+  return true;
+})());
+check('AS2: the ladder continues — 1 cm\u00b2 = 100 mm\u00b2 (10 \u00d7 10); 1 km\u00b2 = 1,000 \u00d7 1,000 = 10\u2076 m\u00b2', 10 * 10 === 100 && 1000 * 1000 === 1000000);
+check('AS3: the \u00d7100 fraud — 5 m\u00b2 is NOT 500 cm\u00b2; it is 5 \u00d7 10,000 = 50,000 cm\u00b2 (the reflex converts the side, not the tile)', (() => 5 * 10000 === 50000 && Number(500) !== Number(50000))());
+check('AS4: the hectare — 100 m \u00d7 100 m = 10,000 m\u00b2; the field 200 m \u00d7 150 m = 30,000 m\u00b2 = 3 ha', (() => 100 * 100 === 10000 && 200 * 150 === 30000 && 30000 / 10000 === 3)());
+check('AS5: carpet pricing rides the same tile — the L-shape of AW2 (88 m\u00b2) at Rs 250/m\u00b2 costs 88 \u00d7 250 = Rs 22,000', 88 * 250 === 22000);
+check('AS6: chapter-9 door — units are agreements and the metric ladder gets its own lesson next chapter (qualitative forward pointer)', true);
+
+/* ============================================================
+ * AT. The triangle\u2019s area (equation tag 3)
+ * ==========================================================*/
+type Tri = [number, number][];
+const shoelace = (t: Tri): number => {
+  let s = 0;
+  for (let i = 0; i < 3; i++) { const [x1, y1] = t[i], [x2, y2] = t[(i + 1) % 3]; s += x1 * y2 - x2 * y1; }
+  return Math.abs(s) / 2;
+};
+const inTri = (t: Tri, p: [number, number]): boolean => {
+  const sign = (o: [number, number], a: [number, number], b: [number, number]) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const d1 = sign(t[0], t[1], p), d2 = sign(t[1], t[2], p), d3 = sign(t[2], t[0], p);
+  const neg = d1 < 0 || d2 < 0 || d3 < 0, pos = d1 > 0 || d2 > 0 || d3 > 0;
+  return !(neg && pos);
+};
+check('AT1: TWO copies of a right triangle tile its leg-rectangle — the copy rotated 180\u00b0 about the hypotenuse midpoint fills [0,p] \u00d7 [0,q] exactly; sampled on a 15 \u00d7 15 grid per pair for every p, q = 1..12 (off-edge samples land inside exactly one triangle; samples on the shared hypotenuse admitted by the exact line test)', (() => {
+  for (let p = 1; p <= 12; p++) for (let q = 1; q <= 12; q++) {
+    const T1: Tri = [[0, 0], [p, 0], [0, q]];
+    const T2: Tri = [[p, q], [0, q], [p, 0]];
+    for (let i = 0; i <= 14; i++) for (let j = 0; j <= 14; j++) {
+      const pt: [number, number] = [(p * i) / 14, (q * j) / 14];
+      const onShared = Math.abs(pt[0] / p + pt[1] / q - 1) < 1e-9;
+      if (onShared) continue;
+      const b1 = inTri(T1, pt), b2 = inTri(T2, pt);
+      if (b1 === b2) return false;
+    }
+  }
+  return true;
+})());
+check('AT2: hence the right triangle\u2019s area = \u00bd \u00d7 leg \u00d7 leg — the 3-4-5 right triangle has area \u00bd \u00d7 3 \u00d7 4 = 6 (shoelace agrees)', (() => Math.abs(0.5 * 3 * 4 - 6) < 1e-9 && Math.abs(shoelace([[0, 0], [4, 0], [0, 3]]) - 6) < 1e-9)());
+check('AT3: every triangle splits along its altitude into two right triangles sharing the height h — bases x and b \u2212 x, so A = \u00bdxh + \u00bd(b \u2212 x)h = \u00bd(x + b \u2212 x)h = \u00bdbh: the split point x cancels, swept on 500 pseudo-random triangles (base b = 2..40, apex x \u2208 [\u22120.5b, 1.5b], h = 1..30 — shoelace = \u00bdbh within 1e-9 in every case, apex outside the base included)', (() => {
+  let seed = 85051;
+  const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+  for (let k = 0; k < 500; k++) {
+    const b = 2 + Math.floor(rnd() * 39), h = 1 + Math.floor(rnd() * 30);
+    const x = -0.5 * b + rnd() * 2 * b;
+    if (Math.abs(shoelace([[0, 0], [b, 0], [x, h]]) - 0.5 * b * h) > 1e-9) return false;
+  }
+  return true;
+})());
+check('AT4: the height must be PERPENDICULAR to the chosen base — the 3-4-5 fraud: \u00bd \u00d7 4 \u00d7 5 = 10 (using the hypotenuse as a \u201cheight\u201d for base 4) against the true 6; the real height for base 4 is the other leg, 3', (() => 0.5 * 4 * 5 === 10 && 0.5 * 4 * 3 === 6 && Number(10) !== Number(6))());
+check('AT5: the altitude to the hypotenuse of the 3-4-5 — equating the two area dresses: \u00bd \u00d7 5 \u00d7 h = 6 gives h = 12/5 = 2.4; the exact coordinate distance from (0,0) to the line 3x + 4y = 12 is 12/\u221a(3\u00b2 + 4\u00b2) = 12/5', (() => {
+  const footDist = Math.abs(3 * 0 + 4 * 0 - 12) / Math.hypot(3, 4);
+  return Math.abs(footDist - 12 / 5) < 1e-9 && Math.abs(0.5 * 5 * (12 / 5) - 6) < 1e-9;
+})());
+check('AT6: one triangle, three base-height dresses, one area — the 8.4 witness triangle scores 6 as \u00bd\u00b74\u00b73, \u00bd\u00b73\u00b74 and \u00bd\u00b75\u00b72.4 (the hypotenuse dress from AT5)', (() => Math.abs(0.5 * 4 * 3 - 6) < 1e-9 && Math.abs(0.5 * 3 * 4 - 6) < 1e-9 && Math.abs(0.5 * 5 * 2.4 - 6) < 1e-9)());
+check('AT7: workhorses — base 15, h 8 \u2192 60; base 12, h 5 \u2192 30; base 10, h 6 \u2192 30 (two different triangles may share an area)', (() => 0.5 * 15 * 8 === 60 && 0.5 * 12 * 5 === 30 && 0.5 * 10 * 6 === 30)());
+check('AT8: scope guard — the area of a triangle from its THREE SIDES alone (Heron) is a later toolkit; this lesson always knows a height (qualitative)', true);
+
+/* ============================================================
+ * AU. The circle\u2019s walk — circumference
+ * ==========================================================*/
+const PI22 = 22 / 7;
+check('AU1: \u03c0 is DEFINED as the ratio C/d, and it is the same for every circle — the model C = 2\u03c0r gives C/d = \u03c0 at every radius; swept r = 1..200 (ratio constant to machine precision); the constancy itself is the all-circles-are-similar fact, asserted here and certified numerically', (() => {
+  for (let r = 1; r <= 200; r++) { const C = 2 * Math.PI * r; if (Math.abs(C / (2 * r) - Math.PI) > 1e-12) return false; }
+  return true;
+})());
+check('AU2: C = 2\u03c0r = \u03c0d — with \u03c0 \u2248 22/7: r = 7 gives C = 2 \u00d7 22/7 \u00d7 7 = 44; d = 14 gives the same 44; r = 14 gives 88; d = 21 gives 66', (() => {
+  const c = (x: number) => 2 * PI22 * x;
+  return Math.abs(c(7) - 44) < 1e-9 && Math.abs(c(7) - c(14) / 2 * 1) < 1e-9 && Math.abs(c(14) - 88) < 1e-9 && Math.abs(PI22 * 21 - 66) < 1e-9;
+})());
+check('AU3: with \u03c0 \u2248 3.14: d = 10 walks C = 31.4 and r = 10 walks C = 62.8', (() => Math.abs(3.14 * 10 - 31.4) < 1e-9 && Math.abs(2 * 3.14 * 10 - 62.8) < 1e-9)());
+check('AU4: the approximations priced — 22/7 = 3.142857\u2026 overshoots \u03c0 by 0.00126\u2026 (0.040%); 3.14 undershoots by 0.00159\u2026 (0.051%); both errors computed live and pinned to 1e-11', (() => {
+  const e227 = PI22 - Math.PI, e314 = Math.PI - 3.14;
+  return e227 > 0 && e314 > 0 && Math.abs(e227 - 0.0012644892673496777) < 1e-15 && Math.abs(e314 - 0.0015926535897929917) < 1e-15
+    && Math.abs((e227 / Math.PI) * 100 - 0.0402499434771) < 1e-9 && Math.abs((e314 / Math.PI) * 100 - 0.0506957382897) < 1e-9;
+})());
+check('AU5: the inverse direction — a wheel of circumference 132 (with 22/7) has d = 132 \u00d7 7/22 = 42, r = 21; C = 88 gives r = 88/(2 \u00d7 22/7) = 14', (() => Math.abs(132 * 7 / 22 - 42) < 1e-9 && 42 / 2 === 21 && Math.abs(88 / (2 * PI22) - 14) < 1e-9)());
+check('AU6: the track instance — a circular track of radius 70 m walks C = 2 \u00d7 22/7 \u00d7 70 = 440 m per lap; 5 laps = 2,200 m = 2.2 km', (() => Math.abs(2 * PI22 * 70 - 440) < 1e-9 && 5 * 440 === 2200 && 2200 / 1000 === 2.2)());
+check('AU7: the dress fraud — C = \u03c0d is a length; \u03c0d\u00b2 is an AREA wearing the wrong dress (it quadruples when the diameter doubles, while C doubles)', (() => {
+  const d1 = 6, d2 = 12;
+  return Math.abs((PI22 * d2 * d2) / (PI22 * d1 * d1) - 4) < 1e-9 && Math.abs(d2 / d1 - 2) < 1e-9;
+})());
+
+/* ============================================================
+ * AV. The circle\u2019s fill — area (equation tag 4)
+ * ==========================================================*/
+check('AV1: the sector rearrangement — n equal sectors alternated tip-up/tip-down pack into a band of height r whose top edge carries n/2 arcs totalling (n/2)(C/n) = C/2 = \u03c0r EXACTLY (for even n); swept n = 8..128 even', (() => {
+  for (let n = 8; n <= 128; n += 2) {
+    const r = 5, C = 2 * Math.PI * r;
+    if (Math.abs((n / 2) * (C / n) - Math.PI * r) > 1e-9) return false;
+  }
+  return true;
+})());
+check('AV2: the rearranged band\u2019s area is the circle\u2019s (nothing added, nothing discarded) \u2014 so A = \u03c0r \u00d7 r = \u03c0r\u00b2; the jagged saw-teeth sharpen as n grows (the school-level licence, stated honestly; the full limit argument is calculus\u2019s business)', true);
+check('AV3: A = \u03c0r\u00b2 at work — with 22/7: r = 7 gives 22/7 \u00d7 49 = 154; r = 14 gives 616; with 3.14: r = 10 gives 314', (() => Math.abs(PI22 * 49 - 154) < 1e-9 && Math.abs(PI22 * 196 - 616) < 1e-9 && Math.abs(3.14 * 100 - 314) < 1e-9)());
+check('AV4: the diameter fraud — the correct d-dress is A = \u03c0d\u00b2/4; bare \u03c0d\u00b2 overshoots by exactly \u00d74: d = 14 gives 616 by the fraud but 154 truly (the r = 7 circle); the fraud\u2019s answer is the area of the circle with RADIUS 14', (() => Math.abs(PI22 * 14 * 14 - 616) < 1e-9 && Math.abs((PI22 * 196) / 4 - 154) < 1e-9 && Math.abs(616 / 154 - 4) < 1e-9)());
+check('AV5: the scaling law — radius doubled, area QUADRUPLED (factor 2\u00b2 = 4); radius tripled, area \u00d79; swept factors 2..10: A(kr)/A(r) = k\u00b2 exactly', (() => {
+  for (let k = 2; k <= 10; k++) if (Math.abs((Math.PI * (k * 3) ** 2) / (Math.PI * 9) - k * k) > 1e-9) return false;
+  return true;
+})());
+check('AV6: the inverse instance — a circle of area 154 (with 22/7) has r\u00b2 = 154 \u00d7 7/22 = 49, so r = 7 and its circumference is 44 (the Illustration pair closes both ways)', (() => Math.abs(154 * 7 / 22 - 49) < 1e-9 && Math.sqrt(49) === 7 && Math.abs(2 * PI22 * 7 - 44) < 1e-9)());
+check('AV7: the semicircle fills \u00bd\u03c0r\u00b2 — r = 10: 1100/7 \u2248 157.14 (22/7) vs 157.08 with true \u03c0; and its walk was AP4\u2019s \u03c0r + 2r', (() => Math.abs(0.5 * PI22 * 100 - 1100 / 7) < 1e-9 && Math.abs(1100 / 7 - 157.14285714285714) < 1e-9 && Math.abs(0.5 * Math.PI * 100 - 157.07963267948966) < 1e-9)());
+
+/* ============================================================
+ * AW. Composite figures
+ * ==========================================================*/
+check('AW1: the arched window — a 90 cm \u00d7 120 cm rectangle crowned by a semicircle of radius 45 cm on the 90-cm top edge: area = 90 \u00d7 120 + \u00bd \u00d7 22/7 \u00d7 45\u00b2 = 10,800 + 3,182.14\u2026 = 13,982.14\u2026 cm\u00b2', (() => {
+  const arch = 0.5 * PI22 * 45 * 45;
+  return Math.abs(arch - 3182.1428571428573) < 1e-9 && Math.abs(10800 + arch - 13982.142857142857) < 1e-9;
+})());
+check('AW2: the window\u2019s walk — the outline is two sides of 120 + the bottom of 90 + the semicircular arch of length \u03c0r = 22/7 \u00d7 45 = 141.42\u2026: total 471.42\u2026 cm (the diameter is INSIDE, never walked)', (() => {
+  const walk = 2 * 120 + 90 + PI22 * 45;
+  return Math.abs(walk - 471.42857142857144) < 1e-9;
+})());
+check('AW3: the L-shaped floor — the 12 \u00d7 9 rectangle with the 5 \u00d7 4 corner removed: area 108 \u2212 20 = 88 m\u00b2; the walk along the six-sided outline is 12 + 5 + 5 + 4 + 7 + 9 = 42 m (verified by the vertex walk (0,0)\u2192(12,0)\u2192(12,5)\u2192(7,5)\u2192(7,9)\u2192(0,9)\u2192(0,0))', (() => {
+  const A = 12 * 9 - 5 * 4;
+  const walk = Math.hypot(12, 0) + Math.hypot(0, 5) + Math.hypot(-5, 0) + Math.hypot(0, 4) + Math.hypot(-7, 0) + Math.hypot(0, -9);
+  return A === 88 && Math.abs(walk - 42) < 1e-9;
+})());
+
+/* ============================================================
+ * AX. Lesson 8.5 quiz keys + every exercise key
+ * ==========================================================*/
+check('AX1 (quiz 1, key 1): a square plot of side 9 m walks P = 4 \u00d7 9 = 36 m; 81 is the AREA (9\u00b2), 18 is the half-walk 2\u00d79, 27 is nothing', 4 * 9 === 36 && 9 * 9 === 81 && 2 * 9 === 18);
+check('AX2 (quiz 2, key 2): a 12 cm \u00d7 7 cm sheet fills 12 \u00d7 7 = 84 cm\u00b2; 38 is the perimeter 2(19), 19 the half-perimeter, 42 the \u00bd \u00d7 12 \u00d7 7 triangle half (the sheet is no triangle)', 12 * 7 === 84 && 2 * (12 + 7) === 38 && 0.5 * 12 * 7 === 42);
+check('AX3 (quiz 3, key 3): four fields, same walk 40 \u2014 (18,2) \u2192 36, (14,6) \u2192 84, (12,8) \u2192 96, (10,10) \u2192 100: the square wins (AQ3\u2019s law at P = 40)', (() => {
+  const rows = [[18, 2, 36], [14, 6, 84], [12, 8, 96], [10, 10, 100]];
+  for (const [l, b, A] of rows) if (2 * (l + b) !== 40 || l * b !== A) return false;
+  return rows[3][2] === Math.max(...rows.map(r => r[2]));
+})());
+check('AX4 (quiz 4, key 1): with 22/7, the r = 7 circle walks C = 2 \u00d7 22/7 \u00d7 7 = 44 cm; 154 is the area, 22 is \u03c0r (the 2 forgotten), 88 belongs to r = 14', (() => Math.abs(2 * PI22 * 7 - 44) < 1e-9 && Math.abs(PI22 * 49 - 154) < 1e-9 && Math.abs(PI22 * 7 - 22) < 1e-9 && Math.abs(2 * PI22 * 14 - 88) < 1e-9)());
+check('AX5 (quiz 5, key 2): 1 m\u00b2 = 100 cm \u00d7 100 cm = 10,000 cm\u00b2; the \u00d7100 reflex converts the SIDE (1 m = 100 cm), not the tile', 100 * 100 === 10000);
+check('AX6 (ex 1, L1): square side 6 \u2014 P = 24, A = 36', 4 * 6 === 24 && 6 * 6 === 36);
+check('AX7 (ex 2, L1): rectangle 9 \u00d7 4 \u2014 P = 26, A = 36 (same area as ex 1, different walk)', 2 * (9 + 4) === 26 && 9 * 4 === 36);
+check('AX8 (ex 3, L2): triangle base 12, height 5 \u2014 A = \u00bd \u00d7 12 \u00d7 5 = 30', 0.5 * 12 * 5 === 30);
+check('AX9 (ex 4, L2): circle d = 14 (22/7) \u2014 r = 7, C = 44', (() => Math.abs(PI22 * 14 - 44) < 1e-9)());
+check('AX10 (ex 5, L3): floor 6 m \u00d7 4 m in 40-cm tiles \u2014 600/40 = 15 across, 400/40 = 10 down, 150 tiles; area cross-check: 24 m\u00b2 = 2,40,000 cm\u00b2, tile 1,600 cm\u00b2, 2,40,000/1,600 = 150', (() => {
+  const tiles = (600 / 40) * (400 / 40);
+  return tiles === 150 && 6 * 4 === 24 && (240000 / 1600) === 150;
+})());
+check('AX11 (ex 6, L3): r = 10, \u03c0 = 3.14 \u2014 C = 62.8, A = 314', (() => Math.abs(2 * 3.14 * 10 - 62.8) < 1e-9 && Math.abs(3.14 * 100 - 314) < 1e-9)());
+check('AX12 (ex 7, L4): C = 88 (22/7) \u2014 r = 88/(2 \u00d7 22/7) = 14, A = 22/7 \u00d7 196 = 616', (() => Math.abs(88 / (2 * PI22) - 14) < 1e-9 && Math.abs(PI22 * 196 - 616) < 1e-9)());
+check('AX13 (ex 8, L4): field 250 \u00d7 180 fenced at Rs 12/m \u2014 P = 860, cost Rs 10,320 (AP5)', 2 * (250 + 180) === 860 && 860 * 12 === 10320);
+check('AX14 (ex 9, L5): wire of length 24 \u2014 the integer rectangles have l + b = 12: areas 11, 20, 27, 32, 35, 36; the 6 \u00d7 6 square takes the most, 36 m\u00b2 (AQ3 at P = 24)', (() => {
+  const areas: number[] = [];
+  for (let b = 1; b <= 6; b++) areas.push((12 - b) * b);
+  return JSON.stringify(areas) === JSON.stringify([11, 20, 27, 32, 35, 36]) && Math.max(...areas) === 36;
+})());
+check('AX15 (ex 10, L5): the L-shape 12 \u00d7 9 minus 5 \u00d7 4 \u2014 area 88 m\u00b2, walk 42 m, carpet at Rs 250/m\u00b2 costs Rs 22,000 (AW3 + AS5)', 12 * 9 - 5 * 4 === 88 && 88 * 250 === 22000);
+check('AX16 (ex 11, L6): the two-copy theorem and the altitude split quote AT1 + AT3 \u2014 no new numbers', true);
+check('AX17 (ex 12, L6): the 3-4-5 audited three ways \u2014 \u00bd\u00b73\u00b74 = 6; the hypotenuse altitude 12/5 = 2.4; \u00bd\u00b75\u00b72.4 = 6; the fraud \u00bd\u00b74\u00b75 = 10 refused (AT4/AT5/AT6); the perimeter 12 is the walk, a different question altogether', (() => 0.5 * 3 * 4 === 6 && Math.abs(0.5 * 5 * 2.4 - 6) < 1e-9 && 0.5 * 4 * 5 === 10 && 3 + 4 + 5 === 12)());
+
+/* ============================================================
+ * AY. The three figures\u2019 geometry (exact coordinates + clearances)
+ * ==========================================================*/
+const F8rect: number[][] = [
+  [170, 60, 590, 60], [590, 60, 590, 270], [590, 270, 170, 270], [170, 270, 170, 60],
+];
+const F8grid: number[][] = [
+  [254, 60, 254, 270], [338, 60, 338, 270], [422, 60, 422, 270], [506, 60, 506, 270],
+  [170, 130, 590, 130], [170, 200, 590, 200],
+];
+const F8diag: number[][] = [[170, 60, 590, 270]];
+const F8strokes = [...F8rect, ...F8grid, ...F8diag];
+check('AY1: figure 1 canvas \u2014 the 5 \u00d7 3 tiled rectangle spans (170,60)\u2013(590,270): 420 = 5 \u00d7 84 px across, 210 = 3 \u00d7 70 px down; the grid lines land exactly on the cell seams (254/338/422/506; 130/200)', (() => 5 * 84 === 420 && 3 * 70 === 210 && (590 - 170) / 5 === 84 && (270 - 60) / 3 === 70)());
+check('AY2: figure 1 clearances \u2014 every label box \u2265 8 px from every stroke: the title (380,20), the l-label (380,44), the b-label (start-anchored 600,172), the 1 cm\u00b2 cell label (380,242, width 36), the diagonal annotation (380,296, width 260)', (() => {
+  const boxes: [number, number, number][] = [[380, 20, 330], [380, 44, 52], [627, 172, 55], [380, 242, 36], [380, 296, 260]];
+  for (const [x, y, w] of boxes) if (boxSegDist(x, y, w, F8strokes) < 8) return false;
+  return true;
+})());
+check('AY3: figure 1\u2019s diagonal halves the rectangle \u2014 the two shaded triangles (170,60)(590,60)(590,270) and (170,60)(590,270)(170,270) each have shoelace area 44,100 = half of 88,200', (() => {
+  const a1 = Math.abs(shoelace([[170, 60], [590, 60], [590, 270]]));
+  const a2 = Math.abs(shoelace([[170, 60], [590, 270], [170, 270]]));
+  return Math.abs(a1 - 44100) < 1e-6 && Math.abs(a2 - 44100) < 1e-6 && Math.abs(a1 + a2 - 420 * 210) < 1e-6;
+})());
+const F9O: [number, number] = [190, 190];
+const F9R = 90;
+const F9circlePts: [number, number][] = [];
+for (let k = 0; k < 720; k++) { const t = (k * Math.PI) / 360; F9circlePts.push([r2(F9O[0] + F9R * Math.cos(t)), r2(F9O[1] + F9R * Math.sin(t))]); }
+const F9circleSegs: number[][] = [];
+for (let k = 0; k < 720; k++) { const a = F9circlePts[k], b = F9circlePts[(k + 1) % 720]; F9circleSegs.push([a[0], a[1], b[0], b[1]]); }
+const F9radEnd: [number, number] = [r2(F9O[0] + F9R * Math.cos(rad(-60))), r2(F9O[1] + F9R * Math.sin(rad(-60)))];
+const F9radSegs: number[][] = [[F9O[0], F9O[1], F9radEnd[0], F9radEnd[1]]];
+const F9diaSegs: number[][] = [[100, 190, 280, 190]];
+const F9unwrapY = 340;
+const F9unwrapLen = 2 * Math.PI * F9R;
+const F9unwrapEnd = r2(100 + F9unwrapLen);
+const F9unwrapSegs: number[][] = [[100, F9unwrapY, F9unwrapEnd, F9unwrapY], [100, 334, 100, 346], [F9unwrapEnd, 334, F9unwrapEnd, 346]];
+const F9dashSegs: number[][] = [[190, 280, 100, F9unwrapY]];
+check('AY4: figure 2 canvas \u2014 the drawn circle (centre (190,190), r = 90 px) unrolls onto the segment from (100,340) to (665.49,340): length 2\u03c0 \u00d7 90 = 565.49 px, drawn to scale', (() => Math.abs(F9unwrapLen - 565.4866776461628) < 1e-6 && Math.abs(F9unwrapEnd - 665.49) < 0.01)());
+check('AY5: figure 2\u2019s radius ray leaves at 60\u00b0 above horizontal \u2014 endpoint (235, 112.07) lies ON the circle: |endpoint \u2212 O| = 90', (() => Math.abs(Math.hypot(F9radEnd[0] - F9O[0], F9radEnd[1] - F9O[1]) - F9R) < 0.01)());
+check('AY6: figure 2 clearances \u2014 every label box \u2265 8 px from every stroke (circle sampled as 720 segments, the radius ray, the diameter, the unwrapped segment + end ticks, the dashed connector): the title (380,20), O (172,210,14), r (238.8,145.5,12), d = 2r (240,214,48), the C-label (382,368,250)', (() => {
+  const boxes: [number, number, number][] = [[380, 20, 340], [172, 210, 14], [238.8, 145.5, 12], [240, 214, 48], [382, 368, 250]];
+  const all = [...F9circleSegs, ...F9radSegs, ...F9diaSegs, ...F9unwrapSegs, ...F9dashSegs];
+  for (const [x, y, w] of boxes) if (boxSegDist(x, y, w, all) < 8) return false;
+  return true;
+})());
+const F10C: [number, number] = [170, 190];
+const F10R = 100;
+const F10circleSegs: number[][] = [];
+for (let k = 0; k < 720; k++) {
+  const t1 = (k * Math.PI) / 360, t2 = ((k + 1) * Math.PI) / 360;
+  F10circleSegs.push([r2(F10C[0] + F10R * Math.cos(t1)), r2(F10C[1] + F10R * Math.sin(t1)), r2(F10C[0] + F10R * Math.cos(t2)), r2(F10C[1] + F10R * Math.sin(t2))]);
+}
+const F10radiiSegs: number[][] = [];
+for (let k = 0; k < 8; k++) {
+  const a = rad(45 * k);
+  F10radiiSegs.push([F10C[0], F10C[1], r2(F10C[0] + F10R * Math.cos(a)), r2(F10C[1] + F10R * Math.sin(a))]);
+}
+// the CLASSIC flush rearrangement: up-slice tips on the bottom edge at spacing s,
+// down-slice tips on the top edge interleaved at midpoints; every straight edge is
+// collinear with its neighbour's, and the arcs tile both edges continuously.
+const F10s = (2 * Math.PI * F10R) / 8;
+const F10X0 = 320;
+const F10yt = 140, F10yb = 240;
+const F10sectors: { tip: [number, number]; c1: [number, number]; c2: [number, number]; ctrl: [number, number]; up: boolean }[] = [];
+for (let i = 0; i < 4; i++) {
+  const tUp = F10X0 + i * F10s; // up-slice tip on the BOTTOM edge
+  F10sectors.push({ tip: [r2(tUp), F10yb], c1: [r2(tUp - F10s / 2), F10yt], c2: [r2(tUp + F10s / 2), F10yt], ctrl: [r2(tUp), F10yt - 10], up: true });
+  const tDn = F10X0 + F10s / 2 + i * F10s; // down-slice tip on the TOP edge, interleaved
+  F10sectors.push({ tip: [r2(tDn), F10yt], c1: [r2(tDn - F10s / 2), F10yb], c2: [r2(tDn + F10s / 2), F10yb], ctrl: [r2(tDn), F10yb + 10], up: false });
+}
+const F10sectorSegs: number[][] = [];
+for (const s2 of F10sectors) {
+  F10sectorSegs.push([s2.tip[0], s2.tip[1], s2.c1[0], s2.c1[1]], [s2.tip[0], s2.tip[1], s2.c2[0], s2.c2[1]]);
+  for (let t = 0; t <= 12; t++) {
+    const u0 = t / 12, u1 = (t + 1) / 12;
+    const q = (u: number): [number, number] => {
+      const v = 1 - u;
+      return [r2(v * v * s2.c1[0] + 2 * v * u * s2.ctrl[0] + u * u * s2.c2[0]), r2(v * v * s2.c1[1] + 2 * v * u * s2.ctrl[1] + u * u * s2.c2[1])];
+    };
+    const a0 = q(u0), a1 = q(u1);
+    F10sectorSegs.push([a0[0], a0[1], a1[0], a1[1]]);
+  }
+}
+const F10measureX = 646;
+const F10measureSegs: number[][] = [[F10measureX, F10yt, F10measureX, F10yb], [F10measureX - 4, F10yt, F10measureX + 4, F10yt], [F10measureX - 4, F10yb, F10measureX + 4, F10yb]];
+check('AY7: figure 3 canvas \u2014 the circle (centre (170,190), r = 100) is cut by 8 radii at 45\u00b0 steps; the repacked band uses the FLUSH classic construction \u2014 up-slice tips on the bottom edge at spacing s = 2\u03c0\u00b7100/8 = 78.54 px, down-slice tips interleaved on the top edge at the midpoints, so every straight edge is collinear with its neighbour\u2019s and the arcs tile both edges; band spans x 280.73..634.16, y 140..240 (100 px = the drawn radius)', (() => {
+  const minX = Math.min(...F10sectors.map(x => Math.min(x.c1[0], x.c2[0])));
+  const maxX = Math.max(...F10sectors.map(x => Math.max(x.c1[0], x.c2[0])));
+  return Math.abs(F10s - 78.53981633974483) < 1e-9 && Math.abs(minX - 280.73) < 0.01 && Math.abs(maxX - 634.16) < 0.01 && F10yb - F10yt === F10R;
+})());
+check('AY8: figure 3\u2019s flush arithmetic \u2014 the four top arcs carry 4 \u00d7 (2\u03c0\u00b7100/8) = \u03c0 \u00d7 100 = C/2: the drawn dress of the \u201ctop edge = half the circumference = \u03c0r\u201d claim (AV1 at drawn scale); and the down-tips land exactly at the up-arcs\u2019 shared corners: t + s/2 (collinear-edge check)', (() => {
+  const upCorners = F10sectors.filter(x => x.up).map(x => x.c2[0]).slice(0, 3);
+  const dnTips = F10sectors.filter(x => !x.up).map(x => x.tip[0]).slice(0, 3);
+  return Math.abs(4 * F10s - Math.PI * F10R) < 1e-9 && upCorners.every((c, i) => Math.abs(c - dnTips[i]) < 0.01);
+})());
+check('AY9: figure 3 clearances \u2014 every label box \u2265 8 px from every stroke (circle, 8 radii, 8 flush sector paths sampled, the measure line): the title (380,20), \u201c8 equal sectors\u201d (170,315,100), \u201cthe same 8 slices\u2026\u201d (477,86,240), \u201c\u2248 \u03c0r \u2026\u201d (477,114,190), the r-label (664,194,12), \u201c\u03c0r \u00d7 r = \u03c0r\u00b2\u201d (477,272,150)', (() => {
+  const boxes: [number, number, number][] = [[380, 20, 340], [170, 315, 100], [477, 86, 240], [477, 114, 190], [664, 194, 12], [477, 272, 150]];
+  const all = [...F10circleSegs, ...F10radiiSegs, ...F10sectorSegs, ...F10measureSegs];
+  for (const [x, y, w] of boxes) if (boxSegDist(x, y, w, all) < 8) return false;
+  return true;
+})());
+
+/* ============================================================
+ * AZ. History (web-checked), sources, scope guards
+ * ==========================================================*/
+check('AZ1: Archimedes\u2019 squeeze (Measurement of a Circle, c. 250 BCE) \u2014 inscribed and circumscribed 96-gons (hexagon doubled four times) trap \u03c0 between 3 10/71 and 3 1/7: 3.1408450704225352 < \u03c0 < 3.142857142857143, both verified against Math.PI = 3.141592653589793', (() => {
+  const lo = 3 + 10 / 71, hi = 3 + 1 / 7;
+  return Math.abs(lo - 3.1408450704225352) < 1e-15 && Math.abs(hi - 3.142857142857143) < 1e-15 && lo < Math.PI && Math.PI < hi;
+})());
+check('AZ2: Zu Chongzhi\u2019s Mil\u00fc (c. 480 CE) \u2014 355/113 = 3.1415929203539825, within 2.67 \u00d7 10\u207b\u2077 of \u03c0 and agreeing with it through six decimal places (both truncate to 3.141592); still the best fraction with at most four digits in the denominator', (() => {
+  const m = 355 / 113;
+  return Math.abs(Math.abs(m - Math.PI) - 2.6676418915844e-7) < 1e-14 && Math.floor(m * 1e6) === 3141592 && Math.floor(Math.PI * 1e6) === 3141592;
+})());
+check('AZ3: Aryabhata\u2019s rule (\u0100ryabha\u1e6d\u012bya, c. 499 CE) \u2014 \u201cadd 4 to 100, multiply by 8, add 62,000, divide by 20,000\u201d: (100 + 4) \u00d7 8 + 62000 = 62832, and 62832/20000 = 3.1416 (correct to the four decimals it claims: \u03c0 = 3.14159265\u2026 rounds to 3.1416)', (() => {
+  const v = ((100 + 4) * 8 + 62000) / 20000;
+  return v === 3.1416 && Math.abs(v - Math.PI) < 8e-6;
+})());
+check('AZ4: the symbol \u2014 William Jones introduced \u03c0 for the ratio in his Synopsis Palmariorum Matheseos of 1706 (the first letter of the Greek periphery, \u03c0\u03b5\u03c1\u03b9\u03c6\u03ad\u03c1\u03b5\u03b9\u03b1 \u2014 the same root as perimeter); Leonhard Euler\u2019s adoption from 1736-37 carried it into common use; Lambert proved \u03c0 irrational in 1761 (no fraction pins it down) and Lindemann proved it transcendental in 1882', true);
+check('AZ5: perimeter etymology rides the same root \u2014 Greek peri (\u201caround\u201d) + metron (\u201cmeasure\u201d): the walk around is the original meaning (qualitative, dictionary-grade)', true);
+check('AZ6: NCERT anchors \u2014 Ganita Prakash class-6 ch. 6 \u201cPerimeter and Area\u201d carries the perimeter of polygons (sum of sides; square 4 \u00d7 side; rectangle 2(l + b)) and area by tiling (area of rectangle = l \u00d7 b); class-7 ch. 11 \u201cPerimeter and Area\u201d carries triangles as parts of rectangles (\u00bd \u00d7 base \u00d7 height), the circumference C = 2\u03c0r with \u03c0 the constant C/d ratio, the area of the circle \u03c0r\u00b2, and 1 hectare = 10,000 m\u00b2; the class-7 exemplar (gemp109) states the same formulas \u2014 all web-checked against published listings/exemplar PDF', true);
+check('AZ7: scope guards for 8.5 \u2014 no Heron\u2019s three-side formula, no sector area or arc length beyond the semicircle dress, no Pythagoras theorem (a later toolkit), no volume or surface area, no similar-triangle proof machinery (the circle-area derivation is the rearrangement argument at school licence, honestly flagged), no irrationality PROOF for \u03c0 (the fact is stated, Lambert credited), no cylinder/track composite beyond the window and L-shape', true);
+check('AZ8: every numeric claim of lesson 8.5 appears in AO\u2013AY \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
+
 console.log(`verify-unit-8: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
   console.log('FAILURES:');
@@ -1626,4 +2001,61 @@ if (fail > 0) {
     if (i === 2) console.log(tri([[cx, 252], [cx - 78, 312], [cx + 78, 312]]));
     console.log(emitLbl(cx, 332, captions2[i], 12.5));
   });
+}
+
+// emit figures 8/9/10 (the 8.5 figures) for ch-08.ts
+{
+  console.log('=== FIG8 body (the tiled rectangle + diagonal, viewBox 0 0 760 360) ===');
+  console.log(`  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the rectangle tiled by unit squares \u2014 and the diagonal that halves it</text>`);
+  console.log(`  <polygon points="170,60 590,60 590,270" fill="currentColor" opacity="0.06"/>`);
+  console.log(`  <polygon points="170,60 590,270 170,270" fill="currentColor" opacity="0.12"/>`);
+  for (let k = 1; k <= 4; k++) console.log(`  <line x1="${170 + 84 * k}" y1="60" x2="${170 + 84 * k}" y2="270" stroke="currentColor" stroke-width="1"/>`);
+  for (let k = 1; k <= 2; k++) console.log(`  <line x1="170" y1="${60 + 70 * k}" x2="590" y2="${60 + 70 * k}" stroke="currentColor" stroke-width="1"/>`);
+  console.log(`  <rect x="170" y="60" width="420" height="210" fill="none" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="170" y1="60" x2="590" y2="270" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <text x="380" y="44" font-size="13" fill="currentColor" text-anchor="middle">l = 5 cm</text>`);
+  console.log(`  <text x="600" y="172" font-size="13" fill="currentColor" text-anchor="start">b = 3 cm</text>`);
+  console.log(`  <text x="380" y="242" font-size="12.5" fill="currentColor" text-anchor="middle">1 cm\u00b2</text>`);
+  console.log(`  <text x="380" y="296" font-size="12.5" fill="currentColor" text-anchor="middle">the diagonal halves it \u2014 each piece is \u00bd \u00d7 5 \u00d7 3</text>`);
+
+  console.log('=== FIG9 body (the circle and its unwrapped circumference, viewBox 0 0 760 400) ===');
+  console.log(`  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the circumference, unrolled straight \u2014 C = 2\u03c0r = \u03c0d</text>`);
+  console.log(`  <circle cx="190" cy="190" r="90" fill="none" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="190" y1="190" x2="235" y2="112.07" stroke="currentColor" stroke-width="1.6"/>`);
+  console.log(`  <line x1="100" y1="190" x2="280" y2="190" stroke="currentColor" stroke-width="1.6"/>`);
+  console.log(`  <circle cx="190" cy="190" r="3.5" fill="currentColor"/>`);
+  console.log(`  <circle cx="100" cy="190" r="3" fill="currentColor"/>`);
+  console.log(`  <circle cx="280" cy="190" r="3" fill="currentColor"/>`);
+  console.log(`  <text x="172" y="210" font-size="13" fill="currentColor" text-anchor="middle">O</text>`);
+  console.log(`  <text x="238.8" y="145.5" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">r</text>`);
+  console.log(`  <text x="240" y="214" font-size="13" fill="currentColor" text-anchor="middle">d = 2r</text>`);
+  console.log(`  <line x1="190" y1="280" x2="100" y2="340" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.55"/>`);
+  console.log(`  <line x1="100" y1="340" x2="665.49" y2="340" stroke="currentColor" stroke-width="1.8"/>`);
+  console.log(`  <line x1="100" y1="334" x2="100" y2="346" stroke="currentColor" stroke-width="1.6"/>`);
+  console.log(`  <line x1="665.49" y1="334" x2="665.49" y2="346" stroke="currentColor" stroke-width="1.6"/>`);
+  console.log(`  <text x="382" y="368" font-size="12.5" fill="currentColor" text-anchor="middle">C = 2\u03c0r \u2014 the circumference, unrolled straight</text>`);
+
+  console.log('=== FIG10 body (8-sector rearrangement, viewBox 0 0 760 380) ===');
+  console.log(`  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">why the circle\u2019s fill is \u03c0r\u00b2 \u2014 the slices stood side by side</text>`);
+  console.log(`  <circle cx="170" cy="190" r="100" fill="none" stroke="currentColor" stroke-width="1.8"/>`);
+  const rr = (v: number) => Math.round(v * 100) / 100;
+  for (let k = 0; k < 8; k++) {
+    const a = (45 * k * Math.PI) / 180;
+    console.log(`  <line x1="170" y1="190" x2="${rr(170 + 100 * Math.cos(a))}" y2="${rr(190 + 100 * Math.sin(a))}" stroke="currentColor" stroke-width="1"/>`);
+  }
+  console.log(`  <path d="M 170 190 L ${rr(170 + 100 * Math.cos(rad(-22.5)))} ${rr(190 + 100 * Math.sin(rad(-22.5)))} A 100 100 0 0 1 ${rr(170 + 100 * Math.cos(rad(22.5)))} ${rr(190 + 100 * Math.sin(rad(22.5)))} Z" fill="currentColor" opacity="0.08"/>`);
+  const F10firstUp = F10sectors.find(x => x.up)!;
+  console.log(`  <path d="M ${F10firstUp.tip[0]} ${F10firstUp.tip[1]} L ${F10firstUp.c1[0]} ${F10firstUp.c1[1]} Q ${F10firstUp.ctrl[0]} ${F10firstUp.ctrl[1]} ${F10firstUp.c2[0]} ${F10firstUp.c2[1]} Z" fill="currentColor" opacity="0.08"/>`);
+  for (const s2 of F10sectors) {
+    console.log(`  <path d="M ${s2.tip[0]} ${s2.tip[1]} L ${s2.c1[0]} ${s2.c1[1]} Q ${s2.ctrl[0]} ${s2.ctrl[1]} ${s2.c2[0]} ${s2.c2[1]}" fill="none" stroke="currentColor" stroke-width="1.4"/>`);
+    console.log(`  <line x1="${s2.tip[0]}" y1="${s2.tip[1]}" x2="${s2.c2[0]}" y2="${s2.c2[1]}" stroke="currentColor" stroke-width="1.4"/>`);
+  }
+  console.log(`  <line x1="646" y1="140" x2="646" y2="240" stroke="currentColor" stroke-width="1.2"/>`);
+  console.log(`  <line x1="642" y1="140" x2="650" y2="140" stroke="currentColor" stroke-width="1.2"/>`);
+  console.log(`  <line x1="642" y1="240" x2="650" y2="240" stroke="currentColor" stroke-width="1.2"/>`);
+  console.log(`  <text x="170" y="315" font-size="12.5" fill="currentColor" text-anchor="middle">8 equal sectors</text>`);
+  console.log(`  <text x="477" y="86" font-size="12.5" fill="currentColor" text-anchor="middle">the same 8 slices, stood side by side</text>`);
+  console.log(`  <text x="477" y="114" font-size="12.5" fill="currentColor" text-anchor="middle">\u2248 \u03c0r \u2014 half the circumference</text>`);
+  console.log(`  <text x="664" y="194" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">r</text>`);
+  console.log(`  <text x="477" y="272" font-size="12.5" fill="currentColor" text-anchor="middle">area = \u03c0r \u00d7 r = \u03c0r\u00b2</text>`);
 }

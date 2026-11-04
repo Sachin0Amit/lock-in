@@ -194,6 +194,56 @@ import type { Chapter } from '../../../types'
  * beyond the callout, no perpendicular-distance-between-parallels, no
  * compass construction of parallels.
  *
+ * LESSON 8.5 Perimeter and Area of Rectangles, Triangles and Circles
+ * (run 41, 2026-11-05 — the chapter's closing lesson): the two paying
+ * questions, the walk around (perimeter, length units) and the fill
+ * inside (area, square units), kept apart by design; the perimeter
+ * defined is-said-to-be with the polygon-sum and the regular n × s
+ * dress, the rectangle walk derived as tag 1 (P = 2(l + b), square
+ * 4a, the half-walk named), Illustration 1 the fence 24 × 17 → 82 m
+ * at Rs 15/m → Rs 1,230; the fixed-perimeter table (nine rectangles
+ * of P = 36, areas 17..81 — strictly climbing to the square) with the
+ * square-wins Note swept over every even perimeter 4..200 and the
+ * fixed-AREA mirror (36: walk 74 down to 24), the perimeter-never-
+ * fixes-area Caution; area defined is-said-to-be on the unit square,
+ * A = l × b derived from the tiling as tag 2 (square a²), figure 1
+ * the 5 × 3 tiled rectangle and its diagonal (two copies of one
+ * triangle), Illustration 2 the floor 5 × 4 m in 50-cm tiles → 80
+ * both ways; area units by the rescaled tile (1 m² = 10⁴ cm², the
+ * ×100 reflex Caution; 1 hectare = 10⁴ m², field 200 × 150 = 3 ha);
+ * the triangle's area derived as tag 3 — two copies of a right
+ * triangle tile its leg-rectangle (the half-turn about the hypotenuse
+ * midpoint, script-swept p, q = 1..12), then the altitude split whose
+ * x cancels (swept on 500 pseudo-random triangles, apex outside the
+ * base included) — A = ½ × b × h, the perpendicular-height Caution
+ * (½·4·5 = 10 refused against the true 6), Illustration 3 the 3-4-5
+ * audited through all three base-height dresses (the hypotenuse
+ * altitude 12/5 = 2.4) and Illustration 4 the sail 15 × 8 → 60;
+ * the circle: π DEFINED as the constant ratio C/d, C = πd = 2πr as
+ * tag 4 with figure 2 the circumference unrolled straight (drawn to
+ * scale, 2π × 90 ≈ 565.5 px for r = 90 px), the two working values
+ * priced (22/7 0.04% high, 3.14 0.05% low), Illustration 5 the r = 7
+ * → C = 44 round-trip with C = 132 → d = 42; the sector rearrangement
+ * (8 slices stood side by side, height r, top edge πr exactly) as
+ * figure 3 and the derivation behind tag 5 A = πr² = πd²/4 (the
+ * saw-teeth honestly flagged as the school-level licence), the
+ * diameter-fraud Caution (πd² overshoots ×4: 616 vs 154 at d = 14),
+ * Illustration 6 the r = 7 circle fill/walk both ways plus the
+ * A = 154 inverse; composite figures (the L-shape 12 × 9 minus 5 × 4
+ * → 88 m², walk 42 m; interior cuts never walked), Illustration 7 the
+ * arched window (90 × 120 + semicircle r = 45: glass ≈ 13,982 cm²,
+ * beading ≈ 471.4 cm); the exam corner (fence/carpet costs, fixed-
+ * perimeter optimals, C↔r↔A round-trips, unit rescalings) and the
+ * historical callout (Archimedes' 96-gon squeeze 3 10/71 < π < 3 1/7;
+ * Aryabhata's 62832/20000 = 3.1416; Zu Chongzhi's Milü 355/113 to six
+ * decimals; Lambert 1761 irrationality + Lindemann 1882; William
+ * Jones 1706 the letter, Euler's adoption); 12 terms, 5-quiz (keys
+ * 1/2/3/1/2), 12 exercises L1–L6 (L6: the two-copy proof quoted tool
+ * by tool; the 3-4-5 audited three ways with the fraud refused);
+ * 5,967 words in the Cengage voice + solution chain;
+ * verify-unit-8.ts EXTENDED 339 → 429 checks (AO–AZ) ALL PASS
+ * pre-writing.
+ *
  * References for this unit: NCERT class-6 ch. 4 "Basic Geometrical
  * Ideas" (the point/segment/line/ray charter; parallel lines; §4.11
  * the triangle's parts) + NCERT class-7 ch. 6 "The Triangle and Its
@@ -203,17 +253,19 @@ import type { Chapter } from '../../../types'
  * Aptitude (4e) geometry-counting staples — the NCERT chapter identities
  * web-checked (sanctioned fallback), no content reproduced;
  * see docs/project/SOURCE_LOG.md. Exposition original.
+ * 8.5 references: Ganita Prakash class-6 ch. 6 "Perimeter and Area"
+ * (perimeter by the sum of sides; area by tiling) + NCERT class-7
+ * ch. 11 "Perimeter and Area" (triangles as parts of rectangles;
+ * C = 2πr; A = πr²; 1 hectare = 10,000 m²; web-checked run 41) —
+ * no content reproduced; exposition original.
  */
 export const chapter08: Chapter = {
   number: 8,
   slug: 'geometry-foundations',
   title: 'Geometry Foundations',
   summary:
-    'The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.',
-  status: 'in-progress',
-  plannedLessons: [
-    'Perimeter and Area of Rectangles, Triangles and Circles',
-  ],
+    'The visual half of mathematics begins and pays: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the walk (perimeter) and fill (area) of the rectangle, the triangle and the circle — every formula derived from the tools before it.',
+  status: 'complete',
   lessons: [
     {
       id: 'fm-points-lines-and-planes',
@@ -2792,6 +2844,692 @@ export const chapter08: Chapter = {
                       'Hence both routes return $110^\\circ$ — they must agree, because tag 2 was DERIVED from tag 1 plus the very linear pair used here; the two answers are one answer wearing two dresses.',
                     ],
                     answer: '$110^\\circ$ by both routes (exterior sum $40 + 70$; linear pair $180 - 70$)',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'fm-perimeter-and-area-rectangles-triangles-circles',
+        number: '8.5',
+        title: 'Perimeter and Area of Rectangles, Triangles and Circles',
+        concepts: [
+          'Perimeter as the walk around',
+          'Area as the fill inside',
+          'The unit square',
+          'P = 2(l + b), A = l × b',
+          'A = ½ × base × height',
+          'Circumference C = 2πr',
+          'Area of the circle πr²',
+          'Hectares and unit conversion',
+        ],
+        objectives: [
+          'Define perimeter and area honestly — the walk around a figure and the fill inside it — and keep the two questions (and their units) apart for life',
+          'Derive the rectangle laws P = 2(l + b) and A = l × b from the walk and the tiling, and prove that a fixed perimeter never fixes an area (the square sweeps the board)',
+          'Derive the triangle formula A = ½ × base × height from the rectangle — two copies tile the box, and the altitude split cancels — and choose base-height dresses safely',
+          'Define π as the constant ratio C/d, derive C = 2πr and A = πr² (the sector rearrangement), and compute with both working values 22/7 and 3.14 at known accuracy',
+          'Convert area units by rescaling the tile (1 m² = 10⁴ cm², 1 hectare = 10⁴ m²) and dissect composite figures into the three measured shapes',
+        ],
+        prerequisites: ['fm-triangles-and-the-angle-sum', 'fm-angles-and-their-measurement'],
+        sources: ['ncert-math6-gp-ch6', 'ncert-math7-ch11', 'khattar-qa-4e'],
+        blocks: [
+          {
+            kind: 'para',
+            text: 'Four lessons built the instruments; this one puts them to work. From 8.1 we own the segment and its length; from 8.2, the right angle and the degree ledger; from 8.3, the parallels; from 8.4, the triangle and its angle sum. Not one of those lessons asked the two questions that pay for the whole chapter: *how far is the walk around a figure?* and *how much surface does the figure enclose?* The first is **perimeter**, the second is **area** — and although they are asked about the same shape at the same time, they are different questions with different answers, different units and different frauds. This lesson derives the walk and the fill for the three figures that run the world\u2019s fences, floors and wheels: the rectangle, the triangle and the circle.',
+          },
+          {
+            kind: 'para',
+            text: 'The method is the chapter\u2019s method, one last time. Each formula is *derived*, not asserted: the perimeter of the rectangle from the walk itself, the area of the rectangle from counting tiles, the area of the triangle from the rectangle, the circumference and area of the circle from the single number that measures roundness. Every derivation spends only tools already earned, and every number that appears below was recomputed by script before it was written here. Two Caution boxes guard the classic frauds — the perimeter\u2013area mix-up and the square-unit conversion trap — and the closing historical note tells the story of \u03c0, the only new number this lesson must introduce.',
+          },
+          { kind: 'heading', text: 'Perimeter — the walk around' },
+          {
+            kind: 'para',
+            text: 'The word is Greek in plain sight: *peri*, around, plus *metron*, measure — the measure around. Take any closed figure and walk along its boundary, one full circuit, ending where you began. The distance walked is the figure\u2019s perimeter. Because a walk is a length, perimeter is measured in units of length: centimetres, metres, kilometres. No square units appear in this half of the lesson — that is the first discipline.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'Perimeter',
+            text: 'A closed figure is said to have **perimeter** equal to the total length of its boundary — the distance covered by one complete walk along the boundary, starting and ending at the same point. For a **polygon** (a figure whose boundary is a collection of segments, 8.1\u2019s dress), the perimeter is the sum of all its sides. Thus, for a polygon with sides of lengths $s_1, s_2, \\ldots, s_n$, the perimeter is $P = s_1 + s_2 + \\cdots + s_n$; and when the polygon is **regular** — all sides equal, 8.4\u2019s equilateral idea in the general dress — this collapses to $P = n \\times s$, where $s$ is the common side length.',
+          },
+          {
+            kind: 'para',
+            text: 'For example, the perimeters fall out as plain sums:',
+          },
+          {
+            kind: 'list',
+            marker: 'roman',
+            items: [
+              'the 3-4-5 right triangle of 8.4 walks $3 + 4 + 5 = 12$ units — and the chapter\u2019s witness triangle $A(0,0)$, $B(4,0)$, $C(0,3)$ walks the same total, $4 + 3 + 5 = 12$;',
+              'a rectangle of $8$ by $5$ walks $8 + 5 + 8 + 5 = 26$;',
+              'a square of side $7$ walks $7 + 7 + 7 + 7 = 28$;',
+              'a regular pentagon of side $6$ walks $5 \\times 6 = 30$ — the regular-polygon shortcut $n \\times s$ at work.',
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'The rectangle earns a formula because its walk has a pattern: the four sides are two lengths and two breadths. The derivation is one line of bookkeeping, but it is worth watching once, formally.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The perimeter of a rectangle',
+            statement: 'A rectangle has length $l$ and breadth $b$. Walking the boundary crosses $l$, then $b$, then $l$ again, then $b$ again.',
+            steps: [
+              {
+                label: 'Walk the boundary',
+                formula: 'P = l + b + l + b',
+                explanation: 'One full circuit crosses each of the four sides exactly once; opposite sides of a rectangle are equal (the two pairs forced by the right angles and the closed figure).',
+              },
+              {
+                label: 'Collect the pairs',
+                formula: 'P = (l + l) + (b + b) = 2l + 2b',
+                explanation: 'The two lengths contribute $2l$, the two breadths $2b$.',
+              },
+              {
+                label: 'Factor the common 2',
+                formula: 'P = 2(l + b)',
+                explanation: 'Distributivity — chapter 2\u2019s law — reads the walk in its compact dress: twice the half-walk.',
+              },
+            ],
+            result: 'The perimeter of a rectangle is $P = 2(l + b)$; the square is the special case $l = b$, giving $P = 4a$. The half-walk $l + b$ is worth naming too: given a perimeter, the sum $l + b$ is what any formula or equation will actually handle.',
+          },
+          {
+            kind: 'equation',
+            latex: 'P_{\\text{rect}} = 2(l + b), \\qquad P_{\\text{square}} = 4a',
+            note: 'Tag 1. Script-verified against the literal walk $l + b + l + b$ for every $l, b$ from 1 to 60, and the square case for every side from 1 to 100.',
+          },
+          {
+            kind: 'para',
+            text: 'For example, the 8-by-5 rectangle has half-walk $8 + 5 = 13$, so $P = 2 \\times 13 = 26$ — quoting $13$ metres of fence for a $26$-metre walk leaves two sides open, a fraud worth a Caution below. Illustration 1 runs the full cost computation the exam papers love.',
+          },
+          {
+            kind: 'example',
+            title: 'A rectangular garden measures $24$ m by $17$ m. Find the length of fence that encloses it, and the cost of fencing at Rs $15$ per metre.',
+            steps: [
+              'Now, the fence runs once along the boundary, so its length is the perimeter of the $24 \\times 17$ rectangle.',
+              'So the half-walk is $24 + 17 = 41$ m, and the perimeter is $2 \\times 41 = 82$ m.',
+              'And the cost is the walk priced per metre: $82 \\times 15 = 1230$, that is, Rs $1{,}230$.',
+              'Hence the fence is $82$ m long and costs Rs $1{,}230$.',
+            ],
+          },
+          { kind: 'heading', text: 'Fixed perimeter, wandering area' },
+          {
+            kind: 'para',
+            text: 'Here is the question that separates the careful from the careless at every examination: *if two figures have the same perimeter, must they have the same area?* The answer is no — and seeing how violently no it is, is the whole education. Fix the perimeter at $36$ and list every rectangle with whole-number sides. The half-walk must be $18$, so the length-breadth pairs run from $(17, 1)$ up to $(9, 9)$, and the areas wander wildly:',
+          },
+          {
+            kind: 'table',
+            caption: 'Nine rectangles, one perimeter (36), nine different areas — the area grows as the rectangle squares off.',
+            head: ['length × breadth', 'half-walk check', 'perimeter check', 'area'],
+            rows: [
+              ['$17 \\times 1$', '18', '$2(18) = 36$', '17'],
+              ['$16 \\times 2$', '18', '$2(18) = 36$', '32'],
+              ['$15 \\times 3$', '18', '$2(18) = 36$', '45'],
+              ['$14 \\times 4$', '18', '$2(18) = 36$', '56'],
+              ['$13 \\times 5$', '18', '$2(18) = 36$', '65'],
+              ['$12 \\times 6$', '18', '$2(18) = 36$', '72'],
+              ['$11 \\times 7$', '18', '$2(18) = 36$', '77'],
+              ['$10 \\times 8$', '18', '$2(18) = 36$', '80'],
+              ['$9 \\times 9$', '18', '$2(18) = 36$', '81'],
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'Note — the square wins',
+            text: 'Reading the table from top to bottom, the area climbs without exception as the shape squares off, and the square $9 \\times 9$ takes the largest share, $81$. The pattern is a theorem in miniature: **among all rectangles with a given perimeter, the square encloses the greatest area.** The script swept every even perimeter from 4 to 200 and the champion was always the balanced rectangle $\\frac{P}{4} \\times \\frac{P}{4}$ (or, when $\\frac{P}{4}$ is not a whole number, the nearest balanced pair). The mirror theorem holds for a fixed area: the $6 \\times 6$ square of area 36 has the *shortest* walk ($24$) among the whole-number rectangles of that area, from $36 \\times 1$ (walk 74) down. Balanced shapes are frugal with boundary.',
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'Caution — perimeter never fixes area',
+            text: 'The strip $17 \\times 1$ and the square $9 \\times 9$ have the *same* perimeter, 36 — and their areas differ by $81 - 17 = 64$, nearly a factor of five. Perimeter measures the walk; area measures the fill; no walk length alone decides a fill. Every examination question of the form \u201cthe perimeter is \u2026, find the area\u201d must carry extra information (a ratio of sides, a difference, a \u201cit is a square\u201d) — if it does not, the question is underdetermined and the answer is *cannot be decided*.',
+          },
+          { kind: 'heading', text: 'Area — the fill inside' },
+          {
+            kind: 'para',
+            text: 'Perimeter ignored everything the boundary encloses; area is the enclosure itself — the amount of flat surface the figure covers. To *measure* a surface the way a mason measures a floor, an agreement is needed first: a unit of fill. The natural choice is the **unit square**, a square of side $1$ cm carrying area $1$ cm$^2$ (read: *one square centimetre*). The area of any figure is then the number of unit squares that tile it — counting squares is the whole idea, and every area formula in this lesson is a shortcut for that count.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'Area and the unit square',
+            text: 'A figure is said to have **area** equal to the number of unit squares needed to cover it exactly, with no gaps and no overlaps. The unit square of side $1$ cm has area $1$ cm$^2$; in metres the unit square has area $1$ m$^2$; the unit is always a *square of the length unit* — that is why area units wear the exponent. Thus, area answers the question *how much surface?* exactly as perimeter answers *how far around?*.',
+          },
+          {
+            kind: 'para',
+            text: 'The rectangle, tiled, tells its own area. A rectangle $l$ cm long and $b$ cm wide accepts one row of $l$ unit squares along its top edge, and the rows stack: $b$ rows of $l$ squares each. The count is multiplication — chapter 2\u2019s repeated addition in its oldest dress.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The area of a rectangle',
+            statement: 'A rectangle has integer length $l$ and breadth $b$ (in centimetres, say); the unit square is $1$ cm $\\times$ $1$ cm.',
+            steps: [
+              {
+                label: 'Lay one row',
+                formula: 'l \\text{ unit squares fit along the length}',
+                explanation: 'The squares sit edge to edge with no gaps: their sides of $1$ cm chain exactly $l$ times to match the side of $l$ cm.',
+              },
+              {
+                label: 'Stack the rows',
+                formula: 'b \\text{ rows, each of } l \\text{ squares}',
+                explanation: 'The same chaining runs vertically: $b$ rows fill the breadth exactly.',
+              },
+              {
+                label: 'Count the squares',
+                formula: 'A = b \\times l = l \\times b',
+                explanation: 'Chapter 2\u2019s commutativity: rows-of-columns or columns-of-rows, the count is the product.',
+              },
+            ],
+            result: 'The area of a rectangle is $A = l \\times b$; the square is the case $l = b$, giving $A = a^2$ — literally \u201c$a$ squared\u201d, the name of the operation taken from this very picture. The formula holds for fractional sides too, by measuring in smaller tiles: a $\\frac{1}{2}$-cm-by-$\\frac{1}{2}$-cm square fills the same rectangle four to a square centimetre, and the same product reappears.',
+          },
+          {
+            kind: 'equation',
+            latex: 'A_{\\text{rect}} = l \\times b, \\qquad A_{\\text{square}} = a^2',
+            note: 'Tag 2. Script-verified by brute-force cell enumeration against the product for every $l, b$ from 1 to 40.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'A $5$ cm $\\times$ $3$ cm rectangle tiled by its $15$ unit squares: $5$ columns of $3$ rows, so $A = 5 \\times 3 = 15$ cm$^2$. The diagonal cuts the rectangle into two copies of the same triangle — each carrying $\\frac{1}{2} \\times 5 \\times 3 = 7\\frac{1}{2}$ cm$^2$, which is the two-copy engine of the triangle formula below.',
+            svg: `<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A 5 by 3 rectangle tiled with unit squares and cut by its diagonal into two equal triangles">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the rectangle tiled by unit squares — and the diagonal that halves it</text>
+  <polygon points="170,60 590,60 590,270" fill="currentColor" opacity="0.06"/>
+  <polygon points="170,60 590,270 170,270" fill="currentColor" opacity="0.12"/>
+  <line x1="254" y1="60" x2="254" y2="270" stroke="currentColor" stroke-width="1"/>
+  <line x1="338" y1="60" x2="338" y2="270" stroke="currentColor" stroke-width="1"/>
+  <line x1="422" y1="60" x2="422" y2="270" stroke="currentColor" stroke-width="1"/>
+  <line x1="506" y1="60" x2="506" y2="270" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="130" x2="590" y2="130" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="200" x2="590" y2="200" stroke="currentColor" stroke-width="1"/>
+  <rect x="170" y="60" width="420" height="210" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="170" y1="60" x2="590" y2="270" stroke="currentColor" stroke-width="1.8"/>
+  <text x="380" y="44" font-size="13" fill="currentColor" text-anchor="middle">l = 5 cm</text>
+  <text x="600" y="172" font-size="13" fill="currentColor" text-anchor="start">b = 3 cm</text>
+  <text x="380" y="242" font-size="12.5" fill="currentColor" text-anchor="middle">1 cm²</text>
+  <text x="380" y="296" font-size="12.5" fill="currentColor" text-anchor="middle">the diagonal halves it — each piece is ½ × 5 × 3</text>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'For example, a sheet $12$ cm by $8$ cm holds $96$ unit squares; a square of side $7$ holds $7 \\times 7 = 49$. Illustration 2 tiles a floor for real.',
+          },
+          {
+            kind: 'example',
+            title: 'A floor measures $5$ m by $4$ m. How many square tiles of side $50$ cm are needed to cover it?',
+            steps: [
+              'Now, the tiles and the floor must be measured in the same unit: $5$ m $= 500$ cm and $4$ m $= 400$ cm.',
+              'So along the length, $500 \\div 50 = 10$ tiles fit; along the breadth, $400 \\div 50 = 8$ tiles fit.',
+              'And the count is $10 \\times 8 = 80$ tiles.',
+              'Hence the check by area: the floor is $5 \\times 4 = 20$ m$^2$ $= 2{,}00{,}000$ cm$^2$; one tile is $50 \\times 50 = 2{,}500$ cm$^2$; and $2{,}00{,}000 \\div 2{,}500 = 80$ — the same answer, as it must be.',
+            ],
+          },
+          { kind: 'heading', text: 'Units of area — the tile itself rescales' },
+          {
+            kind: 'para',
+            text: 'Length units convert by multiplying the *side*: $1$ m $= 100$ cm. Area units convert by rescaling the *tile*, and the tile has two sides — that is the entire trap of this section. One square metre is a square of side $100$ cm, so it holds',
+          },
+          {
+            kind: 'equation',
+            latex: '1\\ \\text{m}^2 = 100\\ \\text{cm} \\times 100\\ \\text{cm} = 10{,}000\\ \\text{cm}^2',
+            note: 'The conversion factor is squared because the unit is: each dimension contributes its own factor of 100. The ladder continues on both rungs: $1$ cm$^2 = 10 \\times 10 = 100$ mm$^2$, and $1$ km$^2 = 1{,}000 \\times 1{,}000 = 10^6$ m$^2$.',
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'Caution — the ×100 reflex',
+            text: 'Converting $5$ m$^2$ to square centimetres, the reflex answers $5 \\times 100 = 500$ cm$^2$ — and it is wrong, because the reflex converted the *side* of the tile, not the tile. The tile rescales on both edges: $5$ m$^2 = 5 \\times 10{,}000 = 50{,}000$ cm$^2$. The unit test catches the fraud instantly: a hundred square centimetres is a strip $100$ cm by $1$ cm — it does not fill a square metre, which wants a hundred strips of a hundred.',
+          },
+          {
+            kind: 'para',
+            text: 'For land, one more agreement is in force: the **hectare**, a square $100$ m on a side, so $1$ hectare $= 100 \\times 100 = 10{,}000$ m$^2$. For example, a field $200$ m by $150$ m covers $200 \\times 150 = 30{,}000$ m$^2 = 3$ hectares. (Units as agreements — why the metre, the hectare and their kin were chosen and how they convert without memorised tables — is the charter of the next chapter; this lesson needs only the square-tile picture.)',
+          },
+          { kind: 'heading', text: 'The triangle\u2019s area — half the box' },
+          {
+            kind: 'para',
+            text: 'The triangle has no rows of tiles — its slanted sides defeat square counting. But the rectangle is already paid for, and the triangle is half a rectangle in a precise, provable sense. Take a **right triangle** with legs $p$ and $q$. Two copies of it fit together into the $p \\times q$ rectangle: turn the second copy upside down (a half-turn about the midpoint of the hypotenuse) and the hypotenuses mate along the diagonal, leaving the two of them tiling the whole rectangle with no gap and no overlap. Each copy therefore carries exactly half the rectangle\u2019s area: $\\frac{1}{2} p q$. That is $\\frac{1}{2} \\times$ base $\\times$ height for the right triangle — the legs were the base and the height all along.',
+          },
+          {
+            kind: 'para',
+            text: 'Every triangle joins them: draw the **height** (also called the **altitude**) — the perpendicular from the apex to the base line, the foot dropping at exactly $90^\\circ$ (8.2\u2019s right angle doing surveying work). The altitude cuts the triangle into two right triangles, one on each side of the foot; each carries half of its own little rectangle, and the whole story is one cancellation:',
+          },
+          {
+            kind: 'derivation',
+            title: 'The area of any triangle',
+            statement: 'A triangle has a base of length $b$; the perpendicular from the opposite vertex (the apex) to the base line has length $h$; its foot may fall inside the base, at any point, or even outside it.',
+            steps: [
+              {
+                label: 'Drop the altitude',
+                formula: '\\text{two right triangles, of heights } h \\text{ each}',
+                explanation: 'The perpendicular splits the base at the foot; call the two pieces of the base $x$ and $b - x$ (if the foot falls outside, one piece reads negative and the cancellation below survives unchanged — the script swept that case too).',
+              },
+              {
+                label: 'Half of each little box',
+                formula: 'A = \\tfrac{1}{2} x h + \\tfrac{1}{2} (b - x) h',
+                explanation: 'Each right triangle is half of its leg-rectangle by the two-copy argument; the two leg-rectangles share the height $h$.',
+              },
+              {
+                label: 'Factor and cancel',
+                formula: 'A = \\tfrac{1}{2} h \\, (x + b - x) = \\tfrac{1}{2} h \\, b',
+                explanation: 'The split point $x$ cancels — WHERE the foot lands never matters; only the base and the height survive.',
+              },
+            ],
+            result: 'The area of a triangle is $A = \\frac{1}{2} \\times$ base $\\times$ height, for every triangle and every choice of base — the script certified the shoelace-measured area of 500 pseudo-random triangles against $\\frac{1}{2} b h$ within a billionth, apex outside the base included.',
+          },
+          {
+            kind: 'equation',
+            latex: 'A_{\\text{tri}} = \\tfrac{1}{2} \\times b \\times h',
+            note: 'Tag 3, with $h$ the perpendicular height to the chosen base — and every one of the three sides may serve as the base, each with its own height, all answers agreeing (Illustration 3).',
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'Caution — the height must be perpendicular',
+            text: 'In the 3-4-5 right triangle, taking base $4$ and a so-called height of $5$ (the hypotenuse leaning nearby) gives $\\frac{1}{2} \\times 4 \\times 5 = 10$ — but the true area is $6$. The slanted side is not a height; the height for base $4$ is the perpendicular leg $3$. Measured *along* the slant is the classic wrong answer: the formula counts only the perpendicular distance, the shortest drop from apex to base line.',
+          },
+          {
+            kind: 'example',
+            title: 'One triangle, three ways: the right triangle with legs $3$ and $4$ and hypotenuse $5$. Compute its area from each side as base.',
+            steps: [
+              'Now, base $3$ (a leg): the height is the perpendicular other leg $4$, so $A = \\frac{1}{2} \\times 3 \\times 4 = 6$.',
+              'So base $4$: the height is the leg $3$, and $A = \\frac{1}{2} \\times 4 \\times 3 = 6$ — the same, as commutativity promised.',
+              'And base $5$ (the hypotenuse): equating the two dresses, $\\frac{1}{2} \\times 5 \\times h = 6$ gives $h = \\frac{12}{5} = 2.4$, the perpendicular drop from the right-angle vertex to the hypotenuse; then $\\frac{1}{2} \\times 5 \\times 2.4 = 6$ again.',
+              'Hence one triangle, three base-height dresses, one area: $6$ square units every time.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'A triangular sail has base $15$ m and height $8$ m. Find its area.',
+            steps: [
+              'Now, tag 3 applies: $A = \\frac{1}{2} \\times b \\times h$ with $b = 15$ and $h = 8$.',
+              'So $A = \\frac{1}{2} \\times 15 \\times 8 = \\frac{1}{2} \\times 120 = 60$.',
+              'And the order is free: halving $15$ first gives $7.5 \\times 8 = 60$ likewise — take the half of whichever number splits nicely.',
+              'Hence the sail covers $60$ m$^2$.',
+            ],
+          },
+          { kind: 'heading', text: 'The circle — the walk' },
+          {
+            kind: 'para',
+            text: 'The circle has no sides to sum and no rows to tile, so both of its formulas grow from one observation, which is also one of the oldest discoveries in mathematics: *the walk around a circle is always the same multiple of the distance across it.* Name the parts in 8.1\u2019s dress: the **radius** $r$ is the segment from the centre $O$ to any point of the circle (all such radii are equal — that constancy *is* the circle); the **diameter** $d$ is the chord through the centre, $d = 2r$; and the boundary itself — the circle\u2019s perimeter — is the **circumference** $C$. Measure $C$ and $d$ on any circle and divide: the quotient is one single number, the same for the bangle, the wheel and the Earth. That number is called **pi**, written $\\pi$. A circle is said to have **circumference** $C = \\pi d$ — Thus,',
+          },
+          {
+            kind: 'equation',
+            latex: 'C = \\pi d = 2 \\pi r',
+            note: 'Tag 4. The ratio constancy — that $C/d$ is the same number for every circle, great and small — is the deep fact here (all circles are scaled copies of one another); the script certified it on the model $C = 2\\pi r$ for every radius from 1 to 200.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The circle\u2019s two measurements on one drawing. Across: the diameter $d = 2r$ through the centre $O$. Around: the circumference $C$. Below, the circumference is unrolled onto a straight segment — drawn to scale: the unrolled length is $2\\pi \\times 90 \\approx 565.5$ px for the drawn radius of $90$ px, a little more than three diameters, which is all \u201c\u03c0 \u2248 3.14\u201d ever meant.',
+            svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A circle with centre O, radius r and diameter d = 2r, with its circumference unrolled onto a straight segment below">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the circumference, unrolled straight — C = 2πr = πd</text>
+  <circle cx="190" cy="190" r="90" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="190" y1="190" x2="235" y2="112.07" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="100" y1="190" x2="280" y2="190" stroke="currentColor" stroke-width="1.6"/>
+  <circle cx="190" cy="190" r="3.5" fill="currentColor"/>
+  <circle cx="100" cy="190" r="3" fill="currentColor"/>
+  <circle cx="280" cy="190" r="3" fill="currentColor"/>
+  <text x="172" y="210" font-size="13" fill="currentColor" text-anchor="middle">O</text>
+  <text x="238.8" y="145.5" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">r</text>
+  <text x="240" y="214" font-size="13" fill="currentColor" text-anchor="middle">d = 2r</text>
+  <line x1="190" y1="280" x2="100" y2="340" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.55"/>
+  <line x1="100" y1="340" x2="665.49" y2="340" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="100" y1="334" x2="100" y2="346" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="665.49" y1="334" x2="665.49" y2="346" stroke="currentColor" stroke-width="1.6"/>
+  <text x="382" y="368" font-size="12.5" fill="currentColor" text-anchor="middle">C = 2πr — the circumference, unrolled straight</text>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'Working with $\\pi$ needs a decimal dress, and two are in standard service: $\\pi \\approx \\frac{22}{7}$ and $\\pi \\approx 3.14$. Both are honest and both are wrong — $\\pi$ is famously *not* any fraction (Johann Lambert proved that in 1761), and its decimal never settles or repeats. The errors are priced: $\\frac{22}{7} = 3.142857\\ldots$ runs about $0.04\\%$ high, $3.14$ about $0.05\\%$ low. The convention of the examination hall: use $\\frac{22}{7}$ when the radius or diameter is a multiple of $7$ (the $7$s cancel — see the Illustrations), use $3.14$ when the numbers say decimal.',
+          },
+          {
+            kind: 'example',
+            title: 'Find the circumference of a circle of radius $7$ cm (take $\\pi = \\frac{22}{7}$), and find the diameter of a wheel whose circumference is $132$ cm.',
+            steps: [
+              'Now, tag 4 with $\\pi = \\frac{22}{7}$ and $r = 7$: $C = 2 \\times \\frac{22}{7} \\times 7$.',
+              'So the 7s cancel: $C = 2 \\times 22 = 44$ cm.',
+              'And the reverse direction: $C = \\pi d$ gives $d = C \\div \\pi = 132 \\times \\frac{7}{22} = 42$, so the diameter is $42$ cm (radius $21$ cm).',
+              'Hence circumference $44$ cm; diameter $42$ cm.',
+            ],
+          },
+          { kind: 'heading', text: 'The circle — the fill' },
+          {
+            kind: 'para',
+            text: 'The circle\u2019s area comes from cutting it up. Slice the disk into $8$ equal **sectors** (pizza slices through the centre) and stand them side by side along a line, alternately tip-up and tip-down, like a row of leaning books. Each slice is roughly a triangle of height $r$ (the slice\u2019s two straight sides are radii); the arcs — the curved outer edges — settle onto the top and the bottom of the band, and here is the accounting: *half* the arcs lie along the top, and they were half of the circumference, so the top edge measures $\\frac{C}{2} = \\pi r$. The band is (nearly) a rectangle: base $\\pi r$, height $r$.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The rearrangement, drawn to scale. Left: the circle cut into $8$ equal sectors (one slice tinted). Right: the same $8$ slices stood side by side \u2014 tips alternating between the bottom and the top edges, every straight edge continuing its neighbour\u2019s in a straight line, the arcs tiling both edges of the band. The band\u2019s height is the radius $r$ ($100$ px here, marked); its top edge carries $4$ of the $8$ arcs \u2014 half the circumference, $\\frac{C}{2} = \\pi r$ (the tinted slice links the panels). The gentle bulge of the arcs over the edges is the honest residue: more slices, smaller bulge, and the band closes in on a perfect $\\pi r \\times r$ rectangle.',
+            svg: `<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A circle cut into 8 sectors, and the same 8 sectors rearranged into a flush band of height r and top edge pi r">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">why the circle’s fill is πr² — the slices stood side by side</text>
+  <circle cx="170" cy="190" r="100" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="170" y1="190" x2="270" y2="190" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="240.71" y2="260.71" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="170" y2="290" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="99.29" y2="260.71" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="70" y2="190" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="99.29" y2="119.29" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="170" y2="90" stroke="currentColor" stroke-width="1"/>
+  <line x1="170" y1="190" x2="240.71" y2="119.29" stroke="currentColor" stroke-width="1"/>
+  <path d="M 170 190 L 262.39 151.73 A 100 100 0 0 1 262.39 228.27 Z" fill="currentColor" opacity="0.08"/>
+  <path d="M 320 240 L 280.73 140 Q 320 130 359.27 140 Z" fill="currentColor" opacity="0.08"/>
+  <path d="M 320 240 L 280.73 140 Q 320 130 359.27 140" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="320" y1="240" x2="359.27" y2="140" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 359.27 140 L 320 240 Q 359.27 250 398.54 240" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="359.27" y1="140" x2="398.54" y2="240" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 398.54 240 L 359.27 140 Q 398.54 130 437.81 140" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="398.54" y1="240" x2="437.81" y2="140" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 437.81 140 L 398.54 240 Q 437.81 250 477.08 240" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="437.81" y1="140" x2="477.08" y2="240" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 477.08 240 L 437.81 140 Q 477.08 130 516.35 140" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="477.08" y1="240" x2="516.35" y2="140" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 516.35 140 L 477.08 240 Q 516.35 250 555.62 240" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="516.35" y1="140" x2="555.62" y2="240" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 555.62 240 L 516.35 140 Q 555.62 130 594.89 140" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="555.62" y1="240" x2="594.89" y2="140" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M 594.89 140 L 555.62 240 Q 594.89 250 634.16 240" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="594.89" y1="140" x2="634.16" y2="240" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="646" y1="140" x2="646" y2="240" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="642" y1="140" x2="650" y2="140" stroke="currentColor" stroke-width="1.2"/>
+  <line x1="642" y1="240" x2="650" y2="240" stroke="currentColor" stroke-width="1.2"/>
+  <text x="170" y="315" font-size="12.5" fill="currentColor" text-anchor="middle">8 equal sectors</text>
+  <text x="477" y="86" font-size="12.5" fill="currentColor" text-anchor="middle">the same 8 slices, stood side by side</text>
+  <text x="477" y="114" font-size="12.5" fill="currentColor" text-anchor="middle">≈ πr — half the circumference</text>
+  <text x="664" y="194" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">r</text>
+  <text x="477" y="272" font-size="12.5" fill="currentColor" text-anchor="middle">area = πr × r = πr²</text>
+
+</svg>`,
+          },
+          {
+            kind: 'derivation',
+            title: 'The area of the circle',
+            statement: 'A circle of radius $r$ is cut into $n$ equal sectors (take $n$ even) and the sectors are rearranged into a band as in the figure.',
+            steps: [
+              {
+                label: 'Rearrange without loss',
+                formula: '\\text{area of the band} = \\text{area of the circle}',
+                explanation: 'Nothing is added or discarded — the pieces only change places. Whatever the band\u2019s area is, that is the circle\u2019s.',
+              },
+              {
+                label: 'Measure the band\u2019s height',
+                formula: '\\text{height} = r',
+                explanation: 'Every slice runs from its tip (a point of the old centre) to its arc: a full radius, $r$.',
+              },
+              {
+                label: 'Measure the band\u2019s base',
+                formula: '\\tfrac{n}{2} \\times \\tfrac{C}{n} = \\tfrac{C}{2} = \\pi r',
+                explanation: 'Half the arcs settle on the top edge; $n/2$ arcs of length $C/n$ each — exactly half the circumference, no approximation yet.',
+              },
+              {
+                label: 'Rectangle arithmetic',
+                formula: 'A = \\pi r \\times r = \\pi r^2',
+                explanation: 'The band is a rectangle of base $\\pi r$ and height $r$, up to the saw-teeth at its edges; more slices mean smaller teeth, and the fit sharpens without limit — the honest school-level licence for the exact formula (the full limit argument belongs to calculus, and is not claimed here).',
+              },
+            ],
+            result: 'The area of a circle is $A = \\pi r^2$. In the diameter\u2019s dress, $A = \\frac{\\pi d^2}{4}$ — the $4$ in the denominator is the $r = d/2$ squared, and dropping it is a famous fraud.',
+          },
+          {
+            kind: 'equation',
+            latex: 'A_{\\text{circle}} = \\pi r^2 = \\frac{\\pi d^2}{4}',
+            note: 'Tag 5. Script-verified instances with $\\frac{22}{7}$: $r = 7$ gives $\\frac{22}{7} \\times 49 = 154$; $r = 14$ gives $616$; and with $3.14$: $r = 10$ gives $314$.',
+          },
+          {
+            kind: 'example',
+            title: 'A circle has radius $7$ cm (take $\\pi = \\frac{22}{7}$). Find its area and its circumference; then find the radius of the circle whose area is $154$ cm$^2$.',
+            steps: [
+              'Now, the fill: $A = \\pi r^2 = \\frac{22}{7} \\times 7 \\times 7 = \\frac{22}{7} \\times 49 = 154$ cm$^2$.',
+              'So the walk: $C = 2 \\pi r = 2 \\times \\frac{22}{7} \\times 7 = 44$ cm.',
+              'And the reverse: $154 = \\frac{22}{7} r^2$ gives $r^2 = 154 \\times \\frac{7}{22} = 49$, so $r = 7$ cm — the same circle read backwards.',
+              'Hence area $154$ cm$^2$, circumference $44$ cm; an area of $154$ cm$^2$ belongs to the radius-$7$ circle.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'Caution — the diameter fraud',
+            text: 'Given the *diameter*, two correct routes exist: halve it first ($r = d/2$, then $A = \\pi r^2$) or use the tag\u2019s dress $A = \\frac{\\pi d^2}{4}$. The fraud skips both and answers $A = \\pi d^2$ — which is too big by exactly a factor of $4$: for $d = 14$ it returns $616$, the area of the circle with *radius* $14$, not diameter $14$. The true answer for $d = 14$ is $\\frac{22}{7} \\times \\frac{196}{4} = 154$. When the input is a diameter, the $4$ under $d^2$ is not optional.',
+          },
+          { kind: 'heading', text: 'When figures join — composite shapes' },
+          {
+            kind: 'para',
+            text: 'Real floors, fields and windows are rarely one shape; they are the three measured shapes wearing combinations. The method never changes: cut the figure into pieces whose walk and fill are already known, then add the fills — and *walk only the outer boundary*. Two dissection habits do most of the work: subtraction for the missing corner (an L-shaped floor is the big rectangle minus the notch), and addition for the crowned shape (a semicircular arch rides a rectangular window). One Caution governs the walks: an interior cut never joins the walk. The L-shaped floor $12$ m by $9$ m with a $5$ m by $4$ m corner removed fills $12 \\times 9 - 5 \\times 4 = 108 - 20 = 88$ m$^2$, and its six-sided walk is $12 + 5 + 5 + 4 + 7 + 9 = 42$ m — the notch adds its two inner walls to the walk but removes an equal outer corner, and the half-walk check still holds ($88$-fill is none of the walk\u2019s business).',
+          },
+          {
+            kind: 'example',
+            title: 'A window is a $90$ cm $\\times$ $120$ cm rectangle crowned by a semicircular arch on the $90$-cm top edge. Find the area of glass and the length of the beading that frames the outline (take $\\pi = \\frac{22}{7}$).',
+            steps: [
+              'Now, the arch\u2019s diameter is the $90$-cm top edge, so the arch has radius $r = 45$ cm.',
+              'So the glass: rectangle $90 \\times 120 = 10{,}800$ cm$^2$, plus half the circle: $\\frac{1}{2} \\times \\frac{22}{7} \\times 45^2 = \\frac{1}{2} \\times \\frac{22}{7} \\times 2025 = \\frac{44{,}550}{2 \\times 7} \\approx 3{,}182.14$ cm$^2$ — together about $13{,}982$ cm$^2$.',
+              'And the beading walks the outline only: two sides of $120$, the bottom of $90$, and the arch of length $\\pi r = \\frac{22}{7} \\times 45 \\approx 141.43$ — the $90$-cm diameter itself is glass-to-frame inside, never walked: $120 + 120 + 90 + 141.43 \\approx 471.43$ cm.',
+              'Hence about $13{,}982$ cm$^2$ of glass and about $471.4$ cm of beading.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'exam',
+            title: 'Exam corner',
+            text: 'This lesson is the examination\u2019s measurement staple, dressed four ways: (i) *fence and carpet cost* — perimeter or area times a rate (fence Rs $15$/m, carpet Rs $250$/m$^2$); keep the two straight by units, never by hope; (ii) *fixed perimeter, best area* — the balanced (square) dimensions win, and the integer sweep of the table is the working; (iii) *circle round-trips* — $C \\leftrightarrow r \\leftrightarrow A$ conversions with $\\frac{22}{7}$, where the multiples of $7$ cancel (radius 7, 14, 21; circumference 44, 88, 132; area 154, 616); (iv) *unit conversions* — the hectare fields and the m$^2$/cm$^2$ rescalings, where the squared factor is the whole question. None of these items is reproduced from any paper; the shapes are the syllabus\u2019s own.',
+          },
+          {
+            kind: 'callout',
+            tone: 'historical',
+            title: 'Historical note — the number that would not be caught',
+            text: 'That every circle walks $\\pi$ diameters was known to the ancient surveyors, but *pinning $\\pi$ down* took two thousand years. Archimedes of Syracuse (c. 250 BCE) trapped it between polygons: inscribe a 96-gon (a hexagon\u2019s sides doubled four times) inside a circle and another outside it, walk both, and $\\pi$ lies between their perimeters over the same diameter — his squeeze gave $3\\frac{10}{71} < \\pi < 3\\frac{1}{7}$, that is, $3.1408\\ldots < \\pi < 3.1428\\ldots$. Aryabhata (c. 499 CE) computed with the rule \u201cadd 4 to 100, multiply by 8, and add 62,000\u201d — $\\frac{62832}{20000} = 3.1416$, four true decimals. Zu Chongzhi (c. 480 CE) carried the squeeze to the \u201cMil\u00fc\u201d, $\\frac{355}{113} = 3.1415929\\ldots$ — six true decimals, and still the best fraction with at most four digits top and bottom. Lambert proved in 1761 that no fraction equals $\\pi$ exactly (its decimal never repeats — chapter 5\u2019s recurring machinery, escaped forever), and Lindemann proved in 1882 that $\\pi$ is not even the root of any whole-number polynomial. The *letter* arrived late and modestly: William Jones wrote $\\pi$ for the ratio in his Synopsis of 1706 — the Greek periphery\u2019s first letter, the same root as *peri-meter* — and Euler\u2019s adoption a generation later made it standard.',
+          },
+          {
+            kind: 'terms',
+            items: [
+              { term: 'Perimeter', def: 'The total length of a closed figure\u2019s boundary — the distance of one complete walk around it, in units of length.' },
+              { term: 'Area', def: 'The number of unit squares that cover a figure exactly — the measure of the surface it encloses, in square units.' },
+              { term: 'Unit square', def: 'A square of side $1$ (cm, m, \u2026) carrying $1$ square unit of area; the tile in which all areas are counted.' },
+              { term: 'Half-walk', def: 'For a rectangle, the sum $l + b$ — half the perimeter; the natural intermediate in every fence computation.' },
+              { term: 'Base and height', def: 'For a triangle, any chosen side (the base) and the perpendicular distance from the opposite vertex to the base line (the height, or altitude).' },
+              { term: 'Circumference', def: 'The perimeter of a circle: $C = 2\\pi r = \\pi d$.' },
+              { term: 'Radius and diameter', def: 'The segment from the centre to the circle ($r$), and the chord through the centre ($d = 2r$).' },
+              { term: 'Pi (π)', def: 'The constant ratio of every circle\u2019s circumference to its diameter; irrational, about $3.14159$, worked as $\\frac{22}{7}$ or $3.14$.' },
+              { term: 'Sector', def: 'The region between two radii and the arc they cut from the circle — a slice through the centre.' },
+              { term: 'Semicircle dress', def: 'Half a circle: area $\\frac{1}{2}\\pi r^2$, and a boundary walk of $\\pi r + 2r$ (arc plus diameter).' },
+              { term: 'Hectare', def: 'A land unit: a $100$ m $\\times$ $100$ m square, $10{,}000$ m$^2$.' },
+              { term: 'Composite figure', def: 'A figure built from measured shapes joined or cut; its fill is the sum (or difference) of the pieces\u2019 fills, and its walk runs only along the outer boundary.' },
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'From the above discussion, the whole lesson folds into a pocket. For the rectangle: $P = 2(l + b)$ and $A = l \\times b$. For the triangle: $A = \\frac{1}{2} \\times b \\times h$, any side the base, the height always perpendicular. For the circle: $C = 2\\pi r = \\pi d$ and $A = \\pi r^2 = \\frac{\\pi d^2}{4}$. Units convert with the tile, never the side: $1$ m$^2 = 10^4$ cm$^2$ and $1$ hectare $= 10^4$ m$^2$. And the standing guard: the walk and the fill are different questions — a fixed perimeter pins no area, and the balanced shape always wins.',
+          },
+          {
+            kind: 'quiz',
+            title: 'Check yourself',
+            items: [
+              {
+                q: 'The perimeter of a square plot of side $9$ m is —',
+                options: ['$81$ m', '$36$ m', '$18$ m', '$27$ m'],
+                answer: 1,
+                explain:
+                  'The square\u2019s walk is $4 \\times 9 = 36$ m (Option 2). Option 1 is the AREA, $9^2 = 81$ — the fill, not the walk. Option 3 is the half-walk $2 \\times 9 = 18$, enough fencing for two sides only. Option 4 is nothing at all — three sides, if anything.',
+              },
+              {
+                q: 'A rectangular sheet measures $12$ cm by $7$ cm. Its area is —',
+                options: ['$38$ cm$^2$', '$19$ cm$^2$', '$84$ cm$^2$', '$42$ cm$^2$'],
+                answer: 2,
+                explain:
+                  'The fill counts tiles: $12 \\times 7 = 84$ cm$^2$ (Option 3). Option 1 is the perimeter $2(12 + 7) = 38$ — a length, wrong unit and wrong question. Option 2 is the half-walk $19$. Option 4 is the triangle\u2019s half, $\\frac{1}{2} \\times 12 \\times 7 = 42$ — the sheet is no triangle.',
+              },
+              {
+                q: 'Four rectangular fields are fenced with $40$ m of wire each. The LARGEST enclosed area belongs to —',
+                options: ['$18$ m $\\times$ $2$ m', '$14$ m $\\times$ $6$ m', '$12$ m $\\times$ $8$ m', '$10$ m $\\times$ $10$ m'],
+                answer: 3,
+                explain:
+                  'All four share the half-walk $20$; the areas are $36$, $84$, $96$ and $100$ — the square wins (Option 4), the balanced-shape law at perimeter 40. Every step away from the square shrinks the fill: the sweep of this lesson\u2019s table, run again.',
+              },
+              {
+                q: 'With $\\pi = \\frac{22}{7}$, the circumference of a circle of radius $7$ cm is —',
+                options: ['$154$ cm', '$44$ cm', '$22$ cm', '$88$ cm'],
+                answer: 1,
+                explain:
+                  '$C = 2\\pi r = 2 \\times \\frac{22}{7} \\times 7 = 44$ cm (Option 2). Option 1 is the area $\\frac{22}{7} \\times 49 = 154$ — the fill mistaken for the walk. Option 3 is $\\pi r$ with the $2$ forgotten. Option 4 is the walk of the radius-$14$ circle.',
+              },
+              {
+                q: '$1$ m$^2$ equals —',
+                options: ['$100$ cm$^2$', '$1{,}000$ cm$^2$', '$10{,}000$ cm$^2$', '$1{,}000{,}000$ cm$^2$'],
+                answer: 2,
+                explain:
+                  'The tile rescales on both edges: $100$ cm $\\times$ $100$ cm $= 10{,}000$ cm$^2$ (Option 3). Option 1 is the reflex that converts the SIDE ($1$ m $=$ $100$ cm) and stops — the classic fraud. Option 2 is neither the side nor the tile. Option 4 is $1$ km$^2$ in cm$^2$ territory: a thousand metres times a thousand metres, in the wrong rung entirely.',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'A square has side $6$ cm. Find its perimeter and its area.',
+                    solution: [
+                      'Now, the square\u2019s walk: $P = 4 \\times 6 = 24$ cm.',
+                      'And its fill: $A = 6 \\times 6 = 36$ cm$^2$.',
+                      'Hence perimeter $24$ cm, area $36$ cm$^2$.',
+                    ],
+                    answer: '$P = 24$ cm; $A = 36$ cm$^2$',
+                  },
+                  {
+                    q: 'A rectangle measures $9$ cm by $4$ cm. Find its perimeter and its area, and compare the area with Exercise 1.',
+                    solution: [
+                      'Now, the half-walk is $9 + 4 = 13$, so $P = 2 \\times 13 = 26$ cm.',
+                      'And the fill is $9 \\times 4 = 36$ cm$^2$ — the SAME area as the $6 \\times 6$ square of Exercise 1, from a different walk ($26$ against $24$).',
+                      'Hence perimeter $26$ cm, area $36$ cm$^2$; same fill, and the square walks shorter.',
+                    ],
+                    answer: '$P = 26$ cm; $A = 36$ cm$^2$ (same area as Ex. 1, longer walk)',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'A triangular pennant has base $12$ cm and height $5$ cm. Find its area.',
+                    solution: [
+                      'Now, tag 3: $A = \\frac{1}{2} \\times b \\times h = \\frac{1}{2} \\times 12 \\times 5$.',
+                      'So $A = \\frac{1}{2} \\times 60 = 30$ cm$^2$.',
+                      'Hence the pennant covers $30$ cm$^2$.',
+                    ],
+                    answer: '$30$ cm$^2$',
+                  },
+                  {
+                    q: 'A circle has diameter $14$ cm (take $\\pi = \\frac{22}{7}$). Find its circumference.',
+                    solution: [
+                      'Now, tag 4 in the diameter\u2019s dress: $C = \\pi d = \\frac{22}{7} \\times 14$.',
+                      'So $C = 22 \\times 2 = 44$ cm.',
+                      'Hence the walk is $44$ cm (and $\\pi d$ skipped the halving entirely — the 7 cancelled inside the fraction).',
+                    ],
+                    answer: '$44$ cm',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'A hall floor measures $6$ m by $4$ m. Square tiles of side $40$ cm are used. How many tiles are needed?',
+                    solution: [
+                      'Now, one unit first: $6$ m $= 600$ cm and $4$ m $= 400$ cm.',
+                      'So along the length: $600 \\div 40 = 15$ tiles; along the breadth: $400 \\div 40 = 10$ tiles.',
+                      'And the count is $15 \\times 10 = 150$ tiles.',
+                      'Hence the area check agrees: $24$ m$^2$ $= 2{,}40{,}000$ cm$^2$, one tile $1{,}600$ cm$^2$, and $2{,}40{,}000 \\div 1{,}600 = 150$.',
+                    ],
+                    answer: '$150$ tiles',
+                  },
+                  {
+                    q: 'A circle has radius $10$ cm (take $\\pi = 3.14$). Find its circumference and its area.',
+                    solution: [
+                      'Now, the walk: $C = 2 \\pi r = 2 \\times 3.14 \\times 10 = 62.8$ cm.',
+                      'And the fill: $A = \\pi r^2 = 3.14 \\times 100 = 314$ cm$^2$.',
+                      'Hence circumference $62.8$ cm, area $314$ cm$^2$ (the decimal dress, since the radius says $10$, not a multiple of $7$).',
+                    ],
+                    answer: '$C = 62.8$ cm; $A = 314$ cm$^2$',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'A circle has circumference $88$ cm (take $\\pi = \\frac{22}{7}$). Find its radius and its area.',
+                    solution: [
+                      'Now, backwards through tag 4: $C = 2\\pi r$ gives $r = C \\div 2\\pi = 88 \\times \\frac{7}{44} = 14$ cm.',
+                      'So the fill: $A = \\frac{22}{7} \\times 14^2 = \\frac{22}{7} \\times 196 = 616$ cm$^2$.',
+                      'Hence radius $14$ cm, area $616$ cm$^2$.',
+                    ],
+                    answer: '$r = 14$ cm; $A = 616$ cm$^2$',
+                  },
+                  {
+                    q: 'A rectangular field measures $250$ m by $180$ m. Fencing costs Rs $12$ per metre. Find the total cost of fencing the field.',
+                    solution: [
+                      'Now, the fence prices the walk: half-walk $250 + 180 = 430$ m, so $P = 2 \\times 430 = 860$ m.',
+                      'So the cost is $860 \\times 12 = 10{,}320$.',
+                      'Hence Rs $10{,}320$ (and the area $45{,}000$ m$^2 = 4.5$ hectares never entered the bill — different question).',
+                    ],
+                    answer: 'Rs $10{,}320$',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'A wire $24$ m long is bent into a rectangle. Of all whole-metre rectangles it can form, which encloses the greatest area, and what is that area?',
+                    solution: [
+                      'Now, the half-walk is $12$: the integer pairs run $(11, 1), (10, 2), (9, 3), (8, 4), (7, 5), (6, 6)$.',
+                      'So the areas run $11, 20, 27, 32, 35, 36$ — climbing to the balanced end.',
+                      'And the square $6 \\times 6$ takes the most: $36$ m$^2$ (the balanced-shape law of this lesson, met again at perimeter $24$).',
+                      'Hence the $6$ m $\\times$ $6$ m square, area $36$ m$^2$.',
+                    ],
+                    answer: 'The $6 \\times 6$ square; area $36$ m$^2$',
+                  },
+                  {
+                    q: 'An L-shaped corridor is a $12$ m $\\times$ $9$ m rectangle with a $5$ m $\\times$ $4$ m corner removed. Find its floor area, the length of its skirting (the walk along the outline), and the cost of carpeting it at Rs $250$ per m$^2$.',
+                    solution: [
+                      'Now, the fill by subtraction: $12 \\times 9 - 5 \\times 4 = 108 - 20 = 88$ m$^2$.',
+                      'So the walk runs the six outer walls: $12 + 5 + 5 + 4 + 7 + 9 = 42$ m — the interior cut joins no walk.',
+                      'And the carpet prices the fill: $88 \\times 250 = 22{,}000$.',
+                      'Hence area $88$ m$^2$, skirting $42$ m, carpet Rs $22{,}000$.',
+                    ],
+                    answer: 'Area $88$ m$^2$; skirting $42$ m; cost Rs $22{,}000$',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'Prove that two copies of any right triangle tile a rectangle whose sides are the triangle\u2019s legs, and deduce that every triangle\u2019s area is $\\frac{1}{2} \\times$ base $\\times$ height. Quote every tool you use.',
+                    solution: [
+                      'Now, take the right triangle with legs $p$, $q$ and hypotenuse $c$; place it with legs along the axes of a $p \\times q$ rectangle.',
+                      'So the second copy, turned by a half-turn (a rotation through $180^\\circ$) about the midpoint of the hypotenuse, lands with its legs along the far pair of sides — the two hypotenuses lie on the same diagonal line (8.2\u2019s straight angle: the two copies\u2019 angles at the meeting point sum to $90^\\circ + 90^\\circ = 180^\\circ$).',
+                      'And the pair covers the rectangle with no gap and no overlap (the rectangle\u2019s four corners are the two right-angle vertices and the two far leg-ends; every interior point falls on one side of the diagonal line).',
+                      'Now, each copy carries half: $\\frac{1}{2} p q$ — the right triangle\u2019s formula, its legs being base and height.',
+                      'And every triangle: drop the altitude $h$ to the chosen base $b$; it splits the triangle into two right triangles of bases $x$ and $b - x$ with the same height, so $A = \\frac{1}{2} x h + \\frac{1}{2}(b - x) h = \\frac{1}{2} h (x + b - x) = \\frac{1}{2} b h$ — the foot\u2019s position cancels, which is why ANY side may serve as base.',
+                      'Hence the formula for every triangle, spending only the straight angle, the rectangle\u2019s tiling and distributivity.',
+                    ],
+                    answer: '$A = \\frac{1}{2} \\times b \\times h$ for every triangle (two-copy tiling + the altitude split whose $x$ cancels)',
+                  },
+                  {
+                    q: 'The 3-4-5 right triangle: compute its area three ways (leg-base twice, hypotenuse-base once), refuse the fraud $\\frac{1}{2} \\times 4 \\times 5 = 10$, and reconcile the answers with its perimeter of $12$.',
+                    solution: [
+                      'Now, leg $3$ as base (height the other leg $4$): $A = \\frac{1}{2} \\times 3 \\times 4 = 6$.',
+                      'And leg $4$ as base (height $3$): $\\frac{1}{2} \\times 4 \\times 3 = 6$ — commutativity, as promised.',
+                      'Now, the hypotenuse $5$ as base: the perpendicular drop $h$ from the right-angle vertex satisfies $\\frac{1}{2} \\times 5 \\times h = 6$, so $h = \\frac{12}{5} = 2.4$, and $\\frac{1}{2} \\times 5 \\times 2.4 = 6$ once more.',
+                      'So the fraud: $\\frac{1}{2} \\times 4 \\times 5 = 10$ pairs the base $4$ with the SLANTED side $5$ — no perpendicularity, no height, no truth (the true height for base $4$ is $3$).',
+                      'And the perimeter $12 = 3 + 4 + 5$ is the walk around the triangle — a different question from the fill of $6$; the two agree on nothing and need not.',
+                      'Hence area $6$ square units by all three honest dresses; the fraud refused; the perimeter a separate ledger.',
+                    ],
+                    answer: '$A = 6$ by all three dresses ($h = 12/5 = 2.4$ to the hypotenuse); $\\frac{1}{2} \\times 4 \\times 5 = 10$ refused; the perimeter $12$ is the walk',
                   },
                 ],
               },

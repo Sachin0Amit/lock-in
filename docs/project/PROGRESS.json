@@ -2,7 +2,7 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "FM ch. 8 Geometry Foundations OPEN 3/5 (run 39 shipped 8.3 Parallel Lines and Transversals; next 8.4 Triangles and the Angle Sum)",
+ "phase": "FM ch. 8 Geometry Foundations COMPLETE 5/5 (run 41 shipped 8.5 Perimeter and Area of Rectangles, Triangles and Circles + unit-8 completion review; next ch. 9 Measurement opens at 9.1 Units as Agreements)",
  "awaiting": "FM 8.4 'Triangles and the Angle Sum' (extend verify-unit-8 sections BEFORE writing; one lesson per run); queued voice polish 3.5 (then 4.1).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -70,9 +70,9 @@
     "title": "Foundation Mathematics",
     "status": "in-progress",
     "chaptersPlanned": 11,
-    "chaptersWritten": 7,
-    "lessonsWritten": 36,
-    "termsAvailableForFlashcards": 259,
+    "chaptersWritten": 8,
+    "lessonsWritten": 37,
+    "termsAvailableForFlashcards": 271,
     "notes": "STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the 14 pre-4.2 lessons' prose VOICE polish queued one per run — 1.1 DONE (run 26: formal Definition callout + roman run + Thus-line), 1.2 DONE (run 27: the comparison-rule Definition callout + roman run + Thus-line), 11 remain (2.2 next). Chapters 1-5 complete (units 1-5 shipped 2026-11-03/04): ch. 1 lessons 1.1-1.3 Numbers and Place Value (9,708 words + the run-26 1.1 voice polish), ch. 2 lessons 2.1-2.5 The Four Operations (21,425 words, incl. BODMAS), ch. 3 lessons 3.1-3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1-4.5 Fractions (26,905 words), ch. 5 lessons 5.1-5.5 Decimals and Percents (24,614 words). Chapter 6 lessons 6.1-6.5 Ratio, Rate and Proportion (open 2/5): 6.1 Ratio as a Comparison (run 26, 4,442 words — the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, three-term ratios, sharing with the share formula proved); 6.2 Rates and Unit Rates (run 27, 4,152 words — the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine (divide, or scale to a friendly unit, or run it backwards), comparisons by the same-way law with the direction and bulk frauds exposed, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 conversion law proved as a derivation block with anchors, rates at work, the average-speed Caution and formula card). RichText parser upgraded run 25 ($math$ inside bold/italic). Math script-verified (165 unit-6 checks + 455 unit-5 + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (15 lessons), quiz keys verified live. Next: 6.5 Scaling, Maps, Models and Recipes. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2. Run 30 shipped 6.4 Direct and Inverse Variation (5,373 words: the two locks, the parking fraud, both engines, the factor laws, the recognition drill, the flip, the work problems; figures polished to VLM 9/10+10/10) and the 2.1 voice polish; unit-6 verification now 361 checks (455/330/260/165 regressions), E2E 17 lessons with a dedicated 6.4 block (quiz 2/1/1/2/1 live 5/5). Run 35 shipped 7.3 Multiplying Integers and the Sign Rules (3,899 words: the repeated-walk definition, the forced staircase + the distributive derivation of minus-times-minus, the sign-case table, the six properties, sign parity, Brahmagupta's 628 CE multiplication verses; figures VLM 10 math/9 clarity each, audits 0/0; quiz keys 2/1/1/0/3 live 5/5) and the 2.3 voice polish (formal repeated-addition Definition callout + Thus-line + the two table settings as the roman run, zero new numerals); verify-unit-7.ts now 231 checks (A-AB; the 441-pair multiplication brute force, the 9,261-triple distributive grid, the 5-length parity sweep), E2E 21 lessons with a dedicated 7.3 block (quiz live 5/5 - perfect). Voice polish queue: 1.1, 1.2, 2.1, 2.2, 2.3 DONE; 3.1 next (then 3.2-3.5, 4.1). Next unit: 7.4 Absolute Value as Distance. Run 36 (2026-11-05, cron 01:27 delivery) FINISHED the 7.4 lesson found in flight (auto-checkpoint commit ab19d64) and CLOSED chapter 7: 7.4 Absolute Value as Distance (4,207 words — the distance definition + the piecewise rule as equation tag 1, the mirror/multiplicative/triangle properties with grid certificates, the outside-minus Caution, the distance formula gap(a,b) = |a-b| = |b-a| as tag 2 cashing every counted gap (the lift 9, the mall 12/24, the Everest-Dead Sea 9288.64 m, the Vostok-Phalodi 140.2 deg), the |x| = k verdict table, the bars-erase-one-bit insight, Argand's 1806 modulus + Weierstrass's 1841 bars; figures VLM 10 math/9 clarity each, audits 0/0; quiz keys 2/1/0/1/3 live 5/5 - perfect; 12 exercises L1-L6). Unit-7 completion review passed (ids unique, totals recomputed: ch. 7 = 4 lessons / 16,720 words / 32 terms / 20 quiz / 48 exercises; ch-07 status flipped complete, summary corrected to the delivered scope — no coordinate-plane preview). Verify-unit-7.ts now 302 checks (A-AH; the [−60,60] mirror sweep, the 441-pair multiplicative grid, the triangle-fact equality condition brute-forced on the same grid). E2E 22 lessons exit 0 with a dedicated 7.4 block (e2e-74.page.js: quiz live 5/5 - perfect, 12/12 solutions expand, 36 collapsibles, mobile 390 exact-fit). Voice polish 3.1 delivered (the formal 'Divisible (the treaty condition)' is-said-to-be callout naming factor and multiple + the Thus-line cashed at 6 | 48 — zero new numerals; live-verified KaTeX 369, dollarInText 0). Voice polish queue: 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 3.1 DONE; 3.2 next (then 3.3-3.5, 4.1). Next unit: 8.1 Points, Lines and Planes (chapter 8 Geometry Foundations opens; verify-unit-8.ts first)."
    }
   ],
@@ -256,5 +256,43 @@
   "preFlightRepair": "run 39's ship commit carried book.ts with four unescaped apostrophes in the notes string (module failed to parse; dev server 500) — repaired first thing this run, gates re-run green",
   "nextPolish": "4.1 (lesson 4.1 The Idea of a Fraction)",
   "nextUnit": "FM 8.5 'Perimeter and Area of Rectangles, Triangles and Circles' — extends verify-unit-8.ts with the area/perimeter sections BEFORE writing; completes chapter 8"
+ },
+ "run41Extras": {
+  "lesson": "fm-perimeter-and-area-rectangles-triangles-circles",
+  "words": 5998,
+  "verifyChecks": "429 total (sections AO-AZ added: 90 new; 339 -> 429) ALL PASS pre-writing",
+  "figures": [
+   "figure 1: the tiled rectangle (5x3 unit squares at (170,60)-(590,270), grid seams 254/338/422/506 + 130/200, the diagonal halving it, two tinted triangles, labels l = 5 cm / b = 3 cm / 1 cm2 / the diagonal annotation; audit 0 issues FIRST pass, VLM 10 math / 9 clarity)",
+   "figure 2: the circle + unrolled circumference (centre (190,190) r = 90, radius ray at -60 deg to (235,112.07), diameter (100,190)-(280,190), the unwrap segment (100,340)-(665.49,340) drawn to scale 2*pi*90 = 565.49 px, dashed connector, labels O / r / d = 2r / C; audit 0 issues FIRST pass, VLM 9 math / 8 clarity)",
+   "figure 3: the 8-sector rearrangement REDESIGNED this run (first VLM pass 7/6 on the midpoint-tip construction; rebuilt as the FLUSH classic: circle (170,190) r = 100 with 8 radii + one tinted sector; band y 140..240, up-slice tips on the bottom edge at spacing s = 2*pi*100/8 = 78.54 px from x = 320, down-slice tips interleaved on the top edge at the midpoints, every straight edge collinear with its neighbour, arcs tiling both edges, first band slice tinted to link panels, measure line x = 646; audit 0 issues, VLM 9 math / 9 clarity)"
+  ],
+  "figureAudit": "0 issues FIRST pass on all three figures (the exact sweeps in AY contradict nothing)",
+  "vlmReview": "figure 1 10/9 (cosmetic notes only, the 1 cm2 cell is geometrically clear of the diagonal by the exact sweep); figure 2 9/8 (cosmetic: margins 100 vs 95 px, the connector starts on the circumference, r at 70 percent along); figure 3 pass 1 7/6 REAL (ragged band) -> redesigned to the flush construction -> pass 2 9/9 (remaining notes honest-by-design: the flipped tint IS the half-turn, the end tips ARE the construction)",
+  "quizAnswers": [
+   1,
+   2,
+   3,
+   1,
+   2
+  ],
+  "newTerms": [
+   "Perimeter",
+   "Area",
+   "Unit square",
+   "Half-walk",
+   "Base and height",
+   "Circumference",
+   "Radius and diameter",
+   "Pi (π)",
+   "Sector",
+   "Semicircle dress",
+   "Hectare",
+   "Composite figure"
+  ],
+  "e2e": "27 lessons in scripts/e2e-cengage-style.sh (fm-perimeter-and-area-rectangles-triangles-circles added) + a dedicated 8.5 block (e2e-85.page.js created + gitignore-whitelisted): quiz correct-index clicks 1/2/3/1/2 -> 5/5 live, 12 solutions expand (36 collapsibles incl. inline), Sol. pills 7 inline -> 19 with exercises, 31 therefore glyphs, KaTeX 489 -> 683 with solutions, 0 katex-errors, 0 raw-dollar text nodes (after ONE terms-name fix: Pi ($\\pi$) -> Pi (π) — term names render plain), 3 svg figures, mobile 390 exact-fit (docScrollW 390, articleW 358)",
+  "downloads": "zero — web research only (Ganita Prakash class-6 ch. 6 + NCERT class-7 ch. 11 + the class-7 exemplar gemp109; new citation keys ncert-math6-gp-ch6, ncert-math7-ch11 in SOURCE_LOG; Archimedes/Zu Chongzhi/Aryabhata/Jones/Euler/Lambert/Lindemann history web-checked; storage law honoured)",
+  "unitReview": "unit-8 completion review passed (run-6/11/20/25/32/36 precedent): BOOK_FORMAT checklist 7/7, exam-coverage audited, ids globally unique (0 dups), totals recomputed (ch. 8 = 26,299 words / 54 terms / 25 quiz / 61 exercises; book = 37 lessons / 176,712 words / 271 terms / 185 quiz / 402 exercises), ch-08 status flipped to complete, plannedLessons emptied, book.ts header notes + STATUS line updated, chapter summary refreshed",
+  "voicePolish": "lesson 4.1 (queued per-run extra, the LAST pre-4.2 lesson): the treaty Definition callout recast is-said-to-be (\"Whole numbers $n$ and $d$ are said to form the fraction $\frac{n}{d}$ when ...\") + the Thus-line on the two load-bearing requirements + the earned-name close — zero new numerals; BONUS REPAIR found during live verification: a latent katex-error in 4.1 (\\tfrac{\\text{Rs } 20} — \\text inside \\tfrac errored KaTeX) fixed to the plain Rs dress; re-verified live 0 katex-errors, all three polish phrases rendering; the pre-4.2 voice queue is now EMPTY",
+  "nextUnit": "ch. 9 Measurement opens at 9.1 Units as Agreements — create verify-unit-9.ts (ADD THE .GITIGNORE EXCEPTION FIRST: the /scripts/* trap ate e2e-83 in run 40) and extend it with the unit-9 sections before writing"
  }
 }

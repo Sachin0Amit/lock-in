@@ -101,6 +101,7 @@ server.log
 !/scripts/e2e-81.page.js
 !/scripts/e2e-83.page.js
 !/scripts/e2e-84.page.js
+!/scripts/e2e-85.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)
