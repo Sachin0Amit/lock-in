@@ -55,6 +55,21 @@ export const chapter01: Chapter = {
           text: 'Students lose easy marks every year by using these three words interchangeably, so we fix the vocabulary now. A **number** is an idea — the abstract quantity itself, independent of how it is written. A **numeral** is a written symbol or group of symbols that names a number: "7", "VII" and "seven" are three different numerals, yet all of them name the number seven, while "११" (Devanagari digits) names a different number entirely. A **digit** is a single symbol of a given system: the Hindu–Arabic system has exactly ten of them, 0 through 9 — as many as the fingers (Latin *digitus*) they were first counted on.',
         },
         {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Number, numeral and digit',
+          text: 'A **number** is said to be the abstract quantity that a written name points to — the "how many" itself, independent of every way of writing it. A **numeral** is a written name of a number, whether one symbol or a group of them. A **digit** is said to be a single symbol of a writing system. Thus, $7$, VII and "seven" are three numerals naming one and the same number, and each numeral is built from digits — the Hindu-Arabic system supplies exactly ten, $0$ through $9$.',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'the number: seven — the idea you can carry, match and double, with no written form at all.',
+            'the numerals: $7$, VII and "seven" — three written names, one shared meaning.',
+            'the digits: $7$ alone is one digit; the Devanagari ११ is two digits (one and one) naming eleven — a different number from seven.',
+          ],
+        },
+        {
           kind: 'terms',
           items: [
             {
@@ -82,7 +97,7 @@ export const chapter01: Chapter = {
         { kind: 'heading', text: 'Why ten symbols are enough' },
         {
           kind: 'para',
-          text: 'The trick that makes the system inexhaustible is positional notation. Instead of inventing a new symbol whenever quantities grow, we reuse the same ten digits and let the position of each one announce its size. Working right to left, each seat on the stage is worth ten times the seat before it: first the ones, then the tens, then the hundreds, then the thousands. Almost certainly this "base ten" comes from our ten fingers — the original counting hardware. Other bases are perfectly legitimate (computers run on base two, and the ancient Mesopotamians computed in base sixty, which is why your clock counts to sixty), and we will revisit the idea properly later in the library. For now, watch the principle work on a concrete number:',
+          text: 'The trick that makes the system inexhaustible is positional notation. Instead of inventing a new symbol whenever quantities grow, we reuse the same ten digits and let the position of each one announce its size. Working right to left, each seat on the stage is worth ten times the seat before it: first the ones, then the tens, then the hundreds, then the thousands. Almost certainly this "base ten" comes from our ten fingers — the original counting hardware. Other bases are perfectly legitimate (computers run on base two, and the ancient Mesopotamians computed in base sixty, which is why your clock counts to sixty), and we will revisit the idea properly later in the library. For now, watch the principle work on a concrete number. Thus the same digit $5$ is worth $5$, or $50$, or $500$ according to the seat it occupies — a discipline of exact reuse that the derivation below makes precise:',
         },
         {
           kind: 'equation',

@@ -4,6 +4,7 @@ import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
+import { chapter06 } from './ch-06'
 
 /**
  * Foundation Mathematics — the first book of the Mathematics shelf.
@@ -67,22 +68,7 @@ export const foundationMathematics: Book = {
     chapter03,
     chapter04,
     chapter05,
-    {
-      number: 6,
-      slug: 'ratio-rate-proportion',
-      title: 'Ratio, Rate and Proportion',
-      summary:
-        'Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Ratio as a Comparison',
-        'Rates and Unit Rates',
-        'Proportion and Cross-Multiplication',
-        'Direct and Inverse Variation',
-        'Scaling: Maps, Models and Recipes',
-      ],
-    },
+    chapter06,
     {
       number: 7,
       slug: 'integers',

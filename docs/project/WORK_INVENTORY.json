@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 05:29:06 (Asia/Kolkata)",
+  "generated": "2026-11-04 06:32:50 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -48,8 +48,8 @@
                 "authoredOn": "2026-11-02",
                 "authoredInCommit": "1369d26",
                 "unit": "platform base (lesson 1.1 authored with the platform as pipeline validation)",
-                "words": 2851,
-                "readMins": 14,
+                "words": 3033,
+                "readMins": 15,
                 "concepts": [
                   "Number versus numeral versus digit",
                   "Positional (place-value) notation in base ten",
@@ -68,8 +68,9 @@
                 "sources": [],
                 "blockCounts": {
                   "para": 6,
-                  "callout": 4,
+                  "callout": 5,
                   "heading": 5,
+                  "list": 1,
                   "terms": 1,
                   "equation": 1,
                   "derivation": 1,
@@ -81,6 +82,7 @@
                 },
                 "calloutTones": {
                   "historical": 1,
+                  "definition": 1,
                   "warn": 1,
                   "insight": 1,
                   "exam": 1
@@ -219,7 +221,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 9708
+            "words": 9890
           },
           {
             "number": 2,
@@ -1586,17 +1588,85 @@
             "slug": "ratio-rate-proportion",
             "title": "Ratio, Rate and Proportion",
             "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Ratio as a Comparison",
               "Rates and Unit Rates",
               "Proportion and Cross-Multiplication",
               "Direct and Inverse Variation",
               "Scaling: Maps, Models and Recipes"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-ratio-as-a-comparison",
+                "number": "6.1",
+                "title": "Ratio as a Comparison",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4442,
+                "readMins": 22,
+                "concepts": [
+                  "Ratio",
+                  "Comparison by division",
+                  "Simplest form",
+                  "Equivalent ratios",
+                  "Continued ratio",
+                  "Sharing in a ratio",
+                  "Same units first",
+                  "The one-part engine"
+                ],
+                "objectives": [
+                  "Write and interpret ratios as part–part comparisons, and distinguish the ratio $a : b$ from the fraction $a/b$",
+                  "Reduce any ratio — whole numbers, decimals or fractions — to its unique simplest form with the HCF, converting units first when they disagree",
+                  "Generate and test equivalent ratios with the cross-test, and chain two pair-ratios into one continued ratio",
+                  "Share a quantity in a given ratio with the one-part engine, and recover totals or individual shares from partial information"
+                ],
+                "prerequisites": [
+                  "fm-highest-common-factor",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-operating-on-decimals"
+                ],
+                "sources": [
+                  "ncert-math6-ch12",
+                  "ncert-math7-ch8",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 21,
+                  "heading": 8,
+                  "callout": 7,
+                  "equation": 2,
+                  "list": 3,
+                  "example": 8,
+                  "formula": 4,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "definition": 1,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
+              }
+            ],
+            "words": 4442
           },
           {
             "number": 7,
@@ -1702,12 +1772,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 84,
-      "totalLines": 23321,
+      "totalLines": 23322,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2995,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 14061,
+        "src/data/library (content model + books)": 14062,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -1915,7 +1985,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-03",
+      "surveyed": "2026-11-04",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -5534,6 +5604,48 @@
           "del": 9
         }
       ]
+    },
+    {
+      "sha": "94f19627e93762d0e052a8deb27a7f8ceb3d3301",
+      "short": "94f1962",
+      "date": "2026-11-03 23:59",
+      "message": "inventory: record run-25 ship (fm 5.5 percentage change, discounts and simple interest live) — 23 lessons / 110,548 words / 150 terms / 115 quiz items / 233 exercise questions, ch. 5 CLOSED 5/5 (unit-5 completion review passed); next chapter 6 ratio, rate and proportion",
+      "filesChanged": 1,
+      "insertions": 67,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 67,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "b490cf70cf7ff5688f755bf5f408db5e22e708dc",
+      "short": "b490cf7",
+      "date": "2026-11-03 23:59",
+      "message": "memory: record run-25 push verification (94f1962), origin/main synced — FM 5.5 percentage change, discounts and simple interest operating live (the factor law on the original, the round-trip r²/100 % law with both return tickets drawn, profit/loss on cost, discount on the tag, the two-lane figure, the multiplier law, simple interest I = PRT/100 with the per-annum trap and the compound door open), ch. 5 CLOSED 5/5 with the unit-5 completion review passed; next chapter 6 ratio, rate and proportion",
+      "filesChanged": 3,
+      "insertions": 18,
+      "deletions": 12,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 8
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 7,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
@@ -5541,27 +5653,27 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 5,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 23,
-    "wordsAuthored": 110548,
-    "termsDefined": 150,
-    "quizItems": 115,
-    "exerciseQuestions": 233,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 24,
+    "wordsAuthored": 115172,
+    "termsDefined": 157,
+    "quizItems": 120,
+    "exerciseQuestions": 245,
     "blockTotals": {
-      "para": 333,
-      "callout": 115,
-      "heading": 149,
-      "terms": 24,
-      "equation": 30,
-      "derivation": 42,
-      "table": 23,
-      "figure": 37,
-      "example": 84,
-      "quiz": 23,
-      "exercises": 23,
-      "formula": 55,
-      "algorithm": 8,
-      "list": 15
+      "para": 354,
+      "callout": 123,
+      "heading": 157,
+      "list": 19,
+      "terms": 25,
+      "equation": 32,
+      "derivation": 43,
+      "table": 24,
+      "figure": 39,
+      "example": 92,
+      "quiz": 24,
+      "exercises": 24,
+      "formula": 59,
+      "algorithm": 8
     }
   }
 }

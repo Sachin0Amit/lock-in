@@ -6,7 +6,144 @@ and what remains.
 
 ---
 
-## 2026-11-04 — RUN 25 (cron, Job 498279): FM lesson 5.5 "Percentage Change, Discounts and Simple Interest" authored in the Cengage voice + solution chain — the chapter's final lesson closes unit 5 under one discipline (every percent names a base: "of what?"), and the RichText parser is upgraded to render $math$ inside **bold**/*italic* site-wide
+## 2026-11-04 — RUN 26 (cron, Job 498279): FM lesson 6.1 "Ratio as a Comparison" authored in the Cengage voice + solution chain — chapter 6 opens with the division lens (definition + same-units law, simplest form by the HCF, equivalent ratios as ch. 4's family, three-term ratios, and sharing as the unitary method's next dress); plus the queued per-run voice polish landed on lesson 1.1
+
+**Run open (push check first):** tree clean at `b490cf7` = local HEAD =
+remote HEAD (run-25 memory commit) — no push debt; the incoming run
+summary (run-15 era) was stale again: runs 16–25 are all in the ledger
+and both owner chat directives (step numbers removed run 15; Cengage
+solution chain run 16) are recorded complete. Task per RESUME_POINTER:
+FM chapter 6 opens — lesson 6.1 "Ratio as a Comparison" (create
+verify-unit-6.ts BEFORE writing, the unit-4/5 gitignore-exception
+pattern), then the queued per-run extra: voice polish of lesson 1.1.
+
+**References researched (web, sanctioned fallback — zero downloads):**
+NCERT class-6 ch. 12 "Ratio and Proportion" §12.1 (comparison by
+division, same-kind/same-unit terms, simplest form) — new citation key
+`ncert-math6-ch12`; NCERT class-7 ch. 8 "Comparing Quantities" §§8.1–8.2
+(Introduction — ratio between quantities in the same units; Equivalent
+Ratios — same value checked by reducing) — `ncert-math7-ch8` extended;
+Khattar QA 4e ratio staples for the exam corner. No temporary-references
+footprint.
+
+**Arithmetic pre-verified BEFORE writing:** verify-unit-6.ts created
+with **93 checks** (sections A–K) ALL PASS before a word was written: A
+the two lenses (15 vs 5 = 3; same difference 8 in classes 24/16 and
+48/40 with ratios 3:2 vs 6:5; 110:105 = 22:21 vs 10:5 = 2:1); B the
+same-units law (Rs 5 : 50 paise = 10 : 1; 15 kg : 210 g = 500 : 7;
+9 m : 27 cm = 100 : 3; 30 days : 36 hrs = 20 : 1; 5 m : 80 cm = 25 : 4;
+2 kg : 400 g = 5 : 1; the two-faces instance 24/16 = 3 : 2 and 24/40 =
+3/5); C simplest form (24:36 = 2:3; Euclid 91:104 = 7:8; 150:60 = 5:2;
+144:252 = 4:7; uniqueness; 0.75:1.25 = 3:5; 1.5:2.5 = 3:5; 2/3:5/6 =
+4:5; 3/4:9/16 = 4:3); D equivalents (cross-products 30/45/60; blanks
+12 and 30; 15:25 = 21:35 both 3:5; 4:7 ≠ 5:9; 18:30 = 3:5); E three
+terms (45:60:90 = 3:4:6; 6:10:15 joint-HCF-1 while every pair reduces;
+120:150:210 = 4:5:7; the A:B = 2:3, B:C = 6:7 → 4:6:7 splice); F the
+one-part engine (1,200 in 3:5 → 450/750 + both checks; 18,000 in 2:3:4
+→ 4,000/6,000/8,000; difference 120 → 180/300; the 3/8 and 5/8
+fraction dress; the inverse read 450 × 8/3 = 1,200; triangle 2:3:4 →
+40°/60°/80°; alloy 320 g in 7:9 → 140/180; 760 in 7:12 → 280/480);
+G/H both figures' geometry (8 cells of 80 px with A = 240 px = 3 cells
+and B = 400 px = 5 cells; dots at 24 px pitch with 9 left max at x 252
+and 15 right max at x 676, divider at 296 inside the 88 px gap); I the
+quiz keys 2/1/3/2/0 with every distractor killed numerically (the
+no-conversion fraud 1 : 16; the parts-as-ten fraud Rs 540; the 96 ≠ 90
+stranger 18 : 32); J the 12 exercise keys (incl. L6's Rs 1,020 in
+4:6:7 → 17 parts of 60 → 240/360/420 with 240:360 = 2:3 and 360:420 =
+6:7 read back, and the recognition table's five integral splits of
+630); K structural sanity. The pre-writing audit caught one real
+defect before any content existed (the L6 share arithmetic initially
+planned as "51 parts of 20" — correct shares either way, but the
+simplest road is 17 parts of 60; the script forced the clean version)
+— 93/93, then regressions green (unit-5 455, unit-4 330, unit-3 260,
+unit-2 165).
+
+**The lesson** (id `fm-ratio-as-a-comparison`, number 6.1, 4,442 honest
+words by the counter — book total 110,548 → 115,172): the opening ties
+ch. 5's close and names the two lenses (difference asks "how much
+more?", ratio asks "how many times?" — equal differences may hide
+unequal ratios and equal ratios may sit on unequal differences, the
+Note box); the **Definition callout** in the formal shape (same-kind,
+same-unit quantities; $a : b = a/b$, $b \neq 0$, a pure number) as
+equation tag 1 with the Leibniz-colon + Euclid–Eudoxus provenance
+note; the roman example run (15:5 = 3:1; 50:50 = 1:1; 110:105 =
+22:21); the **two-faces Note** (a : b is the part–part face, a/b the
+part–whole face; 24 : 16 = 3 : 2 against 24/40 = 3/5 in the class of
+40; a ratio alone never recovers the whole — 3 : 2 fits 40 as well as
+200); the **same-units law** with the convert-first Caution (Rs 5 : 50
+paise = 10 : 1, not 1 : 10) and Illustration (5 m : 80 cm = 25 : 4);
+the **simplest form** by ch. 3's HCF machinery (Illustrations 24 : 36
+= 2 : 3 and Euclid 91 : 104 = 7 : 8; formula card; the uniqueness Note
+carried from 4.2's lowest-terms theorem; decimals and fractions
+cleared first — Illustration 0.75 : 1.25 = 3 : 5); **equivalent
+ratios** as equation tag 2 ($a : b = ka : kb$, cross-test licence from
+4.3; fill-the-blank and the 15 : 25 = 21 : 35 verdicts); **figure 1:
+one ratio, many sizes** (three rows of dots 3+5, 6+10, 9+15 at 24 px
+pitch with the dashed divider at x 296; audit 0 issues FIRST pass, VLM
+10/10 math + 9/10 clarity); the **recognition table** (five benchmark
+ratios splitting Rs 630 integrally: 315/315, 210/420, 252/378,
+270/360, 280/350); **three-term ratios** (joint HCF; Illustration
+45 : 60 : 90 = 3 : 4 : 6; the 6 : 10 : 15 Caution — simplest though
+every pair reduces, full argument in exercise L6; the pair-chain
+splice A:B = 2:3, B:C = 6:7 → 4:6:7); **sharing in a given ratio** as
+the unitary method's next dress (**figure 2: the sharing map** — 8
+cells of 80 px, A 240 px = 3 cells shaded, B 400 px = 5 cells; audit
+0 issues FIRST pass, VLM 10/10 math + 8/10 clarity; the **share
+formula proved as a derivation block** — one part = T/(a+b), share =
+(parts/total parts) × T, the rebuild check $\tfrac{a}{a+b}T +
+\tfrac{b}{a+b}T = T$ exact by construction; Illustrations: Rs 1,200
+in 3 : 5 → 450/750; Rs 18,000 in 2 : 3 : 4 → 4,000/6,000/8,000; the
+difference story 3 : 5 with difference 120 → 180 and 300; the inverse
+read 450 × 8/3 = 1,200); the properties list (5 bullets, each with a
+verified instance); exam corner (NCERT class-6 ch. 12 §12.1 + class-7
+§§8.1–8.2 canon; SSC/bank/RRB shapes: simplest form, sharing, ratio +
+sum/difference, the A:B:C splice seeding partnership); 7 new terms; 4
+formula cards; 5-quiz (keys 2/1/3/2/0 verified live 5/5 + VLM score
+screenshot); 12 exercises L1–L6 (L6: the 6 : 10 : 15 justification and
+the A:B:C chain with Rs 1,020 → 240/360/420). **PLATFORM NOTE (this
+sandbox only):** the dev server's lesson routes 404 in this recycled
+sandbox instance for ALL lessons old and new — bisected by stashing
+the run's changes and re-testing the pre-change code (still 404), so
+an environment regression of Next dev's `dynamicParams=false` handling
+here, not a content defect; the quality gate was run against the
+PRODUCTION build (`bun run build` + `bun run start`): new lesson 200,
+old lessons 200, unknown id 404 (platform contract preserved), full
+E2E suite green on 14 lessons. Prior runs' dev-server checks stand as
+recorded; this deviation is logged, not silent.
+
+**Voice polish (queued per-run extra, 1.1 first):** lesson 1.1 gains
+the formal Definition callout "Number, numeral and digit" (is-said-to-be
+shape + Thus-line) with the roman example run (the number seven; the
+numerals 7, VII, "seven"; the digits 7 vs Devanagari ११ = eleven), and
+a Thus-line closing the base-ten paragraph (the same digit 5 worth 5,
+50 or 500 by the seat it occupies) — zero numbers changed, zero
+content moved; tsc + lint clean.
+
+**Verified:** verify-unit-6 93/93 + regressions 455/330/260/165; lint
+clean; tsc clean; routes via prod build (new 200, old 200, bogus 404);
+`audit-svg-overlaps.sh` on both new figures — 0 issues FIRST pass; E2E
+extended to 14 lessons with a dedicated 6.1 block — 8 caps headings,
+8 ILLUSTRATION pills, 8 Sol. pills ALL inline (inlineSolPills =
+solPills = 8), 25 step rows, stepNumberBadges 0, thereforeTags 24,
+legacyAnswerBoxes 0, KaTeX 293, dollarInSvg 0, exercises bar 12
+questions, quiz bar 5; quiz answered live with intended options
+(2/1/3/2/0) → "You scored 5/5" + Retake; all 12 solutions expand (36
+open collapsibles, 20 Sol. pills on the page with exercises); 2 new
+svg figures render; mobile 390px exact-fit (docScrollW 390,
+articleW 358); VLM: sharing map 10/10 math + 8/10 clarity, dots
+family 10/10 math + 9/10 clarity; instant-scroll screenshots reviewed
+directly — brackets, cells, dot counts, table tints and the derivation
+rail all correct; glossary 150 → 157 terms; book TOC shows 6.1
+written, plannedLessons down to four; tsc + lint clean.
+
+**Remaining:** ch. 6 lessons 6.2 Rates and Unit Rates → 6.5 Scaling;
+voice polish of the 13 remaining pre-4.2 lessons (one per run); 
+EXAM_REGISTRY.json research (44 skeleton entries).
+
+**Git:** commit `fm 6.1 ratio as a comparison (unit 6, run 26): ...`
++ inventory bookkeeping commit + pointer/memory commit; pushed via
+protocol v2 (sha recorded below after ls-remote verification).
+ (cron, Job 498279): FM lesson 5.5 "Percentage Change, Discounts and Simple Interest" authored in the Cengage voice + solution chain — the chapter's final lesson closes unit 5 under one discipline (every percent names a base: "of what?"), and the RichText parser is upgraded to render $math$ inside **bold**/*italic* site-wide
 
 **Run open (push check first):** tree clean at `700ba0f` = local HEAD =
 remote HEAD (the run-24 memory commit, verified at run open via a
