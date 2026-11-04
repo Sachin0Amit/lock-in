@@ -29,6 +29,7 @@ LESSONS=(
   fm-negative-numbers-why-they-exist
   fm-adding-subtracting-integers
   fm-multiplying-integers-sign-rules
+  fm-absolute-value-as-distance
 )
 
 for L in "${LESSONS[@]}"; do

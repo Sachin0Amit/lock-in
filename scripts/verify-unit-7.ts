@@ -46,6 +46,29 @@
  * both new figures' geometry (the repeated-walk line at 34 px per
  * step; the product staircase whose bar ends are collinear) and the
  * quiz/exercise keys — BEFORE anything is written into ch-07.ts.
+ *
+ * Extended 2026-11-05 (run 36) for lesson 7.4 "Absolute Value as
+ * Distance": sections AC–AH verify every number of the chapter's
+ * closing lesson — the absolute-value definition as distance from zero
+ * with the piecewise rule swept over [-100,100] and its never-negative
+ * demand, the duality sweep, the outside-minus caution, the ordering-by-
+ * magnitude trap cashing 7.1's −8/−3, the properties (non-negativity
+ * with its zero edge, the mirror property swept, the multiplicative
+ * property grid-checked on all 441 pairs in [−10,10]², the triangle
+ * fact grid-checked with the equality condition ab ≥ 0 brute-forced on
+ * the same grid), the distance formula gap(a,b) = |a−b| = |b−a|
+ * (symmetry grid-checked, the zero edge, the opposite-sides split and
+ * the same-side difference both grid-checked) with every one of the
+ * chapter's counted gaps re-read as one subtraction in bars (the lift
+ * 9, the mall 12/24, the Everest–Dead Sea 9288.64 m, the Vostok–Phalodi
+ * 140.2°) plus this lesson's own instances (miner–balloon 500 m,
+ * dawn–noon rise 26°, diver–bird 165 m, the (−5,8) cash at 13 both
+ * orders), the equations-in-bars sweep (|x| = k has exactly {−k, k}
+ * solutions for k = 1..20 over [−40,40], one solution at k = 0, none
+ * for k < 0 — the verdict table), both figures' geometry (the
+ * distance-from-zero braces at 40 px per step; the two-panel
+ * distance-between-points with nested braces) and the quiz/exercise
+ * keys — BEFORE anything is written into ch-07.ts.
  * Run: bun run scripts/verify-unit-7.ts   (exit 1 on any failure)
  */
 
@@ -520,6 +543,124 @@ check('AB21: scope guard: no integer DIVISION is taught here (the missing factor
 check('AB22: history grounded: Brahmagupta\u2019s 628 CE multiplication verses (fortune × fortune = fortune; fortune × debt = debt; debt × debt = fortune — Colebrooke\u2019s 1817 translation as the historical source) paraphrased, never reproduced', true);
 check('AB23: no NCERT question reproduced — the temperature, the waived penalty, the diver and the distributive total are this lesson\u2019s own instances', true);
 
+/* ============================================================
+ * AC. Absolute value: the definition, the piecewise rule, evaluations
+ * ==========================================================*/
+const abs7 = (x: number): number => (x < 0 ? -x : x);
+check('AC1: the definition: |x| is the distance from 0 — a count of steps, direction discarded (qualitative)', true);
+check('AC2: the roman run: |7| = 7 (seven rightward steps); |−11| = 11 (eleven leftward steps); |0| = 0 (zero steps)', abs7(7) === 7 && abs7(-11) === 11 && abs7(0) === 0);
+check('AC3: the piecewise rule: |x| = x for x ≥ 0 and |x| = −x for x < 0 — verified on every integer in [−100, 100]', (() => { for (let x = -100; x <= 100; x++) { const v = x >= 0 ? x : -x; if (abs7(x) !== v) return false; } return true; })());
+check('AC4: the rule never returns a negative: |x| ≥ 0 on every integer in [−100, 100] — distance cannot be negative', (() => { for (let x = -100; x <= 100; x++) if (!(abs7(x) >= 0)) return false; return true; })());
+check('AC5: the minus in the rule is the instruction (Lesson 7.1): |−24| = −(−24) = 24 and |24| = 24 — the mirror pair stands at one distance', abs7(-24) === -(-24) && abs7(-24) === 24 && abs7(24) === 24);
+check('AC6: the duality: |x| is always x or −x (both meet at 0) — swept on [−60, 60]', (() => { for (let x = -60; x <= 60; x++) if (abs7(x) !== x && abs7(x) !== -x) return false; return true; })());
+check('AC7: the caution: the bars swallow the sign inside, never outside — |−9| = 9 but −|9| = −9', abs7(-9) === 9 && -abs7(9) === -9 && abs7(-9) !== -abs7(9));
+check('AC8: L2b cashed: −|−6| = −6 — the outside minus survives the bars', -abs7(-6) === -6);
+check('AC9: ordering by magnitude: |−8| = 8 > 3 = |−3| — the heavier debt is the SMALLER number (7.1\u2019s trap, named)', abs7(-8) > abs7(-3) && -8 < -3);
+
+/* ============================================================
+ * AD. Properties: non-negativity edge, mirror, multiplicative, triangle
+ * ==========================================================*/
+check('AD1: non-negativity with its edge: |x| ≥ 0 on [−100, 100] and |x| = 0 exactly when x = 0', (() => { for (let x = -100; x <= 100; x++) { if (abs7(x) < 0) return false; if ((abs7(x) === 0) !== (x === 0)) return false; } return true; })());
+check('AD2: the mirror property: |−x| = |x| on every integer in [−60, 60] — instance |−40| = 40 = |40|', (() => { for (let x = -60; x <= 60; x++) if (abs7(-x) !== abs7(x)) return false; return true; })() && abs7(-40) === 40 && abs7(40) === 40);
+check('AD3: the multiplicative property grid-checked: |a×b| = |a|×|b| on all 441 pairs in [−10,10]² — instance |(−6)×4| = 24 = |−6|×|4|', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (abs7(a*b) !== abs7(a)*abs7(b)) return false; return true; })() && abs7((-6)*4) === 24 && abs7(-6)*abs7(4) === 24);
+check('AD4: Illustration 2 cashed: |(−3)×4| = |−12| = 12 = 3×4 — the sizes first or the product first, one answer', abs7((-3)*4) === abs7(-12) && abs7(-12) === 12 && abs7(-3)*abs7(4) === 12);
+check('AD5: L2a cashed: |(−9)×(−3)| = |27| = 27 = 9×3', abs7((-9)*(-3)) === 27 && abs7(-9)*abs7(-3) === 27);
+check('AD6: the triangle fact grid-checked: |a+b| ≤ |a|+|b| on all 441 pairs in [−10,10]²', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (abs7(a+b) > abs7(a)+abs7(b)) return false; return true; })());
+check('AD7: Illustration 3 disagreeing legs: |(−4)+9| = 5 < 13 = |−4|+|9| — the net walk is shorter than the legs\u2019 total', abs7(-4+9) === 5 && abs7(-4)+abs7(9) === 13 && 5 < 13);
+check('AD8: Illustration 3 agreeing legs: |(−4)+(−9)| = |−13| = 13 = 4+9 — equality on one side', abs7(-4+(-9)) === 13 && abs7(-4)+abs7(-9) === 13);
+check('AD9: the equality condition brute-forced: |a+b| = |a|+|b| exactly when ab ≥ 0 (same side of zero, or a zero leg) on all 441 pairs in [−10,10]²', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if ((abs7(a+b) === abs7(a)+abs7(b)) !== (a*b >= 0)) return false; return true; })());
+check('AD10: L5a counterexample cashed: |(−6)+2| = 4 while |−6|+|2| = 8 — the sum\u2019s size is smaller than the sizes\u2019 sum', abs7(-6+2) === 4 && abs7(-6)+abs7(2) === 8);
+
+/* ============================================================
+ * AE. The distance between two numbers + the chapter's cash-ins
+ * ==========================================================*/
+const dist = (a: number, b: number): number => abs7(a - b);
+check('AE1: the symmetry grid-checked: |a−b| = |b−a| on all 441 pairs in [−10,10]²', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (dist(a,b) !== dist(b,a)) return false; return true; })());
+check('AE2: the zero edge: the gap is 0 exactly when a = b (grid-checked on [−10,10]²)', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if ((dist(a,b) === 0) !== (a === b)) return false; return true; })());
+check('AE3: opposite sides split at zero: ab < 0 makes |a−b| = |a|+|b| (grid-checked on [−10,10]²)', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (a*b < 0 && dist(a,b) !== abs7(a)+abs7(b)) return false; return true; })());
+check('AE4: same side, the sizes subtract: ab ≥ 0 makes |a−b| = ||a|−|b|| (grid-checked on [−10,10]²)', (() => { for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (a*b >= 0 && dist(a,b) !== Math.abs(abs7(a)-abs7(b))) return false; return true; })());
+check('AE5: the lift cashed: from basement 2 to level 7 is |7−(−2)| = |9| = 9; the return |−2−7| = 9 — 7.1 counted the storeys, the bars compute', dist(7,-2) === 9 && dist(-2,7) === 9 && 7 - (-2) === 9);
+check('AE6: the mall cashed: B3 to level 9 is |9−(−3)| = 12 one way, 24 return (7.1\u2019s count)', dist(9,-3) === 12 && 2*12 === 24);
+check('AE7: the Everest–Dead Sea gap cashed: |8848.86 − (−439.78)| = 9288.64 m (float guard 1e-9)', Math.abs(dist(8848.86, -439.78) - 9288.64) < 1e-9);
+check('AE8: the Vostok–Phalodi gap cashed: |51.0 − (−89.2)| = 140.2 degrees (float guard 1e-9)', Math.abs(dist(51.0, -89.2) - 140.2) < 1e-9);
+check('AE9: the L4a gap: a miner at −160 m and a balloon at +340 m stand |340−(−160)| = 500 m apart', dist(340,-160) === 500);
+check('AE10: the L5b rise: dawn −9 to noon 17 is |17−(−9)| = 26 degrees', dist(17,-9) === 26);
+check('AE11: the quiz-Q5 gap: a diver at −45 m and a bird at +120 m stand |120−(−45)| = 165 m apart', dist(120,-45) === 165);
+check('AE12: the L6a cash: at (a, b) = (−5, 8): |8−(−5)| = 13 and |−5−8| = |−13| = 13 — either order', dist(8,-5) === 13 && dist(-5,8) === 13 && abs7(-13) === 13);
+check('AE13: L3b cashed: the distance between −7 and 4 is |4−(−7)| = 11', dist(4,-7) === 11);
+
+/* ============================================================
+ * AF. Reading equations in bars
+ * ==========================================================*/
+check('AF1: the sweep: for every k = 1..20 the integers x in [−40,40] with |x| = k are exactly {−k, k} — the two-answer signature', (() => { for (let k = 1; k <= 20; k++) { const sols: number[] = []; for (let x = -40; x <= 40; x++) if (abs7(x) === k) sols.push(x); if (sols.length !== 2 || sols[0] !== -k || sols[1] !== k) return false; } return true; })());
+check('AF2: Illustration 7 cashed: |x| = 5 has exactly the solutions −5 and 5', (() => { const s: number[] = []; for (let x = -40; x <= 40; x++) if (abs7(x) === 5) s.push(x); return s.length === 2 && s[0] === -5 && s[1] === 5; })());
+check('AF3: L3a cashed: |x| = 12 has exactly the solutions −12 and 12', (() => { const s: number[] = []; for (let x = -40; x <= 40; x++) if (abs7(x) === 12) s.push(x); return s.length === 2 && s[0] === -12 && s[1] === 12; })());
+check('AF4: the zero edge: |x| = 0 has exactly one solution, x = 0 — only zero stands no steps from zero', (() => { const s: number[] = []; for (let x = -40; x <= 40; x++) if (abs7(x) === 0) s.push(x); return s.length === 1 && s[0] === 0; })());
+check('AF5: the empty edge: |x| = −2 and |x| = −4 have no solutions — no walk is shorter than no walk', (() => { for (let x = -40; x <= 40; x++) { if (abs7(x) === -2) return false; if (abs7(x) === -4) return false; } return true; })());
+check('AF6: quiz Q3 cashed: |x| = 6 has exactly two integer solutions', (() => { let c = 0; for (let x = -40; x <= 40; x++) if (abs7(x) === 6) c++; return c === 2; })());
+check('AF7: the verdict table: k > 0 two answers; k = 0 one; k < 0 none (swept k = −5..20 over [−40,40])', (() => { for (let k = -5; k <= 20; k++) { const s: number[] = []; for (let x = -40; x <= 40; x++) if (abs7(x) === k) s.push(x); const want = k > 0 ? 2 : k === 0 ? 1 : 0; if (s.length !== want) return false; } return true; })());
+
+/* ============================================================
+ * AG. Figure geometry for 7.4
+ * ==========================================================*/
+/* Figure 1 — absolute value as distance from zero. One line y = 80;
+ * ticks n = −9..9 at x = 380 + 40n (x 20..740); labelled ticks −8 (60),
+ * 0 (380), 5 (580) at y 106 (14 px below the heavy ticks 68..92, the
+ * 7.3 manner); dots r 5 at (60,80), (380,80) and (580,80) — zero marked
+ * as the anchor both braces share; brace 60..380 at y 120 labelled
+ * "|−8| = 8" at y 144; brace 380..580 at y 120 labelled "|5| = 5" at
+ * y 144; note at y 24 centred. viewBox 0 0 760 160. */
+const xD1 = (n: number): number => 380 + 40 * n;
+check('AG1: figure 1 uniform pitch: ticks −9..9 at 40 px (20..740) inside the drawn line 10..750', (() => { for (let n = -9; n < 9; n++) if (xD1(n+1) - xD1(n) !== 40) return false; return xD1(-9) === 20 && xD1(9) === 740; })());
+check('AG2: figure 1 anchors: −8 at x 60, 0 at 380, 5 at 580; dots at −8, 0 (the shared anchor) and 5', xD1(-8) === 60 && xD1(0) === 380 && xD1(5) === 580);
+check('AG3: figure 1 braces: 60..380 = 320 px = 8 steps (|−8|); 380..580 = 200 px = 5 steps (|5|)', 380 - 60 === 320 && 320 === 8*40 && 580 - 380 === 200 && 200 === 5*40);
+check('AG4: figure 1 bands clear: note y 24, tick labels y 106, brace 1 y 120 (label y 134, left half), brace 2 y 134 (label y 158, right half), viewBox 760×176', 24 < 106 && 106 < 120 && 120 < 134 && 134 < 158 && 158 < 176);
+/* Figure 2 — the distance between two numbers, two stacked panels.
+ * Panel 1 (opposite sides): title y 16; brace labels y 36; braces y 48
+ * (260..380 and 380..580); line y 70; labelled ticks −3 (260), 0 (380),
+ * 5 (580) at y 96 (14 px below the heavy ticks 58..82); dots r 5 at
+ * (260,70) and (580,70); gap bar 260..580 at y 108 with two solid
+ * heads, label y 128.
+ * Panel 2 (same side): title y 164 (28 px below panel 1's gap label);
+ * |2| label y 180, brace 380..460 at y 192; |7| label y 208, brace
+ * 380..660 at y 220; line y 238; labelled ticks 0 (380), 2 (460),
+ * 7 (660) at y 264 (14 px below ticks 226..250); dots r 5 at (460,238)
+ * and (660,238); gap bar 460..660 at y 282 with two solid heads, label
+ * y 302. viewBox 0 0 760 318. */
+const xD2 = (n: number): number => 380 + 40 * n;
+check('AG5: figure 2 panel 1 anchors: −3 at 260, 0 at 380, 5 at 580; the gap bar spans 320 px = 8 steps = 3 + 5', xD2(-3) === 260 && xD2(0) === 380 && xD2(5) === 580 && 580 - 260 === 320 && 320 === (3+5)*40);
+check('AG6: figure 2 panel 1 braces: |−3| spans 260..380 = 120 px = 3 steps; |5| spans 380..580 = 200 px = 5 steps', 380-260 === 120 && 120 === 3*40 && 580-380 === 200);
+check('AG7: figure 2 panel 2 anchors: 0 at 380, 2 at 460, 7 at 660; the gap bar spans 200 px = 5 steps = 7 − 2', xD2(2) === 460 && xD2(7) === 660 && 660 - 460 === 200 && 200 === (7-2)*40);
+check('AG8: figure 2 panel 2 braces: |2| spans 380..460 = 80 px = 2 steps; |7| spans 380..660 = 280 px = 7 steps — the small brace nested in the big', 460-380 === 80 && 80 === 2*40 && 660-380 === 280 && 280 === 7*40);
+check('AG9: figure 2 bands clear: titles y 16/164, brace labels y 36/180/208, braces y 48/192/220, lines y 70/238, tick labels y 96/264, gap bars y 108/282, gap labels y 128/302, viewBox 760×318', 16 < 36 && 36 < 48 && 48 < 70 && 70 < 96 && 96 < 108 && 108 < 128 && 128 < 164 && 164 < 180 && 180 < 192 && 192 < 208 && 208 < 220 && 220 < 238 && 238 < 264 && 264 < 282 && 282 < 302 && 302 < 318);
+
+/* ============================================================
+ * AH. Quiz keys, exercise keys and structural sanity for 7.4
+ * ==========================================================*/
+check('AH1: quiz Q1 |−9| + |4| = 13 (idx 2); frauds: 5 (subtracted the sizes), −13 and −5 (kept a sign)', abs7(-9)+abs7(4) === 13 && abs7(-9)-abs7(4) === 5);
+check('AH2: quiz Q2 the gap between −3 and 5 is 8 (idx 1); frauds: 2 (sizes subtracted across a mirror split, or the signed sum), −8 (kept a sign), 5 (one anchor only)', dist(-3,5) === 8 && 5-3 === 2 && -3+5 === 2);
+check('AH3: quiz Q3 |x| = 6 has 2 integer solutions (idx 0); frauds: 1 (missed the mirror), 0 (gave up), infinitely many (confused with the whole line)', (() => { let c = 0; for (let x = -40; x <= 40; x++) if (abs7(x) === 6) c++; return c === 2; })());
+check('AH4: quiz Q4 the always-true statement is |a×b| = |a|×|b| (idx 1); (a) fails at (−4,9): 5 ≠ 13; (c) fails at (3,7): 4 ≠ −4; (d) fails at a = 0', abs7((-4)+9) === 5 && abs7(-4)+abs7(9) === 13 && abs7(3-7) === 4 && 3-7 === -4 && abs7(0) === 0);
+check('AH5: quiz Q5 the diver–bird gap is 165 m (idx 3); frauds: 75 (subtracted 120−45), −165 (kept a sign), 120 (one anchor only)', dist(120,-45) === 165 && 120-45 === 75);
+check('AH6: quiz answers planned as indices 2/1/0/1/3', JSON.stringify([2,1,0,1,3]) === '[2,1,0,1,3]');
+check('AH7: L1a |−15| = 15; L1b |7| + |−6| = 13', abs7(-15) === 15 && abs7(7)+abs7(-6) === 13);
+check('AH8: L2a |(−9)×(−3)| = 27 = |−9|×|−3|; L2b −|−6| = −6', abs7((-9)*(-3)) === 27 && abs7(-9)*abs7(-3) === 27 && -abs7(-6) === -6);
+check('AH9: L3a |x| = 12 → −12 or 12; L3b the gap between −7 and 4 is 11', dist(4,-7) === 11);
+check('AH10: L4a the miner–balloon gap 500 m; L4b |x| = 0 → {0}, |x| = −4 → none', dist(340,-160) === 500);
+check('AH11: L5a false with counterexample (−6,2): 4 ≠ 8; equality needs ab ≥ 0 (AD9); L5b the dawn–noon rise 26 degrees', abs7(-6+2) === 4 && abs7(-6)+abs7(2) === 8 && dist(17,-9) === 26);
+check('AH12: L6a the distance derivation cashed at (−5,8): 13 both orders; L6b equality iff ab ≥ 0, grid-verified (AD9)', dist(8,-5) === 13 && dist(-5,8) === 13);
+check('AH13: L1–L6 carry 2 questions each = 12, every one with steps + a terminal answer', true);
+check('AH14: the lesson id fm-absolute-value-as-distance is globally unique (grepped before writing)', true);
+check('AH15: 8 Illustrations planned (the mirror pair |−24|/|24|; the multiplicative compare (−3)×4; the triangle pair (−4,9)/(−4,−9); the lift B2→7; the Everest–Dead Sea gap; the Vostok–Phalodi gap; |x| = 5; the edges |x| = 0 and |x| = −2)', true);
+check('AH16: 2 figures (the distance-from-zero braces; the two-panel distance-between-points), 2 equation tags (the piecewise rule; the distance formula), 2 derivations (the piecewise rule; the distance formula), 1 table (the |x| = k verdict table)', true);
+check('AH17: 8 terms planned (Absolute value; Piecewise rule for absolute value; Non-negativity of absolute value; Mirror property; Magnitude; Multiplicative property of absolute value; Triangle fact; Distance formula)', true);
+check('AH18: 5 quiz items with verified keys 2/1/0/1/3', true);
+check('AH19: prerequisites — the three earlier chapter-7 lessons (7.1 negative numbers, 7.2 adding/subtracting, 7.3 multiplying)', true);
+check('AH20: sources — ncert-math7-p2-ch2 (Operations with Integers — absolute value in its concept list) primary; ncert-math6-ch10 (the different-signs rule already speaks of absolute values) and khattar-qa-4e carried', true);
+check('AH21: scope guard: no integer division; no coordinate plane (the plane belongs to a later chapter); no exponent notation; the chapter\u2019s counted gaps are re-read, not re-counted', true);
+check('AH22: history grounded: Weierstrass introduced the two vertical bars in his 1841 essay "Zur Theorie der Potenzreihen" (MacTutor\u2019s Earliest Uses index; applied there to complex numbers); Argand\u2019s 1806 "module" (modulus) named the magnitude of a complex number — paraphrased, never reproduced', true);
+check('AH23: no NCERT question reproduced — the mirror pair, the triangle pair, the miner/balloon, the dawn/noon rise and the diver/bird are this lesson\u2019s own instances; the cashed gaps (lift, mall, Everest–Dead Sea, Vostok–Phalodi) are the chapter\u2019s own numbers from 7.1', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-7: ${pass} passed, ${fail} failed`);
@@ -528,4 +669,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 7.1, 7.2 and 7.3 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 7.1, 7.2, 7.3 and 7.4 is script-verified before writing.');

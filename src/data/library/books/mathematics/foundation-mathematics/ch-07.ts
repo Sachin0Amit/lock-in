@@ -94,6 +94,45 @@ import type { Chapter } from '../../../types'
  * exponent notation. Every number pre-verified by
  * scripts/verify-unit-7.ts (231 checks, A–AB).
  *
+ * LESSON 7.4 Absolute Value as Distance (run 36, 2026-11-05) — the
+ * chapter's closing lesson, and the full treatment 7.1 promised: the
+ * bars read the SIZE of a number, direction discarded. The distance
+ * definition (is-said-to-be callout) + the piecewise rule as equation
+ * tag 1 (the minus inside the bars is 7.1's INSTRUCTION, not a verdict
+ * — the double reflection paying off again); the roman run |7| |−11|
+ * |0|; the rule's derivation (distance is a count — never negative;
+ * x itself on the non-negative side; the mirror twin −x on the
+ * negative side; both lines meeting at |0| = 0); figure 1 the
+ * distance-from-zero braces (|−8| = 8 and |5| = 5 at 40 px per step,
+ * direction never mentioned); the ordering-by-magnitude cash of 7.1's
+ * trap (−8 is the smaller number with the bigger size); the five
+ * properties with instances and grid certificates (non-negativity
+ * with its zero edge; the mirror property |−x| = |x| swept on
+ * [−60,60]; the duality |x| ∈ {x, −x}; the multiplicative property
+ * |a×b| = |a||b| on all 441 pairs in [−10,10]^2; the triangle fact
+ * |a+b| ≤ |a|+|b| with the equality condition ab ≥ 0 brute-forced on
+ * the same grid); the outside-minus Caution (|−9| = 9 but −|9| = −9);
+ * figure 2 the two-panel distance-between-points (opposite sides: the
+ * gap |5−(−3)| = 8 splits at zero into 3 + 5; same side: the gap
+ * |7−2| = 5 is the leftover of 7 after 2 borrows its share — nested
+ * braces); the distance formula gap(a,b) = |a−b| = |b−a| as equation
+ * tag 2 with its derivation (the walk from a to b is b − a by 7.2's
+ * movement model; the size is the gap; the reversed walk is the
+ * opposite displacement with the same size) — CASHING every gap the
+ * chapter has counted: the lift 9 (both orders), the mall 12/24, the
+ * Everest–Dead Sea 9288.64 m, the Vostok–Phalodi 140.2°; the
+ * opposite-sides split |a−b| = |a|+|b| and the same-side difference
+ * both grid-verified; the verdict table for |x| = k (two answers for
+ * k > 0 — the two-answer signature; one at k = 0; none for k < 0);
+ * the bars-erase-exactly-one-bit insight; the historical callout
+ * (Argand's 1806 modulus; Weierstrass's 1841 |x| in "Zur Theorie der
+ * Potenzreihen", MacTutor-grounded); 8 terms, 5-quiz keys 2/1/0/1/3,
+ * 12 exercises L1–L6 (L6: the distance derivation cashed at (−5,8);
+ * the equality condition ab ≥ 0 proved by cases). Scope guard: no
+ * integer division, no coordinate plane (the plane belongs to a later
+ * chapter), no exponent notation. Every number pre-verified by
+ * scripts/verify-unit-7.ts (302 checks, A–AH).
+ *
  * References for this unit: NCERT Ganita Prakash class-6 ch. 10 "The
  * Other Side of Zero" (the other side of the number line — narrative
  * cited, not reproduced) + class-7 part-2 ch. 2 "Operations with
@@ -108,9 +147,7 @@ export const chapter07: Chapter = {
   summary:
     'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.',
   status: 'in-progress',
-  plannedLessons: [
-    'Absolute Value as Distance',
-  ],
+  plannedLessons: [],
   lessons: [
     {
       id: 'fm-negative-numbers-why-they-exist',
@@ -1971,5 +2008,644 @@ export const chapter07: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-absolute-value-as-distance',
+      number: '7.4',
+      title: 'Absolute Value as Distance',
+      concepts: [
+        'Absolute value as distance from zero',
+        'The piecewise rule',
+        'The mirror property',
+        'Ordering by magnitude',
+        'The multiplicative property',
+        'The triangle fact',
+        'The distance between two numbers',
+        'Reading equations in bars',
+      ],
+      objectives: [
+        'Define absolute value as distance from zero, evaluate it by the piecewise rule, and justify why the rule never returns a negative',
+        'Verify the properties — non-negativity, the mirror property, the duality, the multiplicative property, the triangle fact — with instances and counterexamples',
+        'Order integers by magnitude and separate "greater number" from "greater size"',
+        'Compute the distance between any two integers as |a − b| = |b − a|, and re-read the chapter\u2019s counted gaps — the lift, the Everest–Dead Sea gap, the Vostok–Phalodi gap — as one subtraction in bars',
+        'Solve absolute-value equations |x| = k — two answers for k > 0, one for k = 0, none for k < 0 — and explain each verdict geometrically',
+      ],
+      prerequisites: [
+        'fm-negative-numbers-why-they-exist',
+        'fm-adding-subtracting-integers',
+        'fm-multiplying-integers-sign-rules',
+      ],
+      sources: ['ncert-math7-p2-ch2', 'ncert-math6-ch10', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Three lessons have rebuilt the number line from the ground up. Lesson 7.1 chose a zero, named the two directions, and grew the line a left half; Lesson 7.2 taught the line to walk, and every addition and subtraction became a journey; Lesson 7.3 gave the walk a drumbeat, and the four sign cases — minus-times-minus included — were derived, not decreed. One question has been waiting since 7.1\u2019s first look: *how big is a number, direction discarded?* The question sounds casual, but it carries the chapter\u2019s whole payoff — every gap this book has counted by pacing it out (the lift\u2019s storeys, the degrees between Vostok and Phalodi, the metres between Everest and the Dead Sea) is about to collapse into one expression wearing two vertical bars.',
+        },
+        {
+          kind: 'para',
+          text: 'The notion matters because so many questions are *direction-blind*. Which is the heavier debt — $-8$ or $-3$? Which reading is the more extreme? How far does the thermometer swing between dawn and noon? In each, the signs aim the answer but the *sizes* decide it, and a notation that reads only the size turns wordy questions into one-line computations. There is a surprise waiting too: the innocent-looking equation $|x| = 5$ has *two* answers — the first equation in this book whose solution set is a pair — and that surprise is exactly why absolute-value questions are an examination staple.',
+        },
+        { kind: 'heading', text: 'Absolute value: the size of a number' },
+        {
+          kind: 'para',
+          text: 'Every integer wears two pieces of information, and the line displays both: *which side of the chosen zero* (the sign) and *how many steps from it* (the size). Lesson 7.1 named the side, taught opposites, and took a first look at the size — $|-8| = |8| = 8$, $|0| = 0$ — promising the full treatment for later. Later has arrived. The official notion keeps 7.1\u2019s meaning and adds a name, a notation and a rule.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Absolute value (the distance definition)',
+          text: 'The **absolute value** of an integer $x$ is said to be its **distance from $0$ on the number line** — the count of steps from the chosen zero to $x$, direction discarded. It is written $|x|$, read \u201cthe absolute value of $x$\u201d. Distance is a count of steps and never a direction, so an absolute value is never negative. Thus $|-8| = |8| = 8$: the mirror pair of Lesson 7.1 stands at *one* distance from zero, and the bars read that distance without asking which twin they were handed.',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$|7| = 7$: seven steps rightward — the count is $7$.',
+            '$|-11| = 11$: eleven steps leftward — the count is $11$, the *opposite* of the number. The minus named the direction; the bars keep only the count.',
+            '$|0| = 0$: zero steps from zero. Zero is its own distance — the one integer the bars leave exactly as they found it.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The three readings follow one rule, and the rule writes itself once the two cases are told apart. For a non-negative $x$, the steps from zero to $x$ *are* the number $x$ — counting them rightward needs no instruction. For a negative $x$, the count of steps is the *opposite* of the number: the minus inside the bars is Lesson 7.1\u2019s instruction (\u201ctake the opposite\u201d), and applying it to a negative lands on positive ground — $|-24| = -(-24) = 24$, the double reflection paying off yet again.',
+        },
+        {
+          kind: 'equation',
+          latex: '|x| \\;=\\; \\begin{cases} x, & x \\ge 0, \\\\[2pt] -x, & x < 0, \\end{cases} \\qquad |0| = 0',
+          note: 'The two-line rule — the definition, computed. The minus in the second line is an instruction, not a verdict: for a negative $x$, the distance to zero is $x$\u2019s opposite, which lands positive. Script-checked on every integer in $[-100, 100]$.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the rule computes the distance',
+          statement:
+            'The definition demands a distance: a count of steps, never negative. Why does the two-line rule — $x$ itself on the non-negative side, the opposite $-x$ on the negative side — always return exactly that count?',
+          steps: [
+            {
+              label: 'Distances are counts, so they cannot be negative',
+              formula: '|x| \\ge 0 \\quad \\text{for every integer } x',
+              explanation:
+                'A count of steps between two points on the line cannot be less than zero. This is the definition\u2019s first demand — any rule that returns a negative has miscounted.',
+            },
+            {
+              label: 'The non-negative side needs no instruction',
+              formula: 'x \\ge 0 \\;\\Longrightarrow\\; |x| = x',
+              explanation:
+                'From zero to a non-negative $x$ the steps count rightward to exactly $x$ — the number is its own distance. Instances: $|7| = 7$, $|0| = 0$.',
+            },
+            {
+              label: 'The negative side borrows the mirror',
+              formula: 'x < 0 \\;\\Longrightarrow\\; |x| = -x',
+              explanation:
+                'From zero to a negative $x$ the steps count to the mirror twin $-x$ (Lesson 7.1): $|-11| = -(-11) = 11$. The minus inside the bars is the instruction; the output lands positive.',
+            },
+            {
+              label: 'The two cases meet at zero',
+              formula: '|0| = 0',
+              explanation:
+                'Zero stands no steps from itself; both lines of the rule agree there, and the piecewise machinery closes without a gap.',
+            },
+          ],
+          result:
+            'For every integer the two-line rule returns exactly the count of steps from zero — never negative; equal to $x$ on the right side of zero, to $-x$ on the left.',
+        },
+        {
+          kind: 'para',
+          text: 'Figure 1 draws the definition: two points, two distance braces, one question — *how many steps from zero?* — asked without once mentioning a direction. The same picture settles comparisons that sign-reading cannot. Which is the heavier debt, $-8$ or $-3$? As *numbers*, $-8 < -3$ — Lesson 7.1\u2019s trap: more debt is less wealth. As *sizes*, the verdict flips: $|-8| = 8 > 3 = |-3|$ — eight steps from zero outweighs three. Ordering by magnitude is a different question from ordering the numbers, and the bars keep the two from blurring.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Absolute value as distance from zero: $|-8| = 8$ and $|5| = 5$. Each brace measures the count of steps from the chosen zero — the left brace walks eight steps into the negative side, the right five into the positive — and reports the count with no direction attached. The bars ask *how far*, never *which way*.',
+          svg: `<svg viewBox="0 0 760 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The number line with a brace of eight steps from zero to minus eight and a brace of five steps from zero to five, both distances read by absolute value bars">
+  <line x1="10" y1="80" x2="750" y2="80" stroke="currentColor" stroke-width="2"/>
+  <polygon points="10,80 24,73 24,87" fill="currentColor"/>
+  <polygon points="750,80 736,73 736,87" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="20" y1="73" x2="20" y2="87"/><line x1="100" y1="73" x2="100" y2="87"/>
+    <line x1="140" y1="73" x2="140" y2="87"/><line x1="180" y1="73" x2="180" y2="87"/>
+    <line x1="220" y1="73" x2="220" y2="87"/><line x1="260" y1="73" x2="260" y2="87"/>
+    <line x1="300" y1="73" x2="300" y2="87"/><line x1="340" y1="73" x2="340" y2="87"/>
+    <line x1="420" y1="73" x2="420" y2="87"/><line x1="460" y1="73" x2="460" y2="87"/>
+    <line x1="500" y1="73" x2="500" y2="87"/><line x1="540" y1="73" x2="540" y2="87"/>
+    <line x1="620" y1="73" x2="620" y2="87"/><line x1="660" y1="73" x2="660" y2="87"/>
+    <line x1="700" y1="73" x2="700" y2="87"/><line x1="740" y1="73" x2="740" y2="87"/>
+  </g>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="60" y1="68" x2="60" y2="92"/><line x1="380" y1="68" x2="380" y2="92"/>
+    <line x1="580" y1="68" x2="580" y2="92"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="60" y="106">−8</text><text x="380" y="106">0</text><text x="580" y="106">5</text>
+  </g>
+  <circle cx="60" cy="80" r="5" fill="currentColor"/>
+  <circle cx="380" cy="80" r="5" fill="currentColor"/>
+  <circle cx="580" cy="80" r="5" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="60" y1="120" x2="380" y2="120"/>
+    <line x1="60" y1="114" x2="60" y2="126"/>
+    <line x1="380" y1="114" x2="380" y2="126"/>
+    <line x1="380" y1="134" x2="580" y2="134"/>
+    <line x1="380" y1="128" x2="380" y2="140"/>
+    <line x1="580" y1="128" x2="580" y2="140"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="220" y="144">|−8| = 8</text><text x="480" y="158">|5| = 5</text>
+  </g>
+  <text x="380" y="24" font-size="12.5" fill="currentColor" text-anchor="middle">the bars ask: how many steps from zero? — never which way</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $|-24|$ and $|24|$, and explain why the two agree.',
+          steps: [
+            'Now, $24$ and $-24$ are a mirror pair (Lesson 7.1) — same distance from zero, opposite sides.',
+            'So each stands $24$ steps from zero: $|-24| = -(-24) = 24$ and $|24| = 24$.',
+            'Hence both read $24$ — the bars ask for the count of steps, and direction is not a step. One distance, two signs, one answer.',
+          ],
+        },
+        { kind: 'heading', text: 'What the bars do — and what they never do' },
+        {
+          kind: 'para',
+          text: 'A notation earns its keep by what it protects you from. The properties below are the bars\u2019 working habits; each carries an instance, and the two grid-checked ones carry sweep certificates — every pair in $[-10, 10]^2$, no exceptions.',
+        },
+        {
+          kind: 'list',
+          items: [
+            '**non-negativity**: $|x| \\ge 0$ for every integer $x$, and $|x| = 0$ only when $x = 0$ — instance $|-13| = 13$. Distance has no negative dress; the single edge case is zero itself.',
+            '**the mirror property**: $|-x| = |x|$ — instance $|-40| = 40 = |40|$. Mirror pairs are indistinguishable to the bars; swept on all integers in $[-60, 60]$.',
+            '**the duality**: every absolute value is one of the two numbers it encloses — $|x| = x$ or $|x| = -x$ (both meet at $|0| = 0$). The bars never invent a third value.',
+            '**the multiplicative property**: $|a \\times b| = |a| \\times |b|$ — instance $|(-6) \\times 4| = |-24| = 24 = 6 \\times 4$. Grid-checked on all $441$ pairs in $[-10, 10]^2$: the sign may be cancelled inside the bars or outside — the size never notices.',
+            '**the triangle fact**: $|a + b| \\le |a| + |b|$ — instance $|(-4) + 9| = 5 \\le 13 = 4 + 9$. The two-leg walk is never longer than the legs\u2019 total (grid-checked on all $441$ pairs); equality holds exactly when the legs stand on the same side of zero, or one leg is zero.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'A minus outside the bars is not swallowed',
+          text: 'The bars erase the sign of what is *inside* them — nothing more. A minus *outside* keeps its full strength: $|-9| = 9$, but $-|9| = -9$. The pair is worth memorising as a contrast, because examination keys mine the difference: the first asks how far $-9$ sits from zero; the second asks for the opposite of $|9|$ — a distance, then negated. Read from the outside in: bars first, then whatever the outside hands you.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $|(-3) \\times 4|$ and $|-3| \\times |4|$, and compare.',
+          steps: [
+            'Now, product first: $(-3) \\times 4 = -12$ by 7.3\u2019s sign rules, so $|(-3) \\times 4| = |-12| = 12$.',
+            'So sizes first: $|-3| = 3$ and $|4| = 4$, and $3 \\times 4 = 12$.',
+            'Hence both roads land on $12$ — the multiplicative property at $(-3, 4)$: for products, the sign can be handled inside the bars or outside, and the size never notices.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The triangle fact deserves a paragraph of its own, because it is 7.2\u2019s movement model read with size-blind eyes. Two legs of sizes $|-4| = 4$ and $|9| = 9$ make a journey. If the legs *agree*, every step compounds and the net size is the full $13$; if they *disagree*, the walk doubles back on itself and the net size is the *difference* — $|(-4) + 9| = |5| = 5$. A journey is never longer than the sum of its legs, and it is shorter exactly when the legs fight each other.',
+        },
+        {
+          kind: 'example',
+          title: 'Decide, with reasons, whether $|a + b| = |a| + |b|$ at $(a, b) = (-4, 9)$ and at $(-4, -9)$.',
+          steps: [
+            'Now, at $(-4, 9)$ the legs disagree: $|(-4) + 9| = |5| = 5$, while $|-4| + |9| = 4 + 9 = 13$ — the walk doubled back, and $5 \\ne 13$.',
+            'So at $(-4, -9)$ the legs agree: $|(-4) + (-9)| = |-13| = 13 = 4 + 9$ — every step compounded, and equality holds.',
+            'Hence the rule behind the two verdicts: equality holds exactly when the two integers stand on the same side of zero (or one is $0$) — grid-verified on all $441$ pairs in $[-10, 10]^2$. Disagreeing sides pay the backtrack toll.',
+          ],
+        },
+        { kind: 'heading', text: 'The distance between two numbers' },
+        {
+          kind: 'para',
+          text: 'Lesson 7.1 counted the chapter\u2019s gaps the honest way — pacing them out: the lift climbed $9$ storeys one at a time; the Everest–Dead Sea gap was read as two distances to sea level and added; the Vostok–Phalodi span was counted degree by degree. Pacing works, but it is slow and it is not a formula. The bars supply what pacing lacks. The walk from $a$ to $b$ satisfies $a + (\\text{the walk}) = b$, so by 7.2\u2019s movement model the walk itself is $b - a$; its *size* — direction discarded — is exactly the gap.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{the gap between } a \\text{ and } b \\;=\\; |a - b| \\;=\\; |b - a|',
+          note: 'The distance formula for the line. Script-verified on all $441$ pairs in $[-10, 10]^2$: the two orders agree everywhere, and the gap is $0$ exactly when $a = b$. Walking the other way never changes the distance.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the gap is |a − b|',
+          statement:
+            'The gap between two integers $a$ and $b$ should be a single number — no pacing, no sign table. Why is it $|a - b|$, and why does the reversed order give the same answer?',
+          steps: [
+            {
+              label: 'Name the walk',
+              formula: 'a + (b - a) = b',
+              explanation:
+                '7.2\u2019s movement model says final position = start + walk; solving for the walk gives $b - a$ — the signed displacement from $a$ to $b$, positive when $b$ lies rightward of $a$, negative when leftward.',
+            },
+            {
+              label: 'Keep the size',
+              formula: '\\text{gap}(a, b) = |b - a|',
+              explanation:
+                'The gap is the walk with its direction discarded — the definition of absolute value applied to the displacement.',
+            },
+            {
+              label: 'Reverse the walk',
+              formula: 'a - b = -(b - a) \\;\\Longrightarrow\\; |a - b| = |b - a|',
+              explanation:
+                'The walk from $b$ to $a$ is the opposite displacement, and mirror opposites share one size (the mirror property). Either order computes the same gap.',
+            },
+            {
+              label: 'Read the edges',
+              formula: 'a = b \\;\\Longrightarrow\\; |a - b| = 0',
+              explanation:
+                'No displacement, no gap; and the grid check confirms the converse — a zero gap forces $a = b$.',
+            },
+          ],
+          result:
+            'For all integers $a$ and $b$: the gap is $|a - b| = |b - a|$ — one subtraction in bars, direction-free, zero exactly when the anchors coincide.',
+        },
+        {
+          kind: 'para',
+          text: 'The formula also explains, in one picture, the two ways gaps used to be computed. When the anchors stand on *opposite sides* of zero — $a \\times b < 0$ — every journey between them passes through zero, and the gap splits into the two distances to zero: $|a - b| = |a| + |b|$. That is why the Everest–Dead Sea and Vostok–Phalodi gaps were *sums* in 7.1. When the anchors share a side, the smaller size is a detour the bigger one already covers, and the gap is the *difference* of the sizes. Figure 2 draws both layouts.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The distance between two numbers, both layouts. Panel 1 — opposite sides: the gap $|5 - (-3)| = |8| = 8$ splits at zero into $|-3| = 3$ plus $|5| = 5$; the sizes *add*. Panel 2 — same side: the gap $|7 - 2| = 5$ is what survives of the size $7$ after the size $2$ borrows its share; the sizes *subtract*. Either way one formula: the gap is $|a - b|$.',
+          svg: `<svg viewBox="0 0 760 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two number-line panels: opposite-side anchors whose gap equals the sum of the distances to zero, and same-side anchors whose gap equals the difference of the sizes">
+  <text x="380" y="16" font-size="12.5" fill="currentColor" text-anchor="middle">opposite sides — the sizes add</text>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="320" y="36">|−3| = 3</text><text x="480" y="36">|5| = 5</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="260" y1="48" x2="380" y2="48"/>
+    <line x1="260" y1="42" x2="260" y2="54"/>
+    <line x1="380" y1="42" x2="380" y2="54"/>
+    <line x1="380" y1="48" x2="580" y2="48"/>
+    <line x1="580" y1="42" x2="580" y2="54"/>
+  </g>
+  <line x1="10" y1="70" x2="750" y2="70" stroke="currentColor" stroke-width="2"/>
+  <polygon points="10,70 24,63 24,77" fill="currentColor"/>
+  <polygon points="750,70 736,63 736,77" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="20" y1="63" x2="20" y2="77"/><line x1="60" y1="63" x2="60" y2="77"/>
+    <line x1="100" y1="63" x2="100" y2="77"/><line x1="140" y1="63" x2="140" y2="77"/>
+    <line x1="180" y1="63" x2="180" y2="77"/><line x1="220" y1="63" x2="220" y2="77"/>
+    <line x1="300" y1="63" x2="300" y2="77"/><line x1="340" y1="63" x2="340" y2="77"/>
+    <line x1="420" y1="63" x2="420" y2="77"/><line x1="460" y1="63" x2="460" y2="77"/>
+    <line x1="500" y1="63" x2="500" y2="77"/><line x1="540" y1="63" x2="540" y2="77"/>
+    <line x1="620" y1="63" x2="620" y2="77"/><line x1="660" y1="63" x2="660" y2="77"/>
+    <line x1="700" y1="63" x2="700" y2="77"/><line x1="740" y1="63" x2="740" y2="77"/>
+  </g>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="260" y1="58" x2="260" y2="82"/><line x1="380" y1="58" x2="380" y2="82"/>
+    <line x1="580" y1="58" x2="580" y2="82"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="260" y="96">−3</text><text x="380" y="96">0</text><text x="580" y="96">5</text>
+  </g>
+  <circle cx="260" cy="70" r="5" fill="currentColor"/>
+  <circle cx="580" cy="70" r="5" fill="currentColor"/>
+  <line x1="260" y1="108" x2="580" y2="108" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="260,108 274,102 274,114" fill="currentColor"/>
+  <polygon points="580,108 566,102 566,114" fill="currentColor"/>
+  <text x="420" y="128" font-size="12.5" fill="currentColor" text-anchor="middle">the gap — |5 − (−3)| = |8| = 8</text>
+  <text x="380" y="164" font-size="12.5" fill="currentColor" text-anchor="middle">same side — the sizes subtract</text>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="420" y="180">|2| = 2</text><text x="520" y="208">|7| = 7</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="380" y1="192" x2="460" y2="192"/>
+    <line x1="380" y1="186" x2="380" y2="198"/>
+    <line x1="460" y1="186" x2="460" y2="198"/>
+    <line x1="380" y1="220" x2="660" y2="220"/>
+    <line x1="380" y1="214" x2="380" y2="226"/>
+    <line x1="660" y1="214" x2="660" y2="226"/>
+  </g>
+  <line x1="10" y1="238" x2="750" y2="238" stroke="currentColor" stroke-width="2"/>
+  <polygon points="10,238 24,231 24,245" fill="currentColor"/>
+  <polygon points="750,238 736,231 736,245" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.5">
+    <line x1="20" y1="231" x2="20" y2="245"/><line x1="60" y1="223" x2="60" y2="237"/>
+    <line x1="100" y1="223" x2="100" y2="237"/><line x1="140" y1="223" x2="140" y2="237"/>
+    <line x1="180" y1="223" x2="180" y2="237"/><line x1="220" y1="223" x2="220" y2="237"/>
+    <line x1="260" y1="223" x2="260" y2="237"/><line x1="300" y1="223" x2="300" y2="237"/>
+    <line x1="340" y1="223" x2="340" y2="237"/><line x1="420" y1="223" x2="420" y2="237"/>
+    <line x1="500" y1="223" x2="500" y2="237"/><line x1="540" y1="223" x2="540" y2="237"/>
+    <line x1="580" y1="223" x2="580" y2="237"/><line x1="620" y1="223" x2="620" y2="237"/>
+    <line x1="700" y1="223" x2="700" y2="237"/><line x1="740" y1="223" x2="740" y2="237"/>
+  </g>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="380" y1="226" x2="380" y2="250"/><line x1="460" y1="218" x2="460" y2="242"/>
+    <line x1="660" y1="218" x2="660" y2="242"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="380" y="264">0</text><text x="460" y="264">2</text><text x="660" y="264">7</text>
+  </g>
+  <circle cx="460" cy="238" r="5" fill="currentColor"/>
+  <circle cx="660" cy="230" r="5" fill="currentColor"/>
+  <line x1="460" y1="282" x2="660" y2="282" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="460,282 474,276 474,288" fill="currentColor"/>
+  <polygon points="660,282 646,276 646,288" fill="currentColor"/>
+  <text x="560" y="302" font-size="12.5" fill="currentColor" text-anchor="middle">the gap — |7 − 2| = 5</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Re-read 7.1\u2019s lift as one subtraction in bars: from basement $2$ to level $7$.',
+          steps: [
+            'Now, the floors wear signed names: basement $2$ is $-2$ and level $7$ is $7$.',
+            'So the climb is $|7 - (-2)| = |7 + 2| = |9| = 9$ storeys — the double-sign turn of 7.2 working inside the bars.',
+            'Hence $9$ — and the return trip $|-2 - 7| = |-9| = 9$: the formula\u2019s symmetry says the gap never asks which end you start from. 7.1 counted these storeys one by one; the bars do it in one move.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The Everest–Dead Sea vertical gap, as the formula gives it.',
+          steps: [
+            'Now, Everest wears $+8848.86$ m and the Dead Sea surface wears $-439.78$ m (as of 2025; the level keeps falling).',
+            'So the gap is $|8848.86 - (-439.78)| = |8848.86 + 439.78| = |9288.64| = 9288.64$ m.',
+            'Hence $9288.64$ m — about $9289$ m. 7.1 built this sum by reading both heights against sea level; the opposite-sides split $|a| + |b|$ is exactly that construction, and the formula is it, automated.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The Vostok–Phalodi line distance, as the formula gives it.',
+          steps: [
+            'Now, Vostok\u2019s record reading is $-89.2$°C (21 July 1983) and Phalodi\u2019s is $51.0$°C (19 May 2016).',
+            'So the gap is $|51.0 - (-89.2)| = |51.0 + 89.2| = |140.2| = 140.2$ degrees.',
+            'Hence $140.2$ — 7.1\u2019s step-count cashed in one line. The reversed order $|-89.2 - 51.0| = |-140.2| = 140.2$ agrees, as the mirror property promised.',
+          ],
+        },
+        { kind: 'heading', text: 'Reading equations in bars' },
+        {
+          kind: 'para',
+          text: 'An equation in bars is a geometry question wearing algebra\u2019s clothes. $|x| = 5$ asks: *which integers stand exactly $5$ steps from zero?* The line answers by pointing, not by algebra — and it points twice. Reading such equations is a matter of marking the distance and collecting the mirrors, and the verdict depends on the right-hand side as no earlier equation in this book has shown.',
+        },
+        {
+          kind: 'table',
+          head: ['The equation', 'The solutions', 'The geometry'],
+          rows: [
+            ['$|x| = 5$ (any $k > 0$)', 'two: $x = -5$ and $x = 5$', 'the mirror pair at distance $k$ — one on each side'],
+            ['$|x| = 0$', 'one: $x = 0$', 'only zero stands no steps from zero — the non-negativity edge'],
+            ['$|x| = -3$', 'none', 'no walk is shorter than no walk; a negative distance names nothing'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The first row is the signature: one equation, two answers. It startles every first meeting — the equations of chapters 1–7 each had a single whole-number answer, and here the mirror hands back a pair. The geometric reading explains the surprise: the bars destroyed the sign of $x$, so the equation cannot tell its two solutions apart, and algebra inherits both.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The bars erase exactly one bit',
+          text: 'Every $|\\,\\cdot\\,|$-question discards exactly one piece of information — the side of zero — and preserves the rest. That is the whole story of the two-answer signature: $|x| = 5$ cannot distinguish $-5$ from $5$ because the bars cannot either. The same erasure explains the mirror property, the gap\u2019s symmetry, and why $|x| = 0$ collapses to a single answer: zero is the one integer with no side to erase.',
+        },
+        {
+          kind: 'example',
+          title: 'Find every integer $x$ with $|x| = 5$.',
+          steps: [
+            'Now, the equation asks: which integers stand exactly $5$ steps from zero?',
+            'So the mirror pair answers: $x = -5$ (five steps left) and $x = 5$ (five steps right) — and the sweep confirms nothing else in $[-40, 40]$ qualifies.',
+            'Hence $x = -5$ or $x = 5$: one equation in bars, two answers — the signature.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Find every integer with $|x| = 0$, and every integer with $|x| = -2$.',
+          steps: [
+            'Now, $|x| = 0$ asks who stands no steps from zero — and only $x = 0$ does: one solution, at the non-negativity edge.',
+            'So $|x| = -2$ asks for a distance of $-2$ steps — no walk is shorter than no walk, and the solution set is empty.',
+            'Hence $\\{0\\}$ and $\\{\\}$: the two edge cases examination keys reach for whenever a sign slips somewhere it should not.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'From the above discussion, it follows that the bars complete the chapter\u2019s grammar. Every integer now wears a sign and a size; the operations of 7.2 and 7.3 moved and multiplied the signed wholes; and the bars read the sizes back out — of a single number, of a product, of a sum, of the gap between any two. What 7.1 paced, 7.4 computes; what the sign rules aimed, the sizes now measure. The line of chapter 7 is finished furniture — and the next chapter leaves it for the plane, where geometry begins.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Absolute value in the examination hall',
+          text: 'Absolute-value items appear in every aptitude bank in three shapes. Straight evaluations ($|-9| + |4|$) and bars-versus-minus contrasts ($-|9|$) reward the outside-in reading habit; SSC CHSL/MTS papers pair them with ordering-by-magnitude traps (which is greater — or which has the greater absolute value). Two-answer equations ($|x| = 7$) appear in RRB NTPC CBT-I and banking clerical banks, where forgetting the mirror twin is the standard lost mark. Gap questions — temperature swings, storey counts, elevation differences — are the distance formula in narration, and the opposite-sides split $|a| + |b|$ does the arithmetic in one glance. The shapes are cited from these banks\u2019 published patterns; none is reproduced. One habit pays for the whole topic: read the bars as \u201chow far\u201d, then answer twice if a number is asked for.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'A notation for size: modulus and the two bars',
+          text: 'The idea is older than the notation. In 1806 Jean-Robert Argand named the *modulus* (French *module*) for the magnitude of a complex number — the size of an arrow, direction discarded — carrying the notion past the line for the first time. The two vertical bars came a generation later: Karl Weierstrass used $|x|$ in his 1841 essay *Zur Theorie der Potenzreihen* (recorded in MacTutor\u2019s Earliest Uses index), applying the notation to complex quantities, and it spread across analysis because it does one thing cleanly and says so. This chapter met the same arc in miniature: 7.1 recorded the centuries during which negatives were flinched at; once they were accepted, \u201chow negative is it?\u201d needed a name — magnitude, modulus, absolute value — and a mark that asks no questions about direction.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Absolute value',
+              def: 'The distance of an integer from $0$ on the number line — the count of steps, direction discarded; written $|x|$ and never negative. Instances: $|-8| = |8| = 8$, $|0| = 0$.',
+            },
+            {
+              term: 'Piecewise rule for absolute value',
+              def: '$|x| = x$ when $x \\ge 0$ and $|x| = -x$ when $x < 0$: the distance definition computed, with the minus as an instruction — take the opposite.',
+            },
+            {
+              term: 'Non-negativity of absolute value',
+              def: '$|x| \\ge 0$ for every integer, with $|x| = 0$ only at $x = 0$: distance has no negative dress, and zero is the single edge case.',
+            },
+            {
+              term: 'Mirror property',
+              def: '$|-x| = |x|$: mirror pairs stand at one distance from zero, so the bars cannot tell the twins apart.',
+            },
+            {
+              term: 'Magnitude',
+              def: 'The size of a signed number — what remains when the sign is discarded. Ordering by magnitude answers \u201chow big\u201d; ordering the numbers answers \u201cwhich side wins\u201d, and the two can disagree ($-8$ is the smaller number with the bigger magnitude).',
+            },
+            {
+              term: 'Multiplicative property of absolute value',
+              def: '$|a \\times b| = |a| \\times |b|$: the sign may be cancelled inside the bars or outside — the size never notices (grid-verified on all $441$ pairs in $[-10, 10]^2$).',
+            },
+            {
+              term: 'Triangle fact',
+              def: '$|a + b| \\le |a| + |b|$: a two-leg walk is never longer than the legs\u2019 total, with equality exactly when the legs stand on the same side of zero (or one is $0$).',
+            },
+            {
+              term: 'Distance formula',
+              def: 'The gap between integers $a$ and $b$ is $|a - b| = |b - a|$: one subtraction in bars, symmetric in the anchors, zero exactly when $a = b$.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Evaluate $|-9| + |4|$.',
+              options: ['$5$', '$-13$', '$13$', '$-5$'],
+              answer: 2,
+              explain:
+                'Each bars-question is read separately: $|-9| = 9$ and $|4| = 4$, and $9 + 4 = 13$ (Option 3). Option 1 subtracts the sizes ($9 - 4$); Options 2 and 4 let a sign survive the bars — distances are never negative.',
+            },
+            {
+              q: 'The distance between $-3$ and $5$ on the number line is',
+              options: ['$2$', '$8$', '$-8$', '$5$'],
+              answer: 1,
+              explain:
+                'The gap is $|5 - (-3)| = |8| = 8$ (Option 2). Option 1 subtracts the sizes across a mirror split — or adds the signed numbers, $(-3) + 5 = 2$; either way it answers a different question. Option 3 lets the distance wear a sign; Option 4 reads one anchor only.',
+            },
+            {
+              q: 'The number of integer solutions of $|x| = 6$ is',
+              options: ['$2$', '$1$', '$0$', 'infinitely many'],
+              answer: 0,
+              explain:
+                'The mirror pair $-6$ and $6$ both stand exactly $6$ steps from zero (Option 1). Option 2 finds only $6$ and forgets the twin; Option 3 gives up entirely; Option 4 confuses the equation with the whole line — only two integers are exactly $6$ steps out.',
+            },
+            {
+              q: 'Which statement is true for all integers $a, b$?',
+              options: ['$|a + b| = |a| + |b|$', '$|a \\times b| = |a| \\times |b|$', '$|a - b| = a - b$', '$|a| > 0$'],
+              answer: 1,
+              explain:
+                'The multiplicative property holds everywhere — grid-verified on all $441$ pairs in $[-10, 10]^2$ (Option 2). Option 1 fails whenever the anchors disagree: $|(-4) + 9| = 5$ but $|-4| + |9| = 13$. Option 3 fails whenever $a < b$: $|3 - 7| = 4$, not $-4$. Option 4 fails at $a = 0$, where the distance is exactly $0$.',
+            },
+            {
+              q: 'A diver rests at $-45$ m and a bird flies at $+120$ m. The vertical gap between them is',
+              options: ['$75$ m', '$-165$ m', '$120$ m', '$165$ m'],
+              answer: 3,
+              explain:
+                'The gap is $|120 - (-45)| = |120 + 45| = |165| = 165$ m (Option 4). Option 1 subtracts the sizes ($120 - 45$) — a same-side move on opposite-side anchors. Option 2 lets the distance wear a sign. Option 3 reads one anchor and forgets the other.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Evaluate $|-15|$.',
+                  solution: [
+                    'Now, $-15$ stands $15$ steps left of zero.',
+                    'So the count is $15$ — the bars discard the direction.',
+                    'Hence $|-15| = 15$.',
+                  ],
+                  answer: '$15$',
+                },
+                {
+                  q: 'Evaluate $|7| + |-6|$.',
+                  solution: [
+                    'Now, read each bars-question separately: $|7| = 7$ and $|-6| = 6$.',
+                    'So the sum is $7 + 6 = 13$.',
+                    'Hence $13$ — sizes add plainly once the bars have spoken.',
+                  ],
+                  answer: '$13$',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Evaluate $|(-9) \\times (-3)|$ and $|-9| \\times |-3|$, and state the property the pair exhibits.',
+                  solution: [
+                    'Now, product first: $(-9) \\times (-3) = 27$ by 7.3\u2019s sign rules, so $|(-9) \\times (-3)| = |27| = 27$.',
+                    'So sizes first: $|-9| = 9$ and $|-3| = 3$, and $9 \\times 3 = 27$.',
+                    'Hence $27 = 27$ — the multiplicative property $|a \\times b| = |a| \\times |b|$, worked on agreeing signs.',
+                  ],
+                  answer: '$|(-9) \\times (-3)| = 27 = |-9| \\times |-3|$',
+                },
+                {
+                  q: 'Evaluate $-|-6|$.',
+                  solution: [
+                    'Now, inside first: $|-6| = 6$ — the bars swallow the inner sign.',
+                    'So the outside minus applies to the result: $-6$.',
+                    'Hence $-|-6| = -6$ — a minus outside the bars is not swallowed.',
+                  ],
+                  answer: '$-6$',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Find every integer $x$ with $|x| = 12$.',
+                  solution: [
+                    'Now, the equation asks which integers stand exactly $12$ steps from zero.',
+                    'So the mirror pair qualifies: $x = -12$ (twelve steps left) and $x = 12$ (twelve steps right), and the sweep confirms no third candidate.',
+                    'Hence $x = -12$ or $x = 12$.',
+                  ],
+                  answer: '$x = -12$ or $x = 12$',
+                },
+                {
+                  q: 'Find the distance between $-7$ and $4$.',
+                  solution: [
+                    'Now, the gap is the size of the walk from $-7$ to $4$: $|4 - (-7)|$.',
+                    'So $|4 + 7| = |11| = 11$.',
+                    'Hence $11$ — and the reversed order $|-7 - 4| = |-11| = 11$ agrees, as the symmetry promised.',
+                  ],
+                  answer: '$11$',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A miner stands at $-160$ m (below the shaft mouth) and a weather balloon at $+340$ m. How far apart are they?',
+                  solution: [
+                    'Now, the anchors wear signed names: $-160$ and $+340$ — opposite sides of zero.',
+                    'So the gap is $|340 - (-160)| = |340 + 160| = |500| = 500$ m.',
+                    'Hence $500$ m — the opposite-sides split $|a| + |b| = 160 + 340$ in one move.',
+                  ],
+                  answer: '$500$ m',
+                },
+                {
+                  q: 'Solve $|x| = 0$ and $|x| = -4$, with a one-line reason for each.',
+                  solution: [
+                    'Now, $|x| = 0$ asks who stands no steps from zero — only $x = 0$: the non-negativity edge.',
+                    'So $|x| = -4$ asks for a negative distance — no walk is shorter than no walk, so there are no solutions.',
+                    'Hence $\\{0\\}$ and $\\{\\}$: one answer where the mirror collapses, none where the request is impossible.',
+                  ],
+                  answer: '$|x| = 0$: $x = 0$; $|x| = -4$: no solution',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'True or false: $|a + b| = |a| + |b|$ for all integers $a$ and $b$. If false, give a counterexample and state when equality does hold.',
+                  solution: [
+                    'Now, test a disagreeing pair: $a = -6$, $b = 2$ gives $|(-6) + 2| = |-4| = 4$, while $|-6| + |2| = 8$.',
+                    'So the statement is false — the sum\u2019s size can be smaller than the sizes\u2019 sum whenever the legs double back.',
+                    'And equality holds exactly when $a$ and $b$ stand on the same side of zero (or one is $0$): agreeing legs compound, grid-verified on all $441$ pairs in $[-10, 10]^2$.',
+                    'Hence false; equality iff $a \\times b \\ge 0$.',
+                  ],
+                  answer: 'False; equality holds exactly when $a \\times b \\ge 0$',
+                },
+                {
+                  q: 'A hill station\u2019s dawn reads $-9$°C and its noon reads $17$°C. By how many degrees did the temperature rise? Write the computation as one gap.',
+                  solution: [
+                    'Now, the readings wear signed names: $-9$ at dawn and $17$ at noon.',
+                    'So the rise is $|17 - (-9)| = |17 + 9| = |26| = 26$ degrees.',
+                    'Hence $26$°C — the distance formula in thermometer dress.',
+                  ],
+                  answer: '$26$°C',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Using the movement model of Lesson 7.2 and the mirror property, derive the distance formula $\\text{gap}(a, b) = |a - b| = |b - a|$, and cash it at $(a, b) = (-5, 8)$.',
+                  solution: [
+                    'Now, the walk from $a$ to $b$ satisfies $a + (\\text{the walk}) = b$, so the walk is $b - a$ — 7.2\u2019s movement equation, solved.',
+                    'So the gap is the walk\u2019s size: $\\text{gap}(a, b) = |b - a|$ — the definition of absolute value applied to the displacement.',
+                    'And the reversed walk is $a - b = -(b - a)$, the opposite displacement, whose size agrees by the mirror property: $|a - b| = |b - a|$.',
+                    'Cashed at $(-5, 8)$: $|8 - (-5)| = |13| = 13$ and $|-5 - 8| = |-13| = 13$ — either order, one gap.',
+                    'Hence $\\text{gap}(a, b) = |a - b| = |b - a|$, zero exactly when $a = b$.',
+                  ],
+                  answer: '$\\text{gap}(a, b) = |a - b| = |b - a|$; at $(-5, 8)$: $13$',
+                },
+                {
+                  q: 'Prove: for integers $a$ and $b$, equality holds in $|a + b| \\le |a| + |b|$ exactly when $a \\times b \\ge 0$.',
+                  solution: [
+                    'Now, split by the sign table. Case (i): $a$ and $b$ agree in sign (or one is $0$) — the legs walk the same way, so the net size is the sum of the sizes: $|a + b| = |a| + |b|$. Instance: $|(-4) + (-9)| = 13 = 4 + 9$.',
+                    'So case (ii): $a$ and $b$ disagree — the walk doubles back, and the net size is the difference of the sizes, strictly below the sum whenever both are non-zero: $|(-4) + 9| = 5 < 13$.',
+                    'And the sweep certificate: on all $441$ pairs in $[-10, 10]^2$, equality holds on exactly the pairs with $a \\times b \\ge 0$ — no exception either way.',
+                    'Hence equality in the triangle fact is a same-side event: $a \\times b \\ge 0$, and only that.',
+                  ],
+                  answer: 'Equality holds exactly when $a \\times b \\ge 0$',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+
   ],
 }
