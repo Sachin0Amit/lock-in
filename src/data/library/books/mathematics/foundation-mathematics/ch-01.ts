@@ -847,6 +847,29 @@ export const chapter01: Chapter = {
           text: 'To round a number to the nearest ten is to ask: which multiple of ten does it sit closest to on the number line? The number $47$ lives between the multiples $40$ and $50$; the midpoint $45$ is equidistant from both; $47$ is past the midpoint, so it rounds to $50$. The number $43$ is before the midpoint, so it rounds to $40$. That is all rounding is — a distance contest between the two neighbouring multiples. And the digit tells us who wins without any measuring: when rounding to a place, **look at the digit immediately to its right.** If that digit is 5 or more, the number has crossed the midpoint, so the kept digit steps up by one; if it is less than 5, the kept digit stays. All digits to the right of the kept place become zeros.',
         },
         {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The rounding rule',
+          text: 'A whole number $n$ is said to be **rounded to the nearest ten** (hundred, thousand, …) when it is replaced by the multiple of ten (hundred, thousand, …) **closest to it on the number line**. The digit immediately to the right of the kept place is the **deciding digit**: $5$ or more means the midpoint has been crossed, so the kept digit steps up; less than $5$ means it has not, so the kept digit stands. When $n$ sits exactly on the midpoint, the convention says: round **up**. Thus, $47$ rounds to $50$ (past the midpoint $45$), $43$ rounds to $40$ (before it), and $45$ itself rounds up to $50$ — the tie going to the larger neighbour.',
+        },
+        {
+          kind: 'para',
+          text: 'The rule in action, one number per step — each a resident of the same stretch of line that figure 1 draws:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$43$ to the nearest ten — the deciding digit $3$ is less than $5$: before the midpoint, so $43$ rounds down to $40$.',
+            '$47$ to the nearest ten — the deciding digit $7$ is $5$ or more: past the midpoint, so $47$ rounds up to $50$.',
+            '$45$ to the nearest ten — the deciding digit is exactly $5$: the tie, and the convention gives it to $50$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Thus, every rounding decision reduces to one glance at the deciding digit, and the midpoint convention settles the only ambiguous case. Why the glance may be trusted is a piece of geometry — the number line conducts the whole argument, and figure 1 is that drawing.',
+        },
+        {
           kind: 'figure',
           caption:
             'Rounding to the nearest ten on the number line. The gap between the multiples 40 and 50 is split by the midpoint 45 (marked). Numbers before the midpoint — like 43 — round down to 40; numbers past it — like 47 — round up to 50. The digit to the right of the tens place announces which side of the midpoint the number is on, which is why "look at the next digit" works.',

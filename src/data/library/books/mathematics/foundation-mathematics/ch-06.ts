@@ -68,7 +68,44 @@ import type { Chapter } from '../../../types'
  * exercises L1–L6 (L6: the typists' 45 vs 50 wpm and the unequal-legs
  * average 70 ≠ 75). Every number pre-verified by verify-unit-6.ts sections
  * L–U (165 checks total, A–U).
- * NEXT in this chapter: 6.3 Proportion and Cross-Multiplication.
+ *
+ * LESSONS WRITTEN: 6.3 Proportion and Cross-Multiplication (run 29,
+ * 2026-11-04) — 6.2's closing question made official: the proportion as
+ * the STATEMENT that two ratios agree (a : b :: c : d, the traditional
+ * double colon read "is to … as …"), a ratio a NUMBER and a proportion a
+ * true-or-false sentence (the equation–expression distinction of 2.2 in
+ * new dress); the opening Illustration pays 6.2's debt (the pantry's
+ * 3 kg for Rs 96 vs the shop's 5 kg for Rs 160 — one rate said twice);
+ * the Definition callout in the formal shape + equation tag 1
+ * (a : b :: c : d ⟺ a/b = c/d, all terms non-zero); figure 1 the four
+ * seats (first/second/third/fourth; the extremes arc over the outer pair,
+ * the means arc under the inner pair, the cross law as the bottom strip);
+ * the cross law PROVED as a derivation block in both directions (multiply
+ * by bd / divide by bd — the balance licence of ch. 2) with the
+ * extremes-means recognition table (8:12 = 10:15, 21:14 = 33:22,
+ * 9:4 = 27:12, and the failing 6:10 vs 9:16 row) and the flip Caution
+ * (3 : 5 :: 10 : 6 is a different, false claim — 18 ≠ 50); the
+ * test-and-fill engine — equation tag 2 (a : b = c : x ⟹ x = bc/a) —
+ * Illustrations: the 45 : 63 :: 35 : 49 pass (both 5 : 7), the
+ * 30 : 42 vs 24 : 35 fail (1050 ≠ 1008), the fourth seat 8 : 12 = 10 : □
+ * → 15 and 6, 9, 12 → 18, the harder first seat □ : 24 :: 30 : 45 → 16;
+ * alternendo and invertendo proved by the unchanged cross products
+ * (3 : 5 :: 6 : 10 → 3 : 6 :: 5 : 10 and 5 : 3 :: 10 : 6); continued
+ * proportion (a : b :: b : c, the mean in BOTH mean seats) with the mean
+ * proportional b² = ac (8 & 50 → 20; the arithmetic-mean Caution 25 ≠ 15
+ * for 5 & 45) and the third proportional x = b²/a (to 8 and 12 → 18);
+ * proportion at work — figure 2 the line of agreement (the shop's
+ * Rs 32/kg ruler: 3 : 5 :: 96 : 160 and 5 : 8 :: 160 : 256 on one line)
+ * with the off-line test (4 kg for Rs 120 → 30 ≠ 32), the tea
+ * Illustration (5 kg → Rs 480, 8 kg → Rs 768, the cross law and the
+ * unit-rate engine agreeing); properties list, exam corner (NCERT
+ * class-6 ch. 12 §12.2 + Ex. 12.2 canon — definition, :: notation,
+ * extremes/means — + class-7 ch. 8's equivalence bridge + Khattar
+ * proportion staples), 7 terms, 5-quiz (keys 0/1/2/3/2) and 12
+ * exercises L1–L6 (L6: the recovered partner — mean 20, one number 16,
+ * other 25 — and alternendo proved + verified). Every number
+ * pre-verified by verify-unit-6.ts sections V–AE (252 checks, A–AE).
+ * NEXT in this chapter: 6.4 Direct and Inverse Variation.
  */
 
 export const chapter06: Chapter = {
@@ -1334,7 +1371,627 @@ export const chapter06: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-proportion-and-cross-multiplication',
+      number: '6.3',
+      title: 'Proportion and Cross-Multiplication',
+      concepts: [
+        'Proportion',
+        'Extremes and means',
+        'Cross-multiplication law',
+        'Fourth proportional',
+        'Continued proportion',
+        'Mean proportional',
+        'Alternendo',
+        'Testing and filling',
+      ],
+      objectives: [
+        'State the definition of proportion, write it in the :: notation, and distinguish the statement $a : b :: c : d$ from the two ratios that build it',
+        'Prove and apply the cross law — the product of the extremes equals the product of the means — to test any claimed proportion with one multiplication per side',
+        'Fill a missing term in any seat of a proportion and solve rate-and-cost problems by proportion, checking against the unit-rate engine',
+        'Recognise continued proportion, find the mean and third proportional, and verify claims with $b^2 = ac$',
+      ],
+      prerequisites: ['fm-ratio-as-a-comparison', 'fm-comparing-fractions', 'fm-rates-and-unit-rates'],
+      sources: ['ncert-math6-ch12', 'ncert-math7-ch8', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 6.2 closed with a question. The shop quotes Rs 32 per kg; the pantry\'s sack says 3 kg for Rs 96; a second shelf says 5 kg for Rs 160. Both statements describe one rate, and "the same rate said twice" felt like it deserved a name. It has one, and it is older than any of the chapter\'s machinery: when two ratios agree, the four quantities involved are said to be **in proportion**. The word does precise work here — not the loose "out of proportion" of everyday speech, but a testable claim with a true-or-false answer, the kind of sentence mathematics can bank.',
+        },
+        {
+          kind: 'para',
+          text: 'A ratio is a **number** — the answer to "how many times?". A proportion is a **statement** — a sentence built from two ratios and an equality, and sentences can be true or false. The distinction is the old one from Lesson 2.2: $3 + 4$ is an expression (a number waiting to be evaluated), while $3 + 4 = 7$ is an equation (a claim that can be checked). In the same way $3 : 5$ is a ratio — a number — while $3 : 5 :: 6 : 10$ is a proportion — a claim, and in fact a true one. This lesson defines the claim, proves its central law, and turns the law into the working tool that examination papers call **cross-multiplication**.',
+        },
+        { kind: 'heading', text: 'The definition of proportion' },
+        {
+          kind: 'para',
+          text: 'Start by settling the debt. Are the pantry\'s and the shop\'s statements one rate said twice, or two rates wearing similar clothes? The cross-test of Lesson 6.1 answers in one multiplication per side — and the test is worth an Illustration of its own, because everything this lesson does grows out of it.',
+        },
+        {
+          kind: 'example',
+          title: 'Is the pantry\'s $3$ kg for Rs $96$ the same rate as the shop\'s $5$ kg for Rs $160$?',
+          steps: [
+            'Now, dress both statements as ratios: $96 : 3$ and $160 : 5$.',
+            'So the cross products: $96 \\times 5 = 480$ and $3 \\times 160 = 480$ — equal; and reduction says the same, since both ratios carry the simplest name $32 : 1$.',
+            'Hence $96 : 3 :: 160 : 5$ — one rate, said twice: the agreement Lesson 6.2 promised has a notation of its own.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The shop\'s line keeps manufacturing such agreements. For example:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$96 : 3$ reduces to $32 : 1$ — 3 kg for Rs 96.',
+            '$160 : 5$ reduces to $32 : 1$ — 5 kg for Rs 160.',
+            '$256 : 8$ reduces to $32 : 1$ — 8 kg for Rs 256.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Three different pairs of numbers, one identical comparison. The ratios $96 : 3$, $160 : 5$ and $256 : 8$ are all names of the single ratio $32 : 1$ — and it is the uniqueness of the simplest form (Lesson 6.1) that makes "they all reduce to the same thing" a legitimate way to say "they are equal". Whenever two ratios are equal, the four terms are said to be in proportion.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Proportion',
+          text: 'Four non-zero quantities $a$, $b$, $c$, $d$, taken in order, are said to be **in proportion** if the ratio of the first two equals the ratio of the last two — that is, if $a : b = c : d$. The statement is written $a : b :: c : d$, read "$a$ is to $b$ **as** $c$ is to $d$", and it is a **sentence**, not a number: it is true or false. Thus, $3 : 5 :: 6 : 10$ is a true sentence — both ratios are $3 : 5$ — while $5 : 3 :: 6 : 10$ is a false one.',
+        },
+        {
+          kind: 'equation',
+          latex: 'a : b :: c : d \\;\\Longleftrightarrow\\; \\tfrac{a}{b} = \\tfrac{c}{d} \\qquad (a, b, c, d \\neq 0)',
+          note: 'The double colon is the traditional print for "as": it asserts that the two ratios around it agree. The order of all four terms is part of the claim — each ratio keeps its own first-and-second, and swapping any two terms produces a different sentence to check.',
+        },
+        {
+          kind: 'para',
+          text: 'The order warning deserves one worked glance, because it is the commonest slip in the topic. The claim $3 : 5 :: 6 : 10$ is true: $3 : 5$ is already simplest, $6 : 10$ reduces to $3 : 5$, agreement. Flip the first ratio and the claim becomes $5 : 3 :: 6 : 10$ — now the left side reads "five for every three" and the right "three for every five", opposite instructions. No simplification rescues them: $5 : 3$ is in lowest terms and $6 : 10$ is $3 : 5$, and $\\tfrac{5}{3} \\neq \\tfrac{3}{5}$. The sentence is false — same four numbers, different order, different truth.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One statement, four seats. In the proportion $a : b :: c : d$ the four quantities sit in a fixed order: $a$ first, $b$ second, $c$ third, $d$ fourth. The outer pair $(a, d)$ — the extremes — and the inner pair $(b, c)$ — the means — are the two couples the cross law is about to multiply. The statement itself is a sentence: true for $3 : 5 :: 6 : 10$, false for $5 : 3 :: 6 : 10$.',
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The proportion a is to b as c is to d shown as four boxes in a fixed order, with the extremes a and d bracketed above by a dashed arc, the means b and c bracketed below by a dashed arc, and the cross law a times d equals b times c printed underneath">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="358" y="44">the extremes — the outer pair (a, d)</text>
+    <text x="118" y="157" font-size="21" font-style="italic">a</text>
+    <text x="198" y="156" font-size="18">:</text>
+    <text x="278" y="157" font-size="21" font-style="italic">b</text>
+    <text x="358" y="156" font-size="18">::</text>
+    <text x="438" y="157" font-size="21" font-style="italic">c</text>
+    <text x="518" y="156" font-size="18">:</text>
+    <text x="598" y="157" font-size="21" font-style="italic">d</text>
+    <text x="118" y="216" font-size="12">first</text>
+    <text x="278" y="216" font-size="12">second</text>
+    <text x="438" y="216" font-size="12">third</text>
+    <text x="598" y="216" font-size="12">fourth</text>
+    <text x="358" y="254">the means — the inner pair (b, c)</text>
+    <text x="358" y="300" font-size="14" font-weight="bold">the cross law:  a × d  =  b × c  (the products agree)</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <rect x="60" y="120" width="116" height="60" />
+    <rect x="220" y="120" width="116" height="60" />
+    <rect x="380" y="120" width="116" height="60" />
+    <rect x="540" y="120" width="116" height="60" />
+    <path d="M 118 106 Q 358 56 598 106" stroke-dasharray="4 3" />
+    <path d="M 278 192 Q 358 228 438 192" stroke-dasharray="4 3" />
+  </g>
+</svg>`,
+        },
+        { kind: 'heading', text: 'Extremes, means and the cross law' },
+        {
+          kind: 'para',
+          text: 'The four seats have names, and figure 1 pinned them: in $a : b :: c : d$, the outer terms $a$ and $d$ are the **extremes** and the inner terms $b$ and $c$ are the **means**. The names earn their keep through the theorem that makes proportion useful — the theorem every examination paper calls cross-multiplication.',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The cross law',
+          text: 'In any proportion, the product of the extremes equals the product of the means. Thus, $a : b :: c : d$ holds **exactly when** $a \\times d = b \\times c$ — and either half of that double arrow proves the other.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The cross law, in both directions',
+          statement:
+            'Claim: for non-zero $a, b, c, d$, the ratios agree — $a : b :: c : d$ — **if and only if** the products agree: $ad = bc$.',
+          steps: [
+            {
+              label: 'Forward: products from ratios',
+              formula: '\\tfrac{a}{b} = \\tfrac{c}{d} \\;\\xrightarrow{\\;\\times\\, bd\\;}\\; \\tfrac{a}{b} \\cdot bd = \\tfrac{c}{d} \\cdot bd',
+              explanation:
+                'Both sides multiply by the same non-zero $bd$ — the balance licence of Lesson 2.2. On the left the $b$ cancels and $ad$ remains; on the right the $d$ cancels and $bc$ remains. The products agree.',
+            },
+            {
+              label: 'Backward: ratios from products',
+              formula: 'ad = bc \\;\\xrightarrow{\\;\\div\\, bd\\;}\\; \\tfrac{ad}{bd} = \\tfrac{bc}{bd}',
+              explanation:
+                'Both sides divide by the same non-zero $bd$ — legal because no term is zero. The left simplifies to $\\tfrac{a}{b}$ and the right to $\\tfrac{c}{d}$: the ratios agree again. Products agreeing forces ratios agreeing.',
+            },
+            {
+              label: 'The iff closes',
+              formula: 'a : b :: c : d \\;\\Longleftrightarrow\\; ad = bc',
+              explanation:
+                'Each direction was proved separately, so the arrow holds both ways: "the ratios agree" and "the products agree" are one statement in two dresses. Cross-multiplying is the forward half; the backward half is what lets a missing term be recovered a few paragraphs from here.',
+            },
+          ],
+          result:
+            '$a : b :: c : d \\Longleftrightarrow ad = bc$ — to test a proportion, one multiplication per side; to build or repair one, solve the product equation.',
+        },
+        {
+          kind: 'formula',
+          name: 'The cross law',
+          latex: 'a : b :: c : d \\;\\Longleftrightarrow\\; a\\,d = b\\,c \\qquad (a, b, c, d \\neq 0)',
+          note: 'Product of the extremes = product of the means. One multiplication on each side replaces two simplifications — and it keeps working when the terms are decimals or fractions, where "reduce both ratios" may be awkward.',
+        },
+        {
+          kind: 'para',
+          text: 'The law turns testing into arithmetic. Each row below is a claimed proportion; the two product columns must agree for the claim to survive.',
+        },
+        {
+          kind: 'table',
+          head: ['Claimed proportion', 'Extremes ($a \\times d$)', 'Means ($b \\times c$)', 'Verdict'],
+          rows: [
+            ['$8 : 12 :: 10 : 15$', '$8 \\times 15 = 120$', '$12 \\times 10 = 120$', 'in proportion — both ratios are $2 : 3$'],
+            ['$21 : 14 :: 33 : 22$', '$21 \\times 22 = 462$', '$14 \\times 33 = 462$', 'in proportion — both ratios are $3 : 2$'],
+            ['$9 : 4 :: 27 : 12$', '$9 \\times 12 = 108$', '$4 \\times 27 = 108$', 'in proportion — both ratios are $9 : 4$'],
+            ['$6 : 10 :: 9 : 16$', '$6 \\times 16 = 96$', '$10 \\times 9 = 90$', 'not in proportion — $96 \\neq 90$'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Multiply the terms in their printed seats',
+          text: 'The cross law multiplies first-with-fourth and second-with-third **as printed**. Flipping one ratio silently changes the claim: $3 : 5 :: 6 : 10$ is true, but $3 : 5 :: 10 : 6$ is false — the products become $3 \\times 6 = 18$ and $5 \\times 10 = 50$. Before multiplying, read the sentence in its order: first, second, third, fourth.',
+        },
+        { kind: 'heading', text: 'The cross law at work: testing and filling' },
+        {
+          kind: 'para',
+          text: 'Two working moves come out of the derivation, and both are one-glance jobs. **Testing** — is the claimed proportion true? Multiply each side\'s couple; equal products say yes. **Filling** — three terms of a proportion are known; the fourth follows from the cross law by one division. The two Illustrations that follow exercise the test in both moods.',
+        },
+        {
+          kind: 'example',
+          title: 'Are $45 : 63$ and $35 : 49$ in proportion?',
+          steps: [
+            'Now, the products: the extremes give $45 \\times 49 = 2205$, the means give $63 \\times 35 = 2205$.',
+            'So the products agree — and reduction says the same: $45 : 63 = 5 : 7$ and $35 : 49 = 5 : 7$, the same ratio twice.',
+            'Hence $45 : 63 :: 35 : 49$ — in proportion.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Are $30 : 42$ and $24 : 35$ in proportion?',
+          steps: [
+            'Now, the products: $30 \\times 35 = 1050$, while $42 \\times 24 = 1008$.',
+            'So the products disagree — $1050 \\neq 1008$; and reduction confirms the verdict: $30 : 42 = 5 : 7$, but $24 : 35$ is already in lowest terms.',
+            'Hence not in proportion — the two ratios are strangers.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Filling is the same law read backwards. Suppose $a : b = c : x$ with the fourth term unknown. The cross law gives $ax = bc$, and dividing by $a$ — legal, since $a \\neq 0$ — hands over the stranger:',
+        },
+        {
+          kind: 'equation',
+          latex: 'a : b = c : x \\;\\Longrightarrow\\; x = \\tfrac{b\\,c}{a}',
+          note: 'The missing term is the means\' product divided by the term opposite it. Every seat has its own dress of the same division — the unknown may sit first, second, third or fourth, but the products $ad$ and $bc$ do not care which seat hides the blank.',
+        },
+        {
+          kind: 'example',
+          title: 'Fill the missing term: $8 : 12 = 10 : \\square$.',
+          steps: [
+            'Now, the cross law: $8 \\times \\square = 12 \\times 10 = 120$.',
+            'So $\\square = 120 \\div 8 = 15$; the check by reduction: $8 : 12 = 2 : 3$ and $10 : 15 = 2 : 3$.',
+            'Hence $8 : 12 = 10 : 15$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The first, second and third terms of a proportion are $6$, $9$ and $12$. Find the fourth.',
+          steps: [
+            'Now, the claim is $6 : 9 = 12 : x$, and the cross law says $6x = 9 \\times 12 = 108$.',
+            'So $x = 108 \\div 6 = 18$; the check: $6 : 9 = 2 : 3$ and $12 : 18 = 2 : 3$.',
+            'Hence the fourth term is $18$, and $6 : 9 :: 12 : 18$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The second, third and fourth terms of a proportion are $24$, $30$ and $45$. Find the first.',
+          steps: [
+            'Now, the unknown sits in the first seat: $x : 24 = 30 : 45$, so the cross law says $45x = 24 \\times 30 = 720$.',
+            'So $x = 720 \\div 45 = 16$; the check: $16 : 24 = 2 : 3$ and $30 : 45 = 2 : 3$.',
+            'Hence the first term is $16$, and $16 : 24 :: 30 : 45$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The fill engine is the unit-rate engine of Lessons 5.3 and 6.2 in a third dress. To fill $8 : 12 = 10 : \\square$, the ratio itself says $\\square = 10 \\times \\tfrac{12}{8} = 15$ — the same scaling the unit rate performs. The cross law is simply the version that survives when the numbers turn unfriendly: no scale factor leaps out of $45x = 720$, but the division still does. And the engine doubles as a gatekeeper: a rival stall\'s 4 kg for Rs 120 fails it — $120 : 4 = 30$, not $32$ — so that pair does not sit on the shop\'s line.',
+        },
+        { kind: 'heading', text: 'Swapping the seats: alternendo and invertendo' },
+        {
+          kind: 'para',
+          text: 'A true proportion stays true under two seat swaps, and both are free theorems — consequences of the cross law, not new laws. **Alternendo** swaps the means: from $a : b :: c : d$ it follows that $a : c :: b : d$. Why? Cross-multiply the new claim: $a \\times d$ against $c \\times b$ — the same two products the original proportion declared equal. **Invertendo** flips both ratios: from $a : b :: c : d$ it follows that $b : a :: d : c$, and the cross products $b \\times c$ and $a \\times d$ are again unchanged. The products cannot tell that the seats have been rearranged.',
+        },
+        {
+          kind: 'para',
+          text: 'One anchor, both theorems: $3 : 5 :: 6 : 10$ is true. Alternendo gives $3 : 6 :: 5 : 10$ — and indeed both sides reduce to $1 : 2$. Invertendo gives $5 : 3 :: 10 : 6$ — both sides are $5 : 3$. The proofs are two lines each precisely because the cross law compresses everything a proportion says into one equation $ad = bc$; any rearrangement whose cross products are still $ad$ and $bc$ inherits the truth for free.',
+        },
+        { kind: 'heading', text: 'Continued proportion, the mean and the third proportional' },
+        {
+          kind: 'para',
+          text: 'Three quantities can share the agreement too. $a$, $b$ and $c$ are said to be in **continued proportion** when $a : b = b : c$ — the middle term serves as second term of the left ratio and first term of the right. Written with the double colon, $a : b :: b : c$: the mean seat is occupied by $b$ **twice**, and that repetition is exactly what makes the family solvable.',
+        },
+        {
+          kind: 'para',
+          text: 'The cross law collapses the claim at once. $a : b :: b : c$ has extremes $a$ and $c$ and means $b$ and $b$, so it says $ac = b^2$: the middle term is the number whose square is the product of the outer two — the **mean proportional** between them, $b = \\sqrt{ac}$ whenever the product is a perfect square (the square-root machinery of chapter 3, which closed its factor walks at exactly this barrier). A proportional models a quantity, so the mean proportional is taken positive, even though the equation $b^2 = ac$ also has a negative algebraic root.',
+        },
+        {
+          kind: 'formula',
+          name: 'The mean proportional',
+          latex: 'a : b :: b : c \\;\\Longleftrightarrow\\; b^2 = a\\,c, \\quad b = \\sqrt{ac} > 0',
+          note: 'The middle term of a continued proportion is the mean proportional: it sits in both mean seats, and its square is the product of the extremes. Between 4 and 25 it is 10 — since $4 : 10 = 2 : 5 = 10 : 25$.',
+        },
+        {
+          kind: 'example',
+          title: 'Find the mean proportional between $8$ and $50$.',
+          steps: [
+            'Now, the mean proportional $b$ obeys $b^2 = 8 \\times 50 = 400$.',
+            'So $b = \\sqrt{400} = 20$ — the positive root, since a proportional is a quantity; and the check: $8 : 20 = 2 : 5 = 20 : 50$.',
+            'Hence the mean proportional is $20$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The mean proportional is not the average',
+          text: 'Between 5 and 45 the ordinary average is $(5 + 45) \\div 2 = 25$, but the mean proportional is $\\sqrt{5 \\times 45} = 15$ — and only $15$ finishes the chain: $5 : 15 = 1 : 3 = 15 : 45$, while $5 : 25$ is $1 : 5$ and $25 : 45$ is $5 : 9$, which do not agree. Averages add; proportions multiply.',
+        },
+        {
+          kind: 'para',
+          text: 'The same continued shape hides a second engine. In $a : b :: b : x$ the unknown is the **third proportional** to $a$ and $b$: the extremes are $a$ and $x$, the means are $b$ and $b$, and the cross law gives $ax = b^2$, so $x = \\tfrac{b^2}{a}$. To 4 and 6, for instance, the third proportional is $\\tfrac{36}{4} = 9$ — the chain $4 : 6 = 6 : 9$ closes.',
+        },
+        {
+          kind: 'formula',
+          name: 'The third proportional',
+          latex: 'a : b :: b : x \\;\\Longrightarrow\\; x = \\tfrac{b^2}{a} \\qquad (a \\neq 0)',
+          note: 'The third proportional to $a$ and $b$ completes the chain $a : b = b : x$: the product of the extremes must equal $b \\times b$. To 4 and 6 it is 9 — since $4 : 6 = 2 : 3 = 6 : 9$.',
+        },
+        {
+          kind: 'example',
+          title: 'Find the third proportional to $8$ and $12$.',
+          steps: [
+            'Now, the chain is $8 : 12 = 12 : x$, and the cross law says $8x = 12 \\times 12 = 144$.',
+            'So $x = 144 \\div 8 = 18$; the check: $8 : 12 = 2 : 3$ and $12 : 18 = 2 : 3$.',
+            'Hence the third proportional is $18$, and $8 : 12 :: 12 : 18$.',
+          ],
+        },
+        { kind: 'heading', text: 'Proportion at work' },
+        {
+          kind: 'para',
+          text: 'Every "at the same rate" problem is a proportion wearing a story. The rate line of Lesson 6.2 — the shop\'s Rs 32 per kg — is a factory of them: pick any two points on the line and the quantity pair is in proportion with the price pair, because both reduce to the same $32 : 1$. Figure 2 draws the line and two of its agreements.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The line of agreement. The shop\'s rice runs at Rs 32 per kg, so every kilogram tick locks to its price tick: 3 kg to Rs 96, 5 kg to Rs 160, 8 kg to Rs 256. Any two pairs on the line are in proportion — the brackets read $3 : 5 :: 96 : 160$ and $5 : 8 :: 160 : 256$, each verified by the cross law ($96 \\times 5 = 480 = 3 \\times 160$; $160 \\times 8 = 1280 = 5 \\times 256$). A pair off the line fails the same test: 4 kg for Rs 120 gives $120 : 4 = 30 \\neq 32$, which is why the line demands 128 there.',
+          svg: `<svg viewBox="0 0 760 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The shop's rate line at thirty-two rupees per kilogram drawn as two locked rulers: kilograms zero to eight above, rupees zero to two hundred fifty-six below, with brackets showing three to five is as ninety-six to one hundred sixty and five to eight is as one hundred sixty to two hundred fifty-six">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="380" y="30" font-weight="bold">one rate line — every pair on it in proportion (Rs 32 per kg)</text>
+    <text x="60" y="64">0</text>
+    <text x="140" y="64">1</text>
+    <text x="220" y="64">2</text>
+    <text x="300" y="64">3</text>
+    <text x="380" y="64">4</text>
+    <text x="460" y="64">5</text>
+    <text x="540" y="64">6</text>
+    <text x="620" y="64">7</text>
+    <text x="700" y="64">8</text>
+    <text x="380" y="46" font-size="11">kg</text>
+    <text x="60" y="300">0</text>
+    <text x="140" y="300">32</text>
+    <text x="220" y="300">64</text>
+    <text x="300" y="300">96</text>
+    <text x="380" y="300">128</text>
+    <text x="460" y="300">160</text>
+    <text x="540" y="300">192</text>
+    <text x="620" y="300">224</text>
+    <text x="700" y="300">256</text>
+    <text x="380" y="362">3 : 5 :: 96 : 160</text>
+    <text x="580" y="362">5 : 8 :: 160 : 256</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <line x1="60" y1="84" x2="700" y2="84" />
+    <line x1="60" y1="276" x2="700" y2="276" />
+    <line x1="60" y1="84" x2="60" y2="276" stroke-dasharray="2 5" />
+    <line x1="140" y1="84" x2="140" y2="276" stroke-dasharray="2 5" />
+    <line x1="220" y1="84" x2="220" y2="276" stroke-dasharray="2 5" />
+    <line x1="300" y1="84" x2="300" y2="276" stroke-dasharray="2 5" />
+    <line x1="380" y1="84" x2="380" y2="276" stroke-dasharray="2 5" />
+    <line x1="460" y1="84" x2="460" y2="276" stroke-dasharray="2 5" />
+    <line x1="540" y1="84" x2="540" y2="276" stroke-dasharray="2 5" />
+    <line x1="620" y1="84" x2="620" y2="276" stroke-dasharray="2 5" />
+    <line x1="700" y1="84" x2="700" y2="276" stroke-dasharray="2 5" />
+    <line x1="300" y1="336" x2="460" y2="336" />
+    <line x1="300" y1="336" x2="300" y2="342" />
+    <line x1="460" y1="336" x2="460" y2="342" />
+    <line x1="460" y1="336" x2="700" y2="336" />
+    <line x1="700" y1="336" x2="700" y2="342" />
+  </g>
+  <g fill="currentColor">
+    <circle cx="300" cy="84" r="4" />
+    <circle cx="460" cy="84" r="4" />
+    <circle cx="700" cy="84" r="4" />
+    <circle cx="300" cy="276" r="4" />
+    <circle cx="460" cy="276" r="4" />
+    <circle cx="700" cy="276" r="4" />
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Five kg of tea costs Rs $480$. What do $8$ kg cost at the same rate?',
+          steps: [
+            'Now, the proportion: $8 : 5 = x : 480$ — the quantities in the first ratio, the prices in the second — and the cross law says $5x = 8 \\times 480 = 3840$.',
+            'So $x = 3840 \\div 5 = 768$; the unit-rate engine agrees: Rs $480 \\div 5 = 96$ per kg, and $96 \\times 8 = 768$.',
+            'Hence 8 kg cost Rs 768 — the cross law and the one-part engine return the same answer, as they must.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The same test that fills answers refuses false ones. A rival stall sells 4 kg for Rs 120 — is that the shop\'s rate in disguise? $120 : 4 = 30$, and $30 \\neq 32$: not in proportion, so the "same rate" claim is false (the off-line pair on figure 2). Proportion is thus a two-sided tool: it extends a trusted rate to new sizes, and it polices claims that borrow the rate\'s name. The exercises carry the pattern into rice and recipes — and one observation points forward: the line of figure 2 did more than host pairs in proportion, it forced the quantities to grow **together** — double the rice, double the price, no exceptions. When two quantities are locked to one line like that, each is said to **vary directly** as the other, and that lock has laws of its own: the business of Lesson 6.4.',
+        },
+        { kind: 'heading', text: 'Properties of proportions' },
+        {
+          kind: 'para',
+          text: 'From the discussion above, the working properties collect into one list — each with a verified instance.',
+        },
+        {
+          kind: 'list',
+          marker: 'disc',
+          items: [
+            '**A proportion is a statement, not a number.** $3 : 5 :: 6 : 10$ is a sentence (true); $5 : 3 :: 6 : 10$ is a sentence (false). The ratios inside are numbers; the proportion is a claim about them.',
+            '**Order is part of the claim.** $8 : 12 :: 10 : 15$ holds ($120 = 120$); flipping the means to $8 : 12 :: 15 : 10$ breaks it — the products become $8 \\times 10 = 80$ and $12 \\times 15 = 180$.',
+            '**Alternendo — swap the means.** $3 : 5 :: 6 : 10$ gives $3 : 6 :: 5 : 10$; both sides are $1 : 2$. The cross products $3 \\times 10$ and $5 \\times 6$ never moved.',
+            '**Invertendo — flip both ratios.** $3 : 5 :: 6 : 10$ gives $5 : 3 :: 10 : 6$; both sides are $5 : 3$. Same products, new dresses.',
+            '**The cross law runs both ways.** It tests ($45 \\times 49 = 63 \\times 35$, so $45 : 63 :: 35 : 49$) and it fills ($45x = 720$ gave $x = 16$) — one law, two jobs.',
+            '**The mean proportional sits in both mean seats.** $8 : 20 :: 20 : 50$: the middle term appears twice, and $20^2 = 400 = 8 \\times 50$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Proportion in the examination hall',
+          text: 'Proportion items are permanent fixtures of SSC CGL and CHSL, banking prelims, RRB NTPC, CUET and NTSE — and the shapes are few: test whether four given terms are in proportion (the cross law, one multiplication per side); fill a missing term in any seat (the products $ad = bc$, one division); name the extremes and means of a given proportion; find the mean proportional between two numbers ($b = \\sqrt{ac}$) or the third proportional to a pair ($x = b^2/a$); and word problems that extend a known rate — cost per kg, cups per guest, the scale of a map. The canon behind them: the definition, notation and extremes–means law of NCERT class-6 chapter 12 (§12.2 with Exercise 12.2 — the unitary method of Exercise 12.3 was banked in Lesson 6.2), the equivalent-ratio bridge of NCERT class-7 chapter 8, and the ratio–proportion staples of Khattar\'s Quantitative Aptitude. No past-paper question is reproduced here; the drills above are built in the same shapes.',
+        },
+        {
+          kind: 'para',
+          text: 'The cross law, then, is the chapter\'s centre of gravity so far: Lesson 4.1 borrowed it as a licence, Lesson 4.2 proved it for fractions, Lesson 6.1 wore it testing equivalent ratios, and this lesson made it the very definition of agreement. Proportion is the chapter\'s third instrument — after the ratio (a number) and the rate (a number with units), the proportion (a sentence that can be certified). What remains is to watch the instruments work in bulk: when a whole table of quantities rides one line, as figure 2\'s shop does, the agreement stops being a coincidence and becomes a law of the quantities themselves.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Proportion',
+              def: 'The statement that two ratios are equal, written $a : b :: c : d$ ("a is to b as c is to d"); a true-or-false sentence, not a number — true exactly when the product of the extremes equals the product of the means.',
+            },
+            {
+              term: 'Extremes',
+              def: 'The first and fourth terms of a proportion — $a$ and $d$ in $a : b :: c : d$; the outer pair whose product must equal the means\' product for the claim to hold.',
+            },
+            {
+              term: 'Means',
+              def: 'The second and third terms of a proportion — $b$ and $c$ in $a : b :: c : d$; the inner pair, and in a continued proportion the same term occupies both mean seats.',
+            },
+            {
+              term: 'Fourth proportional',
+              def: 'The missing fourth term $x$ of $a : b = c : x$, given by $x = bc/a$; the fill engine of the cross law, and the unit-rate engine\'s third dress.',
+            },
+            {
+              term: 'Continued proportion',
+              def: 'Three quantities $a$, $b$, $c$ with $a : b = b : c$ — the middle term repeated, so the claim collapses to $b^2 = ac$.',
+            },
+            {
+              term: 'Mean proportional',
+              def: 'The positive number $b$ with $b^2 = ac$, sitting in both mean seats of $a : b :: b : c$; not the arithmetic average — between 5 and 45 it is 15, not 25.',
+            },
+            {
+              term: 'Third proportional',
+              def: 'The number $x$ completing the chain $a : b = b : x$; given by $x = b^2/a$ — to 8 and 12 it is 18.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Which statement is a TRUE proportion?',
+              options: [
+                '$3 : 5 :: 6 : 10$ — the cross products both give 30',
+                '$5 : 3 :: 6 : 10$ — the first ratio flipped',
+                '$3 : 5 :: 10 : 6$ — the second ratio flipped',
+                '$2 : 3 :: 9 : 6$ — the terms rearranged',
+              ],
+              answer: 0,
+              explain:
+                'Testing each claim with one multiplication per side: $3 \\times 10 = 30 = 5 \\times 6$ (Option 1 holds). Option 2 needs $5 \\times 10 = 50$ to equal $3 \\times 6 = 18$ — false. Option 3 needs $3 \\times 6 = 18$ to equal $5 \\times 10 = 50$ — false. Option 4 needs $2 \\times 6 = 12$ to equal $3 \\times 9 = 27$ — false.',
+            },
+            {
+              q: 'In the proportion $7 : 12 :: 21 : 36$, the means are',
+              options: ['7 and 36', '12 and 21', '7 and 12', '21 and 36'],
+              answer: 1,
+              explain:
+                'The means are the inner pair — the second and third terms: 12 and 21 (Option 2). Option 1 names the extremes; Options 3 and 4 name the two ratios\' own terms. The claim is true because the products agree identically: $7 \\times 36 = 252 = 12 \\times 21$.',
+            },
+            {
+              q: 'Fill the missing term: $9 : 12 = 15 : \\square$',
+              options: ['18', '22', '20', '24'],
+              answer: 2,
+              explain:
+                'The cross law: $9 \\times \\square = 12 \\times 15 = 180$, so $\\square = 20$ (Option 3) — and indeed $9 : 12 = 3 : 4 = 15 : 20$. Option 1 added 3 to 15, as if the ratio added; Option 4 doubled the 12 instead of scaling by $\\tfrac{15}{9} = \\tfrac{5}{3}$; Option 2 is arithmetic out of thin air.',
+            },
+            {
+              q: 'The mean proportional between 5 and 45 is',
+              options: ['9', '25', '225', '15'],
+              answer: 3,
+              explain:
+                'The mean proportional obeys $b^2 = 5 \\times 45 = 225$, so $b = 15$ (Option 4), and $5 : 15 = 1 : 3 = 15 : 45$. Option 1 is the ratio $45 \\div 5$; Option 2 is the arithmetic average $(5 + 45) \\div 2$ — averages add, proportions multiply; Option 3 is the product itself, its square root forgotten.',
+            },
+            {
+              q: 'The second, third and fourth terms of a proportion are 18, 24 and 36. The first term is',
+              options: ['10', '14', '12', '16'],
+              answer: 2,
+              explain:
+                'The claim is $x : 18 = 24 : 36$, so the cross law says $36x = 18 \\times 24 = 432$ and $x = 12$ (Option 3); the check: $12 : 18 = 2 : 3 = 24 : 36$. Each wrong option fails the same law: $36 \\times 10 = 360$, $36 \\times 14 = 504$, $36 \\times 16 = 576$ — none is 432.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Test whether $6 : 8$ and $21 : 28$ are in proportion.',
+                  solution: [
+                    'Now, the cross law: the extremes give $6 \\times 28 = 168$, the means give $8 \\times 21 = 168$.',
+                    'So the products agree; reduction confirms: $6 : 8 = 3 : 4$ and $21 : 28 = 3 : 4$.',
+                    'Hence in proportion — $6 : 8 :: 21 : 28$.',
+                  ],
+                  answer: 'Yes — both ratios are 3 : 4',
+                },
+                {
+                  q: 'Test whether $5 : 7$ and $35 : 48$ are in proportion.',
+                  solution: [
+                    'Now, the products: $5 \\times 48 = 240$, while $7 \\times 35 = 245$.',
+                    'So the products disagree — $240 \\neq 245$; and no reduction rescues the pair, since both ratios are already in lowest terms.',
+                    'Hence not in proportion.',
+                  ],
+                  answer: 'No — 240 ≠ 245',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Fill the missing term: $8 : 12 = 14 : \\square$.',
+                  solution: [
+                    'Now, the cross law: $8 \\times \\square = 12 \\times 14 = 168$.',
+                    'So $\\square = 168 \\div 8 = 21$; the check: $8 : 12 = 2 : 3$ and $14 : 21 = 2 : 3$.',
+                    'Hence $8 : 12 = 14 : 21$.',
+                  ],
+                  answer: '21',
+                },
+                {
+                  q: 'In the proportion $9 : 15 :: 24 : 40$, name the extremes and the means, and verify the cross law.',
+                  solution: [
+                    'Now, the extremes are the outer pair $9$ and $40$; the means are the inner pair $15$ and $24$.',
+                    'So the products: extremes $9 \\times 40 = 360$; means $15 \\times 24 = 360$ — equal.',
+                    'Hence verified: $9 : 15 :: 24 : 40$ — both ratios are $3 : 5$.',
+                  ],
+                  answer: 'Extremes 9 and 40; means 15 and 24; both products 360',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The first, second and third terms of a proportion are 12, 16 and 21. Find the fourth term.',
+                  solution: [
+                    'Now, the claim is $12 : 16 = 21 : x$, and the cross law says $12x = 16 \\times 21 = 336$.',
+                    'So $x = 336 \\div 12 = 28$; the check: $12 : 16 = 3 : 4$ and $21 : 28 = 3 : 4$.',
+                    'Hence the fourth term is $28$.',
+                  ],
+                  answer: '28',
+                },
+                {
+                  q: 'The first, second and fourth terms of a proportion are 10, 25 and 55. Find the third term.',
+                  solution: [
+                    'Now, the unknown sits in the third seat: $10 : 25 = x : 55$, so the cross law says $25x = 10 \\times 55 = 550$.',
+                    'So $x = 550 \\div 25 = 22$; the check: $10 : 25 = 2 : 5$ and $22 : 55 = 2 : 5$.',
+                    'Hence the third term is $22$.',
+                  ],
+                  answer: '22',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Find the mean proportional between 7 and 63.',
+                  solution: [
+                    'Now, the mean proportional $b$ obeys $b^2 = 7 \\times 63 = 441$.',
+                    'So $b = \\sqrt{441} = 21$; the check: $7 : 21 = 1 : 3 = 21 : 63$.',
+                    'Hence the mean proportional is $21$.',
+                  ],
+                  answer: '21',
+                },
+                {
+                  q: 'Six kg of rice costs Rs 210. What do 15 kg cost at the same rate?',
+                  solution: [
+                    'Now, the proportion: $15 : 6 = x : 210$, and the cross law says $6x = 15 \\times 210 = 3150$.',
+                    'So $x = 3150 \\div 6 = 525$; the unit-rate engine agrees: Rs $210 \\div 6 = 35$ per kg, and $35 \\times 15 = 525$.',
+                    'Hence 15 kg cost Rs 525.',
+                  ],
+                  answer: 'Rs 525',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Find the third proportional to 12 and 18.',
+                  solution: [
+                    'Now, the chain is $12 : 18 = 18 : x$, and the cross law says $12x = 18 \\times 18 = 324$.',
+                    'So $x = 324 \\div 12 = 27$; the check: $12 : 18 = 2 : 3$ and $18 : 27 = 2 : 3$.',
+                    'Hence the third proportional is $27$.',
+                  ],
+                  answer: '27',
+                },
+                {
+                  q: 'A recipe for 6 people uses 9 cups of flour. How much flour feeds 14 people at the same rate?',
+                  solution: [
+                    'Now, the proportion: $14 : 6 = x : 9$, and the cross law says $6x = 14 \\times 9 = 126$.',
+                    'So $x = 126 \\div 6 = 21$; the per-person engine agrees: $9 \\div 6 = 1.5$ cups each, and $1.5 \\times 14 = 21$.',
+                    'Hence 21 cups.',
+                  ],
+                  answer: '21 cups',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The mean proportional between two numbers is 20, and one of the numbers is 16. Find the other number.',
+                  solution: [
+                    'Now, the mean proportional obeys $20^2 = 16 \\times c$, so $16c = 400$.',
+                    'So $c = 400 \\div 16 = 25$; the check: $16 : 20 = 4 : 5 = 20 : 25$.',
+                    'Hence the other number is $25$.',
+                  ],
+                  answer: '25',
+                },
+                {
+                  q: 'Prove alternendo: if $a : b = c : d$, then $a : c = b : d$. Verify the theorem on $3 : 5 :: 6 : 10$.',
+                  solution: [
+                    'Now, the hypothesis says, by the cross law, $ad = bc$.',
+                    'So consider the new claim $a : c :: b : d$: its cross products are $a \\times d$ and $c \\times b$ — the same two numbers the hypothesis declared equal. The claim holds.',
+                    'Verify: $3 : 5 :: 6 : 10$ has products $3 \\times 10 = 30$ and $5 \\times 6 = 30$; the swapped claim $3 : 6 :: 5 : 10$ has the same products — and both sides reduce to $1 : 2$.',
+                    'Hence alternendo: the means may trade seats, because the cross products cannot tell.',
+                  ],
+                  answer: 'Proved — the cross products ad = bc serve the swapped claim too; 3 : 6 :: 5 : 10 checks',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
-  plannedLessons: ['Proportion and Cross-Multiplication', 'Direct and Inverse Variation', 'Scaling: Maps, Models and Recipes'],
+  plannedLessons: ['Direct and Inverse Variation', 'Scaling: Maps, Models and Recipes'],
 }
 

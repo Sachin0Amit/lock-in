@@ -19,6 +19,17 @@
  * the km/h ↔ m/s conversion law and its derivation, average speed and
  * the equal-weight fraud, the tank/typist rate-at-work instances, both
  * figures' geometry and the quiz/exercise keys — again BEFORE writing.
+ *
+ * Extended 2026-11-04 (run 29) for lesson 6.3 "Proportion and
+ * Cross-Multiplication": sections V–AE verify every number of the
+ * proportion lesson — the definition as an equality of two ratios (the
+ * :: notation), extremes and means with the cross law (product of the
+ * extremes = product of the means) and its two-direction derivation,
+ * the test-and-fill engine in every seat, alternendo and invertendo,
+ * continued proportion with the mean and third proportional, the
+ * rate-line figure where every pair on the line is in proportion, the
+ * word problems (tea, rice, recipe), both figures' geometry and the
+ * quiz/exercise keys — again BEFORE writing.
  * Run: bun run scripts/verify-unit-6.ts   (exit 1 on any failure)
  */
 
@@ -300,6 +311,138 @@ check('U6: 12 exercises across L1–L6 (2 each), all with steps + terminal answe
 check('U7: prerequisites — 6.1 ratio (the same-kind boundary Note), 5.3 operating on decimals (the unitary method)', true);
 check('U8: sources — ncert-math6-ch12 (extended to Ex. 12.3, the unitary method), ncert-sci7-motion (new), khattar-qa-4e', true);
 
+/* ============================================================
+ * V. The definition — an equality of two ratios (the :: statement)
+ * ==========================================================*/
+check('V1: the 6.2 debt: 96 : 3 = 32 : 1 and 160 : 5 = 32 : 1 — one rate twice', 96 / 3 === 32 && 160 / 5 === 32 && 96 * 5 === 480 && 3 * 160 === 480);
+check('V2: 256 : 8 = 32 : 1 — the third pair on the same line', 256 / 8 === 32);
+check('V3: 24 : 36 = 6 : 9 — both 2 : 3; cross 24 × 9 = 216 = 36 × 6', hcf(24, 36) === 12 && hcf(6, 9) === 3 && 24 * 9 === 216 && 36 * 6 === 216);
+check('V4: 4 : 7 vs 5 : 9 fails (36 ≠ 35) — the 6.1 stranger returns', 4 * 9 === 36 && 7 * 5 === 35 && 4 * 9 !== 7 * 5);
+check('V5: 3 : 5 :: 6 : 10 is TRUE (30 = 30); 5 : 3 :: 6 : 10 is FALSE (50 ≠ 18) — order matters', 3 * 10 === 30 && 5 * 6 === 30 && 5 * 10 === 50 && 3 * 6 === 18 && 5 * 10 !== 3 * 6);
+check('V6: 3 : 5 :: 10 : 6 FALSE (18 ≠ 50) and 2 : 3 :: 9 : 6 FALSE (12 ≠ 27) — quiz distractors', 3 * 6 === 18 && 5 * 10 === 50 && 3 * 6 !== 5 * 10 && 2 * 6 === 12 && 3 * 9 === 27 && 2 * 6 !== 3 * 9);
+
+/* ============================================================
+ * W. Extremes and means — the cross law (product of extremes = product of means)
+ * ==========================================================*/
+check('W1: table 8 : 12 = 10 : 15 — extremes 8 × 15 = 120, means 12 × 10 = 120', 8 * 15 === 120 && 12 * 10 === 120 && hcf(8, 12) === 4 && 8 / 4 === 2 && 12 / 4 === 3 && hcf(10, 15) === 5);
+check('W2: table 21 : 14 = 33 : 22 — extremes 21 × 22 = 462, means 14 × 33 = 462', 21 * 22 === 462 && 14 * 33 === 462 && hcf(21, 14) === 7 && hcf(33, 22) === 11 && 21 / 7 === 3 && 33 / 11 === 3);
+check('W3: table 9 : 4 = 27 : 12 — extremes 9 × 12 = 108, means 4 × 27 = 108', 9 * 12 === 108 && 4 * 27 === 108 && 27 / 9 === 3 && 12 / 4 === 3);
+check('W4: the failing row 6 : 10 vs 9 : 16 — 96 ≠ 90, not in proportion', 6 * 16 === 96 && 10 * 9 === 90 && 6 * 16 !== 10 * 9);
+check('W5: derivation, forward: (a/b) × bd = ad and (c/d) × bd = bc — multiply both sides by bd', (3 / 5) * 30 === 18 && (6 / 10) * 30 === 18);
+check('W6: derivation, backward: ad = bc, ÷ bd on both sides gives a/b = c/d — the iff closes (30/50 = 3/5 = 6/10)', 3 * 10 === 5 * 6 && (3 * 10) / (5 * 10) === 3 / 5 && (5 * 6) / (5 * 10) === 6 / 10);
+check('W7: alternendo: 3 : 5 :: 6 : 10 ⟹ 3 : 6 :: 5 : 10 (same products 30 = 30)', 3 * 10 === 30 && 6 * 5 === 30 && 3 / 6 === 0.5 && 5 / 10 === 0.5);
+check('W8: invertendo: 3 : 5 :: 6 : 10 ⟹ 5 : 3 :: 10 : 6 (products 30 = 30)', 5 * 6 === 30 && 3 * 10 === 30);
+check('W9: alternendo is the cross products unchanged: a : c :: b : d ⟺ ad = bc — the same two numbers', 3 * 10 === 30 && 5 * 6 === 30);
+check('W10: order-flip instance: 8 : 12 :: 15 : 10 fails — 80 ≠ 180', 8 * 10 === 80 && 12 * 15 === 180 && 8 * 10 !== 12 * 15);
+
+/* ============================================================
+ * X. The test-and-fill engine (every seat)
+ * ==========================================================*/
+check('X1: test 45 : 63 vs 35 : 49 — 45 × 49 = 2205 = 63 × 35, in proportion', 45 * 49 === 2205 && 63 * 35 === 2205 && hcf(45, 63) === 9 && 45 / 9 === 5 && 63 / 9 === 7 && hcf(35, 49) === 7 && 35 / 7 === 5 && 49 / 7 === 7);
+check('X2: test 30 : 42 vs 24 : 35 — 1050 ≠ 1008, not in proportion', 30 * 35 === 1050 && 42 * 24 === 1008 && 30 * 35 !== 42 * 24);
+check('X3: fill 8 : 12 = 10 : □ → □ = 12 × 10 / 8 = 15; check 8:12 = 2:3 = 10:15', (12 * 10) / 8 === 15 && hcf(8, 12) === 4 && hcf(10, 15) === 5 && 8 / 4 === 10 / 5 && 12 / 4 === 15 / 5);
+check('X4: fill first seat: □ : 24 = 30 : 45 → □ = 24 × 30 / 45 = 16; check 16:24 = 2:3 = 30:45', (24 * 30) / 45 === 16 && hcf(16, 24) === 8 && 16 / 8 === 2 && 24 / 8 === 3 && hcf(30, 45) === 15 && 30 / 15 === 2 && 45 / 15 === 3);
+check('X5: Illustration 6, 9, 12 → fourth = 9 × 12 / 6 = 18; check 6:9 = 2:3 = 12:18', (9 * 12) / 6 === 18 && hcf(6, 9) === 3 && hcf(12, 18) === 6 && 6 / 3 === 12 / 6 && 9 / 3 === 18 / 6);
+check('X6: prose off-line test: 4 kg for Rs 120 → unit rate 30 ≠ 32 — not on the shop\'s line', 120 / 4 === 30 && 120 / 4 !== 32);
+check('X7: the fourth proportional IS the unit-rate engine: 480 × 8/5 = 768 = 96 × 8', (480 * 8) / 5 === 768 && 480 / 5 === 96 && 96 * 8 === 768);
+
+/* ============================================================
+ * Y. Continued proportion — mean and third proportional
+ * ==========================================================*/
+check('Y1: mean proportional 4 & 25: b² = 100 → b = 10; 4 : 10 = 2 : 5 = 10 : 25', 10 * 10 === 4 * 25 && 4 * 5 === 2 * 10 && 10 * 5 === 2 * 25);
+check('Y2: mean proportional 8 & 50: b² = 400 → b = 20; 8 : 20 = 2 : 5 = 20 : 50', 20 * 20 === 8 * 50 && 8 * 5 === 2 * 20 && 20 * 5 === 2 * 50);
+check('Y3: quiz mean proportional 5 & 45: b² = 225 → b = 15; 5 : 15 = 1 : 3 = 15 : 45', 15 * 15 === 5 * 45 && 5 * 3 === 15 && 15 * 3 === 45);
+check('Y4: exercise mean proportional 7 & 63: b² = 441 → b = 21; 7 : 21 = 1 : 3 = 21 : 63', 21 * 21 === 7 * 63 && 7 * 3 === 21 && 21 * 3 === 63);
+check('Y5: exercise mean given 20, one number 16 → other = 400/16 = 25; 16 : 20 = 4 : 5 = 20 : 25', (20 * 20) / 16 === 25 && 16 * 5 === 4 * 20 && 20 * 5 === 4 * 25);
+check('Y6: third proportional to 4 and 6: x = 36/4 = 9; 4 : 6 = 2 : 3 = 6 : 9', (6 * 6) / 4 === 9 && hcf(4, 6) === 2 && hcf(6, 9) === 3 && 4 / 2 === 6 / 3 && 6 / 2 === 9 / 3);
+check('Y7: exercise third proportional to 8 and 12: x = 144/8 = 18; 8 : 12 = 2 : 3 = 12 : 18', (12 * 12) / 8 === 18 && hcf(8, 12) === 4 && hcf(12, 18) === 6 && 8 / 4 === 12 / 6 && 12 / 4 === 18 / 6);
+check('Y8: the mean sits in BOTH mean seats: a : b :: b : c — the middle term repeated', 8 * 5 === 2 * 20 && 20 * 5 === 2 * 50);
+check('Y9: the arithmetic-mean fraud on 5 & 45: (5+45)/2 = 25 ≠ 15; and 45/5 = 9 ≠ 15', (5 + 45) / 2 === 25 && (5 + 45) / 2 !== 15 && 45 / 5 === 9 && 45 / 5 !== 15);
+
+/* ============================================================
+ * Z. Proportion at work — tea, rice, recipe
+ * ==========================================================*/
+check('Z1: tea 5 kg → Rs 480; 8 kg at the same rate → 480 × 8/5 = 768', (480 * 8) / 5 === 768 && 480 / 5 === 96 && 96 * 8 === 768);
+check('Z2: the proportion form 8 : 5 = 768 : 480 — cross 8 × 480 = 3840 = 5 × 768', 8 * 480 === 3840 && 5 * 768 === 3840);
+check('Z3: rice 6 kg → Rs 210; 15 kg → 210 × 15/6 = 525; unit check 35 × 15 = 525', (210 * 15) / 6 === 525 && 210 / 6 === 35 && 35 * 15 === 525);
+check('Z4: recipe 6 people → 9 cups; 14 people → 9 × 14/6 = 21; per-person 1.5 × 14 = 21', (9 * 14) / 6 === 21 && 9 / 6 === 1.5 && 1.5 * 14 === 21);
+check('Z5: 12 : 16 = 21 : 28 — the L3a instance: 12 × 28 = 336 = 16 × 21', 12 * 28 === 336 && 16 * 21 === 336 && hcf(12, 16) === 4 && hcf(21, 28) === 7 && 12 / 4 === 21 / 7 && 16 / 4 === 28 / 7);
+check('Z6: 10 : 25 = 22 : 55 — the L3b instance: 10 × 55 = 550 = 25 × 22', 10 * 55 === 550 && 25 * 22 === 550 && hcf(10, 25) === 5 && hcf(22, 55) === 11 && 10 / 5 === 22 / 11 && 25 / 5 === 55 / 11);
+check('Z7: 6 : 8 vs 21 : 28 — 6 × 28 = 168 = 8 × 21, in proportion (L1a)', 6 * 28 === 168 && 8 * 21 === 168 && 6 / 2 === 3 && 8 / 2 === 4 && 21 / 7 === 3 && 28 / 7 === 4);
+check('Z8: 5 : 7 vs 35 : 48 — 240 ≠ 245, not in proportion (L1b)', 5 * 48 === 240 && 7 * 35 === 245 && 5 * 48 !== 7 * 35);
+check('Z9: 9 : 15 :: 24 : 40 — extremes 360, means 360 (L2b)', 9 * 40 === 360 && 15 * 24 === 360 && hcf(9, 15) === 3 && hcf(24, 40) === 8 && 9 / 3 === 24 / 8 && 15 / 3 === 40 / 8);
+check('Z10: fill 8 : 12 = 14 : □ → 21 (L2a); check 14 : 21 = 2 : 3', (12 * 14) / 8 === 21 && hcf(14, 21) === 7 && 14 / 7 === 2 && 21 / 7 === 3);
+
+/* ============================================================
+ * AA. Figure 1 geometry — one statement, four seats
+ * viewBox 0 0 760 320; boxes y 120..180 (h 60), width 116, pitch 160
+ * a 60..176, b 220..336, c 380..496, d 540..656; colons 198/358/516
+ * ==========================================================*/
+check('AA1: four boxes of width 116 at pitch 160: 60..176, 220..336, 380..496, 540..656', JSON.stringify([0, 1, 2, 3].map(k => 60 + 160 * k)) === '[60,220,380,540]' && 60 + 116 === 176 && 220 + 116 === 336 && 380 + 116 === 496 && 540 + 116 === 656);
+check('AA2: box gaps are 44 px: 176→220, 336→380, 496→540 — colons centered 198/358/518', 220 - 176 === 44 && 380 - 336 === 44 && 540 - 496 === 44 && (176 + 220) / 2 === 198 && (336 + 380) / 2 === 358 && (496 + 540) / 2 === 518);
+check('AA3: extremes arc spans x 118..598 above the boxes: endpoints y 106, peak ≈ 81', (118 + 598) / 2 === 358 && 106 < 120 && 81 < 106);
+check('AA4: extremes label at y 44 clears the arc peak 81 (44 + 8 < 81)', 44 + 8 < 81);
+check('AA5: means arc endpoints y 192 at x 278/438, dip 228; seat labels baseline y 214 (top ≈ 202) — 10 px clear', 278 === (220 + 336) / 2 && 438 === (380 + 496) / 2 && 228 > 192 && 202 - 192 === 10);
+check('AA6: means label at y 254 clears the dip 228 and the bottom strip at y 300', 254 > 228 + 8 && 254 + 10 < 300 - 8);
+check('AA7: seat labels centered under box centers 118/278/438/598', (60 + 176) / 2 === 118 && (220 + 336) / 2 === 278 && (380 + 496) / 2 === 438 && (540 + 656) / 2 === 598);
+check('AA8: bottom strip at y 300 fits inside viewBox 320 with 20 px margin', 300 + 8 < 320);
+
+/* ============================================================
+ * AB. Figure 2 geometry — the line of agreement (Rs 32/kg)
+ * viewBox 0 0 760 390; kg ruler y 84, price ruler y 276
+ * kg ticks 0..8 at x 60 + 80k; price 32 × kg — same x positions
+ * ==========================================================*/
+check('AB1: eight kg-intervals of 80 px across 640 px', (700 - 60) / 8 === 80);
+check('AB2: kg ticks at x 60,140,220,300,380,460,540,620,700', JSON.stringify([0,1,2,3,4,5,6,7,8].map(k => 60 + 80 * k)) === '[60,140,220,300,380,460,540,620,700]');
+check('AB3: the price at every tick: 0..256 in steps of 32 — 9 labels on the price ruler', JSON.stringify([0,1,2,3,4,5,6,7,8].map(k => 32 * k)) === '[0,32,64,96,128,160,192,224,256]');
+check('AB4: pair (3, 96) at x 300 and pair (5, 160) at x 460; pair (8, 256) at x 700', 60 + 80 * 3 === 300 && 32 * 3 === 96 && 60 + 80 * 5 === 460 && 32 * 5 === 160 && 60 + 80 * 8 === 700 && 32 * 8 === 256);
+check('AB5: bracket 1 spans x 300..460 (3 kg → 5 kg) at y 336, label at y 360', 460 - 300 === 160 && 336 > 276 && 360 > 336);
+check('AB6: bracket 2 spans x 460..700 (5 kg → 8 kg) at y 336; 5 × 256 = 1280 = 8 × 160', 700 - 460 === 240 && 5 * 256 === 1280 && 8 * 160 === 1280);
+check('AB7: bracket labels clear each other: label 1 centered 380 (x ~300..460), label 2 centered 580 (x ~500..660)', (300 + 460) / 2 === 380 && (460 + 700) / 2 === 580);
+check('AB8: takeaway strip at y 30 sits above the kg labels (y 64) and the rules start at y 84', 30 + 8 < 64 && 64 < 84);
+check('AB9: the off-line claim 120 at 4 kg maps to x 360; the true tick 128 maps to 380 — 20 px apart', 60 + (120 / 32) * 80 === 360 && 60 + (128 / 32) * 80 === 380);
+
+/* ============================================================
+ * AC. Quiz keys for 6.3 (indices 0/1/2/3/2)
+ * ==========================================================*/
+check('AC1: Q1 in proportion → 3 : 5 :: 6 : 10 (idx 0); the three distractors all fail', 3 * 10 === 30 && 5 * 6 === 30 && 5 * 10 !== 3 * 6 && 3 * 6 !== 5 * 10 && 2 * 6 !== 3 * 9);
+check('AC2: Q2 the means of 7 : 12 :: 21 : 36 are 12 and 21 (idx 1); extremes 7 × 36 = 252 = 12 × 21', 7 * 36 === 252 && 12 * 21 === 252);
+check('AC3: Q3 9 : 12 = 15 : □ → 20 (idx 2); 18 adds 3, 24 doubles 12', (12 * 15) / 9 === 20 && hcf(9, 12) === 3 && hcf(15, 20) === 5 && 9 / 3 === 15 / 5 && 12 / 3 === 20 / 5);
+check('AC4: Q4 mean proportional of 5 & 45 → 15 (idx 3); 25 is the arithmetic fraud, 225 the unrooted product, 9 the ratio', 15 * 15 === 225 && (5 + 45) / 2 === 25 && 45 / 5 === 9);
+check('AC5: Q5 second/third/fourth 18, 24, 36 → first = 12 (idx 2); 36 × option = 432 only for 12', (18 * 24) / 36 === 12 && 36 * 12 === 432 && 36 * 10 !== 432 && 36 * 14 !== 432 && 36 * 16 !== 432);
+check('AC6: quiz answers planned as indices 0/1/2/3/2', JSON.stringify([0, 1, 2, 3, 2]) === '[0,1,2,3,2]');
+
+/* ============================================================
+ * AD. Exercise keys for 6.3 (12 questions, L1–L6)
+ * ==========================================================*/
+check('AD1: L1a 6 : 8 and 21 : 28 in proportion — 168 = 168', 6 * 28 === 168 && 8 * 21 === 168);
+check('AD2: L1b 5 : 7 and 35 : 48 NOT — 240 ≠ 245', 5 * 48 === 240 && 7 * 35 === 245 && 5 * 48 !== 7 * 35);
+check('AD3: L2a 8 : 12 = 14 : 21 — both 2 : 3', (12 * 14) / 8 === 21 && 14 * 3 === 2 * 21);
+check('AD4: L2b 9 : 15 :: 24 : 40 — extremes 9 × 40 = 360 = 15 × 24', 9 * 40 === 360 && 15 * 24 === 360);
+check('AD5: L3a 12, 16, 21 → fourth 28; check 12:16 = 3:4 = 21:28', (16 * 21) / 12 === 28 && 12 * 28 === 336 && 12 * 7 === 3 * 28 && 16 * 7 === 4 * 28);
+check('AD6: L3b 10, 25, 55 → third 22; check 10:25 = 2:5 = 22:55', (10 * 55) / 25 === 22 && 25 * 22 === 550 && 10 * 11 === 2 * 55 && 25 * 11 === 5 * 55);
+check('AD7: L4a mean proportional 7 & 63 → 21; check 21² = 441 = 7 × 63', 21 * 21 === 7 * 63 && 7 * 3 === 21 && 21 * 3 === 63);
+check('AD8: L4b 15 : 6 = □ : 210 → 525; unit-rate check 35 × 15 = 525', (210 * 15) / 6 === 525 && 210 / 6 === 35 && 35 * 15 === 525);
+check('AD9: L5a third proportional to 12 and 18 → 27; check 12:18 = 2:3 = 18:27', (18 * 18) / 12 === 27 && 12 * 27 === 324 && 18 * 18 === 324);
+check('AD10: L5b recipe 14 : 6 = □ : 9 → 21; per-person 1.5 × 14 = 21', (9 * 14) / 6 === 21 && 9 * 14 === 126 && 126 / 6 === 21);
+check('AD11: L6a mean 20, one number 16 → other 25; check 16 : 20 = 4 : 5 = 20 : 25', (20 * 20) / 16 === 25 && 16 * 25 === 400 && 20 * 20 === 400);
+check('AD12: L6b alternendo verified on 3 : 5 :: 6 : 10 → 3 : 6 :: 5 : 10 (30 = 30)', 3 * 10 === 30 && 6 * 5 === 30 && 3 / 6 === 0.5 && 5 / 10 === 0.5);
+check('AD13: L4b the proportion form: 15 × 210 = 3150 = 6 × 525', 15 * 210 === 3150 && 6 * 525 === 3150);
+check('AD14: L5b the proportion form: 14 × 9 = 126 = 6 × 21', 14 * 9 === 126 && 6 * 21 === 126);
+
+/* ============================================================
+ * AE. Structural sanity for lesson 6.3
+ * ==========================================================*/
+check('AE1: 9 Illustrations planned (two one-rate statements, test pass, test fail, fill fourth, fill fourth-from-6-9-12, fill first, mean 8 & 50, third proportional, tea)', true);
+check('AE2: 3 formula cards (the cross law, the mean proportional, the third proportional) — the fourth proportional lives as equation tag 2', true);
+check('AE3: 2 equation tags (the definition; the missing-term engine) + 1 derivation (the cross law, both directions)', true);
+check('AE4: 7 terms planned (Proportion, Extremes, Means, Fourth proportional, Continued proportion, Mean proportional, Third proportional)', true);
+check('AE5: 5 quiz items with verified keys 0/1/2/3/2', true);
+check('AE6: 12 exercises across L1–L6 (2 each), all with steps + terminal answers', true);
+check('AE7: prerequisites — 6.1 ratio (the cross-test), 4.3 comparing fractions (the licence paid), 6.2 rates (the closing promise)', true);
+check('AE8: sources — ncert-math6-ch12 (extended to §12.2 + Ex. 12.2), ncert-math7-ch8, khattar-qa-4e', true);
+check('AE9: properties list carries alternendo and invertendo with verified instances', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-6: ${pass} passed, ${fail} failed`);
@@ -308,4 +451,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 6.1 and 6.2 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 6.1, 6.2 and 6.3 is script-verified before writing.');
