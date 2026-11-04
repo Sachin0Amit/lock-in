@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-04",
- "phase": "FM 6.4 SHIPPED (run 30) + FIGURE-POLISH PASS (run 31, owner chat directive): 6.4 'Direct and Inverse Variation' live (the two locks, the parking fraud, both engines, the factor laws, the flip, the work problems; VLM 10/10 math + 9/10 clarity both figures at ship). Run 31 then executed the owner's arrow directive site-wide: the 6.4 flip figure's crude straight-line arrows redesigned as mirror-symmetric cubic Bezier swap-arcs with solid filled heads, anchor dots and box-anchored tips; the 6.4 hyperbola smoothed from a 6-vertex polyline (kink at the (540,80) dot) to a 36-vertex dense path, every vertex on the pixel invariant (x-420)(320-y) = 28800; the '4 x 60' label relocated off the curve; all 45 figures swept (all PASS or fixed); zero polylines remain; 361 verify checks ALL PASS; audits 0/0; lint/tsc clean; 17-lesson E2E exit 0.",
- "awaiting": "PUSH DEBT (next cron-delivered run FIRST action): push the five unpushed commits 407c0fe / 7fed46b / 108b1d6 / 9d20434 / run-31 ship with the fresh embedded PAT (run 30's pushes were rejected by GitHub's refs backend — server-side, auth fine; run 31 had no PAT — owner chat session). Then: FM lesson 6.5 'Scaling: Maps, Models and Recipes' (final lesson of ch. 6) — extend verify-unit-6.ts with 6.5 sections BEFORE writing. Also queued: voice polish of the 10 remaining pre-4.2 lessons (2.2-2.5, 3.1-3.5, 4.1; 1.1 run 26, 1.2 run 27, 1.3 run 29, 2.1 run 30); EXAM_REGISTRY.json research (44 skeleton entries).",
+ "phase": "CH. 6 COMPLETE (5/5) — run 32: push debt cleared (all five commits 407c0fe..5aa10ed pushed, remote verified 5aa10ede...) and FM 6.5 'Scaling: Maps, Models and Recipes' shipped — the scale in three dresses, the RF proved (1 cm : 18 km = 1 : 18,00,000), the atlas bar-scale figure with the road drawn exactly four bar-segments long, the photocopy insight, the scale engine, the model van 1 : 24, the area law (m^2), the two-direction factor bars, the recipe multiplier proved from the per-serving constant, the clock Caution, the five-instrument chapter harvest. 444 unit-6 checks ALL PASS (A-AZ); audits 0/0; VLM figure 1 9.5/8 after one fix iteration, figure 2 10/9; 18-lesson E2E exit 0, quiz live 5/5 (keys 0/1/0/2/1); lint/tsc clean. Totals: 28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters written.",
+ "awaiting": "FM Chapter 7 'Integers' (next planned chapter — open it per the cadence: one lesson per run, extend scripts/verify-unit-7.ts BEFORE writing). Also queued: voice polish of the 12 remaining pre-4.2 lessons (2.2-2.5, 3.1-3.5, 4.1; 1.1 run 26, 1.2 run 27, 1.3 run 29, 2.1 run 30 — next up 2.2); EXAM_REGISTRY.json research (44 skeleton entries). No push debt: run 32's ship commit is pushed and remote-synced.",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -70,14 +70,14 @@
     "title": "Foundation Mathematics",
     "status": "in-progress",
     "chaptersPlanned": 11,
-    "chaptersWritten": 5,
-    "lessonsWritten": 27,
-    "termsAvailableForFlashcards": 178,
-    "notes": "STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the 14 pre-4.2 lessons' prose VOICE polish queued one per run — 1.1 DONE (run 26: formal Definition callout + roman run + Thus-line), 1.2 DONE (run 27: the comparison-rule Definition callout + roman run + Thus-line), 12 remain. Chapters 1-5 complete (units 1-5 shipped 2026-11-03/04): ch. 1 lessons 1.1-1.3 Numbers and Place Value (9,708 words + the run-26 1.1 voice polish), ch. 2 lessons 2.1-2.5 The Four Operations (21,425 words, incl. BODMAS), ch. 3 lessons 3.1-3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1-4.5 Fractions (26,905 words), ch. 5 lessons 5.1-5.5 Decimals and Percents (24,614 words). Chapter 6 lessons 6.1-6.5 Ratio, Rate and Proportion (open 2/5): 6.1 Ratio as a Comparison (run 26, 4,442 words — the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, three-term ratios, sharing with the share formula proved); 6.2 Rates and Unit Rates (run 27, 4,152 words — the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine (divide, or scale to a friendly unit, or run it backwards), comparisons by the same-way law with the direction and bulk frauds exposed, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 conversion law proved as a derivation block with anchors, rates at work, the average-speed Caution and formula card). RichText parser upgraded run 25 ($math$ inside bold/italic). Math script-verified (165 unit-6 checks + 455 unit-5 + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (15 lessons), quiz keys verified live. Next: 6.5 Scaling, Maps, Models and Recipes. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2. Run 30 shipped 6.4 Direct and Inverse Variation (5,373 words: the two locks, the parking fraud, both engines, the factor laws, the recognition drill, the flip, the work problems; figures polished to VLM 9/10+10/10) and the 2.1 voice polish; unit-6 verification now 361 checks (455/330/260/165 regressions), E2E 17 lessons with a dedicated 6.4 block (quiz 2/1/1/2/1 live 5/5)."
+    "chaptersWritten": 6,
+    "lessonsWritten": 28,
+    "termsAvailableForFlashcards": 185,
+    "notes": "STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the 14 pre-4.2 lessons' prose VOICE polish queued one per run — 1.1 DONE (run 26: formal Definition callout + roman run + Thus-line), 1.2 DONE (run 27: the comparison-rule Definition callout + roman run + Thus-line), 11 remain (2.2 next). Chapters 1-5 complete (units 1-5 shipped 2026-11-03/04): ch. 1 lessons 1.1-1.3 Numbers and Place Value (9,708 words + the run-26 1.1 voice polish), ch. 2 lessons 2.1-2.5 The Four Operations (21,425 words, incl. BODMAS), ch. 3 lessons 3.1-3.5 Factors, Multiples and Primes (27,896 words), ch. 4 lessons 4.1-4.5 Fractions (26,905 words), ch. 5 lessons 5.1-5.5 Decimals and Percents (24,614 words). Chapter 6 lessons 6.1-6.5 Ratio, Rate and Proportion (open 2/5): 6.1 Ratio as a Comparison (run 26, 4,442 words — the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, three-term ratios, sharing with the share formula proved); 6.2 Rates and Unit Rates (run 27, 4,152 words — the rate as a ratio of different kinds with units riding, the unit rate as the one-part engine (divide, or scale to a friendly unit, or run it backwards), comparisons by the same-way law with the direction and bulk frauds exposed, the double-ruler figure, the recognition table with the tie, speed as the flagship rate with the journey-map figure, the 5/18 conversion law proved as a derivation block with anchors, rates at work, the average-speed Caution and formula card). RichText parser upgraded run 25 ($math$ inside bold/italic). Math script-verified (165 unit-6 checks + 455 unit-5 + 330 unit-4 + 260 unit-3 + 165 unit-2), E2E green (15 lessons), quiz keys verified live. Next: 6.5 Scaling, Maps, Models and Recipes. Reference collection surveyed (Google Drive books); per-unit downloads per MASTER_PLAN §2. Run 30 shipped 6.4 Direct and Inverse Variation (5,373 words: the two locks, the parking fraud, both engines, the factor laws, the recognition drill, the flip, the work problems; figures polished to VLM 9/10+10/10) and the 2.1 voice polish; unit-6 verification now 361 checks (455/330/260/165 regressions), E2E 17 lessons with a dedicated 6.4 block (quiz 2/1/1/2/1 live 5/5)."
    }
   ],
   "lessonsWritten": 26,
-  "wordsAuthored": 123621,
+  "wordsAuthored": 133379,
   "termsAvailableForFlashcards": 171
  },
  "research": {
@@ -118,5 +118,16 @@
   "queueCorrection": "ch. 1 closed at 3 lessons — remaining pre-4.2 polish queue is 2.2-2.5, 3.1-3.5, 4.1 (10 lessons)",
   "inventory": "Drive survey rebuilt after recycle (89 entries) then WORK_INVENTORY.json regenerated: 27 lessons / 128,994 words / 178 terms / 135 quiz / 281 exercises",
   "downloads": "zero this run (verify-first + web-check only)"
+ },
+ "run32Extras": {
+  "lesson": "fm-scaling-maps-models-and-recipes (FM 6.5, ch. 6 final)",
+  "pushDebt": "cleared first: 5 commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed) pushed via one-time URL, ls-remote verified 5aa10ede40877d107f862dc809d1c726029c0c4e",
+  "words": "~4,400",
+  "verifyChecks": "444 (A-AZ; was 361)",
+  "figures": "2 (atlas bar scale — road drawn exactly 4 bar-segments = 400 px after VLM fix iteration; two-direction factor bars with baselines + dashed end guides)",
+  "vlm": "figure 1 9.5 math / 8 clarity; figure 2 10 math / 9 clarity",
+  "e2e": "18-lesson suite exit 0; 6.5 quiz live 5/5 (keys 0/1/0/2/1); 12/12 solutions; mobile 390 clean; console clean",
+  "inventory": "28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters",
+  "downloads": "none — web-check of ncert-math8-ch13 (Example 1 road-map dress) only; citation keys extended, no files"
  }
 }

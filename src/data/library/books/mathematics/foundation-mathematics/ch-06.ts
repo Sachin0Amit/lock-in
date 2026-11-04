@@ -105,7 +105,61 @@ import type { Chapter } from '../../../types'
  * exercises L1–L6 (L6: the recovered partner — mean 20, one number 16,
  * other 25 — and alternendo proved + verified). Every number
  * pre-verified by verify-unit-6.ts sections V–AE (252 checks, A–AE).
- * NEXT in this chapter: 6.4 Direct and Inverse Variation.
+ * LESSONS WRITTEN: 6.4 Direct and Inverse Variation (run 30, 2026-11-04)
+ * — the two locks named (direct y/x = k certified on the shop's rice
+ * line 96/3 = 160/5 = 256/8 = 32; inverse xy = k on the fixed total:
+ * the Rs 1,00,000 prize pool, the 360-degree wheel, the 360-minute
+ * school day), the parking fraud (growing without agreeing), the
+ * direct engine (bottles 700, truck 168 km, pole-shadow 6 m, bacteria
+ * 0.0001 cm), the inverse canon, one journey's two bindings (figure 1
+ * the line vs the hyperbola), the factor laws proved, the recognition
+ * drill (7 rows), the flip (figure 2, redesigned in run 31 as
+ * mirror-symmetric cubic swap-arcs), the work problems; 8 terms,
+ * 5-quiz (keys 2/1/1/2/1), 12 exercises L1–L6. (This block was
+ * recorded retroactively at run 32 — run 30 shipped the lesson but
+ * left this journal without it.)
+ *
+ * LESSONS WRITTEN: 6.5 Scaling: Maps, Models and Recipes (run 32,
+ * 2026-11-04) — the chapter's final lesson, entering through 6.4's
+ * open door: the map scale as a ratio with units riding. The atlas at
+ * 1 cm : 18 km opens (the hub leg 4 cm ↔ 72 km, the grain-market leg
+ * 5 cm ↔ 90 km, the village link 2.5 cm ↔ 45 km); the Definition
+ * callout + equation tag 1 give the scale in three dresses (verbal
+ * pair, representative fraction, bar scale) and the RF is PROVED as a
+ * derivation (1 cm : 18 km = 1 : 18,00,000 — units cancel, a pure
+ * number that works in every unit system; 1 mm of map = 1.8 km);
+ * figure 1 the atlas page with its alternating bar scale (0–72 km in
+ * 18-km segments); the photocopy insight (an 80 % copy makes the
+ * printed RF lie — 1 : 22,50,000 is the scale the copy deserves, the
+ * bar shrinks with the sheet and stays true); the scale engine both
+ * ways (ground = map × n, map = ground ÷ n) with the formula card;
+ * the model van at 1 : 24 (15 cm ↔ 3.6 m, wheelbase 10 cm ↔ 2.4 m);
+ * the courtyard plan at 1 : 500 (8 cm × 5 cm) and the AREA LAW — the
+ * scale multiplies lengths, not areas: 1000 m² ÷ 500² = 0.004 m² =
+ * 40 cm², the area ratio 500² = 2,50,000 — as a Caution + formula
+ * card; one law, two directions (equation tag 2, m = drawing/real:
+ * reductions m < 1, life size m = 1, enlargements m > 1 — 6.4's
+ * bacterium at ×50,000 as the enlargement callback), the properties
+ * list of scale drawings, the stamp ×5 (20 × 15 cm, area 25 = 5²
+ * times), figure 2 the two-direction bars (van 1 : 24 and stamp ×5,
+ * each panel drawn to ONE common px-per-cm so the px ratio IS the
+ * scale) and the similarity-door insight; recipes close the lesson —
+ * the hostel khichdi for 4 (rice 300 g, dal 150 g, water 900 mL,
+ * ghee 30 g, salt 6 g) scaled to 6 (× 3/2), 2 (× 1/2) and 10 (× 5/2),
+ * the recipe multiplier PROVED as a derivation from the per-serving
+ * constant (q ∝ s, q₂ = q₁ × s₂/s₁), the five-ingredient table across
+ * four serving counts, the water : rice = 3 : 1 ratio surviving every
+ * scale, and the Caution that the clock is not on the ingredient list
+ * (doubled rice is not doubled time); the chapter closes by harvesting
+ * its five instruments (ratio, rate, proportion, variation, scale);
+ * exam corner (NCERT class-8 ch. 13 opens on the road-map example —
+ * its 1 cm : 18 km dress cited, not reproduced; RRB NTPC and
+ * state-police map items verified in the wild), 7 terms, 5-quiz
+ * (keys 0/1/0/2/1) and 12 exercises L1–L6 (L6: the recipe multiplier
+ * proved + the photocopied survey map — 6 cm on an 80 % copy of a
+ * 1 : 2,00,000 sheet is 15 km truly, 12 km by the lying RF). Every
+ * number pre-verified by verify-unit-6.ts sections AQ–AZ (442 checks,
+ * A–AZ). CHAPTER 6 COMPLETE: 5/5 lessons.
  */
 
 export const chapter06: Chapter = {
@@ -114,7 +168,7 @@ export const chapter06: Chapter = {
   title: 'Ratio, Rate and Proportion',
   summary:
     'Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'fm-ratio-as-a-comparison',
@@ -2630,7 +2684,558 @@ export const chapter06: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-scaling-maps-models-and-recipes',
+      number: '6.5',
+      title: 'Scaling: Maps, Models and Recipes',
+      concepts: [
+        'Map scale',
+        'Bar scale',
+        'Representative fraction',
+        'Scale factor',
+        'Enlargement and reduction',
+        'Area law of scale',
+        'Recipe multiplier',
+        'Scale drawings',
+      ],
+      objectives: [
+        'State a map scale in all three dresses — verbal pair, representative fraction and bar scale — and convert between them across the km–m–cm bridge',
+        'Run the scale engine both ways — ground from map and map from ground — for maps, models and plans, and apply the area law: areas carry $m^2$, never $m$',
+        'Classify any scale drawing as reduction, life size or enlargement by its scale factor $m$, and see the factor laws of Lesson 6.4 at work in both directions',
+        'Scale a recipe up or down by the proved multiplier $q_2 = q_1 \\times s_2/s_1$, keep every per-serving constant — and keep the clock off the ingredient list',
+      ],
+      prerequisites: ['fm-direct-and-inverse-variation', 'fm-proportion-and-cross-multiplication', 'fm-rates-and-unit-rates'],
+      sources: ['ncert-math8-ch13', 'ncert-math6-ch12', 'ncert-math7-ch8', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 6.4 ended at a door it deliberately left open: the shop\'s price line hides a map scale in plain sight, because one centimetre standing for eighteen kilometres is direct variation between map and ground — the same lock the van\'s distance wore. Now walk through the door. The van\'s driver plans tomorrow with a road atlas: the run to the cold-storage hub is a stretch of road $72$ km long, and on the atlas page it is $4$ cm of paper. Eighteen kilometres per centimetre — that one sentence is a **rate** (Lesson 6.2, units riding), a **ratio** (Lesson 6.1, simplest dress ahead), a **direct variation** (Lesson 6.4, $\\text{map} \\propto \\text{ground}$), and a licence to **draw the world smaller without lying about it**. This final lesson of the chapter spends all four instruments at once: maps and models that shrink, prints that enlarge, plans that measure, and recipes that scale a dinner from four bellies to ten.',
+        },
+        { kind: 'heading', text: 'The scale of a drawing' },
+        {
+          kind: 'para',
+          text: 'Begin on the atlas page itself, with three legs of the van\'s week.',
+        },
+        {
+          kind: 'example',
+          title: 'A road atlas uses the scale $1$ cm : $18$ km. On its sheet the hub leg measures $4$ cm, the grain-market leg $5$ cm, and a village link $2.5$ cm. Find each ground distance — and find the map measure of the $45$ km village link backwards.',
+          steps: [
+            'Now, the scale is the constant: $1$ cm of map carries $18$ km of ground, every centimetre, everywhere on the sheet.',
+            'So each leg multiplies: $4 \\times 18 = 72$ km to the hub, $5 \\times 18 = 90$ km to the grain market, $2.5 \\times 18 = 45$ km to the village link.',
+            'Hence 72 km, 90 km and 45 km — and the engine runs backwards just as smoothly: the $45$ km link is exactly the leg measuring $45 \\div 18 = 2.5$ cm, no rounding, no lying.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Map scale',
+          text: 'The **scale** of a map or drawing is said to be the ratio of a distance on the drawing to the corresponding distance on the ground, **both measured in the same unit**. A scale is written in any of three dresses: as a **verbal pair** ($1$ cm : $18$ km), as a **representative fraction** ($1 : 18{,}00{,}000$ — the bare ratio of same-unit lengths), or as a **bar scale** (a ruler drawn on the sheet itself). In every dress the claim is the direct variation of Lesson 6.4: drawing distance $\\propto$ ground distance.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{drawing} : \\text{ground} = 1 : n \\;\\Longleftrightarrow\\; \\frac{\\text{drawing}}{\\text{ground}} = \\frac{1}{n} \\;\\Longleftrightarrow\\; \\text{ground} = n \\times \\text{drawing}',
+          note: 'Three dresses of one claim, exactly as equation tag 1 of Lesson 6.4 gave three dresses of direct variation. The $n$ counts **ground units per drawing unit** — $18$ km per cm on the atlas, $24$ cm per cm on the model scale $1 : 24$. The middle dress, $1/n$, is the representative fraction; the next derivation earns it.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The representative fraction, from the verbal pair',
+          statement:
+            'Claim: the verbal pair $1$ cm : $18$ km and the bare ratio $1 : 18{,}00{,}000$ are the **same scale** — and the bare ratio works in every unit system at once.',
+          steps: [
+            {
+              label: 'Convert',
+              formula: '18 \\text{ km} = 18 \\times 1000 \\text{ m} = 18 \\times 1{,}00{,}000 \\text{ cm} = 18{,}00{,}000 \\text{ cm}',
+              explanation:
+                'The unit bridge, kilometre to metre to centimetre — the same same-units law Lesson 6.1 enforced before any ratio was spoken (Rs 5 : 50 paise had to become 500 : 50 first). A ratio only makes sense between quantities dressed alike.',
+            },
+            {
+              label: 'Cancel',
+              formula: '1 \\text{ cm} : 18{,}00{,}000 \\text{ cm} \\;=\\; 1 : 18{,}00{,}000',
+              explanation:
+                'The units cancel because they are the **same** unit on both sides; what survives is a pure number — the **representative fraction**, RF for short. Nothing about it remembers centimetres.',
+            },
+            {
+              label: 'Trust',
+              formula: '\\text{RF} = \\frac{1}{18{,}00{,}000} \\;\\Longrightarrow\\; 1 \\text{ mm of map} = 18{,}00{,}000 \\text{ mm of ground} = 1800 \\text{ m} = 1.8 \\text{ km}',
+              explanation:
+                'And the same pure number works in millimetres, inches or spans: $1$ inch of map is $18{,}00{,}000$ inches of ground. This unit-independence is exactly why survey departments print the bare ratio on the sheet — it survives every unit system the reader may bring.',
+            },
+          ],
+          result: '$1$ cm : $18$ km $= 1 : 18{,}00{,}000$ — one scale, three dresses, no units in the fraction.',
+        },
+        {
+          kind: 'example',
+          title: 'On the same atlas, what ground distance does $1$ mm of map carry? And what does the marking $1 : 8{,}00{,}000$ on a survey sheet mean, in km per cm?',
+          steps: [
+            'Now, millimetres first: $1$ mm $= 0.1$ cm, so the ground carried is $0.1 \\times 18 = 1.8$ km.',
+            'So the RF agrees by its own road: $1$ mm of map is $18{,}00{,}000$ mm of ground $= 1800$ m $= 1.8$ km — the pure number knows no units, and both dresses land on the same answer.',
+            'Hence 1.8 km per mm; and the survey sheet reads backwards through the same bridge: $8{,}00{,}000$ cm $= 8$ km, so $1 : 8{,}00{,}000$ means one centimetre there spans $8$ km of ground.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The atlas page and its bar scale. The sheet carries the route from town A to the hub ($4$ cm of paper $\\leftrightarrow$ $72$ km of road) and, along its foot, the scale drawn rather than said: four alternating segments, each $1$ cm of paper standing for $18$ km of ground — $0$, $18$, $36$, $54$, $72$. The bar is the scale\'s third dress made physical: to measure any leg, carry it down to the bar with a compass edge and read the kilometres where it lands. The verbal pair ($1$ cm : $18$ km), the fraction ($1 : 18{,}00{,}000$) and this drawn ruler are one and the same ratio, three times over.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An atlas page with a road from town A to the hub drawn exactly four bar-segments long, captioned four centimetres on the map equals seventy two kilometres on the ground, and below it a bar scale of four alternating segments labelled zero, eighteen, thirty six, fifty four and seventy two kilometres, each segment marked one centimetre equals eighteen kilometres">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="310" y="30" font-weight="bold">the atlas page: scale 1 cm : 18 km</text>
+    <text x="90" y="172">town A</text>
+    <text x="422" y="74" text-anchor="start">the hub</text>
+    <text x="310" y="210" font-size="12">the hub leg: 4 cm ↔ 72 km</text>
+    <text x="80" y="272" font-size="12">0</text>
+    <text x="180" y="272" font-size="12">18</text>
+    <text x="280" y="272" font-size="12">36</text>
+    <text x="380" y="272" font-size="12">54</text>
+    <text x="480" y="272" font-size="12">72 km</text>
+    <text x="500" y="247" font-size="12" text-anchor="start">each segment: 1 cm ↔ 18 km</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <rect x="60" y="48" width="500" height="140" />
+    <path d="M 90 150 L 330 150 L 330 70 L 410 70" fill="none" />
+    <rect x="180" y="232" width="100" height="20" />
+    <rect x="380" y="232" width="100" height="20" />
+    <line x1="180" y1="232" x2="180" y2="252" />
+    <line x1="280" y1="232" x2="280" y2="252" />
+    <line x1="380" y1="232" x2="380" y2="252" />
+    <line x1="80" y1="252" x2="80" y2="258" />
+    <line x1="180" y1="252" x2="180" y2="258" />
+    <line x1="280" y1="252" x2="280" y2="258" />
+    <line x1="380" y1="252" x2="380" y2="258" />
+    <line x1="480" y1="252" x2="480" y2="258" />
+  </g>
+  <g fill="currentColor">
+    <rect x="80" y="232" width="100" height="20" />
+    <rect x="280" y="232" width="100" height="20" />
+    <circle cx="90" cy="150" r="4" />
+    <circle cx="410" cy="70" r="5" />
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The bar scale travels with the map',
+          text: 'Photocopy the atlas page at $80\\%$ and every printed **number** lies: the RF still says $1 : 18{,}00{,}000$, but the copy\'s centimetre is only $0.8$ of the original\'s, and $0.8$ cm now spans $18$ km — the scale the copy deserves is $1 : 22{,}50{,}000$ (Exercise L6 cashes the full fraud on a survey sheet). The **bar scale** is the honest passenger: it was copied along with everything else, so its shrunken segments still measure true distances — lay the copied leg against the copied bar and the copy confesses its own new scale. This is why careful maps draw the scale **on** the sheet instead of trusting a number in the corner.',
+        },
+        { kind: 'heading', text: 'The scale engine at work' },
+        {
+          kind: 'para',
+          text: 'The definition is an engine with two pedals. Forward: ground $= n \\times$ drawing — the atlas multiplied by $18$. Backward: drawing $=$ ground $\\div n$ — the courtyard planned from its field. The same constant drives both directions; only the reading order changes.',
+        },
+        {
+          kind: 'formula',
+          name: 'The scale engine',
+          latex: '\\text{ground} = n \\times \\text{drawing} \\qquad \\text{drawing} = \\text{ground} \\div n',
+          note: 'First fix the dress and its bridge: in the verbal pair $1$ cm : $18$ km, $n = 18$ carries **kilometres per centimetre**; in the bare ratio $1 : 24$, $n = 24$ is unit-free and multiplies like-for-like. Certify the dress, then multiply or divide — the factor method of Lesson 6.4 with a unit bridge bolted on.',
+        },
+        {
+          kind: 'example',
+          title: 'A die-cast model of the delivery van is built to the scale $1 : 24$. The model is $15$ cm long and its wheelbase measures $10$ cm. Find the real van\'s length and wheelbase.',
+          steps: [
+            'Now, the ratio $1 : 24$ has no unit pair to convert — model centimetres and real centimetres are the same unit at different sizes, so every real length is $24$ model lengths.',
+            'So the real van is $15 \\times 24 = 360$ cm $= 3.6$ m long, riding a wheelbase of $10 \\times 24 = 240$ cm $= 2.4$ m.',
+            'Hence 3.6 m and 2.4 m — and the check runs backwards through the same door: the wheelbase draws at $240 \\div 24 = 10$ cm, the model\'s own measure.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A school courtyard $40$ m by $25$ m is drawn on a plan at $1 : 500$. Find the plan\'s dimensions, and by what factor the plan\'s area falls short of the courtyard\'s.',
+          steps: [
+            'Now, the lengths: $40$ m $= 4000$ cm draws at $4000 \\div 500 = 8$ cm, and $25$ m $= 2500$ cm draws at $2500 \\div 500 = 5$ cm.',
+            'So the plan is $8$ cm by $5$ cm — an area of $40$ cm²; the courtyard itself is $40 \\times 25 = 1000$ m² $= 1{,}00{,}00{,}000$ cm².',
+            'Hence the area ratio is $1{,}00{,}00{,}000 \\div 40 = 2{,}50{,}000 = 500^2$: the lengths were divided by $500$, the areas by $500^2$. A scale multiplies **lengths** — and squares itself before it touches **areas**.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The scale multiplies lengths, not areas',
+          text: 'Divide the courtyard\'s $1000$ m² by $500$ and you get $2$ — a number with no meaning here. The honest quotient is $1000 \\div 500^2 = \\tfrac{1}{250}$ m² $= 0.004$ m² $= 40$ cm², the plan\'s own area. Each dimension carries the factor once, so an area — length × width — carries it **twice**. Every "how much real area does this map region cover?" question is an invitation to forget the square; the exercise set drills the memory.',
+        },
+        {
+          kind: 'formula',
+          name: 'The area law of scale',
+          latex: '\\text{drawing} : \\text{ground} = 1 : n \\;\\Longrightarrow\\; \\text{drawing area} : \\text{ground area} = 1 : n^2',
+          note: 'Areas square the factor — in both directions. Courtyard check: $500^2 = 2{,}50{,}000$. Stamp check ahead: an enlargement at $\times 5$ multiplies area by $5^2 = 25$. The law does not care which way the drawing faces.',
+        },
+        { kind: 'heading', text: 'One law, two directions' },
+        {
+          kind: 'para',
+          text: 'The atlas drew the world smaller; the courtyard plan drew it smaller still; but a photograph draws larger, and Lesson 6.4\'s bacterium was drawn $50{,}000$ times its size. One number settles every case: the **scale factor** $m$, the multiplier from real length to drawing length.',
+        },
+        {
+          kind: 'equation',
+          latex: 'm = \\frac{\\text{drawing length}}{\\text{real length}} \\;\\Longrightarrow\\; \\begin{cases} m < 1 & \\text{reduction — maps, plans, models} \\\\ m = 1 & \\text{life size} \\\\ m > 1 & \\text{enlargement — photographs, magnifications} \\end{cases}',
+          note: 'The atlas works at $m = \\tfrac{1}{18{,}00{,}000}$, the model van at $m = \\tfrac{1}{24}$, the bacterium\'s photograph at $m = 50{,}000$ — one law, three sizes. These are exactly the factor laws of Lesson 6.4: under direct variation, scaling $x$ by $m$ scales $y$ by the same $m$; here $y$ is every length of the drawing.',
+        },
+        {
+          kind: 'list',
+          marker: 'disc',
+          items: [
+            '**Every length is multiplied by the same $m$** — the van: $15 \\times 24 = 360$ cm, wheelbase $10 \\times 24 = 240$ cm; the stamp: $4 \\times 5 = 20$ cm, $3 \\times 5 = 15$ cm. No length escapes, no length gets a private factor.',
+            '**No angle ever changes** — the courtyard\'s right angle is a right angle on the plan; a drawing at any scale has the same **shape** as the real thing, never the same size (unless $m = 1$).',
+            '**The representative fraction is a pure number** — $1 : 24$ needs no unit bridge; $1 : 18{,}00{,}000$ works in mm, cm, inches alike, which is why the bare ratio travels so well.',
+            '**Areas carry $m^2$, never $m$** — the courtyard plan: lengths $\\div 500$, areas $\\div 2{,}50{,}000$; the stamp print: lengths $\\times 5$, areas $\\times 25$.',
+            '**The bar scale belongs to its sheet** — copied, it shrinks with the map and stays true, while the printed RF tells the original\'s story (the insight above; Exercise L6 collects the debt).',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A postage stamp $4$ cm by $3$ cm is photographed for a catalogue at five times natural size. Find the print\'s dimensions, and how many times the stamp\'s area the print\'s area is.',
+          steps: [
+            'Now, five times natural size is $m = 5$: every length multiplies by $5$ — $4 \\times 5 = 20$ cm by $3 \\times 5 = 15$ cm.',
+            'So the print\'s area is $20 \\times 15 = 300$ cm², against the stamp\'s $4 \\times 3 = 12$ cm².',
+            'Hence 20 cm by 15 cm, and the area is $300 \\div 12 = 25 = 5^2$ times the stamp\'s — the area law cashed in the enlargement direction; squared factors do not care which way the camera points.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One law, two directions. Left: the van and its model, both bars drawn at one common scale of $0.8$ px per real-or-model cm — so the picture\'s own ratio $288 : 12 = 24 : 1$ **is** the scale $1 : 24$: every length divides by $24$ going down and multiplies by $24$ coming back. Right: the stamp and its catalogue print at $12.5$ px per cm — the drawn ratio $250 : 50 = 5$ **is** the enlargement $\times 5$. Both panels are honest rulers, not impressions: measure the bars and the stated scales fall out. The factor $m$ of Lesson 6.4, wearing its two dresses.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels of paired bars sharing a left baseline with dashed end guides: left, a long bar for the real van three point six metres and a short bar for its model fifteen centimetres at scale one to twenty four; right, a short bar for a four centimetre stamp and a long bar for its twenty centimetre print at five times size; each panel states its factor m">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="204" y="36" font-weight="bold">the model van: 1 : 24 (reduction)</text>
+    <text x="585" y="36" font-weight="bold">the print: × 5 (enlargement)</text>
+    <text x="204" y="70" font-size="12">the van: real length 3.6 m (360 cm)</text>
+    <text x="585" y="70" font-size="12">the stamp: 4 cm</text>
+    <text x="86" y="156" font-size="12" text-anchor="start">the model: 15 cm</text>
+    <text x="585" y="132" font-size="12">the print: 20 cm</text>
+    <text x="204" y="196" font-size="12">m = 1/24: every length ÷ 24 (15 × 24 = 360)</text>
+    <text x="585" y="196" font-size="12">m = 5: every length × 5 (4 × 5 = 20)</text>
+    <text x="380" y="262" font-size="12">the factor law of Lesson 6.4, drawn: every length × m — the shape never changes, only the size</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1.5">
+    <rect x="60" y="80" width="288" height="24" />
+    <rect x="60" y="140" width="12" height="24" />
+    <rect x="460" y="80" width="50" height="24" />
+    <rect x="460" y="140" width="250" height="24" />
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <line x1="60" y1="70" x2="60" y2="176" />
+    <line x1="460" y1="70" x2="460" y2="176" />
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1" stroke-dasharray="3 4">
+    <line x1="348" y1="104" x2="348" y2="176" />
+    <line x1="510" y1="104" x2="510" y2="176" />
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The door to similar figures',
+          text: 'Lesson 6.4\'s bacterium photographed at $50{,}000$ times and this lesson\'s stamp at $5$ times are one fact in two sizes: scale drawings preserve **shape** while trading **size**. Later geometry will meet such pairs as **similar figures** — equal angles, proportional sides — and will prove as theorems what this chapter has been using as an instruction manual. The atlas, the model, the plan and the print are all similarity wearing everyday clothes.',
+        },
+        { kind: 'heading', text: 'Recipes: scaling the portion, not the pot' },
+        {
+          kind: 'para',
+          text: 'The chapter\'s last scene is a kitchen. The hostel\'s khichdi is written down for $4$ persons: $300$ g of rice, $150$ g of dal, $900$ mL of water, $30$ g of ghee, $6$ g of salt. Tonight it must feed $6$; on Sunday, a study group of $10$; some quiet evening, just $2$. A recipe is a **ratio table** in an apron — Lesson 6.1\'s sharing and Lesson 6.4\'s direct variation, both wearing aprons — and the scale factor works on it exactly as it worked on the atlas.',
+        },
+        {
+          kind: 'example',
+          title: 'Scale the hostel\'s $4$-person khichdi to $6$ persons.',
+          steps: [
+            'Now, the multiplier: $6 \\div 4 = \\tfrac{3}{2}$ — one factor for the whole recipe, not a private factor per ingredient.',
+            'So $300 \\times \\tfrac{3}{2} = 450$ g of rice, $150 \\times \\tfrac{3}{2} = 225$ g of dal, $900 \\times \\tfrac{3}{2} = 1350$ mL of water, $30 \\times \\tfrac{3}{2} = 45$ g of ghee, $6 \\times \\tfrac{3}{2} = 9$ g of salt.',
+            'Hence the $6$-person recipe: 450 g, 225 g, 1350 mL, 45 g, 9 g — and the ratio check that proves nothing was fat-fingered: water to rice is $1350 : 450 = 3 : 1$, exactly the original $900 : 300$. Scaling changed the **size**; the **recipe** underneath never moved.',
+          ],
+        },
+        {
+          kind: 'derivation',
+          title: 'The recipe multiplier, from the per-serving constant',
+          statement:
+            'Claim: if a recipe for $s_1$ persons uses $q_1$ of an ingredient, the amount for $s_2$ persons is $q_2 = q_1 \\times \\tfrac{s_2}{s_1}$.',
+          steps: [
+            {
+              label: 'The constant',
+              formula: 'k = \\tfrac{q_1}{s_1}',
+              explanation:
+                'The per-serving amount — $75$ g of rice per head in the khichdi — is the constant of a direct variation: quantity $\\propto$ servings, precisely Lesson 6.4\'s definition. The recipe is merely a table of such constants, one per ingredient.',
+            },
+            {
+              label: 'Extend',
+              formula: 'q_2 = k\\,s_2 = \\tfrac{q_1}{s_1} \\times s_2 = q_1 \\times \\tfrac{s_2}{s_1}',
+              explanation:
+                'The same extension the direct engine performed on the shop\'s rice line and the van\'s distance: one constant, any size. The multiplier $\\tfrac{s_2}{s_1}$ may be a proper fraction — honesty demands using it, since half the guests deserve half the rice.',
+            },
+          ],
+          result: '$q_2 = q_1 \\times s_2/s_1$ — the recipe multiplier: every ingredient obeys the serving ratio.',
+        },
+        {
+          kind: 'formula',
+          name: 'The recipe multiplier',
+          latex: 'q_2 = q_1 \\times \\frac{s_2}{s_1}',
+          note: 'Scale the portion, and every ingredient carries the same factor — upward ($\\tfrac{5}{2}$ for ten) or downward ($\\tfrac{1}{2}$ for two). The per-serving constants $q_1/s_1$ never move; check any answer by rebuilding one of them.',
+        },
+        {
+          kind: 'table',
+          head: ['Ingredient', 'for 2 ($\\times \\tfrac{1}{2}$)', 'for 4 (the recipe)', 'for 6 ($\\times \\tfrac{3}{2}$)', 'for 10 ($\\times \\tfrac{5}{2}$)'],
+          rows: [
+            ['Rice', '150 g', '300 g', '450 g', '750 g'],
+            ['Dal', '75 g', '150 g', '225 g', '375 g'],
+            ['Water', '450 mL', '900 mL', '1350 mL', '2250 mL'],
+            ['Ghee', '15 g', '30 g', '45 g', '75 g'],
+            ['Salt', '3 g', '6 g', '9 g', '15 g'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Read the table by its columns and its rows at once. Each **column** is one batch — the same recipe at a different scale, every cell the per-serving constant times the head-count. Each **row** is one ingredient riding its constant: rice at $75$ g a head, dal at $37.5$, water at $225$ mL, ghee at $7.5$, salt at $1.5$ — and any cell is the row\'s constant times the column\'s multiplier, which is the multiplier law made visible. Down the diagonal, the ratios stand still: water : rice $= 3 : 1$ in all four columns, dal : rice $= 1 : 2$ in all four. The dish changes size; it never changes character.',
+        },
+        {
+          kind: 'example',
+          title: 'The cook needs the khichdi for just $2$ persons tonight, and for a $10$-person study group tomorrow. Produce both ingredient lists from the $4$-person recipe.',
+          steps: [
+            'Now, the two multipliers: down is $\\tfrac{2}{4} = \\tfrac{1}{2}$, up is $\\tfrac{10}{4} = \\tfrac{5}{2}$.',
+            'So tonight: $150$ g rice, $75$ g dal, $450$ mL water, $15$ g ghee, $3$ g salt; tomorrow: $750$ g rice, $375$ g dal, $2250$ mL water, $75$ g ghee, $15$ g salt.',
+            'Hence both batches — and both keep water : rice $= 3 : 1$: the multiplier may fall below $1$ or rise above $2$, but the recipe underneath never moves.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The clock is not on the ingredient list',
+          text: 'Nothing in the recipe\'s ingredient list is **time** — deliberately. Doubling the rice does **not** double the cooking time: a fuller pot heats differently, steam escapes differently, and the grain decides when it is done, not the arithmetic. Scaling a recipe scales the **quantities**; the **time** is judged — start checking early, taste, and trust the pot over the proportion. Examination papers sometimes plant a "cooking time" line to be scaled; the trap is the point.',
+        },
+        { kind: 'heading', text: 'The chapter, closed' },
+        {
+          kind: 'para',
+          text: 'The chapter opened comparing two numbers and closes drawing the world to size, and its five instruments now form one connected machine. The **ratio** (Lesson 6.1) compares by division, in simplest dress. The **rate** (Lesson 6.2) lets the units ride the comparison. The **proportion** (Lesson 6.3) certifies that two ratios agree, with the cross law as its engine. The **variation** (Lesson 6.4) names the two locks — one ratio or one product — that bind quantities changing together. And the **scale** (this lesson) spends all four at once: the atlas is a direct variation ($\\text{map} \\propto \\text{ground}$), the RF is a ratio in its purest dress, the bar scale is the rate drawn in ink, and the photocopy fraud is caught by exactly the test that expelled the parking table — find the constant, then ask whether it stayed.',
+        },
+        {
+          kind: 'para',
+          text: 'One door this chapter could not open: every number in it lived on the sunny half of the number line — no debts, no sub-zero nights, no journeys backwards. The next chapter walks through that door, and the ratio machinery built here will be waiting on the other side.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Scaling in the examination hall',
+          text: 'Map-scale items are staples of the recruitment papers — RRB NTPC and state-police constable exams both ask them straight ("$1$ cm on a map represents $n$ km; what do $k$ cm represent?"), and the class-8 boards meet the same shape: NCERT\'s chapter on direct and inverse proportion **opens** with a road map at $1$ cm : $18$ km — the very dress this lesson\'s atlas wears — and its exercises carry the map, model and mixture items (the chapter\'s dresses are cited here, no question reproduced). Recipe and ingredient scaling walks in through the class-6 and class-7 proportion chapters and Khattar\'s Quantitative Aptitude unitary-method staples. The examinable reflexes: bridge the units **before** comparing (the RF from the verbal pair); run the engine both ways; square the factor for areas; and scale recipes by the multiplier, not by optimism about the clock.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Map scale',
+              def: 'The ratio of a drawing distance to the corresponding ground distance, both in the same units — stated as a verbal pair ($1$ cm : $18$ km), a representative fraction ($1 : 18{,}00{,}000$) or a bar scale drawn on the sheet.',
+            },
+            {
+              term: 'Bar scale',
+              def: 'A ruler drawn on the map itself, each segment standing for a fixed ground distance; it shrinks with the map on copying, so it stays true where a printed RF lies.',
+            },
+            {
+              term: 'Representative fraction',
+              def: 'The scale as a bare ratio of same-unit lengths — $1 : 18{,}00{,}000$; a pure number with no units, valid in every unit system.',
+            },
+            {
+              term: 'Scale factor',
+              def: 'The multiplier $m$ from real length to drawing length: $m < 1$ a reduction, $m = 1$ life size, $m > 1$ an enlargement; the factor laws of Lesson 6.4 govern it.',
+            },
+            {
+              term: 'Enlargement',
+              def: 'A scale drawing with $m > 1$ — the bacterium\'s photograph at $50{,}000$ times, the catalogue print at $\times 5$; areas grow by $m^2$.',
+            },
+            {
+              term: 'Reduction',
+              def: 'A scale drawing with $m < 1$ — the atlas, the plan, the die-cast model; the world drawn smaller, every length by the same factor.',
+            },
+            {
+              term: 'Recipe multiplier',
+              def: '$s_2/s_1$, the factor every ingredient of a recipe carries when the servings change from $s_1$ to $s_2$; the per-serving constants never move, and the clock is not an ingredient.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'On a map drawn to the scale $1$ cm : $5$ km, two towns measure $7.2$ cm apart. The actual distance is',
+              options: ['36 km', '14.4 km', '1.44 km', '72 km'],
+              answer: 0,
+              explain:
+                'Each centimetre carries $5$ km, so $7.2 \\times 5 = 36$ km (Option 1). Option 2 multiplied by $2$, Option 3 by $0.2$, Option 4 by $10$ — none of these is the scale; only the constant itself may touch the measure.',
+            },
+            {
+              q: 'A die-cast model is built at $1 : 24$ and its length is $15$ cm. The real length is',
+              options: ['62.5 cm', '3.6 m', '24 m', '1.5 m'],
+              answer: 1,
+              explain:
+                'The ratio multiplies like-for-like: $15 \\times 24 = 360$ cm $= 3.6$ m (Option 2). Option 1 is the inverted error $15 \\div 24$; Option 3 treats the ratio as metres; Option 4 multiplies by $10$ for no reason the scale knows.',
+            },
+            {
+              q: 'The marking $1 : 2{,}50{,}000$ on a survey sheet means',
+              options: [
+                '$1$ cm on the sheet : $2.5$ km on the ground',
+                '$1$ cm : $2{,}50{,}000$ km',
+                'the ground is $2{,}50{,}000$ cm wide',
+                '$1$ km on the ground : $2.5$ cm on the sheet',
+              ],
+              answer: 0,
+              explain:
+                'The bridge: $2{,}50{,}000$ cm $= 2.5$ km, so each sheet-centimetre spans $2.5$ km (Option 1). Option 2 skipped the bridge — $2{,}50{,}000$ km is planetary; Option 3 mistakes the RF for a width; Option 4 inverts the ratio.',
+            },
+            {
+              q: 'A recipe for $4$ persons uses $300$ g of rice. For $10$ persons one needs',
+              options: ['600 g', '450 g', '750 g', '1,200 g'],
+              answer: 2,
+              explain:
+                'The multiplier is $\\tfrac{10}{4} = \\tfrac{5}{2}$, so $300 \\times \\tfrac{5}{2} = 750$ g (Option 3). Option 1 doubles — that feeds $8$; Option 2 is the $6$-person batch ($\\times \\tfrac{3}{2}$); Option 4 multiplies by $4$, the recipe\'s own size, which would feed $16$.',
+            },
+            {
+              q: 'A courtyard is drawn on a plan at $1 : 500$. The plan\'s area compared with the courtyard\'s real area is',
+              options: ['$\\tfrac{1}{500}$ of it', '$\\tfrac{1}{2{,}50{,}000}$ of it', '$\\tfrac{1}{1{,}000}$ of it', 'the same area'],
+              answer: 1,
+              explain:
+                'Areas square the factor: $500^2 = 2{,}50{,}000$, so the plan\'s area is $\\tfrac{1}{2{,}50{,}000}$ of the real area (Option 2). Option 1 is the **length** ratio wearing an area\'s clothes; Option 3 is $2 \\times 500$, an arithmetic ghost; Option 4 forgets the scale entirely.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'A road atlas uses the scale $1$ cm : $18$ km. What ground distance does a $5$ cm leg of the van\'s route represent?',
+                  solution: [
+                    'Now, the scale is the constant: $1$ cm of map carries $18$ km of ground.',
+                    'So the leg carries $5 \\times 18 = 90$ km.',
+                    'Hence 90 km — and $90 \\div 18 = 5$ cm reads the map backwards to the same leg.',
+                  ],
+                  answer: '90 km',
+                },
+                {
+                  q: 'A building plan is drawn at $1$ cm : $2$ m. How long on the plan is a wall $7$ m long?',
+                  solution: [
+                    'Now, the wall is the ground quantity, so the plan divides: $7 \\div 2 = 3.5$ cm.',
+                    'So the wall draws at $3.5$ cm on the plan.',
+                    'Hence 3.5 cm — and $3.5 \\times 2 = 7$ m rebuilds the wall.',
+                  ],
+                  answer: '3.5 cm',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Express the scale $1$ mm : $5$ m as a ratio in the same units.',
+                  solution: [
+                    'Now, one bridge: $5$ m $= 5000$ mm, since $1$ m $= 1000$ mm.',
+                    'So $1$ mm : $5000$ mm $= 1 : 5000$ — the units cancel and the RF is pure.',
+                    'Hence 1 : 5000 — one millimetre of drawing is $5000$ mm $= 5$ m of real wall, in any unit pair the reader brings.',
+                  ],
+                  answer: '1 : 5000',
+                },
+                {
+                  q: 'A recipe for $6$ persons uses $450$ g of dal. How much dal feeds $4$ persons?',
+                  solution: [
+                    'Now, the multiplier runs downward: $\\tfrac{4}{6} = \\tfrac{2}{3}$.',
+                    'So $450 \\times \\tfrac{2}{3} = 300$ g; the per-serving constant agrees: $450 \\div 6 = 75$, and $75 \\times 4 = 300$.',
+                    'Hence 300 g — fewer guests, the same dal per head.',
+                  ],
+                  answer: '300 g',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A van is $5.28$ m long. What length does its die-cast model at $1 : 24$ have?',
+                  solution: [
+                    'Now, dress the units: $5.28$ m $= 528$ cm.',
+                    'So the model is $528 \\div 24 = 22$ cm; the check multiplies back: $22 \\times 24 = 528$.',
+                    'Hence 22 cm — every real length divided by the same $24$.',
+                  ],
+                  answer: '22 cm',
+                },
+                {
+                  q: 'On a map at $1 : 2{,}00{,}000$, two towns measure $8.4$ cm apart. Find the actual distance.',
+                  solution: [
+                    'Now, the bridge first: $2{,}00{,}000$ cm $= 2$ km, so $1$ cm of map is $2$ km of ground.',
+                    'So the towns are $8.4 \\times 2 = 16.8$ km apart.',
+                    'Hence 16.8 km — the RF\'s bridge did the unit work before any multiplying began.',
+                  ],
+                  answer: '16.8 km',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A courtyard $40$ m by $25$ m is planned at $1 : 500$. Find the plan\'s dimensions, and verify that the area ratio is $500^2$.',
+                  solution: [
+                    'Now, the lengths: $4000$ cm $\\div 500 = 8$ cm and $2500$ cm $\\div 500 = 5$ cm.',
+                    'So the plan is $8$ cm by $5$ cm — $40$ cm², against the courtyard\'s $1000$ m² $= 1{,}00{,}00{,}000$ cm².',
+                    'Hence dimensions 8 cm × 5 cm, and the area ratio is $1{,}00{,}00{,}000 \\div 40 = 2{,}50{,}000 = 500^2$ — lengths divided by $500$, areas by $500^2$.',
+                  ],
+                  answer: '8 cm × 5 cm; the area ratio is 2,50,000 = 500²',
+                },
+                {
+                  q: 'A recipe for $6$ persons uses $540$ g of rice. How much rice feeds $10$ persons?',
+                  solution: [
+                    'Now, the multiplier: $\\tfrac{10}{6} = \\tfrac{5}{3}$.',
+                    'So $540 \\times \\tfrac{5}{3} = 900$ g; the per-serving route agrees: $540 \\div 6 = 90$, and $90 \\times 10 = 900$.',
+                    'Hence 900 g — one constant, two roads to it.',
+                  ],
+                  answer: '900 g',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'A stamp $4$ cm by $3$ cm is printed at five times natural size. Find the print\'s dimensions, and how many times the stamp\'s area the print\'s area is.',
+                  solution: [
+                    'Now, $m = 5$: the lengths multiply — $4 \\times 5 = 20$ cm and $3 \\times 5 = 15$ cm.',
+                    'So the areas: $20 \\times 15 = 300$ cm² against the stamp\'s $4 \\times 3 = 12$ cm².',
+                    'Hence 20 cm × 15 cm, and the area is $300 \\div 12 = 25 = 5^2$ times the stamp\'s — the factor squared, in the enlargement direction too.',
+                  ],
+                  answer: '20 cm × 15 cm; the area is 25 times the stamp\'s',
+                },
+                {
+                  q: 'A lake of area $6$ cm² appears on a map at $1 : 50{,}000$. Find the lake\'s real area.',
+                  solution: [
+                    'Now, the area law: the real area is $6 \\times 50{,}000^2$ cm², and $50{,}000^2 = 2{,}50{,}00{,}00{,}000$.',
+                    'So the lake is $1.5 \\times 10^{10}$ cm² on the ground; since $1$ km $= 1{,}00{,}000$ cm, $1$ km² $= 10^{10}$ cm², and $1.5 \\times 10^{10} \\div 10^{10} = 1.5$.',
+                    'Hence 1.5 km² — the squared factor is exactly why map **areas** are told in square kilometres while map **lengths** live in centimetres.',
+                  ],
+                  answer: '1.5 km²',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the recipe multiplier: from the direct variation $q \\propto s$ derive $q_2 = q_1 \\times \\tfrac{s_2}{s_1}$, and cash it — a recipe for $6$ persons uses $540$ g of rice; how much feeds $10$?',
+                  solution: [
+                    'Now, $q \\propto s$ means $\\tfrac{q_1}{s_1} = \\tfrac{q_2}{s_2} = k$, the per-serving constant — Lesson 6.4\'s definition, worn to the kitchen.',
+                    'So multiply both sides by $s_2$: $q_2 = k\\,s_2 = \\tfrac{q_1}{s_1} \\times s_2 = q_1 \\times \\tfrac{s_2}{s_1}$ — the multiplier is the serving ratio itself.',
+                    'Hence proved; cashed: $540 \\times \\tfrac{10}{6} = 900$ g — and $900 \\div 10 = 90 = 540 \\div 6$ rebuilds the constant $k$.',
+                  ],
+                  answer: 'Proved; 900 g',
+                },
+                {
+                  q: 'A survey map at $1 : 2{,}00{,}000$ is photocopied at $80\\%$ of its size. Two towns then measure $6$ cm apart **on the copy**. Find their true distance, and the distance the printed RF would falsely suggest.',
+                  solution: [
+                    'Now, the copy\'s centimetre is only $0.8$ of the original\'s, so $6$ cm on the copy $= 6 \\div 0.8 = 7.5$ cm on the original map.',
+                    'So the true distance is $7.5 \\times 2 = 15$ km — while the printed RF, still claiming $1 : 2{,}00{,}000$, computes $6 \\times 2 = 12$ km and lies by $3$ km.',
+                    'Hence truly 15 km, falsely 12 km — and the copied **bar** scale, shrunk to $80\\%$ along with everything else, would still measure true: the insight\'s moral, collected in full.',
+                  ],
+                  answer: 'True: 15 km; the printed RF suggests 12 km',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
-  plannedLessons: ['Scaling: Maps, Models and Recipes'],
+  plannedLessons: [],
 }
 

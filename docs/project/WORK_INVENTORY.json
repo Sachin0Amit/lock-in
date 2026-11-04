@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 16:51:45 (Asia/Kolkata)",
+  "generated": "2026-11-04 18:26:07 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 5,
+        "chaptersWritten": 6,
         "chapters": [
           {
             "number": 1,
@@ -1593,11 +1593,9 @@
             "slug": "ratio-rate-proportion",
             "title": "Ratio, Rate and Proportion",
             "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
-            "status": "in-progress",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "Scaling: Maps, Models and Recipes"
-            ],
+            "status": "complete",
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-ratio-as-a-comparison",
@@ -1868,9 +1866,78 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-scaling-maps-models-and-recipes",
+                "number": "6.5",
+                "title": "Scaling: Maps, Models and Recipes",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4385,
+                "readMins": 22,
+                "concepts": [
+                  "Map scale",
+                  "Bar scale",
+                  "Representative fraction",
+                  "Scale factor",
+                  "Enlargement and reduction",
+                  "Area law of scale",
+                  "Recipe multiplier",
+                  "Scale drawings"
+                ],
+                "objectives": [
+                  "State a map scale in all three dresses — verbal pair, representative fraction and bar scale — and convert between them across the km–m–cm bridge",
+                  "Run the scale engine both ways — ground from map and map from ground — for maps, models and plans, and apply the area law: areas carry $m^2$, never $m$",
+                  "Classify any scale drawing as reduction, life size or enlargement by its scale factor $m$, and see the factor laws of Lesson 6.4 at work in both directions",
+                  "Scale a recipe up or down by the proved multiplier $q_2 = q_1 \\times s_2/s_1$, keep every per-serving constant — and keep the clock off the ingredient list"
+                ],
+                "prerequisites": [
+                  "fm-direct-and-inverse-variation",
+                  "fm-proportion-and-cross-multiplication",
+                  "fm-rates-and-unit-rates"
+                ],
+                "sources": [
+                  "ncert-math8-ch13",
+                  "ncert-math6-ch12",
+                  "ncert-math7-ch8",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "heading": 5,
+                  "example": 7,
+                  "callout": 6,
+                  "equation": 2,
+                  "derivation": 2,
+                  "figure": 2,
+                  "formula": 3,
+                  "list": 1,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 17568
+            "words": 21953
           },
           {
             "number": 7,
@@ -1976,12 +2043,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 26043,
+      "totalLines": 26648,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 16778,
+        "src/data/library (content model + books)": 17383,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6346,33 +6413,89 @@
           "del": 3
         }
       ]
+    },
+    {
+      "sha": "5aa10ede40877d107f862dc809d1c726029c0c4e",
+      "short": "5aa10ed",
+      "date": "2026-11-04 11:25",
+      "message": "figures: owner-directed arrow polish pass (run 31) — 6.4 flip arrows redesigned as mirror-symmetric cubic swap-arcs with solid filled heads, anchor dots and box-anchored tips; 6.4 hyperbola smoothed from a 6-vertex polyline (kink at the (540,80) dot) to a 36-vertex dense path with every vertex on the pixel invariant (x-420)(320-y) = 28800; the 4-x-60 label relocated off the curve (auditable only after the polyline became a path) and 6-x-40 given clearance; all 45 figures across ch-01..06 swept by VLM batches (all PASS or fixed, zero polylines remain, ch-02 diagonals confirmed as intentional strikethroughs); verify-unit-6.ts AJ10/AJ11/AM4/AM5 rewritten — 361 checks ALL PASS; audits 0/0; lint + tsc clean; routes 200/200/200/404; 17-lesson E2E exit 0; push deferred (no PAT in the owner chat session — five unpushed commits await the next cron-delivered run)",
+      "filesChanged": 9,
+      "insertions": 261,
+      "deletions": 21,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 15,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 18,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 101,
+          "del": 3
+        },
+        {
+          "path": "scripts/gen_smooth_hyperbola.py",
+          "add": 50,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 11,
+          "del": 7
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 5,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 27,
-    "wordsAuthored": 128994,
-    "termsDefined": 178,
-    "quizItems": 135,
-    "exerciseQuestions": 281,
+    "chaptersWritten": 6,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 28,
+    "wordsAuthored": 133379,
+    "termsDefined": 185,
+    "quizItems": 140,
+    "exerciseQuestions": 293,
     "blockTotals": {
-      "para": 414,
-      "callout": 143,
-      "heading": 181,
-      "list": 26,
-      "terms": 28,
-      "equation": 38,
-      "derivation": 47,
-      "table": 27,
-      "figure": 45,
-      "example": 120,
-      "quiz": 27,
-      "exercises": 27,
-      "formula": 69,
+      "para": 422,
+      "callout": 149,
+      "heading": 186,
+      "list": 27,
+      "terms": 29,
+      "equation": 40,
+      "derivation": 49,
+      "table": 28,
+      "figure": 47,
+      "example": 127,
+      "quiz": 28,
+      "exercises": 28,
+      "formula": 72,
       "algorithm": 8
     }
   }

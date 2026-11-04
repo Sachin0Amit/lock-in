@@ -42,6 +42,19 @@
  * problems as proportions, invertendo cashed), the work problems
  * (rewiring, machines, cattle, windows, boxes), both figures' geometry
  * and the quiz/exercise keys — again BEFORE writing.
+ *
+ * Extended 2026-11-04 (run 32) for lesson 6.5 "Scaling: Maps, Models
+ * and Recipes": sections AQ–BA verify every number of the scaling
+ * lesson — the scale as a ratio with units riding (the atlas at
+ * 1 cm : 18 km, the NCERT Example-1 dress), the three dresses (verbal
+ * pair, representative fraction, bar scale) with the RF derivation and
+ * the unit bridge, the scale engine both ways (ground = map × n, map =
+ * ground ÷ n), the model van at 1 : 24, the courtyard and the area law
+ * (areas × m², the 500² check), the stamp enlargement ×5, the recipe
+ * multiplier proved from the per-serving constant (khichdi for 4 → 6,
+ * 2, 10), both figures' geometry (the atlas bar scale; the two-direction
+ * factor bars drawn to one common px-per-cm per panel) and the
+ * quiz/exercise keys — again BEFORE writing.
  * Run: bun run scripts/verify-unit-6.ts   (exit 1 on any failure)
  */
 
@@ -614,6 +627,137 @@ check('AP8: sources — ncert-math8-ch13 (new: §§13.1–13.2 + Ex. 13.1/13.2),
 check('AP9: the recognition table carries 7 situations with verified constants (rewiring 12, speed 60, journey 240, yield 4 t/ha, land 12000, shadow 1.75, spokes 360)', 3 * 4 === 12 && 120 / 2 === 60 && 60 * 4 === 240 && 12 / 3 === 4 && 1000 * 12 === 12000 && 560 / 320 === 1.75 && 4 * 90 === 360);
 check('AP10: closing hands the map-scale line to 6.5 and names the hyperbola xy = k', true);
 
+/* ============================================================
+ * AQ. The scale of a drawing — the atlas opens the lesson
+ * (6.4's handover: one centimetre standing for eighteen kilometres)
+ * ==========================================================*/
+check('AQ1: the atlas scale 1 cm : 18 km — the 72 km hub leg measures 72/18 = 4 cm', 72 / 18 === 4);
+check('AQ2: the engine both ways: 5 cm of map is 5 × 18 = 90 km of ground', 5 * 18 === 90);
+check('AQ3: the 45 km leg measures 45/18 = 2.5 cm — halves allowed, the scale never rounds', 45 / 18 === 2.5);
+check('AQ4: the 90 km leg measures 90/18 = 5 cm', 90 / 18 === 5);
+check('AQ5: ground = map × k with k = 18 km per cm: 4 × 18 = 72 (direct variation, 6.4\'s engine)', 4 * 18 === 72);
+check('AQ6: the drawing\'s own factor m = 1 cm / 18,00,000 cm = 1/18,00,000 < 1 — a reduction', 1 / 1800000 < 1);
+check('AQ7: map and ground vary directly: 4/72 = 5/90 = 2.5/45 = 1/18 (one ratio, every pair)', 4 / 72 === 5 / 90 && 5 / 90 === 2.5 / 45);
+
+/* ============================================================
+ * AR. The three dresses of one scale — verbal pair, RF, bar
+ * ==========================================================*/
+check('AR1: the unit bridge 1 km = 1000 m = 1,00,000 cm', 1 * 1000 * 100 === 100000);
+check('AR2: 18 km = 18,00,000 cm, so 1 cm : 18 km = 1 : 18,00,000 (units cancel)', 18 * 100000 === 1800000);
+check('AR3: the RF 1/18,00,000 is a pure number — no units survive the cancellation', 1800000 / 1800000 === 1);
+check('AR4: the RF works in any unit: 1 mm of map = 18,00,000 mm = 1800 m = 1.8 km of ground', 1800000 / 1000 === 1800 && 1800 / 1000 === 1.8);
+check('AR5: cross-dress check: 1 mm = 0.1 cm carries 0.1 × 18 = 1.8 km (same answer)', 0.1 * 18 === 1.8);
+check('AR6: the NCERT dress read backwards: 1 : 8,00,000 means 8,00,000 cm = 8 km per cm', 800000 / 100000 === 8);
+check('AR7: 1 : 2,50,000 means 1 cm : 2.5 km', 250000 / 100000 === 2.5);
+check('AR8: 1 : 50,000 means 1 cm : 500 m (50,000 cm = 500 m)', 50000 / 100 === 500);
+check('AR9: the model dress 1 : 24 has no unit pair to convert — model cm to real cm directly', 24 / 24 === 1);
+
+/* ============================================================
+ * AS. Figure 1 geometry — the atlas page with its bar scale
+ * viewBox 0 0 760 300; sheet rect 60..560 × 48..188; road A(90,150)
+ * → (330,150) → (330,70) → hub B(410,70) — drawn length exactly 400 px;
+ * bar y 232..252, x 80..480
+ * ==========================================================*/
+check('AS1: the map sheet rect x 60..560, y 48..188 sits inside viewBox 760 × 300', 560 < 760 && 188 < 300 && 60 >= 0 && 48 >= 0);
+check('AS2: the road town A (90,150) → (330,150) → (330,70) → hub B (410,70) has drawn length 240 + 80 + 80 = 400 px = exactly 4 bar segments of 100 px — the drawing itself is measurable at the bar\'s own 100 px per cm', Math.hypot(330 - 90, 0) + Math.hypot(0, 150 - 70) + Math.hypot(410 - 330, 0) === 400 && 400 === 4 * 100);
+check('AS3: the bar scale is four segments of exactly 100 px: x 80..180..280..380..480, y 232..252', JSON.stringify([0,1,2,3,4].map(k => 80 + 100 * k)) === '[80,180,280,380,480]' && 480 - 80 === 400 && 252 - 232 === 20);
+check('AS4: the tick labels read 0/18/36/54/72 km — each segment of 1 cm spans 18 km', JSON.stringify([0,1,2,3,4].map(k => 18 * k)) === '[0,18,36,54,72]');
+check('AS5: segments 1 and 3 (80..180, 280..380) carry the fill; 2 and 4 stay open — the classic alternating bar', 180 - 80 === 100 && 380 - 280 === 100);
+check('AS6: the hub-leg caption sits between sheet and bar — centred x 310, y 210 (box ~198..216): clear of the sheet (bottom 188) and the bar (top 232)', 198 > 188 && 216 < 232);
+check('AS7: the right-hand label "each segment: 1 cm ↔ 18 km" starts at x 500 — 20 px clear of the bar\'s end (480)', 500 - 480 === 20);
+check('AS8: the tick label row y 272 clears the bar\'s bottom (252) and fits viewBox 300', 272 > 252 && 272 < 300);
+
+/* ============================================================
+ * AT. The scale engine, the model van, and the area law
+ * ==========================================================*/
+check('AT1: model van 1 : 24 — model 15 cm means real 15 × 24 = 360 cm = 3.6 m', 15 * 24 === 360);
+check('AT2: the wheelbase the other way: real 240 cm draws at 240/24 = 10 cm', 240 / 24 === 10);
+check('AT3: the same m for every length: 360/15 = 240/10 = 24', 360 / 15 === 24 && 240 / 10 === 24);
+check('AT4: courtyard 40 m × 25 m at 1 : 500 — 4000 cm/500 = 8 cm and 2500 cm/500 = 5 cm on the plan', 40 * 100 / 500 === 8 && 25 * 100 / 500 === 5);
+check('AT5: real area 1000 m² = 1,00,00,000 cm²; plan area 8 × 5 = 40 cm²; ratio 2,50,000', 1000 * 10000 === 10000000 && 8 * 5 === 40 && 10000000 / 40 === 250000);
+check('AT6: the area law: the area ratio is m² = 500² = 2,50,000 — the scale multiplies lengths, not areas', 500 * 500 === 250000);
+check('AT7: the length ratio is 500, the area ratio 500² — the caution\'s whole engine (the area ratio is the length ratio times the length ratio again)', 500 * 500 === 250000 && 250000 / 500 === 500);
+check('AT8: the fraction dress agrees: plan/real = 40/1,00,00,000 = 1/2,50,000 = (1/500)²', 40 / 10000000 === 1 / 250000);
+check('AT9: the caution\'s honest quotient: 1000 m² ÷ 500² = 0.004 m² = 40 cm² (the plan\'s own area); the naive 1000 ÷ 500 = 2 is a number with no meaning here', 1000 / (500 * 500) === 0.004 && 0.004 * 10000 === 40);
+
+/* ============================================================
+ * AU. One law, two directions — properties + figure 2 geometry
+ * viewBox 0 0 760 300; left panel: real bar 60..348 × y 80..104,
+ * model bar 60..72 × y 140..164; right panel: stamp bar 460..510 ×
+ * y 80..104, print bar 460..710 × y 140..164
+ * ==========================================================*/
+check('AU1: reductions have m < 1 (atlas 1/18,00,000; model 1/24), enlargements m > 1 (bacterium 50,000; stamp 5), life-size m = 1', 1 / 1800000 < 1 && 1 / 24 < 1 && 50000 > 1 && 5 > 1);
+check('AU2: the 6.4 factor law is the whole story: real = model × 24 (15 → 360); print = stamp × 5 (4 → 20)', 15 * 24 === 360 && 4 * 5 === 20);
+check('AU3: angles never scale: the courtyard\'s right angle is 90° on the plan too', 90 === 90);
+check('AU4: the photocopy insight: an 80 % copy shrinks a 1 cm bar segment to 0.8 cm — the bar stays true (it shrank with the map), the printed RF 1 : 18,00,000 no longer describes it (0.8 < 1)', 1 * 0.8 === 0.8 && 0.8 < 1);
+check('AU5: the copied map\'s true scale: 0.8 cm of copy = 18 km, so 1 cm of copy = 22.5 km — the RF the copy deserves is 1 : 22,50,000', 18 / 0.8 === 22.5 && 22.5 * 100000 === 2250000);
+check('AU6: figure 2 left — the van bars are drawn at ONE common 0.8 px per cm: real 288 px ↔ 360 cm, model 12 px ↔ 15 cm; their ratio 288/12 = 24 IS the scale 1 : 24', 348 - 60 === 288 && 72 - 60 === 12 && 288 / 12 === 24 && 288 / 360 === 0.8 && 12 / 15 === 0.8);
+check('AU7: figure 2 right — the stamp bars share 12.5 px per cm: stamp 50 px ↔ 4 cm, print 250 px ↔ 20 cm; ratio 250/50 = 5 IS the enlargement ×5', 510 - 460 === 50 && 710 - 460 === 250 && 250 / 50 === 5 && 250 / 20 === 12.5 && 50 / 4 === 12.5);
+check('AU8: both bars of each panel are 24 px tall, vertically 36 px apart (gap 104..140); the only label inside the gap band is the print\'s own, riding above its bar at y 132', 104 - 80 === 24 && 164 - 140 === 24 && 140 - 104 === 36 && 132 < 140);
+check('AU9: left-panel labels: real label above at y 70 (bottom ~74, bar top 80); model label right of the 12 px bar at x 86 anchored start (bar ends 72)', 86 - 72 === 14);
+check('AU10: right-panel print label at (585,132) sits above the print bar (top 140) and inside the panel (460..710)', 585 > 460 && 585 < 710 && 132 < 140);
+check('AU11: bottom caption at y 262 clears both m-label rows (y 196) and fits viewBox 300', 262 > 196 && 262 < 300);
+check('AU12: each panel gained a solid left baseline (x 60 and x 460, y 70..176) that both bars spring from — the shared-origin affordance', 60 === 60 && 460 === 460 && 176 - 70 === 106);
+check('AU13: dashed end guides drop from the long bars\' ends (x 348 left, x 510 right) from y 104 to y 176 — the 24× and 5× gaps become measurable against the short bars\' ends (72 and 510→710)', 348 - 72 === 276 && 710 - 510 === 200 && 510 === 510);
+
+/* ============================================================
+ * AV. Recipes — the multiplier proved from the per-serving constant
+ * (khichdi for 4: rice 300 g, dal 150 g, water 900 mL, ghee 30 g, salt 6 g)
+ * ==========================================================*/
+check('AV1: the per-serving constants: 75 g rice, 37.5 g dal, 225 mL water, 7.5 g ghee, 1.5 g salt', 300 / 4 === 75 && 150 / 4 === 37.5 && 900 / 4 === 225 && 30 / 4 === 7.5 && 6 / 4 === 1.5);
+check('AV2: for 6 (× 3/2): 450 g rice, 225 g dal, 1350 mL water, 45 g ghee, 9 g salt', 300 * 1.5 === 450 && 150 * 1.5 === 225 && 900 * 1.5 === 1350 && 30 * 1.5 === 45 && 6 * 1.5 === 9);
+check('AV3: for 2 (× 1/2): 150 g rice, 75 g dal, 450 mL water, 15 g ghee, 3 g salt', 300 / 2 === 150 && 150 / 2 === 75 && 900 / 2 === 450 && 30 / 2 === 15 && 6 / 2 === 3);
+check('AV4: for 10 (× 5/2): 750 g rice, 375 g dal, 2250 mL water, 75 g ghee, 15 g salt', 300 * 2.5 === 750 && 150 * 2.5 === 375 && 900 * 2.5 === 2250 && 30 * 2.5 === 75 && 6 * 2.5 === 15);
+check('AV5: the multiplier law: q₂ = q₁ × s₂/s₁ — 300 × 10/4 = 750 g', 300 * (10 / 4) === 750);
+check('AV6: the constant rebuilds: 450/6 = 75 = 300/4 — quantity per serving never moved', 450 / 6 === 75 && 300 / 4 === 75);
+check('AV7: a recipe is a set of ratios: water : rice = 900 : 300 = 3 : 1 stays 3 : 1 at every scale (1350 : 450 = 3 : 1 too)', 900 / 300 === 3 && 1350 / 450 === 3);
+check('AV8: the clock is not on the ingredient list — no time entry carries a multiplier (qualitative caution, no number to verify)', true);
+
+/* ============================================================
+ * AW. Quiz keys for 6.5 (indices 0/1/0/2/1)
+ * ==========================================================*/
+check('AW1: Q1 1 cm : 5 km, towns 7.2 cm apart → 7.2 × 5 = 36 km (idx 0); 14.4/1.44/72 are the ×2/×0.2/×10 frauds (0.2 compared to 1e-9 for the binary float)', 7.2 * 5 === 36 && 7.2 * 2 === 14.4 && Math.abs(7.2 * 0.2 - 1.44) < 1e-9 && 7.2 * 10 === 72);
+check('AW2: Q2 model 15 cm at 1 : 24 → real 360 cm = 3.6 m (idx 1); 62.5 cm is the inverted 15/24; 1.5 m is 15 × 10', 15 * 24 === 360 && 15 / 24 === 0.625 && 15 * 10 === 150);
+check('AW3: Q3 RF 1 : 2,50,000 means 1 cm : 2.5 km (idx 0), since 2,50,000 cm = 2.5 km', 250000 / 100000 === 2.5);
+check('AW4: Q4 rice 300 g for 4 → for 10: 300 × 10/4 = 750 g (idx 2); 600 is ×2, 450 is the 6-serving amount, 1200 is ×4', 300 * 2.5 === 750 && 300 * 2 === 600 && 300 * 1.5 === 450 && 300 * 4 === 1200);
+check('AW5: Q5 plan at 1 : 500 — real area is 500² = 2,50,000 × the plan area (idx 1); both fraud options (500× and 1000×) fall short of the true ratio', 500 * 500 === 250000 && Math.max(500, 1000) < 250000);
+check('AW6: quiz answers planned as indices 0/1/0/2/1', JSON.stringify([0, 1, 0, 2, 1]) === '[0,1,0,2,1]');
+
+/* ============================================================
+ * AX. Exercise keys for 6.5, L1–L3 (6 questions)
+ * ==========================================================*/
+check('AX1: L1a atlas 1 cm : 18 km — a 5 cm leg is 5 × 18 = 90 km', 5 * 18 === 90);
+check('AX2: L1b plan 1 cm : 2 m — a 7 m wall draws at 7/2 = 3.5 cm', 7 / 2 === 3.5);
+check('AX3: L2a 1 mm : 5 m as a ratio — 5 m = 5000 mm, so 1 : 5000', 5 * 1000 === 5000);
+check('AX4: L2b dal 450 g for 6 → for 4: 450 × 4/6 = 300 g', 450 * (4 / 6) === 300);
+check('AX5: L3a van 1 : 24, real 5.28 m = 528 cm → model 528/24 = 22 cm', 528 / 24 === 22);
+check('AX6: L3b map 1 : 2,00,000 — 8.4 cm apart means 8.4 × 2 km = 16.8 km (2,00,000 cm = 2 km)', 200000 / 100000 === 2 && 8.4 * 2 === 16.8);
+
+/* ============================================================
+ * AY. Exercise keys for 6.5, L4–L6 (6 questions)
+ * ==========================================================*/
+check('AY1: L4a courtyard 40 × 25 m at 1 : 500 → 8 cm × 5 cm on the plan; area ratio 500² = 2,50,000', 40 * 100 / 500 === 8 && 25 * 100 / 500 === 5 && 500 * 500 === 250000);
+check('AY2: L4b rice 540 g for 6 → for 10: 540 × 10/6 = 900 g', 540 * (10 / 6) === 900);
+check('AY3: L5a stamp 4 × 3 at ×5 → 20 × 15 cm; areas 12 → 300 cm², the ratio 25 = 5²', 4 * 5 === 20 && 3 * 5 === 15 && 4 * 3 === 12 && 20 * 15 === 300 && 300 / 12 === 25 && 5 * 5 === 25);
+check('AY4: L5b lake on a 1 : 50,000 map, 6 cm² on the map → 6 × 50,000² cm² = 1.5 × 10¹⁰ cm² = 1.5 km² (1 km² = 10¹⁰ cm²)', 50000 * 50000 === 2500000000 && 6 * 2500000000 === 15000000000 && Math.pow(100000, 2) === 10000000000 && 15000000000 / 10000000000 === 1.5);
+check('AY5: L6a the recipe multiplier proved: q ∝ s with k = q₁/s₁ gives q₂ = q₁ × s₂/s₁; cashed 540 × 10/6 = 900 g', 540 * (10 / 6) === 900);
+check('AY6: L6b the photocopied map: 6 cm on an 80 % copy of a 1 : 2,00,000 map = 6/0.8 = 7.5 original cm = 15 km; the naive 12 km trusts the printed RF', 6 / 0.8 === 7.5 && 7.5 * 2 === 15 && 6 * 2 === 12);
+
+/* ============================================================
+ * AZ. Structural sanity for lesson 6.5
+ * ==========================================================*/
+check('AZ1: 7 Illustrations planned (atlas legs, the mm read, the model van, the courtyard, the stamp, khichdi to 6, khichdi down to 2)', true);
+check('AZ2: 3 formula cards (the scale engine, the area law, the recipe multiplier)', true);
+check('AZ3: 2 equation tags (the scale definition; the scale factor m) + 2 derivations (the RF; the recipe multiplier)', true);
+check('AZ4: 7 terms planned (Map scale, Bar scale, Representative fraction, Scale factor, Enlargement, Reduction, Recipe multiplier)', true);
+check('AZ5: 5 quiz items with verified keys 0/1/0/2/1', true);
+check('AZ6: 12 exercises across L1–L6 (2 each), all with steps + terminal answers', true);
+check('AZ7: prerequisites — 6.4 variation (map ∝ ground), 6.3 proportion (the cross law), 6.2 rates (units riding)', true);
+check('AZ8: sources — ncert-math8-ch13 extended to Example 1 (the Rashmi map) + the chapter\'s scale dresses; ncert-math6-ch12, ncert-math7-ch8, khattar-qa-4e carried', true);
+check('AZ9: the recipe table carries 5 ingredients × 4 serving counts, every cell verified in AV2/AV3/AV4', true);
+check('AZ10: closing harvests the chapter\'s five instruments (ratio, rate, proportion, variation, scale) and leaves ch. 6 complete at 5/5', true);
+check('AZ11: the NCERT Example-1 numbers are cited but not reproduced: the lesson\'s atlas legs are 72 km ↔ 4 cm, 90 km ↔ 5 cm, 45 km ↔ 2.5 cm — 72/18 and 90/18 and 45/18 are this lesson\'s own divisions', 72 / 18 === 4 && 90 / 18 === 5 && 45 / 18 === 2.5);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-6: ${pass} passed, ${fail} failed`);
@@ -622,4 +766,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 6.1, 6.2, 6.3 and 6.4 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 6.1, 6.2, 6.3, 6.4 and 6.5 is script-verified before writing.');

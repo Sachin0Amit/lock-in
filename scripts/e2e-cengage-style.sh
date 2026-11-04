@@ -25,6 +25,7 @@ LESSONS=(
   fm-rates-and-unit-rates
   fm-proportion-and-cross-multiplication
   fm-direct-and-inverse-variation
+  fm-scaling-maps-models-and-recipes
 )
 
 for L in "${LESSONS[@]}"; do
@@ -914,3 +915,90 @@ agent-browser screenshot /tmp/cengage-e2e/mobile-6-4.png >/dev/null 2>&1 || true
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*6-4*.png 2>/dev/null | head -6
 echo "done-6-4"
+
+# ---- lesson 6.5 dedicated: quiz live + all solutions expand + mobile 390px (run 32) ----
+agent-browser set viewport 1280 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-scaling-maps-models-and-recipes" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+# click the correct-index option per quiz (verify AW6: indices 0/1/0/2/1)
+agent-browser eval "
+(function(){
+  var quizSec = Array.prototype.slice.call(document.querySelectorAll('section')).find(function(s){
+    var h = s.querySelector('header'); return h && /CHECK YOURSELF/i.test(h.textContent);
+  });
+  if (!quizSec) return 'NO QUIZ SECTION';
+  var correct = [0, 1, 0, 2, 1];
+  var groups = quizSec.querySelectorAll('div.px-5');
+  var clicked = 0;
+  groups.forEach(function(qdiv, qi){
+    var btns = qdiv.querySelectorAll('button[type=button]');
+    var pick = btns[correct[qi]] || btns[0];
+    if (pick) { pick.click(); clicked++; }
+  });
+  return 'clicked ' + clicked + ' correct options';
+})()
+" 2>/dev/null | head -3
+agent-browser wait 800 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var quizSec = Array.prototype.slice.call(document.querySelectorAll('section')).find(function(s){
+    var h = s.querySelector('header'); return h && /CHECK YOURSELF/i.test(h.textContent);
+  });
+  return 'score: ' + (quizSec ? (quizSec.textContent.match(/You scored[^·]*/)||['n/a'])[0].trim() : 'no quiz');
+})()
+" 2>/dev/null | head -3
+agent-browser eval "
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('button')).filter(function(b){ return /Show solution/.test(b.textContent); });
+  var n = links.length;
+  links.forEach(function(b){ b.click(); });
+  return 'expanded ' + n + ' solutions of 12';
+})()
+" 2>/dev/null | head -2
+agent-browser wait 800 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var sol = Array.prototype.slice.call(document.querySelectorAll('span')).filter(function(s){ return s.textContent.trim()==='Sol.'; }).length;
+  var th = Array.prototype.slice.call(document.querySelectorAll('.katex')).filter(function(k){ return k.textContent.indexOf('\u2234') >= 0; }).length;
+  var open = document.querySelectorAll('[data-state=open]').length;
+  var figs = document.querySelectorAll('figure svg, svg[role=img]').length;
+  var katexAll = document.querySelectorAll('.lesson-body .katex').length;
+  var tbl = document.querySelectorAll('.lesson-body table').length;
+  return '6.5 Sol. pills: ' + sol + ' | KaTeX with \u2234: ' + th + ' | katex nodes: ' + katexAll + ' | tables: ' + tbl + ' | open collapsibles: ' + open + ' | svg figures: ' + figs;
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/desktop-6-5-quiz.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1 of ' + figs.length;
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-6-5-atlas.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-6-5-bars.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-scaling-maps-models-and-recipes" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '6.5 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-6-5.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*6-5*.png 2>/dev/null | head -6
+echo "done-6-5"

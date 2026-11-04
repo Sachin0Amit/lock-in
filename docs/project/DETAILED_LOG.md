@@ -9,8 +9,36 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 31, an owner chat
-directive**: site-wide arrow & diagram polish — the 6.4 flip figure's
+Generated: 2026-11-03/04 (maintained through **run 32, Job 498279**:
+push debt cleared first — all five unpushed commits (407c0fe, 7fed46b,
+108b1d6, 9d20434, 5aa10ed) pushed via the protocol's one-time URL and
+ls-remote-verified (5aa10ede…) — then **FM 6.5 "Scaling: Maps, Models
+and Recipes" shipped as the chapter's final lesson** (~4,400 words,
+ch. 6 COMPLETE 5/5): the scale defined in three dresses (verbal pair,
+representative fraction, bar scale) with the RF proved as a derivation
+(1 cm : 18 km = 1 : 18,00,000, a pure number valid in every unit
+system); figure 1 the atlas page whose bar scale (four alternating
+18-km segments) is matched by a road drawn to EXACTLY four
+bar-segments (400 px) after the first VLM pass flagged the old road as
+unmeasurable at its own scale — plus internal bar dividers and a
+relocated "the hub" label the overlap audit caught on the widened
+sheet; the photocopy insight (an 80 % copy makes the printed RF lie —
+1 : 22,50,000 — while the copied bar stays true); the scale engine
+both ways; the model van at 1 : 24; the courtyard plan and the AREA
+LAW (areas carry m², never m — 1000 m² ÷ 500² = 40 cm²); equation
+tag 2's scale factor m (reduction < 1, life size 1, enlargement > 1)
+with the properties list, the ×5 stamp, figure 2's two-direction
+factor bars (each panel at one common px-per-cm, now with shared
+baselines and dashed end guides after VLM clarity 7 → 9) and the
+similarity-door insight; the recipe multiplier PROVED from the
+per-serving constant (q₂ = q₁ × s₂/s₁) with the khichdi table across
+2/4/6/10 servings and the clock-is-not-an-ingredient Caution; the
+five-instrument chapter harvest. verify-unit-6.ts sections AQ–AZ
+written BEFORE the lesson — **444 checks ALL PASS** (was 361); audits
+0/0; VLM re-verdicts figure 1 9.5/8, figure 2 **10/9** (6.4 parity);
+18-lesson E2E exit 0 with the 6.5 quiz live 5/5 (keys 0/1/0/2/1);
+lint/tsc clean. book.ts notes rewritten for the completed chapter.
+Previous **run 31, an owner chat directive**: site-wide arrow & diagram polish — the 6.4 flip figure's
 crude straight-line swap arrows redesigned as mirror-symmetric cubic
 Bézier arcs with solid filled heads, anchor dots and box-anchored tips;
 the 6.4 hyperbola smoothed from a 6-vertex polyline (a visible kink at

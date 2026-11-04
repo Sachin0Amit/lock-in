@@ -390,6 +390,10 @@ writing; exposition original — the factor-law derivation, the
 round-trip r²/100 % law, the multiplier law and the two-lane figure are
 the book's own derivations.
 
+## 2026-11-04 — Run 32 (FM 6.5 + push debt): zero downloads
+
+Lesson 6.5 "Scaling: Maps, Models and Recipes" was verified against the already-persisted citation set via web-check only: ncert-math8-ch13 extended to **Example 1 (the Rashmi road map, 1 cm : 18 km)** and the chapter's own scale-dress statement (1 cm : 8 km = 1 : 8,00,000) — the lesson cites the dress (its atlas wears 1 cm : 18 km) but reproduces no question, and the lesson's numbers are its own divisions (72/18, 90/18, 45/18); ncert-math6-ch12, ncert-math7-ch8 and khattar-qa-4e carried. Exam-corner appearances grounded by web-check: RRB NTPC CBT-I 2021 (1 cm : 9 km item) and MP Police Constable 2025 (1 cm : 5 km item) — shapes cited, no question reproduced. No new reference files downloaded, no working copies to delete. The push-debt clearing (five commits) and the ship commit pushed in the same run; remote verified.
+
 ## 2026-11-04 — Run 30 (FM 6.4): zero downloads
 
 Lesson 6.4 was verified against the already-persisted citation set (ncert-math8-ch13 §§13.1–13.2 + Ex. 13.1/13.2, ncert-math6-ch12, ncert-math7-ch8, khattar-qa-4e) via web-check only — no new reference files downloaded, no working copies to delete. The gitignored Drive survey (temporary-references/inventory.json, 89 entries) was rebuilt after the sandbox recycle for the WORK_INVENTORY regeneration — survey metadata only, not a content download.

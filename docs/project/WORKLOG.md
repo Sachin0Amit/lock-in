@@ -6,6 +6,66 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 32 (cron job 498279, 20:27 delivery): PUSH DEBT CLEARED + FM 6.5 "Scaling: Maps, Models and Recipes" SHIPPED — the chapter's final lesson written verify-first (444 checks), the atlas figure made honestly measurable after the first VLM pass, chapter 6 complete at 5/5; all five debt commits pushed and the run's ship commit pushed
+
+**Push debt (protocol steps a/b/d/e):** one-time HTTPS URL form, single command, token never
+written to any file/config/log; output piped through a redaction guard. Result: `18625d9..5aa10ed
+HEAD -> main`, exit 0 — all five debt commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed) landed.
+ls-remote (one-time URL form) returned `5aa10ede40877d107f862dc809d1c726029c0c4e refs/heads/main`
+= local HEAD. Tracking ref resynced (origin/main..HEAD = 0); origin remote URL untouched (SSH).
+**No token recorded here or anywhere; this entry contains only shas.**
+
+**FM 6.5 authored (verify-first):** `scripts/verify-unit-6.ts` extended with sections AQ–AZ
+BEFORE writing — the scale definition and the three dresses (verbal pair, representative
+fraction, bar scale), the RF derivation (1 cm : 18 km = 1 : 18,00,000; the unit bridge
+1 km = 1,00,000 cm; 1 mm of map = 1.8 km), the scale engine both ways, the model van 1 : 24
+(15 cm ↔ 3.6 m; wheelbase 240 cm → 10 cm), the courtyard 1 : 500 and the AREA LAW
+(1000 m² ÷ 500² = 0.004 m² = 40 cm²; the area ratio 500² = 2,50,000 — AT9 added for the
+caution's honest quotient), the stamp enlargement ×5 (area 25 = 5²), the khichdi recipe
+multiplier (per-serving constants 75/37.5/225/7.5/1.5; ×3/2 → 450/225/1350/45/9; ×1/2 →
+150/75/450/15/3; ×5/2 → 750/375/2250/75/15; water : rice = 3 : 1 at every scale), quiz keys
+0/1/0/2/1 and 12 exercise keys — one float-precision lesson en route (7.2 × 0.2 ≠ 1.44 in
+binary; compared to 1e-9). 444 checks ALL PASS (was 361).
+
+**The lesson:** the atlas opens at 1 cm : 18 km (72 km ↔ 4 cm, 90 km ↔ 5 cm, 45 km ↔ 2.5 cm —
+the NCERT class-8 Example-1 dress cited, not reproduced); Definition callout + equation tag 1
+(three dresses); the RF proved as a derivation; figure 1 the atlas page with its alternating
+bar scale; the photocopy insight (80 % copy → the printed RF lies, the copy deserves
+1 : 22,50,000, the bar stays true); the scale engine formula card; the model van; the
+courtyard + the area-law Caution + formula card; one law two directions (equation tag 2,
+m = drawing/real) + the properties list + the stamp + figure 2 (two-direction factor bars,
+each panel drawn to ONE common px-per-cm so the px ratio IS the scale) + the similarity-door
+insight; the recipe multiplier proved as a derivation + formula card + the five-ingredient
+table across four serving counts + the clock-is-not-an-ingredient Caution; the chapter
+harvests its five instruments. 7 terms, 5-quiz (keys 0/1/0/2/1, live 5/5), 12 exercises
+L1–L6 (L6: the multiplier proved; the photocopied survey map — 6 cm on an 80 % copy of a
+1 : 2,00,000 sheet is 15 km truly, 12 km by the lying RF). ~4,400 words.
+
+**VLM fix iteration (the run-31 bar held high):** first pass scored figure 1 at 9/10 math —
+the road was drawn ~256 px while the bar said 4 cm = 400 px, so the figure was not measurable
+at its own scale. The road was REDRAWN as town A (90,150) → (330,150) → (330,70) → hub
+(410,70): 240 + 80 + 80 = exactly 400 px = 4 × 100-px bar segments (AS2 asserts the drawn
+length); the sheet widened to 60..560; internal bar dividers added; the annotation renamed
+"each segment: 1 cm ↔ 18 km"; a "the hub" label that straddled the sheet's top border
+(audit TEXT/RECT) moved beside its dot. Figure 2 gained shared left baselines (x 60 / x 460)
+and dashed end guides (x 348 / x 510) after the first pass's clarity 7/10. Re-verdicts:
+figure 1 9.5 math / 8 clarity; figure 2 **10 math / 9 clarity** (6.4 parity). Overlap audits
+0/0 issues.
+
+**Quality gates:** verify-unit-6 444/444; tsc --noEmit clean; lint clean; routes
+200/200/200/404; SVG audits 0 issues both figures; 18-lesson E2E suite exit 0 — 6.5 quiz
+live "You scored 5/5" with keys 0/1/0/2/1, 12/12 solutions expand, 19 Sol. pills, 407 KaTeX
+nodes, 1 table, 2 figures, mobile 390 no overflow (articleW 358); browser console clean
+(HMR info only). book.ts notes rewritten for the completed chapter (one unescaped-apostrophe
+syntax break caught by tsc and fixed); ch-06 status → 'complete', plannedLessons → [].
+WORK_INVENTORY regenerated: 28 lessons / 133,379 words / 185 terms / 140 quiz items / 293
+exercise questions / 47 figures / 6 chapters written. DETAILED_LOG.md updated (owner
+directive). ch. 6 E2E block added to the suite (18 lessons now).
+
+**Ship commit:** this entry + PROGRESS + RESUME_POINTER + SOURCE_LOG + WORK_INVENTORY +
+DETAILED_LOG + book.ts notes + the E2E registration. Pushed per protocol; synced sha noted
+in RESUME_POINTER.json.
+
 ## 2026-11-04 — RUN 31 (OWNER CHAT DIRECTIVE): site-wide arrow & diagram polish — the 6.4 flip figure's crude straight-line arrows redesigned as curved swap-arcs with solid heads, the 6.4 hyperbola smoothed from a 6-vertex polyline to a 36-vertex curve, a colliding label relocated; all 45 figures swept and audited
 
 **Owner directive (with a screenshot of 6.4 figure 2):** "the arrow in this does not look nicely —
