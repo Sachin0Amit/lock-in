@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-04",
- "phase": "CH. 7 OPEN (1/4) — run 33: FM 7.1 'Negative Numbers and Why They Exist' shipped verify-first (verify-unit-7.ts created BEFORE writing, 70 checks ALL PASS; ~3,576 words; 2 figures audit-0/0 + VLM-reviewed; quiz live 5/5 keys 1/2/2/0/1; 12 exercises L1-L6; 19-lesson E2E suite exit 0) — plus a site-wide renderer fix: ExampleBlock titles now render RichText (raw-$ leaks in Illustration titles eliminated on every chapter). Chapter 6 COMPLETE (5/5, run 32). Ship commit pushed per protocol and remote-verified (sha in RESUME_POINTER.json).",
- "awaiting": "FM 7.2 'Adding and Subtracting Integers' (extend scripts/verify-unit-7.ts with sections J+ BEFORE writing; one lesson per run); queued voice polish 2.2 (then 2.3-2.5, 3.1-3.5, 4.1).",
+ "phase": "CH. 7 OPEN (2/4) — run 34: FM 7.2 'Adding and Subtracting Integers' shipped verify-first (verify-unit-7.ts extended sections J-S BEFORE writing, 148 checks ALL PASS incl. a 441-pair brute-force of the sign rules and the subtraction grid; 3,861 words; 7.1's four promissory notes cashed; 2 figures audit-0/0 + VLM-reviewed (fig 1 10 math, fig 2 9/9 after fixes; one VLM mis-measurement disproven by DOM); quiz live 5/5 keys 0/1/2/0/3; 12 exercises L1-L6; 20-lesson E2E suite exit 0; voice polish 2.2 delivered (formal inverse-definition callout + Thus-line + the three faces as a roman run, zero new numerals). Ship commit pushed per protocol and remote-verified (sha in RESUME_POINTER.json).",
+ "awaiting": "FM 7.3 'Multiplying Integers and the Sign Rules' (extend verify-unit-7 sections before writing; one lesson per run); queued voice polish 2.3 (then 2.4, 2.5, 3.1-3.5, 4.1).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -139,5 +139,16 @@
   "siteWideFix": "ExampleBlock titles now render through RichText (blocks.tsx) — raw-$ leaks in Illustration titles eliminated site-wide (7 on 6.5 alone, 20+ across chs. 1-6)",
   "e2e": "19-lesson suite exit 0; 7.1 quiz live 5/5 (keys 1/2/2/0/1); 12/12 solutions; 19 Sol. pills; 93 therefore glyphs; mobile 390 clean; console clean",
   "downloads": "none — two NEW citation keys (ncert-math6-ch10, ncert-math7-p2-ch2) web-checked; history/elevations/exam shapes web-grounded; no files"
+ },
+ "run34Extras": {
+  "lesson": "fm-adding-subtracting-integers (FM 7.2, ch. 7 2/4)",
+  "words": 3861,
+  "verifyChecks": "148 total (sections J-S added: 78 new; K1 brute-forces the two sign rules over all 441 pairs in [-10,10]^2; N1 grid-checks a-b = a+(-b); M2/M4 sweep commutativity 625 pairs + associativity 2197 triples)",
+  "promissoryNotesCashed": "all four of 7.1's: a+(-a)=0 (equation tag 1 + Illustration); the lift 7-(-2)=9 (derivation step + figure 2); the mall 9-(-3)=12 (Illustration); the Everest-Dead-Sea gap 8848.86-(-439.78)=9288.64 (derivation step)",
+  "figures": "2 (fig 1 the two-leg walk as two stacked panels — leg 1 arc 0 to -4, leg 2 arc -4 to 7 with symmetric starts/lands annotations; fig 2 the subtraction map — the mirror flip -(-2)=2 panel + the walk 7+2=9 panel; both audit 0/0)",
+  "vlm": "fig 1: 9 math/6 clarity first pass -> redesigned to the two-panel manner -> 10 math/8 clarity with one FALSE scale complaint disproven by DOM measurement (pitches 50/50/50 both panels); fig 2: 9 math/7 clarity -> mirror darkened + result-carrying panel label -> 9 math/9 clarity; accepted honestly",
+  "e2e": "20-lesson suite exit 0 (7.2 registered + dedicated block); quiz live 5/5 (keys 0/1/2/0/3); 12/12 solutions; 19 Sol. pills; 31 therefore glyphs; KaTeX 429; raw-$ 0; tables 2; mobile 390 clean; console clean",
+  "voicePolish": "lesson 2.2 (queued per-run extra, 2.2 second): formal Definition callout 'Subtraction (the inverse definition)' (is-said-to-be shape) + the Thus-line (7-3=4 exactly when 3+4=7) + the three faces converted to the roman example run — zero new numerals, tsc + lint clean, live-verified",
+  "downloads": "none — ncert-math7-p2-ch2 extended (the movement model = the walk); Brahmagupta's 628 CE subtraction verses web-grounded (MacTutor) and derived, not reproduced"
  }
 }

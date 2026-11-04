@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 19:25:52 (Asia/Kolkata)",
+  "generated": "2026-11-04 20:28:10 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -305,8 +305,8 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "181f614",
                 "unit": "unit 2 (lesson 2.2 of 5; chapter 2 in progress)",
-                "words": 4603,
-                "readMins": 23,
+                "words": 4711,
+                "readMins": 24,
                 "concepts": [
                   "Subtraction as the inverse of addition",
                   "Minuend, subtrahend and difference",
@@ -330,7 +330,9 @@
                   "ncert-math6-ch2"
                 ],
                 "blockCounts": {
-                  "para": 13,
+                  "para": 15,
+                  "callout": 4,
+                  "list": 1,
                   "terms": 1,
                   "heading": 8,
                   "figure": 2,
@@ -339,12 +341,12 @@
                   "example": 2,
                   "derivation": 1,
                   "equation": 1,
-                  "callout": 3,
                   "formula": 2,
                   "quiz": 1,
                   "exercises": 1
                 },
                 "calloutTones": {
+                  "definition": 1,
                   "warn": 1,
                   "historical": 1,
                   "exam": 1
@@ -554,7 +556,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 21694
+            "words": 21802
           },
           {
             "number": 3,
@@ -1945,9 +1947,8 @@
             "title": "Integers",
             "summary": "Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Adding and Subtracting Integers",
               "Multiplying Integers and the Sign Rules",
               "Absolute Value as Distance"
             ],
@@ -2019,9 +2020,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-adding-subtracting-integers",
+                "number": "7.2",
+                "title": "Adding and Subtracting Integers",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 3861,
+                "readMins": 19,
+                "concepts": [
+                  "Addition as a walk on the line",
+                  "The sign rules derived from the walk",
+                  "Additive inverse lands on zero",
+                  "Subtraction as adding the opposite",
+                  "The double-sign simplifications",
+                  "Closure, commutativity, associativity",
+                  "Net change chains",
+                  "Successor and predecessor"
+                ],
+                "objectives": [
+                  "Compute any sum of integers by walking the line, and state the two sign rules as derived shortcuts",
+                  "Verify closure, commutativity, associativity, the identity and the inverse law for integer addition with instances",
+                  "Rewrite any subtraction as adding the opposite and simplify every double-sign chain",
+                  "Solve net-change word problems — balances, temperatures, dives — as chains of moves",
+                  "Derive the zero-subtraction rules Brahmagupta stated in 628 CE from the movement model"
+                ],
+                "prerequisites": [
+                  "fm-negative-numbers-why-they-exist",
+                  "fm-addition-carrying"
+                ],
+                "sources": [
+                  "ncert-math7-p2-ch2",
+                  "ncert-math6-ch10",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 4,
+                  "callout": 6,
+                  "list": 2,
+                  "figure": 2,
+                  "example": 7,
+                  "derivation": 2,
+                  "table": 2,
+                  "equation": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 4753
+            "words": 8614
           },
           {
             "number": 8,
@@ -2110,13 +2179,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 85,
-      "totalLines": 26635,
+      "srcFilesTracked": 86,
+      "totalLines": 27994,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 17370,
+        "src/data/library (content model + books)": 18729,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6619,6 +6688,103 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "64a315bf977c0b211437086ec45958f6142d4d1e",
+      "short": "64a315b",
+      "date": "2026-11-04 13:56",
+      "message": "fm 7.1 negative numbers and why they exist shipped (ch. 7 opens, run 33) — verify-first: verify-unit-7.ts created BEFORE writing (70 checks A-I ALL PASS; float guard 1e-9 for the 9288.64 m gap); the lesson authored in ch-07.ts (~3,576 body words): the chosen zero, the integers + nesting tags, the mirror number line figure, right-beats-left with the -8/-3 trap, opposites + the double-reflection derivation -(-n)=n, absolute value's first look, the wild-readings table, the Everest/Dead-Sea elevation figure with an in-figure not-to-one-scale note, Vostok/Phalodi/clock/lift/mall instances, the historical callout (rods ~200 BCE, Brahmagupta 628, Descartes 1637, Maseres 1758), exam corner, 8 terms, 5-quiz keys 1/2/2/0/1 (live 5/5), 12 exercises L1-L6; SITE-WIDE RENDERER FIX surfaced by the E2E: ExampleBlock titles now render RichText (raw-$ leaks in Illustration titles eliminated on every chapter); audits 0/0 both figures; VLM figure 1 10/9, figure 2 redrawn to the 8-band and accepted honestly; 19-lesson E2E exit 0; lint + tsc clean; routes 200/200/200/404; inventory regenerated 29 lessons / 138,132 words; SOURCE_LOG +2 citation keys (ncert-math6-ch10, ncert-math7-p2-ch2); WORKLOG + PROGRESS + RESUME_POINTER + DETAILED_LOG updated",
+      "filesChanged": 13,
+      "insertions": 1236,
+      "deletions": 53,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 44,
+          "del": 6
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 13,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 81,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 176,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-71.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-7.ts",
+          "add": 166,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 2,
+          "del": 15
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-07.ts",
+          "add": 661,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "cb6f7c21f1c9cb2b6af1c02201f77808718b3bcd",
+      "short": "cb6f7c2",
+      "date": "2026-11-04 13:57",
+      "message": "memory: run-33 synced sha recorded (64a315bf977c0b211437086ec45958f6142d4d1e) — ship commit remote-verified via one-time-URL ls-remote = local HEAD; next run 34 continues FM ch. 7 at 7.2 Adding and Subtracting Integers, voice polish 2.2 queued",
+      "filesChanged": 2,
+      "insertions": 6,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -6627,24 +6793,24 @@
     "booksLive": 1,
     "chaptersWritten": 6,
     "chaptersInProgress": 1,
-    "lessonsWritten": 29,
-    "wordsAuthored": 138132,
-    "termsDefined": 193,
-    "quizItems": 145,
-    "exerciseQuestions": 305,
+    "lessonsWritten": 30,
+    "wordsAuthored": 142101,
+    "termsDefined": 201,
+    "quizItems": 150,
+    "exerciseQuestions": 317,
     "blockTotals": {
-      "para": 439,
-      "callout": 157,
-      "heading": 193,
-      "list": 30,
-      "terms": 30,
-      "equation": 42,
-      "derivation": 50,
-      "table": 29,
-      "figure": 49,
-      "example": 134,
-      "quiz": 29,
-      "exercises": 29,
+      "para": 454,
+      "callout": 164,
+      "heading": 197,
+      "list": 33,
+      "terms": 31,
+      "equation": 44,
+      "derivation": 52,
+      "table": 31,
+      "figure": 51,
+      "example": 141,
+      "quiz": 30,
+      "exercises": 30,
       "formula": 72,
       "algorithm": 8
     }

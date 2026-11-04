@@ -230,8 +230,11 @@ step 6).
   as the operations sequel for lessons 7.2–7.3, web-checked 2026-11-04
   (run 33) against the class-7 Ganita Prakash chapter list (part 1
   chs. 1–8; part 2 opens with Geometric Twins, Operations with Integers
-  second); cited in 7.1's sources as the promised continuation — no
-  content reproduced.
+  second); cited in 7.1's sources as the promised continuation. Run 34
+  (2026-11-04, lesson 7.2) used it as the primary reference: the
+  chapter's movement/token model ("final position = first movement +
+  second movement") is the lesson's walk model retold in its own words —
+  no content reproduced.
 
 ## Per-subject ledger
 
@@ -406,6 +409,10 @@ checks in sections BT–CC of scripts/verify-unit-5.ts, 455 total) BEFORE
 writing; exposition original — the factor-law derivation, the
 round-trip r²/100 % law, the multiplier law and the two-lane figure are
 the book's own derivations.
+
+## 2026-11-04 — Run 34 (FM 7.2 + voice polish 2.2): zero downloads
+
+Lesson 7.2 "Adding and Subtracting Integers" was verified against the already-persisted citation set (`ncert-math7-p2-ch2` primary — the movement model; `ncert-math6-ch10` and `khattar-qa-4e` carried) via web-check only — no new reference files downloaded, no working copies to delete. History grounded by web-check: MacTutor's Brahmagupta biography (the *Brahmasphutasiddhanta*'s 628 CE subtraction verses — a debt minus zero is a debt; a debt subtracted from zero is a fortune; a fortune subtracted from zero is a debt — paraphrased in the historical callout, derived on the line in the lesson's own L6 exercise; the Chinese rod board's colour-swap subtraction). Exam-corner shapes (signed chains, subtract-a-negative, missing addend, successor/predecessor, temperature/balance narrations in SSC CHSL/MTS, RRB NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no question reproduced. The gitignored Drive survey was rebuilt after the sandbox recycle for the WORK_INVENTORY regeneration (metadata only). Voice polish 2.2 reused only that lesson's own numbers (7, 3, 4; the inverse sentence generically).
 
 ## 2026-11-04 — Run 32 (FM 6.5 + push debt): zero downloads
 

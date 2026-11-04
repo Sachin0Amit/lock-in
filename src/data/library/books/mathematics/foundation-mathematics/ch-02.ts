@@ -530,8 +530,31 @@ export const chapter02: Chapter = {
           text: 'Turn Lesson 2.1\'s machinery around and a question appears that addition never asked. The herder knows the flock stood at seven animals this morning — and that three of them were lent to a neighbour for the day. How many are *mine* right now? The question is not "how many altogether" but "how many remain": start from 7 and *undo* an addition of 3. Subtraction is the operation of removing a quantity — and, looked at more closely, of running addition backwards: $a - b$ is **the number that must be added to $b$ to reach $a$**. That one sentence, the *inverse definition*, is the spine of this whole lesson: the column algorithm, the error checks and the shopkeeper\'s technique at the end are all that sentence wearing different clothes.',
         },
         {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Subtraction (the inverse definition)',
+          text: 'For whole numbers $a$ and $b$ with $b \\le a$, the **difference** $a - b$ is said to be the whole number $c$ that must be added to $b$ to reach $a$. The number started from is the **minuend**; the number taken away is the **subtrahend**; the result is the **difference**.',
+        },
+        {
           kind: 'para',
-          text: 'The same subtraction answers three differently-flavoured questions, and fluent calculators drift between them without noticing. **Take-away**: 7 pencils, give 3 away — how many remain? **Missing addend**: what must be added to 3 to reach 7? **Comparison**: how far apart are 7 and 3 on the number line? All three are answered by the same number, $4$ — the **difference** — but the faces have different jobs. The take-away face drives the column algorithm below; the missing-addend face drives the checks and the counting-up technique; the comparison face will drive distance, gaps and measurement later in the library.',
+          text: 'Thus, $7 - 3 = 4$ exactly when $3 + 4 = 7$: the herder\'s question and the inverse check are one sentence read in two directions, and every check this lesson runs is that sentence wearing work clothes.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the same difference wears three faces:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '**take-away**: $7$ pencils, $3$ given away — $7 - 3 = 4$ remain in the tray;',
+            '**missing addend**: what must be added to $3$ to reach $7$? Since $3 + 4 = 7$, the answer is $4$ — the same $7 - 3$ read backwards;',
+            '**comparison**: $7$ and $3$ sit $4$ steps apart on the number line, so the gap between them is $7 - 3 = 4$ — the same number once more.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'All three faces are answered by the one number $4$ — the **difference** — but the faces have different jobs. The take-away face drives the column algorithm below; the missing-addend face drives the checks and the counting-up technique; the comparison face will drive distance, gaps and measurement later in the library.',
         },
         {
           kind: 'terms',

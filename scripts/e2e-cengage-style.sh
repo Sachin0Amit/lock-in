@@ -27,6 +27,7 @@ LESSONS=(
   fm-direct-and-inverse-variation
   fm-scaling-maps-models-and-recipes
   fm-negative-numbers-why-they-exist
+  fm-adding-subtracting-integers
 )
 
 for L in "${LESSONS[@]}"; do
@@ -1003,3 +1004,84 @@ agent-browser screenshot /tmp/cengage-e2e/mobile-6-5.png >/dev/null 2>&1 || true
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*6-5*.png 2>/dev/null | head -6
 echo "done-6-5"
+
+# ---- lesson 7.2 dedicated: quiz live + all solutions expand + mobile 390px (run 34) ----
+agent-browser set viewport 1280 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-adding-subtracting-integers" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+# click the intended correct option of every quiz question (verify Q1-Q6 keys: 0/1/2/0/3)
+agent-browser eval "
+(function(){
+  var quizSec = Array.prototype.slice.call(document.querySelectorAll('section')).find(function(s){
+    var h = s.querySelector('header'); return h && /CHECK YOURSELF/i.test(h.textContent);
+  });
+  if (!quizSec) return 'NO QUIZ SECTION';
+  var correct = [0, 1, 2, 0, 3];
+  var groups = quizSec.querySelectorAll('div.px-5');
+  var clicked = 0;
+  groups.forEach(function(qdiv, qi){
+    var btns = qdiv.querySelectorAll('button[type=button]');
+    var pick = btns[correct[qi]] || btns[0];
+    if (pick) { pick.click(); clicked++; }
+  });
+  return 'clicked ' + clicked + ' correct options; score: ' + (quizSec.textContent.match(/You scored[^\u00b7]*/)||['n/a'])[0].trim();
+})()
+" 2>/dev/null | head -3
+agent-browser wait 800 >/dev/null 2>&1 || true
+# expand every exercise solution and count the chain parts
+agent-browser eval "
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('button')).filter(function(b){ return /Show solution/.test(b.textContent); });
+  var n = links.length;
+  links.forEach(function(b){ b.click(); });
+  return 'expanded ' + n + ' solutions of 12';
+})()
+" 2>/dev/null | head -2
+agent-browser wait 800 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var sol = Array.prototype.slice.call(document.querySelectorAll('span')).filter(function(s){ return s.textContent.trim()==='Sol.'; }).length;
+  var th = Array.prototype.slice.call(document.querySelectorAll('.katex')).filter(function(k){ return k.textContent.indexOf('\u2234') >= 0; }).length;
+  var open = document.querySelectorAll('[data-state=open]').length;
+  var figs = document.querySelectorAll('figure svg').length;
+  var katexAll = document.querySelectorAll('.lesson-body .katex').length;
+  var tbl = document.querySelectorAll('.lesson-body table').length;
+  var dtext = Array.prototype.slice.call(document.querySelectorAll('.lesson-body p, .lesson-body h2, .lesson-body li, .lesson-body td, .lesson-body th')).filter(function(el){ return !el.querySelector('.katex') && el.textContent.indexOf('$') >= 0; }).length;
+  return '7.2 Sol. pills: ' + sol + ' | KaTeX with \u2234: ' + th + ' | katex nodes: ' + katexAll + ' | tables: ' + tbl + ' | svg figures: ' + figs + ' | open collapsibles: ' + open + ' | raw-dollar text nodes: ' + dtext;
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/desktop-7-2-quiz.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1 of ' + figs.length;
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-7-2-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-7-2-fig2.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-adding-subtracting-integers" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '7.2 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-7-2.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*7-2*.png 2>/dev/null | head -6
+echo "done-7-2"

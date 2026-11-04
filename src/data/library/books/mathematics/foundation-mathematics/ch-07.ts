@@ -42,6 +42,34 @@ import type { Chapter } from '../../../types'
  * Cengage voice + solution chain; every number pre-verified by
  * scripts/verify-unit-7.ts (70 checks, A–I).
  *
+ * LESSON 7.2 Adding and Subtracting Integers (run 34, 2026-11-04) —
+ * the line learns to move, and 7.1's four promissory notes are cashed:
+ * the movement model (final position = starting position + the second
+ * movement — the walk), figure 1 the two-leg walk of (−4) + 11 (cubic
+ * arcs with solid heads landing on anchor dots at 0/−4/7, both braces
+ * on one 50-px scale); the like-signs rule derived (legs concatenate),
+ * the different-signs rule netted (larger magnitude wins the sign; a
+ * tie lands on 0), the sign-case table; the five properties of integer
+ * addition (closure, commutative, associative, identity, inverse) each
+ * with a script-verified instance — the inverse law a + (−a) = 0 as
+ * equation tag 1 CASHING 7.1's promissory note; subtraction derived as
+ * adding the opposite, a − b = a + (−b) as equation tag 2 (grid-checked
+ * over [−10,10]² in the verify script); figure 2 the subtraction map
+ * (panel 1 the mirror flip −(−2) = 2 with a two-headed swap-arc, panel
+ * 2 the walk 7 + 2 = 9) CASHING the lift debt; the mall 9 − (−3) = 12
+ * cashed; the double-sign table + the three-sign-stack Caution;
+ * Brahmagupta's zero-subtraction verses derived on the line (a debt
+ * subtracted from zero is a fortune: 0 − (−5) = 5); net-change chains
+ * (the ledger 2500 − 3600 + 1900 = 800 with a real overdraft stage;
+ * the thermometer −4 + 11 − 9 = −2; Priya 1850 − 2400 + 900 = 350;
+ * Srinagar −6 + 8 − 13 + 5 = −6; the submarine −240 + 85 − 130 =
+ * −285 m), successor/predecessor and the missing-addend shape; 8
+ * terms, 5-quiz keys 0/1/2/0/3 and 12 exercises L1–L6 (L6: the
+ * zero-subtraction derivation cashed at 12; the inequality set
+ * {−1, 0, 1, 2} summing to 2). Scope guard: no integer MULTIPLICATION
+ * or division — 7.3 owns the products. Every number pre-verified by
+ * scripts/verify-unit-7.ts (148 checks, A–S).
+ *
  * References for this unit: NCERT Ganita Prakash class-6 ch. 10 "The
  * Other Side of Zero" (the other side of the number line — narrative
  * cited, not reproduced) + class-7 part-2 ch. 2 "Operations with
@@ -57,7 +85,6 @@ export const chapter07: Chapter = {
     'Negative numbers earn their place on the number line: temperatures, debts and directions; the sign rules derived rather than memorised; absolute value as distance; and the coordinate plane preview.',
   status: 'in-progress',
   plannedLessons: [
-    'Adding and Subtracting Integers',
     'Multiplying Integers and the Sign Rules',
     'Absolute Value as Distance',
   ],
@@ -650,6 +677,653 @@ export const chapter07: Chapter = {
                     'Hence 12 storeys one way, 24 for the return — and Lesson 7.2\u2019s subtraction will write the one-way count as $9 - (-3) = 12$, the same three-step-plus-nine walk in one line.',
                   ],
                   answer: '12 storeys one way; 24 for the return',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-adding-subtracting-integers',
+      number: '7.2',
+      title: 'Adding and Subtracting Integers',
+      concepts: [
+        'Addition as a walk on the line',
+        'The sign rules derived from the walk',
+        'Additive inverse lands on zero',
+        'Subtraction as adding the opposite',
+        'The double-sign simplifications',
+        'Closure, commutativity, associativity',
+        'Net change chains',
+        'Successor and predecessor',
+      ],
+      objectives: [
+        'Compute any sum of integers by walking the line, and state the two sign rules as derived shortcuts',
+        'Verify closure, commutativity, associativity, the identity and the inverse law for integer addition with instances',
+        'Rewrite any subtraction as adding the opposite and simplify every double-sign chain',
+        'Solve net-change word problems — balances, temperatures, dives — as chains of moves',
+        'Derive the zero-subtraction rules Brahmagupta stated in 628 CE from the movement model',
+      ],
+      prerequisites: ['fm-negative-numbers-why-they-exist', 'fm-addition-carrying'],
+      sources: ['ncert-math7-p2-ch2', 'ncert-math6-ch10', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 7.1 gave the line a left half and taught it to hold still: integers could now be named, ordered, mirrored and measured. What the line could not yet do was *move*. The questions that open arithmetic\u2019s second storey — $-4 + 11$, $7 - (-2)$, $(-3) + (-5)$ — are all still questions. This lesson answers them by giving the line its legs: addition becomes a walk, the sign rules fall out of the walk as findings rather than decrees, and subtraction reveals itself as no new operation at all — only addition wearing a disguise.',
+        },
+        {
+          kind: 'para',
+          text: 'Four debts are owed from last lesson, and all fall due today: the promise that an integer plus its opposite lands exactly on zero; the lift\u2019s nine storeys waiting to become one line of arithmetic; the mall\u2019s twelve; and the Everest–Dead Sea gap waiting for its name. Watch them cash as the lesson runs.',
+        },
+        { kind: 'heading', text: 'Addition is a walk on the line' },
+        {
+          kind: 'para',
+          text: 'Every sum of integers is a small journey, and the number line is its map. The rule of the road: **stand at the first number; let the second number order your walk**. A positive second number walks you right; a negative second number walks you left; zero leaves you where you stand. Wherever you finish standing is the sum. That is all addition on the integers has ever been — the symbols merely record the journey.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Adding integers (the movement model)',
+          text: 'The sum $a + b$ of two integers is said to be the position reached on the number line by standing at $a$ and moving $|b|$ steps in $b$\u2019s direction — rightward when $b$ is positive, leftward when $b$ is negative, no movement when $b$ is zero. Thus the final position equals the starting position followed by the second movement.',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$5 + 3$: start at $5$, walk right $3$, finish at $8$ — the old arithmetic of chapter 2, seen now as a walk with both legs rightward.',
+            '$2 + (-6)$: start at $2$, walk left $6$, finish at $-4$ — the walk crosses zero and lands in debt.',
+            '$(-4) + 11$: start at $-4$, walk right $11$, finish at $7$ — a walk that begins below zero and ends above it.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Addition is a walk, in two legs. Panel 1: standing at $0$, the addend $-4$ walks you left $4$ steps, landing on $-4$. Panel 2: from $-4$, the addend $11$ walks you right $11$ steps, landing on $7$ — the sum. Both panels share one step scale; the net, $11 - 4 = 7$ steps right, fixes the landing.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: first, walking left four steps from zero to minus four; second, walking right eleven steps from minus four to land on seven, the sum">
+  <line x1="60" y1="84" x2="500" y2="84" stroke="currentColor" stroke-width="2"/>
+  <polygon points="60,84 74,77 74,91" fill="currentColor"/>
+  <polygon points="500,84 486,77 486,91" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="80" y1="76" x2="80" y2="92"/><line x1="130" y1="76" x2="130" y2="92"/>
+    <line x1="180" y1="76" x2="180" y2="92"/><line x1="230" y1="76" x2="230" y2="92"/>
+    <line x1="280" y1="76" x2="280" y2="92"/><line x1="330" y1="76" x2="330" y2="92"/>
+    <line x1="380" y1="72" x2="380" y2="96"/>
+    <line x1="430" y1="76" x2="430" y2="92"/><line x1="480" y1="76" x2="480" y2="92"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="80" y="112">−6</text><text x="130" y="112">−5</text><text x="180" y="112">−4</text>
+    <text x="230" y="112">−3</text><text x="280" y="112">−2</text><text x="330" y="112">−1</text>
+    <text x="380" y="112">0</text><text x="430" y="112">1</text><text x="480" y="112">2</text>
+  </g>
+  <circle cx="380" cy="84" r="5" fill="currentColor"/>
+  <circle cx="180" cy="84" r="5" fill="currentColor"/>
+  <path d="M 372 74 C 320 42, 250 44, 196 78" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="184,84 196,78 196,90" fill="currentColor"/>
+  <text x="285" y="30" font-size="12" fill="currentColor" text-anchor="middle">leg 1 — walk left 4: add −4</text>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="380" y="130">starts at 0</text>
+    <text x="180" y="130">lands on −4</text>
+  </g>
+  <line x1="40" y1="232" x2="700" y2="232" stroke="currentColor" stroke-width="2"/>
+  <polygon points="40,232 54,225 54,239" fill="currentColor"/>
+  <polygon points="700,232 686,225 686,239" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="80" y1="220" x2="80" y2="244"/><line x1="130" y1="224" x2="130" y2="240"/>
+    <line x1="180" y1="224" x2="180" y2="240"/><line x1="230" y1="224" x2="230" y2="240"/>
+    <line x1="280" y1="224" x2="280" y2="240"/>
+    <line x1="330" y1="224" x2="330" y2="240"/><line x1="380" y1="224" x2="380" y2="240"/>
+    <line x1="430" y1="224" x2="430" y2="240"/><line x1="480" y1="224" x2="480" y2="240"/>
+    <line x1="530" y1="224" x2="530" y2="240"/><line x1="580" y1="224" x2="580" y2="240"/>
+    <line x1="630" y1="224" x2="630" y2="240"/><line x1="680" y1="224" x2="680" y2="240"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="80" y="260">−4</text><text x="130" y="260">−3</text><text x="180" y="260">−2</text>
+    <text x="230" y="260">−1</text><text x="280" y="260">0</text><text x="330" y="260">1</text>
+    <text x="380" y="260">2</text><text x="430" y="260">3</text><text x="480" y="260">4</text>
+    <text x="530" y="260">5</text><text x="580" y="260">6</text><text x="630" y="260">7</text>
+    <text x="680" y="260">8</text>
+  </g>
+  <circle cx="80" cy="232" r="5" fill="currentColor"/>
+  <circle cx="630" cy="232" r="5" fill="currentColor"/>
+  <path d="M 88 222 C 200 162, 480 156, 612 226" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="626,232 612,226 612,238" fill="currentColor"/>
+  <text x="350" y="148" font-size="12" fill="currentColor" text-anchor="middle">leg 2 — then right 11: add 11</text>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="80" y="284">starts at −4</text>
+    <text x="630" y="284">lands on 7 — the sum</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Read figure 1 as one journey told in two panels. The first leg runs left — the addend $-4$ points leftward and carries $4$ steps of left in it. The second leg runs right, eleven steps: it passes back over the same ground between $-4$ and $0$, and keeps going $7$ steps beyond, so the right leg wins the fight by $11 - 4 = 7$ steps and the walk finishes at $7$. The landing point *is* the sum — that is the definition at work.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $(-4) + 11$.',
+          steps: [
+            'Now, stand at $-4$; the addend $11$ orders eleven steps rightward.',
+            'So the walk climbs from $-4$ up to $0$ (four steps) and continues $7$ steps more, finishing at $7$.',
+            'Hence $(-4) + 11 = 7$ — the right leg beat the left leg\u2019s four steps by seven.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $2 + (-6)$.',
+          steps: [
+            'Now, stand at $2$; the addend $-6$ orders six steps leftward.',
+            'So the walk spends its first $2$ steps reaching $0$, then $4$ steps more into the left half, finishing at $-4$.',
+            'Hence $2 + (-6) = -4$ — the left leg won by four, and the sum keeps the winner\u2019s sign.',
+          ],
+        },
+        { kind: 'heading', text: 'The sign rules, derived' },
+        {
+          kind: 'para',
+          text: 'The walk computes any single sum honestly, but an examination hall has no room for drawing lines under every question. So we do what this book always does: run the honest method a few times, watch the pattern, and collect it into a rule — a shortcut that is *derived*, not decreed. Two cases exhaust every pair of integers: either the two addends carry the same sign, or they do not.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Like signs: the legs agree',
+          statement:
+            'When both addends point the same way, both legs of the walk run in one direction. Two legs in one direction concatenate into a single longer leg — and its direction is the sign they share.',
+          steps: [
+            {
+              label: 'Take two debts',
+              formula: '(-m) + (-n)',
+              explanation:
+                'Stand at $-m$, a debt of $m$; the second addend orders $n$ steps further left. Leftward legs never fight each other — they chain.',
+            },
+            {
+              label: 'Concatenate',
+              formula: '(-m) + (-n) \\;=\\; -(m + n)',
+              explanation:
+                'The walk ends $m + n$ steps left of zero: the two leftward legs are one leg of their combined size, wearing the common sign.',
+            },
+            {
+              label: 'Mirror it for fortunes',
+              formula: 'm + n \\;=\\; +(m + n)',
+              explanation:
+                'Two rightward legs chain the same way on the right side — chapter 2\u2019s ordinary addition, now a special case of the walk.',
+            },
+            {
+              label: 'Conclude',
+              formula: '(-3) + (-5) \\;=\\; -(3 + 5) \\;=\\; -8',
+              explanation:
+                'Like signs: add the magnitudes, keep the common sign. Cashed: from $-3$, five steps left lands on $-8$, exactly as the formula says.',
+            },
+          ],
+          result:
+            'Like signs add the magnitudes and keep the common sign: $(-3) + (-5) = -8$ and $3 + 5 = 8$.',
+        },
+        {
+          kind: 'para',
+          text: 'The unlike case is the fight the walk already staged in figure 1. When the signs disagree, the legs oppose; the longer leg decides the direction, and the sum\u2019s size is the *difference* of the magnitudes — the amount by which the winner won. So $9 + (-4) = +(9 - 4) = 5$: the right leg wins by five. And $4 + (-9) = -(9 - 4) = -5$: the left leg wins by five. One border case glows: when the magnitudes *tie*, no leg wins, and the walk ends exactly where it began — at zero. The table collects all of it.',
+        },
+        {
+          kind: 'table',
+          head: ['The two signs', 'What the walk does', 'The rule', 'Instance'],
+          rows: [
+            ['$+$ and $+$', 'two rightward legs', 'add the magnitudes, keep $+$', '$3 + 5 = 8$'],
+            ['$-$ and $-$', 'two leftward legs', 'add the magnitudes, keep $-$', '$(-3) + (-5) = -8$'],
+            ['mixed, $+$ magnitude larger', 'legs oppose; right wins', 'subtract the magnitudes, keep $+$', '$9 + (-4) = 5$'],
+            ['mixed, $-$ magnitude larger', 'legs oppose; left wins', 'subtract the magnitudes, keep $-$', '$4 + (-9) = -5$'],
+            ['one addend is $0$', 'one leg only', 'the sum is the other addend', '$(-17) + 0 = -17$'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Around the two rules, addition\u2019s old laws from chapter 2 stand up and introduce themselves to the new numbers. Each survives the extension to both directions — and the walk explains why, since a walk\u2019s legs net out the same however you arrange them.',
+        },
+        {
+          kind: 'list',
+          items: [
+            '**closure**: the sum of two integers is always an integer — $12 + (-30) = -18$ never leaves $\\mathbb{Z}$. The line has no gaps to fall through.',
+            '**commutativity**: $a + b = b + a$; instance $(-3) + 5 = 2 = 5 + (-3)$. Walking right $5$ from $-3$ or right $5$ first and left $3$ after nets the same displacement.',
+            '**associativity**: $(a + b) + c = a + (b + c)$; instance $(2 + (-3)) + 5 = -1 + 5 = 4$ and $2 + ((-3) + 5) = 2 + 2 = 4$. Chains may be grouped however convenient — the licence behind every multi-move ledger below.',
+            '**the identity**: $a + 0 = a$; instance $(-17) + 0 = -17$. Adding zero is standing still — a walk of no steps.',
+            '**the inverse**: $a + (-a) = 0$; instance $(-9) + 9 = 0$. Every walk is undone exactly by its mirror walk.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $(-9) + 9$ and $53 + (-53)$.',
+          steps: [
+            'Now, each pair is an integer and its own opposite — the mirror pair of Lesson 7.1.',
+            'So $(-9) + 9 = 0$: the walk out is undone by the walk back; and likewise $53 + (-53) = 0$.',
+            'Hence $0$ and $0$ — the promissory note of last lesson is hereby cashed: an integer plus its additive inverse lands on zero, always.',
+          ],
+        },
+        {
+          kind: 'equation',
+          latex: 'a + (-a) \\;=\\; 0',
+          note: 'The inverse law. The opposite of Lesson 7.1 earns its second name — *additive inverse* — here: added to its integer, it builds zero. This single sentence will carry the whole of subtraction in the next heading.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The commutative law does not lend its name to subtraction',
+          text: 'Addition commutes; subtraction does not. $5 - 3 = 2$ but $3 - 5 = -2$ — the same two numbers, opposite answers, because the *order of the walk\u2019s start and order* is the whole difference. Students who quietly swap the operands of a difference borrow a licence that was never issued. The safe habit: rewrite every difference as a sum first (the next heading), and commute only what genuinely commutes.',
+        },
+        { kind: 'heading', text: 'Subtraction is adding the opposite' },
+        {
+          kind: 'para',
+          text: 'Now the lesson\u2019s central turn. "Subtract $b$" means: undo a walk of $b$ steps. If $b$ pointed right, undoing it means walking left; if $b$ pointed left, undoing it means walking right. But walking against $b$\u2019s direction for $|b|$ steps is precisely walking in the direction of $-b$ — the *opposite* of $b$, which points the reverse way by definition. So subtracting and adding-the-opposite are the same journey described in two grammars.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Every difference is a sum',
+          statement:
+            'Subtracting $b$ from $a$ means walking $|b|$ steps against $b$\u2019s direction. Reversing a direction is exactly what taking the opposite does. So the difference should be writable as a sum — and it always is.',
+          steps: [
+            {
+              label: 'Read the subtraction',
+              formula: 'a - b',
+              explanation:
+                'To take away $b$ from $a$ is to undo a walk of $b$ steps: undo a rightward walk by walking left, a leftward walk by walking right.',
+            },
+            {
+              label: 'Name the undoing',
+              formula: 'a - b \\;=\\; a + (-b)',
+              explanation:
+                'Walking against $b$\u2019s direction for $|b|$ steps is walking in $(-b)$\u2019s direction — the opposite points the reverse way. Equation (2) numbers the law.',
+            },
+            {
+              label: 'Cash the lift',
+              formula: '7 - (-2) \\;=\\; 7 + 2 \\;=\\; 9',
+              explanation:
+                'The $B2$-to-level-$7$ ride of Lesson 7.1, compressed to one line: subtracting $-2$ adds $2$. Nine storeys, no counting on fingers.',
+            },
+            {
+              label: 'Cash the mountain',
+              formula: '8848.86 - (-439.78) \\;=\\; 8848.86 + 439.78 \\;=\\; 9288.64',
+              explanation:
+                'Everest above the datum, the Dead Sea below it: the gap between them is a subtraction of a negative — and the metres agree with Lesson 7.1\u2019s count to the last decimal.',
+            },
+          ],
+          result:
+            'Every difference is a sum: $a - b = a + (-b)$. One operation does the work of two.',
+        },
+        {
+          kind: 'equation',
+          latex: 'a - b \\;=\\; a + (-b)',
+          note: 'The unification. There is no separate subtraction of integers to memorise — only the opposite of Lesson 7.1, deployed once. The verified ledger: on every pair in $[-10, 10] \\times [-10, 10]$, the two sides agree, $441$ out of $441$.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Subtraction is adding the opposite — the two stops of $7 - (-2)$. Panel 1: the mirror flips $-2$ to $+2$ — taking the opposite, $-(-2) = 2$, Lesson 7.1\u2019s instruction-hat minus at work. Panel 2: so the job becomes $7 + 2$ — from $7$, two steps right land on $9$, the lift\u2019s nine storeys in one line. Both panels share one step scale.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the mirror flip turning minus two into plus two across zero, and then the walk from seven two steps right to nine, showing that seven minus minus two equals seven plus two">
+  <line x1="210" y1="70" x2="550" y2="70" stroke="currentColor" stroke-width="2"/>
+  <polygon points="210,70 224,63 224,77" fill="currentColor"/>
+  <polygon points="550,70 536,63 536,77" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="230" y1="62" x2="230" y2="78"/><line x1="280" y1="62" x2="280" y2="78"/>
+    <line x1="330" y1="62" x2="330" y2="78"/>
+    <line x1="380" y1="58" x2="380" y2="82"/>
+    <line x1="430" y1="62" x2="430" y2="78"/><line x1="480" y1="62" x2="480" y2="78"/>
+    <line x1="530" y1="62" x2="530" y2="78"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="230" y="96">−3</text><text x="280" y="96">−2</text><text x="330" y="96">−1</text>
+    <text x="380" y="96">0</text><text x="430" y="96">1</text><text x="480" y="96">2</text>
+    <text x="530" y="96">3</text>
+  </g>
+  <text x="380" y="20" font-size="12" fill="currentColor" text-anchor="middle">the opposite flip: −(−2) = 2</text>
+  <path d="M 296 60 C 330 32, 430 32, 464 60" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="280,70 296,63 296,77" fill="currentColor"/>
+  <polygon points="480,70 464,63 464,77" fill="currentColor"/>
+  <circle cx="280" cy="70" r="4" fill="currentColor"/>
+  <circle cx="480" cy="70" r="4" fill="currentColor"/>
+  <line x1="380" y1="44" x2="380" y2="80" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.8"/>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    <line x1="280" y1="112" x2="380" y2="112"/>
+    <line x1="280" y1="106" x2="280" y2="118"/>
+    <line x1="380" y1="106" x2="380" y2="118"/>
+    <line x1="380" y1="112" x2="480" y2="112"/>
+    <line x1="480" y1="106" x2="480" y2="118"/>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="330" y="132">2 steps</text>
+    <text x="430" y="132">2 steps</text>
+  </g>
+  <text x="380" y="154" font-size="13" fill="currentColor" text-anchor="middle" font-style="italic">so 7 − (−2) becomes 7 + 2</text>
+  <line x1="225" y1="230" x2="535" y2="230" stroke="currentColor" stroke-width="2"/>
+  <polygon points="225,230 239,223 239,237" fill="currentColor"/>
+  <polygon points="535,230 521,223 521,237" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="255" y1="222" x2="255" y2="238"/><line x1="305" y1="222" x2="305" y2="238"/>
+    <line x1="355" y1="222" x2="355" y2="238"/><line x1="405" y1="222" x2="405" y2="238"/>
+    <line x1="455" y1="222" x2="455" y2="238"/><line x1="505" y1="222" x2="505" y2="238"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle">
+    <text x="255" y="254">5</text><text x="305" y="254">6</text><text x="355" y="254">7</text>
+    <text x="405" y="254">8</text><text x="455" y="254">9</text><text x="505" y="254">10</text>
+  </g>
+  <circle cx="355" cy="230" r="4" fill="currentColor"/>
+  <circle cx="455" cy="230" r="4" fill="currentColor"/>
+  <path d="M 363 222 C 375 194, 425 194, 439 224" fill="none" stroke="currentColor" stroke-width="2"/>
+  <polygon points="455,230 439,224 439,236" fill="currentColor"/>
+  <text x="400" y="188" font-size="12" fill="currentColor" text-anchor="middle">the walk — 7 + 2 lands on 9: two steps right</text>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    <line x1="355" y1="268" x2="455" y2="268"/>
+    <line x1="355" y1="262" x2="355" y2="274"/>
+    <line x1="455" y1="262" x2="455" y2="274"/>
+  </g>
+  <text x="405" y="290" font-size="12" fill="currentColor" text-anchor="middle">2 steps right</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Figure 2 shows both stops. First the flip: the two-headed arc carries $-2$ across the dashed mirror to $+2$ — that is the opposite instruction $-(-2) = 2$ of Lesson 7.1 doing honest work (read from $2$\u2019s side of the mirror, it is the double bounce that went out and came home). Then the walk: $7$ plus $2$ lands on $9$. The lift example that 7.1 counted storey by storey is now one line of arithmetic, and the same flip would compress the mall\u2019s twelve.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate $9 - (-3)$.',
+          steps: [
+            'Now, subtracting $-3$ means adding its opposite: $9 - (-3) = 9 + 3$.',
+            'So the walk starts at $9$ and steps right $3$, finishing at $12$ — the underground mall\u2019s $B3$-to-level-$9$ ride of Lesson 7.1, in one line.',
+            'Hence $9 - (-3) = 12$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Simplify $(-8) - (-13)$.',
+          steps: [
+            'Now, the flip first: $(-8) - (-13) = (-8) + 13$.',
+            'So opposite signs, and the magnitude $13$ wears the plus: $+(13 - 8) = 5$ — the walk starts $8$ left of zero and returns $13$ steps rightward, ending $5$ right of zero.',
+            'Hence $5$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Before the table, one habit worth automating: reading chains of signs. A $+$ sign before a bracket changes nothing; a $-$ sign before a bracket flips what is inside. Four readings cover every case that examinations set.',
+        },
+        {
+          kind: 'table',
+          head: ['Expression', 'Read as', 'Equals'],
+          rows: [
+            ['$+(+6)$', 'add a fortune of $6$', '$6$'],
+            ['$+(-6)$', 'add a debt of $6$', '$-6$'],
+            ['$-(+6)$', 'take away a fortune of $6$', '$-6$'],
+            ['$-(-6)$', 'take away a debt of $6$', '$+6$'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Two minus signs in a row are not a typo',
+          text: 'The expression $-(-6)$ reads "take away a debt of $6$" — which enriches you by $6$. Students who cancel the pair "because two negatives make a positive" before asking what each sign *does* land on $-6$ and lose the mark. Longer stacks resolve two signs at a time, from the inside out: $-(-(-2)) = -(2) = -2$, since the inner flip gives $2$ and the outer minus takes it away again. Read the grammar; the arithmetic follows.',
+        },
+        { kind: 'heading', text: 'Net change: chains of moves' },
+        {
+          kind: 'para',
+          text: 'Real bookkeeping rarely sums two numbers and stops. A day of banking, a day of weather, a dive profile — each is a *chain* of moves, and the walk model reads chains natively: start somewhere, apply the moves left to right, and read the final position. The associativity licence guarantees that staging the chain wherever convenient cannot change the landing point.',
+        },
+        {
+          kind: 'example',
+          title: 'A balance of Rs $2{,}500$ takes a withdrawal of Rs $3{,}600$ (the bank honours the overdraft) and then a deposit of Rs $1{,}900$. What does the day end with?',
+          steps: [
+            'Now, chain the ledger: $2500 - 3600 + 1900$.',
+            'So after the withdrawal: $2500 - 3600 = -1100$ — a genuine overdraft of Rs $1{,}100$, the balance wearing a negative sign in the wild.',
+            'And the deposit lifts it: $-1100 + 1900 = 800$.',
+            'Hence Rs $800$ in hand — and only the sign language could carry the intermediate overdraft honestly.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A hill station\u2019s dawn temperature is $-4$°C. By noon it has risen $11$ degrees; by night it has fallen $9$ degrees. What does the night thermometer read?',
+          steps: [
+            'Now, chain the day: $-4 + 11 - 9$.',
+            'So the noon reading: $-4 + 11 = 7$ — the walk crosses zero; and the night reading: $7 - 9 = -2$.',
+            'Hence $-2$°C — two degrees below freezing, the whole day\u2019s weather in one chain.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Grouping is free',
+          text: 'Associativity says a chain may be staged wherever convenient: the ledger above could open with the deposit pair ($-3600 + 1900 = -1700$, then $2500 - 1700 = 800$) and land on the same rupees. This is why accountants may total a day\u2019s credits and debits separately, and why "show the stages" is always a safe instruction — the stages differ, the destination cannot.',
+        },
+        {
+          kind: 'para',
+          text: 'Two smaller shapes belong in every pocket. The **successor** of an integer is $n + 1$ — one step right — and its **predecessor** is $n - 1$: the successor of $-8$ is $-7$, the predecessor $-9$; the line\u2019s neighbours, now computable. And the **missing-addend** shape — *the sum of two integers is $-7$; one of them is $5$; find the other* — is subtraction wearing its other hat: the unknown is $-7 - 5 = -12$, and the check $5 + (-12) = -7$ closes the loop. Both shapes meet quizzes and question papers constantly, and both reduce to the one law $a - b = a + (-b)$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Integer arithmetic in the examination hall',
+          text: 'The signed-operation item is a fixture of SSC CHSL and MTS, RRB NTPC CBT-I and banking clerical prelims, in a small set of recurring shapes: evaluate a signed chain ("simplify" items mixing two or three operations); subtract-a-negative items, where the whole mark is the flip; missing-addend items ("the sum of two integers is …; one of them is …"); successor/predecessor items on negative integers; and narrated temperature or balance word problems — "rose by", "fell by", "dipped below" — which are chains of moves in prose. The canon is NCERT class-7 (part 2), chapter 2, "Operations with Integers", whose movement model this lesson retells in its own words; Khattar\u2019s *Quantitative Aptitude* drills the speed shapes. No examination question is reproduced here.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Brahmagupta stated; the walk derives',
+          text: 'When Brahmagupta wrote his *Brahmasphutasiddhanta* in $628$ CE, he did not merely tolerate negative numbers — he legislated for them, in verses that speak of fortunes and debts. Among his subtraction rules, in modern paraphrase: a debt minus zero is a debt; a fortune minus zero is a fortune; a debt subtracted from zero is a fortune; a fortune subtracted from zero is a debt. The walk derives all four in a breath: $0 - 5 = -5$ and $0 - (-5) = 5$ — subtracting from zero simply mirrors. The Chinese rod board had run the same machinery visually for centuries: to subtract a debt, the reckoner laid down rods of the opposite colour, which is the flip drawn in sticks. What Brahmagupta handed down as statute, this lesson re-derives as theorem — the surest form in which to hold a rule.',
+        },
+        {
+          kind: 'para',
+          text: 'The line now walks in both directions, and subtraction has dissolved into addition plus a flip. One operation family remains untouched: the *leaps* — $(-3) \\times (-6)$, the products that made European mathematicians call negative numbers absurd for four centuries. Lesson 7.3 teaches the line to leap, and its most mistrusted rule — a debt times a debt is a fortune — will meet the same standard this lesson set: derived, never decreed.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Sum (of integers)',
+              def: 'The final position of the walk: stand at the first addend and move as the second directs. $(-4) + 11 = 7$ is read "the walk lands on $7$".',
+            },
+            {
+              term: 'Movement model',
+              def: 'The reading of integer addition as motion on the number line — final position equals starting position plus the second movement; the sign of the second addend chooses the direction.',
+            },
+            {
+              term: 'Sign rules for addition',
+              def: 'Like signs: add the magnitudes and keep the common sign. Unlike signs: subtract the magnitudes; the larger magnitude\u2019s sign wins; a tie lands on $0$.',
+            },
+            {
+              term: 'Additive identity',
+              def: 'The integer $0$: adding it changes nothing ($a + 0 = a$), and it leaves every walk where it stands.',
+            },
+            {
+              term: 'Commutative law of addition',
+              def: '$a + b = b + a$ for all integers — the walk\u2019s legs net out in either order. It does NOT transfer to subtraction: $5 - 3 \\neq 3 - 5$.',
+            },
+            {
+              term: 'Associative law of addition',
+              def: '$(a + b) + c = a + (b + c)$ — chains may be grouped and staged wherever convenient; the landing point cannot change.',
+            },
+            {
+              term: 'Subtraction as adding the opposite',
+              def: 'The unification $a - b = a + (-b)$: every difference is a sum, since undoing a walk of $b$ steps is walking $|b|$ steps against $b$\u2019s direction.',
+            },
+            {
+              term: 'Successor and predecessor',
+              def: 'For an integer $n$, the successor is $n + 1$ (one step right) and the predecessor is $n - 1$ (one step left): the successor of $-8$ is $-7$, its predecessor $-9$.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Evaluate $(-5) + 3$.',
+              options: ['$-2$', '$2$', '$-8$', '$8$'],
+              answer: 0,
+              explain:
+                'Unlike signs: subtract the magnitudes and the larger ($5$, wearing minus) keeps its sign, so $-(5 - 3) = -2$ (Option 1). Option 2 drops the winning sign; Option 3 misapplies the like-signs rule by adding the magnitudes; Option 4 both adds and drops.',
+            },
+            {
+              q: 'Evaluate $6 - (-4)$.',
+              options: ['$2$', '$10$', '$-10$', '$-2$'],
+              answer: 1,
+              explain:
+                'Subtracting $-4$ adds $4$: $6 + 4 = 10$ (Option 2). Option 1 ignores the flip and computes $6 - 4$; Option 3 misapplies the like-signs rule to the flip; Option 4 walks the subtraction in the wrong order.',
+            },
+            {
+              q: 'For any integer $a$, the sum $a + (-a)$ equals',
+              options: ['$2a$', '$1$', '$0$', '$|a|$'],
+              answer: 2,
+              explain:
+                'An integer and its additive inverse are mirror walks; the round trip lands on the start: $a + (-a) = 0$ (Option 3) — the inverse law, 7.1\u2019s promissory note cashed. Option 1 doubles; Option 4 keeps only the size; Option 2 confuses the sum with the identity\u2019s contribution.',
+            },
+            {
+              q: 'The sum of two integers is $-7$. One of them is $5$. The other is',
+              options: ['$-12$', '$-2$', '$12$', '$2$'],
+              answer: 0,
+              explain:
+                'The missing addend is the sum minus the known one: $-7 - 5 = -12$ (Option 1); the check closes: $5 + (-12) = -7$. Option 2 computes $-7 + 5$; Option 3 flips the sum\u2019s sign; Option 4 computes $7 - 5$.',
+            },
+            {
+              q: 'A temperature of $-4$°C rises by $11$ degrees and then falls by $9$ degrees. The final reading is',
+              options: ['$15$°C', '$7$°C', '$-24$°C', '$-2$°C'],
+              answer: 3,
+              explain:
+                'Chain the moves: $-4 + 11 = 7$ at noon, then $7 - 9 = -2$ (Option 4). Option 1 adds $11$ and $4$ as if the start were $+4$; Option 2 stops at noon; Option 3 reads every move as a fall.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Evaluate $(-7) + 4$.',
+                  solution: [
+                    'Now, the signs disagree: magnitudes $7$ and $4$, and the $7$ wears the minus.',
+                    'So subtract the magnitudes; the larger keeps its sign: $-(7 - 4) = -3$ — the walk starts $7$ left and steps $4$ right.',
+                    'Hence $-3$.',
+                  ],
+                  answer: '$-3$',
+                },
+                {
+                  q: 'Evaluate $(-2) + (-9)$.',
+                  solution: [
+                    'Now, both addends are negative — like signs, so the legs chain leftward.',
+                    'So add the magnitudes and keep the sign: $-(2 + 9) = -11$.',
+                    'Hence $-11$.',
+                  ],
+                  answer: '$-11$',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Evaluate $5 - 12$.',
+                  solution: [
+                    'Now, rewrite the difference as a sum: $5 - 12 = 5 + (-12)$.',
+                    'So unlike signs, and the magnitude $12$ wears the minus: $-(12 - 5) = -7$ — the walk crosses zero into debt.',
+                    'Hence $-7$.',
+                  ],
+                  answer: '$-7$',
+                },
+                {
+                  q: 'Find the integer that makes $(-6) + \\square = 0$ true.',
+                  solution: [
+                    'Now, a sum of $0$ from a nonzero start demands the additive inverse: the box must undo $-6$ exactly.',
+                    'So $\\square = -(-6) = 6$; the check closes: $-6 + 6 = 0$.',
+                    'Hence $6$.',
+                  ],
+                  answer: '$6$',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Evaluate $(-20) - (-8)$.',
+                  solution: [
+                    'Now, subtracting $-8$ adds $8$: $(-20) - (-8) = (-20) + 8$.',
+                    'So unlike signs, the magnitude $20$ keeps its minus: $-(20 - 8) = -12$ — the walk starts $20$ left and climbs back $8$.',
+                    'Hence $-12$.',
+                  ],
+                  answer: '$-12$',
+                },
+                {
+                  q: 'Evaluate $(-3) + (-7) - (-6)$.',
+                  solution: [
+                    'Now, the like-signed pair first: $(-3) + (-7) = -10$.',
+                    'So the chain reads $-10 - (-6) = -10 + 6 = -4$.',
+                    'Hence $-4$ — and associativity certifies any other staging: $(-3) + [(-7) + 6] = -3 + (-1) = -4$, the same landing.',
+                  ],
+                  answer: '$-4$',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A submarine sits at $-240$ m. It rises $85$ m, then dives $130$ m. At what depth does it end?',
+                  solution: [
+                    'Now, chain the moves: $-240 + 85 - 130$.',
+                    'So the first pair: $-240 + 85 = -155$ — still $155$ m down after the rise.',
+                    'And the dive: $-155 - 130 = -285$.',
+                    'Hence $-285$ m — $285$ metres below the surface.',
+                  ],
+                  answer: '$-285$ m',
+                },
+                {
+                  q: 'The sum of two integers is $-16$. One of them is $9$. Find the other.',
+                  solution: [
+                    'Now, the missing addend is the sum minus the known one: $-16 - 9$.',
+                    'So $-16 - 9 = -16 + (-9) = -25$.',
+                    'Hence $-25$; the check closes: $9 + (-25) = -16$.',
+                  ],
+                  answer: '$-25$',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Priya\u2019s account holds Rs $1{,}850$. A cheque of Rs $2{,}400$ is presented (the bank honours the overdraft), after which she deposits Rs $900$. What is the final balance?',
+                  solution: [
+                    'Now, chain the ledger: $1850 - 2400 + 900$.',
+                    'So after the cheque: $1850 - 2400 = -550$ — a genuine overdraft of Rs $550$, the sign carrying it honestly.',
+                    'And the deposit: $-550 + 900 = 350$.',
+                    'Hence Rs $350$ in hand.',
+                  ],
+                  answer: 'Rs $350$',
+                },
+                {
+                  q: 'Srinagar\u2019s dawn temperature is $-6$°C. It rises $8$ degrees by noon, falls $13$ degrees by evening, then rises $5$ degrees by midnight. What does the midnight thermometer read?',
+                  solution: [
+                    'Now, chain the day: $-6 + 8 - 13 + 5$.',
+                    'So stage by stage: $-6 + 8 = 2$ at noon; $2 - 13 = -11$ by evening; $-11 + 5 = -6$ at midnight.',
+                    'Hence $-6$°C — the day ends where it began: the rises and falls cancel exactly.',
+                  ],
+                  answer: '$-6$°C',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Using the law $a - b = a + (-b)$, derive the value of $0 - a$ for any integer $a$, and cash the result at $a = 12$. Which of Brahmagupta\u2019s verses does the answer match?',
+                  solution: [
+                    'Now, apply the law with the first addend $0$: $0 - a = 0 + (-a) = -a$.',
+                    'So subtracting $a$ from zero lands on the opposite of $a$ — the mirror image, direction reversed, magnitude kept.',
+                    'Cashed at $a = 12$: $0 - 12 = -12$; and at $a = -5$: $0 - (-5) = 5$.',
+                    'Hence the verse: a fortune subtracted from zero is a debt, and a debt subtracted from zero is a fortune — stated in $628$ CE, derived here on the line.',
+                  ],
+                  answer: '$0 - a = -a$; at $a = 12$ the value is $-12$',
+                },
+                {
+                  q: 'List every integer $n$ satisfying both $n - 4 > -6$ and $n \\le 2$, then find their sum.',
+                  solution: [
+                    'Now, untangle the first condition: $n - 4 > -6$, so adding $4$ to both sides shifts the anchor: $n > -2$.',
+                    'So $n$ must satisfy $-2 < n$ and $n \\le 2$: the integers $-1, 0, 1, 2$ — four ticks strictly right of $-2$ up to and including $2$.',
+                    'Their sum: $(-1) + 0 + 1 + 2 = 0 + 2 = 2$ — the mirror pair $-1$ and $1$ cancels, leaving $2$.',
+                    'Hence the set $\\{-1, 0, 1, 2\\}$ with sum $2$ — Lesson 7.1\u2019s ordering and this lesson\u2019s operations in one breath.',
+                  ],
+                  answer: '$\\{-1, 0, 1, 2\\}$; the sum is $2$',
                 },
               ],
             },

@@ -9,7 +9,31 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 33, Job 498279**:
+Generated: 2026-11-03/04 (maintained through **run 34, Job 498279**:
+**FM 7.2 "Adding and Subtracting Integers" shipped + voice polish 2.2**
+(3,861 body words): the movement model — final position = starting
+position + the second movement — formalised as the walk Definition and
+illustrated by figure 1 (two stacked panels: leg 1 the arc 0 → −4,
+leg 2 the arc −4 → 7, symmetric "starts at/lands on" annotations, one
+step scale); the like-signs rule derived (legs concatenate) and the
+unlike rule netted (larger magnitude wins; a tie lands on 0) with the
+five-case sign table; the five properties of integer addition each with
+a script-verified instance, the inverse law a + (−a) = 0 numbered as
+equation tag 1 and CASHING 7.1's promissory note; subtraction derived as
+adding the opposite — a − b = a + (−b), equation tag 2, grid-checked
+over all 441 pairs in [−10,10]² — with figure 2 the subtraction map
+(the mirror flip −(−2) = 2, then the walk 7 + 2 = 9) cashing the lift;
+the mall 9 − (−3) = 12 cashed; the double-sign table and the
+three-sign-stack Caution; net-change chains (the ledger 2500 − 3600 +
+1900 = 800 with its honest −1100 overdraft stage; the thermometer
+−4 + 11 − 9 = −2; Priya's account; Srinagar's round-trip day; the
+submarine dive profile), successor/predecessor and the missing-addend
+shape; Brahmagupta's 628 CE subtraction verses derived on the line
+(0 − 5 = −5, 0 − (−5) = 5); 8 terms, 5-quiz keys 0/1/2/0/3 (live 5/5),
+12 exercises L1–L6. Verify-first: verify-unit-7.ts extended to 148
+checks (J–S) BEFORE writing, incl. the 441-pair sign-rule brute force.
+Voice polish 2.2: the formal inverse-definition callout + Thus-line +
+the three faces as the roman run. || Previous run 33:
 **FM 7.1 "Negative Numbers and Why They Exist" shipped — chapter 7
 (Integers) opened** (~3,576 body words, 4,753 by the platform counter):
 the chosen zero (sea level / freezing point / ground floor / UTC) with
@@ -964,10 +988,10 @@ downloads (references already logged).
 |---|---|---|
 | 2 | The Four Operations — **COMPLETE** | ~~2.1 Addition and the Art of Carrying~~ **WRITTEN** · ~~2.2 Subtraction and Borrowing~~ **WRITTEN** · ~~2.3 Multiplication as Repeated Addition — and Beyond~~ **WRITTEN** · ~~2.4 Division, Remainders and Why Zero Never Divides~~ **WRITTEN** · ~~Order of Operations and the Language of Expressions~~ **WRITTEN** |
 | 3 | Factors, Multiples and Primes — **COMPLETE** | ~~Divisibility and Its Tests~~ **WRITTEN** · ~~Prime Numbers and Factorisation~~ **WRITTEN** · ~~Highest Common Factor~~ **WRITTEN** · ~~LCM~~ **WRITTEN** · ~~HCF, LCM and How They Relate~~ **WRITTEN** |
-| 4 | Fractions — **IN PROGRESS (3/5)** | ~~The Idea of a Fraction~~ **WRITTEN** · ~~Equivalent Fractions and Simplification~~ **WRITTEN** · ~~Comparing Fractions~~ **WRITTEN** · Adding/Subtracting · Multiplying/Dividing |
-| 5 | Decimals and Percents | Decimal Places · Decimals↔Fractions · Operating on Decimals · Percent · Change, Discounts, Simple Interest |
-| 6 | Ratio, Rate and Proportion | Ratio · Rates and Unit Rates · Proportion · Direct/Inverse Variation · Scaling |
-| 7 | Integers | Negative Numbers · Adding/Subtracting · Multiplying + Sign Rules · Absolute Value as Distance |
+| 4 | Fractions — **COMPLETE (5/5, run 20)** | ~~The Idea of a Fraction~~ · ~~Equivalent Fractions and Simplification~~ · ~~Comparing Fractions~~ · ~~Adding/Subtracting Fractions~~ · ~~Multiplying/Dividing Fractions~~ — all **WRITTEN** |
+| 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
+| 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
+| 7 | Integers — **OPEN (2/4, run 34)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · Multiplying Integers and the Sign Rules · Absolute Value as Distance |
 | 8 | Geometry Foundations | Points/Lines/Planes · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |

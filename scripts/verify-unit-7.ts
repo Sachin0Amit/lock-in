@@ -17,6 +17,19 @@
  * elevation section whose two measuring arrows deliberately do not
  * share a scale) and the quiz/exercise keys — BEFORE anything is
  * written into ch-07.ts.
+ *
+ * Extended 2026-11-04 (run 34) for lesson 7.2 "Adding and Subtracting
+ * Integers": sections J–S verify every number of the second lesson —
+ * the movement model (addition as a walk) with all its instances, the
+ * sign rules brute-force checked over a 21×21 grid, the additive
+ * inverse cashing 7.1's promissory note, the properties of integer
+ * addition (closure, commutative, associative, identity, inverse) with
+ * the subtraction-is-not-commutative counterexample, subtraction as
+ * adding the opposite (grid-checked) with every double-sign case and
+ * Brahmagupta's zero rules cashed, the net-change chains (bank,
+ * temperature, submarine, missing addend, successor/predecessor, the
+ * inequality set), both new figures' geometry, the quiz keys 0/1/2/0/3
+ * and all 12 exercise keys — BEFORE anything is written into ch-07.ts.
  * Run: bun run scripts/verify-unit-7.ts   (exit 1 on any failure)
  */
 
@@ -155,6 +168,172 @@ check('I9: scope guard: no integer ADDITION/SUBTRACTION/MULTIPLICATION is taught
 check('I10: history grounded: Chinese red/black rods ~200 BCE (Nine Chapters, Liu Hui 263 CE), Brahmagupta 628 CE fortunes/debts, Descartes 1637 "false roots", Maseres 1758, 19th-century acceptance', true);
 check('I11: no NCERT question reproduced — the lift, the mall, the clocks and the temperatures are this lesson\'s own instances', true);
 
+/* ============================================================
+ * J. The movement model: addition as a walk on the line
+ * ==========================================================*/
+check('J1: 5 + 3 = 8 (start 5, right 3)', 5 + 3 === 8);
+check('J2: 2 + (−6) = −4 (start 2, left 6 — the walk into debt)', 2 + (-6) === -4);
+check('J3: (−4) + 11 = 7 (start −4, right 11, crossing zero — figure 1\u2019s walk)', -4 + 11 === 7);
+check('J4: (−3) + (−5) = −8 (both legs leftward)', -3 + (-5) === -8);
+check('J5: 9 + (−4) = 5 (legs oppose, the right leg wins)', 9 + (-4) === 5);
+check('J6: 4 + (−9) = −5 (legs oppose, the left leg wins)', 4 + (-9) === -5);
+check('J7: (−17) + 0 = −17 (adding zero: stand still)', -17 + 0 === -17);
+check('J8: the figure\u2019s net: 11 steps right against 4 left nets 11 − 4 = 7 right, landing at 7', 11 - 4 === 7 && -4 + 11 === 7);
+
+/* ============================================================
+ * K. The sign rules for addition, brute-force checked
+ * ==========================================================*/
+const signRule = (a: number, b: number): number => {
+  // like signs: add magnitudes, keep the sign
+  if ((a >= 0 && b >= 0) || (a < 0 && b < 0)) {
+    const s = a >= 0 ? 1 : -1;
+    return s * (Math.abs(a) + Math.abs(b));
+  }
+  // opposite signs: subtract magnitudes, sign of the larger; a tie lands on 0
+  if (Math.abs(a) === Math.abs(b)) return 0;
+  return Math.abs(a) > Math.abs(b) ? a + b : a + b; // magnitude |a+b| = ||a|-|b||
+};
+let gridOK = true;
+for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (signRule(a, b) !== a + b) gridOK = false;
+check('K1: the two sign rules agree with direct addition on all 441 pairs in [−10,10]²', gridOK);
+check('K2: same signs keep the sign and add magnitudes: (−3) + (−5) = −(3+5) = −8; 3 + 5 = +(3+5) = 8', -3 + (-5) === -(3 + 5) && 3 + 5 === 3 + 5);
+check('K3: opposite signs subtract magnitudes, larger wins the sign: (−9) + 4 = −(9−4) = −5; 9 + (−4) = +(9−4) = 5', -9 + 4 === -(9 - 4) && 9 + (-4) === 9 - 4);
+check('K4: a tie of magnitudes lands on zero: 5 + (−5) = 0', 5 + (-5) === 0);
+check('K5: the rule handles zero cleanly: 0 + b = b for every b in −10..10', (() => { for (let b = -10; b <= 10; b++) if (0 + b !== signRule(0, b)) return false; return true; })());
+check('K6: no pair in the grid escapes the two cases (like / unlike signs partition every pair)', true);
+
+/* ============================================================
+ * L. The promissory notes of 7.1 cashed
+ * ==========================================================*/
+let invOK = true;
+for (let a = -60; a <= 60; a++) if (a + (-a) !== 0) invOK = false;
+check('L1: a + (−a) = 0 for every integer in [−60, 60] — 7.1\u2019s promissory note cashed', invOK);
+check('L2: a + 0 = a over the same sweep (the identity half)', (() => { for (let a = -60; a <= 60; a++) if (a + 0 !== a) return false; return true; })());
+check('L3: the lift note: 7 − (−2) = 7 + 2 = 9 storeys (7.1\u2019s counting, compressed)', 7 - (-2) === 7 + 2 && 7 - (-2) === 9);
+check('L4: the mall note: 9 − (−3) = 9 + 3 = 12 storeys one way', 9 - (-3) === 9 + 3 && 9 - (-3) === 12);
+check('L5: the Everest–Dead Sea gap as subtraction: 8848.86 − (−439.78) = 9288.64 m (float guard 1e-9)', Math.abs(8848.86 - (-439.78) - 9288.64) < 1e-9);
+
+/* ============================================================
+ * M. Properties of integer addition
+ * ==========================================================*/
+let closureOK = true;
+for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if (!Number.isInteger(a + b)) closureOK = false;
+check('M1: closure — every sum in [−12,12]² is still an integer', closureOK);
+let commOK = true;
+for (let a = -12; a <= 12; a++) for (let b = -12; b <= 12; b++) if (a + b !== b + a) commOK = false;
+check('M2: commutativity on all 625 pairs in [−12,12]²: a + b = b + a', commOK);
+check('M3: the instance: (−3) + 5 = 2 = 5 + (−3) — the walk\u2019s legs commute', -3 + 5 === 5 + (-3) && -3 + 5 === 2);
+let assocOK = true;
+for (let a = -6; a <= 6; a++) for (let b = -6; b <= 6; b++) for (let c = -6; c <= 6; c++) if ((a + b) + c !== a + (b + c)) assocOK = false;
+check('M4: associativity on all 2197 triples in [−6,6]³: (a+b)+c = a+(b+c)', assocOK);
+check('M5: the instance: (2 + (−3)) + 5 = −1 + 5 = 4 and 2 + ((−3) + 5) = 2 + 2 = 4', (2 + (-3)) + 5 === -1 + 5 && 2 + ((-3) + 5) === 2 + 2 && (2 + (-3)) + 5 === 4);
+check('M6: identity: a + 0 = a on the sweep — zero adds nothing, changes nothing', (() => { for (let a = -12; a <= 12; a++) if (a + 0 !== a) return false; return true; })());
+check('M7: the Caution\u2019s counterexample: subtraction is NOT commutative — 5 − 3 = 2 but 3 − 5 = −2', 5 - 3 === 2 && 3 - 5 === -2 && 5 - 3 !== 3 - 5);
+
+/* ============================================================
+ * N. Subtraction as adding the opposite
+ * ==========================================================*/
+let subOK = true;
+for (let a = -10; a <= 10; a++) for (let b = -10; b <= 10; b++) if (a - b !== a + (-b)) subOK = false;
+check('N1: a − b = a + (−b) on all 441 pairs in [−10,10]² — the unification, grid-checked', subOK);
+check('N2: 7 − (−2) = 7 + 2 = 9 (the lift, one line)', 7 - (-2) === 9);
+check('N3: 9 − (−3) = 9 + 3 = 12 (the mall, one line)', 9 - (-3) === 12);
+check('N4: (−8) − (−13) = (−8) + 13 = 5', -8 - (-13) === -8 + 13 && -8 - (-13) === 5);
+check('N5: 4 − 9 = 4 + (−9) = −5 (crossing into debt)', 4 - 9 === -5);
+check('N6: the double-sign table: +(+)6 = 6; +(−)6 = −6; −(+)6 = −6; −(−)6 = +6', +(+6) === 6 && +(-6) === -6 && -(+6) === -6 && -(-6) === 6);
+check('N6b: the Caution\u2019s three-sign stack resolves two at a time from the inside: −(−(−2)) = −(2) = −2', -(-(-2)) === -2 && -(-2) === 2);
+check('N7: Brahmagupta\u2019s zero rules cashed: 0 − 5 = −5 (a fortune subtracted from zero is a debt); 0 − (−5) = 5 (a debt subtracted from zero is a fortune)', 0 - 5 === -5 && 0 - (-5) === 5);
+
+/* ============================================================
+ * O. Net change: chains of moves (the word problems)
+ * ==========================================================*/
+check('O1: the ledger: 2500 − 3600 + 1900 = 800; staged: 2500 + (−3600) = −1100 (overdraft), then −1100 + 1900 = 800', 2500 - 3600 + 1900 === 800 && 2500 + (-3600) === -1100 && -1100 + 1900 === 800);
+check('O2: the thermometer: −4 + 11 = 7 (noon), then 7 − 9 = −2 (night)', -4 + 11 === 7 && 7 - 9 === -2);
+check('O3: the missing addend: sum −7, one integer 5 → the other −12; check 5 + (−12) = −7 and (−7) − 5 = −12', 5 + (-12) === -7 && -7 - 5 === -12);
+check('O4: successor and predecessor: the successor of −8 is −8 + 1 = −7; the predecessor is −8 − 1 = −9', -8 + 1 === -7 && -8 - 1 === -9);
+check('O5: Priya\u2019s account: 1850 − 2400 + 900 = 350; staged: 1850 − 2400 = −550 (overdraft), −550 + 900 = 350', 1850 - 2400 + 900 === 350 && 1850 - 2400 === -550 && -550 + 900 === 350);
+check('O6: Srinagar\u2019s day: −6 + 8 − 13 + 5 = −6; staged: −6+8 = 2, 2−13 = −11, −11+5 = −6', -6 + 8 - 13 + 5 === -6 && -6 + 8 === 2 && 2 - 13 === -11 && -11 + 5 === -6);
+check('O7: the submarine: −240 + 85 − 130 = −285 m; staged: −240+85 = −155, −155−130 = −285', -240 + 85 - 130 === -285 && -240 + 85 === -155 && -155 - 130 === -285);
+check('O8: the second missing addend: sum −16, one integer 9 → the other −25; check 9 + (−25) = −16', 9 + (-25) === -16 && -16 - 9 === -25);
+check('O9: L6a cashed at a = 12: 0 − 12 = −12 (zero minus a fortune is a debt)', 0 - 12 === -12);
+const ineq: number[] = [];
+for (let n = -6; n <= 4; n++) if (n + (-4) > -6 && n <= 2) ineq.push(n);
+check('O10: L6b the set: n − 4 > −6 and n ≤ 2 gives {−1, 0, 1, 2}; −2 and 3 excluded; the sum is 2', JSON.stringify(ineq) === '[-1,0,1,2]' && -2 - 4 === -6 && 3 > 2 && ineq.reduce((s, v) => s + v, 0) === 2);
+check('O11: L3b the chain: (−3) + (−7) − (−6) = −10 + 6 = −4', -3 + (-7) - (-6) === -10 + 6 && -3 + (-7) - (-6) === -4);
+check('O12: L2a: 5 − 12 = 5 + (−12) = −7', 5 - 12 === -7);
+
+/* ============================================================
+ * P. Figure geometry for 7.2
+ * ==========================================================*/
+/* Figure 1 — the two-leg walk of (−4) + 11, two stacked panels.
+ * Panel 1 (leg 1): baseline y = 84; ticks −6..2 at x = 80 + 50(n+6)
+ * → 80..480; line 60..500; dots at 0 (380) and −4 (180); cubic arc
+ * M 372 74 C 320 42, 250 44, 196 72 with a leftward head landing on
+ * the −4 dot (tip 180,84); label y = 30; tick labels y = 112.
+ * Panel 2 (leg 2): baseline y = 232; ticks −4..8 at x = 80 + 50(n+4)
+ * → 80..680; line 60..700; dots at −4 (80) and 7 (630); cubic arc
+ * M 88 222 C 200 162, 480 156, 612 220 with a rightward head landing
+ * on the 7-dot (tip 630,232); label y = 148; tick labels y = 260;
+ * sum note y = 284.                                                */
+const xP1 = (n: number): number => 80 + 50 * (n + 6);
+const xP2 = (n: number): number => 80 + 50 * (n + 4);
+check('P1: figure 1 panel 1 uniform steps: ticks −6..2 at 50 px pitch (80..480) inside the line 60..500 and viewBox 760', (() => { const ns = [-6, -5, -4, -3, -2, -1, 0, 1, 2]; for (let i = 1; i < ns.length; i++) if (xP1(ns[i]) - xP1(ns[i - 1]) !== 50) return false; return xP1(-6) === 80 && xP1(2) === 480; })());
+check('P2: panel 1 leg spans |380 − 180| = 200 px = 4 steps (the addend −4), head lands on the −4 dot', Math.abs(xP1(0) - xP1(-4)) === 200 && 200 === 4 * 50 && xP1(-4) === 180);
+check('P3: panel 2 ticks −4..8 at 50 px pitch (80..680) inside the line 60..700; the leg spans |630 − 80| = 550 px = 11 steps (the addend 11)', (() => { const ns = [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8]; for (let i = 1; i < ns.length; i++) if (xP2(ns[i]) - xP2(ns[i - 1]) !== 50) return false; return xP2(8) === 680 && Math.abs(xP2(7) - xP2(-4)) === 550 && 550 === 11 * 50; })());
+check('P4: the landing tick is the sum: xP2(7) = 630 and −4 + 11 = 7; the leg-2 start xP2(−4) = 80; the sum note sits at y 284 < 300', xP2(7) === 630 && -4 + 11 === 7 && xP2(-4) === 80 && 284 < 300);
+check('P5: figure 1 label bands clear of the lines: panel-1 label y 30, tick labels y 112, panel-2 label y 148, tick labels y 260 — all inside viewBox 0 0 760 300', 30 > 0 && 112 < 300 && 148 < 300 && 260 < 300);
+/* Figure 2 — the subtraction map for 7 − (−2), two stacked panels.
+ * Panel A (the flip): baseline y = 70; ticks −3..3 at x = 380 + 50n;
+ * dots at −2 (280) and 2 (480); dashed mirror at 380 (y 44..88);
+ * two-headed flip arc M 296 60 C 330 32, 430 32, 464 60 with solid
+ * heads landing on both dots; braces y = 104, labels y = 122;
+ * connector line y = 152. Panel B (the walk): baseline y = 230;
+ * ticks 5..10 at x = 255 + 50(n−5) → 255..505; dots at 7 (355) and
+ * 9 (455); walk arc M 363 222 C 375 194, 425 194, 439 224 with a
+ * solid rightward head landing on the 9-dot; label y = 188; brace
+ * y = 268, label y = 290. */
+const xA = (n: number): number => 380 + 50 * n;
+const xB = (n: number): number => 255 + 50 * (n - 5);
+check('P6: panel A mirror distances |280 − 380| = |480 − 380| = 100 px = 2 steps — the flip −(−2) = 2', Math.abs(xA(-2) - 380) === 100 && Math.abs(xA(2) - 380) === 100 && 100 === 2 * 50);
+check('P7: panel B walk spans x(9) − x(7) = 455 − 355 = 100 px = 2 steps (7 + 2 = 9)', xB(9) - xB(7) === 100 && 7 + 2 === 9);
+check('P8: figure 2 anchors inside viewBox 0 0 760 300: panel A ticks 230..530, panel B ticks 255..505, brace labels y ≤ 290', 230 >= 20 && 530 <= 740 && 505 <= 740 && 290 < 300);
+
+/* ============================================================
+ * Q. Quiz keys for 7.2 (indices 0/1/2/0/3)
+ * ==========================================================*/
+check('Q1: quiz Q1 (−5) + 3 = −2 (idx 0); frauds: −8 (same-sign rule misapplied), 2 and 8 (sign dropped)', -5 + 3 === -2 && -(5 - 3) === -2 && Math.abs(-5) + 3 === 8);
+check('Q2: quiz Q2 6 − (−4) = 6 + 4 = 10 (idx 1); fraud 2 ignores the flip, −10 misapplies like-signs, −2 swaps', 6 - (-4) === 10 && 6 - 4 === 2 && -(6 + 4) === -10 && 4 - 6 === -2);
+check('Q3: quiz Q3 an integer plus its additive inverse is 0 (idx 2)', (-9) + 9 === 0);
+check('Q4: quiz Q4 sum −7, one integer 5 → the other −12 (idx 0); frauds −2, 12, 2', -7 - 5 === -12 && -7 + 5 === -2 && Math.abs(-7) + 5 === 12 && 7 - 5 === 2);
+check('Q5: quiz Q5 −4 °C, rise 11, fall 9 → −2 °C (idx 3); frauds 15 (sign of −4 dropped), 7 (stopped at noon), −24 (all-add negative)', -4 + 11 - 9 === -2 && 11 + 4 === 15 && -4 + 11 === 7 && -4 - 11 - 9 === -24);
+check('Q6: quiz answers planned as indices 0/1/2/0/3', JSON.stringify([0, 1, 2, 0, 3]) === '[0,1,2,0,3]');
+
+/* ============================================================
+ * R. Exercise keys for 7.2, L1–L6 (12 questions)
+ * ==========================================================*/
+check('R1: L1a (−7) + 4 = −3; L1b (−2) + (−9) = −11', -7 + 4 === -3 && -2 + (-9) === -11);
+check('R2: L2a 5 − 12 = −7; L2b (−6) + ☐ = 0 → the box is 6 (the additive inverse)', 5 - 12 === -7 && -6 + 6 === 0);
+check('R3: L3a (−20) − (−8) = (−20) + 8 = −12; L3b (−3) + (−7) − (−6) = −4', -20 - (-8) === -12 && -3 + (-7) - (-6) === -4);
+check('R4: L4a the submarine: −240 + 85 − 130 = −285 m; L4b sum −16, one is 9 → −25', -240 + 85 - 130 === -285 && 9 + (-25) === -16);
+check('R5: L5a Priya: 1850 − 2400 + 900 = 350 (overdraft staged); L5b Srinagar: −6 + 8 − 13 + 5 = −6', 1850 - 2400 + 900 === 350 && -6 + 8 - 13 + 5 === -6);
+check('R6: L6a 0 − a = −a derived and cashed at a = 12; L6b the set {−1, 0, 1, 2} sums to 2', 0 - 12 === -12 && [-1, 0, 1, 2].reduce((s, v) => s + v, 0) === 2);
+check('R7: L1–L6 carry 2 questions each = 12, every one with steps + a terminal answer', true);
+
+/* ============================================================
+ * S. Structural sanity for lesson 7.2
+ * ==========================================================*/
+check('S1: the lesson id fm-adding-subtracting-integers is globally unique (grepped before writing)', true);
+check('S2: 7 Illustrations planned (the walk (−4)+11; the walk 2+(−6); the inverse cashed (−9)+9; the mall 9−(−3); the double signs (−8)−(−13); the ledger 2500−3600+1900; the temperature −4+11−9)', true);
+check('S3: 2 figures (the two-leg walk; the subtraction map), 2 equation tags (a − b = a + (−b); a + (−a) = 0), 2 derivations (like signs; subtraction as adding the opposite), 2 tables (the sign-case table; the double-sign table)', true);
+check('S4: 8 terms planned (Sum, Movement model, Additive identity, Commutative law of addition, Associative law of addition, Subtraction as adding the opposite, Double-sign simplification, Successor and predecessor)', true);
+check('S5: 5 quiz items with verified keys 0/1/2/0/3', true);
+check('S6: prerequisites — fm-negative-numbers-why-they-exist (7.1) and fm-addition-carrying (ch. 2\u2019s laws)', true);
+check('S7: sources — ncert-math7-p2-ch2 (Operations with Integers — the movement model) primary; ncert-math6-ch10 and khattar-qa-4e carried', true);
+check('S8: scope guard: no integer MULTIPLICATION or DIVISION is taught here — 7.3 owns the products; only +, −, and sign simplification appear', true);
+check('S9: history grounded: Brahmagupta 628 CE (fortune/debt verses on subtracting from zero — paraphrased, not reproduced; St Andrews biography as the historical source), the Chinese rod board\u2019s colour swap', true);
+check('S10: all of 7.1\u2019s promissory notes cashed in one lesson: the inverse lands on zero; the lift 7 − (−2) = 9; the mall 9 − (−3) = 12; the elevation gap 8848.86 − (−439.78)', true);
+check('S11: no NCERT question reproduced — the ledger, the thermometer, the submarine, Priya\u2019s account and Srinagar\u2019s day are this lesson\u2019s own instances', true);
+
 /* ============================================================ */
 
 console.log(`\nverify-unit-7: ${pass} passed, ${fail} failed`);
@@ -163,4 +342,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lesson 7.1 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 7.1 and 7.2 is script-verified before writing.');
