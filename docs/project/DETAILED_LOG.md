@@ -895,7 +895,7 @@ downloads (references already logged).
 | 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
-| 8 | Geometry Foundations — **OPEN (1/5, run 37)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
+| 8 | Geometry Foundations — **OPEN (2/5, run 38)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
@@ -999,6 +999,7 @@ downloads (references already logged).
 
 | What | Date | Gates passed |
 |---|---|---|
+| Unit 8 lesson 2 (FM ch. 8, lesson 8.2) | 11-05 | 85 new pre-write checks (189 total, sections O–W, ALL PASS before writing; the pair census n = 2..8, the 24-divisor enumeration of 360, the classification sweep 0..360, the supp − comp identity swept over every integer degree, every clock/equation cash re-derived, both figures’ label boxes swept ≥ 8 px from every stroke by exact point-to-segment distance) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 9 math/9 clarity (publishable as-is); fig 2 9 math/8 clarity pass 1 with two REAL notes fixed (the crossing dot on the arc at (514.99,169.13) — the long 50° tick is collinear with the arm and hid beneath it; vertical end-stop ticks at 0/180) → pass 2 9 math/9 clarity publication-ready · 24-lesson E2E sweep exit 0 + dedicated 8.2 block (quiz keys 1/1/0/2/2 live "You scored 5/5", 12/12 solutions expand, 36 collapsibles, Sol. pills 17 inline, thereforeTags 15, KaTeX 338, dollarInText 0 after the derivation-label fix, katexErrors 0, rawDollarInSvg 0, tables 1, mobile 390 exact-fit docScrollW 390 articleW 358, console clean) · ids globally unique · voice polish 3.3 live-verified (is-said-to-be ×2, Thus-line, KaTeX 264, errors 0, dollarInText 0) |
 | Unit 8 opener (FM ch. 8, lesson 8.1) | 11-05 | 104 pre-write checks (verify-unit-8.ts sections A–N, ALL PASS before writing; sweep machinery: the two-lines-at-most-one-point sweep over 15 slopes × 15 intercepts, the 441-pair length re-sweep, pair enumeration n = 2..8 + closed form to n = 20, line-classification enumerations incl. the 4-point-3-collinear pool to 4 lines and the parabola no-three-collinear certificate over all 56 triples) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 9.5 math/9 clarity; fig 2 three passes (8 → 8 → 8 with every note cosmetic — (a)(b)(c) markers + enlarged l/m labels + solid double-headed arrowheads on all seven drawn lines added per review; the run-34 cosmetic-notes precedent) · 23-lesson E2E sweep exit 0 + dedicated 8.1 block (quiz keys 3/1/1/2/3 live "You scored 5/5", 12/12 solutions expand, 36 collapsibles, Sol. pills 17 inline, thereforeGlyphs 29, KaTeX 361, dollarInText 0, katexErrors 0, rawDollarInSvg 0, mobile 390 exact-fit docScrollW 390 articleW 358) · ids globally unique · voice polish 3.2 live-verified (is-said-to-be ×2, Thus-line, KaTeX 326, errors 0, dollarInText 0) |
 | Unit 7 (FM ch. 7, lesson 7.4) + unit-7 completion review | 11-05 | 71 new pre-write checks (302 total, sections AC–AH, ALL PASS before writing; regressions 231/148/70) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 10 math/9 clarity + fig 2 10 math/9 clarity · 22-lesson E2E sweep exit 0 + dedicated 7.4 block (quiz keys 2/1/0/1/3 live "You scored 5/5 · perfect", 12/12 solutions expand, 36 collapsibles, Sol. pills 8 inline, thereforeGlyphs 24, KaTeX 276, dollarInText 0, katexErrors 0, rawDollarInSvg 0, tables 1, mobile 390 exact-fit docScrollW 390 articleW 358, fresh-load console clean) · BOOK_FORMAT checklist 7/7 · ids globally unique · totals recomputed (ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms) · voice polish 3.1 live-verified (KaTeX 369, errors 0, dollarInText 0) |
 | Platform base + lesson 1.1 | 11-02 | lint · tsc · E2E (55 KaTeX nodes, quiz, persistence, dark mode, no overflow 390/1280px, no console errors) · 4 accuracy fixes |
@@ -1105,6 +1106,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 29 | `356a52b` (+ bookkeeping, memory) | 11-04 | FM lesson 6.3 Proportion and Cross-Multiplication — 6.2's closing question made official (verify-unit-6.ts 165 → 253 checks V–AE; 4,132 words; four-seats + line-of-agreement figures, 0 audit issues first pass; voice polish landed on 1.3; run-opener: the 13:18 delivery died on dead filesystem tools pre-work, recovered here) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 | 37 | ship + bookkeeping + memory | 11-05 | FM lesson 8.1 Points, Lines and Planes — chapter 8 OPENS (verify-unit-8.ts created, 104 checks A–N incl. the incidence sweep + the counting-law brute force; 5,245 words; three-avatars + meeting-layouts figures, fig 2 through three VLM passes with markers/labels/arrowheads added; voice polish landed on 3.2; new citation keys ncert-math6-ch4 + ncert-math9-ch5) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 
+| 38 | ship + bookkeeping + memory | 11-05 | FM lesson 8.2 Angles and Their Measurement — verify-unit-8.ts extended to 189 checks O–W (85 new); 4,560 words; five-sizes gallery + protractor figures (fig 2 through two VLM passes: crossing dot + end ticks added); the supp − comp = 90° identity derived; voice polish landed on 3.3; new citation key ncert-math6-gp-ch2 — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
@@ -1121,25 +1123,15 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 8 OPEN — FM 8.1 "Points, Lines and
-  Planes" shipped run 37, opening chapter 8 Geometry Foundations (the
-  ideal objects point/line/ray/segment/plane; the two-point rule as
-  equation tag 1 with the at-most-one-common-point cap; intersecting /
-  parallel / concurrent with the three-layout figure; the counting law
-  N = n(n−1)/2 as tag 2 with the collinearity pooling trap; the Euclid
-  *Elements* historical callout; voice polish 3.2 delivered — the
-  is-said-to-be treaty rewrite + Thus-line in 3.2's Definition
-  callout). Book state: 33 lessons / 155,553 words / 225 terms / 165
-  quiz / 353 exercises; chs. 1–7 COMPLETE, ch. 8 OPEN 1/5.**
-- **NEXT (hourly cadence): FM 8.2 "Angles and Their Measurement"** —
-  extend scripts/verify-unit-8.ts with new sections BEFORE writing,
-  keep plannedLessons trimmed to the remaining four, follow ch-01.ts +
-  BOOK_FORMAT.md; one lesson per run; queued voice polish 3.3 (then
-  3.4, 3.5, 4.1).
-- **Style queue (run-14 owner directive):** the Cengage LOOK is live for
-  all 20 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
-  the Cengage voice + solution chain (the exemplars going forward); the
-  prose VOICE polish of the 14 pre-4.2 lessons (1.1 first as the
-  exemplar, one lesson per run) is queued alongside chapter-5
-  progression — never batch-draft.
-- Standing side-task: EXAM_REGISTRY research (44 skeletons → 50+ researched).
+- **CURRENT (hourly cadence): CH. 8 OPEN — FM 8.2 "Angles and Their
+  Measurement" shipped run 38** (cron 03:27 delivery, job 498279).
+  verify-unit-8.ts extended to 189 checks (O–W) before a word was
+  written; 4,560 words in the Cengage voice + solution chain; both
+  figures audited 0/0 and VLM-reviewed (fig 2 through two passes with
+  the crossing dot + end ticks added); voice polish landed on 3.3; new
+  citation key ncert-math6-gp-ch2. Chapter 8 now 2/5.
+- **NEXT (hourly cadence): FM 8.3 "Parallel Lines and Transversals"** —
+  extend verify-unit-8.ts with the transversal sections first (the
+  angle-pair facts: linear pair, vertically opposite, corresponding/
+  alternate/co-interior), then author per BOOK_FORMAT + ch-01 exemplar.
+  Voice polish 3.4 (lesson 3.4 Lowest Common Multiple) queued.

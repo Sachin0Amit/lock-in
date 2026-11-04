@@ -2,7 +2,7 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "CH. 8 OPEN — run 37 (cron 02:27 delivery, job 498279) opened chapter 8 Geometry Foundations with FM 8.1 'Points, Lines and Planes' (5,245 words; verify-first 104/104 checks A-N; figures audit-0/0, fig 1 VLM 9.5 math/9 clarity, fig 2 through three VLM passes with (a)(b)(c) markers + enlarged l/m labels + solid double-headed arrowheads added per review, all notes cosmetic; quiz live 5/5; 23-lesson E2E sweep exit 0 + dedicated 8.1 block green). The ideal objects (point, line, ray, segment, plane) defined in the is-said-to-be shape; segment length = 7.4's distance formula re-read; the two-point rule as equation tag 1 with the at-most-one-common-point derivation; intersecting/parallel/concurrent with the meeting-layouts figure; the counting law N = n(n-1)/2 as equation tag 2 with the collinearity pooling trap; the Euclid Elements historical callout (13 books, 465 propositions, Book I's 23 definitions + 5 postulates + 5 common notions; Hilbert 1899). Voice polish 3.2 delivered (lesson 3.2's Definition callout rewritten is-said-to-be + Thus-line, zero new numerals). Push per protocol v2 (one-time URL from the 02:27 payload); synced sha recorded in WORKLOG.md.",
+ "phase": "FM ch. 8 Geometry Foundations OPEN 2/5 (run 38 shipped 8.2 Angles and Their Measurement; next 8.3 Parallel Lines and Transversals)",
  "awaiting": "FM 8.2 'Angles and Their Measurement' (extend verify-unit-8 sections BEFORE writing; one lesson per run); queued voice polish 3.3 (then 3.4, 3.5, 4.1).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -78,7 +78,12 @@
   ],
   "lessonsWritten": 32,
   "wordsAuthored": 150259,
-  "termsAvailableForFlashcards": 217
+  "termsAvailableForFlashcards": 217,
+  "lessons": 34,
+  "terms": 236,
+  "quizItems": 170,
+  "exerciseQuestions": 365,
+  "words": 160149
  },
  "research": {
   "examRegistry": {
@@ -196,5 +201,29 @@
   "voicePolish": "lesson 3.2 (queued per-run extra, 3.2 third): the Definition callout 'Prime and composite (the two-factor treaty)' rewritten in the is-said-to-be shape (n is said to be prime when it carries exactly two factors...; said to be composite when some d with 1 < d < n divides it) + the Thus-line (47 prime by its complete factor list; 48 composite because 4 | 48 with 1 < 4 < 48) + the no-third-state sentence — zero new numerals (47, 48, 4, 1, 2 all already the lesson's own); tsc + lint clean; live-verified (is-said-to-be x2, Thus-line present, KaTeX 326, katexErrors 0, dollarInText 0 after the HMR transient settled)",
   "scopeGuard": "no angle measurement (8.2 owns the turn), no transversal angle facts (8.3), no coordinate-plane machinery in content (the slope/intercept sweep lives only in the verify script), no triangle congruence or area (8.4/8.5)",
   "nextUnit": "FM 8.2 'Angles and Their Measurement' — extends verify-unit-8.ts sections before writing; ch. 8 continues"
+ },
+ "run38Extras": {
+  "delivered": [
+   "FM 8.2 \"Angles and Their Measurement\" shipped verify-first: verify-unit-8.ts extended 104 -> 189 checks (sections O-W) BEFORE writing",
+   "lesson 4,560 words in the Cengage voice + solution chain: the angle (two rays + vertex, is-said-to-be) with the naming roman run and the static-vs-dynamic Note; the degree ledger as tag 1 with the honest Babylonian history + the 24 divisors + minutes/seconds; the five sizes (Euclid Defs 10-12 comparative) with the witness table; figure 1 the five-sizes gallery (40/90/130/180/220 to scale, ray arms with heads, arcs, the right-angle chevron); Postulate 4 + the square-corner mark; the smaller-turn convention Note; the protractor section with figure 2 (outer labels r=232, inner r=186, minor ticks every 10 deg, the long 50 tick, the crossing dot, end ticks) + the two-scale trap Caution; Illustrations 1-5 (the protractor read, the door reflex 360-115=245, comp/supp of 37 = 53/143, the 24-more-than-its-complement equation x=33 angle=57, the four-ray census 6); complementary/supplementary as tag 2 with the supp-comp=90 identity derived; the harvest roman ledger; the exam corner (clock speeds 30/h=0.5/min, 6/min); the historical callout (Euclid Defs 8/10-12 + Postulate 4; Babylonian 360 honestly unsettled; Huddart 1801; one-sentence radian forward pointer); 11 terms, 5-quiz keys 1/1/0/2/2, 12 exercises L1-L6 (L6: the identity proof cashed at 47; five-times-its-supplement = 150 with the acute impossibility)",
+   "quality gates: verify 189/189; tsc clean; lint clean; routes 200/200/200/404; 24-lesson E2E sweep exit 0; dedicated 8.2 block (quiz live 5/5, 12/12 solutions, 36 collapsibles, KaTeX 338, dollarInText 0 after the derivation-label fix, katexErrors 0, mobile 390 exact-fit, console clean); audits 0/0 both figures; VLM fig 1 9/9 publishable, fig 2 9/8 then 9/9 after the crossing-dot + end-tick fixes",
+   "voice polish 3.3: lesson 3.3 HCF Definition callout rewritten is-said-to-be (common factor d | a and d | b; HCF the greatest such d) + the Thus-line (gcd(48,60)=12 witness), zero new numerals; live-verified (KaTeX 264, errors 0, dollarInText 0)",
+   "ship: SOURCE_LOG (new key ncert-math6-gp-ch2, run-38 zero-downloads entry, ledger row updated through ch. 8), WORK_INVENTORY regenerated (34 lessons / 160,149 words / 236 terms / 170 quiz / 365 exercises; ch. 8 2/5), DETAILED_LOG (catalog + verification + timeline + CURRENT/NEXT), PROGRESS + RESUME_POINTER + book.ts notes updated"
+  ],
+  "next": "run 39: FM 8.3 Parallel Lines and Transversals (extend verify-unit-8.ts with the transversal sections first); voice polish 3.4 (lesson 3.4 LCM) queued",
+  "e2e82": {
+   "quizKeys": [
+    1,
+    1,
+    0,
+    2,
+    2
+   ],
+   "live": "You scored 5/5",
+   "solutions": "12/12",
+   "katex": 338,
+   "collapsibles": 36,
+   "mobile": "390 exact-fit"
+  }
  }
 }

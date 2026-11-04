@@ -1297,7 +1297,7 @@ export const chapter03: Chapter = {
           kind: 'callout',
           tone: 'definition',
           title: 'Highest common factor (HCF)',
-          text: 'For whole numbers $a$ and $b$ (not both zero), the **highest common factor** is the greatest number that divides both $a$ and $b$. Written $\\gcd(a, b)$, or HCF; also called the **greatest common divisor** (GCD) and the **greatest common measure** (GCM). So $\\gcd(48, 60) = 12$: twelve divides both, and nothing larger does. Two edge behaviours fall straight out of the definition: $\\gcd(n, n) = n$, and $\\gcd(1, n) = 1$ for every $n$. The HCF is never below $1$ — one is common to every pair — and never above the smaller of $a$ and $b$: a common factor of $48$ and $60$ cannot exceed $48$, because it has to fit inside both.',
+          text: 'Let $a$ and $b$ be whole numbers, not both zero. A number $d$ is said to be a **common factor** of $a$ and $b$ when $d \\mid a$ and $d \\mid b$; the **highest common factor** is said to be the greatest such $d$ — written $\\gcd(a, b)$, or HCF; also called the **greatest common divisor** (GCD) and the **greatest common measure** (GCM). Thus, $\\gcd(48, 60) = 12$ because $12 \\mid 48$ and $12 \\mid 60$ while nothing larger than $12$ divides both — one sentence that names the family and shows the witness in the same breath. Two edge behaviours fall straight out of the definition: $\\gcd(n, n) = n$, and $\\gcd(1, n) = 1$ for every $n$. The HCF is never below $1$ — one is common to every pair — and never above the smaller of $a$ and $b$: a common factor of $48$ and $60$ cannot exceed $48$, because it has to fit inside both.',
         },
         {
           kind: 'terms',
