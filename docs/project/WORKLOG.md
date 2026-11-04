@@ -63,8 +63,9 @@ exercise questions / 47 figures / 6 chapters written. DETAILED_LOG.md updated (o
 directive). ch. 6 E2E block added to the suite (18 lessons now).
 
 **Ship commit:** this entry + PROGRESS + RESUME_POINTER + SOURCE_LOG + WORK_INVENTORY +
-DETAILED_LOG + book.ts notes + the E2E registration. Pushed per protocol; synced sha noted
-in RESUME_POINTER.json.
+DETAILED_LOG + book.ts notes + the E2E registration. Pushed per protocol: `5aa10ed..ee48d02
+HEAD -> main`, exit 0; ls-remote (one-time URL form) returned
+ee48d024dc974f504a56161c8a33145cbf445ab8 = local HEAD; tracking ref resynced (origin/main..HEAD = 0).
 
 ## 2026-11-04 — RUN 31 (OWNER CHAT DIRECTIVE): site-wide arrow & diagram polish — the 6.4 flip figure's crude straight-line arrows redesigned as curved swap-arcs with solid heads, the 6.4 hyperbola smoothed from a 6-vertex polyline to a 36-vertex curve, a colliding label relocated; all 45 figures swept and audited
 
