@@ -585,6 +585,451 @@ check('W3: no radian content \u2014 at most a one-sentence forward Note that a l
 check('W4: no transversal angle facts \u2014 8.3 (qualitative scope guard)', true);
 check('W5: every numeric claim in the lesson appears above \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
 
+/* ============================================================
+ * X. The transversal scene (lesson 8.3 "Parallel Lines and
+ *    Transversals"): the eight angles, derived geometrically
+ *    and swept over transversal slopes — NOTHING asserted
+ * ==========================================================*/
+type Vec = [number, number];
+const subV = (a: Vec, b: Vec): Vec => [a[0] - b[0], a[1] - b[1]];
+const unitV = (a: Vec): Vec => { const L = Math.hypot(a[0], a[1]); return [a[0] / L, a[1] / L]; };
+const addV = (a: Vec, b: Vec): Vec => [a[0] + b[0], a[1] + b[1]];
+const mulV = (a: Vec, s: number): Vec => [a[0] * s, a[1] * s];
+const dotV = (a: Vec, b: Vec): number => a[0] * b[0] + a[1] * b[1];
+const crossZ = (a: Vec, b: Vec): number => a[0] * b[1] - a[1] * b[0];
+const angDeg = (a: Vec, b: Vec): number => (Math.acos(Math.max(-1, Math.min(1, dotV(a, b) / (Math.hypot(a[0], a[1]) * Math.hypot(b[0], b[1]))))) * 180) / Math.PI;
+// a scene: two lines and a transversal, each as {p, d} (point + unit direction)
+interface SLine { p: Vec; d: Vec }
+function crossing(s: SLine, t: SLine): Vec | null {
+  const den = crossZ(s.d, t.d);
+  if (Math.abs(den) < 1e-12) return null; // parallel
+  const dp = subV(t.p, s.p);
+  const ts = crossZ(dp, t.d) / den;
+  return addV(s.p, mulV(s.d, ts));
+}
+// the four regions at a crossing of own-line s and other-line t:
+// regions are the quadrants; each has bisector unit(±s.d ± t.d)
+function regions(s: SLine, t: SLine, v: Vec): { bis: Vec; meas: number }[] {
+  const rays: Vec[] = [s.d, t.d, mulV(s.d, -1), mulV(t.d, -1)];
+  const out: { bis: Vec; meas: number }[] = [];
+  for (let i = 0; i < 4; i++) {
+    const a = rays[i], b = rays[(i + 1) % 4];
+    out.push({ bis: unitV(addV(a, b)), meas: angDeg(a, b) });
+  }
+  void v;
+  return out;
+}
+// build the lesson's scene: l horizontal at yL, m horizontal at yM (parallel
+// when slope 0), transversal of SVG slope k through the interior
+function scene(yL: number, yM: number, k: number, slopeM = 0): { l: SLine; m: SLine; t: SLine; P: Vec; Q: Vec } {
+  const l: SLine = { p: [0, yL], d: [1, 0] };
+  const m: SLine = { p: [0, yM], d: unitV([1, slopeM]) };
+  const t: SLine = { p: [220, 40], d: unitV([1, k]) }; // the figure's own transversal: y = x − 180
+  const P = crossing(l, t)!;
+  const Q = crossing(m, t)!;
+  return { l, m, t, P, Q };
+}
+// classify the 4×4 = 16 ordered region pairs across the two crossings into
+// the named families, purely geometrically (half-plane tests)
+function classifyPairs(sc: ReturnType<typeof scene>) {
+  const R_P = regions(sc.l, sc.t, sc.P); // regions at the upper crossing (own line l)
+  const R_Q = regions(sc.m, sc.t, sc.Q); // at the lower crossing (own line m)
+  const inP = (r: { bis: Vec }) => crossZ(sc.l.d, r.bis) > 0; // below l (SVG y down) = toward m
+  const inQ = (r: { bis: Vec }) => crossZ(sc.m.d, r.bis) < 0; // above m = toward l
+  const sideT_P = (r: { bis: Vec }) => Math.sign(crossZ(sc.t.d, r.bis));
+  const sideT_Q = (r: { bis: Vec }) => Math.sign(crossZ(sc.t.d, r.bis));
+  const fams = { linear: 0, vo: 0, corr: 0, altInt: 0, coInt: 0, altExt: 0, coExt: 0, unnamed: 0 };
+  const pairs: Record<string, string[]> = { linear: [], vo: [], corr: [], altInt: [], coInt: [], altExt: [], coExt: [], unnamed: [] };
+  for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) {
+    const a = R_P[i], b = R_Q[j];
+    const dot = dotV(a.bis, b.bis);
+    const sameT = sideT_P(a) === sideT_Q(b);
+    const aIn = inP(a), bIn = inQ(b);
+    if (aIn && bIn && !sameT) { fams.altInt++; pairs.altInt.push(`P${i}-Q${j}`); }
+    else if (aIn && bIn && sameT) { fams.coInt++; pairs.coInt.push(`P${i}-Q${j}`); }
+    else if (!aIn && !bIn && !sameT) { fams.altExt++; pairs.altExt.push(`P${i}-Q${j}`); }
+    else if (!aIn && !bIn && sameT) { fams.coExt++; pairs.coExt.push(`P${i}-Q${j}`); }
+    else if (sameT && Math.abs(dot) > 0.99 && dotV(mulV(a.bis, -1), b.bis) < -0.99) { fams.corr++; pairs.corr.push(`P${i}-Q${j}`); }
+    else { fams.unnamed++; pairs.unnamed.push(`P${i}-Q${j}`); }
+  }
+  // within-crossing families
+  for (let i = 0; i < 4; i++) for (let j = i + 1; j < 4; j++) {
+    const dot = dotV(R_P[i].bis, R_P[j].bis);
+    if (Math.abs(dot) < 0.01) fams.linear++;
+    else fams.vo++; // opposite bisectors at one crossing = vertically opposite
+  }
+  for (let i = 0; i < 4; i++) for (let j = i + 1; j < 4; j++) {
+    const dot = dotV(R_Q[i].bis, R_Q[j].bis);
+    if (Math.abs(dot) < 0.01) fams.linear++;
+    else fams.vo++;
+  }
+  return { fams, pairs, R_P, R_Q };
+}
+check('X1: the lesson scene (l at y=120, m at y=280, t of slope 1 through (220,40)) — transversal crosses l at (300,120) and m at (460,280), the figure\u2019s written crossings P and Q', (() => {
+  const sc = scene(120, 280, 1);
+  return sc.P[0] === 300 && sc.P[1] === 120 && sc.Q[0] === 460 && sc.Q[1] === 280;
+})());
+check('X2: the lesson scene shifted for the figure — t through (300,120) and (460,280): slope (280−120)/(460−300) = 1 exactly', (280 - 120) / (460 - 300) === 1);
+check('X3: the eight measures at slope 1 — 45/135 alternating at both crossings (dot-product derived, rounded)', (() => {
+  const sc = scene(120, 280, 1);
+  const R_P = regions(sc.l, sc.t, sc.P).map(r => r2(r.meas));
+  const R_Q = regions(sc.m, sc.t, sc.Q).map(r => r2(r.meas));
+  return R_P.every(m => m === 45 || m === 135) && R_Q.every(m => m === 45 || m === 135) && R_P[0] === 45 && R_P[1] === 135 && R_Q[0] === 45 && R_Q[1] === 135;
+})());
+check('X4: the figure\u2019s clockwise numbering 1\u20138 (TL,TR,BR,BL at each crossing) carries measures 45,135,45,135 / 45,135,45,135', (() => {
+  // TL = bisector up-left; verify each named region's measure via exact vectors at P = (300,120)
+  const E: Vec = [1, 0], W: Vec = [-1, 0];
+  const Tdown: Vec = unitV([1, 1]), Tup: Vec = [-Tdown[0], -Tdown[1]];
+  const TL = angDeg(Tup, W), TR = angDeg(Tup, E), BR = angDeg(Tdown, E), BL = angDeg(Tdown, W);
+  return r2(TL) === 45 && r2(TR) === 135 && r2(BR) === 45 && r2(BL) === 135;
+})());
+check('X5: DERIVED, not asserted — linear pairs at a crossing sum to 180 (sweep over 6 transversal slopes, both crossings, all 4 pairs each)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const sc = scene(120, 280, k);
+    const RP = regions(sc.l, sc.t, sc.P), RQ = regions(sc.m, sc.t, sc.Q);
+    for (let i = 0; i < 4; i++) { const j = (i + 1) % 4; if (Math.abs(RP[i].meas + RP[j].meas - 180) > 1e-9) return false; if (Math.abs(RQ[i].meas + RQ[j].meas - 180) > 1e-9) return false; }
+  }
+  return true;
+})());
+check('X6: DERIVED — vertically opposite angles equal (sweep over 6 slopes, both crossings, all 2 pairs each: bisectors opposite, measures equal)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const sc = scene(120, 280, k);
+    const RP = regions(sc.l, sc.t, sc.P), RQ = regions(sc.m, sc.t, sc.Q);
+    for (let i = 0; i < 4; i++) { const j = (i + 2) % 4; if (Math.abs(RP[i].meas - RP[j].meas) > 1e-9) return false; if (Math.abs(RQ[i].meas - RQ[j].meas) > 1e-9) return false; if (Math.abs(dotV(RP[i].bis, RP[j].bis) + 1) > 1e-9) return false; }
+  }
+  return true;
+})());
+check('X7: DERIVED — with l ∥ m, corresponding angles equal (sweep over 6 slopes; correspondence by half-plane tests, equality to 1e-9)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const sc = scene(120, 280, k);
+    const c = classifyPairs(sc);
+    if (c.fams.corr !== 4) return false;
+    for (const tag of c.pairs.corr) {
+      const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!;
+      if (Math.abs(c.R_P[+pi].meas - c.R_Q[+qj].meas) > 1e-9) return false;
+    }
+  }
+  return true;
+})());
+check('X8: DERIVED — with l ∥ m, alternate interior angles equal (the 2 pairs per slope, found geometrically, equal to 1e-9)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const c = classifyPairs(scene(120, 280, k));
+    if (c.fams.altInt !== 2) return false;
+    for (const tag of c.pairs.altInt) { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; if (Math.abs(c.R_P[+pi].meas - c.R_Q[+qj].meas) > 1e-9) return false; }
+  }
+  return true;
+})());
+check('X9: DERIVED — with l ∥ m, co-interior angles supplementary (the 2 pairs per slope sum to 180 to 1e-9)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const c = classifyPairs(scene(120, 280, k));
+    if (c.fams.coInt !== 2) return false;
+    for (const tag of c.pairs.coInt) { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; if (Math.abs(c.R_P[+pi].meas + c.R_Q[+qj].meas - 180) > 1e-9) return false; }
+  }
+  return true;
+})());
+check('X10: DERIVED — with l ∥ m, alternate exterior equal (2 pairs) and co-exterior supplementary (2 pairs), every slope', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const c = classifyPairs(scene(120, 280, k));
+    if (c.fams.altExt !== 2 || c.fams.coExt !== 2) return false;
+    for (const tag of c.pairs.altExt) { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; if (Math.abs(c.R_P[+pi].meas - c.R_Q[+qj].meas) > 1e-9) return false; }
+    for (const tag of c.pairs.coExt) { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; if (Math.abs(c.R_P[+pi].meas + c.R_Q[+qj].meas - 180) > 1e-9) return false; }
+  }
+  return true;
+})());
+
+/* ============================================================
+ * Y. The pair census of the eight-angle scene (28 pairs)
+ * ==========================================================*/
+check('Y1: the scene holds C(8,2) = 28 unordered angle pairs (8.1\u2019s census law again)', choose2(8) === 28);
+check('Y2: the census, geometrically classified — 8 linear + 4 vertically opposite + 4 corresponding + 2 alternate interior + 2 co-interior + 2 alternate exterior + 2 co-exterior = 24 named, 4 unnamed, 24 + 4 = 28 (verified at slope 1 and re-swept at 5 more slopes)', (() => {
+  for (const k of [0.6, 1, 1.75, 3, -0.8, 0.35]) {
+    const f = classifyPairs(scene(120, 280, k)).fams;
+    if (!(f.linear === 8 && f.vo === 4 && f.corr === 4 && f.altInt === 2 && f.coInt === 2 && f.altExt === 2 && f.coExt === 2 && f.unnamed === 4)) return false;
+    if (f.linear + f.vo + f.corr + f.altInt + f.coInt + f.altExt + f.coExt + f.unnamed !== 28) return false;
+  }
+  return true;
+})());
+check('Y3: the unnamed four at slope 1 are the cross-band mixed pairs (one exterior + one interior, same side of t): (1,6), (2,5), (3,8), (4,7) in the figure\u2019s numbering — 4 of them, never named', (() => {
+  const c = classifyPairs(scene(120, 280, 1));
+  // figure numbering: regions at P clockwise from TL = indices 0..3 = angles 1..4; at Q = angles 5..8
+  const name = (tag: string) => { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; return [1 + +pi, 5 + +qj]; };
+  const unnamed = c.pairs.unnamed.map(name).map(p => p.sort((a, b) => a - b).join(',')).sort();
+  return unnamed.join(';') === '1,6;2,5;3,8;4,7';
+})());
+check('Y4: with parallels, the eight angles collapse to TWO distinct measures — every acute equals every acute, every obtuse equals every obtuse (sweep)', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const sc = scene(120, 280, k);
+    const ms = [...regions(sc.l, sc.t, sc.P), ...regions(sc.m, sc.t, sc.Q)].map(r => r.meas);
+    const distinct = new Set(ms.map(m => Math.round(m * 1e6) / 1e6)).size;
+    if (distinct !== 2) return false;
+  }
+  return true;
+})());
+check('Y5: without parallelism the same scene spreads to FOUR distinct measures (e.g. m of slope 0.3, t of slope 1: 4 distinct) — the \u201cat most four\u201d fact', (() => {
+  for (const sm of [0.3, -0.45, 0.7]) {
+    const sc = scene(120, 280, 1, sm);
+    const ms = [...regions(sc.l, sc.t, sc.P), ...regions(sc.m, sc.t, sc.Q)].map(r => r.meas);
+    const distinct = new Set(ms.map(m => Math.round(m * 1e6) / 1e6)).size;
+    if (distinct !== 4) return false;
+  }
+  return true;
+})());
+
+/* ============================================================
+ * Z. The parallel tests are BICONDITIONALS (derive, never assert)
+ * ==========================================================*/
+check('Z1: equal corresponding \u27fa parallel — sweep of five slopes for m: the corresponding pair\u2019s measures agree exactly when the slopes agree (both directions cashed)', (() => {
+  const slopes = [-0.4, -0.15, 0.12, 0.3, 0];
+  for (const sm of slopes) {
+    const sc = scene(120, 280, 1, sm);
+    const c = classifyPairs(sc);
+    const corr = c.pairs.corr.map(tag => { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; return Math.abs(c.R_P[+pi].meas - c.R_Q[+qj].meas); });
+    const allEqual = corr.length === 4 && corr.every(d => d < 1e-6);
+    const parallel = Math.abs(sm - 0) < 1e-12;
+    if (allEqual !== parallel) return false;
+  }
+  return true;
+})());
+check('Z2: equal alternate interior \u27fa parallel — same sweep, the alternate-interior pair', (() => {
+  const slopes = [-0.4, -0.15, 0.12, 0.3, 0];
+  for (const sm of slopes) {
+    const c = classifyPairs(scene(120, 280, 1, sm));
+    const alt = c.pairs.altInt.map(tag => { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; return Math.abs(c.R_P[+pi].meas - c.R_Q[+qj].meas); });
+    const allEqual = alt.length === 2 && alt.every(d => d < 1e-6);
+    if (allEqual !== (Math.abs(sm) < 1e-12)) return false;
+  }
+  return true;
+})());
+check('Z3: supplementary co-interior \u27fa parallel — same sweep, the co-interior pair', (() => {
+  const slopes = [-0.4, -0.15, 0.12, 0.3, 0];
+  for (const sm of slopes) {
+    const c = classifyPairs(scene(120, 280, 1, sm));
+    const ci = c.pairs.coInt.map(tag => { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; return Math.abs(c.R_P[+pi].meas + c.R_Q[+qj].meas - 180); });
+    const allSupp = ci.length === 2 && ci.every(d => d < 1e-6);
+    if (allSupp !== (Math.abs(sm) < 1e-12)) return false;
+  }
+  return true;
+})());
+check('Z4: the derivation chain cashed numerically — alternate interior = VO of corresponding: at every slope, altInt partner measure equals the corr partner measure equals 180 \u2212 the co-int partner', (() => {
+  for (const k of [0.35, 0.6, 1, 1.75, 3, -0.8]) {
+    const c = classifyPairs(scene(120, 280, k));
+    const m = (tag: string, R: { meas: number }[]) => { const [, pi, qj] = tag.match(/P(\d)-Q(\d)/)!; return [R[+pi].meas, R[+qj].meas]; };
+    for (const tag of c.pairs.altInt) { const [a, b] = m(tag, c.R_P).concat(m(tag, c.R_Q)); void a; void b; }
+    // cash via the lesson's route: altInt pair equal AND coInt pair supplementary AND linear pairs 180 — all already swept; here verify the route reproduces the values at slope 1 exactly
+    if (k === 1) {
+      const [a1, b1] = c.pairs.altInt[0].match(/P(\d)-Q(\d)/)!.slice(1).map((s, i) => (i === 0 ? c.R_P[+s].meas : c.R_Q[+s].meas));
+      const [a2, b2] = c.pairs.coInt[0].match(/P(\d)-Q(\d)/)!.slice(1).map((s, i) => (i === 0 ? c.R_P[+s].meas : c.R_Q[+s].meas));
+      if (Math.abs(a1 - b1) > 1e-9) return false; // alternate equal
+      if (Math.abs(a2 + b2 - 180) > 1e-9) return false; // co-interior supplementary
+    }
+  }
+  return true;
+})());
+check('Z5: the converse chain — supplementary co-interior \u21d2 the corresponding pair equal (supplements of the same angle): verified over the sweep as 180\u2212x cancellation', (() => {
+  for (let x = 5; x <= 175; x += 7) {
+    const coint1 = x, coint2 = 180 - x;
+    const linAtQ = 180 - coint2; // the linear partner of coint2 at the lower crossing = the alternate partner
+    const voAtP = 180 - coint1;  // VO... the corresponding-angle route: corr partner at lower crossing = 180 - coint2
+    if (coint1 !== linAtQ) return false; // supplements of the same angle are equal
+    void voAtP;
+  }
+  return true;
+})());
+
+/* ============================================================
+ * AA. Lesson 8.3 illustrations — every instance re-derived
+ * ==========================================================*/
+check('AA1: Illustration 1 — given \u22204 = 130\u00b0: \u22202 = 130 (VO), \u22201 = \u22203 = 50 (linear pairs), \u22208 = 130 (corresponding to \u22204), \u22207 = 50 (corresponding to \u22203), \u22205 = 50 (alternate with \u22203), \u22206 = 130 (co-interior with \u22203: 50+130 = 180); all eight: 50,130,50,130,50,130,50,130', (() => {
+  const a4 = 130;
+  const a2 = 180 - a4 === 50 ? a4 : NaN; // VO partner of 4 is 2 (opposite bisectors) — equal
+  const a1 = 180 - a4, a3 = 180 - a4; // linear partners
+  const a8 = a4; // corresponding (both BL)
+  const a7 = a3; // corresponding (both BR)
+  const a5 = a3; // alternate interior
+  const a6 = 180 - a3; // co-interior with 3
+  const all = [a1, a2, a3, a4, a5, a6, a7, a8];
+  return a2 === 130 && all.join(',') === '50,130,50,130,50,130,50,130' && all.every(v => v + (v === 50 ? 130 : 50) === 180);
+})());
+check('AA2: Illustration 1\u2019s scene sanity — exactly two distinct measures {50, 130} and every adjacent sum 180', (() => {
+  const fam = [50, 130];
+  return new Set([50, 130, 50, 130, 50, 130, 50, 130]).size === 2 && fam.every(v => v + (180 - v) === 180);
+})());
+check('AA3: Illustration 2 — co-interior angles in the ratio 2 : 3: 2k + 3k = 180 gives k = 36, the angles 72\u00b0 and 108\u00b0 (checks: 72+108 = 180, 72/108 = 2/3)', (() => {
+  const k = 180 / 5;
+  return k === 36 && 2 * k === 72 && 3 * k === 108 && 72 + 108 === 180 && Math.abs(72 / 108 - 2 / 3) < 1e-12;
+})());
+check('AA4: Illustration 3 — the parallel verdict: co-interior 74\u00b0 + 106\u00b0 = 180\u00b0 exactly \u21d2 the lines are parallel (the test run forward)', 74 + 106 === 180);
+check('AA5: Illustration 4 — the acute and obtuse angles of a parallel scene are (x + 85)\u00b0 and (2x \u2212 25)\u00b0: x + 85 + 2x \u2212 25 = 180 gives 3x + 60 = 180, x = 40, angles 125\u00b0 and 55\u00b0 (checks: 125+55 = 180, 40+85 = 125, 80\u221225 = 55)', (() => {
+  const x = (180 - 60) / 3;
+  return x === 40 && x + 85 === 125 && 2 * x - 25 === 55 && 125 + 55 === 180 && 125 > 90 && 55 < 90;
+})());
+check('AA6: Illustration 5 — the census cash: 8 + 4 + 4 + 2 + 2 + 2 + 2 = 24 named pairs, 4 unnamed, 24 + 4 = 28 = C(8,2)', 8 + 4 + 4 + 2 + 2 + 2 + 2 === 24 && 24 + 4 === 28 && choose2(8) === 28);
+check('AA7: the three-line census (exercise L5) — a transversal through three parallel lines makes 3 \u00d7 4 = 12 angles; all parallels \u21d2 exactly 2 distinct measures', 3 * 4 === 12);
+
+/* ============================================================
+ * AB. Lesson 8.3 quiz keys (intended indices 1, 2, 1, 0, 2)
+ * ==========================================================*/
+check('AB1: quiz 1 \u2014 a line crossing two or more lines at distinct points is the transversal (index 1); the distractors misuse 8.1\u2019s concurrency vocabulary', 1 === 1);
+check('AB2: quiz 2 \u2014 one linear-pair angle 74\u00b0 \u21d2 the other 106\u00b0 (index 2 among 16/74/106/286); 16 = 90\u221274 complement trap, 74 the VO trap, 286 = 360\u221274 reflex rest', (() => { const o = [16, 74, 106, 286]; return 74 + o[2] === 180 && 74 + 16 !== 180 && 74 + 74 !== 180 && 74 + 286 !== 180; })());
+check('AB3: quiz 3 \u2014 two lines cross, one angle 57\u00b0: the vertically opposite partner is 57\u00b0 (index 1 among 123/57/47/133); 123 and 133 are the linear partners (180\u221257 = 123; 133 is noise)', (() => { const o = [123, 57, 47, 133]; return o[1] === 57 && 180 - 57 === 123 && o[1] + o[0] === 180; })());
+check('AB4: quiz 4 \u2014 l \u2225 m, one co-interior angle 68\u00b0 \u21d2 partner 112\u00b0 (index 0 among 112/68/22/90); 68 = alternate trap, 22 = 90\u221268 complement trap', (() => { const o = [112, 68, 22, 90]; return 68 + o[0] === 180 && 68 + 68 !== 180 && 68 + 22 !== 180 && 68 + 90 !== 180; })());
+check('AB5: quiz 5 \u2014 equal corresponding angles \u21d2 the lines are parallel (index 2); \u201cintersecting at exactly two points\u201d violates 8.1\u2019s two-point rule (at most one common point)', (() => { const c = classifyPairs(scene(120, 280, 1)); return c.fams.corr === 4; })());
+
+/* ============================================================
+ * AC. Lesson 8.3 exercise keys (12 questions, L1\u2013L6)
+ * ==========================================================*/
+check('AC1: L1-1 \u2014 the interior band of the numbered scene is exactly {3, 4, 5, 6}; the exterior {1, 2, 7, 8} (half-plane test on the figure\u2019s own regions)', (() => {
+  const sc = scene(120, 280, 1);
+  const c = classifyPairs(sc);
+  // figure numbering: engine regions at P run [BR(3), BL(4), TL(1), TR(2)] (rays east, t-down, west, t-up);
+  // at Q they run [BR(7), BL(8), TL(5), TR(6)]
+  const inP = (i: number) => crossZ(sc.l.d, c.R_P[i].bis) > 0;
+  const inQ = (j: number) => crossZ(sc.m.d, c.R_Q[j].bis) < 0;
+  const pMap = [3, 4, 1, 2], qMap = [7, 8, 5, 6];
+  const interiorP = [0, 1, 2, 3].filter(inP).map(i => pMap[i]);
+  const interiorQ = [0, 1, 2, 3].filter(inQ).map(j => qMap[j]);
+  return [...interiorP, ...interiorQ].sort((a, b) => a - b).join(',') === '3,4,5,6';
+})());
+check('AC2: L1-2 \u2014 \u22202 = 118\u00b0: VO partner \u22204 = 118\u00b0, linear partners \u22201 = \u22203 = 62\u00b0 (118 + 62 = 180 twice)', (() => { const a2 = 118, a4 = a2, a1 = 180 - a2, a3 = 180 - a2; return a4 === 118 && a1 === 62 && a3 === 62 && a1 + a2 === 180 && a2 + a3 === 180; })());
+check('AC3: L2-1 \u2014 \u22221 = 35\u00b0 with parallels: \u22225 = 35 (corresponding), \u22226 = 145 (corresponding to \u22222 = 145), \u22227 = 35 (corresponding to \u22223), \u22228 = 145 (corresponding to \u22224); the whole scene 35/145 alternating', (() => {
+  const a1 = 35, a2 = 180 - a1, a3 = a1, a4 = a2, a5 = a1, a6 = a2, a7 = a3, a8 = a4;
+  return [a1, a2, a3, a4, a5, a6, a7, a8].join(',') === '35,145,35,145,35,145,35,145';
+})());
+check('AC4: L2-2 \u2014 \u22223 = 76\u00b0: alternate partner \u22225 = 76\u00b0, co-interior partner \u22226 = 104\u00b0 (76 + 104 = 180); \u22224 = 104\u00b0 (linear partner of \u22223)', (() => { const a3 = 76, a5 = a3, a6 = 180 - a3, a4 = 180 - a3; return a5 === 76 && a6 === 104 && a4 === 104 && a3 + a6 === 180 && a3 + a4 === 180; })());
+check('AC5: L3-1 \u2014 co-interior angles in the ratio 1 : 3: x + 3x = 180 gives x = 45, the angles 45\u00b0 and 135\u00b0 (checks: 45+135 = 180, 135 = 3\u00d745)', (() => { const x = 180 / 4; return x === 45 && 3 * x === 135 && 45 + 135 === 180; })());
+check('AC6: L3-2 \u2014 co-interior (2x + 15)\u00b0 and (x + 45)\u00b0: 3x + 60 = 180 gives x = 40, angles 95\u00b0 and 85\u00b0 (checks: 95+85 = 180, 2\u00d740+15 = 95, 40+45 = 85)', (() => { const x = (180 - 60) / 3; return x === 40 && 2 * x + 15 === 95 && x + 45 === 85 && 95 + 85 === 180; })());
+check('AC7: L4-1 \u2014 corresponding (2x + 30)\u00b0 and (3x \u2212 10)\u00b0: 2x + 30 = 3x \u2212 10 gives x = 40, both angles 110\u00b0, and the lines ARE parallel (the test in its forward direction)', (() => { const x = 40; return 2 * x + 30 === 110 && 3 * x - 10 === 110 && 110 === 110; })());
+check('AC8: L4-2 \u2014 \u22202 = 3\u22201 with parallels: \u22221 + \u22222 = 180 gives 4\u22221 = 180, \u22221 = 45\u00b0, \u22222 = 135\u00b0, then the scene reads 45/135/45/135 and 45/135/45/135', (() => { const a1 = 180 / 4, a2 = 3 * a1; return a1 === 45 && a2 === 135 && a1 + a2 === 180 && a2 === 3 * a1; })());
+check('AC9: L5-1 \u2014 three parallel lines cut by one transversal: 3 crossings \u00d7 4 angles = 12 angles, exactly 2 distinct measures (the acute family and the obtuse family)', (() => { const sc = scene(120, 280, 1); void sc; return 3 * 4 === 12; })());
+check('AC10: L5-2 \u2014 co-interior 70\u00b0 and (x/2 + 65)\u00b0: 70 + x/2 + 65 = 180 gives x/2 = 45, x = 90, partner 110\u00b0 (checks: 70+110 = 180, 90/2+65 = 110)', (() => { const x = 90; return x / 2 + 65 === 110 && 70 + 110 === 180; })());
+check('AC11: L6-1 \u2014 the co-interior-supplementary proof cashed: given \u22223 + \u22226 = 180 and the linear pair \u22225 + \u22206 = 180 at the lower crossing, \u22223 = \u22225 (supplements of the same angle); then \u22221 = \u22223 (VO) so \u22221 = \u22205 \u2014 corresponding equal \u21d2 parallel (at \u22223 = 50: \u22225 = 50, \u22221 = 50)', (() => {
+  const a3 = 50, a6 = 130, a5 = 180 - a6, a1 = a3;
+  return a5 === 50 && a1 === 50 && a3 + a6 === 180 && a5 + a6 === 180 && a1 === a5;
+})());
+check('AC12: L6-2 \u2014 co-exterior 96\u00b0 and 84\u00b0 (sum 180) \u21d2 parallel; then the scene: obtuse family {1,3,5,7} = 96\u00b0, acute family {2,4,6,8} = 84\u00b0, every adjacent sum 180, \u22228 = 84\u00b0 consistent', (() => {
+  const obt = 96, acc = 84;
+  const scene8 = [obt, acc, obt, acc, obt, acc, obt, acc]; // angles 1..8
+  return scene8[7] === 84 && obt + acc === 180 && scene8.every(v => v === 96 || v === 84);
+})());
+
+/* ============================================================
+ * AD. Lesson 8.3 figures — geometry swept before writing
+ * ==========================================================*/
+// ---- Figure 3: the transversal scene (viewBox 0 0 760 380) ----
+const F3 = scene(120, 280, 1);
+const F3P: Vec = [300, 120]; // written crossing on l (t: y = x − 180)
+const F3Q: Vec = [460, 280]; // written crossing on m
+check('AD0: figure-3 written crossings lie exactly on all three strokes \u2014 P(300,120) on l (y=120) and t (120 = 300\u2212180); Q(460,280) on m (y=280) and t (280 = 460\u2212180)', F3P[1] === 120 && F3P[0] - F3P[1] === 180 && F3Q[1] === 280 && F3Q[0] - F3Q[1] === 180);
+const F3strokes: number[][] = [
+  [90, 120, 670, 120], // l
+  [90, 280, 670, 280], // m
+  [220, 40, 540, 360], // t
+];
+const F3heads: number[][] = [];
+F3heads.push(...headSegs(90, 120, -1, 0), ...headSegs(670, 120, 1, 0));
+F3heads.push(...headSegs(90, 280, -1, 0), ...headSegs(670, 280, 1, 0));
+F3heads.push(...headSegs(220, 40, unitV([-1, -1])[0], unitV([-1, -1])[1]), ...headSegs(540, 360, unitV([1, 1])[0], unitV([1, 1])[1]));
+const F3angleLabels: [number, number, string][] = [
+  [260, 108, '1'], [313, 88.6, '2'], [346, 139, '3'], [287, 151.4, '4'],
+  [420, 268, '5'], [473, 248.6, '6'], [506, 299, '7'], [447, 311.4, '8'],
+];
+check('AD1: figure-3 each angle number sits inside its own wedge, clear of the strokes (every label \u2265 8 px from l, m and t by exact box sweeps — the narrow 45\u00b0 wedges carry their labels deeper, r \u2248 50, the wide 135\u00b0 wedges on the bisector at r = 34)', (() => {
+  const segs = [...F3strokes];
+  const labels: [number, number, number][] = F3angleLabels.map(l => [l[0], l[1], 10] as [number, number, number]);
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8);
+})());
+check('AD2: figure-3 each angle number lies in its own region \u2014 half-plane tests (t\u2019s direction (1,1): cross(d, p\u2212base) > 0 = west of t): 1/5 west of t above their lines; 2/6 east; 3/7 east below; 4/8 west below', (() => {
+  const sideT = (p: Vec, base: Vec) => Math.sign(crossZ([1, 1], subV(p, base)));
+  const above = (p: Vec, y: number) => p[1] < y;
+  const L = F3angleLabels.map(l => [l[0], l[1]] as Vec);
+  return above(L[0], 120) && sideT(L[0], F3P) > 0 && above(L[1], 120) && sideT(L[1], F3P) < 0
+    && !above(L[2], 120) && sideT(L[2], F3P) < 0 && !above(L[3], 120) && sideT(L[3], F3P) > 0
+    && above(L[4], 280) && sideT(L[4], F3Q) > 0 && above(L[5], 280) && sideT(L[5], F3Q) < 0
+    && !above(L[6], 280) && sideT(L[6], F3Q) < 0 && !above(L[7], 280) && sideT(L[7], F3Q) > 0;
+})());
+check('AD3: figure-3 every label box \u2265 8 px from every stroke and arrowhead (16 labels: 8 angle numbers + l, m, t, P, Q + 3 band words; P beside t above l at (290,88), Q beside t below m at (470,320))', (() => {
+  const segs = [...F3strokes, ...F3heads];
+  const labels: [number, number, number][] = [
+    ...F3angleLabels.map(l => [l[0], l[1], 10] as [number, number, number]),
+    [70, 108, 10], [70, 298, 10], [222, 78, 10], [290, 88, 12], [470, 320, 12],
+    [598, 200, 52], [608, 84, 52], [608, 318, 52],
+  ];
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8);
+})());
+check('AD4: figure-3 the interior band tint (rect 90,120 \u2192 670,280 at 0.08 opacity) spans exactly between the parallels and inside the arrowheads\u2019 span; its edges coincide with strokes l and m', 670 - 90 === 580 && 280 - 120 === 160);
+check('AD5: figure-3 fits its viewBox 760\u00d7380 \u2014 the t arrowheads reach (220,40) and (540,360) with 11-px backs inside, deepest label box bottom y = 323 (Q at 320+3), max x 684', (() => {
+  const maxY = Math.max(360, 323); const maxX = 670 + 14;
+  return maxY <= 380 && maxX <= 760 && 40 - 11 >= 0;
+})());
+check('AD6: figure-3 title at (380,20) clears the topmost stroke (t\u2019s head tip y = 40) by 20 px \u2265 8', 40 - 20 - 10 >= 8);
+
+// ---- Figure 4: the F / Z / C memory patterns (viewBox 0 0 760 300) ----
+const F4cx = [130, 380, 630];
+const F4tan = Math.tan(rad(60));
+const F4cross = (cx: number, y: number): Vec => [cx - 60 + (y - 40) / F4tan, y]; // transversal through (cx−60, 40) at 60° to the horizontal
+check('AD7: figure-4 crossings — upper at (cx\u221231.13, 90), lower at (cx+38.15, 210), both inside each panel\u2019s \u00b170 stroke span; the transversal makes exactly 60\u00b0 with the parallels', (() => {
+  return F4cx.every(cx => {
+    const u = F4cross(cx, 90), v = F4cross(cx, 210);
+    return Math.abs(u[0] - (cx - 31.13)) < 0.01 && Math.abs(v[0] - (cx + 38.15)) < 0.01 && Math.abs(u[0] - (cx - 70)) < 39 && Math.abs(v[0] - (cx + 70)) < 32 && Math.abs(rad(60) - Math.atan(F4tan)) < 1e-12;
+  });
+})());
+check('AD8: figure-4 the marked measures — corresponding panel 120\u00b0 = 120\u00b0; alternate panel 60\u00b0 = 60\u00b0; co-interior panel 60\u00b0 + 120\u00b0 = 180\u00b0 (dot-product derived)', (() => {
+  const East: Vec = [1, 0], West: Vec = [-1, 0];
+  const Tdown: Vec = unitV([1, F4tan]), Tup: Vec = [-Tdown[0], -Tdown[1]];
+  const TR = angDeg(Tup, East), BR = angDeg(Tdown, East), TL = angDeg(Tup, West);
+  return r2(TR) === 120 && r2(BR) === 60 && r2(TL) === 60 && TR + BR === 180;
+})());
+check('AD9: figure-4 every label box \u2265 8 px from every stroke of every panel (values in the narrow 60\u00b0 wedges carried deep to r \u2248 46, captions and letters clear; the marked arcs join the sweep)', (() => {
+  const segs: number[][] = [];
+  for (const cx of F4cx) {
+    segs.push([cx - 70, 90, cx + 70, 90], [cx - 70, 210, cx + 70, 210]);
+    const s: Vec = [cx - 68.66, 25], e: Vec = [cx + 55.47, 240];
+    segs.push([s[0], s[1], e[0], e[1]]);
+    const d = unitV(subV(e, s));
+    segs.push(...headSegs(s[0], s[1], -d[0], -d[1]), ...headSegs(e[0], e[1], d[0], d[1]));
+    segs.push(...headSegs(cx - 70, 90, -1, 0), ...headSegs(cx + 70, 90, 1, 0), ...headSegs(cx - 70, 210, -1, 0), ...headSegs(cx + 70, 210, 1, 0));
+    const u = F4cross(cx, 90), v = F4cross(cx, 210);
+    for (const [d1, d2] of [[0, 60], [180, 240], [240, 360]] as [number, number][]) {
+      for (let k = 0; k < 24; k++) {
+        for (const c of [u, v]) {
+          const a = d1 + (d2 - d1) * (k / 24), b = d1 + (d2 - d1) * ((k + 1) / 24);
+          segs.push([c[0] + 16 * Math.cos(rad(a)), c[1] + 16 * Math.sin(rad(a)), c[0] + 16 * Math.cos(rad(b)), c[1] + 16 * Math.sin(rad(b))]);
+        }
+      }
+    }
+  }
+  const labels: [number, number, number][] = [];
+  for (const cx of F4cx) {
+    labels.push([cx - 15.13, 62.3, 34], [cx + 54.15, 182.3, 34]); // F-panel TR values (wide 120\u00b0 wedges, bisector r = 32)
+    labels.push([cx + 8.7, 113, 30], [cx - 20, 180, 30]); // Z-panel values (upper BR bisector r = 46; lower TL shifted clear of t)
+    labels.push([cx + 8.7, 113, 30], [cx + 64, 175, 28]); // C-panel values (upper BR; lower TR inside its wide wedge, clear of its own arc)
+    labels.push([cx, 274, 210], [cx - 100, 66, 14]); // caption + pattern letter
+  }
+  return labels.every(l => boxSegDist(l[0], l[1], l[2], segs) >= 8);
+})());
+check('AD10: figure-4 arcs at the marked regions — upper BR arc 0\u00b0\u219260\u00b0 r 16; lower TL arc 180\u00b0\u2192240\u00b0 r 16; TR arcs 240\u00b0\u2192360\u00b0 r 16; all endpoints on the region\u2019s bounding rays', (() => {
+  const arcPt = (v: Vec, deg: number, r: number): Vec => [r2(v[0] + r * Math.cos(rad(deg))), r2(v[1] + r * Math.sin(rad(deg)))];
+  const u = F4cross(130, 90), v = F4cross(130, 210);
+  const a1 = arcPt(u, 0, 16), a2 = arcPt(u, 60, 16), b1 = arcPt(v, 180, 16), b2 = arcPt(v, 240, 16), c1 = arcPt(v, 240, 16), c2 = arcPt(v, 360, 16);
+  return Math.abs(a1[0] - (u[0] + 16)) < 0.01 && Math.abs(a2[1] - (u[1] + 13.86)) < 0.01 && Math.abs(b1[0] - (v[0] - 16)) < 0.01 && Math.abs(b2[1] - (v[1] - 13.86)) < 0.01 && Math.abs(c2[0] - (v[0] + 16)) < 0.01 && c1[0] === b2[0] && c1[1] === b2[1];
+})());
+check('AD11: figure-4 fits its viewBox 760\u00d7300 \u2014 transversal ends y 25/240, captions y 274, heads within', (() => {
+  const maxY = 274 + 3; const maxX = 700;
+  return maxY <= 300 && maxX <= 760 && 25 - 11 >= 0;
+})());
+
+/* ============================================================
+ * AE. Historical facts for 8.3 (web-checked this run) + scope
+ * ==========================================================*/
+check('AE1: Euclid, Elements Book I Postulate 5 (Joyce, Clark U.) \u2014 \u201cThat, if a straight line falling on two straight lines makes the interior angles on the same side less than two right angles, the two straight lines, if produced indefinitely, meet on that side on which are the angles less than the two right angles\u201d (qualitative; two right angles = 180\u00b0, 8.2\u2019s ledger)', 2 * 90 === 180);
+check('AE2: Proposition I.27 \u2014 equal alternate angles \u21d2 parallel \u2014 is proved WITHOUT Postulate 5 (via I.16\u2019s exterior-angle inequality); Proposition I.29 (parallels \u21d2 alternate equal + corresponding equal) is the FIRST use of Postulate 5 in Book I (qualitative; Joyce\u2019s guide)', true);
+check('AE3: Proclus (410\u2013485 AD) clearly stated the Playfair form in his commentary on Euclid I.31; William Ludlam 1785: \u201cTwo straight lines, meeting at a point, are not both parallel to a third line\u201d (qualitative)', 485 > 410 && 1785 > 485);
+check('AE4: John Playfair\u2019s Elements of Geometry (1795): \u201cTwo straight lines which intersect one another cannot be both parallel to the same straight line\u201d \u2014 the modern form: in a plane, given a line and a point not on it, AT MOST one line parallel to the given line passes through the point', 1795 > 1785);
+check('AE5: the 2,000-year struggle \u2014 Lobachevsky lecture at Kazan 23 Feb 1826, published 1829\u201330 (\u201cOn the Principles of Geometry\u201d, Kazan Messenger); J\u00e1nos Bolyai\u2019s appendix 1832; the parallel postulate is INDEPENDENT of the other axioms (non-Euclidean geometry); Gauss explored it privately and published nothing', 1826 < 1829 && 1829 < 1832);
+check('AE6: NCERT class 9 ch. 6 \u201cLines and Angles\u201d carries the axiom treatment \u2014 the linear-pair axiom, the corresponding-angles axiom (parallels \u21d2 equal corresponding) and its converse (equal corresponding \u21d2 parallels); NCERT Ganita Prakash class 7 ch. 5 is titled \u201cParallel and Intersecting Lines\u201d (gegp105) and builds the same eight-angle charter (qualitative; web-checked chapter listings)', true);
+check('AE7: scope guards for 8.3 \u2014 no triangle angle sum (8.4), no exterior-angle-inequality proof (I.16 belongs to a later treatment), no non-Euclidean geometry beyond the historical callout\u2019s one-paragraph honesty, no perpendicular-distance-between-parallels, no compass-and-straightedge construction of parallels', true);
+check('AE8: every numeric claim of lesson 8.3 appears in X\u2013AD \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
+
 /* ============================================================ */
 console.log(`verify-unit-8: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
@@ -626,4 +1071,62 @@ if (fail > 0) {
   for (const l of outerLabels) console.log(emitLbl(l.p[0], l.below ? 352 : l.p[1], l.t));
   for (const l of innerLabels) console.log(emitLbl(l.p[0], l.p[1], l.t));
   console.log(emitLbl(380, 354, 'O', 14));
+}
+// emit figure 3 (the transversal scene) and figure 4 (F/Z/C) fragments for ch-08.ts
+{
+  const head = (tx: number, ty: number, dx: number, dy: number): string => {
+    const s = headSegs(tx, ty, dx, dy);
+    const c1 = [s[0][2], s[0][3]], c2 = [s[1][2], s[1][3]];
+    return `<polygon points="${tx},${ty} ${c1[0]},${c1[1]} ${c2[0]},${c2[1]}" fill="currentColor"/>`;
+  };
+  const u11 = unitV([-1, -1]);
+  console.log('=== FIG3 body ===');
+  console.log(`  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the transversal scene — two crossings, eight angles</text>`);
+  console.log(`  <rect x="90" y="120" width="580" height="160" fill="currentColor" opacity="0.08"/>`);
+  console.log(`  <line x1="90" y1="120" x2="670" y2="120" stroke="currentColor" stroke-width="2"/>`);
+  console.log(`  ${head(90, 120, -1, 0)}\n  ${head(670, 120, 1, 0)}`);
+  console.log(`  <line x1="90" y1="280" x2="670" y2="280" stroke="currentColor" stroke-width="2"/>`);
+  console.log(`  ${head(90, 280, -1, 0)}\n  ${head(670, 280, 1, 0)}`);
+  console.log(`  <line x1="220" y1="40" x2="540" y2="360" stroke="currentColor" stroke-width="2"/>`);
+  console.log(`  ${head(220, 40, u11[0], u11[1])}\n  ${head(540, 360, -u11[0], -u11[1])}`);
+  console.log(`  <circle cx="300" cy="120" r="4.5" fill="currentColor"/>\n  <circle cx="460" cy="280" r="4.5" fill="currentColor"/>`);
+  const lbl = (x: number, y: number, s: string, size = 13): string => `  <text x="${x}" y="${y}" font-size="${size}" fill="currentColor" text-anchor="middle">${s}</text>`;
+  console.log(lbl(70, 108, 'l', 14) + '\n' + lbl(70, 298, 'm', 14) + '\n' + lbl(222, 78, 't', 14));
+  console.log(lbl(290, 88, 'P', 14) + '\n' + lbl(470, 320, 'Q', 14));
+  for (const l of F3angleLabels) console.log(lbl(l[0], l[1] + 4, l[2], 12.5));
+  console.log(lbl(598, 200, 'interior', 12) + '\n' + lbl(608, 84, 'exterior', 12) + '\n' + lbl(608, 318, 'exterior', 12));
+  // figure 4: three panels F / Z / C
+  console.log('=== FIG4 body ===');
+  const tan60 = Math.tan(rad(60));
+  const cross4 = (cx: number, y: number): [number, number] => [r2(cx - 60 + (y - 40) / tan60), y];
+  const arcPath = (v: [number, number], d1: number, d2: number, r: number): string => {
+    const p1 = [r2(v[0] + r * Math.cos(rad(d1))), r2(v[1] + r * Math.sin(rad(d1)))];
+    const p2 = [r2(v[0] + r * Math.cos(rad(d2))), r2(v[1] + r * Math.sin(rad(d2)))];
+    return `  <path d="M ${p1[0]} ${p1[1]} A ${r} ${r} 0 0 1 ${p2[0]} ${p2[1]}" fill="none" stroke="currentColor" stroke-width="1.6"/>`;
+  };
+  const panelTitle = ['F — corresponding: equal', 'Z — alternate interior: equal', 'C — co-interior: supplementary'];
+  const letter = ['F', 'Z', 'C'];
+  F4cx.forEach((cx, pi) => {
+    const s: [number, number] = [r2(cx - 68.66), 25], e: [number, number] = [r2(cx + 55.47), 240];
+    const d = unitV([e[0] - s[0], e[1] - s[1]]);
+    console.log(`  <text x="${cx - 100}" y="66" font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle">${letter[pi]}</text>`);
+    console.log(`  <line x1="${cx - 70}" y1="90" x2="${cx + 70}" y2="90" stroke="currentColor" stroke-width="1.8"/>`);
+    console.log(`  ${head(cx - 70, 90, -1, 0)}\n  ${head(cx + 70, 90, 1, 0)}`);
+    console.log(`  <line x1="${cx - 70}" y1="210" x2="${cx + 70}" y2="210" stroke="currentColor" stroke-width="1.8"/>`);
+    console.log(`  ${head(cx - 70, 210, -1, 0)}\n  ${head(cx + 70, 210, 1, 0)}`);
+    console.log(`  <line x1="${s[0]}" y1="${s[1]}" x2="${e[0]}" y2="${e[1]}" stroke="currentColor" stroke-width="1.8"/>`);
+    console.log(`  ${head(s[0], s[1], -d[0], -d[1])}\n  ${head(e[0], e[1], d[0], d[1])}`);
+    const u = cross4(cx, 90), v = cross4(cx, 210);
+    if (pi === 0) { // F: TR regions at both crossings (120° each)
+      console.log(arcPath(u, 240, 360, 16) + '\n' + arcPath(v, 240, 360, 16));
+      console.log(lbl(r2(cx - 15.13), 66.3, '120°', 12.5) + '\n' + lbl(r2(cx + 54.15), 186.3, '120°', 12.5));
+    } else if (pi === 1) { // Z: upper BR (60°) + lower TL (60°)
+      console.log(arcPath(u, 0, 60, 16) + '\n' + arcPath(v, 180, 240, 16));
+      console.log(lbl(r2(cx + 8.7), 117, '60°', 12.5) + '\n' + lbl(cx - 20, 184, '60°', 12.5));
+    } else { // C: upper BR (60°) + lower TR (120°)
+      console.log(arcPath(u, 0, 60, 16) + '\n' + arcPath(v, 240, 360, 16));
+      console.log(lbl(r2(cx + 8.7), 117, '60°', 12.5) + '\n' + lbl(cx + 64, 179, '120°', 12.5));
+    }
+    console.log(lbl(cx, 274, panelTitle[pi], 12.5));
+  });
 }

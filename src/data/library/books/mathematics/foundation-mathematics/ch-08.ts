@@ -99,6 +99,48 @@ import type { Chapter } from '../../../types'
  * solution chain; every number pre-verified by verify-unit-8.ts
  * sections O–W (extended to 187 checks) BEFORE writing.
  *
+ * LESSON 8.3 Parallel Lines and Transversals (run 39, 2026-11-05) —
+ * parallelism becomes measurable: the transversal defined in the
+ * is-said-to-be shape (distinct-points clause tied back to 8.1's
+ * concurrency), figure 1 the eight-angle scene (l ∥ m horizontal,
+ * t at slope 1 through P (300,120) and Q (460,280), interior band
+ * tinted, angles 1–8 numbered clockwise from the top left at each
+ * crossing, every label's ≥ 8 px clearance script-swept); the pair
+ * families roman run (8 linear + 4 VO + 4 corresponding + 2 alternate
+ * interior + 2 co-interior + 2 alternate exterior + 2 co-exterior =
+ * 24 named of the 28, four unnamed — the 8.1 census law at n = 8);
+ * the linear-pair law derived from 8.2's straight angle (tag 1) and
+ * the vertically-opposite theorem derived from two linear pairs (the
+ * same cancellation as 8.2's supp − comp identity); the
+ * corresponding-angles axiom presented honestly as THE assumption
+ * (Euclid's Postulate 5 in school dress), then alternate interior
+ * equal and co-interior supplementary DERIVED from it (tags 2);
+ * figure 2 the F/Z/C memory patterns (three panels at 60°, arcs on
+ * the marked pairs, value labels 120°/120°, 60°/60°, 60°/120°);
+ * the three parallel tests as biconditionals (tag 3) with the
+ * co-interior test chain derived through the converse axiom; the
+ * Playfair uniqueness Note (Proclus c. 450, Ludlam 1785, Playfair
+ * 1795); Illustrations 1–6 (the 74° crossing read; the full 130°
+ * eight-angle read with reasons; the 2:3 co-interior ratio → 72/108;
+ * the 74 + 106 = 180 parallel verdict; the (x + 85)/(2x − 25)
+ * equation → x = 40, 125/55; the census 24 + 4 = 28); the harvest
+ * roman ledger; the exam corner (read-all-eight, find-x co-interior
+ * algebra, corresponding-pair verdicts, ratio items, three-line
+ * census — shapes cited, none reproduced); the historical callout
+ * (Postulate 5's full dress; I.27 without the postulate vs I.29 the
+ * first use; Proclus/Ludlam/Playfair; Lobachevsky 1826/1829–30 and
+ * Bolyai 1832 — the postulate independent, Gauss unpublished; the
+ * non-Euclidean forward pointer); 11 terms, 5-quiz (keys 1/2/1/0/2
+ * verified live), 12 exercises L1–L6 (L6: the co-interior-supplementary
+ * proof chained through VO + the converse axiom; the co-exterior
+ * 96/84 verdict with the full eight-angle read). Scope guard: no
+ * triangle angle sum (8.4), no exterior-angle-inequality proof (I.16),
+ * no non-Euclidean content beyond the callout, no
+ * perpendicular-distance-between-parallels, no compass construction
+ * of parallels. Authored in the Cengage voice + solution chain;
+ * every number pre-verified by verify-unit-8.ts sections X–AE
+ * (253 checks total) BEFORE writing.
+ *
  * References for this unit: NCERT class-6 ch. 4 "Basic Geometrical
  * Ideas" (the point/segment/line/ray charter; parallel lines) + NCERT
  * class-9 ch. 5 "Introduction to Euclid's Geometry" (Euclid's
@@ -115,7 +157,6 @@ export const chapter08: Chapter = {
     'The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.',
   status: 'in-progress',
   plannedLessons: [
-    'Parallel Lines and Transversals',
     'Triangles and the Angle Sum',
     'Perimeter and Area of Rectangles, Triangles and Circles',
   ],
@@ -1333,5 +1374,710 @@ export const chapter08: Chapter = {
         },
       ],
     },
+      {
+        id: 'fm-parallel-lines-and-transversals',
+        number: '8.3',
+        title: 'Parallel Lines and Transversals',
+        concepts: [
+          'The transversal',
+          'The eight-angle scene',
+          'Linear pair',
+          'Vertically opposite angles',
+          'Corresponding angles',
+          'Alternate interior angles',
+          'Co-interior (allied) angles',
+          'The three parallel tests',
+        ],
+        objectives: [
+          'Define a transversal, name all eight angles it creates at two crossings, and sort them into the interior band and the two exteriors',
+          'Prove the linear-pair law and the vertically-opposite theorem from 8.2\u2019s straight-angle ledger \u2014 the two facts that hold at every crossing, parallel lines or not',
+          'State the corresponding-angles axiom (the school dress of Euclid\u2019s fifth postulate) and derive the alternate-interior and co-interior consequences from it',
+          'Run the three parallel tests in both directions \u2014 to read every angle of a scene from one number, and to certify from measurements alone that two lines are parallel',
+          'Count the scene\u2019s 28 angle pairs into the named families and recognise the F, Z and C memory patterns in any examination figure',
+        ],
+        prerequisites: ['fm-points-lines-and-planes', 'fm-angles-and-their-measurement'],
+        sources: ['ncert-math7-gp-ch5', 'ncert-math9-ch6', 'ncert-math6-ch4', 'khattar-qa-4e'],
+        blocks: [
+          {
+            kind: 'para',
+            text: 'Lesson 8.1 drew the stage: points, lines and planes, and the two ways a pair of lines can live together in a plane \u2014 crossing exactly once, or never crossing at all. The never-crossing pair got its name there, *parallel*, with a promise that school geometry stays on the flat stage where parallelism makes sense. But 8.1 left the parallel lines themselves untouched, and for a good reason: two lines that never meet look identical, in any finite drawing, to two lines that meet once \u2014 just beyond the paper\u2019s edge. Nothing in the picture alone tells you which pair is which. This lesson builds the missing instrument. The instrument is a third line drawn slantwise across the pair \u2014 a **transversal** \u2014 and the eight angles it creates broadcast the whole story: cut a suspected parallel pair, read the angles, and the pair confesses in one glance.',
+          },
+          {
+            kind: 'para',
+            text: 'The payoff runs in both directions. Given the parallels, the transversal *predicts* every angle at both crossings from any single one \u2014 the fact that powers every angle-chase on every examination paper at this level. Given the angles, the transversal *certifies* the parallels \u2014 the only test this book will meet for deciding, from measurements alone, that two lines never meet. One instrument, two directions. And the logic is honest about its one assumption: a single axiom carries the parallel half of the story, and everything else \u2014 every other statement in this lesson \u2014 is derived from it, not asserted.',
+          },
+          { kind: 'heading', text: 'The transversal: one line crossing two' },
+          {
+            kind: 'para',
+            text: 'Fix two lines $l$ and $m$ in the plane and draw a third line $t$ that cuts across both. The definition asks exactly one thing of the cutter: the crossings must happen at *distinct points*. A line passing through the same point where $l$ and $m$ already cross is not a transversal \u2014 it is just one more line through one point, 8.1\u2019s concurrency wearing a new hat. The transversal\u2019s whole value is that it visits each line separately and can compare what it finds.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'Transversal',
+            text: 'A **transversal** is said to be a **line that crosses two or more other lines at distinct points**. In the scene below, the transversal $t$ crosses $l$ at $P$ and $m$ at $Q$ \u2014 two distinct points. The two crossed lines may be parallel or not: the name belongs to the crossing, not to the pair. When the crossed lines *are* parallel, the scene becomes the most productive figure in elementary geometry.',
+          },
+          {
+            kind: 'para',
+            text: 'Each crossing of two lines makes four angles \u2014 8.2\u2019s scene at a single vertex \u2014 so a transversal through two lines makes eight. The eight organise themselves at a glance once the two crossed lines are seen as the boundaries of a band: the strip between them is the **interior**, and the two half-planes outside are the **exteriors**. Figure 1 draws the whole scene with the interior tinted, and numbers the eight angles clockwise from the top left at each crossing.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The transversal scene. Lines $l$ and $m$ are cut by the transversal $t$ at the crossings $P$ (upper) and $Q$ (lower); the tinted band between them is the interior. The eight angles are numbered clockwise from the top left at each crossing: $\\angle 1$\u2013$\\angle 4$ live at $P$, $\\angle 5$\u2013$\\angle 8$ at $Q$. The interior band holds angles 3, 4, 5, 6; the exteriors hold 1, 2, 7, 8. Every relation this lesson proves is a statement about where a pair of these eight sits.',
+            svg: `<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two parallel lines l and m cut by a transversal t at crossings P and Q, eight numbered angles, interior band tinted">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the transversal scene — two crossings, eight angles</text>
+  <rect x="90" y="120" width="580" height="160" fill="currentColor" opacity="0.08"/>
+  <line x1="90" y1="120" x2="670" y2="120" stroke="currentColor" stroke-width="2"/>
+  <polygon points="90,120 101,115.5 101,124.5" fill="currentColor"/>
+  <polygon points="670,120 659,124.5 659,115.5" fill="currentColor"/>
+  <line x1="90" y1="280" x2="670" y2="280" stroke="currentColor" stroke-width="2"/>
+  <polygon points="90,280 101,275.5 101,284.5" fill="currentColor"/>
+  <polygon points="670,280 659,284.5 659,275.5" fill="currentColor"/>
+  <line x1="220" y1="40" x2="540" y2="360" stroke="currentColor" stroke-width="2"/>
+  <polygon points="220,40 230.96,44.6 224.6,50.96" fill="currentColor"/>
+  <polygon points="540,360 529.04,355.4 535.4,349.04" fill="currentColor"/>
+  <circle cx="300" cy="120" r="4.5" fill="currentColor"/>
+  <circle cx="460" cy="280" r="4.5" fill="currentColor"/>
+  <text x="70" y="108" font-size="14" fill="currentColor" text-anchor="middle">l</text>
+  <text x="70" y="298" font-size="14" fill="currentColor" text-anchor="middle">m</text>
+  <text x="222" y="78" font-size="14" fill="currentColor" text-anchor="middle">t</text>
+  <text x="290" y="88" font-size="14" fill="currentColor" text-anchor="middle">P</text>
+  <text x="470" y="320" font-size="14" fill="currentColor" text-anchor="middle">Q</text>
+  <text x="260" y="112" font-size="12.5" fill="currentColor" text-anchor="middle">1</text>
+  <text x="313" y="92.6" font-size="12.5" fill="currentColor" text-anchor="middle">2</text>
+  <text x="346" y="143" font-size="12.5" fill="currentColor" text-anchor="middle">3</text>
+  <text x="287" y="155.4" font-size="12.5" fill="currentColor" text-anchor="middle">4</text>
+  <text x="420" y="272" font-size="12.5" fill="currentColor" text-anchor="middle">5</text>
+  <text x="473" y="252.6" font-size="12.5" fill="currentColor" text-anchor="middle">6</text>
+  <text x="506" y="303" font-size="12.5" fill="currentColor" text-anchor="middle">7</text>
+  <text x="447" y="315.4" font-size="12.5" fill="currentColor" text-anchor="middle">8</text>
+  <text x="598" y="200" font-size="12" fill="currentColor" text-anchor="middle">interior</text>
+  <text x="608" y="84" font-size="12" fill="currentColor" text-anchor="middle">exterior</text>
+  <text x="608" y="318" font-size="12" fill="currentColor" text-anchor="middle">exterior</text>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'The pairs worth naming, in one roman run \u2014 the numbers are figure 1\u2019s, and each claim is checked against the figure\u2019s own geometry by this book\u2019s verification script:',
+          },
+          {
+            kind: 'list',
+            marker: 'roman',
+            items: [
+              '**linear pairs** \u2014 the side-by-side pairs at one crossing: $(1,2)$, $(2,3)$, $(3,4)$, $(4,1)$ at $P$, and $(5,6)$, $(6,7)$, $(7,8)$, $(8,5)$ at $Q$; eight pairs, each sharing an arm and filling one straight edge;',
+              '**vertically opposite pairs** \u2014 the diagonal pairs at one crossing: $(1,3)$, $(2,4)$, $(5,7)$, $(6,8)$; four pairs sharing only the vertex;',
+              '**corresponding pairs** \u2014 one angle at each crossing, in the same position: $(1,5)$, $(2,6)$, $(3,7)$, $(4,8)$; four pairs, each on the same side of $t$ and the same side of its own line;',
+              '**alternate interior pairs** \u2014 inside the band, opposite sides of $t$: $(3,5)$ and $(4,6)$; two pairs, the ends of a Z;',
+              '**co-interior pairs** \u2014 inside the band, the same side of $t$: $(3,6)$ and $(4,5)$; two pairs, the ends of a C;',
+              'the exteriors hold the cousins: **alternate exterior** $(1,7)$, $(2,8)$ and **co-exterior** $(1,8)$, $(2,7)$ \u2014 two pairs each, same verdicts, outside the band.',
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'Count the census: eight, four, four, two, two, two, two \u2014 twenty-four named pairs among the $\\frac{8 \\times 7}{2} = 28$ unordered pairs the scene contains. Four pairs \u2014 $(1,6)$, $(2,5)$, $(3,8)$, $(4,7)$, each one exterior matched with one interior on the same side of $t$ \u2014 carry no name, because no relation binds them: no theorem, no examination question, nothing. The census is 8.1\u2019s pair-counting law wearing angles, and the last Illustration returns to it in full.',
+          },
+          { kind: 'heading', text: 'Linear pairs: the straight angle, split' },
+          {
+            kind: 'para',
+            text: 'The first family needs no parallels and no new ideas \u2014 only 8.2\u2019s ledger. At the crossing $P$, angles 1 and 2 sit side by side: a common arm (the upper ray of $t$), and outer arms \u2014 $l$\u2019s west ray and east ray \u2014 that are opposite rays of one line. Any two angles arranged this way are a **linear pair**, and their measures are locked together by the straight angle.',
+          },
+          {
+            kind: 'callout',
+            tone: 'definition',
+            title: 'Linear pair',
+            text: 'Two angles are said to form a **linear pair** when they are adjacent \u2014 one common arm \u2014 and their non-common arms are **opposite rays** of a single line. Thus $\\angle 1$ and $\\angle 2$ of figure 1 form a linear pair, and so do the three other side-by-side pairs at each crossing. The memory hook is the name itself: the pair\u2019s outer arms literally *form a line*.',
+          },
+          {
+            kind: 'equation',
+            latex: '\\text{the angles of a linear pair are supplementary:} \\qquad \\angle A + \\angle B = 180^\\circ',
+            note: 'the linear-pair law \u2014 8.2\u2019s straight angle (a half-turn, exactly $180^\\circ$) split at the common arm. The script swept transversals of six different slopes: every linear pair in every scene sums to $180^\\circ$, without exception.',
+          },
+          {
+            kind: 'derivation',
+            title: 'Why a linear pair sums to 180°',
+            statement:
+              'Let a ray $\\overrightarrow{PC}$ stand on the line $l$ at the point $P$, making two adjacent angles with it: $\\angle APC$ and $\\angle CPB$, whose outer arms $\\overrightarrow{PA}$ and $\\overrightarrow{PB}$ are opposite rays. Claim: the two measures add to exactly $180^\\circ$.',
+            steps: [
+              {
+                label: 'Read the outer arms',
+                formula: '\\overrightarrow{PA},\\ \\overrightarrow{PB} \\text{ are opposite rays of } l',
+                explanation:
+                  'That is the linear pair\u2019s definition \u2014 and it means the two angles together sweep the entire half-plane on one side of $l$, with no gap and no overlap.',
+              },
+              {
+                label: 'Add the two angles',
+                formula: '\\angle APC + \\angle CPB',
+                explanation:
+                  'The combined angle turns from the west ray to the east ray through the standing ray \u2014 a half-turn about $P$, whatever the standing ray\u2019s tilt.',
+              },
+              {
+                label: 'Cash the straight angle',
+                formula: '\\angle APC + \\angle CPB = 180^\\circ',
+                explanation:
+                  '8.2\u2019s ledger: the half-turn measures exactly $180^\\circ$. Notice the standing ray\u2019s position never entered the arithmetic \u2014 it cancelled the way $x$ cancelled in 8.2\u2019s supplement identity.',
+              },
+            ],
+            result:
+              'Every linear pair is supplementary: the two measures add to exactly $180^\\circ$, whatever the tilt of the common arm. Each angle of the pair is the supplement of the other.',
+          },
+          {
+            kind: 'para',
+            text: 'One number now buys three at any crossing: given $\\angle 1$, the linear-pair law hands over $\\angle 2$ and $\\angle 4$ (each $180^\\circ$ minus), and the next theorem hands over the fourth.',
+          },
+          { kind: 'heading', text: 'Vertically opposite angles: the crossing theorem' },
+          {
+            kind: 'para',
+            text: 'Two crossing lines make four angles, and the diagonal pairs \u2014 1 opposite 3, 2 opposite 4 \u2014 look equal in every drawing ever made. The look is a theorem, and its proof is two linear pairs and one cancellation.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'Vertically opposite angles',
+            text: 'When two lines cross, the angles that are **vertically opposite** \u2014 each diagonal pair sharing only the vertex \u2014 are **equal**. Thus $\\angle 1 = \\angle 3$ and $\\angle 2 = \\angle 4$ at every crossing, parallel lines or not.',
+          },
+          {
+            kind: 'derivation',
+            title: 'Vertically opposite angles are equal',
+            statement:
+              'Lines $l$ and $t$ cross at $P$, making angles 1, 2, 3, 4 in order around the point. Claim: $\\angle 1 = \\angle 3$.',
+            steps: [
+              {
+                label: 'Linear pair along l',
+                formula: '\\angle 1 + \\angle 2 = 180^\\circ',
+                explanation: 'Angles 1 and 2 sit side by side along $l$: a linear pair, by the law just proved.',
+              },
+              {
+                label: 'Linear pair along t',
+                formula: '\\angle 2 + \\angle 3 = 180^\\circ',
+                explanation: 'Angles 2 and 3 sit side by side along $t$: another linear pair.',
+              },
+              {
+                label: 'Supplements of one angle',
+                formula: '\\angle 1 = 180^\\circ - \\angle 2 = \\angle 3',
+                explanation:
+                  'Both 1 and 3 are supplements of the same $\\angle 2$, so they are equal \u2014 the same cancellation that proved supp $-$ comp $= 90^\\circ$ in 8.2: the common angle drops out entirely.',
+              },
+            ],
+            result:
+              'Vertically opposite angles are equal: $\\angle 1 = \\angle 3$ and likewise $\\angle 2 = \\angle 4$. The crossing itself is the only requirement \u2014 the theorem asks nothing of parallelism, and nothing of how the lines are tilted.',
+          },
+          {
+            kind: 'example',
+            title: 'Two lines cross at $O$, and one of the four angles measures $74^\\circ$. Find the other three.',
+            steps: [
+              'Now, the angle vertically opposite the $74^\\circ$ equals it: $74^\\circ$.',
+              'So each remaining angle is the linear-pair supplement: $180 - 74 = 106^\\circ$ \u2014 and the two remaining angles are vertically opposite each other, so both read $106^\\circ$.',
+              'Hence $106^\\circ$, $74^\\circ$, $106^\\circ$ \u2014 checks: $74 + 106 = 180$ along each of the two lines.',
+            ],
+          },
+          { kind: 'heading', text: 'The corresponding-angles axiom: where parallelism enters' },
+          {
+            kind: 'para',
+            text: 'Everything so far \u2014 the eight names, the linear-pair law, the vertically-opposite theorem \u2014 asked nothing of the two crossed lines. Cut a transversal across two lines that meet somewhere far off the paper, and every statement of the last two sections still holds. Parallelism now enters, and it enters as an **assumption**: the one place in this lesson where the book asserts rather than derives.',
+          },
+          {
+            kind: 'para',
+            text: 'When $l$ and $m$ are parallel, the four corresponding pairs are equal: $\\angle 1 = \\angle 5$, $\\angle 2 = \\angle 6$, $\\angle 3 = \\angle 7$, $\\angle 4 = \\angle 8$. This book\u2019s script swept the claim over transversals of six different slopes \u2014 at every slope, all four pairs equal to the last decimal. But a sweep can only *check*, never *prove*: the fact is genuinely an axiom, Euclid\u2019s fifth postulate wearing school dress. Euclid needed precisely this content as a postulate in his Elements; two thousand years of attempts to prove it from tamer assumptions ended in the discovery that it cannot be done (the historical callout tells that story). The schoolroom takes it as the corresponding-angles axiom and pays exactly one assumption for the whole parallel-angle machinery.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'The corresponding-angles axiom',
+            text: 'If two **parallel** lines are cut by a transversal, each pair of **corresponding angles** is equal. Thus, in figure 1 with $l \\parallel m$: $\\angle 1 = \\angle 5$, $\\angle 2 = \\angle 6$, $\\angle 3 = \\angle 7$, $\\angle 4 = \\angle 8$. This is the school form of Euclid\u2019s fifth postulate \u2014 assumed, not proved; every other parallel-angle fact of this lesson derives from it.',
+          },
+          {
+            kind: 'para',
+            text: 'With the axiom in place, the whole scene folds up. Corresponding equality, chained through the crossing theorems, forces the eight angles into two four-angle families: all four acute angles equal, all four obtuse equal, each acute the supplement of each obtuse. A scene with non-parallel lines spreads over four distinct measures (the script\u2019s sweep confirms four on sloped pairs); the moment the lines are parallel, two. The ledger:',
+          },
+          {
+            kind: 'equation',
+            latex: 'l \\parallel m,\\ t \\text{ a transversal} \\;\\Longrightarrow\\; \\angle\\text{corr} = \\angle\\text{corr}, \\quad \\angle\\text{alt} = \\angle\\text{alt}, \\quad \\angle\\text{co-int} + \\angle\\text{co-int} = 180^\\circ',
+            note: 'the three forward consequences, proved below: corresponding angles equal by the axiom; alternate interior equal via the vertically-opposite theorem; co-interior supplementary via the linear-pair law.',
+          },
+          {
+            kind: 'derivation',
+            title: 'Alternate interior angles are equal',
+            statement:
+              'With $l \\parallel m$ cut by $t$ at $P$ and $Q$: claim $\\angle 3 = \\angle 5$ (and likewise $\\angle 4 = \\angle 6$).',
+            steps: [
+              {
+                label: 'Corresponding pair',
+                formula: '\\angle 3 = \\angle 7',
+                explanation:
+                  'The axiom at work: angle 3 at the upper crossing corresponds to angle 7 at the lower \u2014 both below their lines, both on the same side of $t$.',
+              },
+              {
+                label: 'Vertically opposite at Q',
+                formula: '\\angle 7 = \\angle 5',
+                explanation:
+                  'Angles 7 and 5 are the diagonal pair at the crossing $Q$ \u2014 the crossing theorem, which needs no parallelism.',
+              },
+              {
+                label: 'Chain the two',
+                formula: '\\angle 3 = \\angle 7 = \\angle 5',
+                explanation:
+                  'Equality chains: 3 equals 7 equals 5. The pair $(3, 5)$ sits inside the band on opposite sides of $t$ \u2014 alternate interior angles, equal.',
+              },
+            ],
+            result:
+              'With parallels, alternate interior angles are equal: $\\angle 3 = \\angle 5$ and $\\angle 4 = \\angle 6$. Euclid proves exactly this as Proposition I.29 \u2014 the first proposition of the Elements that needs the fifth postulate.',
+          },
+          {
+            kind: 'derivation',
+            title: 'Co-interior angles are supplementary',
+            statement:
+              'With $l \\parallel m$ cut by $t$: claim $\\angle 3 + \\angle 6 = 180^\\circ$ (and likewise $\\angle 4 + \\angle 5 = 180^\\circ$).',
+            steps: [
+              {
+                label: 'Corresponding pair',
+                formula: '\\angle 3 = \\angle 7',
+                explanation: 'The axiom again \u2014 the same corresponding pair as in the last derivation.',
+              },
+              {
+                label: 'Linear pair at Q',
+                formula: '\\angle 6 + \\angle 7 = 180^\\circ',
+                explanation: 'Angles 6 and 7 sit side by side along $m$: a linear pair, parallel or not.',
+              },
+              {
+                label: 'Substitute the equal',
+                formula: '\\angle 3 + \\angle 6 = \\angle 7 + \\angle 6 = 180^\\circ',
+                explanation:
+                  'Replace 3 by its equal 7: the co-interior pair $(3, 6)$ \u2014 same side of $t$, inside the band \u2014 sums to the straight angle.',
+              },
+            ],
+            result:
+              'With parallels, co-interior (allied) angles are supplementary: $\\angle 3 + \\angle 6 = 180^\\circ$ and $\\angle 4 + \\angle 5 = 180^\\circ$. The two interior angles on one side of the transversal always fill the straight angle between them.',
+          },
+          {
+            kind: 'para',
+            text: 'The three parallel-scene patterns have handed-down names in every examination hall, taken from the letter the two marked angles draw. Figure 2 shows all three, drawn to scale with the transversal at $60^\\circ$ to the parallels.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'The three memory patterns, each a scene of parallels cut by a transversal at $60^\\circ$. F: corresponding angles sit in the same position at the two crossings \u2014 here $120^\\circ$ and $120^\\circ$; equal. Z: alternate interior angles sit inside the band on opposite sides of the transversal \u2014 here $60^\\circ$ and $60^\\circ$; equal. C: co-interior angles sit inside the band on the same side \u2014 here $60^\\circ$ and $120^\\circ$; supplementary, since $60 + 120 = 180$.',
+            svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three panels F, Z and C showing corresponding, alternate interior and co-interior angle pairs formed by a transversal crossing two parallel lines">
+  <text x="30" y="66" font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle">F</text>
+  <line x1="60" y1="90" x2="200" y2="90" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="60,90 71,85.5 71,94.5" fill="currentColor"/>
+  <polygon points="200,90 189,94.5 189,85.5" fill="currentColor"/>
+  <line x1="60" y1="210" x2="200" y2="210" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="60,210 71,205.5 71,214.5" fill="currentColor"/>
+  <polygon points="200,210 189,214.5 189,205.5" fill="currentColor"/>
+  <line x1="61.34" y1="25" x2="185.47" y2="240" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="61.34,25 70.74,32.28 62.94,36.78" fill="currentColor"/>
+  <polygon points="185.47,240 176.07,232.72 183.87,228.22" fill="currentColor"/>
+  <path d="M 90.87 76.14 A 16 16 0 0 1 114.87 90" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 160.15 196.14 A 16 16 0 0 1 184.15 210" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <text x="114.87" y="66.3" font-size="12.5" fill="currentColor" text-anchor="middle">120°</text>
+  <text x="184.15" y="186.3" font-size="12.5" fill="currentColor" text-anchor="middle">120°</text>
+  <text x="130" y="274" font-size="12.5" fill="currentColor" text-anchor="middle">F — corresponding: equal</text>
+  <text x="280" y="66" font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle">Z</text>
+  <line x1="310" y1="90" x2="450" y2="90" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="310,90 321,85.5 321,94.5" fill="currentColor"/>
+  <polygon points="450,90 439,94.5 439,85.5" fill="currentColor"/>
+  <line x1="310" y1="210" x2="450" y2="210" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="310,210 321,205.5 321,214.5" fill="currentColor"/>
+  <polygon points="450,210 439,214.5 439,205.5" fill="currentColor"/>
+  <line x1="311.34" y1="25" x2="435.47" y2="240" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="311.34,25 320.74,32.28 312.94,36.78" fill="currentColor"/>
+  <polygon points="435.47,240 426.07,232.72 433.87,228.22" fill="currentColor"/>
+  <path d="M 364.87 90 A 16 16 0 0 1 356.87 103.86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 402.15 210 A 16 16 0 0 1 410.15 196.14" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <text x="388.7" y="117" font-size="12.5" fill="currentColor" text-anchor="middle">60°</text>
+  <text x="360" y="184" font-size="12.5" fill="currentColor" text-anchor="middle">60°</text>
+  <text x="380" y="274" font-size="12.5" fill="currentColor" text-anchor="middle">Z — alternate interior: equal</text>
+  <text x="530" y="66" font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle">C</text>
+  <line x1="560" y1="90" x2="700" y2="90" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="560,90 571,85.5 571,94.5" fill="currentColor"/>
+  <polygon points="700,90 689,94.5 689,85.5" fill="currentColor"/>
+  <line x1="560" y1="210" x2="700" y2="210" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="560,210 571,205.5 571,214.5" fill="currentColor"/>
+  <polygon points="700,210 689,214.5 689,205.5" fill="currentColor"/>
+  <line x1="561.34" y1="25" x2="685.47" y2="240" stroke="currentColor" stroke-width="1.8"/>
+  <polygon points="561.34,25 570.74,32.28 562.94,36.78" fill="currentColor"/>
+  <polygon points="685.47,240 676.07,232.72 683.87,228.22" fill="currentColor"/>
+  <path d="M 614.87 90 A 16 16 0 0 1 606.87 103.86" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 660.15 196.14 A 16 16 0 0 1 684.15 210" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <text x="638.7" y="117" font-size="12.5" fill="currentColor" text-anchor="middle">60°</text>
+  <text x="694" y="179" font-size="12.5" fill="currentColor" text-anchor="middle">120°</text>
+  <text x="630" y="274" font-size="12.5" fill="currentColor" text-anchor="middle">C — co-interior: supplementary</text>
+</svg>`,
+          },
+          { kind: 'heading', text: 'The parallel tests: reading the scene backward' },
+          {
+            kind: 'para',
+            text: 'Run backward, the same three facts become the working parallel tests: measure one well-chosen pair, and the lines confess. The converse of the axiom \u2014 equal corresponding angles force parallels \u2014 stands as an axiom in its own right in the school treatment; the other two tests then come free, chained through the crossing theorems. No new assumptions anywhere.',
+          },
+          {
+            kind: 'callout',
+            tone: 'theorem',
+            title: 'The three parallel tests',
+            text: 'Two lines cut by a transversal are **parallel** when any one of these holds: (i) a pair of **corresponding angles** is equal; (ii) a pair of **alternate interior angles** is equal; (iii) a pair of **co-interior angles** is supplementary. Each condition is the forward fact run in reverse, and each is an *if and only if*: the lines are parallel exactly when the condition holds.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The co-interior test chains through the others',
+            statement:
+              'Two lines are cut by a transversal; a co-interior pair measures $\\angle 3$ and $\\angle 6$, and $\\angle 3 + \\angle 6 = 180^\\circ$. Claim: the lines are parallel.',
+            steps: [
+              {
+                label: 'Linear pair at Q',
+                formula: '\\angle 5 + \\angle 6 = 180^\\circ',
+                explanation: 'Angles 5 and 6 sit side by side along the lower line \u2014 a linear pair, parallel or not.',
+              },
+              {
+                label: 'Supplements of one angle',
+                formula: '\\angle 3 = 180^\\circ - \\angle 6 = \\angle 5',
+                explanation:
+                  'Both 3 and 5 are supplements of the same $\\angle 6$, so they are equal \u2014 the alternate-interior equality recovered.',
+              },
+              {
+                label: 'Corresponding via the crossing',
+                formula: '\\angle 1 = \\angle 3 = \\angle 5',
+                explanation:
+                  'Angles 1 and 3 are vertically opposite; chain once more and the corresponding pair $(1, 5)$ comes out equal.',
+              },
+              {
+                label: 'Apply the converse axiom',
+                formula: 'l \\parallel m',
+                explanation:
+                  'Equal corresponding angles force the parallels \u2014 the converse of the corresponding-angles axiom, the school treatment\u2019s second standing assumption.',
+              },
+            ],
+            result:
+              'Supplementary co-interior angles certify the parallels. The alternate-interior test chains the same way (equal alternates give equal correspondings through one vertically-opposite step), so one axiom pair \u2014 forward and converse \u2014 carries all three tests.',
+          },
+          {
+            kind: 'equation',
+            latex: '\\angle\\text{corr} = \\angle\\text{corr} \\;\\Longleftrightarrow\\; l \\parallel m \\;\\Longleftrightarrow\\; \\angle\\text{alt} = \\angle\\text{alt} \\;\\Longleftrightarrow\\; \\angle\\text{co-int} + \\angle\\text{co-int} = 180^\\circ',
+            note: 'the three tests are biconditionals \u2014 each equivalent to parallelism itself. The script swept both directions over five slopes for the second line: each condition held exactly when the slopes agreed, and never otherwise.',
+          },
+          {
+            kind: 'callout',
+            tone: 'insight',
+            title: 'Exactly one parallel through a point',
+            text: 'The tests hide a uniqueness. Given a line $l$ and a point $Q$ not on it, draw any transversal through $Q$: the test says the parallel through $Q$ is the one line making the corresponding angle equal \u2014 so **at most one** parallel to $l$ passes through $Q$ (and drawing one is easy, so exactly one). Proclus stated this in his commentary on Euclid (c. 450 AD); William Ludlam phrased it crisply in 1785; and John Playfair\u2019s 1795 edition of Euclid made it famous as **Playfair\u2019s axiom** \u2014 the modern textbook\u2019s favourite stand-in for Euclid\u2019s fifth postulate.',
+          },
+          {
+            kind: 'example',
+            title: 'In figure 1\u2019s scene $l \\parallel m$ and $\\angle 4 = 130^\\circ$. Find all seven remaining angles, naming the reason in each case.',
+            steps: [
+              'Now, $\\angle 2$ is vertically opposite $\\angle 4$: $130^\\circ$.',
+              'So the linear partners at $P$ are the supplements: $\\angle 1 = 180 - 130 = 50^\\circ$ and $\\angle 3 = 50^\\circ$.',
+              'And the axiom carries the reading across: $\\angle 8$ corresponds to $\\angle 4$, so $130^\\circ$; $\\angle 7$ corresponds to $\\angle 3$, so $50^\\circ$.',
+              'Now, $\\angle 5$ is the alternate partner of $\\angle 3$: $50^\\circ$; and $\\angle 6$ is co-interior with $\\angle 3$: $180 - 50 = 130^\\circ$.',
+              'Hence $50, 130, 50, 130, 50, 130, 50, 130$ \u2014 two distinct measures in two four-angle families, every adjacent sum $180^\\circ$.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'Two parallel lines are cut by a transversal, and a pair of co-interior angles stand in the ratio $2 : 3$. Find both angles.',
+            steps: [
+              'Now, co-interior angles sum to $180^\\circ$: name them $2k$ and $3k$.',
+              'So $2k + 3k = 180$, giving $5k = 180$ and $k = 36$.',
+              'And the angles are $2 \\times 36 = 72^\\circ$ and $3 \\times 36 = 108^\\circ$.',
+              'Hence $72^\\circ$ and $108^\\circ$ \u2014 checks: $72 + 108 = 180$, and $72 : 108 = 2 : 3$.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'A transversal cuts two lines, and the co-interior angles on one side of it measure $74^\\circ$ and $106^\\circ$. Are the lines parallel?',
+            steps: [
+              'Now, the co-interior sum: $74 + 106 = 180^\\circ$ exactly.',
+              'So the co-interior test fires: supplementary co-interior angles certify parallels.',
+              'Hence yes \u2014 the lines are parallel, by test (iii) alone; no other measurement is needed.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'The acute and the obtuse angle of a parallel-transversal scene measure $(x + 85)^\\circ$ and $(2x - 25)^\\circ$. Find $x$ and both angles.',
+            steps: [
+              'Now, an acute and an obtuse angle of the scene are linear partners: their measures sum to $180^\\circ$.',
+              'So $(x + 85) + (2x - 25) = 180$, giving $3x + 60 = 180$ and $x = 40$.',
+              'And the angles: $40 + 85 = 125^\\circ$ (the obtuse one) and $80 - 25 = 55^\\circ$ (the acute one).',
+              'Hence $x = 40$, the angles $125^\\circ$ and $55^\\circ$ \u2014 checks: $125 + 55 = 180$, and the sizes fit the names.',
+            ],
+          },
+          {
+            kind: 'example',
+            title: 'How many of the 28 pairs among the scene\u2019s eight angles carry a special name? Break the census down.',
+            steps: [
+              'Now, the scene holds $\\frac{8 \\times 7}{2} = 28$ unordered pairs \u2014 8.1\u2019s pair law cashed at $n = 8$.',
+              'So the named families count: $8$ linear $+\\ 4$ vertically opposite $+\\ 4$ corresponding $+\\ 2$ alternate interior $+\\ 2$ alternate exterior $+\\ 2$ co-interior $+\\ 2$ co-exterior $= 24$.',
+              'And $28 - 24 = 4$ pairs stay unnamed \u2014 each pairs one exterior angle with one interior angle on the same side of $t$: no relation, no theorem.',
+              'Hence 24 named and 4 unnamed among 28 \u2014 the census of the whole scene in one line.',
+            ],
+          },
+          {
+            kind: 'para',
+            text: 'From the above discussion, it follows that the transversal\u2019s whole story is a short ledger:',
+          },
+          {
+            kind: 'list',
+            marker: 'roman',
+            items: [
+              'a transversal crosses two or more lines at distinct points; two crossings make eight angles \u2014 four interior, four exterior \u2014 and $28$ pairs, $24$ of them named;',
+              'a linear pair fills the straight angle: adjacent angles on a line sum to $180^\\circ$, no parallelism required;',
+              'vertically opposite angles are equal \u2014 two linear pairs and a cancellation, at every crossing;',
+              'with $l \\parallel m$: corresponding angles are equal (the axiom \u2014 Euclid\u2019s fifth postulate in school dress), alternate interior angles are equal, and co-interior angles are supplementary \u2014 the eight angles fold into two equal families;',
+              'run backward, the same three statements are the parallel tests \u2014 equal corresponding, equal alternate interior, or supplementary co-interior, any one certifies $l \\parallel m$.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'exam',
+            title: 'Angle chases in the examination hall',
+            text: 'The transversal scene is among the most-drilled figures in the competitive banks. The recurring shapes: read-all-eight from one number; the find-$x$ co-interior algebra ($(2x + 15)^\\circ$ with $(x + 45)^\\circ$, and cousins); corresponding-pair equations that end in a parallel verdict; ratio items (co-interior angles in $2 : 3$ or $1 : 3$); and the counting questions (how many angles, how many distinct measures). SSC CHSL and MTS papers favour the single-crossing linear-pair and vertically-opposite reads; RRB NTPC CBT-I the find-$x$ chases and the are-they-parallel verdicts; banking clerical prelims the quick supplement reads \u2014 the shapes cited here are the banks\u2019 recurring patterns, none reproduced. The memory hooks travel well and are worth banking: **F** for corresponding, **Z** for alternate interior, **C** for co-interior \u2014 spot the letter in the figure and the verdict follows.',
+          },
+          {
+            kind: 'callout',
+            tone: 'historical',
+            title: 'The postulate that took two thousand years',
+            text: 'Euclid\u2019s Elements (c. 300 BCE) states the parallel assumption in its full dress as **Postulate 5**: \u201cThat, if a straight line falling on two straight lines makes the interior angles on the same side less than two right angles, the two straight lines, if produced indefinitely, meet on that side on which are the angles less than the two right angles.\u201d The Elements itself seems to have felt the awkwardness: Proposition I.27 \u2014 equal alternate angles force parallels \u2014 is proved *without* the postulate, while I.29, the forward direction, is the first place in the whole work where Postulate 5 is ever used. For two thousand years mathematicians tried to earn the postulate from the other four. Proclus (c. 450 AD) already apologised for it and stated the modern form; Ludlam (1785) and Playfair (1795, *Elements of Geometry*) gave the crisp versions \u2014 through a point not on a line passes at most one parallel. The end of the story came from outside every attempt: Nikolai Lobachevsky (lecture at Kazan, 1826; published 1829\u201330) and J\u00e1nos Bolyai (1832 appendix) independently built complete, consistent geometries in which the postulate *fails* \u2014 through the point pass infinitely many parallels \u2014 while Gauss had explored the same territory privately and published nothing. The postulate, they showed, is not a hidden theorem but a genuine choice; deny it, and another geometry answers. A later book in this library visits that world. The schoolroom keeps Euclid\u2019s choice \u2014 and this lesson\u2019s single axiom is its entire price.',
+          },
+          {
+            kind: 'terms',
+            items: [
+              {
+                term: 'Transversal',
+                def: 'A line that crosses two or more other lines at distinct points; the instrument that makes parallelism measurable.',
+              },
+              {
+                term: 'Interior angles',
+                def: 'The four angles of the transversal scene that live in the band between the two crossed lines \u2014 angles 3, 4, 5, 6 of figure 1.',
+              },
+              {
+                term: 'Exterior angles',
+                def: 'The four angles living outside the band \u2014 angles 1, 2, 7, 8 of figure 1.',
+              },
+              {
+                term: 'Linear pair',
+                def: 'Two adjacent angles whose non-common arms are opposite rays of one line; their measures always sum to 180\u00b0.',
+              },
+              {
+                term: 'Vertically opposite angles',
+                def: 'The diagonal pair made by two crossing lines \u2014 equal at every crossing, proved from two linear pairs.',
+              },
+              {
+                term: 'Corresponding angles',
+                def: 'One angle at each crossing in the same position (the F pattern); equal when the lines are parallel \u2014 the corresponding-angles axiom.',
+              },
+              {
+                term: 'Alternate interior angles',
+                def: 'A pair inside the band on opposite sides of the transversal (the Z pattern); equal when the lines are parallel.',
+              },
+              {
+                term: 'Alternate exterior angles',
+                def: 'The outside cousins of the alternate interior pairs (angles 1 and 7, 2 and 8); equal when the lines are parallel.',
+              },
+              {
+                term: 'Co-interior angles',
+                def: 'A pair inside the band on the same side of the transversal (the C pattern, also called allied or consecutive interior); supplementary when the lines are parallel.',
+              },
+              {
+                term: 'The parallel tests',
+                def: 'Equal corresponding, equal alternate interior, or supplementary co-interior angles \u2014 each alone certifies that the cut lines are parallel; each is an if-and-only-if.',
+              },
+              {
+                term: 'Playfair\u2019s axiom',
+                def: 'Through a point not on a line there passes at most one parallel to the line \u2014 Proclus\u2019 statement, Ludlam\u2019s phrasing (1785), Playfair\u2019s fame (1795); equivalent to Euclid\u2019s fifth postulate.',
+              },
+            ],
+          },
+          {
+            kind: 'quiz',
+            title: 'Check yourself',
+            items: [
+              {
+                q: 'A line that crosses two or more other lines at distinct points is called \u2014',
+                options: ['a concurrent line', 'a transversal', 'a parallel line', 'a perpendicular bisector'],
+                answer: 1,
+                explain: 'The transversal is the cutter. \u201cConcurrent\u201d describes three or more lines through ONE point (8.1\u2019s census), \u201cparallel\u201d describes the never-meeting pair itself, and a perpendicular bisector is a segment\u2019s right-angle cutter \u2014 none of them names the crossing line.',
+              },
+              {
+                q: 'One angle of a linear pair measures $74^\\circ$. The other measures \u2014',
+                options: ['$16^\\circ$', '$74^\\circ$', '$106^\\circ$', '$286^\\circ$'],
+                answer: 2,
+                explain: '$180 - 74 = 106^\\circ$: a linear pair fills the straight angle. The traps: $16^\\circ$ is the complement ($90 - 74$), $74^\\circ$ is the vertically-opposite value, and $286^\\circ = 360 - 74$ is the reflex remainder \u2014 none of them is a supplement.',
+              },
+              {
+                q: 'Two lines cross, and one of the four angles measures $57^\\circ$. The angle vertically opposite it measures \u2014',
+                options: ['$123^\\circ$', '$57^\\circ$', '$47^\\circ$', '$133^\\circ$'],
+                answer: 1,
+                explain: 'Vertically opposite angles are equal: $57^\\circ$. The supplements ($180 - 57 = 123^\\circ$) belong to the linear partners \u2014 the two options near it are the supplement traps.',
+              },
+              {
+                q: '$l \\parallel m$ are cut by a transversal. One co-interior angle measures $68^\\circ$. Its co-interior partner measures \u2014',
+                options: ['$112^\\circ$', '$68^\\circ$', '$22^\\circ$', '$90^\\circ$'],
+                answer: 0,
+                explain: 'Co-interior angles are supplementary with parallels: $180 - 68 = 112^\\circ$. The trap $68^\\circ$ is the ALTERNATE partner\u2019s value \u2014 the Z pattern gives equality, the C pattern gives $180^\\circ$; $22^\\circ$ subtracts from 90 out of habit.',
+              },
+              {
+                q: 'A transversal cuts two lines so that one pair of corresponding angles is equal. Then the two lines are \u2014',
+                options: ['intersecting at exactly two points', 'perpendicular', 'parallel', 'concurrent'],
+                answer: 2,
+                explain: 'Equal corresponding angles are the first parallel test: the lines are parallel. \u201cIntersecting at exactly two points\u201d is impossible outright \u2014 8.1\u2019s two-point rule caps distinct lines at one common point \u2014 and perpendicularity and concurrency are different conditions the scene never asserted.',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises 8.3',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'In the numbered scene of figure 1, list the angles that live in the interior band, and the four that live in the exteriors.',
+                    solution: [
+                      'Now, the interior band runs between the two crossed lines: the angles opening into it are $\\angle 3$ and $\\angle 4$ below $l$, and $\\angle 5$ and $\\angle 6$ above $m$.',
+                      'So the interior is $\\{3, 4, 5, 6\\}$.',
+                      'And the exteriors take the rest: $\\angle 1$ and $\\angle 2$ above $l$, $\\angle 7$ and $\\angle 8$ below $m$.',
+                      'Hence interior $\\{3,4,5,6\\}$; exterior $\\{1,2,7,8\\}$ \u2014 four and four, as the figure\u2019s tinted band shows.',
+                    ],
+                    answer: 'interior $\\{3,4,5,6\\}$; exterior $\\{1,2,7,8\\}$',
+                  },
+                  {
+                    q: 'At a single crossing, one angle measures $118^\\circ$. Find the angle vertically opposite it, and both linear partners.',
+                    solution: [
+                      'Now, the vertically opposite partner equals the given angle: $118^\\circ$.',
+                      'So each linear partner is the supplement: $180 - 118 = 62^\\circ$ \u2014 and the two partners are themselves vertically opposite, both $62^\\circ$.',
+                      'Hence $118^\\circ$, $62^\\circ$, $62^\\circ$ \u2014 checks: $118 + 62 = 180$ along each of the two lines.',
+                    ],
+                    answer: '$118^\\circ$; linear partners $62^\\circ$ and $62^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'In figure 1\u2019s scene $l \\parallel m$ and $\\angle 1 = 35^\\circ$. Find $\\angle 5$, $\\angle 6$, $\\angle 7$ and $\\angle 8$, with reasons.',
+                    solution: [
+                      'Now, at the upper crossing: $\\angle 2 = 180 - 35 = 145^\\circ$ (linear pair), $\\angle 3 = 35^\\circ$ and $\\angle 4 = 145^\\circ$ (vertically opposite).',
+                      'So the axiom carries the upper reading to the lower crossing: $\\angle 5 = \\angle 1 = 35^\\circ$ and $\\angle 6 = \\angle 2 = 145^\\circ$ (corresponding pairs).',
+                      'And likewise $\\angle 7 = \\angle 3 = 35^\\circ$ and $\\angle 8 = \\angle 4 = 145^\\circ$ (corresponding pairs).',
+                      'Hence $35^\\circ, 145^\\circ, 35^\\circ, 145^\\circ$ \u2014 the two-family fold; check: every adjacent sum is $180^\\circ$.',
+                    ],
+                    answer: '$\\angle 5 = 35^\\circ$, $\\angle 6 = 145^\\circ$, $\\angle 7 = 35^\\circ$, $\\angle 8 = 145^\\circ$',
+                  },
+                  {
+                    q: 'With $l \\parallel m$, $\\angle 3 = 76^\\circ$. Find its alternate partner, its co-interior partner, and its linear partner.',
+                    solution: [
+                      'Now, the alternate partner: $\\angle 5 = \\angle 3 = 76^\\circ$ (alternate interior with parallels).',
+                      'So the co-interior partner: $\\angle 6 = 180 - 76 = 104^\\circ$ (co-interior supplementary).',
+                      'And the linear partner at the same crossing: $\\angle 4 = 180 - 76 = 104^\\circ$ \u2014 indeed $\\angle 4 = \\angle 6$, the corresponding pair, as it should be.',
+                      'Hence $76^\\circ$, $104^\\circ$, $104^\\circ$.',
+                    ],
+                    answer: '$\\angle 5 = 76^\\circ$; $\\angle 6 = 104^\\circ$; $\\angle 4 = 104^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'A pair of co-interior angles stand in the ratio $1 : 3$. Find both angles.',
+                    solution: [
+                      'Now, name them $x$ and $3x$: co-interior angles sum to $180^\\circ$ when the lines are parallel.',
+                      'So $x + 3x = 180$, giving $4x = 180$ and $x = 45$.',
+                      'And the angles are $45^\\circ$ and $135^\\circ$ \u2014 checks: $45 + 135 = 180$ and $135 = 3 \\times 45$.',
+                      'Hence $45^\\circ$ and $135^\\circ$.',
+                    ],
+                    answer: '$45^\\circ$ and $135^\\circ$',
+                  },
+                  {
+                    q: 'Co-interior angles measure $(2x + 15)^\\circ$ and $(x + 45)^\\circ$. Find $x$ and both angles.',
+                    solution: [
+                      'Now, the co-interior sum reads as an equation: $(2x + 15) + (x + 45) = 180$.',
+                      'So $3x + 60 = 180$, giving $3x = 120$ and $x = 40$.',
+                      'And the angles: $2 \\times 40 + 15 = 95^\\circ$ and $40 + 45 = 85^\\circ$ \u2014 check: $95 + 85 = 180$.',
+                      'Hence $x = 40$; the angles $95^\\circ$ and $85^\\circ$.',
+                    ],
+                    answer: '$x = 40$; $95^\\circ$ and $85^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'A transversal cuts two lines so that a pair of corresponding angles measures $(2x + 30)^\\circ$ and $(3x - 10)^\\circ$. Find $x$, both angles, and decide whether the lines are parallel.',
+                    solution: [
+                      'Now, set the corresponding pair equal and solve: $2x + 30 = 3x - 10$.',
+                      'So $x = 40$, and both angles measure $2 \\times 40 + 30 = 110^\\circ$ \u2014 check the other: $3 \\times 40 - 10 = 110$, the same.',
+                      'And equal corresponding angles are precisely the first parallel test: the lines ARE parallel.',
+                      'Hence $x = 40$, both angles $110^\\circ$, and the lines parallel by test (i).',
+                    ],
+                    answer: '$x = 40$; both angles $110^\\circ$; the lines are parallel',
+                  },
+                  {
+                    q: 'At one crossing of a parallel-transversal scene, one angle is three times its linear partner. Find all eight angles of the scene.',
+                    solution: [
+                      'Now, name the smaller angle $x$: the larger is $3x$, and a linear pair gives $x + 3x = 180$.',
+                      'So $4x = 180$ and $x = 45$: the upper crossing reads $45^\\circ, 135^\\circ, 45^\\circ, 135^\\circ$ in order (the vertically opposite pairs).',
+                      'And the corresponding-angles axiom folds the lower crossing identically: $45^\\circ, 135^\\circ, 45^\\circ, 135^\\circ$.',
+                      'Hence $\\angle 1 = \\angle 3 = \\angle 5 = \\angle 7 = 45^\\circ$ and $\\angle 2 = \\angle 4 = \\angle 6 = \\angle 8 = 135^\\circ$ \u2014 check: every adjacent sum is $180^\\circ$.',
+                    ],
+                    answer: '$45^\\circ$ family $\\{1,3,5,7\\}$; $135^\\circ$ family $\\{2,4,6,8\\}$',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'A transversal crosses three parallel lines. How many angles does the scene contain, and how many distinct measures?',
+                    solution: [
+                      'Now, each crossing makes four angles: $3 \\times 4 = 12$ angles in all.',
+                      'So the same transversal makes the same angle with every parallel line: every acute angle in the scene equals every other acute angle, and the obtuse ones match likewise.',
+                      'And two families exhaust the scene \u2014 the acute measure and its supplement.',
+                      'Hence $12$ angles and exactly $2$ distinct measures: the two-line fold carried to three parallels.',
+                    ],
+                    answer: '$12$ angles; $2$ distinct measures',
+                  },
+                  {
+                    q: 'Co-interior angles measure $70^\\circ$ and $\\left(\\frac{x}{2} + 65\\right)^\\circ$. Find $x$ and the second angle.',
+                    solution: [
+                      'Now, the co-interior sum: $70 + \\frac{x}{2} + 65 = 180$.',
+                      'So $\\frac{x}{2} = 45$, giving $x = 90$.',
+                      'And the second angle: $\\frac{90}{2} + 65 = 110^\\circ$ \u2014 check: $70 + 110 = 180$.',
+                      'Hence $x = 90$; the co-interior partner $110^\\circ$.',
+                    ],
+                    answer: '$x = 90$; partner $110^\\circ$',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'Two lines are cut by a transversal, and a pair of co-interior angles is supplementary. Prove that the lines are parallel, quoting each theorem used.',
+                    solution: [
+                      'Now, let the co-interior pair be $\\angle 3$ and $\\angle 6$ with $\\angle 3 + \\angle 6 = 180^\\circ$.',
+                      'So at the lower crossing $\\angle 5 + \\angle 6 = 180^\\circ$ (linear pair): both $\\angle 3$ and $\\angle 5$ are supplements of the same $\\angle 6$, so $\\angle 3 = \\angle 5$.',
+                      'And at the upper crossing $\\angle 1 = \\angle 3$ (vertically opposite), so $\\angle 1 = \\angle 5$: a corresponding pair, equal.',
+                      'Hence by the converse axiom \u2014 equal corresponding angles force parallels \u2014 the lines are parallel: one linear pair, one cancellation, one crossing theorem, one axiom.',
+                    ],
+                    answer: 'co-int supp $\\Rightarrow$ $\\angle 3 = \\angle 5$ (supplements of $\\angle 6$) $\\Rightarrow$ $\\angle 1 = \\angle 5$ (VO) $\\Rightarrow$ $l \\parallel m$ (converse axiom)',
+                  },
+                  {
+                    q: 'A transversal cuts two lines, and a pair of co-exterior angles measures $96^\\circ$ and $84^\\circ$. Are the lines parallel? If so, read all eight angles.',
+                    solution: [
+                      'Now, the co-exterior sum: $96 + 84 = 180^\\circ$ \u2014 the test-shaped fact; the chain: the linear partner of the $84^\\circ$ angle at its crossing measures $180 - 84 = 96^\\circ$, which corresponds to the given $96^\\circ$ angle.',
+                      'So the corresponding pair is equal, and the converse axiom certifies the parallels.',
+                      'And the scene folds: $\\angle 1 = \\angle 3 = \\angle 5 = \\angle 7 = 96^\\circ$ and $\\angle 2 = \\angle 4 = \\angle 6 = \\angle 8 = 84^\\circ$ \u2014 check: $\\angle 8$ was given as $84^\\circ$, consistent.',
+                      'Hence parallel; the eight angles read $96, 84, 96, 84, 96, 84, 96, 84$ \u2014 every adjacent sum $180^\\circ$, both families verified.',
+                    ],
+                    answer: 'parallel; $\\{1,3,5,7\\} = 96^\\circ$, $\\{2,4,6,8\\} = 84^\\circ$',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
   ],
 }

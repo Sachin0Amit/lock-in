@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 01:27:42 (Asia/Kolkata)",
+  "generated": "2026-11-05 02:32:08 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -774,7 +774,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5011,
+                "words": 5046,
                 "readMins": 25,
                 "concepts": [
                   "Common multiples of two numbers",
@@ -898,7 +898,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 27956
+            "words": 27991
           },
           {
             "number": 4,
@@ -2235,9 +2235,8 @@
             "title": "Geometry Foundations",
             "summary": "The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Parallel Lines and Transversals",
               "Triangles and the Angle Sum",
               "Perimeter and Area of Rectangles, Triangles and Circles"
             ],
@@ -2375,9 +2374,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 11
+              },
+              {
+                "id": "fm-parallel-lines-and-transversals",
+                "number": "8.3",
+                "title": "Parallel Lines and Transversals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5114,
+                "readMins": 26,
+                "concepts": [
+                  "The transversal",
+                  "The eight-angle scene",
+                  "Linear pair",
+                  "Vertically opposite angles",
+                  "Corresponding angles",
+                  "Alternate interior angles",
+                  "Co-interior (allied) angles",
+                  "The three parallel tests"
+                ],
+                "objectives": [
+                  "Define a transversal, name all eight angles it creates at two crossings, and sort them into the interior band and the two exteriors",
+                  "Prove the linear-pair law and the vertically-opposite theorem from 8.2’s straight-angle ledger — the two facts that hold at every crossing, parallel lines or not",
+                  "State the corresponding-angles axiom (the school dress of Euclid’s fifth postulate) and derive the alternate-interior and co-interior consequences from it",
+                  "Run the three parallel tests in both directions — to read every angle of a scene from one number, and to certify from measurements alone that two lines are parallel",
+                  "Count the scene’s 28 angle pairs into the named families and recognise the F, Z and C memory patterns in any examination figure"
+                ],
+                "prerequisites": [
+                  "fm-points-lines-and-planes",
+                  "fm-angles-and-their-measurement"
+                ],
+                "sources": [
+                  "ncert-math7-gp-ch5",
+                  "ncert-math9-ch6",
+                  "ncert-math6-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 5,
+                  "callout": 8,
+                  "figure": 2,
+                  "list": 2,
+                  "equation": 3,
+                  "derivation": 5,
+                  "example": 6,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "theorem": 3,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 11
               }
             ],
-            "words": 9805
+            "words": 14919
           },
           {
             "number": 9,
@@ -2450,12 +2517,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 87,
-      "totalLines": 30652,
+      "totalLines": 31398,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 21387,
+        "src/data/library (content model + books)": 22133,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -7424,6 +7491,93 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "6aed0f33c1e90960880850db0bfb422fec511197",
+      "short": "6aed0f3",
+      "date": "2026-11-04 19:59",
+      "message": "fm 8.2 angles and their measurement (unit 8, run 38): the angle defined as two rays + vertex in the is-said-to-be shape with the naming roman run (vertex-middle, outer letters commute) and the static-vs-dynamic Note; the degree ledger as equation tag 1 (full 360, half 180, quarter 90) with the honest Babylonian history (base 60, the sun's ~1 deg/day walk, nobody knows for certain) + the 24 divisors + the sexagesimal minutes/seconds; the five sizes (Euclid Defs 10-12 comparative -> degree ranges) with the witness table; figure 1 the five-sizes gallery drawn to scale (40/90/130/180/220 at vertices 76/228/380/532/660, ray arms with solid heads, arcs between the arms, the right-angle chevron); Postulate 4 and the square-corner mark; the smaller-turn convention Note (clock 9:00 -> 90 not 270); the protractor section with figure 2 (scale arc r=210, outer labels r=232, inner r=186, minor ticks every 10 deg, the long 50 tick collinear with the upper arm) and the two-scale trap Caution; Illustrations 1-5 (the protractor read outer 50 vs inner 130 with the acute sense check; the door reflex 360-115=245; comp/supp of 37 = 53/143; the 24-more-than-its-complement equation x=33 angle 57; the four-ray census 6); complementary/supplementary as equation tag 2 with the supp - comp = 90 deg identity derived (the x cancels, swept over every integer degree); the harvest roman ledger; the exam corner (clock speeds 30 deg/h = 0.5 deg/min and 6 deg/min); the historical callout (Euclid Defs 8/10-12 + Postulate 4; Babylonian 360; Huddart 1801 per Britannica; the radian forward pointer) - 4,560 words in the Cengage voice and solution chain; 11 terms, 5-quiz (keys 1/1/0/2/2 verified live 5/5), 12 exercises L1-L6 (L6: the identity proof cashed at 47 -> 133-43=90; five-times-its-supplement = 150 with the acute impossibility); verify-unit-8.ts EXTENDED 104 -> 189 checks (O-W) ALL PASS pre-writing (the pair census n=2..8, the 24-divisor enumeration, the classification sweep 0..360, the identity sweep, every clock/equation cash re-derived, both figures' label boxes swept >= 8 px from every stroke by exact point-to-segment distance) + e2e-82.page.js registered (24-lesson sweep exit 0 + dedicated 8.2 block: quiz live 5/5, 12/12 solutions, 36 collapsibles, KaTeX 338, dollarInText 0 after fixing the derivation step-label that carried $x$ in a plain-text slot, mobile 390 exact-fit); audits 0/0 both figures; VLM fig 1 9 math/9 clarity publishable as-is, fig 2 9 math/8 then 9/9 after two REAL fixes (the crossing dot on the arc - the long 50 tick hid under the collinear arm - and vertical end-stop ticks at 0/180, caption now discloses ticks-every-10); VOICE POLISH 3.3 (queued per-run extra): lesson 3.3's HCF Definition callout rewritten is-said-to-be (common factor d|a and d|b, HCF the greatest such d) + the Thus-line (gcd(48,60)=12 witness), zero new numerals, live-verified (KaTeX 264, errors 0); SOURCE_LOG gains ncert-math6-gp-ch2 (Ganita Prakash class-6 ch. 2 Lines and Angles, web-checked, zero downloads) + ledger row through ch. 8; logs + pointer + inventory updated (34 lessons / 160,149 words / 236 terms / 170 quiz / 365 exercises); ch. 8 open 2/5, next 8.3 parallel lines and transversals",
+      "filesChanged": 12,
+      "insertions": 1399,
+      "deletions": 58,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 15,
+          "del": 23
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 31,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 16,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 184,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-82.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-8.ts",
+          "add": 353,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-08.ts",
+          "add": 639,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c04670ad19999b6e36b9587b986d9faba8a2e7bf",
+      "short": "c04670a",
+      "date": "2026-11-04 19:59",
+      "message": "memory: run-38 synced sha recorded (6aed0f3) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 8 Geometry Foundations OPEN 2/5; next run 39 continues at FM 8.3 Parallel Lines and Transversals (extend verify-unit-8.ts with the transversal angle-pair sections first), voice polish 3.4 queued",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -7432,24 +7586,24 @@
     "booksLive": 1,
     "chaptersWritten": 7,
     "chaptersInProgress": 1,
-    "lessonsWritten": 34,
-    "wordsAuthored": 160149,
-    "termsDefined": 236,
-    "quizItems": 170,
-    "exerciseQuestions": 365,
+    "lessonsWritten": 35,
+    "wordsAuthored": 165298,
+    "termsDefined": 247,
+    "quizItems": 175,
+    "exerciseQuestions": 377,
     "blockTotals": {
-      "para": 517,
-      "callout": 196,
-      "heading": 216,
-      "list": 42,
-      "terms": 35,
-      "equation": 53,
-      "derivation": 59,
+      "para": 532,
+      "callout": 204,
+      "heading": 221,
+      "list": 44,
+      "terms": 36,
+      "equation": 56,
+      "derivation": 64,
       "table": 34,
-      "figure": 59,
-      "example": 166,
-      "quiz": 34,
-      "exercises": 34,
+      "figure": 61,
+      "example": 172,
+      "quiz": 35,
+      "exercises": 35,
       "formula": 72,
       "algorithm": 8
     }

@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "FM ch. 8 Geometry Foundations OPEN 2/5 (run 38 shipped 8.2 Angles and Their Measurement; next 8.3 Parallel Lines and Transversals)",
- "awaiting": "FM 8.2 'Angles and Their Measurement' (extend verify-unit-8 sections BEFORE writing; one lesson per run); queued voice polish 3.3 (then 3.4, 3.5, 4.1).",
+ "phase": "FM ch. 8 Geometry Foundations OPEN 3/5 (run 39 shipped 8.3 Parallel Lines and Transversals; next 8.4 Triangles and the Angle Sum)",
+ "awaiting": "FM 8.4 'Triangles and the Angle Sum' (extend verify-unit-8 sections BEFORE writing; one lesson per run); queued voice polish 3.5 (then 4.1).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -225,5 +225,14 @@
    "collapsibles": 36,
    "mobile": "390 exact-fit"
   }
+ },
+ "run39Extras": {
+  "lesson": "fm-parallel-lines-and-transversals (8.3, 5,114 words)",
+  "verify": "verify-unit-8.ts 189 -> 253 checks (X-AE): the transversal facts derived geometrically (half-plane classification of the 28 pairs swept over six slopes), the three parallel tests swept as biconditionals over five slopes of the second line, both figures label-swept",
+  "figures": "fig 1 the eight-angle scene (t-label relocated out of the title band after self-review; audits 0/0; VLM 10/10 math + 10/10 clarity), fig 2 the F/Z/C patterns (VLM 10/10 + 9/10, publishable as-is)",
+  "e2e": "25-lesson sweep exit 0; dedicated 8.3 block: quiz keys 1/2/1/0/2 live 5/5, 12/12 solutions, 18 Sol. pills, KaTeX 468, dollarInText 0, katex-errors 0, mobile 390 exact-fit",
+  "voicePolish": "3.4 done: lesson 3.4 LCM Definition rewritten is-said-to-be (a | m and b | m) + the Thus-line, zero new numerals; live-verified (katex 259, errors 0)",
+  "sources": "new citation keys ncert-math7-gp-ch5 (Ganita Prakash class-7 ch. 5 Parallel and Intersecting Lines) + ncert-math9-ch6 (class-9 ch. 6 Lines and Angles); history web-checked (Joyce Post. 5/I.27/I.29; Proclus, Ludlam 1785, Playfair 1795; Lobachevsky 1826/1829-30 + Bolyai 1832)",
+  "inventory": "35 lessons / 165,298 words / 247 terms / 175 quiz / 377 exercises"
  }
 }
