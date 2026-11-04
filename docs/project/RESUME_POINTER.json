@@ -420,7 +420,7 @@
   "voicePolishQueue": "2.2 next (then 2.3-2.5, 3.1-3.5, 4.1)"
  },
  "run35Extras": {
-  "syncedSha": "recorded after the run-35 push (see the memory commit that follows the ship commit)",
+  "syncedSha": "dba732a0fd0c4e27f1e7b0fc330c8d65323336cd (ship commit dba732a remote-verified via one-time-URL ls-remote = local HEAD; origin/main tracking ref resynced by anonymous HTTPS fetch)",
   "newCitationKeys": [],
   "voicePolishQueue": "3.1 next (then 3.2-3.5, 4.1)",
   "e2eSuite": "21 lessons (fm-multiplying-integers-sign-rules registered in e2e-cengage-style.sh)",
