@@ -216,6 +216,29 @@ step 6).
   dresses theorem and the head-length theorem are the book's own
   derivations.
 
+- `ncert-math6-ch4` — NCERT Class 6 Mathematics, ch. 4 "Basic Geometrical
+  Ideas" (public curriculum). Used for: FM ch. 8 lesson 8.1 — the
+  canonical point/line-segment/line/ray charter mirrored (the ideal
+  objects, naming by capital letters, the segment as the measurable
+  piece, the ray's one endpoint, parallel lines as the never-meeting
+  pair), web-checked 2026-11-05 (run 37): chapter number, title and
+  section span (point, line segment, line, ray, intersecting and
+  parallel lines) verified against published chapter listings; the
+  two-point rule, the at-most-one-common-point cap, the counting law
+  n(n−1)/2 and every figure are the book's own derivations; no textbook
+  question reproduced.
+- `ncert-math9-ch5` — NCERT Class 9 Mathematics, ch. 5 "Introduction to
+  Euclid's Geometry" (public curriculum). Used for: FM ch. 8 lesson 8.1
+  — the Euclid grounding mirrored (the Elements' definitions as the
+  origin of the point/line/plane vocabulary, the postulates as the
+  standing assumptions, postulate 1 as the two-point rule's birth
+  dress), web-checked 2026-11-05 (run 37): chapter number and title
+  verified against the NCERT chapter listing and exemplar PDF; the
+  Elements facts (13 books, 465 propositions, Book I's 23 definitions +
+  5 postulates + 5 common notions) verified against David Joyce's Clark
+  University edition of Book I and the standard Elements overview; the
+  historical callout paraphrases, never reproduces.
+
 - `ncert-math6-ch10` — NCERT Ganita Prakash Class 6 Mathematics, ch. 10
   "The Other Side of Zero" (fegp110). Used for: FM ch. 7 lesson 7.1 —
   the canonical negative-numbers charter mirrored (the other side of
@@ -433,6 +456,10 @@ Lesson 7.1 "Negative Numbers and Why They Exist" was verified against two NEW ci
 ## 2026-11-04 — Run 35 (FM 7.3 + voice polish 2.3): zero downloads
 
 Lesson 7.3 "Multiplying Integers and the Sign Rules" was verified against the already-persisted citation set (`ncert-math7-p2-ch2` primary — the sign rules and the three laws; `ncert-math6-ch10` and `khattar-qa-4e` carried) via web-check only — no new reference files downloaded, no working copies to delete. Web-checks: the class-7 Ganita Prakash part-2 ch. 2 identity re-confirmed (gegp202; the chapter teaches multiplication before division via the token/repeated-addition model with the sign rules and the commutative/associative/distributive properties — the lesson derives the same rules from its own walk model and staircase, no content reproduced). History grounded by web-check: Brahmagupta's *Brahmasphutasiddhanta* 628 CE multiplication verses (fortune × fortune = fortune; fortune × debt = debt; debt × debt = fortune — surviving through Colebrooke's 1817 Sanscrit translation, verified against the archive.org/hist-math text listings; paraphrased in the historical callout, derived twice in the lesson's own staircase and distributive arguments). Exam-corner shapes (straight products, three-factor parity chains, distributive simplifications like (−6)×47 + (−6)×53, waived-fine narrations in SSC CHSL/MTS, RRB NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no question reproduced. Voice polish 2.3 reused only that lesson's own numbers (4, 6, 24; the definition sentence generic in $a$ and $b$).
+
+## 2026-11-05 — Run 37 (FM 8.1 + voice polish 3.2): zero downloads
+
+Lesson 8.1 "Points, Lines and Planes" was verified against two NEW citation keys added this run — `ncert-math6-ch4` (class-6 ch. 4 "Basic Geometrical Ideas", the canonical point/segment/line/ray/parallel charter) and `ncert-math9-ch5` (class-9 ch. 5 "Introduction to Euclid's Geometry", the Euclid grounding for the historical callout) — plus the carried `khattar-qa-4e`. Both chapter identities web-checked (sanctioned fallback; published chapter listings + the NCERT exemplar PDF for class-9 ch. 5); no content reproduced. History grounded by web-check: David Joyce's Clark University edition of Euclid's Elements Book I (23 definitions incl. "a point is that which has no part" and "a line is breadthless length", Definition 23's parallel dress, Postulate 1 "to draw a straight line from any point to any point", Postulate 2 the endless production) and the standard Elements overview (13 books, c. 300 BCE; the per-book proposition counts 48+14+37+16+25+33+39+27+36+115+39+18+18 summing to 465, script-verified); Hilbert's 1899 *Grundlagen der Geometrie* (incidence axioms stated outright) — all paraphrased in the historical callout, never reproduced. Exam-corner shapes (count segments/lines among n points with and without a collinearity promise, naming/notation items, intersecting-parallel-concurrent classification, shortest-path reasoning in SSC CHSL/MTS, RRB NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no question reproduced. Voice polish 3.2 reused only lesson 3.2's own numbers (47, 48, 4, 1, 2 — all already in the polished callout; zero new numerals).
 
 ## 2026-11-05 — Run 36 (FM 7.4 + voice polish 3.1): zero downloads
 

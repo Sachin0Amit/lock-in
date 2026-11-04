@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 23:17:24 (Asia/Kolkata)",
+  "generated": "2026-11-05 00:43:22 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -641,8 +641,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 6080,
-                "readMins": 30,
+                "words": 6129,
+                "readMins": 31,
                 "concepts": [
                   "Primes have exactly two factors",
                   "Composites have three or more",
@@ -898,7 +898,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 27871
+            "words": 27920
           },
           {
             "number": 4,
@@ -2234,17 +2234,84 @@
             "slug": "geometry-foundations",
             "title": "Geometry Foundations",
             "summary": "The visual half of mathematics begins: points, lines, planes and angles as ideal objects; measuring angles; parallel lines and transversals; triangles and the angle-sum result; and the first area formulas, derived.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Points, Lines and Planes",
               "Angles and Their Measurement",
               "Parallel Lines and Transversals",
               "Triangles and the Angle Sum",
               "Perimeter and Area of Rectangles, Triangles and Circles"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-points-lines-and-planes",
+                "number": "8.1",
+                "title": "Points, Lines and Planes",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5245,
+                "readMins": 26,
+                "concepts": [
+                  "Point as pure location",
+                  "The line — breadthless and endless",
+                  "Line segment and its length",
+                  "The ray — one endpoint, one direction",
+                  "The plane as the flat stage",
+                  "The two-point rule",
+                  "Intersecting and parallel lines",
+                  "Counting segments and lines n(n−1)/2"
+                ],
+                "objectives": [
+                  "Define the ideal objects — point, line, ray, line segment, plane — and explain why every drawing is only a picture of them",
+                  "Name segments, rays and lines correctly, and tell apart segment AB = segment BA from ray AB ≠ ray BA",
+                  "State and use the two-point rule: exactly one line passes through two distinct points — and conclude that two distinct lines share at most one common point",
+                  "Classify pairs of lines in a plane as intersecting or parallel, recognise concurrent triples, and count segments and lines among n points with N = n(n−1)/2",
+                  "Re-read the number line as geometry: coordinates as points and 7.4’s distance formula |a − b| as the length of the joining segment"
+                ],
+                "prerequisites": [
+                  "fm-absolute-value-as-distance",
+                  "fm-negative-numbers-why-they-exist"
+                ],
+                "sources": [
+                  "ncert-math6-ch4",
+                  "ncert-math9-ch5",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 3,
+                  "callout": 12,
+                  "list": 2,
+                  "equation": 3,
+                  "figure": 2,
+                  "example": 5,
+                  "derivation": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 6,
+                  "warn": 2,
+                  "insight": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 5245
           },
           {
             "number": 9,
@@ -2317,12 +2384,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 86,
-      "totalLines": 29328,
+      "totalLines": 29314,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 20063,
+        "src/data/library (content model + books)": 20049,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -7122,6 +7189,83 @@
           "del": 3
         }
       ]
+    },
+    {
+      "sha": "90943bf0de61c13e8ccc8eeae92c89420f71cb28",
+      "short": "90943bf",
+      "date": "2026-11-04 17:50",
+      "message": "fm 7.4 absolute value as distance shipped from in-flight checkpoint — chapter 7 CLOSED (4/4, run 36): finished the 7.4 lesson found auto-committed in ab19d64 per standing rule 0; gates verify-unit-7 302/302 (AC-AH), tsc + lint clean, routes 200/200/200/404, 22-lesson E2E sweep exit 0 + dedicated 7.4 block (quiz keys 2/1/0/1/3 live 5/5 - perfect, 12/12 solutions, 36 collapsibles, mobile 390 exact-fit, console clean), audits 0/0 both figures, VLM 10 math/9 clarity each; unit-7 completion review passed (ids unique, ch. 7 = 16,720 words, book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises per WORK_INVENTORY regen), ch-07 status complete + summary corrected, book.ts ch. 7 catalog + Next chapter 8 appended; voice polish 3.1 (is-said-to-be treaty callout + Thus-line at 6|48, zero new numerals, live-verified KaTeX 369); WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG/DETAILED_LOG updated (timeline rows 32-36 backfilled)",
+      "filesChanged": 9,
+      "insertions": 376,
+      "deletions": 354,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 88,
+          "del": 306
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 26,
+          "del": 9
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 222,
+          "del": 32
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-07.ts",
+          "add": 2,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "6a5131eb2d050fef8de5147647c5e70116a33d80",
+      "short": "6a5131e",
+      "date": "2026-11-04 17:51",
+      "message": "memory: run-36 synced sha recorded (90943bf) — ship commit remote-verified via one-time-URL ls-remote = local HEAD; chapter 7 Integers CLOSED 4/4; next run 37 opens chapter 8 Geometry Foundations at 8.1 Points, Lines and Planes (create verify-unit-8.ts first), voice polish 3.2 queued",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -7129,25 +7273,25 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 7,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 32,
-    "wordsAuthored": 150259,
-    "termsDefined": 217,
-    "quizItems": 160,
-    "exerciseQuestions": 341,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 33,
+    "wordsAuthored": 155553,
+    "termsDefined": 225,
+    "quizItems": 165,
+    "exerciseQuestions": 353,
     "blockTotals": {
-      "para": 485,
-      "callout": 176,
-      "heading": 208,
-      "list": 38,
-      "terms": 33,
-      "equation": 48,
-      "derivation": 56,
+      "para": 503,
+      "callout": 188,
+      "heading": 211,
+      "list": 40,
+      "terms": 34,
+      "equation": 51,
+      "derivation": 58,
       "table": 33,
-      "figure": 55,
-      "example": 156,
-      "quiz": 32,
-      "exercises": 32,
+      "figure": 57,
+      "example": 161,
+      "quiz": 33,
+      "exercises": 33,
       "formula": 72,
       "algorithm": 8
     }

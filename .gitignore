@@ -95,6 +95,10 @@ server.log
 # exception: run-35 lesson-7.3 targeted interactivity checker (quiz 5/5 live + solution expansion; reusable pattern)
 !/scripts/e2e-73.page.js
 !/scripts/e2e-74.page.js
+
+# run 37 (FM 8.1): verify-first script + dedicated E2E page driver
+!/scripts/verify-unit-8.ts
+!/scripts/e2e-81.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)

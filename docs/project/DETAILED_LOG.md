@@ -9,226 +9,35 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04 (maintained through **run 36, Job 498279**:
-**FM 7.4 "Absolute Value as Distance" shipped — CHAPTER 7 CLOSED + voice
-polish 3.1** (4,207 body words): run 36 opened on the 7.4 lesson IN
-FLIGHT (auto-checkpoint commit `ab19d64`: verify-unit-7.ts extended
-+143 lines, ch-07.ts +682 lines, e2e-74.page.js created) and finished
-it per standing rule 0. The chapter's closing lesson, and the full
-treatment 7.1 promised: the bars read the SIZE of a number, direction
-discarded — the distance Definition callout (is-said-to-be shape) +
-the piecewise rule as equation tag 1 (the minus inside the bars is
-7.1's INSTRUCTION, not a verdict — the double reflection paying off
-again) + the roman run |7| |−11| |0|; the rule's derivation (distance
-is a count — never negative; x itself on the non-negative side; the
-mirror twin −x on the negative side; both lines meeting at |0| = 0);
-figure 1 the distance-from-zero braces (|−8| = 8 and |5| = 5 at 40 px
-per step, direction never mentioned); the ordering-by-magnitude cash
-of 7.1's trap (−8 is the smaller number with the bigger size); the
-five properties with instances and grid certificates (non-negativity
-with its zero edge; the mirror property swept on [−60,60]; the duality
-|x| ∈ {x, −x}; the multiplicative property on all 441 pairs in
-[−10,10]²; the triangle fact with the equality condition ab ≥ 0
-brute-forced on the same grid); the outside-minus Caution (|−9| = 9
-but −|9| = −9); figure 2 the two-panel distance-between-points
-(opposite sides: the gap |5−(−3)| = 8 splits at zero into 3 + 5; same
-side: the gap |7−2| = 5 is the leftover of 7 after 2 borrows its share
-— nested braces); the distance formula gap(a,b) = |a−b| = |b−a| as
-equation tag 2 with its derivation (the walk from a to b is b − a by
-7.2's movement model; the reversed walk is the opposite displacement
-with the same size) — CASHING every gap the chapter counted: the lift
-9 (both orders), the mall 12/24, the Everest–Dead Sea 9288.64 m, the
-Vostok–Phalodi 140.2°; the opposite-sides split |a−b| = |a|+|b| and
-the same-side difference both grid-verified; the verdict table for
-|x| = k (two answers for k > 0 — the two-answer signature; one at
-k = 0; none for k < 0); the bars-erase-exactly-one-bit insight; the
-historical callout (Argand's 1806 modulus; Weierstrass's 1841 |x| in
-"Zur Theorie der Potenzreihen", MacTutor-grounded); 8 terms, 5-quiz
-keys 2/1/0/1/3 (live 5/5 · perfect), 12 exercises L1–L6 (L6: the
-distance derivation cashed at (−5,8); the equality condition ab ≥ 0
-proved by cases). Scope guard held: no integer division, no coordinate
-plane, no exponent notation. Verify-first: verify-unit-7.ts extended
-to 302 checks (AC–AH) BEFORE writing. Unit-7 completion review passed
-(BOOK_FORMAT checklist 7/7, ids globally unique, totals recomputed —
-ch. 7 = 4 lessons / 16,720 words / 32 terms / 20 quiz / 48 exercises;
-book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341
-exercises per the regenerated WORK_INVENTORY); ch-07.ts status flipped
-to **complete** with the summary corrected to the delivered scope (the
-coordinate-plane preview claim removed — 7.4's scope guard owns that
-door); book.ts ch. 7 catalog appended + "Next chapter: 8 Geometry
-Foundations". Gates: audits 0/0 both figures; VLM fig 1 10 math/9
-clarity, fig 2 10 math/9 clarity (all complaints cosmetic); 22-lesson
-E2E sweep exit 0 with a dedicated 7.4 block (quiz live 5/5 · perfect,
-12/12 solutions expand, 36 collapsibles, mobile 390 exact-fit,
-console clean). Voice polish 3.1: the formal "Divisible (the treaty
-condition)" Definition callout rewritten in the is-said-to-be shape
-naming factor and multiple + the Thus-line "Thus, 6 | 48 because
-48 = 8 × 6" + the two-names para merged into the instance run — zero
-new numerals; live-verified (KaTeX 369, errors 0, dollarInText 0).
-|| Previous run 35:
-**FM 7.3 "Multiplying Integers and the Sign Rules" shipped + voice
-polish 2.3** (3,899 body words): multiplication as the repeated-walk
-model — the formal Definition callout ("the product $m \times b$ is
-said to be the position reached by taking $m$ walks of length $|b|$ in
-$b$'s direction") + the roman run (3×5; 3×(−5); 0×(−9)); figure 1 the
-repeated walk 3 × (−5) = −15 (three cubic arcs with solid heads
-landing at −5/−10/−15, one 34-px step scale, the 15-step brace); the
-positive walk-count settles two sign cases and commutativity
-(grid-checked, 625 pairs) buys the third; the fourth — minus × minus —
-derived TWICE: figure 2 the product staircase (bars for (−5)×m,
-m = 3..−3 at 7 px per unit; the bar ends on one straight line crossing
-zero at m = 0) with the staircase derivation (each rung down adds the
-length — forced by distributivity to continue past zero) and the
-distributive derivation ((−1)×(−5) + (−1)×5 = (−1)×0 = 0, so
-(−1)×(−5) = −(−5) = 5, cashing 7.1's double reflection again);
-equation tag 1 the distributive law (9,261-triple grid), tag 2 the
-general sign law (−a)×(−b) = a×b (441-pair grid); the sign-case table;
-the six properties with instances + the identity-vs-mirror-maker
-Caution; sign parity for chains (brute-forced over every signed chain
-of length 1–5) + the parity-is-products-only Caution; the waived
-penalty Rs (−200)×(−3) = 600; the missing factor (−9)×□ = 72 → −8;
-exam corner (SSC CHSL/MTS parity chains, RRB NTPC distributive
-simplifications, banking narrations); Brahmagupta's 628 CE
-multiplication verses (fortune × fortune, fortune × debt, debt × debt
-— Colebrooke 1817, paraphrased then derived); 8 terms, 5-quiz keys
-2/1/1/0/3 (live 5/5 · perfect), 12 exercises L1–L6 (L6: the
-distributive derivation of (−1)×a = −a cashed at 13; the parity chain
-−120). Verify-first: verify-unit-7.ts extended to 231 checks (T–AB)
-BEFORE writing, incl. the 441-pair multiplication brute force, the
-9,261-triple distributive grid and the 5-length parity sweep. Voice
-polish 2.3: the formal repeated-addition Definition callout + Thus-line
-+ the two table settings as the roman run in lesson 2.3 — zero new
-numerals. || Previous run 34:
-**FM 7.2 "Adding and Subtracting Integers" shipped + voice polish 2.2**
-(3,861 body words): the movement model — final position = starting
-position + the second movement — formalised as the walk Definition and
-illustrated by figure 1 (two stacked panels: leg 1 the arc 0 → −4,
-leg 2 the arc −4 → 7, symmetric "starts at/lands on" annotations, one
-step scale); the like-signs rule derived (legs concatenate) and the
-unlike rule netted (larger magnitude wins; a tie lands on 0) with the
-five-case sign table; the five properties of integer addition each with
-a script-verified instance, the inverse law a + (−a) = 0 numbered as
-equation tag 1 and CASHING 7.1's promissory note; subtraction derived as
-adding the opposite — a − b = a + (−b), equation tag 2, grid-checked
-over all 441 pairs in [−10,10]² — with figure 2 the subtraction map
-(the mirror flip −(−2) = 2, then the walk 7 + 2 = 9) cashing the lift;
-the mall 9 − (−3) = 12 cashed; the double-sign table and the
-three-sign-stack Caution; net-change chains (the ledger 2500 − 3600 +
-1900 = 800 with its honest −1100 overdraft stage; the thermometer
-−4 + 11 − 9 = −2; Priya's account; Srinagar's round-trip day; the
-submarine dive profile), successor/predecessor and the missing-addend
-shape; Brahmagupta's 628 CE subtraction verses derived on the line
-(0 − 5 = −5, 0 − (−5) = 5); 8 terms, 5-quiz keys 0/1/2/0/3 (live 5/5),
-12 exercises L1–L6. Verify-first: verify-unit-7.ts extended to 148
-checks (J–S) BEFORE writing, incl. the 441-pair sign-rule brute force.
-Voice polish 2.2: the formal inverse-definition callout + Thus-line +
-the three faces as the roman run. || Previous run 33:
-**FM 7.1 "Negative Numbers and Why They Exist" shipped — chapter 7
-(Integers) opened** (~3,576 body words, 4,753 by the platform counter):
-the chosen zero (sea level / freezing point / ground floor / UTC) with
-one direction named positive, the opposite negative; the integers
-defined as the wholes plus every natural's mirror — equation tag 1
-ℤ = {…, −3, −2, −1, 0, 1, 2, 3, …} (the letter from German *Zahlen*)
-and tag 2 the nesting ℕ ⊂ W ⊂ ℤ; the zero-is-neither Caution; figure 1
-the number line grown a left half (50 px steps, dashed mirror, the
-−3/3 pair braced 3 steps each, solid triangular arrowheads in the
-run-31 manner); the ordering law right-beats-left with the −8 < −3 trap
-("more debt is less wealth") and the closer-to-zero-wins Note; the
-opposites Definition (additive inverse) with the double duty of −
-(name vs instruction) and the double-reflection derivation
-−(−n) = n; absolute value's first look (|−8| = |8| = 8 — full
-development queued at 7.4); the wild-readings table (temperature /
-elevation / balance / floor / time zone) + figure 2 the elevation
-section (Everest +8848.86 m by the 2020 survey; the Dead Sea
-−439.78 m as of 2025; the altitude line drawn apex-to-datum inside the
-triangle; a two-headed dimension guide; an in-figure "not drawn to one
-scale" note — the two measures deliberately share no scale, since at
-the mountain's scale the depth would be 3.7 px); Illustrations on the
-sign-fill −40 < +4, the ascending five, opposites, absolute values,
-the lift B2 → level 7 (9 storeys), the Delhi–New York clock (9:00 pm
-IST = 10:30 am, the 10.5-hour gap) and the Vostok −89.2 °C ↔ Phalodi
-51.0 °C line distance (140.2 degrees); the historical callout (Chinese
-red/black rods ~200 BCE, the Nine Chapters + Liu Hui 263 CE,
-Brahmagupta's fortunes-and-debts 628 CE, Descartes's "false roots"
-1637, Maseres 1758, 19th-century acceptance); the exam corner (shapes
-cited, none reproduced); 8 terms, 5-quiz keys 1/2/2/0/1 (live 5/5),
-12 exercises L1–L6 (L6: the mirror-symmetry proof; the underground
-mall 12/24). verify-unit-7.ts created BEFORE writing — **70 checks ALL
-PASS**; audits 0/0; **plus a site-wide renderer fix the E2E surfaced**:
-Illustration titles rendered plain text, so every $math$-carrying
-title leaked raw dollars (7 on 6.5 alone, 20+ site-wide) —
-`ExampleBlock` now renders titles through RichText (the run-28
-objectives-fix pattern), leaks 0 everywhere; 19-lesson E2E suite exit
-0; lint/tsc clean. Pushed per protocol, remote-verified.
-Previous **run 32, Job 498279 (20:27 delivery)**: push debt cleared —
-all five unpushed commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed)
-pushed via the protocol's one-time URL and ls-remote-verified
-(5aa10ede…) — then **FM 6.5 "Scaling: Maps, Models and Recipes"
-shipped as the chapter's final lesson** (~4,400 words,
-ch. 6 COMPLETE 5/5): the scale defined in three dresses (verbal pair,
-representative fraction, bar scale) with the RF proved as a derivation
-(1 cm : 18 km = 1 : 18,00,000, a pure number valid in every unit
-system); figure 1 the atlas page whose bar scale (four alternating
-18-km segments) is matched by a road drawn to EXACTLY four
-bar-segments (400 px) after the first VLM pass flagged the old road as
-unmeasurable at its own scale — plus internal bar dividers and a
-relocated "the hub" label the overlap audit caught on the widened
-sheet; the photocopy insight (an 80 % copy makes the printed RF lie —
-1 : 22,50,000 — while the copied bar stays true); the scale engine
-both ways; the model van at 1 : 24; the courtyard plan and the AREA
-LAW (areas carry m², never m — 1000 m² ÷ 500² = 40 cm²); equation
-tag 2's scale factor m (reduction < 1, life size 1, enlargement > 1)
-with the properties list, the ×5 stamp, figure 2's two-direction
-factor bars (each panel at one common px-per-cm, now with shared
-baselines and dashed end guides after VLM clarity 7 → 9) and the
-similarity-door insight; the recipe multiplier PROVED from the
-per-serving constant (q₂ = q₁ × s₂/s₁) with the khichdi table across
-2/4/6/10 servings and the clock-is-not-an-ingredient Caution; the
-five-instrument chapter harvest. verify-unit-6.ts sections AQ–AZ
-written BEFORE the lesson — **444 checks ALL PASS** (was 361); audits
-0/0; VLM re-verdicts figure 1 9.5/8, figure 2 **10/9** (6.4 parity);
-18-lesson E2E exit 0 with the 6.5 quiz live 5/5 (keys 0/1/0/2/1);
-lint/tsc clean. book.ts notes rewritten for the completed chapter.
-Previous **run 31, an owner chat directive**: site-wide arrow & diagram polish — the 6.4 flip figure's
-crude straight-line swap arrows redesigned as mirror-symmetric cubic
-Bézier arcs with solid filled heads, anchor dots and box-anchored tips;
-the 6.4 hyperbola smoothed from a 6-vertex polyline (a visible kink at
-the (540,80) dot) to a 36-vertex dense path with every vertex on the
-pixel invariant (x−420)(320−y) = 28800; the "4 × 60" label relocated
-off the curve after the smoothed path made the old collision auditable;
-all 45 figures across ch-01..06 swept (ch-01 markers, ch-05 solid
-polygon heads, ch-06 brackets/arcs — all PASS; ch-02/03/04 carry no
-directional arrows); verify-unit-6.ts AJ10/AJ11/AM4/AM5 rewritten, 361
-checks ALL PASS; audits 0/0; lint/tsc clean; 17-lesson E2E exit 0. Push
-deferred — no PAT in the owner chat session (5 unpushed commits await
-the next cron-delivered run). Previous **cron run 30, Job 498279**:
-FM lesson 6.4 "Direct and Inverse Variation" finished and shipped (5,373
-words, ch. 6 open 4/5) — recovered from the interrupted 15:18 delivery's
-in-flight commit 407c0fe (lesson + verify sections AF–AP authored, gates
-and bookkeeping missing): the two locks named (direct y/x = k, inverse
-xy = k), the parking-table fraud, both engines, the factor laws, the
-recognition drill, the flip with TWO crossing legs after VLM review,
-the work problems; verify-unit-6.ts 253 → 361 checks; dedicated 6.4 E2E
-block added; voice polish landed on lesson 2.1. Previous run 29: FM 6.3
-"Proportion and Cross-Multiplication" shipped (4,132 words, ch. 6 open
-3/5) with the voice polish on lesson 1.3. Previous run 28: a platform-fix + reconciliation run —
-a platform-fix + reconciliation run — the sandbox was found restored to a
-pre-commit disk snapshot after run 27 had already pushed its four commits
-(d98ba02 / 0380e71 / dc0a489 / d920f20 all verified ON the remote by
-anonymous ls-remote); local main reconciled by anonymous fetch +
-`git diff FETCH_HEAD` (the working tree matched the remote exactly) +
-reset --hard + tracking-ref resync, with run-27's logs verified
-verbatim-true; the run's own work: the **objectives math fix** —
-lesson-view.tsx rendered lesson.objectives as plain text, the one header
-surface that never passed the math renderer, so any objective carrying
-$...$ leaked raw TeX (exactly two affected, both ch. 6: 6.1's ratio
-a : b vs fraction a/b and 6.2's 5/18 km/h ↔ m/s law; scan tool
-scripts/check-objectives-math.py kept); objectives now render through the
-same RichText used by every block; verified lint/tsc/build clean, prod
-routes 200/404, objectives KaTeX typeset with zero raw leakage, full
-15-lesson E2E green, quiz live 5/5 beyond the harness read-race (5.1
-manual replay + 6.2 live), VLM double-ruler re-check 10/10 math + 9/10
-clarity; no content numbers changed — render-path fix only).
+Generated: 2026-11-03/04/05 (maintained through **run 37, Job 498279**:
+**FM 8.1 "Points, Lines and Planes" shipped — CHAPTER 8 OPENS + voice
+polish 3.2** (5,245 body words): the visual half of mathematics begins
+and chapter 7's ruler line is re-read as a geometric object wearing
+coordinates — the ideal objects (point, line, plane) defined in the
+is-said-to-be shape, the segment (two endpoints, measurable length =
+7.4's distance formula re-read) and the ray (one endpoint, one
+direction) as the line's bounded cousins, figure 1 the three avatars,
+the drawn-vs-ideal Caution, the two-point rule as equation tag 1
+(existence from Euclid's Postulate 1; the modern incidence dress made
+explicit) with the at-most-one-common-point derivation, the meeting
+verdict (intersecting / parallel — Euclid's Definition 23 dress with
+its load-bearing "same plane" clause — and concurrent as the group
+portrait) with figure 2's three layouts, the counting law
+N = n(n−1)/2 as equation tag 2 with its double-count derivation and
+the segments-don't-care-lines-do collinearity trap (3 collinear
+points: 3 segments but 1 line; 4 points with 3 collinear: 6 segments
+but 4 lines), Illustrations on the ruler-line reading, the consistent
+two-meetings-plus-one-parallel configuration, the 5-marble census
+(10 & 10) and the exam classic 8 points (28 & 28), the Euclid
+*Elements* historical callout (13 books, 465 propositions, Book I's
+23 definitions + 5 postulates + 5 common notions; Hilbert's 1899
+*Grundlagen*), 8 terms, 5-quiz keys 3/1/1/2/3 live 5/5, 12 exercises
+L1–L6. Verify-first: `scripts/verify-unit-8.ts` created with sections
+A–N — 104 checks ALL PASS before writing (plus the I-series extended
+through two figure iterations). Voice polish 3.2: lesson 3.2's
+Definition callout rewritten in the is-said-to-be shape + the Thus-line
+(47 prime by its complete factor list; 48 composite by the witness
+4 | 48) + "no third state" — zero new numerals.
 
 Previously through **cron run 27, Job 498279**:
 FM lesson 6.2 "Rates and Unit Rates" authored in the Cengage voice +
@@ -1086,7 +895,7 @@ downloads (references already logged).
 | 5 | Decimals and Percents — **COMPLETE (5/5, run 25)** | ~~Decimal Places and the Point~~ · ~~Decimals↔Fractions~~ · ~~Operating on Decimals~~ · ~~Percent and Its Meaning~~ · ~~Change, Discounts, Simple Interest~~ — all **WRITTEN** |
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
-| 8 | Geometry Foundations | Points/Lines/Planes · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
+| 8 | Geometry Foundations — **OPEN (1/5, run 37)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · Angles · Parallel Lines and Transversals · Triangles and Angle Sum · Perimeter and Area |
 | 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
@@ -1190,6 +999,7 @@ downloads (references already logged).
 
 | What | Date | Gates passed |
 |---|---|---|
+| Unit 8 opener (FM ch. 8, lesson 8.1) | 11-05 | 104 pre-write checks (verify-unit-8.ts sections A–N, ALL PASS before writing; sweep machinery: the two-lines-at-most-one-point sweep over 15 slopes × 15 intercepts, the 441-pair length re-sweep, pair enumeration n = 2..8 + closed form to n = 20, line-classification enumerations incl. the 4-point-3-collinear pool to 4 lines and the parabola no-three-collinear certificate over all 56 triples) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 9.5 math/9 clarity; fig 2 three passes (8 → 8 → 8 with every note cosmetic — (a)(b)(c) markers + enlarged l/m labels + solid double-headed arrowheads on all seven drawn lines added per review; the run-34 cosmetic-notes precedent) · 23-lesson E2E sweep exit 0 + dedicated 8.1 block (quiz keys 3/1/1/2/3 live "You scored 5/5", 12/12 solutions expand, 36 collapsibles, Sol. pills 17 inline, thereforeGlyphs 29, KaTeX 361, dollarInText 0, katexErrors 0, rawDollarInSvg 0, mobile 390 exact-fit docScrollW 390 articleW 358) · ids globally unique · voice polish 3.2 live-verified (is-said-to-be ×2, Thus-line, KaTeX 326, errors 0, dollarInText 0) |
 | Unit 7 (FM ch. 7, lesson 7.4) + unit-7 completion review | 11-05 | 71 new pre-write checks (302 total, sections AC–AH, ALL PASS before writing; regressions 231/148/70) · lint · tsc clean · routes 200/200/200/404 · both figures 0 audit issues · VLM fig 1 10 math/9 clarity + fig 2 10 math/9 clarity · 22-lesson E2E sweep exit 0 + dedicated 7.4 block (quiz keys 2/1/0/1/3 live "You scored 5/5 · perfect", 12/12 solutions expand, 36 collapsibles, Sol. pills 8 inline, thereforeGlyphs 24, KaTeX 276, dollarInText 0, katexErrors 0, rawDollarInSvg 0, tables 1, mobile 390 exact-fit docScrollW 390 articleW 358, fresh-load console clean) · BOOK_FORMAT checklist 7/7 · ids globally unique · totals recomputed (ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms) · voice polish 3.1 live-verified (KaTeX 369, errors 0, dollarInText 0) |
 | Platform base + lesson 1.1 | 11-02 | lint · tsc · E2E (55 KaTeX nodes, quiz, persistence, dark mode, no overflow 390/1280px, no console errors) · 4 accuracy fixes |
 | Platform v2 | 11-02 | lint · routes 200/404 · E2E (palette search, quiz 5/5 + persistence, keyboard, flashcards, scrollspy, hydration-clean) · VLM review |
@@ -1293,6 +1103,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 28 | `038805e` (+ `a78a30d`, memory `e3f1158`) | 11-04 | Objectives math fix (lesson-view objectives through RichText; 6.1 + 6.2 were the only math-bearing objectives) + sandbox-rollback reconciliation of run 27 (anonymous fetch + reset --hard; run-27 logs verified verbatim-true; app-shell.tsx leftover removed) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 | 30 | `407c0fe` + ship (+ bookkeeping, memory) | 11-04 | FM lesson 6.4 Direct and Inverse Variation — finished from the 15:18 delivery's in-flight auto-commit `407c0fe` (lesson + verify AF–AP + e2e registration authored; gates/bookkeeping/push missing): dedicated 6.4 E2E block written, both figures VLM-polished (one-arc flip → two crossing legs; label relocations; 361 checks), voice polish landed on 2.1, Drive survey rebuilt + inventory regenerated (27 lessons / 128,994 words) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 | 29 | `356a52b` (+ bookkeeping, memory) | 11-04 | FM lesson 6.3 Proportion and Cross-Multiplication — 6.2's closing question made official (verify-unit-6.ts 165 → 253 checks V–AE; 4,132 words; four-seats + line-of-agreement figures, 0 audit issues first pass; voice polish landed on 1.3; run-opener: the 13:18 delivery died on dead filesystem tools pre-work, recovered here) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
+| 37 | ship + bookkeeping + memory | 11-05 | FM lesson 8.1 Points, Lines and Planes — chapter 8 OPENS (verify-unit-8.ts created, 104 checks A–N incl. the incidence sweep + the counting-law brute force; 5,245 words; three-avatars + meeting-layouts figures, fig 2 through three VLM passes with markers/labels/arrowheads added; voice polish landed on 3.2; new citation keys ncert-math6-ch4 + ncert-math9-ch5) — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
@@ -1310,23 +1121,21 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 7 CLOSED — FM 7.4 "Absolute Value as
-  Distance" shipped run 36, finishing the 7.4 work found in flight
-  (auto-checkpoint `ab19d64`) and completing chapter 7 Integers 4/4
-  (7.1 run 33 — negatives earn their place; 7.2 run 34 — the movement
-  model + the five-case sign table + subtraction as adding the
-  opposite; 7.3 run 35 — the repeated-walk model + minus-times-minus
-  derived twice; 7.4 run 36 — the distance definition + the piecewise
-  rule, the properties with grid certificates, the distance formula
-  cashing every counted gap, the |x| = k verdict table; voice polish
-  3.1 delivered — the is-said-to-be treaty callout + Thus-line at
-  6 | 48). Book state: 32 lessons / 150,259 words / 217 terms / 160
-  quiz / 341 exercises; chs. 1–7 COMPLETE.**
-- **NEXT (hourly cadence): chapter 8 Geometry Foundations OPENS at
-  8.1 Points, Lines and Planes** — create scripts/verify-unit-8.ts
-  sections BEFORE writing, register ch. 8 in book.ts as in-progress
-  with plannedLessons trimmed, follow ch-01.ts + BOOK_FORMAT.md; one
-  lesson per run; queued voice polish 3.2 (then 3.3–3.5, 4.1).
+- **CURRENT (hourly cadence): CH. 8 OPEN — FM 8.1 "Points, Lines and
+  Planes" shipped run 37, opening chapter 8 Geometry Foundations (the
+  ideal objects point/line/ray/segment/plane; the two-point rule as
+  equation tag 1 with the at-most-one-common-point cap; intersecting /
+  parallel / concurrent with the three-layout figure; the counting law
+  N = n(n−1)/2 as tag 2 with the collinearity pooling trap; the Euclid
+  *Elements* historical callout; voice polish 3.2 delivered — the
+  is-said-to-be treaty rewrite + Thus-line in 3.2's Definition
+  callout). Book state: 33 lessons / 155,553 words / 225 terms / 165
+  quiz / 353 exercises; chs. 1–7 COMPLETE, ch. 8 OPEN 1/5.**
+- **NEXT (hourly cadence): FM 8.2 "Angles and Their Measurement"** —
+  extend scripts/verify-unit-8.ts with new sections BEFORE writing,
+  keep plannedLessons trimmed to the remaining four, follow ch-01.ts +
+  BOOK_FORMAT.md; one lesson per run; queued voice polish 3.3 (then
+  3.4, 3.5, 4.1).
 - **Style queue (run-14 owner directive):** the Cengage LOOK is live for
   all 20 lessons; lessons 4.2–4.5 and 5.1 are authored natively in
   the Cengage voice + solution chain (the exemplars going forward); the
