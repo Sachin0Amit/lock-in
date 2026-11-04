@@ -24,6 +24,7 @@ LESSONS=(
   fm-ratio-as-a-comparison
   fm-rates-and-unit-rates
   fm-proportion-and-cross-multiplication
+  fm-direct-and-inverse-variation
 )
 
 for L in "${LESSONS[@]}"; do

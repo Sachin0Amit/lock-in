@@ -30,6 +30,18 @@
  * rate-line figure where every pair on the line is in proportion, the
  * word problems (tea, rice, recipe), both figures' geometry and the
  * quiz/exercise keys — again BEFORE writing.
+ *
+ * Extended 2026-11-04 (run 30) for lesson 6.4 "Direct and Inverse
+ * Variation": sections AF–AP verify every number of the variation
+ * lesson — the direct definition x/y = k (the rate line named), the
+ * parking-table fraud (growing without agreeing), the direct engine
+ * (bottles, truck, pole-shadow, bacteria), the inverse definition
+ * xy = k (sweets, game show, spokes, periods), one journey's two
+ * bindings (the 240 km line vs the constant product), the factor laws
+ * proved from the constants, the recognition drill, the flip (inverse
+ * problems as proportions, invertendo cashed), the work problems
+ * (rewiring, machines, cattle, windows, boxes), both figures' geometry
+ * and the quiz/exercise keys — again BEFORE writing.
  * Run: bun run scripts/verify-unit-6.ts   (exit 1 on any failure)
  */
 
@@ -442,6 +454,163 @@ check('AE6: 12 exercises across L1–L6 (2 each), all with steps + terminal answ
 check('AE7: prerequisites — 6.1 ratio (the cross-test), 4.3 comparing fractions (the licence paid), 6.2 rates (the closing promise)', true);
 check('AE8: sources — ncert-math6-ch12 (extended to §12.2 + Ex. 12.2), ncert-math7-ch8, khattar-qa-4e', true);
 check('AE9: properties list carries alternendo and invertendo with verified instances', true);
+
+/* ============================================================
+ * AF. Lesson 6.4 opening — the rate line named (direct variation)
+ * ==========================================================*/
+check('AF1: the shop line 96/3 = 160/5 = 256/8 = 32 — one constant k on the line', 96 / 3 === 32 && 160 / 5 === 32 && 256 / 8 === 32);
+check('AF2: every pair on the line agrees (1,32),(3,96),(5,160),(8,256) — x/y = 32 each', 32 / 1 === 32 && 96 / 3 === 32 && 160 / 5 === 32 && 256 / 8 === 32);
+check('AF3: the off-line point 120/4 = 30 ≠ 32 — 4 kg for Rs 120 is NOT on the line', 120 / 4 === 30 && 120 / 4 !== 32);
+check('AF4: pairs on the line are in proportion (cross law): 3×160 = 480 = 96×5', 3 * 160 === 480 && 96 * 5 === 480);
+check('AF5: two off-line pairs fail the cross law: 4×96 = 384 ≠ 120×3 = 360', 4 * 96 === 384 && 120 * 3 === 360 && 4 * 96 !== 120 * 3);
+
+/* ============================================================
+ * AG. The parking fraud — growing without agreeing
+ * ==========================================================*/
+check('AG1: parking 4 h Rs 60 → 15 per hour', 60 / 4 === 15);
+check('AG2: parking 8 h Rs 100 → 12.5 per hour ≠ 15', 100 / 8 === 12.5 && 100 / 8 !== 60 / 4);
+check('AG3: parking 12 h Rs 140 → 35/3 ≈ 11.67 — a third value', (140 * 3) / 12 === 35 && 35 / 3 !== 12.5 && 35 / 3 !== 15);
+check('AG4: parking 24 h Rs 180 → 7.5 per hour — a fourth value', 180 / 24 === 7.5);
+check('AG5: four different ratios → charges NOT in direct variation with time', 60 / 4 !== 100 / 8 && 100 / 8 !== 140 / 12 && 140 / 12 !== 180 / 24);
+check('AG6: the contrast — the rice line holds one ratio: 65/1 = 130/2 = 325/5', 65 / 1 === 65 && 130 / 2 === 65 && 325 / 5 === 65);
+check('AG7: the per-hour values fall (15 → 12.5 → 11.67 → 7.5): the deal improves with time', 15 > 12.5 && 12.5 > 35 / 3 && 35 / 3 > 7.5);
+
+/* ============================================================
+ * AH. The direct engine at work (Illustrations 3–6)
+ * ==========================================================*/
+check('AH1: machine k = 840/6 = 140 bottles per hour', 840 / 6 === 140);
+check('AH2: machine 5 h → 5 × 140 = 700 bottles', 5 * 140 === 700);
+check('AH3: machine in proportion form: 840/6 = x/5 → x = 700; cross 840×5 = 4200 = 6×700', (840 * 5) / 6 === 700 && 840 * 5 === 6 * 700);
+check('AH4: truck 14 km in 25 min — k = 14/25 km per minute; 5 h = 300 min', 5 * 60 === 300);
+check('AH5: truck 300 × 14/25 = 168 km', (300 * 14) / 25 === 168);
+check('AH6: truck speed in km/h: 14/25 × 60 = 33.6 km/h; 33.6 × (25/60) = 14 km round-trips', (14 * 60) / 25 === 33.6 && (33.6 * 25) / 60 === 14);
+check('AH7: truck in proportion form: 14/25 = x/300 → x = 168; cross 14×300 = 4200 = 25×168', (14 * 300) / 25 === 168 && 14 * 300 === 25 * 168);
+check('AH8: pole k = 560/320 = 7/4 = 1.75 (m of pole per m of shadow)', 560 / 320 === 1.75 && 7 / 4 === 1.75);
+check('AH9: pole 10 m 50 cm = 1050 cm → shadow 1050/1.75 = 600 cm = 6 m', 1050 / 1.75 === 600);
+check('AH10: shadow 5 m = 500 cm → pole 1.75 × 500 = 875 cm = 8 m 75 cm', 1.75 * 500 === 875);
+check('AH11: pole proportion form: 560/320 = 1050/x → x = 600; cross 560×600 = 336000 = 320×1050', (320 * 1050) / 560 === 600 && 560 * 600 === 320 * 1050);
+check('AH12: bacteria actual length 5/50000 = 0.0001 cm = 1/10000 cm (a thousandth of a millimetre)', 5 / 50000 === 0.0001 && 0.0001 * 10 === 0.001);
+check('AH13: bacteria at 20000× → 20000 × 0.0001 = 2 cm', 20000 * 0.0001 === 2);
+check('AH14: bacteria factor method: m = 20000/50000 = 2/5 → 5 × 2/5 = 2 cm', 20000 / 50000 === 0.4 && 5 * 0.4 === 2);
+
+/* ============================================================
+ * AI. Inverse variation — the fixed total (Illustration 7 + canon)
+ * ==========================================================*/
+check('AI1: sweets 24 children × 5 each = 120 — the total is the fixed thing', 24 * 5 === 120);
+check('AI2: 20 children → 120/20 = 6 each; product still 120', 120 / 20 === 6 && 20 * 6 === 120);
+check('AI3: game show k = Rs 1,00,000: 4 winners → 25,000 each', 100000 / 4 === 25000 && 4 * 25000 === 100000);
+check('AI4: 5 winners → 20,000; 8 → 12,500; 10 → 10,000; 20 → 5,000', 100000 / 5 === 20000 && 100000 / 8 === 12500 && 100000 / 10 === 10000 && 100000 / 20 === 5000);
+check('AI5: every winner-count × prize rebuilds 1,00,000 (the constant product)', [4, 5, 8, 10, 20].every(w => w * (100000 / w) === 100000));
+check('AI6: spokes 360° total: 4 → 90, 8 → 45, 10 → 36, 12 → 30, 15 → 24', [4, 8, 10, 12, 15].every(n => n * (360 / n) === 360) && 360 / 4 === 90 && 360 / 8 === 45 && 360 / 10 === 36 && 360 / 12 === 30 && 360 / 15 === 24);
+check('AI7: angle 40° → 360/40 = 9 spokes', 360 / 40 === 9);
+check('AI8: periods 8 × 45 = 360 min; 9 periods → 40 min each', 8 * 45 === 360 && 360 / 9 === 40 && 9 * 40 === 360);
+check('AI9: the 240 km journey: 40×6 = 60×4 = 80×3 = 120×2 = 240', 40 * 6 === 240 && 60 * 4 === 240 && 80 * 3 === 240 && 120 * 2 === 240);
+check('AI10: inverse IS direct variation with the reciprocal: x ∝ 1/y means x/(1/y) = xy = k', true);
+
+/* ============================================================
+ * AJ. Figure 1 geometry — one journey, two bindings
+ * viewBox 0 0 760 400; panel split at x 380
+ * LEFT (direct): origin (60,320); t-axis 70 px per hour, t = 0..4
+ *   line d = 60t to (340, 80); dots (130,260) and (270,140)
+ * RIGHT (inverse): origin (420,320); t-axis 40 px per hour, t = 0..7
+ *   s-scale 3 px per (km/h); curve xy = 240 dots (540,80),(580,140),(660,200)
+ * ==========================================================*/
+check('AJ1: left axis t = 0..4 at 70 px → ticks x 60,130,200,270,340', JSON.stringify([0,1,2,3,4].map(t => 60 + 70 * t)) === '[60,130,200,270,340]');
+check('AJ2: left line d = 60t: points (60,320),(130,260),(200,200),(270,140),(340,80)', JSON.stringify([0,1,2,3,4].map(t => 320 - 60 * t)) === '[320,260,200,140,80]');
+check('AJ3: left dots labelled 1 h/60 km at (130,260) and 3 h/180 km at (270,140)', 60 + 70 === 130 && 320 - 60 === 260 && 60 + 3 * 70 === 270 && 320 - 180 === 140);
+check('AJ4: panel divider x 380 clears the left plot (ends 340) and the right origin (420)', 340 < 380 && 380 < 420);
+check('AJ5: right axis t = 0..7 at 40 px → ticks x 420..700 step 40', JSON.stringify([0,2,4,6,7].map(t => 420 + 40 * t)) === '[420,500,580,660,700]');
+check('AJ6: right s-scale 3 px per km/h: s = 90 → y = 320 − 270 = 50 (inside viewBox 400)', 320 - 3 * 90 === 50 && 50 > 0);
+check('AJ7: curve dots (3 h, 80) → (540,80); (4,60) → (580,140); (6,40) → (660,200)', 420 + 120 === 540 && 320 - 240 === 80 && 420 + 160 === 580 && 320 - 180 === 140 && 420 + 240 === 660 && 320 - 120 === 200);
+check('AJ8: every curve dot sits on xy = 240 in data units: 3×80 = 4×60 = 6×40 = 240', 3 * 80 === 240 && 4 * 60 === 240 && 6 * 40 === 240);
+check('AJ9: drop-lines from (540,80): vertical to (540,320), horizontal to (420,80) — axis meets exact', 540 === 420 + 40 * 3 && 80 === 320 - 3 * 80);
+check('AJ10: dot labels ride 12 px above their dots at y 68/128/188 — rows 60 px apart, never a shared y', 80 - 12 === 68 && 140 - 12 === 128 && 200 - 12 === 188 && 128 - 68 === 60 && 188 - 128 === 60);
+check('AJ11: hyperbola polyline samples on xy = 240: t = 8/3→(526.7,50), 3→(540,80), 4→(580,140), 5→(620,176), 6→(660,200), 7→(700,217.1)', JSON.stringify([8 / 3, 3, 4, 5, 6, 7].map(t => Math.round((420 + 40 * t) * 10) / 10)) === '[526.7,540,580,620,660,700]' && JSON.stringify([8 / 3, 3, 4, 5, 6, 7].map(t => Math.round((320 - 3 * (240 / t)) * 10) / 10)) === '[50,80,140,176,200,217.1]');
+check('AJ12: bottom strip y 370 clears the tick labels at y 338', 370 > 338 + 8 && 370 < 400);
+
+/* ============================================================
+ * AK. The factor method — both laws proved from the constants
+ * ==========================================================*/
+check('AK1: direct law: x = ky → x₂ = m·x₁ forces y₂ = m·y₁ (the line cannot bend)', true);
+check('AK2: van instance: 60 km/h, 2 h → 120 km; time doubles to 4 h → 240 km (doubled)', 60 * 2 === 120 && 60 * 4 === 240 && 240 === 2 * 120);
+check('AK3: inverse law: y = k/x → x₂ = m·x₁ forces y₂ = y₁/m (the total cannot move)', true);
+check('AK4: journey instance: 40 km/h → 6 h; speed doubles to 80 → 3 h (halved)', 240 / 40 === 6 && 240 / 80 === 3 && 6 / 2 === 3);
+check('AK5: non-whole m: speed 60 → 90 (m = 3/2): time 240/90 = 8/3 h = 2 h 40 min; factor form 4 × 2/3 = 8/3', 240 / 90 === 8 / 3 && 4 * (2 / 3) === 8 / 3 && 8 / 3 === 2 + 40 / 60);
+check('AK6: the m-fraud guard: the factor law needs the SAME constant — mixing two rates is not variation', 60 * 2 !== 90 * 2);
+check('AK7: bacteria by factor: m = 2/5, 5 → 2 cm (the law working on a shrinking factor)', 5 * (20000 / 50000) === 2);
+
+/* ============================================================
+ * AL. The recognition drill + the flip + the work problems
+ * ==========================================================*/
+check('AL1: workers×days fixed: rewiring 3×4 = 12 = 4×3 person-days', 3 * 4 === 12 && 4 * 3 === 12);
+check('AL2: rewiring by the flip: 3 : 4 = d : 4 → d = 3 (cross 3×4 = 12 = 4×d)', (3 * 4) / 4 === 3);
+check('AL3: machines 42 × 63 = 2646 person-days? — machine-days; 2646/54 = 49 machines', 42 * 63 === 2646 && 2646 / 54 === 49 && 49 * 54 === 2646);
+check('AL4: cattle 20 × 6 = 120 animal-days; 30 animals → 120/30 = 4 days', 20 * 6 === 120 && 120 / 30 === 4 && 30 * 4 === 120);
+check('AL5: windows 2 × 3 = 6 person-days; 1 person → 6 days; 6 persons → 1 day', 2 * 3 === 6 && 6 / 1 === 6 && 6 / 6 === 1);
+check('AL6: boxes 12 × 25 = 300 bottles; 20 per box → 300/20 = 15 boxes', 12 * 25 === 300 && 300 / 20 === 15 && 20 * 15 === 300);
+check('AL7: the trap — time & distance AT UNIFORM SPEED is DIRECT (k = the speed): 120/2 = 180/3 = 60', 120 / 2 === 60 && 180 / 3 === 60);
+check('AL8: the trap contrast — speed & time on a FIXED journey is inverse (k = 240)', 60 * 4 === 240 && 80 * 3 === 240);
+check('AL9: population × land-per-person = total land (inverse): 1000 × 12 = 500 × 24', 1000 * 12 === 12000 && 500 * 24 === 12000 && 1000 * 12 === 500 * 24);
+check('AL10: area & crop direct: 3 ha → 12 t, 5 ha → 20 t (k = 4 t/ha)', 12 / 3 === 4 && 20 / 5 === 4 && 12 / 3 === 20 / 5);
+check('AL11: the flip derivation: w₁d₁ = w₂d₂ ⟺ w₁/w₂ = d₂/d₁ — divide both sides by w₂d₁ (rewiring: 12/16 = 3/4)', (3 * 4) / (4 * 4) === 3 / 4 && 12 / 16 === 3 / 4);
+check('AL12: the naive direct fill fails the sniff test: the direct layout 3 : 4 :: 4 : d gives d = 16/3 (more workers, MORE days — absurd)', (4 * 4) / 3 === 16 / 3 && 16 / 3 > 4);
+check('AL13: the flip layout 3 : 4 :: d : 4 gives d = 3 (more workers, fewer days — sane)', (3 * 4) / 4 === 3 && 3 < 4);
+
+/* ============================================================
+ * AM. Figure 2 geometry — the flip (which seat turns over)
+ * viewBox 0 0 760 320; two rows of four boxes, pitch 160
+ * row 1 y 60..116 (the direct invite); row 2 y 190..246 (the flip)
+ * ==========================================================*/
+check('AM1: four boxes of width 116 at pitch 160 per row: x 60..176, 220..336, 380..496, 540..656 (both rows)', JSON.stringify([0,1,2,3].map(k => 60 + 160 * k)) === '[60,220,380,540]' && 60 + 116 === 176 && 540 + 116 === 656);
+check('AM2: row 1 box centers x 118/278/438/598; gap colons centered x 198/358/518 at row-mid y 88', (60 + 176) / 2 === 118 && (176 + 220) / 2 === 198 && (336 + 380) / 2 === 358 && (496 + 540) / 2 === 518 && (60 + 116) / 2 === 88);
+check('AM3: row 2 boxes y 190..246, same x lanes — 74 px of clear band between rows (116..190)', 190 - 116 === 74);
+check('AM4: the flip arrow — dashed stubs (438,116)→(438,156) and (598,156)→(598,190) joined by a quadratic peaking at (518,136), all inside the clear band 116..190', 438 > 380 && 438 < 496 && 598 > 540 && 598 < 656 && 116 < 136 && 136 < 156 && 156 < 190);
+check('AM5: the flip label at (518,178) — below the curve endpoints (y 156), above row 2 (y 190): 156 + 8 < 178 < 190 − 8', 178 > 156 + 8 && 178 < 190 - 8);
+check('AM6: bottom strip y 288 clears row 2 (246) and fits viewBox 320', 288 > 246 + 8 && 288 + 8 < 320);
+check('AM7: row 1 content 3 : 4 :: 4 : □ — the direct invite, d = 16/3 absurd; row 2 content 3 : 4 :: □ : 4 — the flip, d = 3', (4 * 4) / 3 === 16 / 3 && (3 * 4) / 4 === 3);
+check('AM8: cross-law strip text: 3 × 4 = 12 = 4 × 3 — the product that never moves', 3 * 4 === 12 && 4 * 3 === 12);
+
+/* ============================================================
+ * AN. Quiz keys for 6.4 (indices 2/1/1/2/1)
+ * ==========================================================*/
+check('AN1: Q1 pole height & shadow varies directly (idx 2); the other three are inverse', 560 / 320 === 1.75 && 60 * 4 === 240 && 3 * 4 === 12 && 4 * 25000 === 100000);
+check('AN2: Q2 840 in 6 h → 5 h = 700 (idx 1); 640/720/750 all fail the k = 140 line', 840 / 6 === 140 && 5 * 140 === 700 && 5 * 128 !== 700 && 5 * 144 !== 700 && 5 * 150 !== 700);
+check('AN3: Q3 xy = 240, x = 60 → y = 4 (idx 1); 40 is the multiply fraud, 1/4 the divide fraud, 240 the product itself', 240 / 60 === 4 && 60 * 4 === 240 && 240 * 60 !== 4 && 60 / 4 !== 4);
+check('AN4: Q4 parking table NOT direct — the ratios differ (idx 2); 15 ≠ 12.5 ≠ 35/3 ≠ 7.5', 60 / 4 === 15 && 100 / 8 === 12.5 && 140 / 12 !== 15 && 180 / 24 === 7.5);
+check('AN5: Q5 speed doubles → time halves (idx 1); 40→80 on 240 km: 6 h → 3 h', 240 / 40 === 6 && 240 / 80 === 3 && 3 === 6 / 2);
+check('AN6: quiz answers planned as indices 2/1/1/2/1', JSON.stringify([2, 1, 1, 2, 1]) === '[2,1,1,2,1]');
+
+/* ============================================================
+ * AO. Exercise keys for 6.4 (12 questions, L1–L6)
+ * ==========================================================*/
+check('AO1: L1a rice 5 kg Rs 325 → k = 65; 8 kg → Rs 520', 325 / 5 === 65 && 65 * 8 === 520);
+check('AO2: L1b pens 6 for Rs 90 → k = 15; 10 pens → Rs 150', 90 / 6 === 15 && 15 * 10 === 150);
+check('AO3: L2a fixed 360 km: 90 km/h → 4 h; 120 km/h → 3 h (product 360 both ways)', 90 * 4 === 360 && 360 / 120 === 3 && 120 * 3 === 360);
+check('AO4: L2b 8 workers 15 days = 120 worker-days; 12 workers → 10 days', 8 * 15 === 120 && 120 / 12 === 10 && 12 * 10 === 120);
+check('AO5: L3a paint 75 mL per part; 1800 mL base → 24 parts red; 24 × 75 = 1800', 1800 / 75 === 24 && 24 * 75 === 1800);
+check('AO6: L3b 12 × 25 = 300 bottles; boxes of 20 → 15 boxes', 12 * 25 === 300 && 300 / 20 === 15);
+check('AO7: L4a cattle 20 × 6 = 120; 30 animals → 4 days', 20 * 6 === 120 && 120 / 30 === 4);
+check('AO8: L4b periods 8 × 45 = 360 min; 9 → 40 min', 8 * 45 === 360 && 360 / 9 === 40);
+check('AO9: L5a bacteria 5/50000 = 0.0001 cm; ×20000 → 2 cm (both factor and engine agree)', 20000 * (5 / 50000) === 2 && 5 * (20000 / 50000) === 2);
+check('AO10: L5b machines 42 × 63 = 2646; 54 days → 49 machines', 42 * 63 === 2646 && 2646 / 54 === 49);
+check('AO11: L6a van 240 km: 80 km/h → 3 h (product); factor 4 × 60/80 = 3 h', 240 / 80 === 3 && 4 * (60 / 80) === 3);
+check('AO12: L6b the flip: 3 : 4 = d : 4 → d = 3 days; cross 3×4 = 12 = 4×3', (3 * 4) / 4 === 3 && 3 * 4 === 4 * 3);
+check('AO13: L2a proportion form: 90/120 = 3/4 → 4 × 3/4 = 3 h (the factor inside the proportion)', (90 / 120) * 4 === 3);
+check('AO14: L4b inverse IS direct with the reciprocal: 9 periods → 360/9 min each', 360 / 9 === 40);
+
+/* ============================================================
+ * AP. Structural sanity for lesson 6.4
+ * ==========================================================*/
+check('AP1: 9 Illustrations planned (shop line, parking fraud, bottles, truck, pole-shadow, bacteria, game show, rewiring, machines)', true);
+check('AP2: 3 formula cards (the direct engine, the inverse engine, the factor laws)', true);
+check('AP3: 2 equation tags (the direct definition; the inverse definition) + 2 derivations (the factor laws; the flip)', true);
+check('AP4: 7 terms planned (Direct variation, Constant of variation, Inverse variation, Constant product, Factor method, Person-days, Hyperbola)', true);
+check('AP5: 5 quiz items with verified keys 2/1/1/2/1', true);
+check('AP6: 12 exercises across L1–L6 (2 each), all with steps + terminal answers', true);
+check('AP7: prerequisites — 6.2 rates (the unit rate = k), 6.3 proportion (the cross law + invertendo), 6.1 ratio (the comparison habit)', true);
+check('AP8: sources — ncert-math8-ch13 (new: §§13.1–13.2 + Ex. 13.1/13.2), ncert-math6-ch12, ncert-math7-ch8, khattar-qa-4e', true);
+check('AP9: the recognition table carries 7 situations with verified constants (rewiring 12, speed 60, journey 240, yield 4 t/ha, land 12000, shadow 1.75, spokes 360)', 3 * 4 === 12 && 120 / 2 === 60 && 60 * 4 === 240 && 12 / 3 === 4 && 1000 * 12 === 12000 && 560 / 320 === 1.75 && 4 * 90 === 360);
+check('AP10: closing hands the map-scale line to 6.5 and names the hyperbola xy = k', true);
 
 /* ============================================================ */
 

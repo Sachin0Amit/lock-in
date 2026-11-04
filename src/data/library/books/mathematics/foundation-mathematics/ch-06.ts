@@ -1991,7 +1991,642 @@ export const chapter06: Chapter = {
         },
       ],
     },
+    {
+      id: 'fm-direct-and-inverse-variation',
+      number: '6.4',
+      title: 'Direct and Inverse Variation',
+      concepts: [
+        'Direct variation',
+        'Constant of variation',
+        'Inverse variation',
+        'Constant product',
+        'Factor method',
+        'The flip',
+        'Person-days',
+        'Recognition drill',
+      ],
+      objectives: [
+        'State the definition of direct variation ($y/x = k$) and inverse variation ($xy = k$), and write both in the proportionality notation $\\propto$',
+        'Certify which lock binds a table or a story — the constant-ratio test against the constant-product test — and refuse the grows-together fraud',
+        'Extend a certified direct rate and solve fixed-total problems by the constant product, the factor method and the flip, checking every answer against the fixed thing',
+        'Connect the chapter: the unit rate as $k$, the cross law inside the flip, and the line and hyperbola as the two graphs of the two locks',
+      ],
+      prerequisites: ['fm-rates-and-unit-rates', 'fm-proportion-and-cross-multiplication', 'fm-ratio-as-a-comparison'],
+      sources: ['ncert-math8-ch13', 'ncert-math6-ch12', 'ncert-math7-ch8', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 6.3 ended with a refusal. A rival stall\'s 4 kg for Rs 120 looks like the shop\'s business — more rice, more rupees, both growing — but the cross law expelled it: $120 : 4 = 30$, and $30 \\neq 32$. The refusal deserves a name, because what it refused is a pattern with teeth. The shop\'s own pairs — 96 for 3, 160 for 5, 256 for 8 — do not merely grow together; they grow **in step**, every one of them carrying the same per-kg number 32. When two quantities grow in step like that — when their ratio is not merely similar but *identical at every size* — each is said to **vary directly** as the other. And the chapter has not yet met its second lock: sometimes what stays fixed is not the ratio but the **product** — a fixed journey shared between speed and time, a fixed job shared between workers and days. This lesson names both locks, proves their laws, and drills the question every examination paper asks about them: *which one am I looking at?*',
+        },
+        { kind: 'heading', text: 'The definition of direct variation' },
+        {
+          kind: 'para',
+          text: 'Begin where Lesson 6.2 began, at the shop\'s counter — but look at the whole line at once, not one pair at a time.',
+        },
+        {
+          kind: 'example',
+          title: 'The shop sells rice at Rs $32$ per kg. Show that every pair of quantities on its price line agrees in the same way.',
+          steps: [
+            'Now, list the line\'s pairs — quantity against price: $1 : 32$, $3 : 96$, $5 : 160$, $8 : 256$.',
+            'So divide each: $96 \\div 3 = 32$, $160 \\div 5 = 32$, $256 \\div 8 = 32$ — one number, every time.',
+            'Hence every pair carries the same per-kg value $32$; the ratio of price to quantity is **constant along the whole line** — which is exactly why any two of its pairs sit in proportion (the cross law certified $96 : 3 :: 160 : 5$ in Lesson 6.3).',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Direct variation',
+          text: 'A quantity $y$ is said to **vary directly as** a quantity $x$ if the ratio $y/x$ stays equal to one fixed number $k$ as the quantities change together. The fixed number $k$ is the **constant of variation**. In symbols the claim is written $y \\propto x$ — read "$y$ varies directly as $x$" — and it holds exactly when every pair of corresponding values satisfies $y_1/x_1 = y_2/x_2$.',
+        },
+        {
+          kind: 'equation',
+          latex: 'y \\propto x \\;\\Longleftrightarrow\\; \\frac{y}{x} = k \\ \\ (k \\neq 0) \\;\\Longleftrightarrow\\; \\frac{y_1}{x_1} = \\frac{y_2}{x_2}',
+          note: 'Three dresses of one claim: the proportionality sign, the constant $k$, and the two-pair test. For the shop\'s rice, $k = 32$ — the unit rate of Lesson 6.2 wearing its formal name. A constant of variation is a unit rate, and a unit rate is a constant of variation; the lessons of this chapter have been circling one idea.',
+        },
+        {
+          kind: 'para',
+          text: 'The notation earns its keep by what it forbids. $y \\propto x$ is a **claim about a whole table of pairs**, not a compliment paid to one pair: the off-line stall\'s $120 : 4$ can no more join the shop\'s direct variation than a stranger can inherit a family resemblance by standing next to the family. Geometrically the claim says the points $(x, y)$ all sit on one straight line through the origin — the rate line of Lesson 6.3\'s figure 2 was exactly this picture, with $k = 32$ as its steepness. And the fill engine of Lesson 6.3 was legal for one reason only: on a line of constant ratio, every pair is in proportion, so the cross law may extend any trusted pair to any new size. Direct variation is the licence that made the engine work.',
+        },
+        { kind: 'heading', text: 'The test: growing is not agreeing' },
+        {
+          kind: 'para',
+          text: 'The commonest fraud in this topic is also the gentlest: believing that *both quantities grow* is enough. It is not. Direct variation demands that they grow **in the same ratio** — and only the division test can certify that.',
+        },
+        {
+          kind: 'example',
+          title: 'A station car park charges Rs $60$ for $4$ hours, Rs $100$ for $8$ hours, Rs $140$ for $12$ hours and Rs $180$ for $24$ hours. Are the charges in direct variation with the time?',
+          steps: [
+            'Now, run the division test on each pair — charge divided by time: $60 \\div 4 = 15$, $100 \\div 8 = 12.5$, $140 \\div 12 = \\tfrac{35}{3} \\approx 11.67$, $180 \\div 24 = 7.5$.',
+            'So four pairs produce four different numbers; the ratio is not constant — indeed it **falls** as the hours grow, because long stays earn a discount.',
+            'Hence the charges are **not** in direct variation with the time: both quantities grow, but not in step — a table of near-misses, not a line.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: '"It grows too" is not a definition',
+          text: 'Both columns of the parking table increase together, yet the variation is not direct. The test is the **constant ratio**, nothing else: divide each $y$ by its $x$ and demand one number. The rice line passes ($65 : 1 = 130 : 2 = 325 : 5$, all $65$); the parking table fails ($15$, $12.5$, $11.67$, $7.5$). Every "is this direct variation?" question in an examination is this division, performed quietly.',
+        },
+        { kind: 'heading', text: 'The direct engine at work' },
+        {
+          kind: 'para',
+          text: 'Once the line is certified, every unknown is one division or one multiplication away — and the cross law of Lesson 6.3 does the same work under a different name. Two engines, one line.',
+        },
+        {
+          kind: 'example',
+          title: 'A soft-drink machine fills $840$ bottles in six hours. How many bottles will it fill in five hours at the same rate?',
+          steps: [
+            'Now, the rate: $840 \\div 6 = 140$ bottles per hour — the constant $k$.',
+            'So five hours carry $5 \\times 140 = 700$; the proportion engine agrees: $\\tfrac{840}{6} = \\tfrac{x}{5}$ gives $x = 840 \\times 5 \\div 6 = 700$.',
+            'Hence 700 bottles — and the check: $700 \\div 5 = 140$, the same $k$ as at the start.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A loaded truck travels $14$ km in $25$ minutes. If the speed stays the same, how far does it travel in $5$ hours?',
+          steps: [
+            'Now, the units must meet before the quantities can: $5$ hours $= 300$ minutes.',
+            'So the constant is $k = \\tfrac{14}{25}$ km per minute, and the distance is $300 \\times \\tfrac{14}{25} = 168$ km; in proportion dress, $\\tfrac{14}{25} = \\tfrac{x}{300}$ gives $x = 168$ by the cross law.',
+            'Hence 168 km — the conversion was not decoration: the same constant in km/h is $\\tfrac{14}{25} \\times 60 = 33.6$, a true sentence, but mixing the two dresses in one equation is the classic way to manufacture a wrong answer.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A pole $5$ m $60$ cm high casts a shadow $3$ m $20$ cm long. At the same time, find the shadow of a pole $10$ m $50$ cm high, and the height of the pole whose shadow is $5$ m.',
+          steps: [
+            'Now, sun-angle geometry locks height to shadow, so the two vary directly; dress the pairs as height over shadow: $k = 560 \\div 320 = \\tfrac{7}{4} = 1.75$ metres of pole per metre of shadow.',
+            'So the $10$ m $50$ cm pole ($1050$ cm) casts $1050 \\div 1.75 = 600$ cm $= 6$ m of shadow; and the $5$ m shadow ($500$ cm) belongs to a pole of $1.75 \\times 500 = 875$ cm $= 8$ m $75$ cm.',
+            'Hence shadow 6 m; pole 8 m 75 cm — the proportion form $\\tfrac{560}{320} = \\tfrac{1050}{600}$ certifies the first answer, cross products $560 \\times 600 = 336000 = 320 \\times 1050$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A photograph of a bacterium, enlarged $50{,}000$ times, measures $5$ cm. What is the bacterium\'s actual length, and how long would the photograph be at $20{,}000$ times?',
+          steps: [
+            'Now, actual length and enlarged length vary directly — the enlargement factor is the multiplier: $k = 5 \\div 50{,}000 = 0.0001$ cm per times.',
+            'So the bacterium itself is $0.0001$ cm long — one thousandth of a millimetre; and at $20{,}000$ times the photograph measures $20{,}000 \\times 0.0001 = 2$ cm.',
+            'Hence actual length 0.0001 cm; enlarged length 2 cm — the factor method agrees in one line: the magnification dropped by $\\tfrac{20{,}000}{50{,}000} = \\tfrac{2}{5}$, so the length drops by the same factor, $5 \\times \\tfrac{2}{5} = 2$.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The direct engine',
+          latex: 'y \\propto x: \\quad k = \\tfrac{y_1}{x_1} = \\tfrac{y_2}{x_2}, \\qquad y_2 = k\\,x_2',
+          note: 'Certify the line first — one division per pair — then extend: the new value is the constant times the new size. The cross law $y_1 x_2 = x_1 y_2$ is the same engine in proportion dress; the factor method (below) is the same engine with the division already done.',
+        },
+        { kind: 'heading', text: 'Inverse variation: the fixed total' },
+        {
+          kind: 'para',
+          text: 'Now turn the lock around. A hostel has a fixed stock of sweets; the more children share it, the fewer each one gets. A journey has a fixed length; the faster you drive, the sooner it ends. A job has a fixed size; the more workers, the fewer days. In each scene the **product** of the two quantities refuses to move — and that stubbornness is the second kind of variation.',
+        },
+        {
+          kind: 'example',
+          title: 'A game show prizes Rs $1{,}00{,}000$, to be divided equally among the winners. Complete the table for $4$, $5$, $8$, $10$ and $20$ winners, and decide how the prize varies with the number of winners.',
+          steps: [
+            'Now, divide: $4$ winners take Rs $25{,}000$ each, $5$ take Rs $20{,}000$, $8$ take Rs $12{,}500$, $10$ take Rs $10{,}000$, $20$ take Rs $5{,}000$.',
+            'So check the product in every row: $4 \\times 25{,}000 = 5 \\times 20{,}000 = 8 \\times 12{,}500 = 10 \\times 10{,}000 = 20 \\times 5{,}000 = 1{,}00{,}000$.',
+            'Hence the product is the fixed thing — winners $\\times$ prize $= 1{,}00{,}000$ in every row. Doubling the winners halves the prize; the two quantities vary **inversely**.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Inverse variation',
+          text: 'A quantity $y$ is said to **vary inversely as** a quantity $x$ if their product $xy$ stays equal to one fixed number $k$ as the quantities change together. In symbols $y \\propto \\tfrac{1}{x}$ — read "$y$ varies inversely as $x$" — and it holds exactly when every pair of corresponding values satisfies $x_1 y_1 = x_2 y_2$. The fixed product $k$ is the **constant of variation**: in the prize scene, the Rs $1{,}00{,}000$ itself.',
+        },
+        {
+          kind: 'equation',
+          latex: 'y \\propto \\tfrac{1}{x} \\;\\Longleftrightarrow\\; x\\,y = k \\ \\ (k \\neq 0) \\;\\Longleftrightarrow\\; x_1 y_1 = x_2 y_2',
+          note: 'The mirror of equation tag 1: where direct variation pinned the ratio, inverse variation pins the product. The reciprocal dress is honest bookkeeping — $y$ varying directly as $\\tfrac{1}{x}$ means $y / \\tfrac{1}{x} = xy$ is constant, which is the product statement again.',
+        },
+        {
+          kind: 'para',
+          text: 'Work problems give the fixed product its working name. A job that $3$ persons finish in $4$ days has size $3 \\times 4 = 12$ **person-days** — twelve days of one person\'s labour, and no rearrangement of the crew changes the total. More workers, fewer days; fewer workers, more days; the person-days stand still. Every "workers and days" constant in this lesson is such a product, and the exercises will run the same arithmetic on animals-and-days, machines-and-days and bottles-and-boxes.',
+        },
+        { kind: 'heading', text: 'One journey, two bindings' },
+        {
+          kind: 'para',
+          text: 'The same road can carry both locks, and telling them apart is the whole skill. Figure 1 puts the two side by side: a delivery van whose **distance** varies directly with its time, and a fixed $240$ km journey whose **speed and time** vary inversely.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One journey, two bindings. Left: the van runs at a steady $60$ km/h, so distance $= 60 \\times$ time — the points sit on one line through the origin, the direct lock with $k = 60$: at $1$ h, $60$ km; at $3$ h, $180$ km. Right: the fixed $240$ km journey binds speed and time by their product — $3$ h at $80$ km/h, $4$ at $60$, $6$ at $40$: three pairs on one curve, each rebuilding $240$ (the curve $xy = 240$, a hyperbola, bends away from both axes because neither quantity may reach zero). Same road, opposite locks: the left pair\'s ratio is fixed, the right pair\'s product is.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: left, a straight line through the origin for a van at sixty kilometres per hour with dots at one hour sixty kilometres and three hours one hundred eighty kilometres; right, a downward-bending curve for a fixed two hundred forty kilometre journey with dots at three hours eighty kilometres per hour, four hours sixty and six hours forty">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="200" y="48" font-weight="bold">the steady van: d = 60t (direct)</text>
+    <text x="565" y="48" font-weight="bold">fixed 240 km: speed × time = 240 (inverse)</text>
+    <text x="60" y="68" font-size="11">km</text>
+    <text x="200" y="356" font-size="11">time (hours)</text>
+    <text x="565" y="356" font-size="11">time (hours)</text>
+    <text x="426" y="62" font-size="11" text-anchor="start">km/h</text>
+    <text x="60" y="338">0</text>
+    <text x="130" y="338">1</text>
+    <text x="200" y="338">2</text>
+    <text x="270" y="338">3</text>
+    <text x="340" y="338">4</text>
+    <text x="420" y="338">0</text>
+    <text x="460" y="338">1</text>
+    <text x="500" y="338">2</text>
+    <text x="540" y="338">3</text>
+    <text x="580" y="338">4</text>
+    <text x="620" y="338">5</text>
+    <text x="660" y="338">6</text>
+    <text x="700" y="338">7</text>
+    <text x="54" y="324" text-anchor="end">0</text>
+    <text x="54" y="264" text-anchor="end">60</text>
+    <text x="54" y="204" text-anchor="end">120</text>
+    <text x="54" y="144" text-anchor="end">180</text>
+    <text x="54" y="84" text-anchor="end">240</text>
+    <text x="414" y="324" text-anchor="end">0</text>
+    <text x="414" y="234" text-anchor="end">30</text>
+    <text x="414" y="144" text-anchor="end">60</text>
+    <text x="414" y="54" text-anchor="end">90</text>
+    <text x="130" y="246" font-size="12">1 h → 60 km</text>
+    <text x="270" y="126" font-size="12">3 h → 180 km</text>
+    <text x="540" y="68" font-size="12">3 × 80</text>
+    <text x="580" y="128" font-size="12">4 × 60</text>
+    <text x="660" y="188" font-size="12">6 × 40</text>
+    <text x="200" y="370" font-size="12">the ratio d/t is one number: 60</text>
+    <text x="560" y="370" font-size="12">3 × 80 = 4 × 60 = 6 × 40 = 240</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <line x1="60" y1="320" x2="360" y2="320" />
+    <line x1="60" y1="320" x2="60" y2="80" />
+    <line x1="60" y1="320" x2="340" y2="80" />
+    <line x1="420" y1="320" x2="710" y2="320" />
+    <line x1="420" y1="320" x2="420" y2="50" />
+    <polyline points="526.7,50 540,80 580,140 620,176 660,200 700,217.1" fill="none" />
+    <line x1="380" y1="40" x2="380" y2="380" stroke-dasharray="2 5" />
+    <line x1="540" y1="80" x2="540" y2="320" stroke-dasharray="2 5" />
+    <line x1="540" y1="80" x2="420" y2="80" stroke-dasharray="2 5" />
+  </g>
+  <g fill="currentColor">
+    <circle cx="130" cy="260" r="4" />
+    <circle cx="270" cy="140" r="4" />
+    <circle cx="540" cy="80" r="4" />
+    <circle cx="580" cy="140" r="4" />
+    <circle cx="660" cy="200" r="4" />
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The figure teaches the recognition skill by eye. The left panel\'s points **refuse to bend**: the same rise per hour everywhere — the straight line through the origin that Lesson 6.3 already trusted. The right panel\'s points **must bend**: as the speed grows, the hours shrink, and the curve flattens — a **hyperbola**, the graph of a fixed product, forever approaching the axes but forbidden to touch them (zero speed or zero time would make the "fixed" journey infinite or absent). When an examination shows a table and asks "direct or inverse?", you are being asked one question: does this table\'s constant live in the ratios column or the products column?',
+        },
+        { kind: 'heading', text: 'The factor method' },
+        {
+          kind: 'para',
+          text: 'The constants spawn a shortcut that examination solutions use constantly — and that becomes a fraud the moment it is used carelessly.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The factor laws, from the constants',
+          statement:
+            'Claim: if $x_2 = m\\,x_1$ — the first quantity scaled by the factor $m$ — then $y_2 = m\\,y_1$ under **direct** variation, while $y_2 = \\tfrac{1}{m}\\,y_1$ under **inverse** variation.',
+          steps: [
+            {
+              label: 'Direct',
+              formula: 'y = k\\,x \\;\\Longrightarrow\\; y_2 = k\\,x_2 = k\\,(m\\,x_1) = m\\,(k\\,x_1) = m\\,y_1',
+              explanation:
+                'On the line, $y$ is $k$ copies of $x$, so scaling $x$ by $m$ scales $y$ by the same $m$ — the line cannot bend. Van check: $60$ km/h for $2$ h gives $120$ km; double the time to $4$ h and the distance doubles to $240$ km.',
+            },
+            {
+              label: 'Inverse',
+              formula: 'x\\,y = k \\;\\Longrightarrow\\; x_2\\,y_2 = k \\;\\Longrightarrow\\; y_2 = \\tfrac{k}{x_2} = \\tfrac{k}{m\\,x_1} = \\tfrac{1}{m}\\cdot\\tfrac{k}{x_1} = \\tfrac{y_1}{m}',
+              explanation:
+                'The fixed total is shared over $m$ times as many parts, so each part shrinks by $m$. Journey check: $40$ km/h takes $6$ h; double the speed to $80$ km/h and the time halves to $3$ h — the product still $240$.',
+            },
+            {
+              label: 'The guard',
+              formula: 'm \\text{ may be any positive number}',
+              explanation:
+                'Whole or not: at $90$ km/h on the same $240$ km journey, $m = \\tfrac{90}{60} = \\tfrac{3}{2}$, so the time is $4 \\times \\tfrac{2}{3} = \\tfrac{8}{3}$ h $= 2$ h $40$ min — and indeed $\\tfrac{8}{3} \\times 90 = 240$. The factor method is the definition in motion, not a new law.',
+            },
+          ],
+          result: 'direct: $y_2 = m\\,y_1$; inverse: $y_2 = y_1/m$ — scale with the factor, or against it.',
+        },
+        {
+          kind: 'formula',
+          name: 'The factor laws',
+          latex: 'x_2 = m\\,x_1 \\;\\Longrightarrow\\; y_2 = m\\,y_1 \\ (\\text{direct}); \\qquad y_2 = \\tfrac{y_1}{m} \\ (\\text{inverse})',
+          note: 'The scaling shortcut: in direct variation both quantities multiply by $m$; in inverse variation one multiplies by $m$, the other by $1/m$. Bacteria check (direct): magnification $50{,}000 \\to 20{,}000$ is $m = \\tfrac{2}{5}$, so $5 \\times \\tfrac{2}{5} = 2$ cm.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The factor is not a licence across scenes',
+          text: 'The factor law needs the **same constant** on both sides of the comparison. A van at $60$ km/h covers $120$ km in $2$ h; a bus at $90$ km/h covers $180$ km in $2$ h. The van\'s time doubles — may the bus\'s distance double too? No law connects them: the two vehicles ride different constants ($60$ against $90$), and the factor method works **within one table of pairs**, never across two unrelated scenes.',
+        },
+        { kind: 'heading', text: 'Which is it? The recognition drill' },
+        {
+          kind: 'para',
+          text: 'Examinations rarely announce the lock. They hand over a situation and wait. The drill is to name the fixed thing: if the situation fixes a **rate**, the variation is direct; if it fixes a **total**, the variation is inverse. Seven situations, one per row — each constant verified.',
+        },
+        {
+          kind: 'table',
+          head: ['Situation', 'The fixed thing', 'Binding', 'A verified instance'],
+          rows: [
+            ['workers and days on one job', "the job's size — person-days", 'inverse', '$3 \\times 4 = 12 = 4 \\times 3$'],
+            ['time and distance at a uniform speed', 'the speed', 'direct', '$120/2 = 180/3 = 60$ km/h'],
+            ['speed and time on a fixed journey', "the journey's length", 'inverse', '$60 \\times 4 = 240 = 80 \\times 3$'],
+            ['field area and crop harvested', 'the yield per hectare', 'direct', '$12/3 = 20/5 = 4$ t per ha'],
+            ['population and land per person', 'the total land', 'inverse', '$1000 \\times 12 = 500 \\times 24$'],
+            ['pole height and shadow length', "the sun's geometry", 'direct', '$560/320 = 7/4$'],
+            ['spokes of a wheel and the angle between them', 'the full turn, $360°$', 'inverse', '$4 \\times 90° = 360° = 12 \\times 30°$'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The uniform-speed trap',
+          text: 'The table\'s second row is the examination\'s favourite trick. At a uniform speed, more time means more distance — and the variation is **direct**, with the speed itself as the constant. The same two quantities, speed and time, bind **inversely** the moment the journey is fixed instead. "More–more" or "more–less" by feel is exactly the fraud the parking table exposed: the fixed thing decides, and only the test certifies.',
+        },
+        { kind: 'heading', text: 'The flip: inverse problems are proportions' },
+        {
+          kind: 'para',
+          text: 'Lesson 6.3\'s fill engine ran on proportions; inverse problems can run on it too — after one honest adjustment. The seats the numbers invite are the wrong seats. A job that $3$ persons finish in $4$ days: the direct invite says $3 : 4 :: 4 : d$, the cross law obliges with $d = \\tfrac{16}{3}$, and the sanity check screams — four workers taking *longer* than three? The right-hand pair must trade seats before the cross law is applied, and figure 2 shows the swap seat by seat.',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The flip',
+          text: 'If $x_1 y_1 = x_2 y_2$ — inverse variation — then $x_1 : x_2 = y_2 : y_1$: the two $y$-values sit in the proportion in **swapped** order. Cross-multiply the swapped claim and its products are $x_1 y_1$ against $x_2 y_2$ — the very pair the hypothesis declared equal. In the seats, the swap is invertendo (Lesson 6.3) applied to the right-hand ratio.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The flip, from the cross law',
+          statement:
+            'Claim: for non-zero quantities, $x_1 y_1 = x_2 y_2 \\;\\Longleftrightarrow\\; x_1 : x_2 = y_2 : y_1$.',
+          steps: [
+            {
+              label: 'Forward',
+              formula: 'x_1\\,y_1 = x_2\\,y_2 \\;\\Longrightarrow\\; \\frac{x_1}{x_2} = \\frac{y_2}{y_1}',
+              explanation:
+                'Divide both sides by $x_2\\,y_1$ — the balance licence of chapter 2, legal since every quantity is non-zero. Rewiring check: $3 \\times 4 = 12 = 4 \\times 3$, and indeed $\\tfrac{3}{4} = \\tfrac{3}{4}$ — the worker ratio equals the day ratio inverted.',
+            },
+            {
+              label: 'Backward',
+              formula: '\\frac{x_1}{x_2} = \\frac{y_2}{y_1} \\;\\Longrightarrow\\; x_1\\,y_1 = x_2\\,y_2',
+              explanation:
+                'Multiply both sides by $x_2\\,y_1$. The two claims are one sentence in two dresses — which is why an inverse problem, once flipped, is solved by the cross law with no new machinery.',
+            },
+          ],
+          result: '$x_1 y_1 = x_2 y_2 \\Longleftrightarrow x_1 : x_2 = y_2 : y_1$ — inverse variation is a proportion with the right-hand pair inverted.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The flip, seat by seat. Row 1 is the layout the numbers invite — $3 : 4 :: 4 : d$ — and the cross law obliges with an absurdity: $d = \\tfrac{16}{3}$, four workers taking longer than three. Row 2 swaps the right-hand pair — $3 : 4 :: d : 4$ — and the same law returns $d = 3$: more workers, fewer days, the product $12$ unmoved. The cross law did not change; only the seating did — invertendo from Lesson 6.3, cashed.',
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rows of four boxes: the first row reads three, four, four, d and produces the absurd answer sixteen over three; the second row swaps the last two boxes to read three, four, d, four and produces the sane answer three days, with an arrow labelled the flip between the rows">
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="380" y="40">the seats the numbers invite — 3 : 4 :: 4 : d gives d = 16/3 (absurd)</text>
+    <text x="118" y="93" font-weight="bold">3</text>
+    <text x="278" y="93" font-weight="bold">4</text>
+    <text x="438" y="93" font-weight="bold">4</text>
+    <text x="598" y="93" font-weight="bold">d</text>
+    <text x="198" y="93">:</text>
+    <text x="358" y="93">::</text>
+    <text x="518" y="93">:</text>
+    <text x="518" y="178" font-size="12">the flip</text>
+    <text x="118" y="223" font-weight="bold">3</text>
+    <text x="278" y="223" font-weight="bold">4</text>
+    <text x="438" y="223" font-weight="bold">d</text>
+    <text x="598" y="223" font-weight="bold">4</text>
+    <text x="198" y="223">:</text>
+    <text x="358" y="223">::</text>
+    <text x="518" y="223">:</text>
+    <text x="380" y="264">the flip — 3 : 4 :: d : 4 gives d = 3 (sane): one side trades seats</text>
+    <text x="380" y="288" font-size="12">the cross law never moved: 3 × 4 = 12 = 4 × 3</text>
+  </g>
+  <g stroke="currentColor" fill="none" stroke-width="1">
+    <rect x="60" y="60" width="116" height="56" />
+    <rect x="220" y="60" width="116" height="56" />
+    <rect x="380" y="60" width="116" height="56" />
+    <rect x="540" y="60" width="116" height="56" />
+    <rect x="60" y="190" width="116" height="56" />
+    <rect x="220" y="190" width="116" height="56" />
+    <rect x="380" y="190" width="116" height="56" />
+    <rect x="540" y="190" width="116" height="56" />
+    <line x1="438" y1="116" x2="438" y2="156" stroke-dasharray="2 4" />
+    <path d="M 438 156 Q 518 116 598 156" />
+    <line x1="598" y1="156" x2="598" y2="186" stroke-dasharray="2 4" />
+    <path d="M 594 180 L 598 188 L 602 180" />
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Three persons rewire a house in $4$ days. How long would four persons take?',
+          steps: [
+            'Now, the job is $3 \\times 4 = 12$ person-days — the fixed total.',
+            'So four persons need $12 \\div 4 = 3$ days; by the flip: $3 : 4 = d : 4$, and the cross law says $4d = 12$, so $d = 3$.',
+            'Hence 3 days — the sanity check holds: more workers, fewer days, and $4 \\times 3 = 12$ rebuilds the total.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A factory requires $42$ machines to produce a given number of articles in $63$ days. How many machines would produce the same number of articles in $54$ days?',
+          steps: [
+            'Now, the fixed total: $42 \\times 63 = 2646$ machine-days.',
+            'So the shorter schedule needs $2646 \\div 54 = 49$ machines; by the flip: $42 : x = 54 : 63$, and the cross law says $54x = 42 \\times 63 = 2646$, so $x = 49$.',
+            'Hence 49 machines — and $49 \\times 54 = 2646$ rebuilds the total: the answer is exact, not approximate.',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The inverse engine',
+          latex: 'x_1 y_1 = x_2 y_2 \\;\\Longrightarrow\\; y_2 = \\tfrac{x_1\\,y_1}{x_2} \\qquad (x_2 \\neq 0)',
+          note: 'The fixed total divided by the new size. Use it after certifying the product — one multiplication per pair — or flip the right-hand pair and let the cross law of Lesson 6.3 run the seats.',
+        },
+        { kind: 'heading', text: 'Direct and inverse at work' },
+        {
+          kind: 'para',
+          text: 'The two locks cover a surprising amount of daily arithmetic. The windows problem — two persons fit new windows in three days; how long for one, and how many are needed to finish in one day? — is the flip run in both directions ($2 \\times 3 = 6$ person-days, so one person takes $6$ days and six persons finish in $1$). The school timetable — eight periods of $45$ minutes; how long when nine periods fill the same day? — fixes $360$ minutes and divides: $40$-minute periods. The packing problem — twenty-five boxes of twelve bottles repacked twenty to a box — fixes $300$ bottles and yields fifteen boxes. In each, the discipline is identical: name the fixed total, certify the product, divide or flip.',
+        },
+        {
+          kind: 'para',
+          text: 'Two doors remain open. The curve $xy = 240$ in figure 1 is the graph\'s honest shape — the **rectangular hyperbola**, which later mathematics will study with instruments this book does not yet need; what matters now is its message, that a fixed product bends where a fixed ratio stays straight. And the shop\'s line hides one more variation in plain sight: the map scale — one centimetre standing for eighteen kilometres — is direct variation between map and ground. Drawing maps, models and recipes to scale deserves a lesson of its own, and Lesson 6.5 is its door.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Direct and inverse variation in the examination hall',
+          text: 'Variation items are staples of SSC CGL and CHSL, banking prelims, RRB NTPC, CUET, NTSE and the class-8 boards — and they wear few disguises: classify a table or a story as direct or inverse (the constant-ratio test against the constant-product test); extend a certified direct rate to a new size (bottles per hour, km per minute, shadow per pole); complete or check an inverse table (prize money among winners, spokes and angles, periods in a school day); and the work block — workers and days, machines and days, food provision for animals — solved by the fixed product or the flip. The canon behind them: NCERT class-8 chapter 13, "Direct and Inverse Proportions" (§§13.1–13.2 with Exercises 13.1–13.2 — the parking table, the machine, the pole and shadow, the game show, the machines and the cattle of this lesson\'s drills are built in those shapes; no question is reproduced). The ratio–proportion groundwork sits in NCERT class-6 chapter 12 and class-7 chapter 8, and the men–days and speed–time staples in Khattar\'s Quantitative Aptitude.',
+        },
+        {
+          kind: 'para',
+          text: 'The chapter now owns four instruments. The ratio compares; the rate carries units; the proportion certifies agreement; and variation names the two ways quantities can be bound — one ratio for the whole line, or one product for the whole story. One lesson remains, and it spends all four at once: drawing the world to scale.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Direct variation',
+              def: 'The lock in which $y/x$ is constant — $y \\propto x$: every pair sits on one line through the origin, and doubling $x$ doubles $y$.',
+            },
+            {
+              term: 'Constant of variation',
+              def: 'The fixed number $k$ in a variation: the ratio $y/x$ in the direct case, the product $xy$ in the inverse; for a rate, $k$ is the unit rate of Lesson 6.2.',
+            },
+            {
+              term: 'Inverse variation',
+              def: 'The lock in which $xy$ is constant — $y \\propto 1/x$: doubling $x$ halves $y$, the fixed total being shared over more parts.',
+            },
+            {
+              term: 'Constant product',
+              def: "The fixed total of an inverse variation — person-days for a job, kilometres for a journey, rupees for a prize pool; the number every row's product rebuilds.",
+            },
+            {
+              term: 'Factor method',
+              def: 'The scaling shortcut: if $x$ is multiplied by $m$, then $y$ is multiplied by $m$ (direct) or by $1/m$ (inverse) — proved from the constants, valid within one table of pairs.',
+            },
+            {
+              term: 'Person-days',
+              def: 'The fixed product of a work problem — workers $\\times$ days for one job; $3$ persons for $4$ days and $4$ persons for $3$ days are the same $12$ person-days of work.',
+            },
+            {
+              term: 'Hyperbola',
+              def: 'The curve $xy = k$, the graph of inverse variation; it bends toward the axes and never touches them, since neither factor of a fixed product may be zero.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'Which pair of quantities varies DIRECTLY?',
+              options: [
+                'The speed of a car and the time it takes for a fixed $240$ km journey',
+                'The number of workers and the days to finish a fixed job',
+                'The height of a pole and the length of its shadow at one moment',
+                "The number of winners in a game show and each winner's prize",
+              ],
+              answer: 2,
+              explain:
+                'The shadow varies directly with the height — the sun fixes one ratio, $560/320 = 7/4$, for every pole (Option 3). The other three all fix a total — the $240$ km, the job\'s person-days, the Rs $1{,}00{,}000$ — so their products are constant, not their ratios: inverse, each one.',
+            },
+            {
+              q: 'A machine fills $840$ bottles in $6$ hours. At the same rate, how many bottles does it fill in $5$ hours?',
+              options: ['640', '700', '720', '750'],
+              answer: 1,
+              explain:
+                'The constant is $k = 840 \\div 6 = 140$ bottles per hour, so five hours carry $5 \\times 140 = 700$ (Option 2). The near-misses fail the line: $640$ and $720$ divide back to $128$ and $144$ per hour, neither $140$; and $750$ assumes $k = 150$ — a different machine.',
+            },
+            {
+              q: 'Two quantities vary inversely. If $xy = 240$ and $x = 60$, then $y$ is',
+              options: ['40', '4', '5', '6'],
+              answer: 1,
+              explain:
+                'The product is fixed, so $y = 240 \\div 60 = 4$ (Option 2) — and $60 \\times 4 = 240$ rebuilds it. Option 1 would rebuild $60 \\times 40 = 2400$; Options 3 and 4 rebuild $300$ and $360$ — none is the fixed $240$.',
+            },
+            {
+              q: 'A car park charges Rs $60$ for $4$ hours, Rs $100$ for $8$ hours and Rs $140$ for $12$ hours. Are charge and time in direct variation?',
+              options: [
+                'Yes — both quantities grow together',
+                'Yes — $60 \\div 4 = 15$ is constant',
+                'No — the ratios differ: $15$, $12.5$, $35/3$',
+                'No — time cannot vary with money',
+              ],
+              answer: 2,
+              explain:
+                'Growing together is not the test; the ratio is. The three pairs divide to $15$, $12.5$ and $\\tfrac{35}{3} \\approx 11.67$ — different numbers, so not direct (Option 3). Option 2 quotes one ratio and stops before checking the rest; Option 1 is the parking-table fraud itself; Option 4 is a joke, not a test — money and time rate each other every day.',
+            },
+            {
+              q: 'On a fixed $240$ km journey, the speed doubles from $40$ km/h to $80$ km/h. The time',
+              options: ['doubles', 'halves', 'drops by 40 minutes', 'stays the same'],
+              answer: 1,
+              explain:
+                'Inverse variation: the product is fixed, so doubling one factor halves the other — $6$ h becomes $3$ h (Option 2), and $80 \\times 3 = 240$ still. Option 1 is the direct dress; Option 3 subtracts where variation divides ($6$ h minus $40$ minutes is not $3$ h); Option 4 forgets the lock entirely.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'A shop sells $5$ kg of rice for Rs $325$. At the same rate, what do $8$ kg cost?',
+                  solution: [
+                    'Now, certify the line: $325 \\div 5 = 65$, and "at the same rate" fixes $k = 65$ rupees per kg.',
+                    'So $8$ kg cost $65 \\times 8 = 520$; the proportion dress agrees: $\\tfrac{325}{5} = \\tfrac{x}{8}$ gives $x = 520$.',
+                    'Hence Rs 520 — and $520 \\div 8 = 65$ rebuilds the constant.',
+                  ],
+                  answer: 'Rs 520',
+                },
+                {
+                  q: 'Six pens cost Rs $90$. What do $10$ pens cost at the same rate?',
+                  solution: [
+                    'Now, $k = 90 \\div 6 = 15$ rupees per pen.',
+                    'So $10$ pens cost $15 \\times 10 = 150$.',
+                    'Hence Rs 150 — and $150 \\div 10 = 15$: still the same pen.',
+                  ],
+                  answer: 'Rs 150',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A car covers a fixed $360$ km at $90$ km/h in $4$ hours. How long does the same journey take at $120$ km/h?',
+                  solution: [
+                    'Now, the fixed total: $90 \\times 4 = 360$ km.',
+                    'So the time at $120$ km/h is $360 \\div 120 = 3$ h; the flip agrees: $90 : 120 = t : 4$ gives $120t = 360$, so $t = 3$.',
+                    'Hence 3 hours — faster by a factor of $\\tfrac{120}{90} = \\tfrac{4}{3}$, so the time is divided by $\\tfrac{4}{3}$: $4 \\times \\tfrac{3}{4} = 3$.',
+                  ],
+                  answer: '3 hours',
+                },
+                {
+                  q: 'Eight workers finish a job in $15$ days. How long would twelve workers take?',
+                  solution: [
+                    'Now, the job is $8 \\times 15 = 120$ worker-days.',
+                    'So twelve workers need $120 \\div 12 = 10$ days.',
+                    'Hence 10 days — the product $12 \\times 10 = 120$ rebuilds the total.',
+                  ],
+                  answer: '10 days',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A paint mix uses $1$ part of red pigment with $8$ parts of base, and one part needs $75$ mL of base. How many parts of red pigment mix with $1800$ mL of base?',
+                  solution: [
+                    'Now, the base per part is fixed at $75$ mL, so parts of pigment and millilitres of base vary directly with $k = 75$.',
+                    'So $1800$ mL supports $1800 \\div 75 = 24$ parts of red pigment — and $24 \\times 75 = 1800$ rebuilds the base.',
+                    'Hence 24 parts — the mix stays $1 : 8$ by construction.',
+                  ],
+                  answer: '24 parts',
+                },
+                {
+                  q: 'A batch of $300$ bottles is packed $12$ to a box, filling $25$ boxes. How many boxes does the same batch fill at $20$ bottles per box?',
+                  solution: [
+                    'Now, the fixed total: $12 \\times 25 = 300$ bottles.',
+                    'So $300 \\div 20 = 15$ boxes; the flip agrees: $20 : 12 = 25 : x$ gives $20x = 300$, so $x = 15$.',
+                    'Hence 15 boxes — bigger boxes, fewer of them, and $20 \\times 15 = 300$.',
+                  ],
+                  answer: '15 boxes',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A farmer has food for $20$ animals for $6$ days. How long would the food last $30$ animals?',
+                  solution: [
+                    'Now, the provision is fixed: $20 \\times 6 = 120$ animal-days.',
+                    'So $30$ animals consume $30$ animal-days per day: $120 \\div 30 = 4$ days.',
+                    'Hence 4 days — $30 \\times 4 = 120$: the total never moved.',
+                  ],
+                  answer: '4 days',
+                },
+                {
+                  q: 'A school runs $8$ periods of $45$ minutes each. If it switches to $9$ periods in the same school day, how long is each period?',
+                  solution: [
+                    'Now, the day is fixed: $8 \\times 45 = 360$ minutes.',
+                    'So nine periods run $360 \\div 9 = 40$ minutes each.',
+                    'Hence 40 minutes — more periods, shorter each; $9 \\times 40 = 360$.',
+                  ],
+                  answer: '40 minutes',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'A bacterium photographed at $50{,}000$ times magnification measures $5$ cm. Find its actual length, and its photographed length at $20{,}000$ times.',
+                  solution: [
+                    'Now, actual length and enlargement vary directly — the photograph is the actual length times the magnification: $k = 5 \\div 50{,}000 = 0.0001$ cm.',
+                    'So the bacterium is $0.0001$ cm long — one thousandth of a millimetre; at $20{,}000$ times it photographs at $20{,}000 \\times 0.0001 = 2$ cm.',
+                    'Hence 0.0001 cm actual; 2 cm enlarged — the factor method agrees: $5 \\times \\tfrac{20{,}000}{50{,}000} = 5 \\times \\tfrac{2}{5} = 2$.',
+                  ],
+                  answer: '0.0001 cm actual; 2 cm at 20,000 times',
+                },
+                {
+                  q: 'A factory requires $42$ machines to produce a given number of articles in $63$ days. How many machines would produce the same number of articles in $54$ days?',
+                  solution: [
+                    'Now, the fixed total: $42 \\times 63 = 2646$ machine-days.',
+                    'So $54$ days need $2646 \\div 54 = 49$ machines; the flip gives the same: $42 : x = 54 : 63$, so $54x = 2646$ and $x = 49$.',
+                    'Hence 49 machines — $49 \\times 54 = 2646$ rebuilds the total.',
+                  ],
+                  answer: '49 machines',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'A van runs a fixed $240$ km route. At $60$ km/h it takes $4$ hours. Verify that $80$ km/h takes $3$ hours — twice: once by the constant product, once by the factor method.',
+                  solution: [
+                    'Now, the constant product: $60 \\times 4 = 240$, and $80 \\times 3 = 240$ — the product is rebuilt, so $3$ h is certified.',
+                    'So by the factor method: the speed scales by $m = \\tfrac{80}{60} = \\tfrac{4}{3}$, so the time must scale by $\\tfrac{1}{m} = \\tfrac{3}{4}$: $4 \\times \\tfrac{3}{4} = 3$ h.',
+                    'Hence verified both ways — the two engines are one lock, seen from the ratio side and the product side.',
+                  ],
+                  answer: 'Verified both ways: 80 × 3 = 240 and 4 × 3/4 = 3 h',
+                },
+                {
+                  q: 'Prove the flip: from $x_1 y_1 = x_2 y_2$ derive $x_1 : x_2 = y_2 : y_1$, and use it to answer — three persons rewire a house in $4$ days; how long do four persons take?',
+                  solution: [
+                    'Now, divide the hypothesis $x_1 y_1 = x_2 y_2$ by $x_2 y_1$ — legal, all quantities non-zero — to get $\\tfrac{x_1}{x_2} = \\tfrac{y_2}{y_1}$, which is the claimed proportion.',
+                    'So the rewiring problem flips to $3 : 4 = d : 4$, and the cross law says $4d = 12$, so $d = 3$; the naive direct layout $3 : 4 :: 4 : d$ would have answered $\\tfrac{16}{3}$ — more workers, more days, absurd.',
+                    'Hence proved, and the answer is 3 days — invertendo from Lesson 6.3, cashed on the right-hand pair.',
+                  ],
+                  answer: 'Proved; the job takes 3 days',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
-  plannedLessons: ['Direct and Inverse Variation', 'Scaling: Maps, Models and Recipes'],
+  plannedLessons: ['Scaling: Maps, Models and Recipes'],
 }
 
