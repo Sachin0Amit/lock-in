@@ -2185,8 +2185,8 @@ export const chapter06: Chapter = {
     <text x="130" y="246" font-size="12">1 h → 60 km</text>
     <text x="270" y="126" font-size="12">3 h → 180 km</text>
     <text x="480" y="108" font-size="12">3 × 80</text>
-    <text x="580" y="128" font-size="12">4 × 60</text>
-    <text x="660" y="188" font-size="12">6 × 40</text>
+    <text x="600" y="128" font-size="12">4 × 60</text>
+    <text x="676" y="188" font-size="12">6 × 40</text>
     <text x="200" y="370" font-size="12">the ratio d/t is one number: 60</text>
     <text x="560" y="370" font-size="12">3 × 80 = 4 × 60 = 6 × 40 = 240</text>
   </g>
@@ -2196,7 +2196,7 @@ export const chapter06: Chapter = {
     <line x1="60" y1="320" x2="340" y2="80" />
     <line x1="420" y1="320" x2="710" y2="320" />
     <line x1="420" y1="320" x2="420" y2="50" />
-    <polyline points="526.7,50 540,80 580,140 620,176 660,200 700,217.1" fill="none" />
+    <path d="M 526.7 50 L 531 60.5 L 540 80 L 548.3 95.6 L 552.7 102.9 L 557 109.8 L 561.3 116.2 L 565.7 122.3 L 570 128 L 574.3 133.4 L 580 140 L 587.3 147.9 L 591.7 152.2 L 596 156.4 L 600.3 160.3 L 604.7 164 L 609 167.6 L 613.3 171 L 620 176 L 626.3 180.4 L 630.7 183.3 L 635 186 L 639.3 188.7 L 643.7 191.2 L 648 193.7 L 652.3 196 L 660 200 L 665.3 202.6 L 669.7 204.6 L 674 206.6 L 678.3 208.5 L 682.7 210.4 L 687 212.1 L 691.3 213.9 L 695.7 215.5 L 700 217.1" fill="none" />
     <line x1="380" y1="40" x2="380" y2="380" stroke-dasharray="2 5" />
     <line x1="540" y1="80" x2="540" y2="320" stroke-dasharray="2 5" />
     <line x1="540" y1="80" x2="420" y2="80" stroke-dasharray="2 5" />
@@ -2348,11 +2348,15 @@ export const chapter06: Chapter = {
     <rect x="220" y="190" width="116" height="56" />
     <rect x="380" y="190" width="116" height="56" />
     <rect x="540" y="190" width="116" height="56" />
-    <line x1="470" y1="122" x2="566" y2="178" />
-    <line x1="566" y1="122" x2="470" y2="178" />
-    <path d="M 560 172 L 567 181 L 571 171" />
-    <path d="M 476 172 L 469 181 L 465 171" />
   </g>
+  <g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M 448 120 C 448 138, 588 146, 588 175" />
+    <path d="M 588 120 C 588 138, 448 146, 448 175" />
+  </g>
+  <circle cx="448" cy="120" r="3" fill="currentColor"/>
+  <circle cx="588" cy="120" r="3" fill="currentColor"/>
+  <polygon points="588,191 582,175 594,175" fill="currentColor"/>
+  <polygon points="448,191 442,175 454,175" fill="currentColor"/>
 </svg>`,
         },
         {

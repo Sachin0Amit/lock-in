@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 16:04:16 (Asia/Kolkata)",
+  "generated": "2026-11-04 16:51:45 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1976,12 +1976,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 26039,
+      "totalLines": 26043,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 16774,
+        "src/data/library (content model + books)": 16778,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -6246,6 +6246,104 @@
           "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
           "add": 636,
           "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "7fed46bee5b4027957bb0f5d592a670d77e54293",
+      "short": "7fed46b",
+      "date": "2026-11-04 10:38",
+      "message": "fm 6.4 direct and inverse variation finished and shipped (unit 6, run 30): the interrupted 15:18 delivery's in-flight commit 407c0fe (lesson + verify AF-AP + e2e registration) completed — the two locks named (direct y/x = k on the shop's rice line 96/3 = 160/5 = 256/8 = 32; inverse xy = k on the fixed total 24x5 = 120, Rs 1,00,000, 360 degrees, 360 min), the parking fraud (15 -> 12.5 -> 35/3 -> 7.5 per hour: growing without agreeing), the direct engine (machine 700, truck 168 km, pole-shadow 600 cm, bacteria 2 cm), the inverse canon, one journey's two bindings (figure 1 the line-vs-hyperbola panels: titles raised 48 -> 40, km/h cleared of the 90 tick, the 3 x 80 label relocated into the guides' pocket (480,108) after two VLM crowding flags — final 10/10 math + 9/10 clarity), the factor laws proved (m with the line, 1/m against it, the 90 km/h guard 8/3 h), the recognition drill (7 verified rows), the flip (figure 2 REBUILT after VLM scored the one-arrow swap 6/10: TWO crossing legs crossing at (518,150), side label at (240,156), captions recentered on the box grid — final 10/10 + 9/10; invertendo cashed d = 3 vs the absurd 16/3), the work problems (12 person-days -> 3 days; 2,646 -> 49 machines; cattle 4 days; windows 6; boxes 15); 8 terms, 5-quiz keys 2/1/1/2/1 (live 5/5), 12 exercises L1-L6 — verify-unit-6.ts 253 -> 361 checks ALL PASS (AJ10/AJ13/AJ14 + AM4/AM5 rewritten for the polished figures); audits 0/0 both figures; the dedicated 6.4 E2E block ADDED (the interrupted run registered the lesson but never wrote it): quiz 5/5 live, 12/12 expand, mobile 390 exact, console clean, full 17-lesson suite exit 0; lint + tsc clean; routes 200/200/200/404; QUEUED EXTRA: lesson 2.1 voice polish (the formal is-said-to-be Definition callout 'Expression' + the roman run 8+2x5=18, (8+2)x5=50, 18 div 3 of 2=3 + the Thus-line handing the ladder to figure 1's trees — verified live, KaTeX 133, console clean); ch. 6 open 4/5, next 6.5 Scaling: Maps, Models and Recipes",
+      "filesChanged": 4,
+      "insertions": 127,
+      "deletions": 17,
+      "files": [
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 13,
+          "del": 13
+        }
+      ]
+    },
+    {
+      "sha": "108b1d605573184039ab5148485db2ce508255b9",
+      "short": "108b1d6",
+      "date": "2026-11-04 10:38",
+      "message": "inventory: record run-30 ship (fm 6.4 direct and inverse variation live, recovered from in-flight 407c0fe) — 27 lessons / 128,994 words / 178 terms / 135 quiz items / 281 exercise questions, ch. 6 open 4/5; dedicated 6.4 E2E block added; figures VLM-polished (two-crossing-legs flip); voice polish landed on 2.1 (Expression callout + roman run + Thus-line); polish queue corrected (2.2-2.5, 3.1-3.5, 4.1 remain); Drive survey rebuilt after recycle; next 6.5 scaling maps models and recipes",
+      "filesChanged": 6,
+      "insertions": 329,
+      "deletions": 59,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 26,
+          "del": 21
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 21,
+          "del": 6
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 12,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 212,
+          "del": 30
+        }
+      ]
+    },
+    {
+      "sha": "9d204346d3531864739b74b15d7c20c47d2c4524",
+      "short": "9d20434",
+      "date": "2026-11-04 10:40",
+      "message": "memory: run-30 push blocked by GitHub refs backend (two protocol attempts rejected server-side: Internal Server Error + fatal error in commit_refs; auth OK — no token recorded); run-30 work complete and clean locally (407c0fe + 7fed46b + 108b1d6): fm 6.4 direct and inverse variation live with 361 checks, e2e 6.4 block, VLM 9/10 figures, 2.1 voice polish; next run pushes ALL unpushed first, then 6.5 scaling maps models and recipes",
+      "filesChanged": 3,
+      "insertions": 11,
+      "deletions": 5,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 3
         }
       ]
     }

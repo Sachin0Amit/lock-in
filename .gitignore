@@ -92,6 +92,7 @@ server.log
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-44-figures.py
+!/scripts/gen_smooth_hyperbola.py
 # exception: one-shot run-14 log updater (2026-11-03, historical record)
 !/scripts/update_progress_run14.py
 /.zscripts/

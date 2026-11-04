@@ -6,6 +6,64 @@ and what remains.
 
 ---
 
+## 2026-11-04 — RUN 31 (OWNER CHAT DIRECTIVE): site-wide arrow & diagram polish — the 6.4 flip figure's crude straight-line arrows redesigned as curved swap-arcs with solid heads, the 6.4 hyperbola smoothed from a 6-vertex polyline to a 36-vertex curve, a colliding label relocated; all 45 figures swept and audited
+
+**Owner directive (with a screenshot of 6.4 figure 2):** "the arrow in this does not look nicely —
+make it nicely or use images if you want; do such fixes everywhere wherever needed."
+
+**Fix 1 — the flagged flip arrows (6.4 figure 2):** the two straight crossing lines with open-V
+chevron heads (stroke-width 1, tips floating 9 px above the row-2 boxes) replaced by a drawn
+swap glyph: two mirror-symmetric cubic Bézier arcs `M 448 120 C 448 138, 588 146, 588 175` and
+`M 588 120 C 588 138, 448 146, 448 175` (vertical departure and arrival tangents, crossing at
+(518, 143.375)), r 3 filled anchor dots at the departures, solid filled 12 × 16 arrowheads with
+bases flush on the stroke ends and tips landing 1 px INTO the row-2 box tops — stroke-width 2,
+round caps. AM4/AM5 rewritten to the new geometry (Bézier-midpoint crossing rule, dot standoff,
+head dimensions) — verify-unit-6.ts still 361 checks ALL PASS. VLM reviews across three
+iterations: no overlaps, no glitches, solid professional swap glyph.
+
+**Fix 2 — the hyperbola kink (6.4 figure 1, found by the sweep):** the inverse-variation curve
+xy = 240 was a 6-vertex polyline — visibly faceted, with a crude corner at the (540,80) dot where
+the dashed guides meet it. Redrawn as a 36-vertex smooth dense path (uniform-t samples on
+[8/3, 7] merged with the exact dot abscissae t = 3, 4, 5, 6, near-duplicates dropped): every
+vertex satisfies the pixel invariant (x−420)(320−y) = 28800 within rounding (max deviation
+15.4 < 16), endpoints and all four dot points exact, max chord turn 3.24° = the curve's own
+tangent turn over each span (the kink is gone, not just hidden). Generator persisted:
+scripts/gen_smooth_hyperbola.py (gitignore exception added, gen-43/44 precedent). AJ11 rewritten
+to assert the vertex list, the invariant, the endpoints and the dot membership.
+
+**Fix 3 — a label sitting on the curve (6.4 figure 1):** with the curve now an auditable `<path>`,
+audit-svg-overlaps caught what the polyline era could not — the "4 × 60" label's left half sat ON
+the hyperbola (box [565,117] vs curve y ≈ 121 there; pre-existing, invisible to the old audit and
+glossed by earlier VLM passes). Label moved up-right to (600,128) — the curve at the label's left
+edge x 586 sits at y ≈ 146.5, a 15 px clearance; "6 × 40" preemptively moved to (676,188) with a
+9 px clearance (its old margin was 1.6 px). AJ10 rewritten with both clearance computations.
+Re-audit: 0 issues both figures.
+
+**Site-wide sweep (everywhere, as directed):** all 45 figures across ch-01..ch-06 audited for
+arrow/connector craftsmanship — ch-01 (3 figures: marker-based number-line heads + Q-curve
+rounding arcs) PASS; ch-05 (10 figures: solid polygon heads, all tangent-aligned) PASS;
+ch-06 6.1/6.2/6.3 (6 figures: brackets, arcs, rulers — no directional arrows) PASS; ch-02/03/04
+carry no directional arrows at all (number-line axes, bar models, area grids, Venn territories;
+ch-02's two diagonal strokes are digit STRIKETHROUGHS in the borrow figure — intentional pencil
+bookkeeping, kept). Zero `<polyline>` elements remain anywhere in the book.
+
+**Quality gates:** verify-unit-2/3/4/5/6 ALL PASS (unit-6: 361); audit-svg-overlaps 0 issues on
+both touched figures; lint clean; tsc clean; routes 200/200/200/404; full 17-lesson E2E suite
+exit 0 (6.4 block: quiz 5/5 live, 12/12 solutions expand, 21 Sol. pills inline, mobile 390 px
+exact-fit, console clean); VLM: flip glyph clean (no overlap/glitch), panels figure 9/10 with the
+smooth curve passing through all three dots.
+
+**Ledger:** WORK_INVENTORY.json regenerated (word/term/quiz/exercise totals unchanged — geometry
+only; codebase lines 26039 → 26043). Zero downloads. Voice-polish queue untouched this run.
+
+**Push:** DEFERRED — no PAT in this owner chat session (per the run-15/16 precedent). Local now
+carries FIVE unpushed commits (run-30's 407c0fe + 7fed46b + 108b1d6 + 9d20434, plus this run's
+ship commit). The next cron-delivered run must push ALL of them FIRST (one-time HTTPS URL,
+ls-remote verify, resync origin/main), before any new lesson work. PAT never written anywhere.
+
+**Next:** 6.5 "Scaling: Maps, Models and Recipes" (final lesson of ch. 6) — extend verify-unit-6.ts
+with 6.5 sections BEFORE writing; queue the next voice polish (2.2).
+
 ## 2026-11-04 — RUN 30 (cron, Job 498279): FM lesson 6.4 "Direct and Inverse Variation" finished and shipped — the interrupted 15:18 delivery's in-flight commit recovered, the missing dedicated E2E block written, both figures polished to the 9/10 VLM bar, plus the queued per-run voice polish landed on lesson 2.1
 
 **Run open — in-flight recovery:** reconciliation found the sandbox recycled with local HEAD carrying
