@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-04 06:34:52 (Asia/Kolkata)",
+  "generated": "2026-11-04 07:24:12 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -103,8 +103,8 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "a29d1b8",
                 "unit": "unit 1",
-                "words": 3421,
-                "readMins": 17,
+                "words": 3586,
+                "readMins": 18,
                 "concepts": [
                   "Digit count as the first comparison test",
                   "Seat-by-seat (left-to-right) comparison",
@@ -128,20 +128,22 @@
                   "ncert-math6-ch1"
                 ],
                 "blockCounts": {
-                  "para": 7,
+                  "para": 9,
                   "heading": 5,
+                  "callout": 5,
+                  "list": 1,
                   "terms": 1,
                   "derivation": 1,
                   "equation": 1,
                   "figure": 1,
                   "example": 2,
-                  "callout": 4,
                   "table": 1,
                   "quiz": 1,
                   "exercises": 1,
                   "formula": 1
                 },
                 "calloutTones": {
+                  "definition": 1,
                   "warn": 1,
                   "historical": 1,
                   "insight": 1,
@@ -221,7 +223,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 9890
+            "words": 10055
           },
           {
             "number": 2,
@@ -1589,9 +1591,8 @@
             "title": "Ratio, Rate and Proportion",
             "summary": "Comparing quantities by division rather than difference: ratios in simplest form, unit rates, the cross-multiplication test for proportion, direct and inverse variation, and scaling in maps, recipes and models.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Rates and Unit Rates",
               "Proportion and Cross-Multiplication",
               "Direct and Inverse Variation",
               "Scaling: Maps, Models and Recipes"
@@ -1664,9 +1665,75 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 7
+              },
+              {
+                "id": "fm-rates-and-unit-rates",
+                "number": "6.2",
+                "title": "Rates and Unit Rates",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4152,
+                "readMins": 21,
+                "concepts": [
+                  "Rate",
+                  "Per — the units ride",
+                  "Unit rate",
+                  "Unit price",
+                  "Speed",
+                  "Uniform speed",
+                  "Average speed",
+                  "The one-part engine"
+                ],
+                "objectives": [
+                  "Recognise a rate as a division comparison of quantities of different kinds, keep its units attached, and read it in either direction",
+                  "Compute the unit rate by dividing — or by scaling to a friendly unit — and run it backwards to recover totals and counts",
+                  "Compare offers, workers and journeys on one unit ground and in one direction, and expose the bulk and direction frauds",
+                  "Use the speed family and the $\\tfrac{5}{18}$ law between km/h and m/s, and average a journey honestly over its whole time"
+                ],
+                "prerequisites": [
+                  "fm-ratio-as-a-comparison",
+                  "fm-operating-on-decimals"
+                ],
+                "sources": [
+                  "ncert-math6-ch12",
+                  "ncert-sci7-motion",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 8,
+                  "callout": 5,
+                  "equation": 2,
+                  "list": 2,
+                  "example": 10,
+                  "formula": 4,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 4442
+            "words": 8594
           },
           {
             "number": 7,
@@ -1772,12 +1839,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 85,
-      "totalLines": 24009,
+      "totalLines": 24696,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 2995,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 14749,
+        "src/data/library (content model + books)": 15436,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -5717,6 +5784,109 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "adb18f9eb3ae8afda98d3d0042d8b938536ee20a",
+      "short": "adb18f9",
+      "date": "2026-11-04 01:04",
+      "message": "inventory: record run-26 ship (fm 6.1 ratio as a comparison live) — 24 lessons / 115,172 words / 157 terms / 120 quiz items / 245 exercise questions, ch. 6 open 1/5; next 6.2 rates and unit rates",
+      "filesChanged": 1,
+      "insertions": 75,
+      "deletions": 4,
+      "files": [
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 75,
+          "del": 4
+        }
+      ]
+    },
+    {
+      "sha": "d505977eaa1f2dcc86c11618f1aec53612ed0a77",
+      "short": "d505977",
+      "date": "2026-11-04 01:05",
+      "message": "memory: record run-26 push verification (adb18f9), origin/main synced — FM 6.1 ratio as a comparison operating live (the two lenses, the definition a : b = a/b + same-units law, simplest form by the HCF, equivalent ratios + cross-test, the dots-family figure, the Rs 630 recognition table, three-term ratios with the joint-HCF caution and the A:B:C splice, sharing in a ratio with the sharing-map figure and the share formula proved, the inverse read), the 1.1 voice polish landed (formal Definition callout + roman run + Thus-line), ch. 6 open 1/5; next 6.2 rates and unit rates",
+      "filesChanged": 3,
+      "insertions": 15,
+      "deletions": 11,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 6,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 8,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "d98ba02f68d92c48a86665fe15624d36e3960c52",
+      "short": "d98ba02",
+      "date": "2026-11-04 01:53",
+      "message": "fm 6.2 rates and unit rates (unit 6, run 27): the same-kind boundary of 6.1 crossed on purpose — the rate as a division comparison of DIFFERENT kinds with its units riding (Definition callout 'Rate' + equation tag 1 'units attached'; the two-direction note 18 km/L vs its twin 1/18 L/km); the roman run of rates in the wild (Rs 40/kg -> 120 kg costs 4,800; 18 km/L -> 3 L carries 54 km; 72 wpm -> 360 words in 5 min; 60 beats/min -> 45 beats in 45 s) each with the rate x quantity read-back; the unit rate as the one-part engine of 5.3/6.1 wearing units (Illustration Rs 96 for 3 kg -> Rs 32/kg with the rebuild check; formula card; the scale-to-friendly-unit road — Rs 22.50 per 250 g x4 -> Rs 90/kg, 6.1's equivalence family in rate dress; the inverse read in prose: Rs 90 for 6 pens -> Rs 15/pen -> Rs 210 buys 14 pens); comparisons by the same-way law (Illustration shops 96/3 = 32 vs 155/5 = 31 with the Rs 5 saving on the 5-kg buy; the direction-fraud Caution 32 Rs/kg vs 0.03125 kg/Rs; the bulk-illusion Illustration 2 kg at Rs 30 vs 4 kg at Rs 30.50 — bigger sack dearer); figure 1 the double ruler (0-5 kg locked to Rs 0-160 at 128 px/kg, the constant Rs 32 step; audit 0 issues FIRST pass, VLM 10/10 math + 10/10 clarity); the recognition table of five offers with the tie (87/3 kg = 232/8 kg = Rs 29/kg, one unit rate in two sizes) and the largest bag dearest at 31; speed as the flagship rate (Definition callout + equation tag 2 with the speed family — the two doors by ch. 2's balance licence; formula card; Illustration 240 km in 4 h -> 60 km/h; figure 2 the journey map — four equal hourly cells of 60 km; audit 0 FIRST pass, VLM 10/10 + 10/10; the sprint 100 m in 12.5 s -> 8 m/s); the km/h <-> m/s law PROVED as a derivation block (1 km = 1000 m, 1 h = 3600 s -> 1 km/h = 5/18 m/s; the reciprocal 18/5 = 3.6; HCF 200 from ch. 3; anchors 5/18, 72 = 20, 90 = 25) with Illustrations 72 km/h -> 20 m/s and 12 m/s -> 43.2 km/h; rates at work (tank 5,400 L at 45 L/min -> 120 min = 2 h); the average-speed Caution (total distance / total time; 120 out at 60 + 120 back at 40 -> 240 km in 5 h -> 48 km/h NOT 50 — the mean would claim 250 km) + formula card; properties of rates (5 bullets); exam corner (NCERT class-6 ch. 12 Ex. 12.3 unitary-method canon + class-7 science Motion and Time + Khattar speed staples); 7 new terms (Rate, Unit rate, Unit price, Speed, Uniform speed, Average speed, Conversion factor), 4 formula cards, 2 equation tags + 1 derivation, 10 Illustrations, 2 figures (0 audit issues), 5-quiz (1/0/1/2/1 verified live 5/5 + VLM), 12 exercises L1-L6 (L6: the typists' 45 vs 50 wpm and the unequal-legs average 70 != 75) — 4,152 words in the Cengage voice and solution chain, book total 119,489; VOICE POLISH (queued per-run extra, 1.2 second): lesson 1.2 gains the formal Definition callout 'The comparison rule' (is-said-to-be shape + the deciding seat named) + the roman example run (9,999 vs 10,000; 98,341 vs 9,843; 4,589 vs 4,598) + the Thus-line — every number reused from the lesson's own text, zero new numerals; verify-unit-6.ts extended sections L-U — 72 new checks, 165 total ALL PASS pre-writing (+ regressions 455/330/260/165; the audit caught the pens inverse-read misplanned as an 11th Illustration — lives in prose); new citation key ncert-sci7-motion (class-7 science Motion and Time), ncert-math6-ch12 extended to Ex. 12.3; E2E extended to 15 lessons with a dedicated 6.2 block (10 Illustration pills, 22 Sol. pills all inline, badges 0, KaTeX 117, dollarInSvg 0, quiz 5/5 live, 12/12 expand, 36 collapsibles, 390px exact-fit, console clean); SANDBOX: quality gate against the PRODUCTION build (dev-mode lesson-route 404 environment regression persists; new lesson 200, old 200, bogus 404); the gitignored Drive survey rebuilt after the recycle before the inventory regen; logs + pointer updated; ch. 6 open 2/5, next 6.3 Proportion and Cross-Multiplication",
+      "filesChanged": 10,
+      "insertions": 1107,
+      "deletions": 44,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 26,
+          "del": 23
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 10,
+          "del": 10
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 34,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 134,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-6.ts",
+          "add": 123,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 13,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 24,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 656,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -5725,25 +5895,25 @@
     "booksLive": 1,
     "chaptersWritten": 5,
     "chaptersInProgress": 1,
-    "lessonsWritten": 24,
-    "wordsAuthored": 115172,
-    "termsDefined": 157,
-    "quizItems": 120,
-    "exerciseQuestions": 245,
+    "lessonsWritten": 25,
+    "wordsAuthored": 119489,
+    "termsDefined": 164,
+    "quizItems": 125,
+    "exerciseQuestions": 257,
     "blockTotals": {
-      "para": 354,
-      "callout": 123,
-      "heading": 157,
-      "list": 19,
-      "terms": 25,
-      "equation": 32,
-      "derivation": 43,
-      "table": 24,
-      "figure": 39,
-      "example": 92,
-      "quiz": 24,
-      "exercises": 24,
-      "formula": 59,
+      "para": 375,
+      "callout": 129,
+      "heading": 165,
+      "list": 22,
+      "terms": 26,
+      "equation": 34,
+      "derivation": 44,
+      "table": 25,
+      "figure": 41,
+      "example": 102,
+      "quiz": 25,
+      "exercises": 25,
+      "formula": 63,
       "algorithm": 8
     }
   }
