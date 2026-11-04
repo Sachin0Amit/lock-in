@@ -2154,12 +2154,12 @@ export const chapter06: Chapter = {
             'One journey, two bindings. Left: the van runs at a steady $60$ km/h, so distance $= 60 \\times$ time — the points sit on one line through the origin, the direct lock with $k = 60$: at $1$ h, $60$ km; at $3$ h, $180$ km. Right: the fixed $240$ km journey binds speed and time by their product — $3$ h at $80$ km/h, $4$ at $60$, $6$ at $40$: three pairs on one curve, each rebuilding $240$ (the curve $xy = 240$, a hyperbola, bends away from both axes because neither quantity may reach zero). Same road, opposite locks: the left pair\'s ratio is fixed, the right pair\'s product is.',
           svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: left, a straight line through the origin for a van at sixty kilometres per hour with dots at one hour sixty kilometres and three hours one hundred eighty kilometres; right, a downward-bending curve for a fixed two hundred forty kilometre journey with dots at three hours eighty kilometres per hour, four hours sixty and six hours forty">
   <g font-size="13" fill="currentColor" text-anchor="middle">
-    <text x="200" y="48" font-weight="bold">the steady van: d = 60t (direct)</text>
-    <text x="565" y="48" font-weight="bold">fixed 240 km: speed × time = 240 (inverse)</text>
+    <text x="200" y="40" font-weight="bold">the steady van: d = 60t (direct)</text>
+    <text x="565" y="40" font-weight="bold">fixed 240 km: speed × time = 240 (inverse)</text>
     <text x="60" y="68" font-size="11">km</text>
     <text x="200" y="356" font-size="11">time (hours)</text>
     <text x="565" y="356" font-size="11">time (hours)</text>
-    <text x="426" y="62" font-size="11" text-anchor="start">km/h</text>
+    <text x="428" y="66" font-size="11" text-anchor="start">km/h</text>
     <text x="60" y="338">0</text>
     <text x="130" y="338">1</text>
     <text x="200" y="338">2</text>
@@ -2184,7 +2184,7 @@ export const chapter06: Chapter = {
     <text x="414" y="54" text-anchor="end">90</text>
     <text x="130" y="246" font-size="12">1 h → 60 km</text>
     <text x="270" y="126" font-size="12">3 h → 180 km</text>
-    <text x="540" y="68" font-size="12">3 × 80</text>
+    <text x="480" y="108" font-size="12">3 × 80</text>
     <text x="580" y="128" font-size="12">4 × 60</text>
     <text x="660" y="188" font-size="12">6 × 40</text>
     <text x="200" y="370" font-size="12">the ratio d/t is one number: 60</text>
@@ -2318,9 +2318,9 @@ export const chapter06: Chapter = {
           kind: 'figure',
           caption:
             'The flip, seat by seat. Row 1 is the layout the numbers invite — $3 : 4 :: 4 : d$ — and the cross law obliges with an absurdity: $d = \\tfrac{16}{3}$, four workers taking longer than three. Row 2 swaps the right-hand pair — $3 : 4 :: d : 4$ — and the same law returns $d = 3$: more workers, fewer days, the product $12$ unmoved. The cross law did not change; only the seating did — invertendo from Lesson 6.3, cashed.',
-          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rows of four boxes: the first row reads three, four, four, d and produces the absurd answer sixteen over three; the second row swaps the last two boxes to read three, four, d, four and produces the sane answer three days, with an arrow labelled the flip between the rows">
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rows of four boxes: the first row reads three, four, four, d and produces the absurd answer sixteen over three; the second row swaps the last two boxes to read three, four, d, four and produces the sane answer three days, with two crossing arrows between the rows showing the two right-hand seats trading places, labelled the flip">
   <g font-size="13" fill="currentColor" text-anchor="middle">
-    <text x="380" y="40">the seats the numbers invite — 3 : 4 :: 4 : d gives d = 16/3 (absurd)</text>
+    <text x="358" y="40">the seats the numbers invite — 3 : 4 :: 4 : d gives d = 16/3 (absurd)</text>
     <text x="118" y="93" font-weight="bold">3</text>
     <text x="278" y="93" font-weight="bold">4</text>
     <text x="438" y="93" font-weight="bold">4</text>
@@ -2328,7 +2328,7 @@ export const chapter06: Chapter = {
     <text x="198" y="93">:</text>
     <text x="358" y="93">::</text>
     <text x="518" y="93">:</text>
-    <text x="518" y="178" font-size="12">the flip</text>
+    <text x="240" y="156" font-size="12">the flip: the two right seats trade places</text>
     <text x="118" y="223" font-weight="bold">3</text>
     <text x="278" y="223" font-weight="bold">4</text>
     <text x="438" y="223" font-weight="bold">d</text>
@@ -2336,8 +2336,8 @@ export const chapter06: Chapter = {
     <text x="198" y="223">:</text>
     <text x="358" y="223">::</text>
     <text x="518" y="223">:</text>
-    <text x="380" y="264">the flip — 3 : 4 :: d : 4 gives d = 3 (sane): one side trades seats</text>
-    <text x="380" y="288" font-size="12">the cross law never moved: 3 × 4 = 12 = 4 × 3</text>
+    <text x="358" y="264">the flip — 3 : 4 :: d : 4 gives d = 3 (sane): one side trades seats</text>
+    <text x="358" y="288" font-size="12">the cross law never moved: 3 × 4 = 12 = 4 × 3</text>
   </g>
   <g stroke="currentColor" fill="none" stroke-width="1">
     <rect x="60" y="60" width="116" height="56" />
@@ -2348,10 +2348,10 @@ export const chapter06: Chapter = {
     <rect x="220" y="190" width="116" height="56" />
     <rect x="380" y="190" width="116" height="56" />
     <rect x="540" y="190" width="116" height="56" />
-    <line x1="438" y1="116" x2="438" y2="156" stroke-dasharray="2 4" />
-    <path d="M 438 156 Q 518 116 598 156" />
-    <line x1="598" y1="156" x2="598" y2="186" stroke-dasharray="2 4" />
-    <path d="M 594 180 L 598 188 L 602 180" />
+    <line x1="470" y1="122" x2="566" y2="178" />
+    <line x1="566" y1="122" x2="470" y2="178" />
+    <path d="M 560 172 L 567 181 L 571 171" />
+    <path d="M 476 172 L 469 181 L 465 171" />
   </g>
 </svg>`,
         },

@@ -2028,6 +2028,12 @@ export const chapter02: Chapter = {
           text: 'The string $8 + 2 \\times 5$ is our first proper **expression**: a recipe of numbers, operations and brackets that names one number. Every computation in Chapters 1 and 2 was an expression evaluated in secret — but never a dangerous one, because each line carried a single operation, or a chain of one kind. The moment two different ranks share a line, the recipe needs an unambiguous reading order, and that reading order is the **order of operations**. This lesson signs the treaty — brackets first, then multiplication and division, then addition and subtraction — and then asks the question a rule-book usually skips: *why this order and not another?* The answer, it turns out, is Lesson 2.3\'s compression wearing a judge\'s robe.',
         },
         {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Expression',
+          text: 'A recipe of numbers joined by operation signs and brackets is said to be an **expression** when the treaty assigns it exactly one **value**: read it by the rungs — brackets first, then *of*, then $\\times$ and $\\div$ left to right, then $+$ and $-$ left to right — and the recipe names its one number. The string $8 + 2 \\times 5$ is an expression whose value is $18$; the bracketed cousin $(8 + 2) \\times 5$ is a different expression whose value is $50$. An expression only **names** — it cannot be true or false. The true-or-false honour belongs to the **equation**, a sentence claiming two expressions share a value (the full distinction gets its own section below).',
+        },
+        {
           kind: 'terms',
           items: [
             {
@@ -2129,6 +2135,23 @@ export const chapter02: Chapter = {
           kind: 'equation',
           latex: '\\text{bar} \\;\\to\\; (\\ \\ ) \\;\\to\\; \\{\\ \\ \\} \\;\\to\\; [\\ \\ ] \\;\\to\\; \\text{of} \\;\\to\\; \\times,\\ \\div\\ (\\text{left} \\to \\text{right}) \\;\\to\\; +,\\ -\\ (\\text{left} \\to \\text{right})',
           note: 'The full treaty as a ladder: top rungs first; within the two shared rungs, left to right as the line was written. Every examination in this book\'s orbit marks simplifications against this ladder.',
+        },
+        {
+          kind: 'para',
+          text: 'The treaty in action, one line per step — each line a resident of this lesson\'s own pages:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$8 + 2 \\times 5$ — no brackets, so rung 3 first: $2 \\times 5 = 10$, then $8 + 10 = 18$. The second clerk\'s answer was the treaty\'s.',
+            '$(8 + 2) \\times 5$ — brackets override every rank: $8 + 2 = 10$ first, then $10 \\times 5 = 50$. The first clerk\'s reading, made legal by two small strokes.',
+            '$18 \\div 3$ of $2$ — *of* outranks $\\div$: $3$ of $2 = 6$ first, then $18 \\div 6 = 3$. The near-miss the worked example audits below.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Thus, one signed ladder settles every dispute the two clerks could ever have: the silent line takes its tree from the rungs, the bracketed line lets the writer choose, and *of* keeps its claimed seat. Figure 1 is that choice drawn as trees — the treaty grouping on the left, the bracketed regrouping on the right — and every line this chapter and the ones after it will simplify runs on this ladder.',
         },
         { kind: 'heading', text: 'Why multiplication binds tighter: the compression argument' },
         {

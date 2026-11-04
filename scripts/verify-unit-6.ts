@@ -524,9 +524,11 @@ check('AJ6: right s-scale 3 px per km/h: s = 90 → y = 320 − 270 = 50 (inside
 check('AJ7: curve dots (3 h, 80) → (540,80); (4,60) → (580,140); (6,40) → (660,200)', 420 + 120 === 540 && 320 - 240 === 80 && 420 + 160 === 580 && 320 - 180 === 140 && 420 + 240 === 660 && 320 - 120 === 200);
 check('AJ8: every curve dot sits on xy = 240 in data units: 3×80 = 4×60 = 6×40 = 240', 3 * 80 === 240 && 4 * 60 === 240 && 6 * 40 === 240);
 check('AJ9: drop-lines from (540,80): vertical to (540,320), horizontal to (420,80) — axis meets exact', 540 === 420 + 40 * 3 && 80 === 320 - 3 * 80);
-check('AJ10: dot labels ride 12 px above their dots at y 68/128/188 — rows 60 px apart, never a shared y', 80 - 12 === 68 && 140 - 12 === 128 && 200 - 12 === 188 && 128 - 68 === 60 && 188 - 128 === 60);
+check('AJ10: dot labels ride 12 px above their dots at y 128/188 — rows 60 px apart, never a shared y; the 3 × 80 label lives in the guides\' pocket instead (AJ14)', 140 - 12 === 128 && 200 - 12 === 188 && 188 - 128 === 60);
 check('AJ11: hyperbola polyline samples on xy = 240: t = 8/3→(526.7,50), 3→(540,80), 4→(580,140), 5→(620,176), 6→(660,200), 7→(700,217.1)', JSON.stringify([8 / 3, 3, 4, 5, 6, 7].map(t => Math.round((420 + 40 * t) * 10) / 10)) === '[526.7,540,580,620,660,700]' && JSON.stringify([8 / 3, 3, 4, 5, 6, 7].map(t => Math.round((320 - 3 * (240 / t)) * 10) / 10)) === '[50,80,140,176,200,217.1]');
 check('AJ12: bottom strip y 370 clears the tick labels at y 338', 370 > 338 + 8 && 370 < 400);
+check('AJ13: panel titles ride at y 40 — bottoms (44) clear the dot labels\' tops (56) by 12 px; the km/h tag (y 66) clears the 90 tick (54) by 12 px', 56 - 44 >= 12 && 66 - 54 >= 8);
+check('AJ14: the 3 × 80 label sits in the right panel\'s empty upper-left pocket at (480,108) — clear of the guides (horizontal y 80, vertical x 540), the curve (x ≥ 526.7), and the km/h tag (bottom 66): 96 > 80, 504 < 526.7, 96 > 66', 108 - 12 > 80 && 480 + 24 < 526.7 && 108 - 12 > 66);
 
 /* ============================================================
  * AK. The factor method — both laws proved from the constants
@@ -564,8 +566,8 @@ check('AL13: the flip layout 3 : 4 :: d : 4 gives d = 3 (more workers, fewer day
 check('AM1: four boxes of width 116 at pitch 160 per row: x 60..176, 220..336, 380..496, 540..656 (both rows)', JSON.stringify([0,1,2,3].map(k => 60 + 160 * k)) === '[60,220,380,540]' && 60 + 116 === 176 && 540 + 116 === 656);
 check('AM2: row 1 box centers x 118/278/438/598; gap colons centered x 198/358/518 at row-mid y 88', (60 + 176) / 2 === 118 && (176 + 220) / 2 === 198 && (336 + 380) / 2 === 358 && (496 + 540) / 2 === 518 && (60 + 116) / 2 === 88);
 check('AM3: row 2 boxes y 190..246, same x lanes — 74 px of clear band between rows (116..190)', 190 - 116 === 74);
-check('AM4: the flip arrow — dashed stubs (438,116)→(438,156) and (598,156)→(598,190) joined by a quadratic peaking at (518,136), all inside the clear band 116..190', 438 > 380 && 438 < 496 && 598 > 540 && 598 < 656 && 116 < 136 && 136 < 156 && 156 < 190);
-check('AM5: the flip label at (518,178) — below the curve endpoints (y 156), above row 2 (y 190): 156 + 8 < 178 < 190 − 8', 178 > 156 + 8 && 178 < 190 - 8);
+check('AM4: the two flip legs cross in the clear band — the 4 leg (470,122)→(566,178) and the d leg (566,122)→(470,178) meet at (518,150); tips (y 181) clear row 2 (190) by 9 px', 470 + 96 * 0.5 === 518 && 122 + 56 * 0.5 === 150 && 181 + 9 === 190 && 122 >= 116 + 4);
+check('AM5: the flip label in the band\'s left clear region — center (240,156), top 144, bottom 160: inside 116..190, right edge 366 < the legs (466)', 156 - 12 >= 116 && 156 + 4 <= 190 && 240 + 126 === 366 && 366 < 466);
 check('AM6: bottom strip y 288 clears row 2 (246) and fits viewBox 320', 288 > 246 + 8 && 288 + 8 < 320);
 check('AM7: row 1 content 3 : 4 :: 4 : □ — the direct invite, d = 16/3 absurd; row 2 content 3 : 4 :: □ : 4 — the flip, d = 3', (4 * 4) / 3 === 16 / 3 && (3 * 4) / 4 === 3);
 check('AM8: cross-law strip text: 3 × 4 = 12 = 4 × 3 — the product that never moves', 3 * 4 === 12 && 4 * 3 === 12);
@@ -620,4 +622,4 @@ if (fail > 0) {
   for (const f of failures) console.log('  - ' + f);
   process.exit(1);
 }
-console.log('ALL PASS — every number in lessons 6.1, 6.2 and 6.3 is script-verified before writing.');
+console.log('ALL PASS — every number in lessons 6.1, 6.2, 6.3 and 6.4 is script-verified before writing.');
