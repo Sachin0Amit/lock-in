@@ -147,3 +147,5 @@ server.log
 # exception: run-49 ANS chapter-1 lesson E2E blocks (quizzes + solutions + audits)
 !/scripts/e2e-ans-11.page.js
 !/scripts/e2e-ans-12.page.js
+# exception: run-50 ANS chapter-1 lesson-1.3 E2E block (quiz keys 1/2/1/0/3 + solutions + audits)
+!/scripts/e2e-ans-13.page.js
