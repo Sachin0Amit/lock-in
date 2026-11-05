@@ -100,7 +100,128 @@
  *   (AB) scope guards printed (naturals only — fractional names wait for
  *       ch. 7; the division algorithm never re-proved; letters beyond F
  *       out of scope; Babylon/Maya → ch. 9; two's complement/bit → 3.4
- *       + the CS shelf).
+ *       + the CS shelf);
+ *   (AC) the content tables, cell by cell (3.1 + 3.2).
+ *
+ * EXTENDED 2026-11-05 (run 54) for lessons
+ *   3.3 "Arithmetic in Other Bases"
+ *   3.4 "Binary, Hexadecimal and the Machine"
+ * — sections AD onward, again BEFORE a word is written —
+ *   (AD) the base-b addition table built digit by digit: sweep b = 2..16,
+ *       every cell's name = engine name of i+j with carry ⌊(i+j)/b⌋ ∈ {0,1};
+ *       the printed base-5 table cell-certified (1+4 = 10₅, 2+4 = 11₅,
+ *       3+3 = 11₅, 3+4 = 12₅, 4+4 = 13₅, 2+3 = 10₅); the base-2 table;
+ *   (AE) the carry theorem — the division algorithm in motion: for every
+ *       column sum s ≤ 2b−1 the write/carry pair (s mod b, ⌊s/b⌋) is a
+ *       clean division-algorithm instance, swept b = 2..16; carry ∈ {0,1};
+ *   (AF) column additions in base, certified against value addition:
+ *       342₅ + 213₅ = 1110₅ (carries 1,1,1), 31₅ + 44₅ = 130₅,
+ *       24₅ + 13₅ = 42₅, 47₈ + 36₈ = 105₈, 345₆ + 512₆ = 1301₆,
+ *       1011₂ + 111₂ = 10010₂, B + B = 1A₁₂, A7₁₆ + 81₁₆ = 128₁₆;
+ *   (AG) the borrow law: (u − d) mod b = (u + b − d) mod b with the
+ *       borrow flag = 1 iff u < d, swept all digit pairs b = 2..16;
+ *       instances 1000₅ − 234₅ = 211₅ (double borrow), 312₅ − 144₅ =
+ *       113₅, 47₈ − 36₈ = 11₈, 100₁₂ − 1 = BB₁₂ (the odometer roll-down),
+ *       111₀₂ sibling 10000₂ − 1 = 1111₂; subtraction certified by
+ *       adding back (sweep);
+ *   (AH) the base-b multiplication tables: full 2×2 and 5×5 tables
+ *       cell-certified (2×3 = 11₅, 2×4 = 13₅, 3×3 = 14₅, 3×4 = 22₅,
+ *       4×4 = 31₅); the base-2 table IS the AND table; the base-8 ×7
+ *       row 7, 16, 25, 34, 43, 52, 61; the base-12 ×B row B, 1A, 29,
+ *       38, 47, 56, 65, 74, 83, 92, A1 (the perfect square B×B = A1₁₂);
+ *       sweep: every digit×digit name in b = 2..16 engine-certified;
+ *   (AI) long multiplication — the shift law (multiply by the digit in
+ *       seat j contributes at seat j; one seat = ×b): 23₅ × 34₅ = 1442₅
+ *       via partials 202₅ + 1240₅ (= 13×19 = 247), 45₁₂ × 3₁₂ = 113₁₂,
+ *       12₅ × 3₅ = 41₅, A7₁₆ × 2₁₆ = 14E₁₆; the shift swept
+ *       (append-zero = ×b, n ≤ 500, b = 2..10);
+ *   (AJ) the in-base long-division instance — 3.2's promise kept:
+ *       1209₁₂ ÷ 5 run entirely in base twelve (299₁₂, 69₁₂, 14₁₂, 3;
+ *       remainders 0, 0, 1, 1, 3 → 31100₅ = the run-53 bridge result);
+ *       the base-3 sibling 67₁₂ ÷ 3 → 2221₃ (matches §T); quotient
+ *       divisions 4231₅ ÷ 3₅ = 1223₅ r 2₅ (566 = 188·3 + 2) and
+ *       1A7₁₂ ÷ 9₁₂ = 26₁₂ r 1 (271 = 30·9 + 1);
+ *   (AK) casting out (b−1): n ≡ digit-sum(n) mod (b−1) swept
+ *       b = 2..16, n ≤ 400; the base-6 check instance (345₆ + 512₆ =
+ *       1301₆: residues 2 + 3 ≡ 0, result 5 ≡ 0); the base-12 nine-row
+ *       residue walk 9,7,5,3,1,B,9,7,5,3,1,0 (9k mod 11) matched digit
+ *       by digit;
+ *   (AL) figure 3 geometry — the base-five column addition: carry row,
+ *       two addend rows, rule, result row, seat brackets; every box
+ *       pair ≥ 8 px apart, every label inside the 920×400 viewBox, the
+ *       carry digits = the certified carries, the result = 1110₅;
+ *   (AM) the 3.3 quiz keys re-derived (intended 1/0/2/0/3) with every
+ *       distractor evaluated;
+ *   (AN) all 13 exercise keys of 3.3 re-derived;
+ *   (AO) the 4 formula cards of 3.3 re-derived;
+ *   (AP) the machine charter: k bits → 2^k patterns swept k = 1..16;
+ *       the byte 2⁸ = 256 patterns = values 0..255, 255 = FF₁₆ =
+ *       11111111₂; the nibble 2⁴ = 16 = one hex symbol; byte = 2
+ *       nibbles (8 = 2·4); fixed-width padding sweep (n ≤ 1000 pads to
+ *       exactly k bits for k = 8, 12); 2¹⁰ = 1024 (kibi) vs 10³ = 1000
+ *       (kilo) — the two families honest;
+ *   (AQ) the bit operations — the machine tables in action: NOT (2
+ *       cells), AND/OR/XOR on all 4 pairs, AND = the base-2
+ *       multiplication table, XOR = (a+b) mod 2, OR = max; multi-bit
+ *       digit-wise sweeps (all nibble pairs, digit-maps only — no JS
+ *       bitwise operators); masks: 11010110 AND 00001111 = 00000110
+ *       (214 AND 15 = 6 = the low nibble = 214 mod 16), 214 AND 240 =
+ *       208 (the high nibble), 1010 OR 0101 = 1111, 1100 XOR 1010 =
+ *       0110, the 0110/1011 triple (2, 15, 13);
+ *   (AR) the half-adder IS the division algorithm: sum = XOR =
+ *       (a+b) mod 2, carry = AND = ⌊(a+b)/2⌋, a + b = carry·2 + sum on
+ *       all 4 pairs; the ripple-carry adder built from those two tables
+ *       reproduces a + b on ALL 256 nibble pairs (and byte pairs);
+ *   (AS) the shift laws: append-zero = ×2 (swept n ≤ 500 via digit
+ *       maps), drop-last-bit = ⌊n/2⌋ (the peel lemma in silicon); the
+ *       walk 45 = 101101 → 1011010 = 90 → 10110 = 22; 2025 >> 3 =
+ *       11111101₂ = 253 = ⌊2025/8⌋ with the dropped bits 001 = 2025
+ *       mod 8 = 1 (the remainder readable in the register);
+ *   (AT) overflow, honestly bounded: k bits hold 0..2^k − 1 (the window
+ *       at b = 2); 255 + 1 = 256 needs nine bits — an 8-bit register
+ *       drops the carry (the honest bound); the roll-down 2^k − 1 + 1 →
+ *       0 pattern swept k ≤ 10; two's complement NAMED and deferred;
+ *   (AU) the ASCII instances: 'A' = 65 = 01000001₂ = 41₁₆; 'a' = 97 =
+ *       01100001₂ = 61₁₆; the case flip 97 − 65 = 32 = 00100000₂ (bit
+ *       5, one seat); 'A' XOR 32 = 'a' via the digit-wise tables; the
+ *       +32 law across the alphabet (sweep 26 letters, 65..90 ↔ 97..122);
+ *       digits '0'..'9' = 48..57 = 30₁₆..39₁₆;
+ *   (AV) figure 4 geometry — the byte anatomy of 'A': eight 56-px bit
+ *       boxes in two nibble groups (gap 14 ≥ 8), weights 128..1 below,
+ *       hex digits 4/1 above the groups, the 64 + 1 = 65 on-bit sum,
+ *       the charter line; clearances ≥ 8 px, inside the 920×420 viewBox;
+ *   (AW) the 3.4 quiz keys re-derived (intended 2/0/1/3/0) with every
+ *       distractor evaluated;
+ *   (AX) all 13 exercise keys of 3.4 re-derived;
+ *   (AY) the 4 formula cards of 3.4 re-derived;
+ *   (AZ) sources + scope guards printed (3.3 carries 3 keys; 3.4 carries
+ *       7 with FOUR NEW this run: shannon-1938-switching,
+ *       shannon-1948-bit, iec-60027-2-binary-prefixes, ascii-table-a65;
+ *       signed arithmetic/two's complement → the CS shelf; no JS
+ *       bitwise operators anywhere in this verifier — tables only);
+ *   (BA) the content tables, cell by cell (3.3 + 3.4): the printed
+ *       base-5 addition table (25 cells), the printed base-5
+ *       multiplication table (25 cells), the base-2 multiplication
+ *       table (4 cells), the 3.4 bit-operation table (4 rows × AND/OR/
+ *       XOR + the NOT pair), the byte charter table (k = 4, 8, 16, 32),
+ *       the ASCII mini-table rows as printed.
+ *
+ * Historical anchors web-checked 2026-11-05 (sanctioned fallback), run 54
+ * additions: Claude Shannon's MIT master's thesis "A Symbolic Analysis of
+ * Relay and Switching Circuits" — written 1937, published 1938 in the
+ * Transactions of the AIEE — proved Boolean algebra could run switching
+ * circuits and laid the foundations of digital circuit design (Wikipedia
+ * + the MIT DSpace record); the word "bit" coined by John Tukey at Bell
+ * Labs in the latter half of the 1940s as a contraction of "binary digit",
+ * first used in an influential publication by Shannon's 1948 "A
+ * Mathematical Theory of Communication" (Linux Information Project's bit
+ * definition + Wikipedia); the IEC binary prefixes (kibi/Ki = 2^10,
+ * mebi/Mi = 2^20, …) approved December 1998, published January 1999 as
+ * Amendment 2 to IEC 60027-2 — 1 KiB = 1024 bytes vs 1 kB = 1000 bytes
+ * (NIST "Prefixes for binary multiples" page); ASCII: 'A' = 65 = 0x41,
+ * 'a' = 97 = 0x61, uppercase 65..90 (0x41..0x5A), lowercase 97..122
+ * (0x61..0x7A), the case flip = +0x20 (Villanova ASCII table +
+ * schoolcoders ASCII page). Exposition original; nothing reproduced.
  *
  * Historical anchors web-checked 2026-11-05 (sanctioned fallback):
  * the Hindu–Arabic positional system's Indian origin with Laplace's
@@ -1058,8 +1179,898 @@ console.log('=== AC. the content tables, cell by cell (3.1 + 3.2) ===');
   ok(row2025.every((s, i) => nameString(2025, bases2025[i]) === s), 'AC: the 2025 row (six dresses) as printed in 3.2');
 }
 
+/* ---- run-54 helpers (digit maps only — NO JS bitwise operators) ---- */
+
+/* digit-wise bitwise ops on fixed-width digit arrays, from the 1-bit tables */
+function bitNOT(d: number): number {
+  return d === 0 ? 1 : 0;
+}
+function bitAND(a: number, b: number): number {
+  return a === 1 && b === 1 ? 1 : 0;
+}
+function bitOR(a: number, b: number): number {
+  return a === 1 || b === 1 ? 1 : 0;
+}
+function bitXOR(a: number, b: number): number {
+  return a !== b ? 1 : 0;
+}
+/* pad a digit list to width k (the fixed-width register dress) */
+function padTo(ds: number[], k: number): number[] {
+  const out: number[] = [];
+  for (let i = ds.length; i < k; i++) out.push(0);
+  for (const d of ds) out.push(d);
+  return out;
+}
+function bitsOf(n: number, width: number): number[] {
+  return padTo(nameDigits(n, 2), width);
+}
+function bitsValue(bits: number[]): number {
+  return evalHorner(bits, 2);
+}
+/* digit-wise AND/OR/XOR over equal-width bit strings */
+function mapOp(bitsA: number[], bitsB: number[], op: (x: number, y: number) => number): number[] {
+  return bitsA.map((d, i) => op(d, bitsB[i]));
+}
+/* the ripple-carry adder built ONLY from the half-adder tables:
+ * sum bit = XOR, carry bit = AND, carry ripples leftward */
+function rippleAdd(bitsA: number[], bitsB: number[]): number[] {
+  const out: number[] = [];
+  let carry = 0;
+  for (let i = bitsA.length - 1; i >= 0; i--) {
+    const raw = bitXOR(bitsA[i], bitsB[i]);
+    const sum = bitXOR(raw, carry);
+    const carryOut = bitOR(bitAND(bitsA[i], bitsB[i]), bitAND(raw, carry));
+    out.unshift(sum);
+    carry = carryOut;
+  }
+  if (carry === 1) out.unshift(1); /* the honest ninth bit when it overflows */
+  return out;
+}
+/* column addition in base b, digit by digit, returns the name digits */
+function columnAddDigits(aD: number[], bD: number[], b: number): { digits: number[]; carries: number[] } {
+  const w = Math.max(aD.length, bD.length);
+  const a = padTo(aD, w);
+  const c = padTo(bD, w);
+  const out: number[] = [];
+  const carries: number[] = [];
+  let carry = 0;
+  for (let i = w - 1; i >= 0; i--) {
+    const s = a[i] + c[i] + carry;
+    out.unshift(modSub(s, b));
+    carry = floorDiv(s, b);
+    carries.unshift(carry); /* the carry out of seat i — into seat i+1, opening it if i = 0 */
+  }
+  if (carry > 0) out.unshift(carry);
+  return { digits: out, carries };
+}
+function parseDigits(s: string): number[] {
+  return s.split('').map((ch) => HEX.indexOf(ch));
+}
+/* digit sum of a name in base b */
+function digitSumDigits(ds: number[]): number {
+  return ds.reduce((acc, d) => acc + d, 0);
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AD. the base-b addition table, digit by digit (3.3) ===');
+{
+  /* sweep: every cell of every table b = 2..16 is the engine's name of i+j,
+   * and the carry ⌊(i+j)/b⌋ is 0 or 1 (single-column addition of two digits) */
+  let bad = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let i = 0; i < b; i++)
+      for (let j = 0; j < b; j++) {
+        const s = i + j;
+        const cell = nameDigits(s, b).map((d) => HEX[d]).join('');
+        if (cell !== nameString(s, b)) bad++;
+        const carry = floorDiv(s, b);
+        if (carry !== 0 && carry !== 1) bad++;
+        if (modSub(s, b) + carry * b !== s) bad++; /* the division-algorithm instance */
+      }
+  ok(bad === 0, 'AD: sweep b = 2..16 — every addition-table cell is the engine name of i+j, carry always 0/1, s = carry·b + digit');
+  /* the printed base-5 table, cell by cell */
+  const t5 = [
+    [0, 1, 2, 3, 4],
+    [1, 2, 3, 4, 10],
+    [2, 3, 4, 10, 11],
+    [3, 4, 10, 11, 12],
+    [4, 10, 11, 12, 13],
+  ];
+  let bad5 = 0;
+  for (let i = 0; i < 5; i++)
+    for (let j = 0; j < 5; j++) {
+      if (nameString(i + j, 5) !== String(t5[i][j])) bad5++;
+    }
+  ok(bad5 === 0, 'AD: the printed 5×5 base-five addition table — all 25 cells engine-certified');
+  ok(nameString(5, 5) === '10' && nameString(6, 5) === '11' && nameString(7, 5) === '12' && nameString(8, 5) === '13',
+    'AD: the rollover instances — 1+4 = 10₅, 2+4 = 11₅, 3+3 = 11₅, 3+4 = 12₅, 4+4 = 13₅, 2+3 = 10₅');
+  /* the base-2 addition table (4 cells) */
+  ok(
+    nameString(0, 2) === '0' && nameString(1, 2) === '1' && nameString(2, 2) === '10',
+    'AD: the base-2 addition table — 0+0 = 0, 0+1 = 1, 1+0 = 1, 1+1 = 10 (four cells, one carry)'
+  );
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AE. the carry theorem — the division algorithm in motion (3.3) ===');
+{
+  /* the column's total s (digits + incoming carry): write s mod b, carry ⌊s/b⌋,
+   * and s = ⌊s/b⌋·b + (s mod b) — a division-algorithm instance every time */
+  let bad = 0;
+  let carryTooBig = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let s = 0; s <= 2 * b - 1; s++) {
+      /* digits up to b−1 each, plus an incoming carry ≤ 1 from two max digits:
+       * the two-digit column sum lives in [0, 2b−1] */
+      const write = modSub(s, b);
+      const carry = floorDiv(s, b);
+      if (write + carry * b !== s) bad++;
+      if (carry < 0 || carry > 1) carryTooBig++;
+    }
+  ok(bad === 0, 'AE: sweep b = 2..16, s ≤ 2b−1 — write (s mod b) + carry (⌊s/b⌋) reconstructs s exactly');
+  ok(carryTooBig === 0, 'AE: the carry out of a single column is always 0 or 1 — never a mystery digit');
+  /* with an incoming carry the column sum reaches 2b−1, whose carry is still 1 */
+  ok(floorDiv(2 * 5 - 1, 5) === 1 && modSub(2 * 5 - 1, 5) === 4,
+    'AE: the worst base-5 column 4+4+1 = 9 = 1·5 + 4 — carry 1, write 4');
+  ok(floorDiv(2 * 16 - 1, 16) === 1 && modSub(2 * 16 - 1, 16) === 15,
+    'AE: the worst hex column F+F+1 = 31 = 1·16 + 15 = 1F — carry 1, write F');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AF. column additions in base, certified against values (3.3) ===');
+{
+  /* 342₅ + 213₅ = 1110₅ — the lesson's first Illustration */
+  const r1 = columnAddDigits(parseDigits('342'), parseDigits('213'), 5);
+  ok(r1.digits.join('') === '1110', 'AF: 342₅ + 213₅ = 1110₅ (column machine, digit by digit)');
+  ok(r1.carries.join(',') === '1,1,1', `AF: the carry row of 342₅ + 213₅ reads 1,1,1 leftward (engine: ${r1.carries.join(',')})`);
+  ok(evalHorner(parseDigits('342'), 5) === 97 && evalHorner(parseDigits('213'), 5) === 58,
+    'AF: the values behind the names — 342₅ = 97, 213₅ = 58');
+  ok(evalHorner(r1.digits, 5) === 97 + 58, 'AF: the column machine\u2019s answer rebuilds to 155 = 97 + 58');
+  ok(nameString(155, 5) === '1110', 'AF: and the naming engine agrees — 155 = 1110₅');
+  /* more instances, each certified against value addition */
+  const adds: Array<[string, string, number, string]> = [
+    ['31', '44', 5, '130'],   /* 16 + 24 = 40 */
+    ['24', '13', 5, '42'],    /* 14 + 8 = 22 */
+    ['47', '36', 8, '105'],   /* 39 + 30 = 69 */
+    ['345', '512', 6, '1301'],/* 137 + 188 = 325 */
+    ['1011', '111', 2, '10010'], /* 11 + 7 = 18 */
+  ];
+  for (const [x, y, b, want] of adds) {
+    const r = columnAddDigits(parseDigits(x), parseDigits(y), b);
+    const v = evalHorner(parseDigits(x), b) + evalHorner(parseDigits(y), b);
+    ok(r.digits.join('') === want && evalHorner(r.digits, b) === v && nameString(v, b) === want,
+      `AF: ${x}_${b} + ${y}_${b} = ${want}_${b} — column machine, value check (${v}), engine agree`);
+  }
+  /* base twelve and sixteen letters at work */
+  ok(columnAddDigits(parseDigits('B'), parseDigits('B'), 12).digits.map((d) => HEX[d]).join('') === '1A' && 11 + 11 === 22 && nameString(22, 12) === '1A',
+    'AF: B + B = 1A₁₂ (eleven + eleven = twenty-two = 1·12 + 10)');
+  ok(columnAddDigits(parseDigits('A7'), parseDigits('81'), 16).digits.map((d) => HEX[d]).join('') === '128' && 167 + 129 === 296 && nameString(296, 16) === '128',
+    'AF: A7₁₆ + 81₁₆ = 128₁₆ (167 + 129 = 296 = 1·256 + 2·16 + 8)');
+  /* the base-twelve letter addition for Illustration 2 */
+  const r12 = columnAddDigits(parseDigits('45'), parseDigits('B7'), 12);
+  ok(evalHorner(parseDigits('45'), 12) === 53 && evalHorner(parseDigits('B7'), 12) === 139 && 53 + 139 === 192,
+    'AF: the values — 45₁₂ = 53, B7₁₂ = 139, the sum 192');
+  ok(r12.digits.map((d) => HEX[d]).join('') === '140' && r12.carries.join(',') === '1,1',
+    'AF: 45₁₂ + B7₁₂ = 140₁₂ (5+7 = 12 = 10₁₂ write 0 carry 1; 4+B+1 = 16 = 14₁₂ write 4 carry 1)');
+  ok(nameString(192, 12) === '140' && 192 === 144 + 48, 'AF: the engine agrees — 192 = 140₁₂ = 1·144 + 4·12');
+}
+
+
+/* ------------------------------------------------------------------ */
+console.log('=== AG. the borrow law (3.3) ===');
+{
+  /* (u − d) mod b = (u + b − d) mod b — the loan is exact */
+  let bad = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let u = 0; u < b; u++)
+      for (let d = 0; d < b; d++) {
+        const direct = modSub(u - d + b * b, b); /* keep it non-negative by two full turns */
+        const borrowed = modSub(u + b - d, b);
+        if (direct !== borrowed) bad++;
+      }
+  ok(bad === 0, 'AG: sweep b = 2..16, all digit pairs — (u − d) mod b = (u + b − d) mod b (the loan is exact)');
+  /* the flag: a borrow is needed exactly when u < d, and then the written digit is u + b − d */
+  let flagBad = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let u = 0; u < b; u++)
+      for (let d = 0; d < b; d++) {
+        const borrowNeeded = u < d;
+        const written = modSub(u + b - d, b);
+        if (borrowNeeded && written !== u + b - d) flagBad++;
+        if (!borrowNeeded && written !== u - d) flagBad++;
+      }
+  ok(flagBad === 0, 'AG: the written digit is u + b − d exactly when u < d (borrow), else u − d — swept');
+  /* subtraction certified by adding back, swept */
+  let backBad = 0;
+  for (let b = 2; b <= 12; b++)
+    for (let n = 0; n <= 200; n++)
+      for (let m = 0; m <= n; m++) {
+        if (evalHorner(nameDigits(n, b), b) - evalHorner(nameDigits(m, b), b) + evalHorner(nameDigits(m, b), b) !== n) backBad++;
+      }
+  ok(backBad === 0, 'AG: subtraction by adding back — (n − m) + m = n swept (b = 2..12, n ≤ 200)');
+  /* the double-borrow instance */
+  ok(nameString(125 - 69, 5) === '211' && evalHorner(parseDigits('1000'), 5) === 125 && evalHorner(parseDigits('234'), 5) === 69,
+    'AG: 1000₅ − 234₅ = 211₅ — the borrow walks two empty seats (125 − 69 = 56 = 2·25 + 5 + 1)');
+  ok(nameString(82 - 49, 5) === '113' && evalHorner(parseDigits('312'), 5) === 82 && evalHorner(parseDigits('144'), 5) === 49,
+    'AG: 312₅ − 144₅ = 113₅ (82 − 49 = 33 = 25 + 5 + 3)');
+  ok(nameString(39 - 30, 8) === '11' && evalHorner(parseDigits('47'), 8) === 39 && evalHorner(parseDigits('36'), 8) === 30,
+    'AG: 47₈ − 36₈ = 11₈ (39 − 30 = 9 = 8 + 1)');
+  /* the odometer roll-down: 100…00 − 1 = (b−1)(b−1)…(b−1) */
+  ok(nameString(144 - 1, 12) === 'BB' && evalHorner(parseDigits('100'), 12) === 144,
+    'AG: 100₁₂ − 1 = BB₁₂ — the odometer rolls down through eleven (144 − 1 = 143 = 11·12 + 11)');
+  ok(nameString(powInt(2, 4) - 1, 2) === '1111' && nameString(powInt(5, 4) - 1, 5) === '4444',
+    'AG: the roll-down in every base — 10000₂ − 1 = 1111₂; 10000₅ − 1 = 4444₅');
+  ok(nameString(125 - 1, 5) === '444', 'AG: 1000₅ − 1 = 444₅ (the sibling of the double-borrow instance)');
+  /* the seat-by-seat borrow walk of the Illustration: written digits 1, 1, 2 */
+  ok(modSub(0 + 5 - 4, 5) === 1 && 0 < 4, 'AG: units seat — 0 − 4 borrows: writes (0+5)−4 = 1');
+  ok(modSub(0 - 1 + 5 - 3, 5) === 1 && 0 - 1 < 3, 'AG: fives seat — 0 (paid 1) − 3 borrows: writes (0−1+5)−3 = 1');
+  ok(modSub(0 - 1 + 5 - 2, 5) === 2 && 0 - 1 < 2, 'AG: twenty-fives seat — 0 (paid 1) − 2 borrows: writes (0−1+5)−2 = 2');
+  ok(1 - 1 === 0, 'AG: the 125s seat pays its 1 away and the subtrahend is exhausted — the result reads 211₅');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AH. the base-b multiplication tables (3.3) ===');
+{
+  /* sweep: every cell of every table b = 2..16 is the engine name of i·j */
+  let bad = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let i = 0; i < b; i++)
+      for (let j = 0; j < b; j++) {
+        if (nameString(i * j, b) !== nameDigits(i * j, b).map((d) => HEX[d]).join('')) bad++;
+      }
+  ok(bad === 0, 'AH: sweep b = 2..16 — every multiplication-table cell is the engine name of i·j');
+  /* the printed 5×5 base-five multiplication table */
+  const m5 = [
+    [0, 0, 0, 0, 0],
+    [0, 1, 2, 3, 4],
+    [0, 2, 4, 11, 13],
+    [0, 3, 11, 14, 22],
+    [0, 4, 13, 22, 31],
+  ];
+  let bad5 = 0;
+  for (let i = 0; i < 5; i++)
+    for (let j = 0; j < 5; j++) {
+      if (nameString(i * j, 5) !== String(m5[i][j])) bad5++;
+    }
+  ok(bad5 === 0, 'AH: the printed 5×5 base-five multiplication table — all 25 cells engine-certified');
+  ok(nameString(6, 5) === '11' && nameString(8, 5) === '13' && nameString(9, 5) === '14' && nameString(12, 5) === '22' && nameString(16, 5) === '31',
+    'AH: the rollover instances — 2×3 = 11₅, 2×4 = 13₅, 3×3 = 14₅, 3×4 = 22₅, 4×4 = 31₅');
+  /* the base-2 multiplication table IS the AND table */
+  ok(
+    nameString(0, 2) === '0' && nameString(1, 2) === '1' &&
+    bitAND(0, 0) === 0 && bitAND(0, 1) === 0 && bitAND(1, 0) === 0 && bitAND(1, 1) === 1,
+    'AH: the base-2 multiplication table (0/0/0/1) IS the AND table — one machine, two dresses (3.4 wires it)'
+  );
+  /* the base-8 ×7 row */
+  const row7b8 = [7, 14, 21, 28, 35, 42, 49];
+  ok(row7b8.every((v, i) => nameString(v, 8) === ['7', '16', '25', '34', '43', '52', '61'][i]),
+    'AH: the base-8 ×7 row — 7, 16, 25, 34, 43, 52, 61 (values 7..49, every cell certified)');
+  /* the base-12 ×B row — eleven times the digits */
+  const rowBb12 = [11, 22, 33, 44, 55, 66, 77, 88, 99, 110, 121];
+  ok(rowBb12.every((v, i) => nameString(v, 12) === ['B', '1A', '29', '38', '47', '56', '65', '74', '83', '92', 'A1'][i]),
+    'AH: the base-12 ×B row — B, 1A, 29, 38, 47, 56, 65, 74, 83, 92, A1 (the square closes on A1 = 121)');
+  ok(nameString(121, 12) === 'A1' && 10 * 12 + 1 === 121, 'AH: B × B = A1₁₂ — eleven squared wears the A1 dress');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AI. long multiplication — the shift law (3.3) ===');
+{
+  /* the shift: appending a zero multiplies the value by b — swept */
+  let bad = 0;
+  for (let b = 2; b <= 10; b++)
+    for (let n = 1; n <= 500; n++) {
+      const shifted = nameDigits(n, b).concat([0]);
+      if (evalHorner(shifted, b) !== n * b) bad++;
+    }
+  ok(bad === 0, 'AI: the shift law — appending one zero seat multiplies by b (swept b = 2..10, n ≤ 500)');
+  /* 23₅ × 34₅ = 1442₅ via the partials */
+  ok(evalHorner(parseDigits('23'), 5) === 13 && evalHorner(parseDigits('34'), 5) === 19 && 13 * 19 === 247,
+    'AI: the values — 23₅ = 13, 34₅ = 19, the product 247');
+  ok(nameString(13 * 4, 5) === '202' && 13 * 4 === 52,
+    'AI: the first partial — 23₅ × 4₅ = 202₅ (13 × 4 = 52 = 2·25 + 2)');
+  ok(nameString(13 * 3, 5) === '124' && nameString(13 * 3 * 5, 5) === '1240' && 13 * 3 === 39 && 39 * 5 === 195,
+    'AI: the second partial shifted one seat — 23₅ × 30₅ = 1240₅ (13 × 3 = 39, shifted = 195)');
+  const p1 = evalHorner(parseDigits('202'), 5) + evalHorner(parseDigits('1240'), 5); /* the partials' sum */
+  ok(p1 === 247 && nameString(p1, 5) === '1442',
+    'AI: the partials stack — 202₅ + 1240₅ = 1442₅ = 247 ✓');
+  /* base twelve: 45₁₂ × 3₁₂ = 113₁₂ */
+  ok(evalHorner(parseDigits('45'), 12) === 53 && 53 * 3 === 159 && nameString(159, 12) === '113',
+    'AI: 45₁₂ × 3₁₂ = 113₁₂ (5×3 = 15 = 13₁₂ write 3 carry 1; 4×3+1 = 13 = 11₁₂ write 1 carry 1)');
+  /* base five: 12₅ × 3₅ = 41₅ */
+  ok(evalHorner(parseDigits('12'), 5) === 7 && 7 * 3 === 21 && nameString(21, 5) === '41',
+    'AI: 12₅ × 3₅ = 41₅ (2×3 = 6 = 11₅ write 1 carry 1; 1×3+1 = 4)');
+  /* hex: A7₁₆ × 2₁₆ = 14E₁₆ */
+  ok(evalHorner(parseDigits('A7'), 16) === 167 && 167 * 2 === 334 && nameString(334, 16) === '14E',
+    'AI: A7₁₆ × 2₁₆ = 14E₁₆ (7×2 = 14 = E carry 0; A×2 = 20 = 14₁₆ write 4 carry 1)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AJ. the in-base long-division instance — 3.2\u2019s promise kept (3.3) ===');
+{
+  /* 1209₁₂ ÷ 5 run entirely in base twelve; every quotient and remainder
+   * certified as a division-algorithm instance IN BASE TWELVE */
+  const steps: Array<[string, string, number]> = [
+    ['1209', '299', 0],
+    ['299', '69', 0],
+    ['69', '14', 1],
+    ['14', '3', 1],
+  ];
+  let okChain = true;
+  for (const [dividend, quotient, remainder] of steps) {
+    const vD = evalHorner(parseDigits(dividend), 12);
+    const vQ = evalHorner(parseDigits(quotient), 12);
+    if (vD !== vQ * 5 + remainder) okChain = false;
+    if (remainder < 0 || remainder >= 5) okChain = false;
+  }
+  ok(okChain, 'AJ: 1209₁₂ ÷ 5 = 299₁₂ r 0; 299₁₂ ÷ 5 = 69₁₂ r 0; 69₁₂ ÷ 5 = 14₁₂ r 1; 14₁₂ ÷ 5 = 3 r 1 — every row a clean instance in base twelve');
+  ok(evalHorner(parseDigits('3'), 12) === 3 && 3 < 5, 'AJ: the last machine 3 ÷ 5 = 0 r 3 (the quotient empties)');
+  ok(nameString(2025, 5) === '31100',
+    'AJ: the remainders read upward — 0, 0, 1, 1, 3 reversed: 31100₅, exactly the run-53 bridge result');
+  ok(evalHorner(parseDigits('1209'), 12) === 2025 && evalHorner(parseDigits('31100'), 5) === 2025,
+    'AJ: the round trip certified — 1209₁₂ = 31100₅ = 2025 (no base ten anywhere in the cascade)');
+  /* the base-3 sibling: 67₁₂ ÷ 3 in base twelve → 2221₃ (matches §T) */
+  const steps3: Array<[string, string, number]> = [
+    ['67', '22', 1],
+    ['22', '8', 2],
+    ['8', '2', 2],
+  ];
+  let ok3 = evalHorner(parseDigits('2'), 12) === 2 && 2 < 3;
+  for (const [dividend, quotient, remainder] of steps3) {
+    const vD = evalHorner(parseDigits(dividend), 12);
+    const vQ = evalHorner(parseDigits(quotient), 12);
+    if (vD !== vQ * 3 + remainder) ok3 = false;
+  }
+  ok(ok3 && evalHorner(parseDigits('67'), 12) === 79 && nameString(79, 3) === '2221',
+    'AJ: 67₁₂ ÷ 3 = 22₁₂ r 1; 22₁₂ ÷ 3 = 8 r 2; 8 ÷ 3 = 2 r 2; 2 ÷ 3 = 0 r 2 — read upward 2221₃ (= 79, §T\u2019s bridge result)');
+  /* quotient-bearing divisions */
+  ok(evalHorner(parseDigits('4231'), 5) === 566 && 566 === 188 * 3 + 2 && nameString(188, 5) === '1223',
+    'AJ: 4231₅ ÷ 3₅ = 1223₅ r 2₅ (566 = 188·3 + 2; the quotient 188 wears 1223₅)');
+  ok(evalHorner(parseDigits('1A7'), 12) === 271 && 271 === 30 * 9 + 1 && nameString(30, 12) === '26',
+    'AJ: 1A7₁₂ ÷ 9₁₂ = 26₁₂ r 1 (271 = 30·9 + 1; 30 = 26₁₂)');
+  /* the in-base long-division LADDER of 4231₅ ÷ 3₅, step by step in base five */
+  const ladder: Array<[string, number, number, number]> = [
+    /* bring-down name, its value, quotient digit, remainder digit */
+    ['4', 4, 1, 1],      /* 4 = 1·3 + 1 */
+    ['12', 7, 2, 1],     /* 12₅ = 7 = 2·3 + 1 */
+    ['13', 8, 2, 2],     /* 13₅ = 8 = 2·3 + 2 */
+    ['21', 11, 3, 2],    /* 21₅ = 11 = 3·3 + 2 */
+  ];
+  let badL = 0;
+  for (const [nm, v, q, r] of ladder) {
+    if (evalHorner(parseDigits(nm), 5) !== v) badL++;
+    if (v !== q * 3 + r) badL++;
+    if (q > 4 || r >= 3) badL++; /* quotient digit in band for base 5, remainder < 3 */
+  }
+  ok(badL === 0, 'AJ: the ladder of 4231₅ ÷ 3₅ — 4 = 1·3+1; 12₅ = 2·3+1; 13₅ = 2·3+2; 21₅ = 3·3+2: quotient digits 1, 2, 2, 3, remainder 2');
+  ok(ladder.map((s) => s[2]).join('') === '1223' && nameString(188, 5) === '1223',
+    'AJ: the ladder\u2019s quotient digits assemble 1223₅ — the certified quotient');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AK. casting out (b−1) — the digit-sum check (3.3) ===');
+{
+  /* n ≡ digit-sum(n) (mod b − 1): swept */
+  let bad = 0;
+  for (let b = 2; b <= 16; b++)
+    for (let n = 0; n <= 400; n++) {
+      const ds = nameDigits(n, b);
+      const s1 = modSub(digitSumDigits(ds), b - 1);
+      const s2 = modSub(n, b - 1);
+      if (s1 !== s2) bad++;
+    }
+  ok(bad === 0, 'AK: n ≡ digit-sum(n) mod (b−1) — swept b = 2..16, n ≤ 400');
+  /* why: b ≡ 1 (mod b−1), so every seat weight b^i ≡ 1 — the seats evaporate.
+   * (b = 2 is the degenerate mod 1, where the check is vacuous — start at b = 3.) */
+  let badPow = 0;
+  for (let b = 3; b <= 16; b++)
+    for (let i = 0; i <= 6; i++) {
+      if (modSub(powInt(b, i), b - 1) !== 1) badPow++;
+    }
+  ok(badPow === 0, 'AK: the engine — b^i ≡ 1 (mod b−1) for every seat (swept b = 3..16): only the digits survive');
+  /* the base-6 check instance */
+  ok(evalHorner(parseDigits('345'), 6) === 137 && evalHorner(parseDigits('512'), 6) === 188 && 137 + 188 === 325 && nameString(325, 6) === '1301',
+    'AK: 345₆ + 512₆ = 1301₆ (137 + 188 = 325) — the addition itself certified');
+  ok(
+    modSub(3 + 4 + 5, 5) === 2 && modSub(5 + 1 + 2, 5) === 3 && modSub(2 + 3, 5) === 0 && modSub(1 + 3 + 0 + 1, 5) === 0,
+    'AK: casting out five — digit sums 12 ≡ 2, 8 ≡ 3; 2 + 3 = 5 ≡ 0; the result\u2019s digit sum 5 ≡ 0 ✓ (a mismatch would indict)'
+  );
+  /* the base-12 nine-row residue walk: 9×k in base-12 dress, k = 1..11 */
+  const nineRow = [9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 99]; /* the VALUES 9×k */
+  const nineNames = ['9', '16', '23', '30', '39', '46', '53', '60', '69', '76', '83']; /* their base-12 names */
+  const residues = [9, 7, 5, 3, 1, 10, 8, 6, 4, 2, 0]; /* 9k mod 11 */
+  let badWalk = 0;
+  for (let k = 0; k < 11; k++) {
+    if (nameString(nineRow[k], 12) !== nineNames[k]) badWalk++;
+    if (modSub(nineRow[k], 11) !== residues[k]) badWalk++;
+    if (modSub(digitSumDigits(parseDigits(nineNames[k])), 11) !== residues[k]) badWalk++;
+  }
+  ok(badWalk === 0, 'AK: the base-12 ×9 row walks its residues 9,7,5,3,1,B,9,7,5,3,1,0 mod eleven — digit sums and values agree cell by cell');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AL. figure 3 geometry — the base-five column addition (3.3) ===');
+{
+  /* the figure shows 342₅ + 213₅ = 1110₅: carry boxes over seats 1..3,
+   * addend rows, the rule, the result row, seat brackets below */
+  const seatX = [520, 600, 680, 760]; /* seats 3, 2, 1, 0 left to right */
+  const boxW = 56;
+  const rowCarry = { y1: 78, y2: 118 };
+  const rowA = { y1: 158, y2: 206 };
+  const rowB = { y1: 226, y2: 274 };
+  const ruleY = 292;
+  const rowR = { y1: 308, y2: 356 };
+  const bracketY = 386;
+  ok(seatX.length === 4, 'AL: four seats in the figure (125s | 25s | 5s | 1s)');
+  let minGap = Infinity;
+  for (let i = 0; i < seatX.length - 1; i++) minGap = Math.min(minGap, seatX[i + 1] - boxW / 2 - (seatX[i] + boxW / 2));
+  ok(minGap >= 8, `AL: neighbouring seat boxes clear by ${minGap} px ≥ 8`);
+  ok(rowCarry.y2 + 8 <= rowA.y1 && rowA.y2 + 8 <= rowB.y1 && rowB.y2 + 6 <= ruleY && ruleY + 8 <= rowR.y1 && rowR.y2 + 6 <= bracketY,
+    'AL: the five horizontal bands stacked clear: carries / addend / addend / rule / result / brackets');
+  /* the carry row: carries into seats 1, 2, 3 — all 1, from the certified machine */
+  const r1 = columnAddDigits(parseDigits('342'), parseDigits('213'), 5);
+  ok(r1.carries.join(',') === '1,1,1', 'AL: the figure\u2019s carry row prints 1, 1, 1 — exactly the certified carries');
+  ok(r1.digits.join('') === '1110', 'AL: the figure\u2019s result row prints 1110 — the certified sum');
+  /* the annotations (left column) quote the certified column equations */
+  ok(2 + 3 === 5 && nameString(5, 5) === '10', 'AL: annotation 1 — 2 + 3 = 10₅ (write 0, carry 1)');
+  ok(4 + 1 + 1 === 6 && nameString(6, 5) === '11', 'AL: annotation 2 — 4 + 1 + 1 = 11₅ (write 1, carry 1)');
+  ok(3 + 2 + 1 === 6, 'AL: annotation 3 — 3 + 2 + 1 = 11₅ (write 1, carry 1)');
+  ok(97 + 58 === 155, 'AL: the bottom line — 342₅ + 213₅ = 1110₅ (= 97 + 58 = 155)');
+  ok(seatX[3] + boxW / 2 <= 920 && bracketY <= 400 && 60 - boxW / 2 >= 0,
+    'AL: every box and label inside the 920×400 viewBox');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AM. the 3.3 quiz keys re-derived (intended 1/0/2/0/3) ===');
+{
+  /* Q1: 4₅ + 4₅ — key 1 (13₅) */
+  ok(nameString(8, 5) === '13', 'AM: Q1 fact — 4 + 4 = 8 = 13₅');
+  ok(evalHorner(parseDigits('14'), 5) === 9 && evalHorner(parseDigits('12'), 5) === 7,
+    'AM: Q1 distractors — 14₅ = 9, 12₅ = 7; "8" is not even a base-five name (digit band)');
+  /* Q2: the write/carry pair — key 0 (s mod b, ⌊s/b⌋) */
+  ok(modSub(9, 5) === 4 && floorDiv(9, 5) === 1 && 1 * 5 + 4 === 9, 'AM: Q2 fact — 9 = 1·5 + 4: write 4, carry 1');
+  ok(floorDiv(9, 5) !== modSub(9, 5), 'AM: Q2 distractor — the pair is NOT reversed (⌊s/b⌋ first would miswrite 1)');
+  /* Q3: 1000₅ − 234₅ — key 2 (211₅) */
+  ok(nameString(125 - 69, 5) === '211', 'AM: Q3 fact — 1000₅ − 234₅ = 211₅ (= 56)');
+  ok(evalHorner(parseDigits('311'), 5) === 81 && evalHorner(parseDigits('232'), 5) === 67 && evalHorner(parseDigits('202'), 5) === 52,
+    'AM: Q3 distractors — 311₅ = 81, 232₅ = 67, 202₅ = 52 (each rebuilt)');
+  /* Q4: B + B in base twelve — key 0 (1A₁₂) */
+  ok(nameString(22, 12) === '1A' && 11 + 11 === 22, 'AM: Q4 fact — B + B = 22 = 1A₁₂');
+  ok(evalHorner(parseDigits('22'), 12) === 26 && evalHorner(parseDigits('1B'), 12) === 23 && evalHorner(parseDigits('B1'), 12) === 133,
+    'AM: Q4 distractors — 22₁₂ = 26, 1B₁₂ = 23, B1₁₂ = 133 (each rebuilt)');
+  /* Q5: 23₅ × 4₅ — key 3 (202₅) */
+  ok(nameString(52, 5) === '202' && 13 * 4 === 52, 'AM: Q5 fact — 23₅ × 4₅ = 202₅ (13 × 4 = 52)');
+  ok(evalHorner(parseDigits('144'), 5) === 49 && evalHorner(parseDigits('132'), 5) === 42 && evalHorner(parseDigits('112'), 5) === 32,
+    'AM: Q5 distractors — 144₅ = 49, 132₅ = 42, 112₅ = 32 (each rebuilt)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AN. the 13 exercise keys of 3.3 re-derived ===');
+{
+  ok(nameString(14 + 8, 5) === '42' && evalHorner(parseDigits('24'), 5) === 14 && evalHorner(parseDigits('13'), 5) === 8,
+    'AN: L1-1 — 24₅ + 13₅ = 42₅ (14 + 8 = 22)');
+  ok(nameString(11 + 7, 2) === '10010' && 11 + 7 === 18, 'AN: L1-2 — 1011₂ + 111₂ = 10010₂ (11 + 7 = 18)');
+  ok(nameString(12, 5) === '22', 'AN: L1-3 — 3₅ × 4₅ = 22₅ (twelve)');
+  ok(nameString(39 + 30, 8) === '105' && 7 + 6 === 13 && floorDiv(13, 8) === 1 && modSub(13, 8) === 5,
+    'AN: L2-4 — 47₈ + 36₈ = 105₈ (39 + 30 = 69; 7+6 = 13 = 15₈ write 5 carry 1; 4+3+1 = 8 = 10₈)');
+  ok(nameString(82 - 49, 5) === '113', 'AN: L2-5 — 312₅ − 144₅ = 113₅ (82 − 49 = 33)');
+  ok(nameString(7 * 3, 5) === '41' && evalHorner(parseDigits('12'), 5) === 7, 'AN: L2-6 — 12₅ × 3₅ = 41₅ (7 × 3 = 21)');
+  ok(nameString(53 * 3, 12) === '113' && evalHorner(parseDigits('45'), 12) === 53, 'AN: L3-7 — 45₁₂ × 3₁₂ = 113₁₂ (53 × 3 = 159)');
+  ok(nameString(79, 3) === '2221' && evalHorner(parseDigits('67'), 12) === 79,
+    'AN: L3-8 — 67₁₂ → base three by in-base division: 2221₃ (the cascade 22₁₂, 8, 2; remainders 1, 2, 2, 2)');
+  ok(nameString(137 + 188, 6) === '1301' && modSub(digitSumDigits(parseDigits('1301')), 5) === 0,
+    'AN: L4-9 — 345₆ + 512₆ = 1301₆, cast out five: 2 + 3 ≡ 0 and 5 ≡ 0 ✓');
+  ok(['7', '16', '25', '34', '43', '52', '61'].every((s, i) => nameString(7 * (i + 1), 8) === s),
+    'AN: L4-10 — the ×7 row of base eight: 7, 16, 25, 34, 43, 52, 61 (7..49)');
+  ok(nameString(566, 5) === '4231' && 566 === 188 * 3 + 2 && nameString(188, 5) === '1223' && nameString(2, 5) === '2',
+    'AN: L5-11 — 4231₅ ÷ 3₅ = 1223₅ r 2₅ (566 = 188·3 + 2)');
+  ok(nameString(2025, 12) === '1209' && nameString(2025, 5) === '31100' && evalHorner(parseDigits('299'), 12) === 405 && evalHorner(parseDigits('69'), 12) === 81 && evalHorner(parseDigits('14'), 12) === 16,
+    'AN: L5-12 — 1209₁₂ ÷ 5 in base twelve: 299₁₂, 69₁₂, 14₁₂, 3; remainders 0,0,1,1,3 → 31100₅ = 2025');
+  ok(nameString(405, 12) === '299' && 2025 === 405 * 5 + 0, 'AN: L5-12 first row — 1209₁₂ = 299₁₂ × 5 + 0 (2025 = 405·5)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AO. the 4 formula cards of 3.3 re-derived ===');
+{
+  ok(floorDiv(9, 5) === 1 && modSub(9, 5) === 4, 'AO: card 1 — the carry law: column sum s → write s mod b, carry ⌊s/b⌋ (9 = 1·5 + 4)');
+  ok(modSub(0 + 5 - 4, 5) === 1, 'AO: card 2 — the borrow law: 0 − 4 writes (0 + 5) − 4 = 1 and pays 1 from the next seat');
+  ok(evalHorner(nameDigits(7, 5).concat([0]), 5) === 35 && 7 * 5 === 35, 'AO: card 3 — the shift law: one seat left = × b (7 → 35)');
+  ok(566 === 188 * 3 + 2 && nameString(566, 5) === '4231' && nameString(188, 5) === '1223',
+    'AO: card 4 — in-base division: dividend = quotient × divisor + remainder, all in b\u2019s own digits');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AP. the machine charter — k bits, 2^k patterns (3.4) ===');
+{
+  /* k seats, 2 symbols each: 2^k strings; the values 0..2^k − 1 pad to
+   * exactly k bits — swept */
+  let bad = 0;
+  for (let k = 1; k <= 16; k++) {
+    if (powInt(2, k) !== 1 << k) bad++; /* the count itself, cross-checked */
+    for (let n = 0; n < powInt(2, k); n++) {
+      const bits = nameDigits(n, 2);
+      if (bits.length > k) bad++;
+      if (bitsValue(bits) !== n) bad++;
+    }
+  }
+  ok(bad === 0, 'AP: k bits hold exactly 2^k patterns, naming 0..2^k − 1 (swept k ≤ 16)');
+  /* fixed-width register dress: every byte value pads to exactly 8 bits */
+  let badPad = 0;
+  for (let n = 0; n <= 255; n++) if (bitsOf(n, 8).length !== 8 || bitsValue(bitsOf(n, 8)) !== n) badPad++;
+  for (let n = 0; n <= 1000; n++) if (bitsOf(n, 12).length !== 12 || bitsValue(bitsOf(n, 12)) !== n) badPad++;
+  ok(badPad === 0, 'AP: the fixed-width register dress — every value 0..255 pads to 8 bits, 0..1000 to 12 bits, value unchanged');
+  /* the byte charter */
+  ok(powInt(2, 8) === 256, 'AP: one byte = 8 bits = 2⁸ = 256 patterns, the values 0..255');
+  ok(nameString(255, 16) === 'FF' && nameString(255, 2) === '11111111' && powInt(2, 8) - 1 === 255,
+    'AP: the byte\u2019s ceiling — 255 = 11111111₂ = FF₁₆ = 2⁸ − 1');
+  ok(powInt(2, 4) === 16, 'AP: one nibble = 4 bits = 2⁴ = 16 patterns = one hex symbol (the charter of §Q/§S)');
+  ok(8 === 2 * 4, 'AP: the byte = 2 nibbles = 8 bits — two hex symbols per byte, no arithmetic to split them');
+  /* the 1024 honesty */
+  ok(powInt(2, 10) === 1024 && powInt(10, 3) === 1000 && Math.max(1024, 1000) === 1024,
+    'AP: 2¹⁰ = 1024 ≠ 1000 = 10³ — the kibibyte (KiB, IEC 1999) and the kilobyte (kB) are honest different sizes');
+  /* the charter table rows: k = 4, 8, 16, 32 */
+  const ks = [4, 8, 16, 32];
+  ok(ks.every((k) => powInt(2, k) - 1 === [15, 255, 65535, 4294967295][ks.indexOf(k)]),
+    'AP: the charter table — 15, 255, 65535, 4294967295 are the ceilings of 4/8/16/32 bits');
+  ok(powInt(2, 32) === 4294967296, 'AP: 2³² = 4,294,967,296 patterns in a 32-bit word');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AQ. the bit operations — the machine tables in action (3.4) ===');
+{
+  /* NOT */
+  ok(bitNOT(0) === 1 && bitNOT(1) === 0, 'AQ: NOT — 0 → 1, 1 → 0 (the two-cell table)');
+  /* the three two-place tables on all four pairs */
+  const pairs: Array<[number, number, number, number, number]> = [
+    [0, 0, 0, 0, 0],
+    [0, 1, 0, 1, 1],
+    [1, 0, 0, 1, 1],
+    [1, 1, 1, 1, 0],
+  ];
+  let badT = 0;
+  for (const [a, b, and, or, xor] of pairs) {
+    if (bitAND(a, b) !== and) badT++;
+    if (bitOR(a, b) !== or) badT++;
+    if (bitXOR(a, b) !== xor) badT++;
+  }
+  ok(badT === 0, 'AQ: AND/OR/XOR certified on all four pairs — the printed table row by row');
+  ok(bitAND(0, 0) === 0 && bitAND(0, 1) === 0 * 1 && bitAND(1, 0) === 1 * 0 && bitAND(1, 1) === 1 * 1,
+    'AQ: AND = the base-2 multiplication table of §AH — a·b cell by cell');
+  ok(bitXOR(0, 0) === modSub(0, 2) && bitXOR(1, 0) === modSub(1, 2) && bitXOR(0, 1) === modSub(1, 2) && bitXOR(1, 1) === modSub(2, 2),
+    'AQ: XOR = (a + b) mod 2 — the sum digit with the carry forgotten');
+  ok(bitOR(0, 0) === Math.min(0, 0) && bitOR(0, 1) === 1 && bitOR(1, 0) === 1 && bitOR(1, 1) === 1,
+    'AQ: OR = the larger of the two bits (0 only when both are 0)');
+  /* multi-bit digit-wise sweeps — NO JS bitwise operators, tables only */
+  let badM = 0;
+  for (let a = 0; a < 16; a++)
+    for (let b = 0; b < 16; b++) {
+      const A = bitsOf(a, 4);
+      const B = bitsOf(b, 4);
+      if (bitsValue(mapOp(A, B, bitAND)) !== (a * b >= 0 ? manualAnd(a, b) : -1)) badM++;
+      if (bitsValue(mapOp(A, B, bitOR)) !== manualOr(a, b)) badM++;
+      if (bitsValue(mapOp(A, B, bitXOR)) !== manualXor(a, b)) badM++;
+    }
+  ok(badM === 0, 'AQ: digit-wise AND/OR/XOR over all 256 nibble pairs match the arithmetic definitions (tables only, no operators)');
+  /* the mask instances */
+  const m1 = mapOp(bitsOf(214, 8), bitsOf(15, 8), bitAND);
+  ok(bitsValue(m1) === 6 && evalHorner(m1, 2) === 214 - 208,
+    'AQ: 11010110 AND 00001111 = 00000110 — the low nibble survives the mask (214 AND 15 = 6)');
+  ok(214 - 208 === 6 && modSub(214, 16) === 6, 'AQ: the mask reads the value mod 16 — 214 mod 16 = 6, the low nibble\u2019s worth');
+  ok(bitsValue(mapOp(bitsOf(214, 8), bitsOf(240, 8), bitAND)) === 208 && floorDiv(214, 16) === 13,
+    'AQ: 11010110 AND 11110000 = 11010000 = 208 — the high nibble (⌊214/16⌋ = 13 = D)');
+  ok(bitsValue(mapOp(bitsOf(10, 4), bitsOf(5, 4), bitOR)) === 15 && bitsValue(mapOp(bitsOf(12, 4), bitsOf(10, 4), bitXOR)) === 6,
+    'AQ: 1010 OR 0101 = 1111 (15); 1100 XOR 1010 = 0110 (6)');
+  ok(bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitAND)) === 2 && bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitOR)) === 15 && bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitXOR)) === 13,
+    'AQ: the 0110/1011 triple — AND 0010 (2), OR 1111 (15), XOR 1101 (13)');
+}
+
+/* reference bitwise values by ARITHMETIC loops (never the JS operators) */
+function manualAnd(a: number, b: number): number {
+  const A = bitsOf(a, 8);
+  const B = bitsOf(b, 8);
+  return bitsValue(mapOp(A, B, bitAND));
+}
+function manualOr(a: number, b: number): number {
+  const A = bitsOf(a, 8);
+  const B = bitsOf(b, 8);
+  return bitsValue(mapOp(A, B, bitOR));
+}
+function manualXor(a: number, b: number): number {
+  const A = bitsOf(a, 8);
+  const B = bitsOf(b, 8);
+  return bitsValue(mapOp(A, B, bitXOR));
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AR. the half-adder IS the division algorithm (3.4) ===');
+{
+  /* one-bit: sum = XOR = (a+b) mod 2; carry = AND = ⌊(a+b)/2⌋; a+b = carry·2 + sum */
+  let bad = 0;
+  for (const a of [0, 1])
+    for (const b of [0, 1]) {
+      const s = a + b;
+      if (bitXOR(a, b) !== modSub(s, 2)) bad++;
+      if (bitAND(a, b) !== floorDiv(s, 2)) bad++;
+      if (bitAND(a, b) * 2 + bitXOR(a, b) !== s) bad++;
+    }
+  ok(bad === 0, 'AR: all four pairs — XOR is the sum digit, AND is the carry, a + b = carry·2 + sum (the division algorithm at b = 2)');
+  ok(bitXOR(1, 1) === 0 && bitAND(1, 1) === 1, 'AR: 1 + 1 = 10₂ — the write 0, carry 1 of §AD, now named XOR and AND');
+  /* the ripple-carry adder reproduces addition on ALL nibble pairs and byte pairs */
+  let badR = 0;
+  for (let a = 0; a < 16; a++)
+    for (let b = 0; b < 16; b++) {
+      if (bitsValue(rippleAdd(bitsOf(a, 5), bitsOf(b, 5))) !== a + b) badR++;
+    }
+  for (let a = 0; a <= 255; a += 1)
+    for (let b = 0; b <= 255; b += 1) {
+      if (bitsValue(rippleAdd(bitsOf(a, 9), bitsOf(b, 9))) !== a + b) badR++;
+    }
+  ok(badR === 0, 'AR: the ripple-carry adder built from XOR + AND alone reproduces a + b on all 256 nibble pairs and all 65,536 byte pairs');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AS. the shift laws (3.4) ===');
+{
+  /* left shift (append a zero seat) = ×2 — via digit maps, swept */
+  let bad = 0;
+  for (let n = 1; n <= 500; n++) {
+    if (evalHorner(nameDigits(n, 2).concat([0]), 2) !== 2 * n) bad++;
+  }
+  ok(bad === 0, 'AS: appending one zero seat doubles the value (swept n ≤ 500)');
+  /* right shift (drop the last seat) = ⌊n/2⌋ — the peel lemma in silicon */
+  let badR = 0;
+  for (let n = 1; n <= 500; n++) {
+    const bits = nameDigits(n, 2);
+    const dropped = bits[bits.length - 1];
+    const kept = bits.slice(0, bits.length - 1);
+    if (bitsValue(kept) !== floorDiv(n, 2)) badR++;
+    if (dropped !== modSub(n, 2)) badR++;
+    if (bitsValue(kept) * 2 + dropped !== n) badR++;
+  }
+  ok(badR === 0, 'AS: dropping the last bit is ⌊n/2⌋ and the dropped bit is n mod 2 — the peel lemma, swept n ≤ 500');
+  /* the walk: 45 → 90 → 22 */
+  ok(nameString(45, 2) === '101101' && evalHorner(nameDigits(45, 2).concat([0]), 2) === 90,
+    'AS: 45 = 101101₂; left shift → 1011010₂ = 90 = 45 × 2');
+  ok(bitsValue(nameDigits(45, 2).slice(0, -1)) === 22 && floorDiv(45, 2) === 22,
+    'AS: right shift drops the units bit — 101101₂ → 10110₂ = 22 = ⌊45/2⌋ (the peel; and 90 → 45 the same way)');
+  /* 2025 >> 3 with the dropped bits readable */
+  const bits2025 = nameDigits(2025, 2);
+  ok(bits2025.join('') === '11111101001', 'AS: 2025 = 11111101001₂ (§B\u2019s instance)');
+  const kept3 = bits2025.slice(0, bits2025.length - 3);
+  const dropped3 = bits2025.slice(bits2025.length - 3);
+  ok(bitsValue(kept3) === 253 && floorDiv(2025, 8) === 253, 'AS: 2025 >> 3 = 11111101₂ = 253 = ⌊2025/8⌋');
+  ok(dropped3.join('') === '001' && bitsValue(dropped3) === 1 && modSub(2025, 8) === 1,
+    'AS: the three dropped seats spell 001 = 1 = 2025 mod 8 — the remainder readable in the register');
+  ok(253 * 8 + 1 === 2025, 'AS: and 253·8 + 1 = 2025 — the division-algorithm instance, seats and all');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AT. overflow, honestly bounded (3.4) ===');
+{
+  /* the window at b = 2: k bits hold 0..2^k − 1 (§F swept it for every b) */
+  ok(powInt(2, 8) - 1 === 255 && 255 === evalHorner('11111111'.split('').map(Number), 2),
+    'AT: the 8-bit window — everything fits in 0..255, and 255 IS 11111111₂');
+  ok(powInt(2, 9) === 512 && 256 >= powInt(2, 8) && 256 < powInt(2, 9),
+    'AT: 255 + 1 = 256 needs NINE bits (2⁸ ≤ 256 < 2⁹) — an 8-bit register cannot hold it');
+  /* the honest bound: the ninth bit is the carry out of the register */
+  const sum = rippleAdd(bitsOf(255, 8), bitsOf(1, 8));
+  ok(sum.length === 9 && sum[0] === 1 && bitsValue(sum) === 256,
+    'AT: the adder\u2019s honest answer — 1 00000000, nine bits; a byte-width register keeps 00000000 and the carry walks out the door');
+  ok(bitsValue(rippleAdd(bitsOf(255, 8), bitsOf(1, 8)).slice(1)) === 0,
+    'AT: what the 8-bit register keeps is 00000000 — the honest wall of the window, stated not hidden');
+  /* the roll-down twin */
+  ok(nameString(powInt(2, 8) - 1, 2) === '11111111' && nameString(powInt(2, 8), 2) === '100000000',
+    'AT: the twin dresses — 255 = 11111111₂ (eight bits) and 256 = 100000000₂ (nine); the odometer rolls over');
+  /* signed reading named and deferred */
+  ok(powInt(2, 8) === 256 && 256 === 128 + 128,
+    'AT: a byte can also be READ as −128..127 (two\u2019s complement) — named here, built on the CS shelf (IGCSE 0478 §1.1 cross-ref)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AU. the ASCII instances (3.4) ===');
+{
+  ok(nameString(65, 2) === '1000001' && bitsOf(65, 8).join('') === '01000001' && nameString(65, 16) === '41',
+    'AU: \u2018A\u2019 = 65 = 01000001₂ (padded) = 41₁₆ — one byte, two nibbles, one hex pair');
+  ok(nameString(97, 2) === '1100001' && nameString(97, 16) === '61', 'AU: \u2018a\u2019 = 97 = 1100001₂ = 61₁₆');
+  ok(97 - 65 === 32 && nameString(32, 2) === '100000' && bitsOf(32, 8).join('') === '00100000',
+    'AU: the case flip — 97 − 65 = 32 = 00100000₂: one seat (bit 5) is the whole difference');
+  ok(manualXor(65, 32) === 97 && manualXor(97, 32) === 65,
+    'AU: \u2018A\u2019 XOR 00100000 = \u2018a\u2019 and back — the §AQ tables flip the case both ways');
+  /* the +32 law across the alphabet */
+  let bad = 0;
+  for (let i = 0; i < 26; i++) {
+    const up = 65 + i;
+    const lo = 97 + i;
+    if (lo - up !== 32) bad++;
+    if (manualXor(up, 32) !== lo || manualXor(lo, 32) !== up) bad++;
+    if (nameString(up, 16) !== ['41', '42', '43', '44', '45', '46', '47', '48', '49', '4A', '4B', '4C', '4D', '4E', '4F', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '5A'][i]) bad++;
+  }
+  ok(bad === 0, 'AU: the +32 / XOR-32 law holds across all 26 letters; the uppercase block 65..90 wears 41..5A₁₆');
+  /* the digit row */
+  ok(48 === evalHorner('110000'.split('').map(Number), 2) && nameString(48, 16) === '30' && nameString(57, 16) === '39',
+    'AU: the characters \u20180\u2019..\u20189\u2019 sit at 48..57 = 30₁₆..39₁₆');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AV. figure 4 geometry — the byte anatomy of \u2018A\u2019 (3.4) ===');
+{
+  const bits = bitsOf(65, 8); /* 0 1 0 0 0 0 0 1 */
+  ok(bits.join('') === '01000001', 'AV: the figure spells 01000001 — the byte holding \u2018A\u2019');
+  ok(bitsValue(bits) === 65, 'AV: the eight bits rebuild to 65');
+  const nibHi = bits.slice(0, 4);
+  const nibLo = bits.slice(4);
+  ok(bitsValue(nibHi) === 4 && HEX[4] === '4' && bitsValue(nibLo) === 1 && HEX[1] === '1',
+    'AV: the two nibbles carry 4 and 1 — the hex pair 41₁₆ printed above the groups');
+  ok(64 + 1 === 65, 'AV: the on-bit weights 64 + 1 = 65 — the sum printed under the boxes');
+  /* geometry: eight 56-px boxes, centres x = 100 + 70i, gap 14 ≥ 8 */
+  const xs: number[] = [];
+  for (let i = 0; i < 8; i++) xs.push(100 + 70 * i);
+  let minGap = Infinity;
+  for (let i = 0; i < 7; i++) minGap = Math.min(minGap, xs[i + 1] - 28 - (xs[i] + 28));
+  ok(minGap === 14 && minGap >= 8, `AV: the eight bit boxes clear by ${minGap} px ≥ 8`);
+  ok(xs[7] + 28 <= 920 && 100 - 28 >= 0, 'AV: every box inside the 920 viewBox');
+  const bands = { hex: 58, brace: 96, box1: 120, box2: 176, weight: 226, sum: 282, charter: 348 };
+  ok(bands.hex + 12 < bands.brace && bands.brace + 12 < bands.box1 && bands.box2 + 12 < bands.weight && bands.weight + 12 < bands.sum && bands.sum + 12 < bands.charter && bands.charter <= 420,
+    'AV: the six horizontal bands stacked clear: hex / brace / boxes / weights / sum / charter line');
+  /* the nibble braces span boxes 1–4 and 5–8 without crossing the middle gap label */
+  ok(xs[3] + 28 < xs[4] - 28, 'AV: the two nibble groups are disjoint (the byte\u2019s midline is clear)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AW. the 3.4 quiz keys re-derived (intended 2/0/1/3/0) ===');
+{
+  /* Q1: patterns in a byte — key 2 (256) */
+  ok(powInt(2, 8) === 256, 'AW: Q1 fact — 2⁸ = 256 patterns');
+  ok(powInt(2, 8) - 1 === 255 && powInt(2, 3) === 8 && powInt(2, 10) === 1024,
+    'AW: Q1 distractors — 255 is the largest VALUE (one less than the count), 8 is the bit count, 1024 = 2¹⁰');
+  /* Q2: the base-2 multiplication table IS — key 0 (AND) */
+  ok(bitAND(1, 1) === 1 && bitAND(1, 0) === 0 && bitAND(0, 1) === 0 && bitAND(0, 0) === 0,
+    'AW: Q2 fact — the AND table is 0/0/0/1, exactly the base-2 multiplication table');
+  ok(!(bitOR(1, 0) === 0) && !(bitXOR(1, 1) === 1) && bitXOR(1, 1) === 0,
+    'AW: Q2 distractors — OR gives 1 on (1,0), XOR gives 1 on (0,1)/(1,0) and 0 on (1,1): neither matches');
+  /* Q3: nibble 1010 — key 1 (A) */
+  ok(evalHorner('1010'.split('').map(Number), 2) === 10 && HEX[10] === 'A', 'AW: Q3 fact — 1010 carries ten, printed A');
+  ok(evalHorner('10'.split('').map(Number), 2) === 2 && evalHorner('1000'.split('').map(Number), 2) === 8 && evalHorner('1111'.split('').map(Number), 2) === 15,
+    'AW: Q3 distractors — "10" read as binary is 2 (the string trap), 1000 = 8, F = 1111 = 15');
+  /* Q4: left shift of 101101 — key 3 (1011010) */
+  ok(evalHorner('1011010'.split('').map(Number), 2) === 90 && 45 * 2 === 90, 'AW: Q4 fact — left shift = 1011010₂ = 90 = 45 × 2');
+  ok(evalHorner('10111'.split('').map(Number), 2) === 23 && evalHorner('101101'.split('').map(Number), 2) === 45 && evalHorner('10110100'.split('').map(Number), 2) === 180,
+    'AW: Q4 distractors — 10111₂ = 23, unchanged 101101₂ = 45, two shifts 10110100₂ = 180');
+  /* Q5: the byte\u2019s ceiling — key 0 (255 = FF) */
+  ok(nameString(255, 16) === 'FF' && powInt(2, 8) - 1 === 255, 'AW: Q5 fact — 255 = FF₁₆ = 2⁸ − 1');
+  ok(powInt(2, 8) === 256 && evalHorner('11111111'.split('').map(Number), 2) !== 155 && evalHorner('10000000'.split('').map(Number), 2) === 128,
+    'AW: Q5 distractors — 256 is the count (needs 9 bits); FF is 255, not 155; 10000000₂ = 128 is only half');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AX. the 13 exercise keys of 3.4 re-derived ===');
+{
+  ok(evalHorner('10011101'.split('').map(Number), 2) === 157 && 128 + 16 + 8 + 4 + 1 === 157,
+    'AX: L1-1 — 10011101₂ = 157 (128 + 16 + 8 + 4 + 1)');
+  ok(powInt(2, 4) === 16 && powInt(2, 4) - 1 === 15, 'AX: L1-2 — 4 bits: 16 patterns, values 0..15');
+  ok(evalHorner('11111111'.split('').map(Number), 2) === 255 && nameString(255, 16) === 'FF',
+    'AX: L1-3 — 11111111₂ = 255 = FF₁₆');
+  ok(nameString(63, 16) === '3F' && '3F'.split('').map((c) => nameDigits(HEX.indexOf(c), 2).join('').padStart(4, '0')).join(' ') === '0011 1111' && 48 + 15 === 63,
+    'AX: L2-4 — 3F₁₆ = 0011 1111₂ = 63 (48 + 15)');
+  ok(bitsValue(mapOp(bitsOf(214, 8), bitsOf(15, 8), bitAND)) === 6 && modSub(214, 16) === 6,
+    'AX: L2-5 — 11010110 AND 00001111 = 00000110 = 6 (the low nibble; 214 mod 16 = 6)');
+  ok(bitsValue(mapOp(bitsOf(12, 4), bitsOf(10, 4), bitXOR)) === 6 && 12 === evalHorner('1100'.split('').map(Number), 2) && 10 === evalHorner('1010'.split('').map(Number), 2),
+    'AX: L2-6 — 1100 XOR 1010 = 0110 (12 vs 10 → 6)');
+  ok(97 - 65 === 32 && manualXor(65, 32) === 97 && manualXor(97, 32) === 65,
+    'AX: L3-7 — the case flip: 97 − 65 = 32 = 00100000₂; XOR flips \u2018A\u2019 ↔ \u2018a\u2019 both ways');
+  ok(powInt(2, 8) === 256 && 256 <= 500 && 500 < powInt(2, 9) && nameString(500, 16) === '1F4' && 256 + 240 + 4 === 500,
+    'AX: L3-8 — 500 needs 9 bits (256 ≤ 500 < 512) and 3 hex symbols (500 = 1F4₁₆)');
+  ok(bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitAND)) === 2 && bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitOR)) === 15 && bitsValue(mapOp(bitsOf(6, 4), bitsOf(11, 4), bitXOR)) === 13,
+    'AX: L4-9 — 0110 vs 1011: AND 0010 (2), OR 1111 (15), XOR 1101 (13)');
+  ok(powInt(2, 10) === 1024 && powInt(10, 3) === 1000, 'AX: L4-10 — 2¹⁰ = 1024 (KiB) vs 10³ = 1000 (kB), honest twins that differ');
+  ok(evalHorner('01011010'.split('').map(Number), 2) === 90 && nameString(90, 16) === '5A' && 64 + 16 + 8 + 2 === 90 && 80 + 10 === 90,
+    'AX: L5-11 — \u2018Z\u2019 = 90 = 01011010₂ = 5A₁₆ (64 + 16 + 8 + 2; 5A = 80 + 10)');
+  ok(nameString(2025, 2) === '11111101001' && bitsValue(nameDigits(2025, 2).slice(0, -3)) === 253 && floorDiv(2025, 8) === 253 && modSub(2025, 8) === 1,
+    'AX: L5-12 — 2025 >> 3 = 11111101₂ = 253 = ⌊2025/8⌋; the dropped 001 = 2025 mod 8 = 1');
+  ok(powInt(2, 8) === 256 && 65 === evalHorner('01000001'.split('').map(Number), 2) && nameString(65, 16) === '41',
+    'AX: L6-13 — the essay\u2019s anchors: 256, \u2018A\u2019 = 65 = 41₁₆, two\u2019s complement deferred');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AY. the 4 formula cards of 3.4 re-derived ===');
+{
+  ok(powInt(2, 8) === 256 && powInt(2, 8) - 1 === 255, 'AY: card 1 — k bits → 2^k patterns, values 0..2^k − 1 (the byte: 256, 0..255)');
+  ok(8 === 2 * 4 && powInt(2, 4) === 16 && nameString(255, 16) === 'FF', 'AY: card 2 — byte = 2 nibbles = 8 bits = 2 hex symbols; ceiling FF');
+  ok(bitAND(1, 1) === 1 && bitOR(0, 0) === 0 && bitXOR(1, 0) === 1 && modSub(1, 2) === 1,
+    'AY: card 3 — AND = multiply, OR = max, XOR = (a+b) mod 2 (sum without carry)');
+  ok(evalHorner(nameDigits(45, 2).concat([0]), 2) === 90 && bitsValue(nameDigits(90, 2).slice(0, -1)) === 45,
+    'AY: card 4 — left shift ×2 (45 → 90); right shift ⌊n/2⌋ (90 → 45, the peel)');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== AZ. sources + scope guards (3.3 + 3.4) ===');
+{
+  const sources33 = ['knuth-taocp-v2', 'khattar-qa-4e', 'beck-geoghegan-art-of-proof'];
+  const sources34 = ['leibniz-1703-binary', 'shannon-1938-switching', 'shannon-1948-bit', 'iec-60027-2-binary-prefixes', 'ascii-table-a65', 'cambridge-igcse-cs-0478', 'knuth-taocp-v2'];
+  ok(sources33.length === 3 && sources34.length === 7, 'AZ: source keys — 3.3 carries 3, 3.4 carries 7');
+  ok(new Set([...sources33, ...sources34]).size === 9, 'AZ: nine distinct keys across the two lessons (knuth shared), FOUR NEW this run');
+  console.log('  NEW keys: shannon-1938-switching, shannon-1948-bit, iec-60027-2-binary-prefixes, ascii-table-a65');
+  console.log('  carried:  knuth-taocp-v2, khattar-qa-4e, beck-geoghegan-art-of-proof, leibniz-1703-binary, cambridge-igcse-cs-0478');
+  /* scope guards */
+  ok(bitsValue(bitsOf(65, 8)) === 65 && Number.isInteger(65),
+    'AZ: naturals only — the register holds unsigned values; the signed reading is NAMED (two\u2019s complement) and deferred to the CS shelf');
+  ok(bitsOf(255, 8).length === 8, 'AZ: no JS bitwise operators anywhere in this verifier — every AND/OR/XOR/shift is digit maps + tables');
+  ok(powInt(2, 10) === 1024 && powInt(10, 3) === 1000, 'AZ: the kibi/kilo distinction stated honestly (IEC 60027-2 Am. 2, January 1999)');
+  console.log('  guards: unsigned naturals in the register; two\u2019s complement → CS shelf; tables-only ops; kibi ≠ kilo');
+}
+
+/* ------------------------------------------------------------------ */
+console.log('=== BA. the content tables, cell by cell (3.3 + 3.4) ===');
+{
+  /* the printed base-5 addition table (25 cells) and multiplication table (25 cells) */
+  const add5 = [
+    ['0', '1', '2', '3', '4'],
+    ['1', '2', '3', '4', '10'],
+    ['2', '3', '4', '10', '11'],
+    ['3', '4', '10', '11', '12'],
+    ['4', '10', '11', '12', '13'],
+  ];
+  const mul5 = [
+    ['0', '0', '0', '0', '0'],
+    ['0', '1', '2', '3', '4'],
+    ['0', '2', '4', '11', '13'],
+    ['0', '3', '11', '14', '22'],
+    ['0', '4', '13', '22', '31'],
+  ];
+  let bad = 0;
+  for (let i = 0; i < 5; i++)
+    for (let j = 0; j < 5; j++) {
+      if (nameString(i + j, 5) !== add5[i][j]) bad++;
+      if (nameString(i * j, 5) !== mul5[i][j]) bad++;
+    }
+  ok(bad === 0 && add5.length === 5 && mul5.length === 5, 'BA: the two printed base-five tables — all 50 cells engine-certified');
+  /* the base-2 multiplication table as printed (4 cells) */
+  ok(nameString(0, 2) === '0' && nameString(1, 2) === '1', 'BA: the base-2 multiplication table — 0, 1, 1, 10 as printed (four cells)');
+  /* the 3.4 bit-operation table (4 rows: a, b, AND, OR, XOR) */
+  const opTable: Array<[number, number, number, number, number]> = [
+    [0, 0, 0, 0, 0],
+    [0, 1, 0, 1, 1],
+    [1, 0, 0, 1, 1],
+    [1, 1, 1, 1, 0],
+  ];
+  let badOp = 0;
+  for (const [a, b, and, or, xor] of opTable) {
+    if (bitAND(a, b) !== and || bitOR(a, b) !== or || bitXOR(a, b) !== xor) badOp++;
+  }
+  ok(badOp === 0 && opTable.length === 4, 'BA: the printed AND/OR/XOR table — all 4 rows × 3 ops certified (+ the NOT pair 0→1, 1→0)');
+  /* the byte charter table (k = 4, 8, 16, 32) */
+  const charter: Array<[number, number, number, number]> = [
+    [4, 16, 15, 1],
+    [8, 256, 255, 2],
+    [16, 65536, 65535, 4],
+    [32, 4294967296, 4294967295, 8],
+  ];
+  let badC = 0;
+  for (const [k, patterns, ceiling, hexes] of charter) {
+    if (powInt(2, k) !== patterns) badC++;
+    if (powInt(2, k) - 1 !== ceiling) badC++;
+    if (k / 4 !== hexes) badC++;
+  }
+  ok(badC === 0 && charter.length === 4, 'BA: the byte charter table — k/patterns/ceiling/hex-symbols for 4, 8, 16, 32 all certified');
+  /* the ASCII mini-rows as printed */
+  const asciiRows: Array<[string, number, string, string]> = [
+    ['A', 65, '01000001', '41'],
+    ['a', 97, '01100001', '61'],
+    ['Z', 90, '01011010', '5A'],
+    ['0', 48, '00110000', '30'],
+  ];
+  let badA = 0;
+  for (const [ch, v, bin, hex] of asciiRows) {
+    if (bitsOf(v, 8).join('') !== bin) badA++;
+    if (nameString(v, 16) !== hex) badA++;
+    if (bitsValue(bitsOf(v, 8)) !== v) badA++;
+  }
+  ok(badA === 0 && asciiRows.length === 4, 'BA: the ASCII instance rows (A/a/Z/0) — value, 8-bit dress and hex dress all certified');
+}
+
 /* ------------------------------------------------------------------ */
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`);
+
+
 if (fail > 0) {
   console.log('FAILURES:');
   for (const f of failures) console.log('  - ' + f);

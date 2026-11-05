@@ -9,6 +9,92 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 54 (fired 22:00 IST — the payload arrived from job 498279, the old one-lesson job
+the owner disabled via API, carrying its outdated boilerplate; per the standing ruling the boilerplate was
+NOT executed — the owner's 2026-11-05 two-lesson directive governed and TWO lessons were delivered; job
+498279's duplicate-fire anomaly stands at an EIGHTH fire, owner-side cleanup still pending)**: **ANS
+CHAPTER 3 CLOSES COMPLETE 4/4 — lessons 3.3 'Arithmetic in Other Bases' (5,214 words, 8 terms, 5 quiz,
+13 exercises, 2 derivations, 5 illustrations, 1 figure, 2 tables, 4 formula cards) and 3.4 'Binary,
+Hexadecimal and the Machine' (4,354 words, 8 terms, 5 quiz, 13 exercises, 1 derivation, 3 illustrations,
+1 figure, 2 tables, 4 formula cards) shipped verify-first in one run, then the unit-3 completion review
+passed (exam corners 4/4, ids globally unique, ch-03 flipped complete + plannedLessons emptied, totals
+recomputed — the chapter stands 4 lessons / 19,953 words / 32 terms / 20 quiz / 54 exercises; the book
+stands 13 lessons / 58,079 words / 88 terms / 55 quiz / 175 exercises)**. verify-book2-ch03.ts EXTENDED
+312 → **502 checks** (sections AD–BA) BEFORE a word was written: the base-b addition table digit by digit
+(sweep b = 2..16 — every cell the engine name of i+j, carry always 0/1, s = carry·b + write; the printed
+5×5 base-five table all 25 cells; the base-2 table); the carry theorem (write s mod b, carry ⌊s/b⌋ — swept
+s ≤ 2b−1 for b = 2..16, carry never exceeds 1); column additions certified against values (342₅ + 213₅ =
+1110₅ with the carry row 1,1,1; 31₅ + 44₅ = 130₅; 24₅ + 13₅ = 42₅; 47₈ + 36₈ = 105₈; 345₆ + 512₆ = 1301₆;
+1011₂ + 111₂ = 10010₂; B + B = 1A₁₂; A7₁₆ + 81₁₆ = 128₁₆; 45₁₂ + B7₁₂ = 140₁₂); the borrow law ((u−d) mod
+b = (u+b−d) mod b swept over every digit pair b = 2..16; the written digit = u+b−d exactly when u < d;
+add-back certification swept b = 2..12, n ≤ 200; the double borrow 1000₅ − 234₅ = 211₅ walked seat by
+seat — written digits 1, 1, 2; 312₅ − 144₅ = 113₅; 47₈ − 36₈ = 11₈; the roll-downs 100₁₂ − 1 = BB₁₂,
+10000₂ − 1 = 1111₂, 10000₅ − 1 = 4444₅, 1000₅ − 1 = 444₅); the multiplication tables (sweep b = 2..16 —
+every cell the engine name of i·j; the printed 5×5 base-five table all 25 cells; the base-2 table = the
+AND table, one machine two dresses; the base-8 ×7 row 7, 16, 25, 34, 43, 52, 61; the base-12 ×B row B,
+1A, 29, 38, 47, 56, 65, 74, 83, 92, A1 with the square B×B = A1₁₂ = 121); long multiplication (the shift
+law — appending one zero seat multiplies by b — swept b = 2..10, n ≤ 500; 23₅ × 34₅ = 1442₅ via partials
+202₅ + 1240₅ summing to 13×19 = 247; 45₁₂ × 3₁₂ = 113₁₂; 12₅ × 3₅ = 41₅; A7₁₆ × 2₁₆ = 14E₁₆); the in-base
+long-division instance — 3.2's promise kept (1209₁₂ ÷ 5 run ENTIRELY in base twelve: 299₁₂, 69₁₂, 14₁₂, 3;
+remainders 0,0,1,1,3 read upward → 31100₅ = the run-53 bridge result with no base ten anywhere; the
+base-3 sibling 67₁₂ ÷ 3 in base twelve → 2221₃ matching §T's bridge instance; quotient divisions 4231₅ ÷
+3₅ = 1223₅ r 2₅ with the full in-base ladder certified digit by digit — 4 = 1·3+1, 12₅ = 2·3+1, 13₅ =
+2·3+2, 21₅ = 3·3+2 — and 1A7₁₂ ÷ 9₁₂ = 26₁₂ r 1); casting out (b−1) (n ≡ digit-sum(n) mod b−1 swept
+b = 2..16, n ≤ 400; b^i ≡ 1 swept b = 3..16 — the seats evaporate; the base-6 check instance 345₆ +
+512₆ = 1301₆ with residues 2 + 3 ≡ 0 and 5 ≡ 0; the base-12 ×9 row residue walk 9,7,5,3,1,B,9,7,5,3,1,0
+mod eleven matched digit sums and values cell by cell); figure 3 geometry (the base-five column machine:
+four 56-px seat columns at x 520–760, five horizontal bands, carry row 1,1,1, result 1110, all clearances
+≥ 8 px, every label inside the 920×400 viewBox). Then 3.4: the machine charter (k bits → 2^k patterns
+swept k = 1..16; fixed-width register dress — every value 0..255 pads to 8 bits, 0..1000 to 12 bits, value
+unchanged; the byte 2⁸ = 256 patterns naming 0..255 with ceiling 255 = 11111111₂ = FF₁₆; the nibble 2⁴ =
+16 = one hex symbol; byte = 2 nibbles = 8 = 2·4; 2¹⁰ = 1024 ≠ 1000 = 10³ — the kibi/kilo honest twins per
+IEC 60027-2 Am. 2 of January 1999; the charter table 15/255/65535/4294967295 for 4/8/16/32 bits); the bit
+operations (NOT's two cells; AND/OR/XOR certified on all four pairs — AND = the base-2 multiplication
+table cell for cell, XOR = (a+b) mod 2, OR = the max; digit-wise sweeps over ALL 256 nibble pairs with NO
+JS bitwise operators — digit maps and tables only; masks: 11010110 AND 00001111 = 00000110 = 6 = 214 mod
+16 (the low nibble), 214 AND 240 = 208 (the high nibble, ⌊214/16⌋ = 13 = D), 1010 OR 0101 = 1111, 1100
+XOR 1010 = 0110, the 0110/1011 triple AND 0010 / OR 1111 / XOR 1101); the half-adder IS the division
+algorithm (XOR = the sum digit = (a+b) mod 2, AND = the carry = ⌊(a+b)/2⌋, a + b = carry·2 + sum on all
+four pairs; the ripple-carry adder built from the two tables ALONE reproduces a + b on all 256 nibble
+pairs AND all 65,536 byte pairs — the column machine of 3.3 etched in gates); the shift laws (append-zero
+= ×2 swept n ≤ 500; drop-last-bit = ⌊n/2⌋ with the dropped bit = n mod 2 — the peel lemma in silicon,
+swept; the walk 45 = 101101₂ → 1011010₂ = 90 → 10110₂ = 22; 2025 ≫ 3 = 11111101₂ = 253 = ⌊2025/8⌋ with
+the dropped seats 001 = 2025 mod 8 = 1 and 253·8 + 1 = 2025); overflow honestly bounded (the window at
+b = 2; 255 + 1 = 256 needs NINE bits; the adder's honest answer 1 00000000 — the carry walks out of the
+byte-width register; the roll-over twins 11111111₂/100000000₂; two's complement NAMED and DEFERRED to
+the CS shelf per the IGCSE 0478 cross-ref); the ASCII instances ('A' = 65 = 01000001₂ = 41₁₆; 'a' = 97 =
+61₁₆; the case flip 97 − 65 = 32 = 00100000₂ — bit five; XOR-32 flips the case both ways across ALL 26
+letters with the uppercase block wearing 41..5A₁₆; digits '0'..'9' at 48..57 = 30₁₆..39₁₆); figure 4
+geometry (the byte anatomy of 'A': eight 56-px bit boxes gap 14, two disjoint nibble groups, hex digits
+4/1 above, weights 128..1 below, the on-bit sum 64 + 1 = 65, the charter line); the 3.4 quiz keys 2/0/1/3/0
+with every distractor evaluated; all 13 exercise keys of 3.4; 4 formula cards; sources + scope guards
+(unsigned naturals only; two's complement → CS shelf; tables-only ops; kibi ≠ kilo); the content tables
+cell by cell (both base-five tables' 50 cells; the bit-op table 4×3 + NOT; the byte charter 4 rows; the
+ASCII rows A/a/Z/0). The script caught **seven further pre-writing defects**: a carry-recording guard
+that dropped the leading carry (the figure's carry row is 1,1,1, not 1,1); a hex-join slip on B + B
+(digits must map through the charter before joining); a roll-down power slip (10000₂ − 1 = 1111₂, not
+11111₂ — 2⁴ not 2⁵); a degenerate mod-1 sweep (casting out one is vacuous — the b^i ≡ 1 sweep starts at
+b = 3); a base-12 nine-row conflating values with names (9×k = 18, 27, …, 99 with base-12 names 16, 23,
+…, 83); and two peel-walk slips (90 ≫ 1 is 45, not 22; the AY card's right-shift reading). Structural
+repairs: three anchored insertions collided and duplicated AG–AO past the RESULT line — one scripted
+line-surgery pass restored the A..BA order; the intermediate 429-check state re-verified, then the final
+502. Research phase (sanctioned fallback, zero downloads): four web-checks grounded 3.4's machine history
+— Shannon's MIT master's thesis (written 1937, published 1938, Trans. AIEE; Boolean algebra on switching
+circuits), Tukey's bit coinage at Bell Labs in the late 1940s + Shannon's 1948 paper, the IEC binary
+prefixes (approved December 1998, published January 1999 as Amendment 2 to IEC 60027-2 — NIST page), and
+the ASCII anchors ('A' = 65 = 0x41, blocks 65–90 / 97–122, the +0x20 case law — Villanova table +
+schoolcoders). Four NEW citation keys: shannon-1938-switching, shannon-1948-bit,
+iec-60027-2-binary-prefixes, ascii-table-a65 (full entries in SOURCE_LOG). Gates: tsc 0; lint 0 errors
+(the 1 pre-existing warning unchanged); routes 3.3/3.4/book/FM-anchor 200 + unknown 404; E2E dedicated
+blocks e2e-ans-33/34.page.js (whitelisted FIRST) — quizzes live 5/5 on keys 1/0/2/0/3 and 2/0/1/3/0
+(two-pass timing), 13 + 13 solutions expand (18 + 16 Sol pills; 93 + 87 ∴ glyphs), 0 raw-$ anywhere
+(three caption/title leaks found and fixed — two table captions and one callout title carried $math$ the
+renderer does not parse), 0 katex-errors, 0 raw-$ in SVG, mobile 390 exact-fit both, SVG overlap audits
+0/0 (25 + 22 texts), screenshots reviewed (both figures clean at 390). WORK_INVENTORY.json regenerated by
+the generator: library totals 59 lessons / 285,263 words / 443 terms / 295 quiz / 681 exercises (deltas
+vs run 53: +2 lessons, +9,568 words, +16 terms, +10 quiz, +26 exercises — all from this run);
+chaptersInProgress 0. Voice queue EMPTY.
+
 Maintained through **run 53 (fired 21:11 IST from job 504365 — the correct two-lesson job fired this hour;
 job 498279 did not fire in this window, its seven-fire duplicate streak unbroken but idle here)**: **ANS
 CHAPTER 3 OPENS IN PROGRESS 2/4 — lessons 3.1 'The Representation Theorem: Every Number Has Exactly One Name'

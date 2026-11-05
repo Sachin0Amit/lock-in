@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 19:05:44 (Asia/Kolkata)",
+  "generated": "2026-11-05 19:53:32 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 2,
+        "chaptersWritten": 3,
         "chapters": [
           {
             "number": 1,
@@ -3869,12 +3869,9 @@
             "slug": "positional-systems-and-bases",
             "title": "Positional Systems and Other Bases",
             "summary": "Base ten unmasked as one instance of a universal machine: the representation theorem (every number has exactly one name in every base b ≥ 2, proved from the division algorithm), conversion in both directions, arithmetic genuinely inside other bases (addition and multiplication tables in base b), and the binary–hexadecimal world that runs every computer.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "Arithmetic in Other Bases",
-              "Binary, Hexadecimal and the Machine"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-representation-theorem-unique-name",
@@ -4015,9 +4012,144 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-arithmetic-in-other-bases",
+                "number": "3.3",
+                "title": "Arithmetic in Other Bases",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5214,
+                "readMins": 26,
+                "concepts": [
+                  "The column method is base-independent",
+                  "The base-b addition table",
+                  "Carrying is the division algorithm in motion",
+                  "Borrowing is a licensed loan",
+                  "The base-b multiplication table",
+                  "The shift: one seat left is × b",
+                  "In-base long division",
+                  "Casting out (b−1)"
+                ],
+                "objectives": [
+                  "Build the addition and multiplication tables of any base $b$ from the digit band alone, and read a single-digit product off a table or rebuild it through ten",
+                  "Run column addition and long multiplication in base $b$ with full control of carries — and prove that the carry is the division algorithm in motion, not a trick",
+                  "Subtract with borrows, including the double borrow across empty seats, and certify every difference by adding back",
+                  "Divide inside a base — including the direct conversion $b_1 \\to b_2$ that removes Lesson 3.2’s base-ten middleman — and check results by casting out $(b-1)$"
+                ],
+                "prerequisites": [
+                  "ans-converting-between-bases",
+                  "ans-division-with-rest-the-division-algorithm"
+                ],
+                "sources": [
+                  "knuth-taocp-v2",
+                  "khattar-qa-4e",
+                  "beck-geoghegan-art-of-proof"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "callout": 4,
+                  "list": 5,
+                  "heading": 7,
+                  "table": 2,
+                  "derivation": 2,
+                  "example": 5,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-binary-hex-machine",
+                "number": "3.4",
+                "title": "Binary, Hexadecimal and the Machine",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4354,
+                "readMins": 22,
+                "concepts": [
+                  "The bit and the machine’s constraint",
+                  "The byte = 2 nibbles = 8 bits",
+                  "Hexadecimal as the machine’s shorthand",
+                  "The bit operations AND, OR, XOR, NOT",
+                  "The half-adder is the division algorithm",
+                  "Shifts: doubling and the peel",
+                  "Overflow and the honest ceiling",
+                  "Fixed-width names and the ASCII instance"
+                ],
+                "objectives": [
+                  "Explain why base two is the smallest and the machine’s base — every digit a switch, every carry at most one unit",
+                  "Work the charter: $k$ bits hold $2^k$ patterns naming $0$ to $2^k - 1$; a byte is 8 bits = 2 nibbles, and its two hex symbols are a lookup, never arithmetic",
+                  "Run the bit operations AND, OR, XOR, NOT from their tables — including masks, the case-flip on ASCII letters, and the ripple-carry adder built from two half-adder tables",
+                  "Bound overflow honestly ($255 + 1$ needs nine bits), use shifts as doubling and peeling, and name what is deferred: signed reading (two’s complement) belongs to the CS shelf"
+                ],
+                "prerequisites": [
+                  "ans-arithmetic-in-other-bases",
+                  "ans-converting-between-bases",
+                  "ans-representation-theorem-unique-name"
+                ],
+                "sources": [
+                  "leibniz-1703-binary",
+                  "shannon-1938-switching",
+                  "shannon-1948-bit",
+                  "iec-60027-2-binary-prefixes",
+                  "ascii-table-a65",
+                  "cambridge-igcse-cs-0478",
+                  "knuth-taocp-v2"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "callout": 4,
+                  "table": 2,
+                  "example": 3,
+                  "figure": 1,
+                  "heading": 3,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "definition": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 8
               }
             ],
-            "words": 10385
+            "words": 19953
           },
           {
             "number": 4,
@@ -4149,13 +4281,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 93,
-      "totalLines": 44259,
+      "srcFilesTracked": 94,
+      "totalLines": 46570,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 34994,
+        "src/data/library (content model + books)": 37305,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -10563,33 +10695,136 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "0e3db3e2056b3ba5f87159bd837c40a93e6bb1d4",
+      "short": "0e3db3e",
+      "date": "2026-11-05 13:36",
+      "message": "ans ch.3 opens: lessons 3.1 representation theorem + 3.2 converting between bases shipped verify-first (run 53)",
+      "filesChanged": 7,
+      "insertions": 2484,
+      "deletions": 18,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 50,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-ans-31.page.js",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-32.page.js",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch03.ts",
+          "add": 1071,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 6,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-03.ts",
+          "add": 1218,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "efbc8772eb27b3fcb0a753679615eeb6560903bf",
+      "short": "efbc877",
+      "date": "2026-11-05 13:36",
+      "message": "memory: run-53 ship — ch.3 IN PROGRESS 2/4 (10,385 words / 16 terms / 10 quiz / 27 exercises); verify-book2-ch03.ts 312 checks, 6 pre-writing defects caught; next run 54 = ANS ch.3 closes with 3.3 + 3.4 + unit-3 review (run 52's run-55 projection corrected); job 504365 fired properly this hour",
+      "filesChanged": 5,
+      "insertions": 345,
+      "deletions": 36,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 51,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 271,
+          "del": 29
+        }
+      ]
+    },
+    {
+      "sha": "a499972837ab9f3934edc79b3d7028ac602979ab",
+      "short": "a499972",
+      "date": "2026-11-05 13:37",
+      "message": "memory: run-53 final — both commits (ship 0e3db3e + memory efbc877) remote-verified via one-time-URL ls-remote = local HEAD efbc877; tree clean; run 53 complete",
+      "filesChanged": 2,
+      "insertions": 16,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 15,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 13,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 57,
-    "wordsAuthored": 275695,
-    "termsDefined": 427,
-    "quizItems": 285,
-    "exerciseQuestions": 655,
+    "chaptersWritten": 14,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 59,
+    "wordsAuthored": 285263,
+    "termsDefined": 443,
+    "quizItems": 295,
+    "exerciseQuestions": 681,
     "blockTotals": {
-      "para": 822,
-      "callout": 324,
-      "heading": 332,
-      "list": 74,
-      "terms": 58,
+      "para": 849,
+      "callout": 332,
+      "heading": 342,
+      "list": 79,
+      "terms": 60,
       "equation": 95,
-      "derivation": 116,
-      "table": 56,
-      "figure": 100,
-      "example": 250,
-      "quiz": 57,
-      "exercises": 57,
-      "formula": 139,
+      "derivation": 119,
+      "table": 60,
+      "figure": 102,
+      "example": 258,
+      "quiz": 59,
+      "exercises": 59,
+      "formula": 147,
       "algorithm": 12
     }
   }
