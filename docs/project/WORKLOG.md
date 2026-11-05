@@ -6,6 +6,47 @@ and what remains.
 
 ---
 
+## 2026-11-06 — CONFIG RUN (owner chat directive, ~01:05 IST; no lessons authored): ONE FULL CHAPTER PER RUN + hourly cron rescheduled (jobs 504365 + 498279 deleted → new job 506464)
+
+**Directive (owner, chat, 2026-11-06):** each scheduled run now completes
+ONE ENTIRE CHAPTER of the current book in a single run — all
+not-yet-written lessons of the current chapter plus the unit completion
+review (e.g. ch. 4 with 4.1/4.2 done → one run writes 4.3 + 4.4 + review
+and closes it; next run = chapter 5 in full; then 6, 7, …) — at the SAME
+or HIGHER per-lesson detail and precision, never thinned to fit the run.
+Supersedes the 2026-11-05 two-lessons-per-run rule; every other workflow
+rule unchanged (verify-first, BOOK_FORMAT + exemplar, full per-lesson
+gates, single ship, protocol push).
+
+**Cron (owner-authorized edit — the first time the agent has touched the
+jobs, per the owner's explicit edit-and-reschedule instruction):** job
+504365 (two-lesson payload) DELETED; stale duplicate job 498279 (believed
+disabled by the owner via API but still ACTIVE — it fired a NINTH time at
+2026-11-06 01:00:46 IST, and the two jobs had been colliding, both dying
+on model-concurrency-limit) DELETED; NEW job **506464** "LockIn Library
+— hourly chapter run (1 full chapter/run)" CREATED with the full-chapter
+payload — identical hourly schedule (fixed_rate 3600 s, Asia/Kolkata),
+same priority 5, same steps 0–5 + PUSH PROTOCOL carried over verbatim,
+PAT re-embedded once in the payload only (never in any file — not here).
+Scheduler verified: exactly ONE job remains.
+
+**Memory updated:** RESUME_POINTER.json (updated/nextAction rewritten to
+full-chapter framing; new ownerDirective20261106 record; run-55 note
+re-attributed), PROGRESS.json (updated/awaiting/rules/SCHEDULE),
+MASTER_PLAN.md §2 + BOOK_FORMAT.md cadence notes, ch-04.ts header status
+line, WORKLOG.md (this entry), DETAILED_LOG.md (config-session entry).
+
+**State:** ANS ch. 4 stands 2/4 (4.1 + 4.2 shipped run 55; tree was clean
+at `1a77877` on entry). NEXT RUN 56 (job 506464's first fire) CLOSES
+chapter 4 ENTIRELY: 4.3 + 4.4 + the unit-4 completion review
+(verify-book2-ch04.ts sections W onward FIRST); run 57 = chapter 5
+"Congruences: The Arithmetic of Remainders" in full.
+
+**Git:** memory + docs updates committed this run and pushed per the
+push protocol; synced remote HEAD sha to be recorded in this entry.
+
+---
+
 ## 2026-11-05 — RUN 55 (fired 23:11 IST — from job 504365, the correct two-lesson job carrying the owner's 2026-11-05 directive and a fresh PAT; job 498279 idle this window, no ninth fire logged; jobs untouched by the agent): ANS CHAPTER 4 OPENS — lessons 4.1 "The Primes Never End: Euclid's Proof and the Sieve" (5,233 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 4 tables, 1 algorithm block, 4 formula cards) + 4.2 "The Fundamental Theorem of Arithmetic" (5,117 words, 8 terms, 5 quiz, 14 exercises, 5 derivations, 6 illustrations, 1 figure, 2 tables, 1 algorithm block, 4 formula cards) SHIPPED VERIFY-FIRST IN ONE RUN — verify-book2-ch04.ts CREATED with 167 checks (sections A–V), ALL PASS BEFORE WRITING (one figure-geometry defect caught pre-writing); all gates green; the five pre-run-55 unpushed commits joined this run's protocol push
 
 **Reconciliation:** tree clean at HEAD `95b940c` (the run-54 memory commit; ship `ced6fb7` + memory commits a499972/efbc877/0e3db3e already committed — five local commits unpushed at fire time). RESUME_POINTER scheduled this run as ANS ch. 4 opening with 4.1 + 4.2. The fire came from job 504365 — the correct two-lesson job — so no boilerplate ruling was needed this window. Per the push protocol, ALL unpushed commits ride this run's push.

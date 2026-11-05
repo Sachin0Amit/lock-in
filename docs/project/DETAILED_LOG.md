@@ -9,6 +9,37 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **config session 2026-11-06 ~01:05 IST (owner chat
+directive; NO lessons authored — tree clean at `1a77877` on entry, ANS
+ch. 4 standing 2/4)**: **WORKFLOW CADENCE CHANGED — ONE FULL CHAPTER PER
+RUN.** The owner's chat directive (2026-11-06) supersedes 2026-11-05's
+two-lessons-per-run: each hourly run now completes the ENTIRE current
+chapter — every not-yet-written lesson plus the unit completion review —
+at the same or higher per-lesson depth (verify-first, full quality
+gates, never thinned to fit the run; a half-finished lesson is finished
+first and counts toward the chapter; if genuinely blocked mid-chapter,
+every started lesson stays fully gated and the resume point is logged
+precisely). The next run = the next chapter in full. Cron rescheduled
+under the owner's explicit edit-and-reschedule instruction: job 504365
+(two-lesson payload) and the still-active stale duplicate job 498279
+(its ninth fire, 2026-11-06 01:00:46 IST, died on model-concurrency-limit
+— the recurring collision source) were both deleted; ONE job remains —
+**506464** "LockIn Library — hourly chapter run (1 full chapter/run)",
+hourly fixed_rate 3600 / Asia/Kolkata / priority 5, steps 0–5 + PUSH
+PROTOCOL carried over verbatim (PAT re-embedded once in the job payload,
+never in any file). Memory updated to match: RESUME_POINTER.json
+(nextAction + new ownerDirective20261106 record), PROGRESS.json
+(awaiting + rules + SCHEDULE), MASTER_PLAN.md §2 + BOOK_FORMAT.md
+cadence notes, ch-04.ts header status line, WORKLOG.md config entry.
+NEXT: run 56 (job 506464's first fire) closes ANS ch. 4 with 4.3
+'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the
+Primes Are Distributed' + the unit-4 completion review
+(verify-book2-ch04.ts sections W onward FIRST); run 57 = chapter 5
+'Congruences: The Arithmetic of Remainders' complete. Synced remote HEAD
+sha for this config run's push recorded in WORKLOG.md's config entry.
+
+---
+
 Maintained through **run 55 (fired 23:11 IST — from job 504365, the correct two-lesson job carrying the
 owner's 2026-11-05 directive and a fresh PAT; job 498279 idle this window — no ninth fire logged)**: **ANS
 CHAPTER 4 OPENS 2/4 — lessons 4.1 'The Primes Never End: Euclid's Proof and the Sieve' (5,233 words, 8 terms,

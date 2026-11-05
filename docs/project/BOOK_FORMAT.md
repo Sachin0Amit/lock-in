@@ -26,6 +26,12 @@ Research, author, verify and ship a single chapter before touching the
 next; never batch-draft multiple chapters. Books complete chapter by
 chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 
+**One full chapter per hourly run** (owner directive 2026-11-06): every
+not-yet-written lesson of the current chapter plus the unit completion
+review is authored in a single run — same or higher per-lesson depth;
+lessons stay sequential and are never batch-drafted or thinned to fit
+the run.
+
 ## Authoring a chapter
 
 1. **Copy the shape** of an existing chapter file (see

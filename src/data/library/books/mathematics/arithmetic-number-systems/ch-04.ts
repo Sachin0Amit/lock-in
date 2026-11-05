@@ -9,7 +9,9 @@ import type { Chapter } from '../../../types'
  *                  (both: run 55 — 2026-11-05)
  * CHAPTER STATUS: IN PROGRESS 2/4 (opened at run 55; lessons 4.3 'Divisors
  * from DNA: Divisor Counts and Factorial Zeros' and 4.4 'How the Primes
- * Are Distributed' close it at run 56 per the two-lesson cadence).
+ * Are Distributed' close it at run 56, completing the ENTIRE chapter in
+ * one run per the owner's one-full-chapter-per-run directive of
+ * 2026-11-06).
  *
  * References for this unit: Euclid, Elements Book IX, Proposition 20 —
  * "Prime numbers are more than any assigned multitude of prime numbers"
