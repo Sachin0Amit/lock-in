@@ -20,7 +20,7 @@ and what remains.
 
 **Next (run 54):** ANS ch. 3 closes — lessons 3.3 "Arithmetic in Other Bases" + 3.4 "Binary, Hexadecimal and the Machine" (extend verify-book2-ch03.ts FIRST — sections AD onward: the base-b addition and multiplication tables, carries in base b, the machine tables in action, two's complement honesty at 3.4's edge with the deep dive left to the CS shelf, quiz + exercise keys, figure geometry), then the unit-3 completion review (flip ch-03 complete, empty plannedLessons, recompute totals). Two lessons per run.
 
-**Git:** ship commit `ans ch.3 opens: lessons 3.1 representation theorem + 3.2 converting between bases shipped verify-first (run 53)` → memory commit → protocol push (one-time URL; synced sha recorded below).
+**Git:** ship commit `ans ch.3 opens: lessons 3.1 representation theorem + 3.2 converting between bases shipped verify-first (run 53)` (`0e3db3e`) → memory commit (`efbc877`) → protocol push (one-time URL) exit 0, `bb4ecb3..efbc877 HEAD -> main` → one-time-URL ls-remote: `refs/heads/main` = `HEAD` = `efbc8772eb27b3fcb0a753679615eeb6560903bf` = local HEAD — **run 53 complete, tree clean, both commits remote-verified**.
 
 ---
 
