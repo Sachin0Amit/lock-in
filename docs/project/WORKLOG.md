@@ -22,7 +22,7 @@ and what remains.
 
 **Remaining:** run 50 = ANS ch. 1 lesson 1.3 'The Least-Number Principle and Recursion' + the unit-1 completion review (flip ch-01 to complete; the book then stands 1/10 chapters). EXAM_REGISTRY research still pending sometime. Voice queue empty.
 
-**Push record:** ship commit pushed per protocol; one-time-URL ls-remote verified remote refs/heads/main = local HEAD (sha recorded in the run-49 memory commit message).
+**Push record:** ship commit `fa9eb9d` pushed per protocol (one-time HTTPS URL; the push carried BOTH pending commits — `34cb7c0` run-48 memory + `fa9eb9d` run-49 ship); one-time-URL ls-remote verified remote refs/heads/main = `fa9eb9d` = local HEAD at 2026-11-05 ~17:40 IST.
 
  (fired 16:00 IST from job 498279 — third consecutive fire from the re-enabled old job, again logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files): (1) THE PENDING RUN-47 PUSH EXECUTED FIRST; (2) BOOK #2 "ARITHMETIC AND NUMBER SYSTEMS" PROMOTED — research phase COMPLETE (reference survey + syllabus audit + the 10-chapter/34-lesson plan); all gates green; library stands at 2 books (FM complete, ANS planned)
 
