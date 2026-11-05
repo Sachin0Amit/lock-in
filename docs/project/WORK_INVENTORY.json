@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 16:50:28 (Asia/Kolkata)",
+  "generated": "2026-11-05 18:03:58 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 1,
+        "chaptersWritten": 2,
         "chapters": [
           {
             "number": 1,
@@ -3587,12 +3587,9 @@
             "slug": "division-algorithm-and-divisibility",
             "title": "The Division Algorithm and the Structure of Divisibility",
             "summary": "The theorem hiding under every long division: a = bq + r with 0 ≤ r < b, existence proved by well-ordering and uniqueness by subtraction. Divisibility becomes algebra (the transitive and linear-combination laws), the Euclidean algorithm gets the proof FM omitted, Bézout’s identity is derived, and linear Diophantine equations ax + by = c are solved in full.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "The Euclidean Algorithm, Proven — and Bézout’s Identity",
-              "Linear Diophantine Equations"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-division-with-rest-the-division-algorithm",
@@ -3723,9 +3720,149 @@
                 },
                 "exerciseQuestions": 16,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-euclidean-algorithm-proven-bezout-identity",
+                "number": "2.3",
+                "title": "The Euclidean Algorithm, Proven — and Bézout’s Identity",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5755,
+                "readMins": 29,
+                "concepts": [
+                  "Greatest common divisor gcd(a, b)",
+                  "The Euclidean algorithm (division loop)",
+                  "The subtraction form: anthyphairesis",
+                  "Termination by descent (the third LNP burn)",
+                  "Bézout’s identity d = ax + by",
+                  "Backward substitution and the extended table",
+                  "Relatively prime: the certificate 1 = ax + by",
+                  "The LCM payoff lcm = ab/gcd"
+                ],
+                "objectives": [
+                  "Define the greatest common divisor in the Euclidean dress — the common divisor every other common divisor measures — and connect it to FM 3.3’s HCF",
+                  "Run both forms of the Euclidean algorithm (subtraction and division), prove that it terminates by descent, and prove that the survivor is the gcd — with no factorisation anywhere",
+                  "Derive Bézout’s identity by backward substitution, and compute Bézout coefficients fast with the extended table",
+                  "Use the coprime certificate $1 = ax + by$, the scaled reduction $\\gcd(a/d, b/d) = 1$, and the LCM payoff $\\mathrm{lcm}(a,b) = ab/\\gcd(a,b)$"
+                ],
+                "prerequisites": [
+                  "ans-the-algebra-of-divisibility",
+                  "fm-highest-common-factor",
+                  "fm-equivalent-fractions-simplification"
+                ],
+                "sources": [
+                  "euclid-elements-book-vii",
+                  "lame-1844-note",
+                  "bezout-1779-theorie",
+                  "bachet-1624-problemes",
+                  "beck-geoghegan-art-of-proof",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "callout": 6,
+                  "heading": 5,
+                  "derivation": 4,
+                  "list": 1,
+                  "algorithm": 1,
+                  "figure": 1,
+                  "example": 3,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 5
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "historical": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-linear-diophantine-equations",
+                "number": "2.4",
+                "title": "Linear Diophantine Equations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4669,
+                "readMins": 23,
+                "concepts": [
+                  "Linear Diophantine equation ax + by = c",
+                  "The criterion: solvable ⟺ gcd | c",
+                  "Bézout scaled by c/d",
+                  "The particular solution",
+                  "The full solution family",
+                  "The shift vector (b/d, −a/d)",
+                  "The nonnegative window",
+                  "Sylvester’s two-denomination answer"
+                ],
+                "objectives": [
+                  "State the solvability criterion for $ax + by = c$ and prove it in both directions — the combination law for necessity, Bézout scaled for sufficiency",
+                  "Prove the full solution family $(x_0 + \\frac{b}{d}t,\\ y_0 - \\frac{a}{d}t)$ in both directions, running Bézout’s coprime certificate where Euclid’s lemma will later stand",
+                  "Count and list the nonnegative solutions by slicing the family to the window, using the ceiling–floor grips",
+                  "Deploy the theory on the exam staples — exact-payment problems, the reduced equation, and the two-denomination Frobenius question"
+                ],
+                "prerequisites": [
+                  "ans-euclidean-algorithm-proven-bezout-identity"
+                ],
+                "sources": [
+                  "diophantus-arithmetica",
+                  "sylvester-1884-frobenius",
+                  "bachet-1624-problemes",
+                  "euclid-elements-book-vii",
+                  "beck-geoghegan-art-of-proof",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 7,
+                  "callout": 5,
+                  "heading": 3,
+                  "derivation": 2,
+                  "example": 3,
+                  "figure": 1,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 1,
+                  "warn": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 8
               }
             ],
-            "words": 10396
+            "words": 20820
           },
           {
             "number": 3,
@@ -3873,13 +4010,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 92,
-      "totalLines": 41876,
+      "srcFilesTracked": 93,
+      "totalLines": 44270,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 32611,
+        "src/data/library (content model + books)": 35005,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -10081,34 +10218,137 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "3a5bee259cc9f99da4237cf3e2a106bc05a790d9",
+      "short": "3a5bee2",
+      "date": "2026-11-05 11:22",
+      "message": "ans ch.2 opens: lessons 2.1 Division with Rest + 2.2 The Algebra of Divisibility shipped verify-first (run 51)",
+      "filesChanged": 12,
+      "insertions": 2357,
+      "deletions": 55,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 26,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 7,
+          "del": 6
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 32,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 19,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 248,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-ans-21.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-22.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch02.ts",
+          "add": 640,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 7,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-02.ts",
+          "add": 1249,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "62df7c6332f7e4d64ee963827e27dd0fcd6f17c0",
+      "short": "62df7c6",
+      "date": "2026-11-05 11:23",
+      "message": "memory: run-51 synced sha recorded (3a5bee2) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; library = 2 books (Foundation Mathematics COMPLETE 11/11 + Arithmetic and Number Systems IN PROGRESS ch. 1 COMPLETE 3/3 + ch. 2 IN-PROGRESS 2/4: 27,317 words / 40 terms / 25 quiz / 68 exercises); next run 52 = ANS ch. 2 closes with lessons 2.3 The Euclidean Algorithm, Proven — and Bézout's Identity + 2.4 Linear Diophantine Equations + the unit-2 completion review (two-lesson cadence; extend verify-book2-ch02.ts FIRST); job 498279 sixth consecutive fire logged for the owner; voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "52a34f7884a96ac7a8c838022aeef0f84f7618b5",
+      "short": "52a34f7",
+      "date": "2026-11-05 11:23",
+      "message": "memory: run-51 final — both commits (ship 3a5bee2 + memory 62df7c6) remote-verified via one-time-URL ls-remote = local HEAD; tree clean; run 51 complete",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 12,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 53,
-    "wordsAuthored": 254886,
-    "termsDefined": 395,
-    "quizItems": 265,
-    "exerciseQuestions": 602,
+    "chaptersWritten": 13,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 55,
+    "wordsAuthored": 265310,
+    "termsDefined": 411,
+    "quizItems": 275,
+    "exerciseQuestions": 628,
     "blockTotals": {
-      "para": 782,
-      "callout": 303,
-      "heading": 317,
-      "list": 71,
-      "terms": 54,
+      "para": 800,
+      "callout": 314,
+      "heading": 325,
+      "list": 72,
+      "terms": 56,
       "equation": 92,
-      "derivation": 106,
-      "table": 53,
-      "figure": 96,
-      "example": 235,
-      "quiz": 53,
-      "exercises": 53,
-      "formula": 122,
-      "algorithm": 8
+      "derivation": 112,
+      "table": 54,
+      "figure": 98,
+      "example": 241,
+      "quiz": 55,
+      "exercises": 55,
+      "formula": 131,
+      "algorithm": 10
     }
   }
 }
