@@ -22,7 +22,7 @@ and what remains.
 
 **Remaining:** run 52 = ANS ch. 2 CLOSES — lessons 2.3 'The Euclidean Algorithm, Proven — and Bézout's Identity' + 2.4 'Linear Diophantine Equations' + the unit-2 completion review (two-lesson cadence; EXTEND verify-book2-ch02.ts FIRST, sections U onward). EXAM_REGISTRY research still pending sometime. Voice queue empty.
 
-**Push record:** ship commit `3a5bee2` pushed per protocol (one-time HTTPS URL; silent push, exit 0); one-time-URL ls-remote verified remote refs/heads/main = `3a5bee259cc9f99da4237cf3e2a106bc05a790d9` = local HEAD at 2026-11-05 ~19:45 IST.
+**Push record:** ship commit `3a5bee2` + the memory commit `62df7c6` pushed per protocol (one-time HTTPS URL; silent pushes, exit 0 both); one-time-URL ls-remote verified remote refs/heads/main = `62df7c6332f7e4d64ee963827e27dd0fcd6f17c0` = local HEAD at 2026-11-05 ~19:50 IST — tree clean, run 51 complete.
 
 (fired 18:00 IST from job 498279 — FIFTH consecutive fire from the re-enabled old job, again logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files): ANS CHAPTER 1 COMPLETE — lesson 1.3 "The Least-Number Principle and Recursion" (6,579 words) SHIPPED VERIFY-FIRST + the UNIT-1 COMPLETION REVIEW PASSED; chapter 1 = 3 lessons / 16,921 words / 24 terms / 15 quiz / 36 exercises; all gates green
 
