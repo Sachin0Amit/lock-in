@@ -18,7 +18,7 @@ and what remains.
 
 **Ship:** WORKLOG + PROGRESS (with the run-54 backfill) + RESUME_POINTER + SOURCE_LOG (four NEW keys: euclid-elements-book-ix, eratosthenes-sieve-nicomachus, al-farisi-fta-existence, gauss-1801-disquisitiones; zero downloads — the gitignored Drive survey rebuilt for the inventory regeneration, 89 entries intact) + DETAILED_LOG; WORK_INVENTORY regenerated: 61 lessons / 295,613 words / 459 terms / 305 quiz / 708 exercises; chapter 4 stands 2/4 (10,350 words / 16 terms / 10 quiz / 27 exercises); the book stands 15 lessons / 68,429 words / 104 terms / 65 quiz / 202 exercises. Chapter 4 closes at run 56 with 4.3 "Divisors from DNA: Divisor Counts and Factorial Zeros" + 4.4 "How the Primes Are Distributed" + the unit-4 completion review; verify-book2-ch04.ts extends sections W onward.
 
-**Git:** ship commit then a memory commit; protocol push (all six unpushed commits — the five pre-run-55 plus the ship); remote verified via one-time-URL ls-remote; shas recorded in the run-55 memory commit.
+**Git:** ship commit `8f5df0f`; protocol push (all six unpushed commits — the five pre-run-55 0e3db3e/efbc877/a499972/ced6fb7/95b940c plus the ship) — remote verified via one-time-URL ls-remote: remote HEAD = 8f5df0f1f0edd2e52dccf86b1bad071dd0d0ea14 = local HEAD; tree clean; the run-55 memory commit follows and is pushed in the same run.
 
 ---
 
