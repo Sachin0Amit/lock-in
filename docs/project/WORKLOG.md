@@ -24,7 +24,7 @@ and what remains.
 
 **Next:** run 46 = FM 10.4 "Mean, Median and Mode" (extend verify-unit-10.ts with the averages sections FIRST; closes chapter 10 → the unit-10 completion review per precedent) and, per the two-lesson rule, the NEXT unit's first lesson (ch. 11 Patterns and the Doorstep of Algebra opens at 11.1 Patterns and Rules — create scripts/verify-unit-11.ts + gitignore exceptions FIRST, register ch. 11 in book.ts); voice queue empty.
 
-**Git:** ship commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD (sha recorded below); the PAT never written to any file, config, log or message.
+**Git:** ship commit `c4b8b15` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD = `c4b8b153a4938f052d8d36666ccf9a099ca83bca`; the PAT never written to any file, config, log or message.
 
 ## 2026-11-05 — RUN 44 (cron job 504365, 12:11 delivery — the FIRST TWO-CHAPTER RUN): FM 9.4 "Precision, Accuracy and Rounding in Measurement" (5,770 words) SHIPPED + UNIT-9 COMPLETION REVIEW PASSED (ch. 9 Measurement COMPLETE 4/4) + FM 10.1 "Collecting and Tallying Data" (4,533 words) SHIPPED (ch-10.ts CREATED + registered; chapter 10 Data and Graphs OPEN 1/4); verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED 81 checks (A–I), ALL PASS pre-writing both; tree clean, push per protocol
 
