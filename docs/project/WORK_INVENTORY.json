@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 13:05:41 (Asia/Kolkata)",
+  "generated": "2026-11-05 13:44:39 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -18,8 +18,8 @@
   ],
   "content": {
     "disciplinesPlanned": 11,
-    "backlogPlan": "docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit).",
-    "booksLive": 1,
+    "backlogPlan": "docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Arithmetic and Number Systems PROMOTED 2026-11-05 (run 48) — 280 titles remain in the backlog.",
+    "booksLive": 2,
     "books": [
       {
         "id": "foundation-mathematics",
@@ -3360,6 +3360,173 @@
             "words": 12917
           }
         ]
+      },
+      {
+        "id": "arithmetic-and-number-systems",
+        "title": "Arithmetic and Number Systems",
+        "subtitle": "Why arithmetic works — and how the number systems were built",
+        "discipline": "mathematics",
+        "level": "Upper primary → first-year university bridge",
+        "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
+        "status": "planned",
+        "chaptersPlanned": 10,
+        "chaptersWritten": 0,
+        "chapters": [
+          {
+            "number": 1,
+            "slug": "natural-numbers-as-a-system",
+            "title": "The Natural Numbers as a System",
+            "summary": "Counting rebuilt from the successor idea: the number line as order, induction as the domino principle that proves statements about every natural number at once, and the least-number principle (well-ordering) as the engine behind every \"take the smallest counterexample\" argument — with the equivalence of the two principles proved and recursion defined.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Architecture of Counting: Successors and Order",
+              "Induction: Proving for Every Number at Once",
+              "The Least-Number Principle and Recursion"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 2,
+            "slug": "division-algorithm-and-divisibility",
+            "title": "The Division Algorithm and the Structure of Divisibility",
+            "summary": "The theorem hiding under every long division: a = bq + r with 0 ≤ r < b, existence proved by well-ordering and uniqueness by subtraction. Divisibility becomes algebra (the transitive and linear-combination laws), the Euclidean algorithm gets the proof FM omitted, Bézout’s identity is derived, and linear Diophantine equations ax + by = c are solved in full.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Division with Rest: The Division Algorithm",
+              "The Algebra of Divisibility",
+              "The Euclidean Algorithm, Proven — and Bézout’s Identity",
+              "Linear Diophantine Equations"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 3,
+            "slug": "positional-systems-and-bases",
+            "title": "Positional Systems and Other Bases",
+            "summary": "Base ten unmasked as one instance of a universal machine: the representation theorem (every number has exactly one name in every base b ≥ 2, proved from the division algorithm), conversion in both directions, arithmetic genuinely inside other bases (addition and multiplication tables in base b), and the binary–hexadecimal world that runs every computer.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Representation Theorem: Every Number Has Exactly One Name",
+              "Converting Between Bases",
+              "Arithmetic in Other Bases",
+              "Binary, Hexadecimal and the Machine"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 4,
+            "slug": "primes-and-the-fundamental-theorem",
+            "title": "Primes and the Fundamental Theorem of Arithmetic",
+            "summary": "The atoms of multiplication: Euclid’s two-thousand-year-old proof that the primes never end, the sieve that hunts them, the fundamental theorem (unique factorisation) with both existence and uniqueness proved — uniqueness cashed through Bézout — and the counting consequences: divisor counts, the exponent of a prime in n!, and the trailing zeros of factorials.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Primes Never End: Euclid’s Proof and the Sieve",
+              "The Fundamental Theorem of Arithmetic",
+              "Divisors from DNA: Divisor Counts and Factorial Zeros",
+              "How the Primes Are Distributed"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 5,
+            "slug": "congruences",
+            "title": "Congruences: The Arithmetic of Remainders",
+            "summary": "Remainders promoted to numbers: congruence defined and its laws proved, the school divisibility tests finally derived (why casting out nines works, why 11 alternates signs), the unit digit of huge powers found through cycles, linear congruences solved, and a computationally verified glimpse of Fermat’s little theorem — the doorway to the Number Theory book.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Remainders Become Numbers: Congruence Defined",
+              "Why the Divisibility Tests Work",
+              "The Unit Digit and Cycles of Powers",
+              "Linear Congruences and a Glimpse of Fermat"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 6,
+            "slug": "building-the-integers",
+            "title": "Building the Integers",
+            "summary": "The first great extension, done honestly: the closure failures that force negative numbers (FM 7.1 felt them; here they are named), the actual construction of ℤ from ℕ as difference pairs with the equivalence relation proved, and the arithmetic laws of ℤ derived from the construction — the reader’s first ring, met as a building rather than a fact.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Closure Failures That Force Extension",
+              "Constructing the Integers from the Naturals",
+              "The Laws of Integer Arithmetic"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 7,
+            "slug": "building-the-rationals",
+            "title": "Building the Rationals",
+            "summary": "Fractions revealed as a constructed system: the equivalence of FM 4.2 re-founded as a relation on pairs, the field laws derived (every nonzero number finally gets a reciprocal), and the two structural theorems — the rationals are dense, and their decimal expansions terminate or repeat — proved from the division algorithm.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "From Fractions to the Rational System",
+              "The Field Laws: Division Joins the Family",
+              "Density and the Decimal Mirror, Proven"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 8,
+            "slug": "irrationals-and-the-real-line",
+            "title": "Irrationals and the Real Line",
+            "summary": "The diagonal that broke the rationals: √2 proved irrational by the classical contradiction, the family of irrationals grown from the primes, the arithmetic behaviour of irrational + rational sorted into a proved table, and completeness met informally — the no-holes property that makes the real line the stage for all of analysis.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Diagonal of the Square: √2 Is Irrational",
+              "The Irrationals Are Everywhere",
+              "The Real Line: Order, Density and Completeness"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 9,
+            "slug": "numeration-through-history",
+            "title": "Numeration Through History",
+            "summary": "Five systems, one winner: tally and grouping, the additive symbols of Egypt and Rome (and why they resist arithmetic), the place-value systems that arrived too early — Babylonian base sixty and the Mayan base twenty with their missing-zero costs — and the Indian decimal revolution that made zero a number and carried the world’s arithmetic.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Tallies, Groupings and Additive Systems",
+              "Place Value Before Its Time: Babylon and Mesoamerica",
+              "The Indian Decimal Revolution and Zero"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 10,
+            "slug": "the-map-of-number-systems",
+            "title": "The Map of Number Systems",
+            "summary": "The synthesis: the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ drawn as one story of repaired failures; congruence arithmetic at work guarding data (casting out nines as an error detector, the mod-11 checksum scheme); and the competitive-arithmetic toolkit — unit digits, factorial zeros, base conversions, remainder chains — unified as one congruence engine.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Great Extension Story",
+              "Numbers That Guard Data: Checksums and Casting Out Nines",
+              "The Toolkit Synthesis"
+            ],
+            "lessons": [],
+            "words": 0
+          }
+        ]
       }
     ]
   },
@@ -3383,12 +3550,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 90,
-      "totalLines": 39746,
+      "totalLines": 39747,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 30481,
+        "src/data/library (content model + books)": 30482,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -9221,12 +9388,99 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "08e2c74b7237e713954cb8f619f81d9b6d1d423c",
+      "short": "08e2c74",
+      "date": "2026-11-05 07:35",
+      "message": "108c7859-d82e-4b3f-a8be-f29932b8fd2d-cron",
+      "filesChanged": 12,
+      "insertions": 2108,
+      "deletions": 48,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 29,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 18,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 29,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 263,
+          "del": 33
+        },
+        {
+          "path": "scripts/e2e-112.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-113.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-11.ts",
+          "add": 412,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-11.ts",
+          "add": 1216,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "ba6fa4786a35df1ffdb0f6b694b68fb43c0ff75b",
+      "short": "ba6fa47",
+      "date": "2026-11-05 08:03",
+      "message": "memory: run-47 synced sha recorded (08e2c74) — the interrupted run-47 push executed first thing in run 48: BOTH pending commits (73787fe run-46 memory + 08e2c74 run-47 ship: FM 11.2 + 11.3 + unit-11 completion review, book 1 COMPLETE 11/11) remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; run 48 proceeds to book #2 Arithmetic and Number Systems RESEARCH PHASE",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
-    "booksPlannedBacklog": 281,
-    "booksLive": 1,
+    "booksPlannedBacklog": 280,
+    "booksLive": 2,
     "chaptersWritten": 11,
     "chaptersInProgress": 0,
     "lessonsWritten": 48,

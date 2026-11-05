@@ -11,6 +11,7 @@
  * Usage: cd /home/z/my-project && bun run scripts/build_work_inventory.ts
  */
 import { foundationMathematics } from '../src/data/library/books/mathematics/foundation-mathematics/book'
+import { arithmeticNumberSystems } from '../src/data/library/books/mathematics/arithmetic-number-systems/book'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
@@ -153,33 +154,38 @@ function lessonRecord(l: Lesson) {
   }
 }
 
-const chaptersWritten = foundationMathematics.chapters.filter((c) => c.status === 'complete')
-const chaptersStarted = foundationMathematics.chapters.filter((c) => c.status !== 'planned')
-const bookRecord = {
-  id: foundationMathematics.id,
-  title: foundationMathematics.title,
-  subtitle: foundationMathematics.subtitle,
-  discipline: foundationMathematics.discipline,
-  level: foundationMathematics.level,
-  description: foundationMathematics.description,
-  status: foundationMathematics.status,
-  chaptersPlanned: foundationMathematics.chapters.length,
-  chaptersWritten: chaptersWritten.length,
-  chapters: foundationMathematics.chapters.map((c) => {
-    const lessons = c.lessons.map(lessonRecord)
-    return {
-      number: c.number,
-      slug: c.slug,
-      title: c.title,
-      summary: c.summary,
-      status: c.status,
-      lessonsWritten: lessons.length,
-      plannedLessons: c.plannedLessons ?? [],
-      lessons,
-      words: lessons.reduce((a, l) => a + l.words, 0),
-    }
-  }),
+const allLiveBooks = [foundationMathematics, arithmeticNumberSystems]
+const chaptersWritten = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status === 'complete')
+const chaptersStarted = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status !== 'planned')
+function bookRecordOf(book: (typeof allLiveBooks)[number]) {
+  return {
+    id: book.id,
+    title: book.title,
+    subtitle: book.subtitle,
+    discipline: book.discipline,
+    level: book.level,
+    description: book.description,
+    status: book.status,
+    chaptersPlanned: book.chapters.length,
+    chaptersWritten: book.chapters.filter((c) => c.status === 'complete').length,
+    chapters: book.chapters.map((c) => {
+      const lessons = c.lessons.map(lessonRecord)
+      return {
+        number: c.number,
+        slug: c.slug,
+        title: c.title,
+        summary: c.summary,
+        status: c.status,
+        lessonsWritten: lessons.length,
+        plannedLessons: c.plannedLessons ?? [],
+        lessons,
+        words: lessons.reduce((a, l) => a + l.words, 0),
+      }
+    }),
+  }
 }
+const fmRecord = bookRecordOf(foundationMathematics)
+const ansRecord = bookRecordOf(arithmeticNumberSystems)
 
 /* ------------------------------------------------------------------ */
 /* Codebase statistics                                                 */
@@ -243,15 +249,15 @@ const verificationLog = [
 /* ------------------------------------------------------------------ */
 /* Totals                                                              */
 /* ------------------------------------------------------------------ */
-const allLessons = foundationMathematics.chapters.flatMap((c) => c.lessons)
+const allLessons = allLiveBooks.flatMap((b) => b.chapters.flatMap((c) => c.lessons))
 const sumBlocks = (kind: string) => allLessons.reduce((a, l) => a + (((lessonRecord(l).blockCounts as any)[kind]) ?? 0), 0)
 // cheaper: recount directly
 const blockTotals: Record<string, number> = {}
 for (const l of allLessons) for (const b of l.blocks as any[]) blockTotals[b.kind] = (blockTotals[b.kind] || 0) + 1
 const totals = {
   disciplinesPlanned: 11,
-  booksPlannedBacklog: 281,
-  booksLive: 1,
+  booksPlannedBacklog: 280,
+  booksLive: allLiveBooks.length,
   chaptersWritten: chaptersWritten.length,
   chaptersInProgress: chaptersStarted.filter((c) => c.status === 'in-progress').length,
   lessonsWritten: allLessons.length,
@@ -287,9 +293,9 @@ const inventory = {
   ],
   content: {
     disciplinesPlanned: 11,
-    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit).',
-    booksLive: 1,
-    books: [bookRecord],
+    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Arithmetic and Number Systems PROMOTED 2026-11-05 (run 48) — 280 titles remain in the backlog.',
+    booksLive: allLiveBooks.length,
+    books: [fmRecord, ansRecord],
   },
   engineering: {
     stack: 'Next.js 16 App Router (SSG) · TypeScript · Tailwind 4 · shadcn/ui · zustand (persist v2) · KaTeX · next-themes · framer-motion · cmdk · bun',
@@ -348,10 +354,13 @@ console.log('WORK_INVENTORY.json written:', OUT)
 console.log('generated:', inventory.generated)
 console.log('--- totals ---')
 console.log(JSON.stringify(totals, null, 2))
-console.log('--- per lesson ---')
-for (const c of bookRecord.chapters) {
-  for (const l of c.lessons) {
-    console.log(`${l.number} ${l.title}: ${l.words} words · quiz ${l.quizItems} · exercises ${JSON.stringify(l.exercisesByLevel)} · terms ${l.termsDefined} · sources ${JSON.stringify(l.sources)}`)
+console.log('--- per book ---')
+for (const b of [fmRecord, ansRecord]) {
+  console.log(`${b.id} [${b.status}] ${b.chaptersWritten}/${b.chaptersPlanned} chapters written`)
+  for (const c of b.chapters) {
+    for (const l of c.lessons) {
+      console.log(`  ${l.number} ${l.title}: ${l.words} words · quiz ${l.quizItems} · exercises ${JSON.stringify(l.exercisesByLevel)} · terms ${l.termsDefined} · sources ${JSON.stringify(l.sources)}`)
+    }
   }
 }
 console.log('--- git commits (oldest→newest) ---')

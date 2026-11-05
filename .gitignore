@@ -137,3 +137,8 @@ server.log
 !/scripts/e2e-111.page.js
 !/scripts/e2e-112.page.js
 !/scripts/e2e-113.page.js
+# exception: run-48 book-#2 promotion verifier (Arithmetic and Number Systems; committed with the research phase)
+!/scripts/verify-book2-promotion.ts
+# exception: run-48 book-#2 promotion E2E (home spine + planned-book book page + empty states)
+!/scripts/e2e-book2-promotion.sh
+!/scripts/e2e-book2-promotion.page.js

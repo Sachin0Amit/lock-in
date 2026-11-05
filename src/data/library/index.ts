@@ -1,5 +1,6 @@
 import { disciplines } from './disciplines'
 import { foundationMathematics } from './books/mathematics/foundation-mathematics/book'
+import { arithmeticNumberSystems } from './books/mathematics/arithmetic-number-systems/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -11,7 +12,7 @@ import { countLessonWords } from './types'
  * export a Book from book.ts, import it into `allBooks`, done — the library
  * home, search index, navigation and stats all pick it up automatically.
  */
-export const allBooks: Book[] = [foundationMathematics]
+export const allBooks: Book[] = [foundationMathematics, arithmeticNumberSystems]
 
 export const allDisciplines: Discipline[] = disciplines
 

@@ -9,8 +9,40 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 45 (fired from the re-enabled job 498279; the stale one-lesson
-payload superseded by the owner's 2026-11-05 two-lesson directive in memory)**: **FM 10.2
+Maintained through **run 48 (fired 16:00 IST from job 498279 — third consecutive fire from the re-enabled
+old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
+directive in memory)**: **(1) the pending run-47 push executed first** — run 47 had been interrupted after
+its ship commit `08e2c74` but before its push; both pending commits (`73787fe` run-46 memory + `08e2c74`
+run-47 ship) went in one protocol push, remote main = `08e2c74` verified via one-time-URL ls-remote, sanity
+gates re-run first (tsc 0, lint 0). **(2) BOOK #2 PROMOTED: Arithmetic and Number Systems** (Mathematics
+shelf #2) — research phase COMPLETE: reference survey (Khattar QA 4e ch. 1 + Cengage M2/01 already persisted,
+no downloads; the gitignored Drive survey rebuilt after the recycle — 89 entries intact) + syllabus audit
+via the sanctioned internet fallback (five source families: the competitive-exam number-system scope —
+divisibility, HCF×LCM product relation, remainders, unit-digit cyclicity, factorial trailing zeros, base
+conversion + arithmetic in other bases; the university proof-transition bridge per Beck & Geoghegan's *The
+Art of Proof* ("our subject is number systems": ℕ with induction/recursion → ℤ → ℚ → ℝ); OpenStax
+*Contemporary Mathematics* §4.2 historical numeration (Babylonian/Mayan/Roman → Hindu–Arabic); Cambridge
+IGCSE CS 0478 §1.1 binary/hex/two's-complement representation (deep coverage left to the CS shelf); the
+NCERT class 6 ch. 1 + class 8 ch. 16 "Playing with Numbers" canon) + the full **10-chapter / 34-lesson
+chapter plan** (1 The Natural Numbers as a System · 2 The Division Algorithm and the Structure of
+Divisibility · 3 Positional Systems and Other Bases · 4 Primes and the Fundamental Theorem of Arithmetic ·
+5 Congruences: The Arithmetic of Remainders · 6 Building the Integers · 7 Building the Rationals · 8
+Irrationals and the Real Line · 9 Numeration Through History · 10 The Map of Number Systems). The book
+lives at `src/data/library/books/mathematics/arithmetic-number-systems/book.ts` (status 'planned', `ans-`
+lesson-id prefix, full TOC as plannedLessons, per-chapter reference mapping in the file header) and is
+registered in `index.ts` → allBooks (2 books library-wide). `scripts/verify-book2-promotion.ts` created
+and whitelisted: **121/121 checks** (structure; registry; uniqueness vs FM; the six FM cross-reference
+anchors verified to exist — fm-divisibility-and-its-tests, fm-prime-numbers-factorisation,
+fm-lowest-common-multiple, fm-decimals-and-fractions-two-ways, fm-negative-numbers-why-they-exist,
+fm-patterns-to-formulas; research mapping). Gates: lint 0, tsc 0, routes 200 (book/revise/glossary 200,
+unknown lesson + unknown book 404), browser E2E green (home shelf shows the new spine; book page: "0
+written · 34 planned" chips, 10 chapter tiles, 8 sampled planned titles render, no dead CTAs, zero console
+errors; screenshot reviewed). WORK_INVENTORY.json regenerated — the generator generalized to a books array
+(booksLive 2, backlog 280; the gitignored Drive survey had to be rebuilt first after the recycle). Logs:
+SOURCE_LOG.md (new research-phase section + 4 reserved citation keys), SUBJECT_BACKLOG.md (FM marked
+COMPLETE, ANS marked PROMOTED), PROGRESS.json (library block de-staled: FM complete 11/48/355, new ANS
+entry, honest totals block), DETAILED_LOG.md (this update). (The run-47 narrative below stands as history.)
+Run 47 (fired 15:00 IST from job 498279): **FM 10.2
 "Bar Charts, Line Graphs and Pie Charts" (4,331 words) + FM 10.3 "Reading Graphs
 Critically" (4,062 words) shipped** — chapter 10 Data and Graphs in-progress **3/4**
 (verify-unit-10.ts 81 → 141 → 186 checks J–Z2, ALL PASS pre-writing): 10.2 one table,
@@ -257,12 +289,14 @@ queue now EMPTY; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11.
 
 ## 4. Content written so far (the actual textbooks)
 
-**Library plan:** 11 disciplines · **281 backlog titles** (SUBJECT_BACKLOG.md)
+**Library plan:** 11 disciplines · **281 backlog titles listed, 280 remaining** (SUBJECT_BACKLOG.md:
+book #2 Arithmetic and Number Systems promoted run 48)
 · promotion rule: a backlog book becomes real only after its research phase.
-**Live today: 1 book — 7 chapters complete (1–7) — 32
-lessons, 150,259 words, 217 flashcard terms** (regenerated 11-05, run 36).
+**Live today: 2 books — Foundation Mathematics COMPLETE (11/11 chapters, 48
+lessons, 227,569 words, 355 flashcard terms) + Arithmetic and Number Systems
+PLANNED (10 chapters / 34 lessons, research phase done)** (regenerated 11-05, run 48).
 
-### Foundation Mathematics — mathematics shelf · in-progress (1 of 11 chapters)
+### Foundation Mathematics — mathematics shelf · **COMPLETE (11/11 chapters, run 47)**
 
 *From counting to the doorstep of algebra* · Absolute beginner → Secondary
 school · accent amber · cover auto-generated.
@@ -988,7 +1022,7 @@ the terminal ∴ colour DOM-verified book-green). Totals: book = **16
 lessons / 75,846 words / 102 terms** (ch. 4 in-progress at 3/5). No new
 downloads (references already logged).
 
-#### Chapters 4–11 — planned (not yet written)
+#### Chapters 4–11 — shipped (unit cadence, runs 20–47)
 
 | # | Chapter | Planned lessons |
 |---|---|---|
@@ -1000,8 +1034,35 @@ downloads (references already logged).
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
 | 9 | Measurement — **COMPLETE (4/4, run 44)** | ~~Units as Agreements~~ · ~~The Metric System~~ · ~~Converting Without Tables~~ · ~~Precision, Accuracy and Rounding~~ — all **WRITTEN (9.1 run 42; 9.2 + 9.3 run 43; 9.4 run 44)**; unit-9 completion review passed |
-| 10 | Data and Graphs — **IN-PROGRESS (3/4, run 45)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · Mean, Median, Mode |
-| 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
+| 10 | Data and Graphs — **COMPLETE (4/4, run 46; unit-10 review passed)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ **WRITTEN (run 45)** · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · ~~Mean, Median, Mode~~ **WRITTEN (run 46)** |
+| 11 | Patterns and the Doorstep of Algebra — **COMPLETE (3/3, run 47; unit-11 review passed — the book closes)** | ~~Patterns and Rules~~ **WRITTEN (run 46)** · ~~From Patterns to Formulas~~ **WRITTEN (run 47)** · ~~A Letter for the Unknown~~ **WRITTEN (run 47)** |
+
+### Arithmetic and Number Systems — mathematics shelf · **PLANNED (promoted run 48; research phase complete)**
+
+*Why arithmetic works — and how the number systems were built* · Upper primary →
+first-year university bridge · accent teal · cover auto-generated.
+
+The structural sequel to Foundation Mathematics: FM taught the operations; this book
+proves why the operations obey the laws they obey, and how ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ were each
+built to repair a closure failure. Research phase (run 48, 2026-11-05): reference
+survey (Khattar QA 4e ch. 1 + Cengage M2/01 persisted; no downloads) + syllabus audit
+(CAT/IPMAT number-system scope · Beck & Geoghegan *The Art of Proof* · OpenStax
+*Contemporary Mathematics* §4.2 · Cambridge IGCSE CS 0478 §1.1 · NCERT class 6/8 canon)
++ the chapter plan below. `verify-book2-promotion.ts` 121/121; E2E green. **Authoring
+starts at ch. 1, run 49 (two lessons per run).**
+
+| # | Chapter (slug) | Planned lessons |
+|---|---|---|
+| 1 | The Natural Numbers as a System (`natural-numbers-as-a-system`) | The Architecture of Counting: Successors and Order · Induction: Proving for Every Number at Once · The Least-Number Principle and Recursion |
+| 2 | The Division Algorithm and the Structure of Divisibility (`division-algorithm-and-divisibility`) | Division with Rest: The Division Algorithm · The Algebra of Divisibility · The Euclidean Algorithm, Proven — and Bézout's Identity · Linear Diophantine Equations |
+| 3 | Positional Systems and Other Bases (`positional-systems-and-bases`) | The Representation Theorem: Every Number Has Exactly One Name · Converting Between Bases · Arithmetic in Other Bases · Binary, Hexadecimal and the Machine |
+| 4 | Primes and the Fundamental Theorem of Arithmetic (`primes-and-the-fundamental-theorem`) | The Primes Never End: Euclid's Proof and the Sieve · The Fundamental Theorem of Arithmetic · Divisors from DNA: Divisor Counts and Factorial Zeros · How the Primes Are Distributed |
+| 5 | Congruences: The Arithmetic of Remainders (`congruences`) | Remainders Become Numbers: Congruence Defined · Why the Divisibility Tests Work · The Unit Digit and Cycles of Powers · Linear Congruences and a Glimpse of Fermat |
+| 6 | Building the Integers (`building-the-integers`) | The Closure Failures That Force Extension · Constructing the Integers from the Naturals · The Laws of Integer Arithmetic |
+| 7 | Building the Rationals (`building-the-rationals`) | From Fractions to the Rational System · The Field Laws: Division Joins the Family · Density and the Decimal Mirror, Proven |
+| 8 | Irrationals and the Real Line (`irrationals-and-the-real-line`) | The Diagonal of the Square: √2 Is Irrational · The Irrationals Are Everywhere · The Real Line: Order, Density and Completeness |
+| 9 | Numeration Through History (`numeration-through-history`) | Tallies, Groupings and Additive Systems · Place Value Before Its Time: Babylon and Mesoamerica · The Indian Decimal Revolution and Zero |
+| 10 | The Map of Number Systems (`the-map-of-number-systems`) | The Great Extension Story · Numbers That Guard Data: Checksums and Casting Out Nines · The Toolkit Synthesis |
 
 ## 5. Engineering work (platform history)
 
@@ -1217,11 +1278,31 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 43 | ship + bookkeeping + memory | 11-05 | FM lessons 9.2 The Metric System (4,529 words) + 9.3 Converting Units Without Memorising Tables (3,603 words) — THE FIRST TWO-LESSON RUN (job 504365) — verify-unit-9.ts 200 → 428 checks (N–AD); chapter 9 in-progress 3/4; fig redesigns: 9.2 fig1 ×2 → 10/8, 9.3 fig1 token-strikes → 10/9, 9.3 fig2 rebuild → 10/9; quizzes live 5/5 both; new citation keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter; pushed per protocol |
 | 44 | ship + bookkeeping + memory | 11-05 | FM lesson 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) — CHAPTER 9 CLOSED with the unit-9 completion review passed — + FM lesson 10.1 Collecting and Tallying Data (4,533 words; ch-10.ts created + registered) — THE FIRST TWO-CHAPTER RUN — verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED (81 checks A–I); 9.3's thrice-repeated paragraph reduced to one; fig work: 9.4 plumb-line redrawn twice → 10/9, four-targets four passes → 9/8, 10.1 fig1 four passes (chips numbered, arrow removed, ruled frequency column) + the caption's 14-vs-12 fix; quizzes live 5/5 both; new citation keys ncert-math6-ch1 + ncert-ganita-prakash6-ch4; book = 42 lessons / 200,476 words; pushed per protocol |
 | 45 | ship + bookkeeping + memory | 11-05 | FM lesson 10.2 Bar Charts, Line Graphs and Pie Charts (4,331 words) + FM lesson 10.3 Reading Graphs Critically (4,062 words) — fired from the RE-ENABLED job 498279 (the stale one-lesson payload superseded by the two-lesson directive in memory; the duplicate-hourly-trigger logged for the owner) — verify-unit-10.ts 81 → 141 → 186 checks (J–Z2); laws derived: bar-scale + central-angle (10.2), exaggeration + scale-invariance (10.3); fig work: bar/line/pie labels re-laid after audits, the day-5 tick added, the pie's boundary degrees + counts added (the VLM ellipse claim disproven by DOM measurement), the mismatch gallery unified on the shared 8/6/4/2 data, the Y4 quiz key corrected from the live run; quizzes live 5/5 both; new citation keys ncert-math8-ch4 + huff-1954-lie-with-statistics; book = 44 lessons / 208,869 words; pushed per protocol |
+| 46 | ship + bookkeeping + memory | 11-05 | FM lesson 10.4 Mean, Median and Mode — CHAPTER 10 CLOSED with the unit-10 completion review passed — + FM lesson 11.1 Patterns and Rules (chapter 11 OPENS; job 504365's first fully-executed fire); verify-unit-10.ts → Z-final + verify-unit-11.ts CREATED; pushed per protocol |
+| 47 | ship | 11-05 | FM lesson 11.2 From Patterns to Formulas (3,931 words) + FM 11.3 A Letter for the Unknown (4,021 words) — CHAPTER 11 CLOSED, UNIT-11 COMPLETION REVIEW PASSED — FOUNDATION MATHEMATICS COMPLETE 11-for-11 (48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises); verify-unit-11.ts 74 → 187 checks (P–Z, AA–AL); quiz keys 0/1/1/0/0 live 5/5 both; audits 0/0 all four figures; **run interrupted after the ship commit `08e2c74` but BEFORE the push — push debt inherited by run 48** |
+| 48 | ship + bookkeeping + memory | 11-05 | (1) the pending run-47 push executed first (both commits, remote = `08e2c74` verified); (2) BOOK #2 PROMOTED: Arithmetic and Number Systems — research phase complete (survey + syllabus audit + 10-chapter/34-lesson plan), book.ts + registry + verify-book2-promotion.ts 121/121 + gates + E2E green; generator generalized (booksLive 2, backlog 280); 4 citation keys reserved — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
+- **CURRENT (run 48, 2026-11-05): BOOK #2 PROMOTED.** The pending run-47
+  push was executed first (remote main = `08e2c74`, both backlog commits
+  delivered, sanity gates re-run). Then the queue moved to Arithmetic and
+  Number Systems (Mathematics shelf #2): research phase COMPLETE —
+  reference survey (persisted Drive refs; no downloads) + syllabus audit
+  (five source families web-checked) + the 10-chapter/34-lesson plan.
+  The book is live at `/book/arithmetic-and-number-systems` with status
+  'planned' (honest 0 written / 34 planned; no dead CTAs; zero console
+  errors). verify-book2-promotion.ts 121/121; lint/tsc/routes/E2E green;
+  WORK_INVENTORY.json regenerated on the generalized generator (booksLive
+  2, backlog 280). Four citation keys reserved for the coming chapters.
+- **NEXT (run 49): author ANS ch. 1 lessons 1.1 "The Architecture of
+  Counting: Successors and Order" + 1.2 "Induction: Proving for Every
+  Number at Once"** — verify-book2-ch01.ts FIRST, then ch-01.ts in the
+  Cengage voice + solution chain, FM cross-references, all gates, one
+  ship, protocol push. Lesson 1.3 + the unit-1 completion review follow
+  at run 50.
 - HEAD: the run-47 ship + its memory commit pushed and remote-verified
   (protocol v2, one-time URL from the firing payload); synced shas
   recorded in WORKLOG.md / RESUME_POINTER.json. Run 47 = FM 11.2 +

@@ -9,8 +9,8 @@ Order of work: research-first, one book at a time (default: Mathematics
 shelf top-to-bottom, since its first book is already in progress).
 
 ## Mathematics (27 books)
-1. Foundation Mathematics ← **in progress (ch. 1/11)**
-2. Arithmetic and Number Systems
+1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
+2. Arithmetic and Number Systems ← **PROMOTED (run 48, 2026-11-05): research phase complete (reference survey + syllabus audit + 10-chapter/34-lesson plan); status 'planned'; authoring from ch. 1 at run 49**
 3. Elementary Algebra
 4. Advanced Algebra
 5. Geometry

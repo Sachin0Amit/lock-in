@@ -1,18 +1,18 @@
 {
  "updated": "2026-11-05",
- "nextAction": "RUN 47 COMPLETE (fired from job 498279 at 15:00 IST; the stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried here and in PROGRESS.json): FM 11.2 'From Patterns to Formulas' (3,931 words) AND FM 11.3 'A Letter for the Unknown' (4,021 words) shipped verify-first \u2014 verify-unit-11.ts 74 \u2192 145 (P\u2013Z) \u2192 187 (AA\u2013AL) checks ALL PASS pre-writing; quizzes live 5/5 both (keys 0/1/1/0/0); audits 0/0 all four figures; the UNIT-11 COMPLETION REVIEW PASSED (ch-11 flipped complete, plannedLessons emptied, ids unique 48/48 book-wide) \u2014 FOUNDATION MATHEMATICS IS COMPLETE: 11-for-11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz, 534 exercises. Tree clean, push per protocol. NEXT RUN 48: THE BOOK QUEUE MOVES TO BOOK #2 \u2014 'Arithmetic and Number Systems' (Mathematics shelf, SUBJECT_BACKLOG #2). Run its RESEARCH PHASE first: reference survey (the Drive collection + the sanctioned internet fallback) + syllabus audit + chapter plan; promote to src/data/library/books/ only when the research phase is done (BOOK_FORMAT.md promotion rule; never an empty shell). Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells). Voice queue EMPTY",
- "fallback": "If unit-7 references are thin, sanctioned fallback = internet research (NCERT/university curricula). Also pending sometime: EXAM_REGISTRY.json research (50+ exams).",
- "chapter2Review": "UNIT-2 COMPLETION REVIEW (done 2026-11-03, run 6): BOOK_FORMAT verification checklist 7/7 (math pre-verified by script; figure labels match prose; quiz answer indices verified live in browser; exercise solutions complete + verified; lesson ids globally unique; lint + render clean; logs updated) \u00b7 exam-coverage audit (every lesson 2.1\u20132.5 carries an exam callout; topics mapped: four operations + laws \u2192 NCERT class-6 canon; rapid arithmetic + BODMAS \u2192 bank/SSC/Railway staples per Khattar ch. 4; order-of-operations + expression/equation vocabulary \u2192 CUET/NTSE; no real past-paper questions reproduced) \u00b7 chapter totals recomputed by build_work_inventory.ts (ch. 2 = 21,450 words / 5 lessons; book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise questions).",
- "unit3": "FM chapter 3 'Factors, Multiples and Primes' \u2014 COMPLETE (5/5 lessons, unit-3 completion review passed run 11). 3.1 Divisibility and Its Tests (run 7, 6,477 words; 96 checks) \u00b7 3.2 Prime Numbers and Factorisation (run 8, 6,089 words; 152 checks) \u00b7 3.3 Highest Common Factor (run 9, 5,564 words; 192 checks) \u00b7 3.4 Lowest Common Multiple (run 10, 5,014 words; 227 checks) \u00b7 3.5 HCF, LCM and How They Relate (run 11, 4,773 words; 260 checks: the product rule proved from the Venn territories and the atoms, the coprime-split engine, pair reconstruction incl. Illustration 14's 63/1,260/315 \u2192 252, feasibility h | l with the free witness pair, the rectangle identity figure, the united 8-row pattern table, Gauss 1801 callout, the two-seats counterexample). Review record: BOOK_FORMAT checklist 7/7; exam-coverage audit 5/5 lessons; totals recomputed (ch. 3 = 27,917 words; book = 13 lessons / 59,076 words / 82 terms / 65 quiz items / 115 exercise questions).",
+ "nextAction": "NEXT RUN 49: BEGIN AUTHORING BOOK #2 — Arithmetic and Number Systems, chapter 1 'The Natural Numbers as a System' (slug natural-numbers-as-a-system), TWO lessons per the owner's 2026-11-05 directive: 1.1 'The Architecture of Counting: Successors and Order' (id ans-architecture-of-counting-successors-order) + 1.2 'Induction: Proving for Every Number at Once' (id ans-induction-proving-for-every-number). Workflow per lesson: create scripts/verify-book2-ch01.ts FIRST (recompute every number, sweep every claimed identity — induction proofs verified computationally, e.g. sum formulas swept n=1..200); then author in a new ch-01.ts following BOOK_FORMAT.md + FM's ch-01.ts exemplar (Cengage voice: formal definition callouts, roman example runs, Illustration pills with Sol. chains, derivation tags, figures audited 0/0, 5-quiz live-verified, 12 exercises L1-L6, 8 terms, exam corner, formula cards); cross-reference FM anchors (fm-patterns-to-formulas for the Gauss pairing, fm-decimals-and-fractions-two-ways where decimals appear) instead of repeating; register in the book's chapters (flip status to 'in-progress', move plannedLessons into lessons); gates: lint, tsc, routes 200, dedicated E2E (quiz 5/5 live, solutions expand, mobile 390 exact-fit, audits 0/0), regenerate WORK_INVENTORY.json + update DETAILED_LOG.md; single ship at the end (WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG), then the protocol push. Chapter 1's remaining lesson 1.3 'The Least-Number Principle and Recursion' follows at run 50 with the unit-1 completion review.",
+ "fallback": "If ANS ch. 1 references feel thin, sanctioned fallback = internet research (NCERT/university curricula; the Beck-Geoghegan structure is the syllabus spine). Also pending sometime: EXAM_REGISTRY.json research (44 exams).",
+ "chapter2Review": "UNIT-2 COMPLETION REVIEW (done 2026-11-03, run 6): BOOK_FORMAT verification checklist 7/7 (math pre-verified by script; figure labels match prose; quiz answer indices verified live in browser; exercise solutions complete + verified; lesson ids globally unique; lint + render clean; logs updated) · exam-coverage audit (every lesson 2.1–2.5 carries an exam callout; topics mapped: four operations + laws → NCERT class-6 canon; rapid arithmetic + BODMAS → bank/SSC/Railway staples per Khattar ch. 4; order-of-operations + expression/equation vocabulary → CUET/NTSE; no real past-paper questions reproduced) · chapter totals recomputed by build_work_inventory.ts (ch. 2 = 21,450 words / 5 lessons; book = 8 lessons, 31,159 words, 47 terms, 40 quiz items, 65 exercise questions).",
+ "unit3": "FM chapter 3 'Factors, Multiples and Primes' — COMPLETE (5/5 lessons, unit-3 completion review passed run 11). 3.1 Divisibility and Its Tests (run 7, 6,477 words; 96 checks) · 3.2 Prime Numbers and Factorisation (run 8, 6,089 words; 152 checks) · 3.3 Highest Common Factor (run 9, 5,564 words; 192 checks) · 3.4 Lowest Common Multiple (run 10, 5,014 words; 227 checks) · 3.5 HCF, LCM and How They Relate (run 11, 4,773 words; 260 checks: the product rule proved from the Venn territories and the atoms, the coprime-split engine, pair reconstruction incl. Illustration 14's 63/1,260/315 → 252, feasibility h | l with the free witness pair, the rectangle identity figure, the united 8-row pattern table, Gauss 1801 callout, the two-seats counterexample). Review record: BOOK_FORMAT checklist 7/7; exam-coverage audit 5/5 lessons; totals recomputed (ch. 3 = 27,917 words; book = 13 lessons / 59,076 words / 82 terms / 65 quiz items / 115 exercise questions).",
  "lastCompleted": "fm-triangles-and-the-angle-sum (run 40)",
- "notes": "OWNER PREFERENCES (2026-11-03, standing): (1) The Google Drive reference-collection link is PERSISTED in project memory \u2014 docs/project/PROGRESS.json (research.sourceCollection.driveLink), SOURCE_LOG.md, WORK_INVENTORY.json (research.driveCollection.link) \u2014 the owner NEVER needs to resend it; every session reads these files first per MASTER_PLAN. (2) PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner's fine-grained PAT is embedded ONLY in the hourly cron job payload (job 498279) so scheduled runs push automatically after all quality gates pass. The token is STILL never written to any file, env, git config, remote URL, log or commit. Push protocol: one-time HTTPS push URL in a single git command, push all unpushed commits on main, verify remote HEAD via one-time-URL ls-remote, re-sync refs/remotes/origin/main via anonymous HTTPS fetch (no ssh binary in this sandbox), note the sha in WORKLOG.md. If the cron job is deleted, the token is revoked/expired, or a push fails twice: log it in WORKLOG.md (never including the token) and fall back to the old protocol \u2014 the owner pastes a fresh PAT in chat or pushes themselves (README 'Pushing to GitHub'). Repo git remote = git@github.com:Sachin0Amit/lock-in.git; origin/main synced through the run-11 ship commit (342f629 pushed as 8640085..342f629 under protocol v2, remote HEAD verified via one-time-URL ls-remote, tracking ref re-synced). SANDBOX NOTE: recycled FIVE times on 2026-11-03 (only gitignored temporary-references/ lost; one-command rebuild via bun run scripts/rebuild_drive_survey.ts). Full recycle recipe: git fetch https://github.com/Sachin0Amit/lock-in.git refs/heads/main:refs/remotes/origin/main && git reset --mixed origin/main && git config core.filemode false, then bun install, rebuild the Drive survey, restart dev with (nohup bun run dev > dev.log 2>&1 &); a malformed .next/dev/types/validator.ts after edits is fixed by deleting it and curling any route. GITIGNORE TRAP: /scripts/* is ignored except explicitly un-ignored files \u2014 verify-unit-2.ts, verify-unit-3.ts, rebuild_drive_survey.ts, build_work_inventory.ts already excepted; ADD AN EXCEPTION FOR verify-unit-4.ts WHEN UNIT 4 STARTS.\n\nRUN 34 SYNC: ship commit c8abb9e96c92eb91d4466aa18f6bb1c1f3d4d46b pushed 2026-11-04 (run 34, job 498279 22:27 delivery) via the one-time HTTPS URL; remote HEAD verified by one-time-URL ls-remote = local HEAD; origin/main tracking ref resynced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote. Next run 35: FM 7.3 Multiplying Integers and the Sign Rules (verify sections T+ first), voice polish 2.3 queued.",
- "unit4": "FM chapter 4 'Fractions' \u2014 COMPLETE (5/5 lessons, unit-4 completion review passed run 20). 4.1 The Idea of a Fraction (run 12, 6,051 words; 84 checks) \u00b7 4.2 Equivalent Fractions and Simplification (run 17, 5,598 words; 148 checks) \u00b7 4.3 Comparing Fractions (run 18, 5,168 words; 199 checks) \u00b7 4.4 Adding and Subtracting Fractions (run 19, 4,916 words; 261 checks) \u00b7 4.5 Multiplying and Dividing Fractions (run 20, 5,172 words; 330 checks total: the multiplying rule proved from the rulers, the area figure exactly 2/5, scaling and the two-frauds Caution, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the division figure's six-step arc, the banked HCF/LCM-of-fractions shortcuts cashed with the product rule surviving, mixed numbers converted first). Review record: BOOK_FORMAT checklist 7/7; exam-coverage audit 5/5 lessons; totals recomputed (ch. 4 = 26,905 words; book = 18 lessons / 85,934 words / 114 terms). Chapter status 'complete'.",
- "run12Extras": "Run 12 was an OWNER CHAT DIRECTIVE (not a cron delivery): (1) lesson reader widened per owner complaint 'lots of space in left and right side' \u2014 article 768\u2192962px measured (container max-w-6xl\u21927xl, article fills grid at xl, figures max-w-2xl\u21923xl, book TOC + glossary max-w-4xl\u21925xl, site chrome aligned to 7xl), commit 8fd776e, all 12 lessons re-audited 0 SVG issues; (2) the visible permalink chip (Link2 icon + /book/\u2026/lesson/\u2026 text in the lesson header) removed everywhere \u2014 it was the only URL rendered as page text; (3) 'proceed with Module 4' \u2192 lesson 4.1 authored and shipped same run.",
- "run13Extras": "Run 13 was an OWNER CHAT DIRECTIVE (handwritten-notes photo as the style reference): exercise solutions must look like handwritten worked solutions \u2014 numbered step lines with words, not prose paragraphs. Shipped same run: platform (ExerciseQuestion.solution string|string[] + answer; SolutionBody renderer with numbered chip rows + boxed Answer row; search + word-counter handle both shapes) and content migration (all 125 solutions converted via scripts/convert-solutions-to-steps.py \u2014 token-multiset-preservation assertion per solution, 125/125 pass, 5 boxed answers; never splits inside $\u2026$ math or parentheticals; prose semicolons stay glued). E2E green incl. 390px exact-fit with every solution expanded; word totals recomputed 65,080 (dropped-semicolon artifact only). BOOK_FORMAT now mandates the steps format for all future lessons.",
- "run14Extras": "Run 14 was an OWNER CHAT DIRECTIVE ('i want theory in such a way or style of book \u2026 my book to look like in cengage book you can download it from the google drive link'): (1) MATHS Drive subfolder surveyed \u2014 5 module folders M1 Trigonometry / M2 Algebra / M3 Coordinate Geometry / M4 Calculus / M5 3D Geometry, 42 chapter PDFs, machine listings persisted at temporary-references/maths-*.json (gitignored; re-list via scripts/list_drive_folder.ts <id>); (2) Cengage M2/01 Set Theory & Real Number System downloaded (scripts/download_drive_file.sh, 24 MB) and style-studied (OCR + VLM on rendered pages) \u2014 signatures: ALL-CAPS green heads over rules, definitions in prose + Thus-lines, (i)(ii)(iii) example runs, ILLUSTRATION pills + sage bands + Sol., green exercise banner bars, sage table headers; NO content reproduced, working copy deleted after E2E; (3) reader reskinned platform-wide (globals.css book palette + .lesson-h2 Cengage heads + .roman-list; blocks.tsx ExampleBlock/DerivationBlock/FormulaBlock/AlgorithmBlock/QuizBlock/ExercisesBlock/SolutionBody/CalloutBlock + table striping + illustration auto-numbering; lesson-view.tsx green chapter-opener header; reading-progress.tsx green) \u2014 all 14 lessons restyled at once with zero content edits; (4) types.ts list block gained marker?: 'disc' | 'decimal' | 'roman'; (5) BOOK_FORMAT.md block table + 'Cengage theory presentation' house-style section, MASTER_PLAN \u00a75 bullet, PROGRESS phase/features/verified, SOURCE_LOG style-reference entry, WORK_INVENTORY regenerated; (6) VOICE QUEUE: 4.2+ authored natively in the voice; existing 14 lessons queued for voice polish (1.1 first as the exemplar) \u2014 do them one lesson per run alongside or after unit-4 progression, never batch-draft. Gates: lint/tsc clean, routes 200, E2E green incl. mobile 390 exact-fit, SVG audit 0 issues, VLM fidelity 8.5/10.",
+ "notes": "OWNER PREFERENCES (2026-11-03, standing): (1) The Google Drive reference-collection link is PERSISTED in project memory — docs/project/PROGRESS.json (research.sourceCollection.driveLink), SOURCE_LOG.md, WORK_INVENTORY.json (research.driveCollection.link) — the owner NEVER needs to resend it; every session reads these files first per MASTER_PLAN. (2) PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner's fine-grained PAT is embedded ONLY in the hourly cron job payload (job 498279) so scheduled runs push automatically after all quality gates pass. The token is STILL never written to any file, env, git config, remote URL, log or commit. Push protocol: one-time HTTPS push URL in a single git command, push all unpushed commits on main, verify remote HEAD via one-time-URL ls-remote, re-sync refs/remotes/origin/main via anonymous HTTPS fetch (no ssh binary in this sandbox), note the sha in WORKLOG.md. If the cron job is deleted, the token is revoked/expired, or a push fails twice: log it in WORKLOG.md (never including the token) and fall back to the old protocol — the owner pastes a fresh PAT in chat or pushes themselves (README 'Pushing to GitHub'). Repo git remote = git@github.com:Sachin0Amit/lock-in.git; origin/main synced through the run-11 ship commit (342f629 pushed as 8640085..342f629 under protocol v2, remote HEAD verified via one-time-URL ls-remote, tracking ref re-synced). SANDBOX NOTE: recycled FIVE times on 2026-11-03 (only gitignored temporary-references/ lost; one-command rebuild via bun run scripts/rebuild_drive_survey.ts). Full recycle recipe: git fetch https://github.com/Sachin0Amit/lock-in.git refs/heads/main:refs/remotes/origin/main && git reset --mixed origin/main && git config core.filemode false, then bun install, rebuild the Drive survey, restart dev with (nohup bun run dev > dev.log 2>&1 &); a malformed .next/dev/types/validator.ts after edits is fixed by deleting it and curling any route. GITIGNORE TRAP: /scripts/* is ignored except explicitly un-ignored files — verify-unit-2.ts, verify-unit-3.ts, rebuild_drive_survey.ts, build_work_inventory.ts already excepted; ADD AN EXCEPTION FOR verify-unit-4.ts WHEN UNIT 4 STARTS.\n\nRUN 34 SYNC: ship commit c8abb9e96c92eb91d4466aa18f6bb1c1f3d4d46b pushed 2026-11-04 (run 34, job 498279 22:27 delivery) via the one-time HTTPS URL; remote HEAD verified by one-time-URL ls-remote = local HEAD; origin/main tracking ref resynced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote. Next run 35: FM 7.3 Multiplying Integers and the Sign Rules (verify sections T+ first), voice polish 2.3 queued.",
+ "unit4": "FM chapter 4 'Fractions' — COMPLETE (5/5 lessons, unit-4 completion review passed run 20). 4.1 The Idea of a Fraction (run 12, 6,051 words; 84 checks) · 4.2 Equivalent Fractions and Simplification (run 17, 5,598 words; 148 checks) · 4.3 Comparing Fractions (run 18, 5,168 words; 199 checks) · 4.4 Adding and Subtracting Fractions (run 19, 4,916 words; 261 checks) · 4.5 Multiplying and Dividing Fractions (run 20, 5,172 words; 330 checks total: the multiplying rule proved from the rulers, the area figure exactly 2/5, scaling and the two-frauds Caution, cross-cancellation, the reciprocal and the division theorem proved on the bd-ruler, the division figure's six-step arc, the banked HCF/LCM-of-fractions shortcuts cashed with the product rule surviving, mixed numbers converted first). Review record: BOOK_FORMAT checklist 7/7; exam-coverage audit 5/5 lessons; totals recomputed (ch. 4 = 26,905 words; book = 18 lessons / 85,934 words / 114 terms). Chapter status 'complete'.",
+ "run12Extras": "Run 12 was an OWNER CHAT DIRECTIVE (not a cron delivery): (1) lesson reader widened per owner complaint 'lots of space in left and right side' — article 768→962px measured (container max-w-6xl→7xl, article fills grid at xl, figures max-w-2xl→3xl, book TOC + glossary max-w-4xl→5xl, site chrome aligned to 7xl), commit 8fd776e, all 12 lessons re-audited 0 SVG issues; (2) the visible permalink chip (Link2 icon + /book/…/lesson/… text in the lesson header) removed everywhere — it was the only URL rendered as page text; (3) 'proceed with Module 4' → lesson 4.1 authored and shipped same run.",
+ "run13Extras": "Run 13 was an OWNER CHAT DIRECTIVE (handwritten-notes photo as the style reference): exercise solutions must look like handwritten worked solutions — numbered step lines with words, not prose paragraphs. Shipped same run: platform (ExerciseQuestion.solution string|string[] + answer; SolutionBody renderer with numbered chip rows + boxed Answer row; search + word-counter handle both shapes) and content migration (all 125 solutions converted via scripts/convert-solutions-to-steps.py — token-multiset-preservation assertion per solution, 125/125 pass, 5 boxed answers; never splits inside $…$ math or parentheticals; prose semicolons stay glued). E2E green incl. 390px exact-fit with every solution expanded; word totals recomputed 65,080 (dropped-semicolon artifact only). BOOK_FORMAT now mandates the steps format for all future lessons.",
+ "run14Extras": "Run 14 was an OWNER CHAT DIRECTIVE ('i want theory in such a way or style of book … my book to look like in cengage book you can download it from the google drive link'): (1) MATHS Drive subfolder surveyed — 5 module folders M1 Trigonometry / M2 Algebra / M3 Coordinate Geometry / M4 Calculus / M5 3D Geometry, 42 chapter PDFs, machine listings persisted at temporary-references/maths-*.json (gitignored; re-list via scripts/list_drive_folder.ts <id>); (2) Cengage M2/01 Set Theory & Real Number System downloaded (scripts/download_drive_file.sh, 24 MB) and style-studied (OCR + VLM on rendered pages) — signatures: ALL-CAPS green heads over rules, definitions in prose + Thus-lines, (i)(ii)(iii) example runs, ILLUSTRATION pills + sage bands + Sol., green exercise banner bars, sage table headers; NO content reproduced, working copy deleted after E2E; (3) reader reskinned platform-wide (globals.css book palette + .lesson-h2 Cengage heads + .roman-list; blocks.tsx ExampleBlock/DerivationBlock/FormulaBlock/AlgorithmBlock/QuizBlock/ExercisesBlock/SolutionBody/CalloutBlock + table striping + illustration auto-numbering; lesson-view.tsx green chapter-opener header; reading-progress.tsx green) — all 14 lessons restyled at once with zero content edits; (4) types.ts list block gained marker?: 'disc' | 'decimal' | 'roman'; (5) BOOK_FORMAT.md block table + 'Cengage theory presentation' house-style section, MASTER_PLAN §5 bullet, PROGRESS phase/features/verified, SOURCE_LOG style-reference entry, WORK_INVENTORY regenerated; (6) VOICE QUEUE: 4.2+ authored natively in the voice; existing 14 lessons queued for voice polish (1.1 first as the exemplar) — do them one lesson per run alongside or after unit-4 progression, never batch-draft. Gates: lint/tsc clean, routes 200, E2E green incl. mobile 390 exact-fit, SVG audit 0 issues, VLM fidelity 8.5/10.",
  "run15Extras": {
   "directive": "no need to show the steps number (owner chat, 2026-11-03)",
-  "change": "circled digit badges removed from ExampleBlock (Illustration Sol. steps), DerivationBlock (rail circles), SolutionBody (exercise worked solutions), AlgorithmBlock (leading line numbers) in src/components/library/blocks.tsx \u2014 platform-wide, zero content-file edits; worked-step arrays and boxed Answer rows unchanged",
+  "change": "circled digit badges removed from ExampleBlock (Illustration Sol. steps), DerivationBlock (rail circles), SolutionBody (exercise worked solutions), AlgorithmBlock (leading line numbers) in src/components/library/blocks.tsx — platform-wide, zero content-file edits; worked-step arrays and boxed Answer rows unchanged",
   "keptDeliberately": "ILLUSTRATION n pills, figure numbers, Q1./Q2. question numbers, quiz numbering, roman (i)(ii)(iii) list markers, \\tag{n} equation tags, Sol./Answer labels",
   "contractsUpdated": [
    "docs/project/BOOK_FORMAT.md (derivation/example/algorithm rows + worked-solution-format section)",
@@ -21,13 +21,13 @@
    "scripts/e2e-cengage-style.sh (prints the check)"
   ],
   "verified": "lint clean; tsc clean; routes 200; E2E 1.1/2.5/3.2/4.1 stepNumberBadges=0 (step rows 5/11/8/8 intact), quiz + expansion + 390px exact-fit green; VLM: no numbers, clean alignment, no glitches",
-  "push": "DEFERRED \u2014 no PAT in the owner chat session; local ahead of origin/main (remote HEAD d5a1b43, verified anonymously) by the run-15 ship commit 11703ab + inventory bookkeeping commit \u2014 push BOTH at the next cron-delivered run BEFORE any new work"
+  "push": "DEFERRED — no PAT in the owner chat session; local ahead of origin/main (remote HEAD d5a1b43, verified anonymously) by the run-15 ship commit 11703ab + inventory bookkeeping commit — push BOTH at the next cron-delivered run BEFORE any new work"
  },
  "run16Extras": {
   "directive": "the solution should also be in cengage style solution do anlaysiis on it and update it everywhere solution and all docs (owner chat, 2026-11-03)",
-  "analysis": "MATHS root + M2 subfolder surveys rebuilt after recycle (rebuild_drive_survey.ts + list_drive_folder.ts, ids persisted); Cengage M2/01 re-downloaded (24 MB) and the SOLUTION pages OCR/vision-studied: illustrations 1.9/1.22 \u2014 Sol. pill INLINE at the start of the first solution line, hanging-indent chains with a fixed left connective tag column (\u21d2/or/\u2234 and Now,/So,/But word tags), Case (i):/Alternative Method: bold leads, Thus/Hence plain conclusions; S.6 solutions section \u2014 bold question number + bold option index, equation chains with From (1) and (2) references, terminal \u21d2/\u2234 answer lines, NO boxed Answer rows, NO Answer: labels, NO step numbers",
-  "change": "blocks.tsx: new SolutionSteps + display-only parseStepTag + StepTag + SolPill (absolute, inline with first line); ExampleBlock and SolutionBody both use it; exercise collapsible's separate Sol. row + hairline removed; answer renders as the terminal \u2234 line (green ink, medium weight, Answer:/Hence: prefix stripped at display); boxed Answer row retired",
-  "contentEdits": "ZERO \u2014 the parser reads the lead-in connectives the content already carries (run-13 inserted them); all 15 lessons restyled at once",
+  "analysis": "MATHS root + M2 subfolder surveys rebuilt after recycle (rebuild_drive_survey.ts + list_drive_folder.ts, ids persisted); Cengage M2/01 re-downloaded (24 MB) and the SOLUTION pages OCR/vision-studied: illustrations 1.9/1.22 — Sol. pill INLINE at the start of the first solution line, hanging-indent chains with a fixed left connective tag column (⇒/or/∴ and Now,/So,/But word tags), Case (i):/Alternative Method: bold leads, Thus/Hence plain conclusions; S.6 solutions section — bold question number + bold option index, equation chains with From (1) and (2) references, terminal ⇒/∴ answer lines, NO boxed Answer rows, NO Answer: labels, NO step numbers",
+  "change": "blocks.tsx: new SolutionSteps + display-only parseStepTag + StepTag + SolPill (absolute, inline with first line); ExampleBlock and SolutionBody both use it; exercise collapsible's separate Sol. row + hairline removed; answer renders as the terminal ∴ line (green ink, medium weight, Answer:/Hence: prefix stripped at display); boxed Answer row retired",
+  "contentEdits": "ZERO — the parser reads the lead-in connectives the content already carries (run-13 inserted them); all 15 lessons restyled at once",
   "contractsUpdated": [
    "docs/project/BOOK_FORMAT.md (Cengage solution chain section + example/exercises rows)",
    "src/data/library/types.ts (solution/answer doc comments)",
@@ -35,8 +35,8 @@
    "scripts/e2e-cengage-style.sh (prints solutionChain)",
    "docs/project/SOURCE_LOG.md (cengage-jee-style entry extended + dated run-16 entry)"
   ],
-  "verified": "lint/tsc clean; routes 200; E2E 1.1/2.5/3.2/4.1 inlineSolPills=solPills, legacyAnswerBoxes=0, stepNumberBadges=0; force-expanded DOM: 1.2 tagColumn {So,:1, \u2234:2} + 6 \u2234 glyphs, 3.3 word tags And,/So,/Now, (0 \u2234 = correct: no Hence-led steps/answers in that lesson's data), 3.4 six terminal \u2234 lines; VLM: pill inline, staircase, terminal \u2234 green answer with label stripped, no boxes/overlaps; mobile 390px exact-fit",
-  "push": "DEFERRED \u2014 no PAT in the owner chat session; local ahead of origin/main (d5a1b43) by FOUR commits (run-15 ship 11703ab + bookkeeping c86a2dd, run-16 ship a87c06a + bookkeeping); push ALL at the next cron-delivered run BEFORE any new work",
+  "verified": "lint/tsc clean; routes 200; E2E 1.1/2.5/3.2/4.1 inlineSolPills=solPills, legacyAnswerBoxes=0, stepNumberBadges=0; force-expanded DOM: 1.2 tagColumn {So,:1, ∴:2} + 6 ∴ glyphs, 3.3 word tags And,/So,/Now, (0 ∴ = correct: no Hence-led steps/answers in that lesson's data), 3.4 six terminal ∴ lines; VLM: pill inline, staircase, terminal ∴ green answer with label stripped, no boxes/overlaps; mobile 390px exact-fit",
+  "push": "DEFERRED — no PAT in the owner chat session; local ahead of origin/main (d5a1b43) by FOUR commits (run-15 ship 11703ab + bookkeeping c86a2dd, run-16 ship a87c06a + bookkeeping); push ALL at the next cron-delivered run BEFORE any new work",
   "referenceCleanup": "Cengage M2/01 PDF + page renders deleted after verification (storage law); surveys retained in temporary-references/"
  },
  "run17Extras": {
@@ -48,7 +48,7 @@
    "ch. 3 HCF toolkit returns (one-step simplification; Euclid for 91/104 and 231/275)",
    "4.1 mediant machine reappears twice (additive trap = mediant with 1; L6 mediant closure of the equivalence family)"
   ],
-  "verification": "verify-unit-4.ts extended 84 \u2192 148 checks (sections L\u2013R: family equalities by exact cross-products, HCFs, trap products 15\u226016 and 888\u2260900, licence both directions on 12 pairs, raising registry rows, quiz arithmetic, brute-force uniqueness sweep d \u2264 40, figure geometry 155/77.5/38.75 cells + 465px invariant + 620/18 ruler ticks at 70/276.67/483.33/690); lint + tsc clean; E2E extended to 5 lessons; quiz 5/5 live; VLM + direct screenshots green",
+  "verification": "verify-unit-4.ts extended 84 → 148 checks (sections L–R: family equalities by exact cross-products, HCFs, trap products 15≠16 and 888≠900, licence both directions on 12 pairs, raising registry rows, quiz arithmetic, brute-force uniqueness sweep d ≤ 40, figure geometry 155/77.5/38.75 cells + 465px invariant + 620/18 ruler ticks at 70/276.67/483.33/690); lint + tsc clean; E2E extended to 5 lessons; quiz 5/5 live; VLM + direct screenshots green",
   "e2eChanges": "scripts/e2e-cengage-style.sh LESSONS array gains fm-equivalent-fractions-simplification (now 5 lessons)",
   "contractsUpdated": [
    "PROGRESS.json (phase/awaiting/verified/library 15 lessons 70,678 words 96 terms)",
@@ -87,7 +87,7 @@
  "run19Extras": {
   "lesson": "fm-adding-subtracting-fractions",
   "words": 4916,
-  "verifyChecks": "261 (sections AA\u2013AH added: 62 new)",
+  "verifyChecks": "261 (sections AA–AH added: 62 new)",
   "figures": [
    "five-bar stacked-contribution figure (1/4 and 1/6 on own rulers, both raised to the 12-ruler 3/12 + 2/12, sum bar 5/12 with dashed contribution boundary; geometry 155/103.33/258.33px, boundary x = 225)",
    "1/24 gap number line (ticks 0, 7/12 @ 436.67, 5/8 @ 465, 1; arc spanning the gap = 28.33px = 680/24 exactly)"
@@ -107,7 +107,7 @@
    "Greedy split"
   ],
   "e2e": "7 lessons in scripts/e2e-cengage-style.sh (fm-adding-subtracting-fractions added); scripts/e2e-44.page.js + gen-44-figures.py added with gitignore exceptions",
-  "downloads": "NONE \u2014 zero temporary-references footprint; NCERT class-6 ch. 7 addition/subtraction coverage web-checked and the ncert-math6-ch7 citation extended in SOURCE_LOG",
+  "downloads": "NONE — zero temporary-references footprint; NCERT class-6 ch. 7 addition/subtraction coverage web-checked and the ncert-math6-ch7 citation extended in SOURCE_LOG",
   "push": "run-19 ship + bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2)"
  },
  "run20Extras": {
@@ -115,8 +115,8 @@
   "words": 5172,
   "verifyChecks": "330 (sections AI-AN added: 69 new; AM caught the 14/9-not-10/9 quiz distractor before writing)",
   "figures": [
-   "area grid figure (5 columns \u00d7 3 rows: 3 columns shaded 3/5, 2 rows shaded 2/3, doubly-shaded overlap 6 of 15 cells = 2/5; geometry 124px columns, 100px rows, overlap 372 \u00d7 200 px\u00b2 of 620 \u00d7 300)",
-   "division number line (eighths at 85px ticks, 3/4 at 550px, arc spanning exactly the six eighth-steps \u2014 6 \u00d7 85 = 510 px; arc fixed from A 30 52 to A 255 46 after VLM flagged endpoint strokes)"
+   "area grid figure (5 columns × 3 rows: 3 columns shaded 3/5, 2 rows shaded 2/3, doubly-shaded overlap 6 of 15 cells = 2/5; geometry 124px columns, 100px rows, overlap 372 × 200 px² of 620 × 300)",
+   "division number line (eighths at 85px ticks, 3/4 at 550px, arc spanning exactly the six eighth-steps — 6 × 85 = 510 px; arc fixed from A 30 52 to A 255 46 after VLM flagged endpoint strokes)"
   ],
   "debtsPaid": [
    "the HCF/LCM-of-fractions shortcuts banked from Khattar ch. 2 since run 12 cashed in full (measuring defined, both formulas, the product rule surviving the climb into fractions)",
@@ -133,7 +133,7 @@
    "Measuring"
   ],
   "e2e": "8 lessons in scripts/e2e-cengage-style.sh (fm-multiplying-dividing-fractions added) + a dedicated 4.5 block (correct-index quiz click 5/5 live, force-expand 12/12, mobile 390px)",
-  "downloads": "NONE \u2014 zero temporary-references footprint; NCERT class-7 ch. 2 multiplication/division coverage web-checked and the new ncert-math7-ch2 citation key added to SOURCE_LOG",
+  "downloads": "NONE — zero temporary-references footprint; NCERT class-7 ch. 2 multiplication/division coverage web-checked and the new ncert-math7-ch2 citation key added to SOURCE_LOG",
   "unitReview": "unit-4 completion review passed (run-6/run-11 precedent): BOOK_FORMAT checklist 7/7, exam-coverage 5/5, totals recomputed (ch. 4 = 26,905 words / 32 terms; book = 18 / 85,934 / 114), ch-04 status flipped to complete, book.ts header + notes updated",
   "push": "run-20 ship (79693b1) + inventory bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2): ef2d5bd..54f88c5 HEAD -> main; remote HEAD verified 54f88c5 by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log"
  },
@@ -146,9 +146,9 @@
    "place-value mirror (760x400: arrows 'each step left x 10' / 'each step right / 10', six place columns of width 104 + 44 px point band, sample 305.274 dissected 3 x 100 ... 4 x 0.001, hinge x = 374)",
    "two-panel zoom (760x430: tenths ruler 2.0-3.0 with 2.7 at x = 504 highlighted in the dashed box, hundredths ruler 2.70-2.80 with 2.74 at x = 318, trapezoid connectors (504,102)->(70,292) and (566,102)->(690,292), 62 px steps)"
   ],
-  "figureFix": "audit first pass flagged 4 contacts in figure 2 (zoom box bottom y = 108 and connector starts touching the 2.7/2.8 tick labels) \u2014 box shortened to y 72-102, connectors re-anchored at (., 102), label row dropped to y = 124; re-audited 0 issues",
+  "figureFix": "audit first pass flagged 4 contacts in figure 2 (zoom box bottom y = 108 and connector starts touching the 2.7/2.8 tick labels) — box shortened to y 72-102, connectors re-anchored at (., 102), label row dropped to y = 124; re-audited 0 issues",
   "debtsPaid": [
-   "4.5's closing veil lifted \u2014 the decimal point opens chapter 5 exactly as promised",
+   "4.5's closing veil lifted — the decimal point opens chapter 5 exactly as promised",
    "4.1's staircase decimals explained (9/8 = 1.125 was a decimal all along: atoms 2^3, three places)",
    "ch. 3's atoms return as legislators (the atom test is uniqueness of factorisation in decimal dress)",
    "3.1's digit-sum test reappears inside the refusal direction (10^k mod 3 = 1 forever)"
@@ -163,8 +163,8 @@
    "Decimal places",
    "Equivalent decimals"
   ],
-  "e2e": "9 lessons in scripts/e2e-cengage-style.sh (fm-decimal-places-and-the-point added) + a dedicated 5.1 block (correct-index quiz click 5/5 live \u2014 score read after a separate wait; force-expand 12/12; mobile 390px)",
-  "downloads": "NONE \u2014 zero temporary-references footprint",
+  "e2e": "9 lessons in scripts/e2e-cengage-style.sh (fm-decimal-places-and-the-point added) + a dedicated 5.1 block (correct-index quiz click 5/5 live — score read after a separate wait; force-expand 12/12; mobile 390px)",
+  "downloads": "NONE — zero temporary-references footprint",
   "push": "run-21 ship + inventory bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2); see the run-21 memory commit for the verified sha"
  },
  "run22Extras": {
@@ -175,8 +175,8 @@
    "remainder carousel of 1/7 (760x430: track ring r 140 about (380,225); six cells 1/3/2/6/4/5 at angles -90/-30/30/90/150/210, r 26, start cell double-ringed dashed; amber arrowheads at mid-angles on the ring; emitted digits 1 4 2 8 5 7 at radius 168; node labels outside at radius 184; five center explainer lines at y 184-272)",
    "map of the bridge (760x470: top box 'the atoms of b' 230-530 x 22-58; three lanes x 45-255/275-485/505-715, boxes y 120-196, dashed example boxes y 240-312; trunk + three arrowed connectors; two-line italic floor at y 430/450)"
   ],
-  "figureFix": "carousel audit first pass flagged 4 contacts (node digits inside their circles; the bottom annotation crossing the track ring and node 4) \u2014 node labels moved radially outside at radius 184, 'start' folded into node 1's label, the waltz-closes line moved into the center stack; re-audited 0 issues",
-  "defectFixed": "5.1's prose said 22/7 'began its endless waltz 3.14159...' \u2014 those are pi's digits; corrected to 3.142857... (22/7 = 3.(142857), about 0.0013 from pi); chapter 1 grep clean, verify section AB added",
+  "figureFix": "carousel audit first pass flagged 4 contacts (node digits inside their circles; the bottom annotation crossing the track ring and node 4) — node labels moved radially outside at radius 184, 'start' folded into node 1's label, the waltz-closes line moved into the center stack; re-audited 0 issues",
+  "defectFixed": "5.1's prose said 22/7 'began its endless waltz 3.14159...' — those are pi's digits; corrected to 3.142857... (22/7 = 3.(142857), about 0.0013 from pi); chapter 1 grep clean, verify section AB added",
   "quizAnswers": "0/2/2/1/0",
   "newTerms": [
    "Long division step",
@@ -187,8 +187,8 @@
    "Mixed recurring decimal",
    "Cycle length"
   ],
-  "e2e": "10 lessons in scripts/e2e-cengage-style.sh (fm-decimals-and-fractions-two-ways added) + a dedicated 5.2 block (correct-index quiz click 5/5 live \u2014 score read after a separate wait; force-expand 12/12 with 18 Sol. pills and 30 therefore tags; svg figures 2; mobile 390px exact-fit)",
-  "downloads": "NONE \u2014 zero temporary-references footprint; Drive survey rebuilt once (rebuild_drive_survey.ts) to regenerate WORK_INVENTORY.json after the recycle",
+  "e2e": "10 lessons in scripts/e2e-cengage-style.sh (fm-decimals-and-fractions-two-ways added) + a dedicated 5.2 block (correct-index quiz click 5/5 live — score read after a separate wait; force-expand 12/12 with 18 Sol. pills and 30 therefore tags; svg figures 2; mobile 390px exact-fit)",
+  "downloads": "NONE — zero temporary-references footprint; Drive survey rebuilt once (rebuild_drive_survey.ts) to regenerate WORK_INVENTORY.json after the recycle",
   "references": "web-checked only: NCERT class-9 ch. 1 'Number Systems' (terminating vs non-terminating-recurring classification; NEW citation key ncert-math9-ch1), class-6 ch. 8 'Fractions as decimals' long division, Khattar QA 4e decimal-fraction patterns",
   "push": "run-22 ship + inventory bookkeeping commits pushed at run end via one-time HTTPS URL (protocol v2); see the run-22 memory commit for the verified sha"
  },
@@ -218,9 +218,9 @@
    "Clearing the divisor",
    "Unitary method"
   ],
-  "e2e": "11 lessons; 5.3 block: 6 ILLUSTRATION pills, 6 Sol. pills ALL inline, 25 step rows, stepNumberBadges 0, legacyAnswerBoxes 0, 18 thereforeTags on the chain (30 with exercises), KaTeX 248, dollarInSvg 0, note boxes Definition/Note/3 Cautions/2 formula cards visible + Exam corner, exercises 12, quiz 5; quiz answered live with intended options (2/1/2/0/1) -> 5/5 perfect (score read after a separate wait \u2014 same-eval race, run-21 precedent); all 12 solutions expand (36 open collapsibles); 2 svg figures; mobile 390px exact-fit (docScrollW 390, articleW 358); zero console errors",
-  "downloads": "zero \u2014 web research only (NCERT 6.8 addition/subtraction exercises; NCERT 7.2 \u00a7\u00a72.3\u20132.4 multiplication/division of decimals \u2014 both keys already in SOURCE_LOG; storage law honoured)",
-  "recycleNote": "run opened with the gitignored Drive survey wiped (same mild recycle) \u2014 rebuilt in one command via rebuild_drive_survey.ts (89 entries intact); WORK_INVENTORY regenerated",
+  "e2e": "11 lessons; 5.3 block: 6 ILLUSTRATION pills, 6 Sol. pills ALL inline, 25 step rows, stepNumberBadges 0, legacyAnswerBoxes 0, 18 thereforeTags on the chain (30 with exercises), KaTeX 248, dollarInSvg 0, note boxes Definition/Note/3 Cautions/2 formula cards visible + Exam corner, exercises 12, quiz 5; quiz answered live with intended options (2/1/2/0/1) -> 5/5 perfect (score read after a separate wait — same-eval race, run-21 precedent); all 12 solutions expand (36 open collapsibles); 2 svg figures; mobile 390px exact-fit (docScrollW 390, articleW 358); zero console errors",
+  "downloads": "zero — web research only (NCERT 6.8 addition/subtraction exercises; NCERT 7.2 §§2.3–2.4 multiplication/division of decimals — both keys already in SOURCE_LOG; storage law honoured)",
+  "recycleNote": "run opened with the gitignored Drive survey wiped (same mild recycle) — rebuilt in one command via rebuild_drive_survey.ts (89 entries intact); WORK_INVENTORY regenerated",
   "push": "run-23 ship + inventory bookkeeping + memory commit pushed per protocol v2; synced sha in WORKLOG.md"
  },
  "run24Extras": {
@@ -232,7 +232,7 @@
    "figure 2: the conversion map (stations 30..210 / 300..460 / 550..730 at y 150..214, 90px gaps, arc (120,150)->(640,150) peak ~85, example strip y 330)"
   ],
   "figureAudit": "0 issues FIRST pass on both figures",
-  "vlmReview": "100-square 9/10 math + 8/10 clarity (bracket complaint DISPROVEN by DOM measurement \u2014 rail 2 right end = 280 = shaded block right edge); conversion map 9.5/10 structure + 9/10 clarity (cosmetic middle-dot nit only)",
+  "vlmReview": "100-square 9/10 math + 8/10 clarity (bracket complaint DISPROVEN by DOM measurement — rail 2 right end = 280 = shaded block right edge); conversion map 9.5/10 structure + 9/10 clarity (cosmetic middle-dot nit only)",
   "quizAnswers": [
    0,
    1,
@@ -250,10 +250,10 @@
    "The 1% unit"
   ],
   "e2e": "12 lessons; 5.4 block: 6 ILLUSTRATION pills, 6 Sol. pills ALL inline, 22 step rows, stepNumberBadges 0, inlineSolPills = solPills, 18 thereforeTags on the chain (30 with exercises), KaTeX 229, dollarInSvg 0, note boxes Historical/Definition/Caution/Note/3 formula cards/Exam corner, exercises 12, quiz 5; quiz answered live with intended options (0/1/1/2/2) -> 5/5 perfect; all 12 solutions expand (36 open collapsibles); 2 svg figures; mobile 390px exact-fit (docScrollW 390, articleW 358); zero console errors",
-  "downloads": "zero \u2014 web research only (NCERT class-7 ch. 8 'Comparing Quantities' sections 8.3 'Percentage \u2014 Another Way of Comparing Quantities' + 8.4 'Use of Percentages'; new citation key ncert-math7-ch8 in SOURCE_LOG; storage law honoured)",
-  "recycleNote": "run opened with the gitignored Drive survey wiped (sandbox recycle) \u2014 rebuilt via rebuild_drive_survey.ts (89 entries intact) solely to regenerate WORK_INVENTORY.json; zero downloads this run",
-  "preWritingCatch": "the verify audit caught 2 real defects BEFORE any content was written (BP4 float artifact M(0.065*100); BQ4 wrong kill-condition) \u2014 fixed, then 394/394",
-  "defectFixed": "none carried over \u2014 5.1-5.3 clean",
+  "downloads": "zero — web research only (NCERT class-7 ch. 8 'Comparing Quantities' sections 8.3 'Percentage — Another Way of Comparing Quantities' + 8.4 'Use of Percentages'; new citation key ncert-math7-ch8 in SOURCE_LOG; storage law honoured)",
+  "recycleNote": "run opened with the gitignored Drive survey wiped (sandbox recycle) — rebuilt via rebuild_drive_survey.ts (89 entries intact) solely to regenerate WORK_INVENTORY.json; zero downloads this run",
+  "preWritingCatch": "the verify audit caught 2 real defects BEFORE any content was written (BP4 float artifact M(0.065*100); BQ4 wrong kill-condition) — fixed, then 394/394",
+  "defectFixed": "none carried over — 5.1-5.3 clean",
   "contractsUpdated": [
    "docs/project/WORKLOG.md (run-24 entry + push note)",
    "docs/project/PROGRESS.json (phase/awaiting/library 22 lessons 104,922 words 142 terms)",
@@ -270,7 +270,7 @@
   "lesson": "FM 5.5 'Percentage Change, Discounts and Simple Interest' (id fm-percentage-change-discounts-simple-interest)",
   "words": 3626,
   "verifyChecks": "verify-unit-5.ts 394 -> 455 (sections BT-CC) ALL PASS pre-writing; regressions 330/260/165; the pre-writing audit caught 3 real defects before any content existed",
-  "platformFix": "RichText (src/components/library/math.tsx) bold/italic branches now recurse \u2014 $math$ renders inside **bold**/*italic*; 12 latent raw-LaTeX leaks repaired site-wide (ch-02 x2, ch-03 x1, ch-04 x3, ch-05 x6 incl. 5.2 x1), zero content edits; verified 0 raw-$ leaks on the SSR HTML",
+  "platformFix": "RichText (src/components/library/math.tsx) bold/italic branches now recurse — $math$ renders inside **bold**/*italic*; 12 latent raw-LaTeX leaks repaired site-wide (ch-02 x2, ch-03 x1, ch-04 x3, ch-05 x6 incl. 5.2 x1), zero content edits; verified 0 raw-$ leaks on the SSR HTML",
   "figures": [
    "figure 1: the round-trip map (760x470: original box 40..200, new box 560..720, y 170..230; forward arrow y 200 with labels x 380; correct ticket path 640/120 at y 300; wrong amber dashed ticket 600/160 at y 390; takeaway y 445)",
    "figure 2: the two-lane map (760x320: CP 40..190, SP 320..440, MP 570..720, y 95..150; arrows y 122 landing 10px short; labels y 108; explainer rows y 210/240; takeaway y 285)"
@@ -295,8 +295,8 @@
    "Amount"
   ],
   "e2e": "13 lessons; 5.5 block: 4 caps-over-rule headings, 9 ILLUSTRATION pills, 9 Sol. pills ALL inline, 32 step rows, stepNumberBadges 0, inlineSolPills = solPills, 27 thereforeTags on the chain (33 with exercises), KaTeX 229, dollarInSvg 0, note boxes Note x2/Definition x3/Caution x3 + Exam corner, exercises 12, quiz 5; quiz answered live with intended options (0/1/1/2/3) -> 5/5 perfect; all 12 solutions expand (36 open collapsibles); 2 svg figures; mobile 390px exact-fit (docScrollW 390, articleW 358); zero console errors",
-  "downloads": "zero \u2014 web research only (NCERT class-7 ch. 8 \u00a7\u00a78.5\u20138.6 + class-8 ch. 8 \u00a7\u00a78.2\u20138.4; new citation key ncert-math8-ch8 in SOURCE_LOG; storage law honoured)",
-  "recycleNote": "run opened with the gitignored Drive survey wiped (sandbox recycle) \u2014 rebuilt via rebuild_drive_survey.ts (89 entries intact) solely to regenerate WORK_INVENTORY.json; zero downloads this run",
+  "downloads": "zero — web research only (NCERT class-7 ch. 8 §§8.5–8.6 + class-8 ch. 8 §§8.2–8.4; new citation key ncert-math8-ch8 in SOURCE_LOG; storage law honoured)",
+  "recycleNote": "run opened with the gitignored Drive survey wiped (sandbox recycle) — rebuilt via rebuild_drive_survey.ts (89 entries intact) solely to regenerate WORK_INVENTORY.json; zero downloads this run",
   "unitReview": "unit-5 completion review passed (run-6/11/20 precedent): BOOK_FORMAT checklist 7/7, exam-coverage audit 5/5, ids globally unique, totals recomputed (ch. 5 = 24,614 words; book = 23 lessons / 110,548 words / 150 terms / 115 quiz / 233 exercises), ch-05 status flipped to complete, plannedLessons emptied, book.ts header + notes updated, chapter status complete",
   "contractsUpdated": [
    "docs/project/WORKLOG.md (run-25 entry)",
@@ -316,7 +316,7 @@
   "lesson": "FM 6.1 'Ratio as a Comparison' (id fm-ratio-as-a-comparison)",
   "words": 4442,
   "verifyChecks": "93 new (scripts/verify-unit-6.ts, sections A-K; gitignore exception added)",
-  "references": "web-checked only, zero downloads: NCERT class-6 ch. 12 'Ratio and Proportion' \u00a712.1 (ratio, same units, simplest form) + NCERT class-7 ch. 8 \u00a7\u00a78.1\u20138.2 (Introduction, Equivalent Ratios) + Khattar QA 4e ratio staples; new citation key ncert-math6-ch12, ncert-math7-ch8 extended in SOURCE_LOG.md",
+  "references": "web-checked only, zero downloads: NCERT class-6 ch. 12 'Ratio and Proportion' §12.1 (ratio, same units, simplest form) + NCERT class-7 ch. 8 §§8.1–8.2 (Introduction, Equivalent Ratios) + Khattar QA 4e ratio staples; new citation key ncert-math6-ch12, ncert-math7-ch8 extended in SOURCE_LOG.md",
   "figures": [
    "figure 1: the dots family (760x360: three rows y 70/150/230, left group x 60.. pitch 24, right group x 340.., dashed divider x 296, ratio labels at x 696, takeaway y 320)",
    "figure 2: the sharing map (760x300: bar x 60..700 y 110..170, 8 cells of 80 px, A 60..300 shaded 0.16, bracket rails y 92, explainer rows y 208/240/275)"
@@ -340,15 +340,15 @@
    "One part"
   ],
   "e2e": "14 lessons in scripts/e2e-cengage-style.sh (fm-ratio-as-a-comparison added) + a dedicated 6.1 block (quiz correct-index clicks 2/1/3/2/0 -> 5/5 live, force-expand 12/12, 36 collapsibles, mobile 390px exact-fit)",
-  "voicePolish": "lesson 1.1 (queued per-run extra, 1.1 first): formal Definition callout 'Number, numeral and digit' (is-said-to-be shape + Thus-line) + roman example run (the number / the numerals / the digits incl. Devanagari \u0967\u0967 = eleven) + Thus-line on the base-ten para (same digit 5 worth 5, 50, 500 by its seat) \u2014 zero numbers changed, tsc + lint clean",
-  "sandboxNote": "dev-mode lesson routes 404 for ALL lessons (old and new) in this recycled sandbox instance \u2014 bisected by stashing the run's changes and re-testing pre-change code (still 404); quality gate run against the PRODUCTION build (bun run build + bun run start): new lesson 200, old lessons 200, unknown id 404; logged in WORKLOG.md",
+  "voicePolish": "lesson 1.1 (queued per-run extra, 1.1 first): formal Definition callout 'Number, numeral and digit' (is-said-to-be shape + Thus-line) + roman example run (the number / the numerals / the digits incl. Devanagari ११ = eleven) + Thus-line on the base-ten para (same digit 5 worth 5, 50, 500 by its seat) — zero numbers changed, tsc + lint clean",
+  "sandboxNote": "dev-mode lesson routes 404 for ALL lessons (old and new) in this recycled sandbox instance — bisected by stashing the run's changes and re-testing pre-change code (still 404); quality gate run against the PRODUCTION build (bun run build + bun run start): new lesson 200, old lessons 200, unknown id 404; logged in WORKLOG.md",
   "chapter": "ch-06.ts created; book.ts registers chapter06 with status 'in-progress', plannedLessons trimmed to Rates/Proportion/Variation/Scaling",
   "push": "ship dcff4f6 + inventory bookkeeping adb18f9 pushed at run end via one-time HTTPS URL (protocol v2): b490cf7..adb18f9 HEAD -> main; remote HEAD verified adb18f9 (full sha adb18f9eb3ae8afda98d3d0042d8b938536ee20a) = refs/heads/main = local by one-time-URL ls-remote; origin/main tracking ref resynced; PAT never written to any file/config/log; the memory commit completes the record"
  },
  "run27Extras": {
   "lesson": "FM 6.2 'Rates and Unit Rates' (id fm-rates-and-unit-rates)",
   "words": 4152,
-  "voicePolish": "lesson 1.2 (queued per-run extra, 1.2 second): formal Definition callout 'The comparison rule' (is-said-to-be shape + the deciding seat named) + roman example run (9,999 vs 10,000; 98,341 vs 9,843; 4,589 vs 4,598 \u2014 all reused from the lesson's own text) + the Thus-line handing the rule to the domination-bound proof \u2014 zero new numerals, tsc + lint clean",
+  "voicePolish": "lesson 1.2 (queued per-run extra, 1.2 second): formal Definition callout 'The comparison rule' (is-said-to-be shape + the deciding seat named) + roman example run (9,999 vs 10,000; 98,341 vs 9,843; 4,589 vs 4,598 — all reused from the lesson's own text) + the Thus-line handing the rule to the domination-bound proof — zero new numerals, tsc + lint clean",
   "verifyChecks": "verify-unit-6.ts 93 -> 165 (sections L-U) ALL PASS pre-writing; regressions 455/330/260/165; the audit caught the pens inverse-read misplanned as an 11th Illustration (lives in prose; U1 corrected)",
   "references": "web-checked only, zero downloads: NCERT class-6 ch. 12 Ex. 12.3 (the unitary method; key ncert-math6-ch12 extended) + NCERT class-7 science 'Motion and Time' (speed = distance/time, m/s basic unit, km/h road dress; new key ncert-sci7-motion) + Khattar QA 4e speed/unitary-method staples; SOURCE_LOG.md table row extended",
   "figures": [
@@ -356,7 +356,7 @@
    "figure 2: the journey map (760x300: bar x 60..700 y 110..170, 4 cells of 160 px, alternate cells shaded 0.08, hour labels y 96, km labels y 194, three takeaway rows y 232/262/290)"
   ],
   "figureAudit": "0 issues FIRST pass on both figures",
-  "vlmReview": "double ruler 10/10 math + 10/10 clarity; journey map 10/10 math + 10/10 clarity (first VLM pass on the journey shot captured the wrong figure \u2014 the table is wrapped in a figure element on this lesson, journey map is figs[2]; re-shot and re-reviewed clean)",
+  "vlmReview": "double ruler 10/10 math + 10/10 clarity; journey map 10/10 math + 10/10 clarity (first VLM pass on the journey shot captured the wrong figure — the table is wrapped in a figure element on this lesson, journey map is figs[2]; re-shot and re-reviewed clean)",
   "quizAnswers": [
    1,
    0,
@@ -374,7 +374,7 @@
    "Conversion factor"
   ],
   "e2e": "15 lessons in scripts/e2e-cengage-style.sh (fm-rates-and-unit-rates added) + a dedicated 6.2 block (quiz correct-index clicks 1/0/1/2/1 -> 5/5 live, force-expand 12/12, 36 collapsibles, mobile 390px exact-fit)",
-  "sandboxNote": "dev-mode lesson routes 404 for ALL lessons in this recycled sandbox instance (persists from run 26) \u2014 quality gate ran against the PRODUCTION build (bun run build + bun run start restarted fresh): new lesson 200, old lessons 200, unknown id 404; the gitignored Drive survey was wiped by the recycle and rebuilt via rebuild_drive_survey.ts (89 entries intact) before WORK_INVENTORY regen; logged in WORKLOG.md",
+  "sandboxNote": "dev-mode lesson routes 404 for ALL lessons in this recycled sandbox instance (persists from run 26) — quality gate ran against the PRODUCTION build (bun run build + bun run start restarted fresh): new lesson 200, old lessons 200, unknown id 404; the gitignored Drive survey was wiped by the recycle and rebuilt via rebuild_drive_survey.ts (89 entries intact) before WORK_INVENTORY regen; logged in WORKLOG.md",
   "push": "ship d98ba02 + inventory bookkeeping 0380e71 pushed at run end via one-time HTTPS URL (protocol v2): d505977..0380e71 HEAD -> main; remote HEAD verified 0380e71 (full sha 0380e7192878b0980fd98bdbb98d3f93856a82b3) = refs/heads/main = local by one-time-URL ls-remote; origin/main tracking ref resynced via anonymous fetch; PAT never written to any file/config/log; the memory commit completes the record"
  },
  "run28Extras": {
@@ -390,7 +390,7 @@
   "lesson": "fm-direct-and-inverse-variation",
   "words": 5373,
   "figurePolish": "VLM-driven: fig 1 titles 48->40 + km/h nudge + 3x80 label to the guides pocket (480,108) (clarity 7.5 -> 9); fig 2 one arc -> two crossing legs + side label + grid recentering (clarity 6 -> 9); verify AJ10/AJ13/AJ14 + AM4/AM5 updated, 361 checks ALL PASS, audits 0/0",
-  "e2eBlock": "the dedicated 6.4 block was missing from scripts/e2e-cengage-style.sh (lesson registered only) \u2014 added with keys 2/1/1/2/1",
+  "e2eBlock": "the dedicated 6.4 block was missing from scripts/e2e-cengage-style.sh (lesson registered only) — added with keys 2/1/1/2/1",
   "queuedExtra": "lesson 2.1 voice polish (callout + roman run + Thus-line), verified live",
   "queueCorrection": "1.4-1.11 stale (ch. 1 closed at 3 lessons); remaining pre-4.2 = 2.2-2.5, 3.1-3.5, 4.1",
   "inventory": "survey rebuilt (89 entries) -> 27 lessons / 128,994 words / 178 terms / 135 quiz / 281 exercises"
@@ -400,7 +400,7 @@
   "change": "ch-06.ts only (plus verify + bookkeeping): 6.4 figure 2 arrows redesigned as curved swap-arcs with solid heads and anchor dots; 6.4 figure 1 hyperbola 6-vertex polyline -> 36-vertex smooth path; '4 x 60'/'6 x 40' labels relocated off the curve",
   "sweep": "all 45 figures across ch-01..06 audited by screenshots + VLM batches: ch-01 3/3 PASS (markers + Q-arcs), ch-05 10/10 PASS (solid polygon heads), ch-06 6.1/6.2/6.3 6/6 PASS, ch-02/03/04 no directional arrows (axes/bars/grids/brackets; ch-02 diagonals are digit strikethroughs)",
   "contractsUpdated": [
-   "scripts/verify-unit-6.ts (AJ10/AJ11/AM4/AM5 rewritten for the new geometry \u2014 361 checks ALL PASS)",
+   "scripts/verify-unit-6.ts (AJ10/AJ11/AM4/AM5 rewritten for the new geometry — 361 checks ALL PASS)",
    "scripts/gen_smooth_hyperbola.py (new, gitignore exception added)",
    "docs/project/WORKLOG.md run-31 entry",
    "docs/project/DETAILED_LOG.md run-31 row",
@@ -408,7 +408,7 @@
    "docs/project/PROGRESS.json + RESUME_POINTER.json (this file)"
   ],
   "verified": "verify 2/3/4/5/6 ALL PASS; audit-svg-overlaps 0 issues both touched figures (the auditor caught the label-on-curve only after the polyline became a path); lint + tsc clean; routes 200/200/200/404; full 17-lesson E2E exit 0; VLM: flip glyph clean no-glitch, panels 9/10 smooth",
-  "push": "DEFERRED \u2014 no PAT in the owner chat session; five unpushed commits (run-30 x4 + run-31 ship) await the next cron-delivered run, which must push them BEFORE any new work"
+  "push": "DEFERRED — no PAT in the owner chat session; five unpushed commits (run-30 x4 + run-31 ship) await the next cron-delivered run, which must push them BEFORE any new work"
  },
  "run33Extras": {
   "syncedSha": "64a315bf977c0b211437086ec45958f6142d4d1e (ship commit 64a315b remote-verified via one-time-URL ls-remote = local HEAD)",
@@ -424,16 +424,16 @@
   "newCitationKeys": [],
   "voicePolishQueue": "3.1 next (then 3.2-3.5, 4.1)",
   "e2eSuite": "21 lessons (fm-multiplying-integers-sign-rules registered in e2e-cengage-style.sh)",
-  "nextUnit": "FM 7.4 'Absolute Value as Distance' \u2014 extends verify-unit-7.ts sections before writing; completes chapter 7"
+  "nextUnit": "FM 7.4 'Absolute Value as Distance' — extends verify-unit-7.ts sections before writing; completes chapter 7"
  },
  "run36Extras": {
   "syncedSha": "90943bf0de61c13e8ccc8eeae92c89420f71cb28 (ship commit 90943bf remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; origin/main tracking ref resynced by anonymous HTTPS fetch)",
-  "inFlightRecovery": "7.4 found half-landed as auto-checkpoint ab19d64 \u2014 finished, gated, shipped this run",
+  "inFlightRecovery": "7.4 found half-landed as auto-checkpoint ab19d64 — finished, gated, shipped this run",
   "unitReview": "chapter 7 CLOSED (4/4): ch-07.ts status complete; BOOK_FORMAT checklist 7/7; ids unique; totals recomputed via scripts/count-unit-7.ts",
   "newCitationKeys": [],
   "voicePolishQueue": "3.2 next (then 3.3-3.5, 4.1)",
   "e2eSuite": "22 lessons (fm-absolute-value-as-distance registered in e2e-cengage-style.sh; e2e-74.page.js dedicated block)",
-  "nextUnit": "FM 8.1 'Points, Lines and Planes' \u2014 chapter 8 Geometry Foundations OPENS: create scripts/verify-unit-8.ts sections BEFORE writing, register ch. 8 in book.ts as in-progress with plannedLessons trimmed, follow ch-01.ts exemplar + BOOK_FORMAT.md; one lesson per run"
+  "nextUnit": "FM 8.1 'Points, Lines and Planes' — chapter 8 Geometry Foundations OPENS: create scripts/verify-unit-8.ts sections BEFORE writing, register ch. 8 in book.ts as in-progress with plannedLessons trimmed, follow ch-01.ts exemplar + BOOK_FORMAT.md; one lesson per run"
  },
  "run37Extras": {
   "syncedSha": "recorded in WORKLOG.md after the one-time-URL ls-remote verification",
@@ -443,7 +443,7 @@
   ],
   "voicePolishQueue": "3.3 next (then 3.4, 3.5, 4.1)",
   "e2eSuite": "23 lessons (fm-points-lines-and-planes registered in e2e-cengage-style.sh)",
-  "nextUnit": "FM 8.2 'Angles and Their Measurement' \u2014 extend verify-unit-8.ts with new sections BEFORE writing; ch. 8 continues (plannedLessons: Angles and Their Measurement; Parallel Lines and Transversals; Triangles and the Angle Sum; Perimeter and Area of Rectangles, Triangles and Circles)"
+  "nextUnit": "FM 8.2 'Angles and Their Measurement' — extend verify-unit-8.ts with new sections BEFORE writing; ch. 8 continues (plannedLessons: Angles and Their Measurement; Parallel Lines and Transversals; Triangles and the Angle Sum; Perimeter and Area of Rectangles, Triangles and Circles)"
  },
  "run38Extras": {
   "lesson": "fm-angles-and-their-measurement",
@@ -462,10 +462,10 @@
   "nextPolish": "3.4 (lesson 3.4 Lowest Common Multiple)"
  },
  "ownerDirective20261105": {
-  "oldJob": "498279 'LockIn Library \u2014 hourly unit run' \u2014 disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",
-  "newJob": "504365 'LockIn Library \u2014 hourly unit run (2 lessons/run)' \u2014 fixed_rate 3600 s, tz Asia/Kolkata, created 2026-11-05 10:11:33, status enabled",
+  "oldJob": "498279 'LockIn Library — hourly unit run' — disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",
+  "newJob": "504365 'LockIn Library — hourly unit run (2 lessons/run)' — fixed_rate 3600 s, tz Asia/Kolkata, created 2026-11-05 10:11:33, status enabled",
   "change": "TWO lessons per run (authored sequentially, each with verify-first + full quality gates; an in-flight lesson counts as lesson 1 of 2; single ship after both); every other detail identical, including the PUSH PROTOCOL with the PAT embedded only in the job payload",
-  "lessonWorkThisTurn": "none \u2014 infrastructure directive only; tree clean at beaf0f8, remote synced; run 43 = FM 9.2 + FM 9.3"
+  "lessonWorkThisTurn": "none — infrastructure directive only; tree clean at beaf0f8, remote synced; run 43 = FM 9.2 + FM 9.3"
  },
  "run43Extras": {
   "lessons": [
@@ -501,7 +501,18 @@
   ],
   "chapterState": "ch. 9 Measurement in-progress 3/4; next 9.4 closes the chapter"
  },
- "nextUnit": "Book #2 'Arithmetic and Number Systems' \u2014 RESEARCH PHASE (reference survey + syllabus audit + chapter plan; promotion to src only after research)",
+ "nextUnit": {
+  "book": "arithmetic-and-number-systems",
+  "chapter": 1,
+  "chapterTitle": "The Natural Numbers as a System",
+  "lessons": [
+   "The Architecture of Counting: Successors and Order",
+   "Induction: Proving for Every Number at Once",
+   "The Least-Number Principle and Recursion"
+  ],
+  "written": 0,
+  "note": "first authoring run of book #2; two lessons per run; unit-1 completion review when 1.3 lands"
+ },
  "run46Extras": {
   "lessons": [
    "fm-mean-median-and-mode",
@@ -511,7 +522,7 @@
    5783,
    4965
   ],
-  "verifyChecks": "unit-10: 186 \u2192 301 (AA\u2013AP); unit-11: created with 72 (A\u2013O)",
+  "verifyChecks": "unit-10: 186 → 301 (AA–AP); unit-11: created with 72 (A–O)",
   "quizKeys": [
    [
     2,
@@ -533,6 +544,7 @@
    "ncert-ganita-prakash6-ch1"
   ],
   "chapterState": "ch. 10 Data and Graphs COMPLETE 4/4 (18,709 words; unit-10 review passed); ch. 11 Patterns and the Doorstep of Algebra in-progress 1/3; next 11.2 + 11.3 close the chapter and the book",
-  "note": "job 504365 fires 1, 2 (10:30:44, 12:11:34) produced zero tool calls (each consumed by a session-summary interruption \u2014 the pattern worsened across three context windows); fire 3 (14:11:35) executed this run in full"
- }
+  "note": "job 504365 fires 1, 2 (10:30:44, 12:11:34) produced zero tool calls (each consumed by a session-summary interruption — the pattern worsened across three context windows); fire 3 (14:11:35) executed this run in full"
+ },
+ "run48Extras": "RUN 48 (fired 16:00 IST from job 498279 — the third consecutive fire from the re-enabled old job, the duplicate-hourly-trigger again logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive in memory): (1) THE PENDING RUN-47 PUSH EXECUTED FIRST — run 47 had been interrupted after its ship commit 08e2c74 but before its push; both pending commits (73787fe run-46 memory + 08e2c74 run-47 ship) pushed in one protocol push, remote main verified = 08e2c74 via one-time-URL ls-remote, recorded in WORKLOG.md, sanity gates re-run first (tsc 0, lint 0). (2) BOOK #2 PROMOTED: 'Arithmetic and Number Systems' (Mathematics shelf, SUBJECT_BACKLOG #2) — RESEARCH PHASE COMPLETE: reference survey (Khattar QA 4e ch. 1 + Cengage M2/01 already persisted — no downloads; survey rebuilt after the recycle, 89 entries intact) + syllabus audit via the sanctioned internet fallback (five source families: competitive-exam number-system scope, the Beck-Geoghegan university proof-transition bridge, OpenStax Contemporary Math historical numeration, Cambridge IGCSE CS 0478 data representation, the NCERT class 6/8 canon) + the full 10-chapter/34-lesson chapter plan. The book lives at src/data/library/books/mathematics/arithmetic-number-systems/book.ts (status 'planned', ans- lesson-id prefix, full TOC as plannedLessons, per-chapter research mapping in the file header), registered in index.ts -> allBooks (2 books library-wide). scripts/verify-book2-promotion.ts 121/121 checks (structure, registry, uniqueness vs FM, the six FM cross-reference anchors verified to exist, research mapping). Gates: lint 0, tsc 0, routes 200 (book/revise/glossary 200; unknown lesson 404; unknown book 404), browser E2E green (home shelf shows the new spine; book page: 0 written / 34 planned chips, 10 chapter tiles, 8 sampled planned titles render, no dead CTAs, zero console errors; screenshot reviewed). WORK_INVENTORY.json regenerated (generator generalized to a books array; booksLive 2, backlog 280; the gitignored Drive survey had to be rebuilt first after the recycle). Logs: SOURCE_LOG.md (research-phase section + 4 reserved citation keys: beck-geoghegan-art-of-proof, openstax-contemporary-math, cambridge-igcse-cs-0478, ncert-math8-ch16), SUBJECT_BACKLOG.md (FM marked COMPLETE, ANS marked PROMOTED), PROGRESS.json (library block de-staled: FM status complete 11/48/355, new ANS entry, honest totals block), DETAILED_LOG.md (run-48 header + book #2 sections)."
 }

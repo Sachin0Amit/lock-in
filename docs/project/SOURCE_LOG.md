@@ -58,6 +58,31 @@ step 6).
   original. Working copy (PDF + page renders) deleted after the run's E2E
   verification, per the storage law.
 
+## Book research phases
+
+- **Book #2 — Arithmetic and Number Systems (Mathematics shelf, promoted
+  2026-11-05, run 48):** research phase COMPLETE — reference survey +
+  syllabus audit + full chapter plan (10 chapters / 34 planned lessons),
+  and the book promoted to `src/data/library/books/mathematics/arithmetic-
+  number-systems/` with `status: 'planned'`. No downloads (survey-only):
+  the relevant Drive references were already identified and persisted —
+  Khattar QA 4e ch. 1 "Numbers" (file id in the survey since run 6) for
+  the competitive-exam arithmetic scope, and the Cengage M2/01 "Set Theory
+  and the Real Number System" module (already style-studied run 14) for
+  the number-systems bridge. Syllabus audit via the sanctioned internet
+  fallback: (a) competitive-exam number-system scope (CAT/IPMAT-level
+  syllabi — divisibility, HCF×LCM product relation, remainders, unit-digit
+  cyclicity, factorial trailing zeros, base conversion + arithmetic in
+  other bases); (b) university proof-transition scope (Beck & Geoghegan,
+  *The Art of Proof*: ℕ with induction/recursion → ℤ → ℚ → ℝ as "our
+  subject is number systems"); (c) historical numeration (OpenStax
+  *Contemporary Mathematics* §4.2 — Babylonian/Mayan/Roman → Hindu–Arabic);
+  (d) machine representation (Cambridge IGCSE CS 0478 §1.1 — binary/hex/
+  two's complement; deep coverage left to the CS shelf); (e) the school
+  canon (NCERT class 6 ch. 1 + class 8 ch. 16 "Playing with Numbers").
+  Per-chapter mapping in the book file header. Authoring starts at ch. 1
+  (run 49; two lessons per run, owner directive 2026-11-05).
+
 ## Citation keys (used by lesson `sources` fields)
 
 - `ncert-math6-ch11` — NCERT Class 6 Mathematics, ch. 11 "Algebra".
@@ -434,11 +459,46 @@ step 6).
   the mismatch gallery and the five-question checklist are the book's
   own derivations. No content reproduced.
 
+## Citation keys reserved by the book-#2 research phase (run 48)
+
+- `beck-geoghegan-art-of-proof` — Matthias Beck & Ross Geoghegan, *The
+  Art of Proof: Basic Training for Deeper Mathematics*, Springer
+  (Undergraduate Texts in Mathematics; 2010, corrected 2018). Reserved
+  for: ANS ch. 1/6/7/8 — the university number-systems bridge whose
+  stated subject is exactly this book's ("our subject is number systems:
+  the integers and the natural numbers… the real numbers and the rational
+  numbers… emphasis on induction, recursion, and convergence"), web-checked
+  2026-11-05 (run 48) via the publisher/abstract listings. Exposition
+  original; the book's own induction/well-ordering/construction treatments.
+
+- `openstax-contemporary-math` — OpenStax, *Contemporary Mathematics*
+  (open textbook, 2023), §4.2 "Early Numeration Systems" (+ the
+  LibreTexts *Mathematics in Context* ch. 1 "Number Representation in
+  Different Bases and Cryptography" mirror). Reserved for: ANS ch. 9 —
+  the historical-numeration charter (Babylonian base-60, Mayan base-20,
+  Roman additive → Hindu–Arabic place-value conversions), web-checked
+  2026-11-05 (run 48). Exposition and all figures original.
+
+- `cambridge-igcse-cs-0478` — Cambridge IGCSE Computer Science 0478
+  syllabus §1.1 "Data Representation" (binary/denary/hexadecimal
+  conversions, binary addition + overflow, two's complement, the
+  hex-nibble shortcut). Reserved for: ANS ch. 3 lesson 3.4 — the machine
+  connection cross-reference (deep coverage belongs to the CS shelf:
+  Digital Logic Design, COA), web-checked 2026-11-05 (run 48).
+
+- `ncert-math8-ch16` — NCERT Class 8 Mathematics, ch. 16 "Playing with
+  Numbers" (old-edition canon; public curriculum). Reserved for: ANS
+  ch. 5 lesson 5.2 — the class-8 canon whose tests of divisibility by 3/9
+  and "numbers in general form" this book re-derives from congruences;
+  web-checked 2026-11-05 (run 48) against the published chapter listings
+  (topics: numbers in general form, games with numbers, letters for
+  digits, the 3/9 tests). Exposition original.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
 |---|---|---|---|---|---|
-| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-7 ch. 8 §§8.3–8.6 + class-8 ch. 8 §§8.2–8.4 + class-9 ch. 1 + class-6 ch. 12 §12.1 + class-7 ch. 8 §§8.1–8.2; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps), lesson 5.3 (no downloads; NCERT class-6 ch. 8 + class-7 ch. 2 §§2.3–2.4 web-checked; Khattar point-hop family), lesson 5.4 (no downloads; NCERT class-7 ch. 8 §§8.3–8.4 web-checked — new citation key ncert-math7-ch8; Khattar percent conversion items), lesson 5.5 (no downloads; NCERT class-7 ch. 8 §§8.5–8.6 + class-8 ch. 8 §§8.2–8.4 web-checked — new citation key ncert-math8-ch8; Khattar percentage/profit-loss exam staples) · FM ch. 6 (unit 6): lesson 6.1 (no downloads; NCERT class-6 ch. 12 §12.1 + class-7 ch. 8 §§8.1–8.2 web-checked — new citation key ncert-math6-ch12, ncert-math7-ch8 extended; Khattar ratio exam staples), lesson 6.2 (no downloads; NCERT class-6 ch. 12 Ex. 12.3 — the unitary method — web-checked, key ncert-math6-ch12 extended to Ex. 12.3; NCERT class-7 science "Motion and Time" web-checked — new citation key ncert-sci7-motion; Khattar speed/unitary-method exam staples), lesson 6.3 (no downloads; NCERT class-6 ch. 12 §12.2 "Proportion" + Ex. 12.2 web-checked, key ncert-math6-ch12 extended to §12.2/Ex. 12.2; Khattar ratio-proportion exam staples) · FM ch. 7 (unit 7): lessons 7.1–7.4 (no downloads; NCERT Ganita Prakash class-6 ch. 10 + class-7 part-2 ch. 2 web-checked — new keys ncert-math6-ch10, ncert-math7-p2-ch2; Brahmagupta/Argand/Weierstrass history web-checked; Khattar integer exam staples) · FM ch. 8 (unit 8): lesson 8.1 (no downloads; NCERT class-6 ch. 4 + class-9 ch. 5 web-checked — new keys ncert-math6-ch4, ncert-math9-ch5; Euclid Elements facts web-checked against Joyce's Clark U. edition), lesson 8.2 (no downloads; NCERT Ganita Prakash class-6 ch. 2 "Lines and Angles" web-checked — new key ncert-math6-gp-ch2; key ncert-math6-ch4 extended toward §4.9 angles; Huddart 1801 protractor per Britannica; Khattar clock/angle staples), lesson 8.3 (no downloads; NCERT Ganita Prakash class-7 ch. 5 "Parallel and Intersecting Lines" + class-9 ch. 6 "Lines and Angles" web-checked — new keys ncert-math7-gp-ch5, ncert-math9-ch6; Euclid Postulate 5 + I.27/I.29 re-checked against Joyce's Clark U. edition; Playfair 1795/Ludlam 1785/Proclus + Lobachevsky–Bolyai history web-checked; Khattar transversal/angle-chase staples), lesson 8.4 (no downloads; NCERT class-7 ch. 6 web-checked — new key ncert-math7-ch6; Euclid I.32 + Proclus corollaries + the Gauss legend per Buhler re-checked), lesson 8.5 (no downloads; Ganita Prakash class-6 ch. 6 + class-7 ch. 11 + the class-7 exemplar gemp109 web-checked — new keys ncert-math6-gp-ch6, ncert-math7-ch11; Archimedes' 96-gon bounds, Zu Chongzhi's Milü, Aryabhata's rule, Jones 1706/Euler, Lambert 1761/Lindemann 1882 web-checked; Khattar mensuration exam staples) · FM ch. 9 (unit 9): lesson 9.1 (no downloads; NCERT Curiosity class-6 science ch. 5 + class-11 physics ch. 2 web-checked — new keys ncert-sci6-curiosity-ch5, ncert-phys11-ch2; the cubit/Maya's rod 52.3 cm, the barleycorn inch, the honest Henry-I yard legend, the Metre Convention 1875/BIPM Sèvres, SI 1960, India 1956/1960/2009 web-checked; Khattar unit-identification exam staples), lesson 9.2 (no downloads; the metric history web-checked — new keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter: the metre's three bodies, the 1795 decree, the litre's 1901→1964 drift, the 0.02% honest caveat, the decimal day; the prefix ladder and the litre bridge are original exposition on the carried NCERT keys), lesson 9.3 (no downloads; carried keys only — the factor-licence method is original exposition; Khattar conversion exam staples), lesson 9.4 (no downloads; NCERT class-6 ch. 1 §1.3 estimation/rounding web-checked — new key ncert-math6-ch1; the accuracy/precision definitions carried on ncert-phys11-ch2; the Everest 1856 announcement 29,002 ft + the 2020 China–Nepal 8,848.86 m web-checked, the 0.102% relative error recomputed in verify-unit-9.ts; Khattar rounding/estimation exam staples) · FM ch. 10 (unit 10): lesson 10.1 (no downloads; NCERT Ganita Prakash class-6 ch. 4 Data Handling and Presentation web-checked — new key ncert-ganita-prakash6-ch4; the Ishango bone + the Exchequer tally sticks + the 1834 Westminster fire web-checked with hedges; Khattar data-table exam staples), lesson 10.2 (no downloads; the bar/line/pie charter carried on ncert-ganita-prakash6-ch4 + a new key ncert-math8-ch4 — NCERT class-8 ch. 4 Data Handling: the circle graph/pie chart and the central-angle-as-fraction-of-360° canon; Playfair 1786/1801 and Nightingale's 1858 rose diagram web-checked per Wikipedia/IBCS/Bellhouse; Khattar data-interpretation staples), lesson 10.3 (no downloads; new key huff-1954-lie-with-statistics — the critical-reading tradition mirrored; every lying chart drawn from the book's own tiny data, none reproduced; Khattar DI staples) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics COMPLETE (**11/11 chapters — the book closed by run 47 (2026-11-05): ch. 11 Patterns and the Doorstep of Algebra COMPLETE 3/3 (11.2 From Patterns to Formulas + 11.3 A Letter for the Unknown shipped verify-first; the unit-11 completion review passed; the book stands 48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises); the next book (Arithmetic and Number Systems) begins at its research phase**) |
+| mathematics | Khattar QA 4e (+ NCERT web outlines ch. 1 + ch. 2 + ch. 3 + ch. 7 + class-7 ch. 2 + class-6 ch. 8 + class-7 ch. 3 + class-7 ch. 8 §§8.3–8.6 + class-8 ch. 8 §§8.2–8.4 + class-9 ch. 1 + class-6 ch. 12 §12.1 + class-7 ch. 8 §§8.1–8.2; CBSE-aligned BODMAS web-check) | 33.9 × 7 (units 1–3 re-downloads + run 12 for ch. 4 fraction material) | FM ch. 1 (unit 1): lessons 1.2, 1.3 · FM ch. 2 (unit 2): lessons 2.1–2.5 (2.5 studied Khattar ch. 4 BODMAS) · FM ch. 3 (unit 3): lessons 3.1–3.5 (Khattar ch. 1 divisibility/primes + ch. 2 HCF/LCM incl. Illustration 14) · FM ch. 4 (unit 4): lesson 4.1 (Khattar ch. 1 fraction exam items mined — SSC CGL Tier-II 2018 + SSC MTS 2017 comparisons cited in the exam callout; ch. 2's HCF/LCM-of-fractions rules banked for 4.5), lessons 4.2–4.4 (no downloads; NCERT web checks), lesson 4.5 (no downloads; NCERT class-7 ch. 2 web-checked — new citation key; Khattar's banked fraction rules cashed) · FM ch. 5 (unit 5): lesson 5.1 (no downloads; NCERT class-7 ch. 3 + class-6 ch. 8 web-checked — two new citation keys; Khattar decimal-fraction exam items), lesson 5.2 (no downloads; NCERT class-9 ch. 1 + class-6 ch. 8 web-checked — new citation key ncert-math9-ch1; Khattar recurring-conversion shortcuts and comparison traps), lesson 5.3 (no downloads; NCERT class-6 ch. 8 + class-7 ch. 2 §§2.3–2.4 web-checked; Khattar point-hop family), lesson 5.4 (no downloads; NCERT class-7 ch. 8 §§8.3–8.4 web-checked — new citation key ncert-math7-ch8; Khattar percent conversion items), lesson 5.5 (no downloads; NCERT class-7 ch. 8 §§8.5–8.6 + class-8 ch. 8 §§8.2–8.4 web-checked — new citation key ncert-math8-ch8; Khattar percentage/profit-loss exam staples) · FM ch. 6 (unit 6): lesson 6.1 (no downloads; NCERT class-6 ch. 12 §12.1 + class-7 ch. 8 §§8.1–8.2 web-checked — new citation key ncert-math6-ch12, ncert-math7-ch8 extended; Khattar ratio exam staples), lesson 6.2 (no downloads; NCERT class-6 ch. 12 Ex. 12.3 — the unitary method — web-checked, key ncert-math6-ch12 extended to Ex. 12.3; NCERT class-7 science "Motion and Time" web-checked — new citation key ncert-sci7-motion; Khattar speed/unitary-method exam staples), lesson 6.3 (no downloads; NCERT class-6 ch. 12 §12.2 "Proportion" + Ex. 12.2 web-checked, key ncert-math6-ch12 extended to §12.2/Ex. 12.2; Khattar ratio-proportion exam staples) · FM ch. 7 (unit 7): lessons 7.1–7.4 (no downloads; NCERT Ganita Prakash class-6 ch. 10 + class-7 part-2 ch. 2 web-checked — new keys ncert-math6-ch10, ncert-math7-p2-ch2; Brahmagupta/Argand/Weierstrass history web-checked; Khattar integer exam staples) · FM ch. 8 (unit 8): lesson 8.1 (no downloads; NCERT class-6 ch. 4 + class-9 ch. 5 web-checked — new keys ncert-math6-ch4, ncert-math9-ch5; Euclid Elements facts web-checked against Joyce's Clark U. edition), lesson 8.2 (no downloads; NCERT Ganita Prakash class-6 ch. 2 "Lines and Angles" web-checked — new key ncert-math6-gp-ch2; key ncert-math6-ch4 extended toward §4.9 angles; Huddart 1801 protractor per Britannica; Khattar clock/angle staples), lesson 8.3 (no downloads; NCERT Ganita Prakash class-7 ch. 5 "Parallel and Intersecting Lines" + class-9 ch. 6 "Lines and Angles" web-checked — new keys ncert-math7-gp-ch5, ncert-math9-ch6; Euclid Postulate 5 + I.27/I.29 re-checked against Joyce's Clark U. edition; Playfair 1795/Ludlam 1785/Proclus + Lobachevsky–Bolyai history web-checked; Khattar transversal/angle-chase staples), lesson 8.4 (no downloads; NCERT class-7 ch. 6 web-checked — new key ncert-math7-ch6; Euclid I.32 + Proclus corollaries + the Gauss legend per Buhler re-checked), lesson 8.5 (no downloads; Ganita Prakash class-6 ch. 6 + class-7 ch. 11 + the class-7 exemplar gemp109 web-checked — new keys ncert-math6-gp-ch6, ncert-math7-ch11; Archimedes' 96-gon bounds, Zu Chongzhi's Milü, Aryabhata's rule, Jones 1706/Euler, Lambert 1761/Lindemann 1882 web-checked; Khattar mensuration exam staples) · FM ch. 9 (unit 9): lesson 9.1 (no downloads; NCERT Curiosity class-6 science ch. 5 + class-11 physics ch. 2 web-checked — new keys ncert-sci6-curiosity-ch5, ncert-phys11-ch2; the cubit/Maya's rod 52.3 cm, the barleycorn inch, the honest Henry-I yard legend, the Metre Convention 1875/BIPM Sèvres, SI 1960, India 1956/1960/2009 web-checked; Khattar unit-identification exam staples), lesson 9.2 (no downloads; the metric history web-checked — new keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter: the metre's three bodies, the 1795 decree, the litre's 1901→1964 drift, the 0.02% honest caveat, the decimal day; the prefix ladder and the litre bridge are original exposition on the carried NCERT keys), lesson 9.3 (no downloads; carried keys only — the factor-licence method is original exposition; Khattar conversion exam staples), lesson 9.4 (no downloads; NCERT class-6 ch. 1 §1.3 estimation/rounding web-checked — new key ncert-math6-ch1; the accuracy/precision definitions carried on ncert-phys11-ch2; the Everest 1856 announcement 29,002 ft + the 2020 China–Nepal 8,848.86 m web-checked, the 0.102% relative error recomputed in verify-unit-9.ts; Khattar rounding/estimation exam staples) · FM ch. 10 (unit 10): lesson 10.1 (no downloads; NCERT Ganita Prakash class-6 ch. 4 Data Handling and Presentation web-checked — new key ncert-ganita-prakash6-ch4; the Ishango bone + the Exchequer tally sticks + the 1834 Westminster fire web-checked with hedges; Khattar data-table exam staples), lesson 10.2 (no downloads; the bar/line/pie charter carried on ncert-ganita-prakash6-ch4 + a new key ncert-math8-ch4 — NCERT class-8 ch. 4 Data Handling: the circle graph/pie chart and the central-angle-as-fraction-of-360° canon; Playfair 1786/1801 and Nightingale's 1858 rose diagram web-checked per Wikipedia/IBCS/Bellhouse; Khattar data-interpretation staples), lesson 10.3 (no downloads; new key huff-1954-lie-with-statistics — the critical-reading tradition mirrored; every lying chart drawn from the book's own tiny data, none reproduced; Khattar DI staples) | yes — after each unit's verification (run 12 deleted its working copies after E2E, per the per-lesson pattern) | foundation-mathematics COMPLETE (**11/11 chapters — the book closed by run 47 (2026-11-05): ch. 11 Patterns and the Doorstep of Algebra COMPLETE 3/3 (11.2 From Patterns to Formulas + 11.3 A Letter for the Unknown shipped verify-first; the unit-11 completion review passed; the book stands 48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises); the next book (Arithmetic and Number Systems) begins at its research phase**) · arithmetic-and-number-systems PLANNED — research phase COMPLETE (run 48, 2026-11-05: reference survey + syllabus audit + 10-chapter/34-lesson plan; book promoted to src/data/library/books/; 4 citation keys reserved — beck-geoghegan-art-of-proof, openstax-contemporary-math, cambridge-igcse-cs-0478, ncert-math8-ch16; no downloads; authoring from ch. 1 at run 49) |
 | physics | surveyed (Halliday/Resnick, Young, Feynman, Griffiths…) | 0 | — | — | not started |
 | chemistry | surveyed (Atkins, Zumdahl, Clayden, JD Lee…) | 0 | — | — | not started |
 | computer-science | surveyed (CLRS, Sedgewick, OS Concepts, CS:APP…) | 0 | — | — | not started |
@@ -451,6 +511,14 @@ step 6).
 | arts-music | none in collection | 0 | — | — | not started |
 
 ## Free-space checkpoint
+- 2026-11-05 (mathematics, book #2 research phase, run 48): no downloads —
+  the research phase is survey-only (the persisted Drive survey + the
+  sanctioned internet fallback; four citation keys reserved, none yet
+  cited by a written lesson). Zero temporary-references footprint; the
+  gitignored survey (inventory.json) was rebuilt after this run's recycle
+  via scripts/rebuild_drive_survey.ts — 89 entries intact, file ids
+  unchanged — purely so WORK_INVENTORY.json could regenerate.
+
 - 2026-11-05 (mathematics, unit 9, lesson 9.1): no downloads — NCERT
   "Curiosity" class-6 science ch. 5 "Measurement of Length and Motion"
   (fecu105) + class-11 physics ch. 2 "Units and Measurements" web-checked
