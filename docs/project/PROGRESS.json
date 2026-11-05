@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "BOOK #2 AUTHORING UNDERWAY — Arithmetic and Number Systems ch. 1 'The Natural Numbers as a System' IN PROGRESS (run 49, 2026-11-05: lessons 1.1 'The Architecture of Counting: Successors and Order' + 1.2 'Induction: Proving for Every Number at Once' shipped verify-first — scripts/verify-book2-ch01.ts 124 checks; ch-01.ts registered, book status in-progress). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47).",
- "awaiting": "Run 50: author ANS ch. 1 lesson 1.3 'The Least-Number Principle and Recursion' (id ans-least-number-principle-recursion) + the UNIT-1 COMPLETION REVIEW (BOOK_FORMAT checklist, exam corners, id uniqueness book-wide, flip ch-01 to complete, totals recompute) — extend verify-book2-ch01.ts first (sections AA onward) before writing 1.3. Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells).",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 1 'The Natural Numbers as a System' COMPLETE 3/3 (run 50, 2026-11-05: lesson 1.3 'The Least-Number Principle and Recursion' (6,579 words, 8 terms, 5 quiz, 12 exercises, 3 derivations, 3 illustrations, 2 figures, 4 formula cards) shipped verify-first + the UNIT-1 COMPLETION REVIEW passed — BOOK_FORMAT checklist 7/7, exam corners 3/3, ids globally unique book-wide, ch-01 flipped to complete, plannedLessons emptied, totals recomputed. scripts/verify-book2-ch01.ts extended to 228 checks (sections AA-AM) BEFORE 1.3 was written. Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47). Chapter 2 'The Division Algorithm and the Structure of Divisibility' (4 lessons) opens at run 51 with lessons 2.1 + 2.2.",
+ "awaiting": "Run 51: open ANS chapter 2 'The Division Algorithm and the Structure of Divisibility' — author lessons 2.1 'Division with Rest: The Division Algorithm' + 2.2 'The Algebra of Divisibility' (two-lesson cadence). Workflow: create scripts/verify-book2-ch02.ts FIRST (sections A onward — division-instances swept against a = bq + r, remainder bounds, existence-by-descent shadow, uniqueness argument, divisibility laws' instances, figure geometry, quiz keys, exercise keys) BEFORE writing; then author both lessons into a NEW ch-02.ts per BOOK_FORMAT.md + the ch-01 exemplar (Cengage voice, formal definition callouts, roman example runs, Illustration pills with Sol. chains, derivation tags, figures audited 0/0, 5-quiz live-verified, 12 exercises L1-L6 each, 8 terms each, exam corners, formula cards); register ch-02 in book.ts (status 'in-progress', chapter02 import); gates: lint, tsc, routes 200, dedicated E2E blocks (e2e-ans-21/22.page.js, whitelist FIRST), mobile 390 exact-fit, SVG audit 0/0; single ship (WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG + WORK_INVENTORY regen + DETAILED_LOG) + protocol push. Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -81,21 +81,21 @@
     "status": "in-progress",
     "chaptersPlanned": 10,
     "chaptersWritten": 1,
-    "lessonsWritten": 2,
-    "termsAvailableForFlashcards": 16,
-    "notes": "IN PROGRESS (run 49, 2026-11-05): promoted from SUBJECT_BACKLOG #2 at run 48 after its research phase; chapter 1 'The Natural Numbers as a System' now in progress — lessons 1.1 'The Architecture of Counting: Successors and Order' (5,010 words, 8 terms, 5 quiz, 12 exercises, 2 derivations, 1 figure, 2 formula cards) + 1.2 'Induction: Proving for Every Number at Once' (5,335 words, 8 terms, 5 quiz, 12 exercises, 5 derivations, 2 illustrations, 1 figure, 4 formula cards) shipped verify-first (scripts/verify-book2-ch01.ts: 124 checks ALL PASS — successors/order sweeps, induction sum sweeps n=1..200, BigInt geometric/divisibility sweeps, the Euler n^2+n+41 prime run re-verified, no-return echo, both figures' geometry, all 10 quiz keys + 24 exercise keys). Gates: tsc 0, lint 0 errors, routes 200/404 correct, E2E both lessons (quizzes 5/5 live on keys 2/0/0/1/1 and 0/1/2/1/3, 12+12 solutions expand, 0 raw-$, 0 katex-errors, mobile 390 exact-fit, SVG audits 0/0). Lesson 1.3 'The Least-Number Principle and Recursion' remains planned; unit-1 completion review lands with it at run 50."
+    "lessonsWritten": 3,
+    "termsAvailableForFlashcards": 24,
+    "notes": "IN PROGRESS (run 50, 2026-11-05): chapter 1 'The Natural Numbers as a System' COMPLETE 3/3 — 1.1 'The Architecture of Counting: Successors and Order' (5,010 words) + 1.2 'Induction: Proving for Every Number at Once' (5,332 words) shipped run 49; 1.3 'The Least-Number Principle and Recursion' (6,579 words, 8 terms, 5 quiz, 12 exercises, 3 derivations, 3 illustrations, 2 figures, 4 formula cards) shipped run 50 + the unit-1 completion review passed (checklist 7/7, exam corners 3/3, ids unique book-wide, ch-01 complete). Chapter totals: 16,921 words / 24 terms / 15 quiz / 36 exercises. Chapter 2 'The Division Algorithm and the Structure of Divisibility' (4 lessons) opens at run 51 with 2.1 + 2.2 — create scripts/verify-book2-ch02.ts FIRST (verify-first discipline). New citation keys run 50: cantor-1883-grundlagen, fibonacci-1202-liber-abaci (both web-checked)."
    }
   ],
-  "lessonsWritten": 48,
-  "wordsAuthored": 227569,
-  "termsAvailableForFlashcards": 355,
+  "lessonsWritten": 51,
+  "wordsAuthored": 244490,
+  "termsAvailableForFlashcards": 379,
   "totals": {
-   "lessonsWritten": 48,
-   "plannedLessons": 34,
-   "words": 227569,
-   "terms": 355,
-   "quizItems": 240,
-   "exerciseQuestions": 534,
+   "lessonsWritten": 51,
+   "plannedLessons": 31,
+   "words": 244490,
+   "terms": 379,
+   "quizItems": 255,
+   "exerciseQuestions": 570,
    "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed)"
   }
  },

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 15:01:46 (Asia/Kolkata)",
+  "generated": "2026-11-05 15:52:30 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,18 +3370,16 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 0,
+        "chaptersWritten": 1,
         "chapters": [
           {
             "number": 1,
             "slug": "natural-numbers-as-a-system",
             "title": "The Natural Numbers as a System",
             "summary": "Counting rebuilt from the successor idea: the number line as order, induction as the domino principle that proves statements about every natural number at once, and the least-number principle (well-ordering) as the engine behind every \"take the smallest counterexample\" argument — with the equivalence of the two principles proved and recursion defined.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "The Least-Number Principle and Recursion"
-            ],
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-architecture-of-counting-successors-order",
@@ -3512,9 +3510,77 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-least-number-principle-recursion",
+                "number": "1.3",
+                "title": "The Least-Number Principle and Recursion",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6579,
+                "readMins": 33,
+                "concepts": [
+                  "The least-number principle",
+                  "Well-ordering",
+                  "Minimal counterexamples",
+                  "Descent arguments",
+                  "Strong induction",
+                  "Addition defined by recursion",
+                  "Multiplication as repeated addition, proved",
+                  "The Fibonacci ledger"
+                ],
+                "objectives": [
+                  "State the least-number principle precisely — including the nonempty clause — and use it to certify least-element searches",
+                  "Prove that induction and the least-number principle are equivalent, in both directions",
+                  "Run minimal-counterexample (descent) arguments, including the theorem that every $n \\ge 2$ has a prime divisor",
+                  "Define addition and multiplication by recursion, unroll values from the rules alone, and say why the arithmetic laws become theorems"
+                ],
+                "prerequisites": [
+                  "ans-induction-proving-for-every-number"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "peano-1889-arithmetices",
+                  "cantor-1883-grundlagen",
+                  "fibonacci-1202-liber-abaci"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "callout": 8,
+                  "heading": 6,
+                  "list": 1,
+                  "figure": 2,
+                  "example": 3,
+                  "derivation": 3,
+                  "equation": 1,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "definition": 4,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 10342
+            "words": 16921
           },
           {
             "number": 2,
@@ -3678,13 +3744,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 91,
-      "totalLines": 39945,
+      "srcFilesTracked": 92,
+      "totalLines": 41887,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 30680,
+        "src/data/library (content model + books)": 32622,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -9701,33 +9767,125 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "fa9eb9dc1e778be02404fa1379b787b18eb6e5e0",
+      "short": "fa9eb9d",
+      "date": "2026-11-05 09:33",
+      "message": "book #2 authoring began (run 49): ANS ch. 1 lessons 1.1 + 1.2 shipped verify-first — ch-01.ts (10,345 words / 16 terms / 10 quiz / 24 exercises / 2 figures audit-0/0 / 7 derivations), book status in-progress, verify-book2-ch01.ts 124/124 (Euler polynomial re-verified, BigInt sweeps), e2e-ans-11/12 blocks (quizzes live 5/5, mobile exact-fit, 0 raw-$, 0 katex-errors), logs + pointer + inventory + DETAILED_LOG + 2 new citation keys (peano-1889-arithmetices, induction-name-history)",
+      "filesChanged": 12,
+      "insertions": 2285,
+      "deletions": 78,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 44,
+          "del": 20
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 22,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 19,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 256,
+          "del": 30
+        },
+        {
+          "path": "scripts/e2e-ans-11.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-12.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch01.ts",
+          "add": 556,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 7,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-01.ts",
+          "add": 1246,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "44e275589418d0b92e789d50454fe91e9f6528e2",
+      "short": "44e2755",
+      "date": "2026-11-05 09:33",
+      "message": "memory: run-49 synced sha recorded (fa9eb9d) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; library = 2 books (Foundation Mathematics COMPLETE 11/11 + Arithmetic and Number Systems IN PROGRESS ch. 1: lessons 1.1 + 1.2 shipped, 10,345 words); next run 50 = ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion + the unit-1 completion review (two-lesson cadence); voice queue EMPTY",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 11,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 50,
-    "wordsAuthored": 237911,
-    "termsDefined": 371,
-    "quizItems": 250,
-    "exerciseQuestions": 558,
+    "chaptersWritten": 12,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 51,
+    "wordsAuthored": 244490,
+    "termsDefined": 379,
+    "quizItems": 255,
+    "exerciseQuestions": 570,
     "blockTotals": {
-      "para": 739,
-      "callout": 288,
-      "heading": 307,
-      "list": 66,
-      "terms": 51,
-      "equation": 91,
-      "derivation": 97,
-      "table": 52,
-      "figure": 92,
-      "example": 227,
-      "quiz": 50,
-      "exercises": 50,
-      "formula": 109,
+      "para": 757,
+      "callout": 296,
+      "heading": 313,
+      "list": 67,
+      "terms": 52,
+      "equation": 92,
+      "derivation": 100,
+      "table": 53,
+      "figure": 94,
+      "example": 230,
+      "quiz": 51,
+      "exercises": 51,
+      "formula": 113,
       "algorithm": 8
     }
   }

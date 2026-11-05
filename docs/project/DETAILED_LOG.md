@@ -9,10 +9,29 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 49 (fired 17:00 IST from job 498279 — FOURTH consecutive fire from the re-enabled
+Maintained through **run 50 (fired 18:00 IST from job 498279 — FIFTH consecutive fire from the re-enabled
 old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
-directive in memory)**: **BOOK #2 AUTHORING BEGAN — ANS chapter 1 'The Natural Numbers as a System' in
-progress** with lessons 1.1 'The Architecture of Counting: Successors and Order' (5,010 words) and 1.2
+directive in memory)**: **ANS CHAPTER 1 COMPLETE — lesson 1.3 'The Least-Number Principle and Recursion'
+(6,579 words, 8 terms, 5 quiz, 12 exercises, 3 derivations, 3 illustrations, 2 figures, 4 formula cards)
+shipped verify-first + the UNIT-1 COMPLETION REVIEW PASSED** (BOOK_FORMAT checklist 7/7, exam corners 3/3,
+ids globally unique book-wide, ch-01 flipped to complete + plannedLessons emptied, totals recomputed — the
+chapter stands 3 lessons / 16,921 words / 24 terms / 15 quiz / 36 exercises). verify-book2-ch01.ts extended
+124 → **228 checks** (sections AA–AM: least-element instances, the LNP engine over all 4,096 subsets of
+{1..12}, the least-failure shadow over a six-statement family, the prime-divisor descent sweep 2..300, the
+3-and-5 stamp problem with its Frobenius point 7, the recursion engines swept to 60×60 and 40×40, Fibonacci
+to F₂₀ + the sum identity + Zeckendorf to 300, both figures' geometry, all 5 quiz keys + 12 exercise keys;
+the script caught three check-code defects pre-writing — an out-of-range sweep, an unbuilt F[31]/F[32] index,
+a false empty-conjunction seed). Cengage voice throughout. Gates: tsc 0, lint 0 errors, routes 200/404,
+E2E e2e-ans-13.page.js green (quiz live 5/5 on keys 1/2/1/0/3, 15 Sol pills + 81 ∴ glyphs after expansion,
+0 raw-$ after one derivation-title math leak fixed, 0 katex-errors, mobile 390 exact-fit, SVG audits 0/0,
+console clean). New citation keys: cantor-1883-grundlagen + fibonacci-1202-liber-abaci (web-checked,
+sanctioned fallback). Chapter 2 'The Division Algorithm and the Structure of Divisibility' opens at run 51
+with lessons 2.1 + 2.2.
+
+Run 49 (fired 17:00 IST from job 498279 — FOURTH consecutive fire from the re-enabled
+old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
+directive in memory): BOOK #2 AUTHORING BEGAN — ANS chapter 1 'The Natural Numbers as a System' in
+progress with lessons 1.1 'The Architecture of Counting: Successors and Order' (5,010 words) and 1.2
 'Induction: Proving for Every Number at Once' (5,335 words) shipped verify-first
 (scripts/verify-book2-ch01.ts, 124/124 checks: successor/order sweeps, induction sum sweeps n=1..200, BigInt
 geometric + divisibility sweeps, Euler's polynomial re-verified prime n=0..39 then 1681 = 41² at n=40, the
@@ -23,7 +42,9 @@ Illustration pills with Sol. chains, derivation tags, 2 original SVG figures (au
 5+5 quiz (live 5/5 on keys 2/0/0/1/1 and 0/1/2/1/3), 12+12 exercises L1–L6, 6 formula cards, exam corners,
 FM cross-references (prerequisites + prose per house style). Gates: tsc 0, lint 0 errors, routes 200/404,
 E2E dedicated blocks green, mobile 390 exact-fit both. New citation keys: peano-1889-arithmetices +
-induction-name-history (web-checked, sanctioned fallback).00 IST from job 498279 — third consecutive fire from the re-enabled
+induction-name-history (web-checked, sanctioned fallback).
+
+Run 48 (fired 16:00 IST from job 498279 — third consecutive fire from the re-enabled
 old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
 directive in memory)**: **(1) the pending run-47 push executed first** — run 47 had been interrupted after
 its ship commit `08e2c74` but before its push; both pending commits (`73787fe` run-46 memory + `08e2c74`
@@ -1052,7 +1073,7 @@ downloads (references already logged).
 | 10 | Data and Graphs — **COMPLETE (4/4, run 46; unit-10 review passed)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ **WRITTEN (run 45)** · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · ~~Mean, Median, Mode~~ **WRITTEN (run 46)** |
 | 11 | Patterns and the Doorstep of Algebra — **COMPLETE (3/3, run 47; unit-11 review passed — the book closes)** | ~~Patterns and Rules~~ **WRITTEN (run 46)** · ~~From Patterns to Formulas~~ **WRITTEN (run 47)** · ~~A Letter for the Unknown~~ **WRITTEN (run 47)** |
 
-### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1 authoring began run 49)**
+### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1 COMPLETE 3/3 — runs 49–50)**
 
 *Why arithmetic works — and how the number systems were built* · Upper primary →
 first-year university bridge · accent teal · cover auto-generated.
@@ -1064,11 +1085,12 @@ survey (Khattar QA 4e ch. 1 + Cengage M2/01 persisted; no downloads) + syllabus 
 (CAT/IPMAT number-system scope · Beck & Geoghegan *The Art of Proof* · OpenStax
 *Contemporary Mathematics* §4.2 · Cambridge IGCSE CS 0478 §1.1 · NCERT class 6/8 canon)
 + the chapter plan below. `verify-book2-promotion.ts` 121/121; E2E green. **Authoring
-starts at ch. 1, run 49 (two lessons per run).**
+began at ch. 1, run 49 (two lessons per run); chapter 1 COMPLETE at run 50 with the unit-1
+completion review passed — 3 lessons / 16,921 words / 24 terms / 15 quiz / 36 exercises.**
 
 | # | Chapter (slug) | Planned lessons |
 |---|---|---|
-| 1 | The Natural Numbers as a System (`natural-numbers-as-a-system`) | The Architecture of Counting: Successors and Order · Induction: Proving for Every Number at Once · The Least-Number Principle and Recursion |
+| 1 | The Natural Numbers as a System (`natural-numbers-as-a-system`) — **COMPLETE 3/3** (runs 49–50) | 1.1 The Architecture of Counting: Successors and Order (5,010 w) · 1.2 Induction: Proving for Every Number at Once (5,332 w) · 1.3 The Least-Number Principle and Recursion (6,579 w) |
 | 2 | The Division Algorithm and the Structure of Divisibility (`division-algorithm-and-divisibility`) | Division with Rest: The Division Algorithm · The Algebra of Divisibility · The Euclidean Algorithm, Proven — and Bézout's Identity · Linear Diophantine Equations |
 | 3 | Positional Systems and Other Bases (`positional-systems-and-bases`) | The Representation Theorem: Every Number Has Exactly One Name · Converting Between Bases · Arithmetic in Other Bases · Binary, Hexadecimal and the Machine |
 | 4 | Primes and the Fundamental Theorem of Arithmetic (`primes-and-the-fundamental-theorem`) | The Primes Never End: Euclid's Proof and the Sieve · The Fundamental Theorem of Arithmetic · Divisors from DNA: Divisor Counts and Factorial Zeros · How the Primes Are Distributed |
@@ -1298,35 +1320,45 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 48 | ship + bookkeeping + memory | 11-05 | (1) the pending run-47 push executed first (both commits, remote = `08e2c74` verified); (2) BOOK #2 PROMOTED: Arithmetic and Number Systems — research phase complete (survey + syllabus audit + 10-chapter/34-lesson plan), book.ts + registry + verify-book2-promotion.ts 121/121 + gates + E2E green; generator generalized (booksLive 2, backlog 280); 4 citation keys reserved — pushed per protocol |
 | 49 | ship | 11-05 | BOOK #2 AUTHORING BEGAN — ANS ch. 1 lessons 1.1 The Architecture of Counting: Successors and Order (5,010 words) + 1.2 Induction: Proving for Every Number at Once (5,335 words), shipped verify-first (verify-book2-ch01.ts 124/124; quiz keys 2/0/0/1/1 + 0/1/2/1/3 live 5/5; audits 0/0 both figures; 10,345 words / 16 terms / 10 quiz / 24 exercises); book status → in-progress; new citation keys peano-1889-arithmetices + induction-name-history |
 | 49 | memory | 11-05 | run-49 synced sha recorded (`fa9eb9d`) — remote-verified via one-time-URL ls-remote = local HEAD; next run 50 = ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion + the unit-1 completion review |
+| 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 + the unit-1 completion review — CHAPTER 1 COMPLETE 3/3; verify-book2-ch01.ts → 228 checks; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci — pushed per protocol |
+| 50 | memory | 11-05 | run-50 synced sha recorded — remote-verified via one-time-URL ls-remote = local HEAD; next run 51 = ANS ch. 2 opens with lessons 2.1 Division with Rest + 2.2 The Algebra of Divisibility (verify-book2-ch02.ts FIRST) |
+| 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion (6,579 words; verify-book2-ch01.ts 124 → 228 checks AA–AM; quiz keys 1/2/1/0/3 live 5/5; audits 0/0 both figures) + UNIT-1 COMPLETION REVIEW PASSED — CHAPTER 1 COMPLETE 3/3 (16,921 words / 24 terms / 15 quiz / 36 exercises); ch-01 → complete; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci; fired from job 498279 (fifth consecutive fire, logged for the owner) — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- **CURRENT (run 49, 2026-11-05): BOOK #2 AUTHORING BEGAN.** Tree was clean
-  at HEAD `dc9251b` (run-48 memory commit; no push debt). ANS chapter 1
-  'The Natural Numbers as a System' is now IN PROGRESS: lessons 1.1
-  'The Architecture of Counting: Successors and Order' (5,010 words) and
-  1.2 'Induction: Proving for Every Number at Once' (5,335 words) shipped
-  verify-first — scripts/verify-book2-ch01.ts 124/124 (created BEFORE
-  writing, sections A–K for 1.1 then L–Z for 1.2; caught three real
-  defects pre-writing incl. a float-precision mod sweep rewritten in
-  BigInt; Euler's polynomial re-verified by trial division). Book status
-  → 'in-progress'; ch-01.ts registered in book.ts (lessons [1.1, 1.2],
-  plannedLessons [1.3]). Gates: tsc 0, lint 0 errors, routes 200/404,
-  E2E blocks e2e-ans-11/12.page.js green (quizzes 5/5 live, 0 raw-$
-  after two term-name math leaks fixed, 0 katex-errors, mobile 390
-  exact-fit, SVG audits 0/0), ids globally unique. WORK_INVENTORY.json
-  regenerated; two new citation keys web-checked
-  (peano-1889-arithmetices, induction-name-history).
-- **NEXT (run 50): author ANS ch. 1 lesson 1.3 'The Least-Number
-  Principle and Recursion' (id ans-least-number-principle-recursion) +
-  the UNIT-1 COMPLETION REVIEW** — extend verify-book2-ch01.ts first
-  (sections AA onward), then author 1.3 in the Cengage voice, then the
-  review (BOOK_FORMAT checklist, exam corners, id uniqueness, flip
-  ch-01 to complete + empty plannedLessons, totals recompute). Chapter 2
-  'The Division Algorithm and the Structure of Divisibility' starts at
-  run 51 with lessons 2.1 + 2.2.
+- **CURRENT (run 50, 2026-11-05): ANS CHAPTER 1 COMPLETE.** Tree was clean
+  at HEAD `44e2755` (the run-49 memory commit; the run-49 ship `fa9eb9d`
+  was already remote-verified). ANS chapter 1 'The Natural Numbers as a
+  System' COMPLETE 3/3: lesson 1.3 'The Least-Number Principle and
+  Recursion' (6,579 words) shipped verify-first — verify-book2-ch01.ts
+  extended to 228 checks (sections AA–AM, created BEFORE writing; caught
+  three check-code defects pre-writing) — plus the UNIT-1 COMPLETION
+  REVIEW (checklist 7/7, exam corners 3/3, ids unique book-wide, ch-01
+  → complete, plannedLessons emptied, totals recomputed: the chapter
+  stands 16,921 words / 24 terms / 15 quiz / 36 exercises; the book 1/10
+  chapters). Gates: tsc 0, lint 0 errors, routes 200/404, E2E
+  e2e-ans-13.page.js green (quiz live 5/5 on keys 1/2/1/0/3, 15 Sol
+  pills + 81 ∴ glyphs, 0 raw-$ after one derivation-title math leak
+  fixed, 0 katex-errors, mobile 390 exact-fit, SVG audits 0/0, console
+  clean). WORK_INVENTORY.json regenerated (51 lessons / 244,490 words
+  library-wide); two new citation keys web-checked (cantor-1883-
+  grundlagen, fibonacci-1202-liber-abaci). The fire came from the old
+  job 498279 (FIFTH consecutive fire; the stale one-lesson payload
+  superseded per the memory files) — logged for the owner in WORKLOG.
+- **NEXT (run 51): OPEN ANS CHAPTER 2 'The Division Algorithm and the
+  Structure of Divisibility'** — author lessons 2.1 'Division with Rest:
+  The Division Algorithm' + 2.2 'The Algebra of Divisibility'
+  (two-lesson cadence). Create scripts/verify-book2-ch02.ts FIRST
+  (existence instances by repeated subtraction, uniqueness algebra,
+  boundary instances r = 0 / r = b−1, divisibility-law instances, figure
+  geometry, quiz + exercise keys), then author both lessons into a NEW
+  ch-02.ts (existence by DESCENT — 1.3's least-number principle burning;
+  cross-ref fm-division-remainders-zero, never duplicate FM's
+  procedure), register in book.ts, full gates + single ship + protocol
+  push. Chapter 2 completes at run 52 with 2.3 + 2.4 + the unit-2
+  completion review.
 - HEAD: the run-47 ship + its memory commit pushed and remote-verified
   (protocol v2, one-time URL from the firing payload); synced shas
   recorded in WORKLOG.md / RESUME_POINTER.json. Run 47 = FM 11.2 +

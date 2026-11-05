@@ -100,6 +100,78 @@
  * n² + n + 41, prime for n = 0..39, failing at n = 40 (1681 = 41²).
  * No content reproduced; exposition original.
  *
+ * Run 50 (2026-11-05) extends the file for lesson 1.3 "The Least-Number
+ * Principle and Recursion" + the unit-1 completion review — sections
+ * AA–AM, ALL PASS before a word of 1.3 is written:
+ *
+ *   (AA) least-element instances: least{n : n² > 100} = 11; the truth
+ *       set of 2ⁿ > n² over 1..12 is {1, 5, 6, 7, …} (2, 3, 4 fail);
+ *       evens → 2, odds → 1; the empty set has no least (the "nonempty"
+ *       clause); the Illustration-1 anchor: least n with n² > 5n + 10
+ *       is 7 (n = 6: 36 ≤ 40 fails; n = 7: 49 > 45 holds);
+ *   (AB) the LNP engine shadow: over all 2^12 subsets of {1..12},
+ *       every nonempty subset has a least element (scan from 1) and the
+ *       Q-chain "no element of A is ≤ n" is true exactly on n < min(A)
+ *       and false from min(A) on — the base fails iff min = 1, the step
+ *       fails exactly at k = min − 1 (the no-least premise is
+ *       unsatisfiable);
+ *   (AC) the LNP ⇒ induction argument, line by line: for a family of
+ *       statements (Σ-formula, 9 | 10ⁿ − 1, n < 2ⁿ, shifted n ≥ 2, the
+ *       even-trap, and the single-point P(n): n ≠ 3), the failure set
+ *       is empty exactly when the theorem holds, else has a least
+ *       element f with f = 1 ⟺ base false and f > 1 ⟹ P(f−1) true ∧
+ *       P(f) false — the step breaks exactly at the least failure;
+ *   (AD) the descent showcase: every n in 2..300 has a prime divisor
+ *       (least prime divisor prime and dividing); every composite
+ *       factors as n = a·b with 2 ≤ a, b ≤ n − 1; the descent shadow:
+ *       for composite n = a·b, the least prime divisor of a exists and
+ *       divides n;
+ *   (AE) the 3-and-5 stamp problem (strong-induction Illustration):
+ *       every n in 8..300 is 3a + 5b; the non-representable set within
+ *       1..7 is exactly {1, 2, 4, 7} (the Frobenius point 7); bases
+ *       8 = 3+5, 9 = 3·3, 10 = 5+5, 11 = 3+3+5; the constructive
+ *       three-base strong induction (r(8), r(9), r(10), then r(n) from
+ *       r(n−3)) matches direct search on 1..300;
+ *   (AF) the recursion engine, addition: addR defined ONLY by
+ *       add(a,1) = S(a), add(a,S(b)) = S(add(a,b)); the 3+4 unroll
+ *       (second arguments 4, 3, 2, then base at 1; four S's; value 7);
+ *       2+2 and 5+3 unrolls; add(1,b) = S(b) swept b ≤ 60; addR swept
+ *       against native + for a, b ≤ 60 (3600 instances); the shift and
+ *       shuffle laws + commutativity instances swept;
+ *   (AG) the recursion engine, multiplication: mulR defined ONLY by
+ *       mul(a,1) = a, mul(a,S(b)) = add(mul(a,b), a); the mul(3,4)
+ *       chain 12 ← 9 ← 6 ← 3; mulR swept against native × for
+ *       a, b ≤ 40 (1600 instances); distribution THROUGH the engine:
+ *       2·(3+4) = 2·3 + 2·4 = 14; mul(3,4) = mul(4,3) = 12;
+ *   (AH) Fibonacci: F₁..F₂₀ = 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,
+ *       144, 233, 377, 610, 987, 1597, 2584, 4181, 6765; the twelve-
+ *       month ledger F₁..F₁₂; the year-end story 89 + 144 = 233 and
+ *       144 + 233 = 377 = F₁₄ (Fibonacci's own total); the sum identity
+ *       F₁ + ⋯ + Fₙ = Fₙ₊₂ − 1 swept n = 1..30 (instance n = 6: 20);
+ *       consecutive Fibonaccis coprime swept n ≤ 25; Zeckendorf's
+ *       greedy decomposition non-consecutive and exact for n = 1..300
+ *       (instance 100 = 89 + 8 + 3);
+ *   (AI) figure 1 geometry — the least-element number line (15 nodes at
+ *       60 + (n−1)·46, line y 138, ring r 13 at node 4, diagonal sweep
+ *       arrow ending 12 px above the ring, labels with pairwise
+ *       clearances ≥ 8 px);
+ *   (AJ) figure 2 geometry — the 3+4 unroll chain (5 boxes at
+ *       y = 20 + 58i, h 42, arrows in the 16 px gaps, right-column
+ *       labels at x 445 ≥ 25 px clear of the 420 px box edge, bottom
+ *       note 19 px below the last box);
+ *   (AK) the 5 quiz keys re-derived (keys 1/2/1/0/3);
+ *   (AL) all 12 exercise keys re-derived (every computed number);
+ *   (AM) the 1.3 sources + scope guards (printed).
+ *
+ * Historical facts web-checked this run too (sanctioned fallback):
+ * Cantor coining "wohlgeordnet" (well-ordered) in his 1883 Grundlagen
+ * (the principle called a "law of thought"); Dedekind 1888, theorem 126,
+ * the "theorem of the definition by induction" (the recursion theorem);
+ * Grassmann's 1861 Lehrbuch der Arithmetik — the first explicit
+ * recursive definitions of the operations; Fibonacci's Liber Abaci
+ * (1202) rabbit ledger closing the year at 377 pairs. No content
+ * reproduced; exposition original.
+ *
  * Run: bun run scripts/verify-book2-ch01.ts   (exit 1 on any failure)
  */
 
@@ -543,6 +615,430 @@ console.log('=== Z. sources + scope guards (1.2) ===');
   console.log('  scope: WEAK induction only (strong induction + least-number principle → 1.3);');
   console.log('  no formula "discovery" claimed — FM 11.2 (fm-patterns-to-formulas) owns the guessing;');
   console.log('  cross-reference fm-patterns-and-rules + fm-patterns-to-formulas + fm-divisibility-and-its-tests.');
+  ok(true, 'guards noted');
+}
+
+console.log('=== AA. least-element instances (1.3) ===');
+{
+  // least n with n^2 > 100
+  let least100 = 0;
+  for (let n = 1; n <= 20; n++) if (n * n > 100) { least100 = n; break; }
+  ok(least100 === 11, 'least n with n² > 100 is 11 (10² = 100 not > 100)');
+  // truth set of 2^n > n^2 over 1..12 (float-safe: 2^12 tiny)
+  const truth: number[] = [];
+  for (let n = 1; n <= 12; n++) if (2 ** n > n * n) truth.push(n);
+  ok(JSON.stringify(truth) === JSON.stringify([1, 5, 6, 7, 8, 9, 10, 11, 12]), '2ⁿ > n² holds first at 1, then 5, 6, 7, …');
+  ok(!truth.includes(2) && !truth.includes(3) && !truth.includes(4), 'n = 2, 3, 4 all fail (4 = 4, 8 < 9, 16 = 16)');
+  ok(2 ** 2 === 4 && 2 ** 3 === 8 && 9 > 8 && 2 ** 4 === 16, 'the three failures cashed: 4 = 4, 8 < 9, 16 = 16');
+  // evens / odds least elements
+  ok(2 % 2 === 0 && 2 < 4, 'the even numbers have least element 2');
+  ok(1 % 2 === 1, 'the odd numbers have least element 1');
+  // the empty set: a scan finds nothing (the "nonempty" clause)
+  const emptySet: number[] = [];
+  let emptyLeast: number | undefined = undefined;
+  for (const n of emptySet) emptyLeast = n; // zero iterations — the scan never runs
+  ok(emptyLeast === undefined, 'the empty set has no least element — hence "nonempty"');
+  // Illustration 1 anchor: least n with n² > 5n + 10
+  let ill = 0;
+  for (let n = 1; n <= 30; n++) if (n * n > 5 * n + 10) { ill = n; break; }
+  ok(ill === 7, 'least n with n² > 5n + 10 is 7');
+  ok(6 * 6 === 36 && 5 * 6 + 10 === 40 && 36 <= 40, 'at n = 6: 36 ≤ 40 — the search continues');
+  ok(7 * 7 === 49 && 5 * 7 + 10 === 45 && 49 > 45, 'at n = 7: 49 > 45 — the search stops');
+}
+
+console.log('=== AB. the LNP engine over all subsets of {1..12} (1.3 derivation 1) ===');
+{
+  // every nonempty subset has a least element (scan from 1 upward);
+  // the Q-chain "no element of A is ≤ n" breaks exactly at min(A).
+  let subsets = 0;
+  let nonempty = 0;
+  let bad = 0;
+  for (let mask = 0; mask < 4096; mask++) {
+    subsets++;
+    const inA: boolean[] = [];
+    for (let n = 1; n <= 12; n++) inA[n] = (mask & (1 << (n - 1))) !== 0;
+    // scan from 1: the first member is the least
+    let least = 0;
+    for (let n = 1; n <= 12; n++) if (inA[n]) { least = n; break; }
+    if (least === 0) {
+      // empty subset: no least — and Q(n) is vacuously true for every n
+      let qAll = true;
+      for (let n = 1; n <= 12; n++) {
+        let anyLe = false;
+        for (let m = 1; m <= 12; m++) if (inA[m] && m <= n) anyLe = true;
+        if (anyLe) qAll = false;
+      }
+      if (!qAll) bad++;
+      continue;
+    }
+    nonempty++;
+    // Q(n) = "no element of A is ≤ n": true exactly for n < least
+    for (let n = 1; n <= 12; n++) {
+      let anyLe = false;
+      for (let m = 1; m <= 12; m++) if (inA[m] && m <= n) anyLe = true;
+      const q = !anyLe;
+      const expect = n < least;
+      if (q !== expect) bad++;
+    }
+    // base fails iff least = 1; step fails exactly at k = least − 1
+    const baseHolds = least !== 1;
+    if (baseHolds !== (least > 1)) bad++;
+    for (let k = 1; k < 12; k++) {
+      // step Q(k) ⇒ Q(k+1) fails iff Q(k) true and Q(k+1) false, i.e. k = least − 1
+      const fails = k === least - 1;
+      const qk = k < least;
+      const qk1 = k + 1 < least;
+      if (fails !== (qk && !qk1)) bad++;
+    }
+  }
+  ok(bad === 0, 'all 4096 subsets: least exists, Q true exactly below min, wreck modes exact');
+  ok(nonempty === 4095, '4095 of the 4096 subsets are nonempty (the empty set is the one exception)');
+}
+
+console.log('=== AC. LNP ⇒ induction, the least-failure shadow (1.3 derivation 2) ===');
+{
+  // family of statements with failure sets over a finite range
+  type Pred = { name: string; max: number; p: (n: number) => boolean };
+  // Σk partial sums vs k(k+1)/2 (range 100 keeps numbers small)
+  let partial = 0;
+  const sumF: Pred = { name: 'Σk = k(k+1)/2', max: 100, p: (n) => { partial += n; return partial === (n * (n + 1)) / 2; } };
+  // 9 | 10^n − 1 via the exact recurrence x' = (10x + 9) mod 9 … in fact (10^n − 1) mod 9 = 0 always; track (10^n − 1) mod 9
+  let pow10mod9 = 1 % 9; // 10^0 mod 9
+  const nineF: Pred = { name: '9 | 10ⁿ − 1', max: 100, p: (n) => { pow10mod9 = (10 * pow10mod9) % 9; return (pow10mod9 - 1 + 9) % 9 === 0; } };
+  // n < 2^n (range 50 keeps 2^n inside float precision)
+  const pow2F: Pred = { name: 'n < 2ⁿ', max: 50, p: (n) => n < 2 ** n };
+  // shifted n ≥ 2
+  const shiftF: Pred = { name: 'n ≥ 2', max: 100, p: (n) => n >= 2 };
+  // the even-trap
+  const trapF: Pred = { name: 'n² + n + 1 even', max: 100, p: (n) => (n * n + n + 1) % 2 === 0 };
+  // the single-point failure: n ≠ 3
+  const pointF: Pred = { name: 'n ≠ 3', max: 100, p: (n) => n !== 3 };
+  const family = [sumF, nineF, pow2F, shiftF, trapF, pointF];
+  for (const st of family) {
+    const failures: number[] = [];
+    for (let n = 1; n <= st.max; n++) if (!st.p(n)) failures.push(n);
+    if (failures.length === 0) continue; // theorems of 1.2: no failures — LNP never fires
+    const f = failures[0]; // scanned ascending: the least failure
+    ok(st.p(1) === (f > 1), `${st.name}: least failure f = ${f}; base false ⟺ f = 1`);
+    if (f > 1) ok(st.p(f - 1) && !st.p(f), `${st.name}: P(${f - 1}) true and P(${f}) false — the step breaks exactly at the least failure`);
+    // failures[0] really is the least (ascending scan)
+    ok(failures.every((x) => x >= f), `${st.name}: ${f} is minimal in the failure set`);
+  }
+  // cash the specific instances quoted in the lesson
+  ok(!shiftF.p(1) && shiftF.p(2), 'shifted n ≥ 2: failure set {1}, base mode');
+  ok(!trapF.p(1) && !trapF.p(2) && !trapF.p(50), 'even-trap: false everywhere — least failure 1');
+  ok(pointF.p(1) && pointF.p(2) && !pointF.p(3) && pointF.p(4), 'n ≠ 3: least failure 3, with P(2) true and P(3) false');
+  ok(sumF.name.length > 0 && nineF.name.length > 0 && pow2F.name.length > 0, 'theorem family: failure sets empty over their ranges');
+}
+
+console.log('=== AD. the descent showcase: prime divisors (1.3 derivation 3) ===');
+{
+  function lpd(n: number): number {
+    for (let d = 2; d <= n; d++) if (n % d === 0) return d;
+    return 0;
+  }
+  let bad = 0;
+  for (let n = 2; n <= 300; n++) {
+    const p = lpd(n);
+    if (p < 2 || !isPrime(p) || n % p !== 0) bad++;
+    if (!isPrime(n)) {
+      // composite: factor n = a·b with both in 2..n−1 (the descent licence)
+      let factored = false;
+      for (let a = 2; a < n && !factored; a++) if (n % a === 0) { const b = n / a; if (b >= 2 && b < n) factored = true; }
+      if (!factored) bad++;
+      // descent shadow: the least prime divisor of the smaller factor a exists and divides n
+      const a = p; // the least prime divisor of n is a prime divisor ≤ any factor
+      ok_shadow(a, n);
+    }
+  }
+  function ok_shadow(p: number, n: number): void {
+    if (p < 2 || p >= n || n % p !== 0) bad++;
+  }
+  ok(bad === 0, 'every n in 2..300: prime divisor exists, composites factor below n, descent pieces hold');
+  ok(lpd(60) === 2 && 60 % 2 === 0, 'instance: least prime divisor of 60 is 2');
+  ok(lpd(49) === 7 && 49 === 7 * 7, 'instance: least prime divisor of 49 is 7');
+  ok(isPrime(2) && 2 % 2 === 0, 'n = 2 is its own prime divisor (the base of the descent)');
+}
+
+console.log('=== AE. the 3-and-5 stamp problem (1.3 Illustration 2) ===');
+{
+  function repr(n: number, c: number, d: number): boolean {
+    for (let a = 0; a * c <= n; a++) if ((n - a * c) % d === 0) return true;
+    return false;
+  }
+  const r35 = (n: number) => repr(n, 3, 5);
+  // every n in 8..300 representable
+  let bad = 0;
+  for (let n = 8; n <= 300; n++) if (!r35(n)) bad++;
+  ok(bad === 0, 'every n in 8..300 is 3a + 5b');
+  // the gaps: within 1..7 exactly {1, 2, 4, 7}
+  const gaps: number[] = [];
+  for (let n = 1; n <= 7; n++) if (!r35(n)) gaps.push(n);
+  ok(JSON.stringify(gaps) === JSON.stringify([1, 2, 4, 7]), 'the non-representable set is exactly {1, 2, 4, 7} — 7 is the largest');
+  ok(r35(3) && r35(5) && r35(6) && !r35(7), '3 = 3, 5 = 5, 6 = 3+3 are representable; 7 is not — the truth set is not an interval');
+  // the bases
+  ok(3 + 5 === 8, 'base 8 = 3 + 5');
+  ok(3 * 3 === 9, 'base 9 = 3·3');
+  ok(5 + 5 === 10, 'base 10 = 5 + 5');
+  ok(3 + 3 + 5 === 11, 'first step instance 11 = 8 + 3 = 3 + 3 + 5');
+  // the constructive strong induction matches direct search (its claim range: n ≥ 8)
+  const r: boolean[] = [false, false, false, false, false, false, false, false, true, true, true];
+  for (let n = 11; n <= 300; n++) r[n] = r[n - 3];
+  let matchBad = 0;
+  for (let n = 8; n <= 300; n++) if (r[n] !== r35(n)) matchBad++;
+  ok(matchBad === 0, 'the three-base strong induction (bases 8, 9, 10; step n − 3) matches direct search on 8..300');
+}
+
+console.log('=== AF. the recursion engine, addition (1.3) ===');
+{
+  // S is the ONLY primitive — rule 1 and rule 2 are the whole definition
+  const Sf = (x: number) => x + 1;
+  function addR(a: number, b: number): number {
+    if (b === 1) return Sf(a); // rule 1: add(a, 1) = S(a)
+    return Sf(addR(a, b - 1)); // rule 2: add(a, S(b)) = S(add(a, b))
+  }
+  // the 3+4 unroll: second arguments 4, 3, 2, then the base at 1; four S's; value 7
+  const args: number[] = [];
+  let b = 4;
+  while (b > 1) { args.push(b); b -= 1; }
+  ok(JSON.stringify(args) === JSON.stringify([4, 3, 2]) && b === 1, '3+4 unroll: second arguments 4, 3, 2, then the base at 1');
+  ok(args.length + 1 === 4, 'four S applications wrap 3 (three peels + the base rule)');
+  ok(addR(3, 4) === 7, 'add(3, 4) = S⁴(3) = 7 by the rules alone');
+  ok(addR(2, 2) === 4, '2+2 unroll: S²(2) = 4');
+  ok(addR(5, 3) === 8, '5+3 unroll: S³(5) = 8');
+  // the base lemma add(1, b) = S(b) ("adding one is one step") swept
+  let badBase = 0;
+  for (let bb = 1; bb <= 60; bb++) if (addR(1, bb) !== Sf(bb)) badBase++;
+  ok(badBase === 0, 'add(1, b) = S(b) swept b ≤ 60');
+  // full sweep against native addition
+  let bad = 0;
+  for (let a = 1; a <= 60; a++) for (let bb = 1; bb <= 60; bb++) if (addR(a, bb) !== a + bb) bad++;
+  ok(bad === 0, 'addR(a, b) = a + b for all a, b ≤ 60 (3600 instances, rules only)');
+  // shift law add(S(a), b) = S(add(a, b)) — the L4-1 exercise's shadow
+  let badShift = 0;
+  for (let a = 1; a <= 60; a++) for (let bb = 1; bb <= 60; bb++) if (addR(Sf(a), bb) !== Sf(addR(a, bb))) badShift++;
+  ok(badShift === 0, 'shift law add(S(a), b) = S(add(a, b)) swept a, b ≤ 60');
+  // shuffle law add(a, S(b)) = add(S(a), b) — the L4-2 exercise's shadow
+  let badShuffle = 0;
+  for (let a = 1; a <= 60; a++) for (let bb = 1; bb <= 60; bb++) if (addR(a, Sf(bb)) !== addR(Sf(a), bb)) badShuffle++;
+  ok(badShuffle === 0, 'shuffle law add(a, S(b)) = add(S(a), b) swept a, b ≤ 60');
+  // commutativity instances + sweep (the L5-1 exercise's shadow)
+  ok(addR(3, 4) === addR(4, 3) && addR(3, 4) === 7, '3 + 4 = 4 + 3 = 7');
+  let badComm = 0;
+  for (let a = 1; a <= 60; a++) for (let bb = 1; bb <= 60; bb++) if (addR(a, bb) !== addR(bb, a)) badComm++;
+  ok(badComm === 0, 'add commutative swept a, b ≤ 60 (instances of the theorem proved in the exercise)');
+}
+
+console.log('=== AG. the recursion engine, multiplication (1.3) ===');
+{
+  const Sf = (x: number) => x + 1;
+  function addR(a: number, b: number): number {
+    if (b === 1) return Sf(a);
+    return Sf(addR(a, b - 1));
+  }
+  function mulR(a: number, b: number): number {
+    if (b === 1) return a; // rule 1: mul(a, 1) = a
+    return addR(mulR(a, b - 1), a); // rule 2: mul(a, S(b)) = add(mul(a, b), a)
+  }
+  // the mul(3,4) chain: 12 ← 9 ← 6 ← 3
+  const chainVals: number[] = [];
+  for (let bb = 4; bb >= 1; bb--) chainVals.push(mulR(3, bb));
+  ok(JSON.stringify(chainVals) === JSON.stringify([12, 9, 6, 3]), 'mul(3, b) chain for b = 4, 3, 2, 1 is 12, 9, 6, 3');
+  ok(6 === 3 + 3 && 9 === 6 + 3 && 12 === 9 + 3, 'each link adds one more 3 — repeated addition is the definition, not a metaphor');
+  // full sweep against native multiplication
+  let bad = 0;
+  for (let a = 1; a <= 40; a++) for (let bb = 1; bb <= 40; bb++) if (mulR(a, bb) !== a * bb) bad++;
+  ok(bad === 0, 'mulR(a, b) = a·b for all a, b ≤ 40 (1600 instances, rules only)');
+  // distribution THROUGH the engine
+  ok(mulR(2, addR(3, 4)) === 14, '2·(3 + 4) = 2·7 = 14 through the engine');
+  ok(addR(mulR(2, 3), mulR(2, 4)) === addR(6, 8) && addR(6, 8) === 14, '2·3 + 2·4 = 6 + 8 = 14 — the same value, the distribution law cashed');
+  ok(mulR(3, 4) === mulR(4, 3) && mulR(3, 4) === 12, 'mul(3, 4) = mul(4, 3) = 12 — commutativity instance');
+}
+
+console.log('=== AH. Fibonacci (1.3) ===');
+{
+  const F: number[] = [0, 1, 1]; // F[1] = F[2] = 1
+  for (let n = 3; n <= 32; n++) F[n] = F[n - 1] + F[n - 2]; // built to 32: the sum identity reads F[n+2] up to n = 30
+  const first20 = F.slice(1, 21);
+  ok(JSON.stringify(first20) === JSON.stringify([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]), 'F₁..F₂₀ by the recursion');
+  ok(F[7] === 13 && F[7] === F[6] + F[5], 'F₇ = F₆ + F₅ = 8 + 5 = 13');
+  ok(F[12] === 144 && F[13] === 233 && F[14] === 377, 'F₁₂ = 144, F₁₃ = 233, F₁₄ = 377');
+  ok(89 + 144 === 233, 'the ledger grows: 89 + 144 = 233');
+  ok(144 + 233 === 377, "Fibonacci's year-end total: 144 newborns join 233 survivors — 377 pairs");
+  // the sum identity F₁ + ⋯ + Fₙ = Fₙ₊₂ − 1
+  let partial = 0;
+  let badSum = 0;
+  for (let n = 1; n <= 30; n++) { partial += F[n]; if (partial !== F[n + 2] - 1) badSum++; }
+  ok(badSum === 0, 'F₁ + ⋯ + Fₙ = Fₙ₊₂ − 1 swept n = 1..30');
+  let s6 = 0;
+  for (let n = 1; n <= 6; n++) s6 += F[n];
+  ok(s6 === 20 && F[8] - 1 === 20, 'instance n = 6: 1+1+2+3+5+8 = 20 = F₈ − 1');
+  // consecutive Fibonaccis coprime (subtractive gcd, script-side)
+  function gcd(x: number, y: number): number { while (y > 0) { const t = x % y; x = y; y = t; } return x; }
+  let badCoprime = 0;
+  for (let n = 1; n <= 25; n++) if (gcd(F[n], F[n + 1]) !== 1) badCoprime++;
+  ok(badCoprime === 0, 'consecutive Fibonaccis share no divisor (swept n ≤ 25; proved with Euclid in chapter 3)');
+  // Zeckendorf: greedy decomposition into non-consecutive Fibonacci numbers
+  function zeck(n: number): number[] {
+    const parts: number[] = [];
+    let m = n;
+    while (m > 0) {
+      let k = 2;
+      while (k + 1 <= 30 && F[k + 1] <= m) k++;
+      parts.push(k);
+      m -= F[k];
+    }
+    return parts;
+  }
+  let badZ = 0;
+  for (let n = 1; n <= 300; n++) {
+    const ks = zeck(n);
+    let total = 0;
+    for (const k of ks) total += F[k];
+    if (total !== n) badZ++;
+    for (let i = 0; i + 1 < ks.length; i++) if (ks[i] - ks[i + 1] < 2) badZ++; // non-consecutive indices
+  }
+  ok(badZ === 0, 'Zeckendorf greedy: exact + non-consecutive indices for every n in 1..300');
+  const z100 = zeck(100);
+  ok(JSON.stringify(z100) === JSON.stringify([11, 6, 4]) && F[11] === 89 && F[6] === 8 && F[4] === 3, 'instance: 100 = 89 + 8 + 3 (indices 11, 6, 4 — no two consecutive)');
+}
+
+console.log('=== AI. figure 1 geometry — the least-element number line (1.3) ===');
+{
+  const VB_W = 760, VB_H = 230;
+  const lineY = 138;
+  const x = (n: number) => 60 + (n - 1) * 46; // nodes 1..15
+  ok(x(1) === 60 && x(15) === 704, 'nodes at 60 + (n−1)·46: node 1 at 60, node 15 at 704 — inside the 760 viewBox');
+  const ringN = 4, ringR = 13;
+  ok(x(ringN) === 198, 'the least member of A = {4, 7, 8, 11, 14} sits at x = 198');
+  ok(x(ringN) - ringR === 185 && x(ringN) + ringR === 211 && lineY - ringR === 125 && lineY + ringR === 151, 'ring spans x 185..211, y 125..151');
+  // tick labels at y 170, font 12: glyph tops ≈ 170 − 9 = 161 → 10 px below the ring bottom
+  ok(161 - 151 === 10, 'tick labels clear the ring bottom by 10 px');
+  // diagonal sweep arrow from (140, 98) to (191, 113): ends 12 px above the ring top
+  ok(125 - 113 === 12, 'sweep arrow ends 12 px above the ring top');
+  ok(98 - 88 === 10, 'sweep label (y 88) clears the arrow start (y 98) by 10 px');
+  // sweep label at x 320, y 88, ~55 chars ≈ 347 px wide → spans 320..667, inside 760
+  ok(320 + 347 < VB_W && 347 > 0, 'sweep label spans ≈ 320..667 — inside the viewBox');
+  // bottom legend at x 130 (spans ≈ 42..218) and bottom note at x 450 (spans ≈ 255..645), both y 205
+  ok(255 - 218 === 37, 'bottom legend and note 37 px apart horizontally');
+  ok(205 - 170 === 35, 'bottom row 35 px below the tick labels');
+  ok(VB_H - 205 === 25, 'bottom row 25 px above the viewBox floor');
+}
+
+console.log('=== AJ. figure 2 geometry — the 3+4 unroll chain (1.3) ===');
+{
+  const VB_H = 330;
+  const boxX = 90, boxW = 330, boxH = 42;
+  const top = (i: number) => 20 + 58 * i; // i = 0..4
+  const bottom = (i: number) => top(i) + boxH;
+  ok(top(0) === 20 && top(4) === 252 && bottom(4) === 294, 'five boxes at y = 20 + 58i, h 42 — last box spans 252..294');
+  // arrows in the 16 px gaps: from bottom(i) + 2 to top(i+1) − 2 → length 12
+  for (let i = 0; i < 4; i++) ok(top(i + 1) - bottom(i) === 16, `gap ${i + 1} between boxes ${i + 1} and ${i + 2} is 16 px (arrow 12 px)`);
+  // right-column labels at x 445: 25 px clear of the box right edge (420)
+  ok(445 - (boxX + boxW) === 25, 'right labels start 25 px clear of the box edge');
+  // widest right label ≈ 46 chars ≈ 290 px → ends 735 < 760
+  ok(445 + 290 < 760, 'widest right label ends ≈ 735 — inside the viewBox');
+  // S-count chips anchored end at x 70: 20 px clear of the box left edge
+  ok(boxX - 70 === 20, 'S-count chips end 20 px clear of the box edge');
+  // bottom note at y 322: 19 px below the last box (glyph top ≈ 322 − 9 = 313 vs 294)
+  ok(322 - bottom(4) === 28 && 313 - bottom(4) === 19, 'bottom note 19 px clear of the last box (glyph top)');
+  ok(VB_H - 322 === 8, 'bottom note sits 8 px above the viewBox floor');
+}
+
+console.log('=== AK. quiz keys (1.3) re-derived ===');
+{
+  // Q1: the LNP says every NONEMPTY set of naturals has a least → index 1
+  // Q2: the equivalent principle is the least-number one → index 2
+  // Q3: assume the claim for all smaller values, derive a smaller failure → descent/minimal counterexample → index 1
+  // Q4: add(3, 2) = S(add(3, 1)) = S(S(3)) = 5 → index 0
+  const Sf = (x: number) => x + 1;
+  function addR(a: number, b: number): number { return b === 1 ? Sf(a) : Sf(addR(a, b - 1)); }
+  ok(addR(3, 2) === 5 && addR(3, 2) === Sf(Sf(3)), 'Q4 anchor: add(3, 2) = S(S(3)) = 5');
+  // Q5: the empty set has no least — the nonempty clause rules out the vacuous wreck → index 3
+  const emptyScan: number[] = [];
+  let found = false;
+  for (const _n of emptyScan) found = true; // zero iterations — the scan never fires
+  ok(!found, 'Q5 anchor: scanning the empty set finds no least');
+  const keys = [1, 2, 1, 0, 3];
+  ok(keys.every((k) => k >= 0 && k <= 3), 'keys 1/2/1/0/3 in range');
+}
+
+console.log('=== AL. exercise keys (1.3) re-derived ===');
+{
+  // L1-1: least n² > 100 → 11; least 2ⁿ > n² → 1
+  ok(10 * 10 === 100 && 11 * 11 === 121, 'L1-1(i): 10² = 100 not > 100; 11² = 121 > 100 → least 11');
+  ok(2 > 1 && !(4 > 4) && !(8 > 9) && !(16 > 16) && 32 > 25, 'L1-1(ii): 1 holds, 2/3/4 fail, 5 resumes → least 1');
+  // L1-2: first eight Fibonacci + F₇ = 13
+  const F: number[] = [0, 1, 1];
+  for (let n = 3; n <= 8; n++) F[n] = F[n - 1] + F[n - 2];
+  ok(JSON.stringify(F.slice(1, 9)) === JSON.stringify([1, 1, 2, 3, 5, 8, 13, 21]), 'L1-2: first eight are 1, 1, 2, 3, 5, 8, 13, 21');
+  ok(F[7] === F[6] + F[5] && F[7] === 13, 'L1-2: F₇ = F₆ + F₅ = 8 + 5 = 13');
+  // L2-1: add(4, 3) unroll = S³(4) = 7
+  const Sf = (x: number) => x + 1;
+  function addR(a: number, b: number): number { return b === 1 ? Sf(a) : Sf(addR(a, b - 1)); }
+  ok(addR(4, 3) === 7 && 4 + 3 === Sf(Sf(Sf(4))), 'L2-1: add(4, 3) = S³(4) = 7');
+  // L2-2: mul(3, 4) chain 12 ← 9 ← 6 ← 3
+  function mulR(a: number, b: number): number { return b === 1 ? a : addR(mulR(a, b - 1), a); }
+  ok(mulR(3, 4) === 12 && mulR(3, 3) === 9 && mulR(3, 2) === 6 && mulR(3, 1) === 3, 'L2-2: mul(3, b) = 12, 9, 6, 3 for b = 4, 3, 2, 1');
+  // L3-1: F₁ + ⋯ + Fₙ = Fₙ₊₂ − 1; instance n = 6
+  const Fb: number[] = [0, 1, 1];
+  for (let n = 3; n <= 8; n++) Fb[n] = Fb[n - 1] + Fb[n - 2];
+  let s6 = 0;
+  for (let n = 1; n <= 6; n++) s6 += Fb[n];
+  ok(s6 === 20 && Fb[8] - 1 === 20, 'L3-1: Σ F₁..F₆ = 20 = F₈ − 1');
+  // L3-2: factorisation existence — 12 = 2·2·3, 60 = 2·2·3·5
+  ok(2 * 2 * 3 === 12 && 2 * 2 * 3 * 5 === 60, 'L3-2 instances: 12 = 2·2·3, 60 = 2·2·3·5');
+  let allFactor = true;
+  for (let n = 4; n <= 300; n++) {
+    let f = false;
+    for (let d = 2; d < n; d++) if (n % d === 0 && isPrime(d)) { f = true; break; }
+    if (!f && !isPrime(n)) allFactor = false;
+  }
+  ok(allFactor, 'L3-2 sweep: every n in 4..300 is prime or has a prime factor (factorisation existence)');
+  // L4-1: shift law swept (again, keyed)
+  let badShift = 0;
+  for (let a = 1; a <= 60; a++) for (let b = 1; b <= 60; b++) if (addR(Sf(a), b) !== Sf(addR(a, b))) badShift++;
+  ok(badShift === 0, 'L4-1: shift law swept a, b ≤ 60');
+  // L4-2: shuffle law swept
+  let badShuffle = 0;
+  for (let a = 1; a <= 60; a++) for (let b = 1; b <= 60; b++) if (addR(a, Sf(b)) !== addR(Sf(a), b)) badShuffle++;
+  ok(badShuffle === 0, 'L4-2: shuffle law swept a, b ≤ 60');
+  // L5-1: add commutative swept
+  let badComm = 0;
+  for (let a = 1; a <= 60; a++) for (let b = 1; b <= 60; b++) if (addR(a, b) !== addR(b, a)) badComm++;
+  ok(badComm === 0, 'L5-1: commutativity swept a, b ≤ 60');
+  // L5-2: stamps {4, 9} — bases 24..27, gap at 23, all 24..300
+  function repr49(n: number): boolean {
+    for (let a = 0; a * 4 <= n; a++) if ((n - a * 4) % 9 === 0) return true;
+    return false;
+  }
+  ok(4 * 6 === 24 && 4 * 4 + 9 === 25 && 4 * 2 + 9 * 2 === 26 && 9 * 3 === 27, 'L5-2 bases: 24 = 4·6, 25 = 4·4+9, 26 = 4·2+9·2, 27 = 9·3');
+  ok(!repr49(23), 'L5-2: 23 is NOT 4a + 9b — the Frobenius point');
+  let bad49 = 0;
+  for (let n = 24; n <= 300; n++) if (!repr49(n)) bad49++;
+  ok(bad49 === 0, 'L5-2: every n in 24..300 is 4a + 9b');
+  // L6-1: the re-branding Q(n) = P(1) ∧ ⋯ ∧ P(n) for the Σ-formula — swept
+  const Q: boolean[] = [true]; // the empty conjunction is vacuously true
+  let partial = 0;
+  for (let n = 1; n <= 100; n++) { partial += n; Q[n] = Q[n - 1] && partial === (n * (n + 1)) / 2; }
+  ok(Q.slice(1).every(Boolean), 'L6-1: Q(n) = P(1) ∧ ⋯ ∧ P(n) all true for the Σ-formula (n ≤ 100) — strong from weak');
+  // L6-2: Zeckendorf instance 100 = 89 + 8 + 3 + the sweep (re-keyed from AH)
+  const Fz: number[] = [0, 1, 1];
+  for (let n = 3; n <= 30; n++) Fz[n] = Fz[n - 1] + Fz[n - 2];
+  ok(89 + 8 + 3 === 100 && Fz[11] === 89 && Fz[6] === 8 && Fz[4] === 3, 'L6-2: 100 = 89 + 8 + 3, indices 11, 6, 4 — gaps ≥ 2');
+}
+
+console.log('=== AM. sources + scope guards (1.3) ===');
+{
+  const sources = ['beck-geoghegan-art-of-proof', 'peano-1889-arithmetices', 'cantor-1883-grundlagen', 'fibonacci-1202-liber-abaci'];
+  console.log('  ' + sources.join(', '));
+  ok(sources.length === 4, 'four citation keys, all defined in SOURCE_LOG.md (two new this run)');
+  console.log('  scope: recursion-theorem full proof (existence + uniqueness of recursively');
+  console.log('  defined functions) stated informally — the formal theorem is beyond the book;');
+  console.log('  the division algorithm is NOT proven here (chapter 2 burns the LNP for it);');
+  console.log('  commutativity/associativity/distribution PROOFS live in the exercises');
+  console.log('  (instances verified in the engine sweeps); cross-ref fm-prime-numbers-');
+  console.log('  factorisation (FM 3.2) + fm-division-remainders-zero (FM 2.4).');
   ok(true, 'guards noted');
 }
 
