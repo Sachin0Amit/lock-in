@@ -56,6 +56,59 @@ import type { Chapter } from '../../../types'
  * spans, shared rails and hooked dimension braces scored 10/9; figure 2
  * scored 10/9 (the ½ mark bumped for legibility).
  *
+ * LESSON 9.2 The Metric System (run 43, 2026-11-05 — the first TWO-lesson
+ * run per the owner's directive) — the treaty of 9.1 given its masterstroke:
+ * one decimal family per quantity. The old world's mess (some 250,000 local
+ * values; the pinte 0.93 L in Paris vs 1.46 L in Saint-Denis — 57% more under
+ * the same name) and the rejected seconds-pendulum alternative (1790, gravity
+ * varies with latitude); the metric-system Definition + the 1795 prefix law
+ * (7 April — metre, gram, litre + Greek big steps deca/hecto/kilo, Latin small
+ * steps deci/centi/milli, 231 years old in 2026) with the seven-rung table;
+ * figure 1 the metric staircase (seven platforms, five countable dashed hops
+ * from 3.45 km with per-hop ×10 labels — REDESIGNED twice after VLM 10/7,
+ * pass 4 scored 10/8); the point-shift law DERIVED as tag 1 from the swap law
+ * (u2 = u1/10^h ⇒ n2 = n1 × 10^h — the digits never change, the point walks);
+ * the three families table (km-m-cm-mm, kg-g-mg, L-mL) + the kilogram
+ * callout (the prefix-wearing base unit) + the tonne; figure 2 one quantity
+ * on three rails (4.2 m/g/L read as 0.0042/4.2/4200 — the same ×1000 hop,
+ * 10/9); the litre bridge as tag 2 (1 L = 1 dm³ = 1000 cm³, 1 mL = 1 cm³,
+ * 1 m³ = 1000 L; the 1901→1964 litre history one clause) + the tank
+ * Illustration (2×1.5×1 = 3 m³ = 3000 L); the metre's three bodies (Earth
+ * 1791, bar 1799 at 443.296 lignes — honestly 0.02% short = 2 km in 10,000 =
+ * one part in 5,000 = 0.2 mm on the bar; light 1983, c = 299,792,458 m/s);
+ * the 1795 historical callout (the decimal day 100,000 s vs 86,400 —
+ * abandoned in two years; US legal 1866, voluntary 1975); 8 terms, 5-quiz
+ * (keys 0/2/1/2/3 verified live 5/5), 12 exercises L1-L6 (L6: the point-shift
+ * proved by place-value expansion; the decimal day vs ours); 4,529 words;
+ * verify-unit-9.ts EXTENDED N–U ALL PASS pre-writing; audit 0/0, E2E block
+ * green, mobile exact-fit.
+ *
+ * LESSON 9.3 Converting Units Without Memorising Tables (run 43, same run) —
+ * the engine on the ladder: multiplication by 1. The conversion-factor
+ * Definition (a ratio of equal measures = 1 in disguise); the legality
+ * derivation (Q × 1 preserves; units cancel like factors via Q = n × u) with
+ * tag 1 the factor licence; figure 1 the cancellation machine, both dressings
+ * (panel A strikes ONLY the km tokens — 4.2 and 1 survive, 4200 m out;
+ * panel B the wrong dressing's orphan km·km/m + 0.0042 — REDESIGNED after
+ * VLM 10/7 to the token strikes, pass 2 10/9); the direction test Caution +
+ * the four-row table; chains (2.5 km → 250,000 cm; order free by
+ * commutativity, matching not); the reciprocal either-dressing Note (4.5's
+ * theorem wearing units); the speed pipeline derivation (54 km/h → 54,000
+ * m/h → 15 m/s; the 5/18 collapse of 6.2 UNMASKED as two identities chained;
+ * the return × 18/5 = 3.6) with figure 2 the pipeline rebuilt left-to-right
+ * (pure-factor collapse box — VLM 9/6 → 10/9 after the rebuild); the
+ * squared-factor law derived as tag 2 (1 m² = (100 cm)² = 10⁴ cm², NOT 100;
+ * 1 cm² = 10² mm²; 1 m³ = 10⁶ cm³; the hectare and the tank re-cashed) + the
+ * window/spray Illustration (35,000 cm²; 240 cm²) + the relay Illustration
+ * (1.25 km = 1250 m = 125,000 cm); the identity economy (six facts + the
+ * licence + the power rule) and the false-identity honesty (the method
+ * multiplies whatever you hand it — the ladder guarantees the identities);
+ * 8 terms, 5-quiz (keys 0/1/2/2/1 verified live 5/5), 12 exercises L1-L6
+ * (L6: the squared-factor proof; 1 km/h = 5/18 m/s derived); 3,603 words;
+ * verify sections W–AD ALL PASS pre-writing (428 checks total); audit 0/0,
+ * E2E block green, mobile exact-fit. Chapter 9 now 3/4 — 9.4 Precision,
+ * Accuracy and Rounding in Measurement remains.
+ *
  * References: NCERT "Curiosity" class-6 ch. 5 "Measurement of Length
  * and Motion" (fecu105 — handspan/cubit/foot as non-standard units
  * that differ person to person; the shopkeeper's metal rod and the
@@ -81,8 +134,6 @@ export const chapter09: Chapter = {
     'What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.',
   status: 'in-progress',
   plannedLessons: [
-    'The Metric System',
-    'Converting Units Without Memorising Tables',
     'Precision, Accuracy and Rounding in Measurement',
   ],
   lessons: [
@@ -671,6 +722,1137 @@ export const chapter09: Chapter = {
                     'Hence two packets — the unit turns the ambiguous "250" into a countable chunk and the swap law does the shopping.',
                   ],
                   answer: '250 g = 0.25 kg per packet; the recipe’s 0.5 kg = 500 g needs 500 ÷ 250 = 2 packets — impossible to decide from the bare "250"',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-the-metric-system',
+      number: '9.2',
+      title: 'The Metric System',
+      concepts: [
+        'The metric system — one decimal family',
+        'Prefixes: kilo, hecto, deca, deci, centi, milli',
+        'The point-shift law',
+        'The three school families: metre, gram, litre',
+        'The kilogram — the prefix-wearing base unit',
+        'The litre and the cubic decimetre',
+        'The metre from the Earth',
+        'The 1795 law and the road to SI',
+      ],
+      objectives: [
+        'Say what makes the metric system a system: every step between a unit and its multiples is the same step — a power of ten — and read the six school prefixes (kilo, hecto, deca, deci, centi, milli) with their factors',
+        'State and prove the point-shift law: h hops down the ladder multiply the count by 10^h, so converting is moving the decimal point, not doing arithmetic',
+        'Work the three school families — kilometre–metre–centimetre–millimetre, kilogram–gram–milligram, litre–millilitre — in both directions, including decimal quantities',
+        'Use the litre bridge (1 L = 1 dm³ = 1000 cm³, 1 m³ = 1000 L) to carry volume problems, and place the tonne on the mass rail',
+        'Tell the metre\u2019s three bodies honestly — the Earth-quadrant definition of 1791, the platinum bar of 1799 (0.02% short, one part in 5,000), the light-speed metre of 1983 — and date the 1795 prefix law and the world\u2019s adoption',
+      ],
+      prerequisites: ['fm-units-as-agreements', 'fm-decimal-places-and-the-point', 'fm-operating-on-decimals'],
+      sources: ['ncert-sci6-curiosity-ch5', 'ncert-phys11-ch2', 'wikipedia-metre-history', 'usma-1795-decree', 'sizes-litre-1964', 'ncj-measuring-the-meter'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 9.1 left measurement standing on one sentence: *a unit is a treaty*. The treaty tells us what a unit must be — invariable, replicable, agreed — but it does not say anything about how the units of a country should relate to **one another**. And there history delivers the sharpest possible contrast, because the old world\u2019s units did not relate at all. Late-eighteenth-century France ran on hundreds of local unit names, and historians who counted the local values behind them reached some **250,000 different sizes**: the same word meant a different amount in almost every town. A *pinte* in Paris held about 0.93 L; in Saint-Denis, ten kilometres away, the same *pinte* held about 1.46 L — the same name carrying **57% more** ($1.46 \\div 0.93 \\approx 1.57$). Measuring was not just inconsistent; it was a way of charging, because every boundary between towns was also an exchange rate.',
+        },
+        {
+          kind: 'para',
+          text: 'This lesson is about the fix — and the fix is the most under-appreciated engineering decision in the whole of school mathematics. The French reformers of the 1790s did not merely agree on **one** new unit (that would have been one more treaty, like the royal cubit was). They built an entire **family** of units with a single design rule: every step from a unit to its bigger and smaller siblings would be the **same kind of step — a power of ten** — so that all of the conversion arithmetic would collapse into the one skill the nation already possessed from counting money in decimal coin: moving the decimal point. That design is the **metric system**, and everything in this lesson — the prefix names, the ladder, the point-shift law, the three school families, the metre\u2019s remarkable biography — is that one design rule, cashed.',
+        },
+        { kind: 'heading', text: 'Why a system at all: the mess and the pendulum' },
+        {
+          kind: 'para',
+          text: 'Begin by giving the old world its due. Body units failed *invariability* (9.1\u2019s finding), so communities replaced them with **standard objects** — rods, stones, containers — kept by guilds, temples and markets. That repaired the agreement problem inside one town. But every town kept its own rod, and every commodity its own container, so between towns the counts fell apart again: the league, the pound, the pint, the bigha each split into regional costumes. The tables a merchant needed were not one table but hundreds, and their ratios were ragged on purpose: 12 inches to the foot, 3 feet to the yard, 16 ounces to the pound, 8 furlongs to the mile — none of them the same, each one a separate fact to memorise, each one a fresh chance to err.',
+        },
+        {
+          kind: 'para',
+          text: 'The reformers also considered — and rejected — the obvious cheap alternative. In 1790 Talleyrand proposed to the French Assembly that the new unit simply be the length of a **seconds pendulum**: a pendulum that takes one second per swing, measurable by anyone with a string, a weight and a clock. The Academy of Sciences turned it down for the deepest of reasons: **gravity is not the same everywhere**. A pendulum\u2019s swing depends on local gravity, which varies with latitude and altitude, so the "same" pendulum would define a slightly different length in Paris, in Quito, or on a mountain — the unit would quietly depend on *where you stood*. The proposal lost by millimetres, and the Academy demanded instead a standard **outside the argument altogether**: a piece of the Earth itself. That choice, made in 1791, is the next section\u2019s story.',
+        },
+        { kind: 'heading', text: 'The metric system: one ladder, every quantity' },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Metric system',
+          text: 'A **metric system** is said to be a **system of measurement in which all the units of one quantity form a single decimal family — every neighbouring pair related by a power of ten**. One base unit sits in the middle (the metre for length, the gram at the root of mass, the litre for capacity); the bigger and smaller units are built from it by **prefixes**. Because every step is a ten-fold step, converting never needs a table: it needs only the ladder.',
+        },
+        {
+          kind: 'para',
+          text: 'The prefix names were fixed by French law on **7 April 1795** — a law that also made the metre, the gram and the litre the legal units of France. The design is beautifully two-sided: the **big** steps took their names from Greek, the **small** steps from Latin, so a unit\u2019s name announces at a glance which side of the ladder it lives on:',
+        },
+        {
+          kind: 'table',
+          caption: 'The prefix ladder: one design rule, six names. Greek roots for the big steps, Latin for the small — fixed by the law of 7 April 1795.',
+          head: ['Prefix', 'Symbol', 'Factor', 'Meaning', 'On the length rail'],
+          rows: [
+            ['kilo-', 'k', '$1000 = 10^3$', 'thousand (Greek)', '$1\\text{ km} = 1000\\text{ m}$'],
+            ['hecto-', 'h', '$100 = 10^2$', 'hundred (Greek)', '$1\\text{ hm} = 100\\text{ m}$'],
+            ['deca-', 'da', '$10$', 'ten (Greek)', '$1\\text{ dam} = 10\\text{ m}$'],
+            ['— (the unit itself)', '', '$1$', 'the base', '$1\\text{ m}$'],
+            ['deci-', 'd', '$0.1 = 1/10$', 'tenth (Latin)', '$1\\text{ dm} = 0.1\\text{ m}$'],
+            ['centi-', 'c', '$0.01 = 1/100$', 'hundredth (Latin)', '$1\\text{ cm} = 0.01\\text{ m}$'],
+            ['milli-', 'm', '$0.001 = 1/1000$', 'thousandth (Latin)', '$1\\text{ mm} = 0.001\\text{ m}$'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The same ladder, borrowed by every quantity',
+          text: 'The table\u2019s last column is the point: the prefixes are **not length units**. *Kilo-* means "thousand" the way "dozen" means twelve — it rides on whatever base unit it attaches to. So the ladder is built **once** and borrowed three times in school: $\\text{km, hm, dam, m, dm, cm, mm}$ for length; $\\text{kg, hg, dag, g, dg, cg, mg}$ for mass; $\\text{kL, hL, daL, L, dL, cL, mL}$ for capacity. Learn one ladder, own every quantity. (The modern SI extends the same idea to 24 prefixes from $10^{30}$ down to $10^{-30}$ — same rule, longer ladder; the school six are all this lesson needs.)',
+        },
+        {
+          kind: 'para',
+          text: 'Honesty about the working cast, though: the ladder has seven rungs, but daily life walks only some of them. Length lives on **km–m–cm–mm**; mass on **kg–g–mg** (with the tonne waiting above — see below); capacity on **L–mL**. The hecto-, deca- and deci- stations exist and behave exactly as the table says — the hectare you met in 8.5 is nothing but a square **hecto-metre**, $100\\text{ m} \\times 100\\text{ m}$ — but they are the rails more than the trains. The ladder is complete so the arithmetic is complete; the traffic is another matter.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The metric staircase: seven steps, one rule. Each platform is one rung of the ladder — the prefix name above the line, the factor it carries below. The dashed walk starts at 3.45 km and hops down the ladder — each hop lands on the next rung and multiplies the count by 10 (five labelled hops): three hops reach the metre, two more reach the centimetre, and 3.45 km = 3450 m = 345,000 cm. The factors multiply, the digits never change — only the point walks.',
+          svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The seven-step metric staircase from kilo to milli with factors, and a walk from 3.45 km down to 3450 m and 345,000 cm">
+  <text x="380" y="24" font-size="13" fill="currentColor" text-anchor="middle">the metric staircase — every step is one power of ten</text>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    <line x1="40" y1="84" x2="120" y2="84"/><line x1="40" y1="80" x2="40" y2="88"/><line x1="120" y1="80" x2="120" y2="88"/>
+    <line x1="128" y1="134" x2="208" y2="134"/><line x1="128" y1="130" x2="128" y2="138"/><line x1="208" y1="130" x2="208" y2="138"/>
+    <line x1="216" y1="184" x2="296" y2="184"/><line x1="216" y1="180" x2="216" y2="188"/><line x1="296" y1="180" x2="296" y2="188"/>
+    <line x1="304" y1="234" x2="384" y2="234"/><line x1="304" y1="230" x2="304" y2="238"/><line x1="384" y1="230" x2="384" y2="238"/>
+    <line x1="392" y1="284" x2="472" y2="284"/><line x1="392" y1="280" x2="392" y2="288"/><line x1="472" y1="280" x2="472" y2="288"/>
+    <line x1="480" y1="334" x2="560" y2="334"/><line x1="480" y1="330" x2="480" y2="338"/><line x1="560" y1="330" x2="560" y2="338"/>
+    <line x1="568" y1="384" x2="648" y2="384"/><line x1="568" y1="380" x2="568" y2="388"/><line x1="648" y1="380" x2="648" y2="388"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="84" y="72">kilo-</text><text x="172" y="122">hecto-</text><text x="260" y="172">deca-</text><text x="348" y="222">(the unit)</text><text x="436" y="272">deci-</text><text x="524" y="322">centi-</text><text x="612" y="372">milli-</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="84" y="102">× 1000</text><text x="172" y="152">× 100</text><text x="260" y="202">× 10</text><text x="348" y="252">× 1</text><text x="436" y="302">× 0.1</text><text x="524" y="352">× 0.01</text><text x="612" y="402">× 0.001</text>
+  </g>
+  <g fill="currentColor">
+    <circle cx="116" cy="84" r="2.5"/><circle cx="142" cy="134" r="2.5"/><circle cx="230" cy="184" r="2.5"/><circle cx="318" cy="234" r="2.5"/><circle cx="406" cy="284" r="2.5"/><circle cx="494" cy="334" r="2.5"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1.1" fill="none" stroke-dasharray="5 3">
+    <path d="M 116 84 Q 133 93 142 134"/>
+    <path d="M 164 134 Q 201 143 230 184"/>
+    <path d="M 252 184 Q 289 193 318 234"/>
+    <path d="M 340 234 Q 377 243 406 284"/>
+    <path d="M 428 284 Q 465 293 494 334"/>
+  </g>
+  <g font-size="10.5" fill="currentColor" text-anchor="middle">
+    <text x="166" y="94">× 10</text>
+    <text x="254" y="144">× 10</text>
+    <text x="342" y="194">× 10</text>
+    <text x="430" y="244">× 10</text>
+    <text x="518" y="294">× 10</text>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="120" y="66">3.45 km →</text>
+  </g>
+  <text x="380" y="424" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">five countable hops of ten — three to the metre, two more to the centimetre: 3.45 km = 3450 m = 345,000 cm</text>
+</svg>`,
+        },
+        { kind: 'heading', text: 'The point-shift law' },
+        {
+          kind: 'para',
+          text: 'Now the theorem that makes the whole design pay. Lesson 9.1 derived the swap law: one quantity read in two units obeys $n_1 \\times u_1 = n_2 \\times u_2$, so the new count is always $n_2 = n_1 \\times u_1 / u_2$. In the metric family the new unit is never arbitrary — it is the old unit divided by a power of ten. Watch what that does to the swap law\u2019s arithmetic:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The point-shift law: h hops ⇒ the point moves h places',
+          statement:
+            'A quantity is counted in unit $u_1$ with count $n_1$. The new unit is $u_2 = u_1 / 10^h$ ($h$ rungs down the ladder). What is the new count $n_2$?',
+          steps: [
+            {
+              label: 'Start from the swap law (9.1, tag 2)',
+              formula: 'n_1 \\times u_1 = n_2 \\times u_2',
+              explanation: 'One quantity, two counts — the products must agree.',
+            },
+            {
+              label: 'Substitute the metric dress of the new unit',
+              formula: 'n_1 \\times u_1 = n_2 \\times \\frac{u_1}{10^h}',
+              explanation: 'In the metric system the new unit is the old one divided by a power of ten — that is the design rule.',
+            },
+            {
+              label: 'Cancel the unit',
+              formula: 'n_2 = n_1 \\times 10^h',
+              explanation: 'The $u_1$ divides out: the count is multiplied by $10^h$ and by nothing else.',
+            },
+            {
+              label: 'Read it as a point-shift',
+              formula: 'n_2 = n_1 \\times 10^h \\;\\Longleftrightarrow\\; \\text{the decimal point moves } h \\text{ places}',
+              explanation: 'Multiplying by $10^h$ shifts the point $h$ places right — chapter 5\u2019s point machinery, now carrying units.',
+            },
+          ],
+          result: 'If the unit shrinks $h$ rungs, the count is $n_1 \\times 10^h$: the digits stand still and the decimal point walks $h$ places.',
+        },
+        {
+          kind: 'equation',
+          latex: 'u_2 = \\frac{u_1}{10^h} \\;\\Longrightarrow\\; n_2 = n_1 \\times 10^h',
+          note: '**The point-shift law (tag 1).** Down the ladder (smaller unit): the point moves right, the count grows. Up the ladder (bigger unit): the point moves left, the count shrinks. Either way, **the digits never change** — check it once by expansion: $3.45 \\times 1000 = 3 \\times 1000 + 4 \\times 100 + 5 \\times 10 = 3000 + 400 + 50 = 3450$.',
+        },
+        {
+          kind: 'example',
+          title: 'Express 3.45 km in metres, centimetres and millimetres.',
+          steps: [
+            'Now, km to m is three rungs down the ladder (kilo → hecto → deca → unit), so the point moves three places: $3.45 \\times 1000 = 3450$.',
+            'So $3.45\\text{ km} = 3450\\text{ m}$.',
+            'And m to cm is two more rungs, so two more places: $3450 \\times 100 = 345{,}000$; five rungs in all give $3.45 \\times 10^5 = 345{,}000\\text{ cm}$.',
+            'And one further rung reaches the millimetre: $345{,}000 \\times 10 = 3{,}450{,}000\\text{ mm}$ — six rungs, $\\times 10^6$.',
+            'Hence $3.45\\text{ km} = 3450\\text{ m} = 345{,}000\\text{ cm} = 3{,}450{,}000\\text{ mm}$ — three dresses, one length, the digits 3-4-5 visible in every one.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The climb upward works by the same law read backwards, and decimals shift exactly like whole numbers — the point does not care where it starts. $4750\\text{ mm} = 4.75\\text{ m}$ (three rungs up, the point walks three places left); $47.5\\text{ cm} = 0.475\\text{ m}$ (two rungs); $0.85\\text{ km} = 850\\text{ m}$ (three down); $0.06\\text{ m} = 6\\text{ cm}$ (two down); $0.475\\text{ L} = 475\\text{ mL}$ (three down). No tables, no multiplications worth the name — the ladder fixes the **count** of rungs, and the count of rungs fixes the **shift** of the point.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The direction test',
+          text: 'The commonest metric error is walking the point the **wrong way**. The inverse law of 9.1 hands you a check that never fails: **a smaller unit must give a bigger count, and a bigger unit a smaller count.** "Convert 4750 mm to metres" must end in a number **smaller** than 4750 (fewer big chunks fit): 4.75 ✓. If your answer came out 47,500, you walked down when you meant up — re-read the direction before touching the point.',
+        },
+        { kind: 'heading', text: 'The three families: metre, gram, litre' },
+        {
+          kind: 'para',
+          text: 'The ladder being one object, the school families differ only in the name sitting at the base. Length bases the **metre** (the SI\u2019s length unit, with the biography the last section tells); capacity bases the **litre**; and mass — with one famous wrinkle — bases the **gram**, whose ladder reads kg, hg, dag, g, dg, cg, mg exactly in step with the others.',
+        },
+        {
+          kind: 'table',
+          caption: 'The three school families: one ladder, three base names. The everyday stations walk most of the traffic; the full seven-rung ladder stands behind them.',
+          head: ['Family', 'Base unit', 'Everyday stations', 'The one-hop facts'],
+          rows: [
+            ['length', 'metre (m)', 'km · m · cm · mm', '$1\\text{ km} = 1000\\text{ m}$; $1\\text{ m} = 100\\text{ cm} = 1000\\text{ mm}$; $1\\text{ cm} = 10\\text{ mm}$'],
+            ['mass', 'gram (g) — but see the Note', 'kg · g · mg', '$1\\text{ kg} = 1000\\text{ g}$; $1\\text{ g} = 1000\\text{ mg}$'],
+            ['capacity', 'litre (L)', 'L · mL', '$1\\text{ L} = 1000\\text{ mL}$'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The kilogram — the base unit that wears a prefix',
+          text: 'Here is the wrinkle that examiners love and histories rarely explain. By rights the mass ladder\u2019s base unit should be "the gram", and grammatically it is. But **the SI\u2019s base unit of mass is the kilogram** — the one base unit in the whole system that carries a prefix in its own name. The reason is history\u2019s inertia: the 1799 artefact (a litre of water\u2019s mass, cast in platinum) was already called a *kilogram*, and 1889\u2019s international prototype inherited the name. So "gram" behaves as the ladder\u2019s root (milli-gram, centi-gram…), while the named base unit stays a kilo-gram — the prefix is baked in, not chosen afresh.',
+        },
+        {
+          kind: 'para',
+          text: 'Above the mass ladder sits one honoured guest: the **tonne** ($1\\text{ t} = 1000\\text{ kg} = 10^6\\text{ g}$), the unit of truck loads and grain harvests. It is not a prefixed name but an accepted companion of the SI (in pure prefix dress it would be a *megagram*), and it slots onto the rail without disturbing the arithmetic: $2.4\\text{ t} = 2400\\text{ kg}$, three rungs in one hop because the tonne **is** the kilo-kilogram. Meanwhile the figure below makes the deeper point — that the ladder is *literally* the same object on all three rails.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One quantity, three rails. The same number 4.2 sits at the base of each rail — 4.2 m, 4.2 g, 4.2 L — and the same one-rung hops move it: ÷ 1000 to the kilo-station (0.0042 km, 0.0042 kg, 0.0042 kL), × 1000 to the milli-station (4200 mm, 4200 mg, 4200 mL). The ladder never changes; only the base unit\u2019s name does. This is what "a system" buys: learn one hop, own every quantity.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three rails for length, mass and capacity, each with kilo, base and milli stations, the same 4.2 at every base, divided by 1000 to the kilo station and multiplied by 1000 to the milli station">
+  <text x="380" y="24" font-size="13" fill="currentColor" text-anchor="middle">one quantity, three rails — the hop is the same ×1000 on every family</text>
+  <g stroke="currentColor" stroke-width="1.2">
+    <line x1="120" y1="100" x2="640" y2="100"/>
+    <line x1="120" y1="212" x2="640" y2="212"/>
+    <line x1="120" y1="324" x2="640" y2="324"/>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="40" y="104">length</text>
+    <text x="40" y="216">mass</text>
+    <text x="40" y="328">capacity</text>
+  </g>
+  <g fill="currentColor">
+    <circle cx="160" cy="100" r="2.5"/><circle cx="380" cy="100" r="2.5"/><circle cx="600" cy="100" r="2.5"/>
+    <circle cx="160" cy="212" r="2.5"/><circle cx="380" cy="212" r="2.5"/><circle cx="600" cy="212" r="2.5"/>
+    <circle cx="160" cy="324" r="2.5"/><circle cx="380" cy="324" r="2.5"/><circle cx="600" cy="324" r="2.5"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="160" y="84">km</text><text x="380" y="84">m</text><text x="600" y="84">mm</text>
+    <text x="160" y="196">kg</text><text x="380" y="196">g</text><text x="600" y="196">mg</text>
+    <text x="160" y="308">kL</text><text x="380" y="308">L</text><text x="600" y="308">mL</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="270" y="84">÷ 1000</text><text x="490" y="84">× 1000</text>
+    <text x="270" y="196">÷ 1000</text><text x="490" y="196">× 1000</text>
+    <text x="270" y="308">÷ 1000</text><text x="490" y="308">× 1000</text>
+  </g>
+  <g fill="currentColor">
+    <path d="M 262 100 l 8 -4 l 0 8 z"/>
+    <path d="M 498 100 l -8 -4 l 0 8 z"/>
+    <path d="M 262 212 l 8 -4 l 0 8 z"/>
+    <path d="M 498 212 l -8 -4 l 0 8 z"/>
+    <path d="M 262 324 l 8 -4 l 0 8 z"/>
+    <path d="M 498 324 l -8 -4 l 0 8 z"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="160" y="124">0.0042 km</text><text x="380" y="124">4.2 m</text><text x="600" y="124">4200 mm</text>
+    <text x="160" y="236">0.0042 kg</text><text x="380" y="236">4.2 g</text><text x="600" y="236">4200 mg</text>
+    <text x="160" y="348">0.0042 kL</text><text x="380" y="348">4.2 L</text><text x="600" y="348">4200 mL</text>
+  </g>
+  <text x="380" y="392" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">the hop is the hop is the hop — ×1000 whatever the quantity rides on</text>
+</svg>`,
+        },
+        { kind: 'heading', text: 'The litre and the cube' },
+        {
+          kind: 'para',
+          text: 'Capacity has one bridge the other families lack, and it is the reason the litre feels at home among the geometric units of chapter 8. The litre is *defined* as a cubic decimetre — the cube built on the ladder\u2019s own tenth-rung — and the cube\u2019s arithmetic then fixes everything around it:',
+        },
+        {
+          kind: 'equation',
+          latex: '1\\text{ L} = 1\\text{ dm}^3 = (10\\text{ cm})^3 = 1000\\text{ cm}^3, \\qquad 1\\text{ mL} = 1\\text{ cm}^3, \\qquad 1\\text{ m}^3 = (10\\text{ dm})^3 = 1000\\text{ dm}^3 = 1000\\text{ L}',
+          note: '**The litre bridge (tag 2).** The millilitre and the cubic centimetre are the same size under two names — a medicine dose of 5 mL *is* 5 cm³ of space. And the big cube climbs a whole ladder in one step: a tank measuring $2\\text{ m} \\times 1.5\\text{ m} \\times 1\\text{ m}$ holds $3\\text{ m}^3 = 3 \\times 1000 = 3000$ litres. (History\u2019s honest footnote: from 1901 to 1964 the litre was pinned to the kilogram of water instead and drifted a whisker — $1.000028\\text{ dm}^3$ — before the 1964 definition restored it to exactly the cubic decimetre.)',
+        },
+        {
+          kind: 'example',
+          title: 'A water tank measures 2 m × 1.5 m × 1 m. How many litres does it hold?',
+          steps: [
+            'Now, the tank\u2019s volume: $2 \\times 1.5 \\times 1 = 3\\text{ m}^3$.',
+            'So convert by the bridge: $1\\text{ m}^3 = 1000\\text{ L}$, giving $3 \\times 1000 = 3000\\text{ L}$.',
+            'And the ladder agrees: $3000\\text{ L}$ is three rungs up from the litre\u2019s own dress — $3\\text{ kL}$.',
+            'Hence the tank holds **3000 L** — the cube and the ladder handing the answer to each other.',
+          ],
+        },
+        { kind: 'heading', text: 'The metre\u2019s three bodies: Earth, bar, light' },
+        {
+          kind: 'para',
+          text: 'The ladder is the system\u2019s arithmetic; the metre is its soul, and its biography is the best honesty lesson in metrology. **1791**: the Academy of Sciences — a commission carrying Borda, Lagrange, Laplace, Monge and Condorcet — defined the metre as **one ten-millionth of the Earth\u2019s quadrant**: the distance from the North Pole to the Equator along the meridian through Paris. By definition, then, the quadrant *was* 10,000 km and the whole meridian circle 40,000 km — the Earth was conscripted as the standard, and the unit belonged to no nation\u2019s body or market. The pendulum had failed because gravity varies; the planet does not.',
+        },
+        {
+          kind: 'para',
+          text: 'Measuring the planet, though, meant measuring it. Two astronomers drew the job: **Delambre** took the northern arc from Dunkirk, **Méchain** the southern, down to Barcelona\u2019s Montjuïc castle — about a thousand kilometres of meridian, surveyed triangle by triangle through the chaos of the Revolution and its wars (the two were arrested more than once as spies; a ~10 km baseline was laid out with rulers along the road from Melun to Lieusaint). The fieldwork of **1792–1798** — six years — ended with both men reunited in Paris in November 1798, logbooks intact; the definitive metre was computed in **1799** at **443.296 lignes** (about 443.3 lignes of the old Paris inch-line measure), and a platinum bar — the *mètre des Archives* — was presented on 22 June 1799. The seven-year odyssey (1792 to 1799) is the treaty-side of 9.1\u2019s story: an agreement is only as strong as the labour that backs it.',
+        },
+        {
+          kind: 'para',
+          text: 'And here is the honesty the story owes you: **the bar is wrong** — slightly. The Earth is not a perfect sphere, and the quadrant\u2019s true length came out about **0.02% longer** than the definition assumed. Over the full 10,000 km that is about **2 km** — one part in **5,000** — and on the bar itself it is the famous **0.2 mm**: the metre falls just that much short of what "one ten-millionth of the quadrant" demanded. The reformers\u2019 response is the whole lesson in miniature: they did not remake the bar; **the bar became the metre**. A definition that cannot be perfectly realised is completed by the standard everyone can actually compare against — the artefact, then the wavelength of krypton-86 light (1960), then, since **1983**, the distance light travels in exactly $1/299{,}792{,}458$ of a second. The metre has had three bodies — Earth, metal, light — and one name.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: '1795: the law that named the ladder',
+          text: 'The metric system reached law before the survey reached Barcelona. On **7 April 1795** France\u2019s National Convention made the metre, the gram and the litre the legal units — and fixed the prefix names: Greek for the big steps (**deca, hecto, kilo**), Latin for the small (**deci, centi, milli**). The same revolutionary zeal even decimalised **time** — a 10-hour day of 100-minute hours (a decimal day of $10 \\times 100 \\times 100 = 100{,}000\\text{ s}$ against our kept $24 \\times 3600 = 86{,}400$) — and abandoned it within about two years; the prefixes, meanwhile, have run 231 years and counting. The world followed slowly: the treaty of 1875 (9.1) internationalised the system; India standardised on it in 1956–1960; the United States made it **legal in 1866** (160 years ago) and its "preferred system" — voluntarily — in 1975.',
+        },
+        {
+          kind: 'para',
+          text: 'From the above discussion, it follows that the metric system is three things at once, and the harvest is worth naming in full:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'a **family**: one base unit per quantity, every sibling exactly a power of ten away — no orphan ratios, no memorised tables;',
+            'a **law**: the point-shift, $u_2 = u_1/10^h \\Rightarrow n_2 = n_1 \\times 10^h$ — the swap law of 9.1 in its easiest dress, the digits standing still while the point walks;',
+            'a **biography**: the metre from the Earth (1791) through the bar (1799, 0.2 mm honest) to the light (1983) — the treaty of 9.1 made physical, then made atomic.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Metric conversion questions are guaranteed marks if the ladder is in hand: direct one-hop conversions ($2.5\\text{ km} = 2500\\text{ m}$; $340\\text{ cm} = 3.4\\text{ m}$; $4.2\\text{ kg} = 4200\\text{ g}$); ladder fills ($750\\text{ mL} = 0.75\\text{ L}$); the kilogram trap (the SI base unit of mass is the **kilogram**, not the gram); comparison items ($0.8\\text{ km}$ vs $750\\text{ m}$ — convert one to the other\u2019s dress first: $800 > 750$); and capacity-volume hybrids ($1\\text{ L} = 1000\\text{ cm}^3$ turns box and tank problems into ladder walks). The direction test — smaller unit, bigger count — catches every point-walked-the-wrong-way answer. Shapes cited from SSC/RRB/banking patterns; none reproduced.',
+        },
+        {
+          kind: 'formula',
+          name: 'The point-shift law',
+          latex: 'u_2 = u_1/10^h \\;\\Longrightarrow\\; n_2 = n_1 \\times 10^h',
+          note: 'h rungs down the ladder move the decimal point h places right (and up-ladder, h places left). The digits never change.',
+        },
+        {
+          kind: 'formula',
+          name: 'The litre bridge',
+          latex: '1\\text{ L} = 1\\text{ dm}^3 = 1000\\text{ cm}^3, \\quad 1\\text{ mL} = 1\\text{ cm}^3, \\quad 1\\text{ m}^3 = 1000\\text{ L}',
+          note: 'Capacity meets geometry: the millilitre is a cubic centimetre under another name.',
+        },
+        {
+          kind: 'formula',
+          name: 'The tonne',
+          latex: '1\\text{ t} = 1000\\text{ kg} = 10^6\\text{ g}',
+          note: 'The mass rail\u2019s honoured guest above the kilogram.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Metric system',
+              def: 'A system of measurement in which all units of one quantity form a single decimal family — every neighbouring pair related by a power of ten. Designed 1790s France, law of 7 April 1795, the basis of the SI.',
+            },
+            {
+              term: 'Prefix',
+              def: 'A name glued before a base unit to scale it by a fixed power of ten: kilo- (×1000), hecto- (×100), deca- (×10), deci- (×0.1), centi- (×0.01), milli- (×0.001). Greek roots for the big steps, Latin for the small.',
+            },
+            {
+              term: 'Point-shift law',
+              def: 'In the metric family, $u_2 = u_1/10^h \\Rightarrow n_2 = n_1 \\times 10^h$: converting moves the decimal point $h$ places and changes nothing else. The swap law of 9.1 in its easiest dress.',
+            },
+            {
+              term: 'Kilogram',
+              def: 'The SI\u2019s base unit of mass — the one base unit wearing a prefix. The gram is the ladder\u2019s root (mg, cg, dg…); the kilogram is the named unit, inheritance of the 1799 artefact.',
+            },
+            {
+              term: 'Tonne',
+              def: '$1000\\text{ kg} = 10^6\\text{ g}$ — the accepted mass unit above the kilogram, the truck-load and harvest scale.',
+            },
+            {
+              term: 'Litre',
+              def: 'The cubic decimetre under its everyday name: $1\\text{ L} = 1000\\text{ cm}^3$, so $1\\text{ mL} = 1\\text{ cm}^3$ and $1\\text{ m}^3 = 1000\\text{ L}$. Pinned to the kilogram of water 1901–1964, restored to the dm³ in 1964.',
+            },
+            {
+              term: 'Mètre des Archives',
+              def: 'The platinum bar of 22 June 1799 — the metre\u2019s first body, computed at 443.296 lignes from the 1792–1798 Delambre–Méchain survey, and about 0.2 mm short of the Earth-quadrant intent (one part in 5,000).',
+            },
+            {
+              term: 'Light-speed metre',
+              def: 'The metre\u2019s third body, 1983: the distance light travels in vacuum in $1/299{,}792{,}458$ of a second — fixing $c$ to exactly $299{,}792{,}458\\text{ m/s}$.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The design rule that makes the metric system a system is that',
+              options: [
+                'every step between neighbouring units is a power of ten',
+                'every unit is defined from the human body',
+                'each quantity keeps its own ragged ratios (12, 3, 16, 1760)',
+                'the units differ from town to town',
+              ],
+              answer: 0,
+              explain:
+                'The definition: one decimal family per quantity — the ladder (Option 1). Option 2 is the body-unit era the system replaced. Option 3 is exactly the old-world mess (12 inches, 3 feet, 16 ounces). Option 4 is the 250,000-local-values problem the law of 1795 abolished.',
+            },
+            {
+              q: '3.45 km expressed in centimetres is',
+              options: ['$3450\\text{ cm}$', '$34{,}500\\text{ cm}$', '$345{,}000\\text{ cm}$', '$3{,}450{,}000\\text{ cm}$'],
+              answer: 2,
+              explain:
+                'km → cm is five rungs, so $3.45 \\times 10^5 = 345{,}000$ (Option 3). Option 1 is three rungs (the metre dress). Option 2 is four rungs — one hop short. Option 4 is six rungs (the millimetre dress). Direction check: the smaller unit must give the bigger count. ✓',
+            },
+            {
+              q: 'The SI base unit of mass is',
+              options: ['the gram', 'the kilogram', 'the milligram', 'the tonne'],
+              answer: 1,
+              explain:
+                'The kilogram — the one SI base unit that wears a prefix, inheritance of the 1799 artefact (Option 2). Option 1 is the ladder\u2019s grammatical root but not the named base unit. Option 3 is a thousandth of the root. Option 4 is an accepted companion ($1000$ kg), not a base unit.',
+            },
+            {
+              q: '1 litre is the same volume as',
+              options: ['$10\\text{ cm}^3$', '$100\\text{ cm}^3$', '$1000\\text{ cm}^3$', '$10^6\\text{ cm}^3$'],
+              answer: 2,
+              explain:
+                'The litre bridge: $1\\text{ L} = 1\\text{ dm}^3 = (10\\text{ cm})^3 = 1000\\text{ cm}^3$ (Option 3). Option 1 and 2 stop the cube too early ($10 \\times 10 \\times 10$ has three factors). Option 4 is $1\\text{ m}^3$ in cubic centimetres.',
+            },
+            {
+              q: '4200 mg expressed in grams is',
+              options: ['$42{,}000\\text{ g}$', '$420\\text{ g}$', '$42\\text{ g}$', '$4.2\\text{ g}$'],
+              answer: 3,
+              explain:
+                'mg → g is three rungs up, so the point moves three places left: $4200 \\div 1000 = 4.2$ (Option 4). Options 1–3 all walk the point the wrong way or part of it. Direction test: grams are bigger than milligrams, so the count must SHRINK. ✓',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Convert, naming the number of rungs in each: (i) 5 m to cm; (ii) 3 kg to g; (iii) 2 L to mL.',
+                  solution: [
+                    'Now, read each pair on its own rail of the one ladder.',
+                    'So (i) m → cm is two rungs: $5 \\times 100 = 500$; (ii) kg → g is three rungs: $3 \\times 1000 = 3000$; (iii) L → mL is three rungs: $2 \\times 1000 = 2000$.',
+                    'And the direction test passes every time: smaller unit, bigger count.',
+                    'Hence 500 cm, 3000 g, 2000 mL — three rails, one law.',
+                  ],
+                  answer: '(i) 500 cm (2 rungs); (ii) 3000 g (3 rungs); (iii) 2000 mL (3 rungs)',
+                },
+                {
+                  q: 'Which is longer: 750 m, or 0.8 km? By how much?',
+                  solution: [
+                    'Now, put both on one rail first: $0.8\\text{ km} = 0.8 \\times 1000 = 800\\text{ m}$.',
+                    'So the comparison is $800\\text{ m}$ against $750\\text{ m}$ — the kilometre dress wins.',
+                    'And the gap: $800 - 750 = 50\\text{ m}$.',
+                    'Hence 0.8 km is longer, by 50 m — never compare across rails; convert, then compare.',
+                  ],
+                  answer: '0.8 km (= 800 m) is longer, by 50 m',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A bus ride is 4.2 km. Express it in metres and in centimetres, counting the rungs.',
+                  solution: [
+                    'Now, km → m is three rungs: $4.2 \\times 1000 = 4200\\text{ m}$.',
+                    'And m → cm is two more: $4200 \\times 100 = 420{,}000\\text{ cm}$ — five rungs in all, $4.2 \\times 10^5$.',
+                    'Hence 4.2 km = 4200 m = 420,000 cm; the digits 4-2 ride unchanged in every dress.',
+                  ],
+                  answer: '4200 m; 420,000 cm (five rungs, ×10⁵)',
+                },
+                {
+                  q: 'A bottle holds 1.25 L of juice. How many 250 mL glasses does it fill?',
+                  solution: [
+                    'Now, put bottle and glass on one rail: $1.25\\text{ L} = 1.25 \\times 1000 = 1250\\text{ mL}$.',
+                    'So the fill count is $1250 \\div 250 = 5$.',
+                    'Hence 5 glasses — the swap law counting how many of the small chunk fits the big one.',
+                  ],
+                  answer: '5 glasses',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Express each in the other dress: (i) 750 g in kilograms; (ii) 6 kg in grams.',
+                  solution: [
+                    'Now, (i) g → kg is three rungs up: $750 \\div 1000 = 0.75\\text{ kg}$.',
+                    'And (ii) kg → g is three rungs down: $6 \\times 1000 = 6000\\text{ g}$.',
+                    'And the direction test reads both: up-ladder shrinks the count (750 → 0.75), down-ladder grows it (6 → 6000).',
+                    'Hence 0.75 kg and 6000 g — the same rail walked both ways.',
+                  ],
+                  answer: '(i) 0.75 kg; (ii) 6000 g',
+                },
+                {
+                  q: 'A delivery truck is rated at 2.4 t. It already carries a 900 kg load. How many more kilograms can it take?',
+                  solution: [
+                    'Now, one rail first: $2.4\\text{ t} = 2.4 \\times 1000 = 2400\\text{ kg}$.',
+                    'So the free room is $2400 - 900 = 1500\\text{ kg}$.',
+                    'Hence 1500 kg more — the tonne folding onto the kilogram rail before any subtraction.',
+                  ],
+                  answer: '1500 kg',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A courier box measures 40 cm × 30 cm × 20 cm. Find its volume in cm³ and in litres.',
+                  solution: [
+                    'Now, the box\u2019s volume: $40 \\times 30 \\times 20 = 24{,}000\\text{ cm}^3$.',
+                    'So cross the litre bridge: $1\\text{ L} = 1000\\text{ cm}^3$, giving $24{,}000 \\div 1000 = 24\\text{ L}$.',
+                    'Hence 24,000 cm³ = 24 L — the cm³ and the mL being the same cube under two names.',
+                  ],
+                  answer: '24,000 cm³ = 24 L',
+                },
+                {
+                  q: 'Express (i) 0.85 km in metres; (ii) 475 cm in metres; (iii) 475 cm in millimetres.',
+                  solution: [
+                    'Now, (i) km → m, three rungs down: $0.85 \\times 1000 = 850\\text{ m}$.',
+                    'And (ii) cm → m, two rungs up: $475 \\div 100 = 4.75\\text{ m}$.',
+                    'And (iii) cm → mm, one rung down: $475 \\times 10 = 4750\\text{ mm}$.',
+                    'Hence 850 m; 4.75 m; 4750 mm — the point walking two, three and one places, the digits 4-7-5 fixed throughout.',
+                  ],
+                  answer: '(i) 850 m; (ii) 4.75 m; (iii) 4750 mm',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Pre-metric France: a pinte in Paris held about 0.93 L; the same-named pinte in Saint-Denis held about 1.46 L. How many more millilitres did Saint-Denis\u2019s pinte hold?',
+                  solution: [
+                    'Now, the gap in litres: $1.46 - 0.93 = 0.53\\text{ L}$.',
+                    'So onto the millilitre rail, three rungs down: $0.53 \\times 1000 = 530\\text{ mL}$.',
+                    'And the sense of it: the same name carrying about 57% more — the measuring-as-charging world the metric law abolished.',
+                    'Hence 530 mL more per pinte — one town\u2019s honest litre vs another\u2019s, in one subtraction.',
+                  ],
+                  answer: '530 mL more',
+                },
+                {
+                  q: 'The 1799 metre bar misses its Earth-quadrant intent by about 0.02%. Over the definition\u2019s 10,000,000 m quadrant, how many metres is that? And how many millimetres on the bar itself?',
+                  solution: [
+                    'Now, the miss over the whole quadrant: $0.02\\%$ of $10{,}000{,}000\\text{ m} = 0.0002 \\times 10^7 = 2000\\text{ m}$.',
+                    'So the true quadrant runs about 2 km longer than the definition assumed — one part in $10{,}000 \\div 2 = 5000$.',
+                    'And on the bar: the same fraction of one metre is $0.0002 \\times 1000 = 0.2\\text{ mm}$ — the bar\u2019s famous shortfall.',
+                    'Hence about 2 km over ten thousand, about 0.2 mm per metre — and the reformers\u2019 answer: the bar became the metre.',
+                  ],
+                  answer: '≈ 2,000 m (2 km) over the quadrant; ≈ 0.2 mm on the bar — one part in 5,000',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the point-shift law from place value: show by expansion that $3.45 \\times 1000 = 3450$, and explain why the digits never move.',
+                  solution: [
+                    'Now, write the decimal in place-value dress: $3.45 = 3 + 4/10 + 5/100$.',
+                    'So multiply by 1000 term by term: $3 \\times 1000 + (4/10) \\times 1000 + (5/100) \\times 1000 = 3000 + 400 + 50 = 3450$.',
+                    'And each digit\u2019s place simply climbed three rungs — ones to thousands, tenths to hundreds, hundredths to tens: the digits keep their values\u2019 order; only their place names change.',
+                    'Hence $3.45 \\times 1000 = 3450$ with the digits 3-4-5 intact — which is exactly the point-shift law $n_2 = n_1 \\times 10^h$ read digit by digit: multiplying by a power of ten is a walk of the point, not a change of the number\u2019s digits.',
+                  ],
+                  answer: '3.45 × 1000 = 3·1000 + 4·100 + 5·10 = 3450 — each digit rises three place-rungs; the digits never change',
+                },
+                {
+                  q: 'The abandoned decimal day had 10 hours of 100 minutes of 100 seconds. How long were its day and its second, against ours ($24 \\times 3600 = 86{,}400$ s)?',
+                  solution: [
+                    'Now, the decimal day\u2019s length: $10 \\times 100 \\times 100 = 100{,}000\\text{ s}$ (decimal seconds).',
+                    'So the same real day in standard seconds is $24 \\times 3600 = 86{,}400\\text{ s}$ — the two "days" name the same sunrise-to-sunrise span.',
+                    'And the decimal second in ours: $86{,}400 \\div 100{,}000 = 0.864\\text{ s}$ — each decimal second a little shorter than ours.',
+                    'Hence a 100,000-second day whose second ran 0.864 of ours — the one decimal idea France retracted, while the metre\u2019s ladder ran on.',
+                  ],
+                  answer: 'Decimal day = 100,000 s (vs 86,400 s); the decimal second = 0.864 of ours',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-converting-units-without-memorising-tables',
+      number: '9.3',
+      title: 'Converting Units Without Memorising Tables',
+      concepts: [
+        'The conversion factor — 1 in disguise',
+        'Multiplying by one changes the dress, never the quantity',
+        'Cancellation — units behave like factors',
+        'The chain method — several hops in one line',
+        'Composite units: the speed pipeline',
+        'The squared-factor law (areas and volumes)',
+        'The direction test',
+        'The identity economy — six facts, every conversion',
+      ],
+      objectives: [
+        'Build a conversion factor from any identity — a ratio of two equal measures, equal to 1 — and choose the dressing whose units cancel into the unit you want',
+        'Justify the method from 9.1\u2019s $Q = n \\times u$: multiplying by 1 preserves the quantity, and units cancel like factors',
+        'Run multi-hop chains in one line (km → m → cm; hours → minutes → seconds) and convert composite units such as km/h to m/s, re-deriving the 5/18 law of 6.2 instead of recalling it',
+        'Apply the squared-factor law honestly: $1\\text{ m}^2 = 10^4\\text{ cm}^2$ and $1\\text{ m}^3 = 10^6\\text{ cm}^3$ — the factor inherits the unit\u2019s power — and refuse the classic ×100 area fraud',
+        'Run the direction test on every answer (smaller unit, bigger count) and diagnose upside-down factors from the shape of the units alone',
+      ],
+      prerequisites: ['fm-the-metric-system', 'fm-units-as-agreements', 'fm-multiplying-dividing-fractions'],
+      sources: ['ncert-sci6-curiosity-ch5', 'ncert-phys11-ch2', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 9.2 handed you the ladder — one decimal family per quantity, every rung a power of ten. This lesson adds the engine that makes the title\u2019s promise true: with **one idea** and **six facts you already own**, you can convert anything to anything in the school metric world without ever consulting a conversion table again. The one idea is the most quietly powerful trick in all of applied arithmetic: **multiplying by 1**. It sounds like doing nothing — and that is exactly its power. Done plainly, multiplying by 1 changes nothing. Done *in disguise*, it changes everything worth changing: the **dress** of a quantity, while the quantity itself stands still.',
+        },
+        {
+          kind: 'para',
+          text: 'The six facts are the identities the ladder already taught: $1\\text{ km} = 1000\\text{ m}$, $1\\text{ m} = 100\\text{ cm}$, $1\\text{ m} = 1000\\text{ mm}$, $1\\text{ kg} = 1000\\text{ g}$, $1\\text{ L} = 1000\\text{ mL}$, and $1\\text{ h} = 3600\\text{ s}$. Notice what these are not: they are not "conversion rules" with directions to memorise (multiply here, divide there). Each one is a plain **equality between two names of the same span** — and any equality can be worn as a fraction. That wearing is the whole method.',
+        },
+        { kind: 'heading', text: 'The conversion factor: 1 in disguise' },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Conversion factor',
+          text: 'A **conversion factor** is said to be a **fraction whose numerator and denominator are two equal measures written in different units** — $\\dfrac{1000\\text{ m}}{1\\text{ km}}$, $\\dfrac{1\\text{ km}}{1000\\text{ m}}$, $\\dfrac{3600\\text{ s}}{1\\text{ h}}$. Since numerator and denominator name the *same span*, the fraction\u2019s value is exactly **1** — and multiplying any quantity by it changes the units\u2019 dress while the quantity stands still.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Why the method is legal: multiplying by 1, cancelling units',
+          statement:
+            'A quantity $Q$ is dressed as $4.2\\text{ km}$. Show that multiplying by $\\dfrac{1000\\text{ m}}{1\\text{ km}}$ neither adds nor removes anything — and that the units may be cancelled like factors.',
+          steps: [
+            {
+              label: 'The factor is 1',
+              formula: '\\frac{1000\\text{ m}}{1\\text{ km}} = 1',
+              explanation: 'Numerator and denominator are the same span in two dresses — $1000$ metres *is* 1 kilometre — so the fraction is 1 wearing a costume.',
+            },
+            {
+              label: 'Multiplying by 1 preserves the quantity',
+              formula: '4.2\\text{ km} \\times 1 = 4.2\\text{ km}',
+              explanation: 'Whatever else happens to the dress, the quantity cannot change: multiplication by one is the identity.',
+            },
+            {
+              label: 'Read the product with the units riding',
+              formula: '4.2\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 4.2 \\times 1000 \\times \\frac{\\text{km}\\cdot\\text{m}}{\\text{km}}',
+              explanation: 'By 9.1\u2019s $Q = n \\times u$, a dressed quantity is a number of chunks — so it multiplies like any product: numbers with numbers, units with units.',
+            },
+            {
+              label: 'Cancel the unit that appears above and below',
+              formula: '= 4.2 \\times 1000 \\times \\text{m} = 4200\\text{ m}',
+              explanation: 'The km on top and the km below are the same unit — their ratio is 1, and they cancel like the common factors of chapter 3.',
+            },
+          ],
+          result: 'The dressing changed (km → m) and nothing else did: $4.2\\text{ km} = 4200\\text{ m}$, derived rather than recalled.',
+        },
+        {
+          kind: 'equation',
+          latex: 'Q \\times \\frac{a\\,\\text{u}_1}{b\\,\\text{u}_2} = Q \\quad \\text{whenever} \\quad a\\,\\text{u}_1 = b\\,\\text{u}_2',
+          note: '**The factor licence (tag 1).** Any identity may be worn as a fraction — in either direction — because both dressings equal 1. The method\u2019s only skill is **choosing the dressing whose given-unit cancels**, which the shape of the units decides for you.',
+        },
+        {
+          kind: 'para',
+          text: 'That last clause deserves its own breath, because it is where every table-memoriser goes wrong. You do not need to *remember* whether km→m multiplies or divides. You need only write the factor so that **the unit you have sits where it can cancel** — the bottom when you have kilometres, the top when you have metres. The units do the bookkeeping; the arithmetic follows. "Without memorising tables" is not a slogan about effort. It is a claim about *where the information lives*: in the identity, read in the direction the cancellation demands.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The cancellation machine, both dressings. Panel A: the right dressing — 4.2 km multiplied by (1000 m over 1 km); the two km cards strike out like common factors, and 4200 m survives. Panel B: the wrong dressing — (1 km over 1000 m) leaves km·km over m: no cancellation is possible, the number collapses to 0.0042, and the garbage units announce the error before any harm is done. The units are the built-in proofreader.',
+          svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the right dressing strikes only the km tokens and 4200 m survives; the wrong dressing leaves uncancelable units and 0.0042">
+  <text x="380" y="24" font-size="13" fill="currentColor" text-anchor="middle">the cancellation machine — only the UNIT cancels; the number survives</text>
+  <text x="380" y="52" font-size="12" font-style="italic" fill="currentColor" text-anchor="middle">panel A — the right dressing: the km tokens strike out, 4.2 and ×1000 remain</text>
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="60" y="80" width="70" height="40" rx="4"/>
+    <rect x="134" y="80" width="46" height="40" rx="4"/>
+    <rect x="230" y="60" width="120" height="32" rx="4"/>
+    <line x1="230" y1="96" x2="350" y2="96"/>
+    <rect x="230" y="100" width="40" height="32" rx="4"/>
+    <rect x="274" y="100" width="76" height="32" rx="4"/>
+    <rect x="440" y="76" width="140" height="40" rx="4"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="95" y="105">4.2</text>
+    <text x="157" y="105">km</text>
+    <text x="290" y="81">1000 m</text>
+    <text x="250" y="121">1</text>
+    <text x="312" y="121">km</text>
+    <text x="510" y="101">4200 m</text>
+    <text x="206" y="105">×</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.3">
+    <line x1="138" y1="84" x2="176" y2="116"/>
+    <line x1="278" y1="104" x2="346" y2="128"/>
+  </g>
+  <line x1="360" y1="96" x2="424" y2="96" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M 438 96 l -14 -6 l 0 12 z" fill="currentColor"/>
+  <text x="608" y="101" font-size="12.5" fill="currentColor">— the survivor is the answer</text>
+  <text x="380" y="172" font-size="12" font-style="italic" fill="currentColor" text-anchor="middle">panel B — the wrong dressing: nothing cancels</text>
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="60" y="240" width="120" height="40" rx="4"/>
+    <rect x="230" y="220" width="120" height="32" rx="4"/>
+    <line x1="230" y1="256" x2="350" y2="256"/>
+    <rect x="230" y="260" width="120" height="32" rx="4"/>
+    <rect x="440" y="236" width="200" height="40" rx="4"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="120" y="265">4.2 km</text>
+    <text x="290" y="241">1 km</text>
+    <text x="290" y="281">1000 m</text>
+    <text x="540" y="261">0.0042 km·km/m</text>
+    <text x="200" y="265">×</text>
+  </g>
+  <text x="380" y="316" font-size="12.5" font-style="italic" fill="currentColor" text-anchor="middle">no cancellation is possible — the garbage units announce the error before it can do damage</text>
+  <text x="380" y="344" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">write the factor so the unit you HAVE sits where it can cancel — the units are the proofreader</text>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The direction test — the built-in proofreader',
+          text: 'Before trusting any converted answer, read its **direction**: converting to a **smaller** unit must give a **bigger** count (more little chunks fit), and to a **bigger** unit a smaller count. $250\\text{ cm} = 2.5\\text{ m}$ shrank ✓; an answer of $25{,}000\\text{ m}$ would have walked the factor upside down. Panel B\u2019s orphan units and the direction test are the same insurance worn twice — one checks the **units**, the other the **number**.',
+        },
+        {
+          kind: 'table',
+          caption: 'The direction test on four verified conversions: the count moves opposite to the unit \u2014 always.',
+          head: ['Conversion', 'The unit', 'The count', 'The test'],
+          rows: [
+            ['$250\\text{ cm} \\to \\text{m}$', 'grows (m > cm)', 'shrinks: $2.5$', '\u2713 smaller count for the bigger unit'],
+            ['$2.5\\text{ m} \\to \\text{cm}$', 'shrinks (cm < m)', 'grows: $250$', '\u2713 bigger count for the smaller unit'],
+            ['$750\\text{ g} \\to \\text{kg}$', 'grows (kg > g)', 'shrinks: $0.75$', '\u2713'],
+            ['$54\\text{ km/h} \\to \\text{m/s}$', 'shrinks (s < h, m < km)', 'shrinks: $15$', '\u2713 both ingredients shrink the count'],
+          ],
+        },
+        { kind: 'heading', text: 'Chains: several hops, one line' },
+        {
+          kind: 'para',
+          text: 'When no single identity joins two units, the factors **chain**: cancel one unit, and the next factor picks up the survivor. The line reads left to right, each fraction eating the unit before it:',
+        },
+        {
+          kind: 'equation',
+          latex: '2.5\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 2.5 \\times 1000 \\times 100\\text{ cm} = 250{,}000\\text{ cm}',
+          note: 'The km cancels in the first fraction, the m in the second; only cm survives. Five rungs of the 9.2 ladder — $3 + 2$ hops — cashed as two factors in one line.',
+        },
+        {
+          kind: 'para',
+          text: 'One freedom worth noticing: the chain\u2019s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ \u2014 the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor\u2019s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right \u2014 cancel what you have, name what you hold, reach for the next identity \u2014 but the algebra itself never cares.',
+        },
+        {
+          kind: 'para',
+          text: 'One freedom worth noticing: the chain’s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ — the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor’s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right — cancel what you have, name what you hold, reach for the next identity — but the algebra itself never cares.',
+        },
+        {
+          kind: 'para',
+          text: 'One freedom worth noticing: the chain’s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ — the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor’s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right — cancel what you have, name what you hold, reach for the next identity — but the algebra itself never cares.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Either dressing works — the reciprocal returns',
+          text: 'Because both dressings of an identity equal 1, **dividing by one is multiplying by the other**: $x \\div \\dfrac{1\\text{ km}}{1000\\text{ m}} = x \\times \\dfrac{1000\\text{ m}}{1\\text{ km}}$. This is chapter 4\u2019s reciprocal theorem ($1/(a/b) = b/a$) wearing units — the same licence that let 4.5 divide by fractions. There is no "multiply for these, divide for those" list to memorise: pick the dressing that cancels, and the direction takes care of itself.',
+        },
+        { kind: 'heading', text: 'Composite units: the speed pipeline' },
+        {
+          kind: 'para',
+          text: 'Composite units — a quotient like km/h, a product like kWh — convert by chaining **one factor per ingredient**. The flagship is the speed conversion this book has used since 6.2, and which 6.2 asked you to take on recall. Now watch it *derive itself*. To turn $54\\text{ km/h}$ into metres per second, dress the 54 with the metre factor and the hour factor — each cancels its own unit:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The speed pipeline: 54 km/h to m/s, derived not recalled',
+          statement:
+            'Convert $54\\text{ km/h}$ to m/s using only the identities $1\\text{ km} = 1000\\text{ m}$ and $1\\text{ h} = 3600\\text{ s}$.',
+          steps: [
+            {
+              label: 'Dress the distance ingredient',
+              formula: '54\\,\\frac{\\text{km}}{\\text{h}} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 54{,}000\\,\\frac{\\text{m}}{\\text{h}}',
+              explanation: 'The km cancels top-and-bottom; the number grows ×1000 because metres are the smaller unit — the direction test approves.',
+            },
+            {
+              label: 'Dress the time ingredient',
+              formula: '54{,}000\\,\\frac{\\text{m}}{\\text{h}} \\times \\frac{1\\text{ h}}{3600\\text{ s}} = \\frac{54{,}000}{3600}\\,\\frac{\\text{m}}{\\text{s}} = 15\\,\\text{m/s}',
+              explanation: 'The h cancels; dividing by 3600 shrinks the number — hours are bigger than seconds, so fewer-and-larger counts: the direction test approves again.',
+            },
+            {
+              label: 'Collapse the two factors into one',
+              formula: '\\frac{1000}{3600} = \\frac{5}{18} \\qquad\\Longrightarrow\\qquad \\text{km/h} \\times \\frac{5}{18} = \\text{m/s}',
+              explanation: 'The pair of factors multiplies to the famous 5/18 — 6.2\u2019s memorised law, now *seen* as two identities chained rather than recalled.',
+            },
+          ],
+          result: '$54\\text{ km/h} = 15\\text{ m/s}$ — and the return ticket is the reciprocal dress: $\\text{m/s} \\times 18/5 = \\text{km/h}$, where $18/5 = 3.6$.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The speed pipeline, flowing left to right: 54 km/h dresses its kilometres (× 1000 m over 1 km) into 54,000 m/h, then dresses its hours (× 1 h over 3600 s) into 15 m/s — the result station at the pipeline\u2019s end. The collapse note below shows the two factors multiplying to the pure number 1000/3600 = 5/18 — the conversion “law” of 6.2, unmasked as a chain of identities — and the return note shows both factors flipped (× 3600/1000 = × 3.6).',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Speed pipeline flowing left to right: 54 km/h, times 1000 m per 1 km, gives 54,000 m/h; times 1 h per 3600 s, gives 15 m/s; collapse notes below">
+  <text x="380" y="24" font-size="13" fill="currentColor" text-anchor="middle">the speed pipeline — one factor per ingredient, flowing left to right</text>
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="60" y="60" width="110" height="40" rx="4"/>
+    <rect x="205" y="44" width="95" height="58" rx="4"/>
+    <rect x="330" y="60" width="120" height="40" rx="4"/>
+    <rect x="485" y="44" width="95" height="58" rx="4"/>
+    <rect x="615" y="60" width="120" height="40" rx="4"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="115" y="85">54 km/h</text>
+    <text x="252" y="68">× 1000 m</text>
+    <text x="252" y="92">1 km</text>
+    <text x="390" y="85">54,000 m/h</text>
+    <text x="532" y="68">× 1 h</text>
+    <text x="532" y="92">3600 s</text>
+    <text x="675" y="85">15 m/s</text>
+  </g>
+  <line x1="170" y1="80" x2="192" y2="80" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M 201 80 l -13 -6 l 0 12 z" fill="currentColor"/>
+  <line x1="300" y1="80" x2="317" y2="80" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M 326 80 l -13 -6 l 0 12 z" fill="currentColor"/>
+  <line x1="450" y1="80" x2="472" y2="80" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M 481 80 l -13 -6 l 0 12 z" fill="currentColor"/>
+  <line x1="580" y1="80" x2="602" y2="80" stroke="currentColor" stroke-width="1.1"/>
+  <path d="M 611 80 l -13 -6 l 0 12 z" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="205" y="150" width="290" height="44" rx="4"/>
+    <rect x="515" y="150" width="220" height="44" rx="4"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="350" y="168">the collapse — the two factors multiply:</text>
+    <text x="350" y="186">1000/3600 = 5/18 (a pure factor, no units)</text>
+    <text x="625" y="168">the return ticket — both factors flipped:</text>
+    <text x="625" y="186">3600/1000 = 18/5 = 3.6</text>
+  </g>
+  <text x="380" y="240" font-size="12.5" font-style="italic" fill="currentColor" text-anchor="middle">read it left to right: dress the kilometres, dress the hours, and 15 m/s is what survives</text>
+  <text x="380" y="266" font-size="12.5" font-style="italic" fill="currentColor" text-anchor="middle">the 5/18 “law” of 6.2 was this pipeline all along — derived, never memorised</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The same pipeline handles every school speed: $72\\text{ km/h} = 72 \\times 5/18 = 20\\text{ m/s}$; $90\\text{ km/h} = 25\\text{ m/s}$; and the return direction $25\\text{ m/s} \\times 3.6 = 90\\text{ km/h}$, $12\\text{ m/s} = 43.2\\text{ km/h}$. Time chains work identically: $2.5\\text{ h} = 2.5 \\times 60 \\times 60 = 9000\\text{ s}$ (two factors, or the pre-collapsed $\\times 3600$); $45\\text{ min} = 2700\\text{ s}$; and the day\u2019s $24 \\times 3600 = 86{,}400\\text{ s}$ of 9.2 is just the hour identity, walked 24 times.',
+        },
+        { kind: 'heading', text: 'Areas and volumes: the factor inherits the power' },
+        {
+          kind: 'para',
+          text: 'Here is the most lucrative error trap in school measurement, and the factor method dismantles it in one move. The area unit $\\text{m}^2$ is not "a metre with a decoration" — it is $1\\text{ m} \\times 1\\text{ m}$, a **product of two lengths**. So its conversion factor is the length factor **used twice**:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The squared-factor law: 1 m² = 10,000 cm², not 100',
+          statement: 'Convert $1\\text{ m}^2$ to square centimetres through the factor method.',
+          steps: [
+            {
+              label: 'Write the square as the product it is',
+              formula: '1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m}',
+              explanation: 'The exponent 2 counts two length factors — the unit is a recipe, exactly as 9.1\u2019s derived-unit table said.',
+            },
+            {
+              label: 'Dress each length factor separately',
+              formula: '= (100\\text{ cm}) \\times (100\\text{ cm})',
+              explanation: 'Each metre borrows its own (100 cm / 1 m) — the same identity, applied twice because the square contains it twice.',
+            },
+            {
+              label: 'Multiply',
+              formula: '= 10{,}000\\text{ cm}^2',
+              explanation: 'The factor 100 is used twice: $100^2 = 10^4$. The 8.5 tile arithmetic and the 9.2 hectare ($100\\text{ m} \\times 100\\text{ m} = 10^4\\text{ m}^2$) are this one line.',
+            },
+          ],
+          result: '$1\\text{ m}^2 = 10^4\\text{ cm}^2$ — the factor inherits the unit\u2019s power. The classic fraud "$1\\text{ m}^2 = 100\\text{ cm}^2$" is the length factor used once for a two-length unit.',
+        },
+        {
+          kind: 'equation',
+          latex: '1\\text{ m}^2 = (100\\text{ cm})^2 = 10^4\\text{ cm}^2, \\qquad 1\\text{ cm}^2 = (10\\text{ mm})^2 = 10^2\\text{ mm}^2, \\qquad 1\\text{ m}^3 = (100\\text{ cm})^3 = 10^6\\text{ cm}^3',
+          note: '**The power law for factors (tag 2).** Converting the $k$-th power of a unit raises the factor to the $k$: ×100 once for lengths, squared for areas, cubed for volumes. So $3.5\\text{ m}^2 = 35{,}000\\text{ cm}^2$, $2.4\\text{ cm}^2 = 240\\text{ mm}^2$, and the 9.2 tank\u2019s $3\\text{ m}^3 = 3{,}000{,}000\\text{ cm}^3 = 3000\\text{ L}$ through the litre bridge.',
+        },
+        {
+          kind: 'example',
+          title: 'A window has area 3.5 m². A film of spray covers 240 mm² of it. Express both in the neighbour unit.',
+          steps: [
+            'Now, the window: areas ride the squared factor — $3.5\\text{ m}^2 = 3.5 \\times (100\\text{ cm})^2 = 3.5 \\times 10{,}000 = 35{,}000\\text{ cm}^2$.',
+            'And the spray: $240\\text{ mm}^2$ climbs one squared rung — $240 \\times (10)^2 = 240 \\times 100 = 24{,}000\\text{ cm}^2$... careful: mm² to cm² is one rung of length but a factor of $10^2$ in area.',
+            'So the spray is $24{,}000\\text{ mm}^2 = 240\\text{ cm}^2$ — and check the direction: cm² is bigger, so the count shrinks. ✓',
+            'Hence 35,000 cm² and 240 cm² — the factor squaring exactly as many times as the unit\u2019s exponent says.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A relay race covers 1.25 km. Express the course in metres, then in centimetres, by chained factors.',
+          steps: [
+            'Now, the first identity: $1.25\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 1250\\text{ m}$ \u2014 the km cancels, the count grows \u00d71000.',
+            'And the second: $1250\\text{ m} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 125{,}000\\text{ cm}$ \u2014 the m cancels, \u00d7100 more.',
+            'So the chain in one line: $1.25 \\times 1000 \\times 100 = 125{,}000$ \u2014 five rungs, $\\times 10^5$, the digits 1-2-5 intact.',
+            'Hence 1250 m and 125,000 cm \u2014 two identities, one course, the direction test approving both growths.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'And with that, the title\u2019s promise is auditable. The **identity economy**: six facts ($1\\text{ km} = 1000\\text{ m}$, $1\\text{ m} = 100\\text{ cm}$, $1\\text{ m} = 1000\\text{ mm}$, $1\\text{ kg} = 1000\\text{ g}$, $1\\text{ L} = 1000\\text{ mL}$, $1\\text{ h} = 3600\\text{ s}$), one licence (multiply by 1 in either dressing), one bookkeeping rule (cancel what appears above and below), one power rule (the factor inherits the exponent). Every conversion this book has ever performed — the 5/18 of 6.2, the $1\\text{ m}^2 = 10^4\\text{ cm}^2$ of 8.5, the tank litres of 9.2 — is now *derivable* from that short list, which is what "without memorising tables" strictly means: the tables were always the identities, multiplied.',
+        },
+        {
+          kind: 'para',
+          text: 'One honesty closes the lesson. The licence says a factor worn as a fraction **multiplies by its value** \u2014 it does not check that the value is 1. Wear a *false* identity ($1\\text{ km} = 100\\text{ m}$, say) and the method runs perfectly and delivers garbage: $1\\text{ km} \\times \\frac{100\\text{ m}}{1\\text{ km}} = 100\\text{ m}$, because the factor $100/1$ is not 1 and never pretended to be. The method\u2019s power and its peril are the same door: **it multiplies whatever you hand it**. That is why the identities come from 9.2\u2019s ladder \u2014 the agreement chapter \u2014 and not from memory\u2019s mood: the arithmetic engine is only as honest as the treaty that feeds it.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Conversion items reward the method, not the memory: multi-hop chains ($2.5\\text{ km}$ to cm; $2.5\\text{ h}$ to s through 60 × 60); speed both ways ($90\\text{ km/h}$ to m/s; $12\\text{ m/s}$ to km/h — the ×3.6 return); the area trap (options offering 350 for $3.5\\text{ m}^2$ in cm² — the ×100 fraud made visible); and diagnosis items ("a student writes $250\\text{ cm} = 25{,}000\\text{ m}$ — find the fault": the factor was upside down; the direction test alone convicts it). Shapes cited from SSC/RRB/banking patterns; none reproduced.',
+        },
+        {
+          kind: 'formula',
+          name: 'The factor licence',
+          latex: 'Q \\times \\frac{a\\,\\text{u}_1}{b\\,\\text{u}_2} = Q \\quad (a\\,\\text{u}_1 = b\\,\\text{u}_2)',
+          note: 'Any identity worn as a fraction equals 1 — in either direction. Choose the dressing whose given-unit cancels; the survivor unit is the answer\u2019s.',
+        },
+        {
+          kind: 'formula',
+          name: 'The speed collapse (and its return)',
+          latex: '\\text{km/h} \\times \\frac{5}{18} = \\text{m/s}, \\qquad \\text{m/s} \\times \\frac{18}{5} = \\text{km/h}',
+          note: '5/18 = 1000/3600 derived from two identities; 18/5 = 3.6 is its reciprocal dress.',
+        },
+        {
+          kind: 'formula',
+          name: 'The power law for factors',
+          latex: '1\\text{ m}^2 = 10^4\\text{ cm}^2, \\qquad 1\\text{ m}^3 = 10^6\\text{ cm}^3',
+          note: 'The factor inherits the unit\u2019s exponent: ×100 squared for areas, cubed for volumes. The ×100 area fraud refuses here.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Conversion factor',
+              def: 'A fraction whose numerator and denominator are equal measures in different units — $1000\\text{ m}/1\\text{ km}$ — hence exactly 1. Worn in either direction; the dressing that cancels the given unit is the one to use.',
+            },
+            {
+              term: 'Cancellation',
+              def: 'Units multiply and divide like factors (km·m/km = m) — licensed by 9.1\u2019s $Q = n \\times u$: a dressed quantity is a product of a number and a unit.',
+            },
+            {
+              term: 'Chain method',
+              def: 'Several factors in one line, each cancelling the previous survivor\u2019s unit: km → m → cm as $\\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{100\\text{ cm}}{1\\text{ m}}$.',
+            },
+            {
+              term: 'Reciprocal dressing',
+              def: 'Dividing by a factor equals multiplying by its flip: $x \\div \\frac{1\\text{ km}}{1000\\text{ m}} = x \\times \\frac{1000\\text{ m}}{1\\text{ km}}$ — 4.5\u2019s reciprocal theorem wearing units.',
+            },
+            {
+              term: 'Speed pipeline',
+              def: 'Composite units convert one ingredient at a time: km/h → m/s dresses the distance (×1000 m/1 km) and then the time (×1 h/3600 s); the factors collapse to 5/18.',
+            },
+            {
+              term: 'Squared-factor law',
+              def: 'The conversion factor of a unit\u2019s $k$-th power is the factor to the $k$: $1\\text{ m}^2 = 10^4\\text{ cm}^2$, $1\\text{ m}^3 = 10^6\\text{ cm}^3$. The ×100 area fraud is the length factor under-used once.',
+            },
+            {
+              term: 'Direction test',
+              def: 'Smaller unit ⇒ bigger count; bigger unit ⇒ smaller count. The number\u2019s built-in proofreader — an answer moving the wrong way convicts an upside-down factor instantly.',
+            },
+            {
+              term: 'Identity economy',
+              def: 'Six owned facts (km–m, m–cm, m–mm, kg–g, L–mL, h–s) + the factor licence + the power rule generate every school conversion: the tables were always the identities, multiplied.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The conversion factor $\\dfrac{1000\\text{ m}}{1\\text{ km}}$ equals',
+              options: ['$1$', '$1000$', '$1/1000$', 'it depends on the quantity'],
+              answer: 0,
+              explain:
+                'Numerator and denominator are the same span in two dresses, so the fraction is exactly 1 (Option 1) — that is the whole licence. Option 2 is the numerator alone; Option 3 the flipped dress\u2019s reciprocal confusion; Option 4 — a factor\u2019s value never depends on what it multiplies.',
+            },
+            {
+              q: 'Chaining the factors, $2.5\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{100\\text{ cm}}{1\\text{ m}} =$',
+              options: ['$25{,}000\\text{ cm}$', '$250{,}000\\text{ cm}$', '$2{,}500{,}000\\text{ cm}$', '$25\\text{ cm}$'],
+              answer: 1,
+              explain:
+                '$2.5 \\times 1000 \\times 100 = 250{,}000$ (Option 2) — five ladder rungs, $\\times 10^5$. Option 1 drops a factor of ten; Option 3 adds one; Option 4 divided instead of multiplied. Direction test: cm is smaller than km, so the count must grow enormously. ✓',
+            },
+            {
+              q: 'Converting 750 g to kilograms, the number must',
+              options: ['grow ×1000', 'stay the same', 'shrink ÷1000', 'cannot be known'],
+              answer: 2,
+              explain:
+                'The kilogram is the bigger unit, so the count shrinks: $750 \\div 1000 = 0.75$ (Option 3). Option 1 walks the factor upside down; Option 2 confuses the quantity (which never moves) with the count (which must); Option 4 — the identity decides it completely.',
+            },
+            {
+              q: '$1\\text{ m}^2$ expressed in cm² is',
+              options: ['$100\\text{ cm}^2$', '$1000\\text{ cm}^2$', '$10{,}000\\text{ cm}^2$', '$100{,}000\\text{ cm}^2$'],
+              answer: 2,
+              explain:
+                'The factor inherits the square: $(100\\text{ cm})^2 = 10^4$ (Option 3). Options 1 and 2 use the length factor once or half — the classic area fraud. Option 4 overshoots by ten. The derivation: $1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m} = 100\\text{ cm} \\times 100\\text{ cm}$. ✓',
+            },
+            {
+              q: '$54\\text{ km/h}$ expressed in m/s is',
+              options: ['$5.4$', '$15$', '$150$', '$194.4$'],
+              answer: 1,
+              explain:
+                'The pipeline: $54 \\times 1000/3600 = 54 \\times 5/18 = 15$ (Option 2). Option 1 slipped a zero; Option 3 multiplied by 18/6-ish carelessly; Option 4 applied the return factor 3.6 backwards ($54 \\times 3.6 = 194.4$). Check: 15 m/s × 3.6 returns 54. ✓',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Convert by the factor method, naming the identity you wore: (i) 6 m to cm; (ii) 9000 g to kg; (iii) 3500 mL to L.',
+                  solution: [
+                    'Now, wear each identity in the direction that cancels the unit you have.',
+                    'So (i) $6\\text{ m} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 600\\text{ cm}$; (ii) $9000\\text{ g} \\times \\frac{1\\text{ kg}}{1000\\text{ g}} = 9\\text{ kg}$; (iii) $3500\\text{ mL} \\times \\frac{1\\text{ L}}{1000\\text{ mL}} = 3.5\\text{ L}$.',
+                    'And the direction test reads all three: bigger count for the smaller unit (i), smaller counts for the bigger units (ii), (iii).',
+                    'Hence 600 cm, 9 kg, 3.5 L — three identities, three cancellations, zero tables.',
+                  ],
+                  answer: '(i) 600 cm; (ii) 9 kg; (iii) 3.5 L',
+                },
+                {
+                  q: 'Which is longer: 320 cm, or 3 m? By how much?',
+                  solution: [
+                    'Now, one rail first: $3\\text{ m} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 300\\text{ cm}$.',
+                    'So the comparison is 320 cm against 300 cm, and the gap is $320 - 300 = 20\\text{ cm}$.',
+                    'Hence 320 cm is longer, by 20 cm — the factor, then the subtraction.',
+                  ],
+                  answer: '320 cm, by 20 cm',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Convert 0.85 km to metres by writing the factor explicitly and cancelling.',
+                  solution: [
+                    'Now, the identity $1\\text{ km} = 1000\\text{ m}$ worn as $\\frac{1000\\text{ m}}{1\\text{ km}}$ — the km sits below, ready to cancel.',
+                    'So $0.85\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 0.85 \\times 1000\\text{ m} = 850\\text{ m}$.',
+                    'And the direction test: metres are smaller, the count grew from 0.85 to 850. ✓',
+                    'Hence 850 m — the dressing changed, the span did not.',
+                  ],
+                  answer: '850 m',
+                },
+                {
+                  q: 'Convert 2.5 h to seconds by chaining two factors (hours → minutes → seconds).',
+                  solution: [
+                    'Now, chain the identities: $2.5\\text{ h} \\times \\frac{60\\text{ min}}{1\\text{ h}} \\times \\frac{60\\text{ s}}{1\\text{ min}}$.',
+                    'So the h cancels, then the min: $2.5 \\times 60 \\times 60 = 9000\\text{ s}$.',
+                    'And the collapsed dress agrees: $2.5 \\times 3600 = 9000$ — the pre-multiplied factor is just the chain, folded.',
+                    'Hence 9000 s — two identities, one line.',
+                  ],
+                  answer: '9000 s',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A bus runs at 90 km/h. Convert to m/s through the two-factor pipeline.',
+                  solution: [
+                    'Now, dress the distance: $90\\,\\frac{\\text{km}}{\\text{h}} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 90{,}000\\,\\text{m/h}$.',
+                    'And dress the time: $90{,}000 \\times \\frac{1\\text{ h}}{3600\\text{ s}} = 25\\text{ m/s}$.',
+                    'So the collapse agrees: $90 \\times \\frac{5}{18} = 25$ — the 6.2 law, derived.',
+                    'Hence 25 m/s.',
+                  ],
+                  answer: '25 m/s',
+                },
+                {
+                  q: 'A cyclist rides at 12 m/s. Convert to km/h through the return pipeline.',
+                  solution: [
+                    'Now, the return pipeline wears both factors upside down: $12\\,\\frac{\\text{m}}{\\text{s}} \\times \\frac{3600\\text{ s}}{1\\text{ h}} \\times \\frac{1\\text{ km}}{1000\\text{ m}}$.',
+                    'So $12 \\times \\frac{3600}{1000} = 12 \\times 3.6 = 43.2\\text{ km/h}$.',
+                    'And the direction test: km/h is the bigger-dressed unit, so the count grows from 12 to 43.2. ✓',
+                    'Hence 43.2 km/h.',
+                  ],
+                  answer: '43.2 km/h',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A window has area 3.5 m². Express it in cm², and explain why the answer is not 350.',
+                  solution: [
+                    'Now, the unit is a square: $1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m} = 100\\text{ cm} \\times 100\\text{ cm}$.',
+                    'So the length factor is used twice: $3.5 \\times 100 \\times 100 = 35{,}000\\text{ cm}^2$.',
+                    'And "350" is the fraud — the length factor \\u00d7100 used once for a two-length unit.',
+                    'Hence 35,000 cm² — the factor inherits the exponent.',
+                  ],
+                  answer: '35,000 cm² (not 350 — the factor squares)',
+                },
+                {
+                  q: 'A tank holds 4 m³ of water. Use the factor method (through cm³) to find its capacity in litres.',
+                  solution: [
+                    'Now, cube the length factor: $1\\text{ m}^3 = (100\\text{ cm})^3 = 1{,}000{,}000\\text{ cm}^3$.',
+                    'So the tank holds $4 \\times 10^6\\text{ cm}^3$.',
+                    'And cross the litre bridge: $1\\text{ L} = 1000\\text{ cm}^3$, so $\\frac{4{,}000{,}000}{1000} = 4000\\text{ L}$.',
+                    'Hence 4000 L — the cubed factor and the litre bridge handing the answer across.',
+                  ],
+                  answer: '4000 L',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Chain factors to express 3.45 km in millimetres — in one line, showing every cancellation.',
+                  solution: [
+                    'Now, two identities bridge the gap: km → m, then m → mm.',
+                    'So $3.45\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{1000\\text{ mm}}{1\\text{ m}} = 3.45 \\times 10^6\\text{ mm}$.',
+                    'And the arithmetic: $3.45 \\times 1{,}000{,}000 = 3{,}450{,}000\\text{ mm}$ — the digits 3-4-5 unchanged, the point six places right.',
+                    'Hence 3,450,000 mm — six rungs, two factors, one line.',
+                  ],
+                  answer: '3,450,000 mm',
+                },
+                {
+                  q: 'A student writes "250 cm = 25,000 m". Find the fault with the direction test, and give the right answer.',
+                  solution: [
+                    'Now, the direction test first: the metre is BIGGER than the centimetre, so the count must SHRINK — 25,000 grew, which convicts the factor at once.',
+                    'So the student wore the identity upside down: $\\frac{1\\text{ km}}{1000\\text{ m}}$-thinking where $\\frac{100\\text{ cm}}{1\\text{ m}}$ was wanted... precisely, they multiplied by 100 instead of dividing.',
+                    'And the right line: $250\\text{ cm} \\times \\frac{1\\text{ m}}{100\\text{ cm}} = 2.5\\text{ m}$.',
+                    'Hence 2.5 m — the units were the proofreader; the test read the verdict before the arithmetic even mattered.',
+                  ],
+                  answer: 'The factor was upside down (multiplied by 100); the correct conversion is 2.5 m',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the squared-factor law from the factor method: show $1\\text{ m}^2 = 10^4\\text{ cm}^2$ and $1\\text{ cm}^2 = 10^2\\text{ mm}^2$, and state the general rule.',
+                  solution: [
+                    'Now, a square unit is the product of two length units: $1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m}$.',
+                    'So dress each factor: $(100\\text{ cm}) \\times (100\\text{ cm}) = 10^4\\text{ cm}^2$ — the identity used twice because the square contains it twice.',
+                    'And one rung down: $1\\text{ cm}^2 = (10\\text{ mm}) \\times (10\\text{ mm}) = 10^2\\text{ mm}^2$.',
+                    'Hence the general rule: the conversion factor of a unit\u2019s $k$-th power is the length factor raised to the $k$ — \\u00d710 once per length, squared for areas, cubed for volumes. The tables never said this; the method derives it.',
+                  ],
+                  answer: '1 m² = (100 cm)² = 10⁴ cm²; 1 cm² = (10 mm)² = 10² mm²; the factor inherits the exponent',
+                },
+                {
+                  q: 'The identity economy in action: using only $1\\text{ km} = 1000\\text{ m}$ and $1\\text{ h} = 3600\\text{ s}$, derive how many m/s ride in 1 km/h.',
+                  solution: [
+                    'Now, dress one kilometre per hour through both identities: $1\\,\\frac{\\text{km}}{\\text{h}} \\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{1\\text{ h}}{3600\\text{ s}}$.',
+                    'So both original units cancel and $1\\text{ km/h} = \\frac{1000}{3600}\\text{ m/s}$.',
+                    'And the fraction reduces: $\\frac{1000}{3600} = \\frac{5}{18} \\approx 0.278$ — chapter 3\u2019s HCF reduction closing the line.',
+                    'Hence 1 km/h = 5/18 m/s — the entire 6.2 conversion law, generated from two owned facts and the licence to multiply by one. That is the economy: six identities, one licence, every conversion.',
+                  ],
+                  answer: '1 km/h = 1000/3600 = 5/18 ≈ 0.278 m/s — derived from two identities',
                 },
               ],
             },

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 05:59:08 (Asia/Kolkata)",
+  "generated": "2026-11-05 09:01:54 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -2585,10 +2585,8 @@
             "title": "Measurement",
             "summary": "What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "The Metric System",
-              "Converting Units Without Memorising Tables",
               "Precision, Accuracy and Rounding in Measurement"
             ],
             "lessons": [
@@ -2660,9 +2658,150 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-the-metric-system",
+                "number": "9.2",
+                "title": "The Metric System",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4529,
+                "readMins": 23,
+                "concepts": [
+                  "The metric system — one decimal family",
+                  "Prefixes: kilo, hecto, deca, deci, centi, milli",
+                  "The point-shift law",
+                  "The three school families: metre, gram, litre",
+                  "The kilogram — the prefix-wearing base unit",
+                  "The litre and the cubic decimetre",
+                  "The metre from the Earth",
+                  "The 1795 law and the road to SI"
+                ],
+                "objectives": [
+                  "Say what makes the metric system a system: every step between a unit and its multiples is the same step — a power of ten — and read the six school prefixes (kilo, hecto, deca, deci, centi, milli) with their factors",
+                  "State and prove the point-shift law: h hops down the ladder multiply the count by 10^h, so converting is moving the decimal point, not doing arithmetic",
+                  "Work the three school families — kilometre–metre–centimetre–millimetre, kilogram–gram–milligram, litre–millilitre — in both directions, including decimal quantities",
+                  "Use the litre bridge (1 L = 1 dm³ = 1000 cm³, 1 m³ = 1000 L) to carry volume problems, and place the tonne on the mass rail",
+                  "Tell the metre’s three bodies honestly — the Earth-quadrant definition of 1791, the platinum bar of 1799 (0.02% short, one part in 5,000), the light-speed metre of 1983 — and date the 1795 prefix law and the world’s adoption"
+                ],
+                "prerequisites": [
+                  "fm-units-as-agreements",
+                  "fm-decimal-places-and-the-point",
+                  "fm-operating-on-decimals"
+                ],
+                "sources": [
+                  "ncert-sci6-curiosity-ch5",
+                  "ncert-phys11-ch2",
+                  "wikipedia-metre-history",
+                  "usma-1795-decree",
+                  "sizes-litre-1964",
+                  "ncj-measuring-the-meter"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 6,
+                  "callout": 6,
+                  "table": 2,
+                  "figure": 2,
+                  "derivation": 1,
+                  "equation": 2,
+                  "example": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              },
+              {
+                "id": "fm-converting-units-without-memorising-tables",
+                "number": "9.3",
+                "title": "Converting Units Without Memorising Tables",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 3603,
+                "readMins": 18,
+                "concepts": [
+                  "The conversion factor — 1 in disguise",
+                  "Multiplying by one changes the dress, never the quantity",
+                  "Cancellation — units behave like factors",
+                  "The chain method — several hops in one line",
+                  "Composite units: the speed pipeline",
+                  "The squared-factor law (areas and volumes)",
+                  "The direction test",
+                  "The identity economy — six facts, every conversion"
+                ],
+                "objectives": [
+                  "Build a conversion factor from any identity — a ratio of two equal measures, equal to 1 — and choose the dressing whose units cancel into the unit you want",
+                  "Justify the method from 9.1’s $Q = n \\times u$: multiplying by 1 preserves the quantity, and units cancel like factors",
+                  "Run multi-hop chains in one line (km → m → cm; hours → minutes → seconds) and convert composite units such as km/h to m/s, re-deriving the 5/18 law of 6.2 instead of recalling it",
+                  "Apply the squared-factor law honestly: $1\\text{ m}^2 = 10^4\\text{ cm}^2$ and $1\\text{ m}^3 = 10^6\\text{ cm}^3$ — the factor inherits the unit’s power — and refuse the classic ×100 area fraud",
+                  "Run the direction test on every answer (smaller unit, bigger count) and diagnose upside-down factors from the shape of the units alone"
+                ],
+                "prerequisites": [
+                  "fm-the-metric-system",
+                  "fm-units-as-agreements",
+                  "fm-multiplying-dividing-fractions"
+                ],
+                "sources": [
+                  "ncert-sci6-curiosity-ch5",
+                  "ncert-phys11-ch2",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 4,
+                  "callout": 4,
+                  "derivation": 3,
+                  "equation": 3,
+                  "figure": 2,
+                  "table": 1,
+                  "example": 2,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 5501
+            "words": 13633
           },
           {
             "number": 10,
@@ -2718,13 +2857,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 87,
-      "totalLines": 32843,
+      "srcFilesTracked": 88,
+      "totalLines": 34714,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 23578,
+        "src/data/library (content model + books)": 25449,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -8051,6 +8190,129 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "9509fbf0fb812f28ebc36199acd89d73ca9f9fd1",
+      "short": "9509fbf",
+      "date": "2026-11-05 00:36",
+      "message": "fm 9.1 units as agreements (unit 9, run 42): chapter 9 Measurement OPENS 1/4 — what measuring is, and why the unit is a treaty; measurement defined is-said-to-be as a count of units (Q = n x u as tag 1); figure 1 the 180 cm desk measured in three handspans (10/9/8 numbered spans between shared rails with hooked dimension braces — REDESIGNED once after VLM 6/6, pass 2 scored 10/9); body (non-standard) units and their one fatal flaw, invariability; the royal cubit's fix (7 palms x 4 digits = 28 digits, the granite rod of Maya 52.3 cm distributed to building sites — the agreement made physical; attested range 44.4-52.92 cm told honestly); the standard-unit Definition (invariable, replicable, agreed); the barleycorn inch statute + the Henry-I yard legend told honestly (origin uncertain, nose-bounding a folktale per William of Malmesbury); the swap law n1 x u1 = n2 x u2 DERIVED as tag 2 (transitivity of equality) with figure 2 the one 2.5 m ribbon under three sticks (2.5/5/25 counts, products all 250, VLM 10/9) + the 2.5 m table (0.0025 km / 2.5 m / 250 cm / 2500 mm) + the inverse law (unit / k => count x k, swept k = 2..100) + the bare-number Caution (Rs 250 vs 250 paise); base vs derived quantities (the recipe-in-the-spelling table: m^2, m/s, m^3; the carpet 12 m^2 = 120,000 cm^2 cashing 8.5, the bus 45 km/h = 12.5 m/s cashing 6.2's 5/18 law); the treaty section — the Metre Convention (Paris, 20 May 1875, 17 states, BIPM at Sevres, amended 1921), SI named at the 11th CGPM 1960 with exactly 7 base units, the 2019 constant redefinitions as one-sentence forward colour, India's page (SOWM Act 1956 -> metric compulsory 1 Oct 1960, gaz/bigha -> metre/hectare, Legal Metrology Act 2009); 8 terms, 5-quiz (keys 0/1/2/2/2 verified live 5/5), 12 exercises L1-L6 (L6: the swap law proved and cashed; the 250-no-unit packet fraud — 250 g = 0.25 kg, the 0.5 kg recipe needs 2 packets); 5,501 words in the Cengage voice + solution chain; verify-unit-9.ts CREATED 200 checks (A-M) ALL PASS pre-writing (gitignore exceptions FIRST per the run-40 /scripts/* trap; the 590-case exact-division sweep count x unit = length; the swap law + inverse-law sweeps; both figures' clearance sweeps; quiz + exercise keys); E2E suite 28 lessons exit 0 + dedicated 9.1 block (e2e-91 created + whitelisted; quiz live 5/5, 12/12 solutions expand, 14 Sol. pills inline, 0 raw-dollar, 0 katex-errors, mobile 390 exact-fit); SVG audits 0/0 FIRST pass after the brace redesign; VLM 10/9 + 10/9; scope guard held (no prefix tables 9.2, no x1 drills 9.3, no precision/accuracy 9.4); SOURCE_LOG gains ncert-sci6-curiosity-ch5 + ncert-phys11-ch2 (both web-checked, sanctioned fallback); logs + pointer + inventory updated (survey rebuilt after the recycle, 89 entries intact; book = 38 lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises)",
+      "filesChanged": 12,
+      "insertions": 1672,
+      "deletions": 192,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 59,
+          "del": 24
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 81,
+          "del": 68
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 55,
+          "del": 54
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 37,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 21,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 189,
+          "del": 28
+        },
+        {
+          "path": "scripts/e2e-91.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-9.ts",
+          "add": 413,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 9,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 682,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "beaf0f8b91df11b8adfedf32a12ed0ef38fb5692",
+      "short": "beaf0f8",
+      "date": "2026-11-05 00:36",
+      "message": "memory: run-42 synced sha recorded (9509fbf) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 9 Measurement OPEN 1/4 (FM 9.1 Units as Agreements shipped: 5,501 words, verify-unit-9.ts 200 checks A-M ALL PASS pre-writing, figure 1 redesigned after VLM 6/6 -> 10/9, figure 2 10/9, quiz keys 0/1/2/2/2 live 5/5, E2E 28 lessons + dedicated 9.1 block green, SVG audits 0/0, new citation keys ncert-sci6-curiosity-ch5 + ncert-phys11-ch2, book = 38 lessons / 182,231 words / 279 terms); next run 43 continues at FM 9.2 The Metric System (extend verify-unit-9.ts FIRST); voice queue EMPTY",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
+    },
+    {
+      "sha": "fe2d9b4d6a3c34495ad20662bec8fd0bcfe4d965",
+      "short": "fe2d9b4",
+      "date": "2026-11-05 02:19",
+      "message": "memory: owner directive 2026-11-05 — hourly loop rescheduled to TWO lessons per run (owner disabled job 498279 after 43 runs -> new job 504365 'LockIn Library — hourly unit run (2 lessons/run)', fixed_rate 3600 Asia/Kolkata, identical workflow + push protocol, only the lesson count changed: each run authors the next TWO lessons sequentially with per-lesson verify-first + full gates, single ship after both); PROGRESS awaiting + workflowRulesReminder synced (rule 8 PAT home -> job 504365), RESUME_POINTER nextAction/nextUnit -> run 43 = FM 9.2 The Metric System + FM 9.3 Converting Units Without Memorising Tables (extend verify-unit-9.ts per lesson FIRST); WORKLOG directive entry; no lesson authored this turn — tree was clean at beaf0f8, remote synced",
+      "filesChanged": 3,
+      "insertions": 35,
+      "deletions": 6,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 10,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 17,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "ead04b9d872d075a581f0260acfd08faec05baec",
+      "short": "ead04b9",
+      "date": "2026-11-05 02:19",
+      "message": "memory: reschedule directive commit fe2d9b4 remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; next delivery = run 43 (first 2-lesson run from job 504365): FM 9.2 The Metric System + FM 9.3 Converting Units Without Memorising Tables",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -8059,25 +8321,25 @@
     "booksLive": 1,
     "chaptersWritten": 8,
     "chaptersInProgress": 1,
-    "lessonsWritten": 38,
-    "wordsAuthored": 182231,
-    "termsDefined": 279,
-    "quizItems": 190,
-    "exerciseQuestions": 414,
+    "lessonsWritten": 40,
+    "wordsAuthored": 190363,
+    "termsDefined": 295,
+    "quizItems": 200,
+    "exerciseQuestions": 438,
     "blockTotals": {
-      "para": 584,
-      "callout": 229,
-      "heading": 239,
-      "list": 49,
-      "terms": 39,
-      "equation": 68,
-      "derivation": 71,
-      "table": 38,
-      "figure": 69,
-      "example": 187,
-      "quiz": 38,
-      "exercises": 38,
-      "formula": 73,
+      "para": 611,
+      "callout": 239,
+      "heading": 249,
+      "list": 50,
+      "terms": 41,
+      "equation": 73,
+      "derivation": 75,
+      "table": 41,
+      "figure": 73,
+      "example": 191,
+      "quiz": 40,
+      "exercises": 40,
+      "formula": 79,
       "algorithm": 8
     }
   }

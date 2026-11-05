@@ -9,6 +9,46 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 43 (Job 504365 — the FIRST TWO-LESSON RUN under the
+owner's 2026-11-05 directive)**: **FM 9.2 "The Metric System" + FM 9.3
+"Converting Units Without Memorising Tables" shipped** — chapter 9 Measurement
+in-progress **3/4** (4,529 + 3,603 body words): 9.2 the metric system as the
+treaty's masterstroke — the old world's mess (the pinte 0.93 vs 1.46 L) and the
+rejected pendulum; the metric-system Definition + the 1795 prefix law
+(7 April: Greek big steps deca/hecto/kilo, Latin small steps deci/centi/milli)
+with the seven-rung ladder table; figure 1 the metric staircase (five countable
+dashed hops of 3.45 km, per-hop × 10 labels, the quantity anchored — REDESIGNED
+twice to VLM 10/8); the point-shift law DERIVED as tag 1 from the swap law
+(u₂ = u₁/10ʰ ⇒ n₂ = n₁ × 10ʰ — the digits never change, the point walks) with
+the 3.45 km Illustration; the direction-test Caution; the three families
+(km–m–cm–mm, kg–g–mg, L–mL) + the kilogram callout (the prefix-wearing base
+unit) + the tonne; figure 2 one quantity on three rails (the same × 1000 hop,
+10/9); the litre bridge as tag 2 (1 L = 1 dm³ = 1000 cm³, 1 mL = 1 cm³, 1 m³ =
+1000 L; the 1901→1964 drift one clause) + the tank Illustration (3 m³ = 3000 L);
+the metre's three bodies (Earth 1791 — Delambre/Méchain 1792–1798, the 1799 bar
+at 443.296 lignes honestly 0.02% short = 2 km in 10,000 = one part in 5,000 =
+0.2 mm; krypton 1960; light 1983, c = 299,792,458 m/s); the 1795 historical
+callout (the decimal day 100,000 s vs 86,400, abandoned in two years; the US
+1866 legal/1975 voluntary). 9.3 the engine on the ladder: the conversion-factor
+Definition (equal measures as a fraction = 1 in disguise); the legality
+derivation + tag 1 the factor licence; figure 1 the cancellation machine
+striking ONLY the km tokens (rebuilt to 10/9); the direction test + the
+four-row table; chains (2.5 km → 250,000 cm; order free by commutativity,
+matching not); the reciprocal either-dressing Note (4.5's theorem wearing
+units); the speed pipeline derivation (54 km/h → 15 m/s; the 5/18 collapse of
+6.2 UNMASKED as two chained identities; the return × 3.6) with figure 2 rebuilt
+left-to-right with a pure-factor collapse box (10/9); the squared-factor law as
+tag 2 (1 m² = 10⁴ cm² NOT 100; 1 cm² = 10² mm²; 1 m³ = 10⁶ cm³; the hectare and
+the tank re-cashed) + the window/spray and relay Illustrations; the identity
+economy (six facts + the licence + the power rule) and the false-identity
+honesty. Quizzes live 5/5 both (keys 0/2/1/2/3 and 0/1/2/2/1); verify-unit-9.ts
+200 → 428 checks A–AD ALL PASS pre-writing; SVG audits 0/0 all four figures;
+E2E dedicated 9.2/9.3 blocks green, the suite at 30 lessons; new citation keys
+wikipedia-metre-history, usma-1795-decree, sizes-litre-1964,
+ncj-measuring-the-meter; book = **40 lessons / 190,363 words / 295 terms /
+200 quiz / 438 exercises**. Next: run 44 = FM 9.4 (closes the chapter → the
+unit-9 completion review) + ch. 10 opens at 10.1.
+
 Generated: 2026-11-03/04/05 (maintained through **run 42, Job 498279**:
 **FM 9.1 "Units as Agreements" shipped and CHAPTER 9 MEASUREMENT OPENS**
 (5,501 body words): the question under every number the book has printed —
@@ -923,7 +963,7 @@ downloads (references already logged).
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
-| 9 | Measurement — **OPEN (1/4, run 42)** | ~~Units as Agreements~~ **WRITTEN (run 42)** · Metric System · Converting Without Tables · Precision vs Accuracy |
+| 9 | Measurement — **IN-PROGRESS (3/4, run 43)** | ~~Units as Agreements~~ · ~~The Metric System~~ · ~~Converting Without Tables~~ **WRITTEN (9.1 run 42; 9.2 + 9.3 run 43)** · Precision vs Accuracy (9.4 next — closes the chapter) |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
 
@@ -1138,24 +1178,38 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 40 | ship + bookkeeping + memory | 11-05 | FM lesson 8.4 Triangles and the Angle Sum + the pre-flight repair (escaped apostrophes, e2e-83/84 whitelisted) — verify-unit-8.ts 253 → 339 checks (AF–AN); 5,382 words; quiz live 5/5; voice polish 3.5; pushed per protocol (dedc21e, remote-verified) |
 | 41 | ship + bookkeeping + memory | 11-05 | FM lesson 8.5 Perimeter and Area of Rectangles, Triangles and Circles — CHAPTER 8 CLOSED — verify-unit-8.ts 339 → 429 checks (AO–AZ); 5,998 words; figure 3 redesigned to the flush rearrangement after VLM 7/6 → 9/9; quiz live 5/5; unit-8 completion review; voice polish 4.1 + Rs-tfrac katex repair; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11; pushed per protocol |
 | 42 | ship + bookkeeping + memory | 11-05 | FM lesson 9.1 Units as Agreements — CHAPTER 9 MEASUREMENT OPENS — verify-unit-9.ts CREATED (200 checks A–M; gitignore exceptions FIRST); 5,501 words; figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans, shared rails, hooked braces); figure 2 10/9; quiz live 5/5 (keys 0/1/2/2/2); swap law derived + inverse law swept; new citation keys ncert-sci6-curiosity-ch5 + ncert-phys11-ch2; pushed per protocol |
+| 43 | ship + bookkeeping + memory | 11-05 | FM lessons 9.2 The Metric System (4,529 words) + 9.3 Converting Units Without Memorising Tables (3,603 words) — THE FIRST TWO-LESSON RUN (job 504365) — verify-unit-9.ts 200 → 428 checks (N–AD); chapter 9 in-progress 3/4; fig redesigns: 9.2 fig1 ×2 → 10/8, 9.3 fig1 token-strikes → 10/9, 9.3 fig2 rebuild → 10/9; quizzes live 5/5 both; new citation keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter; pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the run-40 ship `dedc21e` + memory `8c93d5a` pushed and
-  remote-verified (protocol v2); run 41 ships this entry — the push +
-  synced sha land in WORKLOG.md / RESUME_POINTER.json (one-time URL from
-  the 06:27 payload).
+- HEAD: the run-43 ship + its memory commit pushed and remote-verified
+  (protocol v2, one-time URL from job 504365's payload); synced shas
+  recorded in WORKLOG.md / RESUME_POINTER.json. Run 43 = the first
+  TWO-lesson run (9.2 + 9.3 shipped; chapter 9 in-progress 3/4).
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 9 "Measurement" OPEN 1/4 — FM 9.1
-  "Units as Agreements" shipped run 42** (cron 07:27 delivery, job
-  498279). verify-unit-9.ts CREATED with 200 checks A–M before a word
+- **CURRENT (hourly cadence): CH. 9 "Measurement" IN-PROGRESS 3/4 —
+  FM 9.2 "The Metric System" + FM 9.3 "Converting Units Without
+  Memorising Tables" shipped run 43** (job 504365 — the FIRST TWO-LESSON
+  run under the owner's 2026-11-05 directive). verify-unit-9.ts
+  200 → 428 checks A–AD ALL PASS pre-writing; 4,529 + 3,603 words in
+  the Cengage voice + solution chain; all four figures audited 0/0 and
+  VLM-gated (9.2 fig1 redesigned twice to 10/8; 9.2 fig2 10/9; 9.3 fig1
+  rebuilt to token-strikes 10/9; 9.3 fig2 rebuilt left-to-right 10/9);
+  quiz keys 0/2/1/2/3 and 0/1/2/2/1 verified live 5/5; the point-shift
+  law derived as tag 1 and the factor licence as tag 1 / power law as
+  tag 2; the 5/18 law of 6.2 unmasked as a chain of identities; new
+  citation keys wikipedia-metre-history, usma-1795-decree,
+  sizes-litre-1964, ncj-measuring-the-meter. Book totals recomputed by
+  the generator: 40 lessons / 190,363 words / 295 terms / 200 quiz /
+  438 exercises. Voice queue EMPTY. (The run-42 narrative below stands
+  as history.) verify-unit-9.ts CREATED with 200 checks A–M before a word
   was written (gitignore exceptions added FIRST — the /scripts/* trap);
   5,501 words in the Cengage voice + solution chain; both figures
   audited 0/0 and VLM-reviewed (figure 1 REDESIGNED once: 6/6 → 10/9
@@ -1168,10 +1222,13 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   ncert-phys11-ch2. Book totals recomputed by the generator: 38
   lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises.
   Voice queue EMPTY.
-- **NEXT (hourly cadence): FM 9.2 "The Metric System"** — EXTEND
-  verify-unit-9.ts with the metric sections FIRST (the file exists;
-  add N-onward), then author per BOOK_FORMAT + the ch-01 exemplar. The
-  voice queue is empty: per-run extras shift to unit reviews,
+- **NEXT (hourly cadence): FM 9.4 "Precision, Accuracy and Rounding
+  in Measurement"** — EXTEND verify-unit-9.ts with the precision
+  sections FIRST, then author per BOOK_FORMAT + the ch-01 exemplar;
+  9.4 closes chapter 9 → the unit-9 completion review per precedent —
+  then ch. 10 "Data and Graphs" opens at 10.1 (verify-unit-10.ts
+  FIRST). Two lessons per run. The voice queue is empty: per-run
+  extras shift to unit reviews,
   exam-registry research, or DETAILED_LOG/SOURCE_LOG upkeep until a
   new queue is named. Chapter 9 planned: Units as Agreements
   **WRITTEN** · The Metric System · Converting Units Without
