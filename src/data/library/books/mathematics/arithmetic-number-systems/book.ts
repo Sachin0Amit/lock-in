@@ -1,10 +1,12 @@
 import type { Book } from '../../../types'
+import { chapter01 } from './ch-01'
 
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
  *
- * STATUS: PLANNED — research phase complete (2026-11-05, run 48); the full
- * TOC below is the researched chapter plan. Authoring begins at chapter 1
+ * STATUS: IN PROGRESS — authoring began 2026-11-05 (run 49): chapter 1
+ * 'The Natural Numbers as a System' is in progress (lesson 1.1 written;
+ * 1.2 and 1.3 planned). The full TOC below is the researched chapter plan
  * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
  * (globally unique, stable forever).
  *
@@ -55,25 +57,12 @@ export const arithmeticNumberSystems: Book = {
   level: 'Upper primary → first-year university bridge',
   description:
     'The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Authoring starts at ch. 1 next run (two lessons per run, owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan; authoring began at ch. 1 on run 49 (2026-11-05, lesson 1.1 shipped verify-first — scripts/verify-book2-ch01.ts, 124 checks). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
   chapters: [
-    {
-      number: 1,
-      slug: 'natural-numbers-as-a-system',
-      title: 'The Natural Numbers as a System',
-      summary:
-        'Counting rebuilt from the successor idea: the number line as order, induction as the domino principle that proves statements about every natural number at once, and the least-number principle (well-ordering) as the engine behind every "take the smallest counterexample" argument — with the equivalence of the two principles proved and recursion defined.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'The Architecture of Counting: Successors and Order',
-        'Induction: Proving for Every Number at Once',
-        'The Least-Number Principle and Recursion',
-      ],
-    },
+    chapter01,
     {
       number: 2,
       slug: 'division-algorithm-and-divisibility',

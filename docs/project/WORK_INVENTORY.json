@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 13:44:39 (Asia/Kolkata)",
+  "generated": "2026-11-05 15:01:46 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3368,7 +3368,7 @@
         "discipline": "mathematics",
         "level": "Upper primary → first-year university bridge",
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
-        "status": "planned",
+        "status": "in-progress",
         "chaptersPlanned": 10,
         "chaptersWritten": 0,
         "chapters": [
@@ -3377,15 +3377,144 @@
             "slug": "natural-numbers-as-a-system",
             "title": "The Natural Numbers as a System",
             "summary": "Counting rebuilt from the successor idea: the number line as order, induction as the domino principle that proves statements about every natural number at once, and the least-number principle (well-ordering) as the engine behind every \"take the smallest counterexample\" argument — with the equivalence of the two principles proved and recursion defined.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Architecture of Counting: Successors and Order",
-              "Induction: Proving for Every Number at Once",
               "The Least-Number Principle and Recursion"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-architecture-of-counting-successors-order",
+                "number": "1.1",
+                "title": "The Architecture of Counting: Successors and Order",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5010,
+                "readMins": 25,
+                "concepts": [
+                  "Counting as repeated succession",
+                  "The successor operation S(n)",
+                  "The Peano axioms",
+                  "Injectivity: no two numbers share a successor",
+                  "Order as run length",
+                  "Transitivity of <",
+                  "Why the numbers never repeat",
+                  "The count formula b − a − 1"
+                ],
+                "objectives": [
+                  "State the successor picture of counting and the axioms that govern it, and say what each axiom prevents",
+                  "Say precisely what $a < b$ means in successor terms, and compare numbers by run length instead of vibes",
+                  "Prove that order is transitive by concatenating runs",
+                  "Prove that the chain 1, 2, 3, … never repeats a value and never ends"
+                ],
+                "prerequisites": [
+                  "fm-numbers-digits-place-value",
+                  "fm-comparing-ordering-numbers"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "peano-1889-arithmetices"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "callout": 6,
+                  "heading": 5,
+                  "list": 3,
+                  "table": 1,
+                  "terms": 1,
+                  "example": 1,
+                  "derivation": 2,
+                  "figure": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-induction-proving-for-every-number",
+                "number": "1.2",
+                "title": "Induction: Proving for Every Number at Once",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5332,
+                "readMins": 27,
+                "concepts": [
+                  "The domino principle",
+                  "Base case + inductive step",
+                  "The inductive hypothesis",
+                  "Proving the sum formulas",
+                  "Divisibility claims by induction",
+                  "Finite checks never prove \"for all\"",
+                  "The no-return lemma",
+                  "Guess, then prove"
+                ],
+                "objectives": [
+                  "State the two conditions of induction and explain why together they cover every natural number",
+                  "Prove the sum formulas — $\\sum k$, the odd sums, the geometric sum — by induction, every algebraic move justified",
+                  "Diagnose the two classic failures — a missing base and a missing step — through concrete instances",
+                  "Prove the no-return lemma and close the order gaps Lesson 1.1 left open"
+                ],
+                "prerequisites": [
+                  "ans-architecture-of-counting-successors-order"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "induction-name-history"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "callout": 4,
+                  "heading": 6,
+                  "equation": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "derivation": 5,
+                  "table": 1,
+                  "example": 2,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "definition": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 10342
           },
           {
             "number": 2,
@@ -3549,13 +3678,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 90,
-      "totalLines": 39747,
+      "srcFilesTracked": 91,
+      "totalLines": 39945,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 30482,
+        "src/data/library (content model + books)": 30680,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -9475,6 +9604,103 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "dc9251b13c50d8fe713874fe862b606cfeb515d1",
+      "short": "dc9251b",
+      "date": "2026-11-05 08:20",
+      "message": "book #2 PROMOTED: Arithmetic and Number Systems (run 48) — research phase complete: reference survey (Khattar QA 4e ch.1 + Cengage M2/01 persisted; no downloads) + syllabus audit via the sanctioned internet fallback (CAT/IPMAT number-system scope, the Beck-Geoghegan Art of Proof university bridge, OpenStax Contemporary Math numeration history, Cambridge IGCSE CS 0478 data representation, the NCERT class 6/8 canon) + the full 10-chapter/34-lesson plan (1 Natural Numbers as a System, 2 Division Algorithm and Divisibility, 3 Positional Systems and Bases, 4 Primes and the Fundamental Theorem, 5 Congruences, 6 Building the Integers, 7 Building the Rationals, 8 Irrationals and the Real Line, 9 Numeration Through History, 10 The Map of Number Systems); book.ts (status planned, ans- id prefix, full TOC as plannedLessons, per-chapter reference mapping in the header) + registered in index.ts (allBooks = 2); verify-book2-promotion.ts 121/121 checks (structure/registry/uniqueness-vs-FM/six FM cross-reference anchors/research mapping) + e2e-book2-promotion (home spine, book page 0 written/34 planned, empty states, zero console errors); gates lint 0 tsc 0 routes 200 (unknowns 404); WORK_INVENTORY.json regenerated on the generalized books-array generator (booksLive 2, backlog 280); logs: WORKLOG run-48 entry (+ the run-47 push record), SOURCE_LOG research-phase section + 4 reserved citation keys (beck-geoghegan-art-of-proof, openstax-contemporary-math, cambridge-igcse-cs-0478, ncert-math8-ch16) + ledger + free-space, SUBJECT_BACKLOG (FM COMPLETE, ANS PROMOTED), PROGRESS (run-49 awaiting; stale library block de-staled: FM complete 11/48/355 + new ANS entry + honest totals), DETAILED_LOG (run-48 header, 2-book section 4, git-history rows 46-48 incl. the missed 46/47, section 8); the pending run-47 push was executed first this run (both commits, remote = 08e2c74 verified); next run 49 = ANS ch. 1 lessons 1.1 + 1.2 (two-lesson cadence)",
+      "filesChanged": 14,
+      "insertions": 1135,
+      "deletions": 223,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 90,
+          "del": 9
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 120,
+          "del": 106
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 73,
+          "del": 61
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 69,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 261,
+          "del": 7
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 45,
+          "del": 36
+        },
+        {
+          "path": "scripts/e2e-book2-promotion.page.js",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-book2-promotion.sh",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-promotion.ts",
+          "add": 142,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 208,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 2,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "34cb7c08cbb7c86f8f4491e0ecc60fffb65eea44",
+      "short": "34cb7c0",
+      "date": "2026-11-05 08:21",
+      "message": "memory: run-48 synced sha recorded (dc9251b) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; library = 2 books (Foundation Mathematics COMPLETE 11/11 + Arithmetic and Number Systems PROMOTED, research phase done, 10 ch / 34 lessons planned); next run 49 = ANS ch. 1 lessons 1.1 The Architecture of Counting + 1.2 Induction: Proving for Every Number (two-lesson cadence; verify-book2-ch01.ts first); unit-1 completion review with 1.3 at run 50; voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -9482,26 +9708,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 11,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 48,
-    "wordsAuthored": 227569,
-    "termsDefined": 355,
-    "quizItems": 240,
-    "exerciseQuestions": 534,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 50,
+    "wordsAuthored": 237911,
+    "termsDefined": 371,
+    "quizItems": 250,
+    "exerciseQuestions": 558,
     "blockTotals": {
-      "para": 715,
-      "callout": 278,
-      "heading": 296,
-      "list": 63,
-      "terms": 49,
-      "equation": 90,
-      "derivation": 90,
-      "table": 50,
-      "figure": 90,
-      "example": 224,
-      "quiz": 48,
-      "exercises": 48,
-      "formula": 103,
+      "para": 739,
+      "callout": 288,
+      "heading": 307,
+      "list": 66,
+      "terms": 51,
+      "equation": 91,
+      "derivation": 97,
+      "table": 52,
+      "figure": 92,
+      "example": 227,
+      "quiz": 50,
+      "exercises": 50,
+      "formula": 109,
       "algorithm": 8
     }
   }

@@ -142,3 +142,8 @@ server.log
 # exception: run-48 book-#2 promotion E2E (home spine + planned-book book page + empty states)
 !/scripts/e2e-book2-promotion.sh
 !/scripts/e2e-book2-promotion.page.js
+# exception: run-49 ANS chapter-1 pre-write arithmetic verifier (successors + induction; committed every ship)
+!/scripts/verify-book2-ch01.ts
+# exception: run-49 ANS chapter-1 lesson E2E blocks (quizzes + solutions + audits)
+!/scripts/e2e-ans-11.page.js
+!/scripts/e2e-ans-12.page.js

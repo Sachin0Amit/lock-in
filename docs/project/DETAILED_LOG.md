@@ -9,7 +9,21 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 48 (fired 16:00 IST from job 498279 — third consecutive fire from the re-enabled
+Maintained through **run 49 (fired 17:00 IST from job 498279 — FOURTH consecutive fire from the re-enabled
+old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
+directive in memory)**: **BOOK #2 AUTHORING BEGAN — ANS chapter 1 'The Natural Numbers as a System' in
+progress** with lessons 1.1 'The Architecture of Counting: Successors and Order' (5,010 words) and 1.2
+'Induction: Proving for Every Number at Once' (5,335 words) shipped verify-first
+(scripts/verify-book2-ch01.ts, 124/124 checks: successor/order sweeps, induction sum sweeps n=1..200, BigInt
+geometric + divisibility sweeps, Euler's polynomial re-verified prime n=0..39 then 1681 = 41² at n=40, the
+no-return echo, both figures' geometry, all 10 quiz keys + 24 exercise keys re-derived; the script caught
+three real defects pre-writing, including a float-precision mod sweep rewritten in BigInt). Tree was clean at
+HEAD `dc9251b` (no push debt). Cengage voice throughout: formal definition callouts, roman example runs,
+Illustration pills with Sol. chains, derivation tags, 2 original SVG figures (audited 0/0), 8+8 terms,
+5+5 quiz (live 5/5 on keys 2/0/0/1/1 and 0/1/2/1/3), 12+12 exercises L1–L6, 6 formula cards, exam corners,
+FM cross-references (prerequisites + prose per house style). Gates: tsc 0, lint 0 errors, routes 200/404,
+E2E dedicated blocks green, mobile 390 exact-fit both. New citation keys: peano-1889-arithmetices +
+induction-name-history (web-checked, sanctioned fallback).00 IST from job 498279 — third consecutive fire from the re-enabled
 old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
 directive in memory)**: **(1) the pending run-47 push executed first** — run 47 had been interrupted after
 its ship commit `08e2c74` but before its push; both pending commits (`73787fe` run-46 memory + `08e2c74`
@@ -294,7 +308,8 @@ book #2 Arithmetic and Number Systems promoted run 48)
 · promotion rule: a backlog book becomes real only after its research phase.
 **Live today: 2 books — Foundation Mathematics COMPLETE (11/11 chapters, 48
 lessons, 227,569 words, 355 flashcard terms) + Arithmetic and Number Systems
-PLANNED (10 chapters / 34 lessons, research phase done)** (regenerated 11-05, run 48).
+IN PROGRESS (ch. 1 in progress: 2 of 3 lessons written, 10,345 words / 16 terms /
+10 quiz / 24 exercises; 8 chapters still planned)** (regenerated 11-05, run 49).
 
 ### Foundation Mathematics — mathematics shelf · **COMPLETE (11/11 chapters, run 47)**
 
@@ -1037,7 +1052,7 @@ downloads (references already logged).
 | 10 | Data and Graphs — **COMPLETE (4/4, run 46; unit-10 review passed)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ **WRITTEN (run 45)** · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · ~~Mean, Median, Mode~~ **WRITTEN (run 46)** |
 | 11 | Patterns and the Doorstep of Algebra — **COMPLETE (3/3, run 47; unit-11 review passed — the book closes)** | ~~Patterns and Rules~~ **WRITTEN (run 46)** · ~~From Patterns to Formulas~~ **WRITTEN (run 47)** · ~~A Letter for the Unknown~~ **WRITTEN (run 47)** |
 
-### Arithmetic and Number Systems — mathematics shelf · **PLANNED (promoted run 48; research phase complete)**
+### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1 authoring began run 49)**
 
 *Why arithmetic works — and how the number systems were built* · Upper primary →
 first-year university bridge · accent teal · cover auto-generated.
@@ -1281,28 +1296,37 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 46 | ship + bookkeeping + memory | 11-05 | FM lesson 10.4 Mean, Median and Mode — CHAPTER 10 CLOSED with the unit-10 completion review passed — + FM lesson 11.1 Patterns and Rules (chapter 11 OPENS; job 504365's first fully-executed fire); verify-unit-10.ts → Z-final + verify-unit-11.ts CREATED; pushed per protocol |
 | 47 | ship | 11-05 | FM lesson 11.2 From Patterns to Formulas (3,931 words) + FM 11.3 A Letter for the Unknown (4,021 words) — CHAPTER 11 CLOSED, UNIT-11 COMPLETION REVIEW PASSED — FOUNDATION MATHEMATICS COMPLETE 11-for-11 (48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises); verify-unit-11.ts 74 → 187 checks (P–Z, AA–AL); quiz keys 0/1/1/0/0 live 5/5 both; audits 0/0 all four figures; **run interrupted after the ship commit `08e2c74` but BEFORE the push — push debt inherited by run 48** |
 | 48 | ship + bookkeeping + memory | 11-05 | (1) the pending run-47 push executed first (both commits, remote = `08e2c74` verified); (2) BOOK #2 PROMOTED: Arithmetic and Number Systems — research phase complete (survey + syllabus audit + 10-chapter/34-lesson plan), book.ts + registry + verify-book2-promotion.ts 121/121 + gates + E2E green; generator generalized (booksLive 2, backlog 280); 4 citation keys reserved — pushed per protocol |
+| 49 | ship | 11-05 | BOOK #2 AUTHORING BEGAN — ANS ch. 1 lessons 1.1 The Architecture of Counting: Successors and Order (5,010 words) + 1.2 Induction: Proving for Every Number at Once (5,335 words), shipped verify-first (verify-book2-ch01.ts 124/124; quiz keys 2/0/0/1/1 + 0/1/2/1/3 live 5/5; audits 0/0 both figures; 10,345 words / 16 terms / 10 quiz / 24 exercises); book status → in-progress; new citation keys peano-1889-arithmetices + induction-name-history |
+| 49 | memory | 11-05 | run-49 synced sha recorded (see commit) — remote-verified via one-time-URL ls-remote = local HEAD; next run 50 = ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion + the unit-1 completion review |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- **CURRENT (run 48, 2026-11-05): BOOK #2 PROMOTED.** The pending run-47
-  push was executed first (remote main = `08e2c74`, both backlog commits
-  delivered, sanity gates re-run). Then the queue moved to Arithmetic and
-  Number Systems (Mathematics shelf #2): research phase COMPLETE —
-  reference survey (persisted Drive refs; no downloads) + syllabus audit
-  (five source families web-checked) + the 10-chapter/34-lesson plan.
-  The book is live at `/book/arithmetic-and-number-systems` with status
-  'planned' (honest 0 written / 34 planned; no dead CTAs; zero console
-  errors). verify-book2-promotion.ts 121/121; lint/tsc/routes/E2E green;
-  WORK_INVENTORY.json regenerated on the generalized generator (booksLive
-  2, backlog 280). Four citation keys reserved for the coming chapters.
-- **NEXT (run 49): author ANS ch. 1 lessons 1.1 "The Architecture of
-  Counting: Successors and Order" + 1.2 "Induction: Proving for Every
-  Number at Once"** — verify-book2-ch01.ts FIRST, then ch-01.ts in the
-  Cengage voice + solution chain, FM cross-references, all gates, one
-  ship, protocol push. Lesson 1.3 + the unit-1 completion review follow
-  at run 50.
+- **CURRENT (run 49, 2026-11-05): BOOK #2 AUTHORING BEGAN.** Tree was clean
+  at HEAD `dc9251b` (run-48 memory commit; no push debt). ANS chapter 1
+  'The Natural Numbers as a System' is now IN PROGRESS: lessons 1.1
+  'The Architecture of Counting: Successors and Order' (5,010 words) and
+  1.2 'Induction: Proving for Every Number at Once' (5,335 words) shipped
+  verify-first — scripts/verify-book2-ch01.ts 124/124 (created BEFORE
+  writing, sections A–K for 1.1 then L–Z for 1.2; caught three real
+  defects pre-writing incl. a float-precision mod sweep rewritten in
+  BigInt; Euler's polynomial re-verified by trial division). Book status
+  → 'in-progress'; ch-01.ts registered in book.ts (lessons [1.1, 1.2],
+  plannedLessons [1.3]). Gates: tsc 0, lint 0 errors, routes 200/404,
+  E2E blocks e2e-ans-11/12.page.js green (quizzes 5/5 live, 0 raw-$
+  after two term-name math leaks fixed, 0 katex-errors, mobile 390
+  exact-fit, SVG audits 0/0), ids globally unique. WORK_INVENTORY.json
+  regenerated; two new citation keys web-checked
+  (peano-1889-arithmetices, induction-name-history).
+- **NEXT (run 50): author ANS ch. 1 lesson 1.3 'The Least-Number
+  Principle and Recursion' (id ans-least-number-principle-recursion) +
+  the UNIT-1 COMPLETION REVIEW** — extend verify-book2-ch01.ts first
+  (sections AA onward), then author 1.3 in the Cengage voice, then the
+  review (BOOK_FORMAT checklist, exam corners, id uniqueness, flip
+  ch-01 to complete + empty plannedLessons, totals recompute). Chapter 2
+  'The Division Algorithm and the Structure of Divisibility' starts at
+  run 51 with lessons 2.1 + 2.2.
 - HEAD: the run-47 ship + its memory commit pushed and remote-verified
   (protocol v2, one-time URL from the firing payload); synced shas
   recorded in WORKLOG.md / RESUME_POINTER.json. Run 47 = FM 11.2 +

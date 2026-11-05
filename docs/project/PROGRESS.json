@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "BOOK #2 PROMOTED — Arithmetic and Number Systems (Mathematics shelf #2): research phase COMPLETE (run 48, 2026-11-05: reference survey + syllabus audit + 10-chapter/34-lesson plan; promoted to src/data/library/books/ with status 'planned'). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz, 534 exercises (closed by run 47, 2026-11-05; the two-lesson cadence ran 43-47).",
- "awaiting": "Run 49: author ANS ch. 1 (The Natural Numbers as a System) lessons 1.1 'The Architecture of Counting: Successors and Order' + 1.2 'Induction: Proving for Every Number at Once' — two-lesson cadence (owner directive 2026-11-05): verify script first, then ch-01.ts per BOOK_FORMAT.md + the ch-01.ts exemplar of FM, Cengage voice + solution chain, figures with audits, quiz live-verified, E2E. FM cross-reference anchors banked (fm-divisibility-and-its-tests, fm-patterns-to-formulas, ...). Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells).",
+ "phase": "BOOK #2 AUTHORING UNDERWAY — Arithmetic and Number Systems ch. 1 'The Natural Numbers as a System' IN PROGRESS (run 49, 2026-11-05: lessons 1.1 'The Architecture of Counting: Successors and Order' + 1.2 'Induction: Proving for Every Number at Once' shipped verify-first — scripts/verify-book2-ch01.ts 124 checks; ch-01.ts registered, book status in-progress). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47).",
+ "awaiting": "Run 50: author ANS ch. 1 lesson 1.3 'The Least-Number Principle and Recursion' (id ans-least-number-principle-recursion) + the UNIT-1 COMPLETION REVIEW (BOOK_FORMAT checklist, exam corners, id uniqueness book-wide, flip ch-01 to complete, totals recompute) — extend verify-book2-ch01.ts first (sections AA onward) before writing 1.3. Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells).",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -78,12 +78,12 @@
    {
     "id": "arithmetic-and-number-systems",
     "title": "Arithmetic and Number Systems",
-    "status": "planned",
+    "status": "in-progress",
     "chaptersPlanned": 10,
-    "chaptersWritten": 0,
-    "lessonsWritten": 0,
-    "termsAvailableForFlashcards": 0,
-    "notes": "PROMOTED from SUBJECT_BACKLOG #2 (run 48, 2026-11-05) after its research phase: reference survey (Khattar QA 4e ch. 1 + Cengage M2/01 persisted; no downloads needed) + syllabus audit via the sanctioned internet fallback (competitive-exam number-system scope; the Beck-Geoghegan university bridge; OpenStax Contemporary Math numeration history; Cambridge IGCSE CS 0478 data representation; NCERT class 6/8 canon) + the full 10-chapter/34-lesson plan (ch. 1 Natural Numbers as a System, 2 Division Algorithm and Divisibility, 3 Positional Systems and Bases, 4 Primes and the Fundamental Theorem, 5 Congruences, 6 Building the Integers, 7 Building the Rationals, 8 Irrationals and the Real Line, 9 Numeration Through History, 10 The Map of Number Systems). Lesson ids use the ans- prefix. No-duplication policy vs FM enforced by scripts/verify-book2-promotion.ts (121 checks, ALL PASS; FM cross-reference anchors verified to exist). Authoring starts ch. 1 at run 49 (two lessons per run)."
+    "chaptersWritten": 1,
+    "lessonsWritten": 2,
+    "termsAvailableForFlashcards": 16,
+    "notes": "IN PROGRESS (run 49, 2026-11-05): promoted from SUBJECT_BACKLOG #2 at run 48 after its research phase; chapter 1 'The Natural Numbers as a System' now in progress — lessons 1.1 'The Architecture of Counting: Successors and Order' (5,010 words, 8 terms, 5 quiz, 12 exercises, 2 derivations, 1 figure, 2 formula cards) + 1.2 'Induction: Proving for Every Number at Once' (5,335 words, 8 terms, 5 quiz, 12 exercises, 5 derivations, 2 illustrations, 1 figure, 4 formula cards) shipped verify-first (scripts/verify-book2-ch01.ts: 124 checks ALL PASS — successors/order sweeps, induction sum sweeps n=1..200, BigInt geometric/divisibility sweeps, the Euler n^2+n+41 prime run re-verified, no-return echo, both figures' geometry, all 10 quiz keys + 24 exercise keys). Gates: tsc 0, lint 0 errors, routes 200/404 correct, E2E both lessons (quizzes 5/5 live on keys 2/0/0/1/1 and 0/1/2/1/3, 12+12 solutions expand, 0 raw-$, 0 katex-errors, mobile 390 exact-fit, SVG audits 0/0). Lesson 1.3 'The Least-Number Principle and Recursion' remains planned; unit-1 completion review lands with it at run 50."
    }
   ],
   "lessonsWritten": 48,
