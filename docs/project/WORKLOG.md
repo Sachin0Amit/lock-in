@@ -4,6 +4,18 @@ Every work session appends one entry at the top. Format:
 `## YYYY-MM-DD — <session summary>` with what changed, what was verified,
 and what remains.
 
+## 2026-11-06 — DUPLICATE-RUN COLLISION RECONCILED (this window fired 05:03 IST from job 506464; a parallel instance of the same job had already completed run 56 and pushed it): local duplicate discarded, remote canonical
+
+**Discovery:** this window independently authored the full run-56 chapter close (4.3 + 4.4 + the unit-4 review — 345 verify checks, sections W–AO, both lessons gated, ship commit `581005a` made locally) and was REJECTED at the protocol push as a non-fast-forward: the remote already carried a COMPLETE run-56 — ship `f6161ae` (verify-book2-ch04.ts 167 → 356 checks, sections W–AQ; ch-04 complete 4/4; 20,839 words / 32 terms / 20 quiz / 55 exercises; 7 new citation keys; e2e-ans-43/44 whitelisted) plus its memory commit `433a464` recording the synced sha and pointing run 57 at chapter 5. Two instances of job 506464 evidently executed the same hour's work in parallel windows (the duplicate-hourly-trigger pattern the log has recorded since runs 46–55).
+
+**Reconciliation (the run-28 precedent):** the pushed instance is canonical — its lesson id `ans-divisors-from-dna-divisor-counts` is now the permanently stable id, its logs are the recorded history, and its verify script ran MORE checks (356). Verified the remote ch-04.ts directly (`git show origin/main:…`: status complete, plannedLessons empty, all four ans-* lessons present, e2e drivers + gitignore exceptions in place), then `git fetch` (anonymous) + `git reset --hard origin/main` — the local duplicate (`581005a`, with its variant id `ans-divisors-from-dna`) was discarded in full. Nothing unique was lost: both instances implemented the same owner directive; the canonical instance's per-lesson content, gates and logs stand. This entry is the only artifact of the duplicate.
+
+**State after reconciliation:** tree clean at `433a464` = origin/main; chapter 4 stands COMPLETE 4/4 remotely; run 57 = chapter 5 'Congruences' completed ENTIRELY (verify-book2-ch05.ts FIRST) per the remote RESUME_POINTER. Owner note: job 506464 delivered (at least) twice for the 05:00 hour — if the pattern repeats each hour, every chapter risks being authored twice in parallel; the safer configuration is ONE delivery per hour (the scheduler's fixed_rate 3600 s with a long-running agent loop can overlap windows).
+
+**Git:** this collision note committed and pushed per protocol v2 (sha recorded in RESUME_POINTER run56Extras after the one-time-URL ls-remote verification).
+
+---
+
 ---
 
 ## 2026-11-06 — RUN 56 (cron job 506464, first full-chapter fire): ANS CHAPTER 4 CLOSED 4/4 — lessons 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' (5,285 words) + 4.4 'How the Primes Are Distributed' (5,204 words) + the unit-4 completion review, all in ONE run per the owner's 2026-11-06 directive
