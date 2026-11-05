@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 15:52:30 (Asia/Kolkata)",
+  "generated": "2026-11-05 16:50:28 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3587,16 +3587,145 @@
             "slug": "division-algorithm-and-divisibility",
             "title": "The Division Algorithm and the Structure of Divisibility",
             "summary": "The theorem hiding under every long division: a = bq + r with 0 ≤ r < b, existence proved by well-ordering and uniqueness by subtraction. Divisibility becomes algebra (the transitive and linear-combination laws), the Euclidean algorithm gets the proof FM omitted, Bézout’s identity is derived, and linear Diophantine equations ax + by = c are solved in full.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Division with Rest: The Division Algorithm",
-              "The Algebra of Divisibility",
               "The Euclidean Algorithm, Proven — and Bézout’s Identity",
               "Linear Diophantine Equations"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-division-with-rest-the-division-algorithm",
+                "number": "2.1",
+                "title": "Division with Rest: The Division Algorithm",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5291,
+                "readMins": 26,
+                "concepts": [
+                  "The division algorithm a = bq + r",
+                  "Existence by descent",
+                  "The least-number principle at work",
+                  "Uniqueness from the remainder band",
+                  "The remainder band 0 ≤ r < b",
+                  "Repeated subtraction as the proof in motion",
+                  "a mod b",
+                  "Exact division: r = 0"
+                ],
+                "objectives": [
+                  "State the division algorithm precisely and read $a = bq + r$ in both directions — building a dividend from a pair $(q, r)$ and pulling a pair out of a dividend",
+                  "Prove existence by the descent argument, naming exactly where the least-number principle of Lesson 1.3 enters",
+                  "Prove uniqueness from the remainder band, and show by instance why dropping the band kills it",
+                  "Use $q$ and $r$ as data: rebuild dividends, find smallest and largest numbers with a given remainder, and certify any division with the check $qb + r = a$"
+                ],
+                "prerequisites": [
+                  "fm-division-remainders-zero",
+                  "ans-least-number-principle-recursion"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "euclid-elements-book-vii",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "callout": 4,
+                  "list": 2,
+                  "heading": 3,
+                  "derivation": 2,
+                  "figure": 1,
+                  "example": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 1
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-the-algebra-of-divisibility",
+                "number": "2.2",
+                "title": "The Algebra of Divisibility",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5105,
+                "readMins": 26,
+                "concepts": [
+                  "Divides: a | b",
+                  "The multiplier certificate k",
+                  "Measures: Euclid’s word",
+                  "Transitivity of divisibility",
+                  "Linear combinations of multiples",
+                  "Antisymmetry on the positives",
+                  "The cancellation form ac | bc",
+                  "The divisor lattice"
+                ],
+                "objectives": [
+                  "Define $a \\mid b$ through its multiplier certificate and translate freely between divides, measures, and remainder-zero",
+                  "Prove and apply the laws of divisibility: transitivity, product compatibility, linear combinations, antisymmetry, and the order link",
+                  "Exercise the cancellation form $ac \\mid bc \\Leftrightarrow a \\mid b$ — and locate its limits with the $12 \\mid 3 \\cdot 4$ caution",
+                  "Read the divisor lattice of a number off its factor chains, and use it as a picture of transitivity"
+                ],
+                "prerequisites": [
+                  "ans-division-with-rest-the-division-algorithm",
+                  "fm-divisibility-and-its-tests"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "euclid-elements-book-vii",
+                  "landau-1927-elementare",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "callout": 3,
+                  "list": 2,
+                  "derivation": 4,
+                  "example": 3,
+                  "heading": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 5
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 1
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
+              }
+            ],
+            "words": 10396
           },
           {
             "number": 3,
@@ -3745,12 +3874,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 92,
-      "totalLines": 41887,
+      "totalLines": 41876,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 32622,
+        "src/data/library (content model + books)": 32611,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -9859,6 +9988,99 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "8aa540c01cec593682ee7cacb9fa2a413abaa7ad",
+      "short": "8aa540c",
+      "date": "2026-11-05 10:26",
+      "message": "ans 1.3 shipped + unit-1 completion review (run 50): chapter 1 The Natural Numbers as a System COMPLETE 3/3 — lesson 1.3 The Least-Number Principle and Recursion (6,579 words: the LNP + the twinhood both directions proved, descent + the prime-divisor theorem, strong induction + the stamp problem, recursion defining + and x from the successor, Fibonacci's ledger) — verify-book2-ch01.ts 124 -> 228 checks AA-AM ALL PASS pre-writing (LNP engine over all 4,096 subsets, least-failure shadow, recursion engines swept 60x60/40x40, Fibonacci to F20 + Zeckendorf to 300, both figures' geometry, 5 quiz keys 1/2/1/0/3 + 12 exercise keys); ch-01 flipped to complete + plannedLessons emptied; chapter totals 16,921 words / 24 terms / 15 quiz / 36 exercises (book 1/10 chapters); gates lint 0 tsc 0 routes 200/404, e2e-ans-13 green (quiz live 5/5, 15 Sol pills + 81 therefore glyphs, 0 raw-$ after the derivation-title fix, 0 katex-errors, mobile 390 exact-fit, SVG audits 0/0); new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci; logs + pointer + inventory + DETAILED_LOG (the run-48/49 heading splice repaired in both logs); next run 51 = ANS ch. 2 opens with 2.1 + 2.2",
+      "filesChanged": 9,
+      "insertions": 1522,
+      "deletions": 101,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 63,
+          "del": 31
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 14,
+          "del": 14
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 10
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 23,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 21,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 189,
+          "del": 31
+        },
+        {
+          "path": "scripts/verify-book2-ch01.ts",
+          "add": 496,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-01.ts",
+          "add": 702,
+          "del": 9
+        }
+      ]
+    },
+    {
+      "sha": "b462a0a09c99eed1d525513dfd8ef6553447cdf0",
+      "short": "b462a0a",
+      "date": "2026-11-05 10:26",
+      "message": "run-50 fixup: whitelist e2e-ans-13.page.js in .gitignore (the scripts/* whitelist is what 'whitelisted FIRST' means — the 1.3 E2E block was authored before the run but missed from the ship commit's tracked set)",
+      "filesChanged": 2,
+      "insertions": 63,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-13.page.js",
+          "add": 61,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "9819397ebf47bee037a2996499c106f1ed870538",
+      "short": "9819397",
+      "date": "2026-11-05 10:27",
+      "message": "memory: run-50 synced sha recorded (b462a0a) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; library = 2 books (Foundation Mathematics COMPLETE 11/11 + Arithmetic and Number Systems IN PROGRESS ch. 1 COMPLETE 3/3: 16,921 words / 24 terms / 15 quiz / 36 exercises); next run 51 = ANS ch. 2 opens with lessons 2.1 Division with Rest: The Division Algorithm + 2.2 The Algebra of Divisibility (two-lesson cadence; verify-book2-ch02.ts FIRST); job 498279 fifth consecutive fire logged for the owner; voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -9866,26 +10088,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 12,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 51,
-    "wordsAuthored": 244490,
-    "termsDefined": 379,
-    "quizItems": 255,
-    "exerciseQuestions": 570,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 53,
+    "wordsAuthored": 254886,
+    "termsDefined": 395,
+    "quizItems": 265,
+    "exerciseQuestions": 602,
     "blockTotals": {
-      "para": 757,
-      "callout": 296,
-      "heading": 313,
-      "list": 67,
-      "terms": 52,
+      "para": 782,
+      "callout": 303,
+      "heading": 317,
+      "list": 71,
+      "terms": 54,
       "equation": 92,
-      "derivation": 100,
+      "derivation": 106,
       "table": 53,
-      "figure": 94,
-      "example": 230,
-      "quiz": 51,
-      "exercises": 51,
-      "formula": 113,
+      "figure": 96,
+      "example": 235,
+      "quiz": 53,
+      "exercises": 53,
+      "formula": 122,
       "algorithm": 8
     }
   }

@@ -9,7 +9,32 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 50 (fired 18:00 IST from job 498279 — FIFTH consecutive fire from the re-enabled
+Maintained through **run 51 (fired 19:00 IST from job 498279 — SIXTH consecutive fire from the re-enabled
+old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
+directive in memory)**: **ANS CHAPTER 2 OPENS — lessons 2.1 'Division with Rest: The Division Algorithm'
+(5,291 words, 8 terms, 5 quiz, 16 exercises, 2 derivations, 2 illustrations, 1 figure, 4 formula cards) and
+2.2 'The Algebra of Divisibility' (5,105 words, 8 terms, 5 quiz, 16 exercises, 4 derivations, 3
+illustrations, 1 figure, 5 formula cards) shipped verify-first in one run (the owner's two-lesson cadence)**.
+verify-book2-ch02.ts CREATED with **166 checks** (sections A–T: the existence instances by repeated
+subtraction ONLY swept a = 0..200, b = 1..12 against a = qb + r ∧ 0 ≤ r < b; the remainder band; the descent
+shadow — S = {23, 18, 13, 8, 3} least 3 and the 15-element walk for (100, 7); the uniqueness impostor sweep
+with exactly one solution everywhere plus the b(q − q′) = r′ − r algebra ladder; the exam-shape instances
+103 = 9·11 + 4 and 93 = 8·11 + 5; the mod-9 fingerprint re-derivation swept a ≤ 400; the divisibility
+verdicts by multiplier search; transitivity/linear-combination/antisymmetry/cancellation sweeps with the
+12 | 3·4 caution; both figures' geometry; all 10 quiz keys + 32 exercise keys; formula cards; sources;
+scope guards — the script caught TWO real authoring defects pre-writing: a miscomputed impostor count
+(240 − 1 = 239, not 96) and an inverted divisibility direction in the 12 | 3·4 caution). Cengage voice
+throughout: formal definition callouts, roman example runs, Illustration pills with Sol. chains, derivation
+blocks, figures audited 0/0. Gates: tsc 0 (after clearing the stale tsbuildinfo), lint 0 errors, routes
+200/404, E2E e2e-ans-21.page.js + e2e-ans-22.page.js green (whitelisted FIRST; quizzes live 5/5 on keys
+0/0/2/0/1 and 1/2/0/1/2; 18 + 19 Sol pills and 102 ∴ glyphs after expansion; 0 raw-$ after two $$ display-math
+callout leaks caught live and fixed to inline dresses; 0 katex-errors; mobile 390 exact-fit both; SVG audits
+0/0 both figures; console clean on fresh loads). New citation keys: euclid-elements-book-vii (Joyce's Clark U.
+edition) + landau-1927-elementare (MacTutor, per Tattersall; Hardy's unpublished 1925 seminar notes the
+earlier echo). Chapter 2 closes at run 52 with 2.3 'The Euclidean Algorithm, Proven — and Bézout's Identity'
++ 2.4 'Linear Diophantine Equations' + the unit-2 completion review.
+
+Run 50 (fired 18:00 IST from job 498279 — FIFTH consecutive fire from the re-enabled
 old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
 directive in memory)**: **ANS CHAPTER 1 COMPLETE — lesson 1.3 'The Least-Number Principle and Recursion'
 (6,579 words, 8 terms, 5 quiz, 12 exercises, 3 derivations, 3 illustrations, 2 figures, 4 formula cards)

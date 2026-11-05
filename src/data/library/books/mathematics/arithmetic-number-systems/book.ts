@@ -1,13 +1,16 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
+import { chapter02 } from './ch-02'
 
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
  *
  * STATUS: IN PROGRESS — chapter 1 'The Natural Numbers as a System'
  * COMPLETE 3/3 (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1
- * completion review passed). Next: chapter 2 'The Division Algorithm and
- * the Structure of Divisibility' (4 lessons) opens at run 51 with 2.1 + 2.2.
+ * completion review passed). Chapter 2 'The Division Algorithm and
+ * the Structure of Divisibility' IN-PROGRESS 2/4 (run 51, 2026-11-05:
+ * lessons 2.1 + 2.2; 2.3 Euclidean algorithm + Bézout and 2.4 linear
+ * Diophantine equations close it at run 52).
  * The full TOC below is the researched chapter plan
  * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
  * (globally unique, stable forever).
@@ -62,24 +65,10 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05): lessons 1.1 + 1.2 + 1.3 shipped verify-first (scripts/verify-book2-ch01.ts, 228 checks) with the unit-1 completion review passed; chapter 2 opens at run 51 with 2.1 + 2.2. The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 IN-PROGRESS (run 51, 2026-11-05): lessons 2.1 + 2.2 shipped verify-first (scripts/verify-book2-ch02.ts, 166 checks, two pre-writing defects caught); 2.3 + 2.4 close it at run 52. The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
   chapters: [
     chapter01,
-    {
-      number: 2,
-      slug: 'division-algorithm-and-divisibility',
-      title: 'The Division Algorithm and the Structure of Divisibility',
-      summary:
-        'The theorem hiding under every long division: a = bq + r with 0 ≤ r < b, existence proved by well-ordering and uniqueness by subtraction. Divisibility becomes algebra (the transitive and linear-combination laws), the Euclidean algorithm gets the proof FM omitted, Bézout’s identity is derived, and linear Diophantine equations ax + by = c are solved in full.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Division with Rest: The Division Algorithm',
-        'The Algebra of Divisibility',
-        'The Euclidean Algorithm, Proven — and Bézout’s Identity',
-        'Linear Diophantine Equations',
-      ],
-    },
+    chapter02,
     {
       number: 3,
       slug: 'positional-systems-and-bases',
