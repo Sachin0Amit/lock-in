@@ -9,9 +9,58 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 52 (fired 20:00 IST from job 498279 — SEVENTH consecutive fire from the re-enabled
+Maintained through **run 53 (fired 21:11 IST from job 504365 — the correct two-lesson job fired this hour;
+job 498279 did not fire in this window, its seven-fire duplicate streak unbroken but idle here)**: **ANS
+CHAPTER 3 OPENS IN PROGRESS 2/4 — lessons 3.1 'The Representation Theorem: Every Number Has Exactly One Name'
+(5,398 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 1 table, 1 algorithm
+block, 4 formula cards) and 3.2 'Converting Between Bases' (4,987 words, 8 terms, 5 quiz, 14 exercises,
+2 derivations, 6 illustrations, 1 figure, 1 table, 1 algorithm block, 4 formula cards) shipped verify-first
+in one run (the owner's two-lesson cadence)**. verify-book2-ch03.ts CREATED with **312 checks** (sections
+A–AC: the digit-band charter swept b = 2..24 with the hex letter map; the naming engine on a 20-instance
+table — every digit in band, every name canonical, every quotient chain strictly descending; two independent
+rebuild engines (positional sum + Horner) agreeing on the table and swept n ≤ 1500 (b = 2..10) + n ≤ 500
+(b = 11..16); uniqueness four ways — disjoint length windows, the impostor sweep enumerating every
+canonical-length digit tuple for n ≤ 300 with exactly one match everywhere, units digit = n mod b swept, the
+peel lemma swept; the digits-are-remainders theorem swept n ≤ 1000 with 2025 = 7E9₁₆ run digit by digit;
+digit counts — the window swept n ≤ 3000, the ceilings 999/255/1023/FFF, the counts 90/900/128/3840, 2025 →
+11 bits/4 base-12 digits/3 hex, 10⁶ → 20 bits/5 hex, 10⁹ → 30 bits; leading-zero padding; the FM 1.1 anchor
+5,768 verified once; both figures' geometry box-by-box with ≥ 8 px clearances; quiz keys 1/0/0/1/0 and
+0/1/0/0/0 with every distractor evaluated; all 13 + 14 exercise keys re-derived — the base-3 five-digit
+window 81..242/162, 5555₆ = 1295 = 6⁴ − 1, 5031₇ → 1737 → 8C1₁₄, the b^k at-most-k-digit count, 35_b = 23 →
+b = 6 with the digit-band veto, FACE₁₆ = 64206 = 1111101011001110₂, the 3751₈ → 11111101001₂ → 7E9₁₆ → 2025
+coherence chain; the regrouping sweep n ≤ 5000 for octal AND hex; the power law 2^(mi+j) = (2^m)^i·2^j
+swept; the machine tables cell by cell — 8 octal triples + 16 hex nibbles + the 52-cell 0..12 names table +
+both many-dresses rows). The script caught **six real defects pre-writing**: a padding slip mis-valuing
+"001101"₂ as 45 (it is 13 — the right padded dress of 45 is "00101101"), a name-of-seven check misconceived
+(the right instance: base 7 owns NO digit 7 — seven itself writes "10₇"), a missing hex-symbol map on the FFF
+check, a reversed remainder order in the 2025÷16 chain assertion, a distinct-key miscount (6, not 7), and a
+nonsense octal-literal guard line; five type-level narrowings resolved besides. The engine discipline held
+everywhere: Lesson 2.1's division algorithm CITED, never re-proved — 3.1's uniqueness is 2.1's remainder
+band doing the forcing one level up (the band pins d₀ = n mod b, the peel divides the problem down, descent
+closes); 3.2's regrouping theorem inherits uniqueness to license the lookup tables (the power law
+2^(mi+j) = (2^m)^i·2^j does the factoring). One renderer boundary re-caught live: the `term` field does not
+render KaTeX — 'Base-$b$ name' renamed plain. Historical grounding web-checked (sanctioned fallback):
+Laplace's tribute via MacTutor (quoted from Eves, Return to Mathematical Circles, 1988); al-Khwārizmī's
+c. 825 Hindu-numerals book surviving only in the 12th-c. Latin Algoritmi de numero Indorum (Devlin +
+Wikipedia); Leibniz's binary — 1679 De Progressione Dyadica, 1697 letter, Bouvet's 4 Nov 1701 letter
+received April 1703, the 1703 Explication in the Académie's Mémoires — with the honest hedges (Shao Yong's
+11th-c. ordering; no ancient Chinese counting system; Leibniz had the arithmetic first); Knuth TAOCP Vol. 2
+§4.1 as the notation charter. Scheduling correction: run 52's pointer said "chapter 3 closes at run 55" —
+an arithmetic slip; two lessons per run closes a four-lesson chapter in two runs, so run 54 = 3.3 + 3.4 +
+the unit-3 completion review; pointer, book.ts and the ch-03 header all corrected and the slip recorded in
+WORKLOG. Gates: tsc 0 (the export {} module marker + stale tsbuildinfo clear — the run-51 pattern), lint 0
+errors, routes 200/404, E2E e2e-ans-31.page.js + e2e-ans-32.page.js green (whitelisted FIRST; quizzes live
+5/5 on keys 1/0/0/1/0 and 0/1/0/0/0 with two-pass timing for the async settle; 16 + 20 Sol pills and
+87 + 102 ∴ glyphs after expansion; 0 raw-$ anywhere; 0 katex-errors; mobile 390 exact-fit both; SVG overlap
+audits 0/0 both figures; screenshots reviewed — the three-machine cascade and the twelve-bit regrouping
+machine render clean). WORK_INVENTORY.json regenerated: library = 2 books, 57 lessons, 275,695 words,
+427 terms, 285 quiz, 655 exercise questions (deltas vs run 52: +2 lessons, +10,385 words, +16 terms,
++10 quiz, +27 exercises). New citation keys (web-checked, zero downloads): knuth-taocp-v2,
+hindu-arabic-positional-history, leibniz-1703-binary.
+
+Run 52 (fired 20:00 IST from job 498279 — SEVENTH consecutive fire from the re-enabled
 old job, logged for the owner; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson
-directive in memory)**: **ANS CHAPTER 2 CLOSES COMPLETE 4/4 — lessons 2.3 'The Euclidean Algorithm, Proven — and
+directive in memory): **ANS CHAPTER 2 CLOSES COMPLETE 4/4 — lessons 2.3 'The Euclidean Algorithm, Proven — and
 Bézout's Identity' (5,755 words, 8 terms, 5 quiz, 13 exercises, 4 derivations, 3 illustrations, 1 figure, 1 table,
 5 formula cards, 1 algorithm block — the block type's first outing in this book) and 2.4 'Linear Diophantine
 Equations' (4,669 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 1 algorithm
