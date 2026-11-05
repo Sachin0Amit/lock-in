@@ -9,7 +9,46 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 54 (fired 22:00 IST — the payload arrived from job 498279, the old one-lesson job
+Maintained through **run 55 (fired 23:11 IST — from job 504365, the correct two-lesson job carrying the
+owner's 2026-11-05 directive and a fresh PAT; job 498279 idle this window — no ninth fire logged)**: **ANS
+CHAPTER 4 OPENS 2/4 — lessons 4.1 'The Primes Never End: Euclid's Proof and the Sieve' (5,233 words, 8 terms,
+5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 4 tables, 1 algorithm block, 4 formula cards)
+and 4.2 'The Fundamental Theorem of Arithmetic' (5,117 words, 8 terms, 5 quiz, 14 exercises, 5 derivations,
+6 illustrations, 1 figure, 2 tables, 1 algorithm block, 4 formula cards) shipped verify-first in one run**
+(10,350 words / 16 terms / 10 quiz / 27 exercises; the book stands 15 lessons / 68,429 words / 104 terms /
+65 quiz / 202 exercises). verify-book2-ch04.ts CREATED with **167 checks** (sections A–V) BEFORE a word was
+written: the trichotomy engine swept n ≤ 2000 (unit/prime/composite, 25 primes ≤ 100, 2 the only even prime);
+the trial-division bound swept (91 = 7·13 at ⌊√91⌋ = 9, 221 = 13·17 at 14, 97/101/397 prime; the least
+divisor > 1 prime for every n ≥ 2 — VII.31 swept); the sieve to 100 engine-built round by round (49 + 16 +
+6 + 3 = 74 crossings from p², 25 survivors, π(100) = 25 / π(200) = 46 / π(500) = 95 / π(1000) = 168, the
+second hundred's 21 primes listed; both crossing variants swept to identical survivors); Euclid's
+construction swept (all 511 subsets of {2..23}: every prime factor of product+1 lies outside the subset;
+the primorial ladder 3, 7, 31, 211, 2311 prime then 30031 = 59·509, 510511 = 19·97·277, 9699691 = 347·27953
+— the honesty instance the lesson prints); FTA existence swept n ≤ 2000 (least-prime descent strictly
+dropping); Euclid's lemma swept (17 primes ≤ 60 × all pairs a, b ≤ 300) with the composite counterexamples
+6|2·9, 4|2·6, 8|2·12 standing and the printed Bézout chain 1 = 5·5 − 12·2 → 25 = 5·125 − 12·50 verified;
+uniqueness swept (every factorisation route of every n ≤ 1500 normalises to one sorted prime list; the
+prime-power gauge over {2,3,5,7} to 10⁶ enumerated — 10,000+ products, distinct vectors → distinct
+products); τ = ∏(aᵢ+1) swept n ≤ 600 (144 the smallest τ = 15; τ odd ⇔ square; τ = 3 ⇔ p²); Legendre's
+census swept n ≤ 200 × p ∈ {2,3,5,7} (v₂(10!) = 8, v₅(12!) = 2, v₅(25!) = 6, v₅(100!) = 24, v₂(100!) = 97;
+10! and 12! rebuilt from the exponents). ONE pre-writing defect caught: the figure-2 leaf boxes at 74 px
+overlapped two pairs — narrowed to 56 px before any SVG existed. Post-write, the gates caught four more:
+the hand-written sieve SVG regenerated programmatically after the overlap audit flagged a mistyped "1"
+coordinate, digits-on-rules and an over-wide legend (→ 0/0, 104 texts); one unclosed quiz-option $ in 4.2
+(E2E dollar probe); unicode-escape leaks in the 4.2 prose (gcd/≤/≥/∈/≠) caught by grep; and PROGRESS.json's
+top-level phase/awaiting/lastCompleted backfilled (run 54's ship had advanced only the structured fields).
+Gates: tsc 0; lint 0; routes 200/200/404 after one dev restart (a stale generateStaticParams cache 404'd
+4.1); E2E quizzes 5/5 live on keys 1/1/0/1/1 and 0/0/1/1/1; 16+20 Sol pills; 87+102 therefore glyphs; mobile
+390 exact-fit; SVG audits 0/0 (104+18 texts); screenshots reviewed. Four NEW citation keys
+(euclid-elements-book-ix, eratosthenes-sieve-nicomachus, al-farisi-fta-existence, gauss-1801-disquisitiones);
+zero downloads. WORK_INVENTORY regenerated: 61 lessons / 295,613 words / 459 terms / 305 quiz / 708
+exercises. NEXT: run 56 closes chapter 4 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' +
+4.4 'How the Primes Are Distributed' + the unit-4 completion review (verify-book2-ch04.ts sections W
+onward FIRST); run 57 opens chapter 5 'Congruences: The Arithmetic of Remainders'.
+
+---
+
+**Run 54 (fired 22:00 IST — the payload arrived from job 498279, the old one-lesson job
 the owner disabled via API, carrying its outdated boilerplate; per the standing ruling the boilerplate was
 NOT executed — the owner's 2026-11-05 two-lesson directive governed and TWO lessons were delivered; job
 498279's duplicate-fire anomaly stands at an EIGHTH fire, owner-side cleanup still pending)**: **ANS

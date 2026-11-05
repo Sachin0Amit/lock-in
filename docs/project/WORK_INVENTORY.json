@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 19:53:32 (Asia/Kolkata)",
+  "generated": "2026-11-05 21:10:10 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -4155,17 +4155,157 @@
             "number": 4,
             "slug": "primes-and-the-fundamental-theorem",
             "title": "Primes and the Fundamental Theorem of Arithmetic",
-            "summary": "The atoms of multiplication: Euclid’s two-thousand-year-old proof that the primes never end, the sieve that hunts them, the fundamental theorem (unique factorisation) with both existence and uniqueness proved — uniqueness cashed through Bézout — and the counting consequences: divisor counts, the exponent of a prime in n!, and the trailing zeros of factorials.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "summary": "The atoms of multiplication: the trichotomy that sorts every number above 1 into prime or composite, the trial-division bound and the sieve that hunt primes by machine, Euclid’s two-thousand-year-old proof that the primes never end, and the fundamental theorem — every number factors into primes in exactly one way — with existence proved by strong induction, uniqueness cashed through Bézout’s identity, and the counting consequences (divisor counts, factorial exponents, trailing zeros) that examinations bank on.",
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Primes Never End: Euclid’s Proof and the Sieve",
-              "The Fundamental Theorem of Arithmetic",
               "Divisors from DNA: Divisor Counts and Factorial Zeros",
               "How the Primes Are Distributed"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-primes-never-end-euclid-and-the-sieve",
+                "number": "4.1",
+                "title": "The Primes Never End: Euclid’s Proof and the Sieve",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5233,
+                "readMins": 26,
+                "concepts": [
+                  "The prime/composite/unit trichotomy",
+                  "Exactly two divisors",
+                  "The trial-division bound √n",
+                  "The least divisor is prime",
+                  "The sieve of Eratosthenes",
+                  "Euclid’s construction P + 1",
+                  "New prime factors, not a prime N",
+                  "Counting primes: π(100) = 25"
+                ],
+                "objectives": [
+                  "State the trichotomy precisely — every natural number is exactly one of a unit (1), a prime, or a composite — and explain why 1 belongs to neither extreme",
+                  "Prove and use the trial-division bound: $n \\ge 2$ is prime exactly when no $d$ with $2 \\le d \\le \\lfloor\\sqrt{n}\\rfloor$ divides it, and prove that the least divisor above 1 of any number is prime",
+                  "Run the sieve of Eratosthenes to any bound, round by round — crossing from $p^2$, stopping at $p \\le \\sqrt{N}$ — and certify that sieving 100 leaves exactly the 25 primes",
+                  "Reproduce Euclid’s infinitude argument: for any finite list of primes, the product plus one carries a prime factor outside the list — and explain why the argument needs the new factor, not a prime value of $N$"
+                ],
+                "prerequisites": [
+                  "fm-prime-numbers-factorisation",
+                  "ans-the-algebra-of-divisibility",
+                  "ans-induction-proving-for-every-number"
+                ],
+                "sources": [
+                  "euclid-elements-book-ix",
+                  "eratosthenes-sieve-nicomachus",
+                  "euclid-elements-book-vii",
+                  "beck-geoghegan-art-of-proof"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "callout": 8,
+                  "equation": 1,
+                  "list": 1,
+                  "table": 4,
+                  "heading": 3,
+                  "derivation": 2,
+                  "example": 3,
+                  "algorithm": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "theorem": 2,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 13,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-fundamental-theorem-of-arithmetic",
+                "number": "4.2",
+                "title": "The Fundamental Theorem of Arithmetic",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5117,
+                "readMins": 26,
+                "concepts": [
+                  "The fundamental theorem of arithmetic",
+                  "Existence by strong induction",
+                  "Euclid’s lemma from Bézout",
+                  "Uniqueness of the factorisation",
+                  "The canonical form with exponents",
+                  "The divisor count τ(n) = ∏(aᵢ+1)",
+                  "The factorial exponent v_p(n!)",
+                  "Trailing zeros of n!"
+                ],
+                "objectives": [
+                  "State the fundamental theorem in both directions — existence (every $n \\ge 2$ is a product of primes) and uniqueness (the product is unique up to order) — and prove existence by strong induction through the least-prime-factor engine",
+                  "Prove Euclid’s lemma ($p \\mid ab \\Rightarrow p \\mid a$ or $p \\mid b$, for prime $p$) from Lesson 2.3’s Bézout identity, and exhibit composite divisors that break it",
+                  "Cash the lemma into uniqueness: two prime factorisations of one number force each prime across and cancel, ending in identical factor lists — and assemble the canonical form $n = p_1^{a_1} \\cdots p_k^{a_k}$ with $1$ as the empty product",
+                  "Read the divisor count $\\tau(n) = \\prod (a_i + 1)$, the factorial exponent $v_p(n!) = \\sum \\lfloor n/p^i \\rfloor$, and the trailing zeros of $n!$ straight off the exponents — the three shapes competitive examinations bank on"
+                ],
+                "prerequisites": [
+                  "ans-primes-never-end-euclid-and-the-sieve",
+                  "ans-euclidean-algorithm-proven-bezout-identity",
+                  "ans-induction-proving-for-every-number"
+                ],
+                "sources": [
+                  "gauss-1801-disquisitiones",
+                  "al-farisi-fta-existence",
+                  "euclid-elements-book-vii",
+                  "beck-geoghegan-art-of-proof",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 7,
+                  "callout": 5,
+                  "heading": 5,
+                  "derivation": 5,
+                  "example": 6,
+                  "algorithm": 1,
+                  "equation": 1,
+                  "figure": 1,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "theorem": 2,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 10350
           },
           {
             "number": 5,
@@ -4282,12 +4422,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 94,
-      "totalLines": 46570,
+      "totalLines": 46555,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 37305,
+        "src/data/library (content model + books)": 37290,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -10798,6 +10938,88 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "ced6fb7b7ef7a5242c4dd6b0c3452c494a4cc4ce",
+      "short": "ced6fb7",
+      "date": "2026-11-05 14:26",
+      "message": "ans ch.3 closes: lessons 3.3 arithmetic in other bases + 3.4 binary/hex machine shipped verify-first (run 54)",
+      "filesChanged": 11,
+      "insertions": 2702,
+      "deletions": 65,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 13,
+          "del": 13
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 19,
+          "del": 7
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 47,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 266,
+          "del": 31
+        },
+        {
+          "path": "scripts/e2e-ans-33.page.js",
+          "add": 70,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-34.page.js",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch03.ts",
+          "add": 1012,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-03.ts",
+          "add": 1104,
+          "del": 12
+        }
+      ]
+    },
+    {
+      "sha": "95b940c376d3044bb4c283b0aa1d0309b1475a1a",
+      "short": "95b940c",
+      "date": "2026-11-05 14:27",
+      "message": "memory: run-54 final — ANS ch.3 CLOSED 4/4 (19,953 words); ship ced6fb7 remote-verified via one-time-URL ls-remote = local HEAD; job 498279's EIGHTH fire logged (boilerplate not executed, two-lesson directive governed); next run 55 = ANS ch.4 opens with 4.1 + 4.2 (verify-book2-ch04.ts FIRST); tree clean",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -10805,27 +11027,27 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 14,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 59,
-    "wordsAuthored": 285263,
-    "termsDefined": 443,
-    "quizItems": 295,
-    "exerciseQuestions": 681,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 61,
+    "wordsAuthored": 295613,
+    "termsDefined": 459,
+    "quizItems": 305,
+    "exerciseQuestions": 708,
     "blockTotals": {
-      "para": 849,
-      "callout": 332,
-      "heading": 342,
-      "list": 79,
-      "terms": 60,
-      "equation": 95,
-      "derivation": 119,
-      "table": 60,
-      "figure": 102,
-      "example": 258,
-      "quiz": 59,
-      "exercises": 59,
-      "formula": 147,
-      "algorithm": 12
+      "para": 867,
+      "callout": 345,
+      "heading": 350,
+      "list": 80,
+      "terms": 62,
+      "equation": 97,
+      "derivation": 126,
+      "table": 66,
+      "figure": 104,
+      "example": 267,
+      "quiz": 61,
+      "exercises": 61,
+      "formula": 155,
+      "algorithm": 14
     }
   }
 }

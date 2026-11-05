@@ -164,3 +164,8 @@ server.log
 # exception: run-54 ANS chapter-3 lesson E2E blocks (quiz keys 3.3: 1/0/2/0/3, 3.4: 2/0/1/3/0 + solutions + audits)
 !/scripts/e2e-ans-33.page.js
 !/scripts/e2e-ans-34.page.js
+# exception: run-55 ANS chapter-4 pre-write arithmetic verifier (primes + FTA; committed every ship)
+!/scripts/verify-book2-ch04.ts
+# exception: run-55 ANS chapter-4 lesson E2E blocks (quiz keys 4.1 + 4.2 + solutions + audits)
+!/scripts/e2e-ans-41.page.js
+!/scripts/e2e-ans-42.page.js

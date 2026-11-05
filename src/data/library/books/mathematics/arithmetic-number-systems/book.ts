@@ -2,19 +2,18 @@ import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
+import { chapter04 } from './ch-04'
 
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
  *
  * STATUS: IN PROGRESS — chapter 1 'The Natural Numbers as a System'
- * COMPLETE 3/3 (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1
- * completion review passed). Chapter 2 'The Division Algorithm and
- * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52, 2026-11-05:
- * lessons 2.1 + 2.2, then 2.3 Euclidean algorithm + Bézout and 2.4
- * linear Diophantine equations with the unit-2 completion review).
- * Chapter 3 'Positional Systems and Other Bases' IN PROGRESS 2/4
- * (run 53, 2026-11-05: 3.1 the representation theorem + 3.2 converting
- * between bases; 3.3 + 3.4 close it at run 54 (run 52's pointer said 55, an arithmetic slip this run corrects: two lessons per run closes a four-lesson chapter in two runs)).
+ * COMPLETE 3/3 (runs 49-50). Chapter 2 'The Division Algorithm and
+ * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52). Chapter 3
+ * 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54, unit-3
+ * review passed). Chapter 4 'Primes and the Fundamental Theorem of
+ * Arithmetic' IN PROGRESS 2/4 (run 55, 2026-11-05: 4.1 the primes never
+ * end + 4.2 the fundamental theorem; 4.3 + 4.4 close it at run 56).
  * The full TOC below is the researched chapter plan
  * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
  * (globally unique, stable forever).
@@ -69,26 +68,12 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52, 2026-11-05: lessons 2.1 + 2.2 then 2.3 The Euclidean Algorithm, Proven — and Bézout\u2019s Identity + 2.4 Linear Diophantine Equations, unit-2 completion review passed; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 IN PROGRESS (run 53, 2026-11-05: 3.1 The Representation Theorem + 3.2 Converting Between Bases shipped verify-first; verify-book2-ch03.ts 312 checks, six pre-writing defects caught; 3.3 + 3.4 close the chapter at run 54). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 COMPLETE (runs 53-54; verify-book2-ch03.ts 312 → 502 checks, thirteen pre-writing defects caught across the two runs; unit-3 completion review passed). Chapter 4 IN PROGRESS (run 55, 2026-11-05: 4.1 The Primes Never End + 4.2 The Fundamental Theorem of Arithmetic shipped verify-first; verify-book2-ch04.ts 167 checks, one figure-geometry defect caught pre-writing; 4.3 + 4.4 close the chapter at run 56). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Books VII + IX (the measures charter, VII.30-32, IX.14 + IX.20 → ch. 2/3/4); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); Nicomachus Introduction to Arithmetic I.13 (the sieve’s surviving account → ch. 4); al-Farisi (the first full existence proof → ch. 4); Gauss Disquisitiones Arithmeticae 1801 art. 16 (the first uniqueness proof → ch. 4); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
   chapters: [
     chapter01,
     chapter02,
     chapter03,
-    {
-      number: 4,
-      slug: 'primes-and-the-fundamental-theorem',
-      title: 'Primes and the Fundamental Theorem of Arithmetic',
-      summary:
-        'The atoms of multiplication: Euclid’s two-thousand-year-old proof that the primes never end, the sieve that hunts them, the fundamental theorem (unique factorisation) with both existence and uniqueness proved — uniqueness cashed through Bézout — and the counting consequences: divisor counts, the exponent of a prime in n!, and the trailing zeros of factorials.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'The Primes Never End: Euclid’s Proof and the Sieve',
-        'The Fundamental Theorem of Arithmetic',
-        'Divisors from DNA: Divisor Counts and Factorial Zeros',
-        'How the Primes Are Distributed',
-      ],
-    },
+    chapter04,
     {
       number: 5,
       slug: 'congruences',

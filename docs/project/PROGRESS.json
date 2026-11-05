@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 3 'Positional Systems and Other Bases' IN PROGRESS 2/4 (run 53, 2026-11-05: lesson 3.1 'The Representation Theorem: Every Number Has Exactly One Name' (5,398 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 1 table, 1 algorithm block, 4 formula cards) + lesson 3.2 'Converting Between Bases' (4,987 words, 8 terms, 5 quiz, 14 exercises, 2 derivations, 6 illustrations, 1 figure, 1 table, 1 algorithm block, 4 formula cards) shipped verify-first in one run; verify-book2-ch03.ts CREATED with 312 checks (sections A-AC) BEFORE writing — six real defects caught pre-writing (a padding slip mis-valuing 001101₂ as 45 (it is 13), a name-of-seven check misconceived (base 7 owns no digit 7 — seven writes 10₇), a missing hex-symbol map, a reversed remainder order, a distinct-key miscount, a nonsense guard line); the term-field KaTeX boundary re-caught live and fixed. Chapter 2 stands COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words); Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47). Chapter 3 closes at run 54 with 3.3 + 3.4 + the unit-3 completion review (run 52's 'run 55' projection corrected — two lessons per run closes a four-lesson chapter in two runs). Library after run 53: 2 books, 57 lessons, 275,695 words, 427 terms, 285 quiz, 655 exercises.",
- "awaiting": "Run 53: open ANS chapter 3 'Positional Systems and Other Bases' — author lessons 3.1 'The Representation Theorem: Every Number Has Exactly One Name' + 3.2 'Converting Between Bases' (two-lesson cadence). Workflow: CREATE scripts/verify-book2-ch03.ts FIRST (whitelist it + the e2e blocks in .gitignore before committing), recompute every number BEFORE writing, then author into a NEW ch-03.ts registered in book.ts; gates: lint, tsc, routes 200, dedicated E2E, mobile 390 exact-fit, SVG audit 0/0; single ship + protocol push.",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 4 'Primes and the Fundamental Theorem of Arithmetic' IN PROGRESS 2/4 (run 55, 2026-11-05: lesson 4.1 'The Primes Never End: Euclid's Proof and the Sieve' (5,233 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 4 tables, 1 algorithm block, 4 formula cards) + lesson 4.2 'The Fundamental Theorem of Arithmetic' (5,117 words, 8 terms, 5 quiz, 14 exercises, 5 derivations, 6 illustrations, 1 figure, 2 tables, 1 algorithm block, 4 formula cards) shipped verify-first in one run; verify-book2-ch04.ts CREATED with 167 checks (sections A–V) BEFORE writing — one figure-geometry defect caught pre-writing (the figure-2 leaf boxes at 74 px overlapped two pairs: 3/5 and 3/2 — narrowed to 56 px, audit clean); the live-figure sieve SVG needed one post-write repair (a mistyped '1' coordinate, digits touching the grid rules, an over-wide legend line — regenerated programmatically, then 0/0). Chapter 3 stands COMPLETE 4/4 (19,953 words); chapter 2 COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words); Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47). Chapter 4 closes at run 56 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' + the unit-4 completion review. Library after run 55: 2 books, 61 lessons, 295,613 words, 459 terms, 305 quiz, 708 exercises.",
+ "awaiting": "Run 56: close ANS chapter 4 'Primes and the Fundamental Theorem of Arithmetic' — author lessons 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' (or the remaining lesson(s)) and run the unit-4 completion review (exam corners 4/4, ids globally unique, ch-04 flipped complete + plannedLessons emptied, totals recomputed); EXTEND scripts/verify-book2-ch04.ts with the two lessons' sections FIRST and recompute every number before writing. Chapter 5 'Congruences: The Arithmetic of Remainders' opens at run 57 with 5.1 + 5.2.",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -81,21 +81,21 @@
     "status": "in-progress",
     "chaptersPlanned": 10,
     "chaptersWritten": 3,
-    "lessonsWritten": 13,
-    "termsAvailableForFlashcards": 88,
-    "notes": "IN PROGRESS (run 54, 2026-11-05): chapter 1 'The Natural Numbers as a System' COMPLETE 3/3 (runs 49-50; 16,921 words / 24 terms / 15 quiz / 36 exercises). Chapter 2 'The Division Algorithm and the Structure of Divisibility' COMPLETE 4/4 (runs 51-52; 20,820 words / 32 terms / 20 quiz / 58 exercises). Chapter 3 'Positional Systems and Other Bases' COMPLETE 4/4 (run 53: 3.1 'The Representation Theorem: Every Number Has Exactly One Name' 5,398 words + 3.2 'Converting Between Bases' 4,987 words; run 54: 3.3 'Arithmetic in Other Bases' 5,214 words + 3.4 'Binary, Hexadecimal and the Machine' 4,354 words, shipped verify-first in one run with verify-book2-ch03.ts extended 312 -> 502 checks (sections AD-BA) and seven further pre-writing defects caught; unit-3 completion review passed — exam corners 4/4, ids unique, ch-03 flipped complete, totals recomputed; the chapter stands 19,953 words / 32 terms / 20 quiz / 54 exercises). Chapter 4 'Primes and the Fundamental Theorem of Arithmetic' opens at run 55 with 4.1 'The Primes Never End: Euclid's Proof and the Sieve' + 4.2 'The Fundamental Theorem of Arithmetic' (create scripts/verify-book2-ch04.ts FIRST). Book totals: 13 lessons / 58,079 words / 88 terms / 55 quiz / 175 exercises (ground truth: WORK_INVENTORY.json)."
+    "lessonsWritten": 15,
+    "termsAvailableForFlashcards": 104,
+    "notes": "IN PROGRESS (run 55, 2026-11-05): chapter 1 'The Natural Numbers as a System' COMPLETE 3/3 (runs 49-50; 16,921 words / 24 terms / 15 quiz / 36 exercises). Chapter 2 'The Division Algorithm and the Structure of Divisibility' COMPLETE 4/4 (runs 51-52; 20,820 words / 32 terms / 20 quiz / 58 exercises). Chapter 3 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54: 3.1 'The Representation Theorem: Every Number Has Exactly One Name' 5,398 words + 3.2 'Converting Between Bases' 4,987 words run 53; 3.3 'Arithmetic in Other Bases' 5,214 words + 3.4 'Binary, Hexadecimal and the Machine' 4,354 words run 54; unit-3 completion review passed — the chapter stands 19,953 words / 32 terms / 20 quiz / 54 exercises; verify-book2-ch03.ts 312 -> 502 checks). Chapter 4 'Primes and the Fundamental Theorem of Arithmetic' IN PROGRESS 2/4 (run 55: 4.1 'The Primes Never End: Euclid's Proof and the Sieve' 5,233 words + 4.2 'The Fundamental Theorem of Arithmetic' 5,117 words shipped verify-first in one run; verify-book2-ch04.ts 167 checks (sections A-V) with one figure-geometry defect caught pre-writing; chapter stands 10,350 words / 16 terms / 10 quiz / 27 exercises). Chapter 4 closes at run 56 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' + the unit-4 completion review. Book totals: 15 lessons / 68,429 words / 104 terms / 65 quiz / 202 exercises (ground truth: WORK_INVENTORY.json)."
    }
   ],
-  "lessonsWritten": 59,
-  "wordsAuthored": 285263,
-  "termsAvailableForFlashcards": 443,
+  "lessonsWritten": 61,
+  "wordsAuthored": 295613,
+  "termsAvailableForFlashcards": 459,
   "totals": {
-   "lessonsWritten": 59,
-   "plannedLessons": 29,
-   "words": 285263,
-   "terms": 443,
-   "quizItems": 295,
-   "exerciseQuestions": 681,
+   "lessonsWritten": 61,
+   "plannedLessons": 27,
+   "words": 295613,
+   "terms": 459,
+   "quizItems": 305,
+   "exerciseQuestions": 708,
    "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed)"
   }
  },
@@ -423,5 +423,18 @@
   "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
- "lastCompleted": "run 52 (2026-11-05, fired 20:00 IST from job 498279 — SEVENTH consecutive fire, logged): ANS CHAPTER 2 CLOSES COMPLETE 4/4 — lessons 2.3 'The Euclidean Algorithm, Proven — and Bézout's Identity' (5,755 words) + 2.4 'Linear Diophantine Equations' (4,669 words) shipped verify-first in one run + the UNIT-2 COMPLETION REVIEW PASSED (BOOK_FORMAT checklist 7/7, exam corners 4/4, ids globally unique, ch-02 flipped to complete + plannedLessons emptied, totals recomputed — the chapter stands 4 lessons / 20,820 words / 32 terms / 20 quiz / 58 exercises; the book 2 chapters complete, 7 lessons, 37,741 words). verify-book2-ch02.ts extended 166 → 407 checks (sections U–AN: the subtraction engine + invariance sweeps, the division-loop quotient sequences, maximality + the two rails, termination by descent, Bézout extended tables, the scaled reduction, the LCM payoff, the Diophantine criterion brute-swept, the family both directions, the nonnegative window counts, the Lamé worst-case sweep to 10,000, both figures' geometry, all 10 quiz + 26 exercise keys, formula cards, sources, scope guards) — seven real defects caught pre-writing (an extTable seed-order bug for a < b, a block-scoped helper, two off-by-one quotient lists, three figure-label collisions, a box-size artifact, a miscounted gap loop); all gates green; job-498279 seventh consecutive fire logged for the owner; five new citation keys (lame-1844-note, bezout-1779-theorie, bachet-1624-problemes, diophantus-arithmetica, sylvester-1884-frobenius), zero downloads."
+ "lastCompleted": "run 55 (2026-11-05, fired 23:11 IST from job 504365 — the correct two-lesson job, carrying the owner directive and a fresh PAT): ANS CHAPTER 4 OPENS with 4.1 'The Primes Never End: Euclid's Proof and the Sieve' + 4.2 'The Fundamental Theorem of Arithmetic' shipped verify-first (verify-book2-ch04.ts 167 checks, sections A–V, one figure-geometry defect caught pre-writing); chapter 4 stands 10,350 words / 16 terms / 10 quiz / 27 exercises; the book stands 15 lessons / 68,429 words / 104 terms / 65 quiz / 202 exercises; the five pre-run-55 unpushed commits (0e3db3e, efbc877, a499972, ced6fb7, 95b940c) joined this run's protocol push.",
+ "run55Extras": {
+  "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
+  "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
+  "gates": "tsc 0; lint 0; routes 200/200/404; E2E quizzes live 5/5 on keys 1/1/0/1/1 and 0/0/1/1/1; 16+20 Sol pills; 87+102 therefore glyphs; 0 raw-$; 0 katex-errors; mobile 390 exact-fit; SVG audits 0/0 (104+18 texts); screenshots reviewed",
+  "shipCommits": "ship + memory (shas recorded post-push)",
+  "newCitationKeys": [
+   "euclid-elements-book-ix",
+   "eratosthenes-sieve-nicomachus",
+   "al-farisi-fta-existence",
+   "gauss-1801-disquisitiones"
+  ],
+  "progressBackfill": "run 54's ship had updated PROGRESS's structured book/library fields but left the top-level phase/awaiting/lastCompleted at run 52/53 — this run's ship backfills all three while advancing them to run 55"
+ }
 }
