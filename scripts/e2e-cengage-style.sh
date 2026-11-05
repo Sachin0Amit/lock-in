@@ -35,6 +35,7 @@ LESSONS=(
   fm-parallel-lines-and-transversals
   fm-triangles-and-the-angle-sum
   fm-perimeter-and-area-rectangles-triangles-circles
+  fm-units-as-agreements
 )
 
 for L in "${LESSONS[@]}"; do
@@ -1422,3 +1423,66 @@ agent-browser screenshot /tmp/cengage-e2e/mobile-8-5.png >/dev/null 2>&1 || true
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*8-5*.png 2>/dev/null | head -6
 echo "done-8-5"
+
+# ---- dedicated 9.1 block (run 42): quiz keys 0/1/2/2/2 + solutions + figures ----
+echo "== dedicated 9.1 block: quiz keys + solutions + figures =="
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-units-as-agreements" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1800 >/dev/null 2>&1 || true
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-91.page.js)" 2>/dev/null | head -1
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var quizSec = Array.prototype.slice.call(document.querySelectorAll('section')).find(function(s){
+    var h = s.querySelector('header'); return h && /CHECK YOURSELF/i.test(h.textContent);
+  });
+  return '9.1 score: ' + (quizSec ? (quizSec.textContent.match(/You scored[^·]*/)||['n/a'])[0].trim() : 'no quiz');
+})()
+" 2>/dev/null | head -3
+agent-browser eval "
+(function(){
+  var sol = Array.prototype.slice.call(document.querySelectorAll('span')).filter(function(s){ return s.textContent.trim()==='Sol.'; }).length;
+  var th = Array.prototype.slice.call(document.querySelectorAll('.katex')).filter(function(k){ return k.textContent.indexOf('\u2234') >= 0; }).length;
+  var open = document.querySelectorAll('[data-state=open]').length;
+  var figs = document.querySelectorAll('figure svg, svg[role=img]').length;
+  var katexAll = document.querySelectorAll('.lesson-body .katex').length;
+  var dtext = Array.prototype.slice.call(document.querySelectorAll('.lesson-body p, .lesson-body h2, .lesson-body li, .lesson-body td, .lesson-body th')).filter(function(el){ return !el.querySelector('.katex') && el.textContent.indexOf('$') >= 0; }).length;
+  var katexErr = document.querySelectorAll('.katex-error').length;
+  return '9.1 Sol. pills: ' + sol + ' | KaTeX with ∴: ' + th + ' | katex nodes: ' + katexAll + ' | svg figures: ' + figs + ' | open collapsibles: ' + open + ' | raw-dollar text nodes: ' + dtext + ' | katex-errors: ' + katexErr;
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/desktop-9-1-quiz.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1 of ' + figs.length;
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-9-1-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-9-1-fig2.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-units-as-agreements" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '9.1 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-9-1.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*9-1*.png 2>/dev/null | head -6
+echo "done-9-1"

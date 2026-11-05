@@ -9,7 +9,40 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Generated: 2026-11-03/04/05 (maintained through **run 41, Job 498279**:
+Generated: 2026-11-03/04/05 (maintained through **run 42, Job 498279**:
+**FM 9.1 "Units as Agreements" shipped and CHAPTER 9 MEASUREMENT OPENS**
+(5,501 body words): the question under every number the book has printed —
+what actually happens when we measure; the measurement Definition in the
+is-said-to-be dress (a count of how many times a chosen unit fills the
+quantity) with Q = n × u as tag 1; the desk measured in three handspans
+(figure 1: 180 cm read as 10, 9 and 8 numbered spans between shared rails,
+hooked one-span dimension braces — REDESIGNED once after VLM 6/6, pass 2
+10/9); body (non-standard) units and their one fatal flaw, invariability;
+the royal cubit's ancient fix (7 palms × 4 digits = 28 digits; the granite
+rod of Maya, 52.3 cm, distributed to building sites — the agreement made
+physical); the standard-unit Definition with its three requirements
+(invariable, replicable, agreed); the barleycorn inch statute and the
+honest Henry-I yard legend; the swap law n₁u₁ = n₂u₂ DERIVED as tag 2
+(figure 2: one 2.5 m ribbon under three sticks — 2.5, 5, 25 counts, the
+half-chunk dashed; VLM 10/9) with the 2.5 m table (0.0025 km / 2.5 m /
+250 cm / 2500 mm), the inverse law (unit ÷ k ⇒ count × k, swept k =
+2..100) and the bare-number Caution; base vs derived quantities (m²
+cashing 8.5's tiles, m/s cashing 6.2's journeys; the carpet 12 m² =
+120,000 cm²; the bus 45 km/h = 12.5 m/s by the 5/18 law); the treaty
+section (Metre Convention, Paris, 20 May 1875, 17 states, BIPM at Sèvres;
+SI named at the 11th CGPM 1960 — exactly 7 base units; the 2019
+redefinitions one-sentence forward colour) and India's page (SOWM Act
+1956 → metric compulsory 1 Oct 1960 → Legal Metrology Act 2009); 8 terms,
+5-quiz (keys 0/1/2/2/2 verified live 5/5), 12 exercises L1–L6 (L6: the
+swap law proved; the 250-no-unit packet fraud cashed); verify-unit-9.ts
+CREATED with 200 checks A–M ALL PASS pre-writing (gitignore exceptions
+added FIRST); E2E suite 28 lessons exit 0 + dedicated 9.1 block; SVG
+audits 0/0 first pass; new citation keys ncert-sci6-curiosity-ch5 +
+ncert-phys11-ch2. Chapter 9 OPEN 1/4.
+---
+
+Run 41 (kept for context): **FM 8.5 "Perimeter and Area of Rectangles,
+Triangles and Circles" shipped and CHAPTER 8 CLOSED 5/5 + voice polish 4.1** (5,998 body words): the two
 **FM 8.5 "Perimeter and Area of Rectangles, Triangles and Circles" shipped
 and CHAPTER 8 CLOSED 5/5 + voice polish 4.1** (5,998 body words): the two
 paying questions, the walk around (perimeter, length units) and the fill
@@ -890,7 +923,7 @@ downloads (references already logged).
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
-| 9 | Measurement | Units as Agreements · Metric System · Converting Without Tables · Precision vs Accuracy |
+| 9 | Measurement — **OPEN (1/4, run 42)** | ~~Units as Agreements~~ **WRITTEN (run 42)** · Metric System · Converting Without Tables · Precision vs Accuracy |
 | 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
 
@@ -1104,6 +1137,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 39 | ship + bookkeeping + memory | 11-05 | FM lesson 8.3 Parallel Lines and Transversals — verify-unit-8.ts extended to 253 checks X–AE (64 new: the transversal facts derived geometrically via half-plane classification swept over six slopes; the three parallel tests swept as biconditionals over five slopes; both figures' label clearances swept); 5,114 words; the eight-angle scene + F/Z/C pattern figures (fig 1 through one REAL fix: the t-label relocated out of the title's band; audits 0/0 both; VLM 10/10+10/10 and 10/10+9/10); the corresponding-angles axiom presented as THE assumption + everything else derived; quiz keys 1/2/1/0/2 verified live 5/5; 12/12 solutions expand; 390px exact-fit; voice polish landed on 3.4; new citation keys ncert-math7-gp-ch5 + ncert-math9-ch6 — pushed (protocol v2) | see WORK_INVENTORY gitHistory |
 | 40 | ship + bookkeeping + memory | 11-05 | FM lesson 8.4 Triangles and the Angle Sum + the pre-flight repair (escaped apostrophes, e2e-83/84 whitelisted) — verify-unit-8.ts 253 → 339 checks (AF–AN); 5,382 words; quiz live 5/5; voice polish 3.5; pushed per protocol (dedc21e, remote-verified) |
 | 41 | ship + bookkeeping + memory | 11-05 | FM lesson 8.5 Perimeter and Area of Rectangles, Triangles and Circles — CHAPTER 8 CLOSED — verify-unit-8.ts 339 → 429 checks (AO–AZ); 5,998 words; figure 3 redesigned to the flush rearrangement after VLM 7/6 → 9/9; quiz live 5/5; unit-8 completion review; voice polish 4.1 + Rs-tfrac katex repair; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11; pushed per protocol |
+| 42 | ship + bookkeeping + memory | 11-05 | FM lesson 9.1 Units as Agreements — CHAPTER 9 MEASUREMENT OPENS — verify-unit-9.ts CREATED (200 checks A–M; gitignore exceptions FIRST); 5,501 words; figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans, shared rails, hooked braces); figure 2 10/9; quiz live 5/5 (keys 0/1/2/2/2); swap law derived + inverse law swept; new citation keys ncert-sci6-curiosity-ch5 + ncert-phys11-ch2; pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
@@ -1119,25 +1153,26 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 8 COMPLETE — FM 8.5 "Perimeter and
-  Area of Rectangles, Triangles and Circles" shipped run 41** (cron
-  06:27 delivery, job 498279). verify-unit-8.ts extended to 429 checks
-  (AO–AZ) before a word was written; 5,998 words in the Cengage voice +
-  solution chain; the three figures audited 0/0/0 first pass and
-  VLM-reviewed (10/9, 9/8, and 9/9 after figure 3's redesign to the
-  flush construction); quiz keys 1/2/3/1/2 verified live 5/5; voice
-  polish landed on 4.1 (the treaty definition is-said-to-be + Thus-line;
-  plus the Rs-tfrac katex repair) — the pre-4.2 queue is now EMPTY;
-  new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11. Chapter 8
-  CLOSED 5/5; the unit completion review passed (checklist 7/7, exam
-  coverage, ids unique, totals recomputed: book = 37 lessons / 176,712
-  words / 271 terms / 185 quiz / 402 exercises).
-- **NEXT (hourly cadence): CH. 9 "Measurement" OPENS — FM 9.1 "Units as
-  Agreements"** — create verify-unit-9.ts (add the .gitignore exception
-  FIRST — the /scripts/* trap) and extend it with the unit-9 sections
-  before writing; author per BOOK_FORMAT + the ch-01 exemplar. The voice
-  queue is empty: per-run extras shift to unit reviews, exam-registry
-  research, or DETAILED_LOG/SOURCE_LOG upkeep until a new queue is
-  named. Chapter 9 planned: Units as Agreements · The Metric System ·
-  Converting Units Without Memorising Tables · Precision, Accuracy and
-  Rounding in Measurement.
+- **CURRENT (hourly cadence): CH. 9 "Measurement" OPEN 1/4 — FM 9.1
+  "Units as Agreements" shipped run 42** (cron 07:27 delivery, job
+  498279). verify-unit-9.ts CREATED with 200 checks A–M before a word
+  was written (gitignore exceptions added FIRST — the /scripts/* trap);
+  5,501 words in the Cengage voice + solution chain; both figures
+  audited 0/0 and VLM-reviewed (figure 1 REDESIGNED once: 6/6 → 10/9
+  with numbered spans, shared rails and hooked dimension braces;
+  figure 2's ½ mark bumped: 9/8 → 10/9); quiz keys 0/1/2/2/2 verified
+  live 5/5; the swap law n₁u₁ = n₂u₂ derived as tag 2 with the inverse
+  law swept k = 2..100; the treaty story (1875 Metre Convention → 1960
+  SI, 7 base units) and India's page (1956 → 1960 → 2009) grounded by
+  web-check; new citation keys ncert-sci6-curiosity-ch5 +
+  ncert-phys11-ch2. Book totals recomputed by the generator: 38
+  lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises.
+  Voice queue EMPTY.
+- **NEXT (hourly cadence): FM 9.2 "The Metric System"** — EXTEND
+  verify-unit-9.ts with the metric sections FIRST (the file exists;
+  add N-onward), then author per BOOK_FORMAT + the ch-01 exemplar. The
+  voice queue is empty: per-run extras shift to unit reviews,
+  exam-registry research, or DETAILED_LOG/SOURCE_LOG upkeep until a
+  new queue is named. Chapter 9 planned: Units as Agreements
+  **WRITTEN** · The Metric System · Converting Units Without
+  Memorising Tables · Precision, Accuracy and Rounding in Measurement.

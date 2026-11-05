@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 04:43:44 (Asia/Kolkata)",
+  "generated": "2026-11-05 05:59:08 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -2584,16 +2584,85 @@
             "slug": "measurement",
             "title": "Measurement",
             "summary": "What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Units as Agreements",
               "The Metric System",
               "Converting Units Without Memorising Tables",
               "Precision, Accuracy and Rounding in Measurement"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-units-as-agreements",
+                "number": "9.1",
+                "title": "Units as Agreements",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5501,
+                "readMins": 28,
+                "concepts": [
+                  "Measurement as a count of units",
+                  "Quantity, unit, number — the three roles",
+                  "Body units and invariability",
+                  "The standard unit as an agreement",
+                  "The swap law n₁u₁ = n₂u₂",
+                  "The inverse law — smaller unit, bigger count",
+                  "Base and derived quantities",
+                  "SI — the worldwide agreement"
+                ],
+                "objectives": [
+                  "Say exactly what a measurement is: a count of how many times a chosen unit fills the quantity — and read every measurement as number × unit",
+                  "Explain why body units (handspan, cubit, pace) fail — the unit varies with the measurer — and name the three properties a good unit must have",
+                  "State and prove the swap law n₁ × u₁ = n₂ × u₂, use it to move a quantity between units, and derive the inverse law: the unit shrinks k times, the count grows k times",
+                  "Sort quantities into base (length, mass, time) and derived (area, speed, volume…), and read derived units as little formulas (m², m/s)",
+                  "Tell the story of the worldwide agreement — from the cubit rods to the Metre Convention of 1875 to the SI of 1960 — and India’s own 1956/1960/2009 timeline"
+                ],
+                "prerequisites": [
+                  "fm-perimeter-and-area-rectangles-triangles-circles",
+                  "fm-rates-and-unit-rates"
+                ],
+                "sources": [
+                  "ncert-sci6-curiosity-ch5",
+                  "ncert-phys11-ch2",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 5,
+                  "callout": 7,
+                  "equation": 2,
+                  "list": 2,
+                  "example": 2,
+                  "figure": 2,
+                  "derivation": 1,
+                  "table": 2,
+                  "formula": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 5501
           },
           {
             "number": 10,
@@ -2650,12 +2719,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 87,
-      "totalLines": 32856,
+      "totalLines": 32843,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 23591,
+        "src/data/library (content model + books)": 23578,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -2863,7 +2932,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-04",
+      "surveyed": "2026-11-05",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -7890,6 +7959,98 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "b17a1a8aee2c64087bb8268121fcf74a9fc75f8d",
+      "short": "b17a1a8",
+      "date": "2026-11-04 23:15",
+      "message": "fm 8.5 perimeter and area of rectangles, triangles and circles (unit 8, run 41): CHAPTER 8 CLOSED 5/5 — the walk around and the fill inside kept apart by units and by frauds; P = 2(l+b) derived from the walk as tag 1 with the half-walk named (fence 82 m at Rs 15/m); the fixed-perimeter table (nine rectangles of P = 36, areas 17..81 climbing to the square) with the square-wins law swept over every even perimeter 4..200 + the fixed-area mirror + the underdetermined-question Caution; A = l x b from the tiling as tag 2, figure 1 the tiled 5x3 rectangle halved by its diagonal, the 80-tile floor both ways; area units by the rescaled tile (1 m^2 = 10^4 cm^2, the x100-reflex Caution; 1 hectare = 10^4 m^2); the triangle's area derived as tag 3 — two copies of a right triangle tile its leg-rectangle (the half-turn about the hypotenuse midpoint, swept p,q = 1..12), the altitude split whose x cancels (500 pseudo-random triangles, apex outside included), the perpendicular-height Caution (1/2 x 4 x 5 = 10 refused against 6), the 3-4-5 audited through all three base-height dresses (hypotenuse altitude 12/5); pi DEFINED as C/d, C = pi d = 2 pi r as tag 4 with figure 2 the circumference unrolled straight to scale (2 pi x 90 = 565.49 px), the working values priced (22/7 +0.04%, 3.14 -0.05%); the sector rearrangement as figure 3 — REDESIGNED mid-run from midpoint tips to the FLUSH classic construction (interleaved tips, collinear edges, arcs tiling both edges) after the first VLM pass scored 7/6, re-scored 9/9; tag 5 A = pi r^2 = pi d^2/4 with the honest saw-teeth licence + the diameter-fraud Caution (x4); the composite section (L-shape 88 m^2 walk 42 m, interior cuts never walked) + the arched window (13,982 cm^2, 471.4 cm); the exam corner; the historical callout (Archimedes' 96-gon squeeze 3 10/71 < pi < 3 1/7, Aryabhata 3.1416, Zu Chongzhi Milu 355/113, Lambert 1761, Lindemann 1882, Jones 1706 + Euler); 12 terms, 5-quiz (keys 1/2/3/1/2 verified live 5/5), 12 exercises L1-L6; 5,998 words in the Cengage voice + solution chain; verify-unit-8.ts EXTENDED 339 -> 429 checks (AO-AZ) ALL PASS pre-writing; E2E 27 lessons exit 0 + dedicated 8.5 block (e2e-85 created + whitelisted; 0 raw-$ after the Pi term-name fix; 0 katex-errors; mobile 390 exact-fit); SVG audits 0/0/0 FIRST pass; VLM 10/9, 9/8, 9/9; UNIT-8 COMPLETION REVIEW PASSED (ch. 8 = 26,299 words / 54 terms; book = 37 lessons / 176,712 words / 271 terms); ch-08 + book.ts status complete; VOICE POLISH 4.1 (the treaty definition is-said-to-be + Thus-line, zero new numerals) + the Rs-tfrac katex repair (the pre-4.2 voice queue now EMPTY); SOURCE_LOG gains ncert-math6-gp-ch6 + ncert-math7-ch11; logs + pointer + inventory updated (survey rebuilt after the recycle, 89 entries intact)",
+      "filesChanged": 13,
+      "insertions": 1682,
+      "deletions": 121,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 79,
+          "del": 74
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 42,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 33,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 196,
+          "del": 33
+        },
+        {
+          "path": "scripts/e2e-85.page.js",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 72,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-8.ts",
+          "add": 432,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-08.ts",
+          "add": 743,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "f741f90435d7d64ad7b0750eb678931a05a5213e",
+      "short": "f741f90",
+      "date": "2026-11-04 23:16",
+      "message": "memory: run-41 synced sha recorded (b17a1a8) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 8 Geometry Foundations CLOSED 5/5 (unit completion review passed); next run 42 opens chapter 9 Measurement at FM 9.1 Units as Agreements (create verify-unit-9.ts + the gitignore exception FIRST); voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -7897,26 +8058,26 @@
     "booksPlannedBacklog": 281,
     "booksLive": 1,
     "chaptersWritten": 8,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 37,
-    "wordsAuthored": 176730,
-    "termsDefined": 271,
-    "quizItems": 185,
-    "exerciseQuestions": 402,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 38,
+    "wordsAuthored": 182231,
+    "termsDefined": 279,
+    "quizItems": 190,
+    "exerciseQuestions": 414,
     "blockTotals": {
-      "para": 565,
-      "callout": 222,
-      "heading": 234,
-      "list": 47,
-      "terms": 38,
-      "equation": 66,
-      "derivation": 70,
-      "table": 36,
-      "figure": 67,
-      "example": 185,
-      "quiz": 37,
-      "exercises": 37,
-      "formula": 72,
+      "para": 584,
+      "callout": 229,
+      "heading": 239,
+      "list": 49,
+      "terms": 39,
+      "equation": 68,
+      "derivation": 71,
+      "table": 38,
+      "figure": 69,
+      "example": 187,
+      "quiz": 38,
+      "exercises": 38,
+      "formula": 73,
       "algorithm": 8
     }
   }

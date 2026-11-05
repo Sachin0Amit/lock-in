@@ -102,6 +102,10 @@ server.log
 !/scripts/e2e-83.page.js
 !/scripts/e2e-84.page.js
 !/scripts/e2e-85.page.js
+# exception: run-42 unit-9 pre-write arithmetic verifier (Measurement; committed every ship)
+!/scripts/verify-unit-9.ts
+# exception: run-42 lesson-9.1 targeted interactivity checker (quiz 5/5 live + solution expansion)
+!/scripts/e2e-91.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)
