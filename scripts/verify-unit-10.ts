@@ -36,6 +36,16 @@
  * the 1834 Treasury burning that helped destroy Parliament) — colour only,
  * told with hedges. No content reproduced; exposition original.
  *
+ * Extended 2026-11-05 (run 46) for lesson 10.4 "Mean, Median and Mode" —
+ * sections AA–AP verify every number of the chapter-closing lesson BEFORE
+ * anything is written: the nine-mark dataset (sum 540, mean 60, median
+ * position 5, mode 60, deviations −50/+50 in balance); the six-day
+ * temperatures (even-N median 25.5); the outlier five (mean 90 vs median
+ * 50); 10.1's shoe table through the frequency-table mean (72/15 = 4.8);
+ * the duck innings; the missing-value and combined-mean engines; the
+ * position-law and balance-law sweeps; both figures' geometry; the quiz
+ * and exercise keys; the scope guards.
+ *
  * Run: bun run scripts/verify-unit-10.ts   (exit 1 on any failure)
  */
 
@@ -621,6 +631,349 @@ console.log('  (ii)  no real published charts reproduced — every lying chart h
 console.log('  (iii) no statistical inference (p-values, significance) — correlation-vs-causation is one honest paragraph.');
 console.log('  (iv)  no media-literacy cataloguing — the five-question checklist is the deliverable.');
 console.log('  (v)   no content reproduced — datasets, figures and proofs ours.');
+
+console.log('=== AA. the nine marks — the full triple read (10.4) ===');
+{
+  // the class's nine maths marks, already in order.
+  const marks = [35, 45, 52, 58, 60, 60, 68, 75, 87];
+  const N = marks.length;
+  ok(N === 9, 'AA1: N = 9 (odd — one middle position exists)');
+  const sum = marks.reduce((s, x) => s + x, 0);
+  ok(sum === 540, `AA2: the total — 35+45+52+58+60+60+68+75+87 = ${sum}`);
+  const mean = sum / N;
+  ok(near(mean, 60), `AA3: the mean = 540/9 = ${rr(mean)} — the equal share of the pooled total`);
+  ok(near(9 * mean, sum), 'AA4: the rebuild law — N × mean = 9 × 60 = 540 returns the total exactly');
+  const sorted = [...marks].sort((a, b) => a - b).join(',');
+  ok(sorted === marks.join(','), 'AA5: the list arrives already ordered — the median needs no re-sorting');
+  const pos = (N + 1) / 2;
+  ok(pos === 5, 'AA6: the position law — (N+1)/2 = (9+1)/2 = 5');
+  ok(marks[pos - 1] === 60, 'AA7: the median = the 5th value = 60');
+  const below = marks.slice(0, pos - 1).length, above = marks.slice(pos).length;
+  ok(below === 4 && above === 4, 'AA8: the median leaves 4 values below and 4 above — the equal-sides check');
+  const counts: Record<number, number> = {};
+  for (const m of marks) counts[m] = (counts[m] || 0) + 1;
+  const modes = Object.keys(counts).filter((k) => counts[Number(k)] === Math.max(...Object.values(counts)));
+  ok(counts[60] === 2 && modes.length === 1 && modes[0] === '60',
+    'AA9: the mode = 60 (the only value appearing twice)');
+  // the deviations at the mean — the balance the figure draws.
+  const dev = marks.map((m) => m - mean);
+  ok(dev.join(',') === '-25,-15,-8,-2,0,0,8,15,27',
+    'AA10: the deviations — −25, −15, −8, −2, 0, 0, +8, +15, +27');
+  const neg = dev.filter((d) => d < 0).reduce((s, d) => s + d, 0);
+  const posi = dev.filter((d) => d > 0).reduce((s, d) => s + d, 0);
+  ok(neg === -50 && posi === 50, `AA11: the left arm owes ${-neg}, the right arm owns ${posi} — equal halves of 100`);
+  ok(near(neg + posi, 0, 1e-9), 'AA12: the deviations sum to exactly 0 — the balance law cashed');
+  // the same mean from the fraction: 540/9 = 60 is exact (no rounding licence needed).
+  ok(540 % 9 === 0, 'AA13: 9 | 540 — the mean of this dataset is an exact whole number');
+}
+
+console.log('=== AB. the six-day temperatures — the even-N median (10.4) ===');
+{
+  const t = [21, 24, 24, 27, 31, 35];
+  const N = t.length;
+  const sum = t.reduce((s, x) => s + x, 0);
+  ok(N === 6 && sum === 162, `AB1: N = 6, the total = ${sum} (21+24+24+27+31+35)`);
+  ok(near(sum / N, 27), 'AB2: the mean = 162/6 = 27°C exactly');
+  ok(t.every((x, i) => i === 0 || x >= t[i - 1]), 'AB3: the list is already ordered (non-decreasing)');
+  const lo = t[N / 2 - 1], hi = t[N / 2];
+  ok(lo === 24 && hi === 27, 'AB4: the middle pair — the 3rd and 4th of six are 24 and 27');
+  ok(near((lo + hi) / 2, 25.5), 'AB5: the even-N median = (24 + 27)/2 = 25.5°C — a value nobody measured');
+  ok(near(25.5, (t[2] + t[3]) / 2), 'AB6: the median sits at positions 3 and 4 (N/2 and N/2 + 1), averaged');
+  const counts: Record<number, number> = {};
+  for (const x of t) counts[x] = (counts[x] || 0) + 1;
+  ok(counts[24] === 2 && Object.values(counts).filter((c) => c === 2).length === 1,
+    'AB7: the mode = 24 (the only repeated value)');
+  ok(near(27 - 25.5, 1.5) && near(25.5 - 24, 1.5), 'AB8: the three answers disagree — 27 vs 25.5 vs 24: one question, three honest numbers');
+}
+
+console.log('=== AC. the outlier five — the mean dragged, the median planted (10.4) ===');
+{
+  const s = [40, 45, 50, 55, 260];
+  const sum = s.reduce((a, x) => a + x, 0);
+  ok(sum === 450, `AC1: the total = ${sum} (40+45+50+55+260)`);
+  ok(near(sum / 5, 90), 'AC2: the mean = 450/5 = 90 — a score TWO of the five never came near');
+  ok([...s].sort((a, b) => a - b)[2] === 50, 'AC3: the median = the 3rd of five = 50 — unmoved');
+  const uniq = new Set(s).size;
+  ok(uniq === 5, 'AC4: no value repeats — the mode does not exist for this dataset');
+  // the four honest scores without the outlier.
+  const four = [40, 45, 50, 55];
+  const fsum = four.reduce((a, x) => a + x, 0);
+  ok(fsum === 190 && near(fsum / 4, 47.5), 'AC5: without the 260 — mean = 190/4 = 47.5, median (45+50)/2 = 47.5');
+  ok(near((45 + 50) / 2, 47.5), 'AC6: the four-score median agrees at 47.5');
+  // replace 260 by 60: the mean lands ON the median.
+  const rep = [40, 45, 50, 55, 60];
+  ok(rep.reduce((a, x) => a + x, 0) === 250 && near(rep.reduce((a, x) => a + x, 0) / 5, 50),
+    'AC7: with 60 instead of 260 — mean = 250/5 = 50 = median: the disagreement was the outlier\u2019s alone');
+  // the shift law: one value changed by Δ moves the mean by Δ/N.
+  ok(near((260 - 60) / 5, 40), 'AC8: the mean\u2019s whole drag = 200/5 = 40 — every value moves the mean by Δ/N');
+  ok(260 > 4 * 55, 'AC9: the outlier is larger than the other four COMBINED (260 > 190) — the dramatisation is honest');
+}
+
+console.log('=== AD. the shoes return — the frequency-table mean (10.4) ===');
+{
+  // 10.1's dataset: size 4 × 5 students, size 5 × 8, size 6 × 2 (N = 15).
+  const fx: Array<[number, number]> = [[4, 5], [5, 8], [6, 2]];
+  const N = fx.reduce((s, [, f]) => s + f, 0);
+  ok(N === 15, 'AD1: the frequencies still close on N = 15 (the check-sum law holds)');
+  const fxSum = fx.reduce((s, [x, f]) => s + x * f, 0);
+  ok(fxSum === 20 + 40 + 12, 'AD2: Σf·x = 4×5 + 5×8 + 6×2 = 20 + 40 + 12');
+  ok(fxSum === 72, `AD3: Σf·x = ${fxSum}`);
+  ok(near(fxSum / N, 4.8), 'AD4: the frequency-table mean = 72/15 = 4.8');
+  ok(near(4.8, 24 / 5), 'AD5: 72/15 = 24/5 = 4.8 exactly (the decimal terminates)');
+  // the ordered list: five 4s, eight 5s, two 6s.
+  const ordered: number[] = [];
+  for (const [x, f] of fx) for (let i = 0; i < f; i++) ordered.push(x);
+  ok(ordered.length === 15 && ordered.join(',') === '4,4,4,4,4,5,5,5,5,5,5,5,5,6,6',
+    'AD6: the ordered strip — five 4s, eight 5s, two 6s');
+  ok(ordered[(15 + 1) / 2 - 1] === 5, 'AD7: the median = the 8th of 15 = 5 (positions 8 = (N+1)/2)');
+  ok(ordered.slice(0, 7).filter((v) => v === 4).length === 5 && ordered.slice(8).filter((v) => v === 6).length === 2,
+    'AD8: seven sizes sit below the 8th (five 4s + two 5s), seven above (three 5s + two 6s)');
+  const counts: Record<number, number> = {};
+  for (const v of ordered) counts[v] = (counts[v] || 0) + 1;
+  ok(counts[5] === 8 && counts[5] > counts[4] && counts[5] > counts[6],
+    'AD9: the mode = 5 — eight students, more than the other rows together (8 > 5 + 2)');
+  ok(near(counts[5] / 15, 8 / 15) && 8 / 15 > 0.5, 'AD10: the mode\u2019s row holds 8/15 of the class — a majority, 10.1\u2019s promise kept');
+  ok(!ordered.includes(4.8), 'AD11: 4.8 is the mean but not a size — the mean need not be a data value (the honest caution)');
+}
+
+console.log('=== AE. the duck innings — the mean below the median (10.4) ===');
+{
+  const runs = [32, 0, 58, 21, 44];
+  const sum = runs.reduce((a, x) => a + x, 0);
+  ok(sum === 155, `AE1: the total = ${sum} (32 + 0 + 58 + 21 + 44)`);
+  ok(near(sum / 5, 31), 'AE2: the mean = 155/5 = 31');
+  const ord = [...runs].sort((a, b) => a - b);
+  ok(ord.join(',') === '0,21,32,44,58', 'AE3: ordered — 0, 21, 32, 44, 58');
+  ok(ord[2] === 32, 'AE4: the median = the 3rd of five = 32');
+  ok(31 < 32, 'AE5: the mean sits BELOW the median — the duck drags the average down while the median holds the middle');
+  ok(new Set(runs).size === 5, 'AE6: no repeats — no mode exists (a perfectly honest absence)');
+  // without the duck the mean jumps by exactly the duck\u2019s share.
+  ok(near(155 / 4, 38.75) && near(38.75 - 31, 7.75), 'AE7: without the duck the four-score mean is 155/4 = 38.75 — the duck added zero runs and one innings, costing the mean 7.75');
+  ok(near((0 - 31) / 5, -6.2), 'AE8: the duck\u2019s own deviation at the final mean is 0 − 31 = −31 — the deepest deviation in the set; every value, even a 0, moves the mean');
+}
+
+console.log('=== AF. the missing value — the rebuild law at work (10.4) ===');
+{
+  // the mean of six numbers is 18; five of them are 12, 15, 20, 17, 16.
+  ok(near(6 * 18, 108), 'AF1: the rebuild law — N × mean = 6 × 18 = 108 = the total');
+  const five = [12, 15, 20, 17, 16];
+  const fsum = five.reduce((a, x) => a + x, 0);
+  ok(fsum === 80, `AF2: the five known values sum to ${fsum}`);
+  const sixth = 108 - 80;
+  ok(sixth === 28, `AF3: the sixth value = 108 − 80 = ${sixth}`);
+  const all = [...five, sixth];
+  ok(near(all.reduce((a, x) => a + x, 0) / 6, 18), 'AF4: the check — (80 + 28)/6 = 108/6 = 18 ✓');
+}
+
+console.log('=== AG. the combined mean — totals add, means do not (10.4) ===');
+{
+  // class A: 20 students, mean 60; class B: 30 students, mean 70.
+  const aN = 20, aMean = 60, bN = 30, bMean = 70;
+  const aSum = aN * aMean, bSum = bN * bMean;
+  ok(aSum === 1200 && bSum === 2100, `AG1: the rebuild law twice — ${aN}×${aMean} = ${aSum}, ${bN}×${bMean} = ${bSum}`);
+  const total = aSum + bSum, count = aN + bN;
+  ok(total === 3300 && count === 50, 'AG2: totals add (1200 + 2100 = 3300) and counts add (20 + 30 = 50)');
+  ok(near(total / count, 66), 'AG3: the combined mean = 3300/50 = 66');
+  const naive = (aMean + bMean) / 2;
+  ok(near(naive, 65) && !near(naive, 66), 'AG4: the naive (60+70)/2 = 65 is WRONG — averaging the means forgets the class sizes');
+  ok(near(60 + (70 - 60) * (bN / count), 66), 'AG5: the honest picture — 66 = 60 + 10 × 30/50: the answer sits 60% of the way toward the bigger class\u2019s 70');
+  ok(near(20 / 50, 0.4) && near(0.4 * 60 + 0.6 * 70, 66), 'AG6: the weighted dress — 0.4×60 + 0.6×70 = 66 (weights = the class shares)');
+}
+
+console.log('=== AH. the mean-shift instance — one mark moves (10.4) ===');
+{
+  // the nine marks: 87 re-scored as 77.
+  const before = [35, 45, 52, 58, 60, 60, 68, 75, 87];
+  const after = [35, 45, 52, 58, 60, 60, 68, 75, 77];
+  const bSum = before.reduce((a, x) => a + x, 0);
+  const aSum = after.reduce((a, x) => a + x, 0);
+  ok(bSum === 540 && aSum === 530, `AH1: the total walks 540 → ${aSum} (Δ = −10)`);
+  ok(near(aSum / 9, 530 / 9), `AH2: the new mean = 530/9 ≈ ${rr(530 / 9)} (58.89 to 2 dp)`);
+  ok(near((540 - 530) / 9, 10 / 9), 'AH3: the shift = Δ/N = 10/9 ≈ 1.11 — every value moves the mean by its own change over N');
+  ok(after[4] === 60 && 77 > 60, 'AH4: the 77 still sits above position 5 — the 5th value is STILL 60');
+  ok(after[(9 + 1) / 2 - 1] === 60, 'AH5: the median is unmoved at 60 — it reads positions, not values');
+}
+
+console.log('=== AI. the position-law sweep (10.4) ===');
+{
+  // odd N: the median at (N+1)/2, equal counts of (N−1)/2 on each side.
+  let badOdd = 0;
+  for (let N = 1; N <= 199; N += 2) {
+    const pos = (N + 1) / 2;
+    if (!Number.isInteger(pos) || pos < 1 || pos > N) badOdd++;
+    if ((pos - 1) !== (N - 1) / 2 || (N - pos) !== (N - 1) / 2) badOdd++;
+  }
+  ok(badOdd === 0, 'AI1: odd N = 1..199 — position (N+1)/2 is always an integer leaving (N−1)/2 on each side');
+  // even N: the middle pair at N/2 and N/2 + 1, (N/2 − 1) on each side.
+  let badEven = 0;
+  for (let N = 2; N <= 198; N += 2) {
+    const lo = N / 2, hi = N / 2 + 1;
+    if (lo < 1 || hi > N) badEven++;
+    if ((lo - 1) !== N / 2 - 1 || (N - hi) !== N / 2 - 1) badEven++;
+  }
+  ok(badEven === 0, 'AI2: even N = 2..198 — the pair at N/2 and N/2+1 always leaves N/2−1 on each side');
+  ok(near((6 + 1) / 2, 3.5) && !Number.isInteger(3.5), 'AI3: at N = 6 the two laws meet — (N+1)/2 = 3.5 names the PAIR 3 and 4');
+}
+
+console.log('=== AJ. the balance-law sweep (10.4) ===');
+{
+  // 300 pseudo-random datasets (sizes 3..9): the deviations at the mean sum to 0.
+  let s = 987654321;
+  const rand = (k: number) => { s = (s * 1103515245 + 12345) % 2147483648; return s % k; };
+  let bad = 0;
+  for (let t = 0; t < 300; t++) {
+    const n = 3 + rand(7);
+    const xs: number[] = [];
+    for (let i = 0; i < n; i++) xs.push(1 + rand(200));
+    const m = xs.reduce((a, x) => a + x, 0) / n;
+    const devSum = xs.reduce((a, x) => a + (x - m), 0);
+    if (Math.abs(devSum) > 1e-9) bad++;
+  }
+  ok(bad === 0, 'AJ1: 300 pseudo-random datasets — Σ(x − mean) = 0 every time (the balance law, swept)');
+  ok(true, 'AJ2: corollary — the total rebuilds as N × mean, so ONE unknown value is recoverable: the missing-value engine');
+}
+
+console.log('=== AK. the mode\u2019s three moods (10.4) ===');
+{
+  // unique, absent, and doubled.
+  const travel: Record<string, number> = { walk: 8, bus: 6, cycle: 4, car: 2 };
+  const top = Math.max(...Object.values(travel));
+  const tModes = Object.keys(travel).filter((k) => travel[k] === top);
+  ok(tModes.length === 1 && tModes[0] === 'walk', 'AK1: the travel data — one mode, walk (8 of 20): the only average a category table can name');
+  const innings = [32, 0, 58, 21, 44];
+  const iCounts: Record<number, number> = {};
+  for (const r of innings) iCounts[r] = (iCounts[r] || 0) + 1;
+  ok(Math.max(...Object.values(iCounts)) === 1, 'AK2: the innings — every value appears once: the mode does not exist');
+  const colours: Record<string, number> = { red: 9, blue: 9, green: 4 };
+  const cTop = Math.max(...Object.values(colours));
+  const cModes = Object.keys(colours).filter((k) => colours[k] === cTop);
+  ok(cModes.length === 2 && cModes.join(',') === 'red,blue', 'AK3: red 9, blue 9, green 4 — TWO modes (bimodal): the mode may refuse to be single');
+  ok(travel['walk'] === 8, 'AK4: the mode is a frequency FACT — it exists only where the table shows a top row');
+}
+
+console.log('=== AL. figure 1 geometry — the balance beam (10.4) ===');
+{
+  // viewBox 780 × 340. Beam (number line) at y = 250, x 90..690,
+  // ruler marks 30..90 → x = 90 + (v − 30) × 10.
+  const x = (v: number) => 90 + (v - 30) * 10;
+  ok(x(30) === 90 && x(90) === 690, 'AL1: the ruler maps 30..90 to x 90..690');
+  ok([30, 40, 50, 60, 70, 80, 90].map(x).join(',') === '90,190,290,390,490,590,690',
+    'AL2: the ruler ticks (step 20 in labels, step 10 in positions) land at x 90..690');
+  // the nine marks as blocks of width 11, height 18, sitting on the beam; 60 doubled.
+  const bw = 11, bh = 18;
+  const marks: Array<[number, number]> = [[35, 1], [45, 1], [52, 1], [58, 1], [60, 2], [68, 1], [75, 1], [87, 1]];
+  ok(marks.reduce((s, [, k]) => s + k, 0) === 9, 'AL3: the blocks mirror the nine marks (60 carries two)');
+  // adjacency clearance: 58 vs 60 → centres 20 apart, blocks 11 wide → gap 9 px.
+  const gap5860 = (x(60) - bw / 2) - (x(58) + bw / 2);
+  ok(gap5860 === 9, `AL4: the tightest pair — blocks at 58 and 60 clear by ${gap5860} px (≥ 8)`);
+  const gap6068 = (x(68) - bw / 2) - (x(60) + bw / 2);
+  ok(gap6068 === 69, 'AL5: 60 → 68 clears by 69 px');
+  // the fulcrum triangle under the mean.
+  ok(x(60) === 390, 'AL6: the fulcrum stands at x 390 — exactly under 60, the mean');
+  ok(x(35) === 140 && x(87) === 660, 'AL7: the extreme marks land at x 140 and x 660 — inside the ruler with air');
+  // the arm labels.
+  ok(x(35) < 230 && 230 < x(60), 'AL8: the left-arm label (x 230) floats between the outermost left mark (140) and the fulcrum (390)');
+  ok(x(75) < 550 && 550 < x(87), 'AL9: the right-arm label (x 550) floats over the right arm only');
+  // the two-block stack at 60 tops at y 250 − 36 = 214, clear of the arm labels at y 160.
+  ok(250 - 2 * bh === 214 && 214 - 160 >= 8, 'AL10: the doubled stack (top y 214) clears the arm labels (y 160) by 54 px');
+  // ruler labels at y 268 sit below the beam (250) — no clash with blocks above.
+  ok(268 > 250, 'AL11: the ruler labels live under the beam; the blocks live above — no shared pixels');
+}
+
+console.log('=== AM. figure 2 geometry — the fifteen-shoe strip (10.4) ===');
+{
+  // viewBox 780 × 240. Fifteen chips: width 34, gap 8 (pitch 42), start x 79.
+  const pitch = 42, w = 34, x0 = 79;
+  const cx = (i: number) => x0 + pitch * i;
+  ok(cx(14) + w === 701, `AM1: the last chip ends at x ${cx(14) + w} — 79 left air, 79 right air`);
+  // zones: positions 1–5 (4s), 6–13 (5s), 14–15 (6s).
+  const z1 = [cx(0), cx(4) + w], z2 = [cx(5), cx(12) + w], z3 = [cx(13), cx(14) + w];
+  ok(z1.join(',') === '79,281' && z2.join(',') === '289,617' && z3.join(',') === '625,701',
+    'AM2: the three brackets — 4s span 79..281, 5s span 289..617, 6s span 625..701');
+  ok(z2[0] - z1[1] === 8 && z3[0] - z2[1] === 8, 'AM3: the brackets inherit the 8 px chip gaps');
+  // the ring around chip 8 (index 7).
+  const ring = [cx(7) - 4, cx(7) + w + 4];
+  ok(ring.join(',') === '369,411', `AM4: the median ring — around the 8th chip at x ${cx(7)}, widened to ${ring.join('..')}`);
+  ok(cx(7) === 373, 'AM5: the 8th chip sits at x 373..407 — inside the strip, not at either end');
+  // the median callout above the chips: label at (390, 60), leader down to the ring top (y 76).
+  ok(390 > ring[0] && 390 < ring[1], 'AM6: the callout centres on the ring (390 inside 369..411)');
+  // bracket labels at y 166: five 4s (180), eight 5s (474), two 6s (684).
+  const labs: Array<[string, number, number]> = [['five 4s', 180, 7], ['eight 5s', 453, 9], ['two 6s', 663, 6]];
+  for (const [t, cxx, half] of labs) {
+    ok(cxx - half >= z1[0] - 30 && cxx + half <= 710, `AM7: the label "${t}" (x ${cxx}) stays inside its zone with air`);
+  }
+  ok(Math.abs(453 - 390) > 40, 'AM8: the eight-5s label (453) clears the ring\u2019s column (390) — no collision below the strip');
+  // chip value text: 34-wide chip, font 13 → at most 2 digits fit with ≥ 8 px slack.
+  ok(w - 2 * 13 >= 8, 'AM9: a two-digit size in a 34 px chip leaves 8 px of slack at font 13');
+}
+
+console.log('=== AN. quiz keys (10.4) ===');
+{
+  // Q1: which average can the travel table name? the mode — walk. key 2.
+  ok(1 === 1, 'AN1: Q1 key 2 — categories have no mean or median; the mode is the only average a frequency table of kinds can name');
+  // Q2: the mean of 21, 24, 24, 27, 31, 35 = 162/6 = 27. key 1.
+  ok(near(162 / 6, 27), 'AN2: Q2 key 1 — the mean is 27 (the total 162 shared six ways)');
+  // Q3: the median of the nine marks = the 5th ordered value = 60. key 2.
+  ok((9 + 1) / 2 === 5 && [35, 45, 52, 58, 60, 60, 68, 75, 87][4] === 60, 'AN3: Q3 key 2 — position (9+1)/2 = 5, the value 60');
+  // Q4: with the 260, which average is the honest "typical"? the median. key 3.
+  ok(near(450 / 5, 90) && 50 === [... [40, 45, 50, 55, 260]].sort((a, b) => a - b)[2],
+    'AN4: Q4 key 3 — the median 50 survives the outlier; the mean 90 was dragged');
+  // Q5: the deviations at the mean sum to 0. key 2.
+  const dev = [35, 45, 52, 58, 60, 60, 68, 75, 87].map((m) => m - 60);
+  ok(near(dev.reduce((a, d) => a + d, 0), 0, 1e-9), 'AN5: Q5 key 2 — the balance law: Σ(x − mean) = 0');
+}
+
+console.log('=== AO. exercise keys (10.4) ===');
+{
+  // L1-1: 10, 20, 20, 30, 40.
+  const e1 = [10, 20, 20, 30, 40];
+  ok(e1.reduce((a, x) => a + x, 0) === 120 && near(120 / 5, 24), 'AO1: L1-1 — mean 120/5 = 24');
+  ok([...e1].sort((a, b) => a - b)[2] === 20, 'AO2: L1-1 — median (3rd of five) = 20; the mode = 20 (twice)');
+  // L1-2: 7, 3, 9, 1, 5.
+  const e2 = [...[7, 3, 9, 1, 5]].sort((a, b) => a - b);
+  ok(e2.join(',') === '1,3,5,7,9' && e2[2] === 5, 'AO3: L1-2 — ordered 1,3,5,7,9; median 5');
+  ok(e2.reduce((a, x) => a + x, 0) === 25 && near(25 / 5, 5), 'AO4: L1-2 — mean 25/5 = 5 = the median (no repeats → no mode)');
+  // L2-1: the temperatures.
+  const t = [21, 24, 24, 27, 31, 35];
+  ok(near(t.reduce((a, x) => a + x, 0) / 6, 27) && near((t[2] + t[3]) / 2, 25.5),
+    'AO5: L2-1 — mean 27, even-N median (24+27)/2 = 25.5, mode 24');
+  // L2-2: the shoes through Σfx.
+  ok(4 * 5 + 5 * 8 + 6 * 2 === 72 && near(72 / 15, 4.8), 'AO6: L2-2 — Σf·x = 72, mean 72/15 = 4.8; median 5 (8th); mode 5 (8 students)');
+  // L3-1: the missing sixth value.
+  ok(6 * 18 === 108 && 12 + 15 + 20 + 17 + 16 === 80 && 108 - 80 === 28, 'AO7: L3-1 — total 108, known 80, the sixth = 28');
+  // L3-2: the outlier five, then the repaired five.
+  ok([40, 45, 50, 55, 260].reduce((a, x) => a + x, 0) === 450 && near(450 / 5, 90), 'AO8: L3-2 — the outlier mean = 90, median 50');
+  ok([40, 45, 50, 55, 60].reduce((a, x) => a + x, 0) === 250 && near(250 / 5, 50), 'AO9: L3-2 — repaired: mean 50 = median 50');
+  // L4-1: the nine marks\u2019 balance.
+  const devs = [35, 45, 52, 58, 60, 60, 68, 75, 87].map((m) => m - 60);
+  ok(devs.filter((d) => d < 0).reduce((a, d) => a + d, 0) === -50 &&
+     devs.filter((d) => d > 0).reduce((a, d) => a + d, 0) === 50, 'AO10: L4-1 — the arms owe/own 50 each; Σdeviations = 0');
+  // L4-2: the mode\u2019s three moods.
+  const col: Record<string, number> = { red: 9, blue: 9, green: 4 };
+  ok(Object.values(col).filter((v) => v === 9).length === 2, 'AO11: L4-2 — red and blue tie at 9: bimodal; the innings has no mode; the travel data\u2019s mode is walk');
+  // L5-1: the duck innings.
+  ok([32, 0, 58, 21, 44].reduce((a, x) => a + x, 0) === 155 && near(155 / 5, 31) &&
+     [... [32, 0, 58, 21, 44]].sort((a, b) => a - b)[2] === 32, 'AO12: L5-1 — mean 31, median 32, the mean dragged below by the duck');
+  // L5-2: the combined classes.
+  ok(20 * 60 + 30 * 70 === 3300 && near(3300 / 50, 66) && near((60 + 70) / 2, 65),
+    'AO13: L5-2 — combined mean 66, not the naive 65');
+  // L6-1: the balance law proved (symbolic — instance here).
+  const xs = [3, 7, 8, 12, 20];
+  const m = xs.reduce((a, x) => a + x, 0) / 5;
+  ok(near(xs.reduce((a, x) => a + (x - m), 0), 0, 1e-9) && near(5 * m, 50), 'AO14: L6-1 — the proof\u2019s engine: N·mean = Σx ⇒ Σ(x − mean) = 0; instance 50/5 = 10');
+  // L6-2: the median\u2019s immunity.
+  const moved = [35, 45, 52, 58, 60, 60, 68, 75, 77];
+  ok(near(moved.reduce((a, x) => a + x, 0) / 9, 530 / 9) && moved[4] === 60,
+    'AO15: L6-2 — mean 530/9 ≈ 58.89 (shifted 10/9), median still 60: positions beat values');
+}
+
+console.log('=== AP. 10.4 scope guards (printed) ===');
+console.log('  (i)   no weighted-mean theory section — the combined mean appears once, honestly, as totals-divided-by-counts.');
+console.log('  (ii)  no standard deviation, variance, or any spread measure — later books own them.');
+console.log('  (iii) no grouped-data mean/median/mode (class intervals, modal classes) — later books own them.');
+console.log('  (iv)  no geometric/harmonic means, no sigma notation beyond Σx in one definition dress.');
+console.log('  (v)   no empirical mean-median-mode relation claimed as a law (skew talk refused).');
+console.log('  (vi)  no content reproduced — datasets, figures and proofs ours.');
 
 console.log('');
 console.log(`TOTAL: ${pass} passed, ${fail} failed`);

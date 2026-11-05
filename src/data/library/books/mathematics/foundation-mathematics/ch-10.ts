@@ -96,6 +96,40 @@ import type { Chapter } from '../../../types'
  * green (e2e-103.page.js created + whitelisted FIRST; quiz live 5/5,
  * mobile 390 exact-fit); SVG audits 0/0.
  *
+ * LESSON 10.4 Mean, Median and Mode (run 46, the chapter-closing lesson)
+ * — one crowd, three honest single numbers. The mean defined as the equal
+ * share of the pooled total (the nine marks 35..87: 540/9 = 60; the shoe
+ * table 72/15 = 4.8 — the mean need not be a data value); figure 1 the
+ * nine marks as weights on a beam balanced at the fulcrum 60 (the
+ * shortfalls 25+15+8+2 = 50 vs the excesses 8+15+27 = 50); the balance
+ * law DERIVED as tag 1 (the deviations cancel, with the rebuild law
+ * total = N × mean as its second dress — swept over 300 pseudo-random
+ * datasets); the shift law (Δ moves the mean by Δ/N); the outlier section
+ * (the 260 among 40–55: mean 90 vs median 50 — larger than the other four
+ * combined; averaging-the-averages refused: 60/70 → 66, not 65); the
+ * median defined is-said-to-be with the position law DERIVED as tag 2
+ * (odd N → (N+1)/2 = 5; even N → the mean of the pair N/2, N/2+1 — the
+ * six temperatures' 25.5 nobody measured); figure 2 the fifteen shoe
+ * sizes in order with position 8 ringed (five 4s, eight 5s, two 6s
+ * brackets; the median a member of the crowd — 10.1's promise kept with
+ * the mode 5); the median's immunity (87 → 77: mean 530/9 ≈ 58.89,
+ * median 60 unmoved); the mode's three moods (unique walk / absent
+ * innings / bimodal red-blue 9-9) and the only-average-for-categories
+ * reading; six Illustrations (the nine-mark triple; the temperatures; the
+ * shoes via Σf·x; the outlier five; the missing sixth value 28; the
+ * combined mean 66); the which-average-when table; the harvest; the exam
+ * corner; the historical callout (average from the sea: Arabic ʿawārīyah
+ * → Old French avarie, the general-average equal share, told with hedges;
+ * the astronomers' averaged observations as 9.4's antidote); 3 formula
+ * cards, 8 terms, 5-quiz (keys 2/1/2/3/2 verified live at the gates), 12
+ * exercises L1–L6 (L6: the balance law proved + the missing-value cash;
+ * the median's immunity through the shift law). Scope guard held: no
+ * weighted-mean theory beyond the combined-class dress, no standard
+ * deviation, no grouped-data averages, no geometric/harmonic means, no
+ * skew laws. verify-unit-10.ts EXTENDED 186 → 301 checks (AA–AP) ALL
+ * PASS pre-writing; E2E dedicated 10.4 block green (e2e-104.page.js
+ * created + whitelisted FIRST); SVG audits 0/0.
+ *
  * References: NCERT Ganita Prakash class-6 ch. 4 "Data Handling and
  * Presentation" (fegp104, 2024 — data organised in tabular form using
  * tally marks, frequencies read from tables; web-checked 2026-11-05) +
@@ -113,10 +147,7 @@ export const chapter10: Chapter = {
   title: 'Data and Graphs',
   summary:
     'Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.',
-  status: 'in-progress',
-  plannedLessons: [
-    'Mean, Median and Mode',
-  ],
+  status: 'complete',
   lessons: [
     {
       id: 'fm-collecting-and-tallying-data',
@@ -1775,6 +1806,651 @@ export const chapter10: Chapter = {
                     'Hence: the checklist is necessary, not sufficient \u2014 it certifies the ink, and the reader still owes the chart a causal discipline the ink cannot supply.',
                   ],
                   answer: 'None \u2014 the checklist audits the drawing; causation needs a mechanism, and correlation alone licenses none',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-mean-median-and-mode',
+      number: '10.4',
+      title: 'Mean, Median and Mode',
+      concepts: [
+        'The mean — the total shared equally',
+        'The balance law — the deviations cancel',
+        'The rebuild law — total = N × mean',
+        'The median — the middle of the ordered list',
+        'The position law (N+1)/2',
+        'The mode — the crowd\u2019s favourite',
+        'The outlier and the honest average',
+        'Which average, when',
+      ],
+      objectives: [
+        'Define and compute the arithmetic mean as the equal share of the pooled total, prove the balance law (the deviations at the mean sum to zero) and its rebuild corollary total = N × mean, and use both on frequency-table, missing-value and combined-mean questions',
+        'Locate the median of any ordered list — the value at position (N+1)/2 for odd N, the mean of the pair at positions N/2 and N/2 + 1 for even N — and prove the position law from the equal-sides demand',
+        'Name the mode of a frequency table in its three honest moods — unique, absent, and doubled — and explain why it is the only average a table of categories can support',
+        'Diagnose the outlier problem: quantify how one extreme value drags the mean (a change of Δ moves it by Δ/N) while the median and the mode refuse to move, and choose the honest average for the question asked',
+        'Read the three averages off one dataset and explain why they may disagree — the disagreement (27, 25.5 and 24 for one week of temperatures) is information, not error',
+      ],
+      prerequisites: ['fm-collecting-and-tallying-data', 'fm-bar-charts-line-graphs-and-pie-charts'],
+      sources: ['ncert-math7-ch3', 'ncert-ganita-prakash6-ch4', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Three lessons have walked the crowd of data from its first stroke to its most suspicious glance: collected it honestly (10.1), pictured it in three honest shapes (10.2), audited the pictures for lies (10.3). One duty remains, and it is the one most people think data-handling *is*: boiling a crowd of numbers down to **one** number — "the average". The duty is delicate, because the English word hides a choice. A crowd of numbers answers three different questions — *what does everyone score if the total is shared equally?*, *what sits in the middle?*, *what comes most often?* — and each question owns one honest number: the **mean**, the **median**, the **mode**. This lesson defines all three, derives the two laws that make them computable and trustworthy, watches a single extreme value bully one of them, and ends with the skill exams actually test: choosing the right average for the right question.',
+        },
+        {
+          kind: 'para',
+          text: 'The working dataset is small enough to hold in one glance: a class of nine sat a maths test out of 100, and the marks, already in order, were **35, 45, 52, 58, 60, 60, 68, 75, 87**. Keep this list in sight for the whole lesson — every law we derive will cash on it.',
+        },
+        { kind: 'heading', text: 'The mean: the total shared equally' },
+        {
+          kind: 'para',
+          text: 'The mean answers the sharing question, and the sharing story is the best way to meet it. Pool the nine papers: the marks add to $35 + 45 + 52 + 58 + 60 + 60 + 68 + 75 + 87 = 540$. Now imagine the total re-shared so that every student receives the same mark: $540 \u00f7 9 = 60$ each. That equal share — the mark everyone would carry if marks were water and the pool were shared — is the **mean**. The student who scored 35 has "received" 60; the student who scored 87 has "given up" 27; the pool does not care, it only divides equally.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Arithmetic mean',
+          text: 'The **arithmetic mean** of $N$ values is said to be the equal share obtained when their total is shared equally among the $N$ values. Thus, $\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_N}{N}$ — one symbol, $\\bar{x}$ (said "x-bar"), for the crowd\u2019s equal share.',
+        },
+        {
+          kind: 'para',
+          text: 'For example, the sharing law at three sizes:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'two chests hold 40 and 60 coins: the mean load is $(40 + 60)/2 = 50$ — the balance point of the two;',
+            'three ribbons measure 12 cm, 15 cm and 18 cm: the mean ribbon is $(12 + 15 + 18)/3 = 45/3 = 15$ cm — exactly the middle ribbon, by luck of the numbers;',
+            'the nine marks: the mean is $540/9 = 60$ — the equal share, exact because 9 divides 540.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'When the total refuses to divide evenly, the mean does not fail — it simply stops being a whole number, and the fraction or decimal is still the honest equal share. The shoe table of 10.1 (five size-4s, eight size-5s, two size-6s) carries the total $4\u00d75 + 5\u00d78 + 6\u00d72 = 72$ over fifteen students, and the mean is $72/15 = 4.8$ — a size nobody wears, and exactly the right answer to the sharing question.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_N}{N} = \\frac{\\text{the total}}{N}',
+          note: '**The sharing law.** One division builds the mean. When the total divides evenly the mean is an exact whole number (540/9 = 60); when it does not, the decimal is still honest (72/15 = 4.8). Reading the law backwards — total = N × mean — will soon become an engine.',
+        },
+        {
+          kind: 'para',
+          text: 'The mean listens to **every** value — that is its pride and its danger. Change one mark and the total changes by the same amount, so the mean changes by exactly that amount divided by $N$. Re-score the 87 as a 77: the total walks $540 \u2192 530$, and the mean walks $60 \u2192 530/9 \u2248 58.9$ — a shift of $10/9 \u2248 1.1$. A change of $\\Delta$ in one value moves the mean by $\\Delta/N$. With nine values, no single mark owns the average; with five, one mark owns a fifth of it. Hold that thought — the outlier section is coming.',
+        },
+        { kind: 'heading', text: 'The mean as a balance point' },
+        {
+          kind: 'para',
+          text: 'There is a second way to see the mean, and it explains why the equal share lands where it lands. Lay the nine marks on a beam as equal weights (each block one student, the doubled mark 60 standing two blocks tall), and slide a fulcrum underneath until the beam rests level. The level point is not a coincidence to memorise — it is a theorem, and figure 1 draws it.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The nine marks as equal weights on a beam ruled from 30 to 90 (the ruler of 9.1, horizontal). Each block is one student\u2019s mark; the mark 60 carries two blocks — the mode, standing taller. The fulcrum sits exactly under 60, and the beam tips neither way: the shortfalls (25 + 15 + 8 + 2 = 50) equal the excesses (8 + 15 + 27 = 50). Slide the fulcrum anywhere else and one arm wins — the balance law, drawn.',
+          svg: `<svg viewBox="0 0 780 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The nine marks 35, 45, 52, 58, 60, 60, 68, 75, 87 as equal blocks on a beam ruled 30 to 90, balanced on a fulcrum at 60; the left arm owes 50 and the right arm owns 50">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the nine marks as weights on a beam — balanced exactly at the mean, 60</text>
+  ${(() => {
+    const x = (v: number) => 90 + (v - 30) * 10;
+    let out = '';
+    for (let v = 30; v <= 90; v += 10) {
+      out += `<line x1="${x(v)}" y1="250" x2="${x(v)}" y2="256" stroke="currentColor" stroke-width="1"/>`;
+      if ((v - 30) % 20 === 0) {
+        out += `<text x="${x(v)}" y="272" font-size="11" fill="currentColor" text-anchor="middle">${v}</text>`;
+      }
+    }
+    out += `<line x1="90" y1="250" x2="690" y2="250" stroke="currentColor" stroke-width="1.4"/>`;
+    const blocks: Array<[number, number]> = [[35, 1], [45, 1], [52, 1], [58, 1], [60, 2], [68, 1], [75, 1], [87, 1]];
+    blocks.forEach(([v, k]) => {
+      for (let b = 0; b < k; b++) {
+        out += `<rect x="${x(v) - 5.5}" y="${250 - 18 * (b + 1)}" width="11" height="18" fill="none" stroke="currentColor" stroke-width="1.2"/>`;
+      }
+      out += `<text x="${x(v)}" y="${250 - 18 * k - 6}" font-size="10.5" fill="currentColor" text-anchor="middle">${v}</text>`;
+    });
+    out += `<text x="230" y="160" font-size="11.5" fill="currentColor" text-anchor="middle">the shortfalls: 25 + 15 + 8 + 2 = 50</text>`;
+    out += `<text x="550" y="160" font-size="11.5" fill="currentColor" text-anchor="middle">the excesses: 8 + 15 + 27 = 50</text>`;
+    out += `<path d="M 390 252 L 368 308 L 412 308 Z" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
+    out += `<text x="390" y="326" font-size="11.5" fill="currentColor" text-anchor="middle">60 — the mean, the balance point</text>`;
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'Read the beam in the language of **deviations**. A value\u2019s deviation at the mean is its signed distance from the mean — mark minus mean. The nine marks, measured against 60:',
+        },
+        {
+          kind: 'table',
+          caption:
+            'The nine marks\u2019 deviations at the mean 60. The left arm\u2019s shortfalls (−50) and the right arm\u2019s excesses (+50) cancel exactly — the total row is the balance law\u2019s signature.',
+          head: ['mark', '35', '45', '52', '58', '60', '60', '68', '75', '87', 'total'],
+          rows: [
+            ['deviation at 60', '\u221225', '\u221215', '\u22128', '\u22122', '0', '0', '+8', '+15', '+27', '**0**'],
+          ],
+        },
+        {
+          kind: 'derivation',
+          title: 'The balance law: the deviations at the mean cancel',
+          statement:
+            'The mean is defined by the sharing law, $\\bar{x} = \\frac{\\text{total}}{N}$. Show that the deviations $x_i - \\bar{x}$ always sum to zero — so the mean is the one point where the shortfalls exactly pay the excesses — and that the total rebuilds as $N \\times \\bar{x}$.',
+          steps: [
+            {
+              label: 'Multiply the definition by N',
+              formula: 'N \\bar{x} = x_1 + x_2 + \\cdots + x_N',
+              explanation:
+                'The sharing law read backwards: N equal shares of $\\bar{x}$ rebuild the pooled total exactly. This is the rebuild law — remember it; a whole family of exam questions lives here.',
+            },
+            {
+              label: 'Add the deviations',
+              formula: '\\sum (x_i - \\bar{x}) = (\\text{total}) - (\\bar{x} + \\bar{x} + \\cdots + \\bar{x})',
+              explanation:
+                'Subtracting the mean from every value and adding up is the same as subtracting the mean N times from the total — N copies of $\\bar{x}$ in all.',
+            },
+            {
+              label: 'Substitute the rebuild law',
+              formula: '\\sum (x_i - \\bar{x}) = N\\bar{x} - N\\bar{x} = 0',
+              explanation:
+                'The two arms cancel identically — for the nine marks, $-50 + 50 = 0$; the verify script swept 300 pseudo-random datasets and found no exception, because there is none: the cancellation is forced by the definition itself.',
+            },
+          ],
+          result: 'The balance law: $\\sum (x_i - \\bar{x}) = 0$ — the mean is the unique point where the deviations cancel; and its second dress, $\\text{total} = N \\times \\bar{x}$.'
+        },
+        {
+          kind: 'equation',
+          latex: '\\sum (x_i - \\bar{x}) = 0 \\qquad\\Longleftrightarrow\\qquad \\text{total} = N \\times \\bar{x}',
+          note: '**The balance law (tag 1), with the rebuild law as its second dress.** At the mean the shortfalls equal the excesses exactly — the beam of figure 1 cannot tip. Read backwards, the total rebuilds as N × mean: the engine of every missing-value and combined-mean question (Illustrations 5 and 6).',
+        },
+        { kind: 'heading', text: 'The mean listens to extremes' },
+        {
+          kind: 'para',
+          text: 'Now collect the debt the last section promised. Five students compare quiz scores: **40, 45, 50, 55 and 260**. The sharing law is polite and computes: the total is 450, the mean is $450/5 = 90$. But look at what 90 claims — two of the five students never came within 35 marks of it. The 260 is an **outlier**: a value far from the rest of the crowd (it is larger than the other four combined: $260 > 190$). Because the mean shares the total equally, the outlier donates its excess to everyone: strip it away and the four honest scores average $190/4 = 47.5$. One value moved the mean by more than 42.',
+        },
+        {
+          kind: 'para',
+          text: 'The shift law of the last section tells the whole story: a change of $\\Delta$ in one value moves the mean by $\\Delta/N$. With five values, one strange value owns a fifth of the average; with fifty, only a fiftieth. So the danger is not outliers in general — it is outliers in **small** crowds, which is exactly where exam questions and newspaper headlines live. Replace the 260 by a modest 60 and the mean lands at $250/5 = 50$ — equal to the median: the disagreement was the outlier\u2019s alone.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'One outlier, one dragged average',
+          text: 'The mean is honest arithmetic but not always honest English: "the average score is 90" is true and completely untypical. When one value sits far from the crowd, ask what the median says before believing the mean. The classic instance is income: a street of nine modest salaries and one tycoon has a mean nobody earns and a median everybody recognises.',
+        },
+        {
+          kind: 'para',
+          text: 'The rebuild law also polices a daily fraud: **averaging the averages**. Two sections of a class take the same test — section A: 20 students, mean 60; section B: 30 students, mean 70. The lazy guess is $(60 + 70)/2 = 65$. But the means have forgotten the sizes: A\u2019s total is $20 \u00d7 60 = 1200$ marks, B\u2019s is $30 \u00d7 70 = 2100$, and the honest combined mean is $(1200 + 2100)/50 = 66$. Totals add and counts add; means do not. Illustration 6 works this in full.',
+        },
+        { kind: 'heading', text: 'The median: the middle of the ordered list' },
+        {
+          kind: 'para',
+          text: 'The median refuses the whole sharing story. Its question is positional: *which value sits exactly in the middle of the ordered list, with as many values below as above?* No arithmetic with the values — one demand, equal sides.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Median',
+          text: 'A set of $N$ values is said to have the **median** equal to the middle of the ORDERED list: if $N$ is odd, the value at position $\\frac{N+1}{2}$; if $N$ is even, the mean of the values at positions $\\frac{N}{2}$ and $\\frac{N}{2} + 1$. Ordering is not optional — the median is a position\u2019s answer, and position is meaningless until the list is in order.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The position law: where the middle must sit',
+          statement:
+            'An ordered list of $N$ values occupies positions $1, 2, \\ldots, N$. Show that the odd-N median sits at position $\\frac{N+1}{2}$ with equally many values on each side, and that for even $N$ the median is the mean of the pair at positions $\\frac{N}{2}$ and $\\frac{N}{2} + 1$.',
+          steps: [
+            {
+              label: 'The equal-sides demand',
+              formula: 'k \\text{ values below} = k \\text{ values above}',
+              explanation:
+                'The median is defined by symmetry: whatever sits at the middle must leave the same count on both sides — that is what "middle" means.',
+            },
+            {
+              label: 'Odd N: one value owns the centre',
+              formula: '2k + 1 = N \\;\\Rightarrow\\; k = \\tfrac{N-1}{2}, \\quad \\text{median position} = k + 1 = \\tfrac{N+1}{2}',
+              explanation:
+                'With one middle value and $k$ on each side, $N = 2k + 1$. For the nine marks: $k = 4$ on each side and the median at position $5$ — value 60, exactly as figure 1\u2019s fulcrum stood under the crowd\u2019s balance.',
+            },
+            {
+              label: 'Even N: the pair shares the centre',
+              formula: '2k + 2 = N \\;\\Rightarrow\\; k = \\tfrac{N}{2} - 1, \\quad \\text{the pair sits at } \\tfrac{N}{2}, \\tfrac{N}{2} + 1',
+              explanation:
+                'No single position splits an even list, so the middle is a PAIR — positions $N/2$ and $N/2 + 1$ — and the median, the balance of positions, is their mean. Six temperatures: the pair (24, 27) at positions 3 and 4, median 25.5.',
+            },
+          ],
+          result: 'The position law: odd $N$ — the median at $(N+1)/2$; even $N$ — the mean of the pair at $N/2$ and $N/2+1$. In both dresses the median leaves equally many values on each side.'
+        },
+        {
+          kind: 'equation',
+          latex: 'N \\text{ odd}:\\; \\text{median} = x_{\\frac{N+1}{2}} \\qquad\\qquad N \\text{ even}:\\; \\text{median} = \\frac{x_{N/2} + x_{N/2+1}}{2}',
+          note: '**The position law (tag 2).** Order first — always. The odd-N median IS a data value (the 5th of nine marks); the even-N median is the mean of the middle pair, a value nobody measured (25.5 °C).',
+        },
+        {
+          kind: 'para',
+          text: 'The median\u2019s most beautiful habit is its **immunity**. Re-score the nine marks\u2019 87 as a 77 (the last section\u2019s experiment): the mean walked down to 58.9, but the ordered list\u2019s fifth position still holds 60 — four values below it, four above, none of them moved across the middle. The median reads **positions, not values**, so a value must physically cross the middle to move it. This is why the median is the honest average wherever extremes ride: the street of nine salaries and one tycoon has the same median as the street without the tycoon.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The fifteen shoe sizes of 10.1 laid out in order: five 4s, eight 5s, two 6s. The median is the 8th student\u2019s size — position (15 + 1)/2 = 8, ringed — with seven sizes below and seven above. No arithmetic with the values at all: the median is a member of the crowd, not an invention. The one dress in which the median may name a value nobody measured is the even-N one — the mean of the middle pair.',
+          svg: `<svg viewBox="0 0 780 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The fifteen shoe sizes in order — five 4s, eight 5s, two 6s — with the eighth position ringed as the median">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the fifteen shoe sizes in order — the median is the 8th student\u2019s size</text>
+  ${(() => {
+    const cx = (i: number) => 79 + 42 * i;
+    const sizes = [4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6];
+    let out = '';
+    out += `<text x="390" y="60" font-size="11.5" fill="currentColor" text-anchor="middle">the median — position (15 + 1)/2 = 8</text>`;
+    out += `<line x1="390" y1="66" x2="390" y2="74" stroke="currentColor" stroke-width="1"/>`;
+    sizes.forEach((s, i) => {
+      out += `<rect x="${cx(i)}" y="80" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.2"/>`;
+      out += `<text x="${cx(i) + 17}" y="102" font-size="13" fill="currentColor" text-anchor="middle">${s}</text>`;
+      out += `<text x="${cx(i) + 17}" y="134" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">${i + 1}</text>`;
+    });
+    out += `<rect x="369" y="76" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" rx="6"/>`;
+    const brackets: Array<[number, number, string, number]> = [[79, 281, 'five 4s', 180], [289, 617, 'eight 5s', 453], [625, 701, 'two 6s', 663]];
+    brackets.forEach(([a, b, lab, mid]) => {
+      out += `<line x1="${a}" y1="148" x2="${b}" y2="148" stroke="currentColor" stroke-width="1"/>`;
+      out += `<line x1="${a}" y1="148" x2="${a}" y2="153" stroke="currentColor" stroke-width="1"/>`;
+      out += `<line x1="${b}" y1="148" x2="${b}" y2="153" stroke="currentColor" stroke-width="1"/>`;
+      out += `<text x="${mid}" y="168" font-size="11" fill="currentColor" text-anchor="middle">${lab}</text>`;
+    });
+    out += `<text x="390" y="200" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.7">seven sizes sit below the ring and seven above — the median counts positions, not values</text>`;
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'For **even** N the median leaves the values behind: the six maxima $21, 24, 24, 27, 31, 35$ have their middle pair — 24 at position 3, 27 at position 4 — and the median is their mean, $25.5$. Nobody measured 25.5 °C; it is the balance of two positions, exactly as 4.8 was the balance of fifteen sizes. The median\u2019s odd-N promise ("a member of the crowd") and its even-N honesty ("the mean of the two who share the middle") are both on the position law\u2019s receipt.',
+        },
+        { kind: 'heading', text: 'The mode: the crowd\u2019s favourite' },
+        {
+          kind: 'para',
+          text: 'The third average asks the friendliest question of all: *which value comes most often?* It needs no sharing and no ordering — only the frequency table 10.1 taught us to build. The travel table (walk 8, bus 6, cycle 4, car 2) has its top row at **walk**: eight of twenty students, more than any other row. Walk is the **mode** — and notice what just happened: walk is a *category*, not a number, yet the question "which kind is most common?" received a perfectly good answer.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Mode',
+          text: 'A value or category is said to be the **mode** of a dataset when its frequency is the highest in the frequency table. The mode may be unique (one top row), tied — **bimodal** when exactly two share the top — or absent, when no value repeats. For categorical data it is the only average that can be named.',
+        },
+        {
+          kind: 'para',
+          text: 'The mode\u2019s three moods, each honest: **unique** — the travel table\u2019s walk; **absent** — a batter\u2019s innings $32, 0, 58, 21, 44$ has no repeat, so no value leads and the mode simply does not exist (an honest absence, not an error); **doubled** — if nine students favour red and nine favour blue (green trails at 4), the data is bimodal and the honest answer names BOTH. Try to force the mean on the travel table — "the average commute is 5 students" — and you have added kinds, not numbers; try the median — "between bus and cycle" — and you have invented an order the categories do not own (10.2 refused lines through categories for exactly this reason). The mode is the only average a table of kinds can carry.',
+        },
+        {
+          kind: 'para',
+          text: 'And a promise from 10.1 falls due: the shoe table\u2019s "most common size" — named there as a forward glance — is now official. The mode of the fifteen sizes is **5**, the row of eight students, more than the other two rows combined. The mode is a frequency FACT — it exists exactly where the table shows a top row, and never needs the values to behave.',
+        },
+        { kind: 'heading', text: 'Working the three averages' },
+        {
+          kind: 'example',
+          title: 'Find the mean, the median and the mode of the nine marks 35, 45, 52, 58, 60, 60, 68, 75, 87.',
+          steps: [
+            'Now, the mean: the total is $35 + 45 + 52 + 58 + 60 + 60 + 68 + 75 + 87 = 540$, and the equal share is $540/9 = 60$.',
+            'So the median: $N = 9$ is odd, position $(9+1)/2 = 5$ — the 5th ordered value is 60.',
+            'And the mode: 60 is the only value appearing twice — the mode is 60.',
+            'Hence mean 60, median 60, mode 60: a dataset in rare harmony — all three averages agree.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Six summer days\u2019 maxima in °C: 21, 24, 24, 27, 31, 35. Find the mean, the median and the mode.',
+          steps: [
+            'Now, the mean: the total is $21 + 24 + 24 + 27 + 31 + 35 = 162$, and $162/6 = 27$.',
+            'So the median: $N = 6$ is even — the middle pair is the 3rd and 4th values, 24 and 27, and the median is $(24 + 27)/2 = 25.5$.',
+            'And the mode: 24 is the only value that repeats — the mode is 24.',
+            'Hence 27, 25.5 and 24 — one week, three honest answers. The mean reports the equal share, the median the middle, the mode the repeat; their disagreement is information, not error.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'From 10.1\u2019s shoe table (size 4: five students; size 5: eight; size 6: two), find the mean, the median and the mode of the fifteen sizes.',
+          steps: [
+            'Now, the frequency-table mean: multiply each value by its frequency and add — $\\sum f\\cdot x = 4\u00d75 + 5\u00d78 + 6\u00d72 = 20 + 40 + 12 = 72$ — then divide by the check-summed $N = 15$: $72/15 = 4.8$.',
+            'So the median: position $(15+1)/2 = 8$. The ordered strip runs five 4s, then eight 5s, then two 6s — position 8 holds a 5 (figure 2).',
+            'And the mode: the top row is size 5, eight students — more than the other rows together.',
+            'Hence mean 4.8, median 5, mode 5 — and the mean is nobody\u2019s size: the equal share need not be a value the crowd contains.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Five quiz scores are 40, 45, 50, 55 and 260. Find the mean and the median; then say which is the honest "typical score", and why.',
+          steps: [
+            'Now, the mean: the total is $40 + 45 + 50 + 55 + 260 = 450$, and $450/5 = 90$.',
+            'So the median: ordered, the middle of five is the 3rd value — 50, planted while the mean floats.',
+            'And the diagnosis: the 260 is larger than the other four combined ($260 > 190$); by the shift law it moved the mean by $200/5 = 40$ of the 45-point climb from 47.5 to 90.',
+            'Hence the median 50 is the honest "typical" — the mean 90 answers the sharing question truthfully and the typicality question absurdly.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'The mean of six numbers is 18. Five of them are 12, 15, 20, 17 and 16. Find the sixth.',
+          steps: [
+            'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 \u00d7 18 = 108$.',
+            'So the five known values contribute $12 + 15 + 20 + 17 + 16 = 80$.',
+            'And the sixth carries the rest: $108 - 80 = 28$.',
+            'Hence 28 — the check: $(80 + 28)/6 = 108/6 = 18$ ✓. One unknown value is always recoverable, because the mean confesses the total.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Section A has 20 students with mean mark 60; section B has 30 students with mean mark 70. Find the combined mean — and explain why it is not 65.',
+          steps: [
+            'Now, the rebuild law twice: A\u2019s total is $20 \u00d7 60 = 1200$; B\u2019s total is $30 \u00d7 70 = 2100$.',
+            'So the combined mean is the combined total over the combined count: $(1200 + 2100)/(20 + 30) = 3300/50 = 66$.',
+            'And the lazy $(60 + 70)/2 = 65$ fails because it weighs both classes equally — the honest pull is $60 + 10 \u00d7 \\frac{30}{50} = 66$, sixty percent of the way toward the bigger class.',
+            'Hence 66: totals add, counts add, means do not.',
+          ],
+        },
+        { kind: 'heading', text: 'Which average, when' },
+        {
+          kind: 'table',
+          caption:
+            'The three averages side by side. Each answers a different question; the skill exams reward — and honest reading demands — is matching the question to the average.',
+          head: ['', 'mean', 'median', 'mode'],
+          rows: [
+            ['the question it answers', 'the equal share of the total', 'the middle of the ordered list', 'the crowd\u2019s favourite'],
+            ['what it uses', 'every value', 'positions only', 'frequencies only'],
+            ['an outlier drags it?', 'yes — by Δ/N', 'no (values must cross the middle)', 'no'],
+            ['works for categories?', 'no — kinds do not add', 'no — kinds have no order', '**yes — the only one**'],
+            ['must it be a data value?', 'no (4.8)', 'odd N: yes; even N: no (25.5)', 'yes, whenever it exists'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'One dataset can carry all three answers at once — the temperatures said 27, 25.5 and 24 in the same breath. That is not a scandal; it is the whole point. The averages disagree exactly when the data leans — a crowd dragging a long tail — and the disagreement tells you which question is being smuggled as "the average" in every headline you will ever read. The exam-corner habit, and the life habit: before accepting anyone\u2019s single number, ask *which average, of what, shared how?*',
+        },
+        { kind: 'heading', text: 'The harvest' },
+        {
+          kind: 'para',
+          text: 'The chapter\u2019s last lesson, in the lesson\u2019s own order:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'the mean $\\bar{x} = \\text{total}/N$ — the equal share of the pooled total; exact or decimal, always honest to the sharing question;',
+            'the balance law: the deviations at the mean cancel — $\\sum(x_i - \\bar{x}) = 0$; the shortfalls equal the excesses (−50 and +50 for the nine marks);',
+            'the rebuild law, the balance law\u2019s second dress: total $= N \\times \\bar{x}$ — the engine of missing-value and combined-mean questions;',
+            'every value moves the mean by $\\Delta/N$ — one extreme in a small crowd owns a fifth (the 260 dragged 90 from 50);',
+            'the median: order first — odd $N$: the value at position $(N+1)/2$; even $N$: the mean of the pair at $N/2$ and $N/2+1$ (25.5);',
+            'the median reads positions, not values — one value\u2019s change (87 → 77) moved the mean by 10/9 and the median by nothing;',
+            'the mode: the top frequency — unique (walk), absent (no repeats), or doubled (red and blue); the only average a table of categories can name.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Averages are the most drilled items in every quantitative paper. SSC CGL/CHSL and banking prelims hand over short lists and frequency tables and ask for the mean, the median of an even set (forgetting to average the middle pair is the classic lost mark), the missing-value mean (the rebuild law, Illustration 5) and the combined mean of two groups (Illustration 6 — "totals add, means do not" is the tested insight). RRB NTPC favours averages-as-word-problems: correcting one wrong value and re-asking the mean (the shift law, Δ/N). Class-7/8 boards ask the mean of a frequency table ($\\sum f\\cdot x/\\sum f$). CTET and state TETs ask the pedagogy: why the mode comes first to children, why ordering precedes any median. Weighted means beyond the combined-class dress, grouped data and standard deviation are later books\u2019 territory. Shapes cited, none reproduced.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The word came from the sea — "average" and its two careers',
+          text: 'The word **average** began as a sea-law term, not a mathematical one. Traced through Old French *avarie* (damage to a ship or its cargo) back to the Arabic **\u02bfawārīyah** (damage, defect — from \u02bfawār, flaw), it named the losses of the voyage; and in the maritime doctrine still called *general average*, when a captain jettisoned part of the cargo to save the ship, the loss was not the unlucky merchant\u2019s alone — every holder of cargo aboard bore an **equal share** of it. The arithmetic of that equal share — the total loss divided by the number of shares — sailed into English with the word itself (attested in shipping senses from the 1500s; told with hedges per the standard dictionaries), and by the 1700s the arithmetic sense had outlived the nautical one. Meanwhile the same trick had an older day job: Europe\u2019s astronomers, from the sixteenth century on, routinely **averaged repeated observations** of the same star — each observation a claim in 9.4\u2019s sense, the mean of the claims the best guess — the oldest honest use of a crowd of numbers. Every average you compute is the descendant of a jettisoned crate and a measured star.',
+        },
+        {
+          kind: 'formula',
+          name: 'The mean law',
+          latex: '\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_N}{N} = \\frac{\\text{total}}{N}, \\qquad \\text{frequency table: } \\bar{x} = \\frac{\\sum f\\cdot x}{\\sum f}',
+          note: 'The equal share of the pooled total (the shoe table: 72/15 = 4.8). Read backwards, the total rebuilds as N × x̄ — the missing-value engine.',
+        },
+        {
+          kind: 'formula',
+          name: 'The median position law',
+          latex: 'N \\text{ odd}: \\; \\text{median} = x_{\\frac{N+1}{2}} \\qquad N \\text{ even}: \\; \\text{median} = \\frac{x_{N/2} + x_{N/2+1}}{2}',
+          note: 'Order first — always. The position law leaves equally many values on each side; the even-N median may name a value nobody measured (25.5).',
+        },
+        {
+          kind: 'formula',
+          name: 'The balance law',
+          latex: '\\sum (x_i - \\bar{x}) = 0 \\qquad \\text{total} = N \\times \\bar{x}',
+          note: 'The mean is the unique point where shortfalls pay excesses exactly (−50 = +50 for the nine marks). The second dress is the rebuild law.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Average',
+              def: 'A single number chosen to speak for a crowd of numbers. This book\u2019s three honest candidates — mean, median, mode — answer three different questions.',
+            },
+            {
+              term: 'Arithmetic mean',
+              def: 'The equal share when the values\u2019 total is shared equally among N: total/N. Written with a bar, "x-bar".',
+            },
+            {
+              term: 'Deviation',
+              def: 'A value\u2019s signed distance from the mean (value minus mean): negative below, positive above. The deviations always cancel at the mean.',
+            },
+            {
+              term: 'Outlier',
+              def: 'A value far from the rest of the crowd — the 260 among 40–55. It moves the mean by its change over N and leaves the median and the mode standing.',
+            },
+            {
+              term: 'Median',
+              def: 'The middle of the ordered list: the value at position (N+1)/2 (odd N) or the mean of the pair at positions N/2 and N/2 + 1 (even N). Reads positions, not values.',
+            },
+            {
+              term: 'Mode',
+              def: 'The value or category with the highest frequency — the crowd\u2019s favourite. The only average a table of categories can name.',
+            },
+            {
+              term: 'Bimodal',
+              def: 'Said of data where exactly two values tie for the top frequency (red 9, blue 9): the honest answer names both modes.',
+            },
+            {
+              term: 'Combined mean',
+              def: 'The mean of two groups taken together: the totals added over the counts added — never the mean of the means (3300/50 = 66, not 65).',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The travel table (walk 8, bus 6, cycle 4, car 2) is asked for "the average mode of travel". The honest answer is',
+              options: [
+                'the mean — (8 + 6 + 4 + 2)/4 = 5 students',
+                'the median category — between bus and cycle',
+                'the mode — walk, the row with the top frequency',
+                'no average exists for any table',
+              ],
+              answer: 2,
+              explain:
+                'Categories support exactly one average: the mode (Option 3). "The mean commute" adds kinds, not numbers (Option 1); "between bus and cycle" invents an order the categories do not own (Option 2 — 10.2\u2019s line-through-categories refusal). Option 4 overshoots: the mode exists and answers.',
+            },
+            {
+              q: 'The mean of the six maxima 21, 24, 24, 27, 31, 35 is',
+              options: ['25.5', '27', '24', '162'],
+              answer: 1,
+              explain:
+                'The sharing law: the total is 162 and $162/6 = 27$ (Option 2). Option 1 is the MEDIAN — the middle pair 24 and 27 averaged — a different question. Option 3 is the mode. Option 4 never divided by N.',
+            },
+            {
+              q: 'The median of the nine marks 35, 45, 52, 58, 60, 60, 68, 75, 87 is',
+              options: [
+                'the 4th value, 58',
+                'the mean of the 4th and 5th values, 59',
+                'the 5th value, 60',
+                'the 9th value, 87',
+              ],
+              answer: 2,
+              explain:
+                'The position law: $(9+1)/2 = 5$, so the median is the 5th ordered value — 60 (Option 3). Option 1 is the value just below the middle. Option 2 applies the even-N recipe to an odd list. Option 4 reads size instead of position — the largest value is not the middle one.',
+            },
+            {
+              q: 'One of five scores is 260 (the rest are 40–55): the mean is 90, the median 50, and no mode exists. The honest "typical score" is',
+              options: [
+                'the mean — it uses every value',
+                'the mode — crowds never lie',
+                'either the mean or the mode',
+                'the median — one extreme cannot drag it',
+              ],
+              answer: 3,
+              explain:
+                'The median (Option 4): the 260 owns $200/450$ of the total and dragged the mean alone — replace it by 60 and mean and median meet at 50. Option 1 confuses "uses every value" with "survives every value". Option 2 names an average that does not exist here. Option 3 offers a choice between a half-truth and an absence.',
+            },
+            {
+              q: 'At the mean of any dataset, the deviations (value − mean) always add up to',
+              options: ['N', 'the largest value', '0', '1'],
+              answer: 2,
+              explain:
+                'The balance law (Option 3): $N \\times \\bar{x}$ = the total, so $\\sum (x - \\bar{x}) = 0$ — the nine marks\u2019 −50 and +50. Option 1 confuses the count of values with their sum. Option 2 reads one arm only. Option 4 has no dress at all.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Find the mean, the median and the mode of the five marks 10, 20, 20, 30, 40.',
+                  solution: [
+                    'Now, the mean: the total is $10 + 20 + 20 + 30 + 40 = 120$, and the equal share is $120/5 = 24$.',
+                    'So the median: the list is already in order, and the middle of five is the 3rd value — 20.',
+                    'And the mode: 20 appears twice, more than any other value — the mode is 20.',
+                    'Hence mean 24, median 20, mode 20 — three questions, three answers.',
+                  ],
+                  answer: 'Mean 24; median 20; mode 20',
+                },
+                {
+                  q: 'Find the median and the mean of 7, 3, 9, 1, 5 — and explain why no mode exists.',
+                  solution: [
+                    'Now, order first: $1, 3, 5, 7, 9$ — the median is the 3rd of five, which is 5.',
+                    'So the mean: the total is $1 + 3 + 5 + 7 + 9 = 25$, and $25/5 = 5$.',
+                    'And the mode: every value appears exactly once — no row leads the frequency count, so the mode does not exist.',
+                    'Hence median 5, mean 5, no mode — an honest absence, not an error.',
+                  ],
+                  answer: 'Median 5; mean 5; no mode (nothing repeats)',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Six summer days\u2019 maxima in °C: 21, 24, 24, 27, 31, 35. Find the mean, the median and the mode.',
+                  solution: [
+                    'Now, the mean: the total is $21 + 24 + 24 + 27 + 31 + 35 = 162$, and $162/6 = 27$ °C.',
+                    'So the median: $N = 6$ is even — the middle pair is the 3rd and 4th values, 24 and 27, and the median is $(24 + 27)/2 = 25.5$ °C.',
+                    'And the mode: 24 is the only repeated value — the mode is 24 °C.',
+                    'Hence 27, 25.5 and 24: the three averages disagree, and each is honest to its own question.',
+                  ],
+                  answer: 'Mean 27 °C; median 25.5 °C; mode 24 °C',
+                },
+                {
+                  q: 'From the shoe table of 10.1 (size 4: five students; size 5: eight; size 6: two), find the mean, the median and the mode of the fifteen sizes.',
+                  solution: [
+                    'Now, the frequency-table mean: $\\sum f\\cdot x = 4\u00d75 + 5\u00d78 + 6\u00d72 = 72$, and the check-summed $N = 15$, so the mean is $72/15 = 4.8$.',
+                    'So the median: position $(15+1)/2 = 8$ in the ordered strip — five 4s, then eight 5s, then two 6s — so position 8 holds a 5.',
+                    'And the mode: the top row is size 5 with eight students — more than the other rows combined.',
+                    'Hence mean 4.8, median 5, mode 5 — and note the mean 4.8 is nobody\u2019s size: the equal share need not be a data value.',
+                  ],
+                  answer: 'Mean 4.8; median 5; mode 5 (and 4.8 is not a possible size)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The mean of six numbers is 18. Five of them are 12, 15, 20, 17 and 16. Find the sixth.',
+                  solution: [
+                    'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 \u00d7 18 = 108$.',
+                    'So the five known values contribute $12 + 15 + 20 + 17 + 16 = 80$.',
+                    'And the sixth carries the rest: $108 - 80 = 28$.',
+                    'Hence 28 — the check: $(80 + 28)/6 = 108/6 = 18$ ✓.',
+                  ],
+                  answer: 'The sixth number is 28',
+                },
+                {
+                  q: 'Five quiz scores are 40, 45, 50, 55 and 260. (i) Find the mean and the median. (ii) The 260 is re-marked as 60: find both again, and say what changed.',
+                  solution: [
+                    'Now, (i) the mean: the total is $40 + 45 + 50 + 55 + 260 = 450$, and $450/5 = 90$ — a value two of the five never came near.',
+                    'So (i) the median: ordered, the middle of five is the 3rd value — 50.',
+                    'And (ii): the re-marked total is $40 + 45 + 50 + 55 + 60 = 250$, so the mean is $50$ — and the median is still the 3rd value, 50.',
+                    'Hence the mean walked 90 → 50 while the median stood 50 → 50: the shift law says the outlier\u2019s $\\Delta = 200$ moved the mean by $200/5 = 40$ — the whole disagreement was the outlier\u2019s alone.',
+                  ],
+                  answer: '(i) mean 90, median 50; (ii) mean 50, median 50 — only the mean was dragged',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'For the nine marks 35, 45, 52, 58, 60, 60, 68, 75, 87, write each mark\u2019s deviation from the mean 60, and show the two arms balance.',
+                  solution: [
+                    'Now, the deviations (mark minus mean): $-25, -15, -8, -2, 0, 0, +8, +15, +27$.',
+                    'So the left arm: $25 + 15 + 8 + 2 = 50$ owed; the right arm: $8 + 15 + 27 = 50$ owned.',
+                    'And the balance law says this is no accident: $N\\bar{x} = 9 \u00d7 60 = 540$ = the total, so the deviations MUST cancel — the mean is the one point where they do.',
+                    'Hence $-50 + 50 = 0$: the beam of figure 1 tips neither way.',
+                  ],
+                  answer: 'Deviations −25, −15, −8, −2, 0, 0, +8, +15, +27; the arms owe and own 50 each — balance',
+                },
+                {
+                  q: 'Three datasets, three moods of the mode: (i) favourite colours — red 9, blue 9, green 4; (ii) the innings 32, 0, 58, 21, 44; (iii) the travel table (walk 8, bus 6, cycle 4, car 2). Name the mode of each — or its honest absence.',
+                  solution: [
+                    'Now, (i): red and blue tie at the top with 9 each — the data is bimodal, and the honest answer names BOTH.',
+                    'So (ii): every innings is unique — no value leads the count — so the mode does not exist.',
+                    'And (iii): walk\u2019s row carries 8 of 20, the top frequency — the mode is walk, and it is the only average a table of kinds can name.',
+                    'Hence doubled, absent, unique — three honest moods of one average.',
+                  ],
+                  answer: '(i) red and blue (bimodal); (ii) no mode exists; (iii) walk',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'A batter\u2019s five innings: 32, 0, 58, 21, 44. Find the mean and the median, and explain which average the duck hurt more.',
+                  solution: [
+                    'Now, the mean: the total is $32 + 0 + 58 + 21 + 44 = 155$, and $155/5 = 31$.',
+                    'So the median: ordered — $0, 21, 32, 44, 58$ — the 3rd of five is 32.',
+                    'And the duck\u2019s damage: without it the four innings total the same 155 over four — mean $38.75$, median $(32+44)/2 = 38$; the duck added zero runs and one innings, dragging the mean down 7.75 and the median down 6.',
+                    'Hence mean 31, median 32: the mean sits below the median, and the headline "average" is the duck\u2019s victim.',
+                  ],
+                  answer: 'Mean 31; median 32; the duck cost the mean 7.75 runs and the median 6 — the mean suffered more',
+                },
+                {
+                  q: 'Section A has 20 students with mean mark 60; section B has 30 students with mean mark 70. Find the combined mean, and explain why it is not 65.',
+                  solution: [
+                    'Now, the rebuild law twice: A\u2019s total is $20 \u00d7 60 = 1200$; B\u2019s total is $30 \u00d7 70 = 2100$.',
+                    'So the combined mean is $(1200 + 2100)/(20 + 30) = 3300/50 = 66$.',
+                    'And the naive $(60 + 70)/2 = 65$ fails because it weighs both classes equally; the honest pull is $60 + 10 \u00d7 \\frac{30}{50} = 66$ — sixty percent of the way toward the bigger class.',
+                    'Hence 66 — totals add, counts add, means do not.',
+                  ],
+                  answer: '66 (not 65): the combined mean is 3300/50',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the balance law: if $\\bar{x} = \\frac{\\text{total}}{N}$ then the deviations sum to zero. State the corollary that makes missing-value questions possible, and cash it on the mean-18 instance.',
+                  solution: [
+                    'Now, multiply the definition by N: $N\\bar{x} = \\text{total}$ — the rebuild law, the total dressed as count times mean.',
+                    'So the deviations: $\\sum(x_i - \\bar{x}) = \\text{total} - (\\bar{x} + \\cdots + \\bar{x}) = N\\bar{x} - N\\bar{x} = 0$ — N copies of the mean subtracted from the N copies that rebuild the total.',
+                    'And the corollary: the total $= N \\times \\bar{x}$, so ONE unknown value is recoverable — the mean confesses the total.',
+                    'Hence the balance law holds for every dataset (swept over 300 pseudo-random sets in the chapter\u2019s verify script — no exception possible); instance: six numbers, mean 18 — total $6 \u00d7 18 = 108$, five known 80, the sixth 28.',
+                  ],
+                  answer: '$\\sum(x_i - \\bar{x}) = 0$; corollary total = N × x̄; the missing value is 28',
+                },
+                {
+                  q: 'In the nine marks, the 87 is re-scored as 77. Show that the mean moves but the median does not, and explain why the median reads positions, not values.',
+                  solution: [
+                    'Now, the total walks $540 \\to 530$, so the mean walks $60 \\to 530/9 \\approx 58.89$ — a shift of $10/9 \\approx 1.11$, exactly $\\Delta/N$ with $\\Delta = -10$.',
+                    'So the ordered list is $35, 45, 52, 58, 60, 60, 68, 75, 77$ — position 5 still holds 60, four values below and four above.',
+                    'And the reason: the median\u2019s only job is the equal-sides count, and the re-scored 77 stayed WITHIN the upper side — no value crossed the middle, so no position changed, so the median could not move.',
+                    'Hence 58.89 against 60: the mean listens to every value, the median only to where the values sit — the outlier\u2019s immunity, and the reason skewed crowds trust the median.',
+                  ],
+                  answer: 'Mean 530/9 ≈ 58.89 (shifted 10/9 ≈ 1.11); median still 60 — positions beat values',
                 },
               ],
             },

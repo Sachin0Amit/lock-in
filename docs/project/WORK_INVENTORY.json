@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 11:07:50 (Asia/Kolkata)",
+  "generated": "2026-11-05 12:24:02 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 9,
+        "chaptersWritten": 10,
         "chapters": [
           {
             "number": 1,
@@ -2877,11 +2877,9 @@
             "slug": "data-and-graphs",
             "title": "Data and Graphs",
             "summary": "Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.",
-            "status": "in-progress",
-            "lessonsWritten": 3,
-            "plannedLessons": [
-              "Mean, Median and Mode"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-collecting-and-tallying-data",
@@ -3077,24 +3075,156 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-mean-median-and-mode",
+                "number": "10.4",
+                "title": "Mean, Median and Mode",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5783,
+                "readMins": 29,
+                "concepts": [
+                  "The mean — the total shared equally",
+                  "The balance law — the deviations cancel",
+                  "The rebuild law — total = N × mean",
+                  "The median — the middle of the ordered list",
+                  "The position law (N+1)/2",
+                  "The mode — the crowd’s favourite",
+                  "The outlier and the honest average",
+                  "Which average, when"
+                ],
+                "objectives": [
+                  "Define and compute the arithmetic mean as the equal share of the pooled total, prove the balance law (the deviations at the mean sum to zero) and its rebuild corollary total = N × mean, and use both on frequency-table, missing-value and combined-mean questions",
+                  "Locate the median of any ordered list — the value at position (N+1)/2 for odd N, the mean of the pair at positions N/2 and N/2 + 1 for even N — and prove the position law from the equal-sides demand",
+                  "Name the mode of a frequency table in its three honest moods — unique, absent, and doubled — and explain why it is the only average a table of categories can support",
+                  "Diagnose the outlier problem: quantify how one extreme value drags the mean (a change of Δ moves it by Δ/N) while the median and the mode refuse to move, and choose the honest average for the question asked",
+                  "Read the three averages off one dataset and explain why they may disagree — the disagreement (27, 25.5 and 24 for one week of temperatures) is information, not error"
+                ],
+                "prerequisites": [
+                  "fm-collecting-and-tallying-data",
+                  "fm-bar-charts-line-graphs-and-pie-charts"
+                ],
+                "sources": [
+                  "ncert-math7-ch3",
+                  "ncert-ganita-prakash6-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 8,
+                  "callout": 6,
+                  "list": 2,
+                  "equation": 3,
+                  "figure": 2,
+                  "table": 2,
+                  "derivation": 2,
+                  "example": 6,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 12926
+            "words": 18709
           },
           {
             "number": 11,
             "slug": "patterns-and-algebra-preview",
             "title": "Patterns and the Doorstep of Algebra",
             "summary": "Number patterns, sequences built by rules, matchstick and tile patterns expressed as formulas, and the first use of a letter for an unknown — the exact point where Elementary Algebra takes over the climb.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Patterns and Rules",
               "From Patterns to Formulas",
               "A Letter for the Unknown"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-patterns-and-rules",
+                "number": "11.1",
+                "title": "Patterns and Rules",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4965,
+                "readMins": 25,
+                "concepts": [
+                  "Patterns — the oldest mathematics",
+                  "The sequence: numbers with an order",
+                  "Term-to-term rules and the two tests",
+                  "The jump law — term n is n−1 jumps away",
+                  "The famous families: evens, odds, squares",
+                  "The triangular numbers and the handshakes",
+                  "The Virahanka numbers",
+                  "The gnomon law: the odds build the squares"
+                ],
+                "objectives": [
+                  "Say exactly what a sequence is — numbers in a fixed order, each one a term, named $T_1, T_2, \\ldots$ — and state the rule that generates a pattern in words before trusting any continuation",
+                  "Apply the two term-to-term tests: constant differences certify an add-rule, constant quotients certify a multiply-rule — and explain why a test certifies only what the rule states",
+                  "Prove and use the jump law $T_n = T_1 + (n-1)d$ — reach any term without walking the whole list — and cash it on the evens ($2n$), the odds ($2n-1$) and the matchstick counts ($3n+1$)",
+                  "Build the famous families as patterns: the triangular numbers 1, 3, 6, 10 (differences 2, 3, 4 — the handshakes at a party), the squares, and the Virahanka numbers 1, 1, 2, 3, 5, 8 (each term the sum of the two before it)",
+                  "Derive and use the gnomon law $1 + 3 + \\cdots + (2n-1) = n^2$ through the L-wrap picture, and explain why an unspoken rule — the circle game’s 1, 2, 4, 8, 16, 31 — is not a rule at all"
+                ],
+                "prerequisites": [],
+                "sources": [
+                  "ncert-ganita-prakash6-ch1",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 8,
+                  "callout": 4,
+                  "list": 3,
+                  "table": 1,
+                  "derivation": 2,
+                  "equation": 2,
+                  "figure": 2,
+                  "example": 6,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 4965
           }
         ]
       }
@@ -3120,12 +3250,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 89,
-      "totalLines": 37168,
+      "totalLines": 37836,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 27903,
+        "src/data/library (content model + books)": 28571,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -8769,33 +8899,125 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "c4b8b153a4938f052d8d36666ccf9a099ca83bca",
+      "short": "c4b8b15",
+      "date": "2026-11-05 05:39",
+      "message": "fm 10.2 + 10.3 shipped (run 45, fired from the re-enabled job 498279 — the stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive in memory; the duplicate-hourly-trigger logged for the owner): Bar Charts, Line Graphs and Pie Charts (4,331 words) + Reading Graphs Critically (4,062 words); chapter 10 Data and Graphs in-progress 3/4; verify-unit-10.ts 81 -> 141 (J-R) -> 186 (S-Z2) checks ALL PASS pre-writing both; 10.2: the bar-scale law derived as tag 1 (height = f x s, reading = height / s — the axis as a ruler), figure 1 the travel survey at 25 px/student (VLM 9.5/8), figure 2 the sapling line graph (the changes +3+5+2+7+3 rebuilding the 20 cm total; the dashed day-5 interpolation guide with tick — VLM 9/7.5), the central-angle law derived as tag 2 (theta = (f/N) x 360, the slices closing on 360 BY the check-sum law), figure 3 the pie at 144/108/72/36 degrees with alternating tints + counts + boundary degrees (VLM 9/7 after three passes; the VLM ellipse claim disproven by DOM measurement — rendered aspect = viewBox aspect = 2.167), the which-graph-for-which-data table, Playfair 1786/1801 + Nightingale 1858; 10.3: the truncated baseline with figure 1 the two-panel milk confrontation (52/56: honest 208/224 px vs the lie's 40/120 px — VLM 9.5/8), the exaggeration law derived as tag 1 (E = v1(v2-b)/(v2(v1-b)); E(0) = 1 exactly, climbing monotonically — swept b = 0..51; the milk lie 2.79x, the cricketers 10.7x), the scale-invariance law derived as tag 2 (within-chart rankings survive rescaling; cross-chart pixels die), figure 2 the mismatch gallery — the SAME 8/6/4/2 drawn three ways (the line fraud, the open pie at 252 degrees, the honest bars; accepted after the VLM label misread was overruled by direct inspection), the correlation-is-not-causation paragraph (ice cream vs drownings — the heat), the five-question checklist + the re-basing repair, Huff 1954; a live quiz run caught the Y4 key mislabelled and it was corrected (keys 1/2/1/1/1 live 5/5); audits 0/0 all five figures; quizzes live 5/5 both; E2E dedicated 10.2 + 10.3 blocks green (suite at 32 lessons; e2e-102/103 whitelisted FIRST); mobile 390 exact-fit both; 8+8 terms, 5-quiz x2, 12+12 exercises L1-L6; new citation keys ncert-math8-ch4, huff-1954-lie-with-statistics; book = 44 lessons / 208,869 words / 327 terms / 220 quiz / 486 exercises; ch. 10 in-progress 3/4 (12,926 words); logs + pointer + inventory updated (DETAILED_LOG brought current)",
+      "filesChanged": 13,
+      "insertions": 2117,
+      "deletions": 54,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 42,
+          "del": 17
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 15,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 13,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 258,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-102.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-103.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-10.ts",
+          "add": 365,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 8,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 1191,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "affa1ba99f4b1e88e5a0378a616343abedbeb4ff",
+      "short": "affa1ba",
+      "date": "2026-11-05 05:39",
+      "message": "memory: run-45 synced sha recorded (c4b8b15) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 10 Data and Graphs in-progress 3/4 (10.2 Bar/Line/Pie Charts + 10.3 Reading Graphs Critically shipped — fired from the re-enabled job 498279, the duplicate-hourly-trigger logged for the owner); next run 46 = FM 10.4 Mean, Median and Mode (closes ch. 10 -> unit-10 completion review) + FM 11.1 Patterns and Rules (ch. 11 opens); voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 9,
+    "chaptersWritten": 10,
     "chaptersInProgress": 1,
-    "lessonsWritten": 44,
-    "wordsAuthored": 208869,
-    "termsDefined": 327,
-    "quizItems": 220,
-    "exerciseQuestions": 486,
+    "lessonsWritten": 46,
+    "wordsAuthored": 219617,
+    "termsDefined": 343,
+    "quizItems": 230,
+    "exerciseQuestions": 510,
     "blockTotals": {
-      "para": 655,
-      "callout": 260,
-      "heading": 269,
-      "list": 55,
-      "terms": 45,
-      "equation": 81,
-      "derivation": 82,
-      "table": 46,
-      "figure": 82,
-      "example": 200,
-      "quiz": 44,
-      "exercises": 44,
-      "formula": 91,
+      "para": 690,
+      "callout": 270,
+      "heading": 285,
+      "list": 60,
+      "terms": 47,
+      "equation": 86,
+      "derivation": 86,
+      "table": 49,
+      "figure": 86,
+      "example": 212,
+      "quiz": 46,
+      "exercises": 46,
+      "formula": 97,
       "algorithm": 8
     }
   }

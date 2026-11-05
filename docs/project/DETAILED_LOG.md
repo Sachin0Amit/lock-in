@@ -1222,20 +1222,42 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-45 ship + its memory commit pushed and remote-verified
-  (protocol v2, one-time URL from the firing job's payload — this run
-  fired from the re-enabled job 498279, whose PAT text is identical);
-  synced shas recorded in WORKLOG.md / RESUME_POINTER.json. Run 45 =
-  10.2 + 10.3 shipped; chapter 10 in-progress 3/4. The
-  duplicate-hourly-trigger situation (two enabled jobs) logged for the
-  owner in WORKLOG run 45.
+- HEAD: the run-46 ship + its memory commit pushed and remote-verified
+  (protocol v2, one-time URL from job 504365's payload); synced shas
+  recorded in WORKLOG.md / RESUME_POINTER.json. Run 46 = FM 10.4 +
+  FM 11.1 shipped; chapter 10 COMPLETE (unit-10 review passed),
+  chapter 11 open 1/3. Job 504365's first two fires (10:30:44,
+  12:11:34) produced zero tool calls — each was consumed by a
+  session-summary interruption across three context windows; fire 3
+  (14:11:35) executed in full. Logged for the owner in WORKLOG run 46.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 10 "Data and Graphs" IN-PROGRESS 3/4 —
+- **CURRENT (hourly cadence): CH. 10 "Data and Graphs" COMPLETE —
+  FM 10.4 "Mean, Median and Mode" shipped run 46 and closed the chapter
+  (5,783 words; the balance law + rebuild law derived as tag 1 with the
+  figure-1 balance beam, the position law as tag 2 with the
+  fifteen-shoe strip, the outlier section, the which-average-when
+  table, the average-from-the-sea history); the unit-10 completion
+  review passed (checklist 7/7, exam corners 4/4, ids unique 46/46,
+  ch-10 flipped complete). verify-unit-10.ts 186 → 301 checks (AA–AP)
+  ALL PASS pre-writing; quiz keys 2/1/2/3/2 live 5/5; VLM 9/8 + 9/8;
+  audits 0/0. THEN CH. 11 "Patterns and the Doorstep of Algebra"
+  OPENED 1/3 — FM 11.1 "Patterns and Rules" shipped the same run
+  (4,965 words; ch-11.ts created + registered; the jump law derived as
+  tag 1 with the matchstick figure redesigned twice to a three-stroke
+  grammar (heavy = counted, dashed = borrowed), the gnomon law as tag 2
+  with the wrap figure 9/9, the circle-game trap 1, 2, 4, 8, 16, 31,
+  the Virahanka/Pingala/Hemachandra history); verify-unit-11.ts CREATED
+  72 checks (A–O) ALL PASS pre-writing; quiz keys 1/0/2/3/2 live 5/5;
+  audits 0/0. Book = 46 lessons / 219,617 words / 343 terms / 230 quiz /
+  510 exercises. New citation keys ncert-math7-ch3 +
+  ncert-ganita-prakash6-ch1. (Run 45's narrative below stands as
+  history.)**
+- **RUN 45 (history): CH. 10 "Data and Graphs" reached 3/4 —
   FM 10.2 "Bar Charts, Line Graphs and Pie Charts" + FM 10.3 "Reading
   Graphs Critically" shipped run 45** (job 504365 — the FIRST TWO-LESSON
   run under the owner's 2026-11-05 directive). verify-unit-9.ts
@@ -1263,15 +1285,16 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   ncert-phys11-ch2. Book totals recomputed by the generator: 38
   lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises.
   Voice queue EMPTY.
-- **NEXT (hourly cadence): FM 10.4 "Mean, Median and Mode" + FM 11.1
-  "Patterns and Rules"** — EXTEND verify-unit-10.ts with the averages
-  sections FIRST, author 10.4 per BOOK_FORMAT + the ch-01 exemplar; on
-  10.4's gates run the unit-10 completion review (flip ch-10 to
-  complete, empty plannedLessons, recompute totals); then create
-  scripts/verify-unit-11.ts + gitignore exceptions FIRST, register
-  ch. 11 in book.ts, and author 11.1. Two lessons per run. The
-  voice queue is empty: per-run extras shift to unit reviews,
-  exam-registry research, or DETAILED_LOG/SOURCE_LOG upkeep until a
-  new queue is named. Chapter 9 planned: Units as Agreements
-  **WRITTEN** · The Metric System · Converting Units Without
+- **NEXT (hourly cadence): FM 11.2 "From Patterns to Formulas" +
+  FM 11.3 "A Letter for the Unknown"** — for EACH lesson extend
+  scripts/verify-unit-11.ts with that lesson's sections FIRST, author
+  per BOOK_FORMAT + the ch-01 exemplar; complete and gate 11.2 fully
+  before starting 11.3; on 11.3's gates run the unit-11 completion
+  review (flip ch-11 to complete, empty plannedLessons, recompute
+  totals — Foundation Mathematics is then 11-for-11 chapters
+  complete). Two lessons per run. The voice queue is empty:
+  per-run extras shift to unit reviews, exam-registry research, or
+  DETAILED_LOG/SOURCE_LOG upkeep until a new queue is named. Chapter
+  11 planned: Patterns and Rules **WRITTEN** · From Patterns to
+  Formulas · A Letter for the Unknown.
   Memorising Tables · Precision, Accuracy and Rounding in Measurement.
