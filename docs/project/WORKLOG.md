@@ -20,6 +20,8 @@ and what remains.
 
 **Remaining:** authoring begins at run 49 — ANS ch. 1 lessons 1.1 + 1.2 (two-lesson cadence); unit-1 completion review lands with 1.3 at run 50. EXAM_REGISTRY research still pending sometime. Voice queue empty.
 
+**Push record:** ship commit `dc9251b` pushed per protocol with the run-47 memory commit (`ba6fa47`) in the same push; one-time-URL ls-remote verified remote refs/heads/main = `dc9251b` = local HEAD at 2026-11-05 ~17:00 IST.
+
 ---
 
 ## 2026-11-05 — RUN 47 (fired 15:00 IST from job 498279 — its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files, per the payload's own step 1): FM 11.2 "From Patterns to Formulas" (3,931 words) + FM 11.3 "A Letter for the Unknown" (4,021 words) SHIPPED verify-first; the UNIT-11 COMPLETION REVIEW PASSED and chapter 11 Patterns and the Doorstep of Algebra closed 3/3 — FOUNDATION MATHEMATICS IS COMPLETE: 11-for-11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz, 534 exercises; verify-unit-11.ts 74 → 145 (P–Z) → 187 (AA–AL) checks, ALL PASS pre-writing both lessons; tree clean, push per protocol
