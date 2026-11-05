@@ -22,7 +22,7 @@ and what remains.
 
 **Remaining:** chapter 3 'Positional Systems and Other Bases' opens at run 53 with lessons 3.1 'The Representation Theorem: Every Number Has Exactly One Name' + 3.2 'Converting Between Bases' (two-lesson cadence; extend a fresh scripts/verify-book2-ch03.ts FIRST, whitelist it + the e2e-ans-31/32 blocks in .gitignore before committing). Exam registry research (44 skeletons). Job 498279 keeps double-firing against 504365 — owner-side cleanup still pending.
 
-**Git:** ship commit `ans ch.2 closes: lessons 2.3 Euclidean algorithm + Bézout and 2.4 linear Diophantine equations shipped verify-first (run 52)` + memory bookkeeping commit; pushed per protocol v2 (one-time HTTPS URL, PAT used in-command only, never written to any file/config/log; origin remains the SSH remote); synced HEAD recorded in the memory commit message.
+**Git:** ship commit `a2f7870` (ans ch.2 closes: lessons 2.3 Euclidean algorithm + Bézout and 2.4 linear Diophantine equations shipped verify-first, run 52) + memory commit `8a63a48`; pushed per protocol v2 as `52a34f7..8a63a48 HEAD -> main` via the one-time HTTPS URL (PAT used in-command only, never written to any file/config/log; origin remains the SSH remote); remote HEAD verified via one-time-URL ls-remote = `8a63a4818d3472caa0cfd9cd2f0e5b9060a63b14` = local HEAD = refs/heads/main; origin/main tracking ref re-synced via anonymous HTTPS fetch; tree clean.
 
 ---
 
