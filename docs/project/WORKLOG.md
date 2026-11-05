@@ -42,8 +42,10 @@ chapter 4 ENTIRELY: 4.3 + 4.4 + the unit-4 completion review
 (verify-book2-ch04.ts sections W onward FIRST); run 57 = chapter 5
 "Congruences: The Arithmetic of Remainders" in full.
 
-**Git:** memory + docs updates committed this run and pushed per the
-push protocol; synced remote HEAD sha to be recorded in this entry.
+**Git:** config commit `f8ec6d3` pushed and remote-verified via
+one-time-URL ls-remote — remote main = local HEAD `f8ec6d3`. (Origin
+stays the SSH remote; the PAT lived only in the one-time URL and the
+job payload, never in any file.)
 
 ---
 
