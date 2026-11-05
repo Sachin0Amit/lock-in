@@ -1222,7 +1222,34 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 ## 8. Current state & what's next
 
-- HEAD: the run-46 ship + its memory commit pushed and remote-verified
+- HEAD: the run-47 ship + its memory commit pushed and remote-verified
+  (protocol v2, one-time URL from the firing payload); synced shas
+  recorded in WORKLOG.md / RESUME_POINTER.json. Run 47 = FM 11.2 +
+  FM 11.3 shipped; chapter 11 COMPLETE (unit-11 review passed) —
+  FOUNDATION MATHEMATICS COMPLETE 11-for-11. The fire came from the old
+  job 498279 (both jobs enabled; the stale one-lesson payload superseded
+  per the memory files) — logged for the owner in WORKLOG run 47.
+- **CURRENT (post-book): FOUNDATION MATHEMATICS COMPLETE — FM 11.2
+  "From Patterns to Formulas" (3,931 words; the an+b dress derived as
+  tag 1 with the check-the-first-term Caution, the staircase pairing
+  n(n+1)/2 as tag 2 with the interlock figure, the matchstick 3n + 1
+  seen structurally, the Gauss story hedged) and FM 11.3 "A Letter for
+  the Unknown" (4,021 words; the balance law derived as tag 1 with the
+  three-state balance figure re-laid once after the audit, the undo
+  machine as tag 2 with the machine figure, equations from words with
+  the check-both-conditions Caution, the aha → al-jabr history, and
+  the book's closing paragraph opening the named doorstep).
+  verify-unit-11.ts 74 → 187 checks (P–Z + AA–AL) ALL PASS
+  pre-writing; quiz keys 0/1/1/0/0 live 5/5 both; audits 0/0 all four
+  figures. Unit-11 completion review passed: checklist 7/7, exam
+  corners 3/3, ids unique 48/48, ch-11 flipped complete,
+  plannedLessons emptied, totals recomputed — book = 48 lessons /
+  227,569 words / 355 terms / 240 quiz / 534 exercises. New citation
+  keys ncert-math7-gp-ch4 + ncert-math6-ch11 + ncert-math7-ch4.
+  NEXT: book #2 "Arithmetic and Number Systems" — research phase
+  first (reference survey + syllabus audit; promote only after
+  research; never an empty shell). Voice queue EMPTY.**
+- HEAD (run 46 history): the run-46 ship + its memory commit pushed and remote-verified
   (protocol v2, one-time URL from job 504365's payload); synced shas
   recorded in WORKLOG.md / RESUME_POINTER.json. Run 46 = FM 10.4 +
   FM 11.1 shipped; chapter 10 COMPLETE (unit-10 review passed),
@@ -1236,7 +1263,7 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 10 "Data and Graphs" COMPLETE —
+- **RUN 46 (history): CH. 10 "Data and Graphs" COMPLETE —
   FM 10.4 "Mean, Median and Mode" shipped run 46 and closed the chapter
   (5,783 words; the balance law + rebuild law derived as tag 1 with the
   figure-1 balance beam, the position law as tag 2 with the

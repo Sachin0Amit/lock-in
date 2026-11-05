@@ -135,3 +135,5 @@ server.log
 # exception: run-46 unit-11 pre-write arithmetic verifier (Patterns; committed every ship)
 !/scripts/verify-unit-11.ts
 !/scripts/e2e-111.page.js
+!/scripts/e2e-112.page.js
+!/scripts/e2e-113.page.js

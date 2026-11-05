@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 12:24:02 (Asia/Kolkata)",
+  "generated": "2026-11-05 13:05:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -28,9 +28,9 @@
         "discipline": "mathematics",
         "level": "Absolute beginner → Secondary school",
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
-        "status": "in-progress",
+        "status": "complete",
         "chaptersPlanned": 11,
-        "chaptersWritten": 10,
+        "chaptersWritten": 11,
         "chapters": [
           {
             "number": 1,
@@ -3152,12 +3152,9 @@
             "slug": "patterns-and-algebra-preview",
             "title": "Patterns and the Doorstep of Algebra",
             "summary": "Number patterns, sequences built by rules, matchstick and tile patterns expressed as formulas, and the first use of a letter for an unknown — the exact point where Elementary Algebra takes over the climb.",
-            "status": "in-progress",
-            "lessonsWritten": 1,
-            "plannedLessons": [
-              "From Patterns to Formulas",
-              "A Letter for the Unknown"
-            ],
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-patterns-and-rules",
@@ -3222,9 +3219,145 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-patterns-to-formulas",
+                "number": "11.2",
+                "title": "From Patterns to Formulas",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 3931,
+                "readMins": 20,
+                "concepts": [
+                  "From patterns to formulas",
+                  "The position letter n",
+                  "The an + b dress: Tn = dn + (T1 − d)",
+                  "Check the first term",
+                  "The matchstick formula 3n + 1",
+                  "The staircase pairing: n(n + 1)/2",
+                  "The handshake formula N(N − 1)/2",
+                  "Reading formulas backwards"
+                ],
+                "objectives": [
+                  "Write and use position-to-term formulas: dress any add-$d$ pattern as $T_n = dn + (T_1 - d)$, reading the difference and the first term straight off the dress",
+                  "Derive the staircase formula $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ by the pairing argument and cash it on the triangular numbers ($T_{100} = 5050$)",
+                  "Derive the handshake formula $\\frac{N(N-1)}{2}$ as the staircase formula’s corollary and compute meeting and tournament counts (30 friends → 435; 40 players → 780)",
+                  "See a formula structurally: the matchstick row’s $3n + 1$ as the seed’s 4 sticks plus 3 for every square after — the fitted dress and the counted structure agreeing",
+                  "Read formulas backwards by arithmetic undoing — which position holds 99? — while keeping equation solving itself for lesson 11.3"
+                ],
+                "prerequisites": [
+                  "fm-patterns-and-rules"
+                ],
+                "sources": [
+                  "ncert-math7-gp-ch4",
+                  "ncert-math6-ch11",
+                  "ncert-ganita-prakash6-ch1",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 5,
+                  "callout": 4,
+                  "list": 2,
+                  "derivation": 2,
+                  "equation": 2,
+                  "table": 1,
+                  "figure": 2,
+                  "example": 6,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 6
+              },
+              {
+                "id": "fm-letter-for-the-unknown",
+                "number": "11.3",
+                "title": "A Letter for the Unknown",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4021,
+                "readMins": 20,
+                "concepts": [
+                  "The first equation",
+                  "Variable: the letter for an unknown",
+                  "The balance law",
+                  "The undo machine: ax + b = c",
+                  "Undo the last operation first",
+                  "Equations from words",
+                  "The check by substitution",
+                  "The door to algebra"
+                ],
+                "objectives": [
+                  "Say exactly what an equation is — a sentence asserting that two expressions name the same number — and what solving means: finding every value of the variable that makes the sentence true, proven by substituting back",
+                  "Derive the balance law from the meaning of equality (the same change to both sides keeps them equal, division by zero refused) and use its four moves: add, subtract, multiply, share",
+                  "Solve one- and two-step equations of the shape $ax + b = c$ by the undo machine — undo the LAST operation first — and verify every solution ($3x + 1 = 31$ gives $x = 10$)",
+                  "Turn word problems into equations and back: the ribbon split ($x + (x + 11) = 47$), the ages ($2b + 3 = 17$), the rectangle (6 by 12), the father-and-son collecting ($x + 4x = 50$)",
+                  "Close the book on the doorstep it was named for: the letter now holds an unknown — Elementary Algebra takes over the climb from exactly here"
+                ],
+                "prerequisites": [
+                  "fm-patterns-to-formulas",
+                  "fm-patterns-and-rules"
+                ],
+                "sources": [
+                  "ncert-math7-ch4",
+                  "ncert-math6-ch11",
+                  "ncert-math7-gp-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 6,
+                  "callout": 4,
+                  "derivation": 2,
+                  "equation": 2,
+                  "figure": 2,
+                  "example": 6,
+                  "list": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 6
               }
             ],
-            "words": 4965
+            "words": 12917
           }
         ]
       }
@@ -3249,13 +3382,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 89,
-      "totalLines": 37836,
+      "srcFilesTracked": 90,
+      "totalLines": 39746,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 28571,
+        "src/data/library (content model + books)": 30481,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -8991,33 +9124,130 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "505a2378a53fb9da230c44f36cf80c330c5445df",
+      "short": "505a237",
+      "date": "2026-11-05 06:55",
+      "message": "fm 10.4 + 11.1 shipped (run 46, job 504365's first fully-executed fire): chapter 10 Data and Graphs CLOSED 4/4 (unit-10 completion review passed) + chapter 11 Patterns and the Doorstep of Algebra OPENS 1/3",
+      "filesChanged": 14,
+      "insertions": 2604,
+      "deletions": 83,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 42,
+          "del": 19
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 16,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 35,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 15,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 256,
+          "del": 34
+        },
+        {
+          "path": "scripts/e2e-104.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-111.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-10.ts",
+          "add": 353,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-11.ts",
+          "add": 365,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 14,
+          "del": 22
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 680,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-11.ts",
+          "add": 698,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "73787fe84fea5d4931cda073e24e0aa2bb4b39db",
+      "short": "73787fe",
+      "date": "2026-11-05 06:55",
+      "message": "memory: run-46 synced sha recorded (505a237) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; next run 47 = FM 11.2 From Patterns to Formulas + FM 11.3 A Letter for the Unknown (closes ch. 11 -> unit-11 completion review -> the book stands 11-for-11 chapters complete); voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 10,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 46,
-    "wordsAuthored": 219617,
-    "termsDefined": 343,
-    "quizItems": 230,
-    "exerciseQuestions": 510,
+    "chaptersWritten": 11,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 48,
+    "wordsAuthored": 227569,
+    "termsDefined": 355,
+    "quizItems": 240,
+    "exerciseQuestions": 534,
     "blockTotals": {
-      "para": 690,
-      "callout": 270,
-      "heading": 285,
-      "list": 60,
-      "terms": 47,
-      "equation": 86,
-      "derivation": 86,
-      "table": 49,
-      "figure": 86,
-      "example": 212,
-      "quiz": 46,
-      "exercises": 46,
-      "formula": 97,
+      "para": 715,
+      "callout": 278,
+      "heading": 296,
+      "list": 63,
+      "terms": 49,
+      "equation": 90,
+      "derivation": 90,
+      "table": 50,
+      "figure": 90,
+      "example": 224,
+      "quiz": 48,
+      "exercises": 48,
+      "formula": 103,
       "algorithm": 8
     }
   }

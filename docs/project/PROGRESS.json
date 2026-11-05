@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-05",
- "phase": "FM ch. 9 Measurement IN-PROGRESS 3/4 (run 43 \u2014 the first TWO-lesson run \u2014 shipped 9.2 The Metric System + 9.3 Converting Units Without Memorising Tables; next 9.4 closes the chapter)",
- "awaiting": "FM 11.2 'From Patterns to Formulas' and FM 11.3 'A Letter for the Unknown' (the chapter 11 continuation \u2014 extend scripts/verify-unit-11.ts with each lesson's sections BEFORE writing; 11.2 dresses the position-to-term formulas the jump law opened, 11.3 uses the first letter for an unknown) \u2014 two lessons per run; ch. 11 closes with the unit-11 completion review on 11.3's gates",
+ "phase": "FOUNDATION MATHEMATICS COMPLETE \u2014 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz, 534 exercises (run 47 shipped 11.2 From Patterns to Formulas + 11.3 A Letter for the Unknown and the unit-11 completion review passed; the book closes on the doorstep of Elementary Algebra)",
+ "awaiting": "The next book: Arithmetic and Number Systems (Mathematics shelf #2 per SUBJECT_BACKLOG) \u2014 run its RESEARCH phase first (reference survey + syllabus audit per MASTER_PLAN \u00a72); promote to src/data/library/books/ only when research is done; never create empty shells. Also still pending sometime: EXAM_REGISTRY.json research (44 entry shells).",
  "platform": {
   "status": "working \u2014 v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) \u00b7 TypeScript \u00b7 Tailwind 4 \u00b7 shadcn/ui \u00b7 zustand(persist v2) \u00b7 KaTeX \u00b7 next-themes \u00b7 framer-motion \u00b7 cmdk",
@@ -392,5 +392,21 @@
   "counts": "book = 46 lessons / 219,617 words / 343 terms / 230 quiz / 510 exercises; ch. 9 complete; ch. 10 COMPLETE 4/4 (18,709 words); ch. 11 in-progress 1/3",
   "citations": "new key ncert-ganita-prakash6-ch1 (Ganita Prakash class-6 ch. 1 Patterns in Mathematics, fegp101, web-checked); carried keys ncert-math7-ch3 (class-7 ch. 3 Data Handling \u2014 mean/mode/median, web-checked), ncert-ganita-prakash6-ch4, khattar-qa-4e",
   "completionReview": "unit-10 review passed (BOOK_FORMAT checklist 7/7, exam corners 4/4, ids unique book-wide 46/46, ch-10 flipped complete, plannedLessons emptied, totals recomputed)"
+ },
+ "run47Extras": {
+  "run": 47,
+  "date": "2026-11-05",
+  "firedFrom": "job 498279 (the old hourly job's 15:00 fire; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files, per the payload's own step 1 \u2014 the duplicate-hourly-trigger situation stands logged for the owner)",
+  "delivered": [
+   "FM 11.2 From Patterns to Formulas (3,931 words) \u2014 the an+b dress + the staircase pairing",
+   "FM 11.3 A Letter for the Unknown (4,021 words) \u2014 the balance law + the undo machine; THE BOOK'S FINAL LESSON",
+   "THE UNIT-11 COMPLETION REVIEW PASSED \u2014 FOUNDATION MATHEMATICS COMPLETE: 11-for-11 chapters"
+  ],
+  "verify": "verify-unit-11.ts 74 \u2192 145 (P\u2013Z) \u2192 187 (AA\u2013AL) checks, ALL PASS pre-writing both lessons",
+  "gates": "tsc + lint clean, routes 200, E2E dedicated 11.2 + 11.3 blocks green (quizzes live 5/5 on keys 0/1/1/0/0 both; 6 Sol pills + 18 \u2234 glyphs each; 0 raw-$, 0 katex-errors; mobile 390 exact-fit), SVG audits 0/0 all four figures (the balance re-laid once after the audit caught the 31/30 blocks overlapping the x-boxes), visual review 9/9 x 4",
+  "laws": "tag 1 the an+b dress + tag 2 the staircase formula (11.2); tag 1 the balance law + tag 2 the undo machine (11.3)",
+  "counts": "book = 48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises \u2014 COMPLETE; ch. 11 = 3 lessons / 12,917 words / 16 terms / 15 quiz / 36 exercises",
+  "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status \u2192 complete; totals recomputed by scripts/build_work_inventory.ts",
+  "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  }
 }
