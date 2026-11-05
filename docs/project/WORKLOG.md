@@ -26,7 +26,7 @@ and what remains.
 
 **Next:** run 44 = FM 9.4 "Precision, Accuracy and Rounding in Measurement" (extend verify-unit-9.ts with the precision sections FIRST; closes chapter 9 → the unit-9 completion review per the run-6/11/20/25/36/41 precedent) and, per the two-lesson rule, the NEXT unit's first lesson (ch. 10 Data and Graphs opens at 10.1 Collecting and Tallying Data); voice queue empty.
 
-**Git:** ship commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD; origin/main..HEAD = 0; the PAT never written to any file, config, log or message.
+**Git:** ship commit `a350524` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD = `a350524771bd1e3fee86214e367d338641db2886`; origin/main..HEAD = 0; the PAT never written to any file, config, log or message.
 
 ## 2026-11-05 — OWNER CHAT DIRECTIVE: hourly loop RESCHEDULED to TWO lessons per run — job 498279 (disabled by owner via API after 43 runs) replaced by job 504365 (same hourly cadence, identical workflow + push protocol; only the lesson count changed); memory synced for run 43 = FM 9.2 + FM 9.3; no lesson authored this turn (infrastructure directive), tree clean, push per protocol
 
