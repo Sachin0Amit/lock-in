@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 09:01:54 (Asia/Kolkata)",
+  "generated": "2026-11-05 10:35:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -30,7 +30,7 @@
         "description": "The ground floor of mathematics, built patiently from the act of counting: numbers and place value, the four operations and why they work, factors and primes, fractions, decimals and percents, ratio and proportion, elementary geometry and measurement, and the first taste of algebraic thinking. Every idea is introduced from zero, derived where a derivation exists, and drilled through graded exercises with full solutions — so that the books above it (Arithmetic & Number Systems, Elementary Algebra, Geometry…) can be climbed without gaps.",
         "status": "in-progress",
         "chaptersPlanned": 11,
-        "chaptersWritten": 8,
+        "chaptersWritten": 9,
         "chapters": [
           {
             "number": 1,
@@ -2584,11 +2584,9 @@
             "slug": "measurement",
             "title": "Measurement",
             "summary": "What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.",
-            "status": "in-progress",
-            "lessonsWritten": 3,
-            "plannedLessons": [
-              "Precision, Accuracy and Rounding in Measurement"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "fm-units-as-agreements",
@@ -2739,8 +2737,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 3603,
-                "readMins": 18,
+                "words": 3413,
+                "readMins": 17,
                 "concepts": [
                   "The conversion factor — 1 in disguise",
                   "Multiplying by one changes the dress, never the quantity",
@@ -2769,7 +2767,7 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 12,
+                  "para": 10,
                   "heading": 4,
                   "callout": 4,
                   "derivation": 3,
@@ -2799,25 +2797,159 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-precision-accuracy-and-rounding-in-measurement",
+                "number": "9.4",
+                "title": "Precision, Accuracy and Rounding in Measurement",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5770,
+                "readMins": 29,
+                "concepts": [
+                  "Every measurement is a claim, not a fact",
+                  "Precision — the fineness of the unit",
+                  "The interval a reading hides",
+                  "Accuracy — closeness to the true value",
+                  "Precision and accuracy are independent axes",
+                  "Rounding to a named place — the digit rule",
+                  "The greatest possible error",
+                  "Significant figures — counting the honest digits"
+                ],
+                "objectives": [
+                  "Explain why no measurement is exact — a reading names the unit-multiple nearest the truth — and read \"7 cm\" and \"7.0 cm\" as different claims about the same pencil",
+                  "State the precision of a measurement as the smallest unit it distinguishes, and derive the interval law: a reading $m$ to the nearest unit $u$ confines the true value to $m - u/2 \\le t < m + u/2$",
+                  "Distinguish accuracy (closeness to the true value) from precision (fineness and repeatability), and diagnose a precise-but-inaccurate instrument from its pattern of readings",
+                  "Round any number to a named place by the digit rule — including the half-up convention and the round-once-from-the-original discipline that defeats double rounding",
+                  "Compute the greatest possible error of an instrument (half its smallest division) and count the significant figures a written measurement honestly carries"
+                ],
+                "prerequisites": [
+                  "fm-converting-units-without-memorising-tables",
+                  "fm-the-metric-system",
+                  "fm-decimal-places-and-the-point"
+                ],
+                "sources": [
+                  "ncert-sci6-curiosity-ch5",
+                  "ncert-phys11-ch2",
+                  "ncert-math6-ch1",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "figure": 2,
+                  "table": 3,
+                  "callout": 9,
+                  "derivation": 2,
+                  "equation": 2,
+                  "example": 3,
+                  "list": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "insight": 2,
+                  "warn": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 13633
+            "words": 19213
           },
           {
             "number": 10,
             "slug": "data-and-graphs",
             "title": "Data and Graphs",
             "summary": "Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 1,
             "plannedLessons": [
-              "Collecting and Tallying Data",
               "Bar Charts, Line Graphs and Pie Charts",
               "Reading Graphs Critically",
               "Mean, Median and Mode"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "fm-collecting-and-tallying-data",
+                "number": "10.1",
+                "title": "Collecting and Tallying Data",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4533,
+                "readMins": 23,
+                "concepts": [
+                  "Data — the world’s answers, collected",
+                  "The raw list and why it defeats counting",
+                  "The tally pass — one stroke per answer",
+                  "The five-bar gate",
+                  "Frequency and the frequency table",
+                  "The check-sum law Σf = N",
+                  "Choosing categories before collecting",
+                  "Relative frequency — the table in percents"
+                ],
+                "objectives": [
+                  "Say exactly what data is — the collected answers to a question, each one a value of the quantity asked about — and explain why a raw list defeats counting by re-reading",
+                  "Run the tally pass honestly: one stroke per answer into its category’s row, the fifth stroke closing the gate, the frequency read as gates × 5 + leftovers",
+                  "Build a frequency table from raw data and prove the check-sum law: because the categories partition the answers, the frequency column must sum to N — the table checks itself",
+                  "Choose categories that do not overlap and leave no orphan answers — decided before collecting, with an \"other\" row as honesty’s catch-all",
+                  "Convert a frequency table into relative frequencies (fractions and percents summing to exactly 1) and read comparisons straight off the rows"
+                ],
+                "prerequisites": [],
+                "sources": [
+                  "ncert-ganita-prakash6-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 6,
+                  "callout": 5,
+                  "figure": 2,
+                  "derivation": 1,
+                  "equation": 2,
+                  "example": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              }
+            ],
+            "words": 4533
           },
           {
             "number": 11,
@@ -2858,12 +2990,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 88,
-      "totalLines": 34714,
+      "totalLines": 35378,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 25449,
+        "src/data/library (content model + books)": 26113,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -8313,33 +8445,125 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "a350524771bd1e3fee86214e367d338641db2886",
+      "short": "a350524",
+      "date": "2026-11-05 03:32",
+      "message": "fm 9.2 + 9.3 shipped (run 43, the FIRST TWO-LESSON RUN — job 504365): The Metric System (4,529 words) + Converting Units Without Memorising Tables (3,603 words); chapter 9 Measurement in-progress 3/4 — verify-unit-9.ts 200 -> 428 checks A-AD ALL PASS pre-writing (prefix architecture N, point-shift law O, families+litre bridge P, history arithmetic Q, staircase geometry R x3 iterations, three-rails geometry S, quiz/exercise keys T/U; factor engine W, speed pipeline X, squared-factor law Y, machine/pipeline geometry Z x2 iterations, keys AA/AB, deepening AD); the point-shift law derived as tag 1 from the swap law (u2 = u1/10^h => n2 = n1 x 10^h); the factor licence as tag 1 and the power law as tag 2 (1 m^2 = 10^4 cm^2 NOT 100); the 5/18 law of 6.2 unmasked as two chained identities; the metre's three bodies told honestly (Earth 1791, the 1799 bar 0.02% short = one part in 5,000, light 1983 c = 299,792,458 m/s); figures: 9.2 staircase redesigned twice to VLM 10/8 (countable hops + per-hop x10 labels + the 3.45 km anchor), three-rails 10/9 first pass; 9.3 cancellation machine rebuilt to token-strikes 10/9, speed pipeline rebuilt left-to-right with pure-factor collapse 10/9; audits 0/0 all four; quizzes live 5/5 both (keys 0/2/1/2/3, 0/1/2/2/1); E2E dedicated 9.2/9.3 blocks green (e2e-92/93.page.js created + whitelisted FIRST; suite at 30 lessons); mobile 390 exact-fit; 8+8 terms, 5-quiz x2, 12+12 exercises L1-L6; new citation keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter; book = 40 lessons / 190,363 words / 295 terms / 200 quiz / 438 exercises; logs + pointer + inventory updated (DETAILED_LOG brought current)",
+      "filesChanged": 13,
+      "insertions": 2391,
+      "deletions": 50,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 69,
+          "del": 12
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 41,
+          "del": 6
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 36,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 27,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 288,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-92.page.js",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-93.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-9.ts",
+          "add": 521,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 1184,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "955fc15b6bb856dfabdaa4b47f957da3dde37583",
+      "short": "955fc15",
+      "date": "2026-11-05 03:32",
+      "message": "memory: run-43 synced sha recorded (a350524) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 9 Measurement IN-PROGRESS 3/4 (9.2 The Metric System 4,529 words + 9.3 Converting Without Tables 3,603 words shipped — the FIRST TWO-LESSON run, job 504365, verify 428 checks A-AD); next run 44 = FM 9.4 (closes ch. 9 -> unit-9 completion review) then ch. 10 opens at 10.1; voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 281,
     "booksLive": 1,
-    "chaptersWritten": 8,
+    "chaptersWritten": 9,
     "chaptersInProgress": 1,
-    "lessonsWritten": 40,
-    "wordsAuthored": 190363,
-    "termsDefined": 295,
-    "quizItems": 200,
-    "exerciseQuestions": 438,
+    "lessonsWritten": 42,
+    "wordsAuthored": 200476,
+    "termsDefined": 311,
+    "quizItems": 210,
+    "exerciseQuestions": 462,
     "blockTotals": {
-      "para": 611,
-      "callout": 239,
-      "heading": 249,
-      "list": 50,
-      "terms": 41,
-      "equation": 73,
-      "derivation": 75,
-      "table": 41,
-      "figure": 73,
-      "example": 191,
-      "quiz": 40,
-      "exercises": 40,
-      "formula": 79,
+      "para": 641,
+      "callout": 253,
+      "heading": 261,
+      "list": 52,
+      "terms": 43,
+      "equation": 77,
+      "derivation": 78,
+      "table": 44,
+      "figure": 77,
+      "example": 196,
+      "quiz": 42,
+      "exercises": 42,
+      "formula": 85,
       "algorithm": 8
     }
   }

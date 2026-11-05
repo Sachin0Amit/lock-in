@@ -126,3 +126,6 @@ server.log
 /temporary-references/
 /tool-results/
 /public/diagrams-tmp/
+!/scripts/e2e-94.page.js
+!/scripts/verify-unit-10.ts
+!/scripts/e2e-101.page.js

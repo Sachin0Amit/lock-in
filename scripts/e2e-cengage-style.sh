@@ -1572,3 +1572,87 @@ agent-browser screenshot /tmp/cengage-e2e/mobile-9-3.png >/dev/null 2>&1 || true
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*9-3*.png 2>/dev/null | head -6
 echo "done-9-3"
+
+# ---- dedicated 9.4 block (run 44): quiz keys 1/1/2/1/0 + solutions + figures ----
+echo "== dedicated 9.4 block: quiz keys + solutions + figures =="
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-precision-accuracy-and-rounding-in-measurement" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1800 >/dev/null 2>&1 || true
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-94.page.js)" 2>/dev/null | head -1
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-9-4-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-9-4-fig2.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-precision-accuracy-and-rounding-in-measurement" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '9.4 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-9-4.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*9-4*.png 2>/dev/null | head -6
+echo "done-9-4"
+
+# ---- dedicated 10.1 block (run 44): quiz keys 0/2/2/1/1 + solutions + figures ----
+echo "== dedicated 10.1 block: quiz keys + solutions + figures =="
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-collecting-and-tallying-data" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1800 >/dev/null 2>&1 || true
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-101.page.js)" 2>/dev/null | head -1
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-1-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-1-fig2.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-collecting-and-tallying-data" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '10.1 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-10-1.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*10-1*.png 2>/dev/null | head -6
+echo "done-10-1"

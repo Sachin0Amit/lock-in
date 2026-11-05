@@ -9,9 +9,23 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 43 (Job 504365 — the FIRST TWO-LESSON RUN under the
-owner's 2026-11-05 directive)**: **FM 9.2 "The Metric System" + FM 9.3
-"Converting Units Without Memorising Tables" shipped** — chapter 9 Measurement
+Maintained through **run 44 (Job 504365 — the FIRST TWO-CHAPTER RUN)**: **FM 9.4
+"Precision, Accuracy and Rounding in Measurement" shipped + the UNIT-9
+COMPLETION REVIEW PASSED (chapter 9 Measurement COMPLETE 4/4) + FM 10.1
+"Collecting and Tallying Data" shipped (ch-10.ts created and registered;
+chapter 10 Data and Graphs OPEN 1/4)** — verify-unit-9.ts 428 → 534 checks
+(AE–AO) and verify-unit-10.ts CREATED with 81 checks (A–I), ALL PASS
+pre-writing both; 5,770 + 4,533 body words; the interval law and the check-sum
+law derived as the chapters' tags; figures: 9.4's three-rulers plumb-line
+(redrawn twice) and four-targets (four passes) VLM-gated 10/9 and 9/8; 10.1's
+raw-list-to-tally figure accepted after four passes with audits 0/0 and the
+geometry certified; quizzes live 5/5 both (keys 1/1/2/1/0 and 0/2/2/1/1); new
+citation keys ncert-math6-ch1 + ncert-ganita-prakash6-ch4; a run-43 defect
+fixed en route (a thrice-repeated 9.3 paragraph reduced to one); book = **42
+lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises**. (The run-43
+narrative below stands as history.) Run 43 (the FIRST TWO-LESSON run under the
+owner's 2026-11-05 directive): FM 9.2 "The Metric System" + FM 9.3
+"Converting Units Without Memorising Tables" shipped — chapter 9 Measurement
 in-progress **3/4** (4,529 + 3,603 body words): 9.2 the metric system as the
 treaty's masterstroke — the old world's mess (the pinte 0.93 vs 1.46 L) and the
 rejected pendulum; the metric-system Definition + the 1795 prefix law
@@ -963,8 +977,8 @@ downloads (references already logged).
 | 6 | Ratio, Rate and Proportion — **COMPLETE (5/5, run 32)** | ~~Ratio as a Comparison~~ · ~~Rates and Unit Rates~~ · ~~Proportion and Cross-Multiplication~~ · ~~Direct/Inverse Variation~~ · ~~Scaling: Maps, Models and Recipes~~ — all **WRITTEN** |
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
-| 9 | Measurement — **IN-PROGRESS (3/4, run 43)** | ~~Units as Agreements~~ · ~~The Metric System~~ · ~~Converting Without Tables~~ **WRITTEN (9.1 run 42; 9.2 + 9.3 run 43)** · Precision vs Accuracy (9.4 next — closes the chapter) |
-| 10 | Data and Graphs | Collecting/Tallying · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
+| 9 | Measurement — **COMPLETE (4/4, run 44)** | ~~Units as Agreements~~ · ~~The Metric System~~ · ~~Converting Without Tables~~ · ~~Precision, Accuracy and Rounding~~ — all **WRITTEN (9.1 run 42; 9.2 + 9.3 run 43; 9.4 run 44)**; unit-9 completion review passed |
+| 10 | Data and Graphs — **IN-PROGRESS (1/4, run 44)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
 
 ## 5. Engineering work (platform history)
@@ -1179,24 +1193,27 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 41 | ship + bookkeeping + memory | 11-05 | FM lesson 8.5 Perimeter and Area of Rectangles, Triangles and Circles — CHAPTER 8 CLOSED — verify-unit-8.ts 339 → 429 checks (AO–AZ); 5,998 words; figure 3 redesigned to the flush rearrangement after VLM 7/6 → 9/9; quiz live 5/5; unit-8 completion review; voice polish 4.1 + Rs-tfrac katex repair; new citation keys ncert-math6-gp-ch6 + ncert-math7-ch11; pushed per protocol |
 | 42 | ship + bookkeeping + memory | 11-05 | FM lesson 9.1 Units as Agreements — CHAPTER 9 MEASUREMENT OPENS — verify-unit-9.ts CREATED (200 checks A–M; gitignore exceptions FIRST); 5,501 words; figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans, shared rails, hooked braces); figure 2 10/9; quiz live 5/5 (keys 0/1/2/2/2); swap law derived + inverse law swept; new citation keys ncert-sci6-curiosity-ch5 + ncert-phys11-ch2; pushed per protocol |
 | 43 | ship + bookkeeping + memory | 11-05 | FM lessons 9.2 The Metric System (4,529 words) + 9.3 Converting Units Without Memorising Tables (3,603 words) — THE FIRST TWO-LESSON RUN (job 504365) — verify-unit-9.ts 200 → 428 checks (N–AD); chapter 9 in-progress 3/4; fig redesigns: 9.2 fig1 ×2 → 10/8, 9.3 fig1 token-strikes → 10/9, 9.3 fig2 rebuild → 10/9; quizzes live 5/5 both; new citation keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter; pushed per protocol |
+| 44 | ship + bookkeeping + memory | 11-05 | FM lesson 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) — CHAPTER 9 CLOSED with the unit-9 completion review passed — + FM lesson 10.1 Collecting and Tallying Data (4,533 words; ch-10.ts created + registered) — THE FIRST TWO-CHAPTER RUN — verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED (81 checks A–I); 9.3's thrice-repeated paragraph reduced to one; fig work: 9.4 plumb-line redrawn twice → 10/9, four-targets four passes → 9/8, 10.1 fig1 four passes (chips numbered, arrow removed, ruled frequency column) + the caption's 14-vs-12 fix; quizzes live 5/5 both; new citation keys ncert-math6-ch1 + ncert-ganita-prakash6-ch4; book = 42 lessons / 200,476 words; pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the run-43 ship + its memory commit pushed and remote-verified
+- HEAD: the run-44 ship + its memory commit pushed and remote-verified
   (protocol v2, one-time URL from job 504365's payload); synced shas
-  recorded in WORKLOG.md / RESUME_POINTER.json. Run 43 = the first
-  TWO-lesson run (9.2 + 9.3 shipped; chapter 9 in-progress 3/4).
+  recorded in WORKLOG.md / RESUME_POINTER.json. Run 44 = the first
+  TWO-CHAPTER run (9.4 shipped; chapter 9 COMPLETE; 10.1 shipped;
+  chapter 10 OPEN 1/4).
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 9 "Measurement" IN-PROGRESS 3/4 —
-  FM 9.2 "The Metric System" + FM 9.3 "Converting Units Without
-  Memorising Tables" shipped run 43** (job 504365 — the FIRST TWO-LESSON
+- **CURRENT (hourly cadence): CH. 9 "Measurement" COMPLETE 4/4 (the
+  unit-9 completion review passed) — CH. 10 "Data and Graphs" OPEN 1/4 —
+  FM 9.4 "Precision, Accuracy and Rounding in Measurement" + FM 10.1
+  "Collecting and Tallying Data" shipped run 44** (job 504365 — the FIRST TWO-LESSON
   run under the owner's 2026-11-05 directive). verify-unit-9.ts
   200 → 428 checks A–AD ALL PASS pre-writing; 4,529 + 3,603 words in
   the Cengage voice + solution chain; all four figures audited 0/0 and
@@ -1222,13 +1239,13 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   ncert-phys11-ch2. Book totals recomputed by the generator: 38
   lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises.
   Voice queue EMPTY.
-- **NEXT (hourly cadence): FM 9.4 "Precision, Accuracy and Rounding
-  in Measurement"** — EXTEND verify-unit-9.ts with the precision
-  sections FIRST, then author per BOOK_FORMAT + the ch-01 exemplar;
-  9.4 closes chapter 9 → the unit-9 completion review per precedent —
-  then ch. 10 "Data and Graphs" opens at 10.1 (verify-unit-10.ts
-  FIRST). Two lessons per run. The voice queue is empty: per-run
-  extras shift to unit reviews,
+- **NEXT (hourly cadence): FM 10.2 "Bar Charts, Line Graphs and Pie
+  Charts" + FM 10.3 "Reading Graphs Critically"** — EXTEND
+  verify-unit-10.ts with each lesson's sections FIRST, then author per
+  BOOK_FORMAT + the ch-01 exemplar, per-lesson gates, single ship;
+  10.4 "Mean, Median and Mode" closes chapter 10 next run → the
+  unit-10 completion review per precedent. Two lessons per run. The
+  voice queue is empty: per-run extras shift to unit reviews,
   exam-registry research, or DETAILED_LOG/SOURCE_LOG upkeep until a
   new queue is named. Chapter 9 planned: Units as Agreements
   **WRITTEN** · The Metric System · Converting Units Without

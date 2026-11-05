@@ -3,7 +3,7 @@
  "project": "LockIn Library",
  "updated": "2026-11-05",
  "phase": "FM ch. 9 Measurement IN-PROGRESS 3/4 (run 43 \u2014 the first TWO-lesson run \u2014 shipped 9.2 The Metric System + 9.3 Converting Units Without Memorising Tables; next 9.4 closes the chapter)",
- "awaiting": "FM 9.4 'Precision, Accuracy and Rounding in Measurement' (closes ch. 9 \u2014 EXTEND verify-unit-9.ts with the precision sections BEFORE writing; the unit-9 completion review follows per precedent) and then the NEXT unit's first lesson (ch. 10 Data and Graphs opens at 10.1 Collecting and Tallying Data) \u2014 two lessons per run; voice queue EMPTY \u2014 per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.",
+ "awaiting": "FM 10.2 'Bar Charts, Line Graphs and Pie Charts' and FM 10.3 'Reading Graphs Critically' \u2014 extend verify-unit-10.ts with each lesson's sections BEFORE writing (ch. 10 Data and Graphs in-progress 1/4; 10.4 Mean, Median and Mode closes the chapter next) \u2014 two lessons per run; voice queue EMPTY \u2014 per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.",
  "platform": {
   "status": "working \u2014 v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) \u00b7 TypeScript \u00b7 Tailwind 4 \u00b7 shadcn/ui \u00b7 zustand(persist v2) \u00b7 KaTeX \u00b7 next-themes \u00b7 framer-motion \u00b7 cmdk",
@@ -307,6 +307,21 @@
   "references": "NEW citation keys ncert-sci6-curiosity-ch5 (Curiosity class-6 ch. 5 Measurement of Length and Motion \u2014 handspan/cubit differ person to person, shopkeeper rod vs tailor tape, metre as SI; web-checked fecu105) + ncert-phys11-ch2 (class-11 physics ch. 2 Units and Measurements \u2014 SI 7 base units, derived units; web-checked); history web-checked (royal cubit 7x4 = 28 digits, Maya rod 52.3 cm; barleycorn inch statute; Henry-I yard legend honest-uncertain; Metre Convention 1875 17 states BIPM Sevres; SI named 1960 11th CGPM; India SOWM Act 1956 -> 1 Oct 1960 metric -> Legal Metrology Act 2009)",
   "content": "measurement defined is-said-to-be as a count of units with Q = n x u as tag 1; the desk-and-handspans case for agreement (figure 1); body units fail invariability; the three requirements of a good unit; the cubit rods as the agreement made physical; the swap law DERIVED as tag 2 (transitivity of equality) + the inverse law; the bare-number Caution; base vs derived quantities (area m^2 cashing 8.5, speed m/s cashing 6.2 with 45 km/h = 12.5 m/s); the treaty story 1875 -> 1960 SI 7 base units; India 1956/1960/2009; 8 terms, 5-quiz, 12 exercises L1-L6 (L6: the swap law proved; the 250-no-unit packet fraud cashed)",
   "scopeGuard": "no metric-prefix tables (9.2), no conversion-as-x1 drills (9.3), no precision/accuracy/rounding (9.4), no error numerics"
+ },
+ "run44Extras": {
+  "run": 44,
+  "date": "2026-11-05",
+  "delivered": [
+   "FM 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) \u2014 the chapter-closing lesson",
+   "UNIT-9 COMPLETION REVIEW passed \u2014 ch-09 flipped to complete, plannedLessons emptied",
+   "FM 10.1 Collecting and Tallying Data (4,533 words) \u2014 ch-10.ts CREATED + registered; chapter 10 Data and Graphs OPEN 1/4"
+  ],
+  "verify": "verify-unit-9.ts 428 \u2192 534 checks (AE\u2013AO) + verify-unit-10.ts CREATED 81 checks (A\u2013I), ALL PASS pre-writing both",
+  "gates": "tsc + lint clean (after module-scoping the verify scripts with export {}), routes 200, E2E dedicated 9.4 + 10.1 blocks green (quizzes live 5/5 on keys 1/1/2/1/0 and 0/2/2/1/1), SVG audits 0/0 all four figures, VLM 10/9 + 9/8 (9.4) and accepted-after-four-passes (10.1, geometry certified)",
+  "figures": "9.4: three-rulers plumb-line figure (redrawn twice \u2014 the white ruler bodies swallowed the line; the line re-anchored at the true apex) + the four-targets accuracy/precision figure (four passes: P4 bull-straddling dart removed, ring clearances \u2265 9 px with dot radius counted, P1 a regular pentagon centred on the bull); 10.1: the raw-list-to-tally-table figure (chips numbered 1\u201320; ruled frequency column; an arrow added then removed after the VLM read it as pointing at one row) + the gates gallery",
+  "fixed": "run-43 defect: the 9.3 paragraph \"One freedom worth noticing\u2026\" existed three times in ch-09.ts \u2014 reduced to one copy",
+  "counts": "book = 42 lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises; ch. 9 COMPLETE 19,213 words; ch. 10 1/4",
+  "citations": "new keys ncert-math6-ch1 (the class-6 rounding charter) + ncert-ganita-prakash6-ch4 (the tally/frequency charter)"
  },
  "ownerDirective20261105": {
   "oldJob": "498279 'LockIn Library \u2014 hourly unit run' \u2014 disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",

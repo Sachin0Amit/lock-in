@@ -106,8 +106,50 @@ import type { Chapter } from '../../../types'
  * 8 terms, 5-quiz (keys 0/1/2/2/1 verified live 5/5), 12 exercises L1-L6
  * (L6: the squared-factor proof; 1 km/h = 5/18 m/s derived); 3,603 words;
  * verify sections W–AD ALL PASS pre-writing (428 checks total); audit 0/0,
- * E2E block green, mobile exact-fit. Chapter 9 now 3/4 — 9.4 Precision,
- * Accuracy and Rounding in Measurement remains.
+ * E2E block green, mobile exact-fit.
+ *
+ * LESSON 9.4 Precision, Accuracy and Rounding in Measurement (run 44, same
+ * day — the chapter-closing lesson) — every measurement is a claim, not a
+ * fact: the 6.8 cm pencil read on three rulers (cm / half-cm / mm marks)
+ * giving 7 cm, 7.0 cm and 6.8 cm — three honest readings, one pencil, the
+ * instrument deciding the claim (figure 1: the plumb line dropping from the
+ * pencil tip through all three rulers with the reading dots, VLM 10/9 after
+ * two redesigns — the white-filled ruler bodies had swallowed the line, then
+ * the line re-anchored at the true apex); the precision Definition (the
+ * smallest unit the reading distinguishes) and the 7-vs-7.0 testimony Note
+ * (the trailing zero vouches); the interval law DERIVED as tag 1 (m − u/2 ≤
+ * t < m + u/2; left wall in by the half-up tie, right wall out) + the screw
+ * Illustration ([2.35, 2.45)) + the nested-claims para ([6.75, 6.85) ⊂
+ * [6.75, 7.25) ⊂ [6.5, 7.5)); the accuracy Definition + the 50-g-heavy
+ * scale (spread 0, error 50 g ≈ 16.7% — precise, not accurate) with figure 2
+ * the four targets (tight/wide × on/off bull — four VLM passes: P4’s
+ * bull-straddling dart removed, ring clearances enforced at ≥ 9 px with dot
+ * radius counted, P1 rebuilt as a regular pentagon centred exactly on the
+ * bull — final VLM 9/8, geometry certified by the verify script); the
+ * sprint-watch rehearsal (13.8/14.2/13.5 vs 13.9/13.9/13.9); the rounding
+ * section (the digit rule as a Definition; 5,768 → 5,770/5,800/6,000 as
+ * Illustration; the half-up convention Caution with 1,450 → 1,000 as the
+ * not-half contrast; the round-once Caution — 2.3447 direct 2.34 vs chained
+ * 2.35, and 47,499 → 47,000 vs 48,000); significant figures (leading zeros
+ * locate, trailing zeros after the point testify, 4,200 ambiguous); the
+ * greatest-possible-error derivation as tag 2 (GPE = u/2) + the instrument
+ * table (mm ruler 0.5 mm; 5 g scale 2.5 g; the handspan — no GPE, the
+ * return of invariability) + the kitchen-scale Illustration ([347.5, 352.5),
+ * error 1 ≤ 2.5); the exam corner; the Everest 1856 historical callout
+ * (29,002 ft announced; the 29,000+2 padding told as hedged lore; the audit
+ * 29,002 ft = 8,839.81 m vs the 2020 8,848.86 m → error 9.05 m ≈ 0.102%);
+ * 3 formula cards; 8 terms, 5-quiz (keys 1/1/2/1/0 verified live 5/5),
+ * 12 exercises L1–L6 (L6: the interval law proved with the walls’ tie
+ * behaviour; the Everest audit through the 1 ft = 0.3048 m identity). Scope
+ * guard held: no sig-fig arithmetic, no relative-error formalism beyond the
+ * single Everest instance, no statistics of repeated measurement (ch. 10),
+ * no uncertainty algebra. Authored in the Cengage voice + solution chain;
+ * every number pre-verified by scripts/verify-unit-9.ts (sections AE–AN +
+ * AO, 531 → 534 checks A–AO ALL PASS) BEFORE writing. Unit-9 completion
+ * review passed (run-6/11/20/25/36/41 precedent): BOOK_FORMAT checklist 7/7,
+ * exam corners 4/4, lesson ids globally unique (book-wide 41/41), ch-09
+ * status flipped to complete, plannedLessons emptied, totals recomputed at
+ * ship.
  *
  * References: NCERT "Curiosity" class-6 ch. 5 "Measurement of Length
  * and Motion" (fecu105 — handspan/cubit/foot as non-standard units
@@ -132,10 +174,8 @@ export const chapter09: Chapter = {
   title: 'Measurement',
   summary:
     'What it means to measure: units as agreements, the metric system from first principles, unit conversion as multiplication by one, and the difference between precision and accuracy.',
-  status: 'in-progress',
-  plannedLessons: [
-    'Precision, Accuracy and Rounding in Measurement',
-  ],
+  status: 'complete',
+  plannedLessons: [],
   lessons: [
     {
       id: 'fm-units-as-agreements',
@@ -1449,14 +1489,6 @@ export const chapter09: Chapter = {
         },
         {
           kind: 'para',
-          text: 'One freedom worth noticing: the chain\u2019s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ \u2014 the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor\u2019s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right \u2014 cancel what you have, name what you hold, reach for the next identity \u2014 but the algebra itself never cares.',
-        },
-        {
-          kind: 'para',
-          text: 'One freedom worth noticing: the chain’s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ — the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor’s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right — cancel what you have, name what you hold, reach for the next identity — but the algebra itself never cares.',
-        },
-        {
-          kind: 'para',
           text: 'One freedom worth noticing: the chain’s **order does not matter**. Multiplication has been commutative since chapter 2, so $2.5 \\times 1000 \\times 100 = 2.5 \\times 100 \\times 1000$ — the factors may wear in any sequence and the cancellations rearrange themselves around them. What is *not* free is the **matching**: every factor’s bottom unit must be a unit actually present in the product at that moment, or nothing cancels and the line drowns in orphan units. The safe habit is left to right — cancel what you have, name what you hold, reach for the next identity — but the algebra itself never cares.',
         },
         {
@@ -1853,6 +1885,645 @@ export const chapter09: Chapter = {
                     'Hence 1 km/h = 5/18 m/s — the entire 6.2 conversion law, generated from two owned facts and the licence to multiply by one. That is the economy: six identities, one licence, every conversion.',
                   ],
                   answer: '1 km/h = 1000/3600 = 5/18 ≈ 0.278 m/s — derived from two identities',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-precision-accuracy-and-rounding-in-measurement',
+      number: '9.4',
+      title: 'Precision, Accuracy and Rounding in Measurement',
+      concepts: [
+        'Every measurement is a claim, not a fact',
+        'Precision — the fineness of the unit',
+        'The interval a reading hides',
+        'Accuracy — closeness to the true value',
+        'Precision and accuracy are independent axes',
+        'Rounding to a named place — the digit rule',
+        'The greatest possible error',
+        'Significant figures — counting the honest digits',
+      ],
+      objectives: [
+        'Explain why no measurement is exact — a reading names the unit-multiple nearest the truth — and read "7 cm" and "7.0 cm" as different claims about the same pencil',
+        'State the precision of a measurement as the smallest unit it distinguishes, and derive the interval law: a reading $m$ to the nearest unit $u$ confines the true value to $m - u/2 \\le t < m + u/2$',
+        'Distinguish accuracy (closeness to the true value) from precision (fineness and repeatability), and diagnose a precise-but-inaccurate instrument from its pattern of readings',
+        'Round any number to a named place by the digit rule — including the half-up convention and the round-once-from-the-original discipline that defeats double rounding',
+        'Compute the greatest possible error of an instrument (half its smallest division) and count the significant figures a written measurement honestly carries',
+      ],
+      prerequisites: ['fm-converting-units-without-memorising-tables', 'fm-the-metric-system', 'fm-decimal-places-and-the-point'],
+      sources: ['ncert-sci6-curiosity-ch5', 'ncert-phys11-ch2', 'ncert-math6-ch1', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Three lessons have built the machinery of measurement, and all of them wore clean numbers: 82 m of fence, 250 g of flour, 3.45 km of relay, 4,200 mm of point-shifted digits. This closing lesson asks the question a careful reader should have been saving all along: *is the number true?* Take a brand-new pencil and three rulers from the same drawer — one ruled only in centimetres, one in half-centimetres, one in millimetres. One pencil, three careful eyes, and the drawer hands back three different answers: **7 cm, 7.0 cm and 6.8 cm**. Nobody erred. Nobody need apologise. The answers differ because the instruments differ — and untangling exactly what each answer *claims* is the business of this lesson.',
+        },
+        {
+          kind: 'para',
+          text: 'The reason runs straight back to 9.1: a measurement is a **count of units**, and a count can only land on multiples of its unit. Between two neighbouring marks — however fine the ruler — the truth hides. So every measurement is a **claim about an interval**, never a fact about a point, and two honest skills follow: *reading* what a measurement claims (precision, the hidden interval, the greatest possible error) and *writing* numbers back at the same honesty (rounding, significant figures). Then there is the word that sounds like precision but is not it: **accuracy** — a second, independent axis on which every measurement stands or falls.',
+        },
+        { kind: 'heading', text: 'One pencil, three rulers: the claim behind a reading' },
+        {
+          kind: 'para',
+          text: 'Lay the pencil along each ruler with its eraser end on the zero mark, and read the tip (figure 1). On **ruler A**, ruled in whole centimetres, the tip falls between the 6 and the 7 — and visibly nearer the 7 — so the ruler can only say **7 cm**. On **ruler B**, ruled in half-centimetres, the neighbouring marks are 6.5 and 7.0; the tip sits 0.3 from the first and 0.2 from the second, so B says **7.0 cm**. On **ruler C**, ruled in millimetres, the tip lands exactly on the 68th millimetre mark: C says **6.8 cm**. Three instruments, three readings, one pencil.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The same pencil — true length 6.8 cm, drawn once at top — laid against three rulers. Ruler A (centimetre marks) reads 7 cm; ruler B (half-centimetre marks) reads 7.0 cm; ruler C (millimetre marks) reads 6.8 cm. The dashed plumb-line drops from the pencil tip through all three rulers: the tip never moved, but each instrument can only speak at its own coarseness. Every reading is honest; they differ because the claims differ.',
+          svg: `<svg viewBox="0 0 800 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One 6.8 cm pencil drawn above three rulers ruled respectively in centimetres, half-centimetres and millimetres; a dashed plumb line from the pencil tip shows the readings 7 cm, 7.0 cm and 6.8 cm">
+  <text x="400" y="24" font-size="13" fill="currentColor" text-anchor="middle">three rulers, one pencil — the instrument decides the claim</text>
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <rect x="92" y="66" width="378" height="24" rx="2"/>
+    <rect x="70" y="66" width="22" height="24" rx="3"/>
+    <polygon points="470,66 491.6,78 470,90"/>
+  </g>
+  <polygon points="486,72.6 491.6,78 486,83.4" fill="currentColor"/>
+  <text x="281" y="58" font-size="12" fill="currentColor" text-anchor="middle">true length 6.8 cm</text>
+  <g stroke="currentColor" stroke-width="1" fill="#ffffff">
+    <rect x="70" y="150" width="496" height="36"/>
+    <rect x="70" y="235" width="496" height="36"/>
+    <rect x="70" y="320" width="496" height="36"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1.2">
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<line x1="${70 + 62 * k}" y1="150" x2="${70 + 62 * k}" y2="164"/>`).join('')}
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<line x1="${70 + 62 * k}" y1="235" x2="${70 + 62 * k}" y2="251"/>`).join('')}
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<line x1="${70 + 62 * k}" y1="320" x2="${70 + 62 * k}" y2="334"/>`).join('')}
+  </g>
+  <g stroke="currentColor" stroke-width="0.7" opacity="0.85">
+    ${Array.from({ length: 17 }, (_, i) => (i % 2 === 0 ? '' : `<line x1="${70 + 31 * i}" y1="235" x2="${70 + 31 * i}" y2="242"/>`)).join('')}
+    ${Array.from({ length: 81 }, (_, i) => (i % 10 === 0 ? '' : `<line x1="${70 + 6.2 * i}" y1="320" x2="${70 + 6.2 * i}" y2="327"/>`)).join('')}
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<text x="${70 + 62 * k}" y="202">${k}</text>`).join('')}
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<text x="${70 + 62 * k}" y="287">${k}</text>`).join('')}
+    ${[0,1,2,3,4,5,6,7,8].map((k) => `<text x="${70 + 62 * k}" y="372">${k}</text>`).join('')}
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">
+    <text x="40" y="172">ruler A</text>
+    <text x="40" y="257">ruler B</text>
+    <text x="40" y="342">ruler C</text>
+  </g>
+  <line x1="491.6" y1="78" x2="491.6" y2="356" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.75"/>
+  <g fill="currentColor">
+    <circle cx="491.6" cy="168" r="3.2"/>
+    <circle cx="491.6" cy="253" r="3.2"/>
+    <circle cx="491.6" cy="338" r="3.2"/>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="590" y="172">7 cm — nearest 1 cm</text>
+    <text x="590" y="257">7.0 cm — nearest 0.5 cm</text>
+    <text x="590" y="342">6.8 cm — nearest 0.1 cm</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'table',
+          caption:
+            'One pencil (true length 6.8 cm), three instruments, three claims. The smaller the unit a reading distinguishes, the finer its promise about the truth.',
+          head: ['Reading', 'Unit it distinguishes', 'The claim (the hidden interval)', 'Precision'],
+          rows: [
+            ['7 cm', '1 cm', '$6.5 \\le t < 7.5$ cm', 'coarsest'],
+            ['7.0 cm', '0.5 cm', '$6.75 \\le t < 7.25$ cm', 'finer'],
+            ['6.8 cm', '0.1 cm', '$6.75 \\le t < 6.85$ cm', 'finest'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Notice what did **not** cause the differences. Not carelessness — all three readers were careful. Not handwriting — all three wrote clean digits. The cause is the **instrument**: the count can only land on the marks the ruler owns, so the ruler\u2019s smallest mark is the finest sentence the reading can speak. That property of a measurement has a name.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Precision',
+          text: 'The **precision** of a measurement is said to be the **size of the smallest unit (or instrument division) the reading distinguishes** — a measurement is *more precise* when that unit is smaller. Thus "6.8 cm" (unit 0.1 cm) is more precise than "7 cm" (unit 1 cm); "7.25 s" is more precise than "7.3 s". Precision belongs to the **instrument and its unit**, never to the confidence of the person.',
+        },
+        {
+          kind: 'para',
+          text: 'Now the subtlest reading in the table: **7 cm versus 7.0 cm**. As *numbers* they are identical — 5.1\u2019s trailing-zero licence said so. As *measurements* they are different sentences. "7 cm" speaks in whole centimetres and promises $6.5 \\le t < 7.5$. "7.0 cm" testifies that the reader could resolve tenths — a ruler like B or C was in play — and promises ten times better. The trailing zero is not decoration; it is **testimony**.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The zero that vouches',
+          text: 'When a measured "7.0 cm" is lazily rewritten "7 cm", the value survives but the claim collapses — and a claim, unlike a digit, cannot be recovered from the digits that remain. Write every zero your instrument earned; never write one it did not.',
+        },
+        { kind: 'heading', text: 'The interval a reading hides' },
+        {
+          kind: 'para',
+          text: 'What exactly does a reading promise about the truth? A reading $m$ taken to the nearest unit $u$ says: *the true value $t$ is nearer to $m$ than to any other multiple of $u$*. The contestants of $m$ live one unit away on either side, at $m - u$ and $m + u$; the territory where $m$ wins is the strip between the two halfway points, $m - u/2$ and $m + u/2$. That strip is the claim, made exact:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The interval law: what a reading to the nearest unit really asserts',
+          statement:
+            'A length is read as $m$ to the nearest unit $u$ — for the pencil, $6.8$ cm to the nearest $0.1$ cm. Show that the true value $t$ must satisfy $m - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}$, and locate the walls.',
+          steps: [
+            {
+              label: 'What the reading asserts',
+              formula: '6.8 = \\text{the nearest tenth to } t',
+              explanation:
+                'The reading is the winner of a nearest-mark contest: among all tenth-multiples (6.0, 6.1, …, 6.7, 6.8, 6.9, 7.0, …), the truth sat closest to 6.8 — that is what "6.8 cm, to the nearest 0.1 cm" means.',
+            },
+            {
+              label: 'The halfway walls',
+              formula: '6.8 - 0.05 = 6.75, \\qquad 6.8 + 0.05 = 6.85',
+              explanation:
+                'Halfway between 6.8 and its neighbour 6.7 stands 6.75; halfway towards 6.9 stands 6.85. Left of 6.75 the winner would have been 6.7; from 6.85 onward it is 6.9.',
+            },
+            {
+              label: 'The left wall is in, the right wall is out',
+              formula: '6.75 \\le t < 6.85',
+              explanation:
+                'At exactly 6.75 the contest is a tie, and the school convention gives ties to the larger candidate (the half-up rule of the rounding section below) — so 6.75 itself still reads 6.8 and belongs inside. At exactly 6.85 the tie is given to 6.9, so 6.85 is already outside.',
+            },
+          ],
+          result: 'If the truth is read as $m$ to the nearest unit $u$, then $m - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}$ — for the pencil: $6.75 \\le t < 6.85$ cm.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{read } m \\text{ to the nearest } u \\;\\Longrightarrow\\; m - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}',
+          note: '**The interval law (tag 1).** Every measurement is a claim about a range, with a half-unit of honesty built in on each side — left wall in (the half-up tie), right wall out.',
+        },
+        {
+          kind: 'example',
+          title: 'A screw’s length is reported as 2.4 cm, measured to the nearest 0.1 cm. Between which bounds does the true length lie?',
+          steps: [
+            'Now, the reading is $m = 2.4$ and the unit is $u = 0.1$ cm — the interval law applies.',
+            'So the walls sit half a unit away: $2.4 - 0.05 = 2.35$ and $2.4 + 0.05 = 2.45$.',
+            'And the walls behave by the half-up convention: 2.35 itself still reads 2.4 (inside), while 2.45 already reads 2.5 (outside).',
+            'Hence $2.35 \\le t < 2.45$ cm — the screw is pinned to a strip half a millimetre wide.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The three pencil readings now show their deeper order. Read 7 cm claims $[6.5, 7.5)$; read 7.0 cm (unit 0.5) claims $[6.75, 7.25)$; read 6.8 cm claims $[6.75, 6.85)$. Each finer claim is a **sub-interval of the coarser one** — the claims *nest*, the way zooming nests: $[6.75, 6.85) \\subset [6.75, 7.25) \\subset [6.5, 7.5)$. Precision, in the interval picture, is simply the *width* of the strip you are willing to sign your name to — and 9.2\u2019s ladder of rungs is a machine for printing narrower strips.',
+        },
+        { kind: 'heading', text: 'Accuracy: the other axis' },
+        {
+          kind: 'para',
+          text: 'Precision says how **fine** a claim is. It says nothing about whether the claim is **true** — and truth is the measurer\u2019s real debt. A second word carries that meaning, and keeping the two apart is one of the most profitable distinctions in all of measurement.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Accuracy and error',
+          text: 'A measurement is said to be **accurate** when it lies **close to the true (accepted) value** of the quantity. The **error** of a measurement is the gap between the measured and the true value, $\\text{error} = |\\text{measured} - \\text{true}|$ — small error, high accuracy. Accuracy is measured against *truth*; precision is measured against *the unit*.',
+        },
+        {
+          kind: 'para',
+          text: 'The kitchen scale tells the story in one paragraph. Suppose a scale has been knocked against a wall and now reads **exactly 50 g heavy** on everything. Weigh a 300 g check-weight five times: **350.0, 350.0, 350.0, 350.0, 350.0**. The readings are magnificently *repeatable* — spread zero, every digit stable, an instrument of beautiful precision (it resolves tenths of a gram!). And every single reading is wrong by 50 g — about 16.7% too high — which is to say, *inaccurate*. The failure is not in the fineness; it is in the **adjustment**. Precision lives in the divisions and the repeatability; accuracy lives in the comparison with truth.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Four targets, four measurement lives — each dart is one reading, the bull’s eye is the true value. Panel 1: tight and centred — accurate and precise, the goal. Panel 2: tight but displaced — precise, not accurate: the 50-g-heavy scale, which needs recalibration, not more digits. Panel 3: scattered about the bull — accurate on average, not precise: an unsteady hand. Panel 4: scattered and displaced — neither. The spread of the cluster is the precision; the offset of the cluster from the bull is the accuracy. They are independent axes: fixing one says nothing about the other.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four archery targets with dart clusters: tight and on the bull; tight but off the bull; scattered but centred; scattered and off the bull">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">four targets — the spread is the precision; the offset is the accuracy</text>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    ${[105, 285, 465, 645].map((cx) => `<circle cx="${cx}" cy="140" r="85"/><circle cx="${cx}" cy="140" r="56"/><circle cx="${cx}" cy="140" r="27"/>`).join('')}
+  </g>
+  <g fill="currentColor">
+    ${[105, 285, 465, 645].map((cx) => `<circle cx="${cx}" cy="140" r="3"/>`).join('')}
+    <circle cx="105" cy="131.5" r="3"/><circle cx="113.1" cy="137.4" r="3"/><circle cx="110" cy="146.9" r="3"/><circle cx="100" cy="146.9" r="3"/><circle cx="96.9" cy="137.4" r="3"/>
+    <circle cx="319" cy="109" r="3"/><circle cx="324" cy="118" r="3"/><circle cx="314" cy="118" r="3"/>
+    <circle cx="505" cy="125" r="4"/><circle cx="427" cy="160" r="4"/><circle cx="475" cy="185" r="4"/><circle cx="445" cy="100" r="4"/><circle cx="510" cy="148" r="4"/><circle cx="461" cy="94" r="4"/>
+    <circle cx="681" cy="110" r="4"/><circle cx="688" cy="124" r="4"/><circle cx="697" cy="98" r="4"/><circle cx="711" cy="116" r="4"/><circle cx="685" cy="148" r="4"/><circle cx="651" cy="102" r="4"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="105" y="272">tight, on the bull</text>
+    <text x="285" y="272">tight, off the bull</text>
+    <text x="465" y="272">scattered, on the bull</text>
+    <text x="645" y="272">scattered, off the bull</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The four panels name the four lives any instrument can lead. Panel 1 is the goal: tight *and* centred. Panel 2 is the knocked scale — the cure is **calibration**: re-zeroing the instrument against a known standard, exactly the keeper\u2019s job that 9.1 traced from the cubit rods to the BIPM at Sèvres. Panel 3 is the unsteady hand — the cure is technique or a finer instrument. Panel 4 needs both. And the sprint-watch gives the vocabulary a rehearsal: student A times one race as 13.8, 14.2 and 13.5 s — scattered about the truth with a spread of 0.7 s; student B reads 13.9, 13.9, 13.9 s — dead level, three times out of three. If the true time is 13.9 s, B is both precise and accurate; A\u2019s readings *straddle* the truth (two below, one above) but none of them *is* it — A is centred yet cannot certify anything finer than the scatter.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Precision bounds accuracy',
+          text: 'No amount of care makes a millimetre ruler\u2019s reading better than half a millimetre — the finest claim it can sign is fixed by its smallest division. To promise finer, change the **instrument**: that is the entire economic case for 9.2\u2019s ladder of finer rungs. Precision sets the ceiling that accuracy must live under.',
+        },
+        { kind: 'heading', text: 'Rounding: writing the honest number' },
+        {
+          kind: 'para',
+          text: 'The interval law reads measurements *into* intervals; rounding runs the same road backwards. Chapter 1 met large numbers that were unwieldy to carry (a crowd of 84,263 at a stadium), and the daily language answer was "about 84,000" — a deliberate, rule-governed coarsening that NCERT\u2019s class-6 charter calls **estimating (rounding off) to the nearest ten, hundred, thousand**. Rounding is the writing-side twin of the reading-side truth of this lesson: it throws away digits the claim can no longer support. The rule is a two-line engine:',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The digit rule for rounding',
+          text: 'To round a number to a named place, look at the **single digit immediately to the right of that place**: if it is **4 or less, leave** the place-digit as it is (round down); if it is **5 or more, raise** the place-digit by one (round up). Everything to the right of the rounding place becomes zeros — or is simply dropped when it sits after a decimal point. "Nearest" is the whole meaning: the rounded value is the multiple of the place **closest** to the original.',
+        },
+        {
+          kind: 'para',
+          text: 'One number, three places, three honest verdicts — and the census-style figure 5,768 is the classic drill. To the nearest **ten**: the place-digit is the 6, the next digit is 8, and $8 \\ge 5$, so bump: **5,770**. To the nearest **hundred**: the place-digit is the 7, the next digit is 6, bump: **5,800**. To the nearest **thousand**: the place-digit is the 5, the next digit is 7, bump: **6,000**. Each answer is the multiple of its place nearest to 5,768 — check the thousand case against the interval picture: 5,768 lives in $[5{,}500, 6{,}500)$, whose owner is 6,000.',
+        },
+        {
+          kind: 'example',
+          title: 'Round 5,768 to the nearest ten, to the nearest hundred, and to the nearest thousand.',
+          steps: [
+            'Now, nearest ten: the place is the tens digit 6; the next digit is 8, and $8 \\ge 5$, so bump — $5{,}770$.',
+            'So nearest hundred: the place is the hundreds digit 7; the next digit is 6, and $6 \\ge 5$, so bump — $5{,}800$.',
+            'And nearest thousand: the place is the thousands digit 5; the next digit is 7, and $7 \\ge 5$, so bump — $6{,}000$.',
+            'Hence 5,770, 5,800 and 6,000 — one number, three claims, each coarser than the last.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The half case: exactly halfway goes up — by convention',
+          text: 'When the next digit is 5 and nothing follows, the number sits **exactly halfway** between two candidates: 2.5 is no nearer to 2 than to 3; 45 is equidistant from 40 and 50. No rule of arithmetic decides this — so the school **convention** does: **round half up**. Thus $2.5 \\to 3$, $45 \\to 50$, $150 \\to 200$ (nearest hundred). Hold it honestly: this is a chosen tie-break, the world\u2019s most common one, not a theorem. (But do check that a case *is* a half case: 1,450 to the nearest thousand is **not** one — it lies 450 from 1,000 and 550 from 2,000, so it rounds to 1,000 with no convention needed.)',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Round once, from the original',
+          text: 'Rounding twice can invent precision that never existed. Take 2.3447 to 2 decimal places **directly**: the next digit is the third-decimal 4, so leave — **2.34**. But round first to 3 dp (next digit 7: bump to 2.345) and then again (next digit 5: bump) and you land on **2.35** — a different answer, manufactured by the sequence. The whole-number twin: 47,499 to the nearest thousand is **47,000** directly, but chained through 47,500 it becomes 48,000 — off by a full thousand. The discipline: **round once, always from the original number.**',
+        },
+        {
+          kind: 'para',
+          text: 'Rounding is **many-to-one**, and that is not a defect but the point: 571 and 620 both land on 600 (nearest hundred), the way both 6.79 and 6.81 land on 6.8. Information is deliberately discarded so that the digits which *survive* are exactly the ones the claim can support. Which raises the bookkeeper\u2019s question this lesson has been owed since the three rulers: of the digits on the page, how many actually *say* something?',
+        },
+        { kind: 'heading', text: 'Significant figures: counting the honest digits' },
+        {
+          kind: 'para',
+          text: 'The **significant figures** of a written measurement are the digits that carry its claim — **all digits from the first non-zero onward**. Leading zeros never count: "0.0042 g" is a two-digit claim, because the zeros merely walk the point to its place (5.1\u2019s point-locating, wearing measuring clothes). Trailing zeros **after the decimal point** always count — they are the vouching zeros of the 7.0 cm paragraph. Interior zeros count: they sit between carriers. And one case stays honestly ambiguous: trailing zeros in a **whole number without a point** ("4,200 m") may be signposts or testimony — 2, 3 or 4 significant figures — which is why laboratories write $4.2 \\times 10^3$ m, or 4,200. m with an announcing point, or say the words "to the nearest hundred".',
+        },
+        {
+          kind: 'table',
+          caption:
+            'Counting the honest digits. The count runs from the first non-zero digit; the point and the leading zeros only locate, the trailing zeros after the point testify.',
+          head: ['Written', 'Significant figures', 'Why'],
+          rows: [
+            ['6.8 cm', '2', 'both digits carry the claim'],
+            ['7.0 cm', '2', 'the trailing zero testifies — a measured zero counts'],
+            ['0.0042 g', '2', 'leading zeros only locate the point — never count'],
+            ['105 mg', '3', 'an interior zero sits between carriers — it counts'],
+            ['1.05 s', '3', 'the same, worn as a decimal'],
+            ['0.050 km', '2', 'the trailing zero after the point counts'],
+            ['4,200 m', '2, 3 or 4 — ambiguous', 'point-less trailing zeros: write 4,200. m or say "to the nearest hundred"'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Two quiet connections close the loop. First, significant figures are the precision of a reading written on its sleeve: 0.0042 g (two sig figs, last digit in the ten-thousandths place) is a finer claim than 4 g (one sig fig, units place). Second, the last significant digit\u2019s place **is** the unit $u$ of the interval law — so its half-width can be read straight off the page: the claim 0.0042 hides $u = 0.0001$ and a greatest possible error of $0.00005$. Which is the last machine to build.',
+        },
+        { kind: 'heading', text: 'The greatest possible error' },
+        {
+          kind: 'para',
+          text: 'The interval law names the walls; the half-width between them has earned its own name, because it is the number a quality-hungry world actually asks for. The **greatest possible error** (GPE) of an instrument is the largest error a reading can hide — and the interval law already proved exactly how big that can be:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The greatest possible error is half the smallest division',
+          statement:
+            'A reading $m$ to the nearest unit $u$ accepts exactly the true values in $[m - \\tfrac{u}{2},\\ m + \\tfrac{u}{2})$. Show that no accepted true value can miss the reading by more than $\\tfrac{u}{2}$.',
+          steps: [
+            {
+              label: 'The worst cases live at the walls',
+              formula: 't = m - \\tfrac{u}{2} \\quad \\text{or} \\quad t = m + \\tfrac{u}{2}',
+              explanation:
+                'Inside the interval, the gap $|m - t|$ grows as $t$ moves away from the centre — the farthest accepted truths are the two walls themselves.',
+            },
+            {
+              label: 'Measure the wall distance',
+              formula: '|m - (m - \\tfrac{u}{2})| = |(m + \\tfrac{u}{2}) - m| = \\tfrac{u}{2}',
+              explanation:
+                'Both walls sit exactly half a unit from the reading — the strip is symmetric, so both extremes carry the same gap.',
+            },
+            {
+              label: 'So the error has a ceiling',
+              formula: '|m - t| \\le \\tfrac{u}{2}',
+              explanation:
+                'The error can reach $u/2$ only at the left wall (the tie that rounds up) and squeeze towards it at the right — half the smallest division is the ceiling on every reading the instrument will ever give.',
+            },
+          ],
+          result: 'The greatest possible error is $\\tfrac{u}{2}$ — for the millimetre ruler, $u = 1$ mm and no reading it will ever produce can be wrong by more than $0.5$ mm.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{GPE} = \\tfrac{u}{2}, \\qquad |m - t| \\le \\tfrac{u}{2}',
+          note: '**The greatest possible error (tag 2).** Half the smallest division — the precision ceiling that accuracy lives under.',
+        },
+        {
+          kind: 'table',
+          caption:
+            'Every instrument promises at most half its smallest division. The last row is 9.1 returning: a body unit has no GPE because it has no invariable unit — "10 spans" cannot even state its own error.',
+          head: ['Instrument (smallest division)', 'Reading example', 'Greatest possible error'],
+          rows: [
+            ['millimetre ruler (1 mm)', '6.8 cm', '0.5 mm'],
+            ['kitchen scale (5 g)', '350 g', '2.5 g'],
+            ['bathroom scale (0.5 kg)', '42.0 kg', '0.25 kg'],
+            ['school stopwatch (0.01 s)', '12.45 s', '0.005 s'],
+            ['the handspan (varies by measurer)', '"10 spans"', 'not defined — the unit itself wobbles'],
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'A kitchen scale reads to the nearest 5 g. It shows 350 g for a bag of rice whose true weight is later found to be 349 g. State the claim the reading made, and decide whether it kept its promise.',
+          steps: [
+            'Now, the unit is $u = 5$ g, so the greatest possible error is $5/2 = 2.5$ g.',
+            'So the reading claimed $350 - 2.5 \\le t < 350 + 2.5$, that is $347.5 \\le t < 352.5$ g.',
+            'And the truth, 349 g, sits inside the interval; the actual error is $|350 - 349| = 1$ g, comfortably inside the 2.5 g ceiling. ✓',
+            'Hence the reading kept its promise — the scale may only ever miss by 2.5 g, and it missed by 1.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The harvest, in the lesson\u2019s own order:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'every measurement is a claim, not a fact — a count can only land on its unit\u2019s multiples, so the truth hides between the marks;',
+            'precision = the smallest unit the reading distinguishes; the instrument decides it, and a trailing zero (7.0 cm) is testimony, not decoration;',
+            'the interval law: reading $m$ to the nearest $u$ claims $m - u/2 \\le t < m + u/2$ — left wall in, right wall out;',
+            'finer claims nest inside coarser ones: $[6.75, 6.85) \\subset [6.75, 7.25) \\subset [6.5, 7.5)$;',
+            'accuracy = closeness to the true value ($\\text{error} = |\\text{measured} - \\text{true}|$) — an independent axis: the 50-g-heavy scale is perfectly precise and badly inaccurate, and needs calibration, not more digits;',
+            'the rounding engine: next digit $\\le 4$ leave, $\\ge 5$ bump; halves go up by convention; round once, from the original;',
+            'significant figures count from the first non-zero; the last significant digit\u2019s place is $u$, and the GPE $= u/2$ is the ceiling every reading of that instrument must live under.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'This lesson\u2019s staples run the whole ladder from drill to judgement. Rounding-off items to the nearest ten/hundred/thousand are permanent fixtures of SSC CGL/CHSL, RRB NTPC and banking prelims — usually inside estimation questions (round first, then add), never reproduced here; the digit rule and the half-up convention are the entire tested content. "Approximation" papers (ICSE class 9 and state boards) ask for bounds and errors of stated instruments — the interval law and the GPE of this lesson are exactly that machinery at school dress. The precise-vs-accurate diagnosis appears in NTSE and physics-readiness items, typically as a mis-calibrated instrument described in words. And teacher-eligibility papers (CTET and state TETs) ask the *pedagogy* of it: why a child should report "7 cm" and not "7.000 cm" — the answer is this lesson\u2019s whole argument, that digits are claims.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The two feet that bought believability — Everest, 1856',
+          text: 'In 1856 the Great Trigonometrical Survey of India announced the height of Peak XV — later named for a former surveyor-general, George Everest — as **29,002 feet**. The account surveyors have repeated ever since: the computations kept landing on exactly **29,000** — and a perfectly round number invites perfectly reasonable disbelief ("measured to the nearest foot? surely an estimate!") — so two feet were added to make the figure *sound* as exact as it was claimed to be. Tell it the way this book tells the Henry-I yard: the padding story is lore, retold with confidence; what the record states plainly is the **29,002 ft** announcement. The audit with modern instruments is a tribute either way: the 2020 China\u2013Nepal joint survey puts the mountain at **8,848.86 m = 29,031.7 ft**, so the 1856 figure misses by 9.05 m — about 29.7 feet, a relative error of **0.102%**, one part in a thousand, achieved through hundreds of kilometres of theodolite sightlines across the Indian plains. Two feet of story, one-thousandth of error — and both teach the same lesson this chapter closes on: digits are claims, and readers judge claims by their shape. (The honest modern dress, the interval law\u2019s own: report the reading **and** its ceiling.)',
+        },
+        {
+          kind: 'formula',
+          name: 'The interval law (what a reading claims)',
+          latex: 'm - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}',
+          note: 'A reading $m$ to the nearest unit $u$ pins the truth in a strip of width $u$ — left wall in, right wall out (the half-up tie). The pencil: 6.8 to the nearest 0.1 claims $[6.75, 6.85)$.',
+        },
+        {
+          kind: 'formula',
+          name: 'The greatest possible error',
+          latex: '\\text{GPE} = \\tfrac{u}{2}, \\qquad |m - t| \\le \\tfrac{u}{2}',
+          note: 'Half the smallest division — the ceiling on every error the instrument can hide. mm ruler: 0.5 mm. 5 g scale: 2.5 g. A body unit: undefined, because $u$ itself wobbles.',
+        },
+        {
+          kind: 'formula',
+          name: 'The rounding rule',
+          latex: '\\text{next digit} \\le 4 \\Rightarrow \\text{leave}; \\quad \\text{next digit} \\ge 5 \\Rightarrow \\text{bump up}',
+          note: 'Round to the NEAREST multiple of the place; exact halves go up by the school convention; and always round ONCE, from the original — chained rounding invents digits.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Precision',
+              def: 'The size of the smallest unit (or instrument division) a measurement distinguishes — finer unit, more precise claim. Decided by the instrument, not the person.',
+            },
+            {
+              term: 'Accuracy',
+              def: 'Closeness of a measurement to the true (accepted) value. An independent axis from precision: the knocked scale reads 350.0 five times (precise) and misses by 50 g (inaccurate).',
+            },
+            {
+              term: 'Error',
+              def: 'The gap between measured and true: $\\text{error} = |\\text{measured} - \\text{true}|$. Accuracy is the smallness of this gap.',
+            },
+            {
+              term: 'Interval of a reading',
+              def: 'The range a measurement honestly claims: $m - u/2 \\le t < m + u/2$ for a reading $m$ to the nearest unit $u$. Finer readings nest inside coarser ones.',
+            },
+            {
+              term: 'Bounds (lower and upper)',
+              def: 'The two walls of a reading\u2019s interval: the lower bound $m - u/2$ (included) and the upper bound $m + u/2$ (excluded). For 6.8 cm to the nearest 0.1: 6.75 and 6.85.',
+            },
+            {
+              term: 'Greatest possible error (GPE)',
+              def: 'Half the smallest division, $u/2$ — the ceiling on the error any reading of the instrument can hide. The mm ruler\u2019s is 0.5 mm, forever.',
+            },
+            {
+              term: 'Rounding',
+              def: 'Deliberate coarsening of a number to a named place by the digit rule: next digit $\\le 4$ leave, $\\ge 5$ bump; exact halves up by convention; round once, from the original.',
+            },
+            {
+              term: 'Significant figures',
+              def: 'The digits that carry a measurement\u2019s claim — counted from the first non-zero digit. Leading zeros locate; trailing zeros after the point testify; point-less trailing zeros (4,200) are ambiguous.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The same pencil reads 7 cm on one ruler and 6.8 cm on another. Which reading is more precise?',
+              options: [
+                '7 cm — rounder numbers are more precise',
+                '6.8 cm — its unit (0.1 cm) is finer',
+                'they are equally precise',
+                'precision depends on who measured',
+              ],
+              answer: 1,
+              explain:
+                'Precision is the fineness of the unit, not the shape of the number (Option 2): 6.8 cm promises ±0.05 cm, while 7 cm promises ±0.5 cm. Option 1 confuses rounding with resolving. Option 3 ignores the tenfold gap between the claims. Option 4 returns to the body-unit error of 9.1 — the instrument, not the person, decides.',
+            },
+            {
+              q: 'A screw is reported as 2.4 cm, measured to the nearest 0.1 cm. The true length lies in',
+              options: [
+                '$[2.3,\\ 2.5)$ cm',
+                '$[2.35,\\ 2.45)$ cm',
+                'exactly 2.4 cm — no interval',
+                '$[2.39,\\ 2.41)$ cm',
+              ],
+              answer: 1,
+              explain:
+                'The interval law: $2.4 \\pm 0.05$, so $[2.35, 2.45)$ (Option 2) — 2.35 in by the half-up tie, 2.45 out. Option 1 is the whole-unit interval, twice too wide. Option 3 is the fact-reading this lesson retired. Option 4 is a tenfold over-sweep of precision the instrument never earned.',
+            },
+            {
+              q: 'Round 5,768 to the nearest hundred.',
+              options: ['5,700', '5,750', '5,800', '6,000'],
+              answer: 2,
+              explain:
+                'The place-digit is 7 (hundreds); the next digit is 6, and $6 \\ge 5$, so bump to 5,800 (Option 3). Option 1 truncated without looking at the next digit. Option 2 is not a multiple of 100 — no place was rounded to. Option 4 answered the thousands question.',
+            },
+            {
+              q: 'A kitchen scale reads exactly 50 g heavy on everything — 350.0, 350.0, 350.0 for the same 300 g weight. Its readings are',
+              options: [
+                'accurate and precise',
+                'precise but not accurate',
+                'accurate but not precise',
+                'neither accurate nor precise',
+              ],
+              answer: 1,
+              explain:
+                'Spread zero — perfectly repeatable, so precise; offset 50 g from truth — inaccurate (Option 2). The two axes are independent, and this instrument fails only one of them: the cure is calibration, not finer digits. Option 1 ignores the offset; Option 3 ignores the beautiful repeatability; Option 4 contradicts both.',
+            },
+            {
+              q: 'How many significant figures does the measurement 0.0042 g carry?',
+              options: ['2', '3', '4', '6'],
+              answer: 0,
+              explain:
+                'Two (Option 1): the count starts at the first non-zero digit — 4 and 2 carry the claim; the three leading zeros only locate the point and never count. Option 3 counts the zeros anyway; Option 6 counts every digit on the page; Option 2 still credits one locating zero a place it does not earn.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Round to the nearest ten: (i) 43; (ii) 87; (iii) 295.',
+                  solution: [
+                    'Now, apply the digit rule at the tens place, next digit = the units digit.',
+                    'So (i) next digit 3 $\\le 4$: leave — $40$; (ii) next digit 8 $\\ge 5$: bump — $90$.',
+                    'And (iii) next digit 5 with nothing after: the half case — by the half-up convention, bump: $300$.',
+                    'Hence 40, 90 and 300 — the third is the convention doing the only work arithmetic could not.',
+                  ],
+                  answer: '(i) 40; (ii) 90; (iii) 300 (the half case bumps up)',
+                },
+                {
+                  q: 'Round to the nearest hundred: (i) 328; (ii) 764.',
+                  solution: [
+                    'Now, at the hundreds place the next digit is the tens digit.',
+                    'So (i) next digit 2 $\\le 4$: leave — $300$; (ii) next digit 6 $\\ge 5$: bump — $800$.',
+                    'And the interval check agrees: 328 lives in $[250, 350)$ owned by 300; 764 lives in $[650, 750)$… owned by 700? No — check: 764 sits 64 from 700 and 36 from 800, so 800 wins. ✓',
+                    'Hence 300 and 800.',
+                  ],
+                  answer: '(i) 300; (ii) 800',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Round to the nearest thousand: (i) 5,768; (ii) 4,310.',
+                  solution: [
+                    'Now, at the thousands place the next digit is the hundreds digit.',
+                    'So (i) 5,768: next digit 7 $\\ge 5$, bump — $6{,}000$.',
+                    'And (ii) 4,310: next digit 3 $\\le 4$, leave — $4{,}000$.',
+                    'Hence 6,000 and 4,000 — one bump, one leave, both by the single digit to the right of the place.',
+                  ],
+                  answer: '(i) 6,000; (ii) 4,000',
+                },
+                {
+                  q: 'Three labels read "8 cm", "8.2 cm" and "8.25 cm". Arrange them by precision, and give each one\u2019s greatest possible error.',
+                  solution: [
+                    'Now, precision is the smallest unit each reading distinguishes: 1 cm, 0.1 cm, 0.01 cm.',
+                    'So the GPEs are $1/2 = 0.5$ cm, $0.1/2 = 0.05$ cm, $0.01/2 = 0.005$ cm — each step ten times finer.',
+                    'And the order stands: 8.25 cm (finest), then 8.2 cm, then 8 cm (coarsest) — the zero in none of these is idle: each digit place is a claim.',
+                    'Hence 8 cm (±0.5) → 8.2 cm (±0.05) → 8.25 cm (±0.005): precision climbing by rungs of ten, exactly the 9.2 ladder read as promises.',
+                  ],
+                  answer: '8 cm (GPE 0.5 cm) < 8.2 cm (GPE 0.05 cm) < 8.25 cm (GPE 0.005 cm) — 8.25 cm is the most precise',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A rod is recorded as 12.6 cm, to the nearest 0.1 cm. State the interval the record claims, and test the walls: does 12.55 belong? Does 12.65?',
+                  solution: [
+                    'Now, the interval law with $m = 12.6$, $u = 0.1$: the walls sit at $12.6 \\pm 0.05$.',
+                    'So the claim is $12.55 \\le t < 12.65$.',
+                    'And the walls behave: 12.55 is the exact half-way tie and rounds UP to 12.6 — it belongs inside; 12.65 is the tie given to 12.7 — it is already outside.',
+                    'Hence $12.55 \\le t < 12.65$: left wall in, right wall out, every time.',
+                  ],
+                  answer: '$12.55 \\le t < 12.65$ cm; 12.55 in (half-up), 12.65 out',
+                },
+                {
+                  q: 'A bathroom scale reads to the nearest 0.5 kg and shows 42.0 kg. State its greatest possible error and the interval claimed.',
+                  solution: [
+                    'Now, the smallest division is $u = 0.5$ kg, so the GPE is $0.5/2 = 0.25$ kg.',
+                    'So the reading claims $42.0 - 0.25 \\le t < 42.0 + 0.25$.',
+                    'And the interval is $41.75 \\le t < 42.25$ kg — half a kilogram wide, centred on the reading.',
+                    'Hence GPE 0.25 kg; the claim $[41.75,\\ 42.25)$ kg — the scale\u2019s whole vocabulary of honesty in one line.',
+                  ],
+                  answer: 'GPE 0.25 kg; $41.75 \\le t < 42.25$ kg',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'The 6.8 cm pencil is read on the millimetre ruler. Give the GPE, the interval claimed, and explain why "6.80 cm" would be a claim this instrument may not make.',
+                  solution: [
+                    'Now, the mm ruler\u2019s smallest division is 1 mm = 0.1 cm, so the GPE is $0.05$ cm = 0.5 mm.',
+                    'So the reading claims $6.75 \\le t < 6.85$ cm.',
+                    'And "6.80 cm" would speak in hundredths — it testifies to a ruler divided in 0.01 cm marks, promising $6.795 \\le t < 6.805$ — a strip ten times narrower than the instrument can draw.',
+                    'Hence GPE 0.5 mm, interval $[6.75, 6.85)$ — and the extra zero is borrowed testimony: write the claim the ruler earned, 6.8 cm.',
+                  ],
+                  answer: 'GPE 0.5 mm; $6.75 \\le t < 6.85$ cm; "6.80" claims hundredths the mm ruler cannot support',
+                },
+                {
+                  q: 'The knocked scale of the lesson weighs a true 300 g check-weight five times: 350.0, 350.0, 350.0, 350.0, 350.0. Quantify its precision and its accuracy, name the failing axis, and name the cure.',
+                  solution: [
+                    'Now, precision reads the scatter: $\\max - \\min = 350.0 - 350.0 = 0$ — perfectly repeatable.',
+                    'So accuracy reads the truth: $|350.0 - 300| = 50$ g of error, about $\\frac{50}{300} \\times 100 = 16.7\\%$ high.',
+                    'And the failing axis is accuracy — the instrument\u2019s adjustment, not its fineness; no extra decimal place will help.',
+                    'Hence: precise (spread 0), inaccurate (50 g, 16.7% high); the cure is **calibration** — re-zeroing against a known standard, the keeper\u2019s trade since the cubit rods.',
+                  ],
+                  answer: 'precision: spread 0; accuracy: error 50 g (16.7% high); the accuracy axis fails — recalibrate',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Round 2.3447 to 2 decimal places (i) directly from the original, (ii) by first rounding to 3 dp. Diagnose what went wrong in (ii).',
+                  solution: [
+                    'Now, (i) directly: at the hundredths place (4) the next digit is the third-decimal 4, and $4 \\le 4$: leave — $2.34$.',
+                    'So (ii) chained: to 3 dp the next digit is 7, bump — $2.345$; then to 2 dp the next digit is 5, half-up bump — $2.35$.',
+                    'And the diagnosis: the chained route rounded a number that no longer existed — the intermediate 2.345 carried a 5 that the original\u2019s 4 had already overruled; sequencing invented a thousandth.',
+                    'Hence 2.34 is the honest answer — round ONCE, from the original; the trap is procedural, not arithmetical.',
+                  ],
+                  answer: '(i) 2.34; (ii) 2.35 — the double-rounding fraud; round once from the original',
+                },
+                {
+                  q: 'Round 47,499 to the nearest thousand (i) directly, (ii) by rounding first to the nearest ten and then to the nearest thousand. How far apart are the two answers?',
+                  solution: [
+                    'Now, (i) directly: the hundreds digit is 4, and $4 \\le 4$: leave — $47{,}000$.',
+                    'So (ii) chained: nearest ten gives 47,500; nearest thousand of 47,500 gives $48{,}000$ — the bumped 5 doing its half-up work on a digit the original never had.',
+                    'And the gap: $48{,}000 - 47{,}000 = 1{,}000$ — a full thousand manufactured by sequencing.',
+                    'Hence 47,000 directly, 48,000 chained — 1,000 apart; the round-once discipline is not pedantry, it is the difference between two claims a thousand wide.',
+                  ],
+                  answer: '(i) 47,000; (ii) 48,000 — 1,000 apart; round once, from the original',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the interval law: if $t$ is read as $m$ to the nearest unit $u$, then $m - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}$ — and show the left wall is included while the right wall is not.',
+                  solution: [
+                    'Now, the reading asserts $t$ is at least as close to $m$ as to any other multiple of $u$; in particular to the neighbours $m - u$ and $m + u$.',
+                    'So "at least as close to $m$ as to $m - u$" reads $t - (m - u) \\ge m - t$, which simplifies to $t \\ge m - \\tfrac{u}{2}$; the mirror with $m + u$ gives $t \\le m + \\tfrac{u}{2}$.',
+                    'And at the exact walls both contests tie. The school convention rounds ties UP: at $t = m + u/2$ the winner is the LARGER candidate $m + u$ — so the right wall is excluded; at $t = m - u/2$ the larger candidate is $m$ itself — so the left wall is included.',
+                    'Hence $m - \\tfrac{u}{2} \\le t < m + \\tfrac{u}{2}$ — verified numerically across 2,000 probe values in the chapter\u2019s verify script; the asymmetry is the half-up convention wearing symbols.',
+                  ],
+                  answer: '$m - u/2 \\le t < m + u/2$; the left tie rounds to $m$ (in), the right tie rounds to $m + u$ (out)',
+                },
+                {
+                  q: 'The 1856 announcement said 29,002 ft. Using $1\\text{ ft} = 0.3048\\text{ m}$ (an exact identity since 1959), convert it to metres, audit it against the modern 8,848.86 m, and comment on the two feet of lore.',
+                  solution: [
+                    'Now, dress the identity 9.3\u2019s way: $29{,}002\\text{ ft} \\times \\frac{0.3048\\text{ m}}{1\\text{ ft}} = 8{,}839.8096$ m.',
+                    'So the modern figure is $8{,}848.86$ m, and the error is $8{,}848.86 - 8{,}839.81 = 9.05$ m — about 29.7 feet short.',
+                    'And the relative size: $\\frac{9.05}{8{,}848.86} \\times 100 \\approx 0.102\\%$ — one part in a thousand, from 1856\u2019s theodolites. The lore\u2019s two feet were $2 \\times 0.3048 = 0.6096$ m of cosmetics.',
+                    'Hence 29,002 ft = 8,839.81 m, off by 9.05 m (0.102%) — and whether the padding is tale or truth, the teaching stands: digits are claims; the honest dress reports the reading AND its ceiling, as the interval law does.',
+                  ],
+                  answer: '8,839.81 m; error 9.05 m ≈ 0.102%; the two feet (0.6096 m) were about believability, not measurement',
                 },
               ],
             },

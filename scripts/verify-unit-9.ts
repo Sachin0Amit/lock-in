@@ -88,6 +88,41 @@
  * from 1 October 1960, gaz/bigha → hectare transitions, Legal Metrology
  * Act 2009 (OIML bulletin, the Indian metrology perspective).
  *
+ * EXTENDED 2026-11-05 (run 44) for lesson 9.4 "Precision, Accuracy and
+ * Rounding in Measurement" — sections AE–AN verify every number of the
+ * chapter's closing lesson BEFORE it is written into ch-09.ts:
+ *
+ *   (AE) the three-rulers precision instances (the 6.8 cm pencil read
+ *       7 cm / 7.0 cm / 6.8 cm on cm-, half-cm- and mm-ruled rulers;
+ *       the tolerance claims ±0.5 / ±0.25 / ±0.05 cm; the 7-vs-7.0
+ *       distinction as an asserted claim, GPE pair 0.5 vs 0.05);
+ *   (AF) the interval law (m to the nearest u ⇒ m − u/2 ≤ true <
+ *       m + u/2) with the boundary instances (6.75 in, 6.85 out,
+ *       half-up) and the integer half-up sweep (200 readings × 10
+ *       probe values = 2,000 cases, every verdict correct);
+ *   (AG) the rounding rules (5,768 → 5,770/5,800/6,000; the half cases
+ *       2.5→3, 45→50, 150→200, 1450→1000; the digit-rule equivalence
+ *       sweep n = 0..2999 × p ∈ {10,100,1000} = 9,000 cases; the
+ *       double-rounding trap certified on integers: 2.3447 → 2.34
+ *       direct vs 2.35 chained; 47,499 → 47,000 direct vs 48,000
+ *       chained);
+ *   (AH) the greatest possible error (GPE = u/2 instances; the kitchen
+ *       scale 350 g to the nearest 5 g → [347.5, 352.5), error 1 ≤ 2.5;
+ *       the Everest audit: 29,002 ft = 8,839.81 m vs the 2020 value
+ *       8,848.86 m → error 9.05 m = 29.7 ft ≈ 0.102%);
+ *   (AI) the accuracy-vs-precision instances (the 50-g-heavy scale:
+ *       spread 0 = precise, error 50 = not accurate; the two timing
+ *       sets' means 13.83… vs 13.9 with spreads 0.7 vs 0);
+ *   (AJ) figure 1's geometry (one pencil at 6.8 cm over three rulers:
+ *       tick counts 9/17/81, the tip lands exactly on the 68th mm
+ *       tick, nearest-tick verdicts 7 / 7.0 / 6.8, the guide confined
+ *       to body heights, verdict labels right of the rulers);
+ *   (AK) figure 2's geometry (four targets: dot distances, cluster
+ *       spreads, centroid offsets — tight/wide × on/off bull);
+ *   (AL) the 5 quiz keys re-derived (keys 1/1/2/1/0);
+ *   (AM) all 12 exercise keys re-derived (every computed number);
+ *   (AN) the 9.4 scope guards (printed).
+ *
  * Run: bun run scripts/verify-unit-9.ts   (exit 1 on any failure)
  */
 
@@ -917,6 +952,325 @@ console.log('=== AD. 9.3 deepening instances (run 43) ===');
   ok(near(54 * 5 / 18, 15) && 15 < 54, 'AD10: km/h→m/s shrinks (row 4 \u2014 the composite dress)');
 }
 
+// integer half-up rounding helper: round n to the nearest MULTIPLE of d,
+// ties UP (the school convention). Exact for integer inputs — no floats.
+function halfUp(n: number, d: number): number {
+  return Math.floor((2 * n + d) / (2 * d)) * d;
+}
+
+console.log('=== AE. the three-rulers precision instances (9.4) ===');
+{
+  // the pencil: true length 6.8 cm, read on three instruments.
+  const pencil = 6.8;
+  // ruler A: cm marks only → candidates 6 and 7.
+  ok(near(Math.abs(pencil - 7), 0.2) && near(Math.abs(pencil - 6), 0.8) && 0.2 < 0.8,
+    'AE1: on the cm ruler 6.8 sits nearer 7 → the reading is 7 cm');
+  // ruler B: half-cm marks → candidates 6.5 and 7.0.
+  ok(near(Math.abs(pencil - 7.0), 0.2) && near(Math.abs(pencil - 6.5), 0.3) && 0.2 < 0.3,
+    'AE2: on the half-cm ruler 6.8 sits nearer 7.0 → the reading is 7.0 cm');
+  // ruler C: mm marks → 6.8 is exactly 68 mm, on a mark.
+  ok(near(pencil * 10, 68) && near(68 % 1, 0), 'AE3: on the mm ruler the pencil lands ON a mark → 6.8 cm');
+  // the tolerance claims each reading makes: GPE = half the unit.
+  ok(near(1 / 2, 0.5) && near(0.5 / 2, 0.25) && near(0.1 / 2, 0.05),
+    'AE4: the claims — 7 cm means ±0.5 cm; 7.0 cm means ±0.25 cm (nearest half-cm); 6.8 cm means ±0.05 cm');
+  ok(near(0.5 / 0.25, 2) && near(0.25 / 0.05, 5) && near(0.5 / 0.05, 10),
+    'AE5: the mm claim is 10× finer than the cm claim (0.5 / 0.05)');
+  // 7 vs 7.0: same number, different claims — the trailing zero asserts precision.
+  ok(near(7, 7.0) && ne(0.5, 0.05), 'AE6: 7 and 7.0 are the same NUMBER but different CLAIMS (±0.5 vs ±0.05)');
+}
+
+console.log('=== AF. the interval law (9.4) ===');
+{
+  // reading m to the nearest u ⇒ m − u/2 ≤ true < m + u/2 (half-up).
+  // instance: 6.8 cm to the nearest 0.1 cm → [6.75, 6.85).
+  ok(near(6.8 - 0.05, 6.75) && near(6.8 + 0.05, 6.85), 'AF1: the interval of 6.8 (nearest 0.1) is [6.75, 6.85)');
+  // the boundary verdicts, in exact integer arithmetic (tenth-mm units):
+  // 67.5 mm rounds UP to 68 (half-up), 68.5 mm rounds UP to 69 (excluded).
+  ok(halfUp(675, 10) === 680, 'AF2: 6.75 mm-rule → 6.8 (680 tenth-mm; the lower bound is IN)');
+  ok(halfUp(685, 10) === 690, 'AF3: 6.85 mm-rule → 6.9 (690; the upper bound is OUT)');
+  ok(halfUp(684, 10) === 680, 'AF4: 6.84 still reads 6.8 — everything below 6.85 belongs to 6.8');
+  // the sweep: readings r = 1..200 (tenth-mm), probe x in [10r−5, 10r+5)
+  // (hundredth-mm): halfUp(x/10 rounding at unit 1 mm) must return r.
+  let sweepCases = 0;
+  let sweepBad = 0;
+  for (let r = 1; r <= 200; r++) {
+    for (let x = 10 * r - 5; x < 10 * r + 5; x++) {
+      if (x <= 0) continue; // skip non-positive probe values
+      sweepCases++;
+      if (halfUp(x, 10) !== 10 * r) sweepBad++;
+    }
+  }
+  ok(sweepCases === 2000 && sweepBad === 0,
+    `AF5: the interval sweep — ${sweepCases} probe values, every one rounds to its own reading (${sweepBad} wrong)`);
+  // the law in the lesson's dress: m − u/2 ≤ t < m + u/2.
+  const m = 68, u = 1; // mm
+  ok(m - u / 2 === 67.5 && m + u / 2 === 68.5, 'AF6: the law\u2019s dress — 68 ± 0.5 mm = [67.5, 68.5)');
+}
+
+console.log('=== AG. the rounding rules (9.4) ===');
+{
+  // the flagship: 5,768 rounded three ways.
+  ok(halfUp(5768, 10) === 5770, 'AG1: 5,768 → nearest ten = 5,770 (units digit 8 ≥ 5, bump)');
+  ok(halfUp(5768, 100) === 5800, 'AG2: 5,768 → nearest hundred = 5,800 (tens digit 6 ≥ 5, bump)');
+  ok(halfUp(5768, 1000) === 6000, 'AG3: 5,768 → nearest thousand = 6,000 (hundreds digit 7 ≥ 5, bump)');
+  // the half cases: exactly halfway goes UP (the stated convention).
+  ok(halfUp(25, 10) === 30 && halfUp(35, 10) === 40 && halfUp(45, 10) === 50,
+    'AG4: the half cases at the ten — 25→30, 35→40, 45→50 (halfway bumps UP)');
+  ok(halfUp(5, 10) === 10 && halfUp(150, 100) === 200, 'AG5: 0.5→1 (5→10) and 150→200 — halfway always bumps UP');
+  ok(halfUp(1450, 1000) === 1000, 'AG6: 1,450 → nearest thousand = 1,000 (not halfway: 450 < 550)');
+  // the digit rule ≡ half-up, swept.
+  let ruleCases = 0;
+  let ruleBad = 0;
+  for (let n = 0; n <= 2999; n++) {
+    for (const p of [10, 100, 1000]) {
+      // the digit AT the next place after p (units for p=10, tens for p=100, hundreds for p=1000)
+      const digitRule = (Math.floor(n / p) + (Math.floor((n % p) / (p / 10)) >= 5 ? 1 : 0)) * p;
+      ruleCases++;
+      if (halfUp(n, p) !== digitRule) ruleBad++;
+    }
+  }
+  ok(ruleCases === 9000 && ruleBad === 0,
+    `AG7: the digit rule and half-up agree on all ${ruleCases} (n, place) cases (${ruleBad} disagreements)`);
+  // the double-rounding trap: round ONCE from the original.
+  // 2.3447 to 2 dp directly = 2.34; via 3 dp = 2.345 → 2.35. Different!
+  ok(halfUp(23447, 100) === 23400, 'AG8: 2.3447 → 2 dp DIRECT = 2.34 (next digit 4 < 5, leave)');
+  ok(halfUp(23447, 10) === 23450, 'AG9: 2.3447 → 3 dp = 2.345 (next digit 7 ≥ 5, bump)');
+  ok(halfUp(2345, 10) === 2350, 'AG10: 2.345 → 2 dp = 2.35 (next digit 5 = half, bump UP)');
+  ok(ne(23400, 23500), 'AG11: the trap certified — chained rounding lands on 2.35, the direct answer is 2.34');
+  // the whole-number twin of the trap.
+  ok(halfUp(47499, 1000) === 47000, 'AG12: 47,499 → nearest thousand DIRECT = 47,000');
+  ok(halfUp(47499, 10) === 47500 && halfUp(47500, 100) === 47500 && halfUp(47500, 1000) === 48000,
+    'AG13: chained — 47,499 → 47,500 → 47,500 → 48,000. Wrong by a full thousand.');
+  // rounding is many-to-one: information is honestly discarded.
+  ok(halfUp(571, 100) === 600 && halfUp(620, 100) === 600 && ne(571, 620),
+    'AG14: 571 and 620 both round to 600 — many inputs, one rounded output');
+}
+
+console.log('=== AH. the greatest possible error + the Everest audit (9.4) ===');
+{
+  // GPE = u/2 for every instrument.
+  ok(near(0.1 / 2, 0.05) && near(5 / 2, 2.5) && near(1 / 2, 0.5) && near(0.5 / 2, 0.25) && near(0.01 / 2, 0.005),
+    'AH1: GPE = u/2 — mm: 0.05 cm; 5 g scale: 2.5 g; whole: 0.5; 0.5 kg: 0.25 kg; 0.01: 0.005');
+  // the kitchen-scale Illustration: reads 350 g to the nearest 5 g.
+  ok(near(350 - 2.5, 347.5) && near(350 + 2.5, 352.5), 'AH2: the scale\u2019s 350 g claims [347.5, 352.5) g');
+  ok(near(Math.abs(350 - 349), 1) && 1 <= 2.5, 'AH3: true 349 inside the interval; the actual error 1 g sits inside the GPE 2.5 g');
+  // the Everest audit (the historical callout's arithmetic).
+  // 1 ft = 0.3048 m exactly (the 1959 international yard-and-pound agreement).
+  ok(near(1 / 0.3048, 3.2808398950131235, 1e-6), 'AH4: the identity 1 ft = 0.3048 m → 1 m = 3.28084… ft');
+  const ft1856 = 29002;
+  const m1856 = ft1856 * 0.3048;
+  ok(near(m1856, 8839.8096, 1e-6), 'AH5: the 1856 announcement 29,002 ft = 8,839.8096 m ≈ 8,839.81 m');
+  const m2020 = 8848.86; // the 2020 China–Nepal joint survey
+  const errM = m2020 - m1856;
+  ok(near(errM, 9.0504, 1e-4), 'AH6: the 1856 figure is 9.0504 m short of the modern value');
+  ok(near(errM / 0.3048, 29.6929, 1e-3), 'AH7: the same error in feet = 29.69 ft');
+  ok(near(errM / m2020 * 100, 0.10228, 1e-3), 'AH8: relative error ≈ 0.102% — sub-millipart accuracy in 1856');
+  // and the story's arithmetic: the computed 29,000 was padded by 2 ft.
+  ok(near(29000 * 0.3048, 8839.2, 1e-6) && near(2 * 0.3048, 0.6096, 1e-6),
+    'AH9: the computed 29,000 ft = 8,839.2 m; the padding is exactly 2 ft = 0.6096 m');
+}
+
+console.log('=== AI. accuracy vs precision instances (9.4) ===');
+{
+  // the mis-adjusted kitchen scale: repeatable but wrong.
+  const readings = [350.0, 350.0, 350.0, 350.0, 350.0];
+  const spread = Math.max(...readings) - Math.min(...readings);
+  const err = Math.abs(350.0 - 300);
+  ok(spread === 0 && err === 50, 'AI1: spread 0 (perfectly precise) with error 50 g (badly inaccurate) — the two axes are independent');
+  // two students timing the same 100 m race three times.
+  const a = [13.8, 14.2, 13.5];
+  const b = [13.9, 13.9, 13.9];
+  const meanA = (a[0] + a[1] + a[2]) / 3;
+  const spreadA = Math.max(...a) - Math.min(...a);
+  const meanB = (b[0] + b[1] + b[2]) / 3;
+  const spreadB = Math.max(...b) - Math.min(...b);
+  ok(near(meanA, 41.5 / 3, 1e-9) && near(spreadA, 0.7), 'AI2: set A — mean 13.8333… s, spread 0.7 s (imprecise)');
+  ok(near(meanB, 13.9) && spreadB === 0, 'AI3: set B — mean 13.9 s, spread 0 (precise)');
+  ok(near(Math.abs(meanA - 13.9), 0.066666, 1e-4) && near(Math.abs(meanB - 13.9), 0),
+    'AI4: if the true time is 13.9 s — B is accurate AND precise; A\u2019s mean is 0.067 s off but A is imprecise');
+  // precision bounds accuracy: a mm ruler can never certify more than ±0.5 mm.
+  ok(near(1 / 2, 0.5), 'AI5: the instrument\u2019s floor — no care can make a mm-reading better than ±0.5 mm');
+}
+
+console.log('=== AJ. figure 1 geometry — one pencil, three rulers (9.4) ===');
+{
+  // viewBox 800 × 390; x0 = 70; S = 62 px per cm; rulers at y 150/235/320.
+  const x0 = 70, S = 62, L = 6.8;
+  const tip = x0 + L * S;
+  ok(near(tip, 491.6, 1e-9), 'AJ1: the pencil tip sits at x = 70 + 6.8 × 62 = 491.6 — the guide\u2019s x');
+  // tick counts: A every cm (0..8); B every half-cm; C every mm — the cm ticks labelled.
+  ok((8 - 0) / 1 + 1 === 9, 'AJ2: ruler A has 9 ticks (0..8 cm, one per cm)');
+  ok((8 - 0) / 0.5 + 1 === 17, 'AJ3: ruler B has 17 ticks (0..8 in half-cm steps)');
+  ok((8 - 0) / 0.1 + 1 === 81, 'AJ4: ruler C has 81 ticks (0..8 cm in mm steps) — the 9 cm ticks labelled');
+  // the tip lands exactly on a mm tick: 68 mm.
+  ok(near((tip - x0) / S * 10, 68, 1e-9), 'AJ5: the tip is exactly the 68th mm tick of ruler C');
+  // nearest-tick verdicts on each ruler.
+  const nearest = (stepCm: number): number => Math.round(L / stepCm) * stepCm;
+  ok(near(nearest(1), 7), 'AJ6: ruler A\u2019s nearest mark to 6.8 is 7 → "7 cm"');
+  ok(near(nearest(0.5), 7.0), 'AJ7: ruler B\u2019s nearest mark to 6.8 is 7.0 → "7.0 cm"');
+  ok(near(nearest(0.1), 6.8), 'AJ8: ruler C\u2019s nearest mark to 6.8 is 6.8 → "6.8 cm"');
+  // the design: ONE continuous dashed plumb line from the tip apex (y = 78)
+  // through all three ruler bodies, ending at ruler C's bottom edge (y = 356);
+  // it passes the label rows (y 202/287/372) at x = 491.6, clearing the nearest
+  // label centre ("7" at x = 504) horizontally by 8.4 px.
+  ok(504 - 491.6 - 4 >= 8 && 372 - 356 >= 8,
+    'AJ9: the plumb line clears every label it passes (8.4 px horizontal to "7"; ends 16 px above ruler C\u2019s label row)');
+  ok(590 - 566 >= 8 && 491.6 + 12 <= 800,
+    'AJ10: the verdict labels (x = 590) clear the ruler end (566) by 24 px and fit the 800-wide viewBox');
+}
+
+console.log('=== AK. figure 2 geometry — the four targets (9.4) ===');
+{
+  // four targets, centers y = 140, x = 105/285/465/645, rings r = 85/56/27.
+  const centers: Array<[number, number]> = [[105, 140], [285, 140], [465, 140], [645, 140]];
+  const dist = (a: [number, number], b: [number, number]) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+  ok(centers[1][0] - centers[0][0] === 180 && centers[2][0] - centers[1][0] === 180 && centers[3][0] - centers[2][0] === 180,
+    'AK0: the four targets sit 180 px apart — outer rings (r = 85) keep a 10 px corridor');
+  // P1 accurate + precise: a REGULAR PENTAGON of 5 darts, r = 8.5, centred
+  // exactly on the bull (centroid (0, 0.1)) — the cluster swallows the bull
+  // dot symmetrically; side 10 keeps the darts countable at r = 3.
+  const p1: Array<[number, number]> = [[0, -8.5], [8.1, -2.6], [5, 6.9], [-5, 6.9], [-8.1, -2.6]];
+  // P2 precise, not accurate: a tight TRIANGLE (side ~10) parked mid-annulus
+  // about (34, −25) — every dot ≥ 9 from both ring strokes (dot radius counted).
+  const p2: Array<[number, number]> = [[34, -31], [39, -22], [29, -22]];
+  // P3 accurate on average, not precise: 6 dots wide about the bull, every
+  // dot ≥ 9 from both ring strokes.
+  const p3: Array<[number, number]> = [[40, -15], [-38, 20], [10, 45], [-20, -40], [45, 8], [-4, -46]];
+  // P4 neither: a wide scatter parked up-right — no dart within 22 of the
+  // bull, every dot ≥ 9 from every ring stroke (outer included), spread ≥ 60.
+  const p4: Array<[number, number]> = [[36, -30], [43, -16], [52, -42], [66, -22], [40, 8], [6, -38]];
+  const panels = [p1, p2, p3, p4];
+  // every dot inside the outer ring with air to spare.
+  panels.forEach((dots, i) => {
+    const maxD = Math.max(...dots.map((d) => dist(d, [0, 0])));
+    ok(maxD <= 80, `AK1.${i + 1}: panel ${i + 1} — every dart inside the outer ring (max dist ${rr(maxD)} ≤ 80)`);
+  });
+  // spreads: tight clusters ≤ 16 px wide, wide clusters ≥ 60 px.
+  const spread = (dots: Array<[number, number]>) => {
+    let mx = 0;
+    for (const a of dots) for (const b of dots) mx = Math.max(mx, dist(a, b));
+    return mx;
+  };
+  ok(spread(p1) <= 17 && spread(p2) <= 17, `AK2: the tight clusters spread ≤ 17 (${rr(spread(p1))}, ${rr(spread(p2))})`);
+  ok(spread(p1) >= 10 && spread(p2) >= 10, `AK2b: the tight clusters still spread ≥ 10 so the darts stay countable (${rr(spread(p1))}, ${rr(spread(p2))})`);
+  ok(spread(p3) >= 60 && spread(p4) >= 60, `AK3: the wide clusters spread ≥ 60 (${rr(spread(p3))}, ${rr(spread(p4))})`);
+  // centroids: on-bull panels within 15 of center; off-bull panels ≥ 35 away.
+  const centroid = (dots: Array<[number, number]>): [number, number] => [
+    dots.reduce((s, d) => s + d[0], 0) / dots.length,
+    dots.reduce((s, d) => s + d[1], 0) / dots.length,
+  ];
+  const c1 = centroid(p1), c2 = centroid(p2), c3 = centroid(p3), c4 = centroid(p4);
+  ok(dist(c1, [0, 0]) <= 10, `AK4: P1 centroid on the bull (${rr(dist(c1, [0, 0]))} ≤ 10)`);
+  ok(dist(c2, [0, 0]) >= 35, `AK5: P2 centroid off the bull (${rr(dist(c2, [0, 0]))} ≥ 35)`);
+  ok(dist(c3, [0, 0]) <= 15, `AK6: P3 centroid on the bull (${rr(dist(c3, [0, 0]))} ≤ 15)`);
+  ok(dist(c4, [0, 0]) >= 35, `AK7: P4 centroid off the bull (${rr(dist(c4, [0, 0]))} ≥ 35)`);
+  // titles sit below the targets (targets end at y = 140 + 85 = 225; titles at 272).
+  ok(225 + 12 <= 272, 'AK8: the four titles clear the target bottoms by ≥ 12 px');
+  // ring-stroke clearance: no dot of ANY panel may sit ambiguously on a ring
+  // (rings at r = 27/56) — ring position IS the data on a target diagram.
+  const ringClear = Math.min(...panels.flat().map((d) => Math.min(Math.abs(dist(d, [0, 0]) - 27), Math.abs(dist(d, [0, 0]) - 56))));
+  ok(ringClear >= 9, `AK9: every dot clears both inner rings by ≥ 9 — dot radius counted (min ${rr(ringClear)})`);
+  const outerClear = Math.min(...panels.flat().map((d) => 85 - dist(d, [0, 0])));
+  ok(outerClear >= 9, `AK9b: every dot clears the outer ring by ≥ 9 (min ${rr(outerClear)})`);
+  // the P4 story check: no dart at or near the bull — "off the bull" must not
+  // contradict itself.
+  const p4min = Math.min(...p4.map((d) => dist(d, [0, 0])));
+  ok(p4min >= 22, `AK10: P4’s nearest dart is ${rr(p4min)} from the bull (≥ 22 — genuinely off)`);
+}
+
+console.log('=== AL. quiz keys (9.4) ===');
+{
+  // Q1: which is more precise, 7 cm or 6.8 cm? options: 7 cm / 6.8 cm / same / cannot say. key 1.
+  ok(near(0.1 / 2, 0.05) && near(1 / 2, 0.5) && 0.05 < 0.5, 'AL1: Q1 key 1 — 6.8 cm carries the finer claim (±0.05 vs ±0.5)');
+  // Q2: 2.4 cm to the nearest 0.1 cm — the true length lies in…? key = [2.35, 2.45). options:
+  // [2.3, 2.5) / [2.35, 2.45) / exactly 2.4 / [2.39, 2.41). key 1.
+  ok(halfUp(235, 10) === 240 && halfUp(244, 10) === 240 && halfUp(245, 10) === 250,
+    'AL2: Q2 key 1 — the interval is [2.35, 2.45): 2.35 in (half-up), 2.45 out');
+  ok(near(Math.abs(2.4 - 2.35), 0.05) && near(Math.abs(2.4 - 2.45), 0.05), 'AL3: 2.4 sits at the interval\u2019s center, 0.05 from each wall');
+  // Q3: 5,768 to the nearest hundred. options 5,700/5,750/5,800/6,000. key 2.
+  ok(halfUp(5768, 100) === 5800 && ne(5700, 5800) && ne(5750, 5800) && ne(6000, 5800), 'AL4: Q3 key 2 — 5,800');
+  // Q4: the scale always exactly 50 g heavy, perfectly repeatable → precise but not accurate. key 1.
+  ok(Math.abs(350.0 - 350.0) === 0 && Math.abs(350.0 - 300) === 50 && 50 > 0,
+    'AL5: Q4 key 1 — spread 0 (precise), offset 50 (not accurate)');
+  // Q5: significant figures in 0.0042. options 2/3/4/6. key 0 — leading zeros never count.
+  const digits = '0.0042'.replace(/^0\.0*/, '');
+  ok(digits === '42' && digits.length === 2,
+    'AL6: Q5 key 0 — 0.0042 carries two significant figures (4 and 2; leading zeros never count)');
+}
+
+console.log('=== AM. exercise keys (9.4) ===');
+{
+  // L1-1: round to the nearest ten: 43 → 40; 87 → 90; 295 → 300 (half-up).
+  ok(halfUp(43, 10) === 40 && halfUp(87, 10) === 90 && halfUp(295, 10) === 300,
+    'AM1: L1-1 — 40 / 90 / 300 (295 is the half case: bumps UP)');
+  // L1-2: round to the nearest hundred: 328 → 300; 764 → 800.
+  ok(halfUp(328, 100) === 300 && halfUp(764, 100) === 800, 'AM2: L1-2 — 300 / 800');
+  // L2-1: round to the nearest thousand: 5,768 → 6,000; 4,310 → 4,000.
+  ok(halfUp(5768, 1000) === 6000 && halfUp(4310, 1000) === 4000, 'AM3: L2-1 — 6,000 / 4,000');
+  // L2-2: the three claims "8 cm" / "8.2 cm" / "8.25 cm" — precisions 1 / 0.1 / 0.01 cm,
+  // GPEs 0.5 / 0.05 / 0.005 — most precise = 8.25 cm.
+  ok(near(1 / 2, 0.5) && near(0.1 / 2, 0.05) && near(0.01 / 2, 0.005) && near(0.05 / 0.005, 10),
+    'AM4: L2-2 — the GPE ladder 0.5 / 0.05 / 0.005; 8.25 cm is the most precise');
+  // L3-1: 12.6 to the nearest 0.1 → [12.55, 12.65); the walls behave.
+  ok(halfUp(1255, 10) === 1260 && halfUp(1264, 10) === 1260 && halfUp(1265, 10) === 1270,
+    'AM5: L3-1 — [12.55, 12.65): 12.55 in (half-up), 12.65 out');
+  // L3-2: bathroom scale to the nearest 0.5 kg reads 42.0 → GPE 0.25 → [41.75, 42.25).
+  ok(near(0.5 / 2, 0.25) && near(42.0 - 0.25, 41.75) && near(42.0 + 0.25, 42.25),
+    'AM6: L3-2 — the claim is [41.75, 42.25) kg, GPE 0.25 kg');
+  // L4-1: the pencil 6.8 cm on the mm ruler → GPE 0.05 cm = 0.5 mm; interval [6.75, 6.85).
+  ok(near(0.05 * 10, 0.5) && near(6.8 - 0.05, 6.75) && near(6.8 + 0.05, 6.85),
+    'AM7: L4-1 — GPE 0.5 mm; the claim [6.75, 6.85) cm');
+  // L4-2: the 50-g-heavy scale weighing a true 300 g: reads 350.0 five times.
+  ok(near(350 - 300, 50) && near(350 / 300 * 100 - 100, 16.6667, 1e-3),
+    'AM8: L4-2 — error 50 g ≈ 16.7% high; spread 0; precise, not accurate');
+  // L5-1: the double-rounding trap on 2.3447: direct 2.34, chained 2.35.
+  ok(halfUp(23447, 100) === 23400 && halfUp(2345, 10) === 2350 && ne(23400, 23500),
+    'AM9: L5-1 — 2.34 direct; 2.35 if rounded twice; round once from the original');
+  // L5-2: 47,499 to the nearest thousand: direct 47,000; via ten/hundred 48,000.
+  ok(halfUp(47499, 1000) === 47000 && halfUp(47500, 1000) === 48000,
+    'AM10: L5-2 — 47,000 direct vs 48,000 chained');
+  // L6-1: the interval law — every t in [m − u/2, m + u/2) rounds to m, nothing outside does
+  // (AF5\u2019s 2,000-case sweep is the numerical certificate; the proof is monotonicity).
+  ok(halfUp(675, 10) === 680 && halfUp(684, 10) === 680 && halfUp(685, 10) === 690,
+    'AM11: L6-1 — the law\u2019s boundary behaviour re-certified');
+  // L6-2: the Everest audit: 29,002 ft = 8,839.81 m; modern 8,848.86 m; error 9.05 m ≈ 0.102%.
+  ok(near(29002 * 0.3048, 8839.8096, 1e-4) && near(8848.86 - 8839.8096, 9.0504, 1e-4)
+    && near(9.0504 / 8848.86 * 100, 0.1023, 1e-3),
+    'AM12: L6-2 — the 1856 figure is 0.102% off the modern value: accurate, and honestly reported at 29,002');
+}
+
+console.log('=== AO. the significant-figure counts + the nesting instances (9.4) ===');
+{
+  // counting significant figures: digits from the first NONZERO onward.
+  const sig = (s: string): number => s.replace('.', '').replace(/^0+/, '').length;
+  ok(sig('6.8') === 2, 'AO1: 6.8 — two significant figures');
+  ok(sig('7.0') === 2, 'AO2: 7.0 — two (a measured trailing zero TESTIFIES, it counts)');
+  ok(sig('0.0042') === 2, 'AO3: 0.0042 — two (leading zeros only locate the point)');
+  ok(sig('105') === 3, 'AO4: 105 — three (an interior zero sits between significant digits)');
+  ok(sig('1.05') === 3, 'AO5: 1.05 — three');
+  ok(sig('0.050') === 2, 'AO6: 0.050 — two (the trailing zero after the point counts)');
+  ok(sig('12') === 2, 'AO7: 12 — two');
+  ok(sig('0.5') === 1, 'AO8: 0.5 — one');
+  // the ambiguous whole number: 4,200 — trailing zeros of a point-less number.
+  const whole = '4200';
+  ok(whole.length === 4 && whole.endsWith('00') && !whole.includes('.'),
+    'AO9: 4,200 written without a point is AMBIGUOUS — 2, 3 or 4 of its zeros may testify; the honest fixes are a decimal point (4,200.) or the words "to the nearest hundred"');
+  ok(sig('4200.') === 4, 'AO10: with the point (4,200.) all four digits count');
+  // the GPE of the last significant digit: 0.0042 → last digit in the 1/10,000 place.
+  ok(near(0.0001 / 2, 0.00005), 'AO11: 0.0042 g\u2019s claim — u = 0.0001, GPE = 0.00005 g');
+  // the three readings\u2019 intervals NEST: finer claims are sub-intervals of coarser ones.
+  ok(6.75 >= 6.5 && 7.5 >= 7.25 && 7.25 >= 6.85 && 6.85 >= 6.75,
+    'AO12: [6.75, 6.85) \u2282 [6.75, 7.25) \u2282 [6.5, 7.5) — the claims nest as the unit shrinks');
+}
+
+console.log('=== AN. 9.4 scope guards (printed) ===');
+console.log('  (i)   no significant-figure ARITHMETIC (multiplying/dividing with sig figs) — class-11 territory; only counting sig figs and the trailing-zero claim.');
+console.log('  (ii)  no relative/percentage-error formalism beyond the single Everest instance (computed, not a method).');
+console.log('  (iii) no statistics of repeated measurement (means/medians of data = ch. 10\u2019s territory).');
+console.log('  (iv)  no uncertainty algebra, error propagation or calibration theory — the GPE is the only error number defined.');
+console.log('  (v)   no banker\u2019s rounding / round-half-to-even — the school half-up convention, stated honestly as a convention.');
+console.log('  (vi)  no content reproduced — instances, figures and proofs ours.');
+
 console.log('=== AC. 9.3 scope guards (printed) ===');
 console.log('  (i)   no density/pressure or other compound units beyond speed — later books own them.');
 console.log('  (ii)  no dimensional-analysis formalism (dimensions [L][T]...) — the unit-cancellation licence is argued from Q = n x u only.');
@@ -932,3 +1286,6 @@ if (fail > 0) {
   process.exit(1);
 }
 console.log('ALL PASS');
+
+// module scope: the helper names above must not collide with the other verify scripts
+export {}
