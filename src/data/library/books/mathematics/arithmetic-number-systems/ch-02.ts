@@ -7,30 +7,48 @@ import type { Chapter } from '../../../types'
  * LESSONS WRITTEN: 2.1 Division with Rest: The Division Algorithm
  *                  2.2 The Algebra of Divisibility
  *                  (both: run 51 — 2026-11-05)
- * CHAPTER STATUS: in-progress 2/4 (2.3 Euclidean algorithm + Bézout and
- * 2.4 linear Diophantine equations close it at run 52).
+ *                  2.3 The Euclidean Algorithm, Proven — and Bézout's Identity
+ *                  2.4 Linear Diophantine Equations
+ *                  (both: run 52 — 2026-11-05)
+ * CHAPTER STATUS: COMPLETE 4/4 (closed at run 52 with the unit-2 completion
+ * review; chapter 3 'Positional Systems and Other Bases' opens at run 53).
  *
  * References for this unit: Beck & Geoghegan, The Art of Proof (the
  * university number-systems bridge; reserved key run 48); Euclid's
- * Elements Book VII — Definitions 3–5 (the "measures" charter) and the
- * guide's note that Euclid supplies no postulates for numbers yet leans
- * on a decreasing-sequence principle in VII.2, the well-ordering engine
- * Lesson 1.3 made explicit — web-checked 2026-11-05 via David Joyce's
- * Clark University edition (sanctioned fallback), new key
- * euclid-elements-book-vii; Edmund Landau, Elementary Number Theory
- * (1927) — first in-print use of the a|b notation, with Hardy's
- * unpublished 1925 seminar notes the earlier echo (MacTutor, per
- * Tattersall) — new key landau-1927-elementare; the name history —
- * "algorithm" from Algoritmi, the Latinized name of al-Khwārizmī —
- * web-checked run 47 and carried; Khattar QA 4e ch. 1 (the
- * competitive-exam division scope). All web-checked 2026-11-05 —
- * see docs/project/SOURCE_LOG.md. Exposition original.
+ * Elements Book VII — Definitions 3–5 (the "measures" charter), VII.1–2
+ * (the algorithm, run as antenaresis/anthyphairesis) and VII.2's
+ * corollary ("if a number measures two numbers, then it also measures
+ * their greatest common measure"), with the guide's note that Euclid
+ * supplies no postulates for numbers yet leans on a decreasing-sequence
+ * principle — the well-ordering engine Lesson 1.3 made explicit —
+ * web-checked 2026-11-05 via David Joyce's Clark University edition
+ * (sanctioned fallback), key euclid-elements-book-vii; Edmund Landau,
+ * Elementary Number Theory (1927) — first in-print use of the a|b
+ * notation (MacTutor, per Tattersall) — key landau-1927-elementare; the
+ * name history — "algorithm" from Algoritmi, the Latinized name of
+ * al-Khwārizmī — web-checked run 47 and carried; Bézout proved the
+ * identity for polynomials (Théorie générale des équations algébriques,
+ * 1779) while the integer statement is older — Bachet de Méziriac,
+ * Problèmes plaisants (1612, expanded 1624) — keys bezout-1779-theorie,
+ * bachet-1624-problemes; Gabriel Lamé's 1844 worst-case bound
+ * (consecutive Fibonacci pairs; divisions ≤ 5 × the smaller number's
+ * decimal digits) — key lame-1844-note; Diophantus of Alexandria, the
+ * Arithmetica (c. 250 AD; ten of thirteen books extant; "father of
+ * algebra") — key diophantus-arithmetica; Sylvester's two-denomination
+ * Frobenius answer (Educational Times, 1884–85) — key
+ * sylvester-1884-frobenius; Khattar QA 4e ch. 1 (the competitive-exam
+ * division scope). All web-checked 2026-11-05 — see
+ * docs/project/SOURCE_LOG.md. Exposition original.
  *
  * Every number below was recomputed by scripts/verify-book2-ch02.ts
- * (sections A–T) BEFORE being written — 166 checks, all passing at
- * authoring time. The verify script caught two real defects
- * pre-writing: a miscomputed impostor count in the uniqueness sweep
- * and an inverted divisibility direction in the 12 | 3·4 caution.
+ * BEFORE being written — run 51 authored sections A–T (166 checks);
+ * run 52 extended with sections U–AN (407 checks total, all passing)
+ * before a word of 2.3/2.4 existed. The verify discipline caught real
+ * defects pre-writing in both runs: run 51 — a miscomputed impostor
+ * count, an inverted divisibility direction in the 12 | 3·4 caution;
+ * run 52 — an extTable seed-order bug for a < b pairs, a block-scoped
+ * helper, two off-by-one quotient lists, three figure-label collisions,
+ * a box-size artifact in the criterion sweep, and a miscounted gap list.
  */
 export const chapter02: Chapter = {
   number: 2,
@@ -38,11 +56,8 @@ export const chapter02: Chapter = {
   title: 'The Division Algorithm and the Structure of Divisibility',
   summary:
     'The theorem hiding under every long division: a = bq + r with 0 ≤ r < b, existence proved by well-ordering and uniqueness by subtraction. Divisibility becomes algebra (the transitive and linear-combination laws), the Euclidean algorithm gets the proof FM omitted, Bézout’s identity is derived, and linear Diophantine equations ax + by = c are solved in full.',
-  status: 'in-progress',
-  plannedLessons: [
-    'The Euclidean Algorithm, Proven — and Bézout’s Identity',
-    'Linear Diophantine Equations',
-  ],
+  status: 'complete',
+  plannedLessons: [],
   lessons: [
     {
       id: 'ans-division-with-rest-the-division-algorithm',
@@ -1242,6 +1257,1134 @@ export const chapter02: Chapter = {
         {
           kind: 'para',
           text: 'The relation now has its laws, and the laws have their uses — but they only *check* divisorhood one pair at a time. The natural next question is comparative: two numbers, many shared divisors — which is the *greatest* common measure, and how do you find it without listing candidates? Euclid\u2019s subtraction process, met in this lesson\u2019s historical note as the thing he ran without a termination postulate, is exactly that machine — and Lesson 2.3 runs it properly, proves it terminates (the least-number principle again), reads off Bézout\u2019s identity from its footprints, and turns the combination law from a curiosity into the key that solves $ax + by = c$ in whole numbers.',
+        },
+      ],
+    },
+    {
+      id: 'ans-euclidean-algorithm-proven-bezout-identity',
+      number: '2.3',
+      title: 'The Euclidean Algorithm, Proven — and Bézout’s Identity',
+      prerequisites: ['ans-the-algebra-of-divisibility', 'fm-highest-common-factor', 'fm-equivalent-fractions-simplification'],
+      sources: ['euclid-elements-book-vii', 'lame-1844-note', 'bezout-1779-theorie', 'bachet-1624-problemes', 'beck-geoghegan-art-of-proof', 'khattar-qa-4e'],
+      concepts: [
+        'Greatest common divisor gcd(a, b)',
+        'The Euclidean algorithm (division loop)',
+        'The subtraction form: anthyphairesis',
+        'Termination by descent (the third LNP burn)',
+        'Bézout’s identity d = ax + by',
+        'Backward substitution and the extended table',
+        'Relatively prime: the certificate 1 = ax + by',
+        'The LCM payoff lcm = ab/gcd',
+      ],
+      objectives: [
+        'Define the greatest common divisor in the Euclidean dress — the common divisor every other common divisor measures — and connect it to FM 3.3’s HCF',
+        'Run both forms of the Euclidean algorithm (subtraction and division), prove that it terminates by descent, and prove that the survivor is the gcd — with no factorisation anywhere',
+        'Derive Bézout’s identity by backward substitution, and compute Bézout coefficients fast with the extended table',
+        'Use the coprime certificate $1 = ax + by$, the scaled reduction $\\gcd(a/d, b/d) = 1$, and the LCM payoff $\\mathrm{lcm}(a,b) = ab/\\gcd(a,b)$',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Foundation Mathematics Lesson 3.3 taught you to find the HCF two ways: list the common factors and take the biggest, or factor both numbers and multiply the shared primes at their smaller powers. Both methods answer the question — at a price measured in factorisations. To find the HCF of $4{,}595$ and $3{,}570$ by listing, you would test candidates up to $3{,}570$; by the prime method, you would first have to factor both numbers, and factorisation is the expensive thing this book is saving for chapter 4. This lesson rebuilds the concept from beneath and then hands you the machine Euclid cut twenty-three centuries ago: a division loop that finds the greatest common divisor **without factorising anything** — often called the oldest nontrivial algorithm still in everyday use, and the load-bearing wall of everything this book builds next.',
+        },
+        {
+          kind: 'para',
+          text: 'The idea costs one sentence — it is Lesson 2.2’s combination law aimed at a difference. If $d$ divides both $a$ and $b$, then $d$ divides $a - b$: a common divisor of the pair $(a, b)$ is automatically a common divisor of the smaller pair $(a - b, b)$. And the traffic runs the other way too, because $a = (a - b) + b$ is a combination of the smaller pair. So the two pairs have *exactly the same* common divisors — and therefore the same greatest one. Replace the pair by a smaller one and repeat: the pairs march downward, the common-divisor set holds still, and (the least-number principle again) the march must end. What survives at the bottom is the answer. The rest of the lesson is this sentence, played out in full and then cashed twice — once as the algorithm, once as Bézout’s identity.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Greatest common divisor',
+          text: 'Let $a$ and $b$ be natural numbers with $a, b \\ge 1$. A natural number $d$ is said to be a **common divisor** of $a$ and $b$ when $d \\mid a$ and $d \\mid b$. The **greatest common divisor** of $a$ and $b$, written $\\gcd(a, b)$ — the **highest common factor**, FM 3.3’s name — is the common divisor $d$ such that **every** common divisor of $a$ and $b$ divides $d$. Thus, $\\gcd(a, b)$ is not merely the largest common divisor; it is the one all the others *measure* — Euclid’s “greatest common measure”. The two readings agree by Lesson 2.2’s order link: a positive divisor of $d$ never exceeds $d$, so “everything divides it” forces “nothing beats it”.',
+        },
+        { kind: 'heading', text: 'The invariance lemma: subtraction preserves the common divisors' },
+        {
+          kind: 'derivation',
+          title: 'Subtraction preserves the common divisors',
+          statement:
+            'Claim: for natural numbers $a > b \\ge 1$, the pairs $(a, b)$ and $(a - b, b)$ have exactly the same common divisors — hence the same greatest common divisor. Only Lesson 2.2’s combination law is used.',
+          steps: [
+            {
+              label: 'Forward: a common divisor of (a, b) divides the difference',
+              formula: 'd \\mid a, \\ d \\mid b \\ \\Rightarrow\\ d \\mid (a - b)',
+              explanation:
+                'Write $a = dk$ and $b = dm$ (the certificates). Then $a - b = d(k - m)$, and $k - m$ is a whole number — indeed $k > m$ by the order link, since $a > b$. So $a - b$ is a multiple of $d$: the difference is a combination ($x = 1$, $y = -1$ in Lesson 2.2’s law, evaluated as the natural difference $a - b > 0$).',
+            },
+            {
+              label: 'Backward: a common divisor of (a − b, b) divides the sum',
+              formula: 'd \\mid (a - b), \\ d \\mid b \\ \\Rightarrow\\ d \\mid (a - b) + b = a',
+              explanation:
+                'With $a - b = dk$ and $b = dm$, the sum is $a = d(k + m)$ — the combination law in its sum dress, with $k + m$ a natural. So any common divisor of the smaller pair divides $a$ as well, and $d$ was already dividing $b$.',
+            },
+            {
+              label: 'The sets coincide, so their greatest elements coincide',
+              formula: '\\{d : d \\mid a, \\ d \\mid b\\} = \\{d : d \\mid (a - b), \\ d \\mid b\\}',
+              explanation:
+                'Steps one and two are exact converses: every element of either common-divisor set belongs to the other. Two identical sets have the same greatest element — the gcd never noticed the substitution.',
+            },
+          ],
+          result:
+            'For $a > b \\ge 1$: $\\gcd(a, b) = \\gcd(a - b, b)$. The pair can shrink all it wants; its greatest common divisor holds still.',
+        },
+        {
+          kind: 'para',
+          text: 'This one lemma is the entire blueprint. Euclid’s original engine applies it one subtraction at a time — replace the larger number by the difference of the pair, and repeat until the two numbers meet. Watch it on $(48, 18)$, keeping the pair written in both seats:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '$(48, 18) \\to (30, 18)$ — subtract the smaller from the larger; the common divisors stay $\\{1, 2, 3, 6\\}$.',
+            '$(30, 18) \\to (12, 18)$ — again; still $\\{1, 2, 3, 6\\}$.',
+            '$(12, 18) \\to (12, 6)$ — now the second seat is larger; subtract the other way; still $\\{1, 2, 3, 6\\}$.',
+            '$(12, 6) \\to (6, 6)$ — the pair meets. A pair of equals has the equals as its common divisors: $\\{1, 2, 3, 6\\}$, greatest $6$.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Four subtractions, and the common-divisor set never moved: $\\gcd(48, 18) = 6$ was decided at the start and merely uncovered. Why must the walk end? Because each step *shrinks the pair-sum* — $66 > 48 > 30 > 18 > 12$ — and a strictly descending staircase of natural numbers cannot be endless: that is the least-number principle of Lesson 1.3, the engine that proved the division algorithm in Lesson 2.1, here halting Euclid’s process in exactly the same way. Every subtraction is a descent, and descent in the naturals always lands.',
+        },
+        { kind: 'heading', text: 'The division step: the same walk, compressed' },
+        {
+          kind: 'para',
+          text: 'Subtracting $b$ from $a$ over and over is precisely repeated subtraction — which Lesson 2.1 already unmasked as division. Four subtractions of 18 from 48 are one division sentence: $48 = 2 \\cdot 18 + 12$. So do the subtractions *in bulk*: one division step replaces the pair $(a, b)$ by the pair $(b, a \\bmod b)$, with the remainder guaranteed in the band $0 \\le a \\bmod b < b$. When the remainder hits $0$, the divisor seat holds a number that divides its partner exactly — the walk has met its bottom, and that number is the answer. This is the form of the algorithm the world actually runs:',
+        },
+        {
+          kind: 'algorithm',
+          title: 'The Euclidean algorithm (division form)',
+          lines: [
+            { code: 'input: naturals a ≥ 1, b ≥ 1', note: 'the pair whose gcd is wanted' },
+            { code: 'while b ≥ 1:', note: 'run while the second seat is occupied' },
+            { code: '    r ← a mod b', note: 'Lesson 2.1’s theorem: 0 ≤ r < b — long division computes it' },
+            { code: '    a ← b', note: 'the old divisor takes the dividend’s seat' },
+            { code: '    b ← r', note: 'the remainder takes the divisor’s seat — the pair shrinks' },
+            { code: 'return a', note: 'when b hits 0, the survivor a is gcd of the original pair' },
+          ],
+          note: 'Termination: the second seats form a strictly descending sequence b > r₁ > r₂ > ⋯ of naturals — the least-number principle forbids an endless one, so the loop halts. Correctness: each step preserves the common-divisor set (the invariance lemma, with subtraction run in bulk), so the survivor is the last common divisor left standing — the greatest one.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Termination by descent — the least-number principle’s third burn',
+          statement:
+            'Claim: iterating $(a, b) \\to (b, a \\bmod b)$ halts after finitely many steps, and it halts exactly when a remainder $0$ appears. This is the descent argument of Lesson 2.1, run on a marching pair.',
+          steps: [
+            {
+              label: 'The second seat strictly decreases',
+              formula: 'a_{i+1} = a_{i-1} \\bmod a_i \\ < \\ a_i',
+              explanation:
+                'Lesson 2.1’s theorem pins every remainder strictly below its divisor: $0 \\le a_{i+1} < a_i$. So the second seats $a_1 > a_2 > a_3 > \\dots$ form a strictly descending sequence of natural numbers — each step of the loop is one more stair down.',
+            },
+            {
+              label: 'An endless descent is impossible',
+              formula: '\\{a_1, a_2, a_3, \\dots\\} \\text{ is nonempty} \\ \\Rightarrow\\ \\text{it has a least element}',
+              explanation:
+                'This is the least-number principle of Lesson 1.3 — on its third appearance: Lesson 2.1 spent it on the existence of quotient and remainder, the descent shadow reused it there, and now it halts Euclid. A strictly descending staircase of naturals cannot be endless, because its steps would be a nonempty set with no bottom.',
+            },
+            {
+              label: 'Halting means the remainder zero',
+              formula: 'a_{k+1} = 0 \\quad \\text{for some } k',
+              explanation:
+                'The loop continues exactly while the second seat holds $\\ge 1$. Strict descent must eventually leave the positive naturals — and the only way it can is the value $0$. The survivor is the last nonzero occupant of the divisor seat.',
+            },
+          ],
+          result:
+            'The Euclidean loop halts after finitely many divisions, and its last nonzero remainder is in hand. (Euclid ran all this without a termination postulate — the historical note below tells that story.)',
+        },
+        { kind: 'heading', text: 'Why the survivor is the greatest common measure' },
+        {
+          kind: 'para',
+          text: 'Halting is half the proof. The other half has two rails, and both ride the same division sentences. Take the instance that will carry this whole lesson — $\\gcd(210, 45)$, whose loop runs $210 = 4 \\cdot 45 + 30$, then $45 = 1 \\cdot 30 + 15$, then $30 = 2 \\cdot 15 + 0$:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The survivor theorem',
+          statement:
+            'Claim: the last nonzero remainder $d$ of the Euclidean loop on $(a, b)$ divides both $a$ and $b$, and every common divisor of $a$ and $b$ divides $d$ — so $d$ is the greatest common divisor in the definition’s full sense.',
+          steps: [
+            {
+              label: 'Up-rail: the survivor divides everything above it',
+              formula: 'd \\mid a_{k-1}, \\ d \\mid a_{k-2}, \\ \\dots, \\ d \\mid a_1 = b, \\ d \\mid a_0 = a',
+              explanation:
+                'At the bottom of the $(210, 45)$ chain, $30 = 2 \\cdot 15 + 0$ — the survivor $15$ divides $30$ outright. One sentence up, $45 = 1 \\cdot 30 + 15$: both terms on the right are multiples of $15$, so their sum is too (the combination law). Keep climbing: $210 = 4 \\cdot 45 + 30$ finishes it. Induction up the chain shows $15 \\mid 30$, $15 \\mid 45$, $15 \\mid 210$ — the survivor is a common divisor of everything the loop ever touched.',
+            },
+            {
+              label: 'Down-rail: every common divisor rides to the bottom',
+              formula: 'e \\mid a, \\ e \\mid b \\ \\Rightarrow\\ e \\mid r_1, \\ e \\mid r_2, \\ \\dots, \\ e \\mid d',
+              explanation:
+                'If $e$ divides $210$ and $45$, the first sentence $210 = 4 \\cdot 45 + 30$ exhibits $30$ as a combination in Lesson 2.2’s dress: $30 = 1 \\cdot 210 - 4 \\cdot 45$ — a difference of multiples of $e$, so $e \\mid 30$. Now $e$ divides $45$ and $30$, so the next sentence hands it $15$; then the next hands it the $0$. Every common divisor of the inputs divides every remainder — including the survivor.',
+            },
+            {
+              label: 'The order link crowns the survivor',
+              formula: 'e \\mid d, \\ d \\ge 1 \\ \\Rightarrow\\ e \\le d',
+              explanation:
+                'Lesson 2.2’s order link: a positive divisor never exceeds its positive multiple. Every common divisor $e$ divides $d$ (down-rail), so $e \\le d$ — while $d$ itself is common (up-rail). The survivor is the greatest common divisor, exactly as the definition demanded: the common divisor that all the others measure.',
+            },
+          ],
+          result:
+            '$\\gcd(a, b)$ = the last nonzero remainder of the Euclidean loop — found with divisions only: no listings, no factor trees, no primes.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The Euclidean cascade for gcd(210, 45): three division machines, each remainder taking the next machine’s divisor seat. Down the left rail, every common divisor d of 210 and 45 rides every arrow — it divides each remainder (the down-rail of the survivor theorem). Up the right rail, the survivor 15 divides everything above it — 15 | 30, 45, 210 (the up-rail). The survivor is the last nonzero remainder: gcd(210, 45) = 15, found with three divisions and no factorisation.',
+          svg: `<svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Euclidean cascade: 210 = 4·45 + 30, 45 = 1·30 + 15, 30 = 2·15 + 0; the survivor 15 highlighted; common divisors ride down, 15 rides up">
+  <defs>
+    <marker id="euclid-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <!-- rails -->
+  <line x1="170" y1="60" x2="170" y2="340" stroke="currentColor" stroke-width="1.3" marker-end="url(#euclid-arrow)"/>
+  <line x1="750" y1="340" x2="750" y2="60" stroke="currentColor" stroke-width="1.3" marker-end="url(#euclid-arrow)"/>
+  <text x="162" y="34" font-size="12" fill="currentColor" text-anchor="middle">common divisors ride down</text>
+  <text x="750" y="34" font-size="12" fill="currentColor" text-anchor="middle">15 rides up</text>
+  <text x="170" y="366" font-size="12" fill="currentColor" text-anchor="middle">d divides every remainder</text>
+  <text x="750" y="366" font-size="12" fill="currentColor" text-anchor="middle">15 | 30, 45, 210</text>
+  <!-- machine 1: 210 = 4·45 + 30 -->
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="250" y="48" width="64" height="44"/>
+    <rect x="346" y="48" width="40" height="44"/>
+    <rect x="410" y="48" width="56" height="44"/>
+    <rect x="498" y="48" width="56" height="44"/>
+  </g>
+  <g font-size="20" fill="currentColor" text-anchor="middle">
+    <text x="282" y="77">210</text>
+    <text x="330" y="77">=</text>
+    <text x="366" y="77">4</text>
+    <text x="398" y="77">·</text>
+    <text x="438" y="77">45</text>
+    <text x="482" y="77">+</text>
+    <text x="526" y="77">30</text>
+  </g>
+  <!-- machine 2: 45 = 1·30 + 15 (r highlighted) -->
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="250" y="176" width="64" height="44"/>
+    <rect x="346" y="176" width="40" height="44"/>
+    <rect x="410" y="176" width="56" height="44"/>
+  </g>
+  <rect x="498" y="176" width="56" height="44" stroke="currentColor" stroke-width="2.5" fill="none"/>
+  <g font-size="20" fill="currentColor" text-anchor="middle">
+    <text x="282" y="205">45</text>
+    <text x="330" y="205">=</text>
+    <text x="366" y="205">1</text>
+    <text x="398" y="205">·</text>
+    <text x="438" y="205">30</text>
+    <text x="482" y="205">+</text>
+    <text x="526" y="205">15</text>
+  </g>
+  <!-- machine 3: 30 = 2·15 + 0 (b highlighted: the survivor) -->
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <rect x="250" y="304" width="64" height="44"/>
+    <rect x="346" y="304" width="40" height="44"/>
+    <rect x="498" y="304" width="56" height="44"/>
+  </g>
+  <rect x="410" y="304" width="56" height="44" stroke="currentColor" stroke-width="2.5" fill="none"/>
+  <g font-size="20" fill="currentColor" text-anchor="middle">
+    <text x="282" y="333">30</text>
+    <text x="330" y="333">=</text>
+    <text x="366" y="333">2</text>
+    <text x="398" y="333">·</text>
+    <text x="438" y="333">15</text>
+    <text x="482" y="333">+</text>
+    <text x="526" y="333">0</text>
+  </g>
+  <!-- carry arrows: remainder takes the next divisor seat -->
+  <polyline points="526,92 526,134 438,134 438,170" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#euclid-arrow)"/>
+  <polyline points="526,220 526,262 438,262 438,298" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#euclid-arrow)"/>
+  <text x="350" y="118" font-size="12.5" fill="currentColor" text-anchor="middle">the remainder 30 becomes the next divisor</text>
+  <text x="350" y="246" font-size="12.5" fill="currentColor" text-anchor="middle">the remainder 15 becomes the next divisor</text>
+  <!-- banner -->
+  <text x="388" y="396" font-size="13.5" font-weight="600" fill="currentColor" text-anchor="middle">the survivor 15 — the last nonzero remainder — is gcd(210, 45)</text>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The Euclidean algorithm',
+          text: 'For natural numbers $a \\ge 1$ and $b \\ge 1$: iterate $(a, b) \\to (b, a \\bmod b)$ until the remainder is $0$. The loop halts (descent), and the last nonzero remainder $d$ satisfies: $d \\mid a$, $d \\mid b$, and every common divisor of $a$ and $b$ divides $d$. Hence $d = \\gcd(a, b)$. Instance: $\\gcd(210, 45) = 15$ from the chain $210 = 4 \\cdot 45 + 30$, $45 = 1 \\cdot 30 + 15$, $30 = 2 \\cdot 15 + 0$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Euclid, Book VII, around 300 BC',
+          text: 'Propositions VII.1 and VII.2 of the *Elements* run this process — the Greeks called it *anthyphairesis*, “reciprocal subtraction”, and Aristotle’s *Topics* already used it to compare ratios. VII.1 handles pairs whose greatest common measure is the unit; VII.2 finds the greatest common measure of any two numbers not relatively prime, and closes with a corollary this lesson proved on the way up the chain: “if a number measures two numbers, then it also measures their greatest common measure.” Euclid states no postulates for numbers and never asks whether the process must end — David Joyce’s modern edition points out the missing descending-chain assumption; the least-number principle of Lesson 1.3 is exactly that missing wall. The word *algorithm* — carried in Lesson 2.1’s historical note from *Algoritmi*, the Latinized name of al-Khwārizmī — is often pinned to this very procedure.',
+        },
+        { kind: 'heading', text: 'Bézout’s identity: the survivor is a combination' },
+        {
+          kind: 'para',
+          text: 'The algorithm answers *which* number the gcd is. A deeper question hides behind it: the laws of Lesson 2.2 say every common divisor divides every combination $ax + by$ — combinations of $a$ and $b$ are *trapped inside* the multiples of the gcd. Can the traffic run the other way? Can some combination climb back out and *equal* the gcd itself? The answer is yes, and the proof is already in your hands: the cascade’s footprints. Read the division chain from the bottom up, substituting each sentence into the one above, and the survivor assembles itself as a combination of the original inputs.',
+        },
+        {
+          kind: 'derivation',
+          title: 'Bézout’s identity by backward substitution',
+          statement:
+            'Claim: the survivor $d = \\gcd(a, b)$ can be written $d = ax + by$ — a combination of the two inputs with whole-number coefficients $x$, $y$. The proof climbs the division chain from the bottom, one substitution per step.',
+          steps: [
+            {
+              label: 'The first remainder is a combination already',
+              formula: 'r_1 = a - q_1 b',
+              explanation:
+                'Rearrange the first division sentence $a = q_1 b + r_1$: subtract $q_1$ copies of $b$ from $a$. As naturals this is legal — $q_1$ was chosen in Lesson 2.1 precisely so that $r_1 \\ge 0$ — and it exhibits the first remainder as a difference of natural multiples of $a$ and $b$.',
+            },
+            {
+              label: 'Each remainder rides on the two above it',
+              formula: 'r_{i+1} = r_{i-1} - q_{i+2} r_i',
+              explanation:
+                'Every division sentence rearranges the same way. If $r_{i-1}$ and $r_i$ are already differences of natural multiples of $a$ and $b$, so is $r_{i+1}$: substitute the expression for $r_i$ and collect the $a$-coefficients and the $b$-coefficients. Collecting never leaves the whole numbers — though a coefficient may dip below zero (the honest flag below); the *value* stays checkable as one natural subtraction.',
+            },
+            {
+              label: 'Induction reaches the survivor',
+              formula: 'd = r_k = x \\cdot a + y \\cdot b',
+              explanation:
+                'Climbing sentence by sentence, every remainder — in particular the last nonzero one — is a combination of $a$ and $b$ with whole-number coefficients. This is **Bézout’s identity**: the gcd is not merely a ceiling on the combinations; it *is* one of them.',
+            },
+          ],
+          result:
+            'For all natural $a, b \\ge 1$ there exist whole numbers $x, y$ with $\\gcd(a, b) = ax + by$ — read off the Euclidean loop’s own footprints.',
+        },
+        {
+          kind: 'example',
+          title: 'Run the Euclidean loop on (210, 45), then read the survivor off the chain',
+          steps: [
+            'Split: run the loop — divide 210 by 45: $210 = 4 \\cdot 45 + 30$; the pair becomes $(45, 30)$.',
+            'Now, divide 45 by 30: $45 = 1 \\cdot 30 + 15$; the pair becomes $(30, 15)$.',
+            'So, divide 30 by 15: $30 = 2 \\cdot 15 + 0$ — remainder zero: stop after three divisions.',
+            'Take: the survivor is the last nonzero remainder, $15$. No factorisation was performed anywhere.',
+            'Hence check the maximality the long way once, to watch the theorem at work: the common divisors of 210 and 45 are $1, 3, 5, 15$ — the greatest is $15$ ✓.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Backward substitution: express the survivor 15 as a combination of 210 and 45',
+          steps: [
+            'Split: climb the chain of the previous Illustration, bottom sentence first: $15 = 45 - 1 \\cdot 30$.',
+            'Now, substitute the sentence that produces 30: $30 = 210 - 4 \\cdot 45$.',
+            'So, $15 = 45 - 1 \\cdot (210 - 4 \\cdot 45) = 5 \\cdot 45 - 1 \\cdot 210$ — collect the 45s: $1 + 4$ of them; one 210 remains.',
+            'Check as a natural difference: $5 \\cdot 45 = 225$ and $1 \\cdot 210 = 210$, and $225 - 210 = 15$ ✓.',
+            'Hence Bézout’s identity on the instance: $\\gcd(210, 45) = 5 \\cdot 45 - 1 \\cdot 210$ — coefficients $(x, y) = (-1, 5)$ in the signed dress.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Backward substitution is the *proof* — it shows the coefficients exist and where they come from. For computing them quickly, run the bookkeeping *forward*: keep a coefficient pair $(x, y)$ alongside every remainder as the loop runs, so that each row satisfies $x \\cdot a + y \\cdot b = r$. The seeds are forced ($a = 1 \\cdot a + 0 \\cdot b$; $b = 0 \\cdot a + 1 \\cdot b$), and each new row is “two up minus (new quotient) × one up” — the same recurrence the remainders obey, applied column-wise. Here is the whole computation for $(210, 45)$, with every row checked:',
+        },
+        {
+          kind: 'table',
+          caption: 'The extended Euclidean table for (a, b) = (210, 45): each row carries (r, x, y) with x·210 + y·45 = r. Each new row is two up minus (new quotient) × one up. The last nonzero row is Bézout’s identity.',
+          head: ['row', 'r', 'x', 'y', 'the check x·a + y·b'],
+          rows: [
+            ['seed a', '210', '1', '0', '210·1 + 45·0 = 210 ✓'],
+            ['seed b', '45', '0', '1', '210·0 + 45·1 = 45 ✓'],
+            ['210 − 4·45', '30', '1', '−4', '210 − 180 = 30 ✓'],
+            ['45 − 1·30', '15', '−1', '5', '−210 + 225 = 15 ✓'],
+            ['30 − 2·15', '0', '3', '−14', '630 − 630 = 0 ✓'],
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The coefficients subtract — what that means here',
+          text: 'Bézout coefficients generally wear minus signs: $15 = 5 \\cdot 45 - 1 \\cdot 210$. This book has not built the integers yet — Chapter 6 does — so read every such line as a **difference of natural multiples**: the larger product minus the smaller, verified by direct arithmetic ($225 - 210 = 15$). Nothing in this lesson needs anything deeper: a difference of two multiples of $d$ is a multiple of $d$ (Lesson 2.2’s combination law), and every claimed identity is one subtraction away from a check. Chapter 6 will give these differences a proper home, and every statement of this lesson will survive unchanged.',
+        },
+        {
+          kind: 'example',
+          title: 'Find gcd(4,595, 3,570) — the exam workhorse — and write Bézout’s identity for the pair',
+          steps: [
+            'Split: run the loop: $4{,}595 = 1 \\cdot 3{,}570 + 1{,}025$.',
+            'Now, $3{,}570 = 3 \\cdot 1{,}025 + 495$.',
+            'So, $1{,}025 = 2 \\cdot 495 + 35$; then $495 = 14 \\cdot 35 + 5$; then $35 = 7 \\cdot 5 + 0$ — stop.',
+            'Take: the survivor is $5$ — five divisions, no factor tree, no prime listing (FM 3.3’s methods would factor both numbers first).',
+            'Now, climb backwards for Bézout: $5 = 495 - 14 \\cdot 35 = 495 - 14 \\cdot (1{,}025 - 2 \\cdot 495) = 29 \\cdot 495 - 14 \\cdot 1{,}025$.',
+            'So, $495 = 3{,}570 - 3 \\cdot 1{,}025$ gives $5 = 29 \\cdot 3{,}570 - 101 \\cdot 1{,}025$; and $1{,}025 = 4{,}595 - 3{,}570$ finishes it: $5 = 130 \\cdot 3{,}570 - 101 \\cdot 4{,}595$.',
+            'Check: $130 \\cdot 3{,}570 = 464{,}100$ and $101 \\cdot 4{,}595 = 464{,}095$ — the difference is $5$ ✓.',
+          ],
+        },
+        { kind: 'heading', text: 'Coprime pairs, the scaled reduction, and the LCM payoff' },
+        {
+          kind: 'para',
+          text: 'One value of the survivor deserves its own paragraph: $d = 1$. The pair is then called **relatively prime**, or **coprime** — FM 3.3’s word — and Bézout turns the name into a certificate: $\\gcd(a, b) = 1$ means $1 = ax + by$ for some whole numbers, and conversely a combination equal to 1 certifies coprimality (any common divisor would divide that combination, hence divide 1). The flattest instances are consecutive numbers: $9 - 8 = 1$ gives $1 = 1 \\cdot 9 - 1 \\cdot 8$, so $\\gcd(8, 9) = 1$ — and no search was needed, because *any* common divisor of $n$ and $n + 1$ divides their difference 1. Consecutive Fibonacci numbers (Lesson 1.3’s recursion) are coprime for the same reason the algorithm on them never misses: chapter’s end makes that precise.',
+        },
+        {
+          kind: 'para',
+          text: 'Two reductions cash Bézout further. First, the **scaled reduction**: dividing both inputs by their gcd never spoils coprimality — $\\gcd(a/d, b/d) = 1$ whenever $d = \\gcd(a, b)$ — because dividing the identity $d = ax + by$ through by $d$ (Lesson 2.2’s cancellation) yields $1 = (a/d)x + (b/d)y$. Instance: $(210, 45)$ scales to $(14, 3)$, and $15 = 5 \\cdot 45 - 1 \\cdot 210$ divided by 15 reads $1 = 5 \\cdot 3 - 1 \\cdot 14$ ✓ ($15 - 14 = 1$). The next lesson builds its whole solution theory on this reduction. Second, the **LCM payoff**: FM 3.5 banked the product rule $\\gcd(a, b) \\cdot \\mathrm{lcm}(a, b) = a \\cdot b$ — and now the gcd is computable without factorising, so the lcm comes along free: $\\mathrm{lcm}(210, 45) = \\frac{210 \\cdot 45}{15} = 630$, a common multiple of both ($630 = 3 \\cdot 210 = 14 \\cdot 45$), and the least — the smaller multiples 210 and 420 both miss ($420 = 9 \\cdot 45 + 15$, the old stub).',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The worst case — Lamé, 1844',
+          text: 'How slow can the loop be? Gabriel Lamé proved the answer: the worst pairs are consecutive Fibonacci numbers — $1, 1, 2, 3, 5, 8, 13, \\dots$, Lesson 1.3’s recursion. On $(6{,}765, 4{,}181)$ — $F_{20}$ and $F_{19}$ — the loop takes 18 divisions and every quotient is 1 except the last: the descent shrinks as slowly as division allows, one Fibonacci step at a time, ending $\\gcd(6{,}765, 4{,}181) = 1$. Lamé’s bound: the number of divisions never exceeds $5 \\times$ the number of decimal digits of the smaller number ($18 \\le 5 \\cdot 4$ here) — so even pathological inputs finish in a handful of divisions. The verify sweep behind this lesson checked every pair up to $10{,}000$: none needs more than 18 divisions, none below 6,765 reaches 18, and the maximum is achieved exactly at the Fibonacci pair.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where examinations use this',
+          text: 'The algorithm is a competitive-exam staple exactly because it outruns factorisation: HCF of two three- or four-digit numbers in a few divisions ($4{,}595$ and $3{,}570$ took five) where listing would test hundreds of candidates; coprime checks for fraction work — FM 4.2 already ran the ladder on $91/104$ and $231/275$, and now you know why it always ends; LCM of a pair via the product rule the moment the HCF is out; and “express the HCF as a combination of the two numbers” questions, which are backward substitution by another name. Khattar’s QA chapter 1 drills all four shapes. In this book the stakes are higher still: chapter 4’s uniqueness of prime factorisation stands on Bézout, and Bézout stands on this lesson.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            { term: 'Greatest common divisor', def: 'For $a, b \\ge 1$: the common divisor $\\gcd(a, b)$ that every common divisor divides — the greatest common measure. FM 3.3’s HCF under its formal name.' },
+            { term: 'The Euclidean algorithm', def: 'The division loop $(a, b) \\to (b, a \\bmod b)$, run until the remainder is 0; the last nonzero remainder is $\\gcd(a, b)$. Termination by descent; correctness by the invariance lemma and the two rails.' },
+            { term: 'The subtraction form (anthyphairesis)', def: 'Euclid’s original engine: replace the larger number by the difference, one subtraction at a time, until the pair meets. Greek for “reciprocal subtraction”; the division loop is it compressed.' },
+            { term: 'Remainder sequence', def: 'The strictly descending chain $b > r_1 > r_2 > \\dots \\ge 0$ of second seats. The least-number principle (Lesson 1.3) guarantees it cannot be endless — termination by descent.' },
+            { term: 'Bézout’s identity', def: 'The survivor is a combination: $\\gcd(a, b) = ax + by$ for whole numbers $x, y$ — derived by backward substitution up the division chain.' },
+            { term: 'Bézout coefficients', def: 'The whole-number pair $(x, y)$ in $ax + by = \\gcd(a, b)$. Not unique; the extended table yields a small pair with $|x| \\le b/d$ and $|y| \\le a/d$. Read negative coefficients as differences of natural multiples until Chapter 6.' },
+            { term: 'Relatively prime (coprime)', def: '$\\gcd(a, b) = 1$; certified by a combination equal to 1. Consecutive numbers are always coprime — any common divisor divides their difference.' },
+            { term: 'The scaled reduction', def: '$\\gcd(a/d, b/d) = 1$ for $d = \\gcd(a, b)$: dividing an identity $d = ax + by$ by $d$ certifies it. The gateway to the Diophantine theory of Lesson 2.4.' },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The pair $(a, b)$ is replaced by $(a - b, b)$. What happens to the set of common divisors?',
+              options: [
+                'It is unchanged — every common divisor of either pair divides the other pair too (the combination law, both ways)',
+                'It loses every divisor larger than $a - b$',
+                'It shrinks by exactly one divisor',
+                'It becomes the set of divisors of $a - b$ alone',
+              ],
+              answer: 0,
+              explain: 'The invariance lemma: $d \\mid a, d \\mid b \\Rightarrow d \\mid (a-b)$ and conversely $d \\mid (a-b), d \\mid b \\Rightarrow d \\mid a$ — the sets coincide element for element (the $(48, 18) \\to (30, 18)$ instance kept $\\{1, 2, 3, 6\\}$ exactly). The other options describe sets that would change — which would break the whole algorithm.',
+            },
+            {
+              q: 'Run the division loop on $(210, 45)$. What does the algorithm return?',
+              options: ['30 — the first remainder', '15 — the last nonzero remainder', '5 — a common divisor, but not the greatest', '45 — the divisor itself'],
+              answer: 1,
+              explain: 'The chain $210 = 4 \\cdot 45 + 30$, $45 = 1 \\cdot 30 + 15$, $30 = 2 \\cdot 15 + 0$ stops with survivor 15. The distractors fail differently: 30 is a remainder, not a divisor of 45; 5 divides both but is not the greatest; 45 does not divide 210.',
+            },
+            {
+              q: 'What forces the Euclidean loop to halt?',
+              options: [
+                'The quotients decrease at every step',
+                'The remainders form a strictly descending sequence of naturals — and no such staircase is endless (the least-number principle)',
+                'The algorithm checks in advance how many steps it will need',
+                'Division by zero terminates it',
+              ],
+              answer: 1,
+              explain: 'Lesson 2.1’s band pins each remainder strictly below its divisor: $b > r_1 > r_2 > \\dots$, and the least-number principle forbids an endless descent — the principle’s third burn. The quotients need not decrease at all: the chain $(4{,}595, 3{,}570)$ runs $(1, 3, 2, 14, 7)$, rising twice.',
+            },
+            {
+              q: 'Backward substitution on the $(210, 45)$ chain expresses the survivor as a difference of natural multiples. Which expression does the climb produce?',
+              options: ['5·45 − 1·210', '6·45 − 1·210', '2·210 − 9·45', '1·210 − 5·45'],
+              answer: 0,
+              explain: 'The climb: $15 = 45 - 1 \\cdot 30$ with $30 = 210 - 4 \\cdot 45$ gives $15 = 5 \\cdot 45 - 1 \\cdot 210$ ($225 - 210 = 15$). The subtle distractor $2 \\cdot 210 - 9 \\cdot 45$ also evaluates to 15 — coefficients are not unique — but it is not what the substitution produces; $6 \\cdot 45 - 1 \\cdot 210 = 60$; and $1 \\cdot 210 - 5 \\cdot 45$ is negative — not a natural difference at all.',
+            },
+            {
+              q: 'Why is $\\gcd(n, n+1) = 1$ for every natural $n$?',
+              options: [
+                'Because one of any two consecutive numbers is prime',
+                'Because consecutive numbers share no digits',
+                'Any common divisor of $n$ and $n + 1$ divides their difference 1 — so it is 1',
+                'Only when $n$ is even',
+              ],
+              answer: 2,
+              explain: 'The difference argument: $d \\mid n$ and $d \\mid n+1$ force $d \\mid (n+1) - n = 1$, and the only natural measuring 1 is 1 itself. The prime distractor dies on $n = 8$: 9 is composite, yet $\\gcd(8, 9) = 1$ — with the flattest certificate there is, $1 = 1 \\cdot 9 - 1 \\cdot 8$.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Find $\\gcd(68, 51)$ by the division loop, writing every division sentence.',
+                  solution: [
+                    'Split: run the loop on $(68, 51)$: divide 68 by 51 — $68 = 1 \\cdot 51 + 17$.',
+                    'Now, the pair is $(51, 17)$: $51 = 3 \\cdot 17 + 0$ — remainder zero: stop after two divisions.',
+                    'So, the survivor is the last nonzero remainder, $17$.',
+                    'Hence $\\gcd(68, 51) = 17$ — and indeed $68 = 4 \\cdot 17$, $51 = 3 \\cdot 17$.',
+                  ],
+                  answer: 'gcd(68, 51) = 17',
+                },
+                {
+                  q: 'Run the subtraction form on $(48, 18)$: list every state of the pair and count the subtractions. Then check the answer with the division loop.',
+                  solution: [
+                    'Split: subtract the smaller from the larger, repeatedly: $(48, 18) \\to (30, 18)$ — one.',
+                    'Now, $(30, 18) \\to (12, 18)$ — two; $(12, 18) \\to (12, 6)$ — three; $(12, 6) \\to (6, 6)$ — four.',
+                    'So, the pair has met: $(6, 6)$ — the survivor is $6$, after four subtractions.',
+                    'Check by the division loop: $48 = 2 \\cdot 18 + 12$, then $18 = 1 \\cdot 12 + 6$, then $12 = 2 \\cdot 6 + 0$ — survivor $6$, in three divisions.',
+                    'Hence both engines answer $6$: the loop is the walk with its repeats compressed (Lesson 2.1’s point — repeated subtraction *is* division).',
+                  ],
+                  answer: 'gcd(48, 18) = 6 — four subtractions, or three divisions',
+                },
+                {
+                  q: 'Find $\\gcd(1{,}071, 462)$ and write down the quotient sequence.',
+                  solution: [
+                    'Split: $1{,}071 = 2 \\cdot 462 + 147$.',
+                    'Now, $462 = 3 \\cdot 147 + 21$.',
+                    'So, $147 = 7 \\cdot 21 + 0$ — stop; the survivor is $21$.',
+                    'Hence the quotient sequence is $(2, 3, 7)$ and $\\gcd(1{,}071, 462) = 21$ — check: $21 \\cdot 51 = 1{,}071$ and $21 \\cdot 22 = 462$.',
+                  ],
+                  answer: 'gcd(1,071, 462) = 21, quotients (2, 3, 7)',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Use the Euclidean loop on $(4{,}595, 3{,}570)$. How many divisions does it take, what is the HCF, and why is this faster than FM 3.3’s methods here?',
+                  solution: [
+                    'Split: $4{,}595 = 1 \\cdot 3{,}570 + 1{,}025$.',
+                    'Now, $3{,}570 = 3 \\cdot 1{,}025 + 495$; $1{,}025 = 2 \\cdot 495 + 35$; $495 = 14 \\cdot 35 + 5$; $35 = 7 \\cdot 5 + 0$.',
+                    'So, five divisions in all; the survivor is $5$.',
+                    'Take: the common divisors are just $1$ and $5$, so the HCF is $5$ — and the loop never needed to know that 5 is prime.',
+                    'Hence the comparison: FM 3.3’s listing method would test every candidate up to $3{,}570$, and the prime-factor method would factor both numbers first — the loop settles it in five divisions.',
+                  ],
+                  answer: 'gcd(4,595, 3,570) = 5, in five divisions',
+                },
+                {
+                  q: 'Reduce the fraction $\\frac{210}{45}$ to lowest terms using the Euclidean algorithm, and name the Foundation Mathematics lesson whose ladder you are running.',
+                  solution: [
+                    'Split: Illustration 1 already ran the loop: $\\gcd(210, 45) = 15$.',
+                    'Now, divide numerator and denominator by the gcd: $\\frac{210}{45} = \\frac{210/15}{45/15} = \\frac{14}{3}$ — the cancellation form $ac \\mid bc \\Leftrightarrow a \\mid b$ (Lesson 2.2) says nothing is lost.',
+                    'So, $\\frac{14}{3}$ is fully reduced: the scaled pair is coprime, $\\gcd(14, 3) = 1$.',
+                    'Hence the ladder is FM 4.2’s (Equivalent Fractions and Simplification) — this lesson proved that the ladder’s rung *is* the gcd, which FM took as computed.',
+                  ],
+                  answer: '210/45 = 14/3, via gcd 15',
+                },
+                {
+                  q: 'Compute $\\mathrm{lcm}(210, 45)$ from the gcd, and verify the product rule $\\gcd \\cdot \\mathrm{lcm} = a \\cdot b$ on the pair.',
+                  solution: [
+                    'Split: FM 3.5’s product rule: $\\gcd(a, b) \\cdot \\mathrm{lcm}(a, b) = a \\cdot b$.',
+                    'Now, with $\\gcd(210, 45) = 15$: $\\mathrm{lcm}(210, 45) = \\frac{210 \\cdot 45}{15} = \\frac{9{,}450}{15} = 630$.',
+                    'So, check both: $630 = 3 \\cdot 210$ and $630 = 14 \\cdot 45$ — a common multiple.',
+                    'Check leastness too: the smaller multiples of 210 are 210 and 420, and $420 = 9 \\cdot 45 + 15$ misses by the old stub — so 630 is the least.',
+                    'Hence the product rule verifies: $15 \\cdot 630 = 9{,}450 = 210 \\cdot 45$ ✓ — the algorithm now computes the HCF without factorising, so the LCM comes along free.',
+                  ],
+                  answer: 'lcm(210, 45) = 630; 15·630 = 210·45 = 9,450',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Prove that consecutive natural numbers are always coprime: $\\gcd(n, n+1) = 1$ for every $n \\ge 1$. Then exhibit the Bézout certificate for $(8, 9)$, $(20, 21)$ and $(99, 100)$.',
+                  solution: [
+                    'Split: let $d$ divide both $n$ and $n + 1$.',
+                    'Now, $d$ divides their difference: $(n + 1) - n = 1$ — the invariance lemma’s forward arrow, one step.',
+                    'So, $d \\mid 1$ forces $d = 1$: the pair is coprime.',
+                    'Take the certificates by the same one-step subtraction: $9 - 8 = 1$ gives $1 = 1 \\cdot 9 - 1 \\cdot 8$; $21 - 20 = 1$ gives $1 = 1 \\cdot 21 - 1 \\cdot 20$; $100 - 99 = 1$ gives $1 = 1 \\cdot 100 - 1 \\cdot 99$.',
+                    'Hence every consecutive pair is coprime, with the flattest Bézout line there is.',
+                  ],
+                  answer: 'gcd(n, n+1) = 1; e.g. 1 = 1·9 − 1·8, 1 = 1·21 − 1·20, 1 = 1·100 − 1·99',
+                },
+                {
+                  q: 'Express $\\gcd(1{,}071, 462) = 21$ as a combination of $1{,}071$ and $462$ by backward substitution, checking each step.',
+                  solution: [
+                    'Split: climb the chain of Exercise 3 from the bottom: $21 = 462 - 3 \\cdot 147$.',
+                    'Now, substitute $147 = 1{,}071 - 2 \\cdot 462$: $21 = 462 - 3 \\cdot (1{,}071 - 2 \\cdot 462) = 7 \\cdot 462 - 3 \\cdot 1{,}071$.',
+                    'So, read it as a natural difference: $7 \\cdot 462 = 3{,}234$ and $3 \\cdot 1{,}071 = 3{,}213$, and $3{,}234 - 3{,}213 = 21$ ✓.',
+                    'Hence Bézout’s identity for the pair: $\\gcd(1{,}071, 462) = 7 \\cdot 462 - 3 \\cdot 1{,}071$ — coefficients $(x, y) = (-3, 7)$ in the signed dress.',
+                  ],
+                  answer: '21 = 7·462 − 3·1,071 (check: 3,234 − 3,213 = 21)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Build the full extended table for $(a, b) = (4{,}595, 3{,}570)$: every row $(r, x, y)$ with $x \\cdot a + y \\cdot b = r$, and read Bézout’s identity off the last nonzero row.',
+                  solution: [
+                    'Split: seed the table with the inputs: $4{,}595 = 1 \\cdot 4{,}595 + 0 \\cdot 3{,}570$ and $3{,}570 = 0 \\cdot 4{,}595 + 1 \\cdot 3{,}570$.',
+                    'Now, each new row is two up minus (quotient) × one up: quotient 1 gives $1{,}025 = 1 \\cdot 4{,}595 - 1 \\cdot 3{,}570$; quotient 3 gives $495 = -3 \\cdot 4{,}595 + 4 \\cdot 3{,}570$; quotient 2 gives $35 = 7 \\cdot 4{,}595 - 9 \\cdot 3{,}570$; quotient 14 gives $5 = -101 \\cdot 4{,}595 + 130 \\cdot 3{,}570$; quotient 7 closes with $0 = 714 \\cdot 4{,}595 - 919 \\cdot 3{,}570$.',
+                    'So, verify the gcd row as a natural difference: $130 \\cdot 3{,}570 = 464{,}100$, $101 \\cdot 4{,}595 = 464{,}095$ — difference $5$ ✓ (and the zero row: $714 \\cdot 4{,}595 = 919 \\cdot 3{,}570 = 3{,}280{,}830$ ✓).',
+                    'Hence the last nonzero row is Bézout’s identity: $\\gcd(4{,}595, 3{,}570) = 130 \\cdot 3{,}570 - 101 \\cdot 4{,}595$ — and the table’s coefficients are small, as promised: $|{-101}| \\le 3{,}570/5$ and $|130| \\le 4{,}595/5$.',
+                  ],
+                  answer: '5 = 130·3,570 − 101·4,595; all seven rows evaluate',
+                },
+                {
+                  q: 'Run the loop on the consecutive Fibonacci pair $(6{,}765, 4{,}181)$. Count the divisions, list the quotients, and check Lamé’s bound for this instance.',
+                  solution: [
+                    'Split: the chain begins $6{,}765 = 1 \\cdot 4{,}181 + 2{,}584$, then $4{,}181 = 1 \\cdot 2{,}584 + 1{,}597$ — every quotient 1 while the pair stays Fibonacci.',
+                    'Now, the remainders descend $2{,}584 > 1{,}597 > 987 > \\dots > 3 > 2 > 1 > 0$: eighteen divisions in all, the last sentence $2 = 2 \\cdot 1 + 0$ the only quotient above 1.',
+                    'So, the quotient sequence is seventeen 1’s then a 2, and the survivor is $\\gcd(6{,}765, 4{,}181) = 1$ — consecutive Fibonacci numbers are coprime.',
+                    'Check Lamé: the smaller number 4,181 has 4 decimal digits, and $18 \\le 5 \\cdot 4 = 20$ ✓.',
+                    'Hence the instance sits just under Lamé’s ceiling — the Fibonacci pairs are the loop’s worst customers, shrinking by barely a factor of $\\varphi$ per step.',
+                  ],
+                  answer: '18 divisions; quotients 1 (×17) then 2; gcd = 1; Lamé 18 ≤ 20',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Prove the scaled reduction: if $d = \\gcd(a, b)$, then $\\gcd(a/d, b/d) = 1$. Then apply it to $(210, 45)$ and write the scaled Bézout line.',
+                  solution: [
+                    'Split: Bézout supplies the coefficients: $d = ax + by$ for whole numbers $x, y$.',
+                    'Now, divide the identity through by $d$ — legal, since $d \\mid d$, $d \\mid a$, $d \\mid b$ and cancellation holds (Lesson 2.2): $1 = (a/d)x + (b/d)y$.',
+                    'So, the scaled pair $(a/d, b/d)$ admits a combination equal to 1 — and any common divisor of the scaled pair would divide that combination, hence divide 1, hence be 1.',
+                    'Take: $\\gcd(a/d, b/d) = 1$ — the scaled pair is always coprime.',
+                    'Hence the instance: $(210, 45)$ scales to $(14, 3)$, and dividing $15 = 5 \\cdot 45 - 1 \\cdot 210$ by 15 gives the scaled certificate $1 = 5 \\cdot 3 - 1 \\cdot 14$ ✓ ($15 - 14 = 1$).',
+                  ],
+                  answer: 'gcd(a/d, b/d) = 1; instance: 1 = 5·3 − 1·14',
+                },
+                {
+                  q: 'Explain why the consecutive Fibonacci pairs are the Euclidean loop’s worst case: why does every quotient come out 1, and what does that do to the descent? Verify the pattern on $(5, 8)$ and $(8, 13)$.',
+                  solution: [
+                    'Split: the Fibonacci recurrence $F_{k+1} = F_k + F_{k-1}$ is itself a division sentence: $F_{k+1} = 1 \\cdot F_k + F_{k-1}$, with remainder $F_{k-1} < F_k$ — quotient exactly 1, the smallest a legal quotient can be.',
+                    'Now, a quotient of 1 removes only one copy of the divisor: the pair $(F_{k+1}, F_k)$ hands down to $(F_k, F_{k-1})$ — the slowest possible shrink per division.',
+                    'So, any pair whose quotients are all 1 descends Fibonacci-fashion — the longest descent available for entries of that size, which is what Lamé’s bound makes precise.',
+                    'Check the small runs: $8 = 1 \\cdot 5 + 3$, $5 = 1 \\cdot 3 + 2$, $3 = 1 \\cdot 2 + 1$, $2 = 2 \\cdot 1 + 0$ — three 1’s then a 2, survivor $\\gcd(5, 8) = 1$; and $13 = 1 \\cdot 8 + 5$ before that chain — four 1’s then a 2, survivor $\\gcd(8, 13) = 1$.',
+                    'Hence the pattern: every Fibonacci pair is coprime, and every run is the slowest of its size.',
+                  ],
+                  answer: 'quotient 1 = slowest shrink; (5, 8) and (8, 13) both run all-1s down to gcd 1',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Essay. One algorithm, two engines: the subtraction form Euclid actually wrote and the division form this lesson certified. Write a connected account: what the invariance lemma says, where the least-number principle enters each engine, why the division loop is the subtraction walk compressed, and what Euclid’s corollary — “a number measuring two numbers measures their greatest common measure” — contributes to the maximality half of the proof.',
+                  solution: [
+                    'The invariance lemma: subtraction (or its bulk form, division with remainder) preserves the common-divisor set exactly — both directions are the combination law — so the gcd holds still while the pair shrinks.',
+                    'The LNP in the subtraction engine: the pair-sum strictly decreases ($66 > 48 > 30 > 18 > 12$ on $(48, 18)$), and a natural staircase cannot descend forever — Euclid’s process halts because the naturals are well-ordered, a wall his Elements never states (Joyce’s guide flags the missing postulate; Lesson 1.3’s least-number principle is the modern completion).',
+                    'The LNP in the division engine: the same descent in bulk — the remainders $b > r_1 > r_2 > \\dots$ strictly descend, and Lesson 2.1’s band guarantees each is a legal remainder.',
+                    'The compression: subtracting $b$ from $a$ repeatedly *is* division — $q$ counts the subtractions and $r$ is what is left (Lesson 2.1’s descent walk standing up straight); the loop runs the walk with repeats compressed, which is why both engines return the same survivor — the verified instance: $(48, 18)$, four subtractions, three divisions, answer 6.',
+                    'The corollary’s role: the up-rail shows the survivor divides both inputs; the down-rail is precisely the corollary — every common divisor divides the survivor; and the order link converts “divides” into “$\\le$”, crowning the survivor as the greatest common measure. Without the corollary half, the survivor would be just some common divisor.',
+                    'Hence one theorem, two speeds: the subtraction form and the division loop are the same algorithm at different compressions, both certified by the same two walls — the combination law and the least-number principle.',
+                  ],
+                  answer: 'One algorithm, two engines: combination law + LNP certify both; the corollary crowns the survivor',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The Euclidean step',
+          latex: '\\gcd(a, b) = \\gcd(a - b, b) = \\gcd(b, a \\bmod b) \\quad (a > b \\ge 1)',
+          note: 'The invariance lemma twice over: subtraction and its bulk form both preserve the common-divisor set.',
+        },
+        {
+          kind: 'formula',
+          name: 'The Euclidean algorithm',
+          latex: '(a, b) \\to (b, a \\bmod b) \\to \\dots \\to (d, 0)',
+          note: 'Halts by descent (the LNP’s third burn); the survivor $d$ — the last nonzero remainder — is $\\gcd(a, b)$. Instance: $(210, 45) \\to (45, 30) \\to (30, 15) \\to (15, 0)$, $d = 15$.',
+        },
+        {
+          kind: 'formula',
+          name: 'Bézout’s identity',
+          latex: '\\gcd(a, b) = ax + by \\quad \\text{for some whole } x, y',
+          note: 'Backward substitution derives it; the extended table computes it. Read negative coefficients as differences of natural multiples until chapter 6.',
+        },
+        {
+          kind: 'formula',
+          name: 'The coprime certificate',
+          latex: '\\gcd(a, b) = 1 \\ \\Longleftrightarrow\\ 1 = ax + by \\text{ for some whole } x, y',
+          note: 'Bézout at $d = 1$. Consecutive numbers: $1 = 1 \\cdot (n+1) - 1 \\cdot n$ — always coprime.',
+        },
+        {
+          kind: 'formula',
+          name: 'The LCM payoff',
+          latex: '\\gcd(a, b) \\cdot \\mathrm{lcm}(a, b) = a \\cdot b',
+          note: 'FM 3.5’s rule, now fully armed: $\\mathrm{lcm}(a, b) = \\frac{ab}{\\gcd(a, b)}$ with the gcd from the loop — instance $\\mathrm{lcm}(210, 45) = 630$.',
+        },
+        {
+          kind: 'para',
+          text: 'The survivor now has two faces. It is the *greatest common measure* — the maximality argument crowned it — and it is a *combination*: Bézout wrote it as $ax + by$. The second face is the deeper one, because it turns Lesson 2.2’s combination law from a curiosity into an instrument. The law said: anything dividing both $a$ and $b$ divides every combination. Bézout now says the traffic runs the other way: the right combination produces the gcd itself — and therefore, scaled by any natural multiple, any multiple of the gcd. One question begs to be asked: which targets $c$ can $ax + by$ hit, and when it hits, what do *all* the hitting pairs look like? That is the linear Diophantine equation — and the next lesson, the chapter’s last, solves it completely: criterion, full solution family, and the counting of the makeable answers.',
+        },
+      ],
+    },
+    {
+      id: 'ans-linear-diophantine-equations',
+      number: '2.4',
+      title: 'Linear Diophantine Equations',
+      prerequisites: ['ans-euclidean-algorithm-proven-bezout-identity'],
+      sources: ['diophantus-arithmetica', 'sylvester-1884-frobenius', 'bachet-1624-problemes', 'euclid-elements-book-vii', 'beck-geoghegan-art-of-proof', 'khattar-qa-4e'],
+      concepts: [
+        'Linear Diophantine equation ax + by = c',
+        'The criterion: solvable ⟺ gcd | c',
+        'Bézout scaled by c/d',
+        'The particular solution',
+        'The full solution family',
+        'The shift vector (b/d, −a/d)',
+        'The nonnegative window',
+        'Sylvester’s two-denomination answer',
+      ],
+      objectives: [
+        'State the solvability criterion for $ax + by = c$ and prove it in both directions — the combination law for necessity, Bézout scaled for sufficiency',
+        'Prove the full solution family $(x_0 + \\frac{b}{d}t,\\ y_0 - \\frac{a}{d}t)$ in both directions, running Bézout’s coprime certificate where Euclid’s lemma will later stand',
+        'Count and list the nonnegative solutions by slicing the family to the window, using the ceiling–floor grips',
+        'Deploy the theory on the exam staples — exact-payment problems, the reduced equation, and the two-denomination Frobenius question',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Everything this chapter built now assembles into one machine. Lesson 2.2’s combination law said: anything dividing both $a$ and $b$ divides every combination $ax + by$. Lesson 2.3’s Bézout identity said: the gcd itself *is* a combination. Put the two together and a two-thousand-year-old question falls open: given whole numbers $a$, $b$ and a target $c$, when can the equation $ax + by = c$ be solved in whole numbers — and when it can, what do *all* its solutions look like? This lesson answers both halves completely. The criterion is two old laws stapled together; the solution family is one line marched out in equal steps; and the counting of the makeable answers is the remainder band of Lesson 2.1, gripping the family from both sides.',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Linear Diophantine equations',
+          text: 'A **linear Diophantine equation** in the unknowns $x$ and $y$ is an equation $ax + by = c$ with given natural numbers $a \\ge 1$, $b \\ge 1$ (the **coefficients**) and $c \\ge 0$ (the **target**), to be solved for **whole-number** $x$ and $y$ (zero allowed). A pair $(x_0, y_0)$ with $ax_0 + by_0 = c$ is a **particular solution**; the set of all such pairs is the **solution set**. The honest boundary: this book has not yet built the negative integers (Chapter 6 does), so where a solution wants a negative coordinate we read it as a difference of natural multiples — the larger product minus the smaller — and verify by direct arithmetic, exactly as Lesson 2.3 flagged for Bézout’s coefficients.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Diophantus of Alexandria, c. 250 AD',
+          text: 'The *Arithmetica* of Diophantus — about 290 problems in thirteen books, ten of which survive — asks for whole-number answers to equations, and the ask defines a subject: an equation hunted in whole numbers is called **Diophantine**, and Diophantus is remembered as “the father of algebra”. The linear case solved here is the gateway to that country. The route into early-modern Europe ran through Claude-Gaspard Bachet de Méziriac: his *Problèmes plaisants* (first 1612, expanded 1624) treats the two-weights problem that *is* the linear Diophantine equation in costume, and contains the integer ancestor of Bézout’s identity (Lesson 2.3) — while his 1621 edition of the *Arithmetica* is the very copy in whose margins Fermat later scribbled his famous note.',
+        },
+        { kind: 'heading', text: 'The criterion: when solutions exist at all' },
+        {
+          kind: 'derivation',
+          title: 'The solvability criterion',
+          statement:
+            'Claim: the equation $ax + by = c$ with $a, b \\ge 1$ and $c \\ge 0$ has whole-number solutions **if and only if** $\\gcd(a, b) \\mid c$. One direction is Lesson 2.2’s combination law; the other is Bézout, scaled.',
+          steps: [
+            {
+              label: 'Necessity: solutions cannot dodge the gcd',
+              formula: 'd = \\gcd(a, b): \\quad d \\mid a, \\ d \\mid b \\ \\Rightarrow\\ d \\mid (ax + by) = c',
+              explanation:
+                'Suppose $ax_0 + by_0 = c$ has a whole-number solution. Then $c$ is a combination of $a$ and $b$ — and Lesson 2.2’s combination law says every common divisor of the coefficients divides every combination. So $d \\mid c$: when the gcd misses the target, no solution can exist. The parity instance makes it visible: $4x + 6y = 2(2x + 3y)$ is always even — it can never be $7$.',
+            },
+            {
+              label: 'Sufficiency: Bézout, scaled by c/d',
+              formula: 'd = ax_B + by_B \\ \\Rightarrow\\ c = a \\left( x_B \\cdot \\tfrac{c}{d} \\right) + b \\left( y_B \\cdot \\tfrac{c}{d} \\right)',
+              explanation:
+                'If $d \\mid c$, the multiplier $c/d$ is a natural number. Bézout (Lesson 2.3) writes the gcd itself as a combination: $d = ax_B + by_B$ for whole numbers $(x_B, y_B)$. Multiplying that identity through by $c/d$ produces a solution of the target equation — the pair $\\left(x_B \\frac{c}{d},\\ y_B \\frac{c}{d}\\right)$. The coefficients may be negative (Bézout’s often are); the difference reading certifies the instance.',
+            },
+          ],
+          result:
+            '$ax + by = c$ is solvable in whole numbers exactly when $\\gcd(a, b) \\mid c$ — necessity from the combination law, sufficiency from Bézout. Two chapters of machinery, one line of theory.',
+        },
+        {
+          kind: 'para',
+          text: 'Notice what the criterion does *not* say. It decides existence in whole numbers — coordinates allowed to subtract. It says nothing yet about solutions in the nonnegative quadrant, the “makeable” readings that examinations actually want; that is the window arithmetic below, and it is genuinely harder — the criterion passes where the quadrant fails.',
+        },
+        {
+          kind: 'example',
+          title: 'Apply the criterion to 12x + 42y = 5 — and see the veto in the algebra itself',
+          steps: [
+            'Split: compute the gcd the certified way — the Euclidean loop: $42 = 3 \\cdot 12 + 6$, then $12 = 2 \\cdot 6 + 0$: $d = \\gcd(12, 42) = 6$.',
+            'Now, test the criterion: does $6 \\mid 5$? No — $5 = 0 \\cdot 6 + 5$ leaves the old stub: the gcd misses the target.',
+            'So, no whole-number solutions exist.',
+            'Check it in the algebra: $12x + 42y = 6(2x + 7y)$ — the left side is a multiple of 6 whatever whole $x, y$ do, and 5 is not.',
+            'Hence the criterion’s veto agrees with the divisibility structure: the target must be a multiple of the gcd because every combination is.',
+          ],
+        },
+        { kind: 'heading', text: 'The full solution family' },
+        {
+          kind: 'para',
+          text: 'One solution is never the whole story. The equation $2x + 7y = 10$ is solved by $(5, 0)$ — and by $(-2, 2)$, $(-9, 4)$, $(12, -2)$: the solutions are not scattered; they march in a line, equally spaced. The spacing is no accident: subtracting two solution statements kills $c$ and leaves a relation between the pairs, and the relation has a stride. Here is the complete structure, proved in both directions.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The solution family',
+          statement:
+            'Claim: let $d = \\gcd(a, b)$ and let $(x_0, y_0)$ be one whole-number solution of $ax + by = c$. Then the solutions are exactly the pairs $x = x_0 + \\frac{b}{d} t$, $y = y_0 - \\frac{a}{d} t$, for whole numbers $t$.',
+          steps: [
+            {
+              label: 'Every family member solves the equation',
+              formula: 'a\\left(x_0 + \\tfrac{b}{d}t\\right) + b\\left(y_0 - \\tfrac{a}{d}t\\right) = ax_0 + by_0 + t\\left(\\tfrac{ab}{d} - \\tfrac{ab}{d}\\right) = c',
+              explanation:
+                'Substitute and watch the $t$-terms cancel: $\\frac{ab}{d}$ is a natural number (the product rule region — $d$ divides $ab$), and it enters once with $+$ and once with $-$. So the whole family rides the same equation; the shift changes the pair, never the value.',
+            },
+            {
+              label: 'Reduce any two solutions to the coprime case',
+              formula: 'a_1 = \\tfrac{a}{d}, \\ b_1 = \\tfrac{b}{d}: \\quad a_1 (x - x_0) = b_1 (y_0 - y)',
+              explanation:
+                'Subtract the two solution statements: $a(x - x_0) = b(y_0 - y)$. Divide through by $d$ (all three terms are multiples of $d$; Lesson 2.2’s cancellation applies) to get $a_1 (x - x_0) = b_1 (y_0 - y)$, where the reduced pair is coprime — the scaled reduction, Lesson 2.3’s Exercise 11.',
+            },
+            {
+              label: 'Run Bézout’s coprime certificate inline',
+              formula: '1 = a_1 s + b_1 u \\ \\Rightarrow\\ y_0 - y = a_1 \\left[ s (y_0 - y) + u (x - x_0) \\right]',
+              explanation:
+                'The scaled pair is coprime, so Bézout writes 1 as $a_1 s + b_1 u$. Multiply through by $(y_0 - y)$ and replace $b_1 (y_0 - y)$ by $a_1 (x - x_0)$ using the step-2 relation: everything on the right collects under $a_1$. So $a_1 \\mid (y_0 - y)$ — Euclid’s lemma for this one instance, run by hand (the general lemma is chapter 4’s engine; here the coprime Bézout certificate does the work directly).',
+            },
+            {
+              label: 'Name the multiplier and finish',
+              formula: 'y_0 - y = a_1 t \\ \\Rightarrow\\ y = y_0 - \\tfrac{a}{d} t, \\qquad x - x_0 = b_1 t \\ \\Rightarrow\\ x = x_0 + \\tfrac{b}{d} t',
+              explanation:
+                'Write $y_0 - y = a_1 t$ for the whole number $t$ the last step produced. Substituting back into step 2 and cancelling $a_1$ gives $x - x_0 = b_1 t$. So every solution is a family member — and step 1 already showed every family member is a solution. The two inclusions close.',
+            },
+          ],
+          result:
+            'The solution set is exactly the run $\\left(x_0 + \\frac{b}{d} t,\\ y_0 - \\frac{a}{d} t\\right)$, $t$ whole — one line, marching one stride at a time.',
+        },
+        {
+          kind: 'para',
+          text: 'The stride deserves its own sentence: consecutive solutions differ by exactly $\\left(\\frac{b}{d}, -\\frac{a}{d}\\right)$ — the **shift vector**. On $5x + 7y = 100$ ($d = 1$) the verified solutions $(6, 10)$, $(13, 5)$, $(20, 0)$ step by exactly $(+7, -5)$ each time. And one working habit falls out of the proof: dividing the whole equation through by $d$ — $12x + 42y = 60$ becomes $2x + 7y = 10$ — changes *nothing*: multiplying the reduced equation back by $d$ recovers the original, and cancellation runs both ways, so the two equations have literally the same solution set (the brute sweep over $\\pm 60$ finds identical pairs for both). Reduce first; the numbers shrink and the theory never notices.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The solution family of 2x + 7y = 10 — the reduced dress of 12x + 42y = 60 (d = gcd(12, 42) = 6; the cancellation law says the reduction changed nothing). The line’s whole-number points — (−9, 4), (−2, 2), (5, 0), (12, −2), the family members t = 3, 4, 5, 6 seeded from Bézout’s (−30, 10) — are spaced exactly one shift vector (+7, −2) = (b/d, −a/d) apart, as the family theorem promises. The nonnegative window grips at t = 5 alone: the single makeable point (5, 0), sitting on the x-axis.',
+          svg: `<svg viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lattice line 2x + 7y = 10 with solution points (−9, 4), (−2, 2), (5, 0), (12, −2) spaced one step (+7, −2) apart">
+  <defs>
+    <marker id="lat-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <!-- light grid -->
+  <g stroke="currentColor" stroke-width="0.75" opacity="0.25">
+    <line x1="60" y1="60" x2="60" y2="380"/><line x1="90" y1="60" x2="90" y2="380"/><line x1="120" y1="60" x2="120" y2="380"/><line x1="150" y1="60" x2="150" y2="380"/><line x1="180" y1="60" x2="180" y2="380"/><line x1="210" y1="60" x2="210" y2="380"/><line x1="240" y1="60" x2="240" y2="380"/><line x1="270" y1="60" x2="270" y2="380"/><line x1="300" y1="60" x2="300" y2="380"/><line x1="330" y1="60" x2="330" y2="380"/><line x1="360" y1="60" x2="360" y2="380"/><line x1="390" y1="60" x2="390" y2="380"/><line x1="420" y1="60" x2="420" y2="380"/><line x1="450" y1="60" x2="450" y2="380"/><line x1="480" y1="60" x2="480" y2="380"/><line x1="510" y1="60" x2="510" y2="380"/><line x1="540" y1="60" x2="540" y2="380"/><line x1="570" y1="60" x2="570" y2="380"/><line x1="600" y1="60" x2="600" y2="380"/><line x1="630" y1="60" x2="630" y2="380"/><line x1="660" y1="60" x2="660" y2="380"/><line x1="690" y1="60" x2="690" y2="380"/><line x1="720" y1="60" x2="720" y2="380"/><line x1="750" y1="60" x2="750" y2="380"/><line x1="780" y1="60" x2="780" y2="380"/><line x1="810" y1="60" x2="810" y2="380"/><line x1="840" y1="60" x2="840" y2="380"/><line x1="870" y1="60" x2="870" y2="380"/><line x1="900" y1="60" x2="900" y2="380"/>
+    <line x1="60" y1="60" x2="900" y2="60"/><line x1="60" y1="100" x2="900" y2="100"/><line x1="60" y1="140" x2="900" y2="140"/><line x1="60" y1="180" x2="900" y2="180"/><line x1="60" y1="220" x2="900" y2="220"/><line x1="60" y1="260" x2="900" y2="260"/><line x1="60" y1="300" x2="900" y2="300"/><line x1="60" y1="340" x2="900" y2="340"/><line x1="60" y1="380" x2="900" y2="380"/>
+  </g>
+  <!-- axes -->
+  <line x1="60" y1="260" x2="900" y2="260" stroke="currentColor" stroke-width="1.5" marker-end="url(#lat-arrow)"/>
+  <line x1="420" y1="380" x2="420" y2="60" stroke="currentColor" stroke-width="1.5" marker-end="url(#lat-arrow)"/>
+  <text x="880" y="250" font-size="13" font-style="italic" fill="currentColor" text-anchor="middle">x</text>
+  <text x="436" y="74" font-size="13" font-style="italic" fill="currentColor">y</text>
+  <g font-size="12" fill="currentColor">
+    <text x="60" y="282" text-anchor="middle">−12</text>
+    <text x="180" y="282" text-anchor="middle">−8</text>
+    <text x="300" y="282" text-anchor="middle">−4</text>
+    <text x="410" y="278" text-anchor="middle">0</text>
+    <text x="540" y="282" text-anchor="middle">4</text>
+    <text x="660" y="282" text-anchor="middle">8</text>
+    <text x="780" y="282" text-anchor="middle">12</text>
+    <text x="900" y="282" text-anchor="middle">16</text>
+    <text x="432" y="104">4</text>
+    <text x="432" y="184">2</text>
+    <text x="432" y="348">−2</text>
+  </g>
+  <!-- the line 2x + 7y = 10 -->
+  <line x1="60" y1="65.7" x2="885" y2="380" stroke="currentColor" stroke-width="1.6"/>
+  <!-- solution dots (t = 3..6) -->
+  <g fill="currentColor">
+    <circle cx="150" cy="100" r="5"/>
+    <circle cx="360" cy="180" r="5"/>
+    <circle cx="570" cy="260" r="5"/>
+    <circle cx="780" cy="340" r="5"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="150" y="82">(−9, 4)</text>
+    <text x="360" y="162">(−2, 2)</text>
+    <text x="570" y="242">(5, 0)</text>
+    <text x="780" y="322">(12, −2)</text>
+  </g>
+  <!-- the step arrow, parallel below the line -->
+  <line x1="570" y1="272" x2="780" y2="352" stroke="currentColor" stroke-width="1.3" marker-end="url(#lat-arrow)"/>
+  <text x="655" y="350" font-size="12.5" fill="currentColor" text-anchor="middle">one step: (+7, −2)</text>
+</svg>`,
+        },
+        {
+          kind: 'algorithm',
+          title: 'Solving ax + by = c — the whole procedure',
+          lines: [
+            { code: 'input: a ≥ 1, b ≥ 1, c ≥ 0', note: 'the coefficients and the target' },
+            { code: 'd ← gcd(a, b)   — the Euclidean loop (Lesson 2.3)', note: 'no factorisation anywhere' },
+            { code: 'if c mod d ≠ 0: return "no solution"', note: 'the criterion — the gcd must divide the target' },
+            { code: 'find xB, yB with a·xB + b·yB = d', note: 'Bézout by backward substitution or the extended table' },
+            { code: '(x0, y0) ← (xB·(c/d), yB·(c/d))', note: 'scale the Bézout row to the target' },
+            { code: 'family: x = x0 + (b/d)·t, y = y0 − (a/d)·t, t whole', note: 'every solution — the family theorem' },
+            { code: 'window: keep t with both coordinates in the demanded range', note: 'nonnegative / positive / custom — the ceiling–floor grips below' },
+          ],
+          note: 'Six moves, all certified in this chapter: the loop (2.3), the criterion and the family (this lesson), the window arithmetic (the grips of Illustration 3).',
+        },
+        {
+          kind: 'example',
+          title: 'Solve 12x + 42y = 60 completely, and find its nonnegative solutions',
+          steps: [
+            'Split: the criterion first — $\\gcd(12, 42) = 6$ (Illustration 1’s loop) and $6 \\mid 60$ ✓: solutions exist.',
+            'Now, reduce the equation by the gcd — the solution set will not notice: $2x + 7y = 10$.',
+            'So, Bézout for the coprime pair $(2, 7)$, straight from the loop ($7 = 3 \\cdot 2 + 1$): $1 = 1 \\cdot 7 - 3 \\cdot 2$; scale by 10: $10 = 10 \\cdot 7 - 30 \\cdot 2$ — a particular solution $(-30, 10)$, read as the natural difference $70 - 60 = 10$ ✓.',
+            'Take: the family — $x = -30 + 7t$, $y = 10 - 2t$, stride $(+7, -2) = (b/d, -a/d)$; spot-check $t = 5$: $(5, 0)$, and $2 \\cdot 5 + 7 \\cdot 0 = 10$ ✓.',
+            'The nonnegative window: $x \\ge 0$ wants $t \\ge 30/7$, so $t \\ge 5$; $y \\ge 0$ wants $t \\le 5$. Both grips meet only at $t = 5$: the single nonnegative solution is $(5, 0)$ — $12 \\cdot 5 = 60$ ✓.',
+            'And the strictly positive window is empty: $(5, 0)$’s zero coordinate disqualifies it, and the neighbours $t = 4, 6$ push a coordinate negative — $(-2, 2)$ and $(12, -2)$ as the figure showed.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'In how many ways can ₹100 be paid exactly with ₹5 and ₹7 notes?',
+          steps: [
+            'Split: the equation is $5x + 7y = 100$ with $x, y \\ge 0$; the criterion passes ($\\gcd(5, 7) = 1$ divides everything).',
+            'Now, a particular solution by inspection: $100 = 20 \\cdot 5 + 0 \\cdot 7$ — $(20, 0)$; the family: $x = 20 + 7t$, $y = -5t$, stride $(+7, -5)$.',
+            'So, the window: $x \\ge 0$ wants $t \\ge -20/7$, i.e. $t \\ge -2$; $y \\ge 0$ wants $t \\le 0$. The window is $t \\in \\{-2, -1, 0\\}$ — three values.',
+            'Take the three members: $t = -2$: $(6, 10)$ — $30 + 70 = 100$ ✓; $t = -1$: $(13, 5)$ — $65 + 35 = 100$ ✓; $t = 0$: $(20, 0)$ — $100 + 0 = 100$ ✓.',
+            'Hence exactly three ways — and if both denominations must appear at least once, the window tightens to $t \\in \\{-2, -1\\}$: two ways.',
+          ],
+        },
+        { kind: 'heading', text: 'The nonnegative window: counting the makeable answers' },
+        {
+          kind: 'para',
+          text: 'The window arithmetic of those Illustrations is a reusable instrument. From the family $x = x_0 + \\frac{b}{d} t$, $y = y_0 - \\frac{a}{d} t$, the nonnegative grips are $t \\ge -x_0 / (b/d)$ — rounded up to the next whole number — and $t \\le y_0 / (a/d)$ — rounded down. The two grips cut an interval of whole numbers out of the endless family: empty (the grips disagree), a single point (they meet exactly), or a run (room between them). Everything examination questions ask about “solutions in nonnegative integers” is this interval, counted. Instance grips worth memorising: $\\lceil 30/7 \\rceil = 5 = \\lfloor 10/2 \\rfloor$ gave the unique $(5, 0)$; $\\lceil 3/7 \\rceil = 1 > 0 = \\lfloor 1/2 \\rfloor$ gave the empty window on $12x + 42y = 6$.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Solvable is not the same as makeable',
+          text: 'The criterion decides whole-number solutions; the nonnegative window is a different, harder question. The instance to remember: $12x + 42y = 6$ passes the criterion ($6 \\mid 6$) and owns the whole family $x = -3 + 7t$, $y = 1 - 2t$ — but the nonnegative window is empty: $t \\ge 1$ and $t \\le 0$ cannot both hold. Six is solvable in whole numbers and makeable in no nonnegative way — the smallest nonzero amount the left side can produce is 12. The full theory of which targets *are* makeable from two denominations is Sylvester’s (the theorem box below).',
+        },
+        {
+          kind: 'callout',
+          tone: 'theorem',
+          title: 'The two-denomination Frobenius answer — Sylvester, 1884–85',
+          text: 'For coprime $a$ and $b$, the largest amount **not** expressible as $ax + by$ with nonnegative $x, y$ is $ab - a - b$, and the number of unmakeable amounts is $(a - 1)(b - 1)/2$. The general multi-denomination problem carries Frobenius’ name. This book verifies the instances and defers the general proof to chapter 4’s toolkit. Swept instances: stamps $4$ and $9$ — the gaps are $1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23$: twelve of them ($3 \\cdot 8 / 2 = 12$ ✓), the last $4 \\cdot 9 - 4 - 9 = 23$ ✓, and 24 onward all makeable. Stamps $4$ and $7$: nine gaps, the last $28 - 11 = 17$ ✓. Lesson 1.3’s 3-and-5 stamp descent found the last unmakeable amount 7 — and $15 - 3 - 5 = 7$ ✓: the same formula, now standing on a theory.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where examinations use this',
+          text: 'The staples are all one algorithm now. “Show that $4x + 6y = 7$ has no integral solution” — the criterion, one line (the left side is even). “Find all solutions of $3x + 5y = 16$ in positive integers” — particular, family, window: the unique answer $(2, 2)$. “In how many ways can ₹100 be paid in ₹5 and ₹7 notes?” — Illustration 3’s count: three. “Which amounts are impossible with two denominations?” — Sylvester’s $ab - a - b$. Khattar’s QA chapter 1 drills exactly these shapes. The larger payoff is structural: the remainder questions of chapter 5, the base-conversion digit hunts of chapter 3 and the factorial zeros of chapter 4 all run on the divide-keep-the-remainder spine this chapter built — and this lesson is its summit.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            { term: 'Linear Diophantine equation', def: 'An equation $ax + by = c$ ($a, b \\ge 1$, $c \\ge 0$) hunted for whole-number $x, y$ — named for Diophantus of Alexandria (c. 250 AD), the *Arithmetica*’s whole-number ask.' },
+            { term: 'Solvability criterion', def: '$ax + by = c$ is solvable in whole numbers iff $\\gcd(a, b) \\mid c$: necessity by the combination law, sufficiency by Bézout scaled by $c/d$.' },
+            { term: 'Particular solution', def: 'One pair $(x_0, y_0)$ with $ax_0 + by_0 = c$ — produced by scaling Bézout’s row; any member seeds the same family.' },
+            { term: 'Solution family', def: 'All solutions: $x = x_0 + \\frac{b}{d} t$, $y = y_0 - \\frac{a}{d} t$, $t$ whole — proven in both directions (members solve; solutions are members).' },
+            { term: 'Shift vector', def: 'The stride $(b/d, -a/d)$: consecutive solutions differ by exactly it — the family is one line, equally spaced.' },
+            { term: 'The reduced equation', def: 'Dividing through by $d = \\gcd(a, b)$: $a_1 x + b_1 y = c_1$ has literally the same solution set (multiplication and cancellation both ways). Always reduce first.' },
+            { term: 'Nonnegative window', def: 'The whole-number interval $\\lceil -x_0/(b/d) \\rceil \\le t \\le \\lfloor y_0/(a/d) \\rfloor$ where both coordinates stay $\\ge 0$ — empty, single, or many. The exam-counting device.' },
+            { term: 'Frobenius number', def: 'For coprime $a, b$: the largest unmakeable amount $ab - a - b$, with $(a - 1)(b - 1)/2$ gaps in all (Sylvester, 1884–85). Instance: 4 and 9 → 23 with twelve gaps.' },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'How many whole-number solutions does $4x + 6y = 7$ have?',
+              options: ['None — $\\gcd(4, 6) = 2$ does not divide 7', 'Exactly one', 'Exactly three', 'Infinitely many'],
+              answer: 0,
+              explain: 'The criterion vetoes it: $4x + 6y = 2(2x + 3y)$ is even whatever whole $x, y$ do, and 7 is odd — no solution can exist (the brute sweep over $\\pm 60$ confirms). The other options would require the criterion to pass.',
+            },
+            {
+              q: 'Which pair solves $2x + 7y = 10$?',
+              options: ['(3, 1)', '(2, 2)', '(5, 0)', '(1, 2)'],
+              answer: 2,
+              explain: '$2 \\cdot 5 + 7 \\cdot 0 = 10$ ✓. The distractors evaluate to 13, 18 and 16 — each was checked in the verify script before this page was written.',
+            },
+            {
+              q: 'One solution of $2x + 7y = 10$ is $(5, 0)$, and the family strides by $(+7, -2)$. Which is the next solution as $t$ grows?',
+              options: ['(12, −2)', '(10, −2)', '(12, −3)', '(11, −2)'],
+              answer: 0,
+              explain: '$(12, -2) = (5, 0) + (7, -2)$, and it solves the equation: $24 - 14 = 10$ ✓. The distractors evaluate to 6, 3 and 8 — none lands on the line.',
+            },
+            {
+              q: 'How many nonnegative solutions does $5x + 7y = 100$ have?',
+              options: ['2', '3 — (20, 0), (13, 5) and (6, 10)', '4', 'Infinitely many'],
+              answer: 1,
+              explain: 'The window $t \\in \\{-2, -1, 0\\}$ holds exactly three members; the strictly positive sub-window drops $(20, 0)$ and leaves two. Infinitely many is the whole-number family’s shape before the window grips — a good reminder that the quadrant is what makes the answer finite.',
+            },
+            {
+              q: 'You divide $12x + 42y = 60$ through by $d = \\gcd(12, 42) = 6$, getting $2x + 7y = 10$. What happened to the solution set?',
+              options: [
+                'It shrank — dividing loses solutions',
+                'It grew — the smaller coefficients admit more',
+                'Nothing — by the cancellation law the two equations have exactly the same solutions',
+                'It became finite',
+              ],
+              answer: 2,
+              explain: 'Multiplying the reduced equation by 6 recovers the original, and cancellation (Lesson 2.2) runs both ways — the brute sweep finds literally the same pairs for both equations (verified over $\\pm 60$). Reduce first, always: lighter numbers, identical theory.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Apply the criterion to each: does $6x + 10y = 4$ have whole-number solutions? What about $6x + 10y = 7$? And $6x + 10y = 8$? Exhibit one solution for each yes.',
+                  solution: [
+                    'Split: $\\gcd(6, 10) = 2$ — the gatekeeper.',
+                    'Now, $2 \\mid 4$: yes — $(-1, 1)$: $-6 + 10 = 4$ ✓ (read as the difference $10 - 6$).',
+                    'So, for 7: $2 \\nmid 7$ — no solutions; the left side is $2(3x + 5y)$, always even, and 7 is odd.',
+                    'And $2 \\mid 8$: yes — $(-2, 2)$: $-12 + 20 = 8$ ✓.',
+                    'Hence the criterion sorts the trio exactly: yes, no, yes.',
+                  ],
+                  answer: '6x + 10y = 4 ✓ (−1, 1); = 7 ✗; = 8 ✓ (−2, 2)',
+                },
+                {
+                  q: 'Verify that $(x, y) = (-3, 1)$ solves $12x + 42y = 6$ — as a difference of natural multiples.',
+                  solution: [
+                    'Split: the signed dress: $12 \\cdot (-3) + 42 \\cdot 1 = -36 + 42$.',
+                    'Now, as a natural difference: $42 \\cdot 1 - 12 \\cdot 3 = 42 - 36 = 6$ ✓.',
+                    'So, the pair solves — it is exactly Bézout’s row for $(12, 42)$: $6 = 42 - 3 \\cdot 12$ (Lesson 2.3’s loop: $42 = 3 \\cdot 12 + 6$).',
+                    'Hence $(-3, 1)$ is a particular solution of $12x + 42y = 6$.',
+                  ],
+                  answer: '42 − 36 = 6 ✓',
+                },
+                {
+                  q: 'Find one nonnegative solution of $3x + 5y = 16$ and check it.',
+                  solution: [
+                    'Split: search small: $x = 2$ leaves $16 - 6 = 10 = 2 \\cdot 5$ — so $y = 2$.',
+                    'Now, check: $3 \\cdot 2 + 5 \\cdot 2 = 6 + 10 = 16$ ✓.',
+                    'So, $(2, 2)$ is a nonnegative solution — in fact the only one, as Exercise 5 proves.',
+                    'Hence the answer: two 3s and two 5s.',
+                  ],
+                  answer: '(2, 2): 6 + 10 = 16 ✓',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Solve $12x + 42y = 6$ in whole numbers: write the family, list the members for $t = -1, 0, 1, 2$, and show the nonnegative window is empty.',
+                  solution: [
+                    'Split: Bézout for $(12, 42)$: the loop gives $42 = 3 \\cdot 12 + 6$, so $6 = 42 - 3 \\cdot 12$ — particular $(-3, 1)$, no scaling needed ($c = d$).',
+                    'Now, the family: $d = 6$, so $b/d = 7$ and $a/d = 2$: $x = -3 + 7t$, $y = 1 - 2t$.',
+                    'So, the members: $t = -1$: $(-10, 3)$ — $42 \\cdot 3 - 12 \\cdot 10 = 126 - 120 = 6$ ✓; $t = 0$: $(-3, 1)$ ✓; $t = 1$: $(4, -1)$ — $48 - 42 = 6$ ✓; $t = 2$: $(11, -3)$ — $132 - 126 = 6$ ✓.',
+                    'Take the window: $x \\ge 0$ wants $t \\ge 3/7$, so $t \\ge 1$; $y \\ge 0$ wants $t \\le 1/2$, so $t \\le 0$ — the grips disagree: the window is empty.',
+                    'Hence 6 is solvable in whole numbers but makeable in no nonnegative way — the criterion is necessary and sufficient for whole numbers, and the quadrant asks for more.',
+                  ],
+                  answer: 'family (−3 + 7t, 1 − 2t); all four members verify; the nonnegative window is empty',
+                },
+                {
+                  q: 'Solve $3x + 5y = 16$ completely from Bézout, and show that $(2, 2)$ is its only nonnegative solution.',
+                  solution: [
+                    'Split: Bézout for $(3, 5)$ — the loop: $5 = 1 \\cdot 3 + 2$, $3 = 1 \\cdot 2 + 1$; climb: $1 = 3 - 1 \\cdot 2 = 3 - (5 - 1 \\cdot 3) = 2 \\cdot 3 - 1 \\cdot 5$.',
+                    'Now, scale by 16: $16 = 32 \\cdot 3 - 16 \\cdot 5$ — particular $(32, -16)$, read as $96 - 80 = 16$ ✓.',
+                    'So, the family: $x = 32 + 5t$, $y = -16 - 3t$; the grips: $x \\ge 0$ wants $t \\ge -32/5$, so $t \\ge -6$; $y \\ge 0$ wants $t \\le -16/3$, so $t \\le -6$.',
+                    'Take: the grips meet at the single value $t = -6$: $x = 32 - 30 = 2$, $y = -16 + 18 = 2$ — the unique nonnegative solution $(2, 2)$ ✓ ($6 + 10 = 16$).',
+                    'Hence the same solution reappears whichever particular seeds the family — the family is the object; the seed is scaffolding.',
+                  ],
+                  answer: '1 = 2·3 − 1·5; family (32 + 5t, −16 − 3t); the unique nonnegative solution is (2, 2)',
+                },
+                {
+                  q: '₹100 is to be paid exactly with ₹5 and ₹7 notes. Find every way, and state which ways use both denominations.',
+                  solution: [
+                    'Split: $5x + 7y = 100$ with $x, y \\ge 0$; the criterion passes trivially ($\\gcd = 1$).',
+                    'Now, particular $(20, 0)$ by inspection; the family: $x = 20 + 7t$, $y = -5t$.',
+                    'So, the window: $t \\ge -2$ (from $x \\ge 0$) and $t \\le 0$ (from $y \\ge 0$): three members.',
+                    'Take: $(6, 10)$: $30 + 70 = 100$ ✓; $(13, 5)$: $65 + 35 = 100$ ✓; $(20, 0)$: $100 + 0 = 100$ ✓.',
+                    'Hence three ways; both denominations appear exactly in $(6, 10)$ and $(13, 5)$ — two ways.',
+                  ],
+                  answer: '(6, 10), (13, 5), (20, 0); both-denomination ways: the first two',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Prove that $ax + by = c$ and its $d$-reduction $a_1 x + b_1 y = c_1$ (where $d = \\gcd(a, b)$ divides $c$, and $a_1 = a/d$, $b_1 = b/d$, $c_1 = c/d$) have exactly the same solution set. Check on the pair $12x + 42y = 60$ and $2x + 7y = 10$.',
+                  solution: [
+                    'Split, forward: if $ax + by = c$, write $a = da_1$, $b = db_1$, $c = dc_1$ and cancel $d$ (Lesson 2.2, $d \\ge 1$): $a_1 x + b_1 y = c_1$.',
+                    'Now, backward: if $a_1 x + b_1 y = c_1$, multiply through by $d$ and redistribute: $d a_1 x + d b_1 y = d c_1$ reassembles to $ax + by = c$.',
+                    'So, each solution of either equation solves the other — the sets coincide, with no membership lost in either direction.',
+                    'Hence on the instance: both equations share the whole family $(x, y) = (-30 + 7t, 10 - 2t)$ — $(-2, 2)$, $(5, 0)$ and $(12, -2)$ all solve both; the reduced form is just lighter luggage.',
+                  ],
+                  answer: 'same solution set, proven both directions; instance verified',
+                },
+                {
+                  q: 'Which amounts from 1 to 30 can be made exactly with 4-rupee and 9-rupee stamps? List the gaps, name the last one, and connect it to Lesson 1.3’s 3-and-5 stamp descent.',
+                  solution: [
+                    'Split: the makeable amounts are the nonnegative values of $4x + 9y$: $0, 4, 8, 9, 12, 13, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, \\dots$',
+                    'Now, the gaps up to 30: $1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23$ — twelve of them, and 23 is the last: from 24 the run is continuous ($24 = 6 \\cdot 4$, $25 = 4 \\cdot 4 + 9$, $26 = 2 \\cdot 4 + 2 \\cdot 9$, $27 = 3 \\cdot 9$, $28 = 7 \\cdot 4$, $29 = 5 \\cdot 4 + 9$, $30 = 3 \\cdot 4 + 2 \\cdot 9$, then $+4$ walks on).',
+                    'So, the last gap 23 equals $4 \\cdot 9 - 4 - 9$ — Sylvester’s two-denomination formula (the theorem box).',
+                    'Hence the connection: Lesson 1.3 ran the descent on 3-and-5 stamps and found the last unmakeable amount 7 — and $3 \\cdot 5 - 3 - 5 = 7$ ✓: the same formula, now standing on the criterion-and-window theory.',
+                  ],
+                  answer: 'gaps 1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23; the last = ab − a − b = 23; 1.3’s 3-and-5 point 7 fits the same formula',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Find every nonnegative solution of $5x + 7y = 100$, and every strictly positive one, using the window algebra.',
+                  solution: [
+                    'Split: Illustration 3’s family: $x = 20 + 7t$, $y = -5t$.',
+                    'Now, the nonnegative grips: $t \\ge -20/7$ gives $t \\ge -2$; $t \\le 0$. Window $\\{-2, -1, 0\\}$: $(6, 10)$, $(13, 5)$, $(20, 0)$.',
+                    'So, the strictly positive grips: $x \\ge 1$ wants $t \\ge -19/7$ — still $t \\ge -2$; $y \\ge 1$ wants $-5t \\ge 1$, so $t \\le -1/5$, i.e. $t \\le -1$.',
+                    'Take: $t \\in \\{-2, -1\\}$: $(6, 10)$ and $(13, 5)$ — two strictly positive solutions; $(20, 0)$ drops its zero.',
+                    'Hence the counts: three nonnegative, two positive — the window arithmetic in action.',
+                  ],
+                  answer: 'nonnegative: (6, 10), (13, 5), (20, 0); strictly positive: (6, 10), (13, 5)',
+                },
+                {
+                  q: 'Show that every amount from 24 to 31 is makeable with 4- and 9-rupee stamps by exhibiting representations, and explain why that settles every amount above 23.',
+                  solution: [
+                    'Split: the eight witnesses: $24 = 6 \\cdot 4$; $25 = 4 \\cdot 4 + 9$; $26 = 2 \\cdot 4 + 2 \\cdot 9$; $27 = 3 \\cdot 9$; $28 = 7 \\cdot 4$; $29 = 5 \\cdot 4 + 9$; $30 = 3 \\cdot 4 + 2 \\cdot 9$; $31 = 4 + 3 \\cdot 9$.',
+                    'Now, every one checks: $24$; $16 + 9$; $8 + 18$; $27$; $28$; $20 + 9$; $12 + 18$; $4 + 27$ — all ✓.',
+                    'So, the walk: any $n \\ge 32$ exceeds one of the witnesses by a multiple of 4 — subtract 4s until you land in $[24, 31]$, then add the 4s back.',
+                    'Take, formally: if $n - 4k$ is a witness $4x + 9y$, then $n = 4(x + k) + 9y$ — a representation of $n$.',
+                    'Hence the last gap is 23 itself (Exercise 8’s sweep agrees): the eight witnesses plus the 4-walk cover everything from 24 on.',
+                  ],
+                  answer: 'witnesses for 24..31 all verify; the +4-walk covers every n ≥ 24; the last gap is 23',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Sylvester’s two-denomination theorem: for coprime $a, b$ the unmakeable amounts number $(a - 1)(b - 1)/2$, the largest being $ab - a - b$. Verify both claims by sweep for $(a, b) = (4, 9)$ and $(4, 7)$, and state what the theorem does not yet give you in this book.',
+                  solution: [
+                    'Split, $(4, 9)$: the gaps swept: $1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 19, 23$ — count $(4-1)(9-1)/2 = 12$ ✓, largest $4 \\cdot 9 - 4 - 9 = 23$ ✓, and 24 is makeable ✓.',
+                    'Now, $(4, 7)$: the gaps swept: $1, 2, 3, 5, 6, 9, 10, 13, 17$ — count $(4-1)(7-1)/2 = 9$ ✓, largest $28 - 11 = 17$ ✓.',
+                    'So, both instances agree with Sylvester on every claim: the count, the maximum, and the makeability of everything above it.',
+                    'Take: what the book does not yet give — the proof. A sweep is evidence at the instances, not a theorem for all pairs; chapter 4’s toolkit (unique factorisation standing on Bézout) is where the general argument lives.',
+                    'Hence the honest ledger: statement verified on swept instances, general proof deferred — the same standing this book gave Frobenius’ name.',
+                  ],
+                  answer: '(4, 9): 12 gaps, max 23 ✓; (4, 7): 9 gaps, max 17 ✓; the general proof is deferred to chapter 4’s toolkit',
+                },
+                {
+                  q: 'Prove the counting method: if $\\gcd(a, b) = 1$ and $x^*$ is the smallest nonnegative $x$ solving $ax + by = c$ (one existing), then the nonnegative solutions have $x = x^*, x^* + b, x^* + 2b, \\dots$ — one residue class — and their number is $\\lfloor (c/a - x^*)/b \\rfloor + 1$ when $x^* \\le c/a$. Apply to $(5, 7, 100)$ and, with the roles swapped, to $(7, 5, 100)$.',
+                  solution: [
+                    'Split: any two solutions differ inside the family with $d = 1$: $x - x_0 = bt$ — so all solution $x$-values sit in one residue class modulo $b$.',
+                    'Now, the smallest nonnegative member is $x^*$; the class continues $x^* + kb$ exactly while $y = (c - ax)/b$ stays nonnegative, i.e. while $x \\le c/a$.',
+                    'So, the members are $x^* + kb$ for $0 \\le k \\le (c/a - x^*)/b$: the count is $\\lfloor (c/a - x^*)/b \\rfloor + 1$ when $x^* \\le c/a$, and none otherwise.',
+                    'Take on $(5, 7, 100)$: $x^* = 6$ (since $100 - 5 \\cdot 6 = 70 = 7 \\cdot 10$), and $\\lfloor (20 - 6)/7 \\rfloor + 1 = 2 + 1 = 3$ ✓ — Illustration 3’s count again.',
+                    'Hence the swapped check: $(7, 5, 100)$ run on $y$ — $y^* = 6$ (the pair $(10, 6)$: $70 + 30 = 100$), and $y$ runs $6, 13, 20$ while $y \\le 100/5 = 20$: count $\\lfloor (20 - 6)/7 \\rfloor + 1 = 3$ ✓ — the solutions $(0, 20)$, $(5, 13)$, $(10, 6)$.',
+                  ],
+                  answer: 'one residue class mod b; count ⌊(c/a − x*)/b⌋ + 1; both instances give 3',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Essay. The chapter’s summit: trace how Lesson 2.2’s combination law, Lesson 2.3’s Bézout identity and this lesson’s criterion-and-family assemble into the complete theory of $ax + by = c$. Where exactly did each law carry load? Close with the honest boundary: what changes — and what does not — when Chapter 6 finally builds the integers?',
+                  solution: [
+                    'The combination law (2.2) carried necessity: any common divisor of $a$ and $b$ divides every combination, so $\\gcd(a, b) \\mid c$ is unavoidable for any solution — no machinery beyond Lesson 2.2 needed.',
+                    'Bézout (2.3) carried sufficiency: the gcd is itself a combination, and scaling by the natural $c/d$ lands exactly on the target — existence constructed, not searched.',
+                    'The family needed the coprime reduction and its certificate: the converse ran $1 = a_1 s + b_1 u$ inline — Euclid’s lemma for one instance by hand, with the general lemma deferred to chapter 4 — and cancellation to climb down from $a_1 (x - x_0) = b_1 (y_0 - y)$.',
+                    'The window arithmetic is pure Lesson 2.1: ceilings and floors against the band — the same remainder discipline that sorted the number line into $b$ slots.',
+                    'The honest boundary: chapter 6 builds $\\mathbb{Z}$ from pairs of naturals (differences, formalised), and every statement of this lesson survives verbatim with “whole number” read as “integer” — the criterion, the family and the window all keep their shape. What changes is the licensing: the difference reading ($42 \\cdot 1 - 12 \\cdot 3$) becomes a first-class object, the coefficients stop needing apologetics, and the solution line extends past the quadrant without a footnote.',
+                    'Hence the chapter’s shape: one theorem — the division algorithm — funding divisibility’s laws, the algorithm that finds the greatest common measure, the identity that writes it as a combination, and the complete solution theory of the linear two-variable equation. Four lessons, one spine.',
+                  ],
+                  answer: 'combination law → necessity; Bézout → sufficiency; coprime Bézout + cancellation → the family; the band → the window',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The criterion',
+          latex: 'ax + by = c \\text{ solvable in whole numbers} \\ \\Longleftrightarrow\\ \\gcd(a, b) \\mid c',
+          note: 'Necessity by the combination law (2.2); sufficiency by Bézout (2.3) scaled by the natural $c/d$.',
+        },
+        {
+          kind: 'formula',
+          name: 'The particular solution',
+          latex: '(x_0, y_0) = \\left( x_B \\cdot \\tfrac{c}{d}, \\; y_B \\cdot \\tfrac{c}{d} \\right) \\quad \\text{where } d = a x_B + b y_B',
+          note: 'Bézout’s row, scaled to the target. Read negative coordinates as differences of natural multiples until chapter 6.',
+        },
+        {
+          kind: 'formula',
+          name: 'The full family',
+          latex: 'x = x_0 + \\tfrac{b}{d} t, \\qquad y = y_0 - \\tfrac{a}{d} t \\qquad (t \\text{ whole})',
+          note: 'All solutions, proven in both directions; consecutive members differ by exactly the shift vector $(b/d, -a/d)$.',
+        },
+        {
+          kind: 'formula',
+          name: 'The nonnegative window',
+          latex: '\\left\\lceil \\tfrac{-x_0}{b/d} \\right\\rceil \\ \\le \\ t \\ \\le \\ \\left\\lfloor \\tfrac{y_0}{a/d} \\right\\rfloor',
+          note: 'The grips that count the makeable solutions — empty, single, or many. Instance: $\\lceil 30/7 \\rceil = 5 = \\lfloor 10/2 \\rfloor$ gripped $t = 5$ alone, the unique $(5, 0)$ for $12x + 42y = 60$.',
+        },
+        {
+          kind: 'para',
+          text: 'Take the chapter’s arc in one breath. Lesson 2.1 proved that division always answers — $a = qb + r$ with $0 \\le r < b$, existence by descent, uniqueness by the band. Lesson 2.2 promoted the exact case into a relation, $a \\mid b$, and gave the relation laws. Lesson 2.3 turned the laws into an engine — the Euclidean algorithm, finding the greatest common measure without factorising — and Bézout wrote that measure as a combination. This lesson closed the circle: the criterion and the family solved every linear equation $ax + by = c$ in whole numbers at a stroke, and the window counted the makeable answers. Four lessons, one spine: the division algorithm was the theorem; divisibility, gcd, Bézout and the Diophantine theory are its shadows, each longer than the last.',
+        },
+        {
+          kind: 'para',
+          text: 'Chapter 3 changes the subject — but not the tool. Positional notation writes a number as a sum of powers of its base, and converting between bases is the division algorithm run on the number itself: divide by the base, keep the remainder, repeat, read the remainders backwards. The remainders this chapter band-limited, the ones the Euclidean loop rode downward, become in the next chapter the very digits of every number you will ever meet in another base — and the least-number principle will halt that loop too, exactly as it halted this one.',
         },
       ],
     },

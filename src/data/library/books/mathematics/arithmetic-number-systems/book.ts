@@ -8,9 +8,10 @@ import { chapter02 } from './ch-02'
  * STATUS: IN PROGRESS — chapter 1 'The Natural Numbers as a System'
  * COMPLETE 3/3 (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1
  * completion review passed). Chapter 2 'The Division Algorithm and
- * the Structure of Divisibility' IN-PROGRESS 2/4 (run 51, 2026-11-05:
- * lessons 2.1 + 2.2; 2.3 Euclidean algorithm + Bézout and 2.4 linear
- * Diophantine equations close it at run 52).
+ * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52, 2026-11-05:
+ * lessons 2.1 + 2.2, then 2.3 Euclidean algorithm + Bézout and 2.4
+ * linear Diophantine equations with the unit-2 completion review).
+ * Chapter 3 opens at run 53 with 3.1 + 3.2.
  * The full TOC below is the researched chapter plan
  * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
  * (globally unique, stable forever).
@@ -65,7 +66,7 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 IN-PROGRESS (run 51, 2026-11-05): lessons 2.1 + 2.2 shipped verify-first (scripts/verify-book2-ch02.ts, 166 checks, two pre-writing defects caught); 2.3 + 2.4 close it at run 52. The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52, 2026-11-05: lessons 2.1 + 2.2 then 2.3 The Euclidean Algorithm, Proven — and Bézout\u2019s Identity + 2.4 Linear Diophantine Equations, unit-2 completion review passed; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 opens at run 53 with 3.1 + 3.2. The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
   chapters: [
     chapter01,
     chapter02,

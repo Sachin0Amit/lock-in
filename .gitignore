@@ -154,3 +154,5 @@ server.log
 # exception: run-51 ANS chapter-2 lesson E2E blocks (quiz keys 2.1: 0/0/2/0/1, 2.2: 1/2/0/1/2 + solutions + audits)
 !/scripts/e2e-ans-21.page.js
 !/scripts/e2e-ans-22.page.js
+!/scripts/e2e-ans-23.page.js
+!/scripts/e2e-ans-24.page.js
