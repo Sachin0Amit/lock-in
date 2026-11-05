@@ -1,6 +1,7 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
+import { chapter03 } from './ch-03'
 
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
@@ -11,7 +12,9 @@ import { chapter02 } from './ch-02'
  * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52, 2026-11-05:
  * lessons 2.1 + 2.2, then 2.3 Euclidean algorithm + Bézout and 2.4
  * linear Diophantine equations with the unit-2 completion review).
- * Chapter 3 opens at run 53 with 3.1 + 3.2.
+ * Chapter 3 'Positional Systems and Other Bases' IN PROGRESS 2/4
+ * (run 53, 2026-11-05: 3.1 the representation theorem + 3.2 converting
+ * between bases; 3.3 + 3.4 close it at run 54 (run 52's pointer said 55, an arithmetic slip this run corrects: two lessons per run closes a four-lesson chapter in two runs)).
  * The full TOC below is the researched chapter plan
  * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
  * (globally unique, stable forever).
@@ -66,25 +69,11 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52, 2026-11-05: lessons 2.1 + 2.2 then 2.3 The Euclidean Algorithm, Proven — and Bézout\u2019s Identity + 2.4 Linear Diophantine Equations, unit-2 completion review passed; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 opens at run 53 with 3.1 + 3.2. The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50, 2026-11-05: lessons 1.1 + 1.2 + 1.3, unit-1 completion review passed; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52, 2026-11-05: lessons 2.1 + 2.2 then 2.3 The Euclidean Algorithm, Proven — and Bézout\u2019s Identity + 2.4 Linear Diophantine Equations, unit-2 completion review passed; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 IN PROGRESS (run 53, 2026-11-05: 3.1 The Representation Theorem + 3.2 Converting Between Bases shipped verify-first; verify-book2-ch03.ts 312 checks, six pre-writing defects caught; 3.3 + 3.4 close the chapter at run 54). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Book VII (the measures charter + the missing well-ordering postulate → ch. 2/3); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
   chapters: [
     chapter01,
     chapter02,
-    {
-      number: 3,
-      slug: 'positional-systems-and-bases',
-      title: 'Positional Systems and Other Bases',
-      summary:
-        'Base ten unmasked as one instance of a universal machine: the representation theorem (every number has exactly one name in every base b ≥ 2, proved from the division algorithm), conversion in both directions, arithmetic genuinely inside other bases (addition and multiplication tables in base b), and the binary–hexadecimal world that runs every computer.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'The Representation Theorem: Every Number Has Exactly One Name',
-        'Converting Between Bases',
-        'Arithmetic in Other Bases',
-        'Binary, Hexadecimal and the Machine',
-      ],
-    },
+    chapter03,
     {
       number: 4,
       slug: 'primes-and-the-fundamental-theorem',

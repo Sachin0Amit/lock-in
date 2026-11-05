@@ -156,3 +156,8 @@ server.log
 !/scripts/e2e-ans-22.page.js
 !/scripts/e2e-ans-23.page.js
 !/scripts/e2e-ans-24.page.js
+# exception: run-53 ANS chapter-3 pre-write arithmetic verifier (positional systems + bases; committed every ship)
+!/scripts/verify-book2-ch03.ts
+# exception: run-53 ANS chapter-3 lesson E2E blocks (quiz keys 3.1: 1/0/0/1/0, 3.2: 0/1/0/0/0 + solutions + audits)
+!/scripts/e2e-ans-31.page.js
+!/scripts/e2e-ans-32.page.js
