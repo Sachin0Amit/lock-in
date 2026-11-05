@@ -21,7 +21,7 @@ and what remains.
 
 **Next:** run 43 (first delivery of job 504365) authors FM 9.2 "The Metric System" AND FM 9.3 "Converting Units Without Memorising Tables" — extend verify-unit-9.ts with each lesson's sections BEFORE writing it; voice queue empty.
 
-**Git:** reschedule memory commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD; synced sha recorded in the follow-up memory commit; the PAT never written to any file, config, log or message.
+**Git:** reschedule memory commit `fe2d9b4` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD = `fe2d9b4d6a3c34495ad20662bec8fd0bcfe4d965`; origin/main..HEAD = 0; the PAT never written to any file, config, log or message.
 
 ## 2026-11-05 — RUN 42 (cron job 498279, 07:27 delivery): FM 9.1 "Units as Agreements" SHIPPED verify-first (verify-unit-9.ts CREATED with 200 checks A–M, gitignore exceptions FIRST), CHAPTER 9 MEASUREMENT OPENS 1/4, figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans + shared rails + hooked braces), figure 2 10/9; voice queue empty; tree clean, push per protocol
 
