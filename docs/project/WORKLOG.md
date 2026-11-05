@@ -6,6 +6,23 @@ and what remains.
 
 ---
 
+## 2026-11-05 — OWNER CHAT DIRECTIVE: hourly loop RESCHEDULED to TWO lessons per run — job 498279 (disabled by owner via API after 43 runs) replaced by job 504365 (same hourly cadence, identical workflow + push protocol; only the lesson count changed); memory synced for run 43 = FM 9.2 + FM 9.3; no lesson authored this turn (infrastructure directive), tree clean, push per protocol
+
+**Owner message:** "rescheduled the scheduled loop taks and make it write 2 chapter at a time with everything same like detailes etc"
+
+**Reconciliation:** tree clean at HEAD `beaf0f8` (run-42 memory commit), origin/main..HEAD = 0 — no push debt, nothing in flight. Current unit per RESUME_POINTER: chapter 9 Measurement OPEN 1/4 (9.1 shipped run 42). The stale-session claim of pending arrow work re-checked against the logs: the owner's arrow directive was delivered in run 31 (the 6.4 flip-figure redesign + the all-45-figures sweep) and re-confirmed in runs 33–42 — no arrow work outstanding.
+
+**Done:**
+- Old job 498279 "LockIn Library — hourly unit run" found DISABLED by the owner via API ("Disabled by API", execution stage failed, 43 runs, last fire 2026-11-05 09:27:28 IST) — left exactly as the owner left it, not deleted.
+- NEW job **504365 "LockIn Library — hourly unit run (2 lessons/run)"** created 2026-11-05 10:11:33 (status enabled, verified via get: next fire from the hourly fixed_rate): same schedule (fixed_rate 3600 s, tz Asia/Kolkata), payload carried over VERBATIM except step (2) — each run now authors the next **TWO** not-yet-written lessons of the current chapter SEQUENTIALLY (each with its own verify-first pass and full quality gates, never batch-drafted; a half-finished lesson found in step 0 counts as lesson 1 of 2; single ship + log block after both). Steps 0/1/3/4/5 and the PUSH PROTOCOL (PAT only ever inside the one-time HTTPS URL of a single git command; zero-touch on files/env/config/logs/commits; origin stays the SSH remote; retry once then log without the token) carried over unchanged. The PAT lives only in the job payload and the chat context — never echoed, never written anywhere.
+- PROGRESS.json: `awaiting` → FM 9.2 + FM 9.3 (two lessons per run); `workflowRulesReminder` rule 1 amended (two lessons per run inside the one-unit-at-a-time frame, still never batch-draft); rule 8's PAT home updated to job 504365; `notes` + `ownerDirective20261105` block added.
+- RESUME_POINTER.json: `nextAction` rewritten for the reschedule; `nextUnit` → FM 9.2 "The Metric System" + FM 9.3 "Converting Units Without Memorising Tables" (extend verify-unit-9.ts per lesson FIRST); `ownerDirective20261105` block inserted before `nextUnit`.
+- WORKLOG.md: this entry. DETAILED_LOG.md / WORK_INVENTORY.json: no content counts changed (no lesson shipped this turn) — the next unit ship (run 43) maintains both per the standing rule.
+
+**Next:** run 43 (first delivery of job 504365) authors FM 9.2 "The Metric System" AND FM 9.3 "Converting Units Without Memorising Tables" — extend verify-unit-9.ts with each lesson's sections BEFORE writing it; voice queue empty.
+
+**Git:** reschedule memory commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD; synced sha recorded in the follow-up memory commit; the PAT never written to any file, config, log or message.
+
 ## 2026-11-05 — RUN 42 (cron job 498279, 07:27 delivery): FM 9.1 "Units as Agreements" SHIPPED verify-first (verify-unit-9.ts CREATED with 200 checks A–M, gitignore exceptions FIRST), CHAPTER 9 MEASUREMENT OPENS 1/4, figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans + shared rails + hooked braces), figure 2 10/9; voice queue empty; tree clean, push per protocol
 
 **Reconciliation:** tree clean at HEAD `f741f90` (run-41 memory commit), origin/main..HEAD = 0 — no push debt, nothing in flight. Current unit per RESUME_POINTER: chapter 8 closed 5/5 with the completion review passed; run 42 opens chapter 9 Measurement at FM 9.1 "Units as Agreements" (create verify-unit-9.ts + the gitignore exception FIRST). The owner's arrow directive re-confirmed delivered in run 31 (runs 33/35/37/38/40/41 confirmed no rework) — no further arrow work needed. Voice queue EMPTY (run 41 delivered 4.1).

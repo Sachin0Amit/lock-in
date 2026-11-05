@@ -3,7 +3,7 @@
  "project": "LockIn Library",
  "updated": "2026-11-05",
  "phase": "FM ch. 9 Measurement OPEN 1/4 (run 42 shipped 9.1 Units as Agreements; next 9.2 The Metric System)",
- "awaiting": "FM 9.2 'The Metric System' (EXTEND verify-unit-9.ts with the metric sections BEFORE writing; one lesson per run); voice queue EMPTY \u2014 per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.",
+ "awaiting": "FM 9.2 'The Metric System' + FM 9.3 'Converting Units Without Memorising Tables' \u2014 TWO lessons per run (owner directive 2026-11-05): author sequentially, each with its own EXTEND-verify-unit-9.ts-FIRST pass and full quality gates, single ship after both; voice queue EMPTY \u2014 per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.",
  "platform": {
   "status": "working \u2014 v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) \u00b7 TypeScript \u00b7 Tailwind 4 \u00b7 shadcn/ui \u00b7 zustand(persist v2) \u00b7 KaTeX \u00b7 next-themes \u00b7 framer-motion \u00b7 cmdk",
@@ -98,7 +98,7 @@
   }
  },
  "workflowRulesReminder": [
-  "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03): a unit = one chapter; research \u2192 write \u2192 verify \u2192 ship \u2192 log, then the next unit; never batch-draft",
+  "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03) with TWO LESSONS PER RUN (owner directive 2026-11-05, job 504365): a unit = one chapter; each run authors the next TWO not-yet-written lessons of the current unit sequentially \u2014 each fully researched \u2192 written \u2192 verified \u2192 shipped through its own gates before the next begins; never batch-draft",
   "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
   "Delete downloaded working copies after the unit is verified (never Drive originals)",
   "Original content only; references inform, never reproduce",
@@ -106,9 +106,9 @@
   "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
   "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) \u2014 regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
   "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) \u2014 owner never resends it",
-  "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner's fine-grained PAT lives ONLY in the hourly cron job payload (job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits \u2014 one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README 'Pushing to GitHub')"
+  "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner\u2019s fine-grained PAT lives ONLY in the hourly cron job payload (job 504365 since 2026-11-05, replacing the owner-disabled job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits \u2014 one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README \u2018Pushing to GitHub\u2019)"
  ],
- "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship \u2014 exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too.",
+ "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship \u2014 exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too. SCHEDULE (owner directive 2026-11-05): the hourly loop lives in cron job 504365 'LockIn Library \u2014 hourly unit run (2 lessons/run)' (fixed_rate 3600 s, Asia/Kolkata; job 498279 disabled by the owner via API after 43 runs) \u2014 two lessons per run, every other rule unchanged.",
  "run30Extras": {
   "lesson": "fm-direct-and-inverse-variation",
   "recovery": "finished the 15:18 delivery in-flight commit 407c0fe (lesson + verify AF-AP + e2e registration authored, gates/bookkeeping/push missing)",
@@ -307,5 +307,11 @@
   "references": "NEW citation keys ncert-sci6-curiosity-ch5 (Curiosity class-6 ch. 5 Measurement of Length and Motion \u2014 handspan/cubit differ person to person, shopkeeper rod vs tailor tape, metre as SI; web-checked fecu105) + ncert-phys11-ch2 (class-11 physics ch. 2 Units and Measurements \u2014 SI 7 base units, derived units; web-checked); history web-checked (royal cubit 7x4 = 28 digits, Maya rod 52.3 cm; barleycorn inch statute; Henry-I yard legend honest-uncertain; Metre Convention 1875 17 states BIPM Sevres; SI named 1960 11th CGPM; India SOWM Act 1956 -> 1 Oct 1960 metric -> Legal Metrology Act 2009)",
   "content": "measurement defined is-said-to-be as a count of units with Q = n x u as tag 1; the desk-and-handspans case for agreement (figure 1); body units fail invariability; the three requirements of a good unit; the cubit rods as the agreement made physical; the swap law DERIVED as tag 2 (transitivity of equality) + the inverse law; the bare-number Caution; base vs derived quantities (area m^2 cashing 8.5, speed m/s cashing 6.2 with 45 km/h = 12.5 m/s); the treaty story 1875 -> 1960 SI 7 base units; India 1956/1960/2009; 8 terms, 5-quiz, 12 exercises L1-L6 (L6: the swap law proved; the 250-no-unit packet fraud cashed)",
   "scopeGuard": "no metric-prefix tables (9.2), no conversion-as-x1 drills (9.3), no precision/accuracy/rounding (9.4), no error numerics"
+ },
+ "ownerDirective20261105": {
+  "oldJob": "498279 'LockIn Library \u2014 hourly unit run' \u2014 disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",
+  "newJob": "504365 'LockIn Library \u2014 hourly unit run (2 lessons/run)' \u2014 fixed_rate 3600 s, tz Asia/Kolkata, created 2026-11-05 10:11:33, status enabled",
+  "change": "TWO lessons per run (authored sequentially, each with verify-first + full quality gates; an in-flight lesson counts as lesson 1 of 2; single ship after both); every other detail identical, including the PUSH PROTOCOL with the PAT embedded only in the job payload",
+  "lessonWorkThisTurn": "none \u2014 infrastructure directive only; tree clean at beaf0f8, remote synced; run 43 = FM 9.2 + FM 9.3"
  }
 }
