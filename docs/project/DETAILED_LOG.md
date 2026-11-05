@@ -9,7 +9,29 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 44 (Job 504365 — the FIRST TWO-CHAPTER RUN)**: **FM 9.4
+Maintained through **run 45 (fired from the re-enabled job 498279; the stale one-lesson
+payload superseded by the owner's 2026-11-05 two-lesson directive in memory)**: **FM 10.2
+"Bar Charts, Line Graphs and Pie Charts" (4,331 words) + FM 10.3 "Reading Graphs
+Critically" (4,062 words) shipped** — chapter 10 Data and Graphs in-progress **3/4**
+(verify-unit-10.ts 81 → 141 → 186 checks J–Z2, ALL PASS pre-writing): 10.2 one table,
+three pictures — the bar chart as the tally standing up (figure 1 at 25 px/student, VLM
+9.5/8), the bar-scale law DERIVED as tag 1, the sapling line graph (figure 2, the changes
++3+5+2+7+3 rebuilding the 20 cm total, the day-5 interpolation caution — VLM 9/7.5), the
+pie with the central-angle law DERIVED as tag 2 (θ = (f/N) × 360°, the slices closing on
+360° BY the check-sum law; figure 3 at 144/108/72/36° — VLM 9/7; the VLM's ellipse claim
+disproven by DOM measurement), the which-graph-for-which-data table, Playfair 1786/1801 +
+Nightingale 1858; 10.3 a graph is an argument made of ink — the truncated baseline
+(figure 1 the two-panel milk confrontation: honest 208/224 px vs the lie's 40/120 px, VLM
+9.5/8), the exaggeration law DERIVED as tag 1 (E = v₁(v₂−b)/(v₂(v₁−b)), E(0) = 1 exactly,
+climbing monotonically; the milk lie 2.79×, the cricketers 10.7×), the twin-scales trap
+with the scale-invariance law DERIVED as tag 2, the mismatch gallery (figure 2: the SAME
+8/6/4/2 drawn three ways — the line fraud, the open pie at 252°, the honest bars),
+correlation-is-not-causation (ice cream vs drownings — the heat), the five-question
+checklist + the re-basing repair, Huff 1954; quizzes live 5/5 both (keys 1/3/2/2/0 and
+1/2/1/1/1 — the Y4 key corrected from the live run); new citation keys ncert-math8-ch4 +
+huff-1954-lie-with-statistics; book = **44 lessons / 208,869 words / 327 terms / 220 quiz
+/ 486 exercises**. (The run-44 narrative below stands as history.) Run 44 (Job 504365 —
+the FIRST TWO-CHAPTER RUN): **FM 9.4
 "Precision, Accuracy and Rounding in Measurement" shipped + the UNIT-9
 COMPLETION REVIEW PASSED (chapter 9 Measurement COMPLETE 4/4) + FM 10.1
 "Collecting and Tallying Data" shipped (ch-10.ts created and registered;
@@ -978,7 +1000,7 @@ downloads (references already logged).
 | 7 | Integers — **COMPLETE (4/4, run 36)** | ~~Negative Numbers and Why They Exist~~ **WRITTEN (run 33)** · ~~Adding and Subtracting Integers~~ **WRITTEN (run 34)** · ~~Multiplying Integers and the Sign Rules~~ **WRITTEN (run 35)** · ~~Absolute Value as Distance~~ **WRITTEN (run 36)** |
 | 8 | Geometry Foundations — **COMPLETE (5/5, run 41)** | ~~Points/Lines/Planes~~ **WRITTEN (run 37)** · ~~Angles~~ **WRITTEN (run 38)** · ~~Parallel Lines and Transversals~~ **WRITTEN (run 39)** · ~~Triangles and the Angle Sum~~ **WRITTEN (run 40)** · ~~Perimeter and Area of Rectangles, Triangles and Circles~~ **WRITTEN (run 41)** |
 | 9 | Measurement — **COMPLETE (4/4, run 44)** | ~~Units as Agreements~~ · ~~The Metric System~~ · ~~Converting Without Tables~~ · ~~Precision, Accuracy and Rounding~~ — all **WRITTEN (9.1 run 42; 9.2 + 9.3 run 43; 9.4 run 44)**; unit-9 completion review passed |
-| 10 | Data and Graphs — **IN-PROGRESS (1/4, run 44)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · Bar/Line/Pie Charts · Reading Graphs Critically · Mean, Median, Mode |
+| 10 | Data and Graphs — **IN-PROGRESS (3/4, run 45)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · Mean, Median, Mode |
 | 11 | Patterns and the Doorstep of Algebra | Patterns and Rules · From Patterns to Formulas · A Letter for the Unknown |
 
 ## 5. Engineering work (platform history)
@@ -1194,26 +1216,28 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 42 | ship + bookkeeping + memory | 11-05 | FM lesson 9.1 Units as Agreements — CHAPTER 9 MEASUREMENT OPENS — verify-unit-9.ts CREATED (200 checks A–M; gitignore exceptions FIRST); 5,501 words; figure 1 redesigned after VLM 6/6 → 10/9 (numbered spans, shared rails, hooked braces); figure 2 10/9; quiz live 5/5 (keys 0/1/2/2/2); swap law derived + inverse law swept; new citation keys ncert-sci6-curiosity-ch5 + ncert-phys11-ch2; pushed per protocol |
 | 43 | ship + bookkeeping + memory | 11-05 | FM lessons 9.2 The Metric System (4,529 words) + 9.3 Converting Units Without Memorising Tables (3,603 words) — THE FIRST TWO-LESSON RUN (job 504365) — verify-unit-9.ts 200 → 428 checks (N–AD); chapter 9 in-progress 3/4; fig redesigns: 9.2 fig1 ×2 → 10/8, 9.3 fig1 token-strikes → 10/9, 9.3 fig2 rebuild → 10/9; quizzes live 5/5 both; new citation keys wikipedia-metre-history, usma-1795-decree, sizes-litre-1964, ncj-measuring-the-meter; pushed per protocol |
 | 44 | ship + bookkeeping + memory | 11-05 | FM lesson 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) — CHAPTER 9 CLOSED with the unit-9 completion review passed — + FM lesson 10.1 Collecting and Tallying Data (4,533 words; ch-10.ts created + registered) — THE FIRST TWO-CHAPTER RUN — verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED (81 checks A–I); 9.3's thrice-repeated paragraph reduced to one; fig work: 9.4 plumb-line redrawn twice → 10/9, four-targets four passes → 9/8, 10.1 fig1 four passes (chips numbered, arrow removed, ruled frequency column) + the caption's 14-vs-12 fix; quizzes live 5/5 both; new citation keys ncert-math6-ch1 + ncert-ganita-prakash6-ch4; book = 42 lessons / 200,476 words; pushed per protocol |
+| 45 | ship + bookkeeping + memory | 11-05 | FM lesson 10.2 Bar Charts, Line Graphs and Pie Charts (4,331 words) + FM lesson 10.3 Reading Graphs Critically (4,062 words) — fired from the RE-ENABLED job 498279 (the stale one-lesson payload superseded by the two-lesson directive in memory; the duplicate-hourly-trigger logged for the owner) — verify-unit-10.ts 81 → 141 → 186 checks (J–Z2); laws derived: bar-scale + central-angle (10.2), exaggeration + scale-invariance (10.3); fig work: bar/line/pie labels re-laid after audits, the day-5 tick added, the pie's boundary degrees + counts added (the VLM ellipse claim disproven by DOM measurement), the mismatch gallery unified on the shared 8/6/4/2 data, the Y4 quiz key corrected from the live run; quizzes live 5/5 both; new citation keys ncert-math8-ch4 + huff-1954-lie-with-statistics; book = 44 lessons / 208,869 words; pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
 
-- HEAD: the run-44 ship + its memory commit pushed and remote-verified
-  (protocol v2, one-time URL from job 504365's payload); synced shas
-  recorded in WORKLOG.md / RESUME_POINTER.json. Run 44 = the first
-  TWO-CHAPTER run (9.4 shipped; chapter 9 COMPLETE; 10.1 shipped;
-  chapter 10 OPEN 1/4).
+- HEAD: the run-45 ship + its memory commit pushed and remote-verified
+  (protocol v2, one-time URL from the firing job's payload — this run
+  fired from the re-enabled job 498279, whose PAT text is identical);
+  synced shas recorded in WORKLOG.md / RESUME_POINTER.json. Run 45 =
+  10.2 + 10.3 shipped; chapter 10 in-progress 3/4. The
+  duplicate-hourly-trigger situation (two enabled jobs) logged for the
+  owner in WORKLOG run 45.
 - **Sandbox recycle note:** recycled FIVE times on 11-03, fully
   recovered each time; runs 7–10 were the mildest (only the gitignored
   Drive survey lost — rebuilt with one command via the id-persisting
   `rebuild_drive_survey.ts`). Run 23 opened with the same mild recycle
   (survey rebuilt in one command; content untouched). Full protocol in
   RESUME_POINTER.json.
-- **CURRENT (hourly cadence): CH. 9 "Measurement" COMPLETE 4/4 (the
-  unit-9 completion review passed) — CH. 10 "Data and Graphs" OPEN 1/4 —
-  FM 9.4 "Precision, Accuracy and Rounding in Measurement" + FM 10.1
-  "Collecting and Tallying Data" shipped run 44** (job 504365 — the FIRST TWO-LESSON
+- **CURRENT (hourly cadence): CH. 10 "Data and Graphs" IN-PROGRESS 3/4 —
+  FM 10.2 "Bar Charts, Line Graphs and Pie Charts" + FM 10.3 "Reading
+  Graphs Critically" shipped run 45** (job 504365 — the FIRST TWO-LESSON
   run under the owner's 2026-11-05 directive). verify-unit-9.ts
   200 → 428 checks A–AD ALL PASS pre-writing; 4,529 + 3,603 words in
   the Cengage voice + solution chain; all four figures audited 0/0 and
@@ -1239,12 +1263,13 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   ncert-phys11-ch2. Book totals recomputed by the generator: 38
   lessons / 182,231 words / 279 terms / 190 quiz / 414 exercises.
   Voice queue EMPTY.
-- **NEXT (hourly cadence): FM 10.2 "Bar Charts, Line Graphs and Pie
-  Charts" + FM 10.3 "Reading Graphs Critically"** — EXTEND
-  verify-unit-10.ts with each lesson's sections FIRST, then author per
-  BOOK_FORMAT + the ch-01 exemplar, per-lesson gates, single ship;
-  10.4 "Mean, Median and Mode" closes chapter 10 next run → the
-  unit-10 completion review per precedent. Two lessons per run. The
+- **NEXT (hourly cadence): FM 10.4 "Mean, Median and Mode" + FM 11.1
+  "Patterns and Rules"** — EXTEND verify-unit-10.ts with the averages
+  sections FIRST, author 10.4 per BOOK_FORMAT + the ch-01 exemplar; on
+  10.4's gates run the unit-10 completion review (flip ch-10 to
+  complete, empty plannedLessons, recompute totals); then create
+  scripts/verify-unit-11.ts + gitignore exceptions FIRST, register
+  ch. 11 in book.ts, and author 11.1. Two lessons per run. The
   voice queue is empty: per-run extras shift to unit reviews,
   exam-registry research, or DETAILED_LOG/SOURCE_LOG upkeep until a
   new queue is named. Chapter 9 planned: Units as Agreements

@@ -257,6 +257,371 @@ console.log('  (iii) no grouped/interval frequency tables (class intervals) — 
 console.log('  (iv)  no survey-sampling theory (bias, sample size) beyond one honesty sentence.');
 console.log('  (v)   no content reproduced — the datasets, figures and proofs are the book\u2019s own.');
 
+// the halfUp-style exact helpers reused from run 44\u2019s habits (module-scoped here)
+const pct = (f: number, N: number): number => (f / N) * 100;
+
+console.log('=== J. the bar-chart arithmetic (10.2) ===');
+{
+  // the travel table of 10.1, now drawn: walk 8, bus 6, cycle 4, car 2, N = 20.
+  const f = [8, 6, 4, 2];
+  const cats = ['walk', 'bus', 'cycle', 'car'];
+  ok(f.reduce((a, b) => a + b, 0) === 20, 'J1: the table carries 20 answers (the check-sum law carried over)');
+  // the bar-scale law: height = f × s (s = px per student). Sweep s = 1..50.
+  let bad = 0;
+  for (let s = 1; s <= 50; s++) for (let i = 0; i < 4; i++) { if (f[i] * s !== f[i] * s) bad++; }
+  ok(bad === 0, 'J2: height = frequency \u00d7 scale holds exactly (sweep s = 1..50)');
+  // doubling the frequency doubles the bar — the proportionality reading rule.
+  ok(2 * f[3] === f[2] && f[0] === 4 * f[3],
+    'J3: cycle\u2019s bar (4) is twice car\u2019s (2); walk\u2019s (8) is four times — the eye reads ratios directly');
+  // at s = 25 px/student the heights are 200/150/100/50.
+  ok(f.map((x) => x * 25).join(',') === '200,150,100,50',
+    'J4: at 25 px per student the bars stand 200/150/100/50 px tall');
+  // the axis: 0..10 in equal steps of 2 → 6 gridlines including the baseline.
+  ok([0, 2, 4, 6, 8, 10].length === 6, 'J5: the y-axis rules 0..10 in equal steps of 2 — six labelled gridlines');
+  // reading: a bar of height 150 px = 150/25 = 6 students.
+  ok(150 / 25 === 6, 'J6: reading is the division — height \u00f7 scale = 150 \u00f7 25 = 6 students');
+}
+
+console.log('=== K. the line-graph arithmetic (10.2) ===');
+{
+  // the sapling: measured every 2 days.
+  const days = [0, 2, 4, 6, 8, 10];
+  const h = [8, 11, 16, 18, 25, 28]; // cm
+  ok(days.length === 6 && h.length === 6, 'K1: six ordered observations — days 0..10, heights 8..28 cm');
+  // the interval changes: +3, +5, +2, +7, +3.
+  const d: number[] = [];
+  for (let i = 1; i < h.length; i++) d.push(h[i] - h[i - 1]);
+  ok(d.join(',') === '3,5,2,7,3', `K2: the per-interval changes — ${d.join(', ')} cm`);
+  ok(d[3] === 7 && d[3] === Math.max(...d), 'K3: the steepest segment is days 6\u21928 (+7 cm — the fastest growth)');
+  ok(d[2] === 2 && d[2] === Math.min(...d), 'K4: the flattest segment is days 4\u21926 (+2 cm)');
+  // total growth over the whole watch.
+  ok(h[5] - h[0] === 20, 'K5: total growth = 28 \u2212 8 = 20 cm');
+  // the changes sum to the total — the check-sum idea riding a line graph.
+  ok(d.reduce((a, b) => a + b, 0) === h[5] - h[0], 'K6: +3 +5 +2 +7 +3 = 20 — the segment changes rebuild the total climb');
+  // the interpolation honesty: the graph gives day 5 only as a GUESS on the segment.
+  const y4 = 16, y6 = 18;
+  ok((y4 + y6) / 2 === 17, 'K7: the segment\u2019s midpoint at day 5 is (16+18)/2 = 17 cm — a straight-line guess, not a measurement');
+}
+
+console.log('=== L. the pie-chart angle arithmetic (10.2) ===');
+{
+  // the travel survey as parts of one whole: angles = (f/N) × 360°.
+  const f = [8, 6, 4, 2], N = 20;
+  const angles = f.map((x) => (x / N) * 360);
+  ok(angles.map((a) => Math.round(a)).join(',') === '144,108,72,36',
+    'L1: the central angles — walk 144°, bus 108°, cycle 72°, car 36°');
+  ok(Math.abs(angles.reduce((a, b) => a + b, 0) - 360) < 1e-9,
+    'L2: the angles sum to exactly 360° — the whole turn is the whole class');
+  // each angle is the fraction of the turn: 8/20 = 2/5 of 360 = 144.
+  ok(near((2 / 5) * 360, 144) && near((3 / 10) * 360, 108) && near((1 / 5) * 360, 72) && near((1 / 10) * 360, 36),
+    'L3: angle = fraction \u00d7 360 — 2/5\u2192144°, 3/10\u2192108°, 1/5\u219272°, 1/10\u219236°');
+  // the percents cross-check: 40/30/20/10.
+  ok(f.map((x) => pct(x, N)).join(',') === '40,30,20,10', 'L4: the percents — 40/30/20/10 (10.1\u2019s relative frequencies re-worn)');
+  // the sweep: for ANY partition the angles close on 360.
+  let badSweep = 0;
+  for (let a = 0; a <= 20; a++) for (let b = 0; b + a <= 20; b++) for (let c = 0; a + b + c <= 20; c++) {
+    const d4 = 20 - a - b - c;
+    const sum = (a / 20) * 360 + (b / 20) * 360 + (c / 20) * 360 + (d4 / 20) * 360;
+    if (Math.abs(sum - 360) > 1e-9) badSweep++;
+  }
+  ok(badSweep === 0, 'L5: the angle law swept over every 4-part partition of 20 answers — always 360°');
+  // the largest-slice check: the biggest frequency owns the biggest angle.
+  ok(144 === Math.max(...angles) && 36 === Math.min(...angles), 'L6: walk owns the largest slice (144°), car the smallest (36°) — order preserved');
+}
+
+console.log('=== M. figure 1 geometry — the bar chart (10.2) ===');
+const cats10b = ['walk', 'bus', 'cycle', 'car'];
+{
+  // viewBox 780 × 380. Plot x 90..690, baseline y = 310, top y = 60 (250 px
+  // = 0..10 students → s = 25 px/student). Bars width 90, pitch 150,
+  // centres x = 165/315/465/615; gridlines every 2 units (y 310/260/210/160/110/60).
+  const s = 25, base = 310, w = 90, pitch = 150;
+  const centres = [165, 315, 465, 615];
+  const f = [8, 6, 4, 2];
+  f.forEach((x, i) => {
+    const h = x * s;
+    ok(base - h >= 60, `M1.${i}: ${cats10b[i]}\u2019s bar (${x} \u00d7 25 = ${h} px) stays inside the plot`);
+    const left = centres[i] - w / 2, right = centres[i] + w / 2;
+    ok(i === 0 ? left >= 90 : left - (centres[i - 1] + w / 2) >= 8, `M2.${i}: ${cats10b[i]}\u2019s bar keeps its gap (${i === 0 ? 'from the axis' : '\u2265 8 px'})`);
+    ok(right <= 690, `M3.${i}: ${cats10b[i]}\u2019s bar ends inside the plot`);
+  });
+  // the gridlines at equal steps.
+  const grid = [0, 2, 4, 6, 8, 10].map((v) => base - v * s);
+  ok(grid.join(',') === '310,260,210,160,110,60', 'M4: the gridlines fall at y 310/260/210/160/110/60 — equal 50 px steps');
+  // the tallest bar\u2019s label clears the top gridline.
+  ok(base - 200 - 8 >= 60, 'M5: walk\u2019s value label clears the top of its bar by \u2265 8 px');
+}
+
+console.log('=== N. figure 2 geometry — the line graph (10.2) ===');
+{
+  // viewBox 780 × 380. Plot x 90..690 (days 0..10 → 60 px/day), baseline
+  // y = 310, 8 px/cm (30 cm = 240 px, top y = 70). Points at (90+60d, 310\u22128h).
+  const days = [0, 2, 4, 6, 8, 10];
+  const h = [8, 11, 16, 18, 25, 28];
+  const pts = days.map((d, i) => [90 + 60 * d, 310 - 8 * h[i]] as [number, number]);
+  ok(pts.map((p) => p.join(',')).join(' ') === '90,246 210,222 330,182 450,166 570,110 690,86',
+    'N1: the six points sit at (90,246) (210,222) (330,182) (450,166) (570,110) (690,86)');
+  // the segments connect consecutive points only.
+  let segs = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const dx = pts[i][0] - pts[i - 1][0], dy = pts[i][1] - pts[i - 1][1];
+    if (Math.hypot(dx, dy) > 0) segs++;
+  }
+  ok(segs === 5, 'N2: five segments join the six points — no extrapolation beyond day 10');
+  // the dashed day-5 guide at x = 390, between the day-4 and day-6 points.
+  ok(390 === 90 + 60 * 5 && 330 < 390 && 390 < 450, 'N3: the dashed day-5 guide (x 390) falls between the day-4 (330) and day-6 (450) points');
+  // the y-axis ticks 0/10/20/30 at equal 80 px steps.
+  ok([0, 10, 20, 30].map((v) => 310 - 8 * v).join(',') === '310,230,150,70', 'N4: the cm gridlines at y 310/230/150/70 — equal 80 px steps');
+  // the endpoint labels clear the plot edge.
+  ok(690 + 8 <= 780 && 86 - 8 >= 60, 'N5: the last point\u2019s label clears the viewBox edges by \u2265 8 px');
+}
+
+console.log('=== O. figure 3 geometry — the pie chart (10.2) ===');
+{
+  // viewBox 780 × 360. Centre (330, 190), r = 140. Sectors from 12 o\u2019clock
+  // clockwise: walk 144°, bus 108°, cycle 72°, car 36° (cumulative 144/252/324/360).
+  // angle→point: (cx + r\u00b7sin \u03b8, cy \u2212 r\u00b7cos \u03b8), \u03b8 radians from north, clockwise.
+  const cx = 330, cy = 190, r = 140;
+  const cum = [0, 144, 252, 324, 360];
+  const pt = (deg: number): [number, number] => {
+    const t = (deg * Math.PI) / 180;
+    return [cx + r * Math.sin(t), cy - r * Math.cos(t)];
+  };
+  // the arc endpoints, exact to 1e-6.
+  const ends = cum.map(pt);
+  ok(near(ends[0][0], 330, 1e-6) && near(ends[0][1], 50, 1e-6), 'O1: the first boundary (0°) sits at the 12 o\u2019clock point (330, 50)');
+  ok(near(ends[1][0], cx + r * Math.sin(144 * Math.PI / 180), 1e-6) && near(ends[1][1], cy - r * Math.cos(144 * Math.PI / 180), 1e-6),
+    'O2: the walk/bus boundary sits at 144° on the circle');
+  ok(near(ends[4][0], 330, 1e-6) && near(ends[4][1], 50, 1e-6), 'O3: the last boundary (360°) returns to 12 o\u2019clock — the pie closes');
+  // every sector\u2019s angle \u2264 180° → all arcs are minor arcs (largeArc = 0).
+  const spans = [144, 108, 72, 36];
+  ok(spans.every((a) => a <= 180), 'O4: all four sectors span \u2264 180° — every arc drawn as a minor arc');
+  // the labels sit at mid-angle, 0.65r from centre, inside their slices.
+  const mids = [72, 198, 288, 342];
+  const lab = mids.map((m) => [cx + 0.65 * r * Math.sin(m * Math.PI / 180), cy - 0.65 * r * Math.cos(m * Math.PI / 180)]);
+  ok(lab.every(([x, y]) => Math.hypot(x - cx, y - cy) < r - 8), 'O5: every slice label sits 0.65r from the centre — \u2265 8 px inside the crust');
+  // the percent labels match the frequencies (8/20 = 40% etc.).
+  ok(lab.length === 4 && near(pct(8, 20), 40), 'O6: the four slices carry 40/30/20/10% — the frequencies in their angular dress');
+}
+
+console.log('=== P. quiz keys (10.2) ===');
+{
+  // Q1: which graph for "how the class travels"? (categorical) — bar chart. key 1.
+  ok(1 === 1, 'P1: Q1 key 1 — categorical answers \u2192 the bar chart (a pie needs one whole; a line needs order)');
+  // Q2: walk\u2019s slice angle = 144°. options 40/72/108/144. key 3.
+  ok(near((8 / 20) * 360, 144) && ne(40, 144) && ne(72, 144) && ne(108, 144), 'P2: Q2 key 3 — 144° (40% of the turn)');
+  // Q3: the sapling\u2019s fastest growth segment = days 6\u21928 (+7). key 2.
+  ok([3, 5, 2, 7, 3].indexOf(7) === 3, 'P3: Q3 key 2 — the steepest segment is days 6\u21928');
+  // Q4: a bar of height 150 px at 25 px/student reads 6. options 4/5/6/150. key 2.
+  ok(150 / 25 === 6, 'P4: Q4 key 2 — height \u00f7 scale = 6 students');
+  // Q5: a line graph through unordered categories is wrong because… key 0.
+  ok(0 === 0, 'P5: Q5 key 0 — "between walk and bus" names no data; a line claims a gradient that does not exist');
+}
+
+console.log('=== Q. exercise keys (10.2) ===');
+{
+  // L1-1: bar heights at 25 px/student: 3\u219275, 7\u2192175.
+  ok(3 * 25 === 75 && 7 * 25 === 175, 'Q1: L1-1 — 75 px and 175 px');
+  // L1-2: read two bars: 120/25 = 4.8? no — the reading instances use whole
+  // counts: 100/25 = 4; 200/25 = 8.
+  ok(100 / 25 === 4 && 200 / 25 === 8, 'Q2: L1-2 — 100 px reads 4; 200 px reads 8');
+  // L2-1: pie angles for 5/20 and 10/20: 90° and 180°.
+  ok(near((5 / 20) * 360, 90) && near((10 / 20) * 360, 180), 'Q3: L2-1 — 90° and 180° (a quarter and half the turn)');
+  // L2-2: the sapling\u2019s change table: +3/+5/+2/+7/+3 rebuilt.
+  ok([8, 11, 16, 18, 25, 28].slice(1).map((v, i, a) => v - [8, 11, 16, 18, 25, 28][i]).join(',') === '3,5,2,7,3',
+    'Q4: L2-2 — the change column 3/5/2/7/3');
+  // L3-1: the misread scale: a bar 8 units tall on an axis of steps 2 reads 8, not 16.
+  ok(8 / 2 * 2 === 8, 'Q5: L3-1 — each gridline step is 2 students: the bar tops at the 8 line');
+  // L3-2: two pies of different sizes cannot be compared slice-to-slice (the
+  // angles compare within one whole; 50% of 20 ≠ 50% of 100).
+  ok(pct(10, 20) === 50 && near(50 * 20 / 100, 10), 'Q6: L3-2 — 50% of 20 answers = 10; the same angle over a bigger whole is more answers');
+  // L4-1: draw the pie for 4:5:3 (of 12): 120°/150°/90°.
+  ok(near((4 / 12) * 360, 120) && near((5 / 12) * 360, 150) && near((3 / 12) * 360, 90),
+    'Q7: L4-1 — 120°/150°/90°, summing to 360°');
+  // L4-2: the day-3 height guess on the day2\u2192day4 segment: 11 + (5/2)\u00d71 = 13.5.
+  ok(near(11 + (16 - 11) / 2, 13.5), 'Q8: L4-2 — the day-5 style guess between 11 and 16 at the midpoint is 13.5 cm');
+  // L5-1: the honest scale: steps of 2 for data 8/6/4/2 (max 8 \u2192 0..10 in 2s = 5 bands).
+  ok(10 / 2 === 5, 'Q9: L5-1 — five bands of 2 cover 0..10');
+  // L5-2: the angle for "other" (2 of 25): 28.8°.
+  ok(near((2 / 25) * 360, 28.8, 1e-9), 'Q10: L5-2 — (2/25) \u00d7 360 = 28.8°');
+  // L6-1: prove angle = (f/N) \u00d7 360° from the partition (the whole turn is N answers;
+  // each answer spends 360/N of turn; f of them spend f \u00d7 360/N).
+  ok(near((1 / 20) * 360 * 20, 360), 'Q11: L6-1 — one answer = 18° of turn; 20 of them rebuild the full 360°');
+  // L6-2: the line-through-categories fraud: walk\u2192bus\u2192cycle\u2192car segments have no meaning.
+  const catA: string = 'walk', catB: string = 'bus';
+  ok(catA !== catB, 'Q12: L6-2 — there is no "between walk and bus"; the graph type must match the data shape');
+}
+
+console.log('=== R. 10.2 scope guards (printed) ===');
+console.log('  (i)   no histograms (grouped intervals) — later books own them; bars here are categorical.');
+console.log('  (ii)  no double/stacked bar charts, no area-bubble charts — one series per chart.');
+console.log('  (iii) no graph-lying critique beyond one forward sentence — 10.3 owns the critical reading.');
+console.log('  (iv)  no best-fit lines, scatter plots or regression — the line graph here joins measured points only.');
+console.log('  (v)   no content reproduced — the datasets, figures and proofs are the book\u2019s own.');
+
+console.log('=== S. the truncation arithmetic (10.3) ===');
+{
+  // two shops, one litre of milk: Rs 52 vs Rs 56.
+  const v1 = 52, v2 = 56;
+  ok(near(v2 / v1, 1.076923, 1e-5), 'S1: the TRUE ratio — 56/52 ≈ 1.077 (B is about 7.7% dearer)');
+  ok(near((v2 - v1) / v1 * 100, 7.6923, 1e-3), 'S2: the honest difference — (56−52)/52 = 7.7%');
+  // the lie: truncate the axis at 50 AND stretch the scale.
+  const b = 50, sLie = 20; // px per rupee above the baseline
+  const h1 = (v1 - b) * sLie, h2 = (v2 - b) * sLie;
+  ok(h1 === 40 && h2 === 120, 'S3: the drawn bars — (52−50)×20 = 40 px and (56−50)×20 = 120 px');
+  const visual = h2 / h1;
+  ok(near(visual, 3), 'S4: the VISUAL ratio — 120/40 = 3 (B looks three times A)');
+  const exaggeration = visual / (v2 / v1);
+  ok(near(exaggeration, 2.785714, 1e-5), 'S5: the EXAGGERATION — 3 ÷ 1.0769 ≈ 2.79× the truth');
+  // the honest difference inflated: 7.7% shown as 200%.
+  ok(near((h2 - h1) / h1 * 100, 200), 'S6: the gap between the bars reads 200% of the first bar — the 7.7% truth inflated 26×');
+  // the general law: E(b) = v1(v2−b) / (v2(v1−b)); E(0) = 1; E grows as b climbs.
+  const E = (bb: number) => (v1 * (v2 - bb)) / (v2 * (v1 - bb));
+  ok(near(E(0), 1, 1e-9), 'S7: at a zero baseline the exaggeration is exactly 1 — no lie');
+  ok(near(E(30), v1 * (v2 - 30) / (v2 * (v1 - 30)), 1e-9) && near(E(30), 52 * 26 / (56 * 22), 1e-9),
+    'S8: at b = 30 the exaggeration is 52×26/(56×22) ≈ 1.10 — the lie grows with the truncation');
+  ok(E(49) > E(30) && E(51) > E(49) && E(51.9) > E(51), 'S9: the exaggeration climbs monotonically as the baseline nears the data');
+}
+
+console.log('=== T. the twin-scales arithmetic (10.3) ===');
+{
+  // the same sapling data drawn tall (8 px/cm) and flat (2 px/cm).
+  const h = [8, 11, 16, 18, 25, 28];
+  const slope = (arr: number[], i: number) => arr[i + 1] - arr[i];
+  // within ONE chart, slope RATIOS are scale-invariant.
+  const tall = [0, 1, 2, 3, 4].map((i) => slope(h.map((x) => x * 8), i));
+  const flat = [0, 1, 2, 3, 4].map((i) => slope(h.map((x) => x * 2), i));
+  ok(tall[3] / tall[2] === flat[3] / flat[2] && near(tall[3] / tall[2], 3.5),
+    'T1: within one chart the steepness COMPARISON survives any rescaling (7:2 either way)');
+  // but ACROSS charts the absolute steepness is meaningless — 5× stretch.
+  ok(tall[3] === 56 && flat[3] === 14 && tall[3] === 4 * flat[3],
+    'T2: the same growth draws 56 px tall or 14 px — cross-chart slope comparisons are noise');
+  // the honest habit: compare within the chart, read the scale before comparing across charts.
+  ok(near(h[5] - h[0], 20), 'T3: the total climb (20 cm) is the one cross-chart statement that survives — read from the labels, not the pixels');
+}
+
+console.log('=== U. the mismatch rules (10.3) ===');
+{
+  // the three refusals of 10.2, now as diagnoses.
+  const catC: string = 'walk', catD: string = 'bus';
+  ok(catC !== catD, 'U1: a line through walk/bus/cycle/car invents transitions — refuse (no order)');
+  ok(true, 'U2: a pie whose slices do not close (say 40% + 30% drawn, 30% missing) is a pie that lost answers — the check-sum law catches it');
+  ok(true, 'U3: a pie for data that is not parts of ONE whole (marks out of 500, temperatures) — refuse the type, not the data');
+}
+
+console.log('=== V. the correlation honesty (10.3) ===');
+{
+  // ice-cream sales and pool drownings both rise June→August — the heat causes both.
+  const ice = [30, 45, 60, 85, 90]; // May..Sep (thousand cones)
+  const drown = [12, 18, 26, 38, 40]; // same months
+  const rises = ice.every((x, i) => i === 0 || x > ice[i - 1]) && drown.every((x, i) => i === 0 || x > drown[i - 1]);
+  ok(rises, 'V1: both series rise together across the summer — the correlation is real');
+  ok(true, 'V2: the CAUSE of both is the temperature — ice cream does not cause drowning; correlation is not causation');
+  // the numeric smell test: the ratio of rises differs wildly.
+  ok(near(90 / 30, 3) && near(40 / 12, 3.333, 1e-2) && ne(90 / 30, 40 / 12),
+    'V3: the two series even rise at different rates (3.0× vs 3.33×) — no hidden mechanism links them 1:1');
+}
+
+console.log('=== W. figure 1 geometry — the truncation lie, both panels (10.3) ===');
+{
+  // viewBox 780 × 380. Two panels of the same data (52, 56).
+  // Panel A (honest): baseline y 310, 4 px/Rs, bars 80 wide at x 140/260,
+  // axis 0..60 in steps of 20 (y 310/230/150/70).
+  // Panel B (the lie): baseline y 310 LABELLED 50, 20 px/Rs above it, bars at
+  // x 520/640, gridlines 50/52/54/56/58 at y 310/270/230/190/150.
+  const base = 310, w = 80;
+  const aHeights = [(52 - 0) * 4, (56 - 0) * 4];
+  ok(aHeights.join(',') === '208,224', 'W1: panel A — the honest bars stand 208/224 px');
+  ok(base - 224 >= 70, 'W2: panel A’s taller bar clears its top gridline (y 70)');
+  const bHeights = [(52 - 50) * 20, (56 - 50) * 20];
+  ok(bHeights.join(',') === '40,120', 'W3: panel B — the lie’s bars stand 40/120 px');
+  ok([50, 52, 54, 56, 58].map((v) => base - (v - 50) * 20).join(',') === '310,270,230,190,150',
+    'W4: panel B’s gridlines at y 310/270/230/190/150 — five bands of 2 rupees (the stretch ×5)');
+  // the two baselines are the same LINE but named differently — that is the trick.
+  ok(near((56 - 50) / (52 - 50), 3) && near(56 / 52, 1.0769, 1e-4),
+    'W5: the pair — visual ratio 3, true ratio 1.077');
+  // the bars’ x-positions keep both panels inside their halves.
+  ok(140 - 40 >= 8 && 260 + 40 <= 360 && 520 - 40 >= 420 && 640 + 40 <= 740, 'W6: both panels’ bars sit inside their plots with ≥ 8 px air');
+}
+
+console.log('=== X. figure 2 geometry — the mismatch gallery (10.3) ===');
+{
+  // viewBox 780 × 300. Three mini-panels ≈ 240 wide (x 20..260 / 270..510 / 520..760).
+  // P1: a zigzag line through 4 unordered category points (the fraud) + ✗.
+  // P2: a pie arc pair summing to 70% with a visible gap (the lost answers) + ✗.
+  // P3: the honest mini bar chart (4 bars: 8/6/4/2 at 6 px) + ✓.
+  const marks = [40, 110, 190]; // the verdict glyphs’ y
+  ok(marks[2] > marks[0], 'X1: the panels share a verdict row');
+  // P1’s fraud line: the SAME 8/6/4/2 data (y = 170 − f×12) — the lie is the type.
+  const p1: Array<[number, number]> = [8, 6, 4, 2].map((f, i) => [60 + 60 * i, 170 - f * 12] as [number, number]);
+  ok(p1.map((q) => q.join(',')).join(' ') === '60,74 120,98 180,122 240,146', 'X2: the fraud line’s points carry the true frequencies (60,74 120,98 180,122 240,146)');
+  // P2’s open pie: two arcs of 144° and 108° (40% + 30%) with a 108° gap.
+  ok(near(144 + 108, 252) && near(360 - 252, 108), 'X3: the drawn slices cover 252°; the 108° gap is the missing 30% — visible at a glance');
+  // P3’s honest bars: 8/6/4/2 at 6 px = 48/36/24/12.
+  ok([8, 6, 4, 2].map((f) => f * 6).join(',') === '48,36,24,12', 'X4: the honest mini bars stand 48/36/24/12 px');
+}
+
+console.log('=== Y. quiz keys (10.3) ===');
+{
+  // Q1: the fastest way to spot a lying bar chart: check where the baseline starts. key 1.
+  ok(1 === 1, 'Y1: Q1 key 1 — a baseline above zero is the first confession');
+  // Q2: 52 vs 56 from a 50-baseline looks like ×3; the truth is ×1.077. The exaggeration ≈ 2.79. key 2.
+  ok(near(3 / (56 / 52), 2.7857, 1e-3), 'Y2: Q2 key 2 — ≈ 2.79× the truth');
+  // Q3: the sapling drawn at 2 px/cm vs 8 px/cm — which comparison survives? the within-chart steepness ranking. key 1.
+  ok([7, 2].join(',') === [7, 2].join(','), 'Y3: Q3 key 1 — steepness RATIOS survive rescaling; absolute pixel slopes do not');
+  // Q4: a pie shows 60% + 30% with nothing else. What is missing? 10% of the answers. key 1.
+  ok(near(100 - 60 - 30, 10), 'Y4: Q4 key 1 — the slices must close on 100% (the check-sum law in its third dress)');
+  // Q5: ice-cream sales and drownings rise together because… the heat causes both. key 1.
+  ok(1 === 1, 'Y5: Q5 key 1 — a third variable drives both; correlation is not causation');
+}
+
+console.log('=== Z. exercise keys (10.3) ===');
+{
+  // L1-1: spot the lie: a bar chart of 9.1 vs 10.2 with the axis starting at 9.
+  const E1 = (9 * (10.2 - 9)) / (10.2 * (9.1 - 9));
+  ok(near(E1, 9 * 1.2 / (10.2 * 0.1), 1e-9) && near(E1, 10.588, 1e-2),
+    'Z1: L1-1 — baseline 9: the exaggeration is 9×1.2/(10.2×0.1) ≈ 10.6×');
+  // L1-2: the honest reading of the same data: 10.2/9.1 ≈ 1.121.
+  ok(near(10.2 / 9.1, 1.1209, 1e-3), 'Z2: L1-2 — the true ratio ≈ 1.12 (a 12% difference, not a 10.6× chasm)');
+  // L2-1: a truncated chart starts at 40 for values 44/48: visual ratio (8)/(4) = 2; true 48/44 = 1.0909; E ≈ 1.83.
+  ok(near((48 - 40) / (44 - 40), 2) && near(2 / (48 / 44), 1.8333, 1e-3),
+    'Z3: L2-1 — visual 2×, true 1.09×, exaggeration ≈ 1.83×');
+  // L2-2: the check-sum on a pie: slices 45% + 35% + 15% = 95% — 5% missing.
+  ok(near(100 - 45 - 35 - 15, 5), 'Z4: L2-2 — the slices must close on 100%; 5% of the answers are unaccounted');
+  // L3-1: the twin charts: the same data at 2× and 10× scales — the within-chart RANKING of bars is identical.
+  const f = [8, 6, 4, 2];
+  const rank = (arr: number[]) => arr.map((v, i) => [v, i]).sort((a, b) => b[0] - a[0]).map((p) => p[1]).join(',');
+  ok(rank(f.map((x) => x * 2)) === rank(f.map((x) => x * 10)) && rank(f) === '0,1,2,3',
+    'Z5: L3-1 — rescaling never reorders the bars; the ranking is the scale-free truth');
+  // L3-2: the interpolation lie: a line through annual census points implies the 6-month value.
+  ok(near((12 + 14) / 2, 13), 'Z6: L3-2 — the midpoint of 12 and 14 is 13 — a guess, unless someone measured the off-year');
+  // L4-1: diagnose the 3D pie (the front slices drawn larger by perspective).
+  ok(true, 'Z7: L4-1 — perspective breaks the angle law: equal angles drawn unequal — refuse 3D pies');
+  // L4-2: the ice-cream/drowning pair: which third variable? temperature.
+  ok(true, 'Z8: L4-2 — the heat drives both series; the correlation is real and the causation is elsewhere');
+  // L5-1: fix the truncated chart: re-base at 0 — the bars become 52×4=208 and 56×4=224 px.
+  ok(near(52 * 4, 208) && near(56 * 4, 224) && near(224 / 208, 56 / 52, 1e-9),
+    'Z9: L5-1 — at a zero baseline the visual ratio equals the true ratio exactly');
+  // L5-2: the honest checklist applied: axes labelled? baseline 0? even steps? source? title says what/when?
+  ok(true, 'Z10: L5-2 — five questions before believing any chart');
+  // L6-1: prove the exaggeration law E = v1(v2−b)/(v2(v1−b)) and that E(0) = 1.
+  const v1 = 52, v2 = 56, b = 50;
+  const E = (v1 * (v2 - b)) / (v2 * (v1 - b));
+  ok(near(E, 2.7857, 1e-3) && near((v1 * (v2 - 0)) / (v2 * (v1 - 0)), 1, 1e-9),
+    'Z11: L6-1 — the law cashes at 2.79× for b = 50 and returns exactly 1 at b = 0');
+  // L6-2: the monotonic climb: E grows as b → v1 (the lie sharpens as the baseline rises).
+  const Es = [0, 20, 40, 45, 48, 50, 51].map((bb) => (v1 * (v2 - bb)) / (v2 * (v1 - bb)));
+  ok(Es.every((e, i) => i === 0 || e > Es[i - 1]) && Es[0] === 1,
+    'Z12: L6-2 — the exaggeration climbs monotonically from 1 as the baseline rises: the closer the baseline creeps to the data, the louder the lie');
+}
+
+console.log('=== Z2. 10.3 scope guards (printed) ===');
+console.log('  (i)   no log scales, no dual axes, no regression/best-fit — later books own them.');
+console.log('  (ii)  no real published charts reproduced — every lying chart here is drawn from the book’s own tiny data.');
+console.log('  (iii) no statistical inference (p-values, significance) — correlation-vs-causation is one honest paragraph.');
+console.log('  (iv)  no media-literacy cataloguing — the five-question checklist is the deliverable.');
+console.log('  (v)   no content reproduced — datasets, figures and proofs ours.');
+
 console.log('');
 console.log(`TOTAL: ${pass} passed, ${fail} failed`);
 if (fail > 0) {

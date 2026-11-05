@@ -1656,3 +1656,94 @@ agent-browser screenshot /tmp/cengage-e2e/mobile-10-1.png >/dev/null 2>&1 || tru
 agent-browser set viewport 1440 900 >/dev/null 2>&1
 ls -la /tmp/cengage-e2e/*10-1*.png 2>/dev/null | head -6
 echo "done-10-1"
+
+# ---- dedicated 10.2 block (run 45): quiz keys 1/3/2/2/0 + solutions + figures ----
+echo "== dedicated 10.2 block: quiz keys + solutions + figures =="
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-bar-charts-line-graphs-and-pie-charts" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1800 >/dev/null 2>&1 || true
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-102.page.js)" 2>/dev/null | head -1
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-2-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-2-fig2.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[2]) figs[2].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 3';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-2-fig3.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-bar-charts-line-graphs-and-pie-charts" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '10.2 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser screenshot /tmp/cengage-e2e/mobile-10-2.png >/dev/null 2>&1 || true
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+ls -la /tmp/cengage-e2e/*10-2*.png 2>/dev/null | head -6
+echo "done-10-2"
+
+# ---- dedicated 10.3 block (run 45): quiz keys 1/2/1/1/0 + solutions + figures ----
+echo "== dedicated 10.3 block: quiz keys + solutions + figures =="
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+agent-browser open "$BASE/fm-reading-graphs-critically" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1800 >/dev/null 2>&1 || true
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-103.page.js)" 2>/dev/null | head -1
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[0]) figs[0].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 1';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-3-fig1.png >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var figs = document.querySelectorAll('figure svg');
+  if (figs[1]) figs[1].scrollIntoView({block: 'center'});
+  return 'scrolled to figure 2';
+})()
+" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser screenshot /tmp/cengage-e2e/desktop-10-3-fig2.png >/dev/null 2>&1 || true
+agent-browser set viewport 390 844 >/dev/null 2>&1
+agent-browser open "$BASE/fm-reading-graphs-critically" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1500 >/dev/null 2>&1 || true
+agent-browser eval "
+(function(){
+  var de = document.scrollingElement;
+  var art = document.querySelector('article');
+  return '10.3 mobile: docScrollW=' + de.scrollWidth + ' overflowX=' + (de.scrollWidth > 390 ? 'YES' : 'none') + ' articleW=' + (art ? art.getBoundingClientRect().width : 'n/a');
+})()
+" 2>/dev/null | head -2
+agent-browser set viewport 1440 900 >/dev/null 2>&1
+echo "done-10-3"

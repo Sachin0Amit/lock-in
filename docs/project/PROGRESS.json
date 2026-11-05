@@ -3,7 +3,7 @@
  "project": "LockIn Library",
  "updated": "2026-11-05",
  "phase": "FM ch. 9 Measurement IN-PROGRESS 3/4 (run 43 \u2014 the first TWO-lesson run \u2014 shipped 9.2 The Metric System + 9.3 Converting Units Without Memorising Tables; next 9.4 closes the chapter)",
- "awaiting": "FM 10.2 'Bar Charts, Line Graphs and Pie Charts' and FM 10.3 'Reading Graphs Critically' \u2014 extend verify-unit-10.ts with each lesson's sections BEFORE writing (ch. 10 Data and Graphs in-progress 1/4; 10.4 Mean, Median and Mode closes the chapter next) \u2014 two lessons per run; voice queue EMPTY \u2014 per-run extras shift to unit reviews / exam-registry research / log upkeep until a new queue is named.",
+ "awaiting": "FM 10.4 'Mean, Median and Mode' (closes ch. 10 \u2014 EXTEND verify-unit-10.ts with the averages sections BEFORE writing; the unit-10 completion review follows per precedent) and then the NEXT unit's first lesson (ch. 11 Patterns and the Doorstep of Algebra opens at 11.1 Patterns and Rules \u2014 create scripts/verify-unit-11.ts + gitignore exceptions FIRST, register ch. 11 in book.ts) \u2014 two lessons per run; voice queue EMPTY.",
  "platform": {
   "status": "working \u2014 v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) \u00b7 TypeScript \u00b7 Tailwind 4 \u00b7 shadcn/ui \u00b7 zustand(persist v2) \u00b7 KaTeX \u00b7 next-themes \u00b7 framer-motion \u00b7 cmdk",
@@ -322,6 +322,20 @@
   "fixed": "run-43 defect: the 9.3 paragraph \"One freedom worth noticing\u2026\" existed three times in ch-09.ts \u2014 reduced to one copy",
   "counts": "book = 42 lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises; ch. 9 COMPLETE 19,213 words; ch. 10 1/4",
   "citations": "new keys ncert-math6-ch1 (the class-6 rounding charter) + ncert-ganita-prakash6-ch4 (the tally/frequency charter)"
+ },
+ "run45Extras": {
+  "run": 45,
+  "date": "2026-11-05",
+  "firedFrom": "job 498279 (re-enabled by the owner; its stale one-lesson payload superseded by the 2026-11-05 two-lesson directive in memory; the duplicate-hourly-trigger situation logged for the owner)",
+  "delivered": [
+   "FM 10.2 Bar Charts, Line Graphs and Pie Charts (4,331 words)",
+   "FM 10.3 Reading Graphs Critically (4,062 words)"
+  ],
+  "verify": "verify-unit-10.ts 81 \u2192 141 (J\u2013R) \u2192 186 (S\u2013Z2) checks, ALL PASS pre-writing both lessons",
+  "gates": "tsc + lint clean, routes 200, E2E dedicated 10.2 + 10.3 blocks green (quizzes live 5/5 on keys 1/3/2/2/0 and 1/2/1/1/1 \u2014 the Y4 key corrected from the live run), SVG audits 0/0 all five figures, VLM 9.5/8 + 9/7.5 + 9/7 (10.2) and 9.5/8 + accepted-on-inspection (10.3; the VLM label misread overruled by direct inspection, the ellipse claim disproven by DOM measurement)",
+  "laws": "tag 1 the bar-scale law + tag 2 the central-angle law (10.2); tag 1 the exaggeration law + tag 2 the scale-invariance law (10.3)",
+  "counts": "book = 44 lessons / 208,869 words / 327 terms / 220 quiz / 486 exercises; ch. 10 in-progress 3/4 (12,926 words)",
+  "citations": "new keys ncert-math8-ch4 + huff-1954-lie-with-statistics"
  },
  "ownerDirective20261105": {
   "oldJob": "498279 'LockIn Library \u2014 hourly unit run' \u2014 disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",

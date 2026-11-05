@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 10:35:41 (Asia/Kolkata)",
+  "generated": "2026-11-05 11:07:50 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -2878,10 +2878,8 @@
             "title": "Data and Graphs",
             "summary": "Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.",
             "status": "in-progress",
-            "lessonsWritten": 1,
+            "lessonsWritten": 3,
             "plannedLessons": [
-              "Bar Charts, Line Graphs and Pie Charts",
-              "Reading Graphs Critically",
               "Mean, Median and Mode"
             ],
             "lessons": [
@@ -2947,9 +2945,141 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 8
+              },
+              {
+                "id": "fm-bar-charts-line-graphs-and-pie-charts",
+                "number": "10.2",
+                "title": "Bar Charts, Line Graphs and Pie Charts",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4331,
+                "readMins": 22,
+                "concepts": [
+                  "One table, three pictures",
+                  "The bar chart — the tally standing up",
+                  "The scale — the y-axis is a ruler",
+                  "The line graph — data with order (time)",
+                  "The interpolation caution — segments guess",
+                  "The pie chart — parts of one whole",
+                  "The central-angle law θ = (f/N) × 360°",
+                  "Which graph for which data"
+                ],
+                "objectives": [
+                  "Draw and read a bar chart from a frequency table: equal-width bars in equal steps, the y-axis ruled as honestly as a ruler, the height × the scale reading rule",
+                  "Prove the bar-scale law — a bar’s height in axis-steps IS the frequency, so doubling the answers doubles the bar — and choose an honest scale (equal steps covering the data)",
+                  "Draw and read a line graph for ordered data (a time series): plot the points, join consecutive points, read each segment’s steepness as the change per interval",
+                  "State the interpolation caution: the segments between measured points are guesses, not measurements — and refuse line graphs for unordered categories",
+                  "Prove the central-angle law θ = (f/N) × 360° from the partition of 10.1, compute every slice angle from a frequency table, and name which graph fits which data shape"
+                ],
+                "prerequisites": [
+                  "fm-collecting-and-tallying-data"
+                ],
+                "sources": [
+                  "ncert-ganita-prakash6-ch4",
+                  "ncert-math8-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "heading": 4,
+                  "figure": 3,
+                  "callout": 5,
+                  "derivation": 2,
+                  "equation": 2,
+                  "example": 2,
+                  "table": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
+              },
+              {
+                "id": "fm-reading-graphs-critically",
+                "number": "10.3",
+                "title": "Reading Graphs Critically",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4062,
+                "readMins": 20,
+                "concepts": [
+                  "A graph is an argument — check it",
+                  "The truncated baseline — the classic lie",
+                  "The exaggeration law",
+                  "Stretch and squash — twin scales",
+                  "The mismatch gallery — wrong graph, wrong claim",
+                  "Correlation is not causation",
+                  "The five-question checklist",
+                  "Re-basing — the honest repair"
+                ],
+                "objectives": [
+                  "Diagnose the truncated-baseline lie: a bar chart whose axis starts above zero breaks the bar-scale law, and quantify the damage with the exaggeration law",
+                  "Prove and use the exaggeration law E = v₁(v₂−b)/(v₂(v₁−b)) — exactly 1 at a zero baseline, climbing without bound as the baseline creeps toward the data",
+                  "Explain the twin-scales trap: rescaling a chart preserves within-chart comparisons (the bar ranking, the steepness order) but destroys cross-chart pixel comparisons",
+                  "Refuse the mismatched graph — lines through unordered categories, pies that do not close on 360°, perspective-distorted 3D pies — and repair each with the honest alternative",
+                  "Apply the five-question checklist (labelled axes? zero baseline? even steps? source? honest title?) and state the correlation-is-not-causation caution with a concrete third-variable example"
+                ],
+                "prerequisites": [
+                  "fm-bar-charts-line-graphs-and-pie-charts",
+                  "fm-collecting-and-tallying-data"
+                ],
+                "sources": [
+                  "huff-1954-lie-with-statistics",
+                  "ncert-ganita-prakash6-ch4",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 6,
+                  "heading": 4,
+                  "figure": 2,
+                  "derivation": 2,
+                  "equation": 2,
+                  "example": 2,
+                  "list": 2,
+                  "callout": 2,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 8
               }
             ],
-            "words": 4533
+            "words": 12926
           },
           {
             "number": 11,
@@ -2989,13 +3119,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 88,
-      "totalLines": 35378,
+      "srcFilesTracked": 89,
+      "totalLines": 37168,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 26113,
+        "src/data/library (content model + books)": 27903,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -8537,6 +8667,108 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "691e32752b94b516a06878cfde5ff420e7d45138",
+      "short": "691e327",
+      "date": "2026-11-05 05:08",
+      "message": "fm 9.4 + 10.1 shipped (run 44, the FIRST TWO-CHAPTER RUN, job 504365): Precision, Accuracy and Rounding in Measurement (5,770 words — CHAPTER 9 CLOSED with the unit-9 completion review passed) + Collecting and Tallying Data (4,533 words — ch-10.ts created + registered, chapter 10 Data and Graphs OPENS 1/4); verify-unit-9.ts 428 -> 534 checks (AE-AO) + verify-unit-10.ts CREATED 81 checks (A-I) ALL PASS pre-writing both; 9.4: the interval law derived as tag 1 (m - u/2 <= t < m + u/2, left wall in by the half-up tie), the GPE derivation as tag 2, the 7-vs-7.0 testimony Note, the double-rounding traps certified (2.3447 -> 2.34 vs 2.35; 47,499 -> 47,000 vs 48,000), the Everest 1856 audit (29,002 ft = 8,839.81 m vs the 2020 8,848.86 m -> 9.05 m = 0.102%, the 29,000+2 padding told as hedged lore); figures: the three-rulers plumb-line redrawn twice to VLM 10/9 (the white ruler bodies swallowed the line; re-anchored at the true apex), the four-targets four passes to 9/8 (P4's bull-straddling dart removed, ring clearances >= 9 px with dot radius counted, P1 a regular pentagon centred on the bull); 10.1: the check-sum law derived as tag 1 (the categories partition the answers => Sum f = N), the tally-reading rule as tag 2, figure 1 the 20-answer raw list flowing into the tally rows (chips numbered 1-20, ruled frequency column — five-issue overlap audit fixed, the between-panels arrow added then removed after the VLM read it as pointing at one row, accepted on direct inspection with audits 0/0), figure 2 the gates gallery (the caption's 14-vs-12 mismatch fixed); a run-43 defect fixed: 9.3's thrice-repeated paragraph reduced to one; audits 0/0 all four figures; quizzes live 5/5 both (keys 1/1/2/1/0, 0/2/2/1/1); E2E dedicated 9.4 + 10.1 blocks green (suite at 31 lessons; e2e-94/e2e-101 whitelisted FIRST); the verify scripts module-scoped (export {}) after a two-script top-level collision; mobile 390 exact-fit both; 8+8 terms, 5-quiz x2, 12+12 exercises L1-L6; new citation keys ncert-math6-ch1, ncert-ganita-prakash6-ch4; book = 42 lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises; ch. 9 = 19,213 words complete; ch. 10 in-progress 1/4; logs + pointer + inventory updated (DETAILED_LOG brought current)",
+      "filesChanged": 15,
+      "insertions": 2484,
+      "deletions": 93,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 35,
+          "del": 18
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 16,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 27,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 261,
+          "del": 37
+        },
+        {
+          "path": "scripts/e2e-101.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-94.page.js",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-cengage-style.sh",
+          "add": 84,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-10.ts",
+          "add": 270,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-9.ts",
+          "add": 357,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 13,
+          "del": 20
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 685,
+          "del": 14
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 597,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "3b2eb6db700c2cb34c66faac96840ebb27408603",
+      "short": "3b2eb6d",
+      "date": "2026-11-05 05:08",
+      "message": "memory: run-44 synced sha recorded (691e327) — ship commit remote-verified via one-time-URL ls-remote = local HEAD = refs/heads/main; chapter 9 Measurement COMPLETE 4/4 (unit-9 completion review passed), chapter 10 Data and Graphs OPEN 1/4 (10.1 Collecting and Tallying Data shipped — the FIRST TWO-CHAPTER run, job 504365, verify 534 + 81 checks); next run 45 = FM 10.2 Bar/Line/Pie Charts + FM 10.3 Reading Graphs Critically; voice queue EMPTY",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -8545,25 +8777,25 @@
     "booksLive": 1,
     "chaptersWritten": 9,
     "chaptersInProgress": 1,
-    "lessonsWritten": 42,
-    "wordsAuthored": 200476,
-    "termsDefined": 311,
-    "quizItems": 210,
-    "exerciseQuestions": 462,
+    "lessonsWritten": 44,
+    "wordsAuthored": 208869,
+    "termsDefined": 327,
+    "quizItems": 220,
+    "exerciseQuestions": 486,
     "blockTotals": {
-      "para": 641,
-      "callout": 253,
-      "heading": 261,
-      "list": 52,
-      "terms": 43,
-      "equation": 77,
-      "derivation": 78,
-      "table": 44,
-      "figure": 77,
-      "example": 196,
-      "quiz": 42,
-      "exercises": 42,
-      "formula": 85,
+      "para": 655,
+      "callout": 260,
+      "heading": 269,
+      "list": 55,
+      "terms": 45,
+      "equation": 81,
+      "derivation": 82,
+      "table": 46,
+      "figure": 82,
+      "example": 200,
+      "quiz": 44,
+      "exercises": 44,
+      "formula": 91,
       "algorithm": 8
     }
   }

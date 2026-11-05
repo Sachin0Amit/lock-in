@@ -34,6 +34,68 @@ import type { Chapter } from '../../../types'
  * number pre-verified by scripts/verify-unit-10.ts (79 checks A–I ALL
  * PASS) BEFORE writing.
  *
+ * LESSON 10.2 Bar Charts, Line Graphs and Pie Charts (run 45) — one
+ * table, three pictures. The bar chart as the tally standing up (equal
+ * widths, honest gaps, the y-axis a ruler) with figure 1 the travel
+ * survey drawn at 25 px/student (heights 200/150/100/50, gridlines 0..10
+ * in steps of 2 — VLM 9.5/8); the bar-scale law DERIVED as tag 1
+ * (height = f × s, reading = height ÷ s — 9.1's count-of-units logic
+ * vertical) + the scale-choice freedom bounded by honesty (equal,
+ * labelled, covering); the line graph for ordered data with figure 2 the
+ * sapling watch (8/11/16/18/25/28 cm on days 0..10; the changes +3 +5
+ * +2 +7 +3 rebuilding the 20 cm total; the dashed day-5 guide with tick
+ * — the interpolation Caution: between points the line guesses, and
+ * unordered categories get no line at all; VLM 9/7.5 after the note
+ * moved off the 16-label and a day-5 tick added); the pie chart for
+ * parts of ONE whole with the central-angle law DERIVED as tag 2
+ * (θ = (f/N) × 360° — the whole turn is the whole class; the slices
+ * close on 360° BY the check-sum law) + the angle table + figure 3 the
+ * pie drawn from the table (144°/108°/72°/36°, alternating tints,
+ * stacked labels with counts, boundary degree labels — VLM 9/7 after
+ * three passes; the VLM's "ellipse" claim disproven by DOM measurement:
+ * rendered aspect = viewBox aspect = 2.167, the circle true); the
+ * which-graph-for-which-data table; the exam corner; the historical
+ * callout (Playfair 1786 line/bar + 1801 pie; Nightingale's 1858 rose
+ * diagram); 3 formula cards, 8 terms, 5-quiz (keys 1/3/2/2/0 verified
+ * live 5/5), 12 exercises L1–L6 (L6: the central-angle law proved from
+ * the partition; the line-through-categories fraud diagnosed). Scope
+ * guard held: no histograms, no double/stacked bars, no best-fit lines,
+ * no graph-lying critique beyond one forward sentence (10.3 owns it).
+ * verify-unit-10.ts EXTENDED 81 → 141 checks (J–R) ALL PASS
+ * pre-writing; E2E dedicated 10.2 block green (e2e-102.page.js created
+ * + whitelisted FIRST; quiz live 5/5, mobile 390 exact-fit); SVG audits
+ * 0/0/0.
+ *
+ * LESSON 10.3 Reading Graphs Critically (run 45, same run) — a graph is
+ * an argument made of ink. The truncated baseline: the milk pair (Rs 52
+ * vs 56, true 1.077×) drawn from a baseline of 50 with a ×5 stretch —
+ * visual ratio 3×, exaggeration 2.79× — figure 1 the two-panel
+ * confrontation (honest vs lie, VLM 9.5/8); the exaggeration law DERIVED
+ * as tag 1 (E = v₁(v₂−b)/(v₂(v₁−b)); E(0) = 1 exactly, climbing
+ * monotonically as b → v₁ — swept b = 0..51 in the verify script) + the
+ * cricketers Illustration (9.1 vs 10.2 from baseline 9: E ≈ 10.7×); the
+ * twin-scales trap with the scale-invariance law DERIVED as tag 2
+ * (rescaling multiplies every height by k; within-chart rankings
+ * survive, cross-chart pixel comparisons die); the mismatch gallery
+ * (figure 2: the SAME 8/6/4/2 drawn three ways — the line-through-
+ * categories fraud, the open pie covering only 252°, the honest bars
+ * with baseline and values; audits 0/0, accepted after the VLM's
+ * label-placement misread was overruled by direct inspection); the
+ * correlation-is-not-causation paragraph (ice cream vs drownings — the
+ * heat is the third variable); the five-question checklist (baseline,
+ * steps, type, closure, provenance) + the re-basing repair Illustration
+ * (E returns exactly 1); the exam corner; the historical callout (Huff's
+ * How to Lie with Statistics 1954 + Nightingale's candour); 3 formula
+ * cards, 8 terms, 5-quiz (keys 1/2/1/1/1 verified live 5/5 — the Y4 key
+ * corrected from the live run), 12 exercises L1–L6 (L6: the exaggeration
+ * law proved with both certainties; the checklist's insufficiency for
+ * causal readings argued). Scope guard held: no log scales, no dual
+ * axes, no regression, no reproduced real-world charts, no statistics
+ * beyond the one correlation paragraph. verify-unit-10.ts EXTENDED 141
+ * → 186 checks (S–Z2) ALL PASS pre-writing; E2E dedicated 10.3 block
+ * green (e2e-103.page.js created + whitelisted FIRST; quiz live 5/5,
+ * mobile 390 exact-fit); SVG audits 0/0.
+ *
  * References: NCERT Ganita Prakash class-6 ch. 4 "Data Handling and
  * Presentation" (fegp104, 2024 — data organised in tabular form using
  * tally marks, frequencies read from tables; web-checked 2026-11-05) +
@@ -53,8 +115,6 @@ export const chapter10: Chapter = {
     'Reading the world in tables and pictures: frequency tables, bar charts, line graphs, pie charts and when each lies or tells the truth; the mean, median and mode introduced honestly with their strengths and traps.',
   status: 'in-progress',
   plannedLessons: [
-    'Bar Charts, Line Graphs and Pie Charts',
-    'Reading Graphs Critically',
     'Mean, Median and Mode',
   ],
   lessons: [
@@ -586,6 +646,1135 @@ export const chapter10: Chapter = {
                     'Hence: one mis-filed answer is the symptom; the disease is categories chosen carelessly. The check-sum would still have passed — which is exactly why category design, not arithmetic, is where survey honesty lives.',
                   ],
                   answer: 'The train answer was mis-filed as a bus-ride (a false certificate); the row list lacked coverage. Cure: an "other" row (or wider list), decided before collecting',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-bar-charts-line-graphs-and-pie-charts',
+      number: '10.2',
+      title: 'Bar Charts, Line Graphs and Pie Charts',
+      concepts: [
+        'One table, three pictures',
+        'The bar chart — the tally standing up',
+        'The scale — the y-axis is a ruler',
+        'The line graph — data with order (time)',
+        'The interpolation caution — segments guess',
+        'The pie chart — parts of one whole',
+        'The central-angle law θ = (f/N) × 360°',
+        'Which graph for which data',
+      ],
+      objectives: [
+        'Draw and read a bar chart from a frequency table: equal-width bars in equal steps, the y-axis ruled as honestly as a ruler, the height \u00d7 the scale reading rule',
+        'Prove the bar-scale law — a bar\u2019s height in axis-steps IS the frequency, so doubling the answers doubles the bar — and choose an honest scale (equal steps covering the data)',
+        'Draw and read a line graph for ordered data (a time series): plot the points, join consecutive points, read each segment\u2019s steepness as the change per interval',
+        'State the interpolation caution: the segments between measured points are guesses, not measurements — and refuse line graphs for unordered categories',
+        'Prove the central-angle law θ = (f/N) × 360° from the partition of 10.1, compute every slice angle from a frequency table, and name which graph fits which data shape',
+      ],
+      prerequisites: ['fm-collecting-and-tallying-data'],
+      sources: ['ncert-ganita-prakash6-ch4', 'ncert-math8-ch4', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'The frequency table of 10.1 answers questions at a glance — *walk 8, bus 6, cycle 4, car 2* — but "a glance" still means reading four numbers and comparing them in your head. The next step of the data story asks more: can the numbers be made **visible**, so that the shape of the answers — biggest here, smallest there, the ratios between them — arrives in the eye before any arithmetic does? The answer took centuries to standardise and settled into exactly **three canonical pictures**, one per data shape: the **bar chart** for categories, the **line graph** for ordered (usually time) data, and the **pie chart** for parts of one whole. This lesson builds all three from tables this book already owns — and proves the two laws that make them honest.',
+        },
+        { kind: 'heading', text: 'The bar chart: the tally standing up' },
+        {
+          kind: 'para',
+          text: 'The travel survey\u2019s four rows are **categories** — no order between them, no "between walk and bus". The natural picture keeps the rows side by side and lets each row\u2019s **frequency stand up as a height**: four bars of equal width on a baseline, one per category, with gaps between them (the gaps say: these are separate categories, not a scale). The y-axis is ruled like any ruler of 9.1 — equal steps, honestly labelled — and each bar\u2019s height in those steps is exactly its frequency.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The travel table as a bar chart. The y-axis runs 0 to 10 students in equal steps of 2 (one gridline per step — a ruler, not a decoration); each bar is 90 px wide with a gap before the next (categories are separate); the heights are 8 × 25 = 200, 6 × 25 = 150, 4 × 25 = 100 and 2 × 25 = 50 px. Reading needs no counting: the eye sees walk\u2019s bar twice cycle\u2019s and four times car\u2019s — the ratios of 10.1\u2019s frequencies, standing up.',
+          svg: `<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of the travel survey: walk 8, bus 6, cycle 4 and car 2 students, bars of equal width standing on a baseline, y-axis ruled 0 to 10 in steps of 2">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">how the class travels — the bar chart (scale: 1 gridline step = 2 students)</text>
+  ${(() => {
+    let out = '';
+    for (let v = 0; v <= 10; v += 2) {
+      const y = 310 - v * 25;
+      out += `<line x1="90" y1="${y}" x2="690" y2="${y}" stroke="currentColor" stroke-width="${v === 0 ? 1.4 : 0.6}" opacity="${v === 0 ? 1 : 0.45}"/>`;
+      out += `<text x="82" y="${y + 4}" font-size="11" fill="currentColor" text-anchor="end">${v}</text>`;
+    }
+    return out;
+  })()}
+  <text x="60" y="30" font-size="11" fill="currentColor" opacity="0.9">students</text>
+  ${(() => {
+    const rows: Array<[string, number]> = [['walk', 8], ['bus', 6], ['cycle', 4], ['car', 2]];
+    let out = '';
+    rows.forEach(([name, f], i) => {
+      const cx = 165 + 150 * i, h = f * 25;
+      out += `<rect x="${cx - 45}" y="${310 - h}" width="90" height="${h}" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
+      out += `<text x="${cx}" y="${310 - h - 8}" font-size="13" fill="currentColor" font-weight="bold" text-anchor="middle">${f}</text>`;
+      out += `<text x="${cx}" y="332" font-size="13" fill="currentColor" text-anchor="middle">${name}</text>`;
+    });
+    return out;
+  })()}
+  <text x="390" y="362" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">the categories of 10.1\u2019s table — no order between them, hence the gaps</text>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Bar chart',
+          text: 'A **bar chart** is said to be a picture of a frequency table in which **each category owns one bar of equal width, standing on a common baseline, whose height (measured on an equally-stepped, labelled axis) is the category\u2019s frequency**. The bars carry gaps between them because the categories are separate kinds, not points on a scale.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The bar-scale law: a bar\u2019s height in axis-steps IS its frequency',
+          statement:
+            'An axis is ruled in equal steps of $s$ (here, one gridline per 2 students). Show that a frequency $f$ drawn at that scale stands $f \\div s$ steps tall — so doubling the answers doubles the bar, and reading is one division.',
+          steps: [
+            {
+              label: 'The axis is a ruler with a unit',
+              formula: '1 \\text{ gridline step} = s \\text{ students}',
+              explanation:
+                'The equal steps are the chart\u2019s unit — 9.1\u2019s agreement, wearing graph paper: each step names a fixed number of answers, and the step must never change mid-axis.',
+            },
+            {
+              label: 'Count the answers in steps',
+              formula: 'f \\text{ students} = \\frac{f}{s} \\text{ steps}',
+              explanation:
+                '8 students on a scale of 2 fill $8/2 = 4$ steps — the same count-of-units logic as 9.1\u2019s desk in handspans, now vertical.',
+            },
+            {
+              label: 'So the bar\u2019s height is proportional, and reading inverts it',
+              formula: '\\text{height} = f \\times s \\quad\\Longleftrightarrow\\quad f = \\frac{\\text{height}}{s}',
+              explanation:
+                'Drawing multiplies by the scale; reading divides. Double the answers, double the height — the eye reads ratios without arithmetic: cycle\u2019s bar (4) is visibly twice car\u2019s (2).',
+            },
+          ],
+          result: 'The bar-scale law: $\\text{height} = f \\times s$ — the bar is the tally standing up, and the axis steps are its units.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\text{height} = f \\times s, \\qquad f = \\frac{\\text{height}}{s}',
+          note: '**The bar-scale law (tag 1).** Drawing multiplies by the scale, reading divides. 150 px at 25 px/student reads $150 \\div 25 = 6$ students — and any axis whose steps are unequal or unlabelled has abandoned the law (10.3 turns this into the whole anatomy of lying charts).',
+        },
+        {
+          kind: 'para',
+          text: 'The **scale is a free choice** — 25 px per student, or 10, or 40 — but the freedom is bounded by honesty. The steps must be **equal** (a ruler with wobbly units measures nothing), **labelled** (a naked axis is a claim with no receipt), and **wide enough to cover the data** (the tallest frequency must land inside the axis — a bar that escapes the top gridline is a confession of scale, not a marvel). For 8/6/4/2, steps of 2 over 0..10 give five comfortable bands; steps of 1 would crowd, steps of 5 would flatten everything into two gridlines and hide the cycle-car contrast.',
+        },
+        {
+          kind: 'example',
+          title: 'Draw the travel survey as a bar chart: choose the scale, compute the heights, and state what a 120 px bar would mean.',
+          steps: [
+            'Now, the data tops out at 8, so an axis of 0..10 in steps of 2 covers it with room to breathe — the scale is $s = 25$ px per student.',
+            'So the heights: $8 \\times 25 = 200$, $6 \\times 25 = 150$, $4 \\times 25 = 100$, $2 \\times 25 = 50$ px.',
+            'And a 120 px bar reads $120 \\div 25 = 4.8$ — which no frequency here takes, because frequencies of whole answers stand on whole steps of the drawing (a 4.8 would need a new survey).',
+            'Hence the chart: four equal-width bars at 200/150/100/50 px on a 0..10 axis in steps of 2 — the table, standing up.',
+          ],
+        },
+        { kind: 'heading', text: 'The line graph: data with order' },
+        {
+          kind: 'para',
+          text: 'The travel categories have no order — but plenty of data does. Measure a sapling every second day and the observations arrive **in time order**: day 0, 8 cm; day 2, 11; day 4, 16; day 6, 18; day 8, 25; day 10, 28. Ordered data earns a picture the bar chart cannot give: the **line graph**, where each observation is a point and consecutive points are joined by straight segments. The horizontal axis now carries the **order** (the days), the vertical axis the measured value — and the segments let the eye read **change**: a steep segment is fast growth, a flat one a pause.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The sapling watch as a line graph. Six measured points (day, height) joined by five segments; the cm-axis ruled in equal steps of 10. The steepness IS the growth rate: days 6→8 rises 7 cm in 2 days (the fastest stretch), days 4→6 only 2 cm (the quietest), and the segment changes +3 +5 +2 +7 +3 rebuild the total 20 cm climb. The dashed guide at day 5 marks the honesty line: the graph can GUESS 17 cm there (the segment\u2019s midpoint) but no measurement was taken — between points, the line is a straight-line guess, not data.',
+          svg: `<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line graph of a sapling measured every two days: heights 8, 11, 16, 18, 25 and 28 cm on days 0, 2, 4, 6, 8 and 10, joined by five segments, with a dashed guide at day 5">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the sapling watch — a line graph of ordered measurements (scale: 1 cm = 8 px)</text>
+  ${(() => {
+    let out = '';
+    for (let v = 0; v <= 30; v += 10) {
+      const y = 310 - v * 8;
+      out += `<line x1="90" y1="${y}" x2="690" y2="${y}" stroke="currentColor" stroke-width="${v === 0 ? 1.4 : 0.6}" opacity="${v === 0 ? 1 : 0.45}"/>`;
+      out += `<text x="82" y="${y + 4}" font-size="11" fill="currentColor" text-anchor="end">${v}</text>`;
+    }
+    for (let d = 0; d <= 10; d += 2) {
+      const x = 90 + 60 * d;
+      out += `<text x="${x}" y="332" font-size="11" fill="currentColor" text-anchor="middle">${d}</text>`;
+    }
+    return out;
+  })()}
+  <text x="80" y="56" font-size="11" fill="currentColor" text-anchor="end" opacity="0.9">cm</text>
+  <text x="390" y="362" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">day since planting</text>
+  <line x1="390" y1="205" x2="390" y2="310" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <line x1="390" y1="310" x2="390" y2="316" stroke="currentColor" stroke-width="1"/>
+  <text x="390" y="332" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85">5</text>
+  <text x="396" y="296" font-size="10" fill="currentColor" text-anchor="start" opacity="0.8">day 5? a guess, not a measurement</text>
+  ${(() => {
+    const days = [0, 2, 4, 6, 8, 10];
+    const h = [8, 11, 16, 18, 25, 28];
+    const pts = days.map((d, i) => [90 + 60 * d, 310 - 8 * h[i]] as [number, number]);
+    let out = '';
+    for (let i = 1; i < pts.length; i++) {
+      out += `<line x1="${pts[i - 1][0]}" y1="${pts[i - 1][1]}" x2="${pts[i][0]}" y2="${pts[i][1]}" stroke="currentColor" stroke-width="1.5"/>`;
+    }
+    pts.forEach((p, i) => {
+      out += `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="currentColor"/>`;
+      // the first point labels below-right (no incoming segment there); the
+      // rest label upper-left (clear of the rising outgoing segments).
+      if (i === 0) {
+        out += `<text x="${p[0] + 7}" y="${p[1] + 16}" font-size="11" fill="currentColor" text-anchor="start">${h[i]}</text>`;
+      } else {
+        out += `<text x="${p[0] - 7}" y="${p[1] - 4}" font-size="11" fill="currentColor" text-anchor="end">${h[i]}</text>`;
+      }
+    });
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Line graph',
+          text: 'A **line graph** is said to be a picture of **ordered data** in which each observation is a **point** (its order on the horizontal axis, its value on the vertical) and **consecutive points are joined by straight segments**. The horizontal axis carries the ordering — usually time; the vertical axis carries the measurement, on an equally-stepped scale like any ruler.',
+        },
+        {
+          kind: 'para',
+          text: 'Reading a line graph is reading **slopes**. Each segment spans one interval between measurements, and its steepness is the change per interval: the sapling gains 3 cm (days 0→2), then 5, then only 2 (days 4→6, the quietest), then a spurt of 7 (days 6→8, the fastest), then 3. The changes even **check themselves**, in 10.1\u2019s style: $3 + 5 + 2 + 7 + 3 = 20$ — the segment changes rebuild the total climb from 8 to 28. No arithmetic is needed to SEE which stretch was fastest: the eye compares steepnesses, which is exactly what the picture is for.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The interpolation caution: between points, the line guesses',
+          text: 'The dashed guide at day 5 asks a question the data cannot answer: how tall was the sapling on day 5? The segment offers $(16 + 18)/2 = 17$ cm — the straight-line guess — but no one measured day 5, and growth was not consulting our graph. A line graph joins **measured** points; everything between them is interpolation, an honest guess at best and a fiction at worst. And when the horizontal axis carries **unordered categories** (walk, bus, cycle, car), the guess is not even wrong: "between walk and bus" names nothing, so no line may be drawn at all — a line graph demands order.',
+        },
+        { kind: 'heading', text: 'The pie chart: parts of one whole' },
+        {
+          kind: 'para',
+          text: 'The third picture answers a different question. Not "how many in each row?" but "**what share of the class is each row?**" — the relative frequencies of 10.1 (40%, 30%, 20%, 10%) drawn as **slices of one circle**. The whole class is the whole pie; each category\u2019s share of the answers becomes that category\u2019s share of the turn. A pie chart needs its data to be exactly that — parts of ONE whole — and it says so in its geometry:',
+        },
+        {
+          kind: 'derivation',
+          title: 'The central-angle law: a category\u2019s slice is its share of the turn',
+          statement:
+            'A survey\u2019s $N$ answers are partitioned into categories (10.1\u2019s law). Show that category $i$, with frequency $f_i$, owns a pie slice of central angle $\\theta_i = \\dfrac{f_i}{N} \\times 360°$ — and that the slices close on a full circle.',
+          steps: [
+            {
+              label: 'The whole turn is the whole class',
+              formula: 'N \\text{ answers} \\leftrightarrow 360°',
+              explanation:
+                'The pie is a promise: the full circle stands for all $N$ answers, exactly as the table\u2019s total does. One full turn — 360° — is the whole.',
+            },
+            {
+              label: 'Each answer spends an equal share of turn',
+              formula: '1 \\text{ answer} \\leftrightarrow \\frac{360°}{N}',
+              explanation:
+                'The partition gives every answer equal standing, so each one spends $360/N$ of turn — 18° each when $N = 20$.',
+            },
+            {
+              label: 'A category with f answers spends f of those shares',
+              formula: '\\theta = f \\times \\frac{360°}{N} = \\frac{f}{N} \\times 360°',
+              explanation:
+                'Walk\u2019s 8 answers spend $8 \\times 18° = 144°$ — two-fifths of the turn, exactly the 40% that 10.1\u2019s relative frequency already knew.',
+            },
+            {
+              label: 'The slices close',
+              formula: '\\sum \\theta_i = \\frac{\\Sigma f_i}{N} \\times 360° = 360°',
+              explanation:
+                'By the check-sum law $\\Sigma f_i = N$, so the angles total exactly one full turn — the slices tile the circle with no gap and no overlap, the partition drawn in ink.',
+            },
+          ],
+          result: '$\\theta_i = \\frac{f_i}{N} \\times 360°$ — the travel survey: walk $8/20 \\to 144°$, bus $6/20 \\to 108°$, cycle $4/20 \\to 72°$, car $2/20 \\to 36°$, and $144 + 108 + 72 + 36 = 360°$ ✓',
+        },
+        {
+          kind: 'equation',
+          latex: '\\theta_i = \\frac{f_i}{N} \\times 360°',
+          note: '**The central-angle law (tag 2).** The slice angle is the category\u2019s fraction of the whole turn — 5.4\u2019s percents multiplied by 3.6. A 40% share owns 144°; a quarter owns 90°; half owns 180° (a diameter).',
+        },
+        {
+          kind: 'table',
+          caption:
+            'From the frequency table to the pie: each row\u2019s fraction (10.1), each row\u2019s percent (5.4), each row\u2019s angle. The bottom line is the check-sum law in its third dress — the angles, like the frequencies and the percents, must close on the whole.',
+          head: ['Category', 'Frequency $f$', 'Fraction $f/N$', 'Percent', 'Central angle $\\theta = (f/N) \\times 360°$'],
+          rows: [
+            ['walk', '8', '2/5', '40%', '144°'],
+            ['bus', '6', '3/10', '30%', '108°'],
+            ['cycle', '4', '1/5', '20%', '72°'],
+            ['car', '2', '1/10', '10%', '36°'],
+            ['**total**', '**20**', '**1**', '**100%**', '**360°**'],
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The travel survey as a pie chart, drawn from the angle table: starting at 12 o\u2019clock and turning clockwise, walk\u2019s radius sweeps 144°, bus\u2019s the next 108°, cycle\u2019s the next 72°, car\u2019s the last 36° — the four sectors sum to the whole circle exactly, because the four rows sum to the whole class. Each slice carries its category and its percent. One glance answers the share-question the bar chart answers only by comparing heights against the axis.',
+          svg: `<svg viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pie chart of the travel survey: four sectors of 144, 108, 72 and 36 degrees for walk 40%, bus 30%, cycle 20% and car 10%, starting at 12 o'clock and turning clockwise">
+  <text x="390" y="24" font-size="13" fill="currentColor" text-anchor="middle">the travel survey as a pie — each slice is its share of the turn</text>
+  ${(() => {
+    const cx = 330, cy = 190, r = 140;
+    const sectors: Array<[string, number, number, number]> = [['walk', 40, 144, 8], ['bus', 30, 108, 6], ['cycle', 20, 72, 4], ['car', 10, 36, 2]];
+    let a0 = 0, out = '';
+    sectors.forEach(([name, pc, span, f], si) => {
+      const a1 = a0 + span;
+      const t0 = (a0 * Math.PI) / 180, t1 = (a1 * Math.PI) / 180;
+      const x0 = cx + r * Math.sin(t0), y0 = cy - r * Math.cos(t0);
+      const x1 = cx + r * Math.sin(t1), y1 = cy - r * Math.cos(t1);
+      const large = span > 180 ? 1 : 0;
+      out += `<path d="M ${cx} ${cy} L ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 ${large} 1 ${x1.toFixed(1)} ${y1.toFixed(1)} Z" fill="currentColor" fill-opacity="${si % 2 === 0 ? 0.16 : 0.05}" stroke="currentColor" stroke-width="1.2"/>`;
+      const tm = ((a0 + span / 2) * Math.PI) / 180;
+      const lx = cx + 0.62 * r * Math.sin(tm), ly = cy - 0.62 * r * Math.cos(tm);
+      out += `<text x="${lx.toFixed(1)}" y="${(ly - 2).toFixed(1)}" font-size="11.5" fill="currentColor" text-anchor="middle">${name}</text>`;
+      out += `<text x="${lx.toFixed(1)}" y="${(ly + 12).toFixed(1)}" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85">${f} · ${pc}%</text>`;
+      a0 = a1;
+    });
+    [0, 144, 252, 324].forEach((deg) => {
+      const tb = (deg * Math.PI) / 180;
+      const bx = cx + (r + 13) * Math.sin(tb), by = cy - (r + 13) * Math.cos(tb);
+      out += `<text x="${bx.toFixed(1)}" y="${(by + 3).toFixed(1)}" font-size="9.5" fill="currentColor" text-anchor="middle" opacity="0.7">${deg}°</text>`;
+    });
+    out += `<line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - r}" stroke="currentColor" stroke-width="1.3" stroke-dasharray="6 4" opacity="0.9"/>`;
+    out += `<circle cx="${cx}" cy="${cy}" r="2.5" fill="currentColor"/>`;
+    out += `<text x="390" y="350" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.7">the dashed radius starts at 12 o'clock; the boundary degrees come from the angle table</text>`;
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Draw the pie for a survey of 12 friends whose favourite fruits are mango 4, banana 5, guava 3.',
+          steps: [
+            'Now, the fractions: $4/12 = 1/3$, $5/12$, $3/12 = 1/4$ — the check first: $4 + 5 + 3 = 12$ ✓.',
+            'So the angles: $(1/3) \\times 360° = 120°$, $(5/12) \\times 360° = 150°$, $(1/4) \\times 360° = 90°$ — and $120 + 150 + 90 = 360°$ ✓.',
+            'And the drawing: radius from the centre, first slice 120° (mango), then 150° (banana), then 90° (guava) — the circle closes on its own.',
+            'Hence the pie: 120°/150°/90° — a third of the turn, five-twelfths, a quarter.',
+          ],
+        },
+        { kind: 'heading', text: 'Which graph for which data' },
+        {
+          kind: 'table',
+          caption:
+            'The matching table — the data shape decides the picture. When a graph and its data disagree, the disagreement IS the story (10.3 reads such mismatches as lies).',
+          head: ['Your data is…', 'Draw a…', 'Because', 'Refuse the…'],
+          rows: [
+            ['categories, no order (travel modes, eye colours)', 'bar chart', 'bars compare heights; gaps say "separate kinds"', 'line graph ("between walk and bus" names nothing)'],
+            ['ordered values, usually time (a sapling, a temperature)', 'line graph', 'segments carry change; steepness is the rate', 'pie chart (time is not a part of a whole)'],
+            ['parts of ONE whole (shares of one class, one budget)', 'pie chart', 'slices carry shares; the angles close on 360°', 'line graph (shares have no order to climb)'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'One forward sentence, and 10.3 owns the whole story: everything in this lesson assumed the **honest** drawing — equal steps, labelled axes, the scale declared. Drop any of those and the same table can be made to shout or whisper at will.',
+        },
+        {
+          kind: 'para',
+          text: 'The harvest, in the lesson\u2019s own order:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'one table, three pictures: bar for categories, line for order (time), pie for parts of one whole;',
+            'the bar chart is the tally standing up — equal widths, honest gaps, the y-axis a ruler;',
+            'the bar-scale law: height = $f \\times s$ and reading = height \u00f7 s; doubling the answers doubles the bar;',
+            'the line graph joins consecutive MEASURED points; steepness = change per interval; the segment changes rebuild the total (+3 +5 +2 +7 +3 = 20);',
+            'between points the line guesses — interpolation, not measurement; unordered categories get no line at all;',
+            'the pie reserves the full turn for the whole class; the central-angle law $\\theta = (f/N) \\times 360°$ turns the relative frequencies into degrees;',
+            'the slices close on 360° because the check-sum law says the frequencies close on N — the partition drawn in ink.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Data-interpretation sets are the bread of every quantitative paper: SSC CGL/CHSL and banking prelims hand over a bar chart or pie chart and ask for totals, differences, percent shares and ratio comparisons — all of it this lesson\u2019s reading rules (height \u00f7 scale; $\\theta = (f/N) \\times 360°$) with the arithmetic of chapters 2 and 5 on top. RRB NTPC asks which-graph-suits-which-data as a standalone item. Pie-slice-angle construction from a table (the mango-banana-guava shape) is a class-8 board staple. CTET and state TETs ask the pedagogy: why bars before pies, why the equal-step axis matters — the answers are this lesson\u2019s derivations. Shapes cited, none reproduced.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'The inventor of the pictures — Playfair and Nightingale',
+          text: 'All three pictures of this lesson trace to one restless Scottish engineer: **William Playfair** (1759–1823), a draftsman, economist and occasional smuggler who invented the **line and bar chart** in his *Commercial and Political Atlas* (1786) — perfect for what he called "linear arithmetic", comparing Britain\u2019s trade year by year — and then the **pie chart and circle graph** in his *Statistical Breviary* (1801), slicing the revenues of European states into shares of one whole. Statisticians of his day mostly shrugged; the pictures won anyway. The pie\u2019s most famous descendant belongs to India\u2019s own history of care: **Florence Nightingale\u2019s** polar-area diagram — the "rose" — sent to Queen Victoria in **1858** as *Diagram of the Causes of Mortality in the Army in the East*: twelve wedges, one per month of the Crimean War, each divided into causes of death, making it impossible for any minister to unsee that disease was killing far more soldiers than the enemy was. A graph, she proved, is an argument you can see — which is exactly why drawing it honestly (10.3) is a moral skill and not just a technical one.',
+        },
+        {
+          kind: 'formula',
+          name: 'The bar-scale law',
+          latex: '\\text{height} = f \\times s, \\qquad f = \\frac{\\text{height}}{s}',
+          note: 'Drawing multiplies by the scale (px per answer), reading divides. Equal steps, labelled, covering the data — or the chart is not a ruler.',
+        },
+        {
+          kind: 'formula',
+          name: 'The central-angle law',
+          latex: '\\theta_i = \\frac{f_i}{N} \\times 360°',
+          note: 'The slice angle is the category\u2019s share of the whole turn. Walk 8 of 20: $\\frac{8}{20} \\times 360° = 144°$. The slices close on 360° because the frequencies close on N.',
+        },
+        {
+          kind: 'formula',
+          name: 'The line-graph reading rule',
+          latex: '\\text{steepness} = \\frac{\\text{change in value}}{\\text{one interval}}',
+          note: 'Each segment\u2019s slope is the change per interval — days 6→8: $+7$ cm in 2 days, the fastest stretch. Between measured points the line guesses; beyond them it invents.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Bar chart',
+              def: 'One equal-width bar per category on a common baseline, gaps between bars, the bar\u2019s height on an equally-stepped axis equal to its frequency.',
+            },
+            {
+              term: 'Scale (of an axis)',
+              def: 'The fixed number of answers (or cm, or degrees) that one axis step names — the chart\u2019s unit. Equal, labelled, covering the data.',
+            },
+            {
+              term: 'Axis (x and y)',
+              def: 'The two ruled references of a graph: the horizontal (categories or order) and the vertical (frequency or value), each as honest as a ruler.',
+            },
+            {
+              term: 'Line graph',
+              def: 'A picture of ordered data: each measurement a point, consecutive points joined by segments, steepness carrying the rate of change.',
+            },
+            {
+              term: 'Interpolation',
+              def: 'Reading a value BETWEEN measured points along the drawn segment — a straight-line guess (17 cm at day 5), never a measurement.',
+            },
+            {
+              term: 'Pie chart',
+              def: 'A circle cut into sectors, one per category, whose central angles are the categories\u2019 shares of one whole: $\\theta = (f/N) \\times 360°$.',
+            },
+            {
+              term: 'Central angle',
+              def: 'The angle a sector makes at the circle\u2019s centre — 8/20 of the answers own 8/20 of 360° = 144°.',
+            },
+            {
+              term: 'Sector',
+              def: 'One slice of the pie: two radii and the arc between them. The slices tile the circle exactly because the categories partition the answers.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'To picture "how the class travels" (walk/bus/cycle/car, no order), the right graph is',
+              options: ['a line graph', 'a bar chart', 'a pie chart of the four bars', 'any of them equally'],
+              answer: 1,
+              explain:
+                'The bar chart — the categories have no order, so a line would claim a gradient between "walk" and "bus" that names nothing (Option 2). A pie needs the data to be shares of one whole — this is, but the bar shows the counts more directly and a line is simply wrong here (Option 4 is the anything-works error; the shapes are not interchangeable).',
+            },
+            {
+              q: 'In the travel pie, walk\u2019s slice (8 of 20 students) has central angle',
+              options: ['$40°$', '$72°$', '$108°$', '$144°$'],
+              answer: 3,
+              explain:
+                'The central-angle law: $(8/20) \\times 360° = 144°$ (Option 4). Option 1 is the percent wearing a degree sign. Option 2 is 20% of the turn — cycle\u2019s slice. Option 3 is bus\u2019s 108°. Percent × 3.6 converts.',
+            },
+            {
+              q: 'The sapling graph: which stretch grew fastest?',
+              options: [
+                'days 0→2 (+3 cm)',
+                'days 2→4 (+5 cm)',
+                'days 6→8 (+7 cm)',
+                'days 4→6 (+2 cm)',
+              ],
+              answer: 2,
+              explain:
+                'The steepest segment carries the fastest change: days 6→8 gains 7 cm in one interval (Option 3). Option 4 is the flattest. The eye reads it without arithmetic — that is what the picture is for.',
+            },
+            {
+              q: 'A bar tops out 150 px above the baseline; the axis steps are 25 px per student. The bar reads',
+              options: ['$4$ students', '$5$ students', '$6$ students', '$150$ students'],
+              answer: 2,
+              explain:
+                'Reading divides by the scale: $150 \\div 25 = 6$ students (Option 3). Option 1 mis-multiplied. Option 2 mis-divided. Option 4 read the pixels as answers — the scale exists to be divided out.',
+            },
+            {
+              q: 'A line graph is drawn with "walk, bus, cycle, car" along the horizontal axis. The deepest fault is that',
+              options: [
+                'the segments claim a gradient between categories that have no order',
+                'the graph should have used colours',
+                'the vertical axis should start at 8',
+                'line graphs are always wrong',
+              ],
+              answer: 0,
+              explain:
+                '"Between walk and bus" names no data — the line invents a transition that does not exist (Option 1). Option 3 is 10.3\u2019s lying-baseline disease but not this one. Option 4 overshoots: line graphs are exactly right for ordered data.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'At a scale of 25 px per student, how tall do the bars for 3 students and for 7 students stand?',
+                  solution: [
+                    'Now, the bar-scale law: height = frequency \u00d7 scale.',
+                    'So $3 \u00d7 25 = 75$ px and $7 \u00d7 25 = 175$ px.',
+                    'And the ratio check: $7 \u00f7 3 \\approx 2.33$, and $175 \u00f7 75 \\approx 2.33$ — the bars inherit the frequencies\u2019 ratio. ✓',
+                    'Hence 75 px and 175 px — drawing is one multiplication.',
+                  ],
+                  answer: '$75$ px and $175$ px',
+                },
+                {
+                  q: 'On the same scale, two bars stand 100 px and 200 px tall. What frequencies do they read?',
+                  solution: [
+                    'Now, reading divides: $f = \\text{height} \u00f7 s$.',
+                    'So $100 \u00f7 25 = 4$ and $200 \u00f7 25 = 8$.',
+                    'And the second bar is visibly twice the first — the eye already knew the ratio before the division confirmed it.',
+                    'Hence 4 students and 8 students.',
+                  ],
+                  answer: '$4$ students and $8$ students',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A class of 20 has 5 students who prefer chess and 10 who prefer cricket. What central angles do these two slices own?',
+                  solution: [
+                    'Now, the central-angle law: $\\theta = (f/N) \u00d7 360°$.',
+                    'So chess: $(5/20) \u00d7 360° = 90°$ — a quarter of the turn.',
+                    'And cricket: $(10/20) \u00d7 360° = 180°$ — half the turn, a full diameter.',
+                    'Hence 90° and 180° — a quarter and a half, the fractions you could see coming.',
+                  ],
+                  answer: '$90°$ (chess) and $180°$ (cricket)',
+                },
+                {
+                  q: 'The sapling\u2019s heights are 8, 11, 16, 18, 25, 28 cm on days 0, 2, 4, 6, 8, 10. Tabulate the change per interval and verify it rebuilds the total.',
+                  solution: [
+                    'Now, subtract neighbours: $11-8 = 3$, $16-11 = 5$, $18-16 = 2$, $25-18 = 7$, $28-25 = 3$.',
+                    'So the change column reads +3, +5, +2, +7, +3 cm.',
+                    'And the check: $3 + 5 + 2 + 7 + 3 = 20 = 28 - 8$ — the pieces rebuild the whole climb (the check-sum idea, wearing slopes).',
+                    'Hence the table: +3/+5/+2/+7/+3, summing to the 20 cm total.',
+                  ],
+                  answer: '+3, +5, +2, +7, +3 cm — summing to 20 = 28 − 8 ✓',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'A student reads a bar that tops out exactly on the fourth gridline above zero, where each gridline step is 2 students, and reports "16 students". Diagnose the misread.',
+                  solution: [
+                    'Now, count the steps: the fourth gridline above zero is 4 steps of 2 = 8 students.',
+                    'So the honest reading is $4 \u00d7 2 = 8$ — the student counted GRIDLINE NUMBERS (or pixels) instead of dividing by the scale.',
+                    'And the law\u2019s repair: $f = \\text{height} \u00f7 s$ — the axis label says what one step carries, and the label is not decoration.',
+                    'Hence 8 students; "16" came from treating each step as 4 — read the printed scale first, always.',
+                  ],
+                  answer: 'The bar reads 8 (4 steps × 2); the reader confused steps with students',
+                },
+                {
+                  q: 'Two pies are drawn: one for 20 answers, one for 100. A slice owns 50% of each. Are the two slices "the same"?',
+                  solution: [
+                    'Now, the ANGLES are the same: $(1/2) \u00d7 360° = 180°$ in both pies.',
+                    'So the SHARES are the same — half of each class.',
+                    'And the ANSWERS are not: $50\\%$ of 20 is 10 students, but $50\\%$ of 100 is 50 — the same angle sits over very different crowds.',
+                    'Hence: slices compare shares within one whole; across different wholes, read the totals first — a pie never volunteers its size.',
+                  ],
+                  answer: 'Same angle (180°), same share (50%), different answers (10 vs 50) — a pie shows shares, never sizes',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Twelve friends pick fruits: mango 4, banana 5, guava 3. Compute the three central angles and check they close.',
+                  solution: [
+                    'Now, the check-sum first: $4 + 5 + 3 = 12$ ✓.',
+                    'So the angles: $(4/12) \u00d7 360° = 120°$, $(5/12) \u00d7 360° = 150°$, $(3/12) \u00d7 360° = 90°$.',
+                    'And the close: $120 + 150 + 90 = 360°$ ✓ — the slices will tile the circle with no gap.',
+                    'Hence 120°/150°/90° — a third, five-twelfths, a quarter of the turn.',
+                  ],
+                  answer: '$120°$, $150°$, $90°$ — summing to $360°$ ✓',
+                },
+                {
+                  q: 'On the sapling graph, estimate the height at day 5 from the day-4 (16 cm) and day-6 (18 cm) points — and say what kind of statement that is.',
+                  solution: [
+                    'Now, the segment between them is straight, so its midpoint is the value average: $(16 + 18)/2 = 17$ cm.',
+                    'So the graph\u2019s guess at day 5 is 17 cm.',
+                    'And the kind of statement: interpolation — a straight-line GUESS between measurements, not a measurement (the dashed-honesty of the figure). Growth could have surged and paused.',
+                    'Hence 17 cm, offered as an estimate — the line between points is a claim about between, and it must wear that label.',
+                  ],
+                  answer: '≈ 17 cm — an interpolation (a straight-line guess), not a measurement',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'You must draw the travel survey (frequencies 8, 6, 4, 2). Compare axis designs: steps of 1 (0..10), steps of 2 (0..10), steps of 5 (0..10). Which serves the reader, and why?',
+                  solution: [
+                    'Now, steps of 1: ten bands for a maximum of 8 — every bar lands mid-step and the axis crowds with labels.',
+                    'So steps of 5: only two bands (0..5, 5..10) — walk\u2019s bar tops at 8, an awkward three-fifths of a band, and cycle vs car (4 vs 2) collapse into the same half-band\u2019s feel.',
+                    'And steps of 2: five bands, the tallest bar 4 steps, every frequency on an even gridline — readable at a glance with room to breathe.',
+                    'Hence steps of 2 — the scale must be equal (all three are), but it must also RESOLVE the data: fine enough to separate the values, coarse enough not to clutter.',
+                  ],
+                  answer: 'Steps of 2 — five bands that put every frequency on a gridline without crowding',
+                },
+                {
+                  q: 'A survey of 25 students adds an "other" row with frequency 2. What central angle does "other" own?',
+                  solution: [
+                    'Now, the law: $\\theta = (f/N) \u00d7 360°$.',
+                    'So $(2/25) \u00d7 360° = 28.8°$ — a sliver under half a right angle.',
+                    'And the honesty note: 10.1\u2019s "other" row earns a real slice here — the roof over the stray answers has its own share of the turn.',
+                    'Hence 28.8° — the honesty row, drawn to scale.',
+                  ],
+                  answer: '$(2/25) \u00d7 360° = 28.8°$',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the central-angle law: if $N$ answers are partitioned into categories with frequencies $f_1, \\ldots, f_k$, then category $i$ owns central angle $\\theta_i = (f_i/N) \u00d7 360°$, and the slices close on a full circle.',
+                  solution: [
+                    'Now, the pie\u2019s promise: the full turn (360°) stands for all $N$ answers — the whole class is the whole circle.',
+                    'So the partition gives each answer equal standing: one answer spends $360°/N$ of turn (for $N = 20$: 18°).',
+                    'And a category with $f_i$ answers spends $f_i$ of those equal shares: $\\theta_i = f_i \u00d7 (360°/N) = (f_i/N) \u00d7 360°$ — the relative frequency in degree dress.',
+                    'Hence the close: $\\Sigma \\theta_i = (\\Sigma f_i / N) \u00d7 360° = (N/N) \u00d7 360° = 360°$ by the check-sum law — the slices tile the circle exactly because the rows tile the class. The pie is 10.1\u2019s partition, drawn in ink.',
+                  ],
+                  answer: '$\\theta_i = (f_i/N) \u00d7 360°$; the slices close on 360° by Σf = N — the partition drawn as angles',
+                },
+                {
+                  q: 'A classmate draws a LINE graph with "walk, bus, cycle, car" along the horizontal axis and the frequencies 8, 6, 4, 2 up the vertical. Diagnose the design fault, and say which graph the data demands.',
+                  solution: [
+                    'Now, the fault is a type mismatch: the horizontal axis of a line graph must carry an ORDER, and "walk, bus, cycle, car" has none.',
+                    'So the segments make a claim that names nothing: the walk\u2192bus segment asserts a transition between two separate kinds — "between walk and bus" is not a state any student was in.',
+                    'And the deeper tell: the graph\u2019s message would CHANGE if the categories were reordered (8, 6, 4, 2 vs 2, 4, 6, 8) — a sign the picture encodes an order the data does not own.',
+                    'Hence: the data demands a bar chart (equal-width bars, gaps between categories, heights 8/6/4/2) — the graph type must match the data shape, and this shape is categorical.',
+                  ],
+                  answer: 'A line through unordered categories invents transitions; the categorical data demands a bar chart',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fm-reading-graphs-critically',
+      number: '10.3',
+      title: 'Reading Graphs Critically',
+      concepts: [
+        'A graph is an argument — check it',
+        'The truncated baseline — the classic lie',
+        'The exaggeration law',
+        'Stretch and squash — twin scales',
+        'The mismatch gallery — wrong graph, wrong claim',
+        'Correlation is not causation',
+        'The five-question checklist',
+        'Re-basing — the honest repair',
+      ],
+      objectives: [
+        'Diagnose the truncated-baseline lie: a bar chart whose axis starts above zero breaks the bar-scale law, and quantify the damage with the exaggeration law',
+        'Prove and use the exaggeration law E = v\u2081(v\u2082\u2212b)/(v\u2082(v\u2081\u2212b)) \u2014 exactly 1 at a zero baseline, climbing without bound as the baseline creeps toward the data',
+        'Explain the twin-scales trap: rescaling a chart preserves within-chart comparisons (the bar ranking, the steepness order) but destroys cross-chart pixel comparisons',
+        'Refuse the mismatched graph \u2014 lines through unordered categories, pies that do not close on 360°, perspective-distorted 3D pies \u2014 and repair each with the honest alternative',
+        'Apply the five-question checklist (labelled axes? zero baseline? even steps? source? honest title?) and state the correlation-is-not-causation caution with a concrete third-variable example',
+      ],
+      prerequisites: ['fm-bar-charts-line-graphs-and-pie-charts', 'fm-collecting-and-tallying-data'],
+      sources: ['huff-1954-lie-with-statistics', 'ncert-ganita-prakash6-ch4', 'khattar-qa-4e'],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Lesson 10.2 ended with a promise: everything there assumed the **honest** drawing. This lesson collects the debt. A graph is not a window onto data — it is an **argument made of ink**, and like any argument it can be built to illuminate or to mislead. The machinery for both is exactly the machinery you already own: the bar-scale law (height = $f \\times s$, reading = height \u00f7 $s$), the central-angle law (the slices close on 360\u00b0 because the check-sum law closes on $N$), and the ruler logic of 9.1. Every lying chart in this lesson is caught by one of those three laws breaking — and every repair is the law restored.',
+        },
+        { kind: 'heading', text: 'The truncated baseline: the classic lie' },
+        {
+          kind: 'para',
+          text: 'Two shops sell the same milk at **Rs 52 and Rs 56** a litre. The honest difference is small: $56/52 \\approx 1.077$ — shop B is about **7.7%** dearer. Now look at figure 1. In the right panel the axis starts not at zero but at **50**, and the scale is stretched to fill the panel. The bars stand 40 px and 120 px tall — shop B\u2019s bar looks **three times** shop A\u2019s. Nothing in the drawing is false (the bars DO sit at the right heights above their baseline); the *frame* is false. The reader\u2019s eye, trained by 10.2 to read bar heights as frequencies from the baseline, reads a 200% gap where 7.7% lives.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The same two prices, two framings. Left — honest: the axis starts at 0 (steps of 20 up to 60), the bars stand 208 and 224 px, and the eye correctly sees shop B a shade taller. Right — the lie: the axis starts at 50 (the baseline is labelled, but the eye still reads bar heights from where they stand) and the scale is stretched fivefold, so the bars stand 40 and 120 px and B looks three times A. The true ratio is 1.077\u00d7; the visual ratio is 3\u00d7; the exaggeration is 2.79\u00d7. The bars did not lie. The baseline did.',
+          svg: `<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar charts of the same milk prices, Rs 52 and Rs 56: the left panel honest with a zero baseline, the right panel truncated at 50 with a stretched scale so the second bar looks three times the first">
+  <text x="390" y="22" font-size="13" fill="currentColor" text-anchor="middle">one carton of milk, two framings \u2014 the bars are honest, the baselines are not twins</text>
+  ${(() => {
+    let out = '';
+    for (let v = 0; v <= 60; v += 20) {
+      const y = 310 - v * 4;
+      out += `<line x1="40" y1="${y}" x2="360" y2="${y}" stroke="currentColor" stroke-width="${v === 0 ? 1.4 : 0.6}" opacity="${v === 0 ? 1 : 0.45}"/>`;
+      out += `<text x="34" y="${y + 4}" font-size="10" fill="currentColor" text-anchor="end">${v}</text>`;
+    }
+    out += `<text x="200" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">honest \u2014 the axis starts at 0</text>`;
+    [[140, 52], [260, 56]].forEach(([x, v]) => {
+      const h = v * 4;
+      out += `<rect x="${x - 40}" y="${310 - h}" width="80" height="${h}" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
+      out += `<text x="${x}" y="${310 - h - 8}" font-size="12" fill="currentColor" font-weight="bold" text-anchor="middle">${v}</text>`;
+      out += `<text x="${x}" y="330" font-size="11" fill="currentColor" text-anchor="middle">shop ${v === 52 ? 'A' : 'B'}</text>`;
+    });
+    out += `<text x="200" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it right: B is a shade dearer (1.08\u00d7)</text>`;
+    for (let v = 50; v <= 58; v += 2) {
+      const y = 310 - (v - 50) * 20;
+      out += `<line x1="420" y1="${y}" x2="740" y2="${y}" stroke="currentColor" stroke-width="${v === 50 ? 1.4 : 0.6}" opacity="${v === 50 ? 1 : 0.45}"/>`;
+      out += `<text x="414" y="${y + 4}" font-size="10" fill="currentColor" text-anchor="end">${v}</text>`;
+    }
+    out += `<text x="580" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">the lie \u2014 the axis starts at 50, stretched \u00d75</text>`;
+    [[520, 52], [640, 56]].forEach(([x, v]) => {
+      const h = (v - 50) * 20;
+      out += `<rect x="${x - 40}" y="${310 - h}" width="80" height="${h}" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
+      out += `<text x="${x}" y="${310 - h - 8}" font-size="12" fill="currentColor" font-weight="bold" text-anchor="middle">${v}</text>`;
+      out += `<text x="${x}" y="330" font-size="11" fill="currentColor" text-anchor="middle">shop ${v === 52 ? 'A' : 'B'}</text>`;
+    });
+    out += `<text x="580" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it wrong: B looks 3\u00d7 A (truth: 1.08\u00d7 \u2014 exaggeration 2.79\u00d7)</text>`;
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'derivation',
+          title: 'The exaggeration law: how much a truncated baseline inflates a comparison',
+          statement:
+            'Two values $v_1 < v_2$ are drawn as bars on a baseline $b$ (with $b \u2264 v_1$). Show the reader\u2019s eye receives the visual ratio $\\dfrac{v_2 - b}{v_1 - b}$ instead of the true ratio $\\dfrac{v_2}{v_1}$ \u2014 so the exaggeration is $E = \\dfrac{v_1 (v_2 - b)}{v_2 (v_1 - b)}$, equal to exactly 1 when $b = 0$ and growing without bound as $b$ climbs toward $v_1$.',
+          steps: [
+            {
+              label: 'What the honest chart shows',
+              formula: '\\text{visual ratio} = \\frac{v_2}{v_1} \\quad (b = 0)',
+              explanation:
+                'By the bar-scale law with a zero baseline, the bars stand $v_1 \\times s$ and $v_2 \\times s$ tall \u2014 the scale cancels in the ratio, leaving the truth.',
+            },
+            {
+              label: 'What the truncated chart shows',
+              formula: '\\text{visual ratio} = \\frac{v_2 - b}{v_1 - b}',
+              explanation:
+                'The bars are drawn from the baseline up: their heights are the EXCESS over $b$, not the values. The eye compares the excesses \u2014 and the excesses of close numbers are wildly unequal.',
+            },
+            {
+              label: 'The exaggeration, and its two certainties',
+              formula: 'E = \\frac{v_1 (v_2 - b)}{v_2 (v_1 - b)}; \\quad E(0) = 1, \\quad E \\to \\infty \\text{ as } b \\to v_1',
+              explanation:
+                'At $b = 0$ the law returns exactly 1 \u2014 the zero baseline cannot lie. As $b$ creeps toward the smaller value $v_1$, the denominator $v_1 - b$ collapses and the exaggeration explodes: the milk pair ($b = 50$) already suffers $E = \\frac{52 \\times 6}{56 \\times 2} \\approx 2.79$.',
+            },
+          ],
+          result: '$E = \\dfrac{v_1 (v_2 - b)}{v_2 (v_1 - b)}$ \u2014 the milk lie: visual 3\u00d7, truth 1.077\u00d7, exaggeration 2.79\u00d7; the 7.7% honest gap drawn as a 200% gap.',
+        },
+        {
+          kind: 'equation',
+          latex: 'E = \\frac{v_1\\,(v_2 - b)}{v_2\\,(v_1 - b)} \\;\\ge\\; 1',
+          note: '**The exaggeration law (tag 1).** Equality holds exactly at $b = 0$ \u2014 the honest chart. Every step the baseline climbs above zero multiplies the lie; the check is one subtraction: **where does the axis start?**',
+        },
+        {
+          kind: 'example',
+          title: 'A chart plots two cricketers\u2019 averages, 9.1 and 10.2 (per game, say), with the axis starting at 9. Quantify the exaggeration.',
+          steps: [
+            'Now, the true ratio: $10.2/9.1 \\approx 1.121$ \u2014 the second player is about 12% better.',
+            'So the drawn bars stand $(9.1 - 9)s$ and $(10.2 - 9)s$: the visual ratio is $1.2/0.1 = 12$.',
+            'And the exaggeration law: $E = \\frac{9.1 \\times 1.2}{10.2 \\times 0.1} \\approx 10.7$ \u2014 the chart shouts a gap ten times wider than the truth.',
+            'Hence: a 12% difference, drawn as a 1100% chasm \u2014 and one glance at the axis label convicts it.',
+          ],
+        },
+        { kind: 'heading', text: 'Stretch and squash: the twin-scales trap' },
+        {
+          kind: 'para',
+          text: 'The second trick needs no truncation \u2014 only a scale chosen with intent. Draw the sapling\u2019s data twice: once at 8 px per cm (tall, dramatic) and once at 2 px per cm (flat, calm). The **same** six points, the **same** five segments \u2014 utterly different feelings. What survives the rescaling, and what does not? The **within-chart comparisons** survive: rescaling multiplies every height by the same factor, so the bar ranking (8 > 6 > 4 > 2) and the steepness ranking (the 7 cm stretch above the 2 cm stretch) are untouched \u2014 $7/2$ is $7/2$ at any scale. What dies is every **cross-chart pixel comparison**: "the line looks steeper in this report than in that one" compares 56 px against 14 px and learns nothing.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The scale-invariance of within-chart comparisons',
+          statement:
+            'All values of a chart are multiplied by a rescale factor $k$ (a new scale). Show the ranking of bars and the ranking of segment steepnesses are unchanged \u2014 so honest comparisons live inside one chart, and cross-chart comparisons must be rebuilt from the printed values.',
+          steps: [
+            {
+              label: 'Rescaling multiplies every height by k',
+              formula: "f_i \\times s \\longmapsto f_i \\times (k s)",
+              explanation:
+                'The new chart is the old chart\u2019s shadow \u2014 every bar longer by exactly the same factor $k$.',
+            },
+            {
+              label: 'Common factors cancel in ratios',
+              formula: '\\frac{f_2 k s}{f_1 k s} = \\frac{f_2}{f_1}',
+              explanation:
+                'Chapter 3\u2019s cancellation, wearing pixels: the ratio of any two bars within the chart forgets the scale entirely.',
+            },
+            {
+              label: 'So the truth travels in the printed numbers',
+              formula: '\\text{compare within, or read the axis}',
+              explanation:
+                'The ranking survives; the absolute pixel heights do not. Cross-chart comparisons must go back to the values the axes print \u2014 which is why the axis labels are not decoration.',
+            },
+          ],
+          result: 'Within one chart, comparisons are scale-free; across charts, only the printed values compare.',
+        },
+        {
+          kind: 'equation',
+          latex: '\\frac{f_2\\,k\\,s}{f_1\\,k\\,s} = \\frac{f_2}{f_1}',
+          note: '**The scale-invariance law (tag 2).** Rescaling never reorders the bars \u2014 the lie of the twin scales is not in the ordering but in the FEELING: the same data, shouted or whispered. Read the axis before trusting the drama.',
+        },
+        { kind: 'heading', text: 'The mismatch gallery: the wrong graph is a lie too' },
+        {
+          kind: 'figure',
+          caption:
+            'Three ways a drawing can contradict its data. Left: the SAME 8/6/4/2 answers drawn as a line through walk/bus/cycle/car — the segments claim transitions between categories that name nothing ("between walk and bus" is not a state any student was in). Middle: a pie whose slices cover only 252° — 40% + 30% drawn, the other 30% of the answers simply missing; the check-sum law demands the slices close on 360°. Right: the honest bar chart of the same travel data — the picture the data shape actually permits. A graph type is a claim about the data; the wrong type is a false claim even with perfect arithmetic.',
+          svg: `<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three mini panels: a fraudulent line through unordered categories marked with a cross; a pie whose slices sum to only 70 percent leaving a visible gap; the honest bar chart of the travel data marked with a check">
+  <text x="390" y="22" font-size="13" fill="currentColor" text-anchor="middle">the mismatch gallery \u2014 the wrong graph is a wrong claim</text>
+  ${(() => {
+    let out = '';
+    // panel 1: the line-through-categories fraud — the SAME 8/6/4/2 data,
+    // drawn as a descending line (the lie is the graph type, not the numbers)
+    const fData = [8, 6, 4, 2];
+    const p1: Array<[number, number]> = fData.map((f, i) => [60 + 60 * i, 170 - f * 12] as [number, number]);
+    for (let i = 1; i < p1.length; i++) {
+      out += `<line x1="${p1[i - 1][0]}" y1="${p1[i - 1][1]}" x2="${p1[i][0]}" y2="${p1[i][1]}" stroke="currentColor" stroke-width="1.4"/>`;
+    }
+    p1.forEach((pt) => {
+      out += `<circle cx="${pt[0]}" cy="${pt[1]}" r="3" fill="currentColor"/>`;
+    });
+    fData.forEach((f, i) => {
+      out += `<text x="${60 + 60 * i}" y="${p1[i][1] - 10}" font-size="10" fill="currentColor" text-anchor="middle">${f}</text>`;
+      out += `<text x="${60 + 60 * i}" y="200" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">${['walk', 'bus', 'cycle', 'car'][i]}</text>`;
+    });
+    out += `<line x1="44" y1="170" x2="256" y2="170" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>`;
+    out += `<text x="140" y="238" font-size="14" fill="currentColor" text-anchor="middle">\u2717 a line through categories</text>`;
+    out += `<text x="140" y="256" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the same 8/6/4/2 \u2014 "between walk and bus" names nothing</text>`;
+    // panel 2: the pie that does not close
+    const cx = 390, cy = 150, r = 55;
+    const arc = (a0: number, a1: number) => {
+      const t0 = (a0 * Math.PI) / 180, t1 = (a1 * Math.PI) / 180;
+      return `M ${cx} ${cy} L ${(cx + r * Math.sin(t0)).toFixed(1)} ${(cy - r * Math.cos(t0)).toFixed(1)} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${(cx + r * Math.sin(t1)).toFixed(1)} ${(cy - r * Math.cos(t1)).toFixed(1)} Z`;
+    };
+    out += `<path d="${arc(0, 144)}" fill="none" stroke="currentColor" stroke-width="1.1"/>`;
+    out += `<text x="${cx + 0.62 * r * Math.sin(72 * Math.PI / 180)}" y="${cy - 0.62 * r * Math.cos(72 * Math.PI / 180)}" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.85">40%</text>`;
+    out += `<path d="${arc(144, 252)}" fill="none" stroke="currentColor" stroke-width="1.1"/>`;
+    out += `<text x="${cx + 0.62 * r * Math.sin(198 * Math.PI / 180)}" y="${cy - 0.62 * r * Math.cos(198 * Math.PI / 180)}" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.85">30%</text>`;
+    const gapEnd = [cx + r * Math.sin((348 * Math.PI) / 180), cy - r * Math.cos((348 * Math.PI) / 180)];
+    out += `<path d="M ${cx + r} ${cy} A ${r} ${r} 0 0 1 ${gapEnd[0].toFixed(1)} ${gapEnd[1].toFixed(1)} L ${cx} ${cy}" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.5"/>`;
+    out += `<text x="${cx}" y="${cy + r + 16}" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.85">slices drawn: 70% — the gap is the missing 30%</text>`;
+    out += `<text x="${cx}" y="${238}" font-size="12" fill="currentColor" text-anchor="middle">\u2717 a pie that does not close</text>`;
+    out += `<text x="${cx}" y="${256}" font-size="10" fill="currentColor" text-anchor="middle" opacity="0.75">40% + 30% drawn \u2014 where did the other 30% go?</text>`;
+    // panel 3: the honest mini bars — same data, with baseline and values
+    out += `<line x1="536" y1="170" x2="756" y2="170" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>`;
+    [8, 6, 4, 2].forEach((f, i) => {
+      const bx = 560 + 44 * i, h = f * 6;
+      out += `<rect x="${bx - 14}" y="${170 - h}" width="28" height="${h}" fill="none" stroke="currentColor" stroke-width="1.1"/>`;
+      out += `<text x="${bx}" y="${170 - h - 6}" font-size="10" fill="currentColor" text-anchor="middle">${f}</text>`;
+    });
+    ['walk', 'bus', 'cycle', 'car'].forEach((c, i) => {
+      out += `<text x="${560 + 44 * i}" y="200" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">${c}</text>`;
+    });
+    out += `<text x="640" y="238" font-size="14" fill="currentColor" text-anchor="middle">\u2713 the honest bars</text>`;
+    out += `<text x="640" y="256" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">equal steps, gaps, baseline at zero</text>`;
+    return out;
+  })()}
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The gallery\u2019s refusals, in the laws\u2019 own words (two drawn above; the third needs no drawing). **The line through categories** invents transitions \u2014 a line graph\u2019s horizontal axis must carry an order, and "between walk and bus" is not a state any student was in (10.2\u2019s refusal, now your reflex). **The open pie** loses answers: slices covering 252\u00b0 of a 360\u00b0 circle are a frequency table whose column sums to 70% \u2014 the check-sum law convicted it before any label was read. **The 3-D pie** adds perspective, which draws equal angles unequal \u2014 the front slice swells, the back slice shrinks, and the central-angle law dies in the rendering. And beneath them all sits the quietest mismatch: **correlation is not causation**. Ice-cream sales and pool drownings both climb every summer \u2014 the correlation is real; the cause of both is the heat. A third variable riding unseen is not a lie in the drawing, but reading a rising pair of lines as "A causes B" is a lie in the reader \u2014 and the heat example is the vaccine: ask, *what else moves when these move?*',
+        },
+        { kind: 'heading', text: 'The five-question checklist' },
+        {
+          kind: 'para',
+          text: 'Critical reading is not suspicion of everything \u2014 it is five cheap questions, asked in order, that catch nearly every dishonest chart before the numbers are even read:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '**Where does the axis start?** A bar chart\u2019s value axis must start at zero \u2014 anything else triggers the exaggeration law;',
+            '**Are the steps equal and labelled?** Wobbly or naked steps break the bar-scale law \u2014 the ruler must have honest units;',
+            '**Does the graph type match the data shape?** Categories get bars, order gets lines, one whole gets pies \u2014 the mismatch gallery is the cheat sheet;',
+            '**Do the parts close on the whole?** Pie slices must total 360\u00b0, frequency columns must total $N$ \u2014 the check-sum law is a ten-second audit;',
+            '**Who is speaking, and about what, measured when?** A chart without a title, a source and a date is a claim without a receipt.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Repair the milk chart: re-draw it honestly and verify the exaggeration is gone.',
+          steps: [
+            'Now, the fault was the baseline at 50 \u2014 the repair is re-basing at 0: the axis runs 0..60 in steps of 20, at 4 px per rupee.',
+            'So the bars stand $52 \u00d7 4 = 208$ px and $56 \u00d7 4 = 224$ px.',
+            'And the law certifies the cure: $E = \\frac{52 \\times 56}{56 \\times 52} = 1$ exactly \u2014 the visual ratio $224/208 = 1.077$ equals the true ratio to the last decimal.',
+            'Hence the repaired chart: same data, same ink, baseline at zero \u2014 and the eye now sees the 7.7% truth.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text: 'Critical-reading items are the growing edge of every data set: banking and SSC data-interpretation now regularly asks "which of the given charts is misleading and why" \u2014 the truncated baseline and the uneven step are the two canonical answers, and the exaggeration law prices them precisely; NTSE and Olympiad papers ask for the missing pie slice (the check-sum law) or the mismatched graph type; CTET and state TETs ask how to teach children to question a graph \u2014 the five-question checklist is the expected answer\u2019s skeleton. Shapes cited, none reproduced.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'How to Lie with Statistics — and the woman who told the truth in roses',
+          text: 'The critical-reading tradition has a founding document with a disarming title: **Darrell Huff\u2019s *How to Lie with Statistics*** (1954) \u2014 a slim book, never out of print, whose gallery (the truncated bar, the unequal pictograph square, the semi-attached figure) is essentially this lesson\u2019s wardrobe. Huff\u2019s rule of thumb survives him: *"not all the statistical arithmetic presented by unqualified agents is to be accepted indiscriminately"*, and his cure was exactly this lesson\u2019s \u2014 ask who says so, how he knows, and what\u2019s missing. The counter-tradition is older and prouder: **Florence Nightingale\u2019s** rose diagram of 1858 (10.2\u2019s story) was critical reading aimed the other way \u2014 a graph built so honestly, and aimed so precisely, that ministers could not misread it. Between Huff\u2019s suspicion and Nightingale\u2019s candour sits the whole skill: a graph is an argument, arguments can be audited, and mathematics supplies the audit.',
+        },
+        {
+          kind: 'para',
+          text: 'The harvest, in the lesson\u2019s own order:',
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            'a graph is an argument made of ink \u2014 auditable by the three laws you already own;',
+            'the truncated baseline is the classic lie: the bars show excesses over $b$, not values;',
+            'the exaggeration law $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$: exactly 1 at a zero baseline, exploding as $b$ climbs (the milk pair: 2.79\u00d7);',
+            'twin scales preserve within-chart rankings and destroy cross-chart pixel comparisons \u2014 read the axis, not the drama;',
+            'the mismatch gallery: no lines through categories, no pies that fail to close on 360\u00b0, no 3-D perspective;',
+            'correlation is not causation \u2014 the ice-cream and drowning pair rises on the heat\u2019s back;',
+            'five questions before belief: baseline, steps, type, closure, provenance \u2014 and the repair is always the law restored (re-base at zero).',
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The exaggeration law',
+          latex: 'E = \\frac{v_1\\,(v_2 - b)}{v_2\\,(v_1 - b)}',
+          note: 'How much a baseline $b$ inflates the $v_2/v_1$ comparison. $E = 1$ at $b = 0$ (honest); the milk lie ($b = 50$): $E \\approx 2.79$. Where does the axis start?',
+        },
+        {
+          kind: 'formula',
+          name: 'The scale-invariance law',
+          latex: '\\frac{f_2\\,k\\,s}{f_1\\,k\\,s} = \\frac{f_2}{f_1}',
+          note: 'Rescaling multiplies every height by the same $k$, so within-chart ratios (and rankings) survive; cross-chart pixel comparisons die. Compare within, or read the printed values.',
+        },
+        {
+          kind: 'formula',
+          name: 'The pie-closure audit',
+          latex: '\\sum \\theta_i = 360° \\quad \\Longleftrightarrow \\quad \\sum f_i = N',
+          note: 'The reader\u2019s ten-second test: the slices must close on the full turn because the check-sum law closes the frequencies on N. An open pie has lost answers.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Truncated baseline',
+              def: 'A value axis that starts above zero \u2014 the bars then show excesses over the baseline, not values, and comparisons inflate by the exaggeration law.',
+            },
+            {
+              term: 'Exaggeration (of a chart)',
+              def: 'The visual ratio divided by the true ratio: $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$. Exactly 1 for a zero baseline; 2.79\u00d7 for the milk lie.',
+            },
+            {
+              term: 'Twin scales',
+              def: 'The same data drawn at two different scales \u2014 rankings survive, feelings do not. Compare within a chart; across charts, read the printed values.',
+            },
+            {
+              term: 'Mismatch (graph\u2013data)',
+              def: 'A graph type whose claims the data cannot support: lines through unordered categories, pies for non-wholes, 3-D perspective on angles.',
+            },
+            {
+              term: 'Open pie',
+              def: 'A pie whose slices do not reach 360\u00b0 \u2014 by the check-sum law, answers are missing from the drawing. The ten-second audit.',
+            },
+            {
+              term: 'Correlation vs causation',
+              def: 'Two series rising together does not mean one causes the other \u2014 a third variable (the summer heat behind both ice cream and drownings) may drive both.',
+            },
+            {
+              term: 'Re-basing',
+              def: 'The honest repair: re-draw the chart with the baseline at zero. The exaggeration law returns exactly 1 and the eye reads the truth.',
+            },
+            {
+              term: 'The five-question checklist',
+              def: 'Baseline at zero? Steps equal and labelled? Type matches the shape? Parts close on the whole? Source, title and date stated? \u2014 asked in order, before believing any chart.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The fastest way to check whether a bar chart might be lying is to look at',
+              options: [
+                'the colours of the bars',
+                'where the value axis starts',
+                'the number of bars',
+                'the font of the title',
+              ],
+              answer: 1,
+              explain:
+                'The baseline: a value axis starting above zero triggers the exaggeration law (Option 2) \u2014 the bars then show excesses, not values. Colours and fonts carry no arithmetic. The number of bars is the data\u2019s business, not the chart\u2019s honesty.',
+            },
+            {
+              q: 'The milk pair (Rs 52, Rs 56) drawn from a baseline of 50 looks like a ratio of 3. The exaggeration is about',
+              options: ['$1.08\\times$', '$2\\times$', '$2.79\\times$', '$3\\times$'],
+              answer: 2,
+              explain:
+                '$E = \\frac{52 \\times 6}{56 \\times 2} \\approx 2.79$ (Option 3) \u2014 the visual ratio 3 divided by the true ratio 1.077. Option 1 is the truth, not the exaggeration. Option 4 is the visual ratio itself. The law prices the lie precisely.',
+            },
+            {
+              q: 'The same sapling data drawn at 2 px/cm and at 8 px/cm: which comparison survives?',
+              options: [
+                'the absolute pixel steepness of the segments',
+                'the steepness RANKING of the segments within each chart',
+                'the emotional drama of the climb',
+                'none \u2014 rescaling destroys everything',
+              ],
+              answer: 1,
+              explain:
+                'Scale-invariance: rescaling multiplies every height by the same factor, so rankings survive ($7/2$ at any scale \u2014 Option 2) while absolute pixel slopes do not (Option 1). Option 3 is the trap the twin scales set. Option 4 overshoots \u2014 the within-chart truth is safe.',
+            },
+            {
+              q: 'A pie chart\u2019s slices cover 60% and 30% of the circle, nothing more. What does the check-sum law say?',
+              options: [
+                'the chart is fine \u2014 pies need not close',
+                '10% of the answers are missing from the drawing',
+                'the largest slice should be first',
+                'the pie should have been a line graph',
+              ],
+              answer: 1,
+              explain:
+                'The slices must close on 360\u00b0 exactly because the frequencies close on $N$ \u2014 60% + 30% = 90% leaves 10% of the answers unaccounted (Option 2). Option 1 abandons the central-angle law. Options 3 and 4 dodge the arithmetic.',
+            },
+            {
+              q: 'Ice-cream sales and swimming-pool drownings rise together every summer. The sound conclusion is',
+              options: [
+                'ice cream causes drownings',
+                'a third variable \u2014 the heat \u2014 drives both',
+                'drownings cause ice-cream cravings',
+                'the correlation must be a coincidence',
+              ],
+              answer: 1,
+              explain:
+                'Correlation is not causation: both series track the temperature, the third variable riding unseen (Option 2). Options 1 and 3 draw causal arrows the data never drew. Option 4 swings too far \u2014 the correlation is real; only the causal reading is forbidden.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'A bar chart compares two players\u2019 per-game scores, 9.1 and 10.2, with the axis starting at 9. What does the eye see, and what is the truth?',
+                  solution: [
+                    'Now, the drawn bars stand $(9.1 - 9)s$ and $(10.2 - 9)s$ tall: the visual ratio is $1.2/0.1 = 12$.',
+                    'So the eye receives a twelve-fold chasm.',
+                    'And the truth is $10.2/9.1 \\approx 1.121$ \u2014 about a 12% edge, not 1100%.',
+                    'Hence: exaggeration $\\approx \\frac{9.1 \\times 1.2}{10.2 \\times 0.1} \\approx 10.7\\u00d7$ \u2014 convicted by one glance at the axis label.',
+                  ],
+                  answer: 'The eye sees 12\u00d7; the truth is 1.12\u00d7 \u2014 an exaggeration of about 10.7\u00d7',
+                },
+                {
+                  q: 'Re-base that chart at zero (scale 10 px per point). How tall do the bars stand, and what does the eye see now?',
+                  solution: [
+                    'Now, at a zero baseline the bars are the values themselves: $9.1 \u00d7 10 = 91$ px and $10.2 \u00d7 10 = 102$ px.',
+                    'So the visual ratio is $102/91 \\approx 1.121$ \u2014 exactly the true ratio.',
+                    'And the exaggeration law certifies it: $E = \\frac{9.1 \u00d7 10.2}{10.2 \u00d7 9.1} = 1$.',
+                    'Hence 91 and 102 px \u2014 the same data, the truth restored by moving the floor.',
+                  ],
+                  answer: '$91$ px and $102$ px; the eye now reads the honest 1.12\u00d7',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'A truncated chart starts at 40 and shows two bars for values 44 and 48. Compute the visual ratio, the true ratio, and the exaggeration.',
+                  solution: [
+                    'Now, the drawn heights are the excesses: $(44 - 40) = 4$ and $(48 - 40) = 8$ \u2014 the visual ratio is $2$.',
+                    'So the true ratio is $48/44 \\approx 1.091$.',
+                    'And the exaggeration: $E = \\frac{44 \\times 8}{48 \\times 4} \\approx 1.83$ \u2014 the 9% truth wearing an 100% costume.',
+                    'Hence: visual 2\u00d7, true 1.09\u00d7, exaggeration 1.83\u00d7.',
+                  ],
+                  answer: 'Visual 2\u00d7; true \u2248 1.09\u00d7; exaggeration \u2248 1.83\u00d7',
+                },
+                {
+                  q: 'A pie\u2019s slices read 45%, 35% and 15%. What does the check-sum law convict, and by how much?',
+                  solution: [
+                    'Now, add the slices: $45 + 35 + 15 = 95\\%$.',
+                    'So the pie covers 342\u00b0 of the 360\u00b0 turn \u2014 an 18\u00b0 gap.',
+                    'And the law\u2019s verdict: $5\\%$ of the answers are missing from the drawing (the frequency column would sum to $0.95N$, not $N$).',
+                    'Hence: 5% of the data unaccounted \u2014 demand the missing row (an "other", perhaps) before believing the shares.',
+                  ],
+                  answer: '5% of the answers (18\u00b0 of turn) are missing \u2014 the slices must close on 100%/360\u00b0',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The travel frequencies 8, 6, 4, 2 are drawn twice, at scales of 2 px and 10 px per student. Show the bar RANKING is identical, and explain what a cross-chart comparison of pixel heights would wrongly suggest.',
+                  solution: [
+                    'Now, at 2 px: 16/12/8/4 px; at 10 px: 80/60/40/20 px.',
+                    'So the ranking is walk > bus > cycle > car in BOTH \u2014 rescaling never reorders (scale-invariance: the common factor cancels in every ratio).',
+                    'And the cross-chart trap: a 16 px bar and an 80 px bar are the same 8 students \u2014 comparing pixels across charts reads the scales, not the data (an 80 px bar here is not "five times" a 16 px bar there).',
+                    'Hence: rankings travel; pixels do not \u2014 cross-chart comparisons must return to the printed frequencies.',
+                  ],
+                  answer: 'The ranking (8 > 6 > 4 > 2) is identical; cross-chart pixel comparisons read the scales, not the data',
+                },
+                {
+                  q: 'A census is taken every ten years: 12 lakh in 2000 and 14 lakh in 2010. A line graph joins the two points. What does the line claim about 2005, and what kind of statement is that?',
+                  solution: [
+                    'Now, the segment\u2019s midpoint offers $(12 + 14)/2 = 13$ lakh for 2005.',
+                    'So the line claims the town grew steadily through the decade \u2014 but nobody measured 2005.',
+                    'And the kind of statement: interpolation \u2014 a straight-line guess (10.2\u2019s caution), honest only when labelled as a guess; growth could have jumped in the last year.',
+                    'Hence "13 lakh (interpolated)" \u2014 the guess may stand, but it must wear its label.',
+                  ],
+                  answer: 'The line claims \u2248 13 lakh for 2005 \u2014 an interpolation, not a measurement',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A 3-D pie chart tilts the disc toward the viewer: the front slices are drawn visibly larger than back slices of equal data. Which law dies in the rendering, and what is the repair?',
+                  solution: [
+                    'Now, the central-angle law promises: equal data \u2192 equal angle \u2192 equal-looking slice.',
+                    'So the perspective projection breaks it: the tilt magnifies near slices and shrinks far ones \u2014 two 90\u00b0 sectors render as visibly unequal wedges.',
+                    'And the repair is flat: re-draw the pie face-on (or as a bar chart) \u2014 the angles return to the table\u2019s truth.',
+                    'Hence: the central-angle law dies in the 3-D rendering; the repair is the flat re-draw.',
+                  ],
+                  answer: 'The central-angle law dies under perspective; re-draw flat (or as bars)',
+                },
+                {
+                  q: 'Ice-cream sales rise from 30 to 90 thousand cones across the summer while pool drownings rise from 12 to 40. Someone concludes "ice cream is dangerous". Give the sounder reading.',
+                  solution: [
+                    'Now, the correlation is real: both series climb month after month.',
+                    'So the arithmetic is honest \u2014 it is the CAUSAL arrow that is invented.',
+                    'And the third variable: the summer heat raises both ice-cream consumption and swimming (hence drownings); remove the heat and the pair falls together for no reason linking them to each other.',
+                    'Hence: "both rise with the heat" \u2014 correlation measured, causation refused, the third variable named.',
+                  ],
+                  answer: 'Both rise with the temperature \u2014 a real correlation with a third-variable cause, not a causal link between them',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Apply the five-question checklist to the milk chart of figure 1\u2019s right panel. Which questions does it fail, and which does it pass?',
+                  solution: [
+                    'Now, question one \u2014 where does the axis start? At 50: FAIL (the exaggeration law wakes).',
+                    'So question two \u2014 are the steps equal and labelled? They are equal (2 rupees each) and labelled: PASS (the lie here is not the steps but the floor).',
+                    'And questions three to five: the type (bars for two values? debatable \u2014 two numbers need no chart at all), the closure (not a pie: n/a), the provenance (the chart names no source or date: FAIL).',
+                    'Hence: fails 1 and 5, passes 2 \u2014 the checklist catches the lie by its floor, not by its arithmetic.',
+                  ],
+                  answer: 'Fails Q1 (baseline 50) and Q5 (no source/date); passes Q2 \u2014 the checklist convicts the frame, not the arithmetic',
+                },
+                {
+                  q: 'A report shows a country\u2019s exports climbing gently, then a rival report shows the same data "soaring". Both claim equal steps. What single number reconciles the two pictures, and what habit does this teach?',
+                  solution: [
+                    'Now, if both charts use equal steps, the difference is the scale: the soaring one simply spends more pixels per unit.',
+                    'So the reconciliation is the axis label \u2014 "one gridline = 2 million" versus "one gridline = 20 million" (a \u00d710 stretch, scale-invariance at work).',
+                    'And the habit: before comparing drama across charts, read the printed steps \u2014 the pixels shout whatever the scale tells them to.',
+                    'Hence: one number \u2014 the scale \u2014 reconciles them; the habit is reading the axis before the shape.',
+                  ],
+                  answer: 'The axis scale (px per unit) reconciles them; the habit: read the axis label before believing the drama',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the exaggeration law: bars for $v_1 < v_2$ drawn on a baseline $b$ show a visual ratio $(v_2-b)/(v_1-b)$, so the exaggeration is $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$; show $E = 1$ exactly at $b = 0$ and that $E$ grows as $b$ climbs toward $v_1$.',
+                  solution: [
+                    'Now, by the bar-scale law the drawn heights are the excesses over the baseline: $(v_1 - b)s$ and $(v_2 - b)s$ \u2014 the eye compares these, giving the visual ratio $(v_2-b)/(v_1-b)$.',
+                    'So the exaggeration \u2014 visual over truth \u2014 is $E = \\frac{(v_2-b)/(v_1-b)}{v_2/v_1} = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$ (chapter 3\u2019s compound fractions).',
+                    'And the two certainties: at $b = 0$, $E = \\frac{v_1 v_2}{v_2 v_1} = 1$ exactly \u2014 the zero baseline cannot lie; and as $b$ rises the denominator $v_1 - b$ shrinks toward zero, so $E$ climbs without bound (the milk pair at $b = 50$: $E = \\frac{52 \\u00d7 6}{56 \u00d7 2} \\u2248 2.79$; swept monotonically from $b = 0$ to $51$ in the chapter\u2019s verify script).',
+                    'Hence the law \u2014 and its moral in one line: every step the baseline climbs above zero is a step the lie grows.',
+                  ],
+                  answer: '$E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$; $E(0) = 1$ exactly, and $E$ climbs monotonically as $b \\to v_1$',
+                },
+                {
+                  q: 'The five-question checklist is applied to a chart and it passes all five \u2014 yet a reader still draws a causal conclusion from two rising lines. Which of the five questions was DESIGNED for this, and what is the honest position?',
+                  solution: [
+                    'Now, none of the five arithmetic questions catches it: the axes are honest, the steps equal, the type right, the pie closed, the source stated.',
+                    'So the failure is not in the drawing but in the READING \u2014 a rising pair is a correlation, and correlation is not causation (the ice-cream/drowning pair: the heat rides unseen).',
+                    'And the honest position: the checklist audits the CHART; the causal question needs the mechanism \u2014 "what else moves when these move, and does removing the candidate cause remove the effect?"',
+                    'Hence: the checklist is necessary, not sufficient \u2014 it certifies the ink, and the reader still owes the chart a causal discipline the ink cannot supply.',
+                  ],
+                  answer: 'None \u2014 the checklist audits the drawing; causation needs a mechanism, and correlation alone licenses none',
                 },
               ],
             },

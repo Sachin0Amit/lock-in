@@ -129,3 +129,5 @@ server.log
 !/scripts/e2e-94.page.js
 !/scripts/verify-unit-10.ts
 !/scripts/e2e-101.page.js
+!/scripts/e2e-102.page.js
+!/scripts/e2e-103.page.js
