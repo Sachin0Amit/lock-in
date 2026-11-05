@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-05 21:10:10 (Asia/Kolkata)",
+  "generated": "2026-11-06 00:21:11 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 3,
+        "chaptersWritten": 4,
         "chapters": [
           {
             "number": 1,
@@ -4155,13 +4155,10 @@
             "number": 4,
             "slug": "primes-and-the-fundamental-theorem",
             "title": "Primes and the Fundamental Theorem of Arithmetic",
-            "summary": "The atoms of multiplication: the trichotomy that sorts every number above 1 into prime or composite, the trial-division bound and the sieve that hunt primes by machine, Euclid’s two-thousand-year-old proof that the primes never end, and the fundamental theorem — every number factors into primes in exactly one way — with existence proved by strong induction, uniqueness cashed through Bézout’s identity, and the counting consequences (divisor counts, factorial exponents, trailing zeros) that examinations bank on.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "Divisors from DNA: Divisor Counts and Factorial Zeros",
-              "How the Primes Are Distributed"
-            ],
+            "summary": "The atoms of multiplication: the trichotomy that sorts every number above 1 into prime or composite, the trial-division bound and the sieve that hunt primes by machine, Euclid’s two-thousand-year-old proof that the primes never end, and the fundamental theorem — every number factors into primes in exactly one way — with existence proved by strong induction and uniqueness cashed through Bézout’s identity. Then the theorem put to work: the divisor count and divisor sum read off the canonical DNA, perfect and abundant numbers with the amicable pair (220, 284), the HCF × LCM = ab product rule proved from the exponents, the inverted census problems (the champions 60, 144, 360; the 405 zero landing; the skipped zero counts) — and the primes’ own scatter measured: gaps and records, twin primes with the unique 3, 5, 7, Bertrand’s doubling guarantee, the π(10^k) table under the prime number theorem’s shadow, and Euler’s 1737 divergence of Σ 1/p.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-primes-never-end-euclid-and-the-sieve",
@@ -4303,9 +4300,149 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-divisors-from-dna-divisor-counts",
+                "number": "4.3",
+                "title": "Divisors from DNA: Divisor Counts and Factorial Zeros",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5285,
+                "readMins": 26,
+                "concepts": [
+                  "The divisor sum σ(n)",
+                  "The geometric-series identity",
+                  "Perfect, abundant, deficient",
+                  "The first amicable pair (220, 284)",
+                  "HCF × LCM = ab",
+                  "Inverted divisor-count champions",
+                  "The 405 zero landing",
+                  "Skipped zero counts"
+                ],
+                "objectives": [
+                  "Derive and apply the divisor sum $\\sigma(n) = \\prod \\frac{p^{a+1} - 1}{p - 1}$ from the canonical form, and certify it against honest enumeration",
+                  "Classify every number as perfect, abundant or deficient by comparing $\\sigma(n)$ with $2n$, and verify the amicable pair $(220, 284)$ from the canonical forms",
+                  "Re-derive the $\\operatorname{HCF} \\times \\operatorname{LCM} = ab$ product rule from the min–max exponent identity, and state exactly where the rule’s two-number scope ends",
+                  "Solve the inverted census problems — the smallest number with exactly $k$ divisors, the smallest factorial carrying a given zero count — by shape analysis plus honest sweeps"
+                ],
+                "prerequisites": [
+                  "ans-fundamental-theorem-of-arithmetic",
+                  "ans-the-algebra-of-divisibility",
+                  "fm-hcf-lcm-and-how-they-relate"
+                ],
+                "sources": [
+                  "euclid-ix-36-perfect-numbers",
+                  "nicomachus-perfect-abundant-deficient",
+                  "amicable-pythagoreans-thabit-al-farisi",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "heading": 5,
+                  "callout": 7,
+                  "derivation": 2,
+                  "example": 5,
+                  "table": 4,
+                  "figure": 1,
+                  "list": 1,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "historical": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-how-the-primes-are-distributed",
+                "number": "4.4",
+                "title": "How the Primes Are Distributed",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5204,
+                "readMins": 26,
+                "concepts": [
+                  "Prime gaps and the canyon after 89",
+                  "Twin primes and the unique 3, 5, 7",
+                  "Bertrand's postulate",
+                  "π(n) and the 10^k table",
+                  "The prime number theorem, stated",
+                  "Σ 1/p diverges (Euler 1737)",
+                  "Bounded gaps: 70 million → 246",
+                  "How many primes between"
+                ],
+                "objectives": [
+                  "Define and census prime gaps — first occurrences, records, and the honest mean — and explain why gaps after 2 are always even",
+                  "Count twin primes to any bound (8 below 100, 35 below 1000, 8169 below 10⁶) and prove that 3, 5, 7 is the only prime triplet spaced two apart",
+                  "State and numerically verify Bertrand's postulate (a prime between n and 2n), and use it both as a search guarantee and as a contradiction-resolver",
+                  "Work with π(n) at the powers of ten, extract exam answers by π-differences, and state — without claiming — the prime number theorem and Euler’s 1737 divergence of Σ 1/p"
+                ],
+                "prerequisites": [
+                  "ans-primes-never-end-euclid-and-the-sieve",
+                  "ans-divisors-from-dna-divisor-counts",
+                  "fm-prime-numbers-factorisation"
+                ],
+                "sources": [
+                  "bertrand-postulate-1845-chebyshev",
+                  "euler-1737-reciprocal-primes",
+                  "hadamard-vallee-poussin-pnt-1896",
+                  "zhang-2013-bounded-gaps",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "heading": 5,
+                  "callout": 7,
+                  "table": 4,
+                  "figure": 1,
+                  "derivation": 1,
+                  "algorithm": 1,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "theorem": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
               }
             ],
-            "words": 10350
+            "words": 20839
           },
           {
             "number": 5,
@@ -4421,13 +4558,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 94,
-      "totalLines": 46555,
+      "srcFilesTracked": 95,
+      "totalLines": 49122,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 37290,
+        "src/data/library (content model + books)": 39857,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -11020,34 +11157,183 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "8f5df0f1f0edd2e52dccf86b1bad071dd0d0ea14",
+      "short": "8f5df0f",
+      "date": "2026-11-05 15:44",
+      "message": "ans ch.4 opens: lessons 4.1 primes never end + 4.2 fundamental theorem shipped verify-first (run 55)",
+      "filesChanged": 12,
+      "insertions": 3252,
+      "deletions": 75,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 40,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 29,
+          "del": 16
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 26,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 78,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 252,
+          "del": 30
+        },
+        {
+          "path": "scripts/e2e-ans-41.page.js",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-42.page.js",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 1259,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 9,
+          "del": 24
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 1412,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1a77877fc3bed5e9666f852ecf5ab1f3e7f3a5e6",
+      "short": "1a77877",
+      "date": "2026-11-05 15:45",
+      "message": "memory: run-55 final — ANS ch.4 OPEN 2/4 (10,350 words); ship 8f5df0f remote-verified via one-time-URL ls-remote = local HEAD; all six commits pushed this run (incl. the five pre-run-55 backlog); job 498279 idle this window (no ninth fire); next run 56 = ANS ch.4 closes with 4.3 + 4.4 + unit-4 review (verify-book2-ch04.ts sections W onward FIRST); tree clean",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "f8ec6d3adb307c6c6f55043d54a9036852fb78a6",
+      "short": "f8ec6d3",
+      "date": "2026-11-05 17:10",
+      "message": "config: one full chapter per run (owner directive 2026-11-06) — hourly cron rescheduled to job 506464 (stale jobs 504365/498279 deleted); memory + docs synced",
+      "filesChanged": 7,
+      "insertions": 101,
+      "deletions": 9,
+      "files": [
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 41,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 3,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "9449f778a27bfac7c7183b9c436f55f33e57ed24",
+      "short": "9449f77",
+      "date": "2026-11-05 17:10",
+      "message": "memory: config-run final — push verified via one-time-URL ls-remote = local HEAD f8ec6d3; next run 56 = ANS ch.4 closes ENTIRELY (4.3 + 4.4 + unit-4 review) under job 506464's one-full-chapter-per-run directive",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 14,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 61,
-    "wordsAuthored": 295613,
-    "termsDefined": 459,
-    "quizItems": 305,
-    "exerciseQuestions": 708,
+    "chaptersWritten": 15,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 63,
+    "wordsAuthored": 306102,
+    "termsDefined": 475,
+    "quizItems": 315,
+    "exerciseQuestions": 736,
     "blockTotals": {
-      "para": 867,
-      "callout": 345,
-      "heading": 350,
-      "list": 80,
-      "terms": 62,
+      "para": 889,
+      "callout": 359,
+      "heading": 360,
+      "list": 81,
+      "terms": 64,
       "equation": 97,
-      "derivation": 126,
-      "table": 66,
-      "figure": 104,
-      "example": 267,
-      "quiz": 61,
-      "exercises": 61,
-      "formula": 155,
-      "algorithm": 14
+      "derivation": 129,
+      "table": 74,
+      "figure": 106,
+      "example": 275,
+      "quiz": 63,
+      "exercises": 63,
+      "formula": 163,
+      "algorithm": 16
     }
   }
 }

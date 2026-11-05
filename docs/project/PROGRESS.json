@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-06",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 4 'Primes and the Fundamental Theorem of Arithmetic' IN PROGRESS 2/4 (run 55, 2026-11-05: lesson 4.1 'The Primes Never End: Euclid's Proof and the Sieve' (5,233 words, 8 terms, 5 quiz, 13 exercises, 2 derivations, 3 illustrations, 1 figure, 4 tables, 1 algorithm block, 4 formula cards) + lesson 4.2 'The Fundamental Theorem of Arithmetic' (5,117 words, 8 terms, 5 quiz, 14 exercises, 5 derivations, 6 illustrations, 1 figure, 2 tables, 1 algorithm block, 4 formula cards) shipped verify-first in one run; verify-book2-ch04.ts CREATED with 167 checks (sections A–V) BEFORE writing — one figure-geometry defect caught pre-writing (the figure-2 leaf boxes at 74 px overlapped two pairs: 3/5 and 3/2 — narrowed to 56 px, audit clean); the live-figure sieve SVG needed one post-write repair (a mistyped '1' coordinate, digits touching the grid rules, an over-wide legend line — regenerated programmatically, then 0/0). Chapter 3 stands COMPLETE 4/4 (19,953 words); chapter 2 COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words); Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47). Chapter 4 closes at run 56 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' + the unit-4 completion review. Library after run 55: 2 books, 61 lessons, 295,613 words, 459 terms, 305 quiz, 708 exercises.",
- "awaiting": "Run 56: close ANS chapter 4 'Primes and the Fundamental Theorem of Arithmetic' — author lessons 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' (ALL remaining lessons of the chapter — one full chapter per run, owner directive 2026-11-06) and run the unit-4 completion review (exam corners 4/4, ids globally unique, ch-04 flipped complete + plannedLessons emptied, totals recomputed); EXTEND scripts/verify-book2-ch04.ts with the remaining lessons' sections FIRST and recompute every number before writing. Chapter 5 'Congruences: The Arithmetic of Remainders' is completed ENTIRELY at run 57 (one full chapter per run).",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 4 'Primes and the Fundamental Theorem of Arithmetic' COMPLETE 4/4 (run 56, 2026-11-06 — the FIRST one-full-chapter run per the owner directive of 2026-11-06: lessons 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' (5,285 words, 8 terms, 5 quiz, 14 exercises, 2 derivations, 5 illustrations, 1 figure — the divisor lattice of 72, 4 tables, 1 algorithm block, 4 formula cards) + 4.4 'How the Primes Are Distributed' (5,204 words, 8 terms, 5 quiz, 14 exercises, 1 derivation — the 3,5,7 uniqueness, 3 illustrations, 1 figure — the prime line to 110, 4 tables, 1 algorithm block, 4 formula cards) shipped verify-first in one run; verify-book2-ch04.ts EXTENDED 167 → 356 checks (sections W–AQ) BEFORE writing — two pre-writing defects caught (a wrong record-gap claim: the true record below 2000 is 34 at 1327→1361, not 1129→1163; a wrong memorised partial sum: Σ 1/p ≤ 1000 = 2.198080); one figure-text collision caught by the SVG auditor and fixed (4.3 lattice column labels y 224 → 232), re-audited 0/0. Unit-4 completion review PASSED: exam corners 4/4, lesson ids globally unique (65 ids, zero duplicates), ch-04 flipped complete + plannedLessons emptied, chapter summary rewritten, book.ts notes updated. Chapter 4 stands 20,839 words / 32 terms / 20 quiz / 55 exercises (4.1: 5,233/8/5/13 · 4.2: 5,117/8/5/14 · 4.3: 5,285/8/5/14 · 4.4: 5,204/8/5/14). Chapter 3 COMPLETE 4/4 (19,953 words); chapter 2 COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words (closed by run 47). Library after run 56: 2 books, 15 chapters written, 63 lessons, 306,102 words, 475 terms, 315 quiz, 736 exercises.",
+ "awaiting": "Run 57: complete ANS chapter 5 'Congruences: The Arithmetic of Remainders' ENTIRELY in one run (owner directive 2026-11-06) — all four planned lessons ('Remainders Become Numbers: Congruence Defined', 'Why the Divisibility Tests Work', 'The Unit Digit and Cycles of Powers', 'Linear Congruences and a Glimpse of Fermat') + the unit-5 completion review; CREATE scripts/verify-book2-ch05.ts FIRST (whitelist it + e2e-ans-51/52/53/54.page.js in .gitignore BEFORE committing) and recompute every number before writing. The school divisibility tests are re-derived there from congruences (NCERT class 8 ch. 16 canon, cross-referenced not repeated); the research phase's CAT/IPMAT unit-digit and remainder-chain scope is banked for 5.3/5.4.",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -80,22 +80,22 @@
     "title": "Arithmetic and Number Systems",
     "status": "in-progress",
     "chaptersPlanned": 10,
-    "chaptersWritten": 3,
+    "chaptersWritten": 4,
     "lessonsWritten": 15,
-    "termsAvailableForFlashcards": 104,
-    "notes": "IN PROGRESS (run 55, 2026-11-05): chapter 1 'The Natural Numbers as a System' COMPLETE 3/3 (runs 49-50; 16,921 words / 24 terms / 15 quiz / 36 exercises). Chapter 2 'The Division Algorithm and the Structure of Divisibility' COMPLETE 4/4 (runs 51-52; 20,820 words / 32 terms / 20 quiz / 58 exercises). Chapter 3 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54: 3.1 'The Representation Theorem: Every Number Has Exactly One Name' 5,398 words + 3.2 'Converting Between Bases' 4,987 words run 53; 3.3 'Arithmetic in Other Bases' 5,214 words + 3.4 'Binary, Hexadecimal and the Machine' 4,354 words run 54; unit-3 completion review passed — the chapter stands 19,953 words / 32 terms / 20 quiz / 54 exercises; verify-book2-ch03.ts 312 -> 502 checks). Chapter 4 'Primes and the Fundamental Theorem of Arithmetic' IN PROGRESS 2/4 (run 55: 4.1 'The Primes Never End: Euclid's Proof and the Sieve' 5,233 words + 4.2 'The Fundamental Theorem of Arithmetic' 5,117 words shipped verify-first in one run; verify-book2-ch04.ts 167 checks (sections A-V) with one figure-geometry defect caught pre-writing; chapter stands 10,350 words / 16 terms / 10 quiz / 27 exercises). Chapter 4 closes at run 56 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' + 4.4 'How the Primes Are Distributed' + the unit-4 completion review. Book totals: 15 lessons / 68,429 words / 104 terms / 65 quiz / 202 exercises (ground truth: WORK_INVENTORY.json)."
+    "termsAvailableForFlashcards": 120,
+    "notes": "IN PROGRESS (run 56, 2026-11-06): chapter 1 'The Natural Numbers as a System' COMPLETE 3/3 (runs 49-50; 16,921 words / 24 terms / 15 quiz / 36 exercises). Chapter 2 'The Division Algorithm and the Structure of Divisibility' COMPLETE 4/4 (runs 51-52; 20,820 words / 32 terms / 20 quiz / 58 exercises). Chapter 3 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54; 19,953 words / 32 terms / 20 quiz / 54 exercises). Chapter 4 'Primes and the Fundamental Theorem of Arithmetic' COMPLETE 4/4 (run 55: 4.1 'The Primes Never End: Euclid's Proof and the Sieve' 5,233 words + 4.2 'The Fundamental Theorem of Arithmetic' 5,117 words; run 56 — the first one-full-chapter run — 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' 5,285 words + 4.4 'How the Primes Are Distributed' 5,204 words + the unit-4 completion review passed: exam corners 4/4, ids globally unique, verify-book2-ch04.ts 167 → 356 checks, chapter 4 stands 20,839 words / 32 terms / 20 quiz / 55 exercises). Chapter 5 'Congruences: The Arithmetic of Remainders' is completed ENTIRELY at run 57. Book totals: 15 lessons / 78,533 words / 120 terms / 75 quiz / 202 exercises (ground truth: WORK_INVENTORY.json)."
    }
   ],
-  "lessonsWritten": 61,
-  "wordsAuthored": 295613,
-  "termsAvailableForFlashcards": 459,
+  "lessonsWritten": 63,
+  "wordsAuthored": 306102,
+  "termsAvailableForFlashcards": 475,
   "totals": {
-   "lessonsWritten": 61,
-   "plannedLessons": 27,
-   "words": 295613,
-   "terms": 459,
-   "quizItems": 305,
-   "exerciseQuestions": 708,
+   "lessonsWritten": 63,
+   "plannedLessons": 23,
+   "words": 306102,
+   "terms": 475,
+   "quizItems": 315,
+   "exerciseQuestions": 736,
    "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed)"
   }
  },
@@ -423,7 +423,7 @@
   "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
- "lastCompleted": "run 55 (2026-11-05, fired 23:11 IST from job 504365 — the correct two-lesson job, carrying the owner directive and a fresh PAT): ANS CHAPTER 4 OPENS with 4.1 'The Primes Never End: Euclid's Proof and the Sieve' + 4.2 'The Fundamental Theorem of Arithmetic' shipped verify-first (verify-book2-ch04.ts 167 checks, sections A–V, one figure-geometry defect caught pre-writing); chapter 4 stands 10,350 words / 16 terms / 10 quiz / 27 exercises; the book stands 15 lessons / 68,429 words / 104 terms / 65 quiz / 202 exercises; the five pre-run-55 unpushed commits (0e3db3e, efbc877, a499972, ced6fb7, 95b940c) joined this run's protocol push.",
+ "lastCompleted": "run 56 (2026-11-06, job 506464's first fire — the one-full-chapter job): ANS CH. 4 CLOSES 4/4 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' (5,285 words) + 4.4 'How the Primes Are Distributed' (5,204 words) + the unit-4 completion review — the first complete chapter shipped under the owner's one-full-chapter-per-run directive; verify-book2-ch04.ts extended 167 → 356 checks (sections W–AQ) before writing, two pre-writing defects caught (the 1129→1163 record-gap claim; the Σ 1/p ≤ 1000 partial sum), the 4.3 lattice figure's label collisions caught by the SVG auditor and fixed; chapter totals 20,839 words / 32 terms / 20 quiz / 55 exercises; library 63 lessons / 306,102 words / 475 terms / 315 quiz / 736 exercises",
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
   "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
@@ -436,5 +436,42 @@
    "gauss-1801-disquisitiones"
   ],
   "progressBackfill": "run 54's ship had updated PROGRESS's structured book/library fields but left the top-level phase/awaiting/lastCompleted at run 52/53 — this run's ship backfills all three while advancing them to run 55"
+ },
+ "run56Extras": {
+  "chapter": "ANS ch. 4 'Primes and the Fundamental Theorem of Arithmetic' — COMPLETE 4/4, closed in ONE run per the owner's 2026-11-06 one-full-chapter directive (this is the first chapter shipped under it)",
+  "lessons": [
+   {
+    "id": "ans-divisors-from-dna-divisor-counts",
+    "number": "4.3",
+    "words": 5285,
+    "terms": 8,
+    "quiz": 5,
+    "exercises": 14,
+    "verify": "sections W–AF",
+    "figure": "the divisor lattice of 72 (σ = 195 read along either margin)"
+   },
+   {
+    "id": "ans-how-the-primes-are-distributed",
+    "number": "4.4",
+    "words": 5204,
+    "terms": 8,
+    "quiz": 5,
+    "exercises": 14,
+    "verify": "sections AG–AP",
+    "figure": "the prime line to 110 (twins bracketed, the 89→97 canyon)"
+   }
+  ],
+  "verify": "verify-book2-ch04.ts 167 → 356 checks (sections W–AQ), ALL GREEN before writing; pre-writing catches: the record gap below 2000 is 34 at 1327→1361 (1129→1163 is not a prime gap — 1151 inside), Σ 1/p ≤ 1000 = 2.198080; post-write SVG-audit catch: 4.3 lattice column labels moved y 224 → 232, re-audited 0/0",
+  "completionReview": "exam corners 4/4; ids globally unique (65); ch-04 status complete + plannedLessons []; book.ts notes updated; chapter 4 = 20,839 words / 32 terms / 20 quiz / 55 exercises",
+  "newCitationKeys": [
+   "euclid-ix-36-perfect-numbers",
+   "nicomachus-perfect-abundant-deficient",
+   "amicable-pythagoreans-thabit-al-farisi",
+   "bertrand-postulate-1845-chebyshev",
+   "euler-1737-reciprocal-primes",
+   "hadamard-vallee-poussin-pnt-1896",
+   "zhang-2013-bounded-gaps"
+  ],
+  "downloads": "zero — the sanctioned internet fallback grounded the seven new keys; no working copies to delete"
  }
 }

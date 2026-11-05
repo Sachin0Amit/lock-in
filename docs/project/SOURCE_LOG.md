@@ -772,6 +772,100 @@ andrews.ac.uk/Miller/mathsym/nth/), which also grounds the Gauss ≡
   and the Disquisitiones listings. Exposition original; no content
   reproduced.
 
+## Citation keys added by ANS chapter 4 closing (run 56)
+
+- `euclid-ix-36-perfect-numbers` — Euclid, *Elements*, Book IX, Proposition 36:
+  "If as many numbers as we please beginning from a unit are set out
+  continuously in double proportion until the sum of all becomes prime, and if
+  the sum multiplied into the last produces some number, the product is
+  perfect" — the even-perfect construction in ancient dress (modern form:
+  $2^{p-1}(2^p - 1)$ is perfect whenever $2^p - 1$ is prime; instances
+  6, 28, 496, 8128 for p = 2, 3, 5, 7). Used for: ANS 4.3 — the
+  Nicomachus/Euclid historical callout and the perfect-number definition's
+  framing. Web-checked 2026-11-06 (run 56) via D. E. Joyce's Clark
+  University edition of Book IX, propIX36.html (full text retrieved), the
+  Clay Mathematics Institute translation, and the Wikipedia perfect-number
+  article. Exposition original; no content reproduced.
+
+- `nicomachus-perfect-abundant-deficient` — Nicomachus of Gerasa,
+  *Introduction to Arithmetic*, Book I (c. AD 100): the three-way
+  classification of the even numbers into perfect, superabundant (abundant)
+  and deficient, with the even-perfect list 6, 28, 496, 8128 before him, and
+  the two claims that fail (one perfect per digit-length; the 6/8 ending
+  rhythm — broken by the fifth perfect 33,550,336). Used for: ANS 4.3 — the
+  historical callout "Nicomachus sorts the even numbers". Web-checked
+  2026-11-06 (run 56) via the Wikipedia perfect-number article and the
+  Nicomachus Introduction-to-Arithmetic study texts (the
+  superabundant/deficient/perfect chapter). Exposition original; no content
+  reproduced.
+
+- `amicable-pythagoreans-thabit-al-farisi` — the amicable pair (220, 284):
+  known to the Pythagoreans (the smallest pair, the only one known in
+  antiquity, read as a symbol of friendship); the general generating rule of
+  Thābit ibn Qurra of Baghdad (c. AD 850), rediscovered by Fermat and
+  Descartes and extended by Euler; the thirteenth-century al-Fārisī (the
+  FTA's first full existence proof, run 55's key) worked the same
+  amicable-number machinery. Used for: ANS 4.3 — the amicable Illustration,
+  the historical callout "A friendship two thousand years deep", and the
+  Amicable pair term. Web-checked 2026-11-06 (run 56) via the Wikipedia
+  amicable-numbers article (Pythagoreans, Thābit ibn Qurra 826–901,
+  al-Majriti/al-Baghdadi/al-Fārisī line) and Britannica's amicable-numbers
+  entry. Exposition original; no content reproduced.
+
+- `bertrand-postulate-1845-chebyshev` — Bertrand's postulate: conjectured
+  1845 by Joseph Bertrand (verified in the tables of his day, which ran to
+  three million), first proved 1850 by Pafnuty Chebyshev (analytic), the
+  elementary binomial-coefficient proof found 1932 by the teenage Paul
+  Erdős; the statement: for every n ≥ 1 a prime sits in (n, 2n], strictly
+  inside for n ≥ 2. Used for: ANS 4.4 — the theorem callout, the history
+  paragraph, and the nextPrime algorithm's termination note. Web-checked
+  2026-11-06 (run 56) via the Wolfram MathWorld Bertrand's-postulate entry
+  and the cut-the-knot history note (Bertrand 1845 / Chebyshev 1850 /
+  Erdős 1932). Proof cited, not reproduced; statement swept n ≤ 2000 by
+  the verify script. Exposition original; no content reproduced.
+
+- `euler-1737-reciprocal-primes` — Leonhard Euler, "Variae observationes
+  circa series infinitas" (presented to the St. Petersburg Academy 1737,
+  published 1744; E72, Theorema 19): the sum of the reciprocals of the
+  primes diverges — the harmonic series' divergence (Oresme, 14th century)
+  surviving the thinning to primes — via the Euler product
+  Σ 1/n = ∏(1 − 1/p)^−1 (the fundamental theorem of arithmetic made
+  analytic), logarithms, and convergent remainders; the zeta product at
+  s = 2 with the Basel value 6/π² is the same machinery converging. Used
+  for: ANS 4.4 — the divergence theorem callout, the slow-dive paragraph,
+  and the Euler-product Illustration. Web-checked 2026-11-06 (run 56) via
+  the Wikipedia divergence-of-the-sum-of-the-reciprocals-of-the-primes
+  article (Euler 1737, the partial-sum growth Σ 1/p ≈ log log n, the > 3
+  crossing at 5,195,977) and the arXiv Euler-PNT retrospective (E72,
+  Theorema 19, presented 1737/published 1744). Numerics computed fresh by
+  the verify script (1.8028/2.1981/2.8873; crossing certified at
+  5,195,977). Exposition original; no content reproduced.
+
+- `hadamard-vallee-poussin-pnt-1896` — the prime number theorem: π(n) is
+  asymptotic to n/ln n; conjectured by Gauss on table evidence; proved
+  1896, independently, by Jacques Hadamard and Charles-Jean de la Vallée
+  Poussin, riding Bernhard Riemann's 1859 zeta-function ideas. Used for:
+  ANS 4.4 — the π-table framing and the PNT paragraph (stated, cited,
+  never claimed). Web-checked 2026-11-06 (run 56) via the Wikipedia
+  prime-number-theorem article (Hadamard and de la Vallée Poussin, 1896,
+  using Riemann's ideas) and the de la Vallée Poussin biography (the
+  independent proofs of the same year). Exposition original; no content
+  reproduced.
+
+- `zhang-2013-bounded-gaps` — the bounded-gaps breakthrough: Yitang Zhang
+  (April 2013) proved H₁ ≤ 70,000,000 — infinitely many prime pairs no
+  farther apart than seventy million — the first finite bound on any fixed
+  gap after de Polignac's 1849 conjecture; the Polymath8 online
+  collaboration improved it to 4680; James Maynard's simpler sieve gave
+  600 (and the first proof that H_m is finite for all m); Polymath8b with
+  Maynard reached the standing record 246. The twin prime conjecture
+  (H₁ = 2) remains open. Used for: ANS 4.4 — the twin-conjecture
+  historical callout and the Twin primes term. Web-checked 2026-11-06
+  (run 56) via the Polymath-project retrospective abstract (arXiv
+  1409.8361: Zhang 70,000,000 → Polymath 4680 → Maynard 600 → Polymath
+  246) and the Quanta/HKF coverage of the April 2013 announcement.
+  Exposition original; no content reproduced.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
@@ -966,6 +1060,29 @@ checks in sections BT–CC of scripts/verify-unit-5.ts, 455 total) BEFORE
 writing; exposition original — the factor-law derivation, the
 round-trip r²/100 % law, the multiplier law and the two-lane figure are
 the book's own derivations.
+
+## 2026-11-06 — Run 56 (ANS 4.3 + 4.4, chapter 4 CLOSES — the first one-full-chapter run): zero downloads
+
+Lessons 4.3 "Divisors from DNA: Divisor Counts and Factorial Zeros" and 4.4 "How the Primes Are
+Distributed" were verified against seven NEW citation keys — `euclid-ix-36-perfect-numbers` (IX.36's
+even-perfect construction, full text retrieved from Joyce's Clark U. edition + the Clay translation),
+`nicomachus-perfect-abundant-deficient` (the perfect/superabundant/deficient classification of
+Introduction to Arithmetic Book I, with Nicomachus's two failing claims told honestly),
+`amicable-pythagoreans-thabit-al-farisi` (the Pythagoreans' pair (220, 284); Thābit ibn Qurra's rule
+c. 850; al-Fārisī's amicable workshop — tying 4.2's al-Fārisī key), `bertrand-postulate-1845-chebyshev`
+(Bertrand 1845 from the tables, Chebyshev 1850, the teenage Erdős 1932 — proof cited, statement swept
+n ≤ 2000), `euler-1737-reciprocal-primes` (Variae observationes/E72 Theorema 19 — Σ 1/p diverges via the
+Euler product; the verify script computed the partial sums fresh and certified the > 3 crossing at
+5,195,977), `hadamard-vallee-poussin-pnt-1896` (the PNT stated and cited, never claimed), and
+`zhang-2013-bounded-gaps` (Zhang's 70,000,000 → Polymath 4680 → Maynard 600 → Polymath 246) — plus the
+carried `khattar-qa-4e` (the exam-corner shapes: σ comparisons, abundant/deficient labels, the product
+rule, τ-inverted champions, π-differences) and `euclid-elements-book-ix` (IX.36 cross-referenced).
+History told with hedges, paraphrased, never reproduced. All lesson arithmetic recomputed by
+scripts/verify-book2-ch04.ts (extended 167 → 356 checks, sections W–AQ) BEFORE writing — one wrong
+record-gap claim (1129 → 1163 is not a prime gap; the record below 2000 is 34 at 1327 → 1361) and one
+wrong memorised partial sum (Σ 1/p ≤ 1000 = 2.198080, not 2.198787) were caught by the script
+pre-writing; the figure-text collisions the auditor found were fixed in-SVG and re-audited 0/0. No
+reference files downloaded, no working copies to delete.
 
 ## 2026-11-05 — Run 55 (ANS 4.1 + 4.2, chapter 4 opens; fired 23:11 IST from job 504365): zero downloads
 

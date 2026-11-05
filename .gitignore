@@ -169,3 +169,6 @@ server.log
 # exception: run-55 ANS chapter-4 lesson E2E blocks (quiz keys 4.1 + 4.2 + solutions + audits)
 !/scripts/e2e-ans-41.page.js
 !/scripts/e2e-ans-42.page.js
+# exception: run-56 ANS chapter-4 lesson E2E blocks (quiz keys 4.3: TBD, 4.4: TBD + solutions + audits)
+!/scripts/e2e-ans-43.page.js
+!/scripts/e2e-ans-44.page.js

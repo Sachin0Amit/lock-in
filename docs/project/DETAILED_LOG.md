@@ -9,6 +9,54 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 56 (2026-11-06, job 506464's first fire — the one-full-chapter job)**: **ANS
+CHAPTER 4 CLOSED 4/4 IN ONE RUN — the first chapter shipped under the owner's one-full-chapter-per-run
+directive.** verify-book2-ch04.ts EXTENDED 167 → 356 checks (sections W–AQ) BEFORE a word was written;
+the script caught two pre-writing defects (a wrong record-gap claim — 1129→1163 is not a prime gap since
+1151 sits inside; the true record below 2000 is 34 at 1327→1361 — and a wrong memorised partial sum,
+Σ 1/p ≤ 1000 = 2.198080 not 2.198787), and the platform SVG auditor caught three TEXT/RECT collisions in
+the 4.3 lattice figure (column labels y 224 → 232, re-audited 0/0). Lessons shipped with full per-lesson
+gates (lint 0 errors, tsc clean, verify 356/0, routes 200, browser E2E with the quiz answered live on the
+intended keys, every solution expanded, 0 katex-errors, 0 raw $, console clean, no overflow):
+- **4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros'** (`ans-divisors-from-dna-divisor-counts`,
+  5,285 words, 8 terms, 5 quiz on keys 1/2/0/0/2, 14 exercises L1–L6, 2 derivations, 5 illustrations,
+  1 figure — the divisor lattice of 72 with σ(72) = 15·13 = 195 read along either margin, 4 tables,
+  1 algorithm block, 4 formula cards): the divisor sum from the geometric series, σ certified against
+  enumeration n ≤ 600; the perfect/abundant/deficient census (452/145/3 of the first 600; Euclid IX.36
+  rebuilt for 6, 28, 496, 8128; 12 the first abundant; every multiple of 6 beyond 6 abundant — the coprime
+  engine σ(6k) = 12σ(k) plus the sweep); the amicable pair (220, 284) with σ = 504 each (Pythagoreans →
+  Thābit ibn Qurra c. 850 → al-Fārisī); the min–max exponent proof of HCF × LCM = ab with the two-number
+  caution (2, 3, 4: 1·12 ≠ 24); the inverted τ champions swept (8→24, 12→60, 15→144, 16→120, 24→360) with
+  every shape dressed; Legendre's census cashed — the 100-zero landing at n = 405 exactly and the skipped
+  zero counts 29/30 (the jump 28 → 31 at 125).
+- **4.4 'How the Primes Are Distributed'** (`ans-how-the-primes-are-distributed`, 5,204 words, 8 terms,
+  5 quiz on keys 1/0/0/1/1, 14 exercises L1–L6, 1 derivation — the uniqueness of 3, 5, 7, 3 illustrations,
+  1 figure — the prime line to 110 with the twin braces and the 89→97 canyon, 4 tables, 1 algorithm block —
+  nextPrime(n) with Bertrand's termination guarantee, 4 formula cards): the gap census (the lone odd gap
+  2→3; first occurrences 2@3, 4@7, 6@23, 8@89, 10@139, 12@199, 14@113 — 14 earlier than 10; records 8 below
+  100, 20 below 1000, 34 below 2000; the mean 5.96 vs ln 1000 ≈ 6.91); the twin ladder computed to 10⁶
+  (2/8/35/205/1224/8169) with de Polignac 1849 → Zhang 2013 (70,000,000) → Maynard → Polymath 246 told
+  honestly as open; Bertrand's postulate swept n ≤ 2000 in both forms and used as the search certificate
+  (proof cited: Chebyshev 1850, Erdős 1932); the π(10^k) table 4/25/168/1229/9592/78498 with π-difference
+  exam shapes (135 primes in 1001..2000) and the prime number theorem stated, cited (Hadamard &
+  de la Vallée Poussin 1896), never claimed; Euler's 1737 divergence of Σ 1/p with the partial sums
+  computed fresh (1.8028/2.1981/2.8873 vs the harmonic 5.1874/14.3927; the > 3 crossing certified at
+  5,195,977) and the s = 2 product 0.608004 against 6/π² = 0.607927.
+**Unit-4 completion review PASSED**: exam corners 4/4; lesson ids globally unique across the library
+(65 ids, zero duplicates); ch-04 flipped complete + plannedLessons emptied + summary rewritten; book.ts
+status/notes updated; totals recomputed by build_work_inventory.ts — chapter 4 = 20,839 words / 32 terms /
+20 quiz / 55 exercises; book 15 lessons / 78,533 words / 120 terms / 75 quiz / 202 exercises; library
+63 lessons / 306,102 words / 475 terms / 315 quiz / 736 exercises. Seven new citation keys web-checked
+(SOURCE_LOG): euclid-ix-36-perfect-numbers, nicomachus-perfect-abundant-deficient,
+amicable-pythagoreans-thabit-al-farisi, bertrand-postulate-1845-chebyshev, euler-1737-reciprocal-primes,
+hadamard-vallee-poussin-pnt-1896, zhang-2013-bounded-gaps. Zero downloads; the gitignored Drive survey
+rebuilt (rebuild_drive_survey.ts) after the sandbox recycle so WORK_INVENTORY could regenerate; e2e-ans-43/44
+whitelisted in .gitignore pre-commit. **NEXT: run 57 = ANS chapter 5 'Congruences: The Arithmetic of
+Remainders' completed ENTIRELY** (all four lessons + the unit-5 review; create verify-book2-ch05.ts FIRST,
+whitelist it + e2e-ans-51..54 in .gitignore). Synced remote shas recorded in WORKLOG.md / RESUME_POINTER.json.
+
+---
+
 Maintained through **config session 2026-11-06 ~01:05 IST (owner chat
 directive; NO lessons authored — tree clean at `1a77877` on entry, ANS
 ch. 4 standing 2/4)**: **WORKFLOW CADENCE CHANGED — ONE FULL CHAPTER PER
@@ -1341,7 +1389,7 @@ downloads (references already logged).
 | 10 | Data and Graphs — **COMPLETE (4/4, run 46; unit-10 review passed)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ **WRITTEN (run 45)** · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · ~~Mean, Median, Mode~~ **WRITTEN (run 46)** |
 | 11 | Patterns and the Doorstep of Algebra — **COMPLETE (3/3, run 47; unit-11 review passed — the book closes)** | ~~Patterns and Rules~~ **WRITTEN (run 46)** · ~~From Patterns to Formulas~~ **WRITTEN (run 47)** · ~~A Letter for the Unknown~~ **WRITTEN (run 47)** |
 
-### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1 COMPLETE 3/3 — runs 49–50)**
+### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1–4 COMPLETE — 15 lessons, chapters 5–10 planned)**
 
 *Why arithmetic works — and how the number systems were built* · Upper primary →
 first-year university bridge · accent teal · cover auto-generated.
@@ -1359,9 +1407,9 @@ completion review passed — 3 lessons / 16,921 words / 24 terms / 15 quiz / 36 
 | # | Chapter (slug) | Planned lessons |
 |---|---|---|
 | 1 | The Natural Numbers as a System (`natural-numbers-as-a-system`) — **COMPLETE 3/3** (runs 49–50) | 1.1 The Architecture of Counting: Successors and Order (5,010 w) · 1.2 Induction: Proving for Every Number at Once (5,332 w) · 1.3 The Least-Number Principle and Recursion (6,579 w) |
-| 2 | The Division Algorithm and the Structure of Divisibility (`division-algorithm-and-divisibility`) | Division with Rest: The Division Algorithm · The Algebra of Divisibility · The Euclidean Algorithm, Proven — and Bézout's Identity · Linear Diophantine Equations |
-| 3 | Positional Systems and Other Bases (`positional-systems-and-bases`) | The Representation Theorem: Every Number Has Exactly One Name · Converting Between Bases · Arithmetic in Other Bases · Binary, Hexadecimal and the Machine |
-| 4 | Primes and the Fundamental Theorem of Arithmetic (`primes-and-the-fundamental-theorem`) | The Primes Never End: Euclid's Proof and the Sieve · The Fundamental Theorem of Arithmetic · Divisors from DNA: Divisor Counts and Factorial Zeros · How the Primes Are Distributed |
+| 2 | The Division Algorithm and the Structure of Divisibility (`division-algorithm-and-divisibility`) — **COMPLETE 4/4** (runs 51–52; 20,820 words / 32 terms / 20 quiz / 58 exercises) | 2.1 Division with Rest: The Division Algorithm (5,291 w) · 2.2 The Algebra of Divisibility (5,105 w) · 2.3 The Euclidean Algorithm, Proven — and Bézout's Identity (5,755 w) · 2.4 Linear Diophantine Equations (4,669 w) |
+| 3 | Positional Systems and Other Bases (`positional-systems-and-bases`) — **COMPLETE 4/4** (runs 53–54; 19,953 words / 32 terms / 20 quiz / 54 exercises) | 3.1 The Representation Theorem: Every Number Has Exactly One Name (5,398 w) · 3.2 Converting Between Bases (4,987 w) · 3.3 Arithmetic in Other Bases (5,214 w) · 3.4 Binary, Hexadecimal and the Machine (4,354 w) |
+| 4 | Primes and the Fundamental Theorem of Arithmetic (`primes-and-the-fundamental-theorem`) — **COMPLETE 4/4** (runs 55–56, closed in ONE run at 56; 20,839 words / 32 terms / 20 quiz / 55 exercises) | 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 w) · 4.2 The Fundamental Theorem of Arithmetic (5,117 w) · 4.3 Divisors from DNA: Divisor Counts and Factorial Zeros (5,285 w) · 4.4 How the Primes Are Distributed (5,204 w) |
 | 5 | Congruences: The Arithmetic of Remainders (`congruences`) | Remainders Become Numbers: Congruence Defined · Why the Divisibility Tests Work · The Unit Digit and Cycles of Powers · Linear Congruences and a Glimpse of Fermat |
 | 6 | Building the Integers (`building-the-integers`) | The Closure Failures That Force Extension · Constructing the Integers from the Naturals · The Laws of Integer Arithmetic |
 | 7 | Building the Rationals (`building-the-rationals`) | From Fractions to the Rational System · The Field Laws: Division Joins the Family · Density and the Decimal Mirror, Proven |

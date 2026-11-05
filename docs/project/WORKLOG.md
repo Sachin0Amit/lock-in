@@ -6,6 +6,128 @@ and what remains.
 
 ---
 
+## 2026-11-06 — RUN 56 (cron job 506464, first full-chapter fire): ANS CHAPTER 4 CLOSED 4/4 — lessons 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' (5,285 words) + 4.4 'How the Primes Are Distributed' (5,204 words) + the unit-4 completion review, all in ONE run per the owner's 2026-11-06 directive
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean on entry —
+no in-flight lesson, no junk; RESUME_POINTER's run-56 plan confirmed (4.3 +
+4.4 + the completion review close chapter 4).
+
+**Step 1 (state):** read RESUME_POINTER.json, PROGRESS.json, WORKLOG head —
+the run's contract: extend verify-book2-ch04.ts sections W onward FIRST,
+recompute every number pre-writing, author both lessons sequentially with
+full per-lesson gates, then the unit-4 completion review, single ship,
+protocol push.
+
+**Step 2a — verify-first (167 → 356 checks, ALL GREEN before a word was
+written).** Sections W–AQ added:
+- (W) σ(n) = ∏(p^(a+1) − 1)/(p − 1): geometric identity swept
+  (p ∈ {2,3,5,7,11,13}, a ≤ 8), formula vs enumeration for every
+  n ≤ 600, instances 60→168 / 84→224 / 72→195 / 100→217 / 360→1170 /
+  2025→3751 / 2047→2160 both sides;
+- (X) perfect/abundant/deficient: partition swept (≤ 600: 452 deficient,
+  145 abundant, 3 perfect — 6, 28, 496), Euclid IX.36 rebuilt for
+  p = 2, 3, 5, 7 (6, 28, 496, 8128), 12 the first abundant, the early run
+  12/18/20/24/30, every multiple of 6 in [12, 600] abundant (the coprime
+  engine σ(6k) = 12σ(k) checked on all 33 coprime k ≤ 98), the amicable
+  pair (220, 284) (σ = 504 each, proper sums crossing), σ-parity data;
+- (Y) HCF·LCM = ab: min+max identity swept, rule certified a, b ≤ 300,
+  instances 12/18 (6·36 = 216), 13·455 = 65·91 = 5915, coprime 8·9 = 72,
+  the three-number caution 2/3/4 (1·12 ≠ 24), the equal case;
+- (Z) inverted τ champions swept to 2000: 8→24, 12→60, 15→144, 16→120,
+  24→360, with every shape dressed (the four 12-shapes, five 16-shapes,
+  seven 24-shapes) and the 15-divisor ladder 144, 324;
+- (AA) Legendre cashed: v₃(300!) = 148, v₇(3000!) = 498, zeros(200!) = 49,
+  the 100-zero landing at n = 405 exactly (v₅(404!) = 99, v₅(405!) = 100),
+  the skipped counts 29 and 30 (the jump 28 → 31 at 125);
+- (AB) figure-3 geometry (the divisor lattice of 72: 12 cells, margins
+  13/26/52/104 and 15/45/135, both totalling 195);
+- (AG–AP) for 4.4: the gap census (engine sieve to 2·10⁶ = 148,933 primes;
+  the lone odd gap 2→3; first occurrences 2@3, 4@7, 6@23, 8@89, 10@139,
+  12@199, 14@113 — 14 EARLIER than 10; records 8 below 100, 20 below 1000
+  (887→907), 34 below 2000 (1327→1361); mean 5.96 vs ln 1000 ≈ 6.91; twin
+  pairs listed), Bertrand swept both forms for every n ≤ 2000 with the
+  chain 5/10/20/40/80 → 7/11/23/41/83 and next-prime instances
+  101/503/1009/1511, twins computed to 10⁶ (2/8/35/205/1224/8169) with the
+  3,5,7 uniqueness swept (the neighbours die at 9 and 15), the π(10^k)
+  table 4/25/168/1229/9592/78498 with π-differences (21/16/135/143) and
+  the n/ln n ratio column 0.921…1.084, Σ 1/p partials (1.802817 / 2.198080
+  / 2.887328 vs harmonic 5.187378 / 14.392727) with the > 3 crossing
+  COMPUTED at 5,195,977 and Euler's s = 2 product 0.608004 vs 6/π² =
+  0.607927, figure-4 geometry (29 dots at 8 px pitch, tick labels, six
+  braces + the shared 3,5,7 bracket, the 89→97 canyon), quiz keys
+  (4.3: 1/2/0/0/2; 4.4: 1/0/0/1/1), all 28 exercise keys, 8 formula cards,
+  and the tables cell by cell;
+- (AQ) the completion arithmetic — cross-lesson cashing (τ(360) = 24 as
+  4.3's champion, π(100) = 25 as 4.1's sieve, 3,5,7 from 4.1's exercises
+  proved unique, 4.2's census cashed at 405, 2047 closing both halves).
+**Pre-writing defects caught by the script: one wrong record-gap claim
+(1129 → 1163 is not a prime gap — 1151 sits inside; the true record below
+2000 is 34 at 1327 → 1361) and one wrong memorised partial sum
+(Σ 1/p ≤ 1000 = 2.198080, not 2.198787).** The reference research (the
+sanctioned internet fallback; Drive exam shapes carried) grounded seven new
+citation keys: Euclid IX.36 (Joyce + Clay), Nicomachus's
+perfect/abundant/deficient chapter, the amicable thread (Pythagoreans →
+Thābit ibn Qurra c. 850 → al-Fārisī), Bertrand 1845/Chebyshev 1850/Erdős
+1932, Euler 1737 (Variae observationes, E72 Theorema 19), Hadamard &
+de la Vallée Poussin 1896 (PNT, stated not claimed), Zhang 2013 → Polymath
+→ 246.
+
+**Step 2b — lesson 4.3 authored** (id `ans-divisors-from-dna-divisor-counts`,
+5,285 words: 2 derivations, 5 illustrations, 1 figure — the divisor lattice
+of 72, 4 tables, 1 algorithm block, 8 terms, 5 quiz (keys 1/2/0/0/2),
+14 exercises L1–L6, 4 formula cards; the σ formula + the coprime
+multiplicativity note, the three-family census with the amicable pair, the
+min–max product rule + the two-number caution, the inverted champions +
+the 405 landing + the skipped counts). **Gates: lint 0 errors, tsc clean,
+verify 356/0, routes 200, E2E green — quiz answered live 5/5 with the
+intended keys, 14 solutions expanded (19 Sol. pills with the illustrations,
+15 ∴ glyphs), 262 KaTeX nodes, 0 katex-errors, 0 raw $, no console errors,
+no horizontal overflow.**
+
+**Step 2c — lesson 4.4 authored** (id `ans-how-the-primes-are-distributed`,
+5,204 words: 1 derivation — the 3,5,7 uniqueness, 3 illustrations, 1 figure
+— the prime line to 110, 4 tables, 1 algorithm block — nextPrime(n) with
+Bertrand's guarantee, 8 terms, 5 quiz (keys 1/0/0/1/1), 14 exercises
+L1–L6, 4 formula cards; the gap census with the honest first-occurrence
+irregularity, the twin ladder, Bertrand cited not reproduced, the π table
+under the PNT's shadow, Euler's divergence with the computed crossing).
+**Gates: lint 0 errors, tsc clean, verify 356/0, routes 200, E2E green —
+quiz 5/5 live, 14 solutions expanded (17 pills), 166 KaTeX nodes, 0
+errors, no console errors.**
+
+**SVG audit (owner directive):** the platform overlap auditor found three
+TEXT/RECT collisions in the 4.3 lattice figure (the column-sum labels at
+y = 224 touched the bottom cell row) — labels moved to y = 232, AB
+geometry check updated (colLabelY − gridBottom ≥ 18), re-audited: both new
+figures **0 issues**.
+
+**Step 3 — unit-4 completion review:** exam corners 4/4 (one exam callout
+per lesson); lesson ids globally unique across the whole library
+(65 ids, zero duplicate); ch-04.ts flipped `status: 'complete'`,
+`plannedLessons: []`, header + summary rewritten for the closed chapter;
+book.ts status/notes updated (ch. 4 COMPLETE 4/4; chapter 5 completed
+entirely at run 57); chapter totals recomputed by
+`build_work_inventory.ts` — **chapter 4 = 20,839 words / 32 terms /
+20 quiz / 55 exercises** (4.1: 5,233/8/5/13 · 4.2: 5,117/8/5/14 ·
+4.3: 5,285/8/5/14 · 4.4: 5,204/8/5/14); the book stands **15 lessons /
+78,533 words / 120 terms / 75 quiz / 202 exercises**; the library stands
+63 lessons / 306,102 words / 475 terms / 315 quiz / 736 exercises.
+
+**Step 4 — ship:** WORKLOG.md (this entry), PROGRESS.json, RESUME_POINTER.json,
+SOURCE_LOG.md (seven new citation keys + the run-56 ledger entry, zero
+downloads), WORK_INVENTORY.json regenerated, DETAILED_LOG.md run-56 record.
+Commit `ans ch.4 closes: lessons 4.3 + 4.4 shipped verify-first, unit-4 review passed (run 56)` +
+a memory commit; then the protocol push (one-time HTTPS URL, all unpushed
+commits, remote HEAD verified, tracking ref resynced — shas noted in the
+RESUME_POINTER run56Extras record).
+
+**Remaining:** run 57 = ANS chapter 5 'Congruences: The Arithmetic of
+Remainders' completed ENTIRELY (all four lessons + the unit-5 completion
+review in one run; create verify-book2-ch05.ts FIRST, whitelist it +
+e2e-ans-51..54 in .gitignore). Exam registry research still pending.
+
+---
+
 ## 2026-11-06 — CONFIG RUN (owner chat directive, ~01:05 IST; no lessons authored): ONE FULL CHAPTER PER RUN + hourly cron rescheduled (jobs 504365 + 498279 deleted → new job 506464)
 
 **Directive (owner, chat, 2026-11-06):** each scheduled run now completes

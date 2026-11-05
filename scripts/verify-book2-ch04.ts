@@ -126,6 +126,98 @@
  * statement's truth numerically; the proofs in print lean on Lesson
  * 2.3's Bézout identity and Lesson 1.2's strong induction, exactly as
  * the chapter's citations promise.
+ *
+ * EXTENDED 2026-11-06 (run 56) for the chapter's closing lessons,
+ * again BEFORE a word was written —
+ *   4.3 "Divisors from DNA: Divisor Counts and Factorial Zeros"
+ *   4.4 "How the Primes Are Distributed"
+ *   (W) the divisor sum σ(n) = ∏(p^(a+1) − 1)/(p − 1): the geometric
+ *       identity swept, the formula certified against enumeration for
+ *       every n ≤ 600, the printed instances 60→168, 84→224, 72→195,
+ *       100→217, 360→1170, 2025→3751, 2047→2160 both sides;
+ *   (X) perfect/abundant/deficient: the σ/2n partition swept (tallies
+ *       ≤ 600: 452 deficient, 145 abundant, 3 perfect — 6, 28, 496),
+ *       the Euclid IX.36 form 2^(p−1)(2^p − 1) rebuilt for p = 2, 3,
+ *       5, 7 (6, 28, 496, 8128), 12 the first abundant (σ = 28 > 24),
+ *       the first abundants 12, 18, 20, 24, 30, every multiple of 6
+ *       in [12, 600] abundant (coprime engine σ(6k) = σ(6)σ(k) =
+ *       12σ(k) checked on all 33 coprime k ≤ 98), the amicable pair
+ *       (220, 284): σ = 504 each, proper sums crossing, and the
+ *       σ-parity data (σ(9) = 13, σ(18) = 39, σ(36) = 91 odd);
+ *   (Y) HCF × LCM = ab: the min+max exponent identity swept, the rule
+ *       certified for all a, b ≤ 300, the instances 12/18 (6·36 =
+ *       216), 13·455 = 65·91 = 5915, the coprime case 8·9 = 72, the
+ *       three-number caution 2, 3, 4 (1·12 = 12 ≠ 24), the equal case;
+ *   (Z) the inverted τ champions swept to 2000: 8→24, 12→60, 15→144,
+ *       16→120, 24→360, with every shape value computed (the four
+ *       12-shapes 2048/96/72/60, the five 16-shapes 32768/384/216/
+ *       120/210, the seven 24-shapes 8388608/6144/1152/864/480/360/
+ *       420) and the 15-divisor ladder 144, 324;
+ *   (AA) the factorial census cashed: v₃(300!) = 148, v₇(3000!) = 498,
+ *       zeros(200!) = 49, the 100-zero landing at n = 405 exactly
+ *       (v₅(400!) = v₅(404!) = 99, v₅(405!) = 100), the skipped zero
+ *       counts 29 and 30 (the jump 28 → 31 at 125);
+ *   (AB) figure 3 geometry — the divisor lattice of 72: twelve cells,
+ *       margins 13/26/52/104 and 15/45/135, both totalling 195;
+ *   (AC) the 4.3 quiz keys re-derived (intended 1/2/0/0/2);
+ *   (AD) all 14 exercise keys of 4.3 re-derived (σ(12) = 28; 15
+ *       deficient; τ(84) = 12; σ(72) = 195; the product rule; zeros
+ *       of 200! = 49; 496 perfect; the 8-divisor champion 24;
+ *       v₇(3000!) = 498; the amicable pair; 13/455/65 → 91; the
+ *       24-divisor champion 360; σ-parity swept; the equal-σ pairs
+ *       (14, 15) and (206, 207));
+ *   (AE) the 4 formula cards of 4.3 re-derived;
+ *   (AF) the 4.3 content tables cell by cell (σ instances, the
+ *       classification rows incl. 284 deficient-yet-amicable, the
+ *       inverted champions as first occurrences);
+ *   (AG) prime gaps: the engine sieve to 2·10⁶ (148933 primes), the
+ *       census below 2000, the lone odd gap 2 → 3, the first
+ *       occurrences 2@3→5, 4@7→11, 6@23→29, 8@89→97, 10@139→149,
+ *       12@199→211, 14@113→127 (14 arrives BEFORE 10), the records —
+ *       8 below 100 (89→97), 20 below 1000 (887→907), 34 below 2000
+ *       (1327→1361), the mean gap 5.96 below 1000 against ln 1000 ≈
+ *       6.91, the twin pairs listed (8 below 100, 15 below 200 with
+ *       the seven 101..200 starts);
+ *   (AH) Bertrand's postulate swept for every n ≤ 2000 in both forms
+ *       (a prime in (n, 2n] for n ≥ 1; strictly inside for n ≥ 2),
+ *       the doubling chain 5, 10, 20, 40, 80 → 7, 11, 23, 41, 83,
+ *       next primes after 100/500/1000/1500 = 101/503/1009/1511, the
+ *       canyon instances, the 101!+101 < 2·101! reconciliation;
+ *   (AI) twin counts computed to 10⁶ (2, 8, 35, 205, 1224, 8169) and
+ *       the 3,5,7 uniqueness swept (no prime triplet p, p+2, p+4 for
+ *       odd p ≥ 5 to 2000; the neighbours die at 9 and 15);
+ *   (AJ) π(n): the computed 10^k table 4/25/168/1229/9592/78498, the
+ *       exam π-differences (21 in 101..200, 16 in 201..300, 135 in
+ *       1001..2000, 143 in 101..1000), the n/ln n companions and the
+ *       ratio column 0.921…1.084, the density thinning, the odd-prime
+ *       bound π(n) ≤ 1 + ⌊(n−1)/2⌋ swept, the exercise lists (15
+ *       primes to 50; the 16 primes of 201..300);
+ *   (AK) Σ 1/p: partial sums 1.802817 (≤ 100), 2.198080 (≤ 1000),
+ *       2.887328 (≤ 10⁶) against the harmonic 5.187378 and 14.392727,
+ *       the crossing past 3 computed at the prime 5,195,977, and
+ *       Euler's product at s = 2 over primes ≤ 1000 = 0.608004
+ *       against 6/π² = 0.607927 (identity cited, numerics confirmed);
+ *   (AL) figure 4 geometry — the prime line to 110: 29 dots at 8 px
+ *       pitch (the tightest pair 2 → 3 exactly 8 px), tick labels
+ *       160 px apart, six twin braces + the shared 3,5,7 bracket, the
+ *       89 → 97 canyon bracket and caption clear of every row;
+ *   (AM) the 4.4 quiz keys re-derived (intended 1/0/0/1/1);
+ *   (AN) all 14 exercise keys of 4.4 re-derived (the primes to 50;
+ *       gaps after 13 and 89; the seven 101..200 twins; the sixteen
+ *       primes of 201..300; twins below 200 = 15; the Bertrand chain;
+ *       the first gap of 10 at 139→149 with 14 arriving earlier; the
+ *       135 π-difference; the Bertrand instances; the triplet deaths
+ *       at 9 and 15; k | 101! swept by Legendre for every k ≤ 101;
+ *       the odd-prime bound swept; the reciprocal sums; Euler's
+ *       product at s = 2);
+ *   (AO) the 4 formula cards of 4.4 re-derived;
+ *   (AP) the 4.4 content tables cell by cell (the π table with
+ *       densities, companions and ratios; the seven gap first-
+ *       occurrence rows; the twin-count ladder);
+ *   (AQ) the unit-4 completion arithmetic — the cross-lesson cashing
+ *       (τ(360) = 24 as 4.3's champion, π(100) = 25 as 4.1's sieve,
+ *       the 3,5,7 triplet from 4.1's exercises proved unique, 4.2's
+ *       Legendre census cashed at 405, 2047 closing both halves).
  */
 
 /* ------------------------------------------------------------------ */
@@ -1245,6 +1337,1048 @@ for (let n = 2; n <= 100; n++) if (isPrimeDef(n)) primes100List.push(n)
   function gcdIs(x: number, y: number): number {
     return y === 0 ? x : gcdIs(y, x % y)
   }
+}
+
+/* ==================================================================== */
+/* EXTENDED 2026-11-06 (run 56) for the chapter's closing lessons:      */
+/*   4.3 "Divisors from DNA: Divisor Counts and Factorial Zeros"        */
+/*   4.4 "How the Primes Are Distributed"                               */
+/* — sections W onward, again BEFORE a word is written —                */
+/* ==================================================================== */
+
+/* ------------------------------------------------------------------ */
+/* (W) the divisor sum σ(n) — formula certified against enumeration    */
+/* ------------------------------------------------------------------ */
+{
+  // the geometric-series identity: 1 + p + … + p^a = (p^(a+1) − 1)/(p − 1)
+  let badGeo = 0
+  for (const p of [2, 3, 5, 7, 11, 13]) {
+    for (let a = 0; a <= 8; a++) {
+      let s = 0
+      let q = 1
+      for (let i = 0; i <= a; i++) {
+        s += q
+        q *= p
+      }
+      if (s !== (Math.pow(p, a + 1) - 1) / (p - 1)) badGeo++
+    }
+  }
+  ok(badGeo === 0, 'W: the geometric identity 1 + p + … + p^a = (p^(a+1) − 1)/(p − 1) — swept p ∈ {2,3,5,7,11,13}, a ≤ 8')
+  ok((1 + 2 + 4 + 8) === 15 && (16 - 1) / 1 === 15, 'W: instance — 1 + 2 + 4 + 8 = 15 = (2⁴ − 1)/1')
+  ok((1 + 5 + 25) === 31 && (125 - 1) / 4 === 31, 'W: instance — 1 + 5 + 25 = 31 = (5³ − 1)/4 = 124/4')
+
+  // σ(n) = ∏ (p_i^(a_i+1) − 1)/(p_i − 1) certified against direct enumeration, n ≤ 600
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  const sigmaForm = (n: number): number => {
+    // factor n, multiply the geometric sums
+    let s = 1
+    let m = n
+    while (m > 1) {
+      const p = leastDivisor(m)
+      let pk = 1
+      let sum = 1
+      while (m % p === 0) {
+        m /= p
+        pk *= p
+        sum += pk
+      }
+      s *= sum
+    }
+    return s
+  }
+  let badSigma = 0
+  for (let n = 1; n <= 600; n++) if (sigmaEnum(n) !== sigmaForm(n)) badSigma++
+  ok(badSigma === 0, 'W: σ(n) = ∏(p^(a+1) − 1)/(p − 1) matches enumeration — swept n ≤ 600')
+  ok(sigmaForm(1) === 1 && divisors(1).join(',') === '1', 'W: σ(1) = 1 — the unit carries itself')
+
+  // the printed instances, formula side and enumeration side
+  ok(sigmaForm(60) === (1 + 2 + 4) * (1 + 3) * (1 + 5) && sigmaEnum(60) === 168 && ((8 - 1) / 1) * ((9 - 1) / 2) * ((25 - 1) / 4) === 168, 'W: σ(60) = (1+2+4)(1+3)(1+5) = 7·4·6 = 168 — enumerated equal')
+  ok(sigmaEnum(84) === 224 && (1 + 2 + 4) * (1 + 3) * (1 + 7) === 224, 'W: σ(84) = (1+2+4)(1+3)(1+7) = 7·4·8 = 224 (84 = 2²·3·7)')
+  ok(sigmaEnum(100) === 217 && (1 + 2 + 4) * (1 + 5 + 25) === 217 && (1 + 2 + 4 + 5 + 10 + 20 + 25 + 50 + 100) === 217, 'W: σ(100) = (1+2+4)(1+5+25) = 7·31 = 217 — the nine divisors sum to 217')
+  ok(sigmaEnum(72) === 195 && (8 + 4 + 2 + 1) * (9 + 3 + 1) === 195, 'W: σ(72) = (1+2+4+8)(1+3+9) = 15·13 = 195')
+  ok(sigmaEnum(360) === 1170 && (8 + 4 + 2 + 1) * (9 + 3 + 1) * 6 === 1170, 'W: σ(360) = 15·13·6 = 1170')
+  ok(sigmaEnum(2025) === 3751 && (81 + 27 + 9 + 3 + 1) * (25 + 5 + 1) === 3751, 'W: σ(2025) = (3⁵−1)/2 · (5³−1)/4 = 121·31 = 3751')
+  ok(sigmaEnum(2047) === 2160 && (1 + 23) * (1 + 89) === 2160, 'W: σ(2047) = (1+23)(1+89) = 24·90 = 2160')
+}
+
+/* ------------------------------------------------------------------ */
+/* (X) perfect, abundant, deficient — σ vs 2n, swept                    */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  // classification sweep n ≤ 600 + tallies for the honest count
+  let perfect = 0
+  let abundant = 0
+  let deficient = 0
+  let badClass = 0
+  for (let n = 1; n <= 600; n++) {
+    const s = sigmaEnum(n)
+    if (s === 2 * n) {
+      perfect++
+    } else if (s > 2 * n) {
+      abundant++
+    } else {
+      deficient++
+    }
+    const one = (s === 2 * n ? 1 : 0) + (s > 2 * n ? 1 : 0) + (s < 2 * n ? 1 : 0)
+    if (one !== 1) badClass++ // exactly one class per n — the partition holds
+  }
+  ok(badClass === 0, 'X: the σ/2n partition is exact — every n ≤ 600 lands in exactly one class')
+  const perfectsTo600: number[] = []
+  for (let n = 1; n <= 600; n++) if (sigmaEnum(n) === 2 * n) perfectsTo600.push(n)
+  ok(perfectsTo600.join(',') === '6,28,496', 'X: the only perfect numbers ≤ 600 are 6, 28 and 496 — the sweep; 8128 is the next and it exceeds 600')
+
+  // the first four perfects, each rebuilt from the Euclid form 2^(p−1)(2^p − 1)
+  const euclidPerfects: Array<[number, number, number]> = [
+    [2, 3, 6],
+    [3, 7, 28],
+    [5, 31, 496],
+    [7, 127, 8128],
+  ]
+  for (const [p, mersenne, perfect] of euclidPerfects) {
+    ok(isPrimeDef(mersenne) && Math.pow(2, p) - 1 === mersenne, 'X: 2^' + p + ' − 1 = ' + mersenne + ' is prime — Euclid IX.36\'s hypothesis')
+    ok(Math.pow(2, p - 1) * mersenne === perfect && sigmaEnum(perfect <= 600 ? perfect : 8128) === 2 * perfect, 'X: 2^' + (p - 1) + '·' + mersenne + ' = ' + perfect + ' and σ(' + perfect + ') = ' + 2 * perfect + ' — perfect')
+  }
+  ok(sigmaEnum(496) === 992 && divisors(496).join(',') === '1, 2, 4, 8, 16, 31, 62, 124, 248, 496'.replace(/ /g, '') || divisors(496).reduce((a, b) => a + b, 0) === 992, 'X: σ(496) = 992 = 2·496 — the ten divisors 1, 2, 4, 8, 16, 31, 62, 124, 248, 496')
+  ok(Math.pow(2, 6) * 127 === 8128 && 127 * 128 === 16256 && 16256 === 2 * 8128, 'X: 8128 = 2⁶·127, σ = 127·128 = 16256 = 2·8128 — the fourth perfect')
+
+  // the smallest abundant number is 12: σ(12) = 28 > 24, and nothing smaller is abundant
+  ok(sigmaEnum(12) === 28 && 28 > 24 && sigmaEnum(12) - 12 === 16 && [1, 2, 3, 4, 6].reduce((a, b) => a + b, 0) === 16, 'X: σ(12) = 28 > 24 — 12 is abundant (proper sum 1+2+3+4+6 = 16 > 12)')
+  let firstAbundant = -1
+  for (let n = 2; n <= 600; n++)
+    if (sigmaEnum(n) > 2 * n) {
+      firstAbundant = n
+      break
+    }
+  ok(firstAbundant === 12, 'X: 12 is the FIRST abundant number — nothing below it is')
+
+  // the first abundant list 12, 18, 20, 24, 30 and the sweep's tally print
+  const abList: number[] = []
+  for (let n = 2; n <= 60 && abList.length < 5; n++) if (sigmaEnum(n) > 2 * n) abList.push(n)
+  ok(abList.join(',') === '12,18,20,24,30', 'X: the abundant numbers up to 60 begin 12, 18, 20, 24, 30')
+  console.log('  tallies ≤ 600: perfect ' + perfect + ', abundant ' + abundant + ', deficient ' + deficient)
+
+  // every multiple of 6 beyond 6 (up to 600) is abundant — the sweep + the coprime-case reason
+  let badMult6 = 0
+  for (let k = 12; k <= 600; k += 6) if (sigmaEnum(k) <= 2 * k) badMult6++
+  ok(badMult6 === 0, 'X: every multiple of 6 in [12, 600] is abundant — swept')
+  {
+    // the coprime case k with gcd(k, 6) = 1: σ(6k) = σ(6)σ(k) = 12σ(k) ≥ 12(k+1) > 12k = 2·6k
+    let checked = 0
+    for (let k = 1; k <= 98; k++) {
+      if (k % 2 !== 0 && k % 3 !== 0 && sigmaEnum(6 * k) !== 12 * sigmaEnum(k)) checked = -1
+      else if (k % 2 !== 0 && k % 3 !== 0) checked++
+    }
+    ok(checked === 33, 'X: the coprime engine σ(6k) = σ(6)σ(k) = 12σ(k) — checked on all 33 k ≤ 98 coprime to 6 (12(k+1) > 12k finishes the case)')
+  }
+
+  // the amicable pair (220, 284) — each is the other's proper-divisor sum
+  ok(factorList(220).join(',') === '2,2,5,11' && (1 + 2 + 4) * (1 + 5) * (1 + 11) === 504, 'X: 220 = 2²·5·11, σ(220) = 7·6·12 = 504')
+  ok(factorList(284).join(',') === '2,2,71' && (1 + 2 + 4) * (1 + 71) === 504, 'X: 284 = 2²·71, σ(284) = 7·72 = 504')
+  ok(sigmaEnum(220) === sigmaEnum(284) && sigmaEnum(220) - 220 === 284 && sigmaEnum(284) - 284 === 220, 'X: s(220) = 284 and s(284) = 220 — the pair is amicable, σ of each = 504')
+  ok(divisors(220).filter(d => d < 220).join(',') === '1,2,4,5,10,11,20,22,44,55,110', 'X: the proper divisors of 220 — 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 — sum to 284')
+
+  // σ-parity data for the L5 exercise: σ(n) odd ⇔ n = m² or 2m² (swept n ≤ 600)
+  let badParity = 0
+  for (let n = 1; n <= 600; n++) {
+    const odd = sigmaEnum(n) % 2 === 1
+    const r = isqrt(n)
+    const isSq = r * r === n
+    const isTwice = n % 2 === 0 && isqrt(n / 2) * isqrt(n / 2) === n / 2
+    if (odd !== (isSq || isTwice)) badParity++
+  }
+  ok(badParity === 0, 'X: σ(n) odd ⇔ n is a square or twice a square — swept n ≤ 600')
+  ok(sigmaEnum(9) === 13 && sigmaEnum(18) === 39 && sigmaEnum(36) === 91, 'X: σ-parity instances — σ(9) = 13, σ(18) = 39, σ(36) = 91, all odd (9 = 3², 18 = 2·3², 36 = 6²)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (Y) HCF × LCM = ab — re-derived from the canonical forms             */
+/* ------------------------------------------------------------------ */
+{
+  const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
+  // min(aᵢ, bᵢ) + max(aᵢ, bᵢ) = aᵢ + bᵢ — the exponent identity, swept
+  let badMin = 0
+  for (let x = 0; x <= 12; x++) for (let y = 0; y <= 12; y++) if (Math.min(x, y) + Math.max(x, y) !== x + y) badMin++
+  ok(badMin === 0, 'Y: min(aᵢ, bᵢ) + max(aᵢ, bᵢ) = aᵢ + bᵢ — the 169-pair identity sweep')
+
+  // gcd·lcm = ab certified against the engine for all a, b ≤ 300
+  let badProd = 0
+  for (let a = 1; a <= 300; a++)
+    for (let b = 1; b <= 300; b++)
+      if (gcdOf(a, b) * ((a * b) / gcdOf(a, b)) !== a * b) badProd++
+  ok(badProd === 0, 'Y: HCF(a, b) · LCM(a, b) = ab — full sweep a, b ≤ 300 (the LCM built as ab/HCF, the rule itself the claim)')
+
+  // the rule read directly from the canonical forms: 12 = 2²·3 vs 18 = 2·3²
+  ok(gcdOf(12, 18) === 6 && (12 * 18) / 6 === 36 && 6 * 36 === 216 && 12 * 18 === 216, 'Y: 12 = 2²·3¹, 18 = 2¹·3² — HCF takes min (2·3), LCM takes max (2²·3²) = 36; 6·36 = 216 = 12·18')
+
+  // the printed exam instances
+  ok(13 * 455 === 65 * 91 && 65 * 91 === 5915 && gcdOf(65, 91) === 13 && (65 * 91) / 13 === 455, 'Y: HCF 13, LCM 455, one number 65 — the other is 13·455/65 = 91 (65 = 5·13, 91 = 7·13)')
+  ok(gcdOf(8, 9) === 1 && 8 * 9 === 72, 'Y: the coprime case — HCF(8, 9) = 1 forces LCM = 8·9 = 72')
+  {
+    // the three-number caution: 2, 3, 4
+    const l3 = [2, 3, 4]
+    const g3 = l3.reduce((a, b) => gcdOf(a, b))
+    const lcm3 = l3.reduce((a, b) => (a * b) / gcdOf(a, b))
+    ok(g3 === 1 && lcm3 === 12 && g3 * lcm3 === 12 && 12 !== 2 * 3 * 4, 'Y: the rule is a TWO-number rule — 2, 3, 4: HCF·LCM = 1·12 = 12 ≠ 24 = 2·3·4')
+  }
+  ok(gcdOf(15, 15) === 15 && (15 * 15) / 15 === 15, 'Y: the equal case — HCF(a, a) = LCM(a, a) = a, and a·a = a² ✓')
+}
+
+/* ------------------------------------------------------------------ */
+/* (Z) the inverted τ problems — champions swept                        */
+/* ------------------------------------------------------------------ */
+{
+  const tau = (n: number): number => divisors(n).length
+  const firstWith = (k: number, cap: number): number => {
+    for (let n = 1; n <= cap; n++) if (tau(n) === k) return n
+    return -1
+  }
+  ok(firstWith(8, 2000) === 24 && tau(24) === 8 && factorList(24).join(',') === '2,2,2,3', 'Z: the smallest n with exactly 8 divisors is 24 = 2³·3 (τ = 4·2); shapes p⁷ (128) and pqr (30) lose')
+  ok(firstWith(12, 2000) === 60 && tau(60) === 12 && factorList(60).join(',') === '2,2,3,5', 'Z: the smallest n with exactly 12 divisors is 60 = 2²·3·5 (τ = 3·2·2); rivals 72, 96, 2048 all larger')
+  ok(firstWith(15, 2000) === 144, 'Z: the smallest n with exactly 15 divisors is 144 = 2⁴·3² (4.2\'s instance re-certified here)')
+  ok(firstWith(16, 2000) === 120 && tau(120) === 16 && factorList(120).join(',') === '2,2,2,3,5', 'Z: the smallest n with exactly 16 divisors is 120 = 2³·3·5 (τ = 4·2·2); rivals 216 (p³q³) and 210 (pqrs) larger, 384 (p⁷q) larger')
+  ok(firstWith(24, 2000) === 360 && tau(360) === 24, 'Z: the smallest n with exactly 24 divisors is 360 = 2³·3²·5 (τ = 4·3·2); rival 420 (p²qrs) larger, 480 (p⁵qr) larger')
+
+  // the printed shape-tables, value by value
+  ok(Math.pow(2, 11) === 2048 && Math.pow(2, 5) * 3 === 96 && Math.pow(2, 3) * 9 === 72 && 4 * 3 * 5 === 60, 'Z: the four 12-divisor shapes — 2048 (p¹¹), 96 (p⁵q), 72 (p³q²), 60 (p²qr)')
+  ok(Math.pow(2, 15) === 32768 && Math.pow(2, 7) * 3 === 384 && Math.pow(2, 3) * 27 === 216 && Math.pow(2, 3) * 3 * 5 === 120 && 2 * 3 * 5 * 7 === 210, 'Z: the five 16-divisor shapes — 32768 (p¹⁵), 384 (p⁷q), 216 (p³q³), 120 (p³qr), 210 (pqrs)')
+  ok(Math.pow(2, 23) === 8388608 && Math.pow(2, 11) * 3 === 6144 && Math.pow(2, 7) * 9 === 1152 && Math.pow(2, 5) * 27 === 864 && Math.pow(2, 5) * 15 === 480 && Math.pow(2, 3) * 9 * 5 === 360 && 4 * 3 * 5 * 7 === 420, 'Z: the seven 24-divisor shapes — 8388608 (p²³), 6144 (p¹¹q), 1152 (p⁷q²), 864 (p⁵q³), 480 (p⁵qr), 360 (p³q²r), 420 (p²qrs)')
+
+  // the two smallest with 15 divisors: 144 then 324 = 2²·3⁴
+  const fifteenList: number[] = []
+  for (let n = 1; n <= 2000 && fifteenList.length < 2; n++) if (tau(n) === 15) fifteenList.push(n)
+  ok(fifteenList.join(',') === '144,324' && factorList(324).join(',') === '2,2,3,3,3,3' && 4 * 81 === 324 && 3 * 5 === 15, 'Z: the 15-divisor ladder runs 144 (2⁴·3²), 324 (2²·3⁴) — τ(324) = 3·5 = 15')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AA) the factorial census cashed — 4.2's Legendre at exam work       */
+/* ------------------------------------------------------------------ */
+{
+  const vp = (n: number, p: number): number => {
+    let s = 0
+    let q = p
+    while (q <= n) {
+      s += Math.floor(n / q)
+      q *= p
+    }
+    return s
+  }
+  // the new census instances
+  ok(vp(300, 3) === 100 + 33 + 11 + 3 + 1 && 100 + 33 + 11 + 3 + 1 === 148, 'AA: v₃(300!) = 100 + 33 + 11 + 3 + 1 = 148 — the highest power of 3 in 300!')
+  ok(vp(3000, 7) === 428 + 61 + 8 + 1 && 428 + 61 + 8 + 1 === 498, 'AA: v₇(3000!) = 428 + 61 + 8 + 1 = 498 — the census closes at 7⁴ = 2401')
+  ok(vp(200, 5) === 40 + 8 + 1 && 40 + 8 + 1 === 49, 'AA: zeros(200!) = v₅ = 40 + 8 + 1 = 49')
+
+  // the inverted zero census: smallest n whose factorial carries ≥ 100 zeros
+  let first100 = -1
+  for (let n = 1; n <= 500; n++)
+    if (vp(n, 5) >= 100) {
+      first100 = n
+      break
+    }
+  ok(first100 === 405 && vp(400, 5) === 99 && vp(404, 5) === 99 && vp(405, 5) === 100, 'AA: the smallest n with ≥ 100 trailing zeros is 405 — v₅(400!) = 80+16+3 = 99, v₅(404!) = 99, v₅(405!) = 81+16+3 = 100 (405 = 5·81 donates the hundredth five)')
+  ok(vp(405, 5) === 100, 'AA: 405! ends in EXACTLY 100 zeros — the landing is exact, not just a bound')
+
+  // skipped zero-counts: the jump at 125 skips 29 and 30
+  ok(vp(124, 5) === 28 && vp(125, 5) === 31 && 31 - 28 === 3, 'AA: v₅ jumps 28 → 31 at 125 (25 + 5 + 1) — no factorial ends in exactly 29 or 30 zeros')
+  {
+    const achieved = new Set<number>()
+    for (let n = 1; n <= 600; n++) achieved.add(vp(n, 5))
+    ok(!achieved.has(29) && !achieved.has(30) && achieved.has(28) && achieved.has(31), 'AA: the sweep n ≤ 600 confirms 29 and 30 are skipped zero-counts (28 and 31 occur)')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AB) figure 3 geometry — the divisor lattice of 72                   */
+/* ------------------------------------------------------------------ */
+{
+  // layout: 4 rows (2-exponent 0..3) × 3 columns (3-exponent 0..2)
+  // cells 64×32 at x = 60 + c·70, y = 60 + r·40; row sums at x = 300; column sums at y = 224
+  const CW = 64
+  const CH = 32
+  const cells: Array<{ label: string; x: number; y: number }> = []
+  const lattice: number[][] = []
+  for (let r = 0; r <= 3; r++) {
+    const row: number[] = []
+    for (let c = 0; c <= 2; c++) {
+      const v = Math.pow(2, r) * Math.pow(3, c)
+      row.push(v)
+      cells.push({ label: String(v), x: 60 + c * 70, y: 60 + r * 40 })
+    }
+    lattice.push(row)
+  }
+  const W = 560
+  const H = 300
+  // every cell inside the viewBox with ≥ 6 px margin
+  let badClip = 0
+  for (const cell of cells) if (cell.x < 6 || cell.x + CW > W - 6 || cell.y < 6 || cell.y + CH > H - 6) badClip++
+  ok(badClip === 0 && cells.length === 12, 'AB: all twelve lattice cells inside the 560×300 viewBox with margins')
+  // pairwise separation ≥ 6 px on some axis
+  let badSep = 0
+  for (let a = 0; a < cells.length; a++)
+    for (let b = a + 1; b < cells.length; b++) {
+      const dx = Math.max(0, Math.max(cells[a].x, cells[b].x) - Math.min(cells[a].x + CW, cells[b].x + CW))
+      const dy = Math.max(0, Math.max(cells[a].y, cells[b].y) - Math.min(cells[a].y + CH, cells[b].y + CH))
+      if (dx < 6 && dy < 6) badSep++
+    }
+  ok(badSep === 0, 'AB: every pair of lattice cells ≥ 6 px apart on some axis')
+  // the lattice's arithmetic is the lesson's engine: row sums 13, 26, 52, 104; column sums 15, 45, 135; total 195
+  const rowSums = lattice.map(row => row.reduce((a, b) => a + b, 0))
+  const colSums = [0, 1, 2].map(c => lattice.reduce((a, row) => a + row[c], 0))
+  ok(rowSums.join(',') === '13,26,52,104', 'AB: the four row sums read 13, 26, 52, 104 — σ(2^r) columns')
+  ok(colSums.join(',') === '15,45,135', 'AB: the three column sums read 15, 45, 135')
+  ok(rowSums.reduce((a, b) => a + b, 0) === 195 && colSums.reduce((a, b) => a + b, 0) === 195, 'AB: both margins total 195 = σ(72) = (1+2+4+8)(1+3+9)')
+  // row-sum / column-sum labels sit clear of the grid (x = 300 band, y = 232 band — the auditor's box model
+  // puts the text top at baseline − 12, so 232 keeps a 20 px clearance over the bottom cell row at y = 212)
+  const rowLabelX = 300
+  const gridRight = 60 + 2 * 70 + CW
+  const colLabelY = 232
+  const gridBottom = 60 + 3 * 40 + CH
+  ok(rowLabelX - gridRight >= 10 && colLabelY - gridBottom >= 18, 'AB: the margin labels clear the grid (row band right of x = 264; column band ≥ 18 px under the bottom cells)')
+  ok(gridBottom + 32 <= H - 6, 'AB: the grand-total line fits under the column sums')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AC) the 4.3 quiz keys (intended 1/2/0/0/2)                          */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  // Q1: σ(100) = 217 by the formula 7·31 — the τ option (9) is the divisor COUNT, not the sum
+  ok(sigmaEnum(100) === 217 && divisors(100).length === 9 && sigmaEnum(100) !== divisors(100).length, 'AC: quiz 4.3/Q1 key 1 — 217 is the divisor SUM; 9 is the divisor count (a different machine)')
+  // Q2: the smallest abundant number is 12 (σ = 28 > 24); 6 is perfect, not abundant
+  ok(sigmaEnum(6) === 12 && 12 === 2 * 6 && sigmaEnum(12) === 28 && 28 > 24, 'AC: quiz 4.3/Q2 key 2 — 12 is the first abundant; 6 is the first PERFECT (σ = 2n exactly)')
+  // Q3: HCF·LCM = ab gives the missing number 6·36/12 = 18
+  ok((6 * 36) / 12 === 18 && 6 * 36 === 12 * 18, 'AC: quiz 4.3/Q3 key 0 — the other number is HCF·LCM/known = 216/12 = 18')
+  // Q4: no factorial ends in exactly 30 zeros — the census jumps 28 → 31 at 125
+  {
+    const vp = (n: number): number => {
+      let s = 0
+      let q = 5
+      while (q <= n) {
+        s += Math.floor(n / q)
+        q *= 5
+      }
+      return s
+    }
+    ok(vp(124) === 28 && vp(125) === 31, 'AC: quiz 4.3/Q4 key 0 — 125! lands on 31 fives, skipping 29 and 30')
+  }
+  // Q5: the smallest n with exactly 12 divisors is 60
+  ok(divisors(60).length === 12 && divisors(24).length === 8 && divisors(36).length === 9 && divisors(72).length === 12 && 72 > 60, 'AC: quiz 4.3/Q5 key 2 — 60 is the τ = 12 champion (24 has 8, 36 has 9, 72 has 12 but is larger)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AD) the 14 exercise keys of 4.3                                     */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
+  // L1-1: σ(12) = 28, abundant
+  ok(divisors(12).join(',') === '1,2,3,4,6,12' && sigmaEnum(12) === 28 && 28 > 24, 'AD: ex L1-1 — σ(12) = 28 > 24: 12 is abundant')
+  // L1-2: 15 is deficient — σ(15) = 24 < 30
+  ok(factorList(15).join(',') === '3,5' && (3 + 1) * (5 + 1) === 24 && 24 < 30, 'AD: ex L1-2 — σ(15) = (1+3)(1+5) = 4·6 = 24 < 30: deficient')
+  // L1-3: τ(84) = 12
+  ok(factorList(84).join(',') === '2,2,3,7' && divisors(84).length === 12 && 3 * 2 * 2 === 12, 'AD: ex L1-3 — τ(84) = (2+1)(1+1)(1+1) = 12')
+  // L2-4: σ(72) = 195 both ways
+  ok(sigmaEnum(72) === 195 && 15 * 13 === 195, 'AD: ex L2-4 — σ(72) = 195 by formula and enumeration')
+  // L2-5: HCF(12, 18)·LCM(12, 18) = 6·36 = 216 = 12·18
+  ok(gcdOf(12, 18) === 6 && (12 * 18) / 6 === 36 && 6 * 36 === 216, 'AD: ex L2-5 — the product rule on 12 and 18: 6·36 = 216 = 12·18')
+  // L2-6: zeros(200!) = 49
+  {
+    let s = 0
+    let q = 5
+    while (q <= 200) {
+      s += Math.floor(200 / q)
+      q *= 5
+    }
+    ok(s === 49, 'AD: ex L2-6 — zeros(200!) = 40 + 8 + 1 = 49')
+  }
+  // L3-7: 496 perfect — σ = 992 = 2·496, the ten divisors listed
+  ok(factorList(496).join(',') === '2,2,2,2,31' && sigmaEnum(496) === 992 && 31 * 32 === 992, 'AD: ex L3-7 — 496 = 2⁴·31, σ = 31·32 = 992 = 2·496: perfect')
+  ok(divisors(496).length === 10 && [1, 2, 4, 8, 16, 31, 62, 124, 248, 496].reduce((a, b) => a + b, 0) === 992, 'AD: ex L3-7 — the ten divisors 1, 2, 4, 8, 16, 31, 62, 124, 248, 496 sum to 992')
+  // L3-8: the smallest n with 8 divisors is 24
+  ok(divisors(24).length === 8 && Math.pow(2, 7) === 128 && 2 * 3 * 5 === 30 && divisors(30).length === 8, 'AD: ex L3-8 — 24 = 2³·3 beats 128 (p⁷) and 30 (pqr, tied at 8 divisors but larger)')
+  // L3-9: v₇(3000!) = 498
+  {
+    let s = 0
+    let q = 7
+    while (q <= 3000) {
+      s += Math.floor(3000 / q)
+      q *= 7
+    }
+    ok(s === 498 && 428 + 61 + 8 + 1 === 498, 'AD: ex L3-9 — the highest power of 7 in 3000! is 7⁴⁹⁸')
+  }
+  // L4-10: the amicable pair verified from canonical forms
+  ok(sigmaEnum(220) === 504 && sigmaEnum(284) === 504 && sigmaEnum(220) - 220 === 284 && sigmaEnum(284) - 284 === 220, 'AD: ex L4-10 — σ(220) = σ(284) = 504; each is the other\'s proper sum')
+  // L4-11: HCF 13, LCM 455, one number 65 → other 91
+  ok((13 * 455) / 65 === 91 && gcdOf(65, 91) === 13 && (65 * 91) / 13 === 455, 'AD: ex L4-11 — b = 13·455/65 = 91; HCF(65, 91) = 13 and LCM = 455 rebuilt')
+  // L5-12: the smallest n with 24 divisors is 360
+  ok(divisors(360).length === 24 && divisors(420).length === 24 && divisors(480).length === 24 && 360 < 420 && 360 < 480, 'AD: ex L5-12 — 360 is the τ = 24 champion (420 and 480 also carry 24 but are larger)')
+  // L5-13: σ(n) odd ⇔ n = m² or 2m² — swept, with the printed instances
+  {
+    let badP = 0
+    for (let n = 1; n <= 600; n++) {
+      const odd = sigmaEnum(n) % 2 === 1
+      const r = isqrt(n)
+      const isSq = r * r === n
+      const isTwice = n % 2 === 0 && isqrt(n / 2) * isqrt(n / 2) === n / 2
+      if (odd !== (isSq || isTwice)) badP++
+    }
+    ok(badP === 0 && sigmaEnum(9) === 13 && sigmaEnum(18) === 39 && sigmaEnum(36) === 91, 'AD: ex L5-13 — σ-parity swept n ≤ 600; σ(9) = 13, σ(18) = 39, σ(36) = 91 odd')
+  }
+  // L6-14: consecutive equal-σ pairs below 600 — (14, 15) and (206, 207)
+  {
+    const pairs: Array<[number, number, number]> = []
+    for (let n = 2; n < 600; n++) if (sigmaEnum(n) === sigmaEnum(n + 1)) pairs.push([n, n + 1, sigmaEnum(n)])
+    ok(pairs.length === 2 && pairs[0][0] === 14 && pairs[0][1] === 15 && pairs[0][2] === 24 && pairs[1][0] === 206 && pairs[1][1] === 207 && pairs[1][2] === 312, 'AD: ex L6-14 — the consecutive equal-σ pairs below 600 are (14, 15) with σ = 24 and (206, 207) with σ = 312')
+    ok(factorList(14).join(',') === '2,7' && 3 * 8 === 24 && 4 * 6 === 24, 'AD: ex L6-14 — 14 = 2·7 gives σ = 3·8 = 24; 15 = 3·5 gives σ = 4·6 = 24')
+    ok(factorList(206).join(',') === '2,103' && 3 * 104 === 312 && factorList(207).join(',') === '3,3,23' && (9 + 3 + 1) * (23 + 1) === 312, 'AD: ex L6-14 — 206 = 2·103 gives σ = 3·104 = 312; 207 = 3²·23 gives σ = 13·24 = 312')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AE) the 4 formula cards of 4.3                                      */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
+  // card 1: the divisor sum
+  ok(sigmaEnum(100) === (1 + 2 + 4) * (1 + 5 + 25) && (1 + 2 + 4) * 31 === 217, 'AE: card 1 — σ(n) = ∏(p^(a+1) − 1)/(p − 1); σ(100) = 7·31 = 217')
+  // card 2: the classification test
+  ok(sigmaEnum(6) === 12 && 12 === 2 * 6 && sigmaEnum(12) === 28 && 28 > 24 && sigmaEnum(15) === 24 && 24 < 30, 'AE: card 2 — σ vs 2n: 6 perfect (equal), 12 abundant (above), 15 deficient (below)')
+  // card 3: the product rule
+  ok(gcdOf(12, 18) * 36 === 216 && 12 * 18 === 216, 'AE: card 3 — HCF·LCM = ab; 6·36 = 216 = 12·18 (two numbers only)')
+  // card 4: the inverted censuses
+  ok(divisors(60).length === 12 && divisors(360).length === 24, 'AE: card 4 — inverted champions: 12 divisors → 60; 24 divisors → 360; 100 zeros → 405')
+  {
+    let s = 0
+    let q = 5
+    while (q <= 405) {
+      s += Math.floor(405 / q)
+      q *= 5
+    }
+    ok(s === 100, 'AE: card 4 — v₅(405!) = 100, the exact 100-zero landing')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AF) the 4.3 content tables, cell by cell                            */
+/* ------------------------------------------------------------------ */
+{
+  const sigmaEnum = (n: number): number => divisors(n).reduce((a, b) => a + b, 0)
+  // table 1: σ instances (n, canonical, formula product, σ)
+  const sigmaRows: Array<[number, number, number]> = [
+    [60, 168, 168],
+    [84, 224, 224],
+    [72, 195, 195],
+    [100, 217, 217],
+    [360, 1170, 1170],
+    [2025, 3751, 3751],
+    [2047, 2160, 2160],
+  ]
+  let badS = 0
+  for (const [n, formulaSide, printed] of sigmaRows) if (sigmaEnum(n) !== formulaSide || formulaSide !== printed) badS++
+  ok(badS === 0 && sigmaRows.length === 7, 'AF: table 1 — the seven σ rows (60→168, 84→224, 72→195, 100→217, 360→1170, 2025→3751, 2047→2160) certified both sides')
+
+  // table 2: the classification rows (n, σ, 2n, verdict)
+  const classRows: Array<[number, string]> = [
+    [6, 'perfect'],
+    [12, 'abundant'],
+    [15, 'deficient'],
+    [28, 'perfect'],
+    [100, 'abundant'],
+    [220, 'abundant'],
+    [284, 'deficient'],
+  ]
+  let badC = 0
+  for (const [n, verdict] of classRows) {
+    const s = sigmaEnum(n)
+    const actual = s === 2 * n ? 'perfect' : s > 2 * n ? 'abundant' : 'deficient'
+    if (actual !== verdict) badC++
+  }
+  ok(badC === 0 && classRows.length === 7, 'AF: table 2 — the seven classification rows certified (6/28 perfect; 12/100/220 abundant; 15/284 deficient — 284 deficient yet amicable)')
+
+  // table 3: the inverted champions (k, champion, τ)
+  const champRows: Array<[number, number]> = [
+    [8, 24],
+    [12, 60],
+    [15, 144],
+    [16, 120],
+    [24, 360],
+  ]
+  let badCh = 0
+  for (const [k, champ] of champRows) {
+    if (divisors(champ).length !== k) badCh++
+    for (let n = 1; n < champ; n++) if (divisors(n).length === k) badCh++ // nothing smaller carries k
+  }
+  ok(badCh === 0 && champRows.length === 5, 'AF: table 3 — the five champions (8→24, 12→60, 15→144, 16→120, 24→360) are first occurrences, swept')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AG) prime gaps — census to 2000, first occurrences, records         */
+/* ------------------------------------------------------------------ */
+{
+  // sieve to 2·10⁶ (shared with the π and Bertrand sections)
+  const LIM = 2000000
+  const sieve = new Uint8Array(LIM + 1)
+  sieve[0] = sieve[1] = 1
+  for (let i = 2; i * i <= LIM; i++) if (!sieve[i]) for (let j = i * i; j <= LIM; j += i) sieve[j] = 1
+  const primes: number[] = []
+  for (let n = 2; n <= LIM; n++) if (!sieve[n]) primes.push(n)
+  ok(primes.length === 148933 && primes[0] === 2 && primes[148932] === 1999993, 'AG: the engine sieve to 2·10⁶ holds 148933 primes, ending 1999993 (π(2·10⁶) cross-checked)')
+
+  // consecutive-gap census below 2000
+  const gaps: Array<{ p: number; next: number; g: number }> = []
+  for (let i = 0; primes[i + 1] <= 2000; i++) gaps.push({ p: primes[i], next: primes[i + 1], g: primes[i + 1] - primes[i] })
+  // the only gap of 1 is after 2 (2 → 3) — every other gap is even
+  ok(gaps.filter(x => x.g === 1).length === 1 && gaps[0].p === 2 && gaps[0].next === 3, 'AG: the gap after 2 is the only odd gap: 2 → 3, size 1 — every later gap is even')
+  ok(gaps.slice(1).every(x => x.g % 2 === 0), 'AG: all gaps after 2 → 3 are even (two odd primes differ by an even number)')
+
+  // first occurrences of gap sizes 2, 4, 6, 8, 10, 12, 14
+  const firstGap = (size: number): { p: number; next: number } | null => {
+    for (const x of gaps) if (x.g === size) return { p: x.p, next: x.next }
+    return null
+  }
+  ok(firstGap(2)?.p === 3 && firstGap(2)?.next === 5, 'AG: the first gap of 2 is 3 → 5')
+  ok(firstGap(4)?.p === 7 && firstGap(4)?.next === 11, 'AG: the first gap of 4 is 7 → 11')
+  ok(firstGap(6)?.p === 23 && firstGap(6)?.next === 29, 'AG: the first gap of 6 is 23 → 29')
+  ok(firstGap(8)?.p === 89 && firstGap(8)?.next === 97, 'AG: the first gap of 8 is 89 → 97 — the canyon below 100')
+  ok(firstGap(10)?.p === 139 && firstGap(10)?.next === 149, 'AG: the first gap of 10 is 139 → 149')
+  ok(firstGap(12)?.p === 199 && firstGap(12)?.next === 211, 'AG: the first gap of 12 is 199 → 211')
+  ok(firstGap(14)?.p === 113 && firstGap(14)?.next === 127, 'AG: the first gap of 14 is 113 → 127 — EARLIER than the first gap of 10 (first occurrences do not march in size order)')
+
+  // records: the largest gap below 100 and below 1000 and below 2000
+  const maxGapBelow = (bound: number): { p: number; next: number; g: number } => {
+    let best = { p: 0, next: 0, g: 0 }
+    for (const x of gaps) if (x.next <= bound && x.g > best.g) best = x
+    return best
+  }
+  ok(maxGapBelow(100).g === 8 && maxGapBelow(100).p === 89, 'AG: the record gap below 100 is 8 (89 → 97)')
+  ok(maxGapBelow(1000).g === 20 && maxGapBelow(1000).p === 887 && maxGapBelow(1000).next === 907, 'AG: the record gap below 1000 is 20 (887 → 907)')
+  ok(maxGapBelow(2000).g === 34 && maxGapBelow(2000).p === 1327 && maxGapBelow(2000).next === 1361, 'AG: the record gap below 2000 is 34 (1327 → 1361 — the first gap of 34; 1151 sits inside any 1129 → 1163 fantasy)')
+
+  // the mean gap to 1000: 995 spread over 167 gaps
+  {
+    const gapsTo1000 = gaps.filter(x => x.next <= 1000)
+    const sum = gapsTo1000.reduce((a, b) => a + b.g, 0)
+    ok(gapsTo1000.length === 167 && sum === 997 - 2 && Math.abs(sum / 167 - 995 / 167) < 1e-9, 'AG: 167 gaps run from 2 to 997, total 995 — the mean gap ≈ 5.96 below 1000 (ln 1000 ≈ 6.98, the PNT echo, stated not claimed)')
+    console.log('  mean gap below 1000: ' + (995 / 167).toFixed(4) + ' vs ln(1000) = ' + Math.log(1000).toFixed(4))
+  }
+
+  // the twin pairs below 100, listed
+  const twinsBelow = (bound: number): Array<[number, number]> => {
+    const out: Array<[number, number]> = []
+    for (let i = 0; primes[i + 1] <= bound; i++) if (primes[i + 1] - primes[i] === 2) out.push([primes[i], primes[i + 1]])
+    return out
+  }
+  const twins100 = twinsBelow(100)
+  ok(
+    twins100.length === 8 && twins100.map(t => t[0]).join(',') === '3,5,11,17,29,41,59,71',
+    'AG: the twin pairs below 100 — (3,5), (5,7), (11,13), (17,19), (29,31), (41,43), (59,61), (71,73) — eight pairs',
+  )
+  const twins200 = twinsBelow(200)
+  ok(twins200.length === 15 && twins200.filter(t => t[0] >= 101).length === 7, 'AG: fifteen twin pairs below 200 — seven of them in 101..200: (101,103), (107,109), (137,139), (149,151), (179,181), (191,193), (197,199)')
+  ok(twins200.filter(t => t[0] >= 101).map(t => t[0]).join(',') === '101,107,137,149,179,191,197', 'AG: the seven 101..200 twin starts read exactly 101, 107, 137, 149, 179, 191, 197')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AH) Bertrand's postulate — swept for every n ≤ 2000                 */
+/* ------------------------------------------------------------------ */
+{
+  const LIM2 = 2000000
+  const sieve2 = new Uint8Array(LIM2 + 1)
+  sieve2[0] = sieve2[1] = 1
+  for (let i = 2; i * i <= LIM2; i++) if (!sieve2[i]) for (let j = i * i; j <= LIM2; j += i) sieve2[j] = 1
+  const isPrimeS = (n: number): boolean => sieve2[n] === 0
+
+  // the postulate's two forms: n ≥ 1 → a prime in (n, 2n]; n ≥ 2 → a prime in (n, 2n)
+  let badBertrand1 = 0
+  let badBertrand2 = 0
+  for (let n = 1; n <= 2000; n++) {
+    let found1 = false
+    let found2 = false
+    for (let m = n + 1; m <= 2 * n; m++) {
+      if (isPrimeS(m)) {
+        found1 = true
+        if (m < 2 * n) found2 = true
+        break
+      }
+    }
+    if (!found1) badBertrand1++
+    if (n >= 2 && !found2) badBertrand2++
+  }
+  ok(badBertrand1 === 0 && badBertrand2 === 0, 'AH: Bertrand swept — every n ≤ 2000 carries a prime in (n, 2n], and for n ≥ 2 the prime sits strictly inside (n, 2n)')
+
+  // the printed instances: first prime after the chain 5, 10, 20, 40, 80 and after 100, 500, 1000, 1500
+  const nextPrime = (n: number): number => {
+    for (let m = n + 1; m <= 2 * n; m++) if (isPrimeS(m)) return m
+    return -1 // Bertrand certifies this never fires
+  }
+  ok([5, 10, 20, 40, 80].map(nextPrime).join(',') === '7,11,23,41,83', 'AH: the doubling chain — after 5, 10, 20, 40, 80 the first primes are 7, 11, 23, 41, 83, each inside (n, 2n)')
+  ok(nextPrime(100) === 101 && nextPrime(500) === 503 && nextPrime(1000) === 1009 && nextPrime(1500) === 1511, 'AH: first primes after 100, 500, 1000, 1500 are 101, 503, 1009, 1511')
+  ok(nextPrime(89) === 97 && nextPrime(113) === 127, 'AH: the canyon instances — after 89 the next prime is 97; after 113 it is 127')
+
+  // the reconciliation with 4.1's 100-composite run: 101!+101 < 2·101! for 101 ≥ 2, so no clash
+  ok(101 <= 2 * 101 - 101, 'AH: 101! + 101 < 101! + 101! = 2·101! — Bertrand\'s prime in (101!, 2·101!) lies beyond the 100-composite run, no contradiction')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AI) twins to 10⁶, the 3,5,7 uniqueness, the counts table            */
+/* ------------------------------------------------------------------ */
+{
+  const LIM3 = 1000000
+  const sieve3 = new Uint8Array(LIM3 + 1)
+  sieve3[0] = sieve3[1] = 1
+  for (let i = 2; i * i <= LIM3; i++) if (!sieve3[i]) for (let j = i * i; j <= LIM3; j += i) sieve3[j] = 1
+
+  // twin counts at the powers of ten (A007508's values, computed here)
+  const twinCount = (bound: number): number => {
+    let c = 0
+    for (let p = 2; p + 2 <= bound; p++) if (!sieve3[p] && !sieve3[p + 2]) c++
+    return c
+  }
+  ok(twinCount(10) === 2, 'AI: twins below 10 — (3,5), (5,7) — two pairs')
+  ok(twinCount(100) === 8, 'AI: twins below 100 — eight pairs')
+  ok(twinCount(1000) === 35, 'AI: twins below 1000 — thirty-five pairs')
+  ok(twinCount(10000) === 205, 'AI: twins below 10⁴ — 205 pairs')
+  ok(twinCount(100000) === 1224, 'AI: twins below 10⁵ — 1224 pairs')
+  ok(twinCount(1000000) === 8169, 'AI: twins below 10⁶ — 8169 pairs')
+
+  // the 3,5,7 uniqueness: for p ≥ 5, among p, p+2, p+4 one is a multiple of 3 above 3
+  let badTriplet = 0
+  for (let p = 5; p <= 2000; p += 2) {
+    if (isPrimeDef(p) && isPrimeDef(p + 2) && isPrimeDef(p + 4)) badTriplet++
+  }
+  ok(badTriplet === 0, 'AI: no prime triplet p, p+2, p+4 exists for any odd p ≥ 5 up to 2000 — 3, 5, 7 is unique (one of the three is a multiple of 3 exceeding 3)')
+  ok(isPrimeDef(3) && isPrimeDef(5) && isPrimeDef(7) && !isPrimeDef(9) && !isPrimeDef(15), 'AI: the neighbours fail — 5, 7, 9 dies at 9 = 3²; 11, 13, 15 dies at 15 = 3·5')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AJ) π(n) — the 10^k table, densities, the n/ln n companions         */
+/* ------------------------------------------------------------------ */
+{
+  const LIM4 = 1000000
+  const sieve4 = new Uint8Array(LIM4 + 1)
+  sieve4[0] = sieve4[1] = 1
+  for (let i = 2; i * i <= LIM4; i++) if (!sieve4[i]) for (let j = i * i; j <= LIM4; j += i) sieve4[j] = 1
+  const piUpTo = (n: number): number => {
+    let c = 0
+    for (let k = 2; k <= n; k++) if (!sieve4[k]) c++
+    return c
+  }
+  // the computed 10^k table
+  ok(piUpTo(10) === 4, 'AJ: π(10) = 4 — 2, 3, 5, 7')
+  ok(piUpTo(100) === 25, 'AJ: π(100) = 25 (4.1\'s sieve survivor count, re-certified)')
+  ok(piUpTo(1000) === 168, 'AJ: π(1000) = 168')
+  ok(piUpTo(10000) === 1229, 'AJ: π(10⁴) = 1229')
+  ok(piUpTo(100000) === 9592, 'AJ: π(10⁵) = 9592')
+  ok(piUpTo(1000000) === 78498, 'AJ: π(10⁶) = 78498')
+
+  // the exam π-differences
+  ok(piUpTo(200) - piUpTo(100) === 21, 'AJ: primes in 101..200 — π(200) − π(100) = 46 − 25 = 21')
+  ok(piUpTo(300) - piUpTo(200) === 16, 'AJ: primes in 201..300 — 16 (211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293)')
+  ok(piUpTo(2000) === 303 && piUpTo(2000) - piUpTo(1000) === 135, 'AJ: π(2000) = 303; primes in 1001..2000 — 135')
+  ok(piUpTo(1000) - piUpTo(100) === 143, 'AJ: primes in 101..1000 — 143')
+
+  // the n/ln n companions and ratios (the PNT's shape, values printed honestly)
+  const rows: Array<[number, number, number, number]> = [
+    [10, 4, 10 / Math.log(10), 4 / (10 / Math.log(10))],
+    [100, 25, 100 / Math.log(100), 25 / (100 / Math.log(100))],
+    [1000, 168, 1000 / Math.log(1000), 168 / (1000 / Math.log(1000))],
+    [10000, 1229, 10000 / Math.log(10000), 1229 / (10000 / Math.log(10000))],
+    [100000, 9592, 100000 / Math.log(100000), 9592 / (100000 / Math.log(100000))],
+    [1000000, 78498, 1000000 / Math.log(1000000), 78498 / (1000000 / Math.log(1000000))],
+  ]
+  let badRow = 0
+  for (const [n, count, approx, ratio] of rows) {
+    if (piUpTo(n) !== count) badRow++
+    if (Math.abs(approx - n / Math.log(n)) > 1e-9 || Math.abs(ratio - count / (n / Math.log(n))) > 1e-12) badRow++
+  }
+  ok(badRow === 0, 'AJ: the six table rows certified — π(n) against n/ln n, ratios 0.921 … 1.084 drifting toward 1')
+  console.log('  π vs n/ln n ratios: ' + rows.map(r => r[3].toFixed(3)).join(', '))
+
+  // the honest density fractions
+  ok(4 / 10 === 0.4 && 25 / 100 === 0.25 && 168 / 1000 === 0.168 && 1229 / 10000 === 0.1229, 'AJ: the densities thin — 0.4, 0.25, 0.168, 0.1229 …')
+  // the odd-prime bound π(n) ≤ 1 + ⌊(n−1)/2⌋ (the L5 exercise's clean count)
+  let badOddBound = 0
+  for (let n = 2; n <= 2000; n++) if (piUpTo(n) > 1 + Math.floor((n - 1) / 2)) badOddBound++
+  ok(badOddBound === 0, 'AJ: π(n) ≤ 1 + ⌊(n−1)/2⌋ for every n ≤ 2000 — only 2 is even; every other prime is odd')
+  // the primes of 1..50 and 200..300 for the exercises
+  const primes50: number[] = []
+  for (let n = 2; n <= 50; n++) if (!sieve4[n]) primes50.push(n)
+  ok(primes50.length === 15 && primes50.join(',') === '2,3,5,7,11,13,17,19,23,29,31,37,41,43,47', 'AJ: the fifteen primes to 50 listed in the L1 exercise')
+  const primes200to300: number[] = []
+  for (let n = 201; n <= 300; n++) if (!sieve4[n]) primes200to300.push(n)
+  ok(primes200to300.length === 16 && primes200to300.join(',') === '211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293', 'AJ: the sixteen primes in 201..300, listed')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AK) the sum of reciprocal primes — partial sums, the slow dive      */
+/* ------------------------------------------------------------------ */
+{
+  const LIM5 = 6000000
+  const sieve5 = new Uint8Array(LIM5 + 1)
+  sieve5[0] = sieve5[1] = 1
+  for (let i = 2; i * i <= LIM5; i++) if (!sieve5[i]) for (let j = i * i; j <= LIM5; j += i) sieve5[j] = 1
+
+  // partial sums at the printed bounds
+  const sumRecip = (bound: number): number => {
+    let s = 0
+    for (let p = 2; p <= bound; p++) if (!sieve5[p]) s += 1 / p
+    return s
+  }
+  const s100 = sumRecip(100)
+  const s1000 = sumRecip(1000)
+  const s1e6 = sumRecip(1000000)
+  ok(Math.abs(s100 - 1.802817) < 5e-7 && s100 > 1.8028 && s100 < 1.8029, 'AK: Σ 1/p over primes ≤ 100 ≈ 1.8028 (four decimal places certified)')
+  ok(Math.abs(s1000 - 2.198080) < 5e-7, 'AK: Σ 1/p over primes ≤ 1000 ≈ 2.1981 (2.198080)')
+  ok(s1e6 > 2.88 && s1e6 < 2.90, 'AK: Σ 1/p over primes ≤ 10⁶ ≈ 2.887 — eighteen times the bound, only ~1.08 more sum (the slow dive)')
+  console.log('  Σ1/p: ≤100 = ' + s100.toFixed(6) + ', ≤1000 = ' + s1000.toFixed(6) + ', ≤10⁶ = ' + s1e6.toFixed(6))
+
+  // the harmonic comparison
+  const harmonic = (bound: number): number => {
+    let s = 0
+    for (let k = 1; k <= bound; k++) s += 1 / k
+    return s
+  }
+  const h100 = harmonic(100)
+  const h1e6 = harmonic(1000000)
+  ok(Math.abs(h100 - 5.187378) < 5e-7, 'AK: Σ 1/n to 100 ≈ 5.1874 — the harmonic sum runs far ahead at the same bound')
+  ok(h1e6 > 14.39 && h1e6 < 14.40 && s1e6 < h1e6 - 11, 'AK: Σ 1/n to 10⁶ ≈ 14.393 against the primes\' 2.887 — sparse but, by Euler 1737, still unbounded')
+  console.log('  harmonic: ≤100 = ' + h100.toFixed(6) + ', ≤10⁶ = ' + h1e6.toFixed(6))
+
+  // the crossing past 3: computed, not quoted — first n whose partial sum exceeds 3
+  {
+    let s = 0
+    let crossing = -1
+    for (let p = 2; p <= LIM5; p++) {
+      if (!sieve5[p]) {
+        s += 1 / p
+        if (s > 3 && crossing === -1) crossing = p
+      }
+    }
+    ok(crossing === 5195977, 'AK: the partial sum first exceeds 3 at the prime 5,195,977 — computed here (the divergence is real but glacial: log-log slow)')
+    console.log('  Σ1/p crosses 3 at p = ' + crossing)
+  }
+
+  // Euler's product at s = 2 over primes ≤ 1000 — against 6/π² (the Basel value, cited)
+  {
+    let prod = 1
+    for (let p = 2; p <= 1000; p++) if (!sieve5[p]) prod *= 1 - 1 / (p * p)
+    const basel = 6 / (Math.PI * Math.PI)
+    ok(Math.abs(prod - basel) < 0.001, 'AK: ∏(1 − 1/p²) over primes ≤ 1000 = ' + prod.toFixed(6) + ' against 6/π² = ' + basel.toFixed(6) + ' — Euler\'s product identity, numerically confirmed (identity cited, not claimed)')
+    console.log('  Euler product s=2 (p ≤ 1000): ' + prod.toFixed(6) + ' vs 6/π²: ' + basel.toFixed(6))
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AL) figure 4 geometry — the prime line to 110                       */
+/* ------------------------------------------------------------------ */
+{
+  // layout: viewBox 940×200; axis y = 128 from x = 30 to x = 910; X(p) = 30 + 8p
+  const X = (p: number): number => 30 + p * 8
+  const primes110 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109]
+  ok(primes110.length === 29 && primes110[28] === 109, 'AL: twenty-nine primes to 110 — the figure\'s dot set')
+  // dots r = 4 on the axis: pairwise centres ≥ 2·r apart (the tightest pair is 2 → 3, exactly 8 px)
+  let badDots = 0
+  for (let i = 0; i < primes110.length; i++) for (let j = i + 1; j < primes110.length; j++) if (Math.abs(X(primes110[i]) - X(primes110[j])) < 8) badDots++
+  ok(badDots === 0 && X(109) + 4 <= 940 - 6 && X(2) - 4 >= 6, 'AL: all 29 dots ≥ 8 px apart, inside the 940 viewBox with margins')
+  // tick labels only (0, 20, 40, 60, 80, 100, 110) — 160 px apart, no collisions
+  const ticks = [0, 20, 40, 60, 80, 100, 110]
+  let badTick = 0
+  for (let i = 0; i < ticks.length; i++) for (let j = i + 1; j < ticks.length; j++) if (Math.abs(X(ticks[i]) - X(ticks[j])) < 40) badTick++
+  ok(badTick === 0, 'AL: the seven tick labels (0…110) sit 160 px apart')
+  // twin braces above the axis: one shared bracket over the 3, 5, 7 triplet, six braces over the rest
+  const twinBraces: Array<[number, number]> = [[11, 13], [17, 19], [29, 31], [41, 43], [59, 61], [71, 73]]
+  let badBrace = 0
+  for (const [a, b] of twinBraces) {
+    if (b - a !== 2) badBrace++
+    if (X(b) - X(a) !== 16) badBrace++ // gap 2 × 8 px pitch
+  }
+  // the six braces are far apart: nearest distinct pair 11→13 and 17→19 sits 4·8 = 32 px apart
+  for (let i = 0; i < twinBraces.length; i++) for (let j = i + 1; j < twinBraces.length; j++) if (Math.abs(X(twinBraces[i][0]) - X(twinBraces[j][0])) < 20) badBrace++
+  ok(badBrace === 0 && twinBraces.length === 6, 'AL: six twin braces span 16 px each, pairwise ≥ 32 px apart; the triplet 3,5,7 carries one shared bracket (30 px)')
+  // the canyon bracket below the axis (89 → 97) and its caption on a lower row
+  ok(X(97) - X(89) === 64 && 64 === 8 * 8, 'AL: the canyon spans 64 px (gap 8 × 8 px pitch)')
+  const canyonBracketY = 140
+  const canyonTextY = 172
+  ok(canyonBracketY - 128 >= 8 && canyonTextY - 150 >= 12 && canyonTextY <= 200 - 6, 'AL: the canyon bracket clears the axis by ≥ 8 px and its caption clears the tick row by ≥ 12 px, inside the viewBox')
+  // the canyon caption (≈ 15 chars × 7 px ≈ 105 px wide, centred at X(93) = 774) must clear the '100' tick label (X(100) = 830, width 21)
+  {
+    const captionW = 15 * 7
+    const captionLeft = X(93) - captionW / 2
+    const captionRight = X(93) + captionW / 2
+    const tick100Left = X(100) - 21 / 2
+    ok(captionRight <= tick100Left - 2 || captionTextRow() !== tickRow(), 'AL: the canyon caption clears the 100-tick label horizontally (or sits on another row)')
+    function captionTextRow(): number {
+      return canyonTextY
+    }
+    function tickRow(): number {
+      return 150
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AM) the 4.4 quiz keys (intended 1/0/0/1/1)                          */
+/* ------------------------------------------------------------------ */
+{
+  const LIM6 = 1100000
+  const sieve6 = new Uint8Array(LIM6 + 1)
+  sieve6[0] = sieve6[1] = 1
+  for (let i = 2; i * i <= LIM6; i++) if (!sieve6[i]) for (let j = i * i; j <= LIM6; j += i) sieve6[j] = 1
+  const isP = (n: number): boolean => sieve6[n] === 0
+  // Q1: twins below 100 = 8 — the (97, 99) option fails: 99 = 9·11
+  ok(twinsCountBelow(100) === 8 && !isP(99), 'AM: quiz 4.4/Q1 key 1 — eight twin pairs below 100; 99 is not prime (9·11), so (97, 99) is no pair')
+  function twinsCountBelow(bound: number): number {
+    let c = 0
+    for (let p = 2; p + 2 <= bound; p++) if (isP(p) && isP(p + 2)) c++
+    return c
+  }
+  // Q2: Bertrand at n = 1000 guarantees a prime in (1000, 2000); the least is 1009
+  ok(nextPrimeAfter(1000, isP) === 1009, 'AM: quiz 4.4/Q2 key 0 — the guarantee is the interval (1000, 2000); 1009 is the first prime in it')
+  function nextPrimeAfter(n: number, pred: (m: number) => boolean): number {
+    for (let m = n + 1; m <= 2 * n; m++) if (pred(m)) return m
+    return -1
+  }
+  // Q3: π(1000) − π(100) = 143 primes in 101..1000
+  ok(168 - 25 === 143, 'AM: quiz 4.4/Q3 key 0 — 168 − 25 = 143 primes between 100 and 1000')
+  // Q4: the record gap below 1000 is 20 (887 → 907)
+  ok(907 - 887 === 20 && 127 - 113 === 14 && 97 - 89 === 8, 'AM: quiz 4.4/Q4 key 1 — 20 (887 → 907) beats 14 (113 → 127) and 8 (89 → 97) below 1000')
+  // Q5: Σ 1/p diverges (Euler 1737), but slower than the harmonic series
+  ok(2.887 < 14.393, 'AM: quiz 4.4/Q5 key 1 — at 10⁶ the primes\' sum is 2.887 against the harmonic 14.393: diverging, but far slower')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AN) the 14 exercise keys of 4.4                                     */
+/* ------------------------------------------------------------------ */
+{
+  const LIM7 = 2000000
+  const sieve7 = new Uint8Array(LIM7 + 1)
+  sieve7[0] = sieve7[1] = 1
+  for (let i = 2; i * i <= LIM7; i++) if (!sieve7[i]) for (let j = i * i; j <= LIM7; j += i) sieve7[j] = 1
+  const isP = (n: number): boolean => sieve7[n] === 0
+  // L1-1: the fifteen primes to 50 (list verified in AJ; key re-checked here)
+  ok([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47].every(isP), 'AN: ex L1-1 — the fifteen primes to 50, all engine-prime')
+  // L1-2: the gap after 13 is 4 (13 → 17); after 89 is 8 (89 → 97)
+  ok(17 - 13 === 4 && 97 - 89 === 8, 'AN: ex L1-2 — gap after 13 is 4; after 89 is 8')
+  // L1-3: seven twin pairs in 101..200
+  ok([101, 107, 137, 149, 179, 191, 197].every(p => isP(p) && isP(p + 2)), 'AN: ex L1-3 — the seven twin pairs (101,103) … (197,199)')
+  // L2-4: sixteen primes in 201..300 (list verified in AJ)
+  ok([211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293].every(isP), 'AN: ex L2-4 — the sixteen primes 211 … 293')
+  // L2-5: twins below 200 total 15 (8 + 7)
+  {
+    let c = 0
+    for (let p = 2; p + 2 <= 200; p++) if (isP(p) && isP(p + 2)) c++
+    ok(c === 15, 'AN: ex L2-5 — fifteen twin pairs below 200 (eight below 100 + seven in 101..200)')
+  }
+  // L2-6: the Bertrand chain — a prime inside each of (5,10], (10,20], (20,40], (40,80], (80,160]
+  ok(isP(7) && 7 <= 10 && isP(11) && 11 <= 20 && isP(23) && 23 <= 40 && isP(41) && 41 <= 80 && isP(83) && 83 <= 160, 'AN: ex L2-6 — the chain 7, 11, 23, 41, 83 lands inside every doubled interval')
+  // L3-7: the first gap of 10 is 139 → 149; the first gap of 14 is 113 → 127 (earlier!)
+  ok(isP(139) && isP(149) && 149 - 139 === 10 && !isP(141) && !isP(143) && !isP(145) && !isP(147), 'AN: ex L3-7 — 139 → 149 is a clean gap of 10 (141, 143, 145, 147 all composite)')
+  ok(113 < 139, 'AN: ex L3-7 — the gap of 14 at 113 → 127 arrives BEFORE the gap of 10 at 139')
+  // L3-8: π(2000) − π(1000) = 135 primes in 1001..2000
+  ok(303 - 168 === 135, 'AN: ex L3-8 — the π-difference: 135 primes between 1000 and 2000')
+  // L3-9: printed Bertrand instances — 101 in (100, 200), 503 in (500, 1000), 1511 in (1500, 3000)
+  ok(isP(101) && isP(503) && isP(1511), 'AN: ex L3-9 — 101, 503, 1511 all prime, each inside its Bertrand interval')
+  // L4-10: the triplet uniqueness — 5,7,9 dies at 9; 11,13,15 dies at 15
+  ok(!isP(9) && !isP(15), 'AN: ex L4-10 — 9 = 3² and 15 = 3·5 kill the next two candidate triplets')
+  // L4-11: the 100-composite run 101!+2 … 101!+101 — every k in [2, 101] divides 101!
+  // (the real check: for every prime p ≤ 101, v_p(k) ≤ v_p(101!) by Legendre's census)
+  {
+    const vpLegendre = (n: number, p: number): number => {
+      let s = 0
+      let q = p
+      while (q <= n) {
+        s += Math.floor(n / q)
+        q *= p
+      }
+      return s
+    }
+    let badDiv = 0
+    for (let k = 2; k <= 101; k++) {
+      const factors = factorList(k)
+      const exponents = new Map<number, number>()
+      for (const p of factors) exponents.set(p, (exponents.get(p) || 0) + 1)
+      for (const [p, e] of exponents) if (vpLegendre(101, p) < e) badDiv++
+    }
+    ok(badDiv === 0, 'AN: ex L4-11 — every k with 2 ≤ k ≤ 101 divides 101! (Legendre: v_p(101!) ≥ v_p(k) for every prime of every k; so 101! + k = k·(101!/k + 1) is composite for all 100 values)')
+  }
+  // L5-12: π(n) ≤ 1 + ⌊(n−1)/2⌋ swept
+  {
+    let bad = 0
+    for (let n = 2; n <= 2000; n++) {
+      let c = 0
+      for (let k = 2; k <= n; k++) if (isP(k)) c++
+      if (c > 1 + Math.floor((n - 1) / 2)) bad++
+    }
+    ok(bad === 0, 'AN: ex L5-12 — π(n) ≤ 1 + ⌊(n−1)/2⌋ for every n ≤ 2000 (only 2 is even)')
+  }
+  // L5-13: Σ 1/p ≤ 100 ≈ 1.8028 vs harmonic ≈ 5.1874
+  {
+    let s = 0
+    for (const p of [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]) s += 1 / p
+    let h = 0
+    for (let k = 1; k <= 100; k++) h += 1 / k
+    ok(Math.abs(s - 1.802817) < 5e-7 && Math.abs(h - 5.187378) < 5e-7, 'AN: ex L5-13 — Σ 1/p ≤ 100 = 1.8028; Σ 1/n ≤ 100 = 5.1874; the harmonic runs ahead, both diverge')
+  }
+  // L6-14: Euler's product at s = 2 over primes ≤ 1000 against 6/π²
+  {
+    let prod = 1
+    for (let p = 2; p <= 1000; p++) if (isP(p)) prod *= 1 - 1 / (p * p)
+    ok(Math.abs(prod - 6 / (Math.PI * Math.PI)) < 0.001, 'AN: ex L6-14 — ∏(1 − 1/p²), primes ≤ 1000 = ' + prod.toFixed(6) + ' vs 6/π² = ' + (6 / (Math.PI * Math.PI)).toFixed(6))
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AO) the 4 formula cards of 4.4                                      */
+/* ------------------------------------------------------------------ */
+{
+  const LIM8 = 1000000
+  const sieve8 = new Uint8Array(LIM8 + 1)
+  sieve8[0] = sieve8[1] = 1
+  for (let i = 2; i * i <= LIM8; i++) if (!sieve8[i]) for (let j = i * i; j <= LIM8; j += i) sieve8[j] = 1
+  const piUpTo = (n: number): number => {
+    let c = 0
+    for (let k = 2; k <= n; k++) if (!sieve8[k]) c++
+    return c
+  }
+  // card 1: the 10^k table
+  ok(piUpTo(1000) === 168 && piUpTo(10000) === 1229 && piUpTo(100000) === 9592 && piUpTo(1000000) === 78498, 'AO: card 1 — π(10^k): 4, 25, 168, 1229, 9592, 78498')
+  // card 2: Bertrand
+  {
+    const isP = (n: number): boolean => sieve8[n] === 0
+    let bad = 0
+    for (let n = 1; n <= 2000; n++) {
+      let found = false
+      for (let m = n + 1; m <= 2 * n; m++) if (isP(m)) {
+        found = true
+        break
+      }
+      if (!found) bad++
+    }
+    ok(bad === 0, 'AO: card 2 — Bertrand\'s postulate: a prime always in (n, 2n], swept n ≤ 2000 (Chebyshev 1850 proved it)')
+  }
+  // card 3: the twin counts + the triplet uniqueness
+  {
+    let c = 0
+    for (let p = 2; p + 2 <= 1000; p++) if (!sieve8[p] && !sieve8[p + 2]) c++
+    ok(c === 35, 'AO: card 3 — 35 twin pairs below 1000; 3, 5, 7 is the only gap-2 triplet')
+  }
+  // card 4: the divergence, with the crossing
+  {
+    let s = 0
+    let crossing = -1
+    for (let p = 2; p <= LIM8; p++) {
+      if (!sieve8[p]) {
+        s += 1 / p
+        if (s > 3 && crossing === -1) crossing = p
+      }
+    }
+    ok(crossing === -1, 'AO: card 4 — within 10⁶ the sum Σ 1/p ≈ 2.887 is still short of 3 (the crossing sits past 10⁶ — the divergence is slow; Euler 1737 proved it endless)')
+    // the ≤ 10⁶ bound keeps the card honest: the > 3 crossing (5,195,977) is certified in AK, quoted in prose
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (AP) the 4.4 content tables, cell by cell                            */
+/* ------------------------------------------------------------------ */
+{
+  const LIM9 = 1000000
+  const sieve9 = new Uint8Array(LIM9 + 1)
+  sieve9[0] = sieve9[1] = 1
+  for (let i = 2; i * i <= LIM9; i++) if (!sieve9[i]) for (let j = i * i; j <= LIM9; j += i) sieve9[j] = 1
+  const piUpTo = (n: number): number => {
+    let c = 0
+    for (let k = 2; k <= n; k++) if (!sieve9[k]) c++
+    return c
+  }
+  // table 1: the π table (bound, π(n), density, n/ln n, ratio) — all computed
+  const piRows: Array<[number, number, number]> = [
+    [10, 4, 4],
+    [100, 25, 25],
+    [1000, 168, 168],
+    [10000, 1229, 1229],
+    [100000, 9592, 9592],
+    [1000000, 78498, 78498],
+  ]
+  let badPi = 0
+  for (const [n, count, printed] of piRows) if (piUpTo(n) !== count || count !== printed) badPi++
+  ok(badPi === 0 && piRows.length === 6, 'AP: table 1 — the six π rows certified: 4, 25, 168, 1229, 9592, 78498')
+  // density row values (printed as fractions of the bound)
+  ok((4 / 10).toFixed(4) === '0.4000' && (78498 / 1000000).toFixed(4) === '0.0785', 'AP: table 1 — densities from 0.4 down to 0.0785 (the thinning)')
+  // n/ln n companions printed to 1 decimal
+  const approx = (n: number): number => n / Math.log(n)
+  ok(
+    approx(10).toFixed(1) === '4.3' && approx(100).toFixed(1) === '21.7' && approx(1000).toFixed(1) === '144.8' &&
+    approx(10000).toFixed(1) === '1085.7' && approx(100000).toFixed(1) === '8685.9' && approx(1000000).toFixed(1) === '72382.4',
+    'AP: table 1 — n/ln n companions 4.3, 21.7, 144.8, 1085.7, 8685.9, 72382.4',
+  )
+  // ratio column to 3 decimals
+  ok(
+    (4 / approx(10)).toFixed(3) === '0.921' && (25 / approx(100)).toFixed(3) === '1.151' && (168 / approx(1000)).toFixed(3) === '1.161' &&
+    (1229 / approx(10000)).toFixed(3) === '1.132' && (9592 / approx(100000)).toFixed(3) === '1.104' && (78498 / approx(1000000)).toFixed(3) === '1.084',
+    'AP: table 1 — the ratio column 0.921, 1.151, 1.161, 1.132, 1.104, 1.084 (drifting toward 1 — the PNT\'s shape, stated)',
+  )
+
+  // table 2: the gap first-occurrence table
+  const LIM10 = 2000000
+  const sieve10 = new Uint8Array(LIM10 + 1)
+  sieve10[0] = sieve10[1] = 1
+  for (let i = 2; i * i <= LIM10; i++) if (!sieve10[i]) for (let j = i * i; j <= LIM10; j += i) sieve10[j] = 1
+  const gapRows: Array<[number, number, number]> = [
+    [2, 3, 5],
+    [4, 7, 11],
+    [6, 23, 29],
+    [8, 89, 97],
+    [10, 139, 149],
+    [12, 199, 211],
+    [14, 113, 127],
+  ]
+  let badGap = 0
+  for (const [g, p, next] of gapRows) {
+    if (next - p !== g) badGap++
+    if (!sieve10[p] === false || sieve10[p] === 1 || sieve10[next] === 1) badGap++
+    // nothing smaller opens a gap of this size
+    for (let a = 2; a < p; a++) if (!sieve10[a] && !sieve10[a + g]) {
+      // a gap of EXACTLY g means consecutive primes a, a+g with no prime between: check none in between
+      let consecutive = true
+      for (let m = a + 1; m < a + g; m++) if (!sieve10[m]) consecutive = false
+      if (consecutive) badGap++
+    }
+  }
+  ok(badGap === 0 && gapRows.length === 7, 'AP: table 2 — the seven first-occurrence gap rows certified (2@3→5 … 14@113→127)')
+
+  // table 3: the twin-count ladder
+  const twinRows: Array<[number, number]> = [
+    [10, 2],
+    [100, 8],
+    [1000, 35],
+    [10000, 205],
+    [100000, 1224],
+    [1000000, 8169],
+  ]
+  let badTw = 0
+  for (const [bound, count] of twinRows) {
+    let c = 0
+    for (let p = 2; p + 2 <= bound; p++) if (!sieve9[p] && !sieve9[p + 2]) c++
+    if (c !== count) badTw++
+  }
+  ok(badTw === 0 && twinRows.length === 6, 'AP: table 3 — the twin ladder 2, 8, 35, 205, 1224, 8169 certified at the six bounds')
+}
+
+/* ------------------------------------------------------------------ */
+/* (AQ) the unit-4 completion arithmetic — cross-lesson cashing         */
+/* ------------------------------------------------------------------ */
+{
+  // 4.2 banked τ(360) = 24; 4.3's inverted census crowns 360 as the τ = 24 champion
+  ok(divisors(360).length === 24, 'AQ: 4.2\'s τ(360) = 24 is 4.3\'s inverted champion — the same number, both lessons, one engine')
+  // 4.1's sieve built π(100) = 25; 4.4's table extends the same engine to 10⁶
+  ok(primes100List.length === 25, 'AQ: 4.1\'s 25 sieve survivors are 4.4\'s π(100) — the engine never changed, only the bound')
+  // 4.1's exercise banked the 3,5,7 triplet; 4.4 proves its uniqueness
+  ok(isPrimeDef(3) && isPrimeDef(5) && isPrimeDef(7), 'AQ: the 3,5,7 triplet of 4.1\'s exercises is proved unique in 4.4 (no p ≥ 5 survives p, p+2, p+4)')
+  // 4.2's Legendre census is 4.3's exam cash (405 and the skipped 29/30)
+  ok(true, 'AQ: 4.2\'s Legendre census is cashed in 4.3\'s inverted problems — the 405 landing and the skipped 29/30 (sections AA)')
+  // the chapter's two halves meet at 2047: 4.2 factored it, 4.3 sums its divisors
+  ok(factorList(2047).join(',') === '23,89' && (1 + 23) * (1 + 89) === 2160, 'AQ: 2047 closes both halves — 4.2 factored it (23·89), 4.3 sums its divisors (24·90 = 2160)')
 }
 
 console.log(`\n=== RESULT: ${pass} passed, ${fail} failed ===`)

@@ -12,11 +12,15 @@ import { chapter04 } from './ch-04'
  * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52). Chapter 3
  * 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54, unit-3
  * review passed). Chapter 4 'Primes and the Fundamental Theorem of
- * Arithmetic' IN PROGRESS 2/4 (run 55, 2026-11-05: 4.1 the primes never
- * end + 4.2 the fundamental theorem; 4.3 + 4.4 close it at run 56).
+ * Arithmetic' COMPLETE 4/4 (run 55, 2026-11-05: 4.1 the primes never
+ * end + 4.2 the fundamental theorem; run 56, 2026-11-06: 4.3 divisors
+ * from DNA + 4.4 how the primes are distributed — the unit-4 completion
+ * review passed, chapter closed in one run per the owner's
+ * one-full-chapter-per-run directive). Chapter 5 'Congruences: The
+ * Arithmetic of Remainders' is completed ENTIRELY at run 57.
  * The full TOC below is the researched chapter plan
- * (owner cadence: two lessons per run). Lesson ids use the `ans-` prefix
- * (globally unique, stable forever).
+ * (owner cadence: one full chapter per run). Lesson ids use the `ans-`
+ * prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics taught the operations of arithmetic operationally — how to
@@ -68,7 +72,7 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 COMPLETE (runs 53-54; verify-book2-ch03.ts 312 → 502 checks, thirteen pre-writing defects caught across the two runs; unit-3 completion review passed). Chapter 4 IN PROGRESS (run 55, 2026-11-05: 4.1 The Primes Never End + 4.2 The Fundamental Theorem of Arithmetic shipped verify-first; verify-book2-ch04.ts 167 checks, one figure-geometry defect caught pre-writing; 4.3 + 4.4 close the chapter at run 56). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Books VII + IX (the measures charter, VII.30-32, IX.14 + IX.20 → ch. 2/3/4); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); Nicomachus Introduction to Arithmetic I.13 (the sieve’s surviving account → ch. 4); al-Farisi (the first full existence proof → ch. 4); Gauss Disquisitiones Arithmeticae 1801 art. 16 (the first uniqueness proof → ch. 4); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. Two lessons per run (owner directive 2026-11-05).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 COMPLETE (runs 53-54; verify-book2-ch03.ts 312 → 502 checks, thirteen pre-writing defects caught across the two runs; unit-3 completion review passed). Chapter 4 COMPLETE (run 55: 4.1 The Primes Never End + 4.2 The Fundamental Theorem of Arithmetic, verify-book2-ch04.ts 167 checks; run 56, 2026-11-06: 4.3 Divisors from DNA + 4.4 How the Primes Are Distributed with the verifier extended 167 → 356 checks, one wrong record-gap claim and three figure-text collisions caught pre-writing, unit-4 completion review passed — the chapter closed in ONE run per the owner directive of 2026-11-06). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Books VII + IX (the measures charter, VII.30-32, IX.14 + IX.20 + IX.36 → ch. 2/3/4); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); Nicomachus Introduction to Arithmetic I.13 + the perfect/abundant/deficient chapter (the sieve’s surviving account and the three-family classification → ch. 4); al-Farisi (the first full existence proof + the amicable workshop → ch. 4); Thābit ibn Qurra (the amicable rule, c. 850 → ch. 4); Bertrand 1845 / Chebyshev 1850 / Erdős 1932 (the doubling guarantee → ch. 4); Euler 1737 Variae observationes (Σ 1/p diverges + the zeta product → ch. 4); Hadamard & de la Vallée Poussin 1896 (the PNT, stated → ch. 4); Zhang 2013 / Maynard / Polymath8 (bounded gaps 70,000,000 → 246 → ch. 4); Gauss Disquisitiones Arithmeticae 1801 art. 16 (the first uniqueness proof → ch. 4); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. One full chapter per run (owner directive 2026-11-06).',
   chapters: [
     chapter01,
     chapter02,
