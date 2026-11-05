@@ -20,7 +20,7 @@ and what remains.
 
 **Remaining:** chapter 4 'Primes and the Fundamental Theorem of Arithmetic' opens at run 55 with lessons 4.1 'The Primes Never End: Euclid's Proof and the Sieve' + 4.2 'The Fundamental Theorem of Arithmetic' (two-lesson cadence; create scripts/verify-book2-ch04.ts FIRST, whitelist it + the e2e-ans-41/42 blocks in .gitignore before committing). Exam registry research (44 skeletons). Job 498279 fired an EIGHTH time this run against the owner's disablement — owner-side cleanup still pending.
 
-**Git:** commit `ans ch.3 closes: lessons 3.3 arithmetic in other bases + 3.4 binary/hex machine shipped verify-first (run 54)` + memory commit; push per protocol with the payload PAT (one-time URL, never persisted).
+**Git:** ship commit `ced6fb7` (11 files, +2,702/−65) pushed per protocol and remote-verified via one-time-URL ls-remote = local HEAD `ced6fb7b7ef7a5242c4dd6b0c3452c494a4cc4ce`; the PAT lived only in the job payload and the one-time URLs (never in any file, config or message); origin untouched (SSH). This memory commit follows.
 
 ---
 
