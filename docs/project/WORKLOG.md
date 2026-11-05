@@ -22,7 +22,7 @@ and what remains.
 
 **Remaining:** run 51 = ANS ch. 2 'The Division Algorithm and the Structure of Divisibility' OPENS — lessons 2.1 'Division with Rest: The Division Algorithm' + 2.2 'The Algebra of Divisibility' (two-lesson cadence; create scripts/verify-book2-ch02.ts FIRST). EXAM_REGISTRY research still pending sometime. Voice queue empty.
 
-**Push record:** the ship commit executes immediately after this entry; the push + ls-remote verification are recorded in the run-50 memory commit (one-time HTTPS URL per protocol; the push carries ALL unpushed commits on main).
+**Push record:** ship commit `8aa540c` (+ the `b462a0a` whitelist fixup — the e2e-ans-13.page.js scripts-whitelist entry, since `/scripts/*` is gitignored and "whitelisted FIRST" means the .gitignore exception) pushed per protocol (one-time HTTPS URL; the push carried ALL THREE pending commits — `44e2755` run-49 memory + `8aa540c` run-50 ship + `b462a0a` fixup); one-time-URL ls-remote verified remote refs/heads/main = `b462a0a` = local HEAD at 2026-11-05 ~18:40 IST.
 
 ---
 
