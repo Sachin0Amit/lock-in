@@ -28,7 +28,7 @@ and what remains.
 
 **Next:** run 45 = FM 10.2 "Bar Charts, Line Graphs and Pie Charts" AND FM 10.3 "Reading Graphs Critically" (extend verify-unit-10.ts with each lesson's sections FIRST, per-lesson gates, single ship; 10.4 closes the chapter next run); voice queue empty.
 
-**Git:** ship commit pushed per protocol (one-time HTTPS URL, output suppressed, exit 0); remote verified via one-time-URL ls-remote = local HEAD (sha recorded below); origin/main..HEAD reconciled via ls-remote (the tracking ref is stale by construction); the PAT never written to any file, config, log or message.
+**Git:** ship commit `691e327` pushed per protocol (one-time HTTPS URL, output suppressed, exit 0) — ALL local commits now on the remote (the four the stale tracking ref showed as unpushed were already synced, proven by the run's opening ls-remote); remote verified via one-time-URL ls-remote = local HEAD = `691e32752b94b516a06878cfde5ff420e7d45138`; the PAT never written to any file, config, log or message.
 
 ## 2026-11-05 — RUN 43 (cron job 504365, first delivery — the FIRST TWO-LESSON RUN per the owner's directive): FM 9.2 "The Metric System" (4,529 words) + FM 9.3 "Converting Units Without Memorising Tables" (3,603 words) SHIPPED verify-first (verify-unit-9.ts 200 → 428 checks A–AD, ALL PASS pre-writing), CHAPTER 9 MEASUREMENT IN-PROGRESS 3/4; four figures VLM-gated (three redesigns en route), quizzes live 5/5 both; tree clean, push per protocol
 
