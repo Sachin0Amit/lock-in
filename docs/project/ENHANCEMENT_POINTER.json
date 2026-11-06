@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06",
+ "updated": "2026-11-06 (run 2)",
  "purpose": "Visual-upgrade job queue (job 507527, hourly :15): every lesson of chapters already COMPLETE and verified, oldest first. The chapter job (job 507529, odd-hour :45) owns RESUME_POINTER.json/PROGRESS.json/WORK_INVENTORY.json/DETAILED_LOG.md — never write those from this job. One lesson hands-on per run; lessons audited and needing nothing are marked reviewed-no-op.",
  "queue": [
   {
@@ -16,7 +16,7 @@
    "chapter": 1,
    "number": "1.2",
    "title": "Comparing and Ordering Numbers",
-   "status": "pending-review"
+   "status": "done"
   },
   {
    "id": "fm-rounding-and-estimating",
@@ -540,9 +540,9 @@
   }
  ],
  "lastDone": {
-  "lessonId": "fm-numbers-digits-place-value",
+  "lessonId": "fm-comparing-ordering-numbers",
   "date": "2026-11-06",
-  "run": "visual-upgrade run 1 (job 507527, fired 15:45 +08:00)",
-  "summary": "number-line figure: 3 defects fixed (direction-label clipping, missing caption-promised markers at 7 and −4) + mobile font bump; NEW figure added: one-digit-four-seats (per-digit seat rendering, marching amber strips, ×10 arrows) — all geometry computed in-source; gates: geometry audit CLEAN, overlap audit 0/0, lint 0, tsc 0, E2E 44/44 at 1280+390+dark, quiz 5/5"
+  "run": "visual-upgrade run 2 (job 507527, fired 18:45 +08:00)",
+  "summary": "place-value chart audited exact (grid/tints/digits recomputed; 0 defects) + mobile font bumps 13→14/12→13; NEW figure: domination bound at j=1 drawn to scale (amber bar 0→10 vs striped 0→9, dashed unclosable gap 9→10) — all geometry computed in-source, 35-check audit CLEAN; gates: overlap 0/0, lint 0, tsc 0, E2E 27/27 at 1280+390+dark, quiz 5/5"
  }
 }

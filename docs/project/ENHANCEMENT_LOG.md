@@ -83,3 +83,79 @@ block + number-line fixes), `.gitignore` (whitelist: e2e-fm-11.sh,
 e2e-fm-11.page.js, build_enhancement_pointer.ts, enhance-fm-11-audit.ts),
 `docs/project/ENHANCEMENT_LOG.md`, `docs/project/ENHANCEMENT_POINTER.json`,
 plus the whitelisted scripts themselves.
+
+---
+
+## Run 2 — 2026-11-06 (job 507527, fired 18:45 +08:00, trace cron-agent-loop-202611061845)
+
+- **Lesson:** `fm-comparing-ordering-numbers` (FM 1.2 — next in the queue after run 1)
+- **Collision guard:** tree clean, no `.figure_upgrade_lock`, no index.lock → proceeded; lock created/refreshed per step, deleted at end.
+- **Queue:** ENHANCEMENT_POINTER.json read; 1.1 marked done in run 1 → this run took 1.2 (`pending-review`).
+
+### (a) Diagram/SVG precision — existing chart audited & polished
+
+All geometry recomputed by script BEFORE touching anything
+(`scripts/enhance-fm-12-gen.ts` derives + prints every value;
+`scripts/enhance-fm-12-audit.ts` re-derives everything independently from
+the committed file; 35 checks, CLEAN).
+
+**Place-value chart 4,589 vs 4,598 (existing, Figure 1):** grid verified exact
+(cols x = 150+140c, w = 130; rows y = 94/156, h = 46; header y = 44, h = 40;
+digit centers x = col+65; amber tint exactly at the tens column 430 in header
+and both rows; digits read 4,5,8,9 / 4,5,9,8; 4,598 − 4,589 = 9 recomputed).
+No defects. Mobile legibility bumps (run-1 precedent): seat-name headers,
+corner label and row labels 13→14 px, footer 12→13 px — all width-checked
+against their cells/viewBox (widest header "thousands" 69.3 px in a 130 px
+cell; footer ≈ 570 px centered at 425, inside 760). In-browser overlap audit:
+0 issues.
+
+### (b) Generated images
+
+None added — deliberate medium choice per owner directive v2. The lesson's
+core content (seat-scan comparison; the domination bound) is quantitative and
+structural: exact numbers ARE the teaching content, and the no-text rule for
+AI images would force all precise labels into adjacent HTML anyway. SVG
+carries the real values at publication precision; a raster illustration would
+duplicate the metaphor without adding clarity.
+
+### (c) Other visual enhancements
+
+**NEW figure "the domination bound at j = 1, drawn to scale" (Figure 2)**,
+inserted between the existing chart and the next heading (flow: the equation
+states the bound → chart shows WHERE the decision happens → new figure shows
+WHY the loser's best counter still falls short):
+- Two bars on one 0–10 ruler, x(v) = 150 + 52v: amber bar (one step of the
+  deciding tens seat, (9 − 8) × 10 = 10, w = 520) vs striped bar (every lower
+  seat at maximum, 9 × 1 = 9, w = 468), dashed amber segment closing 9→10
+  labelled "1 / unclosable gap".
+- Static by design: the bound is a comparison of magnitudes, not a process in
+  time — animation would add motion, not meaning (rationale logged per
+  directive v2). Interactivity skipped: the block framework exposes no
+  interactive block type, and adding one would break the surgical constraint.
+- Striped bar uses a currentColor-only `<pattern>` (dark-mode safe); amber
+  #b45309 matches the site accent; value labels white-on-amber / currentColor
+  on stripes; aria-label present; no text below 13 px in viewBox units.
+- All coordinates in-source from UNIT=52, X0=150, BAR_H=32, row ys 48/128,
+  axis 204; nothing hand-placed.
+
+### Gates (all green)
+
+| Gate | Result |
+| --- | --- |
+| `bun run scripts/enhance-fm-12-audit.ts` (geometry, both figures, 35 checks) | CLEAN |
+| `bash scripts/audit-svg-overlaps.sh fm-comparing-ordering-numbers` | svg0 0 issues, svg1 0 issues |
+| `bun run lint` | 0 errors (1 pre-existing warning in e2e-book2-promotion.page.js, unrelated) |
+| `bunx tsc --noEmit` | 0 errors |
+| Route 200 | `GET /book/foundation-mathematics/lesson/fm-comparing-ordering-numbers` → 200 |
+| Browser E2E (`scripts/e2e-fm-12.sh`) | 27/27 PASS at 1280 AND 390 (+ dark): 2 figures with exact structure (chart 12 rects/16 texts, amber digits 8,9; tug 4 rects/13 lines/17 texts, bars w=520/468, gap w=52, ticks 0..10), KaTeX 170 nodes 0 errors, no raw `$`, quiz 5/5 ("You scored 5/5"), 8 exercise pills + 2 example Sol pills = 10, no horizontal overflow (1280 & 390), 0 console errors |
+| Screenshots reviewed | tug-1280, chart-1280, tug-dark-1280, tug-390, chart-390 — light + dark + mobile all correct |
+
+### Commit
+
+`enhance(fm-comparing-ordering-numbers): precise figures + visual upgrades` —
+LOCAL ONLY (never pushed; the chapter job pushes all unpushed main commits).
+
+Files touched: `ch-01.ts` (new Figure 2 block + chart font bumps),
+`.gitignore` (whitelist: enhance-fm-12-gen.ts, enhance-fm-12-audit.ts,
+e2e-fm-12.sh, e2e-fm-12.page.js), `docs/project/ENHANCEMENT_LOG.md`,
+`docs/project/ENHANCEMENT_POINTER.json`, plus the whitelisted scripts themselves.

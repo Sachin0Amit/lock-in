@@ -650,17 +650,17 @@ export const chapter01: Chapter = {
             'Seat-by-seat comparison of 4,589 and 4,598. Thousands and hundreds agree; the first difference is at the tens seat (8 vs 9, tinted), which therefore decides: 4,598 is larger. The ones digits differ in the opposite direction (9 vs 8) but are dominated — 9 < 10, so they cannot overturn the verdict. The full difference is 4,598 − 4,589 = 9.',
           svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Place value chart comparing 4589 and 4598 with the deciding tens seat highlighted">
   <g font-size="13" fill="currentColor" text-anchor="middle">
-    <text x="80" y="34" opacity="0.75" text-anchor="start">seat →</text>
+    <text x="80" y="34" font-size="14" opacity="0.75" text-anchor="start">seat →</text>
     <rect x="150" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
     <rect x="290" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
     <rect x="430" y="44" width="130" height="40" rx="6" fill="#b45309" opacity="0.16"/>
     <rect x="570" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
-    <text x="215" y="69">thousands</text>
-    <text x="355" y="69">hundreds</text>
-    <text x="495" y="69" font-weight="700" fill="#b45309">tens</text>
-    <text x="635" y="69">ones</text>
-    <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
-    <text x="80" y="182" opacity="0.75" text-anchor="start">4,598</text>
+    <text x="215" y="69" font-size="14">thousands</text>
+    <text x="355" y="69" font-size="14">hundreds</text>
+    <text x="495" y="69" font-size="14" font-weight="700" fill="#b45309">tens</text>
+    <text x="635" y="69" font-size="14">ones</text>
+    <text x="80" y="120" font-size="14" opacity="0.75" text-anchor="start">4,589</text>
+    <text x="80" y="182" font-size="14" opacity="0.75" text-anchor="start">4,598</text>
     <rect x="150" y="94" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <rect x="290" y="94" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <rect x="430" y="94" width="130" height="46" rx="6" fill="#b45309" opacity="0.14" stroke="#b45309" stroke-width="2"/>
@@ -677,7 +677,54 @@ export const chapter01: Chapter = {
     <text x="355" y="186" font-size="22" font-weight="700">5</text>
     <text x="495" y="186" font-size="22" font-weight="700" fill="#b45309">9</text>
     <text x="635" y="186" font-size="22" font-weight="700">8</text>
-    <text x="425" y="232" font-size="12" opacity="0.8">first difference at the tens seat → 4,598 wins by 9, the ones digit cannot rescue 4,589</text>
+    <text x="425" y="232" font-size="13" opacity="0.8">first difference at the tens seat → 4,598 wins by 9, the ones digit cannot rescue 4,589</text>
+  </g>
+</svg>`,
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The domination bound of the inequality above, drawn to scale for j = 1. One step of the deciding tens seat — (9 − 8) × 10 = 10 — against the absolute most every lower seat could ever muster: 9 × 1 = 9. Even a full-strength revolt of the ones seat cannot close the dashed gap of 1, which is why the ones 9 of 4,589 is overruled by the tens 9 of 4,598.',
+          svg: `<svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bars on a zero to ten scale: the deciding tens seat contributes ten; every lower seat combined, even at maximum, contributes nine; the dashed segment from nine to ten is the gap of one that can never be closed">
+  <defs>
+    <pattern id="fig-tug-stripes" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="currentColor" opacity="0.08"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="2.5" opacity="0.28"/>
+    </pattern>
+  </defs>
+  <g fill="currentColor">
+    <text x="150" y="40" font-size="14">the deciding tens seat: (9 − 8) × 10</text>
+    <rect x="150" y="48" width="520" height="32" rx="4" fill="#b45309"/>
+    <text x="660" y="69" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">= 10</text>
+    <text x="150" y="120" font-size="14">every lower seat at maximum: 9 × 1</text>
+    <rect x="150" y="128" width="468" height="32" rx="4" fill="url(#fig-tug-stripes)" stroke="currentColor" stroke-width="1" opacity="0.9"/>
+    <text x="608" y="149" font-size="16" font-weight="700" text-anchor="end">= 9</text>
+    <rect x="618" y="128" width="52" height="32" rx="4" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="644" y="149" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">1</text>
+    <text x="644" y="178" font-size="13" fill="#b45309" text-anchor="middle">unclosable gap</text>
+    <line x1="150" y1="204" x2="670" y2="204" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <line x1="150" y1="199" x2="150" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="150" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">0</text>
+    <line x1="202" y1="199" x2="202" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="202" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">1</text>
+    <line x1="254" y1="199" x2="254" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="254" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">2</text>
+    <line x1="306" y1="199" x2="306" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="306" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">3</text>
+    <line x1="358" y1="199" x2="358" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="358" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">4</text>
+    <line x1="410" y1="199" x2="410" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="410" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">5</text>
+    <line x1="462" y1="199" x2="462" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="462" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">6</text>
+    <line x1="514" y1="199" x2="514" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="514" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">7</text>
+    <line x1="566" y1="199" x2="566" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="566" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">8</text>
+    <line x1="618" y1="199" x2="618" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="618" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">9</text>
+    <line x1="670" y1="199" x2="670" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <text x="670" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">10</text>
   </g>
 </svg>`,
         },

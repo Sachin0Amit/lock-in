@@ -197,3 +197,8 @@ server.log
 !/scripts/e2e-ans-71.page.js
 !/scripts/e2e-ans-72.page.js
 !/scripts/e2e-ans-73.page.js
+# exception: visual-upgrade run 2 (job 507527) — FM 1.2 figure audit + E2E (reusable every run)
+!/scripts/enhance-fm-12-gen.ts
+!/scripts/enhance-fm-12-audit.ts
+!/scripts/e2e-fm-12.sh
+!/scripts/e2e-fm-12.page.js
