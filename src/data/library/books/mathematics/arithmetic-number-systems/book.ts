@@ -3,6 +3,7 @@ import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
+import { chapter05 } from './ch-05'
 
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
@@ -12,12 +13,14 @@ import { chapter04 } from './ch-04'
  * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52). Chapter 3
  * 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54, unit-3
  * review passed). Chapter 4 'Primes and the Fundamental Theorem of
- * Arithmetic' COMPLETE 4/4 (run 55, 2026-11-05: 4.1 the primes never
- * end + 4.2 the fundamental theorem; run 56, 2026-11-06: 4.3 divisors
- * from DNA + 4.4 how the primes are distributed — the unit-4 completion
- * review passed, chapter closed in one run per the owner's
- * one-full-chapter-per-run directive). Chapter 5 'Congruences: The
- * Arithmetic of Remainders' is completed ENTIRELY at run 57.
+ * Arithmetic' COMPLETE 4/4 (runs 55-56). Chapter 5 'Congruences: The
+ * Arithmetic of Remainders' COMPLETE 4/4 (run 57, 2026-11-06 — the
+ * second one-full-chapter run: 5.1 congruence defined + 5.2 the
+ * divisibility tests derived + 5.3 unit digits and cycles + 5.4 linear
+ * congruences, CRT and Fermat’s glimpse, with the unit-5 completion
+ * review passed; verify-book2-ch05.ts 265 checks, all green before
+ * writing). Chapter 6 'Building the Integers' is completed ENTIRELY at
+ * run 58.
  * The full TOC below is the researched chapter plan
  * (owner cadence: one full chapter per run). Lesson ids use the `ans-`
  * prefix (globally unique, stable forever).
@@ -72,27 +75,13 @@ export const arithmeticNumberSystems: Book = {
   status: 'in-progress',
   accent: ['#0f766e', '#115e59'],
   notes:
-    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 COMPLETE (runs 53-54; verify-book2-ch03.ts 312 → 502 checks, thirteen pre-writing defects caught across the two runs; unit-3 completion review passed). Chapter 4 COMPLETE (run 55: 4.1 The Primes Never End + 4.2 The Fundamental Theorem of Arithmetic, verify-book2-ch04.ts 167 checks; run 56, 2026-11-06: 4.3 Divisors from DNA + 4.4 How the Primes Are Distributed with the verifier extended 167 → 356 checks, one wrong record-gap claim and three figure-text collisions caught pre-writing, unit-4 completion review passed — the chapter closed in ONE run per the owner directive of 2026-11-06). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Books VII + IX (the measures charter, VII.30-32, IX.14 + IX.20 + IX.36 → ch. 2/3/4); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); Nicomachus Introduction to Arithmetic I.13 + the perfect/abundant/deficient chapter (the sieve’s surviving account and the three-family classification → ch. 4); al-Farisi (the first full existence proof + the amicable workshop → ch. 4); Thābit ibn Qurra (the amicable rule, c. 850 → ch. 4); Bertrand 1845 / Chebyshev 1850 / Erdős 1932 (the doubling guarantee → ch. 4); Euler 1737 Variae observationes (Σ 1/p diverges + the zeta product → ch. 4); Hadamard & de la Vallée Poussin 1896 (the PNT, stated → ch. 4); Zhang 2013 / Maynard / Polymath8 (bounded gaps 70,000,000 → 246 → ch. 4); Gauss Disquisitiones Arithmeticae 1801 art. 16 (the first uniqueness proof → ch. 4); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon this book re-derives). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. One full chapter per run (owner directive 2026-11-06).',
+    'Research phase complete 2026-11-05 (run 48): reference survey + syllabus audit + the 10-chapter/34-lesson plan. Chapter 1 COMPLETE (runs 49-50; verify-book2-ch01.ts 228 checks). Chapter 2 COMPLETE (runs 51-52; verify-book2-ch02.ts extended 166 → 407 checks, seven pre-writing defects caught in run 52). Chapter 3 COMPLETE (runs 53-54; verify-book2-ch03.ts 312 → 502 checks, thirteen pre-writing defects caught across the two runs; unit-3 completion review passed). Chapter 4 COMPLETE (runs 55-56; verify-book2-ch04.ts 167 → 356 checks across the two runs, unit-4 completion review passed — chapter 4 closed in one run per the owner directive of 2026-11-06). Chapter 5 COMPLETE (run 57, 2026-11-06 — the second one-full-chapter run: 5.1 Remainders Become Numbers + 5.2 Why the Divisibility Tests Work + 5.3 The Unit Digit and Cycles of Powers + 5.4 Linear Congruences and a Glimpse of Fermat, all four shipped verify-first with verify-book2-ch05.ts at 265 checks sections A–AE — three pre-writing defects caught — unit-5 completion review passed). The per-chapter reference mapping from the research phase lives on in WORKLOG/SOURCE_LOG. Sources named: Khattar QA 4e ch. 1 (competitive-exam arithmetic scope → ch. 2/4/5/10); Beck & Geoghegan, The Art of Proof (the university number-systems bridge → ch. 1/6/7/8); Euclid Elements Books VII + IX (the measures charter, VII.30-32, IX.14 + IX.20 + IX.36 → ch. 2/3/4); Knuth TAOCP Vol. 2 §4.1 Positional Number Systems (the notation charter → ch. 3); Nicomachus Introduction to Arithmetic I.13 + the perfect/abundant/deficient chapter (the sieve’s surviving account and the three-family classification → ch. 4); al-Farisi (the first full existence proof + the amicable workshop → ch. 4); Thābit ibn Qurra (the amicable rule, c. 850 → ch. 4); Bertrand 1845 / Chebyshev 1850 / Erdős 1932 (the doubling guarantee → ch. 4); Euler 1737 Variae observationes (Σ 1/p diverges + the zeta product → ch. 4); Hadamard & de la Vallée Poussin 1896 (the PNT, stated → ch. 4); Zhang 2013 / Maynard / Polymath8 (bounded gaps 70,000,000 → 246 → ch. 4); Gauss Disquisitiones Arithmeticae 1801 art. 1 (the congruence definition and ≡ notation) + art. 16 (the first uniqueness proof → ch. 4/5); OpenStax Contemporary Mathematics §4.2 (early numeration → ch. 9); Cambridge IGCSE CS 0478 §1.1 (binary/hex representation → ch. 3 lesson 3.4); NCERT class 6 ch. 1 + class 8 ch. 16 Playing with Numbers (the school canon ch. 5 re-derives from congruences); Fibonacci Liber Abaci 1202 (the casting-out-nines check described → ch. 5 lesson 5.2); Sunzi Suanjing (3rd–5th c. CE, the CRT counting problem) with Āryabhaṭa 499 / Brahmagupta 7th c. / Qin Jiushao 1247 (the CRT method’s lineage → ch. 5 lesson 5.4); Fermat’s 1640 letter to Frénicle (the little theorem, stated; Euler 1736 the first published proof → ch. 5 lesson 5.4). Duplication policy: FM-banked operations are cross-referenced (fm- lesson ids), never repeated; this book proves what FM banked. One full chapter per run (owner directive 2026-11-06).',
   chapters: [
     chapter01,
     chapter02,
     chapter03,
     chapter04,
-    {
-      number: 5,
-      slug: 'congruences',
-      title: 'Congruences: The Arithmetic of Remainders',
-      summary:
-        'Remainders promoted to numbers: congruence defined and its laws proved, the school divisibility tests finally derived (why casting out nines works, why 11 alternates signs), the unit digit of huge powers found through cycles, linear congruences solved, and a computationally verified glimpse of Fermat’s little theorem — the doorway to the Number Theory book.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Remainders Become Numbers: Congruence Defined',
-        'Why the Divisibility Tests Work',
-        'The Unit Digit and Cycles of Powers',
-        'Linear Congruences and a Glimpse of Fermat',
-      ],
-    },
+    chapter05,
     {
       number: 6,
       slug: 'building-the-integers',
