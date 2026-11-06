@@ -2,7 +2,7 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-06",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 5 'Congruences: The Arithmetic of Remainders' COMPLETE 4/4 (run 57, 2026-11-06 — the SECOND one-full-chapter run per the owner's 2026-11-06 directive: 5.1 'Remainders Become Numbers: Congruence Defined' (5,499 words) + 5.2 'Why the Divisibility Tests Work' (5,277) + 5.3 'The Unit Digit and Cycles of Powers' (4,985) + 5.4 'Linear Congruences and a Glimpse of Fermat' (4,914) + the unit-5 completion review — all shipped verify-first with verify-book2-ch05.ts at 270 checks, sections A–AF, ALL PASS before writing; four pre-writing defects caught (the truncation-law overclaim, the 8-cycle printed backwards, the Math.pow precision loss, the BigInt-target clash); one KaTeX escape defect caught live by the E2E; every lesson fully gated (lint 0, tsc 0, routes 200, quiz answered live 5/5 on the intended keys, 0 katex-errors, 0 console errors, SVG audits 0 issues); exam corners 4/4, ids globally unique). Chapter 5 stands 20,675 words / 32 terms / 20 quiz / 56 exercises (5.1: 5,499/8/5/14 · 5.2: 5,277/8/5/14 · 5.3: 4,985/8/5/14 · 5.4: 4,914/8/5/14). Chapter 4 COMPLETE 4/4 (runs 55–56); chapter 3 COMPLETE 4/4 (19,953 words); chapter 2 COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words. Library after run 57: 2 books, 16 chapters written, 67 lessons, 326,777 words, 507 terms, 335 quiz, 792 exercises. SCHEDULE: owner chat directive 2026-11-06 ('ok then do for every 2 hour') — job 506464 (hourly) deleted, job 507350 created with fixed_rate 7200 s, tz Asia/Kolkata, next fire 08:59:37 IST, the one-full-chapter payload + PUSH PROTOCOL v2 carried verbatim. NEXT RUN 58: chapter 6 'Building the Integers' COMPLETE 3/3 in one run (verify-book2-ch06.ts FIRST, whitelist it + e2e-ans-61/62/63 in .gitignore BEFORE committing).",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 6 'Building the Integers' COMPLETE 3/3 (run 58, 2026-11-06 — the THIRD one-full-chapter run per the owner's 2026-11-06 directive: 6.1 'The Closure Failures That Force Extension' (5,618 words) + 6.2 'Constructing the Integers from the Naturals' (5,269) + 6.3 'The Laws of Integer Arithmetic' (4,890) + the unit-6 completion review — all shipped verify-first with verify-book2-ch06.ts at 233 checks, sections A–W, ALL PASS before writing; eleven draft defects caught in-script before any lesson text existed (a figure x-coordinate, two assertion typos, a transitivity sweep count, class-arithmetic slips — [(5,1)]·[(4,1)] = [(21,9)] not [(21,10)], [(3,1)]·[(1,2)] reduces to [(1,3)], the (−2)³ chain — one census assertion, the zero-absorption instance [(4,1)]·[(5,5)] = [(25,25)], one table-index bug); two live E2E catches fixed (table captions and one term name carrying $ math that the renderer prints raw — stripped; figure labels repositioned twice to pass the exact-geometry audit); every lesson fully gated (lint 0, tsc 0, routes 200, quiz answered live 5/5 on the intended keys 6.1: 2/1/0/0/0, 6.2: 2/2/0/0/1, 6.3: 1/0/1/1/2, 0 katex-errors, 0 raw $, 0 console errors, no overflow at 390px and 1280px, SVG audits 0/0/0). Chapter 5 COMPLETE 4/4 (run 57); chapter 4 COMPLETE 4/4 (runs 55–56); chapter 3 COMPLETE 4/4 (19,953 words); chapter 2 COMPLETE 4/4 (20,820 words); chapter 1 COMPLETE 3/3 (16,921 words). Foundation Mathematics stands COMPLETE — 11/11 chapters, 48 lessons, 227,569 words. Library after run 58: 2 books, 17 chapters written, 70 lessons, 342,554 words, 531 terms, 350 quiz, 834 exercises; 12 planned lessons remain (ANS ch. 7–10). SCHEDULE: job 507350 (every-2-hour chapter run, fixed_rate 7200 s, tz Asia/Kolkata) + the hourly sibling visual-upgrade job at :15 (created 2026-11-06 in the owner chat; guarded by docs/project/.figure_upgrade_lock, local enhance(...) commits, never pushes). NEXT RUN 59: chapter 7 'Building the Rationals' COMPLETE 3/3 in one run (verify-book2-ch07.ts FIRST, whitelist it + e2e-ans-71/72/73 in .gitignore BEFORE committing).",
  "awaiting": "Run 57: complete ANS chapter 5 'Congruences: The Arithmetic of Remainders' ENTIRELY in one run (owner directive 2026-11-06) — all four planned lessons ('Remainders Become Numbers: Congruence Defined', 'Why the Divisibility Tests Work', 'The Unit Digit and Cycles of Powers', 'Linear Congruences and a Glimpse of Fermat') + the unit-5 completion review; CREATE scripts/verify-book2-ch05.ts FIRST (whitelist it + e2e-ans-51/52/53/54.page.js in .gitignore BEFORE committing) and recompute every number before writing. The school divisibility tests are re-derived there from congruences (NCERT class 8 ch. 16 canon, cross-referenced not repeated); the research phase's CAT/IPMAT unit-digit and remainder-chain scope is banked for 5.3/5.4.",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -86,17 +86,17 @@
     "notes": "IN PROGRESS — chapters 1–5 COMPLETE (runs 49–57): ch. 1 3/3 (16,921 words; verify-book2-ch01.ts 228 checks); ch. 2 4/4 (20,820; 407 checks); ch. 3 4/4 (19,953; 502 checks); ch. 4 4/4 (20,839; 356 checks); ch. 5 4/4 (20,675 words / 32 terms / 20 quiz / 56 exercises — run 57, the second one-full-chapter run, verify-book2-ch05.ts 270 checks sections A–AF, four pre-writing defects caught, unit-5 completion review passed: congruence defined + proved equal to the same-remainder relation, the divisibility tests derived (digit sums, alternating, truncation, the 1001 engine), unit-digit cycles with the pigeonhole proof, linear congruences via the gcd engine, CRT stated + swept with Sunzi's ladder, Fermat stated + swept + cashed back onto the cycle lengths). Book stands 19 lessons / 99,208 words / 152 terms / 95 quiz / 258 exercises. Chapter 6 'Building the Integers' (3 lessons) is completed ENTIRELY at run 58 under the one-full-chapter directive. Two new citation keys this run: sunzi-suanjing-crt, fermat-1640-little-theorem."
    }
   ],
-  "lessonsWritten": 63,
-  "wordsAuthored": 306102,
-  "termsAvailableForFlashcards": 475,
+  "lessonsWritten": 70,
+  "wordsAuthored": 342554,
+  "termsAvailableForFlashcards": 531,
   "totals": {
-   "lessonsWritten": 63,
-   "plannedLessons": 23,
-   "words": 306102,
-   "terms": 475,
-   "quizItems": 315,
-   "exerciseQuestions": 736,
-   "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed)"
+   "lessonsWritten": 70,
+   "plannedLessons": 12,
+   "words": 342554,
+   "terms": 531,
+   "quizItems": 350,
+   "exerciseQuestions": 834,
+   "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed at run 58 ship"
   }
  },
  "research": {
@@ -423,7 +423,7 @@
   "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
- "lastCompleted": "run 56 (2026-11-06, job 506464's first fire — the one-full-chapter job): ANS CH. 4 CLOSES 4/4 with 4.3 'Divisors from DNA: Divisor Counts and Factorial Zeros' (5,285 words) + 4.4 'How the Primes Are Distributed' (5,204 words) + the unit-4 completion review — the first complete chapter shipped under the owner's one-full-chapter-per-run directive; verify-book2-ch04.ts extended 167 → 356 checks (sections W–AQ) before writing, two pre-writing defects caught (the 1129→1163 record-gap claim; the Σ 1/p ≤ 1000 partial sum), the 4.3 lattice figure's label collisions caught by the SVG auditor and fixed; chapter totals 20,839 words / 32 terms / 20 quiz / 55 exercises; library 63 lessons / 306,102 words / 475 terms / 315 quiz / 736 exercises",
+ "lastCompleted": "run 58 (2026-11-06, fired 14:15 IST from job 507529 — the every-2-hour one-full-chapter job's payload; the sibling visual job was idle this window, no lock present at run open): ANS CHAPTER 6 'BUILDING THE INTEGERS' COMPLETE 3/3 IN ONE RUN — 6.1 'The Closure Failures That Force Extension' (5,618 words; verify sections A–C + O/P) + 6.2 'Constructing the Integers from the Naturals' (5,269; D–G + Q/R + V2) + 6.3 'The Laws of Integer Arithmetic' (4,890; H–N + S/T) + the unit-6 completion review — the third one-full-chapter run. verify-book2-ch06.ts grew 125 → 147 → 196 → 233 checks across the run, every section green before its lesson was written. Three new citation keys (hankel-1867-permanence, peacock-1833-permanence, brahmagupta-628-brahmasphutasiddhanta); two live E2E catches fixed (raw $ in table captions / one term name; figure-label collisions repositioned to 0 audit issues). Tree clean at ship; push per protocol.",
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
   "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
@@ -473,5 +473,55 @@
    "zhang-2013-bounded-gaps"
   ],
   "downloads": "zero — the sanctioned internet fallback grounded the seven new keys; no working copies to delete"
+ },
+ "run58Extras": {
+  "fired": "2026-11-06 14:15 IST from job 507529 (the one-full-chapter payload with PUSH PROTOCOL; job 507350's fixed_rate cadence superseded by wall-clock cron — the payload carried the same directives)",
+  "delivered": "ANS ch. 6 COMPLETE 3/3 in ONE run: 6.1 closure failures (5,618 words) + 6.2 the construction (5,269) + 6.3 the laws (4,890) + the unit-6 completion review",
+  "verifyChecks": "233 (sections A–W; created at 125 for 6.1 pre-writing, extended 147 → 196 → 233 before each lesson)",
+  "quizKeys": [
+   [
+    2,
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    0,
+    1
+   ],
+   [
+    1,
+    0,
+    1,
+    1,
+    2
+   ]
+  ],
+  "defectsCaughtPreWriting": [
+   "figure-1 x-coordinate X(7) = 452 not 484",
+   "two assertion typos in the D sweep (3+3 = 6 not 4)",
+   "transitivity sweep needed entries ≤ 6 for > 500 chained instances",
+   "[(5,1)]·[(4,1)] = [(21,9)] not [(21,10)] — b·c misadded",
+   "[(3,1)]·[(1,2)] reduces to (1,3) not (1,2)",
+   "the (−2)³ chain rebuilt through (1,3)·(1,3) = (10,6) then (10,6)·(1,3) = (28,36)",
+   "the census live-count assertion",
+   "[(4,1)]·[(5,5)] = [(25,25)] not (21,21)",
+   "a table-index bug in the −4..4 cell checks"
+  ],
+  "liveE2ECatches": [
+   "table captions + one term name carried $ math that the reader prints raw — stripped to plain text (dollarInText 8 → 0)",
+   "figure labels repositioned twice (6.1 ticks/labels; 6.2 owe-box caption merged to one line; 6.3 mirror annotations moved below the arcs) — all three figures audit 0 issues"
+  ],
+  "newCitationKeys": [
+   "hankel-1867-permanence",
+   "peacock-1833-permanence",
+   "brahmagupta-628-brahmasphutasiddhanta"
+  ],
+  "chapterState": "ANS ch. 6 COMPLETE 3/3 (15,777 words; 24 terms, 15 quiz, 42 exercises; exam corners 3/3; ids globally unique at 70)",
+  "nextRun": "run 59 = ANS ch. 7 Building the Rationals COMPLETE 3/3 (verify-book2-ch07.ts FIRST)"
  }
 }

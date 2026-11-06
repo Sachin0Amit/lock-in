@@ -9,6 +9,49 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 58 (2026-11-06, job 507529's fire)**: **ANS
+CHAPTER 6 'BUILDING THE INTEGERS' COMPLETE 3/3 IN ONE RUN — the third chapter shipped under
+the owner's one-full-chapter-per-run directive.** verify-first discipline held: `verify-book2-ch06.ts`
+was created BEFORE any lesson text and extended 125 → 147 → 196 → 233 checks (sections A–W) ahead of each
+lesson, catching **eleven pre-writing defects** in the script itself (a figure x-coordinate; two assertion
+typos; a transitivity sweep bound; class-arithmetic slips — [(5,1)]·[(4,1)] = [(21,9)] not [(21,10)],
+[(3,1)]·[(1,2)] ~ [(1,3)] not [(1,2)]; the (−2)³ chain; a census count; the zero-absorption instance;
+a table-index bug). The well-definedness sweeps ran every representative swap with entries ≤ 4 (thousands
+of 8-tuples) for both class operations — zero movements; the −4..4 tables (162 cells) were computed THROUGH
+the construction; the sign rules, order flip and cancellation laws were verified through clsAdd/clsMul, never
+ordinary arithmetic. Two live E2E catches fixed mid-run (raw $ in table captions and one term name — the
+reader renders those plain; figure labels repositioned to pass the exact-geometry audit — all three figures
+0 issues). All three lessons shipped with full per-lesson gates (lint 0, tsc 0, routes 200, live quiz 5/5 on
+the intended keys 6.1: 2/1/0/0/0, 6.2: 2/2/0/0/1, 6.3: 1/0/1/1/2, 0 katex-errors, 0 raw $, 0 console errors,
+no overflow at 390/1280, SVG audits 0/0/0):
+- **6.1 'The Closure Failures That Force Extension'** (`ans-closure-failures-that-force-extension`, 5,618 words,
+  8 terms, 5 quiz, 14 exercises, 1 derivation, 2 illustrations, 1 figure, 1 table, 4 formula cards): closure
+  defined; the four operations sorted; the subtraction condition PROVED (b < a strict — 0 ∉ ℕ in this book);
+  the wall (no predecessor of 1); the equation census with the 15/21 + 14/22 quantitative reading; the
+  four-demand repair criterion; Peacock 1833 → Hankel 1867 permanence; the 0-less-repair audit; honest scoping.
+- **6.2 'Constructing the Integers from the Naturals'** (`ans-constructing-the-integers-from-the-naturals`,
+  5,269 words, 8 terms, 5 quiz, 14 exercises, 2 derivations, 5 illustrations, 1 figure (the difference lattice),
+  4 tables (dictionary + ten reductions + the two construction-computed −3..3 tables), 1 algorithm, 4 formula
+  cards): difference pairs; the cross-sum relation proved reflexive/symmetric/transitive (cancellation engine);
+  classes = ℤ; zero born as the diagonal [(k,k)]; the mirror [(b,a)]; canonical forms with uniqueness; both
+  operations defined + swept well-defined; the embedding n ↦ [(n+1,1)] verified additive and multiplicative;
+  the Hankel-charter/Brahmagupta-debt callout.
+- **6.3 'The Laws of Integer Arithmetic'** (`ans-the-laws-of-integer-arithmetic`, 4,890 words, 8 terms, 5 quiz,
+  14 exercises, 2 derivations (distribution through the boxes; the debt-times-debt spine), 5 illustrations,
+  1 figure (the mirror map), 1 table (Brahmagupta's verses vs the construction), 4 formula cards): all laws
+  derived; total subtraction; the sign rules as theorems; order + the mirror flip; universal additive
+  cancellation + the zero-product lemma; ℤ the reader's first ring; division's wall queued for chapter 7.
+
+Unit-6 completion review passed (BOOK_FORMAT checklist 7/7; exam corners 3/3; ids globally unique at 70;
+ch-06 flipped complete, plannedLessons emptied). Chapter 6 stands **15,777 words / 24 terms / 15 quiz /
+42 exercises** (6.1: 5,618 · 6.2: 5,269 · 6.3: 4,890). Library after run 58: **2 books, 17 chapters, 70
+lessons, 342,554 words, 531 terms, 350 quiz, 834 exercises**; 12 planned lessons remain (ANS ch. 7–10).
+Three new citation keys (hankel-1867-permanence, peacock-1833-permanence,
+brahmagupta-628-brahmasphutasiddhanta); zero downloads (web-check only). Next: run 59 = ANS ch. 7
+'Building the Rationals' COMPLETE 3/3 (verify-book2-ch07.ts FIRST).
+
+---
+
 Maintained through **run 57 (2026-11-06, job 506464's last fire before the owner's same-window rescheduling)**: **ANS
 CHAPTER 5 'CONGRUENCES: THE ARITHMETIC OF REMAINDERS' COMPLETE 4/4 IN ONE RUN — the second chapter shipped under
 the owner's one-full-chapter-per-run directive (and the first under the rescheduled every-2-hour cadence, job 507350).**

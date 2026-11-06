@@ -1245,3 +1245,60 @@ Lesson 8.4 "Triangles and the Angle Sum" was verified against one NEW citation k
 ## 2026-11-05 — Run 47 (FM 11.2 + FM 11.3 + the unit-11 completion review — THE BOOK CLOSES): zero downloads
 
 Lesson 11.2 "From Patterns to Formulas" was verified against two NEW citation keys added this run — `ncert-math7-gp-ch4` (Ganita Prakash class-7 ch. 4 "Expressions using Letter-Numbers", gegp104: letter-numbers, matchstick formulas, substitution — web-checked via the published PDF listing + solution-guide summaries) and `ncert-math6-ch11` (class-6 ch. 11 "Algebra": the matchstick-patterns charter, Ex. 11.1) — plus the carried `ncert-ganita-prakash6-ch1` and `khattar-qa-4e`. History grounded by web-check: the Gauss schoolboy anecdote told with hedges (first printed in Sartorius von Waltershausen's 1856 memorial biography; details vary across tellings — the pairing argument itself the point). Lesson 11.3 "A Letter for the Unknown" was verified against one NEW citation key — `ncert-math7-ch4` (class-7 ch. 4 "Simple Equations": the balance-method charter, Ex. 4.2's same-operation-on-both-sides discipline) — plus the carried keys. History grounded by web-check: the Rhind Mathematical Papyrus's aha problems (problems 24–34 linear equations; the quantity-plus-its-quarter-makes-15 instance solved by the scribe's take-4 scaling, answer 12) and al-Khwarizmi's Al-Jabr (Baghdad c. 820; al-jabr = restoring/reunion of broken parts → the word algebra; Algoritmi → algorithm). Exam-corner shapes (n-th-term formulas, the Tₙ vs N(N−1)/2 off-by-one, simple equations in age/ribbon/perimeter narrations, CTET balance-model pedagogy) web-checked — shapes cited, no question reproduced. No reference files downloaded, no working copies to delete.
+
+## Citation keys added by ANS chapter 6 (run 58)
+
+- `hankel-1867-permanence` — Hermann Hankel, *Theorie der complexen
+  Zahlensysteme* (Leipzig: Leopold Voss, 1867): the **principle of the
+  permanence of formal laws** — when a number system is extended, the
+  old formal laws remain valid "soweit als möglich" (as far as
+  possible; Hankel 1867, p. 102). Hankel (1839–1873) studied under
+  Möbius, Riemann, Weierstrass and Kronecker and taught at
+  Erlangen–Nuremberg and Tübingen. Web-checked 2026-11-06 (run 58) via
+  the Toader 2021 *Historia Mathematica* study "Permanence as a
+  principle of practice" and the 2026 arXiv analysis of Hankel's
+  principle (which quotes the 1867 title page and the "soweit als
+  möglich" formulation); paraphrased in 6.1's historical callout and
+  6.2's charter callout, never reproduced. Lesson 6.1's repair
+  criterion is the working form of this principle.
+- `peacock-1833-permanence` — George Peacock's **principle of the
+  permanence of equivalent forms** (*Treatise on Algebra* 1830 and its
+  symbolic successor of 1833; also his 1842/1845 works): the original
+  statement that extending the reading of algebra's symbols must keep
+  the old truths of the old readings true — the ancestor Hankel
+  recast. Web-checked 2026-11-06 via the same two historical studies
+  (which list Peacock 1830/1833/1842/1845 and note Hankel's deliberate
+  narrowing from theorems to laws); paraphrased in 6.1's historical
+  callout, never reproduced.
+- `brahmagupta-628-brahmasphutasiddhanta` — Brahmagupta,
+  *Brahmasphutasiddhanta* ("The Opening of the Universe", 628 CE): the
+  earliest surviving text treating zero and negative numbers as full
+  citizens of arithmetic, with the rules phrased as **fortunes and
+  debts** (fortune with fortune is fortune; fortune with debt follows
+  the bigger; debt with debt is fortune; the zero rules — a debt minus
+  zero is a debt, zero minus zero is zero, a fortune subtracted from
+  zero is a debt). Reached Europe through Colebrooke's 1817 English
+  translation of the algebra chapters. Web-checked 2026-11-06 via
+  MacTutor's Brahmagupta biography (the fortunes/debts wording); the
+  verses are paraphrased in 6.2's historical callout and tabled as
+  theorems at 6.3 (each verse paired with a verified pair
+  computation), never reproduced. FM 7.1–7.3 banked the rules
+  operationally; chapter 6 derives them.
+
+## Run 58 reference discipline (2026-11-06): zero downloads
+
+Chapter 6 was verified against the carried citation set
+(`beck-geoghegan-art-of-proof` — the ℕ → ℤ bridge syllabus spine;
+`ncert-math6-ch10` and `ncert-math7-p2-ch2` carried; `khattar-qa-4e`
+carried) via web-check only — no new reference files downloaded, no
+working copies to delete. History grounded by web-check: Hankel's 1867
+permanence principle and Peacock's 1833 ancestor (Toader 2021 +
+arXiv 2607.08413 — the title, publisher, "soweit als möglich" page
+reference and the Peacock lineage all confirmed), and Brahmagupta's
+628 CE fortunes/debts rules (MacTutor). Exam-corner shapes (ℕ-vs-ℤ
+solve-and-system pairings, signed-order narrations, sign-rule products,
+distributive factoring, smallest-integer items in SSC CHSL/MTS, RRB
+NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no
+question reproduced. The gitignored Drive survey was rebuilt after the
+sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
+89 entries intact).

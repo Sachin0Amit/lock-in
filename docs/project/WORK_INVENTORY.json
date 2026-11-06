@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 05:56:56 (Asia/Kolkata)",
+  "generated": "2026-11-06 13:02:42 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 5,
+        "chaptersWritten": 6,
         "chapters": [
           {
             "number": 1,
@@ -4734,16 +4734,221 @@
             "number": 6,
             "slug": "building-the-integers",
             "title": "Building the Integers",
-            "summary": "The first great extension, done honestly: the closure failures that force negative numbers (FM 7.1 felt them; here they are named), the actual construction of ℤ from ℕ as difference pairs with the equivalence relation proved, and the arithmetic laws of ℤ derived from the construction — the reader’s first ring, met as a building rather than a fact.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "The Closure Failures That Force Extension",
-              "Constructing the Integers from the Naturals",
-              "The Laws of Integer Arithmetic"
+            "summary": "The first great extension, done honestly. Lesson 6.1 names the disease: ℕ is closed under addition and multiplication but not under subtraction — a − b exists only when b < a, even a − a is barred (0 is not a natural), and equations like x + 9 = 4 die on the page — and states the repair criterion: new answers for dead questions, old numbers unchanged, old laws alive, no new failures (Peacock’s and Hankel’s permanence principle of 1833/1867). Lesson 6.2 performs the surgery: integers are difference pairs (a, b) — “a with b to take away” — bundled into classes by the relation a + d = b + c, which is proved to be an equivalence relation; addition and multiplication of classes are defined and proved well-defined (the original sin of quotient constructions, swept clean by the verification script); zero emerges as the diagonal class [(k, k)], the mirror [(b, a)] gives every class an opposite, and ℕ embeds once and for all as n ↦ [(n+1, 1)]. Lesson 6.3 cashes the payoff: every law of integer arithmetic — commutativity, associativity, distributivity, the identities, the sign rules Brahmagupta stated in 628 CE — is DERIVED from the pair algebra, order extends with its mirror flip (2 < 5 ⟹ −5 < −2), subtraction becomes total, cancellation becomes universal, and ℤ stands as the reader’s first ring — met as a building rather than a fact, with division’s failure waiting to launch chapter 7.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "ans-closure-failures-that-force-extension",
+                "number": "6.1",
+                "title": "The Closure Failures That Force Extension",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5618,
+                "readMins": 28,
+                "concepts": [
+                  "Closure under an operation",
+                  "Partial operations: subtraction and division",
+                  "The subtraction condition b < a",
+                  "The wall: no predecessor of 1",
+                  "Equations ℕ cannot solve",
+                  "The repair criterion",
+                  "The permanence principle (Peacock, Hankel)",
+                  "What chapter 7 still owes: division"
+                ],
+                "objectives": [
+                  "Say precisely what it means for a set to be closed under an operation, and sort ℕ’s four operations into closed (+, ×) and partial (−, ÷)",
+                  "State and prove the subtraction condition — $a - b$ exists in $\\mathbb{N}$ exactly when $b < a$ — and explain why even $a - a$ is barred (0 is not a natural in this book)",
+                  "Run the equation census: decide which equations $x + b = a$ and $x \\cdot c = d$ solve in $\\mathbb{N}$, and prove both criteria",
+                  "State the repair criterion a number-system extension must satisfy, name its originators (Peacock 1833, Hankel 1867), and scope honestly what chapter 6 repairs (subtraction) and what it leaves (division, for chapter 7)"
+                ],
+                "prerequisites": [
+                  "ans-architecture-of-counting-successors-order",
+                  "ans-induction-proving-for-every-number",
+                  "fm-negative-numbers-why-they-exist"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "hankel-1867-permanence",
+                  "peacock-1833-permanence",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "callout": 6,
+                  "equation": 2,
+                  "list": 3,
+                  "example": 2,
+                  "figure": 1,
+                  "table": 1,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-constructing-the-integers-from-the-naturals",
+                "number": "6.2",
+                "title": "Constructing the Integers from the Naturals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5269,
+                "readMins": 26,
+                "concepts": [
+                  "Difference pairs (a, b)",
+                  "The relation (a, b) ~ (c, d) ⟺ a + d = b + c",
+                  "Equivalence relation proved (cancellation engine)",
+                  "Well-defined addition and multiplication",
+                  "The diagonal class [(k, k)] is zero",
+                  "The mirror [(b, a)] is the opposite",
+                  "Canonical forms and the dictionary",
+                  "The embedding n ↦ [(n+1, 1)]"
+                ],
+                "objectives": [
+                  "Explain the difference-pair idea — an integer is a pair $(a, b)$ read as \"$a$ with $b$ to take away\" — and why whole *classes* of pairs must share one integer",
+                  "Prove that $(a, b) \\sim (c, d) \\Longleftrightarrow a + d = b + c$ is an equivalence relation, with transitivity running on $\\mathbb{N}$’s cancellation exactly as the derivation shows",
+                  "Define addition and multiplication of classes and prove both well-defined — the representative-independence check that is the original sin of every quotient construction, swept clean by the verification script",
+                  "Build the dictionary: zero as the diagonal class $[(k, k)]$, the mirror $[(b, a)]$ as the opposite, and the embedding $n \\mapsto [(n+1, 1)]$ that parks $\\mathbb{N}$ inside $\\mathbb{Z}$ preserving both operations"
+                ],
+                "prerequisites": [
+                  "ans-closure-failures-that-force-extension",
+                  "ans-architecture-of-counting-successors-order",
+                  "ans-remainders-become-numbers-congruence-defined"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "hankel-1867-permanence",
+                  "brahmagupta-628-brahmasphutasiddhanta",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 6,
+                  "callout": 8,
+                  "list": 3,
+                  "equation": 3,
+                  "example": 5,
+                  "derivation": 2,
+                  "figure": 1,
+                  "table": 4,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 5,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-the-laws-of-integer-arithmetic",
+                "number": "6.3",
+                "title": "The Laws of Integer Arithmetic",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4890,
+                "readMins": 24,
+                "concepts": [
+                  "The laws derived from the construction",
+                  "Distributivity through the boxes",
+                  "Total subtraction: x − y = x + mirror(y)",
+                  "The sign rules as theorems",
+                  "Brahmagupta’s verses, proved",
+                  "The order definition and the mirror flip",
+                  "Universal cancellation and the zero-product lemma",
+                  "ℤ as the first ring; division’s wall ahead"
+                ],
+                "objectives": [
+                  "Derive every arithmetic law — commutativity, associativity, distributivity, the identities — from the pair construction, each collapsing to the definition plus $\\mathbb{N}$’s laws",
+                  "Prove subtraction total ($x - y = x + \\text{mirror}(y)$) and universal additive cancellation — the two properties $\\mathbb{N}$ lacked, now cashed",
+                  "Derive the three sign rules from the box rule — including $(-a)\\cdot(-b) = ab$ — and read Brahmagupta’s 628 CE verses as theorems rather than conventions",
+                  "Extend order to the classes, prove the mirror flip ($a < b \\Rightarrow -b < -a$), state the zero-product lemma, and name $\\mathbb{Z}$ the reader’s first ring — with division’s failure queued for chapter 7"
+                ],
+                "prerequisites": [
+                  "ans-constructing-the-integers-from-the-naturals",
+                  "ans-closure-failures-that-force-extension",
+                  "fm-multiplying-integers-sign-rules"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "brahmagupta-628-brahmasphutasiddhanta",
+                  "hankel-1867-permanence",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 6,
+                  "equation": 2,
+                  "example": 5,
+                  "derivation": 2,
+                  "callout": 6,
+                  "table": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "historical": 1,
+                  "theorem": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 15777
           },
           {
             "number": 7,
@@ -4828,13 +5033,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 95,
-      "totalLines": 49111,
+      "srcFilesTracked": 96,
+      "totalLines": 51529,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 39846,
+        "src/data/library (content model + books)": 42264,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -11716,34 +11921,152 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "65a3e70ac0de6268c3d6af08389279d4b0b56e7b",
+      "short": "65a3e70",
+      "date": "2026-11-06 00:33",
+      "message": "ans ch.5 completes: lessons 5.1-5.4 shipped verify-first, unit-5 review passed (run 57) — verify-book2-ch05.ts 82 -> 270 checks (sections J-AF) before writing, four pre-writing defects caught; ch-05 complete 4/4 (20,675 words / 32 terms / 20 quiz / 56 exercises: 5.1 congruence defined 5,499 + 5.2 divisibility tests derived 5,277 + 5.3 unit-digit cycles 4,985 + 5.4 linear congruences, CRT and Fermat's glimpse 4,914); 2 new citation keys (sunzi-suanjing-crt, fermat-1640-little-theorem); e2e-ans-51..54 whitelisted; per-lesson gates all green (lint 0, tsc 0, routes 200, quiz 5/5 live, KaTeX 0 errors, SVG audits 0/0)",
+      "filesChanged": 7,
+      "insertions": 3342,
+      "deletions": 23,
+      "files": [
+        {
+          "path": "scripts/e2e-ans-51.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-52.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-53.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-54.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch05.ts",
+          "add": 661,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 11,
+          "del": 22
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 2426,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "39e90061784388ddcebf9288b59c3c8299319803",
+      "short": "39e9006",
+      "date": "2026-11-06 00:33",
+      "message": "memory: run-57 ship — WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG/DETAILED_LOG/WORK_INVENTORY updated; library 2 books / 16 chapters / 67 lessons / 326,777 words; cadence note hourly -> every 2h (job 507350); next run 58 = ANS ch.6 'Building the Integers' in full",
+      "filesChanged": 8,
+      "insertions": 729,
+      "deletions": 52,
+      "files": [
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 79,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 9
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 79,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 105,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 445,
+          "del": 35
+        }
+      ]
+    },
+    {
+      "sha": "86319f8d6406d6c2021177f960822d1810374570",
+      "short": "86319f8",
+      "date": "2026-11-06 00:34",
+      "message": "memory: run-57 push verified — remote main = 39e9006 (ship 65a3e70 + memory 39e9006 + groundwork 501083f); next run 58 = ANS ch.6 in full",
+      "filesChanged": 2,
+      "insertions": 7,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 16,
+    "chaptersWritten": 17,
     "chaptersInProgress": 0,
-    "lessonsWritten": 67,
-    "wordsAuthored": 326777,
-    "termsDefined": 507,
-    "quizItems": 335,
-    "exerciseQuestions": 792,
+    "lessonsWritten": 70,
+    "wordsAuthored": 342554,
+    "termsDefined": 531,
+    "quizItems": 350,
+    "exerciseQuestions": 834,
     "blockTotals": {
-      "para": 941,
-      "callout": 381,
-      "heading": 384,
-      "list": 85,
-      "terms": 68,
-      "equation": 100,
-      "derivation": 137,
-      "table": 82,
-      "figure": 111,
-      "example": 300,
-      "quiz": 67,
-      "exercises": 67,
-      "formula": 179,
-      "algorithm": 19
+      "para": 985,
+      "callout": 401,
+      "heading": 401,
+      "list": 91,
+      "terms": 71,
+      "equation": 107,
+      "derivation": 142,
+      "table": 88,
+      "figure": 114,
+      "example": 312,
+      "quiz": 70,
+      "exercises": 70,
+      "formula": 191,
+      "algorithm": 20
     }
   }
 }
