@@ -4,6 +4,111 @@ Every work session appends one entry at the top. Format:
 `## YYYY-MM-DD — <session summary>` with what changed, what was verified,
 and what remains.
 
+## 2026-11-06 — RUN 57 (fired from job 506464 before its rescheduling to job 507350; delivered ~05:35 IST): ANS CHAPTER 5 'CONGRUENCES: THE ARITHMETIC OF REMAINDERS' COMPLETE 4/4 — all four lessons + the unit-5 completion review in ONE run per the owner's one-full-chapter directive; the cron cadence moved hourly → every 2 hours by owner chat directive during this window
+
+**Scheduling change (owner chat directive, "ok then do for every 2 hour"):** job 506464 (hourly
+chapter run) DELETED and replaced by job **507350** "LockIn Library — every-2-hour chapter run (1
+full chapter/run)" — fixed_rate 7200 s, tz Asia/Kolkata, next fire 08:59:37 IST, the full
+one-full-chapter payload + PUSH PROTOCOL carried over verbatim with the PAT re-embedded once in the
+payload only (never in any file — not here). Scheduler verified to hold exactly one job.
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean but ONE unpushed local commit
+`501083f` (auto-generated message) carrying a parallel window's in-flight run-57 groundwork:
+`scripts/verify-book2-ch05.ts` with 82 checks (sections A–I, lesson 5.1's pre-write arithmetic —
+all passing) plus the .gitignore whitelist for verify-book2-ch05.ts and e2e-ans-51..54. Per the
+half-finished-work rule this run ADOPTED and FINISHED that groundwork: the script was extended to
+270 checks (sections J–AF) before any of 5.2–5.4 was written.
+
+**Step 2 — verify-first (270 checks, ALL GREEN before a word of 5.2–5.4 was written).** Sections
+J–AF added: the 10^k residue engine (last-digit/last-two/last-three tests swept n ≤ 99999), the
+digit-sum laws (10 ≡ 1 mod 3/9, swept), the alternating law (10 ≡ −1 mod 11, swept, plus the
+transposition-blind-spot arithmetic), the 7-truncation equivalence (7 | 10b+c ⟺ 7 | b−2c, swept n ≤
+9999), the 1001 = 7·11·13 block engine (swept to 10⁶), the coprime licence with the 18-trap, casting
+out nines (digital roots, the 47 × 32 = 1504 check, the 1054 transposition miss and the mod-11
+catch 8 vs 9), the digit-hunt keys (x47 by 3, 67y19 by 9, 8x69 by 11); the full unit-digit census
+(fixed points 0/1/5/6, two-cycles 4/9, four-cycles 2/3/7/8 — pure periodicity certified), exponent
+reduction swept d ≤ 9, n ≤ 200 plus powmod-certified instances (7^2025 = 7 — a 1712-digit number;
+2^100 = 6; 3^97 = 3; 12^43 = 8; 23^23 = 7; the products/sums), the squares census {0,1,4,5,6,9},
+odd squares ≡ 1 (mod 8), the cube bijection, fourth powers {0,1,5,6}, the 5/6 stability with the
+mod-2/mod-5 pinning, factorial unit digits and the Σ 1!..10! = 4037913 cash; the linear-congruence
+solvability theorem swept a,m ≤ 24, b ≤ 36 (solvable ⟺ gcd | b; exactly gcd solutions), the printed
+instances (4x ≡ 1 (mod 6) dead; 5x ≡ 3 → 3; 7x ≡ 4 → 4 via 7⁻¹ = 7; 9x ≡ 12 (mod 15) → 3, 8, 13;
+6x ≡ 9 (mod 15) → 4, 9, 14), the inverse tables (mod 5/7/10) + the criterion swept m ≤ 30, CRT
+swept over all coprime pairs ≤ 12 (every residue pair met exactly once), Sunzi's problem (23 mod
+105; the 8-ladder; the constructive t ≡ 1 (mod 7) step; 128 the next), Fermat swept (all primes
+≤ 50 × a ≤ 60: a^(p−1) ≡ 1 (mod p); the a^p ≡ a form for p ≤ 13 — 13⁷ ≡ 13, 14⁵ ≡ 14 (mod 7)),
+the exam reductions (2^100 mod 13 = 3; 3^102 mod 7 = 1; 17^200 mod 19 = 4), the 5.3 cycle-length
+cash (d^4 ≡ 1 (mod 5) — Fermat explains the census), all quiz keys (5.1: 1/0/1/1/2; 5.2: 1/1/0/1/1;
+5.3: 0/3/0/2/2; 5.4: 0/1/0/1/1) with distractors evaluated, all 56 exercise keys, and the figure
+geometry for all five figures. **Pre-writing defects caught: four** — the truncation sweep
+overclaimed (only divisibility transfers, not equal remainders); the 8-cycle was drafted backwards
+(8, 6, 2, 4 — it runs 8, 4, 2, 6); Math.pow loses precision at 5^30 (replaced by modular
+multiplication); BigInt literals clash with the tsconfig target (replaced by a powmod helper). One
+KaTeX defect caught live by the E2E (a mixed single/double backslash escape in "\{4, 9, 14\}") and
+fixed, re-run 0 errors.
+
+**Lessons shipped (each fully gated before the next was started):**
+- **5.1 'Remainders Become Numbers: Congruence Defined'** (`ans-remainders-become-numbers-congruence-defined`,
+  5,499 words, 8 terms, 5 quiz keys 1/0/1/1/2, 14 exercises L1–L6, 3 derivations, 7 illustrations,
+  2 figures — the 12-hour clock with the +5 wrap arc; the residue-class columns mod 5, 2 tables —
+  the mod-5 addition and multiplication tables, 4 formula cards): the definition from the divisible
+  difference, the same-remainder equivalence PROVED from Lesson 2.1's uniqueness, Gauss's 1801 art. 1
+  callout, the laws derived from multiple algebra, cancellation with the gcd shrink and the trap,
+  the Latin-square preview of 5.4, the huge-sum/product exam engine (43 × 57 ≡ 3 (mod 6);
+  12,345 + 67,890 ≡ 0 (mod 9); Σ 9^i ≡ 0 (mod 6); Σ i! ≡ 0 (mod 3)).
+- **5.2 'Why the Divisibility Tests Work'** (`ans-why-the-divisibility-tests-work`, 5,277 words,
+  8 terms, 5 quiz keys 1/1/0/1/1, 14 exercises L1–L6, 2 derivations, 8 illustrations, 1 figure —
+  the digit-sum engine collapse on 57369, 2 tables — the alternating run on 918082 and the master
+  battery, 1 algorithm block — divisibility triage, 4 formula cards): every school test derived
+  (2/5/10 from 10 ≡ 0; 4/8 windows; 3/9 from 10 ≡ 1; 11 from 10 ≡ −1), casting out nines with its
+  transposition blind spot and the mod-11 catch (the ISBN-10 rationale), the 7-truncation law
+  PROVED, the 1001 block engine (one pass tests 7, 11, 13), the coprime licence with the 18-trap,
+  and the NCERT class-8 general-form canon cross-referenced, never repeated.
+- **5.3 'The Unit Digit and Cycles of Powers'** (`ans-unit-digit-cycles-of-powers`, 4,985 words,
+  8 terms, 5 quiz keys 0/3/0/2/2, 14 exercises L1–L6, 2 derivations, 4 illustrations, 1 figure —
+  the cycle wheels (four 4-cycles, two 2-cycles, the fixed-point rail), 2 tables — the census and
+  the mod-2/mod-5 pinning table that derives it row by row, 1 algorithm block, 4 formula cards):
+  the pigeonhole + cancellation proof of pure periodicity, exponent reduction with the zero trap
+  and base trap, 7^2025 = 7 for a 1712-digit number, products/sums of astronomical powers, the
+  squares census derived (never 2, 3, 7, 8), odd squares ≡ 1 (mod 8), the cube bijection, fourth
+  powers, the factorial wall — and the length-divides-4 mystery handed to 5.4.
+- **5.4 'Linear Congruences and a Glimpse of Fermat'** (`ans-linear-congruences-glimpse-of-fermat`,
+  4,914 words, 8 terms, 5 quiz keys 0/1/0/1/1, 14 exercises L1–L6, 1 derivation + the spacing
+  sketch, 6 illustrations, 1 figure — the CRT double ruler (two filters, one survivor at x = 5),
+  2 tables — the inverse tables (mod 10, mod 7) and the Sunzi ladder, 1 algorithm block — solve
+  ax ≡ b (mod m), 4 formula cards): the solvability theorem via chapter 2's Diophantine engine
+  (cited, never re-proved), the solution family, inverses and the prime-modulus doorway to fields,
+  CRT stated + swept with Sunzi's problem solved by the ladder (23 mod 105) and the general
+  stacking, Fermat stated + swept (primes ≤ 50) + used (2^100 ≡ 3 (mod 13)) and cashed back onto
+  5.3's cycle lengths; the p = 5 permutation proof skeleton as the L6.
+
+**Gates (every lesson):** lint 0 errors; tsc clean; dev routes 200 (lesson, book, prior lessons,
+404 unknown); browser E2E per lesson with the quiz answered live on the intended keys — score
+"You scored 5/5" on all four — every solution expanded (21 + 22 + 18 + 20 Sol. pills), KaTeX 338 /
+403 / 351 / 462 nodes with 0 katex-errors, 0 raw $, 0 console errors, no horizontal overflow
+(1280 = 1280); SVG audits 0 issues on all five figures; exam corners 4/4; lesson ids globally
+unique across the library (67 ids, zero duplicates).
+
+**Step 3 — unit-5 completion review PASSED:** ch-05.ts flipped `status: 'complete'` +
+`plannedLessons: []` + header rewritten; book.ts status/notes updated (chapter 6 'Building the
+Integers' completed ENTIRELY at run 58); totals recomputed by build_work_inventory.ts —
+**chapter 5 = 20,675 words / 32 terms / 20 quiz / 56 exercises** (5.1: 5,499/8/5/14 ·
+5.2: 5,277/8/5/14 · 5.3: 4,985/8/5/14 · 5.4: 4,914/8/5/14); the book stands **19 lessons /
+99,208 words / 152 terms / 95 quiz / 258 exercises**; the library stands **2 books / 16 chapters /
+67 lessons / 326,777 words / 507 terms / 335 quiz / 792 exercises**.
+
+**Step 4 — ship:** WORKLOG.md (this entry), PROGRESS.json, RESUME_POINTER.json, SOURCE_LOG.md
+(two new citation keys — sunzi-suanjing-crt, fermat-1640-little-theorem — plus the gauss art. 1
+and Fibonacci casting-out-nines extensions and the run-57 ledger), WORK_INVENTORY.json regenerated
+(the gitignored Drive survey rebuilt first — 89 entries), DETAILED_LOG.md run-57 record. e2e-ans-51
+through e2e-ans-54 and verify-book2-ch05.ts ride the commit (whitelisted in .gitignore before any
+of this run's commits). Then the protocol push.
+
+**Remaining:** run 58 = ANS chapter 6 'Building the Integers' completed ENTIRELY (verify-book2-ch06.ts
+FIRST — whitelist it + e2e-ans-61..63). Exam registry research still pending.
+
+---
+
 ## 2026-11-06 — DUPLICATE-RUN COLLISION RECONCILED (this window fired 05:03 IST from job 506464; a parallel instance of the same job had already completed run 56 and pushed it): local duplicate discarded, remote canonical
 
 **Discovery:** this window independently authored the full run-56 chapter close (4.3 + 4.4 + the unit-4 review — 345 verify checks, sections W–AO, both lessons gated, ship commit `581005a` made locally) and was REJECTED at the protocol push as a non-fast-forward: the remote already carried a COMPLETE run-56 — ship `f6161ae` (verify-book2-ch04.ts 167 → 356 checks, sections W–AQ; ch-04 complete 4/4; 20,839 words / 32 terms / 20 quiz / 55 exercises; 7 new citation keys; e2e-ans-43/44 whitelisted) plus its memory commit `433a464` recording the synced sha and pointing run 57 at chapter 5. Two instances of job 506464 evidently executed the same hour's work in parallel windows (the duplicate-hourly-trigger pattern the log has recorded since runs 46–55).

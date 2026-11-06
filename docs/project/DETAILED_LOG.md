@@ -9,6 +9,85 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 57 (2026-11-06, job 506464's last fire before the owner's same-window rescheduling)**: **ANS
+CHAPTER 5 'CONGRUENCES: THE ARITHMETIC OF REMAINDERS' COMPLETE 4/4 IN ONE RUN — the second chapter shipped under
+the owner's one-full-chapter-per-run directive (and the first under the rescheduled every-2-hour cadence, job 507350).**
+A parallel window's in-flight groundwork (unpushed commit 501083f: verify-book2-ch05.ts with 82 checks for lesson
+5.1 + the .gitignore whitelist) was adopted and finished per the half-finished-work rule; the script was extended to
+**270 checks (sections J–AF) BEFORE a word of 5.2–5.4 was written**, catching four pre-writing defects (a
+truncation-law sweep that overclaimed equal remainders where only divisibility transfers; the 8-cycle drafted
+backwards as 8, 6, 2, 4 — it runs 8, 4, 2, 6; a Math.pow precision loss at 5^30; a BigInt-literal clash with the
+tsconfig target), plus one KaTeX escape defect caught live by the E2E and fixed. All four lessons shipped with full
+per-lesson gates (lint 0 errors, tsc clean, verify 270/0, routes 200, browser E2E with the quiz answered live on the
+intended keys — "You scored 5/5" on all four — every solution expanded, 0 katex-errors, 0 raw $, 0 console errors,
+no overflow; SVG audits 0 issues on all five figures):
+- **5.1 'Remainders Become Numbers: Congruence Defined'** (`ans-remainders-become-numbers-congruence-defined`,
+  5,499 words, 8 terms, 5 quiz on keys 1/0/1/1/2, 14 exercises L1–L6, 3 derivations, 7 illustrations, 2 figures —
+  the 12-hour clock with the +5 wrap arc (8 + 5 ≡ 1 (mod 12)); the residue-class columns mod 5, 2 tables — the
+  mod-5 addition and multiplication tables with the Latin-square preview of 5.4's inverses, 4 formula cards): the
+  definition from the divisible difference with Gauss's 1801 art. 1 callout; the same-remainder equivalence PROVED
+  from Lesson 2.1's remainder uniqueness; the laws derived from multiple algebra (add/subtract/multiply/powers);
+  cancellation with the gcd shrink — 4·5 ≡ 4·8 (mod 6) gives 5 ≡ 8 (mod 3), not (mod 6); the exam engine (43 ×
+  57 ≡ 3 (mod 6); 12,345 + 67,890 ≡ 0 (mod 9); Σ 9^i (i = 1..10) ≡ 0 (mod 6) with the true sum 3,922,632,450;
+  Σ i! ≡ 0 (mod 3) with 4,037,913 = 3·1,345,971).
+- **5.2 'Why the Divisibility Tests Work'** (`ans-why-the-divisibility-tests-work`, 5,277 words, 8 terms, 5 quiz
+  on keys 1/1/0/1/1, 14 exercises L1–L6, 2 derivations, 8 illustrations, 1 figure — the digit-sum engine collapse
+  on 57,369 (every power of ten ≡ 1 (mod 9)), 2 tables — the alternating run on 918,082 (running sum to −22 =
+  −2·11) and the master battery table, 1 algorithm block — divisibility triage, 4 formula cards): every school
+  test derived, none memorised — 2/5/10 from 10 ≡ 0; 4/8 from 100 ≡ 0 (mod 4) and 1000 ≡ 0 (mod 8) with the
+  width trap (104 = 8·13 vs 204 = 8·25 + 4); 3/9 from 10 ≡ 1 with NCERT's class-8 general form cross-referenced;
+  11 from 10 ≡ −1 with the transposition catch (mod 9 blind, mod 11 sees it — the ISBN-10 rationale); the
+  7-truncation law PROVED (5n ≡ b − 2c (mod 7), coprime cancellation) with 3584 → 350 → 35 = 7·512; the
+  1001 = 7·11·13 block engine (4367 → 363 = 3·11²; 2535 → 533 = 13·41 with remainder 1 mod 7 — one pass, three
+  primes); casting out nines (Hippolytus/Iamblichus → Āryabhaṭa II c. 950 → Ibn Sīnā c. 1020 → Fibonacci 1202)
+  with the 47 × 32 = 1504 check, the 1054 transposition miss and the mod-11 catch (8 vs 9); the coprime licence
+  with the 18-trap (18 is divisible by 2 and 6, not by 12); the digit hunts (x47 by 3 → x ∈ {1, 4, 7}; 67y19 by
+  9 → y = 4).
+- **5.3 'The Unit Digit and Cycles of Powers'** (`ans-unit-digit-cycles-of-powers`, 4,985 words, 8 terms, 5 quiz
+  on keys 0/3/0/2/2, 14 exercises L1–L6, 2 derivations, 4 illustrations, 1 figure — the cycle wheels (the
+  four-cycles 2, 3, 7, 8 with clockwise arrows; the two-cycles 4↔6 and 9↔1; the fixed-point rail 0·1·5·6), 2
+  tables — the full census (d^k mod 10 for k = 1..8) and the mod-2/mod-5 pinning table deriving every census row
+  from Lesson 5.1's mod-5 wheels, 1 algorithm block — the unit digit of dⁿ, 4 formula cards): the pigeonhole +
+  cancellation PROOF of pure periodicity for coprime digits; the pinning explanation for the rest (5 is the only
+  odd multiple of 5; 6 the only even number ≡ 1 (mod 5)); exponent reduction with the zero trap (2^100 → 6, not
+  2) and base trap (12^43 → 8; 23^23 → 7); **7^2025 = 7 for a 1,712-digit number**; products and sums of
+  astronomical powers (7^2025 × 3^97 → 1; 13^77 × 17^23 → 9; 5^100 + 6^100 → 1); the squares census derived
+  (even squares 0, 4, 6; odd 1, 5, 9 — never 2, 3, 7, 8); odd squares ≡ 1 (mod 8) (21² = 441 = 8·55 + 1); the
+  cube bijection (3³ = 27 ↔ 7³ = 343); fourth powers {0, 1, 5, 6}; the factorial wall (5! = 120 onward all end
+  in 0; Σ i! ends in 3 forever) — and the length-divides-4 mystery handed to 5.4.
+- **5.4 'Linear Congruences and a Glimpse of Fermat'** (`ans-linear-congruences-glimpse-of-fermat`, 4,914 words,
+  8 terms, 5 quiz on keys 0/1/0/1/1, 14 exercises L1–L6, 1 derivation + the spacing sketch, 6 illustrations, 1
+  figure — the CRT double ruler (mod-3 and mod-5 filters over 0..14, the unique survivor x = 5 highlighted), 2
+  tables — the inverse tables (mod 10 and mod 7) and the Sunzi ladder (rung by rung to 23 (mod 105)), 1 algorithm
+  block — solve ax ≡ b (mod m), 4 formula cards): the solvability theorem via chapter 2's linear Diophantine
+  engine (CITED, never re-proved — ax ≡ b (mod m) IS ax + m(−t) = b); the solution family (exactly gcd(a, m)
+  solutions spaced m/g: 9x ≡ 12 (mod 15) → 3, 8, 13; 6x ≡ 9 (mod 15) → 4, 9, 14); inverses (Bézout cashed:
+  7⁻¹ ≡ 7 (mod 12)) with the coprime criterion and the prime-modulus doorway to finite fields; CRT stated and
+  swept (all coprime pairs ≤ 12, every residue pair met exactly once) with Sunzi's problem solved by the ladder
+  (x ≡ 8 (mod 15), then t ≡ 1 (mod 7), landing at 23; next 128) and the general stacking; Fermat's little
+  theorem stated (the 1640 letter to Frénicle; Euler 1736 the first published proof; the "little vs last"
+  distinction), swept (every prime ≤ 50 × a ≤ 60: a^(p−1) ≡ 1 (mod p); the a^p ≡ a form including multiples —
+  13⁷ ≡ 13, 14⁵ ≡ 14 (mod 7)) and used (2^100 ≡ 3 (mod 13); 3^102 ≡ 1 (mod 7); 17^200 ≡ 4 (mod 19)); the L6
+  carries the p = 5 permutation-proof skeleton; and the 5.3 cash paid in full — d^4 ≡ 1 (mod 5) is WHY the
+  unit-digit cycle lengths divide 4.
+**Unit-5 completion review PASSED**: exam corners 4/4; lesson ids globally unique across the library
+(67 ids, zero duplicates); ch-05 flipped complete + plannedLessons emptied + header rewritten; book.ts
+status/notes updated; totals recomputed by build_work_inventory.ts — chapter 5 = 20,675 words / 32 terms /
+20 quiz / 56 exercises; book 19 lessons / 99,208 words / 152 terms / 95 quiz / 258 exercises; library
+2 books / 16 chapters / 67 lessons / 326,777 words / 507 terms / 335 quiz / 792 exercises. Two new
+citation keys web-checked (SOURCE_LOG): sunzi-suanjing-crt (Sunzi 3rd–5th c. → Āryabhaṭa 499 →
+Brahmagupta 7th c. → Qin Jiushao 1247 → Gauss 1801) and fermat-1640-little-theorem; gauss-1801-disquisitiones
+extended to art. 1 and fibonacci-1202-liber-abaci extended with the casting-out-nines thread; the reserved
+ncert-math8-ch16 cashed for 5.2 exactly as the run-48 research phase planned. Zero downloads; the gitignored
+Drive survey rebuilt (89 entries) after the sandbox recycle so WORK_INVENTORY could regenerate; e2e-ans-51..54
++ verify-book2-ch05.ts whitelisted in .gitignore pre-commit. **Scheduling: owner chat directive "ok then do for
+every 2 hour" — job 506464 (hourly) deleted, job 507350 (every 2 hours, fixed_rate 7200 s, Asia/Kolkata) created
+with the one-full-chapter payload + PUSH PROTOCOL v2 verbatim.** **NEXT: run 58 = ANS chapter 6 'Building the
+Integers' completed ENTIRELY** (all three lessons + the unit-6 review; create verify-book2-ch06.ts FIRST,
+whitelist it + e2e-ans-61..63 in .gitignore). Synced remote shas recorded in WORKLOG.md / RESUME_POINTER.json.
+
+---
+
 Maintained through **run 56 (2026-11-06, job 506464's first fire — the one-full-chapter job)**: **ANS
 CHAPTER 4 CLOSED 4/4 IN ONE RUN — the first chapter shipped under the owner's one-full-chapter-per-run
 directive.** verify-book2-ch04.ts EXTENDED 167 → 356 checks (sections W–AQ) BEFORE a word was written;

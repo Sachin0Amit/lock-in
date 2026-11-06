@@ -866,6 +866,62 @@ andrews.ac.uk/Miller/mathsym/nth/), which also grounds the Gauss ≡
   246) and the Quanta/HKF coverage of the April 2013 announcement.
   Exposition original; no content reproduced.
 
+## Citation keys added by ANS chapter 5 (run 57)
+
+- `sunzi-suanjing-crt` — the *Sunzi Suanjing* ("Master Sun's Mathematical
+  Manual", 3rd–5th century CE): the oldest known statement of a
+  simultaneous-congruence problem — "There are certain things whose number
+  is unknown. When counted by threes, 2 remain; by fives, 3 remain; by
+  sevens, 2 remain. How many things are there?" (answer 23, given without a
+  general method). The algorithmic lineage: Āryabhaṭa's *Āryabhaṭīya*
+  (499 CE, the kuṭṭaka/"pulveriser" for systematic congruence solving),
+  Brahmagupta's seventh-century special cases, Qin Jiushao's 1247 complete
+  general method (the Da-yan-shu), and Gauss's 1801 modern statement and
+  proof in the Disquisitiones (illustrated on a calendar problem). Used
+  for: ANS 5.4 — the CRT theorem callout, Sunzi's problem as the worked
+  ladder illustration, and the historical callout. Web-checked 2026-11-06
+  (run 57) via the Wikipedia Chinese-remainder-theorem history section and
+  the standard histories it cites. Exposition original; the problem
+  statement is paraphrased in the lesson's own words, no content
+  reproduced.
+
+- `fermat-1640-little-theorem` — Pierre de Fermat's little theorem: stated
+  in his letter of 18 October 1640 to Bernard Frénicle de Bessy ("every
+  prime number measures one of the powers minus one of any progression
+  whatever…"), equivalent to a^(p−1) ≡ 1 (mod p) for prime p not dividing
+  a. First published proof: Euler 1736 ("Theorematum Quorundam ad Numeros
+  Primos Spectantium Demonstratio", St. Petersburg proceedings); Leibniz
+  had an essentially identical proof in an unpublished manuscript before
+  1683. The every-a form a^p ≡ a (mod p) includes the multiples of p.
+  Used for: ANS 5.4 — the theorem callout (stated, numerically swept for
+  every prime ≤ 50, used for exponent reduction — never claimed as proved
+  here; the proof belongs to the Number Theory book) and the historical
+  framing with the "little vs last" distinction (the 1637 margin note that
+  waited 350 years). Web-checked 2026-11-06 (run 57) via the Wikipedia
+  Fermat's-little-theorem history section. Exposition original; no content
+  reproduced.
+
+- carried keys EXTENDED this run: `gauss-1801-disquisitiones` — from
+  article 16 (chapter 4's uniqueness proof) to article 1, the printed
+  birth certificate of congruence: "si numerus a numerorum b, c
+  differentiam metitur, b, c secundum modulum a vocantur congruentes" —
+  if a number a measures the difference of b and c, then b and c are
+  called congruent modulo a — together with the ≡ notation designed to
+  invite equation-style manipulation (used across 5.1–5.4); and
+  `fibonacci-1202-liber-abaci` — extended from the rabbit problem
+  (chapter 1) to the casting-out-nines check Fibonacci described for
+  merchant arithmetic, with the earlier thread: Hippolytus (c. AD 200) and
+  Iamblichus on digital roots, Āryabhaṭa II's *Mahāsiddhānta* (c. 950,
+  the earliest known arithmetic-check use) and Ibn Sīnā's "Hindu method"
+  (c. 1020) — used for 5.2's historical callout on the check and its
+  transposition blind spot. The reserved key `ncert-math8-ch16` (class-8
+  "Playing with Numbers": general form 10a + b, letters for digits, the
+  3/9 tests) was cashed for 5.2 exactly as the run-48 research phase
+  planned — this book re-derives the school canon from congruences rather
+  than repeating it. Web-checked 2026-11-06 (run 57) via the Wikipedia
+  casting-out-nines history and the Disquisitiones listings. Exposition
+  original throughout.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
@@ -1060,6 +1116,29 @@ checks in sections BT–CC of scripts/verify-unit-5.ts, 455 total) BEFORE
 writing; exposition original — the factor-law derivation, the
 round-trip r²/100 % law, the multiplier law and the two-lane figure are
 the book's own derivations.
+
+## 2026-11-06 — Run 57 (ANS chapter 5 in full, 5.1 + 5.2 + 5.3 + 5.4 + the unit-5 review — the second one-full-chapter run): zero downloads
+
+Lessons 5.1 "Remainders Become Numbers: Congruence Defined", 5.2 "Why the Divisibility Tests Work",
+5.3 "The Unit Digit and Cycles of Powers" and 5.4 "Linear Congruences and a Glimpse of Fermat" were
+verified against two NEW citation keys — `sunzi-suanjing-crt` and `fermat-1640-little-theorem` (both
+web-checked via the Wikipedia history sections, both logged above with the full lineage) — plus the
+extended `gauss-1801-disquisitiones` (art. 1's congruence definition and the ≡ notation) and
+`fibonacci-1202-liber-abaci` (the casting-out-nines thread: Hippolytus/Iamblichus digital roots →
+Āryabhaṭa II's Mahāsiddhānta c. 950 → Ibn Sīnā c. 1020 → Fibonacci 1202), the cashed reserved key
+`ncert-math8-ch16` (the class-8 school canon 5.2 re-derives instead of repeating), and the carried
+`khattar-qa-4e` (exam-corner shapes: remainders of huge sums and products, unit digits, digit hunts,
+Sunzi/CRT word problems, Fermat exponent reductions), `euclid-elements-book-vii` (the measures/divides
+language behind Gauss's "metitur"), and `beck-geoghegan-art-of-proof` (the proof-transition voice).
+History told with hedges, paraphrased, never reproduced. All lesson arithmetic recomputed by
+scripts/verify-book2-ch05.ts — created by a parallel instance of the same run with 82 checks (sections
+A–I, lesson 5.1) and EXTENDED to 270 checks (sections J–AF) BEFORE any of 5.2–5.4 was written — four
+pre-writing defects caught across the extension (a truncation-law sweep that overclaimed equal
+remainders where only divisibility transfers; the 8-cycle printed backwards as 8, 6, 2, 4 — it runs
+8, 4, 2, 6; a Math.pow precision loss at k = 30 replaced by modular multiplication; a BigInt-literal
+tsc target clash replaced by a powmod helper). No reference files downloaded, no working copies to
+delete; the gitignored Drive survey was rebuilt (rebuild_drive_survey.ts, 89 entries) after the
+sandbox recycle so WORK_INVENTORY could regenerate.
 
 ## 2026-11-06 — Run 56 (ANS 4.3 + 4.4, chapter 4 CLOSES — the first one-full-chapter run): zero downloads
 

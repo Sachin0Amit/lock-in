@@ -24,11 +24,12 @@ cadence: research → write → verify → ship → log, then the next unit. Boo
 complete chapter by chapter; subjects complete book by book. Never plan,
 draft or queue multiple units in one pass.
 
-**Owner directive (2026-11-06): each hourly run completes one full
+**Owner directive (2026-11-06): each scheduled run completes one full
 chapter** — every not-yet-written lesson of the current unit plus its
 completion review, authored sequentially through the unit's full gates,
 at the same or higher per-lesson depth; never thinned to fit a run. This
-supersedes the 2026-11-05 two-lessons-per-run interim rule.
+supersedes the 2026-11-05 two-lessons-per-run interim rule. (Cadence:
+every 2 hours since the owner's same-day chat directive; job 507350.)
 
 The owner will supply a Google Drive link with a large reference book
 collection. Workflow per unit:

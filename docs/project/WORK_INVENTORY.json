@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 00:21:11 (Asia/Kolkata)",
+  "generated": "2026-11-06 05:56:56 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 4,
+        "chaptersWritten": 5,
         "chapters": [
           {
             "number": 1,
@@ -4448,17 +4448,287 @@
             "number": 5,
             "slug": "congruences",
             "title": "Congruences: The Arithmetic of Remainders",
-            "summary": "Remainders promoted to numbers: congruence defined and its laws proved, the school divisibility tests finally derived (why casting out nines works, why 11 alternates signs), the unit digit of huge powers found through cycles, linear congruences solved, and a computationally verified glimpse of Fermat’s little theorem — the doorway to the Number Theory book.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "Remainders Become Numbers: Congruence Defined",
-              "Why the Divisibility Tests Work",
-              "The Unit Digit and Cycles of Powers",
-              "Linear Congruences and a Glimpse of Fermat"
+            "summary": "Remainders promoted to numbers. Congruence defined — two numbers are congruent modulo m when their difference is a multiple of m — and proved to be exactly the \"same remainder\" relation of the division algorithm, with Gauss’s 1801 notation and clock arithmetic as the model. The laws derived from multiple algebra: congruences add, subtract, multiply and raise to powers, and cancellation shrinks the modulus by the gcd. Residue classes partition the integers into columns, and the mod-5 tables turn wrapping into a number system of their own. Then the engines: the school divisibility tests finally derived (why digit sums test 3 and 9, why 11 alternates signs, why 7 hides in 1001), the unit digit of any huge power found through cycles (the four-cycles of 2, 3, 7, 8; the fixed points 0, 1, 5, 6), linear congruences solved through the gcd (solvability, solution families, inverses), the Chinese remainder theorem stated and swept for coprime moduli, and Fermat’s little theorem verified numerically — the doorway to the Number Theory book.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "ans-remainders-become-numbers-congruence-defined",
+                "number": "5.1",
+                "title": "Remainders Become Numbers: Congruence Defined",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5499,
+                "readMins": 27,
+                "concepts": [
+                  "Congruence modulo m",
+                  "Same remainder ⟺ divisible difference",
+                  "Gauss’s ≡ notation (1801)",
+                  "Clock arithmetic and calendars",
+                  "Residue classes as columns",
+                  "The addition and multiplication laws",
+                  "Cancellation shrinks the modulus",
+                  "Remainders of huge sums and products"
+                ],
+                "objectives": [
+                  "Define congruence precisely — $a \\equiv b \\pmod{m}$ exactly when $m \\mid (a - b)$ — and prove it coincides with the same-remainder reading of Lesson 2.1’s division algorithm",
+                  "Use the congruence laws with proofs: congruent inputs give congruent sums, products and powers, and cancelling a factor $c$ shrinks the modulus to $m/\\gcd(c, m)$",
+                  "Read residue classes as columns that partition the integers, and compute fluently in the mod-5 tables",
+                  "Reduce huge sums and products to remainders without computing them — the competitive-exam engine that Lessons 5.2–5.4 turn into divisibility tests, unit digits and solved congruences"
+                ],
+                "prerequisites": [
+                  "ans-division-with-rest-the-division-algorithm",
+                  "ans-the-algebra-of-divisibility",
+                  "fm-divisibility-and-its-tests"
+                ],
+                "sources": [
+                  "gauss-1801-disquisitiones",
+                  "euclid-elements-book-vii",
+                  "beck-geoghegan-art-of-proof",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 7,
+                  "list": 3,
+                  "example": 7,
+                  "figure": 2,
+                  "callout": 7,
+                  "equation": 1,
+                  "derivation": 3,
+                  "table": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 1,
+                  "historical": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-why-the-divisibility-tests-work",
+                "number": "5.2",
+                "title": "Why the Divisibility Tests Work",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5277,
+                "readMins": 26,
+                "concepts": [
+                  "10 ≡ 1 (mod 3), (mod 9) — the digit-sum engine",
+                  "10 ≡ −1 (mod 11) — the alternating engine",
+                  "10 ≡ 0 (mod 2, 5, 10); 100 ≡ 0 (mod 4); 1000 ≡ 0 (mod 8)",
+                  "Casting out nines and digital roots",
+                  "The transposition blind spot (mod 9) and the mod-11 catch",
+                  "The 7-truncation law b − 2c",
+                  "1001 = 7·11·13 — the three-digit block engine",
+                  "The coprime licence for composite tests"
+                ],
+                "objectives": [
+                  "Derive every school divisibility test from one congruence — the last-digit tests from $10 \\equiv 0$, the digit-sum tests from $10 \\equiv 1$, the alternating test from $10 \\equiv -1$ — with the power law of Lesson 5.1 doing the work",
+                  "Run the casting-out-nines check on a multiplication, prove exactly what it catches and what it misses, and explain why the mod-11 check catches transpositions",
+                  "Use the two modular tests for 7 — the truncation law $b - 2c$ and the $1001 = 7 \\cdot 11 \\cdot 13$ block engine — and the block engine’s bonus test for 13",
+                  "Combine tests through the coprime licence (divisible by coprime parts ⟺ divisible by their product), avoid the 18-trap, and solve the exam digit-hunt problems"
+                ],
+                "prerequisites": [
+                  "ans-remainders-become-numbers-congruence-defined",
+                  "ans-division-with-rest-the-division-algorithm",
+                  "fm-divisibility-and-its-tests"
+                ],
+                "sources": [
+                  "ncert-math8-ch16",
+                  "fibonacci-1202-liber-abaci",
+                  "khattar-qa-4e",
+                  "gauss-1801-disquisitiones"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 7,
+                  "equation": 1,
+                  "list": 1,
+                  "example": 8,
+                  "callout": 5,
+                  "derivation": 3,
+                  "figure": 1,
+                  "table": 2,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "warn": 2,
+                  "historical": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-unit-digit-cycles-of-powers",
+                "number": "5.3",
+                "title": "The Unit Digit and Cycles of Powers",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4985,
+                "readMins": 25,
+                "concepts": [
+                  "Unit digits are residues mod 10",
+                  "The census: fixed points 0, 1, 5, 6",
+                  "The two-cycles of 4 and 9",
+                  "The four-cycles of 2, 3, 7, 8",
+                  "Exponent reduction (n mod L, 0 → L)",
+                  "The pigeonhole reason cycles close",
+                  "Squares end in 0, 1, 4, 5, 6, 9",
+                  "Factorial unit digits and the 5! wall"
+                ],
+                "objectives": [
+                  "Compute the unit digit of any power $d^n$ — however astronomical — by reading the digit’s cycle and reducing the exponent modulo the cycle length, with the $0 \\to L$ convention handled correctly",
+                  "Explain *why* the unit-digit sequences cycle: the pigeonhole principle forces a repeat, and for digits coprime to 10 the cancellation law of Lesson 5.1 turns the repeat into pure periodicity",
+                  "Multiply and add huge powers through their unit digits, and decide unit digits of squares (never 2, 3, 7, 8), cubes (every digit), fourth powers (only 0, 1, 5, 6) and factorials (0 from 5! on)",
+                  "Recognise the pattern begging for an explanation — every coprime cycle length divides 4 — and carry it forward as the question Lesson 5.4 answers"
+                ],
+                "prerequisites": [
+                  "ans-remainders-become-numbers-congruence-defined",
+                  "ans-the-algebra-of-divisibility",
+                  "ans-divisors-from-dna-divisor-counts"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "gauss-1801-disquisitiones"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 5,
+                  "table": 2,
+                  "figure": 1,
+                  "derivation": 2,
+                  "example": 4,
+                  "callout": 3,
+                  "algorithm": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-linear-congruences-glimpse-of-fermat",
+                "number": "5.4",
+                "title": "Linear Congruences and a Glimpse of Fermat",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4914,
+                "readMins": 25,
+                "concepts": [
+                  "The linear congruence ax ≡ b (mod m)",
+                  "Solvability: gcd(a, m) must divide b",
+                  "Exactly gcd(a, m) solutions, spaced m/d",
+                  "Inverses modulo m and the coprime criterion",
+                  "The Chinese remainder theorem (coprime moduli)",
+                  "Sunzi’s problem and the ladder method",
+                  "Fermat’s little theorem a^(p−1) ≡ 1 (mod p)",
+                  "Exponent reduction modulo a prime"
+                ],
+                "objectives": [
+                  "Decide solvability of $ax \\equiv b \\pmod m$ by the gcd criterion — proved through chapter 2’s linear Diophantine engine — and find *all* solutions: exactly $\\gcd(a, m)$ classes, spaced $m/d$ apart",
+                  "Solve the coprime case through inverses (found by Bézout or by scan), state the inverse criterion $a^{-1}$ exists ⟺ $\\gcd(a, m) = 1$, and explain why prime moduli make every nonzero residue invertible",
+                  "State and use the Chinese remainder theorem for coprime moduli — every pair of residue conditions is met by exactly one class modulo the product — and solve Sunzi-style problems by the ladder method",
+                  "State Fermat’s little theorem, verify it numerically, use it to reduce exponents modulo a prime ($2^{100} \\bmod 13$), and cash it back onto Lesson 5.3’s cycle lengths"
+                ],
+                "prerequisites": [
+                  "ans-euclidean-algorithm-proven-bezout-identity",
+                  "ans-remainders-become-numbers-congruence-defined",
+                  "ans-linear-diophantine-equations"
+                ],
+                "sources": [
+                  "gauss-1801-disquisitiones",
+                  "sunzi-suanjing-crt",
+                  "fermat-1640-little-theorem",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 5,
+                  "equation": 1,
+                  "callout": 7,
+                  "example": 6,
+                  "algorithm": 1,
+                  "table": 2,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "theorem": 3,
+                  "insight": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 20675
           },
           {
             "number": 6,
@@ -4559,12 +4829,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 95,
-      "totalLines": 49122,
+      "totalLines": 49111,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 39857,
+        "src/data/library (content model + books)": 39846,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -4772,7 +5042,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-05",
+      "surveyed": "2026-11-06",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -11306,34 +11576,174 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "f6161ae239d1ad82b62742e1dce563d523a1dbb3",
+      "short": "f6161ae",
+      "date": "2026-11-05 18:52",
+      "message": "ans ch.4 closes: lessons 4.3 'Divisors from DNA' + 4.4 'How the Primes Are Distributed' shipped verify-first, unit-4 review passed (run 56) — verify-book2-ch04.ts 167 -> 356 checks (sections W-AQ) before writing; ch-04 complete 4/4 (20,839 words / 32 terms / 20 quiz / 55 exercises); 7 new citation keys; e2e-ans-43/44 whitelisted",
+      "filesChanged": 12,
+      "insertions": 3095,
+      "deletions": 69,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 52,
+          "del": 4
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 53,
+          "del": 16
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 117,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 122,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 319,
+          "del": 33
+        },
+        {
+          "path": "scripts/e2e-ans-43.page.js",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-44.page.js",
+          "add": 63,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch04.ts",
+          "add": 1134,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 9,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 1156,
+          "del": 8
+        }
+      ]
+    },
+    {
+      "sha": "433a4646e42721f2e10ced1682b175ad7b6d67bb",
+      "short": "433a464",
+      "date": "2026-11-05 18:52",
+      "message": "memory: run-56 synced sha recorded (f6161ae) — ship commit remote-verified via one-time-URL ls-remote = local HEAD; library = 2 books (FM COMPLETE 11/11 + ANS ch. 1-4 COMPLETE, ch. 4 closed in ONE run per the 2026-11-06 directive: 15 lessons / 78,533 words); next run 57 = ANS ch. 5 'Congruences: The Arithmetic of Remainders' completed ENTIRELY (verify-book2-ch05.ts FIRST); voice queue EMPTY; tree clean",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "3b2aec214ab4be1badfe31ff4cb74209d3c052c8",
+      "short": "3b2aec2",
+      "date": "2026-11-05 22:14",
+      "message": "memory: duplicate-run collision reconciled — parallel job-506464 instance had completed run 56 and pushed it (f6161ae); local duplicate discarded, remote canonical; run 57 = chapter 5 in full",
+      "filesChanged": 1,
+      "insertions": 12,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "f24a509818958ef0ef344828ae4dc2c68ae3f1e0",
+      "short": "f24a509",
+      "date": "2026-11-05 22:16",
+      "message": "memory: run-56 duplicate-collision note + synced sha 3b2aec2 recorded in run56Extras; next run 57 = chapter 5 in full",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "501083ff2a4edb73d83f6fe66355f2339d869ab5",
+      "short": "501083f",
+      "date": "2026-11-05 23:23",
+      "message": "fc53d2a4-ae36-481e-80c8-ac58b1e2543f-cron",
+      "filesChanged": 2,
+      "insertions": 444,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch05.ts",
+          "add": 437,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 15,
+    "chaptersWritten": 16,
     "chaptersInProgress": 0,
-    "lessonsWritten": 63,
-    "wordsAuthored": 306102,
-    "termsDefined": 475,
-    "quizItems": 315,
-    "exerciseQuestions": 736,
+    "lessonsWritten": 67,
+    "wordsAuthored": 326777,
+    "termsDefined": 507,
+    "quizItems": 335,
+    "exerciseQuestions": 792,
     "blockTotals": {
-      "para": 889,
-      "callout": 359,
-      "heading": 360,
-      "list": 81,
-      "terms": 64,
-      "equation": 97,
-      "derivation": 129,
-      "table": 74,
-      "figure": 106,
-      "example": 275,
-      "quiz": 63,
-      "exercises": 63,
-      "formula": 163,
-      "algorithm": 16
+      "para": 941,
+      "callout": 381,
+      "heading": 384,
+      "list": 85,
+      "terms": 68,
+      "equation": 100,
+      "derivation": 137,
+      "table": 82,
+      "figure": 111,
+      "example": 300,
+      "quiz": 67,
+      "exercises": 67,
+      "formula": 179,
+      "algorithm": 19
     }
   }
 }
