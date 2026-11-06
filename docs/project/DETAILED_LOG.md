@@ -9,38 +9,32 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 58 (2026-11-06, job 507529's fire)**: **ANS
-CHAPTER 6 'BUILDING THE INTEGERS' COMPLETE 3/3 IN ONE RUN — the third chapter shipped under
-the owner's one-full-chapter-per-run directive.** verify-first discipline held: `verify-book2-ch06.ts`
-was created BEFORE any lesson text and extended 125 → 147 → 196 → 233 checks (sections A–W) ahead of each
-lesson, catching **eleven pre-writing defects** in the script itself (a figure x-coordinate; two assertion
-typos; a transitivity sweep bound; class-arithmetic slips — [(5,1)]·[(4,1)] = [(21,9)] not [(21,10)],
-[(3,1)]·[(1,2)] ~ [(1,3)] not [(1,2)]; the (−2)³ chain; a census count; the zero-absorption instance;
-a table-index bug). The well-definedness sweeps ran every representative swap with entries ≤ 4 (thousands
-of 8-tuples) for both class operations — zero movements; the −4..4 tables (162 cells) were computed THROUGH
-the construction; the sign rules, order flip and cancellation laws were verified through clsAdd/clsMul, never
-ordinary arithmetic. Two live E2E catches fixed mid-run (raw $ in table captions and one term name — the
-reader renders those plain; figure labels repositioned to pass the exact-geometry audit — all three figures
-0 issues). All three lessons shipped with full per-lesson gates (lint 0, tsc 0, routes 200, live quiz 5/5 on
-the intended keys 6.1: 2/1/0/0/0, 6.2: 2/2/0/0/1, 6.3: 1/0/1/1/2, 0 katex-errors, 0 raw $, 0 console errors,
-no overflow at 390/1280, SVG audits 0/0/0):
-- **6.1 'The Closure Failures That Force Extension'** (`ans-closure-failures-that-force-extension`, 5,618 words,
-  8 terms, 5 quiz, 14 exercises, 1 derivation, 2 illustrations, 1 figure, 1 table, 4 formula cards): closure
-  defined; the four operations sorted; the subtraction condition PROVED (b < a strict — 0 ∉ ℕ in this book);
-  the wall (no predecessor of 1); the equation census with the 15/21 + 14/22 quantitative reading; the
-  four-demand repair criterion; Peacock 1833 → Hankel 1867 permanence; the 0-less-repair audit; honest scoping.
-- **6.2 'Constructing the Integers from the Naturals'** (`ans-constructing-the-integers-from-the-naturals`,
-  5,269 words, 8 terms, 5 quiz, 14 exercises, 2 derivations, 5 illustrations, 1 figure (the difference lattice),
-  4 tables (dictionary + ten reductions + the two construction-computed −3..3 tables), 1 algorithm, 4 formula
-  cards): difference pairs; the cross-sum relation proved reflexive/symmetric/transitive (cancellation engine);
-  classes = ℤ; zero born as the diagonal [(k,k)]; the mirror [(b,a)]; canonical forms with uniqueness; both
-  operations defined + swept well-defined; the embedding n ↦ [(n+1,1)] verified additive and multiplicative;
-  the Hankel-charter/Brahmagupta-debt callout.
-- **6.3 'The Laws of Integer Arithmetic'** (`ans-the-laws-of-integer-arithmetic`, 4,890 words, 8 terms, 5 quiz,
-  14 exercises, 2 derivations (distribution through the boxes; the debt-times-debt spine), 5 illustrations,
-  1 figure (the mirror map), 1 table (Brahmagupta's verses vs the construction), 4 formula cards): all laws
-  derived; total subtraction; the sign rules as theorems; order + the mirror flip; universal additive
-  cancellation + the zero-product lemma; ℤ the reader's first ring; division's wall queued for chapter 7.
+Maintained through **run 60 (2026-11-06, job 509354's fire — the FIRST run under the owner's 2026-11-06 v2 two-lessons-per-run hourly directive)**: **ANS CHAPTER 8 'IRRATIONALS AND THE REAL LINE' OPENED 2/4** — 8.1 'The Diagonal That Broke the Rationals' (5,393 words) + 8.2 'The Family of Irrationals' (5,073 words) authored strictly sequentially, each fully gated before the next began. verify-first discipline held: `verify-book2-ch08.ts` was created BEFORE any lesson text and grown to **171 checks (sections A–Q)**, catching **ten pre-writing defects** — the BigInt-isqrt Newton seed landing BELOW √n (the +1n corrector then walking ~5×10²⁰ steps; fixed with a power-of-two upper-bound seed), a Sulbasutra excess scale mismatch, **the author's own wrong remembered digits for √7** (memory said 2.645751310573789…; the script and Python's math.isqrt both said 2.645751311064590… — the script wins), truncation-vs-rounding on √5/√10, Set.length vs .size, an invented spiral-winding constant (true: 351.2°), missing floor-noise windows in the product-law verifications, the 8.1 L6-2 descent fraction inverted ((2q−p)² = 2(p−q)² is the identity that follows from p² = 2q², not (p−q)² = 2(2q−p)²), a 2.4494897² digit claim off by one in the 7th place, and the E2E harness's BASE URL silently still pointing at lesson 8.1 (the 0/5 quiz grades were 8.1's quiz graded against 8.2's intended keys — caught by a navigation-verify guard, fixed, both suites then 34/34 PASS). The countability listing was verified bijective to 979 reduced names; the product law was certified at 24-place precision for all m, n ≤ 40 and exactly for √(k²s) = k√s; the k-th root criterion swept k ∈ {2,3,4} against n ≤ 200; the Theodorus spiral's 16 unit legs were edge-checked and its winding computed at 351.2°. Both new lessons' figures passed the overlap audit with 0 issues (8.1's zoom ladder needed two label fixes: window lines moved past the row names, the bottom annotation merged into the top one). Per-lesson gates green twice over (lint 0, tsc 0, routes 200 after the dev-server restart the new chapter required — dynamicParams=false caches static params, E2E 34 PASS at 1280/390/dark per lesson, quiz 5/5 live on keys 8.1: 1/2/0/2/3 and 8.2: 2/0/1/3/1, 16/17 Sol pills, 0 katex-errors, 0 raw $, 0 console errors):
+- **8.1 'The Diagonal That Broke the Rationals'** (`ans-the-diagonal-that-broke-the-rationals`, 5,393 words,
+  8 terms, 5 quiz keys 1/2/0/2/3, 15 exercises L1–L6, 3 derivations, 1 illustration, 1 figure — the
+  no-Pythagoras dissection, 1 table — the n = 1..20 census, 4 formula cards): the cliff-hanger of 7.3 cashed;
+  d² = 2 proved by area bookkeeping (four half-square triangles tile the square on the diagonal — computed
+  geometry, no Pythagorean theorem); irrational DEFINED (a non-existence statement); the classical parity
+  contradiction over a reduced fraction (parity lemma → p even → q even → gcd ≥ 2), with the mod-4 retelling
+  and the infinite-descent retelling (well-ordering); the FTA general wall √n ∈ ℚ ⟺ n = k² swept n ≤ 400 both
+  routes (brute + prime-exponent parity); the 20-row verdict table; the Baudhāyana Śulbasūtra ladder
+  (577/408, 577² − 2·408² = 1, saviśeṣaḥ — web-checked); the four-rung squeeze (1.4/1.5 → 1.4142/1.4143,
+  exact BigInt decimal squares) with the self-similar zoom figure; the two-shores density-vs-fullness split
+  and the honest scoping of completeness to 8.4; the decimal contrapositive of 7.3 (√2 neither terminates nor
+  repeats BY THEOREM, 30 computed digits). New citation keys: baudhayana-sulbasutras,
+  hippasus-irrationality-tradition (web-checked).
+- **8.2 'The Family of Irrationals'** (`ans-the-family-of-irrationals`, 5,073 words, 8 terms, 5 quiz keys
+  2/0/1/3/1, 15 exercises, 3 derivations, 2 illustrations, 2 tables — the kernel dictionary (18 rows) + the
+  family decimal names (8 rows, BigInt Newton 15 places truncated), 2 figures — the computed family line on
+  [0, 5] + the Spiral of Theodorus, 4 formula cards): the squarefree-kernel naming system √n = k√s (22 rows
+  verified, uniqueness of the family name swept); the product law proved (squaring + positivity + uniqueness)
+  and the √(a+b) ≠ √a + √b trap boxed; like-surds collection √2 + √8 + √18 = 6√2; the squeeze chain proving
+  √2 + √3 irrational (the honest both-ways note deferred to 8.3); the k-th root criterion by exponents mod k
+  swept; the family decimal table (every row reproduced by the verifier, squared back); the countability
+  conversation — the |a| + b row listing bijective to 979 names, Cantor 1874 (Crelle 77, pp. 258–262) stated
+  with the 1891-diagonal distinction and the no-named-specimen honesty; the Theodorus historical callout
+  (Theaetetus 147d, the stop at 17 — web-checked) with the spiral figure (16 unit legs edge-checked, winding
+  351.2°). New citation keys: plato-theaetetus-theodorus, cantor-1874-algebraic-numbers (web-checked).
 
 Unit-6 completion review passed (BOOK_FORMAT checklist 7/7; exam corners 3/3; ids globally unique at 70;
 ch-06 flipped complete, plannedLessons emptied). Chapter 6 stands **15,777 words / 24 terms / 15 quiz /
@@ -1922,4 +1916,4 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 
 **Citations:** 3 new keys (rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper), all web-checked 2026-11-06; zero downloads; Drive survey rebuilt post-recycle (89 entries).
 
-**Next:** run 60 = ANS ch. 8 'Irrationals and the Real Line' complete 4/4 (verify-book2-ch08.ts FIRST).
+**Next:** run 61 = ANS ch. 8 lessons 8.3 'How Irrationals Behave' + 8.4 'Completeness: the Line Without Holes' (the v2 two-lesson scope) — verify-book2-ch08.ts extended FIRST; the chapter closes with the unit-8 completion review.

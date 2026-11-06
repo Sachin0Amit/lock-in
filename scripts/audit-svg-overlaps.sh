@@ -27,9 +27,16 @@ if [ "$#" -gt 0 ]; then LESSONS=("$@"); else LESSONS=("${ALL_LESSONS[@]}"); fi
 
 for L in "${LESSONS[@]}"; do
   echo "== $L =="
-  agent-browser open "$BASE/$L" >/dev/null 2>&1
+  # infer the book from the lesson-id prefix (ans-* lessons live in book #2)
+  case "$L" in
+    ans-*) BOOK_BASE="http://localhost:3000/book/arithmetic-and-number-systems/lesson" ;;
+    *) BOOK_BASE="$BASE" ;;
+  esac
+  agent-browser open "$BOOK_BASE/$L" >/dev/null 2>&1
   agent-browser wait --load networkidle >/dev/null 2>&1 || true
   agent-browser wait 1200 >/dev/null 2>&1 || true
+  LOC=$(agent-browser eval "location.pathname" 2>/dev/null | tr -d '"' || true)
+  case "$LOC" in *"$L") ;; *) echo "  NAV FAIL (on $LOC) — skipping"; continue ;; esac
   agent-browser eval "$PAGE_JS" > "$OUT/$L.json" 2>"$OUT/$L.err"
   # print a compact digest
   node -e "

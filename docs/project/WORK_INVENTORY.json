@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 14:54:08 (Asia/Kolkata)",
+  "generated": "2026-11-06 21:23:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -103,7 +103,7 @@
                 "authoredOn": "2026-11-03",
                 "authoredInCommit": "a29d1b8",
                 "unit": "unit 1",
-                "words": 3586,
+                "words": 3662,
                 "readMins": 18,
                 "concepts": [
                   "Digit count as the first comparison test",
@@ -135,7 +135,7 @@
                   "terms": 1,
                   "derivation": 1,
                   "equation": 1,
-                  "figure": 1,
+                  "figure": 2,
                   "example": 2,
                   "table": 1,
                   "quiz": 1,
@@ -225,7 +225,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 10356
+            "words": 10432
           },
           {
             "number": 2,
@@ -5169,15 +5169,149 @@
             "slug": "irrationals-and-the-real-line",
             "title": "Irrationals and the Real Line",
             "summary": "The diagonal that broke the rationals: √2 proved irrational by the classical contradiction, the family of irrationals grown from the primes, the arithmetic behaviour of irrational + rational sorted into a proved table, and completeness met informally — the no-holes property that makes the real line the stage for all of analysis.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Diagonal of the Square: √2 Is Irrational",
-              "The Irrationals Are Everywhere",
-              "The Real Line: Order, Density and Completeness"
+              "How Irrationals Behave",
+              "Completeness: the Line Without Holes"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-the-diagonal-that-broke-the-rationals",
+                "number": "8.1",
+                "title": "The Diagonal That Broke the Rationals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5393,
+                "readMins": 27,
+                "concepts": [
+                  "The unit-square diagonal: d² = 2 by dissection",
+                  "Irrational: not a ratio of integers",
+                  "Proof by contradiction (reductio ad absurdum)",
+                  "The parity lemma: x² even ⟺ x even",
+                  "The classical contradiction: p, q both even vs reduced",
+                  "The general wall: √n rational ⟺ n is a perfect square",
+                  "The squeeze ladders: rational brackets that never close",
+                  "Density is not fullness: the hole at √2"
+                ],
+                "objectives": [
+                  "Prove d² = 2 for the unit-square diagonal by an area dissection that needs no Pythagorean theorem",
+                  "Define irrational number precisely and prove √2 irrational by the classical parity contradiction over a reduced fraction",
+                  "Generalize the wall: √n is rational exactly when n is a perfect square — by the prime-exponent parity of the Fundamental Theorem",
+                  "Run the squeeze ladders against √2 and say precisely what they show (density) and what they cannot show (completeness)"
+                ],
+                "prerequisites": [
+                  "ans-density-and-the-decimal-mirror-proven",
+                  "ans-fundamental-theorem-of-arithmetic",
+                  "ans-the-laws-of-integer-arithmetic"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "baudhayana-sulbasutras",
+                  "hippasus-irrationality-tradition",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "callout": 5,
+                  "heading": 6,
+                  "derivation": 3,
+                  "figure": 2,
+                  "equation": 1,
+                  "table": 1,
+                  "example": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 2,
+                  "definition": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-the-family-of-irrationals",
+                "number": "8.2",
+                "title": "The Family of Irrationals",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5073,
+                "readMins": 25,
+                "concepts": [
+                  "Squarefree kernels: √n = k√s",
+                  "The product law √m·√n = √(mn)",
+                  "Surd reduction and like surds",
+                  "The trap √(a + b) ≠ √a + √b",
+                  "√2 + √3 irrational by the squeeze chain",
+                  "The k-th root criterion: perfect k-th powers",
+                  "Decimal names neither terminate nor repeat",
+                  "Countable rationals, unlistable irrationals (Cantor 1874)"
+                ],
+                "objectives": [
+                  "Name every square root by its squarefree kernel — √n = k√s — and reduce any surd to canonical form",
+                  "Prove the product law √m·√n = √(mn) from positivity and uniqueness of square roots, and detect the classic √(a+b) trap",
+                  "Prove √2 + √3 irrational by the squeeze chain, and extend the wall to k-th roots via exponents mod k",
+                  "State Cantor’s 1874 countability theorem honestly: the rationals and all surds are listable; the irrationals as a whole are not"
+                ],
+                "prerequisites": [
+                  "ans-the-diagonal-that-broke-the-rationals",
+                  "ans-fundamental-theorem-of-arithmetic",
+                  "ans-density-and-the-decimal-mirror-proven"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "plato-theaetetus-theodorus",
+                  "cantor-1874-algebraic-numbers",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "callout": 5,
+                  "heading": 6,
+                  "table": 2,
+                  "derivation": 3,
+                  "example": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              }
+            ],
+            "words": 10466
           },
           {
             "number": 9,
@@ -5232,13 +5366,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 97,
-      "totalLines": 53484,
+      "srcFilesTracked": 98,
+      "totalLines": 55484,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 44219,
+        "src/data/library (content model + books)": 46219,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -12386,6 +12520,154 @@
           "del": 6
         }
       ]
+    },
+    {
+      "sha": "2ce02f09e85c9797604e2a727e18afa77eb1795d",
+      "short": "2ce02f0",
+      "date": "2026-11-06 09:24",
+      "message": "ans ch.7 completes: lessons 7.1-7.3 shipped verify-first, unit-7 review passed (run 59) — verify-book2-ch07.ts 239 checks (sections A-T) before writing, fifteen pre-writing defects caught; ch-07 complete 3/3 (14,878 words / 24 terms / 15 quiz / 44 exercises: 7.1 the fraction-pair construction, well-definedness swept 5,482 + 7.2 the reciprocal law, division defined, division-by-zero proved, the first field named 4,332 + 7.3 density without bound and the decimal mirror proven 5,064); 3 new citation keys (rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper, web-checked); e2e-ans-71..73 whitelisted; per-lesson gates all green (lint 0, tsc 0, routes 200, quiz 5/5 live on keys 2/1/0/2/1, 0/1/2/0/2, 2/1/3/1/0, KaTeX 0 errors, SVG overlap audits CLEAN on all four figures); library 2 books / 18 chapters / 73 lessons / 357,471 words",
+      "filesChanged": 14,
+      "insertions": 3802,
+      "deletions": 80,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 24,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 78,
+          "del": 17
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 10,
+          "del": 9
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 24,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 384,
+          "del": 37
+        },
+        {
+          "path": "scripts/e2e-ans-71.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-72.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-73.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/lib-gcd.ts",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 1110,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 3,
+          "del": 15
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 1964,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "a5880213e8f8cb3a3d41a8e99694a4582bb06a1e",
+      "short": "a588021",
+      "date": "2026-11-06 09:25",
+      "message": "memory: run-59 push verified — remote main = 2ce02f0 (ship 2ce02f0 + visual ab6fb3f); next run 60 = ANS ch.8 'Irrationals and the Real Line' in full (4/4)",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "7583ef43b60fa1e85b89d46bb156682c395e5c6a",
+      "short": "7583ef4",
+      "date": "2026-11-06 10:55",
+      "message": "enhance(fm-comparing-ordering-numbers): precise figures + visual upgrades",
+      "filesChanged": 8,
+      "insertions": 621,
+      "deletions": 13,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 76,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_POINTER.json",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "scripts/e2e-fm-12.page.js",
+          "add": 92,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-fm-12.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-12-audit.ts",
+          "add": 157,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-12-gen.ts",
+          "add": 141,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 55,
+          "del": 8
+        }
+      ]
     }
   ],
   "totals": {
@@ -12393,26 +12675,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 18,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 73,
-    "wordsAuthored": 357471,
-    "termsDefined": 555,
-    "quizItems": 365,
-    "exerciseQuestions": 878,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 75,
+    "wordsAuthored": 368013,
+    "termsDefined": 571,
+    "quizItems": 375,
+    "exerciseQuestions": 908,
     "blockTotals": {
-      "para": 1022,
-      "callout": 417,
-      "heading": 417,
+      "para": 1044,
+      "callout": 427,
+      "heading": 429,
       "list": 93,
-      "terms": 74,
-      "equation": 113,
-      "figure": 119,
-      "derivation": 150,
-      "table": 92,
-      "example": 317,
-      "quiz": 73,
-      "exercises": 73,
-      "formula": 203,
+      "terms": 76,
+      "equation": 114,
+      "figure": 124,
+      "derivation": 156,
+      "table": 95,
+      "example": 320,
+      "quiz": 75,
+      "exercises": 75,
+      "formula": 211,
       "algorithm": 21
     }
   }

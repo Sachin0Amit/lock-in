@@ -955,6 +955,74 @@ andrews.ac.uk/Miller/mathsym/nth/), which also grounds the Gauss ≡
   reader's first field met as a building) and the ℤ/p finite-field bridge
   to 5.4, web-checked 2026-11-06 (run 59). Exposition original.
 
+## Citation keys added by ANS chapter 8 (run 60)
+
+- `baudhayana-sulbasutras` — the Baudhāyana Śulbasūtra (c. 800–500 BCE, one of the Śulba Sūtra ritual-geometry
+  manuals; aspects arguably older). Used for: ANS ch. 8 lesson 8.1 — the historical charter for the measured
+  diagonal before the irrationality crisis: the verse giving the diagonal of a square as "increase the side by
+  a third, that third by its own fourth, diminish that by its own thirty-fourth" — 1 + 1/3 + 1/12 − 1/408 =
+  577/408 ≈ 1.4142157, correct to five decimal places, closing with *saviśeṣaḥ* ("with a remainder" — honest
+  inexactness); the run-60 verifier confirmed 577² − 2·408² = 1 (so the approximation squares to 2 + 1/408²,
+  overshooting by one part in 166,464) and 577/408's repeating decimal (pre-period 3, period 16),
+  web-checked 2026-11-06 (run 60) against published verse translations and secondary listings. Exposition
+  original; no verse text reproduced beyond the four-term identity.
+
+- `hippasus-irrationality-tradition` — the Hippasus of Metapontum tradition (late antique sources, c. 450 BCE
+  figure). Used for: ANS ch. 8 lesson 8.1 — the crisis narrative, presented AS tradition: sometimes credited
+  with the discovery that some lengths admit no ratio of integers (specifically √2 or the pentagon/decagon
+  depending on the source), the drowning legend, and the honest caveat that the surviving accounts are
+  centuries later and mutually conflicting, web-checked 2026-11-06 (run 60) against encyclopaedic listings.
+  Exposition original.
+
+- `plato-theaetetus-theodorus` — Plato, *Theaetetus* (c. 369 BCE), 147d: Theodorus of Cyrene proved case by
+  case that the square roots of the non-square integers from 3 up to 17 feet are irrational, and his student
+  Theaetetus generalized to the full theorem (the 8.1 wall). Used for: ANS ch. 8 lesson 8.2 — the family-
+  portrait historical charter (the census was climbed rung by rung before the general proof; Knorr's
+  reconstruction of why the odd–even techniques fail first at 17 = 8·2 + 1), web-checked 2026-11-06 (run 60)
+  against the Stephanus-reference listings and secondary literature. Exposition original.
+
+- `cantor-1874-algebraic-numbers` — Georg Cantor, "Über eine Eigenschaft des Inbegriffes aller reellen
+  algebraischen Zahlen" ("On a Property of the Class of All Real Algebraic Numbers"), *Journal für die reine
+  und angewandte Mathematik* (Crelle's Journal), vol. 77 (1874), pp. 258–262. Used for: ANS ch. 8 lesson 8.2 —
+  the countability charter stated in honest scope: (i) the real algebraic numbers can be listed; (ii) the real
+  numbers cannot (by the interval argument — NOT the 1891 diagonal method, which is a later, separate paper);
+  together they make the irrationals the unlistable majority, web-checked 2026-11-06 (run 60) against the
+  journal listings and the English translations. Exposition original.
+
+## Citation keys added by ANS chapter 8 (run 60)
+
+- `baudhayana-sulbasutras` — the Baudhāyana Śulbasūtra (c. 800–500 BCE, one of the Śulba Sūtra ritual-geometry
+  manuals; aspects arguably older). Used for: ANS ch. 8 lesson 8.1 — the historical charter for the measured
+  diagonal before the irrationality crisis: the verse giving the diagonal of a square as "increase the side by
+  a third, that third by its own fourth, diminish that by its own thirty-fourth" — 1 + 1/3 + 1/12 − 1/408 =
+  577/408 ≈ 1.4142157, correct to five decimal places, closing with *saviśeṣaḥ* ("with a remainder" — honest
+  inexactness); the run-60 verifier confirmed 577² − 2·408² = 1 (so the approximation squares to 2 + 1/408²,
+  overshooting by one part in 166,464) and 577/408's repeating decimal (pre-period 3, period 16),
+  web-checked 2026-11-06 (run 60) against published verse translations and secondary listings. Exposition
+  original; no verse text reproduced beyond the four-term identity.
+
+- `hippasus-irrationality-tradition` — the Hippasus of Metapontum tradition (late antique sources, c. 450 BCE
+  figure). Used for: ANS ch. 8 lesson 8.1 — the crisis narrative, presented AS tradition: sometimes credited
+  with the discovery that some lengths admit no ratio of integers (specifically √2 or the pentagon/decagon
+  depending on the source), the drowning legend, and the honest caveat that the surviving accounts are
+  centuries later and mutually conflicting, web-checked 2026-11-06 (run 60) against encyclopaedic listings.
+  Exposition original.
+
+- `plato-theaetetus-theodorus` — Plato, *Theaetetus* (c. 369 BCE), 147d: Theodorus of Cyrene proved case by
+  case that the square roots of the non-square integers from 3 up to 17 feet are irrational, and his student
+  Theaetetus generalized to the full theorem (the 8.1 wall). Used for: ANS ch. 8 lesson 8.2 — the family-
+  portrait historical charter (the census was climbed rung by rung before the general proof; Knorr's
+  reconstruction of why the odd–even techniques fail first at 17 = 8·2 + 1), web-checked 2026-11-06 (run 60)
+  against the Stephanus-reference listings and secondary literature. Exposition original.
+
+- `cantor-1874-algebraic-numbers` — Georg Cantor, "Über eine Eigenschaft des Inbegriffes aller reellen
+  algebraischen Zahlen" ("On a Property of the Class of All Real Algebraic Numbers"), *Journal für die reine
+  und angewandte Mathematik* (Crelle's Journal), vol. 77 (1874), pp. 258–262. Used for: ANS ch. 8 lesson 8.2 —
+  the countability charter stated in honest scope: (i) the real algebraic numbers can be listed; (ii) the real
+  numbers cannot (by the interval argument — NOT the 1891 diagonal method, which is a later, separate paper);
+  together they make the irrationals the unlistable majority, web-checked 2026-11-06 (run 60) against the
+  journal listings and the English translations. Exposition original.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |

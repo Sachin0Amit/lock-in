@@ -19,7 +19,7 @@
   var T2T = 1.5; // min intersection for text vs text
   var CLIP = 1.5; // overflow tolerance
   var reports = [];
-  var svgs = Array.prototype.slice.call(document.querySelectorAll('figure svg'));
+  var svgs = Array.prototype.slice.call(document.querySelectorAll('figure svg')).filter(function (x) { return !x.closest('.katex'); });
   svgs.forEach(function (svg, si) {
     var vb = svg.viewBox && svg.viewBox.baseVal;
     var W = vb && vb.width ? vb.width : 0;

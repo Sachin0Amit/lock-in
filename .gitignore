@@ -202,3 +202,10 @@ server.log
 !/scripts/enhance-fm-12-audit.ts
 !/scripts/e2e-fm-12.sh
 !/scripts/e2e-fm-12.page.js
+# exception: run-60 ANS chapter-8 pre-write arithmetic verifier (irrationals; committed every ship)
+!/scripts/verify-book2-ch08.ts
+# exception: run-60 ANS chapter-8 lesson E2E blocks (quiz keys 8.1 + 8.2 + solutions + audits)
+!/scripts/e2e-ans-81.sh
+!/scripts/e2e-ans-81.page.js
+!/scripts/e2e-ans-82.sh
+!/scripts/e2e-ans-82.page.js
