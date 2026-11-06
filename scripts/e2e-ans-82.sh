@@ -68,14 +68,17 @@ run_checks () {  # $1 = label, $2 = extra window size (optional "390")
 }
 
 echo "== DESKTOP 1280 =="
+agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
 run_checks desktop
 agent-browser screenshot "$OUT/desktop.png" >/dev/null 2>&1 || true
 
 echo "== MOBILE 390 =="
+agent-browser set viewport 390 844 >/dev/null 2>&1 || true
 run_checks mobile 390
 agent-browser screenshot "$OUT/mobile.png" >/dev/null 2>&1 || true
 
 echo "== DARK MODE (1280) =="
+agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
 agent-browser open "$BASE" >/dev/null 2>&1
 agent-browser wait --load networkidle >/dev/null 2>&1 || true
 agent-browser wait 1000 >/dev/null 2>&1 || true
