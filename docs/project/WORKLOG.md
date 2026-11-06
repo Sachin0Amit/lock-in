@@ -102,7 +102,12 @@ Integers' completed ENTIRELY at run 58); totals recomputed by build_work_invento
 and Fibonacci casting-out-nines extensions and the run-57 ledger), WORK_INVENTORY.json regenerated
 (the gitignored Drive survey rebuilt first — 89 entries), DETAILED_LOG.md run-57 record. e2e-ans-51
 through e2e-ans-54 and verify-book2-ch05.ts ride the commit (whitelisted in .gitignore before any
-of this run's commits). Then the protocol push.
+of this run's commits). Then the protocol push: ship commit `65a3e70` + memory commit `39e9006`
+(plus the adopted groundwork `501083f`) pushed 2026-11-06 via the one-time HTTPS URL
+(remote main was f24a509; f24a509..39e9006 HEAD -> main); remote HEAD verified by one-time-URL
+ls-remote = local HEAD = 39e90061784388ddcebf9288b59c3c8299319803; origin/main tracking ref
+resynced by anonymous HTTPS fetch (f24a509..39e9006); PAT used in-command only, never written
+to any file/config/log; origin remains the SSH remote.
 
 **Remaining:** run 58 = ANS chapter 6 'Building the Integers' completed ENTIRELY (verify-book2-ch06.ts
 FIRST — whitelist it + e2e-ans-61..63). Exam registry research still pending.
