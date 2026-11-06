@@ -20,7 +20,7 @@ Every work session appends one entry at the top. Format:
 
 **Step 4 — ship + logs:** WORKLOG (this entry), PROGRESS.json (phase + lastCompleted + run59Extras + library totals from the rebuilt WORK_INVENTORY.json), RESUME_POINTER.json (nextAction = run 60 = ANS ch. 8 'Irrationals and the Real Line' COMPLETE 4/4 with verify-book2-ch08.ts FIRST), SOURCE_LOG.md (3 new keys — rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper, all web-checked 2026-11-06 — + the zero-download ledger), DETAILED_LOG.md (run-59 record), WORK_INVENTORY.json regenerated (Drive survey rebuilt first: 89 entries intact).
 
-**Step 5 — push:** the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moved every unpushed main commit to the remote, including the sibling visual job's `ab6fb3f`; remote HEAD verified against local via the one-time-URL ls-remote check — recorded below in the ship confirmation.
+**Step 5 — push:** the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moved `55ca3ec..2ce02f0 HEAD -> main` — both pending commits (the sibling visual job's enhance commit `ab6fb3f` + this ship `2ce02f0`) are on the remote; one-time-URL `ls-remote` verified **remote HEAD = 2ce02f09e85c9797604e2a727e18afa77eb1795d = local HEAD**.
 
 **Next:** run 60 completes ANS chapter 8 'Irrationals and the Real Line' ENTIRELY (8.1 The Diagonal That Broke the Rationals + 8.2 The Family of Irrationals + 8.3 How Irrationals Behave + 8.4 Completeness + the unit-8 review) — verify-book2-ch08.ts FIRST, whitelisted before committing.
 
