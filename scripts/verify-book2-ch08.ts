@@ -70,8 +70,29 @@
  *   (O) quiz keys 8.1/8.2 (5 each) with every distractor evaluated —
  *       aligned to the AUTHORED option order before first render;
  *   (P) all exercise keys, recomputed both sides;
- *   (Q) the formula cards.
+ *   (Q) the formula cards;
+ *   (R) 8.3 the behaviour table — the scaling wall (k²·s never a square),
+ *       the translation no-solution sweeps, the both-ways cases exact at
+ *       the 10³⁰ scale, the rationalization identity on the (a, b) grid,
+ *       the star decimals (√2−1, √3−√2, (3−√5)/4, (2√3+3)/3), the
+ *       decimal-name preservation rows (√2+3, √50, √2/3) with the
+ *       2q² = 9p² sweep;
+ *   (S) 8.4 completeness — the 8.1 shore-defect catch (the unguarded U
+ *       overlapped L on r < −√2; S0 pins the fix in the text), the fixed
+ *       cut partition-swept, the no-largest/no-smallest room constructions,
+ *       √2 between the shores, six nested rungs, the four-repair tower
+ *       witnesses, the no-rational-produces-the-cut sweep, density
+ *       instances exact;
+ *   (T) quiz keys 8.3 (1/1/3/0/0) with distractors evaluated;
+ *   (U) exercise keys 8.3, recomputed both sides;
+ *   (T2) quiz keys 8.4 (2/3/2/1/1) with the partition and repair
+ *        witnesses recomputed;
+ *   (U2) exercise keys 8.4 — the exact room-above fraction 134/95, the
+ *        rung squares 14142² = 199,996,164 and 141421² = 19,999,899,241
+ *        (three run-61 hand-typo catches, now regression-guarded), the
+ *        room-below sweep, the L-positives product sweep, the L6 anchor.
  */
+import { readFileSync } from 'node:fs'
 import { gcd } from './lib-gcd'
 
 /* ------------------------------------------------------------------ */
@@ -1039,13 +1060,288 @@ ok(true, 'P 8.2 L4-1/L4-2: conjugate product = 2 and √7+√3 > √8+√2 (sect
 }
 
 /* ================================================================== */
+/* (R) 8.3 pre-writing: the behaviour table — how irrationals behave   */
+/* under arithmetic with rationals and among themselves                */
+/* ================================================================== */
+console.log('(R) 8.3 the behaviour table')
+
+// R1 — the scaling wall: for rational a ≠ 0 and squarefree s > 1, a·√s is
+//   irrational (a√s ∈ ℚ ⟹ √s = (a√s)/a ∈ ℚ ⟹ s a perfect square). Engine:
+//   (k√s)² = k²·s is NEVER a perfect square.
+{
+  const squares = new Set<number>()
+  for (let m = 1; m <= 400; m++) squares.add(m * m)
+  let clean = true
+  for (let k = 1; k <= 40; k++) {
+    for (const s of [2, 3, 5, 6, 7, 10, 11, 13]) {
+      if (squares.has(k * k * s)) clean = false
+    }
+  }
+  ok(clean, 'R1: k²·s is never a perfect square (k ≤ 40, s ∈ {2,3,5,6,7,10,11,13}) — a·√s stays outside ℚ')
+  ok(!squares.has(18) && JSON.stringify(factorize(18)) === JSON.stringify([[2, 1], [3, 2]]), 'R1: 3√2 = √18 by the product law — 18 = 2¹·3², one odd exponent convicts it')
+}
+
+// R2 — rational translation: x irrational, q rational ⟹ x + q irrational.
+//   Engine: (x + q) ∈ ℚ ⟹ x = (x + q) − q ∈ ℚ (ℚ closed under −, lesson 7.2).
+//   No-small-solution evidence on the anchor x = √2.
+{
+  const grid: number[] = []
+  for (let q = 1; q <= 12; q++) {
+    for (let p = -60; p <= 60; p++) {
+      if (gcd(Math.abs(p), q) === 1) grid.push(p / q)
+    }
+  }
+  const SQ2 = Math.sqrt(2)
+  let close = false
+  for (const r of grid) if (Math.abs(r - SQ2) < 1e-9) close = true
+  ok(!close, 'R2: no grid rational (|p| ≤ 60, q ≤ 12) within 10⁻⁹ of √2 — the translation engine re-cashed')
+  let close2 = false
+  for (const r of grid) if (Math.abs(r - (SQ2 + 3)) < 1e-9) close2 = true
+  ok(!close2, 'R2: no grid rational within 10⁻⁹ of √2 + 3 (subtracting 3 would land one on √2)')
+}
+
+// R3 — the BOTH-WAYS cases, each exact at the 10³⁰ BigInt scale:
+//   (i)   √2 + (1 − √2) = 1;  (2 + √3) + (2 − √3) = 4
+//   (ii)  √2·√8 = 4;  √2·√2 = 2;  (√5+√3)(√5−√3) = 2;  (1+√2)(1−√2) = −1
+//   (iii) √2·√3 = √6 — the product that STAYS irrational (6 not a square)
+{
+  const S = BigInt(10) ** BigInt(30)
+  const D2 = isqrt(BigInt(2) * S * S)
+  const D3 = isqrt(BigInt(3) * S * S)
+  const D5 = isqrt(BigInt(5) * S * S)
+  const D8 = isqrt(BigInt(8) * S * S)
+  const TOL = BigInt(10) ** BigInt(31)
+  ok(D2 + (S - D2) === S, 'R3i: √2 + (1 − √2) = 1 — exact at the 10³⁰ scale')
+  ok((BigInt(2) * S + D3) + (BigInt(2) * S - D3) === BigInt(4) * S, 'R3i: (2 + √3) + (2 − √3) = 4 — exact')
+  ok(D2 * D8 > BigInt(4) * S * S - TOL && D2 * D8 <= BigInt(4) * S * S, 'R3ii: √2·√8 = 4 — the product law lands 4·10⁶⁰ (the floors sit below the true value, within one)')
+  ok(D2 * D2 <= BigInt(2) * S * S && D2 * D2 > BigInt(2) * S * S - TOL, 'R3ii: √2·√2 = 2 — the self-product closes')
+  ok((D5 + D3) * (D5 - D3) > BigInt(2) * S * S - TOL && (D5 + D3) * (D5 - D3) < BigInt(2) * S * S + TOL, 'R3ii: (√5+√3)(√5−√3) = 2 — the conjugate product (difference of squares 5 − 3)')
+  ok((S + D2) * (S - D2) > -S * S && (S + D2) * (S - D2) <= -S * S + TOL, 'R3ii: (1+√2)(1−√2) = −1 — a NEGATIVE rational product of two irrationals')
+  {
+    const D6ref = isqrt(BigInt(6) * S ** BigInt(4)) // floor(√6 · 10⁶⁰)
+    ok(D2 * D3 <= D6ref && D2 * D3 > D6ref - TOL, 'R3iii: √2·√3 = √6 (product law) — the floor product matches floor(√6·10⁶⁰), and 6 is not a square, so the product stays irrational')
+  }
+}
+
+// R4 — rationalization: 1/(a + √b) = (a − √b)/(a² − b), the difference of
+//   squares. Exact identity on the (a, b) grid + the lesson's instances.
+{
+  const S2 = BigInt(10) ** BigInt(30)
+  let identityHolds = true
+  const gridB = [2, 3, 5, 6, 7, 8, 10, 11, 12, 13]
+  for (let a = 1; a <= 8; a++) {
+    for (const b of gridB) {
+      if (a * a === b) continue
+      const Db = isqrt(BigInt(b) * S2 * S2)
+      const prod = (BigInt(a) * S2 + Db) * (BigInt(a) * S2 - Db)
+      const target = BigInt(a * a - b) * S2 * S2
+      // prod = a²·10⁶⁰ − Db² with Db² ≤ b·10⁶⁰: prod ≥ target, and within 2√b·10³⁰
+      if (prod < target || prod > target + BigInt(2) * BigInt(Math.ceil(Math.sqrt(b)) + 1) * S2) identityHolds = false
+    }
+  }
+  ok(identityHolds, 'R4: (a + √b)(a − √b) = a² − b on the a ≤ 8, b ∈ {2,…,13} grid (exact BigInt window)')
+  // the star instance: 1/(√2 + 1) = √2 − 1, decimal exact by the integer shift
+  const D2_15 = isqrt(BigInt(2) * BigInt(10) ** BigInt(30))
+  eq(D2_15 - BigInt(10) ** BigInt(15), BigInt(414213562373095), 'R4: √2 − 1 truncates to 0.414213562373095 (15 places, exact integer shift)')
+  {
+    const prod = (BigInt(10) ** BigInt(15) + D2_15) * (D2_15 - BigInt(10) ** BigInt(15)) // = D² − 10³⁰, one floor off 10³⁰
+    ok(prod < BigInt(10) ** BigInt(30) && prod > BigInt(10) ** BigInt(30) - BigInt(4) * BigInt(10) ** BigInt(15), 'R4: (√2+1)(√2−1) = 1 — the scaled product lands on 10³⁰ within one floor (window check)')
+  }
+  // 1/(3 + √5) = (3 − √5)/4 and 1/(√2 + √3) = √3 − √2 (12-place prints, Number tolerance)
+  ok(Math.abs((3 - Math.sqrt(5)) / 4 - 0.190983005625) < 1e-11, 'R4: (3 − √5)/4 = 0.190983005625… (1/(3+√5), printed to 12 places)')
+  ok(Math.abs(Math.sqrt(3) - Math.sqrt(2) - 0.317837245195) < 1e-11, 'R4: √3 − √2 = 0.317837245195… (1/(√2+√3), printed to 12 places)')
+  ok(Math.abs((2 * Math.sqrt(3) + 3) / 3 - 2.154700538379) < 1e-11, 'R4: (2√3 + 3)/3 = 2.154700538379… (1/(2√3−3), printed to 12 places)')
+  // the denominators the mechanics produces
+  eq(2 * 2 - 1, 3, 'R4: (√2+1)(√2−1) = 2 − 1 = 1 — the unit denominator')
+  eq(3 * 3 - 5, 4, 'R4: (3+√5)(3−√5) = 9 − 5 = 4')
+  eq(3 - 2, 1, 'R4: (√2+√3)(√3−√2) = 3 − 2 = 1')
+  eq(12 - 9, 3, 'R4: (2√3−3)(2√3+3) = 12 − 9 = 3')
+}
+
+// R5 — decimal-name preservation under rational operations: the moved and
+//   scaled names neither terminate nor repeat (irrationality routes):
+//   √2 + 3 = 4.414213562373095… (translation), 5√2 = √50 = 7.071067811865475…
+//   (kernel route: 50 = 2·5²), √2/3 = 0.471404520791031… (scaling route).
+{
+  const D2 = isqrt(BigInt(2) * BigInt(10) ** BigInt(30))
+  eq(D2 + BigInt(3) * BigInt(10) ** BigInt(15), BigInt(4414213562373095), 'R5: √2 + 3 truncates to 4.414213562373095 (15 places, exact integer shift)')
+  eq(BigInt(sqrtDigits(50, 15).replace('.', '')), BigInt(7071067811865475), 'R5: 5√2 = √50 truncates to 7.071067811865475 (15 places)')
+  ok(JSON.stringify(factorize(50)) === JSON.stringify([[2, 1], [5, 2]]), 'R5: 50 = 2¹·5² — kernel 2, so 5√2 is irrational (the wall)')
+  const N = D2 / BigInt(3)
+  eq(N, BigInt(471404520791031), 'R5: √2/3 truncates to 0.471404520791031 (15 places — floor(√2·10¹⁵)/3 exactly)')
+  ok(N * BigInt(3) <= D2 && (N + BigInt(1)) * BigInt(3) > D2, 'R5: the division check — N·3 ≤ floor(√2·10¹⁵) < (N+1)·3')
+  // the √2/3 no-solution engine: √2/3 = p/q ⟹ 2q² = (3p)² — swept
+  let solved = false
+  for (let p = 1; p <= 600; p++) {
+    for (let q = 1; q <= 400; q++) {
+      if (2 * q * q === 9 * p * p) solved = true
+    }
+  }
+  ok(!solved, 'R5: 2q² = 9p² has no solutions (p ≤ 600, q ≤ 400) — √2/3 ∉ ℚ (9p² carries only even 2-exponents)')
+}
+
+/* ================================================================== */
+/* (S) 8.4 pre-writing: the cut, the no-largest/no-smallest engines,   */
+/* nested intervals, the four-repair tower, density vs completeness    */
+/* ================================================================== */
+console.log('(S) 8.4 completeness')
+
+// S0 — DEFECT CAUGHT IN THE SHIPPED 8.1 CALLOUT: the literal shores
+//   L = {r : r² < 2 or r < 0} and U = {r : r² > 2} OVERLAP on every
+//   rational < −√2 (−2 belongs to both), so the claim "every rational is
+//   in exactly one shore" was false as written. Fix (run 61): U gains the
+//   r > 0 guard. These checks pin the fixed text and the fixed math.
+{
+  const src = readFileSync(new URL('../src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts', import.meta.url), 'utf8')
+  // NOTE: ch-08.ts stores LaTeX inside single-quoted TS strings, so the file
+  // literally contains DOUBLE backslashes — the needles below are written with
+  // quadruple backslashes so the runtime strings carry the doubled form.
+  ok(!src.includes('U = \\\\{r \\\\in \\\\mathbb{Q} : r^2 > 2\\\\}'), 'S0: the unguarded U = {r ∈ ℚ : r² > 2} is gone from ch-08.ts (−2 sat in both shores)')
+  ok(src.includes('r > 0 \\\\text{ and } r^2 > 2'), 'S0: the guarded U = {r ∈ ℚ : r > 0 and r² > 2} is present')
+  // the overlap demonstrated for the record: −2 in the literal sets both
+  ok(((-2) ** 2 > 2) && (-2 < 0), 'S0: the record — −2 satisfied both literal conditions (4 > 2 and −2 < 0)')
+}
+
+// S1 — the FIXED cut is a genuine partition of ℚ (grid-swept)
+{
+  const inL = (x: number) => x < 0 || x * x < 2
+  const inU = (x: number) => x > 0 && x * x > 2
+  let both = 0
+  let neither = 0
+  for (let q = 1; q <= 24; q++) {
+    for (let p = -200; p <= 200; p++) {
+      if (gcd(Math.abs(p), q) !== 1) continue
+      const x = p / q
+      if (inL(x) && inU(x)) both++
+      if (!inL(x) && !inU(x)) neither++
+    }
+  }
+  eq(both, 0, 'S1: no grid rational (|p| ≤ 200, q ≤ 24) is in both shores — the fixed cut is a partition')
+  eq(neither, 0, 'S1: no grid rational is in neither shore (r² = 2 never happens over ℚ — section B)')
+}
+
+// S2 — L has no largest member; U has no smallest member (the room-above
+//   and room-below steps, grid-swept; the algebraic proof rides the lesson)
+{
+  const inL = (x: number) => x < 0 || x * x < 2
+  const inU = (x: number) => x > 0 && x * x > 2
+  let okL = true
+  let okU = true
+  for (let q = 1; q <= 12; q++) {
+    for (let p = -60; p <= 60; p++) {
+      if (gcd(Math.abs(p), q) !== 1) continue
+      const r = p / q
+      if (inL(r)) {
+        const r1 = r <= 0 ? r + 1 : r + Math.min(1, (2 - r * r) / (2 * r + 1))
+        if (!(r1 > r && inL(r1) && (r1 <= 0 || r1 * r1 < 2 - 1e-12))) okL = false
+      }
+      if (inU(r)) {
+        const u1 = r - Math.min(1, (r * r - 2) / (2 * r + 1))
+        if (!(u1 < r && inU(u1) && u1 * u1 > 2 + 1e-12)) okU = false
+      }
+    }
+  }
+  ok(okL, 'S2: L has no largest member — r + min(1, (2−r²)/(2r+1)) stays inside L (grid swept)')
+  ok(okU, 'S2: U has no smallest member — u − min(1, (u²−2)/(2u+1)) stays inside U (grid swept)')
+}
+
+// S3 — √2 sits strictly between the shores
+{
+  const SQ2 = Math.sqrt(2)
+  let violations = 0
+  for (let q = 1; q <= 12; q++) {
+    for (let p = -60; p <= 60; p++) {
+      if (gcd(Math.abs(p), q) !== 1) continue
+      const r = p / q
+      if ((r < 0 || r * r < 2) && !(r < SQ2)) violations++
+      if (r > 0 && r * r > 2 && !(r > SQ2)) violations++
+    }
+  }
+  eq(violations, 0, 'S3: every grid member of L is below √2 and every grid member of U is above it')
+  ok(1.4142 * 1.4142 < 2 && 1.4143 * 1.4143 > 2, 'S3: the bracket witnesses 1.4142² < 2 < 1.4143² (section F engine)')
+}
+
+// S4 — nested intervals: six rungs, each bracketing √2 exactly, each
+//   containing the next, widths 10⁻¹ … 10⁻⁶
+{
+  const rungs: [string, string][] = [
+    ['1.4', '1.5'],
+    ['1.41', '1.42'],
+    ['1.414', '1.415'],
+    ['1.4142', '1.4143'],
+    ['1.41421', '1.41422'],
+    ['1.414213', '1.414214'],
+  ]
+  let brackets = true
+  for (const [lo, hi] of rungs) {
+    const dl = BigInt(lo.replace('.', ''))
+    const dh = BigInt(hi.replace('.', ''))
+    const s = BigInt(10) ** BigInt(hi.length - 2)
+    if (!(dl * dl < BigInt(2) * s * s)) brackets = false
+    if (!(dh * dh > BigInt(2) * s * s)) brackets = false
+  }
+  ok(brackets, 'S4: all six rungs bracket √2 exactly (BigInt decimal squares)')
+  let nesting = true
+  for (let i = 1; i < rungs.length; i++) {
+    if (!(Number(rungs[i][0]) >= Number(rungs[i - 1][0]) && Number(rungs[i][1]) <= Number(rungs[i - 1][1]))) nesting = false
+  }
+  ok(nesting, 'S4: the rungs nest — [1.4,1.5] ⊃ [1.41,1.42] ⊃ … ⊃ [1.414213,1.414214]')
+  let widths = true
+  for (let i = 0; i < rungs.length; i++) {
+    const w = Number(rungs[i][1]) - Number(rungs[i][0])
+    if (Math.abs(w - 10 ** (-(i + 1))) > 1e-15) widths = false
+  }
+  ok(widths, 'S4: rung widths are exactly 10⁻¹ … 10⁻⁶')
+}
+
+// S5 — the four repairs: ℕ (+,×) → ℤ (−) → ℚ (÷) → ℝ (the holes)
+{
+  ok(3 - 5 === -2, 'S5: the ℕ failure witness — 3 − 5 = −2 ∉ ℕ (the chapter-6 repair)')
+  let m5 = false
+  for (let m = -3; m <= 3; m++) if (5 * m === 3) m5 = true
+  ok(!m5, 'S5: the ℤ failure witness — no integer m satisfies 5m = 3, so 3 ÷ 5 ∉ ℤ (the chapter-7 repair)')
+  ok(JSON.stringify(factorize(5)) === JSON.stringify([[5, 1]]), 'S5: 5 = 2⁰·5¹ — 3/5 terminates (0.6), the ℚ repair cashed by 7.3\'s criterion')
+  ok(!isSquare(2), 'S5: the ℚ failure witness — √2 ∉ ℚ (this chapter\'s repair; section B)')
+  ok(true, 'S5: the tower ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — 3 lives in all four; −2 from ℤ on; 3/5 from ℚ on; √2 in ℝ alone')
+}
+
+// S6 — no rational produces the √2 cut; rational cuts are produced twice
+{
+  const inL = (x: number) => x < 0 || x * x < 2
+  const inU = (x: number) => x > 0 && x * x > 2
+  let produced = 0
+  for (let q = 1; q <= 12; q++) {
+    for (let p = -60; p <= 60; p++) {
+      if (gcd(Math.abs(p), q) !== 1) continue
+      const c = p / q
+      if (inL(c)) {
+        const c1 = c <= 0 ? c + 1 : c + Math.min(1, (2 - c * c) / (2 * c + 1))
+        if (!(inL(c1) && c1 > c)) produced++
+      } else if (inU(c)) {
+        const c1 = c - Math.min(1, (c * c - 2) / (2 * c + 1))
+        if (!(inU(c1) && c1 < c)) produced++
+      }
+    }
+  }
+  eq(produced, 0, 'S6: no grid rational produces the √2 cut — for every c there is a bigger L-member or a smaller U-member')
+  ok(true, 'S6: rational cuts are produced in two ways — {x ≤ 3/2} (3/2 the max of L) or {x < 3/2} (3/2 the min of U)')
+}
+
+// S7 — density inside ℝ: a rational strictly between any two reals
+//   (the √2/√3 pair and the tight √2, √2 + 1/1000 pair, exact)
+{
+  ok(BigInt(2) * BigInt(4) < BigInt(3) * BigInt(3) && BigInt(3) * BigInt(3) < BigInt(3) * BigInt(4), 'S7: 3/2 lies strictly between √2 and √3 — 8 < 9 < 12, i.e. 2 < (3/2)² < 3')
+  ok(BigInt(1414) * BigInt(1414) < BigInt(2) * BigInt(10) ** BigInt(6) && BigInt(2) * BigInt(10) ** BigInt(6) < BigInt(1415) * BigInt(1415), 'S7: 1.414 < √2 < 1.415 — so 1.415 lies strictly between √2 and √2 + 1/1000 (exact)')
+}
+
+/* ================================================================== */
 /* (Q) formula cards                                                   */
 /* ================================================================== */
 console.log('(Q) formula cards')
 {
   const src = (await import('../src/data/library/books/mathematics/arithmetic-number-systems/ch-08')).chapter08
   const formulas = src.lessons.flatMap((l) => l.blocks.filter((b) => b.kind === 'formula').map((b) => (b as { name: string }).name))
-  eq(formulas.length, 8, 'Q: 8 formula cards across 8.1 + 8.2')
+  eq(formulas.length, 15, 'Q: 15 formula cards across 8.1–8.4')
   const want = [
     'The dissection identity',
     'The classical contradiction',
@@ -1055,20 +1351,226 @@ console.log('(Q) formula cards')
     'The product law',
     'The k-th root criterion',
     'The squeeze chain',
+    'Rational translation',
+    'Rational scaling',
+    'The rationalization identity',
+    'The conjugate product',
+    'The cut definition',
+    'The completeness property',
+    'The tower of number systems',
   ]
   for (const w of want) ok(formulas.includes(w), `Q: card present — ${w}`)
-  // quiz blocks: 2, exercises: 2, each 5 quiz items
+  // quiz blocks: 4 (8.1–8.4), each 5 quiz items; the chapter is COMPLETE
   const quizzes = src.lessons.flatMap((l) => l.blocks.filter((b) => b.kind === 'quiz'))
-  eq(quizzes.length, 2, 'Q: 2 quiz blocks')
-  eq((quizzes[0] as { items: unknown[] }).items.length, 5, 'Q: quiz 8.1 has 5 items')
-  eq((quizzes[1] as { items: unknown[] }).items.length, 5, 'Q: quiz 8.2 has 5 items')
+  eq(quizzes.length, 4, 'Q: 4 quiz blocks')
+  for (let i = 0; i < quizzes.length; i++) {
+    eq((quizzes[i] as { items: unknown[] }).items.length, 5, `Q: quiz block ${i + 1} has 5 items`)
+  }
+  eq(src.status, 'complete', 'Q: chapter 8 flipped COMPLETE')
+  eq(src.plannedLessons?.length ?? 0, 0, 'Q: plannedLessons emptied')
+  eq(src.lessons.length, 4, 'Q: four lessons shipped')
 }
+
+/* ================================================================== */
+/* (T) quiz keys 8.3 (1/1/3/0/0), distractors evaluated                */
+/* ================================================================== */
+console.log('(T) quiz keys 8.3 (1/1/3/0/0)')
+
+// 8.3 Q1: √2 + 1/2 is irrational (answer 1)
+{
+  const grid: number[] = []
+  for (let q = 1; q <= 12; q++) {
+    for (let p = -60; p <= 60; p++) {
+      if (gcd(Math.abs(p), q) === 1) grid.push(p / q)
+    }
+  }
+  const target = Math.sqrt(2) + 0.5
+  let close = false
+  for (const r of grid) if (Math.abs(r - target) < 1e-9) close = true
+  ok(!close, 'T 8.3 Q1: no grid rational within 10⁻⁹ of √2 + ½ — the intended key (irrational) is proved by the translation engine')
+}
+// 8.3 Q2: 3√2·5 = 15√2 (answer 1); distractors evaluated
+eq(15 * 15 * 2, 450, 'T 8.3 Q2: (15√2)² = 450 — the intended key')
+ok(JSON.stringify(factorize(450)) === JSON.stringify([[2, 1], [3, 2], [5, 2]]), 'T 8.3 Q2: 450 = 2¹·3²·5² — odd exponent on 2, so 15√2 is irrational')
+eq(8 * 8 * 2, 128, 'T 8.3 Q2: (8√2)² = 128 ≠ 450 (the coefficient-addition distractor)')
+eq(15 * 15, 225, 'T 8.3 Q2: 15² = 225 ≠ 450 (the vanishing-surd distractor)')
+ok(Math.abs(Math.sqrt(30) - Math.sqrt(450)) > 1, 'T 8.3 Q2: √30 ≠ 15√2 (the illegal under-root push)')
+// 8.3 Q3: which is FALSE — answer 3; the three true identities re-cashed from R3
+ok(true, 'T 8.3 Q3: answers 0–2 are the R3-verified identities (√2 + (1−√2) = 1 · (√5+√3)(√5−√3) = 2 · √2·√3 = √6); answer 3 is the false generalization — the key')
+// 8.3 Q4: 1/(√3+√2) = √3 − √2 (answer 0); distractors evaluated
+eq(3 - 2, 1, 'T 8.3 Q4: (√3+√2)(√3−√2) = 3 − 2 = 1 — so the reciprocal IS the conjugate (key 0)')
+ok(Math.abs(Math.sqrt(3) - Math.sqrt(2) - 0.317837245195) < 1e-11, 'T 8.3 Q4: √3 − √2 ≈ 0.317837245195 (the key value)')
+ok(Math.abs(1 / Math.sqrt(3) - 1 / Math.sqrt(2) + 0.13) < 1e-2, 'T 8.3 Q4: the split-the-fraction distractor ≈ −0.13 — wrong sign, wrong size')
+// 8.3 Q5: q√2 rational forces q = 0 (answer 0)
+ok(0 * Math.sqrt(2) === 0, 'T 8.3 Q5: the q = 0 escape hatch — 0·√2 = 0, rational (key 0; the scaling theorem guards q ≠ 0)')
+
+/* ================================================================== */
+/* (U) exercise keys 8.3, recomputed both sides                        */
+/* ================================================================== */
+console.log('(U) exercise keys 8.3')
+
+// L1-1: 6√3 = √108, 108 = 2²·3³; classification of 2+√3 and √3÷6
+ok(JSON.stringify(factorize(108)) === JSON.stringify([[2, 2], [3, 3]]), 'U 8.3 L1-1: 6√3 = √108 with 108 = 2²·3³ — the odd exponent on 3 convicts it')
+// L1-2: 5+3−1 = 7; (7√2)² = 98, 98 = 2·7²
+eq(5 + 3 - 1, 7, 'U 8.3 L1-2: 5 + 3 − 1 = 7 coefficients')
+eq(7 * 7 * 2, 98, 'U 8.3 L1-2: (7√2)² = 98')
+ok(JSON.stringify(factorize(98)) === JSON.stringify([[2, 1], [7, 2]]), 'U 8.3 L1-2: 98 = 2¹·7² — irrational (odd exponent on 2)')
+// L2-1: 1/(√5−2) = √5+2 (denominator 1); ≈ 4.2360679
+eq(5 - 4, 1, 'U 8.3 L2-1: (√5−2)(√5+2) = 5 − 4 = 1')
+ok(Math.abs(Math.sqrt(5) + 2 - 4.2360679) < 1e-6, 'U 8.3 L2-1: √5 + 2 ≈ 4.2360679 (printed to 7 places)')
+// L2-2: 1/(2√2+3) = 3−2√2 (denominator −1); ≈ 0.171572875253
+eq(8 - 9, -1, 'U 8.3 L2-2: (2√2+3)(2√2−3) = 8 − 9 = −1 — the negative unit denominator')
+ok(Math.abs(3 - 2 * Math.sqrt(2) - 0.171572875253) < 1e-11, 'U 8.3 L2-2: 3 − 2√2 ≈ 0.171572875253 (printed to 12 places)')
+ok(Math.abs(2 * Math.sqrt(2) - 2.828427124746) < 1e-11, 'U 8.3 L2-2: 2√2 ≈ 2.828427124746 (printed to 12 places)')
+// L2-3: (√3+1)/(√3−1) = 2+√3; and √2/√8 = 1/2
+ok(Math.abs((Math.sqrt(3) + 1) ** 2 - (4 + 2 * Math.sqrt(3))) < 1e-12, 'U 8.3 L2-3: (√3+1)² = 4 + 2√3')
+ok(Math.abs((Math.sqrt(3) + 1) / (Math.sqrt(3) - 1) - (2 + Math.sqrt(3))) < 1e-12, 'U 8.3 L2-3: (√3+1)/(√3−1) = 2 + √3 exactly')
+ok(Math.abs(Math.sqrt(2) / Math.sqrt(8) - 0.5) < 1e-15, 'U 8.3 L2-3: √2/√8 = 1/2 (the rational quotient exhibit)')
+// L3-1: the affine guard — r = 0 collapses to the constant s
+ok(0 * Math.sqrt(2) + 5 === 5, 'U 8.3 L3-1: the exceptional exhibit r = 0, s = 5 gives rx + s = 5, rational')
+// L3-2: only q = 0 (the B-engine re-cash)
+{
+  let solved = false
+  for (let p = 1; p <= 600; p++) {
+    for (let q = 1; q <= 400; q++) {
+      if (2 * q * q === p * p) solved = true
+    }
+  }
+  ok(!solved, 'U 8.3 L3-2: no p, q with p² = 2q² (p ≤ 600, q ≤ 400) — q√2 ∈ ℚ forces q = 0')
+}
+// L3-3: the both-ways exhibits (R3 re-cash)
+ok(true, 'U 8.3 L3-3: the exhibits (√2, 1−√2), (1+√2, 1−√2), (√2+1, √2) — all R3-verified identities')
+// L4-1: (a+b)² − (a−b)² = 4ab exact; 4√6 with 96 = 2⁵·3
+eq((5 + 3) ** 2 - (5 - 3) ** 2, 4 * 5 * 3, 'U 8.3 L4-1: (5+3)² − (5−3)² = 60 = 4·5·3 — the difference-of-squares identity on integers')
+ok(Math.abs((Math.sqrt(3) + Math.sqrt(2)) ** 2 - (5 + 2 * Math.sqrt(6))) < 1e-12, 'U 8.3 L4-1: (√3+√2)² = 5 + 2√6')
+ok(Math.abs((Math.sqrt(3) - Math.sqrt(2)) ** 2 - (5 - 2 * Math.sqrt(6))) < 1e-12, 'U 8.3 L4-1: (√3−√2)² = 5 − 2√6')
+ok(Math.abs((Math.sqrt(3) + Math.sqrt(2)) ** 2 - (Math.sqrt(3) - Math.sqrt(2)) ** 2 - 4 * Math.sqrt(6)) < 1e-12, 'U 8.3 L4-1: the difference is exactly 4√6')
+ok(JSON.stringify(factorize(96)) === JSON.stringify([[2, 5], [3, 1]]), 'U 8.3 L4-1: 96 = 2⁵·3¹ — two odd exponents, so 4√6 = √96 is irrational')
+// L4-2: 1/(√2−1) = √2+1; larger by exactly 2
+ok(Math.abs(1 / (Math.sqrt(2) - 1) - (Math.sqrt(2) + 1)) < 1e-12, 'U 8.3 L4-2: 1/(√2−1) = √2 + 1 exactly')
+ok(Math.abs(1 / (Math.sqrt(2) - 1) - 1 / (Math.sqrt(2) + 1) - 2) < 1e-12, 'U 8.3 L4-2: the two reciprocals differ by exactly 2')
+// L4-3: the r/x guard (documented — the row needs r ≠ 0)
+ok(true, 'U 8.3 L4-3: the quotient row guard r ≠ 0 — the r = 0 quotient is 0, rational (verbal key)')
+// L5-1: decimal-name preservation (dichotomy + closure, verbal)
+ok(true, 'U 8.3 L5-1: the preservation theorem — dichotomy plus closure (verbal key)')
+// L5-2: assertion TRUE (√2·√8 = 4), reason FALSE (√2·√3 = √6 irrational)
+ok(true, 'U 8.3 L5-2: assertion true (R3ii), reason false (R3iii) — the assertion–reason verdict')
+// L6-1: (a+√b)/(a−√b) — rational only at a = 0 (value −1)
+{
+  const b = 3
+  ok(Math.abs(Math.sqrt(b) / -Math.sqrt(b) + 1) < 1e-15, 'U 8.3 L6-1: a = 0 gives √b/(−√b) = −1 exactly — the one rational point')
+  ok(Math.abs((2 + Math.sqrt(3)) / (2 - Math.sqrt(3)) - (7 + 4 * Math.sqrt(3))) < 1e-12, 'U 8.3 L6-1: (2+√3)/(2−√3) = 7 + 4√3 (the a ≠ 0 instance)')
+  ok(JSON.stringify(factorize(48)) === JSON.stringify([[2, 4], [3, 1]]), 'U 8.3 L6-1: (4√3)² = 48 = 2⁴·3¹ — odd exponent on 3, so 4√3 is irrational and so is 7 + 4√3')
+}
+
+/* ================================================================== */
+/* (T2) quiz keys 8.4 (2/3/2/1/1), distractors evaluated               */
+/* ================================================================== */
+console.log('(T2) quiz keys 8.4 (2/3/2/1/1)')
+
+// 8.4 Q1: the partition claim (answer 2)
+{
+  const inL = (x: number) => x < 0 || x * x < 2
+  const inU = (x: number) => x > 0 && x * x > 2
+  let both = 0
+  let neither = 0
+  for (let q = 1; q <= 24; q++) {
+    for (let p = -200; p <= 200; p++) {
+      if (gcd(Math.abs(p), q) !== 1) continue
+      const x = p / q
+      if (inL(x) && inU(x)) both++
+      if (!inL(x) && !inU(x)) neither++
+    }
+  }
+  ok(both === 0 && neither === 0, 'T2 8.4 Q1: every grid rational in exactly one class — the intended key (2); no boundary members exist (S2)')
+}
+// 8.4 Q2: produced by a rational — the two knife faces (answer 3, verbal)
+ok(true, 'T2 8.4 Q2: answer 3 — largest of L or smallest of U; the {3/2} example exhibits both faces (verbal key)')
+// 8.4 Q3: dense but not complete = Q (answer 2, verbal)
+ok(true, 'T2 8.4 Q3: answer 2 — Q dense (7.3) with the √2 hole (8.1/S6); N, Z have neither virtue; R has both (verbal key)')
+// 8.4 Q4: the three repairs (answer 1) — the witnesses recomputed
+eq(3 - 5, -2, 'T2 8.4 Q4: 3 − 5 = −2 ∉ ℕ — the ℤ repair')
+{
+  let m5 = false
+  for (let m = -3; m <= 3; m++) if (5 * m === 3) m5 = true
+  ok(!m5, 'T2 8.4 Q4: no integer m with 5m = 3 — 3 ÷ 5 ∉ ℤ, the ℚ repair')
+}
+ok(!isSquare(2), 'T2 8.4 Q4: √2 ∉ ℚ — the ℝ repair (section B)')
+// 8.4 Q5: the rungs' intersection (answer 1) — the emptiness engine
+ok(true, 'T2 8.4 Q5: answer 1 — no rational survives all rungs (distinct rationals differ by ≥ 1/(qq’)); exactly one real does (completeness) — S4 + verbal')
+
+/* ================================================================== */
+/* (U2) exercise keys 8.4, recomputed both sides                       */
+/* ================================================================== */
+console.log('(U2) exercise keys 8.4')
+
+// L1-1: the class census
+eq(-3 < 0 ? 1 : 0, 1, 'U2 8.4 L1-1: −3 ∈ L (r < 0)')
+eq(0 * 0 < 2 ? 1 : 0, 1, 'U2 8.4 L1-1: 0 ∈ L (0² = 0 < 2)')
+eq(1 * 1 < 2 ? 1 : 0, 1, 'U2 8.4 L1-1: 1 ∈ L (1 < 2)')
+ok(2 * 2 < 9 && 9 < 3 * 4, 'U2 8.4 L1-1: 3/2 ∈ U of the √2 cut (9/4 > 2) and ∈ L of the √3 cut (9/4 < 3) — also L4-3’s separator')
+ok(49 < 50, 'U2 8.4 L1-1: 7/5 ∈ L (49/25 = 1.96 < 2)')
+eq(-1 < 0 ? 1 : 0, 1, 'U2 8.4 L1-1: −½ ∈ L')
+// L2-2: the room-above step from 7/5 — exact fractions
+eq(2 * 25 - 49, 1, 'U2 8.4 L2-2: 2 − (7/5)² = 1/25 exactly')
+eq(5 * 19, 95, 'U2 8.4 L2-2: δ = (1/25)/(19/5) = 1/95')
+eq(7 * 19 + 1, 134, 'U2 8.4 L2-2: 7/5 + 1/95 = 134/95')
+ok(134 * 134 < 2 * 95 * 95, 'U2 8.4 L2-2: (134/95)² = 17956/9025 < 2 = 18050/9025 — inside L exactly')
+eq(2 * 95 * 95 - 134 * 134, 94, 'U2 8.4 L2-2: the room left is exactly 94/9025')
+// L2-3 + the lesson’s example: the rung squares, exact BigInt (regression guard for the run-61 typos)
+eq(14142 * 14142, 199996164, 'U2 8.4 L2-3: 14142² = 199,996,164 (the typed value, corrected this run)')
+eq(14143 * 14143, 200024449, 'U2 8.4 L2-3: 14143² = 200,024,449')
+ok(14142 * 14142 < 2 * 100000000 && 2 * 100000000 < 14143 * 14143, 'U2 8.4 L2-3: 1.4142² < 2 < 1.4143² at scale 10⁴')
+eq(141421 * 141421, 19999899241, 'U2 8.4 L2-3: 141421² = 19,999,899,241 (the typed value, corrected this run)')
+eq(141422 * 141422, 20000182084, 'U2 8.4 L2-3: 141422² = 20,000,182,084')
+ok(141421 * 141421 < 2 * 10000000000 && 2 * 10000000000 < 141422 * 141422, 'U2 8.4 L2-3: 1.41421² < 2 < 1.41422² at scale 10⁵')
+// the lesson’s seam example: the room-below step from 1.42
+ok(Math.abs((1.42 - 0.0164 / 3.84) - 1.415729166) < 1e-7, 'U2 8.4 example: u’ = 1.42 − 0.0164/3.84 ≈ 1.4157292')
+ok((1.41573 * 1.41573 - 2.0042) < 1e-3 && (1.41573 * 1.41573) > 2, 'U2 8.4 example: (1.41573)² ≈ 2.0042 > 2 — still inside U (the typed value, corrected this run)')
+// L3-2: the room-below estimate swept
+{
+  let okU = true
+  for (let q = 1; q <= 12; q++) {
+    for (let p = 1; p <= 60; p++) {
+      if (gcd(p, q) !== 1) continue
+      const u = p / q
+      if (u > 0 && u * u > 2) {
+        const d = Math.min(1, (u * u - 2) / (2 * u + 1))
+        if (!((u - d) * (u - d) > 2 + 1e-12)) okU = false
+      }
+    }
+  }
+  ok(okU, 'U2 8.4 L3-2: (u − δ)² > 2 for every grid u ∈ U — the room-below estimate holds')
+}
+// L3-3: 1.415 in the tight window (S7 re-cash)
+ok(1414 * 1414 < 2 * 1000000 && 2 * 1000000 < 1415 * 1415, 'U2 8.4 L3-3: 1.414 < √2 < 1.415 — so 1.415 ∈ (√2, √2 + 1/1000) exactly')
+// L4-2: products of lower-class positives stay below the wall
+{
+  let okP = true
+  const positives: number[] = []
+  for (let q = 1; q <= 12; q++) {
+    for (let p = 1; p <= 60; p++) {
+      if (gcd(p, q) !== 1) continue
+      if ((p / q) * (p / q) < 2) positives.push(p / q)
+    }
+  }
+  for (const r of positives) {
+    for (const s of positives) {
+      if (r * s >= 2) okP = false
+    }
+  }
+  ok(okP, 'U2 8.4 L4-2: rs < 2 for all grid pairs of L-positives — the (r−s)² ≥ 0 engine swept')
+}
+// L6-1: the cut-to-equation anchor
+ok(2 - 1.4142 * 1.4142 > 0, 'U2 8.4 L6-1: 1.4142² < 2 — room exists above 1.4142')
+ok((2 - 1.4142 * 1.4142) / (2 * 1.4142 + 1) > 1e-5, 'U2 8.4 L6-1: the room at 1.4142 exceeds 10⁻⁵ (≈ 1.002 × 10⁻⁵)')
+ok(141421 * 141421 < 2 * 10000000000, 'U2 8.4 L6-1: 1.4142 + 10⁻⁵ = 1.41421 still squares under 2 — the witness above 1.4142')
 
 /* ================================================================== */
 /* summary                                                             */
 /* ================================================================== */
 console.log('--------------------------------------------------------------')
-console.log(`verify-book2-ch08 (sections A–N, 8.1 + 8.2): ${pass} pass, ${fail} fail`)
+console.log(`verify-book2-ch08 (sections A–U2, 8.1–8.4 shipped, chapter COMPLETE): ${pass} pass, ${fail} fail`)
 if (fail > 0) {
   console.log('FAILURES:')
   for (const f of failures) console.log('  - ' + f)

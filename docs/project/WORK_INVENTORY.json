@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 21:23:41 (Asia/Kolkata)",
+  "generated": "2026-11-06 22:38:57 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 7,
+        "chaptersWritten": 8,
         "chapters": [
           {
             "number": 1,
@@ -5169,12 +5169,9 @@
             "slug": "irrationals-and-the-real-line",
             "title": "Irrationals and the Real Line",
             "summary": "The diagonal that broke the rationals: √2 proved irrational by the classical contradiction, the family of irrationals grown from the primes, the arithmetic behaviour of irrational + rational sorted into a proved table, and completeness met informally — the no-holes property that makes the real line the stage for all of analysis.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "How Irrationals Behave",
-              "Completeness: the Line Without Holes"
-            ],
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-the-diagonal-that-broke-the-rationals",
@@ -5183,7 +5180,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5393,
+                "words": 5440,
                 "readMins": 27,
                 "concepts": [
                   "The unit-square diagonal: d² = 2 by dissection",
@@ -5309,9 +5306,142 @@
                 },
                 "exerciseQuestions": 15,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-how-irrationals-behave",
+                "number": "8.3",
+                "title": "How Irrationals Behave",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4296,
+                "readMins": 21,
+                "concepts": [
+                  "The behaviour table: irrational under rational arithmetic",
+                  "Rational translation: x + q stays irrational",
+                  "Rational scaling: qx stays irrational (q ≠ 0)",
+                  "Both-ways cases: irrational ∘ irrational can land either side",
+                  "Closure: answers staying inside a number system",
+                  "The conjugate a − √b and the product (a+√b)(a−√b) = a²−b",
+                  "Rationalizing a surd denominator",
+                  "Decimal names preserved: never terminating, never repeating"
+                ],
+                "objectives": [
+                  "Prove the two rational-move theorems — an irrational plus a rational is irrational, and a nonzero rational times an irrational is irrational — by two-line contradiction arguments that use only ℚ’s closure",
+                  "Sort the full behaviour table of rational-meets-irrational arithmetic into proved verdicts, and exhibit both outcomes for the two genuinely undecided rows (irrational + irrational, irrational × irrational)",
+                  "Rationalize any denominator of the form a + √b or √a + √b by the conjugate trick, with the guard a² ≠ b respected",
+                  "Explain why the decimal name of every moved, scaled or inverted irrational still neither terminates nor repeats — the 7.3 dichotomy doing new work"
+                ],
+                "prerequisites": [
+                  "ans-the-field-laws-division-joins-the-family",
+                  "ans-the-diagonal-that-broke-the-rationals",
+                  "ans-the-family-of-irrationals"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "callout": 3,
+                  "heading": 4,
+                  "derivation": 3,
+                  "table": 2,
+                  "example": 4,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-completeness-the-line-without-holes",
+                "number": "8.4",
+                "title": "Completeness: the Line Without Holes",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5496,
+                "readMins": 27,
+                "concepts": [
+                  "The cut: a partition of ℚ into two classes",
+                  "Rational cuts produced two ways; irrational cuts produced by nothing",
+                  "Completeness: every cut produced by a real number",
+                  "The no-largest and no-smallest constructions on the shores",
+                  "Nested intervals: brackets whose widths shrink to zero",
+                  "The tower ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ as three closure repairs",
+                  "Density versus completeness: two different virtues",
+                  "The arithmetization of analysis (1872)"
+                ],
+                "objectives": [
+                  "Define a cut of ℚ precisely, verify that the two shores of the √2 hole form one, and prove that neither class has a boundary member — the room-above and room-below constructions",
+                  "Distinguish rational cuts (produced by a rational, in two ways) from irrational cuts (produced by nothing in ℚ), and state Dedekind’s creation: the cut itself defines the missing number",
+                  "State the completeness property of ℝ informally and separate it from density, using ℚ — dense but not complete — as the witness pair",
+                  "Place the four number systems of the book as a tower of repairs — ℕ under + and ×, ℤ under −, ℚ under ÷, ℝ closing the holes — and say honestly what this book does not do (no Cauchy sequences, no suprema proofs; the analysis shelf owns those)"
+                ],
+                "prerequisites": [
+                  "ans-the-diagonal-that-broke-the-rationals",
+                  "ans-the-family-of-irrationals",
+                  "ans-density-and-the-decimal-mirror-proven"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "dedekind-1872-stetigkeit",
+                  "cantor-1872-fundamental-sequences",
+                  "heine-1872-functionenlehre",
+                  "meray-1869-limites"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "callout": 6,
+                  "heading": 5,
+                  "derivation": 2,
+                  "example": 2,
+                  "figure": 1,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 3
+                },
+                "calloutTones": {
+                  "historical": 2,
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
               }
             ],
-            "words": 10466
+            "words": 20305
           },
           {
             "number": 9,
@@ -5366,13 +5496,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 98,
-      "totalLines": 55484,
+      "srcFilesTracked": 99,
+      "totalLines": 58023,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 46219,
+        "src/data/library (content model + books)": 48758,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -12668,33 +12798,171 @@
           "del": 8
         }
       ]
+    },
+    {
+      "sha": "fa38640f7526e63abf683d94229a989589f9d20c",
+      "short": "fa38640",
+      "date": "2026-11-06 16:00",
+      "message": "ans ch.8 opens 2/4 (run 60): 8.1 The Diagonal That Broke the Rationals + 8.2 The Family of Irrationals — the first two-lessons-per-run run (owner directive 2026-11-06 v2, hourly cadence) — shipped verify-first, strictly sequentially: verify-book2-ch08.ts 171 checks (sections A-Q) ALL GREEN before writing, ten pre-writing defects caught in-script (the BigInt-isqrt seed landing below the root; the author's own wrong remembered digits for sqrt(7) — 2.645751311064590... per script + Python isqrt; truncation-vs-rounding; Set.length vs .size; the inverted descent identity (2q-p)^2 = 2(p-q)^2; a 7th-place digit claim; the E2E BASE silently pointing at lesson 8.1) — 8.1: d^2 = 2 by the no-Pythagoras area dissection, the classical parity contradiction over a reduced fraction (mod-4 + infinite-descent retellings), the FTA general wall sqrt(n) rational iff n = k^2 swept n <= 400, the 20-row census, the Sulbasutra ladder 577/408 with 577^2 - 2*408^2 = 1 (savisesah, web-checked), the four-rung squeeze + the two-shores density-vs-fullness split with the Dedekind pointer to 8.4; 8.2: the squarefree-kernel dictionary sqrt(n) = k*sqrt(s) (22 rows verified, uniqueness swept), the product law proved + the sqrt(a+b) trap boxed, like-surds sums, the squeeze chain sqrt(2)+sqrt(3) irrational, the k-th root criterion by exponents mod k swept, the family decimal table (BigInt Newton 15 places), the honest countability conversation (the |a|+b listing bijective to 979 names; Cantor 1874 Crelle 77 stated with the 1891-diagonal distinction), the computed family line + the Spiral of Theodorus (16 unit legs, winding 351.2 deg, the historical stop at 17); 4 new web-checked citation keys (baudhayana-sulbasutras, hippasus-irrationality-tradition, plato-theaetetus-theodorus, cantor-1874-algebraic-numbers); e2e-ans-81/82 whitelisted; per-lesson gates all green twice (lint 0, tsc 0, routes 200 after the dev-server restart the new chapter required, quiz 5/5 live on keys 1/2/0/2/3 and 2/0/1/3/1, 16/17 Sol pills, KaTeX 0 errors, 0 raw $, 0 console errors, no overflow at 390 and 1280, dark clean, SVG overlap audits 0 issues on all four figures); 8.3 + 8.4 + the unit-8 review remain (run 61); library 2 books / 18 chapters written + 1 in progress / 75 lessons / 368,013 words / 571 terms / 375 quiz / 908 exercises",
+      "filesChanged": 16,
+      "insertions": 3261,
+      "deletions": 97,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 27,
+          "del": 33
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 30,
+          "del": 12
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 17,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 314,
+          "del": 32
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.page.js",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.sh",
+          "add": 8,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-ans-81.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-81.sh",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-82.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-82.sh",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch08.ts",
+          "add": 1077,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 3,
+          "del": 15
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 1404,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "f5e35f7c31b6089ca926579480f5c017a4b2c773",
+      "short": "f5e35f7",
+      "date": "2026-11-06 16:01",
+      "message": "memory: run-60 push verified — remote main = fa38640 (ship fa38640 + visual 7583ef4); next run 61 = ANS ch.8 lessons 8.3 'How Irrationals Behave' + 8.4 'Completeness: the Line Without Holes' (v2 two-lesson scope, hourly :45; chapter closes + unit-8 review when 8.4 lands); ch.9 opens run 62",
+      "filesChanged": 1,
+      "insertions": 3,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "f1c87b8f4bd99e83ac0ba49c4b21d2b3817facd1",
+      "short": "f1c87b8",
+      "date": "2026-11-06 16:11",
+      "message": "run-60 addendum: duplicate-delivery reconciliation + E2E viewport fix — job 509354's single fire reached two sessions; the sibling shipped run 60 (fa38640, protocol-pushed); this session independently re-verified every gate cold on the identical content (verify-book2-ch08.ts 171/0, lint 0, tsc 0, routes 200 x4 + 404 unknown, live E2E quiz 5/5 on keys 1/2/0/2/3 and 2/0/1/3/1, Sol pills 16/17, KaTeX 316/367 with 0 errors, 0 raw $, 0 console errors, SVG overlap audits 0 issues on all four figures, screenshot pixel checks) — ALL GREEN, no lesson content changed. One real harness defect found in the committed scripts and fixed: e2e-ans-81.sh/e2e-ans-82.sh never called 'agent-browser set viewport', so their MOBILE 390 pass evaluated at 1280px (observed: mobile banner printed '1280 vs 1280'); viewport switches added (1280 900 desktop / 390 844 mobile / back for dark) and both suites re-run ALL GREEN at the true 390px ('390 vs 390'). Operational notes logged for future runs: this sandbox generation reaps background processes between commands (bundle server-dependent gates into single invocations), and a SIGKILL'd dev server leaves a corrupted Turbopack cache that reports a FALSE parse error on valid source (book.ts notes string) with 500s on every ANS route — rm -rf .next + one clean server restored all routes; disk file never broken. WORKLOG run-60 addendum + DETAILED_LOG post-ship addendum entries added; lesson ids, quiz logic and ch-08.ts untouched",
+      "filesChanged": 4,
+      "insertions": 22,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-81.sh",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-82.sh",
+          "add": 3,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 18,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 75,
-    "wordsAuthored": 368013,
-    "termsDefined": 571,
-    "quizItems": 375,
-    "exerciseQuestions": 908,
+    "chaptersWritten": 19,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 77,
+    "wordsAuthored": 377852,
+    "termsDefined": 587,
+    "quizItems": 385,
+    "exerciseQuestions": 936,
     "blockTotals": {
-      "para": 1044,
-      "callout": 427,
-      "heading": 429,
+      "para": 1060,
+      "callout": 436,
+      "heading": 438,
       "list": 93,
-      "terms": 76,
+      "terms": 78,
       "equation": 114,
-      "figure": 124,
-      "derivation": 156,
-      "table": 95,
-      "example": 320,
-      "quiz": 75,
-      "exercises": 75,
-      "formula": 211,
+      "figure": 126,
+      "derivation": 161,
+      "table": 98,
+      "example": 326,
+      "quiz": 77,
+      "exercises": 77,
+      "formula": 218,
       "algorithm": 21
     }
   }

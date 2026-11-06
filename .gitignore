@@ -209,3 +209,7 @@ server.log
 !/scripts/e2e-ans-81.page.js
 !/scripts/e2e-ans-82.sh
 !/scripts/e2e-ans-82.page.js
+!/scripts/e2e-ans-83.sh
+!/scripts/e2e-ans-83.page.js
+!/scripts/e2e-ans-84.sh
+!/scripts/e2e-ans-84.page.js

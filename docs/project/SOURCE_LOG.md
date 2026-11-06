@@ -1023,6 +1023,49 @@ andrews.ac.uk/Miller/mathsym/nth/), which also grounds the Gauss ≡
   together they make the irrationals the unlistable majority, web-checked 2026-11-06 (run 60) against the
   journal listings and the English translations. Exposition original.
 
+## Citation keys added by ANS chapter 8, run 61 close (8.3 + 8.4)
+
+- `dedekind-1872-stetigkeit` — Richard Dedekind, *Stetigkeit und irrationale Zahlen* ("Continuity and
+  Irrational Numbers"), Braunschweig: Friedrich Vieweg, 1872 (first edition; the central idea worked out
+  24 October 1858 while Dedekind taught differential calculus at the Zürich Polytechnic; English translation
+  by W. W. Beman in *Essays on the Theory of Numbers*, 1901). Used for: ANS ch. 8 lesson 8.4 — the cut
+  construction this lesson follows: the partition of ℚ into classes A₁/A₂ with all of A₁ below all of A₂,
+  the two knife-face forms of a rational cut, the creation of irrational numbers by unproduced cuts (§ 4),
+  the completeness postulate, the "modern Eudoxus" nickname with the honest caveat (the every-cut-existence
+  postulate is Dedekind's, not Eudoxus's), and the arithmetization-of-analysis framing, web-checked
+  2026-11-06 (run 61) against rare-book listings of the first edition, the Beman translation record and
+  encyclopaedic accounts. Exposition original.
+
+- `cantor-1872-fundamental-sequences` — Georg Cantor, "Über die Ausdehnung eines Satzes aus der Theorie der
+  trigonometrischen Reihen" ("On the Extension of a Theorem from the Theory of Trigonometric Series"),
+  *Mathematische Annalen*, vol. 5 (1872), pp. 123–132. Used for: ANS ch. 8 lesson 8.4 — the same-year
+  companion construction of the reals by fundamental (Cauchy) sequences, named in the "1872: three
+  constructions, one line" callout with the honest scope that the sequence machinery belongs to the analysis
+  shelf, web-checked 2026-11-06 (run 61) against the *Mathematische Annalen* listings and the collected-works
+  catalogue. Exposition original.
+
+- `heine-1872-functionenlehre` — Eduard Heine, "Die Elemente der Functionenlehre", *Journal für die reine
+  und angewandte Mathematik* (Crelle's Journal), vol. 74 (1872), pp. 172–188. Used for: ANS ch. 8 lesson 8.4 —
+  the nested-intervals construction of the reals drawn from Weierstrass's unpublished Berlin lectures, which
+  the lesson pairs with the squeeze-ladder reading of completeness (every width-shrinking nested family of
+  rational intervals lands on exactly one real), web-checked 2026-11-06 (run 61) against the EUDML record
+  and standard histories. Exposition original.
+
+- `meray-1869-limites` — Hugues Charles Robert Méray, "Remarques sur la nature des quantités définies par
+  la condition de servir de limites à des variables données" ("Remarks on the Nature of Quantities Defined
+  by the Condition of Serving as Limits of Given Variables"), 1869. Used for: ANS ch. 8 lesson 8.4 — the
+  quiet French priority footnote: the first published arithmetical theory of irrational numbers, anticipating
+  Cantor's 1872 construction "with only minor differences of style" (per the MacTutor/Robinson account),
+  unrecognized in France at the time, web-checked 2026-11-06 (run 61) against the MacTutor biography and
+  secondary literature. Exposition original.
+
+## Run 61 reference discipline (2026-11-06): zero downloads
+
+Internet research only (the sanctioned fallback — the banked Beck & Geoghegan / Khattar scope carried the
+surds spine from runs 55–60). No reference files downloaded, no working copies to delete. New citation keys
+above; the four web-checks are logged in the key entries. The gitignored Drive survey was NOT rebuilt this
+run (no Drive access needed; WORK_INVENTORY regenerated from the live codebase).
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |

@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-06",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 8 'Irrationals and the Real Line' IN PROGRESS 2/4 (run 60, 2026-11-06 — the FIRST two-lessons-per-run run under the owner's 2026-11-06 v2 hourly directive: 8.1 'The Diagonal That Broke the Rationals' (5,393 words) + 8.2 'The Family of Irrationals' (5,073 words) shipped strictly sequentially, each fully gated before the next was started — verify-first with verify-book2-ch08.ts grown to 171 checks (sections A–Q) ALL GREEN before writing, ten pre-writing defects caught in-script (the BigInt-isqrt seed landing below √n so Newton never descended — the 5×10²⁰-step walk; a Sulbasutra excess scale mismatch; MY OWN WRONG REMEMBERED DIGITS for √7 — the true expansion is 2.645751311064590…, the script and Python isqrt agreed against memory; truncation-vs-rounding on √5/√10; Set.length vs .size; an invented spiral-winding constant; missing floor-noise windows in the product-law checks; the descent-identity fraction inverted in the 8.1 L6-2 exercise text — (2q−p)² = 2(p−q)² is the correct identity; a 2.4494897² digit claim off by one; the E2E shell's BASE URL silently still pointing at 8.1 so the quiz keys graded 0/5 — caught by a navigation-verify guard and fixed) — 8.1: the no-Pythagoras area dissection proving d² = 2 (four half-squares tile the square on the diagonal), the classical parity contradiction over a reduced fraction with mod-4 and infinite-descent retellings, the FTA general wall √n ∈ ℚ ⟺ n = k² swept n ≤ 400 both routes, the 20-row census table, the Baudhāyana Śulbasūtra ladder 1 + 1/3 + 1/12 − 1/408 = 577/408 with 577² − 2·408² = 1 verified and saviśeṣaḥ honesty, the four-rung self-similar squeeze figure, the two-shores density-vs-fullness split with the Dedekind-cut pointer to 8.4; 8.2: the squarefree-kernel dictionary √n = k√s (22 rows verified), the product law √m·√n = √(mn) from positivity + uniqueness, the √(a+b) ≠ √a + √b trap, the squeeze chain √2 + √3 irrational, the k-th root criterion by exponents mod k swept k ∈ {2,3,4}, the family decimal table (BigInt Newton, 15 places, truncated), the honest countability conversation (the |a|+b row listing bijective to 979 names; Cantor 1874 Crelle 77 stated with the 1891-diagonal distinction), the computed family line and the Spiral of Theodorus (16 unit legs, winding 351°, the historical stop at 17); four citation keys added web-checked (see SOURCE_LOG); e2e-ans-81/82 whitelisted; per-lesson gates all green twice (lint 0, tsc 0, routes 200 after the dev-server restart the new chapter required, quiz 5/5 live on keys 8.1: 1/2/0/2/3 and 8.2: 2/0/1/3/1, 16/17 Sol pills, KaTeX 0 errors, 0 raw $, 0 console errors, no overflow at 390 and 1280, dark clean, SVG overlap audits 0 issues on all four figures after two label fixes) — 8.3 + 8.4 + the unit-8 review remain for the next runs per the v2 two-lessons-per-run scope; library 2 books / 18 chapters written + 1 in progress / 75 lessons / 368,013 words / 571 terms / 375 quiz / 908 exercises; 7 planned lessons remain (ANS 8.3–8.4, 9, 10).",
- "awaiting": "nothing blocking — next run 61 = ANS ch.8 lessons 8.3 + 8.4 (v2 two-lesson scope)",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 8 'Irrationals and the Real Line' COMPLETE 4/4 (runs 60–61) + the unit-8 completion review passed (run 61, 2026-11-06 — the second two-lessons-per-run run under the owner's 2026-11-06 v2 hourly directive, executed as a manual catch-up of job 509354's failed-to-start 21:45 IST fire: 8.3 'How Irrationals Behave' + 8.4 'Completeness: the Line Without Holes' shipped strictly sequentially, verify-first with verify-book2-ch08.ts grown 171 → 302 checks (sections A–U2), five pre-writing defects caught including a REAL defect in the shipped 8.1 two-shores callout (the unguarded U = {r : r² > 2} overlapped L on every rational < −√2 — fixed surgically with the r > 0 guard and pinned by S0's text checks) and three of the author's own mistyped squares in 8.4 (14142², 141421², 141422² — all regression-guarded now); per-lesson gates all green (lint 0, tsc 0, routes 200, E2E 34 PASS per lesson at 1280 + true 390 + dark, quiz 5/5 live on keys 1/1/3/0/0 and 2/3/2/1/1, KaTeX 0 errors, 0 console errors, SVG overlap audits 0 issues on both new figures); the library now 2 books / 19 chapters / 77 lessons / 377,852 words / 587 terms / 385 quiz / 936 exercises; 4 new web-checked citation keys (dedekind-1872-stetigkeit, cantor-1872-fundamental-sequences, heine-1872-functionenlehre, meray-1869-limites); 5 planned lessons remain — ANS ch. 9 'Numeration Through History' (3 lessons) opens at run 62 with 9.1 + 9.2, ch. 10 'The Map of Number Systems' (2 lessons) closes the book)",
+ "awaiting": "nothing blocking — next run 62 = ANS ch. 9 opens: lessons 9.1 + 9.2 (v2 two-lesson scope)",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -80,28 +80,28 @@
     "title": "Arithmetic and Number Systems",
     "status": "in-progress",
     "chaptersPlanned": 10,
-    "chaptersWritten": 7,
-    "lessonsWritten": 22,
+    "chaptersWritten": 8,
+    "lessonsWritten": 24,
     "termsAvailableForFlashcards": 176,
     "notes": "IN PROGRESS — chapters 1–7 COMPLETE (runs 49–59): ch. 1 3/3 (16,921 words; verify-book2-ch01.ts 228 checks); ch. 2 4/4 (runs 51–52; verifier 166→407, seven pre-writing defects caught); ch. 3 4/4 (runs 53–54; verifier 312→502, thirteen caught); ch. 4 4/4 (runs 55–56; verifier 167→356); ch. 5 4/4 (run 57; verifier 265 checks, three caught); ch. 6 3/3 (run 58; verifier 233 checks, eleven caught); ch. 7 3/3 (run 59; verifier 239 checks sections A–T, fifteen caught — 14,878 words / 24 terms / 15 quiz / 44 exercises: 7.1 the fraction-pair construction 5,482 + 7.2 the field laws and the first ring→field promotion 4,332 + 7.3 density and the decimal mirror 5,064); 3 new citation keys (rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper); e2e-ans-71..73 whitelisted. Chapters 8–10 planned (9 lessons). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
    }
   ],
-  "lessonsWritten": 73,
-  "wordsAuthored": 357471,
-  "termsAvailableForFlashcards": 555,
+  "lessonsWritten": 77,
+  "wordsAuthored": 377852,
+  "termsAvailableForFlashcards": 587,
   "totals": {
-   "lessonsWritten": 75,
-   "plannedLessons": 7,
-   "words": 368013,
-   "terms": 571,
-   "quizItems": 375,
-   "exerciseQuestions": 908,
-   "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed at run 60 ship",
+   "lessonsWritten": 77,
+   "plannedLessons": 5,
+   "words": 377852,
+   "terms": 587,
+   "quizItems": 385,
+   "exerciseQuestions": 936,
+   "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed at run 61 ship",
    "booksLive": 2,
-   "chaptersWritten": 18,
-   "chaptersInProgress": 1,
-   "wordsAuthored": 368013,
-   "termsDefined": 571
+   "chaptersWritten": 19,
+   "chaptersInProgress": 0,
+   "wordsAuthored": 377852,
+   "termsDefined": 587
   }
  },
  "research": {
@@ -429,9 +429,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "60 (2026-11-06)",
-  "summary": "ANS CHAPTER 8 opened 2/4 under the v2 two-lessons-per-run hourly directive — 8.1 'The Diagonal That Broke the Rationals' (5,393 words) + 8.2 'The Family of Irrationals' (5,073 words) shipped verify-first and sequentially with verify-book2-ch08.ts at 171 checks (sections A–Q) ALL GREEN; ten pre-writing defects caught; per-lesson gates green twice; 8.3 + 8.4 + the unit-8 review remain.",
-  "commits": "see WORKLOG run-60 entry + git log"
+  "run": "61 (2026-11-06)",
+  "summary": "ANS CHAPTER 8 'IRRATIONALS AND THE REAL LINE' COMPLETE 4/4 — 8.3 + 8.4 + the unit-8 completion review; the library 2 books / 19 chapters / 77 lessons / 377,852 words; chapter 9 'Numeration Through History' opens at run 62 (9.1 + 9.2)"
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -602,5 +601,50 @@
   ],
   "verify": "verify-book2-ch08.ts 171 checks (sections A–Q) ALL GREEN; ten pre-writing defects caught incl. the isqrt seed bug and the wrong remembered √2-family digits; gates: lint 0, tsc 0, routes 200 (dev server restarted — dynamicParams=false cached the old static params), E2E 34 PASS ×2 suites (desktop/mobile/dark), overlap audits 0 issues ×4 figures",
   "scheduling": "the sibling visual job (job 507527) had already committed enhance(fm-comparing-ordering-numbers) as 7583ef4 — carried to the remote by this run's protocol push per the shared-push rule"
+ },
+ "run61Extras": {
+  "run": 61,
+  "date": "2026-11-06",
+  "firedFrom": "manual catch-up of job 509354 (21:45 IST fire failed to start: model concurrency limit exceeded; executed 21:54–23:40 IST in the live session)",
+  "lessons": [
+   "ans-how-irrationals-behave (8.3)",
+   "ans-completeness-the-line-without-holes (8.4)"
+  ],
+  "words": [
+   4296,
+   5496
+  ],
+  "verifyChecks": "302 (sections A–U2; R/S pre-writing + T/U for 8.3 + T2/U2 for 8.4)",
+  "quizKeys": {
+   "8.3": [
+    1,
+    1,
+    3,
+    0,
+    0
+   ],
+   "8.4": [
+    2,
+    3,
+    2,
+    1,
+    1
+   ]
+  },
+  "defectsCaught": [
+   "8.1 two-shores callout: U = {r ∈ ℚ : r² > 2} lacked the r > 0 guard (−2 in both classes) — fixed + pinned by S0 text checks",
+   "8.1 trichotomy prose: \"r² = 2, r² = 2\" duplicated where the third case should be r² > 2 — fixed",
+   "8.4 draft: 14142² typed 199,981,964 for 199,996,164 (U2 regression guard added)",
+   "8.4 draft: 141421²/141422² typed 19,999,898,241 / 20,000,026,084 for 19,999,899,241 / 20,000,182,084 (U2 guards)",
+   "8.4 draft: (1.41573)² typed ≈ 2.00029 for ≈ 2.0042 (U2 guard)"
+  ],
+  "citationKeys": [
+   "dedekind-1872-stetigkeit",
+   "cantor-1872-fundamental-sequences",
+   "heine-1872-functionenlehre",
+   "meray-1869-limites"
+  ],
+  "unit8Review": "PASS — exam corners 4/4, ids 77 repo-wide unique, all 12 block types, ch-08 complete + plannedLessons emptied",
+  "notes": "the 21:45 fire failure was startup-only (no work lost); the 22:45 fire may fail-to-start while this session works — the cadence self-heals on the next free slot"
  }
 }

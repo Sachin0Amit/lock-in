@@ -6,18 +6,26 @@ import type { Chapter } from '../../../types'
  *
  * LESSONS WRITTEN: 8.1 The Diagonal That Broke the Rationals (run 60)
  *                  8.2 The Family of Irrationals (run 60)
- * CHAPTER IN PROGRESS (run 60 — the first two-lessons-per-run run under
- * the owner's 2026-11-06 v2 hourly directive; 8.3 + 8.4 + the unit-8
- * review belong to the next runs).
+ *                  8.3 How Irrationals Behave (run 61)
+ *                  8.4 Completeness: the Line Without Holes (run 61)
+ * CHAPTER COMPLETE (run 61 closed it: 8.3 + 8.4 shipped strictly
+ * sequentially + the unit-8 completion review passed; run 61 was a manual
+ * catch-up of job 509354's failed-to-start 21:45 IST fire).
  * References for this unit: Beck & Geoghegan, The Art of Proof (the
  * irrationality/real-numbers spine) + Khattar QA 4e ch. 1 (the
  * competitive-exam surds scope) — see docs/project/SOURCE_LOG.md. New
  * citation keys: baudhayana-sulbasutras, hippasus-irrationality-tradition
  * (8.1); plato-theaetetus-theodorus, cantor-1874-algebraic-numbers (8.2)
- * — web-checked 2026-11-06. All arithmetic pre-verified by
- * scripts/verify-book2-ch08.ts (94 checks, sections A–N, ALL PASS before
- * writing; nine pre-writing defects caught, including a wrong remembered
- * digit string for √7 — the script, not memory, is the source of truth).
+ * — web-checked 2026-11-06 (run 60); dedekind-1872-stetigkeit,
+ * cantor-1872-fundamental-sequences, heine-1872-functionenlehre,
+ * meray-1869-limites (8.4) — web-checked 2026-11-06 (run 61). All
+ * arithmetic pre-verified by scripts/verify-book2-ch08.ts (grown to 302
+ * checks, sections A–U2, ALL PASS; run 61's S0 caught and fixed the 8.1
+ * shore-guard defect — the unguarded U overlapped L on every rational
+ * < −√2 — and U2 regression-guards the square values that hand-typing
+ * got wrong; the script, not memory, is the source of truth; across the
+ * chapter's two runs, fifteen pre-writing defects were caught, including
+ * a wrong remembered digit string for √7).
  * Exposition original.
  */
 
@@ -77,7 +85,7 @@ export const chapter08: Chapter = {
   title: 'Irrationals and the Real Line',
   summary:
     'The diagonal that broke the rationals: √2 proved irrational by the classical contradiction, the family of irrationals grown from the primes, the arithmetic behaviour of irrational + rational sorted into a proved table, and completeness met informally — the no-holes property that makes the real line the stage for all of analysis.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'ans-the-diagonal-that-broke-the-rationals',
@@ -403,13 +411,13 @@ export const chapter08: Chapter = {
         { kind: 'heading', text: 'Density is not fullness: the hole at √2' },
         {
           kind: 'para',
-          text: 'Now the honest ledger — what the ladder proves and what it merely suggests. What it *proves*: the rationals crowd arbitrarily close to $\\sqrt{2}$ from both sides — bracket widths $\\tfrac{1}{10}$, $\\tfrac{1}{100}$, $\\tfrac{1}{1000}$, $\\tfrac{1}{10000}$, with no end. That is 7.3’s density, seen from outside: it is not only that rationals pack between any two rationals; they pack against the *irrational* points too. What it *suggests but does not prove*: that there is a *point* at the ring — something the brackets close on. Look at the split the ladder rides: every rational $r$ satisfies exactly one of $r^2 < 2$, $r^2 = 2$, $r^2 = 2$ impossible (that is this lesson), so every rational is strictly on one side — $r^2 < 2$ (the lower shore) or $r^2 > 2$ (the upper shore). Both shores are populated and neither has a rational boundary member: given any rational with $r^2 < 2$, the next bracket rung finds a bigger one still below; given any with $r^2 > 2$, a smaller one still above. The two shores face each other across a gap that contains no rational point — yet *something* is there: the diagonal’s length did not vanish when we proved fractions cannot reach it.',
+          text: 'Now the honest ledger — what the ladder proves and what it merely suggests. What it *proves*: the rationals crowd arbitrarily close to $\\sqrt{2}$ from both sides — bracket widths $\\tfrac{1}{10}$, $\\tfrac{1}{100}$, $\\tfrac{1}{1000}$, $\\tfrac{1}{10000}$, with no end. That is 7.3’s density, seen from outside: it is not only that rationals pack between any two rationals; they pack against the *irrational* points too. What it *suggests but does not prove*: that there is a *point* at the ring — something the brackets close on. Look at the split the ladder rides: every positive rational $r$ satisfies exactly one of $r^2 < 2$, $r^2 = 2$, $r^2 > 2$ — and the middle case never happens (that is this lesson) — so every positive rational is strictly on one side: below the hole ($r^2 < 2$) or above it ($r^2 > 2$); the negative rationals sit far to the left of both, and the callout below folds them into the classes. Both sides are populated and neither has a rational boundary member: given any rational with $r^2 < 2$, the next bracket rung finds a bigger one still below; given any positive one with $r^2 > 2$, a smaller one still above. The two sides face each other across a gap that contains no rational point — yet *something* is there: the diagonal’s length did not vanish when we proved fractions cannot reach it.',
         },
         {
           kind: 'callout',
           tone: 'insight',
           title: 'The two shores, named',
-          text: 'The split is worth naming now because chapter 8.4 will build on it: $L = \\{r \\in \\mathbb{Q} : r^2 < 2 \\text{ or } r < 0\\}$ and $U = \\{r \\in \\mathbb{Q} : r^2 > 2\\}$ — the lower and upper shores of the hole. Every rational is in exactly one shore (7.2’s trichotomy), $L$ has no largest member, $U$ has no smallest member, and the pair together cut the whole rational line in two. A construction like this — a partition of $\\mathbb{Q}$ into a left class with no maximum and a right class with no minimum — is called a *cut*, and Dedekind’s 1871–72 insight (the same mathematician who named the field in 7.2) was that the cut itself can serve as the *definition* of the missing number. That is the real line’s birth certificate, and it arrives in 8.4.',
+          text: 'The split is worth naming now because chapter 8.4 will build on it: $L = \\{r \\in \\mathbb{Q} : r^2 < 2 \\text{ or } r < 0\\}$ and $U = \\{r \\in \\mathbb{Q} : r > 0 \\text{ and } r^2 > 2\\}$ — the lower and upper classes of the hole (the guard $r > 0$ matters: without it $-2$ would sit in both classes, since $(-2)^2 = 4 > 2$). Every rational is in exactly one class (7.2’s trichotomy), $L$ has no largest member, $U$ has no smallest member, and the pair together cut the whole rational line in two. A construction like this — a partition of $\\mathbb{Q}$ into a left class with no maximum and a right class with no minimum — is called a *cut*, and Dedekind’s 1871–72 insight (the same mathematician who named the field in 7.2) was that the cut itself can serve as the *definition* of the missing number. That is the real line’s birth certificate, and it arrives in 8.4.',
         },
         {
           kind: 'para',
@@ -1399,6 +1407,1140 @@ export const chapter08: Chapter = {
         },
       ],
     },
+    {
+      id: 'ans-how-irrationals-behave',
+      number: '8.3',
+      title: 'How Irrationals Behave',
+      prerequisites: [
+        'ans-the-field-laws-division-joins-the-family',
+        'ans-the-diagonal-that-broke-the-rationals',
+        'ans-the-family-of-irrationals',
+      ],
+      sources: ['beck-geoghegan-art-of-proof', 'khattar-qa-4e'],
+      concepts: [
+        'The behaviour table: irrational under rational arithmetic',
+        'Rational translation: x + q stays irrational',
+        'Rational scaling: qx stays irrational (q ≠ 0)',
+        'Both-ways cases: irrational ∘ irrational can land either side',
+        'Closure: answers staying inside a number system',
+        'The conjugate a − √b and the product (a+√b)(a−√b) = a²−b',
+        'Rationalizing a surd denominator',
+        'Decimal names preserved: never terminating, never repeating',
+      ],
+      objectives: [
+        'Prove the two rational-move theorems — an irrational plus a rational is irrational, and a nonzero rational times an irrational is irrational — by two-line contradiction arguments that use only ℚ’s closure',
+        'Sort the full behaviour table of rational-meets-irrational arithmetic into proved verdicts, and exhibit both outcomes for the two genuinely undecided rows (irrational + irrational, irrational × irrational)',
+        'Rationalize any denominator of the form a + √b or √a + √b by the conjugate trick, with the guard a² ≠ b respected',
+        'Explain why the decimal name of every moved, scaled or inverted irrational still neither terminates nor repeats — the 7.3 dichotomy doing new work',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'The family portrait ended with a question mark. We know the members ($k\\sqrt{s}$, one canonical name each), we know how they multiply (one law) and how they add among *themselves* (same kernel or never). But the numbers of this book do not live alone: a length of $\\sqrt{2}$ meets a margin of $\\tfrac{1}{2}$, a scale factor of 3, a division by 7. Chapter 7 built the rationals into a *field* — closed under addition, subtraction, multiplication and division by nonzero — so rational-meets-rational arithmetic never leaves home. What happens when one operand is a hole in that field? The question sounds open-ended. It is not: two short theorems settle everything except two honestly undecided rows, and those two rows are where all the examination traps live.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'What closure bought us in chapter 7',
+          text: 'A set is **closed** under an operation when every application of the operation lands back inside the set. Lesson 7.2 proved $\\mathbb{Q}$ closed under $+$, $-$, $\\times$ and $\\div$ (nonzero divisor): rational plus rational is rational, rational times rational is rational, and so on — no exceptions, ever. That closure is exactly what the proofs below will *weaponize*: to show a number is irrational, we will assume the opposite and let closure drag a rational out of it, contradicting what chapter 8 already proved. Closure, which looked like a bookkeeping property, turns out to be the engine of every classification argument in this lesson.',
+        },
+        { kind: 'heading', text: 'Rational moves never rescue an irrational' },
+        {
+          kind: 'para',
+          text: 'Here is the surprise worth stating before proving: adding, subtracting, multiplying or dividing by a *rational* — any rational, positive or negative, whole or fractional — **cannot turn an irrational into a rational** (one harmless exception noted below). The irrationality is not fragile; it rides along. Two theorems, each a two-line contradiction, deliver the whole block.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The translation theorem: x + q is irrational',
+          statement:
+            'Claim: for irrational $x$ and rational $q$, the sum $x + q$ is irrational — a two-line contradiction powered by $\\mathbb{Q}$’s closure.',
+          steps: [
+            {
+              label: 'Assume the opposite',
+              formula: 'x + q = r \\in \\mathbb{Q}',
+              explanation:
+                'Suppose, for contradiction, that the sum is rational. The plan is to drag $x$ itself into $\\mathbb{Q}$ and contradict the hypothesis.',
+            },
+            {
+              label: 'Solve for x',
+              formula: 'x = r - q',
+              explanation:
+                'Now, $r$ and $q$ are both rational, and $\\mathbb{Q}$ is closed under subtraction (lesson 7.2) — so the right side is rational.',
+            },
+            {
+              label: 'Contradiction',
+              formula: 'x \\in \\mathbb{Q} \quad \text{(against the hypothesis)}',
+              explanation:
+                'The irrational $x$ stands exposed as a rational difference. The assumption self-destructs — exactly the shape of the $\\sqrt{2}$ wall of 8.1, now run on an arbitrary $x$.',
+            },
+            {
+              label: 'Collect subtraction too',
+              formula: 'x - q = x + (-q), \quad -q \\in \\mathbb{Q}',
+              explanation:
+                'Hence $x + q \\notin \\mathbb{Q}$, and subtraction needs no new argument: subtracting a rational is adding its negative, and the negative of a rational is rational.',
+            },
+          ],
+          result: 'For irrational $x$ and rational $q$: $x + q$ and $x - q$ are irrational.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The scaling theorem: qx is irrational (q ≠ 0)',
+          statement:
+            'Claim: for irrational $x$ and **nonzero** rational $q$, the product $qx$ is irrational — and the same engine settles both division shapes.',
+          steps: [
+            {
+              label: 'Assume the opposite',
+              formula: 'qx = r \\in \\mathbb{Q}',
+              explanation:
+                'Suppose the scaled number is rational. As in the translation theorem, we solve for $x$ and let closure do the convicting.',
+            },
+            {
+              label: 'Divide (legal since q ≠ 0)',
+              formula: 'x = r \\div q \\in \\mathbb{Q}',
+              explanation:
+                'Now, rational divided by nonzero rational is rational (7.2 again) — so $x$ lands in $\\mathbb{Q}$, a contradiction.',
+            },
+            {
+              label: 'The two division variants',
+              formula: 'x \\div q = x \\cdot \\tfrac{1}{q}; \qquad \\tfrac{r}{x} = s \\Rightarrow x = r \\div s',
+              explanation:
+                'Hence $qx \\notin \\mathbb{Q}$. Dividing $x$ by $q$ is scaling by the rational $\\tfrac{1}{q}$ — same theorem. And if $\\tfrac{r}{x}$ (rational over irrational, $x \\ne 0$) were rational, then $x = r \\div \\tfrac{r}{x}$ would be a quotient of rationals — rational. Contradiction again.',
+            },
+            {
+              label: 'The one exception',
+              formula: 'q = 0: \quad qx = 0 \\in \\mathbb{Q}',
+              explanation:
+                'Zero is the only rational that cannot divide, so the guard $q \\ne 0$ is not decoration — it is the whole boundary. Zero times anything is zero, the one rational that every irrational can reach.',
+            },
+          ],
+          result: 'For irrational $x$: $qx$, $x \\div q$ ($q \\in \\mathbb{Q},\\ q \\ne 0$) and $\\tfrac{r}{x}$ ($r \\in \\mathbb{Q},\\ x \\ne 0$) are all irrational.',
+        },
+        {
+          kind: 'para',
+          text: 'Cash the theorems on the anchor $x = \\sqrt{2}$. The translation theorem convicts $\\sqrt{2} + \\tfrac{1}{2}$, $\\sqrt{2} - 7$, $\\sqrt{2} + 3$ in one stroke each. The scaling theorem convicts $3\\sqrt{2}$, $-5\\sqrt{2}$, $\\tfrac{\\sqrt{2}}{3}$, $\\tfrac{7}{\\sqrt{2}}$ — and the kernel route double-checks two of them: $3\\sqrt{2} = \\sqrt{9} \\cdot \\sqrt{2} = \\sqrt{18}$ by the product law, and $18 = 2^1 \\cdot 3^2$ carries an odd exponent, so the 8.1 wall convicts it independently; $\\tfrac{\\sqrt{2}}{3}$ would force $2q^2 = (3p)^2$ if it equaled $\\tfrac{p}{q}$, and the left side has an odd power of 2 while $9p^2$ has an even one. Two engines, one verdict — the agreement is the point: the table below is not a set of memorized facts but a set of *provable* ones.',
+        },
+        {
+          kind: 'table',
+          caption: 'The behaviour table: how irrational company behaves under arithmetic. The top block is proved one-way; the bottom block honestly goes both ways.',
+          head: ['Combination', 'Verdict', 'Why — the proof engine'],
+          rows: [
+            ['rational $+$ rational', 'always rational', '$\\mathbb{Q}$ closed under $+$ (7.2)'],
+            ['irrational $+$ rational', 'always irrational', 'translation theorem: $x = (x+q) - q$'],
+            ['irrational $-$ rational', 'always irrational', 'same, with $-q \\in \\mathbb{Q}$'],
+            ['irrational $\\times$ rational ($q \\ne 0$)', 'always irrational', 'scaling theorem: $x = (qx) \\div q$'],
+            ['irrational $\\div$ rational ($q \\ne 0$)', 'always irrational', 'scaling by $\\tfrac{1}{q}$'],
+            ['rational $\\div$ irrational ($x \\ne 0$)', 'always irrational', 'would force $x = r \\div (r/x) \\in \\mathbb{Q}$'],
+            ['irrational $+$ irrational', '**both ways**', '$\\sqrt{2} + \\sqrt{3}$ irrational; $\\sqrt{2} + (1-\\sqrt{2}) = 1$'],
+            ['irrational $\\times$ irrational', '**both ways**', '$\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}$ irrational; $\\sqrt{2} \\cdot \\sqrt{8} = 4$'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Read the table’s asymmetry honestly. The top six rows are a *one-way street*: rational company never rescues an irrational, because the field laws of $\\mathbb{Q}$ let you undo the move and drag the irrational out as a quotient or difference of rationals. The bottom two rows are different in kind, not just in verdict: there is **no theorem** that decides them, because the undoing move is unavailable — you cannot solve for one irrational operand in terms of rationals when the other operand is itself irrational. Each pair must be tried on its own evidence. That is not a weakness of the theory; it is a genuine mathematical fact, and the source of every classic trap.',
+        },
+        { kind: 'heading', text: 'The both-ways cases' },
+        {
+          kind: 'para',
+          text: 'First direction: sums and products that *stay* irrational. Lesson 8.2 already proved $\\sqrt{2} + \\sqrt{3}$ irrational by the squeeze chain — assume it rational, square, and isolate $\\sqrt{6} = \\tfrac{r^2 - 5}{2}$, a convicted number. The product $\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}$ (the product law) is irrational because 6 is not a perfect square — the 8.1 wall again. Second direction: sums and products that *wash out*. The construction is always the same and always delightful: **build the irrational out of the answer you want**. Want a rational sum? Take $\\sqrt{2}$ and $1 - \\sqrt{2}$ — the second is irrational (if it were rational, $\\sqrt{2} = 1 - (1-\\sqrt{2})$ would be too), yet the sum is exactly $1$. Want a rational product? Take $\\sqrt{2}$ and $\\sqrt{8}$: the product law collapses $\\sqrt{2} \\cdot \\sqrt{8} = \\sqrt{16} = 4$.',
+        },
+        {
+          kind: 'example',
+          title: 'Decide, with proof: is $(2 + \\sqrt{3}) + (2 - \\sqrt{3})$ rational?',
+          steps: [
+            'First convince yourself both addends are irrational: if $2 + \\sqrt{3} = r \\in \\mathbb{Q}$ then $\\sqrt{3} = r - 2 \\in \\mathbb{Q}$, contradicting lesson 8.1; the conjugate $2 - \\sqrt{3}$ falls the same way.',
+            'Now, add them: the $\\sqrt{3}$’s cancel and the integers combine — $(2 + \\sqrt{3}) + (2 - \\sqrt{3}) = 4$.',
+            'Hence the sum of two irrationals is exactly $4$ — rational. The both-ways row is not a paradox; it is a *pair of exhibits*: this sum versus $\\sqrt{2} + \\sqrt{3}$.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Decide, with proof: is $\\sqrt{2} \\cdot \\sqrt{8}$ rational? Is $\\sqrt{2} \\cdot \\sqrt{3}$?',
+          steps: [
+            'First product: combine under one root by the product law — $\\sqrt{2} \\cdot \\sqrt{8} = \\sqrt{16} = 4$, rational (and positive: both factors positive, so the positive root is the right one).',
+            'Second product: $\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}$, again by the product law.',
+            'Now, apply the 8.1 wall: $6 = 2 \\cdot 3$ is squarefree, not a perfect square, so $\\sqrt{6} \\notin \\mathbb{Q}$.',
+            'Hence $\\sqrt{2} \\cdot \\sqrt{8}$ is rational and $\\sqrt{2} \\cdot \\sqrt{3}$ is irrational — same operation, same kind of operands, opposite verdicts. The conjugate product makes the contrast even sharper: $(\\sqrt{5} + \\sqrt{3})(\\sqrt{5} - \\sqrt{3}) = 5 - 3 = 2$ exactly, and even the *negative* rationals are reachable — $(1 + \\sqrt{2})(1 - \\sqrt{2}) = 1 - 2 = -1$.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'Every rational move of √2 stays irrational. Translations sit on the lower row (√2 − 1 ≈ 0.4142 and √2 + 1 ≈ 2.4142 — the whole decimal tail rides along unchanged), scalings on the upper row (2√2 ≈ 2.8284, 3√2 ≈ 4.2426 — the point stretches away from 0 but never lands on a filled rational tick). Five amber rings, five holes in ℚ.',
+          svg: `<svg viewBox="0 0 520 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The number line from zero to five with integer ticks as filled dots and five open amber rings at root two minus one, root two, root two plus one, twice root two and three times root two at their computed positions">
+  <line x1="40" y1="88" x2="480" y2="88" stroke="currentColor" stroke-width="1.2"/>
+  ${(function () {
+    const FX = (v: number) => 60 + 80 * v
+    const ints: [string, number][] = [
+      ['0', 0],
+      ['1', 1],
+      ['2', 2],
+      ['3', 3],
+      ['4', 4],
+      ['5', 5],
+    ]
+    const intMarks = ints
+      .map(([lab, v]) => {
+        const x = +FX(v).toFixed(1)
+        return `<line x1="${x}" y1="82" x2="${x}" y2="94" stroke="currentColor" stroke-width="1.2"/><circle cx="${x}" cy="88" r="3.2" fill="currentColor"/><text x="${x}" y="128" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">${lab}</text>`
+      })
+      .join('\n  ')
+    // (label, value, label row: 'above' | 'below')
+    const surds: [string, number, 'above' | 'below'][] = [
+      ['√2−1', Math.SQRT2 - 1, 'below'],
+      ['√2', Math.SQRT2, 'above'],
+      ['√2+1', Math.SQRT2 + 1, 'below'],
+      ['2√2', 2 * Math.SQRT2, 'above'],
+      ['3√2', 3 * Math.SQRT2, 'above'],
+    ]
+    const surdMarks = surds
+      .map(([lab, v, row]) => {
+        const x = +FX(v).toFixed(1)
+        const ly = row === 'above' ? 70 : 108
+        const ty1 = row === 'above' ? 82 : 94
+        const ty2 = row === 'above' ? 94 : 82
+        return `<line x1="${x}" y1="${ty1}" x2="${x}" y2="${ty2}" stroke="#b45309" stroke-width="1.2"/><circle cx="${x}" cy="88" r="4" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#b45309" font-weight="700">${lab}</text>`
+      })
+      .join('\n  ')
+    return intMarks + '\n  ' + surdMarks
+  })()}
+  <text x="480" y="34" font-size="11" fill="#b45309" text-anchor="end">rings: rational moves of √2 — every one irrational</text>
+</svg>`,
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The two standing traps',
+          text: 'Trap one: "the sum of two irrationals is irrational" — **false as a law**, as $\\sqrt{2} + (1 - \\sqrt{2}) = 1$ and $(2 + \\sqrt{3}) + (2 - \\sqrt{3}) = 4$ attest; only the *proved* instances count. Trap two (carried from 8.2, now with teeth): $\\sqrt{a + b} \\ne \\sqrt{a} + \\sqrt{b}$ — for $a = b = 2$ the left side is $2$ while the right side is the irrational $2\\sqrt{2}$. In an assertion–reason item, a true assertion paired with a false reason is the standard both-ways bait: verify each half separately, never let one half vouch for the other.',
+        },
+        { kind: 'heading', text: 'Rationalizing the denominator' },
+        {
+          kind: 'para',
+          text: 'School taught the move — "multiply top and bottom by the conjugate" — long before it could say why. Here is the honest version. A denominator like $\\sqrt{2} + 1$ is an irrational number, so dividing by it means dividing by $2.414213562373095\\dots$, an *infinite* decimal: any direct computation would truncate, and every truncated quotient is a rational approximation, not the number. The conjugate trick converts the division into an exact one: multiply the fraction by a cleverly chosen form of 1, chosen so the denominator collapses to a rational by the difference of squares. The **conjugate** of $a + \\sqrt{b}$ is $a - \\sqrt{b}$ — the same parts with the surd sign flipped — and their product is always rational: $(a + \\sqrt{b})(a - \\sqrt{b}) = a^2 - b$. One multiplication, and the irrationality is evicted from the denominator (it moves to the numerator, where it is harmless — a multiplier, not a divisor).',
+        },
+        {
+          kind: 'derivation',
+          title: 'The rationalization identity',
+          statement:
+            'Claim: $\\tfrac{1}{a + \\sqrt{b}} = \\tfrac{a - \\sqrt{b}}{a^2 - b}$ whenever $a^2 \\ne b$ — the surd leaves the denominator by a difference of squares.',
+          steps: [
+            {
+              label: 'Multiply by the conjugate over itself',
+              formula: '\\tfrac{1}{a + \\sqrt{b}} \\cdot \\tfrac{a - \\sqrt{b}}{a - \\sqrt{b}} = \\tfrac{a - \\sqrt{b}}{(a + \\sqrt{b})(a - \\sqrt{b})}',
+              explanation:
+                'Setup: clear the surd from the denominator, with $a, b$ integers, $b > 0$ not a perfect square, and the guard $a^2 \\ne b$ in force. The multiplier is a form of 1 — the value is untouched.',
+            },
+            {
+              label: 'The denominator is a difference of squares',
+              formula: '(a + \\sqrt{b})(a - \\sqrt{b}) = a^2 - (\\sqrt{b})^2 = a^2 - b',
+              explanation:
+                'Now, the cross terms $+a\\sqrt{b}$ and $-a\\sqrt{b}$ annihilate, leaving only integers — an integer denominator.',
+            },
+            {
+              label: 'Read off the identity',
+              formula: '\\tfrac{1}{a + \\sqrt{b}} = \\tfrac{a - \\sqrt{b}}{a^2 - b}',
+              explanation:
+                'Hence the division is now exact rational arithmetic: a rational denominator, an irrational numerator where surds are harmless multipliers rather than divisors.',
+            },
+            {
+              label: 'Why the guard matters',
+              formula: 'a^2 = b \\Rightarrow \\sqrt{b} = |a|, \quad a + \\sqrt{b} \\in \\mathbb{Q}',
+              explanation:
+                'If $a^2 = b$ the "surd" denominator was rational all along (for $a = 2, b = 4$: the denominator is just 4), and the formula would divide by zero. The identity is honest exactly when the denominator was genuinely irrational.',
+            },
+          ],
+          result: '$\\dfrac{1}{a + \\sqrt{b}} = \\dfrac{a - \\sqrt{b}}{a^2 - b}$ for $a^2 \\ne b$; the double-surden form $\\dfrac{1}{\\sqrt{a} + \\sqrt{b}} = \\dfrac{\\sqrt{a} - \\sqrt{b}}{a - b}$ for $a \\ne b$.',
+        },
+        {
+          kind: 'example',
+          title: 'Rationalize $\\dfrac{1}{\\sqrt{2} + 1}$ and give the first decimals of the answer',
+          steps: [
+            'Spot the conjugate: the denominator is $\\sqrt{2} + 1$, so multiply by $\\sqrt{2} - 1$ over itself.',
+            'Now, the denominator collapses by the difference of squares: $(\\sqrt{2} + 1)(\\sqrt{2} - 1) = 2 - 1 = 1$ — a unit denominator.',
+            'So, $\\tfrac{1}{\\sqrt{2} + 1} = \\sqrt{2} - 1$, and by the scaling theorem this is irrational (an irrational minus a rational).',
+            'Hence the value is $0.414213562373095\\dots$ — the digits of $\\sqrt{2}$ with the integer part removed, an exact integer translation of the famous tail.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Rationalize $\\dfrac{1}{\\sqrt{2} + \\sqrt{3}}$ and $\\dfrac{1}{2\\sqrt{3} - 3}$',
+          steps: [
+            'First denominator: two different surds. The conjugate of $\\sqrt{2} + \\sqrt{3}$ is $\\sqrt{3} - \\sqrt{2}$ (flip the sign of one surd), and $(\\sqrt{2} + \\sqrt{3})(\\sqrt{3} - \\sqrt{2}) = 3 - 2 = 1$.',
+            'So, $\\tfrac{1}{\\sqrt{2} + \\sqrt{3}} = \\sqrt{3} - \\sqrt{2} = 0.317837245195\\dots$ — irrational (the squeeze chain of 8.2 proved this very difference irrational; here it arrives as a reciprocal).',
+            'Now, the second: the conjugate of $2\\sqrt{3} - 3$ is $2\\sqrt{3} + 3$, and $(2\\sqrt{3} - 3)(2\\sqrt{3} + 3) = 12 - 9 = 3$.',
+            'Hence $\\tfrac{1}{2\\sqrt{3} - 3} = \\tfrac{2\\sqrt{3} + 3}{3} = 2.154700538379\\dots$ — note the 3 stays in the denominator: rationalize does not mean "make everything an integer", only "make the *divisor* rational".',
+          ],
+        },
+        { kind: 'heading', text: 'The decimal names follow their numbers' },
+        {
+          kind: 'para',
+          text: 'Lesson 7.3 built the decimal mirror — every rational name terminates or repeats, every terminating-or-repeating name is rational — and 8.1 cashed the contrapositive: irrational numbers have names that never close. The behaviour table now extends the mirror through every rational move. Take $\\sqrt{2} = 1.41421356237309504880\\dots$ and move it: the names below *still* cannot terminate or repeat, because a terminating-or-repeating name would make its number rational, and the number’s irrationality is exactly what the two theorems preserve. For integer translations the tail even survives *digit for digit* — $\\sqrt{2} + 3$ and $\\sqrt{2} - 1$ carry the identical fractional tail $\\dots41421356237309504880\\dots$; scaling scrambles the digits ($5\\sqrt{2} = 7.071067811865475\\dots$) but not the character.',
+        },
+        {
+          kind: 'table',
+          caption: 'Decimal-name preservation: every rational move of √2 produces a name that neither terminates nor repeats. The "why" column is the proof engine, not a digit inspection.',
+          head: ['Move of $\\sqrt{2}$', 'Name begins', 'Why it can never close'],
+          rows: [
+            ['$\\sqrt{2} + 3$', '$4.414213562373095\\dots$', 'translation theorem: closing would make $\\sqrt{2} = (\\text{name}) - 3$ rational'],
+            ['$\\sqrt{2} - 1$', '$0.414213562373095\\dots$', 'same engine — and the tail is literally $\\sqrt{2}$’s own'],
+            ['$5\\sqrt{2} = \\sqrt{50}$', '$7.071067811865475\\dots$', 'kernel route: $50 = 2^1 \\cdot 5^2$ — the 8.1 wall'],
+            ['$\\sqrt{2} \\div 3$', '$0.471404520791031\\dots$', 'scaling theorem: closing would make $\\sqrt{2} = 3 \\cdot (\\text{name})$ rational'],
+            ['$\\tfrac{1}{\\sqrt{2} + 1} = \\sqrt{2} - 1$', '$0.414213562373095\\dots$', 'rationalization + translation — an exact identity'],
+          ],
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Behaviour table',
+              def: 'The sorted verdicts of arithmetic on mixed company: rational-meets-irrational rows are one-way (always irrational, by the translation and scaling theorems); irrational-meets-irrational rows go both ways.',
+            },
+            {
+              term: 'Closure',
+              def: 'A set is closed under an operation when every application of the operation to members lands back in the set — ℚ is closed under +, −, × and ÷-by-nonzero (7.2), which is the engine of every "assume rational, undo the move" proof.',
+            },
+            {
+              term: 'Rational translation',
+              def: 'Adding (or subtracting) a rational to an irrational: the result is always irrational — x = (x + q) − q would otherwise land in ℚ.',
+            },
+            {
+              term: 'Rational scaling',
+              def: 'Multiplying an irrational by a nonzero rational (or dividing by one): the result is always irrational — x = (qx) ÷ q would otherwise land in ℚ. q = 0 is the sole exception (0·x = 0).',
+            },
+            {
+              term: 'Both-ways case',
+              def: 'An operation on two irrationals with no deciding theorem: irrational + irrational and irrational × irrational each have rational exhibits (√2 + (1−√2) = 1, √2·√8 = 4) and irrational exhibits (√2 + √3, √2·√3 = √6).',
+            },
+            {
+              term: 'Conjugate',
+              def: 'Of a + √b: the expression a − √b with the surd sign flipped. The product of conjugates is the rational a² − b — the engine of rationalization.',
+            },
+            {
+              term: 'Rationalizing the denominator',
+              def: 'Multiplying a fraction by a form of 1 (the conjugate over itself) so that a surd denominator collapses to a rational one by the difference of squares: 1/(a + √b) = (a − √b)/(a² − b), guarded by a² ≠ b.',
+            },
+            {
+              term: 'Rationalizing factor',
+              def: 'The specific form of 1 used: the conjugate of the denominator, chosen so the cross terms annihilate and only a² − b survives.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          title: 'Check yourself',
+          items: [
+            {
+              q: '$\\sqrt{2} + \\tfrac{1}{2}$ is:',
+              options: ['rational', 'irrational', 'an integer', 'impossible to decide'],
+              answer: 1,
+              explain:
+                'Translation theorem: if the sum were rational, then √2 = (sum) − ½ would be rational too — against lesson 8.1. It is not "impossible to decide": the two-line proof decides it.',
+            },
+            {
+              q: '$3\\sqrt{2} \\cdot 5$ simplifies to:',
+              options: ['$8\\sqrt{2}$', '$15\\sqrt{2}$', '$\\sqrt{30}$', '$15$'],
+              answer: 1,
+              explain:
+                'Rationals collect in front: 3·5 = 15, so 15√2 = √450 (kernel 2 — irrational). 8√2 adds coefficients that should multiply; √30 pushes the 3 and 5 under the root illegally; and 15 would require the √2 to vanish — only q = 0 kills a surd.',
+            },
+            {
+              q: 'Which statement is FALSE?',
+              options: [
+                '$\\sqrt{2} + (1 - \\sqrt{2}) = 1$',
+                '$(\\sqrt{5} + \\sqrt{3})(\\sqrt{5} - \\sqrt{3}) = 2$',
+                '$\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}$',
+                'The sum of two irrationals is always irrational',
+              ],
+              answer: 3,
+              explain:
+                'The first three are verified identities (R3 of this chapter’s script). The fourth is the classic both-ways trap: √2 + (1−√2) = 1 is itself the counterexample — and √2 + √3 shows the opposite verdict is also possible.',
+            },
+            {
+              q: '$\\dfrac{1}{\\sqrt{3} + \\sqrt{2}}$ equals:',
+              options: ['$\\sqrt{3} - \\sqrt{2}$', '$\\tfrac{\\sqrt{3} - \\sqrt{2}}{5}$', '$\\sqrt{3} + \\sqrt{2}$', '$\\tfrac{1}{\\sqrt{3}} - \\tfrac{1}{\\sqrt{2}}$'],
+              answer: 0,
+              explain:
+                'Multiply by the conjugate √3 − √2: the denominator is (√3+√2)(√3−√2) = 3 − 2 = 1, so nothing survives below. Division does not split across a sum — the last option is the classic "split the fraction" error, and it is not even close (√3−√2 ≈ 0.3178 vs 1/√3 − 1/√2 ≈ −0.13).',
+            },
+            {
+              q: '$x$ is irrational, $q$ is rational, and $x \\cdot q$ is rational. Then:',
+              options: ['the only possibility is $q = 0$', 'it follows that $x$ is rational', 'it follows that $q$ is irrational', 'no such pair $x, q$ exists at all'],
+              answer: 0,
+              explain:
+                'The scaling theorem says qx is irrational whenever q ≠ 0 — so a rational product forces q = 0 (and then the product is 0·x = 0). The pair does exist, which is why the last option fails; and x stays irrational throughout.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Classify each number as rational or irrational, with a one-line reason: (i) $2 + \\sqrt{3}$ (ii) $\\sqrt{3} \\cdot 6$ (iii) $\\sqrt{3} \\div 6$.',
+                  solution: [
+                    'Take each part against the two theorems of this lesson.',
+                    '(i) $2 + \\sqrt{3}$: irrational plus rational — the translation theorem convicts it (if rational, $\\sqrt{3} = (\\text{it}) - 2 \\in \\mathbb{Q}$).',
+                    '(ii) $\\sqrt{3} \\cdot 6 = 6\\sqrt{3}$: nonzero rational times irrational — the scaling theorem convicts it.',
+                    '(iii) $\\sqrt{3} \\div 6$: division by a nonzero rational is scaling by $\\tfrac{1}{6}$ — same theorem, same verdict.',
+                    'Hence all three are irrational; the kernel route confirms (ii): $6\\sqrt{3} = \\sqrt{108}$ and $108 = 2^2 3^3$ has an odd exponent on 3.',
+                  ],
+                  answer: 'all three irrational',
+                },
+                {
+                  q: '(Exam-style) Collect and classify: $5\\sqrt{2} + 3\\sqrt{2} - \\sqrt{2}$.',
+                  solution: [
+                    'Collect the like surds (8.2’s rule — same kernel adds): $5 + 3 - 1 = 7$ coefficients of $\\sqrt{2}$.',
+                    'So, $5\\sqrt{2} + 3\\sqrt{2} - \\sqrt{2} = 7\\sqrt{2}$.',
+                    'Now, classify: $7\\sqrt{2}$ is a nonzero rational times an irrational — irrational by the scaling theorem.',
+                    'Hence the expression equals $7\\sqrt{2} = \\sqrt{98}$, irrational ($98 = 2 \\cdot 7^2$ — odd exponent on 2).',
+                  ],
+                  answer: '$7\\sqrt{2}$, irrational',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: '(Exam-style) Rationalize $\\dfrac{1}{\\sqrt{5} - 2}$ and give four decimals.',
+                  solution: [
+                    'Spot the conjugate: $\\sqrt{5} + 2$ (sign flip), and multiply by it over itself.',
+                    'Now, the denominator: $(\\sqrt{5} - 2)(\\sqrt{5} + 2) = 5 - 4 = 1$ — a unit denominator again.',
+                    'So, $\\tfrac{1}{\\sqrt{5} - 2} = \\sqrt{5} + 2$.',
+                    'Hence the value is $4.2360679\\dots$ — irrational (translation theorem: $\\sqrt{5}$ plus 2).',
+                  ],
+                  answer: '$\\sqrt{5} + 2 \\approx 4.2360679$',
+                },
+                {
+                  q: '(Exam-style) Rationalize $\\dfrac{1}{2\\sqrt{2} + 3}$ — watch the sign.',
+                  solution: [
+                    'The conjugate is $2\\sqrt{2} - 3$, and $(2\\sqrt{2} + 3)(2\\sqrt{2} - 3) = 8 - 9 = -1$.',
+                    'Now, the denominator lands *negative* — a rational, so the trick still works: $\\tfrac{1}{2\\sqrt{2} + 3} = \\tfrac{2\\sqrt{2} - 3}{-1} = 3 - 2\\sqrt{2}$.',
+                    'So, the value is positive and about $0.171572875253\\dots$ (since $2\\sqrt{2} \\approx 2.828427124746$).',
+                    'Hence $\\tfrac{1}{2\\sqrt{2} + 3} = 3 - 2\\sqrt{2} = 0.171572875253\\dots$, irrational — an exact identity, sign handled honestly.',
+                  ],
+                  answer: '$3 - 2\\sqrt{2} \\approx 0.171572875253$',
+                },
+                {
+                  q: 'Decide with proof: is $\\dfrac{\\sqrt{3} + 1}{\\sqrt{3} - 1}$ rational?',
+                  solution: [
+                    'Rationalize first: multiply by the conjugate $\\sqrt{3} + 1$ over itself — $\\tfrac{(\\sqrt{3} + 1)^2}{(\\sqrt{3} - 1)(\\sqrt{3} + 1)} = \\tfrac{(\\sqrt{3} + 1)^2}{2}$.',
+                    'Now, expand the numerator: $(\\sqrt{3} + 1)^2 = 3 + 2\\sqrt{3} + 1 = 4 + 2\\sqrt{3}$.',
+                    'So, the fraction is $\\tfrac{4 + 2\\sqrt{3}}{2} = 2 + \\sqrt{3}$.',
+                    'Hence the quotient equals $2 + \\sqrt{3}$ — irrational by the translation theorem. (A quotient of two irrationals, joining the both-ways family: this one lands irrational; $\\tfrac{\\sqrt{2}}{\\sqrt{8}} = \\tfrac{1}{2}$ lands rational.)',
+                  ],
+                  answer: 'irrational — it equals $2 + \\sqrt{3}$',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The affine-map theorem, with its guard. For irrational $x$ and rationals $r, s$: decide exactly when $rx + s$ is irrational — exhibit the exceptional case first.',
+                  solution: [
+                    'Hunt the exception first: take $r = 0$, $s = 5$ — then $rx + s = 5$, rational. So the theorem cannot hold unconditionally; the guard must be $r \\ne 0$.',
+                    'Now, prove the guarded statement. Suppose $rx + s = t \\in \\mathbb{Q}$ with $r \\ne 0$: subtract the rational $s$ to get $rx = t - s \\in \\mathbb{Q}$ (closure of $\\mathbb{Q}$ under $-$).',
+                    'So, divide by $r$ — legal since $r \\ne 0$ — to exhibit $x = (t - s) \\div r \\in \\mathbb{Q}$, a contradiction. Hence $rx + s \\notin \\mathbb{Q}$ whenever $r \\ne 0$.',
+                    'Hence: $rx + s$ is irrational for every $r \\ne 0$ (any $s$), and rational exactly in the collapsed case $r = 0$, where the expression is the constant $s$. The two theorems of this lesson are the special cases $s = 0$ and $r = 1$.',
+                  ],
+                  answer: 'irrational for every $r \\ne 0$ (the $r = 0$ case collapses to the rational constant $s$)',
+                },
+                {
+                  q: 'Find every rational $q$ for which $q\\sqrt{2}$ is rational, and every rational $q$ for which $q\\sqrt{2} + q$ is rational.',
+                  solution: [
+                    'First question: the scaling theorem convicts every $q \\ne 0$, so $q\\sqrt{2} \\in \\mathbb{Q}$ forces $q = 0$ (and then $q\\sqrt{2} = 0$). Answer: $q = 0$ alone.',
+                    'Now, rewrite the second expression: $q\\sqrt{2} + q = q(\\sqrt{2} + 1)$.',
+                    'So, $\\sqrt{2} + 1$ is a fixed irrational (translation theorem), and we are asking when a rational multiple of a fixed irrational is rational.',
+                    'Hence the same scaling engine answers: only $q = 0$ (giving 0). No nonzero rational coefficient can rescue an irrational — this is exactly the L3 guard from the affine theorem.',
+                  ],
+                  answer: 'only $q = 0$ in both questions',
+                },
+                {
+                  q: 'The both-ways hunt. Exhibit irrational $a, b$ with: (i) $a + b$ rational; (ii) $a \\cdot b$ a *negative* rational; (iii) $a - b$ rational — and in each case prove $a$ and $b$ are both irrational.',
+                  solution: [
+                    '(i) $a = \\sqrt{2}$, $b = 1 - \\sqrt{2}$: $b$ is irrational (else $\\sqrt{2} = 1 - b \\in \\mathbb{Q}$), and $a + b = 1$ exactly.',
+                    '(ii) $a = 1 + \\sqrt{2}$, $b = 1 - \\sqrt{2}$: both irrational by the translation theorem, and $a \\cdot b = 1 - 2 = -1$ (difference of squares).',
+                    '(iii) $a = \\sqrt{2} + 1$, $b = \\sqrt{2}$: both irrational, and $a - b = 1$.',
+                    'Hence each row of the both-ways block has a constructive exhibit — build the second irrational as (rational answer) minus or divided by the first.',
+                  ],
+                  answer: 'e.g. (√2, 1−√2), (1+√2, 1−√2), (√2+1, √2)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: '(Exam-style) Compute $(\\sqrt{3} + \\sqrt{2})^2 - (\\sqrt{3} - \\sqrt{2})^2$ and classify the result.',
+                  solution: [
+                    'Expand both squares: $(\\sqrt{3} + \\sqrt{2})^2 = 5 + 2\\sqrt{6}$ and $(\\sqrt{3} - \\sqrt{2})^2 = 5 - 2\\sqrt{6}$ (the cross terms $\\pm 2\\sqrt{6}$ differ only in sign).',
+                    'Now, subtract: $(5 + 2\\sqrt{6}) - (5 - 2\\sqrt{6}) = 4\\sqrt{6}$ — the integers cancel, the surd doubles.',
+                    'So, classify: $4\\sqrt{6}$ is a nonzero rational times an irrational — irrational by the scaling theorem (equivalently $4\\sqrt{6} = \\sqrt{96}$ with $96 = 2^5 \\cdot 3$, two odd exponents).',
+                    'Hence the difference is exactly $4\\sqrt{6}$, irrational.',
+                  ],
+                  answer: '$4\\sqrt{6}$, irrational',
+                },
+                {
+                  q: '(Exam-style) Which is larger: $\\dfrac{1}{\\sqrt{2} + 1}$ or $\\dfrac{1}{\\sqrt{2} - 1}$? Decide without decimals.',
+                  solution: [
+                    'Rationalize both: $\\tfrac{1}{\\sqrt{2} + 1} = \\sqrt{2} - 1$ (denominator $2 - 1$) and $\\tfrac{1}{\\sqrt{2} - 1} = \\sqrt{2} + 1$ (same denominator).',
+                    'Now, compare the results: $\\sqrt{2} + 1$ versus $\\sqrt{2} - 1$ — the first exceeds the second by exactly 2.',
+                    'So, $\\tfrac{1}{\\sqrt{2} - 1} > \\tfrac{1}{\\sqrt{2} + 1}$, with no decimal evaluated.',
+                    'Hence the reciprocals of conjugate surds are conjugate surds themselves — and the smaller denominator carries the larger reciprocal.',
+                  ],
+                  answer: '$1/(\\sqrt{2} - 1) = \\sqrt{2} + 1$ is larger, by exactly 2',
+                },
+                {
+                  q: 'Prove the last one-way row of the table: for rational $r$ and irrational $x \\ne 0$, the quotient $\\dfrac{r}{x}$ is irrational.',
+                  solution: [
+                    'Suppose $\\tfrac{r}{x} = s \\in \\mathbb{Q}$, aiming to drag $x$ into $\\mathbb{Q}$.',
+                    'Now, rearrange: $x \\cdot s = r$, i.e. $x = r \\div s$.',
+                    'So, if $s \\ne 0$ this exhibits $x$ as a quotient of rationals — rational, a contradiction. The remaining sub-case $s = 0$ would force $r = 0$ (from $x \\cdot s = r$); and when $r = 0$ the quotient is simply $0$, rational — so the row’s honest statement needs the guard $r \\ne 0$.',
+                    'Hence for $r \\ne 0$ and irrational $x \\ne 0$: $\\tfrac{r}{x} \\notin \\mathbb{Q}$. (The scaling theorem in disguise: $\\tfrac{r}{x} = r \\cdot \\tfrac{1}{x}$, and $\\tfrac{1}{x}$ is irrational by the same argument applied with $r = 1$.)',
+                  ],
+                  answer: 'irrational for every $r \\neq 0$ (the $r = 0$ quotient is 0)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Prove the decimal-name preservation theorem: if $x$’s decimal name neither terminates nor repeats, then for every rational $r \\ne 0$ the names of $x + r$ and $rx$ also neither terminate nor repeat.',
+                  solution: [
+                    'Recall the 7.3 dichotomy: a number is rational **if and only if** its decimal name terminates or repeats.',
+                    'Now, suppose $x + r$ terminated or repeated. Then $x + r \\in \\mathbb{Q}$, so $x = (x + r) - r \\in \\mathbb{Q}$ by closure — and then $x$’s own name would terminate or repeat, against the hypothesis.',
+                    'So, the same engine for the product: if $rx \\in \\mathbb{Q}$ then $x = (rx) \\div r \\in \\mathbb{Q}$ (legal, $r \\ne 0$) — again a contradiction.',
+                    'Hence both moved names are non-terminating and non-repeating: the *character* of a decimal name is invariant under every nonzero rational move, even though the digits themselves may scramble. This is the table of this lesson read through 7.3’s mirror.',
+                  ],
+                  answer: 'both names stay open — by the dichotomy plus closure',
+                },
+                {
+                  q: '(Exam-style, assertion–reason) Assertion: $\\sqrt{2} \\cdot \\sqrt{8}$ is rational. Reason: the product of two irrational numbers is always rational. Evaluate both halves.',
+                  solution: [
+                    'Check the assertion by the product law: $\\sqrt{2} \\cdot \\sqrt{8} = \\sqrt{16} = 4$ — rational. The assertion is TRUE.',
+                    'Now, check the reason against the counterexample: $\\sqrt{2} \\cdot \\sqrt{3} = \\sqrt{6}$, and 6 is not a perfect square, so this product of two irrationals is irrational. The reason is FALSE.',
+                    'So, the verdict format: assertion true, reason false — the reason does not explain the assertion, and the pair must be marked exactly that way.',
+                    'Hence the examination skill this lesson drills: never let a true half vouch for a false half — evaluate each statement on its own evidence.',
+                  ],
+                  answer: 'assertion TRUE (√16 = 4), reason FALSE (√2·√3 = √6 irrational)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Classify completely: for integers $a, b$ with $b > 0$ not a perfect square and $a^2 \\ne b$, when is $\\dfrac{a + \\sqrt{b}}{a - \\sqrt{b}}$ rational?',
+                  solution: [
+                    'Rationalize: multiply by the conjugate of the denominator, $\\tfrac{a + \\sqrt{b}}{a + \\sqrt{b}}$, giving $\\tfrac{(a + \\sqrt{b})^2}{a^2 - b} = \\tfrac{a^2 + b + 2a\\sqrt{b}}{a^2 - b}$.',
+                    'Now, split: $\\tfrac{a^2 + b}{a^2 - b}$ is rational (an integer quotient, $a^2 \\ne b$ guards the division), and $\\tfrac{2a\\sqrt{b}}{a^2 - b}$ is a rational multiple of $\\sqrt{b}$.',
+                    'So, by the scaling theorem the second term is irrational whenever $2a \\ne 0$ and $\\sqrt{b}$ is irrational — i.e. whenever $a \\ne 0$. An irrational plus a rational is irrational (translation), so the whole quotient is irrational for $a \\ne 0$.',
+                    'Take the remaining case $a = 0$: the quotient is $\\tfrac{\\sqrt{b}}{-\\sqrt{b}} = -1$ — rational! Hence the classification: rational **only** for $a = 0$ (value $-1$); irrational for every $a \\ne 0$; and the case $a^2 = b$ is excluded because the denominator vanishes.',
+                    'Hence the conjugate quotient hides exactly one rational point, sitting at the symmetric centre $a = 0$ — a both-ways row in miniature, classified completely.',
+                  ],
+                  answer: 'rational only when $a = 0$ (then the value is $-1$); irrational for every $a \\neq 0$',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'Rational translation',
+          latex: 'x \\notin \\mathbb{Q},\\; q \\in \\mathbb{Q} \\;\\Longrightarrow\\; x + q \\notin \\mathbb{Q}',
+          note: 'The rescue would force x = (x + q) − q back into ℚ.',
+        },
+        {
+          kind: 'formula',
+          name: 'Rational scaling',
+          latex: 'x \\notin \\mathbb{Q},\\; q \\in \\mathbb{Q} \\setminus \\{0\\} \\;\\Longrightarrow\\; qx \\notin \\mathbb{Q}',
+          note: 'Covers x÷q and r÷x by the same division move; q = 0 is the sole exception.',
+        },
+        {
+          kind: 'formula',
+          name: 'The rationalization identity',
+          latex: '\\frac{1}{a + \\sqrt{b}} = \\frac{a - \\sqrt{b}}{a^{2} - b} \\qquad (a^{2} \\neq b)',
+          note: 'Multiply by the conjugate over itself; the denominator becomes a difference of squares.',
+        },
+        {
+          kind: 'formula',
+          name: 'The conjugate product',
+          latex: '(a + \\sqrt{b})(a - \\sqrt{b}) = a^{2} - b',
+          note: 'Always rational for integer a, b — the engine under every rationalization.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'This lesson is the grammar behind an entire station of competitive arithmetic. Khattar QA ch. 1 drills exactly this territory: classify-the-number items ("$\\sqrt{2} + \\tfrac{1}{2}$ is rational or irrational?"), the coefficient collections ($5\\sqrt{2} + 3\\sqrt{2} - \\sqrt{2}$ type), and above all the rationalization set — $\\tfrac{1}{\\sqrt{5} - 2}$, $\\tfrac{1}{2\\sqrt{2} + 3}$, $\\tfrac{1}{\\sqrt{3} + \\sqrt{2}}$, each with its sign trap and its leftover integer denominator. Bank and SSC papers love the assertion–reason form of the both-ways traps ("the product of two irrationals is always rational" — false, with $\\sqrt{2}\\sqrt{3} = \\sqrt{6}$ as the counterexample), and the conjugate-pair comparison ($1/(\\sqrt{2}-1)$ vs $1/(\\sqrt{2}+1)$) whose honest route is the rationalization you just learned. The scaling theorem’s $q = 0$ exception is a standing MCQ bait: "for what rational $q$ is $q\\sqrt{2}$ rational?" — answer: only zero.',
+        },
+        {
+          kind: 'para',
+          text: 'The behaviour is now fully sorted: rational company never rescues an irrational (proved, both directions, with the one honest exception $q = 0$), irrational company sometimes does and sometimes does not (exhibited, both ways, with constructions you can reproduce under exam pressure), denominators can always be rationalized by the conjugate (an identity, not a trick), and every decimal name involved stays open forever. One thing only is still missing — and it has been missing since 8.1 drew the two shores facing each other across the hole at $\\sqrt{2}$. The rationals behave; the irrationals behave; but the *line itself* still has a gap where no rational lives and no construction has yet placed a number. Lesson 8.4 fills the hole — not by finding a fraction that was hiding, but by changing what a number is allowed to be.',
+        },
+      ],
+    },
+    {
+      id: 'ans-completeness-the-line-without-holes',
+      number: '8.4',
+      title: 'Completeness: the Line Without Holes',
+      prerequisites: [
+        'ans-the-diagonal-that-broke-the-rationals',
+        'ans-the-family-of-irrationals',
+        'ans-density-and-the-decimal-mirror-proven',
+      ],
+      sources: [
+        'beck-geoghegan-art-of-proof',
+        'dedekind-1872-stetigkeit',
+        'cantor-1872-fundamental-sequences',
+        'heine-1872-functionenlehre',
+        'meray-1869-limites',
+      ],
+      concepts: [
+        'The cut: a partition of ℚ into two classes',
+        'Rational cuts produced two ways; irrational cuts produced by nothing',
+        'Completeness: every cut produced by a real number',
+        'The no-largest and no-smallest constructions on the shores',
+        'Nested intervals: brackets whose widths shrink to zero',
+        'The tower ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ as three closure repairs',
+        'Density versus completeness: two different virtues',
+        'The arithmetization of analysis (1872)',
+      ],
+      objectives: [
+        'Define a cut of ℚ precisely, verify that the two shores of the √2 hole form one, and prove that neither class has a boundary member — the room-above and room-below constructions',
+        'Distinguish rational cuts (produced by a rational, in two ways) from irrational cuts (produced by nothing in ℚ), and state Dedekind’s creation: the cut itself defines the missing number',
+        'State the completeness property of ℝ informally and separate it from density, using ℚ — dense but not complete — as the witness pair',
+        'Place the four number systems of the book as a tower of repairs — ℕ under + and ×, ℤ under −, ℚ under ÷, ℝ closing the holes — and say honestly what this book does not do (no Cauchy sequences, no suprema proofs; the analysis shelf owns those)',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Every lesson of this chapter has walked around the same hole. Lesson 8.1 proved the hole exists: the two shores $L = \\{r \\in \\mathbb{Q} : r^2 < 2 \\text{ or } r < 0\\}$ and $U = \\{r \\in \\mathbb{Q} : r > 0 \\text{ and } r^2 > 2\\}$ face each other with no rational between them. Lesson 8.2 catalogued the numbers that live in such holes — the family $k\\sqrt{s}$, named and law-abiding. Lesson 8.3 proved those numbers behave under arithmetic. What no lesson has yet done is *place* them: the line still has a gap, and everyone since the Greeks has known that "there is a length there" is geometry talk, not arithmetic talk. This lesson makes the arithmetic talk rigorous. The instrument is already on the table — the two shores, now called by their proper name: a **cut**. And the move is one of the most consequential in the history of mathematics: instead of hunting for a number at the seam, *define the cut itself to be the number*.',
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Dedekind in Zürich, 1858',
+          text: 'Richard Dedekind (1831–1916), Gauss’s last student, was teaching the elements of differential calculus at the Polytechnic in Zürich when he hit the wall this lesson dismantles. The proofs of calculus lean on statements like "as $x$ grows, $f(x)$ approaches a limit" — and Dedekind found that the *limit* itself had no arithmetic definition: the theorems were leaning on geometric intuition about a line that had never been built out of numbers. On 24 October 1858 he succeeded in giving a purely arithmetic definition of continuity; he judged the idea not fruitful enough to publish and carried it in his notebooks for fourteen years. The booklet finally appeared in 1872 as *Stetigkeit und irrationale Zahlen* ("Continuity and Irrational Numbers", Braunschweig: Vieweg) — the same year, by coincidence, that Cantor and Heine published their own constructions of the real numbers. Dedekind has been called "a modern Eudoxus" for the resemblance between cuts and Eudoxus’s theory of proportion in Euclid’s *Elements* Book V — with the honest caveat that Eudoxus never made Dedekind’s boldest move: the postulate that *every* cut corresponds to a number.',
+        },
+        { kind: 'heading', text: 'The cut, defined' },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'Cut',
+          text: 'A **cut** of the rationals is a pair of classes $(L, U)$ that together hold *every* rational, with each rational in exactly one class, both classes nonempty, and every member of $L$ strictly below every member of $U$: for all $l \\in L$ and $u \\in U$, $l < u$. Thus, the whole of $\\mathbb{Q}$ is split in two by an invisible knife — the left class $L$ and the right class $U$.',
+        },
+        {
+          kind: 'para',
+          text: 'Two examples fix the idea, one comfortable and one not. *A rational cut:* take $L = \\{r \\in \\mathbb{Q} : r \\le \\tfrac{3}{2}\\}$, $U = \\{r \\in \\mathbb{Q} : r > \\tfrac{3}{2}\\}$. Every rational lands on exactly one side; $\\tfrac{3}{2}$ itself is the largest member of $L$. The same split can be written with the boundary on the other side — $L = \\{r : r < \\tfrac{3}{2}\\}$, $U = \\{r : r \\ge \\tfrac{3}{2}\\}$ — where $\\tfrac{3}{2}$ is the *smallest* member of $U$. Dedekind’s remark: a rational produces its cut **in two ways**, knife-face down or knife-face up, and nothing in the cut machinery can tell you which face you chose. *An irrational cut:* take the two shores of 8.1 — $L = \\{r \\in \\mathbb{Q} : r^2 < 2 \\text{ or } r < 0\\}$ and $U = \\{r \\in \\mathbb{Q} : r > 0 \\text{ and } r^2 > 2\\}$. Every rational is in exactly one class (trichotomy on $r^2$, plus the fact — 8.1’s theorem — that $r^2 = 2$ never happens). But this cut has no boundary member *at all*: $L$ has no largest, $U$ has no smallest. The knife hangs in empty space.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The lower shore has no largest member',
+          statement:
+            'Claim: in the irrational cut above, for every $r \\in L$ there is a bigger rational still in $L$ — so $L$ cannot have a maximum. The construction finds explicit "room above" any point of the lower class.',
+          steps: [
+            {
+              label: 'The easy case r ≤ 0',
+              formula: 'r \\le 0 \\Rightarrow r + 1 \\le 1, \\quad 1^2 = 1 < 2',
+              explanation:
+                'If $r$ is not positive, step up by a whole unit: $r + 1$ is at most $1$, whose square is $1 < 2$ — comfortably inside $L$, and strictly bigger than $r$.',
+            },
+            {
+              label: 'The tight case 0 < r, r² < 2 — measure the room',
+              formula: '\\delta = \\frac{2 - r^2}{2r + 1} > 0',
+              explanation:
+                'For a positive $r$ below the hole, the number $2 - r^2$ measures how much *square-room* remains; dividing by $2r + 1$ converts it into *length-room*. This $\\delta$ is rational whenever $r$ is.',
+            },
+            {
+              label: 'Step up by δ and check the square',
+              formula: '(r + \\delta)^2 = r^2 + 2r\\delta + \\delta^2 \\le r^2 + (2r + 1)\\delta = 2 \\quad (\\delta \\le 1)',
+              explanation:
+                'The expansion uses $\\delta^2 \\le \\delta$ (valid once $\\delta \\le 1$, which holds because $2 - r^2 < 2 \\le 2r + 1$ is *almost* the comparison — the capped step $\\min\\{1, \\delta\\}$ handles the rare flat case). The square lands at most at $2$ — and it cannot *equal* $2$, because $r + \\delta$ is rational and 8.1 proved no rational squares to $2$. So $(r+\\delta)^2 < 2$ strictly.',
+            },
+            {
+              label: 'Conclude',
+              formula: 'r < r + \\delta \\in L',
+              explanation:
+                'Hence every $r \\in L$ has a strictly bigger neighbour inside $L$: the class has no largest member. The grid-sweep in the chapter’s script runs this construction on every reduced rational with $|p| \\le 60$, $q \\le 12$ — no exceptions.',
+            },
+          ],
+          result: 'The lower shore $L$ of the $\\sqrt{2}$ cut has no largest member; every point has rational room above it.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The upper shore has no smallest member',
+          statement:
+            'Claim: for every $u \\in U$ there is a smaller rational still in $U$ — the mirror construction, measuring room *below*.',
+          steps: [
+            {
+              label: 'Measure the room below',
+              formula: '\\delta = \\frac{u^2 - 2}{2u + 1} > 0',
+              explanation:
+                'For $u \\in U$ (which forces $u > 0$), the excess $u^2 - 2$ is the square-room below the hole; dividing by $2u + 1$ converts to length-room.',
+            },
+            {
+              label: 'Step down by δ and check the square',
+              formula: '(u - \\delta)^2 = u^2 - 2u\\delta + \\delta^2 > u^2 - 2u\\delta \\ge u^2 - (u^2 - 2) \\cdot \\tfrac{2u}{2u + 1} > 2',
+              explanation:
+                'The last estimate uses $\\tfrac{2u}{2u + 1} < 1$, so the subtracted term is *strictly less* than the full excess $u^2 - 2$ — the square stays strictly above $2$. (Capping $\\delta$ at $1$ handles the far-away members of $U$; they have room to spare anyway.)',
+            },
+            {
+              label: 'Conclude',
+              formula: 'u - \\delta \\in U, \\quad u - \\delta < u',
+              explanation:
+                'Hence $U$ has no smallest member either. Both classes run right up to the seam and neither ever touches it — the arithmetic signature of a hole.',
+            },
+          ],
+          result: 'The upper shore $U$ has no smallest member; the cut hangs boundary-free over the gap.',
+        },
+        {
+          kind: 'example',
+          title: 'Run both constructions by hand at the seam',
+          steps: [
+            'Take $r = \\tfrac{7}{5} = 1.4 \\in L$ (indeed $1.96 < 2$). The room-above step: $\\delta = \\tfrac{2 - \\tfrac{49}{25}}{\\tfrac{19}{5}} = \\tfrac{1/25}{19/5} = \\tfrac{1}{95}$, so $r’ = \\tfrac{7}{5} + \\tfrac{1}{95} = \\tfrac{134}{95}$ — a *fractional* neighbour still inside $L$.',
+            'Check exactly: $\\left(\\tfrac{134}{95}\\right)^2 = \\tfrac{17956}{9025} < \\tfrac{18050}{9025} = 2$ — inside, by exactly $\\tfrac{94}{9025}$. The classes keep going where the boundary "should" be.',
+            'Now, from above: take $u = 1.42 \\in U$ (indeed $2.0164 > 2$). The room-below step: $\\delta = \\tfrac{0.0164}{3.84} \\approx 0.00427$, so $u’ \\approx 1.41573$ — and $1.41573^2 \\approx 2.0042 > 2$: still inside $U$, strictly below $u$.',
+            'Hence both shores can be walked toward the gap forever, in exact rational steps — the two derivations, cashed as arithmetic you can do on paper.',
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Now the classification. A cut is **produced by** a rational $c$ if $c$ is the largest member of $L$ or the smallest member of $U$ — the knife-face situations of the $\\tfrac{3}{2}$ example. The two derivations above prove something stronger than a quirk of one example: *if a cut has no boundary member on either side, no rational can produce it* — for any candidate $c$, either $c \\in L$ and the room-above step exhibits a bigger member of $L$ (so $c$ is not the maximum), or $c \\in U$ and the room-below step exhibits a smaller member of $U$ (so $c$ is not the minimum). The $\\sqrt{2}$ cut is produced by *nothing in $\\mathbb{Q}$*. And here is Dedekind’s move, in his own arrangement of words: whenever a cut is produced by no rational number, **we create a new, irrational number, completely defined by this cut**. The cut *is* the number. Not a ghost at the seam — a full mathematical object: the entire infinite pair of classes, doing everything a number needs to do.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'What "created" does and does not mean',
+          text: 'The verb sounds mystical; the mathematics is austere. Creating $\\sqrt{2}$ as a cut does not conjure a point out of nothing — it *names a promise*: the promise of an object that sits above every member of $L$ and below every member of $U$, so that its order relations to every rational are fixed in advance. Arithmetic on cuts can then be *defined* (the sum of two cuts is the class of all sums, and so on) — work this book only points at, because the full algebra of cuts belongs to the analysis shelf. What this lesson owns is the ordering story: the cut pins the new number between every left rational and every right rational, which is exactly what "the diagonal has a length" always meant.',
+        },
+        { kind: 'heading', text: 'Completeness: the line without holes' },
+        {
+          kind: 'para',
+          text: 'Dedekind’s postulate, stated informally but with its teeth intact: **every cut is produced by a real number** — one real number, and only one. For rational cuts the producing number is the boundary rational itself (in either knife-face reading). For the irrational cut of $\\sqrt{2}$, the producing number is the created cut-number. The system $\\mathbb{R}$ of all rationals and all cut-numbers therefore has a property $\\mathbb{Q}$ lacks: no cut of it dangles over empty space. That property is **completeness** — the no-holes property — and it is the single sentence on which the whole of analysis is later built (limits, sums of infinite series, the very theorems Dedekind was teaching in Zürich). Note carefully what completeness is *not*: it is not density. Density says the rationals pack with no adjacent pair; completeness says the line has no gaps. $\\mathbb{Q}$ is dense and *not* complete — the perfect witness pair, sitting one lesson apart in this very book.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The tower of number systems on the same axis [−3, 5]: ℕ counts 1, 2, 3, 4, 5 (this book keeps 0 out of ℕ — it joins with ℤ); ℤ repairs subtraction (3 − 5 = −2 now lives on the line); ℚ repairs division (3 ÷ 5 = 0.6 and every fraction crowds in — density); ℝ repairs the holes (the amber rings: √2, √3, π — every surd, every transcendental, every cut’s number). Four systems, one line, three repairs.',
+          svg: `<svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four stacked number lines on the interval from minus three to five: the natural numbers as dots one through five; the integers adding zero and the negatives; the rationals as a dense crowd of fine ticks; and the reals as the same crowd plus amber rings at the square roots of two and three and at pi">
+  ${(function () {
+    const FX = (v: number) => 60 + 55 * (v + 3)
+    const rows: [string, number][] = [
+      ['ℝ', 44],
+      ['ℚ', 104],
+      ['ℤ', 164],
+      ['ℕ', 224],
+    ]
+    const lineMarks = rows
+      .map(([name, y]) => {
+        const marks: string[] = []
+        for (let v = -3; v <= 5; v++) {
+          const x = +FX(v).toFixed(1)
+          marks.push(`<line x1="${x}" y1="${y - 5}" x2="${x}" y2="${y + 5}" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>`)
+        }
+        return `<text x="34" y="${y + 4}" font-size="13" text-anchor="middle" fill="currentColor" font-weight="700">${name}</text><line x1="60" y1="${y}" x2="500" y2="${y}" stroke="currentColor" stroke-width="1.2"/>${marks.join('')}`
+      })
+      .join('\n  ')
+    // fine ticks for Q and R rows (every quarter unit) — the dense crowd
+    const crowd = (y: number): string => {
+      const t: string[] = []
+      for (let k = -12; k <= 20; k++) {
+        const v = k / 4
+        const x = +FX(v).toFixed(1)
+        t.push(`<line x1="${x}" y1="${y - 3.4}" x2="${x}" y2="${y + 3.4}" stroke="currentColor" stroke-width="0.7" opacity="0.45"/>`)
+      }
+      return t.join('')
+    }
+    // integer dots on the Z row (all), on the N row only 1..5
+    const dotsZ = [-3, -2, -1, 0, 1, 2, 3, 4, 5]
+      .map((v) => `<circle cx="${+FX(v).toFixed(1)}" cy="164" r="3" fill="currentColor"/>`)
+      .join('')
+    const dotsN = [1, 2, 3, 4, 5]
+      .map((v) => `<circle cx="${+FX(v).toFixed(1)}" cy="224" r="3" fill="currentColor"/>`)
+      .join('')
+    // amber rings on the R row: sqrt2, sqrt3, pi — labels staggered
+    const rings: [string, number, 'above' | 'below'][] = [
+      ['√2', Math.SQRT2, 'above'],
+      ['√3', Math.sqrt(3), 'below'],
+      ['π', Math.PI, 'above'],
+    ]
+    const ringMarks = rings
+      .map(([lab, v, row]) => {
+        const x = +FX(v).toFixed(1)
+        const ly = row === 'above' ? 26 : 62
+        return `<circle cx="${x}" cy="44" r="4.4" fill="none" stroke="#b45309" stroke-width="1.9"/><line x1="${x}" y1="38" x2="${x}" y2="50" stroke="#b45309" stroke-width="1.1"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#b45309" font-weight="700">${lab}</text>`
+      })
+      .join('')
+    // repair annotations between rows, left side
+    const notes = [
+      ['ℝ repairs the holes — every cut lands: √2, √3, π …', 74],
+      ['ℚ repairs division — 3 ÷ 5 = 0.6; density arrives', 134],
+      ['ℤ repairs subtraction — 3 − 5 = −2 joins', 194],
+    ]
+      .map(([t, y]) => `<text x="66" y="${y}" font-size="9.5" fill="#b45309" opacity="0.95">${t}</text>`)
+      .join('\n  ')
+    return lineMarks + '\n  ' + crowd(104) + crowd(44) + '\n  ' + dotsZ + dotsN + '\n  ' + ringMarks + '\n  ' + notes
+  })()}
+  <text x="500" y="246" font-size="9.5" text-anchor="end" fill="currentColor" opacity="0.8">axis [−3, 5] — same scale on every row</text>
+</svg>`,
+        },
+        {
+          kind: 'table',
+          caption: 'The four-repair ledger: each system is closed under more operations than the one below it, and each closure failure motivated the next storey of the tower. The last column is this lesson’s cargo.',
+          head: ['System', 'Closed under + and ×', 'Closed under −', 'Closed under ÷ (nonzero)', 'No holes (complete)'],
+          rows: [
+            ['$\\mathbb{N}$', 'yes — chapter 1', 'no — $3 - 5$', 'no — $3 \\div 5$', 'no — gaps everywhere'],
+            ['$\\mathbb{Z}$', 'yes', 'yes — chapter 6', 'no — $3 \\div 5$', 'no — gaps everywhere'],
+            ['$\\mathbb{Q}$', 'yes', 'yes', 'yes — chapter 7', 'no — the $\\sqrt{2}$ cut'],
+            ['$\\mathbb{R}$', 'yes', 'yes', 'yes', 'yes — every cut produced'],
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'Read the ledger as the book’s whole arc in four rows. Chapter 1 built $\\mathbb{N}$ with closure under addition and multiplication — and nothing else. Chapter 6 repaired subtraction by constructing $\\mathbb{Z}$ (difference-pairs, the fortunes-and-debts picture). Chapter 7 repaired division by constructing $\\mathbb{Q}$ (fraction-pairs, the first field). This chapter repairs the *holes* by completing the line — and the honest surprise is that the repair is of a different kind: the first three repairs fixed closure *failures of arithmetic*, visible as equations without answers ($3 - 5$, $3 \\div 5$). The fourth fixes a failure of *the line itself* — visible not as an equation but as a cut produced by nothing. Four systems, four closure stories, one tower: $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$, each inclusion proper (each system genuinely larger — $-2$, $\\tfrac{3}{5}$, $\\sqrt{2}$ the resident witnesses).',
+        },
+        { kind: 'heading', text: 'Nested intervals: the brackets that close' },
+        {
+          kind: 'para',
+          text: 'The squeeze ladder of 8.1 returns with a sharper reading. The brackets $[1.4, 1.5]$, $[1.41, 1.42]$, $[1.414, 1.415]$, $[1.4142, 1.4143]$, $\\dots$ are **nested intervals**: each contains the next, and the widths are $\\tfrac{1}{10}, \\tfrac{1}{100}, \\tfrac{1}{1000}, \\tfrac{1}{10000}, \\dots$ — shrinking to zero without end. Ask the uncomfortable question: what lives in *all* of them at once? Inside $\\mathbb{Q}$, the answer is *nothing* — a rational in every rung would be a rational squeezed to within $10^{-k}$ of $\\sqrt{2}$ for every $k$, hence equal to $\\sqrt{2}$ (two distinct rationals differ by at least $\\tfrac{1}{qq’}$), which 8.1 forbids. Inside $\\mathbb{R}$, the answer is *exactly one thing*: $\\sqrt{2}$, the number the cut created. This is the same completeness, seen from the chase side: every infinite narrowing hunt lands on exactly one point of the line, never on none. Heine’s 1872 construction of the reals — published the same year as Dedekind’s booklet, built from Weierstrass’s Berlin lectures — makes this the *definition*: a real number is a nested family of rational intervals whose widths shrink to zero. Two constructions, one line.',
+        },
+        {
+          kind: 'example',
+          title: 'Verify the nesting and the emptiness claim on the first rungs',
+          steps: [
+            'Nesting, by exact integer arithmetic: $1.4 \\le 1.41 \\le 1.414 \\le 1.4142 \\le 1.41421$ and $1.5 \\ge 1.42 \\ge 1.415 \\ge 1.4143 \\ge 1.41422$ — each rung sits inside its predecessor (the script checks all six rungs in BigInt).',
+            'Each rung brackets the hole: $1.4^2 = 1.96 < 2 < 2.25 = 1.5^2$; $1.41^2 = 1.9881 < 2 < 2.0164 = 1.42^2$; $1.4142^2 = 1.99996164 < 2 < 2.00024449 = 1.4143^2$ — always inside, never touching.',
+            'Now, the emptiness engine: if rationals $r \\ne r’$ both sat in every rung, then $|r - r’| < 10^{-k}$ for every $k$; but distinct rationals $\\tfrac{p}{q}, \\tfrac{p’}{q’}$ differ by at least $\\tfrac{1}{qq’} > 0$ — a fixed positive floor that some $10^{-k}$ undercuts. Contradiction: at most one rational can survive all rungs.',
+            'Hence the intersection is rational-empty (and $\\sqrt{2}$, once created by the cut, is its unique real member) — the squeeze ladder was a completeness argument in disguise all along.',
+          ],
+        },
+        { kind: 'heading', text: 'Density and completeness: two different virtues' },
+        {
+          kind: 'para',
+          text: 'Set the two properties side by side, because examinations and intuition both love to confuse them. **Density** (7.3): between any two *different* numbers of the system, a third number of the system lives — no neighbours, no adjacent pairs. **Completeness** (this lesson): every cut is produced by a number of the system — no holes, no dangling seams. $\\mathbb{N}$ and $\\mathbb{Z}$ have neither (neighbours everywhere, gaps everywhere). $\\mathbb{Q}$ has density but not completeness — packed tight *and* full of holes, which is why the combination is so disorienting: between $1.41$ and $1.42$ live infinitely many rationals, and *still* none of them is $\\sqrt{2}$, and still the cut dangles. $\\mathbb{R}$ has both. And a subtlety worth one slow read: density of $\\mathbb{Q}$ *inside* $\\mathbb{R}$ survives the completion — between any two *reals* a rational still lives (between $\\sqrt{2}$ and $\\sqrt{3}$ lives $\\tfrac{3}{2}$; even in the tight window between $\\sqrt{2}$ and $\\sqrt{2} + \\tfrac{1}{1000}$ lives $1.415$, since $1.414 < \\sqrt{2} < 1.415$). The rationals did not thin out when the line was completed; they are the crowd through which the amber rings are threaded.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The honest scope of this lesson',
+          text: 'Completeness as presented here is the *ordering story*: cuts, seams, no dangling knives. The analysis shelf — and every university mathematics course — builds the full machinery on top: Cauchy sequences (the Cantor construction: reals as limits of rational sequences), suprema and infima (every bounded set has a least upper bound — the equivalent form most textbooks use), and the theorems those unlock (intermediate value, monotone convergence). This book deliberately stops at the doorstep: the tower is closed, every number named, and the next two chapters are history and maps, not analysis. When you meet completeness again, it will arrive as "every nonempty bounded set has a supremum" — and you should recognize it: it is Dedekind’s knife, sharpened differently.',
+        },
+        { kind: 'heading', text: 'The year the reals were born' },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: '1872: three constructions, one line',
+          text: 'The modern real numbers arrived three times in a single year. **Dedekind** published *Stetigkeit und irrationale Zahlen* (Vieweg, Braunschweig): the cut construction this lesson follows. **Cantor** published "Über die Ausdehnung eines Satzes aus der Theorie der trigonometrischen Reihen" (*Mathematische Annalen* 5, pp. 123–132): real numbers as equivalence classes of *fundamental sequences* — the Cauchy-sequence route. **Heine** published "Die Elemente der Functionenlehre" (*Crelle’s Journal* 74, pp. 172–188), drawing on **Weierstrass’s** unpublished Berlin lectures: the nested-intervals route you met above. And the priority question has a quiet French footnote: **Charles Méray** had already published an arithmetical theory of irrationals in 1869 — "Remarques sur la nature des quantités…" — anticipating Cantor’s construction with only minor differences of style; France was not ready for it, the work went unread, and the credit settled elsewhere. Three constructions, one line: all three were later proved to build the *same* system — and the collective program got its name, the **arithmetization of analysis**: geometry’s continuum rebuilt from arithmetic alone, "completely under the sign of number" as Hilbert put it.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Cut',
+              def: 'A partition of ℚ into two nonempty classes (L, U) where every rational belongs to exactly one and every member of L is strictly below every member of U — Dedekind’s knife.',
+            },
+            {
+              term: 'Lower class / upper class',
+              def: 'The two sides of a cut: for the √2 cut, L = {r : r² < 2 or r < 0} and U = {r : r > 0 and r² > 2} — the two shores of 8.1, now a formal object.',
+            },
+            {
+              term: 'Produced by a rational',
+              def: 'A cut where some rational is the largest member of L (knife-face down) or the smallest member of U (knife-face up) — every rational produces its cut in exactly these two ways.',
+            },
+            {
+              term: 'Irrational cut',
+              def: 'A cut produced by no rational: neither class has a boundary member. The √2 cut is the type specimen — L has no largest, U has no smallest.',
+            },
+            {
+              term: 'Completeness',
+              def: 'The no-holes property of ℝ: every cut of the rationals is produced by exactly one real number. ℚ is dense yet not complete — the two virtues are independent.',
+            },
+            {
+              term: 'Nested intervals',
+              def: 'A family of brackets, each containing the next, with widths shrinking to zero — [1.4, 1.5] ⊃ [1.41, 1.42] ⊃ [1.414, 1.415] ⊃ …; rational-empty, real-complete: exactly one real survives all rungs.',
+            },
+            {
+              term: 'The tower of number systems',
+              def: 'ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — four systems as four repairs: ℤ closes subtraction, ℚ closes division, ℝ closes the holes; each inclusion proper (−2, 3/5, √2 the resident witnesses).',
+            },
+            {
+              term: 'Arithmetization of analysis',
+              def: 'The 1872 program of Dedekind, Cantor, Heine and Weierstrass (with Méray’s 1869 anticipation): rebuilding the continuous line from arithmetic alone, so that calculus rests on numbers, not pictures.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          title: 'Check yourself',
+          items: [
+            {
+              q: 'For the cut $L = \\{r : r^2 < 2 \\text{ or } r < 0\\}$, $U = \\{r : r > 0 \\text{ and } r^2 > 2\\}$, which statement is true?',
+              options: [
+                '$L$ has a largest member',
+                '$U$ has a smallest member',
+                'every rational is in exactly one of the two classes',
+                'the number $\\sqrt{2}$ is a member of $L$',
+              ],
+              answer: 2,
+              explain:
+                'Trichotomy on r² sends every rational to exactly one class (r² = 2 never happens — 8.1). Neither class has a boundary member (the two derivations), and √2 is not a rational at all, so it belongs to neither class of this cut of ℚ — the cut produces it.',
+            },
+            {
+              q: 'A cut of $\\mathbb{Q}$ is *produced by a rational* exactly when:',
+              options: [
+                'never — cuts are always irrational',
+                'only when the boundary rational is an integer',
+                'always — every cut has a rational boundary member',
+                'the rational is the largest member of $L$ or the smallest member of $U$',
+              ],
+              answer: 3,
+              explain:
+                'The two knife-faces: {r ≤ 3/2} (3/2 = max of L) or {r < 3/2} (3/2 = min of U) — both are the 3/2-cut. Irrational cuts are precisely the ones where NEITHER face exists.',
+            },
+            {
+              q: 'Which number system is *dense but not complete*?',
+              options: ['$\\mathbb{N}$', '$\\mathbb{Z}$', '$\\mathbb{Q}$', '$\\mathbb{R}$'],
+              answer: 2,
+              explain:
+                'ℚ packs with no adjacent pair (7.3’s density) and still has the hole at √2 (the dangling cut). ℕ and ℤ have neither virtue; ℝ has both.',
+            },
+            {
+              q: 'The three failures $3 - 5 \\notin \\mathbb{N}$, $3 \\div 5 \\notin \\mathbb{Z}$, $\\sqrt{2} \\notin \\mathbb{Q}$ motivated, in order:',
+              options: [
+                'nothing — they are just facts',
+                'the three storeys $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$ of the tower',
+                'only the extension to $\\mathbb{Q}$',
+                'new operations instead of new numbers',
+              ],
+              answer: 1,
+              explain:
+                'Each closure failure was repaired by constructing the next system — ℤ for subtraction (ch. 6), ℚ for division (ch. 7), ℝ for the holes (this chapter). The tower is the ledger of repairs.',
+            },
+            {
+              q: 'The nested rungs $[1.4, 1.5] \\supset [1.41, 1.42] \\supset [1.414, 1.415] \\supset \\dots$ (widths $\\to 0$) have as their total intersection:',
+              options: [
+                'exactly one rational',
+                'no rational at all — but exactly one real, $\\sqrt{2}$',
+                'infinitely many rationals',
+                'nothing whatsoever',
+              ],
+              answer: 1,
+              explain:
+                'Two distinct rationals differ by a fixed positive floor 1/(qq′), which some 10⁻ᵏ undercuts — so no rational survives all rungs. Completeness supplies exactly one real: the number the cut created. "Nothing whatsoever" forgets that ℝ has no holes.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'For the $\\sqrt{2}$ cut, classify each rational into $L$ or $U$ (one line of reason each): $-3$, $0$, $1$, $\\tfrac{3}{2}$, $\\tfrac{7}{5}$, $-\\tfrac{1}{2}$.',
+                  solution: [
+                    'Use the class definitions: $r < 0$ or $r^2 < 2$ puts $r$ in $L$; $r > 0$ with $r^2 > 2$ puts $r$ in $U$.',
+                    'Now, $-3 < 0$: in $L$. $0$: $0 < 0$ fails but $0^2 = 0 < 2$: in $L$. $1$: $1^2 = 1 < 2$: in $L$.',
+                    'So, $\\tfrac{3}{2}$: positive with $\\tfrac{9}{4} > 2$: in $U$. $\\tfrac{7}{5}$: positive with $\\tfrac{49}{25} = 1.96 < 2$: in $L$. $-\\tfrac{1}{2} < 0$: in $L$.',
+                    'Hence $L = \\{-3, 0, 1, \\tfrac{7}{5}, -\\tfrac{1}{2}\\}$ and $U = \\{\\tfrac{3}{2}\\}$ for this list — and note $\\tfrac{7}{5} < \\sqrt{2} < \\tfrac{3}{2}$ is exactly the rung $[1.4, 1.5]$.',
+                  ],
+                  answer: 'L: −3, 0, 1, 7/5, −½ · U: 3/2',
+                },
+                {
+                  q: '(Exam-style) True or false, with a reason: (i) between any two rationals there lives a rational; (ii) between any two reals there lives a rational; (iii) $\\mathbb{Q}$ has no holes.',
+                  solution: [
+                    '(i) True — the midpoint $\\tfrac{a+b}{2}$ is rational and strictly between (7.3’s density, proved by averaging).',
+                    '(ii) True — density of $\\mathbb{Q}$ inside $\\mathbb{R}$ survives the completion: between $\\sqrt{2}$ and $\\sqrt{3}$ lives $\\tfrac{3}{2}$; the general statement is the analysis shelf’s to prove, the instances are this lesson’s to exhibit.',
+                    '(iii) False — the $\\sqrt{2}$ cut dangles over a hole: $L$ has no largest, $U$ no smallest, and no rational produces the cut. Density (i) and no-holes (iii) are independent virtues.',
+                    'Hence: true, true, false — the trio that separates density from completeness.',
+                  ],
+                  answer: 'true · true · false',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Write the cut produced by $-\\tfrac{3}{2}$ in both knife-face forms.',
+                  solution: [
+                    'Knife-face down (boundary in the lower class): $L = \\{r \\in \\mathbb{Q} : r \\le -\\tfrac{3}{2}\\}$, $U = \\{r \\in \\mathbb{Q} : r > -\\tfrac{3}{2}\\}$ — here $-\\tfrac{3}{2}$ is the largest member of $L$.',
+                    'Knife-face up (boundary in the upper class): $L = \\{r \\in \\mathbb{Q} : r < -\\tfrac{3}{2}\\}$, $U = \\{r \\in \\mathbb{Q} : r \\ge -\\tfrac{3}{2}\\}$ — here $-\\tfrac{3}{2}$ is the smallest member of $U$.',
+                    'So, both pairs satisfy every cut axiom (partition, nonempty, all of $L$ below all of $U$) — check one clause by hand: if $l \\le -\\tfrac{3}{2} < u$ then $l < u$ ✓.',
+                    'Hence one rational, two cuts on paper — and nothing in the cut machinery distinguishes them; both are "the cut at $-\\tfrac{3}{2}$".',
+                  ],
+                  answer: 'L = {r ≤ −3/2}, U = {r > −3/2} — or L = {r < −3/2}, U = {r ≥ −3/2}',
+                },
+                {
+                  q: 'Run the room-above step exactly: for $r = \\tfrac{7}{5} \\in L$, compute $r + \\tfrac{2 - r^2}{2r + 1}$ as a single fraction and verify it stays in $L$.',
+                  solution: [
+                    'Compute the pieces: $r^2 = \\tfrac{49}{25}$, so $2 - r^2 = \\tfrac{1}{25}$; and $2r + 1 = \\tfrac{19}{5}$.',
+                    'Now, the step: $\\delta = \\tfrac{1/25}{19/5} = \\tfrac{1}{25} \\cdot \\tfrac{5}{19} = \\tfrac{1}{95}$.',
+                    'So, $r’ = \\tfrac{7}{5} + \\tfrac{1}{95} = \\tfrac{133 + 1}{95} = \\tfrac{134}{95} \\approx 1.4105$ — bigger than $1.4$ ✓.',
+                    'Hence verify the square: $\\left(\\tfrac{134}{95}\\right)^2 = \\tfrac{17956}{9025}$ while $2 = \\tfrac{18050}{9025}$ — and $17956 < 18050$, so $r’ \\in L$ exactly, with room $\\tfrac{94}{9025}$ left.',
+                  ],
+                  answer: '$\\tfrac{134}{95}$ — inside $L$ exactly ($17956/9025 < 2$)',
+                },
+                {
+                  q: 'Verify with exact integer arithmetic that the rungs $[1.4142, 1.4143]$ and $[1.41421, 1.41422]$ nest and both bracket the hole.',
+                  solution: [
+                    'Nesting: $1.4142 \\le 1.41421$ and $1.41422 \\le 1.4143$ — the later rung sits inside the earlier (read off the decimals; the script checks all six rungs).',
+                    'Now, bracketing for the first: $14142^2 = 199\\,996\\,164 < 200\\,000\\,000 < 200\\,024\\,449 = 14143^2$ — that is $1.4142^2 < 2 < 1.4143^2$ with the decimals scaled by $10^4$.',
+                    'So, bracketing for the second: $141421^2 = 19\\,999\\,899\\,241 < 20\\,000\\,000\\,000 < 20\\,000\\,182\\,084 = 141422^2$ — same shape at scale $10^5$.',
+                    'Hence both rungs bracket $\\sqrt{2}$ exactly, and nest — the chase closes by $10^{-k}$ each rung, forever.',
+                  ],
+                  answer: 'both rungs bracket √2 exactly; each nests in its predecessor',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Prove: no rational produces the $\\sqrt{2}$ cut.',
+                  solution: [
+                    'Let $c \\in \\mathbb{Q}$ be a candidate producer — it must be the largest member of $L$ or the smallest of $U$.',
+                    'Now, if $c \\in L$: the room-above construction (this lesson’s first derivation) exhibits a rational $c’ = c + \\delta \\in L$ with $c’ > c$ — so $c$ is not the largest member of $L$.',
+                    'So, if $c \\in U$: the room-below construction exhibits $c’ = c - \\delta \\in U$ with $c’ < c$ — so $c$ is not the smallest member of $U$. (Every rational is in exactly one class, so these two cases cover everything.)',
+                    'Hence no rational is the boundary of the cut in either face — the cut is produced by nothing in $\\mathbb{Q}$, which is precisely what makes it an *irrational* cut.',
+                  ],
+                  answer: 'both boundary slots are refuted by the room constructions',
+                },
+                {
+                  q: 'Prove the room-below estimate used in the second derivation: for $u > 0$ with $u^2 > 2$ and $\\delta = \\tfrac{u^2 - 2}{2u + 1}$, show $(u - \\delta)^2 > 2$.',
+                  solution: [
+                    'Expand: $(u - \\delta)^2 = u^2 - 2u\\delta + \\delta^2 > u^2 - 2u\\delta$ (the $\\delta^2$ term only helps).',
+                    'Now, substitute $\\delta$: $2u\\delta = \\tfrac{2u(u^2 - 2)}{2u + 1} = (u^2 - 2) \\cdot \\tfrac{2u}{2u + 1}$.',
+                    'So, since $\\tfrac{2u}{2u + 1} < 1$ (subtract the smaller numerator from the larger denominator: $1 - \\tfrac{2u}{2u+1} = \\tfrac{1}{2u+1} > 0$), the subtracted amount is *strictly less* than the full excess: $2u\\delta < u^2 - 2$.',
+                    'Hence $(u - \\delta)^2 > u^2 - (u^2 - 2) = 2$ — strictly above the wall, exactly as claimed.',
+                  ],
+                  answer: 'because 2u/(2u+1) < 1, the subtraction cannot erase the whole excess',
+                },
+                {
+                  q: '(Exam-style) Exhibit a rational strictly between $\\sqrt{2}$ and $\\sqrt{2} + \\tfrac{1}{1000}$, with an exact proof.',
+                  solution: [
+                    'Try $1.415$: the claim splits into $\\sqrt{2} < 1.415$ and $1.415 < \\sqrt{2} + 0.001$.',
+                    'Now, the first half: $1415^2 = 2\\,002\\,225 > 2\\,000\\,000 = 2 \\cdot 10^6$, so $1.415^2 > 2$ and (positives) $1.415 > \\sqrt{2}$ ✓.',
+                    'So, the second half: $1.415 - 0.001 = 1.414$, and $1414^2 = 1\\,999\\,396 < 2\\,000\\,000$, so $1.414 < \\sqrt{2}$, which rearranges to $1.415 < \\sqrt{2} + 0.001$ ✓.',
+                    'Hence $1.415$ sits strictly inside the window of width one-thousandth — density of $\\mathbb{Q}$ inside $\\mathbb{R}$, cashed in exact integer squares.',
+                  ],
+                  answer: '$1.415$ (exact: 1414² < 2·10⁶ < 1415²)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Build the four-repair ledger with witnesses: for each of $\\mathbb{N}, \\mathbb{Z}, \\mathbb{Q}, \\mathbb{R}$, name one operation-closure it *lacks* (or say "none") and the system that repairs it.',
+                  solution: [
+                    '$\\mathbb{N}$: lacks $-$ ($3 - 5$ has no answer) and lacks $\\div$ ($3 \\div 5$ has no answer) — repaired by $\\mathbb{Z}$ (subtraction, ch. 6) and then $\\mathbb{Q}$ (division, ch. 7).',
+                    'Now, $\\mathbb{Z}$: has $-$; still lacks $\\div$ — $3 \\div 5$ remains unanswered (no integer $m$ with $5m = 3$); repaired by $\\mathbb{Q}$.',
+                    'So, $\\mathbb{Q}$: has $-$ and $\\div$; lacks *completeness* — the $\\sqrt{2}$ cut dangles; repaired by $\\mathbb{R}$ (this chapter).',
+                    'Hence $\\mathbb{R}$: no holes; the ledger closes (the next failures — limits of infinite processes — are not failures of the *number system* but of the tools built on it; that story is the analysis shelf’s).',
+                  ],
+                  answer: 'ℕ: −, ÷ → ℤ, ℚ · ℤ: ÷ → ℚ · ℚ: the holes → ℝ · ℝ: ledger closed',
+                },
+                {
+                  q: 'Prove: if $r, s \\in L$ (the $\\sqrt{2}$ cut’s lower class) and both are positive, then $rs < 2$ — without ever mentioning $\\sqrt{2}$.',
+                  solution: [
+                    'Both squares sit below the wall: $r^2 < 2$ and $s^2 < 2$ (that is what membership in $L$ means for positives).',
+                    'Now, the key inequality: $rs \\le \\tfrac{r^2 + s^2}{2}$ — because $(r - s)^2 \\ge 0$ expands to $r^2 + s^2 \\ge 2rs$.',
+                    'So, chain them: $rs \\le \\tfrac{r^2 + s^2}{2} < \\tfrac{2 + 2}{2} = 2$.',
+                    'Hence the product of two lower-class positives stays below the wall — a preview of how *arithmetic on classes* will be defined on the analysis shelf: products of members stay in class, no square root ever named.',
+                  ],
+                  answer: 'rs ≤ (r² + s²)/2 < 2 — by (r−s)² ≥ 0 alone',
+                },
+                {
+                  q: 'The cuts of $\\sqrt{2}$ and $\\sqrt{3}$ are different cuts. Exhibit a rational that separates them, and explain why such a rational must exist for any two different cuts.',
+                  solution: [
+                    'Exhibit: $\\tfrac{3}{2}$ — positive with $\\left(\\tfrac{3}{2}\\right)^2 = \\tfrac{9}{4} > 2$ (so $\\tfrac{3}{2}$ is in the *upper* class of the $\\sqrt{2}$ cut) and $\\tfrac{9}{4} < 3$ (so it is in the *lower* class of the $\\sqrt{3}$ cut). One rational, two different sides.',
+                    'Now, why it must exist: if the cuts $(L_1, U_1)$ and $(L_2, U_2)$ differ, some rational sits in different classes — say $r \\in L_1$ but $r \\in U_2$. Then every $l \\in L_1$ is below $r$… careful: $r \\in L_1$ means $r$ itself is a lower-class member of cut 1 and an upper-class member of cut 2 — the classes disagree at $r$.',
+                    'So, the general principle: distinct cuts are *separated by a rational* — cuts do not differ by ghosts, only by which side specific rationals fall on. (Contrapositive: two cuts with identical classes are the same cut — one number, one knife-line.)',
+                    'Hence $\\sqrt{2} \\ne \\sqrt{3}$ has a purely cut-level proof: the rational $\\tfrac{3}{2}$ witnesses the difference — exactly as $1.5$ sits between them on the line.',
+                  ],
+                  answer: '3/2 separates them — upper class of the √2 cut, lower class of the √3 cut',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Density of $\\mathbb{Q}$ inside $\\mathbb{R}$, structured sketch: for reals $a < b$, exhibit the reasoning that produces a rational in $(a, b)$ — stating honestly which step is taken on faith at this book’s level.',
+                  solution: [
+                    'The plan (Archimedes’s idea): make a denominator $n$ so fine that $\\tfrac{1}{n} < b - a$, then catch the first multiple of $\\tfrac{1}{n}$ above $a$.',
+                    'Now, the catch: the set $\\{k/n : k \\in \\mathbb{Z}\\}$ steps by $\\tfrac{1}{n} < b - a$, so it cannot jump *over* the whole interval — some $k/n$ lands strictly inside $(a, b)$.',
+                    'So, the honest accounting: the existence of $n$ with $\\tfrac{1}{n} < b - a$ is the *Archimedean property*; the "first multiple above $a$" uses the well-ordering of a suitable set of integers. Both are theorems of the analysis shelf — this book takes them as given and exhibits instances instead.',
+                    'Hence the instances this lesson verified exactly: $\\tfrac{3}{2} \\in (\\sqrt{2}, \\sqrt{3})$ and $1.415 \\in (\\sqrt{2}, \\sqrt{2} + 10^{-3})$ — the structure is sketched, the instances are proved, the general theorem is honestly deferred.',
+                  ],
+                  answer: 'a fine-enough 1/n, then the first multiple above a — Archimedean step taken on faith at this level',
+                },
+                {
+                  q: '(Exam-style, assertion–reason) Assertion: every point of the real line corresponds to exactly one real number. Reason: the rationals are dense in the line. Evaluate.',
+                  solution: [
+                    'The assertion is TRUE in the completed picture: every cut is produced by exactly one real — the line and $\\mathbb{R}$ now answer to each other point for point (this lesson’s closing claim, informally stated).',
+                    'Now, the reason is TRUE as a statement — but it is NOT the correct explanation: density is the property $\\mathbb{Q}$ already had, and $\\mathbb{Q}$ visibly fails the assertion (the $\\sqrt{2}$ point had no rational). What earns the assertion is *completeness*, a different virtue.',
+                    'So, the verdict: assertion true, reason true, but the reason does not explain the assertion — the "true / true / not-the-explanation" option, the rarest and most instructive answer in the format.',
+                    'Hence the examination skill: when reason and assertion are both true, ask the cut question — would the reason still hold if the assertion failed? Density held in $\\mathbb{Q}$; the assertion did not. Not the explanation.',
+                  ],
+                  answer: 'assertion true · reason true · not the correct explanation (completeness, not density, earns it)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The cut-to-equation theorem: let $\\alpha$ be the real number produced by the $\\sqrt{2}$ cut (every $l \\in L$ satisfies $l < \\alpha$ and every $u \\in U$ satisfies $\\alpha < u$). Prove $\\alpha^2 = 2$. (Numerical anchor: the same argument shows $1.4142^2 < 2$ forces a witness above $1.4142$.)',
+                  solution: [
+                    'First, $\\alpha > 1$: the rational $1 \\in L$, and $\\alpha$ exceeds every member of $L$. So $\\alpha$ is positive and squaring is order-preserving on it.',
+                    'Now, kill $\\alpha^2 < 2$: then $\\alpha \\in L$-position with room above, and the room-above engine runs on reals too — pick a rational $\\varepsilon$ with $0 < \\varepsilon < \\tfrac{2 - \\alpha^2}{2\\alpha + 1}$ (density supplies one). Then $(\\alpha + \\varepsilon)^2 = \\alpha^2 + 2\\alpha\\varepsilon + \\varepsilon^2 \\le \\alpha^2 + (2\\alpha + 1)\\varepsilon < 2$ — and by density pick a rational $r$ with $\\alpha < r < \\alpha + \\varepsilon$, so $r^2 < 2$, i.e. $r \\in L$ with $r > \\alpha$. That contradicts $\\alpha$ sitting above *all* of $L$.',
+                    'So, kill $\\alpha^2 > 2$ symmetrically: with $\\varepsilon < \\tfrac{\\alpha^2 - 2}{2\\alpha}$ rational-positive, $(\\alpha - \\varepsilon)^2 > \\alpha^2 - 2\\alpha\\varepsilon > 2$, and a rational $r \\in (\\alpha - \\varepsilon, \\alpha)$ lands in $U$ below $\\alpha$ — contradicting $\\alpha$ sitting below all of $U$.',
+                    'Hence neither inequality survives: $\\alpha^2 = 2$ exactly. The numerical anchor at $\\alpha_0 = 1.4142$: room $\\tfrac{2 - 1.4142^2}{2 \\cdot 1.4142 + 1} \\approx 1.0 \\times 10^{-5}$, and indeed $1.4142 + 10^{-5} < \\sqrt{2}$ (check: $(1.41421)^2 = 1.9999899241 < 2$). The created number is *forced* to square to 2 — the cut does not merely label the hole, it pins the equation.',
+                  ],
+                  answer: 'both α² < 2 and α² > 2 contradict the producing property — so α² = 2',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The cut definition',
+          latex: '(L, U):\\; L \\cup U = \\mathbb{Q},\\; L, U \\neq \\varnothing,\\; l \\in L,\\; u \\in U \\Rightarrow l < u',
+          note: 'A partition of ℚ with the whole left class below the whole right class — Dedekind’s knife.',
+        },
+        {
+          kind: 'formula',
+          name: 'The completeness property',
+          latex: '\\text{every cut of } \\mathbb{Q} \\text{ is produced by exactly one real number}',
+          note: 'The no-holes axiom: ℚ fails it (√2’s cut dangles), ℝ satisfies it — the foundation of analysis.',
+        },
+        {
+          kind: 'formula',
+          name: 'The tower of number systems',
+          latex: '\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}',
+          note: 'Three closure repairs stacked: ℤ closes −, ℚ closes ÷, ℝ closes the holes.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'The classification trio — rational, irrational, real — is permanent school fare: "every point on the number line corresponds to a unique real number, and every real is rational or irrational" is exactly the NCERT class-9 framing, and competitive papers cash it as classify-the-number and locate-on-the-line items ("which integer pair brackets √13?" — the squeeze engine of 8.1). The density-versus-completeness distinction is a favourite assertion–reason station: "ℚ is dense, therefore it has no gaps" is the classic false implication this lesson dismantles, and the nested-bracket chase ("what survives all rungs?") appears as a conceptual MCQ in olympiad qualifiers and JEE-advanced-style papers. The full cut machinery itself is first-course-in-analysis territory — but its *conclusions* (the tower diagram, the completeness statement in words) are asked as one-mark theory items in school-leaving exams. Know the two virtues by name: dense is about packing, complete is about holes.',
+        },
+        {
+          kind: 'para',
+          text: 'The chapter closes, and with it the tower. Four systems, four stories: the naturals generated from one successor rule; the integers built as difference-pairs to rescue subtraction; the rationals built as fraction-pairs to rescue division — dense, field-complete, and *still* hollow; and now the reals, completed by Dedekind’s knife so that every cut, every squeeze, every nested chase lands on exactly one number. The diagonal of the unit square, homeless since lesson 8.1, lives at $\\sqrt{2}$ — above every rational whose square is under 2, below every rational whose square is over 2, pinned by an equation it never asked to satisfy. What remains of this book is not more structure but two vistas: how humanity learned to write these numbers down at all (chapter 9’s journey through five numeration systems), and how the tower looks from above — the map of number systems, and the strange guests (√−1 among them) waiting just past the edge of this one.',
+        },
+      ],
+    },
   ],
-  plannedLessons: ['How Irrationals Behave', 'Completeness: the Line Without Holes'],
+  plannedLessons: [],
 }
