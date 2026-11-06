@@ -21,7 +21,7 @@ Every work session appends one entry at the top. Format:
 
 **Logging:** WORKLOG (this entry), PROGRESS.json (phase = ch. 8 COMPLETE 4/4 + run61Extras + lastCompleted + totals refreshed), RESUME_POINTER.json (nextAction = run 62 opens chapter 9 'Numeration Through History': verify-book2-ch09.ts FIRST, 2 lessons 9.1 + 9.2 of the planned three), SOURCE_LOG.md (4 new web-checked keys: dedekind-1872-stetigkeit, cantor-1872-fundamental-sequences, heine-1872-functionenlehre, meray-1869-limites — zero downloads), DETAILED_LOG.md (run-61 record), WORK_INVENTORY.json regenerated, book.ts + ch-08.ts headers updated.
 
-**Step 4 — push:** local commit, then the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moves ALL unpushed commits on main — the run-60 addendum pair (`f5e35f7`, `f1c87b8`) + this ship; one-time-URL `ls-remote` verifies the synced HEAD (sha recorded below at push time).
+**Step 4 — push:** local commit `ecd8ce7`, then the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moved it to main (the run-60 addendum pair had already landed on the remote via that session's own protocol push); one-time-URL `ls-remote` verified **remote HEAD = ecd8ce7603a867ba08b52a1c748fe807c593634c = local HEAD**.
 
 **Next:** run 62 = ANS ch. 9 'Numeration Through History' OPENS — create verify-book2-ch09.ts FIRST (whitelist it + e2e-ans-91/92 in .gitignore before committing), author 9.1 'Tallies, Groupings and Additive Systems' + 9.2 'Place Value Before Its Time: Babylon and Mesoamerica' sequentially under the v2 two-lesson scope. Chapter 10 'The Map of Number Systems' (2 lessons) then closes the book.
 
