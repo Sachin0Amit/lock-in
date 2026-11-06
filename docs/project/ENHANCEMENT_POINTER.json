@@ -1,0 +1,548 @@
+{
+ "updated": "2026-11-06",
+ "purpose": "Visual-upgrade job queue (job 507527, hourly :15): every lesson of chapters already COMPLETE and verified, oldest first. The chapter job (job 507529, odd-hour :45) owns RESUME_POINTER.json/PROGRESS.json/WORK_INVENTORY.json/DETAILED_LOG.md — never write those from this job. One lesson hands-on per run; lessons audited and needing nothing are marked reviewed-no-op.",
+ "queue": [
+  {
+   "id": "fm-numbers-digits-place-value",
+   "book": "foundation-mathematics",
+   "chapter": 1,
+   "number": "1.1",
+   "title": "Numbers, Digits and Place Value",
+   "status": "done"
+  },
+  {
+   "id": "fm-comparing-ordering-numbers",
+   "book": "foundation-mathematics",
+   "chapter": 1,
+   "number": "1.2",
+   "title": "Comparing and Ordering Numbers",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-rounding-and-estimating",
+   "book": "foundation-mathematics",
+   "chapter": 1,
+   "number": "1.3",
+   "title": "Rounding and Estimating",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-addition-carrying",
+   "book": "foundation-mathematics",
+   "chapter": 2,
+   "number": "2.1",
+   "title": "Addition and the Art of Carrying",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-subtraction-borrowing",
+   "book": "foundation-mathematics",
+   "chapter": 2,
+   "number": "2.2",
+   "title": "Subtraction and Borrowing",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-multiplication-repeated-addition",
+   "book": "foundation-mathematics",
+   "chapter": 2,
+   "number": "2.3",
+   "title": "Multiplication as Repeated Addition — and Beyond",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-division-remainders-zero",
+   "book": "foundation-mathematics",
+   "chapter": 2,
+   "number": "2.4",
+   "title": "Division, Remainders and Why Zero Never Divides",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-order-of-operations",
+   "book": "foundation-mathematics",
+   "chapter": 2,
+   "number": "2.5",
+   "title": "Order of Operations and the Language of Expressions",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-divisibility-and-its-tests",
+   "book": "foundation-mathematics",
+   "chapter": 3,
+   "number": "3.1",
+   "title": "Divisibility and Its Tests",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-prime-numbers-factorisation",
+   "book": "foundation-mathematics",
+   "chapter": 3,
+   "number": "3.2",
+   "title": "Prime Numbers and Factorisation",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-highest-common-factor",
+   "book": "foundation-mathematics",
+   "chapter": 3,
+   "number": "3.3",
+   "title": "Highest Common Factor",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-lowest-common-multiple",
+   "book": "foundation-mathematics",
+   "chapter": 3,
+   "number": "3.4",
+   "title": "Lowest Common Multiple",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-hcf-lcm-and-how-they-relate",
+   "book": "foundation-mathematics",
+   "chapter": 3,
+   "number": "3.5",
+   "title": "HCF, LCM and How They Relate",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-idea-of-a-fraction",
+   "book": "foundation-mathematics",
+   "chapter": 4,
+   "number": "4.1",
+   "title": "The Idea of a Fraction",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-equivalent-fractions-simplification",
+   "book": "foundation-mathematics",
+   "chapter": 4,
+   "number": "4.2",
+   "title": "Equivalent Fractions and Simplification",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-comparing-fractions",
+   "book": "foundation-mathematics",
+   "chapter": 4,
+   "number": "4.3",
+   "title": "Comparing Fractions",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-adding-subtracting-fractions",
+   "book": "foundation-mathematics",
+   "chapter": 4,
+   "number": "4.4",
+   "title": "Adding and Subtracting Fractions",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-multiplying-dividing-fractions",
+   "book": "foundation-mathematics",
+   "chapter": 4,
+   "number": "4.5",
+   "title": "Multiplying and Dividing Fractions",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-decimal-places-and-the-point",
+   "book": "foundation-mathematics",
+   "chapter": 5,
+   "number": "5.1",
+   "title": "Decimal Places and the Point",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-decimals-and-fractions-two-ways",
+   "book": "foundation-mathematics",
+   "chapter": 5,
+   "number": "5.2",
+   "title": "Decimals and Fractions, Two Ways of Writing the Same Numbers",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-operating-on-decimals",
+   "book": "foundation-mathematics",
+   "chapter": 5,
+   "number": "5.3",
+   "title": "Operating on Decimals",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-percent-and-its-meaning",
+   "book": "foundation-mathematics",
+   "chapter": 5,
+   "number": "5.4",
+   "title": "Percent and Its Meaning",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-percentage-change-discounts-simple-interest",
+   "book": "foundation-mathematics",
+   "chapter": 5,
+   "number": "5.5",
+   "title": "Percentage Change, Discounts and Simple Interest",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-ratio-as-a-comparison",
+   "book": "foundation-mathematics",
+   "chapter": 6,
+   "number": "6.1",
+   "title": "Ratio as a Comparison",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-rates-and-unit-rates",
+   "book": "foundation-mathematics",
+   "chapter": 6,
+   "number": "6.2",
+   "title": "Rates and Unit Rates",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-proportion-and-cross-multiplication",
+   "book": "foundation-mathematics",
+   "chapter": 6,
+   "number": "6.3",
+   "title": "Proportion and Cross-Multiplication",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-direct-and-inverse-variation",
+   "book": "foundation-mathematics",
+   "chapter": 6,
+   "number": "6.4",
+   "title": "Direct and Inverse Variation",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-scaling-maps-models-and-recipes",
+   "book": "foundation-mathematics",
+   "chapter": 6,
+   "number": "6.5",
+   "title": "Scaling: Maps, Models and Recipes",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-negative-numbers-why-they-exist",
+   "book": "foundation-mathematics",
+   "chapter": 7,
+   "number": "7.1",
+   "title": "Negative Numbers and Why They Exist",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-adding-subtracting-integers",
+   "book": "foundation-mathematics",
+   "chapter": 7,
+   "number": "7.2",
+   "title": "Adding and Subtracting Integers",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-multiplying-integers-sign-rules",
+   "book": "foundation-mathematics",
+   "chapter": 7,
+   "number": "7.3",
+   "title": "Multiplying Integers and the Sign Rules",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-absolute-value-as-distance",
+   "book": "foundation-mathematics",
+   "chapter": 7,
+   "number": "7.4",
+   "title": "Absolute Value as Distance",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-points-lines-and-planes",
+   "book": "foundation-mathematics",
+   "chapter": 8,
+   "number": "8.1",
+   "title": "Points, Lines and Planes",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-angles-and-their-measurement",
+   "book": "foundation-mathematics",
+   "chapter": 8,
+   "number": "8.2",
+   "title": "Angles and Their Measurement",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-parallel-lines-and-transversals",
+   "book": "foundation-mathematics",
+   "chapter": 8,
+   "number": "8.3",
+   "title": "Parallel Lines and Transversals",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-triangles-and-the-angle-sum",
+   "book": "foundation-mathematics",
+   "chapter": 8,
+   "number": "8.4",
+   "title": "Triangles and the Angle Sum",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-perimeter-and-area-rectangles-triangles-circles",
+   "book": "foundation-mathematics",
+   "chapter": 8,
+   "number": "8.5",
+   "title": "Perimeter and Area of Rectangles, Triangles and Circles",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-units-as-agreements",
+   "book": "foundation-mathematics",
+   "chapter": 9,
+   "number": "9.1",
+   "title": "Units as Agreements",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-the-metric-system",
+   "book": "foundation-mathematics",
+   "chapter": 9,
+   "number": "9.2",
+   "title": "The Metric System",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-converting-units-without-memorising-tables",
+   "book": "foundation-mathematics",
+   "chapter": 9,
+   "number": "9.3",
+   "title": "Converting Units Without Memorising Tables",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-precision-accuracy-and-rounding-in-measurement",
+   "book": "foundation-mathematics",
+   "chapter": 9,
+   "number": "9.4",
+   "title": "Precision, Accuracy and Rounding in Measurement",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-collecting-and-tallying-data",
+   "book": "foundation-mathematics",
+   "chapter": 10,
+   "number": "10.1",
+   "title": "Collecting and Tallying Data",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-bar-charts-line-graphs-and-pie-charts",
+   "book": "foundation-mathematics",
+   "chapter": 10,
+   "number": "10.2",
+   "title": "Bar Charts, Line Graphs and Pie Charts",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-reading-graphs-critically",
+   "book": "foundation-mathematics",
+   "chapter": 10,
+   "number": "10.3",
+   "title": "Reading Graphs Critically",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-mean-median-and-mode",
+   "book": "foundation-mathematics",
+   "chapter": 10,
+   "number": "10.4",
+   "title": "Mean, Median and Mode",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-patterns-and-rules",
+   "book": "foundation-mathematics",
+   "chapter": 11,
+   "number": "11.1",
+   "title": "Patterns and Rules",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-patterns-to-formulas",
+   "book": "foundation-mathematics",
+   "chapter": 11,
+   "number": "11.2",
+   "title": "From Patterns to Formulas",
+   "status": "pending-review"
+  },
+  {
+   "id": "fm-letter-for-the-unknown",
+   "book": "foundation-mathematics",
+   "chapter": 11,
+   "number": "11.3",
+   "title": "A Letter for the Unknown",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-architecture-of-counting-successors-order",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 1,
+   "number": "1.1",
+   "title": "The Architecture of Counting: Successors and Order",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-induction-proving-for-every-number",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 1,
+   "number": "1.2",
+   "title": "Induction: Proving for Every Number at Once",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-least-number-principle-recursion",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 1,
+   "number": "1.3",
+   "title": "The Least-Number Principle and Recursion",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-division-with-rest-the-division-algorithm",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 2,
+   "number": "2.1",
+   "title": "Division with Rest: The Division Algorithm",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-the-algebra-of-divisibility",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 2,
+   "number": "2.2",
+   "title": "The Algebra of Divisibility",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-euclidean-algorithm-proven-bezout-identity",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 2,
+   "number": "2.3",
+   "title": "The Euclidean Algorithm, Proven — and Bézout’s Identity",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-linear-diophantine-equations",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 2,
+   "number": "2.4",
+   "title": "Linear Diophantine Equations",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-representation-theorem-unique-name",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 3,
+   "number": "3.1",
+   "title": "The Representation Theorem: Every Number Has Exactly One Name",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-converting-between-bases",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 3,
+   "number": "3.2",
+   "title": "Converting Between Bases",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-arithmetic-in-other-bases",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 3,
+   "number": "3.3",
+   "title": "Arithmetic in Other Bases",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-binary-hex-machine",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 3,
+   "number": "3.4",
+   "title": "Binary, Hexadecimal and the Machine",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-primes-never-end-euclid-and-the-sieve",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 4,
+   "number": "4.1",
+   "title": "The Primes Never End: Euclid’s Proof and the Sieve",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-fundamental-theorem-of-arithmetic",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 4,
+   "number": "4.2",
+   "title": "The Fundamental Theorem of Arithmetic",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-divisors-from-dna-divisor-counts",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 4,
+   "number": "4.3",
+   "title": "Divisors from DNA: Divisor Counts and Factorial Zeros",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-how-the-primes-are-distributed",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 4,
+   "number": "4.4",
+   "title": "How the Primes Are Distributed",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-remainders-become-numbers-congruence-defined",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 5,
+   "number": "5.1",
+   "title": "Remainders Become Numbers: Congruence Defined",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-why-the-divisibility-tests-work",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 5,
+   "number": "5.2",
+   "title": "Why the Divisibility Tests Work",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-unit-digit-cycles-of-powers",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 5,
+   "number": "5.3",
+   "title": "The Unit Digit and Cycles of Powers",
+   "status": "pending-review"
+  },
+  {
+   "id": "ans-linear-congruences-glimpse-of-fermat",
+   "book": "arithmetic-and-number-systems",
+   "chapter": 5,
+   "number": "5.4",
+   "title": "Linear Congruences and a Glimpse of Fermat",
+   "status": "pending-review"
+  }
+ ],
+ "lastDone": {
+  "lessonId": "fm-numbers-digits-place-value",
+  "date": "2026-11-06",
+  "run": "visual-upgrade run 1 (job 507527, fired 15:45 +08:00)",
+  "summary": "number-line figure: 3 defects fixed (direction-label clipping, missing caption-promised markers at 7 and −4) + mobile font bump; NEW figure added: one-digit-four-seats (per-digit seat rendering, marching amber strips, ×10 arrows) — all geometry computed in-source; gates: geometry audit CLEAN, overlap audit 0/0, lint 0, tsc 0, E2E 44/44 at 1280+390+dark, quiz 5/5"
+ }
+}

@@ -11,6 +11,87 @@ import type { Chapter } from '../../../types'
  * Examinations (4e) ch. 1 "Numbers" + NCERT Class 6 "Knowing Our Numbers"
  * topic coverage — see docs/project/SOURCE_LOG.md. Exposition original.
  */
+
+/* ------------------------------------------------------------------ */
+/* Figure: "One digit, four seats" (visual upgrade run 1, 2026-11-06).  */
+/* ALL geometry computed from constants — nothing hand-placed:          */
+/*   monospace digit advance = 0.6em × 24px = 14.4px                    */
+/*   numeral column right edge  RIGHT_X = 214 (each digit is its own    */
+/*   <text> anchored at its seat's right edge, so every digit occupies  */
+/*   exactly one 14.4px seat — the picture is the definition)           */
+/*   row baselines              y = 58 + 64·i                           */
+/*   numeral strip              x = seatLeft − 3, y = base − 25,        */
+/*                              w = 14.4·n + 6, h = 32 — spans the      */
+/*                              WHOLE numeral so every digit sits fully */
+/*                              inside it (overlap-audit exempt), and   */
+/*                              its left edge retreats by exactly one   */
+/*                              14.4px seat per appended zero           */
+/*   march arrows               (cxᵢ, baseᵢ+9) → (cxᵢ₊₁, baseᵢ₊₁−27)    */
+/*                              endpoints clear of both glyph boxes     */
+/*   ×10 labels                 anchor end at cxᵢ₊₁ − 16, clear of all  */
+/*                              strips and glyph boxes                  */
+/* The marching 5s (206.8 → 192.4 → 178.0 → 163.6) and the ×10 arrows   */
+/* are derived, so the picture is exact by construction.                */
+/* ------------------------------------------------------------------ */
+const DIGIT_W = 14.4
+const RIGHT_X = 214
+const BASE0 = 58
+const ROW_H = 64
+const SEAT_ROWS = [
+  { zeros: 0, name: 'ones seat', pow: 0, value: '= 5' },
+  { zeros: 1, name: 'tens seat', pow: 1, value: '= 50' },
+  { zeros: 2, name: 'hundreds seat', pow: 2, value: '= 500' },
+  { zeros: 3, name: 'thousands seat', pow: 3, value: '= 5,000' },
+]
+const seatRows = SEAT_ROWS.map((s, i) => {
+  const base = BASE0 + ROW_H * i
+  const n = s.zeros + 1 // digits in the numeral
+  const seatLeft = +(RIGHT_X - DIGIT_W * n).toFixed(1)
+  const fiveRight = +(RIGHT_X - DIGIT_W * (n - 1)).toFixed(1)
+  return { ...s, base, n, seatLeft, fiveRight, cx: +((seatLeft + fiveRight) / 2).toFixed(1) }
+})
+const seatBands = seatRows
+  .map(
+    (r) =>
+      `<rect x="${+(r.seatLeft - 3).toFixed(1)}" y="${r.base - 25}" width="${+(DIGIT_W * r.n + 6).toFixed(1)}" height="32" rx="6" fill="#b45309" fill-opacity="0.14" stroke="#b45309" stroke-opacity="0.55"/>`
+  )
+  .join('\n  ')
+const seatArrows = seatRows
+  .slice(0, -1)
+  .map((r, i) => {
+    const nxt = seatRows[i + 1]
+    const midY = (r.base + nxt.base) / 2 + 4
+    return `<line x1="${r.cx}" y1="${r.base + 9}" x2="${nxt.cx}" y2="${nxt.base - 27}" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#seat-arrow)"/>
+  <text x="${nxt.cx - 16}" y="${midY}" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="end">×10</text>`
+  })
+  .join('\n  ')
+const seatNumerals = seatRows
+  .map((r) => {
+    const digits = ['5', ...Array<string>(r.zeros).fill('0')]
+    return digits
+      .map((d, di) => {
+        const k = r.n - 1 - di // seat index from the right
+        const x = +(RIGHT_X - DIGIT_W * k).toFixed(1)
+        const style = di === 0 ? ' fill="#b45309" font-weight="700"' : ' fill="currentColor" opacity="0.5"'
+        return `<text x="${x}" y="${r.base}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="24"${style}>${d}</text>`
+      })
+      .join('\n  ')
+  })
+  .join('\n  ')
+const seatLabels = seatRows
+  .map(
+    (r) =>
+      `<text x="252" y="${r.base - 2}" font-size="15" font-weight="600" fill="currentColor">${r.name}</text>
+  <text x="252" y="${r.base + 16}" font-size="12" fill="currentColor" opacity="0.72">contributes 5 × 10<tspan font-size="9.5" dy="-5">${r.pow}</tspan></text>`
+  )
+  .join('\n  ')
+const seatValueBoxes = seatRows
+  .map(
+    (r) =>
+      `<rect x="470" y="${r.base - 22}" width="134" height="34" rx="7" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-opacity="0.3"/>
+  <text x="537" y="${r.base + 1}" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor">${r.value}</text>`
+  )
+  .join('\n  ')
 export const chapter01: Chapter = {
   number: 1,
   slug: 'numbers-and-place-value',
@@ -105,6 +186,29 @@ export const chapter01: Chapter = {
           note: 'Each digit of 4725, weighted by the power of ten attached to its position. Reading right to left the exponents run 0, 1, 2, 3 — and $10^0 = 1$, which is exactly the ones place.',
         },
         {
+          kind: 'figure',
+          caption:
+            'One digit, four seats. The very same digit 5 in four different numerals — each appended zero shifts the digit one seat to the left and multiplies its contribution by ten: $5 \\times 10^{0} = 5$, $5 \\times 10^{1} = 50$, $5 \\times 10^{2} = 500$, $5 \\times 10^{3} = 5{,}000$.',
+          svg: `<svg viewBox="0 0 620 282" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same digit 5 shown in four numerals: 5, 50, 500 and 5000. Each appended zero moves the digit one seat to the left and multiplies its contribution by ten.">
+  <defs>
+    <marker id="seat-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#b45309"/>
+    </marker>
+  </defs>
+  <!-- column headers -->
+  <g font-size="10" fill="currentColor" opacity="0.6" letter-spacing="1.5">
+    <text x="214" y="20" text-anchor="end">NUMERAL</text>
+    <text x="252" y="20">SEAT OF THE DIGIT 5</text>
+    <text x="537" y="20" text-anchor="middle">VALUE</text>
+  </g>
+  ${seatBands}
+  ${seatArrows}
+  ${seatNumerals}
+  ${seatLabels}
+  ${seatValueBoxes}
+</svg>`,
+        },
+        {
           kind: 'derivation',
           title: 'Why each move to the left multiplies the value by ten',
           statement:
@@ -169,7 +273,7 @@ export const chapter01: Chapter = {
           kind: 'figure',
           caption:
             'The number line: the origin (0) is the fixed reference; integers step rightwards as they grow and leftwards into the negatives. The number 7 sits seven unit steps right of the origin; −4 sits four unit steps left.',
-          svg: `<svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from minus 10 to 10 with labeled integers">
+          svg: `<svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from minus 10 to 10 with labeled integers; the numbers 7 and minus 4 are marked with amber dots">
   <defs>
     <marker id="nl-arrow-r" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/>
@@ -179,8 +283,8 @@ export const chapter01: Chapter = {
     </marker>
   </defs>
   <line x1="50" y1="80" x2="710" y2="80" stroke="currentColor" stroke-width="2" marker-end="url(#nl-arrow-r)" marker-start="url(#nl-arrow-l)"/>
-  <text x="640" y="58" font-size="13" fill="currentColor" opacity="0.75">positive direction →</text>
-  <text x="70" y="58" font-size="13" fill="currentColor" opacity="0.75">← negative direction</text>
+  <text x="710" y="58" font-size="14" fill="currentColor" opacity="0.75" text-anchor="end">positive direction →</text>
+  <text x="50" y="58" font-size="14" fill="currentColor" opacity="0.75">← negative direction</text>
   <!-- ticks: value v maps to x = 380 + v*33 -->
   <g stroke="currentColor" stroke-width="1.5">
     ${Array.from({ length: 21 }, (_, i) => {
@@ -192,16 +296,25 @@ export const chapter01: Chapter = {
   </g>
   <!-- origin emphasis -->
   <circle cx="380" cy="80" r="4" fill="#b45309"/>
+  <!-- caption-promised emphasis dots: 7 sits at x = 380 + 7*33 = 611, −4 at x = 380 − 4*33 = 248 -->
+  <circle cx="611" cy="80" r="5" fill="#b45309"/>
+  <circle cx="248" cy="80" r="5" fill="#b45309"/>
   <!-- labels -->
-  <g font-size="12" fill="currentColor" text-anchor="middle">
+  <g font-size="14" fill="currentColor" text-anchor="middle">
     ${Array.from({ length: 21 }, (_, i) => {
       const v = i - 10
       const x = 380 + v * 33
       const strong = v % 5 === 0
-      return `<text x="${x}" y="${112}" ${strong ? 'font-weight="700" font-size="13"' : 'opacity="0.7"'}>${v}</text>`
+      const marked = v === 7 || v === -4
+      const attrs = marked
+        ? 'font-weight="700" font-size="15" fill="#b45309"'
+        : strong
+          ? 'font-weight="700" font-size="15"'
+          : 'opacity="0.7"'
+      return `<text x="${x}" y="${112}" ${attrs}>${v}</text>`
     }).join('\n    ')}
   </g>
-  <text x="380" y="140" font-size="11" fill="currentColor" opacity="0.65" text-anchor="middle">origin (0)</text>
+  <text x="380" y="140" font-size="12" fill="currentColor" opacity="0.65" text-anchor="middle">origin (0)</text>
 </svg>`,
         },
         { kind: 'heading', text: 'Naming large numbers: two world conventions' },

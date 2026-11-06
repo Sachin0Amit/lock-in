@@ -185,3 +185,8 @@ server.log
 !/scripts/e2e-ans-61.page.js
 !/scripts/e2e-ans-62.page.js
 !/scripts/e2e-ans-63.page.js
+# exception: visual-upgrade run 1 (job 507527) — FM 1.1 figure audit + E2E + pointer builder (reusable every run)
+!/scripts/enhance-fm-11-audit.ts
+!/scripts/build_enhancement_pointer.ts
+!/scripts/e2e-fm-11.sh
+!/scripts/e2e-fm-11.page.js
