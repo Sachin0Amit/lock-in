@@ -190,3 +190,10 @@ server.log
 !/scripts/build_enhancement_pointer.ts
 !/scripts/e2e-fm-11.sh
 !/scripts/e2e-fm-11.page.js
+# exception: run-59 ANS chapter-7 pre-write arithmetic verifier (the rationals; committed every ship)
+!/scripts/verify-book2-ch07.ts
+!/scripts/lib-gcd.ts
+# exception: run-59 ANS chapter-7 lesson E2E blocks (quiz keys 7.1: 2/1/0/2/1, 7.2: 1/3/0/2/0, 7.3: 2/1/3/1/0 + solutions + audits)
+!/scripts/e2e-ans-71.page.js
+!/scripts/e2e-ans-72.page.js
+!/scripts/e2e-ans-73.page.js

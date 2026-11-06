@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 13:02:42 (Asia/Kolkata)",
+  "generated": "2026-11-06 14:54:08 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -48,7 +48,7 @@
                 "authoredOn": "2026-11-02",
                 "authoredInCommit": "1369d26",
                 "unit": "platform base (lesson 1.1 authored with the platform as pipeline validation)",
-                "words": 3033,
+                "words": 3072,
                 "readMins": 15,
                 "concepts": [
                   "Number versus numeral versus digit",
@@ -73,9 +73,9 @@
                   "list": 1,
                   "terms": 1,
                   "equation": 1,
+                  "figure": 2,
                   "derivation": 1,
                   "table": 2,
-                  "figure": 1,
                   "example": 1,
                   "quiz": 1,
                   "exercises": 1
@@ -225,7 +225,7 @@
                 "termsDefined": 5
               }
             ],
-            "words": 10317
+            "words": 10356
           },
           {
             "number": 2,
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 6,
+        "chaptersWritten": 7,
         "chapters": [
           {
             "number": 1,
@@ -4954,16 +4954,215 @@
             "number": 7,
             "slug": "building-the-rationals",
             "title": "Building the Rationals",
-            "summary": "Fractions revealed as a constructed system: the equivalence of FM 4.2 re-founded as a relation on pairs, the field laws derived (every nonzero number finally gets a reciprocal), and the two structural theorems — the rationals are dense, and their decimal expansions terminate or repeat — proved from the division algorithm.",
-            "status": "planned",
-            "lessonsWritten": 0,
-            "plannedLessons": [
-              "From Fractions to the Rational System",
-              "The Field Laws: Division Joins the Family",
-              "Density and the Decimal Mirror, Proven"
+            "summary": "The second great extension, done by the same honest method. Lesson 7.1 measures the division failure ℤ inherits — x·c = d solves exactly when c divides d, barely 56 of 144 pairs on the ±6 square, and x·0 = d dead by the zero-product lemma — then builds the rationals as fraction pairs (a, b) over ℤ × (ℤ − {0}): FM 4.2’s cross-multiplication test re-founded as the DEFINITION of sameness, proved an equivalence relation by the cancellation engine of 6.3, classes named a/b, canonical reduced representatives from the gcd, and addition, multiplication and negation proved well-defined by sweeps. Lesson 7.2 derives every law through the construction — and the new one: every nonzero class inverts via [(b,a)], division is defined, division by zero is proved impossible, and ℚ stands as the reader’s first field met as a building (Dedekind’s 1871 word), its order extended and already dense. Lesson 7.3 proves the two structural theorems: density (the midpoint (ps+rq)/(2qs) argument, iterated forever) and the decimal mirror (terminating-or-repeating from the division algorithm’s remainder pigeonhole, the terminating criterion 2^m·5^n from the FTA, and the recurring-decimal conversions of FM 5.2 now proved rather than used).",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "ans-from-fractions-to-the-rational-system",
+                "number": "7.1",
+                "title": "From Fractions to the Rational System",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5482,
+                "readMins": 27,
+                "concepts": [
+                  "The division failure ℤ inherits",
+                  "Fraction pairs over ℤ × (ℤ − {0})",
+                  "ad = bc as the definition of sameness",
+                  "Equivalence classes as the rationals ℚ",
+                  "Canonical reduced representatives",
+                  "Well-definedness of + and ×, swept",
+                  "The tower ℕ → ℤ → ℚ"
+                ],
+                "objectives": [
+                  "Run the division census on ℤ — x·c = d solves exactly when c | d with c ≠ 0, and x·0 = d ≠ 0 never — and quantify how much of the map dies",
+                  "Found the fraction-pair equivalence (a, b) ~ (c, d) ⟺ ad = bc as a definition, and prove it an equivalence relation using the cancellation lemma of 6.3",
+                  "Name the classes a/b, compute the canonical reduced representative with the gcd and sign convention, and prove its uniqueness",
+                  "Define addition, multiplication and negation of classes and verify them well-defined by exhaustive sweep, then check the tower ℕ → ℤ → ℚ embeds faithfully"
+                ],
+                "prerequisites": [
+                  "ans-constructing-the-integers-from-the-naturals",
+                  "ans-the-laws-of-integer-arithmetic",
+                  "fm-equivalent-fractions-simplification",
+                  "fm-adding-subtracting-fractions"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "hankel-1867-permanence",
+                  "rhind-papyrus-fractions",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "callout": 7,
+                  "heading": 5,
+                  "equation": 4,
+                  "list": 2,
+                  "table": 2,
+                  "derivation": 2,
+                  "example": 2,
+                  "algorithm": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "insight": 2,
+                  "definition": 3,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 2,
+                  "L4": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-the-field-laws-division-joins-the-family",
+                "number": "7.2",
+                "title": "The Field Laws: Division Joins the Family",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4332,
+                "readMins": 22,
+                "concepts": [
+                  "The reciprocal: every nonzero class inverts",
+                  "Division defined — and division by zero proved impossible",
+                  "The field laws derived from the pair algebra",
+                  "ℚ: the first field met as a building",
+                  "Positivity by the sign test ab > 0",
+                  "Order compatible with + and × by positives",
+                  "Density: the midpoint lies strictly between"
+                ],
+                "objectives": [
+                  "Derive the reciprocal law — [(a,b)]⁻¹ = [(b,a)] for a ≠ 0 — from the pair algebra, and prove inverses unique",
+                  "Define division by the inverse, compute it by the cross-rule, and prove that zero cannot divide — as a theorem, not a prohibition",
+                  "Derive every field law (commutativity, associativity, distribution, identities, inverses) through the construction, and name ℚ the reader’s first field",
+                  "Extend the order to ℚ with the sign test ab > 0, prove compatibility with + and with × by positives, and prove the midpoint theorem: a rational lies strictly between any two distinct rationals"
+                ],
+                "prerequisites": [
+                  "ans-from-fractions-to-the-rational-system",
+                  "ans-the-laws-of-integer-arithmetic",
+                  "ans-linear-congruences-glimpse-of-fermat",
+                  "fm-multiplying-dividing-fractions"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "dedekind-1871-korper",
+                  "hankel-1867-permanence",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 5,
+                  "derivation": 2,
+                  "callout": 5,
+                  "equation": 1,
+                  "example": 1,
+                  "table": 1,
+                  "figure": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-density-and-the-decimal-mirror-proven",
+                "number": "7.3",
+                "title": "Density and the Decimal Mirror, Proven",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5064,
+                "readMins": 25,
+                "concepts": [
+                  "Density without bound: infinitely many rationals between any two",
+                  "The long-division engine r → 10r mod b",
+                  "Terminating or repeating: the remainder pigeonhole",
+                  "The terminating criterion 2^m·5^n from the FTA",
+                  "Periods of 1/p divide p − 1 (the Fermat shadow)",
+                  "Converting recurring decimals: D/(10^k − 1)",
+                  "The mirror edge: 0.999… = 1"
+                ],
+                "objectives": [
+                  "Prove that between any two distinct rationals lie infinitely many — by iterating the midpoint theorem of 7.2 without bound",
+                  "Derive the decimal expansion from the division algorithm: every rational expands as terminating or repeating, with period at most b − 1",
+                  "Prove the terminating criterion — a/b (reduced) terminates exactly when b = 2^m·5^n — from the Fundamental Theorem of Arithmetic",
+                  "Read the mirror backwards: convert any recurring decimal to its exact fraction, including the pre-period formula and the edge case 0.999… = 1"
+                ],
+                "prerequisites": [
+                  "ans-the-field-laws-division-joins-the-family",
+                  "ans-division-with-rest-the-division-algorithm",
+                  "ans-fundamental-theorem-of-arithmetic",
+                  "fm-decimals-and-fractions-two-ways"
+                ],
+                "sources": [
+                  "beck-geoghegan-art-of-proof",
+                  "stevin-1585-thiende",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "callout": 4,
+                  "heading": 6,
+                  "derivation": 4,
+                  "example": 2,
+                  "table": 1,
+                  "equation": 1,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 4,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              }
             ],
-            "lessons": [],
-            "words": 0
+            "words": 14878
           },
           {
             "number": 8,
@@ -5033,13 +5232,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 96,
-      "totalLines": 51529,
+      "srcFilesTracked": 97,
+      "totalLines": 53484,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 42264,
+        "src/data/library (content model + books)": 44219,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -12039,34 +12238,182 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "4daf258b8c75dc0ddb736b0268b51b1e40b4861c",
+      "short": "4daf258",
+      "date": "2026-11-06 07:33",
+      "message": "ans ch.6 completes: lessons 6.1-6.3 shipped verify-first, unit-6 review passed (run 58) — verify-book2-ch06.ts 125 -> 233 checks (sections A-W) before writing, eleven pre-writing defects caught; ch-06 complete 3/3 (15,777 words / 24 terms / 15 quiz / 42 exercises: 6.1 closure failures 5,618 + 6.2 the difference-pair construction, well-definedness swept 5,269 + 6.3 the laws derived, sign rules proved, first ring 4,890); 3 new citation keys (hankel-1867-permanence, peacock-1833-permanence, brahmagupta-628-brahmasphutasiddhanta); e2e-ans-61..63 whitelisted; per-lesson gates all green (lint 0, tsc 0, routes 200, quiz 5/5 live on keys 2/1/0/0/0, 2/2/0/0/1, 1/0/1/1/2, KaTeX 0 errors, SVG audits 0/0/0)",
+      "filesChanged": 13,
+      "insertions": 3862,
+      "deletions": 66,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 62,
+          "del": 12
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 357,
+          "del": 34
+        },
+        {
+          "path": "scripts/e2e-ans-61.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-62.page.js",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-63.page.js",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch06.ts",
+          "add": 1267,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 8,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 1853,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "55ca3ecfa92d99da39f8b3dbc4c0742537e81801",
+      "short": "55ca3ec",
+      "date": "2026-11-06 07:34",
+      "message": "memory: run-58 push verified — remote main = 4daf258 (ship 4daf258 + memory 86319f8); next run 59 = ANS ch.7 'Building the Rationals' in full",
+      "filesChanged": 2,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "ab6fb3f81bc970ef44957b41a64be956b340edba",
+      "short": "ab6fb3f",
+      "date": "2026-11-06 08:20",
+      "message": "enhance(fm-numbers-digits-place-value): precise figures + visual upgrades — number-line audit fixed 3 defects (direction-label clipping, missing caption-promised markers at 7 and −4) + mobile font bump; NEW one-digit-four-seats figure with per-digit seat geometry, marching amber strips and ×10 arrows, all computed in-source; gates: geometry audit CLEAN, overlap audit 0/0, lint 0, tsc 0, E2E 44/44 (1280+390+dark, quiz 5/5, KaTeX 0 errors, no overflow); visual job state files created (67-lesson queue)",
+      "filesChanged": 8,
+      "insertions": 1144,
+      "deletions": 6,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_POINTER.json",
+          "add": 548,
+          "del": 0
+        },
+        {
+          "path": "scripts/build_enhancement_pointer.ts",
+          "add": 55,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-fm-11.page.js",
+          "add": 81,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-fm-11.sh",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-11-audit.ts",
+          "add": 166,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 119,
+          "del": 6
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 17,
+    "chaptersWritten": 18,
     "chaptersInProgress": 0,
-    "lessonsWritten": 70,
-    "wordsAuthored": 342554,
-    "termsDefined": 531,
-    "quizItems": 350,
-    "exerciseQuestions": 834,
+    "lessonsWritten": 73,
+    "wordsAuthored": 357471,
+    "termsDefined": 555,
+    "quizItems": 365,
+    "exerciseQuestions": 878,
     "blockTotals": {
-      "para": 985,
-      "callout": 401,
-      "heading": 401,
-      "list": 91,
-      "terms": 71,
-      "equation": 107,
-      "derivation": 142,
-      "table": 88,
-      "figure": 114,
-      "example": 312,
-      "quiz": 70,
-      "exercises": 70,
-      "formula": 191,
-      "algorithm": 20
+      "para": 1022,
+      "callout": 417,
+      "heading": 417,
+      "list": 93,
+      "terms": 74,
+      "equation": 113,
+      "figure": 119,
+      "derivation": 150,
+      "table": 92,
+      "example": 317,
+      "quiz": 73,
+      "exercises": 73,
+      "formula": 203,
+      "algorithm": 21
     }
   }
 }

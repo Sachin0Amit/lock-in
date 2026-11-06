@@ -922,6 +922,39 @@ andrews.ac.uk/Miller/mathsym/nth/), which also grounds the Gauss ≡
   casting-out-nines history and the Disquisitiones listings. Exposition
   original throughout.
 
+## Citation keys added by ANS chapter 7 (run 59)
+
+- `rhind-papyrus-fractions` — the Rhind Mathematical Papyrus (Ahmes, c.
+  1650–1550 BCE, Second Intermediate Period; aspects copied from an
+  unknown c. 1850 BCE text). Used for: ANS ch. 7 lesson 7.1 — the
+  historical charter for fractions-as-named-quantities: the papyrus's
+  opening 2/n table (odd n, 3 through 101) expressing every entry as a sum
+  of distinct unit fractions (2/3 = 1/2 + 1/6; 2/7 = 1/4 + 1/28; 2/15 =
+  1/10 + 1/30), Egyptian unit-fraction arithmetic as the pre-symbolic
+  state that the pair construction replaces with single named objects,
+  web-checked 2026-11-06 (run 59) against the published table listings;
+  the table's date, authorship and sample entries verified. Exposition
+  and all figures original; no table content reproduced beyond the three
+  cited identities.
+
+- `stevin-1585-thiende` — Simon Stevin, *De Thiende* (Dutch, 1585; French
+  version *La Disme* the same year). Used for: ANS ch. 7 lesson 7.3 — the
+  decimal-mirror historical charter: the first treatise deliberately
+  devoted to decimal fractions, extending positional notation past the
+  units place, the circled-exponent notation (7^(0)3^(1)4^(2)...), the
+  advocacy of decimal coinage and measures ("astrologers, surveyors,
+  measurers of tapestries" on the cover), with the honest precedence note
+  (al-Uqlidisi tenth-century; Rudolff 1530), web-checked 2026-11-06 (run
+  59) against encyclopaedic listings. Exposition original.
+
+- `dedekind-1871-korper` — Richard Dedekind, the supplements (XI) to his
+  edition of P. G. L. Dirichlet, *Vorlesungen über Zahlentheorie* (2nd
+  ed., 1871), where *Körper* ("field") was introduced for number systems
+  closed under the four operations with every nonzero element invertible.
+  Used for: ANS ch. 7 lesson 7.2 — the naming of ℚ's structure (the
+  reader's first field met as a building) and the ℤ/p finite-field bridge
+  to 5.4, web-checked 2026-11-06 (run 59). Exposition original.
+
 ## Per-subject ledger
 
 | Subject | Books identified | Downloaded (MB) | Used for | Local copies deleted | Book status |
@@ -1302,3 +1335,16 @@ NTPC CBT-I and banking clerical banks) web-checked — shapes cited, no
 question reproduced. The gitignored Drive survey was rebuilt after the
 sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 89 entries intact).
+
+## 2026-11-06 — Run 59 (ANS chapter 7 in full, 7.1 + 7.2 + 7.3 + the unit-7 review — the fourth one-full-chapter run): zero downloads
+
+- Reference discipline: the chapter's spine came from the persisted Drive
+  research (Beck–Geoghegan art-of-proof rationals charter) and the banked
+  permanence + FTA + division-algorithm lessons of earlier chapters; three
+  new citation keys (rhind-papyrus-fractions, stevin-1585-thiende,
+  dedekind-1871-korper) were web-checked inline (no downloads; facts
+  verified against encyclopaedic listings, all three recorded above).
+- Zero reference files downloaded this run; nothing to delete (the
+  standing rule "delete downloaded reference working copies after the
+  unit verifies" has nothing pending). Drive survey rebuilt post-recycle:
+  89 entries intact.

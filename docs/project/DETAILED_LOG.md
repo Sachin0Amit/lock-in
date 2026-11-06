@@ -1900,3 +1900,26 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
   11 planned: Patterns and Rules **WRITTEN** · From Patterns to
   Formulas · A Letter for the Unknown.
   Memorising Tables · Precision, Accuracy and Rounding in Measurement.
+
+---
+
+## Run 59 — 2026-11-06 (job 507529, fired 15:45 +08:00) — ANS ch. 7 'Building the Rationals' COMPLETE 3/3 in one run
+
+**Scope:** the fourth one-full-chapter run (owner directive 2026-11-06). Chapter 7 of Arithmetic and Number Systems: all three planned lessons + the unit-7 completion review, authored sequentially, each lesson fully gated before the next began.
+
+**Verify-first ledger:** `verify-book2-ch07.ts` grew to 239 checks across sections A–T before any lesson text was written (the run-57/58 pattern of extending the verifier per lesson was compressed here: all planned arithmetic was verifiable up front, so the full battery ran before 7.1). Fifteen pre-writing defects caught — the most consequential: the associativity sweep bug (the sweep was verifying X+(X+Y)~X+(Y+Z), a vacuous identity, instead of (X+Y)+Z~X+(Y+Z)); the 10^16−1 double-precision wall (JS floats round 9999999999999999 to 10^16, silently corrupting the 1/17 round-trip — fixed with BigInt arithmetic; the full-period prime stayed in the batch); the density-iteration block confused interval endpoints with pairs; five figure-geometry label placements; two quiz option-order mismatches between planned keys and authored layouts (caught by live E2E 0/5 scores, fixed by reordering options/labels then re-verifying live).
+
+**Chapter content record:**
+- 7.1 (5,482 words): ℤ division census 56/144 + the zero wall; fraction pairs over ℤ×(ℤ−{0}); ad = bc as the definition (FM 4.2 re-founded); equivalence relation proved by the cancellation engine; classes a/b; canonical reduction (algorithm block) + uniqueness via Euclid's lemma; well-definedness swept; the tower; the fraction-lattice figure (rays of slopes 1/3, 2/3, 1, 3/2, 2 computed from grid constants, reduced seeds amber); Rhind papyrus callout.
+- 7.2 (4,332 words): the reciprocal law derived + unique; division defined (four worked shapes); division-by-zero proved impossible (absorption + the zero-product lemma; the "infinite does not rescue it" caution); the law inventory table ℕ/ℤ/ℚ (the bold inversion row); field defined; Dedekind 1871 Körper callout (web-checked) + the ℤ/p bridge to 5.4; order (sign test ab>0, compatibility swept); Density I (the midpoint theorem, both sides from ps < rq); the mirror-map figure (seat-swap across the diagonal).
+- 7.3 (5,064 words): Density II (2^n−1 by three generations, the sweep); Stevin 1585 De Thiende callout (web-checked); the remainder engine r → 10r mod b; the mirror theorem (pigeonhole, period ≤ b−1 swept); the 1/b mirror table; the terminating criterion 2^m·5^n proved both directions from the FTA (swept b ≤ 60); the 1/p period table (13 primes, period | p−1 swept — the Fermat shadow); the conversion theorems (pure cycle + pre-period formula; 0.9̄ = 1 as determinate double-naming); the remainder-machine figure + the density-zoom figure.
+
+**Chapter totals:** 14,878 words / 24 terms / 15 quiz / 44 exercises / 4 figures / 8 derivations / 5 illustrations / 1 algorithm / 12 formula cards / 4 tables.
+
+**Gates:** lint 0 (1 pre-existing unrelated warning); tsc 0; routes 200 ×3; live E2E per lesson (quiz 5/5 on keys 2/1/0/2/1, 0/1/2/0/2, 2/1/3/1/0; solutions expanded; KaTeX 338/252/337 nodes with 0 errors; 0 raw $; 0 console errors; no overflow 390/1280); SVG overlap audits CLEAN on all four figures.
+
+**Unit-7 completion review:** PASS (exam corners 3/3; ids globally unique at 73 repo-wide; all 14 block types exercised; ch-07 flipped complete; plannedLessons emptied).
+
+**Citations:** 3 new keys (rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper), all web-checked 2026-11-06; zero downloads; Drive survey rebuilt post-recycle (89 entries).
+
+**Next:** run 60 = ANS ch. 8 'Irrationals and the Real Line' complete 4/4 (verify-book2-ch08.ts FIRST).
