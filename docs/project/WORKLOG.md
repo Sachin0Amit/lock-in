@@ -23,7 +23,7 @@ and what remains.
 
 **Step 4 — ship + logs:** WORKLOG (this entry), PROGRESS.json (phase + lastCompleted + run58Extras + library.totals refreshed from live data), RESUME_POINTER.json (nextAction = run 59 = ANS ch. 7 'Building the Rationals' COMPLETE 3/3 with verify-book2-ch07.ts FIRST), SOURCE_LOG.md (3 new keys + the zero-download note), DETAILED_LOG.md (run-58 record), WORK_INVENTORY.json regenerated (after rebuilding the gitignored Drive survey post-recycle — 89 entries intact).
 
-**Step 5 — push:** see the Git line below after the protocol push completes.
+**Step 5 — push:** the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moved `86319f8..4daf258 HEAD -> main`; second push "Everything up-to-date"; one-time-URL `ls-remote origin HEAD` verified **remote HEAD = 4daf258b8c75dc0ddb736b0268b51b1e40b4861c = local HEAD** — both pending commits (the run-57 memory commit 86319f8 + this ship 4daf258) are on the remote.
 
 **Next:** run 59 completes ANS chapter 7 'Building the Rationals' ENTIRELY (7.1 From Fractions to the Rational System + 7.2 The Field Laws + 7.3 Density and the Decimal Mirror, Proven + the unit-7 review) — verify-book2-ch07.ts FIRST, whitelisted before committing. Exam registry research still pending.
 
