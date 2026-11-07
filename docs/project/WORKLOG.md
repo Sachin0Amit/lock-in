@@ -53,7 +53,10 @@ WORK_INVENTORY.json regenerated post-recycle (rebuild_drive_survey.ts first: 89 
 **Library after the run:** 2 books / 21 chapters written, 1 in progress / 82 lessons / 405,887 words / 627 terms / 410 quiz items /
 1,007 exercise questions. ANS ch. 10 so far: 2 lessons / 11,033 words / 16 terms / 10 quiz / 29 exercises.
 
-**Step 4 — push:** see the commit sha and the one-time-URL ls-remote verification recorded in the run-64 push note appended below.
+**Step 4 — push:** local commit `0c3002c` (14 files, +3,120/−66), then the protocol push (one-time HTTPS URL, PAT never written to
+any file/config/log) moved it to main in one push (`3123a57..0c3002c` — the run-63 memory commit `3123a57` rode along, completing
+its own record); one-time-URL `ls-remote` verified **remote HEAD = 0c3002cce00a3f3b277208981dfee9ec9dd0963a = local HEAD**. This
+memory commit records the verification. No push failures; no retries needed.
 
 ## 2026-11-07 — RUN 63 (fired 11:15 +08:00 from job 509354's hourly cadence, trace cron-agent-loop-202611071115): ANS CHAPTER 9 'NUMERATION THROUGH HISTORY' CLOSES COMPLETE 3/3 — 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 completion review; the run's ONE-lesson-plus-review scope per the owner's 2026-11-06 v2 two-lessons-per-run directive (the chapter had exactly one unwritten lesson left)
 
