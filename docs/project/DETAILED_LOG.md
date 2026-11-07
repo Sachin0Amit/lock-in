@@ -2418,3 +2418,65 @@ unit-4 review close ch. 4.
 
 **Git:** ship commit `al ch.3 CLOSES (run 72): ...` + the run-71 memory commit b2585fe pushed to main per the push
 protocol (shas in WORKLOG; ls-remote verified).
+
+## RUN 73 — 2026-11-08 — Elementary Algebra ch. 4 'Factorization' OPENS 2/4
+
+**Step 1 — tree reconciliation + research:** tree clean at the run-72 memory commit 4e2fcb5 (unpushed by design —
+it recorded run 72's push verification and rode this run's protocol push); no sibling lock (the :15 slot fired the
+main payload — executed per the MISSED-FIRE rule). Research: zero downloads — the banked H&K Elementary knowledge
+(the Factorisation chapter, studied in run 67's download before deletion) + the banked keys
+(ncert-math8-ch12-factorisation, khattar-qa-4e, cengage-jee-style, ncert-math9-ch2-polynomials,
+euclid-elements-book-vii) + ONE new web-checked history key `harriot-1631-praxis` (Thomas Harriot, Artis
+Analyticae Praxis, 1631 posthumous — polynomials built as products of linear factors; Britannica + the translation
+literature + the Edward Worth Library notes; zero downloads). Working-copy footprint zero.
+
+**Step 2 — verify-first (sections A–E BEFORE any prose, F/G at authoring time):** A (the engines): the GCF-of-terms
+engine + completeness over 7,225 two-term and 5,832 three-term grids (HCF of coefficients × shared letters at
+lowest powers; leftovers relatively prime); the grouping machine ax+ay+bx+by = (x+y)(a+b) pointwise at 14,641
+(a,b,x,y) in [-5..5]⁴; the sum-of-squares refusal for every k ∈ [-10..10]\{0} by exhaustive a-scan plus the
+two-letter cousin (a+b = 0 ∧ ab = 1 impossible); THE GAUGE EXISTENCE THEOREM cell-by-cell over 1,025 (p,q) cells
+in [-12..12]×[-20..20] (the integer pair exists ⟺ p² − 4q is a perfect square; parity forced); THE AC-SPLIT
+COMPLETENESS THEOREM over 8,238 primitive trinomials (a ∈ [1..6], b ∈ [-20..20], c ∈ [-20..20]\{0}: split exists
+⟺ integer factorization exists — both directions against divisor-pair enumeration — and (1/a)(ax+r)(ax+s) =
+ax² + bx + c holds exactly). B/D pinned every exhibit, illustration, quiz distractor and exercise key of BOTH
+lessons recomputed BOTH SIDES (Poly expansion for one-letter, BigInt pointwise grids for two-letter). C/E recorded
+the four figure geometry plans.
+
+**Pre-writing catches:** the multi-letter exhibit's bracket is 3xy²(2xy + x − 3) — the third term leaves a bare x,
+NOT xy (caught by the verifier's own pointwise sweep; the prose, quiz Q4 and SOURCE_LOG all carry the corrected
+form); the partial-extraction exhibit is 2x(6x² + 9x), not 2x(3x² + 9x); plus 12 verifier-side construction slips
+(polyD descending-args mix-ups, the arrEq zero-padding semantics — both-ends trim, the AC sweep count 8,238, a
+wrong folding-identity construction). All repaired pre-prose.
+
+**Step 3 — authored, strictly sequential:** 4.1 'Common Factors and Grouping' (al-common-factors-and-grouping,
+4,202 words, 8 terms, quiz keys 0/1/0/0/2, 14 exercises L1–L6, 2 figures — the reversible film + the grouping
+machine — 2 display equations, 4 illustrations, 2 derivations — the GCF-completeness proof + the grouping machine
+both directions — 1 table, 3 formula cards, definition + theorem + warn ×2 + historical (Euclid VII.1–2) + exam
+callouts) — F section 60+ checks green, gates green; THEN 4.2 'Factoring Quadratic Trinomials'
+(al-factoring-quadratic-trinomials, 4,050 words, 8 terms, quiz keys 2/1/3/1/3, 14 exercises L1–L6, 2 figures —
+the two dials and the gauge + the AC pipeline — 2 display equations (the hunt contract + the folding identity),
+3 illustrations, 2 derivations — the gauge existence theorem (both directions + forced parity) + the AC closure —
+1 table, 3 formula cards, definition + insight + warn ×2 + historical (Harriot 1631) + exam callouts) — G section
+green. 4.3/4.4 + the unit-4 review NOT touched.
+
+**Authored-time catches:** 4 odd backslash runs (a \' prime escape in the GCF formula card — rewritten prime-free
+with d/e exponents); 2 figure-geometry defects on the 4.1 figures (panels at h 220 overlapped the y-284 result
+band; right-panel titles 2px off the note boxes — panels shrunk to h 210, notes to y 114/174/234, bands to y
+296/300) and 1 band-edge text spill (x 640 → 618). All repaired to zero; audit re-run clean.
+
+**Step 4 — gates:** verify-book3-ch04.ts finished at 248 checks ALL GREEN (sections A–G). bun run lint 0 errors
+(2 pre-existing warnings in the promotion page scripts); tsc --noEmit clean; routes 200/200/200 + 404 on
+al-nonexistent; E2E e2e-al-41 + e2e-al-42 45/45 PASS ×2 runs ×3 viewports per lesson (quiz 5/5 live on keys
+0/1/0/0/2 and 2/1/3/1/3, KaTeX 204+ nodes 0 errors, 0 console errors, no overflow at 1280/390/dark); both figures
+per lesson audited 0-issue (audit-svg-overlaps.sh) and visually inspected via full-page crops. .gitignore gained
+the run-73 whitelist (verify-book3-ch04.ts + e2e-al-41/42 scripts).
+
+**Step 5 — state:** ch. 4 'Factorization' in-progress 2/4 (8,252 words; plannedLessons trimmed to ['The Identities
+as Factorizations', 'The Factor Theorem and Cubics']); book.ts header updated; SOURCE_LOG run-73 section appended
+(harriot-1631-praxis + the zero-download note); WORK_INVENTORY rebuilt via build_work_inventory.ts — repo-wide 96
+lessons / 468,328 words / 739 terms / 480 quiz / 1,205 exercises; 24 chapters written + 1 in progress. NEXT: run 74
+= ch. 4 CLOSES (4.3 + 4.4 + the unit-4 completion review; extend the verifier FIRST; whitelist e2e-al-43/44; never
+ch. 5).
+
+**Git:** ship commit `al ch.4 OPENS (run 73): ...` + the run-72 memory commit 4e2fcb5 pushed to main per the push
+protocol (shas in WORKLOG; ls-remote verified).

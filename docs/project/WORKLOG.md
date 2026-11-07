@@ -1,6 +1,57 @@
 # WORKLOG — append-only work journal
 
 Every work session appends one entry at the top. Format:
+
+## 2026-11-08 — RUN 73 (fired 05:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080515 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 4 'FACTORIZATION' OPENS 2/4 — 4.1 'Common Factors and Grouping' (al-common-factors-and-grouping, 4,202 words, quiz keys 0/1/0/0/2) + 4.2 'Factoring Quadratic Trinomials' (al-factoring-quadratic-trinomials, 4,050 words, quiz keys 2/1/3/1/3), authored strictly sequentially verify-first — 4.3/4.4 + the unit-4 review NOT touched (they close the chapter at run 74)
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-72 memory commit (`4e2fcb5`, unpushed by design — it
+recorded run 72's push verification and rode THIS run's protocol push); no `.figure_upgrade_lock` (sibling idle this window).
+RESUME_POINTER locked run 73 = AL ch. 4 opens with 4.1 + 4.2 (v2 two-lesson quota, strictly sequential, never 4.3/4.4).
+
+**Research (zero downloads):** the run carried the banked H&K Elementary scan knowledge (the Factorisation chapter, book
+pp. 85 ff., studied in run 67's download before deletion; storage law honoured) + the banked keys (ncert-math8-ch12-
+factorisation for the school-canon method names, khattar-qa-4e for the exam corner) + one NEW web-checked history key
+`harriot-1631-praxis` (Thomas Harriot, Artis Analyticae Praxis, 1631 posthumous — polynomials built as products of linear
+factors, "Harriot's principle"; web-checked via Britannica + the 2011 translation literature + the Edward Worth Library
+notes). Working-copy footprint zero.
+
+**Verify-first (sections A–E written BEFORE any prose, F at 4.1 authoring time, G at 4.2 authoring time):** A (the engines)
+swept the GCF-of-terms engine + completeness over 7,225 two-term and 5,832 three-term grids, the grouping machine
+ax+ay+bx+by = (x+y)(a+b) pointwise at 14,641 (a,b,x,y), the sum-of-squares refusal for every k in [-10..10] plus the
+two-letter cousin, THE GAUGE EXISTENCE THEOREM cell-by-cell over 1,025 (p,q) cells (pair exists ⟺ p² − 4q a perfect
+square), and THE AC-SPLIT COMPLETENESS THEOREM over 8,238 primitive trinomials (split exists ⟺ integer factorization
+exists, both directions against divisor-pair enumeration). B/D pinned every exhibit, quiz distractor and exercise key of
+both lessons recomputed BOTH SIDES; C/E recorded the four figure geometry plans.
+
+**Pre-writing catches (the discipline working again):** one REAL content defect — the multi-letter exhibit's third term
+leaves a bare x (3xy²(2xy + x − 3), not 3xy²(2xy − 3 + xy); caught by the verifier's own pointwise sweep) — plus a wrong
+partial-extraction exhibit (2x(6x² + 9x), not 2x(3x² + 9x)) and 12 verifier-side construction slips (polyD descending-args
+mix-ups, the arrEq zero-padding semantics, a `\'` prime escape). All repaired pre-prose.
+
+**Authored-time catches:** 4 odd backslash runs (the `\'` prime in the GCF formula card — rewritten prime-free with d/e
+exponents), 2 figure-geometry defects on the 4.1 figures (panels overlapped the result band at y 284; right-panel titles
+2px off the note boxes — panels shrunk to h 210, notes moved to y 114/174/234, bands to y 296/300) and 1 band-edge text
+spill (moved to x 618). All repaired to zero; audit re-run clean.
+
+**Gates:** verify-book3-ch04.ts finished at 248 checks ALL GREEN (sections A–G). `bun run lint` 0 errors (2 pre-existing
+warnings in the promotion page scripts); `tsc --noEmit` clean; routes 200/200/200 + al-nonexistent 404; E2E e2e-al-41 +
+e2e-al-42 45/45 PASS ×2 runs ×3 viewports per lesson (quiz 5/5 live on keys 0/1/0/0/2 and 2/1/3/1/3; KaTeX 204 nodes;
+0 console errors; no overflow at 1280/390/dark). Both new figures per lesson audited 0-issue (audit-svg-overlaps.sh) and
+visually inspected via full-page crops.
+
+**Chapter state:** ch. 4 'Factorization' in-progress 2/4 (8,252 words across the two lessons; 4.2's plannedLessons trimmed
+to ['The Identities as Factorizations', 'The Factor Theorem and Cubics']); the book stands 3 complete chapters + ch. 4
+open 2/4 of 11 — repo-wide 96 lessons / 468,328 words / 739 terms / 480 quiz / 1,205 exercises (WORK_INVENTORY rebuilt).
+
+**NEXT (run 74):** ch. 4 CLOSES with 4.3 'The Identities as Factorizations' + 4.4 'The Factor Theorem and Cubics' + the
+unit-4 completion review — extend verify-book3-ch04.ts with pre-writing sections for 4.3/4.4 FIRST (the identities-read-
+backwards sweeps + the factor-theorem engine), whitelist e2e-al-43/44 in .gitignore BEFORE committing, never ch. 5.
+
+**Git:** ship commit (ch-04.ts + book.ts + verify + 4 E2E scripts + .gitignore whitelist + the six memory docs), then the
+protocol push; remote verified via one-time-URL ls-remote (sha noted in run73Extras / the memory commit).
+
+---
+
 ## 2026-11-08 — RUN 72 (fired 04:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080415 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 3 'POLYNOMIALS' CLOSES 4/4 — 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review, authored strictly sequentially verify-first — the chapter COMPLETE and fully verified at run end
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-71 memory commit (`b2585fe`, unpushed by design —

@@ -270,3 +270,10 @@ server.log
 !/scripts/e2e-al-33.page.js
 !/scripts/e2e-al-34.sh
 !/scripts/e2e-al-34.page.js
+
+# per-lesson E2E scripts for Elementary Algebra ch. 4 (whitelisted run 73)
+!/scripts/verify-book3-ch04.ts
+!/scripts/e2e-al-41.sh
+!/scripts/e2e-al-41.page.js
+!/scripts/e2e-al-42.sh
+!/scripts/e2e-al-42.page.js

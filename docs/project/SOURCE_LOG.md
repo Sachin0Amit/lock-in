@@ -1893,3 +1893,35 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 - Eight figures audited 0-issue (after 3 label-move fixes on the corner-cut square + 1 on the remainder map) and visually
   inspected; E2E 45/45 PASS ×2 runs ×3 viewports per new lesson (quiz 5/5 live on keys 1/2/0/1/1 and 0/1/2/0/1); pixels
   0% blue cast, dark 93.9%.
+
+### Run 73 — Elementary Algebra ch. 4 opens: 4.1 + 4.2 authored (2026-11-08)
+
+#### Run 73 keys consumed
+- In 4.1: `hall-knight-elementary-algebra`, `ncert-math9-ch2-polynomials`, `euclid-elements-book-vii`, `cengage-jee-style`
+  (+ the FM cross-references `fm-highest-common-factor` in prerequisites — banked run 3).
+- In 4.2: `hall-knight-elementary-algebra`, `ncert-math8-ch12-factorisation`, `khattar-qa-4e`, `harriot-1631-praxis`
+  (new this run, below).
+
+#### Run 73 keys added
+- `harriot-1631-praxis` — Thomas Harriot, *Artis Analyticae Praxis ad Aequationes Algebraicas Resolvendas* (London,
+  1631; assembled by his editors from Harriot's manuscripts after his death in 1621): the products-first view of
+  algebra — polynomials constructed as products of linear (sometimes quadratic) factors and their expanded forms
+  compared term by term ("Harriot's principle"); Harriot founded the English school of algebra and pioneered the
+  consideration of imaginary roots. Web-checked 2026-11-08 (Britannica's *Artis Analyticae Praxis* entry; the 2011
+  Hill/Harriot Society translation literature; the Edward Worth Library Harriot exhibition notes). Zero downloads —
+  metadata only; informs AL 4.2's historical callout (the middle-term hunt as Harriot's machine run backwards).
+
+#### Run 73 reference-notes (ship)
+- Zero downloads — the run carried the banked H&K Elementary scan knowledge (ch. on Factorisation, book pp. 85 ff.,
+  consulted in run 67's download before deletion; storage law already honoured) plus web metadata for Harriot 1631.
+- The verifier finished at 248 checks ALL GREEN (sections A–G): A (the engines: GCF-of-terms completeness over
+  7,225 + 5,832 grids, the grouping machine at 14,641 points, the sum-of-squares refusal, the monic gauge theorem at
+  1,025 cells, the AC-split completeness theorem over 8,238 primitive trinomials) + B/D (every exhibit, quiz
+  distractor and exercise key of both lessons recomputed BOTH SIDES) + C/E (the four figure geometry plans) + F/G
+  (authored batteries). Pre-writing catches this run: a wrong multi-letter bracket (the third term of the
+  6x²y³ − 9xy² + 3x²y² exhibit leaves a bare x, not xy — caught by the verifier's own pointwise sweep), a wrong
+  partial-extraction exhibit (2x(6x² + 9x), not 2x(3x² + 9x)), and 12 verifier-side construction slips (polyD
+  descending-args mix-ups + the arrEq padding semantics). Authored-time scanner catches: 4 odd backslash runs (a \'
+  prime escape in the GCF formula card — rewritten prime-free) + 2 figure-geometry defects (panels overlapping the
+  result band; right-panel titles 2px off the note boxes) + 1 band-edge text spill, all repaired to zero pre-ship.
+- Both new figures audited 0-issue and visually inspected; E2E 45/45 PASS ×2 runs ×3 viewports per lesson.

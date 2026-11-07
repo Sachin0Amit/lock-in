@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-08 02:40:27 (Asia/Kolkata)",
+  "generated": "2026-11-08 03:45:54 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,12 +5921,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 105,
-      "totalLines": 67723,
+      "totalLines": 67714,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 58458,
+        "src/data/library (content model + books)": 58449,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -14415,6 +14415,102 @@
           "del": 3
         }
       ]
+    },
+    {
+      "sha": "9cf5ecf588a35ec5b1bfe2dd9a6c3dacad147c83",
+      "short": "9cf5ecf",
+      "date": "2026-11-07 21:11",
+      "message": "al ch.3 CLOSES (run 72): 3.3 Special Products: the Identities, Proved (4,408 w — the identity charter both directions with the equation-vs-identity census swept 17 values, (a−b)² derived twice (grid + the b→−b substitution), the corner-cut square figure with the Euclid II.4 callout, the cube identities proved on the grid with the 3.2 x³−1 teaser cashed (four middle cells cancel, swept), the middle-term rule (x+a)(x+b) swept 325 pairs, trinomial-square recognition + the middle-term test with refusals priced, the multinomial square swept [−3,3]³, the H&K shortcut arithmetic 1012²/98²/102×98 certified by columns) + 3.4 Dividing Polynomials: Long Division and the Remainder Theorem (4,246 w — the index law for division cashing 2.2, H&K's four-step rule with the tableau figure and the zero-seat caution (x⁴+16 ÷ x+2 = x³−2x²+4x−8 r 32), the ascending arrangement (art. 51's exhibit engine-verified), the division identity f = d·q + r PROVED with uniqueness (1,200-pair longDiv sweep + 200 perturbation trials), the remainder theorem PROVED (r = f(a), 360-pair sweep; evaluate never divide), the factor theorem glimpsed with the 3.1 p(1)=0 seed cashed, the divisor-square curiosity + the three-letter exhibit, the five-row division ledger, the Ruffini/detached-coefficients callout) — verify-first with verify-book3-ch03.ts 214 → 436 checks ALL GREEN (J+L pre-writing caught the verifier's own longDiv engine bug + 8 coefficient mix-ups + a wrong L6 quotient; K+M authored-time scanners caught 61 unicode escapes + 2 odd runs + 4 raw-$ labels, none shipped); the unit-3 completion review PASSED 7/7, 4/4 exam corners (18,656 words / 32 terms / 20 quiz / 56 exercises / 8 figures chapter totals); E2E e2e-al-33/34 whitelisted, 45/45 PASS x2 runs x3 viewports per lesson; 8 figures 0-issue audited + visually inspected; audit-svg-overlaps.sh gained the al-* mapping; logs + inventory updated (24 chapters written / 94 lessons / 460,076 words)",
+      "filesChanged": 15,
+      "insertions": 2426,
+      "deletions": 48,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 58,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 40,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 85,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 120,
+          "del": 23
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-33.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-33.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-34.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-34.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch03.ts",
+          "add": 804,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-03.ts",
+          "add": 983,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "4e2fcb530140796701a6a1512baed4602df207f9",
+      "short": "4e2fcb5",
+      "date": "2026-11-07 21:12",
+      "message": "memory: run-72 push verified — remote main = 9cf5ecf (ship 9cf5ecf pushed 9595b2f..9cf5ecf, ls-remote verified = local HEAD; run 71's memory commit b2585fe rode the same push); AL ch. 3 'Polynomials' COMPLETE 4/4 (18,656 words: 3.3 'Special Products: the Identities, Proved' 4,408 + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' 4,246; the unit-3 completion review PASSED 7/7 + 4/4 exam corners; verify-book3-ch03.ts finished at 436 checks ALL GREEN — sections J+L's 115 pre-writing checks caught TWELVE author defects incl. the verifier's own longDiv engine bug and a wrong L6 quotient, K/M's authored-time scanners caught 61 unicode escapes + 2 odd backslash runs + 4 raw-$ derivation labels, none shipped; the Euclid II.4 corner-cut callout and the Ruffini synthetic-division callout; eight figures audited 0-issue + visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson on keys 1/2/0/1/1 and 0/1/2/0/1); the book stands 3 complete chapters of 11 (24 chapters written / 94 lessons / 460,076 words repo-wide); next run 73 = ch. 4 'Factorization' OPENS with 4.1 'Common Factors and Grouping' + 4.2 'Factoring Quadratic Trinomials' (create verify-book3-ch04.ts FIRST; whitelist e2e-al-41/42; never 4.3/4.4); run 74 = 4.3 + 4.4 + the unit-4 review close ch. 4",
+      "filesChanged": 0,
+      "insertions": 0,
+      "deletions": 0,
+      "files": []
     }
   ],
   "totals": {
@@ -14422,26 +14518,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 24,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 94,
-    "wordsAuthored": 460076,
-    "termsDefined": 723,
-    "quizItems": 470,
-    "exerciseQuestions": 1177,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 96,
+    "wordsAuthored": 468328,
+    "termsDefined": 739,
+    "quizItems": 480,
+    "exerciseQuestions": 1205,
     "blockTotals": {
-      "para": 1337,
-      "callout": 522,
-      "heading": 529,
-      "list": 99,
-      "terms": 95,
-      "equation": 132,
-      "figure": 159,
-      "derivation": 192,
-      "table": 129,
-      "example": 382,
-      "quiz": 94,
-      "exercises": 94,
-      "formula": 266,
+      "para": 1365,
+      "callout": 534,
+      "heading": 538,
+      "list": 101,
+      "terms": 97,
+      "equation": 136,
+      "figure": 163,
+      "derivation": 196,
+      "table": 131,
+      "example": 389,
+      "quiz": 96,
+      "exercises": 96,
+      "formula": 272,
       "algorithm": 21
     }
   }

@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-08",
- "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 3 'Polynomials' COMPLETE 4/4 (run 72, 2026-11-08): 3.3 'Special Products: the Identities, Proved' (al-special-products-the-identities-proved, 4,408 words, quiz keys 1/2/0/1/1) + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' (al-dividing-polynomials-long-division-and-the-remainder-theorem, 4,246 words, quiz keys 0/1/2/0/1) + the unit-3 completion review PASSED (7/7 checklist, 4/4 exam corners); verify-book3-ch03.ts finished at 436 checks ALL GREEN (sections A–M); 18,656 words across the chapter. NEXT: run 73 = ch. 4 'Factorization' OPENS with 4.1 'Common Factors and Grouping' + 4.2 'Factoring Quadratic Trinomials' (v2 two-lesson scope, verify-book3-ch04.ts FIRST, never the 4.3/4.4 pair this run).",
- "awaiting": "nothing blocking — next run 72 = AL ch. 3 'Polynomials' CLOSES with 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend verify-book3-ch03.ts with the pre-writing section for 3.3/3.4 FIRST; never ch. 4); run 73 opens ch. 4 'Factorization' with 4.1 + 4.2",
+ "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 4 'Factorization' OPENS 2/4 (run 73, 2026-11-08): 4.1 'Common Factors and Grouping' (al-common-factors-and-grouping, 4,202 words, quiz keys 0/1/0/0/2) + 4.2 'Factoring Quadratic Trinomials' (al-factoring-quadratic-trinomials, 4,050 words, quiz keys 2/1/3/1/3); verify-book3-ch04.ts finished at 248 checks ALL GREEN (sections A–G: the GCF engine + completeness sweeps 7,225/5,832, the grouping machine 14,641 points, the sum-of-squares refusal, THE GAUGE EXISTENCE THEOREM 1,025 cells, the AC-split completeness theorem 8,238 primitive trinomials; every exhibit/quiz/exercise key recomputed both sides). 8,252 words across the chapter so far. NEXT: run 74 = ch. 4 CLOSES with 4.3 'The Identities as Factorizations' + 4.4 'The Factor Theorem and Cubics' + the unit-4 completion review (extend verify-book3-ch04.ts FIRST, whitelist e2e-al-43/44, never ch. 5).",
+ "awaiting": "nothing blocking — next run 74 = AL ch. 4 CLOSES with 4.3 + 4.4 + the unit-4 completion review (pre-writing sections for 4.3/4.4 added to verify-book3-ch04.ts FIRST; e2e-al-43/44 whitelisted before commit; never ch. 5)",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -777,5 +777,47 @@
   ],
   "downloads": "one (the H&K Elementary scan re-pulled for ch. VI Division + arts. 112–114 + the bound Higher-Algebra art. 311 remainder-theorem exposition; deleted after E2E)",
   "infra": "audit-svg-overlaps.sh gained the al-* book mapping; e2e-al-33/34 whitelisted in .gitignore"
+ },
+ "run73Extras": {
+  "run": 73,
+  "date": "2026-11-08",
+  "firedFrom": "job 509354's payload re-delivered 05:15:01 +08:00, trace cron-agent-loop-202611080515 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
+  "lessons": [
+   "al-common-factors-and-grouping (4.1)",
+   "al-factoring-quadratic-trinomials (4.2)"
+  ],
+  "words": [
+   4202,
+   4050
+  ],
+  "chapterWords": 8252,
+  "verifyChecks": "248 ALL GREEN (verify-book3-ch04.ts sections A–G: A engines incl. the gauge theorem at 1,025 cells + the AC-split completeness theorem over 8,238 primitive trinomials; B/D pinned computations both sides; C/E figure plans; F/G authored batteries)",
+  "quizKeys": {
+   "4.1": [
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "4.2": [
+    2,
+    1,
+    3,
+    1,
+    3
+   ]
+  },
+  "figures": [
+   "the reversible film (4.1)",
+   "the grouping machine (4.1)",
+   "the two dials and the gauge (4.2)",
+   "the AC pipeline (4.2)"
+  ],
+  "preWritingCatches": "the multi-letter bracket defect (2xy + x − 3, not 2xy − 3 + xy — the third term leaves a bare x) + a wrong partial-extraction exhibit + 12 verifier-side construction slips",
+  "authoredCatches": "4 odd backslash runs (the \\'' prime escape) + 2 figure-geometry defects (panel/band overlap, title/note 2px) + 1 band-edge spill — all repaired to zero",
+  "e2e": "45/45 PASS x2 runs x3 viewports per lesson",
+  "downloads": "zero (banked H&K knowledge + one new web-checked key harriot-1631-praxis)",
+  "inventory": "96 lessons / 468,328 words / 739 terms / 480 quiz / 1,205 exercises repo-wide; 24 chapters written + 1 in progress"
  }
 }

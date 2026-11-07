@@ -2,6 +2,7 @@ import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
+import { chapter04 } from './ch-04'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -13,8 +14,12 @@ import { chapter03 } from './ch-03'
  * Chapter 2 opened in run 69 (2.1 + 2.2) and CLOSED in run 70 (2.3 + the
  * unit-2 completion review): chapter 2 COMPLETE 3/3. Chapter 3 'Polynomials'
  * opened at run 71 (3.1 + 3.2) and CLOSED in run 72 (3.3 + 3.4 + the unit-3
- * completion review): chapter 3 COMPLETE 4/4 (18,656 words). The book stands
- * in-progress — 3 complete chapters of 11 (owner cadence: two lessons per
+ * completion review): chapter 3 COMPLETE 4/4 (18,656 words). Chapter 4
+ * 'Factorization' opened at run 73 with 4.1 Common Factors and Grouping +
+ * 4.2 Factoring Quadratic Trinomials (2/4 — ids al-common-factors-and-
+ * grouping and al-factoring-quadratic-trinomials); 4.3 + 4.4 + the unit-4
+ * completion review close it at run 74. The book stands in-progress — 3
+ * complete chapters + ch. 4 open 2/4 of 11 (owner cadence: two lessons per
  * run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
@@ -89,21 +94,7 @@ export const elementaryAlgebra: Book = {
     chapter01,
     chapter02,
     chapter03,
-    {
-      number: 4,
-      slug: 'factorization',
-      title: 'Factorization',
-      summary:
-        'Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Common Factors and Grouping',
-        'Factoring Quadratic Trinomials',
-        'The Identities as Factorizations',
-        'The Factor Theorem and Cubics',
-      ],
-    },
+    chapter04,
     {
       number: 5,
       slug: 'linear-equations-one-variable',
