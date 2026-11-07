@@ -79,6 +79,9 @@ pass, and the verifier's scanner HARDENED to odd-run detection so the class can 
 the flip map's first pass flagged 5 text/rect contacts (two over-wide un-anchored labels) — shortened + text-anchored,
 re-audited 0 issues on both figures; **both figures visually inspected clean**.
 
+**Push:** protocol-push OK — ship `5a250a9` pushed `67bd88a..5a250a9` to main; ls-remote verified remote main = local
+HEAD (`5a250a9`); tree clean after. PAT hygiene: used only inside the one-time push URL, never written to any file.
+
 **Logs:** SOURCE_LOG run-69 section (1 download — the H&K re-pull for ch. XXX, deleted after E2E; zero new keys —
 all five consumed keys banked); the inventory rebuilt: **library 3 books (2 complete + 1 in progress) / 22 chapters
 written (complete), 1 in progress / 89 lessons / 437,406 words / 683 terms / 445 quiz / 1,107 exercises**. Next: run 70 = AL
