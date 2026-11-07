@@ -57,8 +57,10 @@ record + git-history row + the ANS heading flipped COMPLETE).
 **Library after the run:** 2 books / 21 chapters written, 0 in progress / 83 lessons / 412,045 words / 635 terms / 415 quiz / 1,023
 exercises. ANS final: 34 lessons / 184,361 words; ch. 10 final: 3 lessons / 17,191 words / 24 terms / 15 quiz / 45 exercises.
 
-**Git:** ship commit + memory commit; protocol push of ALL unpushed local commits (the stale origin/main ref showed 17 ahead from
-the recycled sandbox — the push sends everything), ls-remote verified, synced sha recorded below.
+**Push record:** ship commit `00d8248` pushed per protocol — remote main advanced `0c3002c..00d8248` (the "17 unpushed" reading at
+run open was a stale local origin/main ref in the recycled sandbox; the actual remote gap was exactly this run's ship commit);
+one-time-URL ls-remote verified refs/heads/main = `00d8248` = local HEAD at 2026-11-07 ~14:45 IST. Synced sha recorded here and in
+the memory commit.
 
 ## 2026-11-07 — RUN 64 (fired 07:45:01 IST — the payload's "+08:00" 13:01:07 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071301): ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' OPENS 2/3 — 10.1 'The Great Extension Story' + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' shipped strictly sequentially; the FIRST fully-executed run after four consecutive zero-output sessions
 
