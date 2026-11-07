@@ -19,7 +19,7 @@ Every work session appends one entry at the top. Format:
 
 **Step 3 — logs:** WORKLOG.md (this entry), PROGRESS.json, RESUME_POINTER.json (run 64 = ch. 10 opens with 10.1 + 10.2), SOURCE_LOG.md (5 new keys: lokavibhaga-458, aryabhata-499-aryabhatiya, bakhshali-manuscript, al-uqlidisi-952-fusul, gwalior-inscription-876; fibonacci-1202-liber-abaci and hindu-arabic-positional-history extended; zero downloads), DETAILED_LOG.md (unit-ship entry), WORK_INVENTORY.json regenerated.
 
-**Step 4 — push:** (recorded post-push in the memory commit)
+**Step 4 — push:** local commit `7a75f16` (12 files, +1,175/−49), then the protocol push (one-time HTTPS URL, PAT never written to any file/config/log) moved the ship in one push (`329b49a..7a75f16`); one-time-URL `ls-remote` verified **remote HEAD = 7a75f16ab859d0d49b2cf4a9e3750ab52d7cc604 = local HEAD**. This memory commit records the verification. No push failures; no retries needed.
 
 ## 2026-11-07 — RUN 62 (fired 08:15 +08:00 from job 509354's hourly cadence, trace cron-agent-loop-202611070815): ANS CHAPTER 9 'NUMERATION THROUGH HISTORY' OPENS 2/3 — 9.1 'Tallies, Groupings and Additive Systems' + 9.2 'Place Value Before Its Time: Babylon and Mesoamerica' shipped strictly sequentially; the FIRST hourly-cadence run of the owner's 2026-11-06 v2 two-lessons-per-run directive
 
