@@ -9,8 +9,12 @@ import type { Chapter } from '../../../types'
  *                  1.2 Expressions, Terms and Like Terms (run 67 — quiz
  *                  keys 2/1/0/3/1, 14 exercises, two figures, verified
  *                  E2E-green)
- * REMAINING (run 68): 1.3 Evaluating Expressions: Substitution and
- *                  Formulas; 1.4 Translating: Words into Symbols
+ *                  1.3 Evaluating Expressions: Substitution and Formulas
+ *                  (run 68 — quiz keys 2/1/2/3/1, 14 exercises, two
+ *                  figures, two equations, verified E2E-green)
+ *                  1.4 Translating: Words into Symbols (run 68 — quiz
+ *                  keys 2/1/3/1/0, 14 exercises, two figures, verified
+ *                  E2E-green) — CHAPTER 1 COMPLETE 4/4
  *
  * References for this unit: the Drive copy `Elementary-Algebra_text.pdf`
  * is H. S. Hall & S. R. Knight, *Elementary Algebra for Schools*
@@ -237,6 +241,193 @@ function sieveSvg(): string {
 }
 
 /* ------------------------------------------------------------------ */
+/* Figure 5 (1.3): the formula machine — four input chips (k = 0/2/5/8 */
+/* at x = 40, y = 60/140/220/300, 120×44) fold through the machine box */
+/* (300,120,220,120) to the outputs (50/74/110/146 at x = 560).        */
+/* Footer y = 336. Geometry audited in section L.                      */
+/* ------------------------------------------------------------------ */
+
+function machineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The formula machine: inputs k equals 0, 2, 5 and 8 flow into the taxi machine C equals 50 plus 12k and come out as 50, 74, 110 and 146 rupees — one fold per input">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  const rows = [
+    ['k = 0', '50'],
+    ['k = 2', '74'],
+    ['k = 5', '110'],
+    ['k = 8', '146'],
+  ]
+  for (let i = 0; i < rows.length; i++) {
+    const y = 60 + i * 80
+    parts.push(`<line x1="160" y1="${y + 22}" x2="300" y2="${120 + (i - 1.5) * 18 + 60}" stroke="#9a6b2f" stroke-width="1.2"/>`)
+    parts.push(`<rect x="40" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#9a6b2f" stroke-width="1.4"/>`)
+    parts.push(`<text x="100" y="${y + 28}" font-size="14" fill="#7c5a2e" text-anchor="middle" font-weight="600">${rows[i][0]}</text>`)
+    parts.push(`<rect x="560" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.6"/>`)
+    parts.push(`<text x="620" y="${y + 28}" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">₹ ${rows[i][1]}</text>`)
+    parts.push(`<line x1="520" y1="${120 + (i - 1.5) * 18 + 60}" x2="560" y2="${y + 22}" stroke="#9a6b2f" stroke-width="1.2"/>`)
+  }
+  parts.push('<rect x="300" y="120" width="220" height="120" rx="10" fill="none" stroke="#3f6212" stroke-width="2.2"/>')
+  parts.push('<text x="410" y="170" font-size="17" fill="#365314" text-anchor="middle" font-weight="700">C = 50 + 12k</text>')
+  parts.push('<text x="410" y="196" font-size="12.5" fill="#4d7c0f" text-anchor="middle">the taxi machine</text>')
+  parts.push('<text x="410" y="218" font-size="11.5" fill="#6b7a72" text-anchor="middle">fold once per input</text>')
+  parts.push(
+    '<text x="360" y="336" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">one fold per input — the formula answers for every k at once</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 6 (1.3): the anchor scale — one dual F/C ruler with the three */
+/* anchors (freezing 32/0, body 98.6/37, boiling 212/100) marked, plus  */
+/* the 68/20 working anchor. Ruler y = 150 (x = 60..660); ticks at the  */
+/* proportional positions; labels above (F) and below (C).             */
+/* ------------------------------------------------------------------ */
+
+function anchorScaleSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One dual scale for the two temperature machines: freezing at 32 degrees Fahrenheit and 0 Celsius, body temperature at 98.6 and 37, boiling at 212 and 100, with the working anchor 68 Fahrenheit at 20 Celsius">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
+  // the ruler: F from 20 to 240 maps to x 60..660
+  const fx = (f: number) => 60 + ((f - 20) / 220) * 600
+  parts.push(`<line x1="60" y1="150" x2="660" y2="150" stroke="#1f5c4d" stroke-width="2"/>`)
+  const anchors: [number, string, string, string][] = [
+    [32, 'freezing', '32 °F', '0 °C'],
+    [68, 'room', '68 °F', '20 °C'],
+    [98.6, 'body', '98.6 °F', '37 °C'],
+    [212, 'boiling', '212 °F', '100 °C'],
+  ]
+  for (const [f, name, fLabel, cLabel] of anchors) {
+    const x = fx(f)
+    parts.push(`<circle cx="${x}" cy="150" r="5" fill="none" stroke="#3f6212" stroke-width="2"/>`)
+    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="112" stroke="#9a6b2f" stroke-width="1.2"/>`)
+    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="188" stroke="#9a6b2f" stroke-width="1.2"/>`)
+    parts.push(`<text x="${x}" y="102" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${fLabel}</text>`)
+    parts.push(`<text x="${x}" y="120" font-size="11" fill="#6b7a72" text-anchor="middle">${name}</text>`)
+    parts.push(`<text x="${x}" y="212" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">${cLabel}</text>`)
+  }
+  parts.push(
+    '<text x="360" y="258" font-size="12" fill="#365314" text-anchor="middle" font-weight="600">C = (F − 32) × 5/9 folds each upper mark to its lower partner — the anchors certify the machine</text>'
+  )
+  parts.push(
+    '<text x="360" y="288" font-size="11.5" fill="#6b7a72" text-anchor="middle">verified in tenths: (98.6 − 32) × 5/9 = 66.6 × 5/9 = 37.0 exactly</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 7 (1.4): the translation pipeline — the taxi story flowing   */
+/* through the four stations. Sentence band (110,16,500,44); stations  */
+/* 156x92 at y = 120 (x = 8, 190, 372, 554); flow arrows between       */
+/* stations; footer y = 380. Geometry audited in section M.            */
+/* ------------------------------------------------------------------ */
+
+function pipelineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The translation pipeline: the taxi sentence flows through four stations — name the unknown, find the is, translate the phrases, plausibility check — landing on the machine C equals 50 plus 12k">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="400" fill="transparent"/>')
+  parts.push('<rect x="110" y="16" width="500" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.8"/>')
+  parts.push(
+    '<text x="360" y="43" font-size="12" fill="#365314" text-anchor="middle" font-weight="600">"A taxi starts at ₹50 and adds ₹12 per km; a ride cost ₹194."</text>'
+  )
+  const stations: [number, string, string, string][] = [
+    [8, '1 — name the unknown', 'the kilometres k', 'placeholder (1.1)'],
+    [190, '2 — find the "is"', '"cost ₹194" is the verb', 'it draws the = sign'],
+    [372, '3 — translate the phrases', '50 + 12k', 'phrase by phrase'],
+    [554, '4 — plausibility check', 'C(12) = 194 (1.3)', 'units + anchors'],
+  ]
+  for (let i = 0; i < stations.length; i++) {
+    const [x, title, line1, line2] = stations[i]
+    parts.push(`<rect x="${x}" y="120" width="156" height="92" rx="8" fill="none" stroke="#3f6212" stroke-width="1.6"/>`)
+    parts.push(`<text x="${x + 78}" y="146" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 78}" y="172" font-size="11.5" fill="#4d7c0f" text-anchor="middle">${line1}</text>`)
+    parts.push(`<text x="${x + 78}" y="192" font-size="11" fill="#6b7a72" text-anchor="middle">${line2}</text>`)
+    if (i < stations.length - 1) {
+      const x1 = x + 156
+      const x2 = x + 182
+      parts.push(`<line x1="${x1}" y1="166" x2="${x2}" y2="166" stroke="#9a6b2f" stroke-width="1.6"/>`)
+      parts.push(`<path d="M ${x2 + 8} 166 L ${x2 - 2} 161 L ${x2 - 2} 171 Z" fill="#9a6b2f"/>`)
+    }
+  }
+  parts.push(
+    '<text x="360" y="288" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">50 + 12k = 194 — the story is now a lawful sentence</text>'
+  )
+  parts.push(
+    '<text x="360" y="380" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">name, verb, phrases, plausibility — the pipeline turns every word problem into algebra</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 8 (1.4): the bracket twins — the two readings of a three-part */
+/* English sentence as two mini trees with their x = 4 verdicts. Two    */
+/* panels 330x300 at (24,16) and (366,16); nodes 80x36; footer y = 348. */
+/* Geometry audited in section M.                                       */
+/* ------------------------------------------------------------------ */
+
+function twinsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The bracket twins: twice the sum of x and 3 builds a times root over a plus of x and 3, folding to 14 at x equals 4, while the sum of twice x and 3 builds a plus root over 2x and 3, folding to 11 — same words reshuffled, different trees">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="380" fill="transparent"/>')
+  // left panel
+  parts.push('<rect x="24" y="16" width="330" height="300" rx="10" fill="none" stroke="#3f6212" stroke-width="1.6"/>')
+  parts.push('<text x="189" y="46" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">"twice the sum of x and 3"</text>')
+  parts.push('<line x1="189" y1="96" x2="129" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="189" y1="96" x2="249" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="129" y1="176" x2="81" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="129" y1="176" x2="177" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  const leftNodes: [number, number, string][] = [
+    [149, 60, '×'],
+    [89, 140, '+'],
+    [209, 140, '2'],
+    [41, 216, 'x'],
+    [137, 216, '3'],
+  ]
+  for (const [x, y, label] of leftNodes) {
+    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#3f6212' : '#9a6b2f'}" stroke-width="1.4"/>`)
+    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#365314' : '#7c5a2e'}" text-anchor="middle" font-weight="700">${label}</text>`)
+  }
+  parts.push('<text x="189" y="292" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">2(x + 3) = 14 at x = 4</text>')
+  // right panel
+  parts.push('<rect x="366" y="16" width="330" height="300" rx="10" fill="none" stroke="#3f6212" stroke-width="1.6"/>')
+  parts.push('<text x="531" y="46" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">"the sum of twice x and 3"</text>')
+  parts.push('<line x1="531" y1="96" x2="471" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="531" y1="96" x2="591" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="471" y1="176" x2="439" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="471" y1="176" x2="527" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  const rightNodes: [number, number, string][] = [
+    [491, 60, '+'],
+    [431, 140, '×'],
+    [551, 140, '3'],
+    [399, 216, '2'],
+    [487, 216, 'x'],
+  ]
+  for (const [x, y, label] of rightNodes) {
+    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#3f6212' : '#9a6b2f'}" stroke-width="1.4"/>`)
+    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#365314' : '#7c5a2e'}" text-anchor="middle" font-weight="700">${label}</text>`)
+  }
+  parts.push('<text x="531" y="292" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">2x + 3 = 11 at x = 4</text>')
+  parts.push(
+    '<text x="360" y="348" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">same words, reshuffled — different trees, different numbers: brackets are the translation\'s grammar</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* the chapter                                                         */
+
+/* ------------------------------------------------------------------ */
 /* the chapter                                                         */
 /* ------------------------------------------------------------------ */
 
@@ -246,11 +437,8 @@ export const chapter01: Chapter = {
   title: 'Letters and Structure',
   summary:
     'The grammar of algebra, built from the FM doorstep: a letter stops abbreviating one number and starts carrying structure — what an expression is (terms, coefficients, factors), why "like terms" may be collected (the distributive law working backwards, proved), how substitution evaluates, and how words become symbols in the exam word-problem grammar. Order of operations is re-derived as the expression tree, not recited.',
-  status: 'in-progress',
-  plannedLessons: [
-    'Evaluating Expressions: Substitution and Formulas',
-    'Translating: Words into Symbols',
-  ],
+  status: 'complete',
+  plannedLessons: [],
   lessons: [
     {
       id: 'al-from-arithmetic-to-algebra',
@@ -1331,6 +1519,1029 @@ export const chapter01: Chapter = {
           name: 'The simplify contract',
           latex: '5a + 3b - 2a + b \\;=\\; (5 - 2)a + (3 + 1)b \\;=\\; 3a + 4b',
           note: 'sort into like families, collect each, keep unlike families separate — the name changes, the value never (verified by substitution; one witness match fails to refute, never proves)',
+        },
+      ],
+    },
+    {
+      id: 'al-evaluating-expressions-substitution-and-formulas',
+      number: '1.3',
+      title: 'Evaluating Expressions: Substitution and Formulas',
+      concepts: [
+        'Substitution at full strength',
+        'Negatives ride in brackets',
+        'Formulas as machines',
+        'The machine table',
+        'Anchor values',
+        'Collect first, then fold',
+        'Reading formulas backwards',
+        'The unit audit',
+      ],
+      objectives: [
+        'substitute at full strength into multi-term expressions, wrapping negatives in brackets so the tree of 1.2 folds exactly as drawn — (−3)² = 9, never −9',
+        'read a formula as a machine: one fold per input, a table for many inputs, and the honest habit of sanity-checking every output against its units',
+        'run four anchor-certified machines — the taxi C = 50 + 12k, the temperature pair C = (F − 32) × 5/9 and F = 9C/5 + 32, the triangle A = ½bh, the square perimeter 4s — and FM 11.2\'s dress Tn = 5n − 1',
+        'apply the standing speed method of 1.2: collect first, then fold, and know when a one-off substitution does not bother collecting',
+        'read a formula backwards by arithmetic undoing (which position holds 74?) as FM 11.2 did it — while keeping the general settlement for AL ch. 5',
+        'use evaluation as a lie detector: (a + b)² = a² + b² fails at EVERY pair in [1..10]², and one substitution kills a false identity on sight',
+      ],
+      prerequisites: ['al-expressions-terms-like-terms', 'fm-patterns-to-formulas'],
+      sources: ['openstax-elementary-algebra', 'hall-knight-elementary-algebra', 'khattar-qa-4e', 'cengage-jee-style'],
+      blocks: [
+        {
+          kind: 'para',
+          text:
+            'Two lessons built the machinery: 1.1 gave substitution its contract (replace every letter, honour the structure) and 1.2 made the structure visible (the expression tree) and lawful (renaming by the laws). This lesson puts the machinery to work at full strength — because in examination mathematics, substitution is not an occasional trick: it is the load-bearing skill under every formula question, every "find the value" item, and every table you will ever be handed. The destination is the **formula**: an expression grown up, wearing a name, answering for infinitely many inputs at once.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The lesson runs on three tracks, and they meet at the end. Track one pushes **substitution** to full strength — multi-term expressions, negative values, the traps that cost real marks. Track two promotes expressions into **formulas** — machines with names, inputs, outputs and anchor values that certify them. Track three cashes the speed contract of 1.2 (**collect first, then fold**) and adds the reverse skill — reading a formula **backwards** for one known output. Every track ends at the same place: the confidence to hand a letter a value and trust the fold, because the structure underneath has been audited.',
+        },
+        { kind: 'heading', text: 'Substitution at Full Strength' },
+        {
+          kind: 'para',
+          text:
+            'The evaluation contract of 1.1 has a corollary that only bites once negatives arrive, so it is worth stating exactly. When a letter holds a NEGATIVE value, the value rides into the expression **in brackets**. Substitute $a = -3$ into $a^2$ and you must write $(-3)^2$ — the brackets are the value\'s bodyguard, keeping the tree of 1.2 exactly as drawn. Drop them and the notation silently rebuilds the tree: $-3^2$ is $-(3^2) = -9$, a different assembly of the same symbols. The FM 7.3 sign rules then finish the job: $(-3)^2 = 9$ because the two negatives multiply to a positive.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate 2a − b² at a = −3, b = −2',
+          steps: [
+            'Substitute in brackets: $2(-3) - (-2)^2$.',
+            'The powers first: $(-2)^2 = (-2) \\times (-2) = 4$.',
+            'The product: $2(-3) = -6$.',
+            'Combine: $-6 - 4$.',
+            'Hence $-10$ — and had the brackets been dropped, $-3^2$ and $-2^2$ would have read $-9$ and $-4$, landing on $-6 - (-4) = -2$: seven marks of difference from two dropped pairs of brackets.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate 3x² − 2x + 1 at x = 4',
+          steps: [
+            'Substitute: $3(4)^2 - 2(4) + 1$.',
+            'Powers first: $(4)^2 = 16$.',
+            'The coefficient multiplies the SQUARE, not the root: $3 \\times 16 = 48$.',
+            'The linear term: $2 \\times 4 = 8$.',
+            'Fold: $48 - 8 + 1$.',
+            'Hence $41$.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The three full-strength traps',
+          text:
+            '**(1) $3x^2$ means $3(x^2)$, never $(3x)^2$.** At $x = 2$ the true value is $12$; the misread gives $36$ — and the full expression $3x^2 - 2x + 1$ reads $9$ correctly versus $33$ under the misread (all computed in the verifier). The exponent grabs only its own base. **(2) Negatives ride in brackets.** $(-3)^2 = 9$ but $-3^2 = -9$; the sweep of the next section shows the whole expression flipping sign when the brackets drop. **(3) Powers before products.** In $3x^2$, the square assembles FIRST (the tree\'s $\\times$ joint sits under the $\\times 3$); evaluating $3 \\times x = 6$ and then squaring is a different tree — and a wrong answer.',
+        },
+        { kind: 'heading', text: 'Formulas: Machines with Letters' },
+        {
+          kind: 'para',
+          text:
+            'A formula is an expression that earned a name and a job. Where a bare expression waits for ONE substitution, a formula is built to be folded **again and again** — it is a machine: an input goes in, the structure folds, an output comes out. The taxi machine of 1.1 is the canonical exhibit:',
+        },
+        {
+          kind: 'equation',
+          latex: 'C(k) = 50 + 12k',
+          note: 'C in rupees, k in kilometres — the base fare plus ₹12 for every kilometre ridden',
+        },
+        {
+          kind: 'figure',
+          caption: 'The formula machine: four inputs fold through $C = 50 + 12k$ to four outputs. One fold per input; the machine itself never changes.',
+          svg: machineSvg(),
+        },
+        {
+          kind: 'para',
+          text:
+            'Reading the machine honestly means knowing what each letter IS (the 1.1 census: $k$ is a placeholder wearing the units of kilometres; $C$ is the output placeholder wearing rupees) and what each output should look like. That last habit has a name worth keeping: the **unit audit**. A fare must come out in rupees and must grow by ₹12 per kilometre — so $C(8) = 146$ passes the audit (146 rupees, exactly ₹96 more than the ₹50 base for 8 km at ₹12 each), and any fold that returned "12 rupees per kilometre" as a FARE would fail it on sight.',
+        },
+        {
+          kind: 'table',
+          caption: 'The machine table of the taxi: every row is one substitution',
+          head: ['Input $k$ (km)', 'The fold', 'Output $C$ (₹)', 'The audit'],
+          rows: [
+            ['$0$', '$50 + 12 \\times 0$', '$50$', 'the bare base fare — plausible'],
+            ['$2$', '$50 + 12 \\times 2$', '$74$', 'two km add ₹24 — plausible'],
+            ['$5$', '$50 + 12 \\times 5$', '$110$', 'five km add ₹60 — plausible'],
+            ['$8$', '$50 + 12 \\times 8$', '$146$', 'the 1.1 exhibit, now systematic'],
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'A machine table is just four substitutions in a row — and that is the quiet point. FM 11.2 fitted the dress $T_n = 5n - 1$ to the pattern 4, 9, 14, …; the dress is a machine too, and folding it at $n = 50$ gave $T_{50} = 249$ with no fifty steps. The generality dividend of 1.1, cashed.',
+        },
+        {
+          kind: 'para',
+          text:
+            'Tables also **confess** a machine\'s character if you read them sideways. Subtract neighbouring outputs of the taxi machine and the differences tell the story: $C(2) - C(0) = 24$ for the two-kilometre jump, $C(5) - C(2) = 36$ for three, $C(8) - C(5) = 36$ again — and per single kilometre, the step is $+12$ EVERY time (the verifier swept $k$ from 0 to 20: every one-kilometre step costs exactly ₹12). A machine whose every equal input-step produces an equal output-step is called **linear**, and that constant-step signature is the fingerprint AL ch. 10 will turn into graphs (straight lines). You have just read a graph\'s soul out of a table.',
+        },
+        {
+          kind: 'para',
+          text:
+            'Reading a machine table well is four habits in one glance. Read the **inputs** column and ask what values are honest for this machine (the domain). Read the **folds** column and confirm each row really substituted everywhere — a stale letter left un-replaced is the classic table bug. Read the **outputs** and run the unit audit on each. Then read the table SIDEWAYS (the differences) and let the machine confess its shape. Four habits, one table — and every examination data set you will ever meet is exactly such a table wearing different clothes.',
+        },
+        { kind: 'heading', text: 'A Formula Zoo: Four Machines, One Fold' },
+        {
+          kind: 'para',
+          text:
+            'Four more machines, each certified by **anchor values** — inputs whose outputs are known independently, so the machine can be trusted at every other input:',
+        },
+        {
+          kind: 'para',
+          text:
+            'A substitution discipline worth naming before the zoo: **units ride with values**. When $k$ carries kilometres into $C = 50 + 12k$, the 12 is not a bare number — it is ₹12 per kilometre, and the fold $50 + 12 \\times 8$ is really rupees + (rupees-per-km × km), which is rupees again. Writing the units through the fold is the cheapest error-hunt ever invented: if the units of your answer come out wrong, the structure was wrong, and no amount of correct arithmetic can rescue a wrong structure. Every machine below is audited this way in the exercises — and the audit habit, once learned, transfers to every formula you will ever fold.',
+        },
+        {
+          kind: 'equation',
+          latex: 'C = (F - 32) \\times \\tfrac{5}{9}, \\qquad F = \\tfrac{9}{5}\\,C + 32',
+          note: 'the temperature pair: Fahrenheit ↔ Celsius, each the other\'s undoing',
+        },
+        {
+          kind: 'para',
+          text:
+            'The temperature machines carry three famous anchors: freezing water ($32\\,^\\circ\\mathrm{F} \\to 0\\,^\\circ\\mathrm{C}$), a warm room ($68\\,^\\circ\\mathrm{F} \\to 20\\,^\\circ\\mathrm{C}$), and boiling water ($212\\,^\\circ\\mathrm{F} \\to 100\\,^\\circ\\mathrm{C}$) — plus the body anchor $98.6\\,^\\circ\\mathrm{F} \\to 37\\,^\\circ\\mathrm{C}$, whose arithmetic is exact in tenths: $(98.6 - 32) \\times 5/9 = 66.6 \\times 5/9 = 37.0$. The inverse machine runs the pair the other way: $F = 9C/5 + 32$ sends $37 \\to 98.6$, and every round trip returns exactly where it started (the verifier folded all four).',
+        },
+        {
+          kind: 'figure',
+          caption: 'The anchor scale: one ruler, two names. Each upper mark (°F) folds to its lower partner (°C) by $C = (F - 32) \\times 5/9$ — the anchors certify the machine between them.',
+          svg: anchorScaleSvg(),
+        },
+        {
+          kind: 'table',
+          caption: 'The zoo: four machines, one fold each',
+          head: ['Machine', 'Input', 'The fold', 'Output'],
+          rows: [
+            ['$C = (F - 32) \\times 5/9$', '$F = 68$', '$(68 - 32) \\times 5/9 = 36 \\times 5/9$', '$20\\,^\\circ\\mathrm{C}$'],
+            ['$A = \\tfrac{1}{2}\\,b\\,h$', '$b = 12$, $h = 9$', '$\\tfrac{1}{2} \\times 12 \\times 9$', '$54$ square units'],
+            ['$P = 4s$', '$s = 9$', '$4 \\times 9$', '$36$ units'],
+            ['$T_n = 5n - 1$', '$n = 50$', '$5 \\times 50 - 1$', '$249$ (FM 11.2\'s dress)'],
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'One honesty note the zoo forces: machines have **domains**, and the unit audit polices them. The taxi formula happily folds $C(-1) = 38$ — arithmetic-perfect and physically nonsense, since no ride covers $-1$ kilometres. The table\'s honest domain is $k \\ge 0$; the temperature machines are honest across the range their anchors span; the triangle machine wants $b, h > 0$. Folding outside the domain is not a crime — it is a WARNING that the answer describes nothing real. Examiners love this boundary: "for which values of $k$ does the formula make sense?" is a one-mark gift to anyone who reads machines with care.',
+        },
+        {
+          kind: 'example',
+          title: 'Build the machine table of A = ½bh for b = 12 and h = 9, 10, 11',
+          steps: [
+            'Fold at $h = 9$: $\\tfrac{1}{2} \\times 12 \\times 9 = 6 \\times 9 = 54$.',
+            'Fold at $h = 10$: $6 \\times 10 = 60$.',
+            'Fold at $h = 11$: $6 \\times 11 = 66$.',
+            'Read sideways: each +1 in height adds exactly 6 square units — the constant-step signature again ($6 = \\tfrac{1}{2} \\times 12$, half the base).',
+            'Hence the table 54/60/66, and the audit: every triangle holds half its bounding box.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Fold the dress machine T = 5n − 1 at n = 1, 2 and 50',
+          steps: [
+            'Fold at $n = 1$: $5 \\times 1 - 1 = 4$ — the pattern\'s own first term.',
+            'Fold at $n = 2$: $5 \\times 2 - 1 = 9$ — the pattern\'s second term.',
+            'Fold at $n = 50$: $250 - 1 = 249$ — the answer that took arithmetic fifty steps.',
+            'Hence one machine serves the pattern\'s first, second and fiftieth terms with the same three-second fold.',
+            'The anchors ($T_1 = 4$, $T_2 = 9$) certify the far fold ($T_{50} = 249$): that is how machines earn trust.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why anchors matter more than answers',
+          text:
+            'A fold can be arithmetic-perfect and still be the WRONG machine — the halve-it heuristic $(212 - 32)/2 = 90$ for boiling looks almost right and is wrong by ten degrees. Anchors are the antidote: a machine that sends freezing to 0, boiling to 100 and the body to 37 simultaneously is very hard to fool. Examination practice is the same discipline in disguise: after any formula substitution, test the output against one input whose answer you already know cold.',
+        },
+        { kind: 'heading', text: 'Collect First, Then Fold' },
+        {
+          kind: 'para',
+          text:
+            'Lesson 1.2 proved that collecting like terms renames without changing value — which makes it a legitimate SPEED move before any substitution. To evaluate $6p + 4 - 2p - 1$ at $p = 15$: the long way grinds $90 + 4 - 30 - 1 = 63$; the short way collects first — $(6 - 2)p + (4 - 1) = 4p + 3$ — and folds $60 + 3 = 63$. Same verdict, less arithmetic, and the collected form $4p + 3$ is ready for the NEXT input too. The verifier swept the rename clean: the two names agree at every value in the pin grid.',
+        },
+        {
+          kind: 'example',
+          title: 'Evaluate 7m + 6 − 3m − 2 at m = 21, both ways',
+          steps: [
+            'Grind first: $7 \\times 21 = 147$; $3 \\times 21 = 63$.',
+            'Fold the grind: $147 + 6 - 63 - 2 = 88$.',
+            'Now collect: $(7 - 3)m + (6 - 2) = 4m + 4$.',
+            'Fold the rename: $4 \\times 21 + 4 = 88$.',
+            'Hence 88 both ways — the rename is verified AT the input, not just in the abstract.',
+          ],
+        },
+        {
+          kind: 'derivation',
+          title: 'Why collect-then-fold preserves value',
+          statement: 'Collecting like terms before substituting is legal — the fold of the collected form equals the fold of the original at EVERY input.',
+          steps: [
+            {
+              label: 'The rename theorem of 1.2',
+              formula: '5a + 3b - 2a + b \\;=\\; 3a + 4b',
+              explanation: 'The collection law renamed the expression, and the verifier confirmed the two names agree at every $(a, b)$ of the swept grid — not at some inputs, at ALL of them.',
+            },
+            {
+              label: 'Substitute into both names',
+              formula: '(5p + 4 - 2p - 1)\\Big|_{p=15} = 63 = (4p + 3)\\Big|_{p=15}',
+              explanation: 'Whatever input you choose, the two names receive the same values — they are the same number wearing two costumes. Folding either costume must land on that number.',
+            },
+            {
+              label: 'The general principle',
+              formula: 'E_1(x) = E_2(x) \\text{ for every } x \\;\\Rightarrow\\; E_1(t) = E_2(t) \\text{ at the chosen } t',
+              explanation: 'Agreement everywhere forces agreement at each particular input. This one-way street (from "for every" down to "at t") is why lawful renames are always safe to fold.',
+            },
+          ],
+          result: 'Collect first when it pays; the fold lands on the same number either way. The sweep verified it; the derivation explains WHY the sweep had to come out clean.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The honest boundary: collecting pays when the expression has like families AND will be evaluated once or more. A one-off substitution into a short expression ($2a + 3$ at $a = 5$) does not need it — collect nothing, fold once. The method serves the problem, never the reverse.',
+        },
+        { kind: 'heading', text: 'Reading Formulas Backwards' },
+        {
+          kind: 'para',
+          text:
+            'Machines also run in reverse for ONE known output: "the dress $T_n = 5n - 1$ holds 74 — which position?" FM 11.2 answered such questions by arithmetic undoing, and the move is worth owning precisely because it is NOT equation solving (that general machine is AL ch. 5\'s). Undo the last operation first: $5n - 1 = 74$ means $5n = 75$, so $n = 15$. Check by folding forward: $5 \\times 15 - 1 = 74$ — the output comes back, the position is found. The same undo answers 49 at $n = 10$ and, from 1.1, 99 at $n = 20$.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The temperature machine shows undoing at its best — two operations, two un-steps. "Which Fahrenheit reads $20\\,^\\circ\\mathrm{C}$?" Undo the outermost last: $(F - 32) \\times 5/9 = 20$ means $F - 32 = 36$ (un-share: $20 \\times 9/5 = 36$), then $F = 68$ (un-shift). Check forward: $(68 - 32) \\times 5/9 = 20$ — the room anchor returns. Note the ORDER: undo the LAST operation first, exactly the FM 11.3 habit — the tree\'s root comes out first, the leaves go back last.',
+        },
+        {
+          kind: 'example',
+          title: 'Run the Celsius machine backwards at C = 100',
+          steps: [
+            'The forward machine: $C = (F - 32) \\times 5/9$ — undo it for $C = 100$.',
+            'Un-share first (the last operation): $F - 32 = 100 \\times 9/5 = 180$.',
+            'Un-shift next: $F = 180 + 32 = 212$.',
+            'Check forward: $(212 - 32) \\times 5/9 = 180 \\times 5/9 = 100$ — the boiling anchor returns.',
+            'Hence $100\,^\\circ\\mathrm{C}$ reads $212\,^\\circ\\mathrm{F}$, and the inverse machine $F = 9C/5 + 32$ is just this undo, generalised.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Undoing is not solving',
+          text:
+            'Arithmetic undoing works while each step visibly inverts the last (add 1, then share by 5). It does NOT scale to equations with the unknown on both sides or squared letters — that is why the balance machine of AL ch. 5 exists. The exam trap is trusting undo past its jurisdiction: $2x + 3 = x + 5$ has the unknown twice, and no single "last operation" undoes both. Translate it, test a candidate by substitution (the L6 exercise below), and let ch. 5 settle it properly.',
+        },
+        {
+          kind: 'para',
+          text:
+            'One more commission for the machine view — evaluation as a **lie detector**. The claim $(a + b)^2 = a^2 + b^2$ looks plausible and is FALSE: at $(3, 4)$ the left side folds to $49$ and the right to $25$. The verifier swept the whole window $[1..10]^2$: a hundred pairs, a hundred disagreements. One honest substitution kills a false identity on sight; the identity that DOES hold, $(a+b)^2 = a^2 + 2ab + b^2$, is ch. 3\'s first special product — and this chapter\'s machines are exactly how its truth will be checked.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The taxi machine supplies the cleanest undo ladder in the chapter. "The ride cost ₹194 — how long was it?" Undo the last operation: $50 + 12k = 194$ means $12k = 144$ (un-add the base), then $k = 12$ (un-multiply the rate). Check forward: $50 + 12 \\times 12 = 194$ — the machine returns the fare exactly. Three un-steps, one certified answer — and notice that lesson 1.4 will REACH this same sentence from the other direction: it will build $50 + 12k = 194$ out of English words, and ch. 5 will settle sentences like it in full generality. The ladder you just climbed is the middle of that story.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Formulas compress language',
+          text:
+            'The deepest convenience of the machine view is compression. The taxi tariff as English takes a sentence and a half — "the ride starts at fifty rupees, and every kilometre travelled adds twelve more" — with room for misreading at every comma. As a machine it is one line: $C = 50 + 12k$. The line is not just shorter; it is CHECKABLE — the anchors audit it, the unit audit police it, the sweep tested it, and no comma can shift its meaning. Learning to compress language into machines is the last lesson\'s business, and it is why this chapter\'s skills pay forever: every formula you will ever use is somebody\'s sentence, compressed.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The machine view completes this chapter\'s toolkit and sets the table for its last lesson. So far every formula arrived pre-translated — someone else read the taxi tariff or the thermometer scale and wrote the machine. Lesson 1.4 is where YOU do that reading: the art of taking a sentence in English ("₹50 to start, ₹12 for every kilometre") and folding it into exactly this machine, lawfully. The pipeline from words to symbols is the last piece of grammar the chapter owes you.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text:
+            'Formula substitution is the most reusable single skill in quantitative examinations. SSC CGL and bank PO prelims run "if $x = ...$, find the value of ..." one-liners whose wrong options are built from exactly the three traps of this lesson (the $(3x)^2$ misread, the dropped negative brackets, the exponent-first failure). The temperature pair is a standing favourite of NDA and SSC Tier-2 numericals; machine tables drive data-interpretation blocks in CAT/IPMAT; and the collect-then-fold speed move is what makes a 45-second answer out of a three-minute grind in DI sets. The unit audit — does this output wear the right units and plausible size? — is the habit that catches most wrong-option traps before the options are even read.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Machine view (of a formula)',
+              def: 'Reading a formula as input → fold → output: one substitution is one fold, a machine table is many folds, and the formula itself never changes.',
+            },
+            {
+              term: 'Anchor value',
+              def: 'An input whose correct output is known independently (freezing: $32\\,^\\circ\\mathrm{F} \\to 0\\,^\\circ\\mathrm{C}$; boiling: $212 \\to 100$; the body: $98.6 \\to 37$). Anchors certify a machine between them.',
+            },
+            {
+              term: 'Unit audit',
+              def: 'Checking every output against its units and plausible size before trusting the fold — a fare in rupees grows ₹12 per km; a temperature in °C near 90 for boiling has failed already.',
+            },
+            {
+              term: 'Negatives ride in brackets',
+              def: 'Substituting a negative value wraps it in brackets: $a = -3$ makes $a^2 = (-3)^2 = 9$. Dropping the brackets silently rebuilds the tree ($-3^2 = -9$) and flips the answer.',
+            },
+            {
+              term: 'Collect-then-evaluate',
+              def: 'The standing speed method: simplify by the laws of 1.2 BEFORE folding, so the machine folds in its shortest lawful form ($6p + 4 - 2p - 1 = 4p + 3$). One-off short substitutions may skip it.',
+            },
+            {
+              term: 'Reading backwards',
+              def: 'Undoing a machine for one known output by reversing the last operation first ($5n - 1 = 74 \\Rightarrow 5n = 75 \\Rightarrow n = 15$) — FM 11.2\'s move, valid while each step visibly inverts the last; the general settlement is AL ch. 5.',
+            },
+            {
+              term: 'Machine table',
+              def: 'A table of substitutions — one row per input, one fold per row — that displays a formula\'s behaviour without re-deriving it (the taxi table: 0/2/5/8 → 50/74/110/146).',
+            },
+            {
+              term: 'Evaluation lie detector',
+              def: 'Using one honest substitution to kill a false identity on sight: $(a+b)^2 = a^2 + b^2$ fails at every pair of $[1..10]^2$ (100/100 disagreements, swept). Witnesses refute; they do not prove.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'The taxi machine $C = 50 + 12k$ folds at $k = 5$. The fare is…?',
+              options: ['₹122', '₹98', '₹110', '₹60'],
+              answer: 2,
+              explain:
+                '$50 + 12 \\times 5 = 50 + 60 = 110$. Option 1 slips the input to $k = 6$ ($50 + 72$); option 2 slips it to $k = 4$ ($50 + 48$); option 4 forgets the base fare entirely ($12 \\times 5$) — the unit audit would catch it, since no taxi ride is free to start.',
+            },
+            {
+              q: 'With $a = -3$, the value of $a^2$ is…?',
+              options: ['$-9$', '9', '6', '$-6$'],
+              answer: 1,
+              explain:
+                'Negatives ride in brackets: $(-3)^2 = (-3) \\times (-3) = 9$ — the FM 7.3 sign rules decide. Option 1 is the bracket-dropped reading $-3^2 = -(3^2)$, a different tree. Options 3 and 4 are the lone first-term values ($2|a|$ and $2a$ from a fuller expression) — neither is a square.',
+            },
+            {
+              q: '$3x^2 - 2x + 1$ at $x = 2$ equals…?',
+              options: ['33', '3', '9', '17'],
+              answer: 2,
+              explain:
+                'The exponent grabs only its base: $3(2)^2 - 2(2) + 1 = 12 - 4 + 1 = 9$. Option 1 is the $(3x)^2$ misread ($36 - 4 + 1$); option 2 drops the exponent ($6 - 4 + 1$); option 4 flips the sign of the linear term ($12 + 4 + 1$). All three misreads are priced in the verifier.',
+            },
+            {
+              q: 'Boiling water is $212\\,^\\circ\\mathrm{F}$. In Celsius the machine gives…?',
+              options: ['$90\\,^\\circ\\mathrm{C}$', '$140\\,^\\circ\\mathrm{C}$', '$212\\,^\\circ\\mathrm{C}$', '$100\\,^\\circ\\mathrm{C}$'],
+              answer: 3,
+              explain:
+                '$(212 - 32) \\times 5/9 = 180 \\times 5/9 = 100$ — the boiling anchor certifies the machine. Option 1 is the halve-it heuristic ($(212-32)/2 = 90$): ten degrees wrong. Option 2 slips the multiplier to $7/9$. Option 3 forgets to convert at all — the unit audit catches it instantly.',
+            },
+            {
+              q: 'The dress $T_n = 5n - 1$ holds 74. Reading backwards, the position is…?',
+              options: ['14', '15', '16', '5'],
+              answer: 1,
+              explain:
+                'Undo the last operation first: $5n - 1 = 74$ gives $5n = 75$, so $n = 15$ — and the forward check $5 \\times 15 - 1 = 74$ certifies it. Option 1 forgot the $-1$ (reading $5n = 70$); option 3 over-corrected ($5n = 80$); option 4 misread the question as "fold at $n = 5$".',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'EXERCISE 1.C',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'The taxi machine $C = 50 + 12k$: find $C(5)$ and $C(3)$.',
+                  solution: [
+                    'Fold at $k = 5$: $50 + 12 \\times 5 = 50 + 60$.',
+                    'Hence $C(5) = 110$.',
+                    'Fold at $k = 3$: $50 + 12 \\times 3 = 50 + 36$.',
+                    'Hence $C(3) = 86$.',
+                  ],
+                  answer: 'C(5) = 110; C(3) = 86',
+                },
+                {
+                  q: 'The square-perimeter machine $P = 4s$: find $P(6)$ and $P(9)$.',
+                  solution: [
+                    'Fold at $s = 6$: $4 \\times 6 = 24$.',
+                    'Fold at $s = 9$: $4 \\times 9 = 36$.',
+                    'Hence $P(6) = 24$ units and $P(9) = 36$ units — and $P$ answers for every square at a glance.',
+                  ],
+                  answer: 'P(6) = 24; P(9) = 36',
+                },
+                {
+                  q: 'The dress $T_n = 5n - 1$ (FM 11.2): find $T_1$. What does the answer certify?',
+                  solution: [
+                    'Fold at $n = 1$: $5 \\times 1 - 1 = 4$.',
+                    'Hence $T_1 = 4$ — exactly the first term of the pattern 4, 9, 14, …',
+                    'Hence the anchor certifies the dress at the pattern\'s very start: the machine and the pattern agree where the dress was fitted.',
+                  ],
+                  answer: 'T₁ = 4 — the dress agrees with the pattern\'s first term',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Evaluate $3x^2 - 2x + 1$ at $x = 4$.',
+                  solution: [
+                    'Substitute: $3(4)^2 - 2(4) + 1$.',
+                    'Powers first: $16$; the coefficient multiplies the square: $48$.',
+                    'Fold: $48 - 8 + 1$.',
+                    'Hence $41$.',
+                  ],
+                  answer: '41',
+                },
+                {
+                  q: 'Evaluate $2a - b^2$ at $a = -3$, $b = -2$.',
+                  solution: [
+                    'Substitute in brackets: $2(-3) - (-2)^2$.',
+                    'Powers first: $(-2)^2 = 4$.',
+                    'Products: $2(-3) = -6$.',
+                    'Fold: $-6 - 4$.',
+                    'Hence $-10$ — the brackets kept the tree intact throughout.',
+                  ],
+                  answer: '−10',
+                },
+                {
+                  q: 'Build the machine-table row of the taxi for $k = 3$, and audit it.',
+                  solution: [
+                    'Fold: $C(3) = 50 + 12 \\times 3 = 50 + 36$.',
+                    'Hence $C(3) = 86$ rupees.',
+                    'Audit: the output wears rupees, exceeds the ₹50 base by ₹36 = 3 × ₹12 — plausible per the fare rule.',
+                    'Hence the row passes the unit audit.',
+                  ],
+                  answer: 'C(3) = 86 — audit passes (₹36 = 3 × ₹12 over the base)',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'The temperature machine $C = (F - 32) \\times 5/9$: convert $68\\,^\\circ\\mathrm{F}$.',
+                  solution: [
+                    'Fold: $(68 - 32) \\times 5/9 = 36 \\times 5/9$.',
+                    'Share first: $36/9 = 4$; then $4 \\times 5 = 20$.',
+                    'Hence $20\\,^\\circ\\mathrm{C}$ — the room anchor, certified.',
+                  ],
+                  answer: '20 °C',
+                },
+                {
+                  q: 'The triangle machine $A = \\tfrac{1}{2} b h$: find $A$ at $b = 14$, $h = 5$.',
+                  solution: [
+                    'Fold: $\\tfrac{1}{2} \\times 14 \\times 5 = 7 \\times 5$.',
+                    'Hence $A = 35$ square units.',
+                    'Audit: a triangle holds half its bounding box ($14 \\times 5 = 70$; $35 = 70/2$) — plausible.',
+                  ],
+                  answer: 'A = 35 square units',
+                },
+                {
+                  q: 'The dress $T_n = 5n - 1$ holds 74. Which position is it? Check your answer forward.',
+                  solution: [
+                    'Undo the last operation first: $5n - 1 = 74$ gives $5n = 75$.',
+                    'Share by 5: $n = 15$.',
+                    'Check forward: $5 \\times 15 - 1 = 74$ — the output returns.',
+                    'Hence 74 sits at position $n = 15$.',
+                  ],
+                  answer: 'n = 15 (forward check: 74 ✓)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Evaluate $6p + 4 - 2p - 1$ at $p = 15$ two ways: grind, then collect-then-fold.',
+                  solution: [
+                    'Grind: $6 \\times 15 = 90$; $2 \\times 15 = 30$; $90 + 4 - 30 - 1 = 63$.',
+                    'Collect first: $(6 - 2)p + (4 - 1) = 4p + 3$.',
+                    'Fold the rename: $4 \\times 15 + 3 = 63$.',
+                    'Hence 63 both ways — the rename is verified at the input, and $4p + 3$ is ready for the next input too.',
+                  ],
+                  answer: '63 both ways (grind and 4p + 3)',
+                },
+                {
+                  q: 'The dress $T_n = 5n - 1$ holds 49. Which position is it?',
+                  solution: [
+                    'Undo: $5n - 1 = 49$ gives $5n = 50$.',
+                    'Share by 5: $n = 10$.',
+                    'Check forward: $5 \\times 10 - 1 = 49$.',
+                    'Hence 49 sits at position $n = 10$.',
+                  ],
+                  answer: 'n = 10',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'The taxi machine, audited: find $C(45)$ and explain the unit audit that certifies it.',
+                  solution: [
+                    'Fold: $C(45) = 50 + 12 \\times 45 = 50 + 540$.',
+                    'Hence $C(45) = 590$ rupees.',
+                    'The unit audit: the output wears rupees (not km, not ₹/km); it exceeds the base by $540 = 45 \\times 12$, exactly the per-km rate times the distance.',
+                    'Hence the fold passes: right units, right growth, right size.',
+                  ],
+                  answer: 'C(45) = 590 — units and growth both audit clean',
+                },
+                {
+                  q: 'Use evaluation as a lie detector on the claim $(a + b)^2 = a^2 + b^2$: test $(a, b) = (3, 4)$, then say what the sweep found.',
+                  solution: [
+                    'Left side: $(3 + 4)^2 = 7^2 = 49$.',
+                    'Right side: $3^2 + 4^2 = 9 + 16 = 25$.',
+                    'Hence $49 \\neq 25$ — the claim is dead at the first witness.',
+                    'The verifier swept $[1..10]^2$: 100 pairs, 100 disagreements — no accidental agreement anywhere.',
+                    'Hence the claim is false as a law; the true identity (with the $2ab$ middle term) is ch. 3\'s first special product.',
+                  ],
+                  answer: '49 ≠ 25 at (3, 4); 100/100 disagreements in [1..10]² — false',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'The inverse machine $F = 9C/5 + 32$: fold $C = 37$, then verify the round trip $37 \\to F \\to 37$ exactly.',
+                  solution: [
+                    'Fold: $F = 9 \\times 37/5 + 32 = 333/5 + 32 = 66.6 + 32$.',
+                    'Hence $F = 98.6\\,^\\circ\\mathrm{F}$ — the body anchor.',
+                    'Round trip: $(98.6 - 32) \\times 5/9 = 66.6 \\times 5/9 = 37.0$ — exact in tenths ($333 \\times 5 = 1665$; $1665/9 = 185$; $185/5 = 37$).',
+                    'Hence the two machines undo each other exactly: $37 \\to 98.6 \\to 37$.',
+                  ],
+                  answer: 'F = 98.6; the round trip returns 37 exactly',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The taxi machine',
+          latex: 'C(k) = 50 + 12k',
+          note: 'input $k$ kilometres, output $C$ rupees — the machine table 0/2/5/8 → 50/74/110/146; anchors: $C(0) = 50$ (bare base) and every kilometre adds exactly ₹12',
+        },
+        {
+          kind: 'formula',
+          name: 'The temperature pair',
+          latex: 'C = (F - 32) \\times \\tfrac{5}{9}, \\qquad F = \\tfrac{9}{5}\\,C + 32',
+          note: 'each machine undoes the other exactly; anchors 32↔0, 68↔20, 98.6↔37, 212↔100 — the halve-it heuristic (90 for boiling) fails the anchor test by ten degrees',
+        },
+      ],
+    },
+    {
+      id: 'al-translating-words-into-symbols',
+      number: '1.4',
+      title: 'Translating: Words into Symbols',
+      concepts: [
+        'The translation dictionary',
+        'The order traps: less than, divided by',
+        'Brackets decide: the two readings',
+        'The translation pipeline',
+        'The verb "is" draws the equals',
+        'The consecutive families',
+        'When English flips lawfully',
+        'The plausibility check',
+      ],
+      objectives: [
+        'use the translation dictionary lawfully: more than, times, of, per, less than, divided by — knowing which entries keep English order (subtraction and division) and which may flip (addition and multiplication)',
+        'price the order traps numerically: "5 less than x" is x − 5 (3 at x = 8), never 5 − x (−3); "the quotient of n and 3, increased by 1" is n/3 + 1 (5 at n = 12), never n/(3 + 1) (3)',
+        'resolve the two-readings trap with brackets: "twice the sum of x and 3" is 2(x + 3) = 14 at x = 4 while "the sum of twice x and 3" is 2x + 3 = 11 — same words reshuffled, different trees (1.2 cashed)',
+        'run the four-station translation pipeline — name the unknown, find the "is", translate phrase by phrase, plausibility-check — turning stories into lawful sentences',
+        'write the consecutive families (n, n + 1, n + 2; 2k, 2k + 2; 2k + 1, 2k + 3) and verify their sum laws by sweep',
+        'check every translation by substitution before trusting it: the candidate that satisfies the sentence survives, the one that fails is caught — the plausibility discipline of an examiner',
+      ],
+      prerequisites: ['al-evaluating-expressions-substitution-and-formulas', 'fm-letter-for-the-unknown'],
+      sources: ['ncert-math6-ch11', 'ncert-math7-ch4', 'hall-knight-elementary-algebra', 'cengage-jee-style'],
+      blocks: [
+        {
+          kind: 'para',
+          text:
+            'One skill closes this chapter and unlocks every chapter after it: reading a sentence of English and folding it into a lawful sentence of algebra. The exam world calls these word problems; this book calls them **translations** — because that is exactly what they are. FM 11.3 already ran one riddle through the machine ("I think of a number; I multiply it by 3; I add 1; I land on 31" became $3x + 1 = 31$); this lesson turns that one-off feat into a repeatable pipeline, with a dictionary, a grammar of traps, and a plausibility check at the end.',
+        },
+        {
+          kind: 'para',
+          text:
+            'Why does translation deserve a whole lesson? Because it is the EXAMINATION\'s own mother tongue. Every word problem ever set — ages, fares, mixtures, perimeters, consecutive integers — is an algebra sentence wearing a story, and the marks live exactly at the seam where the story is converted. A reader who owns this lesson\'s dictionary and pipeline converts fluently; a reader who guesses converts badly and consistently. The grammar is short, the traps are few, and every one of them is priced by a sweep in this chapter\'s verifier.',
+        },
+        {
+          kind: 'para',
+          text:
+            'It is also the chapter\'s victory lap in disguise. Every tool built so far takes the field in this one lesson: the role census names the unknown\'s hat (1.1), the expression tree referees the ambiguous readings (1.2), the machines supply the anchors the plausibility check runs against (1.3), and the field laws decide which English orders may flip. Translation is where the whole toolkit works one sentence at a time — and the exercises below make sure it works YOUR sentences, not just the book\'s.',
+        },
+        { kind: 'heading', text: 'The Translation Dictionary' },
+        {
+          kind: 'para',
+          text:
+            'Translation starts with vocabulary. Most exam English is built from a dozen phrases, and each has a lawful symbol — but the entries come in two kinds, and confusing them is the single largest source of wrong translations:',
+        },
+        {
+          kind: 'table',
+          caption: 'The translation dictionary: phrase to symbol, with the caution that keeps it honest',
+          head: ['English phrase', 'Symbol', 'Caution'],
+          rows: [
+            ['"5 more than $x$"', '$x + 5$', 'addition commutes — "$5 + x$" says the same thing lawfully'],
+            ['"the product of 4 and $m$"', '$4m$', 'multiplication commutes too'],
+            ['"$x$ less than 20"', '$20 - x$', 'ORDER TRAP: subtraction keeps English order — "5 less than $x$" is $x - 5$, never $5 - x$'],
+            ['"twice $x$"', '$2x$', 'the product reads silently'],
+            ['"the quotient of $n$ and 3"', '$n/3$', 'ORDER TRAP: division keeps English order — $n/3$, never $3/n$'],
+            ['"per" (₹12 per km)', '$\\div$', 'rates divide: ₹12 billed per km ridden'],
+            ['"of" (a quarter of it)', '$\\times$', '"quarter of $x$" is $x/4$ — multiplication in disguise'],
+            ['"is"', '$=$', 'THE VERB: "is" draws the equals sign — the sentence-maker'],
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'Watch the dictionary work a whole sentence at once: "twice a number, decreased by 4, is 18." The entries fire in order — "twice a number" gives $2x$; "decreased by 4" gives $- 4$ (subtraction, order locked: the 4 comes AFTER the $2x$ exactly as the English says); "is" draws $=$; and 18 lands on the right. The whole sentence folds to $2x - 4 = 18$ in one pass — and the plausibility check confirms it: $x = 11$ gives $22 - 4 = 18$. Four dictionary entries, one lawful sentence, zero guesswork — and every entry it used is one the reader has already priced somewhere above.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The order traps: subtraction and division keep English order',
+          text:
+            '"5 less than $x$" means $x - 5$ — take 5 AWAY FROM $x$. The flipped reading $5 - x$ is not a stylistic variant; at $x = 8$ it reads $-3$ where the truth is $3$, and the verifier\'s sweep shows $5 - x = x - 5$ holds ONLY at $x = 5$. The same law guards division: "the quotient of $n$ and 3, increased by 1" is $n/3 + 1$ — at $n = 12$ that is $5$, while the re-bracketed $n/(3 + 1) = 3$ is a different (wrong) structure. Addition and multiplication may flip lawfully (they commute — 1.1\'s big laws); subtraction and division NEVER do. When English says "A less than B" or "A divided by B", the symbol order is B first, operation, A.',
+        },
+        { kind: 'heading', text: 'Brackets Decide: the Two-Readings Trap' },
+        {
+          kind: 'para',
+          text:
+            'Vocabulary alone is not enough, because English attaches its phrases at different heights. "Twice the sum of $x$ and 3" multiplies the WHOLE sum: $2(x + 3)$. "The sum of twice $x$ and 3" multiplies only the $x$: $2x + 3$. Same four words, reshuffled — and the reshuffle moves the brackets:',
+        },
+        {
+          kind: 'figure',
+          caption: 'The bracket twins: the two readings as two trees. At $x = 4$ the left folds to 14 and the right to 11 — the tree of 1.2 is the referee.',
+          svg: twinsSvg(),
+        },
+        {
+          kind: 'para',
+          text:
+            'The twins are worth pricing numerically because exam distractors live exactly here. At $x = 4$: $2(x + 3) = 2 \\times 7 = 14$ while $2x + 3 = 11$ — and the honest expansion of the first is $2x + 6$, not $2x + 3$ (the distributive law of 1.2, applied to the translation). The trap scales up: "the square of the sum of $n$ and 2" is $(n + 2)^2 = 49$ at $n = 5$, while "the sum of the square of $n$ and 2" is $n^2 + 4 = 29$ — twenty marks of daylight between two sentences that share every word.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The professional habit here is the **honest-expansion check**: when two readings compete, expand BOTH by the distributive law and compare the results. $2(x + 3)$ honestly expands to $2x + 6$; $2x + 3$ refuses to expand further. The expansions differ, so the readings differ — and the English decides which was meant. The same check settles the square pair: $(n + 2)^2$ expands (ch. 3 will show) to $n^2 + 4n + 4$, while $n^2 + 4$ stops early — different structures, and no expansion can be faked to bridge them. When in doubt, expand; the laws make the difference undeniable.',
+        },
+        { kind: 'heading', text: 'The Translation Pipeline' },
+        {
+          kind: 'para',
+          text:
+            'Vocabulary and grammar assemble into a protocol — four stations every word problem passes through:',
+        },
+        {
+          kind: 'figure',
+          caption: 'The translation pipeline: the taxi story runs the four stations and lands on $50 + 12k = 194$ — a lawful sentence, ready for ch. 5\'s machine.',
+          svg: pipelineSvg(),
+        },
+        {
+          kind: 'list',
+          marker: 'roman',
+          items: [
+            '**Name the unknown.** Pick ONE letter for the thing the story hides, and say what it wears (kilometres, years, rupees) — the 1.1 census decides the hat: a placeholder you will substitute into, or an unknown the sentence hides.',
+            '**Find the "is".** The verb that asserts equality draws the equals sign. No "is" (or "costs", "results in", "leaves") means the translation is still an expression — a name, not a sentence.',
+            '**Translate phrase by phrase.** Run the dictionary left to right, keeping the order traps in view; bracket any "twice the sum of…" whole before multiplying.',
+            '**Plausibility-check.** Substitute a candidate or an anchor: does the sentence hold? Does the output wear the right units? The check that passed 1.3\'s machines now judges translations.',
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'One honesty rule the pipeline carries: when English is GENUINELY ambiguous, the translator\'s job is to name the readings, not to pretend. "The product of 3 and a number increased by 2" is a famous case — does "increased by 2" modify the number ($3(n + 2)$) or the product ($3n + 2$)? The quiz below takes the natural reading and says so honestly; a careful examiner does the same. What translation NEVER does is silently pick one reading and mark the other wrong — the ambiguity belongs to the English, and the symbols preserve it faithfully until context settles it.',
+        },
+        {
+          kind: 'example',
+          title: 'Translate: a taxi starts at ₹50 and adds ₹12 per km; a ride cost ₹194',
+          steps: [
+            'Station 1 — name the unknown: the kilometres ride hidden, so $k$ = the ride\'s length in km.',
+            'Station 2 — find the "is": "a ride cost ₹194" asserts — the equals sign goes there.',
+            'Station 3 — translate the phrases: "starts at ₹50" gives 50; "adds ₹12 per km" gives $+12k$; the assert gives $= 194$.',
+            'Hence the sentence: $50 + 12k = 194$.',
+            'Station 4 — plausibility: 1.3\'s undo ladder found $C(12) = 194$, so $k = 12$ satisfies the sentence — the translation is certified end to end.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Translate: Aarav is 4 years older than twice Meera\'s age',
+          steps: [
+            'Station 1: $m$ = Meera\'s age in years; Aarav\'s age gets its own letter $A$.',
+            'Station 2: "Aarav IS 4 years older than…" — the equals sits right after the subject.',
+            'Station 3: "twice Meera\'s age" gives $2m$; "4 years older than" adds 4 to that whole thing.',
+            'Hence $A = 2m + 4$ — an expression on the right, no second unknown needed.',
+            'Station 4: at $m = 9$, $A = 22$ — a nine-year-old\'s "twice plus 4" elder is 22: plausible, units clean.',
+          ],
+        },
+        { kind: 'heading', text: 'The Consecutive Families' },
+        {
+          kind: 'para',
+          text:
+            'One family of translations earns its own section because examinations wear it as a uniform. Numbers that follow each other have letter patterns, and each family folds to a clean sum:',
+        },
+        {
+          kind: 'table',
+          caption: 'The consecutive families: letters, next members, and the sum law (all swept)',
+          head: ['Family', 'First two', 'The next', 'Sum of the pair', 'Verified instance'],
+          rows: [
+            ['consecutive integers', '$n$, $n + 1$', '$n + 2$', '$2n + 1$ (odd always)', '$n = 7$: 15'],
+            ['consecutive evens', '$2k$, $2k + 2$', '$2k + 4$', '$4k + 2$ (even always)', '$k = 3$: 14'],
+            ['consecutive odds', '$2k + 1$, $2k + 3$', '$2k + 5$', '$4k + 4 = 4(k + 1)$', '$k = 3$: 16'],
+            ['three consecutive', '$n$, $n + 1$, $n + 2$', '—', '$3(n + 1)$ (multiple of 3)', '1.1\'s letter proof, swept'],
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'The evens row carries a small theorem worth proving by letters: $2k + (2k + 2) = 4k + 2$, which is even for EVERY $k$ (the verifier swept $k$ from 1 to 50, no exception). Two evens sum to an even — and the letter sentence proves it in one line where a thousand examples could only suggest it. The odds row is subtler and prettier: $4(k + 1)$, a multiple of FOUR — two consecutive odds always sum to a multiple of 4 (at $k = 3$: $7 + 9 = 16 = 4 \\times 4$). Try finding THAT by guessing. These are the sentences examination setters reach for first — and with the families written down, they are also the sentences a reader can verify in one fold.',
+        },
+        {
+          kind: 'para',
+          text:
+            'A reading habit the table rewards: the families overlap, and the overlap is the lesson. The consecutive ODDS are exactly the consecutive integers\'s odd members — $2k + 1$ walks the same number line as $n$, two paces apart. The evens row\'s sum $4k + 2$ is "even, but never a multiple of 4"; the odds row\'s sum $4(k + 1)$ is "a multiple of 4, never merely even". Two families, two residue classes, two clean letter proofs — and the same division-algorithm machinery ANS 2.1 built. When a problem says "consecutive", your first move is choosing the family; the letters then do the arguing.',
+        },
+        { kind: 'heading', text: 'When English Flips Lawfully' },
+        {
+          kind: 'para',
+          text:
+            'The dictionary\'s two kinds of entries are not an arbitrary quirk — they are the field laws speaking. "5 more than $x$" and "$x$ plus 5" translate identically because ADDITION COMMUTES: the verifier swept $x + 5 = 5 + x$ clean across the pin grid. "5 less than $x$" and "5 minus $x$" translate differently because SUBTRACTION DOES NOT (the sweep found agreement only at the accidental $x = 5$). The same verdict covers multiplication (flips freely) and division (never). So the deep rule of translation is:',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'English order is lawful exactly when the operation is',
+          text:
+            'You may flip the English order of a phrase — "5 more than $x$" into "$x$ plus 5" — precisely when the operation underneath commutes. Addition and multiplication: flip freely. Subtraction and division: keep the English order, ALWAYS. This is the 1.1 census and the 1.2 tree working together: the letters carry the structure, the tree fixes the assembly, and the commutative laws decide when the word order was never load-bearing. Translation errors are almost always law errors in disguise.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The pipeline runs backwards too, and fluency means both directions. Take a symbol sentence and read it aloud as English — 1.3 did this with the dress ("one more than three times the position", exercise 1.D) — and the reverse trip polishes the forward one: every formula you will ever USE was somebody\'s translation, and reading it back into words is the fastest way to audit it. The matchstick dress $3n + 1$ reads "three sticks per square, one to start"; the taxi machine reads "fifty to start, twelve per kilometre". A formula whose English reading sounds wrong IS wrong — the ear catches what the eye skims.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The pipeline also powers the quietest examination weapon: **elimination by substitution**. A "translate the statement" item hands you four candidate sentences; the wrong ones are not random — each is a mis-translation (an order flip, a lost bracket, a swapped rate). Test each candidate at one convenient input: the flip that read $-3$ at $x = 8$ dies instantly, the lost bracket disagrees by the missing 3, the swapped rate produces absurd fares. One substitution per option, and three of the four die — the plausibility check is not just honesty, it is speed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner',
+          text:
+            'Word problems are the exam\'s favourite dress code, and every one of them is a translation wearing a story. Age problems ("4 years older than twice…") are the SSC CGL staple; the consecutive-families table is the CAT/IPMAT opener; rate stories (the taxi, the plumber\'s call-out fee, the data plan) are bank PO and railway standards — and ALL of them resolve through this lesson\'s four stations. The two-readings trap supplies most wrong options in "translate the statement" items. And the plausibility check is the examiner\'s own tool turned around: every wrong option in an age problem fails a sanity substitution — test $m = 9$, watch the story break, eliminate. Fifty words of English, four stations, one lawful sentence — and the grammar never has to be guessed. Chapter 5 will finally SOLVE the sentences this lesson builds; every word problem from Class 6 worksheets to JEE rests on the grammar laid here.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Translation dictionary',
+              def: 'The phrase → symbol table of exam English: "more than" adds, "of" multiplies, "per" divides, "is" equals — with the two kinds of entries (flip-safe and order-locked) marked.',
+            },
+            {
+              term: 'The verb "is"',
+              def: 'The English word that asserts equality and therefore draws the equals sign. A phrase without an "is" translates to an expression (a name); a sentence with one translates to an equation (an assertion).',
+            },
+            {
+              term: 'Order trap',
+              def: 'Subtraction and division keep English order: "A less than B" is B − A, and "the quotient of n and 3" is n/3, never 3/n. The commutativity census proves the flip unlawful.',
+            },
+            {
+              term: 'The two-readings trap',
+              def: 'Reshuffled English rebuilds different trees: "twice the sum of $x$ and 3" is $2(x + 3)$ (14 at $x = 4$) while "the sum of twice $x$ and 3" is $2x + 3$ (11). Brackets are the translation\'s grammar.',
+            },
+            {
+              term: 'The translation pipeline',
+              def: 'The four-station protocol: name the unknown (one letter, units stated), find the "is", translate phrase by phrase, plausibility-check by substitution. Every word problem is a round trip.',
+            },
+            {
+              term: 'Consecutive families',
+              def: 'The letter patterns of neighbouring numbers: $n, n + 1, n + 2$ (integers), $2k, 2k + 2$ (evens), $2k + 1, 2k + 3$ (odds) — with sum laws $3(n + 1)$, $4k + 2$, $4(k + 1)$ all proved and swept.',
+            },
+            {
+              term: 'Plausibility check',
+              def: 'The translation\'s last station: substitute a candidate (or an anchor) into the finished sentence and watch it hold or fail — $x = 2$ satisfies $2x + 3 = x + 5$ (7 = 7), $x = 3$ does not (9 ≠ 8).',
+            },
+            {
+              term: 'Lawful flip',
+              def: 'Reordering an English phrase is safe exactly when the operation underneath commutes: addition and multiplication flip freely; subtraction and division never do. The field laws decide the grammar.',
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: '"5 less than $x$" translates to…?',
+              options: ['$5 - x$', '$x + 5$', '$x - 5$', '$5x$'],
+              answer: 2,
+              explain:
+                'Subtraction keeps English order: "5 less than $x$" takes 5 away FROM $x$, so $x - 5$ — at $x = 8$ that is 3, while the flipped $5 - x$ reads $-3$. Option 1 is the order trap itself; option 2 translates "5 more than $x$" (the flip-safe cousin); option 4 mistranslates "5 times $x$".',
+            },
+            {
+              q: '"Twice the sum of $x$ and 3" translates to…?',
+              options: ['$2x + 3$', '$2(x + 3)$', '$2x(x + 3)$', '$x + 6$'],
+              answer: 1,
+              explain:
+                '"Twice the SUM" multiplies the whole bracketed sum: $2(x + 3)$ — 14 at $x = 4$. Option 1 is the twin reading "the sum of twice $x$ and 3" (11 at $x = 4$). Option 3 multiplies by $2x$ — a structure no English sentence here describes. Option 4 forgets that "twice the sum" doubles the 3 as well: the honest expansion is $2x + 6$, and $x + 6$ is neither reading.',
+            },
+            {
+              q: '"The product of 3 and a number $n$, increased by 2" best translates to…?',
+              options: ['$3(n + 2)$', '$3 + n + 2$', '$6n$', '$3n + 2$'],
+              answer: 3,
+              explain:
+                'The main clause is "the product of 3 and $n$" ($3n$), modified by "increased by 2" ($+ 2$): $3n + 2$. Option 1 brackets the 2 into the product — that reads "the product of 3 and (the number increased by 2)", a different sentence. Option 2 adds everything. Option 3 computes $3 \\times 2$ and merges — none of them is the natural reading; the "increased by" hangs on the finished product.',
+            },
+            {
+              q: 'The next consecutive even after $2k$ is…?',
+              options: ['$2k + 1$', '$2k + 2$', '$k + 2$', '$2k - 2$'],
+              answer: 1,
+              explain:
+                'Consecutive evens step by 2: after $2k$ comes $2k + 2$ (at $k = 3$: after 6 comes 8). Option 1 is the next INTEGER (odd — $2k + 1$). Option 3 steps the letter, not the even ($k + 2$ is not even in general). Option 4 is the even BEFORE $2k$ — the family\'s tail, not its head.',
+            },
+            {
+              q: '"A taxi starts at ₹50 and adds ₹12 per km; a ride cost ₹194" translates to…?',
+              options: ['$50 + 12k = 194$', '$50k + 12 = 194$', '$12 - 50k = 194$', '$50 + 12 + k = 194$'],
+              answer: 0,
+              explain:
+                'The pipeline: name $k$ (the kilometres), find the "is" ("cost ₹194" draws $= 194$), translate the phrases ($50$ base, $+12k$ at ₹12 per km): $50 + 12k = 194$ — and $C(12) = 194$ from 1.3 certifies it. Option 2 assigns the per-km rate to the base and the base to the kilometres. Option 3 subtracts. Option 4 charges ₹1 per kilometre and forgets the rate.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'EXERCISE 1.D',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Translate "5 more than $n$" and evaluate at $n = 7$.',
+                  solution: [
+                    'Dictionary: "more than" adds — and addition commutes, so $n + 5$.',
+                    'Fold at $n = 7$: $7 + 5 = 12$.',
+                    'Hence $n + 5$, which reads 12 at $n = 7$.',
+                  ],
+                  answer: 'n + 5 = 12 at n = 7',
+                },
+                {
+                  q: 'Translate "the product of 4 and $m$" and evaluate at $m = 6$.',
+                  solution: [
+                    'Dictionary: "the product of" multiplies — $4m$.',
+                    'Fold at $m = 6$: $4 \\times 6 = 24$.',
+                    'Hence $4m$, which reads 24 at $m = 6$.',
+                  ],
+                  answer: '4m = 24 at m = 6',
+                },
+                {
+                  q: 'Translate "$x$ less than 20" and evaluate at $x = 6$.',
+                  solution: [
+                    'ORDER TRAP: subtraction keeps English order — "$x$ less than 20" takes $x$ away from 20: $20 - x$.',
+                    'Fold at $x = 6$: $20 - 6 = 14$.',
+                    'Hence $20 - x = 14$ at $x = 6$ — the flipped reading $x - 20$ would have read $-14$.',
+                  ],
+                  answer: '20 − x = 14 at x = 6',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Price the order trap: "5 less than $y$" and "5 minus $y$" at $y = 9$.',
+                  solution: [
+                    'First reading: $y - 5 = 9 - 5 = 4$.',
+                    'Flipped reading: $5 - y = 5 - 9 = -4$.',
+                    'Hence 4 vs $-4$ — same words, reshuffled, opposite signs.',
+                    'The sweep: $5 - y = y - 5$ only at $y = 5$ — the flip is unlawful everywhere else.',
+                  ],
+                  answer: '4 vs −4 — the flip is unlawful',
+                },
+                {
+                  q: 'Evaluate both readings at $a = 5$: "twice the sum of $a$ and 1" and "the sum of twice $a$ and 1".',
+                  solution: [
+                    'First reading: $2(a + 1) = 2 \\times 6 = 12$.',
+                    'Second reading: $2a + 1 = 10 + 1 = 11$.',
+                    'Hence 12 vs 11 — the brackets decide, exactly as the twins figure showed at $x = 4$.',
+                    'The honest expansion of the first: $2a + 2$, which at $a = 5$ is 12 — the distributive law confirms the reading.',
+                  ],
+                  answer: '12 vs 11 — brackets decide',
+                },
+                {
+                  q: 'Translate "the quotient of $n$ and 3, increased by 1" and evaluate at $n = 12$.',
+                  solution: [
+                    'ORDER TRAP: division keeps English order — "the quotient of $n$ and 3" is $n/3$.',
+                    '"Increased by 1" hangs on the finished quotient: $n/3 + 1$.',
+                    'Fold at $n = 12$: $12/3 + 1 = 4 + 1 = 5$.',
+                    'The re-bracketed $n/(3 + 1) = 3$ is a different sentence — hence $5$.',
+                  ],
+                  answer: 'n/3 + 1 = 5 at n = 12',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Run the pipeline on: "A plumber charges ₹300 to come out plus ₹150 per hour; a job cost ₹900." (Name the unknown; do not solve.)',
+                  solution: [
+                    'Station 1: $h$ = the job\'s hours.',
+                    'Station 2: "cost ₹900" draws the equals.',
+                    'Station 3: "₹300 to come out" gives 300; "₹150 per hour" gives $+150h$.',
+                    'Hence $300 + 150h = 900$.',
+                    'Station 4: plausibility — the machine folds $300 + 150 \\times 4 = 900$: a 4-hour job fits the sentence exactly.',
+                  ],
+                  answer: '300 + 150h = 900 (h = 4 satisfies it)',
+                },
+                {
+                  q: 'Translate: "Priya is 3 years younger than twice her brother\'s age." Evaluate at her brother being 12.',
+                  solution: [
+                    'Station 1: $b$ = the brother\'s age; $P$ = Priya\'s.',
+                    'Station 2: "Priya IS…" — the equals follows the subject.',
+                    'Station 3: "twice her brother\'s age" gives $2b$; "3 years younger than" SUBTRACTS 3 from that whole: $2b - 3$.',
+                    'Hence $P = 2b - 3$.',
+                    'Station 4: at $b = 12$, $P = 24 - 3 = 21$ — plausible, units clean.',
+                  ],
+                  answer: 'P = 2b − 3; P(12) = 21',
+                },
+                {
+                  q: 'Write "the sum of three consecutive integers starting at $n$" in symbols, and prove the sum is a multiple of 3.',
+                  solution: [
+                    'The family: $n$, $n + 1$, $n + 2$.',
+                    'The sum: $n + (n + 1) + (n + 2) = 3n + 3$.',
+                    'Factor (the distributive law backwards): $3n + 3 = 3(n + 1)$.',
+                    'Hence always a multiple of 3 — the 1.1 letter proof, now wearing the translation grammar.',
+                  ],
+                  answer: 'n + (n+1) + (n+2) = 3(n + 1)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A rectangle\'s length is 2 more than twice its width. Translate both the length and the perimeter, and evaluate the perimeter at width 5.',
+                  solution: [
+                    'Station 1: $w$ = the width.',
+                    'Translate the length: "2 more than twice the width" — addition commutes, order safe: $L = 2w + 2$.',
+                    'The perimeter: $P = 2(L + w) = 2(2w + 2 + w) = 2(3w + 2) = 6w + 4$.',
+                    'Fold at $w = 5$: $L = 12$; $P = 30 + 4 = 34$.',
+                    'Hence $L = 2w + 2$, $P = 6w + 4$, $P(5) = 34$.',
+                  ],
+                  answer: 'L = 2w + 2; P = 6w + 4; P(5) = 34',
+                },
+                {
+                  q: 'The matchstick dress $T_n = 3n + 1$ (FM 11.2): read it back into words, then find $T_{20}$.',
+                  solution: [
+                    'Read the machine aloud: "one more than three times the position."',
+                    'Fold at $n = 20$: $3 \\times 20 + 1 = 61$.',
+                    'Hence 61 sticks for 20 squares in a row — the formula FM 11.2 fitted, now spoken fluently in both directions.',
+                  ],
+                  answer: '"one more than three times the position"; T₂₀ = 61',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Price the square pair at $n = 5$: "the square of the sum of $n$ and 2" vs "the sum of the square of $n$ and 2". What does the verdict teach about "of"?',
+                  solution: [
+                    'First reading: the SUM is $(n + 2)$, and its square: $(5 + 2)^2 = 49$.',
+                    'Second reading: the SQUARE of $n$ is 25, and the "of $n$ and 2" splits: $25 + 4 = 29$.',
+                    'Hence 49 vs 29 — twenty marks of daylight between sentences sharing every word.',
+                    'The lesson: "of" binds tightly (it multiplies INSIDE the phrase it ends), and the brackets record the binding — the tree of 1.2 is the referee.',
+                  ],
+                  answer: '49 vs 29 — "of" binds inside its phrase',
+                },
+                {
+                  q: 'The commute census: verify that "5 more than $x$" and "$x$ plus 5" translate identically for every $x$ in a grid, while "5 less than $x$" and "5 minus $x$" agree only at $x = 5$. State the law.',
+                  solution: [
+                    'The flip-safe pair: $x + 5 = 5 + x$ at every pin ($-6, -1, 0, 3, 8, 15$) — addition commutes (ANS 7.2).',
+                    'The order-locked pair: $x - 5 = 5 - x$ requires $2x = 10$, so only $x = 5$ — subtraction never commutes.',
+                    'Hence the law: English order may flip exactly when the operation underneath commutes — addition and multiplication flip freely; subtraction and division never.',
+                  ],
+                  answer: 'addition flips freely; subtraction locks the order (only x = 5 agrees)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Translate with the full protocol: "A number is doubled, then 3 is added; the result is 5 more than the number." Then plausibility-check candidates until the sentence is certified.',
+                  solution: [
+                    'Station 1: $x$ = the number.',
+                    'Station 2: "the result IS 5 more than the number" — the equals joins the two readings.',
+                    'Station 3: "doubled, then 3 is added" gives $2x + 3$; "5 more than the number" gives $x + 5$ (addition commutes, flip safe).',
+                    'Hence $2x + 3 = x + 5$ — the unknown appears on BOTH sides; ch. 5\'s balance machine will settle it.',
+                    'Station 4: test $x = 2$: $7 = 7$ — holds. Test $x = 3$: $9 \\neq 8$ — fails. The verifier\'s sweep of $[1..10]$ finds exactly one survivor: $x = 2$.',
+                    'Hence the sentence is certified, and its unique candidate is found by the plausibility discipline itself.',
+                  ],
+                  answer: '2x + 3 = x + 5; x = 2 survives the check',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'formula',
+          name: 'The translation pipeline',
+          latex: '\\text{name the unknown} \\;\\to\\; \\text{find the "is"} \\;\\to\\; \\text{translate phrase by phrase} \\;\\to\\; \\text{plausibility check}',
+          note: 'the four stations every word problem passes through — the taxi story lands on $50 + 12k = 194$, certified by the 1.3 undo ladder ($k = 12$)',
+        },
+        {
+          kind: 'formula',
+          name: 'The order-trap law',
+          latex: '\\text{English may flip} \\iff \\text{the operation commutes}',
+          note: 'addition and multiplication flip freely; subtraction and division lock the English order — "5 less than $x$" is $x - 5$ (3 at $x = 8$, never $-3$)',
         },
       ],
     },

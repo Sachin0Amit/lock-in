@@ -1737,3 +1737,18 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   book.ts header + notes corrected the same way this run.
 - The run-66 claim "class 6 ch. 11 + class 7 ch. 4 banked" re-confirmed: `ncert-math6-ch11` is banked from FM ch. 11
   (its sources fields).
+
+### Run 68 — Elementary Algebra ch. 1 CLOSES: 1.3 + 1.4 + the unit-1 review (2026-11-07)
+
+- Zero new downloads this run: the research load of lessons 1.3–1.4 was carried entirely on banked keys — the taxi machine and the
+  formula-machine treatment follow the Cengage M2/01 presentation contract (style only, re-grounded run 67); the translation-grammar and
+  consecutive-families exposition rides the banked NCERT keys (`ncert-math6-ch11`, `ncert-math7-ch4`) and the Hall & Knight
+  Elementary-for-Schools sequencing banked at run 67; the temperature-pair anchors (32/68/98.6/212 ↔ 0/20/37/100) are standard physical
+  constants stated as original exposition. Working-copy footprint zero; nothing to delete.
+- Keys consumed in 1.3: `openstax-elementary-algebra` (first consume — the sequencing cross-check for the formula-machine placement),
+  `hall-knight-elementary-algebra`, `khattar-qa-4e`, `cengage-jee-style`. Keys consumed in 1.4: `ncert-math6-ch11`, `ncert-math7-ch4`,
+  `hall-knight-elementary-algebra`, `cengage-jee-style`.
+- The unit-1 completion review passed at ship: ids repo-wide unique (87), exam corners 4/4, quizzes 5×4, exercises 14×4, figures
+  2×4 audited + visually inspected, 13 block types used (the book's first 2 display equations landed in 1.3), word counts 4,000+
+  per lesson. Chapter 1 flipped COMPLETE 4/4 (16,513 words).
+

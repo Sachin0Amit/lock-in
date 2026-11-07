@@ -11,7 +11,7 @@ shelf top-to-bottom, since its first book is already in progress).
 ## Mathematics (27 books)
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
 2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
-3. Elementary Algebra ← **AUTHORING (run 67, 2026-11-07): ch. 1 'Letters and Structure' OPEN 2/4 — 1.1 + 1.2 shipped verify-first (194-check verifier, full gates, figures inspected); the run-66 Jacobs attribution corrected (the Drive file is Hall & Knight's Elementary Algebra for Schools, 1885); 11-chapter/37-lesson plan stands; run 68 = 1.3 + 1.4, then the unit-1 review; status 'in-progress'**
+3. Elementary Algebra ← **AUTHORING (run 68, 2026-11-07): ch. 1 'Letters and Structure' COMPLETE 4/4 (16,513 words / 32 terms / 20 quiz / 56 exercises / 8 figures; the unit-1 completion review passed; 369-check verifier ALL GREEN); the book stands 1 of 11 chapters; run 69 = ch. 2 'Exponents and Powers' opens 2.1 + 2.2 (verify-book3-ch02.ts FIRST); status 'in-progress'**
 3. Elementary Algebra
 4. Advanced Algebra
 5. Geometry

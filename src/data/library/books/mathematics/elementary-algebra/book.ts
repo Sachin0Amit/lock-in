@@ -6,8 +6,10 @@ import { chapter01 } from './ch-01'
  *
  * STATUS: IN PROGRESS — research phase complete (2026-11-07, run 66); the
  * full TOC below is the researched chapter plan (11 chapters / 37 lessons).
- * Authoring opened at chapter 1 in run 67 (1.1 shipped; owner cadence: two
- * lessons per run, strictly sequential).
+ * Authoring opened at chapter 1 in run 67 (1.1 + 1.2) and CLOSED it in run
+ * 68 (1.3 + 1.4 + the unit-1 completion review): chapter 1 COMPLETE 4/4.
+ * The book stands in-progress — 1 of 11 chapters written (owner cadence:
+ * two lessons per run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
@@ -76,7 +78,7 @@ export const elementaryAlgebra: Book = {
   status: 'in-progress',
   accent: ['#4d7c0f', '#3f6212'],
   notes:
-    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Authoring opened at ch. 1 in run 67 (1.1 shipped; two lessons per run, owner directive 2026-11-06 v2).',
+    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Chapter 1 ‘Letters and Structure’ COMPLETE 4/4 at run 68 (1.1 From Arithmetic to Algebra + 1.2 Expressions, Terms and Like Terms + 1.3 Evaluating Expressions: Substitution and Formulas + 1.4 Translating: Words into Symbols; the unit-1 completion review passed — ids repo-wide unique, exam corners 4/4, figures audited and visually inspected, 369-check verifier ALL GREEN); ch. 2 ‘Exponents and Powers’ opens at run 69 (two lessons per run, owner directive 2026-11-06 v2).',
   chapters: [
     chapter01,
     {

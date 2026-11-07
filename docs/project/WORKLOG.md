@@ -3,6 +3,67 @@
 Every work session appends one entry at the top. Format:
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
+## 2026-11-07 — RUN 68 (fired 19:15:01 +08:00 from job 509354, trace cron-agent-loop-202611071916): AL ch. 1 CLOSES 4/4 — 1.3 'Evaluating Expressions: Substitution and Formulas' + 1.4 'Translating: Words into Symbols' + the unit-1 completion review PASSED + the chapter flipped COMPLETE — verify-first and strictly sequential
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-67 memory commit (`7e39192`, the ship `1c0ba08` remote-verified);
+no `.figure_upgrade_lock`. RESUME_POINTER locked run 68 = AL ch. 1 continues 1.3 + 1.4, the unit-1 review follows 1.4, never ch. 2.
+
+**Verify-first:** scripts/verify-book3-ch01.ts grew 194 → 281 checks pre-writing (sections J + K: the taxi machine table 0/2/5/8 →
+50/74/110/146 with the constant +12/km step swept k ∈ [0..20]; 3x² − 2x + 1 = 41 at x = 4 and 9 at x = 2 with ALL distractor misreads
+priced ((3x)² → 33, exponent-dropped → 3, sign-slip → 17); 2a − b² = −10 at (−3, −2); collect-then-fold 63 and 88 both ways; the
+temperature pair in EXACT TENTHS arithmetic (98.6 → 37.0; round trips 0/20/37/100 → C exact); the formula zoo (54/35/36/249); the
+(a+b)² ≠ a² + b² lie-detector sweep (100/100 disagreements in [1..10]²); the 1.4 order traps (x − 5 = 3 vs 5 − x = −3 at x = 8; the
+flip census agreeing only at x = 5); the bracket twins (2(x+3) = 14 vs 2x+3 = 11 at x = 4; the square pair 49 vs 29 at n = 5); the
+consecutive families swept (evens 4k + 2 for k ∈ [1..50]); the L6 protocol story 2x + 3 = x + 5 (x = 2 survives, unique in [1..10]));
+quiz keys 1.3 = [2,1,2,3,1] and 1.4 = [2,1,3,1,0] pinned with every distractor computed) — ALL GREEN before any prose. At authoring
+time the verifier grew L (authored 1.3), M (authored 1.4) and **R — the unit-1 completion review battery** (chapter 4/4, plannedLessons
+empty, ids repo-wide unique at close, exam corners 4/4, quizzes 5/5/5/5, exercises 14×4, figures 2+2+2+2 with caption-terminology
+anchored in the prose, 13 block types used incl. the chapter's first display equations, per-lesson word counts ≥ 4,000) — **369 checks
+ALL GREEN at ship**.
+
+**1.3 'Evaluating Expressions: Substitution and Formulas'** (`al-evaluating-expressions-substitution-and-formulas`, 4,113 words): full-
+strength substitution (negatives ride in brackets: (−3)² = 9 never −9; the Illustration 2a − b² = −10 at (−3,−2); 3x² − 2x + 1 = 41 with
+the three traps priced); formulas as machines (the FIRST display equations of the book: C(k) = 50 + 12k and the temperature pair; the
+machine-table + the unit audit; the constant +12/km step = the linear signature ch. 10 graphs); the formula zoo (temperature anchors
+32/68/98.6/212 ↔ 0/20/37/100 verified in exact tenths + the inverse machine F = 9C/5 + 32 with all four round trips exact; triangle ½bh
+= 54; square 4s = 36; FM 11.2's dress Tn = 5n − 1 → T50 = 249) + the anchor-scale figure; collect-then-fold (63 and 88 both ways + the
+WHY derivation: agreement everywhere forces agreement at t); reading formulas backwards (74 at n = 15; 49 at n = 10; the temperature
+double-undo to 68 °F; the taxi undo ladder to k = 12; the undo-is-not-solving boundary); the evaluation lie-detector ((a+b)² ≠ a² + b²,
+100/100); domains honest (C(−1) = 38 arithmetic-perfect, physically nonsense); exam corner; 8 terms; quiz 5 (keys 2/1/2/3/1); 14
+exercises L1–L6 (the L6 inverse-machine round trip 37 → 98.6 → 37 exact); 2 formula cards. Gates: lint 0 / tsc 0 / routes 200+404 /
+E2E ALL PASS at 1280 + 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 233 nodes 0 errors, 0 raw $, 2 figures 2 tables, prereq
+chips, no overflow, 0 console errors, 20 Sol. pills); pixels 0% blue cast + dark 92.4%; **both figures visually inspected clean** (the
+machine diagram + the anchor scale).
+
+**1.4 'Translating: Words into Symbols'** (`al-translating-words-into-symbols`, 4,062 words): the translation dictionary (8 entries with
+the two kinds marked: flip-safe vs order-locked); the order traps priced (x − 5 = 3 vs 5 − x = −3 at x = 8; n/3 + 1 = 5 vs n/(3+1) = 3
+at n = 12; the flip census agreeing only at x = 5); the bracket twins (Figure: the two readings as two trees, 14 vs 11 at x = 4; the
+square pair 49 vs 29; the honest-expansion check via the distributive law); the translation pipeline (Figure: the taxi story through the
+four stations → 50 + 12k = 194, certified by 1.3's undo ladder k = 12; the worked Illustrations: the taxi + the age story A = 2m + 4 at
+m = 9 → 22); the consecutive families table (evens sum 4k + 2 swept k ∈ [1..50]; odds sum 4(k + 1) — a multiple of FOUR); when English
+flips lawfully (the commutativity census + the insight: English order is lawful exactly when the operation is); the reverse pipeline
+(reading formulas aloud as audits); elimination-by-substitution as the exam weapon; the L6 protocol story 2x + 3 = x + 5 certified by
+plausibility (x = 2 survives, unique in [1..10]); exam corner; 8 terms; quiz 5 (keys 2/1/3/1/0); 14 exercises L1–L6; 2 formula cards.
+Gates: all green (E2E ALL PASS 3 viewports — quiz 5/5 live, KaTeX 195 nodes 0 errors, 0 raw $, 2 figures 2 tables, no overflow, 0
+console errors, 16 Sol. pills); pixels 0% blue cast + dark 92.0%; **both figures visually inspected clean** (the bracket twins + the
+pipeline). One real authoring bug caught by the gates: the book.ts notes string carried unescaped straight quotes after the
+chapter-close rewrite (500 on the lesson route) — fixed with typographic quotes, route 200, tsc clean.
+
+**The unit-1 completion review (section R) PASSED:** chapter 1 'Letters and Structure' COMPLETE 4/4 (4,229 + 4,109 + 4,113 + 4,062 =
+16,513 words; 32 terms; 20 quiz on keys 2/1/3/0/2 · 2/1/0/3/1 · 2/1/2/3/1 · 2/1/3/1/0; 56 exercises L1–L6; 8 figures all audited +
+visually inspected; 2 derivations + 1 collection-law proof; the book's first 2 display equations; 13 block types; 2 formula cards ×4 =
+8 cards) — plannedLessons emptied, book.ts chapter status complete, the al- prefix unique repo-wide (87 ids), the BOOK stays in-progress
+(10 chapters remain), ch. 2 never opened this run.
+
+**Logs:** SOURCE_LOG run-68 section (research = zero new downloads; the chapter's number sources carried on banked keys); the inventory
+rebuilt: **library 3 books (2 complete + 1 in progress) / 22 chapters written, 0 in progress / 87 lessons / 428,231 words / 667 terms /
+435 quiz / 1,079 exercises**. Next: run 69 = AL ch. 2 'Exponents and Powers' OPENS with 2.1 'Powers and the Laws of Exponents' + 2.2
+'Zero and Negative Exponents: Another Repair' (verify-book3-ch02.ts FIRST, modeled on verify-book2-ch10.ts; whitelist e2e-al-21/22
+before committing); 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 review close the chapter at run 70.
+
+
+---
+
 ## 2026-11-07 — RUN 67 (fired 18:15:01 +08:00 from job 509354, trace cron-agent-loop-202611071815): BOOK #3 'ELEMENTARY ALGEBRA' ch. 1 OPENS 2/4 — 1.1 'From Arithmetic to Algebra: What a Letter Does' + 1.2 'Expressions, Terms and Like Terms' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-66 memory commit (`44e7607`, the ship `6c2469b` already
