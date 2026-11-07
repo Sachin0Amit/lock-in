@@ -1781,3 +1781,30 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 #### Run 69 keys consumed
 - In 2.1: `hall-knight-elementary-algebra`, `ncert-math8-ch10-exponents`, `cengage-jee-style`.
 - In 2.2: `hall-knight-elementary-algebra`, `hankel-1867-permanence`, `peacock-1833-permanence`, `ncert-math8-ch10-exponents`.
+
+### Run 70 — Elementary Algebra ch. 2 CLOSES: 2.3 + the unit-2 review (2026-11-07)
+
+- `archimedes-sand-reckoner` — NEW, web-checked 2026-11-07 (Wikipedia's Sand Reckoner record + the Mendell Cal State
+  LA translation of ch. 4): Archimedes' 3rd-century-BC *Psammites*, addressed to King Gelon II of Syracuse — the
+  first surviving systematic attack on naming astronomically large numbers; periods and orders built on the
+  myriad-myriad (10^8), the sand count bounded at "10,000,000 units of the eighth order" (= 10^63 grains) in the
+  contemporary universe model. The historical callout of 2.3; used to inform, never reproduced.
+- `ncert-math8-ch10-exponents` — carried (banked run 49 era): the school canon's standard-form arc (expressing small
+  numbers in standard form, class 8 ch. 10 §10.4-era content web-checked 2026-11-07) informs 2.3's conversion
+  engine and its small-number gallery.
+- `ncert-phys11-ch2` — carried (banked since FM ch. 9): the SI prefix system beyond FM's six school prefixes
+  (mega 10^6, giga 10^9, micro 10^-6, nano 10^-9) — the ladder-extension claims of 2.3's figure and prose.
+- `cengage-jee-style` — carried: the presentation contract throughout.
+- `fm-the-metric-system` (FM 9.2 lesson) — cross-referenced in prose (the six school prefixes and their factors are
+  FM-banked; 2.3 extends the ladder, never re-teaches it). Not a SOURCE_LOG key — an al-lesson cross-reference.
+- Zero downloads this run: the research load rode entirely on banked keys + one web check. Working-copy footprint
+  zero.
+
+#### Run 70 keys consumed
+- In 2.3: `ncert-math8-ch10-exponents`, `ncert-phys11-ch2`, `cengage-jee-style`, `archimedes-sand-reckoner`.
+#### Run 70 reference-notes (ship)
+- The unit-2 completion review passed at ship: ids repo-wide unique (90), exam corners 3/3, quizzes 15, exercises 42,
+  figures 6 audited + visually inspected, word counts 4,710 / 4,465 / 4,014 — chapter 2 flipped COMPLETE 3/3 (13,189
+  words). Chapter 3 'Polynomials' never opened this run.
+- The verifier grew to 331 checks (sections A–K + R): J (2.3 pre-writing, 56 checks incl. the 10,998-trial canonical
+  uniqueness sweep and the Frac-exact illustration keys), K (authored 2.3), R (the chapter-close battery).

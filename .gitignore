@@ -252,6 +252,8 @@ server.log
 !/scripts/e2e-al-14.sh
 !/scripts/e2e-al-14.page.js
 
+!/scripts/e2e-al-23.sh
+!/scripts/e2e-al-23.page.js
 !/scripts/verify-book3-ch02.ts
 !/scripts/e2e-al-21.sh
 !/scripts/e2e-al-21.page.js

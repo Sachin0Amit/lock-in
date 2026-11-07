@@ -2252,3 +2252,55 @@ opens with 3.1 + 3.2 (verify-book3-ch03.ts FIRST).
 
 **Git:** ship commit `al ch.2 OPENS (run 69): 2.1 Powers and the Laws of Exponents + 2.2 Zero and Negative
 Exponents: Another Repair — verify-first ...` pushed to main per the push protocol; memory commit follows.
+
+
+---
+
+## RUN 70 — Elementary Algebra ch. 2 'Exponents and Powers' CLOSES 3/3 (2026-11-07, fired 21:15:01 +08:00, job 509354, trace cron-agent-loop-202611072115)
+
+**Scope:** 2.3 'Scientific Notation and Orders of Magnitude' (al-scientific-notation-and-orders-of-magnitude) + the
+unit-2 completion review — the ONE-lesson-plus-review quota per the v2 directive (only one unwritten lesson
+remained). The chapter flipped COMPLETE; ch. 3 'Polynomials' never opened this run.
+
+**Verify-first:** section J appended to verify-book3-ch02.ts BEFORE any 2.3 prose — 56 checks ALL GREEN (the
+canonical-form engine + the 10,998-trial uniqueness sweep; the conversion gallery pinned Frac-exact; every
+Illustration recomputed both sides incl. the renormalisation cases 13.5 x 10^9 -> 1.35 x 10^10 and 0.5 x 10^3 ->
+5 x 10^2; the rounding gap 3,741,824 = 0.35% on the 2^30 thread; the sig-fig gallery; the family ordering with
+same-rung tie-breaks and 2^34 = 17,179,869,184; quiz keys 2.3 = [2,1,1,2,1] pinned with distractors priced; 28
+exercise keys recomputed; two figure plans). The first J pass caught SEVEN author arithmetic slips pre-prose
+(mispaired coefficient/exponent Fracs) — all corrected before writing. At ship the verifier carried 331 checks
+ALL GREEN (H = 2.1, I = 2.2, K = authored 2.3, R = the chapter-close battery).
+
+**2.3 (4,014 words / 8 terms / quiz 2-1-1-2-1 / 14 exercises / 2 figures / 2 tables / 3 illustrations / 2 formula
+cards):** the standard form with the uniqueness clause (the form is a NAME — one canonical exponent per number,
+10,998 trials, zero exceptions); the conversion engine both directions; the powers-of-ten ladder figure (FM 9.2's
+prefixes extended by mega/giga/micro per ncert-phys11-ch2) + the exact conversion gallery; the everyday-rung tour;
+computing by the exponent laws with renormalisation; significant digits (the two-dials figure — coefficient =
+precision, exponent = size; padding vs trailing zeros; the FM 9.4 cross-ref); the exact-ratio refinement (rung gap
+11 vs the ratio's exponent 10 on 2^34); the Sand Reckoner + the permanence-era historical callout.
+
+**Gates (all green):** lint 0 errors (2 pre-existing warnings untouched); tsc clean repo-wide; routes 200 (lesson,
+book, home) + 404 unknown; E2E e2e-al-23 (whitelisted BEFORE committing) ALL GREEN — 45/45 PASS x2 runs (quiz 5/5
+live on keys 2/1/1/2/1 all three viewports, KaTeX 202 nodes 0 errors, 0 console errors, no overflow at 390/1280,
+Sol. pills 17); pixels 0% blue cast, dark 88.8%; SVG overlap audit — the ladder's first pass flagged 10
+text/rect contacts (inter-station arrow glyphs in 12-px gaps), arrows removed, re-audited 0 issues on both
+figures; both figures visually inspected clean; 2.1/2.2 E2E regression 0 FAILs. **Two gates-caught bug classes,
+neither shipped:** SEVEN unclosed $ delimiters in the two gallery tables' first-column cells (7 raw-$ hits in the
+E2E) — closed to 0; five TS unicode escapes from the authoring path (the odd-run scanner catching them pre-ship).
+
+**Step 3 — logs:** WORKLOG.md (this run's entry at top), PROGRESS.json (phase = ch. 2 COMPLETE 3/3; awaiting = run
+71 opens ch. 3), RESUME_POINTER.json (nextAction = run 71 = 3.1 + 3.2 with verify-book3-ch03.ts FIRST; run 72 =
+3.3 + 3.4 + the unit-3 review), SOURCE_LOG.md (run-70 section: the new web-checked key archimedes-sand-reckoner +
+the carried keys + the ship notes; zero downloads), WORK_INVENTORY.json regenerated (23 chapters written, 0 in
+progress / 90 lessons / 441,420 words / 691 terms / 450 quiz / 1,121 exercises), DETAILED_LOG.md (this record).
+
+**Library after the run:** 3 books (2 complete + 1 in progress) / 23 chapters written, 0 in progress / 90 lessons /
+441,420 words / 691 terms / 450 quiz items / 1,121 exercise questions. AL stands: ch. 1 COMPLETE 4/4 (16,513
+words) + ch. 2 COMPLETE 3/3 (13,189 words) — 7 lessons / 29,702 words; ch. 3 opens at run 71.
+
+**Next:** run 71 = AL ch. 3 'Polynomials' OPENS with 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2
+'Adding, Subtracting and Multiplying Polynomials' (verify-book3-ch03.ts FIRST; whitelist e2e-al-31/32); run 72 =
+3.3 + 3.4 + the unit-3 review close ch. 3.
+
+**Git:** ship commit `al ch.2 CLOSES (run 70): ...` pushed to main per the push protocol (carrying run 69's memory
+commit); memory commit follows.

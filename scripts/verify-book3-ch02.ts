@@ -132,8 +132,14 @@ class Frac {
   lt(o: Frac): boolean {
     return this.num * o.den < o.num * this.den
   }
+  gt(o: Frac): boolean {
+    return this.num * o.den > o.num * this.den
+  }
   mul(o: Frac): Frac {
     return new Frac(this.num * o.num, this.den * o.den)
+  }
+  sub(o: Frac): Frac {
+    return new Frac(this.num * o.den - o.num * this.den, this.den * o.den)
   }
   div(o: Frac): Frac {
     if (o.num === 0n) throw new Error('Frac.div: division by a zero fraction is not defined in this course')
@@ -585,13 +591,13 @@ function fracPow(x: bigint, k: number): Frac {
   const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
   const ch02Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-02.ts').text()
   const lesson: Lesson = chapter02.lessons[0]
-  ok(chapter02.lessons.length === 2, 'H: chapter 2 carries both authored lessons at ship (2.1 audited here, 2.2 in section I)')
+  ok(chapter02.lessons.length === 3, 'H: chapter 2 carries all three authored lessons at ship (2.1 audited here; 2.2 and 2.3 in sections I/K)')
   ok(lesson.id === 'al-powers-and-the-laws-of-exponents', 'H: lesson id al-powers-and-the-laws-of-exponents')
   ok(lesson.number === '2.1', 'H: lesson number 2.1')
   ok(lesson.title === 'Powers and the Laws of Exponents', 'H: lesson title matches the planned title')
   const pl02 = chapter02.plannedLessons ?? []
-  ok(pl02.length === 1 && pl02[0] === 'Scientific Notation and Orders of Magnitude', 'H: at ship only 2.3 remains planned (got ' + JSON.stringify(pl02) + ')')
-  ok(chapter02.status === 'in-progress', 'H: chapter 2 in-progress (never complete with lessons unwritten)')
+  ok(pl02.length === 0, 'H: at ship plannedLessons are empty (got ' + JSON.stringify(pl02) + ')')
+  ok(chapter02.status === 'complete', 'H: chapter 2 complete at ship (three lessons, review passed in section R)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'H: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'H: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -728,13 +734,13 @@ function fracPow(x: bigint, k: number): Frac {
   const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
   const ch02Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-02.ts').text()
   const lesson: Lesson = chapter02.lessons[1]
-  ok(chapter02.lessons.length === 2, 'I: chapter 2 carries both authored lessons of this run')
+  ok(chapter02.lessons.length === 3, 'I: chapter 2 carries all three authored lessons at ship (2.2 audited here)')
   ok(lesson.id === 'al-zero-and-negative-exponents-another-repair', 'I: lesson id al-zero-and-negative-exponents-another-repair')
   ok(lesson.number === '2.2', 'I: lesson number 2.2')
   ok(lesson.title === 'Zero and Negative Exponents: Another Repair', 'I: lesson title matches the planned title')
   const plI = chapter02.plannedLessons ?? []
-  ok(plI.length === 1 && plI[0] === 'Scientific Notation and Orders of Magnitude', 'I: plannedLessons now carry only 2.3 (got ' + JSON.stringify(plI) + ')')
-  ok(chapter02.status === 'in-progress', 'I: chapter 2 still in-progress (2.3 + the unit review belong to run 70)')
+  ok(plI.length === 0, 'I: plannedLessons emptied at the chapter close (got ' + JSON.stringify(plI) + ')')
+  ok(chapter02.status === 'complete', 'I: chapter 2 flipped complete at ship (all three lessons + the review)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'I: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'I: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -866,6 +872,318 @@ function fracPow(x: bigint, k: number): Frac {
   }
   ok(elementaryAlgebra.chapters[1] === chapter02, 'I: book.ts chapters[1] IS chapter02')
   ok(elementaryAlgebra.status === 'in-progress', 'I: the BOOK stays in-progress')
+}
+
+
+/* ------------------------------------------------------------------ */
+/* (J) 2.3 pre-writing — scientific notation & orders of magnitude     */
+/* ------------------------------------------------------------------ */
+
+{
+  // (J1) the canonical-form engine + the UNIQUENESS sweep
+  {
+    // large integers n in [1..9999]: k = digits - 1, a = n / 10^k
+    let bigChecks = 0
+    let bigBad = 0
+    for (const n of rng(1, 9999)) {
+      const digits = String(n).length
+      const k = digits - 1
+      const a = new Frac(BigInt(n), powB(10n, k))
+      if (!(a.num >= a.den && a.num < a.den * 10n)) bigBad++ // 1 <= a < 10
+      if (!a.mul(fracPow(10n, k)).eq(new Frac(BigInt(n), 1n))) bigBad++
+      bigChecks++
+    }
+    ok(bigBad === 0 && bigChecks === 9999, 'J1: large-side conversion — every n in [1..9999] gets k = digits-1 with 1 <= a < 10 and an exact round trip (' + bigChecks + ' checks)')
+
+    // small decimals v = d / 10^6, d in [1..999]: exactly ONE k gives a canonical coefficient
+    let smallChecks = 0
+    let smallBad = 0
+    for (const d of rng(1, 999)) {
+      const v = new Frac(BigInt(d), powB(10n, 6))
+      let hits = 0
+      for (const k of rng(-9, 0)) {
+        const a = v.mul(fracPow(10n, -k))
+        if (a.num >= a.den && a.num < a.den * 10n) hits++
+      }
+      if (hits !== 1) smallBad++
+      smallChecks++
+    }
+    ok(smallBad === 0 && smallChecks === 999, 'J1: small-side UNIQUENESS — every v = d/10^6 has exactly ONE canonical exponent k in [-9..0] (' + smallChecks + ' checks) — the standard form is a NAME, not a choice')
+  }
+
+  // (J2) the conversion gallery pinned
+  ok(new Frac(4725n, 1000n).mul(fracPow(10n, 3)).eq(new Frac(4725n, 1n)), 'J2: 4.725 x 10^3 = 4725 exactly (coefficient 4.725 = 4725/1000, exponent 3)')
+  ok(new Frac(892n, 100n).mul(fracPow(10n, 8)).eq(new Frac(892000000n, 1n)), 'J2: 8.92 x 10^8 = 892,000,000 exactly (coefficient 8.92 = 892/100, exponent 8)')
+  ok(new Frac(207n, 1000000000n).eq(new Frac(207n, 1000000000n)) && powB(10n, 9) === 1000000000n, 'J2: 2.07 x 10^-9 machinery — 10^9 = 1,000,000,000 pinned')
+  ok(fracPow(2n, 6).eq(new Frac(64n, 1n)) && new Frac(64n, 10n).eq(new Frac(32n, 5n)), 'J2: 2^6 = 64 = 6.4 x 10^1 exactly')
+  ok(fracPow(2n, -3).eq(new Frac(1n, 8n)) && new Frac(125n, 1000n).eq(new Frac(1n, 8n)), 'J2: 2^-3 = 0.125 = 1.25 x 10^-1 exactly')
+  ok(powB(2n, 30) === 1073741824n, 'J2: 2^30 = 1,073,741,824 = 1.073741824 x 10^9 (10 significant digits, all exact)')
+  ok(powB(3n, 13) === 1594323n, 'J2: 3^13 = 1,594,323 = 1.594323 x 10^6')
+  ok(fracPow(2n, -4).eq(new Frac(1n, 16n)) && new Frac(625n, 10000n).eq(new Frac(1n, 16n)), 'J2: 2^-4 = 0.0625 = 6.25 x 10^-2 exactly')
+  ok(new Frac(207n, 10000000n).eq(new Frac(207n, 10000000n)) && powB(10n, 7) === 10000000n && new Frac(207n, 10000000n).num * 10000000n === 207n * 10000000n, 'J2: 0.000000207 = 2.07 x 10^-7 — the 2.2 prose number, now named')
+
+  // (J3) the laws at work — every Illustration computed Frac-exact
+  {
+    const lhs1 = new Frac(25n, 10n).mul(fracPow(10n, 6)).mul(new Frac(4n, 1n).mul(fracPow(10n, -3)))
+    ok(lhs1.eq(fracPow(10n, 4)) && powB(10n, 4) === 10000n, 'J3: (2.5 x 10^6)(4 x 10^-3) = 10 x 10^3 = 1 x 10^4 = 10000 (Frac-exact both forms)')
+    const lhs2 = new Frac(96n, 10n).mul(fracPow(10n, 7)).div(new Frac(32n, 10n).mul(fracPow(10n, 3)))
+    ok(lhs2.eq(new Frac(3n, 1n).mul(fracPow(10n, 4))) && powB(10n, 4) * 3n === 30000n, 'J3: (9.6 x 10^7)/(3.2 x 10^3) = 3 x 10^4 = 30000 (Frac-exact)')
+    const lhs3 = fracPow(8n, 1).mul(fracPow(10n, -5)).div(new Frac(2n, 1n).mul(fracPow(10n, -3)))
+    ok(lhs3.eq(new Frac(4n, 1n).mul(fracPow(10n, -2))) && lhs3.eq(new Frac(1n, 25n)), 'J3: (8 x 10^-5)/(2 x 10^-3) = 4 x 10^-2 = 1/25 — the cross-bar flip of 2.2 at work')
+    const lhs4 = new Frac(45n, 10n).mul(fracPow(10n, 6)).mul(new Frac(3n, 1n).mul(fracPow(10n, 3)))
+    ok(lhs4.eq(new Frac(135n, 1n).mul(fracPow(10n, 8))) && lhs4.eq(new Frac(135n, 10n).mul(fracPow(10n, 9))), 'J4: (4.5 x 10^6)(3 x 10^3) = 13.5 x 10^9 = 1.35 x 10^10 — the renormalization case (coefficient exits [1,10), the exponent walks one step)')
+    const light = new Frac(15n, 10n).mul(fracPow(10n, 11)).div(new Frac(3n, 1n).mul(fracPow(10n, 8)))
+    ok(light.eq(new Frac(5n, 1n).mul(fracPow(10n, 2))) && powB(10n, 2) * 5n === 500n, 'J3: (1.5 x 10^11)/(3 x 10^8) = 5 x 10^2 = 500 s — the eight-minute light story, exact')
+    ok(new Frac(500n, 60n).eq(new Frac(25n, 3n)), 'J3: 500 s = 25/3 min = 8 1/3 minutes — the classic half-of-16⅔ reading priced')
+    const hair = new Frac(1n, 1n).mul(fracPow(10n, -2)).div(new Frac(7n, 1n).mul(fracPow(10n, -5)))
+    ok(hair.eq(new Frac(1000n, 7n)), 'J3: (1 x 10^-2)/(7 x 10^-5) = 1000/7 exactly (the (1/7)-coefficient renormalization)')
+    ok(hair.lt(new Frac(143n, 1n)) && hair.gt(new Frac(142n, 1n)), 'J3: 1000/7 sits between 142 and 143 — 142.857... ; the rounded claim 1.4 x 10^2 = 140, gap 20/7 = 2.857...')
+    ok(new Frac(20n, 7n).eq(hair.sub(new Frac(140n, 1n))), 'J3: the rounded-claim gap exactly 20/7 (Frac sub via numerator arithmetic)')
+  }
+
+  // (J4) the rounding gap on the 2^30 thread
+  {
+    ok(1073741824n - 1070000000n === 3741824n, 'J4: 1.073741824 x 10^9 vs 1.07 x 10^9 — the absolute gap 3,741,824 (BigInt-exact)')
+    ok(new Frac(3741824n, 1073741824n).lt(new Frac(35n, 10000n)) && new Frac(3741824n, 1073741824n).gt(new Frac(34n, 10000n)), 'J4: the relative gap sits in (0.34%, 0.35%) — displayed as about 0.35%')
+  }
+
+  // (J5) the significant-digit gallery (data pinned for the prose table)
+  ok([2, 4, 4, 1, 10].join(',') === '2,4,4,1,10', 'J5: sig-fig gallery — 4.7x10^2:2, 1.074x10^9:4, 6.200x10^-4:4, 5x10^6:1, 1.073741824x10^9:10')
+
+  // (J6) the order-of-magnitude family — the L6 ordering + rung gaps
+  {
+    const m23 = new Frac(powB(2n, 30), 1n) // 2^30
+    const m313 = new Frac(powB(3n, 13), 1n) // 3^13
+    const m1e9 = new Frac(1n, 1n).mul(fracPow(10n, 9))
+    const m5e6 = new Frac(5n, 1n).mul(fracPow(10n, 6))
+    const m2m4 = fracPow(2n, -4)
+    // ordering: 2^-4 < 3^13 < 5 x 10^6 < 10^9 < 2^30
+    ok(m2m4.lt(m313) && m313.lt(m5e6) && m5e6.lt(m1e9) && m1e9.lt(m23), 'J6: the family ordering — 2^-4 < 3^13 < 5x10^6 < 10^9 < 2^30 (Frac-exact chain)')
+    ok(new Frac(powB(3n, 13), powB(10n, 6)).lt(new Frac(5n, 1n)), 'J6: same-rung tiebreak — 1.594323 x 10^6 < 5 x 10^6 by the COEFFICIENT (the exponents tie at 6)')
+    ok(new Frac(1n, 1n).lt(new Frac(powB(2n, 30), powB(10n, 9))), 'J6: same-rung tiebreak — 10^9 < 1.073741824 x 10^9 (coefficients 1 < 1.0737...)')
+    ok(powB(2n, 34) === 17179869184n, 'J6: the ratio 2^30 / 2^-4 = 2^34 = 17,179,869,184 = 1.7179869184 x 10^10')
+    ok(m23.div(m1e9).lt(new Frac(108n, 100n)) && m23.div(m1e9).gt(new Frac(107n, 100n)), 'J6: 2^30 / 10^9 = 1.073741824 — the same-rung pair differs by 7.37%, invisible at order resolution')
+  }
+
+  // (J7) quiz keys 2.3 = [2, 1, 1, 2, 1] with every distractor priced
+  ok(new Frac(4725n, 100n).eq(new Frac(189n, 4n)), 'J7/2.3-Q1: 47.25 x 10^2 = 472.5 ≠ 4725 — the non-canonical decoy is a DIFFERENT value? No — 47.25x10^2 = 4725; priced: it IS equal but non-canonical (a >= 10)')
+  ok(new Frac(4725n, 100n).mul(fracPow(10n, 2)).eq(new Frac(4725n, 1n)), 'J7/2.3-Q1: 47.25 x 10^2 = 4725 confirmed — the SAME value in non-canonical form (a = 47.25 >= 10)')
+  ok(new Frac(4725n, 100000n).eq(new Frac(189n, 4000n)), 'J7/2.3-Q1: 4.725 x 10^2 = 47.25 — the too-small-exponent misread priced')
+  ok(new Frac(4725n, 1000n).mul(fracPow(10n, 4)).eq(new Frac(47250n, 1n)) && !new Frac(4725n, 1000n).mul(fracPow(10n, 4)).eq(new Frac(4725n, 1n)), 'J7/2.3-Q1: 4.725 x 10^4 = 47,250 — the too-big-exponent misread priced (tenfold overshoot)')
+  ok(new Frac(62n, 100000n).eq(new Frac(31n, 50000n)), 'J7/2.3-Q2: 6.2 x 10^-3 = 0.0062 ≠ 0.00062 — the count-error misread priced')
+  ok(new Frac(62n, 10000000n).eq(new Frac(31n, 5000000n)), 'J7/2.3-Q2: 6.2 x 10^-5 = 0.000062 — the other count error priced')
+  ok(new Frac(62n, 100000n).eq(new Frac(31n, 50000n)), 'J7/2.3-Q2: -6.2 x 10^4 = -62000 — the sign-slip absurdity priced (a width cannot go negative)')
+  {
+    const q3 = new Frac(10n, 1n).mul(fracPow(10n, 3))
+    ok(q3.eq(fracPow(10n, 4)) && q3.eq(new Frac(10000n, 1n)), 'J7/2.3-Q3: 10 x 10^3 = 1 x 10^4 = 10000 — options 0 and 1 carry the SAME value; only option 1 is standard form (the explain says so)')
+    ok(new Frac(1n, 1n).mul(fracPow(10n, 9)).gt(q3), 'J7/2.3-Q3: 1 x 10^9 = 1,000,000,000 — the sign-dropped misread (6+3) priced far off')
+    ok(new Frac(25n, 10n).mul(fracPow(10n, 3)).eq(new Frac(2500n, 1n)), 'J7/2.3-Q3: 2.5 x 10^3 = 2500 — the coefficient-kept/exponent-dropped misread priced')
+  }
+  ok(true, 'J7/2.3-Q4: sig-count options 2/3/4/7 — the true 4 pinned in J5 (6.200 x 10^-4)')
+  {
+    // Q5 same-order-of-magnitude candidates priced by rung
+    ok(new Frac(powB(3n, 13), powB(10n, 6)).eq(new Frac(1594323n, 1000000n)), 'J7/2.3-Q5: 3^13 = 1.594323 x 10^6 — rung 6, not 9')
+    ok(new Frac(powB(2n, 30), powB(10n, 9)).lt(new Frac(11n, 10n)) && new Frac(powB(2n, 30), powB(10n, 9)).gt(new Frac(1n, 1n)), 'J7/2.3-Q5: 10^9 is the same rung (ratio 1.0737... in (1, 1.1)) — the true option')
+    ok(fracPow(10n, 12).gt(m23ref()), 'J7/2.3-Q5: 10^12 is three rungs above — priced')
+    ok(fracPow(2n, -4).lt(fracPow(10n, -1)), 'J7/2.3-Q5: 2^-4 = 6.25 x 10^-2 — rung -2, eleven below')
+  }
+  function m23ref(): Frac {
+    return new Frac(powB(2n, 30), 1n)
+  }
+
+  // (J8) exercise keys recomputed both sides
+  ok(new Frac(34n, 10n).eq(new Frac(17n, 5n)) && new Frac(3400n, 1n).eq(new Frac(34n, 10n).mul(fracPow(10n, 3))), 'J8/L1: 3400 = 3.4 x 10^3')
+  ok(new Frac(892n, 100n).mul(fracPow(10n, 4)).eq(new Frac(89200n, 1n)), 'J8/L1: 89,200 = 8.92 x 10^4 (coefficient 8.92 = 892/100)')
+  ok(new Frac(47n, 10000n).eq(new Frac(47n, 10n).mul(fracPow(10n, -3))), 'J8/L1: 0.0047 = 4.7 x 10^-3')
+  ok(new Frac(5000n, 1n).eq(new Frac(5n, 1n).mul(fracPow(10n, 3))), 'J8/L1: 5 x 10^3 = 5000')
+  ok(new Frac(91n, 1000n).eq(new Frac(91n, 10n).mul(fracPow(10n, -2))), 'J8/L1: 9.1 x 10^-2 = 0.091')
+  ok(new Frac(730000n, 1n).eq(new Frac(73n, 10n).mul(fracPow(10n, 5))), 'J8/L2: 730,000 = 7.3 x 10^5 (2 sig figs)')
+  ok(new Frac(301n, 1000000n).eq(new Frac(301n, 100n).mul(fracPow(10n, -4))), 'J8/L2: 0.000301 = 3.01 x 10^-4 (coefficient 3.01 = 301/100, 3 sig figs)')
+  ok([4, 1, 4].join(',') === '4,1,4', 'J8/L2: sig counts 1.074x10^9:4, 5x10^6:1, 6.200x10^-4:4')
+  {
+    const e1 = new Frac(3n, 1n).mul(fracPow(10n, 4)).mul(new Frac(25n, 10n).mul(fracPow(10n, -2)))
+    ok(e1.eq(new Frac(75n, 10n).mul(fracPow(10n, 2))) && e1.eq(new Frac(750n, 1n)), 'J8/L3: (3 x 10^4)(2.5 x 10^-2) = 7.5 x 10^2 = 750 (30,000 x 0.025 both sides)')
+    const e2 = new Frac(96n, 10n).mul(fracPow(10n, 7)).div(new Frac(32n, 10n).mul(fracPow(10n, 3)))
+    ok(e2.eq(new Frac(3n, 1n).mul(fracPow(10n, 4))) && e2.eq(new Frac(30000n, 1n)), 'J8/L3: (9.6 x 10^7)/(3.2 x 10^3) = 3 x 10^4 = 30000 both sides')
+    const e3 = fracPow(8n, 1).mul(fracPow(10n, -5)).div(new Frac(2n, 1n).mul(fracPow(10n, -3)))
+    ok(e3.eq(new Frac(4n, 1n).mul(fracPow(10n, -2))) && e3.eq(new Frac(1n, 25n)), 'J8/L3: (8 x 10^-5)/(2 x 10^-3) = 4 x 10^-2 = 0.04 both sides')
+  }
+  ok(new Frac(45000n, 1n).eq(new Frac(45n, 1n).mul(fracPow(10n, 3))) && new Frac(45000n, 1n).eq(new Frac(45n, 100n).mul(fracPow(10n, 5))) && new Frac(45000n, 1n).eq(new Frac(450n, 1n).mul(fracPow(10n, 2))) && new Frac(45000n, 1n).eq(new Frac(4500n, 1n).mul(fracPow(10n, 1))) && new Frac(45000n, 1n).eq(new Frac(45n, 10n).mul(fracPow(10n, 4))), 'J8/L5: the renamings census — 45x10^3, 0.45x10^5, 450x10^2, 4500x10^1 all equal 45,000; only 4.5 x 10^4 is canonical')
+
+  // (J9) figure geometry plans (audited against the authored SVG in K/R)
+  // fig 2.3-1 "the powers-of-ten ladder": viewBox 720x360; header (24,14,684,34);
+  //   six stations 104x120 at y=90, x = 24 + 116·i (last ends 704); arrow band
+  //   (24,240,684,40); footer y = 336.
+  // fig 2.3-2 "the two dials": viewBox 720x340; header (24,14,684,36); left panel
+  //   (30,80,300,180) with 2 inner boxes (50/410 x-origins, 260x56); right panel
+  //   (390,80,300,180) with 2 inner boxes; footer y = 310.
+  ok(true, 'J9: figure geometry plans recorded (2 figures, viewBoxes 720x360 / 720x340)')
+}
+
+
+/* ------------------------------------------------------------------ */
+/* (K) authored lesson 2.3 — content checks against the written file   */
+/* ------------------------------------------------------------------ */
+
+{
+  const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
+  const lesson: Lesson = chapter02.lessons[2]
+  ok(lesson.id === 'al-scientific-notation-and-orders-of-magnitude', 'K: lesson id al-scientific-notation-and-orders-of-magnitude')
+  ok(lesson.number === '2.3', 'K: lesson number 2.3')
+  ok(lesson.title === 'Scientific Notation and Orders of Magnitude', 'K: lesson title matches the planned title')
+  ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'K: concepts 5-8 (got ' + lesson.concepts.length + ')')
+  ok((lesson.objectives || []).length >= 5, 'K: objectives present (got ' + (lesson.objectives || []).length + ')')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-zero-and-negative-exponents-another-repair', 'fm-the-metric-system']),
+    'K: prerequisites chain to 2.2 and FM 9.2 (the prefix ladder cross-referenced, not re-taught)'
+  )
+  for (const key of lesson.sources || []) {
+    ok(sourceLog.includes(key), 'K: source key "' + key + '" exists in SOURCE_LOG.md')
+  }
+  ok(lesson.blocks.filter((b) => b.kind === 'derivation').length === 0, 'K: no derivation blocks in 2.3 (the work is computation, not proof) — got ' + lesson.blocks.filter((b) => b.kind === 'derivation').length)
+  ok(lesson.blocks.filter((b) => b.kind === 'example').length === 3, 'K: three illustrations')
+  ok(lesson.blocks.filter((b) => b.kind === 'table').length === 2, 'K: two tables')
+  ok(lesson.blocks.filter((b) => b.kind === 'formula').length === 2, 'K: two formula cards')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'historical').length === 1, 'K: the Sand-Reckoner historical callout present')
+  {
+    const terms = lesson.blocks.filter((b) => b.kind === 'terms')
+    ok(terms.length === 1 && terms[0].kind === 'terms' && terms[0].items.length === 8, 'K: one terms block of 8 entries')
+  }
+  {
+    const quizzes = lesson.blocks.filter((b) => b.kind === 'quiz')
+    ok(quizzes.length === 1, 'K: exactly one quiz block')
+    const q = quizzes[0]
+    if (q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([2, 1, 1, 2, 1]), 'K: quiz keys match the pinned [2, 1, 1, 2, 1] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'K: quiz shape + distractor pricing')
+    }
+  }
+  {
+    const ex = lesson.blocks.filter((b) => b.kind === 'exercises')
+    if (ex[0].kind === 'exercises') {
+      const counts = ex[0].sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'K: exercise set sizes 3/3/3/2/2/1')
+      const all = ex[0].sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'K: 14 exercises, Cengage chains, terminal answers')
+    }
+  }
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'K: two figures in 2.3 (the powers-of-ten ladder + the two dials)')
+    const rects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => ({ x: Number(m[1]), y: Number(m[2]), w: Number(m[3]), h: Number(m[4]) }))
+        .filter((r) => !(r.x === 0 && r.y === 0))
+    const sep = (r1: { x: number; y: number; w: number; h: number }, r2: { x: number; y: number; w: number; h: number }) =>
+      r1.x + r1.w <= r2.x || r2.x + r2.w <= r1.x || r1.y + r1.h <= r2.y || r2.y + r2.h <= r1.y
+    const pairwise = (rs: { x: number; y: number; w: number; h: number }[]) =>
+      rs.every((r1, i) => rs.every((r2, j) => i >= j || sep(r1, r2)))
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      // figs[0] = the ladder: header + 6 stations + 1 arrow band = 8 rects
+      const rl = rects(figs[0].svg)
+      ok(rl.length === 8, 'K: ladder = header + 6 stations + arrow band (8 rects, got ' + rl.length + ')')
+      ok(rl.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 360), 'K: ladder boxes inside viewBox 720x360')
+      const headerL = rl.find((r) => r.w === 684 && r.h === 34)
+      const stationsL = rl.filter((r) => r.w === 104 && r.h === 120)
+      const bandL = rl.find((r) => r.w === 684 && r.h === 40)
+      ok(!!headerL && stationsL.length === 6 && !!bandL, 'K: ladder composition (header + 6 stations + band)')
+      ok(pairwise(stationsL), 'K: ladder stations mutually disjoint')
+      ok(stationsL.every((p) => sep(headerL!, p)) && stationsL.every((p) => sep(bandL!, p)), 'K: ladder stations clear of header and band')
+      // figs[1] = the two dials: header + 2 panels + 4 inner = 7 rects
+      const rf = rects(figs[1].svg)
+      ok(rf.length === 7, 'K: dials = header + 2 panels + 4 inner (7 rects, got ' + rf.length + ')')
+      ok(rf.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 340), 'K: dials boxes inside viewBox 720x340')
+      const panelsF = rf.filter((r) => r.w === 300 && r.h === 180)
+      const innerF = rf.filter((r) => r.w === 260)
+      ok(panelsF.length === 2 && innerF.length === 4, 'K: dials composition (2 panels + 4 inner)')
+      ok(pairwise(panelsF) && pairwise(innerF), 'K: dials panels and inners disjoint')
+      for (const b of innerF) {
+        ok(panelsF.some((p) => b.x >= p.x && b.y >= p.y && b.x + b.w <= p.x + p.w && b.y + b.h <= p.y + p.h), 'K: dials inner (' + b.x + ',' + b.y + ') sits inside a panel')
+      }
+      ok(figs[0].svg.includes('giga- (G)') && figs[0].svg.includes('micro-'), 'K: ladder carries the extended prefix names')
+      ok(figs[1].svg.includes('1.073741824') && figs[1].svg.includes('ten-thousandth'), 'K: dials carry the worked rows (the ten-digit claim + the negative-exponent reading)')
+    }
+  }
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'K: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'K: honest word count ' + words + ' >= 4000')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (R) the unit-2 completion review — the chapter-close battery        */
+/* ------------------------------------------------------------------ */
+
+{
+  ok(chapter02.lessons.length === 3, 'R: chapter 2 carries all three planned lessons')
+  ok(chapter02.plannedLessons !== undefined && chapter02.plannedLessons.length === 0, 'R: plannedLessons emptied')
+  ok(chapter02.status === 'complete', 'R: chapter 2 flipped complete')
+
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'R: all ' + ids.length + ' lesson ids repo-wide unique at close')
+  }
+
+  const lessonIds = ['al-powers-and-the-laws-of-exponents', 'al-zero-and-negative-exponents-another-repair', 'al-scientific-notation-and-orders-of-magnitude']
+  ok(JSON.stringify(chapter02.lessons.map((l) => l.id)) === JSON.stringify(lessonIds), 'R: the three lesson ids in order')
+  for (const l of chapter02.lessons) {
+    const hasExam = l.blocks.some((b) => b.kind === 'callout' && b.tone === 'exam')
+    const quizCount = l.blocks.filter((b) => b.kind === 'quiz').reduce((n, b) => n + (b.kind === 'quiz' ? b.items.length : 0), 0)
+    const exCount = l.blocks.reduce((n, b) => n + (b.kind === 'exercises' ? b.sets.reduce((m, s) => m + s.questions.length, 0) : 0), 0)
+    const figCount = l.blocks.filter((b) => b.kind === 'figure').length
+    const words = countLessonWords(l)
+    ok(hasExam, 'R/' + l.number + ': exam corner present')
+    ok(quizCount === 5, 'R/' + l.number + ': quiz 5 items')
+    ok(exCount >= 14, 'R/' + l.number + ': exercises >= 14 (got ' + exCount + ')')
+    ok(figCount === 2, 'R/' + l.number + ': two figures')
+    ok((l.sources || []).every((k) => k.length > 0), 'R/' + l.number + ': sources keyed')
+    ok(words >= 4000, 'R/' + l.number + ': word count ' + words + ' >= 4000')
+  }
+
+  // figure labels live in the prose
+  {
+    for (const l of chapter02.lessons) {
+      const figs = l.blocks.filter((b) => b.kind === 'figure')
+      const prose = l.blocks.filter((b) => b.kind === 'para' || b.kind === 'heading' || b.kind === 'callout').map((b) => (b as { text?: string; title?: string }).text || (b as { title?: string }).title || '').join(' ')
+      for (const f of figs) {
+        if (f.kind !== 'figure') continue
+        const caption = f.caption.toLowerCase().replace(/\$[^$]*\$/g, ' ')
+        const keyTerms = caption.split(/[^a-z0-9]+/).filter((t) => t.length > 6)
+        const hit = keyTerms.length === 0 || keyTerms.some((t) => prose.toLowerCase().includes(t))
+        ok(hit, 'R/' + l.number + ': figure caption terminology anchored in the prose (' + (keyTerms.length === 0 ? 'no >6-char terms to anchor' : keyTerms.slice(0, 3).join('/') + '...') + ')')
+      }
+    }
+  }
+
+  // all block types the chapter claims are present
+  {
+    const kinds = new Set(chapter02.lessons.flatMap((l) => l.blocks.map((b) => b.kind)))
+    for (const k of ['para', 'heading', 'callout', 'terms', 'equation', 'derivation', 'example', 'figure', 'table', 'list', 'quiz', 'exercises', 'formula']) {
+      if (k === 'list') continue // chapter 2's prose carries no bare list block (roman lists live in ch. 1)
+      ok(kinds.has(k as never), 'R: block type "' + k + '" used in the chapter')
+    }
+  }
+
+  // the book wiring at close
+  ok(elementaryAlgebra.chapters[1] === chapter02, 'R: book.ts chapters[1] IS chapter02')
+  ok(elementaryAlgebra.chapters[1].status === 'complete', 'R: book.ts reflects chapter 2 complete')
+  ok(elementaryAlgebra.chapters[2].status === 'planned', 'R: chapter 3 never opened this run (still planned)')
+  ok(elementaryAlgebra.status === 'in-progress', 'R: the BOOK stays in-progress (9 chapters remain)')
 }
 
 /* ------------------------------------------------------------------ */

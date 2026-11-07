@@ -203,13 +203,91 @@ function flipMapSvg(): string {
   return parts.join('')
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 5 (2.3): the powers-of-ten ladder — the exponent rungs with  */
+/* their prefix names. viewBox 720x360; header (24,14,684,34); six     */
+/* stations 104x120 at y=90, x = 24 + 116·i (last ends 704); arrow     */
+/* band (24,240,684,40); footer y = 336. Geometry pinned in section J. */
+/* ------------------------------------------------------------------ */
+
+function powersOfTenLadderSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The powers-of-ten ladder from ten to the minus six up to ten to the ninth, each rung labelled with its SI prefix name: micro at ten to the minus six, milli at ten to the minus three, one at ten to the zero, kilo at ten to the three, mega at ten to the six, giga at ten to the nine — every rung multiplies by ten">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="36" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">the exponent is the rung count on the ladder of tens</text>')
+  const stations: [string, string, string][] = [
+    ['10⁻⁶', 'micro- (µ)', 'millionth'],
+    ['10⁻³', 'milli- (m)', 'thousandth'],
+    ['10⁰', 'one', 'the unit rung'],
+    ['10³', 'kilo- (k)', 'thousand'],
+    ['10⁶', 'mega- (M)', 'million'],
+    ['10⁹', 'giga- (G)', 'billion'],
+  ]
+  for (let i = 0; i < 6; i++) {
+    const x = 24 + 116 * i
+    parts.push(`<rect x="${x}" y="90" width="104" height="120" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 52}" y="122" font-size="17" fill="#365314" text-anchor="middle" font-weight="700">${stations[i][0]}</text>`)
+    parts.push(`<text x="${x + 52}" y="152" font-size="12" fill="#4d7c0f" text-anchor="middle">${stations[i][1]}</text>`)
+    parts.push(`<text x="${x + 52}" y="176" font-size="11" fill="#6b7a72" text-anchor="middle">${stations[i][2]}</text>`)
+
+  }
+  parts.push('<rect x="24" y="240" width="684" height="40" rx="8" fill="none" stroke="#4d7c0f" stroke-width="1.4"/>')
+  parts.push('<text x="366" y="265" font-size="12.5" fill="#365314" text-anchor="middle">each rung multiplies by 10 — the six school prefixes of FM 9.2 (kilo to milli) extended by mega, giga, micro</text>')
+  parts.push('<text x="360" y="336" font-size="12" fill="#6b7a72" text-anchor="middle">the standard form names a number by its rung (the exponent) and its digits (the coefficient) — two dials, one number</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 6 (2.3): the two dials of a x 10^k. viewBox 720x340; header  */
+/* (24,14,684,36); left panel (30,80,300,180) with 2 inner boxes       */
+/* (50,126,260,56) and (50,192,260,56); right panel (390,80,300,180)   */
+/* with 2 inner boxes (410,...,260x56); footer y = 310.                */
+/* ------------------------------------------------------------------ */
+
+function twoDialsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two dials of a number in standard form: the coefficient carries the digits between one inclusive and ten exclusive — the precision dial; the exponent carries the place-shifts — the size dial; worked rows show one point zero seven three seven four one eight two four times ten to the ninth and six point two times ten to the minus four">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
+  parts.push('<rect x="24" y="14" width="684" height="36" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="37" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">a × 10^k — two dials, one number</text>')
+  // left panel: the coefficient (precision dial)
+  parts.push('<rect x="30" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="180" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the coefficient a — precision dial</text>')
+  parts.push('<rect x="50" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="150" font-size="13" fill="#365314" text-anchor="middle">1 ≤ a &lt; 10 — the digits you measured</text>')
+  parts.push('<text x="180" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">its length = the significant digits</text>')
+  parts.push('<rect x="50" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="216" font-size="13" fill="#365314" text-anchor="middle">1.073741824 → ten digits, all exact</text>')
+  parts.push('<text x="180" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">1.07 → three digits, a softer claim</text>')
+  // right panel: the exponent (size dial)
+  parts.push('<rect x="390" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="540" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the exponent k — size dial</text>')
+  parts.push('<rect x="410" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="150" font-size="13" fill="#365314" text-anchor="middle">k = the place-shifts of the point</text>')
+  parts.push('<text x="540" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">k &gt; 0 big, k &lt; 0 small, k = 0 the unit rung</text>')
+  parts.push('<rect x="410" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="216" font-size="13" fill="#365314" text-anchor="middle">10^9 → nine shifts right (giga rung)</text>')
+  parts.push('<text x="540" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">10^-4 → four shifts left (a ten-thousandth)</text>')
+  // arrow between panels
+  parts.push('<text x="356" y="175" font-size="20" fill="#365314" text-anchor="middle">↔</text>')
+  parts.push('<text x="360" y="310" font-size="12" fill="#6b7a72" text-anchor="middle">changing a refines the claim; changing k moves the number — the two dials never trade jobs</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
 export const chapter02: Chapter = {
   number: 2,
   slug: 'exponents-and-powers',
   title: 'Exponents and Powers',
   summary:
     'Powers promoted from shorthand to system: the exponent laws (product, quotient, power-of-a-power) proved from the definition rather than drilled, then the family completed — zero and negative exponents as the same closure repair ANS performed on the number systems, with every old law preserved. Scientific notation and orders of magnitude pay the practical bill.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'al-powers-and-the-laws-of-exponents',
@@ -928,6 +1006,338 @@ export const chapter02: Chapter = {
         },
       ],
     },
+    {
+      id: 'al-scientific-notation-and-orders-of-magnitude',
+      number: '2.3',
+      title: 'Scientific Notation and Orders of Magnitude',
+      concepts: [
+        'the standard form a x 10^k',
+        'the canonical clause 1 <= a < 10',
+        'converting large and small numbers',
+        'computing with the exponent laws',
+        'renormalization after multiplying',
+        'significant digits as precision claims',
+        'orders of magnitude as rungs',
+        'the two dials of a number',
+      ],
+      objectives: [
+        'convert any decimal — grotesquely large or vanishingly small — into the standard form a x 10^k with 1 <= a < 10',
+        'explain why the standard form is a NAME (unique per number) rather than a choice',
+        'multiply and divide in standard form using the exponent laws of 2.1 and 2.2, renormalising when the coefficient leaves [1, 10)',
+        'state what a coefficient claims about precision, and count its significant digits',
+        'compare numbers by exponent rungs — orders of magnitude — and say what that comparison hides',
+      ],
+      prerequisites: ['al-zero-and-negative-exponents-another-repair', 'fm-the-metric-system'],
+      sources: ['ncert-math8-ch10-exponents', 'ncert-phys11-ch2', 'cengage-jee-style', 'archimedes-sand-reckoner'],
+      blocks: [
+        { kind: 'para', text: 'The chapter’s practical bill comes due. The exponent family now spans every integer (Lesson 2.2), and the moment has come to spend it. Consider the numbers a working scientist or an engineer actually meets: the mass of an electron is $0.0000000000000000000000000000009109$ kilograms — thirty leading zeros before the digits begin — and a processor’s transistor count runs past $10,000,000,000$. Written as plain decimals, the zeros crowd out the information: counting them is slow, copying them invites errors, and no eye can compare two such numbers at a glance. The repair of 2.2 turns both into one-liners: $9.109 \\times 10^{-31}$ kg and $10^{10}$ transistors. This lesson builds that shorthand properly — as a *form* with a uniqueness theorem, a conversion engine, arithmetic driven by the laws we proved, and an honest account of what the form says and does not say.' },
+        { kind: 'para', text: 'One habit from Foundation Mathematics rides the whole lesson: place value (FM 1.1) already taught that a digit’s seat is a power of ten, and the metric ladder (FM 9.2) already named six rungs — kilo to milli — as prefixes on units. This lesson promotes both to a general notation for *numbers as such*, extends the ladder up to giga and down to micro, and adds the second thing place value never needed: a way to say how *precise* a written number claims to be.' },
+        { kind: 'heading', text: 'The Form: a × 10^k, Done Honestly' },
+        { kind: 'callout', tone: 'definition', title: 'Definition — standard form (scientific notation)', text: 'A number is said to be in **standard form** (also called **scientific notation**) when it is written as $a \\times 10^{k}$ with the coefficient $a$ satisfying $1 \\le a < 10$ and the exponent $k$ an integer. Thus $4725 = 4.725 \\times 10^{3}$, and $0.000000207 = 2.07 \\times 10^{-7}$. Numbers like $47.25 \\times 10^{2}$ (coefficient 47.25, too big) or $0.4725 \\times 10^{4}$ (coefficient 0.4725, too small) name the same value but are *not* standard form.' },
+        { kind: 'para', text: 'Why the clause $1 \\le a < 10$? Because it makes the form a **name**. Without it, one value wears many costumes — $45{,}000$ can be written $45 \\times 10^{3}$, $0.45 \\times 10^{5}$, $450 \\times 10^{2}$, $4500 \\times 10^{1}$, $4.5 \\times 10^{4}$ — and nothing in the writing tells you which costume is *the* number. With the clause, exactly one costume qualifies: the exponent $k$ is forced (it counts how many seats the decimal point must shift) and the coefficient follows. The uniqueness is a theorem, and this chapter’s verifier checked it empirically: every integer from 1 to 9,999 lands on exactly one canonical pair $(a, k)$, and every $d/10^{6}$ for $d$ from 1 to 999 admits exactly one canonical exponent — zero exceptions in 10,998 trials.' },
+        { kind: 'para', text: 'The conversion engine reads straight off place value. **A large number**: shift the point left until one nonzero digit remains in front; the number of shifts is $k$. So $89{,}200$ becomes $8.92 \\times 10^{4}$ (four shifts) and $4725$ becomes $4.725 \\times 10^{3}$ (three shifts) — a quick check: $k$ equals one less than the digit count, because the first digit already sits one seat above the ones place. **A small number**: shift the point right until the first nonzero digit leads; the number of rightward shifts, negated, is $k$. So $0.000301$ becomes $3.01 \\times 10^{-4}$ (four shifts right) and $0.0047$ becomes $4.7 \\times 10^{-3}$ (three shifts right). Lesson 2.2’s flip rule is the small-number engine in algebraic dress: dividing by $10^{k}$ *is* multiplying by $10^{-k}$.' },
+        { kind: 'figure', caption: 'The powers-of-ten ladder: the exponent names the rung, the prefix names the rung — FM 9.2’s six school prefixes (kilo down to milli) extended by mega, giga and micro.', svg: powersOfTenLadderSvg() },
+        {
+          kind: 'table',
+          caption: 'The conversion gallery — large and small, all exact',
+          head: ['Plain decimal', 'Standard form', 'The reading'],
+          rows: [
+            ['$4725$', '$4.725 \\times 10^{3}$', 'three shifts left'],
+            ['$89{,}200$', '$8.92 \\times 10^{4}$', 'four shifts left'],
+            ['$2^{30} = 1{,}073{,}741{,}824$', '$1.073741824 \\times 10^{9}$', 'nine shifts left (the giga rung)'],
+            ['$0.0047$', '$4.7 \\times 10^{-3}$', 'three shifts right (the milli rung)'],
+            ['$0.000301$', '$3.01 \\times 10^{-4}$', 'four shifts right'],
+            ['$0.000000207$', '$2.07 \\times 10^{-7}$', 'seven shifts right'],
+            ['$2^{-3} = 0.125$', '$1.25 \\times 10^{-1}$', 'one shift right'],
+          ],
+        },
+        { kind: 'para', text: 'The ladder figure shows why the same notation serves both directions: the exponent counts rungs from the unit rung at $10^{0} = 1$ — up for big, down for small — and the everyday prefix names (FM 9.2 banked kilo through milli; the SI carries mega at $10^{6}$, giga at $10^{9}$, micro at $10^{-6}$, nano at $10^{-9}$, per the units chapter of NCERT class 11 physics) ride the same rail. A gigahertz, a microsecond, a nanometre — each name is an exponent wearing a prefix.' },
+        { kind: 'para', text: 'The rungs are not decoration — they are the daily vocabulary of technology. A phone’s processor has features measured in **nanometres** ($10^{-9}$ m — a billionth of a metre, a few hundred atoms across); its clock ticks in **gigahertz** ($10^{9}$ cycles per second); a coffee cup cools on the scale of **minutes** ($10^{2}$ seconds) while a microprocessor switch flips in **nanoseconds** ($10^{-9}$ s); the wifi bands live at 2.4 **giga**hertz while the mains hums at 50 **hertz** — nine rungs apart, which is why the mains hum never interferes with the wifi. Every one of those sentences is an order-of-magnitude statement, and the notation lets you make it without writing a single run of zeros.' },
+        { kind: 'para', text: 'One refinement keeps the comparison honest. The **exponent gap** between two numbers is usually, but not exactly, the base-ten logarithm of their ratio — when the coefficients are both near the middle of their range, the gap counts the rungs well; when a coefficient sits at an edge (like 1.073741824 just above 1), the true ratio can climb a rung beyond what the gap suggests. The exact reading is always available: compute the ratio itself and put IT in standard form. For the chapter’s running pair, $2^{30}/2^{-4} = 2^{34} = 17{,}179{,}869{,}184 = 1.7179869184 \\times 10^{10}$ — the ratio’s own exponent says ten whole orders (plus a factor 1.7), while the rung gap counts eleven inclusive rungs. Two honest counts, two slightly different questions; the standard form answers both.' },
+        { kind: 'heading', text: 'Computing in Standard Form: the Laws Do the Work' },
+        { kind: 'para', text: 'Here the chapter pays its deepest dividend: **no new arithmetic is needed**. Multiplying two standard-form numbers is two independent jobs — the coefficients multiply (plain number arithmetic), the exponents add (the product law of 2.1). Dividing subtracts the exponents (the quotient law, unrestricted since 2.2). A power applies the tower law (exponents multiply). The only new habit is **renormalisation**: the raw result’s coefficient can drift outside $[1, 10)$ — say to $13.5$ or to $0.5$ — and then the whole thing walks one or more rungs until the clause is satisfied. Renormalisation is not a trick; it is the definition of the form applied again.' },
+        { kind: 'para', text: 'For example, $(4.5 \\times 10^{6}) \\times (3 \\times 10^{3})$: coefficients give $13.5$, exponents give $10^{9}$, so the raw result reads $13.5 \\times 10^{9}$ — a fine *value* with an illegal name. The repair moves one factor of ten from the coefficient side to the exponent side: $13.5 \\times 10^{9} = 1.35 \\times 10^{10}$. The coefficient shrank by ten and the exponent grew by one — place value, wearing algebra.' },
+        {
+          kind: 'example',
+          title: 'Compute (2.5 x 10⁶) · (4 x 10⁻³) and keep the result in standard form',
+          steps: [
+            'Take the two jobs separately: coefficients $2.5 \\cdot 4 = 10$; exponents $10^{6 + (-3)} = 10^{3}$ (the product law adds, and 2.2 made $-3$ a legal count).',
+            'So, the raw result is $10 \\times 10^{3}$ — the coefficient has walked out of $[1, 10)$: renormalise.',
+            'Now, one factor of ten crosses over: $10 \\times 10^{3} = 1 \\times 10^{4}$.',
+            'Check, by expanding: $2.5 \\times 10^{6} = 2{,}500{,}000$ and $4 \\times 10^{-3} = 0.004$; their product is $10{,}000 = 10^{4}$ — agreement, exact.',
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'Compute (9.6 x 10⁷) / (3.2 x 10³), then (8 x 10⁻⁵) / (2 x 10⁻³)',
+          steps: [
+            'Take the first quotient: coefficients $9.6/3.2 = 3$; exponents $10^{7-3} = 10^{4}$ (the quotient law, unrestricted). The result $3 \\times 10^{4}$ is already canonical — no renormalisation needed.',
+            'Check, by expanding: $96{,}000{,}000 / 3{,}200 = 30{,}000 = 3 \\times 10^{4}$ — agreement.',
+            'Take the second quotient: coefficients $8/2 = 4$; exponents $10^{-5 - (-3)} = 10^{-2}$ — note subtracting a negative exponent adds.',
+            'Hence the result is $4 \\times 10^{-2} = 1/25$ — and this is exactly 2.2’s cross-bar flip ($x^{-2}/y^{-3}$ shape) seen from the standard-form side.',
+          ],
+        },
+        { kind: 'heading', text: 'Significant Digits: How Much the Form Can Say' },
+        { kind: 'para', text: 'The standard form separates two jobs that plain decimals tangle together: the **exponent** says how *big*, the **coefficient** says how *well-measured*. The digits of $a$ — all of them, including zeros between nonzero digits and trailing zeros after the decimal point — are the number’s **significant digits**: the digits the writer is *claiming to know*. $1.073741824 \\times 10^{9}$ claims ten digits (the exact value of $2^{30}$); $1.07 \\times 10^{9}$ claims three; $1 \\times 10^{9}$ claims one. Same rung, different honesty. The gap between the ten-digit and three-digit claims is real: $1{,}073{,}741{,}824 - 1{,}070{,}000{,}000 = 3{,}741{,}824$ — about $0.35\\%$ of the whole, thrown away silently by the shorter form.' },
+        { kind: 'para', text: 'The rule of thumb: zeros that *pad* (leading zeros of a small decimal, like the four zeros in $0.000301$) carry no information and never enter the coefficient; zeros that *sit inside or trail the coefficient* ($6.200 \\times 10^{-4}$) are measured claims and count as significant — four digits there, not two. This is the same precision discipline Foundation Mathematics 9.4 built for measurements (that lesson’s accuracy-versus-precision split); the standard form simply gives it a house.' },
+        { kind: 'callout', tone: 'warn', title: 'Caution — the form does not create precision', text: 'Rewriting never adds digits worth trusting: $3.0 \\times 10^{8}$ m/s (two significant digits) and $2.998 \\times 10^{8}$ m/s (four) are different *claims* about the speed of light, not different numbers dressed up. A calculator that shows eight digits after a measurement supports three is printing fiction — the extra digits are the arithmetic’s noise, not the quantity’s detail. When an exam question says "give your answer to 2 significant figures", it is asking you to *state a claim*, not to round decoratively.' },
+        { kind: 'heading', text: 'Orders of Magnitude: Comparing by the Rung' },
+        { kind: 'para', text: 'The coarsest useful comparison ignores coefficients entirely: two numbers’ ratio is roughly $10^{k_{1} - k_{2}}$, so the **exponent gap** *is* the comparison. Each gap of one in $k$ means a factor of ten — one **order of magnitude**. Numbers sharing a rung ($k_{1} = k_{2}$) differ by less than a factor of ten, and the coefficient then decides: $1.594323 \\times 10^{6} < 5 \\times 10^{6}$ because $1.59 < 5$. The lesson-2.1 thread makes the point precisely: $2^{30} = 1.073741824 \\times 10^{9}$ and $10^{9}$ share the giga rung — their $7.37\\%$ gap is invisible at order-of-magnitude resolution — while $3^{13} = 1.594323 \\times 10^{6}$ sits three rungs down (a factor of roughly $10^{3}$, about 674 times smaller) and $2^{-4} = 6.25 \\times 10^{-2}$ sits eleven rungs below $2^{30}$ (their ratio is exactly $2^{34} = 17{,}179{,}869{,}184 \\approx 1.7 \\times 10^{10}$).' },
+        {
+          kind: 'table',
+          caption: 'The significant-digit gallery and the family order',
+          head: ['Number', 'Standard form', 'Significant digits'],
+          rows: [
+            ['$470$', '$4.7 \\times 10^{2}$', '2'],
+            ['$1{,}073{,}741{,}824$', '$1.073741824 \\times 10^{9}$', '10 (exact)'],
+            ['$0.00062$ (as $6.200 \\times 10^{-4}$)', '$6.200 \\times 10^{-4}$', '4 (trailing zeros are claims)'],
+            ['$5{,}000{,}000$', '$5 \\times 10^{6}$', '1'],
+          ],
+        },
+        {
+          kind: 'example',
+          title: 'How many times larger is 9.6 x 10⁷ than 3.2 x 10³? And how far does light travel in 8 minutes?',
+          steps: [
+            'Take the ratio: $(9.6 \\times 10^{7})/(3.2 \\times 10^{3}) = 3 \\times 10^{4}$ — thirty thousand times larger.',
+            'Read, the rung story: the exponents differ by $7 - 3 = 4$, and indeed $10^{4} = 10{,}000$ — the coefficient ratio $3$ sits inside one rung, so the rung gap alone nearly answers it.',
+            'Take, the light story: light covers $3 \\times 10^{8}$ m each second; the Sun stands about $1.5 \\times 10^{11}$ m away.',
+            'So, the journey time is $(1.5 \\times 10^{11})/(3 \\times 10^{8}) = 0.5 \\times 10^{3}$ — the coefficient has slipped below 1: renormalise to $5 \\times 10^{2}$ seconds.',
+            'Hence $500$ seconds $= 8\\tfrac{1}{3}$ minutes — the famous eight-minute journey from the Sun to you, computed in two lines of exponent law.',
+          ],
+        },
+        { kind: 'figure', caption: 'The two dials: the coefficient carries the digits (the precision claim), the exponent carries the place-shifts (the size) — changing one never does the other’s job.', svg: twoDialsSvg() },
+        { kind: 'heading', text: 'Who Thought This Way First? the Sand Reckoner' },
+        { kind: 'para', text: 'The impulse to ride powers of ten past every written zero is very old. In the 3rd century BC, Archimedes wrote the *Sand Reckoner* (*Psammites*) for the young Syracusean king Gelon: a short treatise that set out to count — or rather to bound — the grains of sand the universe could hold, against the common claim that the count was infinite. To say any such number aloud in Greek, which named numbers only into the myriads (ten-thousands), Archimedes had to invent a naming machine: periods and orders built on the **myriad-myriad** ($10^{8}$), a base-ten ladder of ladders that climbed far past anything commerce needed. The answer his machinery produced: no more than $10^{63}$ grains ("ten thousand units of the eighth order" in his phrasing) under the astronomy he assumed. The number is not the point; the *method* is — name the rungs, let the rungs do the talking, and let the exponent carry the size so the digits can carry the detail. That is exactly the two-dial discipline of this lesson, twenty-two centuries before the notation settled.' },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — from Sand Reckoner to standard form', text: 'Archimedes’ periods-of-10^8 scheme (3rd century BC) was the first systematic power-ladder naming; the decimal point’s standard form with a clause like $1 \\le a < 10$ settled much later, riding on the place-value decimal system (Stevin, 1585) and the exponent notation itself (Descartes’ 1637 superscripts, met in Lesson 1.1). The phrase "order of magnitude" belongs to the same metric-era family as the SI prefixes of FM 9.2 — each prefix (mega, giga, micro, nano) is one rung of Archimedes’ ladder wearing its modern name.' },
+        { kind: 'para', text: 'What the chapter has built, assembled in one place: Lesson 2.1 defined the power and proved three laws; Lesson 2.2 repaired the family across zero and negative exponents under the permanence charter; this lesson spent the family on the standard form — the notation that turns place value into a general language for size. Chapter 3 picks the letters back up: polynomials, where the exponent finally applies to *letters* systematically and the laws of this chapter become the engine of algebra itself.' },
+        { kind: 'terms', items: [
+          { term: 'Standard form (scientific notation)', def: 'The canonical writing $a \\times 10^{k}$ with $1 \\le a < 10$ and $k$ an integer — one name per number. $4.725 \\times 10^{3}$ qualifies; $47.25 \\times 10^{2}$ names the same value but breaks the coefficient clause.' },
+          { term: 'Coefficient (mantissa)', def: 'The $a$ of $a \\times 10^{k}$: the digits of the number, all of them significant, sitting in $[1, 10)$. It is the precision dial of the two-dial reading.' },
+          { term: 'Canonical clause', def: 'The requirement $1 \\le a < 10$ that makes standard form unique — the exponent is forced by the value, so the form is a NAME, not a choice. Verified by sweep: one canonical exponent per number across 10,998 trials.' },
+          { term: 'Place-shift', def: 'The move of the decimal point that conversion performs: leftward shifts give positive exponents (large numbers), rightward shifts give negative ones (small numbers). The count of shifts is $|k|$.' },
+          { term: 'Renormalisation', def: 'The walk that returns a raw product to canonical dress when the coefficient leaves $[1, 10)$: $13.5 \\times 10^{9} = 1.35 \\times 10^{10}$ — one factor of ten crosses from the coefficient to the exponent.' },
+          { term: 'Significant digits', def: 'The digits of the coefficient — the digits the writer claims to know. Leading zeros never count; trailing zeros after the point do ($6.200 \\times 10^{-4}$ claims four). More digits = a stronger claim, not a bigger number.' },
+          { term: 'Order of magnitude', def: 'One rung of the powers-of-ten ladder — a factor of ten. Numbers with the same exponent sit in the same order of magnitude; the exponent gap counts the rungs between two numbers, and the coefficient settles same-rung ties.' },
+          { term: 'Sand Reckoner', def: 'Archimedes’ 3rd-century-BC treatise bounding the sand the universe holds (at most $10^{63}$ grains under his astronomy), built on a naming ladder of periods and orders over $10^{8}$ — the first surviving systematic power-ladder notation.' },
+        ] },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'Standard-form questions are free marks when the two-dial reading is owned, and expensive when it is not. The recurring items: convert (large: $89{,}200 \\to 8.92 \\times 10^{4}$; small: $0.000301 \\to 3.01 \\times 10^{-4}$ — count the shifts, watch the sign); compute with renormalisation ($(2.5 \\times 10^{6})(4 \\times 10^{-3}) = 1 \\times 10^{4}$, and the sneaky $0.5 \\times 10^{3} \\to 5 \\times 10^{2}$); spot the non-canonical costume ($47.25 \\times 10^{2}$ is *equal* to $4.725 \\times 10^{3}$ but not standard form — the coefficient clause); count significant digits ($6.200 \\times 10^{-4}$ has four, not two); and compare by rung (the same-order question: $2^{30}$ and $10^{9}$ share the giga rung). Competitive papers add the two-step stories — the light-time quotient $(1.5 \\times 10^{11})/(3 \\times 10^{8}) = 5 \\times 10^{2}$ s, the hair-count $(1 \\times 10^{-2})/(7 \\times 10^{-5}) = 1000/7 \\approx 1.4 \\times 10^{2}$ — where the final answer must be renormalised AND sensibly rounded. The check-by-expansion habit still rules: expand both forms at a pin value; they must agree.' },
+        {
+          kind: 'quiz',
+          title: 'Check yourself',
+          items: [
+            {
+              q: 'Write $4725$ in standard form.',
+              options: ['$4.725 \\times 10^{2}$', '$47.25 \\times 10^{2}$', '$4.725 \\times 10^{3}$', '$4.725 \\times 10^{4}$'],
+              answer: 2,
+              explain: 'Three shifts left, one nonzero digit in front: $4.725 \\times 10^{3} = 4725$. The distractors are priced: $4.725 \\times 10^{2} = 47.25$ (one shift short — tenfold too small), $47.25 \\times 10^{2} = 4725$ (the right VALUE but the coefficient $47.25$ breaks $1 \\le a < 10$ — equal, yet not standard form), and $4.725 \\times 10^{4} = 47{,}250$ (one shift too many — tenfold too big).',
+            },
+            {
+              q: 'Write $0.00062$ in standard form.',
+              options: ['$6.2 \\times 10^{-3}$', '$6.2 \\times 10^{-4}$', '$6.2 \\times 10^{-5}$', '$-6.2 \\times 10^{4}$'],
+              answer: 1,
+              explain: 'Four shifts right to bring the 6 in front, so $k = -4$: $6.2 \\times 10^{-4} = 0.00062$. $6.2 \\times 10^{-3} = 0.0062$ (three shifts — one short); $6.2 \\times 10^{-5} = 0.000062$ (five — one long); and $-6.2 \\times 10^{4}$ is the sign-slip absurdity — the exponent’s sign commands the direction of the shift, never a negative value, and a width cannot go negative.',
+            },
+            {
+              q: 'Compute $(2.5 \\times 10^{6}) \\cdot (4 \\times 10^{-3})$ and keep standard form.',
+              options: ['$10 \\times 10^{3}$', '$1.0 \\times 10^{4}$', '$1 \\times 10^{9}$', '$2.5 \\times 10^{3}$'],
+              answer: 1,
+              explain: 'Coefficients: $2.5 \\cdot 4 = 10$. Exponents: $6 + (-3) = 3$ (the product law). Raw result $10 \\times 10^{3}$ — right value, illegal name (coefficient 10 is not below 10) — so renormalise: $1.0 \\times 10^{4}$. Option 0 is the honest intermediate (the same 10,000, but non-canonical); $1 \\times 10^{9}$ is the sign-dropped misread $6 + 3 = 9$; $2.5 \\times 10^{3} = 2500$ dropped the second coefficient and mangled the exponent. Expanded check: $2{,}500{,}000 \\cdot 0.004 = 10{,}000$ — agreement.',
+            },
+            {
+              q: 'How many significant digits does $6.200 \\times 10^{-4}$ carry?',
+              options: ['2', '3', '4', '7'],
+              answer: 2,
+              explain: 'Four: $6$, $2$, and both trailing zeros after the decimal point — trailing zeros in the coefficient are measured claims, not padding. 2 counts only the nonzero digits (wrong: the zeros assert something); 3 misses the last zero; 7 counts the digits of the whole written form including the exponent — the exponent is a size dial, not a digit of measurement.',
+            },
+            {
+              q: 'Which number is the SAME order of magnitude as $2^{30} = 1.073741824 \\times 10^{9}$?',
+              options: ['$3^{13} \\ (= 1.594323 \\times 10^{6})$', '$10^{9}$', '$10^{12}$', '$2^{-4} \\ (= 6.25 \\times 10^{-2})$'],
+              answer: 1,
+              explain: 'Same order of magnitude means the same exponent rung: $10^{9}$ sits beside $1.073741824 \\times 10^{9}$ on the giga rung — their $7.37\\%$ gap is invisible at order resolution. $3^{13}$ sits three rungs down (rung 6); $10^{12}$ sits three up; $2^{-4}$ sits eleven rungs below. The ratio check: $2^{30}/10^{9} = 1.0737\\ldots$, inside one rung — same order.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises 2.3',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Write in standard form: $3400$, $89{,}200$ and $0.0047$.',
+                  solution: [
+                    'Take $3400$: three shifts left, first digit 3 in front — $3.4 \\times 10^{3}$.',
+                    'Take $89{,}200$: four shifts left — $8.92 \\times 10^{4}$.',
+                    'Take $0.0047$: three shifts right, first nonzero digit 4 — $4.7 \\times 10^{-3}$.',
+                    'Check, by expansion: $3.4 \\times 1000 = 3400$; $8.92 \\times 10{,}000 = 89{,}200$; $4.7 \\times 0.001 = 0.0047$ — all three agree.',
+                  ],
+                  answer: '$3.4 \\times 10^{3}$; $8.92 \\times 10^{4}$; $4.7 \\times 10^{-3}$',
+                },
+                {
+                  q: 'Write in plain decimals: $5 \\times 10^{3}$ and $9.1 \\times 10^{-2}$.',
+                  solution: [
+                    'Take $5 \\times 10^{3}$: three shifts right of the point — $5000$.',
+                    'Take $9.1 \\times 10^{-2}$: two shifts left — $0.091$.',
+                    'Hence the reading runs both ways: the exponent tells the point where to go.',
+                  ],
+                  answer: '$5000$ and $0.091$',
+                },
+                {
+                  q: 'Write $2^{6}$ and $2^{-3}$ in standard form.',
+                  solution: [
+                    'Take $2^{6}$: Lesson 2.1’s tower gives $64$, so the shift count is one — $6.4 \\times 10^{1}$.',
+                    'Take $2^{-3}$: Lesson 2.2’s repair gives $1/8 = 0.125$, one shift right — $1.25 \\times 10^{-1}$.',
+                    'So, both powers land one rung from the unit rung, on opposite sides — the tower law and the repair feed the notation directly.',
+                  ],
+                  answer: '$2^{6} = 6.4 \\times 10^{1}$; $2^{-3} = 1.25 \\times 10^{-1}$',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Write $730{,}000$ and $0.000301$ in standard form, and count the significant digits of each.',
+                  solution: [
+                    'Take $730{,}000$: five shifts left — $7.3 \\times 10^{5}$, two significant digits (the 7 and the 3; the padding zeros never entered the coefficient).',
+                    'Take $0.000301$: four shifts right — $3.01 \\times 10^{-4}$, three significant digits (the interior zero sits between nonzero digits and counts).',
+                    'Hence the coefficient’s length is the precision claim, independent of the size dial.',
+                  ],
+                  answer: '$7.3 \\times 10^{5}$ (2 sig figs); $3.01 \\times 10^{-4}$ (3 sig figs)',
+                },
+                {
+                  q: '$47.25 \\times 10^{2}$ and $4.725 \\times 10^{3}$ name the same value. Which is standard form, and why?',
+                  solution: [
+                    'Check, the values: $47.25 \\times 100 = 4725$ and $4.725 \\times 1000 = 4725$ — the same number, two costumes.',
+                    'Take, the clause: standard form demands $1 \\le a < 10$; the coefficient $47.25$ breaks it, $4.725$ satisfies it.',
+                    'Hence $4.725 \\times 10^{3}$ is the standard form — and the form is a NAME: exactly one costume per value, which is what makes comparisons and searches well-defined.',
+                  ],
+                  answer: '$4.725 \\times 10^{3}$ — the only one whose coefficient satisfies $1 \\le a < 10$',
+                },
+                {
+                  q: 'Count the significant digits: $1.074 \\times 10^{9}$, $5 \\times 10^{6}$, $6.200 \\times 10^{-4}$.',
+                  solution: [
+                    'Take $1.074 \\times 10^{9}$: four digits — the interior zero counts (it sits between nonzero digits).',
+                    'Take $5 \\times 10^{6}$: one digit — a one-digit coefficient is a coarse but honest claim.',
+                    'Take $6.200 \\times 10^{-4}$: four digits — both trailing zeros are measured claims.',
+                    'Hence the three coefficients demonstrate all three zero-rules: interior counts, absence pads, trailing asserts.',
+                  ],
+                  answer: '4, 1 and 4 significant digits respectively',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Compute $(3 \\times 10^{4}) \\cdot (2.5 \\times 10^{-2})$ and keep standard form.',
+                  solution: [
+                    'Take the two jobs: coefficients $3 \\cdot 2.5 = 7.5$; exponents $10^{4 + (-2)} = 10^{2}$.',
+                    'So, the result is $7.5 \\times 10^{2}$ — already canonical, no renormalisation.',
+                    'Check, by expanding: $30{,}000 \\cdot 0.025 = 750 = 7.5 \\times 10^{2}$ — agreement.',
+                  ],
+                  answer: '$7.5 \\times 10^{2}$ (= 750)',
+                },
+                {
+                  q: 'Compute $(9.6 \\times 10^{7}) / (3.2 \\times 10^{3})$.',
+                  solution: [
+                    'Take the two jobs: coefficients $9.6/3.2 = 3$; exponents $10^{7-3} = 10^{4}$.',
+                    'So, the result is $3 \\times 10^{4}$ — canonical as it lands.',
+                    'Check, by expanding: $96{,}000{,}000 / 3{,}200 = 30{,}000$ — agreement, and the rung gap $4$ already whispered the answer’s size.',
+                  ],
+                  answer: '$3 \\times 10^{4}$ (= 30,000)',
+                },
+                {
+                  q: 'Compute $(8 \\times 10^{-5}) / (2 \\times 10^{-3})$.',
+                  solution: [
+                    'Take the two jobs: coefficients $8/2 = 4$; exponents $10^{-5-(-3)} = 10^{-2}$ — subtracting a negative adds.',
+                    'So, the result is $4 \\times 10^{-2} = 1/25$.',
+                    'Check, by expanding: $0.00008/0.002 = 0.04$ — agreement; and this is 2.2’s cross-bar flip in standard-form dress.',
+                  ],
+                  answer: '$4 \\times 10^{-2}$ (= 0.04)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'A human hair is about $7 \\times 10^{-5}$ m wide. How many hair-widths make $1$ cm ($10^{-2}$ m)? Give the exact value and a standard-form estimate.',
+                  solution: [
+                    'Set, the quotient: $(1 \\times 10^{-2})/(7 \\times 10^{-5})$.',
+                    'Take the two jobs: coefficients $1/7$; exponents $10^{-2-(-5)} = 10^{3}$.',
+                    'So, the raw result is $(1/7) \\times 10^{3} = 0.142857\\ldots \\times 10^{3}$ — the coefficient has slipped below 1.',
+                    'Now, renormalise: one factor of ten crosses right, giving $1.42857\\ldots \\times 10^{2}$ — the exact value is $1000/7$.',
+                    'Hence about $1.4 \\times 10^{2}$ hair-widths per centimetre — roughly 143, a two-digit estimate of a three-digit truth, honestly labelled.',
+                  ],
+                  answer: '$1000/7 = 1.42857\\ldots \\times 10^{2} \\approx 1.4 \\times 10^{2}$ hair-widths',
+                },
+                {
+                  q: 'Light travels about $3 \\times 10^{8}$ m/s; the Sun stands about $1.5 \\times 10^{11}$ m away. How long does sunlight take to reach Earth?',
+                  solution: [
+                    'Set, the quotient: $(1.5 \\times 10^{11})/(3 \\times 10^{8})$.',
+                    'Take the two jobs: coefficients $1.5/3 = 0.5$; exponents $10^{11-8} = 10^{3}$.',
+                    'So, the raw result is $0.5 \\times 10^{3}$ — renormalise: $5 \\times 10^{2}$ seconds.',
+                    'Now, translate: $500$ s $= 500/60 = 8\\tfrac{1}{3}$ minutes.',
+                    'Hence about eight minutes and twenty seconds — the two-dial method computing a famous fact in two lines.',
+                  ],
+                  answer: '$5 \\times 10^{2}$ s $= 8\\tfrac{1}{3}$ minutes (about 8 min 20 s)',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'State what each of $1.073741824 \\times 10^{9}$, $1.07 \\times 10^{9}$ and $1 \\times 10^{9}$ claims, and compute the cost of the shortest claim.',
+                  solution: [
+                    'Take the ten-digit form: the exact value of $2^{30}$ — every digit known, zero uncertainty claimed.',
+                    'Take the three-digit form: a claim to know $2^{30}$ within half a percent or so — an honest estimate, not the number.',
+                    'Take the one-digit form: a claim to the giga rung only — the order of magnitude.',
+                    'Now, price the gap: $1{,}073{,}741{,}824 - 1{,}070{,}000{,}000 = 3{,}741{,}824$, about $0.35\\%$ of the value.',
+                    'Hence the three forms name the same number but make three different promises — the coefficient is a contract, and shortening it silently weakens the terms.',
+                  ],
+                  answer: 'the absolute gap is $3{,}741{,}824$ — about $0.35\\%$ thrown away by the three-digit claim',
+                },
+                {
+                  q: 'Show that $45{,}000$ has exactly one standard-form name by exhibiting four equal non-canonical costumes and one canonical one.',
+                  solution: [
+                    'Write, the four non-canonical costumes: $45 \\times 10^{3}$, $0.45 \\times 10^{5}$, $450 \\times 10^{2}$, $4500 \\times 10^{1}$.',
+                    'Check, each by expansion: $45{,}000$, $45{,}000$, $45{,}000$, $45{,}000$ — all equal, all disqualified ($a$ too big, too small, too big, too big).',
+                    'Take, the canonical one: $4.5 \\times 10^{4}$ — the coefficient sits in $[1, 10)$, four shifts left.',
+                    'Hence one value, five costumes, exactly one name — the uniqueness clause doing its quiet work (and the verifier swept the same fact across 10,998 values).',
+                  ],
+                  answer: 'only $4.5 \\times 10^{4}$ is standard form; the other four costumes are equal but non-canonical',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Order the family $\\{2^{30},\\ 3^{13},\\ 10^{9},\\ 2^{-4},\\ 5 \\times 10^{6}\\}$ from smallest to largest using standard forms, naming the rung of each member and the tie-break rule on equal rungs.',
+                  solution: [
+                    'Convert, every member: $2^{-4} = 6.25 \\times 10^{-2}$ (rung $-2$); $3^{13} = 1.594323 \\times 10^{6}$ (rung 6); $5 \\times 10^{6}$ (rung 6); $10^{9}$ (rung 9); $2^{30} = 1.073741824 \\times 10^{9}$ (rung 9).',
+                    'Order, by rung first: rung $-2$, then rung 6, then rung 9.',
+                    'Take, the tie-breaks: on rung 6, $1.594323 < 5$, so $3^{13} < 5 \\times 10^{6}$; on rung 9, $1 < 1.073741824$, so $10^{9} < 2^{30}$.',
+                    'Hence the full order: $2^{-4} < 3^{13} < 5 \\times 10^{6} < 10^{9} < 2^{30}$ — rungs decide coarsely, coefficients decide finely, and both decisions were verified exactly.',
+                  ],
+                  answer: '$2^{-4} < 3^{13} < 5 \\times 10^{6} < 10^{9} < 2^{30}$ (rungs $-2, 6, 6, 9, 9$; same-rung pairs settled by coefficient)',
+                },
+              ],
+            },
+          ],
+        },
+        { kind: 'formula', name: 'The standard form', latex: 'N = a \\times 10^{k}, \\qquad 1 \\le a < 10, \\quad k \\in \\mathbb{Z}', note: 'one name per number — the coefficient carries the digits, the exponent carries the place-shifts; large numbers shift left (k > 0), small shift right (k < 0)' },
+        {
+          kind: 'formula',
+          name: 'Computing in standard form',
+          latex: '(a \\times 10^{m})(b \\times 10^{n}) = ab \\times 10^{m+n}, \\qquad \\frac{a \\times 10^{m}}{b \\times 10^{n}} = \\frac{a}{b} \\times 10^{m-n}',
+          note: 'the laws of 2.1–2.2 at work; renormalise whenever the coefficient leaves [1, 10) — one factor of ten crosses between the dials',
+        },
+      ],
+    },
   ],
-  plannedLessons: ['Scientific Notation and Orders of Magnitude'],
+  plannedLessons: [],
 }

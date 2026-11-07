@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 18:42:58 (Asia/Kolkata)",
+  "generated": "2026-11-07 19:09:52 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,13 +5920,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 103,
-      "totalLines": 64409,
+      "srcFilesTracked": 104,
+      "totalLines": 65752,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 55144,
+        "src/data/library (content model + books)": 56487,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -14129,33 +14129,135 @@
       "insertions": 0,
       "deletions": 0,
       "files": []
+    },
+    {
+      "sha": "5a250a9f447959ec5f835f512e9748f4b2e505ab",
+      "short": "5a250a9",
+      "date": "2026-11-07 13:14",
+      "message": "al ch.2 OPENS (run 69): 2.1 Powers and the Laws of Exponents (4,710 w) + 2.2 Zero and Negative Exponents: Another Repair (4,465 w) — verify-first with verify-book3-ch02.ts 191 checks ALL GREEN (80 pre-writing, 4 author bugs caught; the three laws swept 2,808 integer-grid checks + 5,070 Frac-exact extended-grid checks; quiz keys 0/1/1/2/1 and 1/2/1/2/3 pinned pre-prose) — the permanence charter (Peacock/Hankel) drives 2.2's repair: x^0 = 1 forced two ways, x^-n = 1/x^n forced, every old law preserved over the extended grid, the base-zero boundary kept; 53 silently-eaten backslash escapes found by the KaTeX E2E and repaired file-wide, the verifier's scanner hardened to odd-run detection; all four figures SVG-audited 0 issues + visually inspected; E2E 45/45 PASS x3 viewports both lessons, lint 0 / tsc 0 (tsconfig ES2020 for BigInt literals) / routes 200+404; logs + inventory updated (89 lessons / 437,406 words); next run 70 = 2.3 + the unit-2 review close ch. 2",
+      "filesChanged": 15,
+      "insertions": 2405,
+      "deletions": 43,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 72,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 117,
+          "del": 21
+        },
+        {
+          "path": "scripts/e2e-al-21.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-21.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-22.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-22.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch02.ts",
+          "add": 882,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 6,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-02.ts",
+          "add": 933,
+          "del": 0
+        },
+        {
+          "path": "tsconfig.json",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "49ad4d556f9f1d830810aa49f9269141d7bca8f8",
+      "short": "49ad4d5",
+      "date": "2026-11-07 13:14",
+      "message": "memory: run-69 push verified — remote main = 5a250a9 (ship 5a250a9 pushed 67bd88a..5a250a9, ls-remote verified = local HEAD); AL ch. 2 'Exponents and Powers' OPENS 2/3 (9,175 words: 2.1 'Powers and the Laws of Exponents' 4,710 + 2.2 'Zero and Negative Exponents: Another Repair' 4,465; verify-book3-ch02.ts 191 checks ALL GREEN — 80 pre-writing with 4 author bugs caught, the three laws swept 2,808 integer-grid checks + 5,070 Frac-exact extended-grid checks, quiz keys 0/1/1/2/1 and 1/2/1/2/3 pinned pre-prose; the permanence charter drives 2.2: x^0 = 1 and x^-n = 1/x^n forced, every old law preserved, the base-zero boundary kept; one gates-caught bug class: 53 silently-eaten backslash escapes repaired file-wide + the scanner hardened to odd-run detection; all four figures audited + visually inspected); the book stands 1 complete chapter + ch. 2 two-thirds (22 chapters written / 89 lessons / 437,406 words repo-wide); next run 70 = AL ch. 2 CLOSES with 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 completion review (extend verify-book3-ch02.ts FIRST; never ch. 3); run 71 = ch. 3 'Polynomials' opens with 3.1 + 3.2",
+      "filesChanged": 1,
+      "insertions": 3,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 22,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 89,
-    "wordsAuthored": 437406,
-    "termsDefined": 683,
-    "quizItems": 445,
-    "exerciseQuestions": 1107,
+    "chaptersWritten": 23,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 90,
+    "wordsAuthored": 441420,
+    "termsDefined": 691,
+    "quizItems": 450,
+    "exerciseQuestions": 1121,
     "blockTotals": {
-      "para": 1259,
-      "callout": 501,
-      "heading": 503,
+      "para": 1273,
+      "callout": 505,
+      "heading": 508,
       "list": 99,
-      "terms": 90,
+      "terms": 91,
       "equation": 125,
-      "figure": 149,
+      "figure": 151,
       "derivation": 184,
-      "table": 122,
-      "example": 365,
-      "quiz": 89,
-      "exercises": 89,
-      "formula": 254,
+      "table": 124,
+      "example": 368,
+      "quiz": 90,
+      "exercises": 90,
+      "formula": 256,
       "algorithm": 21
     }
   }

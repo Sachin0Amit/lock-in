@@ -1,6 +1,68 @@
 # WORKLOG — append-only work journal
 
 Every work session appends one entry at the top. Format:
+## 2026-11-07 — RUN 70 (fired 21:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072115): AL ch. 2 'EXPONENTS AND POWERS' CLOSES 3/3 — 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 completion review PASSED + the chapter flipped COMPLETE — the one-lesson-plus-review quota, ch. 3 never opened
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-69 memory commit (`49ad4d5`, the ship
+`5a250a9` remote-verified); no `.figure_upgrade_lock`. RESUME_POINTER locked run 70 = AL ch. 2 CLOSES with 2.3 + the
+unit-2 review (the ONE-lesson-plus-review quota per v2; never ch. 3).
+
+**Research (zero downloads):** the load rode entirely on banked keys — `ncert-math8-ch10-exponents` (the standard-form
+arc), `ncert-phys11-ch2` (the SI prefixes beyond FM's six: mega/giga/micro/nano), `cengage-jee-style` (the
+presentation contract). One new web-checked key: `archimedes-sand-reckoner` (Wikipedia record + the Mendell Cal State
+LA translation of ch. 4 — periods and orders over the myriad-myriad 10^8, the sand bound 10^63 grains, addressed to
+Gelon II) for 2.3's historical callout. Working-copy footprint zero.
+
+**Verify-first (section J appended to verify-book3-ch02.ts BEFORE any 2.3 prose):** 56 new checks ALL GREEN — (J1)
+the canonical-form engine + the UNIQUENESS sweep (every n ∈ [1..9999] converts with k = digits−1 and 1 ≤ a < 10;
+every d/10⁶ admits exactly ONE canonical exponent in [−9..0] — 10,998 trials, zero exceptions); (J2) the conversion
+gallery pinned (4725; 89,200; 2⁶⁴...; 2³⁰ = 1.073741824 × 10⁹; 3¹³; 2⁻⁴; 0.000000207); (J3) every Illustration
+Frac-exact ((2.5 × 10⁶)(4 × 10⁻³) = 10⁴; (9.6 × 10⁷)/(3.2 × 10³) = 3 × 10⁴; (8 × 10⁻⁵)/(2 × 10⁻³) = 1/25; the
+renormalisation case 13.5 × 10⁹ = 1.35 × 10¹⁰; the light quotient 5 × 10² s = 8⅓ min; the hair quotient 1000/7 with
+the rounded-claim gap exactly 20/7); (J4) the rounding gap priced (3,741,824 absolute, 0.35% relative, BigInt-exact);
+(J5) the sig-fig gallery; (J6) the family ordering + same-rung tie-breaks + 2³⁴ = 17,179,869,184; (J7) quiz keys
+2.3 = [2,1,1,2,1] with every distractor priced; (J8) exercise keys both sides; (J9) the two figure plans. **The
+first J pass caught SEVEN of the author's own arithmetic slips pre-prose** (mispaired coefficient/exponent Fracs in
+the gallery and distractors) — all corrected before writing.
+
+**2.3 'Scientific Notation and Orders of Magnitude'** (`al-scientific-notation-and-orders-of-magnitude`, 4,014
+words): the standard-form definition callout with the 1 ≤ a < 10 clause; the uniqueness theorem (the form is a NAME
+— the 10,998-trial sweep named); the conversion engine (large: shifts left = digits − 1; small: rightward shifts
+negated — the 2.2 flip rule in engine dress); the powers-of-ten ladder figure (six rungs, FM 9.2's prefixes
+extended by mega/giga/micro per ncert-phys11-ch2) + the conversion gallery table (all exact); the everyday-rung
+tour (nanometres, gigahertz, the mains-vs-wifi nine-rung gap); computing by the laws (two jobs + renormalisation —
+13.5 × 10⁹ → 1.35 × 10¹⁰; 0.5 × 10³ → 5 × 10²); 3 Illustrations (the 10⁴ product with the non-canonical
+intermediate priced; the two quotients incl. the cross-bar flip; the light-time 5 × 10² s = 8⅓ min); significant
+digits (the two-dials figure: the coefficient = precision dial, the exponent = size dial; padding vs trailing
+zeros; the 3,741,824/0.35% gap on the 2³⁰ thread; the FM 9.4 cross-ref); the exact-ratio refinement para (rung gap
+11 vs the ratio's own exponent 10 on 2³⁴ = 1.7179869184 × 10¹⁰); the Sand Reckoner section + historical callout
+(Archimedes' periods/orders over 10⁸, 10⁶³ grains, Gelon II); exam corner; 8 terms; quiz 5 (keys 2/1/1/2/1); 14
+exercises L1–L6 (the L5 renamings census + the precision-claim pricing; the L6 five-member ordering with
+same-rung tie-breaks); 2 formula cards. Gates: lint 0 / tsc 0 / routes 200+404 / E2E ALL PASS ×2 runs at 1280 +
+true 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 202 nodes 0 errors, no overflow, 0 console errors, 17 Sol.
+pills); pixels 0% blue cast + dark 88.8%; SVG overlap audit — the ladder's first pass flagged 10 contacts (the
+12-px inter-station gaps too narrow for arrow glyphs) → arrows removed (the multiplication band carries the
+message), re-audited 0 issues on both figures; **both figures visually inspected clean**. One gates-caught bug
+class: SEVEN unclosed `$` delimiters in table cells rendered as literal $ (7 raw-$ hits in the E2E) — closed, 0
+raw $ after.
+
+**The unit-2 completion review (section R) PASSED:** chapter 2 'Exponents and Powers' COMPLETE 3/3 (4,710 + 4,465 +
+4,014 = 13,189 words; 24 terms; 15 quiz on keys 0/1/1/2/1 · 1/2/1/2/3 · 2/1/1/2/1; 42 exercises L1–L6; 6 figures
+all audited + visually inspected; 4 derivations; 6 display equations; 2 tables ×3; 6 formula cards) —
+plannedLessons emptied, chapter status complete, ids repo-wide unique at 90, ch. 3 still 'planned' (never opened
+this run), the BOOK stays in-progress (9 chapters remain).
+
+**Logs:** SOURCE_LOG run-70 section (the new key + the ship notes); the inventory rebuilt: **library 3 books (2
+complete + 1 in progress) / 23 chapters written, 0 in progress / 90 lessons / 441,420 words / 691 terms / 450 quiz
+/ 1,121 exercises**. Next: run 71 = AL ch. 3 'Polynomials' OPENS with 3.1 'What a Polynomial Is: Terms, Degree and
+Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' (create verify-book3-ch03.ts FIRST, modeled on
+verify-book3-ch02.ts; v2 two-lesson scope; whitelist e2e-al-31/32 before committing); run 72 = 3.3 'Special
+Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem'.
+
+**Push:** protocol-push OK — ship `b6ac4fa` pushed `5a250a9..b6ac4fa` to main (carrying run 69's memory commit
+`49ad4d5`); ls-remote verified remote main = local HEAD (`b6ac4fa`); tree clean after. PAT hygiene: used only
+inside the one-time push URL, never written to any file.
+
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
 ## 2026-11-07 — RUN 69 (fired 20:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072015): AL ch. 2 'EXPONENTS AND POWERS' OPENS 2/3 — 2.1 'Powers and the Laws of Exponents' + 2.2 'Zero and Negative Exponents: Another Repair' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery
