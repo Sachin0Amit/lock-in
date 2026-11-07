@@ -91,9 +91,9 @@ exercises**. Next: run 72 = AL ch. 3 'Polynomials' CLOSES with 3.3 'Special Prod
 verify-book3-ch03.ts FIRST; whitelist e2e-al-33/34 before committing; never ch. 4); run 73 = ch. 4
 'Factorization' opens with 4.1 + 4.2.
 
-**Push:** protocol-push OK — ship `<SHIP_SHA>` pushed `<OLD>..<NEW>` to main; ls-remote verified remote main =
-local HEAD (`<SHIP_SHA>`); tree clean after. PAT hygiene: used only inside the one-time push URL, never
-written to any file.
+**Push:** protocol-push OK — ship `9595b2f` pushed `e76161e..9595b2f` to main (carrying run 70's memory commit
+`68e9aa9`); ls-remote verified remote main = local HEAD (`9595b2f`); tree clean after. PAT hygiene: used only
+inside the one-time push URL, never written to any file.
 
 ---
 
