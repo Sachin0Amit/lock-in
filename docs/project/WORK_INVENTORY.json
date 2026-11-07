@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 06:52:41 (Asia/Kolkata)",
+  "generated": "2026-11-07 09:20:24 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3370,7 +3370,7 @@
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 8,
+        "chaptersWritten": 9,
         "chapters": [
           {
             "number": 1,
@@ -5448,11 +5448,9 @@
             "slug": "numeration-through-history",
             "title": "Numeration Through History",
             "summary": "Five systems, one winner: tally and grouping, the additive symbols of Egypt and Rome (and why they resist arithmetic), the place-value systems that arrived too early — Babylonian base sixty and the Mayan base twenty with their missing-zero costs — and the Indian decimal revolution that made zero a number and carried the world’s arithmetic.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "The Indian Decimal Revolution and Zero"
-            ],
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-tallies-groupings-and-additive-systems",
@@ -5594,9 +5592,80 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-the-indian-decimal-revolution-and-zero",
+                "number": "9.3",
+                "title": "The Indian Decimal Revolution and Zero",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6772,
+                "readMins": 34,
+                "concepts": [
+                  "Śūnya",
+                  "Śūnya-bindu",
+                  "Khahara",
+                  "Dust board",
+                  "Zephirum",
+                  "Cipher",
+                  "Algorithm",
+                  "Hindu–Arabic numerals"
+                ],
+                "objectives": [
+                  "trace the written record of zero from Lokavibhāga (458) and Āryabhaṭa (499) through the Bakhshālī dot and the Gwalior inscription of 876 — with the dating debate stated honestly",
+                  "state Brahmagupta's zero rules of 628 and prove the modern verdicts: 0·n = 0 from the integer laws, division by zero impossible in both branches",
+                  "prove that a zeroless positional string names the family {V·b^j} in any base, and that zero completes the uniqueness theorem of chapter 3",
+                  "recount the transmission — al-Khwārizmī's textbook, al-Uqlīdisī's decimal fractions, Fibonacci's zephirum — and the words it left: zero, cipher, algorithm",
+                  "write 3,601 and 2,807 in all five systems of this chapter and say exactly what each does with the empty place"
+                ],
+                "prerequisites": [
+                  "ans-place-value-before-its-time-babylon-and-mesoamerica",
+                  "ans-representation-theorem-unique-name",
+                  "ans-arithmetic-in-other-bases"
+                ],
+                "sources": [
+                  "lokavibhaga-458",
+                  "aryabhata-499-aryabhatiya",
+                  "bakhshali-manuscript",
+                  "brahmagupta-628-brahmasphutasiddhanta",
+                  "hindu-arabic-positional-history",
+                  "al-uqlidisi-952-fusul",
+                  "fibonacci-1202-liber-abaci",
+                  "gwalior-inscription-876"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 6,
+                  "callout": 3,
+                  "table": 2,
+                  "derivation": 3,
+                  "example": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 4,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
               }
             ],
-            "words": 10230
+            "words": 17002
           },
           {
             "number": 10,
@@ -5636,13 +5705,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 99,
-      "totalLines": 58019,
+      "srcFilesTracked": 100,
+      "totalLines": 59744,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 48754,
+        "src/data/library (content model + books)": 50479,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -13173,33 +13242,140 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "053eddd4d186f7fcb180ac13cfcb7b7fde791758",
+      "short": "053eddd",
+      "date": "2026-11-07 01:30",
+      "message": "ans ch.9 opens 2/3 (run 62): 9.1 Tallies, Groupings and Additive Systems + 9.2 Place Value Before Its Time: Babylon and Mesoamerica — the first hourly-cadence run of the v2 two-lesson scope — shipped verify-first, strictly sequentially: verify-book2-ch09.ts 218 checks (sections A-N + K/L) ALL GREEN before writing, fourteen verifier-phase pre-writing defects caught (the doubling-pick exponent-vs-tick filter; the author's own hand-typed Roman lengths across the whole comparison table - 999,999 takes 1,005 M-repeats + CMXCIX, re-scoped to the 3,999 = MMMCMXCIX ceiling; 7,259 = <2,0,59> not <2,5,59>; the YBC 7289 error SIGN - 1;24,51,10 = 1.41421296... under-estimates sqrt(2) by ~5.9934e-7, one part in ~2.36 million; regular-number counts 34 vs 15 for n <= 100; 10.2.3.12.7 = 1,455,727 days; the L5-1 pick list missing the 32-bit; and more) plus two authoring-time ones caught by the browser gates (the figure builders omitted the <svg> wrapper - captions rendered with zero SVGs in the DOM; the doubling-figure sum-line overlap, fixed and re-audited 0/0) - 9.1 (5,311 words, 8 terms, quiz keys 1/2/0/1/1, 14 exercises L1-L6, 2 derivations incl. the additive symbol-count law symbols(N) = digit sum <= 9d and the doubling-method correctness proof via the binary expansion, 2 illustrations, 2 figures - the compression ladder 3,027 strokes -> 12 hieroglyphs -> 4 digits and the 23x19=437 doubling engine, 2 tables, 4 formula cards): one-to-one principle, the bundle split N = b*floor(N/b) + (N mod b), the Ishango bone with honest hedges (168 notches, column sums 60/48/60, the prime-column reading disputed), recursive grouping = digits-without-position, the Egyptian ladder + formal additive definition, Roman numerals with the subtractive rule as a LOCAL patch never place value (1888 = MDCCCLXXXVIII the longest year numeral, the 3,999 ceiling + vinculum), symbol-wise addition as carrying (3,579+2,894 = 6,473), why multiplication stalls + the doubling workaround, the efficiency verdict (smallest >=20-symbol number is 299, swept), FM 10.1 cross-referenced - 9.2 (4,919 words, 8 terms, quiz keys 1/3/2/1/1, 14 exercises, 3 derivations incl. THE AMBIGUITY THEOREM - a zeroless string names exactly the geometric family {V*60^j}, any two readings differing by a power of sixty - and the Long Count mod-20/mod-18 inverse, 2 illustrations incl. the exact-fraction YBC verification 30 x 1;24,51,10 = 42;25,35 = 30,547/720, 2 figures - the two place ladders with the 18-kink highlighted and the stylized YBC square, 2 tables incl. the five-system comparison, 4 formula cards): the two-wedge base-sixty system, the missing zero quantified (the <1 20> family 80*60^j: 1/45, 4/3, 80, 4,800, 288,000), why sixty (12 divisors, 34 of n<=100 regular vs 15 in base ten, the igi-gub-ba reciprocal engine), YBC 7289 + Plimpton 322 with the honest dispute (Robson's scribal-exercise reading leading), the Maya dot-bar-shell system with its visible zero (zero-as-number subtlety reserved for 9.3), the Long Count 18-kink (9.9.16.0.0 = 1,366,560 days vs the pure reading 1,518,400, the 151,840 gap decomposed exactly; 13 baktun = 1,872,000), the five-system verdict - 7 new web-checked citation keys (egyptian-hieroglyphic-numerals, ishango-bone, roman-numerals, babylonian-sexagesimal-numerals, ybc-7289, plimpton-322, maya-numerals-long-count); OpenStax Contemporary Math section 4.2 cited as reference map, never reproduced (license forbids ingestion); e2e-ans-91/92 whitelisted with viewport switches; per-lesson gates all green (lint 0, tsc 0 after fixing the PRE-EXISTING global-script tsc collision verify-book2-ch01.ts <-> enhance-fm-12-gen.ts with export {} module markers - proven on pristine HEAD, routes 200 x3 + 404, E2E 34 PASS each at 1280 + true 390 + dark - quiz 5/5 live on keys 1/2/0/1/1 and 1/3/2/1/1, KaTeX 83/88 nodes 0 errors, 0 console errors, SVG overlap audits 0 issues on all four figures 15/19/9/17 text nodes, screenshot pixel checks warm palette); library 2 books / 20 chapters / 79 lessons / 388,082 words / 603 terms / 395 quiz / 964 exercises (inventory regenerated post-recycle via rebuild_drive_survey.ts); next run 63 = 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 review (the chapter closes); ch. 10 (3 lessons) ends the book at runs 64-65",
+      "filesChanged": 16,
+      "insertions": 3014,
+      "deletions": 53,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 65,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 62,
+          "del": 7
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 265,
+          "del": 28
+        },
+        {
+          "path": "scripts/e2e-ans-91.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-91.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-92.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-92.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/enhance-fm-12-gen.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch01.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch09.ts",
+          "add": 1016,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 4,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 1215,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "329b49ae0f966af65945ce1b22f2d4a2b7430881",
+      "short": "329b49a",
+      "date": "2026-11-07 01:30",
+      "message": "memory: run-62 push verified — remote main = 053eddd (ship 053eddd + the run-61 memory commit cc139a6 pushed together, ecd8ce7..053eddd); next run 63 = ANS ch.9 CLOSES with 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 completion review (extend verify-book2-ch09.ts FIRST, whitelist e2e-ans-93 before committing, chapter flips COMPLETE, plannedLessons emptied); ch.10 'The Map of Number Systems' (3 planned lessons) ends the book at runs 64-65",
+      "filesChanged": 1,
+      "insertions": 5,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 19,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 79,
-    "wordsAuthored": 388082,
-    "termsDefined": 603,
-    "quizItems": 395,
-    "exerciseQuestions": 964,
+    "chaptersWritten": 20,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 80,
+    "wordsAuthored": 394854,
+    "termsDefined": 611,
+    "quizItems": 400,
+    "exerciseQuestions": 978,
     "blockTotals": {
-      "para": 1089,
-      "callout": 447,
-      "heading": 449,
+      "para": 1108,
+      "callout": 450,
+      "heading": 455,
       "list": 93,
-      "terms": 80,
+      "terms": 81,
       "equation": 115,
-      "figure": 130,
-      "derivation": 166,
-      "table": 102,
-      "example": 332,
-      "quiz": 79,
-      "exercises": 79,
-      "formula": 226,
+      "figure": 132,
+      "derivation": 169,
+      "table": 104,
+      "example": 334,
+      "quiz": 80,
+      "exercises": 80,
+      "formula": 230,
       "algorithm": 21
     }
   }

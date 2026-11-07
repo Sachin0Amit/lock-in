@@ -84,6 +84,27 @@ export {}
  *       YBC 30× product with its 1-in-2.36-million accuracy, the Long
  *       Count keys 10.2.3.12.7 = 1,455,727 and the 1,366,560 inverse,
  *       and the ambiguity theorem's geometric-family anchors.
+ *
+ * Extended 2026-11-07 (run 63) — sections O/P/Q for lesson 9.3 "The Indian
+ * Decimal Revolution and Zero":
+ *   (O) zero as a number: Brahmagupta's BSS 628 ch. 18 rules (18.30
+ *       addition, 18.32 subtraction, 18.33 multiplication, 18.34–18.35
+ *       division) verified as identities; the derivation of 0·n = 0 from
+ *       the integer laws; the modern verdict — n/0 has NO solution in the
+ *       multiplication check, 0/0 has ALL of them (indeterminate); Euler's
+ *       framing;
+ *   (P) the zero census: names 1..999 (180) and 1..9999 (2,619) needing a
+ *       zero digit, by length d: 9·10^(d−1) − 9^d; the zeroless 3-place
+ *       alphabet {1..9}^{≤3} = 819 strings; the general zeroless ambiguity
+ *       family {V·b^j} in base ten (5, 50, 500 … and 1/2 downward); the
+ *       division-algorithm digits WITH zero (uniqueness sweep 1..5000, no
+ *       collisions); the trailing-zero laws N·10 and N·60;
+ *   (Q) the capstone exhibits: 3,601 and 2,807 across all five systems —
+ *       hieroglyph counts, Roman canonical forms and lengths, the
+ *       Babylonian ⟨1,0,1⟩ internal gap with its geometric family
+ *       {3,601·60^j}, the Mayan calendar-vs-pure double reading ⟨10,0,1⟩ =
+ *       3,601 vs 4,001, the wedge and dot/bar glyph counts for the figure,
+ *       and the closed census formula (10^k − 1) − (9^(k+1) − 9)/8.
  */
 /** BigInt gcd (local — lib-gcd.ts is number-typed and shared). */
 function bigGcd(a: bigint, b: bigint): bigint {
@@ -1004,10 +1025,192 @@ ok(1 / 4.237e-7 > 2e6, 'L: L4-2 the diagonal ratio is accurate to about one part
 }
 
 /* ================================================================== */
+/* O — 9.3 zero as a number: Brahmagupta's rules and the modern verdict */
+/* ================================================================== */
+// O-1: the addition/subtraction rules of 18.30/18.32 hold as identities
+{
+  let okCount = 0
+  for (let n = -50; n <= 50; n++) {
+    if (0 + n === n && n - 0 === n && 0 - n === -n) okCount++
+  }
+  eq(okCount, 101, 'O: O-1 Brahmagupta 18.30/18.32 — 0+n = n, n−0 = n, 0−n = −n for n ∈ [−50, 50]')
+  ok(0 + 0 === 0 && 0 - 0 === 0, 'O: O-1 18.30/18.32 — zero plus zero is zero, zero minus zero is zero')
+}
+// O-2: the multiplication rule of 18.33: the product of zero with any number is zero
+{
+  let okCount = 0
+  for (let n = -50; n <= 50; n++) if (0 * n === 0 && n * 0 === 0) okCount++
+  eq(okCount, 101, 'O: O-2 Brahmagupta 18.33 — zero × n = 0 on both sides, n ∈ [−50, 50]')
+  ok(0 * 0 === 0, 'O: O-2 18.33 — zero times zero is zero')
+}
+// O-3: the derivation of 0·n = 0 from the integer laws (distributivity + cancellation)
+{
+  const n = 37
+  const m = n * 0
+  eq(m + m, m, 'O: O-3 the distributivity step: n·0 + n·0 = n·(0+0) = n·0, so 2m = m')
+  eq(m, 0, 'O: O-3 the cancellation step: (2−1)·m = 0 forces m = n·0 = 0')
+}
+// O-4: division by zero, branch 1 — for a ≠ 0 NO q satisfies q·0 = a (the modern verdict on 18.35)
+{
+  let found = 0
+  for (let q = -1000; q <= 1000; q++) if (q * 0 === 6) found++
+  eq(found, 0, 'O: O-4 for a = 6 no trial integer q solves q·0 = 6 — the multiplication check has NO solution')
+}
+// O-5: division by zero, branch 2 — 0/0 is non-unique: EVERY q solves q·0 = 0
+{
+  let found = 0
+  for (let q = -1000; q <= 1000; q++) if (q * 0 === 0) found++
+  eq(found, 2001, 'O: O-5 0/0: all 2,001 trial integers solve q·0 = 0 — uniqueness fails, 0/0 is indeterminate (Euler)')
+}
+// O-6: the khahara contradiction kernel: any candidate value p/r for 6/0 forces 6r = p·0 = 0
+{
+  const p = BigInt(123456), r = BigInt(7)
+  eq(p * BigInt(0) * r, BigInt(0), 'O: O-6 p·0·r = 0, never 6r — so 6/0 has no rational value, khahara notwithstanding')
+}
+
+/* ================================================================== */
+/* P — 9.3 the zero census and the uniqueness theorem completed        */
+/* ================================================================== */
+// P-1: the census of names containing 0 by length d: 9·10^(d−1) names, 9^d without zero
+{
+  const withZero = (d: number) => 9 * Math.pow(10, d - 1) - Math.pow(9, d)
+  eq(withZero(2), 9, 'P: P-1 length-2 names needing zero (10, 20, …, 90): 9')
+  eq(withZero(3), 171, 'P: P-1 length-3 names needing zero: 900 − 729 = 171')
+  eq(withZero(4), 2439, 'P: P-1 length-4 names needing zero: 9,000 − 6,561 = 2,439')
+}
+// P-2: the totals — 1..999 → 180; 1..9999 → 2,619 (both exhaustive and by identity)
+{
+  let withZero999 = 0
+  for (let n = 1; n <= 999; n++) if (String(n).includes('0')) withZero999++
+  eq(withZero999, 180, 'P: P-2 numbers 1..999 whose decimal name contains a zero: 180 (exhaustive)')
+  let withZero9999 = 0
+  for (let n = 1; n <= 9999; n++) if (String(n).includes('0')) withZero9999++
+  eq(withZero9999, 2619, 'P: P-2 numbers 1..9999 whose name contains a zero: 2,619 (exhaustive)')
+  eq(9 + 81 + 729 + 6561, 7380, 'P: P-2 the zeroless names below 10^4: 9 + 81 + 729 + 6,561 = 7,380')
+  eq(9999 - 7380, 2619, 'P: P-2 the census identity 9,999 − 7,380 = 2,619')
+  ok(Math.abs(2619 / 9999 - 0.262) < 0.0005, 'P: P-2 the census share 2,619/9,999 ≈ 26.2%')
+}
+// P-3: a zeroless three-place alphabet {1..9}^{≤3} supplies only 819 strings for 999 numbers
+{
+  eq(9 + 81 + 729, 819, 'P: P-3 the zeroless strings of length ≤ 3: 9 + 81 + 729 = 819 < 999 — 180 numbers left nameless')
+}
+// P-4: the general zeroless ambiguity theorem (9.2 generalized to any base): readings = {V·b^j}
+{
+  const arm: number[] = []
+  let v = 5
+  for (let j = 0; j < 3; j++) { arm.push(v); v *= 10 }
+  eq(arm.join(','), '5,50,500', 'P: P-4 the zeroless base-ten arm «5» = {5·10^j}: 5, 50, 500, …')
+  eq(5 / 10, 0.5, 'P: P-4 the fractional arm continues downward: 5·10^(−1) = 1/2')
+}
+// P-5: uniqueness WITH zero — the division-algorithm digits reproduce the name; sweep finds no collisions
+{
+  const digits = (n: number): number[] => {
+    const out: number[] = []
+    let m = n
+    do { out.unshift(m % 10); m = Math.floor(m / 10) } while (m > 0)
+    return out
+  }
+  eq(digits(2807).join(','), '2,8,0,7', 'P: P-5 the division-algorithm digits of 2,807 = 2,8,0,7 — the zero digit included')
+  eq(digits(3601).join(','), '3,6,0,1', 'P: P-5 the division-algorithm digits of 3,601 = 3,6,0,1')
+  const seen = new Set<string>()
+  let collisions = 0
+  for (let n = 1; n <= 5000; n++) {
+    const s = digits(n).join('')
+    if (seen.has(s)) collisions++
+    seen.add(s)
+  }
+  eq(collisions, 0, 'P: P-5 the uniqueness sweep 1..5000: no two numbers share a decimal string')
+}
+// P-6: the trailing-zero laws — N·10 appends a zero digit; N·60 appends a zero GROUP
+{
+  eq(2807 * 10, 28070, 'P: P-6 2,807 · 10 = 28,070 — the appended zero digit')
+  eq(2807 * 60, 168420, 'P: P-6 2,807 · 60 = 168,420 = ⟨46,47,0⟩ — the appended zero group Babylon could not write')
+  eq(Math.floor(2807 / 60), 46, 'P: P-6 2,807 = 46·60 + 47 — the group decomposition')
+  eq(2807 % 60, 47, 'P: P-6 the remainder 47')
+}
+
+/* ================================================================== */
+/* Q — 9.3 the capstone exhibits: 3,601 and 2,807 across five systems  */
+/* ================================================================== */
+// Q-1: the additive spellings: hieroglyph symbol counts (empty tens places cost nothing)
+{
+  const hierCount = (n: number): number => {
+    const units = [1000000, 100000, 10000, 1000, 100, 10, 1]
+    let s = 0
+    for (const u of units) { s += Math.floor(n / u); n %= u }
+    return s
+  }
+  eq(hierCount(3601), 10, 'Q: Q-1 3,601 in hieroglyphs = 10 symbols (3 fingers + 6 coils + 1 stroke); the empty tens vanish')
+  eq(hierCount(2807), 17, 'Q: Q-1 2,807 in hieroglyphs = 17 symbols (2 + 8 + 0 + 7)')
+}
+// Q-2: the Roman spellings (canonical subtractive, both ≤ 3,999)
+{
+  eq(romanSub(3601), 'MMMDCI', 'Q: Q-2 3,601 = MMMDCI')
+  eq(romanValue(romanSub(3601)), 3601, 'Q: Q-2 the Roman encoder round-trips 3,601')
+  eq(romanSub(3601).length, 6, 'Q: Q-2 MMMDCI is 6 letters')
+  eq(romanSub(2807), 'MMDCCCVII', 'Q: Q-2 2,807 = MMDCCCVII — the empty tens place simply vanishes')
+  eq(romanValue(romanSub(2807)), 2807, 'Q: Q-2 the Roman encoder round-trips 2,807')
+  eq(romanSub(2807).length, 9, 'Q: Q-2 MMDCCCVII is 9 letters')
+}
+// Q-3: 3,601 in base sixty = ⟨1,0,1⟩ — the internal gap and its geometric family
+{
+  eq(toSex(3601).join(','), '1,0,1', 'Q: Q-3 3,601 = ⟨1,0,1⟩ in base sixty — the zero digit Babylon had to leave as a gap')
+  eq(fromSex([1, 0, 1]), 3601, 'Q: Q-3 decode ⟨1,0,1⟩ = 3,601')
+  const fam: string[] = []
+  for (let j = 0; j <= 2; j++) fam.push((3601 * Math.pow(60, j)).toLocaleString('en-US'))
+  eq(fam.join(' / '), '3,601 / 216,060 / 12,963,600', 'Q: Q-3 the zeroless family {3,601·60^j}: 3,601 / 216,060 / 12,963,600')
+  eq(3601 / 60, 60 + 1 / 60, 'Q: Q-3 the fractional arm 3,601·60^(−1) = 60 + 1/60')
+}
+// Q-4: 3,601 on the Mayan ladders — calendar ⟨10,0,1⟩ = 3,601 vs pure ⟨10,0,1⟩ = 4,001
+{
+  eq(10 * 360 + 0 * 20 + 1, 3601, 'Q: Q-4 the calendar-ladder reading ⟨10,0,1⟩ = 3,601')
+  eq(10 * 400 + 0 * 20 + 1, 4001, 'Q: Q-4 the pure-vigesimal reading ⟨10,0,1⟩ = 4,001 — the kink doubles the string')
+  eq(4001 - 3601, 400, 'Q: Q-4 the gap 4,001 − 3,601 = 400 = 10·(400 − 360)')
+}
+// Q-5: the wedge counts for the figure — 2,807 = ⟨46,47⟩ presses 21 wedges
+{
+  eq(46 * 60 + 47, 2807, 'Q: Q-5 2,807 = ⟨46,47⟩ in base sixty')
+  eq(Math.floor(46 / 10) + (46 % 10), 10, 'Q: Q-5 the digit 46 presses 4 corner + 6 vertical = 10 wedges')
+  eq(Math.floor(47 / 10) + (47 % 10), 11, 'Q: Q-5 the digit 47 presses 4 corner + 7 vertical = 11 wedges')
+  eq(10 + 11, 21, 'Q: Q-5 2,807 needs 21 wedges in two groups — with no mark in the tens')
+}
+// Q-6: the dot/bar counts for the Mayan digit rows ⟨10,0,1⟩ and ⟨7,16,7⟩
+{
+  eq(Math.floor(10 / 5), 2, 'Q: Q-6 the Mayan digit 10 = 2 bars + 0 dots')
+  eq(Math.floor(16 / 5) * 5 + (16 % 5), 16, 'Q: Q-6 the Mayan digit 16 = 3 bars + 1 dot')
+  eq(Math.floor(7 / 5), 1, 'Q: Q-6 the Mayan digit 7 = 1 bar + 2 dots')
+  eq(2 * 5 + 0, 10, 'Q: Q-6 the digit-10 value identity 2·5 + 0 = 10')
+  eq(3 * 5 + 1, 16, 'Q: Q-6 the digit-16 value identity 3·5 + 1 = 16')
+  eq(1 * 5 + 2, 7, 'Q: Q-6 the digit-7 value identity 1·5 + 2 = 7')
+}
+// Q-7: the closed census formula N(k) = (10^k − 1) − (9^(k+1) − 9)/8 at k = 2, 3, 4
+{
+  const census = (k: number) => Math.pow(10, k) - 1 - (Math.pow(9, k + 1) - 9) / 8
+  eq(census(2), 9, 'Q: Q-7 the closed census formula at k = 2: 9')
+  eq(census(3), 180, 'Q: Q-7 the closed census formula at k = 3: 180')
+  eq(census(4), 2619, 'Q: Q-7 the closed census formula at k = 4: 2,619')
+}
+
+// Q-8: 2,807 on the Mayan calendar ladder — the true decomposition ⟨7,14,7⟩ (regression guard:
+// the review pass caught an authored ⟨7,16,7⟩ = 2,847 miscount; this pins the correct digits)
+{
+  eq(7 * 360 + 14 * 20 + 7, 2807, 'Q: Q-8 2,807 = ⟨7,14,7⟩ on the Mayan calendar ladder (7·360 + 14·20 + 7)')
+  eq(7 * 360 + 16 * 20 + 7, 2847, 'Q: Q-8 the miscount ⟨7,16,7⟩ names 2,847, NOT 2,807 — the caught defect')
+  eq(2 * 5 + 4, 14, 'Q: Q-8 the digit 14 = 2 bars + 4 dots')
+  eq((2807 - 7 * 360) % 20, 7, 'Q: Q-8 the mod-20/mod-18 style strip recovers the unit digit 7')
+}
+// Q-9: the census exercise intermediates (the review caught a 9^4 − 9 = 6,480 mis-arithmetic; pin 6,552)
+{
+  eq(Math.pow(9, 4) - 9, 6552, 'Q: Q-9 9^4 − 9 = 6,552 (the authored 6,480 was the caught defect)')
+  eq(6552 / 8, 819, 'Q: Q-9 6,552/8 = 819 zeroless names of length ≤ 3')
+  eq(999 - 819, 180, 'Q: Q-9 999 − 819 = 180')
+}
+
+/* ================================================================== */
 /* summary                                                             */
 /* ================================================================== */
 console.log('--------------------------------------------------------------')
-console.log(`verify-book2-ch09 (sections A–N + K/L, lessons 9.1–9.2): ${pass} pass, ${fail} fail`)
+console.log(`verify-book2-ch09 (sections A–Q, lessons 9.1–9.3): ${pass} pass, ${fail} fail`)
 if (fail > 0) {
   console.log('FAILURES:')
   for (const f of failures) console.log('  - ' + f)

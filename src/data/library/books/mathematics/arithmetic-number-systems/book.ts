@@ -12,7 +12,7 @@ import { chapter09 } from './ch-09'
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
  *
- * STATUS: IN PROGRESS — chapters 1–8 COMPLETE; ch. 9 IN PROGRESS 2/3 (run 62, 2026-11-07: 9.1 + 9.2; 9.3 + the unit-9 review at run 63; ch. 10 then ends the book at runs 64–65). Chapter 1 'The Natural Numbers as a System'
+ * STATUS: IN PROGRESS — chapters 1–9 COMPLETE; ch. 9 'Numeration Through History' COMPLETE 3/3 (run 63, 2026-11-07: 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 completion review; ch. 10 'The Map of Number Systems' ends the book at runs 64–65). Chapter 1 'The Natural Numbers as a System'
  * COMPLETE 3/3 (runs 49-50). Chapter 2 'The Division Algorithm and
  * the Structure of Divisibility' COMPLETE 4/4 (runs 51-52). Chapter 3
  * 'Positional Systems and Other Bases' COMPLETE 4/4 (runs 53-54, unit-3

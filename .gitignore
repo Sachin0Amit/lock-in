@@ -220,3 +220,6 @@ server.log
 !/scripts/e2e-ans-91.page.js
 !/scripts/e2e-ans-92.sh
 !/scripts/e2e-ans-92.page.js
+# exception: run-63 ANS chapter-9 close (9.3 E2E block: quiz keys 0/0/2/2/0 + solutions + audits)
+!/scripts/e2e-ans-93.sh
+!/scripts/e2e-ans-93.page.js

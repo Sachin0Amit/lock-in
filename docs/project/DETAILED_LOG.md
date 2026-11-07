@@ -2002,3 +2002,23 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 **Citations:** 4 new keys (dedekind-1872-stetigkeit, cantor-1872-fundamental-sequences, heine-1872-functionenlehre, meray-1869-limites), all web-checked 2026-11-06; zero downloads.
 
 **Next:** run 62 opens ANS ch. 9 'Numeration Through History' — verify-book2-ch09.ts FIRST; lessons 9.1 'Tallies, Groupings and Additive Systems' + 9.2 'Place Value Before Its Time: Babylon and Mesoamerica'.
+
+## Run 63 (2026-11-07) — ANS chapter 9 'Numeration Through History' COMPLETE 3/3: lesson 9.3 + the unit-9 completion review (the chapter had ONE unwritten lesson left, so the v2 two-lesson scope collapses to one lesson + the review per the owner directive)
+
+**Run character:** the first chapter-closing run at hourly cadence under the 2026-11-06 v2 directive — one lesson plus the unit review, never a new chapter opened. Fired 11:15 +08:00 (the :15 visual slot, not :45 — scheduling note logged in WORKLOG for the owner).
+
+**Verify-first (sections O/P/Q, 218 → 273 checks before any prose; review-phase extensions to 280):** O — Brahmagupta's zero rules verified as identities (18.30/18.32/18.33 over n ∈ [−50, 50]), the 0·n = 0 derivation, the two-branch division-by-zero theorem (6/0: no solution among 2,001 candidates; 0/0: all 2,001 pass). P — the zero census (9/171/2,439; 180 and 2,619 exhaustively; 26.2%; the 819-string zeroless alphabet), the generalized ambiguity family {V·b^j}, uniqueness-with-zero (division-algorithm digits emit the zero; collision sweep 1..5000 = 0), the trailing-zero laws (N·10 digit-append, N·60 group-append). Q — the capstone exhibits (3,601 across five systems; 2,807 across five systems; the closed census formula).
+
+**9.3 'The Indian Decimal Revolution and Zero'** (6,772 words — the chapter's largest; 8 terms; 5 quiz keys 0/0/2/2/0; 14 exercises L1–L6; 3 derivations; 2 illustrations; 2 figures; 2 tables; 4 formula cards): the written trail (Lokavibhāga 458 śūnya; Āryabhaṭa 499 II.2 with the kha/blank-column hedge; Bakhshālī 1881/2017/2024 told honestly — the 224–383, 680–779, 885–993 ranges AND Oxford's 799–1102 revision; Gwalior 876's dated zero in 270 and 50); Brahmagupta 628 verse-level with 0/0 = 0 as the one overreach, Bhāskara II's khahara, Euler's indeterminate verdict, both modern verdicts PROVED; the zero census (26.2% load-bearing); al-Uqlīdisī 952 (pen-and-paper + the earliest decimal fractions, Saidan-vs-Rashed hedge); Fibonacci 1202's nine-figures-plus-zephirum; Florence 1299; the śūnya → ṣifr → {zero, cipher} + algorithm word chain; the five-system verdict closed.
+
+**Gates (run twice on the shipped content):** lint 0 errors (1 pre-existing unrelated warning); tsc 0 repo-wide; routes 200 ×2 + 404 unknown; live E2E e2e-ans-93 ALL GREEN at 1280 + true 390 + dark (quiz 5/5 on keys 0/0/2/2/0; KaTeX 92 nodes 0 errors; 0 raw $; 0 console errors; no overflow; Sol pills 16/16; warm-palette pixel checks); SVG overlap audits 0 issues on both new figures (22 + 26 text nodes).
+
+**Unit-9 completion review:** PASS — and it earned its name: the re-derivation of every 9.3 exercise number caught THREE authored defects pre-commit: the ⟨7,16,7⟩ Mayan miscount (7·360 + 16·20 + 7 = 2,847 ≠ 2,807; true digits ⟨7,14,7⟩), the 9⁴ − 9 = 6,480 mis-arithmetic (true 6,552; /8 = 819), and the dominance bound b − 2 (true: |c_i| ≤ b − 1 < b). All fixed in ch-09.ts and pinned as verifier regression guards Q-8/Q-9 (280 checks, 0 fail). Exam corners 3/3; ids globally unique repo-wide; all 11 block types; ch-09 flipped complete; plannedLessons emptied; book.ts status header updated.
+
+**Chapter totals:** 17,002 words / 24 terms / 15 quiz / 42 exercises / 4 figures / 8 derivations / 4 illustrations / 8 formula cards / 4 tables (9.1: 5,311 · 9.2: 4,919 · 9.3: 6,772 words).
+
+**Citations:** 5 new keys (lokavibhaga-458, aryabhata-499-aryabhatiya, bakhshali-manuscript, al-uqlidisi-952-fusul, gwalior-inscription-876) + 2 carried/extended (fibonacci-1202-liber-abaci, hindu-arabic-positional-history), all web-checked 2026-11-07; zero downloads; Drive survey rebuilt post-recycle (89 entries) before the inventory regenerate.
+
+**Library:** 2 books / 20 chapters written, 0 in progress / 80 lessons / 394,854 words / 611 terms / 400 quiz / 978 exercises.
+
+**Next:** run 64 opens ANS ch. 10 'The Map of Number Systems' — 10.1 + 10.2 (v2 two-lesson scope); verify-book2-ch10.ts FIRST; the book closes at run 65 with 10.3 + the unit-10 review.

@@ -1525,3 +1525,64 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   intact) so `build_work_inventory.ts` could regenerate. All seven keys above are internet-researched
   (the sanctioned fallback for the early-numeration topic; the Drive is exam-oriented and holds no
   numeration-history text).
+
+## Citation keys added by ANS chapter 9 close (run 63)
+
+- `lokavibhaga-458` — the Lokavibhāga ("parts of the universe"), a Jain cosmological text composed in
+  Sanskrit in 458 CE by Siṃhasūri: the earliest unambiguous written appearance of zero inside a
+  positional number — vast cosmic time spans computed on a decimal place-value system with śūnya
+  ("void") and synonyms written in the empty places. Used for: ANS ch. 9 lesson 9.3 — the opening of
+  the written trail ("the word" stage of zero), web-checked 2026-11-07 (run 63) against the Wikipedia
+  article and the ScienceDirect Arabic-numerals overview. Exposition original.
+
+- `aryabhata-499-aryabhatiya` — Āryabhaṭa's Āryabhaṭīya (499 CE), verse II.2: *sthānāt sthānaṁ
+  daśaguṇaṁ syāt* — "from place to place each is ten times the preceding": place value stated as
+  explicit doctrine. Used for: ANS ch. 9 lesson 9.3 — the rule-of-ten milestone with the honest hedge
+  (Clark's translation note: *kha* means "space/place"; whether a zero SYMBOL existed in
+  Āryabhaṭa's day is disputed — computations may have run on a ruled board with blank columns),
+  web-checked 2026-11-07 (run 63) against the Wikisource Clark translation and its commentary.
+  Exposition original.
+
+- `bakhshali-manuscript` — the Bakhshālī birch-bark manuscript (found 1881 in a field near the village
+  of Bakhshālī, close to Mardan, Khyber Pakhtunkhwa, Pakistan; ~70 leaves in Śāradā script; a practical
+  compendium — fractions, square roots, progressions, equations to the quadratic): the śūnya-bindu dot
+  holding empty places. The 2017 Bodleian radiocarbon ranges (folio 16: 224–383 CE, folio 17: 680–779,
+  folio 33: 885–993), the scholarly pushback (non-academic publication; Houben's calibration objections;
+  the copy-vs-original question), and Oxford's own October 2024 revision to 799–1102 CE. Used for: ANS
+  ch. 9 lesson 9.3 — the "mark" stage of zero with the full dating debate told honestly, web-checked
+  2026-11-07 (run 63) against the Wikipedia article. Exposition original.
+
+- `al-uqlidisi-952-fusul` — Abu'l-Hasan al-Uqlīdisī's Kitāb al-Fuṣūl fī al-Ḥisāb al-Hindī (composed
+  Damascus 952–53; surviving copy 1157; Saidan's English translation): the earliest surviving book
+  teaching Hindu reckoning in Arabic; moved every algorithm from the dust board to pen and paper; the
+  earliest known direct treatment of decimal fractions with a separating sign, five centuries before
+  Stevin and before al-Kāshī. Used for: ANS ch. 9 lesson 9.3 — the machine-at-work section with the
+  honest Saidan-vs-Rashed disagreement on how complete the decimal-fraction idea was, web-checked
+  2026-11-07 (run 63) against the MacTutor (St Andrews) biography. Exposition original.
+
+- `gwalior-inscription-876` — the Chaturbhuj temple inscription at Gwalior Fort (876 CE): the oldest
+  clearly DATED zero — a small round circle holding the empty places in the recorded numbers 270 and
+  50 (a garden grant and a daily allowance). Used for: ANS ch. 9 lesson 9.3 — the dated floor beneath
+  the Bakhshālī debate, web-checked 2026-11-07 (run 63) against the Wikipedia/web-exhibits accounts
+  (incl. William Dalrymple's 2021 note distinguishing the dated Gwalior zero from the contested
+  Bakhshālī dot and the Cambodia dot inscription). Exposition original.
+
+- `fibonacci-1202-liber-abaci` — extended again (run 63): now covers the Liber Abaci's OPENING —
+  "These are the nine figures of the Indians: 9 8 7 6 5 4 3 2 1. With these nine figures, and with
+  this sign 0, which in Arabic is called zephirum, any number can be written…" — the decisive European
+  landing of the Hindu–Arabic numerals, alongside the banked rabbit problem (ANS 1.3) and the
+  casting-out-nines description (ANS 5.2). Web-checked 2026-11-07 (run 63).
+
+- `hindu-arabic-positional-history` — carried to ANS 9.3 (run 63): al-Khwārizmī's c. 825 textbook as
+  the hinge of the transmission (the word algorithm from his Latinized name), the two numeral-shape
+  traditions (eastern from India, western ghubar "dust" numerals named for the dust board), Laplace's
+  tribute quoted, and the word-chain śūnya → ṣifr → {zephirum → zero; cifra → cipher} + algorithm.
+  No new web-checks needed — carried on the run-53 verification.
+
+### Run 63 reference-notes
+- Zero downloads this run (all eight keys internet-researched or carried; the Drive holds no
+  numeration-history text — exam-oriented, per the run-62 survey). Working-copy footprint zero.
+- The arithmetic reviewer grew to 280 checks (sections O/P/Q + review-phase Q-8/Q-9 regression guards);
+  the unit-9 completion review caught three authored defects (a ⟨7,16,7⟩ = 2,847 Mayan miscount of
+  2,807; a 9⁴ − 9 = 6,480 mis-arithmetic — true value 6,552; a dominance bound stated as b−2 instead
+  of b−1), all fixed pre-commit and pinned by the new checks.

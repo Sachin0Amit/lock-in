@@ -248,13 +248,79 @@ function ybcSquareSvg(): string {
   return parts.join('')
 }
 
+function zeroTimelineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A timeline of the decimal revolution from 458 to 1299: Lokavibhaga, Aryabhata, Brahmagupta, al-Khwarizmi, the Gwalior zero, al-Uqlidisi, Fibonacci and the Florence ban">'
+  )
+  // honesty header
+  parts.push('<text x="360" y="28" font-size="11.5" fill="#6b7a72" text-anchor="middle">the Bakhshālī birch bark (found 1881) radiocarbon-dates in scattered ranges —</text>')
+  parts.push('<text x="360" y="44" font-size="11.5" fill="#6b7a72" text-anchor="middle">Oxford’s 2017 “oldest zero” reading was revised in 2024; the dot’s age is still debated</text>')
+  // baseline with arrowhead
+  parts.push('<line x1="50" y1="210" x2="664" y2="210" stroke="#1f5c4d" stroke-width="2"/>')
+  parts.push('<polygon points="670,210 660,205 660,215" fill="#1f5c4d"/>')
+  // nodes: [year, x, above?, name, note]
+  const nodes: Array<[string, number, boolean, string, string]> = [
+    ['458', 82, false, 'Lokavibhāga', 'śūnya in place value'],
+    ['499', 109, true, 'Āryabhaṭa', '“place to place, ten times”'],
+    ['628', 194, false, 'Brahmagupta', 'zero gets arithmetic'],
+    ['825', 324, true, 'al-Khwārizmī', 'the Baghdad textbook'],
+    ['876', 357, false, 'Gwalior', 'a dated zero on stone'],
+    ['952', 408, true, 'al-Uqlīdisī', 'decimal fractions'],
+    ['1202', 572, false, 'Fibonacci', 'Liber Abaci'],
+    ['1299', 636, true, 'Florence', 'the numerals banned'],
+  ]
+  for (const [yr, x, above, name, note] of nodes) {
+    parts.push(`<circle cx="${x}" cy="210" r="4" fill="#1f5c4d"/>`)
+    if (above) {
+      parts.push(`<line x1="${x}" y1="204" x2="${x}" y2="118" stroke="#b9c4bd" stroke-width="1"/>`)
+      parts.push(`<text x="${x}" y="80" font-size="12" font-weight="600" fill="#123f35" text-anchor="middle">${yr}</text>`)
+      parts.push(`<text x="${x}" y="96" font-size="11.5" fill="#1f5c4d" text-anchor="middle">${name}</text>`)
+      parts.push(`<text x="${x}" y="111" font-size="10" fill="#6b7a72" text-anchor="middle">${note}</text>`)
+    } else {
+      parts.push(`<line x1="${x}" y1="216" x2="${x}" y2="238" stroke="#b9c4bd" stroke-width="1"/>`)
+      parts.push(`<text x="${x}" y="254" font-size="12" font-weight="600" fill="#123f35" text-anchor="middle">${yr}</text>`)
+      parts.push(`<text x="${x}" y="270" font-size="11.5" fill="#1f5c4d" text-anchor="middle">${name}</text>`)
+      parts.push(`<text x="${x}" y="285" font-size="10" fill="#6b7a72" text-anchor="middle">${note}</text>`)
+    }
+  }
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+function capstone3601Svg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One number, five systems: how 3,601 is written in hieroglyphs, Roman numerals, Babylonian, Mayan and decimal notation, and what each does with the empty tens place">'
+  )
+  parts.push('<text x="360" y="28" font-size="14" font-weight="700" fill="#123f35" text-anchor="middle">One number, five systems: 3,601</text>')
+  const rows: Array<[string, string, string, string]> = [
+    ['Hieroglyphs', '3 fingers, 6 coils, 1 stroke', '10 symbols — the empty tens place', 'simply vanishes'],
+    ['Roman', 'MMMDCI', '6 letters — additive classes, no zero', 'is ever needed'],
+    ['Babylonian', '⟨1, 0, 1⟩', 'the tens place is a bare gap — the string', 'also reads 216,060, or 60 + 1/60'],
+    ['Mayan', '⟨10, 0, 1⟩', 'the shell pins the gap — but on the pure', 'ladder the same string reads 4,001'],
+    ['Decimal', '3,601', 'zero as a digit — one string,', 'one number, everywhere'],
+  ]
+  rows.forEach(([sys, spelling, note1, note2], i) => {
+    const y = 44 + i * 56
+    parts.push(`<rect x="36" y="${y}" width="648" height="46" rx="6" fill="${i % 2 === 0 ? '#f7f3ea' : '#fdfbf5'}" stroke="#d8d2c2" stroke-width="1"/>`)
+    parts.push(`<text x="56" y="${y + 28}" font-size="12.5" font-weight="600" fill="#123f35">${sys}</text>`)
+    parts.push(`<text x="238" y="${y + 28}" font-size="13" font-weight="600" fill="#1f5c4d" text-anchor="middle">${spelling}</text>`)
+    parts.push(`<text x="424" y="${y + 19}" font-size="10.5" fill="#6b7a72">${note1}</text>`)
+    parts.push(`<text x="424" y="${y + 34}" font-size="10.5" fill="#6b7a72">${note2}</text>`)
+  })
+  parts.push('<text x="360" y="332" font-size="11" fill="#9a6b2f" text-anchor="middle">only the decimal name is a single number — the tenth digit pins every scale</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
 export const chapter09: Chapter = {
   number: 9,
   slug: 'numeration-through-history',
   title: 'Numeration Through History',
   summary:
     'Five systems, one winner: tally and grouping, the additive symbols of Egypt and Rome (and why they resist arithmetic), the place-value systems that arrived too early — Babylonian base sixty and the Mayan base twenty with their missing-zero costs — and the Indian decimal revolution that made zero a number and carried the world’s arithmetic.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'ans-tallies-groupings-and-additive-systems',
@@ -1210,6 +1276,449 @@ export const chapter09: Chapter = {
         { kind: 'para', text: 'Two systems, one engine, one shared flaw — quantified. Babylon floated on a ladder it could not anchor; the Maya anchored theirs but bent it for the calendar and left zero half-promoted. What neither had was a zero that behaves like every other digit, everywhere, in a base nobody had to bend. The next lesson closes the chapter with the civilisation that wrote it — and with the number that made every other number easy to name.' },
       ],
     },
+    {
+      id: 'ans-the-indian-decimal-revolution-and-zero',
+      number: '9.3',
+      title: 'The Indian Decimal Revolution and Zero',
+      prerequisites: ['ans-place-value-before-its-time-babylon-and-mesoamerica', 'ans-representation-theorem-unique-name', 'ans-arithmetic-in-other-bases'],
+      sources: ['lokavibhaga-458', 'aryabhata-499-aryabhatiya', 'bakhshali-manuscript', 'brahmagupta-628-brahmasphutasiddhanta', 'hindu-arabic-positional-history', 'al-uqlidisi-952-fusul', 'fibonacci-1202-liber-abaci', 'gwalior-inscription-876'],
+      concepts: [
+        'Śūnya',
+        'Śūnya-bindu',
+        'Khahara',
+        'Dust board',
+        'Zephirum',
+        'Cipher',
+        'Algorithm',
+        'Hindu–Arabic numerals',
+      ],
+      objectives: [
+        'trace the written record of zero from Lokavibhāga (458) and Āryabhaṭa (499) through the Bakhshālī dot and the Gwalior inscription of 876 — with the dating debate stated honestly',
+        "state Brahmagupta's zero rules of 628 and prove the modern verdicts: 0·n = 0 from the integer laws, division by zero impossible in both branches",
+        'prove that a zeroless positional string names the family {V·b^j} in any base, and that zero completes the uniqueness theorem of chapter 3',
+        "recount the transmission — al-Khwārizmī's textbook, al-Uqlīdisī's decimal fractions, Fibonacci's zephirum — and the words it left: zero, cipher, algorithm",
+        'write 3,601 and 2,807 in all five systems of this chapter and say exactly what each does with the empty place',
+      ],
+      blocks: [
+        { kind: 'para', text: 'Two lessons ago the chapter watched notation pay for scale with new symbols; last lesson it watched position arrive twice, a world apart, and stumble on the same stone — an empty place with nothing honest to write in it. This lesson is the completion, and its subject is the smallest number in the book. Position itself was never the bottleneck: Babylon computed in base sixty two thousand years before Christ without a zero worth the name. What India completed, between the fourth and the seventh century CE, was the whole engine at once — a ten-digit inventory in which the empty place gets a full digit of its own, that digit is given **arithmetic** as a number like any other, and a single convention (no leading zeros) pins every string to exactly one value.' },
+        { kind: 'para', text: 'The completion looks mystical in the retelling and administrative in the record, and the record is what this lesson follows. First the written trail: a Jain cosmology of 458, a rule of 499, a birch-bark manual with a dot in its empty places, a temple wall of 876. Then Brahmagupta in 628, doing what no surviving text had done — writing **rules for computing with zero** — and the two theorems behind his one overreach. Then the census of what the zero actually earns (more than a quarter of all names below ten thousand contain one). Then the machine at work — algorithms, dust boards, decimal fractions — and the journey west that gave English the words *zero*, *cipher* and *algorithm* from one Sanskrit word for void. Throughout, one exhibit carries the argument: the number 3,601, whose empty tens place defeats every system this chapter has met except the decimal one.' },
+        { kind: 'heading', text: 'The Empty Place Gets a Name' },
+        { kind: 'para', text: 'The first unambiguous written appearance of zero inside a positional number is not a royal inscription but a bookkeeping line in Jain cosmology. The **Lokavibhāga** ("parts of the universe"), a Sanskrit text composed in 458 CE by Siṃhasūri, computes vast cosmic time spans on a decimal place-value system and writes the empty places with **śūnya** — "void" — and its synonyms. That is the whole revolution in one word choice: the empty place is being *named*, inside the number, in running prose. Forty-one years later Āryabhaṭa (b. 476) stated the machinery itself as a rule — verse II.2 of the Āryabhaṭīya: *sthānāt sthānaṁ daśaguṇaṁ syāt*, "from place to place each is ten times the preceding." Place value is now explicit doctrine. An honest hedge belongs right here: whether a zero **symbol** was in use in Āryabhaṭa\'s own day is disputed — the classic translation notes that his word *kha* means "space" or "place", and his computations may have run on a board ruled into columns where an empty column simply stood blank. The rule of ten is certain; the symbol\'s date is not.' },
+        { kind: 'para', text: 'The symbol survives earliest in a working manual. In 1881, a bundle of birch bark was dug out of a field near the village of **Bakhshālī**, close to Mardan in present-day Khyber Pakhtunkhwa, Pakistan — some seventy leaves of a practical mathematics compendium (fractions, square roots, progressions, equations running to the quadratic) written in Śāradā script. Wherever a place is empty inside a number, a small black dot stands guard: the **śūnya-bindu**, "the dot of the empty place." In 2017 the Bodleian Library radiocarbon-dated three folios to **224–383 CE** (folio 16), **680–779 CE** (folio 17) and **885–993 CE** (folio 33) — different centuries, because the manuscript is a working copy assembled across generations — and announced "the oldest recorded origins of the symbol zero." The claim made headlines and drew immediate scholarly pushback: the publication bypassed academic channels, the calibration was questioned, and the pre-2017 consensus had read the manuscript as a copy of an older text whose notation\'s date need not equal the parchment\'s. In October 2024 Oxford itself revised the sampled leaves\' dating to **799–1102 CE**. The honest verdict: the Bakhshālī dot is among the earliest zero symbols we can hold, and *how* early is genuinely open.' },
+        { kind: 'para', text: 'What is not open is the first clearly **dated** zero. On the wall of the Chaturbhuj temple at Gwalior Fort, an inscription of **876 CE** records a gift of land — a garden measuring 270 by a stated width, and a daily allowance of 50 — and in both numbers the empty place is held by a small round circle. That is the oldest zero with a secure date cut in stone: not a debate, a floor. The story those dates tell is the one this chapter has learned to expect: the word (śūnya, 458), the mark (the bindu, in working copies whose earliest possible dates run centuries back), the number (Brahmagupta, 628), the monument (Gwalior, 876) — and then the world.' },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Three jobs, one symbol — in the order that matters',
+          text: 'Watch the sequence, because it is the spine of the whole lesson. The WORD for the empty place (śūnya, "void") appears inside numbers in 458. The MARK (the bindu dot of the Bakhshālī copies, the circle of Gwalior 876) holds places in written strings. The NUMBER — rules for computing with zero as a value like any other — arrives in 628 and is this lesson\'s centrepiece. Babylon used a gap, then a slanted-wedge placeholder, for over two millennia without any of the three; the Maya carved a shell for the second job and left the third unsettled. India ran all three jobs through one symbol and one word — which is why the completion happened there, in notation, before it happened anywhere else in theory.',
+        },
+        {
+          kind: 'table',
+          caption: 'The zero census — numbers 1 to 9,999 by name length: how many names contain no zero, and how many NEED one',
+          head: ['Name length d', 'Names of length d', 'Without any zero', 'Needing a zero'],
+          rows: [
+            ['2', '90', '81', '9'],
+            ['3', '900', '729', '171'],
+            ['4', '9,000', '6,561', '2,439'],
+            ['total (d ≤ 4)', '9,999', '7,380', '2,619'],
+          ],
+        },
+        { kind: 'para', text: 'Read the census. A name of length $d$ is a $d$-digit string with a nonzero leading digit: $9 \\cdot 10^{d-1}$ of them, of which $9^d$ avoid zero entirely — so $9 \\cdot 10^{d-1} - 9^d$ names **need** the zero to exist at all. Below 10,000 that is $9 + 171 + 2{,}439 = 2{,}619$ numbers: **26.2%** of all names — more than one in four — contain a zero. Each two-digit row grows worse than the last, and the trend never reverses: as names lengthen, the share needing zero approaches certainty. The zero is not decoration on the system; it is load-bearing masonry. Below 1,000 the count is 180, and a zeroless three-place alphabet $\{1, \\ldots, 9\}$ supplies only $9 + 81 + 729 = 819$ strings for the 999 numbers 1..999 — 180 numbers left with no honest name at all. What a zeroless system does to those 180 is what lesson 9.2 quantified: it bends them into ambiguity. The general form is worth stating once, for any base.' },
+        { kind: 'heading', text: 'Brahmagupta: Zero Becomes a Number' },
+        { kind: 'para', text: 'In 628 CE — the year he turned thirty — Brahmagupta wrote the **Brāhmasphuṭasiddhānta** ("the opening of the universe"), and in its eighteenth chapter he did something no surviving text had done: he treated **śūnya as a number with arithmetic**, alongside the fortunes (positives) and debts (negatives) this book met in chapter 6. The rules are stated in exactly that commercial language, verse by verse. Sums (18.30): "the sum of a negative and zero is negative, that of a positive and zero positive, and that of two zeros zero." Differences (18.32): "a negative minus zero is negative, a positive minus zero is positive; zero minus zero is zero." Products (18.33): "the product of zero and a negative, of zero and a positive, or of two zeros is zero." These are the identities we now call the **additive identity** laws — $a + 0 = a$, $a - 0 = a$, $a \\cdot 0 = 0$ — and they are not conventions but theorems, as the first derivation shows.' },
+        {
+          kind: 'derivation',
+          title: 'Why the product of zero is zero — not a rule but a consequence',
+          statement:
+            'For every number n, n · 0 = 0. The identity follows from the integer laws of chapter 6 alone: distributivity plus cancellation. No new rule is being invented — the rule is forced.',
+          steps: [
+            {
+              label: 'Distributivity against the zero sum',
+              formula: 'n \\cdot 0 + n \\cdot 0 = n \\cdot (0 + 0) = n \\cdot 0',
+              explanation:
+                'Zero added to itself is zero (18.30), so the right side collapses to $n \\cdot 0$. The left side is two copies of the same quantity $m = n \\cdot 0$: the equation says $m + m = m$.',
+            },
+            {
+              label: 'Cancellation finishes it',
+              formula: 'm + m = m \\implies (m + m) - m = m - m \\implies m = 0',
+              explanation:
+                'Subtract $m$ from both sides — legal because addition in $\mathbb{Z}$ cancels (chapter 6\'s additive inverses). The conclusion is $n \\cdot 0 = 0$ for every $n$, positive or negative — exactly Brahmagupta\'s 18.33, thirteen centuries early and proved rather than proclaimed.',
+            },
+          ],
+          result:
+            'a · 0 = 0 for every number a: the multiplication rule of zero is a theorem of the integer laws (distributivity + cancellation). Brahmagupta\'s verse 18.33 states a consequence, and states it correctly.',
+        },
+        { kind: 'para', text: 'The division rules are where the tradition overreached — honestly, and instructively. Verse 18.34 declares "**zero divided by zero is zero**", and verse 18.35 says a positive or negative divided by zero "has that [zero] as its divisor" — a fraction whose denominator is zero, which later Indian algebraists including Bhāskara II (Bījagaṇita, c. 1150) called the **khahara** and read as infinite. The modern verdict, framed by Euler in the eighteenth century, is colder: $0/0$ is **indeterminate**, and division by zero is not an operation in $\mathbb{Q}$ at all. Both verdicts are theorems, and they are worth proving — they are the same multiplication check run twice.' },
+        {
+          kind: 'derivation',
+          title: 'Division by zero is impossible — a two-branch theorem',
+          statement:
+            'For a ∈ ℚ, the expression a/0 names no rational number: if a ≠ 0, no q satisfies the multiplication check q · 0 = a; if a = 0, every q does — so the notation carries no unique value in either branch.',
+          steps: [
+            {
+              label: 'Branch 1: a ≠ 0 — the check has no solution',
+              formula: 'a/0 = q \\implies a = q \\cdot 0 = 0 \\implies a = 0 \\text{ — contradiction}',
+              explanation:
+                'Division must invert multiplication (chapter 7\'s field law): $a/0 = q$ has to mean $a = q \\cdot 0$. But the zero-product theorem just proved forces $q \\cdot 0 = 0$, so the check reads $a = 0$ — false whenever $a \\neq 0$. Sweep it concretely: no integer $q$ in $[-1000, 1000]$ satisfies $q \\cdot 0 = 6$. The check fails for every candidate; $6/0$ names nothing.',
+            },
+            {
+              label: 'Branch 2: a = 0 — the check has every solution',
+              formula: '0/0 = q \\iff q \\cdot 0 = 0 \\iff \\text{true for all } q \\in \\mathbb{Q}',
+              explanation:
+                'Every rational $q$ passes the multiplication check — of the 2,001 integer candidates tried, all 2,001 satisfy $q \\cdot 0 = 0$. A notation that names every value names none: uniqueness dies, and $0/0$ is **indeterminate**. This is precisely the failure Euler named.',
+            },
+            {
+              label: 'The verdict on the khahara',
+              formula: 'p/r \\text{ with } r = 0 \\implies p = (p/0) \\cdot 0 = 0 \\text{ — so } p \\text{ must be } 0',
+              explanation:
+                'The khahara — the zero-denominated fraction of 18.35 and Bhāskara II — is a beautiful dead end: if $6/0 = p/r$ in lowest terms were possible, then $6r = p \\cdot 0 = 0$, forcing $r = 0$, a contradiction of the lowest-terms assumption itself. The honest reading of history: Brahmagupta extended zero to every operation he had, failed exactly where the field laws bite, and the failure took until the modern era to name as structural rather than fixable.',
+            },
+          ],
+          result:
+            'a/0 is undefined for every a: for a ≠ 0 the multiplication check has no solution, and for a = 0 it has all of them. Division by zero is not forbidden by fiat — it is impossible under the laws arithmetic already accepted.',
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'The exam trap: "1/0 = infinity"',
+          text: 'No. Infinity is not a rational number, and the field laws of chapter 7 say division must invert multiplication: 1/0 = q would force 1 = q·0 = 0 — false for every q, including any infinite candidate. Writing 1/0 = ∞ imports a different number system (the extended reals, where 1/0 and 0/0 behave differently and neither behaves like a rational) and then misuses it inside ordinary arithmetic. In ℚ the only correct statement is undefined. The twin trap 0/0 = 1 — "anything divided by itself" — fails the same way: every q passes the check, so the notation picks out nothing. On exams, "undefined" is the full-credit answer and "infinity" is the planted error.',
+        },
+        {
+          kind: 'example',
+          title: 'Apply Brahmagupta\'s rules and the modern verdict: compute 0 − 7, 7 − 0, 0 × 7, 0 + 0 and 0 ÷ 7 — and say why 7 ÷ 0 has no answer',
+          steps: [
+            '$0 - 7 = -7$: zero minus a positive is negative (18.32\'s mirror — the debt remains a debt).',
+            '$7 - 0 = 7$: a positive minus zero is positive (18.32).',
+            '$0 \\times 7 = 0$: the product of zero with anything is zero (18.33 — and the derivation proves it).',
+            '$0 + 0 = 0$ (18.30), the additive identity doing its work.',
+            '$0 \\div 7 = 0$: check $7 \\cdot 0 = 0$ — a solution exists and is unique, so the division is legal.',
+            '$7 \\div 0$: the check $q \\cdot 0 = 7$ has no solution — branch 1 of the theorem. Hence undefined.',
+            'Hence Brahmagupta\'s rules survive four out of five as stated; the fifth is his one overreach, and the modern verdict turns on uniqueness, not on rhetoric.',
+          ],
+        },
+        { kind: 'heading', text: 'The Uniqueness Theorem, Completed' },
+        { kind: 'para', text: 'Chapter 3 proved that every number has exactly one decimal name; lesson 9.2 proved that a **zeroless** string names a whole geometric family. Now the loop closes, and the general theorem is worth seeing in any base $b$: a zeroless string naming the unit-anchored value $V$ names exactly the family $\\{V \\cdot b^j : j \\in \\mathbb{Z}\\}$ — sliding the string one rung multiplies its reading by $b$, forever in both directions. In base ten, the one-symbol string «5» reads $5, 50, 500, \\ldots$ and, below the unit place, $5/10 = 1/2$: the fractional arm of the same family. The zero digit kills the family in one stroke, because it is a digit that *names the empty place* — usable inside strings and trailing — while the no-leading-zero convention anchors which rung is the units. The next derivation assembles both halves.' },
+        {
+          kind: 'derivation',
+          title: 'Zero completes uniqueness',
+          statement:
+            'Over the alphabet {0, 1, …, 9} with the leading digit restricted to 1–9, every natural N ≥ 1 has exactly one decimal name — and the repeated-division algorithm finds it. A zeroless alphabet cannot even name every number, let alone uniquely.',
+          steps: [
+            {
+              label: 'Existence: the division algorithm issues the digits',
+              formula: 'N = 10q + a_0, \\quad a_0 = N \\bmod 10, \\quad \\text{repeat on } q',
+              explanation:
+                'The division algorithm (chapter 2) strips $N$ into remainder digits $a_0, a_1, a_2, \\ldots$ — each a legal digit in $\{0, \\ldots, 9\}$. The algorithm emits zeros by itself: $2{,}807$ strips to $2, 8, 0, 7$ and $3{,}601$ to $3, 6, 0, 1$ — the empty place gets a digit because the arithmetic demands it, exactly the bindu\'s job done in symbols.',
+            },
+            {
+              label: 'Uniqueness: the largest place dominates',
+              formula: '\\sum (a_i - a_i^{\\prime}) 10^{i} = 0, \\quad |a_i - a_i^{\\prime}| \\le 9 < 10',
+              explanation:
+                'If two names named one number, their digit-wise difference would sum to zero with every coefficient between $-9$ and $9$. The highest-place term dominates unless its coefficient is zero — so all coefficients are zero and the strings agree. Sweep it: among all 5,000 numbers up to 5,000, the division-algorithm digits produce no two identical strings. Chapter 3\'s uniqueness theorem is zero\'s theorem.',
+            },
+            {
+              label: 'The family collapses',
+              formula: '\\mathrm{readings}(\\langle a\\,b\\rangle) = \\{V \\cdot b^{j}\\} \\xrightarrow{\\;\\text{zero + anchor}\\;} \\{V\\}',
+              explanation:
+                'Lesson 9.2\'s ambiguity theorem holds in every base, zeroless: the readings of «1 1» in base sixty are $\\{61 \\cdot 60^j\\}$ — $61$, $3{,}660$, $219{,}600$, and, below the unit place, $61/60 = 1 + 1/60$ — a family with no floor and no ceiling. Writing the zero changes the string: $2{,}807 \\times 60 = 168{,}420 = \\langle 46, 47, 0 \\rangle$ — the appended zero GROUP is exactly the trailing mark Babylon could not write and the digit does write. One string, one value, at every scale: the geometric family collapses to a point.',
+            },
+          ],
+          result:
+            'With zero as a digit and the no-leading-zero anchor, every number has exactly one name — chapter 3\'s representation theorem, now seen as the payoff of the digit India added. The zeroless systems of lessons 9.1–9.2 fail this theorem: additively by printing scales in full, positionally by naming families.',
+        },
+        { kind: 'para', text: 'The trailing-zero law deserves its own sentence, because it is the fingerprint of the completion. Multiply by ten and the decimal name appends exactly one zero digit — $2{,}807 \\times 10 = 28{,}070$; multiply by sixty and a base-sixty name appends a whole zero group — $2{,}807 \\times 60 = 168{,}420 = \\langle 46, 47, 0 \\rangle$, a group Babylon\'s notation could not write and the Maya\'s shell could. Multiplication by the base has become an action **on the name**: scale is visible in the string because the zero holds every empty rung. That is what "the system scales" means, mechanically — and no additive system can even state it, since their names never repeat a symbol class for an empty scale (they simply skip it, which is why hieroglyphs and Roman numerals need no zero at all).' },
+        { kind: 'heading', text: 'The Machine Goes to Work' },
+        { kind: 'para', text: 'What the ten-digit system did to computation was not new answers but a new *form* of answer: arithmetic became **algorithms** — fixed step-by-step procedures on written digits, teachable by rule alone. The Indian methods were carried out on a **dust board** (Sanskrit *dhūli-karman*, the "dust work"; Arabic *takht*): a tray of fine sand or dust on which digits were written, shifted and erased as carrying proceeded — the erasability was the point, since the algorithms overwrite their own intermediates. In the western Islamic world the numerals themselves took the name **ghubar** ("dust") numerals from that working surface. The digit machinery — column-wise addition with carries, subtraction with borrows, long multiplication and division — is the direct ancestor of the school algorithms this book\'s first volume banked, and chapter 5\'s casting-out-nines check travelled with them.' },
+        { kind: 'para', text: 'Two upgrades mattered most. The first is portability: in Damascus in 952–53, Abu\'l-Hasan al-Uqlīdisī wrote the **Kitāb al-Fuṣūl fī al-Ḥisāb al-Hindī**, the earliest surviving book teaching the Hindu reckoning in Arabic, and showed how to run every algorithm **with pen and paper** instead of the dust board — arithmetic that travels in books instead of trays. The second is extension: the Fuṣūl contains the earliest known direct treatment of **decimal fractions**, with a sign separating the fractional places — five centuries before Simon Stevin\'s *De Thiende* (chapter 7\'s stevin-1585-thiende) made them a cause in Europe, and before al-Kāshī\'s better-known treatment. An honest hedge is due: the historian Saidan read al-Uqlīdisī as fully grasping the decimal-fraction idea and proposing a good decimal sign; Rashed\'s stricter reading finds the idea implicit rather than theorized. The disagreement is what honest history looks like — and either way, the zero digit had learned to work below the units place.' },
+        {
+          kind: 'example',
+          title: 'The capstone exhibit: write 3,601 in all five systems of this chapter, and say what each does with the empty tens place',
+          steps: [
+            'Hieroglyphs (9.1): 3 pointed fingers + 6 coils of rope + 1 stroke — 10 symbols; the tens place holds nothing and the additive string simply skips it.',
+            'Roman (9.1): MMMDCI — 6 letters; additive classes again, no zero needed, the classical ceiling 3,999 comfortably respected.',
+            'Babylonian (9.2): $3{,}601 = 1 \\cdot 3{,}600 + 0 \\cdot 60 + 1 = \\langle 1, 0, 1 \\rangle$ — the middle place is a bare GAP. The zeroless string «1 1» names the whole family $\\{3{,}601 \\cdot 60^j\\}$: also $216{,}060$, or $12{,}963{,}600$, or $60 + 1/60$.',
+            'Mayan (9.2): on the calendar ladder $3{,}601 = 10 \\cdot 360 + 0 \\cdot 20 + 1 = \\langle 10, 0, 1 \\rangle$ — the shell pins the gap; on the pure ladder the same string reads $4{,}001$, a gap of $400 = 10 \\cdot (400 - 360)$. The kink doubles the string.',
+            'Decimal (this lesson): $\\langle 3, 6, 0, 1 \\rangle$ — the zero digit holds the tens place, the name is unique, and no second reading exists.',
+            'Hence the verdict: one number, five systems, and only the completed one writes it as a single value.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'One number, five systems: 3,601 in hieroglyphs, Roman numerals, Babylonian base sixty, Mayan dot-bar-shell and decimal. The empty tens place defeats the additive systems silently (they skip it), the Babylonian string honestly (a gap — and a family of readings), the Mayan string with the shell (but the 18-kink still doubles the reading), and only the decimal name is one number — because the zero digit holds the place.',
+          svg: capstone3601Svg(),
+        },
+        { kind: 'heading', text: 'The Journey West' },
+        { kind: 'para', text: 'The system that could do all this stayed a professional secret until Baghdad made it a textbook. Around 825, al-Khwārizmī wrote the *Kitāb al-Ḥisāb al-Hindī* — the book on reckoning with Hindu numerals that survives only through a twelfth-century Latin translation, titled *Algoritmi de numero Indorum* after its author\'s Latinized name: the word **algorithm** is his name wearing a language. This book met him in chapter 3; here he is the hinge of the journey. The numerals travelled west in two Islamic worlds with two shapes — the eastern forms straight from India, the western **ghubar** forms shaped by the dust board — and it was the western forms, carried across the Mediterranean, that Latin Europe first met. Laplace\'s tribute is the standard summary: "It is India that gave us the ingenious method of expressing all numbers by means of ten symbols, each symbol receiving a value of position as well as an absolute value … it escaped the genius of Archimedes and Apollonius."' },
+        { kind: 'para', text: 'Europe received it twice. The second and decisive receipt is the opening sentence of Fibonacci\'s *Liber Abaci* (1202), which this book met in chapter 1 for rabbits and chapter 5 for casting out nines: "These are the nine figures of the Indians: 9 8 7 6 5 4 3 2 1. With these nine figures, and with this sign 0, which in Arabic is called **zephirum**, any number can be written, as will below be demonstrated." The Pisa merchant\'s framing is precise — nine figures *plus* a sign — and it launched European commercial arithmetic from the Italian trade schools. Adoption still took centuries, and met real resistance: Florence\'s money-changers\' guild banned the new numerals from its account books in **1299**, on the stated fear of fraud — a 0 could be doctored into a 6 or a 9, a 1 into a 7 — in a way Roman numerals resisted. Printing, not persuasion, settled it: the numerals standardized in the first printed arithmetics, and the merchant ledgers followed.' },
+        { kind: 'para', text: 'The words are the fossil record, and they all point home. Sanskrit **śūnya** ("void") became Arabic **ṣifr** ("empty"); ṣifr entered medieval Latin twice — as **zephirum** in Fibonacci, which Italian softened to *zefiro* and Venetian clipped to **zero**, and as **cifra**, which became **cipher** — one Arabic void becoming two English words, one for the digit, one for the code it later named. And al-Khwārizmī\'s Latinized name became **algorithm**, the word for the very idea the system introduced: computation as a rule-following procedure. Three everyday words, one Sanskrit empty place. The digit shapes themselves evolved along the way — Brahmi\'s tally-like strokes of the third century BCE through the Nāgarī and ghubar forms to the printed European set — but the shapes are costume; the structure that survived every costume is the one this chapter proved: ten digits, one of them zero, positions worth powers of ten.' },
+        {
+          kind: 'figure',
+          caption:
+            'The decimal revolution on a timeline: the word (Lokavibhāga 458), the rule (Āryabhaṭa 499), the number (Brahmagupta 628), the textbook (al-Khwārizmī c. 825), the stone (Gwalior 876), the fractions (al-Uqlīdisī 952), the European landing (Fibonacci 1202), and the resistance (Florence\'s ban of 1299). The Bakhshālī birch bark brackets the story from above — its dot is early, its date honestly contested.',
+          svg: zeroTimelineSvg(),
+        },
+        { kind: 'heading', text: 'The Five-System Verdict' },
+        { kind: 'para', text: 'Five systems have now told one story. The additive pair (Egypt, Rome) print every scale in symbols and need no zero because they skip empty scales — at the price of digit-sum printing, new symbol classes, and arithmetic that stalls. The positional pair (Babylon, Maya) own position and its tables but could not finish the digit inventory: one left the scale floating, the other bent the ladder. The completed system fixes the inventory at ten, gives the empty place a full digit, gives that digit arithmetic, and anchors the name. Set them in a final table and the chapter\'s argument is the table.' },
+        {
+          kind: 'table',
+          caption: 'The five-system verdict, closed — what each notation is, and what it cannot do',
+          head: ['System', 'Inventory', 'Place value', 'Zero', 'The verdict'],
+          rows: [
+            ['Hieroglyphs', '7 symbol classes, repeated per digit', 'none', 'none — empty scales are skipped', 'a notation, not a machine'],
+            ['Roman', '7 letters + 6 subtractive pairs', 'local rule only', 'none', 'a ledger, not a laboratory'],
+            ['Babylonian', '2 wedge forms', 'base 60', 'internal placeholder, late', 'position without a floor'],
+            ['Mayan', 'dot, bar, shell', 'base 20 with an 18-kink', 'shell placeholder from the start', 'position with a kink'],
+            ['Decimal', '10 digits, one of them zero', 'base 10', 'a digit AND a number', 'the machine as completed'],
+          ],
+        },
+        { kind: 'para', text: 'The completion\'s bill of particulars is short and measurable. The zero digit is load-bearing: 2,619 of the 9,999 names below 10,000 — 26.2% — contain one, and the share only grows. The zero digit is structural: every product by the base appends one, so scale lives in the string. The zero digit is a citizen: $a + 0 = a$, $a - 0 = a$, $a \\cdot 0 = 0$ are theorems, and the one place the old rules overreached — division by zero — is impossible under the field laws rather than merely unreached. And the name is unique: chapter 3\'s representation theorem is, on inspection, the theorem the zero digit completes. The most valuable digit in the system is the one that names nothing — and precisely by naming that nothing, it makes every number nameable.' },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'The zero rules are permanent exam furniture. Number-system items test the identities directly (0 × (−5), 0 − 7, a − 0) and plant the twin traps this lesson proved wrong: "0/0 = 1" (indeterminate — every q passes the check) and "1/0 = ∞" (undefined — no q passes it). Place-value questions ("in 2,807 the digit 8 means 800 because the zero holds the tens") run on the uniqueness theorem of this lesson; base-conversion items ask for zero digits inside answers (write 3,601 in base sixty: ⟨1, 0, 1⟩) exactly because the zero digit is what makes the answer well-posed. Digital-aptitude sets borrow the census argument (how many numbers below 1,000 contain a zero digit: 180). And the occasional general-knowledge item mines the etymology — śūnya, ṣifr, zephirum, zero, cipher, algorithm — that this lesson traced. All items here are exam-style; none reproduce a past paper.',
+        },
+        { kind: 'para', text: 'The chapter that opened with notches on a baboon fibula closes with a dot that holds a place in every number ever written since. Between those marks lie the whole argument: counting is bundling, additive systems pay per scale, position without zero names families, and zero — word, mark, number — turns position into a machine. Five systems met one number, and the winner won by completing its alphabet.' },
+        { kind: 'para', text: 'Chapter 10, the book\'s last, stops treating these systems as artifacts and draws the map they live on: the natural numbers and their closure failures, the systems built to repair them, and the structure — ring, field, base — that the whole tour has been orbiting. The history is done; the geography remains.' },
+        {
+          kind: 'terms',
+          items: [
+            { term: 'Śūnya', def: 'Sanskrit "void" — the word for zero standing inside positional numbers from the Lokavibhāga (458 CE) onward; the ancestor, through Arabic ṣifr, of both "zero" and "cipher".' },
+            { term: 'Śūnya-bindu', def: '"The dot of the empty place" — the small black dot holding empty positions in the Bakhshālī birch-bark manual (found 1881 near Mardan; its folia radiocarbon-date in scattered ranges and Oxford\'s 2017 "oldest zero" reading was revised in 2024).' },
+            { term: 'Khahara', def: 'The zero-denominated fraction of Brahmagupta\'s 18.35, later read as infinite by Bhāskara II — the historical attempt at n/0 that the field laws forbid: for a ≠ 0 no q passes the multiplication check, for a = 0 every q does.' },
+            { term: 'Dust board', def: 'The tray of fine sand (Sanskrit dhūli-karman, Arabic takht) on which the digit algorithms were worked with erasable digits — the working surface that named the ghubar "dust" numerals, retired by al-Uqlīdisī\'s pen-and-paper methods in 952.' },
+            { term: 'Zephirum', def: "Fibonacci's Latin rendering of ṣifr in the Liber Abaci (1202) — 'the sign 0, which in Arabic is called zephirum'; through Italian zefiro it became 'zero'." },
+            { term: 'Cipher', def: 'The second English descendant of Arabic ṣifr, via medieval Latin cifra — first naming the zero digit itself, then any secret code written in figures.' },
+            { term: 'Algorithm', def: 'Computation as a fixed rule-following procedure on digits — the word from al-Khwārizmī\'s Latinized name (Algoritmi de numero Indorum), the idea from the ten-digit system his c. 825 textbook taught.' },
+            { term: 'Hindu–Arabic numerals', def: 'The completed positional system: ten digits including zero, place value in base ten, unique names — Indian in origin, Arabic in transmission, European by adoption; the machine this book\'s arithmetic runs on.' },
+          ],
+        },
+        {
+          kind: 'quiz',
+          title: 'Check yourself',
+          items: [
+            {
+              q: 'Under Brahmagupta\'s rules — and under the integer laws of chapter 6 — what is the product of zero with any number?',
+              options: ['It becomes zero, and this is provable from distributivity and cancellation', 'It stays equal to that number', 'It becomes one', 'It is undefined'],
+              answer: 0,
+              explain:
+                'n·0 + n·0 = n·(0+0) = n·0 forces 2m = m, and cancellation gives m = 0 — the identity is a theorem, not a convention (verse 18.33 states it correctly). Options 1 and 2 break the zero-product structure, and option 3 confuses zero with the multiplicative identity — the one number whose product rule is NOT forced.',
+            },
+            {
+              q: 'In the rational numbers ℚ, what is 6 ÷ 0?',
+              options: ['Undefined — no value of q satisfies the check q · 0 = 6', 'Infinity', 'Six', 'Zero'],
+              answer: 0,
+              explain:
+                'Division must invert multiplication: 6/0 = q would force 6 = q·0 = 0, false for every q — branch 1 of the impossibility theorem. Option 1 imports the extended reals and then misuses them inside ℚ; options 2 and 3 fail the same one-line check. The twin case 0/0 is worse: EVERY q passes, so it is indeterminate.',
+            },
+            {
+              q: 'In the decimal name 2,807, the job of the zero is to —',
+              options: ['mean the number is even', 'add nothing — it can be removed safely', 'pin the tens place so the 8 means hundreds and the string stays unique', 'mark the number as negative'],
+              answer: 2,
+              explain:
+                'Remove the zero and the name becomes 287 — a different number. The zero digit names the empty tens place, which is what lets every other digit keep its scale: this is the census\'s point (2,619 of the 9,999 names below 10,000 contain a zero) and the reason the zeroless Babylonian string «46 47» names a whole family. Option 0 confuses the digit with the value, option 1 is the classic misreading, option 3 is pure invention.',
+            },
+            {
+              q: 'The English word "zero" descends from —',
+              options: ['Latin nullus ("none") via French', 'the Greek word for circle', 'Arabic ṣifr ("empty") via Fibonacci\'s Latin zephirum and Venetian zefiro', 'the Roman numeral N for nulla'],
+              answer: 2,
+              explain:
+                'śūnya → ṣifr → zephirum (1202) → zefiro → zero, with ṣifr also giving Latin cifra → cipher, and al-Khwārizmī giving algorithm — three English words from one Sanskrit void. Option 0 and 3 invent a Latin lineage, option 2 mistakes the shape of the Gwalior circle for its name — the symbol\'s geometry never named it.',
+            },
+            {
+              q: 'The Bakhshālī manuscript\'s dot (śūnya-bindu) is —',
+              options: ['a placeholder marking an empty place in positional numbers — the mark-stage of zero, not yet the number', 'a symbol for ten', 'a punctuation mark ending a sentence', 'the first decimal point'],
+              answer: 0,
+              explain:
+                'The dot holds empty places inside numbers — job two of the three (word, mark, number) — while rules for computing WITH zero as a value arrived with Brahmagupta in 628, and the dot\'s own dating is honestly contested (radiocarbon ranges from 224–383 to 885–993 across folia; Oxford revised its reading in 2024). Option 1 is a Babylonian corner wedge, option 3 describes a sign five centuries al-Uqlīdisī\'s junior, and option 2 confuses a mathematical symbol with prose punctuation.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'Compute, citing Brahmagupta\'s verse for each: 0 + 8, 8 − 0, 0 × 8, 0 − 8.',
+                  solution: [
+                    '$0 + 8 = 8$: the sum of a positive and zero is positive (18.30).',
+                    '$8 - 0 = 8$: a positive minus zero is positive (18.32).',
+                    '$0 \\times 8 = 0$: the product of zero with anything is zero (18.33 — and the derivation proves it from distributivity + cancellation).',
+                    '$0 - 8 = -8$: zero minus a positive is negative (18.32\'s mirror rule — the debt remains a debt).',
+                  ],
+                  answer: '8; 8; 0; −8',
+                },
+                {
+                  q: 'List every two-digit number whose decimal name contains a zero, and check the census row.',
+                  solution: [
+                    'The names: 10, 20, 30, 40, 50, 60, 70, 80, 90 — nine numbers, all multiples of ten.',
+                    'Census check: length-2 names number $9 \\cdot 10 = 90$; zeroless ones $9^2 = 81$; so $90 - 81 = 9$ contain a zero. ✓',
+                    'Every one of the nine is of the form $d \\cdot 10$: a trailing zero digit holding the units place — exactly the mark Babylon could never write.',
+                  ],
+                  answer: '10, 20, 30, 40, 50, 60, 70, 80, 90 — 9 numbers, matching 90 − 81 = 9',
+                },
+                {
+                  q: 'Write 3,601 in Roman numerals and count the letters.',
+                  solution: [
+                    'Thousands: 3,000 = MMM. Hundreds: 600 = DC. Tens: 0 — nothing to write. Units: 1 = I.',
+                    'Join: MMMDCI.',
+                    'Count: 6 letters — additive classes, no zero ever needed, and 3,601 sits safely under the classical ceiling of 3,999.',
+                  ],
+                  answer: 'MMMDCI, 6 letters',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'Convert 3,601 to a Babylonian string, mark the gap, and give two other readings of the zeroless string.',
+                  solution: [
+                    'Divide by 60: $3{,}601 = 60 \\cdot 60 + 1$, remainder 1.',
+                    'Divide 60: $60 = 60 \\cdot 1 + 0$, remainder 0 — the empty middle place.',
+                    'Divide 1: quotient 0, remainder 1. Read backwards: ⟨1, 0, 1⟩.',
+                    'The zeroless string «1 1» names the family $\\{3{,}601 \\cdot 60^j\\}$: besides $3{,}601$ itself, $3{,}601 \\cdot 60 = 216{,}060$ and, below the unit place, $3{,}601/60 = 60 + 1/60$.',
+                  ],
+                  answer: '⟨1, 0, 1⟩; the family also contains 216,060 and 60 + 1/60',
+                },
+                {
+                  q: 'Read the Mayan string ⟨10, 0, 1⟩ on both ladders and find the exact gap.',
+                  solution: [
+                    'Calendar ladder (top place = tun = 360): $10 \\cdot 360 + 0 \\cdot 20 + 1 = 3{,}601$.',
+                    'Pure vigesimal ladder (top = 400): $10 \\cdot 400 + 0 \\cdot 20 + 1 = 4{,}001$.',
+                    'Gap: $4{,}001 - 3{,}601 = 400 = 10 \\cdot (400 - 360)$ — the kink\'s price, paid ten times over.',
+                    'The shell does the placeholder\'s work in both readings — but which ladder is being read is knowledge the string does not carry.',
+                  ],
+                  answer: '3,601 (calendar) and 4,001 (pure); gap 400',
+                },
+                {
+                  q: 'Count the numbers from 1 to 999 whose decimal name contains a zero — two ways.',
+                  solution: [
+                    'Way one (by length): two-digit names $9 \\cdot 10 - 9^2 = 9$; three-digit names $9 \\cdot 100 - 9^3 = 900 - 729 = 171$; total $9 + 171 = 180$.',
+                    'Way two (complement): names 1..999 total 999; zeroless names are $9 + 81 + 729 = 819$; so $999 - 819 = 180$. ✓',
+                    'Cross-check the identity: a zeroless three-place alphabet offers $9 + 81 + 729 = 819$ strings for 999 numbers — 180 numbers left nameless without zero.',
+                  ],
+                  answer: '180, both ways',
+                },
+                {
+                  q: 'Write 2,807 in all five systems. Which systems need no zero for it, and why?',
+                  solution: [
+                    'Hieroglyphs: 2 fingers + 8 coils + 0 tens (skipped) + 7 strokes = 17 symbols.',
+                    'Roman: MMDCCCVII — 9 letters.',
+                    'Babylonian: $2{,}807 = 46 \\cdot 60 + 47 = \\langle 46, 47 \\rangle$ — 4 corner + 6 vertical = 10 wedges, then 4 corner + 7 vertical = 11 wedges: 21 wedges, no internal gap for THIS number.',
+                    'Mayan (calendar ladder): $2{,}807 = 7 \\cdot 360 + 14 \\cdot 20 + 7 = \\langle 7, 14, 7 \\rangle$ — 1 bar + 2 dots, 2 bars + 4 dots, 1 bar + 2 dots.',
+                    'Decimal: ⟨2, 8, 0, 7⟩ — the zero is required.',
+                    'The additive pair needs no zero because it prints each scale in full and skips empty ones; the positional pair rides its luck here (no empty place occurs) — but $2{,}807 \\times 60 = 168{,}420 = \\langle 46, 47, 0 \\rangle$ needs one immediately, and Babylon cannot write it.',
+                  ],
+                  answer: '17 symbols; MMDCCCVII; ⟨46,47⟩ (21 wedges); ⟨7,14,7⟩; ⟨2,8,0,7⟩',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Prove from the integer laws that 0 · n = 0 for every integer n.',
+                  solution: [
+                    'Let $m = n \\cdot 0$. By distributivity, $m + m = n \\cdot 0 + n \\cdot 0 = n \\cdot (0 + 0) = n \\cdot 0 = m$.',
+                    'So $m + m = m$; subtract $m$ from both sides (cancellation, chapter 6\'s additive inverses): $m = 0$.',
+                    'Hence $n \\cdot 0 = 0$ for every $n$ — positive, negative or zero itself ($0 \\cdot 0 = 0$).',
+                    'Hence Brahmagupta\'s 18.33 is a theorem of the laws, and the zero-product fact is the engine of the division-by-zero impossibility.',
+                  ],
+                  answer: 'n·0 + n·0 = n·(0+0) = n·0 forces n·0 = 0 by cancellation',
+                },
+                {
+                  q: 'The one-symbol string «5» in a zeroless decimal system names a family. Write its first three members and its first member below the unit place.',
+                  solution: [
+                    'The ambiguity theorem in base ten: the readings of «5» are $\\{5 \\cdot 10^j : j \\in \\mathbb{Z}\\}$.',
+                    'Upward: $5, 50, 500, \\ldots$',
+                    'Downward: $5 \\cdot 10^{-1} = 1/2$ — the fractional arm, legitimate because zeroless systems name fractions on the same places.',
+                    'One mark, infinitely many values: the whole reason the empty place needs a digit.',
+                  ],
+                  answer: '5, 50, 500, … and 1/2',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Prove that division by zero is impossible in ℚ, treating both branches.',
+                  solution: [
+                    'Branch 1 ($a \\neq 0$): if $a/0 = q$ then the multiplication check demands $a = q \\cdot 0 = 0$ — contradicting $a \\neq 0$. No solution exists.',
+                    'Branch 2 ($a = 0$): the check $q \\cdot 0 = 0$ is satisfied by EVERY $q \\in \\mathbb{Q}$ — of 2,001 integer candidates tried, all pass. The notation names no unique value: indeterminate.',
+                    'The khahara fails the same test structurally: if $6/0 = p/r$ in lowest terms, then $6r = p \\cdot 0 = 0$, forcing $r = 0$ — contradicting lowest terms.',
+                    'Hence $a/0$ is undefined for every $a$: not forbidden by fiat, but impossible under the laws arithmetic already accepted.',
+                  ],
+                  answer: 'a ≠ 0: no solution; a = 0: every solution — undefined in both branches',
+                },
+                {
+                  q: 'Verify the closed census formula N(k) = (10^k − 1) − (9^(k+1) − 9)/8 at k = 2, 3, 4, and explain why the k = 1 term contributes nothing.',
+                  solution: [
+                    '$k = 2$: $(100 - 1) - (9^3 - 9)/8 = 99 - 720/8 = 99 - 90 = 9$. ✓',
+                    '$k = 3$: $(1{,}000 - 1) - (9^4 - 9)/8 = 999 - 6{,}552/8 = 999 - 819 = 180$. ✓',
+                    '$k = 4$: $(10{,}000 - 1) - (9^5 - 9)/8 = 9{,}999 - 59{,}040/8 = 9{,}999 - 7{,}380 = 2{,}619$. ✓',
+                    'Why k = 1 contributes 0: one-digit names are $9 \\cdot 1 = 9$, all of them zeroless ($9^1 = 9$) — no leading digit is ever 0 by the anchor convention, so the zero census starts at length 2.',
+                  ],
+                  answer: '9; 180; 2,619 — and length-1 contributes 0 because 9 − 9 = 0',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'The Bakhshālī dating debate: state the three 2017 radiocarbon ranges, the 2024 revision, and the two reasons scholars rejected the "oldest zero" headline.',
+                  solution: [
+                    'The 2017 Bodleian ranges: folio 16 at 224–383 CE, folio 17 at 680–779 CE, folio 33 at 885–993 CE — leaves from different centuries of a working copy assembled across generations.',
+                    'The October 2024 revision: Oxford re-dated the sampled leaves to 799–1102 CE.',
+                    'Objection one (methodological): the announcement ran through press releases and video rather than peer-reviewed channels, and calibration objections (including Houben\'s, over altitude and background radiation) were raised.',
+                    'Objection two (the copy question): the pre-2017 consensus read the manuscript as a COPY of an older text — the parchment\'s age does not date its notation, and the Śāradā-script contents argued later composition than the earliest bark.',
+                    'The honest conclusion this lesson draws: the dot is among the earliest zero symbols we can hold; "how early" stays open; Gwalior 876 remains the oldest clearly dated zero.',
+                  ],
+                  answer: '224–383, 680–779, 885–993 (2017); revised 799–1102 (2024); pushback on publication channel and on dating notation from parchment',
+                },
+                {
+                  q: 'One void, three words: trace śūnya through ṣifr into zero, cipher and algorithm, naming the carrier of each step.',
+                  solution: [
+                    'Sanskrit śūnya ("void") — the word the Lokavibhāga (458) wrote inside positional numbers; the empty place named.',
+                    'Arabic ṣifr ("empty") — the translation of śūnya as the Hindu system entered the Islamic world; the ghubar ("dust") numerals carried it west.',
+                    'Latin zephirum — Fibonacci\'s 1202 rendering ("the sign 0, which in Arabic is called zephirum"); Italian zefiro, Venetian zero — the digit\'s English name.',
+                    'Medieval Latin cifra — the same ṣifr through a different door; cipher, first for the digit, then for any figure-code: secret writing.',
+                    "al-Khwārizmī (c. 825) — his name Latinized to Algoritmi in the translation's title; algorithm, the word for rule-following computation itself.",
+                    'Hence three everyday English words, all naming the same nothing — the clearest fossil record the decimal revolution could have left.',
+                  ],
+                  answer: 'śūnya → ṣifr → {zephirum → zero; cifra → cipher}, with al-Khwārizmī → algorithm',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Prove the generalized ambiguity theorem for any zeroless positional string in any base b, then prove zero completes uniqueness — and conclude why the tenth digit is the keystone rather than "just another digit".',
+                  solution: [
+                    'Ambiguity (any base $b$): a $k$-group zeroless string «a_1 … a_k» with $1 \\le a_i \\le b-1$ read with its lowest group on rung $m$ names $V \\cdot b^m$ where $V = \\sum a_i b^{k-i}$. Choosing a different rung $m + j$ names $V \\cdot b^{m+j}$: the readings are exactly the orbit $\\{V \\cdot b^j : j \\in \\mathbb{Z}\\}$ — a geometric family, never a single value.',
+                    'Existence with zero: the division algorithm emits digits $a_0 = N \\bmod b, a_1 = \\lfloor N/b \\rfloor \\bmod b, \\ldots$, each in $\{0, \\ldots, b-1\}$ — including zeros, internally and trailing (e.g. $2{,}807 \\times 10 = 28{,}070$; $\\langle 46, 47, 0 \\rangle$ for the base-sixty case).',
+                    'Uniqueness with zero: two digit strings naming one $N$ differ digit-wise to give $\\sum c_i b^i = 0$ with $|c_i| \\le b - 1 < b$; the highest-place term dominates in absolute value unless $c_i = 0$ — so all $c_i = 0$ and the strings agree. The no-leading-zero convention fixes the units rung, killing the $b^j$ freedom.',
+                    'Conclusion: a zeroless alphabet names families (and below $b^k$ it cannot even name every number — 819 strings for 999 numbers in the three-place decimal case); adding zero as a digit with the anchor convention collapses every family to a point. The tenth digit is the keystone: it carries no value and all the structure.',
+                  ],
+                  answer: 'readings = {V·b^j} zeroless; with zero + anchor, exactly one name — uniqueness is zero\'s theorem',
+                },
+              ],
+            },
+          ],
+        },
+        { kind: 'formula', name: 'The decimal name (completed)', latex: 'N = \\sum_{i=0}^{d} a_i \\, 10^{i}, \\quad a_d \\in \\{1, \\ldots, 9\\}, \\ a_i \\in \\{0, \\ldots, 9\\}', note: 'exactly one name per number — chapter 3\'s theorem, completed by the zero digit' },
+        { kind: 'formula', name: "Brahmagupta's zero rules (628)", latex: 'a + 0 = a, \\quad a - 0 = a, \\quad a \\cdot 0 = 0', note: 'BSS 18.30/18.32/18.33 — the identities are theorems (distributivity + cancellation)' },
+        { kind: 'formula', name: 'The division-by-zero theorem', latex: 'a/0 = q \\iff a = q \\cdot 0 = 0', note: 'no q when a ≠ 0; every q when a = 0 — undefined in ℚ, both branches' },
+        { kind: 'formula', name: 'The zero census', latex: 'N(k) = (10^{k} - 1) - \\frac{9^{k+1} - 9}{8}', note: 'names below 10^k containing a zero: 9, 180, 2,619 for k = 2, 3, 4 — 26.2% below 10^4' },
+      ],
+    },
   ],
-  plannedLessons: ['The Indian Decimal Revolution and Zero'],
+  plannedLessons: [],
 }
