@@ -59,8 +59,8 @@ Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' (create verify-b
 verify-book3-ch02.ts; v2 two-lesson scope; whitelist e2e-al-31/32 before committing); run 72 = 3.3 'Special
 Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem'.
 
-**Push:** protocol-push OK — ship `b6ac4fa` pushed `5a250a9..b6ac4fa` to main (carrying run 69's memory commit
-`49ad4d5`); ls-remote verified remote main = local HEAD (`b6ac4fa`); tree clean after. PAT hygiene: used only
+**Push:** protocol-push OK — ship `e76161e` pushed `5a250a9..e76161e` to main (carrying run 69's memory commit
+`49ad4d5`); ls-remote verified remote main = local HEAD (`e76161e`); tree clean after. PAT hygiene: used only
 inside the one-time push URL, never written to any file.
 
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
