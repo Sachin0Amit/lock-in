@@ -47,8 +47,9 @@ open 2/4 of 11 — repo-wide 96 lessons / 468,328 words / 739 terms / 480 quiz /
 unit-4 completion review — extend verify-book3-ch04.ts with pre-writing sections for 4.3/4.4 FIRST (the identities-read-
 backwards sweeps + the factor-theorem engine), whitelist e2e-al-43/44 in .gitignore BEFORE committing, never ch. 5.
 
-**Git:** ship commit (ch-04.ts + book.ts + verify + 4 E2E scripts + .gitignore whitelist + the six memory docs), then the
-protocol push; remote verified via one-time-URL ls-remote (sha noted in run73Extras / the memory commit).
+**Git:** ship commit 23067c3 (ch-04.ts + book.ts + verify + 4 E2E scripts + .gitignore whitelist + the six memory docs),
+pushed 9cf5ecf..23067c3 per the protocol (the run-72 memory commit 4e2fcb5 rode the same push); remote main verified =
+23067c3a87f694fdc6e5017227ebaa4bb2259b09 via one-time-URL ls-remote = local HEAD at verification time.
 
 ---
 
