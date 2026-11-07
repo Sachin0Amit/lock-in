@@ -61,7 +61,8 @@ regenerated (booksLive 3, backlog 280).
 **Remaining:** authoring begins at run 67 — AL ch. 1 lessons 1.1 + 1.2 (two-lesson cadence); unit-1 completion review lands with 1.3 +
 1.4 at run 68. EXAM_REGISTRY research still pending sometime. Voice queue empty.
 
-**Git:** ship commit + memory commit; protocol push; ls-remote verified (sha below).
+**Push record:** ship commit `6c2469b` pushed per protocol — remote main advanced `de14bc3..6c2469b`; one-time-URL ls-remote
+verified refs/heads/main = `6c2469b` = local HEAD at 2026-11-07 ~15:10 IST. Synced sha recorded here and in the memory commit.
 
 ## 2026-11-07 — RUN 65 (fired 13:45:01 IST — the payload's "+08:00" 16:15:00 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071615): ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' CLOSES 3/3 — 10.3 'The Toolkit Synthesis' + the unit-10 completion review + **BOOK #2 'ARITHMETIC AND NUMBER SYSTEMS' COMPLETE** — 10/10 chapters, 34 lessons, 184,361 words; the fifth delivery of this job's payload, the second consecutive fully-executed run
 
