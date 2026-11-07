@@ -1,6 +1,102 @@
 # WORKLOG — append-only work journal
 
 Every work session appends one entry at the top. Format:
+## 2026-11-07 — RUN 71 (fired 22:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072215): AL ch. 3 'POLYNOMIALS' OPENS 2/4 — 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery — ch. 3 never closed, the unit-3 review belongs to run 72
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-70 memory commit (`68e9aa9`, the ship
+`e76161e` remote-verified); no `.figure_upgrade_lock`. RESUME_POINTER locked run 71 = AL ch. 3 opens 3.1 + 3.2 (v2
+two-lesson scope, strictly sequential; 3.3/3.4 + the unit-3 review belong to run 72).
+
+**Research (one download, per the storage law):** the Drive survey was already current (89 entries) and
+`Elementary-Algebra_text.pdf` (23 MB) re-downloaded for the authoring research: chapter V "Multiplication"
+(book pp. 27 ff.) studied — multiplication of a compound expression by a simple one (the distributive law),
+multiplication of compound expressions (every term of the first × every term of the second), the rule of signs,
+the degree of the product, ascending/descending powers with zero coefficients for missing degrees — and the
+Art. 24–26 definitions re-read from ch. I: dimensions/degree of a term ("a numerical coefficient is not
+counted"), degree of an expression, homogeneous expressions, different powers of the same letter unlike
+(art. 26). Informed the 3.1–3.2 arc (family defined term-by-term, degree arithmetic, the distributive grid, the
+leading-coefficient argument); no content reproduced. Two web-checked history keys: `descartes-1637-geometrie`
+carried/extended (La Géométrie 1637 also standardized the superscript exponent notation in print), and NEW
+`al-karaji-binomial-triangle` (MacTutor + MuslimHeritage: al-Karajī c. 953–1029 Baghdad, the binomial-coefficient
+rows centuries before Pascal, freeing algebra from geometry) for 3.2's callout. Working copy deleted after the
+run's E2E.
+
+**Verify-first (created scripts/verify-book3-ch03.ts BEFORE any prose, modeled on verify-book3-ch02.ts):**
+sections A–G grew to 115 checks ALL GREEN pre-writing — (A) the monomial engine with the polynomial boundary
+ENFORCED IN CODE (the Mono constructor rejects k = −1 and k = ½ — 1/x and √x refused by the family itself);
+(B) the like-terms sieve at family scale (the 672-check unlike-powers sweep + the 567-check collection sweep +
+the degree pigeonhole 1 + x + … + xⁿ meeting the n+1 bound); (C) the closure sweeps — 30-polynomial
+deterministic sample × 900 pairs × 17 integer points = 15,300 BigInt-exact checks per operation for the
+pointwise laws, deg(fg) = deg f + deg g on all 900 nonzero pairs, the drop census (every degree drop on an
+equal-degree pair; zero sums exactly negations), the convolution formula c_k = Σ aᵢb_{k−i} over 100 pairs, and
+Frac-exact identity checks at x = 1/2; (D) the pinned computations of both lessons (the value table −20, −3, 2,
+1, 0, 5, 22; every quiz distractor priced; every exercise key recomputed both sides); (E) quiz keys 3.1 =
+[1,0,1,1,0] and 3.2 = [0,2,1,0,1] pinned with distractors priced; (F) both-sides exercise keys; (G) the four
+figure geometry plans. **The first pass caught NINE of the author's own slips pre-prose** (the stringifier's
+missing unit-coefficient suppression, a constant-vs-linear polyD slip, a four-term census miscount, two shared
+evaluation values −17→−5 and 180→360, the drop-case construction, two exercise parameterizations) — all
+corrected before writing. At authoring time the verifier grew H (authored 3.1) and I (authored 3.2) importing
+the chapter file directly — **214 checks ALL GREEN at ship**; the scanners caught TWO bug classes pre-ship:
+45 `\uXXXX` unicode escapes from the Edit-authoring path (replaced with literal characters) and FIVE
+single-backslash LaTeX eats (`\deg f` → `deg f` — the run-65/69 class returning via hand-typed prose), both
+repaired and re-scanned to zero.
+
+**3.1 'What a Polynomial Is: Terms, Degree and Family'** (`al-what-a-polynomial-is-terms-degree-and-family`,
+4,989 words): the definition callout (terms $a x^{k}$, k ∈ ℕ₀) + the general-form display equation; the anatomy
+of a term (coefficient/letter part/degree; two-letter degrees and the homogeneous exhibit x² + 3xy + y²) + the
+anatomy table; the constant-as-degree-zero-term DERIVATION (2.2's zero-exponent theorem cashed) and the
+zero-polynomial boundary (degreeless, the NCERT canon); the two namings (shape: monomial/binomial/trinomial/
+multinomial; degree: constant/linear/quadratic/cubic, *quadratus* and H&K's biquadratic hedge) + the naming
+table; the honest-boundary section with the sieve figure (1/x, √x, 2^x each priced — the boundary lives in the
+exponent, never in the coefficient); evaluating = the 1.3 substitution machine at family scale (3 Illustrations:
+the collect-classify-exhibit x³ + 7x² − 3x + 7; the value table with p(1) = 0 as the zero-seed for ch. 4; the
+sieve verdicts); the collection law for powers DERIVED (the distributive law with xᵏ in the copy seat); standard
+form (ascending/descending per H&K); the degree pigeonhole (≤ n+1 collected terms, met by 1+x+x²+x³+x⁴); the
+Descartes 1637 historical callout; exam corner; 8 terms; quiz 5 (keys 1/0/1/1/0); 14 exercises L1–L6 (the L5
+27-census and the zero-hunt (x−1)(x−2); the L6 five-term pigeonhole); 2 formula cards; 2 figures (anatomy +
+family gallery 720×360; the sieve 720×340). Gates: lint 0 errors / tsc 0 / routes 200+404 / E2E e2e-al-31 ALL
+PASS ×2 runs at 1280 + true 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 231 nodes 0 errors, 0 raw $, 2
+figures 2 tables, prereq chips 2, no overflow, 0 console errors, 17 Sol. pills); pixels 0% blue + dark 89.7%;
+SVG overlap audit 0 issues on both figures; **both figures visually inspected clean**.
+
+**3.2 'Adding, Subtracting and Multiplying Polynomials'** (`al-adding-subtracting-and-multiplying-polynomials`,
+5,013 words): addition as the 1.2 collection law at family scale (the column-alignment table) + the pointwise
+principle PROVED and displayed ((f±g)(x) = f(x)±g(x), the 15,300-check sweep named) with the drop census (drops
+only on equal degrees; (x³ − x) + (−x³ + 2x) = x; x³ + (−x³) = 0 degreeless); subtraction as the distributed
+minus with the half-flip Caution (the −(−6) seat) + the pointwise-checked Illustration; multiplication's climb —
+monomial×monomial (the 2.1 product law wearing coefficients), monomial×polynomial, then the **distributive
+grid** (the grid figure: four lawful cells of (2x+3)(x−4) + the why-lawful panel + the collection band), FOIL
+named as the 2×2 special case, and the **convolution columns** figure + the c_k = Σ_{i+j=k} aᵢb_{j} display
+equation (the diagonal rule); the degree theorem deg(fg) = deg f + deg g PROVED by the leading-coefficient
+argument (the top cell never cancels — ANS 7.2's no-zero-divisors) with the contrast paragraph (sums may DROP,
+products never) and the zero-polynomial boundary; the triple-product Illustration (x³ + 6x² + 11x + 6, checked
+at x = 2); the special products CASHED — (a+b)² = a² + 2ab + b² PROVED on the grid (the 2.1 census's missing 12
+= 2·3·2 restored) and (a+b)(a−b) = a² − b² (the middle column cancels), with the (x−1)(x²+x+1) = x³ − 1 teaser
+handed to 3.3; closure under +, −, × stated (the ANS ladder echo) with division refused ((x²+1)/x exits on
+x⁻¹) and 3.4 pointed; the al-Karajī historical callout; exam corner; 8 terms; quiz 5 (keys 0/2/1/0/1); 14
+exercises L1–L6 (the L5 degree-hunt constructions and the paired-chain quadruple product checked at x = 1 AND
+x = 2; the L6 (x+1)ⁿ coefficient rows with the add-the-two-neighbours rule swept); 2 formula cards; 2 figures
+(the distributive grid 720×340; the convolution columns 720×360). Gates: lint 0 errors / tsc 0 / routes
+200+404 / E2E e2e-al-32 ALL PASS ×2 runs at 1280 + true 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 265
+nodes 0 errors, 0 raw $, 2 figures 1 table, prereq chips 2, no overflow, 0 console errors, 17 Sol. pills);
+pixels 0% blue + dark 89.4%; SVG overlap audit — the grid figure's first pass flagged 1 text/rect contact (the
+note label 277 px wide in a 250 px box), the label shortened, re-audited 0 issues on both figures; **both
+figures visually inspected clean** (all four of the run's figures inspected).
+
+**Logs:** SOURCE_LOG run-71 section (the new key al-karaji-binomial-triangle + the descartes extension + the
+ship notes; 1 download, deleted after E2E); the inventory rebuilt: **library 3 books (2 complete + 1 in
+progress) / 23 chapters written + 1 in progress / 92 lessons / 451,422 words / 707 terms / 460 quiz / 1,149
+exercises**. Next: run 72 = AL ch. 3 'Polynomials' CLOSES with 3.3 'Special Products: the Identities, Proved' +
+3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend
+verify-book3-ch03.ts FIRST; whitelist e2e-al-33/34 before committing; never ch. 4); run 73 = ch. 4
+'Factorization' opens with 4.1 + 4.2.
+
+**Push:** protocol-push OK — ship `<SHIP_SHA>` pushed `<OLD>..<NEW>` to main; ls-remote verified remote main =
+local HEAD (`<SHIP_SHA>`); tree clean after. PAT hygiene: used only inside the one-time push URL, never
+written to any file.
+
+---
+
 ## 2026-11-07 — RUN 70 (fired 21:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072115): AL ch. 2 'EXPONENTS AND POWERS' CLOSES 3/3 — 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 completion review PASSED + the chapter flipped COMPLETE — the one-lesson-plus-review quota, ch. 3 never opened
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-69 memory commit (`49ad4d5`, the ship

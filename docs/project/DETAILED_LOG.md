@@ -2304,3 +2304,59 @@ words) + ch. 2 COMPLETE 3/3 (13,189 words) — 7 lessons / 29,702 words; ch. 3 o
 
 **Git:** ship commit `al ch.2 CLOSES (run 70): ...` pushed to main per the push protocol (carrying run 69's memory
 commit); memory commit follows.
+
+---
+
+## 2026-11-07 — RUN 71: Elementary Algebra ch. 3 'Polynomials' OPENS 2/4 — 3.1 + 3.2 (10,002 words)
+
+**Goal (RESUME_POINTER, locked at run 70):** open AL ch. 3 with 3.1 'What a Polynomial Is: Terms, Degree and
+Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' — v2 two-lesson quota, strictly sequential,
+verify-first, never closing the chapter (the unit-3 review belongs to run 72).
+
+**Step 0 (tree reconciliation):** clean at the run-70 memory commit `68e9aa9` (ship `e76161e` remote-verified);
+no sibling lock. Dev server alive (route 200 at start; would be restarted inside the same invocation on
+recycle — not needed this run).
+
+**Step 1 — research (one download):** the H&K Elementary scan (23 MB) re-pulled for ch. V "Multiplication"
+(book pp. 27 ff.) + the Art. 24–26 definitions (dimensions/degree — "a numerical coefficient is not counted";
+homogeneous expressions; art. 26 unlike powers); the multiplication chapter's arc (simple multipliers →
+compound, the rule of signs, ascending/descending arrangement with zero coefficients) informed 3.2's climb and
+3.1's standard-form section. NCERT class-9 ch. 2 canon carried (degree/classification, the zero polynomial's
+degree undefined). History web-checked: Descartes 1637 superscripts (carried key extended), al-Karajī c.
+953–1029 (NEW key). Working copy deleted after E2E.
+
+**Step 2 — verify-first:** `scripts/verify-book3-ch03.ts` created BEFORE any prose (sections A–G, 115 checks —
+the monomial engine with the boundary enforced in code; the sieve sweeps 672 + 567; the closure sweeps 15,300
+per operation + the degree theorem on 900 pairs + the convolution formula; the pinned computations of both
+lessons; quiz keys pinned; both-sides exercise keys; four figure plans). NINE author slips caught pre-prose and
+fixed. After authoring: H (3.1) + I (3.2) extended it to **214 checks ALL GREEN**, with the scanners catching
+45 unicode escapes and 5 single-backslash LaTeX eats pre-ship (both repaired to zero).
+
+**Step 3 — the lessons (strictly sequential):** 3.1 first — authored, section H grown, full gates (lint 0 /
+tsc 0 / routes / E2E e2e-al-31 ALL PASS ×2 ×3 viewports, quiz 5/5 live on 1/0/1/1/0, pixels 0% blue + dark
+89.7%, overlap 0 issues, both figures visually inspected) — THEN 3.2 (authored, section I grown, full gates:
+E2E e2e-al-32 ALL PASS ×2 ×3 viewports on keys 0/2/1/0/1, pixels 0% blue + dark 89.4%, one overlap fix — the
+grid note label shortened 277→~200 px — re-audited 0, both figures visually inspected). e2e-al-31/32
+whitelisted in .gitignore BEFORE committing.
+
+**Gates (all green):** lint 0 errors (2 pre-existing warnings untouched); tsc clean repo-wide (after the
+TS18048 answer-undefined fix in the verifier itself); routes 200 (both lessons, book, home) + 404 unknown;
+E2E 45/45 PASS ×2 runs per lesson; SVG overlap audit 0 issues final; all four figures visually inspected;
+verifier 214/214.
+
+**Step 4 — logs:** WORKLOG.md (this run's entry at top), PROGRESS.json (phase = ch. 3 OPEN 2/4; lastCompleted
+= run 71; run71Extras), RESUME_POINTER.json (nextAction = run 72 = 3.3 + 3.4 + the unit-3 review, verify-first
+extension FIRST, whitelist e2e-al-33/34; run 73 = ch. 4 opens), SOURCE_LOG.md (run-71 section + ship notes),
+WORK_INVENTORY.json regenerated (23 chapters written + 1 in progress / 92 lessons / 451,422 words / 707 terms
+/ 460 quiz / 1,149 exercises), DETAILED_LOG.md (this record). book.ts notes updated (ch. 3 opened at run 71).
+
+**Library after the run:** 3 books (2 complete + 1 in progress) / 23 chapters written + 1 in progress / 92
+lessons / 451,422 words / 707 terms / 460 quiz items / 1,149 exercise questions. AL stands: ch. 1 COMPLETE 4/4
+(16,513 words) + ch. 2 COMPLETE 3/3 (13,189 words) + ch. 3 OPEN 2/4 (10,002 words) — 9 lessons / 39,704 words.
+
+**Next:** run 72 = ch. 3 CLOSES with 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing
+Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend
+verify-book3-ch03.ts FIRST; whitelist e2e-al-33/34); run 73 = ch. 4 'Factorization' opens with 4.1 + 4.2.
+
+**Git:** ship commit `al ch.3 OPENS (run 71): ...` pushed to main per the push protocol; memory commit follows
+(shas in WORKLOG).

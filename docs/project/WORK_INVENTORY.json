@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 19:09:52 (Asia/Kolkata)",
+  "generated": "2026-11-07 20:38:25 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,12 +5921,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 104,
-      "totalLines": 65752,
+      "totalLines": 65740,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 56487,
+        "src/data/library (content model + books)": 56475,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -14231,6 +14231,93 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "e76161efafa811381c124d5046d34765ea0ad7e3",
+      "short": "e76161e",
+      "date": "2026-11-07 13:42",
+      "message": "al ch.2 CLOSES (run 70): 2.3 Scientific Notation and Orders of Magnitude (4,014 w) + the unit-2 completion review PASSED — chapter COMPLETE 3/3 (13,189 words) — verify-first with section J (56 checks: the 10,998-trial canonical uniqueness sweep, every illustration Frac-exact incl. renormalisation 13.5x10^9 -> 1.35x10^10 and 0.5x10^3 -> 5x10^2, the 2^30 rounding gap 3,741,824 = 0.35%, quiz keys 2/1/1/2/1 pinned, SEVEN author arithmetic slips caught pre-prose) — verifier 331 checks ALL GREEN (A-K + R); the Archimedes Sand Reckoner historical callout (new web-checked key); gates green (lint 0 / tsc 0 / routes 200+404 / E2E 45/45 PASS x3 viewports x2 runs — one gates-caught bug: seven unclosed $ table cells rendered literal, closed to 0; ladder SVG arrows removed after a 10-contact first audit); ch. 3 never opened; logs + inventory updated (23 chapters written / 90 lessons / 441,420 words); next run 71 = ch. 3 'Polynomials' opens 3.1 + 3.2",
+      "filesChanged": 12,
+      "insertions": 1147,
+      "deletions": 36,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 62,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 123,
+          "del": 21
+        },
+        {
+          "path": "scripts/e2e-al-23.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-23.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch02.ts",
+          "add": 324,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-02.ts",
+          "add": 412,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "68e9aa9e947cf95b020559aad198a1414b5a0065",
+      "short": "68e9aa9",
+      "date": "2026-11-07 13:42",
+      "message": "memory: run-70 push verified — remote main = e76161e (ship e76161e pushed 5a250a9..e76161e, ls-remote verified = local HEAD; run 69's memory commit 49ad4d5 rode the same push); AL ch. 2 'Exponents and Powers' COMPLETE 3/3 (13,189 words: 2.1 'Powers and the Laws of Exponents' 4,710 + 2.2 'Zero and Negative Exponents: Another Repair' 4,465 + 2.3 'Scientific Notation and Orders of Magnitude' 4,014; the unit-2 completion review PASSED; verify-book3-ch02.ts 331 checks ALL GREEN — section J's 56 pre-writing checks caught SEVEN author arithmetic slips incl. the 10,998-trial canonical uniqueness sweep; the Archimedes Sand Reckoner historical callout; two gates-caught bug classes: seven unclosed $ table cells + five odd-run escapes, neither shipped); the book stands 2 complete chapters of 11 (23 chapters written / 90 lessons / 441,420 words repo-wide); next run 71 = AL ch. 3 'Polynomials' OPENS with 3.1 'What a Polynomial Is' + 3.2 'Adding, Subtracting and Multiplying Polynomials' (create verify-book3-ch03.ts FIRST; whitelist e2e-al-31/32; v2 two-lesson scope); run 72 = 3.3 + 3.4 + the unit-3 review close ch. 3",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -14238,26 +14325,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 23,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 90,
-    "wordsAuthored": 441420,
-    "termsDefined": 691,
-    "quizItems": 450,
-    "exerciseQuestions": 1121,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 92,
+    "wordsAuthored": 451422,
+    "termsDefined": 707,
+    "quizItems": 460,
+    "exerciseQuestions": 1149,
     "blockTotals": {
-      "para": 1273,
-      "callout": 505,
-      "heading": 508,
+      "para": 1307,
+      "callout": 513,
+      "heading": 520,
       "list": 99,
-      "terms": 91,
-      "equation": 125,
-      "figure": 151,
-      "derivation": 184,
-      "table": 124,
-      "example": 368,
-      "quiz": 90,
-      "exercises": 90,
-      "formula": 256,
+      "terms": 93,
+      "equation": 128,
+      "figure": 155,
+      "derivation": 188,
+      "table": 127,
+      "example": 374,
+      "quiz": 92,
+      "exercises": 92,
+      "formula": 260,
       "algorithm": 21
     }
   }

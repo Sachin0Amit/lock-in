@@ -1,6 +1,7 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
+import { chapter03 } from './ch-03'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -81,25 +82,11 @@ export const elementaryAlgebra: Book = {
   status: 'in-progress',
   accent: ['#4d7c0f', '#3f6212'],
   notes:
-    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Chapter 1 ‘Letters and Structure’ COMPLETE 4/4 at run 68 (1.1 From Arithmetic to Algebra + 1.2 Expressions, Terms and Like Terms + 1.3 Evaluating Expressions: Substitution and Formulas + 1.4 Translating: Words into Symbols; the unit-1 completion review passed). Chapter 2 ‘Exponents and Powers’ opened at run 69 with 2.1 Powers and the Laws of Exponents (the three laws proved by counting copies; the sign law and the bracket traps) + 2.2 Zero and Negative Exponents: Another Repair (the permanence charter applied — x⁰ = 1 and x⁻ⁿ = 1/xⁿ forced, every old law preserved over the extended grid, the base-zero boundary kept); 2.3 Scientific Notation and Orders of Magnitude + the unit-2 review CLOSED the chapter at run 70 (13,189 words across the three lessons; the standard form built on the repaired exponents with its 10,998-trial uniqueness sweep; the Archimedes Sand Reckoner historical callout; 331-check verifier ALL GREEN at ship; six figures audited and visually inspected; ch. 3 ‘Polynomials’ opens at run 71).',
+    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Chapter 1 ‘Letters and Structure’ COMPLETE 4/4 at run 68 (1.1 From Arithmetic to Algebra + 1.2 Expressions, Terms and Like Terms + 1.3 Evaluating Expressions: Substitution and Formulas + 1.4 Translating: Words into Symbols; the unit-1 completion review passed). Chapter 2 ‘Exponents and Powers’ opened at run 69 with 2.1 Powers and the Laws of Exponents (the three laws proved by counting copies; the sign law and the bracket traps) + 2.2 Zero and Negative Exponents: Another Repair (the permanence charter applied — x⁰ = 1 and x⁻ⁿ = 1/xⁿ forced, every old law preserved over the extended grid, the base-zero boundary kept); 2.3 Scientific Notation and Orders of Magnitude + the unit-2 review CLOSED the chapter at run 70 (13,189 words across the three lessons; the standard form built on the repaired exponents with its 10,998-trial uniqueness sweep; the Archimedes Sand Reckoner historical callout; 331-check verifier ALL GREEN at ship; six figures audited and visually inspected; ch. 3 ‘Polynomials’ opened at run 71 with 3.1 What a Polynomial Is: Terms, Degree and Family (the family defined term-by-term on the 2.1–2.2 exponent laws with the nonnegative-integer boundary enforced in the verifier’s own Mono guard; degree/dimension anatomy per Hall & Knight art. 24–26; the sieve pricing 1/x, √x and 2^x; the Descartes 1637 notation callout) + 3.2 Adding, Subtracting and Multiplying Polynomials (the collection law at family scale, the pointwise principle, the distributed minus, the distributive grid and its convolution columns, the degree theorem deg(fg) = deg f + deg g proved by the leading-coefficient argument, the first special products (a+b)² and (a+b)(a−b) PROVED — the 2.1 census cashed, closure under +, −, × stated with division refused; the al-Karajī coefficient-rows callout); 10,002 words across the two lessons; verify-book3-ch03.ts 214 checks ALL GREEN (115 pre-writing + 99 authored-time; the scanners caught 45 unicode escapes and 5 single-backslash LaTeX eats pre-ship); four figures audited and visually inspected; 3.3 + 3.4 + the unit-3 review belong to run 72).',
   chapters: [
     chapter01,
     chapter02,
-    {
-      number: 3,
-      slug: 'polynomials',
-      title: 'Polynomials',
-      summary:
-        'The first algebraic family: what a polynomial is (terms, degree, classification by shape), arithmetic on polynomials — addition, subtraction and the distributive grid of multiplication — the special products (a ± b)² and (a + b)(a − b) PROVED by distribution and then used as identities, and division: long division as ANS’s division algorithm wearing letters, with the remainder theorem proved and the factor theorem glimpsed.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'What a Polynomial Is: Terms, Degree and Family',
-        'Adding, Subtracting and Multiplying Polynomials',
-        'Special Products: the Identities, Proved',
-        'Dividing Polynomials: Long Division and the Remainder Theorem',
-      ],
-    },
+    chapter03,
     {
       number: 4,
       slug: 'factorization',

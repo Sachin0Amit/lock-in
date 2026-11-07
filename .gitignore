@@ -259,3 +259,10 @@ server.log
 !/scripts/e2e-al-21.page.js
 !/scripts/e2e-al-22.sh
 !/scripts/e2e-al-22.page.js
+
+# per-lesson E2E scripts for Elementary Algebra ch. 3 (whitelisted run 71)
+!/scripts/verify-book3-ch03.ts
+!/scripts/e2e-al-31.sh
+!/scripts/e2e-al-31.page.js
+!/scripts/e2e-al-32.sh
+!/scripts/e2e-al-32.page.js

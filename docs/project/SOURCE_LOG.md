@@ -1808,3 +1808,42 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   words). Chapter 3 'Polynomials' never opened this run.
 - The verifier grew to 331 checks (sections A–K + R): J (2.3 pre-writing, 56 checks incl. the 10,998-trial canonical
   uniqueness sweep and the Frac-exact illustration keys), K (authored 2.3), R (the chapter-close battery).
+
+### Run 71 — Elementary Algebra ch. 3 'Polynomials' OPENS: 3.1 + 3.2 (2026-11-07)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67). Downloaded 2026-11-07 again for this run's authoring
+  research (23 MB scan): chapter V "Multiplication" (book pp. 27 ff.) studied — multiplication of a compound
+  expression by a simple one (the distributive law), multiplication of compound expressions (every term of the
+  first × every term of the second), the rule of signs, the degree of the product, ascending/descending powers
+  arrangement with zero coefficients for missing powers — and the Art. 24–26 definitions re-read from ch. I:
+  dimensions/degree of a term (the sum of letter exponents, "a numerical coefficient is not counted"), degree of
+  an expression, homogeneous expressions, different powers of the same letter unlike (art. 26). Informed the arc
+  of 3.1–3.2 (family defined term-by-term, degree arithmetic, the distributive grid, the leading-coefficient
+  argument); **no content reproduced — exposition original**. Working copy deleted after the run's E2E (storage law).
+- `ncert-math9-ch2-polynomials` — carried (web-checked run 66): the school canon's class-9 arc — the polynomial
+  definition over nonnegative integer exponents, degree of the polynomial, the constant/linear/quadratic/cubic
+  naming, the zero polynomial's degree left undefined. 3.1's classification canon and its zero-polynomial boundary.
+- `descartes-1637-geometrie` — carried (banked run 67 for the x/y/z habit; EXTENDED 2026-11-07): La Géométrie (1637)
+  also standardized the superscript exponent notation x, x², x³ in print (web-checked again this run against
+  multiple history-of-notation records) — 3.1's historical callout combines both debts with the earlier-writers hedge.
+- `al-karaji-binomial-triangle` — NEW, web-checked 2026-11-07 (MacTutor's al-Karaji biography + MuslimHeritage's
+  treatment): Abū Bakr al-Karajī (c. 953–1029, flourishing in Baghdad) — the binomial-coefficient table built by
+  repeated multiplication of (x + 1) powers, the add-the-two-neighbours rule centuries before Pascal's Traité (1654),
+  and the first systematic freeing of algebra from geometry (MacTutor's phrase). 3.2's historical callout and the L6
+  coefficient-rows exercise; used to inform, never reproduced.
+- `khattar-qa-4e` — carried: the exam-corner shapes (degree/classification items, value-at-a-point, NOT-a-polynomial
+  traps, the six-term contradiction, competitive product chains).
+- `cengage-jee-style` — carried: the presentation contract throughout.
+- One download this run (the H&K Elementary scan, 23 MB); deleted after the run's E2E. All other load on banked keys
+  + two web checks (Descartes superscripts; al-Karaji's triangle).
+#### Run 71 keys consumed
+- In 3.1: `hall-knight-elementary-algebra`, `ncert-math9-ch2-polynomials`, `cengage-jee-style`, `descartes-1637-geometrie`.
+- In 3.2: `hall-knight-elementary-algebra`, `ncert-math9-ch2-polynomials`, `al-karaji-binomial-triangle`, `cengage-jee-style`.
+#### Run 71 reference-notes (ship)
+- One download this run (the H&K Elementary scan, 23 MB, ch. V + art. 24–26 study) — deleted after the run's E2E (storage law);
+  zero new downloads otherwise; two history keys web-checked (the Descartes superscript extension; al-Karaji's triangle).
+- The verifier grew to 214 checks (sections A–G pre-writing 115 + H/I authored-time 99): the Mono constructor guard IS the
+  polynomial boundary; the 15,300-check closure sweeps per operation; the degree theorem swept on 900 pairs; quiz keys
+  1/0/1/1/0 and 0/2/1/0/1 pinned with every distractor priced; both-sides exercise keys; four figure geometry plans audited.
+- Two scanner catches pre-ship: 45 unicode escapes + 5 single-backslash LaTeX eats (the run-65/69 class) — both repaired,
+  re-scanned to zero odd runs.

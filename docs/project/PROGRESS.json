@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-07",
- "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 2 'Exponents and Powers' COMPLETE 3/3 (run 70, 2026-11-07): 2.3 'Scientific Notation and Orders of Magnitude' (al-scientific-notation-and-orders-of-magnitude, 4,014 words — the standard form a x 10^k with the 1 <= a < 10 uniqueness clause verified by a 10,998-trial sweep, the conversion engine both directions, computing by the 2.1/2.2 laws with renormalisation, significant digits as the coefficient's precision claim (the 0.35% gap on the 2^30 thread), orders of magnitude as rungs with the exact-ratio refinement (2^34 = 1.7179869184 x 10^10), the Archimedes Sand Reckoner historical callout) + the unit-2 completion review PASSED — the chapter stands 3 lessons / 13,189 words / 24 terms / 15 quiz / 42 exercises / 6 figures (all audited + visually inspected). verify-book3-ch02.ts 331 checks ALL GREEN (80 pre-writing at run 69 + 56 section-J pre-writing at run 70 with SEVEN author arithmetic slips caught pre-prose + the authored and chapter-close batteries). Gates green: lint 0, tsc 0, routes 200+404, E2E 3 viewports ALL PASS x2 runs (quiz 5/5 live on keys 2/1/1/2/1; one gates-caught bug class: SEVEN unclosed $ delimiters in table cells rendered literal — closed to 0), pixels 0% blue + dark 88.8%. Library: 23 chapters written, 0 in progress / 90 lessons / 441,420 words / 691 terms / 450 quiz / 1,121 exercises (WORK_INVENTORY.json ground truth). Next: run 71 = AL ch. 3 'Polynomials' OPENS with 3.1 + 3.2 (verify-book3-ch03.ts FIRST).",
- "awaiting": "nothing blocking — next run 71 = AL ch. 3 'Polynomials' OPENS with 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' (create verify-book3-ch03.ts FIRST, modeled on verify-book3-ch02.ts; v2 two-lesson scope; whitelist e2e-al-31/32 before committing); run 72 = 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 review close ch. 3",
+ "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 3 'Polynomials' OPENS 2/4 (run 71, 2026-11-07): 3.1 'What a Polynomial Is: Terms, Degree and Family' (al-what-a-polynomial-is-terms-degree-and-family, 4,989 words — the family defined term-by-term on the 2.1–2.2 exponent laws with the nonnegative-integer boundary enforced by the verifier's own Mono constructor guard; the term anatomy with the coefficient-never-counts rule (Hall & Knight art. 24 dimensions); constants as degree-zero terms DERIVED from 2.2's zero-exponent theorem; the zero polynomial left degreeless; the two namings (shape: mono/bi/tri/multinomial; degree: constant/linear/quadratic/cubic); the sieve pricing 1/x, √x and 2^x with the boundary-in-the-exponent callout; evaluation as the 1.3 substitution machine at family scale with the value table of x^3 − 2x + 1 and the r(1) = 0 zero-seed; the collection law for powers DERIVED (567-check sweep); the degree pigeonhole (at most n+1 collected terms); the Descartes 1637 notation callout) + 3.2 'Adding, Subtracting and Multiplying Polynomials' (al-adding-subtracting-and-multiplying-polynomials, 5,013 words — addition as column alignment with the pointwise principle PROVED (15,300 BigInt checks per operation over a 30-polynomial sample, + Frac-exact at x = 1/2); subtraction as the distributed minus with the half-flip trap priced; multiplication as the distributive grid — monomial climb, the four-cell grid, FOIL as the 2x2 special case, the convolution columns (c_k = Σ a_i b_{k−i} swept over 100 pairs); the degree theorem deg(fg) = deg f + deg g PROVED by the leading-coefficient argument (900-pair sweep) with the sum-drop census (drops only on equal degrees; zero sums are negations); the special products (a+b)² = a²+2ab+b² and (a+b)(a−b) = a²−b² PROVED on the grid — the 2.1 cross-term census CASHED (25 = 9+12+4); closure under +, −, × stated with division refused ((x²+1)/x exits the family); the al-Karajī binomial-coefficient-rows historical callout with the L6 rows exercise (1-2-1 / 1-3-3-1 / 1-4-6-4-1 and the add-the-two-neighbours rule verified). verify-book3-ch03.ts 214 checks ALL GREEN (sections A–G 115 pre-writing — the pre-writing pass caught NINE author slips incl. two shared-value errors and the drop-case construction; H/I 99 authored-time — the scanners caught 45 unicode escapes + 5 single-backslash LaTeX eats pre-ship). Gates green: lint 0 errors, tsc 0, routes 200+404, E2E e2e-al-31 + e2e-al-32 (whitelisted BEFORE committing) ALL PASS x2 runs (quiz 5/5 live on keys 1/0/1/1/0 and 0/2/1/0/1; KaTeX 231 + 265 nodes 0 errors; 0 console errors; no overflow at 390/1280), pixels 0% blue + dark 89.7%/89.4%, SVG overlap audit 0 issues after one fix (the grid figure's note label shortened), all four figures visually inspected clean. Library: 23 chapters written + 1 in progress / 92 lessons / 451,422 words / 707 terms / 460 quiz / 1,149 exercises (WORK_INVENTORY.json ground truth). Next: run 72 = ch. 3 CLOSES with 3.3 + 3.4 + the unit-3 review.",
+ "awaiting": "nothing blocking — next run 72 = AL ch. 3 'Polynomials' CLOSES with 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend verify-book3-ch03.ts with the pre-writing section for 3.3/3.4 FIRST; never ch. 4); run 73 opens ch. 4 'Factorization' with 4.1 + 4.2",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -436,8 +436,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "64 (2026-11-07)",
-  "summary": "ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' OPENS 2/3 — 10.1 'The Great Extension Story' + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' shipped strictly sequentially (5,574 + 5,459 words, quiz keys 1/0/1/2/3 and 1/1/0/1/2 verified live 5/5 both lessons, 15 + 14 exercises, 8 + 8 terms, 3 + 3 derivations, 1 + 2 figures, 3 + 1 tables, 4 + 4 formula cards). verify-book2-ch10.ts created FIRST (87 checks sections A–I pre-writing) and extended to 174 (J/K/L/M quiz+exercise keys, N/O figure geometry) — ALL GREEN. Ten verifier-phase defects caught in the script itself before any prose; two more authoring-time prose defects fixed pre-commit (the L2-1 residue-diff arithmetic 89 ≡ 8 not 1; a garbled weighted-term string in the Khattar exhibit; the (7,4) Hamming bound restated as 2^r ≥ k + r + 1). E2E green ×3 viewports both lessons; SVG audits 0 issues after the 10.1 repair-map redesign. New citation keys: hamming-1950-error-detecting, isbn-check-digit-schemes, luhn-algorithm-iso7812; zero downloads."
+  "run": "71 (2026-11-07)",
+  "summary": "AL CHAPTER 3 'POLYNOMIALS' OPENS 2/4 — 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' shipped strictly sequentially verify-first (4,989 + 5,013 = 10,002 words, quiz keys 1/0/1/1/0 and 0/2/1/0/1 verified live 5/5 both lessons, 14 + 14 exercises, 8 + 8 terms, 2 + 2 derivations, 1 + 2 equations, 2 + 1 tables, 2 + 2 figures, 2 + 2 formula cards). verify-book3-ch03.ts created FIRST (115 checks sections A–G pre-writing) and extended to 214 (H/I authored-time) — ALL GREEN. Fourteen author defects caught pre-ship across the two scanner classes and the arithmetic pins. Four figures audited + visually inspected. Ch. 3 never closed this run — the unit-3 review belongs to run 72 per v2."
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -709,5 +709,37 @@
   ],
   "notes": "OpenStax Contemporary Mathematics §4.2 carried as the unit reference (never reproduced — license forbids ingestion; exposition original). Drive survey rebuilt post-recycle (rebuild_drive_survey.ts, 89 entries). Zero reference downloads this run."
  },
- "run64Extras": "run 64 (2026-11-07, job 509354's hourly :45 IST cadence — the FIRST run after four consecutive zero-output sessions, executed fully in one session): ANS ch. 10 opens 2/3 — 10.1 (5,574 words) + 10.2 (5,459 words) sequential, verify-first 174 checks ALL GREEN, gates green twice, e2e-ans-101 + e2e-ans-102 whitelisted pre-commit; scheduling note recorded for the owner: the fire timestamp renders as 13:01 +08:00 = 07:45 IST — the :45 slot exactly as pinned (the earlier ':15 trigger' suspicion was a gateway-timezone rendering artifact, settled by converting +08:00 to Asia/Kolkata); zero reference downloads (internet research sanctioned; Drive survey rebuilt post-recycle, 89 entries intact)."
+ "run64Extras": "run 64 (2026-11-07, job 509354's hourly :45 IST cadence — the FIRST run after four consecutive zero-output sessions, executed fully in one session): ANS ch. 10 opens 2/3 — 10.1 (5,574 words) + 10.2 (5,459 words) sequential, verify-first 174 checks ALL GREEN, gates green twice, e2e-ans-101 + e2e-ans-102 whitelisted pre-commit; scheduling note recorded for the owner: the fire timestamp renders as 13:01 +08:00 = 07:45 IST — the :45 slot exactly as pinned (the earlier ':15 trigger' suspicion was a gateway-timezone rendering artifact, settled by converting +08:00 to Asia/Kolkata); zero reference downloads (internet research sanctioned; Drive survey rebuilt post-recycle, 89 entries intact).",
+ "run71Extras": {
+  "date": "2026-11-07",
+  "job": "509354 (fired 22:15:01 +08:00, trace cron-agent-loop-202611072215)",
+  "scope": "AL ch. 3 OPENS with 3.1 + 3.2 (v2 two-lesson quota, strictly sequential, verify-first)",
+  "lessons": [
+   {
+    "id": "al-what-a-polynomial-is-terms-degree-and-family",
+    "words": 4989,
+    "quizKeys": [
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   },
+   {
+    "id": "al-adding-subtracting-and-multiplying-polynomials",
+    "words": 5013,
+    "quizKeys": [
+     0,
+     2,
+     1,
+     0,
+     1
+    ]
+   }
+  ],
+  "verifier": "verify-book3-ch03.ts 214 checks ALL GREEN (A–G pre-writing 115 + H/I authored 99)",
+  "figures": 4,
+  "downloads": "one (the H&K Elementary scan re-pulled for ch. V + art. 24–26 study; deleted after E2E)"
+ }
 }
