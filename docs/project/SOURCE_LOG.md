@@ -1668,7 +1668,10 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   operations → functions and graphs → integers → rational numbers → equations in one and two variables → simultaneous
   equations → exponents → polynomials → factoring → fractions → square roots → quadratic equations → real numbers →
   fractional equations → inequalities and number sentences — is the course spine of the promoted plan. Used to inform
-  sequencing only; exposition original.
+  sequencing only; exposition original. **CORRECTED run 67 (2026-11-07): the attribution was wrong — the Drive file's
+  title page, pdfinfo title and 1942 Macmillan imprint identify it as H. S. Hall & S. R. Knight's *Elementary Algebra
+  for Schools* (first edition 1885, web-checked). This key is withdrawn; the corrected key
+  `hall-knight-elementary-algebra` replaces it (below). Jacobs' book is not in the Drive collection.**
 - `hall-knight-higher-algebra` — H. S. Hall & S. R. Knight, *Higher Algebra* (the Drive copies
   `Higher Algebra - Hall _ Knight.pdf` + `HigherAlgebra_10021865.pdf`): the classic British text for the stretch
   material — remainder and factor theorems, cubic factoring, roots-and-coefficients relations — mapped to the ends of
@@ -1700,3 +1703,37 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 - Research facts web-checked this run: the NCERT algebra arc's chapter numbers (class 8 ch. 2/10/12; class 9 ch. 2;
   class 10 ch. 3/4), Jacobs' Elementary Algebra chapter arc, OpenStax Elementary Algebra 2e's structure. Nine citation
   keys reserved; none consumed yet.
+
+### Run 67 — Elementary Algebra ch. 1 opens: 1.1 authored (2026-11-07)
+
+- `hall-knight-elementary-algebra` — H. S. Hall & S. R. Knight, *Elementary Algebra for Schools* (Macmillan, first
+  edition 1885; the Drive `Elementary-Algebra_text.pdf` is the 1942 revised edition — title page + pdfinfo title
+  "Elementary Algebra For Schools" + the 1942 imprint checked on the scan itself). First edition 1885 web-checked
+  (Google Books record; multiple antiquarian listings). Downloaded 2026-11-07 (23 MB, 572 pp), the chapter arc
+  I. Definitions, Substitutions → II. Negative Quantities, Addition of Like Terms → III. Simple Brackets. Addition →
+  IV. Subtraction → V. Multiplication studied from the contents pages and ch. I's opening articles (the
+  coefficient-vs-index contrast 3a vs a³, the substitution exercise engine). Informed the sequencing of AL 1.1–1.2 and
+  the substitution-trap exposition; **no content reproduced — exposition original**. Working copy deleted after the
+  run's E2E (storage law).
+- `alkhwarizmi-c825-aljabr` — Muḥammad ibn Mūsā al-Khwārizmī, *Kitāb al-jabr wa-l-muqābala* (Baghdad, c. 820–830 CE;
+  web-checked 2026-11-07 against the Library of Congress record "around 830" and standard references "around 820–825";
+  written in words — rhetorical algebra, no symbols). The historical callout of 1.1; used to inform, never reproduced.
+- `viete-1591-isagoge` — François Viète, *In artem analyticem isagoge* (1591; web-checked 2026-11-07): the first
+  systematic letter scheme — consonants for known quantities, vowels for unknowns; with the honest hedge that Viète was
+  not the first to letter an unknown. 1.1's historical callout.
+- `descartes-1637-geometrie` — René Descartes, *La Géométrie* (1637; web-checked 2026-11-07): the appendix of the
+  Discours that fixed the late-alphabet habit ($x, y, z$ for unknowns). 1.1's historical callout.
+- `ncert-math6-ch11` — carried (banked since FM ch. 11): the matchstick-pattern variable doorstep FM opened; the
+  cross-referenced origin of the position-letter role.
+- `cengage-jee-style` — carried: the M2/01 module re-downloaded 2026-11-07 (24 MB, 35 pp) for the run-67 style
+  re-grounding (theory voice: "is said to be … if …" definitions with "Thus," restatements; (i)(ii)(iii) example runs;
+  ILLUSTRATION pills + Sol. chains on S.x pages — 2 rendered pages studied). Presentation contract only, zero content
+  reproduced. Working copy deleted after the run's E2E (storage law).
+
+#### Run 67 reference-notes
+- Two downloads this run (the H&K Elementary 23 MB + the Cengage M2/01 24 MB), both into temporary-references/
+  (gitignored), both deleted after the run's E2E; Drive originals untouched.
+- Run 66's reserved `jacobs-elementary-algebra` key corrected/withdrawn (the file is Hall & Knight, not Jacobs) —
+  book.ts header + notes corrected the same way this run.
+- The run-66 claim "class 6 ch. 11 + class 7 ch. 4 banked" re-confirmed: `ncert-math6-ch11` is banked from FM ch. 11
+  (its sources fields).

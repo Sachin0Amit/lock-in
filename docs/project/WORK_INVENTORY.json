@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 15:02:24 (Asia/Kolkata)",
+  "generated": "2026-11-07 16:40:11 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,13 +5920,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 101,
-      "totalLines": 61641,
+      "srcFilesTracked": 102,
+      "totalLines": 61868,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 52376,
+        "src/data/library (content model + books)": 52603,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -13840,6 +13840,103 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "6c2469b9f15093f6f866966413ca3f10697cf9ce",
+      "short": "6c2469b",
+      "date": "2026-11-07 09:33",
+      "message": "book #3 PROMOTED: Elementary Algebra (run 66) — research phase complete: reference survey (the Drive carries Jacobs' Elementary Algebra directly — the Algebra-1-equivalent classic whose chapter arc is the course spine — plus Hall & Knight's Higher Algebra x2 for the stretch, the Cengage MATHS M2 = Algebra module as the style reference, and Khattar QA for the competitive scope; zero downloads) + the sanctioned internet syllabus audit (the NCERT algebra arc web-checked: class 6 ch. 11 + class 7 ch. 4 banked, class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4; OpenStax Elementary Algebra 2e as the modern sequencing cross-check) + the full 11-chapter/37-lesson plan (1 Letters and Structure, 2 Exponents and Powers, 3 Polynomials, 4 Factorization, 5 Linear Equations in One Variable, 6 Simultaneous Linear Equations, 7 Inequalities, 8 Algebraic Fractions, 9 Quadratic Equations, 10 Graphs of Equations, 11 The Toolbox and the Doorstep); book.ts (status planned, al- id prefix reserved and verified unused across all 83 existing lesson ids, olive accent #4d7c0f, real pedagogical summaries, the research mapping in the header, the no-duplication contract vs FM 11.2/11.3's doorstep) + registered in index.ts (allBooks = 3) + the inventory generator generalized (booksLive 3, backlog 280); verify-book3-promotion.ts 218/218 checks sections A-E (structure/registry/uniqueness-vs-FM-and-ANS/the 16 cross-reference anchors/the research mapping) — one promotion-time TS2353 caught (a book-level plannedLessons field the Book type does not carry; removed); e2e-book3-promotion green (home shelf 3Books with FM + ANS present, book page '0 written - 37 planned' with 11 chapter tiles and all 11 sampled planned titles, revise/glossary empty states, 404 integrity, zero console errors; the 3-books matcher fixed to case-insensitive because the stat spans concatenate as 3Books; screenshot pixel checks + visual inspection of the cover and the 404 state); gates lint 0 tsc 0 routes 200 (unknowns 404); logs: WORKLOG run-66 entry, SOURCE_LOG research-phase section + 9 reserved citation keys (jacobs-elementary-algebra, hall-knight-higher-algebra, openstax-elementary-algebra, ncert-math8-ch2-linear-equations, ncert-math8-ch10-exponents, ncert-math8-ch12-factorisation, ncert-math9-ch2-polynomials, ncert-math10-ch3-pair-linear, ncert-math10-ch4-quadratic) + 2 carried, SUBJECT_BACKLOG (Elementary Algebra PROMOTED), PROGRESS (run-67 awaiting), RESUME_POINTER (run 67 = AL ch. 1 opens 1.1 + 1.2, verify-book3-ch01.ts FIRST; run 68 = 1.3 + 1.4), DETAILED_LOG (run-66 header, the AL section-4 heading, git-history row 66), WORK_INVENTORY regenerated; library 3 books (2 complete + 1 planned) / 21 chapters written / 83 lessons / 412,045 words / 635 terms / 415 quiz / 1,023 exercises; next run 67 = AL ch. 1 lessons 1.1 + 1.2 (two-lesson cadence, never a third)",
+      "filesChanged": 14,
+      "insertions": 737,
+      "deletions": 38,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 15,
+          "del": 26
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 40,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 97,
+          "del": 5
+        },
+        {
+          "path": "scripts/build_work_inventory.ts",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "scripts/e2e-book3-promotion.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-book3-promotion.sh",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-promotion.ts",
+          "add": 166,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 236,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/index.ts",
+          "add": 2,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "44e7607ed4f963ce5df1710928a8ac97cd925da2",
+      "short": "44e7607",
+      "date": "2026-11-07 09:34",
+      "message": "memory: run-66 push verified — remote main = 6c2469b (ship 6c2469b pushed de14bc3..6c2469b, ls-remote verified = local HEAD); BOOK #3 'Elementary Algebra' PROMOTED (11 chapters / 37 lessons planned, research phase complete, al- prefix reserved, 9 citation keys reserved); next run 67 = AL ch. 1 opens with 1.1 'From Arithmetic to Algebra: What a Letter Does' + 1.2 'Expressions, Terms and Like Terms' (verify-book3-ch01.ts FIRST; v2 two-lesson scope); run 68 = 1.3 + 1.4",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -13847,26 +13944,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 21,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 83,
-    "wordsAuthored": 412045,
-    "termsDefined": 635,
-    "quizItems": 415,
-    "exerciseQuestions": 1023,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 85,
+    "wordsAuthored": 420219,
+    "termsDefined": 651,
+    "quizItems": 425,
+    "exerciseQuestions": 1051,
     "blockTotals": {
-      "para": 1162,
-      "callout": 469,
-      "heading": 472,
-      "list": 95,
-      "terms": 84,
+      "para": 1192,
+      "callout": 482,
+      "heading": 482,
+      "list": 98,
+      "terms": 86,
       "equation": 119,
-      "figure": 137,
-      "derivation": 177,
-      "table": 110,
-      "example": 343,
-      "quiz": 83,
-      "exercises": 83,
-      "formula": 242,
+      "figure": 141,
+      "derivation": 179,
+      "table": 114,
+      "example": 351,
+      "quiz": 85,
+      "exercises": 85,
+      "formula": 246,
       "algorithm": 21
     }
   }

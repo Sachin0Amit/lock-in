@@ -9,18 +9,24 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 66 (2026-11-07, job 509354's hourly :45 IST cadence)**: **BOOK #3 'ELEMENTARY ALGEBRA' PROMOTED** — the
-research phase is complete and the book is live as 'planned' (11 chapters / 37 lessons, zero written): the Drive survey (rebuilt
-post-recycle, 89 entries) surfaced Jacobs' *Elementary Algebra* (the Algebra-1-equivalent classic — the course spine), Hall & Knight's
-*Higher Algebra* ×2 (the stretch), the Cengage MATHS M2 = Algebra module (the style reference) and Khattar QA (the competitive scope);
-the web-checked NCERT algebra arc (class 6 ch. 11 → class 7 ch. 4 → class 8 ch. 2/10/12 → class 9 ch. 2 → class 10 ch. 3/4) plus
-OpenStax *Elementary Algebra 2e* fixed the sequencing. book.ts created (status 'planned', the `al-` prefix verified unused, olive
-accent, the full TOC with real summaries, 16 verified FM/ANS cross-reference anchors), registered in index.ts (allBooks = 3);
-verify-book3-promotion.ts **218/218 checks** sections A–E; e2e-book3-promotion green (home shelf "3Books", book page "0 written ·
-37 planned" with 11 chapter tiles and all 11 sampled titles, revise/glossary empty states, 404s honest, zero console errors); gates
-lint 0 / tsc 0 (one promotion-time TS2353 caught and removed) / routes 200+404; 9 citation keys reserved; zero downloads. Library: 3
-books (2 complete + 1 planned) / 21 chapters written / 83 lessons / 412,045 words / 635 terms / 415 quiz / 1,023 exercises. Next: run
-67 opens AL ch. 1 with 1.1 + 1.2 (two-lesson v2 scope; verify-book3-ch01.ts FIRST).
+Maintained through **run 67 (2026-11-07, job 509354's hourly :45 IST cadence)**: **BOOK #3 'ELEMENTARY ALGEBRA' ch. 1 OPENS 2/4** —
+1.1 'From Arithmetic to Algebra: What a Letter Does' (`al-from-arithmetic-to-algebra`, 4,229 words, 8 terms, quiz keys 2/1/3/0/2,
+14 exercises L1–L6, 2 figures, 2 tables, 4 illustrations incl. 3a-vs-a³ = 12-vs-64, 1 derivation, 2 formula cards) + 1.2 'Expressions,
+Terms and Like Terms' (`al-expressions-terms-like-terms`, 4,109 words, 8 terms, quiz keys 2/1/0/3/1, 14 exercises L1–L6, 2 figures, 2
+tables, 5 illustrations, 1 derivation — the collection law PROVED from the distributive law — 2 formula cards), authored verify-first
+and strictly sequentially with scripts/verify-book3-ch01.ts **194 checks ALL GREEN** (98 pre-writing; TWO author typos caught
+pre-prose: 7·12 for 4·12, (2a+3)×4 = 32 for 52) and every per-lesson gate green twice (lint 0 / tsc 0 / routes 200+404 / E2E 3
+viewports ALL PASS — quiz 5/5 live on both key sets, KaTeX 198/338 nodes 0 errors, 0 console errors, no overflow at 390/1280, SVG
+audits clean, warm-palette pixels 0% blue cast, dark 91.9%/92.2%) — one real figure defect caught by visual inspection pre-ship (1.1
+fig 1 footer overlapped the bottom station boxes; viewBox 430 → 448) and both lessons' captions fixed for the reader's auto-numbering.
+The run-66 attribution CORRECTED: the Drive `Elementary-Algebra_text.pdf` is Hall & Knight's *Elementary Algebra for Schools*
+(Macmillan, first edition 1885 — web-checked), NOT Jacobs; key `jacobs-elementary-algebra` withdrawn, `hall-knight-elementary-algebra`
+banked; book.ts header/notes + SOURCE_LOG corrected. ch-01.ts created, book.ts imports chapter01 and the book status is 'in-progress';
+plannedLessons: 1.3 + 1.4 (run 68; the unit-1 review follows 1.4). 4 new web-checked keys (hall-knight-elementary-algebra,
+alkhwarizmi-c825-aljabr, viete-1591-isagoge, descartes-1637-geometrie); 2 downloads (H&K 23 MB + Cengage M2/01 24 MB) deleted after
+E2E per the storage law. Library: 3 books (2 complete + 1 in progress) / 21 chapters written + 1 in progress / 85 lessons / 420,219
+words / 651 terms / 425 quiz / 1,051 exercises. Next: run 68 = AL ch. 1 lessons 1.3 'Evaluating Expressions: Substitution and
+Formulas' + 1.4 'Translating: Words into Symbols' (two-lesson v2 scope; extend verify-book3-ch01.ts FIRST).
 
 - **9.1 'Tallies, Groupings and Additive Systems'** (`ans-tallies-groupings-and-additive-systems`,
   5,311 words, 8 terms, 5 quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 derivations — the additive symbol
@@ -1818,6 +1824,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion (6,579 words; verify-book2-ch01.ts 124 → 228 checks AA–AM; quiz keys 1/2/1/0/3 live 5/5; audits 0/0 both figures) + UNIT-1 COMPLETION REVIEW PASSED — CHAPTER 1 COMPLETE 3/3 (16,921 words / 24 terms / 15 quiz / 36 exercises); ch-01 → complete; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci; fired from job 498279 (fifth consecutive fire, logged for the owner) — pushed per protocol |
 | 65 | ship + bookkeeping + memory | 11-07 | ANS ch. 10 lesson 10.3 The Toolkit Synthesis (6,158 words — the book closer; verify-book2-ch10.ts 174 → 288 checks P–V; quiz keys 0/2/2/2/0 live 5/5 × 3 viewports; audits 0/0 both figures; 4 pre-writing defects caught incl. the digitSum shadow and the hand-typed binary of 2024; 74 single-backslash LaTeX escapes swept) + UNIT-10 COMPLETION REVIEW PASSED (all ten book-2 verifiers re-run green) — **BOOK #2 'ARITHMETIC AND NUMBER SYSTEMS' COMPLETE 10/10 (34 lessons / 184,361 words)**; ch-10 → complete, plannedLessons emptied, book.ts status header + notes rewritten; new citation key legendre-1808-essai (web-checked 1808 2nd-edition attribution) — pushed per protocol |
 | 66 | ship + bookkeeping + memory | 11-07 | **BOOK #3 PROMOTED: Elementary Algebra** — research phase complete (Drive survey: Jacobs' Elementary Algebra + Hall & Knight ×2 + Cengage M2 = Algebra + Khattar QA; web-checked NCERT algebra arc class 6–10 + OpenStax Elementary Algebra 2e); 11-chapter/37-lesson plan; book.ts (planned, al- prefix reserved, olive accent, 16 FM/ANS cross-reference anchors) + index.ts allBooks = 3; verify-book3-promotion.ts 218/218 (one TS2353 caught: book-level plannedLessons removed); e2e-book3-promotion green (3Books shelf, 0 written · 37 planned, 11 tiles, empty states, 404s, 0 console errors; the 3-books matcher fixed to /3\s*books?/i); 9 citation keys reserved; zero downloads — pushed per protocol |
+| 67 | verify-first authoring + ship + bookkeeping | 11-07 | **AL ch. 1 OPENS 2/4: 1.1 'From Arithmetic to Algebra: What a Letter Does' (al-from-arithmetic-to-algebra, 4,229 words) + 1.2 'Expressions, Terms and Like Terms' (al-expressions-terms-like-terms, 4,109 words)** — verify-first with verify-book3-ch01.ts 194 checks ALL GREEN (98 pre-writing; two author typos caught pre-prose: 7·12 for 4·12, (2a+3)×4 = 32 for 52); 1.1: the role census (placeholder/generalizer/position/unknown + the four-hats figure), generalized arithmetic + the sweep discipline (6,859-triple distributive sweep), the evaluation contract + traps priced (3a = 3+a has NO integer solution; a² = 2a only at {0,2}; −a flips), expressions vs equations, the letter-revolution history (al-Khwārizmī → Viète 1591 → Descartes 1637); 1.2: the anatomy (term/factor/coefficient, sign belongs to the term), the expression tree RE-DERIVING FM 2.8's conventions (1,000/1,000 left-fold disagreements; 6÷2×3 = 9; 22 vs 52 re-tree), like terms from the letter part (3xy/5yx commute rescue), the collection law PROVED (copies → distributive backwards → 9,025-check sweep), simplification as renaming (3 Illustrations + the sieve figure), the L6 vanishing-part theorem (b = 0 exactly); the run-66 Jacobs attribution CORRECTED (Hall & Knight's Elementary Algebra for Schools, 1885 — key withdrawn, hall-knight-elementary-algebra banked; book.ts + SOURCE_LOG corrected); 4 new web-checked keys; 2 downloads deleted after E2E; per-lesson gates green twice (lint 0 / tsc 0 / routes 200+404 / E2E 3 viewports quiz 5/5 live on 2/1/3/0/2 + 2/1/0/3/1, KaTeX 198/338, 0 console errors, SVG audits clean, pixels 0% blue + dark 91.9%/92.2%; fig-1 footer overlap fixed pre-ship); ch-01.ts created, book.ts in-progress, plannedLessons 1.3+1.4; inventory: 85 lessons / 420,219 words / 651 terms / 425 quiz / 1,051 exercises — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 

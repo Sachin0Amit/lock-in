@@ -3,6 +3,78 @@
 Every work session appends one entry at the top. Format:
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
+## 2026-11-07 — RUN 67 (fired 18:15:01 +08:00 from job 509354, trace cron-agent-loop-202611071815): BOOK #3 'ELEMENTARY ALGEBRA' ch. 1 OPENS 2/4 — 1.1 'From Arithmetic to Algebra: What a Letter Does' + 1.2 'Expressions, Terms and Like Terms' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-66 memory commit (`44e7607`, the ship `6c2469b` already
+remote-verified); no `.figure_upgrade_lock`. RESUME_POINTER locked run 67 = AL ch. 1 opens 1.1 + 1.2 (v2 two-lesson scope, never a third).
+
+**Research (per-unit downloads per the storage law):** the Drive survey was rebuilt post-recycle (89 entries intact) and
+`Elementary-Algebra_text.pdf` (23 MB, 572 pp) downloaded — and **the run-66 attribution was CORRECTED**: the file is H. S. Hall & S. R.
+Knight's *Elementary Algebra for Schools* (Macmillan, first edition 1885, web-checked; this 1942 revised edition), NOT Harold Jacobs —
+pdfinfo title + title page + the 1942 imprint on the scan; SOURCE_LOG's run-66 key `jacobs-elementary-algebra` withdrawn with the
+correction note, replaced by `hall-knight-elementary-algebra`; book.ts header + notes corrected the same way. Its chapter arc I.
+Definitions, Substitutions → II. Negative Quantities, Addition of Like Terms → III. Simple Brackets. Addition informed the sequencing of
+1.1–1.2 and the 3a-vs-a³ coefficient/index contrast (page-one material of the classic); NO content reproduced. The Cengage M2/01 module
+(24 MB) re-pulled for the run-67 style re-grounding (2 rendered pages: definition voice + Sol. chains) — presentation contract only.
+Both working copies deleted after the run's E2E (storage law); Drive originals untouched. New web-checked keys: alkhwarizmi-c825-aljabr
+(Baghdad c. 820–830, LOC + standard references), viete-1591-isagoge (consonants = knowns, vowels = unknowns, with the not-first hedge),
+descartes-1637-geometrie.
+
+**Verify-first (create scripts/verify-book3-ch01.ts BEFORE any prose):** sections A–G grew to 98 checks ALL GREEN pre-writing — (A) the
+collection engine ax + bx = (a+b)x over 9,025 coefficient-grid checks + the copies reading + the UNLIKE boundary pinned (3x+5y=8xy ties
+censused exactly over [-6..6]²; x + x² = 2x² only at {0,1}); (B) substitution + tree order (3a=12 vs a³=64 at a=4; 2a+3b−c = 19 at
+(7,2,1); 3a=3+a has NO integer solution; a²=2a exactly at {0,2}; (a−b)−c ≠ a−(b−c) for ALL 1,000 triples of [1..10]; 6÷2×3 = 9;
+T50 = 249 on FM 11.2's dress); (C) distributivity swept [−9..9]³ = 6,859 triples + the five fan instances; (D) the translation grammar;
+(E) quiz keys 1.1 = [2,1,3,0,2] and 1.2 = [2,1,0,3,1] pinned with every distractor's value computed; (F) exercise keys recomputed both
+sides; (G) the four-figure geometry plan. **The first pass caught TWO of the author's own typos pre-prose** (a 7·12 for 4·12 in the
+collect-speed exhibit; (2a+3)×4 = 32 for the true 52) — both corrected before writing, the run-64 lesson holding again. At authoring
+time the verifier grew H (authored 1.1) and I (authored 1.2) importing the chapter file directly — quiz keys match pinned, exercise shape
+3/3/3/2/2/1, figure-geometry audits (label boxes disjoint, viewBox respected), citation keys present in SOURCE_LOG, honest word counts,
+the string-aware single-backslash scan, and the `al-` prefix uniqueness across all 85 ids — **194 checks ALL GREEN**.
+
+**1.1 'From Arithmetic to Algebra: What a Letter Does'** (`al-from-arithmetic-to-algebra`, 4,229 words): the role census — placeholder /
+generalizer / position letter / unknown (table + Figure 1, the four hats of x) — with the reading skill ("which hat does the sentence
+announce?"); algebra as generalized arithmetic (the arithmetic↔law dictionary table incl. the subtraction-is-NOT-associative row);
+"One law, every case" derivation (statement / sample / proof division of labour) + the sweep-discipline insight callout (6,859 triples);
+the three big laws in letter form (ANS 7.2 cross-referenced, instances verified); the evaluation contract + the 3a-vs-a³ contrast
+(Illustrations: 12 vs 64; 2a+3b−c = 19) + the three traps priced by sweeps (3a = 3+a has NO integer solution; a² = 2a only at {0,2}; −a
+flips); expressions vs equations (name vs sentence; the simplify-vs-solve exam trap); three dividends of letters (generality — Figure 2,
+one law fanning to five verified instances; reusable recipes — FM 11.2's Tn = 5n−1, T50 = 249; statable problems); the letter-revolution
+historical callout (al-Khwārizmī → Viète 1591 → Descartes 1637, hedged); exam corner; 8 terms; quiz 5 (keys 2/1/3/0/2); 14 exercises
+L1–L6 incl. letter proofs (three consecutive integers = 3(n+1); n(n+1) even by cases; odd + even = 2(m+n)+1); 2 formula cards. Gates:
+lint 0 / tsc 0 / routes 200 + 404 / E2E ALL PASS at 1280 + true 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 198 nodes 0 errors,
+0 raw $, 2 figures 2 tables, 3 prereq chips, no overflow, 0 console errors, 17 Sol. pills); pixel checks warm palette 0% blue cast,
+dark re-shot after the run-65 fix (91.9% dark pixels); **both figures visually inspected** — one real defect found and fixed pre-ship
+(fig 1's footer text overlapped the bottom station boxes; viewBox 430 → 448, footer y = 418 → 436) plus the caption auto-numbering
+duplicate ("Figure 1 — Figure 1 —") removed from both captions.
+
+**1.2 'Expressions, Terms and Like Terms'** (`al-expressions-terms-like-terms`, 4,109 words): the anatomy (term / factor / coefficient
+in the Cengage definition voice, sign-belongs-to-the-term, the part-by-part reading table, family names monomial → multinomial); the
+expression tree (Figure 3 — the tree of 3x + 2x − 4) RE-DERIVING FM 2.8's order conventions instead of reciting them (brackets = the
+explicit override; multiplication assembles before addition; left-to-right settles ties — the 1,000/1,000 disagreement sweep; the ties
+callout 6÷2×3 = 9, 12−4−3 = 5; the re-tree Illustration 22 vs 52); like terms defined from the letter part (the commute rescue 3xy/5yx;
+the census table with reasons; the one-question reading method); **the collection law PROVED** (copies argument → the distributive law
+read backwards → 9,025-check sweep; the honest boundary — the law needs the common factor); the merge-everything trap priced (19 vs 48
+vs 40 at (2,3)); simplification as renaming (three Illustrations: 5a+3b−2a+b → 3a+4b; 7x²−2x+3x−x² → 6x²+x; the triangle perimeter
+6x+6) + the collect-then-substitute speed dividend (4a+5−3a+2 at a=12 → 19); Figure 4, the like-terms sieve; the renaming insight
+census; exam corner; 8 terms; quiz 5 (keys 2/1/0/3/1); 14 exercises L1–L6 incl. the L6 vanishing-part theorem (ax + by = (a+b)x for
+all x, y iff b = 0); 2 formula cards. Gates: all green — E2E ALL PASS at 1280 + 390 + dark (quiz 5/5 live, KaTeX 338 nodes 0
+errors, 0 raw $, 2 figures 2 tables, prereq chips 3, no overflow, 0 console errors, 19 Sol. pills); pixels 0% blue cast + dark 92.2%;
+**both figures visually inspected clean**.
+
+**Chapter wiring:** ch-01.ts created (chapter01 export; plannedLessons trimmed to 1.3 + 1.4); book.ts imports chapter01, flips the BOOK
+status to in-progress; the al- prefix verified unique across the whole library at every verifier pass.
+
+**Logs:** SOURCE_LOG run-67 section (the Jacobs correction + 4 new keys + the download ledger); SUBJECT_BACKLOG AL → authoring; the
+inventory rebuilt (bun run scripts/build_work_inventory.ts): **library 3 books (2 complete + 1 in progress) / 21 chapters written + 1
+in progress / 85 lessons / 420,219 words / 651 terms / 425 quiz / 1,051 exercises**. Next: run 68 = AL ch. 1 lessons 1.3
+'Evaluating Expressions: Substitution and Formulas' + 1.4 'Translating: Words into Symbols' (v2 two-lesson scope; extend
+verify-book3-ch01.ts FIRST; whitelist e2e-al-13/14 before committing); the unit-1 completion review follows 1.4 per the chapter-close
+rule.
+
+
+---
+
 ## 2026-11-07 — RUN 66 (fired 14:45:01 IST — the payload's "+08:00" 17:15:00 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071716): **BOOK #3 'ELEMENTARY ALGEBRA' PROMOTED** — research phase complete (reference survey + syllabus audit + the 11-chapter/37-lesson plan); the third spine on the Mathematics shelf; zero lesson authoring this run per the one-book-at-a-time rule
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run open at the run-65 memory commit (`de14bc3` = remote-verified

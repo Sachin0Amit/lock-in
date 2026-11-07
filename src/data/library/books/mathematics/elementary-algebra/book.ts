@@ -1,11 +1,13 @@
 import type { Book } from '../../../types'
+import { chapter01 } from './ch-01'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
  *
- * STATUS: PLANNED — research phase complete (2026-11-07, run 66); the full
- * TOC below is the researched chapter plan (11 chapters / 37 lessons).
- * Authoring begins at chapter 1 (owner cadence: two lessons per run).
+ * STATUS: IN PROGRESS — research phase complete (2026-11-07, run 66); the
+ * full TOC below is the researched chapter plan (11 chapters / 37 lessons).
+ * Authoring opened at chapter 1 in run 67 (1.1 shipped; owner cadence: two
+ * lessons per run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
@@ -29,11 +31,13 @@ import type { Book } from '../../../types'
  *
  * RESEARCH PHASE (done 2026-11-07, run 66):
  * - Reference survey: the Drive collection carries three direct references:
- *   `Elementary-Algebra_text.pdf` (Harold R. Jacobs' Elementary Algebra —
- *   the Algebra-1-equivalent classic; its chapter arc fundamental operations
- *   → functions and graphs → integers → equations in one and two variables →
- *   simultaneous equations → exponents → polynomials → factoring → fractions
- *   → square roots → quadratic equations → inequalities is the course spine),
+ *   `Elementary-Algebra_text.pdf` — H. S. Hall & S. R. Knight's
+ *   *Elementary Algebra for Schools* (Macmillan, first edition 1885; the
+ *   1942 reprint in the Drive — the run-66 header had attributed it to
+ *   Harold Jacobs; corrected in SOURCE_LOG.md 2026-11-07) — the
+ *   Algebra-1-equivalent classic whose chapter arc definitions and
+ *   substitutions → negative quantities and like terms → simple brackets
+ *   → subtraction → multiplication → … is the course spine),
  *   `Higher Algebra - Hall & Knight.pdf` (+ a second copy) — the classic
  *   British text for the stretch and handoff material, and the Cengage
  *   `MATHS` M2 module (= Algebra, JEE series; the M2/01 unit was the style
@@ -69,26 +73,12 @@ export const elementaryAlgebra: Book = {
   level: 'Class 6–10 algebra → the doorway to higher algebra',
   description:
     'The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#4d7c0f', '#3f6212'],
   notes:
-    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Jacobs, Elementary Algebra (the Drive Elementary-Algebra_text.pdf — the course spine → the chapter arc); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Authoring starts at ch. 1 next run (two lessons per run, owner directive 2026-11-06 v2).',
+    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Authoring opened at ch. 1 in run 67 (1.1 shipped; two lessons per run, owner directive 2026-11-06 v2).',
   chapters: [
-    {
-      number: 1,
-      slug: 'letters-and-structure',
-      title: 'Letters and Structure',
-      summary:
-        'The grammar of algebra, built from the FM doorstep: a letter stops abbreviating one number and starts carrying structure — what an expression is (terms, coefficients, factors), why "like terms" may be collected (the distributive law working backwards, proved), how substitution evaluates, and how words become symbols in the exam word-problem grammar. Order of operations is re-derived as the expression tree, not recited.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'From Arithmetic to Algebra: What a Letter Does',
-        'Expressions, Terms and Like Terms',
-        'Evaluating Expressions: Substitution and Formulas',
-        'Translating: Words into Symbols',
-      ],
-    },
+    chapter01,
     {
       number: 2,
       slug: 'exponents-and-powers',
