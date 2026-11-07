@@ -9,32 +9,18 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 65 (2026-11-07, job 509354's hourly :45 IST cadence)**: **BOOK #2 'ARITHMETIC AND
-NUMBER SYSTEMS' CLOSED** — ANS chapter 10 finished 3/3 with 10.3 'The Toolkit Synthesis' (6,158 words, the
-chapter's largest — the one-engine thesis: unit digits and last two digits computed in ℤ/10ℤ and ℤ/100ℤ with the
-honest non-coprime case (2²⁰²⁴ → 16 via the period-20-from-n = 2 wheel; 7²⁰²⁴ → 01 via order 4), Legendre's chain
-for trailing zeros (1000! → 249; 2024! → 503) with the digit-sum identity Z(n) = (n − s₅(n))/4 proved by
-telescoping, base conversions as quotient-remainder chains with the general digit-sum law N ≡ s_b(N) (mod b−1)
-(casting out (b−1)s in any base — the 3/9 tests and casting out nines as the b = 10 case), and the CRT
-remainder-vector verdict ('a number IS its remainder vector', the 83 + 88k and 301 + 420k families)), the unit-10
-completion review passed (ids repo-wide unique, exam corners 3/3, figure labels in prose, prerequisites and
-sources all resolving, all TEN book-2 verifiers re-run green: 228/407/502/356/270/233/239/ALL/ALL/288), and the
-book flipped 'complete' (plannedLessons emptied, book.ts status header + notes updated). verify-book2-ch10.ts
-grew 174 → 288 checks (sections P–V added BEFORE any prose; T/U quiz+exercise keys pinned; V figure geometry),
-ALL GREEN before writing, with FOUR pre-writing defects caught: a helper-name shadow (the new 2-arg digitSum
-silenced the run-64 1-arg digitSum, reddening sections E/L until the rename to digitSumB), the author's own
-hand-typed binary of 2024 (true 11111101000₂ = 1024+512+256+128+64+32+8; padded 011111101000₂ → nibbles 0111
-1110 1000 → 7 E 8), two floor-division chain assertions (8/5 = 1.6 — Math.floor was missing), and a sweep range
-that missed the ladder classic's second hit (721 = 301 + 420 in [1, 800], not [1, 420]). Two authoring-time
-defects caught by the browser gates: a callout title carrying raw $v_p$ (callout titles are not
-KaTeX-processed — reworded to 'The exponent of a prime — the p-factor census') and example blocks carrying an
-unsupported 'answer' field (folded into final 'Hence' steps per the Cengage chain contract). Per-lesson gates
-green: lint 0, tsc 0, routes 200 + unknown-404, E2E 34 PASS × 3 viewports (1280 / true 390 / dark — quiz 5/5
-live on keys 0/2/2/2/0, KaTeX 326 nodes 0 errors, 2 figures 2 tables, 21 Sol. pills, 0 console errors), SVG
-overlap audit 0/0 on both new figures, pixel checks warm palette 0% blue cast with true dark verified (94%
-dark pixels). Library: 2 books / 21 chapters written, 0 in progress / 83 lessons / 412,045 words / 635 terms /
-415 quiz / 1,023 exercises (WORK_INVENTORY.json ground truth). Next: run 66 opens BOOK #3 'Elementary
-Algebra' with its research phase + promotion; authoring from run 67.
+Maintained through **run 66 (2026-11-07, job 509354's hourly :45 IST cadence)**: **BOOK #3 'ELEMENTARY ALGEBRA' PROMOTED** — the
+research phase is complete and the book is live as 'planned' (11 chapters / 37 lessons, zero written): the Drive survey (rebuilt
+post-recycle, 89 entries) surfaced Jacobs' *Elementary Algebra* (the Algebra-1-equivalent classic — the course spine), Hall & Knight's
+*Higher Algebra* ×2 (the stretch), the Cengage MATHS M2 = Algebra module (the style reference) and Khattar QA (the competitive scope);
+the web-checked NCERT algebra arc (class 6 ch. 11 → class 7 ch. 4 → class 8 ch. 2/10/12 → class 9 ch. 2 → class 10 ch. 3/4) plus
+OpenStax *Elementary Algebra 2e* fixed the sequencing. book.ts created (status 'planned', the `al-` prefix verified unused, olive
+accent, the full TOC with real summaries, 16 verified FM/ANS cross-reference anchors), registered in index.ts (allBooks = 3);
+verify-book3-promotion.ts **218/218 checks** sections A–E; e2e-book3-promotion green (home shelf "3Books", book page "0 written ·
+37 planned" with 11 chapter tiles and all 11 sampled titles, revise/glossary empty states, 404s honest, zero console errors); gates
+lint 0 / tsc 0 (one promotion-time TS2353 caught and removed) / routes 200+404; 9 citation keys reserved; zero downloads. Library: 3
+books (2 complete + 1 planned) / 21 chapters written / 83 lessons / 412,045 words / 635 terms / 415 quiz / 1,023 exercises. Next: run
+67 opens AL ch. 1 with 1.1 + 1.2 (two-lesson v2 scope; verify-book3-ch01.ts FIRST).
 
 - **9.1 'Tallies, Groupings and Additive Systems'** (`ans-tallies-groupings-and-additive-systems`,
   5,311 words, 8 terms, 5 quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 derivations — the additive symbol
@@ -1580,6 +1566,8 @@ downloads (references already logged).
 
 ### Arithmetic and Number Systems — mathematics shelf · **COMPLETE (10/10 chapters, 34 lessons, 184,361 words — closed by run 65)**
 
+### Elementary Algebra — mathematics shelf · **PROMOTED (run 66; 11 chapters / 37 lessons planned — research phase complete; authoring from run 67)**
+
 *Why arithmetic works — and how the number systems were built* · Upper primary →
 first-year university bridge · accent teal · cover auto-generated.
 
@@ -1829,6 +1817,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 50 | memory | 11-05 | run-50 synced sha recorded — remote-verified via one-time-URL ls-remote = local HEAD; next run 51 = ANS ch. 2 opens with lessons 2.1 Division with Rest + 2.2 The Algebra of Divisibility (verify-book2-ch02.ts FIRST) |
 | 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion (6,579 words; verify-book2-ch01.ts 124 → 228 checks AA–AM; quiz keys 1/2/1/0/3 live 5/5; audits 0/0 both figures) + UNIT-1 COMPLETION REVIEW PASSED — CHAPTER 1 COMPLETE 3/3 (16,921 words / 24 terms / 15 quiz / 36 exercises); ch-01 → complete; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci; fired from job 498279 (fifth consecutive fire, logged for the owner) — pushed per protocol |
 | 65 | ship + bookkeeping + memory | 11-07 | ANS ch. 10 lesson 10.3 The Toolkit Synthesis (6,158 words — the book closer; verify-book2-ch10.ts 174 → 288 checks P–V; quiz keys 0/2/2/2/0 live 5/5 × 3 viewports; audits 0/0 both figures; 4 pre-writing defects caught incl. the digitSum shadow and the hand-typed binary of 2024; 74 single-backslash LaTeX escapes swept) + UNIT-10 COMPLETION REVIEW PASSED (all ten book-2 verifiers re-run green) — **BOOK #2 'ARITHMETIC AND NUMBER SYSTEMS' COMPLETE 10/10 (34 lessons / 184,361 words)**; ch-10 → complete, plannedLessons emptied, book.ts status header + notes rewritten; new citation key legendre-1808-essai (web-checked 1808 2nd-edition attribution) — pushed per protocol |
+| 66 | ship + bookkeeping + memory | 11-07 | **BOOK #3 PROMOTED: Elementary Algebra** — research phase complete (Drive survey: Jacobs' Elementary Algebra + Hall & Knight ×2 + Cengage M2 = Algebra + Khattar QA; web-checked NCERT algebra arc class 6–10 + OpenStax Elementary Algebra 2e); 11-chapter/37-lesson plan; book.ts (planned, al- prefix reserved, olive accent, 16 FM/ANS cross-reference anchors) + index.ts allBooks = 3; verify-book3-promotion.ts 218/218 (one TS2353 caught: book-level plannedLessons removed); e2e-book3-promotion green (3Books shelf, 0 written · 37 planned, 11 tiles, empty states, 404s, 0 console errors; the 3-books matcher fixed to /3\s*books?/i); 9 citation keys reserved; zero downloads — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 

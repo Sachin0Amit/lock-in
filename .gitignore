@@ -233,3 +233,7 @@ server.log
 # exception: run-65 ANS 10.3 lesson E2E block (the toolkit synthesis; quiz keys 0/2/2/2/0)
 !/scripts/e2e-ans-103.sh
 !/scripts/e2e-ans-103.page.js
+# exception: run-66 Elementary Algebra (book #3) promotion gate + E2E block
+!/scripts/verify-book3-promotion.ts
+!/scripts/e2e-book3-promotion.sh
+!/scripts/e2e-book3-promotion.page.js

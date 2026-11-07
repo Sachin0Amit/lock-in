@@ -1660,3 +1660,43 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   all corrected and pinned as regression guards. Two authoring-time defects caught by the browser gates: a callout title
   carrying raw $v_p$ (callout titles are not KaTeX-processed — reworded) and example blocks carrying an unsupported
   'answer' field (folded into final 'Hence' steps per the Cengage chain contract).
+
+### Run 66 — BOOK #3 PROMOTED: Elementary Algebra (2026-11-07)
+
+- `jacobs-elementary-algebra` — Harold R. Jacobs, *Elementary Algebra* (the Drive `Elementary-Algebra_text.pdf`; the
+  Algebra-1-equivalent classic). Web-checked 2026-11-07 (publisher/course listings): its chapter arc — fundamental
+  operations → functions and graphs → integers → rational numbers → equations in one and two variables → simultaneous
+  equations → exponents → polynomials → factoring → fractions → square roots → quadratic equations → real numbers →
+  fractional equations → inequalities and number sentences — is the course spine of the promoted plan. Used to inform
+  sequencing only; exposition original.
+- `hall-knight-higher-algebra` — H. S. Hall & S. R. Knight, *Higher Algebra* (the Drive copies
+  `Higher Algebra - Hall _ Knight.pdf` + `HigherAlgebra_10021865.pdf`): the classic British text for the stretch
+  material — remainder and factor theorems, cubic factoring, roots-and-coefficients relations — mapped to the ends of
+  AL chapters 3, 4, 9 and the handoff.
+- `openstax-elementary-algebra` — OpenStax, *Elementary Algebra 2e* (web-checked 2026-11-07): the modern open-textbook
+  sequencing cross-check (expressions → linear equations and inequalities → graphing → systems → polynomials →
+  factoring → rational expressions → quadratics). License forbids ingestion; structure reference only.
+- `ncert-math8-ch2-linear-equations` — NCERT Class 8 Mathematics ch. 2 "Linear Equations in One Variable" (rationalized
+  2023 contents web-checked 2026-11-07).
+- `ncert-math8-ch10-exponents` — NCERT Class 8 Mathematics ch. 10 "Exponents and Powers" (contents page hemh1ps
+  web-checked 2026-11-07).
+- `ncert-math8-ch12-factorisation` — NCERT Class 8 Mathematics ch. 12 "Factorisation" (contents page hemh1ps
+  web-checked 2026-11-07).
+- `ncert-math9-ch2-polynomials` — NCERT Class 9 Mathematics ch. 2 "Polynomials" (web-checked 2026-11-07).
+- `ncert-math10-ch3-pair-linear` — NCERT Class 10 Mathematics ch. 3 "Pair of Linear Equations in Two Variables"
+  (jemh103 web-checked 2026-11-07).
+- `ncert-math10-ch4-quadratic` — NCERT Class 10 Mathematics ch. 4 "Quadratic Equations" (jemh104 web-checked
+  2026-11-07).
+- `khattar-qa-4e` — carried (banked since run 6): the competitive-exam algebra scope (identities, factorization,
+  linear/quadratic speed work, roots-and-coefficients) → AL chapters 3, 4, 9, 11.
+- `cengage-jee-style` — carried: the Cengage `MATHS` M2 module is the Algebra volume of the JEE series (the M2/01 unit
+  was the style reference of runs 14/16); presentation contract only.
+
+#### Run 66 reference-notes
+- Zero downloads (the promotion phase needs survey + audit only; per-unit downloads follow at authoring time — the
+  three Drive references are direct: Jacobs' Elementary Algebra, the two Hall & Knight copies, and the M2 module).
+- Drive survey rebuilt post-recycle via rebuild_drive_survey.ts (89 entries intact) before WORK_INVENTORY.json was
+  regenerated (booksLive 3).
+- Research facts web-checked this run: the NCERT algebra arc's chapter numbers (class 8 ch. 2/10/12; class 9 ch. 2;
+  class 10 ch. 3/4), Jacobs' Elementary Algebra chapter arc, OpenStax Elementary Algebra 2e's structure. Nine citation
+  keys reserved; none consumed yet.

@@ -3,6 +3,66 @@
 Every work session appends one entry at the top. Format:
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
+## 2026-11-07 — RUN 66 (fired 14:45:01 IST — the payload's "+08:00" 17:15:00 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071716): **BOOK #3 'ELEMENTARY ALGEBRA' PROMOTED** — research phase complete (reference survey + syllabus audit + the 11-chapter/37-lesson plan); the third spine on the Mathematics shelf; zero lesson authoring this run per the one-book-at-a-time rule
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run open at the run-65 memory commit (`de14bc3` = remote-verified
+HEAD); no `.figure_upgrade_lock`, no uncommitted sibling figure changes. Dev server recycled — the restart-inside-the-same-invocation
+pattern was used for every browser gate.
+
+**Research phase:** (1) **Reference survey** — the Drive survey rebuilt first (rebuild_drive_survey.ts, 89 entries intact post-recycle)
+and re-read for algebra: the collection carries **Jacobs' *Elementary Algebra*** directly (`Elementary-Algebra_text.pdf` — the
+Algebra-1-equivalent classic whose chapter arc fundamental operations → functions and graphs → integers → equations in one and two
+variables → simultaneous equations → exponents → polynomials → factoring → fractions → square roots → quadratics → inequalities is the
+course spine), **Hall & Knight's *Higher Algebra*** (two copies — the classic stretch: remainder/factor theorems, cubic factoring,
+Viète), the **Cengage MATHS M2 module = Algebra** (the JEE volume; M2/01 was the runs-14/16 style reference), and Khattar QA 4e for
+the competitive scope. Zero downloads (survey-only phase; per-unit downloads follow at authoring time). (2) **Syllabus audit** (the
+sanctioned internet fallback, web-checked): the NCERT algebra arc — class 6 ch. 11 "Algebra" and class 7 ch. 4 "Simple Equations"
+(banked keys), class 8 ch. 2 "Linear Equations in One Variable" + ch. 10 "Exponents and Powers" + ch. 12 "Factorisation", class 9
+ch. 2 "Polynomials", class 10 ch. 3 "Pair of Linear Equations in Two Variables" + ch. 4 "Quadratic Equations" (contents pages checked
+2026-11-07); OpenStax *Elementary Algebra 2e* as the modern sequencing cross-check; the competitive-exam algebra scope (identities,
+factorization tricks, quadratic speed work, roots-and-coefficients) mapping to chapters 3/4/9/11; the Hall & Knight stretch mapping to
+the chapter ends; the universal function doorstep closing the book.
+
+**The plan (11 chapters / 37 lessons):** 1 Letters and Structure (4) · 2 Exponents and Powers (3) · 3 Polynomials (4) · 4 Factorization
+(4) · 5 Linear Equations in One Variable (3) · 6 Simultaneous Linear Equations (3) · 7 Inequalities (3) · 8 Algebraic Fractions (3) ·
+9 Quadratic Equations (4) · 10 Graphs of Equations (3) · 11 The Toolbox and the Doorstep (3). Dependency chain clean (expressions →
+powers → polynomials → factoring → equations → systems → inequalities → fractions → quadratics → graphs → the function doorstep); the
+no-duplication contract honoured — FM 11.2/11.3's doorstep is cited, never repeated, and 16 FM/ANS cross-reference anchors were
+verified to exist (fm-patterns-to-formulas, fm-letter-for-the-unknown, fm-order-of-operations, fm-idea-of-a-fraction,
+fm-equivalent-fractions-simplification, fm-highest-common-factor, fm-lowest-common-multiple, fm-division-remainders-zero,
+fm-negative-numbers-why-they-exist, fm-multiplying-integers-sign-rules, fm-direct-and-inverse-variation,
+ans-division-with-rest-the-division-algorithm, ans-the-field-laws-division-joins-the-family,
+ans-the-diagonal-that-broke-the-rationals, ans-completeness-the-line-without-holes, ans-the-great-extension-story).
+
+**The promotion:** `src/data/library/books/mathematics/elementary-algebra/book.ts` created — status 'planned', the `al-` id prefix
+(verified unused across all 83 existing lesson ids), olive accent `#4d7c0f` (distinct from FM's amber and ANS's teal, still warm),
+level 'Class 6–10 algebra → the doorway to higher algebra', the full researched TOC as plannedLessons with real pedagogical summaries,
+and the research-phase mapping in the file header. Registered in `index.ts` → allBooks (3 books). The platform treats the planned book
+honestly: "0 written · 37 planned" chips, planned lessons greyed, empty revise/glossary states hold, no dead lesson CTAs.
+
+**Verification:** `scripts/verify-book3-promotion.ts` created and whitelisted — **218/218 checks** (A structure: 11 sequential chapters,
+37 unique planned titles, real summaries; B registry: allBooks/libraryStats/bookStats honest; C uniqueness vs ALL of FM and ANS + the
+al- prefix reservation; D the 16 cross-reference anchors exist; E the research mapping). **9 citation keys reserved** in SOURCE_LOG
+(jacobs-elementary-algebra, hall-knight-higher-algebra, openstax-elementary-algebra, ncert-math8-ch2-linear-equations,
+ncert-math8-ch10-exponents, ncert-math8-ch12-factorisation, ncert-math9-ch2-polynomials, ncert-math10-ch3-pair-linear,
+ncert-math10-ch4-quadratic) + 2 carried (khattar-qa-4e, cengage-jee-style). Gates: lint 0; tsc 0 (one promotion-time TS2353 caught —
+a book-level plannedLessons field that the Book type does not carry; removed); routes 200 (home, book, revise, glossary) + 404
+(unknown lesson, unknown book); browser E2E green — home shelf shows the new spine ("3Books", FM + ANS still present), book page
+renders h1 + Planned badge + "0 written · 37 planned" + 11 chapter tiles + all 11 sampled planned titles + zero lesson links + zero
+console errors everywhere, revise/glossary empty states, 404s honest; screenshot pixel checks (non-blank, 0% blue cast) + visual
+inspection of the cover and the 404 state. One E2E harness fix pre-commit: the home "3 books" matcher needed /3\s*books?/i because
+the stat spans concatenate as "3Books".
+
+**Logs:** SOURCE_LOG.md (the run-66 research-phase section + 9 reserved keys + ledger), SUBJECT_BACKLOG.md (Elementary Algebra marked
+PROMOTED), PROGRESS.json (phase/awaiting for run 67), RESUME_POINTER.json (run 67 = AL ch. 1 opens 1.1 + 1.2; run 68 = 1.3 + 1.4),
+WORKLOG.md (this entry), DETAILED_LOG.md (run-66 header narrative + the section-4 AL row + git-history row), WORK_INVENTORY.json
+regenerated (booksLive 3, backlog 280).
+
+**Remaining:** authoring begins at run 67 — AL ch. 1 lessons 1.1 + 1.2 (two-lesson cadence); unit-1 completion review lands with 1.3 +
+1.4 at run 68. EXAM_REGISTRY research still pending sometime. Voice queue empty.
+
+**Git:** ship commit + memory commit; protocol push; ls-remote verified (sha below).
+
 ## 2026-11-07 — RUN 65 (fired 13:45:01 IST — the payload's "+08:00" 16:15:00 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071615): ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' CLOSES 3/3 — 10.3 'The Toolkit Synthesis' + the unit-10 completion review + **BOOK #2 'ARITHMETIC AND NUMBER SYSTEMS' COMPLETE** — 10/10 chapters, 34 lessons, 184,361 words; the fifth delivery of this job's payload, the second consecutive fully-executed run
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run open; no `.figure_upgrade_lock` and no uncommitted sibling figure

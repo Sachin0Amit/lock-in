@@ -12,6 +12,7 @@
  */
 import { foundationMathematics } from '../src/data/library/books/mathematics/foundation-mathematics/book'
 import { arithmeticNumberSystems } from '../src/data/library/books/mathematics/arithmetic-number-systems/book'
+import { elementaryAlgebra } from '../src/data/library/books/mathematics/elementary-algebra/book'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
@@ -154,7 +155,7 @@ function lessonRecord(l: Lesson) {
   }
 }
 
-const allLiveBooks = [foundationMathematics, arithmeticNumberSystems]
+const allLiveBooks = [foundationMathematics, arithmeticNumberSystems, elementaryAlgebra]
 const chaptersWritten = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status === 'complete')
 const chaptersStarted = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status !== 'planned')
 function bookRecordOf(book: (typeof allLiveBooks)[number]) {
