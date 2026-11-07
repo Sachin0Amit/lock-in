@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 20:38:25 (Asia/Kolkata)",
+  "generated": "2026-11-08 02:40:27 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,13 +5920,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 104,
-      "totalLines": 65740,
+      "srcFilesTracked": 105,
+      "totalLines": 67723,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 56475,
+        "src/data/library (content model + books)": 58458,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -14318,33 +14318,130 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "9595b2fb3d902897bb18e3266e1f50de64d6fb5f",
+      "short": "9595b2f",
+      "date": "2026-11-07 15:13",
+      "message": "al ch.3 OPENS (run 71): 3.1 What a Polynomial Is (4,989 w — the family defined term-by-term on the 2.1-2.2 exponent laws, the nonnegative-integer boundary enforced in the verifier's Mono guard, constants as degree-zero terms derived from 2.2, the two namings, the sieve pricing 1/x & sqrt(x) & 2^x, the Descartes 1637 notation callout) + 3.2 Adding, Subtracting and Multiplying Polynomials (5,013 w — column alignment + the pointwise principle proved on 15,300-check sweeps, the distributed minus with the half-flip trap, the distributive grid and convolution columns with c_k = sum a_i b_{k-i}, the degree theorem deg(fg) = deg f + deg g proved by the leading-coefficient argument on 900 pairs, the special products (a+b)^2 and (a+b)(a-b) PROVED — the 2.1 census cashed, closure under +,-,x with division refused, the al-Karaji coefficient-rows callout) — verify-first with verify-book3-ch03.ts 214 checks ALL GREEN (115 pre-writing caught NINE author slips; H/I authored-time caught 45 unicode escapes + 5 single-backslash LaTeX eats, none shipped); E2E e2e-al-31/32 whitelisted, 45/45 PASS x2 runs x3 viewports per lesson (quiz 5/5 live on keys 1/0/1/1/0 and 0/2/1/0/1); four figures audited + visually inspected; logs + inventory updated (23 chapters + 1 in progress / 92 lessons / 451,422 words)",
+      "filesChanged": 14,
+      "insertions": 2653,
+      "deletions": 45,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 37,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 39,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 96,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 108,
+          "del": 21
+        },
+        {
+          "path": "scripts/e2e-al-31.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-31.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-32.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-32.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch03.ts",
+          "add": 1026,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 3,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-03.ts",
+          "add": 1004,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "b2585fe0a38a75c368ffc9c4446c33e4402cf785",
+      "short": "b2585fe",
+      "date": "2026-11-07 15:13",
+      "message": "memory: run-71 push verified — remote main = 9595b2f (ship 9595b2f pushed e76161e..9595b2f, ls-remote verified = local HEAD; run 70's memory commit 68e9aa9 rode the same push); AL ch. 3 'Polynomials' OPENS 2/4 (10,002 words: 3.1 'What a Polynomial Is: Terms, Degree and Family' 4,989 + 3.2 'Adding, Subtracting and Multiplying Polynomials' 5,013; verify-book3-ch03.ts 214 checks ALL GREEN — sections A–G's 115 pre-writing checks caught NINE author arithmetic slips incl. two shared-value errors and the drop-case construction, H/I's authored-time scanners caught 45 unicode escapes + 5 single-backslash LaTeX eats, none shipped; the Descartes-1637 notation callout and the al-Karaji binomial-rows callout; four figures audited + visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson on keys 1/0/1/1/0 and 0/2/1/0/1); the book stands 2 complete chapters + ch. 3 open 2/4 (23 chapters written + 1 in progress / 92 lessons / 451,422 words repo-wide); next run 72 = ch. 3 CLOSES with 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend verify-book3-ch03.ts FIRST; whitelist e2e-al-33/34; never ch. 4); run 73 = ch. 4 'Factorization' opens with 4.1 + 4.2",
+      "filesChanged": 1,
+      "insertions": 3,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 3
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 23,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 92,
-    "wordsAuthored": 451422,
-    "termsDefined": 707,
-    "quizItems": 460,
-    "exerciseQuestions": 1149,
+    "chaptersWritten": 24,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 94,
+    "wordsAuthored": 460076,
+    "termsDefined": 723,
+    "quizItems": 470,
+    "exerciseQuestions": 1177,
     "blockTotals": {
-      "para": 1307,
-      "callout": 513,
-      "heading": 520,
+      "para": 1337,
+      "callout": 522,
+      "heading": 529,
       "list": 99,
-      "terms": 93,
-      "equation": 128,
-      "figure": 155,
-      "derivation": 188,
-      "table": 127,
-      "example": 374,
-      "quiz": 92,
-      "exercises": 92,
-      "formula": 260,
+      "terms": 95,
+      "equation": 132,
+      "figure": 159,
+      "derivation": 192,
+      "table": 129,
+      "example": 382,
+      "quiz": 94,
+      "exercises": 94,
+      "formula": 266,
       "algorithm": 21
     }
   }

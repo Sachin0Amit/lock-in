@@ -30,6 +30,7 @@ for L in "${LESSONS[@]}"; do
   # infer the book from the lesson-id prefix (ans-* lessons live in book #2)
   case "$L" in
     ans-*) BOOK_BASE="http://localhost:3000/book/arithmetic-and-number-systems/lesson" ;;
+    al-*) BOOK_BASE="http://localhost:3000/book/elementary-algebra/lesson" ;;
     *) BOOK_BASE="$BASE" ;;
   esac
   agent-browser open "$BOOK_BASE/$L" >/dev/null 2>&1

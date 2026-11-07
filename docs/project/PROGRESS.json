@@ -1,8 +1,8 @@
 {
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
- "updated": "2026-11-07",
- "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 3 'Polynomials' OPENS 2/4 (run 71, 2026-11-07): 3.1 'What a Polynomial Is: Terms, Degree and Family' (al-what-a-polynomial-is-terms-degree-and-family, 4,989 words — the family defined term-by-term on the 2.1–2.2 exponent laws with the nonnegative-integer boundary enforced by the verifier's own Mono constructor guard; the term anatomy with the coefficient-never-counts rule (Hall & Knight art. 24 dimensions); constants as degree-zero terms DERIVED from 2.2's zero-exponent theorem; the zero polynomial left degreeless; the two namings (shape: mono/bi/tri/multinomial; degree: constant/linear/quadratic/cubic); the sieve pricing 1/x, √x and 2^x with the boundary-in-the-exponent callout; evaluation as the 1.3 substitution machine at family scale with the value table of x^3 − 2x + 1 and the r(1) = 0 zero-seed; the collection law for powers DERIVED (567-check sweep); the degree pigeonhole (at most n+1 collected terms); the Descartes 1637 notation callout) + 3.2 'Adding, Subtracting and Multiplying Polynomials' (al-adding-subtracting-and-multiplying-polynomials, 5,013 words — addition as column alignment with the pointwise principle PROVED (15,300 BigInt checks per operation over a 30-polynomial sample, + Frac-exact at x = 1/2); subtraction as the distributed minus with the half-flip trap priced; multiplication as the distributive grid — monomial climb, the four-cell grid, FOIL as the 2x2 special case, the convolution columns (c_k = Σ a_i b_{k−i} swept over 100 pairs); the degree theorem deg(fg) = deg f + deg g PROVED by the leading-coefficient argument (900-pair sweep) with the sum-drop census (drops only on equal degrees; zero sums are negations); the special products (a+b)² = a²+2ab+b² and (a+b)(a−b) = a²−b² PROVED on the grid — the 2.1 cross-term census CASHED (25 = 9+12+4); closure under +, −, × stated with division refused ((x²+1)/x exits the family); the al-Karajī binomial-coefficient-rows historical callout with the L6 rows exercise (1-2-1 / 1-3-3-1 / 1-4-6-4-1 and the add-the-two-neighbours rule verified). verify-book3-ch03.ts 214 checks ALL GREEN (sections A–G 115 pre-writing — the pre-writing pass caught NINE author slips incl. two shared-value errors and the drop-case construction; H/I 99 authored-time — the scanners caught 45 unicode escapes + 5 single-backslash LaTeX eats pre-ship). Gates green: lint 0 errors, tsc 0, routes 200+404, E2E e2e-al-31 + e2e-al-32 (whitelisted BEFORE committing) ALL PASS x2 runs (quiz 5/5 live on keys 1/0/1/1/0 and 0/2/1/0/1; KaTeX 231 + 265 nodes 0 errors; 0 console errors; no overflow at 390/1280), pixels 0% blue + dark 89.7%/89.4%, SVG overlap audit 0 issues after one fix (the grid figure's note label shortened), all four figures visually inspected clean. Library: 23 chapters written + 1 in progress / 92 lessons / 451,422 words / 707 terms / 460 quiz / 1,149 exercises (WORK_INVENTORY.json ground truth). Next: run 72 = ch. 3 CLOSES with 3.3 + 3.4 + the unit-3 review.",
+ "updated": "2026-11-08",
+ "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 3 'Polynomials' COMPLETE 4/4 (run 72, 2026-11-08): 3.3 'Special Products: the Identities, Proved' (al-special-products-the-identities-proved, 4,408 words, quiz keys 1/2/0/1/1) + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' (al-dividing-polynomials-long-division-and-the-remainder-theorem, 4,246 words, quiz keys 0/1/2/0/1) + the unit-3 completion review PASSED (7/7 checklist, 4/4 exam corners); verify-book3-ch03.ts finished at 436 checks ALL GREEN (sections A–M); 18,656 words across the chapter. NEXT: run 73 = ch. 4 'Factorization' OPENS with 4.1 'Common Factors and Grouping' + 4.2 'Factoring Quadratic Trinomials' (v2 two-lesson scope, verify-book3-ch04.ts FIRST, never the 4.3/4.4 pair this run).",
  "awaiting": "nothing blocking — next run 72 = AL ch. 3 'Polynomials' CLOSES with 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review (extend verify-book3-ch03.ts with the pre-writing section for 3.3/3.4 FIRST; never ch. 4); run 73 opens ch. 4 'Factorization' with 4.1 + 4.2",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -436,8 +436,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "71 (2026-11-07)",
-  "summary": "AL CHAPTER 3 'POLYNOMIALS' OPENS 2/4 — 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' shipped strictly sequentially verify-first (4,989 + 5,013 = 10,002 words, quiz keys 1/0/1/1/0 and 0/2/1/0/1 verified live 5/5 both lessons, 14 + 14 exercises, 8 + 8 terms, 2 + 2 derivations, 1 + 2 equations, 2 + 1 tables, 2 + 2 figures, 2 + 2 formula cards). verify-book3-ch03.ts created FIRST (115 checks sections A–G pre-writing) and extended to 214 (H/I authored-time) — ALL GREEN. Fourteen author defects caught pre-ship across the two scanner classes and the arithmetic pins. Four figures audited + visually inspected. Ch. 3 never closed this run — the unit-3 review belongs to run 72 per v2."
+  "run": "72 (2026-11-08)",
+  "summary": "AL CHAPTER 3 'POLYNOMIALS' CLOSES 4/4 — 3.3 'Special Products: the Identities, Proved' (4,408 words: the identity charter both directions with the equation-vs-identity census, the square of a difference derived TWICE (grid + substitution), the corner-cut square figure with the Euclid II.4 historical callout, the sum/difference of cubes proved on the grid with the 3.2 x³−1 teaser cashed, the middle-term rule (x+a)(x+b), the identity-shelf table, trinomial-square recognition + the middle-term test with refusals priced, the multinomial square swept over [-3,3]³, the H&K shortcut arithmetic 1012²/98²/102×98, quiz keys 1/2/0/1/1, 14 exercises L1–L6, 3 formula cards, 2 figures) + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' (4,246 words: the index law for division cashing 2.2, long division per H&K's four-step rule with the zero-seat caution (x⁴+16 ÷ x+2 = x³−2x²+4x−8 r 32), the ascending arrangement (H&K art. 51's 15a⁴+2a³−39a²−16a+10 ÷ 2−4a−5a²), the division identity f = d·q + r PROVED with uniqueness by the degree argument (1,200-pair engine sweep + 200 perturbation trials), the remainder theorem PROVED from the identity (r = f(a), 360-pair sweep), the factor theorem glimpsed for ch. 4 with the 3.1 p(1) = 0 seed cashed, the divisor-square curiosity, the five-row division ledger, the Ruffini/detached-coefficients historical callout, quiz keys 0/1/2/0/1, 14 exercises, 3 formula cards, 2 figures) — authored strictly sequentially, each fully gated before the next; the unit-3 completion review PASSED (BOOK_FORMAT checklist 7/7, exam-coverage 4/4, chapter totals recomputed: 18,656 words / 32 terms / 20 quiz / 56 exercises / 8 figures / 14 illustrations / 8 derivations / 7 equations / 5 tables / 10 formulas). verify-book3-ch03.ts extended 214 → 436 checks ALL GREEN (J+L pre-writing 115; K+M authored-time; the pre-writing halves caught the verifier's own longDiv engine bug + 8 coefficient mix-ups + a wrong L6 quotient; the authored-time scanners caught 61 unicode escapes + 2 odd backslash runs + 4 raw-$ derivation labels — none shipped). E2E e2e-al-33/34 whitelisted and green 45/45 ×2 runs ×3 viewports per lesson (quiz 5/5 live on both key sets); 8 figures 0-issue audited + visually inspected; 0% blue cast, dark 93.9%; one download (H&K 23 MB) deleted after E2E per the storage law."
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -741,5 +741,41 @@
   "verifier": "verify-book3-ch03.ts 214 checks ALL GREEN (A–G pre-writing 115 + H/I authored 99)",
   "figures": 4,
   "downloads": "one (the H&K Elementary scan re-pulled for ch. V + art. 24–26 study; deleted after E2E)"
+ },
+ "run72Extras": {
+  "date": "2026-11-08",
+  "job": "509354 (payload re-delivered 04:15:01 +08:00, trace cron-agent-loop-202611080415; the :15 slot is the sibling's but the payload is the main LOCKIN RUN — executed as run 72 per the MISSED-FIRE rule)",
+  "scope": "AL ch. 3 CLOSES with 3.3 + 3.4 + the unit-3 completion review (v2 two-lesson quota, strictly sequential, verify-first)",
+  "lessons": [
+   {
+    "id": "al-special-products-the-identities-proved",
+    "words": 4408,
+    "quizKeys": [
+     1,
+     2,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "id": "al-dividing-polynomials-long-division-and-the-remainder-theorem",
+    "words": 4246,
+    "quizKeys": [
+     0,
+     1,
+     2,
+     0,
+     1
+    ]
+   }
+  ],
+  "verifier": "verify-book3-ch03.ts 214 → 436 checks ALL GREEN (J/K for 3.3, L/M for 3.4; M carries the unit-3 review's 7-point checklist)",
+  "newCitationKeys": [
+   "euclid-elements-ii4",
+   "ruffini-synthetic-division"
+  ],
+  "downloads": "one (the H&K Elementary scan re-pulled for ch. VI Division + arts. 112–114 + the bound Higher-Algebra art. 311 remainder-theorem exposition; deleted after E2E)",
+  "infra": "audit-svg-overlaps.sh gained the al-* book mapping; e2e-al-33/34 whitelisted in .gitignore"
  }
 }

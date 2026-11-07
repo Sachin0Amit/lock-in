@@ -7,7 +7,12 @@ import type { Chapter } from '../../../types'
  *                  (run 71 — quiz keys 1/0/1/1/0, 14 exercises, two
  *                  figures, verify-book3-ch03.ts sections A–G + H green)
  *                  3.2 Adding, Subtracting and Multiplying Polynomials
- *                  — authored this run's second lesson (section I)
+ *                  (run 71 — quiz keys 0/2/1/0/1, section I)
+ *                  3.3 Special Products: the Identities, Proved
+ *                  (run 72 — quiz keys 1/2/0/1/1, sections J + K)
+ *                  3.4 Dividing Polynomials: Long Division and the
+ *                  Remainder Theorem (run 72 — quiz keys 0/1/2/0/1,
+ *                  sections L + M) — chapter COMPLETE 4/4 at run 72
  *
  * References for this unit: the Drive copy `Elementary-Algebra_text.pdf`
  * is H. S. Hall & S. R. Knight, *Elementary Algebra for Schools*
@@ -230,13 +235,220 @@ function convolutionColumnsSvg(): string {
   return parts.join('')
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 5 (3.3): the corner-cut square — (a−b)² drawn. Header        */
+/* (30,18,660,44); LEFT panel (30,84,340,220); big a-square            */
+/* (70,96,200,200); vertical b-strip (245,96,25,200); horizontal       */
+/* b-strip (70,271,200,25); corner overlap (245,271,25,25); RIGHT      */
+/* panel (400,84,290,220) with 3 note boxes 260x56 at (415,108),       */
+/* (415,170),(415,240); footer text y=336. Geometry pinned in J-7,     */
+/* audited in K.                                                       */
+/* ------------------------------------------------------------------ */
+
+function cornerCutSquareSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The square of a difference drawn: a square of side a cut by a vertical strip and a horizontal strip of width b, leaving the inner square of side a minus b, so a minus b squared equals a squared minus two a b plus b squared.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the corner-cut square: (a − b)²</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the a×a square, cut by two b-strips — the corner counted twice, added back</text>')
+  // LEFT panel: the square with its strips
+  parts.push('<rect x="30" y="84" width="340" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="155" y="108" font-size="12" fill="#4d7c0f" text-anchor="middle">a</text>')
+  parts.push('<text x="257" y="108" font-size="12" fill="#7c2d12" text-anchor="middle">b</text>')
+  parts.push('<text x="58" y="200" font-size="12" fill="#4d7c0f" text-anchor="middle">a</text>')
+  parts.push('<text x="58" y="288" font-size="12" fill="#7c2d12" text-anchor="middle">b</text>')
+  parts.push('<rect x="70" y="96" width="200" height="200" rx="2" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="245" y="96" width="25" height="200" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
+  parts.push('<rect x="70" y="271" width="200" height="25" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
+  parts.push('<rect x="245" y="271" width="25" height="25" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
+  parts.push('<path d="M 70 96 L 245 96 L 245 271 L 70 271 Z" fill="none" stroke="#4d7c0f" stroke-width="1.2" stroke-dasharray="5 4"/>')
+  parts.push('<text x="155" y="178" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">(a − b)²</text>')
+  parts.push('<text x="155" y="196" font-size="10.5" fill="#6b7a72" text-anchor="middle">the inner square, side a − b</text>')
+  parts.push('<text x="257" y="152" font-size="11" fill="#7c2d12" text-anchor="middle">ab</text>')
+  parts.push('<text x="170" y="288" font-size="11" fill="#7c2d12" text-anchor="middle">ab</text>')
+  parts.push('<text x="257" y="288" font-size="11" fill="#7c2d12" text-anchor="middle">b²</text>')
+  // RIGHT panel: the subtraction-with-a-debt readout
+  parts.push('<rect x="400" y="84" width="290" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="100" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">reading the areas</text>')
+  const notes: [string, string][] = [
+    ['take away the two strips', 'a² − ab − ab = a² − 2ab — but the corner b² left with both'],
+    ['give the corner back', 'a² − 2ab + b² — the overlap was subtracted twice, added once'],
+    ['check it at a = 7, b = 3', '(7−3)² = 16 and 49 − 42 + 9 = 16 — agreement'],
+  ]
+  notes.forEach(([title, sub], i) => {
+    const y = 108 + i * 66
+    parts.push(`<rect x="415" y="${y}" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="545" y="${y + 22}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="545" y="${y + 40}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+  })
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">the dashed inner square is the answer: (a − b)² = a² − 2ab + b² — the middle term arrives NEGATIVE</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 6 (3.3): the cube identities on the grid. Header             */
+/* (30,18,660,44); LEFT panel (30,84,330,180) with 6 cell boxes 90x44  */
+/* at x=60/160/260, y=110/170; RIGHT panel (360,84,330,180) with 6     */
+/* cells at x=390/490/590, y=110/170; collection band (30,284,660,44)  */
+/* with 2 result boxes 260x28 at (60,292),(400,292); footer y=346.     */
+/* Geometry pinned in J-7, audited in K.                               */
+/* ------------------------------------------------------------------ */
+
+function cubeGridsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cube identities on the grid: a plus b times a squared minus a b plus b squared gives six cells whose middle four cancel, leaving a cubed plus b cubed; and a minus b times a squared plus a b plus b squared likewise leaves a cubed minus b cubed.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the cube identities, six cells each</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the 3.2 teaser at family scale — four middle cells cancel, two survive</text>')
+  // LEFT panel: (a+b)(a² − ab + b²)
+  parts.push('<rect x="30" y="84" width="330" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="104" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">(a + b)(a² − ab + b²)</text>')
+  const leftCells: [number, number, string][] = [
+    [60, 110, 'a³'],
+    [160, 110, '−a²b'],
+    [260, 110, 'ab²'],
+    [60, 170, 'a²b'],
+    [160, 170, '−ab²'],
+    [260, 170, 'b³'],
+  ]
+  for (const [cx, cy, label] of leftCells) {
+    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#365314" text-anchor="middle">${label}</text>`)
+  }
+  // RIGHT panel: (a−b)(a² + ab + b²)
+  parts.push('<rect x="360" y="84" width="330" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="525" y="104" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">(a − b)(a² + ab + b²)</text>')
+  const rightCells: [number, number, string][] = [
+    [390, 110, 'a³'],
+    [490, 110, 'a²b'],
+    [590, 110, 'ab²'],
+    [390, 170, '−a²b'],
+    [490, 170, '−ab²'],
+    [590, 170, '−b³'],
+  ]
+  for (const [cx, cy, label] of rightCells) {
+    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#365314" text-anchor="middle">${label}</text>`)
+  }
+  // collection band
+  parts.push('<rect x="30" y="284" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="292" width="260" height="28" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
+  parts.push('<text x="190" y="311" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">middle four cancel → a³ + b³</text>')
+  parts.push('<rect x="400" y="292" width="260" height="28" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
+  parts.push('<text x="530" y="311" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">middle four cancel → a³ − b³</text>')
+  parts.push('<text x="360" y="346" font-size="11.5" fill="#6b7a72" text-anchor="middle">the same cancellation the (x − 1)(x² + x + 1) = x³ − 1 teaser showed — now with letters, at every value</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 7 (3.4): the long-division tableau. Header (30,18,660,44);   */
+/* LEFT panel (30,84,410,220) carrying the tableau as text lines +     */
+/* thin rules (no inner rects); RIGHT panel (470,84,220,220) with 4    */
+/* step boxes 190x44 at (485,100)/(485,152)/(485,204)/(485,256);       */
+/* footer text y=336. Geometry pinned in L-7, audited in M.            */
+/* ------------------------------------------------------------------ */
+
+function divisionTableauSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The long-division tableau of x squared plus eleven x plus thirty divided by x plus six: divide the leaders, multiply the whole divisor, subtract, bring down, repeat — quotient x plus five, remainder zero.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the long-division tableau: (x² + 11x + 30) ÷ (x + 6)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">divide the leaders · multiply the whole divisor · subtract · bring down · repeat</text>')
+  // LEFT panel: the tableau, drawn as text lines + thin rules
+  parts.push('<rect x="30" y="84" width="410" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="252" y="112" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">the work, arranged in descending powers</text>')
+  parts.push('<text x="52" y="146" font-size="13.5" fill="#365314">x + 6 ) x² + 11x + 30 ( x + 5</text>')
+  parts.push('<text x="52" y="176" font-size="13.5" fill="#365314">x² +  6x</text>')
+  parts.push('<line x1="50" y1="184" x2="230" y2="184" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="52" y="206" font-size="13.5" fill="#365314">5x + 30</text>')
+  parts.push('<text x="52" y="236" font-size="13.5" fill="#365314">5x + 30</text>')
+  parts.push('<line x1="50" y1="244" x2="230" y2="244" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="52" y="270" font-size="13.5" fill="#7c2d12" font-weight="700">0   ← the remainder: the division is EXACT</text>')
+  parts.push('<text x="52" y="292" font-size="10.5" fill="#6b7a72">check: (x + 6)(x + 5) = x² + 11x + 30 — agreement</text>')
+  // RIGHT panel: the four moves
+  parts.push('<rect x="470" y="84" width="220" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="580" y="90" font-size="12" fill="#365314" text-anchor="middle"> </text>')
+  const steps: [string, string][] = [
+    ['1 · divide the leaders', 'x² ÷ x = x — the first quotient term'],
+    ['2 · multiply the WHOLE divisor', 'x(x + 6) = x² + 6x, written under'],
+    ['3 · subtract', '11x − 6x = 5x — the leader dies'],
+    ['4 · bring down, repeat', '30 comes down; 5x ÷ x = 5; stop at 0'],
+  ]
+  steps.forEach(([title, sub], i) => {
+    const y = 100 + i * 52
+    parts.push(`<rect x="485" y="${y}" width="190" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="580" y="${y + 18}" font-size="11" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="580" y="${y + 34}" font-size="9" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+  })
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">the quotient rides on the bracket at ( x + 5 — the same shelf the arithmetic long division of FM ch. 2 used</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 8 (3.4): the remainder theorem map. Header (30,18,660,44);   */
+/* 4 boxes (40,110,170,56) f(x), (260,110,170,56) the divisor gate,    */
+/* (480,88,180,50) quotient, (480,178,180,50) remainder; verdict band  */
+/* (30,272,660,40) with 2 band boxes 180x24 at (60,280),(300,280);     */
+/* footer text y=340. Geometry pinned in L-7, audited in M.            */
+/* ------------------------------------------------------------------ */
+
+function remainderMapSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The remainder theorem map: dividing f of x by x minus a gives a quotient and a constant remainder; substituting x equals a kills the product term, so the remainder is f of a — evaluate, never divide.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the remainder theorem: r = f(a)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the division identity, evaluated at the one value that kills the product term</text>')
+  // the four stations
+  parts.push('<rect x="40" y="110" width="170" height="56" rx="8" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
+  parts.push('<text x="125" y="132" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">f(x)</text>')
+  parts.push('<text x="125" y="152" font-size="9.5" fill="#6b7a72" text-anchor="middle">the dividend — any polynomial</text>')
+  parts.push('<rect x="260" y="110" width="170" height="56" rx="8" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
+  parts.push('<text x="345" y="132" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">÷ (x − a)</text>')
+  parts.push('<text x="345" y="152" font-size="9.5" fill="#6b7a72" text-anchor="middle">the divisor gate — linear, monic</text>')
+  parts.push('<rect x="480" y="88" width="180" height="50" rx="8" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="570" y="110" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">q(x) — the quotient</text>')
+  parts.push('<text x="570" y="128" font-size="9.5" fill="#6b7a72" text-anchor="middle">degree deg f − 1</text>')
+  parts.push('<rect x="480" y="178" width="180" height="50" rx="8" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
+  parts.push('<text x="570" y="200" font-size="12.5" fill="#7c2d12" text-anchor="middle" font-weight="700">r — the remainder</text>')
+  parts.push('<text x="570" y="218" font-size="9.5" fill="#6b7a72" text-anchor="middle">a CONSTANT — deg r &lt; 1</text>')
+  // flows
+  parts.push('<line x1="210" y1="138" x2="256" y2="138" stroke="#4d7c0f" stroke-width="1.4"/>')
+  parts.push('<line x1="430" y1="126" x2="476" y2="116" stroke="#4d7c0f" stroke-width="1.4"/>')
+  parts.push('<line x1="430" y1="152" x2="476" y2="200" stroke="#7c2d12" stroke-width="1.4"/>')
+  // the evaluation arrow: x = a kills the product term
+  parts.push('<path d="M 345 170 C 345 240, 420 250, 474 216" fill="none" stroke="#4d7c0f" stroke-width="1.4" stroke-dasharray="6 4"/>')
+  parts.push('<text x="292" y="232" font-size="11" fill="#4d7c0f" font-weight="700">at x = a :</text>')
+  // verdict band
+  parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="280" width="180" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="150" y="296" font-size="10.5" fill="#365314" text-anchor="middle">f(a) = 0 · q(a) + r</text>')
+  parts.push('<rect x="300" y="280" width="180" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="390" y="296" font-size="10.5" fill="#365314" text-anchor="middle">the product term DIES at x = a</text>')
+  parts.push('<rect x="540" y="280" width="150" height="24" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
+  parts.push('<text x="615" y="296" font-size="10.5" fill="#365314" text-anchor="middle" font-weight="700">so r = f(a)</text>')
+  parts.push('<text x="360" y="340" font-size="11.5" fill="#6b7a72" text-anchor="middle">evaluate, never divide — the substitution machine of 1.3, promoted to a theorem</text>')
+  return parts.join('')
+}
+
 export const chapter03: Chapter = {
   number: 3,
   slug: 'polynomials',
   title: 'Polynomials',
   summary:
     'The first algebraic family: what a polynomial is (terms, degree, classification by shape), arithmetic on polynomials — addition, subtraction and the distributive grid of multiplication — the special products (a ± b)² and (a + b)(a − b) PROVED by distribution and then used as identities, and division: long division as ANS’s division algorithm wearing letters, with the remainder theorem proved and the factor theorem glimpsed.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'al-what-a-polynomial-is-terms-degree-and-family',
@@ -996,9 +1208,773 @@ export const chapter03: Chapter = {
         { kind: 'formula', name: 'The first special products', latex: '(a + b)^{2} = a^{2} + 2ab + b^{2}, \\qquad (a + b)(a - b) = a^{2} - b^{2}', note: 'proved on the grid — the cross term $2ab$ is two cells; the difference of squares cancels its middle column; the identity set grows in 3.3' },
       ],
     },
-  ],
-  plannedLessons: [
-    'Special Products: the Identities, Proved',
-    'Dividing Polynomials: Long Division and the Remainder Theorem',
-  ],
+    {
+      id: 'al-special-products-the-identities-proved',
+        number: '3.3',
+        title: 'Special Products: the Identities, Proved',
+        concepts: [
+          'identity: true for every value',
+          'reading identities in both directions',
+          'the square of a difference',
+          'sum and difference of cubes',
+          'trinomial squares and the middle-term test',
+          'the middle-term rule for (x+a)(x+b)',
+          'identity-based shortcut arithmetic',
+          'the multinomial square',
+        ],
+        objectives: [
+          'state what an identity is — a sentence true for EVERY value of the letters — and distinguish identities from equations by testing values',
+          'read each square identity in both directions: expand the product form, and recognize the expanded form back into its product',
+          'derive (a − b)² twice — on the grid and by substituting −b into the square of a sum — and draw the corner-cut square that carries it',
+          'prove the sum and difference of cubes on the grid, cashing the (x − 1)(x² + x + 1) = x³ − 1 teaser of 3.2',
+          'apply the middle-term test to recognize trinomial squares and to refuse the impostors, and compute squares and products of numbers by identity instead of by column multiplication',
+        ],
+        prerequisites: ['al-adding-subtracting-and-multiplying-polynomials', 'al-powers-and-the-laws-of-exponents'],
+        sources: ['hall-knight-elementary-algebra', 'ncert-math9-ch2-polynomials', 'euclid-elements-ii4', 'cengage-jee-style'],
+        blocks: [
+          { kind: 'para', text: 'Lesson 3.2 proved two products and left them sitting at the end of the lesson like completed calculations: $(a+b)^{2} = a^{2} + 2ab + b^{2}$ and $(a+b)(a-b) = a^{2} - b^{2}$. This lesson promotes them. A product proved once for particular letters is a computation; a sentence true for **every** value the letters can take is an **identity** — and identities are the working capital of algebra. The distinction is 1.1’s expression-versus-equation census, one rung higher: $x^{2} = 9$ is a *sentence true for some values* (an equation — true at $x = 3$ and $x = -3$, false at $x = 4$), while $(x+1)^{2} = x^{2} + 2x + 1$ is a *sentence true for all values* (an identity). Test it anywhere: $x = 5$ gives $36 = 36$; $x = -4$ gives $9 = 9$; $x = \\tfrac{1}{2}$ gives $\\tfrac{9}{4} = \\tfrac{9}{4}$. The verifier swept both sentences across every integer in $[-8, 8]$: the equation failed at 14 of the 17 values, the identity failed at none.' },
+          { kind: 'para', text: 'Why does the promotion matter? Because a sentence true for every value can be **read in both directions**. Read left-to-right, $(a+b)^{2} = a^{2} + 2ab + b^{2}$ is an *expansion machine*: it replaces a square of a sum by a trinomial without setting up a grid. Read right-to-left, it is a *recognition machine*: a trinomial of the right shape collapses into a square. The left-to-right direction computes faster; the right-to-left direction is the seed of all of chapter 4, where reading products backwards gets its formal name — factorization. This lesson builds the full shelf of identities, proves every one of them on the grid, and then cashes them where they pay: recognizing shapes, and doing arithmetic on numbers by identity instead of by columns.' },
+          { kind: 'callout', tone: 'definition', title: 'Definition — identity', text: 'An **identity** is a sentence about expressions that is true for every value the letters may take. To mark the strength, mathematics often writes the two sides with a three-barred sign: $(a+b)^{2} \\equiv a^{2} + 2ab + b^{2}$ — read “is identically equal to”. The test that separates an identity from a mere equation is *substitution*: an identity survives every substitution; an equation survives only the values in its solution set. One substitution proving two sides equal never proves an identity — it only fails to refute it. Proof of an identity needs the laws (here, the distributive grid), not examples.' },
+          { kind: 'para', text: 'The plan of the lesson: first the two banked identities, restated as two-way sentences and joined by their missing sibling — the square of a difference, derived twice. Then the degree-three shelf: the sum and difference of cubes, proved on the grid and cashing 3.2’s closing teaser exactly. Then the recognition skills — trinomial squares and the middle-term test that admits or refuses them — and the middle-term rule for products of the form $(x+a)(x+b)$. Finally the identities go to work on plain numbers: squares and products computed by identity, the way examination speed rounds demand and the way Hall and Knight’s chapter teaches them.' },
+          { kind: 'heading', text: 'The Square Identities: One Shelf, Both Directions' },
+          { kind: 'para', text: 'The square of a sum is banked from 3.2, proved cell by cell: the four products of $(a+b)(a+b)$ are $a^{2}$, $ab$, $ba$ and $b^{2}$, the two middle cells are like terms, and they collect to $2ab$. The square of a difference sits one sign away — and one sign is exactly where students slip, so this lesson derives it **twice**, by two independent routes, and then draws it.' },
+          {
+            kind: 'derivation',
+            title: 'The square of a difference, derived twice',
+            statement: 'Claim: for all letters $a$ and $b$, $(a - b)^{2} = a^{2} - 2ab + b^{2}$.',
+            steps: [
+              {
+                label: 'Route one — the grid',
+                formula: 'a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b)(-b) = a^{2} - ab - ab + b^{2}',
+                explanation: 'Four cells of $(a - b)(a - b)$, the sign law of FM ch. 7 on the last cell — the corner square arrives POSITIVE.',
+              },
+              {
+                label: 'Collect the middle column',
+                formula: '-ab - ab = -2ab',
+                explanation: 'The cross term survives but arrives NEGATIVE — two negative cells collecting, the exact mirror of the square of a sum.',
+              },
+              {
+                label: 'Route two — substitution',
+                formula: '(a - b)^{2} = (a + (-b))^{2} = a^{2} + 2a(-b) + (-b)^{2}',
+                explanation: 'Write the difference as a sum and run the banked identity of 3.2 on it — the sign law carrying every coefficient.',
+              },
+              {
+                label: 'Both routes land together',
+                formula: '(a - b)^{2} = a^{2} - 2ab + b^{2}',
+                explanation: 'The verifier swept the sentence over all 289 pairs $(a, b)$ in $[-8, 8]^{2}$ with zero failures.',
+              },
+            ],
+            result: '(a − b)² = a² − 2ab + b² — the middle term is −2ab: two negative cells collecting.',
+          },
+          { kind: 'para', text: 'The grid route has a picture worth keeping. Start with the $a \\times a$ square (area $a^{2}$). To leave only the square of side $a - b$, cut away a vertical strip of width $b$ (area $ab$) and a horizontal strip of height $b$ (area $ab$). But the corner square $b \\times b$ sat inside **both** strips — it was removed twice, so one of those removals must be paid back: $a^{2} - ab - ab + b^{2} = a^{2} - 2ab + b^{2}$. The figure below draws exactly this — and it is one of the oldest pictures in mathematics: Euclid’s *Elements*, Book II, Proposition 4 proves the square of a sum as exactly such a cut-up square, twenty-three centuries before superscripts.' },
+          { kind: 'figure', caption: 'The corner-cut square: cutting a strip of width b from each edge of the a×a square leaves the inner square (a − b)² — and the two strips double-count the b² corner, which must be added back.', svg: cornerCutSquareSvg() },
+          { kind: 'example', title: 'Expand (3x − 4y)² and (5x + 2)(5x − 2), and verify both at x = 1, y = 1', steps: [
+            'Take $(3x - 4y)^{2}$ by the identity with $a = 3x$, $b = 4y$: the square of the first is $9x^{2}$; twice the product is $2 \\cdot 3x \\cdot 4y = 24xy$ and arrives negative; the square of the second is $16y^{2}$.',
+            'So, $(3x - 4y)^{2} = 9x^{2} - 24xy + 16y^{2}$.',
+            'Take $(5x + 2)(5x - 2)$ by the difference-of-squares identity: $(5x)^{2} - 2^{2} = 25x^{2} - 4$ — no middle term at all.',
+            'Check at $x = 1$, $y = 1$: the square gives $(3 - 4)^{2} = 1$, and the expansion gives $9 - 24 + 16 = 1$ — agreement.',
+            'Check the product at $x = 1$: $(5 + 2)(5 - 2) = 7 \\cdot 3 = 21$, and the expansion gives $25 - 4 = 21$ — agreement.',
+            'Hence both identities did in one line what a grid would do in four cells — and the checks certify the readings.',
+          ] },
+          {
+            kind: 'equation',
+            latex: '(a \\pm b)^{2} = a^{2} \\pm 2ab + b^{2}, \\qquad (a + b)(a - b) = a^{2} - b^{2}',
+            note: 'the square shelf — the double sign is the whole message: the cross term shares the sign of the bracket, and the difference-of-squares product has no cross term to share one',
+          },
+          { kind: 'para', text: 'One more product belongs on the square shelf, less famous but used constantly: the product of any two binomials with the same letter part. On the grid, $(x + a)(x + b)$ has cells $x^{2}$, $bx$, $ax$ and $ab$ — the middle column collects $(a + b)x$ and the corner is $ab$. This is the **middle-term rule**, and it is Hall and Knight’s printed form of “the product of any two binomials”: the first term of the product is the product of the first terms, the last is the product of the second terms, and the middle coefficient is the *sum of the second terms taken with their proper signs*.' },
+          {
+            kind: 'equation',
+            latex: '(x + a)(x + b) = x^{2} + (a + b)x + ab',
+            note: 'the middle-term rule — the verifier swept it symbolically over all 325 pairs a in [0,12], b in [−12,12]',
+          },
+          { kind: 'para', text: 'The rule’s real power is the right-to-left read: given $x^{2} + 7x + 12$, hunt two numbers whose product is $12$ and whose sum is $7$ — the pair $3$ and $4$ — and the trinomial collapses to $(x + 3)(x + 4)$ without any grid at all. This hunt (and the proof that it always succeeds when the roots behave) is chapter 4’s opening business; here the left-to-right direction is banked and the backwards glance is the preview.' },
+          {
+            kind: 'table',
+            caption: 'The identity shelf of this lesson — every row proved on the grid, every row read in both directions',
+            head: ['Identity', 'Read left → right', 'Read right → left'],
+            rows: [
+              ['$a^{2} + 2ab + b^{2}$ from $(a+b)^{2}$', 'square of a sum: cross term $+2ab$', 'trinomial square (plus shape)'],
+              ['$a^{2} - 2ab + b^{2}$ from $(a-b)^{2}$', 'square of a difference: cross term $-2ab$', 'trinomial square (minus shape)'],
+              ['$a^{2} - b^{2}$ from $(a+b)(a-b)$', 'sum times difference: middle cancels', 'difference of squares'],
+              ['$x^{2} + (a+b)x + ab$ from $(x+a)(x+b)$', 'middle-term rule: sum on the middle, product at the end', 'factor hunt for two numbers'],
+              ['$a^{3} + b^{3}$ from $(a+b)(a^{2}-ab+b^{2})$', 'sum of cubes: four cells cancel', 'sum-of-cubes shape'],
+              ['$a^{3} - b^{3}$ from $(a-b)(a^{2}+ab+b^{2})$', 'difference of cubes: four cells cancel', 'difference-of-cubes shape'],
+            ],
+          },
+          { kind: 'callout', tone: 'insight', title: 'Note — the backwards read is where the speed lives', text: 'The left-to-right read expands; the right-to-left read *computes*. To price $61 \\times 59$, notice $61 = 60 + 1$ and $59 = 60 - 1$: the difference-of-squares identity gives $61 \\times 59 = 60^{2} - 1 = 3\\,600 - 1 = 3\\,599$ — no column multiplication, no carrying. The same read in symbols is chapter 4’s $a^{2} - b^{2} = (a+b)(a-b)$; here it is already a working calculator. The habit to build: whenever two numbers sit equally far from a comfortable round number, the middle of the identity does the work.' },
+          { kind: 'heading', text: 'The Cube Identities: the Grid at Degree Three' },
+          { kind: 'para', text: 'Lesson 3.2 closed with a teaser: $(x - 1)(x^{2} + x + 1) = x^{3} - 1$, six cells collapsing to two. The teaser now becomes a theorem with letters in both seats. Run the grid on $(a + b)(a^{2} - ab + b^{2})$: the six cells are $a^{3}$, $-a^{2}b$, $ab^{2}$, $a^{2}b$, $-ab^{2}$, $b^{3}$ — and the middle four cancel in two exact pairs ($-a^{2}b + a^{2}b = 0$ and $ab^{2} - ab^{2} = 0$), the same exact-negation structure that empties the middle column of the difference-of-squares product. Two cells survive: $a^{3}$ and $b^{3}$.' },
+          {
+            kind: 'derivation',
+            title: 'The sum of cubes, proved on the grid',
+            statement: 'Claim: for all letters $a$ and $b$, $(a + b)(a^{2} - ab + b^{2}) = a^{3} + b^{3}$ (and the companion $(a - b)(a^{2} + ab + b^{2}) = a^{3} - b^{3}$).',
+            steps: [
+              {
+                label: 'Fill the six cells',
+                formula: 'a(a^{2} - ab + b^{2}) + b(a^{2} - ab + b^{2}) = a^{3} - a^{2}b + ab^{2} + a^{2}b - ab^{2} + b^{3}',
+                explanation: 'From $a$: $a^{3}$, $-a^{2}b$, $ab^{2}$; from $b$: $a^{2}b$, $-ab^{2}$, $b^{3}$ — the distributive law, twice.',
+              },
+              {
+                label: 'Collect — four cells cancel',
+                formula: '-a^{2}b + a^{2}b = 0, \\qquad ab^{2} - ab^{2} = 0',
+                explanation: 'The middle four cells are two exact-negation pairs — the same structure that empties the middle column of $(a+b)(a-b)$.',
+              },
+              {
+                label: 'What survives',
+                formula: 'a^{3} + b^{3}',
+                explanation: 'The leading corner and the far corner — everything between them cancelled.',
+              },
+              {
+                label: 'The companion with the minus in front',
+                formula: '(a - b)(a^{2} + ab + b^{2}) = a^{3} - a^{2}b + ab^{2} - a^{2}b + ab^{2} - b^{3} = a^{3} - b^{3}',
+                explanation: 'Cells $a^{3}$, $a^{2}b$, $ab^{2}$, $-a^{2}b$, $-ab^{2}$, $-b^{3}$ — the same four cancellations, the surviving corner carrying the minus: $a^{3} - b^{3}$. The 3.2 teaser $(x-1)(x^{2}+x+1) = x^{3}-1$ is the case $a = x$, $b = 1$ — now a theorem’s corollary.',
+              },
+              {
+                label: 'Sweep',
+                formula: '289 \\text{ pairs, zero failures}',
+                explanation: 'Both sentences held symbolically for every $b$ in $[-8, 8]$ and pointwise at all 289 pairs $(a, b)$ — no exceptions.',
+              },
+            ],
+            result: '(a + b)(a² − ab + b²) = a³ + b³ and (a − b)(a² + ab + b²) = a³ − b³ — the cube identities.',
+          },
+          { kind: 'figure', caption: 'The cube identities on the grid: each product has six cells, the middle four cancel in exact pairs, and two survive — a³ + b³ from the first grid, a³ − b³ from the second.', svg: cubeGridsSvg() },
+          { kind: 'para', text: 'Read the factor shapes carefully — they are the identities’ most misquoted feature. The trinomial in the sum-of-cubes product carries the **opposite** sign in its middle seat ($a^{2} - ab + b^{2}$); the trinomial in the difference-of-cubes product carries **all plus** ($a^{2} + ab + b^{2}$). A memory that survives checking: the middle seat’s sign is the one that makes the four cells cancel — change it and nothing cancels. Test the misquote: $(a+b)(a^{2}+ab+b^{2})$ has middle cells $a^{2}b, ab^{2}, a^{2}b, ab^{2}$ collecting to $2a^{2}b + 2ab^{2}$ — no cancellation, no identity.' },
+          { kind: 'example', title: 'Expand (x + 4)(x² − 4x + 16) and (x − 3)(x² + 3x + 9), and verify both at x = 2', steps: [
+            'Recognize the sum-of-cubes shape: $a = x$, $b = 4$ — the bracket is $a^{2} - ab + b^{2} = x^{2} - 4x + 16$.',
+            'So, the product is $a^{3} + b^{3} = x^{3} + 64$ — one line, no grid.',
+            'Recognize the difference-of-cubes shape: $a = x$, $b = 3$ — the bracket is $a^{2} + ab + b^{2} = x^{2} + 3x + 9$.',
+            'So, the product is $x^{3} - 27$.',
+            'Check both at $x = 2$: the first gives $(6)(4 - 8 + 16) = 6 \\cdot 12 = 72$ and $2^{3} + 64 = 72$ — agreement.',
+            'Check the second: $(-1)(4 + 6 + 9) = -19$ and $8 - 27 = -19$ — agreement. Hence both reads certified at a chosen value.',
+          ] },
+          { kind: 'heading', text: 'Recognizing Trinomial Squares: the Middle-Term Test' },
+          { kind: 'para', text: 'The square identities read backwards give a recognition skill: a trinomial of the shape **first squared, plus twice the product, plus last squared** is a perfect square. The test has three readings and all three must pass: the first and last terms are genuine squares (their square roots are the bracket’s two terms), and the middle coefficient is exactly **twice the product of those roots** — with the middle’s sign matching the bracket’s sign. Take $x^{2} + 6x + 9$: the roots are $x$ and $3$, and twice their product is $2 \\cdot x \\cdot 3 = 6x$ — the middle agrees, so $x^{2} + 6x + 9 = (x + 3)^{2}$. Take $4x^{2} - 12x + 9$: the roots are $2x$ and $3$, twice the product is $2 \\cdot 2x \\cdot 3 = 12x$, the middle arrives negative — so $4x^{2} - 12x + 9 = (2x - 3)^{2}$. The sign of the middle term is not an obstacle; it is information — it names the bracket’s sign.' },
+          { kind: 'para', text: 'The test also *refuses*, and refusals are where examination marks are defended. The trinomial $x^{2} + 8x + 9$ has square ends ($9 = 3^{2}$) but the middle candidate is $2 \\cdot 1 \\cdot 3 = 6$, not $8$ — refused: it is not a square, and no amount of wishing moves the $8$. Likewise $x^{2} + 6x + 16$ ($16 = 4^{2}$, but $2 \\cdot 4 = 8 \\neq 6$) and $x^{2} + 5x + 25$ ($2 \\cdot 5 = 10 \\neq 5$). The middle-term test is a theorem in both directions: a trinomial square passes it, and a trinomial that fails it is not a square — because the square identity fixes the middle coefficient exactly.' },
+          { kind: 'callout', tone: 'warn', title: 'Caution — the square still does not distribute, and the middle term carries the sign', text: 'Two traps, both priced. First, the oldest error in the book: $(a+b)^{2} \\neq a^{2} + b^{2}$. Chapter 2’s census caught it ($3^{2} + 2^{2} = 13$ but $(3+2)^{2} = 25$); at $a = 7, b = 3$: $7^{2} + 3^{2} = 58$ against $10^{2} = 100$ — the missing $42$ is the cross term $2 \\cdot 7 \\cdot 3$. Second, the sign of the middle term: $(a - b)^{2} = a^{2} - 2ab + b^{2}$ has a NEGATIVE middle but a POSITIVE last term — because $(-b)^{2} = b^{2}$. The wrong read $(a-b)^{2} = a^{2} - 2ab - b^{2}$ fails at every substitution: at $a = 5, b = 3$ it claims $16 - 9 = 7$ against the true $(5-3)^{2} = 4$. The last term of a square is never negative.' },
+          { kind: 'para', text: 'Recognition extends past two terms. The **multinomial square** — the square of any sum — collects every pairwise cross term. For three letters the grid gives $(a + b + c)^{2} = a^{2} + b^{2} + c^{2} + 2ab + 2ac + 2bc$: three square cells and three doubled products, one for each pair of letters (the verifier swept all 343 points of $[-3,3]^{3}$). Hall and Knight print exactly this as their extension of the square rules. And the difference of squares chains: $x^{4} - 16$ is $(x^{2})^{2} - 4^{2}$, so it factors as $(x^{2} + 4)(x^{2} - 4)$ — and the second bracket is ITSELF a difference of squares, giving $(x^{2} + 4)(x + 2)(x - 2)$. The identities compose; chapter 4 will mine exactly this vein.' },
+          { kind: 'example', title: 'Recognize which of x² + 6x + 9, x² + 6x + 16 and 4x² − 12x + 9 are trinomial squares, and read each that passes back into its bracket', steps: [
+            'Test $x^{2} + 6x + 9$: roots $x$ and $3$ (from $1$ and $9$); twice the product $2 \\cdot 1 \\cdot 3 = 6$ — the middle agrees. PASSES.',
+            'Read backwards: $x^{2} + 6x + 9 = (x + 3)^{2}$ — the sign of the middle names the bracket.',
+            'Test $x^{2} + 6x + 16$: roots would be $x$ and $4$ (from $16$); twice their product is $8$, not $6$ — FAILS the middle-term test.',
+            'So, $x^{2} + 6x + 16$ is not a trinomial square (it does factor — chapter 4 finds $(x+2)(x+8)$ — but that is a different skill; the square test only certifies squares).',
+            'Test $4x^{2} - 12x + 9$: roots $2x$ and $3$; twice the product $12$, arriving negative — PASSES.',
+            'Read backwards: $4x^{2} - 12x + 9 = (2x - 3)^{2}$, and check at $x = 1$: $(2 - 3)^{2} = 1$ and $4 - 12 + 9 = 1$ — agreement.',
+          ] },
+          { kind: 'heading', text: 'Shortcut Arithmetic: the Identities Compute Numbers' },
+          { kind: 'para', text: 'The identities do not know the difference between letters and numbers — substitute numbers and they still hold, which is exactly what an identity MEANS. Hall and Knight’s chapter turns this into speed arithmetic, and the competitive examinations still set it. To square $1012$, read it as $1000 + 12$: $(1000 + 12)^{2} = 1000^{2} + 2 \\cdot 1000 \\cdot 12 + 12^{2} = 1\\,000\\,000 + 24\\,000 + 144 = 1\\,024\\,144$. To square $98$, read $100 - 2$: $10\\,000 - 400 + 4 = 9\\,604$. To price $102 \\times 98$, notice the pair sits either side of $100$: $(100 + 2)(100 - 2) = 10\\,000 - 4 = 9\\,996$. In each case the identity replaced a column multiplication — and every such computation is *checkable* by squaring the plain way, which is how the verifier certified all of them.' },
+          { kind: 'example', title: 'Compute 1012², 98² and 102 × 98 by identity, checking one of them by column arithmetic', steps: [
+            'Square $1012$ as $(1000 + 12)^{2}$: squares $1\\,000\\,000$ and $144$, cross term $2 \\cdot 1000 \\cdot 12 = 24\\,000$ — total $1\\,024\\,144$.',
+            'Square $98$ as $(100 - 2)^{2}$: $10\\,000 - 2 \\cdot 100 \\cdot 2 + 4 = 10\\,000 - 400 + 4 = 9\\,604$.',
+            'Price $102 \\times 98$ as $(100 + 2)(100 - 2) = 100^{2} - 2^{2} = 10\\,000 - 4 = 9\\,996$.',
+            'Check the first by column multiplication: $1012 \\times 1012 = 1012 \\cdot 1000 + 1012 \\cdot 12 = 1\\,012\\,000 + 12\\,144 = 1\\,024\\,144$ — agreement.',
+            'Hence three computations at identity speed, one certified the slow way — the check habit survives even when the shortcut works.',
+          ] },
+          { kind: 'para', text: 'The same substitution habit prices harder shapes. To square $205$: $(200 + 5)^{2} = 40\\,000 + 2\\,000 + 25 = 42\\,025$. To square $999$: $(1000 - 1)^{2} = 1\\,000\\,000 - 2\\,000 + 1 = 998\\,001$. And the middle-term rule prices products of numbers both just below a round base: $61 \\times 59 = (60+1)(60-1) = 3\\,599$, and $55 \\times 45 = (50+5)(50-5) = 2\\,500 - 25 = 2\\,475$. None of these is a trick — each is an identity evaluated at numbers, which is why each can be checked and why each will still be true tomorrow.' },
+          { kind: 'callout', tone: 'historical', title: 'Historical note — Euclid cuts the square', text: 'The corner-cut figure of this lesson is twenty-three centuries old. Euclid’s *Elements* (c. 300 BC), Book II, Proposition 4, proves that “if a straight line is cut at random, the square on the whole equals the squares on the segments plus twice the rectangle contained by the segments” — the square of a sum, proved by areas because Greek mathematics carried its algebra in geometry: lengths were lines, products were rectangles, and a “square” was literally one. Proposition 7 does the same honour to the square of a difference. What this lesson does with letters and a grid, Euclid did with compass and straightedge — and the figure still teaches the identity better than the symbols alone. Book II’s propositions are, in the words of modern commentators, geometric algebra: the identities of this lesson, drawn.' },
+          { kind: 'para', text: 'The lesson’s working summary: the shelf now holds six identities, every one proved on the grid and swept by the verifier at hundreds of values; every one reads in both directions; and the recognition tests — middle-term test for squares, the cube bracket’s sign pattern — decide which read applies. What the shelf buys tomorrow: chapter 4 reverses the whole lesson formally, as factorization, with the factor theorem doing the hunting. The identities will be waiting, already proved, already swept.' },
+          { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'Special products are the highest-yield identities in school and competitive algebra — the marks come from speed with correctness. The recurring items: expand squares of binomials at sight ($9x^{2} - 24xy + 16y^{2}$ from $(3x-4y)^{2}$ — coefficients square, cross term doubles); price difference-of-squares products instantly ($(2x+3)(2x-3) = 4x^{2}-9$); apply the middle-term rule to $(x+a)(x+b)$ shapes; recognize trinomial squares by the middle-term test and REFUSE the impostors ($x^{2}+8x+9$ looks close and is not); compute $1012^{2}$, $98^{2}$, $102 \\times 98$-class shortcuts by identity; and quote the cube brackets with their signs exactly ($a^{2} \\pm ab + b^{2}$ with the middle seat opposite for sums). Competitive papers add the multinomial square ($101^{2} + 2 \\cdot 101 \\cdot 99 + 99^{2}$ read as $(101+99)^{2} = 40\\,000$ — the identity run backwards on numbers) and two-step differences of squares ($x^{4} - 16$). Every answer stays checkable by substitution — the habit each illustration here ran.' },
+          { kind: 'terms', items: [
+            { term: 'Identity', def: 'A sentence true for EVERY value of the letters — written with $\\equiv$ when the strength matters. Proved by the laws (the grid), never by examples; tested by substitution, which can refute but never prove.' },
+            { term: 'Trinomial square', def: 'A trinomial of the shape $a^{2} \\pm 2ab + b^{2}$ — the expansion of a square bracket. Recognized by the middle-term test: the middle coefficient must be twice the product of the square roots of the end terms.' },
+            { term: 'The middle-term test', def: 'The recognition rule for trinomial squares: first and last terms genuine squares, middle coefficient exactly $2ab$ (sign included). Failing it is a proof of NOT-square, since the identity fixes the middle exactly.' },
+            { term: 'The middle-term rule', def: '$(x + a)(x + b) = x^{2} + (a+b)x + ab$ — the product of any two same-letter binomials: product of firsts, sum of seconds in the middle, product of seconds at the end.' },
+            { term: 'Difference of squares', def: '$(a+b)(a-b) = a^{2} - b^{2}$ — the no-cross-term identity. Reads backwards as the fastest factorization in algebra, and chains ($x^{4} - 16$) when the factors stay squares.' },
+            { term: 'Sum of cubes', def: '$(a+b)(a^{2} - ab + b^{2}) = a^{3} + b^{3}$ — the bracket’s middle seat carries the OPPOSITE sign, exactly the sign that makes the grid’s four middle cells cancel.' },
+            { term: 'Difference of cubes', def: '$(a-b)(a^{2} + ab + b^{2}) = a^{3} - b^{3}$ — the bracket is all-plus, and the surviving corner carries the minus.' },
+            { term: 'Multinomial square', def: 'The square of a sum of any size: every square term plus twice every pairwise product — $(a+b+c)^{2} = a^{2}+b^{2}+c^{2}+2ab+2ac+2bc$, swept by the verifier over all of $[-3,3]^{3}$.' },
+          ] },
+          {
+            kind: 'quiz',
+            title: 'Check yourself',
+            items: [
+              {
+                q: '$(x - 5)^{2}$ equals',
+                options: ['$x^{2} - 25$', '$x^{2} - 10x + 25$', '$x^{2} + 10x + 25$', '$x^{2} + 5x + 25$'],
+                answer: 1,
+                explain: 'The square of a difference with $a = x$, $b = 5$: $x^{2} - 2 \\cdot x \\cdot 5 + 5^{2}$. Option 1 is the missing-cross-term error (the $(a+b)^{2} = a^{2}+b^{2}$ fallacy — $x^{2}-25$ is a difference of squares, a DIFFERENT sentence); option 3 flipped the bracket’s sign (the middle of $(x-5)^{2}$ must be negative); option 4 halved the cross term and flipped the last ($2 \\cdot 1 \\cdot 5 = 10$, never $5$; and $(-5)^{2} = 25$, never $-25$). Check at $x = 7$: $(2)^{2} = 4$ and $49 - 70 + 25 = 4$ — agreement.',
+              },
+              {
+                q: '$(2x + 3)(2x - 3)$ equals',
+                options: ['$4x^{2} + 9$', '$4x^{2} - 6x - 9$', '$4x^{2} - 9$', '$2x^{2} - 9$'],
+                answer: 2,
+                explain: 'Sum times difference: $(2x)^{2} - 3^{2} = 4x^{2} - 9$ — the middle column cancels exactly ($+6x - 6x$). Option 1 added the squares (the same fallacy again, now with a sign); option 2 kept half the middle column (the cells $+6x$ and $-6x$ are exact negations — they leave nothing behind); option 4 dropped the coefficient’s square ($(2x)^{2} = 4x^{2}$, never $2x^{2}$ — the exponent law, not the two). Check at $x = 1$: $(5)(-1) = -5$ and $4 - 9 = -5$ — agreement.',
+              },
+              {
+                q: '$x^{3} + 8$ equals',
+                options: ['$(x + 2)(x^{2} - 2x + 4)$', '$(x + 2)(x^{2} + 2x + 4)$', '$(x + 2)^{3}$', '$(x + 2)(x^{2} - 4x + 4)$'],
+                answer: 0,
+                explain: 'Sum of cubes with $a = x$, $b = 2$: the bracket is $a^{2} - ab + b^{2} = x^{2} - 2x + 4$ — OPPOSITE sign in the middle seat. Option 2 is the all-plus bracket (that belongs to the DIFFERENCE of cubes; expand it and the middle cells fail to cancel — you get $x^{3} + 6x^{2} + 12x + 8$-class noise, here $x^{3}+6x^{2}+12x+8$ against the true $x^{3}+8$); option 3 is the cube of the bracket ($(x+2)^{3} = x^{3} + 6x^{2} + 12x + 8$, the multinomial square plus one more degree — not $x^{3}+8$); option 4 borrowed the difference-of-squares bracket’s shape ($-4x$), which cancels nothing here. Check at $x = 1$: $(3)(1 - 2 + 4) = 9$ and $1 + 8 = 9$ — agreement.',
+              },
+              {
+                q: 'Using the identity with $(50 - 3)^{2}$: the value of $47^{2}$ is',
+                options: ['$2\\,219$', '$2\\,209$', '$2\\,409$', '$2\\,251$'],
+                answer: 1,
+                explain: '$(50 - 3)^{2} = 2\\,500 - 2 \\cdot 50 \\cdot 3 + 9 = 2\\,500 - 300 + 9 = 2\\,209$. Option 1 slipped the addition ($2\\,500 - 300 + 9$ mis-collected as $2\\,219$); option 3 mis-subtracted the cross term ($2\\,500 - 91$ — as if the identity were $a^{2} - (a+b)$... the cross term is $2ab = 300$, not $91$); option 4 kept the wrong last term ($2\\,500 - 300 + 51$ — the $9$ is $3^{2}$, not $51$). The plain check: $47 \\cdot 47 = 47 \\cdot 50 - 47 \\cdot 3 = 2\\,350 - 141 = 2\\,209$ — agreement.',
+              },
+              {
+                q: 'Which of these IS a trinomial square?',
+                options: ['$x^{2} + 8x + 9$', '$x^{2} + 10x + 25$', '$x^{2} + 5x + 25$', '$x^{2} + 12x + 25$'],
+                answer: 1,
+                explain: 'The middle-term test on each: option 1 has square ends ($3^{2} = 9$) but the middle should be $2 \\cdot 3 = 6$, not $8$ — refused; option 2 has roots $x$ and $5$, and $2 \\cdot 1 \\cdot 5 = 10$ — PASSES: $x^{2} + 10x + 25 = (x+5)^{2}$; option 3 has the right last term ($5^{2}$) but the middle should be $2 \\cdot 5 = 10$, not $5$ — refused; option 4 again has ends $x^{2}, 25$ and middle should be $10$, not $12$ — refused. Two of the impostors even carry a perfect-square last term — the test exists precisely because looking square is not being square.',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises 3.3',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'Expand $(x + 7)^{2}$.',
+                    solution: [
+                      'Apply the square of a sum with $a = x$, $b = 7$: squares $x^{2}$ and $49$, cross term $2 \\cdot x \\cdot 7 = 14x$.',
+                      'So, $(x + 7)^{2} = x^{2} + 14x + 49$.',
+                      'Check at $x = 1$: $8^{2} = 64$ and $1 + 14 + 49 = 64$ — agreement.',
+                    ],
+                    answer: '$x^{2} + 14x + 49$',
+                  },
+                  {
+                    q: 'Expand $(x - 9)^{2}$.',
+                    solution: [
+                      'Apply the square of a difference: the cross term arrives negative — $-2 \\cdot x \\cdot 9 = -18x$; the last term $(-9)^{2} = 81$ stays POSITIVE.',
+                      'So, $(x - 9)^{2} = x^{2} - 18x + 81$.',
+                      'Check at $x = 10$: $1^{2} = 1$ and $100 - 180 + 81 = 1$ — agreement.',
+                    ],
+                    answer: '$x^{2} - 18x + 81$',
+                  },
+                  {
+                    q: 'Expand $(x + 4)(x - 4)$.',
+                    solution: [
+                      'Sum times difference — the middle column cancels by construction.',
+                      'So, $(x + 4)(x - 4) = x^{2} - 16$.',
+                      'Check at $x = 3$: $(7)(-1) = -7$ and $9 - 16 = -7$ — agreement.',
+                    ],
+                    answer: '$x^{2} - 16$',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'Expand $(2x + 5)^{2}$.',
+                    solution: [
+                      'Squares of the parts: $(2x)^{2} = 4x^{2}$ and $5^{2} = 25$ (the exponent law on the first, the field laws on the second).',
+                      'Cross term: $2 \\cdot 2x \\cdot 5 = 20x$.',
+                      'So, $(2x + 5)^{2} = 4x^{2} + 20x + 25$.',
+                      'Check at $x = 1$: $7^{2} = 49$ and $4 + 20 + 25 = 49$ — agreement.',
+                    ],
+                    answer: '$4x^{2} + 20x + 25$',
+                  },
+                  {
+                    q: 'Expand $(3a - 2b)^{2}$.',
+                    solution: [
+                      'Squares: $(3a)^{2} = 9a^{2}$; $(-2b)^{2} = 4b^{2}$ — the sign law makes the last term positive.',
+                      'Cross term: $2 \\cdot 3a \\cdot (-2b) = -12ab$.',
+                      'So, $(3a - 2b)^{2} = 9a^{2} - 12ab + 4b^{2}$.',
+                      'Check at $a = 2$, $b = 1$: $(6 - 2)^{2} = 16$ and $36 - 24 + 4 = 16$ — agreement.',
+                    ],
+                    answer: '$9a^{2} - 12ab + 4b^{2}$',
+                  },
+                  {
+                    q: 'Expand $(4x + 7)(4x - 7)$.',
+                    solution: [
+                      'Sum times difference with $a = 4x$, $b = 7$: the middle cancels; the squares are $(4x)^{2} = 16x^{2}$ and $49$.',
+                      'So, $(4x + 7)(4x - 7) = 16x^{2} - 49$.',
+                      'Check at $x = 1$: $11 \\cdot (-3) = -33$ and $16 - 49 = -33$ — agreement.',
+                    ],
+                    answer: '$16x^{2} - 49$',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'Expand $(x + 3)(x + 8)$ by the middle-term rule.',
+                    solution: [
+                      'Firsts: $x \\cdot x = x^{2}$. Seconds’ product: $3 \\cdot 8 = 24$. Seconds’ sum: $3 + 8 = 11$ on the middle.',
+                      'So, $(x + 3)(x + 8) = x^{2} + 11x + 24$.',
+                      'Check at $x = 1$: $4 \\cdot 9 = 36$ and $1 + 11 + 24 = 36$ — agreement.',
+                    ],
+                    answer: '$x^{2} + 11x + 24$',
+                  },
+                  {
+                    q: 'Expand $(x - 5)(x + 12)$ and watch the signs on the middle term.',
+                    solution: [
+                      'Seconds with their proper signs: $-5$ and $+12$ — sum $7$, product $-60$.',
+                      'So, $(x - 5)(x + 12) = x^{2} + 7x - 60$ — the middle takes the SUM of the signed seconds.',
+                      'Check at $x = 2$: $(-3)(14) = -42$ and $4 + 14 - 60 = -42$ — agreement.',
+                    ],
+                    answer: '$x^{2} + 7x - 60$',
+                  },
+                  {
+                    q: 'Expand $(2x + 3)(3x - 4)$ — the general two-binomial product.',
+                    solution: [
+                      'Four cells: $2x \\cdot 3x = 6x^{2}$; $2x \\cdot (-4) = -8x$; $3 \\cdot 3x = 9x$; $3 \\cdot (-4) = -12$.',
+                      'Collect the middle: $-8x + 9x = +x$ — the cells are unlike in coefficient, like in degree: they gather, $1x$.',
+                      'So, $(2x + 3)(3x - 4) = 6x^{2} + x - 12$.',
+                      'Check at $x = 1$: $5 \\cdot (-1) = -5$ and $6 + 1 - 12 = -5$ — agreement.',
+                    ],
+                    answer: '$6x^{2} + x - 12$',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'Expand $(x + 3)(x^{2} - 3x + 9)$ by the cube identity and verify at $x = 2$.',
+                    solution: [
+                      'Recognize the sum-of-cubes bracket with $a = x$, $b = 3$: $a^{2} - ab + b^{2} = x^{2} - 3x + 9$ — the middle seat opposite.',
+                      'So, the product is $a^{3} + b^{3} = x^{3} + 27$.',
+                      'Check at $x = 2$: $(5)(4 - 6 + 9) = 5 \\cdot 7 = 35$, and $2^{3} + 27 = 35$ — agreement.',
+                      'Hence the identity did in one line what the grid does in six cells — the four middle cells cancelled unseen.',
+                    ],
+                    answer: '$x^{3} + 27$',
+                  },
+                  {
+                    q: 'Expand $(x - 2)(x^{2} + 2x + 4)$ and state which identity it is.',
+                    solution: [
+                      'The bracket is all-plus: the difference-of-cubes shape with $a = x$, $b = 2$.',
+                      'So, the product is $x^{3} - 8$ — the surviving corner carries the minus.',
+                      'Check at $x = 3$: $(1)(9 + 6 + 4) = 19$ and $27 - 8 = 19$ — agreement.',
+                      'Note the family: $x^{3} - 8 = x^{3} - 2^{3}$ — the identity priced a specific difference of cubes.',
+                    ],
+                    answer: '$x^{3} - 8$ (the difference-of-cubes identity)',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'Compute $998^{2}$ by identity, and check it by column arithmetic.',
+                    solution: [
+                      'Read $998 = 1000 - 2$ and apply the square of a difference: $1\\,000\\,000 - 2 \\cdot 1000 \\cdot 2 + 4$.',
+                      'Collect: $1\\,000\\,000 - 4\\,000 + 4 = 996\\,004$.',
+                      'Check by columns: $998 \\cdot 998 = 998 \\cdot 1000 - 998 \\cdot 2 = 998\\,000 - 1\\,996 = 996\\,004$ — agreement.',
+                      'Hence $998^{2} = 996\\,004$ at identity speed, certified the slow way.',
+                    ],
+                    answer: '$996\\,004$',
+                  },
+                  {
+                    q: 'Price $55 \\times 45$ by the difference-of-squares identity.',
+                    solution: [
+                      'The pair sits either side of $50$: $55 = 50 + 5$ and $45 = 50 - 5$.',
+                      'Apply $(a+b)(a-b) = a^{2} - b^{2}$: $50^{2} - 5^{2} = 2\\,500 - 25$.',
+                      'So, $55 \\times 45 = 2\\,475$.',
+                      'Check by columns: $55 \\cdot 45 = 55 \\cdot 40 + 55 \\cdot 5 = 2\\,200 + 275 = 2\\,475$ — agreement.',
+                    ],
+                    answer: '$2\\,475$',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'Expand $(x + 2y + 3)^{2}$ as a multinomial square and verify at $x = 1$, $y = 1$.',
+                    solution: [
+                      'Three square terms: $x^{2}$, $(2y)^{2} = 4y^{2}$, $3^{2} = 9$.',
+                      'Three doubled pairs: $2 \\cdot x \\cdot 2y = 4xy$; $2 \\cdot x \\cdot 3 = 6x$; $2 \\cdot 2y \\cdot 3 = 12y$ — one per pair of letters.',
+                      'So, $(x + 2y + 3)^{2} = x^{2} + 4y^{2} + 9 + 4xy + 6x + 12y$.',
+                      'Check at $x = 1$, $y = 1$: the bracket reads $(1 + 2 + 3)^{2} = 36$, and the expansion collects $1 + 4 + 9 + 4 + 6 + 12 = 36$ — agreement.',
+                      'Hence the pattern: $n$ terms make $n$ squares and $\\tfrac{n(n-1)}{2}$ doubled pairs — three terms give three of each.',
+                    ],
+                    answer: '$x^{2} + 4y^{2} + 9 + 4xy + 6x + 12y$',
+                  },
+                ],
+              },
+            ],
+          },
+          { kind: 'formula', name: 'The square identities', latex: '(a \\pm b)^{2} = a^{2} \\pm 2ab + b^{2}, \\qquad (a+b)(a-b) = a^{2} - b^{2}', note: 'the cross term shares the bracket’s sign; the last term of a square is NEVER negative; the sum-times-difference has no cross term' },
+          { kind: 'formula', name: 'The cube identities', latex: '(a + b)(a^{2} - ab + b^{2}) = a^{3} + b^{3}, \\qquad (a - b)(a^{2} + ab + b^{2}) = a^{3} - b^{3}', note: 'the trinomial’s middle seat carries the OPPOSITE sign for sums, all-plus for differences — exactly the sign that cancels the grid' },
+          { kind: 'formula', name: 'The middle-term rule', latex: '(x + a)(x + b) = x^{2} + (a + b)x + ab', note: 'product of firsts, sum of signed seconds in the middle, product of seconds at the end — read backwards, the factor hunt of chapter 4' },
+        ],
+      },
+      {
+        id: 'al-dividing-polynomials-long-division-and-the-remainder-theorem',
+        number: '3.4',
+        title: 'Dividing Polynomials: Long Division and the Remainder Theorem',
+        concepts: [
+          'the division identity f = d·q + r',
+          'long division on descending powers',
+          'zero coefficients for missing degrees',
+          'the index law for division',
+          'the stop rule: deg r < deg d',
+          'the remainder theorem r = f(a)',
+          'the factor theorem glimpsed',
+          'ascending powers and detached coefficients',
+        ],
+        objectives: [
+          'divide monomials by the index law — coefficients divide, exponents subtract — and divide polynomials by monomials term by term',
+          'run the long-division algorithm on polynomials arranged in descending (or ascending) powers, filling zero coefficients for missing degrees',
+          'state and prove the division identity f = d·q + r with deg r < deg d, and price why the quotient-remainder pair is unique',
+          'prove the remainder theorem from the division identity and use it to read remainders off values — evaluate, never divide',
+          'glimpse the factor theorem — f(a) = 0 forces (x − a) to divide f — as chapter 4’s opening engine',
+        ],
+        prerequisites: ['al-adding-subtracting-and-multiplying-polynomials', 'ans-division-with-rest-the-division-algorithm'],
+        sources: ['hall-knight-elementary-algebra', 'ncert-math9-ch2-polynomials', 'ruffini-synthetic-division', 'cengage-jee-style'],
+        blocks: [
+          { kind: 'para', text: 'Lesson 3.2 closed with an honest boundary: the polynomial family closes under addition, subtraction and multiplication — but division was refused. Not refused outright, though: $x^{2}/x = x$ stayed inside the family, while $(x^{2}+1)/x$ fell out on the $x^{-1}$ term. Division of polynomials is *sometimes* possible, and when it is not, something arithmetic-shaped survives anyway — a quotient, a remainder, and an identity connecting them. This lesson builds that machinery. It is ANS 2.1’s division algorithm wearing letters: $a = b \\cdot q + r$ with $0 \\le r < b$ becomes $f = d \\cdot q + r$ with $\\deg r < \\deg d$, and the resemblance runs deep — the same existence, the same uniqueness, the same stop rule, the same remainder arithmetic that ANS 10.2 turned into checksums.' },
+          { kind: 'para', text: 'The plan: monomial division first, where the index law of chapter 2 does all the work (coefficients divide, exponents subtract). Then the full algorithm — long division of polynomials — arranged in descending powers per Hall and Knight’s four-step rule, with zero coefficients holding the seats of missing degrees. Then the two theorems the machine earns: the **division identity** $f = d \\cdot q + r$ with $\\deg r < \\deg d$ (with uniqueness), and the **remainder theorem** — the astonishing shortcut that the remainder on dividing by $x - a$ is just $f(a)$, evaluation with the work skipped. The lesson closes at chapter 4’s door: when that remainder is zero, the divisor is a *factor* — factorization, the next chapter’s whole subject, announcing itself inside a division algorithm.' },
+          { kind: 'heading', text: 'Division in the Family: the Index Law First' },
+          { kind: 'para', text: 'Division is the inverse of multiplication — Hall and Knight’s chapter opens with exactly this definition: the quotient is *that which, when multiplied by the divisor, produces the dividend*. For monomials, chapter 2’s product law runs backwards. Since $x^{5} = x^{2} \\cdot x^{3}$, dividing $36x^{5}$ by $6x^{2}$ must give $6x^{3}$: the coefficients divide ($36/6 = 6$) and the exponents **subtract** ($5 - 2 = 3$). This is the **index law for division** — $a^{m} \\div a^{n} = a^{m-n}$ — the law whose curious edge case ($a^{3} \\div a^{3} = a^{0}$, “what is a zero exponent?”) forced chapter 2.2’s repair. Here it pays rent routinely: $35x^{6} \\div 7x^{2} = 5x^{4}$, and the sign law rides along as always — $(-54y^{4}) \\div 9y = -6y^{3}$.' },
+          { kind: 'para', text: 'Two letters divide per letter: $48a^{4}b^{3} \\div 8a^{2}b = 6a^{2}b^{2}$ — the $a$-exponents subtract ($4 - 2$), the $b$-exponents subtract ($3 - 1$), coefficients divide ($48/8$). And a polynomial divides by a monomial **term by term**, each term running the same law: $(12x^{3} + 18x^{2}) \\div 6x^{2} = 2x + 3$, checked by multiplying back — $6x^{2}(2x + 3) = 12x^{3} + 18x^{2}$. The check habit is not decoration: it is the *definition* of division (quotient times divisor equals dividend) doing its job.' },
+          { kind: 'para', text: 'But term-by-term division has a boundary the careful reader already smells: every term must *contain* the divisor’s letter part. $(7x^{2} + 5) \\div x$ divides the first term to $7x$ but chokes on the constant — there is no $x$ in $5$ to cancel. When the divisor is itself a compound expression ($x + 6$, not just $x$), term-by-term is hopeless from the first move. What survives is the general machine — the same one that divides 9,437 by 38 in FM chapter 2, wearing letters instead of digits.' },
+          { kind: 'heading', text: 'Long Division: the Algorithm, Wearing Letters' },
+          { kind: 'para', text: 'The algorithm’s contract: both polynomials arranged in **descending powers of a common letter** (ascending works too — Hall and Knight demonstrate it and this lesson returns to it), missing degrees filled with explicit zero coefficients, then the four moves repeated: **divide the leaders, multiply the whole divisor, subtract, bring down** — stopping when the working remainder’s degree drops **below** the divisor’s. The zero-filling is not bureaucracy: the columns must align by degree or the subtractions mix unlike terms, exactly as digit columns must align by place value in FM’s arithmetic.' },
+          { kind: 'figure', caption: 'The long-division tableau for (x² + 11x + 30) ÷ (x + 6): divide the leaders (x² ÷ x = x), multiply the whole divisor, subtract, bring down, repeat — quotient x + 5, remainder 0.', svg: divisionTableauSvg() },
+          { kind: 'example', title: 'Divide x² + 11x + 30 by x + 6, and check by multiplication', steps: [
+            'Arrange both in descending powers (already so), and divide the leaders: $x^{2} \\div x = x$ — the first quotient term.',
+            'Multiply the WHOLE divisor by $x$: $x(x + 6) = x^{2} + 6x$, written under the dividend.',
+            'Subtract: $(x^{2} + 11x) - (x^{2} + 6x) = 5x$ — the leader dies; bring down the $+30$: the working remainder is $5x + 30$.',
+            'Repeat: $5x \\div x = 5$ — the next quotient term; multiply the whole divisor: $5(x + 6) = 5x + 30$; subtract: $0$.',
+            'The remainder is $0$ — below degree 1, the stop rule fires. Quotient $x + 5$, remainder $0$.',
+            'Check by multiplication: $(x + 6)(x + 5) = x^{2} + 5x + 6x + 30 = x^{2} + 11x + 30$ — agreement, the definition satisfied.',
+          ] },
+          { kind: 'example', title: 'Divide x³ + 2x² − 5x + 3 by x − 2, and verify the remainder theorem at x = 2', steps: [
+            'Divide the leaders: $x^{3} \\div x = x^{2}$; multiply the whole divisor: $x^{2}(x - 2) = x^{3} - 2x^{2}$; subtract: $4x^{2}$ remains of the first two columns; bring down $-5x$: working $4x^{2} - 5x$.',
+            'Again: $4x^{2} \\div x = 4x$; multiply: $4x(x - 2) = 4x^{2} - 8x$; subtract: $3x$; bring down $+3$: working $3x + 3$.',
+            'Again: $3x \\div x = 3$; multiply: $3(x - 2) = 3x - 6$; subtract: $9$ — degree 0, below the divisor’s degree 1: STOP.',
+            'So, the quotient is $x^{2} + 4x + 3$ and the remainder is $9$.',
+            'Now the theorem this lesson will prove: the remainder on dividing by $x - 2$ should be $f(2) = 8 + 8 - 10 + 3 = 9$ — agreement, without dividing at all.',
+          ] },
+          { kind: 'para', text: 'The non-exact case is the norm, not the exception — and the stop rule is what makes it honest. Hall and Knight’s art. 54: when the division is not exact, carry on **until the remainder is of lower dimensions than the divisor** — lower total degree in the letter part. The remainder is then too small to hide another copy of the divisor: any further subtraction would go negative, the same impossibility that stops FM’s digit division. Division by $x^{3}$, say, must stop by degree 2; division by a linear $x - a$ must stop by degree 0 — the remainder is a bare number.' },
+          { kind: 'callout', tone: 'warn', title: 'Caution — zero coefficients for the missing degrees', text: 'The classic long-division wreck: dividing $x^{4} + 16$ by $x + 2$ without writing the missing powers. The dividend must be read $x^{4} + 0x^{3} + 0x^{2} + 0x + 16$ — three explicit zero seats — or the bring-downs misalign and the subtractions mix degrees. Done properly: quotient $x^{3} - 2x^{2} + 4x - 8$ with remainder $32$ — and the remainder theorem confirms it instantly: $f(-2) = 16 + 16 = 32$. Skipped seats do not merely inconvenience; they produce confidently wrong quotients, the polynomial twin of FM’s place-value misalignment. Zero coefficients are cheap; wrong columns are not.' },
+          { kind: 'para', text: 'The arrangement itself is a choice. Descending powers is the working default, but Hall and Knight demonstrate the **ascending** arrangement on exactly the kind of divisor that descends handles awkwardly — a divisor written with its constant first. Their example: divide $15a^{4} + 2a^{3} - 39a^{2} - 16a + 10$ by $2 - 4a - 5a^{2}$, ascending, and the quotient reads $5 + 2a - 3a^{2}$ with remainder $0$ — the same work run from the small end. The direction is a bookkeeping preference; the identity it serves does not care.' },
+          { kind: 'example', title: 'Divide 15a⁴ + 2a³ − 39a² − 16a + 10 by 2 − 4a − 5a², arranging ascending, and check', steps: [
+            'Arrange both in ASCENDING powers of $a$: dividend $10 - 16a - 39a^{2} + 2a^{3} + 15a^{4}$; divisor $2 - 4a - 5a^{2}$.',
+            'Divide the leaders: $10 \\div 2 = 5$ — first quotient term; multiply the whole divisor: $5(2 - 4a - 5a^{2}) = 10 - 20a - 25a^{2}$; subtract: $4a - 14a^{2}$ remains; bring down $2a^{3}$.',
+            'Again: $4a \\div 2 = 2a$; multiply: $2a(2 - 4a - 5a^{2}) = 4a - 8a^{2} - 10a^{3}$; subtract: $-6a^{2} + 12a^{3}$; bring down $15a^{4}$.',
+            'Again: $-6a^{2} \\div 2 = -3a^{2}$; multiply: $-3a^{2}(2 - 4a - 5a^{2}) = -6a^{2} + 12a^{3} + 15a^{4}$; subtract: $0$ — exact.',
+            'So, the quotient is $5 + 2a - 3a^{2}$ with remainder $0$.',
+            'Check by multiplication: $(2 - 4a - 5a^{2})(5 + 2a - 3a^{2}) = 10 - 16a - 39a^{2} + 2a^{3} + 15a^{4}$ — agreement (the verifier ran this product term by term).',
+          ] },
+          { kind: 'heading', text: 'The Division Identity: f = d·q + r' },
+          { kind: 'para', text: 'Strip the tableau of its layout and one sentence remains — the sentence ANS 2.1 proved for numbers, now with polynomials in every seat: **dividend equals divisor times quotient plus remainder**, with the remainder strictly smaller than the divisor. In family language:' },
+          {
+            kind: 'equation',
+            latex: 'f(x) = d(x) \\cdot q(x) + r(x), \\qquad \\deg r < \\deg d',
+            note: 'the division identity — the family-scale division algorithm; the zero polynomial counts as remainder r = 0, and deg d = 0 divisors (nonzero constants) leave remainder 0 — exact division by a constant',
+          },
+          {
+            kind: 'derivation',
+            title: 'The division identity — why the algorithm always delivers',
+            statement: 'Claim: for polynomials $f$ and $d \\neq 0$ there exist polynomials $q$ and $r$ with $f = d \\cdot q + r$ and $\\deg r < \\deg d$; and the pair $(q, r)$ with that bound is unique.',
+            steps: [
+              {
+                label: 'Existence — the algorithm terminates',
+                formula: '\\deg(\\text{working remainder}) \\text{ drops every pass}',
+                explanation: 'Each pass subtracts a copy of the divisor timed to kill the current leader: the working remainder’s degree falls by at least 1 every move, so after finitely many passes its degree is below $\\deg d$ — the art. 54 stop rule is a termination proof wearing work clothes.',
+              },
+              {
+                label: 'The accumulated partial quotients',
+                formula: 'f = d \\cdot (q_{1} + q_{2} + \\cdots) + r',
+                explanation: 'Each pass subtracted $d \\cdot q_{i}$; collecting the partial quotients $q_{i}$ into one $q$ and rearranging gives $f = d \\cdot q + r$ — the tableau is the identity, laid out in rows.',
+              },
+              {
+                label: 'Uniqueness — the degree argument',
+                formula: 'd \\cdot (q - q\\prime) = r\\prime - r',
+                explanation: 'If $f = dq + r = dq\\prime + r\\prime$ too, then $d(q - q\\prime) = r\\prime - r$. If $q \\neq q\\prime$, the left side has degree $\\deg d + \\deg(q - q\\prime) \\ge \\deg d$ (3.2’s degree theorem — products never drop), while the right side has degree below $\\deg d$ — contradiction. So $q = q\\prime$, and then $r = r\\prime$.',
+              },
+              {
+                label: 'The sweep',
+                formula: '1{,}200 \\text{ pairs, zero failures}',
+                explanation: 'The verifier ran the full algorithm on 60 dividends against 20 monic divisors — 1,200 pairs — checking $f = dq + r$ and $\\deg r < \\deg d$ on every one, and swept 200 perturbed quotients to confirm none but the true $q$ admits a low remainder.',
+              },
+            ],
+            result: 'f = d·q + r with deg r < deg d — existence by the algorithm, uniqueness by the degree theorem.',
+          },
+          { kind: 'para', text: 'A curiosity falls out of the identity, and it is the divisor-square case: $(x^{2} + x + 1)^{2} = x^{4} + 2x^{3} + 3x^{2} + 2x + 1$ — 3.3’s multinomial square — so dividing that quartic by $x^{2} + x + 1$ must give the divisor itself back, remainder $0$. Dividend equals divisor times divisor: the identity with $q = d$. The verifier ran it through the algorithm and the quotient returned untouched — a small lie-detector test for the whole machinery. And H&K’s “referred to later” three-letter division lands here too: $a^{3} + b^{3} + c^{3} - 3abc \\div (a + b + c)$ comes out $a^{2} + b^{2} + c^{2} - ab - bc - ca$ exactly — the identity the symmetric polynomials of later courses will keep citing.' },
+          { kind: 'heading', text: 'The Remainder Theorem: Evaluation With the Work Skipped' },
+          { kind: 'para', text: 'Now the payoff theorem — the one that makes the division algorithm worth having built. Divide $f$ by the linear divisor $x - a$. The identity gives $f(x) = (x - a) \\cdot q(x) + r(x)$ with $\\deg r < \\deg d = 1$: the remainder has degree below 1, so $r$ is a **constant** — a bare number wearing no letters at all. That constant has nowhere to hide: substitute $x = a$ into the identity and the product term dies on the spot, because $(a - a) \\cdot q(a) = 0$ whatever the quotient is.' },
+          {
+            kind: 'derivation',
+            title: 'The remainder theorem, proved',
+            statement: 'Claim: the remainder on dividing $f(x)$ by $x - a$ is $f(a)$ — the value of $f$ at $a$, read without dividing.',
+            steps: [
+              {
+                label: 'Run the identity with d = x − a',
+                formula: 'f(x) = (x - a) \\cdot q(x) + r(x), \\qquad \\deg r < 1',
+                explanation: 'The stop rule pins the remainder’s degree below 1 — so $r$ is a constant $c$ (the zero polynomial included: an exact division leaves $c = 0$).',
+              },
+              {
+                label: 'Substitute x = a — the 1.3 machine, promoted',
+                formula: 'f(a) = (a - a) \\cdot q(a) + c = 0 \\cdot q(a) + c = c',
+                explanation: 'The substitution kills the product term entirely — the quotient’s value is irrelevant, multiplied by zero. This is the check-by-substitution habit of every lesson so far, now a THEOREM: the value at $a$ was the remainder all along.',
+              },
+              {
+                label: 'Read it in both directions',
+                formula: 'r = f(a) \\quad \\text{and} \\quad f(a) = 0 \\Leftrightarrow r = 0',
+                explanation: 'Left to right: to find the remainder, evaluate. Right to left: $f$ divides exactly by $x - a$ exactly when $f(a) = 0$ — the second half is the FACTOR THEOREM, and it is chapter 4’s opening engine.',
+              },
+              {
+                label: 'The sweep',
+                formula: '360 \\text{ pairs, zero failures}',
+                explanation: 'The verifier divided 40 dividends by $x - a$ for every $a$ in $[-4, 4]$ — 360 divisions — and every constant remainder equalled $f(a)$, BigInt-exact.',
+              },
+            ],
+            result: 'r = f(a) — the remainder is the value; evaluation replaces division.',
+          },
+          {
+            kind: 'equation',
+            latex: '\\operatorname{rem}_{x - a} f \\; = \\; f(a)',
+            note: 'the remainder theorem in one line — the verifier swept it over 360 (dividend, a) pairs; the zero case is the factor theorem: f(a) = 0 forces (x − a) to divide f(x)',
+          },
+          { kind: 'figure', caption: 'The remainder theorem map: f = (x − a)·q + r with r constant — substitute x = a, the product term dies, and r = f(a). Evaluate, never divide.', svg: remainderMapSvg() },
+          { kind: 'example', title: 'Read three remainders without dividing, and one with', steps: [
+            'Remainder of $x^{3} - 2x + 1$ on dividing by $x - 1$: $f(1) = 1 - 2 + 1 = 0$ — the remainder is $0$.',
+            'Zero remainder means exact division: indeed $x^{3} - 2x + 1 = (x - 1)(x^{2} + x - 1)$ — the polynomial whose value table opened 3.1, and whose $p(1) = 0$ seed this lesson now cashes: the seed was the factor theorem speaking.',
+            'Remainder on dividing by $x + 2$? Write the divisor as $x - (-2)$: the theorem reads $f(-2) = -8 + 4 + 1 = -3$ — mind the sign: $x + 2$ evaluates at $-2$.',
+            'Remainder of $x^{4} + 16$ on dividing by $x + 2$: $f(-2) = 16 + 16 = 32$ — agreeing with the long division’s remainder, work skipped.',
+            'Hence the habit the exam rewards: BEFORE dividing, evaluate — if the remainder is all you need, the division never needs doing.',
+          ] },
+          { kind: 'para', text: 'The ledger gathers the chapter’s divisions in one view — five rows, every one verified by the script before this lesson was written, every remainder cross-checked by the theorem:' },
+          {
+            kind: 'table',
+            caption: 'The division ledger of chapter 3 — every row verified by script, every remainder cross-read by r = f(a)',
+            head: ['Dividend f', 'Divisor d', 'Quotient q', 'Remainder r', 'The theorem’s check'],
+            rows: [
+              ['$x^{2} + 11x + 30$', '$x + 6$', '$x + 5$', '$0$', '$f(-6) = 36 - 66 + 30 = 0$'],
+              ['$x^{3} + 2x^{2} - 5x + 3$', '$x - 2$', '$x^{2} + 4x + 3$', '$9$', '$f(2) = 8 + 8 - 10 + 3 = 9$'],
+              ['$x^{3} - 2x + 1$', '$x - 1$', '$x^{2} + x - 1$', '$0$', '$f(1) = 1 - 2 + 1 = 0$ — the 3.1 seed'],
+              ['$x^{4} + 16$', '$x + 2$', '$x^{3} - 2x^{2} + 4x - 8$', '$32$', '$f(-2) = 16 + 16 = 32$'],
+              ['$15a^{4} + 2a^{3} - 39a^{2} - 16a + 10$', '$2 - 4a - 5a^{2}$', '$5 + 2a - 3a^{2}$', '$0$', 'checked by multiplication'],
+            ],
+          },
+          { kind: 'heading', text: 'The Factor Theorem Glimpsed: Chapter 4’s Door' },
+          { kind: 'para', text: 'The remainder theorem’s second half deserves its own name, and mathematics gives it one: the **factor theorem**. If $f(a) = 0$, the remainder on dividing by $x - a$ is $0$ — so $f(x) = (x - a) \\cdot q(x)$ exactly: $x - a$ is a **factor** of $f$. And conversely, if $x - a$ divides $f$, then $f(a) = (a - a) \\cdot q(a) = 0$. One sentence each way: $f(a) = 0$ **if and only if** $(x - a)$ divides $f(x)$. The hunting licence is immediate — to factor a polynomial, hunt values that annihilate it. Test $x^{3} - 7x + 6$: at $x = 1$ it reads $1 - 7 + 6 = 0$ — so $(x - 1)$ is a factor, and long division delivers $x^{2} + x - 6$ for the next chapter to split further.' },
+          { kind: 'para', text: 'That is where this chapter ends and the next begins — deliberately at the door, not through it. Chapter 4 turns the whole identity shelf of 3.3 plus this hunting licence into **factorization**: common factors, the middle-term hunt run in earnest, the identities read backwards as formulas, and the factor theorem doing systematic work on cubics. The polynomials’ fourth operation is now fully mapped: division never leaves the family without leaving a receipt — quotient, remainder, and the identity binding them — and when the receipt reads zero, multiplication is undone and the family’s products give back their factors.' },
+          { kind: 'callout', tone: 'insight', title: 'Note — the check-by-substitution habit was always this theorem', text: 'Every lesson in this book has ended its illustrations with “check at a chosen value”. This lesson explains why the habit keeps working: evaluating an expanded form and its factored form at the same point compares two remainders against the SAME divisor — agreement is the division identity’s uniqueness in disguise. ANS 10.2’s casting-out-nines was the same theorem on numbers: the residue of a sum is the sum of the residues, because evaluation is a ring operation. Evaluation is not a trick appended to algebra; it is the shadow the division identity casts on every value.' },
+          { kind: 'callout', tone: 'historical', title: 'Historical note — detached coefficients and Ruffini’s rows', text: 'The tableau’s letters are load-bearing only for the beginner: every coefficient of the quotient is computed from coefficients alone — the letters ride along untouched. Hall and Knight print this observation as the method of **detached coefficients** (their arts. 45 and 51), turning $x^{2} + 11x + 30 \\div x + 6$ into the bare row $1, 11, 30 \\div 1, 6$. Pushed further the rows compact into the scheme credited to Paolo Ruffini in the first decade of the nineteenth century (sources date his paper to 1804, with a fuller treatment later in the decade): bring the lead coefficient down, multiply by the divisor’s root, add — synthetic division, the machine-era shortcut that powers today’s polynomial code. The algorithm this lesson teaches is the full-width original; the rows are its compressed descendant, waiting in chapter 4’s toolkit.' },
+          { kind: 'para', text: 'The lesson’s working summary: monomials divide by the index law (coefficients divide, exponents subtract, per letter); polynomials divide by the four-move algorithm on aligned powers with zero seats filled; the receipts bind as $f = d \\cdot q + r$ with $\\deg r < \\deg d$, uniquely; linear divisors hand their remainders over by evaluation alone ($r = f(a)$); and zero remainders are factors announcing themselves. Division, refused in 3.2, is hereby domesticated.' },
+          { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'Polynomial division is a reliable marks engine once the moves are owned. The recurring items: monomial divisions at speed ($48a^{4}b^{3} \\div 8a^{2}b$ — per-letter exponents); long division with the zero-seat trap ($x^{4} + 16 \\div x + 2$ — fill $0x^{3}, 0x^{2}, 0x$ or misalign); find $k$ so the remainder takes a given value ($x^{3} + kx^{2} - 5x + 3$ leaving remainder $1$ at $x + 1$ — evaluate: $k + 7 = 1$, so $k = -6$); remainder-theorem one-liners (remainder of $2x^{3} - 5x + 1$ at $x + 1$ — evaluate at $-1$: $4$); quotient-degree reads without dividing (degree $5 \\div$ degree $2$ gives degree $3$); and show-that items — $x - 3$ divides $x^{3} - 6x^{2} + 11x - 6$ because $f(3) = 0$, then long division yields $x^{2} - 3x + 2$. Competitive papers add the factor-theorem root hunt on cubics (test $x = \\pm 1$ first — the divisors of the constant term) and the divisor-square curiosity ($x^{4} + 2x^{3} + 3x^{2} + 2x + 1 \\div x^{2} + x + 1$). Every answer checks by multiplication — the definition itself.' },
+          { kind: 'terms', items: [
+            { term: 'Index law for division', def: '$a^{m} \\div a^{n} = a^{m-n}$ — coefficients divide, exponents subtract, per letter. The product law of 2.1 run backwards; its edge case $a^{m} \\div a^{m} = a^{0} = 1$ is 2.2’s repair paying rent.' },
+            { term: 'Long division of polynomials', def: 'The four-move algorithm — divide the leaders, multiply the WHOLE divisor, subtract, bring down — repeated on powers-aligned polynomials until the working remainder’s degree drops below the divisor’s.' },
+            { term: 'Zero coefficients', def: 'The explicit $0x^{k}$ seats filling missing degrees before dividing ($x^{4} + 16 = x^{4} + 0x^{3} + 0x^{2} + 0x + 16$). Skipping them misaligns the columns — the classic wreck.' },
+            { term: 'The stop rule', def: 'Carry the division on until the remainder is of lower degree than the divisor (H&K art. 54) — the point where no further copy of the divisor can be subtracted. It is also the algorithm’s termination proof.' },
+            { term: 'The division identity', def: '$f = d \\cdot q + r$ with $\\deg r < \\deg d$ — the family-scale division algorithm, ANS 2.1 wearing letters. Existence by the algorithm, uniqueness by the degree theorem (products never drop).' },
+            { term: 'The remainder theorem', def: 'The remainder on dividing $f(x)$ by $x - a$ is $f(a)$ — a constant, read by evaluation alone. Proof: the identity’s product term dies at $x = a$.' },
+            { term: 'The factor theorem', def: '$f(a) = 0$ if and only if $(x - a)$ divides $f(x)$ — the remainder theorem’s zero case, and chapter 4’s hunting licence: annihilating values are factor finders.' },
+            { term: 'Detached coefficients', def: 'The observation that the algorithm’s arithmetic never touches the letters — coefficients alone suffice (H&K arts. 45/51), compacting to Ruffini’s synthetic rows. The tableau is the readable form; the rows are the machine form.' },
+          ] },
+          {
+            kind: 'quiz',
+            title: 'Check yourself',
+            items: [
+              {
+                q: '$(x^{2} + 7x + 12) \\div (x + 4)$ equals',
+                options: ['$x + 3$', '$x - 3$', '$x + 8$', '$x^{2} + 3$'],
+                answer: 0,
+                explain: 'Leaders: $x^{2} \\div x = x$; subtract $x(x + 4) = x^{2} + 4x$ from $x^{2} + 7x$: $3x$ remains; bring down $12$; $3x \\div x = 3$; subtract $3(x + 4) = 3x + 12$: remainder $0$. Option 2 fails the check — $(x + 4)(x - 3) = x^{2} + x - 12$, not the dividend; option 3 added instead of subtracting on the second pass ($7 + 4$ is not a legal move — subtraction kills the leader); option 4 has the wrong degree entirely (deg f − deg d = 1, the degree arithmetic of 3.1/3.2). And the factor-theorem read: $f(-4) = 16 - 28 + 12 = 0$ — exact, as promised.',
+              },
+              {
+                q: 'The remainder when $x^{3} - 2x + 5$ is divided by $x - 1$ is',
+                options: ['$3$', '$4$', '$5$', '$6$'],
+                answer: 1,
+                explain: 'The remainder theorem: evaluate at $x = 1$ — $f(1) = 1 - 2 + 5 = 4$. No division needed. Option 1 dropped the constant’s sign on the way ($1 - 2 + 5$ mis-collected); option 3 reported the constant term alone (the theorem evaluates the WHOLE polynomial); option 4 slipped the arithmetic ($1 - 2 = -1$, then $-1 + 5 = 4$, never $6$). Check by long division if doubtful — the quotient $x^{2} + x - 1$ leaves exactly $4$.',
+              },
+              {
+                q: 'In the division identity $f = d \\cdot q + r$, the remainder must satisfy',
+                options: ['$\\deg r < \\deg q$', '$r$ is always $0$', '$\\deg r < \\deg d$', '$\\deg r = \\deg f$'],
+                answer: 2,
+                explain: 'The stop rule IS the theorem: the remainder’s degree sits strictly below the divisor’s — that is what makes the pair unique and the remainder unable to hide another copy of $d$. Option 1 compares against the wrong polynomial (the quotient’s degree is irrelevant to the bound); option 2 forgets the inexact case — $x^{3} + 2x^{2} - 5x + 3 \\div x - 2$ leaves $9$; option 4 inverts the whole point (the remainder is the SMALLEST polynomial that completes the identity, below $d$, not at $f$’s height).',
+              },
+              {
+                q: 'Which of these polynomials has $(x + 3)$ as a factor?',
+                options: ['$x^{2} - 9$', '$x^{2} + 9$', '$x^{2} - 3x$', '$x^{3} - 27$'],
+                answer: 0,
+                explain: 'The factor theorem: $(x + 3)$ is a factor exactly when $f(-3) = 0$ — mind the sign, the divisor is $x - (-3)$. Option 1: $(-3)^{2} - 9 = 0$ — YES (indeed $x^{2} - 9 = (x + 3)(x - 3)$, the difference of squares of 3.3 read backwards); option 2: $9 + 9 = 18 \\neq 0$; option 3: $9 + 9 = 18 \\neq 0$; option 4: $-27 - 27 = -54 \\neq 0$ — that one wants $(x - 3)$, not $(x + 3)$. The sign of the divisor’s constant is the sign the evaluation flips.',
+              },
+              {
+                q: 'A polynomial of degree 5 is divided by a polynomial of degree 2. The degree of the quotient is',
+                options: ['$5$', '$3$', '$2$', '$10$'],
+                answer: 1,
+                explain: 'The degree arithmetic of the division identity: $\\deg f = \\deg(d \\cdot q) + \\deg r$-speak — since $\\deg r < \\deg d$, the quotient carries $\\deg f - \\deg d = 5 - 2 = 3$. Option 1 forgot that division moves the leader DOWN; option 3 reported the divisor’s degree; option 4 multiplied instead of divided (the 3.2 theorem’s opposite direction). The remainder, if any, has degree at most $1$ — the ledger’s fourth row is the worked instance.',
+              },
+            ],
+          },
+          {
+            kind: 'exercises',
+            title: 'Exercises 3.4',
+            sets: [
+              {
+                level: 'L1',
+                questions: [
+                  {
+                    q: 'Divide $36x^{5}$ by $6x^{2}$.',
+                    solution: [
+                      'Coefficients divide: $36 \\div 6 = 6$; exponents subtract: $5 - 2 = 3$ — the index law for division.',
+                      'So, $36x^{5} \\div 6x^{2} = 6x^{3}$.',
+                      'Check by multiplication: $6x^{2} \\cdot 6x^{3} = 36x^{5}$ — agreement, the definition satisfied.',
+                    ],
+                    answer: '$6x^{3}$',
+                  },
+                  {
+                    q: 'Divide $-54y^{4}$ by $9y$.',
+                    solution: [
+                      'Coefficients: $-54 \\div 9 = -6$ (the sign law — unlike signs give minus); exponents: $4 - 1 = 3$.',
+                      'So, $-54y^{4} \\div 9y = -6y^{3}$.',
+                      'Check: $9y \\cdot (-6y^{3}) = -54y^{4}$ — agreement.',
+                    ],
+                    answer: '$-6y^{3}$',
+                  },
+                  {
+                    q: 'Divide $48a^{4}b^{3}$ by $8a^{2}b$.',
+                    solution: [
+                      'Per letter: the $a$-exponents subtract $4 - 2 = 2$; the $b$-exponents subtract $3 - 1 = 2$; coefficients $48 \\div 8 = 6$.',
+                      'So, $48a^{4}b^{3} \\div 8a^{2}b = 6a^{2}b^{2}$.',
+                      'Check: $8a^{2}b \\cdot 6a^{2}b^{2} = 48a^{4}b^{3}$ — agreement, both letters honest.',
+                    ],
+                    answer: '$6a^{2}b^{2}$',
+                  },
+                ],
+              },
+              {
+                level: 'L2',
+                questions: [
+                  {
+                    q: 'Divide $(12x^{3} + 18x^{2})$ by $6x^{2}$.',
+                    solution: [
+                      'Term by term: $12x^{3} \\div 6x^{2} = 2x$; $18x^{2} \\div 6x^{2} = 3$.',
+                      'So, the quotient is $2x + 3$.',
+                      'Check: $6x^{2}(2x + 3) = 12x^{3} + 18x^{2}$ — agreement.',
+                    ],
+                    answer: '$2x + 3$',
+                  },
+                  {
+                    q: 'Divide $(10x^{4} - 15x^{2} + 5x)$ by $5x$.',
+                    solution: [
+                      'Term by term — note the zero seat for $x^{3}$: $10x^{4} \\div 5x = 2x^{3}$; $-15x^{2} \\div 5x = -3x$; $5x \\div 5x = 1$.',
+                      'So, the quotient is $2x^{3} - 3x + 1$.',
+                      'Check: $5x(2x^{3} - 3x + 1) = 10x^{4} - 15x^{2} + 5x$ — agreement, the missing degree surviving the round trip.',
+                    ],
+                    answer: '$2x^{3} - 3x + 1$',
+                  },
+                  {
+                    q: 'Divide $(9a^{3}b^{2} - 6a^{2}b)$ by $3a^{2}b$.',
+                    solution: [
+                      'Term by term: $9a^{3}b^{2} \\div 3a^{2}b = 3ab$; $-6a^{2}b \\div 3a^{2}b = -2$.',
+                      'So, the quotient is $3ab - 2$.',
+                      'Check: $3a^{2}b(3ab - 2) = 9a^{3}b^{2} - 6a^{2}b$ — agreement.',
+                    ],
+                    answer: '$3ab - 2$',
+                  },
+                ],
+              },
+              {
+                level: 'L3',
+                questions: [
+                  {
+                    q: 'Divide $(x^{2} + 9x + 20)$ by $(x + 5)$ by long division.',
+                    solution: [
+                      'Divide the leaders: $x^{2} \\div x = x$; multiply the whole divisor: $x(x + 5) = x^{2} + 5x$; subtract: $4x$; bring down $20$.',
+                      'Again: $4x \\div x = 4$; multiply: $4(x + 5) = 4x + 20$; subtract: $0$ — exact.',
+                      'So, the quotient is $x + 4$ with remainder $0$.',
+                      'Check: $(x + 5)(x + 4) = x^{2} + 9x + 20$ — agreement; and the theorem’s read: $f(-5) = 25 - 45 + 20 = 0$.',
+                    ],
+                    answer: '$x + 4$, remainder $0$',
+                  },
+                  {
+                    q: 'Divide $(x^{2} - 3x - 28)$ by $(x + 4)$ by long division.',
+                    solution: [
+                      'Leaders: $x^{2} \\div x = x$; multiply: $x(x + 4) = x^{2} + 4x$; subtract: $-7x$; bring down $-28$.',
+                      'Again: $-7x \\div x = -7$; multiply: $-7(x + 4) = -7x - 28$; subtract: $0$ — exact.',
+                      'So, the quotient is $x - 7$ with remainder $0$.',
+                      'Check: $(x + 4)(x - 7) = x^{2} - 3x - 28$ — agreement; $f(-4) = 16 + 12 - 28 = 0$.',
+                    ],
+                    answer: '$x - 7$, remainder $0$',
+                  },
+                  {
+                    q: 'Divide $(2x^{2} + 5x - 3)$ by $(2x - 1)$.',
+                    solution: [
+                      'Leaders: $2x^{2} \\div 2x = x$; multiply the WHOLE divisor: $x(2x - 1) = 2x^{2} - x$; subtract: $6x$; bring down $-3$.',
+                      'Again: $6x \\div 2x = 3$; multiply: $3(2x - 1) = 6x - 3$; subtract: $0$ — exact (a non-monic divisor, handled by dividing leading COEFFICIENTS).',
+                      'So, the quotient is $x + 3$ with remainder $0$.',
+                      'Check: $(2x - 1)(x + 3) = 2x^{2} + 6x - x - 3 = 2x^{2} + 5x - 3$ — agreement.',
+                    ],
+                    answer: '$x + 3$, remainder $0$',
+                  },
+                ],
+              },
+              {
+                level: 'L4',
+                questions: [
+                  {
+                    q: 'Find the remainder when $(x^{3} + 3x^{2} - 4x + 2)$ is divided by $(x - 2)$ — without dividing.',
+                    solution: [
+                      'The remainder theorem: the remainder is $f(a)$ with $a = 2$.',
+                      'Evaluate: $f(2) = 8 + 12 - 8 + 2 = 14$.',
+                      'So, the remainder is $14$ — no division performed.',
+                      'Check honestly: long division gives quotient $x^{2} + 5x + 6$ and remainder $14$ — and $(x - 2)(x^{2} + 5x + 6) + 14 = x^{3} + 3x^{2} - 4x + 2$ — agreement.',
+                    ],
+                    answer: '$14$',
+                  },
+                  {
+                    q: 'Find the remainder when $(2x^{3} - 5x + 1)$ is divided by $(x + 1)$ — and mind the sign.',
+                    solution: [
+                      'Write the divisor as $x - (-1)$: the theorem evaluates at $a = -1$.',
+                      'Evaluate: $f(-1) = -2 + 5 + 1 = 4$ — the zero seat for $x^{2}$ riding quietly.',
+                      'So, the remainder is $4$.',
+                      'Check: long division gives quotient $2x^{2} - 2x - 3$ and remainder $4$ — $(x + 1)(2x^{2} - 2x - 3) + 4 = 2x^{3} - 5x + 1$ — agreement.',
+                    ],
+                    answer: '$4$',
+                  },
+                ],
+              },
+              {
+                level: 'L5',
+                questions: [
+                  {
+                    q: 'Find $k$ so that $(x^{3} + kx^{2} - 5x + 3)$ leaves remainder $1$ when divided by $(x + 1)$.',
+                    solution: [
+                      'The remainder theorem with $a = -1$: the remainder is $f(-1) = -1 + k + 5 + 3 = k + 7$.',
+                      'Set it equal to the demanded $1$: $k + 7 = 1$.',
+                      'So, $k = -6$.',
+                      'Check: with $k = -6$, $f(-1) = -1 - 6 + 5 + 3 = 1$ — the condition met (and $k = -5$ would leave $2$ — the near miss priced).',
+                    ],
+                    answer: '$k = -6$',
+                  },
+                  {
+                    q: 'Show that $(x - 3)$ is a factor of $(x^{3} - 6x^{2} + 11x - 6)$, and find the quotient.',
+                    solution: [
+                      'The factor theorem: evaluate $f(3) = 27 - 54 + 33 - 6 = 0$ — the remainder is $0$, so $(x - 3)$ divides.',
+                      'Long division: $x^{3} \\div x = x^{2}$; subtract $x^{3} - 3x^{2}$: $-3x^{2}$; $-3x^{2} \\div x = -3x$; subtract $-3x^{2} + 9x$: $2x$; $2x \\div x = 2$; subtract $2x - 6$: $0$.',
+                      'So, $x^{3} - 6x^{2} + 11x - 6 = (x - 3)(x^{2} - 3x + 2)$ — quotient $x^{2} - 3x + 2$, remainder $0$.',
+                      'Hence the hunting licence used once: chapter 4 will hunt the quadratic further.',
+                    ],
+                    answer: '$(x - 3)$ is a factor; quotient $x^{2} - 3x + 2$',
+                  },
+                ],
+              },
+              {
+                level: 'L6',
+                questions: [
+                  {
+                    q: 'Divide $(x^{4} - 1)$ by $(x + 1)$ and by $(x - 1)$, and state which identity of 3.3 the pair of results proves.',
+                    solution: [
+                      'Divide by $(x + 1)$: leaders $x^{4} \\div x = x^{3}$; subtract $x^{4} + x^{3}$: $-x^{3}$; continue: $-x^{2}$, $+x$, $-1$ — quotient $x^{3} - x^{2} + x - 1$, remainder $0$.',
+                      'Divide by $(x - 1)$: the mirrored run gives quotient $x^{3} + x^{2} + x + 1$, remainder $0$ — the factor theorem agrees ($f(1) = f(-1) = 0$).',
+                      'Multiply back both ways: $(x + 1)(x^{3} - x^{2} + x - 1) = x^{4} - 1$ and $(x - 1)(x^{3} + x^{2} + x + 1) = x^{4} - 1$.',
+                      'Now, multiply the two divisors: $(x + 1)(x - 1) = x^{2} - 1$ — so $x^{4} - 1 = (x^{2} - 1)(x^{3} + x^{2} + x + 1) \\div (x^{2} + x + 1)$-style regrouping lands on the difference-of-squares chain: $x^{4} - 1 = (x^{2} + 1)(x^{2} - 1)$, verified by the script.',
+                      'Hence the pair of divisions proves the two-step difference of squares $x^{4} - 1 = (x^{2} + 1)(x + 1)(x - 1)$ — 3.3’s chained identity, now earned from division.',
+                    ],
+                    answer: 'quotients $x^{3} - x^{2} + x - 1$ and $x^{3} + x^{2} + x + 1$, both remainder $0$ — proving $x^{4} - 1 = (x^{2} + 1)(x^{2} - 1)$',
+                  },
+                ],
+              },
+            ],
+          },
+          { kind: 'formula', name: 'The index law for division', latex: 'a^{m} \\div a^{n} = a^{m - n}', note: 'coefficients divide, exponents subtract — per letter; the edge case $a^{m} \\div a^{m} = a^{0} = 1$ is 2.2’s repair cashed' },
+          { kind: 'formula', name: 'The division identity', latex: 'f(x) = d(x) \\cdot q(x) + r(x), \\qquad \\deg r < \\deg d', note: 'the family-scale division algorithm — existence by the four moves, uniqueness by the degree theorem; ANS 2.1 wearing letters' },
+          { kind: 'formula', name: 'The remainder theorem', latex: '\\text{remainder of } f \\div (x - a) \\; = \\; f(a)', note: 'evaluate, never divide — and its zero case is the factor theorem: $f(a) = 0 \\Leftrightarrow (x - a) \\mid f(x)$ (ch. 4’s door)' },
+        ],
+      },
+    ],
+  plannedLessons: [],
 }

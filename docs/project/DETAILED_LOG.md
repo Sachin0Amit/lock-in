@@ -2360,3 +2360,61 @@ verify-book3-ch03.ts FIRST; whitelist e2e-al-33/34); run 73 = ch. 4 'Factorizati
 
 **Git:** ship commit `al ch.3 OPENS (run 71): ...` pushed to main per the push protocol; memory commit follows
 (shas in WORKLOG).
+
+---
+
+## RUN 72 — 2026-11-08 — Elementary Algebra ch. 3 'Polynomials' CLOSES 4/4
+
+**Step 1 — tree reconciliation + research:** tree clean at the run-71 memory commit b2585fe (unpushed by design —
+it recorded run 71's push verification and rode this run's protocol push); no sibling lock (the :15 slot fired the
+main payload — executed per the MISSED-FIRE rule). Research: the H&K Elementary scan (23 MB) re-downloaded — ch. VI
+"Division" (the inverse definition, the sign rule, the index law arts. 47–48, the art. 50 four-step long-division
+rule, the art. 45/51 ascending + detached-coefficient arrangement, the art. 54 lower-dimensions stop rule) + arts.
+112–114 (the identity shortcuts 1012²/98², the multinomial square) + the bound Higher-Algebra art. 311 remainder-
+theorem exposition; two new web-checked keys (`euclid-elements-ii4` — Clark's Joyce edition, Book II Prop. 4;
+`ruffini-synthetic-division` — date hedged 1804/first decade). Working copy deleted after E2E (storage law).
+
+**Step 2 — verify-first:** sections J (3.3, 60 checks) and L (3.4, 55 checks) written BEFORE any prose: all five
+square/cube identities swept symbolically (17 b-values) AND pointwise (289 pairs each); the middle-term rule 325
+pairs; the multinomial square 343 points; the longDiv engine swept over 1,200 dividend-divisor pairs (f = d·q + r,
+deg r < deg d) + 200 uniqueness perturbation trials; the remainder theorem over 360 (dividend, a) pairs; the factor
+theorem both directions; the 2-letter/3-letter exhibits at 25 + 64 points; quiz keys [1,2,0,1,1] and [0,1,2,0,1]
+pinned with every distractor priced; 28 exercise keys recomputed both sides; figure geometry plans recorded.
+**Twelve author-side defects caught pre-prose** — the longDiv engine's wrong-leader-copy bug (would have shipped
+wrong quotient arithmetic), 8 polyD ascending/descending mix-ups, the wrong L6 quotient (x³+x²+x+1, not …−1), and
+trailing-zero arrEq false-failures — all fixed before any content existed.
+
+**Step 3 — the lessons (strictly sequential):** 3.3 first — authored (4,408 words), section K grown, full gates
+(lint 0 / tsc 0 / routes / E2E e2e-al-33 ALL PASS ×2 ×3 viewports, quiz 5/5 live on 1/2/0/1/1, KaTeX 312 nodes,
+pixels 0% blue + dark 93.9%, overlap 0 issues after three label moves on the corner-cut square, both figures
+visually inspected) — THEN 3.4 (authored 4,246 words, section M grown, full gates: E2E e2e-al-34 ALL PASS ×2 ×3
+viewports on keys 0/1/2/0/1, KaTeX 313 nodes, one overlap fix — the 'at x = a :' label moved clear of the dashed
+evaluation path — re-audited 0, both figures visually inspected). The authored-time scanners caught 61 unicode
+escapes + 2 odd backslash runs + 4 raw-$ derivation labels (the run-65 class; the label scanner added to M) —
+repaired to zero. e2e-al-33/34 whitelisted in .gitignore BEFORE committing.
+
+**Gates (all green):** lint 0 errors (2 pre-existing warnings untouched); tsc clean repo-wide; routes 200 (all four
+lessons) + 404 unknown; E2E 45/45 PASS ×2 runs per lesson; SVG overlap audit 0 issues final on all 8 chapter
+figures; verifier 436/436.
+
+**Step 4 — the unit-3 completion review (passed at ship):** BOOK_FORMAT checklist 7/7; exam-coverage audit 4/4;
+chapter totals recomputed: 18,656 words / 32 terms / 20 quiz / 56 exercises / 8 figures / 14 illustrations / 8
+derivations / 7 equations / 5 tables / 10 formula cards. ch-03.ts flipped status 'complete', plannedLessons [];
+book.ts header + notes updated (3 complete chapters of 11).
+
+**Step 5 — logs:** WORKLOG.md (this run's entry at top), PROGRESS.json (phase = ch. 3 COMPLETE 4/4; lastCompleted
+= run 72; run72Extras), RESUME_POINTER.json (nextAction = run 73 = ch. 4 OPENS with 4.1 + 4.2, verify-book3-ch04.ts
+FIRST, whitelist e2e-al-41/42, never 4.3/4.4; run 74 = 4.3 + 4.4 + the unit-4 review close ch. 4), SOURCE_LOG.md
+(run-72 section + ship notes + the two new keys), WORK_INVENTORY.json regenerated (24 chapters written / 94 lessons
+/ 460,076 words / 723 terms / 470 quiz / 1,177 exercises), DETAILED_LOG.md (this record).
+
+**Library after the run:** 3 books (2 complete + 1 in progress) / 24 chapters written / 94 lessons / 460,076 words
+/ 723 terms / 470 quiz items / 1,177 exercise questions. AL stands: ch. 1 COMPLETE 4/4 (16,513 words) + ch. 2
+COMPLETE 3/3 (13,189 words) + ch. 3 COMPLETE 4/4 (18,656 words) — 11 lessons / 48,318 words.
+
+**Next:** run 73 = ch. 4 'Factorization' OPENS with 4.1 'Common Factors and Grouping' + 4.2 'Factoring Quadratic
+Trinomials' (verify-book3-ch04.ts FIRST; whitelist e2e-al-41/42; never 4.3/4.4 this run); run 74 = 4.3 + 4.4 + the
+unit-4 review close ch. 4.
+
+**Git:** ship commit `al ch.3 CLOSES (run 72): ...` + the run-71 memory commit b2585fe pushed to main per the push
+protocol (shas in WORKLOG; ls-remote verified).

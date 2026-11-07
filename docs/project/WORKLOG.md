@@ -1,6 +1,91 @@
 # WORKLOG — append-only work journal
 
 Every work session appends one entry at the top. Format:
+## 2026-11-08 — RUN 72 (fired 04:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080415 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 3 'POLYNOMIALS' CLOSES 4/4 — 3.3 'Special Products: the Identities, Proved' + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' + the unit-3 completion review, authored strictly sequentially verify-first — the chapter COMPLETE and fully verified at run end
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-71 memory commit (`b2585fe`, unpushed by design —
+it recorded run 71's push verification and rode THIS run's protocol push); no `.figure_upgrade_lock` (sibling idle this
+window). RESUME_POINTER locked run 72 = AL ch. 3 closes with 3.3 + 3.4 + the unit-3 review (v2 two-lesson quota,
+strictly sequential; never ch. 4).
+
+**Research (one download, per the storage law):** the Drive survey re-confirmed (89 entries) and
+`Elementary-Algebra_text.pdf` (23 MB) re-downloaded: chapter VI "Division" (book pp. 41 ff.) studied — division defined
+as the inverse of multiplication, the rule of signs for division, the index law (arts. 47–48), the four-step
+long-division rule of art. 50 (descending powers; divide the left term; multiply the whole divisor; subtract and bring
+down), the ascending-powers arrangement with detached coefficients (art. 45/51 — the 15a⁴+2a³−39a²−16a+10 ÷ 2−4a−5a²
+exhibit), the inexact-division stop rule of art. 54 ("until the remainder is of lower dimensions than the divisor"),
+and the identity shortcuts of arts. 112–114 (the square rules priced on 1012² and 98²; the multinomial square) — plus
+the Higher-Algebra art. 311 remainder-theorem exposition bound in the same scan (f = Q·(x−a) + R; put x = a). Two
+web-checked history keys: NEW `euclid-elements-ii4` (Clark's Joyce edition: "the square on the whole equals the squares
+on the segments plus twice the rectangle" — Book II Prop. 4, c. 300 BC) for 3.3's callout, and NEW
+`ruffini-synthetic-division` (MathWorld + Wikipedia; the date hedged — sources cite 1804 with a fuller treatment later
+in the decade) for 3.4's callout. No content reproduced; working copy deleted after E2E.
+
+**Verify-first (sections J and L written BEFORE any prose, K and M at authoring time; modeled on the run-71 battery):**
+J (3.3, 60 checks) swept all five square/cube identities symbolically (17 b-values each) AND pointwise (289 pairs
+each), the middle-term rule over 325 (a,b) pairs, the multinomial square over 343 points, every recognition and
+refusal priced, 12 numerical shortcuts both sides, quiz keys [1,2,0,1,1] with distractors priced, 14 exercise keys
+both sides. L (3.4, 55 checks) built the longDiv engine (monic-divisor school algorithm) and swept f = d·q + r with
+deg r < deg d over 1,200 dividend-divisor pairs, uniqueness over 200 perturbed quotients, the remainder theorem over
+360 (dividend, a) pairs, the factor theorem both directions at 7 values, the 2-letter and 3-letter exhibits
+(24x²−65xy+21y²; a³+b³+c³−3abc) at 25 + 64 points, quiz keys [0,1,2,0,1], 14 exercise keys both sides.
+**The pre-writing halves caught TWELVE of the author's own defects** — chief among them the verifier's own longDiv
+engine bug (it copied the wrong coefficient when the working remainder's degree dropped early — would have shipped
+wrong quotient arithmetic into every sweep), eight ascending/descending coefficient-list mix-ups (polyD arg slips),
+a wrong L6 quotient (x⁴−1 ÷ (x−1) is x³+x²+x+1, NOT …−1), and trailing-zero arrEq false-failures — all fixed before
+any prose existed.
+
+**3.3 'Special Products: the Identities, Proved'** (`al-special-products-the-identities-proved`, 4,408 words): the
+identity charter (≡, true for EVERY value — the x² = 9 equation contrast swept 17 values), both-directions reading +
+the identity-shelf table; the square of a difference DERIVED TWICE (grid + the b → −b substitution) with the
+corner-cut figure (a² strip strip +b² readout, the b² double-count priced at a = 7, b = 3) and the Euclid II.4
+historical callout; the cube identities proved on the grid (the 3.2 (x−1)(x²+x+1) teaser cashed as a theorem; the
+four middle cells' cancellation swept; the sign-pattern misquote priced); the middle-term rule (x+a)(x+b) swept 325
+pairs; trinomial-square recognition + the middle-term test with the refusals (x²+8x+9, x²+6x+16, x²+5x+25) priced;
+the multinomial square swept [-3,3]³; the H&K shortcut arithmetic (1012² = 1,024,144, 98² = 9,604, 102×98 = 9,996 —
+each certified by column arithmetic); 8 terms; quiz 5 (keys 1/2/0/1/1); 14 exercises L1–L6; 3 formula cards; 2
+figures (corner-cut square + cube grids). Gates: lint 0 / tsc 0 / routes 200+404 / E2E e2e-al-33 ALL PASS ×2 runs at
+1280 + true 390 + dark (quiz 5/5 live on the pinned keys, KaTeX 312 nodes 0 errors, 0 raw $, 2 figures, 1 table, 18
+Sol. pills, 0 console errors); SVG overlap audit 0 issues after three label moves; both figures visually inspected.
+
+**3.4 'Dividing Polynomials: Long Division and the Remainder Theorem'**
+(`al-dividing-polynomials-long-division-and-the-remainder-theorem`, 4,246 words): the index law for division (2.2's
+repair cashed by a³ ÷ a³) + term-by-term monomial division; long division per H&K's four-step rule with the
+tableau figure (x²+11x+30 ÷ x+6, the EXACT verdict, the four moves annotated) and the zero-seat caution (x⁴+16 ÷
+x+2 = x³−2x²+4x−8 r 32, f(−2) = 32 confirming); the ascending arrangement (H&K art. 51's exhibit, engine-verified);
+the division identity f = d·q + r with deg r < deg d PROVED (termination by the degree-drop, uniqueness by the
+degree theorem's products-never-drop argument; 1,200-pair sweep + 200 perturbation trials named in the derivation);
+the remainder theorem PROVED from the identity (r = f(a); the map figure with the dying product term; 360-pair
+sweep) + the 1.3 substitution habit promoted to a theorem; the factor theorem glimpsed (f(a) = 0 ⟺ (x−a) | f) with
+the 3.1 p(1) = 0 seed cashed; the divisor-square curiosity ((x²+x+1)² ÷ itself) and the H&K three-letter exhibit
+(a³+b³+c³−3abc); the five-row division ledger; the Ruffini/detached-coefficients historical callout; 8 terms; quiz 5
+(keys 0/1/2/0/1); 14 exercises L1–L6 (the k-hunt k = −6, the x⁴−1 double division proving the 3.3 chain); 3 formula
+cards; 2 figures. Gates: lint 0 / tsc 0 / routes 200 / E2E e2e-al-34 ALL PASS ×2 runs ×3 viewports (KaTeX 313 nodes
+0 errors, 2 figures, 1 table, 18 Sol. pills, 0 console errors); SVG audit 0 issues after one label move; both figures
+visually inspected. **The authored-time scanners caught the run-65/71 bug classes in real time: 61 unicode escapes
+(\uXXXX from the Edit path), 2 odd backslash runs, and 4 raw-$ derivation step labels** (labels render plain — the
+M scanner now covers them) — all repaired and re-scanned to zero.
+
+**Unit-3 completion review (passed at ship):** BOOK_FORMAT checklist 7/7 — (1) math pre-verified by script (sections
+A–L before prose, K/M after); (2) figure labels match prose (8 figures audited 0-issue + visually inspected); (3)
+quiz keys verified live in the browser on the pinned keys (four sets: 1/0/1/1/0, 0/2/1/0/1, 1/2/0/1/1, 0/1/2/0/1 —
+5/5 each, twice, three viewports); (4) exercise solutions complete (56 Cengage chains with terminal answers, keys
+recomputed both sides); (5) lesson ids repo-wide unique (94 at close); (6) lint clean + all four routes 200 + 404
+honored; (7) logs updated. Exam-coverage audit 4/4 (every lesson carries its exam corner). Chapter totals recomputed:
+**18,656 words / 32 terms / 20 quiz items / 56 exercises / 8 figures / 14 illustrations / 8 derivations / 7 equations
+/ 5 tables / 10 formula cards**. ch-03.ts flipped `status: 'complete'`, `plannedLessons: []`; book.ts header + notes
+updated (3 complete chapters of 11). New citation keys banked: `euclid-elements-ii4`, `ruffini-synthetic-division`.
+Infra: `audit-svg-overlaps.sh` gained the al-* book mapping; e2e-al-33/34 whitelisted in .gitignore; WORK_INVENTORY
+rebuilt via build_work_inventory.ts.
+
+**Remaining:** chapters 4–11 of Elementary Algebra (run 73 = ch. 4 'Factorization' opens 4.1 + 4.2, verify-book3-ch04.ts
+FIRST; never 4.3/4.4 this run). Exam registry research (44 unresearched entries).
+
+**Git:** ship + memory commits recorded in the run-72 memory commit; pushed via the one-time HTTPS URL, remote main
+verified by ls-remote (sha recorded there); PAT never written to any file, config or log.
+
+---
+
 ## 2026-11-07 — RUN 71 (fired 22:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072215): AL ch. 3 'POLYNOMIALS' OPENS 2/4 — 3.1 'What a Polynomial Is: Terms, Degree and Family' + 3.2 'Adding, Subtracting and Multiplying Polynomials' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery — ch. 3 never closed, the unit-3 review belongs to run 72
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-70 memory commit (`68e9aa9`, the ship

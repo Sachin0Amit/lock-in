@@ -1847,3 +1847,49 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   1/0/1/1/0 and 0/2/1/0/1 pinned with every distractor priced; both-sides exercise keys; four figure geometry plans audited.
 - Two scanner catches pre-ship: 45 unicode escapes + 5 single-backslash LaTeX eats (the run-65/69 class) — both repaired,
   re-scanned to zero odd runs.
+
+### Run 72 — Elementary Algebra ch. 3 'Polynomials' CLOSES: 3.3 + 3.4 + the unit-3 review (2026-11-08)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67). Downloaded 2026-11-08 again for this run's authoring
+  research (23 MB scan): chapter VI "Division" (book pp. 41 ff.) studied — division defined as the inverse of
+  multiplication (quotient × divisor = dividend), the rule of signs for division, the index law for division
+  (art. 47–48), the four-step long-division rule of art. 50 (arrange in descending powers; divide the left term;
+  multiply the whole divisor; subtract and bring down), the ascending-powers arrangement with detached coefficients
+  (art. 45/51, the 15a⁴+2a³−39a²−16a+10 ÷ 2−4a−5a² exhibit), the inexact-division stop rule (art. 54 — carry on
+  until the remainder is of LOWER DIMENSIONS than the divisor), and the identity shortcut chapters (arts. 112–114:
+  the square rules priced on 1012² and 98², the multinomial square extension). Informed the arc of 3.3–3.4 (the
+  identity shelf both directions, the shortcut arithmetic, the long-division tableau, the remainder-lower-degree
+  stop rule); **no content reproduced — exposition original**. Working copy deleted after the run's E2E (storage law).
+- `euclid-elements-ii4` — NEW, web-checked 2026-11-08 (Clark University's Joyce edition of the Elements, Book II
+  Prop. 4 + modern geometric-algebra commentary): "if a straight line is cut at random, the square on the whole
+  equals the squares on the segments plus twice the rectangle contained by the segments" — (a+b)² = a²+2ab+b²
+  proved by areas c. 300 BC (Prop. 7 does the square of a difference). 3.3's historical callout and the
+  corner-cut figure's framing; used to inform, never reproduced.
+- `ruffini-synthetic-division` — NEW, web-checked 2026-11-08 (MathWorld's Ruffini's rule entry + Wikipedia):
+  Paolo Ruffini's compact scheme for dividing a polynomial by x − r — detached coefficients, bring-down, multiply,
+  add — described in the first decade of the nineteenth century (sources date the paper 1804 with a fuller
+  treatment later in the decade); the modern name is synthetic division. 3.4's historical callout, bridging
+  H&K's detached-coefficient exercises to the machine-era shortcut; used to inform, never reproduced.
+- `ncert-math9-ch2-polynomials` — carried: the school canon's identities arc (the square identities, the cube
+  identities with their bracket signs) maps to 3.3; the division-algebra gap the canon leaves is exactly 3.4's ground.
+- `khattar-qa-4e` — carried: the exam-corner shapes (identity-speed squares, trinomial-square recognition traps,
+  remainder-theorem items).
+- `cengage-jee-style` — carried: the presentation contract throughout.
+#### Run 72 keys consumed
+- In 3.3: `hall-knight-elementary-algebra`, `ncert-math9-ch2-polynomials`, `euclid-elements-ii4`, `cengage-jee-style`.
+- In 3.4: `hall-knight-elementary-algebra`, `ncert-math9-ch2-polynomials`, `ruffini-synthetic-division`, `cengage-jee-style`
+  (+ the ANS 2.1 cross-reference `ans-division-with-rest-the-division-algorithm` in prerequisites — banked run 51).
+#### Run 72 reference-notes (ship)
+- One download this run (the H&K Elementary scan, 23 MB, ch. VI Division + arts. 112–114 identity shortcuts + the
+  Higher-Algebra art. 311 remainder-theorem exposition bound in the same scan) — deleted after the run's E2E (storage law);
+  two history keys web-checked (Euclid II.4 via Clark's Joyce edition; Ruffini's synthetic scheme, date hedged 1804/first decade).
+- The verifier finished at 436 checks ALL GREEN (sections A–M): J (3.3 pre-writing, 60) + K (3.3 authored) + L (3.4
+  pre-writing, 55: the longDiv engine swept over 1,200 pairs + 200 uniqueness trials + the 360-pair remainder-theorem
+  sweep) + M (3.4 authored + the unit-3 review's 7-point checklist). Pre-writing catches this run: the verifier's own
+  longDiv engine bug (a wrong leader copy when the remainder's degree dropped early — would have shipped wrong algorithm
+  outputs), 8 ascending/descending coefficient-list mix-ups, a wrong L6 quotient (x³+x²+x+1, not …x−1), and 2 shared-value
+  slips. Authored-time scanner catches: 61 unicode escapes + 2 odd backslash runs (repaired to zero) + 4 raw-$ derivation
+  labels (the run-65 class — labels render plain; scanner added to M).
+- Eight figures audited 0-issue (after 3 label-move fixes on the corner-cut square + 1 on the remainder map) and visually
+  inspected; E2E 45/45 PASS ×2 runs ×3 viewports per new lesson (quiz 5/5 live on keys 1/2/0/1/1 and 0/1/2/0/1); pixels
+  0% blue cast, dark 93.9%.
