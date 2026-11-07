@@ -50,8 +50,9 @@ repo-wide 98 lessons / 476,361 words (WORK_INVENTORY rebuilt). **NEXT (run 75): 
 OPENS with 'What an Equation Is: the Balance Principle' + 'Solving Linear Equations' (create verify-book3-ch05.ts FIRST;
 whitelist e2e-al-51/52; never ch. 6).**
 
-**Git:** ship commit + the run-73 memory commit eee5d0a pushed per the protocol; remote verified via one-time-URL
-ls-remote (sha noted below).
+**Git:** ship commit f7ce019 (ch-04.ts + book.ts + the extended verify + 4 E2E scripts + .gitignore whitelist + the six
+memory docs), pushed 23067c3..f7ce019 per the protocol (the run-73 memory commit eee5d0a rode the same push); remote main
+verified = f7ce019105f5c1a3d304eabe29dd0f7eba71cda7 via one-time-URL ls-remote = local HEAD at verification time.
 
 ---
 
