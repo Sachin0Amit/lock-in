@@ -213,3 +213,10 @@ server.log
 !/scripts/e2e-ans-83.page.js
 !/scripts/e2e-ans-84.sh
 !/scripts/e2e-ans-84.page.js
+# exception: run-62 ANS chapter-9 pre-write arithmetic verifier (numeration through history; committed every ship)
+!/scripts/verify-book2-ch09.ts
+# exception: run-62 ANS chapter-9 lesson E2E blocks (quiz keys 9.1: 1/2/0/1/1, 9.2: set at authoring + solutions + audits)
+!/scripts/e2e-ans-91.sh
+!/scripts/e2e-ans-91.page.js
+!/scripts/e2e-ans-92.sh
+!/scripts/e2e-ans-92.page.js

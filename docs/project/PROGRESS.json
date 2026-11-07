@@ -1,8 +1,8 @@
 {
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
- "updated": "2026-11-06",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 8 'Irrationals and the Real Line' COMPLETE 4/4 (runs 60–61) + the unit-8 completion review passed (run 61, 2026-11-06 — the second two-lessons-per-run run under the owner's 2026-11-06 v2 hourly directive, executed as a manual catch-up of job 509354's failed-to-start 21:45 IST fire: 8.3 'How Irrationals Behave' + 8.4 'Completeness: the Line Without Holes' shipped strictly sequentially, verify-first with verify-book2-ch08.ts grown 171 → 302 checks (sections A–U2), five pre-writing defects caught including a REAL defect in the shipped 8.1 two-shores callout (the unguarded U = {r : r² > 2} overlapped L on every rational < −√2 — fixed surgically with the r > 0 guard and pinned by S0's text checks) and three of the author's own mistyped squares in 8.4 (14142², 141421², 141422² — all regression-guarded now); per-lesson gates all green (lint 0, tsc 0, routes 200, E2E 34 PASS per lesson at 1280 + true 390 + dark, quiz 5/5 live on keys 1/1/3/0/0 and 2/3/2/1/1, KaTeX 0 errors, 0 console errors, SVG overlap audits 0 issues on both new figures); the library now 2 books / 19 chapters / 77 lessons / 377,852 words / 587 terms / 385 quiz / 936 exercises; 4 new web-checked citation keys (dedekind-1872-stetigkeit, cantor-1872-fundamental-sequences, heine-1872-functionenlehre, meray-1869-limites); 5 planned lessons remain — ANS ch. 9 'Numeration Through History' (3 lessons) opens at run 62 with 9.1 + 9.2, ch. 10 'The Map of Number Systems' (2 lessons) closes the book)",
+ "updated": "2026-11-07",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 9 'Numeration Through History' IN PROGRESS 2/3 (run 62, 2026-11-07 — the first hourly-cadence run under the owner's 2026-11-06 v2 two-lessons-per-run directive: 9.1 'Tallies, Groupings and Additive Systems' (5,311 words) + 9.2 'Place Value Before Its Time: Babylon and Mesoamerica' (4,919 words) shipped strictly sequentially, verify-first with verify-book2-ch09.ts at 218 checks sections A–N + K/L, fourteen verifier-phase pre-writing defects caught plus two authoring-time ones; 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 completion review remain for run 63). Chapter 8 'Irrationals and the Real Line' COMPLETE 4/4 with the unit-8 review passed (runs 60–61, 2026-11-06). Library: 2 books / 20 chapters (19 complete + 1 in progress) / 79 lessons / 388,082 words / 603 terms / 395 quiz / 964 exercises (WORK_INVENTORY.json ground truth).",
  "awaiting": "nothing blocking — next run 62 = ANS ch. 9 opens: lessons 9.1 + 9.2 (v2 two-lesson scope)",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -81,9 +81,9 @@
     "status": "in-progress",
     "chaptersPlanned": 10,
     "chaptersWritten": 8,
-    "lessonsWritten": 24,
-    "termsAvailableForFlashcards": 176,
-    "notes": "IN PROGRESS — chapters 1–7 COMPLETE (runs 49–59): ch. 1 3/3 (16,921 words; verify-book2-ch01.ts 228 checks); ch. 2 4/4 (runs 51–52; verifier 166→407, seven pre-writing defects caught); ch. 3 4/4 (runs 53–54; verifier 312→502, thirteen caught); ch. 4 4/4 (runs 55–56; verifier 167→356); ch. 5 4/4 (run 57; verifier 265 checks, three caught); ch. 6 3/3 (run 58; verifier 233 checks, eleven caught); ch. 7 3/3 (run 59; verifier 239 checks sections A–T, fifteen caught — 14,878 words / 24 terms / 15 quiz / 44 exercises: 7.1 the fraction-pair construction 5,482 + 7.2 the field laws and the first ring→field promotion 4,332 + 7.3 density and the decimal mirror 5,064); 3 new citation keys (rhind-papyrus-fractions, stevin-1585-thiende, dedekind-1871-korper); e2e-ans-71..73 whitelisted. Chapters 8–10 planned (9 lessons). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
+    "lessonsWritten": 31,
+    "termsAvailableForFlashcards": 248,
+    "notes": "IN PROGRESS — chapters 1–8 COMPLETE (31 lessons), chapter 9 IN PROGRESS 2/3 (run 62, 2026-11-07: 9.1 + 9.2 shipped verify-first with verify-book2-ch09.ts at 218 checks; 9.3 + the unit-9 review at run 63; chapter 10 'The Map of Number Systems' (3 lessons) then ends the book at runs 64–65). Numbers are WORK_INVENTORY.json ground truth."
    }
   ],
   "lessonsWritten": 77,
@@ -429,8 +429,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "61 (2026-11-06)",
-  "summary": "ANS CHAPTER 8 'IRRATIONALS AND THE REAL LINE' COMPLETE 4/4 — 8.3 + 8.4 + the unit-8 completion review; the library 2 books / 19 chapters / 77 lessons / 377,852 words; chapter 9 'Numeration Through History' opens at run 62 (9.1 + 9.2)"
+  "run": "62 (2026-11-07)",
+  "summary": "ANS CHAPTER 9 'NUMERATION THROUGH HISTORY' OPENS 2/3 — 9.1 + 9.2 shipped strictly sequentially (5,311 + 4,919 words, quiz keys 1/2/0/1/1 and 1/3/2/1/1 verified live 5/5); verify-book2-ch09.ts 218 checks ALL GREEN; the library 2 books / 20 chapters / 79 lessons / 388,082 words; run 63 = 9.3 + the unit-9 review (the chapter closes); then ch. 10 (3 lessons, runs 64–65) ends the book"
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -646,5 +646,60 @@
   ],
   "unit8Review": "PASS — exam corners 4/4, ids 77 repo-wide unique, all 12 block types, ch-08 complete + plannedLessons emptied",
   "notes": "the 21:45 fire failure was startup-only (no work lost); the 22:45 fire may fail-to-start while this session works — the cadence self-heals on the next free slot"
+ },
+ "run62Extras": {
+  "run": "62",
+  "date": "2026-11-07",
+  "firedFrom": "job 509354's hourly :45 cadence (fixed wall-clock cron), trace cron-agent-loop-202611070815",
+  "lessons": [
+   {
+    "id": "ans-tallies-groupings-and-additive-systems",
+    "number": "9.1",
+    "words": 5311,
+    "quizKeys": "1/2/0/1/1",
+    "exercises": 14,
+    "terms": 8,
+    "figures": "compression ladder (3,027 strokes → 12 hieroglyphs → 4 digits) + the 23×19=437 doubling engine"
+   },
+   {
+    "id": "ans-place-value-before-its-time-babylon-and-mesoamerica",
+    "number": "9.2",
+    "words": 4919,
+    "quizKeys": "1/3/2/1/1",
+    "exercises": 14,
+    "terms": 8,
+    "figures": "two place ladders (the 18-kink at 360 highlighted) + the YBC 7289 stylized reconstruction"
+   }
+  ],
+  "words": "10,230 this run (5,311 + 4,919); book total 388,082",
+  "verifyChecks": "218 (sections A–N + K/L) — created BEFORE any lesson text, extended with K/L before 9.2",
+  "quizKeys": "9.1: 1/2/0/1/1 · 9.2: 1/3/2/1/1 — both verified live 5/5 at 1280 and true 390",
+  "defectsCaught": {
+   "verifierPhase": 14,
+   "authoringTime": 2,
+   "harnessRepairs": 2,
+   "highlights": [
+    "the doubling-pick filter compared exponents to tick values (rows are picked by the 1-bits of the multiplier)",
+    "the author's hand-typed Roman lengths were wrong across the whole comparison table — 999,999 takes 1,005 M-repeats + CMXCIX; re-scoped to the 3,999 = MMMCMXCIX ceiling",
+    "7,259 = ⟨2,0,59⟩ not ⟨2,5,59⟩ (an internal-gap exhibit, not a near-miss)",
+    "the YBC error SIGN — 1;24,51,10 = 1.41421296… under-estimates √2; error ≈ 5.9934×10⁻⁷, one part in ≈2.36 million",
+    "regular-number counts 34 (base 60) vs 15 (base 10) for n ≤ 100",
+    "10.2.3.12.7 = 1,455,727 days (a hand transposition caught)",
+    "the figure builders omitted the <svg> wrapper — captions rendered but zero SVGs in the DOM (svgCount check caught it)",
+    "the doubling figure sum-line overlap (fixed; audit 0/0)",
+    "e2e-ans-92's prereq regex still carried 9.1's set (1 chip vs 4)",
+    "PRE-EXISTING tsc collision between the two global-scope scripts (verify-book2-ch01.ts ↔ enhance-fm-12-gen.ts) proven on pristine HEAD and fixed with export {} module markers"
+   ]
+  },
+  "citationKeys": [
+   "egyptian-hieroglyphic-numerals",
+   "ishango-bone",
+   "roman-numerals",
+   "babylonian-sexagesimal-numerals",
+   "ybc-7289",
+   "plimpton-322",
+   "maya-numerals-long-count"
+  ],
+  "notes": "OpenStax Contemporary Mathematics §4.2 carried as the unit reference (never reproduced — license forbids ingestion; exposition original). Drive survey rebuilt post-recycle (rebuild_drive_survey.ts, 89 entries). Zero reference downloads this run."
  }
 }

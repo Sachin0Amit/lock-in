@@ -1,3 +1,5 @@
+export {}
+
 /**
  * verify-book2-ch01.ts — pre-writing arithmetic verification for
  * Arithmetic and Number Systems (book #2), chapter 1 "The Natural

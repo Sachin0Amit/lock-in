@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-06 22:38:57 (Asia/Kolkata)",
+  "generated": "2026-11-07 06:52:41 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5448,15 +5448,155 @@
             "slug": "numeration-through-history",
             "title": "Numeration Through History",
             "summary": "Five systems, one winner: tally and grouping, the additive symbols of Egypt and Rome (and why they resist arithmetic), the place-value systems that arrived too early — Babylonian base sixty and the Mayan base twenty with their missing-zero costs — and the Indian decimal revolution that made zero a number and carried the world’s arithmetic.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Tallies, Groupings and Additive Systems",
-              "Place Value Before Its Time: Babylon and Mesoamerica",
               "The Indian Decimal Revolution and Zero"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-tallies-groupings-and-additive-systems",
+                "number": "9.1",
+                "title": "Tallies, Groupings and Additive Systems",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5311,
+                "readMins": 27,
+                "concepts": [
+                  "Tally marks",
+                  "One-to-one principle",
+                  "Five-bar gate",
+                  "Additive system",
+                  "Hieroglyphic numerals",
+                  "Doubling method",
+                  "Subtractive rule",
+                  "Digit sum"
+                ],
+                "objectives": [
+                  "state the one-to-one principle and its bundle-arithmetic repair N = b·⌊N/b⌋ + (N mod b)",
+                  "encode and read numbers in the Egyptian hieroglyphic and Roman additive systems",
+                  "prove that the symbol count of an additive numeral is the digit sum, bounded by 9d",
+                  "run the doubling method for multiplication and prove why the picked rows always sum to the product",
+                  "argue precisely where additive systems fail against positional naming — and where they do not"
+                ],
+                "prerequisites": [
+                  "fm-collecting-and-tallying-data",
+                  "ans-representation-theorem-unique-name",
+                  "ans-converting-between-bases"
+                ],
+                "sources": [
+                  "openstax-contemporary-math",
+                  "egyptian-hieroglyphic-numerals",
+                  "ishango-bone",
+                  "roman-numerals"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "callout": 6,
+                  "heading": 5,
+                  "equation": 1,
+                  "example": 4,
+                  "table": 2,
+                  "derivation": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "insight": 2,
+                  "definition": 1,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-place-value-before-its-time-babylon-and-mesoamerica",
+                "number": "9.2",
+                "title": "Place Value Before Its Time: Babylon and Mesoamerica",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4919,
+                "readMins": 25,
+                "concepts": [
+                  "Sexagesimal",
+                  "Place value",
+                  "Placeholder",
+                  "YBC 7289",
+                  "Plimpton 322",
+                  "Vigesimal",
+                  "Long Count",
+                  "Regular number"
+                ],
+                "objectives": [
+                  "encode and decode numbers in the Babylonian two-wedge base-sixty notation",
+                  "prove that the readings of a zeroless positional string form a geometric family V·60^j, and say exactly what a placeholder does and does not repair",
+                  "explain why sixty was chosen — the regular numbers whose reciprocals terminate — and verify the YBC 7289 diagonal to one part in two million",
+                  "convert between Mayan dot-bar-shell numerals and decimal in both the pure vigesimal and the calendar (Long Count) readings",
+                  "compare the four historical systems against the decimal standard and name precisely what the Indian revolution completed"
+                ],
+                "prerequisites": [
+                  "ans-tallies-groupings-and-additive-systems",
+                  "ans-representation-theorem-unique-name",
+                  "ans-arithmetic-in-other-bases"
+                ],
+                "sources": [
+                  "openstax-contemporary-math",
+                  "babylonian-sexagesimal-numerals",
+                  "ybc-7289",
+                  "plimpton-322",
+                  "maya-numerals-long-count",
+                  "knuth-taocp-v2"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 6,
+                  "callout": 5,
+                  "table": 2,
+                  "derivation": 3,
+                  "example": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 4,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 10230
           },
           {
             "number": 10,
@@ -5497,12 +5637,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 99,
-      "totalLines": 58023,
+      "totalLines": 58019,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 48758,
+        "src/data/library (content model + books)": 48754,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -5710,7 +5850,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-06",
+      "surveyed": "2026-11-07",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -12936,6 +13076,103 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "ecd8ce7603a867ba08b52a1c748fe807c593634c",
+      "short": "ecd8ce7",
+      "date": "2026-11-06 17:14",
+      "message": "ans ch.8 completes 4/4 (run 61, manual catch-up of the failed 21:45 IST fire): 8.3 How Irrationals Behave + 8.4 Completeness: the Line Without Holes + the unit-8 review — verify-first 171→302 checks (sections A–U2) with FIVE pre-writing defects caught: a REAL defect in the shipped 8.1 two-shores callout (U = {r ∈ ℚ : r² > 2} lacked the r > 0 guard — −2 sat in both classes — fixed surgically + pinned by S0 text checks), the 8.1 trichotomy 'r² = 2' duplication, and three of the author's own mistyped squares in 8.4 (14142² = 199,996,164 not 199,981,964; 141421²/141422² corrected; (1.41573)² ≈ 2.0042 not 2.00029 — all U2-regression-guarded) — 8.3: the closure-weaponized translation/scaling theorems, the 8-row behaviour table (six one-way rows proved, two both-ways rows honestly undecided), the both-ways constructions (√2 + (1−√2) = 1, √2·√8 = 4, (√5+√3)(√5−√3) = 2, (1+√2)(1−√2) = −1), the computed rational-moves figure, the conjugate + rationalization identity 1/(a+√b) = (a−√b)/(a²−b) with the a² ≠ b guard, the decimal-name preservation table (4,296 words); 8.4: Dedekind cuts (the Zürich 1858 story), the room-above/room-below derivations with the exact 134/95 seam step, the creation move + what it does not mean, completeness stated and separated from density, the computed four-row tower figure ℕ/ℤ/ℚ/ℝ with amber rings √2/√3/π, the four-repair ledger, nested intervals with the rational-empty intersection, the honest scope callout (no Cauchy/suprema), the 1872 callout (Dedekind Vieweg + Cantor Annalen 5 + Heine Crelle 74 + Méray 1869), the L6 cut-to-equation theorem α² = 2 (5,496 words); 4 new web-checked citation keys; e2e-ans-83/84 whitelisted with viewport switches; per-lesson gates all green twice (lint 0, tsc 0 after 72 BigInt literals converted to constructor style, routes 200 + 404, E2E 34 PASS each at 1280 + true 390 + dark — quiz 5/5 live on keys 1/1/3/0/0 and 2/3/2/1/1, KaTeX 260/244 nodes 0 errors, 0 console errors, SVG overlap audits 0 issues on both figures); unit-8 review PASSED (exam corners 4/4, ids 77 repo-wide unique, all 12 block types, ch-08 complete + plannedLessons emptied); library 2 books / 19 chapters / 77 lessons / 377,852 words / 587 terms / 385 quiz / 936 exercises; next run 62 opens ch. 9 'Numeration Through History' (9.1 + 9.2)",
+      "filesChanged": 14,
+      "insertions": 2438,
+      "deletions": 84,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 65,
+          "del": 21
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 31,
+          "del": 12
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 299,
+          "del": 31
+        },
+        {
+          "path": "scripts/e2e-ans-83.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-83.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-84.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-84.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch08.ts",
+          "add": 509,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 1153,
+          "del": 11
+        }
+      ]
+    },
+    {
+      "sha": "cc139a6db19982ec8bfc410818f7d46c13e9a911",
+      "short": "cc139a6",
+      "date": "2026-11-06 17:14",
+      "message": "memory: run-61 push verified — remote main = ecd8ce7 (ship ecd8ce7, the run-60 pair had already landed); next run 62 = ANS ch.9 'Numeration Through History' OPENS with 9.1 'Tallies, Groupings and Additive Systems' + 9.2 'Place Value Before Its Time: Babylon and Mesoamerica' (v2 two-lesson scope; verify-book2-ch09.ts FIRST); 9.3 + the unit-9 review remain for run 63; ch.10 'The Map of Number Systems' (2 lessons) closes the book",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -12943,26 +13180,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 19,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 77,
-    "wordsAuthored": 377852,
-    "termsDefined": 587,
-    "quizItems": 385,
-    "exerciseQuestions": 936,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 79,
+    "wordsAuthored": 388082,
+    "termsDefined": 603,
+    "quizItems": 395,
+    "exerciseQuestions": 964,
     "blockTotals": {
-      "para": 1060,
-      "callout": 436,
-      "heading": 438,
+      "para": 1089,
+      "callout": 447,
+      "heading": 449,
       "list": 93,
-      "terms": 78,
-      "equation": 114,
-      "figure": 126,
-      "derivation": 161,
-      "table": 98,
-      "example": 326,
-      "quiz": 77,
-      "exercises": 77,
-      "formula": 218,
+      "terms": 80,
+      "equation": 115,
+      "figure": 130,
+      "derivation": 166,
+      "table": 102,
+      "example": 332,
+      "quiz": 79,
+      "exercises": 79,
+      "formula": 226,
       "algorithm": 21
     }
   }

@@ -1459,3 +1459,69 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   standing rule "delete downloaded reference working copies after the
   unit verifies" has nothing pending). Drive survey rebuilt post-recycle:
   89 entries intact.
+
+
+## Citation keys added by ANS chapter 9 opening (run 62)
+
+- `egyptian-hieroglyphic-numerals` — the Egyptian additive numeral system (c. 3000 BCE onward): seven
+  hieroglyph classes for 1, 10, 100, 1,000, 10,000, 100,000 and 1,000,000 (stroke, cattle-hobble/heel
+  bone, coil of rope, lotus flower, pointed finger, tadpole, the god Heh), each repeated per digit in any
+  order. Used for: ANS ch. 9 lesson 9.1 — the additive-system definition's canonical case, the digit-sum
+  symbol-count law, the regrouping-addition exhibit and the compression-ladder figure, web-checked
+  2026-11-07 (run 62) against encyclopaedic and survey accounts. Exposition original.
+
+- `ishango-bone` — the Ishango bone (Royal Belgian Institute of Natural Sciences, Brussels): a ~10 cm
+  baboon fibula with a quartz point, excavated 1950 at Ishango near Lake Edward (DRC) by Jean de
+  Heinzelin, dated to roughly 20,000 years ago (a dating that has shifted with the region's volcanically
+  disturbed carbon record); 168 notches in three columns counted 11,13,17,19 / 3,6,4,8,10,5,5,7 /
+  11,19,21,9 (column sums 60/48/60). Used for: ANS ch. 9 lesson 9.1 — the tally-mind historical callout
+  with HONEST HEDGES (the prime-column and lunar readings are disputed; Rudman's objection that primes
+  were not named until the Greeks is recorded; the artifact certifies notation, not theory), web-checked
+  2026-11-07 (run 62) against the Wikipedia article and the 2025 arXiv re-analysis. Exposition original.
+
+- `roman-numerals` — the Roman numeral system: seven letters I/V/X/L/C/D/M in a five–ten pattern,
+  additive in origin (IIII surviving on clock dials), with the six-pair subtractive rule (IV, IX, XL, XC,
+  CD, CM) as a late local compression; the classical ceiling MMMCMXCIX = 3,999 with M-repetition and the
+  vinculum beyond. Used for: ANS ch. 9 lesson 9.1 — the local-rule-vs-place-value contrast, 1888 =
+  MDCCCLXXXVIII as the longest year numeral (verified by sweep), and the additive-regrouping addition,
+  web-checked 2026-11-07 (run 62). Exposition original.
+
+- `babylonian-sexagesimal-numerals` — the Old Babylonian base-sixty positional system (from c. 2050 BCE,
+  Ur III): two wedge forms (vertical = 1, corner = 10) building digit groups 0–59, places worth 60^k;
+  no zero for most of its history (gaps between groups; a two-slanted-wedge placeholder appears c. 300
+  BCE, internal only, never trailing), so a zeroless string names a whole geometric family of values.
+  Used for: ANS ch. 9 lesson 9.2 — the conversion exhibits, the ambiguity theorem's historical case, and
+  the igi-gub-ba reciprocal-table engine behind base sixty's divisor richness, web-checked 2026-11-07
+  (run 62). Exposition original.
+
+- `ybc-7289` — the Old Babylonian clay tablet YBC 7289 (Yale Babylonian Collection, c. 1800–1600 BCE): a
+  square with both diagonals, side 30, diagonal 42;25,35, and the scale-free diagonal ratio 1;24,51,10 =
+  305,470/216,000 = 1.41421296296… — √2 accurate to about one part in two million (error ≈ 5.9934×10⁻⁷).
+  Used for: ANS ch. 9 lesson 9.2 — the exact-fraction verification 30 × 1;24,51,10 = 42;25,35, the
+  stylized reconstruction figure, and the "position without zero still computed" argument, web-checked
+  2026-11-07 (run 62) against the Yale/encyclopaedic records. Exposition original.
+
+- `plimpton-322` — the Old Babylonian tablet Plimpton 322 (from Larsa, c. 1800 BCE): fifteen rows of
+  short-side/diagonal integer pairs (e.g. 119,120,169) with a broken first column whose heading most
+  plausibly records a "taking-away of 1" from a squared diagonal. Used for: ANS ch. 9 lesson 9.2 — the
+  historical callout with the honest dispute (the scribal-exercise reading per Robson 2001 is the leading
+  account; the 2017 "first trig table" proposal is rejected by most historians of the corpus; the numbers
+  are beyond dispute, the intent is not), web-checked 2026-11-07 (run 62) against the Wikipedia article
+  and the arXiv literature survey. Exposition original.
+
+- `maya-numerals-long-count` — the Mayan vigesimal system (dots = 1, bars = 5, shell glyph = 0; places
+  stacked vertically) and the Long Count calendar ladder kin/uinal/tun/katun/baktun = 1/20/18×20 =
+  360/7,200/144,000 days (the 18-kink making the tun a year-like unit; 13 baktun = 1,872,000 days; the
+  creation base 13.0.0.0.0 placed in August 3114 BCE by the most-cited GMT correlation). Used for: ANS
+  ch. 9 lesson 9.2 — the pure-vs-calendar double readings (⟨8,0,16⟩ = 3,216 vs 2,896; 9.9.16.0.0 =
+  1,366,560 vs 1,518,400), the mod-20/mod-18 inverse algorithm, and the visible-zero-vs-zero-as-number
+  distinction reserved for 9.3, web-checked 2026-11-07 (run 62) against the Wikipedia/web-exhibits
+  accounts. Exposition original.
+
+### Run 62 reference-notes
+- Zero reference files downloaded this run; nothing to delete (the standing rule "delete downloaded
+  reference working copies after the unit verifies" has nothing pending). The Drive survey was rebuilt
+  after a sandbox recycle wiped the gitignored listing (`scripts/rebuild_drive_survey.ts`, 89 entries
+  intact) so `build_work_inventory.ts` could regenerate. All seven keys above are internet-researched
+  (the sanctioned fallback for the early-numeration topic; the Drive is exam-oriented and holds no
+  numeration-history text).

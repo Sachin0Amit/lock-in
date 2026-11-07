@@ -1,3 +1,5 @@
+export {}
+
 /**
  * enhance-fm-12-gen.ts — visual-upgrade run 2 (job 507527): recompute-BEFORE-write
  * for lesson fm-comparing-ordering-numbers (FM 1.2).

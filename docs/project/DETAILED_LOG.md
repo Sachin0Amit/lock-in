@@ -9,6 +9,71 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 62 (2026-11-07, job 509354's hourly :45 fire — the FIRST hourly-cadence run
+under the owner's 2026-11-06 v2 two-lessons-per-run directive)**: **ANS CHAPTER 9 'NUMERATION THROUGH
+HISTORY' OPENED 2/3** — 9.1 'Tallies, Groupings and Additive Systems' (5,311 words) + 9.2 'Place Value
+Before Its Time: Babylon and Mesoamerica' (4,919 words) authored strictly sequentially, each fully gated
+before the next began. verify-first discipline held: `verify-book2-ch09.ts` was created BEFORE any lesson
+text (sections A–N, 189 checks) and extended with K/L before 9.2 (218 checks final), catching **fourteen
+pre-writing defects** — the doubling-pick filter comparing exponents to tick values; the author's own
+hand-typed Roman lengths (the whole 10-row table wrong; 999,999 takes 1,005 M-repeats + CMXCIX; re-scoped
+to the 3,999 = MMMCMXCIX ceiling); 7,259 = ⟨2,0,59⟩ not ⟨2,5,59⟩; a BigInt/number gcd crash; √2's digit
+check at the wrong precision; the isqrt pin expression; **the YBC 7289 error sign** (1;24,51,10 =
+1.41421296… under-estimates √2; error ≈ 5.9934×10⁻⁷ absolute, ≈ 4.237×10⁻⁷ relative — one part in
+≈2.36 million); the unreduced product fraction 30,547/720; the regular-number counts 34 vs 15 (n ≤ 100);
+10.2.3.12.7 = 1,455,727 days (hand transposition); the binary-pick list missing the 32-bit; the
+comparison-table row count. Two authoring-time defects were caught by the browser gates: the figure
+builders omitted the `<svg>` wrapper (captions rendered, zero SVGs in the DOM — the svgCount check caught
+it; fixed with the ch-08 wrapper convention), and the doubling figure's sum line collided with the tick
+note (shortened; audit then 0/0). Two harness repairs: e2e-ans-92.page.js's prereq regex still carried
+9.1's set, and a PRE-EXISTING tsc collision between the repo's only two global-scope scripts
+(verify-book2-ch01.ts ↔ enhance-fm-12-gen.ts) was proven present on pristine HEAD and fixed with
+`export {}` module markers (tsc fully clean repo-wide again).
+
+- **9.1 'Tallies, Groupings and Additive Systems'** (`ans-tallies-groupings-and-additive-systems`,
+  5,311 words, 8 terms, 5 quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 derivations — the additive symbol
+  count = digit sum ≤ 9d with equality at 9…9, and the doubling method's correctness (the pick IS the
+  multiplier's binary expansion, ⌊log₂ m⌋ + 1 rows), 2 illustrations (the 34/87 tally read-back;
+  3,027 in hieroglyphs + the additive reading MDCCCLXXXVIIII = 1,889), 2 figures — the compression
+  ladder (3,027 strokes → 12 hieroglyphs → 4 digits, stylized glyphs) and the 23 × 19 = 437 doubling
+  engine, 2 tables — the seven-class hieroglyph ladder + the eight-row symbol-count comparison
+  (4…3,999: hieroglyphs vs Roman vs decimal), 4 formula cards): the one-to-one principle; the bundle
+  split N = b·⌊N/b⌋ + (N mod b) swept; the Ishango bone with honest hedges (168 notches; columns
+  60/48/60; the prime-column claim 11,13,17,19 disputed — Rudman's objection recorded); recursive
+  grouping = digits-without-position ("the additive system prints every digit in full"); the Egyptian
+  ladder and the formal additive definition with the order-free "Thus," restatement; Roman numerals —
+  the subtractive rule as a LOCAL two-symbol patch, never place value (IV vs VI), clock IIII, 1888 =
+  MDCCCLXXXVIII (13 symbols, the longest year numeral ≤ 2026, verified by sweep), the 3,999 ceiling and
+  the vinculum as inventory growth; symbol-wise addition as carrying (3,579 + 2,894 = 6,473 with three
+  trade-ups; 1,234 + 4,321 = 5,555 carry-free); why multiplication stalls (no product table on
+  unordered strings) and the doubling method (23 × 19 = 437; the L3 exercise 34 × 25 = 850 with six
+  rows); the efficiency verdict (the digit-sum raggedness 999 → 27 vs 1,000 → 1; the smallest ≥-20-symbol
+  number is 299, swept; the inventory argument); FM 10.1 cross-referenced (tally as data tool) — the
+  notation-as-system angle is new here.
+- **9.2 'Place Value Before Its Time: Babylon and Mesoamerica'** (`ans-place-value-before-its-time-
+  babylon-and-mesoamerica`, 4,919 words, 8 terms, 5 quiz keys 1/3/2/1/1, 14 exercises L1–L6, 3
+  derivations — sexagesimal existence/uniqueness by repeated division (chapter 2 + 3 machinery at base
+  sixty), **the ambiguity theorem** (a zeroless two-group string names exactly {V·60^j : j ∈ ℤ}, V =
+  60a + b; any two readings differ by a power of sixty), and the Long Count forward sum + the
+  mod-20/mod-18 inverse, 2 illustrations (0;2,30 = 1/24 as a regular-number division; the YBC 7289
+  diagonal verified exactly — 30 × 1;24,51,10 = 42;25,35 as the single rational 30,547/720), 2 figures —
+  the two place ladders (log-scaled rungs; the 18-kink at 360 highlighted amber) and the stylized YBC
+  square reconstruction, 2 tables — the Babylonian exhibits (25…7,233 with the ⟨1,0,7⟩/⟨2,0,0⟩ gaps) +
+  the five-system comparison (hieroglyphs/Roman/Babylonian/Mayan/decimal × inventory/place value/zero/
+  cost), 4 formula cards): the two-wedge system (25 = 2 corner + 5 vertical; ⟨1,13,46⟩ = 4,426;
+  ⟨1,0,7⟩ = 3,607; ⟨2,0,0⟩ = 7,200 unwritable trailing); the missing zero QUANTIFIED (the «1 20» family
+  {80·60^j}: 1/45, 4/3, 80, 4,800, 288,000; «2 30» → {150·60^j}: 1/24, 5/2, 150, 9,000, 540,000; the
+  c.-300-BCE internal-only placeholder's exact limits); why sixty — 12 divisors, 34 of n ≤ 100 regular
+  (2^a 3^b 5^c) vs 15 in base ten, the igi-gub-ba reciprocal engine; YBC 7289 (√2 to five decimals, one
+  part in ≈2.36 million) and Plimpton 322 with the honest dispute (Robson's scribal-exercise reading
+  leading; the 2017 trig-table claim rejected by most historians); the Maya dot-bar-shell system with a
+  visible zero (⟨8,0,16⟩ = 3,216 pure; ⟨12,3,9,1⟩ = 97,381; the zero-as-number subtlety reserved for
+  9.3); the Long Count's 18-kink (9.9.16.0.0 = 1,366,560 days vs the pure reading 1,518,400 — the
+  151,840 gap decomposed exactly as 9·16,000 + 9·800 + 16·40; 13 baktun = 1,872,000; the GMT correlation
+  hedged; the inverse algorithm recovering 9.9.16.0.0 from 1,366,560 and 10.2.3.12.7 from 1,455,727);
+  the five-system verdict and the 9.3 handoff. OpenStax Contemporary Mathematics §4.2 carried as the
+  unit's reference map — cited, never reproduced (license forbids ingestion; all exposition original).
+
 Maintained through **run 60 (2026-11-06, job 509354's fire — the FIRST run under the owner's 2026-11-06 v2 two-lessons-per-run hourly directive)**: **ANS CHAPTER 8 'IRRATIONALS AND THE REAL LINE' OPENED 2/4** — 8.1 'The Diagonal That Broke the Rationals' (5,393 words) + 8.2 'The Family of Irrationals' (5,073 words) authored strictly sequentially, each fully gated before the next began. verify-first discipline held: `verify-book2-ch08.ts` was created BEFORE any lesson text and grown to **171 checks (sections A–Q)**, catching **ten pre-writing defects** — the BigInt-isqrt Newton seed landing BELOW √n (the +1n corrector then walking ~5×10²⁰ steps; fixed with a power-of-two upper-bound seed), a Sulbasutra excess scale mismatch, **the author's own wrong remembered digits for √7** (memory said 2.645751310573789…; the script and Python's math.isqrt both said 2.645751311064590… — the script wins), truncation-vs-rounding on √5/√10, Set.length vs .size, an invented spiral-winding constant (true: 351.2°), missing floor-noise windows in the product-law verifications, the 8.1 L6-2 descent fraction inverted ((2q−p)² = 2(p−q)² is the identity that follows from p² = 2q², not (p−q)² = 2(2q−p)²), a 2.4494897² digit claim off by one in the 7th place, and the E2E harness's BASE URL silently still pointing at lesson 8.1 (the 0/5 quiz grades were 8.1's quiz graded against 8.2's intended keys — caught by a navigation-verify guard, fixed, both suites then 34/34 PASS). The countability listing was verified bijective to 979 reduced names; the product law was certified at 24-place precision for all m, n ≤ 40 and exactly for √(k²s) = k√s; the k-th root criterion swept k ∈ {2,3,4} against n ≤ 200; the Theodorus spiral's 16 unit legs were edge-checked and its winding computed at 351.2°. Both new lessons' figures passed the overlap audit with 0 issues (8.1's zoom ladder needed two label fixes: window lines moved past the row names, the bottom annotation merged into the top one). Per-lesson gates green twice over (lint 0, tsc 0, routes 200 after the dev-server restart the new chapter required — dynamicParams=false caches static params, E2E 34 PASS at 1280/390/dark per lesson, quiz 5/5 live on keys 8.1: 1/2/0/2/3 and 8.2: 2/0/1/3/1, 16/17 Sol pills, 0 katex-errors, 0 raw $, 0 console errors):
 
 **Run-60 post-ship addendum (duplicate delivery, ~23:21–00:15 +08:00, second session):** job 509354's single fire reached two sessions; the sibling shipped the run above (commit `fa38640`, protocol-pushed), and this second session independently re-verified every gate cold on the identical content — verify 171/0, lint 0, tsc 0, routes 200/404, live E2E (quiz 5/5 on both key sets, Sol pills 16/17, KaTeX 316/367 with 0 errors, 0 raw $, 0 console errors), SVG audits 0/0/0/0, screenshot pixel checks — ALL GREEN, no lesson content changed. One real harness defect was found in the committed scripts and fixed: `e2e-ans-81.sh`/`e2e-ans-82.sh` never called `agent-browser set viewport`, so their "MOBILE 390" pass had been evaluating at 1280px; the viewport switches (1280 900 / 390 844 / back) were added and the suites re-run ALL GREEN at the true 390px. Two operational notes were recorded in WORKLOG for future runs: background processes are reaped between commands in this sandbox generation (bundle server + checks into single invocations), and a SIGKILL'd dev server can leave a corrupted Turbopack cache that reports a FALSE parse error on valid source (wipe `.next` and restart before trusting it).
