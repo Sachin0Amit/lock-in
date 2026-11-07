@@ -10,7 +10,8 @@ shelf top-to-bottom, since its first book is already in progress).
 
 ## Mathematics (27 books)
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
-2. Arithmetic and Number Systems ← **PROMOTED (run 48, 2026-11-05): research phase complete (reference survey + syllabus audit + 10-chapter/34-lesson plan); status 'planned'; authoring from ch. 1 at run 49**
+2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
+3. Elementary Algebra ← **NEXT (research phase pending — the queue moves here at run 66 per the one-book-at-a-time rule; survey the Drive + internet for its references before any chapter is authored)**
 3. Elementary Algebra
 4. Advanced Algebra
 5. Geometry

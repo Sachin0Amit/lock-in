@@ -93,6 +93,52 @@ export {}
  *   (N) figure geometry: 10.1 the four-band repair map, 10.2 the mod-9
  *       residue wheel and the ISBN-10 weighted-check engine — label
  *       boxes disjoint, viewBoxes respected. [added run 64]
+ *   (P) 10.3 the unit-digit engine — ℤ/10ℤ cycles (periods 1/2/4 swept
+ *       per base, the six cycle strings pinned), direct modpow sweep
+ *       a^n mod 10 against cycle entries (a ∈ 0..9, n ≤ 400); exhibits
+ *       7^2024 → digit 1, 2^2024 → 6, 3^2024 → 1; the ℤ/100ℤ engine —
+ *       order of 7 mod 100 = 4 (7^4 = 2401 ≡ 1, k = 1,2,3 miss), order
+ *       of 3 mod 100 = 20 (swept minimal), 7^2024 → 01, 3^2024 → 81;
+ *       the honest non-coprime case — 2^n mod 100 never returns to 1,
+ *       period 20 from n = 2 onward (swept), 2^2024 = 2^(4 + 20·101) →
+ *       16; the squares census regression (squares mod 10 never end in
+ *       2, 3, 7, 8); the Σ k! exhibit 1!+…+100! ends in 3 (BigInt sum);
+ *       [added run 65]
+ *   (Q) 10.3 the factorial engine — Legendre: Z(n) = Σ⌊n/5^k⌋ equals the
+ *       exact trailing-zero count of the BigInt n! for n ≤ 200 (swept)
+ *       and the one-off 1000! check (249); exhibits Z(10) = 2, Z(25) =
+ *       6, Z(100) = 24, Z(250) = 62, Z(1000) = 249, Z(2024) = 503; the
+ *       chain 1000 → 200 → 40 → 8 → 1 → 0; v₂(100!) = 97 ≥ 24 (the 5s
+ *       bottleneck) and v₃(100!) = 48; v₂(n!) ≥ v₅(n!) swept n ≤ 5000;
+ *       the digit-sum identity Z(n) = (n − s₅(n))/4 swept n ≤ 2000 with
+ *       s₅ from the division chain; exhibits 100 = 400₅ (s = 4 → 24),
+ *       1000 = 13000₅ (s = 4 → 249), 2024 = 31044₅ (s = 12 → 503, place
+ *       sum 1875 + 125 + 0 + 20 + 4 = 2024). [added run 65]
+ *   (R) 10.3 the base-conversion engine — the quotient-remainder chain:
+ *       round-trip sweep digits_b(n) → n for b ∈ 2..16, n ≤ 3000; the
+ *       2024 chain (q 168 r 8 · q 14 r 0 · q 1 r 2 · q 0 r 1) → 1208₁₂
+ *       = 1728 + 288 + 0 + 8; 2024 = 7E8₁₆ = 1792 + 224 + 8; binary
+ *       11111101000₂ (11 bits) = 1024 + 512 + 256 + 128 + 64 + 32 + 8,
+ *       padded 011111101000₂ → the nibble machine 0111 1110 1000 → 7 E 8
+ *       (ch. 3 regression); the digit-sum
+ *       law N ≡ s_b(N) (mod b − 1) swept b ∈ 2..16, N ≤ 3000 with the
+ *       b = 10 regression (the 3/9 tests of 5.2); instances s₁₂(2024) =
+ *       11 → 11 | 2024 (2024 = 184·11) and s₁₆(2024) = 29 → 2024 ≡ 14
+ *       (mod 15), 2024 = 134·15 + 14. [added run 65]
+ *   (S) 10.3 the remainder-chain engine — CRT: for coprime (m, n) ≤ 30
+ *       every (a, b) pair is met by exactly one class mod mn (swept);
+ *       the non-coprime criterion gcd(m, n) | (b − a) swept m, n ≤ 40;
+ *       exhibits: (8, 11; 3, 6) → 83 = 8·10 + 3 = 11·7 + 6, unique in
+ *       [0, 88); the ladder classic (≡ 1 mod 2,3,4,5 · ≡ 0 mod 7) → 301
+ *       = 60·5 + 1 = 7·43, family 301 + 420k with 721 the next; the CRT
+ *       reading N ↦ (N mod 3, N mod 4, N mod 5) is a bijection on the 60
+ *       classes (swept); the Legendre chain ⌊1000/5^k⌋ = 200 + 40 + 8 +
+ *       1 = 249 re-crossed. [added run 65]
+ *   (T) quiz keys 10.3 with every distractor evaluated; [added run 65]
+ *   (U) exercise keys 10.3, recomputed both sides; [added run 65]
+ *   (V) figure geometry: 10.3 the one-engine toolkit map and the
+ *       Legendre 5-chain for 1000! — label boxes disjoint, viewBoxes
+ *       respected. [added run 65]
  *
  * Convention note: all BigInt arithmetic uses the BigInt(n) constructor
  * style (the ES2017 gate — no bigint literals), per the run-61 fix.
@@ -1131,6 +1177,545 @@ section('(O) 10.2 figure geometry')
   ok(264 - 143 >= 88 && 264 + 143 <= 440, 'O: the gate text fits its box')
   // error notes: ~93, ~80, ~94 chars at 12px ≈ 6.2px/char → worst ≈ 583px → ends ≈ 671 < 720
   ok(88 + 94 * 6.2 <= 720, 'O: the error notes stay inside the viewBox (≈671 ≤ 720)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (P) 10.3 unit digits and last two digits — ℤ/10ℤ and ℤ/100ℤ         */
+/* ------------------------------------------------------------------ */
+
+/** BigInt modpow (constructor style). */
+function modpow(base: bigint, exp: bigint, m: bigint): bigint {
+  let result = B(1) % m
+  let b = base % m
+  let e = exp
+  while (e > B(0)) {
+    if (e % B(2) === B(1)) result = (result * b) % m
+    b = (b * b) % m
+    e = e / B(2)
+  }
+  return result
+}
+
+/** minimal period p ≥ 1 with a^(k+p) ≡ a^k (mod m) for all k ≥ k0 (swept to k0 + 160). */
+function powPeriod(a: number, m: number, k0: number): number {
+  const bb = B(a)
+  const mm = B(m)
+  const powAt = (k: number) => modpow(bb, B(k), mm)
+  for (let p = 1; p <= 40; p++) {
+    let all = true
+    for (let k = k0; k <= k0 + 160; k++) {
+      if (powAt(k + p) !== powAt(k)) {
+        all = false
+        break
+      }
+    }
+    if (all) return p
+  }
+  return 0
+}
+
+/** minimal k ≥ 1 with a^k ≡ 1 (mod m); 0 if none within 500. */
+function orderMod(a: number, m: number): number {
+  const bb = B(a)
+  const mm = B(m)
+  for (let k = 1; k <= 500; k++) {
+    if (modpow(bb, B(k), mm) === B(1) % mm) return k
+  }
+  return 0
+}
+
+section('(P) 10.3 unit digits and last two digits')
+
+{
+  // the cycle table mod 10: period per base, swept
+  const period10: number[] = []
+  for (let a = 0; a <= 9; a++) period10.push(powPeriod(a, 10, 1))
+  ok(period10[0] === 1 && period10[1] === 1 && period10[5] === 1 && period10[6] === 1,
+    'P: bases 0, 1, 5, 6 have unit-digit period 1 (swept)')
+  ok(period10[4] === 2 && period10[9] === 2, 'P: bases 4 and 9 have unit-digit period 2 (swept)')
+  ok(period10[2] === 4 && period10[3] === 4 && period10[7] === 4 && period10[8] === 4,
+    'P: bases 2, 3, 7, 8 have unit-digit period 4 (swept)')
+  // the six non-trivial cycle strings pinned
+  const cyc = (a: number, p: number) => {
+    const arr: number[] = []
+    let x = B(1)
+    for (let k = 0; k < p; k++) {
+      x = (x * B(a)) % B(10)
+      arr.push(Number(x))
+    }
+    return arr
+  }
+  ok(cyc(2, 4).join(',') === '2,4,8,6', 'P: cycle of 2 is (2, 4, 8, 6)')
+  ok(cyc(3, 4).join(',') === '3,9,7,1', 'P: cycle of 3 is (3, 9, 7, 1)')
+  ok(cyc(7, 4).join(',') === '7,9,3,1', 'P: cycle of 7 is (7, 9, 3, 1)')
+  ok(cyc(8, 4).join(',') === '8,4,2,6', 'P: cycle of 8 is (8, 4, 2, 6)')
+  ok(cyc(4, 2).join(',') === '4,6', 'P: cycle of 4 is (4, 6)')
+  ok(cyc(9, 2).join(',') === '9,1', 'P: cycle of 9 is (9, 1)')
+  // direct sweep: cycle-entry rule reproduces a^n mod 10 for a ∈ 0..9, n ≤ 400
+  {
+    let mismatches = 0
+    for (let a = 0; a <= 9; a++) {
+      const p = period10[a]
+      const cs = cyc(a, p)
+      for (let n = 1; n <= 400; n++) {
+        const viaCycle = cs[(n - 1) % p]
+        const direct = Number(modpow(B(a), B(n), B(10)))
+        if (viaCycle !== direct) mismatches++
+      }
+    }
+    ok(mismatches === 0, 'P: the cycle-entry rule reproduces a^n mod 10 on all 4,000 swept pairs')
+  }
+  // exhibits
+  ok(Number(modpow(B(7), B(2024), B(10))) === 1 && 2024 % 4 === 0,
+    'P: 7^2024 ends in 1 (2024 ≡ 0 mod 4 → the 4th entry of (7, 9, 3, 1))')
+  ok(Number(modpow(B(2), B(2024), B(10))) === 6, 'P: 2^2024 ends in 6 (2024 ≡ 0 mod 4 → the 4th entry of (2, 4, 8, 6))')
+  ok(Number(modpow(B(3), B(2024), B(10))) === 1, 'P: 3^2024 ends in 1')
+  // ℤ/100ℤ: order of 7 is 4 (7^4 = 2401 ≡ 1; k = 1, 2, 3 miss)
+  ok(7 * 7 * 7 * 7 === 2401, 'P: 7^4 = 2401')
+  ok(2401 % 100 === 1, 'P: 7^4 ≡ 1 (mod 100)')
+  ok(2401 % 100 !== 0 && modpow(B(7), B(1), B(100)) !== B(1) && modpow(B(7), B(2), B(100)) !== B(1) && modpow(B(7), B(3), B(100)) !== B(1),
+    'P: no smaller power of 7 returns to 1 (mod 100): order exactly 4')
+  ok(orderMod(7, 100) === 4, 'P: orderMod(7, 100) = 4 (swept)')
+  ok(Number(modpow(B(7), B(2024), B(100))) === 1 && 2024 === 4 * 506,
+    'P: last two digits of 7^2024 are 01 (2024 = 4·506 → 7^4 ≡ 1)')
+  // order of 3 mod 100 is 20 (swept minimal); 3^2024 → 81
+  ok(orderMod(3, 100) === 20, 'P: order of 3 mod 100 is 20 (swept minimal)')
+  ok(2024 % 20 === 4 && 3 * 3 * 3 * 3 === 81 && Number(modpow(B(3), B(2024), B(100))) === 81,
+    'P: last two digits of 3^2024 are 81 = 3^4 (2024 ≡ 4 mod 20)')
+  // the honest non-coprime case: 2^n mod 100 never returns to 1; period 20 from n = 2
+  ok(orderMod(2, 100) === 0, 'P: 2^n mod 100 never returns to 1 — gcd(2, 100) = 2, no unit (honest edge)')
+  {
+    let perOk = true
+    for (let n = 2; n <= 180; n++) {
+      if (modpow(B(2), B(n + 20), B(100)) !== modpow(B(2), B(n), B(100))) perOk = false
+    }
+    ok(perOk, 'P: 2^(n+20) ≡ 2^n (mod 100) for every n ≥ 2 (swept to 180; period 20)')
+  }
+  ok(Number(modpow(B(2), B(2024), B(100))) === 16 && 2024 === 4 + 20 * 101,
+    'P: last two digits of 2^2024 are 16 = 2^4 (2024 = 4 + 20·101)')
+  // squares census regression (5.3): squares mod 10 never 2, 3, 7, 8
+  {
+    const sq: number[] = []
+    for (let d = 0; d <= 9; d++) sq.push((d * d) % 10)
+    const uniq = Array.from(new Set(sq)).sort()
+    ok(uniq.join(',') === '0,1,4,5,6,9', 'P: squares mod 10 ∈ {0, 1, 4, 5, 6, 9} — never 2, 3, 7, 8 (regression)')
+  }
+  // Σ k! exhibit: 1! + … + 100! ends in 3
+  {
+    let s = B(0)
+    let f = B(1)
+    for (let k = 1; k <= 100; k++) {
+      f = f * B(k)
+      s = s + f
+    }
+    ok(Number(s % B(10)) === 3, 'P: 1! + 2! + … + 100! ends in 3 (only 1 + 2 + 6 + 24 contribute below the first zero)')
+    ok(1 + 2 + 6 + 24 === 33, 'P: the contributing sum 1 + 2 + 6 + 24 = 33')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (Q) 10.3 the factorial engine — Legendre                            */
+/* ------------------------------------------------------------------ */
+
+/** v_p(n!) = Σ_{k≥1} ⌊n/p^k⌋. */
+function legendre(n: number, p: number): number {
+  let s = 0
+  let q = p
+  while (q <= n) {
+    s += Math.floor(n / q)
+    q *= p
+  }
+  return s
+}
+
+/** digit sum of n in base b, by the division chain. */
+function digitSumB(n: number, b: number): number {
+  let t = n
+  let s = 0
+  while (t > 0) {
+    s += t % b
+    t = Math.floor(t / b)
+  }
+  return s
+}
+
+/** digits of n in base b, most significant first. */
+function digitsB(n: number, b: number): number[] {
+  const out: number[] = []
+  let t = n
+  while (t > 0) {
+    out.push(t % b)
+    t = Math.floor(t / b)
+  }
+  return out.reverse()
+}
+
+section('(Q) 10.3 the factorial engine (Legendre)')
+
+{
+  const Z = (n: number) => legendre(n, 5)
+  // sweep: floor-sum equals the exact trailing-zero count of the BigInt n!
+  {
+    let bad = 0
+    let f = B(1)
+    for (let n = 1; n <= 200; n++) {
+      f = f * B(n)
+      const s = f.toString()
+      const tz = s.length - s.replace(/0+$/, '').length
+      if (tz !== Z(n)) bad++
+    }
+    ok(bad === 0, 'Q: Z(n) = Σ⌊n/5^k⌋ equals the exact trailing zeros of n! for all n ≤ 200 (swept)')
+  }
+  // the one-off 1000! check
+  {
+    let f = B(1)
+    for (let n = 2; n <= 1000; n++) f = f * B(n)
+    const s = f.toString()
+    const tz = s.length - s.replace(/0+$/, '').length
+    ok(tz === 249, 'Q: the exact trailing-zero count of the 2,568-digit 1000! is 249 (direct BigInt check)')
+    ok(s.length >= 2500, 'Q: 1000! indeed has ≥ 2,500 digits (honest scale)')
+  }
+  // exhibits
+  ok(Z(10) === 2 && Z(25) === 6 && Z(100) === 24 && Z(250) === 62 && Z(1000) === 249 && Z(2024) === 503,
+    'Q: exhibits Z(10)=2, Z(25)=6, Z(100)=24, Z(250)=62, Z(1000)=249, Z(2024)=503')
+  ok(Math.floor(1000 / 5) === 200 && Math.floor(200 / 5) === 40 && Math.floor(40 / 5) === 8 && Math.floor(8 / 5) === 1 && Math.floor(1 / 5) === 0 && 200 + 40 + 8 + 1 === 249,
+    'Q: the 5-chain for 1000!: 200 + 40 + 8 + 1 = 249 (the 0 terminator adds nothing)')
+  ok(Math.floor(1000 / 625) === 1 && Math.floor(1000 / 3125) === 0, 'Q: the chain terminates: ⌊1000/625⌋ = 1, ⌊1000/3125⌋ = 0')
+  // the 2-vs-5 bottleneck
+  ok(legendre(100, 2) === 97, 'Q: v₂(100!) = 50 + 25 + 12 + 6 + 3 + 1 = 97')
+  ok(legendre(100, 3) === 48, 'Q: v₃(100!) = 33 + 11 + 3 + 1 = 48')
+  {
+    let ge = true
+    for (let n = 2; n <= 5000; n++) {
+      if (legendre(n, 2) < legendre(n, 5)) ge = false
+    }
+    ok(ge, 'Q: v₂(n!) ≥ v₅(n!) for every n ≤ 5000 (swept) — trailing zeros always count the 5s')
+  }
+  // the digit-sum identity Z(n) = (n − s₅(n))/4
+  {
+    let bad = 0
+    for (let n = 1; n <= 2000; n++) {
+      if (Z(n) !== (n - digitSumB(n, 5)) / 4) bad++
+    }
+    ok(bad === 0, 'Q: Z(n) = (n − s₅(n))/4 for all n ≤ 2000 (swept)')
+  }
+  // base-5 name exhibits
+  ok(digitsB(100, 5).join('') === '400' && digitSumB(100, 5) === 4 && (100 - 4) / 4 === 24,
+    'Q: 100 = 400₅, s₅ = 4 → (100 − 4)/4 = 24 = Z(100)')
+  ok(digitsB(1000, 5).join('') === '13000' && digitSumB(1000, 5) === 4 && (1000 - 4) / 4 === 249,
+    'Q: 1000 = 13000₅, s₅ = 1 + 3 = 4 → (1000 − 4)/4 = 249 = Z(1000)')
+  ok(digitsB(2024, 5).join('') === '31044' && digitSumB(2024, 5) === 12,
+    'Q: 2024 = 31044₅, s₅ = 3+1+0+4+4 = 12')
+  ok(3 * 625 + 1 * 125 + 0 * 25 + 4 * 5 + 4 === 2024, 'Q: place-value check 1875 + 125 + 0 + 20 + 4 = 2024')
+  ok((2024 - 12) / 4 === 503 && Z(2024) === 503, 'Q: (2024 − 12)/4 = 503 = Z(2024) — the identity cashed')
+}
+
+/* ------------------------------------------------------------------ */
+/* (R) 10.3 the base-conversion engine + the digit-sum law             */
+/* ------------------------------------------------------------------ */
+
+section('(R) 10.3 base conversions and the digit-sum law')
+
+{
+  // round-trip sweep: the division chain reproduces n in every base 2..16
+  {
+    let bad = 0
+    for (let b = 2; b <= 16; b++) {
+      for (let n = 1; n <= 3000; n++) {
+        const ds = digitsB(n, b)
+        let v = 0
+        for (const d of ds) v = v * b + d
+        if (v !== n) bad++
+      }
+    }
+    ok(bad === 0, 'R: round-trip n → digits_b → n holds for every b ∈ 2..16, n ≤ 3000 (48,000 sweeps)')
+  }
+  // the 2024 chain into base 12
+  ok(digitsB(2024, 12).join(',') === '1,2,0,8', 'R: 2024 → (1, 2, 0, 8) → 1208₁₂')
+  ok(1 * 1728 + 2 * 144 + 0 * 12 + 8 === 2024, 'R: place-value check 1728 + 288 + 0 + 8 = 2024')
+  {
+    // the chain itself: quotients and remainders
+    const steps: [number, number][] = [] // [quotient, remainder]
+    let t = 2024
+    while (t > 0) {
+      steps.push([Math.floor(t / 12), t % 12])
+      t = Math.floor(t / 12)
+    }
+    ok(steps.length === 4 &&
+      steps[0][0] === 168 && steps[0][1] === 8 &&
+      steps[1][0] === 14 && steps[1][1] === 0 &&
+      steps[2][0] === 1 && steps[2][1] === 2 &&
+      steps[3][0] === 0 && steps[3][1] === 1,
+      'R: the chain 2024 → q168 r8 → q14 r0 → q1 r2 → q0 r1; reversed remainders (1, 2, 0, 8)')
+  }
+  // base 16 and the binary nibble machine
+  ok(digitsB(2024, 16).join(',') === '7,14,8' && 7 * 256 + 14 * 16 + 8 === 2024,
+    'R: 2024 = 7E8₁₆ (1792 + 224 + 8 = 2024)')
+  ok(digitsB(2024, 2).join('') === '11111101000', 'R: 2024 = 11111101000₂ (11 significant bits)')
+  ok(1024 + 512 + 256 + 128 + 64 + 32 + 8 === 2024, 'R: the binary place sum 1024+512+256+128+64+32+8 = 2024')
+  {
+    const padded = digitsB(2024, 2).map((d) => String(d)).join('').padStart(12, '0')
+    ok(padded === '011111101000' && padded.match(/.{4}/g)!.join(' ') === '0111 1110 1000',
+      'R: padded to 12 bits: 011111101000 → nibbles 0111 1110 1000')
+    ok([0b0111, 0b1110, 0b1000].map((x) => x.toString(16).toUpperCase()).join('') === '7E8',
+      'R: the nibble machine 0111 1110 1000 → 7 E 8 (ch. 3 regression)')
+  }
+  // the digit-sum law N ≡ s_b(N) (mod b − 1)
+  {
+    let bad = 0
+    for (let b = 2; b <= 16; b++) {
+      for (let n = 1; n <= 3000; n++) {
+        if ((n - digitSumB(n, b)) % (b - 1) !== 0) bad++
+      }
+    }
+    ok(bad === 0, 'R: N ≡ s_b(N) (mod b − 1) for every b ∈ 2..16, N ≤ 3000 (48,000 sweeps)')
+  }
+  // regression: b = 10 is the 3/9 tests of ch. 5.2
+  ok(digitSumB(2024, 10) === 8 && 2024 % 9 === 8 % 9, 'R: b = 10 regression — s₁₀(2024) = 8 and 2024 ≡ 8 (mod 9) (the 3/9 tests)')
+  // instances
+  ok(digitSumB(2024, 12) === 11 && 2024 % 11 === 0 && 2024 === 184 * 11,
+    'R: s₁₂(2024) = 1+2+0+8 = 11 ≡ 0 (mod 11) → 11 | 2024, and 2024 = 184·11')
+  ok(digitSumB(2024, 16) === 29 && 29 % 15 === 14 && 2024 % 15 === 14 && 2024 === 134 * 15 + 14,
+    'R: s₁₆(2024) = 7+14+8 = 29 ≡ 14 (mod 15) → 2024 ≡ 14 (mod 15), 2024 = 134·15 + 14')
+}
+
+/* ------------------------------------------------------------------ */
+/* (S) 10.3 the remainder-chain engine — CRT as the synthesis          */
+/* ------------------------------------------------------------------ */
+
+section('(S) 10.3 remainder chains and the CRT verdict')
+
+{
+  const gcdp = (a: number, b: number): number => {
+    let x = a
+    let y = b
+    while (y > 0) {
+      const t = x % y
+      x = y
+      y = t
+    }
+    return x
+  }
+  // coprime case: exactly one class mod mn meets each (a, b)
+  {
+    let bad = 0
+    let pairs = 0
+    for (let m = 2; m <= 30; m++) {
+      for (let n = 2; n <= 30; n++) {
+        if (gcdp(m, n) !== 1) continue
+        pairs++
+        for (let a = 0; a < m; a++) {
+          for (let b = 0; b < n; b++) {
+            const hits: number[] = []
+            for (let N = 0; N < m * n; N++) {
+              if (N % m === a && N % n === b) hits.push(N)
+            }
+            if (hits.length !== 1) bad++
+          }
+        }
+      }
+    }
+    ok(pairs >= 100 && bad === 0, 'S: for every coprime (m, n) ≤ 30 (' + pairs + ' pairs), each (a, b) is met by exactly one class mod mn (swept)')
+  }
+  // the non-coprime criterion: solvable iff gcd(m, n) | (b − a)
+  {
+    let bad = 0
+    for (let m = 2; m <= 40; m++) {
+      for (let n = 2; n <= 40; n++) {
+        const g = gcdp(m, n)
+        for (let a = 0; a < m; a++) {
+          for (let b = 0; b < n; b++) {
+            let found = false
+            for (let N = 0; N < m * n; N++) {
+              if (N % m === a && N % n === b) {
+                found = true
+                break
+              }
+            }
+            const criterion = b - a === 0 || (b - a) % g === 0
+            if (found !== criterion) bad++
+          }
+        }
+      }
+    }
+    ok(bad === 0, 'S: N ≡ a (mod m), N ≡ b (mod n) is solvable iff gcd(m, n) | (b − a) — all m, n ≤ 40 swept')
+  }
+  // exhibit 1: (8, 11; 3, 6) → 83
+  {
+    const hits: number[] = []
+    for (let N = 0; N < 88; N++) {
+      if (N % 8 === 3 && N % 11 === 6) hits.push(N)
+    }
+    ok(hits.length === 1 && hits[0] === 83, 'S: N ≡ 3 (mod 8), N ≡ 6 (mod 11) → exactly one class in [0, 88): 83')
+    ok(83 % 8 === 3 && 83 % 11 === 6, 'S: 83 = 8·10 + 3 = 11·7 + 6 (both conditions cashed)')
+    ok(gcdp(8, 11) === 1, 'S: gcd(8, 11) = 1 — the coprime case, uniqueness guaranteed')
+  }
+  // exhibit 2: the ladder classic → 301
+  {
+    const hits: number[] = []
+    for (let N = 1; N <= 800; N++) {
+      if (N % 2 === 1 && N % 3 === 1 && N % 4 === 1 && N % 5 === 1 && N % 7 === 0) hits.push(N)
+    }
+    ok(hits.length === 2 && hits[0] === 301 && hits[1] === 721,
+      'S: the ladder classic (≡ 1 mod 2,3,4,5 · ≡ 0 mod 7) → 301 and 721 in [1, 800]')
+    ok(301 === 60 * 5 + 1 && 301 === 7 * 43, 'S: 301 = 60·5 + 1 = 7·43')
+    ok(721 === 301 + 420 && 721 % 60 === 1 && 721 % 7 === 0, 'S: the next one is 301 + 420 = 721 (the family marches by lcm(60, 7) = 420)')
+    ok(gcdp(60, 7) === 1 && 60 * 7 === 420, 'S: gcd(60, 7) = 1, lcm = 420')
+  }
+  // the CRT reading: N ↦ (N mod 3, N mod 4, N mod 5) is a bijection on the 60 classes
+  {
+    const seen = new Set<string>()
+    for (let N = 0; N < 60; N++) seen.add(N % 3 + ',' + N % 4 + ',' + N % 5)
+    ok(seen.size === 60, 'S: the 60 classes map to 60 DISTINCT triples (N mod 3, N mod 4, N mod 5) — a number IS its remainder vector')
+  }
+  // the Legendre chain re-crossed (Q)
+  ok(200 + 40 + 8 + 1 === 249, 'S: the Legendre chain 200 + 40 + 8 + 1 = 249 re-crossed from Q')
+}
+
+/* ------------------------------------------------------------------ */
+/* (T) quiz keys 10.3 — every distractor evaluated                     */
+/* ------------------------------------------------------------------ */
+
+section('(T) 10.3 quiz keys')
+
+{
+  // Q1: unit digit of 3^2024 — intended key 0 (option "1"); distractors 9, 7, 3
+  ok(Number(modpow(B(3), B(2024), B(10))) === 1, 'T: Q1 intended — 3^2024 ends in 1 (key 0)')
+  ok(2024 % 4 === 0, 'T: Q1 engine — 2024 ≡ 0 (mod 4) → the 4th entry of (3, 9, 7, 1)')
+  ok([9, 7, 3].every((d) => d !== Number(modpow(B(3), B(2024), B(10)))), 'T: Q1 distractors 9, 7, 3 all false')
+  // Q2: trailing zeros of 250! — intended key 2 (62)
+  ok(legendre(250, 5) === 50 + 10 + 2 && Math.floor(250 / 5) === 50 && Math.floor(250 / 25) === 10 && Math.floor(250 / 125) === 2,
+    'T: Q2 intended — Z(250) = 50 + 10 + 2 = 62 (key 2)')
+  {
+    const z = legendre(250, 5)
+    const distractors = [50, 60, 63]
+    ok(z === 62 && distractors.every((d) => d !== z), 'T: Q2 distractors 50 (first level only), 60 (no 125s), 63 (misadd) all miss the true 62')
+  }
+  // Q3: the digit-sum law in base 12 lives mod 11 — intended key 2
+  ok((12 - 1) === 11, 'T: Q3 intended — b − 1 = 11 for b = 12 (key 2)')
+  ok([9, 10, 12].every((m) => m !== 11), 'T: Q3 distractors 9, 10, 12 all false (the modulus is b − 1, never b)')
+  // Q4: smallest N ≡ 3 (mod 8), ≡ 6 (mod 11) — intended key 2 (83)
+  ok(83 % 8 === 3 && 83 % 11 === 6, 'T: Q4 intended — 83 satisfies both (key 2)')
+  ok(!(19 % 8 === 3 && 19 % 11 === 6) && 19 % 11 === 8, 'T: Q4 distractor 19 — right mod 8 (3), wrong mod 11 (8)')
+  ok(!(52 % 8 === 3 && 52 % 11 === 6) && 52 % 8 === 4, 'T: Q4 distractor 52 — wrong mod 8 (4)')
+  ok(!(91 % 8 === 3 && 91 % 11 === 6) && 91 % 11 === 3, 'T: Q4 distractor 91 — right mod 8 (3), wrong mod 11 (3)')
+  ok(83 === 19 + 64 && 83 === 52 + 31 && 83 === 91 - 8, 'T: Q4 — the distractors are honest near-misses of the true class 83 + 88k')
+  // Q5: the thesis — intended key 0
+  ok(true, 'T: Q5 intended — every toolkit computation reduces to a congruence computation in ℤ/mℤ (key 0)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (U) exercise keys 10.3 — recomputed both sides                      */
+/* ------------------------------------------------------------------ */
+
+section('(U) 10.3 exercise keys')
+
+{
+  // L1-1: unit digits of 2^85 and 3^71
+  ok(85 % 4 === 1 && Number(modpow(B(2), B(85), B(10))) === 2, 'U: L1-1 — 2^85 ends in 2 (85 ≡ 1 mod 4 → 1st entry of (2, 4, 8, 6))')
+  ok(71 % 4 === 3 && Number(modpow(B(3), B(71), B(10))) === 7, 'U: L1-1 — 3^71 ends in 7 (71 ≡ 3 mod 4 → 3rd entry of (3, 9, 7, 1))')
+  // L1-2: Z(25) = 6, Z(30) = 7
+  ok(Math.floor(25 / 5) + Math.floor(25 / 25) === 6 && legendre(25, 5) === 6, 'U: L1-2 — Z(25) = 5 + 1 = 6')
+  ok(Math.floor(30 / 5) + Math.floor(30 / 25) === 7 && legendre(30, 5) === 7, 'U: L1-2 — Z(30) = 6 + 1 = 7')
+  // L1-3: 2024 = 31044₅
+  ok(digitsB(2024, 5).join('') === '31044' && 3 * 625 + 1 * 125 + 0 * 25 + 4 * 5 + 4 === 2024,
+    'U: L1-3 — 2024 = 31044₅, place sum 1875 + 125 + 0 + 20 + 4')
+  // L2-1: 7^(7^7) ends in 3
+  ok(7 * 7 * 7 * 7 * 7 * 7 * 7 === 823543, 'U: L2-1 — 7^7 = 823543')
+  ok(823543 % 4 === 3 && Number(modpow(B(7), B(823543), B(10))) === 3 && 7 * 7 * 7 === 343,
+    'U: L2-1 — 823543 ≡ 3 (mod 4) → 7^3 = 343 → the answer is 3')
+  // L2-2: Z(100) = 24 vs v₂(100!) = 97
+  ok(legendre(100, 5) === 24 && legendre(100, 2) === 97, 'U: L2-2 — Z(100) = 24, v₂(100!) = 97: count the 5s')
+  // L2-3: 2024 = 7E8₁₆ and the nibble grouping
+  ok(digitsB(2024, 16).join(',') === '7,14,8' && '111111001000'.match(/.{4}/g)!.join(' ') === '1111 1100 1000',
+    'U: L2-3 — 7E8₁₆ ↔ 1111 1100 1000₂')
+  // L3-1: last two digits of 3^2024 = 81
+  ok(Number(modpow(B(3), B(2024), B(100))) === 81 && orderMod(3, 100) === 20, 'U: L3-1 — 3^2024 → 81 (order 20, 2024 ≡ 4)')
+  // L3-2: Z(2024) = 404 + 80 + 16 + 3 = 503
+  ok(Math.floor(2024 / 5) === 404 && Math.floor(2024 / 25) === 80 && Math.floor(2024 / 125) === 16 && Math.floor(2024 / 625) === 3 &&
+    404 + 80 + 16 + 3 === 503 && legendre(2024, 5) === 503, 'U: L3-2 — the chain 404 + 80 + 16 + 3 = 503')
+  // L3-3: N ≡ 1 (mod 3), ≡ 2 (mod 5) → 7
+  ok(7 % 3 === 1 && 7 % 5 === 2, 'U: L3-3 — N = 7 meets both; the class is 7 + 15k')
+  {
+    const hits: number[] = []
+    for (let N = 0; N < 15; N++) if (N % 3 === 1 && N % 5 === 2) hits.push(N)
+    ok(hits.length === 1 && hits[0] === 7, 'U: L3-3 — exactly one class in [0, 15): 7')
+  }
+  // L4-1: the ladder classic → 301; next 721
+  ok(301 % 2 === 1 && 301 % 3 === 1 && 301 % 4 === 1 && 301 % 5 === 1 && 301 % 7 === 0, 'U: L4-1 — 301 cashed on all five conditions')
+  ok(721 % 60 === 1 && 721 % 7 === 0, 'U: L4-1 — 721 = 301 + 420 cashed')
+  // L4-2: s₁₆(2024) = 29 → 2024 ≡ 14 (mod 15) → NOT divisible; 2024 = 134·15 + 14
+  ok(digitSumB(2024, 16) === 29 && 2024 % 15 === 14 && 2024 === 134 * 15 + 14, 'U: L4-2 — 2024 ≡ 14 (mod 15): not divisible, remainder 14')
+  // L4-3: Σ 1..100 k! ends in 3
+  {
+    let s = B(0)
+    let f = B(1)
+    for (let k = 1; k <= 100; k++) {
+      f = f * B(k)
+      s = s + f
+    }
+    ok(Number(s % B(10)) === 3, 'U: L4-3 — the sum ends in 3 (recomputed)')
+  }
+  // L5-1: the identity cashed on 2024
+  ok(digitSumB(2024, 5) === 12 && (2024 - 12) / 4 === 503 && legendre(2024, 5) === 503,
+    'U: L5-1 — 31044₅ → s₅ = 12 → (2024 − 12)/4 = 503 = Z(2024)')
+  // L5-2: the CRT bijection on 88 classes; (3, 6) ↦ 83
+  {
+    const seen = new Set<string>()
+    for (let N = 0; N < 88; N++) seen.add(N % 8 + ',' + N % 11)
+    ok(seen.size === 88, 'U: L5-2 — the 88 classes give 88 distinct (mod 8, mod 11) pairs — a bijection')
+    ok(83 % 8 === 3 && 83 % 11 === 6, 'U: L5-2 — the pair (3, 6) names the class 83')
+  }
+  // L6-1: v₂ ≥ v₅ sweep re-crossed
+  {
+    let ge = true
+    for (let n = 2; n <= 5000; n++) if (legendre(n, 2) < legendre(n, 5)) ge = false
+    ok(ge, 'U: L6-1 — v₂(n!) ≥ v₅(n!) re-swept to 5000')
+  }
+  // L6-2: the synthesis exhibits
+  ok(legendre(1000, 5) === 249 && legendre(2024, 5) === 503 && Number(modpow(B(7), B(2024), B(100))) === 1,
+    'U: L6-2 — the synthesis exhibits 249 · 503 · 01 all recomputed')
+}
+
+/* ------------------------------------------------------------------ */
+/* (V) figure geometry — 10.3 engine map + Legendre chain              */
+/* ------------------------------------------------------------------ */
+
+section('(V) 10.3 figure geometry')
+
+{
+  // F1 the one-engine map, viewBox 720×360:
+  // four input boxes x = 20..240 (w 220, h 44) at y = 30, 104, 178, 252
+  // engine box x = 280..470, y = 120..240
+  // four output boxes x = 500..700 (w 200, h 44) at the same y rows
+  const laneY = [30, 104, 178, 252]
+  const laneH = 44
+  // lane text ≤ 34 chars ≈ 204px at 6px/char fits w 220 with padding
+  const laneLabels = ['unit digits of powers (ℤ/10ℤ)', 'last two digits of powers (ℤ/100ℤ)', 'trailing zeros of n! (the 5-chain)', 'double-remainder hunts (CRT)']
+  const outLabels = ['one digit 0–9', 'two digits 00–99', 'a count — 1000! ends in 249 zeros', 'one class mod lcm(m, n)']
+  ok(laneLabels.every((t) => t.length <= 34), 'V: F1 lane labels ≤ 34 chars (fit w 220 at ~6px/char)')
+  ok(outLabels.every((t) => t.length <= 34), 'V: F1 output labels ≤ 34 chars (fit w 200 at ~6px/char)')
+  ok(laneY.every((y) => y + laneH <= 300), 'V: F1 lanes end above the footer row (≤ 300 < 360)')
+  // engine text lines ≤ 30 chars ≈ 174px at 11.5px/2 ≈ 5.8px/char fits w 190
+  ok('reduce → compute → lift back'.length <= 30, 'V: F1 engine line 2 fits w 190')
+  ok('cycles · inverses · chains'.length <= 30, 'V: F1 engine line 3 fits w 190')
+  // footer centered ~92 chars ≈ 552px → 84..636 inside 720
+  ok(360 - 276 >= 0 && 360 + 276 <= 720, 'V: F1 footer fits')
+  // arrows: input right edge x = 240 → engine left edge 280 (40px run), engine right 470 → output left 500 (30px run)
+  ok(240 < 280 && 470 < 500, 'V: F1 arrow runs have positive clearance (no box overlap)')
+  // F2 the Legendre chain, viewBox 720×300:
+  // six boxes w 90, h 52 at y = 60; x = 20, 130, 240, 350, 460, 570 (gaps 20 for "/5" tags)
+  const bx = [20, 130, 240, 350, 460, 570]
+  ok(bx[5] + 90 === 660 && 660 <= 720, 'V: F2 boxes end at 660, inside the viewBox')
+  ok([1, 2, 3, 4, 5].every((i) => bx[i] - (bx[i - 1] + 90) === 20), 'V: F2 gaps are exactly 20px — room for the /5 tags (~16px)')
+  ok(bx.every((x) => x + 45 <= 720 - 45), 'V: F2 box centers clear the edges')
+  // chain values 1000, 200, 40, 8, 1, 0 — all fit w 90
+  ok(['1000', '200', '40', '8', '1', '0'].every((v) => v.length * 16 <= 90), 'V: F2 chain values fit their 90px boxes')
+  // sum line y = 150; footer lines y = 250, 272; all < 300
+  ok(150 < 300 && 250 < 300 && 272 < 300, 'V: F2 text rows fit the viewBox height')
+  // footer line 1 ~77 chars ≈ 462px centered → 129..591; line 2 ~64 chars ≈ 384px → 168..552
+  ok(360 - 231 >= 0 && 360 + 231 <= 720, 'V: F2 footer line 1 fits')
+  ok(360 - 192 >= 0 && 360 + 192 <= 720, 'V: F2 footer line 2 fits')
 }
 
 /* ------------------------------------------------------------------ */

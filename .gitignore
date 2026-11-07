@@ -230,3 +230,6 @@ server.log
 !/scripts/e2e-ans-101.page.js
 !/scripts/e2e-ans-102.sh
 !/scripts/e2e-ans-102.page.js
+# exception: run-65 ANS 10.3 lesson E2E block (the toolkit synthesis; quiz keys 0/2/2/2/0)
+!/scripts/e2e-ans-103.sh
+!/scripts/e2e-ans-103.page.js

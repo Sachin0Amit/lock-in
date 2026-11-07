@@ -1631,3 +1631,32 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   (2^r ≥ k + r + 1). The SVG overlap audit forced a mid-run redesign of the 10.1 repair map (gate text sat inside the bands;
   the rotated left-rail note clipped the viewBox and read as pre-transform in the audit — replaced with straight footer lines)
   and removed the wheel's step labels (a +2 label collided with station 0).
+
+### Run 65 — ANS 10.3 'The Toolkit Synthesis' + the BOOK CLOSE (2026-11-07)
+
+- `legendre-1808-essai` — Adrien-Marie Legendre, *Essai sur la théorie des nombres*, 2nd edition (Paris, 1808): the
+  exponent-of-a-prime-in-n! floor-sum formula (v_p(n!) = Σ ⌊n/p^k⌋) appears in this edition; the formula is also known as
+  de Polignac's formula after Alphonse de Polignac's independent 1849 statement. Web-checked this run (publisher listings +
+  the formula's reference pages); the digit-sum equivalent v_p(n!) = (n − s_p(n))/(p − 1) is presented in ANS 10.3 as a
+  derivation proved there, not a attributed quote. Anchors the lesson's factorial engine (trailing zeros, the 5-chain,
+  the base-5 digit-sum identity). No downloads — internet research only (the Drive holds no Legendre text).
+- `khattar-qa-4e` — carried to ANS 10.3 (run 65): the competitive-exam scope banked since run 6 (unit digits, cyclicity,
+  factorial trailing zeros, base systems, remainders) is exactly the lesson's four lanes; cited in the exam corner,
+  never reproduced.
+- `sunzi-suanjing-crt` — carried to ANS 10.3 (run 65): the CRT remainder-vector reading of the double-remainder hunts.
+- `gauss-1801-disquisitiones` — carried to ANS 10.3 (run 65): the congruence laws as the engine's reduction licence.
+
+#### Run 65 reference-notes
+- Zero downloads (all four keys banked or internet-researched; the Drive collection is exam-oriented and holds no
+  Legendre/number-theory-primary text — per the run-48 survey). Working-copy footprint zero; nothing to delete.
+- Drive survey rebuilt post-recycle via rebuild_drive_survey.ts (89 entries intact) before build_work_inventory.ts
+  regenerated WORK_INVENTORY.json with the run-65 ground truth (83 lessons / 412,045 words / 21 chapters written /
+  0 in progress / ANS complete).
+- The arithmetic verifier grew 174 → 288 checks (sections P–V added pre-writing; T/U quiz+exercise keys pinned; V figure
+  geometry), ALL GREEN before a word was written; the first pass caught FOUR defects: a helper-name shadow (the new 2-arg
+  digitSum silenced the run-64 1-arg digitSum until renamed digitSumB — sections E/L went red then green), the author's
+  hand-typed binary of 2024 (true 11111101000₂, padded 011111101000₂, nibbles 0111 1110 1000 → 7 E 8), two floor-division
+  chain assertions (8/5 = 1.6, Math.floor missing), and a sweep range that missed the ladder classic's second hit 721 —
+  all corrected and pinned as regression guards. Two authoring-time defects caught by the browser gates: a callout title
+  carrying raw $v_p$ (callout titles are not KaTeX-processed — reworded) and example blocks carrying an unsupported
+  'answer' field (folded into final 'Hence' steps per the Cengage chain contract).

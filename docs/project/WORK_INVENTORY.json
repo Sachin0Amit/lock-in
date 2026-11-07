@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 11:16:35 (Asia/Kolkata)",
+  "generated": "2026-11-07 14:39:20 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -3368,9 +3368,9 @@
         "discipline": "mathematics",
         "level": "Upper primary → first-year university bridge",
         "description": "The structural sequel to Foundation Mathematics. FM taught you to compute; this book proves why the computing rules hold. Positional naming in any base, the division algorithm, Euclid’s algorithm with its proof, the fundamental theorem of arithmetic, congruences as an arithmetic of remainders, and the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ — each rung built to repair a closure failure. Divisibility tests you have used since school are finally derived; √2 is finally proved irrational; the primes are finally shown endless. Cross-references Foundation Mathematics throughout; hands off to Elementary Algebra, Number Theory and Set Theory.",
-        "status": "in-progress",
+        "status": "complete",
         "chaptersPlanned": 10,
-        "chaptersWritten": 9,
+        "chaptersWritten": 10,
         "chapters": [
           {
             "number": 1,
@@ -5672,11 +5672,9 @@
             "slug": "the-map-of-number-systems",
             "title": "The Map of Number Systems",
             "summary": "The synthesis: the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ drawn as one story of repaired failures; congruence arithmetic at work guarding data (casting out nines as an error detector, the mod-11 checksum scheme); and the competitive-arithmetic toolkit — unit digits, factorial zeros, base conversions, remainder chains — unified as one congruence engine.",
-            "status": "in-progress",
-            "lessonsWritten": 2,
-            "plannedLessons": [
-              "The Toolkit Synthesis"
-            ],
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "ans-the-great-extension-story",
@@ -5822,9 +5820,82 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-the-toolkit-synthesis",
+                "number": "10.3",
+                "title": "The Toolkit Synthesis",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6158,
+                "readMins": 31,
+                "concepts": [
+                  "The toolkit engine",
+                  "Unit digit",
+                  "Exponent reduction",
+                  "Legendre's formula",
+                  "Trailing zeros",
+                  "Digit-sum law",
+                  "Quotient-remainder chain",
+                  "Remainder vector"
+                ],
+                "objectives": [
+                  "state the one-engine thesis: every competitive-arithmetic tool is a congruence computation inside a finite number system ℤ/mℤ",
+                  "compute unit digits and last-two-digits of astronomical powers by cycle and exponent reduction, including the honest non-coprime case",
+                  "derive Legendre's formula from the multiple-counting chain, compute trailing zeros of n!, and prove the digit-sum identity Z(n) = (n − s₅(n))/4",
+                  "run base conversions as quotient-remainder chains and prove the general digit-sum law N ≡ s_b(N) (mod b − 1) — casting out (b − 1)s in any base",
+                  "assemble double-remainder problems as CRT instances and read the CRT isomorphism as \"a number is its remainder vector\"",
+                  "read the whole book as one map: structures (10.1), guards (10.2), navigation (10.3)"
+                ],
+                "prerequisites": [
+                  "ans-unit-digit-cycles-of-powers",
+                  "ans-linear-congruences-glimpse-of-fermat",
+                  "ans-converting-between-bases",
+                  "ans-remainders-become-numbers-congruence-defined",
+                  "ans-numbers-that-guard-data-checksums-and-casting-out-nines"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "legendre-1808-essai",
+                  "sunzi-suanjing-crt",
+                  "gauss-1801-disquisitiones"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 6,
+                  "equation": 1,
+                  "figure": 2,
+                  "callout": 7,
+                  "table": 2,
+                  "example": 5,
+                  "derivation": 4,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "warn": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 8
               }
             ],
-            "words": 11033
+            "words": 17191
           }
         ]
       }
@@ -5849,13 +5920,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 100,
-      "totalLines": 59739,
+      "srcFilesTracked": 101,
+      "totalLines": 61640,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 50474,
+        "src/data/library (content model + books)": 52375,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -13580,33 +13651,130 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "0c3002cce00a3f3b277208981dfee9ec9dd0963a",
+      "short": "0c3002c",
+      "date": "2026-11-07 05:49",
+      "message": "run 64: ANS ch. 10 'The Map of Number Systems' opens 2/3 — 10.1 The Great Extension Story + 10.2 Numbers That Guard Data (checksums) shipped verify-first and sequentially; verify-book2-ch10.ts 174 checks ALL GREEN; e2e-ans-101/102 whitelisted; logs + inventory updated",
+      "filesChanged": 14,
+      "insertions": 3120,
+      "deletions": 66,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 74,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 19,
+          "del": 11
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 11
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 45,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 259,
+          "del": 28
+        },
+        {
+          "path": "scripts/e2e-ans-101.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-101.sh",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-102.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-102.sh",
+          "add": 88,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch10.ts",
+          "add": 1146,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 11,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-10.ts",
+          "add": 1228,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "cbd191fcc240d9df412cde1a55ae6a0214bdc979",
+      "short": "cbd191f",
+      "date": "2026-11-07 05:50",
+      "message": "memory: run-64 push verified — remote main = 0c3002c (ship 0c3002c pushed 3123a57..0c3002c, ls-remote verified = local HEAD); next run 65 = ANS ch.10 CLOSES with 10.3 'The Toolkit Synthesis' + the unit-10 review + the BOOK CLOSE (one lesson left — v2 one-lesson-plus-review scope)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 2,
-    "chaptersWritten": 20,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 82,
-    "wordsAuthored": 405887,
-    "termsDefined": 627,
-    "quizItems": 410,
-    "exerciseQuestions": 1007,
+    "chaptersWritten": 21,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 83,
+    "wordsAuthored": 412045,
+    "termsDefined": 635,
+    "quizItems": 415,
+    "exerciseQuestions": 1023,
     "blockTotals": {
-      "para": 1144,
-      "callout": 462,
-      "heading": 466,
+      "para": 1162,
+      "callout": 469,
+      "heading": 472,
       "list": 95,
-      "terms": 83,
-      "equation": 118,
-      "figure": 135,
-      "derivation": 173,
-      "table": 108,
-      "example": 338,
-      "quiz": 82,
-      "exercises": 82,
-      "formula": 238,
+      "terms": 84,
+      "equation": 119,
+      "figure": 137,
+      "derivation": 177,
+      "table": 110,
+      "example": 343,
+      "quiz": 83,
+      "exercises": 83,
+      "formula": 242,
       "algorithm": 21
     }
   }

@@ -9,26 +9,32 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 62 (2026-11-07, job 509354's hourly :45 fire — the FIRST hourly-cadence run
-under the owner's 2026-11-06 v2 two-lessons-per-run directive)**: **ANS CHAPTER 9 'NUMERATION THROUGH
-HISTORY' OPENED 2/3** — 9.1 'Tallies, Groupings and Additive Systems' (5,311 words) + 9.2 'Place Value
-Before Its Time: Babylon and Mesoamerica' (4,919 words) authored strictly sequentially, each fully gated
-before the next began. verify-first discipline held: `verify-book2-ch09.ts` was created BEFORE any lesson
-text (sections A–N, 189 checks) and extended with K/L before 9.2 (218 checks final), catching **fourteen
-pre-writing defects** — the doubling-pick filter comparing exponents to tick values; the author's own
-hand-typed Roman lengths (the whole 10-row table wrong; 999,999 takes 1,005 M-repeats + CMXCIX; re-scoped
-to the 3,999 = MMMCMXCIX ceiling); 7,259 = ⟨2,0,59⟩ not ⟨2,5,59⟩; a BigInt/number gcd crash; √2's digit
-check at the wrong precision; the isqrt pin expression; **the YBC 7289 error sign** (1;24,51,10 =
-1.41421296… under-estimates √2; error ≈ 5.9934×10⁻⁷ absolute, ≈ 4.237×10⁻⁷ relative — one part in
-≈2.36 million); the unreduced product fraction 30,547/720; the regular-number counts 34 vs 15 (n ≤ 100);
-10.2.3.12.7 = 1,455,727 days (hand transposition); the binary-pick list missing the 32-bit; the
-comparison-table row count. Two authoring-time defects were caught by the browser gates: the figure
-builders omitted the `<svg>` wrapper (captions rendered, zero SVGs in the DOM — the svgCount check caught
-it; fixed with the ch-08 wrapper convention), and the doubling figure's sum line collided with the tick
-note (shortened; audit then 0/0). Two harness repairs: e2e-ans-92.page.js's prereq regex still carried
-9.1's set, and a PRE-EXISTING tsc collision between the repo's only two global-scope scripts
-(verify-book2-ch01.ts ↔ enhance-fm-12-gen.ts) was proven present on pristine HEAD and fixed with
-`export {}` module markers (tsc fully clean repo-wide again).
+Maintained through **run 65 (2026-11-07, job 509354's hourly :45 IST cadence)**: **BOOK #2 'ARITHMETIC AND
+NUMBER SYSTEMS' CLOSED** — ANS chapter 10 finished 3/3 with 10.3 'The Toolkit Synthesis' (6,158 words, the
+chapter's largest — the one-engine thesis: unit digits and last two digits computed in ℤ/10ℤ and ℤ/100ℤ with the
+honest non-coprime case (2²⁰²⁴ → 16 via the period-20-from-n = 2 wheel; 7²⁰²⁴ → 01 via order 4), Legendre's chain
+for trailing zeros (1000! → 249; 2024! → 503) with the digit-sum identity Z(n) = (n − s₅(n))/4 proved by
+telescoping, base conversions as quotient-remainder chains with the general digit-sum law N ≡ s_b(N) (mod b−1)
+(casting out (b−1)s in any base — the 3/9 tests and casting out nines as the b = 10 case), and the CRT
+remainder-vector verdict ('a number IS its remainder vector', the 83 + 88k and 301 + 420k families)), the unit-10
+completion review passed (ids repo-wide unique, exam corners 3/3, figure labels in prose, prerequisites and
+sources all resolving, all TEN book-2 verifiers re-run green: 228/407/502/356/270/233/239/ALL/ALL/288), and the
+book flipped 'complete' (plannedLessons emptied, book.ts status header + notes updated). verify-book2-ch10.ts
+grew 174 → 288 checks (sections P–V added BEFORE any prose; T/U quiz+exercise keys pinned; V figure geometry),
+ALL GREEN before writing, with FOUR pre-writing defects caught: a helper-name shadow (the new 2-arg digitSum
+silenced the run-64 1-arg digitSum, reddening sections E/L until the rename to digitSumB), the author's own
+hand-typed binary of 2024 (true 11111101000₂ = 1024+512+256+128+64+32+8; padded 011111101000₂ → nibbles 0111
+1110 1000 → 7 E 8), two floor-division chain assertions (8/5 = 1.6 — Math.floor was missing), and a sweep range
+that missed the ladder classic's second hit (721 = 301 + 420 in [1, 800], not [1, 420]). Two authoring-time
+defects caught by the browser gates: a callout title carrying raw $v_p$ (callout titles are not
+KaTeX-processed — reworded to 'The exponent of a prime — the p-factor census') and example blocks carrying an
+unsupported 'answer' field (folded into final 'Hence' steps per the Cengage chain contract). Per-lesson gates
+green: lint 0, tsc 0, routes 200 + unknown-404, E2E 34 PASS × 3 viewports (1280 / true 390 / dark — quiz 5/5
+live on keys 0/2/2/2/0, KaTeX 326 nodes 0 errors, 2 figures 2 tables, 21 Sol. pills, 0 console errors), SVG
+overlap audit 0/0 on both new figures, pixel checks warm palette 0% blue cast with true dark verified (94%
+dark pixels). Library: 2 books / 21 chapters written, 0 in progress / 83 lessons / 412,045 words / 635 terms /
+415 quiz / 1,023 exercises (WORK_INVENTORY.json ground truth). Next: run 66 opens BOOK #3 'Elementary
+Algebra' with its research phase + promotion; authoring from run 67.
 
 - **9.1 'Tallies, Groupings and Additive Systems'** (`ans-tallies-groupings-and-additive-systems`,
   5,311 words, 8 terms, 5 quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 derivations — the additive symbol
@@ -1572,7 +1578,7 @@ downloads (references already logged).
 | 10 | Data and Graphs — **COMPLETE (4/4, run 46; unit-10 review passed)** | ~~Collecting and Tallying Data~~ **WRITTEN (run 44)** · ~~Bar/Line/Pie Charts~~ **WRITTEN (run 45)** · ~~Reading Graphs Critically~~ **WRITTEN (run 45)** · ~~Mean, Median, Mode~~ **WRITTEN (run 46)** |
 | 11 | Patterns and the Doorstep of Algebra — **COMPLETE (3/3, run 47; unit-11 review passed — the book closes)** | ~~Patterns and Rules~~ **WRITTEN (run 46)** · ~~From Patterns to Formulas~~ **WRITTEN (run 47)** · ~~A Letter for the Unknown~~ **WRITTEN (run 47)** |
 
-### Arithmetic and Number Systems — mathematics shelf · **IN PROGRESS (promoted run 48; ch. 1–4 COMPLETE — 15 lessons, chapters 5–10 planned)**
+### Arithmetic and Number Systems — mathematics shelf · **COMPLETE (10/10 chapters, 34 lessons, 184,361 words — closed by run 65)**
 
 *Why arithmetic works — and how the number systems were built* · Upper primary →
 first-year university bridge · accent teal · cover auto-generated.
@@ -1822,6 +1828,7 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 + the unit-1 completion review — CHAPTER 1 COMPLETE 3/3; verify-book2-ch01.ts → 228 checks; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci — pushed per protocol |
 | 50 | memory | 11-05 | run-50 synced sha recorded — remote-verified via one-time-URL ls-remote = local HEAD; next run 51 = ANS ch. 2 opens with lessons 2.1 Division with Rest + 2.2 The Algebra of Divisibility (verify-book2-ch02.ts FIRST) |
 | 50 | ship + bookkeeping + memory | 11-05 | ANS ch. 1 lesson 1.3 The Least-Number Principle and Recursion (6,579 words; verify-book2-ch01.ts 124 → 228 checks AA–AM; quiz keys 1/2/1/0/3 live 5/5; audits 0/0 both figures) + UNIT-1 COMPLETION REVIEW PASSED — CHAPTER 1 COMPLETE 3/3 (16,921 words / 24 terms / 15 quiz / 36 exercises); ch-01 → complete; new citation keys cantor-1883-grundlagen + fibonacci-1202-liber-abaci; fired from job 498279 (fifth consecutive fire, logged for the owner) — pushed per protocol |
+| 65 | ship + bookkeeping + memory | 11-07 | ANS ch. 10 lesson 10.3 The Toolkit Synthesis (6,158 words — the book closer; verify-book2-ch10.ts 174 → 288 checks P–V; quiz keys 0/2/2/2/0 live 5/5 × 3 viewports; audits 0/0 both figures; 4 pre-writing defects caught incl. the digitSum shadow and the hand-typed binary of 2024; 74 single-backslash LaTeX escapes swept) + UNIT-10 COMPLETION REVIEW PASSED (all ten book-2 verifiers re-run green) — **BOOK #2 'ARITHMETIC AND NUMBER SYSTEMS' COMPLETE 10/10 (34 lessons / 184,361 words)**; ch-10 → complete, plannedLessons emptied, book.ts status header + notes rewritten; new citation key legendre-1808-essai (web-checked 1808 2nd-edition attribution) — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
@@ -2096,3 +2103,86 @@ post-recycle (rebuild_drive_survey.ts first: 89 entries intact, then build_work_
 Toolkit Synthesis', run the unit-10 completion review (BOOK_FORMAT checklist + id-uniqueness + exam-coverage audit), flip chapter 10
 AND the book COMPLETE, empty plannedLessons, update book.ts's status header + notes; the next run (66) opens Book #3 per the owner's
 plan.
+
+## 2026-11-07 — RUN 65 (job 509354's hourly :45 IST cadence; fire rendered 16:15:00 +08:00 = 13:45:01 IST): ANS CHAPTER 10 CLOSES 3/3 AND BOOK #2 CLOSES — 10.3 'The Toolkit Synthesis' + the unit-10 completion review + the book flip; the fifth delivery of this job's payload, and the second consecutive fully-executed run
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run open; no `.figure_upgrade_lock` (the sibling :15 visual job not
+running at fire time), no uncommitted figure changes, no half-finished lesson. Dev server required the in-invocation restart pattern
+(the sandbox recycles processes between messages — the run adopted "restart inside the same command that needs it").
+
+**Step 2 — verify-first (verify-book2-ch10.ts extended FIRST: 174 → 288 checks, sections P–V ALL GREEN before any prose).** Sections:
+(P) the unit-digit engine — cycle periods swept per base (0/1/5/6 → 1; 4/9 → 2; 2/3/7/8 → 4), the six cycle strings pinned, the
+cycle-entry rule swept against direct BigInt modpow on all 4,000 (a, n ≤ 400) pairs, the ℤ/100ℤ engine (order of 7 = 4 via 7⁴ = 2401 ≡ 1
+with k = 1..3 missing; order of 3 = 20 swept minimal; 7²⁰²⁴ → 01 with 2024 = 4·506; 3²⁰²⁴ → 81 = 3⁴ with 2024 ≡ 4 mod 20), the honest
+non-coprime case (no k ≤ 500 has 2ᵏ ≡ 1 mod 100; 2ⁿ⁺²⁰ ≡ 2ⁿ from n = 2 swept to 180; 2²⁰²⁴ → 16 = 2⁴ with 2024 = 4 + 20·101), the
+squares-census regression {0,1,4,5,6,9}, the Σk! exhibit 1!+…+100! ends in 3 (1+2+6+24 = 33); (Q) the factorial engine — Z(n) =
+Σ⌊n/5ᵏ⌋ swept against exact BigInt trailing zeros n ≤ 200 plus the one-off 2,568-digit 1000! check (249), exhibits Z(10) = 2, Z(25) =
+6, Z(100) = 24, Z(250) = 62, Z(1000) = 249, Z(2024) = 503, the 5-chains, v₂(100!) = 97 vs v₃(100!) = 48, v₂ ≥ v₅ swept to 5000, the
+digit-sum identity Z(n) = (n − s₅(n))/4 swept to 2000, base-5 names 400₅/13000₅/31044₅ with place checks; (R) the base-conversion
+engine — round-trips swept b ∈ 2..16 × n ≤ 3000 (48,000), the 2024 chain (q168 r8 · q14 r0 · q1 r2 · q0 r1 → 1208₁₂ = 1728+288+0+8),
+2024 = 7E8₁₆ = 1792+224+8, binary 11111101000₂ (padded 011111101000 → nibbles 0111 1110 1000 → 7 E 8), the digit-sum law N ≡ s_b(N)
+(mod b−1) swept b ∈ 2..16 × N ≤ 3000 (48,000) with the b = 10 regression (the 3/9 tests) and the instances s₁₂(2024) = 11 → 11 | 2024
+(184·11) and s₁₆(2024) = 29 → 2024 ≡ 14 (mod 15) (134·15+14); (S) the CRT engine — coprime uniqueness swept over every coprime (m, n)
+≤ 30 (100+ pairs, every vector hit exactly once), the non-coprime criterion gcd | (b−a) swept m, n ≤ 40, the exhibits (8, 11; 3, 6) →
+83 (unique in [0, 88); 83 = 8·10+3 = 11·7+6) and the ladder classic → 301 = 60·5+1 = 7·43 with 721 = 301 + 420 the next (family
+marches by lcm = 420), the 60-class triple bijection, the Legendre chain re-crossed; (T) the 10.3 quiz keys 0/2/2/2/0 with every
+distractor evaluated (19/52/91 as honest near-misses of 83; 50/60/63 for Z(250) = 62); (U) the 10.3 exercise keys recomputed both
+sides (16 questions); (V) figure geometry for both new figures. **Four pre-writing defects caught in the verifier's own first pass:**
+(1) a helper-name shadow — the new 2-arg digitSum silently replaced the run-64 1-arg digitSum (last declaration wins), reddening the
+run-64 sections E/L until the rename to digitSumB; (2) the author's hand-typed binary of 2024 — written 111111001000₂, true value
+11111101000₂ (1024+512+256+128+64+32+8), padded 011111101000₂, nibbles 0111 1110 1000 → 7 E 8; (3) two floor-division chain
+assertions (8/5 = 1.6 ≠ 1 — Math.floor missing); (4) a sweep range that missed the ladder classic's second hit (721 in [1, 800], not
+[1, 420]) — all corrected and pinned as regression guards.
+
+**Lesson shipped — 10.3 'The Toolkit Synthesis'** (`ans-the-toolkit-synthesis`, 6,158 words — the chapter's and the book-closer's
+largest, 31 min read, 8 terms, 5 quiz keys 0/2/2/2/0, 16 exercises L1–L6, 4 derivations (Legendre's formula from the
+multiple-counting chain; the digit-sum identity Z(n) = (n − s₅(n))/4 by telescoping the base-5 name; the general digit-sum law
+N ≡ s_b(N) (mod b−1); the CRT remainder-vector bijection), 5 worked Illustrations (7²⁰²⁴ unit digit 1 and last two 01 via order 4;
+2²⁰²⁴ → 16 via the honest non-coprime wheel; 1000! → 249 by chain AND by the 13000₅ digit-sum cross-check; 2024 = 1208₁₂ with the
+free verdict 11 | 2024; the double-remainder hunts 83 + 88k and 301 + 420k), 2 figures (the one-engine toolkit map — four lanes
+through one ℤ/mℤ engine, footer 'name the modulus, compute inside, lift the verdict back'; the Legendre 5-chain for 1000! with the
+base-5 cross-check footer), 2 tables (the ℤ/10ℤ cycle census re-swept to n = 400; the factorial ledger 25/100/250/1000/2024 with the
+5-chains and the (n − s₅)/4 column), 4 formula cards): the one-engine thesis (reduce, compute inside, lift back — lawful by the
+congruence laws of 5.1); the ℤ/10ℤ and ℤ/100ℤ lanes with exponent reduction and the non-coprime caution (no station 1 — scan to the
+first REPEAT); Legendre's chain (stated 1808, second edition of the Essai; de Polignac independently 1849 — web-checked) with the
+quotient chain = base-5 name skeleton punchline; the digit-sum law uniting the 3/9 tests, casting out nines (10.2) and base-12's
+mod-11 test; the CRT verdict as grid navigation; the book-in-one-page closing synthesis (structures 10.1, guards 10.2, navigation
+10.3) with the honest edges (ℂ beyond the gate; correction beyond detection; the gcd criterion; finite systems as shadows of
+rings). Sources: khattar-qa-4e (exam corner), legendre-1808-essai (NEW, web-checked), sunzi-suanjing-crt,
+gauss-1801-disquisitiones.
+
+**Authoring-time defects caught by the browser gates:** (1) a definition callout title carrying raw $v_p$ — callout titles are not
+KaTeX-processed, so the dollars printed literally (the raw-$ E2E check caught it: 2 raw $ in text) — title reworded to 'The exponent
+of a prime — the p-factor census'; (2) example blocks carrying an unsupported `answer` field (TS2353) — folded into final 'Hence …'
+steps per the Cengage chain contract; (3) 74 single-backslash LaTeX escapes (`\m`, `\{`, `\}` etc.) that TS silently mangles
+(`\m` → `m`) — swept by a string-aware scanner that doubles every non-quote escape inside string literals (KaTeX would have errored
+on 326 nodes' worth of corrupted math). Also: the equation block's `	ag{1}` moved inside the latex (the type has no `tag` field).
+
+**Unit-10 completion review PASSED:** lesson ids repo-wide unique (grep sweep, zero collisions); all five 10.3 prerequisite ids
+resolve; exam corners 3/3; figure labels present in prose (23 hits); every number pre-verified by the verifier; lint 0; tsc clean;
+**all TEN book-2 verifiers re-run green** (ch-01 228 / ch-02 407 / ch-03 502 / ch-04 356 / ch-05 270 / ch-06 233 / ch-07 239 / ch-08
+ALL GREEN / ch-09 ALL GREEN / ch-10 288). **BOOK CLOSE:** chapter 10 status → 'complete', plannedLessons emptied, book.ts status →
+'complete' with the header + notes rewritten; the registry stats recomputed from the live data (never hand-typed).
+
+**Per-lesson gates (all green):** lint 0 errors (the pre-existing e2e-book2-promotion.page.js warning untouched); tsc clean
+repo-wide; routes 200 (lesson, book, home) + 404 unknown; browser E2E e2e-ans-103 (whitelisted in .gitignore BEFORE committing) ALL
+GREEN × 3 viewports — quiz 5/5 live on keys 0/2/2/2/0 all three, KaTeX 326 nodes 0 errors, 0 raw $, 0 console errors, 2 figures 2
+tables, terms 436 hits, prereq chips 6, no overflow at 390 (390 vs 390) and 1280, Sol. pills 21; SVG overlap audit 0 issues on both
+figures (13 + 16 text nodes); screenshot pixel checks non-blank 96%, 0% blue cast, true dark verified separately (94% dark pixels —
+the in-script dark pass re-navigates and loses the class, so the dark shot was retaken with the class applied after navigation).
+Figure crops visually inspected: both render cleanly.
+
+**Step 3 — logs:** WORKLOG.md (this run's entry at top), PROGRESS.json (phase = BOOK #2 COMPLETE + the run-65 narrative;
+awaiting = run 66 = Elementary Algebra research phase), RESUME_POINTER.json (nextAction = run 66 opens BOOK #3 with the research
+phase + promotion; run 67 = ch. 1 opens 1.1 + 1.2), SOURCE_LOG.md (1 new key: legendre-1808-essai, web-checked; 3 keys carried;
+zero downloads), SUBJECT_BACKLOG.md (ANS marked COMPLETE; Elementary Algebra marked NEXT), WORK_INVENTORY.json regenerated
+(rebuild_drive_survey.ts first — 89 entries intact post-recycle — then build_work_inventory.ts), DETAILED_LOG.md (this unit-ship
+record + the section-4 ANS heading flipped COMPLETE).
+
+**Library after the run:** 2 books / 21 chapters written, 0 in progress / 83 lessons / 412,045 words / 635 terms / 415 quiz items /
+1,023 exercise questions. ANS final: 10 chapters / 34 lessons / 184,361 words. Chapter 10 final: 3 lessons / 17,191 words / 24 terms
+/ 15 quiz / 45 exercises.
+
+**Next:** run 66 = BOOK #3 'Elementary Algebra' RESEARCH PHASE + promotion (survey the Drive + internet, fix the chapter plan under
+the no-duplication contract vs FM ch. 11's algebra doorstep, verify-book3-promotion.ts modeled on verify-book2-promotion.ts) —
+never author a lesson this run; run 67 = Elementary Algebra ch. 1 opens with 1.1 + 1.2 (v2 two-lesson scope).

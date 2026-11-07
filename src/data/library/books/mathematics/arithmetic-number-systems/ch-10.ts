@@ -9,8 +9,11 @@ import type { Chapter } from '../../../types'
  *                  10.2 Numbers That Guard Data: Checksums and Casting Out
  *                       Nines (run 64 — 5,459 words, quiz keys 1/1/0/1/2,
  *                       14 exercises, verified E2E-green)
- *                  10.3 The Toolkit Synthesis (planned, run 65) + the
- *                       unit-10 completion review + the book close
+ *                  10.3 The Toolkit Synthesis (run 65 — 6,158 words, the
+ *                       chapter's largest; quiz keys 0/2/2/2/0, 16 exercises,
+ *                       2 figures, verified E2E-green) + the unit-10
+ *                       completion review PASSED + the BOOK CLOSE (the
+ *                       book flipped complete)
  * References for this unit: no new Drive downloads (the collection is
  * exam-oriented, per the run-48 survey); the sanctioned internet fallback
  * carried the 10.2 research — see docs/project/SOURCE_LOG.md. Banked keys
@@ -245,6 +248,125 @@ function isbnEngineSvg(): string {
 /* ------------------------------------------------------------------ */
 /* Chapter 10                                                          */
 /* ------------------------------------------------------------------ */
+/* Figure (10.3): the one-engine toolkit map — four toolkit lanes on    */
+/* the left, one finite-system engine in the middle, four verdicts on   */
+/* the right. viewBox 720×360: input boxes x = 20..240 (w 220, h 44) at */
+/* y = 30/104/178/252; engine box x = 280..470, y = 120..240; output    */
+/* boxes x = 500..700; arrows run 242..276 and 474..496; footer y = 345 */
+/* — all audited in verify-book2-ch10.ts section V.                    */
+/* ------------------------------------------------------------------ */
+
+function toolkitEngineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The one-engine map: four toolkit lanes, unit digits, last two digits, trailing zeros and remainder hunts, flowing through one finite-system engine and out to their verdicts">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  const arrowHead = (x: number, y: number, dx: number, dy: number, color: string) => {
+    const len = Math.sqrt(dx * dx + dy * dy)
+    const ux = dx / len
+    const uy = dy / len
+    const bx = x - 7 * ux
+    const by = y - 7 * uy
+    parts.push(
+      `<path d="M ${x} ${y} L ${bx - 4 * uy} ${by + 4 * ux} L ${bx + 4 * uy} ${by - 4 * ux} Z" fill="${color}"/>`
+    )
+  }
+  const laneY = [30, 104, 178, 252]
+  const inLabels = [
+    'unit digits of powers (ℤ/10ℤ)',
+    'last two digits of powers (ℤ/100ℤ)',
+    'trailing zeros of n! (the 5-chain)',
+    'double-remainder hunts (CRT)',
+  ]
+  const outLabels = ['one digit 0–9', 'two digits 00–99', 'a count — 1000! ends in 249 zeros', 'one class mod lcm(m, n)']
+  const entryY = [140, 160, 200, 220]
+  // input lanes
+  for (let i = 0; i < 4; i++) {
+    const y = laneY[i]
+    parts.push(`<rect x="20" y="${y}" width="220" height="44" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.4"/>`)
+    parts.push(
+      `<text x="130" y="${y + 27}" font-size="12" fill="#123f35" text-anchor="middle" font-weight="600">${inLabels[i]}</text>`
+    )
+    parts.push(`<line x1="242" y1="${y + 22}" x2="273" y2="${entryY[i]}" stroke="#9a6b2f" stroke-width="1.5"/>`)
+    arrowHead(277, entryY[i] + (entryY[i] - (y + 22)) * 0.04, 277 - 242, entryY[i] - (y + 22), '#9a6b2f')
+    // output lane
+    parts.push(`<rect x="500" y="${y}" width="200" height="44" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.4"/>`)
+    parts.push(
+      `<text x="600" y="${y + 27}" font-size="12" fill="#123f35" text-anchor="middle" font-weight="600">${outLabels[i]}</text>`
+    )
+    parts.push(`<line x1="474" y1="${entryY[i]}" x2="495" y2="${y + 22}" stroke="#9a6b2f" stroke-width="1.5"/>`)
+    arrowHead(499, y + 22 + 0.5, 499 - 474, y + 22 - entryY[i], '#9a6b2f')
+  }
+  // the engine box
+  parts.push('<rect x="280" y="120" width="190" height="120" rx="10" fill="#f5eddd" stroke="#9a6b2f" stroke-width="2"/>')
+  parts.push(
+    '<text x="375" y="150" font-size="13.5" fill="#9a6b2f" text-anchor="middle" font-weight="700">ℤ/mℤ — one engine</text>'
+  )
+  parts.push(
+    '<text x="375" y="178" font-size="11.5" fill="#123f35" text-anchor="middle" font-weight="600">reduce → compute → lift back</text>'
+  )
+  parts.push('<text x="375" y="198" font-size="11.5" fill="#6b7a72" text-anchor="middle">cycles · inverses · chains</text>')
+  parts.push('<text x="375" y="222" font-size="11" fill="#6b7a72" text-anchor="middle">a finite system from the map</text>')
+  // footer
+  parts.push(
+    '<text x="360" y="345" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">the same three moves every time: name the modulus, compute inside, lift the verdict back</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure (10.3): the Legendre 5-chain for 1000! — six boxes (1000 →    */
+/* 200 → 40 → 8 → 1 → 0) with /5 arrows in the 20px gaps, the sum line  */
+/* 200 + 40 + 8 + 1 = 249, three counting annotations and a two-line    */
+/* footer with the base-5 digit-sum cross-check. viewBox 720×300;       */
+/* boxes x = 20/130/240/350/460/570 (w 90, h 52) at y = 60 — section V. */
+/* ------------------------------------------------------------------ */
+
+function legendreChainSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Legendre chain for 1000 factorial: divide by five repeatedly from 1000 to 200, 40, 8, 1 and 0; the levels sum to 249 trailing zeros, matching the base-5 digit-sum cross-check">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="300" fill="transparent"/>')
+  const bx = [20, 130, 240, 350, 460, 570]
+  const vals = ['1000', '200', '40', '8', '1', '0']
+  for (let i = 0; i < 6; i++) {
+    parts.push(`<rect x="${bx[i]}" y="60" width="90" height="52" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.5"/>`)
+    parts.push(
+      `<text x="${bx[i] + 45}" y="92" font-size="15" fill="#123f35" text-anchor="middle" font-weight="700">${vals[i]}</text>`
+    )
+  }
+  for (let i = 0; i < 5; i++) {
+    const x0 = bx[i] + 92
+    const x1 = bx[i] + 107
+    parts.push(`<line x1="${x0}" y1="86" x2="${x1}" y2="86" stroke="#9a6b2f" stroke-width="1.5"/>`)
+    parts.push(`<path d="M ${x1 + 3} 86 L ${x1 - 4} 82 L ${x1 - 4} 90 Z" fill="#9a6b2f"/>`)
+    parts.push(
+      `<text x="${bx[i] + 100}" y="76" font-size="12" fill="#9a6b2f" text-anchor="middle" font-weight="600">/5</text>`
+    )
+  }
+  parts.push(
+    '<text x="360" y="150" font-size="13" fill="#123f35" text-anchor="middle" font-weight="700">200 + 40 + 8 + 1 = 249 trailing zeros</text>'
+  )
+  parts.push(
+    '<text x="360" y="176" font-size="11.5" fill="#6b7a72" text-anchor="middle">each level counts multiples of 5, 25, 125, 625 — a multiple of 25 pays twice,</text>'
+  )
+  parts.push(
+    '<text x="360" y="194" font-size="11.5" fill="#6b7a72" text-anchor="middle">of 125 three times, of 625 four times (625 = 5·5·5·5); stop: ⌊1/5⌋ = 0</text>'
+  )
+  parts.push(
+    '<text x="360" y="250" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">cross-check by name: 1000 = 13000₅ → digit sum 4 → (1000 − 4) ÷ 4 = 249</text>'
+  )
+  parts.push(
+    '<text x="360" y="272" font-size="11.5" fill="#6b7a72" text-anchor="middle">the quotient chain that NAMES 1000 in base 5 is the same chain that COUNTS its zeros</text>'
+  )
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
 
 export const chapter10: Chapter = {
   number: 10,
@@ -252,7 +374,7 @@ export const chapter10: Chapter = {
   title: 'The Map of Number Systems',
   summary:
     'The synthesis: the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ drawn as one story of repaired failures; congruence arithmetic at work guarding data (casting out nines as an error detector, the mod-11 checksum scheme); and the competitive-arithmetic toolkit — unit digits, factorial zeros, base conversions, remainder chains — unified as one congruence engine.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'ans-the-great-extension-story',
@@ -1223,6 +1345,554 @@ export const chapter10: Chapter = {
         { kind: 'formula', name: 'The mod-9 transposition blindness', latex: 'N\' - N = -9 \\cdot 10^{k} (d_{k+1} - d_k) \\equiv 0 \\pmod 9', note: 'every adjacent swap survives casting out nines — and the substitution 0↔9 slips too: 88/90 and 0/45' },
       ],
     },
+    {
+      id: 'ans-the-toolkit-synthesis',
+      number: '10.3',
+      title: 'The Toolkit Synthesis',
+      prerequisites: [
+        'ans-unit-digit-cycles-of-powers',
+        'ans-linear-congruences-glimpse-of-fermat',
+        'ans-converting-between-bases',
+        'ans-remainders-become-numbers-congruence-defined',
+        'ans-numbers-that-guard-data-checksums-and-casting-out-nines',
+      ],
+      sources: ['khattar-qa-4e', 'legendre-1808-essai', 'sunzi-suanjing-crt', 'gauss-1801-disquisitiones'],
+      concepts: [
+        'The toolkit engine',
+        'Unit digit',
+        'Exponent reduction',
+        "Legendre's formula",
+        'Trailing zeros',
+        'Digit-sum law',
+        'Quotient-remainder chain',
+        'Remainder vector',
+      ],
+      objectives: [
+        'state the one-engine thesis: every competitive-arithmetic tool is a congruence computation inside a finite number system ℤ/mℤ',
+        'compute unit digits and last-two-digits of astronomical powers by cycle and exponent reduction, including the honest non-coprime case',
+        "derive Legendre's formula from the multiple-counting chain, compute trailing zeros of n!, and prove the digit-sum identity Z(n) = (n − s₅(n))/4",
+        'run base conversions as quotient-remainder chains and prove the general digit-sum law N ≡ s_b(N) (mod b − 1) — casting out (b − 1)s in any base',
+        'assemble double-remainder problems as CRT instances and read the CRT isomorphism as "a number is its remainder vector"',
+        'read the whole book as one map: structures (10.1), guards (10.2), navigation (10.3)',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text:
+            'Every craft hands its apprentice a bag of tricks. The arithmetic of competitive examinations is no exception: **the unit digit** of some astronomical power, **the trailing zeros** of some factorial, a **conversion** into some alien base, a number that "leaves remainder 3 when divided by 8 and 6 when divided by 11". Four tricks, four chapters of drill in any preparation shelf — and yet a single idea runs all four, and it is the idea this whole book has been building. Each trick is a **congruence computation inside a finite number system** — one of the $\\mathbb{Z}/m\\mathbb{Z}$ systems that lesson 10.1 placed on the map and lesson 10.2 caught guarding barcodes. This closing lesson shows the four tricks paying rent to one landlord.',
+        },
+        {
+          kind: 'para',
+          text:
+            'The pieces are already yours. Lesson 5.3 taught the unit-digit cycles and why they must close; lesson 5.4 built the Chinese remainder machinery and glimpsed Fermat; chapter 3 converted between bases by repeated division. What was never assembled is the view from above — and the view is the punchline of the book. The ladder $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$ of lesson 10.1 is the story of systems built to repair failures; the check digits of lesson 10.2 are those systems standing guard; and the toolkit of this lesson is those systems **navigating** — doing small, fast, lawful work on questions whose direct computation would be absurd. Three readings, one map. We begin with the engine itself.',
+        },
+        { kind: 'heading', text: 'One Engine, Four Tools' },
+        {
+          kind: 'para',
+          text:
+            'Here is the engine, stated once and used all lesson. To answer a hard question about a big number $N$, pick a modulus $m$ and work instead with the residue $N \\bmod m$ — a small number between $0$ and $m - 1$. The move is **lawful** because of the congruence laws of lesson 5.1, which deserve their engine name stated in full:',
+        },
+        {
+          kind: 'equation', latex: '(a + b) \\bmod m = \\big((a \\bmod m) + (b \\bmod m)\\big) \\bmod m, \\qquad (a \\cdot b) \\bmod m = \\big((a \\bmod m) \\cdot (b \\bmod m)\\big) \\bmod m \\tag{1}',
+          note: 'the reduction licence: sums and products of residues compute the residue of the sum and product — chapter 5.1\'s laws, now igniting the engine',
+        },
+        {
+          kind: 'para',
+          text:
+            'Why is this the whole game? Because a residue is **small**. The number $2^{2024}$ has 609 digits; its residue in $\\mathbb{Z}/10\\mathbb{Z}$ is one digit, and its residue in $\\mathbb{Z}/100\\mathbb{Z}$ is two. The licence says the small computations and the huge one agree wherever they overlap — the residue of a sum or product can be computed from the residues alone, with no peeking at the full numbers. So the engine\'s three moves are always the same: **name the modulus** (which finite system owns this question?), **compute inside** (cycles, inverses, chains — all small), and **lift back** (read the residue as the answer). The run-65 verifier spent 114 checks rehearsing these three moves on every number below; nothing in this lesson is trusted to memory.',
+        },
+        {
+          kind: 'figure', caption: 'The one-engine map: the four toolkit questions enter on the left, each names its finite system, the engine computes inside, and the verdicts exit on the right. The lane labels are the moduli — ℤ/10ℤ for unit digits, ℤ/100ℤ for last pairs, the 5-chain for trailing zeros, the CRT grid for remainder hunts.', svg: toolkitEngineSvg() },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'One engine, not four tricks',
+          text:
+            'Unit digits compute in $\\mathbb{Z}/10\\mathbb{Z}$; last two digits in $\\mathbb{Z}/100\\mathbb{Z}$; trailing zeros run the quotient chain of 5 — the same remainders that name $n$ in base 5; and double-remainder hunts meet on the CRT grid. Four costumes, one three-move pattern: name the modulus, compute inside, lift back. When a preparation book drills these as four unrelated tricks, it hides the very thing that makes them reliable — they are theorems of one subject, not folklore of four.',
+        },
+        {
+          kind: 'para',
+          text:
+            'One worked taste before the systematic pass. The last digit of $2^{2024}$: the cycle of 2 is $(2, 4, 8, 6)$, period 4, and $2024 \\equiv 0 \\pmod 4$ — the fourth entry of the cycle, which is **6**. Three moves: the modulus 10 was named, the computation was the single remainder $2024 \\bmod 4$, the verdict lifted back is a digit. The rest of this lesson is that one line, run four ways — starting with the lane it came from.',
+        },
+        { kind: 'heading', text: 'Unit Digits and Last Two Digits: Computing in ℤ/10ℤ and ℤ/100ℤ' },
+        {
+          kind: 'para',
+          text:
+            'Lesson 5.3 proved the two facts that power this lane: power sequences must eventually cycle (pigeonhole — only $m$ stations exist, so some residue repeats, and the wheel closes), and for bases whose cycles close cleanly the answer to "unit digit of $a^n$" is the $((n - 1) \\bmod p) + 1$-th entry of the cycle of period $p$. The full census in $\\mathbb{Z}/10\\mathbb{Z}$, swept again by the verifier at every exponent up to 400, is worth one glance as a table — it is the whole lane in six rows.',
+        },
+        {
+          kind: 'table', caption: 'The unit-digit cycles of ℤ/10ℤ (verifier section P re-swept every row to n = 400)', head: ['Base digit $a$', 'The cycle', 'Period $p$', 'Reading the entry for $a^n$'], rows: [
+            ['$2$', '$(2, 4, 8, 6)$', '$4$', '$n \\equiv 1, 2, 3, 0 \\pmod 4$ → 2, 4, 8, 6'],
+            ['$3$', '$(3, 9, 7, 1)$', '$4$', '$n \\equiv 1, 2, 3, 0 \\pmod 4$ → 3, 9, 7, 1'],
+            ['$7$', '$(7, 9, 3, 1)$', '$4$', '$n \\equiv 1, 2, 3, 0 \\pmod 4$ → 7, 9, 3, 1'],
+            ['$8$', '$(8, 4, 2, 6)$', '$4$', '$n \\equiv 1, 2, 3, 0 \\pmod 4$ → 8, 4, 2, 6'],
+            ['$4$', '$(4, 6)$', '$2$', 'odd $n$ → 4, even $n$ → 6'],
+            ['$9$', '$(9, 1)$', '$2$', 'odd $n$ → 9, even $n$ → 1'],
+          ] },
+        {
+          kind: 'para',
+          text:
+            'The fixed points complete the census: $0, 1, 5, 6$ have period 1 — every power of 5 ends in 5, every power of 6 ends in 6. One rung up, the same lane answers a harder question: the **last two digits**. The modulus is now 100, the wheel has 100 stations, and the method is unchanged — scan the powers $a^1, a^2, a^3, \\ldots$ inside $\\mathbb{Z}/100\\mathbb{Z}$ until the wheel returns to where it started. For bases coprime to 100 the wheel returns to **1** (the engine\'s multiplicative identity, station 1); the number of turns is called the **order** of $a$ modulo 100, and once it is known, exponents reduce modulo it exactly as they did modulo 4. The exhibit that pays for the whole lane:',
+        },
+        {
+          kind: 'example', title: 'Unit digit and last two digits of $7^{2024}$',
+          steps: [
+            'Unit digit, in $\\mathbb{Z}/10\\mathbb{Z}$: the cycle of 7 is $(7, 9, 3, 1)$, period 4.',
+            '$2024 = 4 \\cdot 506$, so $2024 \\equiv 0 \\pmod 4$ — the 4th cycle entry.',
+            'The 4th entry of $(7, 9, 3, 1)$ is $1$: the unit digit is **1**.',
+            'Now $\\mathbb{Z}/100\\mathbb{Z}$: scan — $7^1 = 7$, $7^2 = 49$, $7^3 = 343 \\equiv 43$, $7^4 = 2401 \\equiv 1 \\pmod{100}$.',
+            'The order of 7 modulo 100 is exactly 4 (the verifier confirmed no earlier return to station 1).',
+            'So $7^{2024} = (7^4)^{506} \\equiv 1^{506} \\equiv 1 \\pmod{100}$: the last two digits are **01**.',
+            'Hence the unit digit is **1** and the last two digits are **01** — the $\\mathbb{Z}/100\\mathbb{Z}$ verdict contains the $\\mathbb{Z}/10\\mathbb{Z}$ verdict, exactly as each ladder rung contains the rung below it.',
+          ],
+        },
+        {
+          kind: 'para',
+          text:
+            'Not every base is so polite. When $\\gcd(a, 100) > 1$ no power of $a$ can be coprime to 100, so the wheel **never returns to station 1** — but pigeonhole still forces *some* repeat, and the honest method is to scan until the first repeat and read the period off that. The verifier ran the scan: no $k \\le 500$ has $2^k \\equiv 1 \\pmod{100}$, yet from the second turn onward the wheel of 2 closes with period 20 — $2^{n + 20} \\equiv 2^n \\pmod{100}$ for every $n \\ge 2$. The lesson\'s second exhibit shows the honest reduction at work.',
+        },
+        {
+          kind: 'example', title: 'The non-coprime case: unit digit and last two digits of $2^{2024}$',
+          steps: [
+            'Unit digit, first: the cycle of 2 is $(2, 4, 8, 6)$ and $2024 \\equiv 0 \\pmod 4$ — the 4th entry, **6**.',
+            'Last two digits: $\\gcd(2, 100) = 2$, so no power of 2 ever lands back on station 1 — the order does not exist.',
+            'The wheel still closes (pigeonhole, lesson 5.3): the verifier swept $2^{n + 20} \\equiv 2^n \\pmod{100}$ for every $n$ from 2 to 180.',
+            'Reduce from the stable floor: $2024 = 4 + 20 \\cdot 101$, so $2^{2024} \\equiv 2^4 = 16 \\pmod{100}$.',
+            'Hence the unit digit is **6** and the last two digits are **16** — and the check agrees: $2^4 = 16$ ends in 6, the two lanes confirming each other.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Caution — the non-coprime case has no station 1',
+          text:
+            'When $a$ shares a factor with the modulus, "reduce the exponent modulo the order" is **meaningless** — there is no order. The lawful substitute: scan until the first *repeat* (not until 1), find the period from that repeat, and reduce only exponents that sit at or beyond the stable floor. For $2$ in $\\mathbb{Z}/100\\mathbb{Z}$ the floor is $n = 2$ and the period is 20. The same honesty governs the squares census of lesson 5.3 — squares never end in 2, 3, 7 or 8 — which is the wheel read backward: six stations (0, 1, 4, 5, 6, 9) are attainable, four are not.',
+        },
+        {
+          kind: 'para',
+          text:
+            'Powers, though, are not the only place the engine earns its keep. The next lane asks a counting question about the factorial — and discovers that the tool it needs is a chain of remainders that this book has met twice already under two different names.',
+        },
+        { kind: 'heading', text: "Trailing Zeros: Legendre's Chain" },
+        {
+          kind: 'para',
+          text:
+            'How many zeros end the number $1000!$? Multiplying it out is hopeless — $1000!$ has 2,568 digits (the run-65 verifier computed it exactly once, so this lesson could count honestly). But a trailing zero is a factor $10 = 2 \\cdot 5$: zeros are born when a 2 and a 5 pair up inside the product $1 \\cdot 2 \\cdots n$. So the question becomes a **census**: how many complete pairs of 2s and 5s live in $n!$?',
+        },
+        {
+          kind: 'callout',
+          tone: 'definition',
+          title: 'The exponent of a prime — the p-factor census',
+          text:
+            'For a prime $p$ and a positive integer $N$, the **exponent of $p$ in $N$** — written $v_p(N)$ — is the largest $k$ with $p^k \\mid N$: how many copies of $p$ the factorization of $N$ carries. In $100!$ the census runs $v_2(100!) = 50 + 25 + 12 + 6 + 3 + 1 = 97$ and $v_5(100!) = 20 + 4 = 24$ — ninety-seven 2s against twenty-four 5s. The fundamental theorem of arithmetic (chapter 4) guarantees these counts are well defined; the chain about to be derived computes them without ever building $N$.',
+        },
+        {
+          kind: 'para',
+          text:
+            'Which prime is the bottleneck? Every multiple of 5 in $1, \\ldots, n$ carries plenty of 2s alongside, so the 5s run out first — the zeros count is $v_5(n!)$. The one-line reason $v_2(n!) \\ge v_5(n!)$ always: $2^k \\le 5^k$, so $\\lfloor n/2^k \\rfloor \\ge \\lfloor n/5^k \\rfloor$ at every level, and summing preserves the inequality (exercise L6-1 proves it properly; the verifier swept $n \\le 5000$ with no counterexample). The derivation that remains is the chain itself — how to count the 5s in $n!$ without building $n!$.',
+        },
+        {
+          kind: 'derivation', title: "Legendre's formula: the exponent of p in n!", statement: 'The exponent of the prime $p$ in $n!$ is the chain of floors $v_p(n!) = \\sum_{k \\ge 1} \\left\\lfloor \\dfrac{n}{p^k} \\right\\rfloor$ — divide by $p$, keep the quotient, divide again, until the quotient hits 0.', steps: [
+            { label: 'Count contributions, not products', formula: '\\text{each multiple of } p \\text{ in } 1..n \\text{ donates one } p;\\ \\text{each multiple of } p^2 \\text{ a second};\\ p^3 \\text{ a third}', explanation: 'A census of factors, not a computation of the factorial: the exponent of p in n! is the total number of p-factors carried by the numbers 1 through n combined.' },
+            { label: 'The level counts are floors', formula: '\\#\\{\\text{multiples of } p^k \\text{ in } 1..n\\} = \\left\\lfloor n / p^k \\right\\rfloor', explanation: 'The multiples of p^k are p^k, 2p^k, 3p^k, … and the last one is ⌊n/p^k⌋·p^k — chapter 2\'s division algorithm naming the count directly.' },
+            { label: 'Each factor is counted once per level it reaches', formula: 'v_p(m) = j \\iff p^j \\mid m,\\ p^{j+1} \\nmid m \\iff m \\text{ is counted at levels } 1, \\ldots, j \\text{ and no further}', explanation: 'A number carrying j copies of p is a multiple of p^k exactly for k ≤ j, so summing the level counts credits each of its j factors exactly once — no double counting, no omissions.' },
+            { label: 'Sum the levels', formula: 'v_p(n!) = \\sum_{k \\ge 1} \\left\\lfloor \\frac{n}{p^k} \\right\\rfloor', explanation: 'The floors form a chain — n ÷ p, quotient ÷ p again, … — which terminates because the quotients shrink strictly until 0. It is the quotient-remainder chain of chapter 3, doing census work instead of naming work.' },
+          ], result: "Legendre's formula: the exponent of p in n! is ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + … — a remainder chain counting multiples. Applied at p = 5 it counts trailing zeros; applied at p = 2 it certifies the 5s are the bottleneck." },
+        {
+          kind: 'figure', caption: 'The Legendre chain for 1000!: each ÷5 step keeps the quotient, and the four nonzero levels sum to 249. The cross-check reads the same chain from the other side — 1000\'s base-5 name 13000₅ has digit sum 4, and (1000 − 4)/4 = 249.', svg: legendreChainSvg() },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'Legendre 1808 and de Polignac 1849',
+          text:
+            'Adrien-Marie Legendre stated the exponent formula in the second edition (1808) of his *Essai sur la théorie des nombres*, as part of his program of explicit counting in number theory; Alphonse de Polignac arrived at it independently in 1849, and some texts still call it de Polignac\'s formula. The form the competitive syllabus drills — the chain of floors — is exactly the 1808 statement; the digit-sum form proved below is its mirror in the base-$p$ name. As with casting out nines, an exam trick and a research tool are the same theorem wearing different coats.',
+        },
+        {
+          kind: 'example', title: 'Trailing zeros of 1000! — the chain, and the digit-sum cross-check',
+          steps: [
+            'Chain: $\\lfloor 1000/5 \\rfloor = 200$, $\\lfloor 1000/25 \\rfloor = 40$, $\\lfloor 1000/125 \\rfloor = 8$, $\\lfloor 1000/625 \\rfloor = 1$, $\\lfloor 1000/3125 \\rfloor = 0$ — stop.',
+            'Read the levels as a census: 200 multiples of 5 pay one zero each; 40 multiples of 25 pay a second; 8 multiples of 125 a third; 1 multiple of 625 (= 5·5·5·5) a fourth.',
+            'Sum: $200 + 40 + 8 + 1 = 249$ zeros.',
+            'Cross-check by NAME: $1000 = 13000_5$ (chain: $1000 = 5 \\cdot 200 + 0$, $200 = 5 \\cdot 40 + 0$, $40 = 5 \\cdot 8 + 0$, $8 = 5 \\cdot 1 + 3$, $1 = 5 \\cdot 0 + 1$), so $s_5(1000) = 1 + 3 = 4$.',
+            'The digit-sum identity (derived below) then gives $Z = (1000 - 4)/4 = 249$ — a second engine, the same verdict.',
+            'Hence $1000!$ ends in exactly **249** zeros — chain $200 + 40 + 8 + 1$, cross-check $(1000 - 4)/4$.',
+            'And the check hides the punchline: the quotient chain that NAMES 1000 in base 5 — 200, 40, 8, 1 — is the very chain that COUNTS its zeros.',
+          ],
+        },
+        {
+          kind: 'derivation', title: 'The digit-sum identity: Z(n) = (n − s₅(n))/4', statement: 'The trailing-zero count of $n!$ can be read off the base-5 name of $n$ alone: $v_5(n!) = \\dfrac{n - s_5(n)}{4}$, where $s_5(n)$ is the sum of the digits of $n$ written in base 5.', steps: [
+            { label: 'Write n by its base-5 name', formula: 'n = d_0 + 5 d_1 + 25 d_2 + \\cdots = \\sum_{i \\ge 0} d_i\\, 5^i', explanation: 'The representation theorem of chapter 3: one name, unique digits d_i in 0..4.' },
+            { label: 'Flooring kills the low digits', formula: '\\left\\lfloor n / 5^k \\right\\rfloor = d_k + 5 d_{k+1} + 25 d_{k+2} + \\cdots', explanation: 'Dividing by 5^k shifts the name down k places; the floor discards the k digits that fall below the new units place.' },
+            { label: 'Sum the chain and collect each digit', formula: '\\sum_{k \\ge 1} \\left\\lfloor \\frac{n}{5^k} \\right\\rfloor = \\sum_{i \\ge 1} d_i \\big(1 + 5 + 25 + \\cdots + 5^{i-1}\\big) = \\sum_{i \\ge 1} d_i \\, \\frac{5^i - 1}{4}', explanation: 'The digit d_i appears at every level k ≤ i, each time weighted by the place value one notch lower: the geometric sum telescopes to (5^i − 1)/4.' },
+            { label: 'Split the geometric sum', formula: '\\sum_{i \\ge 1} d_i \\frac{5^i - 1}{4} = \\frac{1}{4} \\Big(\\sum_{i \\ge 0} d_i 5^i - \\sum_{i \\ge 0} d_i\\Big) = \\frac{n - s_5(n)}{4}', explanation: 'The first inner sum is n itself (the i = 0 digit contributes (5^0 − 1)/4 = 0, harmless); the second is the digit sum s₅(n).' },
+          ], result: 'Z(n) = (n − s₅(n))/4: the zeros of n! are an additive fingerprint of the base-5 NAME of n. A multiplicative census answered by the digits of the input — lesson 10.1\'s map in miniature, with the base-5 naming system doing the work.' },
+        {
+          kind: 'table', caption: 'The factorial ledger — every entry verified in verifier sections Q and U', head: ['$n$', 'The 5-chain', '$Z(n)$', 'Base-5 name', '$s_5(n)$', '$(n - s_5)/4$'], rows: [
+            ['$25$', '$5 + 1$', '$6$', '$100_5$', '$1$', '$6$'],
+            ['$100$', '$20 + 4$', '$24$', '$400_5$', '$4$', '$24$'],
+            ['$250$', '$50 + 10 + 2$', '$62$', '$2000_5$', '$2$', '$62$'],
+            ['$1000$', '$200 + 40 + 8 + 1$', '$249$', '$13000_5$', '$4$', '$249$'],
+            ['$2024$', '$404 + 80 + 16 + 3$', '$503$', '$31044_5$', '$12$', '$503$'],
+          ] },
+        {
+          kind: 'para',
+          text:
+            'Read the ledger\'s last two columns together: the digit-sum identity is not a lucky coincidence of round numbers — it held on every $n$ the verifier swept to 2000, and the derivation shows why it must hold forever. The 2024 row is the showpiece: the same integer that opens the chapter (ladder-friendly, checksum-friendly) closes it with a base-5 name whose digit sum pays for the whole factorial census. One more costume change and the synthesis is complete: the chain that names numbers and counts their factorials is also the chain that converts bases.',
+        },
+        { kind: 'heading', text: 'Base Conversions: the Division Algorithm Drawn as a Chain' },
+        {
+          kind: 'para',
+          text:
+            'Chapter 3 taught conversions as a procedure: to write $n$ in base $b$, divide by $b$ repeatedly and read the remainders bottom-up. The procedure is the **division algorithm** of chapter 2 run as a loop — quotient feeds the next division, remainder is the next digit. What this lesson adds is the recognition: that loop is the **same chain** as Legendre\'s. The quotients of $n \\div 5$ counted the zeros of $n!$; the remainders of the very same divisions name $n$ in base 5. Quotients count, remainders name — one algorithm, two harvests. The exhibit runs the chain in a base nobody drilled in school.',
+        },
+        {
+          kind: 'example', title: '2024 in base 12 — the chain, the check, and the free congruence',
+          steps: [
+            'Chain: $2024 = 12 \\cdot 168 + 8$; $168 = 12 \\cdot 14 + 0$; $14 = 12 \\cdot 1 + 2$; $1 = 12 \\cdot 0 + 1$.',
+            'The remainders, read bottom-up: 1, 2, 0, 8 — so $2024 = 1208_{12}$.',
+            'Check by place values: $1 \\cdot 1728 + 2 \\cdot 144 + 0 \\cdot 12 + 8 = 1728 + 288 + 8 = 2024$.',
+            'Free congruence: the digit sum is $1 + 2 + 0 + 8 = 11$, and the digit-sum law (next derivation) says $2024 \\equiv 11 \\equiv 0 \\pmod{11}$ — so 11 divides 2024.',
+            'Hence $2024 = 1208_{12}$ — place check $1728 + 288 + 0 + 8$ — with the bonus verdict $11 \\mid 2024$ paid by the same chain.',
+          ],
+        },
+        {
+          kind: 'derivation', title: 'The digit-sum law: N ≡ s_b(N) (mod b − 1)', statement: 'In every base $b$, a number is congruent to the sum of its digits modulo $b - 1$: $N \\equiv s_b(N) \\pmod{b - 1}$. Casting out nines is the $b = 10$ case of a law about all bases.', steps: [
+            { label: 'Every place value is 1, modulo b − 1', formula: 'b \\equiv 1 \\pmod{b - 1} \\implies b^k \\equiv 1^k \\equiv 1 \\pmod{b - 1}', explanation: 'The whole force of the law sits in this one line: no matter how high the place, its value collapses to 1 inside ℤ/(b−1)ℤ.' },
+            { label: 'Condense the name', formula: 'N = d_0 + d_1 b + d_2 b^2 + \\cdots \\equiv d_0 + d_1 + d_2 + \\cdots = s_b(N) \\pmod{b - 1}', explanation: 'Each digit keeps its coefficient\'s identity while its place value collapses — the string condenses to its digit sum, exactly as lesson 10.2 condense strings in ℤ/9ℤ.' },
+            { label: 'The b = 10 case is the school canon', formula: 'N \\equiv s_{10}(N) \\pmod 9', explanation: 'The digit-sum tests for 3 and 9 of lesson 5.2, and the casting-out-nines engine of 10.2 — the engine behind every ISBN and Luhn check digit.' },
+            { label: 'The other bases inherit the test', formula: 'b = 12: \\text{ test for } 11; \\quad b = 16: \\text{ test for } 15; \\quad b = 2: \\text{ test for } 1 — \\text{parity itself}', explanation: 'A modular test comes free with every base you adopt: the modulus is always one less than the base. The exhibit\'s bonus verdict (11 | 2024 from 1208₁₂) was this line at b = 12.' },
+          ], result: 'Casting out nines was never about nine: it is casting out (b − 1)s in whatever base you write. The exam trick of one shelf is a theorem of this one — and the check digits of lesson 10.2 are the b = 10 instance hired as a guard.' },
+        {
+          kind: 'para',
+          text:
+            'The hex lane shows machine and law agreeing on our standing exhibit. Chapter 3\'s nibble machine regroups $2024 = 11111101000_2$ (place sum $1024 + 512 + 256 + 128 + 64 + 32 + 8$) into four-bit blocks — padded $0111\\ 1110\\ 1000$ — and reads $7, 14, 8$: so $2024 = 7\\mathrm{E}8_{16}$, checked by place values $1792 + 224 + 8$. The digit-sum law at $b = 16$ then tests 15 for free: $s_{16}(2024) = 7 + 14 + 8 = 29 \\equiv 14 \\pmod{15}$, and indeed $2024 = 134 \\cdot 15 + 14$. Every conversion is a chain; every chain leaves a congruence as change.',
+        },
+        { kind: 'heading', text: 'Remainder Chains: the CRT Verdict' },
+        {
+          kind: 'para',
+          text:
+            'The last lane is the one the exam papers phrase as a story: "*find the smallest number that leaves remainder 3 when divided by 8 and remainder 6 when divided by 11*". Lesson 5.4 built the machinery — congruences as equations, inverses by Bézout, the Chinese remainder theorem with its coprime-moduli guarantee. What was not said there is what the map lets us say now: the answer is not a lucky number; it is an **address**. A pair of congruences is a pair of coordinates, and the CRT says the coordinates address the classes of $\\mathbb{Z}/88\\mathbb{Z}$ one-to-one. Two hunts, then the identification.',
+        },
+        {
+          kind: 'example', title: 'The double-remainder hunt, twice',
+          steps: [
+            'Hunt 1: $N \\equiv 3 \\pmod 8$, $N \\equiv 6 \\pmod{11}$. Write $N = 8k + 3$; then $8k + 3 \\equiv 6 \\pmod{11}$, so $8k \\equiv 3 \\pmod{11}$.',
+            'The inverse of 8 modulo 11 is 7 (since $8 \\cdot 7 = 56 \\equiv 1$), so $k \\equiv 7 \\cdot 3 = 21 \\equiv 10 \\pmod{11}$.',
+            'So $N = 8 \\cdot 10 + 3 = 83$; check $83 = 11 \\cdot 7 + 6$. The full class is $83 + 88k$ — 88 = lcm(8, 11).',
+            'Hunt 2 (the ladder classic): $N \\equiv 1$ on division by 2, 3, 4 and 5 — one condition, $N \\equiv 1 \\pmod{60}$ — and $N$ a multiple of 7.',
+            'The candidates form a remainder chain: 1, 61, 121, 181, 241, 301, … — scan for the multiple of 7.',
+            'Hence Hunt 1 lands on **83** (class $83 + 88k$) and Hunt 2 on **301** (class $301 + 420k$, next member 721) — and $301 = 7 \\cdot 43$ while $721 = 60 \\cdot 12 + 1 = 7 \\cdot 103$ cash the conditions.',
+          ],
+        },
+        {
+          kind: 'derivation', title: 'A number is its remainder vector', statement: 'For coprime $m$ and $n$, the address map $N \\mapsto (N \\bmod m,\\ N \\bmod n)$ is a bijection from the $mn$ classes of $\\mathbb{Z}/mn\\mathbb{Z}$ onto the pair grid $\\mathbb{Z}/m\\mathbb{Z} \\times \\mathbb{Z}/n\\mathbb{Z}$: every pair names exactly one class, and every class has exactly one address.', steps: [
+            { label: 'No two classes share an address', formula: "(N \\equiv N' \\bmod m) \\wedge (N \\equiv N' \\bmod n) \\implies mn \\mid N - N'", explanation: 'Both m and n divide the difference N − N′; they are coprime, so their product divides it too — chapter 2\'s lcm theorem doing the lifting. Distinct classes in 0..mn−1 cannot collide.' },
+            { label: 'Counting forces the bijection', formula: '\\#\\{\\text{classes}\\} = mn = \\#\\{\\text{pairs}\\} \\implies \\text{distinctness} = \\text{surjectivity}', explanation: 'mn classes map injectively into a grid of exactly mn addresses: nothing is missed. The verifier swept every coprime pair (m, n) up to 30 — over a hundred pairs, every vector hit exactly once.' },
+            { label: 'The exhibit addresses cash in', formula: '(3 \\bmod 8,\\ 6 \\bmod 11) \\leftrightarrow 83 \\pmod{88}, \\qquad (1 \\bmod 60,\\ 0 \\bmod 7) \\leftrightarrow 301 \\pmod{420}', explanation: 'Both hunts of the example were address lookups: solve the congruence, land on the class, and the family N + lcm·k is the whole street.' },
+            { label: 'The honest edge is the non-coprime case', formula: '\\gcd(m, n) = g > 1: \\text{ solvable} \\iff g \\mid (b - a)', explanation: 'Without coprimality the grid has blind addresses — a solution exists exactly when the two remainders agree modulo the shared factor. The verifier swept all m, n ≤ 40 against this criterion; lesson 5.4 proved it.' },
+          ], result: 'The CRT is lesson 10.1\'s ladder rung built sideways: instead of extending a system, it splits one — and the two views are one theorem. "Find the smallest N with…" is not a search along the number line; it is navigation on a finite grid, and the grid is a number system on the map.' },
+        {
+          kind: 'para',
+          text:
+            'Look back one last time and the chain closes on itself. Legendre\'s chain $\\lfloor n/5 \\rfloor, \\lfloor n/25 \\rfloor, \\ldots$ is the quotient sequence of $n \\div 5$; the base-5 digits are the remainder sequence of the same divisions; the CRT hunts are remainder conditions stacked into an address. **Trailing zeros, base names, remainder hunts — three costumes of one chain**, and the chain is the division algorithm, the first theorem of chapter 2. The whole toolkit of the examination shelf stands on the same ground the whole book stood on.',
+        },
+        { kind: 'heading', text: 'The Book in One Page' },
+        {
+          kind: 'para',
+          text:
+            'Ten chapters compress to one paragraph. Chapter 1 rebuilt counting from the successor and proved induction; chapter 2 drew the division algorithm and its two by-products, Bézout and Diophantus; chapter 3 made positional naming a theorem for every base; chapter 4 proved the fundamental theorem of arithmetic and met the primes\' endlessness; chapter 5 turned remainders into a full arithmetic of congruences. Then the map of lesson 10.1: chapter 6 built $\\mathbb{Z}$ because subtraction failed, chapter 7 built $\\mathbb{Q}$ because division failed, chapter 8 built $\\mathbb{R}$ because roots failed — each rung embedded, each embedding preserving the laws. Chapter 9 let the historical systems show the same ideas being found by hand. And this chapter read the finished map three ways: as **structure** (10.1), as **guard** (10.2), as **navigation** (10.3).',
+        },
+        {
+          kind: 'para',
+          text:
+            'Notice what the three readings share. In each, a finite or structured system — $\\mathbb{Z}/m\\mathbb{Z}$, the ladder, the CRT grid — earns its keep by being *smaller than the problem* while remaining *lawfully faithful to it*. That is the book\'s deepest promise, kept: mathematics does not solve hard problems by brute force; it finds the system inside which the problem is easy, and proves the detour honest.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'The book in one sentence',
+          text:
+            'Numbers are not a zoo; they are one family, each member built on purpose to repair a specific failure of the last — and every practical trick of arithmetic, from unit digits to check digits, is one of those repaired systems running a small, honest, lawful computation. Structures (10.1), guards (10.2), navigation (10.3): one map.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Exam corner — the toolkit in the paper',
+          text:
+            'This lesson is the examination shelf\'s bread and butter, and the mapping is exact. CAT/IPMAT and SSC/banking quantitative sections ask: unit digits of $a^n$ (this lane, ~30 seconds with the cycle table), trailing zeros of $n!$ (the chain, one line per level), base conversions (the quotient-remainder chain, then a place-value check), and two-remainder hunts (the CRT address or a short scan). The banked reference (Khattar QA ch. 1) drills all four as separate tricks; you now hold the theorem that makes them one skill — and the time saved is the engine\'s gift: reduce, compute inside, lift back. Every number in this lesson\'s exercises was recomputed by script before you met it.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'What the map still does not show',
+          text:
+            'Three honest edges, marked as the book closes. Above the ladder: $x^2 = -1$ still gates off $\\mathbb{C}$, which no ordered system answers (10.1\'s open gate). Beyond detection: Hamming\'s correction program — locating and repairing errors, not just refusing them — is the next shelf\'s subject (10.2\'s handoff). And within this lesson: the non-coprime CRT needs its gcd criterion, the non-coprime power wheels have no station 1, and the finite systems here are shadows of a deeper structure (rings and their homomorphisms) that the Algebra and Number Theory shelves will name and reopen. The map ends where honesty ends — and every edge shown is an edge proved, not an edge avoided.',
+        },
+        {
+          kind: 'terms', items: [
+            {
+              term: 'The toolkit engine',
+              def: 'The three-move pattern behind every competitive-arithmetic trick: name the modulus $m$, compute inside $\\mathbb{Z}/m\\mathbb{Z}$ (cycles, inverses, chains), lift the residue back as the verdict. Lawful because reduction preserves addition and multiplication — the congruence laws of lesson 5.1.',
+            },
+            {
+              term: 'Unit digit',
+              def: 'The residue of a number in $\\mathbb{Z}/10\\mathbb{Z}$. Power cycles have period 4 for bases 2, 3, 7, 8; period 2 for 4 and 9; period 1 for 0, 1, 5, 6 — so any exponent reduces modulo the period before the cycle is read.',
+            },
+            {
+              term: 'Exponent reduction',
+              def: "Replacing an astronomical exponent $n$ by $n \\bmod p$ ($p$ = the cycle period) before reading the cycle — the engine's first cash payment: $7^{2024}$ needs only $2024 \\bmod 4$, and $3^{2024}$ inside $\\mathbb{Z}/100\\mathbb{Z}$ needs only $2024 \\bmod 20$.",
+            },
+            {
+              term: "Legendre's formula",
+              def: 'The exponent of the prime $p$ in $n!$ is $v_p(n!) = \\sum_{k \\ge 1} \\lfloor n/p^k \\rfloor$ — a chain of floors, each counting the multiples of $p^k$. Stated in the 1808 second edition of Legendre\'s *Essai sur la théorie des nombres*; independently by de Polignac (1849).',
+            },
+            {
+              term: 'Trailing zeros',
+              def: 'The number of zeros ending $n!$: $Z = v_5(n!)$, because $v_2(n!) \\ge v_5(n!)$ always — the 5s are the scarce factor. Readable from the base-5 name too: $Z(n) = (n - s_5(n))/4$.',
+            },
+            {
+              term: 'Digit-sum law',
+              def: '$N \\equiv s_b(N) \\pmod{b - 1}$ in every base $b$: place values collapse to 1 modulo $b - 1$. The 3/9 tests ($b = 10$), casting out nines (lesson 10.2), and the mod-11 test of base 12 are one law.',
+            },
+            {
+              term: 'Quotient-remainder chain',
+              def: "The division algorithm run as a loop: quotients drive the process, remainders are the digits of the base-$b$ name — and the quotient chain of $n \\div p$ is simultaneously Legendre's chain counting $v_p(n!)$. One chain, two harvests.",
+            },
+            {
+              term: 'Remainder vector',
+              def: 'The CRT reading of a number: for coprime $m, n$ the pair $(N \\bmod m,\\ N \\bmod n)$ addresses the $mn$ classes bijectively — a number IS where it sits in the grid. The "smallest $N$ with…" hunts are grid navigation, and the family marches by $\\operatorname{lcm}(m, n)$.',
+            },
+          ] },
+        {
+          kind: 'quiz', title: 'Check yourself', items: [
+            {
+              q: 'The unit digit of $3^{2024}$ is —',
+              options: ['1', '9', '7', '3'],
+              answer: 0,
+              explain:
+                'The cycle of 3 is (3, 9, 7, 1) with period 4, and $2024 \\equiv 0 \\pmod 4$ — the 4th entry, which is 1. Options 1, 2 and 3 are the other three stations of the same cycle, each visited by a different residue of the exponent (9 when $n \\equiv 2$, 7 when $n \\equiv 3$, 3 when $n \\equiv 1$).',
+            },
+            {
+              q: 'The number of zeros at the end of $250!$ is —',
+              options: ['50', '60', '62', '63'],
+              answer: 2,
+              explain:
+                'The chain: $\\lfloor 250/5 \\rfloor = 50$, $\\lfloor 250/25 \\rfloor = 10$, $\\lfloor 250/125 \\rfloor = 2$ — total 62. Option 0 counts only the first level (multiples of 5); option 1 forgets the third level (multiples of 125); option 3 is a misaddition. Cross-check: $250 = 2000_5$, digit sum 2, $(250 - 2)/4 = 62$.',
+            },
+            {
+              q: 'In base 12, the digit-sum test ("casting out elevens") lives modulo —',
+              options: ['9', '10', '11', '12'],
+              answer: 2,
+              explain:
+                'The digit-sum law is $N \\equiv s_b(N) \\pmod{b - 1}$: place values are powers of $b \\equiv 1 \\pmod{b - 1}$, so at $b = 12$ the name condenses to its digit sum modulo 11. Option 3 — the base itself — is the classic trap; the modulus is always one less than the base. Options 0 and 1 are the $b = 10$ law and no law at all.',
+            },
+            {
+              q: 'The smallest positive $N$ with $N \\equiv 3 \\pmod 8$ and $N \\equiv 6 \\pmod{11}$ is —',
+              options: ['19', '52', '83', '91'],
+              answer: 2,
+              explain:
+                '$N = 8k + 3$ gives $8k \\equiv 3 \\pmod{11}$; the inverse of 8 modulo 11 is 7 ($8 \\cdot 7 = 56 \\equiv 1$), so $k \\equiv 21 \\equiv 10$ and $N = 83 = 8 \\cdot 10 + 3 = 11 \\cdot 7 + 6$. Option 0 (19) has remainder 8 modulo 11; option 1 (52) has remainder 4 modulo 8; option 3 (91) has remainder 3 modulo 11 — honest near-misses of the class $83 + 88k$.',
+            },
+            {
+              q: 'The one-engine thesis of this lesson: every toolkit computation reduces to —',
+              options: [
+                'a congruence computation inside a finite number system $\\mathbb{Z}/m\\mathbb{Z}$',
+                'a decimal approximation carried to enough places',
+                'a prime factorization of the given number',
+                'an induction argument on the number of digits',
+              ],
+              answer: 0,
+              explain:
+                'Unit digits compute in $\\mathbb{Z}/10\\mathbb{Z}$, last two digits in $\\mathbb{Z}/100\\mathbb{Z}$, trailing zeros run the quotient chain of 5, and remainder hunts address the CRT grid — four costumes, one three-move pattern: name the modulus, compute inside, lift the verdict back. Option 1 belongs to a different shelf (approximation, not exactness); option 2 needs no factorization and often has none to offer; option 3 is the wrong tool for computations this direct.',
+            },
+          ] },
+        {
+          kind: 'exercises', title: 'Exercises', sets: [
+            { level: 'L1', questions: [
+              {
+                q: 'Unit digits, fast: (i) $2^{85}$ (ii) $3^{71}$.',
+                solution: [
+                  'Cycle of 2: $(2, 4, 8, 6)$, period 4; $85 = 4 \\cdot 21 + 1$, so $85 \\equiv 1 \\pmod 4$.',
+                  '(i) The 1st entry of $(2, 4, 8, 6)$: the unit digit is **2**.',
+                  'Cycle of 3: $(3, 9, 7, 1)$; $71 = 4 \\cdot 17 + 3$, so $71 \\equiv 3 \\pmod 4$.',
+                  '(ii) The 3rd entry of $(3, 9, 7, 1)$ is 7 — and indeed $3^3 = 27$ ends in 7: the unit digit is **7**.',
+                ],
+                answer: '(i) 2 (ii) 7',
+              },
+              {
+                q: 'Trailing zeros: (i) $25!$ (ii) $30!$.',
+                solution: [
+                  '(i) $\\lfloor 25/5 \\rfloor = 5$, $\\lfloor 25/25 \\rfloor = 1$: $Z = 5 + 1 = 6$.',
+                  '(ii) $\\lfloor 30/5 \\rfloor = 6$, $\\lfloor 30/25 \\rfloor = 1$: $Z = 6 + 1 = 7$.',
+                  'Small $n$, short chains — but the 25-level already pays twice: $25 = 5^2$ donates its second 5.',
+                ],
+                answer: '(i) 6 zeros (ii) 7 zeros',
+              },
+              {
+                q: 'Write 2024 in base 5, verify by place values, and name the bonus the chain pays.',
+                solution: [
+                  'Chain: $2024 = 5 \\cdot 404 + 4$; $404 = 5 \\cdot 80 + 4$; $80 = 5 \\cdot 16 + 0$; $16 = 5 \\cdot 3 + 1$; $3 = 5 \\cdot 0 + 3$.',
+                  'Remainders bottom-up: 3, 1, 0, 4, 4 — so $2024 = 31044_5$.',
+                  'Check: $3 \\cdot 625 + 1 \\cdot 125 + 0 \\cdot 25 + 4 \\cdot 5 + 4 = 1875 + 125 + 20 + 4 = 2024$. ✓',
+                  'Bonus: the quotient chain 404, 80, 16, 3 is Legendre\'s chain — $Z(2024!) = 404 + 80 + 16 + 3 = 503$ zeros, free of charge.',
+                ],
+                answer: '2024 = 31044₅ (place sum 1875 + 125 + 0 + 20 + 4); the same chain counts 503 zeros of 2024!',
+              },
+            ] },
+            { level: 'L2', questions: [
+              {
+                q: 'The unit digit of $7^{7^7}$.',
+                solution: [
+                  'First the exponent: $7^7 = 823543$.',
+                  'Only $823543 \\bmod 4$ matters: $823543 = 4 \\cdot 205885 + 3$, so $823543 \\equiv 3 \\pmod 4$.',
+                  'Cycle of 7: $(7, 9, 3, 1)$ — the 3rd entry is 3 (and indeed $7^3 = 343$).',
+                  'Hence $7^{7^7}$ ends in **3**.',
+                ],
+                answer: '3',
+              },
+              {
+                q: '$100!$ ends in 24 zeros. Explain why we count 5s and not 2s, and give $v_2(100!)$.',
+                solution: [
+                  'A trailing zero is a factor $10 = 2 \\cdot 5$: every 5 must find a 2 to pair with.',
+                  'Count the 2s by the same chain: $v_2(100!) = 50 + 25 + 12 + 6 + 3 + 1 = 97$.',
+                  'Ninety-seven 2s stand ready for twenty-four 5s — the 5s run out first, so $Z = v_5(100!) = 20 + 4 = 24$.',
+                  'Moral: always count the scarce prime; the plentiful one never binds.',
+                ],
+                answer: 'Z = v₅ = 24; v₂(100!) = 97 ≥ 24 — the 5s are the bottleneck',
+              },
+              {
+                q: 'Write 2024 in base 16 and confirm with the nibble machine.',
+                solution: [
+                  'Chain: $2024 = 16 \\cdot 126 + 8$; $126 = 16 \\cdot 7 + 14$; $7 = 16 \\cdot 0 + 7$.',
+                  'Remainders bottom-up: 7, 14, 8 — and 14 prints as **E**: $2024 = 7\\mathrm{E}8_{16}$.',
+                  'Check by place values: $7 \\cdot 256 + 14 \\cdot 16 + 8 = 1792 + 224 + 8 = 2024$. ✓',
+                  'Binary cross-check: $2024 = 11111101000_2$; padded to 12 bits, $0111\\ 1110\\ 1000$ groups into nibbles 7, E, 8. The two machines agree.',
+                ],
+                answer: '2024 = 7E8₁₆ (1792 + 224 + 8); nibbles 0111 1110 1000 → 7 E 8',
+              },
+            ] },
+            { level: 'L3', questions: [
+              {
+                q: 'The last two digits of $3^{2024}$.',
+                solution: [
+                  'Compute inside $\\mathbb{Z}/100\\mathbb{Z}$ and scan for the order: $3^1 = 3$, $3^2 = 9$, $3^4 = 81$, $3^8 = 6561 \\equiv 61$, $3^{10} \\equiv 61 \\cdot 9 = 549 \\equiv 49$, $3^{20} \\equiv 49^2 = 2401 \\equiv 1$.',
+                  'The order of 3 modulo 100 is 20 — the verifier\'s sweep found no smaller return to station 1.',
+                  'Reduce: $2024 = 20 \\cdot 101 + 4$, so $3^{2024} \\equiv 3^4 = 81 \\pmod{100}$.',
+                  'Hence the last two digits are **81**.',
+                ],
+                answer: '81',
+              },
+              {
+                q: 'Zeros of $2024!$ by the chain, with the digit-sum cross-check.',
+                solution: [
+                  'Chain: $\\lfloor 2024/5 \\rfloor = 404$, $\\lfloor 2024/25 \\rfloor = 80$, $\\lfloor 2024/125 \\rfloor = 16$, $\\lfloor 2024/625 \\rfloor = 3$, $\\lfloor 2024/3125 \\rfloor = 0$ — stop.',
+                  'Sum: $404 + 80 + 16 + 3 = 503$ zeros.',
+                  'Cross-check: $2024 = 31044_5$ (exercise L1-3), digit sum $3 + 1 + 0 + 4 + 4 = 12$, and $(2024 - 12)/4 = 503$. ✓',
+                ],
+                answer: '503 zeros',
+              },
+              {
+                q: 'The smallest $N$ with $N \\equiv 1 \\pmod 3$ and $N \\equiv 2 \\pmod 5$.',
+                solution: [
+                  'Write $N = 3k + 1$; the second condition gives $3k + 1 \\equiv 2 \\pmod 5$, so $3k \\equiv 1 \\pmod 5$.',
+                  'The inverse of 3 modulo 5 is 2 ($3 \\cdot 2 = 6 \\equiv 1$), so $k \\equiv 2 \\pmod 5$.',
+                  'So $N = 3 \\cdot 2 + 1 = 7$; check $7 = 5 \\cdot 1 + 2$. ✓',
+                  'The full class is $7 + 15k$ — 15 = lcm(3, 5) — and the sweep found exactly one class in $[0, 15)$.',
+                ],
+                answer: 'N = 7 (the class 7 + 15k)',
+              },
+            ] },
+            { level: 'L4', questions: [
+              {
+                q: 'A number leaves remainder 1 when divided by 2, 3, 4 and 5, and is a multiple of 7. Find the two smallest such numbers.',
+                solution: [
+                  'The four conditions collapse into one: $N - 1$ divisible by 2, 3, 4, 5 means $60 \\mid N - 1$ (the lcm; 60 = 2²·3·5).',
+                  'The candidates form a remainder chain: 1, 61, 121, 181, 241, 301, 361, 421, …',
+                  'Scan for the multiple of 7: $301 = 7 \\cdot 43$ — the first hit.',
+                  'The family marches by lcm(60, 7) = 420: the next member is $301 + 420 = 721$, and $721 = 60 \\cdot 12 + 1 = 7 \\cdot 103$. ✓',
+                ],
+                answer: '301 and 721 (the class 301 + 420k)',
+              },
+              {
+                q: 'Is 2024 divisible by 15? Decide from its base-16 digit sum, then confirm by division.',
+                solution: [
+                  'From exercise L2-3: $2024 = 7\\mathrm{E}8_{16}$, so $s_{16}(2024) = 7 + 14 + 8 = 29$.',
+                  'The digit-sum law at $b = 16$: $2024 \\equiv 29 \\equiv 14 \\pmod{15}$ — not divisible.',
+                  'Confirm directly: $2024 = 134 \\cdot 15 + 14$. ✓',
+                  'The name in base 16 settled a divisibility question about 15 — the digit-sum law\'s free gift, one base up from casting out nines.',
+                ],
+                answer: 'No — remainder 14 ($s_{16} = 29 \\equiv 14 \\bmod 15$; $2024 = 134 \\cdot 15 + 14$)',
+              },
+              {
+                q: 'The last digit of $1! + 2! + 3! + \\cdots + 100!$.',
+                solution: [
+                  'Every $k!$ with $k \\ge 5$ ends in 0: $5! = 120$ already carries a 5, and later factorials only carry more.',
+                  'So the unit digit of the whole sum is the unit digit of $1! + 2! + 3! + 4! = 1 + 2 + 6 + 24 = 33$.',
+                  'The answer is **3** — confirmed by the verifier, which summed all one hundred BigInt factorials and read the final digit.',
+                ],
+                answer: '3',
+              },
+            ] },
+            { level: 'L5', questions: [
+              {
+                q: 'Prove $Z(n) = (n - s_5(n))/4$ for every $n \\ge 1$, and cash it on $n = 2024$.',
+                solution: [
+                  'Write $n = d_0 + 5 d_1 + 25 d_2 + \\cdots$ — the representation theorem of chapter 3.',
+                  'Flooring kills the low digits: $\\lfloor n/5^k \\rfloor = d_k + 5 d_{k+1} + 25 d_{k+2} + \\cdots$.',
+                  'Sum the chain over $k \\ge 1$ and collect the digit $d_i$: it appears at levels $1, \\ldots, i$ with weight $1 + 5 + \\cdots + 5^{i-1} = (5^i - 1)/4$.',
+                  'So $Z(n) = \\sum_i d_i (5^i - 1)/4 = \\big(n - s_5(n)\\big)/4$ — the geometric sums telescope.',
+                  'Cash on 2024: $31044_5$ has digit sum 12, so $Z = (2024 - 12)/4 = 503$ — matching the chain $404 + 80 + 16 + 3$. ✓',
+                ],
+                answer: 'Z(n) = (n − s₅(n))/4; on 2024: (2024 − 12)/4 = 503',
+              },
+              {
+                q: 'Show that $N \\mapsto (N \\bmod 8,\\ N \\bmod 11)$ is a bijection from the 88 classes $\\{0, \\ldots, 87\\}$ onto the pair grid, and name the class carrying the pair (3, 6).',
+                solution: [
+                  'Injective: if two classes agree modulo 8 and modulo 11, their difference is divisible by both; $\\gcd(8, 11) = 1$, so 88 divides it — same class.',
+                  '88 classes into a grid of exactly 88 addresses, no collisions: the map is a bijection (the verifier swept all 88 vectors — each hit exactly once).',
+                  'The pair (3, 6): write $N = 8k + 3$, so $8k \\equiv 3 \\pmod{11}$; $8^{-1} \\equiv 7$, $k \\equiv 21 \\equiv 10$, $N = 83$.',
+                  'Check: $83 = 8 \\cdot 10 + 3 = 11 \\cdot 7 + 6$. ✓ — the pair addresses the class 83 mod 88.',
+                ],
+                answer: 'bijection on the 88 classes; (3, 6) names 83',
+              },
+            ] },
+            { level: 'L6', questions: [
+              {
+                q: 'Prove $v_2(n!) \\ge v_5(n!)$ for every $n \\ge 2$, and conclude that the trailing zeros of $n!$ always equal $v_5(n!)$.',
+                solution: [
+                  'At every level $k \\ge 1$: $2^k \\le 5^k$, so every multiple of $5^k$ in $1..n$ is automatically a multiple of $2^k$.',
+                  'Hence $\\lfloor n/2^k \\rfloor \\ge \\lfloor n/5^k \\rfloor$ level by level.',
+                  'Sum the levels (Legendre on both sides): $v_2(n!) \\ge v_5(n!)$.',
+                  'A trailing zero needs one 2 and one 5; since the 2s never run out before the 5s, every 5 pairs up — so $Z(n!) = v_5(n!)$ for every $n$.',
+                  'The verifier swept $n \\le 5000$: no counterexample, and the proof says none can exist.',
+                ],
+                answer: 'Z(n!) = v₅(n!) for every n — proven level by level and swept to 5000',
+              },
+              {
+                q: 'The synthesis in your own working: show that one quotient-remainder chain runs all three engines of this lesson, naming the exhibit for each.',
+                solution: [
+                  'Engine 1, trailing zeros: the chain $1000 \\to 200 \\to 40 \\to 8 \\to 1 \\to 0$ sums to $249$ — Legendre\'s floors ARE the quotients of $1000 \\div 5$.',
+                  'Engine 2, base names: the remainders of the same divisions — 0, 0, 0, 3, 1, read bottom-up — name $1000 = 13000_5$.',
+                  'Engine 3, remainder hunts: conditions stack into addresses — $83 + 88k$ for (3 mod 8, 6 mod 11), $301 + 420k$ for the ladder classic.',
+                  'And every engine ran inside a finite system from the map: $\\mathbb{Z}/10\\mathbb{Z}$ and $\\mathbb{Z}/100\\mathbb{Z}$ for digits, the 5-chain for factorials, $\\mathbb{Z}/88\\mathbb{Z}$ and $\\mathbb{Z}/420\\mathbb{Z}$ for addresses.',
+                  'Hence the toolkit is not four tricks but the book\'s whole story — repaired systems doing small, lawful work — and the division algorithm of chapter 2 is the single theorem they all stand on.',
+                ],
+                answer: '249 · 13000₅ · 83 + 88k — one chain, three engines, one map',
+              },
+            ] },
+          ] },
+        {
+          kind: 'formula', name: 'The unit-digit reduction', latex: '\\text{unit digit of } a^n = \\text{cycle entry } \\big((n - 1) \\bmod p\\big) + 1, \\quad p = 4\\ (2, 3, 7, 8),\\ 2\\ (4, 9),\\ 1\\ (0, 1, 5, 6)', note: 'compute in ℤ/10ℤ; the exponent only matters modulo the period — and for last two digits, run the same rule in ℤ/100ℤ from the order' },
+        {
+          kind: 'formula', name: "Legendre's formula", latex: 'v_p(n!) = \\sum_{k \\ge 1} \\left\\lfloor \\frac{n}{p^k} \\right\\rfloor = \\frac{n - s_p(n)}{p - 1}', note: 'the floor chain counts multiples of p, p², p³, …; the digit-sum form reads the base-p name of n' },
+        {
+          kind: 'formula', name: 'Trailing zeros of n!', latex: 'Z(n!) = v_5(n!) = \\sum_{k \\ge 1} \\left\\lfloor \\frac{n}{5^k} \\right\\rfloor \\qquad \\big(v_2(n!) \\ge v_5(n!)\\ \\text{always}\\big)', note: 'the 5s are the bottleneck; e.g. Z(1000!) = 200 + 40 + 8 + 1 = 249 and Z(2024!) = 404 + 80 + 16 + 3 = 503' },
+        {
+          kind: 'formula', name: 'The digit-sum law', latex: 'N \\equiv s_b(N) \\pmod{b - 1}', note: 'casting out (b − 1)s in any base — the 3/9 tests at b = 10, the mod-11 test at b = 12, the mod-15 test at b = 16' },
+      ],
+    },
+
   ],
-  plannedLessons: ['The Toolkit Synthesis'],
+  plannedLessons: [],
 }
