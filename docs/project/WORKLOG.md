@@ -2,6 +2,59 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-08 — RUN 74 (fired 06:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080619 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 4 'FACTORIZATION' CLOSES 4/4 — 4.3 'The Identities as Factorizations' (al-identities-as-factorizations, 4,007 words, quiz keys 2/1/0/1/2) + 4.4 'The Factor Theorem and Cubics' (al-factor-theorem-and-cubics, 4,026 words, quiz keys 1/3/0/1/0) + THE UNIT-4 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 4/4) — the chapter COMPLETE and fully verified at run end; ch. 5 NOT touched
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-73 memory commit (`eee5d0a`, unpushed by design —
+it recorded run 73's push verification and rode THIS run's protocol push); no `.figure_upgrade_lock`. RESUME_POINTER locked
+run 74 = AL ch. 4 closes with 4.3 + 4.4 + the unit-4 review (v2 two-lesson quota, strictly sequential; never ch. 5).
+
+**Research (zero downloads):** the banked H&K knowledge (Factorisation chapter + Higher-Algebra factor-theorem exposition,
+studied in run 67's download before deletion) + two NEW web-checked history keys: `sophie-germain-identity` (a⁴ + 4b⁴ =
+(a² + 2ab + 2b²)(a² − 2ab + 2b²) — the sum of fourth powers that factors; her grand plan for FLT, the 1804–09 Gauss
+correspondence; web-checked via the Agnes Scott study page + Laubenbacher–Pengelley 2010) and `cardano-1545-ars-magna`
+(the cubic formula's scandalous birth — del Ferro c. 1515, Tartaglia 1535, the broken oath, Ars Magna 1545 with Ferrari's
+quartic; web-checked via Quanta 2022 + the Ars Magna notes). Working-copy footprint zero.
+
+**Verify-first (sections H and J written BEFORE any prose, I at 4.3 authoring time, K at 4.4 authoring time + the
+review):** H (4.3) swept the identity shelf backwards — difference of squares symbolic (19 b-values) + coefficient
+exhibits both sides, the perfect-square recognitions and refusals, the cube factorization exhibits (incl. the two-letter
+8x³+27y³ at 6 points), the cube companions' gauge −3b² < 0 across b ∈ [-9..9]\{0} (the second bracket PROVED irreducible),
+the two-step chains (x⁴−16, x⁴−1, x⁴−81, 16x⁴−81, the grand x⁶−1), SOPHIE GERMAIN at all 169 (a,b) points in [-6..6]²,
+and the x⁴+16 refusal by exhaustive [-9..9]⁴ scan. J (4.4) built the synDiv engine (3,375 reversal draws), proved THE
+MONIC INTEGER-ROOT THEOREM over 4,056 monic cubics (every integer root divides the constant), proved THE CUBIC
+IRREDUCIBILITY THEOREM both directions over the same sweep (factorable ⟺ integer root exists; 4,056 = 13×13×24, d ≠ 0),
+and pinned every exhibit/quiz/exercise key of 4.4 both sides.
+
+**Pre-writing catch:** the J-section count expectation (4,056 not 4,225 — d = 0 excluded).
+
+**Authored-time catches (all repaired to zero):** a KaTeX-invalid `\(` in a derivation formula; two raw-$ derivation
+labels (the run-65 class — labels print plain); 9 single-backslash LaTeX commands from a heredoc batch (the odd-run
+scanner caught all — doubled to even runs); one SVG verdict box 5px out of the viewBox (x 525 → 520); a stale dev-server
+E2E loop (the server dies between tool sessions — the nohup-per-command pattern applied); an e2e regex sed that silently
+missed a pipe-anchored pattern (caught by the got-1 chip count).
+
+**Gates:** verify-book3-ch04.ts finished at 471 checks ALL GREEN (sections A–K). `bun run lint` 0 errors (2 pre-existing
+warnings); `tsc --noEmit` clean; routes 200 after the dev-server restart; E2E e2e-al-43 + e2e-al-44 45/45 PASS ×2 runs
+×3 viewports per lesson (quiz 5/5 live on keys 2/1/0/1/2 and 1/3/0/1/0; 0 console errors; no overflow; KaTeX clean after
+the label fixes). Four figures audited 0-issue and visually inspected via full-page crops.
+
+**The unit-4 completion review (verifier section K):** PASSED 7/7 — (1) all math script-recomputed (471 checks);
+(2) every figure label lives in the prose (checked per lesson incl. titles/names/captions); (3) quiz keys re-checked
+against the pins per lesson + live anchors; (4) 4 × 14 exercises with Cengage chains and both-sides verification;
+(5) all lesson ids repo-wide unique; (6) the chapter exercises 12 block kinds in the reader; (7) WORKLOG + PROGRESS
+updated at this ship. Exam corners 4/4. Chapter snapshot: 16,245 words / 32 terms / 20 quiz / 56 exercises / 8 figures;
+per-lesson word counts 4,202 / 4,050 / 4,007 / 4,026 — all ≥ 4,000.
+
+**Chapter state:** ch. 4 'Factorization' COMPLETE 4/4 at run 74; book.ts header flipped (4 complete chapters of 11);
+repo-wide 98 lessons / 476,361 words (WORK_INVENTORY rebuilt). **NEXT (run 75): ch. 5 'Linear Equations in One Variable'
+OPENS with 'What an Equation Is: the Balance Principle' + 'Solving Linear Equations' (create verify-book3-ch05.ts FIRST;
+whitelist e2e-al-51/52; never ch. 6).**
+
+**Git:** ship commit + the run-73 memory commit eee5d0a pushed per the protocol; remote verified via one-time-URL
+ls-remote (sha noted below).
+
+---
+
 ## 2026-11-08 — RUN 73 (fired 05:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080515 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 4 'FACTORIZATION' OPENS 2/4 — 4.1 'Common Factors and Grouping' (al-common-factors-and-grouping, 4,202 words, quiz keys 0/1/0/0/2) + 4.2 'Factoring Quadratic Trinomials' (al-factoring-quadratic-trinomials, 4,050 words, quiz keys 2/1/3/1/3), authored strictly sequentially verify-first — 4.3/4.4 + the unit-4 review NOT touched (they close the chapter at run 74)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-72 memory commit (`4e2fcb5`, unpushed by design — it

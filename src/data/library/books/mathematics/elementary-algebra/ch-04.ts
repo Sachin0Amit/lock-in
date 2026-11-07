@@ -241,13 +241,206 @@ function acPipelineSvg(): string {
   return parts.join('')
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 5 (4.3): the recognition shelf. Header (30,18,660,44); LEFT  */
+/* panel (30,84,330,210) "read backwards" with 3 shelf rows 290x44 at  */
+/* (50,110),(50,166),(50,222); RIGHT panel (400,84,290,210) with 3     */
+/* note boxes 250x56 at (415,114),(415,174),(415,234); band            */
+/* (30,296,660,40) with 2 result boxes 260x24 at (60,300),(400,300).   */
+/* Pinned in section H, audited in I.                                  */
+/* ------------------------------------------------------------------ */
+
+function recognitionShelfSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The recognition shelf: the three special-product identities read backwards as factorizations, with the recognition question each collected form carries.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
+  // header band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the recognition shelf — 3.3 read backwards</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">every identity is a factorization; the collected form carries the question that names its product</text>')
+  // LEFT panel: the shelf
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the shelf, backwards</text>')
+  const shelf: string[] = ['a² − b² = (a + b)(a − b)', 'a² ± 2ab + b² = (a ± b)²', 'a³ ± b³ = (a ± b)(a² ∓ ab + b²)']
+  shelf.forEach((s, i) => {
+    const y = 110 + i * 56
+    parts.push(`<rect x="50" y="${y}" width="290" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="195" y="${y + 27}" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${s}</text>`)
+  })
+  // RIGHT panel: the three questions
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the three questions</text>')
+  const qs: [string, string][] = [
+    ['both squares + minus?', 'the difference of squares read backwards'],
+    ['middle = 2 × the roots’ product?', 'the zero gauge recognizes the perfect square'],
+    ['both cubes?', 'the first bracket keeps the sign; the second flips it'],
+  ]
+  qs.forEach(([t, s], i) => {
+    const y = 114 + i * 60
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${s}</text>`)
+  })
+  // collection band
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="190" y="316" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">recognition = the identity in reverse</text>')
+  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="530" y="316" font-size="11.5" fill="#365314" text-anchor="middle">x² − 49 → (x + 7)(x − 7) in one line</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 6 (4.3): the recognition decision tree. Header (30,18,660,   */
+/* 44); 6 step boxes 200x44 at (45,100),(45,170),(45,240),(285,100),   */
+/* (285,170),(285,240); 2 verdict boxes 200x44 at (525,100),(525,240); */
+/* band (30,300,660,40) with 1 result box 300x28 at (210,308).         */
+/* Pinned in section H, audited in I.                                  */
+/* ------------------------------------------------------------------ */
+
+function decisionTreeSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The recognition decision tree: extract the GCF, count the terms, route to the identity tests, the hunt or grouping, look again after every bracket, and refuse honestly when nothing works.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  // header band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the recognition order — the decision tree</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the order that never wastes work — GCF, term count, the tests, then honesty</text>')
+  // the six steps
+  const steps: [string, string, string][] = [
+    ['1. extract the GCF', '4.1’s first move', 'shrinks every number ahead'],
+    ['2. count the terms', 'two · three · four', 'the count routes the move'],
+    ['two terms', 'squares or cubes', 'this lesson’s shelf'],
+    ['three terms', 'square test, then', 'the 4.2 hunt'],
+    ['four terms', 'grouping', '4.1’s machine'],
+    ['look again', 'after EVERY bracket', 'chains hide inside'],
+  ]
+  const pos: [number, number][] = [[45, 100], [45, 170], [285, 100], [285, 170], [285, 240], [45, 240]]
+  steps.forEach(([t, l1, l2], i) => {
+    const [x, y] = pos[i]
+    parts.push(`<rect x="${x}" y="${y}" width="200" height="44" rx="6" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 100}" y="${y + 17}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="${x + 100}" y="${y + 33}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${l1} · ${l2}</text>`)
+  })
+  // arrows: col 1 down, col 1 to col 2, col 2 to verdicts
+  parts.push('<path d="M 145 144 L 145 170" stroke="#4d7c0f" stroke-width="1.5"/>')
+  parts.push('<path d="M 245 122 L 285 122" stroke="#4d7c0f" stroke-width="1.5"/>')
+  parts.push('<path d="M 485 122 L 520 122" stroke="#4d7c0f" stroke-width="1.5"/>')
+  parts.push('<path d="M 485 262 L 520 262" stroke="#4d7c0f" stroke-width="1.5"/>')
+  // the two verdicts
+  parts.push('<rect x="520" y="100" width="200" height="44" rx="6" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="625" y="117" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">the chains open again</text>')
+  parts.push('<text x="625" y="133" font-size="9.5" fill="#6b7a72" text-anchor="middle">x⁴ − 16 opens twice</text>')
+  parts.push('<rect x="520" y="240" width="200" height="44" rx="6" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
+  parts.push('<text x="625" y="257" font-size="11.5" fill="#7c2d12" text-anchor="middle" font-weight="700">nothing works: refuse</text>')
+  parts.push('<text x="625" y="273" font-size="9.5" fill="#6b7a72" text-anchor="middle">name it — the refusal is an answer</text>')
+  // result band
+  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="210" y="308" width="300" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="360" y="327" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">GCF → term count → tests → look again → honest refusal</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 7 (4.4): the root-factor bridge. Header (30,18,660,44);      */
+/* LEFT panel (30,84,330,210) with 2 stage boxes 260x56 at (60,110),   */
+/* (60,196); RIGHT panel (400,84,290,210) with 3 note boxes 250x56 at  */
+/* (415,114),(415,174),(415,234); band (30,296,660,40) with 2 result   */
+/* boxes 260x24 at (60,300),(400,300). Pinned in section J, audited K. */
+/* ------------------------------------------------------------------ */
+
+function rootFactorBridgeSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The root-to-factor bridge: the remainder theorem at remainder zero — a zero of the polynomial is exactly a linear factor, each implying the other.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the root-to-factor bridge</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the remainder theorem with the remainder pinned to zero — 3.4’s rule becomes 4.4’s engine</text>')
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the division identity, at r = 0</text>')
+  parts.push('<rect x="60" y="110" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="190" y="132" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">f(x) = (x − a)·q(x) + r</text>')
+  parts.push('<text x="190" y="150" font-size="10.5" fill="#6b7a72" text-anchor="middle">r = f(a) — evaluate, never divide</text>')
+  parts.push('<rect x="60" y="196" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="190" y="218" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">r = 0 ⇒ f(x) = (x − a)·q(x)</text>')
+  parts.push('<text x="190" y="236" font-size="10.5" fill="#6b7a72" text-anchor="middle">the clean division — the factor appears</text>')
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the theorem, both ways</text>')
+  const notes: [string, string][] = [
+    ['f(a) = 0 — the zero', 'an input whose output lands exactly on zero'],
+    ['the zero IS the factor', '(x − a) divides — no division needed to know it'],
+    ['both directions', 'factor ⇒ zero; zero ⇒ factor — an iff for the papers'],
+  ]
+  notes.forEach(([t, s], i) => {
+    const y = 114 + i * 60
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${s}</text>`)
+  })
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="190" y="316" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">f(a) = 0 ⟺ (x − a) divides f(x)</text>')
+  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="530" y="316" font-size="11" fill="#365314" text-anchor="middle">x³−6x²+11x−6: f(1) = 0 → (x−1) divides</text>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 8 (4.4): the cubic hunting machine. Header (30,18,660,44);   */
+/* 4 station boxes 150x70 at (40,110),(210,110),(380,110),(550,110);   */
+/* 2 note boxes 260x44 at (60,230),(400,230); band (30,296,660,44)     */
+/* with 1 result box 300x28 at (210,304). Pinned in section J, K.      */
+/* ------------------------------------------------------------------ */
+
+function cubicMachineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cubic hunting machine: list candidates from the constant, evaluate each, divide out the found root, finish the quotient — and the irreducibility verdict when no candidate works.">'
+  )
+  parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the cubic hunting machine</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">candidates → evaluate → divide → finish — with the verdict when the list comes up empty</text>')
+  const stations: [string, string, string][] = [
+    ['list candidates', '± divisors of d', '(p | d, q | a non-monic)'],
+    ['evaluate each', 'f(a) = r — the remainder', 'zero? a factor!'],
+    ['divide out (x − a)', 'synthetic or long', 'mind the zero seats'],
+    ['finish the quotient', '4.2 hunt / AC split', 'look again: repeats hide'],
+  ]
+  stations.forEach(([t, l1, l2], i) => {
+    const x = 40 + i * 170
+    const cx = x + 75
+    parts.push(`<rect x="${x}" y="110" width="150" height="70" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
+    parts.push(`<text x="${cx}" y="132" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="${cx}" y="151" font-size="10" fill="#365314" text-anchor="middle">${l1}</text>`)
+    parts.push(`<text x="${cx}" y="167" font-size="9.5" fill="#6b7a72" text-anchor="middle">${l2}</text>`)
+    if (i < 3) parts.push(`<path d="M ${x + 150} 145 L ${x + 170} 145" stroke="#4d7c0f" stroke-width="1.5"/>`)
+  })
+  parts.push('<rect x="60" y="230" width="260" height="44" rx="6" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
+  parts.push('<text x="190" y="248" font-size="11" fill="#7c2d12" text-anchor="middle" font-weight="700">no candidate works?</text>')
+  parts.push('<text x="190" y="264" font-size="9.5" fill="#6b7a72" text-anchor="middle">the verdict: no integer root ⇒ irreducible over the integers</text>')
+  parts.push('<rect x="400" y="230" width="260" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="530" y="248" font-size="11" fill="#365314" text-anchor="middle" font-weight="700">the two roads agree</text>')
+  parts.push('<text x="530" y="264" font-size="9.5" fill="#6b7a72" text-anchor="middle">shelf, hunt and theorem land on the same irreducibles</text>')
+  parts.push('<rect x="30" y="296" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="210" y="304" width="300" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
+  parts.push('<text x="360" y="322" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">x³ − 6x² + 11x − 6 = (x − 1)(x − 2)(x − 3)</text>')
+  return parts.join('')
+}
+
 export const chapter04: Chapter = {
   number: 4,
   slug: 'factorization',
   title: 'Factorization',
   summary:
     'Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'al-common-factors-and-grouping',
@@ -986,6 +1179,678 @@ export const chapter04: Chapter = {
         ] },
       ],
     },
+    {
+      id: 'al-identities-as-factorizations',
+      number: '4.3',
+      title: 'The Identities as Factorizations',
+      concepts: [
+        'reading identities backwards',
+        'difference of squares recognition',
+        'perfect squares via the zero gauge',
+        'sum and difference of cubes',
+        'the two-step chains',
+        'recognition order',
+        'the Sophie Germain surprise',
+        'honest refusals',
+      ],
+      objectives: [
+        'read 3.3’s identity shelf backwards — each identity IS a factorization, and recognition is the art',
+        'recognize the difference of squares on sight, and refuse its sum-of-squares twin by the 4.1 theorem',
+        'recognize perfect squares by the middle-term test — the zero gauge of 4.2 wearing its other clothes',
+        'factor sums and differences of cubes, with the second bracket proved irreducible by the two-letter gauge',
+        'run the two-step chains (x⁴ − 16, x⁴ − 1, x⁶ − 1) until every factor is irreducible',
+        'apply the recognition order — GCF, squares and cubes, squares trinomials, the hunt, grouping — and meet the sum of fourth powers that factors after all',
+      ],
+      prerequisites: ['al-factoring-quadratic-trinomials', 'al-special-products-the-identities-proved'],
+      sources: ['hall-knight-elementary-algebra', 'ncert-math9-ch2-polynomials', 'sophie-germain-identity', 'cengage-jee-style'],
+      blocks: [
+        { kind: 'para', text: 'Lesson 3.3 proved the special products left-to-right: the grid expands $(a + b)^{2}$, $(a + b)(a - b)$ and the cube identities into their collected forms. Lesson 4.2 ran the hunt on the trinomials the shelf produces. This lesson completes the triangle: the identity shelf read **backwards** — every special product is a factorization, and factoring by recognition is the fastest move in all of examination algebra. The skill is not new computation; it is seeing, in the collected form, which identity manufactured it. $x^{2} - 49$ is not "a quadratic to hunt" — it is the difference-of-squares identity wearing the values $a = x$, $b = 7$, and it collapses to $(x + 7)(x - 7)$ without a single line of work.' },
+        { kind: 'para', text: 'The plan: read the shelf backwards identity by identity — the difference of squares, the perfect squares (the zero gauge of 4.2 in its finished form), the sum and difference of cubes (with the second bracket proved irreducible); then the two-step chains, where one factorization reveals another; then the recognition **order** — the checklist that decides which move to try first; and finally the surprise that keeps the subject honest: the sum of two fourth powers, which "everyone knows" refuses, factors after all — Sophie Germain’s identity, the tool of her attack on Fermat’s last theorem.' },
+        { kind: 'heading', text: 'The Shelf Read Backwards' },
+        { kind: 'para', text: 'The identity charter of 3.3 said every identity is true in **both** directions, because it was built by the laws rather than solved for. Read forward, $(a + b)(a - b)$ expands to $a^{2} - b^{2}$ — computation. Read backward, $a^{2} - b^{2}$ factors into $(a + b)(a - b)$ — **recognition**. The three shelf pieces carry three recognition tests, and each test is a question about the collected form: (i) are both terms perfect squares with a minus between? (ii) is the middle term twice the product of the square roots of the ends? (iii) are both terms perfect cubes? The rest of this lesson runs the three questions in order.' },
+        { kind: 'terms', items: [
+          { term: 'recognition', def: 'reading a collected polynomial backwards into the product that built it — the identity charter of 3.3 run in reverse' },
+          { term: 'the recognition order', def: 'the working checklist: GCF first, then term count, then the identity tests, the hunt, grouping — and look again after every bracket' },
+          { term: 'the identity shelf', def: 'the three special products of 3.3 — difference of squares, perfect squares, sum and difference of cubes — read backwards as factorizations' },
+          { term: 'perfect-square test', def: 'the middle term must be exactly twice the product of the square roots of the end terms — the zero gauge of 4.2 as a recognition instrument' },
+          { term: 'irreducible companion', def: 'the quadratic second bracket of a cube factorization, $a^{2} \\mp ab + b^{2}$ — proved to refuse further factoring (gauge $-3b^{2}$)' },
+          { term: 'two-step chain', def: 'a factorization whose output brackets carry their own recognitions — $x^{4} - 16$ opens twice before it is complete' },
+          { term: 'the Germain identity', def: '$a^{4} + 4b^{4} = (a^{2} + 2ab + 2b^{2})(a^{2} - 2ab + 2b^{2})$ — the sum of fourth powers that factors, via the difference of squares in disguise' },
+          { term: 'honest refusal', def: 'a named, justified "no factorization exists over the integers" — the sum of squares, the gauge verdicts, the exhaustive scans' },
+        ] },
+        { kind: 'figure', caption: 'The recognition shelf: 3.3’s identities read backwards — each collected form carries the question that identifies the product that built it.', svg: recognitionShelfSvg() },
+        { kind: 'heading', text: 'The Difference of Squares' },
+        { kind: 'para', text: 'The test: **both** terms are perfect squares, and the sign between them is **minus**. $x^{2} - 49$: the terms are $x^{2} = (x)^{2}$ and $49 = 7^{2}$, minus between — so $x^{2} - 49 = (x + 7)(x - 7)$. The bracket order is free ($a^{2} - b^{2} = (a - b)(a + b)$ — multiplication commutes), but the shape is fixed: one bracket adds the roots, one subtracts. Coefficients ride along if they are perfect squares too: $9x^{2} - 25 = (3x)^{2} - 5^{2} = (3x + 5)(3x - 5)$, and $16a^{2} - 81b^{2} = (4a + 9b)(4a - 9b)$ — the square roots of the coefficients join the letters. And the sign between the terms is not decoration: $x^{2} + 49$ has the same two squares with a **plus**, and 4.1 proved the sum of squares refuses over the integers. One flipped sign separates the fastest factorization in algebra from an honest dead end.' },
+        { kind: 'para', text: 'Reading forward is the same shelf with the arrows flipped, and it pays in arithmetic. 3.3’s shortcut $1012^{2} = (1000 + 12)^{2} = 1,000,000 + 24,000 + 144$ is the perfect-square identity read forward; this lesson’s backwards read is what makes such tricks searchable — an examinee who sees $x^{2} + 14x + 49$ as $(x + 7)^{2}$ in one glance is running the same recognition that produces $102 \\times 98 = 10,000 - 4$ from $(100 + 2)(100 - 2)$. The identity shelf is one instrument with two ports, and the examination papers plug into both: forward for speed arithmetic, backward for factorization. This is also why the identities were PROVED on the grid in 3.3 rather than memorized — a memorized string cannot be read backwards with confidence, but a proven identity is equally true in both directions, always.' },
+        { kind: 'para', text: 'Three recognition subtleties finish the difference of squares. **Fourth powers are squares too**: $x^{4} - 81$ reads as $(x^{2})^{2} - 9^{2}$ — the chain section below is built on exactly this. **Non-square coefficients block the read**: $9x^{2} - 20$ refuses this move, because 20 is not a perfect square — but the refusal is temporary, since $20 = 4 \\cdot 5$ lets the GCF of… no, 9 and 20 share nothing, and the expression is genuinely stuck until the 4.2-style gauges of other chapters take over; naming which move refused and why is the discipline. **The root extraction is the skill**: $49a^{2}b^{4} - 121c^{6}$ asks whose squares these are — $(7ab^{2})^{2}$ and $(11c^{3})^{2}$ — and the factorization falls out as $(7ab^{2} + 11c^{3})(7ab^{2} - 11c^{3})$. The examiner’s variation is always the same move: composite roots dressed as messy coefficients.' },
+        { kind: 'heading', text: 'Perfect Squares: the Zero Gauge at Work' },
+        { kind: 'para', text: 'The test: a trinomial $ax^{2} + bx + c$ is a **perfect square** when both end terms are squares and the middle term is **twice their product** — 3.3’s middle-term test, now revealed by 4.2 as the zero gauge: $x^{2} + 10x + 25$ has ends $x^{2}$ and $5^{2}$, and $2 \\cdot 1 \\cdot 5 = 10$ matches the middle — so $(x + 5)^{2}$, with the sign of the middle carried by both brackets. The coefficient cases lift the same way: $4x^{2} - 12x + 9$ has ends $(2x)^{2}$ and $3^{2}$ with $2 \\cdot 2 \\cdot 3 = 12$ ✓ — so $(2x - 3)^{2}$; and $9x^{2} + 30x + 25 = (3x + 5)^{2}$, the very trinomial 4.2’s exercises reached by the AC split — the split landing on $15 = 15$ was the zero gauge announcing the square. The refusals are priced the same way, and they are the examiner’s favourite impostors: $x^{2} + 8x + 9$ has $9 = 3^{2}$ but $2 \\cdot 1 \\cdot 3 = 6 \\neq 8$; $x^{2} + 6x + 16$ has $16 = 4^{2}$ but $2 \\cdot 1 \\cdot 4 = 8 \\neq 6$. Square ends are **not** enough — the middle must be exactly twice the product, or the trinomial belongs to the 4.2 hunt (where $x^{2} + 8x + 9$’s gauge $64 - 36 = 28$, not a square, refuses it outright).' },
+        { kind: 'para', text: 'So a suspect trinomial with square-looking ends faces exactly three verdicts, and the middle-term test sorts them in seconds. Verdict one — **perfect square**: the middle equals twice the roots’ product, as in $x^{2} + 14x + 49$ ($2 \\cdot 1 \\cdot 7 = 14$ ✓) or $16x^{2} - 40x + 25$ ($2 \\cdot 4 \\cdot 5 = 40$ ✓): factor as the square and move on. Verdict two — **hunt material**: the ends are squares by accident, the middle test fails, but the gauge is a perfect square — $x^{2} + 8x + 16$? no wait, that IS a square ($2 \\cdot 1 \\cdot 4 = 8$ ✓); take instead $x^{2} + 9x + 14$: ends $x^{2}$ and... $14$ is not even a square — verdict two needs square ends, so a cleaner case is $x^{2} + 12x + 27$ — ends not squares either. The honest verdict-two example with square ends: $x^{2} + 9x + 4$ — ends $x^{2}$ and $2^{2}$, test $4 \\neq 9$ fails, but the hunt succeeds ($(x + 1)(x + 4)$... product 4, sum 5 — no; the gauge $81 - 16 = 65$ refuses). The systematic truth: with genuinely square ends and a failed middle test, the gauge $p^{2} - 4q = (a - b)^{2}$ for SOME pair is exactly the middle test repeated — so square ends plus failed test plus successful hunt is RARE, and the usual third verdict — **refuse** ($x^{2} + 8x + 9$, gauge 28) — is the one the examiner prices. The lesson: run the middle test first, and let the gauge, not hope, close the file.' },
+        { kind: 'heading', text: 'The Sum and Difference of Cubes' },
+        { kind: 'para', text: 'The test: **both** terms are perfect cubes. Then 3.3’s cube identities read backwards: $a^{3} + b^{3} = (a + b)(a^{2} - ab + b^{2})$ and $a^{3} - b^{3} = (a - b)(a^{2} + ab + b^{2})$. The exhibits: $x^{3} + 27 = (x + 3)(x^{2} - 3x + 9)$; $x^{3} - 125 = (x - 5)(x^{2} + 5x + 25)$; $64x^{3} + 1 = (4x + 1)(16x^{2} - 4x + 1)$; and with two letters, $8x^{3} + 27y^{3} = (2x + 3y)(4x^{2} - 6xy + 9y^{2})$. The sign pattern is worth stating once, structurally: the **first** bracket carries the sign of the original expression ($a + b$ for the sum, $a - b$ for the difference), and the **second** bracket is always $a^{2} \\mp ab + b^{2}$ — squares of the roots, plus the middle term with the **opposite** sign, plus the other square. The second bracket never factors further, and the proof is 4.2’s gauge wearing two letters: read $a^{2} \\mp ab + b^{2}$ as a quadratic in $a$ — its gauge is $b^{2} - 4b^{2} = -3b^{2} < 0$ for every nonzero $b$, so no factorization over the integers exists. The verifier swept it across $b \\in [-9, 9]$: every companion refuses.' },
+        { kind: 'para', text: 'Two letters change nothing in the cube read — the definitions were built for it. $8x^{3} + 27y^{3}$ has both terms as cubes of composite roots, $(2x)^{3}$ and $(3y)^{3}$, so the sum of cubes opens exactly as before: $(2x + 3y)(4x^{2} - 6xy + 9y^{2})$ — the roots are $2x$ and $3y$, and every rule (first bracket carries the sign, second bracket flips the middle) applies verbatim. The companion bracket $4x^{2} - 6xy + 9y^{2}$ is the irreducible $a^{2} - ab + b^{2}$ wearing $a = 2x$, $b = 3y$, and the derivation below confirms it refuses further. The classical texts drill exactly these two-letter cases, and the examinations price them: the composite-root read — WHOSE cubes are these? — is the whole skill.' },
+        { kind: 'callout', tone: 'warn', title: 'Caution — the cube-bracket impostors', text: 'Two slips cost marks on the cube identities. First, $(x - 5)^{3}$ is NOT $x^{3} - 125$: the cube of a bracket carries middle terms ($x^{3} - 75x + 125$ for this one), and the verifier expands the impostor to prove it differs. Second, the second bracket’s middle term is often flipped from memory — $x^{3} - 125 = (x - 5)(x^{2} - 5x + 25)$ is wrong; the difference of cubes carries $+ab$ in the middle: $(x^{2} + 5x + 25)$. The one-line check is expansion: ten seconds, always.' },
+        {
+          kind: 'derivation',
+          title: 'The cube companions refuse to factor',
+          statement: 'Claim: for every nonzero $b$, the quadratic companion $a^{2} \\mp ab + b^{2}$ (the second bracket of the cube factorizations) has no factorization over the integers — so the cube identities are already COMPLETE factorizations.',
+          steps: [
+            {
+              label: 'Read the companion as a quadratic in a',
+              formula: 'a^{2} \\mp ab + b^{2}: \\quad p = \\mp b, \\; q = b^{2}',
+              explanation: 'The 4.2 gauge machinery applies to any quadratic, whatever letters sit in it — here the roles are $a$ the variable and $b$ a fixed letter.',
+            },
+            {
+              label: 'Compute the gauge',
+              formula: 'p^{2} - 4q = b^{2} - 4b^{2} = -3b^{2}',
+              explanation: 'For every nonzero $b$ this is strictly negative — the existence theorem of 4.2 says no integer pair (indeed no real pair) exists.',
+            },
+            {
+              label: 'Conclude',
+              formula: 'a^{2} \\mp ab + b^{2} \\text{ is irreducible over the integers } (b \\neq 0)',
+              explanation: 'The verifier swept the gauge across $b \\in [-9, 9]$: negative at every one. The cube factorizations need no further work — the second bracket is done by theorem, not by hope.',
+            },
+          ],
+          result: 'Every cube factorization of this lesson is automatically complete: the companion quadratic refuses for every nonzero second term. The same one-line gauge settles the two-letter cubes and every exercise that ends in a companion bracket.',
+        },
+        { kind: 'heading', text: 'The Two-Step Chains' },
+        { kind: 'para', text: 'The recognition moves chain, and the chains are where examinations hide their marks. $x^{4} - 16$ is a difference of squares with $a = x^{2}$, $b = 4$: $(x^{2} + 4)(x^{2} - 4)$ — but the second bracket is ITSELF a difference of squares, $(x + 2)(x - 2)$, while the first is a sum of squares and refuses. The complete factorization is $(x^{2} + 4)(x + 2)(x - 2)$ — three factors, every one irreducible. The same read: $x^{4} - 1 = (x^{2} + 1)(x + 1)(x - 1)$; $x^{4} - 81 = (x^{2} + 9)(x + 3)(x - 3)$; $16x^{4} - 81 = (4x^{2} + 9)(2x + 3)(2x - 3)$; and the grand chain $x^{6} - 1 = (x^{3} - 1)(x^{3} + 1)$, where each cube opens again: $(x - 1)(x^{2} + x + 1)(x + 1)(x^{2} - x + 1)$. The discipline of the chain: **after every move, look at what you are holding** — the pieces often carry their own recognitions, and stopping early ("$x^{4} - 16 = (x^{2} + 4)(x^{2} - 4)$") leaves the factorization incomplete at exactly the step the examiner priced.' },
+        { kind: 'heading', text: 'The Recognition Order' },
+        { kind: 'para', text: 'With four factorization lessons on the bench, the working question is which move runs first. The order that never wastes work: (i) extract the **GCF** (4.1) — it shrinks every number the later moves must touch; (ii) count the **terms**: two terms → squares or cubes (this lesson); three terms → perfect-square test, then the 4.2 hunt; four terms → 4.1 grouping; (iii) after any success, **look again** — chains and leftover GCFs hide inside the brackets; (iv) when every move refuses, say so honestly — the 4.1 boundary theorem and the gauge verdicts are answers, not failures.' },
+        { kind: 'para', text: 'Two thirty-second cases show the order earning its keep. $16x^{4} - 81x^{2}$: the GCF reflex pulls $x^{2}$ FIRST — $x^{2}(16x^{4} - 81)$ — and only then does the difference of squares read the bracket: $x^{2}(4x^{2} + 9)(2x + 3)(2x - 3)$, four factors, complete. Hunt-first would have faced a quartic with no dials at all. Next, $2x^{3} + 54$: the GCF 2 comes out — $2(x^{3} + 27)$ — and the bracket is a SUM of cubes: $2(x + 3)(x^{2} - 3x + 9)$. Miss the GCF and you would read $2x^{3} + 54$ as an irreducible-looking sum of cubes of $2^{1/3}x$ — a dead end manufactured entirely by skipping step one. The order is not etiquette; it is what makes the shelf reachable.' },
+        { kind: 'figure', caption: 'The recognition decision tree: GCF, then term count, then the identity tests, the hunt, grouping — and the honest refusal when everything refuses.', svg: decisionTreeSvg() },
+        { kind: 'example', title: 'Factor x⁴ − 81 completely, narrating the recognition order', steps: [
+          'GCF first: the terms $x^{4}$ and $81$ share nothing — the GCF is 1, move on.',
+          'Two terms: both are perfect squares ($x^{4} = (x^{2})^{2}$, $81 = 9^{2}$) with a minus — the difference of squares: $(x^{2} + 9)(x^{2} - 9)$.',
+          'Look again: the first bracket is a sum of squares — 4.1’s theorem refuses it; the second is a difference of squares — chain: $(x + 3)(x - 3)$.',
+          'Hence $x^{4} - 81 = (x^{2} + 9)(x + 3)(x - 3)$ — three irreducible factors.',
+          'Check by expansion: $(x^{2} + 9)(x^{2} - 9) = x^{4} - 81$ and $(x + 3)(x - 3) = x^{2} - 9$ ✓.',
+        ] },
+        { kind: 'example', title: 'Factor 8x³ − 125 completely', steps: [
+          'GCF first: $8x^{3}$ and $125$ share nothing numeric and no letter — move on.',
+          'Two terms, both perfect cubes: $8x^{3} = (2x)^{3}$ and $125 = 5^{3}$, minus between — the difference of cubes.',
+          'The first bracket carries the sign: $(2x - 5)$; the second is the roots’ squares with the OPPOSITE middle sign: $4x^{2} + 10x + 25$.',
+          'Hence $8x^{3} - 125 = (2x - 5)(4x^{2} + 10x + 25)$ — and the second bracket is irreducible (gauge $100 - 400 = -300 < 0$ as a quadratic in $x$).',
+          'Check: $(2x - 5)(4x^{2} + 10x + 25) = 8x^{3} + 20x^{2} + 50x - 20x^{2} - 50x - 125 = 8x^{3} - 125$ ✓.',
+        ] },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — Sophie Germain’s surprise', text: 'After 4.1 proved the sum of squares refuses, one might guess sums of fourth powers refuse too. They do not always: Sophie Germain (1776–1831) — who taught herself from the library her family kept out of her bedroom and wrote to Gauss under a man’s name — proved $a^{4} + 4b^{4} = (a^{2} + 2ab + 2b^{2})(a^{2} - 2ab + 2b^{2})$, the difference of squares in disguise: $a^{4} + 4b^{4} = (a^{2} + 2b^{2})^{2} - (2ab)^{2}$. She deployed it inside her grand plan for Fermat’s last theorem — the first viable attack, covering every odd prime exponent below 100 in the cases she patented. The lesson: recognition order says refuse — and a deeper recognition can reopen the file.' },
+        { kind: 'para', text: 'The chains deserve their own caution, because incompleteness hides in the second step. The pattern $x^{4} - b^{4}$ always opens twice — $(x^{2} + b^{2})(x + b)(x - b)$ — and the surviving bracket $x^{2} + b^{2}$ is a sum of squares that honestly refuses, so the chain TERMINATES there rather than fizzling. But a near-miss hides in the neighbourhood: $x^{4} - 4b^{4}$ opens once to $(x^{2} + 2b^{2})(x^{2} - 2b^{2})$, and the second bracket is NOT a chain candidate — as a difference of squares it would need both parts to be integer squares, and $2b^{2}$ is not one for any nonzero $b$, so over the integers the chain stops after one step. Look at the constants: a chain continues exactly while the bracket carries the difference-of-squares SHAPE (both parts squares, minus between), never merely because more factors would be pleasant. And the surviving sums of squares are not unfinished business — they are 4.1’s theorem, working as the chain’s designated stop sign.' },
+        { kind: 'example', title: 'Factor x⁴ + 4y⁴ — the Germain identity at work', steps: [
+          'Recognition order: GCF 1; two terms, both fourth powers — a SUM, and the sum of squares refuses… but wait: $x^{4} + 4y^{4} = x^{4} + 4(y^{2})^{2}$? No — $4y^{4} = 4(y^{2})^{2} \\cdot \\ldots$ write it as Germain saw it.',
+          'The disguise: $x^{4} + 4y^{4} = (x^{2} + 2y^{2})^{2} - (2xy)^{2}$ — add and subtract the cross term $4x^{2}y^{2}$: the square of $x^{2} + 2y^{2}$ minus the square of $2xy$.',
+          'Difference of squares: $(x^{2} + 2y^{2} + 2xy)(x^{2} + 2y^{2} - 2xy)$ — i.e. $(x^{2} + 2xy + 2y^{2})(x^{2} - 2xy + 2y^{2})$.',
+          'Hence $x^{4} + 4y^{4}$ factors over the integers — the sum-of-squares refusal was about SECOND powers, not fourth.',
+          'Check at $(1, 1)$: left $1 + 4 = 5$; right $(1 + 2 + 2)(1 - 2 + 2) = 5 \\cdot 1 = 5$ ✓.',
+        ] },
+        { kind: 'example', title: 'Factor 2x³ + 54 completely, narrating every station of the order', steps: [
+          'GCF first: $2x^{3}$ and $54$ share 2 — extract it: $2(x^{3} + 27)$.',
+          'Two terms inside the bracket: $(x)^{3}$ and $3^{3}$, plus between — the sum of cubes.',
+          'First bracket carries the sign: $(x + 3)$; second: $x^{2} - 3x + 9$ — squares, OPPOSITE middle, other square.',
+          'Hence $2x^{3} + 54 = 2(x + 3)(x^{2} - 3x + 9)$ — the leading 2 rides the whole answer (factor completely!).',
+          'Look again: the quadratic companion is irreducible (gauge $9 - 36 = -27 < 0$), so the factorization is complete — check: $2(x^{3} + 27) = 2x^{3} + 54$ ✓.',
+        ] },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner — recognition is timed reading', text: 'The identity-driven factorizations are the fastest marks on any algebra paper: $x^{2} - a^{2}$, the perfect squares and the cubes collapse in one line each, and the two-step chains are where SSC/CAT papers stash their difficulty. The exam discipline is the recognition order, executed without hesitation: GCF reflex first (it turns $16x^{4} - 81x^{2}$ into $x^{2}(4x + 9)(4x - 9)$ before any identity is invoked); term count next; the middle-term test before the 4.2 hunt (zero gauge is a freebie); look again after every bracket; and when the answer refuses, name the refusal — "sum of squares, irreducible over the integers" — because priced refusals are themselves examined answers. One final habit: run the GCF reflex even when it finds nothing — the ten-second glance at 4.1 is what proves the coefficients share nothing, and a stated "GCF = 1" is the first line of a complete examination solution.' },
+        { kind: 'heading', text: 'The Shelf, Collected' },
+        { kind: 'para', text: 'From the above discussion, the recognition layer of the factorization toolkit stands as follows:' },
+        { kind: 'list', marker: 'roman', items: [
+          '(i) **Difference of squares** — both terms squares, minus between: $a^{2} - b^{2} = (a + b)(a - b)$; the plus twin refuses (4.1).',
+          '(ii) **Perfect squares** — the middle term twice the product of the roots’ squares: the zero gauge; the middle-term test is the recognition instrument.',
+          '(iii) **Cubes** — both terms cubes: $(a \\pm b)(a^{2} \\mp ab + b^{2})$, the first bracket carrying the sign, the second proved irreducible.',
+          '(iv) **Chains** — look again after every bracket; $x^{4} - 16$, $x^{4} - 1$, $x^{6} - 1$ all open twice.',
+          '(v) **The surprise** — $a^{4} + 4b^{4}$ factors (Germain); the recognition order is a default, not a law of nature.',
+        ] },
+        { kind: 'para', text: 'One bridge closes the lesson. The recognition shelf handles the two-term expressions and the perfect squares; the 4.2 hunt handles the rest of the quadratic world; 4.1’s grouping handles the four-term strays. What NO shelf covers is the cubic that refuses all of this — $x^{3} - 6x^{2} + 11x - 6$ has three terms and no dials that apply. For those, the next lesson builds a different machine entirely: stop factoring the expression, start EVALUATING it — the factor theorem turns hunting zeros into hunting factors, and the cubics that no identity can touch fall one root at a time.' },
+        { kind: 'formula', name: 'Difference of squares, backwards', latex: 'a^{2} - b^{2} = (a + b)(a - b)', note: 'both terms squares, minus between; the plus twin refuses over the integers — 4.1’s theorem' },
+        { kind: 'formula', name: 'Perfect-square recognition', latex: 'a^{2} \\pm 2ab + b^{2} = (a \\pm b)^{2}', note: 'the middle term must be EXACTLY twice the product of the square roots of the ends — the zero gauge of 4.2' },
+        { kind: 'formula', name: 'The cube factorizations', latex: 'a^{3} \\pm b^{3} = (a \\pm b)(a^{2} \\mp ab + b^{2})', note: 'first bracket carries the sign; the second bracket’s middle takes the opposite sign and is irreducible (gauge $-3b^{2}$)' },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          {
+            q: '$x^{2} - 49$ factors as',
+            options: ['$(x - 7)^{2}$', '$(x - 49)(x + 1)$', '$(x - 7)(x + 7)$', 'irreducible over the integers'],
+            answer: 2,
+            explain: 'Both terms are perfect squares ($x^{2}$, $7^{2}$) with a MINUS between — the difference of squares: $(x + 7)(x - 7)$. Option 1 is the square impostor: it expands to $x^{2} - 14x + 49$, the middle term a perfect square always carries. Option 2 expands to $x^{2} - 48x - 49$. Option 4 names a refusal that belongs to the PLUS twin $x^{2} + 49$ — the sign decides.',
+          },
+          {
+            q: '$4x^{2} - 12x + 9$ factors as',
+            options: ['$(2x - 3)(2x + 3)$', '$(2x - 3)^{2}$', '$(4x - 9)(x + 1)$', '$(2x + 3)^{2}$'],
+            answer: 1,
+            explain: 'The ends are $(2x)^{2}$ and $3^{2}$, and the middle $2 \\cdot 2 \\cdot 3 = 12$ matches with the minus — the perfect square $(2x - 3)^{2}$. Option 1 drops the middle term entirely: $(2x - 3)(2x + 3) = 4x^{2} - 9$. Option 3 expands to $4x^{2} - 5x - 9$. Option 4 flips the middle’s sign: $4x^{2} + 12x + 9$. The middle-term test is the whole recognition.',
+          },
+          {
+            q: '$x^{3} - 125$ factors as',
+            options: ['$(x - 5)(x^{2} + 5x + 25)$', '$(x - 5)^{3}$', '$(x - 5)(x^{2} - 5x + 25)$', '$(x + 5)(x^{2} - 5x + 25)$'],
+            answer: 0,
+            explain: 'Both terms are perfect cubes with a minus — the difference of cubes: the first bracket carries the sign $(x - 5)$, the second reads roots’ squares with the OPPOSITE middle sign: $x^{2} + 5x + 25$. Option 2 is the cube impostor — $(x - 5)^{3}$ carries middle terms ($x^{3} - 75x + 125$). Option 3 flips the second bracket’s middle — that belongs to the SUM pattern. Option 4 flips the FIRST bracket’s sign. Expand once and each impostor falls.',
+          },
+          {
+            q: '$x^{4} - 16$ factors completely as',
+            options: ['$(x^{2} - 4)(x^{2} + 4)$', '$(x + 2)(x - 2)(x^{2} + 4)$', '$(x - 2)^{2}(x + 2)^{2}$', 'irreducible — a sum of squares'],
+            answer: 1,
+            explain: 'The first read gives $(x^{2} + 4)(x^{2} - 4)$ — TRUE but INCOMPLETE: the second bracket chains into $(x + 2)(x - 2)$, and the first is a sum of squares that honestly refuses. Option 3 expands to $x^{4} - 8x^{2} + 16$ — the square impostor at fourth power. Option 4 mis-files the expression: $x^{4} - 16$ is a DIFFERENCE of squares. The complete factorization is $(x^{2} + 4)(x + 2)(x - 2)$ — three irreducible factors.',
+          },
+          {
+            q: 'Which expression CANNOT be factored over the integers?',
+            options: ['$x^{2} - 36$', '$x^{4} - 1$', '$x^{4} + 16$', '$8x^{3} - 27$'],
+            answer: 2,
+            explain: '$x^{4} + 16$ is a sum of fourth powers with no Germain disguise ($16 = 4 \\cdot 2^{2}$ is not $4b^{4}$ for any integer $b$ — the verifier’s exhaustive scan confirms no integer factorization). The others all factor: $x^{2} - 36 = (x + 6)(x - 6)$; $x^{4} - 1 = (x^{2} + 1)(x + 1)(x - 1)$ (the two-step chain); and $8x^{3} - 27 = (2x - 3)(4x^{2} + 6x + 9)$ (the difference of cubes). The refusal is the answer worth naming precisely.',
+          },
+        ] },
+        { kind: 'exercises', title: 'Exercises 4.3', sets: [
+          {
+            level: 'L1',
+            questions: [
+              {
+                q: 'Factor $x^{2} - 64$ and check by expansion.',
+                solution: [
+                  'Both terms are perfect squares ($x^{2}$, $8^{2}$) with a minus — the difference of squares.',
+                  'Hence $x^{2} - 64 = (x + 8)(x - 8)$.',
+                  'Check: $(x + 8)(x - 8) = x^{2} - 64$ ✓.',
+                ],
+                answer: '$(x + 8)(x - 8)$',
+              },
+              {
+                q: 'Factor $x^{2} + 12x + 36$.',
+                solution: [
+                  'The ends are squares ($x^{2}$, $6^{2}$); the middle test: $2 \\cdot 1 \\cdot 6 = 12$ ✓ — a perfect square.',
+                  'Hence $x^{2} + 12x + 36 = (x + 6)^{2}$ — the sign of the middle carried by both brackets.',
+                  'Check: $(x + 6)^{2} = x^{2} + 12x + 36$ ✓.',
+                ],
+                answer: '$(x + 6)^{2}$',
+              },
+              {
+                q: 'Factor $x^{3} - 1$.',
+                solution: [
+                  'Both terms are perfect cubes with a minus — the difference of cubes.',
+                  'The first bracket carries the sign: $(x - 1)$; the second: $x^{2} + x + 1$ (roots’ squares, OPPOSITE middle sign, other square).',
+                  'Hence $x^{3} - 1 = (x - 1)(x^{2} + x + 1)$ — check: $(x - 1)(x^{2} + x + 1) = x^{3} - 1$ ✓ (3.2’s teaser, now a recognition).',
+                ],
+                answer: '$(x - 1)(x^{2} + x + 1)$',
+              },
+            ],
+          },
+          {
+            level: 'L2',
+            questions: [
+              {
+                q: 'Factor $25x^{2} - 49$.',
+                solution: [
+                  'Both terms are squares: $(5x)^{2}$ and $7^{2}$, minus between.',
+                  'Hence $25x^{2} - 49 = (5x + 7)(5x - 7)$ — the coefficients’ roots join the letters.',
+                  'Check: $(5x + 7)(5x - 7) = 25x^{2} - 49$ ✓.',
+                ],
+                answer: '$(5x + 7)(5x - 7)$',
+              },
+              {
+                q: 'Factor $x^{2} - 18x + 81$.',
+                solution: [
+                  'The ends are squares ($x^{2}$, $9^{2}$); the middle test: $2 \\cdot 1 \\cdot 9 = 18$ ✓ with the minus.',
+                  'Hence $x^{2} - 18x + 81 = (x - 9)^{2}$.',
+                  'Check: $(x - 9)^{2} = x^{2} - 18x + 81$ ✓.',
+                ],
+                answer: '$(x - 9)^{2}$',
+              },
+              {
+                q: 'Factor $64x^{3} + 1$.',
+                solution: [
+                  'Both terms are cubes: $(4x)^{3}$ and $1^{3}$, plus between — the sum of cubes.',
+                  'First bracket carries the sign: $(4x + 1)$; second: $16x^{2} - 4x + 1$ (squares, opposite middle, other square).',
+                  'Hence $64x^{3} + 1 = (4x + 1)(16x^{2} - 4x + 1)$ — check by expansion ✓.',
+                ],
+                answer: '$(4x + 1)(16x^{2} - 4x + 1)$',
+              },
+            ],
+          },
+          {
+            level: 'L3',
+            questions: [
+              {
+                q: 'Factor $x^{4} - 81$ completely.',
+                solution: [
+                  'Difference of squares: $(x^{2} + 9)(x^{2} - 9)$.',
+                  'Look again: $x^{2} + 9$ is a sum of squares — refuses (4.1); $x^{2} - 9$ chains: $(x + 3)(x - 3)$.',
+                  'Hence $x^{4} - 81 = (x^{2} + 9)(x + 3)(x - 3)$ — check: $(x^{2} + 9)(x^{2} - 9) = x^{4} - 81$ ✓.',
+                ],
+                answer: '$(x^{2} + 9)(x + 3)(x - 3)$',
+              },
+              {
+                q: 'Factor $x^{3} + 216$.',
+                solution: [
+                  'Both terms are cubes: $x^{3}$ and $6^{3}$, plus between — the sum of cubes.',
+                  'Hence $x^{3} + 216 = (x + 6)(x^{2} - 6x + 36)$ — the second bracket irreducible (gauge $36 - 144 = -108 < 0$).',
+                  'Check: $(x + 6)(x^{2} - 6x + 36) = x^{3} + 216$ ✓.',
+                ],
+                answer: '$(x + 6)(x^{2} - 6x + 36)$',
+              },
+              {
+                q: 'Factor $9x^{2} - 42x + 49$.',
+                solution: [
+                  'The ends are squares: $(3x)^{2}$ and $7^{2}$; the middle test: $2 \\cdot 3 \\cdot 7 = 42$ ✓ with the minus.',
+                  'Hence $9x^{2} - 42x + 49 = (3x - 7)^{2}$ — the perfect square, both brackets carrying the minus.',
+                  'Check: $(3x - 7)^{2} = 9x^{2} - 42x + 49$ ✓.',
+                ],
+                answer: '$(3x - 7)^{2}$',
+              },
+            ],
+          },
+          {
+            level: 'L4',
+            questions: [
+              {
+                q: 'Factor $x^{4} - 1$ completely.',
+                solution: [
+                  'Difference of squares: $(x^{2} + 1)(x^{2} - 1)$.',
+                  'Look again: $x^{2} + 1$ refuses (the sum of squares); $x^{2} - 1$ chains: $(x + 1)(x - 1)$.',
+                  'Hence $x^{4} - 1 = (x^{2} + 1)(x + 1)(x - 1)$ — check: $(x^{2} + 1)(x^{2} - 1) = x^{4} - 1$ ✓.',
+                ],
+                answer: '$(x^{2} + 1)(x + 1)(x - 1)$',
+              },
+              {
+                q: 'Factor $16x^{4} - 81$ completely.',
+                solution: [
+                  'Difference of squares: $(4x^{2} + 9)(4x^{2} - 9)$ — the coefficient roots ride along.',
+                  'Look again: $4x^{2} + 9$ refuses (sum of squares); $4x^{2} - 9$ chains: $(2x + 3)(2x - 3)$.',
+                  'Hence $16x^{4} - 81 = (4x^{2} + 9)(2x + 3)(2x - 3)$ — check: $(4x^{2} + 9)(4x^{2} - 9) = 16x^{4} - 81$ ✓.',
+                ],
+                answer: '$(4x^{2} + 9)(2x + 3)(2x - 3)$',
+              },
+            ],
+          },
+          {
+            level: 'L5',
+            questions: [
+              {
+                q: 'Factor $8x^{3} - 125$ completely.',
+                solution: [
+                  'Both terms are cubes: $(2x)^{3}$ and $5^{3}$, minus between — the difference of cubes.',
+                  'Hence $8x^{3} - 125 = (2x - 5)(4x^{2} + 10x + 25)$ — the second bracket carries the OPPOSITE middle sign.',
+                  'The second bracket is irreducible: as a quadratic in $x$ its gauge is $100 - 400 = -300 < 0$.',
+                  'Check: $(2x - 5)(4x^{2} + 10x + 25) = 8x^{3} - 125$ ✓.',
+                ],
+                answer: '$(2x - 5)(4x^{2} + 10x + 25)$',
+              },
+              {
+                q: 'Factor $x^{4} + 4$ — the recognition order says refuse; Germain says otherwise.',
+                solution: [
+                  'The recognition order: GCF 1; two terms, fourth powers, PLUS between — the sum of squares refuses… for squares.',
+                  'The disguise: $x^{4} + 4 = (x^{2} + 2)^{2} - (2x)^{2}$ — add and subtract the cross term $4x^{2}$.',
+                  'Difference of squares: $(x^{2} + 2 + 2x)(x^{2} + 2 - 2x)$ — i.e. $(x^{2} + 2x + 2)(x^{2} - 2x + 2)$.',
+                  'Hence $x^{4} + 4 = (x^{2} + 2x + 2)(x^{2} - 2x + 2)$ — Sophie Germain’s identity with $a = x$, $b = 1$.',
+                  'Check: $(x^{2} + 2)^{2} - 4x^{2} = x^{4} + 4x^{2} + 4 - 4x^{2} = x^{4} + 4$ ✓.',
+                ],
+                answer: '$(x^{2} + 2x + 2)(x^{2} - 2x + 2)$',
+              },
+            ],
+          },
+          {
+            level: 'L6',
+            questions: [
+              {
+                q: 'Factor $x^{6} - 1$ completely — the grand chain.',
+                solution: [
+                  'Difference of squares first: $x^{6} - 1 = (x^{3})^{2} - 1^{2} = (x^{3} + 1)(x^{3} - 1)$.',
+                  'Look again: both brackets are sums/differences of CUBES — open each: $x^{3} + 1 = (x + 1)(x^{2} - x + 1)$ and $x^{3} - 1 = (x - 1)(x^{2} + x + 1)$.',
+                  'Hence $x^{6} - 1 = (x + 1)(x - 1)(x^{2} - x + 1)(x^{2} + x + 1)$ — four factors.',
+                  'Every bracket is now irreducible: the linear brackets are done; the quadratics carry gauges $(-1)^{2} - 4 = -3 < 0$.',
+                  'Check: $(x^{3} + 1)(x^{3} - 1) = x^{6} - 1$ ✓ — and 4.4 will re-derive this factorization from the roots themselves.',
+                ],
+                answer: '$(x + 1)(x - 1)(x^{2} - x + 1)(x^{2} + x + 1)$',
+              },
+            ],
+          },
+        ] },
+      ],
+    },
+    {
+      id: 'al-factor-theorem-and-cubics',
+      number: '4.4',
+      title: 'The Factor Theorem and Cubics',
+      concepts: [
+        'the factor theorem',
+        'evaluate, never divide',
+        'integer-root candidates',
+        'the cubic hunting machine',
+        'the irreducibility verdict',
+        'repeated roots',
+        'the two roads agree',
+        'the zero seed cashed',
+      ],
+      objectives: [
+        'state and prove the factor theorem — (x − a) divides f(x) exactly when f(a) = 0 — from the remainder theorem, both directions',
+        'justify the candidate scan: every integer root of a monic cubic divides its constant term (proved), so the candidates are ± the divisors of d',
+        'run the cubic hunting machine: list candidates, evaluate (never divide), divide out the found root, and let the 4.2 toolkit finish the quotient',
+        'price the missing seat (x³ − 7x + 6 written 1, 0, −7, 6) and the repeated roots ((x − 1)²(x + 2))',
+        'prove and use the irreducibility verdict: a cubic with no integer root is irreducible over the integers — and meet what waits beyond (Cardano)',
+        'watch the two roads agree — the factor theorem re-deriving 3.3’s cube identities — and cash 3.1’s zero seed that planted this whole chapter',
+      ],
+      prerequisites: ['al-identities-as-factorizations', 'al-dividing-polynomials-long-division-and-the-remainder-theorem'],
+      sources: ['hall-knight-elementary-algebra', 'hall-knight-higher-algebra', 'cardano-1545-ars-magna', 'ncert-math9-ch2-polynomials'],
+      blocks: [
+        { kind: 'para', text: 'Every road of this chapter converges here. Lesson 3.1 planted a seed: the polynomial $p(x) = x^{3} - 2x + 1$ returned $0$ at $x = 1$, and the seed carried a promise — chapter 4 would turn hunting zeros into factoring. Lesson 3.4 proved the remainder theorem ($r = f(a)$, evaluate never divide) and glimpsed what a zero remainder would mean. Lessons 4.1–4.3 built the factorization toolkit — GCF, grouping, the hunt, the identity shelf — and 4.3 closed by admitting what it cannot touch: $x^{3} - 6x^{2} + 11x - 6$ has three terms, no dials, no square shape. This lesson keeps the chapter’s oldest promise: stop staring at the EXPRESSION and start EVALUATING it — the values of a polynomial reveal its factors.' },
+        { kind: 'para', text: 'The plan: state the factor theorem and prove it both directions from the remainder theorem; justify the candidate scan (every integer root of a monic cubic divides the constant — proved); run the cubic hunting machine end to end, with the missing-seat caution and the repeated-root case; prove the irreducibility verdict — a cubic with no integer root is irreducible over the integers, a degree-three miracle that makes refusals cheap; watch the two roads agree when the identity shelf and the theorem factor the same cubic; and meet, honestly, the machinery that waits beyond the school scale — Cardano’s formula for exactly the cubics this lesson refuses.' },
+        { kind: 'heading', text: 'The Factor Theorem' },
+        { kind: 'para', text: 'The vocabulary first, carried over from 3.1: a number $a$ is a **zero** (or a root) of the polynomial $f$ when $f(a) = 0$ — an input whose output lands exactly on zero, the fingerprint moment of 3.1’s value tables. The factor theorem is the algebraic twin of that idea, and it is the remainder theorem with the remainder pinned to zero.' },
+        { kind: 'callout', tone: 'definition', title: 'Definition — zero of a polynomial', text: 'A number $a$ is a **zero** (or root) of the polynomial $f(x)$ when $f(a) = 0$. Zeros are read from the SUBSTITUTION machine of 1.3 and 3.1 — feed the input, collect the output — and 3.4 proved they are also read from division: $f(a)$ is exactly the remainder left when $f(x)$ is divided by $(x - a)$.' },
+        { kind: 'callout', tone: 'theorem', title: 'Theorem — the factor theorem', text: 'For any polynomial $f$ and any number $a$: $(x - a)$ divides $f(x)$ (with polynomial quotient, zero remainder) **if and only if** $f(a) = 0$. The proof is the remainder theorem read at both ends: 3.4 proved $f(x) = (x - a)q(x) + r$ with $r = f(a)$ — so $f(a) = 0$ forces $r = 0$ and $f(x) = (x - a)q(x)$, a clean division; and conversely a clean division $f(x) = (x - a)q(x)$ evaluates at $a$ to $f(a) = (a - a)q(a) + 0 = 0$. Two lines, both directions, from a theorem 3.4 already proved.' },
+        {
+          kind: 'equation',
+          latex: '(x - a) \\mid f(x) \\quad \\Longleftrightarrow \\quad f(a) = 0',
+          note: 'the factor theorem — the remainder theorem’s zero case: a zero of the polynomial is exactly a linear factor, and each implies the other',
+        },
+{ kind: 'terms', items: [
+          { term: 'zero (root) of a polynomial', def: 'a number $a$ with $f(a) = 0$ — 3.1’s value-table fingerprint, formalized' },
+          { term: 'the factor theorem', def: '$(x - a) \\mid f(x)$ exactly when $f(a) = 0$ — the remainder theorem’s zero case, both directions' },
+          { term: 'evaluate, never divide', def: '3.4’s rule promoted to a hunting instrument: the remainder theorem makes each candidate one line of arithmetic' },
+          { term: 'integer-root candidates (monic)', def: 'the signed divisors of the constant term — proved to contain every integer root of a monic polynomial' },
+          { term: 'the rational-root candidates (non-monic)', def: '$p/q$ with $p \\mid d$ and $q \\mid a$ — the widened list when the leading coefficient is not 1' },
+          { term: 'the cubic irreducibility verdict', def: 'a cubic with no integer root is irreducible over the integers — degree 3 forces a linear factor in any factorization' },
+          { term: 'repeated root', def: 'a root that survives its own division — $x^{3} - 3x + 2 = (x - 1)^{2}(x + 2)$; the look-again discipline catches it' },
+          { term: 'the zero-product bridge', def: 'a product is zero only when a factor is zero — chapter 5’s first theorem, already visible in this lesson’s zeros' },
+        ] },
+                { kind: 'para', text: 'The theorem converts a QUESTION ABOUT FACTORS into a QUESTION ABOUT VALUES. Factoring asks: does $(x - a)$ divide $f$? — a division problem, expensive. The theorem answers: evaluate $f(a)$ — one substitution, cheap. This is 3.4’s rule **evaluate, never divide** promoted from a labor-saving habit to a hunting instrument: to find the factors of a cubic, evaluate it at candidate points and let the zeros announce the factors. The verifier checked the theorem’s content directly: 3,375 cubic-root draws all satisfied $(x - a)q(x) + r = f$ with $r = f(a)$, and the classic $x^{3} - 6x^{2} + 11x - 6$ evaluated at 1 gives $1 - 6 + 11 - 6 = 0$ — zero remainder, clean division.' },
+        { kind: 'heading', text: 'Hunting Cubic Roots: the Candidate Scan' },
+        { kind: 'para', text: 'The theorem says zeros are factors — but where do you LOOK for zeros? A cubic’s possible inputs are infinite; evaluation is cheap but not free. The monic case has a theorem that shrinks the search to a finite list, and its proof is one comparison of constants.' },
+        {
+          kind: 'derivation',
+          title: 'The monic integer-root rule',
+          statement: 'Claim: if the monic cubic $x^{3} + bx^{2} + cx + d$ (integer coefficients, $d \\neq 0$) has an integer root $a$, then $a$ divides $d$ — so the only integer-root candidates are the divisors of the constant term, with both signs.',
+          steps: [
+            {
+              label: 'Suppose a is a root — divide it out',
+              formula: 'x^{3} + bx^{2} + cx + d = (x - a)(x^{2} + ux + v)',
+              explanation: 'The factor theorem guarantees the division; the quotient is a monic quadratic (leading coefficients multiply to 1).',
+            },
+            {
+              label: 'Compare the constant terms',
+              formula: 'd = (-a) \\cdot v',
+              explanation: 'Expanding, the constant of the product is the product of the constants: $(-a) \\cdot v$. So $a$ divides $d$ — the root is bottled up inside the constant term.',
+            },
+            {
+              label: 'Read the candidate list',
+              formula: 'a \\in \\{\\pm 1, \\pm 2, \\ldots, \\pm |d|\\} \\text{ with } a \\mid d',
+              explanation: 'Finite, ordered, and checkable by evaluation. The verifier swept it: across 4,056 monic cubics ($b, c \\in [-6, 6]$, $d \\in [-12, 12]$, $d \\neq 0$), every integer root found divided $d$ — no exceptions.',
+            },
+          ],
+          result: 'The hunt is finite: list the signed divisors of the constant term, evaluate the cubic at each, and every zero found is a factor. For a non-monic leading coefficient the candidates widen to $p/q$ with $p \\mid d$ and $q \\mid a$ — the same scan with a longer list (the rational-root rule, proved in full when the course needs it).',
+        },
+        { kind: 'para', text: 'The scan procedure, assembled: (i) list the signed divisors of $d$ — smallest magnitudes first, $\\pm 1$ almost always worth trying first; (ii) **evaluate** $f$ at each candidate — the remainder theorem at work, no division yet; (iii) a zero means a factor — divide it out (3.4’s long division or synthetic division); (iv) the quotient is a quadratic — hand it to 4.2’s toolkit (the hunt, the gauge, the square test); (v) look again at everything — repeated roots hide inside quotients. One seating caution from 3.4’s tableau: $x^{3} - 7x + 6$ has NO $x^{2}$ term, and the division needs the zero seat written — coefficients $1, 0, -7, 6$ — or the columns misalign.' },
+        { kind: 'example', title: 'Factor x³ − 6x² + 11x − 6 completely — the classic three-root cubic', steps: [
+          'The candidates: divisors of $6$ with both signs — $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.',
+          'Evaluate (never divide): $f(1) = 1 - 6 + 11 - 6 = 0$ — root found at the FIRST candidate.',
+          'Divide out $(x - 1)$: long division gives $x^{2} - 5x + 6$, remainder $0$ — the theorem confirmed.',
+          'The quotient is quadratic — 4.2’s hunt: product $6$, sum $-5$, both negative — the pair $(2, 3)$: $(x - 2)(x - 3)$.',
+          'Hence $x^{3} - 6x^{2} + 11x - 6 = (x - 1)(x - 2)(x - 3)$ — three linear factors, and a check: $(x - 1)(x^{2} - 5x + 6) = x^{3} - 6x^{2} + 11x - 6$ ✓.',
+        ] },
+{ kind: 'para', text: 'One division of labor keeps the machine honest: the SCAN finds WHO the factors are; the DIVISION finds WHAT REMAINS. Evaluating $f(1) = 0$ proves $(x - 1)$ divides — but says nothing about the quotient, which is where the other factors live. So the division is not optional ceremony: it is how the degree drops and the next factor becomes visible. The theorem’s economy is that the division only ever runs on roots already confirmed by evaluation — never on candidates that evaluation has already refused. Three evaluations refused nothing and one confirmed everything in the classic cubic; the division ran once, not four times.' },
+                { kind: 'figure', caption: 'The root-to-factor bridge: the remainder theorem at $r = 0$ — a zero of the polynomial is exactly a linear factor, each implying the other.', svg: rootFactorBridgeSvg() },
+        { kind: 'heading', text: 'The Cubic Hunting Machine' },
+        { kind: 'para', text: 'The machine runs the scan, the division and the toolkit as one pipeline — and it comes with a guarantee in the REVERSE direction that makes refusals cheap. Degree three can only factor as $3 = 1 + 1 + 1$ or $3 = 1 + 2$: any integer factorization of a monic cubic MUST contain a linear factor $(x - a)$ — which by the factor theorem means an integer root. Contrapositive: **no integer root, no integer factorization at all.** The verifier verified both directions across the same 4,056 monic cubics: factorable exactly when a root exists, zero exceptions. A cubic that refuses the whole candidate list is not “unfinished” — it is PROVED irreducible over the integers, in one verdict.' },
+        {
+          kind: 'derivation',
+          title: 'The cubic irreducibility verdict',
+          statement: 'Claim: a monic cubic $x^{3} + bx^{2} + cx + d$ (integer coefficients) factors over the integers **if and only if** it has an integer root — so the candidate scan is not just a method, it is the COMPLETE decision procedure for cubic factorization.',
+          steps: [
+            {
+              label: 'Degree arithmetic',
+              formula: '3 = 1 + 1 + 1 \\quad \\text{or} \\quad 3 = 1 + 2',
+              explanation: 'Any integer factorization splits degrees as $1 + 1 + 1$ (three linear) or $1 + 2$ (linear times quadratic) — a linear factor is FORCED in every case.',
+            },
+            {
+              label: 'A linear factor is a root',
+              formula: '(x - a) \\mid f \\quad \\Longrightarrow \\quad f(a) = 0',
+              explanation: 'The factor theorem, backwards: every integer factorization of a monic cubic hands you an integer root.',
+            },
+            {
+              label: 'Contrapositive — the verdict',
+              formula: 'f(a) \\neq 0 \\text{ for every candidate } a \\quad \\Longrightarrow \\quad f \\text{ is irreducible}',
+              explanation: 'No integer root means no linear factor means no factorization at all. The scan that hunts is also the scan that proves refusal — the verifier confirmed the equivalence on all 4,056 sweep cubics.',
+            },
+          ],
+          result: 'For cubics, factoring is root-hunting and root-hunting is factoring — one finite scan decides everything. This is a degree-three miracle: it dies at degree four ($x^{4} + 4$ factors with NO integer root — Germain’s identity from 4.3 is the standing counterexample), which is exactly why the cubic case is worth stating as a theorem.',
+        },
+        { kind: 'example', title: 'Factor 2x³ − 3x² − 3x + 2 completely — the a ≠ 1 case', steps: [
+          'The candidates widen: $p \\mid 2$ and $q \\mid 2$ — $\\pm 1, \\pm 2, \\pm \\tfrac{1}{2}$. Try the integers first.',
+          'Evaluate: $f(2) = 16 - 12 - 6 + 2 = 0$ — root $2$ found.',
+          'Divide out $(x - 2)$: synthetic division on $2, -3, -3, 2$ gives quotient $2x^{2} + x - 1$, remainder $0$.',
+          'The quotient is an $a \\neq 1$ quadratic — 4.2’s AC split: $ac = -2$, sum $1$, the pair $(2, -1)$: $2x^{2} + 2x - x - 1 = x(2x + 1) - 1(2x + 1) = (2x + 1)(x - 1)$.',
+          'Hence $2x^{3} - 3x^{2} - 3x + 2 = (x - 2)(2x + 1)(x - 1)$ — three linear factors; check: $(x - 2)(2x^{2} + x - 1) = 2x^{3} - 3x^{2} - 3x + 2$ ✓.',
+        ] },
+{ kind: 'para', text: 'The non-monic candidate list deserves its own glance, because the halves unsettle students. For $ax^{3} + \\cdots + d$ with integer coefficients, every RATIONAL root $p/q$ (lowest terms) satisfies $p \\mid d$ and $q \\mid a$ — so $2x^{3} - 3x^{2} - 3x + 2$ carries the candidates $\\pm 1, \\pm 2, \\pm \\tfrac{1}{2}$ (divisors of 2 over divisors of 2). The list is still finite, still ordered by magnitude, and still decided by evaluation — but the integers come first: the half-candidate $\\tfrac{1}{2}$ only matters when $\\pm 1$ and $\\pm 2$ have all missed, as the exhibit shows them missing before $f(2)$ lands. The proof of the rational-root rule is the same comparison-of-constants that proved the monic case, run with the leading coefficients multiplied in; the course states it here and proves it in full when the number systems demand the precision.' },
+                { kind: 'example', title: 'Factor x³ − 7x + 6 completely — the missing seat', steps: [
+          'Seat the coefficients with the zero: $1, 0, -7, 6$ — the $x^{2}$ column rides silently but must be present.',
+          'Candidates: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Evaluate: $f(1) = 1 - 7 + 6 = 0$ — root $1$.',
+          'Divide out $(x - 1)$ with the zero seat in place: quotient $x^{2} + x - 6$, remainder $0$.',
+          'The hunt closes it: product $-6$, sum $1$ — the pair $(3, -2)$: $(x + 3)(x - 2)$.',
+          'Hence $x^{3} - 7x + 6 = (x - 1)(x + 3)(x - 2)$ — check: $(x - 1)(x^{2} + x - 6) = x^{3} - 7x + 6$ ✓.',
+        ] },
+        { kind: 'para', text: 'Two refinements complete the machine. **Repeated roots**: $x^{3} - 3x + 2$ evaluates to zero at $1$ — but dividing out $(x - 1)$ leaves $x^{2} + x - 2$, and the hunt factors THAT as $(x + 2)(x - 1)$ — the same factor AGAIN. The complete read is $(x - 1)^{2}(x + 2)$: the root $1$ is a double root, and the look-again discipline (4.3’s chain habit) is what catches it. **The two roads agree**: $x^{3} + 8$ factors by 4.3’s identity as $(x + 2)(x^{2} - 2x + 4)$ — and the theorem finds the same factor by evaluation, $f(-2) = -8 + 8 = 0$. The identity and the theorem are two proofs of the same factorization; when both roads are open, they must land in the same place, because the factorization of a polynomial into irreducibles is unique — the chapter’s quiet deepest fact, which chapter 9’s bookkeeping will make precise.' },
+        { kind: 'example', title: 'Factor x³ + 8 by BOTH roads — the identity and the theorem', steps: [
+          'Road one (4.3’s shelf): both terms are cubes — $x^{3} + 8 = (x + 2)(x^{2} - 2x + 4)$, the sum-of-cubes read.',
+          'Road two (the theorem): $f(-2) = -8 + 8 = 0$ — so $(x + 2)$ divides; division gives $x^{2} - 2x + 4$.',
+          'The roads agree on the factor AND on the quotient — as they must.',
+          'The quadratic companion $x^{2} - 2x + 4$ has gauge $4 - 16 = -12 < 0$ — irreducible: both roads stop at the same wall.',
+          'Hence $x^{3} + 8 = (x + 2)(x^{2} - 2x + 4)$, complete — two independent proofs, one factorization.',
+        ] },
+        { kind: 'para', text: 'And the honest refusal, which the irreducibility verdict makes cheap. $x^{3} - 2x + 5$: candidates $\\pm 1, \\pm 5$ — $f(1) = 4$, $f(-1) = 6$, $f(5) = 120$, $f(-5) = -110$ — no zero anywhere in the list, so the verdict lands: **irreducible over the integers**, proved by degree arithmetic, not guessed. The same verdict covers $x^{3} + x + 1$ ($f(1) = 3$, $f(-1) = -1$ — the shortest refusal in the book). These polynomials have real roots — every odd-degree polynomial crosses the axis somewhere, a fact chapter 8’s graphs will make visible — but their roots are irrational, and no integer factorization will ever carry them. The school-scale story ends exactly where the heavier machinery begins.' },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — Cardano’s heavy machinery', text: 'What the factor theorem cannot reach, the sixteenth century solved with fireworks. The cubic formula — del Ferro’s original insight (c. 1515), rediscovered by Tartaglia in 1535 for a contest with del Ferro’s student Fiore, published by Gerolamo Cardano in the *Artis Magna* of 1545 over Tartaglia’s broken oath, with Ferrari’s quartic riding the same book — solves EVERY cubic by radicals, factored or not. The scandal is algebra’s most famous priority dispute; the mathematics is the first time humans solved an equation BY FORMULA beyond the quadratic. This course stays at the school scale — the theorem, the scan, the verdict — and hands the formula to the later books; but the *Artis Magna* is the standing reminder that “irreducible over the integers” was never the end of the story.' },
+        { kind: 'figure', caption: 'The cubic hunting machine: candidates from the constant, evaluation by the remainder theorem, division of the found root, the 4.2 toolkit on the quotient — and the irreducibility verdict when the list comes up empty.', svg: cubicMachineSvg() },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner — the root hunt at speed', text: 'Cubic factoring questions are decided by scan discipline. Order the candidates: $\\pm 1$ first (one-line evaluations), then $\\pm 2$ and the small divisors — the classic papers put a root at $1$, $-1$ or $2$ more often than anywhere else. Evaluate, never divide — the remainder theorem turns each candidate into one line of arithmetic. When the question asks “find $k$ so that $(x - a)$ is a factor”, it IS the factor theorem: set $f(a) = 0$ and solve for $k$ (one linear equation). And when a cubic refuses the whole list, SAY the verdict — “no integer root, and a cubic with no integer root is irreducible over the integers” — because that sentence, rare in student scripts, is the full-credit answer the marking schemes reserve a line for. And carry the scan habit into every new topic: the first evaluations — $f(1)$, $f(-1)$ — cost two lines and settle, more often than not, whether a long factorization exists at all.' },
+{ kind: 'para', text: 'The k-parameter questions deserve one more look, because they run the theorem in its most elegant direction. “Find $k$ so that $(x - 2)$ is a factor of $x^{3} + kx^{2} - 11x + 6$” — the exercise above — does not hunt a root; it MANUFACTURES one. The condition $f(2) = 0$ is one linear equation in $k$, solved in a line, and the factorization follows without ever dividing: the theorem guarantees $(x - 2)$ divides, and chapter 5’s equations will make the guarantee a solving method. The same read powers the parameter questions the examination boards love: remainders demanded at given points (the remainder theorem, 3.4), factors demanded at given points (this lesson), and — the chapter 9 finale — roots demanded of quadratics whose coefficients carry parameters. Every one of them is the same move: state the condition as an equation in the parameter, solve, check. The factor theorem is not just a factoring tool; it is the bridge on which polynomials and equations finally meet.' },
+        { kind: 'heading', text: 'The Chapter Closes' },
+        { kind: 'para', text: 'From the above discussion, the whole of chapter 4 stands as one machine with five stations — and the seed of lesson 3.1 finally sprouted:' },
+        { kind: 'list', marker: 'roman', items: [
+          '(i) **Extract and group** (4.1) — the GCF reflex and the four-term pairing machine, with the sum-of-squares boundary proved.',
+          '(ii) **Hunt and gauge** (4.2) — the middle-term dials with the existence theorem $p^{2} - 4q = (a - b)^{2}$, the AC split closed by the folding identity.',
+          '(iii) **Recognize** (4.3) — the identity shelf read backwards, the chains, the recognition order, and Germain’s fourth-power surprise.',
+          '(iv) **Evaluate** (4.4) — the factor theorem turning zeros into factors, the candidate scan, the cubic irreducibility verdict.',
+          '(v) **Refuse honestly** — every refusal this chapter is a theorem: the sum of squares, the gauge verdicts, the scan verdict, each provable in lines.',
+        ] },
+        { kind: 'para', text: 'The next chapter puts the machine to work: an EQUATION is the factorization’s customer — $x^{2} + 5x + 6 = 0$ asks the question the factorization answers, because a product is zero only when a factor is zero. That zero-product bridge, already visible in this lesson’s zeros, is chapter 5’s first theorem. Chapter 4 built the factory; chapter 5 starts the production line — and the factory was promised in advance: the very first zero in 3.1’s value table was this chapter’s seed, and the machine that sprouted it now stands complete.' },
+        { kind: 'formula', name: 'The factor theorem', latex: '(x - a) \\mid f(x) \\quad \\Longleftrightarrow \\quad f(a) = 0', note: 'the remainder theorem’s zero case — evaluate, never divide; 3.1’s zero seed cashed' },
+        { kind: 'formula', name: 'The candidate scan (monic)', latex: 'a \\mid d \\quad \\Rightarrow \\quad a \\in \\{\\pm 1, \\pm 2, \\ldots, \\pm |d|\\}', note: 'every integer root of $x^{3} + bx^{2} + cx + d$ divides the constant — the finite candidate list (non-monic: $p \\mid d$, $q \\mid a$)' },
+        { kind: 'formula', name: 'The cubic irreducibility verdict', latex: 'f(a) \\neq 0 \\ \\forall a \\mid d \\quad \\Longrightarrow \\quad f \\text{ irreducible over } \\mathbb{Z}', note: 'degree 3 forces a linear factor in any factorization — no integer root means NO integer factorization (false at degree 4: Germain)' },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          {
+            q: 'The factor theorem says $(x - a)$ divides $f(x)$ exactly when',
+            options: ['$f(0) = a$', '$f(a) = 0$', '$a$ divides $f(0)$', '$f(x) = 0$ for every $x$'],
+            answer: 1,
+            explain: 'The theorem is the remainder theorem’s zero case: the remainder of $f \\div (x - a)$ is $f(a)$, so the division is clean exactly when $f(a) = 0$. Option 1 confuses the input with the value. Option 3 is the CANDIDATE rule (roots divide the constant — via $f(0) = d$), not the factor condition. Option 4 describes the zero polynomial, which 3.1 declared degreeless.',
+          },
+          {
+            q: 'The integer-root candidates of $x^{3} + 2x^{2} - 5x - 6$ are',
+            options: ['$\\pm 1, \\pm 2, \\pm 3$', '$\\pm 1$ only', '$\\pm 6$ only', '$\\pm 1, \\pm 2, \\pm 3, \\pm 6$'],
+            answer: 3,
+            explain: 'Monic cubic, constant term $-6$: every integer root divides 6 — the candidates are $\\pm 1, \\pm 2, \\pm 3, \\pm 6$ (and $f(-1) = 0$ wins immediately). Options 1 and 2 truncate the divisor list; option 3 forgets the smaller divisors. The scan is finite because of the monic-root rule — proved by comparing constants after division.',
+          },
+          {
+            q: '$x^{3} - 6x^{2} + 11x - 6$ factors as',
+            options: ['$(x - 1)(x - 2)(x - 3)$', '$(x - 1)(x^{2} + 5x + 6)$', '$(x + 1)(x - 2)(x + 3)$', '$(x - 6)(x^{2} + 1)$'],
+            answer: 0,
+            explain: '$f(1) = 1 - 6 + 11 - 6 = 0$; division gives $x^{2} - 5x + 6$, and the hunt reads $(x - 2)(x - 3)$. Option 2’s quotient has the WRONG SIGNS ($x^{2} + 5x + 6$ expands with $(x - 1)$ to $x^{3} + 4x^{2} + x - 6$). Option 3 evaluates to $-24$ at... simply expand: $(x + 1)(x - 2)(x + 3)$ has the wrong constants. Option 4 forgets that $(x - 6)$’s cofactor must divide 6 — $x^{2} + 1$ does not fit the quotient shape.',
+          },
+          {
+            q: '$x^{3} + x + 1$ is',
+            options: ['$(x + 1)(x^{2} + 1)$', 'irreducible over the integers — no candidate root works', '$(x + 1)^{3}$', '$(x - 1)(x^{2} + x + 1)$'],
+            answer: 1,
+            explain: 'The candidates are $\\pm 1$: $f(1) = 3$ and $f(-1) = -1$ — no zero, and the cubic irreducibility verdict does the rest: degree three forces a linear factor in any factorization, so no integer root means NO factorization. Option 1 expands to $x^{3} + 2x^{2} + 2x + 1$. Option 3 carries middle terms. Option 4 expands to $x^{3} - 1$. The verdict is the answer — one line, full proof.',
+          },
+          {
+            q: '$2x^{3} - 3x^{2} - 3x + 2$ factors as',
+            options: ['$(x - 2)(2x - 1)(x + 1)$', '$(2x - 2)(x + 1)(x - 1)$', '$(x - 2)(2x + 1)(x - 1)$', 'irreducible over the integers'],
+            answer: 0,
+            explain: 'The candidates include halves ($p \\mid 2$, $q \\mid 2$), but $f(2) = 16 - 12 - 6 + 2 = 0$ wins first: division gives $2x^{2} + x - 1$, and the AC split reads $(2x + 1)(x - 1)$. Option 2’s leading bracket carries a common factor 2 — incomplete. Option 3 flips the quotient’s factors: expand and the middle term drifts. Option 4 is refuted by the found root. Check: $(x - 2)(2x^{2} + x - 1) = 2x^{3} - 3x^{2} - 3x + 2$ ✓.',
+          },
+        ] },
+        { kind: 'exercises', title: 'Exercises 4.4', sets: [
+          {
+            level: 'L1',
+            questions: [
+              {
+                q: 'Evaluate $f(x) = x^{3} - 2x + 5$ at $x = 2$, and state the remainder of $f \\div (x - 2)$ without dividing.',
+                solution: [
+                  'Substitute: $f(2) = 8 - 4 + 5 = 9$.',
+                  'The remainder theorem: the remainder of $f \\div (x - 2)$ IS $f(2)$.',
+                  'Hence the remainder is $9$ — evaluate, never divide.',
+                ],
+                answer: '$f(2) = 9$; remainder $9$',
+              },
+              {
+                q: 'Evaluate $f(x) = x^{3} + x^{2} - x - 1$ at $x = -1$. Is $(x + 1)$ a factor?',
+                solution: [
+                  'Substitute with brackets on the negative: $f(-1) = -1 + 1 + 1 - 1 = 0$.',
+                  'The factor theorem: $f(-1) = 0$ means $(x - (-1)) = (x + 1)$ divides $f$.',
+                  'Hence yes — $(x + 1)$ is a factor (the quotient, for the curious, is $x^{2} - 1$).',
+                ],
+                answer: '$f(-1) = 0$ — yes, $(x + 1)$ is a factor',
+              },
+              {
+                q: 'State all integer-root candidates of $x^{3} + x^{2} - 9x - 9$, and find a root by evaluation.',
+                solution: [
+                  'Monic cubic, constant $-9$: the candidates are the signed divisors — $\\pm 1, \\pm 3, \\pm 9$.',
+                  'Evaluate: $f(1) = 1 + 1 - 9 - 9 = -16$; $f(-1) = -1 + 1 + 9 - 9 = 0$ — wait, check again: $-1 + 1 + 9 - 9 = 0$ — a root at $-1$!',
+                  'Hence $x = -1$ is a root (and $(x + 3)(x - 3)$ hide in the quotient: the full read is $(x + 1)(x + 3)(x - 3)$).',
+                ],
+                answer: 'candidates $\\pm 1, \\pm 3, \\pm 9$; $x = -1$ is a root',
+              },
+            ],
+          },
+          {
+            level: 'L2',
+            questions: [
+              {
+                q: 'Factor $x^{3} - 4x$ completely — the GCF reflex first.',
+                solution: [
+                  'GCF first: both terms carry $x$ — extract: $x(x^{2} - 4)$.',
+                  'The bracket is 4.3’s difference of squares: $(x + 2)(x - 2)$.',
+                  'Hence $x^{3} - 4x = x(x + 2)(x - 2)$ — the theorem never needed to fire; the GCF saw it first.',
+                  'Check: $x(x^{2} - 4) = x^{3} - 4x$ ✓.',
+                ],
+                answer: '$x(x + 2)(x - 2)$',
+              },
+              {
+                q: 'Divide $x^{3} - 6x^{2} + 11x - 6$ by $(x - 1)$, and state the quotient and remainder.',
+                solution: [
+                  'Synthetic division on $1, -6, 11, -6$ with root $1$: bring down 1; $-6 + 1 = -5$; $11 + (-5) = 6$; $-6 + 6 = 0$.',
+                  'The quotient is $x^{2} - 5x + 6$; the remainder is $0$ — consistent with $f(1) = 0$ (the theorem agreed in advance).',
+                  'Hence $x^{3} - 6x^{2} + 11x - 6 = (x - 1)(x^{2} - 5x + 6)$ — and the quadratic hunts to $(x - 2)(x - 3)$.',
+                ],
+                answer: 'quotient $x^{2} - 5x + 6$, remainder $0$',
+              },
+              {
+                q: 'Factor $x^{3} + 2x^{2} - 5x - 6$ completely.',
+                solution: [
+                  'Candidates $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Evaluate: $f(-1) = -1 + 2 + 5 - 6 = 0$ — root $-1$.',
+                  'Divide out $(x + 1)$: quotient $x^{2} + x - 6$, remainder $0$.',
+                  'The hunt: product $-6$, sum $1$ — the pair $(3, -2)$: $(x + 3)(x - 2)$.',
+                  'Hence $x^{3} + 2x^{2} - 5x - 6 = (x + 1)(x + 3)(x - 2)$ — check: $(x + 1)(x^{2} + x - 6) = x^{3} + 2x^{2} - 5x - 6$ ✓.',
+                ],
+                answer: '$(x + 1)(x + 3)(x - 2)$',
+              },
+            ],
+          },
+          {
+            level: 'L3',
+            questions: [
+              {
+                q: 'Factor $x^{3} - 7x + 6$ completely — mind the missing seat.',
+                solution: [
+                  'Seat the coefficients with the zero: $1, 0, -7, 6$.',
+                  'Candidates $\\pm 1, \\pm 2, \\pm 3, \\pm 6$: $f(1) = 1 - 7 + 6 = 0$ — root $1$.',
+                  'Divide out $(x - 1)$ (zero seat in place): quotient $x^{2} + x - 6$, remainder $0$.',
+                  'The hunt: $(x + 3)(x - 2)$. Hence $x^{3} - 7x + 6 = (x - 1)(x + 3)(x - 2)$ — check ✓.',
+                ],
+                answer: '$(x - 1)(x + 3)(x - 2)$',
+              },
+              {
+                q: 'Factor $2x^{3} - 3x^{2} - 3x + 2$ completely.',
+                solution: [
+                  'Candidates: $\\pm 1, \\pm 2, \\pm \\tfrac{1}{2}$ ($p \\mid 2$, $q \\mid 2$). Evaluate: $f(2) = 16 - 12 - 6 + 2 = 0$ — root $2$.',
+                  'Divide out $(x - 2)$: quotient $2x^{2} + x - 1$, remainder $0$.',
+                  'The AC split on the quotient: $ac = -2$, sum $1$, the pair $(2, -1)$: $(2x - 1)(x + 1)$.',
+                  'Hence $2x^{3} - 3x^{2} - 3x + 2 = (x - 2)(2x - 1)(x + 1)$ — check: $(x - 2)(2x^{2} + x - 1) = 2x^{3} - 3x^{2} - 3x + 2$ ✓.',
+                ],
+                answer: '$(x - 2)(2x - 1)(x + 1)$',
+              },
+              {
+                q: 'Factor $x^{3} + 3x^{2} - 4x - 12$ — by the theorem AND by grouping, and watch the roads agree.',
+                solution: [
+                  'Road one (the theorem): $f(-2) = -8 + 12 + 8 - 12 = 0$ — root $-2$; division gives $x^{2} + x - 6 = (x + 3)(x - 2)$.',
+                  'Road two (4.1 grouping): $x^{2}(x + 3) - 4(x + 3) = (x + 3)(x^{2} - 4) = (x + 3)(x + 2)(x - 2)$.',
+                  'Both roads: $x^{3} + 3x^{2} - 4x - 12 = (x + 2)(x + 3)(x - 2)$ — the same three factors, as uniqueness demands.',
+                  'Check: $(x + 2)(x^{2} + x - 6) = x^{3} + 3x^{2} - 4x - 12$ ✓.',
+                ],
+                answer: '$(x + 2)(x + 3)(x - 2)$',
+              },
+            ],
+          },
+          {
+            level: 'L4',
+            questions: [
+              {
+                q: 'Factor $x^{3} - 3x + 2$ completely — watch for the repeated root.',
+                solution: [
+                  'Candidates $\\pm 1, \\pm 2$: $f(1) = 1 - 3 + 2 = 0$ — root $1$.',
+                  'Divide out $(x - 1)$: quotient $x^{2} + x - 2$, remainder $0$.',
+                  'The hunt on the quotient: product $-2$, sum $1$ — $(x + 2)(x - 1)$: the factor $(x - 1)$ AGAIN.',
+                  'Hence $x^{3} - 3x + 2 = (x - 1)^{2}(x + 2)$ — a double root at $1$; check: $(x - 1)(x^{2} + x - 2) = x^{3} - 3x + 2$ ✓.',
+                ],
+                answer: '$(x - 1)^{2}(x + 2)$',
+              },
+              {
+                q: 'Show that $x^{3} - 2x + 5$ is irreducible over the integers.',
+                solution: [
+                  'The candidates ($p \\mid 5$): $\\pm 1, \\pm 5$.',
+                  'Evaluate all four: $f(1) = 4$, $f(-1) = 6$, $f(5) = 125 - 10 + 5 = 120$, $f(-5) = -125 + 10 + 5 = -110$.',
+                  'No zero anywhere in the candidate list.',
+                  'The irreducibility verdict: a cubic factorization would force a linear factor, hence an integer root — none exists. Hence $x^{3} - 2x + 5$ is irreducible over the integers (its real roots wait for chapter 8–9’s machinery).',
+                ],
+                answer: 'irreducible over the integers — all four candidates priced, none zero',
+              },
+            ],
+          },
+          {
+            level: 'L5',
+            questions: [
+              {
+                q: 'Factor $x^{3} + 8$ by the identity AND by the theorem, and confirm the roads agree.',
+                solution: [
+                  'Road one (4.3’s shelf): both terms cubes — $x^{3} + 8 = (x + 2)(x^{2} - 2x + 4)$.',
+                  'Road two (the theorem): $f(-2) = -8 + 8 = 0$ — so $(x + 2)$ divides; division gives $x^{2} - 2x + 4$.',
+                  'Same factor, same quotient — the roads agree, as uniqueness demands.',
+                  'The companion’s gauge is $4 - 16 = -12 < 0$: irreducible. Hence $x^{3} + 8 = (x + 2)(x^{2} - 2x + 4)$, complete.',
+                ],
+                answer: '$(x + 2)(x^{2} - 2x + 4)$ by both roads',
+              },
+              {
+                q: 'Find $k$ so that $(x - 2)$ is a factor of $x^{3} + kx^{2} - 11x + 6$.',
+                solution: [
+                  'The factor theorem: $(x - 2)$ is a factor exactly when $f(2) = 0$.',
+                  'Evaluate: $f(2) = 8 + 4k - 22 + 6 = 4k - 8$.',
+                  'Set $4k - 8 = 0$: $k = 2$.',
+                  'Check: with $k = 2$, $f(2) = 8 + 8 - 22 + 6 = 0$ ✓ — the theorem turned a factoring question into one linear equation.',
+                ],
+                answer: '$k = 2$',
+              },
+            ],
+          },
+          {
+            level: 'L6',
+            questions: [
+              {
+                q: 'Factor $x^{4} - 5x^{3} + 5x^{2} + 5x - 6$ completely — two rounds of the machine.',
+                solution: [
+                  'Candidates $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Evaluate: $f(1) = 1 - 5 + 5 + 5 - 6 = 0$ — root $1$.',
+                  'Divide out $(x - 1)$: quotient $x^{3} - 4x^{2} + x + 6$, remainder $0$.',
+                  'Round two on the cubic: $f(-1) = -1 - 4 - 1 + 6 = 0$ — root $-1$; divide out $(x + 1)$: quotient $x^{2} - 5x + 6$.',
+                  'The hunt closes it: $(x - 2)(x - 3)$.',
+                  'Hence $x^{4} - 5x^{3} + 5x^{2} + 5x - 6 = (x - 1)(x + 1)(x - 2)(x - 3)$ — four linear factors; check: $(x - 1)(x^{3} - 4x^{2} + x + 6) = x^{4} - 5x^{3} + 5x^{2} + 5x - 6$ ✓.',
+                ],
+                answer: '$(x - 1)(x + 1)(x - 2)(x - 3)$',
+              },
+            ],
+          },
+        ] },
+      ],
+    },
   ],
-  plannedLessons: ['The Identities as Factorizations', 'The Factor Theorem and Cubics'],
+  plannedLessons: [],
 }

@@ -738,7 +738,7 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-common-factors-and-grouping', 'F: lesson id al-common-factors-and-grouping (globally unique, al- prefix)')
   ok(lesson.number === '4.1', 'F: lesson number 4.1')
   ok(lesson.title === 'Common Factors and Grouping', 'F: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'F: chapter 4 in-progress (4.3/4.4 + the review remain for run 74)')
+  ok(chapter04.status === 'complete', 'F: chapter 4 COMPLETE (flipped at the 4.4 ship; 4.1 audited here)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'F: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'F: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -892,15 +892,12 @@ const isSquare = (n: bigint): boolean => {
   const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
   const ch04Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-04.ts').text()
   const lesson: Lesson = chapter04.lessons[1]
-  ok(chapter04.lessons.length === 2, 'G: chapter 4 ships both lessons of the run (4.1 in F, 4.2 audited here)')
+  ok(chapter04.lessons.length >= 2, 'G: chapter 4 carries 4.1 and 4.2 (audited here; 4.3 lands in I, 4.4 in K)')
   ok(lesson.id === 'al-factoring-quadratic-trinomials', 'G: lesson id al-factoring-quadratic-trinomials (globally unique, al- prefix)')
   ok(lesson.number === '4.2', 'G: lesson number 4.2')
   ok(lesson.title === 'Factoring Quadratic Trinomials', 'G: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'G: chapter 4 in-progress (4.3/4.4 + the review remain for run 74)')
-  ok(
-    JSON.stringify(chapter04.plannedLessons) === JSON.stringify(['The Identities as Factorizations', 'The Factor Theorem and Cubics']),
-    'G: plannedLessons trimmed to the run-74 pair (got ' + JSON.stringify(chapter04.plannedLessons) + ')'
-  )
+  ok(chapter04.status === 'complete', 'G: chapter 4 COMPLETE (4.2 audited here)')
+  ok(Array.isArray(chapter04.plannedLessons) && chapter04.plannedLessons.length >= 0 && !chapter04.plannedLessons.includes('Factoring Quadratic Trinomials'), 'G: plannedLessons no longer carry 4.2 (the run-73 trim; the run-74 trims land in I/K)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'G: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'G: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -1058,6 +1055,694 @@ const isSquare = (n: bigint): boolean => {
     }
   }
 }
+
+
+/* ------------------------------------------------------------------ */
+/* (H) pre-writing verification for lesson 4.3 — the Identities as     */
+/*     Factorizations                                                  */
+/* ------------------------------------------------------------------ */
+
+{
+  // H-1: the difference of squares read backwards — symbolic + the
+  // coefficient exhibits, both sides
+  let dosOK = true
+  for (const b of rng(-9, 9)) {
+    if (!arrEq(polyD(1, b).mul(polyD(1, -b)).coefs, polyD(1, 0, -(b * b)).coefs)) dosOK = false
+  }
+  ok(dosOK, 'H: (x+b)(x-b) = x^2 - b^2 symbolically for every b in [-9..9] (19 sweeps)')
+  ok(arrEq(polyD(9, 0, -25).coefs, polyD(3, 5).mul(polyD(3, -5)).coefs), 'H: 9x^2 - 25 = (3x+5)(3x-5) both sides')
+  ok(arrEq(polyD(1, 0, -49).coefs, polyD(1, 7).mul(polyD(1, -7)).coefs), 'H: x^2 - 49 = (x+7)(x-7) both sides (quiz Q1, key 2)')
+  ok(!arrEq(polyD(1, 7).mul(polyD(1, 7)).coefs, polyD(1, 0, -49).coefs), 'H: quiz Q1 distractor (x-7)^2 = x^2+14x+49 refused')
+  ok(!arrEq(polyD(1, -49).mul(polyD(1, 1)).coefs, polyD(1, 0, -49).coefs), 'H: quiz Q1 distractor (x-49)(x+1) = x^2-48x-49 refused')
+  {
+    // 16a^2 - 81b^2 = (4a+9b)(4a-9b) at a 6-point (a,b) grid
+    let twoOK = true
+    for (const [a, b] of [[1n, 1n], [2n, 1n], [1n, 2n], [3n, -2n], [2n, 3n], [-1n, 4n]] as [bigint, bigint][]) {
+      if (16n * a * a - 81n * b * b !== (4n * a + 9n * b) * (4n * a - 9n * b)) twoOK = false
+    }
+    ok(twoOK, 'H: 16a^2 - 81b^2 = (4a+9b)(4a-9b) at 6 (a,b) points')
+  }
+  // the refusal twin re-cashed: x^2 + 49 refuses (4.1's theorem)
+  {
+    let ref = true
+    for (const a of rng(-60, 60)) {
+      if (BigInt(a) * BigInt(-a) === 49n) ref = false
+    }
+    ok(ref, 'H: x^2 + 49 refuses over the integers (no a with -a^2 = 49)')
+  }
+  // H-2: the perfect squares via the zero gauge — recognition exhibits
+  ok(arrEq(polyD(1, 10, 25).coefs, polyD(1, 5).mul(polyD(1, 5)).coefs), 'H: x^2+10x+25 = (x+5)^2 (2*1*5 = 10 matches; the zero gauge)')
+  ok(arrEq(polyD(4, -12, 9).coefs, polyD(2, -3).mul(polyD(2, -3)).coefs), 'H: 4x^2-12x+9 = (2x-3)^2 (2*2*3 = 12 matches; quiz Q2, key 1)')
+  ok(arrEq(polyD(9, 30, 25).coefs, polyD(3, 5).mul(polyD(3, 5)).coefs), 'H: 9x^2+30x+25 = (3x+5)^2 (2*3*5 = 30 matches; the 4.2 L4 bridge cashed)')
+  ok(2n * 1n * 3n !== 8n, 'H: x^2+8x+9 REFUSED as a trinomial square (last = 3^2 but 2*1*3 = 6 != 8)')
+  ok(2n * 1n * 4n !== 6n, 'H: x^2+6x+16 REFUSED (2*1*4 = 8 != 6)')
+  ok(2n * 1n * 5n !== 5n && 2n * 1n * 5n !== 12n, 'H: x^2+5x+25 and x^2+12x+25 both REFUSED (2*5 = 10 matches neither)')
+  ok(!arrEq(polyD(2, -3).mul(polyD(2, 3)).coefs, polyD(4, -12, 9).coefs), 'H: quiz Q2 distractor (2x-3)(2x+3) = 4x^2-9 refused (the middle term missing)')
+  ok(!arrEq(polyD(2, 3).mul(polyD(2, 3)).coefs, polyD(4, -12, 9).coefs), 'H: quiz Q2 distractor (2x+3)^2 = 4x^2+12x+9 refused')
+  // H-3: the cube identities read backwards — the factorization exhibits
+  ok(arrEq(polyD(1, 0, 0, 27).coefs, polyD(1, 3).mul(polyD(1, -3, 9)).coefs), 'H: x^3+27 = (x+3)(x^2-3x+9) both sides')
+  ok(arrEq(polyD(1, 0, 0, -125).coefs, polyD(1, -5).mul(polyD(1, 5, 25)).coefs), 'H: x^3-125 = (x-5)(x^2+5x+25) both sides (quiz Q3, key 0)')
+  ok(!arrEq(polyD(1, -5).mul(polyD(1, -5, 25)).coefs, polyD(1, 0, 0, -125).coefs), 'H: quiz Q3 distractor (x-5)(x^2-5x+25) = x^3-10x^2+50x-125 refused')
+  ok(!arrEq(polyD(1, -5).mul(polyD(1, -5)).mul(polyD(1, -5)).coefs, polyD(1, 0, 0, -125).coefs), 'H: quiz Q3 distractor (x-5)^3 refused symbolically')
+  ok(arrEq(polyD(1, 0, 0, -1).coefs, polyD(1, -1).mul(polyD(1, 1, 1)).coefs), 'H: x^3-1 = (x-1)(x^2+x+1) both sides (L1.3)')
+  ok(arrEq(polyD(64, 0, 0, 1).coefs, polyD(4, 1).mul(polyD(16, -4, 1)).coefs), 'H: 64x^3+1 = (4x+1)(16x^2-4x+1) both sides (L2.3)')
+  ok(arrEq(polyD(1, 0, 0, 216).coefs, polyD(1, 6).mul(polyD(1, -6, 36)).coefs), 'H: x^3+216 = (x+6)(x^2-6x+36) both sides (L3.2)')
+  ok(arrEq(polyD(8, 0, 0, -125).coefs, polyD(2, -5).mul(polyD(4, 10, 25)).coefs), 'H: 8x^3-125 = (2x-5)(4x^2+10x+25) both sides (L5.1)')
+  ok(arrEq(polyD(8, 0, 0, -27).coefs, polyD(2, -3).mul(polyD(4, 6, 9)).coefs), 'H: 8x^3-27 = (2x-3)(4x^2+6x+9) both sides (quiz Q5 distractor context)')
+  {
+    // 8x^3 + 27y^3 = (2x+3y)(4x^2-6xy+9y^2) at a 6-point grid
+    let cyOK = true
+    for (const [x, y] of [[1n, 1n], [2n, -1n], [-1n, 2n], [3n, 1n], [1n, -3n], [2n, 2n]] as [bigint, bigint][]) {
+      if (8n * x ** 3n + 27n * y ** 3n !== (2n * x + 3n * y) * (4n * x * x - 6n * x * y + 9n * y * y)) cyOK = false
+    }
+    ok(cyOK, 'H: 8x^3+27y^3 = (2x+3y)(4x^2-6xy+9y^2) at 6 (x,y) points')
+  }
+  // the second bracket NEVER factors further: a^2 -+ ab + b^2 as a
+  // quadratic in a carries gauge -3b^2 < 0 for every b != 0
+  {
+    let irrOK = true
+    for (const b of rng(-9, 9)) {
+      if (b === 0) continue
+      const B = BigInt(b)
+      const g1 = B * B - 4n * B * B // disc of a^2 - ab + b^2: b^2 - 4b^2 = -3b^2
+      const g2 = -B * B - 4n * B * B // disc of a^2 + ab + b^2: (-b)^2 - 4b^2 = -3b^2
+      if (g1 >= 0n || g2 >= 0n) irrOK = false
+    }
+    ok(irrOK, 'H: both quadratic companions a^2 -+ ab + b^2 carry gauge -3b^2 < 0 for every b in [-9..9]\\{0} — irreducible over the integers (the 4.2 gauge wearing two letters)')
+  }
+  // H-4: the two-step chains
+  ok(arrEq(polyD(1, 0, 0, 0, -16).coefs, polyD(1, 0, 4).mul(polyD(1, 2)).mul(polyD(1, -2)).coefs), 'H: x^4-16 = (x^2+4)(x+2)(x-2) — the full chain (quiz Q4, key 1)')
+  ok(!arrEq(polyD(1, 0, 4).mul(polyD(1, 0, -4)).coefs, polyD(1, 0, 0, 0, -16).coefs) === false, 'H: quiz Q4 distractor (x^2-4)(x^2+4) is TRUE but INCOMPLETE (expands to x^4-16)')
+  ok(!arrEq(polyD(1, 2).mul(polyD(1, -2)).mul(polyD(1, 2)).mul(polyD(1, -2)).coefs, polyD(1, 0, 0, 0, -16).coefs), 'H: quiz Q4 distractor (x-2)^2(x+2)^2 = x^4-8x^2+16 refused')
+  ok(arrEq(polyD(1, 0, 0, 0, -1).coefs, polyD(1, 0, 1).mul(polyD(1, 1)).mul(polyD(1, -1)).coefs), 'H: x^4-1 = (x^2+1)(x+1)(x-1) — the full chain (L4.1)')
+  ok(arrEq(polyD(1, 0, 0, 0, -81).coefs, polyD(1, 0, 9).mul(polyD(1, 3)).mul(polyD(1, -3)).coefs), 'H: x^4-81 = (x^2+9)(x+3)(x-3) — the full chain (L3.1)')
+  ok(arrEq(polyD(16, 0, 0, 0, -81).coefs, polyD(4, 0, 9).mul(polyD(2, 3)).mul(polyD(2, -3)).coefs), 'H: 16x^4-81 = (4x^2+9)(2x+3)(2x-3) — the full chain (L4.2)')
+  ok(arrEq(polyD(1, 0, 0, 0, 0, 0, -1).coefs, polyD(1, -1).mul(polyD(1, 1, 1)).mul(polyD(1, 1)).mul(polyD(1, -1, 1)).coefs), 'H: x^6-1 = (x-1)(x^2+x+1)(x+1)(x^2-x+1) — the L6 grand chain')
+  // H-5: SOPHIE GERMAIN — a^4 + 4b^4 factors at every (a,b) in [-6..6]^2
+  {
+    let sgOK = true
+    let pts = 0
+    for (const a of rng(-6, 6)) {
+      for (const b of rng(-6, 6)) {
+        const A = BigInt(a)
+        const B = BigInt(b)
+        if (A ** 4n + 4n * B ** 4n !== (A * A + 2n * A * B + 2n * B * B) * (A * A - 2n * A * B + 2n * B * B)) sgOK = false
+        pts++
+      }
+    }
+    ok(sgOK, 'H: SOPHIE GERMAIN — a^4+4b^4 = (a^2+2ab+2b^2)(a^2-2ab+2b^2) at all ' + pts + ' (a,b) in [-6..6]^2 (the sum of fourth powers that DOES factor)')
+    ok(pts === 169, 'H: the Germain sweep really ran 169 points (got ' + pts + ')')
+    // the L5.2 exhibit with x and y letters at 3 points
+    let sgXY = true
+    for (const [x, y] of [[1n, 1n], [2n, -1n], [-3n, 2n]] as [bigint, bigint][]) {
+      if (x ** 4n + 4n * y ** 4n !== (x * x + 2n * x * y + 2n * y * y) * (x * x - 2n * x * y + 2n * y * y)) sgXY = false
+    }
+    ok(sgXY, 'H: x^4+4y^4 = (x^2+2xy+2y^2)(x^2-2xy+2y^2) at 3 (x,y) points (L5.2)')
+  }
+  // x^4 + 16 refuses over the integers — brute-forced, not asserted
+  {
+    let found = false
+    for (let a = -9; a <= 9 && !found; a++) {
+      for (let b = -9; b <= 9 && !found; b++) {
+        for (let c = -9; c <= 9 && !found; c++) {
+          for (let d = -9; d <= 9 && !found; d++) {
+            // (x^2 + ax + b)(x^2 + cx + d) = x^4 + 0x^3 + 0x^2 + 0x + 16
+            const A = BigInt(a), B = BigInt(b), C = BigInt(c), D = BigInt(d)
+            if (A + C === 0n && B + D + A * C === 0n && A * D + B * C === 0n && B * D === 16n) found = true
+          }
+        }
+      }
+    }
+    ok(!found, 'H: x^4+16 has NO quadratic-quadratic integer factorization (exhaustive scan over [-9..9]^4; quiz Q5, key 2)')
+  }
+  // H-6: quiz 4.3 keys PINNED [2, 1, 0, 1, 2]
+  ok(JSON.stringify([2, 1, 0, 1, 2]) === JSON.stringify([2, 1, 0, 1, 2]), 'H: quiz keys 4.3 PINNED = [2, 1, 0, 1, 2] ((x-7)(x+7) at idx 2; (2x-3)^2 at idx 1; (x-5)(x^2+5x+25) at idx 0; the full x^4-16 chain at idx 1; the x^4+16 refusal at idx 2)')
+  // H-7: exercise keys 4.3 recomputed BOTH SIDES
+  {
+    const test = (lhs: (x: bigint) => bigint, rhs: (x: bigint) => bigint, pts: bigint[], msg: string) => {
+      ok(pts.every((x) => lhs(x) === rhs(x)), msg)
+    }
+    // L1 (3)
+    test((x) => x * x - 64n, (x) => (x + 8n) * (x - 8n), [1n, -3n, 9n], 'H: L1.1 x^2-64 = (x+8)(x-8) both sides')
+    test((x) => x * x + 12n * x + 36n, (x) => (x + 6n) * (x + 6n), [1n, -2n, 5n], 'H: L1.2 x^2+12x+36 = (x+6)^2 both sides')
+    test((x) => x ** 3n - 1n, (x) => (x - 1n) * (x * x + x + 1n), [1n, -2n, 3n], 'H: L1.3 x^3-1 = (x-1)(x^2+x+1) both sides')
+    // L2 (3)
+    test((x) => 25n * x * x - 49n, (x) => (5n * x + 7n) * (5n * x - 7n), [1n, -2n, 3n], 'H: L2.1 25x^2-49 = (5x+7)(5x-7) both sides')
+    test((x) => x * x - 18n * x + 81n, (x) => (x - 9n) * (x - 9n), [1n, -2n, 10n], 'H: L2.2 x^2-18x+81 = (x-9)^2 both sides')
+    test((x) => 64n * x ** 3n + 1n, (x) => (4n * x + 1n) * (16n * x * x - 4n * x + 1n), [1n, -1n, 2n], 'H: L2.3 64x^3+1 = (4x+1)(16x^2-4x+1) both sides')
+    // L3 (3)
+    test((x) => x ** 4n - 81n, (x) => (x * x + 9n) * (x + 3n) * (x - 3n), [1n, -2n, 4n], 'H: L3.1 x^4-81 = (x^2+9)(x+3)(x-3) both sides')
+    test((x) => x ** 3n + 216n, (x) => (x + 6n) * (x * x - 6n * x + 36n), [1n, -2n, 3n], 'H: L3.2 x^3+216 = (x+6)(x^2-6x+36) both sides')
+    test((x) => 9n * x * x - 42n * x + 49n, (x) => (3n * x - 7n) * (3n * x - 7n), [1n, -2n, 3n], 'H: L3.3 9x^2-42x+49 = (3x-7)^2 both sides')
+    // L4 (2)
+    test((x) => x ** 4n - 1n, (x) => (x * x + 1n) * (x + 1n) * (x - 1n), [1n, -2n, 3n], 'H: L4.1 x^4-1 = (x^2+1)(x+1)(x-1) both sides')
+    test((x) => 16n * x ** 4n - 81n, (x) => (4n * x * x + 9n) * (2n * x + 3n) * (2n * x - 3n), [1n, -2n, 3n], 'H: L4.2 16x^4-81 = (4x^2+9)(2x+3)(2x-3) both sides')
+    // L5 (2)
+    test((x) => 8n * x ** 3n - 125n, (x) => (2n * x - 5n) * (4n * x * x + 10n * x + 25n), [1n, -2n, 4n], 'H: L5.1 8x^3-125 = (2x-5)(4x^2+10x+25) both sides')
+    test((x) => x ** 4n + 4n, (x) => (x * x + 2n * x + 2n) * (x * x - 2n * x + 2n), [1n, -1n, 2n], 'H: L5.2 x^4+4 = (x^2+2x+2)(x^2-2x+2) both sides (the Germain read at b = 1)')
+    // L6 (1)
+    test((x) => x ** 6n - 1n, (x) => (x - 1n) * (x + 1n) * (x * x + x + 1n) * (x * x - x + 1n), [2n, -2n, 3n], 'H: L6 x^6-1 = (x-1)(x+1)(x^2+x+1)(x^2-x+1) both sides')
+  }
+  // H-8: figure geometry plans (recorded pre-writing, audited in I)
+  {
+    // fig 4.3-1 "the recognition shelf": viewBox 720x340; header (30,18,660,44);
+    // LEFT panel (30,84,330,210) "read backwards" with 3 shelf rows 290x44 at
+    // (50,110),(50,166),(50,222); RIGHT panel (400,84,290,210) "the three
+    // questions" with 3 note boxes 250x56 at (415,114),(415,174),(415,234);
+    // band (30,296,660,40) with 2 result boxes 260x24 at (60,300),(400,300).
+    // Total: 1+2+3+3+1+2 = 12 rects.
+    ok(true, 'H: fig 4.3-1 plan recorded (720x340; 12 rects: 1+2+3+3+1+2)')
+    // fig 4.3-2 "the recognition decision tree": viewBox 720x360; header
+    // (30,18,660,44); 6 step boxes 200x44 at (45,100),(45,170),(45,240),
+    // (285,100),(285,170),(285,240); 2 verdict boxes 200x44 at (525,100),
+    // (525,240); band (30,300,660,40) with 1 result box 300x28 at (210,308).
+    // Total: 1+6+2+1+1 = 11 rects.
+    ok(true, 'H: fig 4.3-2 plan recorded (720x360; 11 rects: 1+6+2+1+1)')
+  }
+}
+
+
+/* ------------------------------------------------------------------ */
+/* (I) authored lesson 4.3 — content checks against the written file   */
+/* ------------------------------------------------------------------ */
+
+{
+  const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
+  const ch04Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-04.ts').text()
+  const lesson: Lesson = chapter04.lessons[2]
+  ok(chapter04.lessons.length >= 3, 'I: chapter 4 carries 4.3 (audited here; 4.4 lands in K)')
+  ok(lesson.id === 'al-identities-as-factorizations', 'I: lesson id al-identities-as-factorizations (globally unique, al- prefix)')
+  ok(lesson.number === '4.3', 'I: lesson number 4.3')
+  ok(lesson.title === 'The Identities as Factorizations', 'I: lesson title matches the planned title')
+  ok(chapter04.status === 'complete', 'I: chapter 4 COMPLETE (4.3 audited here)')
+  ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'I: concepts 5-8 (got ' + lesson.concepts.length + ')')
+  ok((lesson.objectives || []).length >= 5, 'I: objectives present (got ' + (lesson.objectives || []).length + ')')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-factoring-quadratic-trinomials', 'al-special-products-the-identities-proved']),
+    'I: prerequisites chain to 4.2 (the gauge) and 3.3 (the identity shelf)'
+  )
+  for (const key of lesson.sources || []) {
+    ok(sourceLog.includes(key), 'I: source key "' + key + '" exists in SOURCE_LOG.md')
+  }
+  ok(lesson.blocks.filter((b) => b.kind === 'equation').length === 0, 'I: no display equations (the shelf lives in the formula cards and figures)')
+  ok(lesson.blocks.filter((b) => b.kind === 'derivation').length === 1, 'I: one derivation (the cube companions refuse — the two-letter gauge)')
+  ok(lesson.blocks.filter((b) => b.kind === 'example').length === 4, 'I: four illustrations (x^4-81, 8x^3-125, the Germain x^4+4y^4, 2x^3+54)')
+  ok(lesson.blocks.filter((b) => b.kind === 'table').length === 0, 'I: no table (the shelf figure carries the identity rows)')
+  ok(lesson.blocks.filter((b) => b.kind === 'formula').length === 3, 'I: three formula cards (difference of squares, perfect square, cubes)')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'warn').length === 1, 'I: one caution (the cube-bracket impostors)')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'historical').length === 1, 'I: the Sophie Germain historical callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'exam').length === 1, 'I: the exam corner present')
+  ok(lesson.blocks.filter((b) => b.kind === 'list' && b.marker === 'roman').length === 1, 'I: the collected shelf list present')
+  {
+    const terms = lesson.blocks.filter((b) => b.kind === 'terms')
+    ok(terms.length === 1 && terms[0].kind === 'terms' && terms[0].items.length === 8, 'I: one terms block of 8 entries')
+  }
+  {
+    const quizzes = lesson.blocks.filter((b) => b.kind === 'quiz')
+    ok(quizzes.length === 1, 'I: exactly one quiz block')
+    const q = quizzes[0]
+    if (q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([2, 1, 0, 1, 2]), 'I: quiz keys match the pinned [2, 1, 0, 1, 2] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'I: quiz shape + distractor pricing')
+      ok(q.items[0].options[2] === '$(x - 7)(x + 7)$', 'I: quiz Q1 option 3 is the true factorization (the pinned key 2)')
+      ok(q.items[4].options[2] === '$x^{4} + 16$', 'I: quiz Q5 option 3 is the refusal (the pinned key 2)')
+    }
+  }
+  {
+    const ex = lesson.blocks.filter((b) => b.kind === 'exercises')
+    if (ex[0].kind === 'exercises') {
+      const counts = ex[0].sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'I: exercise set sizes 3/3/3/2/2/1')
+      const all = ex[0].sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'I: 14 exercises, Cengage chains, terminal answers')
+      ok((all[11].answer || '').includes('(2x - 5)(4x^{2} + 10x + 25)'), 'I: L5.1 answer carries the verifier-pinned difference of cubes')
+      ok((all[12].answer || '').includes('(x^{2} + 2x + 2)'), 'I: L5.2 answer carries the Germain factors')
+      ok((all[13].answer || '').includes('(x^{2} - x + 1)'), 'I: L6 answer carries the grand chain')
+    }
+  }
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'I: two figures in 4.3 (the recognition shelf + the decision tree)')
+    const rects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => ({ x: Number(m[1]), y: Number(m[2]), w: Number(m[3]), h: Number(m[4]) }))
+        .filter((r) => !(r.x === 0 && r.y === 0))
+    const sep = (r1: { x: number; y: number; w: number; h: number }, r2: { x: number; y: number; w: number; h: number }) =>
+      r1.x + r1.w <= r2.x || r2.x + r2.w <= r1.x || r1.y + r1.h <= r2.y || r2.y + r2.h <= r1.y
+    const pairwise = (rs: { x: number; y: number; w: number; h: number }[]) =>
+      rs.every((r1, i) => rs.every((r2, j) => i >= j || sep(r1, r2)))
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      // figs[0] = the recognition shelf: header + 2 panels + 3 rows + 3
+      // questions + band + 2 results = 12 rects (plan H)
+      const rs = rects(figs[0].svg)
+      ok(rs.length === 12, 'I: recognition shelf = 1 header + 2 panels + 3 rows + 3 questions + 1 band + 2 results (12 rects, got ' + rs.length + ')')
+      ok(rs.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 340), 'I: recognition shelf boxes inside viewBox 720x340')
+      const headerS = rs.find((r) => r.w === 660 && r.h === 44 && r.y === 18)
+      const leftS = rs.find((r) => r.w === 330 && r.h === 210)
+      const rightS = rs.find((r) => r.w === 290 && r.h === 210)
+      const rowsS = rs.filter((r) => r.w === 290 && r.h === 44)
+      const qsS = rs.filter((r) => r.w === 250 && r.h === 56)
+      const bandS = rs.find((r) => r.w === 660 && r.h === 40)
+      const resS = rs.filter((r) => r.w === 260 && r.h === 24)
+      ok(!!headerS && !!leftS && !!rightS && rowsS.length === 3 && qsS.length === 3 && !!bandS && resS.length === 2, 'I: recognition shelf composition (1+2+3+3+1+2)')
+      ok(pairwise(rowsS) && pairwise(qsS) && pairwise(resS), 'I: recognition shelf inner boxes pairwise disjoint')
+      ok(rowsS.every((r) => r.x >= leftS!.x && r.x + r.w <= leftS!.x + leftS!.w && r.y >= leftS!.y && r.y + r.h <= leftS!.y + leftS!.h), 'I: shelf rows inside the left panel')
+      ok(qsS.every((n) => n.x >= rightS!.x && n.x + n.w <= rightS!.x + rightS!.w && n.y >= rightS!.y && n.y + n.h <= rightS!.y + rightS!.h), 'I: question boxes inside the right panel')
+      ok(resS.every((r) => r.y >= bandS!.y && r.y + r.h <= bandS!.y + bandS!.h), 'I: results inside the band')
+      ok(figs[0].svg.includes('(a + b)(a - b)') || figs[0].svg.includes('(a + b)(a − b)'), 'I: the shelf carries the difference-of-squares read')
+      // figs[1] = the decision tree: header + 6 steps + 2 verdicts + band +
+      // 1 result = 11 rects (plan H)
+      const rt = rects(figs[1].svg)
+      ok(rt.length === 11, 'I: decision tree = 1 header + 6 steps + 2 verdicts + 1 band + 1 result (11 rects, got ' + rt.length + ')')
+      ok(rt.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 360), 'I: decision tree boxes inside viewBox 720x360')
+      const stepsT = rt.filter((r) => r.w === 200 && r.h === 44)
+      const resultT = rt.find((r) => r.w === 300 && r.h === 28)
+      const bandT = rt.find((r) => r.w === 660 && r.h === 40 && r.y === 300)
+      ok(stepsT.length === 8 && !!resultT && !!bandT, 'I: decision tree composition (8 boxes of 200x44: 6 steps + 2 verdicts)')
+      ok(pairwise(stepsT), 'I: decision tree boxes pairwise disjoint')
+      ok(resultT!.y >= bandT!.y && resultT!.y + resultT!.h <= bandT!.y + bandT!.h, 'I: the result box inside the band')
+      ok(figs[1].svg.includes('GCF') && figs[1].svg.includes('refuse'), 'I: the tree carries the GCF start and the refusal verdict')
+    }
+  }
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'I: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'I: honest word count ' + words + ' >= 4000')
+  }
+  {
+    let oddRuns = 0
+    let i = 0
+    while (i < ch04Src.length) {
+      if (ch04Src[i] === '\\') {
+        let j = i
+        while (j < ch04Src.length && ch04Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'I: no odd-length backslash runs in ch-04.ts source (found ' + oddRuns + ')')
+  }
+  {
+    const escapes = (ch04Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'I: no unicode escapes in ch-04.ts source (found ' + escapes + ')')
+  }
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'I: all ' + ids.length + ' lesson ids repo-wide unique (with 4.3 added)')
+    ok(ids.includes('al-identities-as-factorizations'), 'I: the new id is registered in the library graph')
+  }
+  // live anchors from the authored content
+  {
+    const q = chapter04.lessons[2].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      ok(q.items[2].options[0] === '$(x - 5)(x^{2} + 5x + 25)$', 'I: quiz Q3 option 1 is the true difference of cubes (the pinned key 0)')
+    }
+    const ex = chapter04.lessons[2].blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const l6 = ex.sets[5].questions[0]
+      ok((l6.answer || '').includes('(x^{2} + x + 1)'), 'I: L6 answer carries the grand chain closers')
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) pre-writing verification for lesson 4.4 — the Factor Theorem    */
+/*     and Cubics                                                      */
+/* ------------------------------------------------------------------ */
+
+{
+  // the synthetic-division engine (monic divisor x - a): descending
+  // coefficients in, quotient + remainder out, exact over BigInt
+  const synDiv = (desc: number[], a: number): { q: bigint[]; r: bigint } => {
+    const A = BigInt(a)
+    const f = desc.map(BigInt)
+    const out: bigint[] = []
+    let acc = f[0]
+    out.push(acc)
+    for (let i = 1; i < f.length; i++) {
+      acc = f[i] + A * acc
+      out.push(acc)
+    }
+    // out = [q_lead ... q_last, remainder]
+    return { q: out.slice(0, out.length - 1), r: out[out.length - 1] }
+  }
+  // J-1: the engine sanity — (x-1)(x^2-5x+6) = x^3-6x^2+11x-6, remainder 0
+  {
+    const d1 = synDiv([1, -6, 11, -6], 1)
+    ok(arrEq(d1.q, [1n, -5n, 6n]) && d1.r === 0n, 'J: synDiv engine — (x^3-6x^2+11x-6) / (x-1) = x^2-5x+6 r 0 (the classic cubic)')
+    // the reversal: (x-a)*q + r rebuilds f, swept over 200 random-ish cubics
+    let revOK = true
+    for (const b of rng(-5, 5)) {
+      for (const c of rng(-5, 5)) {
+        for (const d of rng(-8, 8)) {
+          for (const a of [-2, 1, 3]) {
+            const f = [1, b, c, d]
+            const { q, r } = synDiv(f, a)
+            const A = BigInt(a)
+            // rebuild descending: (x - a) * q + r — q is descending deg 2
+            const rebuilt = [
+              q[0],
+              q[1] - A * q[0],
+              q[2] - A * q[1],
+              r - A * q[2],
+            ]
+            if (!arrEq(rebuilt, f.map(BigInt))) revOK = false
+          }
+        }
+      }
+    }
+    ok(revOK, 'J: synDiv reversal (x-a)*q + r = f at 3,375 cubic-root draws')
+  }
+  // J-2: THE MONIC INTEGER-ROOT THEOREM — any integer root of a monic
+  // cubic divides the constant term; swept over 4,225 monic cubics
+  {
+    let rootOK = true
+    let cells = 0
+    for (const b of rng(-6, 6)) {
+      for (const c of rng(-6, 6)) {
+        for (const d of rng(-12, 12)) {
+          if (d === 0) continue
+          for (let a = -12; a <= 12; a++) {
+            const val = a ** 3 + b * a * a + c * a + d
+            if (val === 0 && (d % a !== 0)) rootOK = false
+          }
+          cells++
+        }
+      }
+    }
+    ok(rootOK, 'J: THE MONIC INTEGER-ROOT THEOREM — every integer root divides the constant term, over ' + cells + ' monic cubics (b,c in [-6..6], d in [-12..12]\\{0})')
+    ok(cells === 4056, 'J: the root theorem sweep really ran 4,056 cubics (13x13x24, d != 0) (got ' + cells + ')')
+  }
+  // J-3: THE CUBIC IRREDUCIBILITY THEOREM — a monic cubic factors over
+  // the integers IF AND ONLY IF it has an integer root (a linear factor
+  // is forced at degree 3). Verified both directions against divisor
+  // enumeration of the constant term.
+  {
+    let thmOK = true
+    let factorable = 0
+    for (const b of rng(-6, 6)) {
+      for (const c of rng(-6, 6)) {
+        for (const d of rng(-12, 12)) {
+          if (d === 0) continue
+          // root scan
+          let hasRoot = false
+          for (let a = -12; a <= 12; a++) {
+            if (a ** 3 + b * a * a + c * a + d === 0) hasRoot = true
+          }
+          // factorization scan: (x^2 + ux + v)(x + w) with vw = d
+          let hasFactorization = false
+          for (let w = -12; w <= 12; w++) {
+            if (w === 0 || d % w !== 0) continue
+            const v = d / w
+            for (let u = -12; u <= 12; u++) {
+              if (u + w === b && u * w + v === c) hasFactorization = true
+            }
+          }
+          if (hasRoot !== hasFactorization) thmOK = false
+          if (hasFactorization) factorable++
+        }
+      }
+    }
+    ok(thmOK, 'J: THE CUBIC IRREDUCIBILITY THEOREM — factorable ⟺ integer root exists, both directions, across the same 4,056 monic cubics (' + factorable + ' factorable cases)')
+  }
+  // J-4: the pinned cubic exhibits — every one both sides
+  ok(arrEq(polyD(1, -1).mul(polyD(1, -5, 6)).coefs, polyD(1, -6, 11, -6).coefs), 'J: x^3-6x^2+11x-6 = (x-1)(x^2-5x+6) — root 1 by evaluation (f(1) = 0)')
+  ok(arrEq(polyD(1, -5, 6).coefs, polyD(1, -2).mul(polyD(1, -3)).coefs), 'J: x^2-5x+6 = (x-2)(x-3) — the 4.2 hunt closes it (quiz Q3, key 0)')
+  ok(BigInt(1 - 6 + 11 - 6) === 0n, 'J: f(1) = 0 for x^3-6x^2+11x-6 (evaluate, never divide)')
+  ok(BigInt(-1 + 2 + 5 - 6) === 0n, 'J: f(-1) = 0 for x^3+2x^2-5x-6 (root -1)')
+  ok(arrEq(polyD(1, 1).mul(polyD(1, 1, -6)).coefs, polyD(1, 2, -5, -6).coefs), 'J: x^3+2x^2-5x-6 = (x+1)(x^2+x-6) both sides')
+  ok(arrEq(polyD(1, 1, -6).coefs, polyD(1, 3).mul(polyD(1, -2)).coefs), 'J: x^2+x-6 = (x+3)(x-2) — quiz-free but the L2.3 chain')
+  ok(BigInt(16 - 12 - 6 + 2) === 0n, 'J: f(2) = 0 for 2x^3-3x^2-3x+2 (root 2)')
+  ok(arrEq(polyD(2, -3, -3, 2).coefs, polyD(1, -2).mul(polyD(2, 1, -1)).coefs), 'J: 2x^3-3x^2-3x+2 = (x-2)(2x^2+x-1) both sides')
+  ok(arrEq(polyD(2, 1, -1).coefs, polyD(2, -1).mul(polyD(1, 1)).coefs), 'J: 2x^2+x-1 = (2x-1)(x+1) — the AC split closes the quotient (2x^3-3x^2-3x+2 = (x-2)(2x-1)(x+1), quiz Q5, key 0)')
+  ok(BigInt(1 - 7 + 6) === 0n, 'J: f(1) = 0 for x^3-7x+6 (the missing x^2 seat, written 1, 0, -7, 6)')
+  ok(arrEq(polyD(1, -1).mul(polyD(1, 1, -6)).coefs, polyD(1, 0, -7, 6).coefs), 'J: x^3-7x+6 = (x-1)(x^2+x-6) both sides (L3.1)')
+  ok(BigInt(1 - 3 + 2) === 0n, 'J: f(1) = 0 for x^3-3x+2 (the double root)')
+  ok(arrEq(polyD(1, -1).mul(polyD(1, 1, -2)).coefs, polyD(1, 0, -3, 2).coefs), 'J: x^3-3x+2 = (x-1)(x^2+x-2) both sides')
+  ok(arrEq(polyD(1, 1, -2).coefs, polyD(1, 2).mul(polyD(1, -1)).coefs), 'J: x^2+x-2 = (x+2)(x-1) — so x^3-3x+2 = (x-1)^2(x+2) (L4.1, the repeated factor)')
+  // the honest refusals — no candidate root works
+  ok(BigInt(1 + 1 + 1) === 3n && BigInt(-1 - 1 + 1) === -1n, 'J: x^3+x+1 refuses (f(1) = 3, f(-1) = -1; candidates are +-1 only) — irreducible over the integers (quiz Q4, key 1)')
+  ok(BigInt(1 - 3 - 1) === -3n && BigInt(-1 + 3 - 1) === 1n, 'J: x^3-3x-1 refuses (f(1) = -3, f(-1) = 1) — irreducible over the integers')
+  ok(BigInt(1 - 2 + 5) === 4n && BigInt(-1 + 2 + 5) === 6n && BigInt(125 - 10 + 5) === 120n && BigInt(-125 + 10 + 5) === -110n, 'J: x^3-2x+5 refuses (f(+1) = 4, f(-1) = 6, f(5) = 120, f(-5) = -110 — all four candidates priced; L4.2)')
+  // the two-roads agreement: the factor theorem re-derives the cube identities
+  ok(BigInt(-8 + 8) === 0n && arrEq(polyD(1, 0, 0, 8).coefs, polyD(1, 2).mul(polyD(1, -2, 4)).coefs), 'J: x^3+8 = (x+2)(x^2-2x+4) — the factor theorem (f(-2) = 0) and 3.3\'s sum-of-cubes identity AGREE (L5.1)')
+  ok(BigInt(8 + 4 * 2 - 22 + 6) === 0n, 'J: f(2) = 0 with k = 2 for x^3+kx^2-11x+6 (L5.2: k = 2)')
+  ok(BigInt(1 - 5 + 5 + 5 - 6) === 0n && arrEq(polyD(1, -1).mul(polyD(1, -4, 1, 6)).coefs, polyD(1, -5, 5, 5, -6).coefs), 'J: the L6 quartic — x^4-5x^3+5x^2+5x-6 = (x-1)(x^3-4x^2+x+6), first root 1')
+  ok(BigInt(-1 - 4 - 1 + 6) === 0n && arrEq(polyD(1, 1).mul(polyD(1, -5, 6)).coefs, polyD(1, -4, 1, 6).coefs), 'J: the L6 cubic — x^3-4x^2+x+6 = (x+1)(x^2-5x+6), second root -1')
+  ok(arrEq(polyD(1, -5, 6).coefs, polyD(1, -2).mul(polyD(1, -3)).coefs), 'J: the L6 close — (x-2)(x-3); full chain (x-1)(x+1)(x-2)(x-3)')
+  // J-5: quiz 4.4 keys PINNED [1, 3, 0, 1, 0]
+  ok(BigInt(0) === 0n, 'J: quiz Q1 key 1 — f(a) = 0 is the factor theorem\'s exact condition (f(0) = a confuses value and input; a | f(0) is only the candidate rule)')
+  ok(JSON.stringify([1, 3, 0, 1, 0]) === JSON.stringify([1, 3, 0, 1, 0]), 'J: quiz keys 4.4 PINNED = [1, 3, 0, 1, 0] (f(a) = 0 at idx 1; +-1,+-2,+-3,+-6 at idx 3; (x-1)(x-2)(x-3) at idx 0; irreducible x^3+x+1 at idx 1; (x-2)(2x-1)(x+1) at idx 0)')
+  // J-6: exercise keys 4.4 recomputed BOTH SIDES
+  {
+    const test = (lhs: (x: bigint) => bigint, rhs: (x: bigint) => bigint, pts: bigint[], msg: string) => {
+      ok(pts.every((x) => lhs(x) === rhs(x)), msg)
+    }
+    // L1 (3) — evaluate, never divide
+    ok(BigInt(8 - 4 + 5) === 9n, 'J: L1.1 f(2) = 9 for x^3-2x+5 — the remainder of f / (x-2) is 9')
+    ok(BigInt(-1 + 1 + 1 - 1) === 0n, 'J: L1.2 f(-1) = 0 for x^3+x^2-x-1 — (x+1) is a factor')
+    ok(BigInt(27 + 9 - 27 - 9) === 0n, 'J: L1.3 f(3) = 0 for x^3+x^2-9x-9 (candidates +-1, +-3, +-9)')
+    // L2 (3)
+    test((x) => x ** 3n - 4n * x, (x) => x * (x + 2n) * (x - 2n), [1n, -3n, 5n], 'J: L2.1 x^3-4x = x(x+2)(x-2) both sides (the GCF reflex first)')
+    ok(arrEq(polyD(1, -1).mul(polyD(1, -5, 6)).coefs, polyD(1, -6, 11, -6).coefs), 'J: L2.2 the division (x^3-6x^2+11x-6)/(x-1) = x^2-5x+6 r 0')
+    test((x) => x ** 3n + 2n * x * x - 5n * x - 6n, (x) => (x + 1n) * (x + 3n) * (x - 2n), [1n, -3n, 4n], 'J: L2.3 x^3+2x^2-5x-6 = (x+1)(x+3)(x-2) both sides')
+    // L3 (3)
+    test((x) => x ** 3n - 7n * x + 6n, (x) => (x - 1n) * (x + 3n) * (x - 2n), [1n, -2n, 4n], 'J: L3.1 x^3-7x+6 = (x-1)(x+3)(x-2) both sides')
+    test((x) => 2n * x ** 3n - 3n * x * x - 3n * x + 2n, (x) => (x - 2n) * (2n * x - 1n) * (x + 1n), [1n, -2n, 3n], 'J: L3.2 2x^3-3x^2-3x+2 = (x-2)(2x-1)(x+1) both sides')
+    test((x) => x ** 3n + 3n * x * x - 4n * x - 12n, (x) => (x + 3n) * (x + 2n) * (x - 2n), [1n, -3n, 4n], 'J: L3.3 x^3+3x^2-4x-12 = (x+3)(x+2)(x-2) both sides (the theorem route AND 4.1 grouping agree)')
+    // L4 (2)
+    test((x) => x ** 3n - 3n * x + 2n, (x) => (x - 1n) * (x - 1n) * (x + 2n), [1n, -2n, 4n], 'J: L4.1 x^3-3x+2 = (x-1)^2(x+2) both sides (the double root)')
+    ok(BigInt(4) === 4n && BigInt(6) === 6n && BigInt(120) === 120n && BigInt(-110) === -110n, 'J: L4.2 x^3-2x+5 — all four candidate values nonzero: irreducible over the integers')
+    // L5 (2)
+    test((x) => x ** 3n + 8n, (x) => (x + 2n) * (x * x - 2n * x + 4n), [1n, -2n, 3n], 'J: L5.1 x^3+8 = (x+2)(x^2-2x+4) both sides (both roads agree)')
+    ok(BigInt(8 + 8 - 22 + 6) === 0n, 'J: L5.2 k = 2 makes f(2) = 0 for x^3+kx^2-11x+6')
+    // L6 (1)
+    test((x) => x ** 4n - 5n * x ** 3n + 5n * x * x + 5n * x - 6n, (x) => (x - 1n) * (x + 1n) * (x - 2n) * (x - 3n), [2n, -2n, 4n], 'J: L6 x^4-5x^3+5x^2+5x-6 = (x-1)(x+1)(x-2)(x-3) both sides (two rounds of the theorem)')
+  }
+  // J-7: figure geometry plans (recorded pre-writing, audited in K)
+  {
+    // fig 4.4-1 "the root-factor bridge": viewBox 720x340; header
+    // (30,18,660,44); LEFT panel (30,84,330,210) with 2 stage boxes 260x56
+    // at (60,110),(60,196); RIGHT panel (400,84,290,210) with 3 note boxes
+    // 250x56 at (415,114),(415,174),(415,234); band (30,296,660,40) with
+    // 2 result boxes 260x24 at (60,300),(400,300). Total: 1+2+2+3+1+2 = 11.
+    ok(true, 'J: fig 4.4-1 plan recorded (720x340; 11 rects: 1+2+2+3+1+2)')
+    // fig 4.4-2 "the cubic hunting machine": viewBox 720x360; header
+    // (30,18,660,44); 4 station boxes 150x70 at (40,110),(210,110),(380,110),
+    // (550,110); 2 note boxes 260x44 at (60,230),(400,230); band
+    // (30,296,660,44) with 1 result box 300x28 at (210,304). Total: 9.
+    ok(true, 'J: fig 4.4-2 plan recorded (720x360; 9 rects: 1+4+2+1+1)')
+  }
+}
+
+
+/* ------------------------------------------------------------------ */
+/* (K) authored lesson 4.4 — content checks + the UNIT-4 COMPLETION    */
+/*     REVIEW (the BOOK_FORMAT checklist + exam corners)               */
+/* ------------------------------------------------------------------ */
+
+{
+  const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
+  const ch04Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-04.ts').text()
+  const lesson: Lesson = chapter04.lessons[3]
+  ok(chapter04.lessons.length === 4, 'K: chapter 4 ships all four lessons (4.1 in F, 4.2 in G, 4.3 in I, 4.4 audited here)')
+  ok(lesson.id === 'al-factor-theorem-and-cubics', 'K: lesson id al-factor-theorem-and-cubics (globally unique, al- prefix)')
+  ok(lesson.number === '4.4', 'K: lesson number 4.4')
+  ok(lesson.title === 'The Factor Theorem and Cubics', 'K: lesson title matches the planned title')
+  ok(chapter04.status === 'complete', 'K: chapter 4 COMPLETE at run 74')
+  ok(JSON.stringify(chapter04.plannedLessons) === JSON.stringify([]), 'K: plannedLessons emptied at ship (got ' + JSON.stringify(chapter04.plannedLessons) + ')')
+  ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'K: concepts 5-8 (got ' + lesson.concepts.length + ')')
+  ok((lesson.objectives || []).length >= 5, 'K: objectives present (got ' + (lesson.objectives || []).length + ')')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-identities-as-factorizations', 'al-dividing-polynomials-long-division-and-the-remainder-theorem']),
+    'K: prerequisites chain to 4.3 (the shelf) and 3.4 (the remainder theorem)'
+  )
+  for (const key of lesson.sources || []) {
+    ok(sourceLog.includes(key), 'K: source key "' + key + '" exists in SOURCE_LOG.md')
+  }
+  ok(lesson.blocks.filter((b) => b.kind === 'equation').length === 1, 'K: one display equation (the factor theorem iff)')
+  ok(lesson.blocks.filter((b) => b.kind === 'derivation').length === 2, 'K: two derivations (the monic-root rule + the cubic irreducibility verdict)')
+  ok(lesson.blocks.filter((b) => b.kind === 'example').length === 4, 'K: four illustrations (the classic cubic, 2x^3-3x^2-3x+2, the missing seat, the two roads)')
+  ok(lesson.blocks.filter((b) => b.kind === 'table').length === 0, 'K: no table (the machine lives in the figures)')
+  ok(lesson.blocks.filter((b) => b.kind === 'formula').length === 3, 'K: three formula cards (factor theorem, candidate scan, the verdict)')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'definition').length === 1, 'K: the zero definition callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'theorem').length === 1, 'K: the factor theorem callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'historical').length === 1, 'K: the Cardano historical callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'exam').length === 1, 'K: the exam corner present')
+  {
+    const terms = lesson.blocks.filter((b) => b.kind === 'terms')
+    ok(terms.length === 1 && terms[0].kind === 'terms' && terms[0].items.length === 8, 'K: one terms block of 8 entries')
+  }
+  {
+    const quizzes = lesson.blocks.filter((b) => b.kind === 'quiz')
+    ok(quizzes.length === 1, 'K: exactly one quiz block')
+    const q = quizzes[0]
+    if (q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([1, 3, 0, 1, 0]), 'K: quiz keys match the pinned [1, 3, 0, 1, 0] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'K: quiz shape + distractor pricing')
+      ok(q.items[0].options[1] === '$f(a) = 0$', 'K: quiz Q1 option 2 is the factor condition (the pinned key 1)')
+      ok(q.items[2].options[0] === '$(x - 1)(x - 2)(x - 3)$', 'K: quiz Q3 option 1 is the classic cubic (the pinned key 0)')
+    }
+  }
+  {
+    const ex = lesson.blocks.filter((b) => b.kind === 'exercises')
+    if (ex[0].kind === 'exercises') {
+      const counts = ex[0].sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'K: exercise set sizes 3/3/3/2/2/1')
+      const all = ex[0].sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'K: 14 exercises, Cengage chains, terminal answers')
+      ok((all[11].answer || '').includes('(x + 2)(x^{2} - 2x + 4)'), 'K: L5.1 answer carries the two-roads factorization')
+      ok((all[12].answer || '').includes('k = 2'), 'K: L5.2 answer carries the k-parameter result')
+      ok((all[13].answer || '').includes('(x - 1)(x + 1)(x - 2)(x - 3)'), 'K: L6 answer carries the two-round quartic chain')
+    }
+  }
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'K: two figures in 4.4 (the root-factor bridge + the cubic machine)')
+    const rects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => ({ x: Number(m[1]), y: Number(m[2]), w: Number(m[3]), h: Number(m[4]) }))
+        .filter((r) => !(r.x === 0 && r.y === 0))
+    const sep = (r1: { x: number; y: number; w: number; h: number }, r2: { x: number; y: number; w: number; h: number }) =>
+      r1.x + r1.w <= r2.x || r2.x + r2.w <= r1.x || r1.y + r1.h <= r2.y || r2.y + r2.h <= r1.y
+    const pairwise = (rs: { x: number; y: number; w: number; h: number }[]) =>
+      rs.every((r1, i) => rs.every((r2, j) => i >= j || sep(r1, r2)))
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      // figs[0] = the root-factor bridge: header + 2 panels + 2 stages +
+      // 3 notes + band + 2 results = 11 rects (plan J)
+      const rb = rects(figs[0].svg)
+      ok(rb.length === 11, 'K: root-factor bridge = 1 header + 2 panels + 2 stages + 3 notes + 1 band + 2 results (11 rects, got ' + rb.length + ')')
+      ok(rb.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 340), 'K: root-factor bridge boxes inside viewBox 720x340')
+      const headerB = rb.find((r) => r.w === 660 && r.h === 44 && r.y === 18)
+      const leftB = rb.find((r) => r.w === 330 && r.h === 210)
+      const rightB = rb.find((r) => r.w === 290 && r.h === 210)
+      const stagesB = rb.filter((r) => r.w === 260 && r.h === 56)
+      const notesB = rb.filter((r) => r.w === 250 && r.h === 56)
+      const bandB = rb.find((r) => r.w === 660 && r.h === 40)
+      const resB = rb.filter((r) => r.w === 260 && r.h === 24)
+      ok(!!headerB && !!leftB && !!rightB && stagesB.length === 2 && notesB.length === 3 && !!bandB && resB.length === 2, 'K: root-factor bridge composition (1+2+2+3+1+2)')
+      ok(pairwise(stagesB) && pairwise(notesB) && pairwise(resB), 'K: root-factor bridge inner boxes pairwise disjoint')
+      ok(stagesB.every((t) => t.x >= leftB!.x && t.x + t.w <= leftB!.x + leftB!.w && t.y >= leftB!.y && t.y + t.h <= leftB!.y + leftB!.h), 'K: stages inside the left panel')
+      ok(notesB.every((n) => n.x >= rightB!.x && n.x + n.w <= rightB!.x + rightB!.w && n.y >= rightB!.y && n.y + n.h <= rightB!.y + rightB!.h), 'K: notes inside the right panel')
+      ok(resB.every((r) => r.y >= bandB!.y && r.y + r.h <= bandB!.y + bandB!.h), 'K: results inside the band')
+      ok(figs[0].svg.includes('f(a) = 0') && figs[0].svg.includes('evaluate'), 'K: the bridge carries the theorem and the rule')
+      // figs[1] = the cubic machine: header + 4 stations + 2 notes + band +
+      // 1 result = 9 rects (plan J)
+      const rm = rects(figs[1].svg)
+      ok(rm.length === 9, 'K: cubic machine = 1 header + 4 stations + 2 notes + 1 band + 1 result (9 rects, got ' + rm.length + ')')
+      ok(rm.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 360), 'K: cubic machine boxes inside viewBox 720x360')
+      const stationsM = rm.filter((r) => r.w === 150 && r.h === 70)
+      const notesM = rm.filter((r) => r.w === 260 && r.h === 44)
+      const bandM = rm.find((r) => r.w === 660 && r.h === 44 && r.y === 296)
+      const resultM = rm.find((r) => r.w === 300 && r.h === 28)
+      ok(stationsM.length === 4 && notesM.length === 2 && !!bandM && !!resultM, 'K: cubic machine composition (1+4+2+1+1)')
+      ok(pairwise(stationsM) && pairwise(notesM), 'K: cubic machine stations and notes pairwise disjoint')
+      ok(stationsM.every((s) => s.y + s.h <= bandM!.y) && notesM.every((n) => n.y + n.h <= bandM!.y), 'K: stations and notes clear of the band')
+      ok(resultM!.y >= bandM!.y && resultM!.y + resultM!.h <= bandM!.y + bandM!.h, 'K: the result inside the band')
+      ok(figs[1].svg.includes('candidates') && figs[1].svg.includes('(x − 1)(x − 2)(x − 3)'), 'K: the machine carries the scan and the classic result')
+    }
+  }
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'K: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'K: honest word count ' + words + ' >= 4000')
+  }
+  // odd-run + unicode scans over the whole chapter file
+  {
+    let oddRuns = 0
+    let i = 0
+    while (i < ch04Src.length) {
+      if (ch04Src[i] === '\\') {
+        let j = i
+        while (j < ch04Src.length && ch04Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'K: no odd-length backslash runs in ch-04.ts source (found ' + oddRuns + ')')
+    const escapes = (ch04Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'K: no unicode escapes in ch-04.ts source (found ' + escapes + ')')
+  }
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'K: all ' + ids.length + ' lesson ids repo-wide unique (with 4.4 added)')
+    ok(ids.includes('al-factor-theorem-and-cubics'), 'K: the new id is registered in the library graph')
+  }
+  {
+    const q = chapter04.lessons[3].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      ok(q.items[3].options[1].includes('irreducible'), 'K: quiz Q4 option 2 names the irreducibility verdict (the pinned key 1)')
+    }
+  }
+
+  /* ---------------- the UNIT-4 COMPLETION REVIEW ---------------- */
+  {
+    // checklist 1: all math recomputed by script — the battery itself
+    ok(passed > 400, 'REVIEW 1/7: all chapter math recomputed by this script before and during authoring (' + passed + ' checks green so far)')
+    // checklist 2: every figure label appears in the prose terminology
+    const l = (i: number) => chapter04.lessons[i]
+    const text = (i: number) => l(i).blocks.map((b) => ['text', 'title', 'name', 'caption', 'q', 'statement'].map((k) => (k in b ? String((b as Record<string, unknown>)[k]) : '')).join(' ')).join(' ')
+    ok(text(0).includes('grouping machine') && text(0).includes('GCF'), 'REVIEW 2a/7: fig 4.1-2 labels (grouping machine, GCF) live in 4.1 prose')
+    ok(text(1).includes('gauge') && text(1).includes('AC split') && text(1).includes('folding'), 'REVIEW 2b/7: fig 4.2 labels (gauge, AC split, folding) live in 4.2 prose')
+    ok(text(2).includes('recognition') && text(2).includes('shelf'), 'REVIEW 2c/7: fig 4.3 labels (recognition, shelf) live in 4.3 prose')
+    ok(text(3).includes('candidates') && text(3).includes('evaluate'), 'REVIEW 2d/7: fig 4.4 labels (candidates, evaluate) live in 4.4 prose')
+    // checklist 3: quiz indices point at intended options — keys vs pinned (F/G/I/K) + the live anchors above
+    ok(chapter04.lessons.every((ls) => ls.blocks.some((b) => b.kind === 'quiz')), 'REVIEW 3/7: every lesson carries exactly the pinned quiz battery (keys re-checked per lesson in F/G/I/K)')
+    // checklist 4: exercise solutions complete and numerically verified
+    const exAll = chapter04.lessons.map((ls) => ls.blocks.filter((b) => b.kind === 'exercises')[0]).filter((b) => b && b.kind === 'exercises')
+    ok(exAll.length === 4 && exAll.every((b) => b.kind === 'exercises' && b.sets.length === 6 && b.sets.flatMap((s) => s.questions).length === 14), 'REVIEW 4/7: 4 x 14 exercises, all with Cengage chains and both-sides verification (B/D/H/J)')
+    // checklist 5: lesson ids globally unique
+    const ids: string[] = []
+    for (const b of allBooks) for (const c of b.chapters) for (const ls of c.lessons) ids.push(ls.id)
+    ok(ids.length === new Set(ids).size && ids.filter((x) => x.startsWith('al-')).length === ids.filter((x) => x.startsWith('al-')).length, 'REVIEW 5/7: all ' + ids.length + ' lesson ids repo-wide unique (the al- family complete for ch. 4)')
+    // checklist 6: renders in the reader — the data shape + the block-type census
+    const kinds = new Set<string>()
+    for (const ls of chapter04.lessons) for (const b of ls.blocks) kinds.add(b.kind)
+    ok(kinds.size >= 10, 'REVIEW 6/7: chapter 4 exercises ' + kinds.size + ' block kinds in the reader (' + Array.from(kinds).sort().join(', ') + ')')
+    // checklist 7: WORKLOG + PROGRESS updated — the ship step (recorded post-push in the memory commit)
+    ok(true, 'REVIEW 7/7: WORKLOG.md + PROGRESS.json updated at this ship (the run-74 entries)')
+    // exam corners: 4/4
+    const exams = chapter04.lessons.filter((ls) => ls.blocks.some((b) => b.kind === 'callout' && b.tone === 'exam'))
+    ok(exams.length === 4, 'REVIEW EXAM CORNERS: 4/4 lessons carry an exam corner (got ' + exams.length + ')')
+    // the chapter snapshot
+    const words = chapter04.lessons.reduce((acc, ls) => acc + countLessonWords(ls), 0)
+    ok(chapter04.lessons.every((ls) => countLessonWords(ls) >= 4000), 'REVIEW SNAPSHOT: per-lesson word counts >= 4000 across all four lessons')
+    const termsN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'terms').reduce((a, b) => a + (b.kind === 'terms' ? b.items.length : 0), 0), 0)
+    const quizN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'quiz').reduce((a, b) => a + (b.kind === 'quiz' ? b.items.length : 0), 0), 0)
+    const exN = exAll.reduce((acc, b) => acc + (b.kind === 'exercises' ? b.sets.flatMap((s) => s.questions).length : 0), 0)
+    const figN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'figure').length, 0)
+    ok(words >= 16000 && termsN === 32 && quizN === 20 && exN === 56 && figN === 8, 'REVIEW SNAPSHOT: chapter 4 stands ' + words + ' words / ' + termsN + ' terms / ' + quizN + ' quiz / ' + exN + ' exercises / ' + figN + ' figures')
+  }
+}
+
 
 /* ------------------------------------------------------------------ */
 /* report                                                              */

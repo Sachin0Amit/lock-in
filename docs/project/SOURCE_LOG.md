@@ -1925,3 +1925,33 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   prime escape in the GCF formula card — rewritten prime-free) + 2 figure-geometry defects (panels overlapping the
   result band; right-panel titles 2px off the note boxes) + 1 band-edge text spill, all repaired to zero pre-ship.
 - Both new figures audited 0-issue and visually inspected; E2E 45/45 PASS ×2 runs ×3 viewports per lesson.
+
+#### Run 74 keys added
+- `sophie-germain-identity` — Sophie Germain (1776–1831), the identity $a^4 + 4b^4 = (a^2 + 2ab + 2b^2)(a^2 - 2ab + 2b^2)$:
+  the sum of two fourth powers that DOES factor over the integers — the canonical counterexample to "fourth-power sums
+  refuse", deployed by Germain in her grand plan for Fermat's last theorem (her 1804–1809 correspondence with Gauss; the
+  theorem that FLT for odd prime p < 100 requires p | xyz when 2p+1 is prime). Web-checked 2026-11-08 (the Agnes Scott
+  College Germain/FLT study page by L. Riddle; Laubenbacher & Pengelley's 2010 manuscript reassessment). Zero downloads —
+  metadata only; informs AL 4.3's historical callout + the L5/L6 stretch material.
+- `cardano-1545-ars-magna` — Gerolamo Cardano, *Artis Magna, sive de Regulis Algebraicis* (Nuremberg, 1545): the founding
+  book of modern algebra, publishing the cubic solution (Scipione del Ferro's original insight c. 1515, Niccolò Tartaglia's
+  1535 rediscovery for the Fiore contest, the broken secrecy oath, Lodovico Ferrari's quartic). Web-checked 2026-11-08
+  (Quanta Magazine's "The Scandalous History of the Cubic Formula", 2022; the Kronecker Wallis Ars Magna notes). Zero
+  downloads — metadata only; informs AL 4.4's historical callout (what the school-scale factor theorem cannot reach).
+
+#### Run 74 reference-notes (ship)
+- Zero downloads — the run carried the banked H&K knowledge (the Factorisation chapter + the Higher-Algebra factor-theorem
+  exposition, both studied in run 67's download before deletion) plus web metadata for the two new keys (Sophie Germain's
+  identity + its FLT deployment; Cardano's Ars Magna 1545 and the del Ferro/Tartaglia priority dispute).
+- The verifier finished at 471 checks ALL GREEN (sections A–K): H (4.3 pre-writing: the identity sweeps, the cube
+  companions' -3b^2 gauge, the two-step chains, the GERMAIN identity at 169 points, the x^4+16 exhaustive refusal scan)
+  + I (4.3 authored) + J (4.4 pre-writing: the synDiv engine at 3,375 reversal draws, THE MONIC INTEGER-ROOT THEOREM
+  over 4,056 monic cubics, THE CUBIC IRREDUCIBILITY THEOREM both directions over the same sweep, every exhibit both
+  sides) + K (4.4 authored + THE UNIT-4 COMPLETION REVIEW: the 7-point BOOK_FORMAT checklist PASSED + exam corners
+  4/4 + the chapter snapshot 16,245 words / 32 terms / 20 quiz / 56 exercises / 8 figures). Pre-writing catches this
+  run: the J-section count expectation (4,056 not 4,225 after excluding d = 0); authored-time catches: a KaTeX-invalid
+  \( in a derivation formula, two raw-$ derivation labels (the run-65 class — labels print plain), 9 single-backslash
+  LaTeX commands from a heredoc batch (the odd-run scanner caught all), one SVG verdict box 5px out of the viewBox,
+  and a stale dev-server E2E loop (the nohup-per-command rule). All repaired to zero pre-ship.
+- Four figures this run (recognition shelf + decision tree; root-factor bridge + cubic machine) audited 0-issue and
+  visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson (quiz 5/5 live on keys 2/1/0/1/2 and 1/3/0/1/0).

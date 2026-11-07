@@ -2480,3 +2480,59 @@ ch. 5).
 
 **Git:** ship commit `al ch.4 OPENS (run 73): ...` + the run-72 memory commit 4e2fcb5 pushed to main per the push
 protocol (shas in WORKLOG; ls-remote verified).
+
+## RUN 74 — 2026-11-08 — Elementary Algebra ch. 4 'Factorization' CLOSES 4/4 + the unit-4 completion review
+
+**Step 1 — tree reconciliation + research:** tree clean at the run-73 memory commit eee5d0a (unpushed by design — it
+recorded run 73's push verification and rode this run's protocol push); no sibling lock (the :15 slot fired the main
+payload — executed per the MISSED-FIRE rule). Research: zero downloads — the banked H&K knowledge (the Factorisation
+chapter + the Higher-Algebra factor-theorem exposition, studied in run 67's download before deletion) + TWO new
+web-checked history keys: `sophie-germain-identity` (a⁴ + 4b⁴ = (a² + 2ab + 2b²)(a² − 2ab + 2b²) — the sum of fourth
+powers that factors, deployed in her grand plan for Fermat's last theorem; web-checked via the Agnes Scott study page +
+Laubenbacher–Pengelley's 2010 manuscript reassessment) and `cardano-1545-ars-magna` (the cubic formula: del Ferro c. 1515,
+Tartaglia 1535, Cardano's Ars Magna 1545 over the broken oath, Ferrari's quartic; web-checked via Quanta 2022 + the Ars
+Magna notes). Working-copy footprint zero.
+
+**Step 2 — verify-first (H and J BEFORE any prose, I at 4.3 authoring, K at 4.4 authoring + the review):**
+H (4.3): the identity shelf swept backwards — difference of squares symbolic + coefficient exhibits both sides; the
+perfect-square recognitions and refusals; the cube factorization exhibits incl. the two-letter 8x³+27y³ at 6 points; the
+cube companions' gauge −3b² < 0 across b ∈ [-9..9]\{0} (the second bracket PROVED irreducible); the two-step chains
+(x⁴−16, x⁴−1, x⁴−81, 16x⁴−81, the grand x⁶−1); SOPHIE GERMAIN at all 169 (a,b) points in [-6..6]²; the x⁴+16 refusal by
+exhaustive [-9..9]⁴ scan. J (4.4): the synDiv engine (3,375 reversal draws of (x−a)q + r = f); THE MONIC INTEGER-ROOT
+THEOREM over 4,056 monic cubics (13×13×24, d ≠ 0 — every integer root divides the constant); THE CUBIC IRREDUCIBILITY
+THEOREM both directions over the same sweep (factorable ⟺ integer root exists — the degree argument 3 = 1+1+1 | 1+2);
+every exhibit/quiz/exercise key of 4.4 both sides. Pre-writing catch: the sweep-count expectation (4,056, not 4,225).
+
+**Step 3 — authored, strictly sequential:** 4.3 'The Identities as Factorizations' (al-identities-as-factorizations,
+4,007 words, 8 terms, quiz keys 2/1/0/1/2, 14 exercises L1–L6, 2 figures — the recognition shelf + the decision tree —
+1 derivation (the cube companions refuse), 4 illustrations, 3 formula cards, warn + historical (Sophie Germain) + exam
+callouts) — I section green, gates green; THEN 4.4 'The Factor Theorem and Cubics' (al-factor-theorem-and-cubics, 4,026
+words, 8 terms, quiz keys 1/3/0/1/0, 14 exercises L1–L6, 2 figures — the root-factor bridge + the cubic hunting machine —
+2 derivations (the monic-root rule + the irreducibility verdict), 4 illustrations, 3 formula cards, definition + theorem +
+historical (Cardano 1545) + exam callouts) — K section green. 4.3/4.4 + the review close the chapter; ch. 5 NOT touched.
+
+**Authored-time catches (all repaired to zero):** a KaTeX-invalid \( in a derivation formula; two raw-$ derivation labels
+(the run-65 class); 9 single-backslash LaTeX commands from a heredoc batch (the odd-run scanner caught all — doubled);
+one SVG verdict box 5px out of the viewBox; a stale dev-server E2E loop (nohup-per-command applied); an e2e regex sed
+silently missing a pipe-anchored pattern (caught by the got-1 chip count).
+
+**Step 4 — gates:** verify-book3-ch04.ts finished at 471 checks ALL GREEN (sections A–K). bun run lint 0 errors (2
+pre-existing warnings); tsc --noEmit clean; routes 200 after the dev-server restart; E2E e2e-al-43 + e2e-al-44 45/45
+PASS ×2 runs ×3 viewports per lesson; four figures audited 0-issue and visually inspected. .gitignore gained the
+e2e-al-43/44 whitelist lines.
+
+**Step 5 — the unit-4 completion review (verifier section K): PASSED 7/7** — (1) all math script-recomputed (471 checks);
+(2) every figure label lives in the prose (per-lesson textual check incl. titles/names/captions); (3) quiz keys re-checked
+against the pins + live anchors; (4) 4 × 14 exercises with chains and both-sides verification; (5) lesson ids repo-wide
+unique; (6) the chapter exercises 12 block kinds in the reader; (7) the logs updated at this ship. Exam corners 4/4.
+Chapter snapshot: 16,245 words / 32 terms / 20 quiz / 56 exercises / 8 figures; per-lesson words 4,202 / 4,050 / 4,007 /
+4,026 (all ≥ 4,000).
+
+**Step 6 — state:** ch. 4 'Factorization' COMPLETE 4/4; book.ts header flipped (4 complete chapters of 11); SOURCE_LOG
+run-74 section (two new keys + the ship notes); WORK_INVENTORY rebuilt — repo-wide 98 lessons / 476,361 words / 747 terms
+/ 490 quiz / 1,233 exercises; 25 chapters written / 0 in progress. NEXT: run 75 = ch. 5 'Linear Equations in One Variable'
+OPENS (5.1 'What an Equation Is: the Balance Principle' + 5.2 'Solving Linear Equations'; verify-book3-ch05.ts FIRST;
+whitelist e2e-al-51/52; never ch. 6); run 76 closes ch. 5.
+
+**Git:** ship commit `al ch.4 CLOSES (run 74): ...` + the run-73 memory commit eee5d0a pushed to main per the push
+protocol (shas in WORKLOG; ls-remote verified).

@@ -277,3 +277,7 @@ server.log
 !/scripts/e2e-al-41.page.js
 !/scripts/e2e-al-42.sh
 !/scripts/e2e-al-42.page.js
+!/scripts/e2e-al-43.sh
+!/scripts/e2e-al-43.page.js
+!/scripts/e2e-al-44.sh
+!/scripts/e2e-al-44.page.js

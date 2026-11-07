@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-08 03:45:54 (Asia/Kolkata)",
+  "generated": "2026-11-08 04:32:51 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,13 +5920,13 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 105,
-      "totalLines": 67714,
+      "srcFilesTracked": 106,
+      "totalLines": 69571,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 58449,
+        "src/data/library (content model + books)": 60306,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -14511,33 +14511,130 @@
       "insertions": 0,
       "deletions": 0,
       "files": []
+    },
+    {
+      "sha": "23067c3a87f694fdc6e5017227ebaa4bb2259b09",
+      "short": "23067c3",
+      "date": "2026-11-07 22:18",
+      "message": "al ch.4 OPENS (run 73): 4.1 Common Factors and Grouping (4,202 w — factoring as multiplication undone, the GCF-of-terms anatomy (FM ch.3's HCF wearing letters: HCF of coefficients x shared letters at lowest powers), completeness proved (the extracted GCF leaves relatively-prime leftovers), partial extractions and the negative-GCF sign convention priced, grouping with the regrouping discipline (the reorder exhibit 2x^3+3+x^2+6x and the sign trap chaining 3.3's difference of squares), the sum-of-squares refusal PROVED by the middle-term comparison, the Euclid VII.1-2 greatest-common-measure callout) + 4.2 Factoring Quadratic Trinomials (4,050 w — the middle-term hunt as two dials with the ONE PRODUCT DIAL-FOUR QUADRATICS table, the existence gauge p^2-4q=(a-b)^2 PROVED both directions with forced parity (ch.9's discriminant foreshadowed), sign pricing before the hunt, the AC split with the folding identity (1/a)(ax+r)(ax+s)=ax^2+bx+c PROVED and grouping exposed as the folding done lawfully, the GCF-first primitive rule + the parity shortcut (odd ac + odd b refuses), the refusals priced (gauge -191, gauge 13), the Harriot-1631 products-first callout) — verify-first with verify-book3-ch04.ts 248 checks ALL GREEN (sections A-G: the GCF engine + completeness over 7,225/5,832 grids, the grouping machine 14,641 points, the sum-of-squares refusal, THE GAUGE EXISTENCE THEOREM 1,025 cells, THE AC-SPLIT COMPLETENESS THEOREM 8,238 primitive trinomials; pre-writing caught the multi-letter bracket defect (2xy+x-3, not 2xy-3+xy) + a wrong partial-extraction exhibit + 12 verifier slips; authored-time caught 4 odd backslash runs + 2 figure-geometry defects + 1 band-edge spill, all repaired to zero); 4 figures audited 0-issue + visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson on keys 0/1/0/0/2 and 2/1/3/1/3; logs + inventory updated (96 lessons / 468,328 words repo-wide); e2e-al-41/42 whitelisted; next run 74 = 4.3 + 4.4 + the unit-4 review close ch. 4",
+      "filesChanged": 14,
+      "insertions": 2662,
+      "deletions": 45,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 62,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 44,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 32,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 118,
+          "del": 22
+        },
+        {
+          "path": "scripts/e2e-al-41.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-41.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-42.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-42.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch04.ts",
+          "add": 1070,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 8,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 991,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "eee5d0a4ea96b12e6b4976fa016064a3651b8be7",
+      "short": "eee5d0a",
+      "date": "2026-11-07 22:18",
+      "message": "memory: run-73 push verified — remote main = 23067c3 (ship 23067c3 pushed 9cf5ecf..23067c3, ls-remote verified = local HEAD; run 72's memory commit 4e2fcb5 rode the same push); AL ch. 4 'Factorization' OPENS 2/4 (8,252 words: 4.1 'Common Factors and Grouping' 4,202 + 4.2 'Factoring Quadratic Trinomials' 4,050; verify-book3-ch04.ts 248 checks ALL GREEN — sections A–E pre-writing caught the multi-letter bracket defect (2xy+x−3, not 2xy−3+xy), a wrong partial-extraction exhibit and 12 verifier slips, F/G authored-time caught 4 odd backslash runs + 2 figure-geometry defects + 1 band-edge spill, none shipped; the gauge existence theorem (p²−4q=(a−b)², 1,025 cells) and the AC-split completeness theorem (8,238 primitive trinomials) proved by sweeps; the Euclid VII.1–2 and Harriot-1631 callouts; four figures audited 0-issue + visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson on keys 0/1/0/0/2 and 2/1/3/1/3); the book stands 3 complete chapters + ch. 4 open 2/4 of 11 (96 lessons / 468,328 words repo-wide); next run 74 = ch. 4 CLOSES with 4.3 'The Identities as Factorizations' + 4.4 'The Factor Theorem and Cubics' + the unit-4 completion review (extend verify-book3-ch04.ts FIRST; whitelist e2e-al-43/44; never ch. 5); run 75 opens ch. 5",
+      "filesChanged": 1,
+      "insertions": 3,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 24,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 96,
-    "wordsAuthored": 468328,
-    "termsDefined": 739,
-    "quizItems": 480,
-    "exerciseQuestions": 1205,
+    "chaptersWritten": 25,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 98,
+    "wordsAuthored": 476361,
+    "termsDefined": 755,
+    "quizItems": 490,
+    "exerciseQuestions": 1233,
     "blockTotals": {
-      "para": 1365,
-      "callout": 534,
-      "heading": 538,
-      "list": 101,
-      "terms": 97,
-      "equation": 136,
-      "figure": 163,
-      "derivation": 196,
+      "para": 1395,
+      "callout": 541,
+      "heading": 549,
+      "list": 103,
+      "terms": 99,
+      "equation": 137,
+      "figure": 167,
+      "derivation": 199,
       "table": 131,
-      "example": 389,
-      "quiz": 96,
-      "exercises": 96,
-      "formula": 272,
+      "example": 397,
+      "quiz": 98,
+      "exercises": 98,
+      "formula": 278,
       "algorithm": 21
     }
   }

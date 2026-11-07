@@ -15,12 +15,12 @@ import { chapter04 } from './ch-04'
  * unit-2 completion review): chapter 2 COMPLETE 3/3. Chapter 3 'Polynomials'
  * opened at run 71 (3.1 + 3.2) and CLOSED in run 72 (3.3 + 3.4 + the unit-3
  * completion review): chapter 3 COMPLETE 4/4 (18,656 words). Chapter 4
- * 'Factorization' opened at run 73 with 4.1 Common Factors and Grouping +
- * 4.2 Factoring Quadratic Trinomials (2/4 — ids al-common-factors-and-
- * grouping and al-factoring-quadratic-trinomials); 4.3 + 4.4 + the unit-4
- * completion review close it at run 74. The book stands in-progress — 3
- * complete chapters + ch. 4 open 2/4 of 11 (owner cadence: two lessons per
- * run, strictly sequential).
+ * 'Factorization' opened at run 73 (4.1 Common Factors and Grouping + 4.2
+ * Factoring Quadratic Trinomials) and CLOSED at run 74 (4.3 The Identities
+ * as Factorizations + 4.4 The Factor Theorem and Cubics + the unit-4
+ * completion review PASSED): chapter 4 COMPLETE 4/4 (16,245 words). The
+ * book stands in-progress — 4 complete chapters of 11 (owner cadence: two
+ * lessons per run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
