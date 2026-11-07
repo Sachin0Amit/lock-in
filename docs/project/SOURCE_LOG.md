@@ -1586,3 +1586,48 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   the unit-9 completion review caught three authored defects (a ⟨7,16,7⟩ = 2,847 Mayan miscount of
   2,807; a 9⁴ − 9 = 6,480 mis-arithmetic — true value 6,552; a dominance bound stated as b−2 instead
   of b−1), all fixed pre-commit and pinned by the new checks.
+
+### Run 64 additions (2026-11-07, ANS ch. 10 opens — 10.1 + 10.2)
+
+- `hamming-1950-error-detecting` — Richard W. Hamming, "Error Detecting and Error Correcting Codes", Bell System Technical Journal
+  29(2), April 1950, pp. 147–160: the paper that framed error detection/correction as a quantitative subject (redundancy in a
+  designed pattern, measured against error classes) and founded coding theory. Used for: ANS ch. 10 lesson 10.2 — the framing
+  callout (detection vs correction; the ISBN-loop anecdote: the standard textbook example is Hamming's own Coding and Information
+  Theory, ISBN 0-13-139139-9, weighted sum 143 = 13 × 11) and the L6-1 hand-off to the correction program (2^r ≥ k + r + 1, the
+  (7,4) code). Web-checked 2026-11-07 (run 64) against the BSTJ archive listing and the Wiley DOI record. Exposition original.
+
+- `isbn-check-digit-schemes` — the ISBN-10 (mod 11, weights 10..1, X = 10, in use 1970–2007) and ISBN-13/EAN-13 (mod 10, weights
+  1,3 alternating, 2007–) check-digit specifications, with the worked exhibits 0-13-139139-9 (sum 143 = 13·11), 0-393-09670-X
+  (sum 220 = 20·11) and 978-0-393-09670-5 (sum 110); the real reference volume Khattar QA 4e ISBN 978-93-5343-955-2 verified
+  (sum 150 ≡ 0 mod 10). Used for: ANS ch. 10 lesson 10.2 — the ISBN-10 engine figure, the check-digit derivations, and the
+  composite-modulus cost (transpositions of differ-by-5 pairs slip: 80/90 ordered). Web-checked 2026-11-07 (run 64) against the
+  UNB ECE error-detection teaching page and current ISBN references. Exposition original; every number re-verified by
+  scripts/verify-book2-ch10.ts (sections F–G).
+
+- `luhn-algorithm-iso7812` — Hans Peter Luhn's mod-10 check (IBM, 1954; ISO/IEC 7812-1; public domain): double every second digit
+  from the right, subtract 9 when ≥ 10, total ≡ 0 (mod 10); the doubling map [0,2,4,6,8,1,3,5,7,9] is a bijection; the canonical
+  exhibit 79927398713 (total 70). Used for: ANS ch. 10 lesson 10.2 — the Luhn engine, the injectivity proof, the single 0↔9
+  transposition blind spot (g(0) = g(9) = 0, 89/90 ordered), and the honesty note (designed against accidents, not attacks).
+  Web-checked 2026-11-07 (run 64) against the Wikipedia Luhn article and ISO/IEC 7812 references. Exposition original; sweep-verified
+  in scripts/verify-book2-ch10.ts (section H).
+
+- `fibonacci-1202-liber-abaci` — extended again (run 64): the Liber Abaci's casting-out-nines check now also anchors ANS 10.2's
+  historical opening (the medieval probatio novena; the mod-9 residue wheel). No new web-checks needed — carried on the run-63
+  verification.
+
+- `gauss-1801-disquisitiones` — carried to ANS 10.2 (run 64): the Disquisitiones congruence notation underwrites the checksum
+  equations Σ w_i d_i ≡ 0 (mod m). No new web-checks needed.
+
+### Run 64 reference-notes
+- Zero downloads this run (all three new keys internet-researched or carried; the Drive holds no error-detection/checksum text —
+  exam-oriented, per the run-48/62 surveys). Working-copy footprint zero. Drive survey rebuilt post-recycle via
+  rebuild_drive_survey.ts (89 entries intact) before build_work_inventory.ts regenerated WORK_INVENTORY.json.
+- The arithmetic verifier opened at 87 checks (sections A–I pre-writing) and closed at 174 (sections J/K/L/M quiz+exercise keys,
+  N/O figure geometry), ALL GREEN; the first pass caught TEN defects in the verifier's own census loops (no-op substitutions and
+  equal-digit transpositions counted as errors; a Luhn check-digit parity bug; ⌊60/10⌋ hand-typed 5 for 6; a phantom
+  "original digit" sweep; a wrong normalized residue −4 ≡ 6; three badly-written assertions) — the script, not memory, is the
+  source of truth, the run-60 lesson holding again. Two authoring-time prose defects fixed pre-commit (the 89 ≡ 8 (mod 9)
+  residue-diff arithmetic; a garbled weighted-term string in the Khattar exhibit) plus the Hamming-bound restatement
+  (2^r ≥ k + r + 1). The SVG overlap audit forced a mid-run redesign of the 10.1 repair map (gate text sat inside the bands;
+  the rotated left-rail note clipped the viewBox and read as pre-transform in the audit — replaced with straight footer lines)
+  and removed the wheel's step labels (a +2 label collided with station 0).

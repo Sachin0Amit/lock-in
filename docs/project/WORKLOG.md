@@ -3,6 +3,58 @@
 Every work session appends one entry at the top. Format:
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
+## 2026-11-07 — RUN 64 (fired 07:45:01 IST — the payload's "+08:00" 13:01:07 stamp converts exactly to the pinned :45 slot; trace cron-agent-loop-202611071301): ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' OPENS 2/3 — 10.1 'The Great Extension Story' + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' shipped strictly sequentially; the FIRST fully-executed run after four consecutive zero-output sessions
+
+**Scheduling correction for the owner (settles the "scheduled task showing failure" thread):** the run-63 entry's leading suspect —
+chapter runs firing at :15 instead of :45 — was WRONG. The gateway timestamps render +08:00: 11:15:01 +08:00 = 08:45:01 IST and
+13:01:07 +08:00 = 07:45:01 IST — both precisely :45 Asia/Kolkata as pinned. The actual failure mode of the previous sessions was
+zero-output: the payload arrived but the session was diverted into summary requests before executing. MISSED-FIRE self-healing held
+(all state in the repo files); this run executed the payload end-to-end.
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run open; no `.figure_upgrade_lock`, no uncommitted figure
+changes; dev server alive (route 200).
+
+**Step 2 — verify-first (verify-book2-ch10.ts created FIRST; 87 checks sections A–I ALL GREEN before any prose; extended to 174 with
+J/K/L/M quiz+exercise keys and N/O figure geometry).** **Ten defects caught in the verifier's own first pass** — the census loops
+counting no-op substitutions and equal-digit transpositions as errors; a Luhn check-digit parity bug; ⌊60/10⌋ hand-typed 5 for 6 (Σ
+= 124, not 122); a phantom "original digit" sweep; a wrong normalized residue (−4 ≡ 6, not 4); three badly-written assertions — the
+script, not memory, is the source of truth, the run-60 lesson holding again. Two authoring-time prose defects fixed pre-commit (the
+1,684 − 1,595 = 89 ≡ 8 (mod 9) residue-diff arithmetic; a garbled weighted-term string in the Khattar exhibit) plus the (7,4)
+Hamming bound restated (2^r ≥ k + r + 1, 2³ = 8 = 4 + 3 + 1 exactly).
+
+**Lessons shipped (strictly sequentially, each fully gated before the next):**
+- **10.1 'The Great Extension Story'** (`ans-the-great-extension-story`, 5,574 words, 8 terms, 5 quiz keys 1/0/1/2/3, 15 exercises
+  L1–L6, 2 derivations (the difference-pair embedding theorem; the one-step solvability theorem), 1 figure (the repair map), 3
+  tables, 4 formula cards): the number-system definition; the four failures with the verified census (435/900, 124/660, 10/100);
+  build-embed-agree with the embedding theorem proved; the permanence charter (Peacock 1833 → Hankel 1867) as two clauses (nothing
+  old breaks, one power per rung); the honest edges (ℂ gives up order; countability; the congruence systems as smallest
+  territories).
+- **10.2 'Numbers That Guard Data: Checksums and Casting Out Nines'** (`ans-numbers-that-guard-data-checksums-and-casting-out-nines`,
+  5,459 words, 8 terms, 5 quiz keys 1/1/0/1/2, 14 exercises L1–L6, 2 derivations (the mod-9 verdict; the two weighted-checksum
+  detection theorems), 2 figures (the mod-9 residue wheel; the ISBN-10 engine on Hamming's own textbook 0-13-139139-9 = 143 =
+  13·11), 1 table (the four-engine comparison — every rate a sweep measurement), 4 formula cards): casting out nines 88/90 and 0/45
+  (structural blindness proved: N' − N = −9·10ᵏ·Δ); ISBN-10 90/90 and all transpositions (11 prime, weights 10..1, X at 1/11);
+  ISBN-13 80/90 ordered (differ-by-5 pairs slip); Luhn 89/90 (the 0↔9 collision, red bijective); detection IS solvability in ℤ/mℤ.
+
+**Per-lesson gates (all green, twice on shipped content):** lint 0 errors (1 pre-existing warning, untouched); tsc clean; routes 200
+×2 + 404 unknown; browser E2E e2e-ans-101 + e2e-ans-102 (whitelisted pre-commit) ALL GREEN at 1280 + true 390 + dark ×2 — quiz 5/5
+live on the intended keys both lessons, KaTeX 146/103 nodes 0 errors, 0 raw $, 0 console errors, no overflow, Sol. pills 16/17; SVG
+overlap audits 0 issues on all three figures — the audit forced a mid-run redesign of the 10.1 repair map (gate text sat inside the
+bands; the rotated note clipped the viewBox and is un-auditable pre-transform — replaced with straight footer lines) and removed the
+wheel's step labels (a "+2" label collided with station 0); screenshot pixel checks warm palette / 0% blue / non-blank (10.1: 96–99%
+nonwhite; 10.2: 99% nonwhite, green 32%). Ids globally unique (82 lessons repo-wide, zero collisions).
+
+**Step 3 — logs:** WORKLOG.md (this entry), PROGRESS.json, RESUME_POINTER.json (run 65 = 10.3 'The Toolkit Synthesis' + the unit-10
+completion review + the BOOK CLOSE — one lesson left, so the v2 directive's one-lesson-plus-review-close scope applies; never a new
+book this run), SOURCE_LOG.md (3 new keys: hamming-1950-error-detecting, isbn-check-digit-schemes, luhn-algorithm-iso7812;
+fibonacci-1202-liber-abaci + gauss-1801-disquisitiones extended; zero downloads), DETAILED_LOG.md (unit-ship record),
+WORK_INVENTORY.json regenerated post-recycle (rebuild_drive_survey.ts first: 89 entries intact).
+
+**Library after the run:** 2 books / 21 chapters written, 1 in progress / 82 lessons / 405,887 words / 627 terms / 410 quiz items /
+1,007 exercise questions. ANS ch. 10 so far: 2 lessons / 11,033 words / 16 terms / 10 quiz / 29 exercises.
+
+**Step 4 — push:** see the commit sha and the one-time-URL ls-remote verification recorded in the run-64 push note appended below.
+
 ## 2026-11-07 — RUN 63 (fired 11:15 +08:00 from job 509354's hourly cadence, trace cron-agent-loop-202611071115): ANS CHAPTER 9 'NUMERATION THROUGH HISTORY' CLOSES COMPLETE 3/3 — 9.3 'The Indian Decimal Revolution and Zero' + the unit-9 completion review; the run's ONE-lesson-plus-review scope per the owner's 2026-11-06 v2 two-lessons-per-run directive (the chapter had exactly one unwritten lesson left)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run open; no `.figure_upgrade_lock`, no uncommitted figure changes; dev server alive from the run-62 session (route 200; dev.log 609 B, Nov 7 03:15). SCHEDULING NOTE recorded for the owner: this fire arrived at 11:15 — the :15 visual slot — not :45; the sibling visual job has produced no lock since before run 62 (lock file absent), so no collision occurred this run; the :15/:45 slot mismatch is the leading suspect for the previously reported "scheduled task showing failure" (two jobs in one slot ⇒ concurrency-limit kills).

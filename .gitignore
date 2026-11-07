@@ -223,3 +223,10 @@ server.log
 # exception: run-63 ANS chapter-9 close (9.3 E2E block: quiz keys 0/0/2/2/0 + solutions + audits)
 !/scripts/e2e-ans-93.sh
 !/scripts/e2e-ans-93.page.js
+# exception: run-64 ANS chapter-10 pre-write arithmetic verifier (the map of number systems; committed every ship)
+!/scripts/verify-book2-ch10.ts
+# exception: run-64 ANS chapter-10 lesson E2E blocks (quiz keys set at authoring + solutions + audits)
+!/scripts/e2e-ans-101.sh
+!/scripts/e2e-ans-101.page.js
+!/scripts/e2e-ans-102.sh
+!/scripts/e2e-ans-102.page.js

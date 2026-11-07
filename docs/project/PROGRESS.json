@@ -2,8 +2,8 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-07",
- "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 9 'Numeration Through History' COMPLETE 3/3 (run 63, 2026-11-07: 9.3 'The Indian Decimal Revolution and Zero' (6,772 words — the chapter's largest) + the unit-9 completion review shipped verify-first with verify-book2-ch09.ts at 280 checks sections A–Q, ALL GREEN; the review caught three authored defects pre-commit (the ⟨7,16,7⟩ Mayan miscount of 2,807 — true digits ⟨7,14,7⟩; the 9⁴−9 = 6,480 mis-arithmetic — true 6,552/8 = 819; the dominance bound b−2 — true |c_i| ≤ b−1 < b) and pinned them as regression guards Q-8/Q-9; chapter flipped complete, plannedLessons emptied; 5 new citation keys, zero downloads). Chapter 8 'Irrationals and the Real Line' COMPLETE 4/4 (runs 60–61, 2026-11-06). Run 62 shipped 9.1 (5,311 words) + 9.2 (4,919 words). Library: 2 books / 20 chapters written, 0 in progress / 80 lessons / 394,854 words / 611 terms / 400 quiz / 978 exercises (WORK_INVENTORY.json ground truth). Next: run 64 opens ch. 10 'The Map of Number Systems' with 10.1 + 10.2; the book closes at run 65 with 10.3 + the unit-10 review.",
- "awaiting": "nothing blocking — next run 64 = ANS ch. 10 opens: lessons 10.1 + 10.2 (v2 two-lesson scope; verify-book2-ch10.ts FIRST)",
+ "phase": "BOOK #2 AUTHORING — Arithmetic and Number Systems CHAPTER 10 'The Map of Number Systems' IN PROGRESS 2/3 (run 64, 2026-11-07: the chapter OPENS with 10.1 'The Great Extension Story' (5,574 words — the whole ladder drawn as one story: the number-system definition, the four failures with the verified solvability census 435/900 · 124/660 · 10/100, the difference-pair embedding theorem proved, the permanence charter Peacock 1833 → Hankel 1867, the one-step solvability theorem, the repair-map figure with the x²=−1 gate, the honest edges ℂ/countability/congruence systems) + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' (5,459 words — the mod-9 collapse and its 88/90-vs-0/45 verdict, the two weighted-checksum detection theorems, ISBN-10's 90/90-and-all-transpositions sweep with Hamming's own textbook 0-13-139139-9 = 143 = 13·11 as the worked exhibit, ISBN-13's 80/90 ordered transposition rate, Luhn's 89/90 with the single 0↔9 collision, the four-engine comparison table, the detection-is-solvability synthesis) shipped verify-first and strictly sequentially with verify-book2-ch10.ts at 174 checks sections A–O ALL GREEN — the first pass caught TEN defects in the verifier's own census loops (no-op substitutions counted as errors, a Luhn check-digit parity bug, ⌊60/10⌋ mistyped, a phantom-original-digit sweep, a wrong normalized residue −4 ≡ 6, and three badly-written assertions); SVG overlap audits 0 issues on all three figures (the 10.1 repair map was REDESIGNED mid-run after the audit caught gate-text-inside-band overlaps and a rotated-text clip). Run 62/63 records below. Library: 2 books / 21 chapters written, 1 in progress / 82 lessons / 405,887 words / 627 terms / 410 quiz / 1,007 exercises (WORK_INVENTORY.json ground truth). Next: run 65 CLOSES THE BOOK — 10.3 'The Toolkit Synthesis' + the unit-10 completion review + the ANS book close.",
+ "awaiting": "nothing blocking — next run 65 = ANS ch. 10 CLOSES: lesson 10.3 'The Toolkit Synthesis' + the unit-10 completion review + the BOOK CLOSE (v2 two-lesson scope: exactly one lesson left, so the run writes it, runs the unit-10 review, flips the chapter AND the book COMPLETE per the owner's 2026-11-06 v2 directive — never a new chapter this run)",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
   "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
@@ -80,14 +80,15 @@
     "title": "Arithmetic and Number Systems",
     "status": "in-progress",
     "chaptersPlanned": 10,
-    "chaptersWritten": 8,
-    "lessonsWritten": 31,
+    "chaptersWritten": 10,
+    "lessonsWritten": 34,
     "termsAvailableForFlashcards": 248,
-    "notes": "IN PROGRESS — chapters 1–8 COMPLETE (31 lessons), chapter 9 IN PROGRESS 2/3 (run 62, 2026-11-07: 9.1 + 9.2 shipped verify-first with verify-book2-ch09.ts at 218 checks; 9.3 + the unit-9 review at run 63; chapter 10 'The Map of Number Systems' (3 lessons) then ends the book at runs 64–65). Numbers are WORK_INVENTORY.json ground truth."
+    "notes": "IN PROGRESS — 10/10 chapters reached; ch. 10 'The Map of Number Systems' 2/3 (run 64: 10.1 + 10.2, 11,033 words); run 65 = 10.3 + the unit-10 review + the BOOK CLOSE",
+    "chaptersInProgress": 1
    }
   ],
-  "lessonsWritten": 77,
-  "wordsAuthored": 377852,
+  "lessonsWritten": 82,
+  "wordsAuthored": 405887,
   "termsAvailableForFlashcards": 587,
   "totals": {
    "lessonsWritten": 77,
@@ -102,7 +103,13 @@
    "chaptersInProgress": 0,
    "wordsAuthored": 377852,
    "termsDefined": 587
-  }
+  },
+  "chaptersWritten": 20,
+  "chaptersInProgress": 1,
+  "termsDefined": 627,
+  "quizItems": 410,
+  "exerciseQuestions": 1007,
+  "asOf": "run 64 (2026-11-07)"
  },
  "research": {
   "examRegistry": {
@@ -429,8 +436,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "62 (2026-11-07)",
-  "summary": "ANS CHAPTER 9 'NUMERATION THROUGH HISTORY' OPENS 2/3 — 9.1 + 9.2 shipped strictly sequentially (5,311 + 4,919 words, quiz keys 1/2/0/1/1 and 1/3/2/1/1 verified live 5/5); verify-book2-ch09.ts 218 checks ALL GREEN; the library 2 books / 20 chapters / 79 lessons / 388,082 words; run 63 = 9.3 + the unit-9 review (the chapter closes); then ch. 10 (3 lessons, runs 64–65) ends the book"
+  "run": "64 (2026-11-07)",
+  "summary": "ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' OPENS 2/3 — 10.1 'The Great Extension Story' + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' shipped strictly sequentially (5,574 + 5,459 words, quiz keys 1/0/1/2/3 and 1/1/0/1/2 verified live 5/5 both lessons, 15 + 14 exercises, 8 + 8 terms, 3 + 3 derivations, 1 + 2 figures, 3 + 1 tables, 4 + 4 formula cards). verify-book2-ch10.ts created FIRST (87 checks sections A–I pre-writing) and extended to 174 (J/K/L/M quiz+exercise keys, N/O figure geometry) — ALL GREEN. Ten verifier-phase defects caught in the script itself before any prose; two more authoring-time prose defects fixed pre-commit (the L2-1 residue-diff arithmetic 89 ≡ 8 not 1; a garbled weighted-term string in the Khattar exhibit; the (7,4) Hamming bound restated as 2^r ≥ k + r + 1). E2E green ×3 viewports both lessons; SVG audits 0 issues after the 10.1 repair-map redesign. New citation keys: hamming-1950-error-detecting, isbn-check-digit-schemes, luhn-algorithm-iso7812; zero downloads."
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -701,5 +708,6 @@
    "maya-numerals-long-count"
   ],
   "notes": "OpenStax Contemporary Mathematics §4.2 carried as the unit reference (never reproduced — license forbids ingestion; exposition original). Drive survey rebuilt post-recycle (rebuild_drive_survey.ts, 89 entries). Zero reference downloads this run."
- }
+ },
+ "run64Extras": "run 64 (2026-11-07, job 509354's hourly :45 IST cadence — the FIRST run after four consecutive zero-output sessions, executed fully in one session): ANS ch. 10 opens 2/3 — 10.1 (5,574 words) + 10.2 (5,459 words) sequential, verify-first 174 checks ALL GREEN, gates green twice, e2e-ans-101 + e2e-ans-102 whitelisted pre-commit; scheduling note recorded for the owner: the fire timestamp renders as 13:01 +08:00 = 07:45 IST — the :45 slot exactly as pinned (the earlier ':15 trigger' suspicion was a gateway-timezone rendering artifact, settled by converting +08:00 to Asia/Kolkata); zero reference downloads (internet research sanctioned; Drive survey rebuilt post-recycle, 89 entries intact)."
 }

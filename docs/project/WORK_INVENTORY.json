@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-07 09:20:24 (Asia/Kolkata)",
+  "generated": "2026-11-07 11:16:35 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5672,15 +5672,159 @@
             "slug": "the-map-of-number-systems",
             "title": "The Map of Number Systems",
             "summary": "The synthesis: the great extension ladder ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ drawn as one story of repaired failures; congruence arithmetic at work guarding data (casting out nines as an error detector, the mod-11 checksum scheme); and the competitive-arithmetic toolkit — unit digits, factorial zeros, base conversions, remainder chains — unified as one congruence engine.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "The Great Extension Story",
-              "Numbers That Guard Data: Checksums and Casting Out Nines",
               "The Toolkit Synthesis"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "ans-the-great-extension-story",
+                "number": "10.1",
+                "title": "The Great Extension Story",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5574,
+                "readMins": 28,
+                "concepts": [
+                  "Number system",
+                  "Closure failure",
+                  "Extension ladder",
+                  "Embedding",
+                  "Permanence of formal laws",
+                  "Repair",
+                  "One-step solvability",
+                  "Congruence systems (preview)"
+                ],
+                "objectives": [
+                  "state what a number system is — a set with operations and laws, not a bag of symbols",
+                  "recount the whole book as one story: four closure failures, four constructions, four repairs",
+                  "prove the embedding theorem for the difference-pair model and explain what \"computations agree\" means",
+                  "state the permanence charter and use it to predict what each extension may and may never do",
+                  "solve the one-step solvability census across the ladder: which of x + a = b, a·x = b, x² = n each system answers, and exactly when",
+                  "point to what the map does not show — ℂ, countability, and the finite congruence systems the next lesson puts to work"
+                ],
+                "prerequisites": [
+                  "ans-closure-failures-that-force-extension",
+                  "ans-constructing-the-integers-from-the-naturals",
+                  "ans-the-field-laws-division-joins-the-family",
+                  "ans-completeness-the-line-without-holes"
+                ],
+                "sources": [
+                  "beck-geoggegan-art-of-proof",
+                  "peacock-1833-permanence",
+                  "hankel-1867-permanence",
+                  "dedekind-1872-stetigkeit",
+                  "cantor-1872-fundamental-sequences"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "callout": 7,
+                  "terms": 1,
+                  "heading": 6,
+                  "list": 2,
+                  "table": 3,
+                  "derivation": 2,
+                  "example": 1,
+                  "figure": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "insight": 2,
+                  "definition": 1,
+                  "warn": 1,
+                  "historical": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 15,
+                "termsDefined": 8
+              },
+              {
+                "id": "ans-numbers-that-guard-data-checksums-and-casting-out-nines",
+                "number": "10.2",
+                "title": "Numbers That Guard Data: Checksums and Casting Out Nines",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5459,
+                "readMins": 27,
+                "concepts": [
+                  "Casting out nines",
+                  "Digital root",
+                  "Check digit",
+                  "Weighted checksum",
+                  "ISBN-10 (mod 11)",
+                  "ISBN-13 / EAN (mod 10)",
+                  "Luhn algorithm",
+                  "Error detection"
+                ],
+                "objectives": [
+                  "rebuild the casting-out-nines engine as a computation inside ℤ/9ℤ and use it to check sums, differences and products",
+                  "prove exactly what the mod-9 check catches (88 of 90 single-digit substitutions) and what it never catches (every adjacent transposition)",
+                  "state the two detection theorems for weighted checksums over a prime modulus and apply them to ISBN-10, where every single-digit error and every adjacent transposition is caught",
+                  "compute and verify ISBN-10 and ISBN-13/EAN-13 check digits, including the X = 10 case, and explain what ISBN-13's composite modulus costs",
+                  "run the Luhn algorithm on an identification number and locate its one transposition blind spot (0 ↔ 9)",
+                  "read all four schemes as one idea — a map into ℤ/mℤ whose solvability condition is the guard — and state honestly what a checksum can never do"
+                ],
+                "prerequisites": [
+                  "ans-remainders-become-numbers-congruence-defined",
+                  "ans-why-the-divisibility-tests-work",
+                  "ans-unit-digit-cycles-of-powers",
+                  "ans-the-great-extension-story"
+                ],
+                "sources": [
+                  "gauss-1801-disquisitiones",
+                  "fibonacci-1202-liber-abaci",
+                  "hamming-1950-error-detecting",
+                  "isbn-check-digit-schemes",
+                  "luhn-algorithm-iso7812"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "terms": 1,
+                  "heading": 5,
+                  "callout": 5,
+                  "example": 3,
+                  "figure": 2,
+                  "derivation": 2,
+                  "equation": 3,
+                  "table": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "historical": 2,
+                  "warn": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 11033
           }
         ]
       }
@@ -5706,12 +5850,12 @@
     ],
     "codebase": {
       "srcFilesTracked": 100,
-      "totalLines": 59744,
+      "totalLines": 59739,
       "byArea": {
         "src/app (routes, pages)": 586,
         "src/components/library (reader platform)": 3000,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 50479,
+        "src/data/library (content model + books)": 50474,
         "src/hooks": 214,
         "src/lib": 20
       },
@@ -13349,6 +13493,93 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "7a75f16ab859d0d49b2cf4a9e3750ab52d7cc604",
+      "short": "7a75f16",
+      "date": "2026-11-07 03:57",
+      "message": "ans ch.9 closes 3/3 (run 63): 9.3 The Indian Decimal Revolution and Zero + the unit-9 completion review — verify-first with verify-book2-ch09.ts grown to 280 checks sections A-Q ALL GREEN (O: Brahmagupta's zero rules as identities + the two-branch division-by-zero theorem; P: the zero census 180/2,619 + the generalized ambiguity family + uniqueness-with-zero sweeps + the trailing-zero laws; Q: the 3,601 and 2,807 five-system capstones + the closed census formula), the unit-9 review catching three authored defects pre-commit (the ⟨7,16,7⟩ Mayan miscount of 2,807 — true digits ⟨7,14,7⟩; the 9^4−9 = 6,480 mis-arithmetic — true 6,552/8 = 819; the dominance bound b−2 — true |c_i| ≤ b−1 < b) and pinning them as Q-8/Q-9 regression guards — 9.3 (6,772 words, the chapter's largest, 8 terms, quiz keys 0/0/2/2/0, 14 exercises L1-L6, 3 derivations incl. the division-by-zero impossibility theorem and zero-completes-uniqueness, 2 illustrations, 2 figures — the 458→1299 transmission timeline and the one-number-five-systems capstone, 2 tables, 4 formula cards): Lokavibhaga 458, Aryabhata 499 II.2 with the kha hedge, the Bakhshali manuscript told honestly (1881 find; 2017 Bodleian ranges 224–383/680–779/885–993; Oxford's October 2024 revision to 799–1102), Gwalior 876's dated zero in 270 and 50, Brahmagupta 628 verse-level (18.30–18.35) with 0/0 = 0 as his one overreach and the khahara/Bhaskara II/Euler verdicts, the zero census (26.2% of names below 10,000), al-Uqlidisi 952 (pen-and-paper + earliest decimal fractions, Saidan-vs-Rashed hedge), Fibonacci 1202's nine-figures-plus-zephirum, Florence 1299, the śūnya → ṣifr → {zero, cipher} + algorithm word chain, the five-system verdict closed; 5 new web-checked citation keys (lokavibhaga-458, aryabhata-499-aryabhatiya, bakhshali-manuscript, al-uqlidisi-952-fusul, gwalior-inscription-876) + 2 carried/extended; e2e-ans-93 whitelisted; per-lesson gates all green twice (lint 0, tsc 0, routes 200 x2 + 404, E2E 34 PASS each at 1280 + true 390 + dark — quiz 5/5 live on keys 0/0/2/2/0, KaTeX 92 nodes 0 errors, 0 console errors, SVG overlap audits 0/0 on both figures, warm-palette pixel checks); ch-09 flipped complete, plannedLessons emptied; library 2 books / 20 chapters written, 0 in progress / 80 lessons / 394,854 words / 611 terms / 400 quiz / 978 exercises; next run 64 = ANS ch.10 'The Map of Number Systems' opens with 10.1 + 10.2 (verify-book2-ch10.ts FIRST); the book closes at run 65 with 10.3 + the unit-10 review",
+      "filesChanged": 12,
+      "insertions": 1175,
+      "deletions": 49,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 14
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 61,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 205,
+          "del": 29
+        },
+        {
+          "path": "scripts/e2e-ans-93.page.js",
+          "add": 46,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-ans-93.sh",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch09.ts",
+          "add": 204,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 511,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "3123a577a01a5291bb2ee7035206499571c17870",
+      "short": "3123a57",
+      "date": "2026-11-07 03:57",
+      "message": "memory: run-63 push verified — remote main = 7a75f16 (ship 7a75f16 pushed 329b49a..7a75f16, ls-remote verified); next run 64 = ANS ch.10 'The Map of Number Systems' OPENS with 10.1 + 10.2 (v2 two-lesson scope; verify-book2-ch10.ts FIRST); run 65 closes the book with 10.3 + the unit-10 review",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -13356,26 +13587,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 2,
     "chaptersWritten": 20,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 80,
-    "wordsAuthored": 394854,
-    "termsDefined": 611,
-    "quizItems": 400,
-    "exerciseQuestions": 978,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 82,
+    "wordsAuthored": 405887,
+    "termsDefined": 627,
+    "quizItems": 410,
+    "exerciseQuestions": 1007,
     "blockTotals": {
-      "para": 1108,
-      "callout": 450,
-      "heading": 455,
-      "list": 93,
-      "terms": 81,
-      "equation": 115,
-      "figure": 132,
-      "derivation": 169,
-      "table": 104,
-      "example": 334,
-      "quiz": 80,
-      "exercises": 80,
-      "formula": 230,
+      "para": 1144,
+      "callout": 462,
+      "heading": 466,
+      "list": 95,
+      "terms": 83,
+      "equation": 118,
+      "figure": 135,
+      "derivation": 173,
+      "table": 108,
+      "example": 338,
+      "quiz": 82,
+      "exercises": 82,
+      "formula": 238,
       "algorithm": 21
     }
   }

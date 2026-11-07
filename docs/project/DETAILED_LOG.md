@@ -2022,3 +2022,77 @@ Per-commit file-level detail (every path with insertions/deletions) lives in
 **Library:** 2 books / 20 chapters written, 0 in progress / 80 lessons / 394,854 words / 611 terms / 400 quiz / 978 exercises.
 
 **Next:** run 64 opens ANS ch. 10 'The Map of Number Systems' — 10.1 + 10.2 (v2 two-lesson scope); verify-book2-ch10.ts FIRST; the book closes at run 65 with 10.3 + the unit-10 review.
+
+## 2026-11-07 — RUN 64 (job 509354's hourly :45 IST cadence; fire rendered 13:01:07 +08:00 = 07:45:01 IST exactly — the ":15 trigger" suspicion of run 63 was a gateway-timezone rendering artifact, settled by converting +08:00 stamps to Asia/Kolkata): ANS CHAPTER 10 'THE MAP OF NUMBER SYSTEMS' OPENS 2/3 — 10.1 'The Great Extension Story' + 10.2 'Numbers That Guard Data: Checksums and Casting Out Nines' shipped strictly sequentially; the first fully-executed run after four consecutive zero-output sessions
+
+**Fire context:** the run-64 payload (trace cron-agent-loop-202611071301) arrived at 07:45:01 IST — the :45 slot pinned by the owner's
+2026-11-06 v2 rescheduling; the earlier belief that chapter runs were firing at :15 (colliding with the visual job) was disproved by
+timezone arithmetic: the gateway renders +08:00, and 11:15:01 +08:00 = 08:45:01 IST, 08:15:00 +08:00 = 05:45 IST — both exactly :45.
+The historically reported "scheduled task showing failure" is explained by the four consecutive sessions that received the payload
+but were diverted into conversation summaries before executing (zero output); this run executed end-to-end as the fix.
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run open; no `.figure_upgrade_lock`, no uncommitted figure
+changes, no half-finished lesson. Dev server alive from the run-63 session (route 200; dev.log healthy).
+
+**Step 2 — verify-first (verify-book2-ch10.ts created FIRST; 87 checks sections A–I ALL GREEN before any prose).** Sections: (A) the
+10.1 solvability census (x+a=b: 435/900 ℕ-solvable, 900/900 ℤ; ax=b: 124/660 ℤ-solvable = Σ⌊60/a⌋ for a ∈ [2,12], b ∈ [1,60]; x²=n:
+10/100 ℚ-solvable on [1,100]; the boundary 0 ∉ ℕ); (B) the embeddings (difference-pair n ↦ (n,0) injective + homomorphic on 10,201
+pairs; [(a,b)] = [(a−b,0)]; fraction-pair (n,1) renamings); (C) the law ledger (thousands of triples per rung, zero failures; the ℝ
+radical spots √2·√8 = 4, √2+√8 = 3√2, (1+√2)(1−√2) = −1, √2·√3 = √6); (D) the repair rows (5−8 = −3; 3x = 2 unsolvable in ℤ, x = 2/3
+in ℚ; p² = 2q² impossible on the p ≤ 60, q ≤ 40 grid; the sign law); (E) casting out nines (N ≡ digitSum mod 9 on 50,000 probes; the
+digital-root formula; the multiplicative check on 2,000×2,000; the substitution census 88/90 with only 0↔9 slipping; the
+transposition census 0/45 — the −9·10ᵏ·Δ identity; the exhibit 8,234 × 4,912 = 40,445,408 with roots 8·7 = 56 → 2); (F) ISBN-10
+(Hamming's 0-13-139139-9 = 143 = 13·11; 0-393-09670-X = 220 = 20·11; the X-rate band on 10,000 payloads; 900/900 substitutions and
+ALL transpositions caught on synthetic valids); (G) ISBN-13 (the Khattar volume 978-9353439552 = 150 ≡ 0 mod 10; 978-0393096705 =
+110; all substitutions caught; transpositions 80/90 ordered — the differ-by-5 pairs 0↔5…4↔9); (H) Luhn (red = [0,2,4,6,8,1,3,5,7,9]
+bijective; 79927398713 = 70; payload 67 → check 3; all substitutions caught; transpositions 89/90 — the g(0) = g(9) = 0 collision);
+(I) the comparison-table rates assembled from the same engines. Extended pre-authoring with (J/K) the 10.1 quiz keys (1/0/1/2/3) +
+exercise keys and (N) figure geometry; pre-10.2 with (L/M) the 10.2 quiz keys (1/1/0/1/2) + exercise keys and (O) geometry. Final:
+**174 checks, 0 fail, ALL GREEN.** **Ten defects caught in the verifier's own first pass** — the census loops counting no-op
+substitutions (f = the digit already present) and equal-digit transpositions as "errors"; a Luhn check-digit parity bug (the payload
+sum must double positions at (L − i) odd, not the full-number parity); ⌊60/10⌋ hand-typed 5 for 6 (the true Σ = 124, not 122); a
+phantom "original digit" sweep multiplying every real slip by 9; the normalized residue −4 ≡ 6 written as 4; plus three badly-written
+assertions — all fixed in the script BEFORE any lesson text leaned on them. Two authoring-time prose defects fixed pre-commit (the
+L2-1 residue-diff: 1,684 − 1,595 = 89 ≡ 8 (mod 9), matching the −1 ≡ 8 residue diff; a garbled weighted-term string in the Khattar
+exhibit) and the (7,4) Hamming bound restated honestly (2^r ≥ k + r + 1, 2³ = 8 = 4 + 3 + 1 exactly).
+
+**Lessons shipped (strictly sequentially, each fully gated before the next was started):**
+- **10.1 'The Great Extension Story'** (`ans-the-great-extension-story`, 5,574 words, 8 terms, 5 quiz keys 1/0/1/2/3, 15 exercises
+  L1–L6, 2 derivations (the difference-pair embedding theorem; the one-step solvability theorem across the ladder), 1 figure (the
+  repair map: four bands ℕ/ℤ/ℚ/ℝ, three forced rungs, the dashed x²=−1 gate), 3 tables (the repair ledger; the solvability census;
+  the law ledger), 4 formula cards): what a number system is (set + operations + laws; failures differ, not laws); the four failures
+  with the measured census; the build-embed-agree recipe with the embedding theorem proved; the permanence charter (Peacock 1833 →
+  Hankel 1867) as the two-clause design law; the one-step solvability theorem; the honest edges (ℂ gives up order; countability is
+  Cantor's shelf; the congruence systems are the map's smallest territories). Sources: beck-geoggegan-art-of-proof,
+  peacock-1833-permanence, hankel-1867-permanence, dedekind-1872-stetigkeit, cantor-1872-fundamental-sequences.
+- **10.2 'Numbers That Guard Data: Checksums and Casting Out Nines'** (`ans-numbers-that-guard-data-checksums-and-casting-out-nines`,
+  5,459 words, 8 terms, 5 quiz keys 1/1/0/1/2, 14 exercises L1–L6, 2 derivations (the mod-9 catch/miss verdict; the two weighted-
+  checksum detection theorems), 2 figures (the mod-9 residue wheel with the 8,234 digit walk; the ISBN-10 weighted-check engine on
+  Hamming's own textbook), 1 table (the four-engine comparison — every rate a sweep measurement), 4 formula cards): casting out nines
+  as ℤ/9ℤ computation (88/90 substitutions, 0/45 transpositions — structural blindness proved); the weighted-checksum detection
+  theorems over prime m; ISBN-10 (all errors of both classes caught; the X = 10 case at 1/11; Hamming's 0-13-139139-9 the worked
+  exhibit); ISBN-13's composite cost (80/90 ordered); Luhn's bijection trick and its single 0↔9 blind spot; the synthesis —
+  detection IS solvability in ℤ/mℤ, and every guarantee is a congruence with a kernel. Sources: gauss-1801-disquisitiones,
+  fibonacci-1202-liber-abaci, hamming-1950-error-detecting, isbn-check-digit-schemes, luhn-algorithm-iso7812.
+
+**Per-lesson gates (all green, both lessons):** lint 0 errors (1 pre-existing warning in e2e-book2-promotion.page.js, untouched);
+tsc clean repo-wide; routes 200 ×2 + 404 unknown; browser E2E e2e-ans-101 + e2e-ans-102 (whitelisted in .gitignore pre-commit) ALL
+GREEN at 1280 + true 390 + dark ×2 — quiz 5/5 live on the intended keys both lessons both viewports, KaTeX 146/103 nodes with 0
+errors, 0 raw $, 0 console errors, figures/tables/terms/prereq chips all present, no overflow (390 vs 390, 1280 vs 1280), Sol. pills
+16/17; SVG overlap audits 0 issues on all three figures after fixes; screenshot pixel checks warm palette / 0% blue-dominant /
+non-blank (10.1: nonwhite 96–99%, cream 10–15%, green 26–27%; 10.2: nonwhite 99%, cream 13%, green 32%). Ids grep-verified globally
+unique (82 lessons repo-wide, zero collisions).
+
+**Step 3 — logs:** WORKLOG.md (this entry), PROGRESS.json (phase = ch. 10 IN PROGRESS 2/3 + run64Extras + lastCompleted + library
+refreshed from the regenerated inventory), RESUME_POINTER.json (nextAction = run 65: 10.3 + the unit-10 completion review + the BOOK
+CLOSE — never a new book this run), SOURCE_LOG.md (3 new keys: hamming-1950-error-detecting, isbn-check-digit-schemes,
+luhn-algorithm-iso7812; two keys extended; zero downloads), DETAILED_LOG.md (this unit-ship record), WORK_INVENTORY.json regenerated
+post-recycle (rebuild_drive_survey.ts first: 89 entries intact, then build_work_inventory.ts).
+
+**Library after the run:** 2 books / 21 chapters written, 1 in progress / 82 lessons / 405,887 words / 627 terms / 410 quiz items /
+1,007 exercise questions. ANS ch. 10 so far: 2 lessons / 11,033 words / 16 terms / 10 quiz / 29 exercises.
+
+**Next:** run 65 = ANS ch. 10 CLOSES and the BOOK CLOSES — extend verify-book2-ch10.ts FIRST for 10.3's numbers, author 10.3 'The
+Toolkit Synthesis', run the unit-10 completion review (BOOK_FORMAT checklist + id-uniqueness + exam-coverage audit), flip chapter 10
+AND the book COMPLETE, empty plannedLessons, update book.ts's status header + notes; the next run (66) opens Book #3 per the owner's
+plan.
