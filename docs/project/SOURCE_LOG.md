@@ -1752,3 +1752,32 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   2×4 audited + visually inspected, 13 block types used (the book's first 2 display equations landed in 1.3), word counts 4,000+
   per lesson. Chapter 1 flipped COMPLETE 4/4 (16,513 words).
 
+### Run 69 — Elementary Algebra ch. 2 opens: 2.1 + 2.2 (2026-11-07)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67). Downloaded 2026-11-07 for this run's authoring research (23 MB,
+  572 pp): chapter XXX "The Theory of Indices" (book pp. 258 ff.) studied for the arc — the laws proved directly from the
+  repeated-multiplication definition (arts. 232–236), then the demand that zero/negative/fractional indices "be governed by
+  the same laws" (art. 236), the zero index forced to 1 (art. 237), negative indices as reciprocals (art. 238), and the
+  fractional/surd connection deferred to a later course (art. 249). Informed the sequencing of 2.1 → 2.2 and the
+  laws-first-repair-second architecture; **no content reproduced — exposition original**. Working copy deleted after the
+  run's E2E (storage law).
+- `hankel-1867-permanence` + `peacock-1833-permanence` — carried (banked in ANS ch. 6): the permanence charter is 2.2's
+  spine — the four repair clauses named in the insight callout and the historical note; zero new web checks needed.
+- `ncert-math8-ch10-exponents` — carried (banked): the school canon's negative-exponent arc maps to 2.2 (its
+  standard-form arc pays 2.3's bill, next run).
+- `cengage-jee-style` — carried: the presentation contract (definition voice, Illustration runs, Sol. chains, exam
+  corners) applied throughout both lessons.
+- `ncert-math8-ch10-exponents` contents re-confirmed by web check 2026-11-07 (class 8 ch. 10 "Exponents and Powers":
+  negative exponents + laws + standard form) — no new key needed.
+
+#### Run 69 reference-notes
+- One download this run (the H&K Elementary 23 MB re-pull for the ch. XXX arc study) into temporary-references/
+  (gitignored), deleted after the run's E2E; Drive originals untouched. The Drive survey was rebuilt post-recycle
+  (89 entries intact) before the download.
+- No new keys this run — all five consumed keys were banked; the permanence history reuses ANS ch. 6's web-checked keys.
+- The run-66/67 attribution (Hall & Knight, Elementary Algebra for Schools, 1885/1942) re-confirmed on the scan's
+  pdfinfo title at download time.
+
+#### Run 69 keys consumed
+- In 2.1: `hall-knight-elementary-algebra`, `ncert-math8-ch10-exponents`, `cengage-jee-style`.
+- In 2.2: `hall-knight-elementary-algebra`, `hankel-1867-permanence`, `peacock-1833-permanence`, `ncert-math8-ch10-exponents`.

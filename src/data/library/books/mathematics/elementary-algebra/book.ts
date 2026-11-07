@@ -1,5 +1,6 @@
 import type { Book } from '../../../types'
 import { chapter01 } from './ch-01'
+import { chapter02 } from './ch-02'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -8,8 +9,9 @@ import { chapter01 } from './ch-01'
  * full TOC below is the researched chapter plan (11 chapters / 37 lessons).
  * Authoring opened at chapter 1 in run 67 (1.1 + 1.2) and CLOSED it in run
  * 68 (1.3 + 1.4 + the unit-1 completion review): chapter 1 COMPLETE 4/4.
- * The book stands in-progress — 1 of 11 chapters written (owner cadence:
- * two lessons per run, strictly sequential).
+ * Chapter 2 opened in run 69 (2.1 + 2.2) and closes at run 70 (2.3 + the
+ * unit-2 review). The book stands in-progress — 1 complete chapter + ch. 2
+ * two-thirds written (owner cadence: two lessons per run, sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
@@ -78,23 +80,10 @@ export const elementaryAlgebra: Book = {
   status: 'in-progress',
   accent: ['#4d7c0f', '#3f6212'],
   notes:
-    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Chapter 1 ‘Letters and Structure’ COMPLETE 4/4 at run 68 (1.1 From Arithmetic to Algebra + 1.2 Expressions, Terms and Like Terms + 1.3 Evaluating Expressions: Substitution and Formulas + 1.4 Translating: Words into Symbols; the unit-1 completion review passed — ids repo-wide unique, exam corners 4/4, figures audited and visually inspected, 369-check verifier ALL GREEN); ch. 2 ‘Exponents and Powers’ opens at run 69 (two lessons per run, owner directive 2026-11-06 v2).',
+    'Research phase complete 2026-11-07 (run 66): reference survey + syllabus audit + this chapter plan; full per-chapter reference mapping sits in the file header. Sources named: Hall & Knight, Elementary Algebra for Schools (the Drive Elementary-Algebra_text.pdf — first edition 1885, web-checked; the run-66 "Jacobs" attribution corrected 2026-11-07); Hall & Knight, Higher Algebra (the Drive copies — remainder/factor theorems, Viète → ch. 3/4/9 and the handoff); the Cengage MATHS M2 Algebra module (JEE style reference, runs 14/16 — the presentation contract); Khattar QA 4e (competitive algebra scope → ch. 3/4/9/11); OpenStax Elementary Algebra 2e (the modern sequencing cross-check); the NCERT algebra arc class 6 ch. 11 + class 7 ch. 4 (banked keys), class 8 ch. 2/10/12, class 9 ch. 2, class 10 ch. 3/4 (web-checked 2026-11-07). Duplication policy: FM-banked operations (fractions, order of operations, integers, HCF/LCM) and FM 11.2/11.3’s pattern-formula doorstep are cross-referenced (fm- lesson ids), never repeated; ANS-banked structure (field laws, division algorithm, the real line, the extension ladder) is cited where the letters need it (ans- lesson ids). Chapter 1 ‘Letters and Structure’ COMPLETE 4/4 at run 68 (1.1 From Arithmetic to Algebra + 1.2 Expressions, Terms and Like Terms + 1.3 Evaluating Expressions: Substitution and Formulas + 1.4 Translating: Words into Symbols; the unit-1 completion review passed). Chapter 2 ‘Exponents and Powers’ opened at run 69 with 2.1 Powers and the Laws of Exponents (the three laws proved by counting copies; the sign law and the bracket traps) + 2.2 Zero and Negative Exponents: Another Repair (the permanence charter applied — x⁰ = 1 and x⁻ⁿ = 1/xⁿ forced, every old law preserved over the extended grid, the base-zero boundary kept); 2.3 Scientific Notation and Orders of Magnitude + the unit-2 review close the chapter at run 70 (191-check verifier ALL GREEN at the run-69 ship; ids repo-wide unique; four figures audited and visually inspected).',
   chapters: [
     chapter01,
-    {
-      number: 2,
-      slug: 'exponents-and-powers',
-      title: 'Exponents and Powers',
-      summary:
-        'Powers promoted from shorthand to system: the exponent laws (product, quotient, power-of-a-power) proved from the definition rather than drilled, then the family completed — zero and negative exponents as the same closure repair ANS performed on the number systems, with every old law preserved. Scientific notation and orders of magnitude pay the practical bill.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Powers and the Laws of Exponents',
-        'Zero and Negative Exponents: Another Repair',
-        'Scientific Notation and Orders of Magnitude',
-      ],
-    },
+    chapter02,
     {
       number: 3,
       slug: 'polynomials',

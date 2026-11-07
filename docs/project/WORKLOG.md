@@ -3,6 +3,88 @@
 Every work session appends one entry at the top. Format:
 `## 2026-11-06 — RUN 59 (fired 15:45 +08:00 from job 507529, trace cron-agent-loop-202611061621): ANS CHAPTER 7 'BUILDING THE RATIONALS' COMPLETE 3/3 — all three lessons + the unit-7 completion review in ONE run per the owner's one-full-chapter directive; the fourth consecutive chapter closed in a single run
 
+## 2026-11-07 — RUN 69 (fired 20:15:01 +08:00 from job 509354, trace cron-agent-loop-202611072015): AL ch. 2 'EXPONENTS AND POWERS' OPENS 2/3 — 2.1 'Powers and the Laws of Exponents' + 2.2 'Zero and Negative Exponents: Another Repair' shipped verify-first and strictly sequentially, each with the full per-lesson gate battery
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-68 memory commit (`c0f6a89`, the ship
+`67bd88a` remote-verified); no `.figure_upgrade_lock`. RESUME_POINTER locked run 69 = AL ch. 2 opens 2.1 + 2.2 (v2
+two-lesson scope, never a third lesson; the unit-2 review belongs to run 70).
+
+**Research (per-unit downloads per the storage law):** the Drive survey was rebuilt post-recycle (89 entries intact) and
+`Elementary-Algebra_text.pdf` (23 MB, 572 pp) re-downloaded for the authoring research: chapter XXX "The Theory of
+Indices" (book pp. 258 ff.) studied from the scan — laws proved from the repeated-multiplication definition, then zero
+and negative indices demanded BECAUSE the same laws should govern them (the permanence charter ANS ch. 6 named;
+Peacock/Hankel keys banked). Informed 2.1 → 2.2's laws-first-repair-second architecture; no content reproduced. The
+banked `ncert-math8-ch10-exponents` arc re-confirmed by web check. Working copy deleted after the run's E2E.
+
+**Verify-first (created scripts/verify-book3-ch02.ts BEFORE any prose, modeled on verify-book3-ch01.ts):** sections
+A–G grew to 80 checks ALL GREEN pre-writing — (A) the power engine by n-fold BigInt multiplication (2⁵ = 32, 5² = 25,
+(−4)² = 16, 0⁵ = 0); (B) the three laws swept over a ∈ [−9..9]\{0}, m, n ∈ [0..7] (1,152 + 504 + 1,152 checks) plus
+the m > n boundary pinned with 2²/2⁵ = 1/2³ as the disease 2.2 repairs; (C) the honesty section (0ⁿ = 0 swept [1..20];
+1ⁿ = 1 and (−1)ⁿ alternation swept [1..40]; the sign law 108 checks; the bracket-trap census 54 agreements on odds /
+54 disagreements on evens; 2³ = 8 ≠ 3² = 9; (3+2)² = 25 ≠ 13); (D) the 2.2 extension — all three laws over the
+EXTENDED grid m, n ∈ [−6..6], 10 nonzero bases × 169 pairs × 3 laws = 5,070 Frac-exact checks (BigInt numerator/
+denominator fraction class) + the flip rules swept; (E) the coercion derivations — x⁰ = 1 forced (v = 2 fails at
+n = 1 on every base), the two routes agreeing, x⁻ⁿ = 1/xⁿ forced, and the boundary (Frac(1,0) REJECTED, so 0⁰ and
+0⁻ⁿ stay undefined); (F) quiz keys 2.1 = [0,1,1,2,1] and 2.2 = [1,2,1,2,3] pinned with every distractor computed;
+(G) exercise keys recomputed both sides (28 exercises) + the L6 sweeps (2ⁿ vs n² census n ∈ [1..20]: ties at 2 and 4,
+one loss at 3, wins from 5; the culture 5·2ᵗ first past 1000 at t = 8; the decay 100·2⁻ᵗ/³ → 25/4 at t = 12; 2³⁰ >
+3¹³ and > 10⁹; the 2ⁿ-sandwich around 1/10 pins n = −4 uniquely) + the four-figure geometry plans. **The first pass
+caught FOUR of the author's own bugs pre-prose** (two sweep-count miscounts, one botched expansion exhibit, one
+base-count error) — all corrected before writing, the verify-first discipline holding again. At authoring time the
+verifier grew H (authored 2.1) and I (authored 2.2) importing the chapter file directly — quiz keys vs pinned, exercise
+shape 3/3/3/2/2/1, figure-geometry audits (rects disjoint, viewBox respected), citation keys present in SOURCE_LOG,
+honest word counts, the al- prefix uniqueness across the library (89 ids), and a HARDENED backslash scanner
+(odd-run detection after 53 silently-eaten escapes were found and repaired — see 2.2's gates) — **191 checks ALL GREEN
+at ship**.
+
+**2.1 'Powers and the Laws of Exponents'** (`al-powers-and-the-laws-of-exponents`, 4,710 words): the
+repeated-multiplication definition with every word doing work (base / exponent / index naming, the count-not-multiplier
+reading); the anatomy table (2⁵/5²/(−3)²/a⁴/10³) + the FM 1.1 place-value powers cameo ($10^0$ on credit, repaid in
+2.2); the three laws PROVED by counting copies — the product-law derivation (copies run), the quotient law with its
+m > n boundary priced (2²/2⁵ = 1/8 unspeakable), the power-of-a-power derivation (the copies rectangle) — plus the
+three-laws display equation and the law table with verified instances; the collection-law cross-ref callout (AL 1.2's
+copies shape under addition vs multiplication); zero/one/negative bases honest (0ⁿ = 0, 1ⁿ = 1, 0⁰ deliberately
+undefined); the sign-alternator figure ((−2)ⁿ for n = 1..6) + the sign-law theorem (verified a ∈ [1..9], n ∈ [1..12])
++ the bracket-trap census ((−2)² = 4 vs −2² = −4); the exponent-vs-coefficient contrast (2·3 = 6 vs 2³ = 8; 5·2 = 10
+vs 5² = 25) + the distribute-everything trap ((3+2)² = 25 ≠ 13, cross term 12 named, ch. 3 pointer); 3 Illustrations
+(2x³·3x⁴ = 6x⁷ = 768 at x = 2; (−2)⁴·(−2)³ = (−2)⁷ = −128; the culture 5·2ᵗ → 320 at t = 6, first past 1000 at
+t = 8); the compounding section (2³⁰ = 1,073,741,824 vs 10⁹ and 3¹³; the 2ⁿ vs n² census teaser); exam corner; 8
+terms; quiz 5 (keys 0/1/1/2/1); 14 exercises L1–L6 (the L6 census); 2 formula cards; 2 figures (the copies ledger +
+the sign alternator, both visually inspected clean). Gates: lint 0 / tsc 0 repo-wide (after the tsconfig ES2020 bump
+for BigInt literals — no runtime effect) / routes 200+404 / E2E ALL PASS ×2 runs at 1280 + true 390 + dark (quiz 5/5
+live on the pinned keys, KaTeX 352 nodes 0 errors, 0 raw $, 2 figures 2 tables, prereq chips 2 as authored, no
+overflow, 0 console errors, 17 Sol. pills); pixels 0% blue cast + dark 89.4%; **both figures visually inspected
+clean**.
+
+**2.2 'Zero and Negative Exponents: Another Repair'** (`al-zero-and-negative-exponents-another-repair`, 4,465
+words): the disease named (two dead spots: a⁰ and a⁻ⁿ) + the repair charter callout (Peacock/Hankel permanence, four
+clauses); the zero exponent forced two ways (product route + quotient route, the v = 2 misread priced, the
+before/after ledger table incl. the 0-rows); x⁰ = 1 display equation + the FM 1.1 ones-seat payoff; the negative
+exponent forced (x⁻ⁿ·xⁿ = x⁰ = 1, reciprocal uniqueness via ANS 7.2, the quotient law's m > n restriction
+DISSOLVING); x⁻ⁿ = 1/xⁿ display equation + the sign-through-the-bar reading ((−2)⁻² = 1/4, (−2)⁻³ = −1/8); the
+permanence test — the extended law table (every restriction dissolved) with the 5,070-check sweep named; the flip rule
+(1/x⁻⁵ = x⁵; x⁻²/y⁻³ = y³/x²) + the flip-map figure; the three misreads priced (sign slip, double slip, bar amnesia);
+the boundary section (0⁰/0⁻ⁿ stay dead — both derivations die on division by zero; the "just define 0⁰ = 1" refusal);
+3 Illustrations (x⁵/x⁹ = x⁻⁴ = 1/x⁴ = 1/16 at x = 2; (x⁻²y³)⁻² = x⁴/y⁶ = 16/729 at (2,3); the decay
+100·2⁻ᵗ/³ → 6.25 at t = 12); the ladder-recap section (ℤ → ℚ → ℤ-exponents, one charter) + the permanence
+historical callout (Peacock 1830s, Hankel 1867, Hall & Knight's art. 236 demand noted); the scientific-notation
+payoff pointer (2.3 next); exam corner; 8 terms; quiz 5 (keys 1/2/1/2/3); 14 exercises L1–L6 (the L5 forced-value
+derivation + the boundary anatomy; the L6 sandwich hunt n = −4); 2 formula cards; 2 figures (the extension ladder +
+the fraction-bar flip map). Gates: lint 0 / tsc 0 / routes 200+404 / E2E ALL PASS ×3 runs at 1280 + true 390 + dark
+(quiz 5/5 live on the pinned keys, KaTeX 268 nodes 0 errors, 0 raw $, 2 figures 2 tables, prereq chips 3, no overflow,
+0 console errors, 17 Sol. pills); pixels 0% blue cast + dark 89.5%. **One real gates-caught bug class: 53
+single-backslash LaTeX escapes silently eaten by TS** (\quad → quad, \frac → formfeed+rac — the run-65 lesson
+returning via the Python-append authoring path) — found by the 4-error KaTeX E2E, repaired file-wide by an odd-run
+pass, and the verifier's scanner HARDENED to odd-run detection so the class can never pass again. SVG overlap audit:
+the flip map's first pass flagged 5 text/rect contacts (two over-wide un-anchored labels) — shortened + text-anchored,
+re-audited 0 issues on both figures; **both figures visually inspected clean**.
+
+**Logs:** SOURCE_LOG run-69 section (1 download — the H&K re-pull for ch. XXX, deleted after E2E; zero new keys —
+all five consumed keys banked); the inventory rebuilt: **library 3 books (2 complete + 1 in progress) / 22 chapters
+written (complete), 1 in progress / 89 lessons / 437,406 words / 683 terms / 445 quiz / 1,107 exercises**. Next: run 70 = AL
+ch. 2 'Exponents and Powers' CLOSES with 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 completion
+review (extend verify-book3-ch02.ts; flip ch. 2 COMPLETE; never ch. 3); run 71 = ch. 3 'Polynomials' opens with 3.1 + 3.2.
+
 ## 2026-11-07 — RUN 68 (fired 19:15:01 +08:00 from job 509354, trace cron-agent-loop-202611071916): AL ch. 1 CLOSES 4/4 — 1.3 'Evaluating Expressions: Substitution and Formulas' + 1.4 'Translating: Words into Symbols' + the unit-1 completion review PASSED + the chapter flipped COMPLETE — verify-first and strictly sequential
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-67 memory commit (`7e39192`, the ship `1c0ba08` remote-verified);

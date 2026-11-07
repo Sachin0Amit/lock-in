@@ -2181,3 +2181,74 @@ record + the section-4 ANS heading flipped COMPLETE).
 **Next:** run 66 = BOOK #3 'Elementary Algebra' RESEARCH PHASE + promotion (survey the Drive + internet, fix the chapter plan under
 the no-duplication contract vs FM ch. 11's algebra doorstep, verify-book3-promotion.ts modeled on verify-book2-promotion.ts) —
 never author a lesson this run; run 67 = Elementary Algebra ch. 1 opens with 1.1 + 1.2 (v2 two-lesson scope).
+
+
+---
+
+## RUN 69 — Elementary Algebra ch. 2 'Exponents and Powers' OPENS 2/3 (2026-11-07, fired 20:15:01 +08:00, job 509354, trace cron-agent-loop-202611072015)
+
+**Scope:** 2.1 'Powers and the Laws of Exponents' (al-powers-and-the-laws-of-exponents) + 2.2 'Zero and Negative
+Exponents: Another Repair' (al-zero-and-negative-exponents-another-repair) — the v2 two-lesson quota, strictly
+sequential (2.1 fully gated before 2.2 began). The unit-2 review belongs to run 70, which also writes 2.3 and closes
+the chapter. Ch. 3 never opened this run.
+
+**Verify-first:** scripts/verify-book3-ch02.ts created BEFORE any prose — 80 checks ALL GREEN pre-writing (the power
+engine by n-fold BigInt multiplication; the three laws swept 1,152 + 504 + 1,152 over a ∈ [−9..9]\{0}, m, n ∈
+[0..7]; the honesty sweeps 0ⁿ/1ⁿ/(−1)ⁿ; the sign-law 108 checks + the bracket-trap census 54/54; the 2.2 extension
+5,070 Frac-exact checks over m, n ∈ [−6..6] × 10 nonzero bases; the coercion derivations with the v = 2 misread
+priced and the boundary Frac(1,0) rejection; quiz keys 2.1 = [0,1,1,2,1] and 2.2 = [1,2,1,2,3] pinned with every
+distractor computed; 28 exercise keys recomputed both sides; the L6 sweeps (2ⁿ vs n² census; the culture; the decay;
+2³⁰ vs 3¹³/10⁹; the 1/10 sandwich n = −4); four figure geometry plans). The first pass caught FOUR author bugs
+pre-prose (two sweep-count miscounts, one botched expansion exhibit, one base-count error). At authoring the script
+grew to 191 checks ALL GREEN (H = authored 2.1, I = authored 2.2: quiz keys vs pinned, exercise shape 3/3/3/2/2/1,
+figure geometry, citation keys, word counts, al- uniqueness at 89 ids, the hardened odd-run backslash scan).
+
+**2.1 (4,710 words / 8 terms / quiz 0-1-1-2-1 / 14 exercises / 2 figures / 2 tables / 2 derivations / 2 display
+equations / 2 formula cards):** definition with every word doing work; anatomy table; FM 1.1 cameo ($10^0$ on
+credit); the three laws proved by counting copies (the product run, the quotient cancellation with the m > n
+boundary priced, the copies rectangle); the collection-law cross-ref (AL 1.2); zero/one/negative bases honest
+(0⁰ deliberately undefined); the sign-alternator figure + sign-law theorem + bracket-trap census; the
+exponent-vs-coefficient contrast; the distribute-everything trap priced; 3 Illustrations (768; −128; 320 → 1000
+crossed at t = 8); compounding (2³⁰ = 1,073,741,824 vs 10⁹/3¹³); the 2ⁿ vs n² census teaser.
+
+**2.2 (4,465 words / 8 terms / quiz 1-2-1-2-3 / 14 exercises / 2 figures / 2 tables / 2 derivations / 2 display
+equations / 2 formula cards):** the disease (two dead spots) + the permanence charter callout (Peacock/Hankel);
+x⁰ = 1 forced two ways (the v = 2 misread priced) + the before/after ledger table; x⁻ⁿ = 1/xⁿ forced by the
+repaired zero + the sign-through-the-bar reading; the extended law table (restrictions dissolved, the 5,070-check
+sweep named); the flip rule + the flip-map figure; the three misreads priced; the boundary (0⁰/0⁻ⁿ stay dead —
+the derivations die on division by zero; the "just define 0⁰ = 1" refusal); 3 Illustrations (1/16 at x = 2;
+16/729 at (2,3); 6.25 at t = 12); the ladder recap (ℤ → ℚ → ℤ-exponents) + the permanence historical callout;
+the scientific-notation pointer.
+
+**Gates (all green, both lessons):** lint 0 errors (2 pre-existing warnings untouched); tsc clean repo-wide (after
+the tsconfig target ES2017 → ES2020 bump for the verifier's BigInt literals — build transpiles via SWC, no runtime
+effect); routes 200 (home, book, both new lessons) + 404 unknown; E2E e2e-al-21 + e2e-al-22 (whitelisted in
+.gitignore BEFORE committing) ALL GREEN — 2.1: 45/45 PASS ×2 runs (quiz 5/5 live on keys 0/1/1/2/1, KaTeX 352
+nodes 0 errors, 0 raw $, 0 console errors, 2 figures 2 tables, prereq chips 2 as authored, no overflow at 390/1280,
+Sol. pills 17); 2.2: 45/45 PASS ×3 runs (quiz 5/5 live on keys 1/2/1/2/3, KaTeX 268 nodes 0 errors, 0 console
+errors, no overflow, Sol. pills 17); pixels 0% blue cast, dark 89.4%/89.5%; SVG overlap audit — 2.1 both figures 0
+issues first pass; 2.2's flip map first pass flagged 5 text/rect contacts (two over-wide un-anchored labels),
+shortened + text-anchored, re-audited 0 issues; all four figures visually inspected clean.
+
+**The run's real bug class (gates-caught, never shipped):** 53 single-backslash LaTeX escapes silently eaten by TS
+string parsing (the run-65 lesson returning via the Python-append authoring path — \quad → quad, \frac →
+formfeed+rac, \; → tab). The 2.2 E2E caught it as 4 KaTeX errors; repaired file-wide with an odd-run pass
+(every maximal backslash run in the source must be EVEN length) and the verifier's scanner hardened to odd-run
+detection so the class can never pass again.
+
+**Step 3 — logs:** WORKLOG.md (this run's entry at top), PROGRESS.json (phase = ch. 2 OPENS 2/3; awaiting = run 70
+closes it), RESUME_POINTER.json (nextAction = run 70 = 2.3 + the unit-2 completion review; run 71 = ch. 3 opens
+3.1 + 3.2), SOURCE_LOG.md (run-69 section: 1 download — the H&K re-pull for ch. XXX, deleted after E2E; zero new
+keys — all five consumed keys banked), WORK_INVENTORY.json regenerated (rebuild_drive_survey.ts first post-recycle
+— 89 entries intact — then build_work_inventory.ts), DETAILED_LOG.md (this record).
+
+**Library after the run:** 3 books (2 complete + 1 in progress) / 22 chapters written (complete), 1 in progress / 89 lessons /
+437,406 words / 683 terms / 445 quiz items / 1,107 exercise questions. AL stands: ch. 1 COMPLETE 4/4 (16,513
+words) + ch. 2 2/3 (9,175 words) — 6 lessons / 25,688 words so far.
+
+**Next:** run 70 = AL ch. 2 CLOSES with 2.3 'Scientific Notation and Orders of Magnitude' + the unit-2 completion
+review (extend verify-book3-ch02.ts; flip ch. 2 COMPLETE in book.ts; never ch. 3); run 71 = ch. 3 'Polynomials'
+opens with 3.1 + 3.2 (verify-book3-ch03.ts FIRST).
+
+**Git:** ship commit `al ch.2 OPENS (run 69): 2.1 Powers and the Laws of Exponents + 2.2 Zero and Negative
+Exponents: Another Repair — verify-first ...` pushed to main per the push protocol; memory commit follows.
