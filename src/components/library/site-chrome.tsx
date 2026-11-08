@@ -5,11 +5,14 @@
  * badge, account chip, theme) and footer, shared by every routed page.
  * Lives in the root layout.
  *
- * The header carries the Custom Book Builder navigation: Academic Library,
- * Custom Book Builder and My Custom Books (full names in the mobile menu
- * and footer; compact labels in the top bar).
+ * The header carries symbol-first navigation for the four features: Academic
+ * Library, Custom Book Builder, My Custom Books and Revision Hub. Every item
+ * renders its lucide symbol in the top bar — symbol-only between md and lg
+ * (tooltip carries the full name), symbol + compact name from lg up; the
+ * mobile menu keeps symbol + full name, and the active route is highlighted.
  */
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun, UserRound } from 'lucide-react'
 import { useTheme } from 'next-themes'
@@ -23,6 +26,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { paths, allBooks } from '@/data/library/index'
+import { cn } from '@/lib/utils'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { CommandPalette } from './command-palette'
 import { useProgress } from './progress-store'
 import { useAuth } from '@/components/builder/auth-store'
@@ -34,6 +39,49 @@ const NAV_ITEMS = [
   { href: '/my-books', label: 'My Custom Books', short: 'My Books', icon: BookMarked },
   { href: '/revision', label: 'Revision Hub', short: 'Revision', icon: BrainCircuit },
 ]
+
+/** A nav item is active for its whole route tree (library also owns /book/*). */
+function isNavItemActive(href: string, pathname: string): boolean {
+  if (href === '/') return pathname === '/' || pathname.startsWith('/book/')
+  return pathname === href || pathname.startsWith(`${href}/`)
+}
+
+/**
+ * Primary navigation — symbols first. Between md and lg the bar shows the
+ * four feature symbols only (full name on hover via tooltip and as the
+ * accessible label); from lg up each symbol is paired with its compact name.
+ * The route you are on stays highlighted.
+ */
+function PrimaryNav() {
+  const pathname = usePathname()
+  return (
+    <nav aria-label="Primary" className="hidden shrink-0 items-center gap-0.5 md:flex">
+      {NAV_ITEMS.map((item) => {
+        const active = isNavItemActive(item.href, pathname)
+        const Icon = item.icon
+        return (
+          <Tooltip key={item.href} delayDuration={250}>
+            <TooltipTrigger asChild>
+              <Link
+                href={item.href}
+                aria-label={item.label}
+                aria-current={active ? 'page' : undefined}
+                className={cn(
+                  'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors hover:bg-accent/60 hover:text-foreground',
+                  active ? 'bg-accent text-foreground' : 'text-muted-foreground',
+                )}
+              >
+                <Icon className="h-4 w-4 shrink-0" aria-hidden />
+                <span className="hidden lg:inline">{item.short}</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">{item.label}</TooltipContent>
+          </Tooltip>
+        )
+      })}
+    </nav>
+  )
+}
 
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -138,18 +186,8 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        {/* Primary navigation — Academic Library · Custom Book Builder · My Custom Books */}
-        <nav aria-label="Primary" className="hidden shrink-0 items-center gap-0.5 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
-            >
-              {item.short}
-            </Link>
-          ))}
-        </nav>
+        {/* Primary navigation — Library · Book Builder · My Books · Revision Hub (symbols) */}
+        <PrimaryNav />
 
         {/* Mobile navigation */}
         <DropdownMenu>
