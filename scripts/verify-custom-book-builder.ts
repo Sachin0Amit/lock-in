@@ -20,6 +20,7 @@ import { assemble, buildTocProposal, validateCoverage, validateToc } from '../sr
 import { parseTopicList } from '../src/lib/builder/topic-parser'
 import { matchExamTemplate, EXAM_TEMPLATES } from '../src/lib/builder/exam-templates'
 import { extractPdfTopics } from '../src/lib/builder/pdf-extract'
+import { buildMatchPlan } from '../src/lib/builder/match-input'
 
 let pass = 0
 let fail = 0
@@ -341,6 +342,104 @@ async function pdfChecks(): Promise<void> {
   }
 }
 await pdfChecks()
+
+/* ------------------------------------------------------------------ */
+/* U. Unified multi-channel input planner (the one-desk builder)       */
+/* ------------------------------------------------------------------ */
+
+/* U1: all channels at once → combination, every channel represented */
+const all = buildMatchPlan({
+  exam: 'GATE CSE 2027',
+  topicText: 'Chapter 1: Number Basics\n1. Greatest Common Divisor\n2. HCF and LCM',
+  parsed: { rootName: 'JEE Mathematics', nodes: [{ topic: 'Number Systems', children: [{ topic: 'Place Value' }] }] },
+  selection: { bookIds: ['foundation-mathematics'], chapterIds: [], lessonIds: [] },
+  baseBookId: 'abc123',
+})
+check('U1: all-channel plan derives combination', all.derivedMethod === 'combination')
+check(
+  `U2: all-channel plan carries three parsed inputs (${all.inputs.length})`,
+  all.inputs.length === 3,
+)
+check(
+  'U3: all-channel plan marks every source active',
+  all.sources.exam && all.sources.topics && all.sources.pdf && all.sources.selection && all.sources.baseBook,
+)
+check('U4: exam template resolved inside a combined plan', all.examTemplate?.key === 'gate-cse')
+check('U5: selection passes through untouched', all.selection.bookIds?.[0] === 'foundation-mathematics')
+check('U6: base book id preserved for the route to resolve', all.baseBookId === 'abc123')
+check('U7: exam scope map is the first parsed input', all.inputs[0]?.rootName === 'GATE CSE (Computer Science & Information Technology)')
+
+/* U8: single channels derive their legacy method name */
+const examOnlyPlan = buildMatchPlan({ exam: 'JEE Main' })
+check('U8: exam-only plan derives exam', examOnlyPlan.derivedMethod === 'exam')
+const topicsOnlyPlan = buildMatchPlan({ topicText: '1. Place Value' })
+check('U9: topics-only plan derives topics', topicsOnlyPlan.derivedMethod === 'topics')
+const pdfOnlyPlan = buildMatchPlan({ parsed: { rootName: 'Syllabus', nodes: [{ topic: 'Number Systems' }] } })
+check('U10: pdf-only plan derives pdf', pdfOnlyPlan.derivedMethod === 'pdf')
+const selOnlyPlan = buildMatchPlan({ selection: { lessonIds: ['x'] } })
+check('U11: selection-only plan derives subject', selOnlyPlan.derivedMethod === 'subject')
+
+/* U12: no channels at all is rejected */
+check(
+  'U12: empty unified request is rejected with guidance',
+  (buildMatchPlan({}) as { error: string | null }).error !== null,
+)
+
+/* U13: legacy per-method strictness preserved */
+check('U13: legacy method=exam without exam text errors', buildMatchPlan({ method: 'exam' }).error !== null)
+check('U14: legacy method=topics without text errors', buildMatchPlan({ method: 'topics' }).error !== null)
+check('U15: legacy method=subject without selection errors', buildMatchPlan({ method: 'subject' }).error !== null)
+check('U16: legacy method=pdf without parsed structure errors', buildMatchPlan({ method: 'pdf' }).error !== null)
+
+/* U17: unknown exam + other sources → warning, plan still usable */
+const unknownPlus = buildMatchPlan({
+  exam: 'Some Unknown Exam',
+  topicText: '1. Greatest Common Divisor',
+})
+check('U17: unknown exam beside other sources stays usable', unknownPlus.error === null && !unknownPlus.examOnly)
+check('U18: unknown exam produces a warning', unknownPlus.examWarning !== null && unknownPlus.warnings.length === 1)
+check('U19: unknown exam still offers suggestions', unknownPlus.examSuggestions.length === 7)
+check(
+  'U20: topic list still parsed beside the unknown exam',
+  unknownPlus.inputs.some((i) => i.nodes.some((n) => /greatest common divisor/i.test(n.topic))),
+)
+
+/* U21: unknown exam alone → the honest scope-map answer */
+const unknownAlone = buildMatchPlan({ exam: 'Totally Unknown Exam' })
+check('U21: unknown exam alone flags examOnly', unknownAlone.examOnly && unknownAlone.examWarning !== null)
+
+/* U22: malformed parsed nodes are coerced safely */
+const coerced = buildMatchPlan({
+  parsed: {
+    rootName: 'Weird',
+    nodes: [
+      { topic: 'Valid Topic' },
+      { topic: '' },
+      { topic: 42 },
+      'not-an-object',
+      { topic: 'With Kids', children: [{ topic: 'Kid A' }, { nope: true }] },
+    ] as unknown[],
+  },
+})
+check(
+  `U22: malformed nodes coerced to valid structure (${coerced.inputs[0]?.nodes.length})`,
+  coerced.inputs.length === 1 &&
+    coerced.inputs[0].nodes.length === 2 &&
+    coerced.inputs[0].nodes[1].children?.length === 1,
+)
+
+/* U23: unified plan output actually assembles through the engine */
+const assembledUnified = assemble([
+  ...matchParsed({
+    rootName: all.inputs[0].rootName,
+    nodes: all.inputs.flatMap((i) => i.nodes),
+  }),
+  ...selectionToMatches(all.selection),
+])
+check(
+  `U23: unified plan assembles through the engine (${assembledUnified.totalLessons} lessons)`,
+  assembledUnified.totalLessons > 0,
+)
 
 /* ------------------------------------------------------------------ */
 /* Report                                                             */

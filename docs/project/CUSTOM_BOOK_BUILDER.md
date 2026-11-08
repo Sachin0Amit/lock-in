@@ -1,8 +1,9 @@
 # Custom Book Builder — feature documentation
 
-Added 2026-11-08 (feature run). A new product feature inside the existing
-LockIn Library application: users create **personalized academic books by
-curating existing Main Academic Library content**.
+Added 2026-11-08 (feature run); **unified one-desk upgrade 2026-11-08**.
+A product feature inside the existing LockIn Library application: users
+create **personalized academic books by curating existing Main Academic
+Library content**.
 
 **CORE PRINCIPLE: ONE MAIN ACADEMIC LIBRARY, UNLIMITED PERSONALIZED CUSTOM BOOKS.**
 
@@ -24,27 +25,38 @@ bookmarks, notes and reading progress.
 
 ## User-facing flow
 
-1. **`/builder` — “Build Your Own Book”** — five creation methods, all
-   feeding the same discovery engine:
-   - *From an examination* (GATE CSE, JEE Main/Advanced, UPSC CSE, CUET UG,
-     NEET UG, CAT + free text) — built-in scope maps (topic NAMES only,
-     used solely to select library content; unknown exams get honest
+1. **`/builder` — “Build Your Own Book” — THE UNIFIED DESK.** All five
+   creation methods live on **one screen** (collapsible source panels, each
+   optional, freely combined) instead of a method picker:
+   - *Quick start · examination* (GATE CSE, JEE Main/Advanced, UPSC CSE,
+     CUET UG, NEET UG, CAT + free text) — built-in scope maps (topic NAMES
+     only, used solely to select library content; the desk recognizes the
+     exam **live** and previews its scope; unknown exams get honest
      guidance, never fabricated matches).
-   - *From a subject* — searchable tree picker (discipline → book →
+   - *Browse the Main Library* — searchable tree picker (discipline → book →
      chapter → topic; planned lessons shown greyed, not selectable).
-   - *From a topic list* — paste any syllabus; a parser understands
+   - *Paste a topic list* — paste any syllabus; a parser understands
      `Subject:`/`Chapter N:` headers, numbered/sub-numbered items,
      bullets, roman/alpha lists and indentation, with a live preview.
-   - *From an uploaded PDF* — text layer via pdfjs-dist (font-size &
+   - *Upload a syllabus PDF* — text layer via pdfjs-dist (font-size &
      pattern based structure detection); scanned PDFs fall back to
      pdftoppm + tesseract OCR; the extracted structure is always shown
      **for user review/editing** before any search happens.
-   - *A combination* — merge subjects, topic lists, PDFs and existing
-     custom books; duplicated content is removed automatically.
+   - *Merge an existing custom book* — its topics are merged in; duplicates
+     removed automatically.
+
+   A sticky **request rail** lists every collected source as a removable
+   chip with live counts (≈ topics requested), a single **“Find matching
+   library lessons”** CTA (Ctrl/⌘+Enter), sign-in hints and draft resume.
+   Deep links prefill the desk: `/builder?exam=…&topics=…&book=…&base=…`.
+   A three-step stepper tracks Compose → Review matches → Curate & publish.
 2. **Review matches** — every requested topic gets a status:
    `exact` / `equivalent` (synonym groups, chapter & book expansions) /
-   `partial` / `not_available`. Alternatives can be swapped; prerequisites
-   available in the library are surfaced as one-click additions.
+   `partial` / `not_available`. The header shows **which sources were
+   searched**; non-fatal warnings (e.g. an unrecognized exam beside other
+   sources) are shown without blocking. Alternatives can be swapped;
+   prerequisites available in the library are surfaced as one-click
+   additions. Going “Back to your sources” preserves all desk state.
 3. **Curate the TOC** — reorder chapters/topics, rename, remove, add more
    library topics; edit title/description; save draft or publish. Wizard
    state persists in `localStorage` (`lockin-builder-draft`) for resuming.
@@ -67,8 +79,13 @@ bookmarks, notes and reading progress.
 ```
 src/lib/builder/            engine (server) + shared types + client API
   types.ts                   isomorphic contracts (TopicNode, MatchStatus…)
+  match-input.ts             unified multi-channel request planner: any mix of
+                             exam + topicText + parsed + selection + base book
+                             → one MatchPlan (derivedMethod, sources, warnings,
+                             legacy per-method validation preserved)
   catalog.ts                 flattens the registry → records + versionHash
                              (sha256 of lesson content) + library tree API shape
+                             (words via countLessonWords — authored or computed)
   topic-parser.ts            pasted-text/OCR-lines → topic hierarchy (isomorphic)
   matcher.ts                 the discovery engine: normalisation, academic
                              synonym groups, scoring (exact 1.0 → synonym .93 →
@@ -82,7 +99,7 @@ src/lib/builder/            engine (server) + shared types + client API
                              delete + invariant enforcement (records exist,
                              no duplicate lessons, honest coverage rows)
   client-api.ts              typed fetch helpers for the client
-src/components/builder/      all UI (wizard, shelf, detail, reader, picker…)
+src/components/builder/      all UI (unified desk, shelf, detail, reader…)
 src/app/api/**               17 route handlers (below)
 prisma/schema.prisma         User, Session, CustomBook, CustomBookChapter,
                              CustomBookContentReference (unique per book+record),
@@ -94,7 +111,10 @@ prisma/schema.prisma         User, Session, CustomBook, CustomBookChapter,
 - `POST /api/auth/register|login|logout` · `GET /api/auth/me`
 - `GET /api/library/tree` · `GET /api/library/search?q=` ·
   `GET /api/library/lessons/[lessonId]` (full blocks JSON for the reader)
-- `POST /api/builder/match` (all five methods → matches + TOC + coverage)
+- `POST /api/builder/match` — **unified**: any mix of `exam`, `topicText`,
+  `parsed`, `selection`, `baseBookId` in one request (legacy single-method
+  bodies with an explicit `method` keep their stricter validation). Returns
+  matches + TOC + coverage + `derivedMethod` + `sources` + `warnings`.
 - `POST /api/builder/upload-pdf` (multipart; ≤15 MB; OCR fallback)
 - `GET|POST /api/custom-books` · `GET|PATCH|DELETE /api/custom-books/[bookId]`
   · `POST …/duplicate` · `GET …/search?q=` (in-book full-text)
@@ -121,21 +141,30 @@ keyed by stable record ids and therefore preserved across library updates.
 Live references only — no content snapshots are stored (deliberately:
 the library is the single academic source).
 
-## Quality gates (all green, 2026-11-08)
+## Quality gates (all green, 2026-11-08, unified-desk run)
 
-- `bun run scripts/verify-custom-book-builder.ts` — **55/55** engine checks
+- `bun run scripts/verify-custom-book-builder.ts` — **78/78** engine checks
   (parser shapes, honest statuses, synonym/containment behaviour, expansions,
-  prerequisites, dedupe, coverage arithmetic, validation, PDF extraction).
+  prerequisites, dedupe, coverage arithmetic, validation, PDF extraction,
+  **+23 unified-input planner checks**: multi-channel plans, derived methods,
+  legacy strictness, unknown-exam-beside-other-sources, node coercion,
+  engine assembly of combined plans). PDF fixture reproducible via
+  `python3 scripts/make-syllabus-fixture.py`.
 - `bun run scripts/smoke-custom-books.ts` — **57/57** API checks (auth,
   permissions isolation between users, CRUD, reorder, publish validation,
   bookmarks/notes/progress, in-book search, duplicate/delete, version drift
   detection, logout).
-- `bash scripts/e2e-custom-book-builder.sh` — **49/49 × 2 runs** browser E2E
-  via agent-browser: full journey (register → topic-list book → honest
-  review → curate/reorder → publish → coverage report → reader with KaTeX,
-  progress, bookmark, note, keyboard navigation → shelf → delete), desktop
-  1280 + mobile 390 + dark mode, 0 console errors, no horizontal overflow.
-- `bunx tsc --noEmit` clean · `bun run lint` 0 errors · all routes 200.
+- `bash scripts/e2e-custom-book-builder.sh` — **62/62 × 2 runs** browser E2E
+  via agent-browser: guest combined-sources journey (exam chip + pasted
+  topics in ONE request → sources badges → back-to-desk state preservation →
+  per-source removal), then the full registered journey (register →
+  topic-list book → honest review → curate/reorder → publish → coverage
+  report → reader with KaTeX, progress, bookmark, note, keyboard navigation
+  → shelf → delete), desktop 1280 + mobile 390 + dark mode, 0 console
+  errors, no horizontal overflow.
+- `python3 scripts/visual-check-builder.py` — programmatic screenshot sanity
+  (ink distribution, two-column desk + rail, mobile gutters) over 7 pages.
+- `bunx tsc --noEmit` clean · `bunx eslint` 0 errors · all routes 200.
 
 ## Known limitations (honest)
 

@@ -98,17 +98,23 @@ export interface LibrarySelection {
   lessonIds?: string[]
 }
 
-/** Input accepted by the /api/builder/match endpoint. */
+/**
+ * Input accepted by the /api/builder/match endpoint. The unified builder
+ * desk fills every channel the user touched and sends them together; any
+ * subset works (at least one source is required). Legacy single-method
+ * requests with an explicit `method` keep their stricter validation.
+ */
 export interface MatchRequestInput {
-  method: 'exam' | 'subject' | 'topics' | 'pdf' | 'combination'
-  /** exam name (method exam) */
+  /** optional legacy hint — when set, that channel becomes required */
+  method?: 'exam' | 'subject' | 'topics' | 'pdf' | 'combination'
+  /** examination name (quick-start channel) */
   exam?: string
-  /** raw pasted topic list (methods topics / combination) */
+  /** raw pasted topic list (paste channel) */
   topicText?: string
-  /** parsed structure (methods pdf / combination — client may edit before matching) */
+  /** parsed structure — typically the edited PDF extraction (upload channel) */
   parsed?: ParsedInput
-  /** explicit library selections (methods subject / combination) */
+  /** explicit library selections (browse channel) */
   selection?: LibrarySelection
-  /** combine with the structure of an existing custom book (method combination) */
+  /** combine with the structure of an existing custom book (merge channel) */
   baseBookId?: string
 }

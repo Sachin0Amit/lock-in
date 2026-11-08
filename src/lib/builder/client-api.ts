@@ -50,8 +50,22 @@ export const jsonBody = (body: unknown): RequestInit => ({ body: JSON.stringify(
 /* Response view types                                                 */
 /* ------------------------------------------------------------------ */
 
+export interface MatchSourcesView {
+  exam: boolean
+  topics: boolean
+  pdf: boolean
+  selection: boolean
+  baseBook: boolean
+}
+
 export interface MatchResponse {
   rootName: string
+  /** single channel → its method; several channels → 'combination' */
+  derivedMethod?: 'exam' | 'subject' | 'topics' | 'pdf' | 'combination'
+  /** which channels contributed to this request */
+  sources?: MatchSourcesView
+  /** non-fatal notes (unknown exam with other sources present, parse notes…) */
+  warnings?: string[]
   matches: TopicMatch[]
   toc: TocChapterDraft[]
   coverage: CoverageSummary

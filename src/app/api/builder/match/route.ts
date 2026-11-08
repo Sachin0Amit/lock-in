@@ -2,22 +2,21 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
 import { getSessionUser, badRequest, serverError, unauthorized } from '@/lib/auth'
-import { EXAM_TEMPLATES, matchExamTemplate } from '@/lib/builder/exam-templates'
+import { EXAM_TEMPLATES } from '@/lib/builder/exam-templates'
+import { buildMatchPlan } from '@/lib/builder/match-input'
 import { assemble } from '@/lib/builder/toc'
 import { matchParsed, selectionToMatches } from '@/lib/builder/matcher'
-import { parseTopicList } from '@/lib/builder/topic-parser'
-import type { ParsedInput, TopicNode } from '@/lib/builder/types'
 
 export const runtime = 'nodejs'
 
 const schema = z.object({
-  method: z.enum(['exam', 'subject', 'topics', 'pdf', 'combination']),
+  method: z.enum(['exam', 'subject', 'topics', 'pdf', 'combination']).optional(),
   exam: z.string().max(200).optional(),
   topicText: z.string().max(200_000).optional(),
   parsed: z
     .object({
       rootName: z.string().max(300).default(''),
-      nodes: z.array(z.object({ topic: z.string().min(1).max(300), children: z.array(z.any()).optional() })),
+      nodes: z.array(z.any()).optional(),
     })
     .optional(),
   selection: z
@@ -30,16 +29,13 @@ const schema = z.object({
   baseBookId: z.string().max(100).optional(),
 })
 
-function coerceParsed(p: z.infer<typeof schema>['parsed']): ParsedInput | null {
-  if (!p) return null
-  return { rootName: p.rootName ?? '', nodes: p.nodes as TopicNode[] }
-}
-
 /**
- * The content-discovery entry point: turn any creation input into
- * matches against the Main Academic Library, a proposed TOC and an
- * honest coverage report. Stateless — usable without signing in,
- * but combining an existing custom book requires ownership.
+ * The content-discovery entry point. The unified builder desk sends every
+ * filled channel at once (exam · library picks · topic list · PDF · base
+ * custom book); legacy single-method requests still validate as before.
+ * Everything resolves to the SAME discovery engine, which only ever
+ * selects existing Main Academic Library records. Stateless — usable
+ * without signing in; merging an existing custom book requires ownership.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -48,58 +44,46 @@ export async function POST(req: NextRequest) {
     if (!parsed.success) {
       return badRequest('Invalid matching request.', { details: parsed.error.issues.map((i) => i.message) })
     }
-    const input = parsed.data
+    const raw = parsed.data
 
-    const inputs: ParsedInput[] = []
-    let selection = { ...(input.selection ?? {}) }
+    const plan = buildMatchPlan({
+      method: raw.method,
+      exam: raw.exam,
+      topicText: raw.topicText,
+      parsed: raw.parsed
+        ? { rootName: raw.parsed.rootName ?? '', nodes: (raw.parsed.nodes ?? []) as unknown[] }
+        : undefined,
+      selection: raw.selection,
+      baseBookId: raw.baseBookId,
+    })
 
-    if (input.method === 'exam') {
-      const examName = (input.exam ?? '').trim()
-      if (!examName) return badRequest('Please provide an examination name.')
-      const template = matchExamTemplate(examName)
-      if (!template) {
-        return NextResponse.json({
-          unknownExam: true,
-          examName,
-          examSuggestions: EXAM_TEMPLATES.map((t) => t.label),
-          matches: [],
-          toc: [],
-          coverage: { requested: 0, exact: 0, equivalent: 0, partial: 0, notAvailable: 0, percent: 0 },
-          totalLessons: 0,
-          totalWords: 0,
-          prerequisites: [],
-          note:
-            'This examination is not in the built-in scope maps yet. Try one of the known examinations, or build the same book from a topic list (Method 3) or an uploaded syllabus (Method 4).',
-        })
-      }
-      inputs.push({ rootName: template.label, nodes: template.nodes })
+    if (plan.error) return badRequest(plan.error)
+    if (plan.examOnly) {
+      return NextResponse.json({
+        unknownExam: true,
+        examName: (raw.exam ?? '').trim(),
+        examSuggestions: EXAM_TEMPLATES.map((t) => t.label),
+        matches: [],
+        toc: [],
+        coverage: { requested: 0, exact: 0, equivalent: 0, partial: 0, notAvailable: 0, percent: 0 },
+        totalLessons: 0,
+        totalWords: 0,
+        prerequisites: [],
+        derivedMethod: 'exam',
+        sources: plan.sources,
+        warnings: [plan.examWarning ?? 'Unknown examination.'],
+        note:
+          'This examination is not in the built-in scope maps yet. Try one of the known examinations, paste its topic list, upload its syllabus PDF, or pick subjects straight from the library.',
+      })
     }
 
-    if (input.method === 'topics' || input.method === 'combination') {
-      const text = (input.topicText ?? '').trim()
-      if (input.method === 'topics' && !text) return badRequest('Please paste a topic list first.')
-      if (text) inputs.push(parseTopicList(text))
-    }
-
-    if (input.method === 'pdf') {
-      const p = coerceParsed(input.parsed)
-      if (!p || p.nodes.length === 0) {
-        return badRequest('Please upload and review a PDF structure first.')
-      }
-      inputs.push(p)
-    }
-
-    if (input.method === 'subject') {
-      const sel = input.selection ?? {}
-      const total = (sel.bookIds?.length ?? 0) + (sel.chapterIds?.length ?? 0) + (sel.lessonIds?.length ?? 0)
-      if (total === 0) return badRequest('Please select at least one book, chapter or topic.')
-    }
-
-    if (input.method === 'combination' && input.baseBookId) {
+    /* merge the structure of an existing custom book (ownership required) */
+    let selection = plan.selection
+    if (plan.baseBookId) {
       const user = await getSessionUser(req)
       if (!user) return unauthorized('Sign in to combine an existing custom book.')
       const base = await db.customBook.findFirst({
-        where: { id: input.baseBookId, userId: user.id },
+        where: { id: plan.baseBookId, userId: user.id },
         include: { chapters: { include: { items: true } } },
       })
       if (!base) return badRequest('The base custom book was not found.')
@@ -107,24 +91,14 @@ export async function POST(req: NextRequest) {
       selection = { ...selection, lessonIds: [...(selection.lessonIds ?? []), ...baseLessonIds] }
     }
 
-    if (input.method === 'combination') {
-      const p = coerceParsed(input.parsed)
-      if (p && p.nodes.length > 0) inputs.push(p)
-      const anyInput =
-        inputs.length > 0 ||
-        (selection.bookIds?.length ?? 0) + (selection.chapterIds?.length ?? 0) + (selection.lessonIds?.length ?? 0) >
-          0
-      if (!anyInput) return badRequest('Add at least one subject, topic list, PDF or custom book to combine.')
+    /* merge parsed inputs (the unified desk may carry several) */
+    const merged = {
+      rootName: plan.inputs.map((i) => i.rootName).find((r) => r.length > 0) ?? '',
+      nodes: plan.inputs.flatMap((i) => i.nodes),
     }
 
-    /* merge parsed inputs (combination may carry several) */
-    const merged: ParsedInput = {
-      rootName: inputs.map((i) => i.rootName).find((r) => r.length > 0) ?? '',
-      nodes: inputs.flatMap((i) => i.nodes),
-    }
-
-    const raw = [...matchParsed(merged), ...selectionToMatches(selection)]
-    const assembled = assemble(raw)
+    const rawMatches = [...matchParsed(merged), ...selectionToMatches(selection)]
+    const assembled = assemble(rawMatches)
 
     /* aggregate prerequisite suggestions for the review UI */
     const prereqMap = new Map<string, { neededBy: string[] }>()
@@ -152,6 +126,9 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       rootName: merged.rootName,
+      derivedMethod: plan.derivedMethod,
+      sources: plan.sources,
+      warnings: plan.warnings,
       matches: assembled.matches,
       toc: assembled.toc,
       coverage: assembled.coverage,

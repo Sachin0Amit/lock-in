@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-# e2e-custom-book-builder.sh — full-journey E2E for the Custom Book Builder:
-# register → build from a pasted topic list → honest review (missing topics
-# reported) → curate + reorder → publish → coverage report → reader (KaTeX,
-# progress, bookmarks, notes, prev/next) → bookshelf → delete. Desktop 1280 +
-# mobile 390 + dark mode; console-error trap; screenshots.
+# e2e-custom-book-builder.sh — full-journey E2E for the unified Custom Book
+# Builder desk (all five creation methods on ONE screen):
+#
+#   0. guest combined-sources journey — exam chip + pasted topics in one
+#      request, sources badge in review, back-to-sources state preservation,
+#      per-source removal chips
+#   1. register → build from a pasted topic list → honest review (missing
+#      topics reported) → curate + reorder → publish → coverage report →
+#      reader (KaTeX, progress, bookmarks, notes, prev/next) → bookshelf →
+#      delete. Desktop 1280 + mobile 390 + dark mode; console-error trap;
+#      screenshots.
 #
 # Uses agent-browser's snapshot-ref workflow (real CDP clicks — Radix
 # components need genuine pointer events) with CSS fills for inputs.
@@ -59,10 +65,57 @@ clickref() { # $1 grep pattern on the snapshot line, $2 occurrence (default 1)
 
 TRAP="window.__e2eErrors=[];var _ce=console.error;console.error=function(){window.__e2eErrors.push([].slice.call(arguments).join(' '));_ce.apply(console,arguments)};'trap'"
 
-echo "== DESKTOP 1280 — full journey =="
+echo "== DESKTOP 1280 — guest unified desk (combined sources) =="
+
+# ---- 0. guest journey: exam + pasted topics in ONE request ---------------
+agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
+agent-browser open "$BASE/builder" >/dev/null 2>&1 || true
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 2500 >/dev/null 2>&1 || true
+ev "$TRAP" >/dev/null 2>&1 || true
+
+chk "unified desk heading: Build Your Own Book" "[].slice.call(document.querySelectorAll('h1')).some(function(h){return h.textContent.indexOf('Build Your Own Book')>-1})"
+chk "subtitle mentions the Academic Library" "document.body.textContent.indexOf('Academic Library')>-1"
+chk "all five source panels on one screen" "(function(){var t=document.body.textContent;return ['from an examination','Browse the Main Library','Paste a topic list','Upload a syllabus PDF','Merge an existing custom book'].every(function(m){return t.indexOf(m)>-1})})()"
+chk "stepper shows the Compose stage" "document.body.textContent.indexOf('Compose')>-1"
+chk "live request rail present" "document.body.textContent.indexOf('Your request')>-1"
+chk "single unified search CTA" "[].slice.call(document.querySelectorAll('button')).some(function(b){return b.textContent.indexOf('Find matching library lessons')>-1})"
+
+clickref 'button "JEE Main"' >/dev/null
+agent-browser wait 700 >/dev/null 2>&1 || true
+chk "exam scope recognized live" "document.body.textContent.indexOf('Recognized:')>-1"
+chk "request rail counts the exam source" "document.body.textContent.indexOf('Topics requested')>-1"
+
+TOPICS='Chapter 1: Number Basics\n1. Greatest Common Divisor\nChapter 2: Equations\n2. Solving Linear Equations'
+ev "window.__set=function(id,v){var el=document.getElementById(id);if(!el)return 'missing:'+id;var proto=el.tagName==='TEXTAREA'?window.HTMLTextAreaElement.prototype:window.HTMLInputElement.prototype;Object.getOwnPropertyDescriptor(proto,'value').set.call(el,v);el.dispatchEvent(new Event('input',{bubbles:true}));return 'ok'};window.__set('topics','$TOPICS')" >/dev/null 2>&1 || true
+chk "parsed structure preview appears" "document.body.textContent.indexOf('Parsed structure')>-1"
+chk "request rail lists both sources" "document.querySelectorAll('button[aria-label=\"Remove this source\"]').length===2"
+
+clickref 'button "Find matching library lessons"' >/dev/null
+if wait_for "document.body.textContent.indexOf('Review the library matches')>-1" 40; then
+  PASS=$((PASS + 1)); echo "  PASS combined request reached the review step"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL combined request review step"
+fi
+chk "review shows which sources were searched" "(function(){var t=document.body.textContent;return t.indexOf('Sources searched:')>-1 && t.indexOf('examination')>-1 && t.indexOf('pasted topics')>-1})()"
+chk "combined request matched real library lessons" "(function(){var m=document.body.textContent.match(/([0-9]+) library lesson/);return !!m && parseInt(m[1],10)>5})()"
+
+clickref 'button "Back to your sources"' >/dev/null
+if wait_for "[].slice.call(document.querySelectorAll('h1')).some(function(h){return h.textContent.indexOf('Build Your Own Book')>-1})" 30; then
+  PASS=$((PASS + 1)); echo "  PASS back to the compose desk"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL back to compose"
+fi
+chk "sources preserved after going back" "(function(){var e=document.getElementById('exam');var t=document.getElementById('topics');return !!e && e.value==='JEE Main' && !!t && t.value.indexOf('Greatest Common Divisor')>-1})()"
+
+clickref 'button "Remove this source"' 1 >/dev/null
+agent-browser wait 700 >/dev/null 2>&1 || true
+chk "exam source removed from the request" "(function(){var e=document.getElementById('exam');return !!e && e.value==='' && document.querySelectorAll('button[aria-label=\"Remove this source\"]').length===1})()"
+agent-browser screenshot "$OUT/desk-combined.png" >/dev/null 2>&1 || true
+
+echo "== DESKTOP 1280 — full registered journey =="
 
 # ---- 1. register ---------------------------------------------------------
-agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
 agent-browser open "$BASE/signin" >/dev/null 2>&1 || true
 agent-browser wait --load networkidle >/dev/null 2>&1 || true
 agent-browser wait 2500 >/dev/null 2>&1 || true
@@ -81,28 +134,26 @@ if wait_for "location.pathname==='/my-books'" 40; then
 else
   FAIL=$((FAIL + 1)); echo "  FAIL registration redirect (at $(ev 'location.pathname'))"
 fi
-chk "empty bookshelf state" "document.body.textContent.indexOf('Your shelf is empty')>-1"
+if wait_for "document.body.textContent.indexOf('Your shelf is empty')>-1" 20; then
+  PASS=$((PASS + 1)); echo "  PASS empty bookshelf state"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL empty bookshelf state"
+fi
 
-# ---- 2. builder landing --------------------------------------------------
+# ---- 2. builder desk (fresh) ----------------------------------------------
 clickref "Build your first book" >/dev/null
 if wait_for "location.pathname==='/builder'" 30; then
   PASS=$((PASS + 1)); echo "  PASS empty state links to the builder"
 else
   FAIL=$((FAIL + 1)); echo "  FAIL navigate to builder"
 fi
-chk "heading: Build Your Own Book" "[].slice.call(document.querySelectorAll('h1')).some(function(h){return h.textContent.indexOf('Build Your Own Book')>-1})"
-chk "subtitle mentions the Academic Library" "document.body.textContent.indexOf('Academic Library')>-1"
-chk "five creation methods offered" "(function(){var t=document.body.textContent;return ['Method 1','Method 2','Method 3','Method 4','Method 5'].every(function(m){return t.indexOf(m)>-1})})()"
+agent-browser wait 1500 >/dev/null 2>&1 || true
+chk "topic panel open by default — textarea ready" "!!document.getElementById('topics')"
 
-# ---- 3. method 3: topic list ----------------------------------------------
-clickref 'button "Start"' 3 >/dev/null
-agent-browser wait 1000 >/dev/null 2>&1 || true
-chk "method-3 input step with topic editor" "!!document.getElementById('topics')"
-
+# ---- 3. paste a topic list (single source) ---------------------------------
 TOPICS='Chapter 1: Number Basics\n1. Greatest Common Divisor\nChapter 2: Equations\n2. Solving Linear Equations\nChapter 3: Beyond the library\n3. CPU Scheduling'
 ev "window.__set=function(id,v){var el=document.getElementById(id);if(!el)return 'missing:'+id;var proto=el.tagName==='TEXTAREA'?window.HTMLTextAreaElement.prototype:window.HTMLInputElement.prototype;Object.getOwnPropertyDescriptor(proto,'value').set.call(el,v);el.dispatchEvent(new Event('input',{bubbles:true}));return 'ok'};window.__set('topics','$TOPICS')" >/dev/null 2>&1 || true
-chk "live parse preview appears" "document.body.textContent.indexOf('Parsed structure')>-1"
-clickref 'button "Search the Main Library"' >/dev/null
+clickref 'button "Find matching library lessons"' >/dev/null
 if wait_for "document.body.textContent.indexOf('Review the library matches')>-1" 40; then
   PASS=$((PASS + 1)); echo "  PASS review step reached"
 else
@@ -141,10 +192,19 @@ if wait_for "/^\/my-books\/[^\/]+$/.test(location.pathname)" 40; then
 else
   FAIL=$((FAIL + 1)); echo "  FAIL publish (at $(ev 'location.pathname'))"
 fi
-chk "detail shows coverage tab" "[].slice.call(document.querySelectorAll('[role=tab]')).some(function(t){return t.textContent.indexOf('Coverage report')>-1})"
+if wait_for "[].slice.call(document.querySelectorAll('[role=tab]')).some(function(t){return t.textContent.indexOf('Coverage report')>-1})" 30; then
+  PASS=$((PASS + 1)); echo "  PASS detail shows coverage tab"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL detail shows coverage tab"
+fi
+agent-browser wait 600 >/dev/null 2>&1 || true
 clickref 'tab "Coverage report"' >/dev/null
 agent-browser wait 900 >/dev/null 2>&1 || true
-chk "coverage report lists the missing topic" "document.body.textContent.indexOf('CPU Scheduling')>-1"
+if wait_for "document.body.textContent.indexOf('CPU Scheduling')>-1" 20; then
+  PASS=$((PASS + 1)); echo "  PASS coverage report lists the missing topic"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL coverage report lists the missing topic"
+fi
 chk "coverage report is honest about gaps" "document.body.textContent.indexOf('does not fully cover')>-1"
 chk "coverage percent below 100" "(function(){var m=document.body.textContent.match(/([0-9]+(\.[0-9]+)?)%\s*coverage/);return !!m && parseFloat(m[1])<100})()"
 
@@ -251,6 +311,7 @@ agent-browser wait --load networkidle >/dev/null 2>&1 || true
 agent-browser wait 2500 >/dev/null 2>&1 || true
 ev "$TRAP" >/dev/null 2>&1 || true
 chk "mobile builder heading" "[].slice.call(document.querySelectorAll('h1')).some(function(h){return h.textContent.indexOf('Build Your Own Book')>-1})"
+chk "mobile desk keeps all five source panels" "(function(){var t=document.body.textContent;return ['from an examination','Browse the Main Library','Paste a topic list','Upload a syllabus PDF','Merge an existing custom book'].every(function(m){return t.indexOf(m)>-1})})()"
 chk "no horizontal overflow (mobile builder)" "document.documentElement.scrollWidth<=window.innerWidth+1"
 agent-browser screenshot "$OUT/builder-mobile.png" >/dev/null 2>&1 || true
 agent-browser open "$BASE/my-books" >/dev/null 2>&1 || true

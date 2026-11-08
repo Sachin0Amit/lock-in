@@ -9,7 +9,7 @@
  */
 import { createHash } from 'node:crypto'
 import { allBooks, allDisciplines, booksOfDiscipline, findLesson, paths } from '@/data/library/index'
-import type { Book, Lesson } from '@/data/library/types'
+import { countLessonWords, type Book, type Lesson } from '@/data/library/types'
 
 export interface LibraryLessonRecord {
   /** canonical lesson id — THE durable reference */
@@ -114,7 +114,8 @@ function buildCatalog() {
         words: 0,
       }
       for (const lesson of chapter.lessons) {
-        const words = lesson.words ?? 0
+        /* authored words when present, else the honest block-level count */
+        const words = lesson.words ?? countLessonWords(lesson)
         const rec: LibraryLessonRecord = {
           recordId: lesson.id,
           bookId: book.id,
@@ -307,7 +308,7 @@ export function libraryTree(): TreeDiscipline[] {
             recordId: l.id,
             number: l.number,
             title: l.title,
-            words: l.words ?? 0,
+            words: l.words ?? countLessonWords(l),
           })),
         })),
     })),
