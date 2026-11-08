@@ -126,14 +126,14 @@ const svg = `<svg viewBox="0 0 ${VB_W} 240" xmlns="http://www.w3.org/2000/svg" r
   </defs>
   <g fill="currentColor">
     <text x="${X0}" y="40" font-size="14">the deciding tens seat: (9 − 8) × 10</text>
-    <rect x="${xa(0)}" y="${A_Y}" width="${DECIDING * UNIT}" height="${BAR_H}" rx="4" fill="#b45309"/>
+    <rect x="${xa(0)}" y="${A_Y}" width="${DECIDING * UNIT}" height="${BAR_H}" rx="4" fill="#ea580c"/>
     <text x="${xa(DECIDING) - 10}" y="${A_Y + 21}" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">= 10</text>
     <text x="${X0}" y="120" font-size="14">every lower seat at maximum: 9 × 1</text>
     <rect x="${xa(0)}" y="${B_Y}" width="${LOWER_MAX * UNIT}" height="${BAR_H}" rx="4" fill="url(#fig-tug-stripes)" stroke="currentColor" stroke-width="1" opacity="0.9"/>
     <text x="${xa(LOWER_MAX) - 10}" y="${B_Y + 21}" font-size="16" font-weight="700" text-anchor="end">= 9</text>
-    <rect x="${xa(LOWER_MAX)}" y="${B_Y}" width="${GAP * UNIT}" height="${BAR_H}" rx="4" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
-    <text x="${(xa(LOWER_MAX) + xa(DECIDING)) / 2}" y="${B_Y + 21}" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">1</text>
-    <text x="${(xa(LOWER_MAX) + xa(DECIDING)) / 2}" y="178" font-size="13" fill="#b45309" text-anchor="middle">unclosable gap</text>
+    <rect x="${xa(LOWER_MAX)}" y="${B_Y}" width="${GAP * UNIT}" height="${BAR_H}" rx="4" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="${(xa(LOWER_MAX) + xa(DECIDING)) / 2}" y="${B_Y + 21}" font-size="15" font-weight="700" fill="#ea580c" text-anchor="middle">1</text>
+    <text x="${(xa(LOWER_MAX) + xa(DECIDING)) / 2}" y="178" font-size="13" fill="#ea580c" text-anchor="middle">unclosable gap</text>
     <line x1="${xa(0)}" y1="${AXIS_Y}" x2="${xa(10)}" y2="${AXIS_Y}" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
 ${ticks}
   </g>

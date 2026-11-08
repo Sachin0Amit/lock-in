@@ -80,7 +80,7 @@ check('chart: header rects y=44 h=40 at all 4 columns', COLS.every((c) => rects.
 // tints: exactly the tens column (x=430) tinted amber in header AND both rows
 const amber = rects.filter((q) => q.w === 130 && q.h >= 40)
 const amberXs = new Set(
-  [...A.matchAll(/<rect x="(\d+)" y="(\d+)"[^>]*fill="#b45309"/g)].map((m) => `${m[1]}@${m[2]}`),
+  [...A.matchAll(/<rect x="(\d+)" y="(\d+)"[^>]*fill="#ea580c"/g)].map((m) => `${m[1]}@${m[2]}`),
 )
 check(
   'chart: amber tint exactly at tens column x=430 (header + 2 rows)',
@@ -93,9 +93,9 @@ const digits: Record<number, (string | undefined)[]> = { 124: [], 186: [] }
 for (const m of A.matchAll(digitRe)) digits[+m[2]].push(m[4])
 check('chart: row 4,589 digits are 4,5,8,9', digits[124].join('') === '4589', digits[124].join(','))
 check('chart: row 4,598 digits are 4,5,9,8', digits[186].join('') === '4598', digits[186].join(','))
-const amber22 = [...A.matchAll(/<text x="495" y="(124|186)" font-size="22" font-weight="700" fill="#b45309">(\d)<\/text>/g)].map((m) => m[2])
+const amber22 = [...A.matchAll(/<text x="495" y="(124|186)" font-size="22" font-weight="700" fill="#ea580c">(\d)<\/text>/g)].map((m) => m[2])
 check('chart: amber 22px digits exactly the tens pair (8, 9) at x=495', amber22.join(',') === '8,9', amber22.join(','))
-check('chart: amber 14px header exactly the word "tens"', /<text x="495" y="69" font-size="14" font-weight="700" fill="#b45309">tens<\/text>/.test(A))
+check('chart: amber 14px header exactly the word "tens"', /<text x="495" y="69" font-size="14" font-weight="700" fill="#ea580c">tens<\/text>/.test(A))
 // numbers behind the figure, recomputed here
 check('chart math: 4598 − 4589 = 9 (caption claim)', 4598 - 4589 === 9)
 check('chart math: digits differ first at tens (4589: 8, 4598: 9)', Math.floor((4589 % 100) / 10) === 8 && Math.floor((4598 % 100) / 10) === 9)
@@ -118,7 +118,7 @@ const gap = tugRects.find((r) => r.y === 128 && r.h === 32 && /stroke-dasharray/
 check('tug: bar A = one step of the tens seat, w = 10·52 = 520 at x 150..670', !!barA && barA.x === xa(0) && barA.w === 10 * UNIT, barA ? `x=${barA.x} w=${barA.w}` : 'missing')
 check('tug: bar B = lower-seat maximum, w = 9·52 = 468 at x 150..618', !!barB && barB.x === xa(0) && barB.w === 9 * UNIT, barB ? `x=${barB.x} w=${barB.w}` : 'missing')
 check('tug: dashed gap rect exactly x 618..670 (w 52)', !!gap && gap.x === xa(9) && gap.w === (10 - 9) * UNIT, gap ? `x=${gap.x} w=${gap.w}` : 'missing')
-check('tug: bar A amber #b45309 (design accent)', !!barA && /fill="#b45309"/.test(barA.tag))
+check('tug: bar A amber #ea580c (design accent)', !!barA && /fill="#ea580c"/.test(barA.tag))
 check('tug: bar B striped via pattern (dark-mode safe currentColor)', /fill="url\(#fig-tug-stripes\)"/.test(B))
 const patternBlock = B.split('</pattern>')[0] + '</pattern>'
 check('tug: pattern uses currentColor only', patternBlock.includes('<pattern id="fig-tug-stripes"') && patternBlock.includes('currentColor') && !patternBlock.includes('#'))
@@ -134,7 +134,7 @@ check('tug: tick labels 0..10 each centered at x = 150 + 52v', lbls.length === 1
 // bar values
 check('tug: bar A value label "= 10" white bold inside right end (x=660)', B.includes('<text x="660" y="69" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">= 10</text>'))
 check('tug: bar B value label "= 9" bold inside right end (x=608)', B.includes('<text x="608" y="149" font-size="16" font-weight="700" text-anchor="end">= 9</text>'))
-check('tug: gap digit "1" amber centered in dashed segment (x=644)', B.includes('x="644" y="149"') && /fill="#b45309" text-anchor="middle">1<\/text>/.test(B))
+check('tug: gap digit "1" amber centered in dashed segment (x=644)', B.includes('x="644" y="149"') && /fill="#ea580c" text-anchor="middle">1<\/text>/.test(B))
 // the bound itself, recomputed here one more time
 check('tug math: (9−8)·10 = 10', (9 - 8) * 10 === 10)
 check('tug math: max of lower seats 9·1 = 9', 9 * 1 === 9)

@@ -99,18 +99,18 @@ export const chapter02: Chapter = {
       ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
     </g>
     <circle cx="340" cy="88" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="550" cy="88" r="7" fill="#b45309"/>
-    <path d="M 348 66 Q 445 18 542 66" fill="none" stroke="#b45309" stroke-width="2.5"/>
-    <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#b45309">+3</text>
+    <circle cx="550" cy="88" r="7" fill="#ea580c"/>
+    <path d="M 348 66 Q 445 18 542 66" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#ea580c">+3</text>
     <text x="30" y="164" opacity="0.75" text-anchor="start">3 + 4: start at 3, hop 4</text>
     <line x1="50" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="194" x2="${60 + n * 70}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="226" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
     </g>
     <circle cx="270" cy="200" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="550" cy="200" r="7" fill="#b45309"/>
-    <path d="M 278 178 Q 410 130 542 178" fill="none" stroke="#b45309" stroke-width="2.5"/>
-    <text x="410" y="146" text-anchor="middle" font-weight="700" fill="#b45309">+4</text>
+    <circle cx="550" cy="200" r="7" fill="#ea580c"/>
+    <path d="M 278 178 Q 410 130 542 178" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <text x="410" y="146" text-anchor="middle" font-weight="700" fill="#ea580c">+4</text>
   </g>
 </svg>`,
         },
@@ -170,12 +170,12 @@ export const chapter02: Chapter = {
           svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 4589 and 2764 with carry cells above the tens, hundreds and thousands columns">
   <g font-size="13" fill="currentColor" text-anchor="middle">
     <text x="30" y="46" opacity="0.75" text-anchor="start">carries →</text>
-    <rect x="290" y="24" width="60" height="34" rx="17" fill="#b45309" opacity="0.16" stroke="#b45309" stroke-width="1.5"/>
-    <rect x="430" y="24" width="60" height="34" rx="17" fill="#b45309" opacity="0.16" stroke="#b45309" stroke-width="1.5"/>
-    <rect x="570" y="24" width="60" height="34" rx="17" fill="#b45309" opacity="0.16" stroke="#b45309" stroke-width="1.5"/>
-    <text x="320" y="46" font-weight="700" fill="#b45309">1</text>
-    <text x="460" y="46" font-weight="700" fill="#b45309">1</text>
-    <text x="600" y="46" font-weight="700" fill="#b45309">1</text>
+    <rect x="290" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <rect x="430" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <rect x="570" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="320" y="46" font-weight="700" fill="#ea580c">1</text>
+    <text x="460" y="46" font-weight="700" fill="#ea580c">1</text>
+    <text x="600" y="46" font-weight="700" fill="#ea580c">1</text>
     <line x1="632" y1="41" x2="700" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
     <text x="655" y="30" font-size="11" opacity="0.75" text-anchor="start">each carry = 1</text>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
@@ -189,10 +189,10 @@ export const chapter02: Chapter = {
       <text x="215" y="186">2</text><text x="355" y="186">7</text><text x="495" y="186">6</text><text x="635" y="186">4</text>
     </g>
     <line x1="130" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
-    <g font-size="22" font-weight="700" fill="#b45309">
+    <g font-size="22" font-weight="700" fill="#ea580c">
       <text x="215" y="252">7</text><text x="355" y="252">3</text><text x="495" y="252">5</text><text x="635" y="252">3</text>
     </g>
-    <g stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
+    <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
       <path d="M 640 94 Q 630 70 615 60"/>
       <path d="M 500 94 Q 490 70 475 60"/>
       <path d="M 360 94 Q 350 70 335 60"/>
@@ -602,9 +602,9 @@ export const chapter02: Chapter = {
       ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + n * 70}" y1="82" x2="${60 + n * 70}" y2="94" stroke="currentColor" stroke-width="1.5" opacity="0.55"/><text x="${60 + n * 70}" y="114" text-anchor="middle" opacity="0.85">${n}</text>`).join('\n      ')}
     </g>
     <circle cx="550" cy="88" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="340" cy="88" r="7" fill="#b45309"/>
-    <path d="M 542 66 Q 445 18 348 66" fill="none" stroke="#b45309" stroke-width="2.5"/>
-    <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#b45309">-3</text>
+    <circle cx="340" cy="88" r="7" fill="#ea580c"/>
+    <path d="M 542 66 Q 445 18 348 66" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <text x="445" y="34" text-anchor="middle" font-weight="700" fill="#ea580c">-3</text>
     <text x="730" y="164" opacity="0.75" text-anchor="end">3 - 7: start at 3, hop 7 left</text>
     <line x1="260" y1="200" x2="710" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <line x1="60" y1="200" x2="260" y2="200" stroke="currentColor" stroke-width="1.5" opacity="0.45" stroke-dasharray="4 4"/>
@@ -612,9 +612,9 @@ export const chapter02: Chapter = {
       ${[-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `<line x1="${60 + (n + 4) * 50}" y1="194" x2="${60 + (n + 4) * 50}" y2="206" stroke="currentColor" stroke-width="1.5" opacity="${n < 0 ? 0.4 : 0.55}"/><text x="${60 + (n + 4) * 50}" y="226" text-anchor="middle" opacity="${n < 0 ? 0.55 : 0.85}">${n}</text>`).join('\n      ')}
     </g>
     <circle cx="410" cy="200" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="60" cy="200" r="7" fill="none" stroke="#b45309" stroke-width="2.5" stroke-dasharray="3 3"/>
-    <path d="M 402 178 Q 230 132 68 178" fill="none" stroke="#b45309" stroke-width="2.5"/>
-    <text x="230" y="148" text-anchor="middle" font-weight="700" fill="#b45309">-7</text>
+    <circle cx="60" cy="200" r="7" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="3 3"/>
+    <path d="M 402 178 Q 230 132 68 178" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+    <text x="230" y="148" text-anchor="middle" font-weight="700" fill="#ea580c">-7</text>
     <text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">whole numbers end at 0 — the landing point -4 lies beyond the edge (Chapter 7: Integers)</text>
   </g>
 </svg>`,
@@ -675,9 +675,9 @@ export const chapter02: Chapter = {
           svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column subtraction of 4589 minus 2764 with one borrow: the thousands seat lends one to the hundreds seat">
   <g font-size="13" fill="currentColor" text-anchor="middle">
     <text x="30" y="37" opacity="0.75" text-anchor="start">the borrow</text>
-    <rect x="205" y="20" width="170" height="24" rx="12" fill="#b45309" opacity="0.16" stroke="#b45309" stroke-width="1.5"/>
-    <text x="290" y="37" font-weight="700" font-size="12" fill="#b45309">1 thousand = 10 hundreds</text>
-    <path d="M 225 92 Q 290 60 345 92" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
+    <rect x="205" y="20" width="170" height="24" rx="12" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="290" y="37" font-weight="700" font-size="12" fill="#ea580c">1 thousand = 10 hundreds</text>
+    <path d="M 225 92 Q 290 60 345 92" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4"/>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
     <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
@@ -692,12 +692,12 @@ export const chapter02: Chapter = {
       <line x1="203" y1="121" x2="227" y2="107"/>
       <line x1="343" y1="121" x2="367" y2="107"/>
     </g>
-    <g font-size="13" font-weight="700" fill="#b45309">
+    <g font-size="13" font-weight="700" fill="#ea580c">
       <text x="252" y="112">3</text>
       <text x="388" y="112">15</text>
     </g>
     <line x1="130" y1="214" x2="710" y2="214" stroke="currentColor" stroke-width="2"/>
-    <g font-size="22" font-weight="700" fill="#b45309">
+    <g font-size="22" font-weight="700" fill="#ea580c">
       <text x="215" y="252">1</text><text x="355" y="252">8</text><text x="495" y="252">2</text><text x="635" y="252">5</text>
     </g>
     <text x="80" y="282" font-size="12" opacity="0.8" text-anchor="start">hundreds: 5 &lt; 7 → borrow → 15 - 7 = 8 · lender 4 → 3, pays 3 - 2 · ones and tens pay outright: 9 - 4, 8 - 6</text>
@@ -1108,17 +1108,17 @@ export const chapter02: Chapter = {
     <g text-anchor="middle">
       ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3].map((j) => `<path d="M ${50 + j * 156} 62 Q ${128 + j * 156} 18 ${206 + j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${128 + j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">+6</text>`).join('\\n    ')}
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${50 + j * 156} 62 Q ${128 + j * 156} 18 ${206 + j * 156} 62" fill="none" stroke="#ea580c" stroke-width="2.5"/><text x="${128 + j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#ea580c">+6</text>`).join('\\n    ')}
     <circle cx="50" cy="88" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="674" cy="88" r="7" fill="#b45309"/>
+    <circle cx="674" cy="88" r="7" fill="#ea580c"/>
     <text x="700" y="140" opacity="0.75" text-anchor="end">6 x 4: six jumps of 4</text>
     <line x1="40" y1="230" x2="700" y2="230" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="224" x2="${50 + n * 26}" y2="236" stroke="currentColor" stroke-width="${n % 4 === 0 ? 1.5 : 1}" opacity="${n % 4 === 0 ? 0.6 : 0.3}"/>${n % 4 === 0 ? `<text x="${50 + n * 26}" y="256" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3, 4, 5].map((j) => `<path d="M ${50 + j * 104} 204 Q ${102 + j * 104} 160 ${154 + j * 104} 204" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${102 + j * 104}" y="174" text-anchor="middle" font-weight="700" fill="#b45309">+4</text>`).join('\\n    ')}
+    ${[0, 1, 2, 3, 4, 5].map((j) => `<path d="M ${50 + j * 104} 204 Q ${102 + j * 104} 160 ${154 + j * 104} 204" fill="none" stroke="#ea580c" stroke-width="2.5"/><text x="${102 + j * 104}" y="174" text-anchor="middle" font-weight="700" fill="#ea580c">+4</text>`).join('\\n    ')}
     <circle cx="50" cy="230" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="674" cy="230" r="7" fill="#b45309"/>
+    <circle cx="674" cy="230" r="7" fill="#ea580c"/>
     <text x="380" y="284" text-anchor="middle" font-size="11.5" opacity="0.7">unequal rhythms, identical destination — both orders land on 24</text>
   </g>
 </svg>`,
@@ -1189,18 +1189,18 @@ export const chapter02: Chapter = {
     <text x="520" y="172" font-size="22" font-weight="700" text-anchor="middle">x</text>
     <text x="150" y="172" font-size="12" opacity="0.75" text-anchor="start">36 = 30 + 6</text>
     <line x1="280" y1="200" x2="740" y2="200" stroke="currentColor" stroke-width="2"/>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c" opacity="0.85">
       <text x="320" y="240">1</text><text x="450" y="240">4</text><text x="580" y="240">8</text><text x="710" y="240">2</text>
     </g>
     <text x="150" y="240" font-size="12" opacity="0.75" text-anchor="start">= 247 x 6</text>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c" opacity="0.85">
       <text x="320" y="302">7</text><text x="450" y="302">4</text><text x="580" y="302">1</text><text x="710" y="302">0</text>
     </g>
     <text x="150" y="302" font-size="12" opacity="0.75" text-anchor="start">= 247 x 30, shifted</text>
-    <circle cx="710" cy="295" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
-    <text x="740" y="265" font-size="11.5" fill="#b45309" text-anchor="end">0 marks the shift</text>
+    <circle cx="710" cy="295" r="14" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <text x="740" y="265" font-size="11.5" fill="#ea580c" text-anchor="end">0 marks the shift</text>
     <line x1="280" y1="330" x2="740" y2="330" stroke="currentColor" stroke-width="2"/>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c">
       <text x="320" y="368">8</text><text x="450" y="368">8</text><text x="580" y="368">9</text><text x="710" y="368">2</text>
     </g>
     <text x="150" y="368" font-size="12" opacity="0.75" text-anchor="start">product</text>
@@ -1579,18 +1579,18 @@ export const chapter02: Chapter = {
     <g text-anchor="middle">
       ${Array.from({ length: 25 }, (_, n) => `<line x1="${50 + n * 26}" y1="82" x2="${50 + n * 26}" y2="94" stroke="currentColor" stroke-width="${n % 6 === 0 ? 1.5 : 1}" opacity="${n % 6 === 0 ? 0.6 : 0.3}"/>${n % 6 === 0 ? `<text x="${50 + n * 26}" y="114" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3].map((j) => `<path d="M ${674 - j * 156} 62 Q ${596 - j * 156} 18 ${518 - j * 156} 62" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${596 - j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${674 - j * 156} 62 Q ${596 - j * 156} 18 ${518 - j * 156} 62" fill="none" stroke="#ea580c" stroke-width="2.5"/><text x="${596 - j * 156}" y="32" text-anchor="middle" font-weight="700" fill="#ea580c">-6</text>`).join('\\n    ')}
     <circle cx="674" cy="88" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="50" cy="88" r="7" fill="#b45309"/>
+    <circle cx="50" cy="88" r="7" fill="#ea580c"/>
     <text x="700" y="140" opacity="0.75" text-anchor="end">25 ÷ 6: four jumps of 6, one left over</text>
     <line x1="40" y1="222" x2="700" y2="222" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
     <g text-anchor="middle">
       ${Array.from({ length: 26 }, (_, n) => `<line x1="${50 + n * 26}" y1="216" x2="${50 + n * 26}" y2="228" stroke="currentColor" stroke-width="${n % 6 === 0 || n === 25 ? 1.5 : 1}" opacity="${n % 6 === 0 || n === 25 ? 0.6 : 0.3}"/>${n % 6 === 0 || n === 25 ? `<text x="${50 + n * 26}" y="248" text-anchor="middle" font-weight="700" opacity="0.9">${n}</text>` : ''}`).join('\\n      ')}
     </g>
-    ${[0, 1, 2, 3].map((j) => `<path d="M ${700 - j * 156} 196 Q ${622 - j * 156} 152 ${544 - j * 156} 196" fill="none" stroke="#b45309" stroke-width="2.5"/><text x="${622 - j * 156}" y="166" text-anchor="middle" font-weight="700" fill="#b45309">-6</text>`).join('\\n    ')}
+    ${[0, 1, 2, 3].map((j) => `<path d="M ${700 - j * 156} 196 Q ${622 - j * 156} 152 ${544 - j * 156} 196" fill="none" stroke="#ea580c" stroke-width="2.5"/><text x="${622 - j * 156}" y="166" text-anchor="middle" font-weight="700" fill="#ea580c">-6</text>`).join('\\n    ')}
     <circle cx="700" cy="222" r="5" fill="currentColor" opacity="0.85"/>
-    <circle cx="76" cy="222" r="7" fill="#b45309"/>
-    <text x="76" y="272" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1 — the remainder</text>
+    <circle cx="76" cy="222" r="7" fill="#ea580c"/>
+    <text x="76" y="272" text-anchor="middle" font-size="11.5" fill="#ea580c">lands on 1 — the remainder</text>
     <text x="400" y="292" text-anchor="middle" font-size="11.5" opacity="0.7">equal jumps run backwards — four full sixes leave one sheep the pens cannot absorb</text>
   </g>
 </svg>`,
@@ -1686,7 +1686,7 @@ export const chapter02: Chapter = {
             'The long-division tableau as a seat map. Tinted rows are the multiply products (72, 144, 252); dashed circles mark the brought-down digits — the 9, then the 2 — threading the dividend into the working rows. Quotient digits sit above the seat where each chunk ends: 2 above the second 8 (chunk 88), 4 above the 9 (chunk 169), 7 above the 2 (chunk 252), reading 247. The seat scaling is invisible but real: the 72 written under the leading 88 is 72 hundreds ($2 \\times 3{,}600 = 7{,}200$), the same $\\times 10$ seat-scaling that shifted Lesson 2.3\'s partial products. Final difference 0 — an exact division, certified by $247 \\times 36 + 0 = 8{,}892$.',
           svg: `<svg viewBox="0 0 760 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Long division tableau of 8892 divided by 36 giving quotient 247 remainder 0, with multiply, subtract and bring-down rows labelled">
   <g font-size="13" fill="currentColor">
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c">
       <text x="450" y="54">2</text><text x="580" y="54">4</text><text x="710" y="54">7</text>
     </g>
     <text x="60" y="54" font-size="12" opacity="0.75" text-anchor="start">quotient 247</text>
@@ -1695,27 +1695,27 @@ export const chapter02: Chapter = {
       <text x="320" y="110">8</text><text x="450" y="110">8</text><text x="580" y="110">9</text><text x="710" y="110">2</text>
     </g>
     <line x1="280" y1="128" x2="740" y2="128" stroke="currentColor" stroke-width="2"/>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c" opacity="0.85">
       <text x="320" y="170">7</text><text x="450" y="170">2</text>
     </g>
     <text x="60" y="170" font-size="12" opacity="0.75" text-anchor="start">2 x 36 = 72</text>
     <line x1="280" y1="184" x2="740" y2="184" stroke="currentColor" stroke-width="2"/>
     <g font-size="22" font-weight="700" text-anchor="middle">
-      <text x="320" y="258">1</text><text x="450" y="258">6</text><text x="580" y="258" fill="#b45309">9</text>
+      <text x="320" y="258">1</text><text x="450" y="258">6</text><text x="580" y="258" fill="#ea580c">9</text>
     </g>
-    <circle cx="580" cy="251" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <circle cx="580" cy="251" r="14" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
     <text x="60" y="258" font-size="12" opacity="0.75" text-anchor="start">88 - 72 = 16; bring down the 9</text>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c" opacity="0.85">
       <text x="320" y="302">1</text><text x="450" y="302">4</text><text x="580" y="302">4</text>
     </g>
     <text x="60" y="302" font-size="12" opacity="0.75" text-anchor="start">4 x 36 = 144</text>
     <line x1="280" y1="318" x2="740" y2="318" stroke="currentColor" stroke-width="2"/>
     <g font-size="22" font-weight="700" text-anchor="middle">
-      <text x="450" y="360">2</text><text x="580" y="360">5</text><text x="710" y="360" fill="#b45309">2</text>
+      <text x="450" y="360">2</text><text x="580" y="360">5</text><text x="710" y="360" fill="#ea580c">2</text>
     </g>
-    <circle cx="710" cy="353" r="14" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
+    <circle cx="710" cy="353" r="14" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="3 3" opacity="0.8"/>
     <text x="60" y="360" font-size="12" opacity="0.75" text-anchor="start">169 - 144 = 25; bring down the 2</text>
-    <g font-size="22" font-weight="700" text-anchor="middle" fill="#b45309" opacity="0.85">
+    <g font-size="22" font-weight="700" text-anchor="middle" fill="#ea580c" opacity="0.85">
       <text x="450" y="404">2</text><text x="580" y="404">5</text><text x="710" y="404">2</text>
     </g>
     <text x="60" y="404" font-size="12" opacity="0.75" text-anchor="start">7 x 36 = 252</text>
@@ -1725,7 +1725,7 @@ export const chapter02: Chapter = {
     </g>
     <text x="60" y="446" font-size="12" opacity="0.75" text-anchor="start">252 - 252 = 0: remainder</text>
     <text x="60" y="474" font-size="11.5" opacity="0.7" text-anchor="start">each loop: multiply, subtract, bring down</text>
-    <text x="740" y="474" font-size="11.5" fill="#b45309" text-anchor="end">check: 247 x 36 + 0 = 8,892</text>
+    <text x="740" y="474" font-size="11.5" fill="#ea580c" text-anchor="end">check: 247 x 36 + 0 = 8,892</text>
   </g>
 </svg>`,
         },
@@ -2133,22 +2133,22 @@ export const chapter02: Chapter = {
       <text x="195" y="79">+</text>
       <rect x="89" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
       <text x="115" y="155">8</text>
-      <rect x="249" y="134" width="52" height="32" rx="7" fill="none" stroke="#b45309" stroke-width="2"/>
-      <text x="275" y="155" fill="#b45309" font-weight="700">×</text>
+      <rect x="249" y="134" width="52" height="32" rx="7" fill="none" stroke="#ea580c" stroke-width="2"/>
+      <text x="275" y="155" fill="#ea580c" font-weight="700">×</text>
       <rect x="199" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
       <text x="225" y="231">2</text>
       <rect x="299" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
       <text x="325" y="231">5</text>
     </g>
-    <text x="195" y="282" text-anchor="middle" font-weight="700" fill="#b45309">value 18</text>
+    <text x="195" y="282" text-anchor="middle" font-weight="700" fill="#ea580c">value 18</text>
     <text x="565" y="30" text-anchor="middle" opacity="0.75">(8 + 2) × 5 — brackets rebuild the tree</text>
     <line x1="565" y1="90" x2="485" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <line x1="565" y1="90" x2="665" y2="134" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <line x1="485" y1="166" x2="435" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <line x1="485" y1="166" x2="555" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <g text-anchor="middle">
-      <rect x="539" y="58" width="52" height="32" rx="7" fill="none" stroke="#b45309" stroke-width="2"/>
-      <text x="565" y="79" fill="#b45309" font-weight="700">×</text>
+      <rect x="539" y="58" width="52" height="32" rx="7" fill="none" stroke="#ea580c" stroke-width="2"/>
+      <text x="565" y="79" fill="#ea580c" font-weight="700">×</text>
       <rect x="459" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
       <text x="485" y="155">+</text>
       <rect x="639" y="134" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
@@ -2158,7 +2158,7 @@ export const chapter02: Chapter = {
       <rect x="529" y="210" width="52" height="32" rx="7" fill="none" stroke="currentColor" opacity="0.7"/>
       <text x="555" y="231">2</text>
     </g>
-    <text x="565" y="282" text-anchor="middle" font-weight="700" fill="#b45309">value 50</text>
+    <text x="565" y="282" text-anchor="middle" font-weight="700" fill="#ea580c">value 50</text>
   </g>
 </svg>`,
         },

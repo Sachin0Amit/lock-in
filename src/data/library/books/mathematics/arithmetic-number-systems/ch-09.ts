@@ -34,18 +34,18 @@ const CL_ROW_Y = [70, 155, 240]
 /** one stylized hieroglyph at (x, y): stroke | heel-bone | coil | lotus */
 function hieroglyph(kind: 'stroke' | 'heel' | 'coil' | 'lotus', x: number, y: number): string {
   if (kind === 'stroke') {
-    return `<line x1="${x}" y1="${y - 13}" x2="${x}" y2="${y + 13}" stroke="#1f5c4d" stroke-width="2" stroke-linecap="round"/>`
+    return `<line x1="${x}" y1="${y - 13}" x2="${x}" y2="${y + 13}" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>`
   }
   if (kind === 'heel') {
-    return `<path d="M ${x - 11} ${y + 9} L ${x - 11} ${y + 2} A 11 11 0 0 1 ${x + 11} ${y + 2} L ${x + 11} ${y + 9}" fill="none" stroke="#1f5c4d" stroke-width="2" stroke-linecap="round"/>`
+    return `<path d="M ${x - 11} ${y + 9} L ${x - 11} ${y + 2} A 11 11 0 0 1 ${x + 11} ${y + 2} L ${x + 11} ${y + 9}" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>`
   }
   if (kind === 'coil') {
-    return `<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="#1f5c4d" stroke-width="2"/><circle cx="${x}" cy="${y}" r="3.5" fill="none" stroke="#1f5c4d" stroke-width="1.5"/>`
+    return `<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="#0d9488" stroke-width="2"/><circle cx="${x}" cy="${y}" r="3.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>`
   }
   // lotus: stem + three petals
   return (
-    `<line x1="${x}" y1="${y + 13}" x2="${x}" y2="${y - 2}" stroke="#1f5c4d" stroke-width="2"/>` +
-    `<path d="M ${x - 9} ${y + 4} Q ${x - 7} ${y - 12} ${x} ${y - 2} Q ${x + 7} ${y - 12} ${x + 9} ${y + 4}" fill="none" stroke="#1f5c4d" stroke-width="2" stroke-linecap="round"/>`
+    `<line x1="${x}" y1="${y + 13}" x2="${x}" y2="${y - 2}" stroke="#0d9488" stroke-width="2"/>` +
+    `<path d="M ${x - 9} ${y + 4} Q ${x - 7} ${y - 12} ${x} ${y - 2} Q ${x + 7} ${y - 12} ${x + 9} ${y + 4}" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"/>`
   )
 }
 
@@ -60,9 +60,9 @@ function compressionLadderSvg(): string {
   for (let i = 0; i < 40; i++) {
     parts.push(hieroglyph('stroke', 48 + i * 6, y1))
   }
-  parts.push(`<text x="296" y="${y1 + 5}" font-size="15" fill="#1f5c4d">…</text>`)
-  parts.push(`<text x="48" y="${y1 - 22}" font-size="12" fill="#6b7a72">one stroke per animal — 3,027 of them</text>`)
-  parts.push(`<text x="575" y="${y1 + 5}" font-size="14" font-weight="600" fill="#9a6b2f">3,027 strokes</text>`)
+  parts.push(`<text x="296" y="${y1 + 5}" font-size="15" fill="#0d9488">…</text>`)
+  parts.push(`<text x="48" y="${y1 - 22}" font-size="12" fill="#0d9488">one stroke per animal — 3,027 of them</text>`)
+  parts.push(`<text x="575" y="${y1 + 5}" font-size="14" font-weight="600" fill="#d97706">3,027 strokes</text>`)
   // row 2 — hieroglyphs: 3 lotus + 2 coil + 2 heel + 7 strokes
   const y2 = CL_ROW_Y[1]
   let x = 48
@@ -71,27 +71,27 @@ function compressionLadderSvg(): string {
       parts.push(hieroglyph(kind, x, y2))
       x += w + 10
     }
-    parts.push(`<text x="${x - (n * (w + 10) - 10) / 2}" y="${y2 + 32}" font-size="11" fill="#6b7a72" text-anchor="middle">${label}</text>`)
+    parts.push(`<text x="${x - (n * (w + 10) - 10) / 2}" y="${y2 + 32}" font-size="11" fill="#0d9488" text-anchor="middle">${label}</text>`)
     x += 14
   }
   run('lotus', 3, 26, '3 × 1000')
   run('coil', 2, 26, '2 × 100')
   run('heel', 2, 24, '2 × 10')
   run('stroke', 7, 10, '7 × 1')
-  parts.push(`<text x="48" y="${y2 - 22}" font-size="12" fill="#6b7a72">hieroglyphs — a symbol per scale, repeated per digit</text>`)
-  parts.push(`<text x="575" y="${y2 + 5}" font-size="14" font-weight="600" fill="#9a6b2f">12 symbols</text>`)
+  parts.push(`<text x="48" y="${y2 - 22}" font-size="12" fill="#0d9488">hieroglyphs — a symbol per scale, repeated per digit</text>`)
+  parts.push(`<text x="575" y="${y2 + 5}" font-size="14" font-weight="600" fill="#d97706">12 symbols</text>`)
   // row 3 — decimal digits in boxes
   const y3 = CL_ROW_Y[2]
   const digits = ['3', '0', '2', '7']
   const places = ['1000', '100', '10', '1']
   digits.forEach((d, i) => {
     const bx = 48 + i * 42
-    parts.push(`<rect x="${bx}" y="${y3 - 15}" width="30" height="30" rx="4" fill="none" stroke="#1f5c4d" stroke-width="1.5"/>`)
-    parts.push(`<text x="${bx + 15}" y="${y3 + 6}" font-size="16" fill="#123f35" text-anchor="middle" font-weight="600">${d}</text>`)
-    parts.push(`<text x="${bx + 15}" y="${y3 + 32}" font-size="11" fill="#6b7a72" text-anchor="middle">${places[i]}</text>`)
+    parts.push(`<rect x="${bx}" y="${y3 - 15}" width="30" height="30" rx="4" fill="none" stroke="#0d9488" stroke-width="1.5"/>`)
+    parts.push(`<text x="${bx + 15}" y="${y3 + 6}" font-size="16" fill="#0f766e" text-anchor="middle" font-weight="600">${d}</text>`)
+    parts.push(`<text x="${bx + 15}" y="${y3 + 32}" font-size="11" fill="#0d9488" text-anchor="middle">${places[i]}</text>`)
   })
-  parts.push(`<text x="48" y="${y3 - 26}" font-size="12" fill="#6b7a72">decimal digits — the scale is carried by position</text>`)
-  parts.push(`<text x="575" y="${y3 + 5}" font-size="14" font-weight="600" fill="#9a6b2f">4 digits</text>`)
+  parts.push(`<text x="48" y="${y3 - 26}" font-size="12" fill="#0d9488">decimal digits — the scale is carried by position</text>`)
+  parts.push(`<text x="575" y="${y3 + 5}" font-size="14" font-weight="600" fill="#d97706">4 digits</text>`)
   parts.push('</svg>')
   return parts.join('')
 }
@@ -118,35 +118,35 @@ function doublingEngineSvg(): string {
     '<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The doubling engine for 23 times 19: five doubled rows, the pick of ticks 1, 2 and 16, summing to 437">'
   )
   parts.push('<rect x="0" y="0" width="720" height="320" fill="transparent"/>')
-  parts.push('<text x="70" y="26" font-size="12" fill="#6b7a72">tick</text>')
-  parts.push('<text x="150" y="26" font-size="12" fill="#6b7a72">23 doubled</text>')
-  parts.push('<text x="360" y="26" font-size="12" fill="#6b7a72">in the pick for 19?</text>')
+  parts.push('<text x="70" y="26" font-size="12" fill="#0d9488">tick</text>')
+  parts.push('<text x="150" y="26" font-size="12" fill="#0d9488">23 doubled</text>')
+  parts.push('<text x="360" y="26" font-size="12" fill="#0d9488">in the pick for 19?</text>')
   for (const r of DE_ROWS) {
     const tick = Math.pow(2, r.k)
     const val = 23 * tick
     const picked = DE_PICKED.includes(r.k)
     parts.push(
-      `<text x="86" y="${r.y + 5}" font-size="14" fill="#123f35" text-anchor="end" font-weight="600">${tick}</text>`
+      `<text x="86" y="${r.y + 5}" font-size="14" fill="#0f766e" text-anchor="end" font-weight="600">${tick}</text>`
     )
-    parts.push(`<line x1="104" y1="${r.y - 12}" x2="104" y2="${r.y + 12}" stroke="#b9c6bd" stroke-width="1.5"/>`)
+    parts.push(`<line x1="104" y1="${r.y - 12}" x2="104" y2="${r.y + 12}" stroke="#5eead4" stroke-width="1.5"/>`)
     parts.push(
-      `<text x="150" y="${r.y + 5}" font-size="14" fill="${picked ? '#123f35' : '#6b7a72'}">2${r.k > 0 ? '^' + r.k : ''} · 23 = ${val}</text>`
+      `<text x="150" y="${r.y + 5}" font-size="14" fill="${picked ? '#0f766e' : '#0d9488'}">2${r.k > 0 ? '^' + r.k : ''} · 23 = ${val}</text>`
     )
     parts.push(
-      `<rect x="360" y="${r.y - 10}" width="20" height="20" rx="3" fill="${picked ? '#9a6b2f' : 'none'}" stroke="${picked ? '#9a6b2f' : '#b9c6bd'}" stroke-width="1.5"/>`
+      `<rect x="360" y="${r.y - 10}" width="20" height="20" rx="3" fill="${picked ? '#d97706' : 'none'}" stroke="${picked ? '#d97706' : '#5eead4'}" stroke-width="1.5"/>`
     )
     if (picked) {
       parts.push(
-        `<path d="M 364 ${r.y} L 369 ${r.y + 6} L 377 ${r.y - 6}" fill="none" stroke="#fdf8ef" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`
+        `<path d="M 364 ${r.y} L 369 ${r.y + 6} L 377 ${r.y - 6}" fill="none" stroke="#fef3c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`
       )
     }
   }
-  parts.push('<line x1="60" y1="266" x2="560" y2="266" stroke="#b9c6bd" stroke-width="1"/>')
+  parts.push('<line x1="60" y1="266" x2="560" y2="266" stroke="#5eead4" stroke-width="1"/>')
   parts.push(
-    `<text x="150" y="292" font-size="15" fill="#123f35" font-weight="600">23 + 46 + 368 = 437 = 23 × 19</text>`
+    `<text x="150" y="292" font-size="15" fill="#0f766e" font-weight="600">23 + 46 + 368 = 437 = 23 × 19</text>`
   )
   parts.push(
-    `<text x="560" y="292" font-size="12" fill="#6b7a72" text-anchor="end">ticks 1 + 2 + 16 = 19</text>`
+    `<text x="560" y="292" font-size="12" fill="#0d9488" text-anchor="end">ticks 1 + 2 + 16 = 19</text>`
   )
   parts.push('</svg>')
   return parts.join('')
@@ -169,29 +169,29 @@ function placeLaddersSvg(): string {
   parts.push(
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two place ladders: the Babylonian ladder steps by sixty, the Mayan Long Count ladder takes a kink at eighteen times twenty equals 360">'
   )
-  parts.push('<text x="150" y="24" font-size="13" fill="#123f35" text-anchor="middle" font-weight="600">Babylon — base 60</text>')
-  parts.push('<text x="470" y="24" font-size="13" fill="#123f35" text-anchor="middle" font-weight="600">Maya — Long Count</text>')
+  parts.push('<text x="150" y="24" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="600">Babylon — base 60</text>')
+  parts.push('<text x="470" y="24" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="600">Maya — Long Count</text>')
   // Babylonian rungs
   for (const v of BAB_RUNGS) {
     const y = ladderY(v, 60)
-    parts.push(`<line x1="110" y1="${y.toFixed(1)}" x2="190" y2="${y.toFixed(1)}" stroke="#1f5c4d" stroke-width="2.5"/>`)
-    parts.push(`<text x="198" y="${(y + 4).toFixed(1)}" font-size="12.5" fill="#123f35">${fmtNum(v)}</text>`)
+    parts.push(`<line x1="110" y1="${y.toFixed(1)}" x2="190" y2="${y.toFixed(1)}" stroke="#0d9488" stroke-width="2.5"/>`)
+    parts.push(`<text x="198" y="${(y + 4).toFixed(1)}" font-size="12.5" fill="#0f766e">${fmtNum(v)}</text>`)
   }
   for (let i = 0; i < BAB_RUNGS.length - 1; i++) {
     const yTop = ladderY(BAB_RUNGS[i + 1], 60)
     const yBot = ladderY(BAB_RUNGS[i], 60)
-    parts.push(`<line x1="150" y1="${yBot.toFixed(1)}" x2="150" y2="${yTop.toFixed(1)}" stroke="#1f5c4d" stroke-width="1.5"/>`)
-    parts.push(`<text x="136" y="${((yTop + yBot) / 2 + 4).toFixed(1)}" font-size="11.5" fill="#6b7a72" text-anchor="end">×60</text>`)
+    parts.push(`<line x1="150" y1="${yBot.toFixed(1)}" x2="150" y2="${yTop.toFixed(1)}" stroke="#0d9488" stroke-width="1.5"/>`)
+    parts.push(`<text x="136" y="${((yTop + yBot) / 2 + 4).toFixed(1)}" font-size="11.5" fill="#0d9488" text-anchor="end">×60</text>`)
   }
   // Mayan rungs — the 20→360 kink highlighted
   for (const v of MAY_RUNGS) {
     const y = ladderY(v, 45)
     const isKinkTop = v === 360
     parts.push(
-      `<line x1="430" y1="${y.toFixed(1)}" x2="510" y2="${y.toFixed(1)}" stroke="${isKinkTop ? '#9a6b2f' : '#1f5c4d'}" stroke-width="${isKinkTop ? 3 : 2.5}"/>`
+      `<line x1="430" y1="${y.toFixed(1)}" x2="510" y2="${y.toFixed(1)}" stroke="${isKinkTop ? '#d97706' : '#0d9488'}" stroke-width="${isKinkTop ? 3 : 2.5}"/>`
     )
     parts.push(
-      `<text x="518" y="${(y + 4).toFixed(1)}" font-size="12.5" fill="${isKinkTop ? '#9a6b2f' : '#123f35'}" font-weight="${isKinkTop ? '700' : '400'}">${fmtNum(v)}${v === 1 ? ' day' : v === 360 ? ' (tun)' : ''}</text>`
+      `<text x="518" y="${(y + 4).toFixed(1)}" font-size="12.5" fill="${isKinkTop ? '#d97706' : '#0f766e'}" font-weight="${isKinkTop ? '700' : '400'}">${fmtNum(v)}${v === 1 ? ' day' : v === 360 ? ' (tun)' : ''}</text>`
     )
   }
   for (let i = 0; i < MAY_RUNGS.length - 1; i++) {
@@ -199,14 +199,14 @@ function placeLaddersSvg(): string {
     const yBot = ladderY(MAY_RUNGS[i], 45)
     const kink = MAY_RUNGS[i + 1] === 360
     parts.push(
-      `<line x1="470" y1="${yBot.toFixed(1)}" x2="470" y2="${yTop.toFixed(1)}" stroke="${kink ? '#9a6b2f' : '#1f5c4d'}" stroke-width="${kink ? 2 : 1.5}"/>`
+      `<line x1="470" y1="${yBot.toFixed(1)}" x2="470" y2="${yTop.toFixed(1)}" stroke="${kink ? '#d97706' : '#0d9488'}" stroke-width="${kink ? 2 : 1.5}"/>`
     )
     parts.push(
-      `<text x="640" y="${((yTop + yBot) / 2 + 4).toFixed(1)}" font-size="11.5" fill="${kink ? '#9a6b2f' : '#6b7a72'}" text-anchor="end" font-weight="${kink ? '700' : '400'}">×${MAY_RUNGS[i + 1] / MAY_RUNGS[i]}${kink ? ' — the calendar kink' : ''}</text>`
+      `<text x="640" y="${((yTop + yBot) / 2 + 4).toFixed(1)}" font-size="11.5" fill="${kink ? '#d97706' : '#0d9488'}" text-anchor="end" font-weight="${kink ? '700' : '400'}">×${MAY_RUNGS[i + 1] / MAY_RUNGS[i]}${kink ? ' — the calendar kink' : ''}</text>`
     )
   }
   parts.push(
-    `<text x="470" y="326" font-size="11.5" fill="#6b7a72" text-anchor="middle">rung heights on a log scale; the kink = log₁₀ 18 ≈ 1.255</text>`
+    `<text x="470" y="326" font-size="11.5" fill="#0d9488" text-anchor="middle">rung heights on a log scale; the kink = log₁₀ 18 ≈ 1.255</text>`
   )
   parts.push('</svg>')
   return parts.join('')
@@ -223,27 +223,27 @@ function ybcSquareSvg(): string {
   parts.push(
     '<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A stylized reconstruction of tablet YBC 7289: a square of side 30, its diagonal 42;25,35, and the diagonal ratio 1;24,51,10, the sexagesimal value of the square root of two">'
   )
-  const sq = `<rect x="160" y="50" width="220" height="220" fill="none" stroke="#1f5c4d" stroke-width="2"/>`
+  const sq = `<rect x="160" y="50" width="220" height="220" fill="none" stroke="#0d9488" stroke-width="2"/>`
   parts.push(sq)
-  parts.push('<line x1="160" y1="50" x2="380" y2="270" stroke="#1f5c4d" stroke-width="1.5"/>')
-  parts.push('<line x1="380" y1="50" x2="160" y2="270" stroke="#1f5c4d" stroke-width="1.5"/>')
+  parts.push('<line x1="160" y1="50" x2="380" y2="270" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<line x1="380" y1="50" x2="160" y2="270" stroke="#0d9488" stroke-width="1.5"/>')
   // the ratio label along the main diagonal, offset perpendicular
   parts.push(
-    `<text x="270" y="146" font-size="13" fill="#9a6b2f" font-weight="600" text-anchor="middle" transform="rotate(45 270 160)">1;24,51,10</text>`
+    `<text x="270" y="146" font-size="13" fill="#d97706" font-weight="600" text-anchor="middle" transform="rotate(45 270 160)">1;24,51,10</text>`
   )
   // the side label
-  parts.push('<text x="270" y="292" font-size="13" fill="#123f35" text-anchor="middle" font-weight="600">side 30 — diagonal 42;25,35</text>')
+  parts.push('<text x="270" y="292" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="600">side 30 — diagonal 42;25,35</text>')
   // the decimal comparison row
   parts.push(
-    '<text x="270" y="310" font-size="11.5" fill="#6b7a72" text-anchor="middle">1;24,51,10 = 1.41421296…  ·  √2 = 1.41421356…  ·  one part in ≈2.36 million</text>'
+    '<text x="270" y="310" font-size="11.5" fill="#0d9488" text-anchor="middle">1;24,51,10 = 1.41421296…  ·  √2 = 1.41421356…  ·  one part in ≈2.36 million</text>'
   )
   // right annotation column
-  parts.push('<text x="480" y="120" font-size="12.5" fill="#123f35">the side: 30</text>')
-  parts.push('<text x="480" y="144" font-size="12.5" fill="#123f35">the diagonal: 42;25,35</text>')
-  parts.push('<text x="480" y="168" font-size="12.5" fill="#9a6b2f">the ratio: 1;24,51,10</text>')
-  parts.push('<text x="480" y="196" font-size="11.5" fill="#6b7a72">a scale-free value — the same</text>')
-  parts.push('<text x="480" y="213" font-size="11.5" fill="#6b7a72">string names the diagonal of</text>')
-  parts.push('<text x="480" y="230" font-size="11.5" fill="#6b7a72">any square whatever</text>')
+  parts.push('<text x="480" y="120" font-size="12.5" fill="#0f766e">the side: 30</text>')
+  parts.push('<text x="480" y="144" font-size="12.5" fill="#0f766e">the diagonal: 42;25,35</text>')
+  parts.push('<text x="480" y="168" font-size="12.5" fill="#d97706">the ratio: 1;24,51,10</text>')
+  parts.push('<text x="480" y="196" font-size="11.5" fill="#0d9488">a scale-free value — the same</text>')
+  parts.push('<text x="480" y="213" font-size="11.5" fill="#0d9488">string names the diagonal of</text>')
+  parts.push('<text x="480" y="230" font-size="11.5" fill="#0d9488">any square whatever</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -254,11 +254,11 @@ function zeroTimelineSvg(): string {
     '<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A timeline of the decimal revolution from 458 to 1299: Lokavibhaga, Aryabhata, Brahmagupta, al-Khwarizmi, the Gwalior zero, al-Uqlidisi, Fibonacci and the Florence ban">'
   )
   // honesty header
-  parts.push('<text x="360" y="28" font-size="11.5" fill="#6b7a72" text-anchor="middle">the Bakhshālī birch bark (found 1881) radiocarbon-dates in scattered ranges —</text>')
-  parts.push('<text x="360" y="44" font-size="11.5" fill="#6b7a72" text-anchor="middle">Oxford’s 2017 “oldest zero” reading was revised in 2024; the dot’s age is still debated</text>')
+  parts.push('<text x="360" y="28" font-size="11.5" fill="#0d9488" text-anchor="middle">the Bakhshālī birch bark (found 1881) radiocarbon-dates in scattered ranges —</text>')
+  parts.push('<text x="360" y="44" font-size="11.5" fill="#0d9488" text-anchor="middle">Oxford’s 2017 “oldest zero” reading was revised in 2024; the dot’s age is still debated</text>')
   // baseline with arrowhead
-  parts.push('<line x1="50" y1="210" x2="664" y2="210" stroke="#1f5c4d" stroke-width="2"/>')
-  parts.push('<polygon points="670,210 660,205 660,215" fill="#1f5c4d"/>')
+  parts.push('<line x1="50" y1="210" x2="664" y2="210" stroke="#0d9488" stroke-width="2"/>')
+  parts.push('<polygon points="670,210 660,205 660,215" fill="#0d9488"/>')
   // nodes: [year, x, above?, name, note]
   const nodes: Array<[string, number, boolean, string, string]> = [
     ['458', 82, false, 'Lokavibhāga', 'śūnya in place value'],
@@ -271,17 +271,17 @@ function zeroTimelineSvg(): string {
     ['1299', 636, true, 'Florence', 'the numerals banned'],
   ]
   for (const [yr, x, above, name, note] of nodes) {
-    parts.push(`<circle cx="${x}" cy="210" r="4" fill="#1f5c4d"/>`)
+    parts.push(`<circle cx="${x}" cy="210" r="4" fill="#0d9488"/>`)
     if (above) {
-      parts.push(`<line x1="${x}" y1="204" x2="${x}" y2="118" stroke="#b9c4bd" stroke-width="1"/>`)
-      parts.push(`<text x="${x}" y="80" font-size="12" font-weight="600" fill="#123f35" text-anchor="middle">${yr}</text>`)
-      parts.push(`<text x="${x}" y="96" font-size="11.5" fill="#1f5c4d" text-anchor="middle">${name}</text>`)
-      parts.push(`<text x="${x}" y="111" font-size="10" fill="#6b7a72" text-anchor="middle">${note}</text>`)
+      parts.push(`<line x1="${x}" y1="204" x2="${x}" y2="118" stroke="#5eead4" stroke-width="1"/>`)
+      parts.push(`<text x="${x}" y="80" font-size="12" font-weight="600" fill="#0f766e" text-anchor="middle">${yr}</text>`)
+      parts.push(`<text x="${x}" y="96" font-size="11.5" fill="#0d9488" text-anchor="middle">${name}</text>`)
+      parts.push(`<text x="${x}" y="111" font-size="10" fill="#0d9488" text-anchor="middle">${note}</text>`)
     } else {
-      parts.push(`<line x1="${x}" y1="216" x2="${x}" y2="238" stroke="#b9c4bd" stroke-width="1"/>`)
-      parts.push(`<text x="${x}" y="254" font-size="12" font-weight="600" fill="#123f35" text-anchor="middle">${yr}</text>`)
-      parts.push(`<text x="${x}" y="270" font-size="11.5" fill="#1f5c4d" text-anchor="middle">${name}</text>`)
-      parts.push(`<text x="${x}" y="285" font-size="10" fill="#6b7a72" text-anchor="middle">${note}</text>`)
+      parts.push(`<line x1="${x}" y1="216" x2="${x}" y2="238" stroke="#5eead4" stroke-width="1"/>`)
+      parts.push(`<text x="${x}" y="254" font-size="12" font-weight="600" fill="#0f766e" text-anchor="middle">${yr}</text>`)
+      parts.push(`<text x="${x}" y="270" font-size="11.5" fill="#0d9488" text-anchor="middle">${name}</text>`)
+      parts.push(`<text x="${x}" y="285" font-size="10" fill="#0d9488" text-anchor="middle">${note}</text>`)
     }
   }
   parts.push('</svg>')
@@ -293,7 +293,7 @@ function capstone3601Svg(): string {
   parts.push(
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One number, five systems: how 3,601 is written in hieroglyphs, Roman numerals, Babylonian, Mayan and decimal notation, and what each does with the empty tens place">'
   )
-  parts.push('<text x="360" y="28" font-size="14" font-weight="700" fill="#123f35" text-anchor="middle">One number, five systems: 3,601</text>')
+  parts.push('<text x="360" y="28" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">One number, five systems: 3,601</text>')
   const rows: Array<[string, string, string, string]> = [
     ['Hieroglyphs', '3 fingers, 6 coils, 1 stroke', '10 symbols — the empty tens place', 'simply vanishes'],
     ['Roman', 'MMMDCI', '6 letters — additive classes, no zero', 'is ever needed'],
@@ -303,13 +303,13 @@ function capstone3601Svg(): string {
   ]
   rows.forEach(([sys, spelling, note1, note2], i) => {
     const y = 44 + i * 56
-    parts.push(`<rect x="36" y="${y}" width="648" height="46" rx="6" fill="${i % 2 === 0 ? '#f7f3ea' : '#fdfbf5'}" stroke="#d8d2c2" stroke-width="1"/>`)
-    parts.push(`<text x="56" y="${y + 28}" font-size="12.5" font-weight="600" fill="#123f35">${sys}</text>`)
-    parts.push(`<text x="238" y="${y + 28}" font-size="13" font-weight="600" fill="#1f5c4d" text-anchor="middle">${spelling}</text>`)
-    parts.push(`<text x="424" y="${y + 19}" font-size="10.5" fill="#6b7a72">${note1}</text>`)
-    parts.push(`<text x="424" y="${y + 34}" font-size="10.5" fill="#6b7a72">${note2}</text>`)
+    parts.push(`<rect x="36" y="${y}" width="648" height="46" rx="6" fill="${i % 2 === 0 ? '#f7f3ea' : '#fdfbf5'}" stroke="#fcd34d" stroke-width="1"/>`)
+    parts.push(`<text x="56" y="${y + 28}" font-size="12.5" font-weight="600" fill="#0f766e">${sys}</text>`)
+    parts.push(`<text x="238" y="${y + 28}" font-size="13" font-weight="600" fill="#0d9488" text-anchor="middle">${spelling}</text>`)
+    parts.push(`<text x="424" y="${y + 19}" font-size="10.5" fill="#0d9488">${note1}</text>`)
+    parts.push(`<text x="424" y="${y + 34}" font-size="10.5" fill="#0d9488">${note2}</text>`)
   })
-  parts.push('<text x="360" y="332" font-size="11" fill="#9a6b2f" text-anchor="middle">only the decimal name is a single number — the tenth digit pins every scale</text>')
+  parts.push('<text x="360" y="332" font-size="11" fill="#d97706" text-anchor="middle">only the decimal name is a single number — the tenth digit pins every scale</text>')
   parts.push('</svg>')
   return parts.join('')
 }

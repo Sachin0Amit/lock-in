@@ -56,14 +56,14 @@ function fourHatsSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="448" fill="transparent"/>')
   // connectors first (under the boxes)
-  parts.push('<line x1="270" y1="170" x2="210" y2="100" stroke="#9a6b2f" stroke-width="1.3" stroke-dasharray="4 3"/>')
-  parts.push('<line x1="450" y1="170" x2="510" y2="100" stroke="#9a6b2f" stroke-width="1.3" stroke-dasharray="4 3"/>')
-  parts.push('<line x1="270" y1="262" x2="210" y2="330" stroke="#9a6b2f" stroke-width="1.3" stroke-dasharray="4 3"/>')
-  parts.push('<line x1="450" y1="262" x2="510" y2="330" stroke="#9a6b2f" stroke-width="1.3" stroke-dasharray="4 3"/>')
+  parts.push('<line x1="270" y1="170" x2="210" y2="100" stroke="#d97706" stroke-width="1.3" stroke-dasharray="4 3"/>')
+  parts.push('<line x1="450" y1="170" x2="510" y2="100" stroke="#d97706" stroke-width="1.3" stroke-dasharray="4 3"/>')
+  parts.push('<line x1="270" y1="262" x2="210" y2="330" stroke="#d97706" stroke-width="1.3" stroke-dasharray="4 3"/>')
+  parts.push('<line x1="450" y1="262" x2="510" y2="330" stroke="#d97706" stroke-width="1.3" stroke-dasharray="4 3"/>')
   // the centre letter box
-  parts.push('<rect x="250" y="165" width="220" height="100" rx="8" fill="none" stroke="#3f6212" stroke-width="2"/>')
-  parts.push('<text x="360" y="222" font-size="40" fill="#365314" text-anchor="middle" font-weight="700" font-style="italic">x</text>')
-  parts.push('<text x="360" y="250" font-size="12" fill="#6b7a72" text-anchor="middle">one letter — four jobs</text>')
+  parts.push('<rect x="250" y="165" width="220" height="100" rx="8" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<text x="360" y="222" font-size="40" fill="#166534" text-anchor="middle" font-weight="700" font-style="italic">x</text>')
+  parts.push('<text x="360" y="250" font-size="12" fill="#0d9488" text-anchor="middle">one letter — four jobs</text>')
   // the four stations
   const stations: [number, number, string, string, string][] = [
     [24, 12, 'The placeholder', 'let x = 7 — a chosen value', 'then 3x folds to 21'],
@@ -72,14 +72,14 @@ function fourHatsSvg(): string {
     [490, 326, 'The unknown', '3x + 1 = 31 (FM 11.3)', 'the secret — solved in ch. 5'],
   ]
   for (const [x, y, title, l1, l2] of stations) {
-    parts.push(`<rect x="${x}" y="${y}" width="205" height="88" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${x + 12}" y="${y + 26}" font-size="13.5" fill="#365314" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${x + 12}" y="${y + 50}" font-size="11.5" fill="#4d7c0f">${l1}</text>`)
-    parts.push(`<text x="${x + 12}" y="${y + 70}" font-size="11.5" fill="#6b7a72">${l2}</text>`)
+    parts.push(`<rect x="${x}" y="${y}" width="205" height="88" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 12}" y="${y + 26}" font-size="13.5" fill="#166534" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 12}" y="${y + 50}" font-size="11.5" fill="#65a30d">${l1}</text>`)
+    parts.push(`<text x="${x + 12}" y="${y + 70}" font-size="11.5" fill="#0d9488">${l2}</text>`)
   }
   // footer (y = 436 clears the station boxes, which end at y = 414)
   parts.push(
-    '<text x="360" y="436" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">read the sentence, spot the hat — every letter sentence announces its role</text>'
+    '<text x="360" y="436" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">read the sentence, spot the hat — every letter sentence announces its role</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -100,14 +100,14 @@ function lawFanSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="380" fill="transparent"/>')
   // the law band
-  parts.push('<rect x="110" y="16" width="500" height="42" rx="8" fill="none" stroke="#3f6212" stroke-width="1.8"/>')
+  parts.push('<rect x="110" y="16" width="500" height="42" rx="8" fill="none" stroke="#16a34a" stroke-width="1.8"/>')
   parts.push(
-    '<text x="360" y="43" font-size="15" fill="#365314" text-anchor="middle" font-weight="700">a(b + c) = ab + ac — the distributive law, in letters</text>'
+    '<text x="360" y="43" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">a(b + c) = ab + ac — the distributive law, in letters</text>'
   )
   // the fan lines
   const cardX = [20, 159, 298, 437, 576]
   for (const x of cardX) {
-    parts.push(`<line x1="360" y1="58" x2="${x + 62}" y2="128" stroke="#9a6b2f" stroke-width="1.2"/>`)
+    parts.push(`<line x1="360" y1="58" x2="${x + 62}" y2="128" stroke="#d97706" stroke-width="1.2"/>`)
   }
   // the five instance cards
   const cards: [string, string, string][] = [
@@ -120,20 +120,20 @@ function lawFanSvg(): string {
   for (let i = 0; i < cardX.length; i++) {
     const x = cardX[i]
     const [l1, l2, l3] = cards[i]
-    parts.push(`<rect x="${x}" y="128" width="124" height="74" rx="6" fill="none" stroke="#3f6212" stroke-width="1.2"/>`)
-    parts.push(`<text x="${x + 62}" y="${128 + 24}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="600">${l1}</text>`)
-    parts.push(`<text x="${x + 62}" y="${128 + 46}" font-size="11.5" fill="#4d7c0f" text-anchor="middle">${l2}</text>`)
-    parts.push(`<text x="${x + 62}" y="${128 + 64}" font-size="11" fill="#6b7a72" text-anchor="middle">${l3}</text>`)
+    parts.push(`<rect x="${x}" y="128" width="124" height="74" rx="6" fill="none" stroke="#16a34a" stroke-width="1.2"/>`)
+    parts.push(`<text x="${x + 62}" y="${128 + 24}" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="600">${l1}</text>`)
+    parts.push(`<text x="${x + 62}" y="${128 + 46}" font-size="11.5" fill="#65a30d" text-anchor="middle">${l2}</text>`)
+    parts.push(`<text x="${x + 62}" y="${128 + 64}" font-size="11" fill="#0d9488" text-anchor="middle">${l3}</text>`)
   }
   // footers
   parts.push(
-    '<text x="360" y="292" font-size="11.5" fill="#6b7a72" text-anchor="middle">five cases, five agreements — and the script sweep ran all 6,859 triples of [−9..9]³ without one dissent</text>'
+    '<text x="360" y="292" font-size="11.5" fill="#0d9488" text-anchor="middle">five cases, five agreements — and the script sweep ran all 6,859 triples of [−9..9]³ without one dissent</text>'
   )
   parts.push(
-    '<text x="360" y="320" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">the letter sentence covers every case at once — the instances only make it visible</text>'
+    '<text x="360" y="320" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">the letter sentence covers every case at once — the instances only make it visible</text>'
   )
   parts.push(
-    '<text x="360" y="352" font-size="11" fill="#6b7a72" text-anchor="middle">swept by script (verify-book3-ch01.ts, section C): a ∈ [−9..9], b, c ∈ [−9..9]</text>'
+    '<text x="360" y="352" font-size="11" fill="#0d9488" text-anchor="middle">swept by script (verify-book3-ch01.ts, section C): a ∈ [−9..9], b, c ∈ [−9..9]</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -154,14 +154,14 @@ function treeSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="430" fill="transparent"/>')
   // connectors (under the nodes)
-  parts.push('<line x1="340" y1="68" x2="190" y2="128" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="384" y1="68" x2="552" y2="128" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="148" y1="172" x2="86" y2="232" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="190" y1="172" x2="278" y2="232" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="52" y1="276" x2="56" y2="336" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="92" y1="276" x2="164" y2="336" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="246" y1="276" x2="310" y2="336" stroke="#9a6b2f" stroke-width="1.3"/>')
-  parts.push('<line x1="288" y1="276" x2="418" y2="336" stroke="#9a6b2f" stroke-width="1.3"/>')
+  parts.push('<line x1="340" y1="68" x2="190" y2="128" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="384" y1="68" x2="552" y2="128" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="148" y1="172" x2="86" y2="232" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="190" y1="172" x2="278" y2="232" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="52" y1="276" x2="56" y2="336" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="92" y1="276" x2="164" y2="336" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="246" y1="276" x2="310" y2="336" stroke="#d97706" stroke-width="1.3"/>')
+  parts.push('<line x1="288" y1="276" x2="418" y2="336" stroke="#d97706" stroke-width="1.3"/>')
   // nodes: [x, y, label, isLeaf]
   const nodes: [number, number, string, boolean][] = [
     [312, 24, '−', false],
@@ -175,14 +175,14 @@ function treeSvg(): string {
     [370, 336, 'x', true],
   ]
   for (const [x, y, label, isLeaf] of nodes) {
-    parts.push(`<rect x="${x}" y="${y}" width="96" height="44" rx="8" fill="none" stroke="${isLeaf ? '#9a6b2f' : '#3f6212'}" stroke-width="${isLeaf ? 1.4 : 1.8}"/>`)
+    parts.push(`<rect x="${x}" y="${y}" width="96" height="44" rx="8" fill="none" stroke="${isLeaf ? '#d97706' : '#16a34a'}" stroke-width="${isLeaf ? 1.4 : 1.8}"/>`)
     parts.push(
-      `<text x="${x + 48}" y="${y + 30}" font-size="${isLeaf ? 17 : 19}" fill="${isLeaf ? '#7c5a2e' : '#365314'}" text-anchor="middle" font-weight="700"${label === 'x' ? ' font-style="italic"' : ''}>${label}</text>`
+      `<text x="${x + 48}" y="${y + 30}" font-size="${isLeaf ? 17 : 19}" fill="${isLeaf ? '#d97706' : '#166534'}" text-anchor="middle" font-weight="700"${label === 'x' ? ' font-style="italic"' : ''}>${label}</text>`
     )
   }
   // footer
   parts.push(
-    '<text x="360" y="412" font-size="12" fill="#365314" text-anchor="middle" font-weight="600">fold bottom-up: 3·x and 2·x build the twins, the plus joins them, the minus takes 4 — one tree, one value</text>'
+    '<text x="360" y="412" font-size="12" fill="#166534" text-anchor="middle" font-weight="600">fold bottom-up: 3·x and 2·x build the twins, the plus joins them, the minus takes 4 — one tree, one value</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -203,13 +203,13 @@ function sieveSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="400" fill="transparent"/>')
   // hopper
-  parts.push('<rect x="250" y="16" width="220" height="48" rx="8" fill="none" stroke="#3f6212" stroke-width="1.8"/>')
-  parts.push('<text x="360" y="45" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">the terms of 5a + 3b − 2a + b</text>')
+  parts.push('<rect x="250" y="16" width="220" height="48" rx="8" fill="none" stroke="#16a34a" stroke-width="1.8"/>')
+  parts.push('<text x="360" y="45" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">the terms of 5a + 3b − 2a + b</text>')
   // chip-to-bucket rails (under the chips)
-  parts.push('<line x1="150" y1="156" x2="180" y2="224" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="270" y1="156" x2="230" y2="224" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="460" y1="156" x2="520" y2="224" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="580" y1="156" x2="560" y2="224" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<line x1="150" y1="156" x2="180" y2="224" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="270" y1="156" x2="230" y2="224" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="460" y1="156" x2="520" y2="224" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="580" y1="156" x2="560" y2="224" stroke="#d97706" stroke-width="1.2"/>')
   // term chips
   const chips: [number, string][] = [
     [110, '5a'],
@@ -218,8 +218,8 @@ function sieveSvg(): string {
     [540, 'b'],
   ]
   for (const [x, label] of chips) {
-    parts.push(`<rect x="${x}" y="120" width="80" height="36" rx="6" fill="none" stroke="#3f6212" stroke-width="1.4"/>`)
-    parts.push(`<text x="${x + 40}" y="${120 + 24}" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">${label}</text>`)
+    parts.push(`<rect x="${x}" y="120" width="80" height="36" rx="6" fill="none" stroke="#16a34a" stroke-width="1.4"/>`)
+    parts.push(`<text x="${x + 40}" y="${120 + 24}" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">${label}</text>`)
   }
   // the two family buckets
   const buckets: [number, string, string][] = [
@@ -227,14 +227,14 @@ function sieveSvg(): string {
     [420, 'the b-family', '3b + b = 4b'],
   ]
   for (const [x, title, line] of buckets) {
-    parts.push(`<rect x="${x}" y="224" width="240" height="120" rx="8" fill="none" stroke="#3f6212" stroke-width="1.8"/>`)
-    parts.push(`<text x="${x + 120}" y="${224 + 38}" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${x + 120}" y="${224 + 72}" font-size="14" fill="#4d7c0f" text-anchor="middle" font-weight="600">${line}</text>`)
-    parts.push(`<text x="${x + 120}" y="${224 + 96}" font-size="11.5" fill="#6b7a72" text-anchor="middle">the common letter part collects</text>`)
+    parts.push(`<rect x="${x}" y="224" width="240" height="120" rx="8" fill="none" stroke="#16a34a" stroke-width="1.8"/>`)
+    parts.push(`<text x="${x + 120}" y="${224 + 38}" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 120}" y="${224 + 72}" font-size="14" fill="#65a30d" text-anchor="middle" font-weight="600">${line}</text>`)
+    parts.push(`<text x="${x + 120}" y="${224 + 96}" font-size="11.5" fill="#0d9488" text-anchor="middle">the common letter part collects</text>`)
   }
   // footer
   parts.push(
-    '<text x="360" y="380" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">sort by the letter part, collect each family, keep unlike families separate — the simplify contract</text>'
+    '<text x="360" y="380" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">sort by the letter part, collect each family, keep unlike families separate — the simplify contract</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -261,19 +261,19 @@ function machineSvg(): string {
   ]
   for (let i = 0; i < rows.length; i++) {
     const y = 60 + i * 80
-    parts.push(`<line x1="160" y1="${y + 22}" x2="300" y2="${120 + (i - 1.5) * 18 + 60}" stroke="#9a6b2f" stroke-width="1.2"/>`)
-    parts.push(`<rect x="40" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#9a6b2f" stroke-width="1.4"/>`)
-    parts.push(`<text x="100" y="${y + 28}" font-size="14" fill="#7c5a2e" text-anchor="middle" font-weight="600">${rows[i][0]}</text>`)
-    parts.push(`<rect x="560" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.6"/>`)
-    parts.push(`<text x="620" y="${y + 28}" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">₹ ${rows[i][1]}</text>`)
-    parts.push(`<line x1="520" y1="${120 + (i - 1.5) * 18 + 60}" x2="560" y2="${y + 22}" stroke="#9a6b2f" stroke-width="1.2"/>`)
+    parts.push(`<line x1="160" y1="${y + 22}" x2="300" y2="${120 + (i - 1.5) * 18 + 60}" stroke="#d97706" stroke-width="1.2"/>`)
+    parts.push(`<rect x="40" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#d97706" stroke-width="1.4"/>`)
+    parts.push(`<text x="100" y="${y + 28}" font-size="14" fill="#d97706" text-anchor="middle" font-weight="600">${rows[i][0]}</text>`)
+    parts.push(`<rect x="560" y="${y}" width="120" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.6"/>`)
+    parts.push(`<text x="620" y="${y + 28}" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">₹ ${rows[i][1]}</text>`)
+    parts.push(`<line x1="520" y1="${120 + (i - 1.5) * 18 + 60}" x2="560" y2="${y + 22}" stroke="#d97706" stroke-width="1.2"/>`)
   }
-  parts.push('<rect x="300" y="120" width="220" height="120" rx="10" fill="none" stroke="#3f6212" stroke-width="2.2"/>')
-  parts.push('<text x="410" y="170" font-size="17" fill="#365314" text-anchor="middle" font-weight="700">C = 50 + 12k</text>')
-  parts.push('<text x="410" y="196" font-size="12.5" fill="#4d7c0f" text-anchor="middle">the taxi machine</text>')
-  parts.push('<text x="410" y="218" font-size="11.5" fill="#6b7a72" text-anchor="middle">fold once per input</text>')
+  parts.push('<rect x="300" y="120" width="220" height="120" rx="10" fill="none" stroke="#16a34a" stroke-width="2.2"/>')
+  parts.push('<text x="410" y="170" font-size="17" fill="#166534" text-anchor="middle" font-weight="700">C = 50 + 12k</text>')
+  parts.push('<text x="410" y="196" font-size="12.5" fill="#65a30d" text-anchor="middle">the taxi machine</text>')
+  parts.push('<text x="410" y="218" font-size="11.5" fill="#0d9488" text-anchor="middle">fold once per input</text>')
   parts.push(
-    '<text x="360" y="336" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">one fold per input — the formula answers for every k at once</text>'
+    '<text x="360" y="336" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">one fold per input — the formula answers for every k at once</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -294,7 +294,7 @@ function anchorScaleSvg(): string {
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
   // the ruler: F from 20 to 240 maps to x 60..660
   const fx = (f: number) => 60 + ((f - 20) / 220) * 600
-  parts.push(`<line x1="60" y1="150" x2="660" y2="150" stroke="#1f5c4d" stroke-width="2"/>`)
+  parts.push(`<line x1="60" y1="150" x2="660" y2="150" stroke="#0d9488" stroke-width="2"/>`)
   const anchors: [number, string, string, string][] = [
     [32, 'freezing', '32 °F', '0 °C'],
     [68, 'room', '68 °F', '20 °C'],
@@ -303,18 +303,18 @@ function anchorScaleSvg(): string {
   ]
   for (const [f, name, fLabel, cLabel] of anchors) {
     const x = fx(f)
-    parts.push(`<circle cx="${x}" cy="150" r="5" fill="none" stroke="#3f6212" stroke-width="2"/>`)
-    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="112" stroke="#9a6b2f" stroke-width="1.2"/>`)
-    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="188" stroke="#9a6b2f" stroke-width="1.2"/>`)
-    parts.push(`<text x="${x}" y="102" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${fLabel}</text>`)
-    parts.push(`<text x="${x}" y="120" font-size="11" fill="#6b7a72" text-anchor="middle">${name}</text>`)
-    parts.push(`<text x="${x}" y="212" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">${cLabel}</text>`)
+    parts.push(`<circle cx="${x}" cy="150" r="5" fill="none" stroke="#16a34a" stroke-width="2"/>`)
+    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="112" stroke="#d97706" stroke-width="1.2"/>`)
+    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="188" stroke="#d97706" stroke-width="1.2"/>`)
+    parts.push(`<text x="${x}" y="102" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${fLabel}</text>`)
+    parts.push(`<text x="${x}" y="120" font-size="11" fill="#0d9488" text-anchor="middle">${name}</text>`)
+    parts.push(`<text x="${x}" y="212" font-size="12.5" fill="#65a30d" text-anchor="middle" font-weight="700">${cLabel}</text>`)
   }
   parts.push(
-    '<text x="360" y="258" font-size="12" fill="#365314" text-anchor="middle" font-weight="600">C = (F − 32) × 5/9 folds each upper mark to its lower partner — the anchors certify the machine</text>'
+    '<text x="360" y="258" font-size="12" fill="#166534" text-anchor="middle" font-weight="600">C = (F − 32) × 5/9 folds each upper mark to its lower partner — the anchors certify the machine</text>'
   )
   parts.push(
-    '<text x="360" y="288" font-size="11.5" fill="#6b7a72" text-anchor="middle">verified in tenths: (98.6 − 32) × 5/9 = 66.6 × 5/9 = 37.0 exactly</text>'
+    '<text x="360" y="288" font-size="11.5" fill="#0d9488" text-anchor="middle">verified in tenths: (98.6 − 32) × 5/9 = 66.6 × 5/9 = 37.0 exactly</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -333,9 +333,9 @@ function pipelineSvg(): string {
     '<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The translation pipeline: the taxi sentence flows through four stations — name the unknown, find the is, translate the phrases, plausibility check — landing on the machine C equals 50 plus 12k">'
   )
   parts.push('<rect x="0" y="0" width="720" height="400" fill="transparent"/>')
-  parts.push('<rect x="110" y="16" width="500" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.8"/>')
+  parts.push('<rect x="110" y="16" width="500" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.8"/>')
   parts.push(
-    '<text x="360" y="43" font-size="12" fill="#365314" text-anchor="middle" font-weight="600">"A taxi starts at ₹50 and adds ₹12 per km; a ride cost ₹194."</text>'
+    '<text x="360" y="43" font-size="12" fill="#166534" text-anchor="middle" font-weight="600">"A taxi starts at ₹50 and adds ₹12 per km; a ride cost ₹194."</text>'
   )
   const stations: [number, string, string, string][] = [
     [8, '1 — name the unknown', 'the kilometres k', 'placeholder (1.1)'],
@@ -345,22 +345,22 @@ function pipelineSvg(): string {
   ]
   for (let i = 0; i < stations.length; i++) {
     const [x, title, line1, line2] = stations[i]
-    parts.push(`<rect x="${x}" y="120" width="156" height="92" rx="8" fill="none" stroke="#3f6212" stroke-width="1.6"/>`)
-    parts.push(`<text x="${x + 78}" y="146" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${x + 78}" y="172" font-size="11.5" fill="#4d7c0f" text-anchor="middle">${line1}</text>`)
-    parts.push(`<text x="${x + 78}" y="192" font-size="11" fill="#6b7a72" text-anchor="middle">${line2}</text>`)
+    parts.push(`<rect x="${x}" y="120" width="156" height="92" rx="8" fill="none" stroke="#16a34a" stroke-width="1.6"/>`)
+    parts.push(`<text x="${x + 78}" y="146" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 78}" y="172" font-size="11.5" fill="#65a30d" text-anchor="middle">${line1}</text>`)
+    parts.push(`<text x="${x + 78}" y="192" font-size="11" fill="#0d9488" text-anchor="middle">${line2}</text>`)
     if (i < stations.length - 1) {
       const x1 = x + 156
       const x2 = x + 182
-      parts.push(`<line x1="${x1}" y1="166" x2="${x2}" y2="166" stroke="#9a6b2f" stroke-width="1.6"/>`)
-      parts.push(`<path d="M ${x2 + 8} 166 L ${x2 - 2} 161 L ${x2 - 2} 171 Z" fill="#9a6b2f"/>`)
+      parts.push(`<line x1="${x1}" y1="166" x2="${x2}" y2="166" stroke="#d97706" stroke-width="1.6"/>`)
+      parts.push(`<path d="M ${x2 + 8} 166 L ${x2 - 2} 161 L ${x2 - 2} 171 Z" fill="#d97706"/>`)
     }
   }
   parts.push(
-    '<text x="360" y="288" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">50 + 12k = 194 — the story is now a lawful sentence</text>'
+    '<text x="360" y="288" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">50 + 12k = 194 — the story is now a lawful sentence</text>'
   )
   parts.push(
-    '<text x="360" y="380" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">name, verb, phrases, plausibility — the pipeline turns every word problem into algebra</text>'
+    '<text x="360" y="380" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">name, verb, phrases, plausibility — the pipeline turns every word problem into algebra</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -380,12 +380,12 @@ function twinsSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="380" fill="transparent"/>')
   // left panel
-  parts.push('<rect x="24" y="16" width="330" height="300" rx="10" fill="none" stroke="#3f6212" stroke-width="1.6"/>')
-  parts.push('<text x="189" y="46" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">"twice the sum of x and 3"</text>')
-  parts.push('<line x1="189" y1="96" x2="129" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="189" y1="96" x2="249" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="129" y1="176" x2="81" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="129" y1="176" x2="177" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<rect x="24" y="16" width="330" height="300" rx="10" fill="none" stroke="#16a34a" stroke-width="1.6"/>')
+  parts.push('<text x="189" y="46" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">"twice the sum of x and 3"</text>')
+  parts.push('<line x1="189" y1="96" x2="129" y2="140" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="189" y1="96" x2="249" y2="140" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="129" y1="176" x2="81" y2="216" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="129" y1="176" x2="177" y2="216" stroke="#d97706" stroke-width="1.2"/>')
   const leftNodes: [number, number, string][] = [
     [149, 60, '×'],
     [89, 140, '+'],
@@ -394,17 +394,17 @@ function twinsSvg(): string {
     [137, 216, '3'],
   ]
   for (const [x, y, label] of leftNodes) {
-    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#3f6212' : '#9a6b2f'}" stroke-width="1.4"/>`)
-    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#365314' : '#7c5a2e'}" text-anchor="middle" font-weight="700">${label}</text>`)
+    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#16a34a' : '#d97706'}" stroke-width="1.4"/>`)
+    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#166534' : '#d97706'}" text-anchor="middle" font-weight="700">${label}</text>`)
   }
-  parts.push('<text x="189" y="292" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">2(x + 3) = 14 at x = 4</text>')
+  parts.push('<text x="189" y="292" font-size="12.5" fill="#65a30d" text-anchor="middle" font-weight="700">2(x + 3) = 14 at x = 4</text>')
   // right panel
-  parts.push('<rect x="366" y="16" width="330" height="300" rx="10" fill="none" stroke="#3f6212" stroke-width="1.6"/>')
-  parts.push('<text x="531" y="46" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">"the sum of twice x and 3"</text>')
-  parts.push('<line x1="531" y1="96" x2="471" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="531" y1="96" x2="591" y2="140" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="471" y1="176" x2="439" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
-  parts.push('<line x1="471" y1="176" x2="527" y2="216" stroke="#9a6b2f" stroke-width="1.2"/>')
+  parts.push('<rect x="366" y="16" width="330" height="300" rx="10" fill="none" stroke="#16a34a" stroke-width="1.6"/>')
+  parts.push('<text x="531" y="46" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">"the sum of twice x and 3"</text>')
+  parts.push('<line x1="531" y1="96" x2="471" y2="140" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="531" y1="96" x2="591" y2="140" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="471" y1="176" x2="439" y2="216" stroke="#d97706" stroke-width="1.2"/>')
+  parts.push('<line x1="471" y1="176" x2="527" y2="216" stroke="#d97706" stroke-width="1.2"/>')
   const rightNodes: [number, number, string][] = [
     [491, 60, '+'],
     [431, 140, '×'],
@@ -413,12 +413,12 @@ function twinsSvg(): string {
     [487, 216, 'x'],
   ]
   for (const [x, y, label] of rightNodes) {
-    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#3f6212' : '#9a6b2f'}" stroke-width="1.4"/>`)
-    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#365314' : '#7c5a2e'}" text-anchor="middle" font-weight="700">${label}</text>`)
+    parts.push(`<rect x="${x}" y="${y}" width="80" height="36" rx="7" fill="none" stroke="${label === '×' || label === '+' ? '#16a34a' : '#d97706'}" stroke-width="1.4"/>`)
+    parts.push(`<text x="${x + 40}" y="${y + 25}" font-size="14" fill="${label === '×' || label === '+' ? '#166534' : '#d97706'}" text-anchor="middle" font-weight="700">${label}</text>`)
   }
-  parts.push('<text x="531" y="292" font-size="12.5" fill="#4d7c0f" text-anchor="middle" font-weight="700">2x + 3 = 11 at x = 4</text>')
+  parts.push('<text x="531" y="292" font-size="12.5" fill="#65a30d" text-anchor="middle" font-weight="700">2x + 3 = 11 at x = 4</text>')
   parts.push(
-    '<text x="360" y="348" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="600">same words, reshuffled — different trees, different numbers: brackets are the translation\'s grammar</text>'
+    '<text x="360" y="348" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="600">same words, reshuffled — different trees, different numbers: brackets are the translation\'s grammar</text>'
   )
   parts.push('</svg>')
   return parts.join('')

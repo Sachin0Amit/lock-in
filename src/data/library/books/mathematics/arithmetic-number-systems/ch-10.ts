@@ -50,10 +50,10 @@ function repairMapSvg(): string {
   parts.push('<rect x="0" y="0" width="720" height="520" fill="transparent"/>')
   // the unrepaired gate above ℝ
   parts.push(
-    '<rect x="110" y="10" width="500" height="30" rx="6" fill="none" stroke="#9a6b2f" stroke-width="1.5" stroke-dasharray="5 4"/>'
+    '<rect x="110" y="10" width="500" height="30" rx="6" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 4"/>'
   )
   parts.push(
-    '<text x="360" y="30" font-size="12.5" fill="#9a6b2f" text-anchor="middle" font-weight="600">beyond the ladder: x² = −1 — no ordered system answers it (ℂ hands off)</text>'
+    '<text x="360" y="30" font-size="12.5" fill="#d97706" text-anchor="middle" font-weight="600">beyond the ladder: x² = −1 — no ordered system answers it (ℂ hands off)</text>'
   )
   // the four bands: [yTop, label, rightText]
   const bands: [number, string, string][] = [
@@ -64,12 +64,12 @@ function repairMapSvg(): string {
   ]
   for (const [y, label, right] of bands) {
     parts.push(
-      `<rect x="140" y="${y}" width="440" height="52" rx="6" fill="none" stroke="#1f5c4d" stroke-width="1.8"/>`
+      `<rect x="140" y="${y}" width="440" height="52" rx="6" fill="none" stroke="#0d9488" stroke-width="1.8"/>`
     )
     parts.push(
-      `<text x="160" y="${y + 32}" font-size="14.5" fill="#123f35" font-weight="600">${label}</text>`
+      `<text x="160" y="${y + 32}" font-size="14.5" fill="#0f766e" font-weight="600">${label}</text>`
     )
-    parts.push(`<text x="560" y="${y + 32}" font-size="12" fill="#6b7a72" text-anchor="end">${right}</text>`)
+    parts.push(`<text x="560" y="${y + 32}" font-size="12" fill="#0d9488" text-anchor="end">${right}</text>`)
   }
   // the three failure gates between bands: arrow up + failure (left) + new power (right)
   // gapTop = band above's bottom edge; failure baseline gapTop+20, power baseline gapTop+42
@@ -80,23 +80,23 @@ function repairMapSvg(): string {
   ]
   for (const [gapTop, fail, power] of gates) {
     parts.push(
-      `<line x1="200" y1="${gapTop + 52}" x2="200" y2="${gapTop + 8}" stroke="#9a6b2f" stroke-width="2"/>`
+      `<line x1="200" y1="${gapTop + 52}" x2="200" y2="${gapTop + 8}" stroke="#d97706" stroke-width="2"/>`
     )
     parts.push(
-      `<path d="M 200 ${gapTop + 2} L 195 ${gapTop + 13} L 205 ${gapTop + 13} Z" fill="#9a6b2f"/>`
+      `<path d="M 200 ${gapTop + 2} L 195 ${gapTop + 13} L 205 ${gapTop + 13} Z" fill="#d97706"/>`
     )
     parts.push(
-      `<text x="222" y="${gapTop + 24}" font-size="12" fill="#9a3412">${fail}</text>`
+      `<text x="222" y="${gapTop + 24}" font-size="12" fill="#dc2626">${fail}</text>`
     )
-    parts.push(`<text x="222" y="${gapTop + 46}" font-size="12" fill="#1f5c4d">${power}</text>`)
+    parts.push(`<text x="222" y="${gapTop + 46}" font-size="12" fill="#0d9488">${power}</text>`)
   }
   // the embedding note + permanence footer (two straight lines under the ladder —
   // no rotated text: the overlap audit reads pre-transform boxes)
   parts.push(
-    '<text x="360" y="490" font-size="11.5" fill="#6b7a72" text-anchor="middle">each arrow embeds the old system unchanged — n ↦ [(n, 0)], then n ↦ (n, 1)</text>'
+    '<text x="360" y="490" font-size="11.5" fill="#0d9488" text-anchor="middle">each arrow embeds the old system unchanged — n ↦ [(n, 0)], then n ↦ (n, 1)</text>'
   )
   parts.push(
-    '<text x="360" y="508" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">the permanence charter: every law of the old system is a law of the new one — nothing old breaks</text>'
+    '<text x="360" y="508" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">the permanence charter: every law of the old system is a law of the new one — nothing old breaks</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -126,14 +126,14 @@ function residueWheelSvg(): string {
     return [cx + rr * Math.cos(a), cy + rr * Math.sin(a)]
   }
   // the circle + 9 stations
-  parts.push(`<circle cx="${cx}" cy="${cy}" r="${rr}" fill="none" stroke="#1f5c4d" stroke-width="1.8"/>`)
+  parts.push(`<circle cx="${cx}" cy="${cy}" r="${rr}" fill="none" stroke="#0d9488" stroke-width="1.8"/>`)
   for (let k = 0; k < 9; k++) {
     const [x, y] = pos(k)
-    parts.push(`<circle cx="${x}" cy="${y}" r="10" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.5"/>`)
+    parts.push(`<circle cx="${x}" cy="${y}" r="10" fill="#fef3c7" stroke="#0d9488" stroke-width="1.5"/>`)
     const lx = cx + (rr + 24) * Math.cos(((-90 + k * 40) * Math.PI) / 180)
     const ly = cy + (rr + 24) * Math.sin(((-90 + k * 40) * Math.PI) / 180)
     parts.push(
-      `<text x="${lx}" y="${ly + 4}" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">${k}</text>`
+      `<text x="${lx}" y="${ly + 4}" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">${k}</text>`
     )
   }
   // the digit walk of 8,234: 0 → 8 → 1 → 4 → 8 (chords, slightly inside)
@@ -145,31 +145,31 @@ function residueWheelSvg(): string {
     const my = y1 + (y2 - y1) * 0.12
     const nx = x1 + (x2 - x1) * 0.88
     const ny = y1 + (y2 - y1) * 0.88
-    parts.push(`<line x1="${x1}" y1="${y1}" x2="${nx}" y2="${ny}" stroke="#9a6b2f" stroke-width="1.6"/>`)
+    parts.push(`<line x1="${x1}" y1="${y1}" x2="${nx}" y2="${ny}" stroke="#d97706" stroke-width="1.6"/>`)
     parts.push(`<path d="M ${x2} ${y2} L ${mx + (nx - mx)} ${my + (ny - my)}" stroke="none"/>`)
     // arrowhead at the target station
     const ang = Math.atan2(y2 - y1, x2 - x1)
     const hx = x2 - 12 * Math.cos(ang)
     const hy = y2 - 12 * Math.sin(ang)
     parts.push(
-      `<path d="M ${hx + 7 * Math.cos(ang)} ${hy + 7 * Math.sin(ang)} L ${hx + 4 * Math.cos(ang) - 4 * Math.sin(ang)} ${hy + 4 * Math.sin(ang) + 4 * Math.cos(ang)} L ${hx + 4 * Math.cos(ang) + 4 * Math.sin(ang)} ${hy + 4 * Math.sin(ang) - 4 * Math.cos(ang)} Z" fill="#9a6b2f"/>`
+      `<path d="M ${hx + 7 * Math.cos(ang)} ${hy + 7 * Math.sin(ang)} L ${hx + 4 * Math.cos(ang) - 4 * Math.sin(ang)} ${hy + 4 * Math.sin(ang) + 4 * Math.cos(ang)} L ${hx + 4 * Math.cos(ang) + 4 * Math.sin(ang)} ${hy + 4 * Math.sin(ang) - 4 * Math.cos(ang)} Z" fill="#d97706"/>`
     )
   }
   // left annotation: the collapse of the place values
   parts.push(
-    '<text x="40" y="52" font-size="12" fill="#1f5c4d" font-weight="600">every power of ten lands on station 1:</text>'
+    '<text x="40" y="52" font-size="12" fill="#0d9488" font-weight="600">every power of ten lands on station 1:</text>'
   )
-  parts.push('<text x="40" y="70" font-size="11.5" fill="#6b7a72">10 ≡ 1, 100 ≡ 1, 1000 ≡ 1 (mod 9)</text>')
-  parts.push('<text x="40" y="88" font-size="11.5" fill="#6b7a72">so a whole string condenses to its digit sum</text>')
+  parts.push('<text x="40" y="70" font-size="11.5" fill="#0d9488">10 ≡ 1, 100 ≡ 1, 1000 ≡ 1 (mod 9)</text>')
+  parts.push('<text x="40" y="88" font-size="11.5" fill="#0d9488">so a whole string condenses to its digit sum</text>')
   // right annotation: the walk read-out
   parts.push(
-    '<text x="452" y="52" font-size="12" fill="#1f5c4d" font-weight="600">the walk of 8,234: 0 +8 → 8, +2 → 1,</text>'
+    '<text x="452" y="52" font-size="12" fill="#0d9488" font-weight="600">the walk of 8,234: 0 +8 → 8, +2 → 1,</text>'
   )
-  parts.push('<text x="452" y="70" font-size="11.5" fill="#6b7a72">+3 → 4, +4 → 8 — station 8 is the residue</text>')
-  parts.push('<text x="452" y="88" font-size="11.5" fill="#6b7a72">of 8,234 in ℤ/9ℤ (its digital root is 8)</text>')
+  parts.push('<text x="452" y="70" font-size="11.5" fill="#0d9488">+3 → 4, +4 → 8 — station 8 is the residue</text>')
+  parts.push('<text x="452" y="88" font-size="11.5" fill="#0d9488">of 8,234 in ℤ/9ℤ (its digital root is 8)</text>')
   // footer
   parts.push(
-    '<text x="360" y="316" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">casting out nines = computing inside ℤ/9ℤ, where every place value is the same station</text>'
+    '<text x="360" y="316" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">casting out nines = computing inside ℤ/9ℤ, where every place value is the same station</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -193,53 +193,53 @@ function isbnEngineSvg(): string {
   const digits = [0, 1, 3, 1, 3, 9, 1, 3, 9, 9]
   const label = ['0', '1', '3', '1', '3', '9', '1', '3', '9', '9']
   parts.push(
-    '<text x="88" y="36" font-size="12.5" fill="#123f35" font-weight="600">Hamming\'s Coding and Information Theory: ISBN 0-13-139139-9</text>'
+    '<text x="88" y="36" font-size="12.5" fill="#0f766e" font-weight="600">Hamming\'s Coding and Information Theory: ISBN 0-13-139139-9</text>'
   )
   for (let i = 0; i < 10; i++) {
     const bx = 88 + i * 52
     parts.push(
-      `<rect x="${bx}" y="56" width="44" height="36" rx="4" fill="none" stroke="#1f5c4d" stroke-width="1.6"/>`
+      `<rect x="${bx}" y="56" width="44" height="36" rx="4" fill="none" stroke="#0d9488" stroke-width="1.6"/>`
     )
     parts.push(
-      `<text x="${bx + 22}" y="80" font-size="17" fill="#123f35" text-anchor="middle" font-weight="600">${label[i]}</text>`
+      `<text x="${bx + 22}" y="80" font-size="17" fill="#0f766e" text-anchor="middle" font-weight="600">${label[i]}</text>`
     )
     parts.push(
-      `<text x="${bx + 22}" y="112" font-size="11.5" fill="#9a6b2f" text-anchor="middle" font-weight="600">× ${10 - i}</text>`
+      `<text x="${bx + 22}" y="112" font-size="11.5" fill="#d97706" text-anchor="middle" font-weight="600">× ${10 - i}</text>`
     )
     if (digits[i] * (10 - i) > 0) {
       parts.push(
-        `<text x="${bx + 22}" y="142" font-size="12" fill="#6b7a72" text-anchor="middle">${digits[i] * (10 - i)}</text>`
+        `<text x="${bx + 22}" y="142" font-size="12" fill="#0d9488" text-anchor="middle">${digits[i] * (10 - i)}</text>`
       )
     } else {
       parts.push(
-        `<text x="${bx + 22}" y="142" font-size="12" fill="#b9c6bd" text-anchor="middle">·</text>`
+        `<text x="${bx + 22}" y="142" font-size="12" fill="#5eead4" text-anchor="middle">·</text>`
       )
     }
   }
   parts.push(
-    '<text x="640" y="80" font-size="11.5" fill="#6b7a72">digits d₁…d₁₀</text>'
+    '<text x="640" y="80" font-size="11.5" fill="#0d9488">digits d₁…d₁₀</text>'
   )
-  parts.push('<text x="640" y="112" font-size="11.5" fill="#6b7a72">weights 10…1</text>')
+  parts.push('<text x="640" y="112" font-size="11.5" fill="#0d9488">weights 10…1</text>')
   // the sum line
   parts.push(
-    '<text x="88" y="176" font-size="13" fill="#123f35" font-weight="600">weighted sum = 0 + 9 + 24 + 7 + 18 + 45 + 4 + 9 + 18 + 9 = 143 = 13 × 11</text>'
+    '<text x="88" y="176" font-size="13" fill="#0f766e" font-weight="600">weighted sum = 0 + 9 + 24 + 7 + 18 + 45 + 4 + 9 + 18 + 9 = 143 = 13 × 11</text>'
   )
   // the gate
   parts.push(
-    '<rect x="88" y="196" width="352" height="34" rx="6" fill="none" stroke="#1f5c4d" stroke-width="1.6"/>'
+    '<rect x="88" y="196" width="352" height="34" rx="6" fill="none" stroke="#0d9488" stroke-width="1.6"/>'
   )
   parts.push(
-    '<text x="264" y="218" font-size="13" fill="#123f35" text-anchor="middle" font-weight="600">143 ≡ 0 (mod 11) → the number PASSES the gate</text>'
+    '<text x="264" y="218" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="600">143 ≡ 0 (mod 11) → the number PASSES the gate</text>'
   )
   // the two error-shift notes
   parts.push(
-    '<text x="88" y="262" font-size="12" fill="#9a3412">a miswritten digit shifts the sum by (f − e) · w — never a multiple of 11 (11 prime, w ≤ 10)</text>'
+    '<text x="88" y="262" font-size="12" fill="#dc2626">a miswritten digit shifts the sum by (f − e) · w — never a multiple of 11 (11 prime, w ≤ 10)</text>'
   )
   parts.push(
-    '<text x="88" y="286" font-size="12" fill="#9a3412">an adjacent swap shifts it by dₖ − dₖ₊₁ — size at most 9, never a multiple of 11</text>'
+    '<text x="88" y="286" font-size="12" fill="#dc2626">an adjacent swap shifts it by dₖ − dₖ₊₁ — size at most 9, never a multiple of 11</text>'
   )
   parts.push(
-    '<text x="88" y="308" font-size="12" fill="#1f5c4d" font-weight="600">both classic human errors are caught — every time (verifier F–I: 900/900, all transpositions)</text>'
+    '<text x="88" y="308" font-size="12" fill="#0d9488" font-weight="600">both classic human errors are caught — every time (verifier F–I: 900/900, all transpositions)</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -284,33 +284,33 @@ function toolkitEngineSvg(): string {
   // input lanes
   for (let i = 0; i < 4; i++) {
     const y = laneY[i]
-    parts.push(`<rect x="20" y="${y}" width="220" height="44" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.4"/>`)
+    parts.push(`<rect x="20" y="${y}" width="220" height="44" rx="6" fill="#fef3c7" stroke="#0d9488" stroke-width="1.4"/>`)
     parts.push(
-      `<text x="130" y="${y + 27}" font-size="12" fill="#123f35" text-anchor="middle" font-weight="600">${inLabels[i]}</text>`
+      `<text x="130" y="${y + 27}" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="600">${inLabels[i]}</text>`
     )
-    parts.push(`<line x1="242" y1="${y + 22}" x2="273" y2="${entryY[i]}" stroke="#9a6b2f" stroke-width="1.5"/>`)
-    arrowHead(277, entryY[i] + (entryY[i] - (y + 22)) * 0.04, 277 - 242, entryY[i] - (y + 22), '#9a6b2f')
+    parts.push(`<line x1="242" y1="${y + 22}" x2="273" y2="${entryY[i]}" stroke="#d97706" stroke-width="1.5"/>`)
+    arrowHead(277, entryY[i] + (entryY[i] - (y + 22)) * 0.04, 277 - 242, entryY[i] - (y + 22), '#d97706')
     // output lane
-    parts.push(`<rect x="500" y="${y}" width="200" height="44" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.4"/>`)
+    parts.push(`<rect x="500" y="${y}" width="200" height="44" rx="6" fill="#fef3c7" stroke="#0d9488" stroke-width="1.4"/>`)
     parts.push(
-      `<text x="600" y="${y + 27}" font-size="12" fill="#123f35" text-anchor="middle" font-weight="600">${outLabels[i]}</text>`
+      `<text x="600" y="${y + 27}" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="600">${outLabels[i]}</text>`
     )
-    parts.push(`<line x1="474" y1="${entryY[i]}" x2="495" y2="${y + 22}" stroke="#9a6b2f" stroke-width="1.5"/>`)
-    arrowHead(499, y + 22 + 0.5, 499 - 474, y + 22 - entryY[i], '#9a6b2f')
+    parts.push(`<line x1="474" y1="${entryY[i]}" x2="495" y2="${y + 22}" stroke="#d97706" stroke-width="1.5"/>`)
+    arrowHead(499, y + 22 + 0.5, 499 - 474, y + 22 - entryY[i], '#d97706')
   }
   // the engine box
-  parts.push('<rect x="280" y="120" width="190" height="120" rx="10" fill="#f5eddd" stroke="#9a6b2f" stroke-width="2"/>')
+  parts.push('<rect x="280" y="120" width="190" height="120" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="2"/>')
   parts.push(
-    '<text x="375" y="150" font-size="13.5" fill="#9a6b2f" text-anchor="middle" font-weight="700">ℤ/mℤ — one engine</text>'
+    '<text x="375" y="150" font-size="13.5" fill="#d97706" text-anchor="middle" font-weight="700">ℤ/mℤ — one engine</text>'
   )
   parts.push(
-    '<text x="375" y="178" font-size="11.5" fill="#123f35" text-anchor="middle" font-weight="600">reduce → compute → lift back</text>'
+    '<text x="375" y="178" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="600">reduce → compute → lift back</text>'
   )
-  parts.push('<text x="375" y="198" font-size="11.5" fill="#6b7a72" text-anchor="middle">cycles · inverses · chains</text>')
-  parts.push('<text x="375" y="222" font-size="11" fill="#6b7a72" text-anchor="middle">a finite system from the map</text>')
+  parts.push('<text x="375" y="198" font-size="11.5" fill="#0d9488" text-anchor="middle">cycles · inverses · chains</text>')
+  parts.push('<text x="375" y="222" font-size="11" fill="#0d9488" text-anchor="middle">a finite system from the map</text>')
   // footer
   parts.push(
-    '<text x="360" y="345" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">the same three moves every time: name the modulus, compute inside, lift the verdict back</text>'
+    '<text x="360" y="345" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">the same three moves every time: name the modulus, compute inside, lift the verdict back</text>'
   )
   parts.push('</svg>')
   return parts.join('')
@@ -333,34 +333,34 @@ function legendreChainSvg(): string {
   const bx = [20, 130, 240, 350, 460, 570]
   const vals = ['1000', '200', '40', '8', '1', '0']
   for (let i = 0; i < 6; i++) {
-    parts.push(`<rect x="${bx[i]}" y="60" width="90" height="52" rx="6" fill="#fdf8ef" stroke="#1f5c4d" stroke-width="1.5"/>`)
+    parts.push(`<rect x="${bx[i]}" y="60" width="90" height="52" rx="6" fill="#fef3c7" stroke="#0d9488" stroke-width="1.5"/>`)
     parts.push(
-      `<text x="${bx[i] + 45}" y="92" font-size="15" fill="#123f35" text-anchor="middle" font-weight="700">${vals[i]}</text>`
+      `<text x="${bx[i] + 45}" y="92" font-size="15" fill="#0f766e" text-anchor="middle" font-weight="700">${vals[i]}</text>`
     )
   }
   for (let i = 0; i < 5; i++) {
     const x0 = bx[i] + 92
     const x1 = bx[i] + 107
-    parts.push(`<line x1="${x0}" y1="86" x2="${x1}" y2="86" stroke="#9a6b2f" stroke-width="1.5"/>`)
-    parts.push(`<path d="M ${x1 + 3} 86 L ${x1 - 4} 82 L ${x1 - 4} 90 Z" fill="#9a6b2f"/>`)
+    parts.push(`<line x1="${x0}" y1="86" x2="${x1}" y2="86" stroke="#d97706" stroke-width="1.5"/>`)
+    parts.push(`<path d="M ${x1 + 3} 86 L ${x1 - 4} 82 L ${x1 - 4} 90 Z" fill="#d97706"/>`)
     parts.push(
-      `<text x="${bx[i] + 100}" y="76" font-size="12" fill="#9a6b2f" text-anchor="middle" font-weight="600">/5</text>`
+      `<text x="${bx[i] + 100}" y="76" font-size="12" fill="#d97706" text-anchor="middle" font-weight="600">/5</text>`
     )
   }
   parts.push(
-    '<text x="360" y="150" font-size="13" fill="#123f35" text-anchor="middle" font-weight="700">200 + 40 + 8 + 1 = 249 trailing zeros</text>'
+    '<text x="360" y="150" font-size="13" fill="#0f766e" text-anchor="middle" font-weight="700">200 + 40 + 8 + 1 = 249 trailing zeros</text>'
   )
   parts.push(
-    '<text x="360" y="176" font-size="11.5" fill="#6b7a72" text-anchor="middle">each level counts multiples of 5, 25, 125, 625 — a multiple of 25 pays twice,</text>'
+    '<text x="360" y="176" font-size="11.5" fill="#0d9488" text-anchor="middle">each level counts multiples of 5, 25, 125, 625 — a multiple of 25 pays twice,</text>'
   )
   parts.push(
-    '<text x="360" y="194" font-size="11.5" fill="#6b7a72" text-anchor="middle">of 125 three times, of 625 four times (625 = 5·5·5·5); stop: ⌊1/5⌋ = 0</text>'
+    '<text x="360" y="194" font-size="11.5" fill="#0d9488" text-anchor="middle">of 125 three times, of 625 four times (625 = 5·5·5·5); stop: ⌊1/5⌋ = 0</text>'
   )
   parts.push(
-    '<text x="360" y="250" font-size="12.5" fill="#123f35" text-anchor="middle" font-weight="600">cross-check by name: 1000 = 13000₅ → digit sum 4 → (1000 − 4) ÷ 4 = 249</text>'
+    '<text x="360" y="250" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="600">cross-check by name: 1000 = 13000₅ → digit sum 4 → (1000 − 4) ÷ 4 = 249</text>'
   )
   parts.push(
-    '<text x="360" y="272" font-size="11.5" fill="#6b7a72" text-anchor="middle">the quotient chain that NAMES 1000 in base 5 is the same chain that COUNTS its zeros</text>'
+    '<text x="360" y="272" font-size="11.5" fill="#0d9488" text-anchor="middle">the quotient chain that NAMES 1000 in base 5 is the same chain that COUNTS its zeros</text>'
   )
   parts.push('</svg>')
   return parts.join('')

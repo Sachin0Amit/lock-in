@@ -53,7 +53,7 @@ const seatRows = SEAT_ROWS.map((s, i) => {
 const seatBands = seatRows
   .map(
     (r) =>
-      `<rect x="${+(r.seatLeft - 3).toFixed(1)}" y="${r.base - 25}" width="${+(DIGIT_W * r.n + 6).toFixed(1)}" height="32" rx="6" fill="#b45309" fill-opacity="0.14" stroke="#b45309" stroke-opacity="0.55"/>`
+      `<rect x="${+(r.seatLeft - 3).toFixed(1)}" y="${r.base - 25}" width="${+(DIGIT_W * r.n + 6).toFixed(1)}" height="32" rx="6" fill="#ea580c" fill-opacity="0.14" stroke="#ea580c" stroke-opacity="0.55"/>`
   )
   .join('\n  ')
 const seatArrows = seatRows
@@ -61,8 +61,8 @@ const seatArrows = seatRows
   .map((r, i) => {
     const nxt = seatRows[i + 1]
     const midY = (r.base + nxt.base) / 2 + 4
-    return `<line x1="${r.cx}" y1="${r.base + 9}" x2="${nxt.cx}" y2="${nxt.base - 27}" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#seat-arrow)"/>
-  <text x="${nxt.cx - 16}" y="${midY}" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="end">×10</text>`
+    return `<line x1="${r.cx}" y1="${r.base + 9}" x2="${nxt.cx}" y2="${nxt.base - 27}" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#seat-arrow)"/>
+  <text x="${nxt.cx - 16}" y="${midY}" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">×10</text>`
   })
   .join('\n  ')
 const seatNumerals = seatRows
@@ -72,7 +72,7 @@ const seatNumerals = seatRows
       .map((d, di) => {
         const k = r.n - 1 - di // seat index from the right
         const x = +(RIGHT_X - DIGIT_W * k).toFixed(1)
-        const style = di === 0 ? ' fill="#b45309" font-weight="700"' : ' fill="currentColor" opacity="0.5"'
+        const style = di === 0 ? ' fill="#ea580c" font-weight="700"' : ' fill="currentColor" opacity="0.5"'
         return `<text x="${x}" y="${r.base}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="24"${style}>${d}</text>`
       })
       .join('\n  ')
@@ -192,7 +192,7 @@ export const chapter01: Chapter = {
           svg: `<svg viewBox="0 0 620 282" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same digit 5 shown in four numerals: 5, 50, 500 and 5000. Each appended zero moves the digit one seat to the left and multiplies its contribution by ten.">
   <defs>
     <marker id="seat-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#b45309"/>
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
     </marker>
   </defs>
   <!-- column headers -->
@@ -295,10 +295,10 @@ export const chapter01: Chapter = {
     }).join('\n    ')}
   </g>
   <!-- origin emphasis -->
-  <circle cx="380" cy="80" r="4" fill="#b45309"/>
+  <circle cx="380" cy="80" r="4" fill="#ea580c"/>
   <!-- caption-promised emphasis dots: 7 sits at x = 380 + 7*33 = 611, −4 at x = 380 − 4*33 = 248 -->
-  <circle cx="611" cy="80" r="5" fill="#b45309"/>
-  <circle cx="248" cy="80" r="5" fill="#b45309"/>
+  <circle cx="611" cy="80" r="5" fill="#ea580c"/>
+  <circle cx="248" cy="80" r="5" fill="#ea580c"/>
   <!-- labels -->
   <g font-size="14" fill="currentColor" text-anchor="middle">
     ${Array.from({ length: 21 }, (_, i) => {
@@ -307,7 +307,7 @@ export const chapter01: Chapter = {
       const strong = v % 5 === 0
       const marked = v === 7 || v === -4
       const attrs = marked
-        ? 'font-weight="700" font-size="15" fill="#b45309"'
+        ? 'font-weight="700" font-size="15" fill="#ea580c"'
         : strong
           ? 'font-weight="700" font-size="15"'
           : 'opacity="0.7"'
@@ -653,29 +653,29 @@ export const chapter01: Chapter = {
     <text x="80" y="34" font-size="14" opacity="0.75" text-anchor="start">seat →</text>
     <rect x="150" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
     <rect x="290" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
-    <rect x="430" y="44" width="130" height="40" rx="6" fill="#b45309" opacity="0.16"/>
+    <rect x="430" y="44" width="130" height="40" rx="6" fill="#ea580c" opacity="0.16"/>
     <rect x="570" y="44" width="130" height="40" rx="6" fill="currentColor" opacity="0.06"/>
     <text x="215" y="69" font-size="14">thousands</text>
     <text x="355" y="69" font-size="14">hundreds</text>
-    <text x="495" y="69" font-size="14" font-weight="700" fill="#b45309">tens</text>
+    <text x="495" y="69" font-size="14" font-weight="700" fill="#ea580c">tens</text>
     <text x="635" y="69" font-size="14">ones</text>
     <text x="80" y="120" font-size="14" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" font-size="14" opacity="0.75" text-anchor="start">4,598</text>
     <rect x="150" y="94" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <rect x="290" y="94" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-    <rect x="430" y="94" width="130" height="46" rx="6" fill="#b45309" opacity="0.14" stroke="#b45309" stroke-width="2"/>
+    <rect x="430" y="94" width="130" height="46" rx="6" fill="#ea580c" opacity="0.14" stroke="#ea580c" stroke-width="2"/>
     <rect x="570" y="94" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <rect x="150" y="156" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <rect x="290" y="156" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-    <rect x="430" y="156" width="130" height="46" rx="6" fill="#b45309" opacity="0.14" stroke="#b45309" stroke-width="2"/>
+    <rect x="430" y="156" width="130" height="46" rx="6" fill="#ea580c" opacity="0.14" stroke="#ea580c" stroke-width="2"/>
     <rect x="570" y="156" width="130" height="46" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <text x="215" y="124" font-size="22" font-weight="700">4</text>
     <text x="355" y="124" font-size="22" font-weight="700">5</text>
-    <text x="495" y="124" font-size="22" font-weight="700" fill="#b45309">8</text>
+    <text x="495" y="124" font-size="22" font-weight="700" fill="#ea580c">8</text>
     <text x="635" y="124" font-size="22" font-weight="700">9</text>
     <text x="215" y="186" font-size="22" font-weight="700">4</text>
     <text x="355" y="186" font-size="22" font-weight="700">5</text>
-    <text x="495" y="186" font-size="22" font-weight="700" fill="#b45309">9</text>
+    <text x="495" y="186" font-size="22" font-weight="700" fill="#ea580c">9</text>
     <text x="635" y="186" font-size="22" font-weight="700">8</text>
     <text x="425" y="232" font-size="13" opacity="0.8">first difference at the tens seat → 4,598 wins by 9, the ones digit cannot rescue 4,589</text>
   </g>
@@ -694,14 +694,14 @@ export const chapter01: Chapter = {
   </defs>
   <g fill="currentColor">
     <text x="150" y="40" font-size="14">the deciding tens seat: (9 − 8) × 10</text>
-    <rect x="150" y="48" width="520" height="32" rx="4" fill="#b45309"/>
+    <rect x="150" y="48" width="520" height="32" rx="4" fill="#ea580c"/>
     <text x="660" y="69" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">= 10</text>
     <text x="150" y="120" font-size="14">every lower seat at maximum: 9 × 1</text>
     <rect x="150" y="128" width="468" height="32" rx="4" fill="url(#fig-tug-stripes)" stroke="currentColor" stroke-width="1" opacity="0.9"/>
     <text x="608" y="149" font-size="16" font-weight="700" text-anchor="end">= 9</text>
-    <rect x="618" y="128" width="52" height="32" rx="4" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
-    <text x="644" y="149" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">1</text>
-    <text x="644" y="178" font-size="13" fill="#b45309" text-anchor="middle">unclosable gap</text>
+    <rect x="618" y="128" width="52" height="32" rx="4" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="644" y="149" font-size="15" font-weight="700" fill="#ea580c" text-anchor="middle">1</text>
+    <text x="644" y="178" font-size="13" fill="#ea580c" text-anchor="middle">unclosable gap</text>
     <line x1="150" y1="204" x2="670" y2="204" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
     <line x1="150" y1="199" x2="150" y2="209" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
     <text x="150" y="228" font-size="14" fill="currentColor" opacity="0.75" text-anchor="middle">0</text>
@@ -1036,7 +1036,7 @@ export const chapter01: Chapter = {
           svg: `<svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 40 to 50 showing 43 rounding down to 40 and 47 rounding up to 50 with the midpoint 45 marked">
   <defs>
     <marker id="rl-arrow" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#b45309"/>
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#ea580c"/>
     </marker>
   </defs>
   <line x1="70" y1="95" x2="690" y2="95" stroke="currentColor" stroke-width="2"/>
@@ -1046,7 +1046,7 @@ export const chapter01: Chapter = {
     <line x1="194" y1="89" x2="194" y2="101"/>
     <line x1="256" y1="89" x2="256" y2="101"/>
     <line x1="318" y1="89" x2="318" y2="101"/>
-    <line x1="380" y1="85" x2="380" y2="105" stroke="#b45309" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <line x1="380" y1="85" x2="380" y2="105" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4 3"/>
     <line x1="442" y1="89" x2="442" y2="101"/>
     <line x1="504" y1="89" x2="504" y2="101"/>
     <line x1="566" y1="89" x2="566" y2="101"/>
@@ -1059,7 +1059,7 @@ export const chapter01: Chapter = {
     <text x="194" y="122" opacity="0.7">42</text>
     <text x="256" y="122" opacity="0.7">43</text>
     <text x="318" y="122" opacity="0.7">44</text>
-    <text x="380" y="122" font-weight="700" fill="#b45309">45</text>
+    <text x="380" y="122" font-weight="700" fill="#ea580c">45</text>
     <text x="442" y="122" opacity="0.7">46</text>
     <text x="504" y="122" opacity="0.7">47</text>
     <text x="566" y="122" opacity="0.7">48</text>
@@ -1069,11 +1069,11 @@ export const chapter01: Chapter = {
   <g>
     <circle cx="256" cy="95" r="5" fill="currentColor"/>
     <circle cx="504" cy="95" r="5" fill="currentColor"/>
-    <path d="M256,84 Q160,38 84,82" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#rl-arrow)"/>
-    <path d="M504,84 Q600,38 676,82" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#rl-arrow)"/>
-    <text x="180" y="40" font-size="13" fill="#b45309" text-anchor="middle">43 rounds down</text>
-    <text x="580" y="40" font-size="13" fill="#b45309" text-anchor="middle">47 rounds up</text>
-    <text x="380" y="152" font-size="12" fill="#b45309" text-anchor="middle">midpoint 45 — ties round up</text>
+    <path d="M256,84 Q160,38 84,82" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
+    <path d="M504,84 Q600,38 676,82" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#rl-arrow)"/>
+    <text x="180" y="40" font-size="13" fill="#ea580c" text-anchor="middle">43 rounds down</text>
+    <text x="580" y="40" font-size="13" fill="#ea580c" text-anchor="middle">47 rounds up</text>
+    <text x="380" y="152" font-size="12" fill="#ea580c" text-anchor="middle">midpoint 45 — ties round up</text>
   </g>
 </svg>`,
         },

@@ -159,3 +159,63 @@ Files touched: `ch-01.ts` (new Figure 2 block + chart font bumps),
 `.gitignore` (whitelist: enhance-fm-12-gen.ts, enhance-fm-12-audit.ts,
 e2e-fm-12.sh, e2e-fm-12.page.js), `docs/project/ENHANCEMENT_LOG.md`,
 `docs/project/ENHANCEMENT_POINTER.json`, plus the whitelisted scripts themselves.
+
+---
+
+## Owner-directive interlude — 2026-11-08 (direct tasking, NOT a queue run): GLOBAL FIGURE PALETTE BRIGHTENING — all books, all chapters, one sweep
+
+> Owner words: *"make all written chapter svgs or graphs bright — colour is
+> dull so visibility is less — do it for all, and make improvements in docs
+> accordingly for future."* Executed by the main agent between queue runs;
+> the per-lesson queue is untouched (every already-done lesson inherited the
+> new palette automatically — that is the point of a global swap).
+
+### What changed
+
+- **All 171 figure SVGs in all 26 written chapter files** (FM 11, ANS 10,
+  AL 5) migrated from the retired muted set (olive `#3f6212`/`#365314`/
+  `#4d7c0f`, gray-green `#6b7a72`, dull browns `#9a6b2f`/`#7c5a2e`/
+  `#b45309`, dark teals, cream tints) to the **vivid figure palette** now
+  specified in `docs/project/BOOK_FORMAT.md` (structure `#16a34a`, primary
+  text `#166534`, mid `#65a30d`, captions `#0d9488`, connectors `#d97706`,
+  accent `#ea580c`, teal `#0d9488`/`#0f766e`, warning `#dc2626`, panels
+  `#fef3c7`/`#ffedd5`, separators `#fcd34d`, grids `#5eead4`).
+  963 hex tokens swapped by `scripts/brighten-figure-palette.py`
+  (case-insensitive — AL files carried UPPERCASE `#365314`); residual
+  scan: **0 retired hexes remain in scope**.
+- **Reader plate fix (the dark-mode visibility bug):** `blocks.tsx` figure
+  chrome switched `bg-card text-foreground` → forced light paper plate
+  `bg-[#fffdf5] text-[#1c1917]` (+`shadow-sm`, stone borders) in BOTH
+  themes. Before: hex-coloured figures were near-invisible on the dark
+  card. `currentColor` figures inherit the plate ink — verified
+  `rgb(28,25,23)` on `rgb(255,253,245)` with dark media active.
+- **Cover accents + graph nodes brightened:** FM `['#ea580c','#c2410c']`,
+  ANS `['#14b8a6','#0f766e']`, AL `['#65a30d','#166534']` (feeds cover
+  gradients and Revision-Hub knowledge-graph chapter halos — verified
+  live: `#ea580c`, `#14b8a6`, `#65a30d`); builder custom-cover presets
+  upgraded to vivid pairs.
+- **Generators + gates re-pointed at the new hexes:** gen-43/44-figures.py,
+  fix-figure-overlaps.py, enhance-fm-12-gen.ts emit the new palette;
+  e2e-fm-11/12.page.js + enhance-fm-11/12-audit.ts assert it.
+
+### Gates (all green)
+
+| Gate | Result |
+| --- | --- |
+| `bunx tsc --noEmit` | 0 errors |
+| `bun run lint` | 0 errors (2 pre-existing warnings, unrelated e2e scripts) |
+| `bash scripts/e2e-fm-11.sh` | 44/44 PASS (desktop + dark + 390) |
+| `bash scripts/e2e-fm-12.sh` | 54/54 PASS — incl. "3 amber-tinted cells", "amber digits exactly 8,9" now on `#ea580c`, quiz 5/5, 0 console errors, no overflow 1280/390 |
+| `bun run scripts/enhance-fm-11-audit.ts` | CLEAN |
+| `bun run scripts/enhance-fm-12-audit.ts` | CLEAN |
+| Pixel audit (`scripts/analyze-figure-brightness.py`) | AL fig1 light 1,816 vivid px / dark 1,860 / **0 old-dull-olive px**; ANS 9.1 1,284 vivid; FM 6.1 currentColor 409 — light + dark |
+| Residual hex scan | 0 retired hexes in chapters / books / scripts |
+
+### Docs for the future
+
+`BOOK_FORMAT.md`: figure block row re-points to the vivid palette; new
+**"Figure colour palette"** house-style section (role→hex table with the
+retired column, warm-families-only rule, no-blue/indigo rule, paper-plate
+note, ≥4.5:1 text / ≥3:1 stroke contrast floors, "add new colours to the
+table first" law); checklist item blacklists the retired hexes. Future
+chapters and any figure regeneration inherit this automatically.

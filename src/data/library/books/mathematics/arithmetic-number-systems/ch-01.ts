@@ -300,14 +300,14 @@ export const chapter01: Chapter = {
   <text x="126" y="66" font-size="12" fill="currentColor" text-anchor="middle" font-style="italic">S</text>
   <text x="690" y="84" font-size="18" fill="currentColor" text-anchor="middle">…</text>
   <!-- axiom (iv) annotation under node 1 -->
-  <text x="80" y="118" font-size="11.5" fill="#b45309" text-anchor="middle">1 is nobody’s successor</text>
+  <text x="80" y="118" font-size="11.5" fill="#ea580c" text-anchor="middle">1 is nobody’s successor</text>
   <!-- run bracket from node 2 to node 5 -->
-  <g stroke="#b45309" stroke-width="1.5" fill="none">
+  <g stroke="#ea580c" stroke-width="1.5" fill="none">
     <line x1="189" y1="150" x2="431" y2="150"/>
     <line x1="189" y1="144" x2="189" y2="156"/>
     <line x1="431" y1="144" x2="431" y2="156"/>
   </g>
-  <text x="310" y="172" font-size="12" fill="#b45309" text-anchor="middle">the run from 2 to 5 is 3 steps ⇒ 2 &lt; 5 (and the distance is 3)</text>
+  <text x="310" y="172" font-size="12" fill="#ea580c" text-anchor="middle">the run from 2 to 5 is 3 steps ⇒ 2 &lt; 5 (and the distance is 3)</text>
   <text x="380" y="205" font-size="12" fill="currentColor" opacity="0.8" text-anchor="middle">one-way traffic: S always moves right — following it never returns to a number already visited</text>
 </svg>`,
         },
@@ -635,7 +635,7 @@ export const chapter01: Chapter = {
   </defs>
   <text x="380" y="38" font-size="13" fill="currentColor" opacity="0.8" text-anchor="middle">the step: P(k) ⇒ P(k + 1) — each domino tips the next</text>
   <g stroke="currentColor" stroke-width="1.5" fill="none">
-    ${Array.from({ length: 8 }, (_, i) => `<rect x="${55 + i * 84}" y="60" width="48" height="115" rx="7"${i === 0 ? ' fill="#b45309" fill-opacity="0.15" stroke="#b45309" stroke-width="2"' : ''}/>`).join('\n    ')}
+    ${Array.from({ length: 8 }, (_, i) => `<rect x="${55 + i * 84}" y="60" width="48" height="115" rx="7"${i === 0 ? ' fill="#ea580c" fill-opacity="0.15" stroke="#ea580c" stroke-width="2"' : ''}/>`).join('\n    ')}
   </g>
   <g font-size="13" fill="currentColor" text-anchor="middle" font-weight="700">
     ${Array.from({ length: 8 }, (_, i) => `<text x="${79 + i * 84}" y="122">P(${i + 1})</text>`).join('\n    ')}
@@ -644,7 +644,7 @@ export const chapter01: Chapter = {
     ${Array.from({ length: 7 }, (_, i) => `<line x1="${105 + i * 84}" y1="117" x2="${135 + i * 84}" y2="117" marker-end="url(#dom-arrow)"/>`).join('\n    ')}
   </g>
   <text x="715" y="122" font-size="18" fill="currentColor" text-anchor="middle">…</text>
-  <text x="79" y="205" font-size="12" fill="#b45309" text-anchor="middle">base: P(1) is true</text>
+  <text x="79" y="205" font-size="12" fill="#ea580c" text-anchor="middle">base: P(1) is true</text>
   <text x="480" y="205" font-size="12" fill="currentColor" opacity="0.8" text-anchor="middle">so P(n) holds for every n the chain reaches — that is, every n</text>
 </svg>`,
         },
@@ -1322,7 +1322,7 @@ export const chapter01: Chapter = {
   <g>
     ${Array.from({ length: 15 }, (_, i) => [4, 7, 8, 11, 14].includes(i + 1) ? `<circle cx="${60 + i * 46}" cy="138" r="6" fill="currentColor"/>` : `<circle cx="${60 + i * 46}" cy="138" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/>`).join('\n    ')}
   </g>
-  <circle cx="198" cy="138" r="13" fill="none" stroke="#b45309" stroke-width="2"/>
+  <circle cx="198" cy="138" r="13" fill="none" stroke="#ea580c" stroke-width="2"/>
   <line x1="140" y1="98" x2="191" y2="113" stroke="currentColor" stroke-width="1.3" marker-end="url(#lnp-arrow)"/>
   <text x="320" y="88" font-size="12.5" fill="currentColor">the sweep stops at the first member of A — the least element</text>
   <text x="130" y="205" font-size="12" fill="currentColor" text-anchor="middle">filled dots: members of A</text>
@@ -1560,7 +1560,7 @@ export const chapter01: Chapter = {
     </marker>
   </defs>
   <g stroke="currentColor" stroke-width="1.5" fill="none">
-    ${Array.from({ length: 5 }, (_, i) => `<rect x="90" y="${20 + 58 * i}" width="330" height="42" rx="8"${i === 4 ? ' fill="#b45309" fill-opacity="0.12" stroke="#b45309" stroke-width="2"' : ''}/>`).join('\n    ')}
+    ${Array.from({ length: 5 }, (_, i) => `<rect x="90" y="${20 + 58 * i}" width="330" height="42" rx="8"${i === 4 ? ' fill="#ea580c" fill-opacity="0.12" stroke="#ea580c" stroke-width="2"' : ''}/>`).join('\n    ')}
   </g>
   <g font-size="16" fill="currentColor" text-anchor="middle">
     ${['3 + 4', 'S(3 + 3)', 'S(S(3 + 2))', 'S(S(S(3 + 1)))', 'S(S(S(S(3))))'].map((t, i) => `<text x="255" y="${20 + 58 * i + 27}">${t}</text>`).join('\n    ')}

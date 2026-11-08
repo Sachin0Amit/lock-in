@@ -44,22 +44,22 @@ function reversibleFilmSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">multiplication, undone</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the film runs both ways — the grid builds the sum; the GCF hunt recovers the factors</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">multiplication, undone</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the film runs both ways — the grid builds the sum; the GCF hunt recovers the factors</text>')
   // LEFT panel: forward — the distributive grid
-  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">forward — 3.2’s grid builds the product</text>')
-  parts.push('<rect x="60" y="150" width="130" height="54" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="125" y="182" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">3x · 2x = 6x²</text>')
-  parts.push('<rect x="200" y="150" width="130" height="54" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="265" y="182" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">3x · 5 = 15x</text>')
-  parts.push('<text x="195" y="234" font-size="11" fill="#6b7a72" text-anchor="middle">distribute — every term meets every term</text>')
-  parts.push('<text x="195" y="264" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">3x(2x + 5) = 6x² + 15x</text>')
-  parts.push('<text x="195" y="288" font-size="10.5" fill="#6b7a72" text-anchor="middle">product → sum (expansion)</text>')
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">forward — 3.2’s grid builds the product</text>')
+  parts.push('<rect x="60" y="150" width="130" height="54" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="125" y="182" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">3x · 2x = 6x²</text>')
+  parts.push('<rect x="200" y="150" width="130" height="54" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="265" y="182" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">3x · 5 = 15x</text>')
+  parts.push('<text x="195" y="234" font-size="11" fill="#0d9488" text-anchor="middle">distribute — every term meets every term</text>')
+  parts.push('<text x="195" y="264" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">3x(2x + 5) = 6x² + 15x</text>')
+  parts.push('<text x="195" y="288" font-size="10.5" fill="#0d9488" text-anchor="middle">product → sum (expansion)</text>')
   // RIGHT panel: backward — the GCF hunt
-  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">backward — this lesson undoes it</text>')
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">backward — this lesson undoes it</text>')
   const notes: [string, string][] = [
     ['hunt the GCF of 6x² and 15x', 'HCF(6, 15) = 3 · the shared letter x → 3x'],
     ['extract it from both terms', '6x² + 15x = 3x(2x + 5)'],
@@ -67,17 +67,17 @@ function reversibleFilmSvg(): string {
   ]
   notes.forEach(([title, sub], i) => {
     const y = 114 + i * 60
-    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="540" y="${y + 40}" font-size="10.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="300" width="200" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="160" y="316" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">3x(2x + 5)</text>')
-  parts.push('<rect x="300" y="300" width="200" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="400" y="316" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">= 6x² + 15x</text>')
-  parts.push('<text x="618" y="316" font-size="11" fill="#6b7a72" text-anchor="middle">one identity, two readings</text>')
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="200" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="160" y="316" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">3x(2x + 5)</text>')
+  parts.push('<rect x="300" y="300" width="200" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="400" y="316" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">= 6x² + 15x</text>')
+  parts.push('<text x="618" y="316" font-size="11" fill="#0d9488" text-anchor="middle">one identity, two readings</text>')
   return parts.join('')
 }
 
@@ -97,30 +97,30 @@ function groupingMachineSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the grouping machine</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">four terms, two pairs, one matched bracket — the common-factor move applied twice</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the grouping machine</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">four terms, two pairs, one matched bracket — the common-factor move applied twice</text>')
   // LEFT panel: the four terms and the two pairings
-  parts.push('<rect x="30" y="84" width="350" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="205" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">x³ + 3x² + 2x + 6 — pair the terms</text>')
+  parts.push('<rect x="30" y="84" width="350" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="205" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">x³ + 3x² + 2x + 6 — pair the terms</text>')
   const terms = ['x³', '3x²', '2x', '6']
   terms.forEach((t, i) => {
     const x = 45 + i * 80
-    parts.push(`<rect x="${x}" y="120" width="70" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${x + 35}" y="147" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<rect x="${x}" y="120" width="70" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${x + 35}" y="147" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">${t}</text>`)
   })
   // pairing arcs (dashed paths, no rects) — routed BELOW the term row so
   // they never enter the title's or the boxes' text
-  parts.push('<path d="M 80 172 Q 120 192 160 172" fill="none" stroke="#4d7c0f" stroke-width="1.5" stroke-dasharray="4 3"/>')
-  parts.push('<path d="M 240 172 Q 280 192 320 172" fill="none" stroke="#4d7c0f" stroke-width="1.5" stroke-dasharray="4 3"/>')
-  parts.push('<rect x="45" y="220" width="150" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="120" y="240" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">pair 1 extracts x²: (x + 3)</text>')
-  parts.push('<rect x="205" y="220" width="150" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="280" y="240" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">pair 2 extracts 2: (x + 3)</text>')
-  parts.push('<text x="205" y="280" font-size="11" fill="#4d7c0f" text-anchor="middle" font-weight="700">the brackets MATCH — the match is the common factor</text>')
+  parts.push('<path d="M 80 172 Q 120 192 160 172" fill="none" stroke="#65a30d" stroke-width="1.5" stroke-dasharray="4 3"/>')
+  parts.push('<path d="M 240 172 Q 280 192 320 172" fill="none" stroke="#65a30d" stroke-width="1.5" stroke-dasharray="4 3"/>')
+  parts.push('<rect x="45" y="220" width="150" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="120" y="240" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">pair 1 extracts x²: (x + 3)</text>')
+  parts.push('<rect x="205" y="220" width="150" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="280" y="240" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">pair 2 extracts 2: (x + 3)</text>')
+  parts.push('<text x="205" y="280" font-size="11" fill="#65a30d" text-anchor="middle" font-weight="700">the brackets MATCH — the match is the common factor</text>')
   // RIGHT panel: the three moves
-  parts.push('<rect x="410" y="84" width="280" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="550" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the three moves</text>')
+  parts.push('<rect x="410" y="84" width="280" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="550" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the three moves</text>')
   const moves: [string, string][] = [
     ['split the four terms', 'into two pairs — order is free (addition is commutative)'],
     ['extract each pair’s GCF', 'the inner brackets must come out IDENTICAL'],
@@ -128,16 +128,16 @@ function groupingMachineSvg(): string {
   ]
   moves.forEach(([title, sub], i) => {
     const y = 114 + i * 60
-    parts.push(`<rect x="425" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="550" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="550" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="425" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="550" y="${y + 22}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="550" y="${y + 40}" font-size="10" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // result band
-  parts.push('<rect x="30" y="300" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="308" width="260" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="327" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">x³ + 3x² + 2x + 6 = (x + 3)(x² + 2)</text>')
-  parts.push('<rect x="400" y="308" width="260" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="327" font-size="11.5" fill="#365314" text-anchor="middle">check: expand — the four terms return</text>')
+  parts.push('<rect x="30" y="300" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="308" width="260" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="327" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">x³ + 3x² + 2x + 6 = (x + 3)(x² + 2)</text>')
+  parts.push('<rect x="400" y="308" width="260" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="327" font-size="11.5" fill="#166534" text-anchor="middle">check: expand — the four terms return</text>')
   return parts.join('')
 }
 
@@ -157,24 +157,24 @@ function huntDialsSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the two dials and the gauge</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the product dial proposes, the sum dial chooses — the gauge decides whether any pair exists</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the two dials and the gauge</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the product dial proposes, the sum dial chooses — the gauge decides whether any pair exists</text>')
   // LEFT panel: the dials
-  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">hunting the pair for x² + px + q</text>')
-  parts.push('<rect x="60" y="130" width="120" height="50" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="120" y="160" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">PRODUCT q</text>')
-  parts.push('<rect x="200" y="130" width="120" height="50" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="260" y="160" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">SUM p</text>')
-  parts.push('<path d="M 120 184 Q 130 210 155 222" fill="none" stroke="#4d7c0f" stroke-width="1.5" stroke-dasharray="4 3"/>')
-  parts.push('<path d="M 260 184 Q 250 210 225 222" fill="none" stroke="#4d7c0f" stroke-width="1.5" stroke-dasharray="4 3"/>')
-  parts.push('<rect x="105" y="225" width="170" height="50" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="246" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">the pair (a, b)</text>')
-  parts.push('<text x="190" y="264" font-size="10.5" fill="#6b7a72" text-anchor="middle">ab = q · a + b = p</text>')
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">hunting the pair for x² + px + q</text>')
+  parts.push('<rect x="60" y="130" width="120" height="50" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="120" y="160" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">PRODUCT q</text>')
+  parts.push('<rect x="200" y="130" width="120" height="50" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="260" y="160" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">SUM p</text>')
+  parts.push('<path d="M 120 184 Q 130 210 155 222" fill="none" stroke="#65a30d" stroke-width="1.5" stroke-dasharray="4 3"/>')
+  parts.push('<path d="M 260 184 Q 250 210 225 222" fill="none" stroke="#65a30d" stroke-width="1.5" stroke-dasharray="4 3"/>')
+  parts.push('<rect x="105" y="225" width="170" height="50" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="246" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">the pair (a, b)</text>')
+  parts.push('<text x="190" y="264" font-size="10.5" fill="#0d9488" text-anchor="middle">ab = q · a + b = p</text>')
   // RIGHT panel: the three verdicts of the gauge
-  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the gauge decides</text>')
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the gauge decides</text>')
   const verdicts: [string, string][] = [
     ['gauge < 0 — the hunt refuses', 'no real pair at all (x² + x + 1: −3)'],
     ['gauge = 0 — the double case', 'a = b: the trinomial square (x + a)²'],
@@ -182,16 +182,16 @@ function huntDialsSvg(): string {
   ]
   verdicts.forEach(([title, sub], i) => {
     const y = 114 + i * 60
-    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="316" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">p² − 4q = (a − b)²  — the gauge</text>')
-  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="316" font-size="11" fill="#365314" text-anchor="middle">x² + 7x + 12: 49 − 48 = 1 → (4, 3)</text>')
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="316" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">p² − 4q = (a − b)²  — the gauge</text>')
+  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="316" font-size="11" fill="#166534" text-anchor="middle">x² + 7x + 12: 49 − 48 = 1 → (4, 3)</text>')
   return parts.join('')
 }
 
@@ -209,9 +209,9 @@ function acPipelineSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the AC pipeline — 6x² + 19x + 15</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">multiply · hunt · split and group · collect — with the folding identity absorbing the 1/a</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the AC pipeline — 6x² + 19x + 15</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">multiply · hunt · split and group · collect — with the folding identity absorbing the 1/a</text>')
   // the four stations
   const stations: [string, string, string][] = [
     ['multiply', 'a · c = 6 · 15 = 90', 'the AC dial'],
@@ -222,22 +222,22 @@ function acPipelineSvg(): string {
   stations.forEach(([title, l1, l2], i) => {
     const x = 40 + i * 170
     const cx = x + 75
-    parts.push(`<rect x="${x}" y="110" width="150" height="70" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${cx}" y="132" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${cx}" y="152" font-size="10.5" fill="#365314" text-anchor="middle">${l1}</text>`)
-    parts.push(`<text x="${cx}" y="168" font-size="10" fill="#6b7a72" text-anchor="middle">${l2}</text>`)
-    if (i < 3) parts.push(`<path d="M ${x + 150} 145 L ${x + 170} 145" stroke="#4d7c0f" stroke-width="1.5"/>`)
+    parts.push(`<rect x="${x}" y="110" width="150" height="70" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${cx}" y="132" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${cx}" y="152" font-size="10.5" fill="#166534" text-anchor="middle">${l1}</text>`)
+    parts.push(`<text x="${cx}" y="168" font-size="10" fill="#0d9488" text-anchor="middle">${l2}</text>`)
+    if (i < 3) parts.push(`<path d="M ${x + 150} 145 L ${x + 170} 145" stroke="#65a30d" stroke-width="1.5"/>`)
   })
   // the split row
-  parts.push('<rect x="60" y="230" width="260" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="257" font-size="10.5" fill="#365314" text-anchor="middle" font-weight="700">6x² + 9x + 10x + 15 = 3x(2x + 3) + 5(2x + 3)</text>')
-  parts.push('<rect x="400" y="230" width="260" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="251" font-size="10.5" fill="#365314" text-anchor="middle" font-weight="700">the folding: (6x + 9)(6x + 10) = 6(6x² + 19x + 15)</text>')
-  parts.push('<text x="530" y="267" font-size="9.5" fill="#6b7a72" text-anchor="middle">3 and 2 absorb the 1/6 — grouping did it lawfully</text>')
+  parts.push('<rect x="60" y="230" width="260" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="257" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">6x² + 9x + 10x + 15 = 3x(2x + 3) + 5(2x + 3)</text>')
+  parts.push('<rect x="400" y="230" width="260" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="251" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">the folding: (6x + 9)(6x + 10) = 6(6x² + 19x + 15)</text>')
+  parts.push('<text x="530" y="267" font-size="9.5" fill="#0d9488" text-anchor="middle">3 and 2 absorb the 1/6 — grouping did it lawfully</text>')
   // result band
-  parts.push('<rect x="30" y="296" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="210" y="304" width="300" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="360" y="322" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">6x² + 19x + 15 = (2x + 3)(3x + 5) — check by expansion</text>')
+  parts.push('<rect x="30" y="296" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="210" y="304" width="300" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="322" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">6x² + 19x + 15 = (2x + 3)(3x + 5) — check by expansion</text>')
   return parts.join('')
 }
 
@@ -257,21 +257,21 @@ function recognitionShelfSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the recognition shelf — 3.3 read backwards</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">every identity is a factorization; the collected form carries the question that names its product</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the recognition shelf — 3.3 read backwards</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">every identity is a factorization; the collected form carries the question that names its product</text>')
   // LEFT panel: the shelf
-  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the shelf, backwards</text>')
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the shelf, backwards</text>')
   const shelf: string[] = ['a² − b² = (a + b)(a − b)', 'a² ± 2ab + b² = (a ± b)²', 'a³ ± b³ = (a ± b)(a² ∓ ab + b²)']
   shelf.forEach((s, i) => {
     const y = 110 + i * 56
-    parts.push(`<rect x="50" y="${y}" width="290" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="195" y="${y + 27}" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${s}</text>`)
+    parts.push(`<rect x="50" y="${y}" width="290" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="195" y="${y + 27}" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${s}</text>`)
   })
   // RIGHT panel: the three questions
-  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the three questions</text>')
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the three questions</text>')
   const qs: [string, string][] = [
     ['both squares + minus?', 'the difference of squares read backwards'],
     ['middle = 2 × the roots’ product?', 'the zero gauge recognizes the perfect square'],
@@ -279,16 +279,16 @@ function recognitionShelfSvg(): string {
   ]
   qs.forEach(([t, s], i) => {
     const y = 114 + i * 60
-    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
-    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${s}</text>`)
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#0d9488" text-anchor="middle">${s}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="316" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">recognition = the identity in reverse</text>')
-  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="316" font-size="11.5" fill="#365314" text-anchor="middle">x² − 49 → (x + 7)(x − 7) in one line</text>')
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="316" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">recognition = the identity in reverse</text>')
+  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="316" font-size="11.5" fill="#166534" text-anchor="middle">x² − 49 → (x + 7)(x − 7) in one line</text>')
   return parts.join('')
 }
 
@@ -307,9 +307,9 @@ function decisionTreeSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the recognition order — the decision tree</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the order that never wastes work — GCF, term count, the tests, then honesty</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the recognition order — the decision tree</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the order that never wastes work — GCF, term count, the tests, then honesty</text>')
   // the six steps
   const steps: [string, string, string][] = [
     ['1. extract the GCF', '4.1’s first move', 'shrinks every number ahead'],
@@ -322,26 +322,26 @@ function decisionTreeSvg(): string {
   const pos: [number, number][] = [[45, 100], [45, 170], [285, 100], [285, 170], [285, 240], [45, 240]]
   steps.forEach(([t, l1, l2], i) => {
     const [x, y] = pos[i]
-    parts.push(`<rect x="${x}" y="${y}" width="200" height="44" rx="6" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${x + 100}" y="${y + 17}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
-    parts.push(`<text x="${x + 100}" y="${y + 33}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${l1} · ${l2}</text>`)
+    parts.push(`<rect x="${x}" y="${y}" width="200" height="44" rx="6" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 100}" y="${y + 17}" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="${x + 100}" y="${y + 33}" font-size="9.5" fill="#0d9488" text-anchor="middle">${l1} · ${l2}</text>`)
   })
   // arrows: col 1 down, col 1 to col 2, col 2 to verdicts
-  parts.push('<path d="M 145 144 L 145 170" stroke="#4d7c0f" stroke-width="1.5"/>')
-  parts.push('<path d="M 245 122 L 285 122" stroke="#4d7c0f" stroke-width="1.5"/>')
-  parts.push('<path d="M 485 122 L 520 122" stroke="#4d7c0f" stroke-width="1.5"/>')
-  parts.push('<path d="M 485 262 L 520 262" stroke="#4d7c0f" stroke-width="1.5"/>')
+  parts.push('<path d="M 145 144 L 145 170" stroke="#65a30d" stroke-width="1.5"/>')
+  parts.push('<path d="M 245 122 L 285 122" stroke="#65a30d" stroke-width="1.5"/>')
+  parts.push('<path d="M 485 122 L 520 122" stroke="#65a30d" stroke-width="1.5"/>')
+  parts.push('<path d="M 485 262 L 520 262" stroke="#65a30d" stroke-width="1.5"/>')
   // the two verdicts
-  parts.push('<rect x="520" y="100" width="200" height="44" rx="6" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="625" y="117" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">the chains open again</text>')
-  parts.push('<text x="625" y="133" font-size="9.5" fill="#6b7a72" text-anchor="middle">x⁴ − 16 opens twice</text>')
-  parts.push('<rect x="520" y="240" width="200" height="44" rx="6" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
-  parts.push('<text x="625" y="257" font-size="11.5" fill="#7c2d12" text-anchor="middle" font-weight="700">nothing works: refuse</text>')
-  parts.push('<text x="625" y="273" font-size="9.5" fill="#6b7a72" text-anchor="middle">name it — the refusal is an answer</text>')
+  parts.push('<rect x="520" y="100" width="200" height="44" rx="6" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="625" y="117" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">the chains open again</text>')
+  parts.push('<text x="625" y="133" font-size="9.5" fill="#0d9488" text-anchor="middle">x⁴ − 16 opens twice</text>')
+  parts.push('<rect x="520" y="240" width="200" height="44" rx="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<text x="625" y="257" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="700">nothing works: refuse</text>')
+  parts.push('<text x="625" y="273" font-size="9.5" fill="#0d9488" text-anchor="middle">name it — the refusal is an answer</text>')
   // result band
-  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="210" y="308" width="300" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="360" y="327" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">GCF → term count → tests → look again → honest refusal</text>')
+  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="210" y="308" width="300" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="327" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">GCF → term count → tests → look again → honest refusal</text>')
   return parts.join('')
 }
 
@@ -359,19 +359,19 @@ function rootFactorBridgeSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The root-to-factor bridge: the remainder theorem at remainder zero — a zero of the polynomial is exactly a linear factor, each implying the other.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the root-to-factor bridge</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the remainder theorem with the remainder pinned to zero — 3.4’s rule becomes 4.4’s engine</text>')
-  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the division identity, at r = 0</text>')
-  parts.push('<rect x="60" y="110" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="132" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">f(x) = (x − a)·q(x) + r</text>')
-  parts.push('<text x="190" y="150" font-size="10.5" fill="#6b7a72" text-anchor="middle">r = f(a) — evaluate, never divide</text>')
-  parts.push('<rect x="60" y="196" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="218" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">r = 0 ⇒ f(x) = (x − a)·q(x)</text>')
-  parts.push('<text x="190" y="236" font-size="10.5" fill="#6b7a72" text-anchor="middle">the clean division — the factor appears</text>')
-  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the theorem, both ways</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the root-to-factor bridge</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the remainder theorem with the remainder pinned to zero — 3.4’s rule becomes 4.4’s engine</text>')
+  parts.push('<rect x="30" y="84" width="330" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the division identity, at r = 0</text>')
+  parts.push('<rect x="60" y="110" width="260" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="132" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">f(x) = (x − a)·q(x) + r</text>')
+  parts.push('<text x="190" y="150" font-size="10.5" fill="#0d9488" text-anchor="middle">r = f(a) — evaluate, never divide</text>')
+  parts.push('<rect x="60" y="196" width="260" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="218" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">r = 0 ⇒ f(x) = (x − a)·q(x)</text>')
+  parts.push('<text x="190" y="236" font-size="10.5" fill="#0d9488" text-anchor="middle">the clean division — the factor appears</text>')
+  parts.push('<rect x="400" y="84" width="290" height="210" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the theorem, both ways</text>')
   const notes: [string, string][] = [
     ['f(a) = 0 — the zero', 'an input whose output lands exactly on zero'],
     ['the zero IS the factor', '(x − a) divides — no division needed to know it'],
@@ -379,15 +379,15 @@ function rootFactorBridgeSvg(): string {
   ]
   notes.forEach(([t, s], i) => {
     const y = 114 + i * 60
-    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
-    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#6b7a72" text-anchor="middle">${s}</text>`)
+    parts.push(`<rect x="415" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="540" y="${y + 22}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="540" y="${y + 40}" font-size="10" fill="#0d9488" text-anchor="middle">${s}</text>`)
   })
-  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="190" y="316" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">f(a) = 0 ⟺ (x − a) divides f(x)</text>')
-  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="316" font-size="11" fill="#365314" text-anchor="middle">x³−6x²+11x−6: f(1) = 0 → (x−1) divides</text>')
+  parts.push('<rect x="30" y="296" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="190" y="316" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">f(a) = 0 ⟺ (x − a) divides f(x)</text>')
+  parts.push('<rect x="400" y="300" width="260" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="316" font-size="11" fill="#166534" text-anchor="middle">x³−6x²+11x−6: f(1) = 0 → (x−1) divides</text>')
   return parts.join('')
 }
 
@@ -404,9 +404,9 @@ function cubicMachineSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cubic hunting machine: list candidates from the constant, evaluate each, divide out the found root, finish the quotient — and the irreducibility verdict when no candidate works.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the cubic hunting machine</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">candidates → evaluate → divide → finish — with the verdict when the list comes up empty</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the cubic hunting machine</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">candidates → evaluate → divide → finish — with the verdict when the list comes up empty</text>')
   const stations: [string, string, string][] = [
     ['list candidates', '± divisors of d', '(p | d, q | a non-monic)'],
     ['evaluate each', 'f(a) = r — the remainder', 'zero? a factor!'],
@@ -416,21 +416,21 @@ function cubicMachineSvg(): string {
   stations.forEach(([t, l1, l2], i) => {
     const x = 40 + i * 170
     const cx = x + 75
-    parts.push(`<rect x="${x}" y="110" width="150" height="70" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${cx}" y="132" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${t}</text>`)
-    parts.push(`<text x="${cx}" y="151" font-size="10" fill="#365314" text-anchor="middle">${l1}</text>`)
-    parts.push(`<text x="${cx}" y="167" font-size="9.5" fill="#6b7a72" text-anchor="middle">${l2}</text>`)
-    if (i < 3) parts.push(`<path d="M ${x + 150} 145 L ${x + 170} 145" stroke="#4d7c0f" stroke-width="1.5"/>`)
+    parts.push(`<rect x="${x}" y="110" width="150" height="70" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${cx}" y="132" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${t}</text>`)
+    parts.push(`<text x="${cx}" y="151" font-size="10" fill="#166534" text-anchor="middle">${l1}</text>`)
+    parts.push(`<text x="${cx}" y="167" font-size="9.5" fill="#0d9488" text-anchor="middle">${l2}</text>`)
+    if (i < 3) parts.push(`<path d="M ${x + 150} 145 L ${x + 170} 145" stroke="#65a30d" stroke-width="1.5"/>`)
   })
-  parts.push('<rect x="60" y="230" width="260" height="44" rx="6" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
-  parts.push('<text x="190" y="248" font-size="11" fill="#7c2d12" text-anchor="middle" font-weight="700">no candidate works?</text>')
-  parts.push('<text x="190" y="264" font-size="9.5" fill="#6b7a72" text-anchor="middle">the verdict: no integer root ⇒ irreducible over the integers</text>')
-  parts.push('<rect x="400" y="230" width="260" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="530" y="248" font-size="11" fill="#365314" text-anchor="middle" font-weight="700">the two roads agree</text>')
-  parts.push('<text x="530" y="264" font-size="9.5" fill="#6b7a72" text-anchor="middle">shelf, hunt and theorem land on the same irreducibles</text>')
-  parts.push('<rect x="30" y="296" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="210" y="304" width="300" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="360" y="322" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">x³ − 6x² + 11x − 6 = (x − 1)(x − 2)(x − 3)</text>')
+  parts.push('<rect x="60" y="230" width="260" height="44" rx="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<text x="190" y="248" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="700">no candidate works?</text>')
+  parts.push('<text x="190" y="264" font-size="9.5" fill="#0d9488" text-anchor="middle">the verdict: no integer root ⇒ irreducible over the integers</text>')
+  parts.push('<rect x="400" y="230" width="260" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="530" y="248" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">the two roads agree</text>')
+  parts.push('<text x="530" y="264" font-size="9.5" fill="#0d9488" text-anchor="middle">shelf, hunt and theorem land on the same irreducibles</text>')
+  parts.push('<rect x="30" y="296" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="210" y="304" width="300" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="322" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">x³ − 6x² + 11x − 6 = (x − 1)(x − 2)(x − 3)</text>')
   return parts.join('')
 }
 

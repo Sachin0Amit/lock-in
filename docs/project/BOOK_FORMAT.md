@@ -58,7 +58,7 @@ the run.
 | `equation` | display math, centred | KaTeX source; `\tag{n}` numbers it; `note` = "where…" prose |
 | `derivation` | step-by-step proofs | green-ruled title, steps on a green rail (no step numbers — owner directive 2026-11-03), boxed Result — the book's reasoned-argument presentation |
 | `example` | worked examples | rendered as **Illustrations** (Cengage): auto-numbered green pill `ILLUSTRATION n`, the `title` on a sage tinted band, then the **Cengage solution chain** — `Sol.` pill inline on the first line + connective tag column, unnumbered (owner directive 2026-11-03). `title` must be a crisp problem statement |
-| `figure` | inline SVG | self-contained, viewBox, labels match prose text; thin uniform strokes + plain labels (Cengage figure manner) |
+| `figure` | inline SVG | self-contained, viewBox, labels match prose text; **vivid palette below** (owner directive 2026-11-08 — the old muted olive/gray set was retired for poor visibility); structure strokes ≥1.2 px, plain labels |
 | `table` | tabular data | sage header row in ink-green + alternating tinted rows; cells support `$math$` |
 | `list` | bullet/ordered lists | `marker: 'roman'` renders the Cengage `(i) (ii) (iii)` example-run enumeration |
 | `quiz` | self-check MCQs | green bar header; interactive in the reader; `answer` = option index; `explain` says why wrong options fail; best score persisted per lesson |
@@ -81,6 +81,37 @@ the run.
 - **Derivations**: every non-trivial formula gets a `derivation` block.
 - **Figures**: original SVG, labelled axes/units, caption that teaches.
   Figure numbers are auto-assigned by the reader.
+- **Figure colour palette (owner directive 2026-11-08: "bright colour — the
+  old colours were dull, visibility was less")**: every figure SVG uses the
+  **vivid figure palette** below. Warm-academic hues only — green, lime,
+  teal, amber, orange, red; **never blue or indigo**. The reader renders
+  each figure on a light paper plate (`#fffdf5`, ink `#1c1917`) in BOTH
+  light and dark themes, so pick hexes for visibility on warm paper —
+  they are guaranteed to keep working after dark.
+
+  | Role | Hex | Swatch idea | Old (retired, do not reuse) |
+  |---|---|---|---|
+  | structure strokes — boxes, axes, node circles | `#16a34a` | vivid green | `#3f6212` olive |
+  | primary text — titles, emphasised labels | `#166534` | rich green ink | `#365314` olive-black |
+  | mid text — formulas, values, second-level labels | `#65a30d` | bright lime | `#4d7c0f` olive |
+  | captions, footnote text, light strokes | `#0d9488` | vivid teal | `#6b7a72` gray-green |
+  | connector lines, ticks, operand/leaf text | `#d97706` | bright amber | `#9a6b2f` / `#7c5a2e` dull brown |
+  | accent — key values, arrows, highlighted bars | `#ea580c` | vivid orange | `#b45309` muted amber |
+  | teal structure (number lines, secondary boxes) | `#0d9488` | vivid teal | `#1f5c4d` dark teal |
+  | teal primary text | `#0f766e` | teal ink | `#123f35` near-black teal |
+  | refusal / warning / negative verdict | `#dc2626` | vivid red | `#7c2d12` / `#9a3412` brown-red |
+  | tinted panel fills | `#fef3c7` / `#ffedd5` | amber/orange-100 | `#fdf8ef` / `#f5eddd` cream |
+  | light separators | `#fcd34d` | amber-300 | `#d8d2c2` |
+  | faint grids, unpicked borders, dots | `#5eead4` | teal-300 | `#b9c6bd` / `#b9c4bd` |
+  | white text inside filled bars | `#ffffff` | unchanged | — |
+
+  Rules: hard-coded `#rrggbb` only (hex is stable across themes because
+  of the paper plate); `currentColor` is allowed for whole-figure ink that
+  should follow the plate text colour. Text roles keep ≥4.5:1 on `#fffdf5`,
+  stroke roles ≥3:1. When a figure needs a NEW colour, add it to this table
+  first (same warm families, same contrast floors) — never invent a muted
+  olive/gray halfway hue. Chapter job scripts that assert figure colours
+  (e2e / audit / generators) must reference these exact hexes.
 - **Questions**: 6 difficulty levels (L1 beginner → L6 research/olympiad);
   solutions include strategy, not just answers.
 - **Cengage theory presentation (owner directive 2026-11-03)**: the theory
@@ -147,6 +178,9 @@ the run.
 
 - [ ] All math recomputed by script or by hand (no copy-paste errors)
 - [ ] Every figure label appears in the prose terminology
+- [ ] Every figure SVG uses the vivid palette table (no retired muted hexes:
+      `#3f6212 #365314 #6b7a72 #b45309 #9a6b2f #4d7c0f #1f5c4d #123f35
+      #7c2d12 #9a3412 #fdf8ef #f5eddd #d8d2c2 #b9c6bd #b9c4bd #7c5a2e`)
 - [ ] Quiz `answer` indices point at the intended option
 - [ ] Exercise solutions complete and numerically verified
 - [ ] Lesson ids globally unique (grep before adding)

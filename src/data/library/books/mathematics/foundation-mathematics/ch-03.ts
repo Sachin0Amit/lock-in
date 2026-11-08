@@ -345,31 +345,31 @@ export const chapter03: Chapter = {
     <g text-anchor="middle">
       <rect x="200" y="54" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="79" font-weight="700">look at the last digit</text>
-      <text x="620" y="79" fill="#b45309" font-weight="700">2 · 5 · 10</text>
+      <text x="620" y="79" fill="#ea580c" font-weight="700">2 · 5 · 10</text>
       <line x1="380" y1="94" x2="380" y2="112" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
       <rect x="200" y="114" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="139" font-weight="700">look at the last two digits</text>
-      <text x="620" y="139" fill="#b45309" font-weight="700">4 · 25</text>
+      <text x="620" y="139" fill="#ea580c" font-weight="700">4 · 25</text>
       <line x1="380" y1="154" x2="380" y2="172" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
       <rect x="200" y="174" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="199" font-weight="700">look at the last three digits</text>
-      <text x="620" y="199" fill="#b45309" font-weight="700">8 · 125</text>
+      <text x="620" y="199" fill="#ea580c" font-weight="700">8 · 125</text>
       <line x1="380" y1="214" x2="380" y2="232" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
       <rect x="200" y="234" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="259" font-weight="700">add all the digits</text>
-      <text x="620" y="259" fill="#b45309" font-weight="700">3 · 9</text>
+      <text x="620" y="259" fill="#ea580c" font-weight="700">3 · 9</text>
       <line x1="380" y1="274" x2="380" y2="292" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
       <rect x="200" y="294" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="319" font-weight="700">add digits with alternating signs</text>
-      <text x="620" y="319" fill="#b45309" font-weight="700">11</text>
+      <text x="620" y="319" fill="#ea580c" font-weight="700">11</text>
       <line x1="380" y1="334" x2="380" y2="352" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
       <rect x="200" y="354" width="300" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
       <text x="350" y="379" font-weight="700">split the divisor into coprime parts</text>
-      <text x="620" y="379" fill="#b45309" font-weight="700">6 · 12 · 15 · 18 · 24 · 88</text>
+      <text x="620" y="379" fill="#ea580c" font-weight="700">6 · 12 · 15 · 18 · 24 · 88</text>
       <line x1="380" y1="394" x2="380" y2="412" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-      <rect x="200" y="414" width="300" height="40" rx="10" fill="none" stroke="#b45309" stroke-width="1.5"/>
-      <text x="350" y="439" font-weight="700" fill="#b45309">double the unit digit and subtract</text>
-      <text x="620" y="439" fill="#b45309" font-weight="700">7</text>
+      <rect x="200" y="414" width="300" height="40" rx="10" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+      <text x="350" y="439" font-weight="700" fill="#ea580c">double the unit digit and subtract</text>
+      <text x="620" y="439" fill="#ea580c" font-weight="700">7</text>
     </g>
     <line x1="380" y1="454" x2="380" y2="470" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
     <text x="380" y="492" text-anchor="middle" opacity="0.8">every screen asks one question: does the remainder come out 0?</text>
@@ -843,7 +843,7 @@ export const chapter03: Chapter = {
       <text x="504" y="112">4</text>
       <text x="636" y="112">15</text>
     </g>
-    <g text-anchor="middle" font-weight="700" fill="#b45309">
+    <g text-anchor="middle" font-weight="700" fill="#ea580c">
       <text x="86" y="198">2</text>
       <text x="164" y="198">3</text>
       <text x="218" y="198">2</text>
@@ -857,11 +857,11 @@ export const chapter03: Chapter = {
       <text x="190" y="238">first cut: 6 × 10</text>
       <text x="570" y="238">first cut: 4 × 15</text>
     </g>
-    <g stroke="#b45309" stroke-width="1.4" opacity="0.6" fill="none" stroke-dasharray="5 4">
+    <g stroke="#ea580c" stroke-width="1.4" opacity="0.6" fill="none" stroke-dasharray="5 4">
       <path d="M190 252 C 190 292, 320 300, 366 316"/>
       <path d="M570 252 C 570 292, 440 300, 394 316"/>
     </g>
-    <g text-anchor="middle" font-weight="700" fill="#b45309" font-size="16">
+    <g text-anchor="middle" font-weight="700" fill="#ea580c" font-size="16">
       <text x="380" y="340">2 · 2 · 3 · 5</text>
     </g>
     <g text-anchor="middle" opacity="0.75" font-size="13">

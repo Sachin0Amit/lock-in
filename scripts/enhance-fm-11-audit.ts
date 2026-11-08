@@ -136,7 +136,7 @@ for (const [i, e] of expected.entries()) {
   check(`row ${i} numeral strip at x=${stripX} w=${stripW} y=${e.base - 25}`, band)
   // per-digit rendering: leading 5 at its seat's right edge, zeros to its right
   const five = new RegExp(
-    `<text x="${e.fiveRight}" y="${e.base}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="24" fill="#b45309" font-weight="700">5</text>`
+    `<text x="${e.fiveRight}" y="${e.base}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="24" fill="#ea580c" font-weight="700">5</text>`
   )
   check(`row ${i} digit-5 element at seat x=${e.fiveRight} y=${e.base}`, five.test(svg2))
   for (let z = 0; z < i; z++) {

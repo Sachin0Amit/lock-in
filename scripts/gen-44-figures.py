@@ -27,7 +27,7 @@ def bar(y: int, n_cells: int, shaded_from: int, shaded_to: int, label: str,
     out = []
     out.append(f'    <text x="{BAR_X0}" y="{label_y}">{label}</text>')
     out.append(f'    <rect x="{BAR_X0}" y="{y}" width="{BAR_W}" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>')
-    out.append(f'    <g fill="#b45309" opacity="{tint_opacity}">')
+    out.append(f'    <g fill="#ea580c" opacity="{tint_opacity}">')
     for i in range(shaded_from, shaded_to):
         out.append(f'      <rect x="{f2(BAR_X0 + i * cw)}" y="{y}" width="{f2(cw)}" height="44"/>')
     out.append("    </g>")
@@ -53,7 +53,7 @@ a.append(bar(308, 12, 0, 2, "raised to the 12-ruler: 1/6 = 2/12", "2/12", 298))
 a.append(bar(396, 12, 0, 5, "the sum on one ruler: 3 + 2 = 5 twelfths", "5/12", 386, "0.3"))
 # dashed boundary between the two contributions on the sum bar
 bd = BAR_X0 + 3 * (BAR_W / 12)  # 225
-a.append(f'  <line x1="{f2(bd)}" y1="390" x2="{f2(bd)}" y2="446" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
+a.append(f'  <line x1="{f2(bd)}" y1="390" x2="{f2(bd)}" y2="446" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
 a.append('  <text x="380" y="473" text-anchor="middle" font-weight="700">the contributions stack on one ruler: 1/4 + 1/6 = 3/12 + 2/12 = 5/12</text>')
 a.append("  </g>")
 a.append("</svg>")
@@ -79,7 +79,7 @@ for frac, name in [(0.0, "0"), (7 / 12, "7/12"), (5 / 8, "5/8"), (1.0, "1")]:
     b.append(f'  <text x="{f2(x)}" y="198" text-anchor="middle" font-weight="700">{name}</text>')
 # the gap arc between the two points
 gx1, gx2 = lx(7 / 12), lx(5 / 8)
-b.append(f'  <path d="M {f2(gx1)} 170 A {f2((gx2 - gx1) / 2)} 26 0 0 1 {f2(gx2)} 170" fill="none" stroke="#b45309" stroke-width="1.5"/>')
+b.append(f'  <path d="M {f2(gx1)} 170 A {f2((gx2 - gx1) / 2)} 26 0 0 1 {f2(gx2)} 170" fill="none" stroke="#ea580c" stroke-width="1.5"/>')
 b.append(f'  <text x="{f2((gx1 + gx2) / 2)}" y="134" text-anchor="middle" font-weight="700">1/24</text>')
 b.append('  <text x="380" y="232" text-anchor="middle" font-weight="700">subtraction names the gap between the points: 5/8 − 7/12 = 1/24</text>')
 b.append("  </g>")

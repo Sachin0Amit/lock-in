@@ -49,33 +49,33 @@ function balanceMovesSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the balance principle</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">an equation is a scale in balance — every lawful move touches BOTH members the same way</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the balance principle</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">an equation is a scale in balance — every lawful move touches BOTH members the same way</text>')
   // LEFT panel: the scale
-  parts.push('<rect x="30" y="84" width="330" height="200" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the claim as a scale: x + 3 = 8</text>')
+  parts.push('<rect x="30" y="84" width="330" height="200" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the claim as a scale: x + 3 = 8</text>')
   // beam + fulcrum
-  parts.push('<rect x="60" y="136" width="270" height="8" rx="3" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="195" y="131" font-size="11" fill="#4d7c0f" text-anchor="middle" font-weight="700">the equals sign is the fulcrum</text>')
-  parts.push('<rect x="180" y="150" width="30" height="18" rx="3" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="195" y="163" font-size="10" fill="#6b7a72" text-anchor="middle">=</text>')
+  parts.push('<rect x="60" y="136" width="270" height="8" rx="3" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="195" y="131" font-size="11" fill="#65a30d" text-anchor="middle" font-weight="700">the equals sign is the fulcrum</text>')
+  parts.push('<rect x="180" y="150" width="30" height="18" rx="3" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="195" y="163" font-size="10" fill="#0d9488" text-anchor="middle">=</text>')
   // pans (hung from the beam ends — dashed strings)
-  parts.push('<path d="M 90 144 L 125 168" fill="none" stroke="#6b7a72" stroke-width="1" stroke-dasharray="3 2"/>')
-  parts.push('<path d="M 300 144 L 295 168" fill="none" stroke="#6b7a72" stroke-width="1" stroke-dasharray="3 2"/>')
-  parts.push('<rect x="70" y="168" width="110" height="22" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="125" y="183" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">x + 3</text>')
-  parts.push('<rect x="240" y="168" width="110" height="22" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="295" y="183" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">8</text>')
+  parts.push('<path d="M 90 144 L 125 168" fill="none" stroke="#0d9488" stroke-width="1" stroke-dasharray="3 2"/>')
+  parts.push('<path d="M 300 144 L 295 168" fill="none" stroke="#0d9488" stroke-width="1" stroke-dasharray="3 2"/>')
+  parts.push('<rect x="70" y="168" width="110" height="22" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="125" y="183" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">x + 3</text>')
+  parts.push('<rect x="240" y="168" width="110" height="22" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="295" y="183" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">8</text>')
   // member boxes under the pans
-  parts.push('<rect x="60" y="196" width="130" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="125" y="215" font-size="10.5" fill="#365314" text-anchor="middle">left member: x + 3</text>')
-  parts.push('<rect x="220" y="196" width="130" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="285" y="215" font-size="10.5" fill="#365314" text-anchor="middle">right member: 8</text>')
-  parts.push('<text x="195" y="262" font-size="11" fill="#4d7c0f" text-anchor="middle" font-weight="700">level pans — the claim is TRUE at that x</text>')
+  parts.push('<rect x="60" y="196" width="130" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="125" y="215" font-size="10.5" fill="#166534" text-anchor="middle">left member: x + 3</text>')
+  parts.push('<rect x="220" y="196" width="130" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="285" y="215" font-size="10.5" fill="#166534" text-anchor="middle">right member: 8</text>')
+  parts.push('<text x="195" y="262" font-size="11" fill="#65a30d" text-anchor="middle" font-weight="700">level pans — the claim is TRUE at that x</text>')
   // RIGHT panel: the four lawful moves
-  parts.push('<rect x="400" y="84" width="290" height="200" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the four lawful moves</text>')
+  parts.push('<rect x="400" y="84" width="290" height="200" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the four lawful moves</text>')
   const moves: [string, string][] = [
     ['add the SAME quantity', 'to both members'],
     ['subtract the SAME quantity', 'from both members'],
@@ -84,16 +84,16 @@ function balanceMovesSvg(): string {
   ]
   moves.forEach(([title, sub], i) => {
     const y = 116 + i * 40
-    parts.push(`<rect x="420" y="${y}" width="250" height="36" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="545" y="${y + 15}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="545" y="${y + 29}" font-size="10" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="420" y="${y}" width="250" height="36" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="545" y="${y + 15}" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="545" y="${y + 29}" font-size="10" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="300" width="660" height="32" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="305" width="200" height="22" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="160" y="320" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">lawful moves keep the balance</text>')
-  parts.push('<rect x="300" y="305" width="200" height="22" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="400" y="320" font-size="11" fill="#365314" text-anchor="middle">the solution set never changes</text>')
+  parts.push('<rect x="30" y="300" width="660" height="32" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="305" width="200" height="22" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="160" y="320" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">lawful moves keep the balance</text>')
+  parts.push('<rect x="300" y="305" width="200" height="22" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="400" y="320" font-size="11" fill="#166534" text-anchor="middle">the solution set never changes</text>')
   return parts.join('')
 }
 
@@ -112,39 +112,39 @@ function verdictStripSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">three kinds of assertion — one census</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">test the claim at a spread of values; the PATTERN of the verdicts sorts the assertion</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">three kinds of assertion — one census</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">test the claim at a spread of values; the PATTERN of the verdicts sorts the assertion</text>')
   // row 1: identity
-  parts.push('<rect x="30" y="84" width="660" height="64" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="45" y="96" width="170" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="130" y="113" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">an identity</text>')
-  parts.push('<text x="130" y="128" font-size="9.5" fill="#6b7a72" text-anchor="middle">true at EVERY value</text>')
-  parts.push('<rect x="235" y="96" width="430" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="450" y="113" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">(x + 1)² = x² + 2x + 1 — census: 6 of 6 true</text>')
-  parts.push('<text x="450" y="128" font-size="10" fill="#6b7a72" text-anchor="middle">3.3’s charter read forward — the solution set is EVERY number (5.3’s third verdict)</text>')
+  parts.push('<rect x="30" y="84" width="660" height="64" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="45" y="96" width="170" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="130" y="113" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">an identity</text>')
+  parts.push('<text x="130" y="128" font-size="9.5" fill="#0d9488" text-anchor="middle">true at EVERY value</text>')
+  parts.push('<rect x="235" y="96" width="430" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="450" y="113" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">(x + 1)² = x² + 2x + 1 — census: 6 of 6 true</text>')
+  parts.push('<text x="450" y="128" font-size="10" fill="#0d9488" text-anchor="middle">3.3’s charter read forward — the solution set is EVERY number (5.3’s third verdict)</text>')
   // row 2: conditional equation
-  parts.push('<rect x="30" y="156" width="660" height="64" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="45" y="168" width="170" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="130" y="185" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">a conditional equation</text>')
-  parts.push('<text x="130" y="200" font-size="9.5" fill="#6b7a72" text-anchor="middle">true at SOME values</text>')
-  parts.push('<rect x="235" y="168" width="430" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="450" y="185" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">x + 3 = 8 — census: 1 of 6 true (only x = 5)</text>')
-  parts.push('<text x="450" y="200" font-size="10" fill="#6b7a72" text-anchor="middle">the solving chapters’ home ground — the solution set is {5}</text>')
+  parts.push('<rect x="30" y="156" width="660" height="64" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="45" y="168" width="170" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="130" y="185" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">a conditional equation</text>')
+  parts.push('<text x="130" y="200" font-size="9.5" fill="#0d9488" text-anchor="middle">true at SOME values</text>')
+  parts.push('<rect x="235" y="168" width="430" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="450" y="185" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">x + 3 = 8 — census: 1 of 6 true (only x = 5)</text>')
+  parts.push('<text x="450" y="200" font-size="10" fill="#0d9488" text-anchor="middle">the solving chapters’ home ground — the solution set is {5}</text>')
   // row 3: contradiction
-  parts.push('<rect x="30" y="228" width="660" height="64" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="45" y="240" width="170" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="130" y="257" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">a contradiction</text>')
-  parts.push('<text x="130" y="272" font-size="9.5" fill="#6b7a72" text-anchor="middle">true at NO value</text>')
-  parts.push('<rect x="235" y="240" width="430" height="40" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="450" y="257" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">x + 1 = x + 2 — census: 0 of 6 true</text>')
-  parts.push('<text x="450" y="272" font-size="10" fill="#6b7a72" text-anchor="middle">subtract x lawfully and 1 = 2 remains — a false claim with no x in it (5.3’s second verdict)</text>')
+  parts.push('<rect x="30" y="228" width="660" height="64" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="45" y="240" width="170" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="130" y="257" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">a contradiction</text>')
+  parts.push('<text x="130" y="272" font-size="9.5" fill="#0d9488" text-anchor="middle">true at NO value</text>')
+  parts.push('<rect x="235" y="240" width="430" height="40" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="450" y="257" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">x + 1 = x + 2 — census: 0 of 6 true</text>')
+  parts.push('<text x="450" y="272" font-size="10" fill="#0d9488" text-anchor="middle">subtract x lawfully and 1 = 2 remains — a false claim with no x in it (5.3’s second verdict)</text>')
   // collection band
-  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="308" width="240" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="180" y="324" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">the census is a preview instrument</text>')
-  parts.push('<rect x="360" y="308" width="240" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="480" y="324" font-size="11" fill="#365314" text-anchor="middle">5.3 prices all three verdicts in full</text>')
+  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="308" width="240" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="180" y="324" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">the census is a preview instrument</text>')
+  parts.push('<rect x="360" y="308" width="240" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="480" y="324" font-size="11" fill="#166534" text-anchor="middle">5.3 prices all three verdicts in full</text>')
   return parts.join('')
 }
 
@@ -162,9 +162,9 @@ function pipelineSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five-station solving pipeline. Five stations in a row: clear fractions by multiplying every term by the LCD; clear brackets by distributing; collect like terms on each member; gather the unknown onto one member; divide by the coefficient. Below, the running example flows through: 2 times the bracket x minus 1 over 3 equals the bracket x plus 1 over 2 plus 1, cleared to 4 x minus 4 equals 3 x plus 9, gathered to x equals 13. The check substitutes into the original.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the five-station pipeline</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">every station is one of 5.1’s lawful moves — the solution set survives the whole journey</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the five-station pipeline</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">every station is one of 5.1’s lawful moves — the solution set survives the whole journey</text>')
   const stations: [string, string][] = [
     ['1 — CLEAR', 'fractions by the LCD'],
     ['2 — CLEAR', 'brackets (mind the minus)'],
@@ -174,25 +174,25 @@ function pipelineSvg(): string {
   ]
   stations.forEach(([title, sub], i) => {
     const x = 40 + i * 130
-    parts.push(`<rect x="${x}" y="110" width="122" height="70" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${x + 61}" y="138" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${x + 61}" y="156" font-size="9.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="${x}" y="110" width="122" height="70" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 61}" y="138" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 61}" y="156" font-size="9.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // arrows between stations
   for (let i = 0; i < 4; i++) {
     const x1 = 40 + i * 130 + 122
-    parts.push(`<path d="M ${x1 + 2} 145 L ${x1 + 6} 145" stroke="#4d7c0f" stroke-width="1.5"/>`)
+    parts.push(`<path d="M ${x1 + 2} 145 L ${x1 + 6} 145" stroke="#65a30d" stroke-width="1.5"/>`)
   }
   // collection band: the running example flows through
-  parts.push('<rect x="30" y="220" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="45" y="227" width="300" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="195" y="246" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">2(x − 1)/3 = (x + 1)/2 + 1</text>')
-  parts.push('<rect x="365" y="227" width="300" height="30" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="515" y="246" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">×6 → 4x − 4 = 3x + 9 → x = 13</text>')
+  parts.push('<rect x="30" y="220" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="45" y="227" width="300" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="195" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">2(x − 1)/3 = (x + 1)/2 + 1</text>')
+  parts.push('<rect x="365" y="227" width="300" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="515" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">×6 → 4x − 4 = 3x + 9 → x = 13</text>')
   // note strip: the check
-  parts.push('<rect x="30" y="284" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="220" y="291" width="280" height="26" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="360" y="308" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">habit — check in the ORIGINAL: 8 = 8 ✓</text>')
+  parts.push('<rect x="30" y="284" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="220" y="291" width="280" height="26" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="308" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">habit — check in the ORIGINAL: 8 = 8 ✓</text>')
   return parts.join('')
 }
 
@@ -211,12 +211,12 @@ function invariantSetSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The invariant solution set. Four equivalent forms of one claim: the fraction form, the cleared form, the collected form, and x equals 13 — each arrow a lawful move. The right panel notes that the solution set never changed, that every arrow is reversible, and that the check confirms the end of the chain against the beginning.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">one claim, four dresses — the solution set never moves</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the pipeline changes the CLOTHES; equivalence keeps the TRUTH</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">one claim, four dresses — the solution set never moves</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the pipeline changes the CLOTHES; equivalence keeps the TRUTH</text>')
   // LEFT panel: the chain of forms
-  parts.push('<rect x="30" y="84" width="360" height="200" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="210" y="104" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the running example, station by station</text>')
+  parts.push('<rect x="30" y="84" width="360" height="200" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="210" y="104" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the running example, station by station</text>')
   const forms: [string, string][] = [
     ['2(x − 1)/3 = (x + 1)/2 + 1', 'the original claim (fractions)'],
     ['4(x − 1) = 3(x + 1) + 6', 'after ×6 — the LCD strike'],
@@ -225,13 +225,13 @@ function invariantSetSvg(): string {
   ]
   forms.forEach(([f, note], i) => {
     const y = 116 + i * 44
-    parts.push(`<rect x="50" y="${y}" width="320" height="36" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="210" y="${y + 15}" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">${f}</text>`)
-    parts.push(`<text x="210" y="${y + 30}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${note}</text>`)
+    parts.push(`<rect x="50" y="${y}" width="320" height="36" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="210" y="${y + 15}" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${f}</text>`)
+    parts.push(`<text x="210" y="${y + 30}" font-size="9.5" fill="#0d9488" text-anchor="middle">${note}</text>`)
   })
   // RIGHT panel: the invariants
-  parts.push('<rect x="410" y="84" width="280" height="200" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="550" y="104" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">what never changed</text>')
+  parts.push('<rect x="410" y="84" width="280" height="200" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="550" y="104" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">what never changed</text>')
   const notes: [string, string][] = [
     ['the solution set: {13} at every arrow', 'equivalence composes — the chain is safe'],
     ['every arrow is reversible', '×6 undoes ÷6; +k undoes −k (5.1)'],
@@ -239,16 +239,16 @@ function invariantSetSvg(): string {
   ]
   notes.forEach(([title, sub], i) => {
     const y = 116 + i * 60
-    parts.push(`<rect x="425" y="${y}" width="250" height="48" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="550" y="${y + 19}" font-size="11" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="550" y="${y + 36}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="425" y="${y}" width="250" height="48" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="550" y="${y + 19}" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="550" y="${y + 36}" font-size="9.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="55" y="308" width="250" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="180" y="324" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">the last line speaks for the first</text>')
-  parts.push('<rect x="340" y="308" width="250" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="465" y="324" font-size="11" fill="#365314" text-anchor="middle">the collapse cases belong to 5.3</text>')
+  parts.push('<rect x="30" y="300" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="55" y="308" width="250" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="180" y="324" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">the last line speaks for the first</text>')
+  parts.push('<rect x="340" y="308" width="250" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="465" y="324" font-size="11" fill="#166534" text-anchor="middle">the collapse cases belong to 5.3</text>')
   return parts.join('')
 }
 

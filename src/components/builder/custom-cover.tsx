@@ -6,13 +6,13 @@
  * palette derived from the book id. No blue/indigo, matching the site.
  */
 const PALETTES: [string, string][] = [
-  ['#b45309', '#78350f'], // amber-clay (FM)
-  ['#0f766e', '#115e59'], // teal (ANS)
-  ['#4d7c0f', '#3f6212'], // olive (AL)
-  ['#9a3412', '#7c2d12'], // rust
-  ['#713f12', '#570d0d'], // umber
-  ['#3f6212', '#365314'], // moss
-  ['#a16207', '#854d0e'], // bronze
+  ['#ea580c', '#c2410c'], // vivid amber (FM)
+  ['#14b8a6', '#0f766e'], // teal (ANS)
+  ['#65a30d', '#166534'], // lime-green (AL)
+  ['#f97316', '#c2410c'], // rust
+  ['#d97706', '#92400e'], // umber
+  ['#22c55e', '#15803d'], // moss
+  ['#eab308', '#a16207'], // bronze
 ]
 
 function hashString(s: string): number {

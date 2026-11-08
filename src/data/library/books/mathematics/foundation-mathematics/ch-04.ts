@@ -228,12 +228,12 @@ export const chapter04: Chapter = {
       <text x="310" y="116">1</text>
       <text x="550" y="116">2</text>
     </g>
-    <circle cx="250" cy="70" r="5" fill="#b45309"/>
-    <text x="250" y="48" text-anchor="middle" fill="#b45309" font-weight="700">3/4</text>
-    <circle cx="490" cy="70" r="5" fill="#b45309"/>
-    <text x="490" y="48" text-anchor="middle" fill="#b45309" font-weight="700">7/4 = 1 3/4</text>
+    <circle cx="250" cy="70" r="5" fill="#ea580c"/>
+    <text x="250" y="48" text-anchor="middle" fill="#ea580c" font-weight="700">3/4</text>
+    <circle cx="490" cy="70" r="5" fill="#ea580c"/>
+    <text x="490" y="48" text-anchor="middle" fill="#ea580c" font-weight="700">7/4 = 1 3/4</text>
     <text x="290" y="155" text-anchor="middle" opacity="0.8">the gap between 1 and 2, magnified</text>
-    <line x1="490" y1="76" x2="535" y2="204" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+    <line x1="490" y1="76" x2="535" y2="204" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
     <line x1="70" y1="210" x2="690" y2="210" stroke="currentColor" stroke-width="1.5"/>
     <g stroke="currentColor" stroke-width="1.5">
       <line x1="70" y1="202" x2="70" y2="218"/>
@@ -261,8 +261,8 @@ export const chapter04: Chapter = {
       <text x="70" y="256">1</text>
       <text x="690" y="256">2</text>
     </g>
-    <circle cx="535" cy="210" r="5" fill="#b45309"/>
-    <text x="535" y="188" text-anchor="middle" fill="#b45309" font-weight="700">7/4 again</text>
+    <circle cx="535" cy="210" r="5" fill="#ea580c"/>
+    <text x="535" y="188" text-anchor="middle" fill="#ea580c" font-weight="700">7/4 again</text>
   </g>
 </svg>`,
         },
@@ -384,7 +384,7 @@ export const chapter04: Chapter = {
       <text x="638" y="30">the last 1/6</text>
     </g>
     <rect x="70" y="60" width="620" height="56" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="60" width="103.33" height="56"/>
       <rect x="173.33" y="60" width="103.33" height="56"/>
       <rect x="276.67" y="60" width="103.33" height="56"/>
@@ -768,7 +768,7 @@ export const chapter04: Chapter = {
   <g font-size="13" fill="currentColor">
     <text x="70" y="34">cut into 4 equal pieces — 3 shaded: 3/4</text>
     <rect x="70" y="44" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="44" width="155" height="44"/>
       <rect x="225" y="44" width="155" height="44"/>
       <rect x="380" y="44" width="155" height="44"/>
@@ -782,7 +782,7 @@ export const chapter04: Chapter = {
 
     <text x="70" y="122">cut into 8 equal pieces — 6 shaded: 6/8</text>
     <rect x="70" y="132" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="132" width="77.5" height="44"/>
       <rect x="147.5" y="132" width="77.5" height="44"/>
       <rect x="225" y="132" width="77.5" height="44"/>
@@ -803,7 +803,7 @@ export const chapter04: Chapter = {
 
     <text x="70" y="210">cut into 16 equal pieces — 12 shaded: 12/16</text>
     <rect x="70" y="220" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="220" width="38.75" height="44"/>
       <rect x="108.75" y="220" width="38.75" height="44"/>
       <rect x="147.5" y="220" width="38.75" height="44"/>
@@ -836,7 +836,7 @@ export const chapter04: Chapter = {
     </g>
     <text x="706" y="247" font-weight="700">12/16</text>
 
-    <line x1="535" y1="38" x2="535" y2="272" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+    <line x1="535" y1="38" x2="535" y2="272" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
     <text x="380" y="300" text-anchor="middle" font-weight="700">the shading stops at the same place: 3/4 = 6/8 = 12/16</text>
   </g>
 </svg>`,
@@ -1047,11 +1047,11 @@ export const chapter04: Chapter = {
       <text x="70" y="130">0</text>
       <text x="690" y="130">1</text>
     </g>
-    <circle cx="483.33" cy="80" r="6" fill="#b45309"/>
-    <text x="483.33" y="52" text-anchor="middle" fill="#b45309" font-weight="700">2/3 raised by 6: 12/18</text>
-    <text x="483.33" y="166" text-anchor="middle" fill="#b45309" font-weight="700">4/6 raised by 3: 12/18</text>
-    <line x1="483.33" y1="58" x2="483.33" y2="72" stroke="#b45309" stroke-width="1.2" opacity="0.7"/>
-    <line x1="483.33" y1="152" x2="483.33" y2="88" stroke="#b45309" stroke-width="1.2" opacity="0.7" stroke-dasharray="3 3"/>
+    <circle cx="483.33" cy="80" r="6" fill="#ea580c"/>
+    <text x="483.33" y="52" text-anchor="middle" fill="#ea580c" font-weight="700">2/3 raised by 6: 12/18</text>
+    <text x="483.33" y="166" text-anchor="middle" fill="#ea580c" font-weight="700">4/6 raised by 3: 12/18</text>
+    <line x1="483.33" y1="58" x2="483.33" y2="72" stroke="#ea580c" stroke-width="1.2" opacity="0.7"/>
+    <line x1="483.33" y1="152" x2="483.33" y2="88" stroke="#ea580c" stroke-width="1.2" opacity="0.7" stroke-dasharray="3 3"/>
     <text x="380" y="194" text-anchor="middle" font-weight="700">cross-products: 2 × 6 = 12 and 3 × 4 = 12 — equal counts of 1/18-pieces</text>
   </g>
 </svg>`,
@@ -1542,7 +1542,7 @@ export const chapter04: Chapter = {
   <g font-size="13" fill="currentColor">
     <text x="70" y="34">cut into 12 equal pieces — 7 shaded: 7/12</text>
     <rect x="70" y="44" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="44" width="51.67" height="44"/>
       <rect x="121.67" y="44" width="51.67" height="44"/>
       <rect x="173.33" y="44" width="51.67" height="44"/>
@@ -1567,7 +1567,7 @@ export const chapter04: Chapter = {
     <text x="706" y="71" font-weight="700">7/12</text>
     <text x="70" y="122">cut into 8 equal pieces — 5 shaded: 5/8</text>
     <rect x="70" y="132" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="132" width="77.5" height="44"/>
       <rect x="147.5" y="132" width="77.5" height="44"/>
       <rect x="225" y="132" width="77.5" height="44"/>
@@ -1586,7 +1586,7 @@ export const chapter04: Chapter = {
     <text x="706" y="159" font-weight="700">5/8</text>
     <text x="70" y="210">raised to the 24-ruler: 7/12 = 14/24</text>
     <rect x="70" y="220" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="220" width="25.83" height="44"/>
       <rect x="95.83" y="220" width="25.83" height="44"/>
       <rect x="121.67" y="220" width="25.83" height="44"/>
@@ -1630,7 +1630,7 @@ export const chapter04: Chapter = {
     <text x="706" y="247" font-weight="700">14/24</text>
     <text x="70" y="298">raised to the 24-ruler: 5/8 = 15/24</text>
     <rect x="70" y="308" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="308" width="25.83" height="44"/>
       <rect x="95.83" y="308" width="25.83" height="44"/>
       <rect x="121.67" y="308" width="25.83" height="44"/>
@@ -1673,9 +1673,9 @@ export const chapter04: Chapter = {
       <line x1="664.17" y1="308" x2="664.17" y2="352"/>
     </g>
     <text x="706" y="335" font-weight="700">15/24</text>
-  <line x1="431.67" y1="214" x2="431.67" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
-  <line x1="457.5" y1="214" x2="457.5" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
-  <rect x="431.67" y="308" width="25.83" height="44" fill="#b45309" opacity="0.45"/>
+  <line x1="431.67" y1="214" x2="431.67" y2="358" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <line x1="457.5" y1="214" x2="457.5" y2="358" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <rect x="431.67" y="308" width="25.83" height="44" fill="#ea580c" opacity="0.45"/>
   <text x="380" y="385" text-anchor="middle" font-weight="700">the single extra twenty-fourth decides: 5/8 &gt; 7/12</text>
   </g>
 </svg>`,
@@ -2173,7 +2173,7 @@ export const chapter04: Chapter = {
   <g font-size="13" fill="currentColor">
     <text x="70" y="34">cut into 4 equal pieces — 1 shaded: 1/4</text>
     <rect x="70" y="44" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="44" width="155" height="44"/>
     </g>
     <g stroke="currentColor" stroke-width="1" opacity="0.7">
@@ -2184,7 +2184,7 @@ export const chapter04: Chapter = {
     <text x="706" y="71" font-weight="700">1/4</text>
     <text x="70" y="122">cut into 6 equal pieces — 1 shaded: 1/6</text>
     <rect x="70" y="132" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="132" width="103.33" height="44"/>
     </g>
     <g stroke="currentColor" stroke-width="1" opacity="0.7">
@@ -2197,7 +2197,7 @@ export const chapter04: Chapter = {
     <text x="706" y="159" font-weight="700">1/6</text>
     <text x="70" y="210">raised to the 12-ruler: 1/4 = 3/12</text>
     <rect x="70" y="220" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="220" width="51.67" height="44"/>
       <rect x="121.67" y="220" width="51.67" height="44"/>
       <rect x="173.33" y="220" width="51.67" height="44"/>
@@ -2218,7 +2218,7 @@ export const chapter04: Chapter = {
     <text x="706" y="247" font-weight="700">3/12</text>
     <text x="70" y="298">raised to the 12-ruler: 1/6 = 2/12</text>
     <rect x="70" y="308" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.15">
+    <g fill="#ea580c" opacity="0.15">
       <rect x="70" y="308" width="51.67" height="44"/>
       <rect x="121.67" y="308" width="51.67" height="44"/>
     </g>
@@ -2238,7 +2238,7 @@ export const chapter04: Chapter = {
     <text x="706" y="335" font-weight="700">2/12</text>
     <text x="70" y="386">the sum on one ruler: 3 + 2 = 5 twelfths</text>
     <rect x="70" y="396" width="620" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.3">
+    <g fill="#ea580c" opacity="0.3">
       <rect x="70" y="396" width="51.67" height="44"/>
       <rect x="121.67" y="396" width="51.67" height="44"/>
       <rect x="173.33" y="396" width="51.67" height="44"/>
@@ -2259,7 +2259,7 @@ export const chapter04: Chapter = {
       <line x1="638.33" y1="396" x2="638.33" y2="440"/>
     </g>
     <text x="706" y="423" font-weight="700">5/12</text>
-  <line x1="225" y1="390" x2="225" y2="446" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+  <line x1="225" y1="390" x2="225" y2="446" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
   <text x="380" y="473" text-anchor="middle" font-weight="700">the contributions stack on one ruler: 1/4 + 1/6 = 3/12 + 2/12 = 5/12</text>
   </g>
 </svg>`,
@@ -2354,7 +2354,7 @@ export const chapter04: Chapter = {
   <text x="465" y="198" text-anchor="middle" font-weight="700">5/8</text>
   <line x1="720" y1="162" x2="720" y2="178" stroke="currentColor" stroke-width="1.5"/>
   <text x="720" y="198" text-anchor="middle" font-weight="700">1</text>
-  <path d="M 436.67 170 A 14.17 26 0 0 1 465 170" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <path d="M 436.67 170 A 14.17 26 0 0 1 465 170" fill="none" stroke="#ea580c" stroke-width="1.5"/>
   <text x="450.83" y="134" text-anchor="middle" font-weight="700">1/24</text>
   <text x="380" y="232" text-anchor="middle" font-weight="700">subtraction names the gap between the points: 5/8 − 7/12 = 1/24</text>
   </g>
@@ -2795,13 +2795,13 @@ export const chapter04: Chapter = {
   <g font-size="13" fill="currentColor">
     <text x="70" y="40">cut into 5 columns — 3 shaded: 3/5</text>
     <rect x="70" y="60" width="620" height="300" fill="none" stroke="currentColor" stroke-width="1.5"/>
-    <g fill="#b45309" opacity="0.18">
+    <g fill="#ea580c" opacity="0.18">
       <rect x="70" y="60" width="372" height="300"/>
     </g>
-    <g fill="#78350f" opacity="0.12">
+    <g fill="#d97706" opacity="0.12">
       <rect x="70" y="60" width="620" height="200"/>
     </g>
-    <rect x="70" y="60" width="372" height="200" fill="none" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <rect x="70" y="60" width="372" height="200" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4"/>
     <g stroke="currentColor" stroke-width="1" opacity="0.7">
       <line x1="194" y1="60" x2="194" y2="360"/>
       <line x1="318" y1="60" x2="318" y2="360"/>
@@ -2939,11 +2939,11 @@ export const chapter04: Chapter = {
   </g>
   <line x1="40" y1="160" x2="40" y2="180" stroke="currentColor" stroke-width="1.5"/>
   <text x="40" y="200" text-anchor="middle" font-weight="700">0</text>
-  <line x1="550" y1="158" x2="550" y2="182" stroke="#b45309" stroke-width="1.5"/>
+  <line x1="550" y1="158" x2="550" y2="182" stroke="#ea580c" stroke-width="1.5"/>
   <text x="550" y="200" text-anchor="middle" font-weight="700">3/4</text>
   <line x1="720" y1="160" x2="720" y2="180" stroke="currentColor" stroke-width="1.5"/>
   <text x="720" y="200" text-anchor="middle" font-weight="700">1</text>
-  <path d="M 40 170 A 255 46 0 0 1 550 170" fill="none" stroke="#b45309" stroke-width="1.5"/>
+  <path d="M 40 170 A 255 46 0 0 1 550 170" fill="none" stroke="#ea580c" stroke-width="1.5"/>
   <text x="295" y="96" text-anchor="middle" font-weight="700">6 × 1/8 = 6 eighth-steps</text>
   <text x="380" y="232" text-anchor="middle" font-weight="700">division measures: 3/4 ÷ 1/8 = 6 — six eighths fit in three quarters</text>
   </g>

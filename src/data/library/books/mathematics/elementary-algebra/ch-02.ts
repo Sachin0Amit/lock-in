@@ -45,9 +45,9 @@ function copiesLedgerSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the product law, counted by copies</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">a² · a³ stacks every copy of a — 2 + 3 = 5</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the product law, counted by copies</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">a² · a³ stacks every copy of a — 2 + 3 = 5</text>')
   // three panels
   const panels: [number, string, string][] = [
     [30, 'a²', '2 copies'],
@@ -55,9 +55,9 @@ function copiesLedgerSvg(): string {
     [490, 'a⁵', '5 copies'],
   ]
   for (const [x, title, sub] of panels) {
-    parts.push(`<rect x="${x}" y="90" width="200" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${x + 100}" y="116" font-size="17" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${x + 100}" y="134" font-size="11.5" fill="#6b7a72" text-anchor="middle">${sub} of a</text>`)
+    parts.push(`<rect x="${x}" y="90" width="200" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 100}" y="116" font-size="17" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${x + 100}" y="134" font-size="11.5" fill="#0d9488" text-anchor="middle">${sub} of a</text>`)
   }
   // unit boxes: one "a" per copy (40x28), centred per panel
   const stacks: [number, number[]][] = [
@@ -67,15 +67,15 @@ function copiesLedgerSvg(): string {
   ]
   for (const [bx, ys] of stacks) {
     for (const y of ys) {
-      parts.push(`<rect x="${bx}" y="${y}" width="40" height="28" rx="4" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>`)
-      parts.push(`<text x="${bx + 20}" y="${y + 19}" font-size="13" fill="#365314" text-anchor="middle" font-style="italic">a</text>`)
+      parts.push(`<rect x="${bx}" y="${y}" width="40" height="28" rx="4" fill="none" stroke="#65a30d" stroke-width="1.3"/>`)
+      parts.push(`<text x="${bx + 20}" y="${y + 19}" font-size="13" fill="#166534" text-anchor="middle" font-style="italic">a</text>`)
     }
   }
   // plus and equals connectors between panels
-  parts.push('<text x="245" y="205" font-size="22" fill="#365314" text-anchor="middle">+</text>')
-  parts.push('<text x="475" y="205" font-size="22" fill="#365314" text-anchor="middle">=</text>')
+  parts.push('<text x="245" y="205" font-size="22" fill="#166534" text-anchor="middle">+</text>')
+  parts.push('<text x="475" y="205" font-size="22" fill="#166534" text-anchor="middle">=</text>')
   // footer (y = 336 clears the panels, which end at 310)
-  parts.push('<text x="360" y="336" font-size="12" fill="#6b7a72" text-anchor="middle">multiplying powers of the same base adds the copy counts — the same counting shape as 1.2\\u2019s collection law</text>')
+  parts.push('<text x="360" y="336" font-size="12" fill="#0d9488" text-anchor="middle">multiplying powers of the same base adds the copy counts — the same counting shape as 1.2\\u2019s collection law</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -93,10 +93,10 @@ function signAlternatorSvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="300" fill="transparent"/>')
   // the two sign bands
-  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#3f6212" stroke-width="1.4"/>')
-  parts.push('<text x="366" y="36" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">even exponent — the sign forgives: the answer is positive</text>')
-  parts.push('<rect x="24" y="58" width="684" height="34" rx="8" fill="none" stroke="#3f6212" stroke-width="1.4"/>')
-  parts.push('<text x="366" y="80" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">odd exponent — the sign survives: the answer is negative</text>')
+  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#16a34a" stroke-width="1.4"/>')
+  parts.push('<text x="366" y="36" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">even exponent — the sign forgives: the answer is positive</text>')
+  parts.push('<rect x="24" y="58" width="684" height="34" rx="8" fill="none" stroke="#16a34a" stroke-width="1.4"/>')
+  parts.push('<text x="366" y="80" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">odd exponent — the sign survives: the answer is negative</text>')
   // six value boxes
   const vals: [string, string][] = [
     ['(−2)¹', '−2'],
@@ -108,12 +108,12 @@ function signAlternatorSvg(): string {
   ]
   for (let i = 0; i < 6; i++) {
     const x = 24 + 118 * i
-    parts.push(`<rect x="${x}" y="110" width="92" height="64" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>`)
-    parts.push(`<text x="${x + 46}" y="136" font-size="14.5" fill="#365314" text-anchor="middle" font-weight="700">${vals[i][0]}</text>`)
-    parts.push(`<text x="${x + 46}" y="160" font-size="13" fill="#4d7c0f" text-anchor="middle">${vals[i][1]}</text>`)
+    parts.push(`<rect x="${x}" y="110" width="92" height="64" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>`)
+    parts.push(`<text x="${x + 46}" y="136" font-size="14.5" fill="#166534" text-anchor="middle" font-weight="700">${vals[i][0]}</text>`)
+    parts.push(`<text x="${x + 46}" y="160" font-size="13" fill="#65a30d" text-anchor="middle">${vals[i][1]}</text>`)
   }
   // footer (y = 270 clears the boxes, which end at 174)
-  parts.push('<text x="360" y="270" font-size="12" fill="#6b7a72" text-anchor="middle">the sign of (−a)ⁿ rides the parity of n — sweep-verified for every base a ∈ [1..9] and n ∈ [1..12]</text>')
+  parts.push('<text x="360" y="270" font-size="12" fill="#0d9488" text-anchor="middle">the sign of (−a)ⁿ rides the parity of n — sweep-verified for every base a ∈ [1..9] and n ∈ [1..12]</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -132,34 +132,34 @@ function extensionLadderSvg(): string {
     '<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The extension ladder: before the repair the exponents are positive counts and the quotient law works only when the top exponent is larger; after the repair the exponents span all integers and every law works for every nonzero base, with zero excluded">'
   )
   parts.push('<rect x="0" y="0" width="720" height="380" fill="transparent"/>')
-  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="366" y="36" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">the same ladder ANS climbed — now run on the exponents</text>')
+  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="36" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">the same ladder ANS climbed — now run on the exponents</text>')
   // left panel: BEFORE
-  parts.push('<rect x="24" y="60" width="320" height="240" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="184" y="86" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">BEFORE (Lesson 2.1)</text>')
-  parts.push('<rect x="44" y="100" width="280" height="80" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="58" y="124" font-size="12" fill="#365314" font-weight="700">exponents are counts</text>')
-  parts.push('<text x="58" y="144" font-size="11.5" fill="#6b7a72">m, n ∈ 1, 2, 3, …</text>')
-  parts.push('<text x="58" y="164" font-size="11.5" fill="#6b7a72">a⁰ unspeakable</text>')
-  parts.push('<rect x="44" y="200" width="280" height="80" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="58" y="224" font-size="12" fill="#365314" font-weight="700">quotient law restricted</text>')
-  parts.push('<text x="58" y="244" font-size="11.5" fill="#6b7a72">a^m / a^n needs m &gt; n</text>')
-  parts.push('<text x="58" y="264" font-size="11.5" fill="#6b7a72">2² / 2⁵ = 1/8 unspeakable</text>')
+  parts.push('<rect x="24" y="60" width="320" height="240" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="184" y="86" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">BEFORE (Lesson 2.1)</text>')
+  parts.push('<rect x="44" y="100" width="280" height="80" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="58" y="124" font-size="12" fill="#166534" font-weight="700">exponents are counts</text>')
+  parts.push('<text x="58" y="144" font-size="11.5" fill="#0d9488">m, n ∈ 1, 2, 3, …</text>')
+  parts.push('<text x="58" y="164" font-size="11.5" fill="#0d9488">a⁰ unspeakable</text>')
+  parts.push('<rect x="44" y="200" width="280" height="80" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="58" y="224" font-size="12" fill="#166534" font-weight="700">quotient law restricted</text>')
+  parts.push('<text x="58" y="244" font-size="11.5" fill="#0d9488">a^m / a^n needs m &gt; n</text>')
+  parts.push('<text x="58" y="264" font-size="11.5" fill="#0d9488">2² / 2⁵ = 1/8 unspeakable</text>')
   // right panel: AFTER
-  parts.push('<rect x="376" y="60" width="320" height="240" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="536" y="86" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">AFTER (this lesson)</text>')
-  parts.push('<rect x="396" y="100" width="280" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="410" y="122" font-size="12" fill="#365314" font-weight="700">exponents span all integers</text>')
-  parts.push('<text x="410" y="142" font-size="11.5" fill="#6b7a72">…, −2, −1, 0, 1, 2, …</text>')
-  parts.push('<rect x="396" y="166" width="280" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="410" y="188" font-size="12" fill="#365314" font-weight="700">every law survives</text>')
-  parts.push('<text x="410" y="208" font-size="11.5" fill="#6b7a72">product, quotient, towers — swept</text>')
-  parts.push('<rect x="396" y="232" width="280" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="410" y="254" font-size="12" fill="#365314" font-weight="700">one base stays outside</text>')
-  parts.push('<text x="410" y="274" font-size="11.5" fill="#6b7a72">a = 0: no 0⁰, no 0⁻ⁿ — honest</text>')
+  parts.push('<rect x="376" y="60" width="320" height="240" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="536" y="86" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">AFTER (this lesson)</text>')
+  parts.push('<rect x="396" y="100" width="280" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="410" y="122" font-size="12" fill="#166534" font-weight="700">exponents span all integers</text>')
+  parts.push('<text x="410" y="142" font-size="11.5" fill="#0d9488">…, −2, −1, 0, 1, 2, …</text>')
+  parts.push('<rect x="396" y="166" width="280" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="410" y="188" font-size="12" fill="#166534" font-weight="700">every law survives</text>')
+  parts.push('<text x="410" y="208" font-size="11.5" fill="#0d9488">product, quotient, towers — swept</text>')
+  parts.push('<rect x="396" y="232" width="280" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="410" y="254" font-size="12" fill="#166534" font-weight="700">one base stays outside</text>')
+  parts.push('<text x="410" y="274" font-size="11.5" fill="#0d9488">a = 0: no 0⁰, no 0⁻ⁿ — honest</text>')
   // arrow between panels
-  parts.push('<text x="356" y="185" font-size="20" fill="#365314" text-anchor="middle">→</text>')
-  parts.push('<text x="360" y="352" font-size="12" fill="#6b7a72" text-anchor="middle">the charter: new answers for dead questions, old numbers unchanged, old laws alive, no new failures</text>')
+  parts.push('<text x="356" y="185" font-size="20" fill="#166534" text-anchor="middle">→</text>')
+  parts.push('<text x="360" y="352" font-size="12" fill="#0d9488" text-anchor="middle">the charter: new answers for dead questions, old numbers unchanged, old laws alive, no new failures</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -176,29 +176,29 @@ function flipMapSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The fraction-bar flip map: a negative exponent moves its factor across the fraction bar and the exponent turns positive — numerators with negative exponents go down, denominators with negative exponents come up">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="24" y="14" width="684" height="36" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="366" y="37" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">a negative exponent means: cross the bar, lose the sign</text>')
+  parts.push('<rect x="24" y="14" width="684" height="36" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="37" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">a negative exponent means: cross the bar, lose the sign</text>')
   // left panel: above the bar
-  parts.push('<rect x="30" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="180" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">above the bar (numerator)</text>')
-  parts.push('<rect x="50" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="180" y="150" font-size="13.5" fill="#365314" text-anchor="middle">x⁻⁵ sits on top</text>')
-  parts.push('<text x="180" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">it moves DOWN as x⁵</text>')
-  parts.push('<rect x="50" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="180" y="216" font-size="13.5" fill="#365314" text-anchor="middle">x⁵ · x⁻³ = x² stays top</text>')
-  parts.push('<text x="180" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">the −3 rides along legally</text>')
+  parts.push('<rect x="30" y="80" width="300" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="180" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">above the bar (numerator)</text>')
+  parts.push('<rect x="50" y="126" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="150" font-size="13.5" fill="#166534" text-anchor="middle">x⁻⁵ sits on top</text>')
+  parts.push('<text x="180" y="170" font-size="11.5" fill="#0d9488" text-anchor="middle">it moves DOWN as x⁵</text>')
+  parts.push('<rect x="50" y="192" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="216" font-size="13.5" fill="#166534" text-anchor="middle">x⁵ · x⁻³ = x² stays top</text>')
+  parts.push('<text x="180" y="236" font-size="11.5" fill="#0d9488" text-anchor="middle">the −3 rides along legally</text>')
   // right panel: below the bar
-  parts.push('<rect x="390" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="540" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">below the bar (denominator)</text>')
-  parts.push('<rect x="410" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="540" y="150" font-size="13.5" fill="#365314" text-anchor="middle">y⁻⁴ sits underneath</text>')
-  parts.push('<text x="540" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">it comes UP as y⁴ — multiply</text>')
-  parts.push('<rect x="410" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="540" y="216" font-size="13.5" fill="#365314" text-anchor="middle">x⁻² / y⁻³ = y³ / x²</text>')
-  parts.push('<text x="540" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">both cross — it inverts</text>')
+  parts.push('<rect x="390" y="80" width="300" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="540" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">below the bar (denominator)</text>')
+  parts.push('<rect x="410" y="126" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="150" font-size="13.5" fill="#166534" text-anchor="middle">y⁻⁴ sits underneath</text>')
+  parts.push('<text x="540" y="170" font-size="11.5" fill="#0d9488" text-anchor="middle">it comes UP as y⁴ — multiply</text>')
+  parts.push('<rect x="410" y="192" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="216" font-size="13.5" fill="#166534" text-anchor="middle">x⁻² / y⁻³ = y³ / x²</text>')
+  parts.push('<text x="540" y="236" font-size="11.5" fill="#0d9488" text-anchor="middle">both cross — it inverts</text>')
   // arrow between panels
-  parts.push('<text x="356" y="175" font-size="20" fill="#365314" text-anchor="middle">⇅</text>')
-  parts.push('<text x="360" y="310" font-size="12" fill="#6b7a72" text-anchor="middle">swept Frac-exact: 1/x⁻ⁿ = xⁿ, x⁻ᵃ/y⁻ᵇ = yᵇ/xᵃ, (a/b)⁻ⁿ = (b/a)ⁿ — the sign of the exponent flips, the value never lies</text>')
+  parts.push('<text x="356" y="175" font-size="20" fill="#166534" text-anchor="middle">⇅</text>')
+  parts.push('<text x="360" y="310" font-size="12" fill="#0d9488" text-anchor="middle">swept Frac-exact: 1/x⁻ⁿ = xⁿ, x⁻ᵃ/y⁻ᵇ = yᵇ/xᵃ, (a/b)⁻ⁿ = (b/a)ⁿ — the sign of the exponent flips, the value never lies</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -216,8 +216,8 @@ function powersOfTenLadderSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The powers-of-ten ladder from ten to the minus six up to ten to the ninth, each rung labelled with its SI prefix name: micro at ten to the minus six, milli at ten to the minus three, one at ten to the zero, kilo at ten to the three, mega at ten to the six, giga at ten to the nine — every rung multiplies by ten">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="366" y="36" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">the exponent is the rung count on the ladder of tens</text>')
+  parts.push('<rect x="24" y="14" width="684" height="34" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="36" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">the exponent is the rung count on the ladder of tens</text>')
   const stations: [string, string, string][] = [
     ['10⁻⁶', 'micro- (µ)', 'millionth'],
     ['10⁻³', 'milli- (m)', 'thousandth'],
@@ -228,15 +228,15 @@ function powersOfTenLadderSvg(): string {
   ]
   for (let i = 0; i < 6; i++) {
     const x = 24 + 116 * i
-    parts.push(`<rect x="${x}" y="90" width="104" height="120" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${x + 52}" y="122" font-size="17" fill="#365314" text-anchor="middle" font-weight="700">${stations[i][0]}</text>`)
-    parts.push(`<text x="${x + 52}" y="152" font-size="12" fill="#4d7c0f" text-anchor="middle">${stations[i][1]}</text>`)
-    parts.push(`<text x="${x + 52}" y="176" font-size="11" fill="#6b7a72" text-anchor="middle">${stations[i][2]}</text>`)
+    parts.push(`<rect x="${x}" y="90" width="104" height="120" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${x + 52}" y="122" font-size="17" fill="#166534" text-anchor="middle" font-weight="700">${stations[i][0]}</text>`)
+    parts.push(`<text x="${x + 52}" y="152" font-size="12" fill="#65a30d" text-anchor="middle">${stations[i][1]}</text>`)
+    parts.push(`<text x="${x + 52}" y="176" font-size="11" fill="#0d9488" text-anchor="middle">${stations[i][2]}</text>`)
 
   }
-  parts.push('<rect x="24" y="240" width="684" height="40" rx="8" fill="none" stroke="#4d7c0f" stroke-width="1.4"/>')
-  parts.push('<text x="366" y="265" font-size="12.5" fill="#365314" text-anchor="middle">each rung multiplies by 10 — the six school prefixes of FM 9.2 (kilo to milli) extended by mega, giga, micro</text>')
-  parts.push('<text x="360" y="336" font-size="12" fill="#6b7a72" text-anchor="middle">the standard form names a number by its rung (the exponent) and its digits (the coefficient) — two dials, one number</text>')
+  parts.push('<rect x="24" y="240" width="684" height="40" rx="8" fill="none" stroke="#65a30d" stroke-width="1.4"/>')
+  parts.push('<text x="366" y="265" font-size="12.5" fill="#166534" text-anchor="middle">each rung multiplies by 10 — the six school prefixes of FM 9.2 (kilo to milli) extended by mega, giga, micro</text>')
+  parts.push('<text x="360" y="336" font-size="12" fill="#0d9488" text-anchor="middle">the standard form names a number by its rung (the exponent) and its digits (the coefficient) — two dials, one number</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -254,29 +254,29 @@ function twoDialsSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two dials of a number in standard form: the coefficient carries the digits between one inclusive and ten exclusive — the precision dial; the exponent carries the place-shifts — the size dial; worked rows show one point zero seven three seven four one eight two four times ten to the ninth and six point two times ten to the minus four">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="24" y="14" width="684" height="36" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="366" y="37" font-size="13.5" fill="#365314" text-anchor="middle" font-weight="700">a × 10^k — two dials, one number</text>')
+  parts.push('<rect x="24" y="14" width="684" height="36" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="366" y="37" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">a × 10^k — two dials, one number</text>')
   // left panel: the coefficient (precision dial)
-  parts.push('<rect x="30" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="180" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the coefficient a — precision dial</text>')
-  parts.push('<rect x="50" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="180" y="150" font-size="13" fill="#365314" text-anchor="middle">1 ≤ a &lt; 10 — the digits you measured</text>')
-  parts.push('<text x="180" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">its length = the significant digits</text>')
-  parts.push('<rect x="50" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="180" y="216" font-size="13" fill="#365314" text-anchor="middle">1.073741824 → ten digits, all exact</text>')
-  parts.push('<text x="180" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">1.07 → three digits, a softer claim</text>')
+  parts.push('<rect x="30" y="80" width="300" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="180" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the coefficient a — precision dial</text>')
+  parts.push('<rect x="50" y="126" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="150" font-size="13" fill="#166534" text-anchor="middle">1 ≤ a &lt; 10 — the digits you measured</text>')
+  parts.push('<text x="180" y="170" font-size="11.5" fill="#0d9488" text-anchor="middle">its length = the significant digits</text>')
+  parts.push('<rect x="50" y="192" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="180" y="216" font-size="13" fill="#166534" text-anchor="middle">1.073741824 → ten digits, all exact</text>')
+  parts.push('<text x="180" y="236" font-size="11.5" fill="#0d9488" text-anchor="middle">1.07 → three digits, a softer claim</text>')
   // right panel: the exponent (size dial)
-  parts.push('<rect x="390" y="80" width="300" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="540" y="106" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the exponent k — size dial</text>')
-  parts.push('<rect x="410" y="126" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="540" y="150" font-size="13" fill="#365314" text-anchor="middle">k = the place-shifts of the point</text>')
-  parts.push('<text x="540" y="170" font-size="11.5" fill="#6b7a72" text-anchor="middle">k &gt; 0 big, k &lt; 0 small, k = 0 the unit rung</text>')
-  parts.push('<rect x="410" y="192" width="260" height="56" rx="6" fill="none" stroke="#4d7c0f" stroke-width="1.3"/>')
-  parts.push('<text x="540" y="216" font-size="13" fill="#365314" text-anchor="middle">10^9 → nine shifts right (giga rung)</text>')
-  parts.push('<text x="540" y="236" font-size="11.5" fill="#6b7a72" text-anchor="middle">10^-4 → four shifts left (a ten-thousandth)</text>')
+  parts.push('<rect x="390" y="80" width="300" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="540" y="106" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the exponent k — size dial</text>')
+  parts.push('<rect x="410" y="126" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="150" font-size="13" fill="#166534" text-anchor="middle">k = the place-shifts of the point</text>')
+  parts.push('<text x="540" y="170" font-size="11.5" fill="#0d9488" text-anchor="middle">k &gt; 0 big, k &lt; 0 small, k = 0 the unit rung</text>')
+  parts.push('<rect x="410" y="192" width="260" height="56" rx="6" fill="none" stroke="#65a30d" stroke-width="1.3"/>')
+  parts.push('<text x="540" y="216" font-size="13" fill="#166534" text-anchor="middle">10^9 → nine shifts right (giga rung)</text>')
+  parts.push('<text x="540" y="236" font-size="11.5" fill="#0d9488" text-anchor="middle">10^-4 → four shifts left (a ten-thousandth)</text>')
   // arrow between panels
-  parts.push('<text x="356" y="175" font-size="20" fill="#365314" text-anchor="middle">↔</text>')
-  parts.push('<text x="360" y="310" font-size="12" fill="#6b7a72" text-anchor="middle">changing a refines the claim; changing k moves the number — the two dials never trade jobs</text>')
+  parts.push('<text x="356" y="175" font-size="20" fill="#166534" text-anchor="middle">↔</text>')
+  parts.push('<text x="360" y="310" font-size="12" fill="#0d9488" text-anchor="middle">changing a refines the claim; changing k moves the number — the two dials never trade jobs</text>')
   parts.push('</svg>')
   return parts.join('')
 }

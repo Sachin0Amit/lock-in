@@ -20,9 +20,9 @@ r.hasTug = !!tug;
 if (chart) {
   r.chartRects = chart.querySelectorAll('rect').length; // 4 header + 8 cells = 12
   r.chartAmberRects = Array.prototype.slice.call(chart.querySelectorAll('rect'))
-    .filter(function (q) { return (q.getAttribute('fill') || '') === '#b45309'; }).length; // header + 2 rows = 3
+    .filter(function (q) { return (q.getAttribute('fill') || '') === '#ea580c'; }).length; // header + 2 rows = 3
   r.chartAmberDigits = Array.prototype.slice.call(chart.querySelectorAll('text'))
-    .filter(function (t) { return (t.getAttribute('fill') || '') === '#b45309' && t.getAttribute('font-size') === '22'; })
+    .filter(function (t) { return (t.getAttribute('fill') || '') === '#ea580c' && t.getAttribute('font-size') === '22'; })
     .map(function (t) { return t.textContent; }).join(''); // '89'
   r.chartTexts = chart.querySelectorAll('text').length; // 4 seats + 2 row labels + 8 digits + footer + corner = 16
   r.chartAria = (chart.getAttribute('aria-label') || '').length > 20;
@@ -37,7 +37,7 @@ if (tug) {
   r.tugGap = Array.prototype.slice.call(tug.querySelectorAll('rect'))
     .filter(function (q) { return q.getAttribute('width') === '52' && q.getAttribute('stroke-dasharray') === '5 4'; }).length; // 1
   r.tugAmberTexts = Array.prototype.slice.call(tug.querySelectorAll('text'))
-    .filter(function (t) { return (t.getAttribute('fill') || '') === '#b45309'; })
+    .filter(function (t) { return (t.getAttribute('fill') || '') === '#ea580c'; })
     .map(function (t) { return t.textContent; }).join('|'); // '1|unclosable gap'
   r.tugPattern = !!tug.querySelector('pattern[id="fig-tug-stripes"]');
   r.tugTickLabels = Array.prototype.slice.call(tug.querySelectorAll('text'))

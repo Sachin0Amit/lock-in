@@ -55,12 +55,12 @@ const RAYS: { p: number; q: number; label: string; ex: number; ey: number }[] = 
 const rayEnds = RAYS.map((r) => ({ ...r, ex: +r.ex.toFixed(1), ey: +r.ey.toFixed(1) }))
 const latticeDots = LATTICE_DOTS.map(
   ([a, b]) =>
-    `<circle cx="${latX(b)}" cy="${latY(a)}" r="${gcdOf(a, b) === 1 ? 5 : 3.5}" fill="${gcdOf(a, b) === 1 ? '#b45309' : 'currentColor'}" opacity="${gcdOf(a, b) === 1 ? 1 : 0.55}"/>`
+    `<circle cx="${latX(b)}" cy="${latY(a)}" r="${gcdOf(a, b) === 1 ? 5 : 3.5}" fill="${gcdOf(a, b) === 1 ? '#ea580c' : 'currentColor'}" opacity="${gcdOf(a, b) === 1 ? 1 : 0.55}"/>`
 ).join('\n  ')
 const rayLines = rayEnds
   .map(
     (r) =>
-      `<line x1="${LAT_X0}" y1="${LAT_Y0}" x2="${r.ex}" y2="${r.ey}" stroke="#b45309" stroke-width="1.4" stroke-opacity="0.75"/>`
+      `<line x1="${LAT_X0}" y1="${LAT_Y0}" x2="${r.ex}" y2="${r.ey}" stroke="#ea580c" stroke-width="1.4" stroke-opacity="0.75"/>`
   )
   .join('\n  ')
 const rayLabels = rayEnds
@@ -68,7 +68,7 @@ const rayLabels = rayEnds
     const anchor = r.ex > 460 ? 'end' : 'middle'
     const x = r.ex > 460 ? r.ex : r.ex
     const y = r.ey > 60 ? r.ey - 10 : 30
-    return `<text x="${x}" y="${y}" font-size="14" font-weight="700" fill="#b45309" text-anchor="${anchor}">${r.label}</text>`
+    return `<text x="${x}" y="${y}" font-size="14" font-weight="700" fill="#ea580c" text-anchor="${anchor}">${r.label}</text>`
   })
   .join('\n  ')
 
@@ -895,7 +895,7 @@ export const chapter07: Chapter = {
           svg: `<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lattice pairs and their seat-swapped mirrors across the diagonal: two thirds reflects to three halves, one third to three, one to itself">
   <defs>
     <marker id="q72-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#b45309"/>
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
     </marker>
   </defs>
   <line x1="${80 + 28}" y1="${240 + 28}" x2="${80 + 200}" y2="${240 - 200}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.6"/>
@@ -916,7 +916,7 @@ export const chapter07: Chapter = {
   ]
     .map(
       ([a, b]) =>
-        `<circle cx="${80 + 56 * b}" cy="${240 - 44 * a}" r="${a === b ? 5 : 4}" fill="${a === b ? '#b45309' : 'currentColor'}" opacity="${a === b ? 1 : 0.75}"/>`
+        `<circle cx="${80 + 56 * b}" cy="${240 - 44 * a}" r="${a === b ? 5 : 4}" fill="${a === b ? '#ea580c' : 'currentColor'}" opacity="${a === b ? 1 : 0.75}"/>`
     )
     .join('\n  ')}
   ${[
@@ -926,10 +926,10 @@ export const chapter07: Chapter = {
   ]
     .map(
       (m) =>
-        `<path d="M ${80 + 56 * m.b} ${240 - 44 * m.a} Q ${(80 + 56 * m.b + 80 + 56 * m.mb) / 2 + m.off} ${(240 - 44 * m.a + 240 - 44 * m.ma) / 2} ${80 + 56 * m.mb} ${240 - 44 * m.ma}" fill="none" stroke="#b45309" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>`
+        `<path d="M ${80 + 56 * m.b} ${240 - 44 * m.a} Q ${(80 + 56 * m.b + 80 + 56 * m.mb) / 2 + m.off} ${(240 - 44 * m.a + 240 - 44 * m.ma) / 2} ${80 + 56 * m.mb} ${240 - 44 * m.ma}" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>`
     )
     .join('\n  ')}
-  <g font-size="12.5" fill="#b45309" text-anchor="middle">
+  <g font-size="12.5" fill="#ea580c" text-anchor="middle">
     <text x="${80 + 56 * 3 + 22}" y="${240 - 44 * 2 - 2}">3/2</text>
     <text x="${80 + 56 * 2 - 24}" y="${240 - 44 * 2 + 18}">2/3</text>
     <text x="${80 + 56 * 1 + 20}" y="${240 - 44 * 4 - 4}">1/4</text>
@@ -1526,7 +1526,7 @@ export const chapter07: Chapter = {
       <path d="M0,0 L8,4 L0,8 Z" fill="currentColor"/>
     </marker>
     <marker id="q73-amber" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#b45309"/>
+      <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
     </marker>
   </defs>
   ${[
@@ -1587,7 +1587,7 @@ export const chapter07: Chapter = {
       const mx = +(mxm + (vdx / vd) * 20).toFixed(1)
       const my = +(mym + (vdy / vd) * 20).toFixed(1)
       parts.push(
-        `<text x="${mx}" y="${my + 4}" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">d=${dig[order[i]]}</text>`
+        `<text x="${mx}" y="${my + 4}" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=${dig[order[i]]}</text>`
       )
     }
     return parts.join('\n  ')
@@ -1601,18 +1601,18 @@ export const chapter07: Chapter = {
   ]
     .map(
       (v) =>
-        `<circle cx="${v.x}" cy="${v.y}" r="17" fill="${v.last ? '#b45309' : 'none'}" fill-opacity="${v.last ? 0.12 : 0}" stroke="${v.last ? '#b45309' : 'currentColor'}" stroke-width="1.4"/>
+        `<circle cx="${v.x}" cy="${v.y}" r="17" fill="${v.last ? '#ea580c' : 'none'}" fill-opacity="${v.last ? 0.12 : 0}" stroke="${v.last ? '#ea580c' : 'currentColor'}" stroke-width="1.4"/>
   <text x="${v.x}" y="${v.y + 5}" font-size="14" font-weight="700" text-anchor="middle" fill="currentColor">r=${v.s}</text>`
     )
     .join('\n  ')}
-  <line x1="389" y1="70" x2="405" y2="70" stroke="#b45309" stroke-width="1.3" marker-end="url(#q73-amber)"/>
-  <line x1="441" y1="70" x2="457" y2="70" stroke="#b45309" stroke-width="1.3" marker-end="url(#q73-amber)"/>
-  <line x1="437" y1="83" x2="432" y2="122" stroke="#b45309" stroke-width="1.3" marker-end="url(#q73-amber)"/>
-  <text x="397" y="44" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">d=3</text>
-  <text x="449" y="44" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">d=7</text>
-  <text x="468" y="102" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">d=5</text>
+  <line x1="389" y1="70" x2="405" y2="70" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
+  <line x1="441" y1="70" x2="457" y2="70" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
+  <line x1="437" y1="83" x2="432" y2="122" stroke="#ea580c" stroke-width="1.3" marker-end="url(#q73-amber)"/>
+  <text x="397" y="44" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=3</text>
+  <text x="449" y="44" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=7</text>
+  <text x="468" y="102" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">d=5</text>
   <text x="404" y="176" font-size="12.5" fill="currentColor" opacity="0.8" text-anchor="middle">3/8: the walk dies at the 0-sink</text>
-  <text x="404" y="192" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="middle">0.375 — terminating</text>
+  <text x="404" y="192" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="middle">0.375 — terminating</text>
   <text x="404" y="210" font-size="12" fill="currentColor" opacity="0.7" text-anchor="middle">arrows carry r → 10r mod b</text>
 </svg>`,
         },
@@ -1635,9 +1635,9 @@ export const chapter07: Chapter = {
         `<text x="${Math.round(80 + (v - 0.14) * 40000)}" y="94" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.75">${v.toFixed(3)}</text>`
     )
     .join('\n  ')}
-  <line x1="194" y1="36" x2="194" y2="62" stroke="#b45309" stroke-width="1.6"/>
-  <circle cx="194" cy="28" r="4" fill="#b45309"/>
-  <text x="480" y="20" font-size="12.5" font-weight="700" fill="#b45309" text-anchor="end">1/7 = 0.142857…</text>
+  <line x1="194" y1="36" x2="194" y2="62" stroke="#ea580c" stroke-width="1.6"/>
+  <circle cx="194" cy="28" r="4" fill="#ea580c"/>
+  <text x="480" y="20" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">1/7 = 0.142857…</text>
   <text x="80" y="20" font-size="12" fill="currentColor" opacity="0.75">window (0.14, 0.15) — 40 px per hundredth</text>
   <text x="480" y="118" font-size="11.5" fill="currentColor" opacity="0.7" text-anchor="end">every added digit re-zooms: (0.142, 0.143) → (0.1428, 0.1429) → …</text>
 </svg>`,

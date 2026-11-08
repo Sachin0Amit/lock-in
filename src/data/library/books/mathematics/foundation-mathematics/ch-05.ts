@@ -246,17 +246,17 @@ export const chapter05: Chapter = {
       <text x="656" y="106">0.001</text>
     </g>
     <text x="374" y="86" text-anchor="middle" font-size="11" font-style="italic">the point</text>
-    <line x1="374" y1="66" x2="374" y2="118" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="374" y1="66" x2="374" y2="118" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3"/>
     <g text-anchor="middle" font-size="30" font-weight="700">
       <text x="92" y="160">3</text>
       <text x="196" y="160">0</text>
       <text x="300" y="160">5</text>
-      <text x="374" y="160" fill="#b45309">.</text>
+      <text x="374" y="160" fill="#ea580c">.</text>
       <text x="448" y="160">2</text>
       <text x="552" y="160">7</text>
       <text x="656" y="160">4</text>
     </g>
-    <rect x="360" y="126" width="28" height="44" fill="none" stroke="#b45309" stroke-width="1.5"/>
+    <rect x="360" y="126" width="28" height="44" fill="none" stroke="#ea580c" stroke-width="1.5"/>
     <g text-anchor="middle" font-size="12" opacity="0.85">
       <text x="92" y="196">3 × 100</text>
       <text x="92" y="216">= 300</text>
@@ -408,7 +408,7 @@ export const chapter05: Chapter = {
       <line x1="318" y1="82" x2="318" y2="98"/>
       <line x1="380" y1="82" x2="380" y2="98"/>
       <line x1="442" y1="82" x2="442" y2="98"/>
-      <line x1="504" y1="78" x2="504" y2="102" stroke="#b45309" stroke-width="1.5"/>
+      <line x1="504" y1="78" x2="504" y2="102" stroke="#ea580c" stroke-width="1.5"/>
       <line x1="566" y1="82" x2="566" y2="98"/>
       <line x1="628" y1="82" x2="628" y2="98"/>
     </g>
@@ -420,14 +420,14 @@ export const chapter05: Chapter = {
       <text x="318" y="124">2.4</text>
       <text x="380" y="124">2.5</text>
       <text x="442" y="124">2.6</text>
-      <text x="504" y="124" fill="#b45309" font-weight="700">2.7</text>
+      <text x="504" y="124" fill="#ea580c" font-weight="700">2.7</text>
       <text x="566" y="124">2.8</text>
       <text x="628" y="124">2.9</text>
       <text x="690" y="124">3.0</text>
     </g>
-    <circle cx="504" cy="90" r="5" fill="#b45309"/>
-    <text x="504" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">2.7 = 27 tenths</text>
-    <rect x="504" y="72" width="62" height="30" fill="none" stroke="#b45309" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="504" cy="90" r="5" fill="#ea580c"/>
+    <text x="504" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#ea580c">2.7 = 27 tenths</text>
+    <rect x="504" y="72" width="62" height="30" fill="none" stroke="#ea580c" stroke-width="1" stroke-dasharray="4 4"/>
     <line x1="504" y1="102" x2="70" y2="292" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.45"/>
     <line x1="566" y1="102" x2="690" y2="292" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.45"/>
     <text x="380" y="205" text-anchor="middle" font-size="12" font-style="italic">every tenth re-cut into ten hundredths</text>
@@ -436,7 +436,7 @@ export const chapter05: Chapter = {
       <line x1="132" y1="292" x2="132" y2="308"/>
       <line x1="194" y1="292" x2="194" y2="308"/>
       <line x1="256" y1="292" x2="256" y2="308"/>
-      <line x1="318" y1="286" x2="318" y2="314" stroke="#b45309" stroke-width="1.5"/>
+      <line x1="318" y1="286" x2="318" y2="314" stroke="#ea580c" stroke-width="1.5"/>
       <line x1="380" y1="292" x2="380" y2="308"/>
       <line x1="442" y1="292" x2="442" y2="308"/>
       <line x1="504" y1="292" x2="504" y2="308"/>
@@ -448,7 +448,7 @@ export const chapter05: Chapter = {
       <text x="132" y="330">2.71</text>
       <text x="194" y="330">2.72</text>
       <text x="256" y="330">2.73</text>
-      <text x="318" y="330" fill="#b45309" font-weight="700">2.74</text>
+      <text x="318" y="330" fill="#ea580c" font-weight="700">2.74</text>
       <text x="380" y="330">2.75</text>
       <text x="442" y="330">2.76</text>
       <text x="504" y="330">2.77</text>
@@ -456,9 +456,9 @@ export const chapter05: Chapter = {
       <text x="628" y="330">2.79</text>
       <text x="690" y="330">2.80</text>
     </g>
-    <circle cx="318" cy="300" r="5" fill="#b45309"/>
-    <text x="318" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">2.74</text>
-    <text x="318" y="280" text-anchor="middle" font-size="11" fill="#b45309">(274 hundredths)</text>
+    <circle cx="318" cy="300" r="5" fill="#ea580c"/>
+    <text x="318" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#ea580c">2.74</text>
+    <text x="318" y="280" text-anchor="middle" font-size="11" fill="#ea580c">(274 hundredths)</text>
     <text x="380" y="400" text-anchor="middle" font-size="12" opacity="0.85">walking the point: 2 wholes, then 7 tenths, then 4 hundredths — the address 2.74</text>
   </g>
 </svg>`,
@@ -923,14 +923,14 @@ export const chapter05: Chapter = {
           svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The remainder carousel of one seventh: six remainder cells on a circle, arrows labelled with the emitted digits 1 4 2 8 5 7, returning to the start after six steps">
   <g font-size="13" fill="currentColor">
     <circle cx="380" cy="225" r="140" fill="none" stroke="currentColor" stroke-width="1" opacity="0.45"/>
-    <circle cx="380" cy="85" r="26" fill="none" stroke="#b45309" stroke-width="1.5"/>
-    <circle cx="380" cy="85" r="31" fill="none" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="380" cy="85" r="26" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+    <circle cx="380" cy="85" r="31" fill="none" stroke="#ea580c" stroke-width="1" stroke-dasharray="3 3"/>
     <circle cx="501.24" cy="155" r="26" fill="none" stroke="currentColor" stroke-width="1.2"/>
     <circle cx="501.24" cy="295" r="26" fill="none" stroke="currentColor" stroke-width="1.2"/>
     <circle cx="380" cy="365" r="26" fill="none" stroke="currentColor" stroke-width="1.2"/>
     <circle cx="258.76" cy="295" r="26" fill="none" stroke="currentColor" stroke-width="1.2"/>
     <circle cx="258.76" cy="155" r="26" fill="none" stroke="currentColor" stroke-width="1.2"/>
-    <g fill="#b45309" font-weight="700" font-size="15">
+    <g fill="#ea580c" font-weight="700" font-size="15">
       <polygon points="456.06,107.26 444.54,105.22 448.54,98.29"/>
       <polygon points="520,232 516,221 524,221"/>
       <polygon points="443.94,349.74 451.46,340.78 455.46,347.71"/>
@@ -938,7 +938,7 @@ export const chapter05: Chapter = {
       <polygon points="240,218 244,229 236,229"/>
       <polygon points="316.06,100.26 308.54,109.22 304.54,102.29"/>
     </g>
-    <g fill="#b45309" font-weight="700" font-size="15" text-anchor="middle">
+    <g fill="#ea580c" font-weight="700" font-size="15" text-anchor="middle">
       <text x="464" y="85">1</text>
       <text x="548" y="230">4</text>
       <text x="464" y="376">2</text>
@@ -947,7 +947,7 @@ export const chapter05: Chapter = {
       <text x="296" y="85">7</text>
     </g>
     <g fill="currentColor" font-weight="700" font-size="14" text-anchor="middle">
-      <text x="380" y="42" fill="#b45309">1 (start)</text>
+      <text x="380" y="42" fill="#ea580c">1 (start)</text>
       <text x="539.3" y="138">3</text>
       <text x="539.3" y="322">2</text>
       <text x="380" y="414">6</text>
@@ -1638,17 +1638,17 @@ export const chapter05: Chapter = {
   </g>
   <circle cx="431" cy="204" r="4" fill="currentColor"/>
   <text x="431" y="254" font-size="12" fill="currentColor" text-anchor="middle">the point</text>
-  <g stroke="#b45309" stroke-width="1.6" fill="none">
+  <g stroke="#ea580c" stroke-width="1.6" fill="none">
     <line x1="602" y1="68" x2="294" y2="68"/>
     <line x1="500" y1="108" x2="414" y2="108"/>
     <line x1="396" y1="278" x2="482" y2="278"/>
     <line x1="380" y1="318" x2="568" y2="318"/>
   </g>
-  <polygon points="294,68 306,63 306,73" fill="#b45309"/>
-  <polygon points="414,108 426,103 426,113" fill="#b45309"/>
-  <polygon points="482,278 470,273 470,283" fill="#b45309"/>
-  <polygon points="568,318 556,313 556,323" fill="#b45309"/>
-  <g font-size="13" fill="#b45309" text-anchor="middle">
+  <polygon points="294,68 306,63 306,73" fill="#ea580c"/>
+  <polygon points="414,108 426,103 426,113" fill="#ea580c"/>
+  <polygon points="482,278 470,273 470,283" fill="#ea580c"/>
+  <polygon points="568,318 556,313 556,323" fill="#ea580c"/>
+  <g font-size="13" fill="#ea580c" text-anchor="middle">
     <text x="448" y="52">× 100: climb two rooms</text>
     <text x="448" y="92">× 10: climb one room</text>
     <text x="431" y="296">÷ 10: slide one room finer</text>
@@ -1696,7 +1696,7 @@ export const chapter05: Chapter = {
           caption:
             'The long-division tableau of 128.76 ÷ 12. The quotient\'s point (amber) drops in exactly when the bring-down crosses the dividend\'s point; the two amber arrows mark the digits 7 and 6 joining the working. The inverse test closes the loop: 12 × 10.73 = 128.76.',
           svg: `<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Long division tableau: 128.76 divided by 12 gives 10.73, with the quotient point dropping in when the bring-down crosses the dividend point">
-  <text x="420" y="16" font-size="14" fill="#b45309" text-anchor="middle">the point hops into the quotient</text>
+  <text x="420" y="16" font-size="14" fill="#ea580c" text-anchor="middle">the point hops into the quotient</text>
   <g font-size="26" fill="currentColor" text-anchor="middle">
     <text x="348" y="48">1</text>
     <text x="396" y="48">0</text>
@@ -1721,7 +1721,7 @@ export const chapter05: Chapter = {
     <text x="492" y="340">6</text>
     <text x="492" y="386">0</text>
   </g>
-  <circle cx="420" cy="40" r="4" fill="#b45309"/>
+  <circle cx="420" cy="40" r="4" fill="#ea580c"/>
   <circle cx="420" cy="100" r="3.5" fill="currentColor"/>
   <g stroke="currentColor" stroke-width="1.4">
     <line x1="284" y1="86" x2="284" y2="138"/>
@@ -1731,12 +1731,12 @@ export const chapter05: Chapter = {
     <line x1="388" y1="262" x2="460" y2="262"/>
     <line x1="436" y1="354" x2="510" y2="354"/>
   </g>
-  <g stroke="#b45309" stroke-width="1.4" fill="none">
+  <g stroke="#ea580c" stroke-width="1.4" fill="none">
     <line x1="444" y1="122" x2="444" y2="174"/>
     <line x1="492" y1="122" x2="492" y2="266"/>
   </g>
-  <polygon points="438,164 450,164 444,174" fill="#b45309"/>
-  <polygon points="486,256 498,256 492,266" fill="#b45309"/>
+  <polygon points="438,164 450,164 444,174" fill="#ea580c"/>
+  <polygon points="486,256 498,256 492,266" fill="#ea580c"/>
   <g font-size="12.5" fill="currentColor">
     <text x="472" y="160">bring down 7</text>
     <text x="516" y="210">bring down 6</text>
@@ -2144,18 +2144,18 @@ export const chapter05: Chapter = {
           caption:
             'The 100-square: the percent ruler made visible. Each of the hundred cells is one hundredth of the whole, so each cell is 1%. The shaded block holds 35 cells — a 5 × 5 quarter (25%, the top-left bracket) joined to two columns of five (10%, the second bracket): the benchmark build 25% + 10% = 35%. The legend walks the three dresses of one number — 35 cells, 35/100, 7/20, 0.35 — which are all the same fact.',
           svg: `<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A ten by ten square of one hundred cells with thirty five cells shaded, showing twenty five percent as a five by five quarter and ten percent as two columns of five, each cell one percent">
-  <g stroke="#b45309" stroke-width="1.4" fill="none">
+  <g stroke="#ea580c" stroke-width="1.4" fill="none">
     <line x1="70" y1="88" x2="220" y2="88"/>
     <line x1="70" y1="88" x2="70" y2="96"/>
     <line x1="220" y1="88" x2="220" y2="96"/>
     <line x1="220" y1="88" x2="280" y2="88"/>
     <line x1="280" y1="88" x2="280" y2="96"/>
   </g>
-  <g font-size="12" fill="#b45309" text-anchor="middle">
+  <g font-size="12" fill="#ea580c" text-anchor="middle">
     <text x="145" y="80">25%</text>
     <text x="250" y="80">10%</text>
   </g>
-  <rect x="70" y="110" width="210" height="150" fill="#b45309" fill-opacity="0.28"/>
+  <rect x="70" y="110" width="210" height="150" fill="#ea580c" fill-opacity="0.28"/>
   <g stroke="currentColor" stroke-width="1" fill="none">
     <line x1="70" y1="110" x2="370" y2="110"/>
     <line x1="70" y1="140" x2="370" y2="140"/>
@@ -2182,7 +2182,7 @@ export const chapter05: Chapter = {
   </g>
   <g font-size="13" fill="currentColor">
     <text x="400" y="150">35 of the 100 cells are shaded</text>
-    <rect x="400" y="170" width="22" height="22" fill="#b45309" fill-opacity="0.28" stroke="currentColor" stroke-width="1"/>
+    <rect x="400" y="170" width="22" height="22" fill="#ea580c" fill-opacity="0.28" stroke="currentColor" stroke-width="1"/>
     <text x="432" y="186">35 cells = 35% = 7/20 of the square</text>
     <rect x="400" y="230" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1"/>
     <text x="432" y="246">each cell = 1% of the whole</text>
@@ -2277,9 +2277,9 @@ export const chapter05: Chapter = {
           caption:
             'The conversion map. Three stations, one number in three dresses. Between fraction and decimal run the step machine of Lesson 5.2 (forward) and the place reading of Lesson 5.1 (back); between decimal and percent runs the two-hop law — × 100 two rooms right, ÷ 100 two rooms left. The arc above is the direct hop: multiply by 100 and write %.',
           svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The conversion map joining the fraction, decimal and percent stations, with arrows labelled by the step machine, the place reading, and the times or divide by one hundred two-hop law">
-  <path d="M 120 150 C 200 60, 560 60, 640 150" fill="none" stroke="#b45309" stroke-width="1.6"/>
-  <polygon points="640,150 635.8,136.4 627,144.4" fill="#b45309"/>
-  <text x="380" y="50" font-size="13" fill="#b45309" text-anchor="middle">the direct hop: × 100, then write %</text>
+  <path d="M 120 150 C 200 60, 560 60, 640 150" fill="none" stroke="#ea580c" stroke-width="1.6"/>
+  <polygon points="640,150 635.8,136.4 627,144.4" fill="#ea580c"/>
+  <text x="380" y="50" font-size="13" fill="#ea580c" text-anchor="middle">the direct hop: × 100, then write %</text>
   <g stroke="currentColor" stroke-width="1.2" fill="none">
     <rect x="30" y="150" width="180" height="64"/>
     <rect x="300" y="150" width="160" height="64"/>
@@ -2295,17 +2295,17 @@ export const chapter05: Chapter = {
     <text x="380" y="200">0.75, 0.35</text>
     <text x="640" y="200">75%, 35%</text>
   </g>
-  <g stroke="#b45309" stroke-width="1.6">
+  <g stroke="#ea580c" stroke-width="1.6">
     <line x1="214" y1="166" x2="296" y2="166"/>
     <line x1="296" y1="198" x2="214" y2="198"/>
     <line x1="464" y1="166" x2="546" y2="166"/>
     <line x1="546" y1="198" x2="464" y2="198"/>
   </g>
-  <polygon points="296,166 285,161 285,171" fill="#b45309"/>
-  <polygon points="214,198 225,193 225,203" fill="#b45309"/>
-  <polygon points="546,166 535,161 535,171" fill="#b45309"/>
-  <polygon points="464,198 475,193 475,203" fill="#b45309"/>
-  <g font-size="12" fill="#b45309" text-anchor="middle">
+  <polygon points="296,166 285,161 285,171" fill="#ea580c"/>
+  <polygon points="214,198 225,193 225,203" fill="#ea580c"/>
+  <polygon points="546,166 535,161 535,171" fill="#ea580c"/>
+  <polygon points="464,198 475,193 475,203" fill="#ea580c"/>
+  <g font-size="12" fill="#ea580c" text-anchor="middle">
     <text x="255" y="132">the step machine (5.2)</text>
     <text x="255" y="252">the place reading (5.1)</text>
     <text x="505" y="132">× 100: two rooms right</text>
@@ -2819,11 +2819,11 @@ export const chapter05: Chapter = {
   </g>
   <polygon points="114,240 126,240 120,230" fill="currentColor"/>
   <text x="380" y="288" font-size="13" fill="currentColor" text-anchor="middle">the return ticket: x 5/6 (divide by the factor) — home at 12,500</text>
-  <g stroke="#b45309" stroke-width="1.4" fill="none" stroke-dasharray="6 5">
+  <g stroke="#ea580c" stroke-width="1.4" fill="none" stroke-dasharray="6 5">
     <path d="M 600 230 L 600 390 L 160 390 L 160 238"/>
   </g>
-  <polygon points="154,240 166,240 160,230" fill="#b45309"/>
-  <text x="380" y="378" font-size="13" fill="#b45309" text-anchor="middle">the wrong ticket: − 20% of the new price — 12,000, five hundred short</text>
+  <polygon points="154,240 166,240 160,230" fill="#ea580c"/>
+  <text x="380" y="378" font-size="13" fill="#ea580c" text-anchor="middle">the wrong ticket: − 20% of the new price — 12,000, five hundred short</text>
   <text x="380" y="445" font-size="13" fill="currentColor" text-anchor="middle">percents do not undo themselves — the factor is the ticket</text>
 </svg>`,
         },

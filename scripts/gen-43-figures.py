@@ -24,7 +24,7 @@ def bar(y: int, n_cells: int, shaded: int, label: str, right: str, label_y: int,
     out = []
     out.append(f'    <text x="{BAR_X0}" y="{label_y}">{label}</text>')
     out.append(f'    <rect x="{BAR_X0}" y="{y}" width="{BAR_W}" height="44" fill="none" stroke="currentColor" stroke-width="1.5"/>')
-    out.append(f'    <g fill="#b45309" opacity="{tint_opacity}">')
+    out.append(f'    <g fill="#ea580c" opacity="{tint_opacity}">')
     for i in range(shaded):
         out.append(f'      <rect x="{f2(BAR_X0 + i * cw)}" y="{y}" width="{f2(cw)}" height="44"/>')
     out.append("    </g>")
@@ -49,10 +49,10 @@ a.append(bar(308, 24, 15, "raised to the 24-ruler: 5/8 = 15/24", "15/24", 298))
 # dashed boundaries of the two shading stops across the two 24-rulers
 stop_lo = BAR_X0 + 14 * (BAR_W / 24)  # 361.67
 stop_hi = BAR_X0 + 15 * (BAR_W / 24)  # 387.5
-a.append(f'  <line x1="{f2(stop_lo)}" y1="214" x2="{f2(stop_lo)}" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
-a.append(f'  <line x1="{f2(stop_hi)}" y1="214" x2="{f2(stop_hi)}" y2="358" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
+a.append(f'  <line x1="{f2(stop_lo)}" y1="214" x2="{f2(stop_lo)}" y2="358" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
+a.append(f'  <line x1="{f2(stop_hi)}" y1="214" x2="{f2(stop_hi)}" y2="358" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>')
 # highlight the one extra cell on the bottom bar
-a.append(f'  <rect x="{f2(stop_lo)}" y="308" width="{f2(stop_hi - stop_lo)}" height="44" fill="#b45309" opacity="0.45"/>')
+a.append(f'  <rect x="{f2(stop_lo)}" y="308" width="{f2(stop_hi - stop_lo)}" height="44" fill="#ea580c" opacity="0.45"/>')
 a.append('  <text x="380" y="385" text-anchor="middle" font-weight="700">the single extra twenty-fourth decides: 5/8 &gt; 7/12</text>')
 a.append("  </g>")
 a.append("</svg>")

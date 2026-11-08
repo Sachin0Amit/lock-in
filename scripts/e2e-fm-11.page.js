@@ -21,7 +21,7 @@ if (seat) {
   r.seatRects = seat.querySelectorAll('rect').length; // 4 value boxes + 4 strips = 8
   r.seatArrows = seat.querySelectorAll('line[marker-end]').length; // 3
   r.seatAmberDigits = Array.prototype.slice.call(seat.querySelectorAll('text'))
-    .filter(function (t) { return (t.getAttribute('fill') || '') === '#b45309'; }).length; // 4 fives + 3 x10 labels = 7
+    .filter(function (t) { return (t.getAttribute('fill') || '') === '#ea580c'; }).length; // 4 fives + 3 x10 labels = 7
   r.seatAria = (seat.getAttribute('aria-label') || '').length > 20;
   r.seatTexts = seat.querySelectorAll('text').length; // headers 3 + digits 10 + x10 3 + seats 8 + values 4 = 28
 }
@@ -31,7 +31,7 @@ if (nl) {
   r.nlOriginDot = Array.prototype.slice.call(nl.querySelectorAll('circle'))
     .filter(function (c) { return c.getAttribute('r') === '4'; }).length; // 1
   r.nlAmberLabels = Array.prototype.slice.call(nl.querySelectorAll('text'))
-    .filter(function (t) { return (t.getAttribute('fill') || '') === '#b45309'; }).length; // 7 and -4
+    .filter(function (t) { return (t.getAttribute('fill') || '') === '#ea580c'; }).length; // 7 and -4
   r.nlTickLines = nl.querySelectorAll('g[line] line, g > line').length || nl.querySelectorAll('line').length - 1;
   r.nlAria = (nl.getAttribute('aria-label') || '').length > 20;
 }

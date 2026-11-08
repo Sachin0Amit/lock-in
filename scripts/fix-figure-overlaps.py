@@ -67,16 +67,16 @@ ch02_patches = [
         'M ${50 + j * 104} 204 Q ${102 + j * 104} 160 ${154 + j * 104} 204',
     ),
     (
-        '<text x="${102 + j * 104}" y="146" text-anchor="middle" font-weight="700" fill="#b45309">+4',
-        '<text x="${102 + j * 104}" y="174" text-anchor="middle" font-weight="700" fill="#b45309">+4',
+        '<text x="${102 + j * 104}" y="146" text-anchor="middle" font-weight="700" fill="#ea580c">+4',
+        '<text x="${102 + j * 104}" y="174" text-anchor="middle" font-weight="700" fill="#ea580c">+4',
     ),
     (
         '<circle cx="50" cy="200" r="5" fill="currentColor" opacity="0.85"/>',
         '<circle cx="50" cy="230" r="5" fill="currentColor" opacity="0.85"/>',
     ),
     (
-        '<circle cx="674" cy="200" r="7" fill="#b45309"/>',
-        '<circle cx="674" cy="230" r="7" fill="#b45309"/>',
+        '<circle cx="674" cy="200" r="7" fill="#ea580c"/>',
+        '<circle cx="674" cy="230" r="7" fill="#ea580c"/>',
     ),
     (
         '<text x="380" y="250" text-anchor="middle" font-size="11.5" opacity="0.7">unequal rhythms',
@@ -119,20 +119,20 @@ ch02_patches = [
         'M ${700 - j * 156} 196 Q ${622 - j * 156} 152 ${544 - j * 156} 196',
     ),
     (
-        'y="146" text-anchor="middle" font-weight="700" fill="#b45309">-6',
-        'y="166" text-anchor="middle" font-weight="700" fill="#b45309">-6',
+        'y="146" text-anchor="middle" font-weight="700" fill="#ea580c">-6',
+        'y="166" text-anchor="middle" font-weight="700" fill="#ea580c">-6',
     ),
     (
         '<circle cx="700" cy="200" r="5" fill="currentColor" opacity="0.85"/>',
         '<circle cx="700" cy="222" r="5" fill="currentColor" opacity="0.85"/>',
     ),
     (
-        '<circle cx="76" cy="200" r="7" fill="#b45309"/>',
-        '<circle cx="76" cy="222" r="7" fill="#b45309"/>',
+        '<circle cx="76" cy="200" r="7" fill="#ea580c"/>',
+        '<circle cx="76" cy="222" r="7" fill="#ea580c"/>',
     ),
     (
-        '<text x="76" y="240" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1',
-        '<text x="76" y="272" text-anchor="middle" font-size="11.5" fill="#b45309">lands on 1',
+        '<text x="76" y="240" text-anchor="middle" font-size="11.5" fill="#ea580c">lands on 1',
+        '<text x="76" y="272" text-anchor="middle" font-size="11.5" fill="#ea580c">lands on 1',
     ),
     (
         '<text x="400" y="252" text-anchor="middle" font-size="11.5" opacity="0.7">equal jumps',

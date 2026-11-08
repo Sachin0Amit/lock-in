@@ -61,12 +61,12 @@ function termAnatomySvg(): string {
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
   // header band
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the anatomy of a term, and the family album</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">every polynomial is a sum of terms — each term is a number carrying a power</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the anatomy of a term, and the family album</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">every polynomial is a sum of terms — each term is a number carrying a power</text>')
   // LEFT panel: anatomy of −7x⁴
-  parts.push('<rect x="30" y="90" width="320" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="190" y="112" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">anatomy: −7x⁴</text>')
+  parts.push('<rect x="30" y="90" width="320" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="190" y="112" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">anatomy: −7x⁴</text>')
   const anatomyRows: [string, string][] = [
     ['coefficient: −7', 'the number of copies — never counted toward degree'],
     ['base letter: x', 'the variable, the only seat exponents may sit on'],
@@ -74,13 +74,13 @@ function termAnatomySvg(): string {
   ]
   anatomyRows.forEach(([title, sub], i) => {
     const y = 124 + i * 62
-    parts.push(`<rect x="44" y="${y}" width="270" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${44 + 135}" y="${y + 18}" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${44 + 135}" y="${y + 34}" font-size="10.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="44" y="${y}" width="270" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${44 + 135}" y="${y + 18}" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${44 + 135}" y="${y + 34}" font-size="10.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // RIGHT panel: the family gallery
-  parts.push('<rect x="390" y="90" width="300" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="540" y="112" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">the family album</text>')
+  parts.push('<rect x="390" y="90" width="300" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="540" y="112" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">the family album</text>')
   const gallery: [string, string][] = [
     ['5x² — monomial', 'one term · degree 2'],
     ['x + 3 — binomial', 'two terms · degree 1'],
@@ -90,11 +90,11 @@ function termAnatomySvg(): string {
   ]
   gallery.forEach(([name, tag], i) => {
     const y = 130 + i * 32
-    parts.push(`<rect x="400" y="${y}" width="280" height="28" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${400 + 140}" y="${y + 18}" font-size="11.5" fill="#365314" text-anchor="middle">${name} · ${tag}</text>`)
+    parts.push(`<rect x="400" y="${y}" width="280" height="28" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${400 + 140}" y="${y + 18}" font-size="11.5" fill="#166534" text-anchor="middle">${name} · ${tag}</text>`)
   })
   // footer
-  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">names by shape (term count) and by degree — the two questions every polynomial answers</text>')
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#0d9488" text-anchor="middle">names by shape (term count) and by degree — the two questions every polynomial answers</text>')
   return parts.join('')
 }
 
@@ -110,9 +110,9 @@ function polynomialSieveSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The polynomial sieve: five expressions pass or fail the family test. x cubed minus two x plus one passes, the constant eight passes, one over x fails for its negative exponent, root x fails for its fractional exponent, and two to the power x fails because the variable sits in the exponent.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the polynomial sieve</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">one question only: does every letter part carry a nonnegative integer exponent?</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the polynomial sieve</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">one question only: does every letter part carry a nonnegative integer exponent?</text>')
   const rows: [string, string, string][] = [
     ['x³ − 2x + 1', 'PASS', 'exponents 3, 1, 0 — all nonnegative integers'],
     ['8', 'PASS', 'the constant 8 = 8x⁰ — exponent 0 is legal (2.2)'],
@@ -122,15 +122,15 @@ function polynomialSieveSvg(): string {
   ]
   rows.forEach(([expr, verdict, reason], i) => {
     const y = 96 + i * 42
-    parts.push(`<rect x="40" y="${y}" width="300" height="34" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${40 + 150}" y="${y + 22}" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">${expr}</text>`)
+    parts.push(`<rect x="40" y="${y}" width="300" height="34" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${40 + 150}" y="${y + 22}" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">${expr}</text>`)
     const pill = verdict === 'PASS' ? 'PASS' : 'FAIL'
-    const ink = verdict === 'PASS' ? '#3f6212' : '#7c2d12'
+    const ink = verdict === 'PASS' ? '#16a34a' : '#dc2626'
     parts.push(`<rect x="360" y="${y}" width="84" height="34" rx="17" fill="none" stroke="${ink}" stroke-width="1.5"/>`)
     parts.push(`<text x="402" y="${y + 22}" font-size="12.5" fill="${ink}" text-anchor="middle" font-weight="700">${pill}</text>`)
-    parts.push(`<text x="462" y="${y + 22}" font-size="11" fill="#6b7a72" text-anchor="start">${reason}</text>`)
+    parts.push(`<text x="462" y="${y + 22}" font-size="11" fill="#0d9488" text-anchor="start">${reason}</text>`)
   })
-  parts.push('<text x="360" y="316" font-size="11.5" fill="#6b7a72" text-anchor="middle">the boundary lives in the exponent of the letter part — never in the coefficient</text>')
+  parts.push('<text x="360" y="316" font-size="11.5" fill="#0d9488" text-anchor="middle">the boundary lives in the exponent of the letter part — never in the coefficient</text>')
   return parts.join('')
 }
 
@@ -149,13 +149,13 @@ function distributiveGridSvg(): string {
     '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The distributive grid for two x plus three times x minus four: four cells, two x squared, minus eight x, three x, minus twelve, collected into two x squared minus five x minus twelve.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="340" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the distributive grid: (2x + 3)(x − 4)</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">every term of the first meets every term of the second — four cells, then collect</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the distributive grid: (2x + 3)(x − 4)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">every term of the first meets every term of the second — four cells, then collect</text>')
   // LEFT panel: the 2×2 grid
-  parts.push('<rect x="30" y="84" width="350" height="170" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="205" y="106" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">the four cells</text>')
-  parts.push('<text x="125" y="126" font-size="12" fill="#4d7c0f" text-anchor="middle">× | x        −4   (columns of x − 4)</text>')
+  parts.push('<rect x="30" y="84" width="350" height="170" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="205" y="106" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">the four cells</text>')
+  parts.push('<text x="125" y="126" font-size="12" fill="#65a30d" text-anchor="middle">× | x        −4   (columns of x − 4)</text>')
   const cells: [number, number, string, string][] = [
     [60, 130, '2x²', '2x · x'],
     [200, 130, '−8x', '2x · (−4)'],
@@ -163,33 +163,33 @@ function distributiveGridSvg(): string {
     [200, 192, '−12', '3 · (−4)'],
   ]
   for (const [cx, cy, big, small] of cells) {
-    parts.push(`<rect x="${cx}" y="${cy}" width="130" height="54" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${cx + 65}" y="${cy + 24}" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">${big}</text>`)
-    parts.push(`<text x="${cx + 65}" y="${cy + 42}" font-size="10.5" fill="#6b7a72" text-anchor="middle">${small}</text>`)
+    parts.push(`<rect x="${cx}" y="${cy}" width="130" height="54" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 65}" y="${cy + 24}" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">${big}</text>`)
+    parts.push(`<text x="${cx + 65}" y="${cy + 42}" font-size="10.5" fill="#0d9488" text-anchor="middle">${small}</text>`)
   }
   // RIGHT panel: why the grid is lawful
-  parts.push('<rect x="410" y="84" width="280" height="170" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="550" y="106" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">why every cell is legal</text>')
+  parts.push('<rect x="410" y="84" width="280" height="170" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="550" y="106" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">why every cell is legal</text>')
   const notes: [string, string][] = [
     ['distributivity twice', 'a(b + c) = ab + ac, applied twice — AL 1.1’s field law'],
     ['the exponent laws run it', '2x · x = 2x² — coefficients multiply, exponents add (2.1)'],
   ]
   notes.forEach(([title, sub], i) => {
     const y = 110 + i * 70
-    parts.push(`<rect x="425" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="550" y="${y + 22}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="550" y="${y + 40}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="425" y="${y}" width="250" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="550" y="${y + 22}" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="550" y="${y + 40}" font-size="9.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
   // collection band
-  parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
+  parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
   const collected: [number, string][] = [
     [44, 'x²:  2x²'],
     [260, 'x:  −8x + 3x = −5x'],
     [476, '1:  −12'],
   ]
   for (const [cx, label] of collected) {
-    parts.push(`<rect x="${cx}" y="280" width="200" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${cx + 100}" y="296" font-size="11.5" fill="#365314" text-anchor="middle">${label}</text>`)
+    parts.push(`<rect x="${cx}" y="280" width="200" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 100}" y="296" font-size="11.5" fill="#166534" text-anchor="middle">${label}</text>`)
   }
   return parts.join('')
 }
@@ -207,9 +207,9 @@ function convolutionColumnsSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The convolution columns of x plus two times x plus three: the four products, x times x equals x squared, x times three equals three x, two times x equals two x, two times three equals six, land in three columns by their degree, giving x squared, five x and six.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the convolution columns: (x + 2)(x + 3)</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">four products, three landing zones — each product falls into the column of its degree</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the convolution columns: (x + 2)(x + 3)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">four products, three landing zones — each product falls into the column of its degree</text>')
   const prods: [number, number, string, string][] = [
     [60, 90, 'x · x = x²', 'degree 2'],
     [270, 90, 'x · 3 = 3x', 'degree 1'],
@@ -217,9 +217,9 @@ function convolutionColumnsSvg(): string {
     [270, 150, '2 · 3 = 6', 'degree 0'],
   ]
   for (const [px, py, big, small] of prods) {
-    parts.push(`<rect x="${px}" y="${py}" width="180" height="50" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${px + 90}" y="${py + 22}" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">${big}</text>`)
-    parts.push(`<text x="${px + 90}" y="${py + 40}" font-size="10.5" fill="#6b7a72" text-anchor="middle">${small}</text>`)
+    parts.push(`<rect x="${px}" y="${py}" width="180" height="50" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${px + 90}" y="${py + 22}" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">${big}</text>`)
+    parts.push(`<text x="${px + 90}" y="${py + 40}" font-size="10.5" fill="#0d9488" text-anchor="middle">${small}</text>`)
   }
   const cols: [number, string, string][] = [
     [60, 'x² column', 'gathers 1 · 1 = 1'],
@@ -227,11 +227,11 @@ function convolutionColumnsSvg(): string {
     [480, '1 column', 'gathers 2 · 3 = 6'],
   ]
   for (const [cx, title, sub] of cols) {
-    parts.push(`<rect x="${cx}" y="220" width="180" height="90" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>`)
-    parts.push(`<text x="${cx + 90}" y="252" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="${cx + 90}" y="274" font-size="11" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="${cx}" y="220" width="180" height="90" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>`)
+    parts.push(`<text x="${cx + 90}" y="252" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="${cx + 90}" y="274" font-size="11" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   }
-  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">the diagonal is the collection: products of equal degree-sum share a column — x² + 5x + 6</text>')
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#0d9488" text-anchor="middle">the diagonal is the collection: products of equal degree-sum share a column — x² + 5x + 6</text>')
   return parts.join('')
 }
 
@@ -251,28 +251,28 @@ function cornerCutSquareSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The square of a difference drawn: a square of side a cut by a vertical strip and a horizontal strip of width b, leaving the inner square of side a minus b, so a minus b squared equals a squared minus two a b plus b squared.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the corner-cut square: (a − b)²</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the a×a square, cut by two b-strips — the corner counted twice, added back</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the corner-cut square: (a − b)²</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the a×a square, cut by two b-strips — the corner counted twice, added back</text>')
   // LEFT panel: the square with its strips
-  parts.push('<rect x="30" y="84" width="340" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="155" y="108" font-size="12" fill="#4d7c0f" text-anchor="middle">a</text>')
-  parts.push('<text x="257" y="108" font-size="12" fill="#7c2d12" text-anchor="middle">b</text>')
-  parts.push('<text x="58" y="200" font-size="12" fill="#4d7c0f" text-anchor="middle">a</text>')
-  parts.push('<text x="58" y="288" font-size="12" fill="#7c2d12" text-anchor="middle">b</text>')
-  parts.push('<rect x="70" y="96" width="200" height="200" rx="2" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="245" y="96" width="25" height="200" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
-  parts.push('<rect x="70" y="271" width="200" height="25" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
-  parts.push('<rect x="245" y="271" width="25" height="25" rx="2" fill="none" stroke="#7c2d12" stroke-width="1.5"/>')
-  parts.push('<path d="M 70 96 L 245 96 L 245 271 L 70 271 Z" fill="none" stroke="#4d7c0f" stroke-width="1.2" stroke-dasharray="5 4"/>')
-  parts.push('<text x="155" y="178" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">(a − b)²</text>')
-  parts.push('<text x="155" y="196" font-size="10.5" fill="#6b7a72" text-anchor="middle">the inner square, side a − b</text>')
-  parts.push('<text x="257" y="152" font-size="11" fill="#7c2d12" text-anchor="middle">ab</text>')
-  parts.push('<text x="170" y="288" font-size="11" fill="#7c2d12" text-anchor="middle">ab</text>')
-  parts.push('<text x="257" y="288" font-size="11" fill="#7c2d12" text-anchor="middle">b²</text>')
+  parts.push('<rect x="30" y="84" width="340" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="155" y="108" font-size="12" fill="#65a30d" text-anchor="middle">a</text>')
+  parts.push('<text x="257" y="108" font-size="12" fill="#dc2626" text-anchor="middle">b</text>')
+  parts.push('<text x="58" y="200" font-size="12" fill="#65a30d" text-anchor="middle">a</text>')
+  parts.push('<text x="58" y="288" font-size="12" fill="#dc2626" text-anchor="middle">b</text>')
+  parts.push('<rect x="70" y="96" width="200" height="200" rx="2" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="245" y="96" width="25" height="200" rx="2" fill="none" stroke="#dc2626" stroke-width="1.2"/>')
+  parts.push('<rect x="70" y="271" width="200" height="25" rx="2" fill="none" stroke="#dc2626" stroke-width="1.2"/>')
+  parts.push('<rect x="245" y="271" width="25" height="25" rx="2" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<path d="M 70 96 L 245 96 L 245 271 L 70 271 Z" fill="none" stroke="#65a30d" stroke-width="1.2" stroke-dasharray="5 4"/>')
+  parts.push('<text x="155" y="178" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">(a − b)²</text>')
+  parts.push('<text x="155" y="196" font-size="10.5" fill="#0d9488" text-anchor="middle">the inner square, side a − b</text>')
+  parts.push('<text x="257" y="152" font-size="11" fill="#dc2626" text-anchor="middle">ab</text>')
+  parts.push('<text x="170" y="288" font-size="11" fill="#dc2626" text-anchor="middle">ab</text>')
+  parts.push('<text x="257" y="288" font-size="11" fill="#dc2626" text-anchor="middle">b²</text>')
   // RIGHT panel: the subtraction-with-a-debt readout
-  parts.push('<rect x="400" y="84" width="290" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="545" y="100" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">reading the areas</text>')
+  parts.push('<rect x="400" y="84" width="290" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="545" y="100" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">reading the areas</text>')
   const notes: [string, string][] = [
     ['take away the two strips', 'a² − ab − ab = a² − 2ab — but the corner b² left with both'],
     ['give the corner back', 'a² − 2ab + b² — the overlap was subtracted twice, added once'],
@@ -280,11 +280,11 @@ function cornerCutSquareSvg(): string {
   ]
   notes.forEach(([title, sub], i) => {
     const y = 108 + i * 66
-    parts.push(`<rect x="415" y="${y}" width="260" height="56" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="545" y="${y + 22}" font-size="11.5" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="545" y="${y + 40}" font-size="9.5" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="415" y="${y}" width="260" height="56" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="545" y="${y + 22}" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="545" y="${y + 40}" font-size="9.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
-  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">the dashed inner square is the answer: (a − b)² = a² − 2ab + b² — the middle term arrives NEGATIVE</text>')
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#0d9488" text-anchor="middle">the dashed inner square is the answer: (a − b)² = a² − 2ab + b² — the middle term arrives NEGATIVE</text>')
   return parts.join('')
 }
 
@@ -303,12 +303,12 @@ function cubeGridsSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The cube identities on the grid: a plus b times a squared minus a b plus b squared gives six cells whose middle four cancel, leaving a cubed plus b cubed; and a minus b times a squared plus a b plus b squared likewise leaves a cubed minus b cubed.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the cube identities, six cells each</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the 3.2 teaser at family scale — four middle cells cancel, two survive</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the cube identities, six cells each</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the 3.2 teaser at family scale — four middle cells cancel, two survive</text>')
   // LEFT panel: (a+b)(a² − ab + b²)
-  parts.push('<rect x="30" y="84" width="330" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="195" y="104" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">(a + b)(a² − ab + b²)</text>')
+  parts.push('<rect x="30" y="84" width="330" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="104" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">(a + b)(a² − ab + b²)</text>')
   const leftCells: [number, number, string][] = [
     [60, 110, 'a³'],
     [160, 110, '−a²b'],
@@ -318,12 +318,12 @@ function cubeGridsSvg(): string {
     [260, 170, 'b³'],
   ]
   for (const [cx, cy, label] of leftCells) {
-    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#365314" text-anchor="middle">${label}</text>`)
+    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#166534" text-anchor="middle">${label}</text>`)
   }
   // RIGHT panel: (a−b)(a² + ab + b²)
-  parts.push('<rect x="360" y="84" width="330" height="180" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="525" y="104" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">(a − b)(a² + ab + b²)</text>')
+  parts.push('<rect x="360" y="84" width="330" height="180" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="525" y="104" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">(a − b)(a² + ab + b²)</text>')
   const rightCells: [number, number, string][] = [
     [390, 110, 'a³'],
     [490, 110, 'a²b'],
@@ -333,16 +333,16 @@ function cubeGridsSvg(): string {
     [590, 170, '−b³'],
   ]
   for (const [cx, cy, label] of rightCells) {
-    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#365314" text-anchor="middle">${label}</text>`)
+    parts.push(`<rect x="${cx}" y="${cy}" width="90" height="44" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="${cx + 45}" y="${cy + 27}" font-size="12" fill="#166534" text-anchor="middle">${label}</text>`)
   }
   // collection band
-  parts.push('<rect x="30" y="284" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="292" width="260" height="28" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
-  parts.push('<text x="190" y="311" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">middle four cancel → a³ + b³</text>')
-  parts.push('<rect x="400" y="292" width="260" height="28" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
-  parts.push('<text x="530" y="311" font-size="12" fill="#365314" text-anchor="middle" font-weight="700">middle four cancel → a³ − b³</text>')
-  parts.push('<text x="360" y="346" font-size="11.5" fill="#6b7a72" text-anchor="middle">the same cancellation the (x − 1)(x² + x + 1) = x³ − 1 teaser showed — now with letters, at every value</text>')
+  parts.push('<rect x="30" y="284" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="292" width="260" height="28" rx="5" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="190" y="311" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">middle four cancel → a³ + b³</text>')
+  parts.push('<rect x="400" y="292" width="260" height="28" rx="5" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="530" y="311" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">middle four cancel → a³ − b³</text>')
+  parts.push('<text x="360" y="346" font-size="11.5" fill="#0d9488" text-anchor="middle">the same cancellation the (x − 1)(x² + x + 1) = x³ − 1 teaser showed — now with letters, at every value</text>')
   return parts.join('')
 }
 
@@ -360,23 +360,23 @@ function divisionTableauSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The long-division tableau of x squared plus eleven x plus thirty divided by x plus six: divide the leaders, multiply the whole divisor, subtract, bring down, repeat — quotient x plus five, remainder zero.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the long-division tableau: (x² + 11x + 30) ÷ (x + 6)</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">divide the leaders · multiply the whole divisor · subtract · bring down · repeat</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the long-division tableau: (x² + 11x + 30) ÷ (x + 6)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">divide the leaders · multiply the whole divisor · subtract · bring down · repeat</text>')
   // LEFT panel: the tableau, drawn as text lines + thin rules
-  parts.push('<rect x="30" y="84" width="410" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="252" y="112" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">the work, arranged in descending powers</text>')
-  parts.push('<text x="52" y="146" font-size="13.5" fill="#365314">x + 6 ) x² + 11x + 30 ( x + 5</text>')
-  parts.push('<text x="52" y="176" font-size="13.5" fill="#365314">x² +  6x</text>')
-  parts.push('<line x1="50" y1="184" x2="230" y2="184" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="52" y="206" font-size="13.5" fill="#365314">5x + 30</text>')
-  parts.push('<text x="52" y="236" font-size="13.5" fill="#365314">5x + 30</text>')
-  parts.push('<line x1="50" y1="244" x2="230" y2="244" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="52" y="270" font-size="13.5" fill="#7c2d12" font-weight="700">0   ← the remainder: the division is EXACT</text>')
-  parts.push('<text x="52" y="292" font-size="10.5" fill="#6b7a72">check: (x + 6)(x + 5) = x² + 11x + 30 — agreement</text>')
+  parts.push('<rect x="30" y="84" width="410" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="252" y="112" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">the work, arranged in descending powers</text>')
+  parts.push('<text x="52" y="146" font-size="13.5" fill="#166534">x + 6 ) x² + 11x + 30 ( x + 5</text>')
+  parts.push('<text x="52" y="176" font-size="13.5" fill="#166534">x² +  6x</text>')
+  parts.push('<line x1="50" y1="184" x2="230" y2="184" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="52" y="206" font-size="13.5" fill="#166534">5x + 30</text>')
+  parts.push('<text x="52" y="236" font-size="13.5" fill="#166534">5x + 30</text>')
+  parts.push('<line x1="50" y1="244" x2="230" y2="244" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="52" y="270" font-size="13.5" fill="#dc2626" font-weight="700">0   ← the remainder: the division is EXACT</text>')
+  parts.push('<text x="52" y="292" font-size="10.5" fill="#0d9488">check: (x + 6)(x + 5) = x² + 11x + 30 — agreement</text>')
   // RIGHT panel: the four moves
-  parts.push('<rect x="470" y="84" width="220" height="220" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="580" y="90" font-size="12" fill="#365314" text-anchor="middle"> </text>')
+  parts.push('<rect x="470" y="84" width="220" height="220" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="580" y="90" font-size="12" fill="#166534" text-anchor="middle"> </text>')
   const steps: [string, string][] = [
     ['1 · divide the leaders', 'x² ÷ x = x — the first quotient term'],
     ['2 · multiply the WHOLE divisor', 'x(x + 6) = x² + 6x, written under'],
@@ -385,11 +385,11 @@ function divisionTableauSvg(): string {
   ]
   steps.forEach(([title, sub], i) => {
     const y = 100 + i * 52
-    parts.push(`<rect x="485" y="${y}" width="190" height="44" rx="6" fill="none" stroke="#6b7a72" stroke-width="1"/>`)
-    parts.push(`<text x="580" y="${y + 18}" font-size="11" fill="#365314" text-anchor="middle" font-weight="700">${title}</text>`)
-    parts.push(`<text x="580" y="${y + 34}" font-size="9" fill="#6b7a72" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="485" y="${y}" width="190" height="44" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>`)
+    parts.push(`<text x="580" y="${y + 18}" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
+    parts.push(`<text x="580" y="${y + 34}" font-size="9" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
-  parts.push('<text x="360" y="336" font-size="11.5" fill="#6b7a72" text-anchor="middle">the quotient rides on the bracket at ( x + 5 — the same shelf the arithmetic long division of FM ch. 2 used</text>')
+  parts.push('<text x="360" y="336" font-size="11.5" fill="#0d9488" text-anchor="middle">the quotient rides on the bracket at ( x + 5 — the same shelf the arithmetic long division of FM ch. 2 used</text>')
   return parts.join('')
 }
 
@@ -407,38 +407,38 @@ function remainderMapSvg(): string {
     '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The remainder theorem map: dividing f of x by x minus a gives a quotient and a constant remainder; substituting x equals a kills the product term, so the remainder is f of a — evaluate, never divide.">'
   )
   parts.push('<rect x="0" y="0" width="720" height="360" fill="transparent"/>')
-  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<text x="360" y="37" font-size="14" fill="#365314" text-anchor="middle" font-weight="700">the remainder theorem: r = f(a)</text>')
-  parts.push('<text x="360" y="54" font-size="12" fill="#4d7c0f" text-anchor="middle">the division identity, evaluated at the one value that kills the product term</text>')
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="37" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the remainder theorem: r = f(a)</text>')
+  parts.push('<text x="360" y="54" font-size="12" fill="#65a30d" text-anchor="middle">the division identity, evaluated at the one value that kills the product term</text>')
   // the four stations
-  parts.push('<rect x="40" y="110" width="170" height="56" rx="8" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
-  parts.push('<text x="125" y="132" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">f(x)</text>')
-  parts.push('<text x="125" y="152" font-size="9.5" fill="#6b7a72" text-anchor="middle">the dividend — any polynomial</text>')
-  parts.push('<rect x="260" y="110" width="170" height="56" rx="8" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
-  parts.push('<text x="345" y="132" font-size="13" fill="#365314" text-anchor="middle" font-weight="700">÷ (x − a)</text>')
-  parts.push('<text x="345" y="152" font-size="9.5" fill="#6b7a72" text-anchor="middle">the divisor gate — linear, monic</text>')
-  parts.push('<rect x="480" y="88" width="180" height="50" rx="8" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="570" y="110" font-size="12.5" fill="#365314" text-anchor="middle" font-weight="700">q(x) — the quotient</text>')
-  parts.push('<text x="570" y="128" font-size="9.5" fill="#6b7a72" text-anchor="middle">degree deg f − 1</text>')
-  parts.push('<rect x="480" y="178" width="180" height="50" rx="8" fill="none" stroke="#7c2d12" stroke-width="1.2"/>')
-  parts.push('<text x="570" y="200" font-size="12.5" fill="#7c2d12" text-anchor="middle" font-weight="700">r — the remainder</text>')
-  parts.push('<text x="570" y="218" font-size="9.5" fill="#6b7a72" text-anchor="middle">a CONSTANT — deg r &lt; 1</text>')
+  parts.push('<rect x="40" y="110" width="170" height="56" rx="8" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="125" y="132" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">f(x)</text>')
+  parts.push('<text x="125" y="152" font-size="9.5" fill="#0d9488" text-anchor="middle">the dividend — any polynomial</text>')
+  parts.push('<rect x="260" y="110" width="170" height="56" rx="8" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="345" y="132" font-size="13" fill="#166534" text-anchor="middle" font-weight="700">÷ (x − a)</text>')
+  parts.push('<text x="345" y="152" font-size="9.5" fill="#0d9488" text-anchor="middle">the divisor gate — linear, monic</text>')
+  parts.push('<rect x="480" y="88" width="180" height="50" rx="8" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="570" y="110" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">q(x) — the quotient</text>')
+  parts.push('<text x="570" y="128" font-size="9.5" fill="#0d9488" text-anchor="middle">degree deg f − 1</text>')
+  parts.push('<rect x="480" y="178" width="180" height="50" rx="8" fill="none" stroke="#dc2626" stroke-width="1.2"/>')
+  parts.push('<text x="570" y="200" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="700">r — the remainder</text>')
+  parts.push('<text x="570" y="218" font-size="9.5" fill="#0d9488" text-anchor="middle">a CONSTANT — deg r &lt; 1</text>')
   // flows
-  parts.push('<line x1="210" y1="138" x2="256" y2="138" stroke="#4d7c0f" stroke-width="1.4"/>')
-  parts.push('<line x1="430" y1="126" x2="476" y2="116" stroke="#4d7c0f" stroke-width="1.4"/>')
-  parts.push('<line x1="430" y1="152" x2="476" y2="200" stroke="#7c2d12" stroke-width="1.4"/>')
+  parts.push('<line x1="210" y1="138" x2="256" y2="138" stroke="#65a30d" stroke-width="1.4"/>')
+  parts.push('<line x1="430" y1="126" x2="476" y2="116" stroke="#65a30d" stroke-width="1.4"/>')
+  parts.push('<line x1="430" y1="152" x2="476" y2="200" stroke="#dc2626" stroke-width="1.4"/>')
   // the evaluation arrow: x = a kills the product term
-  parts.push('<path d="M 345 170 C 345 240, 420 250, 474 216" fill="none" stroke="#4d7c0f" stroke-width="1.4" stroke-dasharray="6 4"/>')
-  parts.push('<text x="292" y="232" font-size="11" fill="#4d7c0f" font-weight="700">at x = a :</text>')
+  parts.push('<path d="M 345 170 C 345 240, 420 250, 474 216" fill="none" stroke="#65a30d" stroke-width="1.4" stroke-dasharray="6 4"/>')
+  parts.push('<text x="292" y="232" font-size="11" fill="#65a30d" font-weight="700">at x = a :</text>')
   // verdict band
-  parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#3f6212" stroke-width="1.5"/>')
-  parts.push('<rect x="60" y="280" width="180" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="150" y="296" font-size="10.5" fill="#365314" text-anchor="middle">f(a) = 0 · q(a) + r</text>')
-  parts.push('<rect x="300" y="280" width="180" height="24" rx="5" fill="none" stroke="#6b7a72" stroke-width="1"/>')
-  parts.push('<text x="390" y="296" font-size="10.5" fill="#365314" text-anchor="middle">the product term DIES at x = a</text>')
-  parts.push('<rect x="540" y="280" width="150" height="24" rx="5" fill="none" stroke="#3f6212" stroke-width="1.2"/>')
-  parts.push('<text x="615" y="296" font-size="10.5" fill="#365314" text-anchor="middle" font-weight="700">so r = f(a)</text>')
-  parts.push('<text x="360" y="340" font-size="11.5" fill="#6b7a72" text-anchor="middle">evaluate, never divide — the substitution machine of 1.3, promoted to a theorem</text>')
+  parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<rect x="60" y="280" width="180" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="150" y="296" font-size="10.5" fill="#166534" text-anchor="middle">f(a) = 0 · q(a) + r</text>')
+  parts.push('<rect x="300" y="280" width="180" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="390" y="296" font-size="10.5" fill="#166534" text-anchor="middle">the product term DIES at x = a</text>')
+  parts.push('<rect x="540" y="280" width="150" height="24" rx="5" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="615" y="296" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">so r = f(a)</text>')
+  parts.push('<text x="360" y="340" font-size="11.5" fill="#0d9488" text-anchor="middle">evaluate, never divide — the substitution machine of 1.3, promoted to a theorem</text>')
   return parts.join('')
 }
 

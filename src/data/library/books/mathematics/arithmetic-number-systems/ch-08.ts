@@ -186,7 +186,7 @@ export const chapter08: Chapter = {
   ${[DIS_TIPS.N, DIS_TIPS.E, DIS_TIPS.S, DIS_TIPS.W]
     .map(
       (t) =>
-        `<line x1="${DIS_CX}" y1="${DIS_CY}" x2="${t[0]}" y2="${t[1]}" stroke="#b45309" stroke-width="1.2"/>`
+        `<line x1="${DIS_CX}" y1="${DIS_CY}" x2="${t[0]}" y2="${t[1]}" stroke="#ea580c" stroke-width="1.2"/>`
     )
     .join('\\n  ')}
   ${[
@@ -208,7 +208,7 @@ export const chapter08: Chapter = {
   ]
     .map(
       (l) =>
-        `<text x="${Math.round(l.mid[0] + l.dx)}" y="${Math.round(l.mid[1] + l.dy)}" font-size="12" fill="#b45309" text-anchor="middle" font-style="italic">${l.t}</text>`
+        `<text x="${Math.round(l.mid[0] + l.dx)}" y="${Math.round(l.mid[1] + l.dy)}" font-size="12" fill="#ea580c" text-anchor="middle" font-style="italic">${l.t}</text>`
     )
     .join('\\n  ')}
   ${[
@@ -230,7 +230,7 @@ export const chapter08: Chapter = {
     .join('\\n  ')}
   <text x="${DIS_CX + DIS_S + 22}" y="${DIS_CY - DIS_S - 14}" font-size="12" fill="currentColor" opacity="0.75">hypotenuse ${DIS_HYP} px = d</text>
   <text x="${DIS_CX - DIS_S - 18}" y="${DIS_CY + DIS_S + 26}" font-size="12" fill="currentColor" opacity="0.75">area = 4 × ½ = 2 — and also d²</text>
-  <text x="${DIS_CX - DIS_S - 18}" y="${DIS_CY + DIS_S + 44}" font-size="12.5" font-weight="700" fill="#b45309">so d² = 2</text>
+  <text x="${DIS_CX - DIS_S - 18}" y="${DIS_CY + DIS_S + 44}" font-size="12.5" font-weight="700" fill="#ea580c">so d² = 2</text>
 </svg>`,
         },
         {
@@ -397,11 +397,11 @@ export const chapter08: Chapter = {
     const above = i % 2 === 0
     return `  <text x="10" y="${row.y + 4}" font-size="10.5" fill="currentColor" opacity="0.75">${row.name}</text>
   <line x1="100" y1="${row.y}" x2="${g.xw1}" y2="${row.y}" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-  <line x1="${g.xlo}" y1="${row.y}" x2="${g.xhi}" y2="${row.y}" stroke="#b45309" stroke-width="2.4"/>
-  <line x1="${g.xlo}" y1="${row.y - 5}" x2="${g.xlo}" y2="${row.y + 5}" stroke="#b45309" stroke-width="1.6"/>
-  <line x1="${g.xhi}" y1="${row.y - 5}" x2="${g.xhi}" y2="${row.y + 5}" stroke="#b45309" stroke-width="1.6"/>
-  <text x="${g.xlo}" y="${labY}" font-size="11" fill="#b45309" text-anchor="middle">${row.lo}</text>
-  <text x="${g.xhi}" y="${labY}" font-size="11" fill="#b45309" text-anchor="middle">${row.hi}</text>
+  <line x1="${g.xlo}" y1="${row.y}" x2="${g.xhi}" y2="${row.y}" stroke="#ea580c" stroke-width="2.4"/>
+  <line x1="${g.xlo}" y1="${row.y - 5}" x2="${g.xlo}" y2="${row.y + 5}" stroke="#ea580c" stroke-width="1.6"/>
+  <line x1="${g.xhi}" y1="${row.y - 5}" x2="${g.xhi}" y2="${row.y + 5}" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="${g.xlo}" y="${labY}" font-size="11" fill="#ea580c" text-anchor="middle">${row.lo}</text>
+  <text x="${g.xhi}" y="${labY}" font-size="11" fill="#ea580c" text-anchor="middle">${row.hi}</text>
   <circle cx="${g.x2}" cy="${row.y}" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
   <text x="${g.x2}" y="${row.y - (above ? 10 : -18)}" font-size="11.5" font-weight="700" fill="currentColor" text-anchor="middle">√2</text>`
   }).join('\\n')}
@@ -1015,9 +1015,9 @@ export const chapter08: Chapter = {
         const ty1 = above ? 82 : 94
         const ty2 = above ? 94 : 82
         const dot = surd
-          ? `<circle cx="${x}" cy="88" r="4" fill="none" stroke="#b45309" stroke-width="1.8"/>`
+          ? `<circle cx="${x}" cy="88" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>`
           : `<circle cx="${x}" cy="88" r="3.4" fill="currentColor"/>`
-        return `<line x1="${x}" y1="${ty1}" x2="${x}" y2="${ty2}" stroke="${surd ? '#b45309' : 'currentColor'}" stroke-width="1.2"/>${dot}<text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="${surd ? '#b45309' : 'currentColor'}" font-weight="${surd ? '700' : '400'}">${lab}</text>`
+        return `<line x1="${x}" y1="${ty1}" x2="${x}" y2="${ty2}" stroke="${surd ? '#ea580c' : 'currentColor'}" stroke-width="1.2"/>${dot}<text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="${surd ? '#ea580c' : 'currentColor'}" font-weight="${surd ? '700' : '400'}">${lab}</text>`
       })
       .join('\n  ')
   })()}
@@ -1025,7 +1025,7 @@ export const chapter08: Chapter = {
   <text x="60" y="128" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">0</text>
   <line x1="460" y1="80" x2="460" y2="96" stroke="currentColor" stroke-width="1.4"/>
   <text x="460" y="128" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">5</text>
-  <text x="480" y="34" font-size="11" fill="#b45309" text-anchor="end">open rings: the surd family — holes in ℚ</text>
+  <text x="480" y="34" font-size="11" fill="#ea580c" text-anchor="end">open rings: the surd family — holes in ℚ</text>
   <text x="480" y="50" font-size="11" fill="currentColor" opacity="0.8" text-anchor="end">filled dots: the rational anchors between them</text>
 </svg>`,
         },
@@ -1059,7 +1059,7 @@ export const chapter08: Chapter = {
       const lx = ORX + lr * Math.cos(ang)
       const ly = ORY - lr * Math.sin(ang)
       labels.push(
-        `<text x="${lx.toFixed(1)}" y="${(ly + 3.5).toFixed(1)}" font-size="9.5" text-anchor="middle" fill="${k % 2 === 1 ? 'currentColor' : '#b45309'}" font-weight="600">√${k + 1}</text>`
+        `<text x="${lx.toFixed(1)}" y="${(ly + 3.5).toFixed(1)}" font-size="9.5" text-anchor="middle" fill="${k % 2 === 1 ? 'currentColor' : '#ea580c'}" font-weight="600">√${k + 1}</text>`
       )
       prev = { x, y }
     }
@@ -1598,12 +1598,12 @@ export const chapter08: Chapter = {
         const ly = row === 'above' ? 70 : 108
         const ty1 = row === 'above' ? 82 : 94
         const ty2 = row === 'above' ? 94 : 82
-        return `<line x1="${x}" y1="${ty1}" x2="${x}" y2="${ty2}" stroke="#b45309" stroke-width="1.2"/><circle cx="${x}" cy="88" r="4" fill="none" stroke="#b45309" stroke-width="1.8"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#b45309" font-weight="700">${lab}</text>`
+        return `<line x1="${x}" y1="${ty1}" x2="${x}" y2="${ty2}" stroke="#ea580c" stroke-width="1.2"/><circle cx="${x}" cy="88" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#ea580c" font-weight="700">${lab}</text>`
       })
       .join('\n  ')
     return intMarks + '\n  ' + surdMarks
   })()}
-  <text x="480" y="34" font-size="11" fill="#b45309" text-anchor="end">rings: rational moves of √2 — every one irrational</text>
+  <text x="480" y="34" font-size="11" fill="#ea580c" text-anchor="end">rings: rational moves of √2 — every one irrational</text>
 </svg>`,
         },
         {
@@ -2173,7 +2173,7 @@ export const chapter08: Chapter = {
       .map(([lab, v, row]) => {
         const x = +FX(v).toFixed(1)
         const ly = row === 'above' ? 26 : 62
-        return `<circle cx="${x}" cy="44" r="4.4" fill="none" stroke="#b45309" stroke-width="1.9"/><line x1="${x}" y1="38" x2="${x}" y2="50" stroke="#b45309" stroke-width="1.1"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#b45309" font-weight="700">${lab}</text>`
+        return `<circle cx="${x}" cy="44" r="4.4" fill="none" stroke="#ea580c" stroke-width="1.9"/><line x1="${x}" y1="38" x2="${x}" y2="50" stroke="#ea580c" stroke-width="1.1"/><text x="${x}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#ea580c" font-weight="700">${lab}</text>`
       })
       .join('')
     // repair annotations between rows, left side
@@ -2182,7 +2182,7 @@ export const chapter08: Chapter = {
       ['ℚ repairs division — 3 ÷ 5 = 0.6; density arrives', 134],
       ['ℤ repairs subtraction — 3 − 5 = −2 joins', 194],
     ]
-      .map(([t, y]) => `<text x="66" y="${y}" font-size="9.5" fill="#b45309" opacity="0.95">${t}</text>`)
+      .map(([t, y]) => `<text x="66" y="${y}" font-size="9.5" fill="#ea580c" opacity="0.95">${t}</text>`)
       .join('\n  ')
     return lineMarks + '\n  ' + crowd(104) + crowd(44) + '\n  ' + dotsZ + dotsN + '\n  ' + ringMarks + '\n  ' + notes
   })()}
