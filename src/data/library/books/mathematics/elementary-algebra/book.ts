@@ -3,6 +3,7 @@ import { chapter01 } from './ch-01'
 import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
+import { chapter05 } from './ch-05'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -18,8 +19,11 @@ import { chapter04 } from './ch-04'
  * 'Factorization' opened at run 73 (4.1 Common Factors and Grouping + 4.2
  * Factoring Quadratic Trinomials) and CLOSED at run 74 (4.3 The Identities
  * as Factorizations + 4.4 The Factor Theorem and Cubics + the unit-4
- * completion review PASSED): chapter 4 COMPLETE 4/4 (16,245 words). The
- * book stands in-progress — 4 complete chapters of 11 (owner cadence: two
+ * completion review PASSED): chapter 4 COMPLETE 4/4 (16,245 words).
+ * Chapter 5 'Linear Equations in One Variable' opened at run 75 (5.1 What
+ * an Equation Is: the Balance Principle + 5.2 Solving Linear Equations);
+ * 5.3 + the unit-5 completion review close it at run 76. The book stands
+ * in-progress — 4 complete chapters + ch. 5 open of 11 (owner cadence: two
  * lessons per run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
@@ -95,20 +99,7 @@ export const elementaryAlgebra: Book = {
     chapter02,
     chapter03,
     chapter04,
-    {
-      number: 5,
-      slug: 'linear-equations-one-variable',
-      title: 'Linear Equations in One Variable',
-      summary:
-        'The balance principle made lawful: an equation as an assertion, the moves that preserve truth justified by the field laws ANS proved, fractional and bracketed forms cleared systematically, and the three-way verdict — one solution, none, or infinitely many — read off the collapsed form 0·x = k, the same solvability discipline ANS 10.1 applied to the number ladder.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'What an Equation Is: the Balance Principle',
-        'Solving Linear Equations',
-        'The Three Verdicts: One, None, Infinitely Many',
-      ],
-    },
+    chapter05,
     {
       number: 6,
       slug: 'simultaneous-linear-equations',

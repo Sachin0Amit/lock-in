@@ -436,8 +436,8 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": "72 (2026-11-08)",
-  "summary": "AL CHAPTER 3 'POLYNOMIALS' CLOSES 4/4 — 3.3 'Special Products: the Identities, Proved' (4,408 words: the identity charter both directions with the equation-vs-identity census, the square of a difference derived TWICE (grid + substitution), the corner-cut square figure with the Euclid II.4 historical callout, the sum/difference of cubes proved on the grid with the 3.2 x³−1 teaser cashed, the middle-term rule (x+a)(x+b), the identity-shelf table, trinomial-square recognition + the middle-term test with refusals priced, the multinomial square swept over [-3,3]³, the H&K shortcut arithmetic 1012²/98²/102×98, quiz keys 1/2/0/1/1, 14 exercises L1–L6, 3 formula cards, 2 figures) + 3.4 'Dividing Polynomials: Long Division and the Remainder Theorem' (4,246 words: the index law for division cashing 2.2, long division per H&K's four-step rule with the zero-seat caution (x⁴+16 ÷ x+2 = x³−2x²+4x−8 r 32), the ascending arrangement (H&K art. 51's 15a⁴+2a³−39a²−16a+10 ÷ 2−4a−5a²), the division identity f = d·q + r PROVED with uniqueness by the degree argument (1,200-pair engine sweep + 200 perturbation trials), the remainder theorem PROVED from the identity (r = f(a), 360-pair sweep), the factor theorem glimpsed for ch. 4 with the 3.1 p(1) = 0 seed cashed, the divisor-square curiosity, the five-row division ledger, the Ruffini/detached-coefficients historical callout, quiz keys 0/1/2/0/1, 14 exercises, 3 formula cards, 2 figures) — authored strictly sequentially, each fully gated before the next; the unit-3 completion review PASSED (BOOK_FORMAT checklist 7/7, exam-coverage 4/4, chapter totals recomputed: 18,656 words / 32 terms / 20 quiz / 56 exercises / 8 figures / 14 illustrations / 8 derivations / 7 equations / 5 tables / 10 formulas). verify-book3-ch03.ts extended 214 → 436 checks ALL GREEN (J+L pre-writing 115; K+M authored-time; the pre-writing halves caught the verifier's own longDiv engine bug + 8 coefficient mix-ups + a wrong L6 quotient; the authored-time scanners caught 61 unicode escapes + 2 odd backslash runs + 4 raw-$ derivation labels — none shipped). E2E e2e-al-33/34 whitelisted and green 45/45 ×2 runs ×3 viewports per lesson (quiz 5/5 live on both key sets); 8 figures 0-issue audited + visually inspected; 0% blue cast, dark 93.9%; one download (H&K 23 MB) deleted after E2E per the storage law."
+  "run": "75 (2026-11-08)",
+  "summary": "AL chapter 5 'Linear Equations in One Variable' OPENS 2/3: 5.1 'What an Equation Is: the Balance Principle' (5,027 words, quiz keys 1/1/3/0/1) + 5.2 'Solving Linear Equations' (4,277 words, quiz keys 1/0/1/2/0) — authored strictly sequentially verify-first; verify-book3-ch05.ts 318,129 checks ALL GREEN (sections A–G); 9,304 words across the two lessons; 4 figures audited 0-issue + visually inspected; E2E 45/45 ×2+ ×3 viewports per lesson; the book stands 4 complete chapters + ch. 5 open 2/3 of 11 (100 lessons / 485,665 words repo-wide); 5.3 + the unit-5 review close the chapter at run 76."
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -864,5 +864,43 @@
   "e2e": "45/45 PASS x2 runs x3 viewports per lesson (after the dev-server restart)",
   "downloads": "zero",
   "inventory": "98 lessons / 476,361 words repo-wide; 25 chapters written / 0 in progress"
+ },
+ "run75Extras": {
+  "run": 75,
+  "date": "2026-11-08",
+  "firedFrom": "job 509354's payload re-delivered 07:15:01 +08:00, trace cron-agent-loop-202611080715 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
+  "lessons": [
+   "al-what-an-equation-is-the-balance-principle (5.1)",
+   "al-solving-linear-equations (5.2)"
+  ],
+  "words": [
+   5027,
+   4277
+  ],
+  "chapterWords": 9304,
+  "verifyChecks": "318,129 ALL GREEN (sections A–G: the 28,561-assertion classification sweep, 48,384 move-equivalence checks, the ×0 destroyer at 2,025 sets, 3,072 LCD-clearing equations, 864 bracket shapes, 458 uniqueness witnesses; F+G authored-time incl. the exact-plan figure audits)",
+  "quizKeys": {
+   "5.1": [
+    1,
+    1,
+    3,
+    0,
+    1
+   ],
+   "5.2": [
+    1,
+    0,
+    1,
+    2,
+    0
+   ]
+  },
+  "figures": [
+   "the three-assertions census strip + the balance and its lawful moves (5.1)",
+   "the five-station pipeline + the invariant solution set (5.2)"
+  ],
+  "e2e": "45/45 PASS x2+ runs x3 viewports per lesson (keys 1/1/3/0/1 and 1/0/1/2/0 live 5/5)",
+  "sources": "recorde-1557-whetstone NEW (web-checked); hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, alkhwarizmi-c825-aljabr carried; zero downloads",
+  "nextRun": "76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review close ch. 5"
  }
 }

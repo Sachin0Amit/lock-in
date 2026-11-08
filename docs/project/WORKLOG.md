@@ -2,6 +2,72 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-08 — RUN 75 (fired 07:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080715 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 5 'LINEAR EQUATIONS IN ONE VARIABLE' OPENS 2/3 — 5.1 'What an Equation Is: the Balance Principle' (al-what-an-equation-is-the-balance-principle, 5,027 words, quiz keys 1/1/3/0/1) + 5.2 'Solving Linear Equations' (al-solving-linear-equations, 4,277 words, quiz keys 1/0/1/2/0), authored strictly sequentially verify-first — 5.3 + the unit-5 review NOT touched (they close the chapter at run 76)
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-74 memory commit (`2b12f2a`, unpushed by design —
+it recorded run 74's push verification and rode THIS run's protocol push); no `.figure_upgrade_lock` (sibling idle this
+window). RESUME_POINTER locked run 75 = AL ch. 5 opens with 5.1 + 5.2 (v2 two-lesson quota, strictly sequential; never
+5.3/the review; never ch. 6).
+
+**Research (zero downloads):** the banked H&K knowledge (the simple-equations chapter's balance discipline, the
+transposition shorthand and the verify-the-solution habit — run 67's download, deleted after E2E; storage law honoured) +
+the banked `ncert-math8-ch2-linear-equations` key (contents re-checked via the hemh102 chapter PDF: one-side equations,
+then the variable on both sides, then reducible forms) + one NEW web-checked history key: `recorde-1557-whetstone`
+(Robert Recorde, The Whetstone of Witte, 1557 — the equals sign born as "a pair of parallels, or Gemowe lines of one
+length … bicause noe 2 thynges can be moare equalle"; plus/minus introduced to English the same year; web-checked via
+the Recorde biographical record + the quotation literature). `alkhwarizmi-c825-aljabr` re-consumed for 5.2's al-jabr /
+al-muqābala callout. Working-copy footprint zero.
+
+**Verify-first (sections A–E written BEFORE any prose, F at 5.1 authoring time, G at 5.2 authoring time):** A (the
+engines) swept THE CLASSIFICATION THEOREM over ALL 28,561 linear assertions ax + b = cx + d with coefficients in
+[-6,6] (exactly-one ⟺ a ≠ c with the solution re-substituted exactly and every neighbour failing; all ⟺ a = c ∧ b = d;
+none ⟺ a = c ∧ b ≠ d — 5.3's full theorem previewed by exhaustive data), the move-equivalence engine (1,008 assertions
+× 24 moves = 48,384 exact Frac solves — add/sub/mul/div by every k ∈ [-6,6]\{0} preserves the solution), the ×0
+destroyer (2,025 one-point solution sets flattened to "every number"), the LCD-clearing engine (3,072 fraction
+equations over all denominator pairs m,n ∈ [2,9] — every verdict preserved exactly, cleared forms integer-coefficient,
+LCD > 0 always), the bracket engine (864 shapes — each member exact against its own expansion at 3 points, solutions
+preserved), and the uniqueness scan (458 witnesses). B/D pinned every exhibit, quiz distractor and exercise key of both
+lessons recomputed BOTH SIDES (incl. the exact fractional answers 8/3 and 23/5 with their fraction recombination
+checks, and the one-sided-clearing error the check catches at x = 2 vs the lawful x = 24). C/E recorded the four figure
+geometry plans (rect inventories + containment groups + pairwise-disjoint groups).
+
+**Pre-writing catches (the discipline working again):** the A-v expansion check itself was defective (a conditional
+equation is NOT expected to hold at arbitrary x — rewritten to compare each member against its own expanded form);
+A-iv demanded 'one' verdicts from equations whose x-terms legitimately cancel; quiz 5.1-Q5's decimal exhibit settles at
+x = 5 (not 5/2 — the intermediate 0.5x = 2.5 misread as the answer); a 5.2-Q2 distractor that agreed with the true
+answer at x = 0 (priced at x = 5 as well); the 5.1 balance figure's right-panel boxes overlapped the panel title in the
+plan (moved to y 116 + 40k) and one expression box stuck 10px out of its panel (x 240 → 220); two containment-index
+slips in the plan audit; parent-child rect pairs wrongly forced pairwise-disjoint (the plan model gained proper groups +
+contains). All repaired pre-prose.
+
+**Authored-time catches (all repaired to zero):** the missing terms block in 5.1 (the verifier's own 8-entry count
+caught it); an unterminated string literal (a straight apostrophe in "chapter 8's" inside a single-quoted formula note —
+tsc caught it); a mangled single-backslash run in the decimal-strike display equation (rewritten even-run, KaTeX-safe);
+the F/G figure-order audits (the census strip precedes the balance in 5.1); two exercise flat-index slips in the G
+anchors (the L5 questions sit at flat indices 11/12, not 10/11).
+
+**Gates:** verify-book3-ch05.ts finished at 318,129 checks ALL GREEN (sections A–G). `bun run lint` 0 errors (2
+pre-existing warnings); `tsc --noEmit` clean; routes 200 after the dev-server restart (the nohup-per-command rule); E2E
+e2e-al-51 + e2e-al-52 45/45 PASS ×2+ runs ×3 viewports per lesson (quiz 5/5 live on keys 1/1/3/0/1 and 1/0/1/2/0; KaTeX
+228/192 nodes; 0 console errors; no overflow at 1280/390/dark). Four figures audited 0-issue (the audit's TEXT/RECT
+title-overlap catch on the balance figure repaired pre-E2E) and visually inspected via full-page crops.
+
+**Chapter state:** ch. 5 'Linear Equations in One Variable' in-progress 2/3 (9,304 words across the two lessons; 5.2's
+plannedLessons trimmed to ['The Three Verdicts: One, None, Infinitely Many']); the book stands 4 complete chapters +
+ch. 5 open 2/3 of 11 — repo-wide 100 lessons / 485,665 words / 771 terms / 500 quiz / 1,261 exercises (WORK_INVENTORY
+rebuilt).
+
+**NEXT (run 76):** ch. 5 CLOSES with 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion
+review — extend verify-book3-ch05.ts with the pre-writing sections for 5.3 FIRST (the collapse sweeps over the
+coefficient grids: 0·x = k priced for every k; the three-verdict classification table; every exhibit/quiz/exercise key
+recomputed both sides; the figure geometry plans), whitelist e2e-al-53 in .gitignore BEFORE committing, never ch. 6.
+
+**Git:** ship commit (ch-05.ts + book.ts + verify-book3-ch05.ts + 4 E2E scripts + .gitignore whitelist + the six memory
+docs), pushed per the protocol (the run-74 memory commit 2b12f2a rode the same push); remote main verified via
+one-time-URL ls-remote = local HEAD at verification time (sha in PROGRESS/RESUME memory commit).
+
+---
+
 ## 2026-11-08 — RUN 74 (fired 06:15:01 +08:00 from job 509354, trace cron-agent-loop-202611080619 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule): AL ch. 4 'FACTORIZATION' CLOSES 4/4 — 4.3 'The Identities as Factorizations' (al-identities-as-factorizations, 4,007 words, quiz keys 2/1/0/1/2) + 4.4 'The Factor Theorem and Cubics' (al-factor-theorem-and-cubics, 4,026 words, quiz keys 1/3/0/1/0) + THE UNIT-4 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 4/4) — the chapter COMPLETE and fully verified at run end; ch. 5 NOT touched
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-73 memory commit (`eee5d0a`, unpushed by design —

@@ -1955,3 +1955,40 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   and a stale dev-server E2E loop (the nohup-per-command rule). All repaired to zero pre-ship.
 - Four figures this run (recognition shelf + decision tree; root-factor bridge + cubic machine) audited 0-issue and
   visually inspected; E2E 45/45 PASS x2 runs x3 viewports per lesson (quiz 5/5 live on keys 2/1/0/1/2 and 1/3/0/1/0).
+
+### Run 75 — Elementary Algebra ch. 5 opens: 5.1 + 5.2 (2026-11-08)
+
+- `recorde-1557-whetstone` — Robert Recorde (c. 1510–1558), *The Whetstone of Witte* (London, 1557): the book that
+  invented the equals sign — "a pair of parallels, or Gemowe [twin] lines of one length, thus: =, bicause noe 2
+  thynges can be moare equalle" — and introduced the plus and minus signs to English readers. Web-checked 2026-11-08
+  (the Robert Recorde biographical record + the quotation literature). Zero downloads — metadata only; informs 5.1's
+  historical callout (the equals sign as the birth of the writable claim).
+- `hall-knight-elementary-algebra` — carried (banked run 67): the simple-equations chapter's balance discipline, the
+  transposition shorthand and the verify-the-solution habit inform 5.1–5.2's arc. No new download this run.
+- `ncert-math8-ch2-linear-equations` — carried (banked run 66, contents re-checked 2026-11-08 via the hemh102 chapter
+  PDF: linear equations in one variable; equations with linear expressions on one side, then the variable on both
+  sides, then reducible forms): the school canon's method names for 5.2's pipeline.
+- `alkhwarizmi-c825-aljabr` — carried (banked run 67): al-jabr ("restoring") and al-muqabala ("confronting") inform
+  5.2's historical callout — the collecting and moving stations under their original names.
+- `ans-the-field-laws-division-joins-the-family`, `al-special-products-the-identities-proved`,
+  `al-adding-subtracting-and-multiplying-polynomials`, `al-evaluating-expressions-substitution-and-formulas`,
+  `fm-adding-subtracting-fractions`, `fm-decimals-and-fractions-two-ways`, `khattar-qa-4e`, `cengage-jee-style` —
+  carried banked keys: the field laws the lawful moves rest on, the identity charter for the census, the bracket
+  craft 5.2 clears with, the substitution check, the LCD and decimal bridges, the exam corner, the presentation
+  contract.
+
+#### Run 75 reference-notes
+- Zero downloads — the run carried the banked H&K knowledge + one new web-checked metadata key (recorde-1557-whetstone).
+- Working-copy footprint zero; nothing to delete.
+#### Run 75 reference-notes (ship)
+- Zero downloads — the run carried the banked H&K knowledge + one new web-checked metadata key (recorde-1557-whetstone);
+  working-copy footprint zero, nothing to delete.
+- Keys consumed in 5.1's sources field: hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations,
+  recorde-1557-whetstone (first consume), cengage-jee-style. Keys consumed in 5.2's: hall-knight-elementary-algebra,
+  ncert-math8-ch2-linear-equations, alkhwarizmi-c825-aljabr (first consume since run 67), khattar-qa-4e.
+- verify-book3-ch05.ts finished at 318,129 checks ALL GREEN (sections A–G): A's engines swept the classification
+  theorem over all 28,561 linear assertions ([-6,6]^4), move-equivalence at 48,384 exact Frac checks, the ×0 destroyer
+  at 2,025 sets, LCD clearing at 3,072 equations, 864 bracket shapes, 458 uniqueness witnesses; B/D pinned every
+  exhibit/quiz/exercise key both sides; F+G audited the authored content incl. the exact-plan figure rect comparisons.
+- Four figures audited 0-issue (audit-svg-overlaps.sh caught the balance figure's title/box overlap pre-E2E — repaired)
+  and visually inspected; E2E 45/45 PASS x2+ runs x3 viewports per lesson (e2e-al-51/52 whitelisted in .gitignore).

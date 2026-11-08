@@ -281,3 +281,10 @@ server.log
 !/scripts/e2e-al-43.page.js
 !/scripts/e2e-al-44.sh
 !/scripts/e2e-al-44.page.js
+
+# per-lesson E2E scripts + pre-write verifier for Elementary Algebra ch. 5 (whitelisted run 75)
+!/scripts/verify-book3-ch05.ts
+!/scripts/e2e-al-51.sh
+!/scripts/e2e-al-51.page.js
+!/scripts/e2e-al-52.sh
+!/scripts/e2e-al-52.page.js

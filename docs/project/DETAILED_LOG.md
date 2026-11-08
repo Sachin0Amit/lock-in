@@ -2536,3 +2536,55 @@ whitelist e2e-al-51/52; never ch. 6); run 76 closes ch. 5.
 
 **Git:** ship commit `al ch.4 CLOSES (run 74): ...` + the run-73 memory commit eee5d0a pushed to main per the push
 protocol (shas in WORKLOG; ls-remote verified).
+
+## RUN 75 — 2026-11-08 — Elementary Algebra ch. 5 'Linear Equations in One Variable' OPENS 2/3
+
+**Step 1 — tree reconciliation + research:** tree clean at the run-74 memory commit 2b12f2a (unpushed by design — it
+recorded run 74's push verification and rode this run's protocol push); no sibling lock this window. Research: zero
+downloads — the banked H&K knowledge (the simple-equations chapter's balance discipline, transposition shorthand,
+verify-the-solution habit) + the banked NCERT class-8 ch. 2 key (contents re-checked via the hemh102 chapter PDF) + ONE
+new web-checked history key: `recorde-1557-whetstone` (Robert Recorde, The Whetstone of Witte, 1557 — the equals sign
+born as "a pair of parallels … bicause noe 2 thynges can be moare equalle"; +/− introduced to English the same year;
+Recorde died in the King's Bench in 1558). `alkhwarizmi-c825-aljabr` re-consumed for 5.2 (al-jabr = restoring,
+al-muqābala = confronting — the stations under their original names). Working-copy footprint zero.
+
+**Step 2 — verify-first (A–E BEFORE any prose, F at 5.1 authoring, G at 5.2 authoring):** the engines swept THE
+CLASSIFICATION THEOREM over all 28,561 linear assertions ax + b = cx + d with coefficients in [-6,6] (one ⟺ a ≠ c with
+exact re-substitution + failing neighbours; all ⟺ a = c ∧ b = d; none ⟺ a = c ∧ b ≠ d — 5.3's theorem previewed by
+exhaustive data), move-equivalence (1,008 assertions × 24 moves = 48,384 exact Frac solves), the ×0 destroyer (2,025
+one-point sets → everything), LCD clearing (3,072 fraction equations, every verdict preserved, integer-coefficient
+cleared forms), the bracket engine (864 shapes, member-wise expansion exact), the uniqueness scan (458 witnesses). B/D
+pinned every exhibit, quiz distractor and exercise key of both lessons BOTH SIDES (5.1 quiz keys 1/1/3/0/1; 5.2 keys
+1/0/1/2/0; exact fractional answers 8/3 and 23/5; the one-sided-clearing error caught at x = 2 vs the lawful x = 24).
+C/E recorded the four figure geometry plans (rect inventories + containment + disjointness groups).
+
+**Step 3 — pre-writing catches:** the A-v expansion check itself defective (conditional equations don't hold at
+arbitrary x — each member compared against its own expansion instead); A-iv's 'one'-verdict over-demand; the 5.1-Q5
+decimal pin 5 not 5/2; a 5.2-Q2 distractor agreeing at x = 0 (priced at x = 5 too); the balance figure's panel-title
+overlap and a 10px protruding box; two containment-index slips; parent-child pairs wrongly forced disjoint. Repaired
+pre-prose.
+
+**Step 4 — authored:** 5.1 'What an Equation Is: the Balance Principle' (5,027 words — expressions → assertions, the
+three classes priced by a six-point census + table, the balance principle with the four lawful moves PROVED from the
+field laws (ANS 7.2), the ×0 destroyer priced, first solves + the check habit, the uniqueness derivation via
+no-zero-product, the Recorde 1557 callout, 2 figures, quiz keys 1/1/3/0/1, 14 exercises L1–L6, 3 formula cards, 2
+derivations, 4 illustrations, 1 table, 8 terms) → fully gated (verify F-section + lint + tsc + routes + E2E 45/45 ×2 ×3
+viewports + figure audit 0-issue + visual crops) → then 5.2 'Solving Linear Equations' (4,277 words — the five-station
+pipeline as an algorithm block with the running example 2(x−1)/3 = (x+1)/2 + 1 → x = 13 flowing through stations and
+table; bracketed forms with the distributed-minus trap priced (−1 vs −11 at x = 0); fractional forms with the LCD
+strike proved lawful and integer-landing; decimals by the power of ten; the check section with the one-sided-clearing
+catch; the pipeline-composition derivation; the invariant-set figure; the transposition insight + the al-jabr callout;
+quiz keys 1/0/1/2/0, 14 exercises, 3 formula cards, 1 table, 8 terms) → fully gated the same way.
+
+**Step 5 — authored-time catches (all repaired to zero):** the missing 5.1 terms block (the verifier's count caught
+it); a straight-apostrophe string break (tsc); a mangled single-backslash run in the decimal-strike equation; the F/G
+figure-order audits; two G anchor index slips. Gates re-run to ALL GREEN after every repair.
+
+**Step 6 — state:** ch. 5 in-progress 2/3 (9,304 words; plannedLessons trimmed to 5.3); book.ts header updated (4
+complete chapters + ch. 5 open of 11); SOURCE_LOG run-75 section (one new key + ship notes); WORK_INVENTORY rebuilt —
+repo-wide 100 lessons / 485,665 words / 771 terms / 500 quiz / 1,261 exercises. NEXT: run 76 = 5.3 'The Three Verdicts:
+One, None, Infinitely Many' + the unit-5 completion review CLOSE ch. 5 (extend verify-book3-ch05.ts FIRST; whitelist
+e2e-al-53; never ch. 6); run 77 opens ch. 6.
+
+**Git:** ship commit `al ch.5 OPENS (run 75): ...` + the run-74 memory commit 2b12f2a pushed to main per the push
+protocol (shas in WORKLOG; ls-remote verified).
