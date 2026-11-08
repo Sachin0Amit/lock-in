@@ -902,5 +902,13 @@
   "e2e": "45/45 PASS x2+ runs x3 viewports per lesson (keys 1/1/3/0/1 and 1/0/1/2/0 live 5/5)",
   "sources": "recorde-1557-whetstone NEW (web-checked); hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, alkhwarizmi-c825-aljabr carried; zero downloads",
   "nextRun": "76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review close ch. 5"
+ },
+ "lastPush": {
+  "run": 75,
+  "date": "2026-11-08",
+  "shipCommit": "728eddf",
+  "pushed": "f7ce019..728eddf (the run-74 memory commit 2b12f2a rode the same push)",
+  "remoteMainVerified": "728eddf071140b61e4c40fa81c0b0ca8ccec68fd",
+  "method": "one-time-URL ls-remote = local HEAD at verification time; origin/main tracking ref re-synced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote"
  }
 }
