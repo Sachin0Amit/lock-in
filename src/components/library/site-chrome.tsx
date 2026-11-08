@@ -11,7 +11,7 @@
  */
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { BookOpenCheck, BookPlus, BookMarked, Library, LogOut, Menu, Moon, Sun, UserRound } from 'lucide-react'
+import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun, UserRound } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import {
@@ -26,11 +26,13 @@ import { paths, allBooks } from '@/data/library/index'
 import { CommandPalette } from './command-palette'
 import { useProgress } from './progress-store'
 import { useAuth } from '@/components/builder/auth-store'
+import { RevisionDueChip } from '@/components/revision/due-chip'
 
 const NAV_ITEMS = [
   { href: paths.home(), label: 'Academic Library', short: 'Library', icon: Library },
   { href: '/builder', label: 'Custom Book Builder', short: 'Book Builder', icon: BookPlus },
   { href: '/my-books', label: 'My Custom Books', short: 'My Books', icon: BookMarked },
+  { href: '/revision', label: 'Revision Hub', short: 'Revision', icon: BrainCircuit },
 ]
 
 function ThemeToggle() {
@@ -102,6 +104,11 @@ function AccountChip() {
             <BookPlus className="h-4 w-4" aria-hidden /> Build a book
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/revision" className="cursor-pointer">
+            <BrainCircuit className="h-4 w-4" aria-hidden /> Revision Hub
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => void signOut()} className="cursor-pointer">
           <LogOut className="h-4 w-4" aria-hidden /> Sign out
@@ -167,6 +174,7 @@ export function SiteHeader() {
         </div>
 
         <div className="flex shrink-0 items-center gap-1">
+          <RevisionDueChip />
           {completedCount > 0 && (
             <span
               className="mr-1 hidden items-center gap-1.5 rounded-full border bg-card px-2.5 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 sm:inline-flex"
@@ -215,6 +223,9 @@ export function SiteFooter() {
           </Link>
           <Link href="/my-books" className="font-medium hover:text-foreground hover:underline">
             My Custom Books
+          </Link>
+          <Link href="/revision" className="font-medium hover:text-foreground hover:underline">
+            Revision Hub
           </Link>
           <Link
             href={paths.glossary(allBooks[0].id)}

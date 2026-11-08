@@ -24,10 +24,14 @@ interface ProgressState {
   quizBest: Record<string, QuizScore>
   /** flashcard key (`bookId::term`) → present, marked "I know this" */
   knownTerms: Record<string, 1>
+  /** chapter key (`bookId:chapterNumber`) → studiedAt — device-local fallback
+   * for guests; the server ledger is the source of truth when signed in */
+  chapterStudied: Record<string, number>
   lastLessonId: string | null
   fontScale: number
   toggleCompleted: (id: string) => void
   toggleBookmark: (id: string) => void
+  toggleChapterStudied: (key: string) => void
   setLastLesson: (id: string) => void
   stepFont: (dir: 1 | -1) => void
   /** record a finished quiz attempt; keeps the best score */
@@ -43,6 +47,7 @@ export const useProgress = create<ProgressState>()(
       bookmarks: {},
       quizBest: {},
       knownTerms: {},
+      chapterStudied: {},
       lastLessonId: null,
       fontScale: 1,
       toggleCompleted: (id) =>
@@ -58,6 +63,13 @@ export const useProgress = create<ProgressState>()(
           if (next[id]) delete next[id]
           else next[id] = 1
           return { bookmarks: next }
+        }),
+      toggleChapterStudied: (key) =>
+        set((s) => {
+          const next = { ...s.chapterStudied }
+          if (next[key]) delete next[key]
+          else next[key] = Date.now()
+          return { chapterStudied: next }
         }),
       setLastLesson: (id) => set({ lastLessonId: id }),
       stepFont: (dir) =>

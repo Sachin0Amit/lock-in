@@ -293,3 +293,8 @@ server.log
 !/scripts/verify-custom-book-builder.ts
 !/scripts/smoke-custom-books.ts
 !/scripts/e2e-custom-book-builder.sh
+
+# Revision & Mastery feature (2026-11-08): engine verifier + API smoke + full-journey E2E
+!/scripts/verify-revision.ts
+!/scripts/smoke-revision.ts
+!/scripts/e2e-revision-hub.sh

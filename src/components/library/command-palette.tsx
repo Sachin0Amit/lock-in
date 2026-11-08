@@ -17,6 +17,7 @@ import {
   BookOpen,
   BookOpenCheck,
   BookPlus,
+  BrainCircuit,
   Library,
   Moon,
   Shuffle,
@@ -157,6 +158,11 @@ export function CommandPalette() {
                       <BookMarked className="h-4 w-4" aria-hidden />
                       My custom books
                       <CommandShortcut>Shelf</CommandShortcut>
+                    </CommandItem>
+                    <CommandItem value="action-revision" onSelect={() => go('/revision')}>
+                      <BrainCircuit className="h-4 w-4" aria-hidden />
+                      Revision Hub — revise &amp; track
+                      <CommandShortcut>Revision</CommandShortcut>
                     </CommandItem>
                     <CommandItem value="action-random" onSelect={randomLesson}>
                       <Shuffle className="h-4 w-4" aria-hidden />

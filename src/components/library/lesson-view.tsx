@@ -3,11 +3,13 @@
 /**
  * The lesson reader — a distraction-free, typeset-textbook reading pane.
  * Upgraded: shareable URL, "On this page" scrollspy, reading progress bar,
- * prerequisite awareness, keyboard shortcuts, quiz scoring, sources.
+ * prerequisite awareness, keyboard shortcuts, quiz scoring, sources,
+ * revision-ledger sync (completion feeds the spaced-repetition schedule
+ * and the reader shows the next revision date).
  *
  * Keyboard: ← / → previous & next lesson · B bookmark · C mark complete.
  */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -24,6 +26,7 @@ import {
   ListTree,
   Minus,
   Plus,
+  RotateCcw,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -41,6 +44,9 @@ import { RichText } from './math'
 import { OnThisPage } from './on-this-page'
 import { useProgress } from './progress-store'
 import { ReadingProgress } from './reading-progress'
+import { useLedgerSync } from '@/components/revision/use-ledger-sync'
+import { formatDate } from '@/components/revision/mastery-bits'
+import type { EntryView } from '@/lib/revision/types'
 
 interface Props {
   ref_: LessonRef
@@ -61,10 +67,45 @@ export function LessonView({ ref_ }: Props) {
   const toggleBookmark = useProgress((s) => s.toggleBookmark)
   const setLastLesson = useProgress((s) => s.setLastLesson)
   const stepFont = useProgress((s) => s.stepFont)
+  const { signedIn, mark, syncLessonComplete } = useLedgerSync()
+  const [ledgerEntry, setLedgerEntry] = useState<EntryView | null>(null)
 
   useEffect(() => {
     setLastLesson(lesson.id)
   }, [lesson.id, setLastLesson])
+
+  /* the lesson's ledger entry (schedule + passes) — only when signed in */
+  useEffect(() => {
+    if (!signedIn) return
+    let cancelled = false
+    void (async () => {
+      const res = await fetch(`/api/revision/entry?scope=lesson&refId=${encodeURIComponent(lesson.id)}`, {
+        cache: 'no-store',
+      }).catch(() => null)
+      if (!res || !res.ok || cancelled) return
+      const data = (await res.json().catch(() => null)) as { entry?: EntryView | null } | null
+      if (!cancelled) setLedgerEntry(data?.entry ?? null)
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [signedIn, lesson.id])
+
+  /* one handler for the completion toggle: device-local store (existing
+   * behaviour) + the server ledger when signed in */
+  const handleToggleCompleted = () => {
+    const next = !completed
+    toggleCompleted(lesson.id)
+    setLedgerEntry(null)
+    if (next) {
+      void syncLessonComplete(lesson.id, true).then((results) => {
+        const r = results?.[0]
+        if (r?.ok && r.entry) setLedgerEntry(r.entry)
+      })
+    } else {
+      void syncLessonComplete(lesson.id, false)
+    }
+  }
 
   /* Keyboard navigation: ←/→ lessons, B bookmark, C complete. */
   useEffect(() => {
@@ -88,12 +129,12 @@ export function LessonView({ ref_ }: Props) {
         toggleBookmark(lesson.id)
       } else if (k === 'c') {
         e.preventDefault()
-        toggleCompleted(lesson.id)
+        handleToggleCompleted()
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [lesson.id, next, prev, router, toggleBookmark, toggleCompleted])
+  }, [lesson.id, next, prev, router, toggleBookmark, handleToggleCompleted])
 
   const prereqs = (lesson.prerequisites ?? [])
     .map((id) => findLesson(id))
@@ -242,7 +283,7 @@ export function LessonView({ ref_ }: Props) {
           <footer className="space-y-6">
             <div className="flex flex-wrap items-center gap-3">
               <Button
-                onClick={() => toggleCompleted(lesson.id)}
+                onClick={handleToggleCompleted}
                 variant={completed ? 'secondary' : 'default'}
                 className="gap-2"
               >
@@ -295,6 +336,36 @@ export function LessonView({ ref_ }: Props) {
                 </Button>
               </div>
             </div>
+
+            {/* revision schedule line — the ledger's promise for this lesson */}
+            {ledgerEntry && (
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-lg border border-primary/25 bg-primary/[0.06] px-4 py-2.5 text-xs text-muted-foreground">
+                <RotateCcw className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden />
+                <span>
+                  Revision pass <span className="font-semibold text-foreground/80">{ledgerEntry.passes}</span> ·
+                  next revision{' '}
+                  <span className="font-semibold text-foreground/80">
+                    {formatDate(ledgerEntry.dueAt)}
+                  </span>{' '}
+                  (mastery {ledgerEntry.mastery}/100)
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    void mark({ scope: 'lesson', refId: lesson.id }, 'revise', {
+                      quality: 4,
+                      kind: 'revision',
+                    }).then((results) => {
+                      const r = results?.[0]
+                      if (r?.ok && r.entry) setLedgerEntry(r.entry)
+                    })
+                  }}
+                  className="ml-auto shrink-0 rounded-md border bg-background px-2.5 py-1 text-[11px] font-semibold text-foreground/80 transition-colors hover:border-primary/50 hover:text-foreground"
+                >
+                  Log revision now
+                </button>
+              </p>
+            )}
 
             <p className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">

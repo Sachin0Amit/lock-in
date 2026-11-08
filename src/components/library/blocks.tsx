@@ -32,6 +32,7 @@ import { headingAnchor } from '@/data/library/index'
 import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem } from '@/data/library/types'
 import { Math, RichText } from './math'
 import { useProgress } from './progress-store'
+import { useLedgerSync } from '@/components/revision/use-ledger-sync'
 
 /* ---------------------------------------------------------------- */
 /* Callouts — Cengage-style note boxes (owner directive 2026-11-03):   */
@@ -335,6 +336,7 @@ function QuizBlock({
   const [selected, setSelected] = useState<Record<number, number>>({})
   const recordQuiz = useProgress((s) => s.recordQuiz)
   const quizBest = useProgress((s) => s.quizBest)
+  const { logQuiz } = useLedgerSync()
   const best = lessonId ? quizBest[lessonId] : undefined
 
   const answeredCount = Object.keys(selected).length
@@ -342,12 +344,15 @@ function QuizBlock({
   const score = items.reduce((n, it, i) => n + (selected[i] === it.answer ? 1 : 0), 0)
 
   /* Record the score once every question is answered (works even when
-     several options are clicked in the same batch). */
+     several options are clicked in the same batch). The finished quiz also
+     feeds the revision ledger as an honest quality signal — quiz score maps
+     onto the SM-2 rating scale (score ratio × 5). */
   useEffect(() => {
     if (!lessonId || answeredCount !== items.length || items.length === 0) return
     const finalScore = items.reduce((n, it, i) => n + (selected[i] === it.answer ? 1 : 0), 0)
     recordQuiz(lessonId, finalScore, items.length)
-  }, [answeredCount, items, lessonId, recordQuiz, selected])
+    logQuiz(lessonId, finalScore, items.length)
+  }, [answeredCount, items, lessonId, recordQuiz, selected, logQuiz])
 
   const choose = (qi: number, oi: number) => {
     setSelected((prev) => ({ ...prev, [qi]: oi }))

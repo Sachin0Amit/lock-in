@@ -6,11 +6,16 @@
  *  - hero: cover + meta + compact stat strip + progress + actions
  *  - TOC: per-chapter written counters, "Next up" lesson highlighted,
  *    quiz best scores shown on completed lessons, tighter rows
+ *  - revision: on-the-go "Mark studied" per chapter with live mastery /
+ *    passes / due state from the study ledger (signed in), device-local
+ *    fallback for guests, and a per-book revision summary button
  */
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import {
   Award,
   BookOpenCheck,
+  BrainCircuit,
   ChevronRight,
   CircleDashed,
   Clock3,
@@ -34,6 +39,10 @@ import {
 } from '@/data/library/index'
 import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
+import { useAuth } from '@/components/builder/auth-store'
+import { QuickMarkChapter } from '@/components/revision/quick-mark'
+import { fetchOverview } from '@/lib/revision/client-api'
+import type { EntryView } from '@/lib/revision/types'
 
 export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {
   return (
@@ -74,6 +83,37 @@ export function BookView({ book }: Props) {
   const stats = bookStats(book)
   const completedMap = useProgress((s) => s.completed)
   const quizBest = useProgress((s) => s.quizBest)
+  const user = useAuth((s) => s.user)
+  const authLoaded = useAuth((s) => s.loaded)
+  const [chapterEntries, setChapterEntries] = useState<Map<string, EntryView>>(new Map())
+  const [revTick, setRevTick] = useState(0)
+
+  /* ledger state for this book's chapters — only when signed in */
+  useEffect(() => {
+    if (!user) return
+    let cancelled = false
+    void (async () => {
+      const o = await fetchOverview()
+      if (cancelled) return
+      setChapterEntries(
+        o
+          ? new Map(o.entries.filter((e) => e.scope === 'chapter').map((e) => [e.refId, e]))
+          : new Map(),
+      )
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [user, revTick])
+
+  const entriesForUser = user ? chapterEntries : null
+  const myChapterEntries = book.chapters
+    .map((c) => entriesForUser?.get(`${book.id}:${c.number}`))
+    .filter((e): e is EntryView => !!e)
+  const dueInBook = myChapterEntries.filter(
+    (e) => e.overdueDays > 0 || new Date(e.dueAt).getTime() <= Date.now(),
+  ).length
+
   const completed = lessons.filter((l) => completedMap[l.lesson.id]).length
   const lastLessonId = useProgress((s) => s.lastLessonId)
   const resumeLesson =
@@ -175,6 +215,19 @@ export function BookView({ book }: Props) {
                 Glossary &amp; formulas
               </Link>
             </Button>
+            {authLoaded && user && (
+              <Button asChild variant="outline" className="gap-2">
+                <Link href="/revision">
+                  <BrainCircuit className="h-4 w-4" aria-hidden />
+                  Revision Hub
+                  {dueInBook > 0 && (
+                    <span className="ml-1 inline-flex items-center gap-1 rounded-full border border-rose-500/40 bg-rose-500/10 px-1.5 py-0.5 text-[10px] font-bold text-rose-700 tabular-nums dark:text-rose-300">
+                      {dueInBook} due
+                    </span>
+                  )}
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </section>
@@ -190,8 +243,8 @@ export function BookView({ book }: Props) {
             const plannedCount = ch.plannedLessons?.length ?? 0
             const chDone = chLessons.filter((l) => completedMap[l.lesson.id]).length
             return (
-              <div key={ch.number} className="overflow-hidden rounded-xl border">
-                <div className="flex items-start gap-4 border-b bg-muted/30 px-5 py-4">
+              <div key={ch.number} className="overflow-hidden rounded-xl border" id={`ch-${ch.number}`}>
+                <div className="flex flex-wrap items-start gap-4 border-b bg-muted/30 px-5 py-4">
                   <span className="font-reading text-2xl font-bold text-primary/80 tabular-nums">
                     {String(ch.number).padStart(2, '0')}
                   </span>
@@ -201,6 +254,13 @@ export function BookView({ book }: Props) {
                       <StatusBadge status={ch.status} />
                     </div>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">{ch.summary}</p>
+                    <div className="mt-2">
+                      <QuickMarkChapter
+                        chapterKey={`${book.id}:${ch.number}`}
+                        entry={entriesForUser?.get(`${book.id}:${ch.number}`)}
+                        onChanged={() => setRevTick((t) => t + 1)}
+                      />
+                    </div>
                   </div>
                   <Badge variant="secondary" className="mt-1 shrink-0 font-normal tabular-nums">
                     {chLessons.length > 0

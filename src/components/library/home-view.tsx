@@ -36,6 +36,7 @@ import {
 import { BookCover } from './book-view'
 import { DISCIPLINE_ICONS, StatusBadge } from './bits'
 import { useProgress } from './progress-store'
+import { RevisionBanner } from '@/components/revision/revision-banner'
 
 /* ---------------------------------------------------------------- */
 /* Hero — the living shelf visual                                     */
@@ -317,6 +318,7 @@ export function HomeView() {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6">
       <Hero />
+      <RevisionBanner />
       <YourDesk />
 
       {/* Shelves with live books */}

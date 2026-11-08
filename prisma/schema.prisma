@@ -34,6 +34,70 @@ model User {
 
   sessions Session[]
   books    CustomBook[]
+  ledger   StudyEntry[]
+}
+
+/* ------------------------------------------------------------------ */
+/* Revision & mastery ledger                                            */
+/*                                                                      */
+/* ONE study ledger per user, keyed by canonical Main Academic Library  */
+/* ids (never content copies): chapters are referenced as               */
+/* `${bookId}:${chapterNumber}` (the catalog key), lessons by their     */
+/* stable lesson id. Every marking surface in the app (library book     */
+/* page, lesson reader, custom-book reader, quizzes, the Revision Hub   */
+/* session) feeds the same ledger, which drives the spaced-repetition   */
+/* schedule, mastery scores, revision analytics and the knowledge       */
+/* graph overlay.                                                       */
+/* ------------------------------------------------------------------ */
+
+model StudyEntry {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// "chapter" | "lesson"
+  scope String
+  /// chapter → `${bookId}:${chapterNumber}` · lesson → canonical lesson id
+  refId String
+
+  firstAt DateTime @default(now())
+  lastAt  DateTime @default(now())
+  /// total passes: the first study plus every logged revision
+  passes  Int      @default(1)
+
+  /// SM-2-lite schedule state
+  ease         Float    @default(2.5)
+  intervalDays Int      @default(1)
+  dueAt        DateTime @default(now())
+  /// last self-rating or quiz-derived quality (0..5)
+  lastQuality Int      @default(3)
+  /// composite mastery 0..100 (passes × recency × quality)
+  mastery     Float    @default(20)
+  updatedAt   DateTime @updatedAt
+
+  events StudyEvent[]
+
+  @@unique([userId, scope, refId])
+  @@index([userId, scope])
+  @@index([userId, dueAt])
+}
+
+model StudyEvent {
+  id     String @id @default(cuid())
+  userId String
+  entry  StudyEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  entryId String
+
+  /// first | revision | quiz | chapter-mark | lesson-complete
+  kind    String
+  /// self-rating / quiz-derived quality 0..5, when known
+  quality Int?
+  /// optional engagement seconds
+  secs    Int?
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([entryId, createdAt])
 }
 
 model Session {

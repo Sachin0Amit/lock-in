@@ -64,6 +64,7 @@ import { RichText } from '@/components/library/math'
 import { useProgress } from '@/components/library/progress-store'
 import { useAuth } from './auth-store'
 import { useRecordInfo } from './record-info'
+import { useLedgerSync } from '@/components/revision/use-ledger-sync'
 
 interface FlatItem {
   chapterIndex: number
@@ -78,6 +79,7 @@ export function ReaderView() {
   const { toast } = useToast()
   const user = useAuth((s) => s.user)
   const authLoaded = useAuth((s) => s.loaded)
+  const { syncLessonComplete } = useLedgerSync()
 
   const [book, setBook] = useState<BookDetailView | null>(null)
   const [missing, setMissing] = useState(false)
@@ -189,9 +191,13 @@ export function ReaderView() {
   const toggleComplete = () => {
     if (!currentId) return
     const next = new Set(completed)
-    if (next.has(currentId)) next.delete(currentId)
+    const wasDone = next.has(currentId)
+    if (wasDone) next.delete(currentId)
     else next.add(currentId)
     void persistCompleted(next)
+    /* the same completion also feeds the global study ledger — reading a
+     * custom book is studying its underlying library lesson */
+    void syncLessonComplete(currentId, !wasDone)
   }
 
   const toggleBookmark = async () => {
