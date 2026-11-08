@@ -7,8 +7,8 @@
  *  - TOC: per-chapter written counters, "Next up" lesson highlighted,
  *    quiz best scores shown on completed lessons, tighter rows
  *  - revision: on-the-go "Mark studied" per chapter with live mastery /
- *    passes / due state from the study ledger (signed in), device-local
- *    fallback for guests, and a per-book revision summary button
+ *    passes / due state from the study ledger — open to everyone, no
+ *    account needed — plus a per-book revision summary button
  */
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -39,10 +39,12 @@ import {
 } from '@/data/library/index'
 import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
-import { useAuth } from '@/components/builder/auth-store'
 import { QuickMarkChapter } from '@/components/revision/quick-mark'
-import { fetchOverview } from '@/lib/revision/client-api'
+import { fetchOverview, markStudy } from '@/lib/revision/client-api'
 import type { EntryView } from '@/lib/revision/types'
+
+/** chapter keys whose device-local guest marks were already moved into the ledger */
+const migratedChapterKeys = new Set<string>()
 
 export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {
   return (
@@ -83,32 +85,48 @@ export function BookView({ book }: Props) {
   const stats = bookStats(book)
   const completedMap = useProgress((s) => s.completed)
   const quizBest = useProgress((s) => s.quizBest)
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
   const [chapterEntries, setChapterEntries] = useState<Map<string, EntryView>>(new Map())
   const [revTick, setRevTick] = useState(0)
 
-  /* ledger state for this book's chapters — only when signed in */
+  /* ledger state for this book's chapters — open to everyone, no account needed */
   useEffect(() => {
-    if (!user) return
     let cancelled = false
     void (async () => {
       const o = await fetchOverview()
       if (cancelled) return
-      setChapterEntries(
-        o
-          ? new Map(o.entries.filter((e) => e.scope === 'chapter').map((e) => [e.refId, e]))
-          : new Map(),
-      )
+      const entries: Map<string, EntryView> = o
+        ? new Map(o.entries.filter((e) => e.scope === 'chapter').map((e) => [e.refId, e]))
+        : new Map()
+
+      /* one-time migration: chapters marked while signed out (device-local
+       * store) move up into the server ledger so the schedule sees them */
+      const locals = useProgress.getState().chapterStudied
+      const pending = book.chapters
+        .map((c) => `${book.id}:${c.number}`)
+        .filter((key) => locals[key] && !entries.has(key) && !migratedChapterKeys.has(key))
+      if (pending.length > 0) {
+        for (const key of pending) migratedChapterKeys.add(key)
+        const results = await markStudy({
+          items: pending.map((refId) => ({ scope: 'chapter', refId })),
+          action: 'study',
+          kind: 'chapter-mark',
+        }).catch(() => null)
+        if (results && !cancelled) {
+          for (const r of results) {
+            if (r.ok && r.entry && r.entry.scope === 'chapter') entries.set(r.entry.refId, r.entry)
+          }
+        }
+      }
+
+      if (!cancelled) setChapterEntries(entries)
     })()
     return () => {
       cancelled = true
     }
-  }, [user, revTick])
+  }, [book, revTick])
 
-  const entriesForUser = user ? chapterEntries : null
   const myChapterEntries = book.chapters
-    .map((c) => entriesForUser?.get(`${book.id}:${c.number}`))
+    .map((c) => chapterEntries.get(`${book.id}:${c.number}`))
     .filter((e): e is EntryView => !!e)
   const dueInBook = myChapterEntries.filter(
     (e) => e.overdueDays > 0 || new Date(e.dueAt).getTime() <= Date.now(),
@@ -215,19 +233,17 @@ export function BookView({ book }: Props) {
                 Glossary &amp; formulas
               </Link>
             </Button>
-            {authLoaded && user && (
-              <Button asChild variant="outline" className="gap-2">
-                <Link href="/revision">
-                  <BrainCircuit className="h-4 w-4" aria-hidden />
-                  Revision Hub
-                  {dueInBook > 0 && (
-                    <span className="ml-1 inline-flex items-center gap-1 rounded-full border border-rose-500/40 bg-rose-500/10 px-1.5 py-0.5 text-[10px] font-bold text-rose-700 tabular-nums dark:text-rose-300">
-                      {dueInBook} due
-                    </span>
-                  )}
-                </Link>
-              </Button>
-            )}
+            <Button asChild variant="outline" className="gap-2">
+              <Link href="/revision">
+                <BrainCircuit className="h-4 w-4" aria-hidden />
+                Revision Hub
+                {dueInBook > 0 && (
+                  <span className="ml-1 inline-flex items-center gap-1 rounded-full border border-rose-500/40 bg-rose-500/10 px-1.5 py-0.5 text-[10px] font-bold text-rose-700 tabular-nums dark:text-rose-300">
+                    {dueInBook} due
+                  </span>
+                )}
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -257,7 +273,7 @@ export function BookView({ book }: Props) {
                     <div className="mt-2">
                       <QuickMarkChapter
                         chapterKey={`${book.id}:${ch.number}`}
-                        entry={entriesForUser?.get(`${book.id}:${ch.number}`)}
+                        entry={chapterEntries.get(`${book.id}:${ch.number}`)}
                         onChanged={() => setRevTick((t) => t + 1)}
                       />
                     </div>

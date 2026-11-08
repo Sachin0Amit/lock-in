@@ -62,7 +62,6 @@ import { api, jsonBody, type BookDetailView, type BookItemView, type LessonRespo
 import { BlockRenderer } from '@/components/library/blocks'
 import { RichText } from '@/components/library/math'
 import { useProgress } from '@/components/library/progress-store'
-import { useAuth } from './auth-store'
 import { useRecordInfo } from './record-info'
 import { useLedgerSync } from '@/components/revision/use-ledger-sync'
 
@@ -77,8 +76,6 @@ export function ReaderView() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { toast } = useToast()
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
   const { syncLessonComplete } = useLedgerSync()
 
   const [book, setBook] = useState<BookDetailView | null>(null)
@@ -105,11 +102,7 @@ export function ReaderView() {
 
   /* ---------------- load the book ---------------- */
   useEffect(() => {
-    if (!authLoaded || !bookId) return
-    if (!user) {
-      router.replace(`/signin?next=/my-books/${bookId}/read`)
-      return
-    }
+    if (!bookId) return
     let cancelled = false
     api<{ book: BookDetailView }>(`/api/custom-books/${bookId}`)
       .then((data) => {
@@ -134,7 +127,7 @@ export function ReaderView() {
     return () => {
       cancelled = true
     }
-  }, [user, authLoaded, bookId, router, searchParams])
+  }, [bookId, searchParams])
 
   const flat = useMemo<FlatItem[]>(
     () => (book ? book.chapters.flatMap((ch, chapterIndex) => ch.items.map((item) => ({ chapterIndex, chapterTitle: ch.title, item }))) : []),
@@ -167,12 +160,12 @@ export function ReaderView() {
 
   /* ---------------- persist reading position ---------------- */
   useEffect(() => {
-    if (!book || !currentId || !user) return
+    if (!book || !currentId) return
     void api(`/api/custom-books/${book.id}/progress`, {
       method: 'PUT',
       ...jsonBody({ lastReadRecordId: currentId, completedRecordIds: [...completed] }),
     }).catch(() => undefined)
-  }, [book, currentId, user, completed])
+  }, [book, currentId, completed])
 
   /* scroll to top on topic change — plain scrollTo(0) keeps the article in
    * its natural flow position below the sticky toolbar (no overlap) */

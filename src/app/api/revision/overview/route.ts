@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getSessionUser, unauthorized, serverError } from '@/lib/auth'
+import { resolveUser, serverError } from '@/lib/auth'
 import { getOverview, getSummaryCompact } from '@/lib/revision/ledger-service'
 
 /**
@@ -8,8 +8,7 @@ import { getOverview, getSummaryCompact } from '@/lib/revision/ledger-service'
  */
 export async function GET(req: Request) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
 
     const url = new URL(req.url)
     if (url.searchParams.get('summary') === '1') {

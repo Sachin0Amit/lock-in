@@ -16,14 +16,15 @@ content is ever copied, generated or invented.
 ## What the user gets
 
 1. **Mark studied, on the go** — one click on any book page chapter row
-   (`QuickMarkChapter`). Signed in, the mark lands in the server ledger
-   (cross-device); as a guest it falls back to the device-local progress
-   store with an honest "this device" label and a sign-in hint. The same
-   control then shows live state: mastery chip, revision pass counter
-   (×N), due badge, quick "Revise" and "Undo" actions.
+   (`QuickMarkChapter`). No account needed: the mark lands straight in
+   the study ledger (cross-session persistence server-side; see
+   “No sign-in” below). The control then shows live state: mastery chip,
+   revision pass counter (×N), due badge, quick "Revise" and "Undo"
+   actions. Legacy device-local marks from the guest era migrate up into
+   the ledger once, on the next book-page visit.
 2. **One ledger, many entry points** — chapter marks, lesson completion
    in the library reader, completion in the custom-book reader, and quiz
-   results (score ratio → SRS quality) all feed the same per-user ledger.
+   results (score ratio → SRS quality) all feed the same study ledger.
    Reading a custom book is studying its underlying library lesson.
 3. **Autonomous revision prompts** — a header chip ("N due") on every
    page, a library-home banner, per-book due badges, and the Revision
@@ -110,9 +111,20 @@ Chapters are the primary revision unit (as requested). Lesson entries
 surface in the queue only when their chapter has no chapter-level entry
 ("orphan lessons") — so nothing is tracked twice and nothing is missed.
 
+### No sign-in (2026-11-08 update)
+
+The Revision Hub, the Builder and My Custom Books are fully open — no
+account, no walls, no redirects. API routes resolve the acting user via
+`resolveUser(req)` in `src/lib/auth.ts`: a valid session cookie wins
+(cross-device continuity for real accounts), otherwise the request is
+served as **the local learner** (`local@lockin.library`, lazily created,
+never signable-in). A one-time migration moves device-local chapter marks
+from the guest era into that ledger.
+
 ### Data isolation & honesty
 
-- Every ledger query is scoped by `userId`; foreign data is unreachable.
+- Every ledger query is scoped by `userId`; foreign data is unreachable
+  (account ↔ account, account ↔ local learner).
 - refIds are validated against the live catalog; unknown ids → 400.
 - `study` on an existing entry is a no-op (no double counting);
   `unmark` deletes the entry and its events; both are idempotent.
@@ -127,8 +139,9 @@ surface in the queue only when their chapter has no chapter-level entry
   (idempotency, quiz quality, unmark, isolation, overview aggregation,
   graph invariants: every declared prerequisite is an edge, bridges
   cross chapters only, deterministic builds).
-- `bun run scripts/smoke-revision.ts` — **42/42** API checks (auth
-  gating, validation, marking flows, payload shapes, isolation, logout).
+- `bun run scripts/smoke-revision.ts` — **42/42** API checks (open
+  access via the local learner, validation, marking flows, payload
+  shapes, isolation, logout falls back to the local learner).
 - `bash scripts/e2e-revision-hub.sh` — **49/49** browser E2E via
   agent-browser: guest surfaces (hub explainer, on-device marking with
   sync hint) → registered marking (chip/counter/due/revise/undo) →
@@ -144,9 +157,12 @@ surface in the queue only when their chapter has no chapter-level entry
 
 ## Known limitations (honest)
 
-- **Guest marks are device-local** and are not merged into the account
-  ledger on sign-in (deliberate: no silent cross-device guessing). The
-  hub itself requires an account, like My Custom Books.
+- **The local learner is shared per install** — anonymous marks live on
+  this device/browser-server pair (one stable `local@lockin.library`
+  identity, no cookie). Signing in switches to a separate per-account
+  ledger; the two are never merged (deliberate: no silent cross-device
+  guessing). The account system stays reachable at `/signin` by direct
+  URL for cross-device continuity; nothing in the UX pushes it.
 - The knowledge-graph layout is computed client-side on tab open
   (~100 nodes — instant); it is deterministic, not animated.
 - Concept bridges use declared `concepts` arrays (5–8 phrases per

@@ -4,10 +4,9 @@
  * Revision & Mastery — the ledger sync hook.
  *
  * ONE hook every marking surface uses (library lesson reader, custom-book
- * reader, quiz blocks, chapter quick-mark, revision session). It gates on
- * the auth store: signed out → every call is a silent no-op (the local
- * device progress store remains the fallback); signed in → writes go to
- * the server ledger and the global due-badge refreshes.
+ * reader, quiz blocks, chapter quick-mark, revision session). No account
+ * needed: every write goes to the local study ledger (a stable local
+ * learner identity server-side) and the global due-badge refreshes.
  *
  * Quiz results map onto the SRS quality scale (score ratio × 5), so doing
  * well on a lesson quiz IS a revision signal — honestly recorded with
@@ -15,13 +14,11 @@
  */
 import { useCallback } from 'react'
 import { toast } from 'sonner'
-import { useAuth } from '@/components/builder/auth-store'
 import { useRevisionBadge } from './revision-store'
 import { markStudy } from '@/lib/revision/client-api'
 import type { MarkAction, MarkItem, MarkItemResult, MarkRequest } from '@/lib/revision/types'
 
 export interface LedgerSync {
-  signedIn: boolean
   /** fire-and-forget batch mark; shows an error toast on failure */
   mark: (
     items: MarkItem | MarkItem[],
@@ -36,7 +33,6 @@ export interface LedgerSync {
 }
 
 export function useLedgerSync(): LedgerSync {
-  const user = useAuth((s) => s.user)
   const refreshBadge = useRevisionBadge((s) => s.refresh)
 
   const mark = useCallback(
@@ -45,7 +41,6 @@ export function useLedgerSync(): LedgerSync {
       action: MarkAction,
       opts?: { quality?: number; secs?: number; kind?: string; silent?: boolean },
     ) => {
-      if (!user) return null
       const list = Array.isArray(items) ? items : [items]
       const results = await markStudy({
         items: list,
@@ -61,7 +56,7 @@ export function useLedgerSync(): LedgerSync {
       void refreshBadge()
       return results
     },
-    [user, refreshBadge],
+    [refreshBadge],
   )
 
   const syncLessonComplete = useCallback(
@@ -87,7 +82,6 @@ export function useLedgerSync(): LedgerSync {
   )
 
   return {
-    signedIn: !!user,
     mark,
     syncLessonComplete,
     logQuiz,

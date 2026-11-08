@@ -5,25 +5,21 @@
  *
  * Shows "N due" whenever spaced repetition has something waiting, linking
  * straight into the Revision Hub. Invisible when nothing is due (no
- * clutter) and only fetched once the user is signed in.
+ * clutter). Works without an account — everyone has a study ledger.
  */
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { BrainCircuit } from 'lucide-react'
-import { useAuth } from '@/components/builder/auth-store'
 import { useRevisionBadge } from './revision-store'
 
 export function RevisionDueChip() {
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
   const summary = useRevisionBadge((s) => s.summary)
   const refresh = useRevisionBadge((s) => s.refresh)
 
   useEffect(() => {
-    if (user) void refresh()
-  }, [user, refresh])
+    void refresh()
+  }, [refresh])
 
-  if (!authLoaded || !user) return null
   const due = summary?.dueCount ?? 0
 
   if (due <= 0) return null

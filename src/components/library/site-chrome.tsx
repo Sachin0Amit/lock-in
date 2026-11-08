@@ -2,19 +2,18 @@
 
 /**
  * Site chrome — header (logo, primary nav, command palette, lessons-done
- * badge, account chip, theme) and footer, shared by every routed page.
- * Lives in the root layout.
+ * badge, revision due chip, account chip, theme) and footer, shared by every
+ * routed page. Lives in the root layout.
  *
- * The header carries symbol-first navigation for the four features: Academic
- * Library, Custom Book Builder, My Custom Books and Revision Hub. Every item
- * renders its lucide symbol in the top bar — symbol-only between md and lg
- * (tooltip carries the full name), symbol + compact name from lg up; the
- * mobile menu keeps symbol + full name, and the active route is highlighted.
+ * No sign-in anywhere in the UX: Library, Builder, My Books and the
+ * Revision Hub all work without an account. The account chip only appears
+ * for a live signed-in session (cross-device continuity); guests get a
+ * clean bar.
  */
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
-import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun, UserRound } from 'lucide-react'
+import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import {
@@ -103,20 +102,7 @@ function AccountChip() {
   const loaded = useAuth((s) => s.loaded)
   const signOut = useAuth((s) => s.signOut)
 
-  if (!loaded) {
-    return <span className="hidden h-9 w-9 animate-pulse rounded-full bg-muted sm:block" aria-hidden />
-  }
-
-  if (!user) {
-    return (
-      <Button asChild variant="ghost" size="sm" className="gap-1.5">
-        <Link href="/signin" aria-label="Sign in">
-          <UserRound className="h-4 w-4" aria-hidden />
-          <span className="hidden sm:inline">Sign in</span>
-        </Link>
-      </Button>
-    )
-  }
+  if (!loaded || !user) return null
 
   const initials = user.name
     .split(/\s+/)

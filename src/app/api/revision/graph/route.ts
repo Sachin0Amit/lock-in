@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getSessionUser, unauthorized, serverError } from '@/lib/auth'
+import { resolveUser, serverError } from '@/lib/auth'
 import { getGraph } from '@/lib/revision/ledger-service'
 
 /**
@@ -9,8 +9,7 @@ import { getGraph } from '@/lib/revision/ledger-service'
  */
 export async function GET(req: Request) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
 
     const graph = await getGraph(user.id)
     return NextResponse.json(graph)

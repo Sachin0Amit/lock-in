@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { badRequest, getSessionUser, unauthorized, serverError } from '@/lib/auth'
+import { badRequest, resolveUser, serverError } from '@/lib/auth'
 import { getEntry } from '@/lib/revision/ledger-service'
 
 /**
@@ -9,8 +9,7 @@ import { getEntry } from '@/lib/revision/ledger-service'
  */
 export async function GET(req: Request) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
 
     const url = new URL(req.url)
     const scope = url.searchParams.get('scope')

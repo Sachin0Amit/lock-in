@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSessionUser, notFound, serverError, unauthorized } from '@/lib/auth'
+import { notFound, resolveUser, serverError } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { lessonPlainText } from '@/lib/builder/catalog'
 
@@ -8,8 +8,7 @@ export const runtime = 'nodejs'
 /** Search within one custom book: across every referenced lesson's text. */
 export async function GET(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const q = (req.nextUrl.searchParams.get('q') ?? '').trim().toLowerCase()
     if (q.length < 2) return NextResponse.json({ hits: [] })

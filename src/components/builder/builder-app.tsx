@@ -57,7 +57,6 @@ import { api, formatWords, jsonBody, type MatchResponse, type PdfUploadResponse 
 import { EXAM_TEMPLATES, matchExamTemplate } from '@/lib/builder/exam-templates'
 import { parseTopicList } from '@/lib/builder/topic-parser'
 import type { ParsedInput, TocChapterDraft } from '@/lib/builder/types'
-import { useAuth } from './auth-store'
 import { emptySelection, LibraryPicker, type SelectionState } from './library-picker'
 import { matchesToCoverage, ReviewMatches } from './review-matches'
 import { TocEditor } from './toc-editor'
@@ -112,8 +111,6 @@ function selectionCount(sel: SelectionState): number {
 export function BuilderApp() {
   const router = useRouter()
   const { toast } = useToast()
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
   const { info: recordInfo } = useRecordInfo()
 
   const [step, setStep] = useState<Step>('compose')
@@ -204,12 +201,12 @@ export function BuilderApp() {
 
   /* ---- my books (merge channel + title fallback) --------------------------- */
   useEffect(() => {
-    if (user && step === 'compose' && myBooks.length === 0) {
+    if (step === 'compose' && myBooks.length === 0) {
       void api<{ books: { id: string; title: string; status: string }[] }>('/api/custom-books')
         .then((data) => setMyBooks(data.books.filter((b) => b.status !== 'archived').map((b) => ({ id: b.id, title: b.title }))))
         .catch(() => undefined)
     }
-  }, [user, step, myBooks.length])
+  }, [step, myBooks.length])
 
   /* ---- active-source bookkeeping -------------------------------------------- */
   const activeExam = examText.trim().length > 0
@@ -370,14 +367,6 @@ export function BuilderApp() {
   const save = async (status: 'draft' | 'published') => {
     if (toc.length === 0 || toc.every((c) => c.items.length === 0)) {
       toast({ title: 'Nothing to save yet', description: 'Add at least one library topic to the book first.', variant: 'destructive' })
-      return
-    }
-    if (!user) {
-      toast({
-        title: 'Sign in to save your book',
-        description: 'Your wizard session is kept on this device — sign in and resume right where you are.',
-      })
-      router.push('/signin?next=/builder')
       return
     }
     setSaving(true)
@@ -829,36 +818,27 @@ export function BuilderApp() {
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <div className="border-t px-4 py-4">
-                      {user ? (
-                        myBooks.length > 0 ? (
-                          <div className="space-y-2">
-                            <Label htmlFor="base-book">Your custom book</Label>
-                            <select
-                              id="base-book"
-                              value={baseBookId}
-                              onChange={(e) => setBaseBookId(e.target.value)}
-                              className="h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1"
-                            >
-                              <option value="">— none —</option>
-                              {myBooks.map((b) => (
-                                <option key={b.id} value={b.id}>
-                                  {b.title}
-                                </option>
-                              ))}
-                            </select>
-                            <p className="text-xs text-muted-foreground">Its topics are merged in; duplicates are removed.</p>
-                          </div>
-                        ) : (
-                          <p className="text-sm text-muted-foreground">
-                            You have no custom books yet — publish one first, then merge it here.
-                          </p>
-                        )
+                      {myBooks.length > 0 ? (
+                        <div className="space-y-2">
+                          <Label htmlFor="base-book">Your custom book</Label>
+                          <select
+                            id="base-book"
+                            value={baseBookId}
+                            onChange={(e) => setBaseBookId(e.target.value)}
+                            className="h-9 w-full rounded-md border bg-transparent px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1"
+                          >
+                            <option value="">— none —</option>
+                            {myBooks.map((b) => (
+                              <option key={b.id} value={b.id}>
+                                {b.title}
+                              </option>
+                            ))}
+                          </select>
+                          <p className="text-xs text-muted-foreground">Its topics are merged in; duplicates are removed.</p>
+                        </div>
                       ) : (
                         <p className="text-sm text-muted-foreground">
-                          <Link href="/signin?next=/builder" className="underline hover:text-foreground">
-                            Sign in
-                          </Link>{' '}
-                          to merge one of your existing custom books.
+                          You have no custom books yet — publish one first, then merge it here.
                         </p>
                       )}
                     </div>
@@ -965,16 +945,6 @@ export function BuilderApp() {
                     <kbd className="rounded border px-1">Enter</kbd>
                   </p>
                 </div>
-
-                {!user && authLoaded && (
-                  <p className="text-center text-xs leading-5 text-muted-foreground">
-                    You can explore without an account —{' '}
-                    <Link href="/signin?next=/builder" className="underline hover:text-foreground">
-                      sign in
-                    </Link>{' '}
-                    to save books.
-                  </p>
-                )}
               </div>
               <p className="mt-3 px-1 text-[11px] leading-5 text-muted-foreground">
                 <Badge variant="outline" className="mr-1 border-[var(--book-sage-line)] bg-[var(--book-sage)]/60 text-[10px] font-normal text-[var(--book-green-ink)]">
@@ -1112,11 +1082,6 @@ export function BuilderApp() {
                 <Button variant="outline" className="w-full gap-2" onClick={() => void save('draft')} disabled={saving || totalTopics === 0}>
                   <Save className="h-4 w-4" aria-hidden /> Save as draft
                 </Button>
-                {!user && authLoaded && (
-                  <p className="text-center text-xs text-muted-foreground">
-                    <Link href="/signin?next=/builder" className="underline hover:text-foreground">Sign in</Link> to save — your session is kept on this device.
-                  </p>
-                )}
               </div>
             </div>
           </aside>

@@ -44,7 +44,6 @@ import {
 import { useToast } from '@/hooks/use-toast'
 import { api, formatDate, formatWords, jsonBody, type BookDetailView } from '@/lib/builder/client-api'
 import type { TocChapterDraft } from '@/lib/builder/types'
-import { useAuth } from './auth-store'
 import { CoverageReport, type RecordInfo } from './coverage-report'
 import { CustomCover } from './custom-cover'
 import { TocEditor } from './toc-editor'
@@ -54,8 +53,6 @@ export function BookDetailView() {
   const { bookId } = useParams<{ bookId: string }>()
   const router = useRouter()
   const { toast } = useToast()
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
 
   const [book, setBook] = useState<BookDetailView | null>(null)
   const [missing, setMissing] = useState(false)
@@ -67,12 +64,9 @@ export function BookDetailView() {
   const [deleteOpen, setDeleteOpen] = useState(false)
   const { info: libraryInfo } = useRecordInfo()
 
+  /* the book's structure is open to everyone — no account required */
   useEffect(() => {
-    if (!authLoaded || !bookId) return
-    if (!user) {
-      router.replace(`/signin?next=/my-books/${bookId}`)
-      return
-    }
+    if (!bookId) return
     let cancelled = false
     api<{ book: BookDetailView }>(`/api/custom-books/${bookId}`)
       .then((data) => {
@@ -98,7 +92,7 @@ export function BookDetailView() {
     return () => {
       cancelled = true
     }
-  }, [user, authLoaded, bookId, router])
+  }, [bookId])
 
   const recordInfo = useMemo<Record<string, RecordInfo>>(() => {
     const map: Record<string, RecordInfo> = {}

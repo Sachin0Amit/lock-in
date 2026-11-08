@@ -20,8 +20,8 @@ bookmarks, notes and reading progress.
 |---|---|---|
 | Content | `src/data/library/**` (TS books) | references to lesson ids only |
 | Storage | git (compile-time) | SQLite via Prisma (`db/custom.db`) |
-| Mutability | the authoring workflow | user-curated, per-account |
-| Public? | yes, unchanged | accounts for saving/reading state |
+| Mutability | the authoring workflow | user-curated, per-identity |
+| Public? | yes, unchanged | fully — **no account needed** (2026-11-08: the local learner for anonymous visitors, real accounts optional at `/signin`) |
 
 ## User-facing flow
 
@@ -47,8 +47,9 @@ bookmarks, notes and reading progress.
 
    A sticky **request rail** lists every collected source as a removable
    chip with live counts (≈ topics requested), a single **“Find matching
-   library lessons”** CTA (Ctrl/⌘+Enter), sign-in hints and draft resume.
-   Deep links prefill the desk: `/builder?exam=…&topics=…&book=…&base=…`.
+   library lessons”** CTA (Ctrl/⌘+Enter) and draft resume (no sign-in
+   hints — the whole flow works without an account). Deep links prefill
+   the desk: `/builder?exam=…&topics=…&book=…&base=…`.
    A three-step stepper tracks Compose → Review matches → Curate & publish.
 2. **Review matches** — every requested topic gets a status:
    `exact` / `equivalent` (synonym groups, chapter & book expansions) /
@@ -150,8 +151,9 @@ the library is the single academic source).
   legacy strictness, unknown-exam-beside-other-sources, node coercion,
   engine assembly of combined plans). PDF fixture reproducible via
   `python3 scripts/make-syllabus-fixture.py`.
-- `bun run scripts/smoke-custom-books.ts` — **57/57** API checks (auth,
-  permissions isolation between users, CRUD, reorder, publish validation,
+- `bun run scripts/smoke-custom-books.ts` — **59/59** API checks (open
+  access via the local learner, permissions isolation between identities,
+  CRUD, reorder, publish validation,
   bookmarks/notes/progress, in-book search, duplicate/delete, version drift
   detection, logout).
 - `bash scripts/e2e-custom-book-builder.sh` — **62/62 × 2 runs** browser E2E

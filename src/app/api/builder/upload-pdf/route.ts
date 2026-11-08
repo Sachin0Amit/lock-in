@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSessionUser, badRequest, serverError, unauthorized } from '@/lib/auth'
+import { badRequest, resolveUser, serverError } from '@/lib/auth'
 import { extractPdfTopics } from '@/lib/builder/pdf-extract'
 
 export const runtime = 'nodejs'
@@ -11,8 +11,7 @@ export const runtime = 'nodejs'
  */
 export async function POST(req: NextRequest) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized('Sign in to upload a syllabus PDF.')
+    const user = await resolveUser(req)
 
     const form = await req.formData().catch(() => null)
     if (!form) return badRequest('Expected a multipart form upload.')

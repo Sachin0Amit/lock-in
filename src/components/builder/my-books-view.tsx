@@ -47,26 +47,18 @@ import {
 } from '@/components/ui/alert-dialog'
 import { useToast } from '@/hooks/use-toast'
 import { api, formatDate, formatWords, jsonBody, type BookSummaryView } from '@/lib/builder/client-api'
-import { useAuth } from './auth-store'
 import { CustomCover } from './custom-cover'
 
 export function MyBooksView() {
-  const router = useRouter()
   const { toast } = useToast()
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
 
   const [books, setBooks] = useState<BookSummaryView[] | null>(null)
   const [filter, setFilter] = useState<'all' | 'published' | 'draft' | 'archived'>('all')
   const [deleteTarget, setDeleteTarget] = useState<BookSummaryView | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
 
+  /* the shelf is open to everyone — no account required */
   useEffect(() => {
-    if (!authLoaded) return
-    if (!user) {
-      router.replace('/signin?next=/my-books')
-      return
-    }
     let cancelled = false
     api<{ books: BookSummaryView[] }>('/api/custom-books')
       .then((data) => {
@@ -81,7 +73,7 @@ export function MyBooksView() {
     return () => {
       cancelled = true
     }
-  }, [user, authLoaded, router, toast])
+  }, [toast])
 
   const refresh = async () => {
     try {
@@ -133,7 +125,7 @@ export function MyBooksView() {
     }
   }
 
-  if (!authLoaded || (!user && books === null)) {
+  if (books === null) {
     return (
       <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6" aria-busy="true">
         <div className="mx-auto flex max-w-md items-center gap-2 text-sm text-muted-foreground">

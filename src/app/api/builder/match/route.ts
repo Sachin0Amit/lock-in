@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
-import { getSessionUser, badRequest, serverError, unauthorized } from '@/lib/auth'
+import { badRequest, resolveUser, serverError } from '@/lib/auth'
 import { EXAM_TEMPLATES } from '@/lib/builder/exam-templates'
 import { buildMatchPlan } from '@/lib/builder/match-input'
 import { assemble } from '@/lib/builder/toc'
@@ -35,7 +35,8 @@ const schema = z.object({
  * custom book); legacy single-method requests still validate as before.
  * Everything resolves to the SAME discovery engine, which only ever
  * selects existing Main Academic Library records. Stateless — usable
- * without signing in; merging an existing custom book requires ownership.
+ * without an account; merging a custom book still validates ownership
+ * (the local learner for guests, the session user otherwise).
  */
 export async function POST(req: NextRequest) {
   try {
@@ -80,8 +81,7 @@ export async function POST(req: NextRequest) {
     /* merge the structure of an existing custom book (ownership required) */
     let selection = plan.selection
     if (plan.baseBookId) {
-      const user = await getSessionUser(req)
-      if (!user) return unauthorized('Sign in to combine an existing custom book.')
+      const user = await resolveUser(req)
       const base = await db.customBook.findFirst({
         where: { id: plan.baseBookId, userId: user.id },
         include: { chapters: { include: { items: true } } },

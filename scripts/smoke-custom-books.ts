@@ -144,7 +144,7 @@ const pdfTopics = (pdfRes.json?.parsed?.nodes ?? []).flatMap((n: any) => [n.topi
 check('4c: extracted topics include Polynomials & Integration', pdfTopics.includes('Polynomials') && pdfTopics.includes('Integration'), pdfTopics)
 
 const pdfAnon = await call('POST', '/api/builder/upload-pdf', undefined, undefined, pdfForm)
-check('4d: PDF upload without auth → 401', pdfAnon.status === 401)
+check('4d: PDF upload without auth → 200 (stateless, local learner)', pdfAnon.status === 200, pdfAnon.status)
 
 /* ------------------------------------------------------------------ */
 /* 5. Create + publish validation                                      */
@@ -174,8 +174,14 @@ const createRes = await call('POST', '/api/custom-books', {
 check('5b: create draft → 201 with id', createRes.status === 201 && !!createRes.json?.id, createRes)
 const bookId = createRes.json?.id
 
-const createAnon = await call('POST', '/api/custom-books', { title: 'X', creationMethod: 'topics', toc }, undefined)
-check('5c: create without auth → 401', createAnon.status === 401)
+const createAnon = await call('POST', '/api/custom-books', { title: 'Anonymous shelf book', creationMethod: 'topics', toc }, undefined)
+check('5c: create without auth → 201 (saved to the local learner)', createAnon.status === 201 && !!createAnon.json?.id, createAnon)
+/* the anonymous book belongs to the local learner, never to user A */
+const anonBookId = createAnon.json?.id
+const anonBookAsA = await call('GET', `/api/custom-books/${anonBookId}`, undefined, cookieA)
+check('5c-2: user A cannot read the anonymous book → 404', anonBookAsA.status === 404, anonBookAsA.status)
+const delAnon = await call('DELETE', `/api/custom-books/${anonBookId}`, undefined, undefined)
+check('5c-3: anonymous delete cleans up → 200', delAnon.status === 200, delAnon.status)
 
 /* ------------------------------------------------------------------ */
 /* 6. Read + detail                                                    */

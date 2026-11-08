@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
-import { badRequest, getSessionUser, notFound, serverError, unauthorized } from '@/lib/auth'
+import { badRequest, notFound, resolveUser, serverError } from '@/lib/auth'
 
 export const runtime = 'nodejs'
 
@@ -13,8 +13,7 @@ export async function PATCH(
   ctx: { params: Promise<{ bookId: string; noteId: string }> },
 ) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId, noteId } = await ctx.params
     const body = await req.json().catch(() => null)
     const parsed = patchSchema.safeParse(body)
@@ -41,8 +40,7 @@ export async function DELETE(
   ctx: { params: Promise<{ bookId: string; noteId: string }> },
 ) {
   try {
-    const user = await getSessionUser(_req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(_req)
     const { bookId, noteId } = await ctx.params
     const note = await db.customBookNote.findFirst({
       where: { id: noteId, customBookId: bookId, userId: user.id },

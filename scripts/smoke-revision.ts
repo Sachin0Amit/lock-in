@@ -67,19 +67,21 @@ const alBook = tree.json.flatMap((d: any) => d.books).find((b: any) => b.bookId 
 const alLesson = alBook.chapters[0].lessons[0].recordId
 
 /* ------------------------------------------------------------------ */
-/* 1. Auth gating                                                      */
+/* 1. No auth required — anonymous callers get the local learner       */
 /* ------------------------------------------------------------------ */
 
 const anonOverview = await call('GET', '/api/revision/overview')
-check('1a: anonymous overview → 401', anonOverview.status === 401, anonOverview)
+check('1a: anonymous overview → 200 (local learner)', anonOverview.status === 200, anonOverview)
 const anonSummary = await call('GET', '/api/revision/overview?summary=1')
-check('1b: anonymous summary → 401', anonSummary.status === 401, anonSummary)
+check('1b: anonymous summary → 200', anonSummary.status === 200, anonSummary)
 const anonGraph = await call('GET', '/api/revision/graph')
-check('1c: anonymous graph → 401', anonGraph.status === 401, anonGraph)
+check('1c: anonymous graph → 200', anonGraph.status === 200, anonGraph)
 const anonMark = await call('POST', '/api/revision/mark', { items: [{ scope: 'chapter', refId: fmCh1Key }], action: 'study' })
-check('1d: anonymous mark → 401', anonMark.status === 401, anonMark)
+check('1d: anonymous mark → 200 + ok', anonMark.status === 200 && anonMark.json?.results?.[0]?.ok === true, anonMark)
+/* leave no residue on the shared local-learner ledger */
+await call('POST', '/api/revision/mark', { items: [{ scope: 'chapter', refId: fmCh1Key }], action: 'unmark' })
 const anonEntry = await call('GET', `/api/revision/entry?scope=lesson&refId=${fmLesson1}`)
-check('1e: anonymous entry → 401', anonEntry.status === 401, anonEntry)
+check('1e: anonymous entry → 200', anonEntry.status === 200, anonEntry)
 
 const regA = await call('POST', '/api/auth/register', userA)
 check('1f: register user A', regA.status === 200 && regA.json?.user?.email === userA.email, regA)
@@ -185,10 +187,15 @@ check('5a: user B marks the same chapter independently', iso.json?.results?.[0]?
 const ovA = await call('GET', '/api/revision/overview', undefined, cookieJarA)
 check('5b: user A passes untouched by B', ovA.json?.entries?.find((e: any) => e.refId === fmCh1Key)?.passes === 2, ovA.json?.entries?.find((e: any) => e.refId === fmCh1Key))
 
-/* logout clears access */
+/* logout clears access — the same request now serves the local learner
+ * (sign-in is optional), and user A's data is NOT visible on it */
 await call('POST', '/api/auth/logout', {}, cookieJarA)
 const afterLogout = await call('GET', '/api/revision/overview', undefined, cookieJarA)
-check('5c: after logout overview → 401', afterLogout.status === 401, afterLogout)
+check(
+  '5c: after logout overview → 200 on the local learner, user A’s data invisible',
+  afterLogout.status === 200 && !(afterLogout.json?.entries ?? []).some((e: any) => e.refId === alLesson),
+  { status: afterLogout.status, entries: (afterLogout.json?.entries ?? []).length },
+)
 
 /* ------------------------------------------------------------------ */
 

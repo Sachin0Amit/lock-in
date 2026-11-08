@@ -3,8 +3,13 @@
  *
  * Lightweight credentials auth on top of Prisma/SQLite: scrypt password
  * hashing (node:crypto, no extra dependency) + opaque session tokens in an
- * httpOnly cookie. The Main Academic Library itself stays public; only
- * custom-book data (which is per-user) requires signing in.
+ * httpOnly cookie.
+ *
+ * Signing in is OPTIONAL everywhere: the Revision Hub, the Custom Book
+ * Builder and My Custom Books work fully without an account. Requests
+ * without a session fall back to one stable local learner identity
+ * (see resolveUser) — the account system only exists for cross-device
+ * continuity and remains reachable at /signin by direct URL.
  */
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto'
 import { NextResponse } from 'next/server'
@@ -75,6 +80,37 @@ export async function destroySession(req: Request): Promise<void> {
   if (token) {
     await db.session.deleteMany({ where: { token } }).catch(() => undefined)
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* The local learner — no account required                             */
+/* ------------------------------------------------------------------ */
+
+const LOCAL_EMAIL = 'local@lockin.library'
+
+/**
+ * One stable, lazily-created identity for everyone who never signs in.
+ * Revision tracking and custom books are fully open without an account;
+ * their data is simply scoped to this user. A valid signed-in session
+ * always wins while its cookie lasts.
+ */
+export async function getLocalUser(): Promise<AuthUser> {
+  const user = await db.user.upsert({
+    where: { email: LOCAL_EMAIL },
+    update: {},
+    create: { email: LOCAL_EMAIL, name: 'Local learner', passwordHash: '' },
+  })
+  return { id: user.id, email: user.email, name: user.name }
+}
+
+/**
+ * Resolve the acting user for a data route: the session user when a valid
+ * session cookie is present, otherwise the local learner. Never returns
+ * null — the Revision Hub, the Builder and My Custom Books have no
+ * sign-in wall.
+ */
+export async function resolveUser(req: Request): Promise<AuthUser> {
+  return (await getSessionUser(req)) ?? getLocalUser()
 }
 
 export function applySessionCookie(res: NextResponse, token: string, expiresAt: Date): void {

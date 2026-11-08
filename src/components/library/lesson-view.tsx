@@ -67,16 +67,15 @@ export function LessonView({ ref_ }: Props) {
   const toggleBookmark = useProgress((s) => s.toggleBookmark)
   const setLastLesson = useProgress((s) => s.setLastLesson)
   const stepFont = useProgress((s) => s.stepFont)
-  const { signedIn, mark, syncLessonComplete } = useLedgerSync()
+  const { mark, syncLessonComplete } = useLedgerSync()
   const [ledgerEntry, setLedgerEntry] = useState<EntryView | null>(null)
 
   useEffect(() => {
     setLastLesson(lesson.id)
   }, [lesson.id, setLastLesson])
 
-  /* the lesson's ledger entry (schedule + passes) — only when signed in */
+  /* the lesson's ledger entry (schedule + passes) — open to everyone */
   useEffect(() => {
-    if (!signedIn) return
     let cancelled = false
     void (async () => {
       const res = await fetch(`/api/revision/entry?scope=lesson&refId=${encodeURIComponent(lesson.id)}`, {
@@ -89,10 +88,10 @@ export function LessonView({ ref_ }: Props) {
     return () => {
       cancelled = true
     }
-  }, [signedIn, lesson.id])
+  }, [lesson.id])
 
-  /* one handler for the completion toggle: device-local store (existing
-   * behaviour) + the server ledger when signed in */
+  /* one handler for the completion toggle: device-local store + the study
+   * ledger (works without an account) */
   const handleToggleCompleted = () => {
     const next = !completed
     toggleCompleted(lesson.id)

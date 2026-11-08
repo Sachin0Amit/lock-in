@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { badRequest, getSessionUser, unauthorized, serverError } from '@/lib/auth'
+import { badRequest, resolveUser, serverError } from '@/lib/auth'
 import { BadInput, markStudy } from '@/lib/revision/ledger-service'
 import type { MarkRequest } from '@/lib/revision/types'
 
@@ -14,8 +14,7 @@ import type { MarkRequest } from '@/lib/revision/types'
  */
 export async function POST(req: Request) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
 
     const body = (await req.json().catch(() => null)) as MarkRequest | null
     if (!body) return badRequest('Invalid JSON body')

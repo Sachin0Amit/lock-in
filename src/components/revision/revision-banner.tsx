@@ -1,27 +1,24 @@
 'use client'
 
 /**
- * Revision & Mastery — the library-home prompt card. Shown only to signed-in
- * users with something due: the app proactively tells you what to revise.
+ * Revision & Mastery — the library-home prompt card. Shown whenever the
+ * study ledger has something due (no account needed): the app proactively
+ * tells you what to revise.
  */
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, BrainCircuit, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useAuth } from '@/components/builder/auth-store'
 import { useRevisionBadge } from './revision-store'
 
 export function RevisionBanner() {
-  const user = useAuth((s) => s.user)
-  const authLoaded = useAuth((s) => s.loaded)
   const summary = useRevisionBadge((s) => s.summary)
   const refresh = useRevisionBadge((s) => s.refresh)
 
   useEffect(() => {
-    if (user) void refresh()
-  }, [user, refresh])
+    void refresh()
+  }, [refresh])
 
-  if (!authLoaded || !user) return null
   const due = summary?.dueCount ?? 0
   const watch = summary?.watchCount ?? 0
   if (due <= 0 && watch <= 0) return null

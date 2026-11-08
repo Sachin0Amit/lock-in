@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
-import { getSessionUser, notFound, serverError, unauthorized } from '@/lib/auth'
+import { notFound, resolveUser, serverError } from '@/lib/auth'
 import { bookRecordIds } from '@/lib/builder/books-service'
 
 export const runtime = 'nodejs'
@@ -33,8 +33,7 @@ async function currentState(userId: string, bookId: string) {
 /** Reading progress for one custom book (last position + completed topics). */
 export async function GET(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const book = await db.customBook.findFirst({ where: { id: bookId, userId: user.id } })
     if (!book) return notFound('Custom book not found.')
@@ -52,8 +51,7 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ bookId: str
  */
 export async function PUT(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const body = await req.json().catch(() => null)
     const parsed = putSchema.safeParse(body)

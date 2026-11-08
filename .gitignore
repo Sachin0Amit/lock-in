@@ -301,3 +301,7 @@ server.log
 
 # Symbol navbar feature (2026-11-08): CDP regression check across viewports and routes
 !/scripts/verify-nav-cdp.ts
+
+# No-sign-in feature (2026-11-08): open Revision Hub + Builder + My Books — guest API flow + browser UI regression checks
+!/scripts/verify-no-signin.ts
+!/scripts/verify-no-signin-ui.ts

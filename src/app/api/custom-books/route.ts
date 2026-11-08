@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSessionUser, serverError, unauthorized } from '@/lib/auth'
+import { resolveUser, serverError } from '@/lib/auth'
 import { createCustomBook, listCustomBooks } from '@/lib/builder/books-service'
 
 export const runtime = 'nodejs'
 
-/** List the signed-in user's custom books (bookshelf data). */
+/** List the acting user's custom books (bookshelf data) — no account needed. */
 export async function GET(req: NextRequest) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const books = await listCustomBooks(user.id)
     return NextResponse.json({ books })
   } catch (err) {
@@ -19,8 +18,7 @@ export async function GET(req: NextRequest) {
 /** Create a custom book (draft or published) from a curated TOC. */
 export async function POST(req: NextRequest) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized('Sign in to save a custom book.')
+    const user = await resolveUser(req)
     const body = await req.json().catch(() => null)
     const result = await createCustomBook(user.id, {
       title: body?.title,

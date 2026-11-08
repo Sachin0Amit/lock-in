@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # e2e-revision-hub.sh — full-journey E2E for the Revision & Mastery system:
 #
-#   0. guest: /revision explainer (no wall), on-the-go chapter marking on a
-#      book page falls back to the device-local store with an honest hint
+#   0. guest (2026-11-08 update: no sign-in anywhere): /revision renders the
+#      full hub (no wall, no CTA), on-the-go chapter marking on a book page
+#      lands straight in the study ledger as the local learner (state chip,
+#      pass counter — no device-local fallback, no sync hint)
 #   1. register → server-backed marking on the book page (state chip, pass
 #      counter, due badge, revise + undo actions)
 #   2. lesson reader completion feeds the ledger (revision schedule line)
@@ -69,7 +71,7 @@ clickref() { # $1 grep pattern on the snapshot line, $2 occurrence
 
 TRAP="window.__e2eErrors=[];var _ce=console.error;console.error=function(){window.__e2eErrors.push([].slice.call(arguments).join(' '));_ce.apply(console,arguments)};'trap'"
 
-echo "== DESKTOP 1280 — guest surfaces =="
+echo "== DESKTOP 1280 — guest surfaces (no sign-in) =="
 
 agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
 agent-browser open "$BASE/revision" >/dev/null 2>&1 || true
@@ -78,11 +80,14 @@ agent-browser wait 2000 >/dev/null 2>&1 || true
 ev "$TRAP" >/dev/null 2>&1 || true
 # clear leftover device-local state from earlier runs (the browser profile persists)
 ev "localStorage.clear();'cleared'" >/dev/null 2>&1 || true
+# reset the shared local-learner ledger so the guest marking below is deterministic
+# (synchronous XHR — a fire-and-forget fetch would be aborted by the next navigation)
+ev "var x=new XMLHttpRequest();x.open('POST','/api/revision/mark',false);x.setRequestHeader('content-type','application/json');x.send(JSON.stringify({items:[{scope:'chapter',refId:'foundation-mathematics:1'}],action:'unmark'}));'reset:'+x.status" >/dev/null 2>&1 || true
 
 chk "guest hub: Revision Hub heading" "[].slice.call(document.querySelectorAll('h1')).some(function(h){return h.textContent.indexOf('Revision Hub')>-1})"
-chk "guest hub: honest explainer (spaced-repetition schedule)" "document.body.textContent.indexOf('spaced-repetition schedule')>-1"
-chk "guest hub: sign-in CTA" "[].slice.call(document.querySelectorAll('a')).some(function(a){return a.textContent.indexOf('Sign in to start tracking')>-1})"
-chk "guest hub: no fake data (no queue)" "document.body.textContent.indexOf('Your revision plan')===-1"
+chk "guest hub: subtitle (spaced repetition, honest analytics)" "document.body.textContent.indexOf('Spaced repetition')>-1 && document.body.textContent.indexOf('honest analytics')>-1"
+chk "guest hub: NO sign-in CTA (walls removed)" "![].slice.call(document.querySelectorAll('a')).some(function(a){return a.textContent.indexOf('Sign in to start tracking')>-1}) && document.body.textContent.indexOf('Sign in')===-1"
+chk "guest hub: the three tabs render" "[].slice.call(document.querySelectorAll('[role=tab]')).length>=3"
 
 agent-browser open "$BASE/book/foundation-mathematics" >/dev/null 2>&1 || true
 agent-browser wait --load networkidle >/dev/null 2>&1 || true
@@ -90,9 +95,13 @@ agent-browser wait 2500 >/dev/null 2>&1 || true
 
 chk "book page: on-the-go Mark studied on chapters" "document.querySelectorAll('button').length>0 && [].slice.call(document.querySelectorAll('button')).filter(function(b){return b.textContent.indexOf('Mark studied')>-1}).length>=3"
 clickref 'button "Mark studied"' >/dev/null
-agent-browser wait 800 >/dev/null 2>&1 || true
-chk "guest chapter mark lands on-device" "document.body.textContent.indexOf('Studied · this device')>-1"
-chk "guest sees the sign-in sync hint" "document.body.textContent.indexOf('sign in to track revisions')>-1 || document.body.textContent.indexOf('sync')>-1"
+if wait_for "document.body.textContent.indexOf('×1')>-1" 30; then
+  PASS=$((PASS + 1)); echo "  PASS guest chapter mark lands in the study ledger (pass counter)"
+else
+  FAIL=$((FAIL + 1)); echo "  FAIL guest chapter mark ledger landing"
+fi
+chk "guest marking: NO device-local fallback label" "document.body.textContent.indexOf('Studied · this device')===-1"
+chk "guest marking: NO sign-in sync hint" "document.body.textContent.indexOf('sign in to track')===-1 && document.body.textContent.indexOf('sync')===-1"
 agent-browser screenshot "$OUT/01-guest-book-mark.png" >/dev/null 2>&1 || true
 
 echo "== DESKTOP 1280 — registered journey =="

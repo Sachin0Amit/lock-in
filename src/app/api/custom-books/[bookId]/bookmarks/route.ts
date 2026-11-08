@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { db } from '@/lib/db'
-import { badRequest, getSessionUser, notFound, serverError, unauthorized } from '@/lib/auth'
+import { badRequest, notFound, resolveUser, serverError } from '@/lib/auth'
 import { bookRecordIds } from '@/lib/builder/books-service'
 
 export const runtime = 'nodejs'
@@ -11,8 +11,7 @@ const addSchema = z.object({ recordId: z.string().min(1).max(200) })
 /** List bookmarks of a custom book. */
 export async function GET(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const rows = await db.customBookBookmark.findMany({
       where: { customBookId: bookId, userId: user.id },
@@ -27,8 +26,7 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ bookId: str
 /** Add a bookmark for one record inside the book. */
 export async function POST(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const body = await req.json().catch(() => null)
     const parsed = addSchema.safeParse(body)
@@ -67,8 +65,7 @@ export async function POST(req: NextRequest, ctx: { params: Promise<{ bookId: st
 /** Remove a bookmark (?recordId=…). */
 export async function DELETE(req: NextRequest, ctx: { params: Promise<{ bookId: string }> }) {
   try {
-    const user = await getSessionUser(req)
-    if (!user) return unauthorized()
+    const user = await resolveUser(req)
     const { bookId } = await ctx.params
     const recordId = req.nextUrl.searchParams.get('recordId')
     if (!recordId) return badRequest('Please provide a recordId.')
