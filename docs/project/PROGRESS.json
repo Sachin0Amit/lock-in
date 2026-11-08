@@ -1,914 +1,950 @@
 {
- "$schema": "./PROGRESS.schema.json",
- "project": "LockIn Library",
- "updated": "2026-11-08",
- "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 4 'Factorization' COMPLETE 4/4 (run 74, 2026-11-08): 4.3 'The Identities as Factorizations' (al-identities-as-factorizations, 4,007 words, quiz keys 2/1/0/1/2) + 4.4 'The Factor Theorem and Cubics' (al-factor-theorem-and-cubics, 4,026 words, quiz keys 1/3/0/1/0) + the unit-4 completion review PASSED (7/7 checklist, exam corners 4/4); verify-book3-ch04.ts finished at 471 checks ALL GREEN (sections A–K: the Germain identity at 169 points, the x⁴+16 exhaustive refusal scan, the synDiv engine at 3,375 draws, THE MONIC INTEGER-ROOT THEOREM over 4,056 monic cubics, THE CUBIC IRREDUCIBILITY THEOREM both directions); 16,245 words across the chapter. The book stands 4 complete chapters of 11. NEXT: run 75 = ch. 5 'Linear Equations in One Variable' OPENS with 'What an Equation Is: the Balance Principle' + 'Solving Linear Equations' (verify-book3-ch05.ts FIRST, whitelist e2e-al-51/52, never ch. 6).",
- "awaiting": "nothing blocking — next run 75 = AL ch. 5 OPENS with 5.1 'What an Equation Is: the Balance Principle' + 5.2 'Solving Linear Equations' (create verify-book3-ch05.ts FIRST; whitelist e2e-al-51/52 in .gitignore; never ch. 6); run 76 = 5.3 + the unit-5 review close ch. 5",
- "platform": {
-  "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
-  "stack": "Next.js 16 App Router (SSG routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk",
-  "routes": [
-   "/",
-   "/book/[bookId]",
-   "/book/[bookId]/lesson/[lessonId]",
-   "/book/[bookId]/revise",
-   "/book/[bookId]/glossary",
-   "404"
-  ],
-  "features": [
-   "reader: Cengage print-style furniture (owner directive run 14) — ink-green caps section heads over rules, ILLUSTRATION pills + sage bands + Cengage solution chains (run 16: Sol. inline + tag column + terminal ∴ line; unnumbered, run 15), green exercise/quiz bars with hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, sage table headers, green chapter-opener lesson headers, green derivation rail without number circles (run 15)",
-   "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
-   "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
-   "reader breadcrumb Library/book/chapter; two-column footer with quick links + Ctrl-K hint",
-   "shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS",
-   "shareable deep-link URLs, statically generated",
-   "reader: Cengage print-style furniture (owner directive run 14) — ink-green caps section heads over rules, ILLUSTRATION pills + sage bands + Cengage solution chains (run 16: Sol. inline + tag column + terminal ∴ line; unnumbered, run 15), green exercise/quiz bars with hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, sage table headers, green chapter-opener lesson headers, green derivation rail without number circles (run 15)",
-   "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",
-   "prerequisites chips + sources footer on lessons",
-   "quiz scoring with persisted best score + retake",
-   "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
-   "glossary A–Z + formula sheet pages",
-   "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)",
-   "reader exercises + illustrations: Cengage solution chain — 'Sol.' pill inline on the first line, connective tag column (∴/or/Now,/So,), prose lines full width, terminal ∴ answer line in green ink (owner directive run 16; boxed Answer rows retired, step numbers absent per run 15); legacy prose solutions still supported"
-  ],
-  "verified": [
-   "unit 5 lesson 5.3 E2E (cron run 23): verify-unit-5.ts extended 273 -> 341 checks (sections AD-BJ) ALL PASS pre-writing (exact integer addition/subtraction at the stated scales incl. the inverse-test closure; the decimalOf dress re-reads for the places-add law incl. the trailing-licence trim (48.50 x 3.5 = 169.75, one true place); the eight-row quotient-identity sweep (n1 x d2 x qD === d1 x n2 x qN) covering 7.2/0.9, 16.24/2.8, 20.4/1.2, 0.144/1.2, 18.6/1.5, 128.76/12, 12.75/5, 45.6/100; the 9.1/5 step-machine walk; the 36-combo places-add sweep; the hop family 0.45 x 0.067 = 0.045 x 0.67 = 4.5 x 0.0067 = 0.03015; 12.5 x 0.08 = 1; the length/mass roman run; figure geometry — ladder rooms x = 28+104k/width 92 with 10px gaps, point dot at (431, 204), arrows y 68/108/278/318, strip y 399; tableau quotient y 48 riding columns 348/396/444/492, both points cx 420, rules y 170/262/354, check line (280, 412) with all air gaps verified; quiz key audit 2/1/2/0/1; exercise key audit incl. the bill, the cloth run 48.50 x 3.5 = 169.75/change 30.25, 12.6/3, 20.4/1.2, 0.144/1.2, 18.6/1.5 and the 25-combo law sweep); regressions green (unit-4 330, unit-3 260, unit-2 165); route 200; KaTeX 248 nodes; dollarInSvg = 0; cengage-style E2E on 11 lessons — 4 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6, 18 with exercises), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX therefore glyphs on the chain (30 with exercises), note boxes Definition/Note/Caution x3/2 formula cards (+ Exam corner), exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (2/1/2/0/1) -> 'You scored 5/5 - perfect' + Retake (score read after a separate wait); all 12 exercise solutions expand (36 open collapsibles); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: ladder 10/10 math + 9/10 clarity, tableau 8/10 with its two alignment complaints disproven by DOM measurement (both point circles cx = 420.0 exactly, quotient digits at exact 48px pitches); glossary 128 -> 135 terms (+7); book TOC shows 5.3 written, plannedLessons down to two; tsc + lint clean; totals recomputed by build_work_inventory.ts: 21 lessons / 101,153 words / 135 terms / 105 quiz items / 209 exercise questions",
-   "unit 5 lesson 5.2 E2E (cron run 22): verify-unit-5.ts extended 165 -> 273 checks (sections P-AC) ALL PASS pre-writing (exact long-division simulations with cycle detection; determinism sweep b = 2..30; pigeonhole bound b = 2..60; the division-side atom test sweep b = 2..60: 1/b terminates iff atoms subset of {2,5}; order-of-10 vs observed-cycle sweep b = 3..60 coprime to 10; the 142857 family rotations and x7 = 999999; head-length numerics for 5/12, 1/6, 7/30, 13/22, 11/150; shift-and-subtract exact-integer conversions incl. a ten-sample round-trip; comparisons by exact cross-multiplication — 2/7 vs 0.2857 gap exactly 1/70000; the base-twelve sweep: terminates iff atoms subset of {2,3}; figure geometry; quiz + exercise key audits); regressions green (unit-4 330, unit-3 260, unit-2 165); route 200; KaTeX 307 nodes; dollarInSvg = 0; cengage-style E2E on 10 lessons — 5 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX therefore glyphs on the chain (30 with exercises), note boxes Caution/Note/3 formula cards/Exam corner, exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (indices 0/2/2/1/0) -> 'You scored 5/5 - perfect' + Retake (score read after a separate wait); all 12 exercise solutions expand (18 Sol. pills, 36 open collapsibles); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues (carousel first pass flagged 4 contacts — node digits inside their circles + the bottom annotation crossing the ring — fixed by moving node labels radially outside at radius 184 and folding the waltz-closes line into the center stack, re-audited clean); mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: carousel 10/10 (mathematically correct, no overlaps), bridge map 9/10 (clean, minor bottom-margin nitpick); glossary 121 -> 128 terms (+7); book TOC shows 5.2 written, plannedLessons down to three; tsc + lint clean; 5.1's 22/7 waltz digits corrected (3.14159 -> 3.142857)",
-   "unit 5 lesson 5.1 E2E (cron run 21): verify-unit-5.ts created with 165 checks (sections A-O) ALL PASS pre-writing (the atom-test sweep: for every b in 2..500, b divides a power of ten iff its atoms are only 2s and 5s; figure geometry — mirror chart columns x = 40/144/248 | 396/500/604, hinge 374; zoom figure 62 px steps, 2.7 at x = 504, 2.74 at x = 318); verify-unit-4 (330), verify-unit-3 (260), verify-unit-2 (165) regressions green; route 200; KaTeX 209 nodes; dollarInSvg = 0; cengage-style E2E on 9 lessons — 8 caps-over-rule headings, 5 ILLUSTRATION pills, 5 Sol. pills ALL inline (inlineSolPills = solPills = 5), stepNumberBadges = 0, legacyAnswerBoxes = 0, 15 KaTeX therefore glyphs, note boxes Definition/Remember/Caution/Definition/Caution/Remember/Remember/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (indices 1/2/3/1/2) -> 'You scored 5/5' + Retake (score read after a separate wait — the same-eval read races React's flush); all 12 exercise solutions expand (17 Sol. pills, 29 therefore, 36 open collapsibles); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues (figure 2 first pass flagged 4 contacts — zoom box/connectors vs the 2.7/2.8 tick labels — fixed by shortening the box to y 72-102, re-anchoring connectors at (.,102), labels to y = 124, re-audited clean); mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM 9/10 across opener, both figures and the Illustration chain; glossary 114 -> 121 terms (+7); book TOC shows 5.1 written, plannedLessons down to four; tsc + lint clean",
-   "unit 4 lesson 4.4 E2E (cron run 19): verify-unit-4.ts extended 199 → 261 checks (sections AA–AH) ALL PASS pre-writing; route 200 after dev restart (stale param cache); KaTeX 162 nodes; dollarInSvg = 0; cengage-style E2E on 4.4 — 7 caps-over-rule headings, 7 ILLUSTRATION pills, 7 Sol. pills ALL inline (inlineSolPills = solPills = 7), stepNumberBadges = 0, legacyAnswerBoxes = 0, 21 KaTeX ∴ glyphs, note boxes Definition/Caution/Remember ×2/Note/Definition/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (indices 1/2/2/1/0) → 'You scored 5/5 · perfect' + Retake; all 12 exercise solutions expand; zero KaTeX errors; zero console errors on fresh load; both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (five-bar stacked-contribution figure + 1/24 number-line arc, geometry 155/103.33/258.33px + 436.67/465/28.33px script-verified + gen-44-figures.py); mobile 390px exact-fit (docScrollW = 390, no SVG over viewport); direct screenshot review of both figures + Illustration chain green; glossary 102 → 108 terms (+6); book TOC shows 4.4 written, plannedLessons down to one; verify-unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
-   "unit 4 lesson 4.3 E2E (cron run 18): verify-unit-4.ts extended 148 → 199 checks (sections S–Z) ALL PASS pre-writing; route 200; KaTeX 177 nodes; dollarInSvg = 0; cengage-style E2E on 6 lessons — 8 caps-over-rule headings, 8 ILLUSTRATION pills, 8 Sol. pills ALL inline (inlineSolPills = solPills = 8), stepNumberBadges = 0, legacyAnswerBoxes = 0, 24 KaTeX ∴ glyphs, note boxes Note/Definition/Definition/Caution/Remember/Exam corner/Note/Definition, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (B/B/C/D/C) → 'You scored 5/5 · perfect' + Retake; all 12 exercise solutions expand with ∴ terminal lines; zero KaTeX errors; zero console errors on fresh load; both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (four-bar 24-ruler figure + zoomed number line, geometry 361.67/387.5/239.09/276.67/442px script-verified + gen-43-figures.py); desktop 1280 + mobile 390px exact-fit (docScrollW = 390; 3 wide display equations scroll inside the .math-display overflow-x guard — accepted pattern from 3.3/4.2); VLM + direct screenshot review: opener ✓, Illustration + staircase chain ✓, both figures ✓, toolkit table ✓; terminal ∴ answer line DOM-verified book-green weight 500 after one JPEG misread; glossary 96 → 102 terms (+6); flashcards pick up the new terms; book TOC shows 4.3 written; verify-unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
-   "unit 4 lesson 4.2 E2E (cron run 17, PUSH FIRST then author): 4 run-15/16 commits pushed before work (origin/main d5a1b43 → b788c06, verified via one-time-URL ls-remote); route 200; KaTeX 263 nodes; dollarInSvg = 0; cengage-style E2E on 4.2 — 7 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX ∴ tags, note boxes Definition/Remember/Caution/Definition/Remember/Note/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (B12/16, A3/4, B7, C5/6and9/11, C16/20) → 'You scored 5/5' + Retake; all 12 exercise solutions expand with ∴ terminal lines; zero KaTeX errors; zero console errors on fresh load; mobile 390px exact-fit (docScrollW = 390); VLM + direct screenshot review: inline Sol. pill ✓, Now,/So,/∴ staircase ✓, ink-green caps heading over rule ✓, definition note box ✓, ILLUSTRATION pill above sage band ✓; verify-unit-4.ts 148/148 pre-writing (64 new checks L–R for 4.2), unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
-   "cengage solution chain (owner chat directive, run 16): style grounded by re-downloading M2/01 and OCR/vision-studying its SOLUTION pages (illustrations 1.9/1.22 + S.6; no content reproduced; PDF deleted after verification); SolutionSteps + display-only parseStepTag shared by ExampleBlock and SolutionBody; E2E on 1.1/2.5/3.2/4.1 — inlineSolPills = solPills, legacyAnswerBoxes = 0, stepNumberBadges = 0, KaTeX counts unchanged; force-expanded DOM audits (1.2: 10 pills inline, tagColumn So,/∴, 6 ∴ glyphs; 3.3: word tags render, 0 ∴ = correct data; 3.4: 6 terminal ∴ lines); VLM: pill inline ✓, staircase ✓, terminal ∴ green-ink answer with 'Answer:' label stripped ✓; lint + tsc clean; mobile 390px exact-fit",
-   "step numbers removed (owner chat directive, run 15): circled digit badges deleted from all four worked-step renderers in blocks.tsx (ExampleBlock Sol. steps, DerivationBlock rail, SolutionBody, AlgorithmBlock) — platform-wide, zero content edits; E2E re-run on 1.1/2.5/3.2/4.1 with the new stepNumberBadges check (aria-hidden bare-digit spans outside KaTeX — .katex-html excluded as KaTeX's own render layer): 0 on every lesson, step rows intact (5/11/8/8), quiz + solution expansion + mobile 390px exact-fit all still green; VLM visual review of Illustration + Derivation + expanded solution: no numbers, clean alignment, no glitches; lint + tsc clean",
-   "cengage book-style theory (owner chat directive, run 14): style grounded by downloading + OCR/vision-studying Cengage M2/01 Set Theory & Real Number System from the Drive MATHS folder (35 pp; working copy deleted after verification); reader reskinned — E2E on 1.1/2.5/3.2/4.1: h2 computed uppercase + 2px green rule + ink-green, illustrations render as pill + sage band + Sol. + numbered steps (1/5, 2/11, 2/8, 2/8), note-box labels correct (Note/Caution/Definition/Theorem/Historical note/Exam corner), exercises + quiz bars solid green, hairline question rows, KaTeX 54/113/257/221 nodes, dollarInSvg = 0, quiz scored live + retake, solutions expand under Sol. pills, mobile 390px exact-fit (docScrollW = 390); SVG overlap audit 0 issues (1.1/3.2/4.1); lint + tsc clean; VLM visual fidelity 5.5 → 8.5/10 after exercise-row + green-header fixes; MATHS subfolder surveyed (5 modules, 42 chapter PDFs, ids persisted in gitignored temporary-references/maths-*.json)",
-   "lint clean; tsc clean (src/)",
-   "all routes 200; unknown ids 404 correctly",
-   "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
-   "mobile 390px: no horizontal overflow on home/book/all lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
-   "KaTeX 154 nodes (1.2) / 114 (1.3) / 118 (2.1) / 140 (2.2) / 149 (2.3) / 148 (2.4); figures, algorithm blocks, 11-col table all render",
-   "unit 2 lesson 2.1 E2E: quiz 5/5 perfect, flashcards 22 cards, glossary + formula sheet updated, mobile exact-fit, zero console errors",
-   "unit 2 lesson 2.2 E2E: quiz 5/5 perfect, flashcards 28 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figure geometry verified via DOM",
-   "unit 2 lesson 2.3 E2E: quiz 5/5 perfect, flashcards 34 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures geometry-verified via DOM (equal-jump arcs, partial-product rows, shift annotations)",
-   "unit 2 lesson 2.4 E2E: quiz 5/5 perfect, flashcards 40 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render)",
-   "unit 2 lesson 2.5 E2E (unit-2 completion review): quiz 5/5 perfect with intended options clicked live, flashcards 47 cards, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, expression-tree figure screenshot-verified, mobile exact-fit (scrollW=390), zero console/page errors; KaTeX 113 nodes, dollarInSvg=0; BOOK_FORMAT checklist 7/7; exam-coverage audit run; chapter totals recomputed (ch. 2 = 21,450 words; book = 8 lessons / 31,159 words / 47 terms)",
-   "unit 3 lesson 3.1 E2E: routes 200 (home/book/lesson/glossary/revise); KaTeX 370 nodes; dollarInSvg=0; quiz answered live with intended options (indices 2/3/1/2/3) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 54 cards (47 + 7 new terms); glossary lists new terms; formula sheet lists all 4 new cards (treaty, tail, digit-sum, alternating); screening-desk figure screenshot-verified with plain labels; mobile 390px exact-fit (scrollW=390); zero console/page errors; verify-unit-3.ts 96/96 pre-writing, verify-unit-2.ts still 165/165; tsc fully clean repo-wide incl. both scripts",
-   "unit 3 lesson 3.3 E2E: routes 200 (home/book/3.2/3.3/revise/glossary; unknown id 404); KaTeX 392 expanded (257 collapsed); dollarInSvg=0; quiz answered live with intended options (indices 1/3/2/0/1) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 68 cards (61 + 7 new terms); glossary lists Highest common factor/Euclidean algorithm/Bézout's identity/Coprime split; Venn figure screenshot-verified (both headers, overlap 2·2·2·2·3 = 48, bottom annotations, plain labels); mobile 390px exact-fit (scrollW=390) with ALL TEN solutions expanded — 3 wide display blocks scroll inside the math-display overflow-x:auto guard, max SVG width 324; zero console/page errors; verify-unit-3.ts 192/192 pre-writing (sections V–Y, 40 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean",
-   "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)",
-   "unit 3 lesson 3.4 E2E: quiz 5/5 perfect (C/D/B/C/D clicked live), flashcards 75 cards, glossary + formula sheet pick up the 7 new terms and 3 new cards, timetable figure passes scripts/audit-svg-overlaps.sh with 0 issues first pass and is screenshot-verified, mobile 390px exact-fit (overflowX = 0) with all ten solutions expanded, zero console errors; KaTeX 249 nodes, dollarInSvg = 0",
-   "unit 3 lesson 3.5 E2E (unit closer + unit-3 completion review): quiz 5/5 perfect with intended options clicked live (indices 2/1/2/3/1), flashcards 82 cards (75 + 7 new terms), glossary lists all 7 new terms + the product-rule formula card, KaTeX 165 nodes, dollarInSvg = 0, zero console errors, mobile 390px exact-fit (overflowX = 0) with all 11 exercise solutions expanded; rectangle figure passes scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; verify-unit-3.ts 260/260 pre-writing (section AA, 33 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean; chapter 3 status flipped to complete with totals recomputed (13 lessons / 59,076 words / 82 terms)",
-   "unit 4 lesson 4.1 E2E: route 200; KaTeX 221 nodes; dollarInSvg = 0; quiz 5/5 with intended options clicked live (indices 1/2/0/3/1), best score persisted; glossary 82 → 91 terms (+9); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (number-line two-panel + Egyptian bar); mobile 390px exact-fit (docScrollW = 390) with ALL 10 exercise solutions force-revealed; zero console/page errors; verify-unit-4.ts 84/84 pre-writing, unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
-   "reader width + permalink fix (owner chat directive, commit 8fd776e): lesson article 768px → 962px measured at 1440px (container max-w-7xl, article fills grid at xl, figures max-w-3xl, book TOC + glossary max-w-5xl, site chrome aligned max-w-7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed — repo grep confirms it was the only URL rendered as page text; geometry verified (40px article↔TOC gap), 1440/390px no overflow, full SVG audit re-run on all 12 lessons — 0 issues, zero console errors",
-   "worked-solution format (owner chat directive, run 13): ExerciseQuestion.solution now string | string[] with optional answer — steps render as numbered chip rows (one worked line each, words + KaTeX inline), the answer as a boxed row; command-palette search + word counter handle both shapes; all 125 pre-existing solutions migrated by scripts/convert-solutions-to-steps.py (sentence/enumeration/semicolon-aware splitter, never cuts inside $…$ math or parentheticals; strict \\w+ token-multiset preservation asserted per solution; 5 boxed answers extracted); E2E: lesson 1.1 36 steps / 31 KaTeX-in-steps, lesson 3.1 47 steps + the Factors answer box, lessons 2.5/3.5/4.1 53–60 steps each, mobile 390px exact-fit with every solution expanded, zero console/page errors; tsc + lint clean; verify-unit-2 165/165 + unit-3 260/260 + unit-4 84/84 regressions green; word totals recomputed 65,080 (−50 = dropped standalone ';' tokens the old counter counted as words — honest deflation, all real words preserved)",
-   "ratio lesson (cron run 26): verify-unit-6.ts created (93 checks A–K) ALL PASS pre-writing; regressions green (unit-5 455, unit-4 330, unit-3 260, unit-2 165); lint + tsc clean; routes verified against the PRODUCTION build this run (dev-mode lesson routes 404 for ALL lessons in this recycled sandbox instance — bisected against pre-change code; new lesson 200, old 200, unknown id 404); cengage-style E2E on 14 lessons — 8 caps-over-rule headings on 6.1, 8 ILLUSTRATION pills, 8 Sol. pills ALL inline (inlineSolPills = solPills = 8), 25 step rows, stepNumberBadges = 0, legacyAnswerBoxes = 0, 24 KaTeX therefore glyphs on the chain (33 with exercises), note boxes Note/Definition/Caution + formula cards as Remember boxes, exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (2/1/3/2/0) -> 'You scored 5/5' + Retake; all 12 exercise solutions expand (36 open collapsibles, 20 Sol. pills with exercises); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: sharing map 10/10 math + 8/10 clarity, dots family 10/10 math + 9/10 clarity; glossary 150 -> 157 terms (+7); book TOC shows 6.1 written, plannedLessons down to four; tsc + lint clean"
-  ]
- },
- "library": {
-  "disciplines": 11,
-  "books": [
-   {
-    "id": "foundation-mathematics",
-    "title": "Foundation Mathematics",
-    "status": "complete",
-    "chaptersPlanned": 11,
-    "chaptersWritten": 11,
-    "lessonsWritten": 48,
-    "termsAvailableForFlashcards": 355,
-    "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz items, 534 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
-   },
-   {
-    "id": "arithmetic-and-number-systems",
-    "title": "Arithmetic and Number Systems",
-    "status": "in-progress",
-    "chaptersPlanned": 10,
-    "chaptersWritten": 10,
-    "lessonsWritten": 34,
-    "termsAvailableForFlashcards": 248,
-    "notes": "IN PROGRESS — 10/10 chapters reached; ch. 10 'The Map of Number Systems' 2/3 (run 64: 10.1 + 10.2, 11,033 words); run 65 = 10.3 + the unit-10 review + the BOOK CLOSE",
-    "chaptersInProgress": 1
-   }
-  ],
-  "lessonsWritten": 82,
-  "wordsAuthored": 405887,
-  "termsAvailableForFlashcards": 587,
-  "totals": {
-   "lessonsWritten": 77,
-   "plannedLessons": 5,
-   "words": 377852,
-   "terms": 587,
-   "quizItems": 385,
-   "exerciseQuestions": 936,
-   "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed at run 61 ship",
-   "booksLive": 2,
-   "chaptersWritten": 19,
-   "chaptersInProgress": 0,
-   "wordsAuthored": 377852,
-   "termsDefined": 587
+  "$schema": "./PROGRESS.schema.json",
+  "project": "LockIn Library",
+  "updated": "2026-11-08",
+  "phase": "BOOK #3 IN PROGRESS — Elementary Algebra ch. 4 'Factorization' COMPLETE 4/4 (run 74, 2026-11-08): 4.3 'The Identities as Factorizations' (al-identities-as-factorizations, 4,007 words, quiz keys 2/1/0/1/2) + 4.4 'The Factor Theorem and Cubics' (al-factor-theorem-and-cubics, 4,026 words, quiz keys 1/3/0/1/0) + the unit-4 completion review PASSED (7/7 checklist, exam corners 4/4); verify-book3-ch04.ts finished at 471 checks ALL GREEN (sections A–K: the Germain identity at 169 points, the x⁴+16 exhaustive refusal scan, the synDiv engine at 3,375 draws, THE MONIC INTEGER-ROOT THEOREM over 4,056 monic cubics, THE CUBIC IRREDUCIBILITY THEOREM both directions); 16,245 words across the chapter. The book stands 4 complete chapters of 11. NEXT: run 75 = ch. 5 'Linear Equations in One Variable' OPENS with 'What an Equation Is: the Balance Principle' + 'Solving Linear Equations' (verify-book3-ch05.ts FIRST, whitelist e2e-al-51/52, never ch. 6).",
+  "awaiting": "nothing blocking — next run 75 = AL ch. 5 OPENS with 5.1 'What an Equation Is: the Balance Principle' + 5.2 'Solving Linear Equations' (create verify-book3-ch05.ts FIRST; whitelist e2e-al-51/52 in .gitignore; never ch. 6); run 76 = 5.3 + the unit-5 review close ch. 5",
+  "platform": {
+    "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
+    "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
+    "routes": [
+      "/",
+      "/book/[bookId]",
+      "/book/[bookId]/lesson/[lessonId]",
+      "/book/[bookId]/revise",
+      "/book/[bookId]/glossary",
+      "404",
+      "/signin",
+      "/builder",
+      "/my-books",
+      "/my-books/[bookId]",
+      "/my-books/[bookId]/read",
+      "/api/auth/*",
+      "/api/library/*",
+      "/api/builder/*",
+      "/api/custom-books/*"
+    ],
+    "features": [
+      "reader: Cengage print-style furniture (owner directive run 14) — ink-green caps section heads over rules, ILLUSTRATION pills + sage bands + Cengage solution chains (run 16: Sol. inline + tag column + terminal ∴ line; unnumbered, run 15), green exercise/quiz bars with hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, sage table headers, green chapter-opener lesson headers, green derivation rail without number circles (run 15)",
+      "v3 home: two-column hero with living book-shelf visual (real + ghost spines), contextual primary CTA (Start/Continue/Next), inline stat strip, compact 'Your desk', roadmap chips for not-yet-live shelves",
+      "v3 book page: breadcrumb, contextual primary button, TOC with per-chapter counters, 'Next up' lesson highlight, quiz best-score chips",
+      "reader breadcrumb Library/book/chapter; two-column footer with quick links + Ctrl-K hint",
+      "shared bits.tsx (DISCIPLINE_ICONS + StatusBadge); paper-dots + spine-label CSS",
+      "shareable deep-link URLs, statically generated",
+      "reader: Cengage print-style furniture (owner directive run 14) — ink-green caps section heads over rules, ILLUSTRATION pills + sage bands + Cengage solution chains (run 16: Sol. inline + tag column + terminal ∴ line; unnumbered, run 15), green exercise/quiz bars with hairline print question rows, note-box callouts, roman (i)(ii)(iii) lists, sage table headers, green chapter-opener lesson headers, green derivation rail without number circles (run 15)",
+      "reader: scrollspy 'On this page', reading-progress bar, keyboard shortcuts (←/→ lessons, B bookmark, C complete)",
+      "prerequisites chips + sources footer on lessons",
+      "quiz scoring with persisted best score + retake",
+      "flashcard revision mode auto-generated from terms blocks (flip, know/again, shuffle, per-term memory)",
+      "glossary A–Z + formula sheet pages",
+      "home 'Your desk' dashboard: continue reading, words read, terms mastered, bookmarks (daily streak removed by owner request 2026-11-03 — do not reintroduce)",
+      "reader exercises + illustrations: Cengage solution chain — 'Sol.' pill inline on the first line, connective tag column (∴/or/Now,/So,), prose lines full width, terminal ∴ answer line in green ink (owner directive run 16; boxed Answer rows retired, step numbers absent per run 15); legacy prose solutions still supported",
+      "custom book builder (2026-11-08): build personalized textbooks by curating existing library lessons — 5 creation methods (exam scope maps / subject tree picker / pasted topic list / uploaded syllabus PDF with OCR fallback / combination), discovery engine with synonym groups + chapter/book expansions + prerequisites + alternatives, honest coverage reports (not_available never fabricated), TOC curation with reorder + library-version drift notices, bookshelf, and a dedicated reader (BlockRenderer reuse, per-book server-side progress, bookmarks, notes, in-book search, font & theme controls) — see docs/project/CUSTOM_BOOK_BUILDER.md"
+    ],
+    "verified": [
+      "unit 5 lesson 5.3 E2E (cron run 23): verify-unit-5.ts extended 273 -> 341 checks (sections AD-BJ) ALL PASS pre-writing (exact integer addition/subtraction at the stated scales incl. the inverse-test closure; the decimalOf dress re-reads for the places-add law incl. the trailing-licence trim (48.50 x 3.5 = 169.75, one true place); the eight-row quotient-identity sweep (n1 x d2 x qD === d1 x n2 x qN) covering 7.2/0.9, 16.24/2.8, 20.4/1.2, 0.144/1.2, 18.6/1.5, 128.76/12, 12.75/5, 45.6/100; the 9.1/5 step-machine walk; the 36-combo places-add sweep; the hop family 0.45 x 0.067 = 0.045 x 0.67 = 4.5 x 0.0067 = 0.03015; 12.5 x 0.08 = 1; the length/mass roman run; figure geometry — ladder rooms x = 28+104k/width 92 with 10px gaps, point dot at (431, 204), arrows y 68/108/278/318, strip y 399; tableau quotient y 48 riding columns 348/396/444/492, both points cx 420, rules y 170/262/354, check line (280, 412) with all air gaps verified; quiz key audit 2/1/2/0/1; exercise key audit incl. the bill, the cloth run 48.50 x 3.5 = 169.75/change 30.25, 12.6/3, 20.4/1.2, 0.144/1.2, 18.6/1.5 and the 25-combo law sweep); regressions green (unit-4 330, unit-3 260, unit-2 165); route 200; KaTeX 248 nodes; dollarInSvg = 0; cengage-style E2E on 11 lessons — 4 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6, 18 with exercises), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX therefore glyphs on the chain (30 with exercises), note boxes Definition/Note/Caution x3/2 formula cards (+ Exam corner), exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (2/1/2/0/1) -> 'You scored 5/5 - perfect' + Retake (score read after a separate wait); all 12 exercise solutions expand (36 open collapsibles); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: ladder 10/10 math + 9/10 clarity, tableau 8/10 with its two alignment complaints disproven by DOM measurement (both point circles cx = 420.0 exactly, quotient digits at exact 48px pitches); glossary 128 -> 135 terms (+7); book TOC shows 5.3 written, plannedLessons down to two; tsc + lint clean; totals recomputed by build_work_inventory.ts: 21 lessons / 101,153 words / 135 terms / 105 quiz items / 209 exercise questions",
+      "unit 5 lesson 5.2 E2E (cron run 22): verify-unit-5.ts extended 165 -> 273 checks (sections P-AC) ALL PASS pre-writing (exact long-division simulations with cycle detection; determinism sweep b = 2..30; pigeonhole bound b = 2..60; the division-side atom test sweep b = 2..60: 1/b terminates iff atoms subset of {2,5}; order-of-10 vs observed-cycle sweep b = 3..60 coprime to 10; the 142857 family rotations and x7 = 999999; head-length numerics for 5/12, 1/6, 7/30, 13/22, 11/150; shift-and-subtract exact-integer conversions incl. a ten-sample round-trip; comparisons by exact cross-multiplication — 2/7 vs 0.2857 gap exactly 1/70000; the base-twelve sweep: terminates iff atoms subset of {2,3}; figure geometry; quiz + exercise key audits); regressions green (unit-4 330, unit-3 260, unit-2 165); route 200; KaTeX 307 nodes; dollarInSvg = 0; cengage-style E2E on 10 lessons — 5 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX therefore glyphs on the chain (30 with exercises), note boxes Caution/Note/3 formula cards/Exam corner, exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (indices 0/2/2/1/0) -> 'You scored 5/5 - perfect' + Retake (score read after a separate wait); all 12 exercise solutions expand (18 Sol. pills, 36 open collapsibles); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues (carousel first pass flagged 4 contacts — node digits inside their circles + the bottom annotation crossing the ring — fixed by moving node labels radially outside at radius 184 and folding the waltz-closes line into the center stack, re-audited clean); mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: carousel 10/10 (mathematically correct, no overlaps), bridge map 9/10 (clean, minor bottom-margin nitpick); glossary 121 -> 128 terms (+7); book TOC shows 5.2 written, plannedLessons down to three; tsc + lint clean; 5.1's 22/7 waltz digits corrected (3.14159 -> 3.142857)",
+      "unit 5 lesson 5.1 E2E (cron run 21): verify-unit-5.ts created with 165 checks (sections A-O) ALL PASS pre-writing (the atom-test sweep: for every b in 2..500, b divides a power of ten iff its atoms are only 2s and 5s; figure geometry — mirror chart columns x = 40/144/248 | 396/500/604, hinge 374; zoom figure 62 px steps, 2.7 at x = 504, 2.74 at x = 318); verify-unit-4 (330), verify-unit-3 (260), verify-unit-2 (165) regressions green; route 200; KaTeX 209 nodes; dollarInSvg = 0; cengage-style E2E on 9 lessons — 8 caps-over-rule headings, 5 ILLUSTRATION pills, 5 Sol. pills ALL inline (inlineSolPills = solPills = 5), stepNumberBadges = 0, legacyAnswerBoxes = 0, 15 KaTeX therefore glyphs, note boxes Definition/Remember/Caution/Definition/Caution/Remember/Remember/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (indices 1/2/3/1/2) -> 'You scored 5/5' + Retake (score read after a separate wait — the same-eval read races React's flush); all 12 exercise solutions expand (17 Sol. pills, 29 therefore, 36 open collapsibles); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues (figure 2 first pass flagged 4 contacts — zoom box/connectors vs the 2.7/2.8 tick labels — fixed by shortening the box to y 72-102, re-anchoring connectors at (.,102), labels to y = 124, re-audited clean); mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM 9/10 across opener, both figures and the Illustration chain; glossary 114 -> 121 terms (+7); book TOC shows 5.1 written, plannedLessons down to four; tsc + lint clean",
+      "unit 4 lesson 4.4 E2E (cron run 19): verify-unit-4.ts extended 199 → 261 checks (sections AA–AH) ALL PASS pre-writing; route 200 after dev restart (stale param cache); KaTeX 162 nodes; dollarInSvg = 0; cengage-style E2E on 4.4 — 7 caps-over-rule headings, 7 ILLUSTRATION pills, 7 Sol. pills ALL inline (inlineSolPills = solPills = 7), stepNumberBadges = 0, legacyAnswerBoxes = 0, 21 KaTeX ∴ glyphs, note boxes Definition/Caution/Remember ×2/Note/Definition/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (indices 1/2/2/1/0) → 'You scored 5/5 · perfect' + Retake; all 12 exercise solutions expand; zero KaTeX errors; zero console errors on fresh load; both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (five-bar stacked-contribution figure + 1/24 number-line arc, geometry 155/103.33/258.33px + 436.67/465/28.33px script-verified + gen-44-figures.py); mobile 390px exact-fit (docScrollW = 390, no SVG over viewport); direct screenshot review of both figures + Illustration chain green; glossary 102 → 108 terms (+6); book TOC shows 4.4 written, plannedLessons down to one; verify-unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
+      "unit 4 lesson 4.3 E2E (cron run 18): verify-unit-4.ts extended 148 → 199 checks (sections S–Z) ALL PASS pre-writing; route 200; KaTeX 177 nodes; dollarInSvg = 0; cengage-style E2E on 6 lessons — 8 caps-over-rule headings, 8 ILLUSTRATION pills, 8 Sol. pills ALL inline (inlineSolPills = solPills = 8), stepNumberBadges = 0, legacyAnswerBoxes = 0, 24 KaTeX ∴ glyphs, note boxes Note/Definition/Definition/Caution/Remember/Exam corner/Note/Definition, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (B/B/C/D/C) → 'You scored 5/5 · perfect' + Retake; all 12 exercise solutions expand with ∴ terminal lines; zero KaTeX errors; zero console errors on fresh load; both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (four-bar 24-ruler figure + zoomed number line, geometry 361.67/387.5/239.09/276.67/442px script-verified + gen-43-figures.py); desktop 1280 + mobile 390px exact-fit (docScrollW = 390; 3 wide display equations scroll inside the .math-display overflow-x guard — accepted pattern from 3.3/4.2); VLM + direct screenshot review: opener ✓, Illustration + staircase chain ✓, both figures ✓, toolkit table ✓; terminal ∴ answer line DOM-verified book-green weight 500 after one JPEG misread; glossary 96 → 102 terms (+6); flashcards pick up the new terms; book TOC shows 4.3 written; verify-unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
+      "unit 4 lesson 4.2 E2E (cron run 17, PUSH FIRST then author): 4 run-15/16 commits pushed before work (origin/main d5a1b43 → b788c06, verified via one-time-URL ls-remote); route 200; KaTeX 263 nodes; dollarInSvg = 0; cengage-style E2E on 4.2 — 7 caps-over-rule headings, 6 ILLUSTRATION pills, 6 Sol. pills ALL inline (inlineSolPills = solPills = 6), stepNumberBadges = 0, legacyAnswerBoxes = 0, 18 KaTeX ∴ tags, note boxes Definition/Remember/Caution/Definition/Remember/Note/Exam corner, exercises bar 12 questions, quiz bar 5 questions; quiz answered live with intended options (B12/16, A3/4, B7, C5/6and9/11, C16/20) → 'You scored 5/5' + Retake; all 12 exercise solutions expand with ∴ terminal lines; zero KaTeX errors; zero console errors on fresh load; mobile 390px exact-fit (docScrollW = 390); VLM + direct screenshot review: inline Sol. pill ✓, Now,/So,/∴ staircase ✓, ink-green caps heading over rule ✓, definition note box ✓, ILLUSTRATION pill above sage band ✓; verify-unit-4.ts 148/148 pre-writing (64 new checks L–R for 4.2), unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
+      "cengage solution chain (owner chat directive, run 16): style grounded by re-downloading M2/01 and OCR/vision-studying its SOLUTION pages (illustrations 1.9/1.22 + S.6; no content reproduced; PDF deleted after verification); SolutionSteps + display-only parseStepTag shared by ExampleBlock and SolutionBody; E2E on 1.1/2.5/3.2/4.1 — inlineSolPills = solPills, legacyAnswerBoxes = 0, stepNumberBadges = 0, KaTeX counts unchanged; force-expanded DOM audits (1.2: 10 pills inline, tagColumn So,/∴, 6 ∴ glyphs; 3.3: word tags render, 0 ∴ = correct data; 3.4: 6 terminal ∴ lines); VLM: pill inline ✓, staircase ✓, terminal ∴ green-ink answer with 'Answer:' label stripped ✓; lint + tsc clean; mobile 390px exact-fit",
+      "step numbers removed (owner chat directive, run 15): circled digit badges deleted from all four worked-step renderers in blocks.tsx (ExampleBlock Sol. steps, DerivationBlock rail, SolutionBody, AlgorithmBlock) — platform-wide, zero content edits; E2E re-run on 1.1/2.5/3.2/4.1 with the new stepNumberBadges check (aria-hidden bare-digit spans outside KaTeX — .katex-html excluded as KaTeX's own render layer): 0 on every lesson, step rows intact (5/11/8/8), quiz + solution expansion + mobile 390px exact-fit all still green; VLM visual review of Illustration + Derivation + expanded solution: no numbers, clean alignment, no glitches; lint + tsc clean",
+      "cengage book-style theory (owner chat directive, run 14): style grounded by downloading + OCR/vision-studying Cengage M2/01 Set Theory & Real Number System from the Drive MATHS folder (35 pp; working copy deleted after verification); reader reskinned — E2E on 1.1/2.5/3.2/4.1: h2 computed uppercase + 2px green rule + ink-green, illustrations render as pill + sage band + Sol. + numbered steps (1/5, 2/11, 2/8, 2/8), note-box labels correct (Note/Caution/Definition/Theorem/Historical note/Exam corner), exercises + quiz bars solid green, hairline question rows, KaTeX 54/113/257/221 nodes, dollarInSvg = 0, quiz scored live + retake, solutions expand under Sol. pills, mobile 390px exact-fit (docScrollW = 390); SVG overlap audit 0 issues (1.1/3.2/4.1); lint + tsc clean; VLM visual fidelity 5.5 → 8.5/10 after exercise-row + green-header fixes; MATHS subfolder surveyed (5 modules, 42 chapter PDFs, ids persisted in gitignored temporary-references/maths-*.json)",
+      "lint clean; tsc clean (src/)",
+      "all routes 200; unknown ids 404 correctly",
+      "browser E2E: palette search, quiz scoring + persistence (5/5 on lesson 1.2), flashcards (16-card deck incl. new terms), glossary picks up lessons 1.2-1.3 terms + formula cards",
+      "mobile 390px: no horizontal overflow on home/book/all lessons (fixed: grid-cols-1 base on responsive grids; concept badges wrap)",
+      "KaTeX 154 nodes (1.2) / 114 (1.3) / 118 (2.1) / 140 (2.2) / 149 (2.3) / 148 (2.4); figures, algorithm blocks, 11-col table all render",
+      "unit 2 lesson 2.1 E2E: quiz 5/5 perfect, flashcards 22 cards, glossary + formula sheet updated, mobile exact-fit, zero console errors",
+      "unit 2 lesson 2.2 E2E: quiz 5/5 perfect, flashcards 28 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figure geometry verified via DOM",
+      "unit 2 lesson 2.3 E2E: quiz 5/5 perfect, flashcards 34 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures geometry-verified via DOM (equal-jump arcs, partial-product rows, shift annotations)",
+      "unit 2 lesson 2.4 E2E: quiz 5/5 perfect, flashcards 40 cards, glossary + formula sheet list new terms/cards, mobile exact-fit (scrollW=390), zero console errors; figures DOM-verified (number-line backward jumps 23 labels; long-division tableau 32 labels, ÷ glyphs render)",
+      "unit 2 lesson 2.5 E2E (unit-2 completion review): quiz 5/5 perfect with intended options clicked live, flashcards 47 cards, glossary lists BODMAS/Vinculum/Precedence/Equation + formula sheet lists the BODMAS card, expression-tree figure screenshot-verified, mobile exact-fit (scrollW=390), zero console/page errors; KaTeX 113 nodes, dollarInSvg=0; BOOK_FORMAT checklist 7/7; exam-coverage audit run; chapter totals recomputed (ch. 2 = 21,450 words; book = 8 lessons / 31,159 words / 47 terms)",
+      "unit 3 lesson 3.1 E2E: routes 200 (home/book/lesson/glossary/revise); KaTeX 370 nodes; dollarInSvg=0; quiz answered live with intended options (indices 2/3/1/2/3) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 54 cards (47 + 7 new terms); glossary lists new terms; formula sheet lists all 4 new cards (treaty, tail, digit-sum, alternating); screening-desk figure screenshot-verified with plain labels; mobile 390px exact-fit (scrollW=390); zero console/page errors; verify-unit-3.ts 96/96 pre-writing, verify-unit-2.ts still 165/165; tsc fully clean repo-wide incl. both scripts",
+      "unit 3 lesson 3.3 E2E: routes 200 (home/book/3.2/3.3/revise/glossary; unknown id 404); KaTeX 392 expanded (257 collapsed); dollarInSvg=0; quiz answered live with intended options (indices 1/3/2/0/1) → 'You scored 5/5 · perfect', best score persisted (book-page chip); flashcards 68 cards (61 + 7 new terms); glossary lists Highest common factor/Euclidean algorithm/Bézout's identity/Coprime split; Venn figure screenshot-verified (both headers, overlap 2·2·2·2·3 = 48, bottom annotations, plain labels); mobile 390px exact-fit (scrollW=390) with ALL TEN solutions expanded — 3 wide display blocks scroll inside the math-display overflow-x:auto guard, max SVG width 324; zero console/page errors; verify-unit-3.ts 192/192 pre-writing (sections V–Y, 40 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean",
+      "SVG figure-label rule (found & fixed 2026-11-03): SVG blocks are injected raw — never put KaTeX $…$ inside figure SVG text; E2E now asserts dollarInSvg=0 (all three ch-02 lessons clean)",
+      "unit 3 lesson 3.4 E2E: quiz 5/5 perfect (C/D/B/C/D clicked live), flashcards 75 cards, glossary + formula sheet pick up the 7 new terms and 3 new cards, timetable figure passes scripts/audit-svg-overlaps.sh with 0 issues first pass and is screenshot-verified, mobile 390px exact-fit (overflowX = 0) with all ten solutions expanded, zero console errors; KaTeX 249 nodes, dollarInSvg = 0",
+      "unit 3 lesson 3.5 E2E (unit closer + unit-3 completion review): quiz 5/5 perfect with intended options clicked live (indices 2/1/2/3/1), flashcards 82 cards (75 + 7 new terms), glossary lists all 7 new terms + the product-rule formula card, KaTeX 165 nodes, dollarInSvg = 0, zero console errors, mobile 390px exact-fit (overflowX = 0) with all 11 exercise solutions expanded; rectangle figure passes scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; verify-unit-3.ts 260/260 pre-writing (section AA, 33 new checks), verify-unit-2.ts still 165/165; tsc clean; lint clean; chapter 3 status flipped to complete with totals recomputed (13 lessons / 59,076 words / 82 terms)",
+      "unit 4 lesson 4.1 E2E: route 200; KaTeX 221 nodes; dollarInSvg = 0; quiz 5/5 with intended options clicked live (indices 1/2/0/3/1), best score persisted; glossary 82 → 91 terms (+9); both new figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass (number-line two-panel + Egyptian bar); mobile 390px exact-fit (docScrollW = 390) with ALL 10 exercise solutions force-revealed; zero console/page errors; verify-unit-4.ts 84/84 pre-writing, unit-3 260/260 + unit-2 165/165 regressions green; tsc + lint clean",
+      "reader width + permalink fix (owner chat directive, commit 8fd776e): lesson article 768px → 962px measured at 1440px (container max-w-7xl, article fills grid at xl, figures max-w-3xl, book TOC + glossary max-w-5xl, site chrome aligned max-w-7xl); visible URL chip (Link2 icon + /book/…/lesson/… text) removed — repo grep confirms it was the only URL rendered as page text; geometry verified (40px article↔TOC gap), 1440/390px no overflow, full SVG audit re-run on all 12 lessons — 0 issues, zero console errors",
+      "worked-solution format (owner chat directive, run 13): ExerciseQuestion.solution now string | string[] with optional answer — steps render as numbered chip rows (one worked line each, words + KaTeX inline), the answer as a boxed row; command-palette search + word counter handle both shapes; all 125 pre-existing solutions migrated by scripts/convert-solutions-to-steps.py (sentence/enumeration/semicolon-aware splitter, never cuts inside $…$ math or parentheticals; strict \\w+ token-multiset preservation asserted per solution; 5 boxed answers extracted); E2E: lesson 1.1 36 steps / 31 KaTeX-in-steps, lesson 3.1 47 steps + the Factors answer box, lessons 2.5/3.5/4.1 53–60 steps each, mobile 390px exact-fit with every solution expanded, zero console/page errors; tsc + lint clean; verify-unit-2 165/165 + unit-3 260/260 + unit-4 84/84 regressions green; word totals recomputed 65,080 (−50 = dropped standalone ';' tokens the old counter counted as words — honest deflation, all real words preserved)",
+      "ratio lesson (cron run 26): verify-unit-6.ts created (93 checks A–K) ALL PASS pre-writing; regressions green (unit-5 455, unit-4 330, unit-3 260, unit-2 165); lint + tsc clean; routes verified against the PRODUCTION build this run (dev-mode lesson routes 404 for ALL lessons in this recycled sandbox instance — bisected against pre-change code; new lesson 200, old 200, unknown id 404); cengage-style E2E on 14 lessons — 8 caps-over-rule headings on 6.1, 8 ILLUSTRATION pills, 8 Sol. pills ALL inline (inlineSolPills = solPills = 8), 25 step rows, stepNumberBadges = 0, legacyAnswerBoxes = 0, 24 KaTeX therefore glyphs on the chain (33 with exercises), note boxes Note/Definition/Caution + formula cards as Remember boxes, exercises bar 12 questions, quiz bar 5; quiz answered live with intended options (2/1/3/2/0) -> 'You scored 5/5' + Retake; all 12 exercise solutions expand (36 open collapsibles, 20 Sol. pills with exercises); 2 svg figures render; both figures pass scripts/audit-svg-overlaps.sh with 0 issues FIRST pass; mobile 390px exact-fit (docScrollW = 390, articleW = 358); zero console errors; VLM: sharing map 10/10 math + 8/10 clarity, dots family 10/10 math + 9/10 clarity; glossary 150 -> 157 terms (+7); book TOC shows 6.1 written, plannedLessons down to four; tsc + lint clean"
+    ]
   },
-  "chaptersWritten": 20,
-  "chaptersInProgress": 1,
-  "termsDefined": 627,
-  "quizItems": 410,
-  "exerciseQuestions": 1007,
-  "asOf": "run 64 (2026-11-07)"
- },
- "research": {
-  "examRegistry": {
-   "target": "50+ examinations (>=10 Indian, >=20 international)",
-   "status": "skeleton created, zero exams researched yet",
-   "file": "docs/project/EXAM_REGISTRY.json"
+  "library": {
+    "disciplines": 11,
+    "books": [
+      {
+        "id": "foundation-mathematics",
+        "title": "Foundation Mathematics",
+        "status": "complete",
+        "chaptersPlanned": 11,
+        "chaptersWritten": 11,
+        "lessonsWritten": 48,
+        "termsAvailableForFlashcards": 355,
+        "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz items, 534 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
+      },
+      {
+        "id": "arithmetic-and-number-systems",
+        "title": "Arithmetic and Number Systems",
+        "status": "in-progress",
+        "chaptersPlanned": 10,
+        "chaptersWritten": 10,
+        "lessonsWritten": 34,
+        "termsAvailableForFlashcards": 248,
+        "notes": "IN PROGRESS — 10/10 chapters reached; ch. 10 'The Map of Number Systems' 2/3 (run 64: 10.1 + 10.2, 11,033 words); run 65 = 10.3 + the unit-10 review + the BOOK CLOSE",
+        "chaptersInProgress": 1
+      }
+    ],
+    "lessonsWritten": 82,
+    "wordsAuthored": 405887,
+    "termsAvailableForFlashcards": 587,
+    "totals": {
+      "lessonsWritten": 77,
+      "plannedLessons": 5,
+      "words": 377852,
+      "terms": 587,
+      "quizItems": 385,
+      "exerciseQuestions": 936,
+      "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed at run 61 ship",
+      "booksLive": 2,
+      "chaptersWritten": 19,
+      "chaptersInProgress": 0,
+      "wordsAuthored": 377852,
+      "termsDefined": 587
+    },
+    "chaptersWritten": 20,
+    "chaptersInProgress": 1,
+    "termsDefined": 627,
+    "quizItems": 410,
+    "exerciseQuestions": 1007,
+    "asOf": "run 64 (2026-11-07)"
   },
-  "sourceCollection": {
-   "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
-   "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
-   "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2, ncert-math6-ch3, ncert-math6-ch7, ncert-math6-ch8, ncert-math7-ch2, ncert-math7-ch3, ncert-math9-ch1, ncert-math8-ch8, ncert-math6-ch12, ncert-math7-ch8, ncert-sci7-motion)"
+  "research": {
+    "examRegistry": {
+      "target": "50+ examinations (>=10 Indian, >=20 international)",
+      "status": "skeleton created, zero exams researched yet",
+      "file": "docs/project/EXAM_REGISTRY.json"
+    },
+    "sourceCollection": {
+      "driveLink": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
+      "status": "surveyed 2026-11-03 — 89 root items + MATHS/CHEM/PHYSICS/_DPPs subfolders; re-confirmed after sandbox recycle (embeddedfolderview re-pull, same 89 entries, ids intact); machine listing at temporary-references/inventory.json",
+      "ledger": "docs/project/SOURCE_LOG.md (citation keys: khattar-qa-4e, ncert-math6-ch1, ncert-math6-ch2, ncert-math6-ch3, ncert-math6-ch7, ncert-math6-ch8, ncert-math7-ch2, ncert-math7-ch3, ncert-math9-ch1, ncert-math8-ch8, ncert-math6-ch12, ncert-math7-ch8, ncert-sci7-motion)"
+    }
+  },
+  "workflowRulesReminder": [
+    "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03) with ONE FULL CHAPTER PER RUN (owner directive 2026-11-06, job 506464 — supersedes the 2026-11-05 two-lesson rule): a unit = one chapter; each run completes the ENTIRE current chapter — every not-yet-written lesson authored sequentially (each fully researched → written → verified → shipped through its own gates before the next begins; never batch-draft) plus the unit completion review, so the chapter is whole and verified by run end; the next run then does the next chapter in full",
+    "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
+    "Delete downloaded working copies after the unit is verified (never Drive originals)",
+    "Original content only; references inform, never reproduce",
+    "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
+    "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
+    "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
+    "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) — owner never resends it",
+    "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner’s fine-grained PAT lives ONLY in the hourly cron job payload (job 506464 since 2026-11-06, which replaced job 504365 — itself the 2026-11-05 replacement of the now-deleted job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits — one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README ‘Pushing to GitHub’)"
+  ],
+  "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship — exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too. SCHEDULE (owner directive 2026-11-06): the hourly loop lives in cron job 506464 'LockIn Library — hourly chapter run (1 full chapter/run)' (fixed_rate 3600 s, Asia/Kolkata, priority 5, created 2026-11-06 01:03 IST; jobs 504365 two-lesson and 498279 stale-duplicate were DELETED by the agent under the owner's edit-and-reschedule instruction — 498279 had stayed active after its API disable and kept colliding) — one full chapter per run, every other rule unchanged.",
+  "run30Extras": {
+    "lesson": "fm-direct-and-inverse-variation",
+    "recovery": "finished the 15:18 delivery in-flight commit 407c0fe (lesson + verify AF-AP + e2e registration authored, gates/bookkeeping/push missing)",
+    "words": 5373,
+    "verifyChecks": "361 total (AF-AP pre-extended by the interrupted run; AJ10/AJ13/AJ14 + AM4/AM5 rewritten for the polished figures, +2)",
+    "figures": [
+      "figure 1 one journey two bindings (line d = 60t vs hyperbola xy = 240; titles raised to y 40, km/h cleared of the 90 tick, 3 x 80 label relocated to the guides pocket (480,108); audit 0, VLM 10/10 math + 9/10 clarity)",
+      "figure 2 the flip seat by seat (two crossing legs (470,122)-(566,178) and (566,122)-(470,178) crossing at (518,150), side label at (240,156), captions recentered on the box grid x 358; audit 0, VLM 10/10 math + 9/10 clarity)"
+    ],
+    "e2e": "dedicated 6.4 block added by this run (the interrupted run registered the lesson but never wrote the block): quiz keys 2/1/1/2/1 clicked live -> 5/5, 12/12 solutions, 21 Sol. pills, KaTeX-theta 33, mobile 390 exact, console clean; full 17-lesson suite exit 0",
+    "queuedExtra": "lesson 2.1 voice polish (Expression is-said-to-be Definition callout + roman run 8+2x5=18, (8+2)x5=50, 18/3 of 2=3 + Thus-line to figure 1; verified live KaTeX 133, console clean)",
+    "queueCorrection": "ch. 1 closed at 3 lessons — remaining pre-4.2 polish queue is 2.2-2.5, 3.1-3.5, 4.1 (10 lessons)",
+    "inventory": "Drive survey rebuilt after recycle (89 entries) then WORK_INVENTORY.json regenerated: 27 lessons / 128,994 words / 178 terms / 135 quiz / 281 exercises",
+    "downloads": "zero this run (verify-first + web-check only)"
+  },
+  "run32Extras": {
+    "lesson": "fm-scaling-maps-models-and-recipes (FM 6.5, ch. 6 final)",
+    "pushDebt": "cleared first: 5 commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed) pushed via one-time URL, ls-remote verified 5aa10ede40877d107f862dc809d1c726029c0c4e",
+    "words": "~4,400",
+    "verifyChecks": "444 (A-AZ; was 361)",
+    "figures": "2 (atlas bar scale — road drawn exactly 4 bar-segments = 400 px after VLM fix iteration; two-direction factor bars with baselines + dashed end guides)",
+    "vlm": "figure 1 9.5 math / 8 clarity; figure 2 10 math / 9 clarity",
+    "e2e": "18-lesson suite exit 0; 6.5 quiz live 5/5 (keys 0/1/0/2/1); 12/12 solutions; mobile 390 clean; console clean",
+    "inventory": "28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters",
+    "downloads": "none — web-check of ncert-math8-ch13 (Example 1 road-map dress) only; citation keys extended, no files"
+  },
+  "run33Extras": {
+    "lesson": "fm-negative-numbers-why-they-exist (FM 7.1, ch. 7 opens)",
+    "words": "~3,576",
+    "verifyChecks": "70 (A-I; new file verify-unit-7.ts, created BEFORE writing)",
+    "figures": "2 (the mirror-symmetric number line with -3/3 braces; the Everest/Dead-Sea elevation section, two-headed dimension guide, in-figure not-to-one-scale note)",
+    "vlm": "figure 1 10 math / 9 clarity (first pass); figure 2 9/7 -> redrawn -> 8-band across passes, 0 audit issues, accepted honestly",
+    "siteWideFix": "ExampleBlock titles now render through RichText (blocks.tsx) — raw-$ leaks in Illustration titles eliminated site-wide (7 on 6.5 alone, 20+ across chs. 1-6)",
+    "e2e": "19-lesson suite exit 0; 7.1 quiz live 5/5 (keys 1/2/2/0/1); 12/12 solutions; 19 Sol. pills; 93 therefore glyphs; mobile 390 clean; console clean",
+    "downloads": "none — two NEW citation keys (ncert-math6-ch10, ncert-math7-p2-ch2) web-checked; history/elevations/exam shapes web-grounded; no files"
+  },
+  "run34Extras": {
+    "lesson": "fm-adding-subtracting-integers (FM 7.2, ch. 7 2/4)",
+    "words": 3861,
+    "verifyChecks": "148 total (sections J-S added: 78 new; K1 brute-forces the two sign rules over all 441 pairs in [-10,10]^2; N1 grid-checks a-b = a+(-b); M2/M4 sweep commutativity 625 pairs + associativity 2197 triples)",
+    "promissoryNotesCashed": "all four of 7.1's: a+(-a)=0 (equation tag 1 + Illustration); the lift 7-(-2)=9 (derivation step + figure 2); the mall 9-(-3)=12 (Illustration); the Everest-Dead-Sea gap 8848.86-(-439.78)=9288.64 (derivation step)",
+    "figures": "2 (fig 1 the two-leg walk as two stacked panels — leg 1 arc 0 to -4, leg 2 arc -4 to 7 with symmetric starts/lands annotations; fig 2 the subtraction map — the mirror flip -(-2)=2 panel + the walk 7+2=9 panel; both audit 0/0)",
+    "vlm": "fig 1: 9 math/6 clarity first pass -> redesigned to the two-panel manner -> 10 math/8 clarity with one FALSE scale complaint disproven by DOM measurement (pitches 50/50/50 both panels); fig 2: 9 math/7 clarity -> mirror darkened + result-carrying panel label -> 9 math/9 clarity; accepted honestly",
+    "e2e": "20-lesson suite exit 0 (7.2 registered + dedicated block); quiz live 5/5 (keys 0/1/2/0/3); 12/12 solutions; 19 Sol. pills; 31 therefore glyphs; KaTeX 429; raw-$ 0; tables 2; mobile 390 clean; console clean",
+    "voicePolish": "lesson 2.2 (queued per-run extra, 2.2 second): formal Definition callout 'Subtraction (the inverse definition)' (is-said-to-be shape) + the Thus-line (7-3=4 exactly when 3+4=7) + the three faces converted to the roman example run — zero new numerals, tsc + lint clean, live-verified",
+    "downloads": "none — ncert-math7-p2-ch2 extended (the movement model = the walk); Brahmagupta's 628 CE subtraction verses web-grounded (MacTutor) and derived, not reproduced"
+  },
+  "run35Extras": {
+    "lesson": "fm-multiplying-integers-sign-rules (FM 7.3, ch. 7 3/4)",
+    "words": 3899,
+    "verifyChecks": "231 total (sections T-AB added: 83 new; W1 brute-forces the multiplication sign rule over all 441 pairs in [-10,10]^2; V4/V5 grid-check (-a)xb = -(axb) and (-a)x(-b) = axb over 625 pairs; X9 distributive over 9,261 triples; Y1 parity brute-forced over every signed chain of length 1-5, factors +/-1..9)",
+    "doubleDerivation": "minus-times-minus derived twice: the staircase (descent law m x (-5) = (m-1) x (-5) + (-5) demanded of every integer - figure 2 the product staircase, bar ends collinear, crossing zero at m = 0) and the distributive argument ((-1)x(-5) + (-1)x5 = (-1)x0 = 0 -> the inverse read -> -(-5) = 5)",
+    "figures": "2 (fig 1 the repeated walk 3x(-5) = -15, three arcs with solid heads on a 34-px line, the 15-step brace; fig 2 the product staircase, six bars + the zero dot at 7 px/unit with the dashed trend line; both audit 0/0)",
+    "vlm": "fig 1: 10 math/9 clarity; fig 2: 10 math/9 clarity (all complaints cosmetic or disproven by DOM measurement - no redesign needed)",
+    "quiz": "keys 2/1/1/0/3 verified live 'You scored 5/5 - perfect'",
+    "exercises": "12 across L1-L6 (L6a the distributive derivation of (-1)xa = -a cashed at 13; L6b the parity chain (-2)x(-3)x4x(-5) = -120)",
+    "e2e": "21-lesson sweep exit 0 with a dedicated 7.3 block (19 Sol. pills inline, 96 therefore glyphs live, KaTeX 285, dollarInSvg 0, mobile 390 exact, console clean); e2e-73.page.js added with gitignore exception",
+    "voicePolish": "2.3 delivered: the formal 'Multiplication (the repeated-addition definition)' callout + Thus-line + the two table settings as the roman run in lesson 2.3 - zero new numerals",
+    "totals": "31 lessons / 146,077 words / 209 terms / 155 quiz items / 329 exercise questions (WORK_INVENTORY regenerated)"
+  },
+  "run36Extras": {
+    "lesson": "fm-absolute-value-as-distance (FM 7.4, ch. 7 4/4 — chapter CLOSED)",
+    "words": 4207,
+    "recovery": "in-flight 7.4 work found at run open committed as auto-checkpoint ab19d64 (verify-unit-7.ts +143 lines, ch-07.ts +682 lines, e2e-74.page.js new) — finished per standing rule 0",
+    "verifyChecks": "302 total (231 -> 302, sections AC-AH added for 7.4: the [−60,60] mirror sweep |−x| = |x|, the duality |x| ∈ {x, −x}, the multiplicative property |a×b| = |a||b| on all 441 pairs in [−10,10]^2, the triangle fact |a+b| ≤ |a|+|b| with the equality condition ab ≥ 0 brute-forced on the same grid, the distance formula both orders, the |x| = k verdict table, both figures' geometry, quiz keys 2/1/0/1/3 and all 12 exercise keys)",
+    "figures": [
+      "figure 1: the distance-from-zero braces (760x176, |−8| = 8 and |5| = 5 at 40 px per step, direction never mentioned)",
+      "figure 2: the two-panel distance-between-points (760x318, opposite sides |5−(−3)| = 8 = 3 + 5 split at zero; same side |7−2| = 5 nested braces; both audit 0/0)"
+    ],
+    "vlm": "fig 1: 10 math/9 clarity (nits cosmetic: −8 label micro-offset, unlabeled intermediate ticks are the house manner); fig 2: 10 math/9 clarity (label asymmetry cosmetic) — no redesign needed at the run-31/35 bar",
+    "quiz": "keys 2/1/0/1/3 verified live 'You scored 5/5 · perfect'",
+    "exercises": "12 across L1-L6 (L6: the distance derivation cashed at (−5,8); the equality condition ab ≥ 0 proved by cases)",
+    "unitReview": "unit-7 completion review passed (run-25 precedent): BOOK_FORMAT checklist 7/7, ids globally unique, totals recomputed (ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises), ch-07 status flipped complete + summary corrected to delivered scope (coordinate-plane preview claim removed — 7.4's scope guard owns that door), book.ts notes ch. 7 catalog appended",
+    "e2e": "22-lesson sweep exit 0 (fm-absolute-value-as-distance registered) + dedicated 7.4 block (e2e-74.page.js: quizClicked 5 -> live 'You scored 5/5 · perfect', showButtons 12/12 expanded, 36 collapsibles, Sol. pills 8 inline, thereforeGlyphs 24, KaTeX 276, dollarInText 0, katexErrors 0, svg 2, rawDollarInSvg 0, tables 1, noteBoxes Definition/Caution/Note/Exam-corner/Historical; mobile 390 exact-fit docScrollW 390 articleW 358; fresh-load console clean — stale mid-edit compile errors in console history predate this run)",
+    "voicePolish": "3.1 delivered (queued per-run extra): the formal 'Divisible (the treaty condition)' Definition callout rewritten in the is-said-to-be shape naming factor and multiple + the Thus-line 'Thus, 6 | 48 because 48 = 8 x 6' + the two-names para merged into the instance run — zero new numerals (all from the lesson's own 6, 48, 8, ten factors); tsc + lint clean; live-verified (saidToBe true, Thus true, KaTeX 369, katexErrors 0, dollarInText 0)",
+    "totals": "32 lessons / 150,259 words / 217 terms / 160 quiz items / 341 exercise questions (WORK_INVENTORY regenerated; stale top-level library counters 26/133,379/171 corrected to the true platform counts)"
+  },
+  "run37Extras": {
+    "lesson": "fm-points-lines-and-planes (FM 8.1, ch. 8 opens 1/5)",
+    "words": 5245,
+    "verifyChecks": "104 (A-N; new file verify-unit-8.ts, created BEFORE writing; sweep machinery: two-lines-at-most-one-point over 15 slopes x 15 intercepts; 441-pair length re-sweep; pair enumeration n=2..8 + closed form to n=20; line-classification enumerations incl. the 4-point-3-collinear pool to 4 lines and the parabola no-three-collinear certificate over all 56 triples)",
+    "newCitationKeys": [
+      "ncert-math6-ch4",
+      "ncert-math9-ch5"
+    ],
+    "figures": "2 (fig 1 the three avatars — segment/ray/line with endpoint dots vs solid arrowheads; fig 2 the meeting layouts — intersecting at the lattice point (95,150), parallel at a constant 60 px offset, concurrent through O = (635,150); (a)(b)(c) markers + enlarged l/m labels + solid double-headed arrowheads added per VLM review)",
+    "figureAudit": "0 issues both figures (all passes)",
+    "vlmReview": "fig 1 9.5 math / 9 clarity; fig 2 9 math / 8 clarity across three passes with every note cosmetic (label offsets, panel fullness) — the run-34 cosmetic-notes precedent; the one substantive review point (extent arrowheads on the drawn lines) was REAL and was implemented",
+    "e2eSuite": "23 lessons (fm-points-lines-and-planes registered in e2e-cengage-style.sh; dedicated e2e-81 block: quiz keys 3/1/1/2/3 live 5/5, 12/12 solutions, 36 collapsibles, Sol. pills 17 inline, thereforeGlyphs 29, KaTeX 361, dollarInText 0, katexErrors 0, mobile 390 exact-fit)",
+    "voicePolish": "lesson 3.2 (queued per-run extra, 3.2 third): the Definition callout 'Prime and composite (the two-factor treaty)' rewritten in the is-said-to-be shape (n is said to be prime when it carries exactly two factors...; said to be composite when some d with 1 < d < n divides it) + the Thus-line (47 prime by its complete factor list; 48 composite because 4 | 48 with 1 < 4 < 48) + the no-third-state sentence — zero new numerals (47, 48, 4, 1, 2 all already the lesson's own); tsc + lint clean; live-verified (is-said-to-be x2, Thus-line present, KaTeX 326, katexErrors 0, dollarInText 0 after the HMR transient settled)",
+    "scopeGuard": "no angle measurement (8.2 owns the turn), no transversal angle facts (8.3), no coordinate-plane machinery in content (the slope/intercept sweep lives only in the verify script), no triangle congruence or area (8.4/8.5)",
+    "nextUnit": "FM 8.2 'Angles and Their Measurement' — extends verify-unit-8.ts sections before writing; ch. 8 continues"
+  },
+  "run38Extras": {
+    "delivered": [
+      "FM 8.2 \"Angles and Their Measurement\" shipped verify-first: verify-unit-8.ts extended 104 -> 189 checks (sections O-W) BEFORE writing",
+      "lesson 4,560 words in the Cengage voice + solution chain: the angle (two rays + vertex, is-said-to-be) with the naming roman run and the static-vs-dynamic Note; the degree ledger as tag 1 with the honest Babylonian history + the 24 divisors + minutes/seconds; the five sizes (Euclid Defs 10-12 comparative) with the witness table; figure 1 the five-sizes gallery (40/90/130/180/220 to scale, ray arms with heads, arcs, the right-angle chevron); Postulate 4 + the square-corner mark; the smaller-turn convention Note; the protractor section with figure 2 (outer labels r=232, inner r=186, minor ticks every 10 deg, the long 50 tick, the crossing dot, end ticks) + the two-scale trap Caution; Illustrations 1-5 (the protractor read, the door reflex 360-115=245, comp/supp of 37 = 53/143, the 24-more-than-its-complement equation x=33 angle=57, the four-ray census 6); complementary/supplementary as tag 2 with the supp-comp=90 identity derived; the harvest roman ledger; the exam corner (clock speeds 30/h=0.5/min, 6/min); the historical callout (Euclid Defs 8/10-12 + Postulate 4; Babylonian 360 honestly unsettled; Huddart 1801; one-sentence radian forward pointer); 11 terms, 5-quiz keys 1/1/0/2/2, 12 exercises L1-L6 (L6: the identity proof cashed at 47; five-times-its-supplement = 150 with the acute impossibility)",
+      "quality gates: verify 189/189; tsc clean; lint clean; routes 200/200/200/404; 24-lesson E2E sweep exit 0; dedicated 8.2 block (quiz live 5/5, 12/12 solutions, 36 collapsibles, KaTeX 338, dollarInText 0 after the derivation-label fix, katexErrors 0, mobile 390 exact-fit, console clean); audits 0/0 both figures; VLM fig 1 9/9 publishable, fig 2 9/8 then 9/9 after the crossing-dot + end-tick fixes",
+      "voice polish 3.3: lesson 3.3 HCF Definition callout rewritten is-said-to-be (common factor d | a and d | b; HCF the greatest such d) + the Thus-line (gcd(48,60)=12 witness), zero new numerals; live-verified (KaTeX 264, errors 0, dollarInText 0)",
+      "ship: SOURCE_LOG (new key ncert-math6-gp-ch2, run-38 zero-downloads entry, ledger row updated through ch. 8), WORK_INVENTORY regenerated (34 lessons / 160,149 words / 236 terms / 170 quiz / 365 exercises; ch. 8 2/5), DETAILED_LOG (catalog + verification + timeline + CURRENT/NEXT), PROGRESS + RESUME_POINTER + book.ts notes updated"
+    ],
+    "next": "run 39: FM 8.3 Parallel Lines and Transversals (extend verify-unit-8.ts with the transversal sections first); voice polish 3.4 (lesson 3.4 LCM) queued",
+    "e2e82": {
+      "quizKeys": [
+        1,
+        1,
+        0,
+        2,
+        2
+      ],
+      "live": "You scored 5/5",
+      "solutions": "12/12",
+      "katex": 338,
+      "collapsibles": 36,
+      "mobile": "390 exact-fit"
+    }
+  },
+  "run39Extras": {
+    "lesson": "fm-parallel-lines-and-transversals (8.3, 5,114 words)",
+    "verify": "verify-unit-8.ts 189 -> 253 checks (X-AE): the transversal facts derived geometrically (half-plane classification of the 28 pairs swept over six slopes), the three parallel tests swept as biconditionals over five slopes of the second line, both figures label-swept",
+    "figures": "fig 1 the eight-angle scene (t-label relocated out of the title band after self-review; audits 0/0; VLM 10/10 math + 10/10 clarity), fig 2 the F/Z/C patterns (VLM 10/10 + 9/10, publishable as-is)",
+    "e2e": "25-lesson sweep exit 0; dedicated 8.3 block: quiz keys 1/2/1/0/2 live 5/5, 12/12 solutions, 18 Sol. pills, KaTeX 468, dollarInText 0, katex-errors 0, mobile 390 exact-fit",
+    "voicePolish": "3.4 done: lesson 3.4 LCM Definition rewritten is-said-to-be (a | m and b | m) + the Thus-line, zero new numerals; live-verified (katex 259, errors 0)",
+    "sources": "new citation keys ncert-math7-gp-ch5 (Ganita Prakash class-7 ch. 5 Parallel and Intersecting Lines) + ncert-math9-ch6 (class-9 ch. 6 Lines and Angles); history web-checked (Joyce Post. 5/I.27/I.29; Proclus, Ludlam 1785, Playfair 1795; Lobachevsky 1826/1829-30 + Bolyai 1832)",
+    "inventory": "35 lessons / 165,298 words / 247 terms / 175 quiz / 377 exercises"
+  },
+  "run40Extras": {
+    "lesson": "fm-triangles-and-the-angle-sum",
+    "words": 5382,
+    "verifyChecks": "339 total (sections AF-AN added: 86 new; 253 -> 339) ALL PASS pre-writing",
+    "figures": [
+      "figure 1: the anatomy (A(250,70), B(120,320), C(600,320), side BC produced to D(700,320); interior arcs r30, dashed exterior arc r20; labels a/b/c opposite their capitals; audit 0 issues)",
+      "figure 2: the parallel proof (A(300,120), B(130,340), C(590,340), XY the horizontal through A; equal-mark arcs 1/1 and 3/3, double arc on 2; wedge-membership + clearance swept; audit 0 issues)",
+      "figure 3: the six-panel gallery (scalene/isosceles/equilateral with perpendicular ticks at side midpoints; acute/right/obtuse with the square corner mark; all measures recomputed from panel coordinates; audit 0 issues)"
+    ],
+    "quizKeys": [
+      1,
+      2,
+      1,
+      1,
+      2
+    ],
+    "newCitationKey": "ncert-math7-ch6",
+    "voicePolish": "3.5 done (lesson 3.5 product-rule theorem callout recast is-said-to-be + the Thus-lines, zero new numerals; live-verified)",
+    "preFlightRepair": "run 39's ship commit carried book.ts with four unescaped apostrophes in the notes string (module failed to parse; dev server 500) — repaired first thing this run, gates re-run green",
+    "nextPolish": "4.1 (lesson 4.1 The Idea of a Fraction)",
+    "nextUnit": "FM 8.5 'Perimeter and Area of Rectangles, Triangles and Circles' — extends verify-unit-8.ts with the area/perimeter sections BEFORE writing; completes chapter 8"
+  },
+  "run41Extras": {
+    "lesson": "fm-perimeter-and-area-rectangles-triangles-circles",
+    "words": 5998,
+    "verifyChecks": "429 total (sections AO-AZ added: 90 new; 339 -> 429) ALL PASS pre-writing",
+    "figures": [
+      "figure 1: the tiled rectangle (5x3 unit squares at (170,60)-(590,270), grid seams 254/338/422/506 + 130/200, the diagonal halving it, two tinted triangles, labels l = 5 cm / b = 3 cm / 1 cm2 / the diagonal annotation; audit 0 issues FIRST pass, VLM 10 math / 9 clarity)",
+      "figure 2: the circle + unrolled circumference (centre (190,190) r = 90, radius ray at -60 deg to (235,112.07), diameter (100,190)-(280,190), the unwrap segment (100,340)-(665.49,340) drawn to scale 2*pi*90 = 565.49 px, dashed connector, labels O / r / d = 2r / C; audit 0 issues FIRST pass, VLM 9 math / 8 clarity)",
+      "figure 3: the 8-sector rearrangement REDESIGNED this run (first VLM pass 7/6 on the midpoint-tip construction; rebuilt as the FLUSH classic: circle (170,190) r = 100 with 8 radii + one tinted sector; band y 140..240, up-slice tips on the bottom edge at spacing s = 2*pi*100/8 = 78.54 px from x = 320, down-slice tips interleaved on the top edge at the midpoints, every straight edge collinear with its neighbour, arcs tiling both edges, first band slice tinted to link panels, measure line x = 646; audit 0 issues, VLM 9 math / 9 clarity)"
+    ],
+    "figureAudit": "0 issues FIRST pass on all three figures (the exact sweeps in AY contradict nothing)",
+    "vlmReview": "figure 1 10/9 (cosmetic notes only, the 1 cm2 cell is geometrically clear of the diagonal by the exact sweep); figure 2 9/8 (cosmetic: margins 100 vs 95 px, the connector starts on the circumference, r at 70 percent along); figure 3 pass 1 7/6 REAL (ragged band) -> redesigned to the flush construction -> pass 2 9/9 (remaining notes honest-by-design: the flipped tint IS the half-turn, the end tips ARE the construction)",
+    "quizAnswers": [
+      1,
+      2,
+      3,
+      1,
+      2
+    ],
+    "newTerms": [
+      "Perimeter",
+      "Area",
+      "Unit square",
+      "Half-walk",
+      "Base and height",
+      "Circumference",
+      "Radius and diameter",
+      "Pi (π)",
+      "Sector",
+      "Semicircle dress",
+      "Hectare",
+      "Composite figure"
+    ],
+    "e2e": "27 lessons in scripts/e2e-cengage-style.sh (fm-perimeter-and-area-rectangles-triangles-circles added) + a dedicated 8.5 block (e2e-85.page.js created + gitignore-whitelisted): quiz correct-index clicks 1/2/3/1/2 -> 5/5 live, 12 solutions expand (36 collapsibles incl. inline), Sol. pills 7 inline -> 19 with exercises, 31 therefore glyphs, KaTeX 489 -> 683 with solutions, 0 katex-errors, 0 raw-dollar text nodes (after ONE terms-name fix: Pi ($\\pi$) -> Pi (π) — term names render plain), 3 svg figures, mobile 390 exact-fit (docScrollW 390, articleW 358)",
+    "downloads": "zero — web research only (Ganita Prakash class-6 ch. 6 + NCERT class-7 ch. 11 + the class-7 exemplar gemp109; new citation keys ncert-math6-gp-ch6, ncert-math7-ch11 in SOURCE_LOG; Archimedes/Zu Chongzhi/Aryabhata/Jones/Euler/Lambert/Lindemann history web-checked; storage law honoured)",
+    "unitReview": "unit-8 completion review passed (run-6/11/20/25/32/36 precedent): BOOK_FORMAT checklist 7/7, exam-coverage audited, ids globally unique (0 dups), totals recomputed (ch. 8 = 26,299 words / 54 terms / 25 quiz / 61 exercises; book = 37 lessons / 176,712 words / 271 terms / 185 quiz / 402 exercises), ch-08 status flipped to complete, plannedLessons emptied, book.ts header notes + STATUS line updated, chapter summary refreshed",
+    "voicePolish": "lesson 4.1 (queued per-run extra, the LAST pre-4.2 lesson): the treaty Definition callout recast is-said-to-be (\"Whole numbers $n$ and $d$ are said to form the fraction $\frac{n}{d}$ when ...\") + the Thus-line on the two load-bearing requirements + the earned-name close — zero new numerals; BONUS REPAIR found during live verification: a latent katex-error in 4.1 (\\tfrac{\\text{Rs } 20} — \\text inside \\tfrac errored KaTeX) fixed to the plain Rs dress; re-verified live 0 katex-errors, all three polish phrases rendering; the pre-4.2 voice queue is now EMPTY",
+    "nextUnit": "ch. 9 Measurement opens at 9.1 Units as Agreements — create verify-unit-9.ts (ADD THE .GITIGNORE EXCEPTION FIRST: the /scripts/* trap ate e2e-83 in run 40) and extend it with the unit-9 sections before writing"
+  },
+  "run42Extras": {
+    "lesson": "fm-units-as-agreements (FM 9.1, ch. 9 Measurement OPENS 1/4)",
+    "words": 5501,
+    "verifyChecks": "200 total (sections A-M; NEW FILE scripts/verify-unit-9.ts created BEFORE writing — gitignore exceptions added FIRST per the run-40 /scripts/* trap; 590-case exact-division sweep count x unit = length; the swap law n1*u1 = n2*u2 with the inverse-law sweep k = 2..100; the 2.5 m table 0.0025 km/2.5 m/250 cm/2500 mm products all 2.5; figure furniture clearances; quiz keys 0/1/2/2/2 + all 12 exercise keys) ALL PASS pre-writing",
+    "figures": [
+      "figure 1: the desk in three handspans (10/9/8 numbered spans, shared dashed rails, hooked one-span braces; REDESIGNED once after VLM 6/6 — pass 2 scored 10/9)",
+      "figure 2: one 2.5 m ribbon, three sticks (2.5/5/25 counts, half-chunk dashed with the bumped half mark; VLM 10/9)"
+    ],
+    "gates": "tsc + lint clean; verify 200/200; routes 200 (home/9.1/8.5/book/glossary, unknown 404); E2E suite exit 0 (28 lessons) + dedicated 9.1 block (quiz live 5/5 keys 0/1/2/2/2, 12/12 solutions expand, 14 Sol. pills inline, 26 therefore glyphs, 0 raw-dollar, 0 katex-errors, mobile 390 exact-fit); SVG audits 0/0 first pass; VLM 10/9 + 10/9",
+    "references": "NEW citation keys ncert-sci6-curiosity-ch5 (Curiosity class-6 ch. 5 Measurement of Length and Motion — handspan/cubit differ person to person, shopkeeper rod vs tailor tape, metre as SI; web-checked fecu105) + ncert-phys11-ch2 (class-11 physics ch. 2 Units and Measurements — SI 7 base units, derived units; web-checked); history web-checked (royal cubit 7x4 = 28 digits, Maya rod 52.3 cm; barleycorn inch statute; Henry-I yard legend honest-uncertain; Metre Convention 1875 17 states BIPM Sevres; SI named 1960 11th CGPM; India SOWM Act 1956 -> 1 Oct 1960 metric -> Legal Metrology Act 2009)",
+    "content": "measurement defined is-said-to-be as a count of units with Q = n x u as tag 1; the desk-and-handspans case for agreement (figure 1); body units fail invariability; the three requirements of a good unit; the cubit rods as the agreement made physical; the swap law DERIVED as tag 2 (transitivity of equality) + the inverse law; the bare-number Caution; base vs derived quantities (area m^2 cashing 8.5, speed m/s cashing 6.2 with 45 km/h = 12.5 m/s); the treaty story 1875 -> 1960 SI 7 base units; India 1956/1960/2009; 8 terms, 5-quiz, 12 exercises L1-L6 (L6: the swap law proved; the 250-no-unit packet fraud cashed)",
+    "scopeGuard": "no metric-prefix tables (9.2), no conversion-as-x1 drills (9.3), no precision/accuracy/rounding (9.4), no error numerics"
+  },
+  "run44Extras": {
+    "run": 44,
+    "date": "2026-11-05",
+    "delivered": [
+      "FM 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) — the chapter-closing lesson",
+      "UNIT-9 COMPLETION REVIEW passed — ch-09 flipped to complete, plannedLessons emptied",
+      "FM 10.1 Collecting and Tallying Data (4,533 words) — ch-10.ts CREATED + registered; chapter 10 Data and Graphs OPEN 1/4"
+    ],
+    "verify": "verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED 81 checks (A–I), ALL PASS pre-writing both",
+    "gates": "tsc + lint clean (after module-scoping the verify scripts with export {}), routes 200, E2E dedicated 9.4 + 10.1 blocks green (quizzes live 5/5 on keys 1/1/2/1/0 and 0/2/2/1/1), SVG audits 0/0 all four figures, VLM 10/9 + 9/8 (9.4) and accepted-after-four-passes (10.1, geometry certified)",
+    "figures": "9.4: three-rulers plumb-line figure (redrawn twice — the white ruler bodies swallowed the line; the line re-anchored at the true apex) + the four-targets accuracy/precision figure (four passes: P4 bull-straddling dart removed, ring clearances ≥ 9 px with dot radius counted, P1 a regular pentagon centred on the bull); 10.1: the raw-list-to-tally-table figure (chips numbered 1–20; ruled frequency column; an arrow added then removed after the VLM read it as pointing at one row) + the gates gallery",
+    "fixed": "run-43 defect: the 9.3 paragraph \"One freedom worth noticing…\" existed three times in ch-09.ts — reduced to one copy",
+    "counts": "book = 42 lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises; ch. 9 COMPLETE 19,213 words; ch. 10 1/4",
+    "citations": "new keys ncert-math6-ch1 (the class-6 rounding charter) + ncert-ganita-prakash6-ch4 (the tally/frequency charter)"
+  },
+  "run45Extras": {
+    "run": 45,
+    "date": "2026-11-05",
+    "firedFrom": "job 498279 (re-enabled by the owner; its stale one-lesson payload superseded by the 2026-11-05 two-lesson directive in memory; the duplicate-hourly-trigger situation logged for the owner)",
+    "delivered": [
+      "FM 10.2 Bar Charts, Line Graphs and Pie Charts (4,331 words)",
+      "FM 10.3 Reading Graphs Critically (4,062 words)"
+    ],
+    "verify": "verify-unit-10.ts 81 → 141 (J–R) → 186 (S–Z2) checks, ALL PASS pre-writing both lessons",
+    "gates": "tsc + lint clean, routes 200, E2E dedicated 10.2 + 10.3 blocks green (quizzes live 5/5 on keys 1/3/2/2/0 and 1/2/1/1/1 — the Y4 key corrected from the live run), SVG audits 0/0 all five figures, VLM 9.5/8 + 9/7.5 + 9/7 (10.2) and 9.5/8 + accepted-on-inspection (10.3; the VLM label misread overruled by direct inspection, the ellipse claim disproven by DOM measurement)",
+    "laws": "tag 1 the bar-scale law + tag 2 the central-angle law (10.2); tag 1 the exaggeration law + tag 2 the scale-invariance law (10.3)",
+    "counts": "book = 44 lessons / 208,869 words / 327 terms / 220 quiz / 486 exercises; ch. 10 in-progress 3/4 (12,926 words)",
+    "citations": "new keys ncert-math8-ch4 + huff-1954-lie-with-statistics"
+  },
+  "ownerDirective20261105": {
+    "oldJob": "498279 'LockIn Library — hourly unit run' — disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",
+    "newJob": "504365 'LockIn Library — hourly unit run (2 lessons/run)' — fixed_rate 3600 s, tz Asia/Kolkata, created 2026-11-05 10:11:33, status enabled",
+    "change": "TWO lessons per run (authored sequentially, each with verify-first + full quality gates; an in-flight lesson counts as lesson 1 of 2; single ship after both); every other detail identical, including the PUSH PROTOCOL with the PAT embedded only in the job payload",
+    "lessonWorkThisTurn": "none — infrastructure directive only; tree clean at beaf0f8, remote synced; run 43 = FM 9.2 + FM 9.3"
+  },
+  "run43Extras": {
+    "lessons": [
+      "fm-the-metric-system",
+      "fm-converting-units-without-memorising-tables"
+    ],
+    "words": [
+      4529,
+      3603
+    ],
+    "verifyChecks": 428,
+    "quizKeys": [
+      [
+        0,
+        2,
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2,
+        2,
+        1
+      ]
+    ],
+    "newCitationKeys": [
+      "wikipedia-metre-history",
+      "usma-1795-decree",
+      "sizes-litre-1964",
+      "ncj-measuring-the-meter"
+    ],
+    "figureWork": "9.2 fig1 redesigned twice to 10/8 (countable hops + per-hop x10 labels + the 3.45 km anchor), fig2 10/9; 9.3 fig1 rebuilt to token-strikes 10/9, fig2 rebuilt left-to-right with pure-factor collapse 10/9; audits 0/0 all four",
+    "twoLessonMilestone": "the first run under job 504365 and the owner’s 2026-11-05 two-lesson directive — both lessons verified and gated individually, single ship"
+  },
+  "run46Extras": {
+    "run": 46,
+    "date": "2026-11-05",
+    "firedFrom": "job 504365 (the two-lesson job; third fire — the two prior fires were consumed by session summarisation with zero execution, logged for the owner)",
+    "delivered": [
+      "FM 10.4 Mean, Median and Mode (5,783 words) — CHAPTER 10 CLOSED with the unit-10 completion review passed",
+      "FM 11.1 Patterns and Rules (4,965 words) — ch-11.ts created and registered; chapter 11 Patterns and the Doorstep of Algebra OPENS 1/3"
+    ],
+    "verify": "verify-unit-10.ts 186 → 301 checks (AA–AP) + verify-unit-11.ts CREATED 72 checks (A–O), ALL PASS pre-writing both lessons",
+    "gates": "tsc + lint clean, routes 200, E2E dedicated 10.4 + 11.1 blocks green (quizzes live 5/5 on keys 2/1/2/3/2 and 1/0/2/3/2; 18 Sol pills + 90 ∴ glyphs each; mobile 390 exact-fit both), SVG audits 0/0 all four figures, VLM 9/8 + 9/8 (10.4) and 8/9 (after two redesigns; the three-heavy reading certified) + 9/9 (11.1)",
+    "laws": "tag 1 the balance law (+ the rebuild law) and tag 2 the position law (10.4); tag 1 the jump law and tag 2 the gnomon law (11.1)",
+    "counts": "book = 46 lessons / 219,617 words / 343 terms / 230 quiz / 510 exercises; ch. 9 complete; ch. 10 COMPLETE 4/4 (18,709 words); ch. 11 in-progress 1/3",
+    "citations": "new key ncert-ganita-prakash6-ch1 (Ganita Prakash class-6 ch. 1 Patterns in Mathematics, fegp101, web-checked); carried keys ncert-math7-ch3 (class-7 ch. 3 Data Handling — mean/mode/median, web-checked), ncert-ganita-prakash6-ch4, khattar-qa-4e",
+    "completionReview": "unit-10 review passed (BOOK_FORMAT checklist 7/7, exam corners 4/4, ids unique book-wide 46/46, ch-10 flipped complete, plannedLessons emptied, totals recomputed)"
+  },
+  "run47Extras": {
+    "run": 47,
+    "date": "2026-11-05",
+    "firedFrom": "job 498279 (the old hourly job's 15:00 fire; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files, per the payload's own step 1 — the duplicate-hourly-trigger situation stands logged for the owner)",
+    "delivered": [
+      "FM 11.2 From Patterns to Formulas (3,931 words) — the an+b dress + the staircase pairing",
+      "FM 11.3 A Letter for the Unknown (4,021 words) — the balance law + the undo machine; THE BOOK'S FINAL LESSON",
+      "THE UNIT-11 COMPLETION REVIEW PASSED — FOUNDATION MATHEMATICS COMPLETE: 11-for-11 chapters"
+    ],
+    "verify": "verify-unit-11.ts 74 → 145 (P–Z) → 187 (AA–AL) checks, ALL PASS pre-writing both lessons",
+    "gates": "tsc + lint clean, routes 200, E2E dedicated 11.2 + 11.3 blocks green (quizzes live 5/5 on keys 0/1/1/0/0 both; 6 Sol pills + 18 ∴ glyphs each; 0 raw-$, 0 katex-errors; mobile 390 exact-fit), SVG audits 0/0 all four figures (the balance re-laid once after the audit caught the 31/30 blocks overlapping the x-boxes), visual review 9/9 x 4",
+    "laws": "tag 1 the an+b dress + tag 2 the staircase formula (11.2); tag 1 the balance law + tag 2 the undo machine (11.3)",
+    "counts": "book = 48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises — COMPLETE; ch. 11 = 3 lessons / 12,917 words / 16 terms / 15 quiz / 36 exercises",
+    "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
+    "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
+  },
+  "lastCompleted": {
+    "run": "75 (2026-11-08)",
+    "summary": "AL chapter 5 'Linear Equations in One Variable' OPENS 2/3: 5.1 'What an Equation Is: the Balance Principle' (5,027 words, quiz keys 1/1/3/0/1) + 5.2 'Solving Linear Equations' (4,277 words, quiz keys 1/0/1/2/0) — authored strictly sequentially verify-first; verify-book3-ch05.ts 318,129 checks ALL GREEN (sections A–G); 9,304 words across the two lessons; 4 figures audited 0-issue + visually inspected; E2E 45/45 ×2+ ×3 viewports per lesson; the book stands 4 complete chapters + ch. 5 open 2/3 of 11 (100 lessons / 485,665 words repo-wide); 5.3 + the unit-5 review close the chapter at run 76."
+  },
+  "run55Extras": {
+    "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
+    "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
+    "gates": "tsc 0; lint 0; routes 200/200/404; E2E quizzes live 5/5 on keys 1/1/0/1/1 and 0/0/1/1/1; 16+20 Sol pills; 87+102 therefore glyphs; 0 raw-$; 0 katex-errors; mobile 390 exact-fit; SVG audits 0/0 (104+18 texts); screenshots reviewed",
+    "shipCommits": "ship + memory (shas recorded post-push)",
+    "newCitationKeys": [
+      "euclid-elements-book-ix",
+      "eratosthenes-sieve-nicomachus",
+      "al-farisi-fta-existence",
+      "gauss-1801-disquisitiones"
+    ],
+    "progressBackfill": "run 54's ship had updated PROGRESS's structured book/library fields but left the top-level phase/awaiting/lastCompleted at run 52/53 — this run's ship backfills all three while advancing them to run 55"
+  },
+  "run56Extras": {
+    "chapter": "ANS ch. 4 'Primes and the Fundamental Theorem of Arithmetic' — COMPLETE 4/4, closed in ONE run per the owner's 2026-11-06 one-full-chapter directive (this is the first chapter shipped under it)",
+    "lessons": [
+      {
+        "id": "ans-divisors-from-dna-divisor-counts",
+        "number": "4.3",
+        "words": 5285,
+        "terms": 8,
+        "quiz": 5,
+        "exercises": 14,
+        "verify": "sections W–AF",
+        "figure": "the divisor lattice of 72 (σ = 195 read along either margin)"
+      },
+      {
+        "id": "ans-how-the-primes-are-distributed",
+        "number": "4.4",
+        "words": 5204,
+        "terms": 8,
+        "quiz": 5,
+        "exercises": 14,
+        "verify": "sections AG–AP",
+        "figure": "the prime line to 110 (twins bracketed, the 89→97 canyon)"
+      }
+    ],
+    "verify": "verify-book2-ch04.ts 167 → 356 checks (sections W–AQ), ALL GREEN before writing; pre-writing catches: the record gap below 2000 is 34 at 1327→1361 (1129→1163 is not a prime gap — 1151 inside), Σ 1/p ≤ 1000 = 2.198080; post-write SVG-audit catch: 4.3 lattice column labels moved y 224 → 232, re-audited 0/0",
+    "completionReview": "exam corners 4/4; ids globally unique (65); ch-04 status complete + plannedLessons []; book.ts notes updated; chapter 4 = 20,839 words / 32 terms / 20 quiz / 55 exercises",
+    "newCitationKeys": [
+      "euclid-ix-36-perfect-numbers",
+      "nicomachus-perfect-abundant-deficient",
+      "amicable-pythagoreans-thabit-al-farisi",
+      "bertrand-postulate-1845-chebyshev",
+      "euler-1737-reciprocal-primes",
+      "hadamard-vallee-poussin-pnt-1896",
+      "zhang-2013-bounded-gaps"
+    ],
+    "downloads": "zero — the sanctioned internet fallback grounded the seven new keys; no working copies to delete"
+  },
+  "run58Extras": {
+    "fired": "2026-11-06 14:15 IST from job 507529 (the one-full-chapter payload with PUSH PROTOCOL; job 507350's fixed_rate cadence superseded by wall-clock cron — the payload carried the same directives)",
+    "delivered": "ANS ch. 6 COMPLETE 3/3 in ONE run: 6.1 closure failures (5,618 words) + 6.2 the construction (5,269) + 6.3 the laws (4,890) + the unit-6 completion review",
+    "verifyChecks": "233 (sections A–W; created at 125 for 6.1 pre-writing, extended 147 → 196 → 233 before each lesson)",
+    "quizKeys": [
+      [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        2,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        2
+      ]
+    ],
+    "defectsCaughtPreWriting": [
+      "figure-1 x-coordinate X(7) = 452 not 484",
+      "two assertion typos in the D sweep (3+3 = 6 not 4)",
+      "transitivity sweep needed entries ≤ 6 for > 500 chained instances",
+      "[(5,1)]·[(4,1)] = [(21,9)] not [(21,10)] — b·c misadded",
+      "[(3,1)]·[(1,2)] reduces to (1,3) not (1,2)",
+      "the (−2)³ chain rebuilt through (1,3)·(1,3) = (10,6) then (10,6)·(1,3) = (28,36)",
+      "the census live-count assertion",
+      "[(4,1)]·[(5,5)] = [(25,25)] not (21,21)",
+      "a table-index bug in the −4..4 cell checks"
+    ],
+    "liveE2ECatches": [
+      "table captions + one term name carried $ math that the reader prints raw — stripped to plain text (dollarInText 8 → 0)",
+      "figure labels repositioned twice (6.1 ticks/labels; 6.2 owe-box caption merged to one line; 6.3 mirror annotations moved below the arcs) — all three figures audit 0 issues"
+    ],
+    "newCitationKeys": [
+      "hankel-1867-permanence",
+      "peacock-1833-permanence",
+      "brahmagupta-628-brahmasphutasiddhanta"
+    ],
+    "chapterState": "ANS ch. 6 COMPLETE 3/3 (15,777 words; 24 terms, 15 quiz, 42 exercises; exam corners 3/3; ids globally unique at 70)",
+    "nextRun": "run 59 = ANS ch. 7 Building the Rationals COMPLETE 3/3 (verify-book2-ch07.ts FIRST)"
+  },
+  "run59Extras": {
+    "run": 59,
+    "date": "2026-11-06",
+    "fired": "15:45 +08:00 (job 507529 payload; trace cron-agent-loop-202611061621)",
+    "cadence": "one-full-chapter-per-run (owner directive 2026-11-06); the fourth consecutive chapter closed in a single run",
+    "chapter": "ANS ch. 7 'Building the Rationals' COMPLETE 3/3",
+    "verifyScript": "scripts/verify-book2-ch07.ts — 239 checks (sections A–T), ALL PASS before writing; fifteen pre-writing defects caught (the associativity sweep bug X+(X+Y)-vs-(X+Y)+Z, the density-iteration endpoints-vs-pairs confusion, the 10^16−1 double-precision wall fixed with BigInt round-trips incl. 1/17’s 16-digit cycle, 5/12 pre-period 2-not-1, 43/90 not reducible, midpoint of 1/3 and 1/8 = 11/48 not 11/24, quiz option-order mismatches against authored layouts ×2, figure label placements ×5)",
+    "lessons": [
+      {
+        "id": "ans-from-fractions-to-the-rational-system",
+        "number": "7.1",
+        "words": 5482,
+        "quizKeys": [
+          2,
+          1,
+          0,
+          2,
+          1
+        ],
+        "exercises": 14,
+        "figures": 1,
+        "notes": "the fraction-pair construction; the lattice figure with computed rays"
+      },
+      {
+        "id": "ans-the-field-laws-division-joins-the-family",
+        "number": "7.2",
+        "words": 4332,
+        "quizKeys": [
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "exercises": 15,
+        "figures": 1,
+        "notes": "reciprocal law, division defined, division-by-zero proved, field named (Dedekind 1871), Density I, mirror-map figure"
+      },
+      {
+        "id": "ans-density-and-the-decimal-mirror-proven",
+        "number": "7.3",
+        "words": 5064,
+        "quizKeys": [
+          2,
+          1,
+          3,
+          1,
+          0
+        ],
+        "exercises": 15,
+        "figures": 2,
+        "notes": "Density II, the mirror theorem, the 2^m·5^n criterion, the 1/p period table, conversion formulas, remainder-machine + zoom figures"
+      }
+    ],
+    "gates": "lint 0 errors (1 pre-existing unrelated warning); tsc 0; routes 200 ×3; E2E per lesson — quiz answered live on the intended keys (\"You scored 5/5\" all three), all solutions expanded (Sol pills 15/16/17), 0 katex-errors, 0 raw $, 0 console errors, no overflow at 390px and 1280px; SVG overlap audits CLEAN on all four figures after label fixes (7.1 lattice: numerator-label x-shift; 7.2 mirror: curve bow −30 + label moves; 7.3: outward digit labels + annotation split)",
+    "review": "exam corners 3/3 ✓; ids globally unique (73 repo-wide) ✓; all 14 block types exercised ✓; ch-07 flipped complete, plannedLessons emptied; totals recomputed 2/18/73/357,471/555/365/878; 9 planned lessons remain (ANS ch. 8–10)",
+    "push": "protocol push after ship — see WORKLOG run-59 entry"
+  },
+  "run60Extras": {
+    "run": 60,
+    "date": "2026-11-06",
+    "fired": "2026-11-06 22:21:30 +08:00 (job 509354 payload — the hourly :45 two-lesson v2 directive; trace cron-agent-loop-202611062221)",
+    "directiveChange": "owner directive 2026-11-06 v2: TWO lessons per run at hourly cadence (supersedes the one-full-chapter rule; restored from the older two-lessons interim rule)",
+    "delivered": [
+      "ANS 8.1 \"The Diagonal That Broke the Rationals\" (ans-the-diagonal-that-broke-the-rationals, 5,393 words, 8 terms, 5 quiz keys 1/2/0/2/3, 15 exercises L1–L6, 3 derivations, 1 illustration, 1 table — the n = 1..20 census, 2 figures — the no-Pythagoras dissection + the self-similar squeeze ladder, 4 formula cards)",
+      "ANS 8.2 \"The Family of Irrationals\" (ans-the-family-of-irrationals, 5,073 words, 8 terms, 5 quiz keys 2/0/1/3/1, 15 exercises, 3 derivations, 2 illustrations, 2 tables — the kernel dictionary + the family decimal names, 2 figures — the computed family line + the Spiral of Theodorus, 4 formula cards)"
+    ],
+    "verify": "verify-book2-ch08.ts 171 checks (sections A–Q) ALL GREEN; ten pre-writing defects caught incl. the isqrt seed bug and the wrong remembered √2-family digits; gates: lint 0, tsc 0, routes 200 (dev server restarted — dynamicParams=false cached the old static params), E2E 34 PASS ×2 suites (desktop/mobile/dark), overlap audits 0 issues ×4 figures",
+    "scheduling": "the sibling visual job (job 507527) had already committed enhance(fm-comparing-ordering-numbers) as 7583ef4 — carried to the remote by this run's protocol push per the shared-push rule"
+  },
+  "run61Extras": {
+    "run": 61,
+    "date": "2026-11-06",
+    "firedFrom": "manual catch-up of job 509354 (21:45 IST fire failed to start: model concurrency limit exceeded; executed 21:54–23:40 IST in the live session)",
+    "lessons": [
+      "ans-how-irrationals-behave (8.3)",
+      "ans-completeness-the-line-without-holes (8.4)"
+    ],
+    "words": [
+      4296,
+      5496
+    ],
+    "verifyChecks": "302 (sections A–U2; R/S pre-writing + T/U for 8.3 + T2/U2 for 8.4)",
+    "quizKeys": {
+      "8.3": [
+        1,
+        1,
+        3,
+        0,
+        0
+      ],
+      "8.4": [
+        2,
+        3,
+        2,
+        1,
+        1
+      ]
+    },
+    "defectsCaught": [
+      "8.1 two-shores callout: U = {r ∈ ℚ : r² > 2} lacked the r > 0 guard (−2 in both classes) — fixed + pinned by S0 text checks",
+      "8.1 trichotomy prose: \"r² = 2, r² = 2\" duplicated where the third case should be r² > 2 — fixed",
+      "8.4 draft: 14142² typed 199,981,964 for 199,996,164 (U2 regression guard added)",
+      "8.4 draft: 141421²/141422² typed 19,999,898,241 / 20,000,026,084 for 19,999,899,241 / 20,000,182,084 (U2 guards)",
+      "8.4 draft: (1.41573)² typed ≈ 2.00029 for ≈ 2.0042 (U2 guard)"
+    ],
+    "citationKeys": [
+      "dedekind-1872-stetigkeit",
+      "cantor-1872-fundamental-sequences",
+      "heine-1872-functionenlehre",
+      "meray-1869-limites"
+    ],
+    "unit8Review": "PASS — exam corners 4/4, ids 77 repo-wide unique, all 12 block types, ch-08 complete + plannedLessons emptied",
+    "notes": "the 21:45 fire failure was startup-only (no work lost); the 22:45 fire may fail-to-start while this session works — the cadence self-heals on the next free slot"
+  },
+  "run62Extras": {
+    "run": "62",
+    "date": "2026-11-07",
+    "firedFrom": "job 509354's hourly :45 cadence (fixed wall-clock cron), trace cron-agent-loop-202611070815",
+    "lessons": [
+      {
+        "id": "ans-tallies-groupings-and-additive-systems",
+        "number": "9.1",
+        "words": 5311,
+        "quizKeys": "1/2/0/1/1",
+        "exercises": 14,
+        "terms": 8,
+        "figures": "compression ladder (3,027 strokes → 12 hieroglyphs → 4 digits) + the 23×19=437 doubling engine"
+      },
+      {
+        "id": "ans-place-value-before-its-time-babylon-and-mesoamerica",
+        "number": "9.2",
+        "words": 4919,
+        "quizKeys": "1/3/2/1/1",
+        "exercises": 14,
+        "terms": 8,
+        "figures": "two place ladders (the 18-kink at 360 highlighted) + the YBC 7289 stylized reconstruction"
+      }
+    ],
+    "words": "10,230 this run (5,311 + 4,919); book total 388,082",
+    "verifyChecks": "218 (sections A–N + K/L) — created BEFORE any lesson text, extended with K/L before 9.2",
+    "quizKeys": "9.1: 1/2/0/1/1 · 9.2: 1/3/2/1/1 — both verified live 5/5 at 1280 and true 390",
+    "defectsCaught": {
+      "verifierPhase": 14,
+      "authoringTime": 2,
+      "harnessRepairs": 2,
+      "highlights": [
+        "the doubling-pick filter compared exponents to tick values (rows are picked by the 1-bits of the multiplier)",
+        "the author's hand-typed Roman lengths were wrong across the whole comparison table — 999,999 takes 1,005 M-repeats + CMXCIX; re-scoped to the 3,999 = MMMCMXCIX ceiling",
+        "7,259 = ⟨2,0,59⟩ not ⟨2,5,59⟩ (an internal-gap exhibit, not a near-miss)",
+        "the YBC error SIGN — 1;24,51,10 = 1.41421296… under-estimates √2; error ≈ 5.9934×10⁻⁷, one part in ≈2.36 million",
+        "regular-number counts 34 (base 60) vs 15 (base 10) for n ≤ 100",
+        "10.2.3.12.7 = 1,455,727 days (a hand transposition caught)",
+        "the figure builders omitted the <svg> wrapper — captions rendered but zero SVGs in the DOM (svgCount check caught it)",
+        "the doubling figure sum-line overlap (fixed; audit 0/0)",
+        "e2e-ans-92's prereq regex still carried 9.1's set (1 chip vs 4)",
+        "PRE-EXISTING tsc collision between the two global-scope scripts (verify-book2-ch01.ts ↔ enhance-fm-12-gen.ts) proven on pristine HEAD and fixed with export {} module markers"
+      ]
+    },
+    "citationKeys": [
+      "egyptian-hieroglyphic-numerals",
+      "ishango-bone",
+      "roman-numerals",
+      "babylonian-sexagesimal-numerals",
+      "ybc-7289",
+      "plimpton-322",
+      "maya-numerals-long-count"
+    ],
+    "notes": "OpenStax Contemporary Mathematics §4.2 carried as the unit reference (never reproduced — license forbids ingestion; exposition original). Drive survey rebuilt post-recycle (rebuild_drive_survey.ts, 89 entries). Zero reference downloads this run."
+  },
+  "run64Extras": "run 64 (2026-11-07, job 509354's hourly :45 IST cadence — the FIRST run after four consecutive zero-output sessions, executed fully in one session): ANS ch. 10 opens 2/3 — 10.1 (5,574 words) + 10.2 (5,459 words) sequential, verify-first 174 checks ALL GREEN, gates green twice, e2e-ans-101 + e2e-ans-102 whitelisted pre-commit; scheduling note recorded for the owner: the fire timestamp renders as 13:01 +08:00 = 07:45 IST — the :45 slot exactly as pinned (the earlier ':15 trigger' suspicion was a gateway-timezone rendering artifact, settled by converting +08:00 to Asia/Kolkata); zero reference downloads (internet research sanctioned; Drive survey rebuilt post-recycle, 89 entries intact).",
+  "run71Extras": {
+    "date": "2026-11-07",
+    "job": "509354 (fired 22:15:01 +08:00, trace cron-agent-loop-202611072215)",
+    "scope": "AL ch. 3 OPENS with 3.1 + 3.2 (v2 two-lesson quota, strictly sequential, verify-first)",
+    "lessons": [
+      {
+        "id": "al-what-a-polynomial-is-terms-degree-and-family",
+        "words": 4989,
+        "quizKeys": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "id": "al-adding-subtracting-and-multiplying-polynomials",
+        "words": 5013,
+        "quizKeys": [
+          0,
+          2,
+          1,
+          0,
+          1
+        ]
+      }
+    ],
+    "verifier": "verify-book3-ch03.ts 214 checks ALL GREEN (A–G pre-writing 115 + H/I authored 99)",
+    "figures": 4,
+    "downloads": "one (the H&K Elementary scan re-pulled for ch. V + art. 24–26 study; deleted after E2E)"
+  },
+  "run72Extras": {
+    "date": "2026-11-08",
+    "job": "509354 (payload re-delivered 04:15:01 +08:00, trace cron-agent-loop-202611080415; the :15 slot is the sibling's but the payload is the main LOCKIN RUN — executed as run 72 per the MISSED-FIRE rule)",
+    "scope": "AL ch. 3 CLOSES with 3.3 + 3.4 + the unit-3 completion review (v2 two-lesson quota, strictly sequential, verify-first)",
+    "lessons": [
+      {
+        "id": "al-special-products-the-identities-proved",
+        "words": 4408,
+        "quizKeys": [
+          1,
+          2,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "al-dividing-polynomials-long-division-and-the-remainder-theorem",
+        "words": 4246,
+        "quizKeys": [
+          0,
+          1,
+          2,
+          0,
+          1
+        ]
+      }
+    ],
+    "verifier": "verify-book3-ch03.ts 214 → 436 checks ALL GREEN (J/K for 3.3, L/M for 3.4; M carries the unit-3 review's 7-point checklist)",
+    "newCitationKeys": [
+      "euclid-elements-ii4",
+      "ruffini-synthetic-division"
+    ],
+    "downloads": "one (the H&K Elementary scan re-pulled for ch. VI Division + arts. 112–114 + the bound Higher-Algebra art. 311 remainder-theorem exposition; deleted after E2E)",
+    "infra": "audit-svg-overlaps.sh gained the al-* book mapping; e2e-al-33/34 whitelisted in .gitignore"
+  },
+  "run73Extras": {
+    "run": 73,
+    "date": "2026-11-08",
+    "firedFrom": "job 509354's payload re-delivered 05:15:01 +08:00, trace cron-agent-loop-202611080515 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
+    "lessons": [
+      "al-common-factors-and-grouping (4.1)",
+      "al-factoring-quadratic-trinomials (4.2)"
+    ],
+    "words": [
+      4202,
+      4050
+    ],
+    "chapterWords": 8252,
+    "verifyChecks": "248 ALL GREEN (verify-book3-ch04.ts sections A–G: A engines incl. the gauge theorem at 1,025 cells + the AC-split completeness theorem over 8,238 primitive trinomials; B/D pinned computations both sides; C/E figure plans; F/G authored batteries)",
+    "quizKeys": {
+      "4.1": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "4.2": [
+        2,
+        1,
+        3,
+        1,
+        3
+      ]
+    },
+    "figures": [
+      "the reversible film (4.1)",
+      "the grouping machine (4.1)",
+      "the two dials and the gauge (4.2)",
+      "the AC pipeline (4.2)"
+    ],
+    "preWritingCatches": "the multi-letter bracket defect (2xy + x − 3, not 2xy − 3 + xy — the third term leaves a bare x) + a wrong partial-extraction exhibit + 12 verifier-side construction slips",
+    "authoredCatches": "4 odd backslash runs (the \\'' prime escape) + 2 figure-geometry defects (panel/band overlap, title/note 2px) + 1 band-edge spill — all repaired to zero",
+    "e2e": "45/45 PASS x2 runs x3 viewports per lesson",
+    "downloads": "zero (banked H&K knowledge + one new web-checked key harriot-1631-praxis)",
+    "inventory": "96 lessons / 468,328 words / 739 terms / 480 quiz / 1,205 exercises repo-wide; 24 chapters written + 1 in progress"
+  },
+  "run74Extras": {
+    "run": 74,
+    "date": "2026-11-08",
+    "firedFrom": "job 509354's payload re-delivered 06:15:01 +08:00, trace cron-agent-loop-202611080619 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
+    "lessons": [
+      "al-identities-as-factorizations (4.3)",
+      "al-factor-theorem-and-cubics (4.4)"
+    ],
+    "words": [
+      4007,
+      4026
+    ],
+    "chapterWords": 16245,
+    "unit4Review": "PASSED 7/7 (BOOK_FORMAT checklist) + exam corners 4/4 + the chapter snapshot (16,245 words / 32 terms / 20 quiz / 56 exercises / 8 figures)",
+    "verifyChecks": "471 ALL GREEN (sections A–K: the Germain identity 169 points, the x⁴+16 exhaustive scan, synDiv 3,375 draws, THE MONIC INTEGER-ROOT THEOREM 4,056 cubics, THE CUBIC IRREDUCIBILITY THEOREM both directions)",
+    "quizKeys": {
+      "4.3": [
+        2,
+        1,
+        0,
+        1,
+        2
+      ],
+      "4.4": [
+        1,
+        3,
+        0,
+        1,
+        0
+      ]
+    },
+    "figures": [
+      "the recognition shelf (4.3)",
+      "the recognition decision tree (4.3)",
+      "the root-factor bridge (4.4)",
+      "the cubic hunting machine (4.4)"
+    ],
+    "newCitationKeys": [
+      "sophie-germain-identity",
+      "cardano-1545-ars-magna"
+    ],
+    "e2e": "45/45 PASS x2 runs x3 viewports per lesson (after the dev-server restart)",
+    "downloads": "zero",
+    "inventory": "98 lessons / 476,361 words repo-wide; 25 chapters written / 0 in progress"
+  },
+  "run75Extras": {
+    "run": 75,
+    "date": "2026-11-08",
+    "firedFrom": "job 509354's payload re-delivered 07:15:01 +08:00, trace cron-agent-loop-202611080715 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
+    "lessons": [
+      "al-what-an-equation-is-the-balance-principle (5.1)",
+      "al-solving-linear-equations (5.2)"
+    ],
+    "words": [
+      5027,
+      4277
+    ],
+    "chapterWords": 9304,
+    "verifyChecks": "318,129 ALL GREEN (sections A–G: the 28,561-assertion classification sweep, 48,384 move-equivalence checks, the ×0 destroyer at 2,025 sets, 3,072 LCD-clearing equations, 864 bracket shapes, 458 uniqueness witnesses; F+G authored-time incl. the exact-plan figure audits)",
+    "quizKeys": {
+      "5.1": [
+        1,
+        1,
+        3,
+        0,
+        1
+      ],
+      "5.2": [
+        1,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    "figures": [
+      "the three-assertions census strip + the balance and its lawful moves (5.1)",
+      "the five-station pipeline + the invariant solution set (5.2)"
+    ],
+    "e2e": "45/45 PASS x2+ runs x3 viewports per lesson (keys 1/1/3/0/1 and 1/0/1/2/0 live 5/5)",
+    "sources": "recorde-1557-whetstone NEW (web-checked); hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, alkhwarizmi-c825-aljabr carried; zero downloads",
+    "nextRun": "76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review close ch. 5"
+  },
+  "lastPush": {
+    "run": 75,
+    "date": "2026-11-08",
+    "shipCommit": "728eddf",
+    "pushed": "f7ce019..728eddf (the run-74 memory commit 2b12f2a rode the same push)",
+    "remoteMainVerified": "728eddf071140b61e4c40fa81c0b0ca8ccec68fd",
+    "method": "one-time-URL ls-remote = local HEAD at verification time; origin/main tracking ref re-synced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote"
+  },
+  "customBookBuilder": {
+    "added": "2026-11-08",
+    "principle": "ONE Main Academic Library, unlimited personalized custom books; the library is the exclusive academic source",
+    "storage": "Prisma/SQLite (db/custom.db): User, Session, CustomBook, CustomBookChapter, CustomBookContentReference (references canonical lesson ids only), CustomBookBookmark, CustomBookNote, CustomBookProgress, CustomBookCoverage",
+    "routes": [
+      "/signin",
+      "/builder",
+      "/my-books",
+      "/my-books/[bookId]",
+      "/my-books/[bookId]/read"
+    ],
+    "apis": [
+      "/api/auth/*",
+      "/api/library/tree|search|lessons/[lessonId]",
+      "/api/builder/match|upload-pdf",
+      "/api/custom-books(+[bookId]/duplicate|search|bookmarks|notes|progress)"
+    ],
+    "gates": {
+      "verify-custom-book-builder.ts": "55/55",
+      "smoke-custom-books.ts": "57/57",
+      "e2e-custom-book-builder.sh": "49/49 x2 runs (desktop/mobile/dark, 0 console errors)",
+      "tsc": "clean",
+      "lint": "0 errors"
+    },
+    "docs": "docs/project/CUSTOM_BOOK_BUILDER.md"
   }
- },
- "workflowRulesReminder": [
-  "ONE UNIT OF ONE SUBJECT AT A TIME (owner directive 2026-11-03) with ONE FULL CHAPTER PER RUN (owner directive 2026-11-06, job 506464 — supersedes the 2026-11-05 two-lesson rule): a unit = one chapter; each run completes the ENTIRE current chapter — every not-yet-written lesson authored sequentially (each fully researched → written → verified → shipped through its own gates before the next begins; never batch-draft) plus the unit completion review, so the chapter is whole and verified by run end; the next run then does the next chapter in full",
-  "Download only the current unit's reference books (internet research is the sanctioned fallback when Drive lacks a topic)",
-  "Delete downloaded working copies after the unit is verified (never Drive originals)",
-  "Original content only; references inform, never reproduce",
-  "A unit passes §6 gates before it counts; a book is complete only after verification + exam-coverage audit + reader integration",
-  "No daily-streak / gamified streak features on the website (owner request 2026-11-03)",
-  "Maintain docs/project/WORK_INVENTORY.json + DETAILED_LOG.md at every unit ship (owner directive 2026-11-03) — regenerate the inventory with 'bun run scripts/build_work_inventory.ts'",
-  "Drive reference-collection link is persisted in project memory (this file + SOURCE_LOG.md + WORK_INVENTORY.json) — owner never resends it",
-  "PUSH PROTOCOL v2 (owner directive 2026-11-03): the owner’s fine-grained PAT lives ONLY in the hourly cron job payload (job 506464 since 2026-11-06, which replaced job 504365 — itself the 2026-11-05 replacement of the now-deleted job 498279) enabling automated pushes after all gates pass; it is still never written to files/env/remote config/logs/commits — one-time HTTPS push URLs only; fallback if the job is deleted or the token revoked/expired: the owner pastes a fresh token in chat or pushes themselves (README ‘Pushing to GitHub’)"
- ],
- "notes": " FIGURE OVERLAP RULE (2026-11-03, owner-reported defect class): every new figure must pass `bash scripts/audit-svg-overlaps.sh <lessonId>` with 0 issues before ship — exact-geometry audit (getBBox + sampled curves) on the live rendered page; intentional rings/boxes/strikethroughs are auto-whitelisted; check viewBox clipping too. SCHEDULE (owner directive 2026-11-06): the hourly loop lives in cron job 506464 'LockIn Library — hourly chapter run (1 full chapter/run)' (fixed_rate 3600 s, Asia/Kolkata, priority 5, created 2026-11-06 01:03 IST; jobs 504365 two-lesson and 498279 stale-duplicate were DELETED by the agent under the owner's edit-and-reschedule instruction — 498279 had stayed active after its API disable and kept colliding) — one full chapter per run, every other rule unchanged.",
- "run30Extras": {
-  "lesson": "fm-direct-and-inverse-variation",
-  "recovery": "finished the 15:18 delivery in-flight commit 407c0fe (lesson + verify AF-AP + e2e registration authored, gates/bookkeeping/push missing)",
-  "words": 5373,
-  "verifyChecks": "361 total (AF-AP pre-extended by the interrupted run; AJ10/AJ13/AJ14 + AM4/AM5 rewritten for the polished figures, +2)",
-  "figures": [
-   "figure 1 one journey two bindings (line d = 60t vs hyperbola xy = 240; titles raised to y 40, km/h cleared of the 90 tick, 3 x 80 label relocated to the guides pocket (480,108); audit 0, VLM 10/10 math + 9/10 clarity)",
-   "figure 2 the flip seat by seat (two crossing legs (470,122)-(566,178) and (566,122)-(470,178) crossing at (518,150), side label at (240,156), captions recentered on the box grid x 358; audit 0, VLM 10/10 math + 9/10 clarity)"
-  ],
-  "e2e": "dedicated 6.4 block added by this run (the interrupted run registered the lesson but never wrote the block): quiz keys 2/1/1/2/1 clicked live -> 5/5, 12/12 solutions, 21 Sol. pills, KaTeX-theta 33, mobile 390 exact, console clean; full 17-lesson suite exit 0",
-  "queuedExtra": "lesson 2.1 voice polish (Expression is-said-to-be Definition callout + roman run 8+2x5=18, (8+2)x5=50, 18/3 of 2=3 + Thus-line to figure 1; verified live KaTeX 133, console clean)",
-  "queueCorrection": "ch. 1 closed at 3 lessons — remaining pre-4.2 polish queue is 2.2-2.5, 3.1-3.5, 4.1 (10 lessons)",
-  "inventory": "Drive survey rebuilt after recycle (89 entries) then WORK_INVENTORY.json regenerated: 27 lessons / 128,994 words / 178 terms / 135 quiz / 281 exercises",
-  "downloads": "zero this run (verify-first + web-check only)"
- },
- "run32Extras": {
-  "lesson": "fm-scaling-maps-models-and-recipes (FM 6.5, ch. 6 final)",
-  "pushDebt": "cleared first: 5 commits (407c0fe, 7fed46b, 108b1d6, 9d20434, 5aa10ed) pushed via one-time URL, ls-remote verified 5aa10ede40877d107f862dc809d1c726029c0c4e",
-  "words": "~4,400",
-  "verifyChecks": "444 (A-AZ; was 361)",
-  "figures": "2 (atlas bar scale — road drawn exactly 4 bar-segments = 400 px after VLM fix iteration; two-direction factor bars with baselines + dashed end guides)",
-  "vlm": "figure 1 9.5 math / 8 clarity; figure 2 10 math / 9 clarity",
-  "e2e": "18-lesson suite exit 0; 6.5 quiz live 5/5 (keys 0/1/0/2/1); 12/12 solutions; mobile 390 clean; console clean",
-  "inventory": "28 lessons / 133,379 words / 185 terms / 140 quiz / 293 exercises / 47 figures / 6 chapters",
-  "downloads": "none — web-check of ncert-math8-ch13 (Example 1 road-map dress) only; citation keys extended, no files"
- },
- "run33Extras": {
-  "lesson": "fm-negative-numbers-why-they-exist (FM 7.1, ch. 7 opens)",
-  "words": "~3,576",
-  "verifyChecks": "70 (A-I; new file verify-unit-7.ts, created BEFORE writing)",
-  "figures": "2 (the mirror-symmetric number line with -3/3 braces; the Everest/Dead-Sea elevation section, two-headed dimension guide, in-figure not-to-one-scale note)",
-  "vlm": "figure 1 10 math / 9 clarity (first pass); figure 2 9/7 -> redrawn -> 8-band across passes, 0 audit issues, accepted honestly",
-  "siteWideFix": "ExampleBlock titles now render through RichText (blocks.tsx) — raw-$ leaks in Illustration titles eliminated site-wide (7 on 6.5 alone, 20+ across chs. 1-6)",
-  "e2e": "19-lesson suite exit 0; 7.1 quiz live 5/5 (keys 1/2/2/0/1); 12/12 solutions; 19 Sol. pills; 93 therefore glyphs; mobile 390 clean; console clean",
-  "downloads": "none — two NEW citation keys (ncert-math6-ch10, ncert-math7-p2-ch2) web-checked; history/elevations/exam shapes web-grounded; no files"
- },
- "run34Extras": {
-  "lesson": "fm-adding-subtracting-integers (FM 7.2, ch. 7 2/4)",
-  "words": 3861,
-  "verifyChecks": "148 total (sections J-S added: 78 new; K1 brute-forces the two sign rules over all 441 pairs in [-10,10]^2; N1 grid-checks a-b = a+(-b); M2/M4 sweep commutativity 625 pairs + associativity 2197 triples)",
-  "promissoryNotesCashed": "all four of 7.1's: a+(-a)=0 (equation tag 1 + Illustration); the lift 7-(-2)=9 (derivation step + figure 2); the mall 9-(-3)=12 (Illustration); the Everest-Dead-Sea gap 8848.86-(-439.78)=9288.64 (derivation step)",
-  "figures": "2 (fig 1 the two-leg walk as two stacked panels — leg 1 arc 0 to -4, leg 2 arc -4 to 7 with symmetric starts/lands annotations; fig 2 the subtraction map — the mirror flip -(-2)=2 panel + the walk 7+2=9 panel; both audit 0/0)",
-  "vlm": "fig 1: 9 math/6 clarity first pass -> redesigned to the two-panel manner -> 10 math/8 clarity with one FALSE scale complaint disproven by DOM measurement (pitches 50/50/50 both panels); fig 2: 9 math/7 clarity -> mirror darkened + result-carrying panel label -> 9 math/9 clarity; accepted honestly",
-  "e2e": "20-lesson suite exit 0 (7.2 registered + dedicated block); quiz live 5/5 (keys 0/1/2/0/3); 12/12 solutions; 19 Sol. pills; 31 therefore glyphs; KaTeX 429; raw-$ 0; tables 2; mobile 390 clean; console clean",
-  "voicePolish": "lesson 2.2 (queued per-run extra, 2.2 second): formal Definition callout 'Subtraction (the inverse definition)' (is-said-to-be shape) + the Thus-line (7-3=4 exactly when 3+4=7) + the three faces converted to the roman example run — zero new numerals, tsc + lint clean, live-verified",
-  "downloads": "none — ncert-math7-p2-ch2 extended (the movement model = the walk); Brahmagupta's 628 CE subtraction verses web-grounded (MacTutor) and derived, not reproduced"
- },
- "run35Extras": {
-  "lesson": "fm-multiplying-integers-sign-rules (FM 7.3, ch. 7 3/4)",
-  "words": 3899,
-  "verifyChecks": "231 total (sections T-AB added: 83 new; W1 brute-forces the multiplication sign rule over all 441 pairs in [-10,10]^2; V4/V5 grid-check (-a)xb = -(axb) and (-a)x(-b) = axb over 625 pairs; X9 distributive over 9,261 triples; Y1 parity brute-forced over every signed chain of length 1-5, factors +/-1..9)",
-  "doubleDerivation": "minus-times-minus derived twice: the staircase (descent law m x (-5) = (m-1) x (-5) + (-5) demanded of every integer - figure 2 the product staircase, bar ends collinear, crossing zero at m = 0) and the distributive argument ((-1)x(-5) + (-1)x5 = (-1)x0 = 0 -> the inverse read -> -(-5) = 5)",
-  "figures": "2 (fig 1 the repeated walk 3x(-5) = -15, three arcs with solid heads on a 34-px line, the 15-step brace; fig 2 the product staircase, six bars + the zero dot at 7 px/unit with the dashed trend line; both audit 0/0)",
-  "vlm": "fig 1: 10 math/9 clarity; fig 2: 10 math/9 clarity (all complaints cosmetic or disproven by DOM measurement - no redesign needed)",
-  "quiz": "keys 2/1/1/0/3 verified live 'You scored 5/5 - perfect'",
-  "exercises": "12 across L1-L6 (L6a the distributive derivation of (-1)xa = -a cashed at 13; L6b the parity chain (-2)x(-3)x4x(-5) = -120)",
-  "e2e": "21-lesson sweep exit 0 with a dedicated 7.3 block (19 Sol. pills inline, 96 therefore glyphs live, KaTeX 285, dollarInSvg 0, mobile 390 exact, console clean); e2e-73.page.js added with gitignore exception",
-  "voicePolish": "2.3 delivered: the formal 'Multiplication (the repeated-addition definition)' callout + Thus-line + the two table settings as the roman run in lesson 2.3 - zero new numerals",
-  "totals": "31 lessons / 146,077 words / 209 terms / 155 quiz items / 329 exercise questions (WORK_INVENTORY regenerated)"
- },
- "run36Extras": {
-  "lesson": "fm-absolute-value-as-distance (FM 7.4, ch. 7 4/4 — chapter CLOSED)",
-  "words": 4207,
-  "recovery": "in-flight 7.4 work found at run open committed as auto-checkpoint ab19d64 (verify-unit-7.ts +143 lines, ch-07.ts +682 lines, e2e-74.page.js new) — finished per standing rule 0",
-  "verifyChecks": "302 total (231 -> 302, sections AC-AH added for 7.4: the [−60,60] mirror sweep |−x| = |x|, the duality |x| ∈ {x, −x}, the multiplicative property |a×b| = |a||b| on all 441 pairs in [−10,10]^2, the triangle fact |a+b| ≤ |a|+|b| with the equality condition ab ≥ 0 brute-forced on the same grid, the distance formula both orders, the |x| = k verdict table, both figures' geometry, quiz keys 2/1/0/1/3 and all 12 exercise keys)",
-  "figures": [
-   "figure 1: the distance-from-zero braces (760x176, |−8| = 8 and |5| = 5 at 40 px per step, direction never mentioned)",
-   "figure 2: the two-panel distance-between-points (760x318, opposite sides |5−(−3)| = 8 = 3 + 5 split at zero; same side |7−2| = 5 nested braces; both audit 0/0)"
-  ],
-  "vlm": "fig 1: 10 math/9 clarity (nits cosmetic: −8 label micro-offset, unlabeled intermediate ticks are the house manner); fig 2: 10 math/9 clarity (label asymmetry cosmetic) — no redesign needed at the run-31/35 bar",
-  "quiz": "keys 2/1/0/1/3 verified live 'You scored 5/5 · perfect'",
-  "exercises": "12 across L1-L6 (L6: the distance derivation cashed at (−5,8); the equality condition ab ≥ 0 proved by cases)",
-  "unitReview": "unit-7 completion review passed (run-25 precedent): BOOK_FORMAT checklist 7/7, ids globally unique, totals recomputed (ch. 7 = 16,720 words; book = 32 lessons / 150,259 words / 217 terms / 160 quiz / 341 exercises), ch-07 status flipped complete + summary corrected to delivered scope (coordinate-plane preview claim removed — 7.4's scope guard owns that door), book.ts notes ch. 7 catalog appended",
-  "e2e": "22-lesson sweep exit 0 (fm-absolute-value-as-distance registered) + dedicated 7.4 block (e2e-74.page.js: quizClicked 5 -> live 'You scored 5/5 · perfect', showButtons 12/12 expanded, 36 collapsibles, Sol. pills 8 inline, thereforeGlyphs 24, KaTeX 276, dollarInText 0, katexErrors 0, svg 2, rawDollarInSvg 0, tables 1, noteBoxes Definition/Caution/Note/Exam-corner/Historical; mobile 390 exact-fit docScrollW 390 articleW 358; fresh-load console clean — stale mid-edit compile errors in console history predate this run)",
-  "voicePolish": "3.1 delivered (queued per-run extra): the formal 'Divisible (the treaty condition)' Definition callout rewritten in the is-said-to-be shape naming factor and multiple + the Thus-line 'Thus, 6 | 48 because 48 = 8 x 6' + the two-names para merged into the instance run — zero new numerals (all from the lesson's own 6, 48, 8, ten factors); tsc + lint clean; live-verified (saidToBe true, Thus true, KaTeX 369, katexErrors 0, dollarInText 0)",
-  "totals": "32 lessons / 150,259 words / 217 terms / 160 quiz items / 341 exercise questions (WORK_INVENTORY regenerated; stale top-level library counters 26/133,379/171 corrected to the true platform counts)"
- },
- "run37Extras": {
-  "lesson": "fm-points-lines-and-planes (FM 8.1, ch. 8 opens 1/5)",
-  "words": 5245,
-  "verifyChecks": "104 (A-N; new file verify-unit-8.ts, created BEFORE writing; sweep machinery: two-lines-at-most-one-point over 15 slopes x 15 intercepts; 441-pair length re-sweep; pair enumeration n=2..8 + closed form to n=20; line-classification enumerations incl. the 4-point-3-collinear pool to 4 lines and the parabola no-three-collinear certificate over all 56 triples)",
-  "newCitationKeys": [
-   "ncert-math6-ch4",
-   "ncert-math9-ch5"
-  ],
-  "figures": "2 (fig 1 the three avatars — segment/ray/line with endpoint dots vs solid arrowheads; fig 2 the meeting layouts — intersecting at the lattice point (95,150), parallel at a constant 60 px offset, concurrent through O = (635,150); (a)(b)(c) markers + enlarged l/m labels + solid double-headed arrowheads added per VLM review)",
-  "figureAudit": "0 issues both figures (all passes)",
-  "vlmReview": "fig 1 9.5 math / 9 clarity; fig 2 9 math / 8 clarity across three passes with every note cosmetic (label offsets, panel fullness) — the run-34 cosmetic-notes precedent; the one substantive review point (extent arrowheads on the drawn lines) was REAL and was implemented",
-  "e2eSuite": "23 lessons (fm-points-lines-and-planes registered in e2e-cengage-style.sh; dedicated e2e-81 block: quiz keys 3/1/1/2/3 live 5/5, 12/12 solutions, 36 collapsibles, Sol. pills 17 inline, thereforeGlyphs 29, KaTeX 361, dollarInText 0, katexErrors 0, mobile 390 exact-fit)",
-  "voicePolish": "lesson 3.2 (queued per-run extra, 3.2 third): the Definition callout 'Prime and composite (the two-factor treaty)' rewritten in the is-said-to-be shape (n is said to be prime when it carries exactly two factors...; said to be composite when some d with 1 < d < n divides it) + the Thus-line (47 prime by its complete factor list; 48 composite because 4 | 48 with 1 < 4 < 48) + the no-third-state sentence — zero new numerals (47, 48, 4, 1, 2 all already the lesson's own); tsc + lint clean; live-verified (is-said-to-be x2, Thus-line present, KaTeX 326, katexErrors 0, dollarInText 0 after the HMR transient settled)",
-  "scopeGuard": "no angle measurement (8.2 owns the turn), no transversal angle facts (8.3), no coordinate-plane machinery in content (the slope/intercept sweep lives only in the verify script), no triangle congruence or area (8.4/8.5)",
-  "nextUnit": "FM 8.2 'Angles and Their Measurement' — extends verify-unit-8.ts sections before writing; ch. 8 continues"
- },
- "run38Extras": {
-  "delivered": [
-   "FM 8.2 \"Angles and Their Measurement\" shipped verify-first: verify-unit-8.ts extended 104 -> 189 checks (sections O-W) BEFORE writing",
-   "lesson 4,560 words in the Cengage voice + solution chain: the angle (two rays + vertex, is-said-to-be) with the naming roman run and the static-vs-dynamic Note; the degree ledger as tag 1 with the honest Babylonian history + the 24 divisors + minutes/seconds; the five sizes (Euclid Defs 10-12 comparative) with the witness table; figure 1 the five-sizes gallery (40/90/130/180/220 to scale, ray arms with heads, arcs, the right-angle chevron); Postulate 4 + the square-corner mark; the smaller-turn convention Note; the protractor section with figure 2 (outer labels r=232, inner r=186, minor ticks every 10 deg, the long 50 tick, the crossing dot, end ticks) + the two-scale trap Caution; Illustrations 1-5 (the protractor read, the door reflex 360-115=245, comp/supp of 37 = 53/143, the 24-more-than-its-complement equation x=33 angle=57, the four-ray census 6); complementary/supplementary as tag 2 with the supp-comp=90 identity derived; the harvest roman ledger; the exam corner (clock speeds 30/h=0.5/min, 6/min); the historical callout (Euclid Defs 8/10-12 + Postulate 4; Babylonian 360 honestly unsettled; Huddart 1801; one-sentence radian forward pointer); 11 terms, 5-quiz keys 1/1/0/2/2, 12 exercises L1-L6 (L6: the identity proof cashed at 47; five-times-its-supplement = 150 with the acute impossibility)",
-   "quality gates: verify 189/189; tsc clean; lint clean; routes 200/200/200/404; 24-lesson E2E sweep exit 0; dedicated 8.2 block (quiz live 5/5, 12/12 solutions, 36 collapsibles, KaTeX 338, dollarInText 0 after the derivation-label fix, katexErrors 0, mobile 390 exact-fit, console clean); audits 0/0 both figures; VLM fig 1 9/9 publishable, fig 2 9/8 then 9/9 after the crossing-dot + end-tick fixes",
-   "voice polish 3.3: lesson 3.3 HCF Definition callout rewritten is-said-to-be (common factor d | a and d | b; HCF the greatest such d) + the Thus-line (gcd(48,60)=12 witness), zero new numerals; live-verified (KaTeX 264, errors 0, dollarInText 0)",
-   "ship: SOURCE_LOG (new key ncert-math6-gp-ch2, run-38 zero-downloads entry, ledger row updated through ch. 8), WORK_INVENTORY regenerated (34 lessons / 160,149 words / 236 terms / 170 quiz / 365 exercises; ch. 8 2/5), DETAILED_LOG (catalog + verification + timeline + CURRENT/NEXT), PROGRESS + RESUME_POINTER + book.ts notes updated"
-  ],
-  "next": "run 39: FM 8.3 Parallel Lines and Transversals (extend verify-unit-8.ts with the transversal sections first); voice polish 3.4 (lesson 3.4 LCM) queued",
-  "e2e82": {
-   "quizKeys": [
-    1,
-    1,
-    0,
-    2,
-    2
-   ],
-   "live": "You scored 5/5",
-   "solutions": "12/12",
-   "katex": 338,
-   "collapsibles": 36,
-   "mobile": "390 exact-fit"
-  }
- },
- "run39Extras": {
-  "lesson": "fm-parallel-lines-and-transversals (8.3, 5,114 words)",
-  "verify": "verify-unit-8.ts 189 -> 253 checks (X-AE): the transversal facts derived geometrically (half-plane classification of the 28 pairs swept over six slopes), the three parallel tests swept as biconditionals over five slopes of the second line, both figures label-swept",
-  "figures": "fig 1 the eight-angle scene (t-label relocated out of the title band after self-review; audits 0/0; VLM 10/10 math + 10/10 clarity), fig 2 the F/Z/C patterns (VLM 10/10 + 9/10, publishable as-is)",
-  "e2e": "25-lesson sweep exit 0; dedicated 8.3 block: quiz keys 1/2/1/0/2 live 5/5, 12/12 solutions, 18 Sol. pills, KaTeX 468, dollarInText 0, katex-errors 0, mobile 390 exact-fit",
-  "voicePolish": "3.4 done: lesson 3.4 LCM Definition rewritten is-said-to-be (a | m and b | m) + the Thus-line, zero new numerals; live-verified (katex 259, errors 0)",
-  "sources": "new citation keys ncert-math7-gp-ch5 (Ganita Prakash class-7 ch. 5 Parallel and Intersecting Lines) + ncert-math9-ch6 (class-9 ch. 6 Lines and Angles); history web-checked (Joyce Post. 5/I.27/I.29; Proclus, Ludlam 1785, Playfair 1795; Lobachevsky 1826/1829-30 + Bolyai 1832)",
-  "inventory": "35 lessons / 165,298 words / 247 terms / 175 quiz / 377 exercises"
- },
- "run40Extras": {
-  "lesson": "fm-triangles-and-the-angle-sum",
-  "words": 5382,
-  "verifyChecks": "339 total (sections AF-AN added: 86 new; 253 -> 339) ALL PASS pre-writing",
-  "figures": [
-   "figure 1: the anatomy (A(250,70), B(120,320), C(600,320), side BC produced to D(700,320); interior arcs r30, dashed exterior arc r20; labels a/b/c opposite their capitals; audit 0 issues)",
-   "figure 2: the parallel proof (A(300,120), B(130,340), C(590,340), XY the horizontal through A; equal-mark arcs 1/1 and 3/3, double arc on 2; wedge-membership + clearance swept; audit 0 issues)",
-   "figure 3: the six-panel gallery (scalene/isosceles/equilateral with perpendicular ticks at side midpoints; acute/right/obtuse with the square corner mark; all measures recomputed from panel coordinates; audit 0 issues)"
-  ],
-  "quizKeys": [
-   1,
-   2,
-   1,
-   1,
-   2
-  ],
-  "newCitationKey": "ncert-math7-ch6",
-  "voicePolish": "3.5 done (lesson 3.5 product-rule theorem callout recast is-said-to-be + the Thus-lines, zero new numerals; live-verified)",
-  "preFlightRepair": "run 39's ship commit carried book.ts with four unescaped apostrophes in the notes string (module failed to parse; dev server 500) — repaired first thing this run, gates re-run green",
-  "nextPolish": "4.1 (lesson 4.1 The Idea of a Fraction)",
-  "nextUnit": "FM 8.5 'Perimeter and Area of Rectangles, Triangles and Circles' — extends verify-unit-8.ts with the area/perimeter sections BEFORE writing; completes chapter 8"
- },
- "run41Extras": {
-  "lesson": "fm-perimeter-and-area-rectangles-triangles-circles",
-  "words": 5998,
-  "verifyChecks": "429 total (sections AO-AZ added: 90 new; 339 -> 429) ALL PASS pre-writing",
-  "figures": [
-   "figure 1: the tiled rectangle (5x3 unit squares at (170,60)-(590,270), grid seams 254/338/422/506 + 130/200, the diagonal halving it, two tinted triangles, labels l = 5 cm / b = 3 cm / 1 cm2 / the diagonal annotation; audit 0 issues FIRST pass, VLM 10 math / 9 clarity)",
-   "figure 2: the circle + unrolled circumference (centre (190,190) r = 90, radius ray at -60 deg to (235,112.07), diameter (100,190)-(280,190), the unwrap segment (100,340)-(665.49,340) drawn to scale 2*pi*90 = 565.49 px, dashed connector, labels O / r / d = 2r / C; audit 0 issues FIRST pass, VLM 9 math / 8 clarity)",
-   "figure 3: the 8-sector rearrangement REDESIGNED this run (first VLM pass 7/6 on the midpoint-tip construction; rebuilt as the FLUSH classic: circle (170,190) r = 100 with 8 radii + one tinted sector; band y 140..240, up-slice tips on the bottom edge at spacing s = 2*pi*100/8 = 78.54 px from x = 320, down-slice tips interleaved on the top edge at the midpoints, every straight edge collinear with its neighbour, arcs tiling both edges, first band slice tinted to link panels, measure line x = 646; audit 0 issues, VLM 9 math / 9 clarity)"
-  ],
-  "figureAudit": "0 issues FIRST pass on all three figures (the exact sweeps in AY contradict nothing)",
-  "vlmReview": "figure 1 10/9 (cosmetic notes only, the 1 cm2 cell is geometrically clear of the diagonal by the exact sweep); figure 2 9/8 (cosmetic: margins 100 vs 95 px, the connector starts on the circumference, r at 70 percent along); figure 3 pass 1 7/6 REAL (ragged band) -> redesigned to the flush construction -> pass 2 9/9 (remaining notes honest-by-design: the flipped tint IS the half-turn, the end tips ARE the construction)",
-  "quizAnswers": [
-   1,
-   2,
-   3,
-   1,
-   2
-  ],
-  "newTerms": [
-   "Perimeter",
-   "Area",
-   "Unit square",
-   "Half-walk",
-   "Base and height",
-   "Circumference",
-   "Radius and diameter",
-   "Pi (π)",
-   "Sector",
-   "Semicircle dress",
-   "Hectare",
-   "Composite figure"
-  ],
-  "e2e": "27 lessons in scripts/e2e-cengage-style.sh (fm-perimeter-and-area-rectangles-triangles-circles added) + a dedicated 8.5 block (e2e-85.page.js created + gitignore-whitelisted): quiz correct-index clicks 1/2/3/1/2 -> 5/5 live, 12 solutions expand (36 collapsibles incl. inline), Sol. pills 7 inline -> 19 with exercises, 31 therefore glyphs, KaTeX 489 -> 683 with solutions, 0 katex-errors, 0 raw-dollar text nodes (after ONE terms-name fix: Pi ($\\pi$) -> Pi (π) — term names render plain), 3 svg figures, mobile 390 exact-fit (docScrollW 390, articleW 358)",
-  "downloads": "zero — web research only (Ganita Prakash class-6 ch. 6 + NCERT class-7 ch. 11 + the class-7 exemplar gemp109; new citation keys ncert-math6-gp-ch6, ncert-math7-ch11 in SOURCE_LOG; Archimedes/Zu Chongzhi/Aryabhata/Jones/Euler/Lambert/Lindemann history web-checked; storage law honoured)",
-  "unitReview": "unit-8 completion review passed (run-6/11/20/25/32/36 precedent): BOOK_FORMAT checklist 7/7, exam-coverage audited, ids globally unique (0 dups), totals recomputed (ch. 8 = 26,299 words / 54 terms / 25 quiz / 61 exercises; book = 37 lessons / 176,712 words / 271 terms / 185 quiz / 402 exercises), ch-08 status flipped to complete, plannedLessons emptied, book.ts header notes + STATUS line updated, chapter summary refreshed",
-  "voicePolish": "lesson 4.1 (queued per-run extra, the LAST pre-4.2 lesson): the treaty Definition callout recast is-said-to-be (\"Whole numbers $n$ and $d$ are said to form the fraction $\frac{n}{d}$ when ...\") + the Thus-line on the two load-bearing requirements + the earned-name close — zero new numerals; BONUS REPAIR found during live verification: a latent katex-error in 4.1 (\\tfrac{\\text{Rs } 20} — \\text inside \\tfrac errored KaTeX) fixed to the plain Rs dress; re-verified live 0 katex-errors, all three polish phrases rendering; the pre-4.2 voice queue is now EMPTY",
-  "nextUnit": "ch. 9 Measurement opens at 9.1 Units as Agreements — create verify-unit-9.ts (ADD THE .GITIGNORE EXCEPTION FIRST: the /scripts/* trap ate e2e-83 in run 40) and extend it with the unit-9 sections before writing"
- },
- "run42Extras": {
-  "lesson": "fm-units-as-agreements (FM 9.1, ch. 9 Measurement OPENS 1/4)",
-  "words": 5501,
-  "verifyChecks": "200 total (sections A-M; NEW FILE scripts/verify-unit-9.ts created BEFORE writing — gitignore exceptions added FIRST per the run-40 /scripts/* trap; 590-case exact-division sweep count x unit = length; the swap law n1*u1 = n2*u2 with the inverse-law sweep k = 2..100; the 2.5 m table 0.0025 km/2.5 m/250 cm/2500 mm products all 2.5; figure furniture clearances; quiz keys 0/1/2/2/2 + all 12 exercise keys) ALL PASS pre-writing",
-  "figures": [
-   "figure 1: the desk in three handspans (10/9/8 numbered spans, shared dashed rails, hooked one-span braces; REDESIGNED once after VLM 6/6 — pass 2 scored 10/9)",
-   "figure 2: one 2.5 m ribbon, three sticks (2.5/5/25 counts, half-chunk dashed with the bumped half mark; VLM 10/9)"
-  ],
-  "gates": "tsc + lint clean; verify 200/200; routes 200 (home/9.1/8.5/book/glossary, unknown 404); E2E suite exit 0 (28 lessons) + dedicated 9.1 block (quiz live 5/5 keys 0/1/2/2/2, 12/12 solutions expand, 14 Sol. pills inline, 26 therefore glyphs, 0 raw-dollar, 0 katex-errors, mobile 390 exact-fit); SVG audits 0/0 first pass; VLM 10/9 + 10/9",
-  "references": "NEW citation keys ncert-sci6-curiosity-ch5 (Curiosity class-6 ch. 5 Measurement of Length and Motion — handspan/cubit differ person to person, shopkeeper rod vs tailor tape, metre as SI; web-checked fecu105) + ncert-phys11-ch2 (class-11 physics ch. 2 Units and Measurements — SI 7 base units, derived units; web-checked); history web-checked (royal cubit 7x4 = 28 digits, Maya rod 52.3 cm; barleycorn inch statute; Henry-I yard legend honest-uncertain; Metre Convention 1875 17 states BIPM Sevres; SI named 1960 11th CGPM; India SOWM Act 1956 -> 1 Oct 1960 metric -> Legal Metrology Act 2009)",
-  "content": "measurement defined is-said-to-be as a count of units with Q = n x u as tag 1; the desk-and-handspans case for agreement (figure 1); body units fail invariability; the three requirements of a good unit; the cubit rods as the agreement made physical; the swap law DERIVED as tag 2 (transitivity of equality) + the inverse law; the bare-number Caution; base vs derived quantities (area m^2 cashing 8.5, speed m/s cashing 6.2 with 45 km/h = 12.5 m/s); the treaty story 1875 -> 1960 SI 7 base units; India 1956/1960/2009; 8 terms, 5-quiz, 12 exercises L1-L6 (L6: the swap law proved; the 250-no-unit packet fraud cashed)",
-  "scopeGuard": "no metric-prefix tables (9.2), no conversion-as-x1 drills (9.3), no precision/accuracy/rounding (9.4), no error numerics"
- },
- "run44Extras": {
-  "run": 44,
-  "date": "2026-11-05",
-  "delivered": [
-   "FM 9.4 Precision, Accuracy and Rounding in Measurement (5,770 words) — the chapter-closing lesson",
-   "UNIT-9 COMPLETION REVIEW passed — ch-09 flipped to complete, plannedLessons emptied",
-   "FM 10.1 Collecting and Tallying Data (4,533 words) — ch-10.ts CREATED + registered; chapter 10 Data and Graphs OPEN 1/4"
-  ],
-  "verify": "verify-unit-9.ts 428 → 534 checks (AE–AO) + verify-unit-10.ts CREATED 81 checks (A–I), ALL PASS pre-writing both",
-  "gates": "tsc + lint clean (after module-scoping the verify scripts with export {}), routes 200, E2E dedicated 9.4 + 10.1 blocks green (quizzes live 5/5 on keys 1/1/2/1/0 and 0/2/2/1/1), SVG audits 0/0 all four figures, VLM 10/9 + 9/8 (9.4) and accepted-after-four-passes (10.1, geometry certified)",
-  "figures": "9.4: three-rulers plumb-line figure (redrawn twice — the white ruler bodies swallowed the line; the line re-anchored at the true apex) + the four-targets accuracy/precision figure (four passes: P4 bull-straddling dart removed, ring clearances ≥ 9 px with dot radius counted, P1 a regular pentagon centred on the bull); 10.1: the raw-list-to-tally-table figure (chips numbered 1–20; ruled frequency column; an arrow added then removed after the VLM read it as pointing at one row) + the gates gallery",
-  "fixed": "run-43 defect: the 9.3 paragraph \"One freedom worth noticing…\" existed three times in ch-09.ts — reduced to one copy",
-  "counts": "book = 42 lessons / 200,476 words / 311 terms / 210 quiz / 462 exercises; ch. 9 COMPLETE 19,213 words; ch. 10 1/4",
-  "citations": "new keys ncert-math6-ch1 (the class-6 rounding charter) + ncert-ganita-prakash6-ch4 (the tally/frequency charter)"
- },
- "run45Extras": {
-  "run": 45,
-  "date": "2026-11-05",
-  "firedFrom": "job 498279 (re-enabled by the owner; its stale one-lesson payload superseded by the 2026-11-05 two-lesson directive in memory; the duplicate-hourly-trigger situation logged for the owner)",
-  "delivered": [
-   "FM 10.2 Bar Charts, Line Graphs and Pie Charts (4,331 words)",
-   "FM 10.3 Reading Graphs Critically (4,062 words)"
-  ],
-  "verify": "verify-unit-10.ts 81 → 141 (J–R) → 186 (S–Z2) checks, ALL PASS pre-writing both lessons",
-  "gates": "tsc + lint clean, routes 200, E2E dedicated 10.2 + 10.3 blocks green (quizzes live 5/5 on keys 1/3/2/2/0 and 1/2/1/1/1 — the Y4 key corrected from the live run), SVG audits 0/0 all five figures, VLM 9.5/8 + 9/7.5 + 9/7 (10.2) and 9.5/8 + accepted-on-inspection (10.3; the VLM label misread overruled by direct inspection, the ellipse claim disproven by DOM measurement)",
-  "laws": "tag 1 the bar-scale law + tag 2 the central-angle law (10.2); tag 1 the exaggeration law + tag 2 the scale-invariance law (10.3)",
-  "counts": "book = 44 lessons / 208,869 words / 327 terms / 220 quiz / 486 exercises; ch. 10 in-progress 3/4 (12,926 words)",
-  "citations": "new keys ncert-math8-ch4 + huff-1954-lie-with-statistics"
- },
- "ownerDirective20261105": {
-  "oldJob": "498279 'LockIn Library — hourly unit run' — disabled by the owner via API (43 runs, last fire 2026-11-05 09:27:28 IST)",
-  "newJob": "504365 'LockIn Library — hourly unit run (2 lessons/run)' — fixed_rate 3600 s, tz Asia/Kolkata, created 2026-11-05 10:11:33, status enabled",
-  "change": "TWO lessons per run (authored sequentially, each with verify-first + full quality gates; an in-flight lesson counts as lesson 1 of 2; single ship after both); every other detail identical, including the PUSH PROTOCOL with the PAT embedded only in the job payload",
-  "lessonWorkThisTurn": "none — infrastructure directive only; tree clean at beaf0f8, remote synced; run 43 = FM 9.2 + FM 9.3"
- },
- "run43Extras": {
-  "lessons": [
-   "fm-the-metric-system",
-   "fm-converting-units-without-memorising-tables"
-  ],
-  "words": [
-   4529,
-   3603
-  ],
-  "verifyChecks": 428,
-  "quizKeys": [
-   [
-    0,
-    2,
-    1,
-    2,
-    3
-   ],
-   [
-    0,
-    1,
-    2,
-    2,
-    1
-   ]
-  ],
-  "newCitationKeys": [
-   "wikipedia-metre-history",
-   "usma-1795-decree",
-   "sizes-litre-1964",
-   "ncj-measuring-the-meter"
-  ],
-  "figureWork": "9.2 fig1 redesigned twice to 10/8 (countable hops + per-hop x10 labels + the 3.45 km anchor), fig2 10/9; 9.3 fig1 rebuilt to token-strikes 10/9, fig2 rebuilt left-to-right with pure-factor collapse 10/9; audits 0/0 all four",
-  "twoLessonMilestone": "the first run under job 504365 and the owner’s 2026-11-05 two-lesson directive — both lessons verified and gated individually, single ship"
- },
- "run46Extras": {
-  "run": 46,
-  "date": "2026-11-05",
-  "firedFrom": "job 504365 (the two-lesson job; third fire — the two prior fires were consumed by session summarisation with zero execution, logged for the owner)",
-  "delivered": [
-   "FM 10.4 Mean, Median and Mode (5,783 words) — CHAPTER 10 CLOSED with the unit-10 completion review passed",
-   "FM 11.1 Patterns and Rules (4,965 words) — ch-11.ts created and registered; chapter 11 Patterns and the Doorstep of Algebra OPENS 1/3"
-  ],
-  "verify": "verify-unit-10.ts 186 → 301 checks (AA–AP) + verify-unit-11.ts CREATED 72 checks (A–O), ALL PASS pre-writing both lessons",
-  "gates": "tsc + lint clean, routes 200, E2E dedicated 10.4 + 11.1 blocks green (quizzes live 5/5 on keys 2/1/2/3/2 and 1/0/2/3/2; 18 Sol pills + 90 ∴ glyphs each; mobile 390 exact-fit both), SVG audits 0/0 all four figures, VLM 9/8 + 9/8 (10.4) and 8/9 (after two redesigns; the three-heavy reading certified) + 9/9 (11.1)",
-  "laws": "tag 1 the balance law (+ the rebuild law) and tag 2 the position law (10.4); tag 1 the jump law and tag 2 the gnomon law (11.1)",
-  "counts": "book = 46 lessons / 219,617 words / 343 terms / 230 quiz / 510 exercises; ch. 9 complete; ch. 10 COMPLETE 4/4 (18,709 words); ch. 11 in-progress 1/3",
-  "citations": "new key ncert-ganita-prakash6-ch1 (Ganita Prakash class-6 ch. 1 Patterns in Mathematics, fegp101, web-checked); carried keys ncert-math7-ch3 (class-7 ch. 3 Data Handling — mean/mode/median, web-checked), ncert-ganita-prakash6-ch4, khattar-qa-4e",
-  "completionReview": "unit-10 review passed (BOOK_FORMAT checklist 7/7, exam corners 4/4, ids unique book-wide 46/46, ch-10 flipped complete, plannedLessons emptied, totals recomputed)"
- },
- "run47Extras": {
-  "run": 47,
-  "date": "2026-11-05",
-  "firedFrom": "job 498279 (the old hourly job's 15:00 fire; its stale one-lesson payload superseded by the owner's 2026-11-05 two-lesson directive carried in the memory files, per the payload's own step 1 — the duplicate-hourly-trigger situation stands logged for the owner)",
-  "delivered": [
-   "FM 11.2 From Patterns to Formulas (3,931 words) — the an+b dress + the staircase pairing",
-   "FM 11.3 A Letter for the Unknown (4,021 words) — the balance law + the undo machine; THE BOOK'S FINAL LESSON",
-   "THE UNIT-11 COMPLETION REVIEW PASSED — FOUNDATION MATHEMATICS COMPLETE: 11-for-11 chapters"
-  ],
-  "verify": "verify-unit-11.ts 74 → 145 (P–Z) → 187 (AA–AL) checks, ALL PASS pre-writing both lessons",
-  "gates": "tsc + lint clean, routes 200, E2E dedicated 11.2 + 11.3 blocks green (quizzes live 5/5 on keys 0/1/1/0/0 both; 6 Sol pills + 18 ∴ glyphs each; 0 raw-$, 0 katex-errors; mobile 390 exact-fit), SVG audits 0/0 all four figures (the balance re-laid once after the audit caught the 31/30 blocks overlapping the x-boxes), visual review 9/9 x 4",
-  "laws": "tag 1 the an+b dress + tag 2 the staircase formula (11.2); tag 1 the balance law + tag 2 the undo machine (11.3)",
-  "counts": "book = 48 lessons / 227,569 words / 355 terms / 240 quiz / 534 exercises — COMPLETE; ch. 11 = 3 lessons / 12,917 words / 16 terms / 15 quiz / 36 exercises",
-  "completionReview": "BOOK_FORMAT checklist 7/7; exam corners 3/3; ids unique book-wide 48/48; ch-11 flipped complete + plannedLessons emptied; book.ts status → complete; totals recomputed by scripts/build_work_inventory.ts",
-  "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
- },
- "lastCompleted": {
-  "run": "75 (2026-11-08)",
-  "summary": "AL chapter 5 'Linear Equations in One Variable' OPENS 2/3: 5.1 'What an Equation Is: the Balance Principle' (5,027 words, quiz keys 1/1/3/0/1) + 5.2 'Solving Linear Equations' (4,277 words, quiz keys 1/0/1/2/0) — authored strictly sequentially verify-first; verify-book3-ch05.ts 318,129 checks ALL GREEN (sections A–G); 9,304 words across the two lessons; 4 figures audited 0-issue + visually inspected; E2E 45/45 ×2+ ×3 viewports per lesson; the book stands 4 complete chapters + ch. 5 open 2/3 of 11 (100 lessons / 485,665 words repo-wide); 5.3 + the unit-5 review close the chapter at run 76."
- },
- "run55Extras": {
-  "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
-  "delivered": "ANS ch. 4 opens 2/4: 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 words) + 4.2 The Fundamental Theorem of Arithmetic (5,117 words), verify-first with 167 checks (sections A–V)",
-  "gates": "tsc 0; lint 0; routes 200/200/404; E2E quizzes live 5/5 on keys 1/1/0/1/1 and 0/0/1/1/1; 16+20 Sol pills; 87+102 therefore glyphs; 0 raw-$; 0 katex-errors; mobile 390 exact-fit; SVG audits 0/0 (104+18 texts); screenshots reviewed",
-  "shipCommits": "ship + memory (shas recorded post-push)",
-  "newCitationKeys": [
-   "euclid-elements-book-ix",
-   "eratosthenes-sieve-nicomachus",
-   "al-farisi-fta-existence",
-   "gauss-1801-disquisitiones"
-  ],
-  "progressBackfill": "run 54's ship had updated PROGRESS's structured book/library fields but left the top-level phase/awaiting/lastCompleted at run 52/53 — this run's ship backfills all three while advancing them to run 55"
- },
- "run56Extras": {
-  "chapter": "ANS ch. 4 'Primes and the Fundamental Theorem of Arithmetic' — COMPLETE 4/4, closed in ONE run per the owner's 2026-11-06 one-full-chapter directive (this is the first chapter shipped under it)",
-  "lessons": [
-   {
-    "id": "ans-divisors-from-dna-divisor-counts",
-    "number": "4.3",
-    "words": 5285,
-    "terms": 8,
-    "quiz": 5,
-    "exercises": 14,
-    "verify": "sections W–AF",
-    "figure": "the divisor lattice of 72 (σ = 195 read along either margin)"
-   },
-   {
-    "id": "ans-how-the-primes-are-distributed",
-    "number": "4.4",
-    "words": 5204,
-    "terms": 8,
-    "quiz": 5,
-    "exercises": 14,
-    "verify": "sections AG–AP",
-    "figure": "the prime line to 110 (twins bracketed, the 89→97 canyon)"
-   }
-  ],
-  "verify": "verify-book2-ch04.ts 167 → 356 checks (sections W–AQ), ALL GREEN before writing; pre-writing catches: the record gap below 2000 is 34 at 1327→1361 (1129→1163 is not a prime gap — 1151 inside), Σ 1/p ≤ 1000 = 2.198080; post-write SVG-audit catch: 4.3 lattice column labels moved y 224 → 232, re-audited 0/0",
-  "completionReview": "exam corners 4/4; ids globally unique (65); ch-04 status complete + plannedLessons []; book.ts notes updated; chapter 4 = 20,839 words / 32 terms / 20 quiz / 55 exercises",
-  "newCitationKeys": [
-   "euclid-ix-36-perfect-numbers",
-   "nicomachus-perfect-abundant-deficient",
-   "amicable-pythagoreans-thabit-al-farisi",
-   "bertrand-postulate-1845-chebyshev",
-   "euler-1737-reciprocal-primes",
-   "hadamard-vallee-poussin-pnt-1896",
-   "zhang-2013-bounded-gaps"
-  ],
-  "downloads": "zero — the sanctioned internet fallback grounded the seven new keys; no working copies to delete"
- },
- "run58Extras": {
-  "fired": "2026-11-06 14:15 IST from job 507529 (the one-full-chapter payload with PUSH PROTOCOL; job 507350's fixed_rate cadence superseded by wall-clock cron — the payload carried the same directives)",
-  "delivered": "ANS ch. 6 COMPLETE 3/3 in ONE run: 6.1 closure failures (5,618 words) + 6.2 the construction (5,269) + 6.3 the laws (4,890) + the unit-6 completion review",
-  "verifyChecks": "233 (sections A–W; created at 125 for 6.1 pre-writing, extended 147 → 196 → 233 before each lesson)",
-  "quizKeys": [
-   [
-    2,
-    1,
-    0,
-    0,
-    0
-   ],
-   [
-    2,
-    2,
-    0,
-    0,
-    1
-   ],
-   [
-    1,
-    0,
-    1,
-    1,
-    2
-   ]
-  ],
-  "defectsCaughtPreWriting": [
-   "figure-1 x-coordinate X(7) = 452 not 484",
-   "two assertion typos in the D sweep (3+3 = 6 not 4)",
-   "transitivity sweep needed entries ≤ 6 for > 500 chained instances",
-   "[(5,1)]·[(4,1)] = [(21,9)] not [(21,10)] — b·c misadded",
-   "[(3,1)]·[(1,2)] reduces to (1,3) not (1,2)",
-   "the (−2)³ chain rebuilt through (1,3)·(1,3) = (10,6) then (10,6)·(1,3) = (28,36)",
-   "the census live-count assertion",
-   "[(4,1)]·[(5,5)] = [(25,25)] not (21,21)",
-   "a table-index bug in the −4..4 cell checks"
-  ],
-  "liveE2ECatches": [
-   "table captions + one term name carried $ math that the reader prints raw — stripped to plain text (dollarInText 8 → 0)",
-   "figure labels repositioned twice (6.1 ticks/labels; 6.2 owe-box caption merged to one line; 6.3 mirror annotations moved below the arcs) — all three figures audit 0 issues"
-  ],
-  "newCitationKeys": [
-   "hankel-1867-permanence",
-   "peacock-1833-permanence",
-   "brahmagupta-628-brahmasphutasiddhanta"
-  ],
-  "chapterState": "ANS ch. 6 COMPLETE 3/3 (15,777 words; 24 terms, 15 quiz, 42 exercises; exam corners 3/3; ids globally unique at 70)",
-  "nextRun": "run 59 = ANS ch. 7 Building the Rationals COMPLETE 3/3 (verify-book2-ch07.ts FIRST)"
- },
- "run59Extras": {
-  "run": 59,
-  "date": "2026-11-06",
-  "fired": "15:45 +08:00 (job 507529 payload; trace cron-agent-loop-202611061621)",
-  "cadence": "one-full-chapter-per-run (owner directive 2026-11-06); the fourth consecutive chapter closed in a single run",
-  "chapter": "ANS ch. 7 'Building the Rationals' COMPLETE 3/3",
-  "verifyScript": "scripts/verify-book2-ch07.ts — 239 checks (sections A–T), ALL PASS before writing; fifteen pre-writing defects caught (the associativity sweep bug X+(X+Y)-vs-(X+Y)+Z, the density-iteration endpoints-vs-pairs confusion, the 10^16−1 double-precision wall fixed with BigInt round-trips incl. 1/17’s 16-digit cycle, 5/12 pre-period 2-not-1, 43/90 not reducible, midpoint of 1/3 and 1/8 = 11/48 not 11/24, quiz option-order mismatches against authored layouts ×2, figure label placements ×5)",
-  "lessons": [
-   {
-    "id": "ans-from-fractions-to-the-rational-system",
-    "number": "7.1",
-    "words": 5482,
-    "quizKeys": [
-     2,
-     1,
-     0,
-     2,
-     1
-    ],
-    "exercises": 14,
-    "figures": 1,
-    "notes": "the fraction-pair construction; the lattice figure with computed rays"
-   },
-   {
-    "id": "ans-the-field-laws-division-joins-the-family",
-    "number": "7.2",
-    "words": 4332,
-    "quizKeys": [
-     0,
-     1,
-     2,
-     0,
-     2
-    ],
-    "exercises": 15,
-    "figures": 1,
-    "notes": "reciprocal law, division defined, division-by-zero proved, field named (Dedekind 1871), Density I, mirror-map figure"
-   },
-   {
-    "id": "ans-density-and-the-decimal-mirror-proven",
-    "number": "7.3",
-    "words": 5064,
-    "quizKeys": [
-     2,
-     1,
-     3,
-     1,
-     0
-    ],
-    "exercises": 15,
-    "figures": 2,
-    "notes": "Density II, the mirror theorem, the 2^m·5^n criterion, the 1/p period table, conversion formulas, remainder-machine + zoom figures"
-   }
-  ],
-  "gates": "lint 0 errors (1 pre-existing unrelated warning); tsc 0; routes 200 ×3; E2E per lesson — quiz answered live on the intended keys (\"You scored 5/5\" all three), all solutions expanded (Sol pills 15/16/17), 0 katex-errors, 0 raw $, 0 console errors, no overflow at 390px and 1280px; SVG overlap audits CLEAN on all four figures after label fixes (7.1 lattice: numerator-label x-shift; 7.2 mirror: curve bow −30 + label moves; 7.3: outward digit labels + annotation split)",
-  "review": "exam corners 3/3 ✓; ids globally unique (73 repo-wide) ✓; all 14 block types exercised ✓; ch-07 flipped complete, plannedLessons emptied; totals recomputed 2/18/73/357,471/555/365/878; 9 planned lessons remain (ANS ch. 8–10)",
-  "push": "protocol push after ship — see WORKLOG run-59 entry"
- },
- "run60Extras": {
-  "run": 60,
-  "date": "2026-11-06",
-  "fired": "2026-11-06 22:21:30 +08:00 (job 509354 payload — the hourly :45 two-lesson v2 directive; trace cron-agent-loop-202611062221)",
-  "directiveChange": "owner directive 2026-11-06 v2: TWO lessons per run at hourly cadence (supersedes the one-full-chapter rule; restored from the older two-lessons interim rule)",
-  "delivered": [
-   "ANS 8.1 \"The Diagonal That Broke the Rationals\" (ans-the-diagonal-that-broke-the-rationals, 5,393 words, 8 terms, 5 quiz keys 1/2/0/2/3, 15 exercises L1–L6, 3 derivations, 1 illustration, 1 table — the n = 1..20 census, 2 figures — the no-Pythagoras dissection + the self-similar squeeze ladder, 4 formula cards)",
-   "ANS 8.2 \"The Family of Irrationals\" (ans-the-family-of-irrationals, 5,073 words, 8 terms, 5 quiz keys 2/0/1/3/1, 15 exercises, 3 derivations, 2 illustrations, 2 tables — the kernel dictionary + the family decimal names, 2 figures — the computed family line + the Spiral of Theodorus, 4 formula cards)"
-  ],
-  "verify": "verify-book2-ch08.ts 171 checks (sections A–Q) ALL GREEN; ten pre-writing defects caught incl. the isqrt seed bug and the wrong remembered √2-family digits; gates: lint 0, tsc 0, routes 200 (dev server restarted — dynamicParams=false cached the old static params), E2E 34 PASS ×2 suites (desktop/mobile/dark), overlap audits 0 issues ×4 figures",
-  "scheduling": "the sibling visual job (job 507527) had already committed enhance(fm-comparing-ordering-numbers) as 7583ef4 — carried to the remote by this run's protocol push per the shared-push rule"
- },
- "run61Extras": {
-  "run": 61,
-  "date": "2026-11-06",
-  "firedFrom": "manual catch-up of job 509354 (21:45 IST fire failed to start: model concurrency limit exceeded; executed 21:54–23:40 IST in the live session)",
-  "lessons": [
-   "ans-how-irrationals-behave (8.3)",
-   "ans-completeness-the-line-without-holes (8.4)"
-  ],
-  "words": [
-   4296,
-   5496
-  ],
-  "verifyChecks": "302 (sections A–U2; R/S pre-writing + T/U for 8.3 + T2/U2 for 8.4)",
-  "quizKeys": {
-   "8.3": [
-    1,
-    1,
-    3,
-    0,
-    0
-   ],
-   "8.4": [
-    2,
-    3,
-    2,
-    1,
-    1
-   ]
-  },
-  "defectsCaught": [
-   "8.1 two-shores callout: U = {r ∈ ℚ : r² > 2} lacked the r > 0 guard (−2 in both classes) — fixed + pinned by S0 text checks",
-   "8.1 trichotomy prose: \"r² = 2, r² = 2\" duplicated where the third case should be r² > 2 — fixed",
-   "8.4 draft: 14142² typed 199,981,964 for 199,996,164 (U2 regression guard added)",
-   "8.4 draft: 141421²/141422² typed 19,999,898,241 / 20,000,026,084 for 19,999,899,241 / 20,000,182,084 (U2 guards)",
-   "8.4 draft: (1.41573)² typed ≈ 2.00029 for ≈ 2.0042 (U2 guard)"
-  ],
-  "citationKeys": [
-   "dedekind-1872-stetigkeit",
-   "cantor-1872-fundamental-sequences",
-   "heine-1872-functionenlehre",
-   "meray-1869-limites"
-  ],
-  "unit8Review": "PASS — exam corners 4/4, ids 77 repo-wide unique, all 12 block types, ch-08 complete + plannedLessons emptied",
-  "notes": "the 21:45 fire failure was startup-only (no work lost); the 22:45 fire may fail-to-start while this session works — the cadence self-heals on the next free slot"
- },
- "run62Extras": {
-  "run": "62",
-  "date": "2026-11-07",
-  "firedFrom": "job 509354's hourly :45 cadence (fixed wall-clock cron), trace cron-agent-loop-202611070815",
-  "lessons": [
-   {
-    "id": "ans-tallies-groupings-and-additive-systems",
-    "number": "9.1",
-    "words": 5311,
-    "quizKeys": "1/2/0/1/1",
-    "exercises": 14,
-    "terms": 8,
-    "figures": "compression ladder (3,027 strokes → 12 hieroglyphs → 4 digits) + the 23×19=437 doubling engine"
-   },
-   {
-    "id": "ans-place-value-before-its-time-babylon-and-mesoamerica",
-    "number": "9.2",
-    "words": 4919,
-    "quizKeys": "1/3/2/1/1",
-    "exercises": 14,
-    "terms": 8,
-    "figures": "two place ladders (the 18-kink at 360 highlighted) + the YBC 7289 stylized reconstruction"
-   }
-  ],
-  "words": "10,230 this run (5,311 + 4,919); book total 388,082",
-  "verifyChecks": "218 (sections A–N + K/L) — created BEFORE any lesson text, extended with K/L before 9.2",
-  "quizKeys": "9.1: 1/2/0/1/1 · 9.2: 1/3/2/1/1 — both verified live 5/5 at 1280 and true 390",
-  "defectsCaught": {
-   "verifierPhase": 14,
-   "authoringTime": 2,
-   "harnessRepairs": 2,
-   "highlights": [
-    "the doubling-pick filter compared exponents to tick values (rows are picked by the 1-bits of the multiplier)",
-    "the author's hand-typed Roman lengths were wrong across the whole comparison table — 999,999 takes 1,005 M-repeats + CMXCIX; re-scoped to the 3,999 = MMMCMXCIX ceiling",
-    "7,259 = ⟨2,0,59⟩ not ⟨2,5,59⟩ (an internal-gap exhibit, not a near-miss)",
-    "the YBC error SIGN — 1;24,51,10 = 1.41421296… under-estimates √2; error ≈ 5.9934×10⁻⁷, one part in ≈2.36 million",
-    "regular-number counts 34 (base 60) vs 15 (base 10) for n ≤ 100",
-    "10.2.3.12.7 = 1,455,727 days (a hand transposition caught)",
-    "the figure builders omitted the <svg> wrapper — captions rendered but zero SVGs in the DOM (svgCount check caught it)",
-    "the doubling figure sum-line overlap (fixed; audit 0/0)",
-    "e2e-ans-92's prereq regex still carried 9.1's set (1 chip vs 4)",
-    "PRE-EXISTING tsc collision between the two global-scope scripts (verify-book2-ch01.ts ↔ enhance-fm-12-gen.ts) proven on pristine HEAD and fixed with export {} module markers"
-   ]
-  },
-  "citationKeys": [
-   "egyptian-hieroglyphic-numerals",
-   "ishango-bone",
-   "roman-numerals",
-   "babylonian-sexagesimal-numerals",
-   "ybc-7289",
-   "plimpton-322",
-   "maya-numerals-long-count"
-  ],
-  "notes": "OpenStax Contemporary Mathematics §4.2 carried as the unit reference (never reproduced — license forbids ingestion; exposition original). Drive survey rebuilt post-recycle (rebuild_drive_survey.ts, 89 entries). Zero reference downloads this run."
- },
- "run64Extras": "run 64 (2026-11-07, job 509354's hourly :45 IST cadence — the FIRST run after four consecutive zero-output sessions, executed fully in one session): ANS ch. 10 opens 2/3 — 10.1 (5,574 words) + 10.2 (5,459 words) sequential, verify-first 174 checks ALL GREEN, gates green twice, e2e-ans-101 + e2e-ans-102 whitelisted pre-commit; scheduling note recorded for the owner: the fire timestamp renders as 13:01 +08:00 = 07:45 IST — the :45 slot exactly as pinned (the earlier ':15 trigger' suspicion was a gateway-timezone rendering artifact, settled by converting +08:00 to Asia/Kolkata); zero reference downloads (internet research sanctioned; Drive survey rebuilt post-recycle, 89 entries intact).",
- "run71Extras": {
-  "date": "2026-11-07",
-  "job": "509354 (fired 22:15:01 +08:00, trace cron-agent-loop-202611072215)",
-  "scope": "AL ch. 3 OPENS with 3.1 + 3.2 (v2 two-lesson quota, strictly sequential, verify-first)",
-  "lessons": [
-   {
-    "id": "al-what-a-polynomial-is-terms-degree-and-family",
-    "words": 4989,
-    "quizKeys": [
-     1,
-     0,
-     1,
-     1,
-     0
-    ]
-   },
-   {
-    "id": "al-adding-subtracting-and-multiplying-polynomials",
-    "words": 5013,
-    "quizKeys": [
-     0,
-     2,
-     1,
-     0,
-     1
-    ]
-   }
-  ],
-  "verifier": "verify-book3-ch03.ts 214 checks ALL GREEN (A–G pre-writing 115 + H/I authored 99)",
-  "figures": 4,
-  "downloads": "one (the H&K Elementary scan re-pulled for ch. V + art. 24–26 study; deleted after E2E)"
- },
- "run72Extras": {
-  "date": "2026-11-08",
-  "job": "509354 (payload re-delivered 04:15:01 +08:00, trace cron-agent-loop-202611080415; the :15 slot is the sibling's but the payload is the main LOCKIN RUN — executed as run 72 per the MISSED-FIRE rule)",
-  "scope": "AL ch. 3 CLOSES with 3.3 + 3.4 + the unit-3 completion review (v2 two-lesson quota, strictly sequential, verify-first)",
-  "lessons": [
-   {
-    "id": "al-special-products-the-identities-proved",
-    "words": 4408,
-    "quizKeys": [
-     1,
-     2,
-     0,
-     1,
-     1
-    ]
-   },
-   {
-    "id": "al-dividing-polynomials-long-division-and-the-remainder-theorem",
-    "words": 4246,
-    "quizKeys": [
-     0,
-     1,
-     2,
-     0,
-     1
-    ]
-   }
-  ],
-  "verifier": "verify-book3-ch03.ts 214 → 436 checks ALL GREEN (J/K for 3.3, L/M for 3.4; M carries the unit-3 review's 7-point checklist)",
-  "newCitationKeys": [
-   "euclid-elements-ii4",
-   "ruffini-synthetic-division"
-  ],
-  "downloads": "one (the H&K Elementary scan re-pulled for ch. VI Division + arts. 112–114 + the bound Higher-Algebra art. 311 remainder-theorem exposition; deleted after E2E)",
-  "infra": "audit-svg-overlaps.sh gained the al-* book mapping; e2e-al-33/34 whitelisted in .gitignore"
- },
- "run73Extras": {
-  "run": 73,
-  "date": "2026-11-08",
-  "firedFrom": "job 509354's payload re-delivered 05:15:01 +08:00, trace cron-agent-loop-202611080515 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
-  "lessons": [
-   "al-common-factors-and-grouping (4.1)",
-   "al-factoring-quadratic-trinomials (4.2)"
-  ],
-  "words": [
-   4202,
-   4050
-  ],
-  "chapterWords": 8252,
-  "verifyChecks": "248 ALL GREEN (verify-book3-ch04.ts sections A–G: A engines incl. the gauge theorem at 1,025 cells + the AC-split completeness theorem over 8,238 primitive trinomials; B/D pinned computations both sides; C/E figure plans; F/G authored batteries)",
-  "quizKeys": {
-   "4.1": [
-    0,
-    1,
-    0,
-    0,
-    2
-   ],
-   "4.2": [
-    2,
-    1,
-    3,
-    1,
-    3
-   ]
-  },
-  "figures": [
-   "the reversible film (4.1)",
-   "the grouping machine (4.1)",
-   "the two dials and the gauge (4.2)",
-   "the AC pipeline (4.2)"
-  ],
-  "preWritingCatches": "the multi-letter bracket defect (2xy + x − 3, not 2xy − 3 + xy — the third term leaves a bare x) + a wrong partial-extraction exhibit + 12 verifier-side construction slips",
-  "authoredCatches": "4 odd backslash runs (the \\'' prime escape) + 2 figure-geometry defects (panel/band overlap, title/note 2px) + 1 band-edge spill — all repaired to zero",
-  "e2e": "45/45 PASS x2 runs x3 viewports per lesson",
-  "downloads": "zero (banked H&K knowledge + one new web-checked key harriot-1631-praxis)",
-  "inventory": "96 lessons / 468,328 words / 739 terms / 480 quiz / 1,205 exercises repo-wide; 24 chapters written + 1 in progress"
- },
- "run74Extras": {
-  "run": 74,
-  "date": "2026-11-08",
-  "firedFrom": "job 509354's payload re-delivered 06:15:01 +08:00, trace cron-agent-loop-202611080619 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
-  "lessons": [
-   "al-identities-as-factorizations (4.3)",
-   "al-factor-theorem-and-cubics (4.4)"
-  ],
-  "words": [
-   4007,
-   4026
-  ],
-  "chapterWords": 16245,
-  "unit4Review": "PASSED 7/7 (BOOK_FORMAT checklist) + exam corners 4/4 + the chapter snapshot (16,245 words / 32 terms / 20 quiz / 56 exercises / 8 figures)",
-  "verifyChecks": "471 ALL GREEN (sections A–K: the Germain identity 169 points, the x⁴+16 exhaustive scan, synDiv 3,375 draws, THE MONIC INTEGER-ROOT THEOREM 4,056 cubics, THE CUBIC IRREDUCIBILITY THEOREM both directions)",
-  "quizKeys": {
-   "4.3": [
-    2,
-    1,
-    0,
-    1,
-    2
-   ],
-   "4.4": [
-    1,
-    3,
-    0,
-    1,
-    0
-   ]
-  },
-  "figures": [
-   "the recognition shelf (4.3)",
-   "the recognition decision tree (4.3)",
-   "the root-factor bridge (4.4)",
-   "the cubic hunting machine (4.4)"
-  ],
-  "newCitationKeys": [
-   "sophie-germain-identity",
-   "cardano-1545-ars-magna"
-  ],
-  "e2e": "45/45 PASS x2 runs x3 viewports per lesson (after the dev-server restart)",
-  "downloads": "zero",
-  "inventory": "98 lessons / 476,361 words repo-wide; 25 chapters written / 0 in progress"
- },
- "run75Extras": {
-  "run": 75,
-  "date": "2026-11-08",
-  "firedFrom": "job 509354's payload re-delivered 07:15:01 +08:00, trace cron-agent-loop-202611080715 — the :15 sibling slot but the main LOCKIN payload; executed per the MISSED-FIRE rule",
-  "lessons": [
-   "al-what-an-equation-is-the-balance-principle (5.1)",
-   "al-solving-linear-equations (5.2)"
-  ],
-  "words": [
-   5027,
-   4277
-  ],
-  "chapterWords": 9304,
-  "verifyChecks": "318,129 ALL GREEN (sections A–G: the 28,561-assertion classification sweep, 48,384 move-equivalence checks, the ×0 destroyer at 2,025 sets, 3,072 LCD-clearing equations, 864 bracket shapes, 458 uniqueness witnesses; F+G authored-time incl. the exact-plan figure audits)",
-  "quizKeys": {
-   "5.1": [
-    1,
-    1,
-    3,
-    0,
-    1
-   ],
-   "5.2": [
-    1,
-    0,
-    1,
-    2,
-    0
-   ]
-  },
-  "figures": [
-   "the three-assertions census strip + the balance and its lawful moves (5.1)",
-   "the five-station pipeline + the invariant solution set (5.2)"
-  ],
-  "e2e": "45/45 PASS x2+ runs x3 viewports per lesson (keys 1/1/3/0/1 and 1/0/1/2/0 live 5/5)",
-  "sources": "recorde-1557-whetstone NEW (web-checked); hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, alkhwarizmi-c825-aljabr carried; zero downloads",
-  "nextRun": "76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review close ch. 5"
- },
- "lastPush": {
-  "run": 75,
-  "date": "2026-11-08",
-  "shipCommit": "728eddf",
-  "pushed": "f7ce019..728eddf (the run-74 memory commit 2b12f2a rode the same push)",
-  "remoteMainVerified": "728eddf071140b61e4c40fa81c0b0ca8ccec68fd",
-  "method": "one-time-URL ls-remote = local HEAD at verification time; origin/main tracking ref re-synced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote"
- }
 }

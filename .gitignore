@@ -288,3 +288,8 @@ server.log
 !/scripts/e2e-al-51.page.js
 !/scripts/e2e-al-52.sh
 !/scripts/e2e-al-52.page.js
+
+# Custom Book Builder feature (2026-11-08): engine verifier + API smoke + full-journey E2E
+!/scripts/verify-custom-book-builder.ts
+!/scripts/smoke-custom-books.ts
+!/scripts/e2e-custom-book-builder.sh

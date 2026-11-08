@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  /* PDF text extraction (Custom Book Builder) runs server-side in Node */
+  serverExternalPackages: ["pdfjs-dist"],
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,

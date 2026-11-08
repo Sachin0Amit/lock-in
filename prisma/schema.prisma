@@ -1,8 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// LockIn Library — Prisma schema.
+//
+// Two worlds live in this database:
+//
+//  1. The Main Academic Library — NOT stored here. It is the TypeScript
+//     content registry under src/data/library/ (the single source of truth
+//     for all academic content). This database never duplicates it.
+//
+//  2. User data for the Custom Book Builder: accounts, sessions, and the
+//     per-user curated books. Custom books store ONLY references to
+//     canonical library lesson ids (stable forever by the types.ts
+//     contract) plus user-authored structure and reading state.
 
 generator client {
   provider = "prisma-client-js"
@@ -13,20 +20,150 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/* ------------------------------------------------------------------ */
+/* Accounts & sessions                                                 */
+/* ------------------------------------------------------------------ */
+
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions Session[]
+  books    CustomBook[]
 }
 
-model Post {
+model Session {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+/* ------------------------------------------------------------------ */
+/* Custom books                                                        */
+/* ------------------------------------------------------------------ */
+
+model CustomBook {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title          String
+  description    String   @default("")
+  /// exam | subject | topics | pdf | combination
+  creationMethod String
+  /// JSON snapshot of the creation inputs (exam name, selections, source text…)
+  inputMetadata  String   @default("{}")
+  /// draft | published | archived
+  status         String   @default("draft")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  chapters   CustomBookChapter[]
+  items      CustomBookContentReference[]
+  coverage   CustomBookCoverage[]
+  bookmarks  CustomBookBookmark[]
+  notes      CustomBookNote[]
+  readStates CustomBookProgress[]
+
+  @@index([userId, status])
+}
+
+model CustomBookChapter {
+  id           String     @id @default(cuid())
+  customBookId String
+  customBook   CustomBook @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  title        String
+  position     Int
+
+  items CustomBookContentReference[]
+
+  @@index([customBookId])
+}
+
+/// One curated entry inside a custom book chapter. The academic content
+/// itself is NEVER copied here — `sourceLibraryRecordId` is the canonical,
+/// stable lesson id from the Main Academic Library registry.
+model CustomBookContentReference {
+  id                    String            @id @default(cuid())
+  customBookId          String
+  customBook            CustomBook        @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  customBookChapterId   String
+  chapter               CustomBookChapter @relation(fields: [customBookChapterId], references: [id], onDelete: Cascade)
+  /// canonical lesson id from src/data/library — stable forever
+  sourceLibraryRecordId String
+  /// always "lesson" today; kept explicit for future record types
+  sourceContentType     String            @default("lesson")
+  position              Int
+  /// content version hash at selection time — drift vs the live library
+  /// powers "library update available" notices
+  selectedVersion       String            @default("")
+  /// JSON: { requestedTopic, via, confidence, requestedParent }
+  matchingMetadata      String            @default("{}")
+
+  /// a lesson appears at most once per custom book — no duplicate content
+  @@unique([customBookId, sourceLibraryRecordId])
+  @@index([customBookChapterId])
+}
+
+model CustomBookBookmark {
+  id                    String     @id @default(cuid())
+  /// owner, denormalised from the custom book — validated in the service layer
+  userId                String
+  customBookId          String
+  customBook            CustomBook @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  sourceLibraryRecordId String
+  createdAt             DateTime   @default(now())
+
+  @@unique([userId, customBookId, sourceLibraryRecordId])
+}
+
+model CustomBookNote {
+  id                    String     @id @default(cuid())
+  /// owner, denormalised from the custom book — validated in the service layer
+  userId                String
+  customBookId          String
+  customBook            CustomBook @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  sourceLibraryRecordId String
+  noteContent           String
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([customBookId, sourceLibraryRecordId])
+}
+
+model CustomBookProgress {
+  id                 String     @id @default(cuid())
+  /// owner, denormalised from the custom book — validated in the service layer
+  userId             String
+  customBookId       String
+  customBook         CustomBook @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  lastReadRecordId   String?
+  /// JSON array of completed lesson record ids
+  completedRecordIds String     @default("[]")
+  updatedAt          DateTime   @updatedAt
+
+  @@unique([userId, customBookId])
+}
+
+model CustomBookCoverage {
+  id                     String     @id @default(cuid())
+  customBookId           String
+  customBook             CustomBook @relation(fields: [customBookId], references: [id], onDelete: Cascade)
+  requestedTopic         String
+  /// requested parent chapter/subject, for honest gap reporting
+  requestedParent        String     @default("")
+  matchedLibraryRecordId String?
+  /// exact | equivalent | partial | not_available
+  matchStatus            String
+  matchConfidence        Float      @default(0)
+
+  @@index([customBookId])
 }

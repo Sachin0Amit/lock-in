@@ -1,0 +1,11 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { clearSessionCookie, destroySession } from '@/lib/auth'
+
+export const runtime = 'nodejs'
+
+export async function POST(req: NextRequest) {
+  await destroySession(req)
+  const res = NextResponse.json({ ok: true })
+  clearSessionCookie(res)
+  return res
+}

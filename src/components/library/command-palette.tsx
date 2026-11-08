@@ -13,8 +13,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   ArrowRight,
+  BookMarked,
   BookOpen,
   BookOpenCheck,
+  BookPlus,
   Library,
   Moon,
   Shuffle,
@@ -145,6 +147,16 @@ export function CommandPalette() {
                       <Library className="h-4 w-4" aria-hidden />
                       Go to the library home
                       <CommandShortcut>Home</CommandShortcut>
+                    </CommandItem>
+                    <CommandItem value="action-builder" onSelect={() => go('/builder')}>
+                      <BookPlus className="h-4 w-4" aria-hidden />
+                      Build a custom book
+                      <CommandShortcut>Builder</CommandShortcut>
+                    </CommandItem>
+                    <CommandItem value="action-my-books" onSelect={() => go('/my-books')}>
+                      <BookMarked className="h-4 w-4" aria-hidden />
+                      My custom books
+                      <CommandShortcut>Shelf</CommandShortcut>
                     </CommandItem>
                     <CommandItem value="action-random" onSelect={randomLesson}>
                       <Shuffle className="h-4 w-4" aria-hidden />
