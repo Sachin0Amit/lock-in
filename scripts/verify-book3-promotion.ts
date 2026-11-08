@@ -137,7 +137,7 @@ for (const [id, shelf, label] of anchors) {
 section('E. Research-phase mapping (header claims vs chapter plan)')
 const fileText = await Bun.file(`${import.meta.dir}/../src/data/library/books/mathematics/elementary-algebra/book.ts`).text()
 ok(fileText.length > 0, 'book module + source file readable')
-const desc = (al.description + ' ' + (al.notes ?? '') + ' ' + fileText).toLowerCase()
+const desc = (al.description + ' ' + fileText).toLowerCase()
 ok(desc.includes('jacobs'), 'primary text reference named (Jacobs, Elementary Algebra — the Drive copy)')
 ok(desc.includes('hall'), 'classic stretch reference named (Hall & Knight, Higher Algebra)')
 ok(desc.includes('m2'), 'Cengage M2 Algebra module named (the style reference)')

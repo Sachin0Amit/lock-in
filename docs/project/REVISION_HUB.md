@@ -15,17 +15,26 @@ content is ever copied, generated or invented.
 
 ## What the user gets
 
-1. **Mark studied, on the go** — one click on any book page chapter row
-   (`QuickMarkChapter`). No account needed: the mark lands straight in
-   the study ledger (cross-session persistence server-side; see
-   “No sign-in” below). The control then shows live state: mastery chip,
-   revision pass counter (×N), due badge, quick "Revise" and "Undo"
-   actions. Legacy device-local marks from the guest era migrate up into
-   the ledger once, on the next book-page visit.
-2. **One ledger, many entry points** — chapter marks, lesson completion
-   in the library reader, completion in the custom-book reader, and quiz
-   results (score ratio → SRS quality) all feed the same study ledger.
-   Reading a custom book is studying its underlying library lesson.
+1. **Mark studied, on the go — per section OR per chapter** — every TOC
+   lesson row on a book page carries its own compact `QuickMarkLesson`
+   (owner directive 2026-11-08: sections like 1.1 / 1.2 are the primary
+   marking unit — you mark exactly what you studied, never forced to
+   mark the whole chapter), and each chapter header keeps
+   `QuickMarkChapter` for whole-chapter study. No account needed: the
+   mark lands straight in the study ledger (cross-session persistence
+   server-side; see “No sign-in” below). Both controls then show live
+   state: mastery chip, due badge, quick "Revise" and "Undo" actions.
+   Section marks write audit events of kind `lesson-mark` (distinct from
+   `lesson-complete`, which reader completion writes). Legacy
+   device-local marks from the guest era migrate up into the ledger
+   once, on the next book-page visit. The per-book due badge counts due
+   chapters plus due sections of untracked chapters (the queue's orphan
+   rule — never double-counted).
+2. **One ledger, many entry points** — chapter marks, per-section marks
+   from the book TOC, lesson completion in the library reader,
+   completion in the custom-book reader, and quiz results (score ratio →
+   SRS quality) all feed the same study ledger. Reading a custom book is
+   studying its underlying library lesson.
 3. **Autonomous revision prompts** — a header chip ("N due") on every
    page, a library-home banner, per-book due badges, and the Revision
    Hub hero. The queue ranks items by an explainable urgency score:
@@ -82,7 +91,8 @@ content is ever copied, generated or invented.
 ```
 prisma/schema.prisma        StudyEntry (userId+scope+refId unique, SRS
                             state, mastery), StudyEvent (audit trail —
-                            first/revision/quiz/chapter-mark/lesson-complete)
+                            first/revision/quiz/chapter-mark/lesson-mark/
+                            lesson-complete)
 src/lib/revision/
   types.ts                  isomorphic contracts
   srs.ts                    the pure engine (unit-tested)
@@ -100,9 +110,10 @@ src/components/revision/    hub shell, overview/insights tabs, knowledge
                             graph, revision session, quick-mark, due chip,
                             home banner, mastery visual vocabulary
 Integration points: site-chrome (nav/chip/footer), home-view (banner),
-book-view (chapter anchors + quick-mark + per-book due), lesson-view
-(completion sync + schedule line), blocks.tsx (quiz → quality), builder
-reader-view (completion sync), command palette (hub action).
+book-view (chapter anchors + chapter AND per-section quick-mark +
+per-book due), lesson-view (completion sync + schedule line), blocks.tsx
+(quiz → quality), builder reader-view (completion sync), command palette
+(hub action).
 ```
 
 ### Queue composition rule
@@ -110,6 +121,11 @@ reader-view (completion sync), command palette (hub action).
 Chapters are the primary revision unit (as requested). Lesson entries
 surface in the queue only when their chapter has no chapter-level entry
 ("orphan lessons") — so nothing is tracked twice and nothing is missed.
+With per-section marking (2026-11-08) this rule matters more than ever:
+mark 1.1 and 1.2 individually and they queue independently; the moment
+the whole chapter is marked, the chapter entry takes over the schedule
+and the section entries stop queueing (they still count toward the
+chapter's `lessonsStudied`).
 
 ### No sign-in (2026-11-08 update)
 

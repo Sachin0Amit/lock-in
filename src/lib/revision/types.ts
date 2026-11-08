@@ -19,6 +19,7 @@ export type EventKind =
   | 'revision'
   | 'quiz'
   | 'chapter-mark'
+  | 'lesson-mark'
   | 'lesson-complete'
 
 export interface MarkItem {

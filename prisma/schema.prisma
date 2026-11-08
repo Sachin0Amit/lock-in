@@ -35,6 +35,8 @@ model User {
   sessions Session[]
   books    CustomBook[]
   ledger   StudyEntry[]
+  attempts PracticeAttempt[]
+  mistakes Mistake[]
 }
 
 /* ------------------------------------------------------------------ */
@@ -88,7 +90,7 @@ model StudyEvent {
   entry  StudyEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
   entryId String
 
-  /// first | revision | quiz | chapter-mark | lesson-complete
+  /// first | revision | quiz | chapter-mark | lesson-mark | lesson-complete
   kind    String
   /// self-rating / quiz-derived quality 0..5, when known
   quality Int?
@@ -109,6 +111,91 @@ model Session {
   createdAt DateTime @default(now())
 
   @@index([userId])
+}
+
+/* ------------------------------------------------------------------ */
+/* Practice — mock exams, adaptive drills, readiness                   */
+/* ------------------------------------------------------------------ */
+
+/// One finished practice run (a mock exam paper or an adaptive drill).
+/// Stores ONLY the answers + derived scores — the questions themselves
+/// are regenerated deterministically from the library via the run's
+/// presetKey + seed (see src/lib/practice/engine.ts).
+model PracticeAttempt {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// exam | drill
+  kind      String
+  /// preset key from src/data/exams/presets.ts, or "drill:auto|book:<id>|library"
+  presetKey String
+  /// JSON: { seed, questionIds, scopeSize, focusChapters? } — enough to
+  /// rebuild the exact paper later
+  meta      String   @default("{}")
+  /// JSON array of per-question outcomes:
+  /// [{ questionId, chosen?, selfWrong?, correct, chapterKey }]
+  results   String   @default("[]")
+
+  score     Float    @default(0)
+  maxScore  Float    @default(0)
+  /// seconds between start and submit (client clock, honest self-report)
+  secs      Int      @default(0)
+
+  startedAt  DateTime @default(now())
+  finishedAt DateTime @default(now())
+
+  @@index([userId, finishedAt])
+}
+
+/// The Mistake Bank: every wrong quiz answer and self-reported exercise
+/// miss becomes a spaced-repetition card here, scheduled by the SAME
+/// SM-2-lite engine as the study ledger (src/lib/revision/srs.ts).
+/// refIds stay canonical: lessonId + a stable question key
+/// (`${lessonId}#q<block>.<i>` for quiz items, `${lessonId}#x<block>.<set>.<i>`
+/// for exercise questions) — shared with the practice paper generator so a
+/// correct retake in the reader resolves the mistake.
+model Mistake {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// quiz | exercise
+  source    String
+  /// canonical library lesson id
+  lessonId  String
+  /// stable question key (see above) — unique per user
+  questionKey String
+
+  /// snapshots for standalone review (the library stays source of truth;
+  /// these are copies so the card renders without re-walking the blocks)
+  prompt    String
+  /// what the learner answered / "self-reported"
+  given     String
+  /// correct option text or final answer
+  expected  String
+  /// quiz explanation or exercise solution prose
+  explain   String
+
+  /// SM-2-lite schedule state (same semantics as StudyEntry)
+  ease         Float    @default(2.5)
+  intervalDays Int      @default(1)
+  passes       Int      @default(0)
+  lastQuality  Int      @default(0)
+  mastery      Float    @default(0)
+  lastAt       DateTime @default(now())
+  dueAt        DateTime @default(now())
+  /// times recorded wrong across retakes
+  timesWrong  Int      @default(1)
+  /// set when retired (2 consecutive good reviews, or a correct retake)
+  resolvedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, questionKey])
+  @@index([userId, dueAt])
+  @@index([userId, resolvedAt])
 }
 
 /* ------------------------------------------------------------------ */

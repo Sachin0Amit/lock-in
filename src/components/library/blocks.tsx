@@ -33,6 +33,7 @@ import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem } from '@/dat
 import { Math, RichText } from './math'
 import { useProgress } from './progress-store'
 import { useLedgerSync } from '@/components/revision/use-ledger-sync'
+import { reportMistakeOutcome } from '@/lib/practice/client-api'
 
 /* ---------------------------------------------------------------- */
 /* Callouts — Cengage-style note boxes (owner directive 2026-11-03):   */
@@ -328,10 +329,12 @@ function QuizBlock({
   items,
   title,
   lessonId,
+  blockIndex,
 }: {
   items: QuizItem[]
   title?: string
   lessonId?: string
+  blockIndex?: number
 }) {
   const [selected, setSelected] = useState<Record<number, number>>({})
   const recordQuiz = useProgress((s) => s.recordQuiz)
@@ -346,13 +349,30 @@ function QuizBlock({
   /* Record the score once every question is answered (works even when
      several options are clicked in the same batch). The finished quiz also
      feeds the revision ledger as an honest quality signal — quiz score maps
-     onto the SM-2 rating scale (score ratio × 5). */
+     onto the SM-2 rating scale (score ratio × 5) — and each wrong answer
+     becomes a Mistake Bank card (correct retakes retire one, via the same
+     stable question key as the practice papers). */
   useEffect(() => {
-    if (!lessonId || answeredCount !== items.length || items.length === 0) return
+    if (!lessonId || blockIndex === undefined) return
+    if (answeredCount !== items.length || items.length === 0) return
     const finalScore = items.reduce((n, it, i) => n + (selected[i] === it.answer ? 1 : 0), 0)
     recordQuiz(lessonId, finalScore, items.length)
     logQuiz(lessonId, finalScore, items.length)
-  }, [answeredCount, items, lessonId, recordQuiz, selected, logQuiz])
+    items.forEach((it, qi) => {
+      const chosen = selected[qi]
+      if (chosen === undefined) return
+      reportMistakeOutcome({
+        source: 'quiz',
+        lessonId,
+        questionKey: `${lessonId}#q${blockIndex}.${qi}`,
+        prompt: it.q,
+        given: it.options[chosen] ?? '',
+        expected: it.options[it.answer] ?? '',
+        explain: it.explain,
+        outcome: chosen === it.answer ? 'correct' : 'wrong',
+      })
+    })
+  }, [answeredCount, items, lessonId, blockIndex, recordQuiz, selected, logQuiz])
 
   const choose = (qi: number, oi: number) => {
     setSelected((prev) => ({ ...prev, [qi]: oi }))
@@ -488,13 +508,36 @@ function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string
 function ExercisesBlock({
   sets,
   title,
+  lessonId,
+  blockIndex,
 }: {
   sets: {
     level: keyof typeof LEVEL_LABELS
     questions: { q: string; solution: string | string[]; answer?: string }[]
   }[]
   title?: string
+  lessonId?: string
+  blockIndex?: number
 }) {
+  /* honest self-report per question, keyed `${setIdx}.${qIdx}` — a miss
+   * becomes a Mistake Bank card (and "got it" retires one) */
+  const [reported, setReported] = useState<Record<string, 'got' | 'missed'>>({})
+
+  const selfReport = (key: string, q: { q: string; solution: string | string[]; answer?: string }, missed: boolean) => {
+    if (!lessonId || blockIndex === undefined) return
+    setReported((r) => ({ ...r, [key]: missed ? 'missed' : 'got' }))
+    reportMistakeOutcome({
+      source: 'exercise',
+      lessonId,
+      questionKey: `${lessonId}#x${blockIndex}.${key}`,
+      prompt: q.q,
+      given: 'self-reported',
+      expected: q.answer ?? 'see the worked solution',
+      explain: Array.isArray(q.solution) ? q.solution.join(' ') : q.solution,
+      outcome: missed ? 'wrong' : 'correct',
+    })
+  }
+
   return (
     <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
       <header className="flex flex-wrap items-center gap-2 bg-[var(--book-green)] px-5 py-2.5 text-white">
@@ -520,7 +563,10 @@ function ExercisesBlock({
               </span>
             </div>
             <ol className="divide-y divide-[var(--book-sage-line)]/60">
-              {set.questions.map((q, qi) => (
+              {set.questions.map((q, qi) => {
+                const key = `${si}.${qi}`
+                const mark = reported[key]
+                return (
                 <li key={qi} className="py-3.5 first:pt-1 last:pb-1">
                   <p className="font-medium leading-7">
                     <span className="mr-2 font-reading font-bold text-[var(--book-green-ink)]">
@@ -535,10 +581,51 @@ function ExercisesBlock({
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-2 rounded-md border-l-2 border-[var(--book-green)]/60 bg-[var(--book-sage)]/50 px-4 py-3 text-sm leading-7 text-foreground/90">
                       <SolutionBody q={q} />
+                      {lessonId && blockIndex !== undefined && (
+                        <div className="mt-3 border-t border-[var(--book-sage-line)]/60 pt-2.5">
+                          {mark ? (
+                            <p
+                              className={`inline-flex items-center gap-1.5 text-xs font-medium ${
+                                mark === 'missed'
+                                  ? 'text-rose-700 dark:text-rose-300'
+                                  : 'text-emerald-700 dark:text-emerald-300'
+                              }`}
+                            >
+                              {mark === 'missed' ? 'Added to your Mistake Bank' : 'Marked as got it'}
+                              <button
+                                type="button"
+                                onClick={() => selfReport(key, q, mark === 'got')}
+                                className="ml-1 text-muted-foreground underline underline-offset-2 hover:text-foreground"
+                              >
+                                undo
+                              </button>
+                            </p>
+                          ) : (
+                            <p className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                              <span>Be honest — how did you do?</span>
+                              <button
+                                type="button"
+                                onClick={() => selfReport(key, q, false)}
+                                className="rounded-md border border-emerald-600/40 bg-emerald-500/10 px-2 py-0.5 font-medium text-emerald-700 transition-colors hover:bg-emerald-500/20 dark:text-emerald-300"
+                              >
+                                I got it
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => selfReport(key, q, true)}
+                                className="rounded-md border border-rose-600/40 bg-rose-500/10 px-2 py-0.5 font-medium text-rose-700 transition-colors hover:bg-rose-500/20 dark:text-rose-300"
+                              >
+                                I missed it
+                              </button>
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </CollapsibleContent>
                   </Collapsible>
                 </li>
-              ))}
+                )
+              })}
             </ol>
           </div>
         ))}
@@ -734,9 +821,9 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               </ul>
             )
           case 'quiz':
-            return <QuizBlock key={i} items={b.items} title={b.title} lessonId={lessonId} />
+            return <QuizBlock key={i} items={b.items} title={b.title} lessonId={lessonId} blockIndex={i} />
           case 'exercises':
-            return <ExercisesBlock key={i} sets={b.sets} title={b.title} />
+            return <ExercisesBlock key={i} sets={b.sets} title={b.title} lessonId={lessonId} blockIndex={i} />
           case 'formula':
             return <FormulaBlock key={i} name={b.name} latex={b.latex} note={b.note} />
           case 'algorithm':

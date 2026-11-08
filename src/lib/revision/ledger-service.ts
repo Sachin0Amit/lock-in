@@ -67,7 +67,7 @@ type EntryRow = {
 
 const MAX_ITEMS = 200
 const ACTION_SET: MarkAction[] = ['study', 'revise', 'unmark', 'quiz']
-const KIND_SET = ['first', 'revision', 'quiz', 'chapter-mark', 'lesson-complete']
+const KIND_SET = ['first', 'revision', 'quiz', 'chapter-mark', 'lesson-mark', 'lesson-complete']
 const ACTIVITY_WINDOW_DAYS = 84
 
 /* ------------------------------------------------------------------ */

@@ -6,9 +6,10 @@
  *  - hero: cover + meta + compact stat strip + progress + actions
  *  - TOC: per-chapter written counters, "Next up" lesson highlighted,
  *    quiz best scores shown on completed lessons, tighter rows
- *  - revision: on-the-go "Mark studied" per chapter with live mastery /
- *    passes / due state from the study ledger — open to everyone, no
- *    account needed — plus a per-book revision summary button
+ *  - revision: on-the-go "Mark studied" per chapter AND per section
+ *    (1.1, 1.2, …) with live mastery / passes / due state from the study
+ *    ledger — open to everyone, no account needed — plus a per-book
+ *    revision summary button
  */
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -39,7 +40,7 @@ import {
 } from '@/data/library/index'
 import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
-import { QuickMarkChapter } from '@/components/revision/quick-mark'
+import { QuickMarkChapter, QuickMarkLesson } from '@/components/revision/quick-mark'
 import { fetchOverview, markStudy } from '@/lib/revision/client-api'
 import type { EntryView } from '@/lib/revision/types'
 
@@ -86,16 +87,21 @@ export function BookView({ book }: Props) {
   const completedMap = useProgress((s) => s.completed)
   const quizBest = useProgress((s) => s.quizBest)
   const [chapterEntries, setChapterEntries] = useState<Map<string, EntryView>>(new Map())
+  const [lessonEntries, setLessonEntries] = useState<Map<string, EntryView>>(new Map())
   const [revTick, setRevTick] = useState(0)
 
-  /* ledger state for this book's chapters — open to everyone, no account needed */
+  /* ledger state for this book's chapters and sections — open to everyone,
+   * no account needed */
   useEffect(() => {
     let cancelled = false
     void (async () => {
       const o = await fetchOverview()
       if (cancelled) return
-      const entries: Map<string, EntryView> = o
+      const chapters: Map<string, EntryView> = o
         ? new Map(o.entries.filter((e) => e.scope === 'chapter').map((e) => [e.refId, e]))
+        : new Map()
+      const lessons: Map<string, EntryView> = o
+        ? new Map(o.entries.filter((e) => e.scope === 'lesson').map((e) => [e.refId, e]))
         : new Map()
 
       /* one-time migration: chapters marked while signed out (device-local
@@ -103,7 +109,7 @@ export function BookView({ book }: Props) {
       const locals = useProgress.getState().chapterStudied
       const pending = book.chapters
         .map((c) => `${book.id}:${c.number}`)
-        .filter((key) => locals[key] && !entries.has(key) && !migratedChapterKeys.has(key))
+        .filter((key) => locals[key] && !chapters.has(key) && !migratedChapterKeys.has(key))
       if (pending.length > 0) {
         for (const key of pending) migratedChapterKeys.add(key)
         const results = await markStudy({
@@ -113,12 +119,15 @@ export function BookView({ book }: Props) {
         }).catch(() => null)
         if (results && !cancelled) {
           for (const r of results) {
-            if (r.ok && r.entry && r.entry.scope === 'chapter') entries.set(r.entry.refId, r.entry)
+            if (r.ok && r.entry && r.entry.scope === 'chapter') chapters.set(r.entry.refId, r.entry)
           }
         }
       }
 
-      if (!cancelled) setChapterEntries(entries)
+      if (!cancelled) {
+        setChapterEntries(chapters)
+        setLessonEntries(lessons)
+      }
     })()
     return () => {
       cancelled = true
@@ -128,9 +137,20 @@ export function BookView({ book }: Props) {
   const myChapterEntries = book.chapters
     .map((c) => chapterEntries.get(`${book.id}:${c.number}`))
     .filter((e): e is EntryView => !!e)
-  const dueInBook = myChapterEntries.filter(
-    (e) => e.overdueDays > 0 || new Date(e.dueAt).getTime() <= Date.now(),
-  ).length
+  /* due sections count only when their chapter is not itself tracked —
+   * the hub queue's orphan rule, so the badge never double-counts */
+  const myLessonEntries = book.chapters
+    .flatMap((c) => c.lessons.map((l) => lessonEntries.get(l.id)))
+    .filter((e): e is EntryView => !!e)
+  const dueInBook =
+    myChapterEntries.filter(
+      (e) => e.overdueDays > 0 || new Date(e.dueAt).getTime() <= Date.now(),
+    ).length +
+    myLessonEntries.filter(
+      (e) =>
+        !chapterEntries.has(`${e.bookId}:${e.chapterNumber}`) &&
+        (e.overdueDays > 0 || new Date(e.dueAt).getTime() <= Date.now()),
+    ).length
 
   const completed = lessons.filter((l) => completedMap[l.lesson.id]).length
   const lastLessonId = useProgress((s) => s.lastLessonId)
@@ -291,12 +311,15 @@ export function BookView({ book }: Props) {
                     const best = quizBest[lesson.id]
                     return (
                       <li key={lesson.id}>
-                        <Link
-                          href={paths.lesson(book.id, lesson.id)}
-                          className={`flex w-full items-center gap-3 px-5 py-3 text-left transition-colors hover:bg-accent/50 ${
+                        <div
+                          className={`flex w-full items-center gap-1 transition-colors hover:bg-accent/50 ${
                             isNext ? 'bg-primary/[0.06] dark:bg-primary/[0.1]' : ''
                           }`}
                         >
+                          <Link
+                            href={paths.lesson(book.id, lesson.id)}
+                            className="flex min-w-0 flex-1 items-center gap-3 py-3 pl-5 pr-2 text-left"
+                          >
                           {done ? (
                             <BookOpenCheck
                               className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
@@ -335,8 +358,17 @@ export function BookView({ book }: Props) {
                               Next up
                             </span>
                           )}
-                          <span className="shrink-0 text-xs text-muted-foreground">{readMins} min</span>
-                        </Link>
+                          </Link>
+                          <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5 py-1.5 pl-2 pr-5">
+                            <QuickMarkLesson
+                              lessonId={lesson.id}
+                              number={lesson.number}
+                              entry={lessonEntries.get(lesson.id)}
+                              onChanged={() => setRevTick((t) => t + 1)}
+                            />
+                            <span className="shrink-0 text-xs text-muted-foreground">{readMins} min</span>
+                          </div>
+                        </div>
                       </li>
                     )
                   })}
@@ -357,12 +389,6 @@ export function BookView({ book }: Props) {
             )
           })}
         </div>
-        {book.notes && (
-          <p className="mt-8 rounded-lg border border-dashed px-5 py-4 text-sm leading-6 text-muted-foreground">
-            <span className="font-semibold text-foreground/80">Status note — </span>
-            {book.notes}
-          </p>
-        )}
       </section>
     </div>
   )

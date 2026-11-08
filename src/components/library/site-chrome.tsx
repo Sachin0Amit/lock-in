@@ -13,7 +13,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
-import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun } from 'lucide-react'
+import { BookOpenCheck, BookPlus, BookMarked, BrainCircuit, Library, LogOut, Menu, Moon, Sun, Target } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/components/ui/button'
 import {
@@ -37,6 +37,7 @@ const NAV_ITEMS = [
   { href: '/builder', label: 'Custom Book Builder', short: 'Book Builder', icon: BookPlus },
   { href: '/my-books', label: 'My Custom Books', short: 'My Books', icon: BookMarked },
   { href: '/revision', label: 'Revision Hub', short: 'Revision', icon: BrainCircuit },
+  { href: '/practice', label: 'Practice', short: 'Practice', icon: Target },
 ]
 
 /** A nav item is active for its whole route tree (library also owns /book/*). */
@@ -141,6 +142,11 @@ function AccountChip() {
         <DropdownMenuItem asChild>
           <Link href="/revision" className="cursor-pointer">
             <BrainCircuit className="h-4 w-4" aria-hidden /> Revision Hub
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/practice" className="cursor-pointer">
+            <Target className="h-4 w-4" aria-hidden /> Practice
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -250,6 +256,9 @@ export function SiteFooter() {
           </Link>
           <Link href="/revision" className="font-medium hover:text-foreground hover:underline">
             Revision Hub
+          </Link>
+          <Link href="/practice" className="font-medium hover:text-foreground hover:underline">
+            Practice
           </Link>
           <Link
             href={paths.glossary(allBooks[0].id)}

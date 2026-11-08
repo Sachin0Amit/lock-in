@@ -31,6 +31,7 @@ interface Props {
 const EVENT_ICON: Record<string, typeof History> = {
   first: CheckCircle2,
   'chapter-mark': CheckCircle2,
+  'lesson-mark': CheckCircle2,
   'lesson-complete': CheckCircle2,
   revision: RotateCcw,
   quiz: Trophy,

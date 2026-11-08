@@ -76,8 +76,6 @@ export interface Book {
   accent: [string, string]
   /** full table of contents; chapters of planned books have empty lessons */
   chapters: Chapter[]
-  /** short note on what this book still needs before "complete" */
-  notes?: string
 }
 
 export interface Chapter {

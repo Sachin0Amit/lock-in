@@ -117,7 +117,7 @@ section('E. Research-phase mapping (header claims vs chapter plan)')
 const fileText = await Bun.file(`${import.meta.dir}/../src/data/library/books/mathematics/arithmetic-number-systems/book.ts`).text()
 const header = fileText.length > 0
 ok(header, 'book module + source file readable')
-const desc = (ans.description + ' ' + (ans.notes ?? '') + ' ' + fileText).toLowerCase()
+const desc = (ans.description + ' ' + fileText).toLowerCase()
 ok(desc.includes('khattar'), 'competitive-exam reference named (Khattar QA 4e)')
 ok(desc.includes('art of proof') || desc.includes('beck'), 'university bridge reference named (Beck & Geoghegan)')
 ok(desc.includes('openstax') || desc.includes('babylon'), 'historical numeration reference named')
