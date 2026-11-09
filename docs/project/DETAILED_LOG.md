@@ -109,6 +109,45 @@ brahmagupta-628-brahmasphutasiddhanta); zero downloads (web-check only). Next: r
 
 ---
 
+---
+
+## RUN 76 — Elementary Algebra ch. 5 CLOSES: 5.3 + the unit-5 review (2026-11-09)
+
+**Delivered:** Lesson 5.3 'The Three Verdicts: One, None, Infinitely Many'
+(id `al-the-three-verdicts-one-none-infinitely-many`, 4,720 words, quiz keys
+0/2/2/1/3, 14 exercises L1–L6, 2 figures) + THE UNIT-5 COMPLETION REVIEW
+(BOOK_FORMAT checklist 7/7, exam corners 3/3, chapter snapshot recomputed).
+Chapter 5 COMPLETE 3/3 at 14,024 words (5.1 5,027 + 5.2 4,277 + 5.3 4,720).
+
+**Content:** the gathered form (a−c)x = d−b by two lawful subtractions; the
+three doors (coefficient nonzero → exactly one, x = (d−b)/(a−c); collapse with
+nonzero leftover → none, the contradiction class with 1 = 2 the type case;
+collapse with zero leftover → every number, 3.3's identity charter cashed); the
+classification theorem proved from the field laws and swept exhaustively
+(625 gathered forms; the 28,561-grid cross-check with the exact class census
+26,364 / 169 / 2,028; the 70,304-check collapse-closure engine licensing
+mid-solve verdict readings); verdicts through the stations (bracketed,
+fractional and decimal collapses with the check pricing each); the k-parameter
+families (2x+4 = 2x+k: none ⟺ k ≠ 4; 5x+2 = 5x+k likewise); the honest-answer
+discipline (a contradiction's solution set is empty — the sentence, never a
+manufactured x); the identity trap with its mechanical detector (0 = 0);
+H&K's identical-equations vocabulary in the historical callout; the NCERT
+reducible-forms bridge and the ch. 11 word-problem deferral named in the exam
+corner; the bridge to ch. 6 (two unknowns need two claims).
+
+**Verification:** verify-book3-ch05.ts extended 318,129 → 448,260 checks ALL
+GREEN (sections H–K added); the pre-writing census sign-slip catch (9/9 vs
+−9/−9 at x = −5); the authored-time scans (17 odd backslash runs from the a\'
+escapes — rewritten in plain (a−c) notation; anchor slips; stale assertions;
+the audit's title/door overlap — doors to 110/162/214); lint 0 errors; tsc
+clean; routes 200/200/404; E2E e2e-al-53 45/45 ×2 runs ×3 viewports (quiz 5/5
+live, KaTeX 264 nodes 0 errors, no overflow, 0 console errors); SVG audit 0/0.
+
+**Citations:** zero new keys, zero downloads (carried: hall-knight-
+elementary-algebra, ncert-math8-ch2-linear-equations, khattar-qa-4e,
+cengage-jee-style). Chapter status complete; plannedLessons emptied; book.ts
+header updated; e2e-al-53 whitelisted in .gitignore pre-commit.
+
 Maintained through **run 57 (2026-11-06, job 506464's last fire before the owner's same-window rescheduling)**: **ANS
 CHAPTER 5 'CONGRUENCES: THE ARITHMETIC OF REMAINDERS' COMPLETE 4/4 IN ONE RUN — the second chapter shipped under
 the owner's one-full-chapter-per-run directive (and the first under the rescheduled every-2-hour cadence, job 507350).**

@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-08 05:37:13 (Asia/Kolkata)",
+  "generated": "2026-11-09 14:32:00 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,52 +5920,53 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 106,
-      "totalLines": 69562,
+      "srcFilesTracked": 197,
+      "totalLines": 90152,
       "byArea": {
-        "src/app (routes, pages)": 586,
-        "src/components/library (reader platform)": 3000,
+        "src/app (routes, pages)": 1842,
+        "other": 10506,
+        "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 60297,
+        "src/data/library (content model + books)": 61747,
         "src/hooks": 214,
-        "src/lib": 20
+        "src/lib": 6937
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 746
-        },
-        {
-          "file": "home-view.tsx",
-          "lines": 384
+          "lines": 838
         },
         {
           "file": "lesson-view.tsx",
-          "lines": 369
+          "lines": 439
+        },
+        {
+          "file": "book-view.tsx",
+          "lines": 396
+        },
+        {
+          "file": "home-view.tsx",
+          "lines": 386
         },
         {
           "file": "flashcards.tsx",
           "lines": 367
         },
         {
-          "file": "book-view.tsx",
-          "lines": 294
+          "file": "site-chrome.tsx",
+          "lines": 292
         },
         {
           "file": "command-palette.tsx",
-          "lines": 257
+          "lines": 275
         },
         {
           "file": "glossary-view.tsx",
           "lines": 156
         },
         {
-          "file": "site-chrome.tsx",
-          "lines": 127
-        },
-        {
           "file": "progress-store.ts",
-          "lines": 93
+          "lines": 105
         },
         {
           "file": "math.tsx",
@@ -6134,7 +6135,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-08",
+      "surveyed": "2026-11-09",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -14705,33 +14706,1461 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "728eddf071140b61e4c40fa81c0b0ca8ccec68fd",
+      "short": "728eddf",
+      "date": "2026-11-08 00:08",
+      "message": "al ch.5 OPENS (run 75): 5.1 What an Equation Is: the Balance Principle (5,027 w — expressions to assertions, the three classes priced by a six-point census + table, the balance principle with the four lawful moves PROVED from the field laws ANS 7.2, the ×0 destroyer priced, first solves + the check habit, the uniqueness derivation via the no-zero-product law, the RECORDE 1557 Whetstone-of-Witte callout, 8 terms / 5 quiz keys 1/1/3/0/1 / 14 exercises L1–L6 / 3 formula cards / 2 derivations / 4 illustrations / 1 table / 2 figures) + 5.2 Solving Linear Equations (4,277 w — the five-station pipeline as an algorithm block with the running example 2(x−1)/3 = (x+1)/2 + 1 → x = 13 flowing through stations + table, bracketed forms with the distributed-minus trap priced (−1 vs −11 at x = 0), fractional forms with the LCD strike proved lawful + integer-landing (3,072-equation sweep), decimals by the power of ten, the one-sided-clearing error the check catches at x = 2 vs the lawful x = 24, the pipeline-composition derivation, the invariant-set figure, the transposition insight + the AL-JABR callout, 8 terms / 5 quiz keys 1/0/1/2/0 / 14 exercises / 3 formula cards / 1 table / 2 figures) — verify-first with verify-book3-ch05.ts 318,129 checks ALL GREEN (sections A–G: THE CLASSIFICATION THEOREM swept over all 28,561 linear assertions with coefficients in [-6,6] (one ⟺ a≠c, all ⟺ a=c∧b=d, none ⟺ a=c∧b≠d — 5.3's theorem previewed by exhaustive data), the move-equivalence engine 48,384 exact Frac checks, the ×0 destroyer at 2,025 one-point sets, the LCD engine 3,072 equations, the bracket engine 864 shapes, 458 uniqueness witnesses; B/D pinned every exhibit/quiz/exercise key both sides incl. the exact fractions 8/3 and 23/5; pre-writing caught the A-v expansion-check defect, the 5/2-vs-5 decimal pin, a conspiring Q2 distractor and 3 figure-plan geometry defects; authored-time caught the missing 5.1 terms block, a straight-apostrophe string break, a mangled backslash run, figure-order audits and 2 anchor-index slips — none shipped); 4 figures audited 0-issue + visually inspected; E2E 45/45 PASS ×2+ runs ×3 viewports per lesson (quiz 5/5 live on both key sets); logs + inventory updated (100 lessons / 485,665 words / 771 terms / 500 quiz / 1,261 exercises repo-wide); e2e-al-51/52 + verify-book3-ch05 whitelisted; the book stands 4 complete chapters + ch. 5 open 2/3 of 11; next run 76 = 5.3 'The Three Verdicts' + the unit-5 review CLOSE ch. 5",
+      "filesChanged": 14,
+      "insertions": 2766,
+      "deletions": 46,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 52,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 40,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 37,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 121,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-al-51.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-51.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-52.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-52.sh",
+          "add": 90,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch05.ts",
+          "add": 1157,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 7,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-05.ts",
+          "add": 999,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "a7701a4e1a751d6ca6dea47b185399f076ed2532",
+      "short": "a7701a4",
+      "date": "2026-11-08 00:09",
+      "message": "memory: run-75 push verified — remote main = 728eddf (ship 728eddf pushed f7ce019..728eddf, ls-remote verified = local HEAD; run 74's memory commit 2b12f2a rode the same push); AL ch. 5 'Linear Equations in One Variable' OPENS 2/3 (9,304 words: 5.1 'What an Equation Is: the Balance Principle' 5,027 + 5.2 'Solving Linear Equations' 4,277; quiz keys 1/1/3/0/1 and 1/0/1/2/0; verify-book3-ch05.ts finished at 318,129 checks ALL GREEN — sections A–E pre-writing swept THE CLASSIFICATION THEOREM over all 28,561 linear assertions with coefficients in [-6,6] (one ⟺ a≠c, all ⟺ a=c∧b=d, none ⟺ a=c∧b≠d), the move-equivalence engine at 48,384 exact Frac checks, the ×0 destroyer at 2,025 flattened sets, the LCD engine at 3,072 equations, 864 bracket shapes, 458 uniqueness witnesses; F+G's authored-time scanners caught the missing 5.1 terms block + a straight-apostrophe string break + a mangled backslash run + figure-order and anchor-index slips, none shipped; the RECORDE-1557 equals-sign callout and the AL-JABR callout; four figures audited 0-issue + visually inspected; E2E 45/45 PASS x2+ runs x3 viewports per lesson on keys 1/1/3/0/1 and 1/0/1/2/0); the book stands 4 complete chapters + ch. 5 open 2/3 of 11 (100 lessons / 485,665 words repo-wide); next run 76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review CLOSE ch. 5 (extend verify-book3-ch05.ts FIRST; whitelist e2e-al-53; never ch. 6); run 77 opens ch. 6",
+      "filesChanged": 2,
+      "insertions": 17,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "1c9400f29ffe563c30e8a23c6807a7356dbc96e0",
+      "short": "1c9400f",
+      "date": "2026-11-08 04:00",
+      "message": "custom book builder (feature run, 2026-11-08): personalized academic books curated exclusively from Main Academic Library lessons — ONE library, unlimited custom books",
+      "filesChanged": 59,
+      "insertions": 9940,
+      "deletions": 937,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "bun.lock",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CUSTOM_BOOK_BUILDER.md",
+          "add": 155,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 945,
+          "del": 909
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "next.config.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "package.json",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "add": 154,
+          "del": 17
+        },
+        {
+          "path": "scripts/e2e-custom-book-builder.sh",
+          "add": 281,
+          "del": 0
+        },
+        {
+          "path": "scripts/smoke-custom-books.ts",
+          "add": 310,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-custom-book-builder.ts",
+          "add": 354,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/auth/login/route.ts",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/auth/logout/route.ts",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/auth/me/route.ts",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/auth/register/route.ts",
+          "add": 38,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/builder/match/route.ts",
+          "add": 165,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/builder/upload-pdf/route.ts",
+          "add": 34,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/bookmarks/route.ts",
+          "add": 82,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/duplicate/route.ts",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/notes/[noteId]/route.ts",
+          "add": 56,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/notes/route.ts",
+          "add": 77,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/progress/route.ts",
+          "add": 96,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/route.ts",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/search/route.ts",
+          "add": 72,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/custom-books/route.ts",
+          "add": 41,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/library/lessons/[lessonId]/route.ts",
+          "add": 36,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/library/search/route.ts",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/library/tree/route.ts",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/app/builder/page.tsx",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/app/my-books/[bookId]/page.tsx",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/app/my-books/[bookId]/read/page.tsx",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "src/app/my-books/page.tsx",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/app/signin/page.tsx",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/auth-store.ts",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/book-detail-view.tsx",
+          "add": 413,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/builder-app.tsx",
+          "add": 757,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/coverage-report.tsx",
+          "add": 168,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/custom-cover.tsx",
+          "add": 74,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/library-picker.tsx",
+          "add": 298,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/my-books-view.tsx",
+          "add": 349,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/reader-view.tsx",
+          "add": 762,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/record-info.tsx",
+          "add": 67,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/review-matches.tsx",
+          "add": 222,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/signin-view.tsx",
+          "add": 190,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/toc-editor.tsx",
+          "add": 212,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/command-palette.tsx",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 131,
+          "del": 10
+        },
+        {
+          "path": "src/lib/auth.ts",
+          "add": 117,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/books-service.ts",
+          "add": 583,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/catalog.ts",
+          "add": 315,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/client-api.ts",
+          "add": 214,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/exam-templates.ts",
+          "add": 250,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/matcher.ts",
+          "add": 634,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/pdf-extract.ts",
+          "add": 305,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/toc.ts",
+          "add": 259,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/topic-parser.ts",
+          "add": 266,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/types.ts",
+          "add": 114,
+          "del": 0
+        },
+        {
+          "path": "src/lib/db.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/types/pdfjs.d.ts",
+          "add": 24,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "face0035157d8e0ea07f6ecd392b59762696f056",
+      "short": "face003",
+      "date": "2026-11-08 08:28",
+      "message": "custom book builder: UNIFIED ONE-DESK upgrade — all five creation methods combined on a single compose screen",
+      "filesChanged": 12,
+      "insertions": 1345,
+      "deletions": 468,
+      "files": [
+        {
+          "path": "docs/project/CUSTOM_BOOK_BUILDER.md",
+          "add": 55,
+          "del": 26
+        },
+        {
+          "path": "scripts/e2e-custom-book-builder.sh",
+          "add": 82,
+          "del": 21
+        },
+        {
+          "path": "scripts/make-syllabus-fixture.py",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-custom-book-builder.ts",
+          "add": 99,
+          "del": 0
+        },
+        {
+          "path": "scripts/visual-check-builder.py",
+          "add": 87,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/builder/match/route.ts",
+          "add": 52,
+          "del": 75
+        },
+        {
+          "path": "src/app/builder/page.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/components/builder/builder-app.tsx",
+          "add": 705,
+          "del": 335
+        },
+        {
+          "path": "src/lib/builder/catalog.ts",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "src/lib/builder/client-api.ts",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/match-input.ts",
+          "add": 190,
+          "del": 0
+        },
+        {
+          "path": "src/lib/builder/types.ts",
+          "add": 13,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "07d1e07c452b689bc822d96f040f6985010bc484",
+      "short": "07d1e07",
+      "date": "2026-11-08 09:52",
+      "message": "revision & mastery: the Revision Hub — one study ledger, autonomous spaced-repetition prompts, knowledge graph and honest analytics",
+      "filesChanged": 34,
+      "insertions": 5208,
+      "deletions": 11,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/REVISION_HUB.md",
+          "add": 160,
+          "del": 0
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "add": 64,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-revision-hub.sh",
+          "add": 329,
+          "del": 0
+        },
+        {
+          "path": "scripts/smoke-revision.ts",
+          "add": 202,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-revision.ts",
+          "add": 402,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/revision/entry/route.ts",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/revision/graph/route.ts",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/revision/mark/route.ts",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/revision/overview/route.ts",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "src/app/revision/page.tsx",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/components/builder/reader-view.tsx",
+          "add": 7,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 7,
+          "del": 2
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 62,
+          "del": 2
+        },
+        {
+          "path": "src/components/library/command-palette.tsx",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/home-view.tsx",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 76,
+          "del": 5
+        },
+        {
+          "path": "src/components/library/progress-store.ts",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 12,
+          "del": 1
+        },
+        {
+          "path": "src/components/revision/due-chip.tsx",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/insights-tab.tsx",
+          "add": 282,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/knowledge-graph.tsx",
+          "add": 830,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/mastery-bits.tsx",
+          "add": 145,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/overview-tab.tsx",
+          "add": 386,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/quick-mark.tsx",
+          "add": 181,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/revision-banner.tsx",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/revision-hub.tsx",
+          "add": 224,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/revision-session.tsx",
+          "add": 273,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/revision-store.ts",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/use-ledger-sync.ts",
+          "add": 95,
+          "del": 0
+        },
+        {
+          "path": "src/lib/revision/client-api.ts",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "src/lib/revision/ledger-service.ts",
+          "add": 673,
+          "del": 0
+        },
+        {
+          "path": "src/lib/revision/srs.ts",
+          "add": 232,
+          "del": 0
+        },
+        {
+          "path": "src/lib/revision/types.ts",
+          "add": 235,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "04d97a44d8fdae315f34c6c8d080980208e0f1e3",
+      "short": "04d97a4",
+      "date": "2026-11-08 10:20",
+      "message": "navbar: symbol-first primary navigation — lucide symbols on every item (icon-only between md and lg with tooltip + full accessible name, symbol + compact name from lg up), active route highlighted with an aria-current pill across all four feature route trees; CDP regression script verify-nav-cdp.ts (6 routes × 2 widths + mobile burger check, all green)",
+      "filesChanged": 3,
+      "insertions": 209,
+      "deletions": 15,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-nav-cdp.ts",
+          "add": 153,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 53,
+          "del": 15
+        }
+      ]
+    },
+    {
+      "sha": "42ac3be4e5609d3bb6301266d823e8431679c8c1",
+      "short": "42ac3be",
+      "date": "2026-11-08 10:58",
+      "message": "no sign-in: Revision Hub, Custom Book Builder and My Custom Books are fully open — every data route resolves the acting user via resolveUser (session cookie when present, otherwise one stable lazily-created local learner local@lockin.library); all 22 auth gates across 14 API routes replaced, Revision Hub GuestHero wall deleted, My-Books/reader/detail sign-in redirects deleted, builder save gate + three sign-in hints deleted, quick-mark always writes the server ledger (device-local guest marks migrate up once), ledger-sync/due-chip/revision-banner/book-view/lesson-view run unauthenticated, navbar Sign in button removed (account chip only for live sessions, /signin stays reachable by URL); regression: verify-no-signin 21/21 API + verify-no-signin-ui 14/14 browser checks ALL PASS, smoke-revision 42/42, smoke-custom-books 59/59, tsc + eslint clean; docs + smoke/E2E scripts updated to the new open-access contract",
+      "filesChanged": 35,
+      "insertions": 696,
+      "deletions": 448,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/CUSTOM_BOOK_BUILDER.md",
+          "add": 8,
+          "del": 6
+        },
+        {
+          "path": "docs/project/REVISION_HUB.md",
+          "add": 28,
+          "del": 12
+        },
+        {
+          "path": "scripts/e2e-revision-hub.sh",
+          "add": 18,
+          "del": 9
+        },
+        {
+          "path": "scripts/smoke-custom-books.ts",
+          "add": 9,
+          "del": 3
+        },
+        {
+          "path": "scripts/smoke-revision.ts",
+          "add": 15,
+          "del": 8
+        },
+        {
+          "path": "scripts/verify-no-signin-ui.ts",
+          "add": 194,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-no-signin.ts",
+          "add": 188,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/builder/match/route.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "src/app/api/builder/upload-pdf/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/bookmarks/route.ts",
+          "add": 4,
+          "del": 7
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/duplicate/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/notes/[noteId]/route.ts",
+          "add": 3,
+          "del": 5
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/notes/route.ts",
+          "add": 3,
+          "del": 5
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/progress/route.ts",
+          "add": 3,
+          "del": 5
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/route.ts",
+          "add": 4,
+          "del": 7
+        },
+        {
+          "path": "src/app/api/custom-books/[bookId]/search/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/custom-books/route.ts",
+          "add": 4,
+          "del": 6
+        },
+        {
+          "path": "src/app/api/revision/entry/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/revision/graph/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/revision/mark/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/app/api/revision/overview/route.ts",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "src/components/builder/book-detail-view.tsx",
+          "add": 3,
+          "del": 9
+        },
+        {
+          "path": "src/components/builder/builder-app.tsx",
+          "add": 21,
+          "del": 56
+        },
+        {
+          "path": "src/components/builder/my-books-view.tsx",
+          "add": 3,
+          "del": 11
+        },
+        {
+          "path": "src/components/builder/reader-view.tsx",
+          "add": 4,
+          "del": 11
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 46,
+          "del": 30
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 5,
+          "del": 6
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 8,
+          "del": 22
+        },
+        {
+          "path": "src/components/revision/due-chip.tsx",
+          "add": 3,
+          "del": 7
+        },
+        {
+          "path": "src/components/revision/quick-mark.tsx",
+          "add": 48,
+          "del": 104
+        },
+        {
+          "path": "src/components/revision/revision-banner.tsx",
+          "add": 5,
+          "del": 8
+        },
+        {
+          "path": "src/components/revision/revision-hub.tsx",
+          "add": 5,
+          "del": 74
+        },
+        {
+          "path": "src/components/revision/use-ledger-sync.ts",
+          "add": 4,
+          "del": 10
+        },
+        {
+          "path": "src/lib/auth.ts",
+          "add": 38,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "c819b56bc26325b2dada625fe9a4340b851b16ba",
+      "short": "c819b56",
+      "date": "2026-11-08 11:40",
+      "message": "ed32bcaa-55e1-4844-b0f4-25f01ef57a2d",
+      "filesChanged": 33,
+      "insertions": 1069,
+      "deletions": 972,
+      "files": [
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 35,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "docs/project/ENHANCEMENT_LOG.md",
+          "add": 60,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-fm-11.page.js",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/e2e-fm-12.page.js",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/enhance-fm-11-audit.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/enhance-fm-12-audit.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "scripts/enhance-fm-12-gen.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "scripts/fix-figure-overlaps.py",
+          "add": 10,
+          "del": 10
+        },
+        {
+          "path": "scripts/gen-43-figures.py",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "scripts/gen-44-figures.py",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "src/components/builder/custom-cover.tsx",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-01.ts",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 20,
+          "del": 20
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 16,
+          "del": 16
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 70,
+          "del": 70
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-10.ts",
+          "add": 61,
+          "del": 61
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-01.ts",
+          "add": 95,
+          "del": 95
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-02.ts",
+          "add": 93,
+          "del": 93
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-03.ts",
+          "add": 136,
+          "del": 136
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 161,
+          "del": 161
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-05.ts",
+          "add": 92,
+          "del": 92
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 27,
+          "del": 27
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 54,
+          "del": 54
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 12,
+          "del": 12
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 36,
+          "del": 36
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 45,
+          "del": 45
+        }
+      ]
+    },
+    {
+      "sha": "52cc6646f28806c7926accc5186fbf103bb7c511",
+      "short": "52cc664",
+      "date": "2026-11-08 14:51",
+      "message": "582c8163-8e9e-4b4f-a2a2-1ae90200d0ef",
+      "filesChanged": 40,
+      "insertions": 4736,
+      "deletions": 63,
+      "files": [
+        {
+          "path": "docs/project/PRACTICE_HUB.md",
+          "add": 159,
+          "del": 0
+        },
+        {
+          "path": "docs/project/REVISION_HUB.md",
+          "add": 31,
+          "del": 15
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "prisma/schema.prisma",
+          "add": 88,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book2-promotion.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-promotion.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/app/api/mistakes/resolve/route.ts",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/mistakes/review/route.ts",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/mistakes/route.ts",
+          "add": 54,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/practice/attempts/route.ts",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/practice/paper/route.ts",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/practice/readiness/route.ts",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/practice/submit/route.ts",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "src/app/practice/page.tsx",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 94,
+          "del": 7
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 49,
+          "del": 23
+        },
+        {
+          "path": "src/components/library/site-chrome.tsx",
+          "add": 10,
+          "del": 1
+        },
+        {
+          "path": "src/components/practice/bits.tsx",
+          "add": 172,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/drill-runner.tsx",
+          "add": 387,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/drill-tab.tsx",
+          "add": 211,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/exam-runner.tsx",
+          "add": 523,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/exams-tab.tsx",
+          "add": 236,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/mistakes-tab.tsx",
+          "add": 324,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/practice-hub.tsx",
+          "add": 97,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/readiness-tab.tsx",
+          "add": 204,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/insights-tab.tsx",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "src/components/revision/quick-mark.tsx",
+          "add": 121,
+          "del": 5
+        },
+        {
+          "path": "src/data/exams/presets.ts",
+          "add": 189,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 0,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 0,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/book.ts",
+          "add": 0,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 0,
+          "del": 2
+        },
+        {
+          "path": "src/lib/practice/client-api.ts",
+          "add": 99,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/engine.ts",
+          "add": 288,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/mistake-service.ts",
+          "add": 265,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/practice-service.ts",
+          "add": 572,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/questions.ts",
+          "add": 108,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/types.ts",
+          "add": 277,
+          "del": 0
+        },
+        {
+          "path": "src/lib/revision/ledger-service.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/lib/revision/types.ts",
+          "add": 1,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "8372c8fb334739257f704d42f6b78a5a00883b01",
+      "short": "8372c8f",
+      "date": "2026-11-09 01:11",
+      "message": "5706c20b-00a8-464c-93bd-eacc2a7c0226",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "aee09ecbebee22967a2209b99b5c4f61d8a430d4",
+      "short": "aee09ec",
+      "date": "2026-11-09 01:49",
+      "message": "08cc797b-49ca-4b41-b35b-6f28c2b4e0b7",
+      "filesChanged": 11,
+      "insertions": 1487,
+      "deletions": 229,
+      "files": [
+        {
+          "path": "docs/project/PRACTICE_HUB.md",
+          "add": 121,
+          "del": 33
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/app/api/practice/paper/route.ts",
+          "add": 7,
+          "del": 2
+        },
+        {
+          "path": "src/components/practice/bits.tsx",
+          "add": 60,
+          "del": 1
+        },
+        {
+          "path": "src/components/practice/exam-runner.tsx",
+          "add": 776,
+          "del": 174
+        },
+        {
+          "path": "src/components/practice/exams-tab.tsx",
+          "add": 71,
+          "del": 7
+        },
+        {
+          "path": "src/components/practice/readiness-tab.tsx",
+          "add": 47,
+          "del": 2
+        },
+        {
+          "path": "src/lib/practice/client-api.ts",
+          "add": 6,
+          "del": 2
+        },
+        {
+          "path": "src/lib/practice/engine.ts",
+          "add": 139,
+          "del": 3
+        },
+        {
+          "path": "src/lib/practice/practice-service.ts",
+          "add": 200,
+          "del": 5
+        },
+        {
+          "path": "src/lib/practice/types.ts",
+          "add": 58,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "d5cf54aa809c1414d70c221facf1455501ca8161",
+      "short": "d5cf54a",
+      "date": "2026-11-09 02:51",
+      "message": "practice: per-exam CBT sections (JEE A/B numerical, CAT MCQ/TITA + calculator), auto-graded type-in questions, per-question timing, refresh-safe sitting autosave/resume — 208/208 verify, 72/72 browser E2E, HTTP smoke green",
+      "filesChanged": 9,
+      "insertions": 1618,
+      "deletions": 222,
+      "files": [
+        {
+          "path": "docs/project/PRACTICE_HUB.md",
+          "add": 109,
+          "del": 36
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/components/practice/exam-runner.tsx",
+          "add": 905,
+          "del": 129
+        },
+        {
+          "path": "src/components/practice/exams-tab.tsx",
+          "add": 138,
+          "del": 14
+        },
+        {
+          "path": "src/data/exams/presets.ts",
+          "add": 24,
+          "del": 4
+        },
+        {
+          "path": "src/lib/practice/engine.ts",
+          "add": 206,
+          "del": 14
+        },
+        {
+          "path": "src/lib/practice/practice-service.ts",
+          "add": 100,
+          "del": 23
+        },
+        {
+          "path": "src/lib/practice/sitting-store.ts",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "src/lib/practice/types.ts",
+          "add": 66,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "baced5ec4854657f55fbde3c9a8129a2e4514d26",
+      "short": "baced5e",
+      "date": "2026-11-09 02:51",
+      "message": "chore: whitelist the practice hub gate scripts (verify-practice, smoke-practice-http, e2e-practice-sections)",
+      "filesChanged": 4,
+      "insertions": 1621,
+      "deletions": 0,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-practice-sections.sh",
+          "add": 275,
+          "del": 0
+        },
+        {
+          "path": "scripts/smoke-practice-http.ts",
+          "add": 44,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-practice.ts",
+          "add": 1298,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 25,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 100,
-    "wordsAuthored": 485665,
-    "termsDefined": 771,
-    "quizItems": 500,
-    "exerciseQuestions": 1261,
+    "chaptersWritten": 26,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 101,
+    "wordsAuthored": 490385,
+    "termsDefined": 779,
+    "quizItems": 505,
+    "exerciseQuestions": 1275,
     "blockTotals": {
-      "para": 1427,
-      "callout": 552,
-      "heading": 559,
-      "list": 106,
-      "terms": 101,
-      "equation": 141,
-      "figure": 171,
-      "derivation": 203,
-      "table": 133,
-      "example": 405,
-      "quiz": 100,
-      "exercises": 100,
-      "formula": 284,
+      "para": 1438,
+      "callout": 558,
+      "heading": 562,
+      "list": 107,
+      "terms": 102,
+      "equation": 143,
+      "figure": 173,
+      "derivation": 204,
+      "table": 134,
+      "example": 409,
+      "quiz": 101,
+      "exercises": 101,
+      "formula": 287,
       "algorithm": 22
     }
   }

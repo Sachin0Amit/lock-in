@@ -21,10 +21,11 @@ import { chapter05 } from './ch-05'
  * as Factorizations + 4.4 The Factor Theorem and Cubics + the unit-4
  * completion review PASSED): chapter 4 COMPLETE 4/4 (16,245 words).
  * Chapter 5 'Linear Equations in One Variable' opened at run 75 (5.1 What
- * an Equation Is: the Balance Principle + 5.2 Solving Linear Equations);
- * 5.3 + the unit-5 completion review close it at run 76. The book stands
- * in-progress — 4 complete chapters + ch. 5 open of 11 (owner cadence: two
- * lessons per run, strictly sequential).
+ * an Equation Is: the Balance Principle + 5.2 Solving Linear Equations) and
+ * CLOSED at run 76 (5.3 The Three Verdicts: One, None, Infinitely Many +
+ * the unit-5 completion review PASSED — 14,024 words across the chapter):
+ * chapter 5 COMPLETE 3/3. The book stands in-progress — 5 complete chapters
+ * of 11 (owner cadence: two lessons per run, strictly sequential).
  * Lesson ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation

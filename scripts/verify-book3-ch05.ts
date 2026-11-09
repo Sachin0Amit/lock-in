@@ -75,6 +75,40 @@ import { countLessonWords, type Lesson } from '../src/data/library/types'
  * citation keys, honest word counts, the odd-run backslash scan, the
  * unicode-escape scan, the raw-$ title scan, the al- prefix uniqueness
  * across the whole library).
+ *
+ * RUN 76 EXTENSION — lesson 5.3 "The Three Verdicts: One, None, Infinitely
+ * Many" (id al-the-three-verdicts-one-none-infinitely-many) + the unit-5
+ * completion review:
+ *
+ *   (H) the 5.3 engines —
+ *       (i)   the collapse sweep: EVERY gathered form a'·x = k over
+ *             a',k ∈ [-12..12] (625 forms) priced exactly — a' ≠ 0 → one
+ *             (a'·s = k re-substituted, neighbours fail); 0·x = k, k ≠ 0 →
+ *             none (false at 17 probes); 0·x = 0 → all (true at 17 probes);
+ *       (ii)  the classification cross-check: over the FULL banked grid
+ *             (28,561 assertions ax+b = cx+d, coefficients in [-6..6]) the
+ *             gathered form (a−c)x = d−b carries the SAME verdict and the
+ *             SAME solution as the original, and the class census is
+ *             exactly 26,364 one / 169 all / 2,028 none;
+ *       (iii) the collapse-closure engine: all 2,197 collapse-verdict
+ *             assertions × 8 lawful move-ks × 4 moves = 70,304 exact
+ *             checks — every all stays all and every none stays none (the
+ *             reason the verdict may be read at ANY station);
+ *       (iv)  the pinned exhibits of 5.3 re-solved exactly — the none
+ *             class (3x+4=3x+7; x+1=x+2 dressed as x+4=x+7; the bracketed
+ *             4(x−1)=4x+3 and 2(x+1)−2x=3; the fractional x/2=x/2+1,
+ *             (x+1)/2=(x+4)/2; the decimals 0.5x+1=0.5x+1.5,
+ *             0.3x+0.5=0.3x+0.9), the all class (4(x−2)=4x−8; 5(x−1)=5x−5;
+ *             3(x+2)=3x+6; (2x+2)/3=2x/3+2/3), the one class (5x−3=2x+9 →
+ *             4; 7−2x=2x−1 → 2; 6x=2x+16 → 4; 9−3x=3x−3 → 2; (2x+1)/4 =
+ *             (x+3)/4+1/2 → 4), and the k-parameter families
+ *             (2x+4=2x+k: none ⟺ k≠4, all ⟺ k=4; 5x+2=5x+k likewise);
+ *   (I) the FIGURE GEOMETRY PLANS of 5.3's two figures (the verdict
+ *       machine 720×340; the three-verdicts number-line strip 720×360)
+ *       recorded pre-writing, audited against the authored SVG in J.
+ * Sections J (authored 5.3) and K (the unit-5 completion review: the
+ * BOOK_FORMAT checklist as executable assertions) are appended at
+ * authoring time — the same battery, now over the CLOSED chapter.
  */
 
 /* ------------------------------------------------------------------ */
@@ -847,7 +881,7 @@ const plan52Fig2 = {
   ok(lesson.id === 'al-what-an-equation-is-the-balance-principle', 'F: lesson id al-what-an-equation-is-the-balance-principle (globally unique, al- prefix)')
   ok(lesson.number === '5.1', 'F: lesson number 5.1')
   ok(lesson.title === 'What an Equation Is: the Balance Principle', 'F: lesson title matches the planned title')
-  ok(chapter05.status === 'in-progress', 'F: chapter 5 in-progress (5.2 lands this run; the review closes at run 76)')
+  ok(chapter05.status === 'complete', 'F: chapter 5 status complete (5.2 landed at run 75; the run-76 review closed the chapter)')
   ok(Array.isArray(chapter05.plannedLessons) && !chapter05.plannedLessons.includes('What an Equation Is: the Balance Principle'), 'F: plannedLessons no longer carry 5.1')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'F: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'F: objectives present (got ' + (lesson.objectives || []).length + ')')
@@ -999,8 +1033,8 @@ const plan52Fig2 = {
   ok(lesson.id === 'al-solving-linear-equations', 'G: lesson id al-solving-linear-equations (globally unique, al- prefix)')
   ok(lesson.number === '5.2', 'G: lesson number 5.2')
   ok(lesson.title === 'Solving Linear Equations', 'G: lesson title matches the planned title')
-  ok(chapter05.status === 'in-progress', 'G: chapter 5 still in-progress (the review closes it at run 76)')
-  ok(Array.isArray(chapter05.plannedLessons) && JSON.stringify(chapter05.plannedLessons) === JSON.stringify(['The Three Verdicts: One, None, Infinitely Many']), 'G: plannedLessons trimmed to 5.3 only')
+  ok(chapter05.status === 'complete', 'G: chapter 5 status complete (the run-76 review closed it)')
+  ok(Array.isArray(chapter05.plannedLessons) && chapter05.plannedLessons.length === 0, 'G: plannedLessons emptied (the run-76 review completed the chapter)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'G: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'G: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -1144,6 +1178,593 @@ const plan52Fig2 = {
       ok(tb.rows.length === 6 && tb.rows[4].includes('$x = 13$'), 'G: the station table carries the running example’s terminal line')
     }
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* (H) the 5.3 engines — the collapse sweeps (run 76, pre-writing)     */
+/* ------------------------------------------------------------------ */
+
+/* --- H-i: the collapse sweep over the gathered grids ---------------- */
+
+{
+  let ones = 0
+  let nones = 0
+  let alls = 0
+  for (const ap of rng(-12, 12))
+    for (const k of rng(-12, 12)) {
+      // the gathered form a'·x = k (i.e. (a−c)x = d−b after the gather)
+      const e = new LinAssert(Frac.of(ap), Frac.of(0), Frac.of(0), Frac.of(k))
+      const v = e.classify()
+      if (ap !== 0) {
+        ok(v.kind === 'one', `H-i: a'≠0 must be one (a'=${ap}, k=${k})`)
+        if (v.kind !== 'one') continue
+        ones++
+        const s = v.solution!
+        ok(e.trueAt(s), `H-i: gathered solution re-substitutes (a'=${ap}, k=${k} at ${s})`)
+        ok(s.mul(Frac.of(ap)).eq(Frac.of(k)), `H-i: a'·s = k exactly (a'=${ap}, k=${k})`)
+        for (const t of [1, -1, 2, -2]) ok(!e.trueAt(s.add(Frac.of(t))), `H-i: neighbour fails (a'=${ap}, k=${k} at s${t > 0 ? '+' : ''}${t})`)
+      } else if (k !== 0) {
+        ok(v.kind === 'none', `H-i: 0·x = ${k} must be none`)
+        nones++
+        for (const x of rng(-8, 8)) ok(!e.trueAt(Frac.of(x)), `H-i: 0·x = ${k} false at x=${x}`)
+      } else {
+        ok(v.kind === 'all', 'H-i: 0·x = 0 must be all')
+        alls++
+        for (const x of rng(-8, 8)) ok(e.trueAt(Frac.of(x)), `H-i: 0·x = 0 true at x=${x}`)
+      }
+    }
+  ok(ones === 600, `H-i: 600 one-verdict gathered forms (24 nonzero a' × 25 ks; got ${ones})`)
+  ok(nones === 24, `H-i: 24 none-verdict collapse forms 0·x = k, k ≠ 0 (got ${nones})`)
+  ok(alls === 1, `H-i: exactly one all-verdict collapse form — 0·x = 0 (got ${alls})`)
+  console.log(`[H-i] collapse sweep: ${ones} one / ${nones} none / ${alls} all over a' ∈ [-12..12], k ∈ [-12..12] (625 gathered forms)`)
+}
+
+/* --- H-ii: the classification cross-check on the banked grid -------- */
+
+{
+  let ones = 0
+  let alls = 0
+  let nones = 0
+  for (const a of rng(-6, 6))
+    for (const b of rng(-6, 6))
+      for (const c of rng(-6, 6))
+        for (const d of rng(-6, 6)) {
+          const e = LinAssert.fromInts(a, b, c, d)
+          const v = e.classify()
+          const gathered = new LinAssert(Frac.of(a - c), Frac.of(0), Frac.of(0), Frac.of(d - b))
+          const gv = gathered.classify()
+          ok(gv.kind === v.kind, `H-ii: the gather preserves the verdict (${a},${b},${c},${d}: ${v.kind} vs ${gv.kind})`)
+          if (v.kind === 'one') {
+            ones++
+            ok(gv.kind === 'one' && gv.solution!.eq(v.solution!), `H-ii: the gather preserves the solution (${a},${b},${c},${d})`)
+          } else if (v.kind === 'all') alls++
+          else nones++
+        }
+  ok(ones === 26364 && alls === 169 && nones === 2028, `H-ii: the class census over [-6,6]^4 is exactly 26,364 one / 169 all / 2,028 none (got ${ones} / ${alls} / ${nones})`)
+  console.log(`[H-ii] classification cross-check: ${ones} one / ${alls} all / ${nones} none — the gathered form agrees everywhere on the 28,561 grid`)
+}
+
+/* --- H-iii: the collapse verdicts are closed under the lawful moves -- */
+
+{
+  let moved = 0
+  for (const a of rng(-6, 6))
+    for (const b of rng(-6, 6))
+      for (const c of rng(-6, 6))
+        for (const d of rng(-6, 6)) {
+          const e = LinAssert.fromInts(a, b, c, d)
+          const v = e.classify()
+          if (v.kind === 'one') continue // A-ii priced the one-verdict invariance
+          for (const k of rng(-4, 4)) {
+            if (k === 0) continue
+            const kf = Frac.of(k)
+            for (const [name, m] of [
+              ['add', e.addConst(kf)],
+              ['sub', e.subConst(kf)],
+              ['mul', e.mulConst(kf)],
+              ['div', e.divConst(kf)],
+            ] as const) {
+              const mv = m.classify()
+              ok(mv.kind === v.kind, `H-iii: ${name} ${k} keeps the ${v.kind} verdict (${a},${b},${c},${d})`)
+              moved++
+            }
+          }
+        }
+  ok(moved === 70304, `H-iii: 2,197 collapse-verdict assertions × 8 ks × 4 moves = 70,304 checks (got ${moved})`)
+  console.log(`[H-iii] collapse closure: ${moved} lawful moves — every all stays all, every none stays none`)
+}
+
+/* --- H-iv: the pinned exhibits of 5.3, re-solved exactly ------------- */
+
+{
+  // — the NONE class —
+  {
+    const e = LinAssert.fromInts(3, 4, 3, 7) // 3x + 4 = 3x + 7
+    ok(e.classify().kind === 'none', 'H-iv: 3x + 4 = 3x + 7 gathers to 0·x = 3 — no solution')
+    for (const x of [-6, 0, 2, 5, 40]) ok(!e.trueAt(Frac.of(x)), `H-iv: 3x+4=3x+7 false at x=${x}`)
+  }
+  {
+    const e = LinAssert.fromInts(1, 4, 1, 7) // x + 4 = x + 7
+    ok(e.classify().kind === 'none', 'H-iv: x + 4 = x + 7 gathers to 0·x = 3 — no solution (the quiz Q2 exhibit)')
+    ok(!e.trueAt(Frac.of(3)) && !e.trueAt(Frac.of(11)), 'H-iv: the x = 3 and x = 11 impostors both fail x + 4 = x + 7')
+  }
+  {
+    // 4(x − 1) = 4x + 3 → 4x − 4 = 4x + 3 → 0·x = 7
+    const e = LinAssert.fromInts(4, -4, 4, 3)
+    ok(e.classify().kind === 'none', 'H-iv: 4(x − 1) = 4x + 3 gathers to 0·x = 7 — no solution')
+    const l = (x: number) => 4 * (x - 1)
+    ok(l(10) === 36 && 4 * 10 + 3 === 43, 'H-iv: the check prices the collapse (36 vs 43 at x = 10)')
+  }
+  {
+    // 2(x + 1) − 2x = 3 → the left member collects to the constant 2 → 2 = 3
+    const l = (x: number) => 2 * (x + 1) - 2 * x
+    ok(l(-3) === 2 && l(0) === 2 && l(7) === 2, 'H-iv: 2(x+1) − 2x collects to the bare constant 2 at every x')
+    ok(l(0) !== 3, 'H-iv: 2(x+1) − 2x = 3 is 2 = 3 — no solution, and the check shows it')
+  }
+  {
+    // x/2 = x/2 + 1 → ×2 → x = x + 2 → 0·x = 2
+    const e = new LinAssert(new Frac(1n, 2n), Frac.of(0), new Frac(1n, 2n), Frac.of(1))
+    ok(e.classify().kind === 'none', 'H-iv: x/2 = x/2 + 1 gathers to 0·x = 1 — no solution')
+    const cleared = e.mulConst(Frac.of(2))
+    ok(cleared.lb.eq(Frac.of(0)) && cleared.rb.eq(Frac.of(2)) && cleared.classify().kind === 'none', 'H-iv: ×2 gives x = x + 2 — the same none verdict (0·x = 2)')
+  }
+  {
+    // (x + 1)/2 = (x + 4)/2 → ×2 → x + 1 = x + 4 → 0·x = 3
+    const e = new LinAssert(new Frac(1n, 2n), new Frac(1n, 2n), new Frac(1n, 2n), Frac.of(2))
+    ok(e.classify().kind === 'none', 'H-iv: (x+1)/2 = (x+4)/2 — no solution')
+    const cleared = e.mulConst(Frac.of(2))
+    ok(cleared.la.eq(Frac.of(1)) && cleared.lb.eq(Frac.of(1)) && cleared.ra.eq(Frac.of(1)) && cleared.rb.eq(Frac.of(4)), 'H-iv: ×2 clears to x + 1 = x + 4 — the same none verdict (0·x = 3)')
+  }
+  {
+    // 0.5x + 1 = 0.5x + 1.5 → ×10 → 5x + 10 = 5x + 15 → 0·x = 5
+    const e = new LinAssert(new Frac(5n, 10n), Frac.of(1), new Frac(5n, 10n), new Frac(15n, 10n))
+    ok(e.classify().kind === 'none', 'H-iv: 0.5x + 1 = 0.5x + 1.5 — no solution')
+    const cleared = e.mulConst(Frac.of(10))
+    ok(cleared.la.eq(Frac.of(5)) && cleared.lb.eq(Frac.of(10)) && cleared.ra.eq(Frac.of(5)) && cleared.rb.eq(Frac.of(15)), 'H-iv: ×10 clears to 5x + 10 = 5x + 15 — the same none verdict (0·x = 5)')
+  }
+  {
+    // 0.3x + 0.5 = 0.3x + 0.9 → ×10 → 3x + 5 = 3x + 9 → 0·x = 4
+    const e = new LinAssert(new Frac(3n, 10n), new Frac(5n, 10n), new Frac(3n, 10n), new Frac(9n, 10n))
+    ok(e.classify().kind === 'none', 'H-iv: 0.3x + 0.5 = 0.3x + 0.9 — no solution (the L5.2 exhibit)')
+    const cleared = e.mulConst(Frac.of(10))
+    ok(cleared.la.eq(Frac.of(3)) && cleared.lb.eq(Frac.of(5)) && cleared.ra.eq(Frac.of(3)) && cleared.rb.eq(Frac.of(9)), 'H-iv: ×10 clears to 3x + 5 = 3x + 9 — the same none verdict (0·x = 4)')
+    const l = (x: number) => 0.3 * x + 0.5
+    const r = (x: number) => 0.3 * x + 0.9
+    ok(l(10) === 3.5 && r(10) === 3.9, 'H-iv: the check in the original decimals (3.5 vs 3.9 at x = 10)')
+  }
+
+  // — the ALL class —
+  {
+    const e = LinAssert.fromInts(4, -8, 4, -8) // 4(x − 2) = 4x − 8
+    ok(e.classify().kind === 'all', 'H-iv: 4(x − 2) = 4x − 8 collects to 4x − 8 = 4x − 8 — every number')
+    const l = (x: number) => 4 * (x - 2)
+    ok(l(-5) === -28 && 4 * -5 - 8 === -28 && l(0) === -8 && 4 * 0 - 8 === -8 && l(6) === 16 && 4 * 6 - 8 === 16, 'H-iv: the LHS bracket collects to the RHS at the census points −5, 0, 6')
+  }
+  {
+    const e = LinAssert.fromInts(5, -5, 5, -5) // 5(x − 1) = 5x − 5
+    ok(e.classify().kind === 'all', 'H-iv: 5(x − 1) = 5x − 5 — every number (the identity-hunt exhibit)')
+    for (const x of [-9, 0, 4]) ok(e.trueAt(Frac.of(x)), `H-iv: 5(x−1) = 5x−5 true at x=${x}`)
+  }
+  {
+    const e = LinAssert.fromInts(3, 6, 3, 6) // 3(x + 2) = 3x + 6
+    ok(e.classify().kind === 'all', 'H-iv: 3(x + 2) = 3x + 6 — every number (the L3.2 census exhibit)')
+    const l = (x: number) => 3 * (x + 2)
+    ok(l(-5) === -9 && 3 * -5 + 6 === -9 && l(0) === 6 && 3 * 0 + 6 === 6 && l(7) === 27 && 3 * 7 + 6 === 27, 'H-iv: the census at x = −5, 0, 7 holds memberwise (−9/−9, 6/6, 27/27)')
+  }
+  {
+    // (2x + 2)/3 = 2x/3 + 2/3 → ×3 → 2x + 2 = 2x + 2
+    const e = new LinAssert(new Frac(2n, 3n), new Frac(2n, 3n), new Frac(2n, 3n), new Frac(2n, 3n))
+    ok(e.classify().kind === 'all', 'H-iv: (2x+2)/3 = 2x/3 + 2/3 — every number')
+    const cleared = e.mulConst(Frac.of(3))
+    ok(cleared.la.eq(Frac.of(2)) && cleared.lb.eq(Frac.of(2)) && cleared.ra.eq(Frac.of(2)) && cleared.rb.eq(Frac.of(2)), 'H-iv: ×3 clears to 2x + 2 = 2x + 2 — the same all verdict (0 = 0)')
+  }
+
+  // — the ONE class —
+  {
+    const e = LinAssert.fromInts(5, -3, 2, 9) // 5x − 3 = 2x + 9
+    const v = e.classify()
+    ok(v.kind === 'one' && v.solution!.eq(Frac.of(4)), `H-iv: 5x − 3 = 2x + 9 → 3x = 12 → x = 4 (got ${v.solution?.toString()})`)
+    ok(e.trueAt(Frac.of(4)) && 5 * 4 - 3 === 17 && 2 * 4 + 9 === 17, 'H-iv: the check — both members 17 at x = 4')
+  }
+  {
+    const e = LinAssert.fromInts(-2, 7, 2, -1) // 7 − 2x = 2x − 1
+    const v = e.classify()
+    ok(v.kind === 'one' && v.solution!.eq(Frac.of(2)), `H-iv: 7 − 2x = 2x − 1 → −4x = −8 → x = 2 (got ${v.solution?.toString()})`)
+    ok(e.trueAt(Frac.of(2)) && 7 - 2 * 2 === 3 && 2 * 2 - 1 === 3, 'H-iv: the check — both members 3 at x = 2')
+    // the gather without the sign slip: (−2−2)x = −1−7 → −4x = −8
+    const gathered = new LinAssert(Frac.of(-4), Frac.of(0), Frac.of(0), Frac.of(-8))
+    ok(gathered.classify().solution!.eq(Frac.of(2)), 'H-iv: the gathered form −4x = −8 carries the same x = 2')
+  }
+  {
+    const e = LinAssert.fromInts(6, 0, 2, 16) // 6x = 2x + 16
+    const v = e.classify()
+    ok(v.kind === 'one' && v.solution!.eq(Frac.of(4)), `H-iv: 6x = 2x + 16 → 4x = 16 → x = 4 (got ${v.solution?.toString()})`)
+    ok(e.trueAt(Frac.of(4)) && 6 * 4 === 24 && 2 * 4 + 16 === 24, 'H-iv: the check — 24 = 24 at x = 4')
+  }
+  {
+    const e = LinAssert.fromInts(-3, 9, 3, -3) // 9 − 3x = 3x − 3
+    const v = e.classify()
+    ok(v.kind === 'one' && v.solution!.eq(Frac.of(2)), `H-iv: 9 − 3x = 3x − 3 → −6x = −12 → x = 2 (got ${v.solution?.toString()})`)
+    ok(e.trueAt(Frac.of(2)) && 9 - 3 * 2 === 3 && 3 * 2 - 3 === 3, 'H-iv: the check — both members 3 at x = 2')
+  }
+  {
+    // (2x+1)/4 = (x+3)/4 + 1/2 → ×4 → 2x + 1 = x + 5 → x = 4
+    const e = new LinAssert(new Frac(1n, 2n), new Frac(1n, 4n), new Frac(1n, 4n), new Frac(5n, 4n))
+    const v = e.classify()
+    ok(v.kind === 'one' && v.solution!.eq(Frac.of(4)), `H-iv: (2x+1)/4 = (x+3)/4 + 1/2 → x = 4 (got ${v.solution?.toString()})`)
+    const cleared = e.mulConst(Frac.of(4))
+    ok(cleared.la.eq(Frac.of(2)) && cleared.lb.eq(Frac.of(1)) && cleared.ra.eq(Frac.of(1)) && cleared.rb.eq(Frac.of(5)), 'H-iv: ×4 clears to 2x + 1 = x + 5 — the same one verdict, solution 4')
+    const l = new Frac(9n, 4n)
+    const r = new Frac(7n, 4n).add(new Frac(2n, 4n))
+    ok(l.eq(r), 'H-iv: the check exact — 9/4 = 7/4 + 2/4')
+  }
+
+  // — the k-parameter families —
+  {
+    // 2x + 4 = 2x + k → 0·x = k − 4: none ⟺ k ≠ 4, all ⟺ k = 4
+    for (const k of [-6, -1, 0, 3, 4, 9]) {
+      const e = LinAssert.fromInts(2, 4, 2, k)
+      const v = e.classify()
+      if (k === 4) ok(v.kind === 'all', `H-iv: 2x + 4 = 2x + ${k} → 0 = 0 — every number`)
+      else ok(v.kind === 'none', `H-iv: 2x + 4 = 2x + ${k} → 0·x = ${k - 4} — no solution`)
+    }
+    // 5x + 2 = 5x + k: none ⟺ k ≠ 2, all ⟺ k = 2
+    ok(LinAssert.fromInts(5, 2, 5, 2).classify().kind === 'all', 'H-iv: 5x + 2 = 5x + 2 → 0 = 0 — every number (the k = 2 case)')
+    ok(LinAssert.fromInts(5, 2, 5, 3).classify().kind === 'none', 'H-iv: 5x + 2 = 5x + 3 → 0·x = 1 — no solution (the k ≠ 2 case)')
+    // the quiz Q4 family
+    ok(LinAssert.fromInts(2, 4, 2, 4).classify().kind === 'all' && LinAssert.fromInts(2, 4, 2, 5).classify().kind === 'none', 'H-iv: quiz Q4 — 2x + 4 = 2x + k has no solution exactly when k ≠ 4 (key 1)')
+  }
+  console.log('[H-iv] the pinned exhibits of 5.3: every none / all / one verdict and both k-families re-solved exactly')
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) figure geometry plans of lesson 5.3 (recorded pre-writing)      */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Fig 1 (5.3) "the verdict machine" — viewBox 720×340.
+ *   header (30,18,660,44); LEFT panel (30,84,300,200) holding 2 form
+ *   boxes (260,36) at (50,110),(50,168) and a note box (260,48) at
+ *   (50,222); RIGHT panel (350,84,340,200) holding 3 door boxes (300,44)
+ *   at (370,110),(370,162),(370,214); band (30,300,660,40) holding 3
+ *   result boxes (190,24) at (55,308),(270,308),(485,308).
+ *   Rect census: 1+1+3+1+3+1+3 = 13.
+ * Fig 2 (5.3) "the three verdicts on the number line" — viewBox 720×360
+ *   (the proven strip geometry of 5.1 fig 2, re-pinned for the verdicts):
+ *   header (30,18,660,44); 3 row boxes (30,84,660,64) at y=84,156,228,
+ *   each carrying a label box (170,40) at x=45 and a verdict box
+ *   (430,40) at x=235; band (30,300,660,40) holding 2 result boxes
+ *   (240,24) at (60,308),(360,308). The number lines inside the verdict
+ *   boxes are drawn with <line>/<circle> only — no extra <rect>s.
+ *   Rect census: 1+3+3+3+1+2 = 13.
+ */
+const plan53Fig1 = {
+  viewBox: { w: 720, h: 340 },
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 300, 200], [50, 110, 260, 36], [50, 168, 260, 36], [50, 222, 260, 48],
+    [350, 84, 340, 200], [370, 110, 300, 44], [370, 162, 300, 44], [370, 214, 300, 44],
+    [30, 300, 660, 40], [55, 308, 190, 24], [270, 308, 190, 24], [485, 308, 190, 24],
+  ] as [number, number, number, number][],
+  groups: [[2, 3, 4], [6, 7, 8], [10, 11, 12], [0, 1], [0, 5], [1, 5], [1, 9], [5, 9], [1, 12], [5, 12]],
+  contains: [
+    { inner: [2, 3, 4], outer: 1 },
+    { inner: [6, 7, 8], outer: 5 },
+    { inner: [10, 11, 12], outer: 9 },
+  ],
+}
+
+const plan53Fig2 = {
+  viewBox: { w: 720, h: 360 },
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 660, 64], [30, 156, 660, 64], [30, 228, 660, 64],
+    [45, 96, 170, 40], [235, 96, 430, 40],
+    [45, 168, 170, 40], [235, 168, 430, 40],
+    [45, 240, 170, 40], [235, 240, 430, 40],
+    [30, 300, 660, 40], [60, 308, 240, 24], [360, 308, 240, 24],
+  ] as [number, number, number, number][],
+  groups: [[4, 5], [6, 7], [8, 9], [1, 2], [2, 3], [1, 3], [11, 12], [0, 1], [3, 10]],
+  contains: [
+    { inner: [4, 5], outer: 1 },
+    { inner: [6, 7], outer: 2 },
+    { inner: [8, 9], outer: 3 },
+    { inner: [11, 12], outer: 10 },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* pre-writing plan audits (the plans themselves are self-consistent)  */
+/* ------------------------------------------------------------------ */
+
+{
+  const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+    r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+  for (const [name, plan] of [
+    ['5.1 fig1', plan51Fig1],
+    ['5.1 fig2', plan51Fig2],
+    ['5.2 fig1', plan52Fig1],
+    ['5.2 fig2', plan52Fig2],
+    ['5.3 fig1', plan53Fig1],
+    ['5.3 fig2', plan53Fig2],
+  ] as const) {
+    ok(plan.rects.every((r) => r[0] >= 0 && r[1] >= 0 && r[0] + r[2] <= plan.viewBox.w && r[1] + r[3] <= plan.viewBox.h), `plan ${name}: every box inside the viewBox`)
+    for (const g of plan.groups) {
+      const rs = g.map((i) => plan.rects[i])
+      ok(rs.every((r1, i) => rs.every((r2, j) => i >= j || sep(r1, r2))), `plan ${name}: group [${g.join(',')}] pairwise disjoint`)
+    }
+    for (const { inner, outer } of plan.contains) {
+      const o = plan.rects[outer]
+      ok(inner.every((i) => {
+        const r = plan.rects[i]
+        return r[0] >= o[0] && r[1] >= o[1] && r[0] + r[2] <= o[0] + o[2] && r[1] + r[3] <= o[1] + o[3]
+      }), `plan ${name}: containment group inside rect #${outer}`)
+    }
+  }
+  console.log('[plan] all six figure plans self-consistent (inside viewBox, pairwise disjoint, containments hold)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) authored lesson 5.3 — content checks against the written file   */
+/* ------------------------------------------------------------------ */
+
+{
+  const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
+  const ch05Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-05.ts').text()
+  const lesson: Lesson = chapter05.lessons[2]
+  ok(chapter05.lessons.length === 3, 'J: chapter 5 carries all three lessons 5.1–5.3')
+  ok(lesson.id === 'al-the-three-verdicts-one-none-infinitely-many', 'J: lesson id al-the-three-verdicts-one-none-infinitely-many (globally unique, al- prefix)')
+  ok(lesson.number === '5.3', 'J: lesson number 5.3')
+  ok(lesson.title === 'The Three Verdicts: One, None, Infinitely Many', 'J: lesson title matches the planned title')
+  ok(chapter05.status === 'complete', 'J: chapter 5 status flipped to complete (the unit-5 review passed this run)')
+  ok(Array.isArray(chapter05.plannedLessons) && chapter05.plannedLessons.length === 0, 'J: plannedLessons emptied (the chapter is complete)')
+  ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'J: concepts 5-8 (got ' + lesson.concepts.length + ')')
+  ok((lesson.objectives || []).length >= 5, 'J: objectives present (got ' + (lesson.objectives || []).length + ')')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-solving-linear-equations', 'al-special-products-the-identities-proved']),
+    'J: prerequisites chain to 5.2 (the pipeline) and 3.3 (the identity charter)'
+  )
+  for (const key of lesson.sources || []) {
+    ok(sourceLog.includes(key), 'J: source key "' + key + '" exists in SOURCE_LOG.md')
+  }
+  ok(lesson.blocks.filter((b) => b.kind === 'equation').length === 2, 'J: two display equations (the gather chain + the k-parameter family)')
+  ok(lesson.blocks.filter((b) => b.kind === 'derivation').length === 1, 'J: one derivation (the classification theorem)')
+  ok(lesson.blocks.filter((b) => b.kind === 'example').length === 4, 'J: four illustrations (the three readings, the full settle, the stations collapse, the identity hunt)')
+  ok(lesson.blocks.filter((b) => b.kind === 'table').length === 1, 'J: one table (the three verdicts priced)')
+  ok(lesson.blocks.filter((b) => b.kind === 'formula').length === 3, 'J: three formula cards (the gather, the classification theorem, the k-parameter family)')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'definition').length === 1, 'J: the gathered-form definition callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'theorem').length === 1, 'J: the classification-theorem callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'warn').length === 1, 'J: the 0=0-vs-0=k caution present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'insight').length === 1, 'J: the verdict-at-any-station insight present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'historical').length === 1, 'J: the identical-equations historical callout present')
+  ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'exam').length === 1, 'J: the exam corner present')
+  {
+    const terms = lesson.blocks.filter((b) => b.kind === 'terms')
+    ok(terms.length === 1 && terms[0].kind === 'terms' && terms[0].items.length === 8, 'J: one terms block of 8 entries')
+  }
+  {
+    const quizzes = lesson.blocks.filter((b) => b.kind === 'quiz')
+    ok(quizzes.length === 1, 'J: exactly one quiz block')
+    const q = quizzes[0]
+    if (q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([0, 2, 2, 1, 3]), 'J: quiz keys match the pinned [0, 2, 2, 1, 3] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'J: quiz shape + distractor pricing')
+      ok(q.items[0].options[0] === '$3x = 12$', 'J: quiz Q1 option 1 is the pinned gathered form (the key 0)')
+      ok(q.items[2].options[2] === 'an identity — every $x$ is a solution', 'J: quiz Q3 option 3 is the pinned identity verdict (the key 2)')
+    }
+  }
+  {
+    const ex = lesson.blocks.filter((b) => b.kind === 'exercises')
+    if (ex[0].kind === 'exercises') {
+      const counts = ex[0].sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'J: exercise set sizes 3/3/3/2/2/1')
+      const all = ex[0].sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'J: 14 exercises, Cengage chains, terminal answers')
+      ok((all[7].answer || '').includes('every number'), 'J: L3.2 answer carries the pinned identity census verdict')
+      ok((all[8].answer || '').includes('no solution'), 'J: L3.3 answer carries the pinned none verdict')
+      ok((all[13].answer || '').includes('function of the solution set'), 'J: L6 answer carries the verdict-invariance argument')
+    }
+  }
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'J: two figures in 5.3 (the number-line strip + the verdict machine)')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      // figs[0] = the number-line strip (after the verdict table), figs[1] =
+      // the verdict machine (after the k-parameter family) — appearance order
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === plan53Fig2.rects.length, 'J: number-line strip rect census ' + r0.length + ' = plan ' + plan53Fig2.rects.length)
+      ok(canon(r0) === canon(plan53Fig2.rects), 'J: number-line strip rects match the pinned plan exactly (positions + sizes)')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === plan53Fig1.rects.length, 'J: verdict machine rect census ' + r1.length + ' = plan ' + plan53Fig1.rects.length)
+      ok(canon(r1) === canon(plan53Fig1.rects), 'J: verdict machine rects match the pinned plan exactly')
+      for (const g of plan53Fig1.groups) {
+        const rs = g.map((i) => plan53Fig1.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: verdict machine group [' + g.join(',') + '] pairwise disjoint')
+      }
+      for (const g of plan53Fig2.groups) {
+        const rs = g.map((i) => plan53Fig2.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: number-line strip group [' + g.join(',') + '] pairwise disjoint')
+      }
+      ok(figs[0].svg.includes('no solution') && figs[0].svg.includes('every number') && figs[0].svg.includes('exactly one'), 'J: the strip carries all three verdict labels')
+      ok(figs[1].svg.includes('the three doors') && figs[1].svg.includes('(a − c)·x = d − b'), 'J: the machine carries the doors and the gathered form')
+      ok(figs[0].svg.includes('<circle') && figs[0].svg.includes('<line'), 'J: the number lines are drawn with lines and dots (no extra rects)')
+    }
+  }
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'J: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'J: honest word count ' + words + ' >= 4000')
+  }
+  // odd-run backslash scan over the WHOLE chapter file (run-69 hardening)
+  {
+    let oddRuns = 0
+    let i = 0
+    while (i < ch05Src.length) {
+      if (ch05Src[i] === '\\') {
+        let j = i
+        while (j < ch05Src.length && ch05Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'J: no odd-length backslash runs in ch-05.ts source (found ' + oddRuns + ')')
+  }
+  // unicode-escape scan
+  {
+    const escapes = (ch05Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'J: no unicode escapes in ch-05.ts source (found ' + escapes + ')')
+  }
+  // al- prefix uniqueness across the whole library (5.3 now in)
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'J: all ' + ids.length + ' lesson ids repo-wide unique (with 5.3 added)')
+    ok(ids.includes('al-the-three-verdicts-one-none-infinitely-many'), 'J: the new id is registered in the library graph')
+  }
+  // live re-checks of three anchors straight from the authored content
+  {
+    const q = chapter05.lessons[2].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      ok(q.items[3].options[1] === '$k \\neq 4$', 'J: quiz Q4 option 2 is the pinned k-parameter verdict (the key 1)')
+    }
+    const ex = chapter05.lessons[2].blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const l4first = ex.sets[3].questions[0]
+      ok((l4first.answer || '').includes('$k \\neq 2$'), 'J: L4.1 answer carries the pinned k-family verdict')
+    }
+    const tb = chapter05.lessons[2].blocks.find((b) => b.kind === 'table')
+    if (tb && tb.kind === 'table') {
+      ok(tb.rows.length === 3 && tb.rows[1].join(' | ').includes('x + 1 = x + 2'), 'J: the verdict table carries the contradiction type case')
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (K) the unit-5 completion review — the BOOK_FORMAT checklist as     */
+/* executable assertions, the exam-coverage audit, the chapter snapshot */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch05Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-05.ts').text()
+  const lessons = chapter05.lessons
+
+  // checklist 1 — all math recomputed by script: the battery itself is the
+  // recompute; assert its size honestly (sections A–K above).
+  ok(passed > 400000, 'K checklist 1: the math was recomputed by script (' + passed + ' exact checks so far)')
+
+  // checklist 2 — every figure label appears in the prose terminology
+  {
+    const prose = lessons.flatMap((l) => l.blocks.map((b) => ('text' in b ? b.text : '')).concat())
+    const allProse = lessons
+      .flatMap((l) => l.blocks)
+      .map((b) => {
+        let t = ''
+        if ('text' in b) t += String(b.text)
+        if ('caption' in b) t += String(b.caption)
+        if (b.kind === 'terms') for (const it of b.items) t += ' ' + it.term + ' ' + it.def
+        return t
+      })
+      .join(' ')
+    void prose
+    for (const need of ['verdict machine', 'gathered form', 'number line', 'three doors']) {
+      ok(allProse.includes(need), 'K checklist 2: the phrase "' + need + '" lives in the prose, not only in a figure')
+    }
+  }
+
+  // checklist 3 — every figure SVG uses the vivid palette (no retired hexes)
+  {
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    for (const hex of retired) ok(!ch05Src.toLowerCase().includes(hex), 'K checklist 3: the retired hex ' + hex + ' does not appear in ch-05.ts')
+    for (const allowed of ['#16a34a', '#166534', '#65a30d', '#0d9488', '#ea580c', '#d97706']) {
+      ok(ch05Src.includes(allowed), 'K checklist 3: the vivid-palette hex ' + allowed + ' is in use')
+    }
+  }
+
+  // checklist 4 — quiz answer indices point at the intended options
+  {
+    const pinned: Record<string, number[]> = {
+      'al-what-an-equation-is-the-balance-principle': [1, 1, 3, 0, 1],
+      'al-solving-linear-equations': [1, 0, 1, 2, 0],
+      'al-the-three-verdicts-one-none-infinitely-many': [0, 2, 2, 1, 3],
+    }
+    for (const l of lessons) {
+      const q = l.blocks.find((b) => b.kind === 'quiz')
+      if (q && q.kind === 'quiz') {
+        const keys = q.items.map((it) => it.answer)
+        ok(JSON.stringify(keys) === JSON.stringify(pinned[l.id]), 'K checklist 4: ' + l.number + ' quiz keys live-match the pinned battery (' + keys.join('/') + ')')
+        ok(q.items.every((it) => it.answer >= 0 && it.answer < it.options.length), 'K checklist 4: ' + l.number + ' every answer index points at a real option')
+      }
+    }
+  }
+
+  // checklist 5 — exercise solutions complete and numerically verified
+  {
+    for (const l of lessons) {
+      const ex = l.blocks.find((b) => b.kind === 'exercises')
+      if (ex && ex.kind === 'exercises') {
+        const all = ex.sets.flatMap((s) => s.questions)
+        ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'K checklist 5: ' + l.number + ' carries 14 complete, chain-written, answered exercises')
+      }
+    }
+  }
+
+  // checklist 6 — lesson ids globally unique
+  {
+    const ids: string[] = []
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.push(l.id)
+    ok(ids.length === new Set(ids).size, 'K checklist 6: all ' + ids.length + ' lesson ids repo-wide unique (chapter closed)')
+    for (const l of lessons) ok(ids.filter((i) => i === l.id).length === 1, 'K checklist 6: ' + l.id + ' appears exactly once in the library graph')
+  }
+
+  // checklist 7 — lint + render: asserted here as structure; the render
+  // gates run as the dev-server + browser E2E battery after this script.
+  ok(chapter05.status === 'complete' && chapter05.lessons.length === 3, 'K checklist 7: the chapter is structurally COMPLETE (render gates follow as E2E)')
+
+  // the exam-coverage audit — every lesson carries an exam corner
+  {
+    for (const l of lessons) {
+      ok(l.blocks.some((b) => b.kind === 'callout' && b.tone === 'exam'), 'K exam audit: ' + l.number + ' carries an exam corner')
+    }
+  }
+
+  // the chapter snapshot — honest totals, recomputed live
+  {
+    const words = lessons.map((l) => countLessonWords(l))
+    ok(words[0] >= 4000 && words[1] >= 4000 && words[2] >= 4000, 'K snapshot: every lesson holds the 4,000-word depth bar (' + words.join(' / ') + ')')
+    const chapterWords = words.reduce((a, b) => a + b, 0)
+    ok(chapterWords >= 12500, 'K snapshot: chapter 5 totals ' + chapterWords + ' words across 3 lessons (>= 12,500)')
+    const alBook = allBooks.find((b) => b.id === 'elementary-algebra')
+    ok(!!alBook, 'K snapshot: the elementary-algebra book is registered')
+    if (alBook) {
+      const bookLessons = alBook.chapters.flatMap((c) => c.lessons)
+      ok(bookLessons.length === 18, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3)')
+      const bookWords = alBook.chapters.flatMap((c) => c.lessons).reduce((a, l) => a + countLessonWords(l), 0)
+      ok(bookWords >= 78000, 'K snapshot: the book totals ' + bookWords + ' words across 18 lessons (floor 78,000 — recomputed live)')
+      const alIds = bookLessons.map((l) => l.id)
+      ok(alIds.every((i) => i.startsWith('al-')), 'K snapshot: every book-3 lesson id carries the al- prefix')
+    }
+  }
+  console.log('[K] the unit-5 completion review: BOOK_FORMAT checklist 7/7, exam corners 3/3, snapshot recomputed')
 }
 
 /* ------------------------------------------------------------------ */

@@ -1992,3 +1992,20 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   exhibit/quiz/exercise key both sides; F+G audited the authored content incl. the exact-plan figure rect comparisons.
 - Four figures audited 0-issue (audit-svg-overlaps.sh caught the balance figure's title/box overlap pre-E2E — repaired)
   and visually inspected; E2E 45/45 PASS x2+ runs x3 viewports per lesson (e2e-al-51/52 whitelisted in .gitignore).
+
+### Run 76 — Elementary Algebra ch. 5 closes: 5.3 + the unit-5 review (2026-11-09)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67; the ch. VI scan re-studied run 72): the classical
+  three-verdict vocabulary — the always-true class named IDENTICAL EQUATIONS and the sometimes-true class
+  conditional equations, with only the latter given the art of solving — informs 5.3's historical callout and the
+  lesson's recognise-don't-solve discipline. Zero downloads.
+- `ncert-math8-ch2-linear-equations` — carried (banked run 66, contents re-checked 2026-11-08): the school canon's
+  reducible-forms bridge named in 5.3's exam corner (the machine applied after one more clearing station); the
+  collapse/verdict treatment rides the same chapter's one-side/both-side arc. Zero downloads.
+- `khattar-qa-4e` — carried: the exam-corner shapes (the disguised solve, the classify question, the k-parameter
+  family, the identity trap). Zero downloads.
+- `cengage-jee-style` — carried: the presentation contract throughout (illustrations, solution chains, exercise bars).
+- Zero new citation keys, zero downloads — the carried keys carried the run; the 5.3 engine sweeps (625 gathered
+  forms; the 28,561-grid classification cross-check; the 70,304-move collapse closure) are original exhaustive
+  computation, exhibit/quiz/exercise keys recomputed both sides by verify-book3-ch05.ts sections H–J; K = the
+  unit-5 completion review (checklist 7/7, exam corners 3/3, snapshot recomputed).
