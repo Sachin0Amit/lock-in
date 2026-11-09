@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 80: push verification recorded — remote main = local HEAD b06bb72 (ls-remote via one-time URL: refs/heads/main = b06bb72e4829cf58d863b03fbd7dca32d23a4575; all unpushed commits on main, including run 80's ship b06bb72, are now backed up on the remote; origin/main tracking ref resynced by anonymous HTTPS fetch)
+
+---
+
 ## 2026-11-09 — RUN 80 (fired 19:44 IST delivery of job 516929's v4 hybrid-cadence window, trace cron-agent-loop-202611092214): AL CH. 7 'INEQUALITIES' CLOSES 3/3 — 7.3 'Compound Inequalities and Applications' (al-compound-inequalities-and-applications, 5,605 words, quiz keys 1/2/0/1/1, 14 exercises, two figures — the AND/OR panels + the four-interval-shapes strip, the two-boundary-pipeline derivation with the end-swap theorem) + THE UNIT-7 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3, book snapshot recomputed: 24 lessons / 109,368 words / 7 of 11 chapters complete, every lesson >= 4,000 words) — the chapter COMPLETE and fully verified at run end; ch. 8 NOT touched
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 79 pushed and verified: remote
