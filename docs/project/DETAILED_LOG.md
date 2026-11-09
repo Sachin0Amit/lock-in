@@ -2628,3 +2628,81 @@ e2e-al-53; never ch. 6); run 77 opens ch. 6.
 
 **Git:** ship commit `al ch.5 OPENS (run 75): ...` + the run-74 memory commit 2b12f2a pushed to main per the push
 protocol (shas in WORKLOG; ls-remote verified).
+
+---
+
+## Run 77 — Elementary Algebra ch. 6 'Simultaneous Linear Equations' OPENS 2/3 (2026-11-09, day-window fire 14:50 IST)
+
+**Step 0 — reconciliation:** tree clean at run 76's ship; run 76's commit 5a88b60 local-only (SSH unavailable in
+the sandbox — pushed with this run's ship via the one-time-URL form). Sibling visual-upgrade job still disabled at
+the gateway; no `.figure_upgrade_lock`. RESUME_POINTER locked run 77 = 6.1 + 6.2.
+
+**Step 1 — verify-first engines (sections A–E BEFORE any prose):** A-i swept ALL 2,184 nondegenerate single
+equations a·x + b·y = c over [-6,6] — the exact parametrization (s, (c − a·s)/b) verified for 7,225 pairs and
+every windowed solution captured; the honest divisibility law asserted over the full sweep: integer solutions
+exist ⟺ gcd(|a|,|b|) divides c (the false "small equations always have integer solutions" claim was caught and
+replaced — 2y = 1 has none). A-ii classified the FULL 13⁶ grid — 4,769,856 nondegenerate systems:
+4,604,912 exactly-one / 157,504 none / 7,440 infinitely many, partitioned exhaustively, with 9,209,824 exact
+integer witness identities (a1·Dx + b1·Dy = c1·D and a2·Dx + b2·Dy = c2·D at every D ≠ 0 system). A-iii
+enumerated 653,952 D ≠ 0 systems and swept sampled ones over the 625-pair window: the windowed hits are exactly
+{the Cramer pair} ∩ window (the original window assumption — integer solutions always in-window — was caught
+false at s = 29 and repaired). A-iv priced the row-op licences: 72,576 scaling checks (×k never moves a solution
+set) + 164,160 elimination checks (eq2 → eq2 + m·eq1 never admits or expels a pair). A-v ran 6,952 full
+substitution chains — the substituted one-unknown line carries −D exactly, s = Sx/D everywhere, the
+back-substitution t = Dy/D everywhere, both originals re-satisfied exactly. A-vi ran 7,465 minimal-multiplier
+elimination chains — m1·b1 + m2·b2 = 0 with m1 = b2/g, m2 = −b1/g, the survivor ±D/g ≠ 0, x = Sx/D everywhere.
+A-vii verified the D = 0 consistency equivalences over the 64,896-system sub-grid (coefficients [-4,4], constants
+[-6,6]): 3,264 consistent / 61,632 inconsistent; consistency ⟺ triple proportionality ⟺ identical windowed
+solution sets; inconsistency ⟹ empty windowed intersection. Sections B/D pinned every exhibit both sides; C/E
+pinned the four figure plans rect-by-rect with pairwise-disjointness + containment assertions.
+
+**Step 2 — pre-writing catches (repaired pre-prose):** the A-v back-substitution missing the common-denominator
+factor (got 209/108, want 16/9); the A-i sweep count 2,183 → 2,184 (168 (a,b) pairs × 13 constants); the false
+integer-solution claim (see A-i); the A-iii window assumption; B-5's windowed census 12 → 9 (2x + 3y = 6 forces
+s ≡ 0 mod 3); D-8's census 9 → 12 (odd s in [−12,12]); the age-equation sign slip (f − 2s = 12, NOT −12 —
+the engine caught what the eye wrote); the IEEE-float mixture check (0.2·2 + 0.5·4 = 2.4000000000000004 vs
+0.4·6 — rebuilt as integer acid units 20·2 + 50·4 = 40·6); the census-band overrun (ninth pair box ended 8px
+past the band). JSON.stringify(BigInt) crash fixed with a safe show() formatter.
+
+**Step 3 — authored 6.1 'Equations in Two Variables' (4,711 words):** expressions → assertions with TWO letters;
+the sum-10/difference-2 opener; solution PAIRS and the census test; the parametrized infinite family proved (the
+census is a window, not a proof); the system as a sieve (fig 1); standard form + the (a,b) ≠ (0,0) guard priced;
+braced subscript notation; the partial-check trap worked both ways (illustrations 1–2); the trichotomy RETURNING
+with the full-grid census numbers in prose (4,769,856 / 4,604,912 / 157,504 / 7,440); the cross-product
+instruments D, Dx, Dy with the division-free reading of NCERT's ratio test (64,896-system sub-grid: 3,264/61,632
+in prose); the census strip (fig 2); the elimination-identities THEOREM derived in five steps (kill y, read the
+gathered line, do y, divide when allowed, the D = 0 verdict); the pair produced on both exhibits ((6,4) again,
+(2,3)); the row-move licence paragraph; consistent/inconsistent named; the Hall & Knight naming + Nine Chapters +
+Cramer historical callout; the exam corner (four shapes); the collected list; 3 formula cards; quiz keys 0/2/1/2/1;
+14 exercises L1–L6 (L6 = the exactly-two-impossibility proof).
+
+**Step 4 — authored 6.2 'Substitution and Elimination' (4,890 words):** both methods as 5.2 wearing subscripts;
+8 terms; the substitution pipeline as an algorithm block (5 stations); the free-isolation exhibit y = 2x;
+the rearrangement exhibit with the distributed-minus warning tied to 5.2; the THEOREM that substitution loses
+nothing (four steps: the isolation is an equivalence; substitution is composition; the substituted line IS the
+elimination identity in another dress — coefficient −D; divide and return); the elimination pipeline as an
+algorithm block; the running example settled by elimination with no scaling; the minimal-multiplier exhibit
+(2x + 3y = 8, 3x − y = 1 → 11x = 11); the eliminate-x exhibit (3x + 2y = 12, 5x − 2y = 4); the substitution-flow
+figure; the dress strikes (×6 fractions, ×4 dyadic decimals — the exactness honesty note); the two-methods
+convergence figure; the choice procedure; the both-methods-one-system exhibit ((5,3) twice); the equivalence
+theorem paragraph riding the verifier's 6,952 + 7,465 chain numbers; THREE word problems fully narrated (ages
+(18,48); costs (10,6); mixture (2,4)) with story-level checks; five callouts (the 0=0 trap + originals-only
+check; one theorem two costumes; minimal multipliers defined; the counting board → Gauss history; the exam
+corner); the collected list; 3 formula cards; quiz keys 0/0/2/1/2; 14 exercises L1–L6 (L6 = the correctness
+proof of elimination).
+
+**Step 5 — authored-time catches (all repaired to zero):** F's block census miscounts (20 paras not 12, 5
+headings not 6 — the engine counts, not the plan); two anchor index slips (the L5.2/L6 exercise indices); the
+plan rect for the census survivor box (stale (446,210,58,52) vs authored (452,210,54,52)); FIVE odd backslash
+runs — `$\pm$` escapes written single (the run-76 failure mode, caught by the scanner, doubled); the SVG
+auditor's TEXT/RECT catch (the survivor box check-line spilled — split to two 8.5px lines, re-audited 0/0);
+the G plan missing the four inner boxes (12 rects pinned, band/inner groups split with containment assertions);
+and the book.ts double-entry repair — a partially-applied edit batch had left BOTH a duplicate chapter06 import
+AND the planned ch.6 object alongside the new chapter06 entry, so the library graph carried 6.1 twice
+(103 ids / 102 unique); repaired to one entry (103 unique).
+
+**Step 6 — gates:** verify-book3-ch06.ts **9,685,215 checks ALL GREEN** (sections A–G). lint 0 errors (2
+pre-existing warnings); tsc clean; routes 200 (both lessons + book page) / 404 unknown; E2E e2e-al-61 45/45 ×3
+viewports and e2e-al-62 45/45 ×3 viewports (quiz 5/5 live both; KaTeX 256/257 nodes 0 errors; 2 figures each;
+24 Sol. pills on 6.2; 0 console errors; no overflow 1280/390); SVG overlap audits 0/0 on all four figures.
+Logs: WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG updated, WORK_INVENTORY rebuilt, this entry.

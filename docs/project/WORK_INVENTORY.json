@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-09 14:32:00 (Asia/Kolkata)",
+  "generated": "2026-11-09 15:44:03 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,13 +5921,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 197,
-      "totalLines": 90152,
+      "totalLines": 90143,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 61747,
+        "src/data/library (content model + books)": 61738,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16134,6 +16134,77 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "5a88b60e8bcd4568086bd66157dcdbaa72ddcea8",
+      "short": "5a88b60",
+      "date": "2026-11-09 09:02",
+      "message": "run 76: Elementary Algebra ch. 5 CLOSES 3/3 — 5.3 'The Three Verdicts: One, None, Infinitely Many' (4,720 words, quiz 0/2/2/1/3, 14 exercises, verdict-machine + number-line figures) + the unit-5 completion review PASSED (7/7 checklist, exam corners 3/3); verify-book3-ch05.ts 318,129 → 448,260 checks ALL GREEN (the collapse sweep 625 gathered forms; the 28,561-grid classification cross-check 26,364/169/2,028; the 70,304-check collapse closure; pinned exhibits + k-families both sides; authored battery; the review); catches: the pre-writing census sign slip (9/9 → −9/−9), 17 odd backslash runs, the audit's title/door overlap (doors 110/162/214); E2E e2e-al-53 45/45 x2 x3 viewports, SVG audit 0/0; chapter flipped complete, plannedLessons emptied, book.ts header updated; e2e-al-53 whitelisted; logs + WORK_INVENTORY updated (book 18 lessons / 78,340 words)",
+      "filesChanged": 12,
+      "insertions": 3743,
+      "deletions": 1006,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 39,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 953,
+          "del": 944
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 1470,
+          "del": 41
+        },
+        {
+          "path": "scripts/e2e-al-53.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-53.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch05.ts",
+          "add": 624,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-05.ts",
+          "add": 467,
+          "del": 10
+        }
+      ]
     }
   ],
   "totals": {
@@ -16141,27 +16212,27 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 26,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 101,
-    "wordsAuthored": 490385,
-    "termsDefined": 779,
-    "quizItems": 505,
-    "exerciseQuestions": 1275,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 103,
+    "wordsAuthored": 499986,
+    "termsDefined": 795,
+    "quizItems": 515,
+    "exerciseQuestions": 1303,
     "blockTotals": {
-      "para": 1438,
-      "callout": 558,
-      "heading": 562,
-      "list": 107,
-      "terms": 102,
-      "equation": 143,
-      "figure": 173,
-      "derivation": 204,
-      "table": 134,
-      "example": 409,
-      "quiz": 101,
-      "exercises": 101,
-      "formula": 287,
-      "algorithm": 22
+      "para": 1476,
+      "callout": 569,
+      "heading": 572,
+      "list": 110,
+      "terms": 104,
+      "equation": 149,
+      "figure": 177,
+      "derivation": 206,
+      "table": 135,
+      "example": 423,
+      "quiz": 103,
+      "exercises": 103,
+      "formula": 293,
+      "algorithm": 24
     }
   }
 }

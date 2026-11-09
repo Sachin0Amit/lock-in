@@ -2,6 +2,74 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 77 (fired 14:50 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091720): AL CH. 6 'SIMULTANEOUS LINEAR EQUATIONS' OPENS 2/3 — 6.1 'Equations in Two Variables' (al-equations-in-two-variables, 4,711 words, quiz keys 0/2/1/2/1, 14 exercises, two figures) + 6.2 'Substitution and Elimination' (al-substitution-and-elimination, 4,890 words, quiz keys 0/0/2/1/2, 14 exercises, two figures) — authored strictly sequentially verify-first; 6.3 + the unit-6 review NOT touched (they close the chapter at run 78)
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-76 ship (run 76's commit 5a88b60 was
+local-only — SSH is unavailable in the sandbox, so it rides THIS run's protocol push via the one-time-URL form).
+No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 77 = 6.1 + 6.2 (v2 quota; never 6.3/the
+review; NEVER ch. 7).
+
+**Research (zero downloads, zero new keys):** the banked keys carried the run — `hall-knight-elementary-algebra`
+(the chapter that named the subject; the side-by-side method pairing), `ncert-math10-ch3-pair-linear` (the ratio
+trichotomy re-priced as exact cross-products), `khattar-qa-4e` (exam shapes), `cengage-jee-style` (the presentation
+contract).
+
+**Verify-first (sections A–E written BEFORE any prose, F + G at authoring time):** A-i the single-equation census
+engine (all 2,184 equations a·x+b·y=c over [-6,6] with the exact parametrization check and the gcd-divisibility
+law: integer solutions exist ⟺ gcd(a,b) | c); A-ii the FULL 13^6 system grid — 4,769,856 nondegenerate systems
+classified exactly (4,604,912 unique / 157,504 none / 7,440 infinitely many) with 9,209,824 exact integer witness
+identities a1·Dx+b1·Dy = c1·D; A-iii the windowed-uniqueness engine (653,952 D≠0 systems enumerated, sampled
+systems swept over 625 pairs — the windowed hits are exactly {the Cramer pair} ∩ window); A-iv the row-operation
+licence engines (72,576 scaling + 164,160 elimination equivalence checks); A-v the substitution engine (6,952 full
+chains — the substituted line carries −D, s = Sx/D everywhere, back-substitution exact); A-vi the elimination
+engine (7,465 minimal-multiplier chains — m1 = b2/g, m2 = −b1/g, survivor ±D/g, x = Sx/D everywhere); A-vii the
+D=0 consistency equivalences over the 64,896-system sub-grid (3,264 consistent / 61,632 inconsistent, windowed
+solution sets identical/empty as the trichotomy demands). B/C/D/E the pinned exhibits (the opening pair (6,4); the
+x+y=10 census — 11 nonnegative pairs; the trichotomy table rows; the 6.2 method exhibits — (3,6), (3,4), (1,2),
+(2,3), the ×4 and ×6 dress strikes (12,16) and (12,6); the k-family (k=6 in / out); the word problems (48,18),
+(10,6), (2,4); the figure plans 61Fig1/61Fig2/62Fig1/62Fig2 pinned rect-by-rect).
+
+**Pre-writing catches (the discipline working):** the verifier's own A-v back-substitution dropped the
+common-denominator factor (209/108 vs 16/9) — repaired pre-prose; the A-i equation count 2,183 → 2,184 (168
+(a,b) pairs × 13); the FALSE claim "small equations always have integer solutions" (2y = 1 has none — replaced by
+the honest gcd(a,b) | c law over all 2,184 equations); the A-iii window assumption (solutions like 29 lie outside
+[-12,12] — the assertion now states hits = {solution} ∩ window); B-5's windowed census 12 → 9 (s ≡ 0 mod 3); D-8's
+census 9 → 12 (odd s); the age-equation sign slip (f − 2s = 12, NOT −12 — the run-76 pattern again); the mixture
+check rebuilt in integer acid-units (0.2·2 + 0.5·4 ≠ 0.4·6 in IEEE floats — 20·2 + 50·4 = 40·6 exact); the census
+band overrun (pair box 638+54 > band end 684 — the band widened to 552).
+
+**Authored-time catches (all repaired to zero):** F's block census miscounts (20 paras not 12; 5 headings not 6);
+two anchor index slips (L5.2 is all[12] not all[13]; the 6.2 anchors shifted by the same off-by-one); the plan
+rect for the census survivor (452,210,54,52) vs the stale (446,210,58,52); FIVE odd backslash runs — the `$\pm$`
+escapes written single (the run-76 pattern, caught by the scanner and doubled); the SVG auditor's TEXT/RECT catch
+in the census strip ("6 + 4 = 10 · 6 − 4 = 2" spilled the 54px survivor box — split to two 8.5px lines); the G
+plan needed the 4 inner boxes pinned (12 rects, groups split band/inner with containment assertions); and
+book.ts's chapter-6 entry had been double-inserted by a partially-applied batch (duplicate import + the planned
+object AND chapter06 both in the TOC — the library graph carried 6.1 twice at 103 ids/102 unique; repaired to
+one entry).
+
+**Gates:** verify-book3-ch06.ts finished at **9,685,215 checks ALL GREEN** (sections A–G). `bun run lint` 0 errors
+(2 pre-existing warnings); `tsc --noEmit` clean; routes 200 (both new lessons + book page) / 404 (unknown lesson);
+E2E e2e-al-61 **45/45 ×3 viewports** and e2e-al-62 **45/45 ×3 viewports** (quiz 5/5 live on keys 0/2/1/2/1 and
+0/0/2/1/2; KaTeX 256/257 nodes, 0 errors; 2 figures each, 0 raw-$; 24 Sol. pills on 6.2; 0 console errors; no
+overflow at 1280/390); SVG overlap audits **0/0 on all four figures** after the survivor-box fix.
+
+**Chapter state:** ch. 6 'Simultaneous Linear Equations' **IN PROGRESS 2/3** (9,601 words so far: 6.1 4,711 +
+6.2 4,890; 2 terms blocks / 10 quiz items / 28 exercises / 4 figures / 2 algorithm pipelines / 2 derivations);
+the book stands 5 complete chapters of 11 + ch. 6 opened (20 lessons / 87,941 words). ch-06 status in-progress,
+plannedLessons holds only 6.3's title, book.ts header updated. WORK_INVENTORY rebuilt.
+
+**NEXT (run 78):** ch. 6 CLOSES with 6.3 'Consistency: the Geometry of Two Lines' + the unit-6 completion review —
+extend verify-book3-ch06.ts with the geometry engines (the line-parameter sweeps, the parallel/coincident
+cross-checks) + the review section; whitelist e2e-al-63.sh/.page.js in .gitignore BEFORE committing; never ch. 7
+(ch. 7 'Inequalities' opens at run 79).
+
+**Git:** ship commit (ch-06.ts + book.ts + verify-book3-ch06.ts + 4 E2E scripts + .gitignore whitelist + the
+memory docs), pushed per the protocol together with run 76's commit 5a88b60; remote main verified via one-time-URL
+ls-remote (sha recorded in PROGRESS/RESUME).
+
+---
+
 ## 2026-11-09 — RUN 76 (fired from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop — the fire that finally got through after the concurrency reschedule): AL CH. 5 'LINEAR EQUATIONS IN ONE VARIABLE' CLOSES 3/3 — 5.3 'The Three Verdicts: One, None, Infinitely Many' (al-the-three-verdicts-one-none-infinitely-many, 4,720 words, quiz keys 0/2/2/1/3, 14 exercises, two figures) + THE UNIT-5 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3) — the chapter COMPLETE and fully verified at run end; ch. 6 NOT touched
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-75 ship (12 commits had accumulated unpushed — the earlier practice-hub feature runs plus run 75 — and were pushed by the interactive turn at 12:30 IST after the day fires kept skipping; remote verified = local HEAD baced5e before this run began). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 76 = 5.3 + the unit-5 review (v2 quota; never ch. 6).

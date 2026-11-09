@@ -4,6 +4,7 @@ import { chapter02 } from './ch-02'
 import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
+import { chapter06 } from './ch-06'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -24,9 +25,12 @@ import { chapter05 } from './ch-05'
  * an Equation Is: the Balance Principle + 5.2 Solving Linear Equations) and
  * CLOSED at run 76 (5.3 The Three Verdicts: One, None, Infinitely Many +
  * the unit-5 completion review PASSED — 14,024 words across the chapter):
- * chapter 5 COMPLETE 3/3. The book stands in-progress — 5 complete chapters
- * of 11 (owner cadence: two lessons per run, strictly sequential).
- * Lesson ids use the `al-` prefix (globally unique, stable forever).
+ * chapter 5 COMPLETE 3/3. Chapter 6 'Simultaneous Linear Equations' opened
+ * at run 77 (6.1 Equations in Two Variables + 6.2 Substitution and
+ * Elimination); 6.3 + the unit-6 review close it at run 78. The book stands
+ * in-progress — 5 complete chapters of 11 (owner cadence: two lessons per
+ * run, strictly sequential). Lesson ids use the `al-` prefix (globally
+ * unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics opened the doorstep of algebra with patterns → formulas and a
@@ -99,20 +103,7 @@ export const elementaryAlgebra: Book = {
     chapter03,
     chapter04,
     chapter05,
-    {
-      number: 6,
-      slug: 'simultaneous-linear-equations',
-      title: 'Simultaneous Linear Equations',
-      summary:
-        'Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the method’s natural habitat.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Equations in Two Variables',
-        'Substitution and Elimination',
-        'Consistency: the Geometry of Two Lines',
-      ],
-    },
+    chapter06,
     {
       number: 7,
       slug: 'inequalities',

@@ -291,6 +291,13 @@ server.log
 !/scripts/e2e-al-53.sh
 !/scripts/e2e-al-53.page.js
 
+# per-lesson E2E scripts + pre-write verifier for Elementary Algebra ch. 6 (whitelisted run 77)
+!/scripts/verify-book3-ch06.ts
+!/scripts/e2e-al-61.sh
+!/scripts/e2e-al-61.page.js
+!/scripts/e2e-al-62.sh
+!/scripts/e2e-al-62.page.js
+
 # Custom Book Builder feature (2026-11-08): engine verifier + API smoke + full-journey E2E
 !/scripts/verify-custom-book-builder.ts
 !/scripts/smoke-custom-books.ts

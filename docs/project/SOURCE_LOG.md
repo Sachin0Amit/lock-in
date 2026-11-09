@@ -2009,3 +2009,24 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   forms; the 28,561-grid classification cross-check; the 70,304-move collapse closure) are original exhaustive
   computation, exhibit/quiz/exercise keys recomputed both sides by verify-book3-ch05.ts sections H–J; K = the
   unit-5 completion review (checklist 7/7, exam corners 3/3, snapshot recomputed).
+
+### Run 77 — Elementary Algebra ch. 6 opens: 6.1 + 6.2 (2026-11-09)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67): the classical chapter that NAMED the subject
+  (Simultaneous Linear Equations) informs 6.1's historical callout and 6.2's method pairing — Hall and Knight
+  teach substitution and elimination side by side, exactly the pairing of 6.2. Zero downloads.
+- `ncert-math10-ch3-pair-linear` — carried (banked at the run-66 research phase): the school canon's ratio
+  trichotomy (a1/a2 vs b1/b2 vs c1/c2) is RE-PRICED in 6.1 as the exact cross-product instruments D, Dx, Dy —
+  no division, no vanishing-denominator cases — with the geometry reading deferred to 6.3 per the canon's own
+  graphical section. Zero downloads.
+- `khattar-qa-4e` — carried: the exam-corner shapes (settle the system, the find-k verdict, age/cost/mixture
+  narrations, the partial-check distractor). Zero downloads.
+- `cengage-jee-style` — carried: the presentation contract throughout (illustrations, solution chains, algorithm
+  stations, exercise bars).
+- Zero new citation keys, zero downloads — the carried keys carried the run. The engine sweeps are original
+  exhaustive computation: the FULL 13^6 system grid (4,769,856 nondegenerate systems: 4,604,912 unique /
+  157,504 none / 7,440 infinitely many; 9,209,824 exact witness identities), the D=0 sub-grid (64,896 systems:
+  3,264 consistent / 61,632 inconsistent), the substitution engine (6,952 full chains = Cramer everywhere),
+  the elimination engine (7,465 minimal-multiplier chains = Cramer everywhere), the licence engines (236,736
+  scaling + elimination equivalence checks) — exhibit/quiz/exercise keys recomputed both sides by
+  verify-book3-ch06.ts sections A–G.
