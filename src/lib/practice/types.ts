@@ -37,6 +37,24 @@ export interface DifficultyInfo {
   dataDriven: boolean
 }
 
+/** How a question is answered in a paper section. */
+export type SectionType = 'mcq' | 'numeric'
+
+/** One section of a generated paper (index ranges into the paper array). */
+export interface PaperSection {
+  label: string
+  type: SectionType
+  /** display name of the question type ("Numerical value", "TITA") */
+  typeName: string
+  /** inclusive start index into the paper array */
+  from: number
+  /** inclusive end index into the paper array */
+  to: number
+  count: number
+  marks: number
+  negative: number
+}
+
 /* ------------------------------------------------------------------ */
 /* Questions & papers                                                  */
 /* ------------------------------------------------------------------ */
@@ -87,6 +105,18 @@ export interface PaperMeta {
   difficultyMean?: number
   /** exams only: how many paper questions have real attempt data */
   difficultyData?: number
+  /** exams only: section layout of the paper (multi-section presets) */
+  sections?: PaperSection[]
+}
+
+/** A preset section as shown in cards and instruction screens. */
+export interface PresetSectionView {
+  label: string
+  type: SectionType
+  typeName: string
+  questionCount: number
+  marks: number
+  negative: number
 }
 
 export interface ExamPresetView {
@@ -102,6 +132,10 @@ export interface ExamPresetView {
   negative: number
   /** single-section papers: the section's label (e.g. "Mathematics") */
   sectionLabel?: string
+  /** every section of the paper with its own question type + marking */
+  sections: PresetSectionView[]
+  /** this exam provides an on-screen calculator in its real CBT (CAT) */
+  calculator?: boolean
   caveats: string[]
 }
 
@@ -119,9 +153,15 @@ export interface AnswerOutcome {
   questionId: string
   /** mcq: chosen option index (absent = skipped) */
   chosen?: number
-  /** free-response: learner's self-report after seeing the solution */
+  /** numeric sections: the learner's typed answer (absent/empty = skipped) */
+  value?: string
+  /** free-response drills: learner's self-report after seeing the solution */
   selfWrong?: boolean
   selfRight?: boolean
+  /** exams only: index into the preset's sections (marking per section) */
+  section?: number
+  /** honest client-side time spent on this question (seconds) */
+  secs?: number
 }
 
 export interface SubmitRequest {
@@ -135,17 +175,37 @@ export interface SubmitRequest {
   band?: DifficultyBand
 }
 
-export type QuestionOutcome = 'correct' | 'wrong' | 'skipped' | 'self-wrong' | 'self-right'
+export type QuestionOutcome =
+  | 'correct'
+  | 'wrong'
+  | 'skipped'
+  | 'self-wrong'
+  | 'self-right'
 
 export interface QuestionResult extends PracticeQuestion {
   chosen?: number
   outcome: QuestionOutcome
+  /** numeric sections: the learner's typed answer, echoed for review */
+  typed?: string
   /** calibrated difficulty 0..100 (server-side, pooled attempts) */
   difficulty?: number
   /** the difficulty band this question falls in */
   difficultyBand?: DifficultyBand
   /** pooled attempts behind the difficulty estimate */
   difficultyAttempts?: number
+  /** client-reported seconds spent on this question (when tracked) */
+  secs?: number
+}
+
+/** Per-section tally of a graded multi-section paper. */
+export interface SectionScore {
+  label: string
+  count: number
+  score: number
+  maxScore: number
+  correct: number
+  wrong: number
+  skipped: number
 }
 
 export interface ChapterBreakdown {
@@ -181,6 +241,10 @@ export interface SubmitResponse {
   paperDifficultyMean?: number
   /** the paper's difficulty band, echoed from the submit request */
   band?: DifficultyBand
+  /** multi-section papers: per-section scores with their own marking */
+  sectionScores?: SectionScore[]
+  /** mean seconds per answered question (when the client tracked time) */
+  avgSecsPerQuestion?: number | null
 }
 
 export interface AttemptView {

@@ -25,6 +25,11 @@ export interface ExamSection {
   marks: number
   /** marks subtracted for a wrong answer (0 = no negative marking) */
   negative: number
+  /** how questions are answered: radio options or a typed numeric value
+   * (JEE Section B / CAT TITA). Default 'mcq'. */
+  type?: 'mcq' | 'numeric'
+  /** display name of the question type (defaults from type) */
+  typeName?: string
 }
 
 export interface ExamPreset {
@@ -40,6 +45,8 @@ export interface ExamPreset {
   scopeStatus: 'provisional'
   durationMins: number
   sections: ExamSection[]
+  /** true when the real exam ships an on-screen calculator (CAT does) */
+  calculator?: boolean
   /**
    * Chapter scope over WRITTEN library chapters: '*' = every chapter with
    * at least one written lesson; otherwise explicit `${bookId}:${n}` keys.
@@ -70,10 +77,13 @@ export const EXAM_PRESETS: ExamPreset[] = [
     region: 'India',
     category: 'engineering-entrance',
     formatNote:
-      'Approximate JEE-style format (75 min · 25 questions · +4 / −1). Exam-style items from your library — never real past-paper questions.',
+      'Approximate JEE-style format: Section A · 20 MCQ, Section B · 5 numerical-value questions you type in (75 min · +4 / −1 per question). Exam-style items from your library — never real past-paper questions.',
     scopeStatus: 'provisional',
     durationMins: 75,
-    sections: [{ label: 'Mathematics', questionCount: 25, marks: 4, negative: 1 }],
+    sections: [
+      { label: 'Section A · Mathematics', questionCount: 20, marks: 4, negative: 1, type: 'mcq', typeName: 'MCQ' },
+      { label: 'Section B · Numerical Value', questionCount: 5, marks: 4, negative: 1, type: 'numeric', typeName: 'Numerical value' },
+    ],
     scope: '*',
     caveats: [
       'Trigonometry — book planned, not yet written',
@@ -107,10 +117,14 @@ export const EXAM_PRESETS: ExamPreset[] = [
     region: 'India',
     category: 'management-entrance',
     formatNote:
-      'Approximate CAT-style format (40 min · 22 questions · +3 / −1). Arithmetic-and-algebra weighted — exam-style items from your library.',
+      'Approximate CAT-style format: 14 MCQ (+3 / −1) and 8 TITA questions you type in (+3, no negative), 40 min, with the real exam\u2019s on-screen calculator. Arithmetic-and-algebra weighted — exam-style items from your library.',
     scopeStatus: 'provisional',
     durationMins: 40,
-    sections: [{ label: 'Quantitative Ability', questionCount: 22, marks: 3, negative: 1 }],
+    calculator: true,
+    sections: [
+      { label: 'Quantitative Ability · MCQ', questionCount: 14, marks: 3, negative: 1, type: 'mcq', typeName: 'MCQ' },
+      { label: 'Quantitative Ability · TITA', questionCount: 8, marks: 3, negative: 0, type: 'numeric', typeName: 'TITA (type-in)' },
+    ],
     scope: [
       'foundation-mathematics:1',
       'foundation-mathematics:2',
@@ -175,6 +189,12 @@ export const EXAM_PRESETS: ExamPreset[] = [
 
 export function findExamPreset(key: string): ExamPreset | undefined {
   return EXAM_PRESETS.find((p) => p.key === key)
+}
+
+/** Display name for a section's question type. */
+export function sectionTypeName(s: ExamSection): string {
+  if (s.typeName) return s.typeName
+  return s.type === 'numeric' ? 'Numerical value' : 'MCQ'
 }
 
 /** Total question count across sections. */

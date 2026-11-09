@@ -23,6 +23,7 @@ import {
   findExamPreset,
   presetMarking,
   presetQuestionCount,
+  sectionTypeName,
 } from '@/data/exams/presets'
 import { computeRisk, scoreQueueItem, type QueueCandidate } from '@/lib/revision/srs'
 import { markStudy } from '@/lib/revision/ledger-service'
@@ -57,6 +58,7 @@ import type {
   PaperResponse,
   PracticeQuestion,
   ReadinessResponse,
+  SectionScore,
   SubmitRequest,
   SubmitResponse,
 } from './types'
@@ -99,7 +101,10 @@ export async function pooledDifficultyStats(): Promise<Map<string, DifficultySta
     for (const item of parsed) {
       if (!item || typeof item.questionId !== 'string') continue
       const answered =
-        typeof item.chosen === 'number' || item.selfRight === true || item.selfWrong === true
+        typeof item.chosen === 'number' ||
+        (typeof item.value === 'string' && item.value !== '') ||
+        item.selfRight === true ||
+        item.selfWrong === true
       if (!answered) continue
       const s = value.get(item.questionId) ?? { attempts: 0, correct: 0 }
       s.attempts++
@@ -174,6 +179,15 @@ export function presetView(presetKey: string): ExamPresetView | null {
     marks,
     negative,
     sectionLabel: p.sections[0]?.label,
+    sections: p.sections.map((s) => ({
+      label: s.label,
+      type: s.type ?? 'mcq',
+      typeName: sectionTypeName(s),
+      questionCount: s.questionCount,
+      marks: s.marks,
+      negative: s.negative,
+    })),
+    calculator: p.calculator,
     caveats: p.caveats,
   }
 }
@@ -298,25 +312,49 @@ export async function buildExamPaper(
 
   const questions = questionsInScope(new Set(scope.map((c) => c.key)))
   const mcqs = questions.filter((q) => q.kind === 'mcq')
-  const wanted = presetQuestionCount(preset)
   if (mcqs.length === 0) throw new BadInput('no MCQ questions available in scope')
 
   /* difficulty targeting: calibrate from pooled attempts (p-value with
    * shrinkage), then let each chapter contribute easiest/hardest first */
   const stats = await pooledDifficultyStats()
-  const difficulty = difficultyFor(mcqs, stats)
+  const difficulty = difficultyFor(questions, stats)
+  const difficultyById = new Map(
+    [...difficulty.entries()].map(([id, d]) => [id, d.difficulty] as const),
+  )
 
   const useSeed = seed ?? Math.floor(Math.random() * 2 ** 31)
-  const paper = generatePaper({
-    questions,
-    count: wanted,
-    seed: useSeed,
-    mcqOnly: true,
-    difficulty: {
-      byId: new Map([...difficulty.entries()].map(([id, d]) => [id, d.difficulty])),
-      band: useBand,
-    },
+
+  /* sectioned generation: each section draws its own question type
+   * (mcq or numeric) chapter-balanced, without reusing picks across
+   * sections — the per-section seed keeps every draw deterministic */
+  const picked: PracticeQuestion[] = []
+  const sectionsMeta: NonNullable<PaperMeta['sections']> = []
+  let remaining = questions
+  preset.sections.forEach((s, si) => {
+    const part = generatePaper({
+      questions: remaining,
+      count: s.questionCount,
+      seed: useSeed + 7919 * (si + 1),
+      mcqOnly: (s.type ?? 'mcq') !== 'numeric',
+      numericOnly: s.type === 'numeric',
+      difficulty: { byId: difficultyById, band: useBand },
+    })
+    const pickedIds = new Set(part.map((q) => q.id))
+    remaining = remaining.filter((q) => !pickedIds.has(q.id))
+    const from = picked.length
+    picked.push(...part)
+    sectionsMeta.push({
+      label: s.label,
+      type: s.type ?? 'mcq',
+      typeName: sectionTypeName(s),
+      from,
+      to: picked.length - 1,
+      count: part.length,
+      marks: s.marks,
+      negative: s.negative,
+    })
   })
+  const paper = picked
 
   const paperDifficulty = paper.map((q) => difficulty.get(q.id)?.difficulty ?? 50)
   const meta: PaperMeta = {
@@ -328,6 +366,7 @@ export async function buildExamPaper(
     band: useBand,
     difficultyMean: Math.round(paperDifficulty.reduce((n, d) => n + d, 0) / Math.max(1, paper.length)),
     difficultyData: paper.filter((q) => (difficulty.get(q.id)?.attempts ?? 0) > 0).length,
+    sections: sectionsMeta,
   }
   return { paper, meta, preset: presetView(preset.key) }
 }
@@ -405,20 +444,27 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
   }
   if (questions.length === 0) throw new BadInput('no answers submitted')
 
+  const preset = req.kind === 'exam' ? findExamPreset(req.presetKey) : undefined
+  if (req.kind === 'exam' && !preset) throw new BadInput(`unknown exam preset: ${req.presetKey}`)
+
+  /* per-section marking for exams (answers carry their section index;
+   * entries carry paper-index ranges so skipped questions still land in
+   * their own section), flat +1/0 for drills */
   const marking =
-    req.kind === 'exam'
+    req.kind === 'exam' && preset
       ? (() => {
-          const preset = findExamPreset(req.presetKey)
-          if (!preset) throw new BadInput(`unknown exam preset: ${req.presetKey}`)
-          return presetMarking(preset)
+          let from = 0
+          const bySection = preset.sections.map((s) => {
+            const entry = { marks: s.marks, negative: s.negative, from, to: from + s.questionCount - 1 }
+            from += s.questionCount
+            return entry
+          })
+          return { bySection }
         })()
       : { marks: 1, negative: 0 }
 
-  const { results, score, maxScore, correctCount, wrongCount, skippedCount } = scorePaper(
-    questions,
-    req.answers,
-    marking,
-  )
+  const { results, score, maxScore, correctCount, wrongCount, skippedCount, sectionTallies } =
+    scorePaper(questions, req.answers, marking)
   const breakdown = chapterBreakdown(results)
 
   /* difficulty calibration: attach each question's pooled difficulty
@@ -446,6 +492,28 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
     enriched.reduce((n, r) => n + (r.difficulty ?? 50), 0) / Math.max(1, enriched.length),
   )
 
+  /* per-section scores (multi-section papers only) */
+  const sectionScores: SectionScore[] | undefined =
+    preset && sectionTallies
+      ? sectionTallies.map((t, i) => ({
+          label: preset.sections[i]?.label ?? `Section ${i + 1}`,
+          count: t.count,
+          score: t.score,
+          maxScore: t.maxScore,
+          correct: t.correct,
+          wrong: t.wrong,
+          skipped: t.skipped,
+        }))
+      : undefined
+
+  /* honest time analytics: mean seconds per question, only when the
+   * client tracked per-question time */
+  const timed = req.answers.filter((a) => typeof a.secs === 'number' && a.secs >= 0)
+  const avgSecsPerQuestion =
+    timed.length > 0
+      ? Math.round(timed.reduce((n, a) => n + (a.secs ?? 0), 0) / timed.length)
+      : null
+
   /* wrong answers → the Mistake Bank (same stable question keys) */
   const mistakeItems = results
     .filter((r) => r.outcome === 'wrong' || r.outcome === 'self-wrong')
@@ -457,7 +525,9 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
       given:
         r.outcome === 'wrong' && r.options && r.chosen !== undefined
           ? (r.options[r.chosen] ?? '')
-          : 'self-reported miss',
+          : r.typed !== undefined
+            ? r.typed
+            : 'self-reported miss',
       expected: r.answerText ?? '',
       explain: r.explain ?? '',
     }))
@@ -512,10 +582,12 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
           return {
             questionId: a.questionId,
             chosen: a.chosen,
+            value: a.value,
             selfWrong: a.selfWrong,
             selfRight: a.selfRight,
             correct: r?.outcome === 'correct' || r?.outcome === 'self-right',
             chapterKey: r?.chapterKey ?? '',
+            secs: typeof a.secs === 'number' && a.secs >= 0 ? Math.round(a.secs) : undefined,
           }
         }),
       ),
@@ -542,6 +614,8 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
     difficultyAccuracy,
     paperDifficultyMean,
     band: echoBand,
+    sectionScores,
+    avgSecsPerQuestion,
   }
 }
 
@@ -679,7 +753,10 @@ export async function getReadiness(userId: string): Promise<ReadinessResponse> {
     for (const item of parsed) {
       if (!item || typeof item.questionId !== 'string') continue
       const answered =
-        typeof item.chosen === 'number' || item.selfRight === true || item.selfWrong === true
+        typeof item.chosen === 'number' ||
+        (typeof item.value === 'string' && item.value !== '') ||
+        item.selfRight === true ||
+        item.selfWrong === true
       if (answered) userOutcomes.set(item.questionId, item.correct === true)
     }
   }

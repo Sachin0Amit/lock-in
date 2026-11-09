@@ -1,7 +1,9 @@
 # Practice — mock exams, adaptive drills, Mistake Bank, readiness
 
 Added 2026-11-08 (feature run, after the Revision Hub and the palette
-brightening). The fifth primary surface of the app (`/practice`, nav
+brightening), advanced 2026-11-09 (per-exam sections, numerical type-in
+questions, the CAT calculator, per-question timing and refresh-safe
+sittings). The fifth primary surface of the app (`/practice`, nav
 "Practice"): **practice the library's own questions under honest exam
 conditions, drill your weakest chapters, and never lose a mistake
 again** — all fed by the same data spine as the Revision Hub.
@@ -42,6 +44,34 @@ provisional and their gaps are listed, never hidden.
    chapter weakness breakdown (weakest first), full question review
    with per-question difficulty chips, wrong answers sent to the
    Mistake Bank, attempt persisted to history.
+
+   **Per-exam sections (2026-11-09):** papers now carry the real exams'
+   own section structures, generated and scored per section — **JEE
+   Main** is Section A · 20 MCQ (+4/−1) + **Section B · 5 numerical
+   value questions you TYPE IN** (+4/−1), **CAT** is 14 MCQ (+3/−1) +
+   8 **TITA "type-in-the-answer" questions (+3, no negative)** with
+   the real exam's on-screen calculator; the CBT shell shows section
+   tabs like the real clients, and the palette lists the ACTIVE
+   section's questions. Numerical questions draw from the library's
+   own exercise questions whose answer carries exactly ONE number
+   (`numericAnswerOf` — 234 questions qualify today; multi-number
+   prose answers are honestly excluded) and are auto-graded numerically
+   (`parseNumericInput` accepts decimals, thousands commas and simple
+   fractions like 3/4; matching is exact to 1e-6 relative — decimals
+   and fractions both count). Per-question marks chips show each
+   section's own marking, the submit modal counts states PER SECTION,
+   and the results carry a per-section scores table.
+
+   **Per-question timing + refresh-safe sittings (2026-11-09):** the
+   runner banks seconds per question (flushed on every navigation and
+   at submit); the attempt stores them and the results show a time
+   analysis (mean per question, slowest three with their outcomes) plus
+   per-question time chips in the review. The whole sitting autosaves
+   to localStorage — an accidental refresh offers **Resume paper** with
+   answers, marks, visits and per-question time restored and the
+   countdown honestly recomputed from the wall clock (time away
+   counts, like a real CBT; a fully-expired sitting is discarded at
+   load).
 2. **Adaptive drill** — targets the study ledger's weakest chapters
    (server-side `autoFocusChapters` reuses `scoreQueueItem`: forgetting
    risk, overdue days, low mastery — top 5, with the queue's own reason
@@ -107,18 +137,28 @@ provisional and their gaps are listed, never hidden.
 
 ```
 src/data/exams/presets.ts      6 exam presets (formats, provisional
-                               scopes, caveats, registryId links)
+                               scopes, caveats, registryId links) with
+                               per-section question types + marking
+                               (JEE A/B, CAT MCQ/TITA + calculator)
 src/lib/practice/
   types.ts                     isomorphic contracts (+ DifficultyBand,
                                DifficultyInfo, difficulty fields on
                                PaperMeta / QuestionResult /
-                               SubmitResponse / ExamReadiness)
+                               SubmitResponse / ExamReadiness; sections
+                               on PaperMeta / ExamPresetView; value /
+                               section / secs on AnswerOutcome;
+                               SectionScore / PaperSection shapes)
   engine.ts                    pure: mulberry32 RNG, chapter-balanced
                                paper generation (no duplicates, seeded,
                                OPTIONAL band targeting — warmup/challenge
                                sort each chapter pool by calibrated
-                               difficulty), scorePaper marking,
-                               chapterBreakdown, difficultyPrior /
+                               difficulty; numericOnly pools for type-in
+                               sections), scorePaper marking (flat OR
+                               per-section bySection with paper-index
+                               ranges so skipped questions still land in
+                               their own section), parseNumericInput /
+                               numericAnswerOf / numericMatches (type-in
+                               grading), chapterBreakdown, difficultyPrior /
                                difficultyOf (p-value + shrinkage) /
                                bandOfDifficulty / weightedAccuracyOf /
                                aggregateReadinessWeighted,
@@ -127,24 +167,34 @@ src/lib/practice/
                                exercise question into ONE pool, keyed
                                `${lessonId}#q<block>.<i>` /
                                `${lessonId}#x<block>.<set>.<i>`
+  sitting-store.ts             client-side autosave of an in-progress
+                               exam (localStorage; resume + honest
+                               wall-clock countdown; expiry discard)
   mistake-service.ts           record/review/resolve/list + validation
                                (questionKey must belong to lessonId)
   practice-service.ts          paper building (exam + drill/auto-focus,
-                               band parameter + difficulty targeting),
-                               pooledDifficultyStats (aggregate over
-                               stored attempts, 15s cache), submit
-                               (grade → attempt + mistakes + ledger
-                               signals + difficulty enrichment), attempts
-                               history, readiness read model (plain +
+                               band parameter + difficulty targeting;
+                               per-section generation without cross-
+                               section repeats), pooledDifficultyStats
+                               (aggregate over stored attempts, 15s
+                               cache), submit (per-section grade →
+                               attempt + mistakes + ledger signals +
+                               difficulty enrichment + section scores +
+                               time analytics), attempts history,
+                               readiness read model (plain +
                                difficulty-weighted)
   client-api.ts                typed fetch helpers (fail-soft nulls)
 prisma/schema.prisma           PracticeAttempt (answers+scores, meta
-                               seed/questionIds), Mistake (SRS state +
+                               seed/questionIds, per-question value/secs
+                               in results JSON), Mistake (SRS state +
                                snapshots, unique per user+questionKey)
 src/app/api/practice/          readiness · paper (+band) · submit · attempts
 src/app/api/mistakes/          list+record · review · resolve
 src/components/practice/       hub shell, 4 tabs, the CBT exam runner
-                               (instructions → paper → results), drill
+                               (instructions → paper → results) with
+                               section tabs, numeric type-in + keypad,
+                               the CAT on-screen calculator, per-question
+                               timing and sitting autosave/resume, drill
                                runner, shared bits (dials, option grid,
                                DifficultyChip, formatHMS)
 Integration: site-chrome (nav + footer), reader blocks.tsx (quiz
@@ -192,7 +242,7 @@ never replacing it.
 
 ## Quality gates (all green, 2026-11-09)
 
-- `bun run scripts/verify-practice.ts` — **165/165**: pool shape + key
+- `bun run scripts/verify-practice.ts` — **208/208**: pool shape + key
   uniqueness, determinism (same seed → same paper; different seed →
   different), count clamps, no duplicates, mcqOnly, chapter balance,
   marking (negative, skips, self-marks unscored), breakdown ordering,
@@ -203,20 +253,35 @@ never replacing it.
   determinism, service band parameters, pooled-stats aggregation,
   skips-excluded, answered-attempts-counted, submit enrichment,
   weighted accuracy, readiness difficulty fields), preset integrity,
-  and the live-DB Mistake Bank lifecycle (create → re-open →
+  the live-DB Mistake Bank lifecycle (create → re-open →
   Again/Good sequencing → consecutive-good retirement → reopen →
-  retake-retire → validation + isolation).
-- API E2E over HTTP: paper/submit/mistakes/review/attempts/resolve
-  flows, negative marking math, ledger quiz signals, band parameter.
-- Browser E2E via agent-browser: hub + 4 tabs, difficulty band
-  selector, full CBT sitting (instructions + declaration → begin →
-  radio options → palette states green/red/violet/violet+tick/grey +
-  current ring → Mark for Review & Next → keyboard 1–4/←/→ → submit
-  modal with the state-count table → No-keep-going → Yes-submit →
-  results with the difficulty strip + per-question difficulty chips),
-  mobile 390px (floating palette drawer, jump-to-question, no
-  overflow), dark-mode contrast, drill flow regression, readiness
-  difficulty-weighted rows, no console errors at 1280px and 390px.
+  retake-retire → validation + isolation), and **the sectioned upgrade**
+  (A10: parseNumericInput / numericAnswerOf / numericMatches tables,
+  numericOnly generation + determinism, type-in grading incl. fractions
+  + whitespace-skip + unparseable-wrong, hand-computed per-section
+  marking + tallies + skipped-section attribution + no-negative TITA;
+  B8: JEE 20+5 two-section layout + tiling + determinism, CAT 14+8 with
+  calculator flag, submitted sectioned paper graded 40/100 with
+  sectionScores 30/80 + 10/20, avgSecsPerQuestion, typed/secs echo,
+  attempt JSON value+secs, wrong-TITA Mistake card carrying the typed
+  value, typed answers as difficulty evidence).
+- API E2E over HTTP (`scripts/smoke-practice-http.ts`): sectioned paper
+  shape + submit → per-section scores, time analytics, typed echo;
+  paper/submit/mistakes/review/attempts/resolve flows, negative
+  marking math, ledger quiz signals, band parameter.
+- Browser E2E via agent-browser (`scripts/e2e-practice-sections.sh`,
+  **72/72**): hub + tabs, JEE card per-section chips, full sectioned
+  CBT sitting (instructions with sections table + type-in explainer →
+  declaration → begin → section tabs → palette scoped to the ACTIVE
+  section → answer (green) → mark (violet) → Section B numeric entry
+  with input + on-screen keypad → submit modal with per-section state
+  table → results with section-scores table + time analysis + typed
+  answer echo + time chips), CAT calculator (FAB → dialog → 7×6=42 →
+  close) + TITA no-negative chip, sitting autosave → reload → resume
+  banner → resume with answers/timer restored → abandon clears,
+  mobile 390px (floating palette drawer with its own section tabs,
+  numeric keypad, 44px touch targets, no horizontal overflow), zero
+  console errors at 1280px and 390px.
 - Regression: `verify-revision` 88/88 · `smoke-revision` 42/42 ·
   `bunx tsc --noEmit` clean · `bunx eslint .` 0 errors (2
   pre-existing warnings).
@@ -228,9 +293,14 @@ never replacing it.
   reviewed per library expansion. EXAM_REGISTRY research (official
   syllabus PDFs) is still pending and will supersede these mappings.
 - The CBT shell imitates the shared NTA/JEE/NEET/SSC conventions
-  (palette states, action bar, submit modal) — it is a practice
-  trainer, not a pixel clone of any vendor's client, and the formats
-  stay approximate + labelled.
+  (palette states, action bar, submit modal) plus the real section
+  structures of JEE (A/B) and CAT (MCQ/TITA + calculator) — it is a
+  practice trainer, not a pixel clone of any vendor's client, and the
+  formats stay approximate + labelled.
+- Numerical/type-in questions are the library's own exercise questions
+  whose answer carries exactly one number (234 of 1,261 free questions
+  today — `numericAnswerOf`); answers wrapped in multi-number prose
+  ("2 h 30 min") are honestly excluded from type-in sections.
 - Difficulty calibration is honest but young: with zero attempts
   every MCQ sits at the prior (45/100), so bands only differentiate
   once the install has attempt data. Pooled stats evolve as attempts
@@ -239,9 +309,12 @@ never replacing it.
   history never rewrites).
 - The paper's answers ship to the client (self-study trust model);
   authoritative scores come from the server-side submit only.
-- Free-response scoring is self-reported by design — counts toward
-  accuracy and the Mistake Bank, never toward exam marks.
-- The drill's time estimate is not shown (no per-question timing yet);
-  attempt `secs` is the client's honest self-report.
-- One paper section per preset today (the data model carries a
-  sections array for future multi-section papers).
+- Free-response scoring in DRILLS is self-reported by design — counts
+  toward accuracy and the Mistake Bank, never toward exam marks
+  (type-in sections of exams are auto-graded numerically instead).
+- Per-question timing is the client's honest self-report (banked on
+  navigation/submit); it survives refresh via the sitting snapshot
+  but cannot be audited server-side.
+- The sitting snapshot is device-local (localStorage): a paper started
+  on one device cannot be resumed on another, and a fully-expired
+  snapshot is discarded rather than auto-submitted.

@@ -155,6 +155,66 @@ export function aggregateReadinessWeighted(
 }
 
 /* ------------------------------------------------------------------ */
+/* Numeric answers (JEE Section B · CAT TITA)                          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Parse a learner's typed answer into a number. Accepts the honest forms
+ * a self-study app can trust: plain decimals ("42", "-2.5", "0.75"),
+ * thousands commas ("1,250") and simple fractions ("3/4", "-7 / 8").
+ * Anything else (words, multiple numbers, empty) is null — the caller
+ * decides what that means.
+ */
+export function parseNumericInput(raw: string | undefined | null): number | null {
+  if (typeof raw !== 'string') return null
+  const s = raw.replace(/\$\s*|\s*\$/g, '').replace(/(\d),(?=\d{3}\b)/g, '$1').trim()
+  if (s === '') return null
+  /* single fraction: "-7 / 8" */
+  const frac = /^(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)$/.exec(s)
+  if (frac) {
+    const den = Number(frac[2])
+    if (den === 0) return null
+    return Number(frac[1]) / den
+  }
+  if (/^-?\d+(?:\.\d+)?$/.test(s)) return Number(s)
+  return null
+}
+
+/**
+ * Extract the single numeric value a free question's answer carries, when
+ * it carries exactly one: "$42$" → 42, "12 km" → 12, "3/4" → 0.75,
+ * "Answer: $51$ — twin pattern" → 51. Two or more distinct numbers
+ * ("2 h 30 min", "96/144 = 2/3") → null: guessing which number is THE
+ * answer would be dishonest, so such questions never enter a
+ * numerical/type-in section.
+ */
+export function numericAnswerOf(text: string | undefined | null): number | null {
+  if (typeof text !== 'string') return null
+  const s = text
+    .replace(/\$\s*|\s*\$/g, '') // inline math delimiters
+    .replace(/\{,\}/g, '') // LaTeX thousands separator "1{,}152"
+    .replace(/(\d),(?=\d{3}\b)/g, '$1') // plain thousands "48,000"
+    .trim()
+  if (s === '') return null
+  /* whole-string fraction: "-7 / 8" */
+  const frac = /^(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)$/.exec(s)
+  if (frac) {
+    const den = Number(frac[2])
+    return den === 0 ? null : Number(frac[1]) / den
+  }
+  /* exactly ONE numeric token anywhere, zero or one: prose may wrap it
+   * ("Answer: $51$", "18 girls", "60%") but a second number disqualifies */
+  const tokens = s.match(/-?\d+(?:\.\d+)?/g) ?? []
+  if (tokens.length === 1) return Number(tokens[0])
+  return null
+}
+
+/** Tolerance for numeric grading: exact to 1e-6 relative (or absolute). */
+export function numericMatches(got: number, expected: number): boolean {
+  return Math.abs(got - expected) <= 1e-6 * Math.max(1, Math.abs(expected))
+}
+
+/* ------------------------------------------------------------------ */
 /* Paper generation                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -164,6 +224,9 @@ export interface GeneratePaperOpts {
   seed: number
   /** exams serve MCQs only; drills may mix in free-response exercises */
   mcqOnly: boolean
+  /** numeric sections (JEE Section B / CAT TITA): free questions whose
+   * answer carries exactly one numeric value, keyed for type-in grading */
+  numericOnly?: boolean
   /** difficulty band targeting (exams): each chapter contributes its
    * easiest (warmup) or hardest (challenge) questions first */
   difficulty?: {
@@ -179,11 +242,16 @@ export interface GeneratePaperOpts {
  * No question repeats — sampling is always without replacement.
  */
 export function generatePaper(opts: GeneratePaperOpts): PracticeQuestion[] {
-  const { questions, seed, mcqOnly, difficulty } = opts
+  const { questions, seed, mcqOnly, numericOnly, difficulty } = opts
   const count = Math.max(1, Math.min(opts.count, 200))
   const rng = mulberry32(seed)
 
-  const pool = questions.filter((q) => (mcqOnly ? q.kind === 'mcq' : true))
+  const pool = questions.filter((q) => {
+    if (numericOnly) {
+      return q.kind === 'free' && numericAnswerOf(q.answerText) !== null
+    }
+    return mcqOnly ? q.kind === 'mcq' : true
+  })
   if (pool.length === 0) return []
 
   const byChapter = new Map<string, PracticeQuestion[]>()
@@ -240,6 +308,8 @@ export interface MarkedOutcome {
   question: PracticeQuestion
   outcome: QuestionOutcome
   chosen?: number
+  /** numeric questions: the learner's typed answer (echoed) */
+  typed?: string
 }
 
 export function gradeAnswer(q: PracticeQuestion, a: AnswerOutcome | undefined): MarkedOutcome {
@@ -252,9 +322,27 @@ export function gradeAnswer(q: PracticeQuestion, a: AnswerOutcome | undefined): 
       chosen: a.chosen,
     }
   }
-  if (a.selfRight) return { question: q, outcome: 'self-right' }
-  if (a.selfWrong) return { question: q, outcome: 'self-wrong' }
-  return { question: q, outcome: 'skipped' }
+  /* numeric sections: the typed value is graded against the question's
+   * single numeric answer (exact to 1e-6 relative). An unparseable
+   * non-empty entry is a wrong answer — the input UI prevents it. */
+  const expected = numericAnswerOf(q.answerText)
+  const typed = typeof a.value === 'string' ? a.value.trim() : ''
+  if (typed !== '' && expected !== null) {
+    const got = parseNumericInput(typed)
+    return {
+      question: q,
+      outcome: got !== null && numericMatches(got, expected) ? 'correct' : 'wrong',
+      typed,
+    }
+  }
+  if (typed === '') {
+    if (a.selfRight) return { question: q, outcome: 'self-right' }
+    if (a.selfWrong) return { question: q, outcome: 'self-wrong' }
+    return { question: q, outcome: 'skipped' }
+  }
+  /* a typed value on a question with no single numeric answer: not
+   * gradeable as a number — count it as an honest self-report miss */
+  return { question: q, outcome: 'self-wrong', typed }
 }
 
 export interface ScoredPaper {
@@ -264,19 +352,97 @@ export interface ScoredPaper {
   correctCount: number
   wrongCount: number
   skippedCount: number
+  /** multi-section papers: per-section tallies (index-aligned with the
+   * marking's bySection array) */
+  sectionTallies?: Array<{
+    count: number
+    score: number
+    maxScore: number
+    correct: number
+    wrong: number
+    skipped: number
+  }>
+}
+
+/** Marking scheme: one scheme for the whole paper, or one per section
+ * (answers carry a `section` index; entries may carry paper index ranges
+ * so SKIPPED questions — which have no answer object — still land in
+ * their own section's marking and tallies). */
+export type PaperMarking =
+  | { marks: number; negative: number }
+  | {
+      bySection: ReadonlyArray<{
+        marks: number
+        negative: number
+        /** inclusive paper-index range of this section (optional) */
+        from?: number
+        to?: number
+      }>
+    }
+
+/** Resolve the marking that applies to one answer (its own section wins). */
+function markingFor(
+  marking: PaperMarking,
+  section: number | undefined,
+  fallbackIndex?: number,
+): { marks: number; negative: number } {
+  if ('bySection' in marking) {
+    let idx =
+      typeof section === 'number' &&
+      Number.isInteger(section) &&
+      section >= 0 &&
+      section < marking.bySection.length
+        ? section
+        : -1
+    if (idx < 0 && typeof fallbackIndex === 'number') {
+      idx = marking.bySection.findIndex(
+        (s) =>
+          typeof s.from === 'number' &&
+          typeof s.to === 'number' &&
+          fallbackIndex >= s.from &&
+          fallbackIndex <= s.to,
+      )
+    }
+    if (idx < 0) idx = 0
+    return marking.bySection[idx]
+  }
+  return marking
 }
 
 /**
  * Mark a finished paper: +marks per correct, −|negative| per wrong,
  * 0 for skipped and for honest free-response self-marks (self-right
  * counts toward correctCount but scores 0 — we never grade prose).
+ * Multi-section papers grade each answer with ITS section's scheme and
+ * return per-section tallies.
  */
 export function scorePaper(
   questions: readonly PracticeQuestion[],
   answers: readonly AnswerOutcome[],
-  marking: { marks: number; negative: number },
+  marking: PaperMarking,
 ): ScoredPaper {
   const byId = new Map(answers.map((a) => [a.questionId, a]))
+  const sectioned = 'bySection' in marking
+  const tallies = sectioned
+    ? (marking as { bySection: ReadonlyArray<{ marks: number; negative: number }> }).bySection.map(() => ({
+        count: 0,
+        score: 0,
+        maxScore: 0,
+        correct: 0,
+        wrong: 0,
+        skipped: 0,
+      }))
+    : undefined
+  /* the section index of one answer: its own field first, then its
+   * paper position (a skipped question has no answer object) */
+  const sectionIdxOf = (a: AnswerOutcome | undefined, i: number): number | undefined => {
+    if (a?.section !== undefined) return a.section
+    if (!sectioned || !tallies) return undefined
+    const sec = (marking as { bySection: ReadonlyArray<{ from?: number; to?: number }> }).bySection.findIndex(
+      (s) => typeof s.from === 'number' && typeof s.to === 'number' && i >= s.from && i <= s.to,
+    )
+    return sec >= 0 ? sec : 0
+  }
   const results: QuestionResult[] = []
   let score = 0
   let maxScore = 0
@@ -285,28 +451,54 @@ export function scorePaper(
   let skippedCount = 0
 
   for (const q of questions) {
-    const marked = gradeAnswer(q, byId.get(q.id))
+    const i = results.length
+    const a = byId.get(q.id)
+    const marked = gradeAnswer(q, a)
     const { outcome } = marked
+    const scheme = markingFor(marking, a?.section, i)
+    const tallyIdx = sectionIdxOf(a, i)
+    const tally = tallyIdx !== undefined && tallies ? tallies[tallyIdx] : undefined
+    if (tally) tally.count++
     if (outcome === 'correct' || outcome === 'self-right') {
       correctCount++
       if (outcome === 'correct') {
-        score += marking.marks
-        maxScore += marking.marks
+        score += scheme.marks
+        maxScore += scheme.marks
+        if (tally) {
+          tally.correct++
+          tally.score += scheme.marks
+          tally.maxScore += scheme.marks
+        }
       }
     } else if (outcome === 'wrong' || outcome === 'self-wrong') {
       wrongCount++
       if (outcome === 'wrong') {
-        score -= marking.negative
-        maxScore += marking.marks
+        score -= scheme.negative
+        maxScore += scheme.marks
+        if (tally) {
+          tally.wrong++
+          tally.score -= scheme.negative
+          tally.maxScore += scheme.marks
+        }
       }
     } else {
       skippedCount++
-      maxScore += marking.marks
+      maxScore += scheme.marks
+      if (tally) {
+        tally.skipped++
+        tally.maxScore += scheme.marks
+      }
     }
-    results.push({ ...q, outcome, chosen: marked.chosen })
+    results.push({
+      ...q,
+      outcome,
+      chosen: marked.chosen,
+      typed: marked.typed,
+      secs: typeof a?.secs === 'number' && a.secs >= 0 ? Math.round(a.secs) : undefined,
+    })
   }
 
-  return { results, score, maxScore, wrongCount, correctCount, skippedCount }
+  return { results, score, maxScore, wrongCount, correctCount, skippedCount, sectionTallies: tallies }
 }
 
 /** Per-chapter accuracy breakdown, weakest chapters first. */
