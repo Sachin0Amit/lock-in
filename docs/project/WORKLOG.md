@@ -57,6 +57,11 @@ e2e-al-63 **45/45 ×3 viewports** (quiz 5/5 live on keys 0/1/2/1/3; KaTeX 401 no
 3 derivations / 1 table / 9 formula cards); the book stands 6 complete chapters of 11 (21 lessons /
 93,958 words). ch-06 status complete, plannedLessons emptied, book.ts header updated. WORK_INVENTORY rebuilt.
 
+**Push:** protocol push via the one-time-URL form landed `1cbafe5` on `main` (all unpushed commits —
+runs 77's verification commit 0da41e8 + this run's ship); `ls-remote` via the same one-time-URL form
+verified remote main = local HEAD `1cbafe58b9ac69e8a386bdb7a8f52173609d0288`. PAT never written to any
+file, config or log; origin untouched (SSH remote preserved).
+
 ## 2026-11-09 — RUN 77 (fired 14:50 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091720): AL CH. 6 'SIMULTANEOUS LINEAR EQUATIONS' OPENS 2/3 — 6.1 'Equations in Two Variables' (al-equations-in-two-variables, 4,711 words, quiz keys 0/2/1/2/1, 14 exercises, two figures) + 6.2 'Substitution and Elimination' (al-substitution-and-elimination, 4,890 words, quiz keys 0/0/2/1/2, 14 exercises, two figures) — authored strictly sequentially verify-first; 6.3 + the unit-6 review NOT touched (they close the chapter at run 78)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-76 ship (run 76's commit 5a88b60 was
