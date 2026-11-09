@@ -305,3 +305,7 @@ server.log
 # No-sign-in feature (2026-11-08): open Revision Hub + Builder + My Books — guest API flow + browser UI regression checks
 !/scripts/verify-no-signin.ts
 !/scripts/verify-no-signin-ui.ts
+# practice hub gates (sectioned exams feature run, 2026-11-09)
+!/scripts/verify-practice.ts
+!/scripts/smoke-practice-http.ts
+!/scripts/e2e-practice-sections.sh
