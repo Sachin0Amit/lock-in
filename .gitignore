@@ -322,3 +322,14 @@ server.log
 # per-lesson E2E scripts for Elementary Algebra ch. 6 lesson 6.3 (whitelisted run 78)
 !/scripts/e2e-al-63.sh
 !/scripts/e2e-al-63.page.js
+
+# pre-write verifier + per-lesson E2E scripts for Elementary Algebra ch. 7 (whitelisted run 79)
+!/scripts/verify-book3-ch07.ts
+
+# per-lesson E2E scripts for Elementary Algebra ch. 7 lesson 7.1 (whitelisted run 79)
+!/scripts/e2e-al-71.sh
+!/scripts/e2e-al-71.page.js
+
+# per-lesson E2E scripts for Elementary Algebra ch. 7 lesson 7.2 (whitelisted run 79)
+!/scripts/e2e-al-72.sh
+!/scripts/e2e-al-72.page.js

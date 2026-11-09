@@ -2732,3 +2732,62 @@ pre-existing warnings); tsc clean; routes 200 (both lessons + book page) / 404 u
 viewports and e2e-al-62 45/45 ×3 viewports (quiz 5/5 live both; KaTeX 256/257 nodes 0 errors; 2 figures each;
 24 Sol. pills on 6.2; 0 console errors; no overflow 1280/390); SVG overlap audits 0/0 on all four figures.
 Logs: WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG updated, WORK_INVENTORY rebuilt, this entry.
+
+## 2026-11-09 — RUN 79: Elementary Algebra ch. 7 'Inequalities' OPENS 2/3 (7.1 + 7.2, verify-first)
+
+**Scope locked:** RESUME_POINTER run-79 directive — open ch. 7 with 7.1 'Order and the Solution Set' + 7.2
+'Solving Linear Inequalities'; NEVER 7.3/the review (run 80 closes the chapter); NEVER ch. 8.
+
+**Step 1 — verify-first (sections A–E before any prose):** verify-book3-ch07.ts built with the order engines:
+A-i trichotomy (169 pairs, exactly-one check + 78/13/78); A-ii addition/subtraction laws (4,394 equivalences,
+zero flips); A-iii positive ×/÷ (2,028); A-iv THE FLIP (2,028 exact reversals over k ∈ [−6,−1]; double-flip
+1,521 systems); A-v add-negative trap (1,014 — adding never flips); A-vi boundary/interval censuses (window
+[−12,12]: 16/17/8/9/1, boundary delta exactly 1; x<x → 0; x≤x → 25; mixed −3≤x<5 → 8); A-vii the full
+solution-shape grid (8,112 assertions, shape census = direct everywhere, boundary in slack 1,672 / strict 0);
+A-viii move-licence engines (300 assertions; wrong-move mismatch 1,112/1,200); A-ix whole-number habitats
+(budget {0..4}, lift {0..7}, notebook {0..7}); B/B2/B3 7.1 pins; D/D2/D3 7.2 pins; C/E four figure plans.
+
+**Step 2 — lesson 7.1 authored (5,061 words):** the balance-to-bias opening; the symbols and their reading;
+the real line as habitat (ANS ch. 8 cross-ref); the sign reading a<b ⟺ b−a>0; the trichotomy with the
+verifier's 78/13/78; the trichotomy-doors figure; the order laws as a properties list with verified instances;
+the addition-law/transitivity derivation (telescoping c−a = (b−a)+(c−b), 84 chains); the flip preview +
+add-negative trap; strict vs slack (14 vs 13 window integers at −1); the census test examples; the
+solution-shapes strip figure + the five-shape table (1·16·17·8·9); the degenerate censuses (x<x, x≤x); the
+whole-number habitat (budget ₹50/₹12 → 25/6 → 4 pens; lift 85n≤620 → 124/17 → 7 crates); Harriot 1631 /
+Bouguer 1734 historical callout (hedged); the exam corner; collected list; 3 formula cards; quiz keys
+0/1/0/2/1; 14 exercises (3/3/3/2/2/1, L6 = the transitivity proof + the ≥ version).
+
+**Step 3 — 7.1 gated fully before 7.2 started:** verify F green; lint; tsc; dev routes 200; E2E e2e-al-71
+45/45 ×3 viewports (quiz 5/5 live, KaTeX 310 nodes 0 errors, 0 console errors). Whitelist e2e-al-71.sh/.page.js
+in .gitignore BEFORE the commit.
+
+**Step 4 — lesson 7.2 authored (4,744 words):** the pipeline-with-a-compass opening (five stations, one
+licence table); the calm-case equation; the FLIP THEOREM derivation — six steps from the sign laws (the gap
+dragged through k<0), division as multiplication by the negative reciprocal, the double-flip cancellation;
+the flip-mirror figure (2<5 → −2>−5, gap survives); the what-does-NOT-flip paragraph (add-negative 1,014;
+×0 destroys); the caution (the omitted flip is precisely backwards — 15 vs 9 window integers, zero overlap);
+the insight (why 5.2 never needed this — equality has no direction); TWELVE illustrations (2x<14; x−5≥−2;
+−4x>12 the flip in action; 3x−5<16; 7−3x≥−2; 5−2x≥11 — each with the three-point check; the fraction dress
+(2x−1)/3<(x+4)/2 → x<14 with the exact 25/3 < 17/2 boundary; the expansion 2(x+3)>4x−8 → 7>x; the decimal
+dress 0.5x+1.5≤4 → x≤5; the parameter k=12; the notebook ₹500/₹65/reserve ₹40 → 7; the marks m≥49); the
+pipeline algorithm block; the three-point-check and integer-hunt paragraphs; equivalent-inequalities
+definition; the reversal-in-the-classroom historical callout; the exam corner; collected list; 3 formula
+cards; quiz keys 0/1/1/2/2; 14 exercises (3/3/3/2/2/1, L6 = the flip-theorem proof).
+
+**Step 5 — authored-time catches (all repaired to zero):** derivation steps first drafted as plain strings
+(the DerivationStep contract wants label/formula/explanation); terms first as tuples (contract wants
+{term, def}); five example answer fields removed (no answer key on example blocks — conclusions folded into
+the terminal Hence steps); the missing 7.2 terms block added; three literal \u2019 escapes + one over-doubled
+\iff caught by the odd-run scanner; the stray CJK token in 7.1's bridge para; F anchor indices one slot off
+(L5.1/L5.2); plan72Fig2's nested band groups (containment, not disjointness — regrouped); the pre-write
+catches listed in WORKLOG (A-i boolean logic, the 50/12 comparator, the off-lattice distractors, the backwards
+division-flip, the marks m≥52 → m≥49 ledger fix).
+
+**Step 6 — gates:** verify-book3-ch07.ts **30,309 checks + sections F/G ALL GREEN**; lint 0 errors (2
+pre-existing warnings); tsc clean; routes 200 (both lessons); E2E e2e-al-71 45/45 ×3 and e2e-al-72 45/45 ×3
+viewports (quiz 5/5 live both; KaTeX 310/283 nodes 0 errors; 2 figures each; 0 console errors; no overflow).
+Logs: WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG updated (one new key ncert-math11-ch5, zero downloads),
+WORK_INVENTORY rebuilt (library 106 lessons / 515,808 words; book 3: 23 lessons / 103,763 words), this entry.
+
+**Chapter state at run end:** ch. 7 IN PROGRESS 2/3 — 7.3 'Compound Inequalities and Applications' + the
+unit-7 completion review close it at run 80; ch. 8 untouched.

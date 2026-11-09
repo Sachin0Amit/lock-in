@@ -2,6 +2,72 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 79 (fired ~17:25 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091955): AL CH. 7 'INEQUALITIES' OPENS 2/3 — 7.1 'Order and the Solution Set' (al-order-and-the-solution-set, 5,061 words, quiz keys 0/1/0/2/1, 14 exercises, two figures — the trichotomy doors + the solution-shapes strip, the addition-law/transitivity derivation) + 7.2 'Solving Linear Inequalities' (al-solving-linear-inequalities, 4,744 words, quiz keys 0/1/1/2/2, 14 exercises, two figures — the flip mirror + the pipeline stations, the flip-theorem derivation, the pipeline algorithm) — chapter IN PROGRESS 2/3 at run end; 7.3 + the unit-7 review close it at run 80; ch. 8 NOT touched
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 78 pushed and verified: remote
+main = local HEAD 1cbafe5). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 79 = 7.1 + 7.2
+(v2 quota: two lessons; NEVER 7.3/the review — they close the chapter at run 80; NEVER ch. 8).
+
+**Research (one new key, zero downloads):** web-check grounded the citation set — NEW key `ncert-math11-ch5`
+(NCERT class-11 'Linear Inequalities' — the school canon for algebraic solutions of linear inequalities in one
+variable and their number-line representation; chapter 5 in the rationalized edition, formerly ch. 6 — hedged in
+SOURCE_LOG), plus the carried `hall-knight-elementary-algebra` (the classical inequalities chapter: the order
+symbols and the fundamental properties with the reversal rule), `khattar-qa-4e` (whole-number-habitat exam
+shapes: budgets, lifts, largest/smallest-integer hunts, pass-average margins), `cengage-jee-style` (the
+presentation contract). Symbol history web-checked: < and > entered print posthumously in Harriot's Artis
+Analyticae Praxis (1631); the slack bars usually credited to Bouguer (1734) — hedged in the callout.
+
+**Verify-first (sections A–E written BEFORE any prose, F + G at authoring time):** A-i the trichotomy census
+(all 169 pairs on [-6,6]: exactly-one check + the 78/13/78 split); A-ii the addition/subtraction laws (2,197
+triples x 2 = 4,394 exact equivalences, zero flips); A-iii positive scaling x and exact division (1,014 x 2 =
+2,028); A-iv THE FLIP over the designed grid (1,014 x 2 = 2,028 exact reversals over k in [-6,-1]; the
+double-flip engine 1,521 systems — two negatives compose to a positive); A-v the add-negative trap (1,014
+checks — adding NEVER flips); A-vi the boundary/interval census (window [-12,12]: x<4 -> 16, x<=4 -> 17,
+x>4 -> 8, x>=4 -> 9, x=4 -> 1 — each closed ray beats its open ray by exactly the boundary; x<x -> 0; x<=x ->
+25; mixed -3<=x<5 -> 8); A-vii the solution-shape engine over the FULL grid (2,028 x 4 = 8,112 linear
+inequalities ax+b(.)c: shape census = direct census everywhere; the boundary integral-in-window 3,344 times —
+in slack 1,672, in strict 0); A-viii the move-licence engines (300 sampled assertions x (11 adds + 4 scalings +
+4 flips) censused equal; the WRONG move — flip omitted — mismatched 1,112 of 1,200 times); A-ix the whole-number
+habitat engine (budget 12n<=50 -> {0..4}; lift 85n<=620 -> {0..7}; notebook 65n<=460 -> {0..7} — each boundary
+checked in AND out). B/B2/B3 the 7.1 pins (quiz keys [0,1,0,2,1] with every distractor priced; 14 exercise keys
+solved + checked); D/D2/D3 the 7.2 pins (the mirror, the double-flip return, the trap instance; pipelines 2x<14
+-> x<7, x-5>=-2 -> x>=3, -4x>12 -> x<-3, 3x-5<16 -> x<7, 7-3x>=-2 -> x<=3, 5-2x>=11 -> x<=-3, (2x-1)/3<(x+4)/2
+-> x<14 with the exact Frac boundary 25/3 < 17/2, 2(x+3)>4x-8 -> x<7, 0.5x+1.5<=4 -> x<=5; the parameter
+4x-k<0 -> x<3 iff k=12; smallest integer 5 for 11-2x<3; marks m>=49 — the drafted m>=52 caught by the ledger
+160-111=49; notebook 7 at 495<=500; quiz keys [0,1,1,2,2] with every distractor priced; 14 exercise keys).
+C/E the four figure plans pinned rect-by-rect pre-writing.
+
+**Pre-writing catches (the discipline working):** the A-i trichotomy assertion first written as pairwise
+distinctness (impossible for booleans — two falses are equal; corrected to the exactly-one count); the
+whole-solution engine comparing 12n against 50/12 instead of 50; two distractor pricings invisible on the
+integer window (k = 9 and k = 11 moved the boundary off-lattice — replaced with k = 8, which differs at x = 2);
+the division-flip direction written backwards in one distractor check (2/-2 > 5/-2, not <); the D2 Q3 census
+miscount (15 window integers below 3, not 9); the marks exhibit first drafted as m >= 52 (ledger: 160 − 111 =
+49); and the A-viii sampling loop's brace imbalance caught by the parser.
+
+**Gates:** verify-book3-ch07.ts **30,309 pre-write checks + sections F/G ALL GREEN** (7.1: 15 paras / 5 headings
+/ 2 equations / 1 derivation / 5 illustrations / 1 table / 2 figures / 3 formulas / 8 terms / 6 callouts; 7.2:
+11 paras / 5 headings / 1 equation / 1 derivation / 12 illustrations / 2 figures / 1 algorithm / 3 formulas /
+8 terms / 5 callouts; quiz keys live-match [0,1,0,2,1] and [0,1,1,2,2]; figure rect censuses match the pinned
+plans exactly, groups pairwise disjoint; odd-run backslash scan 0; unicode-escape scan 0; retired-hex scan 0;
+lesson ids repo-wide unique with both added). lint 0 errors (2 pre-existing warnings); tsc clean. E2E
+e2e-al-71 45/45 x3 viewports and e2e-al-72 45/45 x3 viewports (quiz 5/5 live on intended keys both; KaTeX
+310/283 nodes 0 errors; 2 figures each; 19/26 Sol. pills; 0 console errors; no overflow 1280/390; prereq chips
+2 each). Logs: WORKLOG/PROGRESS/RESUME_POINTER/SOURCE_LOG updated, WORK_INVENTORY rebuilt, DETAILED_LOG entry.
+
+**Authoring-time catches (repaired to zero):** the derivation steps first drafted as plain strings (the
+DerivationStep contract wants label/formula/explanation — rewritten); the terms block first drafted as tuples
+(the contract wants {term, def} objects); five example answer fields removed (the example block has no answer
+key — conclusions folded into the terminal Hence steps); the missing 7.2 terms block added; three literal
+\u2019 escapes caught by the odd-run scanner (replaced with real apostrophes); one over-doubled \iff caught by
+the same scanner; the stray CJK token in the 7.1 bridge para; the F anchors indexing L5.1/L5.2 one slot off;
+the plan72Fig2 nested-band groups (band + its three subs are containment, not disjointness — regrouped).
+
+**Git:** commit `run 79: Elementary Algebra ch. 7 'Inequalities' OPENS 2/3 — ...` + push per the 2026-11-03
+protocol; remote verified via one-time URL ls-remote.
+
+---
+
 ## 2026-11-09 — RUN 78 (fired ~16:30 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091901): AL CH. 6 'SIMULTANEOUS LINEAR EQUATIONS' CLOSES 3/3 — 6.3 'Consistency: the Geometry of Two Lines' (al-consistency-the-geometry-of-two-lines, 6,017 words, quiz keys 0/1/2/1/3, 14 exercises, two figures — the three-meetings gallery + the slope machine) + THE UNIT-6 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3) — the chapter COMPLETE and fully verified at run end; ch. 7 NOT touched
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (runs 76–77 both pushed; remote

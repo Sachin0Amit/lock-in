@@ -2051,3 +2051,33 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   the elimination engine (7,465 minimal-multiplier chains = Cramer everywhere), the licence engines (236,736
   scaling + elimination equivalence checks) — exhibit/quiz/exercise keys recomputed both sides by
   verify-book3-ch06.ts sections A–G.
+
+### Run 79 — 2026-11-09 (Elementary Algebra ch. 7 'Inequalities' OPENS 2/3: lessons 7.1 + 7.2)
+
+- `ncert-math11-ch5` — NEW key (web-checked, zero downloads): NCERT class-11 mathematics "Linear
+  Inequalities" — the school canon for this unit: algebraic solutions of linear inequalities in one
+  variable, their representation on the number line, and the rule that multiplying/dividing by a negative
+  reverses the inequality. Cited as ch. 5 per the rationalized edition (kemh105.pdf); the pre-2023 editions
+  carried the chapter as ch. 6 — hedged wherever cited. The lesson's own solving pipeline, order-law
+  statements, exhibits and exercise numbers are original; the canon informs scope and the number-line
+  representation discipline only.
+- `hall-knight-elementary-algebra` — carried (banked run 67): the classical inequalities chapter's shape —
+  the order symbols, the fundamental properties (addition preserves; multiplication by a positive
+  preserves; by a negative reverses) — re-proved lawfully in 7.2 from the sign reading rather than recited.
+  Zero downloads.
+- `khattar-qa-4e` — carried: the exam-corner shapes (whole-number-habitat questions, budget/lift margins,
+  largest- and smallest-integer hunts, pass-average margins, the flip distractor). Zero downloads.
+- `cengage-jee-style` — carried: the presentation contract throughout (illustrations, solution chains,
+  the algorithm station, exercise bars).
+- Symbol history web-checked (hedged in 7.1's historical callout): the < and > signs entered print
+  posthumously in Thomas Harriot's Artis Analyticae Praxis (1631, assembled by his executors); the
+  "mimics the smaller/larger end" story is later folklore; the slack bars <= >= usually credited to
+  Pierre Bouguer (1734).
+- One new citation key, zero downloads, zero working copies — the carried keys carried the run. The engine
+  sweeps are original exhaustive computation: the trichotomy census (169 pairs -> 78/13/78), the order-law
+  grids (4,394 add/subtract + 2,028 positive-scaling + 2,028 flip reversals + 1,521 double-flip + 1,014
+  add-negative trap), the boundary/interval censuses (16/17/8/9/1 with the boundary delta exactly 1), the
+  full solution-shape grid (8,112 linear inequalities, shape census = direct census everywhere), the
+  move-licence engines (300 assertions; wrong-move mismatch 1,112/1,200), the whole-number habitats
+  ({0..4}/{0..7}/{0..7}) — exhibit/quiz/exercise keys recomputed both sides by verify-book3-ch07.ts
+  sections A–G.

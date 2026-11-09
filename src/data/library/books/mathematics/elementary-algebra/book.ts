@@ -5,6 +5,7 @@ import { chapter03 } from './ch-03'
 import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
+import { chapter07 } from './ch-07'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -29,10 +30,12 @@ import { chapter06 } from './ch-06'
  * at run 77 (6.1 Equations in Two Variables + 6.2 Substitution and
  * Elimination) and CLOSED at run 78 (6.3 Consistency: the Geometry of Two
  * Lines + the unit-6 completion review PASSED): chapter 6 COMPLETE 3/3.
- * The book stands in-progress — 6 complete chapters of 11 (owner cadence:
- * two lessons per run, strictly sequential; chapter 7 'Inequalities' opens
- * at run 79). Lesson ids use the `al-` prefix (globally
- * unique, stable forever).
+ * Chapter 7 'Inequalities' opened at run 79 (7.1 Order and the Solution
+ * Set + 7.2 Solving Linear Inequalities; 7.3 Compound Inequalities and
+ * Applications + the unit-7 review close it at run 80). The book stands
+ * in-progress — 6 complete chapters of 11 (owner cadence:
+ * two lessons per run, strictly sequential). Lesson ids use the `al-`
+ * prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics opened the doorstep of algebra with patterns → formulas and a
@@ -106,20 +109,7 @@ export const elementaryAlgebra: Book = {
     chapter04,
     chapter05,
     chapter06,
-    {
-      number: 7,
-      slug: 'inequalities',
-      title: 'Inequalities',
-      summary:
-        'Order joins algebra: the real line of ANS ch. 8 as the habitat, linear inequalities solved with every move checked against the order laws — including the multiplication-by-negative flip, proved rather than warned about — and compound inequalities (and/or) handled as intersections and unions of solution sets, cashed in boundary word problems.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Order and the Solution Set',
-        'Solving Linear Inequalities',
-        'Compound Inequalities and Applications',
-      ],
-    },
+    chapter07,
     {
       number: 8,
       slug: 'algebraic-fractions',
