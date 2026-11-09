@@ -9,7 +9,22 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 81 (2026-11-09, job 516929's v4 hybrid-cadence window)**: **AL ch. 8 'Algebraic Fractions' OPENED 2/3** —
+Maintained through **run 82 (2026-11-10, job 516929's v4 hybrid-cadence night window)**: **AL ch. 8 'Algebraic Fractions' CLOSED 3/3** —
+8.3 'Fractional Equations and Extraneous Roots' (`al-fractional-equations-and-extraneous-roots`, 5,870 words, 8 terms,
+quiz keys 1/1/2/3/1, 14 exercises L1–L6, 2 figures — the clearing pipeline (FACTOR → BILL → MULTIPLY → SOLVE → CHECK with the
+worked classic dying at station 5) + the check filter (candidates in → the compound bill → PASSES to the solution set / REFUSED
+as extraneous, with the three verdicts of 5.3 on the strip) — 2 display equations (the bill-bounded solution form, the cross
+form), 5 illustrations (the cross form → {4}; the classic → its only candidate refused, EMPTY; two candidates one refused → {0};
+the identity verdict → every x ≠ −3; the zero-fraction trap → {2}), 1 five-step derivation (the clearing law with its clause:
+soundness, the live converse, the bill-point death, the verdict, why the clause is sharp), the seven-line clearing-pipeline
+algorithm, 1 verdict-ledger table (five exhibits × cleared × candidates × bill × verdict), 3 formula cards (the clearing law,
+the cross form, the work-rate template), 7 callouts incl. the clause-is-not-decoration caution and the two-filters-two-jobs
+caution distinguishing the BILL from the HABITAT) + the unit-8 completion review PASSED (checklist 7/7, exam corners 3/3,
+book snapshot 27 lessons / 124,675 words / 8 of 11 chapters complete, every lesson >= 4,000 words). Verify-first:
+verify-book3-ch08.ts sections H+I written BEFORE prose (961 checks total A–K ALL GREEN). E2E e2e-al-83 45/45 ×3 viewports;
+SVG audits 0/0 ×6. Chapter totals: 15,307 words; the book stands 8 complete chapters of 11.
+
+**Run 81 (previous unit ship):** (2026-11-09, job 516929's v4 hybrid-cadence window): **AL ch. 8 'Algebraic Fractions' OPENED 2/3** —
 8.1 'Rational Expressions: Simplify First' (`al-rational-expressions-simplify-first`, 5,082 words, 8 terms,
 quiz keys 0/1/0/3/1, 14 exercises L1–L6, 2 figures — the domain strip (three denominators and their refusal
 censuses 10/9/11 of 11) + the simplify-first pipeline (FACTOR → CANCEL → CARRY → CHECK with the worked

@@ -10,8 +10,11 @@ import type { Chapter, Lesson } from '../../../types'
  *                  Fractions (run 81 — quiz keys 2/1/3/1/2, 14 exercises,
  *                  two figures, sections D–E + G, E2E e2e-al-82 x3
  *                  viewports). 8.3 Fractional Equations and Extraneous
- *                  Roots + the unit-8 review: run 82, NOT this run (v2
- *                  quota: two lessons).
+ *                  Roots (run 82 — quiz keys 1/1/2/3/1, 14 exercises,
+ *                  two figures, the clearing-law derivation with its
+ *                  clause, sections H–I pre-write + J authored, E2E
+ *                  e2e-al-83 x3 viewports). CHAPTER COMPLETE at run 82:
+ *                  the unit-8 review passed (sections J + K).
  *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–80 pattern) — `hall-knight-elementary-
@@ -883,12 +886,475 @@ const lesson82: Lesson = {
   ],
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 1 (8.3): the clearing pipeline — the classic equation        */
+/* flowing through the five stations to its refused verdict.           */
+/* Header (30,18,660,44); stations (30,84,122,150), (164,84,122,150),  */
+/* (298,84,122,150), (432,84,122,150), (566,84,122,150); result band   */
+/* (30,258,660,44); caption band (30,314,660,24). Geometry pinned in   */
+/* verify-book3-ch08.ts plan83Fig1, audited in J.                      */
+/* ------------------------------------------------------------------ */
+
+function clearingPipelineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The clearing pipeline: factor, state the bill, multiply by the LCD, solve the cleared equation, check every candidate — the worked classic ends refused">'
+  )
+  // title band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="40" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the clearing pipeline — multiply by the LCD, then make the bill the judge</text>')
+  parts.push('<text x="360" y="55" font-size="10.5" fill="#65a30d" text-anchor="middle">the worked classic below dies at station 5 — and the pipeline says so honestly</text>')
+  // ---- station 1: FACTOR ----
+  parts.push('<rect x="30" y="84" width="122" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="91" y="106" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">1 · FACTOR</text>')
+  parts.push('<text x="91" y="128" font-size="10" fill="#65a30d" text-anchor="middle">every denominator,</text>')
+  parts.push('<text x="91" y="143" font-size="10" fill="#65a30d" text-anchor="middle">completely</text>')
+  parts.push('<text x="91" y="167" font-size="10" fill="#d97706" text-anchor="middle">x − 3 stays put</text>')
+  parts.push('<text x="91" y="182" font-size="10" fill="#d97706" text-anchor="middle">(x² − 9) → (x−3)(x+3)</text>')
+  parts.push('<text x="91" y="205" font-size="9.5" fill="#0d9488" text-anchor="middle">8.1’s station one</text>')
+  // ---- station 2: BILL ----
+  parts.push('<rect x="164" y="84" width="122" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="225" y="106" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">2 · BILL</text>')
+  parts.push('<text x="225" y="128" font-size="10" fill="#65a30d" text-anchor="middle">union of every</text>')
+  parts.push('<text x="225" y="143" font-size="10" fill="#65a30d" text-anchor="middle">denominator’s zeros</text>')
+  parts.push('<text x="225" y="167" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">bill {3}</text>')
+  parts.push('<text x="225" y="182" font-size="10" fill="#65a30d" text-anchor="middle">before any ink moves</text>')
+  parts.push('<text x="225" y="205" font-size="9.5" fill="#0d9488" text-anchor="middle">8.2’s audit habit</text>')
+  // ---- station 3: MULTIPLY ----
+  parts.push('<rect x="298" y="84" width="122" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="359" y="106" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">3 · MULTIPLY</text>')
+  parts.push('<text x="359" y="128" font-size="10" fill="#65a30d" text-anchor="middle">both members by</text>')
+  parts.push('<text x="359" y="143" font-size="10" fill="#65a30d" text-anchor="middle">the LCD</text>')
+  parts.push('<text x="359" y="167" font-size="10" fill="#d97706" text-anchor="middle">x = 3 + 2(x − 3)</text>')
+  parts.push('<text x="359" y="182" font-size="10" fill="#65a30d" text-anchor="middle">a polynomial remains</text>')
+  parts.push('<text x="359" y="205" font-size="9.5" fill="#dc2626" text-anchor="middle">one-way at the bill</text>')
+  // ---- station 4: SOLVE ----
+  parts.push('<rect x="432" y="84" width="122" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="493" y="106" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">4 · SOLVE</text>')
+  parts.push('<text x="493" y="128" font-size="10" fill="#65a30d" text-anchor="middle">the cleared</text>')
+  parts.push('<text x="493" y="143" font-size="10" fill="#65a30d" text-anchor="middle">equation</text>')
+  parts.push('<text x="493" y="167" font-size="10" fill="#d97706" text-anchor="middle">−x + 3 = 0</text>')
+  parts.push('<text x="493" y="182" font-size="10" fill="#d97706" text-anchor="middle">candidate x = 3</text>')
+  parts.push('<text x="493" y="205" font-size="9.5" fill="#0d9488" text-anchor="middle">5.2 · chapter 4</text>')
+  // ---- station 5: CHECK ----
+  parts.push('<rect x="566" y="84" width="122" height="150" rx="8" fill="none" stroke="#ea580c" stroke-width="1.8"/>')
+  parts.push('<text x="627" y="106" font-size="12" fill="#0f766e" text-anchor="middle" font-weight="700">5 · CHECK</text>')
+  parts.push('<text x="627" y="128" font-size="10" fill="#65a30d" text-anchor="middle">every candidate</text>')
+  parts.push('<text x="627" y="143" font-size="10" fill="#65a30d" text-anchor="middle">against the bill</text>')
+  parts.push('<text x="627" y="167" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">3 ∈ bill {3}</text>')
+  parts.push('<text x="627" y="182" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">REFUSED</text>')
+  parts.push('<text x="627" y="205" font-size="9.5" fill="#0d9488" text-anchor="middle">the extraneous trap</text>')
+  // ---- result band ----
+  parts.push('<rect x="30" y="258" width="660" height="44" rx="8" fill="#fef3c7" stroke="#ea580c" stroke-width="1.4"/>')
+  parts.push('<text x="360" y="277" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">the classic x/(x−3) = 3/(x−3) + 2: cleared root x = 3 → 3 sits in the bill {3} → refused</text>')
+  parts.push('<text x="360" y="293" font-size="11" fill="#166534" text-anchor="middle">the solution set is EMPTY — the clearing manufactured a candidate the original never admitted</text>')
+  // caption band
+  parts.push('<rect x="30" y="314" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="330" font-size="11" fill="#166534" text-anchor="middle">roots are added by clearing, never destroyed — so the check is the last station, not an ornament</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 2 (8.3): the check filter — candidates in, verdicts out,     */
+/* with the three verdict shapes of 5.3 returned for equations.        */
+/* Header (30,18,660,44); candidates (30,84,200,150); filter           */
+/* (260,84,200,150); pass (490,84,200,68); refuse (490,166,200,68);    */
+/* verdict strip (30,258,660,44); caption band (30,314,660,24).        */
+/* Geometry pinned in verify-book3-ch08.ts plan83Fig2, audited in J.   */
+/* ------------------------------------------------------------------ */
+
+function checkFilterSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The check filter: the cleared equation’s candidates flow through the compound bill; survivors form the solution set, refused ones are extraneous">'
+  )
+  // title band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="40" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the check filter — candidates in, verdicts out</text>')
+  parts.push('<text x="360" y="55" font-size="10.5" fill="#65a30d" text-anchor="middle">every root of the cleared equation must earn passage through the compound bill</text>')
+  // ---- candidates box ----
+  parts.push('<rect x="30" y="84" width="200" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="130" y="106" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="700">THE CANDIDATES</text>')
+  parts.push('<text x="130" y="122" font-size="10" fill="#65a30d" text-anchor="middle">roots of the cleared equation</text>')
+  parts.push('<text x="130" y="146" font-size="10" fill="#d97706" text-anchor="middle">x = 4  (the cross form)</text>')
+  parts.push('<text x="130" y="163" font-size="10" fill="#d97706" text-anchor="middle">x = 3  (the classic)</text>')
+  parts.push('<text x="130" y="180" font-size="10" fill="#d97706" text-anchor="middle">x = 0, 1  (two candidates)</text>')
+  parts.push('<text x="130" y="197" font-size="10" fill="#d97706" text-anchor="middle">every x  (the identity)</text>')
+  parts.push('<text x="130" y="220" font-size="9.5" fill="#0d9488" text-anchor="middle">station 4 hands them over</text>')
+  // ---- filter box ----
+  parts.push('<rect x="260" y="84" width="200" height="150" rx="8" fill="none" stroke="#ea580c" stroke-width="1.8"/>')
+  parts.push('<text x="360" y="106" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="700">THE COMPOUND BILL</text>')
+  parts.push('<text x="360" y="122" font-size="10" fill="#65a30d" text-anchor="middle">is the candidate refused?</text>')
+  parts.push('<text x="360" y="146" font-size="10" fill="#dc2626" text-anchor="middle">cross form: x ≠ −1, 1</text>')
+  parts.push('<text x="360" y="163" font-size="10" fill="#dc2626" text-anchor="middle">the classic: x ≠ 3</text>')
+  parts.push('<text x="360" y="180" font-size="10" fill="#dc2626" text-anchor="middle">two candidates: x ≠ −1, 1</text>')
+  parts.push('<text x="360" y="197" font-size="10" fill="#dc2626" text-anchor="middle">the identity: x ≠ −3</text>')
+  parts.push('<text x="360" y="220" font-size="9.5" fill="#0d9488" text-anchor="middle">read from the ORIGINALS, first minute</text>')
+  // ---- pass outcome ----
+  parts.push('<rect x="490" y="84" width="200" height="68" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="1.6"/>')
+  parts.push('<text x="590" y="108" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">PASSES → SOLUTION SET</text>')
+  parts.push('<text x="590" y="126" font-size="10" fill="#65a30d" text-anchor="middle">x = 4 · x = 0 · every x ≠ −3</text>')
+  parts.push('<text x="590" y="142" font-size="10" fill="#65a30d" text-anchor="middle">each checks in the ORIGINAL</text>')
+  // ---- refuse outcome ----
+  parts.push('<rect x="490" y="166" width="200" height="68" rx="8" fill="none" stroke="#dc2626" stroke-width="1.6"/>')
+  parts.push('<text x="590" y="190" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="700">REFUSED → EXTRANEOUS</text>')
+  parts.push('<text x="590" y="208" font-size="10" fill="#65a30d" text-anchor="middle">x = 3 dies in (x−3)</text>')
+  parts.push('<text x="590" y="224" font-size="10" fill="#65a30d" text-anchor="middle">x = 1 dies in (x−1)</text>')
+  // ---- verdict strip ----
+  parts.push('<rect x="30" y="258" width="660" height="44" rx="8" fill="#fef3c7" stroke="#ea580c" stroke-width="1.4"/>')
+  parts.push('<text x="360" y="277" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">the three verdicts of 5.3, back for equations: ONE solution · NONE (the only candidate refused) · ALL BUT THE BILL</text>')
+  parts.push('<text x="360" y="293" font-size="11" fill="#166534" text-anchor="middle">the ledger: x = 4 · the classic’s ∅ · every x ≠ −3 — each priced by the verifier in the original</text>')
+  // caption band
+  parts.push('<rect x="30" y="314" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="330" font-size="11" fill="#166534" text-anchor="middle">the bill was audited before the solving began — the check only reads what was already written</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+const lesson83: Lesson = {
+  id: 'al-fractional-equations-and-extraneous-roots',
+  number: '8.3',
+  title: 'Fractional Equations and Extraneous Roots',
+  concepts: [
+    'fractional equation',
+    'clearing denominators',
+    'the compound bill',
+    'extraneous root',
+    'cross-multiplication',
+    'the zero-fraction filter',
+    'work-rate equation',
+    'the habitat check',
+  ],
+  objectives: [
+    'recognize a fractional equation and state its compound bill before any solving begins',
+    'clear denominators by multiplying through the LCD and solve the resulting polynomial equation',
+    'prove the clearing law with its clause: roots are added by clearing, never destroyed',
+    'catch and discard extraneous roots with the compound-bill check',
+    'apply the zero-fraction filter to equations of the form P/Q = 0 and the cross form to A/B = C/D',
+    'build and solve work-rate and speed fractional equations, applying the bill and the habitat as the two distinct filters',
+  ],
+  prerequisites: ['al-operating-on-algebraic-fractions', 'al-solving-linear-equations', 'al-factoring-quadratic-trinomials'],
+  sources: ['hall-knight-elementary-algebra', 'ncert-math7-ch2', 'khattar-qa-4e', 'cengage-jee-style'],
+  blocks: [
+    { kind: 'para', text: 'Two lessons built the objects: 8.1 simplified rational expressions with their bills of exclusions, and 8.2 operated on them — multiply, divide, add, subtract — while the compound bill only grew. This lesson turns the fraction from an object into a QUESTION. An equation such as $\\frac{x}{x-3} = \\frac{3}{x-3} + 2$ does not ask what the expression equals; it asks AT WHICH POINTS the claim is true. That shift changes the balance law of chapter 5 in one decisive way: the lawful move "multiply both members by the same nonzero number" now invites a multiplier that is a polynomial — and a polynomial can be zero at some points. At those points the multiplication is exactly the move 5.1 outlawed, and it will manufacture fake solutions. The whole lesson is the story of that clause and of the check that disarms it.' },
+    { kind: 'heading', text: 'Equations That Live on a Domain' },
+    { kind: 'para', text: 'A fractional equation is an equation in which the unknown appears in at least one denominator. The definition is short, but it carries the entire domain discipline of 8.1 with it: whatever else the equation claims, it can only be evaluated where every fraction present is alive. The solution set is therefore not a free-floating set of numbers — it lives inside a domain, and the domain is the compound bill of 8.2: the union of the zero sets of every denominator in sight.' },
+    { kind: 'callout', tone: 'definition', title: 'Definition — fractional equation', text: 'An equation is said to be FRACTIONAL if the unknown occurs in at least one denominator. Its solution set is the set of all real numbers at which (i) every fraction present is defined, and (ii) the two members are equal. Thus the compound bill — the union of the denominators’ zero sets, 8.2’s ledger — bounds the hunt before it begins: $x = \\frac{1}{x-2}$ can only be satisfied by some $x \\neq 2$, whatever the algebra later says. In symbols, the solutions of $\\frac{P(x)}{Q(x)} = \\frac{R(x)}{S(x)}$ all live inside $\\{x : Q(x) \\neq 0 \\text{ and } S(x) \\neq 0\\}$.' },
+    { kind: 'para', text: 'For example, each of these is fractional, and each carries its bill from the first minute:' },
+    { kind: 'list', marker: 'roman', items: [
+      '$\\frac{3}{x-1} = \\frac{5}{x+1}$ — denominators $x - 1$ and $x + 1$, bill $\\{-1, 1\\}$;',
+      '$\\frac{x}{x-3} = \\frac{3}{x-3} + 2$ — one denominator twice over, bill $\\{3\\}$;',
+      '$\\frac{x^2 - 9}{x+3} = x - 3$ — the denominator $x + 3$, bill $\\{-3\\}$, even though the right member is a plain polynomial.',
+    ] },
+    { kind: 'para', text: 'The third row makes the definition’s reach visible: ONE fractional member is enough to close a door. The equation $\\frac{x^2-9}{x+3} = x - 3$ is undefined at $x = -3$ no matter how innocent the right side looks there — the original statement, not the tidy form, is the object of record. That is 8.2’s monotonic law wearing an equation’s clothes: no later algebra can re-open a door the original statement closed.' },
+    { kind: 'equation', latex: 'E: \\;\\frac{P(x)}{Q(x)} = \\frac{R(x)}{S(x)}, \\quad B = \\{x : Q(x) = 0\\} \\cup \\{x : S(x) = 0\\}, \\quad \\text{solutions}(E) \\subseteq \\mathbb{R} \\setminus B', note: 'the bill bounds the hunt: every solution must be live for every fraction present — 8.2’s compound bill, now deciding equations' },
+    { kind: 'heading', text: 'Clearing the Denominators: the LCD Move' },
+    { kind: 'para', text: 'Fractions are hard to reason about and polynomials are easy, so the natural move is to make the fractions disappear: multiply both members by the LCD of all the denominators present. Every denominator divides the LCD, so every fraction collapses into a product, and what remains is a POLYNOMIAL equation — 5.2’s balance pipeline if it is linear, chapter 4’s factoring if it is quadratic. The move is old, reliable, and half of this lesson. The other half is the fine print: multiplying both members by an expression that is zero somewhere is NOT the lawful multiplication of 5.1, and the difference has consequences. The theorem below is the precise statement of both halves.' },
+    { kind: 'derivation', title: 'Theorem — the clearing law with its clause', statement: 'Let $E$ be a fractional equation with compound bill $B$, and let $L$ be the LCD of all its denominators. The CLEARED equation is $L(x) \\cdot E(x) = 0$ — the polynomial equation got by multiplying both members by $L$. Then every solution of $E$ is a root of the cleared equation, and conversely a root $x_0$ of the cleared equation solves $E$ EXACTLY WHEN $x_0 \\notin B$. Hence: $\\;\\text{solutions}(E) = \\{x : L(x) \\cdot E(x) = 0\\} \\setminus B$.', steps: [
+      { label: 'Soundness — no root is lost', formula: 'E(x_0) = 0,\\; x_0 \\notin B \\;\\Rightarrow\\; L(x_0) \\cdot E(x_0) = L(x_0) \\cdot 0 = 0', explanation: 'Let $x_0$ solve $E$: both members equal, and $x_0$ outside the bill. Multiplying equal numbers by the same number $L(x_0)$ keeps them equal — 5.1’s balance law, lawful because $L(x_0)$ is a real number. So $x_0$ satisfies the cleared equation: clearing ADDS no risk to the roots the original truly had.' },
+      { label: 'The live converse', formula: 'L(x_0) \\cdot E(x_0) = 0,\\; x_0 \\notin B \\;\\Rightarrow\\; E(x_0) = 0', explanation: 'Now let $x_0$ be a root of the cleared equation OUTSIDE the bill. Every denominator is alive at $x_0$, and the LCD is a product of those living factors — so $L(x_0) \\neq 0$ (a product of nonzero reals is nonzero). Dividing the true claim $L(x_0) \\cdot E(x_0) = 0$ by the nonzero number $L(x_0)$ is lawful (ANS 7.2’s field laws): $E(x_0) = 0$. The converse HOLDS on the live domain.' },
+      { label: 'At the bill the converse dies', formula: 'x_0 \\in B,\\; L(x_0) \\cdot E(x_0) = 0 \\;\\Rightarrow\\; \\text{no information}', explanation: 'At a bill point some denominator is zero, so $E(x_0)$ does not EXIST — the original claim cannot even be evaluated, let alone be true. If the cleared equation vanishes there, that is the multiplication making $0 = 0$ out of an undefined statement: 5.1’s forbidden move, met in the wild. Such a root is the clearing’s own creation.' },
+      { label: 'The verdict', formula: '\\text{solutions}(E) = \\text{roots}(L \\cdot E) \\setminus B', explanation: 'The two directions combine into one sentence: the solution set is the cleared equation’s root set MINUS the bill. Roots are added by clearing, never destroyed — so the check at the end recovers exactly the truth.' },
+      { label: 'Why the clause is sharp', formula: 'L(x_0) \\neq 0 \\iff x_0 \\notin B', explanation: 'The live converse USED $L(x_0) \\neq 0$, and that holds exactly off the bill — the LCD’s factors are the denominators themselves. On the live domain the multiplication is invertible (divide it back), so it is an equivalence; at the bill it is not invertible, and candidates can be manufactured. Hence the clause, and hence the check as a STATION of the method, not an ornament.' },
+    ], result: 'solutions(E) = roots(cleared) \\ bill — clear, solve, subtract the bill; nothing else can go wrong, and nothing else needs checking.' },
+    { kind: 'para', text: 'Read the theorem as a one-way street. From the original to the cleared equation, travel is free and lossless: every true solution rides through. From the cleared equation back to the original, travel is free on the live domain and FORBIDDEN at the bill — and the bill is exactly where the newcomers appear. This asymmetry is why the classical method ends with a check rather than beginning with one: the check is not a defensive habit but the exact inverse of the one non-invertible step the method contains.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the clause is not decoration', text: 'Chapter 5 proved that multiplying both members by $0$ is not a lawful move: it replaces whatever solution set an equation had by EVERY number. The LCD of a fractional equation is a polynomial, and at each bill point it EQUALS $0$. So every clearing of every fractional equation walks the edge of the forbidden move — the edge is precisely the bill. The pipeline survives because the bill was written down FIRST (station 2) and the candidates are filtered through it LAST (station 5). Skip station 2, and station 5 has nothing to consult; skip station 5, and the manufactured roots sail into the answer sheet. Both halves are the method.' },
+    { kind: 'example', title: 'Solve 3/(x − 1) = 5/(x + 1) by the cross form', steps: [
+      'BILL first, from the originals: $x - 1 = 0$ at $x = 1$ and $x + 1 = 0$ at $x = -1$ — the compound bill is $\\{-1, 1\\}$.',
+      'Two fractions with unlike denominators: cross-multiply — multiply each numerator by the OTHER denominator: $3(x + 1) = 5(x - 1)$.',
+      'Now, expand both sides: $3x + 3 = 5x - 5$; the $x$-terms collect right: $8 = 2x$, so $x = 4$.',
+      'CHECK against the bill: $4 \\notin \\{-1, 1\\}$ — live. Verify in the original: $\\frac{3}{4-1} = 1$ and $\\frac{5}{4+1} = 1$ — both members read $1$.',
+      'Hence the solution set is $\\{4\\}$ — $x = 4$, with the bill $x \\neq -1, 1$ stated from the originals; the verifier priced the cross-form equivalence at all $9$ live window points, and the equality held at exactly one of them — this one.',
+    ] },
+    { kind: 'example', title: 'Solve x/(x − 3) = 3/(x − 3) + 2 — and meet the first extraneous root', steps: [
+      'BILL first: the only denominator is $x - 3$, alive except at $x = 3$ — the bill is $\\{3\\}$.',
+      'MULTIPLY both members by the LCD $(x - 3)$: every denominator dies into it — $x = 3 + 2(x - 3)$.',
+      'So, expand and collect: $x = 3 + 2x - 6$, which says $x = 2x - 3$, hence $-x = -3$, hence $x = 3$.',
+      'CHECK against the bill: $3 \\in \\{3\\}$ — REFUSED. The candidate is exactly the point where the multiplication was the forbidden $0 = 0$ trick: the cleared form $-x + 3$ vanishes at $3$ while the original is undefined there.',
+      'The verifier priced the original’s deficit on all $10$ live window points: LHS $-$ RHS reads $-1$ at every one — the original NEVER holds.',
+      'Hence there is NO solution — the only candidate, $x = 3$, is refused by the bill $\\{3\\}$ (extraneous); the algebra manufactured a candidate and the bill returned it, unopened.',
+    ] },
+    { kind: 'callout', tone: 'definition', title: 'Definition — extraneous root', text: 'An EXTRANEOUS ROOT of a fractional equation is a number that satisfies the cleared equation but is refused by the compound bill — a root created by the clearing multiplication, which the original equation never admitted. Thus, in the worked classic, $x = 3$ solves $-x + 3 = 0$ yet is extraneous: the original reads $\\frac{3}{0} = \\frac{3}{0} + 2$, which is not false but MEANINGLESS. An extraneous root is not an enemy of the method — it is the method’s own by-product, produced at exactly the points where the theorem’s converse fails, and removed by exactly the bill the method wrote down first.' },
+    { kind: 'example', title: 'Solve x/(x − 1) − 2/(x + 1) = 2/(x² − 1) — two candidates, one refused', steps: [
+      'FACTOR the denominators: $x - 1$, $x + 1$, and $x^2 - 1 = (x-1)(x+1)$ — the LCD is $(x-1)(x+1)$, and the compound bill is $\\{-1, 1\\}$.',
+      'MULTIPLY through by the LCD: $x(x + 1) - 2(x - 1) = 2$.',
+      'Now, expand: $x^2 + x - 2x + 2 = 2$, which collects to $x^2 - x = 0$, factoring as $x(x - 1) = 0$ — candidates $x = 0$ and $x = 1$.',
+      'CHECK each against the bill: $0 \\notin \\{-1, 1\\}$ — live; $1 \\in \\{-1, 1\\}$ — REFUSED (the factor $x - 1$ dies there; the original is undefined).',
+      'Verify the survivor in the original: $\\frac{0}{-1} - \\frac{2}{1} = -2$ and $\\frac{2}{-1} = -2$ — both members read $-2$. The verifier priced the zero-set agreement of original and cleared equation at all $9$ live window points.',
+      'Hence the solution set is $\\{0\\}$: one candidate kept, one extraneous — $x = 0$, with $x = 1$ refused by the bill $\\{-1, 1\\}$; the shape examinations love, and the reason the check is a station of its own.',
+    ] },
+    { kind: 'heading', text: 'The Check: Extraneous Roots Caught' },
+    { kind: 'para', text: 'The three worked equations share one skeleton, and the skeleton is the method. State the bill before any ink moves; multiply by the LCD; solve the polynomial; check every candidate against the bill; state the survivors. Five stations, in that order, with the bill at both ends — written at station 2, consulted at station 5. The pipeline is short enough to run mentally on simple equations and formal enough to survive a three-fraction examination monster; the figure below runs the classic through all five stations to its refused verdict.' },
+    { kind: 'algorithm', title: 'The clearing pipeline', lines: [
+      { code: 'FACTOR every denominator completely.', note: '8.1’s station one — the zeros are the bill’s atoms' },
+      { code: 'STATE the compound bill: the union of every denominator’s zeros.', note: 'before any ink moves — 8.2’s audit habit' },
+      { code: 'MULTIPLY both members by the LCD of all denominators.', note: 'every denominator dies into the LCD; a polynomial remains' },
+      { code: 'SOLVE the cleared equation.', note: 'linear: 5.2’s balance pipeline; quadratic: chapter 4 factoring' },
+      { code: 'CHECK every candidate against the compound bill.', note: 'refused candidates are extraneous — discard, never report' },
+      { code: 'CHECK the habitat for word problems.', note: 'positive days, speeds, counts — the second filter, station 6' },
+      { code: 'STATE the solution set: the kept roots — possibly ∅, possibly every live point.', note: 'the verdict: one, none, or all but the bill' },
+    ] },
+    { kind: 'figure', caption: 'The clearing pipeline run on the classic x/(x−3) = 3/(x−3) + 2: factor, bill {3}, multiply by (x−3), solve to the candidate x = 3, check — and the bill refuses its own equation’s only root. The verdict ∅ is the pipeline being honest.', svg: clearingPipelineSvg() },
+    { kind: 'table', caption: 'The verdict ledger — this lesson’s five exhibits, each run through the pipeline (every verdict priced by the verifier in the original equation)', head: ['the equation', 'the cleared equation', 'candidates', 'the bill', 'the verdict'], rows: [
+      ['$\\frac{3}{x-1} = \\frac{5}{x+1}$', '$3(x+1) = 5(x-1)$', '$x = 4$', '$x \\neq -1, 1$', 'ONE: $x = 4$'],
+      ['$\\frac{x}{x-3} = \\frac{3}{x-3} + 2$', '$x = 3 + 2(x-3)$', '$x = 3$', '$x \\neq 3$', 'NONE: the only candidate is extraneous'],
+      ['$\\frac{x}{x-1} - \\frac{2}{x+1} = \\frac{2}{x^2-1}$', '$x^2 - x = 0$', '$x = 0, 1$', '$x \\neq -1, 1$', 'ONE: $x = 0$ — the $1$ extraneous'],
+      ['$\\frac{x^2-9}{x+3} = x - 3$', '$0 = 0$', 'every $x$', '$x \\neq -3$', 'ALL BUT THE BILL: every $x \\neq -3$'],
+      ['$\\frac{2}{x+2} = \\frac{x}{x-2}$', '$x^2 = -4$', 'none real', '$x \\neq -2, 2$', 'NONE: the cleared equation has no real roots'],
+    ] },
+    { kind: 'para', text: 'The ledger’s last column is a familiar trio wearing new clothes. Lesson 5.3 sorted linear equations into three verdicts — exactly one solution, none, or infinitely many — and the verifier’s census here shows the same machine operating one storey up, with the bill as the new juryman. A fractional equation can end in ONE surviving candidate (rows 1 and 3), in NONE (rows 2 and 5, for two different reasons — a refused candidate and an empty cleared equation), or in EVERY live point (row 4). Three verdict shapes, now with a bill to satisfy:' },
+    { kind: 'list', items: [
+      '**ONE** — the cleared equation’s live roots survive the check; the answer is a finite set (often a single point).',
+      '**NONE** — either the cleared equation has no real roots (nothing to check), or every candidate is refused (the classic’s ∅). An empty verdict is a full answer.',
+      '**ALL BUT THE BILL** — the cleared equation collapses to $0 = 0$: an identity on the live domain, with the bill naming the excluded points. The answer is a domain, not a number.',
+    ] },
+    { kind: 'example', title: 'Solve (x² − 9)/(x + 3) = x − 3 — the identity verdict', steps: [
+      'BILL first: the denominator $x + 3$ refuses $x = -3$ — the bill is $\\{-3\\}$.',
+      'MULTIPLY both members by the LCD $(x + 3)$: $x^2 - 9 = (x - 3)(x + 3)$.',
+      'Now, the right member IS the factored left: the cleared equation reads $(x-3)(x+3) = (x-3)(x+3)$ — it collapses to $0 = 0$, an identity.',
+      'So, every live point solves the equation: the verifier priced the original equality at all $10$ window points with $x \\neq -3$, and it held at every one.',
+      'CHECK the bill: at $x = -3$ the original reads $\\frac{0}{0}$ — undefined, so $-3$ is refused from the all-verdict. 8.1 scooped this hole in an expression; the same hole now closes an equation.',
+      'Hence the solution set is every real $x \\neq -3$ — the identity verdict, with the bill refusing its single point; the third verdict of 5.3, minus one hole.',
+    ] },
+    { kind: 'figure', caption: 'The check filter: the cleared equation hands over its candidates; the compound bill — audited from the originals at station 2 — passes the live ones into the solution set and returns the refused ones as extraneous. The verdict strip collects the lesson’s three outcomes.', svg: checkFilterSvg() },
+    { kind: 'callout', tone: 'insight', title: 'Insight — why the check works: roots added, never destroyed', text: 'The theorem’s two directions are not symmetric in effort, and that asymmetry is the deep reason the method is safe. Soundness is automatic: any true solution, multiplied through, stays true — clearing can never LOSE a root, so no one worries about what the clearing might have eaten. The converse needed dividing by $L(x_0)$, lawful exactly off the bill. So the entire risk of the method is concentrated at the bill — a set usually of one or two points — and the check only has to inspect the candidates against a ledger already written. This is the same economy 8.1 taught for holes: information is never destroyed, only relocated; here the relocated information is a short list of points, and station 5 reads it aloud.' },
+    { kind: 'heading', text: 'The Zero-Fraction Filter and the Cross Form' },
+    { kind: 'para', text: 'Two special shapes deserve their own machinery, because examinations set them constantly and because each is a pipeline shortcut with its own trap. The first is the ZERO-FRACTION equation $\\frac{P(x)}{Q(x)} = 0$. 8.1 proved the verdict — a fraction is zero exactly where its numerator is zero AND its denominator is alive — and as an equation-solver it is a filter: solve $P(x) = 0$ for candidates, then refuse every candidate that sits in $Q$’s zeros. The filter is the bill check in miniature, and it refuses with the same teeth:' },
+    { kind: 'example', title: 'Solve (x − 1)(x − 2)/((x − 1)(x + 3)) = 0 — the filter at work', steps: [
+      'BILL first: the denominator $(x-1)(x+3)$ refuses $x = 1$ and $x = -3$ — the bill is $\\{-3, 1\\}$.',
+      'The numerator’s zeros: $(x-1)(x-2) = 0$ at $x = 1$ and $x = 2$ — the raw candidates.',
+      'Apply the filter — numerator zero AND denominator alive: $x = 1$ dies on BOTH floors (the original reads $\\frac{0}{0}$, undefined); $x = 2$ survives — the denominator there reads $(1)(5) = 5$, alive.',
+      'Verify the survivor: at $x = 2$ the original reads $\\frac{(1)(0)}{(1)(5)} = \\frac{0}{5} = 0$ — exactly zero, as claimed.',
+      'Hence the solution set is $\\{2\\}$ only — the candidate $1$ is the trap, dead on both floors ($0/0$), exactly as the zero-fraction verdict demands; a zero NUMERATOR never excuses a dead denominator.',
+    ] },
+    { kind: 'para', text: 'A first-draft instinct reads only the numerator and reports $\\{1, 2\\}$; the filter’s whole job is to refuse the point where both floors die together. Note also what the filter does NOT refuse: a numerator zero at a perfectly alive point is a genuine solution — $\\frac{x(x-4)}{x+2} = 0$ holds at $x = 0$ and $x = 4$, both live, bill $\\{-2\\}$ refusing neither. The verifier priced the seed equation $\\frac{x^2-9}{x-3} = 0$ at exactly $\\{-3\\}$: the numerator dies at $\\pm 3$, the denominator at $3$, and the filter keeps $-3$ alone.' },
+    { kind: 'equation', latex: '\\frac{a}{b} = \\frac{c}{d} \\;\\iff\\; a \\cdot d = b \\cdot c \\qquad (b \\neq 0,\\; d \\neq 0)', note: 'the cross form — the two-fraction special case of clearing by bd; the bill {b ≠ 0, d ≠ 0} is part of the statement, not a footnote' },
+    { kind: 'para', text: 'The second shape is the two-fraction equation, where the full pipeline compresses into one move. Multiplying $\\frac{a}{b} = \\frac{c}{d}$ through by the LCD $bd$ gives $ad = bc$ — each numerator times the OTHER denominator. The verifier confirmed the move is an equivalence at every live point: original equality and cross equality held or failed together at all $9$ live window points of the worked illustration, and the surviving root was unique. The trap is symmetry’s siren song: $3(x+1) = 5(x-1)$ solves to $x = 4$, while the SWAPPED cross $3(x-1) = 5(x+1)$ solves to $x = -4$ — a different equation wearing the same clothes, priced at $\\frac{3}{-5} \\neq \\frac{5}{-3}$. Multiply each numerator by the other denominator, never by its own.' },
+    { kind: 'heading', text: 'Fractional Equations at Work' },
+    { kind: 'para', text: 'Word problems breed fractional equations naturally, because rates ADD. If a pipe fills a vat in $a$ hours, its rate is $\\frac{1}{a}$ vat per hour; a second pipe with time $b$ contributes $\\frac{1}{b}$; running together they fill at the sum, and the joint time $t$ satisfies $\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{t}$. The verifier’s exhibit: pipes at $3$ and $6$ hours give $\\frac{1}{3} + \\frac{1}{6} = \\frac{1}{2}$ — together $2$ hours, and $t = \\frac{ab}{a+b} = \\frac{18}{9} = 2$. Every such equation is fractional (the unknown hides in a denominator), every one is solved by the pipeline, and every one carries TWO filters — the bill from algebra and a habitat from the situation.' },
+    { kind: 'formula', name: 'The clearing law', latex: '\\text{solutions}(E) = \\text{roots}(L \\cdot E) \\setminus B', note: 'L the LCD, B the compound bill — clear, solve, subtract the bill; roots added, never destroyed' },
+    { kind: 'formula', name: 'The cross form', latex: '\\frac{a}{b} = \\frac{c}{d} \\;\\iff\\; a d = b c \\quad (b, d \\neq 0)', note: 'each numerator times the OTHER denominator; the bill rides from the originals' },
+    { kind: 'formula', name: 'The work-rate template', latex: '\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{t} \\;\\iff\\; t = \\frac{ab}{a + b}', note: 'rates add; the joint time is the product over the sum — the always-pair check: t between a and b' },
+    { kind: 'para', text: 'The two filters deserve their separation, because they refuse for different reasons and the examinations test the difference. The BILL refuses points where the equation is UNDEFINED — algebraic refusals, read from the denominators. The HABITAT refuses points where the equation is perfectly true but the SITUATION is meaningless — negative days, negative speeds, fractional people. Exercises 12 and 13 stage the distinction exactly: the work-rate hunt produces the root $x = -2$, which the bill $\\{-3, 0\\}$ refuses NOTHING about — indeed the verifier priced $\\frac{1}{-2} + \\frac{1}{1} = \\frac{1}{2}$, the equation is TRUE there — and the habitat rejects it because a task cannot take negative days. The train problem does the same at $v = -60$: $\\frac{300}{-60} - \\frac{300}{-50} = 1$ holds, and no train moves at it.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — two filters, two jobs', text: 'The bill and the habitat are NOT the same check, and conflating them loses marks in both directions. The bill is ALGEBRAIC: it refuses where a denominator dies, and its refusals are absolute — the equation does not exist there. The habitat is SITUATIONAL: it refuses where the story breaks (negative time, impossible counts), and its refusals are interpretive — the equation is true, the world is not. A root can pass the bill and fail the habitat ($x = -2$ in the work-rate hunt; $v = -60$ in the train). A root can also fail the bill and never reach the habitat ($x = 3$ in the classic). Report which filter rejected what: "extraneous" for the bill, "rejected by the situation" for the habitat.' },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — the check that built trust', text: 'The classical algebra course this book follows — Hall & Knight’s Elementary Algebra for Schools (1885) among its texts — closed its fractions chapter exactly where this lesson closes: equations cleared by the LCD, with the restriction named and the roots examined. The word "extraneous" itself is the mathematical community’s admission that a method can CREATE its own data: the root is extraneous to the equation, not to the solving. What the check formalizes is older than the notation — the habit of SUBSTITUTING a claimed answer back into the original words, which is the oldest verifying instinct in mathematics and the reason "check your solution" has survived every reform of the curriculum. Web-checked against the banked survey of run 66; no content reproduced.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this pays', text: 'The competitive bank (Khattar QA’s algebra scope; SSC/bank mains; JEE-Main foundations) sets this lesson four ways. (1) Clear-and-check: solve a fractional equation and the mark scheme splits at the check — the refused candidate must be named extraneous, not silently dropped and not reported. (2) The verdict items: "the equation $\\frac{x}{x-3} = \\frac{3}{x-3} + 2$ has —" with no solution as the intended answer and $x = 3$ planted as the trap; or the identity verdict asked as "for how many values of $x$ does … hold". (3) Work-rate and speed: the $\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{t}$ family and the faster-train family, where the negative root MUST be rejected by the habitat in a stated sentence — the reasoning mark. (4) The parameter hunt: "for which $k$ does the equation have exactly one solution" — answered by clearing and reading the bill, the run-83 bridge to chapter 9’s quadratics. The pipeline is the mark scheme; run it in the printed order.' },
+    { kind: 'terms', items: [
+      { term: 'Fractional equation', def: 'An equation in which the unknown appears in at least one denominator; its solution set lives inside the compound bill of every denominator present.' },
+      { term: 'Compound bill', def: 'The union of the zero sets of all denominators in an equation or expression — 8.2’s ledger of exclusions, promoted in this lesson to the check that judges candidates.' },
+      { term: 'Cleared equation', def: 'The polynomial equation produced by multiplying both members of a fractional equation by the LCD of all denominators; linear equations fall to 5.2’s pipeline, quadratics to chapter 4 factoring.' },
+      { term: 'Extraneous root', def: 'A root of the cleared equation refused by the compound bill — created by the clearing multiplication, never a solution of the original equation; discarded at station 5, never reported.' },
+      { term: 'Cross-multiplication', def: 'The two-fraction shortcut: a/b = c/d holds exactly when ad = bc, provided b ≠ 0 and d ≠ 0; each numerator is multiplied by the OTHER denominator.' },
+      { term: 'Zero-fraction filter', def: 'The solver for P/Q = 0: collect the numerator’s zeros as candidates, then keep only those where the denominator is alive — P = 0 AND Q ≠ 0, 8.1’s verdict promoted to a tool.' },
+      { term: 'Work-rate equation', def: 'A fractional equation built from rates adding: 1/a + 1/b = 1/t for joint time t, with template t = ab/(a+b); the classical word-problem application of the pipeline.' },
+      { term: 'Habitat check', def: 'The situational filter on word-problem roots — positive days, speeds, whole counts — distinct from the bill: a root can be mathematically live (the equation true) and still be rejected by the habitat.' },
+    ] },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      {
+        q: 'The equation $\\frac{x}{x-3} = \\frac{3}{x-3} + 2$ has —',
+        options: ['the solution $x = 3$', 'no solution — the only candidate is refused by the bill', 'the solution $x = 0$', 'every $x \\neq 3$ as a solution'],
+        answer: 1,
+        explain: 'Clearing by the LCD $(x-3)$ gives $x = 3 + 2(x-3)$, hence $x = 3$ — and the bill $\\{3\\}$ refuses exactly that point: the candidate is extraneous, manufactured by the multiplication at the very point the original is undefined. Option 1 reports the extraneous root (the trap); option 3 solves the mis-expansion $x = 3 + 2x - 3$ instead of $x = 3 + 2(x-3)$; option 4 misreads the identity verdict — the verifier priced the original’s deficit at $-1$ on every live point, so nothing solves it.',
+      },
+      {
+        q: 'Solving $\\frac{3}{x-1} = \\frac{5}{x+1}$ by the cross form gives —',
+        options: ['$x = -4$', '$x = 4$', '$x = 1$', '$x = 8$'],
+        answer: 1,
+        explain: 'Each numerator times the OTHER denominator: $3(x+1) = 5(x-1)$, so $3x + 3 = 5x - 5$ and $8 = 2x$ — $x = 4$, live against the bill $\\{-1, 1\\}$ and verified in the original ($3/3 = 5/5 = 1$). Option 1 is the SWAPPED cross $3(x-1) = 5(x+1)$ — a different equation, priced $\\frac{3}{-5} \\neq \\frac{5}{-3}$; option 3 is a bill point, never a solution; option 8 is an arithmetic slip ($8 = 2x$ does not say $x = 8$).',
+      },
+      {
+        q: 'The solution set of $\\frac{x(x-4)}{x+2} = 0$ is —',
+        options: ['$x = 4$ only', '$x = 0$ only', '$x = 0$ and $x = 4$', '$x = 0$, $x = 4$ and $x = -2$'],
+        answer: 2,
+        explain: 'The zero-fraction filter: the numerator $x(x-4)$ dies at $0$ and $4$, and the denominator $x + 2$ is alive at both — both survive. Option 1 misses the genuine zero at $x = 0$ (the fraction reads $0/(-2) = 0$); option 2 misses $x = 4$; option 4 adds the bill point $x = -2$, where the DENOMINATOR dies — the fraction is undefined there, never zero. Numerator zero AND denominator alive: the filter refuses with teeth.',
+      },
+      {
+        q: 'Pipe A fills a vat in $3$ hours and pipe B fills it in $6$ hours. Working together, they fill it in —',
+        options: ['$4.5$ hours', '$9$ hours', '$1.5$ hours', '$2$ hours'],
+        answer: 3,
+        explain: 'Rates add: $\\frac{1}{3} + \\frac{1}{6} = \\frac{2}{6} + \\frac{1}{6} = \\frac{1}{2}$ vat per hour, so the joint time is $t = \\frac{ab}{a+b} = \\frac{18}{9} = 2$ hours. Option 1 is the average trap (times are never averaged); option 2 adds the TIMES instead of the rates; option 3 halves the fastest pipe — together they are SLOWER than the fastest alone, never faster. The sanity band: $t$ must land strictly between $a$ and $b$ — $2$ sits between $3$ and $6$.',
+      },
+      {
+        q: 'Solving $\\frac{x}{x-1} - \\frac{2}{x+1} = \\frac{2}{x^2-1}$, the cleared equation is $x^2 - x = 0$ with candidates $0$ and $1$. The solution set is —',
+        options: ['$\\{0, 1\\}$', '$\\{0\\}$', '$\\{1\\}$', 'empty'],
+        answer: 1,
+        explain: 'The bill from the originals is $\\{-1, 1\\}$: the candidate $0$ is live (the original reads $0 - 2 + 2 = 0$ — true), while $1$ dies in the factor $x - 1$ — extraneous, discarded. Option 1 skips the check and reports both candidates; option 3 keeps only the refused one; option 4 refuses both, but $0$ was verified in the original. Two candidates, one refused — the exact shape the check exists to settle.',
+      },
+    ] },
+    { kind: 'exercises', title: 'Exercises 8.3', sets: [
+      { level: 'L1', questions: [
+        {
+          q: 'Solve $\\frac{2}{x} = 1$.',
+          solution: [
+            'BILL first: the denominator $x$ refuses $0$ — the bill is $\\{0\\}$.',
+            'MULTIPLY both members by the LCD $x$ (alive off the bill): $2 = x$.',
+            'CHECK against the bill: $2 \\neq 0$ — live; verify in the original: $\\frac{2}{2} = 1$.',
+            'Hence $x = 2$; the verifier priced $\\frac{2}{x} = 1$ exactly at $x = 2$ and nowhere else on the live window.',
+          ],
+          answer: '$x = 2$, with the bill $x \\neq 0$.',
+        },
+        {
+          q: 'Solve $\\frac{3}{x} + \\frac{1}{x} = 4$.',
+          solution: [
+            'BILL first: $\\{0\\}$ — both fractions share the denominator $x$.',
+            'Like denominators combine without any clearing: $\\frac{3+1}{x} = \\frac{4}{x} = 4$.',
+            'MULTIPLY by the LCD $x$: $4 = 4x$, so $x = 1$.',
+            'CHECK: $1 \\neq 0$ — live; the original reads $3 + 1 = 4$. Hence $x = 1$; the verifier priced the equation exactly at $x = 1$ on the live window.',
+          ],
+          answer: '$x = 1$, with the bill $x \\neq 0$.',
+        },
+        {
+          q: 'Solve $\\frac{4}{x} = x$.',
+          solution: [
+            'BILL first: $\\{0\\}$.',
+            'MULTIPLY by the LCD $x$: $4 = x^2$ — a cleared QUADRATIC, solved by chapter 4: $x = 2$ or $x = -2$.',
+            'CHECK both against the bill: neither is $0$ — both live.',
+            'Verify each in the original: $\\frac{4}{2} = 2$ and $\\frac{4}{-2} = -2$ — both members equal the candidate itself. Hence $x = \\pm 2$; the verifier priced both live roots.',
+          ],
+          answer: '$x = 2$ and $x = -2$, with the bill $x \\neq 0$.',
+        },
+      ] },
+      { level: 'L2', questions: [
+        {
+          q: 'Solve $\\frac{x+1}{x-1} = 3$.',
+          solution: [
+            'BILL first: the denominator $x - 1$ refuses $1$ — the bill is $\\{1\\}$.',
+            'MULTIPLY by the LCD $(x-1)$: $x + 1 = 3(x - 1)$.',
+            'So, expand and collect: $x + 1 = 3x - 3$, hence $4 = 2x$, hence $x = 2$.',
+            'CHECK: $2 \\notin \\{1\\}$ — live; the original reads $\\frac{3}{1} = 3$. Hence $x = 2$; the verifier priced the equation exactly at $x = 2$ on the live window.',
+          ],
+          answer: '$x = 2$, with the bill $x \\neq 1$.',
+        },
+        {
+          q: 'Solve $\\frac{2}{x+3} = \\frac{1}{x-1}$ by the cross form.',
+          solution: [
+            'BILL first: $(x+3)$ refuses $-3$ and $(x-1)$ refuses $1$ — the bill is $\\{-3, 1\\}$.',
+            'CROSS-MULTIPLY, each numerator by the other denominator: $2(x - 1) = x + 3$.',
+            'Now, collect: $2x - 2 = x + 3$, hence $x = 5$.',
+            'CHECK: $5 \\notin \\{-3, 1\\}$ — live; the original reads $\\frac{2}{8} = \\frac{1}{4}$ — both members $\\frac{1}{4}$. Hence $x = 5$; the verifier priced the cross form exactly at $x = 5$.',
+          ],
+          answer: '$x = 5$, with the bill $x \\neq -3, 1$.',
+        },
+        {
+          q: 'Solve $\\frac{1}{x-2} + 1 = \\frac{3}{x-2}$.',
+          solution: [
+            'BILL first: $\\{2\\}$ — both fractions carry $(x - 2)$.',
+            'MULTIPLY by the LCD $(x-2)$: $1 + (x - 2) = 3$.',
+            'So, collect: $x - 1 = 3$, hence $x = 4$.',
+            'CHECK: $4 \\notin \\{2\\}$ — live; the original reads $\\frac{1}{2} + 1 = \\frac{3}{2}$ — both members $\\frac{3}{2}$. Hence $x = 4$; the verifier priced the equation exactly at $x = 4$.',
+          ],
+          answer: '$x = 4$, with the bill $x \\neq 2$.',
+        },
+      ] },
+      { level: 'L3', questions: [
+        {
+          q: 'Solve $\\frac{x}{x-2} = \\frac{2}{x-2} + 1$.',
+          solution: [
+            'BILL first: $\\{2\\}$.',
+            'MULTIPLY by the LCD $(x-2)$: $x = 2 + (x - 2)$.',
+            'Now, collect: the right member is $x$ itself — the cleared equation collapses to $0 = 0$: an IDENTITY, not an equation in $x$.',
+            'So, every LIVE point solves it: the verifier priced the deficit at exactly $0$ on all $10$ live window points — the left side rewrites as $\\frac{x-2}{x-2} = 1$ for $x \\neq 2$.',
+            'CHECK the bill: at $x = 2$ the original is undefined, so $2$ is refused from the all-verdict. Hence the solution set is every real $x \\neq 2$ — the identity verdict.',
+          ],
+          answer: 'Every real $x \\neq 2$ — the cleared equation is an identity, and the bill removes its single point.',
+        },
+        {
+          q: 'Solve $\\frac{1}{x-3} + \\frac{1}{x+3} = \\frac{6}{x^2-9}$.',
+          solution: [
+            'FACTOR: $x^2 - 9 = (x-3)(x+3)$ — the LCD is $(x-3)(x+3)$, and the bill is $\\{-3, 3\\}$.',
+            'MULTIPLY through: $(x + 3) + (x - 3) = 6$.',
+            'So, collect: $2x = 6$, hence $x = 3$ — the ONLY candidate.',
+            'CHECK: $3 \\in \\{-3, 3\\}$ — REFUSED. The multiplication manufactured the candidate at the exact point the denominators die; the verifier priced the original’s deficit as $\\frac{2}{x+3}$-shaped — never zero on the live domain.',
+            'Hence the solution set is EMPTY: a full verdict, not a failed solve.',
+          ],
+          answer: 'No solution — the only candidate $x = 3$ is refused by the bill $\\{-3, 3\\}$ (extraneous).',
+        },
+        {
+          q: 'Solve $\\frac{x}{x+1} - \\frac{3}{x-1} = \\frac{2}{x^2-1}$.',
+          solution: [
+            'FACTOR: the LCD is $(x+1)(x-1)$, and the bill is $\\{-1, 1\\}$.',
+            'MULTIPLY through: $x(x - 1) - 3(x + 1) = 2$.',
+            'Now, expand and collect: $x^2 - x - 3x - 3 = 2$, hence $x^2 - 4x - 5 = 0$, factoring as $(x - 5)(x + 1) = 0$ — candidates $x = 5$ and $x = -1$.',
+            'CHECK each: $5$ is live against the bill; $-1 \\in \\{-1, 1\\}$ — REFUSED (the factor $x + 1$ dies there).',
+            'Verify the survivor: $\\frac{5}{6} - \\frac{3}{4} = \\frac{10 - 9}{12} = \\frac{1}{12}$ and $\\frac{2}{24} = \\frac{1}{12}$ — both members agree. Hence $x = 5$, one extraneous candidate discarded.',
+          ],
+          answer: '$x = 5$, with $x = -1$ an extraneous root refused by the bill $\\{-1, 1\\}$.',
+        },
+      ] },
+      { level: 'L4', questions: [
+        {
+          q: 'Solve $\\frac{x^2-4}{x-2} = x + 2$.',
+          solution: [
+            'BILL first: $(x - 2)$ refuses $2$ — the bill is $\\{2\\}$.',
+            'The left side is 8.1’s hole: $\\frac{(x-2)(x+2)}{x-2} = x + 2$ for $x \\neq 2$ — simplify BEFORE clearing.',
+            'So, the equation reads $x + 2 = x + 2$ on the live domain — an identity; the cleared form collapses to $0 = 0$.',
+            'The verifier priced the hole identity on all $10$ live window points, and at $x = 2$ the original reads $\\frac{0}{0}$ — refused.',
+            'Hence the solution set is every real $x \\neq 2$: the third verdict, one scooped point.',
+          ],
+          answer: 'Every real $x \\neq 2$ — the hole identity turns the equation into a tautology off the bill.',
+        },
+        {
+          q: 'Solve $\\frac{3}{x+2} - \\frac{1}{x-1} = 1$.',
+          solution: [
+            'BILL first: $\\{-2, 1\\}$.',
+            'MULTIPLY by the LCD $(x+2)(x-1)$: $3(x - 1) - (x + 2) = (x + 2)(x - 1)$.',
+            'Now, expand both floors: $2x - 5 = x^2 + x - 2$, hence $x^2 - x + 3 = 0$.',
+            'The cleared quadratic has discriminant $\\Delta = (-1)^2 - 4 \\cdot 1 \\cdot 3 = -11 < 0$ — chapter 4’s factoring finds no roots, and the verifier confirmed the quadratic never vanishes on the window: nothing to check.',
+            'Hence the solution set is EMPTY — the cleared equation itself is empty over the reals, a different route to NONE than the refused candidate.',
+          ],
+          answer: 'No solution — the cleared equation $x^2 - x + 3 = 0$ has discriminant $-11$ and no real roots.',
+        },
+      ] },
+      { level: 'L5', questions: [
+        {
+          q: 'Worker A alone finishes a job in $x$ days and worker B alone in $x + 3$ days; together they finish it in $2$ days. Find $x$.',
+          solution: [
+            'Rates add: $\\frac{1}{x} + \\frac{1}{x+3} = \\frac{1}{2}$ — fractional, with the bill $\\{-3, 0\\}$ read first.',
+            'MULTIPLY by the LCD $2x(x+3)$: $2(x + 3) + 2x = x(x + 3)$.',
+            'So, expand: $4x + 6 = x^2 + 3x$, hence $x^2 - x - 6 = 0$, factoring as $(x - 3)(x + 2) = 0$ — candidates $x = 3$ and $x = -2$.',
+            'CHECK against the bill: neither candidate is $-3$ or $0$ — the bill refuses NEITHER; the verifier even priced $\\frac{1}{-2} + \\frac{1}{1} = \\frac{1}{2}$: the equation is TRUE at $x = -2$.',
+            'CHECK the habitat: days must be POSITIVE — $x = -2$ is rejected by the situation, not by the bill (a task cannot take $-2$ days).',
+            'Verify the survivor: $x = 3$ gives B the time $6$, and $\\frac{1}{3} + \\frac{1}{6} = \\frac{1}{2}$ — together $2$ days. Hence $x = 3$: two filters, two different refusals.',
+          ],
+          answer: '$x = 3$ (B takes $6$ days); the root $x = -2$ passes the bill and is rejected by the habitat.',
+        },
+        {
+          q: 'A train covers $300$ km at a steady $v$ km/h. At $10$ km/h faster the trip would take $1$ hour less. Find $v$.',
+          solution: [
+            'Time is distance over speed: $\\frac{300}{v} - \\frac{300}{v+10} = 1$ — fractional, with the bill $\\{-10, 0\\}$ read first.',
+            'MULTIPLY by the LCD $v(v+10)$: $300(v + 10) - 300v = v(v + 10)$.',
+            'So, expand: $3000 = v^2 + 10v$, hence $v^2 + 10v - 3000 = 0$, factoring as $(v - 50)(v + 60) = 0$ — candidates $v = 50$ and $v = -60$.',
+            'CHECK against the bill: neither candidate is $-10$ or $0$ — the bill refuses NEITHER; the verifier priced $\\frac{300}{-60} - \\frac{300}{-50} = -5 + 6 = 1$: the equation is TRUE at $v = -60$.',
+            'CHECK the habitat: a speed is POSITIVE — $v = -60$ is rejected by the situation (no train runs at it).',
+            'Verify the survivor: $\\frac{300}{50} - \\frac{300}{60} = 6 - 5 = 1$ — exactly one hour saved. Hence $v = 50$ km/h.',
+          ],
+          answer: '$v = 50$ km/h; the root $v = -60$ passes the bill and is rejected by the habitat.',
+        },
+      ] },
+      { level: 'L6', questions: [
+        {
+          q: 'Prove the clearing law — solutions$(E) = \\text{roots}(L \\cdot E) \\setminus B$, with $L$ the LCD and $B$ the compound bill — and price the classic $\\frac{x}{x-3} = \\frac{3}{x-3} + 2$ on both sides of the theorem.',
+          solution: [
+            'Soundness: let $x_0$ solve $E$ — both members equal and $x_0 \\notin B$. Multiplying equal numbers by the same real number $L(x_0)$ keeps them equal (5.1’s balance law), so $L(x_0) \\cdot E(x_0) = 0$: every solution of $E$ is a root of the cleared equation. No root is LOST.',
+            'The live converse: let $x_0 \\notin B$ be a root of $L \\cdot E = 0$. Every denominator is alive at $x_0$, and the LCD is a product of those living factors, so $L(x_0) \\neq 0$; dividing by the nonzero real $L(x_0)$ is lawful (ANS 7.2), giving $E(x_0) = 0$. The converse holds OFF the bill.',
+            'At the bill the converse dies: at $x_0 \\in B$ some denominator is zero, so $E(x_0)$ does not exist — the original cannot be true there. If the cleared equation vanishes at $x_0$, that vanishing is the multiplication building $0 = 0$ out of an undefined claim: 5.1’s forbidden move, met in the wild.',
+            'Hence solutions$(E) = \\{x : L(x) \\cdot E(x) = 0\\} \\setminus B$: roots are ADDED by clearing, never destroyed — the check at the end is the exact inverse of the one non-invertible step.',
+            'Price the classic: the bill is $\\{3\\}$, the cleared equation $-x + 3 = 0$ has the root $3$, and $3 \\in B$ — so the theorem’s verdict is $\\varnothing$. The verifier priced the soundness side on all $10$ live points (the deficit reads $-1$: the original never holds) and the mechanism at $x = 3$ itself (cleared form $0$, original undefined). The theorem, the pipeline and the ledger agree.',
+          ],
+          answer: 'The clearing law holds because multiplication by the live LCD is invertible exactly off the bill; the classic prices it: one manufactured candidate, refused, solution set empty.',
+        },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter08: Chapter = {
   number: 8,
   slug: 'algebraic-fractions',
   title: 'Algebraic Fractions',
   summary:
     'FM’s fraction laws, now carrying letters: rational expressions simplified by factoring with the excluded values kept honest (division by zero excluded — the discipline ANS 9.3 made central), addition and subtraction through the LCD of polynomials, and fractional equations solved with extraneous roots caught by the exclusion check at the end, not ignored.',
-  status: 'in-progress',
-  lessons: [lesson81, lesson82],
+  status: 'complete',
+  lessons: [lesson81, lesson82, lesson83],
 }

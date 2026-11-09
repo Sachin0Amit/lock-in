@@ -803,7 +803,7 @@ console.log('[F] 8.1 authored: identity, structure census, quiz keys, figure pla
 
 {
   const lesson = chapter08.lessons[0]
-  ok(chapter08.lessons.length === 2, 'F: chapter 8 carries the two authored lessons of run 81 (got ' + chapter08.lessons.length + ')')
+  ok(chapter08.lessons.length === 3, 'F: chapter 8 now carries its three authored lessons — 8.1 + 8.2 of run 81, 8.3 of run 82 (got ' + chapter08.lessons.length + ')')
   ok(lesson.id === 'al-rational-expressions-simplify-first', 'F: lesson id al-rational-expressions-simplify-first')
   ok(lesson.number === '8.1', 'F: lesson number 8.1')
   ok(lesson.title === 'Rational Expressions: Simplify First', 'F: lesson title matches the planned title')
@@ -986,7 +986,7 @@ console.log('[G] 8.2 authored: identity, structure census, quiz keys, figure pla
 
 {
   const lesson = chapter08.lessons[1]
-  ok(chapter08.lessons.length === 2, 'G: chapter 8 carries exactly the two authored lessons of run 81 (got ' + chapter08.lessons.length + ')')
+  ok(chapter08.lessons.length === 3, 'G: chapter 8 now carries its three authored lessons — 8.2 was run 81’s second, 8.3 landed at run 82 (got ' + chapter08.lessons.length + ')')
   ok(lesson.id === 'al-operating-on-algebraic-fractions', 'G: lesson id al-operating-on-algebraic-fractions')
   ok(lesson.number === '8.2', 'G: lesson number 8.2')
   ok(lesson.title === 'Operating on Algebraic Fractions', 'G: lesson title matches the planned title')
@@ -1138,7 +1138,634 @@ console.log('[G] 8.2 authored: identity, structure census, quiz keys, figure pla
   console.log('[G] the authored 8.2: identity, structure census, quiz keys, figure plans, scans — all green')
 }
 
-console.log(`\nverify-book3-ch08 TOTAL (sections A-G): ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (H) the fractional-equation engines of lesson 8.3 (run 82, pre-write)*/
+/* ------------------------------------------------------------------ */
+
+console.log('[H] 8.3 engines: compound bills, cross form, LCD clearing, extraneous roots, zero filter, work-rate')
+
+// H-i — the compound bill + the cross-form engine
+{
+  // the bill engine: the compound bill is the union of the denominators' zero sets
+  ok(sameSet(denZeros(P(-1, 1)), [1n]) && sameSet(denZeros(P(1, 1)), [-1n]), 'H-i bill engine: the zeros of (x−1) and (x+1) pinned 1 and −1')
+  ok(
+    sameSet([...denZeros(P(-1, 1)), ...denZeros(P(1, 1))].sort((a, b) => (a < b ? -1 : 1)), [-1n, 1n]),
+    'H-i the compound bill of the cross-form exhibit is {−1, 1} (the union, duplicates collapsed)'
+  )
+  // pinned cross-form: 3/(x−1) = 5/(x+1)
+  {
+    // the cross identity as polynomials: 3(x+1) − 5(x−1) = −2x + 8
+    ok(pEq(pSub(pMul(P(3), P(1, 1)), pMul(P(5), P(-1, 1))), P(8, -2)), 'H-i cross identity: 3(x+1) − 5(x−1) = −2x + 8 exactly')
+    // the root, by scan and by structure
+    ok(sameSet(numZeros(P(8, -2)), [4n]), 'H-i the cross form 3(x+1) = 5(x−1) has the single window root x = 4')
+    // the ⟺ is pointwise on the live domain: original equality ⟺ cross equality at EVERY live point
+    let agree = 0
+    let holds = 0
+    for (const xv of W) {
+      const X = fr(xv)
+      if (xv === 1n || xv === -1n) continue
+      const orig = fEq(fDiv(fr(3n), pe(P(-1, 1), X)), fDiv(fr(5n), pe(P(1, 1), X)))
+      const cross = fEq(fMul(fr(3n), pe(P(1, 1), X)), fMul(fr(5n), pe(P(-1, 1), X)))
+      ok(orig === cross, 'H-i cross-form ⟺ agrees at x = ' + xv)
+      agree++
+      if (orig) holds++
+    }
+    ok(agree === 9, 'H-i the ⟺ priced at all 9 live points, bill {−1, 1} (got ' + agree + ')')
+    ok(holds === 1, 'H-i the cross-form equality HOLDS at exactly one live point — the solution x = 4 (got ' + holds + ')')
+    ok(fEq(fDiv(fr(3n), fr(3n)), fDiv(fr(5n), fr(5n))), 'H-i priced at x = 4: 3/3 = 5/5 = 1 — the solution checks in the ORIGINAL')
+  }
+  // the empty cross-form: 2/(x+2) = x/(x−2) → 2(x−2) = x(x+2) → x² = −4 → no real roots
+  {
+    ok(pEq(pSub(pMul(P(2), P(-2, 1)), pMul(P(0, 1), P(2, 1))), P(-4, 0, -1)), 'H-i the empty cross: 2(x−2) − x(x+2) = −x² − 4 exactly')
+    ok(sameSet(numZeros(P(-4, 0, -1)), []), 'H-i the cleared polynomial −x² − 4 has NO window roots')
+    let positive = true
+    for (const xv of W) if (fIsZero(fAdd(fMul(pe(P(0, 1), fr(xv)), pe(P(0, 1), fr(xv))), fr(4n)))) positive = false
+    ok(positive, 'H-i x² + 4 > 0 at every window point — the parabola never touches zero (verdict ∅ is honest)')
+    ok(sameSet([...denZeros(P(2, 1)), ...denZeros(P(-2, 1))].sort((a, b) => (a < b ? -1 : 1)), [-2n, 2n]), 'H-i the bill of the empty cross is {−2, 2}')
+    console.log('  H-i cross-form engine: 4 = the only root of 3/(x−1)=5/(x+1); 2/(x+2)=x/(x−2) empty over the reals')
+  }
+}
+
+// H-ii — the LCD-clearing engine and the extraneous-root engine
+{
+  // exhibit 1 (the classic): x/(x−3) = 3/(x−3) + 2
+  {
+    const lhs = (X: Frac) => fDiv(pe(P(0, 1), X), pe(P(-3, 1), X))
+    const rhs = (X: Frac) => fAdd(fDiv(fr(3n), pe(P(-3, 1), X)), fr(2n))
+    // the cleared equation: x = 3 + 2(x−3) → x − 3 − 2(x−3) = −x + 3
+    ok(pEq(pSub(P(0, 1), pAdd(P(3), pMul(P(2), P(-3, 1)))), P(3, -1)), 'H-ii the classic: cleared form x − 3 − 2(x−3) = −x + 3 exactly')
+    ok(sameSet(numZeros(P(3, -1)), [3n]), 'H-ii the cleared equation has the single root x = 3 — which sits IN the bill {3}')
+    // the original never vanishes on the live domain: LHS − RHS = −1 identically there
+    let deficit = 0
+    for (const xv of W) {
+      const X = fr(xv)
+      if (xv === 3n) continue
+      ok(fEq(fSub(lhs(X), rhs(X)), fr(-1n)), 'H-ii the classic: original deficit = −1 (never zero) at x = ' + xv)
+      deficit++
+    }
+    ok(deficit === 10, 'H-ii the classic priced on all 10 live points (got ' + deficit + ')')
+    // the mechanism: the cleared equation vanishes AT the bill point where the original is undefined
+    ok(fIsZero(pe(P(3, -1), fr(3n))) && fIsZero(pe(P(-3, 1), fr(3n))), 'H-ii the mechanism: cleared(3) = 0 while the denominator (x−3) dies at 3 — the multiplication manufactured the candidate')
+    ok(sameSet(numZeros(P(3, -1)).filter((r) => r !== 3n), []), 'H-ii the verdict after the bill filter: the solution set of the classic is EMPTY')
+    console.log('  H-ii classic: cleared root {3} ⊂ bill {3} → ∅; original never zero live; mechanism priced')
+  }
+  // exhibit 2 (two candidates, one refused): x/(x−1) − 2/(x+1) = 2/(x²−1)
+  {
+    const lcd = pMul(P(-1, 1), P(1, 1)) // (x−1)(x+1)
+    // cleared: x(x+1) − 2(x−1) − 2 = x² − x = x(x−1)
+    const cleared = pSub(pSub(pMul(P(0, 1), P(1, 1)), pMul(P(2), P(-1, 1))), P(2))
+    ok(pEq(cleared, P(0, -1, 1)), 'H-ii two-candidate exhibit: cleared polynomial is x² − x exactly')
+    ok(pEq(P(0, -1, 1), pMul(P(0, 1), P(-1, 1))), 'H-ii x² − x = x(x−1) factors exactly')
+    ok(sameSet(numZeros(P(0, -1, 1)), [0n, 1n]), 'H-ii the cleared equation has window roots {0, 1}')
+    ok(sameSet(denZeros(lcd), [-1n, 1n]), 'H-ii the compound bill is {−1, 1}')
+    // the filter: live roots = cleared roots minus the bill
+    const live = numZeros(P(0, -1, 1)).filter((r) => r !== 1n && r !== -1n)
+    ok(sameSet(live, [0n]), 'H-ii the filter keeps x = 0 and refuses x = 1 — the solution set is {0}')
+    // pointwise agreement: original = 0 ⟺ cleared = 0 at EVERY live point (roots added, never destroyed)
+    {
+      const origZero = (X: Frac) =>
+        fIsZero(fSub(fSub(fDiv(pe(P(0, 1), X), pe(P(-1, 1), X)), fDiv(fr(2n), pe(P(1, 1), X))), fDiv(fr(2n), pe(lcd, X))))
+      const clearedZero = (X: Frac) => fIsZero(pe(P(0, -1, 1), X))
+      let agree = 0
+      for (const xv of W) {
+        const X = fr(xv)
+        if (xv === 1n || xv === -1n) continue
+        ok(origZero(X) === clearedZero(X), 'H-ii zero-set agreement (orig ⟺ cleared) at x = ' + xv)
+        agree++
+      }
+      ok(agree === 9, 'H-ii the ⟺ priced at all 9 live points (got ' + agree + ')')
+      ok(origZero(fr(0n)), 'H-ii priced at x = 0: 0/(−1) − 2/1 − 2/(−1) = −2 + 2 = 0 — the surviving solution checks in the ORIGINAL')
+      ok(fIsZero(pe(P(0, -1, 1), fr(1n))) && fIsZero(pe(P(-1, 1), fr(1n))), 'H-ii the extraneous candidate: cleared(1) = 0 while (x−1) dies at 1 — refused')
+      ok(fIsZero(fAdd(pe(P(0, -1, 1), fr(5n)), fr(0n))) === false && !fIsZero(pe(P(0, -1, 1), fr(5n))), 'H-ii sanity: x = 5 is not a root of the cleared equation')
+    }
+    console.log('  H-ii two-candidate: roots {0, 1}, bill {±1} → {0}; the ⟺ priced at 9 live points')
+  }
+  // exhibit 3 (the identity verdict): (x²−9)/(x+3) = x − 3
+  {
+    ok(pEq(pSub(P(-9, 0, 1), pMul(P(-3, 1), P(3, 1))), P(0)), 'H-ii the identity exhibit: (x²−9) − (x−3)(x+3) = 0 as a polynomial identity — the cleared equation collapses to 0 = 0')
+    let agree = 0
+    for (const xv of W) {
+      const X = fr(xv)
+      if (xv === -3n) continue
+      ok(fEq(fDiv(pe(P(-9, 0, 1), X), pe(P(3, 1), X)), pe(P(-3, 1), X)), 'H-ii the identity holds at x = ' + xv)
+      agree++
+    }
+    ok(agree === 10, 'H-ii the identity priced at all 10 live points, bill {−3} (got ' + agree + ')')
+    ok(fIsZero(pe(P(3, 1), fr(-3n))), 'H-ii at the bill point x = −3 the original reads 0/0 — undefined, so −3 is refused from the all-verdict')
+    console.log('  H-ii identity verdict: every x ≠ −3 solves — 5.3’s third verdict returns for equations')
+  }
+}
+
+// H-iii — the zero-fraction filter (8.1’s seed grown into an equation-solving tool)
+{
+  // seed re-priced: (x²−9)/(x−3) = 0 → numerator zeros {−3, 3}, denominator zeros {3} → verdict {−3}
+  ok(sameSet(numZeros(P(-9, 0, 1)), [-3n, 3n]), 'H-iii seed: numerator zeros {−3, 3}')
+  ok(sameSet(denZeros(P(-3, 1)), [3n]), 'H-iii seed: denominator zeros {3}')
+  const seedVerdict = numZeros(P(-9, 0, 1)).filter((r) => !denZeros(P(-3, 1)).some((d) => d === r))
+  ok(sameSet(seedVerdict, [-3n]), 'H-iii seed verdict: (x²−9)/(x−3) = 0 exactly at x = −3 — the run-81 seed grown up')
+  ok(fIsZero(pe(P(-9, 0, 1), fr(-3n))) && !fIsZero(pe(P(-3, 1), fr(-3n))), 'H-iii priced at x = −3: numerator dead, denominator alive')
+  // new: x(x−4)/(x+2) = 0 → {0, 4}
+  const num2 = pMul(P(0, 1), P(-4, 1))
+  ok(sameSet(numZeros(num2), [0n, 4n]), 'H-iii new: x(x−4) has numerator zeros {0, 4}')
+  ok(sameSet(denZeros(P(2, 1)), [-2n]), 'H-iii new: the denominator (x+2) refuses −2')
+  const v2 = numZeros(num2).filter((r) => r !== -2n)
+  ok(sameSet(v2, [0n, 4n]), 'H-iii new verdict: x(x−4)/(x+2) = 0 at {0, 4} — both priced by the filter')
+  ok(fIsZero(fDiv(pe(num2, fr(0n)), pe(P(2, 1), fr(0n)))) && fIsZero(fDiv(pe(num2, fr(4n)), pe(P(2, 1), fr(4n)))), 'H-iii priced at 0 and 4: the originals evaluate to exactly 0')
+  // the trap: (x−1)(x−2)/((x−1)(x+3)) = 0 — the numerator-zero candidate 1 is ALSO a denominator zero
+  const numT = pMul(P(-1, 1), P(-2, 1))
+  const denT = pMul(P(-1, 1), P(3, 1))
+  ok(sameSet(numZeros(numT), [1n, 2n]), 'H-iii trap: numerator zeros {1, 2}')
+  ok(sameSet(denZeros(denT), [-3n, 1n]), 'H-iii trap: denominator zeros {−3, 1} — the candidate 1 is dead on BOTH floors')
+  const vT = numZeros(numT).filter((r) => !denZeros(denT).some((d) => d === r))
+  ok(sameSet(vT, [2n]), 'H-iii trap verdict: the filter keeps only x = 2 — P = 0 AND Q ≠ 0, exactly as 8.1 stated it')
+  ok(fIsZero(pe(numT, fr(1n))) && fIsZero(pe(denT, fr(1n))), 'H-iii priced at x = 1: the original reads 0/0 — undefined, not zero')
+  ok(fIsZero(fDiv(pe(numT, fr(2n)), pe(denT, fr(2n)))), 'H-iii priced at x = 2: the original evaluates to exactly 0')
+  console.log('  H-iii zero-fraction filter: seed {−3}, new {0, 4}, trap keeps {2} and kills the 0/0 candidate 1')
+}
+
+// H-iv — the work-rate and speed exhibits (exact Frac; the habitat vs the bill)
+{
+  // vats: A fills in 3 h, B in 6 h → rates 1/3 + 1/6 = 1/2 → together 2 h
+  ok(fEq(fAdd(fDiv(fr(1n), fr(3n)), fDiv(fr(1n), fr(6n))), fr(1n, 2n)), 'H-iv vats: 1/3 + 1/6 = 1/2 exactly')
+  ok(fEq(fDiv(fMul(fr(3n), fr(6n)), fAdd(fr(3n), fr(6n))), fr(2n)), 'H-iv vats: t = ab/(a+b) = 18/9 = 2 h — the template lands')
+  ok(fEq(fDiv(fr(1n), fr(2n)), fAdd(fDiv(fr(1n), fr(3n)), fDiv(fr(1n), fr(6n)))), 'H-iv vats priced in the original: 1/2 = 1/3 + 1/6 at t = 2')
+  // the x-hunt: A takes x days, B takes x+3 days, together 2 days → 1/x + 1/(x+3) = 1/2
+  {
+    // cleared: 2(x+3) + 2x = x(x+3) → 4x + 6 = x² + 3x → x² − x − 6 = 0 = (x−3)(x+2)
+    ok(pEq(pSub(pAdd(pMul(P(2), P(3, 1)), pMul(P(2), P(0, 1))), pMul(P(0, 1), P(3, 1))), P(6, 1, -1)), 'H-iv x-hunt: cleared form 2(x+3) + 2x − x(x+3) = −x² + x + 6, i.e. x² − x − 6 = 0')
+    ok(pEq(P(-6, -1, 1), pMul(P(-3, 1), P(2, 1))), 'H-iv x-hunt: x² − x − 6 = (x−3)(x+2) factors exactly')
+    ok(sameSet(numZeros(P(-6, -1, 1)), [-2n, 3n]), 'H-iv x-hunt: the cleared roots are {−2, 3}')
+    ok(sameSet([...denZeros(P(0, 1)), ...denZeros(P(3, 1))].sort((a, b) => (a < b ? -1 : 1)), [-3n, 0n]), 'H-iv x-hunt: the compound bill is {−3, 0} — NEITHER cleared root is refused by it')
+    // the habitat, not the bill, rejects −2 — and the equation itself is TRUE there
+    ok(fEq(fAdd(fDiv(fr(1n), fr(-2n)), fDiv(fr(1n), fr(1n))), fr(1n, 2n)), 'H-iv x-hunt priced at x = −2: 1/(−2) + 1/1 = 1/2 — a mathematically LIVE root that the habitat (days > 0) rejects')
+    ok(fEq(fAdd(fDiv(fr(1n), fr(3n)), fDiv(fr(1n), fr(6n))), fr(1n, 2n)), 'H-iv x-hunt priced at x = 3: 1/3 + 1/6 = 1/2 — the surviving solution checks in the original')
+    console.log('  H-iv x-hunt: roots {−2, 3}, bill {−3, 0} refuses neither, the HABITAT rejects −2 — two distinct filters')
+  }
+  // the train: 300 km at v km/h; 10 km/h faster saves 1 h → 300/v − 300/(v+10) = 1
+  {
+    // cleared: 300(v+10) − 300v = v(v+10) → 3000 = v² + 10v → v² + 10v − 3000 = 0 = (v+60)(v−50)
+    ok(pEq(pSub(pSub(pMul(P(300), P(10, 1)), pMul(P(300), P(0, 1))), pMul(P(0, 1), P(10, 1))), P(3000, -10, -1)), 'H-iv train: cleared form 300(v+10) − 300v − v(v+10) = −v² − 10v + 3000 = 0')
+    ok(pEq(P(-3000, 10, 1), pMul(P(-50, 1), P(60, 1))), 'H-iv train: v² + 10v − 3000 = (v−50)(v+60) factors exactly')
+    ok(fIsZero(pe(P(-3000, 10, 1), fr(50n))) && fIsZero(pe(P(-3000, 10, 1), fr(-60n))), 'H-iv train: the cleared roots are 50 and −60 — −60 lies outside the census window, pinned by direct evaluation')
+    ok(sameSet(numZeros(P(-3000, 10, 1)), []), 'H-iv train: BOTH cleared roots (−60 and 50) lie outside the census window {−5..5} — the census sees none; direct evaluation above pins them')
+    ok(sameSet(denZeros(P(0, 1)), [0n]) && fIsZero(pe(P(10, 1), fr(-10n))) && !fIsZero(pe(P(10, 1), fr(-5n))), 'H-iv train: the compound bill is {−10, 0} — the zero of v + 10 also lies outside the window, pinned by direct evaluation (the run-81 blind-spot class again)')
+    ok(fEq(fSub(fDiv(fr(300n), fr(-60n)), fDiv(fr(300n), fr(-50n))), fr(1n)), 'H-iv train priced at v = −60: 300/(−60) − 300/(−50) = −5 + 6 = 1 — live mathematically, rejected by the habitat (speed > 0)')
+    ok(fEq(fSub(fDiv(fr(300n), fr(50n)), fDiv(fr(300n), fr(60n))), fr(1n)), 'H-iv train priced at v = 50: 300/50 − 300/60 = 6 − 5 = 1 — the surviving solution checks in the original')
+    console.log('  H-iv train: roots {−60, 50}, bill {−10, 0} refuses neither, the HABITAT rejects −60')
+  }
+}
+
+console.log('[H] 8.3 engines complete: cross form, clearing, extraneous roots, zero filter, work-rate — all priced')
+
+/* ------------------------------------------------------------------ */
+/* (I) the pinned computations of lesson 8.3 + figure plans (pre-write) */
+/* ------------------------------------------------------------------ */
+
+console.log('[I] 8.3 pinned: quiz keys [1, 1, 2, 3, 1] + 14 exercises + figure plans')
+
+{
+  // quiz battery: every key and distractor priced
+  // Q1 x/(x−3) = 3/(x−3) + 2 → key 1 = "no solution" (distractor x = 3 is the extraneous candidate;
+  //    x = 0 is the mis-expansion x = 3 + 2x − 3; "every x ≠ 3" is the identity misread)
+  ok(fEq(fSub(fDiv(fr(0n), fr(-3n)), fAdd(fDiv(fr(3n), fr(-3n)), fr(2n))), fr(-1n)), 'I Q1 priced at x = 0: the mis-expansion candidate fails the original (deficit −1)')
+  ok(fIsZero(pe(P(3, -1), fr(3n))) && fIsZero(pe(P(-3, 1), fr(3n))), 'I Q1 the distractor x = 3 is exactly the extraneous candidate (H-ii)')
+  // Q2 3/(x−1) = 5/(x+1) → key 1 = x = 4 (distractor −4 is the swapped cross 3(x−1) = 5(x+1))
+  ok(sameSet(numZeros(pSub(pMul(P(3), P(-1, 1)), pMul(P(5), P(1, 1)))), [-4n]), 'I Q2 the swapped-cross distractor x = −4 solves 3(x−1) = 5(x+1) — a different equation')
+  ok(!fEq(fDiv(fr(3n), pe(P(-1, 1), fr(-4n))), fDiv(fr(5n), pe(P(1, 1), fr(-4n)))), 'I Q2 priced at x = −4: 3/(−5) ≠ 5/(−3) — the swapped cross fails the original')
+  // Q3 x(x−4)/(x+2) = 0 → key 2 = {0, 4} (distractor {0, 4, −2} counts the bill point as a solution;
+  //    the single-point options are incomplete because BOTH numerator zeros survive the filter)
+  ok(fIsZero(fDiv(pe(pMul(P(0, 1), P(-4, 1)), fr(0n)), pe(P(2, 1), fr(0n)))) && fIsZero(fDiv(pe(pMul(P(0, 1), P(-4, 1)), fr(4n)), pe(P(2, 1), fr(4n)))), 'I Q3 both numerator zeros survive the filter — the single-point options 0 and 1 are each incomplete')
+  ok(fIsZero(pe(P(2, 1), fr(-2n))) && !fIsZero(pe(pMul(P(0, 1), P(-4, 1)), fr(-2n))), 'I Q3 at x = −2 the DENOMINATOR dies (numerator reads 12 ≠ 0) — refused, never a solution')
+  // Q4 work-rate 3 h + 6 h → key 3 = 2 h (4.5 the average trap, 9 the times-added trap, 1.5 half-the-fastest)
+  ok(fEq(fAdd(fDiv(fr(3n), fr(2n)), fr(0n)), fr(3n, 2n)) && !fEq(fr(9n, 2n), fr(2n)), 'I Q4 the average trap 4.5 ≠ 2')
+  ok(!fEq(fr(9n), fr(2n)) && !fEq(fr(3n, 2n), fr(2n)), 'I Q4 the added-times trap 9 ≠ 2 and the halved-fastest 1.5 ≠ 2')
+  ok(fEq(fDiv(fMul(fr(3n), fr(6n)), fAdd(fr(3n), fr(6n))), fr(2n)), 'I Q4 the key: ab/(a+b) = 2 (H-iv)')
+  // Q5 x/(x−1) − 2/(x+1) = 2/(x²−1) → key 1 = {0} ({0,1} skips the check, {1} keeps only the refused, ∅ refuses both)
+  ok(sameSet(numZeros(P(0, -1, 1)), [0n, 1n]) && sameSet(denZeros(pMul(P(-1, 1), P(1, 1))), [-1n, 1n]), 'I Q5 the pins: candidates {0, 1}, bill {±1} (H-ii)')
+  ok(fIsZero(fSub(fSub(fDiv(fr(0n), fr(-1n)), fDiv(fr(2n), fr(1n))), fDiv(fr(2n), fr(-1n)))), 'I Q5 priced at x = 0: 0 − 2 + 2 = 0 — the key solution checks in the original')
+
+  const live = (bill: bigint[]) => W.filter((xv) => !bill.some((b) => b === xv))
+  // L1-1: 2/x = 1 → {2}, bill {0}
+  for (const xv of live([0n])) {
+    const X = fr(xv)
+    ok(fEq(fDiv(fr(2n), X), fr(1n)) === (xv === 2n), 'I L1-1: 2/x = 1 exactly at x = 2, nowhere else live (x = ' + xv + ')')
+  }
+  // L1-2: 3/x + 1/x = 4 → 4/x = 4 → {1}, bill {0}
+  for (const xv of live([0n])) {
+    const X = fr(xv)
+    ok(fEq(fAdd(fDiv(fr(3n), X), fDiv(fr(1n), X)), fr(4n)) === (xv === 1n), 'I L1-2: 3/x + 1/x = 4 exactly at x = 1 (x = ' + xv + ')')
+  }
+  // L1-3: 4/x = x → x² = 4 → {±2}, bill {0}
+  for (const xv of live([0n])) {
+    const X = fr(xv)
+    ok(fEq(fDiv(fr(4n), X), X) === (xv === 2n || xv === -2n), 'I L1-3: 4/x = x exactly at x = ±2 (x = ' + xv + ')')
+  }
+  ok(fEq(fMul(fr(2n), fr(2n)), fr(4n)) && fEq(fMul(fr(-2n), fr(-2n)), fr(4n)), 'I L1-3: x² = 4 both ways — the cleared quadratic has two live roots')
+  // L2-1: (x+1)/(x−1) = 3 → x + 1 = 3(x−1) → {2}, bill {1}
+  for (const xv of live([1n])) {
+    const X = fr(xv)
+    ok(fEq(fDiv(pe(P(1, 1), X), pe(P(-1, 1), X)), fr(3n)) === (xv === 2n), 'I L2-1: (x+1)/(x−1) = 3 exactly at x = 2 (x = ' + xv + ')')
+  }
+  ok(fEq(fDiv(pe(P(1, 1), fr(2n)), pe(P(-1, 1), fr(2n))), fr(3n)), 'I L2-1 priced at x = 2: 3/1 = 3')
+  // L2-2: 2/(x+3) = 1/(x−1) → cross 2(x−1) = x+3 → {5}, bill {−3, 1}
+  {
+    ok(sameSet(numZeros(pSub(pMul(P(2), P(-1, 1)), P(3, 1))), [5n]), 'I L2-2: the cross form 2(x−1) − (x+3) has the single root x = 5')
+    for (const xv of live([-3n, 1n])) {
+      const X = fr(xv)
+      ok(fEq(fDiv(fr(2n), pe(P(3, 1), X)), fDiv(fr(1n), pe(P(-1, 1), X))) === (xv === 5n), 'I L2-2: 2/(x+3) = 1/(x−1) exactly at x = 5 (x = ' + xv + ')')
+    }
+    ok(fEq(fDiv(fr(2n), fr(8n)), fDiv(fr(1n), fr(4n))), 'I L2-2 priced at x = 5: 2/8 = 1/4')
+  }
+  // L2-3: 1/(x−2) + 1 = 3/(x−2) → 1 + (x−2) = 3 → {4}, bill {2}
+  for (const xv of live([2n])) {
+    const X = fr(xv)
+    ok(fEq(fAdd(fDiv(fr(1n), pe(P(-2, 1), X)), fr(1n)), fDiv(fr(3n), pe(P(-2, 1), X))) === (xv === 4n), 'I L2-3: exactly at x = 4 (x = ' + xv + ')')
+  }
+  ok(fEq(fAdd(fDiv(fr(1n), fr(2n)), fr(1n)), fDiv(fr(3n), fr(2n))), 'I L2-3 priced at x = 4: 3/2 = 3/2')
+  // L3-1: x/(x−2) = 2/(x−2) + 1 → (x−2)/(x−2) = 1 — identity, verdict all x ≠ 2
+  {
+    let identity = 0
+    for (const xv of live([2n])) {
+      const X = fr(xv)
+      ok(fEq(fSub(fDiv(pe(P(0, 1), X), pe(P(-2, 1), X)), fAdd(fDiv(fr(2n), pe(P(-2, 1), X)), fr(1n))), fZero), 'I L3-1: the deficit is 0 at every live point (x = ' + xv + ')')
+      identity++
+    }
+    ok(identity === 10, 'I L3-1 the identity priced on all 10 live points (got ' + identity + ')')
+  }
+  // L3-2: 1/(x−3) + 1/(x+3) = 6/(x²−9) → (x+3) + (x−3) = 6 → x = 3 → refused → ∅
+  {
+    ok(sameSet(numZeros(P(-6, 2)), [3n]), 'I L3-2: the cleared form (x+3) + (x−3) − 6 = 2x − 6 has the single root x = 3')
+    ok(sameSet(denZeros(pMul(P(-3, 1), P(3, 1))), [-3n, 3n]), 'I L3-2: the bill is {±3} — the only candidate is refused')
+    let neverZero = true
+    for (const xv of live([-3n, 3n])) {
+      const X = fr(xv)
+      if (fIsZero(fSub(fAdd(fDiv(fr(1n), pe(P(-3, 1), X)), fDiv(fr(1n), pe(P(3, 1), X))), fDiv(fr(6n), pe(pMul(P(-3, 1), P(3, 1)), X))))) neverZero = false
+      ok(fIsZero(fSub(fAdd(fDiv(fr(1n), pe(P(-3, 1), X)), fDiv(fr(1n), pe(P(3, 1), X))), fDiv(fr(6n), pe(pMul(P(-3, 1), P(3, 1)), X)))) === false, 'I L3-2: the original is never 0 on the live domain (x = ' + xv + ')')
+    }
+    ok(neverZero, 'I L3-2 the ∅ verdict is honest — no live point satisfies the original')
+  }
+  // L3-3: x/(x+1) − 3/(x−1) = 2/(x²−1) → x(x−1) − 3(x+1) = 2 → x² − 4x − 5 = 0 = (x−5)(x+1) → {5}, −1 refused
+  {
+    ok(pEq(pSub(pSub(pMul(P(0, 1), P(-1, 1)), pMul(P(3), P(1, 1))), P(2)), P(-5, -4, 1)), 'I L3-3: cleared form x(x−1) − 3(x+1) − 2 = x² − 4x − 5 exactly')
+    ok(pEq(P(-5, -4, 1), pMul(P(-5, 1), P(1, 1))), 'I L3-3: x² − 4x − 5 = (x−5)(x+1) factors exactly')
+    ok(sameSet(numZeros(P(-5, -4, 1)), [-1n, 5n]), 'I L3-3: the cleared roots are {−1, 5}')
+    ok(sameSet(denZeros(pMul(P(1, 1), P(-1, 1))), [-1n, 1n]), 'I L3-3: the bill is {±1} — the candidate −1 is refused')
+    ok(fIsZero(fSub(fSub(fDiv(fr(5n), fr(6n)), fDiv(fr(3n), fr(4n))), fDiv(fr(2n), fr(24n)))), 'I L3-3 priced at x = 5: 5/6 − 3/4 = 1/12 and 2/24 = 1/12 — the survivor checks in the original')
+    ok(fIsZero(pe(P(1, 1), fr(-1n))), 'I L3-3 the extraneous candidate: (x+1) dies at −1 — the original is undefined there')
+  }
+  // L4-1: (x²−4)/(x−2) = x + 2 → the 8.1 hole identity → verdict all x ≠ 2
+  {
+    let identity = 0
+    for (const xv of live([2n])) {
+      const X = fr(xv)
+      ok(fEq(fDiv(pe(P(-4, 0, 1), X), pe(P(-2, 1), X)), pe(P(2, 1), X)), 'I L4-1: the hole identity holds at x = ' + xv)
+      identity++
+    }
+    ok(identity === 10, 'I L4-1 the identity priced on all 10 live points (got ' + identity + ')')
+    ok(fIsZero(pe(P(-2, 1), fr(2n))) && fIsZero(pe(P(-4, 0, 1), fr(2n))), 'I L4-1 at x = 2 the original reads 0/0 — the bill refuses it from the all-verdict')
+  }
+  // L4-2: 3/(x+2) − 1/(x−1) = 1 → 3(x−1) − (x+2) = (x+2)(x−1) → x² − x + 3 = 0, Δ = −11 → no real roots
+  {
+    ok(pEq(pSub(pSub(pMul(P(3), P(-1, 1)), P(2, 1)), pMul(P(2, 1), P(-1, 1))), P(-3, 1, -1)), 'I L4-2: cleared form 3(x−1) − (x+2) − (x+2)(x−1) = −x² + x − 3 = 0')
+    ok(!pEq(P(3, -1, 1), P(0)), 'I L4-2 sanity: x² − x + 3 is not the zero polynomial')
+    ok(sameSet(numZeros(P(3, -1, 1)), []), 'I L4-2: x² − x + 3 has NO window roots — the cleared equation is empty over the window')
+    // the honest ∅: the deficit −(x² − x + 3) never vanishes (the quadratic is positive definite, Δ = 1 − 12 = −11)
+    ok(sameSet(numZeros(P(-3, 1, -1)), []), 'I L4-2: the deficit −x² + x − 3 also never vanishes on the window')
+    let deficitChecked = 0
+    for (const xv of live([-2n, 1n])) {
+      const X = fr(xv)
+      ok(fIsZero(fSub(fSub(fDiv(fr(3n), pe(P(2, 1), X)), fDiv(fr(1n), pe(P(-1, 1), X))), fr(1n))) === false, 'I L4-2: the original never holds live (x = ' + xv + ')')
+      deficitChecked++
+    }
+    ok(deficitChecked === 9, 'I L4-2 the ∅ priced on all 9 live points (got ' + deficitChecked + ')')
+    ok(fAdd(fMul(fr(-1n), fr(-1n)), fr(-12n)).n < 0n, 'I L4-2 the discriminant: Δ = (−1)² − 4·1·3 = −11 < 0 — no real roots, exactly as the prose will say')
+  }
+  // L5-1 / L5-2 priced in H-iv (the x-hunt and the train)
+  ok(true, 'I L5-1/L5-2 anchors: the x-hunt and the train priced in H-iv')
+  // L6 anchor: the clearing theorem priced in H-ii
+  ok(true, 'I L6 anchor: the clearing theorem priced in H-ii (soundness, live converse, bill filter)')
+
+  console.log('  I pinned 8.3: quiz keys [1, 1, 2, 3, 1] with distractors priced + 14 exercises via expression trees')
+}
+
+// figure plans 8.3
+export const plan83Fig1: FigPlan = {
+  viewBox: [720, 340],
+  // [0] header, [1..5] the five pipeline stations, [6] result band, [7] caption
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 122, 150],
+    [164, 84, 122, 150],
+    [298, 84, 122, 150],
+    [432, 84, 122, 150],
+    [566, 84, 122, 150],
+    [30, 258, 660, 44],
+    [30, 314, 660, 24],
+  ],
+  groups: [[0], [1, 2, 3, 4, 5], [6], [7]],
+}
+
+export const plan83Fig2: FigPlan = {
+  viewBox: [720, 340],
+  // [0] header, [1] candidates box, [2] the bill filter, [3] pass outcome, [4] refuse outcome, [5] verdict strip, [6] caption
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 200, 150],
+    [260, 84, 200, 150],
+    [490, 84, 200, 68],
+    [490, 166, 200, 68],
+    [30, 258, 660, 44],
+    [30, 314, 660, 24],
+  ],
+  groups: [[0], [1, 2], [3, 4], [5], [6]],
+}
+
+console.log('[I] 8.3 figure plans recorded: the clearing pipeline 720×340, the check filter 720×340')
+
+/* ------------------------------------------------------------------ */
+/* (J) the authored lesson 8.3 — structure, keys, figures, scans       */
+/* ------------------------------------------------------------------ */
+
+import { chapter08 as ch08 } from '../src/data/library/books/mathematics/elementary-algebra/ch-08'
+
+console.log('[J] 8.3 authored: identity, structure census, quiz keys, figure plans, scans')
+
+{
+  const lesson = ch08.lessons[2]
+  ok(ch08.lessons.length === 3, 'J: chapter 8 carries the three authored lessons of runs 81–82 (got ' + ch08.lessons.length + ')')
+  ok(ch08.status === 'complete', 'J: chapter 8 status is complete (got ' + ch08.status + ')')
+  ok(lesson.id === 'al-fractional-equations-and-extraneous-roots', 'J: lesson id al-fractional-equations-and-extraneous-roots')
+  ok(lesson.number === '8.3', 'J: lesson number 8.3')
+  ok(lesson.title === 'Fractional Equations and Extraneous Roots', 'J: lesson title matches the planned title')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-operating-on-algebraic-fractions', 'al-solving-linear-equations', 'al-factoring-quadratic-trinomials']),
+    'J: prerequisites are 8.2 + the 5.2 pipeline + the ch-4 factoring pair'
+  )
+  ok(
+    JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math7-ch2', 'khattar-qa-4e', 'cengage-jee-style']),
+    'J: the four citation keys ride the lesson'
+  )
+  const kinds = lesson.blocks.map((b) => b.kind)
+  const countKind = (k: string) => kinds.filter((x) => x === k).length
+  ok(countKind('para') === 13, `J: thirteen paras (got ${countKind('para')})`) // 8.3 matches 8.1's thirteen-para depth
+  ok(countKind('heading') === 5, `J: five headings (got ${countKind('heading')})`)
+  ok(countKind('equation') === 2, `J: two display equations (got ${countKind('equation')})`)
+  ok(countKind('derivation') === 1, `J: one derivation (the clearing law with its clause)`)
+  ok(countKind('example') === 5, `J: five illustrations (got ${countKind('example')})`)
+  ok(countKind('table') === 1, `J: one table (the verdict ledger)`)
+  ok(countKind('figure') === 2, `J: two figures (the clearing pipeline + the check filter)`)
+  ok(countKind('formula') === 3, `J: three formula cards (got ${countKind('formula')})`)
+  ok(countKind('terms') === 1, `J: one terms block`)
+  ok(countKind('list') === 2, `J: two lists (the roman example run + the three verdicts)`)
+  ok(countKind('algorithm') === 1, `J: one algorithm block (the clearing pipeline)`)
+  ok(countKind('quiz') === 1, `J: one quiz block`)
+  ok(countKind('exercises') === 1, `J: one exercises block`)
+  const tones = lesson.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone).sort().join(',')
+  ok(tones === 'definition,definition,exam,historical,insight,warn,warn', `J: the seven callout tones (got ${tones})`)
+  {
+    const terms = lesson.blocks.find((b) => b.kind === 'terms')
+    if (terms && terms.kind === 'terms') ok(terms.items.length === 8, `J: terms block holds 8 entries (got ${terms.items.length})`)
+  }
+  // quiz keys vs the pinned battery
+  {
+    const q = lesson.blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([1, 1, 2, 3, 1]), 'J: quiz keys match the pinned [1, 1, 2, 3, 1] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'J: quiz shape + distractor pricing')
+      ok(q.items[0].options[1].includes('no solution'), 'J: quiz Q1 option 2 is the pinned empty verdict (the key 1)')
+      ok(q.items[1].options[1] === '$x = 4$', 'J: quiz Q2 option 2 is the pinned cross-form root (the key 1)')
+      ok(q.items[2].options[2].includes('x = 0$ and $x = 4$'), 'J: quiz Q3 option 3 is the pinned filter verdict (the key 2)')
+      ok(q.items[3].options[3] === '$2$ hours', 'J: quiz Q4 option 4 is the pinned joint time (the key 3)')
+      ok(q.items[4].options[1] === '$\\{0\\}$', 'J: quiz Q5 option 2 is the pinned kept root (the key 1)')
+    }
+  }
+  // exercises shape + anchors
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const counts = ex.sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'J: exercise set sizes 3/3/3/2/2/1')
+      const all = ex.sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'J: 14 exercises, Cengage chains, terminal answers')
+      ok((all[0].answer || '').includes('x = 2'), 'J: L1.1 answer carries the pinned solution 2')
+      ok((all[2].answer || '').includes('-2'), 'J: L1.3 answer carries the pinned ±2 roots')
+      ok((all[4].answer || '').includes('x = 5'), 'J: L2.2 answer carries the pinned cross-form 5')
+      ok((all[6].answer || '').includes('x \\neq 2'), 'J: L3.1 answer carries the pinned identity verdict')
+      ok((all[8].answer || '').includes('extraneous'), 'J: L3.3 answer carries the pinned extraneous reading')
+      ok((all[10].answer || '').includes('-11'), 'J: L4.2 answer carries the pinned discriminant −11')
+      ok((all[11].answer || '').includes('habitat'), 'J: L5.1 answer carries the pinned habitat reading')
+      ok((all[12].answer || '').includes('50'), 'J: L5.2 answer carries the pinned speed 50')
+      ok((all[13].answer || '').includes('clearing law'), 'J: L6 answer carries the clearing-law reading')
+    }
+  }
+  // figure geometry vs the pinned plans
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'J: two figures in 8.3 (the clearing pipeline + the check filter)')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === plan83Fig1.rects.length, 'J: clearing pipeline rect census ' + r0.length + ' = plan ' + plan83Fig1.rects.length)
+      ok(canon(r0) === canon(plan83Fig1.rects), 'J: clearing pipeline rects match the pinned plan exactly')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === plan83Fig2.rects.length, 'J: check filter rect census ' + r1.length + ' = plan ' + plan83Fig2.rects.length)
+      ok(canon(r1) === canon(plan83Fig2.rects), 'J: check filter rects match the pinned plan exactly')
+      for (const g of plan83Fig1.groups) {
+        const rs = g.map((i) => plan83Fig1.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: clearing pipeline group [' + g.join(',') + '] pairwise disjoint')
+      }
+      for (const g of plan83Fig2.groups) {
+        const rs = g.map((i) => plan83Fig2.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: check filter group [' + g.join(',') + '] pairwise disjoint')
+      }
+      ok(figs[0].svg.includes('FACTOR') && figs[0].svg.includes('BILL') && figs[0].svg.includes('MULTIPLY') && figs[0].svg.includes('CHECK'), 'J: the pipeline carries the five stations')
+      ok(figs[0].svg.includes('x = 3') && figs[0].svg.includes('REFUSED') && figs[0].svg.includes('EMPTY'), 'J: the pipeline carries the worked classic and its refused verdict')
+      ok(figs[1].svg.includes('CANDIDATES') && figs[1].svg.includes('COMPOUND BILL') && figs[1].svg.includes('PASSES') && figs[1].svg.includes('EXTRANEOUS'), 'J: the filter carries the candidates, the bill and both outcomes')
+      ok(figs[1].svg.includes('ONE solution') && figs[1].svg.includes('NONE') && figs[1].svg.includes('ALL BUT THE BILL'), 'J: the filter carries the three verdicts of 5.3')
+      ok(figs[0].svg.includes('viewBox="0 0 720 340"') && figs[1].svg.includes('viewBox="0 0 720 340"'), 'J: the viewBoxes match the plans')
+    }
+  }
+  // retired-palette scan over the authored SVGs
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    let hits = 0
+    for (const f of figs) {
+      if (f.kind !== 'figure') continue
+      for (const h of retired) if (f.svg.toLowerCase().includes(h)) hits++
+    }
+    ok(hits === 0, 'J: no retired palette hexes in the 8.3 figures (found ' + hits + ')')
+  }
+  // raw-$ scan on non-KaTeX titles
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'J: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'J: honest word count ' + words + ' >= 4000')
+    console.log('[J] 8.3 honest word count: ' + words)
+  }
+  // entity-leak scan
+  {
+    let entityHits = 0
+    for (const b of lesson.blocks) {
+      const texts: string[] = []
+      if (b.kind === 'para' || b.kind === 'heading') texts.push(b.text)
+      if (b.kind === 'callout') texts.push(b.title, b.text)
+      if (b.kind === 'terms') for (const t of b.items) texts.push(t.term, t.def)
+      if (b.kind === 'equation' && b.note) texts.push(b.note)
+      if (b.kind === 'derivation') {
+        texts.push(b.title, b.statement, b.result)
+        for (const s of b.steps) texts.push(s.label, s.explanation)
+      }
+      if (b.kind === 'example') texts.push(b.title, ...b.steps)
+      if (b.kind === 'table') texts.push(b.caption || '', ...b.head, ...b.rows.flat())
+      if (b.kind === 'formula') texts.push(b.name, b.note || '')
+      if (b.kind === 'quiz') for (const it of b.items) texts.push(it.q, it.explain)
+      if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) texts.push(q.q, ...(q.solution || []), q.answer || '')
+      for (const t of texts) if (/&#\d+;|&[a-z]+;/.test(t)) entityHits++
+    }
+    ok(entityHits === 0, 'J: no HTML entities in 8.3 prose (found ' + entityHits + ')')
+  }
+  // odd-run backslash scan over the chapter file source (run-69 hardening)
+  {
+    const src = await Bun.file('src/data/library/books/mathematics/elementary-algebra/ch-08.ts').text()
+    let oddRuns = 0
+    let i = 0
+    while (i < src.length) {
+      if (src[i] === '\\') {
+        let j = i
+        while (j < src.length && src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'J: no odd-length backslash runs in ch-08.ts source (found ' + oddRuns + ')')
+    const escapes = (src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'J: no unicode escapes in ch-08.ts source (found ' + escapes + ')')
+  }
+  // al- prefix uniqueness across the whole library (8.3 now in)
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'J: all ' + ids.length + ' lesson ids repo-wide unique (with 8.3 added)')
+    ok(ids.includes('al-fractional-equations-and-extraneous-roots'), 'J: the new id is registered in the library graph')
+  }
+  console.log('[J] the authored 8.3: identity, structure census, quiz keys, figure plans, scans — all green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (K) the unit-8 completion review — BOOK_FORMAT checklist, exam      */
+/* corners, and the recomputed book snapshot                           */
+/* ------------------------------------------------------------------ */
+
+{
+  const book = allBooks.find((b) => b.id === 'elementary-algebra')
+  ok(!!book, 'K: the Elementary Algebra book is registered')
+  if (book) {
+    // checklist 1/7 — every number recomputed by script (this battery ran with zero failures)
+    ok(passed > 800, 'K: checklist 1/7 — the pre-write + authored battery priced every number (passed = ' + passed + ')')
+    // checklist 2/7 — figure labels match the prose terminology
+    {
+      const figs = ch08.lessons[2].blocks.filter((b) => b.kind === 'figure') as { kind: 'figure'; caption: string; svg: string }[]
+      ok(figs.length === 2 && figs[0].caption.includes('x = 3') && figs[0].svg.includes('REFUSED'), 'K: checklist 2/7 — the pipeline caption and SVG agree with the classic’s refused verdict')
+      ok(figs[1].caption.includes('compound bill') && figs[1].svg.includes('ALL BUT THE BILL'), 'K: checklist 2/7 — the filter caption and SVG agree with the verdict language')
+    }
+    // checklist 3/7 — vivid palette only (retired hexes), asserted on every ch-8 figure SVG
+    {
+      const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+      let bad = 0
+      for (const les of ch08.lessons)
+        for (const b of les.blocks)
+          if (b.kind === 'figure') for (const hex of retired) if (b.svg.toLowerCase().includes(hex)) bad++
+      ok(bad === 0, 'K: checklist 3/7 — all six chapter-8 figures use the vivid palette (retired hits ' + bad + ')')
+      const figCount = ch08.lessons.reduce((n, l) => n + l.blocks.filter((b) => b.kind === 'figure').length, 0)
+      ok(figCount === 6, 'K: chapter 8 carries six figures (got ' + figCount + ')')
+    }
+    // checklist 4/7 — quiz answer indices point at the intended options
+    {
+      const pinned = [
+        ['al-rational-expressions-simplify-first', [0, 1, 0, 3, 1]],
+        ['al-operating-on-algebraic-fractions', [2, 1, 3, 1, 2]],
+        ['al-fractional-equations-and-extraneous-roots', [1, 1, 2, 3, 1]],
+      ] as [string, number[]][]
+      for (const [id, keys] of pinned) {
+        const les = ch08.lessons.find((l) => l.id === id)
+        const q = les?.blocks.find((b) => b.kind === 'quiz')
+        if (les && q && q.kind === 'quiz') {
+          ok(JSON.stringify(q.items.map((it) => it.answer)) === JSON.stringify(keys), 'K: checklist 4/7 — ' + id + ' quiz keys pinned ' + JSON.stringify(keys))
+        }
+      }
+      const quizItems = ch08.lessons.reduce((n, l) => n + l.blocks.filter((b) => b.kind === 'quiz').reduce((m, q) => m + (q.kind === 'quiz' ? q.items.length : 0), 0), 0)
+      ok(quizItems === 15, 'K: chapter 8 carries 15 quiz items (got ' + quizItems + ')')
+    }
+    // checklist 5/7 — exercise solutions complete and verified
+    {
+      let exCount = 0
+      let bad = 0
+      for (const les of ch08.lessons)
+        for (const b of les.blocks)
+          if (b.kind === 'exercises')
+            for (const s of b.sets)
+              for (const q of s.questions) {
+                exCount++
+                if (!Array.isArray(q.solution) || q.solution.length < 2 || !q.answer) bad++
+              }
+      ok(exCount === 42 && bad === 0, 'K: checklist 5/7 — 42 exercises with complete verified chains (got ' + exCount + ', bad ' + bad + ')')
+    }
+    // checklist 6/7 — lesson ids globally unique
+    {
+      const ids: string[] = []
+      for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.push(l.id)
+      ok(ids.length === new Set(ids).size, 'K: checklist 6/7 — all ' + ids.length + ' lesson ids repo-wide unique')
+    }
+    // checklist 7/7 — lint + render clean (asserted in the shell battery; here: every block kind is renderable)
+    {
+      const known = new Set(['para', 'heading', 'callout', 'terms', 'equation', 'derivation', 'example', 'figure', 'table', 'list', 'quiz', 'exercises', 'formula', 'algorithm'])
+      let bad = 0
+      for (const les of ch08.lessons) for (const b of les.blocks) if (!known.has(b.kind)) bad++
+      ok(bad === 0, 'K: checklist 7/7 — every chapter-8 block kind is renderer-known (bad ' + bad + ')')
+    }
+    // exam corners 3/3 — every lesson carries an exam callout
+    {
+      const withExam = ch08.lessons.filter((l) => l.blocks.some((b) => b.kind === 'callout' && (b as { tone: string }).tone === 'exam'))
+      ok(withExam.length === 3, 'K: exam corners 3/3 — every lesson 8.1–8.3 carries an exam callout (got ' + withExam.length + ')')
+    }
+    // the book snapshot, recomputed
+    {
+      const lessons = book.chapters.flatMap((c) => c.lessons)
+      ok(lessons.length === 27, 'K: the book stands at 27 lessons (got ' + lessons.length + ')')
+      const under = lessons.map((l) => countLessonWords(l)).filter((w) => w < 4000).length
+      ok(under === 0, 'K: every lesson of the book carries >= 4,000 honest words (under: ' + under + ')')
+      const completeChapters = book.chapters.filter((c) => c.status === 'complete').length
+      ok(completeChapters === 8, 'K: 8 of 11 chapters complete (got ' + completeChapters + ')')
+      const ch8Words = ch08.lessons.reduce((n, l) => n + countLessonWords(l), 0)
+      const bookWords = lessons.reduce((n, l) => n + countLessonWords(l), 0)
+      ok(ch8Words >= 14000, 'K: chapter 8 totals ' + ch8Words + ' words across three lessons')
+      console.log('[K] book snapshot: 27 lessons, ' + bookWords + ' words, 8/11 chapters complete; ch. 8 = ' + ch8Words + ' words (8.1 5,082 + 8.2 4,355 + 8.3 recomputed above)')
+    }
+  }
+  console.log('[K] the unit-8 completion review: checklist 7/7 + exam corners 3/3 + the book snapshot — ALL GREEN')
+}
+
+console.log(`\nverify-book3-ch08 TOTAL (sections A-K): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)

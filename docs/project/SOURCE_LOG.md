@@ -6,6 +6,23 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 82 (2026-11-10) — AL ch. 8 CLOSES (8.3 + the unit-8 review)
+
+- Zero downloads, zero new keys: the banked keys carried the unit close —
+  `hall-knight-elementary-algebra` (the classical fractions chapter ended
+  exactly here: LCD clearing with the restriction named and the roots
+  examined), `ncert-math7-ch2` (the number-fraction ground), `khattar-qa-4e`
+  (clear-and-check items, the no-solution verdict shapes, work-rate and
+  faster-train word problems), `cengage-jee-style` (presentation contract).
+  Cross-references carried per the pointer: 8.1's zero-fraction verdict is
+  the filter, 8.2's compound bill is the check, 5.2's balance pipeline and
+  5.1's forbidden multiply-by-zero move are the theorem's edge, 5.3's verdict
+  machine returns for equations, ch. 4's factoring solves the cleared
+  quadratics. No reference working copies to delete (zero-download run).
+  The Drive survey was rebuilt this run after the sandbox recycle
+  (`scripts/rebuild_drive_survey.ts`, 89 entries) to feed
+  `build_work_inventory.ts`.
+
 ## Run 81 (2026-11-09) — AL ch. 8 OPENS (8.1 + 8.2)
 
 - Zero downloads, zero new keys: the banked keys carried the unit —

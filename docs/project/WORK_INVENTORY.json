@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-09 21:46:22 (Asia/Kolkata)",
+  "generated": "2026-11-10 00:23:01 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,14 +5920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 199,
-      "totalLines": 92900,
+      "srcFilesTracked": 200,
+      "totalLines": 94261,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 64495,
+        "src/data/library (content model + books)": 65856,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16588,34 +16588,131 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "70ec333179b172d5f5fbb9d6a4d8b62a26213be1",
+      "short": "70ec333",
+      "date": "2026-11-09 16:19",
+      "message": "run 81: Elementary Algebra ch. 8 'Algebraic Fractions' OPENS 2/3 — 8.1 'Rational Expressions: Simplify First' (5,082 words, quiz 0/1/0/3/1, 14 exercises, the domain strip + the simplify-first pipeline, the fundamental-law derivation with the nonzero certificates) + 8.2 'Operating on Algebraic Fractions' (4,355 words, quiz 2/1/3/1/2, 14 exercises, the four-operation panel + the LCD collector, the reciprocal-flip derivation with the R != 0 clause); verify-book3-ch08.ts 648 checks sections A-G ALL GREEN (excluded-value engine 6 fractions; fundamental-law engine 5 triples = polynomial identities + 49 pointwise agreements + holes {3},{2},{-1},{-2},{0}; the term-cancel monster lawful 10/10 vs illegal 10 mismatches; monomials + hole probes 59/10, 599/100, 601/100, 61/10; the zero-fraction engine { -3 } as the run-82 seed; product/flip/LCD/sum engines with wrong-flip, bracket and hidden-exclusion traps priced 10 mismatches each); pre-writing catches: the window census blind to (x-2)(x+6)'s -6 zero, an x^2/x^5 assertion vs 0 instead of 1/x^3; authoring catches: 48 HTML entities would have rendered literally in prose, off-model example answer field removed, Sol-pill threshold recalibrated to 19, illustration 3 CHECK step corrected; E2E e2e-al-81 + e2e-al-82 45/45 x3 viewports (quiz 5/5 live, KaTeX 272/222 nodes 0 errors, 0 console errors); chapter 8 at 9,437 words, book 26 lessons / 118,805 words, 7 of 11 chapters complete; logs + WORK_INVENTORY rebuilt (Drive survey after sandbox recycle); run 82 closes ch. 8 with 8.3 + the unit-8 review",
+      "filesChanged": 14,
+      "insertions": 2519,
+      "deletions": 45,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 28,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 9,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 114,
+          "del": 22
+        },
+        {
+          "path": "scripts/e2e-al-81.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-81.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-82.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-82.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch08.ts",
+          "add": 1145,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 10,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-08.ts",
+          "add": 894,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "09734f862fe31bdbf021d954364e1be9a2f65667",
+      "short": "09734f8",
+      "date": "2026-11-09 16:19",
+      "message": "run 81: push verification recorded — remote main = local HEAD 70ec333 (ls-remote via one-time URL)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 28,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 109,
-    "wordsAuthored": 530850,
-    "termsDefined": 843,
-    "quizItems": 545,
-    "exerciseQuestions": 1387,
+    "chaptersWritten": 29,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 110,
+    "wordsAuthored": 536720,
+    "termsDefined": 851,
+    "quizItems": 550,
+    "exerciseQuestions": 1401,
     "blockTotals": {
-      "para": 1556,
-      "callout": 602,
-      "heading": 601,
-      "list": 123,
-      "terms": 110,
-      "equation": 161,
-      "figure": 189,
-      "derivation": 212,
-      "table": 140,
-      "example": 468,
-      "quiz": 109,
-      "exercises": 109,
-      "formula": 311,
-      "algorithm": 25
+      "para": 1569,
+      "callout": 609,
+      "heading": 606,
+      "list": 125,
+      "terms": 111,
+      "equation": 163,
+      "figure": 191,
+      "derivation": 213,
+      "table": 141,
+      "example": 473,
+      "quiz": 110,
+      "exercises": 110,
+      "formula": 314,
+      "algorithm": 26
     }
   }
 }
