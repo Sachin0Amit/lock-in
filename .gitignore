@@ -318,3 +318,7 @@ server.log
 !/scripts/verify-practice.ts
 !/scripts/smoke-practice-http.ts
 !/scripts/e2e-practice-sections.sh
+
+# per-lesson E2E scripts for Elementary Algebra ch. 6 lesson 6.3 (whitelisted run 78)
+!/scripts/e2e-al-63.sh
+!/scripts/e2e-al-63.page.js

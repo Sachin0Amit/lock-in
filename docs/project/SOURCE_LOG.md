@@ -2010,6 +2010,27 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   computation, exhibit/quiz/exercise keys recomputed both sides by verify-book3-ch05.ts sections H–J; K = the
   unit-5 completion review (checklist 7/7, exam corners 3/3, snapshot recomputed).
 
+### Run 78 — Elementary Algebra ch. 6 closes: 6.3 + the unit-6 review (2026-11-09)
+
+- `hall-knight-elementary-algebra` — carried (banked run 67): the classical text's graphical reading of
+  simultaneous equations informs 6.3's line dress and the three-meetings gallery; Hall and Knight draw the
+  crossing/parallel/coincident distinction exactly where this lesson proves it. Zero downloads.
+- `ncert-math10-ch3-pair-linear` — carried (banked at the run-66 research phase): the canon's graphical
+  method section is the lesson's exam-corner anchor, and the ratio trichotomy (a1/a2 vs b1/b2 vs c1/c2)
+  gets its MEANING here — the ratios are the slope and intercept comparisons, priced as exact cross-products
+  since 6.1. Zero downloads.
+- `khattar-qa-4e` — carried: the exam-corner shapes (the parallel/coincident find-k, the consistency
+  vocabulary one-liners, the hidden-crossing fractional trap). Zero downloads.
+- `cengage-jee-style` — carried: the presentation contract throughout (illustrations, the typed 6-step
+  derivation, the meetings table, the slope-machine figure, exercise bars).
+- Zero new citation keys, zero downloads — the carried keys carried the run. The engine sweeps are original
+  exhaustive computation: the line-dress engine (2,028 equations dressed losslessly, 7,225 exact dress
+  identities), the meeting engine (1,016,704 D≠0 crossings — line algebra = Cramer everywhere), the
+  FULL-grid instrument-as-geometry census (D = 0: 164,944 = 157,504 parallel-distinct + 7,440 coincident,
+  with the vertical/horizontal splits 23,504 + 832 / 134,000 + 6,608), the lattice-honesty engine (222,592
+  lattice-visible of 1,016,704 crossings; 794,112 hidden; 4,199 full window sweeps), and twelve pinned
+  exhibits — all recomputed both sides by verify-book3-ch06.ts sections H–K (battery total 13,849,525).
+
 ### Run 77 — Elementary Algebra ch. 6 opens: 6.1 + 6.2 (2026-11-09)
 
 - `hall-knight-elementary-algebra` — carried (banked run 67): the classical chapter that NAMED the subject

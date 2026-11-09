@@ -933,12 +933,12 @@ const plan62Fig2 = {
 
 {
   const ch06Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-06.ts').text()
-  ok(chapter06.lessons.length === 2, 'F: chapter 6 carries two authored lessons (6.1 + 6.2)')
+  ok(chapter06.lessons.length === 3, 'F: chapter 6 carries three authored lessons (6.1 + 6.2 + 6.3, closed at run 78)')
   const lesson = chapter06.lessons[0]
   ok(lesson.id === 'al-equations-in-two-variables', 'F: lesson id al-equations-in-two-variables')
   ok(lesson.number === '6.1', 'F: lesson number 6.1')
   ok(lesson.title === 'Equations in Two Variables', 'F: lesson title matches the planned title')
-  ok(chapter06.status === 'in-progress', 'F: chapter 6 status in-progress (6.2 lands this run; 6.3 + review at run 78)')
+  ok(chapter06.status === 'complete', 'F: chapter 6 status complete (6.2 landed at run 77; the run-78 review closed the chapter)')
   ok(
     JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-the-three-verdicts-one-none-infinitely-many', 'al-solving-linear-equations']),
     'F: prerequisites are 5.3 + 5.2'
@@ -947,8 +947,7 @@ const plan62Fig2 = {
     JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style']),
     'F: the four citation keys ride the lesson'
   )
-  ok(chapter06.plannedLessons !== undefined && chapter06.plannedLessons!.length === 1, 'F: plannedLessons holds the one remaining title')
-  ok(chapter06.plannedLessons![0] === 'Consistency: the Geometry of Two Lines', 'F: the remaining planned title is 6.3 (closes at run 78)')
+  ok(Array.isArray(chapter06.plannedLessons) && chapter06.plannedLessons!.length === 0, 'F: plannedLessons emptied (the run-78 review completed the chapter)')
   // block census
   const kinds = lesson.blocks.map((b) => b.kind)
   const countKind = (k: string) => kinds.filter((x) => x === k).length
@@ -1212,10 +1211,714 @@ const plan62Fig2 = {
 }
 
 /* ------------------------------------------------------------------ */
+/* (H) the 6.3 geometry engines — the lines behind the systems         */
+/*                                                                     */
+/* Every claim 6.3 will make is priced here BEFORE any prose:          */
+/*   H-i   the line-dress engine — every equation with b ≠ 0 dresses   */
+/*         as y = m·x + k with m = −a/b, k = c/b; the dress is         */
+/*         lossless (windowed censuses agree) and exact (m·s + k =     */
+/*         (c − a·s)/b as Fracs, sampled); 2,028 equations dressed;    */
+/*   H-ii  the meeting engine (coarse complete grid, D ≠ 0): the       */
+/*         line-algebra crossing x* = (k2 − k1)/(m1 − m2) equals the   */
+/*         Cramer pair (Sx/D, Sy/D) EXACTLY everywhere; verticals      */
+/*         (b = 0) handled by direct reading;                          */
+/*   H-iii the D-instruments become the geometry tests (FULL grid):    */
+/*         D = 0 ⟺ equal slopes (b1b2 ≠ 0); within D = 0: Dx = 0       */
+/*         ⟺ equal intercepts ⟺ coincident, Dx ≠ 0 ⟺ parallel;         */
+/*         exactly-one-vertical D = 0 systems are IMPOSSIBLE; the      */
+/*         full-grid D = 0 census re-priced (164,944 = 157,504 +       */
+/*         7,440) with the vertical/non-vertical split;                */
+/*   H-iv  the lattice-honesty engine: a D ≠ 0 system's windowed       */
+/*         integer census sees exactly the crossing when the crossing  */
+/*         is an in-window lattice point, and NOTHING when it is not   */
+/*         (uniqueness over ℝ forbids a second pair) — the geometry    */
+/*         sees every crossing, the integer census only lattice ones;  */
+/*   H-v   the pinned exhibits of 6.3 — every system the lesson will   */
+/*         quote, solved exactly and checked both sides.               */
+/* ------------------------------------------------------------------ */
+
+// H-i — the line-dress engine
+{
+  let dressed = 0
+  let dressIdentities = 0
+  for (const a of C6)
+    for (const b of C6) {
+      if (b === 0) continue
+      for (const c of C6) {
+        dressed++
+        const sat = (s: number, t: number) => BigInt(a) * BigInt(s) + BigInt(b) * BigInt(t) === BigInt(c)
+        let wOrig = 0
+        for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (sat(s, t)) wOrig++
+        // the dressed line t = (−a/b)s + c/b holds ⟺ b·t = c − a·s — the SAME census
+        let wDress = 0
+        for (const s of rng(-12, 12)) {
+          const rhs = BigInt(c) - BigInt(a) * BigInt(s)
+          for (const t of rng(-12, 12)) if (BigInt(b) * BigInt(t) === rhs) wDress++
+        }
+        ok(wOrig === wDress, `H-i: the dress is lossless (a=${a},b=${b},c=${c}) — ${wOrig} vs ${wDress}`)
+        // sampled exact dress identity: m·s + k = (c − a·s)/b as Fracs
+        if (dressed % 7 === 0) {
+          const m = new Frac(BigInt(-a), BigInt(b))
+          const k = new Frac(BigInt(c), BigInt(b))
+          for (const s of rng(-12, 12)) {
+            const lhs = m.mul(Frac.of(BigInt(s))).add(k)
+            const rhsF = new Frac(BigInt(c) - BigInt(a) * BigInt(s), BigInt(b))
+            ok(lhs.eq(rhsF), `H-i: dress identity m·s + k = (c − a·s)/b (a=${a},b=${b},c=${c},s=${s}) — got ${lhs} want ${rhsF}`)
+            dressIdentities++
+          }
+          // and the recombination: b·(m·s + k) + a·s = c
+          const s = 5
+          const lhs = m.mul(Frac.of(BigInt(s))).add(k)
+          const recon = lhs.mul(Frac.of(BigInt(b))).add(Frac.of(BigInt(a) * BigInt(s)))
+          ok(recon.eq(Frac.of(BigInt(c))), `H-i: recombination b(m·s + k) + a·s = c (a=${a},b=${b},c=${c})`)
+        }
+      }
+    }
+  ok(dressed === 2028, `H-i: 2,028 equations over [-6,6] carry a line dress (b ≠ 0) — got ${dressed}`)
+  console.log(`[H-i] line-dress engine: ${dressed} equations dressed losslessly; ${dressIdentities} exact dress identities`)
+}
+
+// H-ii — the meeting engine: line algebra meets Cramer exactly (coarse complete grid)
+{
+  let met = 0
+  let verticalMet = 0
+  for (const a1 of rng(-4, 4))
+    for (const b1 of rng(-4, 4))
+      for (const c1 of rng(-6, 6))
+        for (const a2 of rng(-4, 4))
+          for (const b2 of rng(-4, 4))
+            for (const c2 of rng(-6, 6)) {
+              if (a1 === 0 && b1 === 0) continue
+              if (a2 === 0 && b2 === 0) continue
+              const D = BigInt(a1) * BigInt(b2) - BigInt(a2) * BigInt(b1)
+              if (D === 0n) continue
+              const Sx = new Frac(BigInt(c1) * BigInt(b2) - BigInt(c2) * BigInt(b1), D)
+              const Sy = new Frac(BigInt(a1) * BigInt(c2) - BigInt(a2) * BigInt(c1), D)
+              if (b1 !== 0 && b2 !== 0) {
+                const m1 = new Frac(BigInt(-a1), BigInt(b1))
+                const m2 = new Frac(BigInt(-a2), BigInt(b2))
+                const k1 = new Frac(BigInt(c1), BigInt(b1))
+                const k2 = new Frac(BigInt(c2), BigInt(b2))
+                ok(!m1.eq(m2), `H-ii: D ≠ 0 forces m1 ≠ m2 (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                const dm = m1.sub(m2)
+                const xStar = k2.sub(k1).div(dm)
+                ok(xStar.eq(Sx), `H-ii: line-algebra x* = Sx/D (${a1},${b1},${c1};${a2},${b2},${c2}) — got ${xStar} want ${Sx}`)
+                const yStar = m1.mul(xStar).add(k1)
+                ok(yStar.eq(Sy), `H-ii: line-algebra y* = Sy/D — got ${yStar} want ${Sy}`)
+                met++
+              } else {
+                // D ≠ 0 with a vertical: exactly one of b1, b2 is zero (two verticals give D = 0)
+                ok((b1 === 0) !== (b2 === 0), `H-ii: D ≠ 0 admits exactly one vertical (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                const vx = b1 === 0 ? new Frac(BigInt(c1), BigInt(a1)) : new Frac(BigInt(c2), BigInt(a2))
+                ok(vx.eq(Sx), `H-ii: the vertical reads x = c/a directly = Sx/D — got ${vx} want ${Sx}`)
+                // the non-vertical partner supplies y at that x
+                const yStar =
+                  b1 !== 0
+                    ? new Frac(BigInt(-a1), BigInt(b1)).mul(vx).add(new Frac(BigInt(c1), BigInt(b1)))
+                    : new Frac(BigInt(-a2), BigInt(b2)).mul(vx).add(new Frac(BigInt(c2), BigInt(b2)))
+                ok(yStar.eq(Sy), `H-ii: the sloped partner reads y* = Sy/D — got ${yStar} want ${Sy}`)
+                verticalMet++
+              }
+            }
+  ok(met > 500000 && verticalMet > 30000, `H-ii: ${met} sloped crossings + ${verticalMet} vertical crossings verified`)
+  console.log(`[H-ii] meeting engine: ${met} sloped + ${verticalMet} vertical crossings — line algebra lands on (Sx/D, Sy/D) everywhere`)
+}
+
+// H-iii — the D-instruments become the slope and intercept tests (FULL grid)
+{
+  let d0 = 0
+  let nonVertPar = 0
+  let nonVertCoin = 0
+  let vertVertNone = 0
+  let vertVertCoin = 0
+  let sampledSloped = 0
+  let idx = 0
+  for (const a1 of C6)
+    for (const b1 of C6)
+      for (const c1 of C6)
+        for (const a2 of C6)
+          for (const b2 of C6)
+            for (const c2 of C6) {
+              idx++
+              if (a1 === 0 && b1 === 0) continue
+              if (a2 === 0 && b2 === 0) continue
+              const D = BigInt(a1) * BigInt(b2) - BigInt(a2) * BigInt(b1)
+              const Dx = BigInt(c1) * BigInt(b2) - BigInt(c2) * BigInt(b1)
+              const Dy = BigInt(a1) * BigInt(c2) - BigInt(a2) * BigInt(c1)
+              if (D !== 0n) {
+                // sampled spot audit: sloped pairs really have unequal slopes
+                if (b1 !== 0 && b2 !== 0 && idx % 409 === 0) {
+                  const m1 = new Frac(BigInt(-a1), BigInt(b1))
+                  const m2 = new Frac(BigInt(-a2), BigInt(b2))
+                  ok(!m1.eq(m2), `H-iii: D ≠ 0 sampled slope inequality (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                  sampledSloped++
+                }
+                continue
+              }
+              d0++
+              if (b1 === 0 && b2 === 0) {
+                // two verticals: Dx vanishes identically; the Dy test alone decides
+                ok(Dx === 0n, `H-iii: two verticals force Dx = 0 (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                if (Dy === 0n) vertVertCoin++
+                else vertVertNone++
+              } else {
+                // both non-vertical (D = 0 with exactly one vertical is impossible: a1b2 = a2b1
+                // with b1 = 0 forces a1 = 0 — a degenerate row)
+                ok(b1 !== 0 && b2 !== 0, `H-iii: D = 0 pairs are both-non-vertical or both-vertical (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                // the intercept identity: b1·Dy + a1·Dx = c1·D = 0
+                ok(BigInt(b1) * Dy + BigInt(a1) * Dx === 0n, `H-iii: the D = 0 intercept identity b1·Dy = −a1·Dx (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                // equal slopes exactly (Frac) — the D = 0 reading
+                const m1 = new Frac(BigInt(-a1), BigInt(b1))
+                const m2 = new Frac(BigInt(-a2), BigInt(b2))
+                ok(m1.eq(m2), `H-iii: D = 0 forces equal slopes (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                const k1 = new Frac(BigInt(c1), BigInt(b1))
+                const k2 = new Frac(BigInt(c2), BigInt(b2))
+                ok((k1.eq(k2)) === (Dx === 0n), `H-iii: intercept equality ⟺ Dx = 0 (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                if (Dx === 0n) {
+                  nonVertCoin++
+                  ok(Dy === 0n, `H-iii: non-vertical D = Dx = 0 forces Dy = 0 — coincident (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                  ok(k1.eq(k2), `H-iii: coincident lines share the intercept (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                } else {
+                  nonVertPar++
+                  // the honest law: Dy = −(a1/b1)·Dx, so Dy vanishes exactly when a1 does
+                  // (both lines horizontal) — Dx ≠ 0 is what carries the none verdict
+                  ok((Dy === 0n) === (a1 === 0), `H-iii: parallel distinct — Dy = 0 ⟺ a1 = 0, the horizontal case (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                  ok(!k1.eq(k2), `H-iii: parallel distinct lines differ in intercept (${a1},${b1},${c1};${a2},${b2},${c2})`)
+                }
+              }
+            }
+  ok(d0 === 164944, `H-iii: the full-grid D = 0 population is 164,944 — got ${d0}`)
+  ok(nonVertCoin + vertVertCoin === 7440, `H-iii: the infinitely-many class splits ${nonVertCoin} non-vertical + ${vertVertCoin} vertical = 7,440`)
+  ok(nonVertPar + vertVertNone === 157504, `H-iii: the none class splits ${nonVertPar} non-vertical + ${vertVertNone} vertical = 157,504`)
+  ok(sampledSloped > 500, `H-iii: ${sampledSloped} sampled D ≠ 0 slope inequalities audited`)
+  console.log(`[H-iii] instrument-as-geometry (FULL grid): D=0 164,944 — parallel ${nonVertPar}+${vertVertNone} / coincident ${nonVertCoin}+${vertVertCoin}; ${sampledSloped} sampled slope audits`)
+}
+
+// H-iv — the lattice-honesty engine: the census sees only lattice crossings
+{
+  let uniq = 0
+  let lattice = 0
+  let hidden = 0
+  let swept = 0
+  for (const a1 of rng(-4, 4))
+    for (const b1 of rng(-4, 4))
+      for (const c1 of rng(-6, 6))
+        for (const a2 of rng(-4, 4))
+          for (const b2 of rng(-4, 4))
+            for (const c2 of rng(-6, 6)) {
+              if (a1 === 0 && b1 === 0) continue
+              if (a2 === 0 && b2 === 0) continue
+              const D = BigInt(a1) * BigInt(b2) - BigInt(a2) * BigInt(b1)
+              if (D === 0n) continue
+              uniq++
+              const DxN = BigInt(c1) * BigInt(b2) - BigInt(c2) * BigInt(b1)
+              const DyN = BigInt(a1) * BigInt(c2) - BigInt(a2) * BigInt(c1)
+              const xInt = DxN % D === 0n
+              const yInt = DyN % D === 0n
+              if (xInt && yInt) {
+                const s = Number(DxN / D)
+                const t = Number(DyN / D)
+                if (s >= -12 && s <= 12 && t >= -12 && t <= 12) {
+                  lattice++
+                  // the crossing pair satisfies both originals exactly
+                  ok(BigInt(a1) * BigInt(s) + BigInt(b1) * BigInt(t) === BigInt(c1) && BigInt(a2) * BigInt(s) + BigInt(b2) * BigInt(t) === BigInt(c2), `H-iv: the lattice crossing satisfies both (${a1},${b1},${c1};${a2},${b2},${c2}) at (${s},${t})`)
+                  // sampled full-window sweep: the census finds EXACTLY that one pair
+                  if (lattice % 53 === 0) {
+                    let hits = 0
+                    for (const u of rng(-12, 12)) for (const v of rng(-12, 12)) if (BigInt(a1) * BigInt(u) + BigInt(b1) * BigInt(v) === BigInt(c1) && BigInt(a2) * BigInt(u) + BigInt(b2) * BigInt(v) === BigInt(c2)) hits++
+                    ok(hits === 1, `H-iv: swept census finds exactly the crossing (${a1},${b1},${c1};${a2},${b2},${c2}) — got ${hits}`)
+                    swept++
+                  }
+                } else {
+                  // an integer crossing OUTSIDE the window: the census must find nothing
+                  hidden++
+                }
+              } else {
+                // a non-integer crossing: no integer pair can solve it (uniqueness over ℝ)
+                hidden++
+              }
+            }
+  ok(uniq > 900000 && lattice > 50000 && hidden > 100000, `H-iv: ${uniq} D ≠ 0 coarse systems — ${lattice} lattice crossings, ${hidden} hidden from the integer census`)
+  console.log(`[H-iv] lattice honesty: ${uniq} crossings over the coarse grid — ${lattice} lattice-visible, ${hidden} hidden from the integer census; ${swept} full sweeps exact`)
+}
+
+// H-v — the pinned exhibits of lesson 6.3
+{
+  // V-1 the opening pair as lines: x + y = 10, x − y = 2 → y = −x + 10, y = x − 2 meet at (6, 4)
+  {
+    const m1 = new Frac(BigInt(-1), BigInt(1))
+    const k1 = new Frac(BigInt(10), BigInt(1))
+    const m2 = new Frac(BigInt(1), BigInt(1))
+    const k2 = new Frac(BigInt(-2), BigInt(1))
+    const xStar = k2.sub(k1).div(m1.sub(m2))
+    const yStar = m1.mul(xStar).add(k1)
+    ok(xStar.eq(Frac.of(6)) && yStar.eq(Frac.of(4)), `H-v V-1: the lines meet at (6,4) — got (${xStar}, ${yStar})`)
+    ok(10 - 6 === 4 && 6 - 2 === 4, 'H-v V-1: (6,4) on both lines by direct reading')
+    const r = cramer([1, 1, 10, 1, -1, 2])
+    ok(r !== 'none' && r !== 'infinite' && r.s.eq(Frac.of(6)) && r.t.eq(Frac.of(4)), 'H-v V-1: Cramer agrees')
+  }
+  // V-2 the parallel dress: x + y = 4, x + y = 7 — same slope −1, intercepts 4 ≠ 7
+  {
+    const m1 = new Frac(BigInt(-1), BigInt(1))
+    const m2 = new Frac(BigInt(-1), BigInt(1))
+    const k1 = new Frac(BigInt(4), BigInt(1))
+    const k2 = new Frac(BigInt(7), BigInt(1))
+    ok(m1.eq(m2) && !k1.eq(k2), 'H-v V-2: equal slopes, unequal intercepts — parallel')
+    const D = 1 * 1 - 1 * 1
+    const Dx = 4 * 1 - 7 * 1
+    ok(D === 0 && Dx === -3, `H-v V-2: D = 0, Dx = −3 (got D=${D}, Dx=${Dx})`)
+    let common = 0
+    for (const s of rng(-50, 50)) for (const t of rng(-50, 50)) if (s + t === 4 && s + t === 7) common++
+    ok(common === 0, 'H-v V-2: no meeting point over the wide window')
+  }
+  // V-3 the coincident dress: 2x + 3y = 6, 4x + 6y = 12 — one line twice
+  {
+    const m1 = new Frac(BigInt(-2), BigInt(3))
+    const m2 = new Frac(BigInt(-4), BigInt(6))
+    const k1 = new Frac(BigInt(6), BigInt(3))
+    const k2 = new Frac(BigInt(12), BigInt(6))
+    ok(m1.eq(m2) && k1.eq(k2), 'H-v V-3: equal slopes AND equal intercepts — the same line')
+    ok(m1.toString() === '-2/3' && k1.toString() === '2', `H-v V-3: the shared line reads slope −2/3, intercept 2 (got ${m1}, ${k1})`)
+  }
+  // V-4 the 6.1 trichotomy row as geometry: x + 2y = 8, 3x − y = 3 meet at (2, 3)
+  {
+    const m1 = new Frac(BigInt(-1), BigInt(2))
+    const k1 = new Frac(BigInt(8), BigInt(2))
+    const m2 = new Frac(BigInt(-3), BigInt(-1))
+    const k2 = new Frac(BigInt(3), BigInt(-1))
+    ok(m1.toString() === '-1/2' && k1.toString() === '4', `H-v V-4: eq1 reads slope −1/2, intercept 4 (got ${m1}, ${k1})`)
+    ok(m2.eq(Frac.of(3)) && k2.eq(Frac.of(-3)), `H-v V-4: eq2 reads slope 3, intercept −3 (got ${m2}, ${k2})`)
+    const xStar = k2.sub(k1).div(m1.sub(m2))
+    const yStar = m1.mul(xStar).add(k1)
+    ok(xStar.eq(Frac.of(2)) && yStar.eq(Frac.of(3)), `H-v V-4: the lines cross at (2,3) — got (${xStar}, ${yStar})`)
+    ok(2 + 2 * 3 === 8 && 3 * 2 - 3 === 3, 'H-v V-4: (2,3) checks in both originals')
+  }
+  // V-5 a vertical meets a sloped line: x = 3, 2x − y = 1 → (3, 5)
+  {
+    const r = cramer([1, 0, 3, 2, -1, 1])
+    ok(r !== 'none' && r !== 'infinite' && r.s.eq(Frac.of(3)) && r.t.eq(Frac.of(5)), `H-v V-5: vertical × sloped meets at (3,5) — got ${show(r)}`)
+    const D = BigInt(1) * BigInt(-1) - BigInt(2) * BigInt(0)
+    ok(D === -1n, `H-v V-5: D = a1b2 − a2b1 = −1 ≠ 0 (got ${D})`)
+    ok(2 * 3 - 5 === 1, 'H-v V-5: (3,5) on the sloped line; x = 3 is the vertical')
+  }
+  // V-6 two verticals are parallel: x = 3, x = 5 — D = 0, Dy ≠ 0 → none
+  {
+    const r = cramer([1, 0, 3, 1, 0, 5])
+    ok(r === 'none', `H-v V-6: x = 3 and x = 5 never meet — got ${show(r)}`)
+    const Dy = BigInt(1) * BigInt(5) - BigInt(1) * BigInt(3)
+    ok(Dy === 2n, `H-v V-6: Dy = a1c2 − a2c1 = 2 ≠ 0 carries the none verdict (got ${Dy})`)
+  }
+  // V-7 a doubled vertical is the same line: x = 3, 2x = 6 — infinite
+  {
+    const r = cramer([1, 0, 3, 2, 0, 6])
+    ok(r === 'infinite', `H-v V-7: 2x = 6 rides x = 3 — got ${show(r)}`)
+  }
+  // V-8 horizontal lines: y = 2, y = 5 parallel; y = 2, 2y = 4 coincident
+  {
+    ok(cramer([0, 1, 2, 0, 1, 5]) === 'none', 'H-v V-8: y = 2 and y = 5 are parallel horizontals')
+    ok(cramer([0, 1, 2, 0, 2, 4]) === 'infinite', 'H-v V-8: 2y = 4 rides y = 2')
+    const D1 = BigInt(0) * BigInt(1) - BigInt(0) * BigInt(1)
+    const Dx1 = BigInt(2) * BigInt(1) - BigInt(5) * BigInt(1)
+    ok(D1 === 0n && Dx1 === -3n, `H-v V-8: the horizontals carry D = 0, Dx = −3 (got ${D1}, ${Dx1})`)
+  }
+  // V-9 the k-family as geometry: x + y = 4, 2x + 2y = k — parallel ⟺ k ≠ 8, coincident ⟺ k = 8
+  {
+    for (const k of [-6, 0, 3, 8, 11, 20]) {
+      const D = BigInt(1) * BigInt(2) - BigInt(2) * BigInt(1)
+      const Dx = BigInt(4) * BigInt(2) - BigInt(k) * BigInt(1)
+      const Dy = BigInt(1) * BigInt(k) - BigInt(2) * BigInt(4)
+      const verdict = D !== 0n ? 'one' : Dx === 0n && Dy === 0n ? 'infinite' : 'none'
+      const want = k === 8 ? 'infinite' : 'none'
+      ok(verdict === want, `H-v V-9: x + y = 4 vs 2x + 2y = ${k} → ${want} (D=${D}, Dx=${Dx}, Dy=${Dy})`)
+      ok(D === 0n, `H-v V-9: the left sides are proportional for EVERY k — D = 0 identically (k=${k})`)
+    }
+  }
+  // V-10 the hidden crossing: x + 2y = 3, x − 2y = 1 meet at (2, 1/2) — no integer pair
+  {
+    const r = cramer([1, 2, 3, 1, -2, 1])
+    ok(r !== 'none' && r !== 'infinite' && r.s.eq(Frac.of(2)) && r.t.eq(Frac.ofFrac(1, 2)), `H-v V-10: the lines cross at (2, 1/2) — got ${show(r)}`)
+    bothSides([1, 2, 3, 1, -2, 1], Frac.of(2), Frac.ofFrac(1, 2), 'H-v V-10')
+    let census = 0
+    for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s + 2 * t === 3 && s - 2 * t === 1) census++
+    ok(census === 0, `H-v V-10: the integer census finds nothing — the crossing hides between lattice points (got ${census})`)
+    // adding the equations kills y exactly: 2x = 4
+    ok((1 + 1) * 2 === 3 + 1, 'H-v V-10: the memberwise sum 2x = 4 reads the x-coordinate off the picture')
+  }
+  // V-11 6.2's find-k question as geometry: 3x + 4y = 12, 6x + ky = 24
+  {
+    // k = 8: coincident (the second line lies on the first); k ≠ 8: crossing
+    for (const k of [3, 8, 12]) {
+      const D = BigInt(3) * BigInt(k) - BigInt(6) * BigInt(4)
+      const Dx = BigInt(12) * BigInt(k) - BigInt(24) * BigInt(4)
+      const Dy = BigInt(3) * BigInt(24) - BigInt(6) * BigInt(12)
+      const verdict = D !== 0n ? 'one' : Dx === 0n && Dy === 0n ? 'infinite' : 'none'
+      ok(verdict === (k === 8 ? 'infinite' : 'one'), `H-v V-11: 6x + ${k}y = 24 vs 3x + 4y = 12 → ${verdict} (D=${D})`)
+    }
+    ok(BigInt(3) * BigInt(8) - BigInt(6) * BigInt(4) === 0n, 'H-v V-11: k = 8 doubles both members — the lines coincide')
+  }
+  // V-12 the meeting point is the shared census pair: the family {(s, 10−s)} of
+  //      eq1 meets the second assertion x − y = 2 at exactly one of its pairs
+  {
+    let shared = 0
+    let sharedAt = -99
+    let sharedPair: [number, number] = [-99, -99]
+    for (const s of rng(-12, 12)) {
+      // the family-1 pair (s, 10 − s) is a system solution iff it satisfies x − y = 2
+      if (s - (10 - s) === 2) {
+        shared++
+        sharedAt = s
+        sharedPair = [s, 10 - s]
+      }
+    }
+    ok(shared === 1 && sharedAt === 6, `H-v V-12: the census family meets the second line exactly once, at s = 6 (got ${shared} at ${sharedAt})`)
+    ok(sharedPair[0] === 6 && sharedPair[1] === 4, `H-v V-12: the shared pair is (6, 4) — got (${sharedPair[0]}, ${sharedPair[1]})`)
+    // the two-parameter reading: (s1, 10−s1) = (s2+2, s2) forces s2 = 4, s1 = 6
+    ok(10 - 4 === 6 && 4 + 2 === 6, 'H-v V-12: the two-parameter meeting — s1 = s2 + 2 and 10 − s1 = s2 hold together only at (6, 4)')
+  }
+  console.log('[H-v] pinned exhibits of 6.3: lines, verticals, horizontals, k-families, the hidden crossing — all exact')
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) the FIGURE GEOMETRY PLANS of 6.3                                */
+/* ------------------------------------------------------------------ */
+
+const plan63Fig1 = {
+  w: 720,
+  h: 360,
+  name: 'the three meetings — crossing, parallel, coincident',
+  rects: [
+    [30, 18, 660, 44], // title band
+    [30, 84, 208, 180], // panel 1: crossing
+    [256, 84, 208, 180], // panel 2: parallel
+    [482, 84, 208, 180], // panel 3: coincident
+    [30, 276, 208, 26], // verdict chip 1
+    [256, 276, 208, 26], // verdict chip 2
+    [482, 276, 208, 26], // verdict chip 3
+    [30, 314, 660, 24], // caption band
+  ] as [number, number, number, number][],
+  groups: [
+    [0],
+    [1, 2, 3],
+    [4, 5, 6],
+    [7],
+  ],
+}
+
+const plan63Fig2 = {
+  w: 720,
+  h: 360,
+  name: 'the slope machine — the D-instruments decide the meeting',
+  rects: [
+    [30, 18, 660, 44], // title band
+    [30, 92, 170, 60], // start box
+    [250, 92, 180, 60], // decision: slopes equal? (D = 0?)
+    [480, 92, 210, 60], // result: exactly one meeting point
+    [250, 190, 180, 60], // decision: intercepts equal? (Dx = 0?)
+    [480, 190, 210, 60], // result: parallel — never meet
+    [250, 270, 180, 52], // result: the same line
+    [30, 334, 660, 22], // caption band
+  ] as [number, number, number, number][],
+  groups: [
+    [0],
+    [1, 2, 3],
+    [4, 5],
+    [6],
+    [7],
+  ],
+}
+
+{
+  const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+    r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+  for (const g of plan63Fig1.groups) {
+    const rs = g.map((i) => plan63Fig1.rects[i])
+    ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), `I: plan63Fig1 group [${g.join(',')}] pairwise disjoint`)
+  }
+  for (const r of plan63Fig1.rects) ok(r[0] >= 0 && r[1] >= 0 && r[0] + r[2] <= 720 && r[1] + r[3] <= 360, `I: plan63Fig1 rect ${r} inside the viewBox`)
+  for (const g of plan63Fig2.groups) {
+    const rs = g.map((i) => plan63Fig2.rects[i])
+    ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), `I: plan63Fig2 group [${g.join(',')}] pairwise disjoint`)
+  }
+  for (const r of plan63Fig2.rects) ok(r[0] >= 0 && r[1] >= 0 && r[0] + r[2] <= 720 && r[1] + r[3] <= 360, `I: plan63Fig2 rect ${r} inside the viewBox`)
+  console.log('[I] figure plans for 6.3: geometry pinned and internally disjoint')
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) the authored lesson 6.3 — structure, keys, figures, scans       */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch06Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-06.ts').text()
+  const lesson = chapter06.lessons[2]
+  ok(lesson.id === 'al-consistency-the-geometry-of-two-lines', 'J: lesson id al-consistency-the-geometry-of-two-lines')
+  ok(lesson.number === '6.3', 'J: lesson number 6.3')
+  ok(lesson.title === 'Consistency: the Geometry of Two Lines', 'J: lesson title matches the planned title')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-substitution-and-elimination', 'al-equations-in-two-variables']),
+    'J: prerequisites are 6.2 + 6.1'
+  )
+  ok(
+    JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style']),
+    'J: the four citation keys ride the lesson'
+  )
+  const kinds = lesson.blocks.map((b) => b.kind)
+  const countKind = (k: string) => kinds.filter((x) => x === k).length
+  ok(countKind('para') === 17, `J: seventeen paras (got ${countKind('para')})`)
+  ok(countKind('heading') === 5, `J: five headings (got ${countKind('heading')})`)
+  ok(countKind('equation') === 3, `J: three display equations (the dress, the meeting theorem, the trichotomy)`)
+  ok(countKind('derivation') === 1, `J: one derivation (the meeting theorem)`)
+  ok(countKind('example') === 6, `J: six illustrations (got ${countKind('example')})`)
+  ok(countKind('figure') === 2, `J: two figures (the three-meetings gallery + the slope machine)`)
+  ok(countKind('table') === 1, `J: one table (the three meetings x the three verdicts)`)
+  ok(countKind('formula') === 3, `J: three formula cards`)
+  ok(countKind('terms') === 1, `J: one terms block`)
+  ok(countKind('list') === 1, `J: one roman list (the collected machine)`)
+  ok(countKind('quiz') === 1, `J: one quiz block`)
+  ok(countKind('exercises') === 1, `J: one exercises block`)
+  const tones = lesson.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone).sort().join(',')
+  ok(tones === 'definition,exam,historical,insight,warn', `J: the five callout tones (got ${tones})`)
+  {
+    const terms = lesson.blocks.find((b) => b.kind === 'terms')
+    if (terms && terms.kind === 'terms') ok(terms.items.length === 8, `J: terms block holds 8 entries (got ${terms.items.length})`)
+  }
+  // quiz keys vs the pinned battery
+  {
+    const q = lesson.blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([0, 1, 2, 1, 3]), 'J: quiz keys match the pinned [0, 1, 2, 1, 3] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'J: quiz shape + distractor pricing')
+      ok(q.items[0].options[0] === '$y = -\\tfrac{2}{3}x + 2$', 'J: quiz Q1 option 1 is the pinned line dress (the key 0)')
+      ok(q.items[2].options[2] === '$(4, -1)$', 'J: quiz Q3 option 3 is the pinned vertical-x-horizontal meeting (the key 2)')
+      ok(q.items[4].options[3].includes('hides between lattice points'), 'J: quiz Q5 option 4 is the pinned hidden-crossing verdict (the key 3)')
+    }
+  }
+  // exercises shape + anchors
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const counts = ex.sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'J: exercise set sizes 3/3/3/2/2/1')
+      const all = ex.sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'J: 14 exercises, Cengage chains, terminal answers')
+      ok((all[7].answer || '').includes('\\left(\\tfrac{14}{5}, \\tfrac{9}{5}\\right)'), 'J: L3.2 answer carries the pinned fractional crossing')
+      ok((all[9].answer || '').includes('$k = 4$'), 'J: L4.1 answer carries the pinned parallel-k verdict')
+      ok((all[11].answer || '').includes('\\tfrac{5}{3}, \\tfrac{7}{3}'), 'J: L5.1 answer carries the pinned slope-built meeting')
+      ok((all[13].answer || '').includes('$D \\cdot x = D_{x}$'), 'J: L6 answer carries the meeting-identity argument')
+    }
+  }
+  // figure geometry vs the pinned plans
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'J: two figures in 6.3')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === plan63Fig1.rects.length, 'J: gallery rect census ' + r0.length + ' = plan ' + plan63Fig1.rects.length)
+      ok(canon(r0) === canon(plan63Fig1.rects), 'J: gallery rects match the pinned plan exactly')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === plan63Fig2.rects.length, 'J: slope-machine rect census ' + r1.length + ' = plan ' + plan63Fig2.rects.length)
+      ok(canon(r1) === canon(plan63Fig2.rects), 'J: slope-machine rects match the pinned plan exactly')
+      for (const g of plan63Fig1.groups) {
+        const rs = g.map((i) => plan63Fig1.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: gallery group [' + g.join(',') + '] pairwise disjoint')
+      }
+      for (const g of plan63Fig2.groups) {
+        const rs = g.map((i) => plan63Fig2.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: slope-machine group [' + g.join(',') + '] pairwise disjoint')
+      }
+      ok(figs[0].svg.includes('CROSSING') && figs[0].svg.includes('PARALLEL') && figs[0].svg.includes('COINCIDENT'), 'J: the gallery carries the three panels')
+      ok(figs[0].svg.includes('one shared point — (6, 4)') && figs[0].svg.includes('no shared point — parallel') && figs[0].svg.includes('every point shared'), 'J: the gallery carries the three verdict chips')
+      ok(figs[0].svg.includes('<circle'), 'J: the gallery marks the meeting point (no extra rects)')
+      ok(figs[1].svg.includes('slopes equal?') && figs[1].svg.includes('intercepts equal?') && figs[1].svg.includes('THE SAME LINE'), 'J: the machine carries both decisions and the coincident outcome')
+      ok(figs[1].svg.includes('NO · D ≠ 0') && figs[1].svg.includes('YES · D = 0') && figs[1].svg.includes('Dx ≠ 0') && figs[1].svg.includes('Dx = 0'), 'J: the machine carries the four instrument labels')
+      ok(figs[0].svg.includes('viewBox="0 0 720 360"') && figs[1].svg.includes('viewBox="0 0 720 360"'), 'J: the viewBoxes match the plans')
+    }
+  }
+  // raw-$ scan on non-KaTeX titles + honest word count
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'J: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'J: honest word count ' + words + ' >= 4000')
+  }
+  // odd-run backslash scan over the WHOLE chapter file (run-69 hardening)
+  {
+    let oddRuns = 0
+    let i = 0
+    while (i < ch06Src.length) {
+      if (ch06Src[i] === '\\') {
+        let j = i
+        while (j < ch06Src.length && ch06Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'J: no odd-length backslash runs in ch-06.ts source (found ' + oddRuns + ')')
+  }
+  // unicode-escape scan
+  {
+    const escapes = (ch06Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'J: no unicode escapes in ch-06.ts source (found ' + escapes + ')')
+  }
+  // al- prefix uniqueness across the whole library (6.3 now in)
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'J: all ' + ids.length + ' lesson ids repo-wide unique (with 6.3 added)')
+    ok(ids.includes('al-consistency-the-geometry-of-two-lines'), 'J: the new id is registered in the library graph')
+  }
+  // live re-checks of three anchors straight from the authored content
+  {
+    const q = chapter06.lessons[2].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      ok(q.items[1].options[1] === 'nowhere — they are parallel', 'J: quiz Q2 option 2 is the pinned parallel verdict (the key 1)')
+    }
+    const ex = chapter06.lessons[2].blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const l4second = ex.sets[3].questions[1]
+      ok((l4second.answer || '').includes('$k = 8$'), 'J: L4.2 answer carries the pinned slide-landing k = 8')
+    }
+    const tb = chapter06.lessons[2].blocks.find((b) => b.kind === 'table')
+    if (tb && tb.kind === 'table') {
+      ok(tb.rows.length === 3 && tb.rows[1].join(' | ').includes('x + y = 4'), 'J: the meetings table carries the parallel type case')
+    }
+    const der = chapter06.lessons[2].blocks.find((b) => b.kind === 'derivation')
+    if (der && der.kind === 'derivation') {
+      ok(der.steps.length === 6 && der.result.includes('Cramer pair'), 'J: the meeting-theorem derivation carries 6 steps and the Cramer result')
+    }
+  }
+  console.log('[J] the authored 6.3: identity, structure census, quiz keys, figure plans, scans — all green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (K) the unit-6 completion review — the BOOK_FORMAT checklist as     */
+/* executable assertions, the exam-coverage audit, the chapter snapshot */
+/* ------------------------------------------------------------------ */
+
+{
+  const lessons = chapter06.lessons
+
+  // checklist 1 — all math recomputed by script: the battery itself is the
+  // recompute; assert its size honestly (sections A–K above).
+  ok(passed > 10000000, 'K checklist 1: the math was recomputed by script (' + passed + ' exact checks so far)')
+
+  // checklist 2 — every figure label appears in the prose terminology
+  {
+    const allProse = lessons
+      .flatMap((l) => l.blocks)
+      .map((b) => {
+        let t = ''
+        if ('text' in b) t += String(b.text)
+        if ('caption' in b) t += String(b.caption)
+        if (b.kind === 'terms') for (const it of b.items) t += ' ' + it.term + ' ' + it.def
+        return t
+      })
+      .join(' ')
+    for (const need of ['slope machine', 'line dress', 'meeting point', 'three meetings']) {
+      ok(allProse.includes(need), 'K checklist 2: the phrase "' + need + '" lives in the prose, not only in a figure')
+    }
+  }
+
+  // checklist 3 — every figure SVG uses the vivid palette (no retired hexes)
+  {
+    const ch06Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-06.ts').text()
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    for (const hex of retired) ok(!ch06Src.toLowerCase().includes(hex), 'K checklist 3: the retired hex ' + hex + ' does not appear in ch-06.ts')
+    for (const allowed of ['#16a34a', '#166534', '#65a30d', '#0d9488', '#ea580c', '#d97706']) {
+      ok(ch06Src.includes(allowed), 'K checklist 3: the vivid-palette hex ' + allowed + ' is in use')
+    }
+  }
+
+  // checklist 4 — quiz answer indices point at the intended options
+  {
+    const pinned: Record<string, number[]> = {
+      'al-equations-in-two-variables': [0, 2, 1, 2, 1],
+      'al-substitution-and-elimination': [0, 0, 2, 1, 2],
+      'al-consistency-the-geometry-of-two-lines': [0, 1, 2, 1, 3],
+    }
+    for (const l of lessons) {
+      const q = l.blocks.find((b) => b.kind === 'quiz')
+      if (q && q.kind === 'quiz') {
+        const keys = q.items.map((it) => it.answer)
+        ok(JSON.stringify(keys) === JSON.stringify(pinned[l.id]), 'K checklist 4: ' + l.number + ' quiz keys live-match the pinned battery (' + keys.join('/') + ')')
+        ok(q.items.every((it) => it.answer >= 0 && it.answer < it.options.length), 'K checklist 4: ' + l.number + ' every answer index points at a real option')
+      }
+    }
+  }
+
+  // checklist 5 — exercise solutions complete and numerically verified
+  {
+    for (const l of lessons) {
+      const ex = l.blocks.find((b) => b.kind === 'exercises')
+      if (ex && ex.kind === 'exercises') {
+        const all = ex.sets.flatMap((s) => s.questions)
+        ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'K checklist 5: ' + l.number + ' carries 14 complete, chain-written, answered exercises')
+      }
+    }
+  }
+
+  // checklist 6 — lesson ids globally unique
+  {
+    const ids: string[] = []
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.push(l.id)
+    ok(ids.length === new Set(ids).size, 'K checklist 6: all ' + ids.length + ' lesson ids repo-wide unique (chapter closed)')
+    for (const l of lessons) ok(ids.filter((i) => i === l.id).length === 1, 'K checklist 6: ' + l.id + ' appears exactly once in the library graph')
+  }
+
+  // checklist 7 — lint + render: asserted here as structure; the render
+  // gates run as the dev-server + browser E2E battery after this script.
+  ok(chapter06.status === 'complete' && chapter06.lessons.length === 3, 'K checklist 7: the chapter is structurally COMPLETE (render gates follow as E2E)')
+
+  // the exam-coverage audit — every lesson carries an exam corner
+  {
+    for (const l of lessons) {
+      ok(l.blocks.some((b) => b.kind === 'callout' && b.tone === 'exam'), 'K exam audit: ' + l.number + ' carries an exam corner')
+    }
+  }
+
+  // the chapter snapshot — honest totals, recomputed live
+  {
+    const words = lessons.map((l) => countLessonWords(l))
+    ok(words[0] >= 4000 && words[1] >= 4000 && words[2] >= 4000, 'K snapshot: every lesson holds the 4,000-word depth bar (' + words.join(' / ') + ')')
+    const chapterWords = words.reduce((a, b) => a + b, 0)
+    ok(chapterWords >= 13500, 'K snapshot: chapter 6 totals ' + chapterWords + ' words across 3 lessons (>= 13,500)')
+    const alBook = allBooks.find((b) => b.id === 'elementary-algebra')
+    ok(!!alBook, 'K snapshot: the elementary-algebra book is registered')
+    if (alBook) {
+      const bookLessons = alBook.chapters.flatMap((c) => c.lessons)
+      ok(bookLessons.length === 21, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3 + ch6 3)')
+      const bookWords = bookLessons.reduce((a, l) => a + countLessonWords(l), 0)
+      ok(bookWords >= 92000, 'K snapshot: the book totals ' + bookWords + ' words across 21 lessons (floor 92,000 — recomputed live)')
+      const alIds = bookLessons.map((l) => l.id)
+      ok(alIds.every((i) => i.startsWith('al-')), 'K snapshot: every book-3 lesson id carries the al- prefix')
+    }
+  }
+  console.log('[K] the unit-6 completion review: BOOK_FORMAT checklist 7/7, exam corners 3/3, snapshot recomputed')
+}
+
+/* ------------------------------------------------------------------ */
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 
-console.log(`\nverify-book3-ch06 pre-writing battery (sections A-E): ${passed} passed, ${failed} failed`)
+console.log(`\nverify-book3-ch06 battery (sections A-K, the chapter CLOSED): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)

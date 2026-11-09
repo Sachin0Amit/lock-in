@@ -9,6 +9,32 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 78 (2026-11-09, job 516929's v4 hybrid-cadence day window)**: **AL ch. 6 'Simultaneous Linear Equations' COMPLETE 3/3** —
+6.3 'Consistency: the Geometry of Two Lines' (`al-consistency-the-geometry-of-two-lines`, 6,017 words, 8 terms,
+quiz keys 0/1/2/1/3, 14 exercises L1–L6, 2 figures — the three-meetings gallery + the slope machine — 3 display
+equations (the line dress, the meeting theorem, the k-family slide), 6 illustrations, 1 typed derivation (the
+meeting theorem: dress → gather → price the gaps → read D·x = Dx → divide → the D = 0 split), 1 table, 3 formula
+cards, 5 callouts incl. the Descartes historical note) + the unit-6 completion review PASSED (BOOK_FORMAT checklist
+7/7 as executable assertions, exam corners 3/3, chapter snapshot recomputed: 15,618 words / 15 quiz / 42 exercises /
+6 figures). Verify-first: verify-book3-ch06.ts sections H–I written BEFORE prose and J–K at authoring time —
+**13,849,525 checks ALL GREEN** (the line-dress engine: 2,028 equations dressed losslessly with 7,225 exact dress
+identities; the meeting engine: 822,016 sloped + 194,688 vertical = 1,016,704 crossings with the line-algebra
+crossing equal to the Cramer pair EXACTLY everywhere; the FULL-grid instrument-as-geometry census: D = 0 164,944 =
+157,504 parallel-distinct (134,000 non-vertical + 23,504 double-vertical) + 7,440 coincident (6,608 + 832), the
+intercept identity b1·Dy = −a1·Dx exact, one-vertical D = 0 impossible; the lattice-honesty engine: 222,592 of
+1,016,704 crossings lattice-visible, 794,112 hidden between grid points; twelve pinned exhibits both sides).
+Pre-writing catches: the horizontal Dy = 0 law (the naive 'parallel ⟹ Dy ≠ 0' claim repaired to Dy = −(a1/b1)·Dx);
+the two-parameter census meeting (s1 = 6, s2 = 4). Authored-time catches: the typed derivation shape, six example
+answer fields converted to terminal 'Hence' steps, 24 backslash-escape runs, J's honest census (17 paras, 3
+equations), three SVG label contacts re-audited 0/0 ×6. Per-lesson gates green (lint 0 / tsc 0 / routes 200+404
+after one dev restart for the stale param cache; the sandbox killed the background dev server between calls —
+dev started in the SAME command as the E2E runs; E2E 45/45 ×3 viewports on quiz keys 0/1/2/1/3, KaTeX 401 nodes
+0 errors, 0 console errors, 1 table, 2 figures, mobile 390 exact-fit). The chapter stands 15,618 words / 24 terms /
+15 quiz / 42 exercises / 6 figures / 9 formula cards; the book stands 6 of 11 chapters complete (21 lessons /
+93,958 words). Library totals rebuilt by build_work_inventory.ts (ground truth: WORK_INVENTORY.json). Next:
+run 79 = AL ch. 7 'Inequalities' OPENS with 7.1 'Order and the Solution Set' + 7.2 'Solving Linear Inequalities'
+(verify-book3-ch07.ts FIRST); 7.3 + the unit-7 review close the chapter at run 80.
+
 Maintained through **run 68 (2026-11-07, job 509354's hourly :45 IST cadence)**: **AL ch. 1 'Letters and Structure' COMPLETE 4/4** —
 1.3 'Evaluating Expressions: Substitution and Formulas' (`al-evaluating-expressions-substitution-and-formulas`, 4,113 words, 8 terms,
 quiz keys 2/1/2/3/1, 14 exercises L1–L6, 2 figures — the formula machine + the anchor scale — 2 display equations (the book's first),

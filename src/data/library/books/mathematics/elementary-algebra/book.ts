@@ -27,9 +27,11 @@ import { chapter06 } from './ch-06'
  * the unit-5 completion review PASSED — 14,024 words across the chapter):
  * chapter 5 COMPLETE 3/3. Chapter 6 'Simultaneous Linear Equations' opened
  * at run 77 (6.1 Equations in Two Variables + 6.2 Substitution and
- * Elimination); 6.3 + the unit-6 review close it at run 78. The book stands
- * in-progress — 5 complete chapters of 11 (owner cadence: two lessons per
- * run, strictly sequential). Lesson ids use the `al-` prefix (globally
+ * Elimination) and CLOSED at run 78 (6.3 Consistency: the Geometry of Two
+ * Lines + the unit-6 completion review PASSED): chapter 6 COMPLETE 3/3.
+ * The book stands in-progress — 6 complete chapters of 11 (owner cadence:
+ * two lessons per run, strictly sequential; chapter 7 'Inequalities' opens
+ * at run 79). Lesson ids use the `al-` prefix (globally
  * unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation

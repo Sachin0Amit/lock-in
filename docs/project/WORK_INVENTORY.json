@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-09 15:44:03 (Asia/Kolkata)",
+  "generated": "2026-11-09 17:07:05 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,14 +5920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 197,
-      "totalLines": 90143,
+      "srcFilesTracked": 198,
+      "totalLines": 91508,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 61738,
+        "src/data/library (content model + books)": 63103,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16205,33 +16205,135 @@
           "del": 10
         }
       ]
+    },
+    {
+      "sha": "3228129a964aebbdc499b287fee3c4d16370789d",
+      "short": "3228129",
+      "date": "2026-11-09 10:14",
+      "message": "run 77: Elementary Algebra ch. 6 OPENS 2/3 — 6.1 'Equations in Two Variables' (4,711 words, quiz 0/2/1/2/1, 14 exercises, sieve + census-strip figures) + 6.2 'Substitution and Elimination' (4,890 words, quiz 0/0/2/1/2, 14 exercises, 2 algorithm pipelines, substitution-flow + two-methods figures); verify-book3-ch06.ts 9,685,215 checks ALL GREEN (A–G: the FULL 13^6 grid 4,769,856 nondegenerate systems — 4,604,912 unique / 157,504 none / 7,440 infinite with 9,209,824 witness identities; the D=0 sub-grid 64,896: 3,264 consistent / 61,632 inconsistent; substitution 6,952 chains + elimination 7,465 chains both = Cramer everywhere; the licence engines 236,736 checks; exhibits both sides); catches: the A-v back-substitution denominator slip, the false small-equation claim (replaced by gcd(a,b)|c over all 2,184 equations), the A-iii window assumption, the age-equation sign slip (f−2s = 12), the IEEE-float mixture check, 5 single-\\pm odd runs, the SVG survivor-box spill, the book.ts double-entry repair (103 ids unique again); E2E e2e-al-61 + e2e-al-62 45/45 ×3 viewports each, SVG audits 0/0 ×4; ch-06 in-progress 2/3, plannedLessons holds 6.3; logs + WORK_INVENTORY updated (book 20 lessons / 87,941 words)",
+      "filesChanged": 14,
+      "insertions": 2694,
+      "deletions": 53,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 78,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 11
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 94,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-al-61.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-61.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-62.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-62.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch06.ts",
+          "add": 1222,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 8,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-06.ts",
+          "add": 909,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "0da41e8f44f738947a2a73ee91cf0efe0130e105",
+      "short": "0da41e8",
+      "date": "2026-11-09 10:15",
+      "message": "run 77: push verification recorded — remote main = local HEAD 3228129 (ls-remote via one-time URL)",
+      "filesChanged": 2,
+      "insertions": 4,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 26,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 103,
-    "wordsAuthored": 499986,
-    "termsDefined": 795,
-    "quizItems": 515,
-    "exerciseQuestions": 1303,
+    "chaptersWritten": 27,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 104,
+    "wordsAuthored": 506003,
+    "termsDefined": 803,
+    "quizItems": 520,
+    "exerciseQuestions": 1317,
     "blockTotals": {
-      "para": 1476,
-      "callout": 569,
-      "heading": 572,
-      "list": 110,
-      "terms": 104,
-      "equation": 149,
-      "figure": 177,
-      "derivation": 206,
-      "table": 135,
-      "example": 423,
-      "quiz": 103,
-      "exercises": 103,
-      "formula": 293,
+      "para": 1493,
+      "callout": 574,
+      "heading": 577,
+      "list": 111,
+      "terms": 105,
+      "equation": 152,
+      "figure": 179,
+      "derivation": 207,
+      "table": 136,
+      "example": 429,
+      "quiz": 104,
+      "exercises": 104,
+      "formula": 296,
       "algorithm": 24
     }
   }

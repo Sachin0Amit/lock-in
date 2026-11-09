@@ -2,6 +2,61 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 78 (fired ~16:30 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091901): AL CH. 6 'SIMULTANEOUS LINEAR EQUATIONS' CLOSES 3/3 — 6.3 'Consistency: the Geometry of Two Lines' (al-consistency-the-geometry-of-two-lines, 6,017 words, quiz keys 0/1/2/1/3, 14 exercises, two figures — the three-meetings gallery + the slope machine) + THE UNIT-6 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3) — the chapter COMPLETE and fully verified at run end; ch. 7 NOT touched
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (runs 76–77 both pushed; remote
+main = local HEAD 0da41e8/3228129). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 78
+= 6.3 + the unit-6 review (v2 quota: the one remaining lesson + the review; NEVER ch. 7).
+
+**Research (zero downloads, zero new keys):** the banked keys carried the run — `hall-knight-elementary-algebra`
+(the classical chapter's graphical reading deferred from 6.1/6.2), `ncert-math10-ch3-pair-linear` (the
+graphical method section + the ratio trichotomy, whose MEANING this lesson supplies), `khattar-qa-4e`
+(parallel/coincident find-k exam shapes), `cengage-jee-style` (the presentation contract).
+
+**Verify-first (sections H + I written BEFORE any prose, J + K at authoring time):** H-i the line-dress engine
+(all 2,028 equations with b ≠ 0 over [-6,6] dressed losslessly — windowed censuses agree, 7,225 exact dress
+identities m·s + k = (c − a·s)/b); H-ii the meeting engine (822,016 sloped + 194,688 vertical = 1,016,704
+D≠0 crossings over the coarse grid — the line-algebra crossing x* = (k2−k1)/(m1−m2) equals the Cramer pair
+(Sx/D, Sy/D) EXACTLY everywhere, verticals by direct reading); H-iii the D-instruments as geometry over the
+FULL 13^6 grid (D = 0 population 164,944 = 157,504 parallel-distinct + 7,440 coincident; the parallel class
+splits 134,000 non-vertical + 23,504 double-vertical; the coincident class 6,608 + 832; the intercept
+identity b1·Dy = −a1·Dx holds exactly; D = 0 with exactly one vertical is IMPOSSIBLE; Dy vanishes ⟺ a1 = 0 —
+the horizontal case); H-iv the lattice-honesty engine (222,592 of 1,016,704 crossings lattice-visible ≈ 22%,
+794,112 hidden between grid points; 4,199 full window sweeps exact); H-v twelve pinned exhibits (the opening
+pair as lines, parallel, coincident, the 6.1 trichotomy row, vertical × sloped, two verticals, doubled
+vertical, horizontals, the k-family slide, the hidden crossing (2, 1/2), 6.2's find-k as geometry, the
+shared-census-pair reading). I the two figure plans pinned rect-by-rect pre-writing.
+
+**Pre-writing catches (the discipline working):** the H-iii parallel assertion claimed Dy ≠ 0 for ALL
+parallel-distinct pairs — FALSE for horizontals (two distinct horizontals have Dy = 0 identically; the honest
+law is Dy = −(a1/b1)·Dx, so Dy vanishes ⟺ a1 = 0) — repaired pre-prose; the H-v V-12 census comparison used
+ONE parameter for TWO families ((s, 10−s) vs (s+2, s) need s1 = s2 + 2 — the meeting is at s1 = 6, s2 = 4) —
+rewritten as the one-family-against-the-second-assertion reading.
+
+**Authored-time catches (all repaired to zero):** the chapter status/plannedLessons assertions in F (written
+at run 77 for the in-progress state) updated to the closed state; the 6.3 derivation block was first written
+in string-steps shape (ch-05 review style) — tsc caught it; rewritten in the typed shape ({label, formula,
+explanation} × 6 + statement + result); SIX example-level `answer:` fields rejected by the ExampleBlock type —
+converted to terminal 'Hence — …' steps (Cengage chain, the ch-06 exemplar pattern); 24 `\\'` escape runs
+(the run-76/77 pattern again) caught by tsc and replaced with curly apostrophes; J's block census needed the
+honest numbers (17 paras not 15; equations 2 → 3 after adding the k-family slide display equation; the L3.2
+anchor is all[7] not all[6]); three SVG text/geometry contacts caught by the overlap auditor (the coincident
+label grazed the y-axis; the two NO branch labels touched the decision-box edges) — labels moved, re-audited
+0/0 ×6 figures.
+
+**Gates:** verify-book3-ch06.ts finished at **13,849,525 checks ALL GREEN** (sections A–K). `bun run lint`
+0 errors (2 pre-existing warnings); `tsc --noEmit` clean; routes 200 (new lesson + book + revise + glossary
+after one dev restart for the stale param cache; the sandbox also killed the background dev server between
+calls — dev started in the SAME command as the E2E per the run-69..77 battery) / 404 (unknown lesson); E2E
+e2e-al-63 **45/45 ×3 viewports** (quiz 5/5 live on keys 0/1/2/1/3; KaTeX 401 nodes, 0 errors; 2 figures +
+1 table; 20 Sol. pills after expansion; 0 console errors; no overflow at 1280/390); SVG overlap audits
+**0/0 on all six chapter-6 figures** after the label fixes.
+
+**Chapter state:** ch. 6 'Simultaneous Linear Equations' **COMPLETE 3/3** (15,618 words: 6.1 4,711 + 6.2
+4,890 + 6.3 6,017; 3 terms blocks / 15 quiz items / 42 exercises / 6 figures / 2 algorithm pipelines /
+3 derivations / 1 table / 9 formula cards); the book stands 6 complete chapters of 11 (21 lessons /
+93,958 words). ch-06 status complete, plannedLessons emptied, book.ts header updated. WORK_INVENTORY rebuilt.
+
 ## 2026-11-09 — RUN 77 (fired 14:50 IST from job 516929's v4 hybrid-cadence day window, trace cron-agent-loop-202611091720): AL CH. 6 'SIMULTANEOUS LINEAR EQUATIONS' OPENS 2/3 — 6.1 'Equations in Two Variables' (al-equations-in-two-variables, 4,711 words, quiz keys 0/2/1/2/1, 14 exercises, two figures) + 6.2 'Substitution and Elimination' (al-substitution-and-elimination, 4,890 words, quiz keys 0/0/2/1/2, 14 exercises, two figures) — authored strictly sequentially verify-first; 6.3 + the unit-6 review NOT touched (they close the chapter at run 78)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at the run-76 ship (run 76's commit 5a88b60 was

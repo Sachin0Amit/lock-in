@@ -8,8 +8,10 @@ import type { Chapter } from '../../../types'
  *                  ch06.ts sections A–F green) 6.2 Substitution and
  *                  Elimination (run 77 — quiz keys 0/0/2/1/2, 14
  *                  exercises, two figures, sections D–G green); 6.3
- *                  Consistency: the Geometry of Two Lines + the unit-6
- *                  completion review close the chapter at run 78.
+ *                  Consistency: the Geometry of Two Lines (run 78 — quiz
+ *                  keys 0/1/2/1/3, 14 exercises, two figures, the
+ *                  meeting-theorem derivation) + the unit-6 completion
+ *                  review PASSED: chapter 6 COMPLETE 3/3 at run 78.
  *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–76 pattern) — `hall-knight-elementary-
@@ -233,13 +235,148 @@ function twoMethodsSvg(): string {
 /* chapter                                                             */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/* Figure 1 (6.3): the three meetings gallery — crossing, parallel,    */
+/* coincident. Title band (30,18,660,44); panels (30,84,208,180),      */
+/* (256,84,208,180), (482,84,208,180); verdict chips (30,276,208,26),  */
+/* (256,276,208,26), (482,276,208,26); caption band (30,314,660,24).   */
+/* Geometry pinned in verify-book3-ch06.ts plan63Fig1, audited in J.   */
+/* ------------------------------------------------------------------ */
+
+function threeMeetingsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two lines can cross at one point, run parallel with no shared point, or be the same line sharing every point">'
+  )
+  // title band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">two lines, three ways to meet — the verdicts of 5.3 become geometry</text>')
+  // ---- panel 1: crossing (x + y = 10, x − y = 2) ----
+  parts.push('<rect x="30" y="84" width="208" height="180" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="134" y="104" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">CROSSING</text>')
+  parts.push('<text x="134" y="118" font-size="9.5" fill="#65a30d" text-anchor="middle">x + y = 10 · x − y = 2</text>')
+  // axes
+  parts.push('<line x1="46" y1="228" x2="224" y2="228" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<line x1="62" y1="134" x2="62" y2="248" stroke="#d97706" stroke-width="1"/>')
+  // the two lines and the meeting point
+  parts.push('<line x1="66" y1="146" x2="216" y2="206" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<line x1="66" y1="216" x2="216" y2="136" stroke="#ea580c" stroke-width="2"/>')
+  parts.push('<circle cx="141" cy="176" r="4.5" fill="#ea580c"/>')
+  parts.push('<text x="112" y="222" font-size="9" fill="#166534" text-anchor="middle">y = −x + 10</text>')
+  parts.push('<text x="182" y="132" font-size="9" fill="#166534" text-anchor="middle">y = x − 2</text>')
+  // ---- panel 2: parallel (x + y = 4, x + y = 7) ----
+  parts.push('<rect x="256" y="84" width="208" height="180" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="104" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">PARALLEL</text>')
+  parts.push('<text x="360" y="118" font-size="9.5" fill="#65a30d" text-anchor="middle">x + y = 4 · x + y = 7</text>')
+  parts.push('<line x1="272" y1="228" x2="450" y2="228" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<line x1="288" y1="134" x2="288" y2="248" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<line x1="292" y1="140" x2="442" y2="200" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<line x1="292" y1="180" x2="442" y2="240" stroke="#ea580c" stroke-width="2"/>')
+  parts.push('<text x="330" y="132" font-size="9" fill="#166534" text-anchor="middle">x + y = 4</text>')
+  parts.push('<text x="336" y="256" font-size="9" fill="#166534" text-anchor="middle">x + y = 7</text>')
+  // ---- panel 3: coincident (2x + 3y = 6, 4x + 6y = 12) ----
+  parts.push('<rect x="482" y="84" width="208" height="180" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="586" y="104" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">COINCIDENT</text>')
+  parts.push('<text x="586" y="118" font-size="9.5" fill="#65a30d" text-anchor="middle">2x + 3y = 6 · 4x + 6y = 12</text>')
+  parts.push('<line x1="498" y1="228" x2="676" y2="228" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<line x1="514" y1="134" x2="514" y2="248" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<line x1="518" y1="150" x2="668" y2="210" stroke="#16a34a" stroke-width="4"/>')
+  parts.push('<line x1="518" y1="150" x2="668" y2="210" stroke="#ea580c" stroke-width="1.4" stroke-dasharray="6 5"/>')
+  // sample shared points along the single line
+  parts.push('<circle cx="538" cy="158" r="3" fill="#0d9488"/>')
+  parts.push('<circle cx="593" cy="175" r="3" fill="#0d9488"/>')
+  parts.push('<circle cx="648" cy="192" r="3" fill="#0d9488"/>')
+  parts.push('<text x="558" y="136" font-size="9" fill="#166534" text-anchor="middle">2x + 3y = 6</text>')
+  parts.push('<text x="600" y="222" font-size="9" fill="#166534" text-anchor="middle">4x + 6y = 12</text>')
+  // ---- verdict chips ----
+  parts.push('<rect x="30" y="276" width="208" height="26" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="134" y="293" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">one shared point — (6, 4)</text>')
+  parts.push('<rect x="256" y="276" width="208" height="26" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="360" y="293" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">no shared point — parallel</text>')
+  parts.push('<rect x="482" y="276" width="208" height="26" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="586" y="293" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">every point shared — one line</text>')
+  // caption band
+  parts.push('<rect x="30" y="314" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="330" font-size="11" fill="#166534" text-anchor="middle">the three meetings ARE the three verdicts: crossing ↔ one · parallel ↔ none · coincident ↔ infinitely many</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 2 (6.3): the slope machine — the D-instruments decide the    */
+/* meeting. Title band (30,18,660,44); start (30,92,170,60); decision  */
+/* d1 (250,92,180,60); result R1 (480,92,210,60); decision d2          */
+/* (250,190,180,60); result R2 (480,190,210,60); result R3             */
+/* (250,270,180,52); caption band (30,334,660,22). Geometry pinned in  */
+/* verify-book3-ch06.ts plan63Fig2, audited in J.                      */
+/* ------------------------------------------------------------------ */
+
+function slopeMachineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A decision machine: compare slopes, then intercepts; the D-instruments decide the meeting">'
+  )
+  // title band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the slope machine — two questions, three outcomes</text>')
+  // start box
+  parts.push('<rect x="30" y="92" width="170" height="60" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>')
+  parts.push('<text x="115" y="113" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">two lines, dressed</text>')
+  parts.push('<text x="115" y="131" font-size="10.5" fill="#0f766e" text-anchor="middle">y = m1·x + k1</text>')
+  parts.push('<text x="115" y="147" font-size="10.5" fill="#0f766e" text-anchor="middle">y = m2·x + k2</text>')
+  // decision 1
+  parts.push('<rect x="250" y="92" width="180" height="60" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="340" y="113" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">slopes equal?</text>')
+  parts.push('<text x="340" y="131" font-size="10.5" fill="#0f766e" text-anchor="middle">is m1 = m2 ?</text>')
+  parts.push('<text x="340" y="147" font-size="10" fill="#d97706" text-anchor="middle">(the D = 0 test)</text>')
+  // result 1
+  parts.push('<rect x="480" y="92" width="210" height="60" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="585" y="113" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">EXACTLY ONE MEETING</text>')
+  parts.push('<text x="585" y="131" font-size="10.5" fill="#0f766e" text-anchor="middle">the crossing (Dx/D, Dy/D)</text>')
+  parts.push('<text x="585" y="147" font-size="10" fill="#65a30d" text-anchor="middle">verdict one — solve and check</text>')
+  // decision 2
+  parts.push('<rect x="250" y="190" width="180" height="60" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="340" y="211" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">intercepts equal?</text>')
+  parts.push('<text x="340" y="229" font-size="10.5" fill="#0f766e" text-anchor="middle">is k1 = k2 ?</text>')
+  parts.push('<text x="340" y="245" font-size="10" fill="#d97706" text-anchor="middle">(the Dx = 0 test)</text>')
+  // result 2
+  parts.push('<rect x="480" y="190" width="210" height="60" rx="8" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<text x="585" y="211" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="700">NEVER MEET</text>')
+  parts.push('<text x="585" y="229" font-size="10.5" fill="#0f766e" text-anchor="middle">parallel, distinct — no point</text>')
+  parts.push('<text x="585" y="245" font-size="10" fill="#65a30d" text-anchor="middle">the none verdict — say it honestly</text>')
+  // result 3
+  parts.push('<rect x="250" y="270" width="180" height="52" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>')
+  parts.push('<text x="340" y="290" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">THE SAME LINE</text>')
+  parts.push('<text x="340" y="308" font-size="10.5" fill="#0f766e" text-anchor="middle">every point shared — infinitely many</text>')
+  // arrows
+  parts.push('<line x1="200" y1="122" x2="244" y2="122" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<path d="M 238 117 L 246 122 L 238 127" fill="none" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="430" y1="122" x2="474" y2="122" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<path d="M 468 117 L 476 122 L 468 127" fill="none" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="452" y="86" font-size="9.5" fill="#ea580c" text-anchor="middle" font-weight="700">NO · D ≠ 0</text>')
+  parts.push('<line x1="340" y1="152" x2="340" y2="184" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<path d="M 335 178 L 340 186 L 345 178" fill="none" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="350" y="172" font-size="9.5" fill="#ea580c" text-anchor="start" font-weight="700">YES · D = 0</text>')
+  parts.push('<line x1="430" y1="220" x2="474" y2="220" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<path d="M 468 215 L 476 220 L 468 225" fill="none" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="452" y="184" font-size="9.5" fill="#ea580c" text-anchor="middle" font-weight="700">NO · Dx ≠ 0</text>')
+  parts.push('<line x1="340" y1="250" x2="340" y2="264" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<path d="M 335 258 L 340 266 L 345 258" fill="none" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="350" y="262" font-size="9.5" fill="#ea580c" text-anchor="start" font-weight="700">YES · Dx = 0</text>')
+  // caption band
+  parts.push('<rect x="30" y="334" width="660" height="22" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="349" font-size="10.5" fill="#166534" text-anchor="middle">the D-instruments of 6.1 are the slope and intercept tests — one theorem, two languages</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
 export const chapter06: Chapter = {
   number: 6,
   slug: 'simultaneous-linear-equations',
   title: 'Simultaneous Linear Equations',
   summary:
     'Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'al-equations-in-two-variables',
@@ -904,6 +1041,322 @@ export const chapter06: Chapter = {
         ] },
       ],
     },
+    {
+      id: 'al-consistency-the-geometry-of-two-lines',
+      number: '6.3',
+      title: 'Consistency: the Geometry of Two Lines',
+      concepts: [
+        'the line dress y = (c − ax)/b',
+        'slope of a linear equation',
+        'y-intercept',
+        'parallel lines',
+        'coincident lines',
+        'consistent and inconsistent systems',
+        'the meeting theorem',
+        'lattice points and hidden crossings',
+      ],
+      objectives: [
+        'dress any linear equation with b ≠ 0 as a line y = m·x + k and read off its slope and y-intercept',
+        'decide how two lines meet — crossing, parallel, coincident — from slopes and intercepts alone, verticals included',
+        're-derive the D-instruments of 6.1 as the slope and intercept tests',
+        'locate the meeting point by line algebra and recognize it as the Cramer pair of 6.1',
+        'read the three verdicts of 5.3 as the three ways two lines can meet',
+      ],
+      prerequisites: ['al-substitution-and-elimination', 'al-equations-in-two-variables'],
+      sources: ['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style'],
+      blocks: [
+        { kind: 'para', text: 'Lesson 6.2 left you with two methods and one promise: substitution and elimination always agree, because both are lawful readings of the same elimination identities $D \\cdot x = D_{x}$ and $D \\cdot y = D_{y}$. But a reader who worked the exhibits may have felt something deeper stirring underneath. The census of 6.1 counted the pairs satisfying $x + y = 10$ — $(1, 9), (2, 8), (3, 7), \\ldots$ — and they did not scatter: they marched in a perfect line, each pair one step right and one step down from the last. That straightness was not a coincidence of this example. Every linear equation in two unknowns draws a straight line, and every pair that satisfies it lives on that line. This lesson draws the picture in full — and the picture does not merely decorate the algebra. It explains it.' },
+        { kind: 'para', text: 'The destination is a double-reading of everything chapter 6 has built. Solving a system becomes finding where two lines meet. The three verdicts of 5.3 — exactly one, none, infinitely many — return as the three ways two lines can behave: they cross at one point, they run parallel and never meet, or they are the same line sharing every point. The instruments $D$, $D_{x}$, $D_{y}$ return as the slope-difference and intercept-difference detectors. Even the method of 6.2 acquires a face: elimination is what you get when you slide both lines into a common dress and subtract. One theorem, two languages — and by the end you will read either fluently.' },
+        { kind: 'heading', text: 'The Line Dress' },
+        { kind: 'para', text: 'Take any linear equation $a x + b y = c$ and suppose first that $b \\neq 0$. Then $b$ is a nonzero number, and the inverse law of ANS 7.2 lets you divide both members by it — twice, lawfully. Subtract $a x$ from both members (the balance move of 5.1, now carrying two letters), divide by $b$, and the equation is solved for $y$:' },
+        { kind: 'equation', latex: 'a x + b y = c \\;\\iff\\; y = -\\frac{a}{b}\\,x + \\frac{c}{b} \\qquad (b \\neq 0)', note: 'the line dress: one coefficient of the slope m = −a/b and one bare number k = c/b, the value where the line meets the y-axis.' },
+        { kind: 'para', text: 'The dressed form $y = m \\cdot x + k$ is the algebraic signature of a straight line: for every $+1$ step in $x$, the value of $y$ changes by exactly $m$ — the slope — and when $x = 0$ the value of $y$ is exactly $k$ — the y-intercept. You have already met a dressed line without the name: the census ladder of 6.1, the pairs $(s, 10 - s)$ of $x + y = 10$, steps down by 1 as $s$ steps up by 1 — slope $-1$, intercept $10$, and the ladder was the line, sampled pair by pair. The verifier behind this lesson dressed all $2{,}028$ equations $a x + b y = c$ over $[-6, 6]$ with $b \\neq 0$ and confirmed the dress is lossless: the windowed census of each original and the census of its dress agree exactly, and $7{,}225$ spot identities $m \\cdot s + k = (c - a s)/b$ all hold as exact fractions.' },
+        { kind: 'para', text: 'One honest exception: if $b = 0$ the dress refuses — dividing by $b$ is division by zero, excluded by ANS 9.3. The equation collapses to $a x = c$ with $a \\neq 0$, forcing $x = c/a$ while $y$ stays free: a vertical line, the set of all pairs with one fixed x-coordinate. Verticals have no slope in the $m$-sense — "how $y$ responds to a step in $x$" has no answer when $x$ cannot step — but they are real lines, they meet every non-vertical line exactly once, and the instrument table below prices them without any division at all.' },
+        { kind: 'terms', items: [
+          { term: 'Line dress', def: 'The form $y = m \\cdot x + k$ of a linear equation with $b \\neq 0$, obtained by solving for $y$: $y = -\\frac{a}{b} x + \\frac{c}{b}$. The dress is equivalent to the original — every pair satisfying one satisfies the other.' },
+          { term: 'Slope', def: 'The number $m = -a/b$: how much $y$ changes per unit step of $x$ along the line. A slope of $2$ climbs two units per step right; a slope of $-1$ descends one; a slope of $0$ is level.' },
+          { term: 'Y-intercept', def: 'The number $k = c/b$: the y-value where the line crosses the y-axis (the point $(0, k)$), read off the dress as the constant term.' },
+          { term: 'Vertical line', def: 'The line $x = c/a$ (an equation with $b = 0$, $a \\neq 0$): all pairs with one fixed x-coordinate. It has no slope in the m-sense and meets every non-vertical line exactly once.' },
+          { term: 'Intersecting (crossing) lines', def: 'Two lines with different slopes: they share exactly one point, and the system they form has exactly one solution — the meeting point read as a pair.' },
+          { term: 'Parallel lines', def: 'Two lines with the same slope but different intercepts: they share no point at all, and the system they form has no solution. Distinct verticals ($x = 3$ and $x = 5$) are parallel in the same honest sense.' },
+          { term: 'Coincident lines', def: 'Two equations dressing the SAME line — same slope and same intercept: every point of the line is shared, and the system has infinitely many solutions. One equation is a scalar multiple of the other.' },
+          { term: 'Hidden crossing', def: 'A meeting point with a non-integer coordinate, such as $(2, \\tfrac{1}{2})$: exactly one real pair solves the system, but no lattice point does — the integer-pair census of 6.1 finds nothing, while the geometry crosses all the same.' },
+        ] },
+        { kind: 'example', title: 'Read the line dress — slope and intercept at a glance', steps: [
+          '$x + y = 10$: subtract $x$ — $y = -x + 10$. Slope $-1$, intercept $10$; the census ladder of 6.1 was this line.',
+          '$2x + 3y = 6$: subtract $2x$ and divide by $3$ — $y = -\\tfrac{2}{3}x + 2$. Slope $-\\tfrac{2}{3}$, intercept $2$: three steps right cost two steps down.',
+          '$3x - y = 3$: add $y$, subtract $3$ — $y = 3x - 3$. Slope $3$ (steep climb), intercept $-3$ (crosses the y-axis below the origin).',
+          '$x = 3$: $b = 0$ — the dress refuses. This is the vertical line through $x = 3$; no $m$, no $k$, every $y$ welcome at that one $x$.',
+          'Hence — Slopes $-1, -\\tfrac{2}{3}, 3$ and a vertical — read straight off $m = -a/b$ and $k = c/b$ wherever $b \\neq 0$.',
+        ] },
+        { kind: 'para', text: 'Why trust that the dress really is a line and not just a formula? The slope law makes it mechanical: from any point $(s, m s + k)$ on the dressed line, step to $s + 1$ and the dressed value moves to $m(s + 1) + k = (m s + k) + m$ — the same change $m$, at every starting point, forever. Constant change per equal step is exactly what a straight ladder is; 6.1’s census families were ladders because their equations were linear. A curve would change its step; the dress cannot. This is also the first Whisper of chapter 10, where the coordinate plane is built in full — here the plane is only as wide as the census window, and the lines live on it already.' },
+        { kind: 'heading', text: 'Three Ways Two Lines Meet' },
+        { kind: 'para', text: 'Now put two dressed lines in one picture and ask the only question a system can ask: which pairs satisfy BOTH? A pair satisfying both is a point on both lines — a shared point. And two distinct straight lines in the plane can share points in exactly three patterns, with no fourth possibility: they cross at exactly one point, they run parallel and share none, or they are the same line and share all of them. The trichotomy of 5.3 — one verdict, none, infinitely many — was this geometry speaking algebra all along. 5.3 read the verdict off one gathered coefficient; this lesson reads the same verdict off two slopes and two intercepts.' },
+        { kind: 'para', text: 'Run the gallery. First case: the lines $y = -x + 10$ and $y = x - 2$ (the chapter’s opening pair). Their slopes differ, so as $x$ marches right the first descends while the second climbs — the gap between them closes, passes through zero at exactly one $x$, and reopens on the other side. One crossing, at $(6, 4)$. Second case: $x + y = 4$ and $x + y = 7$ dress as $y = -x + 4$ and $y = -x + 7$ — same slope, so the lines rise and fall together, forever $3$ apart in the y-direction. The gap never closes: parallel, no shared pair, the none verdict. Third case: $2x + 3y = 6$ and $4x + 6y = 12$ dress identically as $y = -\\tfrac{2}{3}x + 2$ — the second equation was the first doubled all along, and the "two" lines are one line wearing two coats: every point shared, infinitely many pairs.' },
+        { kind: 'figure', caption: 'The three meetings, drawn: crossing lines share exactly one point, parallel lines share none, coincident equations draw one line twice. The verdicts of 5.3 were this picture all along.', svg: threeMeetingsSvg() },
+        { kind: 'table', caption: 'The three meetings, the three verdicts, one instrument set', head: ['the lines do', 'the 5.3 verdict', 'the instruments', 'the type case'], rows: [
+          ['cross at one point', 'exactly one solution', '$D \\neq 0$', '$x + y = 10$ and $x - y = 2$ cross at $(6, 4)$'],
+          ['run parallel, never meet', 'no solution', '$D = 0$, $D_x \\neq 0$', '$x + y = 4$ and $x + y = 7$ — the sum cannot be both'],
+          ['are the same line', 'infinitely many solutions', '$D = D_x = D_y = 0$', '$2x + 3y = 6$ and $4x + 6y = 12$'],
+        ] },
+        { kind: 'example', title: 'Classify three systems without solving them', steps: [
+          'System (i): $x + y = 10$ and $x - y = 2$. Dresses: $y = -x + 10$ and $y = x - 2$. Slopes $-1$ and $1$ differ — crossing, one meeting point.',
+          'System (ii): $x + y = 4$ and $x + y = 7$. Dresses: $y = -x + 4$ and $y = -x + 7$. Slopes equal at $-1$, intercepts $4 \\neq 7$ — parallel, no meeting point.',
+          'System (iii): $2x + 3y = 6$ and $4x + 6y = 12$. Dresses: $y = -\\tfrac{2}{3}x + 2$ twice over. Slopes equal AND intercepts equal — the same line, every point shared.',
+          'No solving was needed: two comparisons per system — slopes first, then intercepts — and the whole verdict is read.',
+          'Hence — (i) crossing — one pair; (ii) parallel — none; (iii) coincident — infinitely many.',
+        ] },
+        { kind: 'heading', text: 'The Meeting Theorem' },
+        { kind: 'para', text: 'The gallery suggests a law, and the law deserves a proof. Claim: two non-vertical lines meet exactly once precisely when their slopes differ; equal slopes with unequal intercepts never meet; equal slopes with equal intercepts are one line. And the meeting point, when it exists, is not just A point — it is the Cramer pair, delivered by the elimination identities of 6.1. The proof costs one subtraction and two exact fractions; it is the moment this chapter’s two languages become one theorem.' },
+        { kind: 'derivation', title: 'Theorem — the meeting theorem: slopes decide, Cramer locates', statement: 'For two equations $a_{1}x + b_{1}y = c_{1}$, $a_{2}x + b_{2}y = c_{2}$ with $b_{1} b_{2} \\neq 0$, dressing as the lines $y = m_{1} x + k_{1}$ and $y = m_{2} x + k_{2}$: the lines meet exactly once iff $D = a_{1} b_{2} - a_{2} b_{1} \\neq 0$ (the slopes differ), the meeting point is the Cramer pair $\\left(\\frac{D_{x}}{D}, \\frac{D_{y}}{D}\\right)$, and within $D = 0$ the intercept test $D_{x}$ splits parallel (never meet) from coincident (the same line).', steps: [
+          { label: 'Dress both lines', formula: 'y = -\\tfrac{a_{1}}{b_{1}} x + \\tfrac{c_{1}}{b_{1}} = m_{1} x + k_{1}, \\qquad y = m_{2} x + k_{2}', explanation: 'Both divisions are lawful — $b_{1}, b_{2} \\neq 0$ — so each equation becomes a line: slope $m = -a/b$, intercept $k = c/b$. A meeting point of the system is a point on both lines at once.' },
+          { label: 'Set the dresses equal', formula: 'm_{1} x + k_{1} = m_{2} x + k_{2} \\;\\iff\\; (m_{1} - m_{2}) \\cdot x = k_{2} - k_{1}', explanation: 'A shared point makes the two dressed values equal memberwise — gather, exactly as 5.3 taught. One linear equation in one unknown: the verdict machine, met again inside the geometry.' },
+          { label: 'Price the two gaps', formula: 'm_{1} - m_{2} = \\frac{-a_{1} b_{2} + a_{2} b_{1}}{b_{1} b_{2}} = -\\frac{D}{b_{1} b_{2}}, \\qquad k_{2} - k_{1} = \\frac{c_{2} b_{1} - c_{1} b_{2}}{b_{1} b_{2}} = -\\frac{D_{x}}{b_{1} b_{2}}', explanation: 'Two exact common-denominator computations. The slope gap is $D$ wearing the scale $b_{1} b_{2}$; the intercept gap is $D_{x}$ in the same dress — the instruments of 6.1 ARE the geometry.' },
+          { label: 'Read the meeting line', formula: '-\\frac{D}{b_{1} b_{2}} \\cdot x = -\\frac{D_{x}}{b_{1} b_{2}} \\;\\iff\\; D \\cdot x = D_{x}', explanation: 'Multiply both members by $-b_{1} b_{2}$ — lawful, nonzero — and the gathered meeting line IS the first elimination identity of 6.1, arrived at from pure geometry with nothing eliminated.' },
+          { label: 'Divide when D ≠ 0', formula: 'D \\neq 0 \\;\\Longrightarrow\\; x = \\frac{D_{x}}{D}, \\qquad y = m_{1} x + k_{1} = \\frac{D_{y}}{D}', explanation: 'The machine divides: the x-coordinate is forced, and substituting back prices the y-coordinate at the second identity. The crossing is the Cramer pair, and it is unique — every meeting must satisfy the same gathered line, and a linear claim with nonzero coefficient allows one value only (5.3, door one).' },
+          { label: 'The verdict when D = 0', formula: 'D = 0: \\quad D_{x} \\neq 0 \\Rightarrow \\text{parallel — none}; \\qquad D_{x} = 0 \\Rightarrow k_{1} = k_{2} \\Rightarrow \\text{coincident}', explanation: 'The gathered claim collapses to $0 \\cdot x = D_{x}$ — 5.3’s doors two and three. $D_{x} \\neq 0$: false with no unknown, no meeting — parallel. $D_{x} = 0$: true for every $x$, and with $b_{1} b_{2} \\neq 0$ it forces $k_{1} = k_{2}$ exactly — equal slopes AND equal intercepts: the dresses agree, the lines coincide.' },
+        ], result: 'Two non-vertical lines meet exactly once iff D ≠ 0 — the slopes differ; D = 0 with Dx ≠ 0 is parallel (none); D = Dx = 0 is coincident (every point) — and the crossing, when it exists, is the Cramer pair (Dx/D, Dy/D).' },
+        { kind: 'equation', latex: 'm_{1} - m_{2} = -\\frac{D}{b_{1} b_{2}}, \\qquad k_{2} - k_{1} = -\\frac{D_{x}}{b_{1} b_{2}}, \\qquad x^{*} = \\frac{k_{2} - k_{1}}{m_{1} - m_{2}} = \\frac{D_{x}}{D}', note: 'the meeting theorem in one line (b1·b2 ≠ 0): the slope gap carries D, the intercept gap carries Dx — the instruments of 6.1 ARE the geometry.' },
+        { kind: 'para', text: 'Pause on what just happened. In 6.1 the instruments $D$, $D_{x}$, $D_{y}$ were born as bookkeeping for elimination — cross-products of coefficients, priced over a grid of $4{,}769{,}856$ systems. The derivation above never eliminated anything: it dressed two lines, subtracted, and the SAME instruments fell out as the slope gap and the intercept gap. That is what it means for two languages to describe one theorem. The verifier made the agreement exhaustive rather than exemplary: over the coarse grid of a million-odd crossing systems, the line-algebra crossing $\\left(\\frac{k_{2} - k_{1}}{m_{1} - m_{2}}, \\ldots\\right)$ equals the Cramer pair exactly — as fractions, everywhere, $822{,}016$ sloped crossings and $194{,}688$ vertical ones, no exceptions.' },
+        { kind: 'example', title: 'Find the crossing by line algebra — then meet Cramer there', steps: [
+          'System: $x + 2y = 8$ and $3x - y = 3$ — the 6.1 trichotomy’s fourth row, now with faces.',
+          'Dress: $y = -\\tfrac{1}{2}x + 4$ (slope $-\\tfrac{1}{2}$, intercept $4$) and $y = 3x - 3$ (slope $3$, intercept $-3$).',
+          'Set the dresses equal: $-\\tfrac{1}{2}x + 4 = 3x - 3$, so $7 = \\tfrac{7}{2} x$ and $x = 2$; then $y = 3(2) - 3 = 3$.',
+          'Cramer agrees: $D = 1(-1) - 3(2) = -7$, $D_{x} = 8(-1) - 3(2) = -14$, $D_{y} = 1(3) - 3(8) = -21$ — so $(D_{x}/D, D_{y}/D) = (2, 3)$.',
+          'Check in both originals: $2 + 2(3) = 8$ and $3(2) - 3 = 3$ — both true.',
+          'Hence — The lines cross at $(2, 3)$ — line algebra and Cramer land on the same pair, as the theorem promises.',
+        ] },
+        { kind: 'para', text: 'A word on what the picture adds to the methods of 6.2. Elimination now has a visible meaning: dressing both equations and subtracting is comparing the two lines in a common language, and the "leftover" $D \\cdot x = D_{x}$ is the gathered meeting line. Substitution is walking one line until it meets the other. The double check of 6.2 — substituting into both originals — is verifying that the claimed point truly lies on BOTH lines, the geometric sine qua non. Nothing in the methods changes; everything in the methods becomes seeable.' },
+        { kind: 'heading', text: 'Verticals, Horizontals and the Hidden Crossings' },
+        { kind: 'para', text: 'The theorem was stated for non-vertical lines, and the honest debt is now paid. A vertical line $x = c/a$ meets every non-vertical line exactly once — the vertical fixes the x-coordinate, the sloped line hands over the y: $x = 3$ with $2x - y = 1$ meets at $(3, 5)$, no assembly required. Two verticals, though, are another story: $x = 3$ and $x = 5$ have $D = a_{1} b_{2} - a_{2} b_{1} = 0$ identically (both $b$’s are zero), $D_{x} = 0$ identically too — and the verdict is carried by $D_{y} = a_{1} c_{2} - a_{2} c_{1}$ alone: $D_{y} \\neq 0$ for the distinct pair (parallel, never meeting), $D_{y} = 0$ exactly when the two verticals are the same line in two dresses ($x = 3$ and $2x = 6$). The verifier confirms the pattern is complete: over the full grid, a $D = 0$ system is ALWAYS both-non-vertical or both-vertical — one vertical against one sloped line is mathematically incapable of $D = 0$, which is the algebra of "a vertical meets every non-vertical line".' },
+        { kind: 'para', text: 'Horizontals hide a second subtlety. Two distinct horizontal lines ($y = 2$ and $y = 5$, say) are parallel — but here $D_{y} = a_{1} c_{2} - a_{2} c_{1} = 0$ identically, because both $a$’s are zero: the $D_{y}$ test falls silent and $D_{x}$ alone decides. The law behind it was verified over every parallel-distinct pair in the grid: when $D = 0$, the identity $b_{1} D_{y} = -a_{1} D_{x}$ holds exactly, so $D_{y}$ vanishes precisely when $a_{1} = 0$ — the horizontal case. No single instrument is sacred; the trichotomy of 6.1 (some instrument nonzero ⟺ none verdict) is what survives every special case, exactly as the type-case table promised.' },
+        { kind: 'para', text: 'And now the honesty that pictures alone would hide: the meeting point need not be a lattice point. The system $x + 2y = 3$ and $x - 2y = 1$ dresses as $y = -\\tfrac{1}{2} x + \\tfrac{3}{2}$ and $y = \\tfrac{1}{2} x - \\tfrac{1}{2}$ — different slopes, so the lines cross exactly once, at $(2, \\tfrac{1}{2})$. Yet the integer-pair census of 6.1, swept over all $625$ pairs in $[-12, 12]^{2}$, finds NOTHING: no integer pair passes both tests, because the unique real solution is not an integer pair. The verifier counted this over the whole coarse grid: $222{,}592$ of the $1{,}016{,}704$ crossing systems cross at lattice points visible to the census — about $22$ percent — and the other $794{,}112$ cross between the lattice points, exactly one real meeting each, invisible to any integer sweep. The geometry sees every crossing; the lattice census only sees the ones that land on grid points. Both instruments are honest; neither is the other.' },
+        { kind: 'example', title: 'The hidden crossing — one real meeting, no integer pair', steps: [
+          'System: $x + 2y = 3$ and $x - 2y = 1$. Dresses: $y = -\\tfrac{1}{2}x + \\tfrac{3}{2}$ and $y = \\tfrac{1}{2}x - \\tfrac{1}{2}$.',
+          'Set equal: $-\\tfrac{1}{2}x + \\tfrac{3}{2} = \\tfrac{1}{2}x - \\tfrac{1}{2}$, so $2 = x$; then $y = \\tfrac{1}{2}(2) - \\tfrac{1}{2} = \\tfrac{1}{2}$.',
+          'Elimination sees it faster: the $y$-coefficients are opposites — add memberwise, $2x = 4$, so $x = 2$ and $y = \\tfrac{1}{2}$.',
+          'Check in both originals: $2 + 2 \\cdot \\tfrac{1}{2} = 3$ and $2 - 2 \\cdot \\tfrac{1}{2} = 1$ — both true, exactly.',
+          'The census of 6.1 swept $625$ integer pairs and found zero solutions — the meeting hides at a half-coordinate between the lattice points.',
+          'Hence — The lines cross exactly once, at $(2, \\tfrac{1}{2})$ — a real meeting the integer census cannot see.',
+        ] },
+        { kind: 'example', title: 'Verticals and horizontals at the machine', steps: [
+          'System (i): $x = 3$ and $2x - y = 1$. The vertical fixes $x = 3$; the sloped line hands over $y = 2(3) - 1 = 5$. Meeting: $(3, 5)$. Instruments: $D = 1(-1) - 2(0) = -1 \\neq 0$ — a vertical against a sloped line always crosses.',
+          'System (ii): $x = 3$ and $x = 5$. Two verticals: $D = 0$ and $D_{x} = 0$ identically; $D_{y} = 1(5) - 1(3) = 2 \\neq 0$ — parallel, never meeting. No x is both 3 and 5.',
+          'System (iii): $y = 2$ and $2y = 4$. Both horizontal, same line: every point shared. The second equation is the first doubled.',
+          'System (iv): $y = 2$ and $y = 5$. Distinct horizontals: $D = 0$, and $D_{x} = 2(1) - 5(1) = -3 \\neq 0$ decides — parallel. Here $D_{y} = 0$ identically; the $D_{x}$ test does the work.',
+          'Hence — A vertical meets every non-vertical line once; two verticals (like two horizontals) are parallel unless they are the same line.',
+        ] },
+        { kind: 'callout', tone: 'warn', title: 'Caution — same slope is not the same line', text: 'The classic geometry error is announcing "coincident" the moment the slopes agree. Equal slopes make the lines PARALLEL; coincident — every point shared — needs the intercepts equal too, and the check is one subtraction: $k_{1} - k_{2} = -D_{x}/(b_{1} b_{2})$, so equal intercepts ⟺ $D_{x} = 0$. The mirror error is manufacturing a meeting for parallel lines: $x + y = 4$ and $x + y = 7$ have no shared pair, and any "solution" is a lie — the gathered claim $0 = 3$ is false with no unknown left (5.3’s door two). And when a crossing IS found, the double check of 6.2 keeps its full force: the claimed point must satisfy BOTH originals — the $(2, \\tfrac{1}{2})$ check above passed exactly, in fractions, not in rounded decimals.' },
+        { kind: 'heading', text: 'The k-Family Slide and the Collected Machine' },
+        { kind: 'para', text: 'The find-k questions of 6.1 and 6.2 now get their picture. Take the family $2x + 2y = k$ against the fixed line $x + y = 4$. The left sides are proportional for EVERY $k$ — $D = 1 \\cdot 2 - 2 \\cdot 1 = 0$ identically — so the sliding line always keeps the slope $-1$ of the fixed line. What moves with $k$ is the intercept: $k_{2} = k/2$, and the intercept gap is $k_{2} - k_{1} = k/2 - 4 = (k - 8)/2 = -D_{x}/(b_{1} b_{2})$ with $D_{x} = 8 - k$. So the sliding line is parallel for every $k \\neq 8$ — forever $3$ units off when $k = 2$, forever $(20 - 8)/2 = 6$ off when $k = 20$ — and at exactly $k = 8$ the intercepts agree, the gap closes, and the slider lands ON the fixed line: coincident. The family is a line sliding across the plane, keeping its tilt; the question "for which $k$ do the lines share every point?" is the question "when does the slide arrive?" — and the instrument answers: when $D_{x} = 0$.' },
+        { kind: 'equation', latex: '2 x + 2 y = k \\;\\text{ against }\\; x + y = 4: \\quad D = 0 \\text{ identically}, \\quad D_{x} = 8 - k \\;\\implies\\; \\begin{cases} k \\neq 8 & \\text{parallel — the slide never arrives} \\\\ k = 8 & \\text{coincident — the slide lands on the fixed line} \\end{cases}', note: 'the k-family slide: the slope is locked by the proportional left sides (D = 0 for every k); the intercept gap (8 − k)/2 carries the whole story — one number separates forever-apart from the same line.' },
+        { kind: 'example', title: '6.2’s find-k question, seen as geometry', steps: [
+          'System: $3x + 4y = 12$ and $6x + k y = 24$ (the 6.2 exercise, re-seen).',
+          'Slopes: $m_{1} = -\\tfrac{3}{4}$; $m_{2} = -\\tfrac{6}{k}$ for $k \\neq 0$. Equal slopes ⟺ $\\tfrac{6}{k} = \\tfrac{3}{4}$ ⟺ $k = 8$.',
+          'At $k = 8$: the constants are proportional too — $24 = 2 \\times 12$ with the left sides in ratio 2 — so the second line LIES ON the first: coincident, every point shared.',
+          'At $k \\neq 8$: slopes differ — the lines cross exactly once, and NO value of $k$ makes them parallel: the constants double along with the left side, so $D = 0$ and $D_{x} \\neq 0$ never co-occur here.',
+          'Hence — $k = 8$ coincides; every other $k$ crosses exactly once — parallel is impossible in this family.',
+        ] },
+        { kind: 'figure', caption: 'The slope machine: two questions — slopes equal? intercepts equal? — and the three outcomes, with the D-instruments of 6.1 printed on the arrows. One theorem, two languages.', svg: slopeMachineSvg() },
+        { kind: 'callout', tone: 'insight', title: 'Insight — the census, revisited with eyes open', text: 'Every number this chapter has banked now has a face. The full-grid verdicts of 6.1 — $4{,}604{,}912$ unique, $157{,}504$ none, $7{,}440$ infinitely many — split geometrically, verified exactly: the $164{,}944$ same-slope ($D = 0$) systems are $157{,}504$ parallel pairs and $7{,}440$ coincident ones, the parallel class itself splitting into $134{,}000$ non-vertical pairs, $23{,}504$ double-vertical pairs and the horizontals hiding inside the count with their $D_{y}$ asleep. The one-verdict class is the class of different slopes — every one of the $4.6$ million crossings verified to land exactly on its Cramer pair. Even the verdict machine of 5.3 reappears inside the derivation: the meeting line $(m_{1} - m_{2}) x = k_{2} - k_{1}$ IS a gathered linear equation, and the three doors of 5.3 open onto the three meetings. Nothing new was needed; everything old became visible.' },
+        { kind: 'callout', tone: 'definition', title: 'Definition — consistent and inconsistent, the geometry pays its debt', text: 'A system is said to be consistent when it has at least one solution — the crossing case (exactly one) and the coincident case (infinitely many) alike; it is said to be inconsistent when it has none — the parallel case. 6.1 coined these words and promised the geometry; here it is: consistent systems are exactly those whose lines share at least one point, and the inconsistent ones are exactly the parallel pairs. When the two equations of a consistent system are the same line in two dresses — one a scalar multiple of the other — the equations are said to be dependent, and the infinite family of solutions is the one line’s census, exactly the parametrized families 6.1 built. A crossing system’s equations are independent: neither is a consequence of the other, and the meeting point is the unique pair of numbers that answers both.' },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — Descartes’s wedding of algebra and geometry', text: 'The double-reading you just learned has a birthday: 1637, when René Descartes’s *La Géométrie* — published as an appendix to his *Discourse on Method* — married the two oldest children of mathematics. Before Descartes, algebra was a calculus of quantities and geometry a science of figures; after him, every equation could be drawn and every curve could be written. The line dress of this lesson is the wedding’s first fruit: $a x + b y = c$ IS a line, and the Greeks’ straight lines ARE linear equations. Even the ancient hierarchy of postulates enters the algebra: that two distinct lines meet in at most one point is the plane’s parallel doctrine, and this lesson’s $D = 0$ is exactly where the algebra voices it — equal slopes, the meeting refused, no coefficient left to divide by. Two centuries later mathematicians discovered geometries where the doctrine fails and parallels behave differently; in those worlds $D = 0$ would not mean "never meet". On the flat plane of this course — the plane your census lives on — the theorem holds because the number laws hold, and the picture is their portrait.' },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner — the graphical questions, priced', text: 'The examinations ask this lesson’s content in four shapes. One: the graphical solve — draw both lines, read the crossing — where the marks live in correct intercepts and slopes, and the answer must be checked in both equations (a read-off is a claim, not a proof). Two: the parallel/coincident find-k — "for which $k$ do $x + 2y = 5$ and $2x + k y = 6$ never meet?" — answered by $D = k - 4 = 0$ (so $k = 4$) AND the confirming $D_{x} \\neq 0$; the school canon’s ratio test — $\\tfrac{a_{1}}{a_{2}} = \\tfrac{b_{1}}{b_{2}} \\neq \\tfrac{c_{1}}{c_{2}}$ for parallel, with all three ratios equal for coincident — is this lesson’s cross-products spoken as fractions (6.1 re-priced them exactly; the geometry is what the ratios MEAN). Three: the consistency vocabulary — one-line answers quoting the table: parallel ⟺ inconsistent, crossing or coincident ⟺ consistent. Four: the hidden-crossing trap — a system whose crossing is fractional, where the full-credit solution carries the fraction ($x = \\tfrac{14}{5}$, $y = \\tfrac{9}{5}$) and the half-credit trap is rounding it to a lattice pair that satisfies NEITHER equation. The NCERT class-10 graphical method is this whole lesson in miniature, and chapter 10 will draw the plane properly; here the discipline is reading meetings off dresses at speed, with instruments confirming.' },
+        { kind: 'para', text: 'From the above discussion, the collected machine stands as follows — the whole chapter in one instrument set:' },
+        { kind: 'list', marker: 'roman', items: [
+          '(i) Every equation $a x + b y = c$ with $b \\neq 0$ dresses as a line $y = -\\tfrac{a}{b} x + \\tfrac{c}{b}$: slope $m = -a/b$, intercept $k = c/b$; $b = 0$ is the vertical $x = c/a$.',
+          '(ii) Two non-vertical lines meet exactly once iff their slopes differ — $D \\neq 0$ — and the meeting point is the Cramer pair $(D_{x}/D, D_{y}/D)$: the slope gap carries $D$, the intercept gap carries $D_{x}$.',
+          '(iii) Equal slopes ($D = 0$) split by the intercepts: unequal ($D_{x} \\neq 0$) — parallel, the none verdict; equal — coincident, the infinitely-many verdict. Verticals defer to $D_{y}$; horizontals to $D_{x}$; the trichotomy survives every special case.',
+          '(iv) The three meetings ARE the three verdicts of 5.3 and the three classes of 6.1 — one theorem spoken in geometry, in algebra, and in instruments.',
+          '(v) The census sees lattice crossings only; about $22$ percent of crossings in the verifier’s grid are lattice-visible, the rest hide between grid points — one real meeting each, no integer pair.',
+        ] },
+        { kind: 'para', text: 'One bridge closes the chapter — and points at the next. A line does more than collect its own points: it CUTS the plane in two, one point on the line, whole regions on either side. Every question this chapter asked was a point question — which pair, how many pairs. Chapter 7 asks the region question: not "where does the balance sit" but "which side of the line" — $x + y < 10$, budgets that must not overflow, margins that must be beaten. Order joins algebra, the number line of ANS chapter 8 grows up into half-planes, and the line this lesson drew becomes the boundary the inequalities live against. The balance settles points; the next chapter teaches it to rule regions.' },
+        { kind: 'formula', name: 'The line dress', latex: 'a x + b y = c \\;\\iff\\; y = -\\frac{a}{b}\\,x + \\frac{c}{b} \\quad (b \\neq 0)', note: 'slope m = −a/b, y-intercept k = c/b; b = 0 gives the vertical x = c/a — no slope, all y' },
+        { kind: 'formula', name: 'The meeting theorem', latex: 'm_{1} - m_{2} = -\\frac{D}{b_{1} b_{2}}, \\quad k_{2} - k_{1} = -\\frac{D_{x}}{b_{1} b_{2}}, \\quad (x^{*}, y^{*}) = \\left(\\frac{D_{x}}{D}, \\frac{D_{y}}{D}\\right)', note: 'equal slopes ⟺ D = 0; equal intercepts ⟺ Dx = 0; the crossing is the Cramer pair — line algebra and elimination are one theorem' },
+        { kind: 'formula', name: 'The geometry trichotomy', latex: '\\begin{cases} D \\neq 0 & \\text{crossing — exactly one meeting point} \\\\ D = 0,\\ D_{x} \\neq 0 & \\text{parallel — no meeting point (inconsistent)} \\\\ D = D_{x} = D_{y} = 0 & \\text{coincident — every point shared} \\end{cases}', note: 'verticals defer to Dy, horizontals to Dx — the trichotomy of 6.1 survives every special case' },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          {
+            q: 'Dress $2x + 3y = 6$ as a line $y = m \\cdot x + k$.',
+            options: ['$y = -\\tfrac{2}{3}x + 2$', '$y = \\tfrac{2}{3}x + 2$', '$y = -\\tfrac{3}{2}x + 6$', '$y = 2x - 3$'],
+            answer: 0,
+            explain: 'The dress divides by $b = 3$: $y = \\tfrac{6 - 2x}{3} = -\\tfrac{2}{3}x + 2$. Option 2 flips the slope’s sign — $m = -a/b = -\\tfrac{2}{3}$, not $+\\tfrac{2}{3}$; option 3 swaps the roles, reading the slope as $-b/a$ and the intercept as $c$; option 4 is not a dress at all — the equation solved for $y$ never produces $y = 2x - 3$.',
+          },
+          {
+            q: 'Two non-vertical lines carry the same slope but different intercepts. They meet —',
+            options: ['in exactly one point', 'nowhere — they are parallel', 'at every point', 'in exactly two points'],
+            answer: 1,
+            explain: 'Equal slopes with unequal intercepts is the parallel case: $D = 0$ with $D_{x} \\neq 0$, the lines rising together forever apart. One meeting point needs $D \\neq 0$ (different slopes); every point needs the SAME intercept too (coincident); and two distinct straight lines cannot share two points — two points would force the same slope AND the same intercept.',
+          },
+          {
+            q: 'The vertical line $x = 4$ and the horizontal line $y = -1$ meet at —',
+            options: ['$(4, 1)$', '$(-1, 4)$', '$(4, -1)$', 'nowhere — vertical and horizontal lines are parallel'],
+            answer: 2,
+            explain: 'The vertical fixes the x-coordinate at $4$; the horizontal fixes the y-coordinate at $-1$; the shared point is $(4, -1)$. Option 1 flips the sign of the y-value; option 2 swaps the coordinates — the pair $(x, y)$ lists $x$ first; option 4 is the parallel verdict, but a vertical meets every non-vertical line exactly once — here $D = 1 \\cdot 1 - 0 \\cdot 0 = 1 \\neq 0$, the crossing instrument.',
+          },
+          {
+            q: 'For which $k$ does $2x + 2y = k$ share EVERY point with $x + y = 4$?',
+            options: ['$k = 4$', '$k = 8$', '$k = 2$', 'no value of $k$ — the lines can never coincide'],
+            answer: 1,
+            explain: 'The left sides are proportional for every $k$ ($D = 0$ identically — same slope $-1$), so coinciding needs the constants proportional too: $k = 2 \\times 4 = 8$, the second equation the first doubled. At $k = 4$ or $k = 2$ the lines stay parallel distinct ($D_{x} = 8 - k \\neq 0$); and $k = 8$ IS a value — the slide lands exactly on the fixed line.',
+          },
+          {
+            q: '$x + 2y = 3$ and $x - 2y = 1$ cross at $(2, \\tfrac{1}{2})$. What does the integer-pair census of 6.1 find?',
+            options: ['exactly that pair — it is a solution after all', 'two pairs, one on each line', 'infinitely many pairs, as always when lines cross', 'nothing — the crossing hides between lattice points'],
+            answer: 3,
+            explain: 'The crossing is the UNIQUE solution and its y-coordinate is a half — no integer pair satisfies both equations (the verifier swept all $625$ windowed pairs: zero hits). Option 1 is impossible: a pair on one line only fails the other test; option 2 describes coincident lines, but these slopes differ; option 3 contradicts uniqueness — a crossing system with two integer solutions would have two meeting points.',
+          },
+        ] },
+        { kind: 'exercises', title: 'Exercises 6.3', sets: [
+          { level: 'L1', questions: [
+            {
+              q: 'Dress $x + y = 6$ as a line and read off the slope and the y-intercept.',
+              solution: [
+                'Subtract $x$ from both members: $y = 6 - x$, that is $y = -x + 6$.',
+                'Read: slope $m = -1$, intercept $k = 6$ — the line crosses the y-axis at $(0, 6)$.',
+                'Check the instruments: $m = -a/b = -1/1 = -1$ and $k = c/b = 6/1 = 6$ — agreeing.',
+              ],
+              answer: '$y = -x + 6$: slope $-1$, intercept $6$.',
+            },
+            {
+              q: 'Dress $2x - y = 4$ and read off the slope and the y-intercept.',
+              solution: [
+                'Add $y$ to both members, subtract $4$: $y = 2x - 4$.',
+                'Read: slope $m = 2$, intercept $k = -4$ — the crossing with the y-axis is at $(0, -4)$.',
+                'Check by instruments: $m = -a/b = -2/(-1) = 2$ and $k = c/b = 4/(-1) = -4$ — agreeing.',
+              ],
+              answer: '$y = 2x - 4$: slope $2$, intercept $-4$.',
+            },
+            {
+              q: 'Dress $y + 3 = 0$. What kind of line is it?',
+              solution: [
+                'The equation is $0 \\cdot x + 1 \\cdot y = -3$: $a = 0$, $b = 1$, $c = -3$.',
+                'Dress: $y = -3$ — slope $m = -a/b = 0$, intercept $k = -3$.',
+                'Slope zero: a horizontal line, level at height $-3$; every $x$ welcome, but $y$ is pinned.',
+              ],
+              answer: '$y = -3$ — the horizontal line at height $-3$ (slope $0$, intercept $-3$).',
+            },
+          ] },
+          { level: 'L2', questions: [
+            {
+              q: 'Classify without solving: $x + y = 6$ and $x + y = 9$.',
+              solution: [
+                'Dresses: $y = -x + 6$ and $y = -x + 9$.',
+                'Slopes equal ($-1$ both — $D = 1 - 1 = 0$); intercepts $6 \\neq 9$ ($D_{x} = 6 - 9 = -3 \\neq 0$).',
+                'Same slope, different intercepts: parallel — no shared point, the none verdict.',
+              ],
+              answer: 'Parallel — the system has no solution.',
+            },
+            {
+              q: 'Classify without solving: $x + y = 6$ and $2x + 2y = 12$.',
+              solution: [
+                'Dresses: $y = -x + 6$ and, dividing the second by 2, $y = -x + 6$ — the SAME dress.',
+                'Slopes equal and intercepts equal: $D = D_{x} = D_{y} = 0$.',
+                'The second equation is the first doubled: coincident — every point of the line is shared, infinitely many pairs.',
+              ],
+              answer: 'Coincident — infinitely many solutions (one line in two dresses).',
+            },
+            {
+              q: 'Classify, and find the meeting point: $x + y = 6$ and $2x - y = 3$.',
+              solution: [
+                'Dresses: $y = -x + 6$ (slope $-1$) and $y = 2x - 3$ (slope $2$) — slopes differ, crossing.',
+                'Set the dresses equal: $-x + 6 = 2x - 3$, so $9 = 3x$ and $x = 3$; then $y = 3$.',
+                'Check in both originals: $3 + 3 = 6$ and $2(3) - 3 = 3$ — both true.',
+              ],
+              answer: 'Crossing — the lines meet at $(3, 3)$.',
+            },
+          ] },
+          { level: 'L3', questions: [
+            {
+              q: 'Find the crossing of $2x + y = 7$ and $x - y = 2$ by line algebra; confirm with Cramer.',
+              solution: [
+                'Dresses: $y = -2x + 7$ (slope $-2$, intercept $7$) and $y = x - 2$ (slope $1$, intercept $-2$).',
+                'Set equal: $-2x + 7 = x - 2$, so $9 = 3x$ and $x = 3$; then $y = 3 - 2 = 1$.',
+                'Cramer agrees: $D = 2(-1) - 1(1) = -3$, $D_{x} = 7(-1) - 2(1) = -9$, $D_{y} = 2(2) - 1(7) = -3$ — so $(D_{x}/D, D_{y}/D) = (3, 1)$.',
+                'Check in both originals: $2(3) + 1 = 7$ and $3 - 1 = 2$ — both true.',
+              ],
+              answer: 'The lines cross at $(3, 1)$.',
+            },
+            {
+              q: 'Find the crossing of $3x + 2y = 12$ and $x - y = 1$ — and say what the integer census sees.',
+              solution: [
+                'Dresses: $y = -\\tfrac{3}{2}x + 6$ and $y = x - 1$ — slopes $-\\tfrac{3}{2}$ and $1$ differ: crossing exactly once.',
+                'Set equal: $-\\tfrac{3}{2}x + 6 = x - 1$, so $7 = \\tfrac{5}{2}x$ and $x = \\tfrac{14}{5}$; then $y = \\tfrac{14}{5} - 1 = \\tfrac{9}{5}$.',
+                'Check in both originals, exactly: $\\tfrac{42}{5} + \\tfrac{18}{5} = \\tfrac{60}{5} = 12$ and $\\tfrac{14}{5} - \\tfrac{9}{5} = \\tfrac{5}{5} = 1$ — both true.',
+                'The meeting is fractional — the lattice census finds NO integer pair; the crossing hides between grid points (one real meeting, honestly reported).',
+              ],
+              answer: 'The lines cross at $\\left(\\tfrac{14}{5}, \\tfrac{9}{5}\\right)$ — no integer pair solves the system.',
+            },
+            {
+              q: 'Find the meeting of $x = 2$ and $3x + y = 8$.',
+              solution: [
+                'The vertical line fixes $x = 2$ — no dressing needed on that side.',
+                'Feed $x = 2$ into the sloped line: $3(2) + y = 8$, so $y = 2$.',
+                'Check: $3(2) + 2 = 8$ — true; and $(2, 2)$ has the vertical’s x-coordinate by construction.',
+                'Instruments agree: $D = 1(1) - 3(0) = 1 \\neq 0$ — a vertical meets every non-vertical line exactly once.',
+              ],
+              answer: 'The lines meet at $(2, 2)$.',
+            },
+          ] },
+          { level: 'L4', questions: [
+            {
+              q: 'For which $k$ do $x + 2y = 5$ and $2x + k y = 6$ never meet? What happens for every other $k$?',
+              solution: [
+                'Never meeting needs parallel: $D = 1 \\cdot k - 2 \\cdot 2 = k - 4 = 0$, so $k = 4$.',
+                'Confirm the intercept gap refuses to close: at $k = 4$, $D_{x} = 5(4) - 6(2) = 8 \\neq 0$ — parallel distinct, honestly none.',
+                'For $k \\neq 4$: $D \\neq 0$ — different slopes, exactly one crossing; for instance $k = 5$ gives $D = 1$, $D_{x} = 13$, $D_{y} = -4$: the meeting $(13, -4)$, checked in both originals ($13 - 8 = 5$; $26 - 20 = 6$).',
+              ],
+              answer: '$k = 4$ — parallel, no meeting; every $k \\neq 4$ crosses exactly once.',
+            },
+            {
+              q: 'The line $2x + 2y = k$ slides against $x + y = 4$. For which $k$ does it land ON the fixed line, and what is it doing for every other $k$?',
+              solution: [
+                'The left sides are proportional for every $k$: $D = 1(2) - 2(1) = 0$ identically — the slider always keeps slope $-1$.',
+                'The intercept gap is what moves: $D_{x} = 4(2) - k(1) = 8 - k$; coincident needs $D_{x} = 0$, that is $k = 8$.',
+                'At $k = 8$ the slider reads $2x + 2y = 8$ — the fixed line $x + y = 4$ doubled: every point shared.',
+                'For $k \\neq 8$: parallel, forever $(8 - k)/2$ away in the y-direction — at $k = 2$ three units below, at $k = 20$ six above.',
+              ],
+              answer: '$k = 8$ — coincident; every other $k$ holds the slider parallel, $(8 - k)/2$ units off.',
+            },
+          ] },
+          { level: 'L5', questions: [
+            {
+              q: 'A line of slope $2$ passes through $(0, -1)$; a line of slope $-1$ passes through $(0, 4)$. Where do they meet?',
+              solution: [
+                'Slope plus intercept builds the dress directly: the first is $y = 2x - 1$; the second is $y = -x + 4$.',
+                'Set equal: $2x - 1 = -x + 4$, so $3x = 5$ and $x = \\tfrac{5}{3}$; then $y = 2 \\cdot \\tfrac{5}{3} - 1 = \\tfrac{7}{3}$.',
+                'Check in both dresses: $2 \\cdot \\tfrac{5}{3} - 1 = \\tfrac{10}{3} - \\tfrac{3}{3} = \\tfrac{7}{3}$ and $-\\tfrac{5}{3} + 4 = \\tfrac{-5 + 12}{3} = \\tfrac{7}{3}$ — both true.',
+                'The meeting is fractional — hidden from the lattice, exactly as the theory allows.',
+              ],
+              answer: 'The lines meet at $\\left(\\tfrac{5}{3}, \\tfrac{7}{3}\\right)$.',
+            },
+            {
+              q: 'Three lines: $y = x + 1$, $y = -x + 5$ and $y = x - 3$. Which pairs meet, where, and which never?',
+              solution: [
+                'Slopes: $1$, $-1$, $1$. The first and third share their slope — check their intercepts: $1 \\neq -3$ — parallel, never meeting.',
+                'First against second: $x + 1 = -x + 5$, so $2x = 4$, $x = 2$, $y = 3$ — meeting at $(2, 3)$. Check: $3 = 2 + 1$ and $3 = -2 + 5$ — both true.',
+                'Second against third: $-x + 5 = x - 3$, so $2x = 8$, $x = 4$, $y = 1$ — meeting at $(4, 1)$. Check: $1 = 4 - 3$ and $1 = -4 + 5$ — both true.',
+                'So the picture is a triangle’s corners: two crossings and one refused meeting — the parallel pair never contributes a vertex.',
+              ],
+              answer: 'The first and second meet at $(2, 3)$; the second and third at $(4, 1)$; the first and third are parallel — no meeting.',
+            },
+          ] },
+          { level: 'L6', questions: [
+            {
+              q: 'Prove the meeting theorem: for $b_{1} b_{2} \\neq 0$, the systems with $D \\neq 0$ are exactly those whose two lines have different slopes, and the line-algebra crossing equals the Cramer pair.',
+              solution: [
+                'Dress both: $y = m_{1} x + k_{1}$ and $y = m_{2} x + k_{2}$ with $m = -a/b$ and $k = c/b$ — lawful divisions since $b_{1}, b_{2} \\neq 0$.',
+                'A meeting point satisfies both dresses memberwise, hence the gathered claim $(m_{1} - m_{2}) x = k_{2} - k_{1}$ — one linear equation in one unknown, 5.3’s machine.',
+                'Price the gaps: $m_{1} - m_{2} = \\frac{-a_{1} b_{2} + a_{2} b_{1}}{b_{1} b_{2}} = -\\frac{D}{b_{1} b_{2}}$ and $k_{2} - k_{1} = \\frac{c_{2} b_{1} - c_{1} b_{2}}{b_{1} b_{2}} = -\\frac{D_{x}}{b_{1} b_{2}}$ — exact fractions, no approximation anywhere.',
+                'The gathered claim is therefore $-\\frac{D}{b_{1} b_{2}} x = -\\frac{D_{x}}{b_{1} b_{2}}$, which multiplies (lawfully, $b_{1} b_{2} \\neq 0$) to $D \\cdot x = D_{x}$ — the first elimination identity of 6.1, reached from pure geometry.',
+                'If $D \\neq 0$: every meeting has $x = D_{x}/D$, and $y = m_{1} x + k_{1}$ prices out at $D_{y}/D$ — so the meeting exists, is unique, and IS the Cramer pair; different slopes force the single crossing.',
+                'If $D = 0$: the slopes are equal (the gaps show it), the gathered claim collapses to $0 \\cdot x = D_{x}$ — no meeting when $D_{x} \\neq 0$, and when $D_{x} = 0$ the intercepts agree too ($k_{1} = k_{2}$ exactly), so the dresses coincide and every point is shared. Hence $D \\neq 0$ characterizes the crossing systems, and the crossing equals Cramer — the two languages are one theorem.',
+              ],
+              answer: 'The slope gap is $-D/(b_{1}b_{2})$ and the intercept gap $-D_{x}/(b_{1}b_{2})$: the meeting machine reads $D \\cdot x = D_{x}$ — so $D \\neq 0$ means different slopes and a unique Cramer crossing; $D = 0$ splits into parallel ($D_{x} \\neq 0$) and coincident ($D_{x} = 0$).',
+            },
+          ] },
+        ] },
+      ],
+    },
   ],
-  plannedLessons: ['Consistency: the Geometry of Two Lines'],
+  plannedLessons: [],
 }
