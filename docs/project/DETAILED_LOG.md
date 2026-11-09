@@ -9,7 +9,34 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 80 (2026-11-09, job 516929's v4 hybrid-cadence window)**: **AL ch. 7 'Inequalities' COMPLETE 3/3** —
+Maintained through **run 81 (2026-11-09, job 516929's v4 hybrid-cadence window)**: **AL ch. 8 'Algebraic Fractions' OPENED 2/3** —
+8.1 'Rational Expressions: Simplify First' (`al-rational-expressions-simplify-first`, 5,082 words, 8 terms,
+quiz keys 0/1/0/3/1, 14 exercises L1–L6, 2 figures — the domain strip (three denominators and their refusal
+censuses 10/9/11 of 11) + the simplify-first pipeline (FACTOR → CANCEL → CARRY → CHECK with the worked
+(x²−5x+6)/(x²−4) strip) — 2 display equations, 5 illustrations, 1 five-step derivation (the fundamental law
+from the field laws, with the certificate reading and the 49-agreement pricing), 1 hole-probe table
+(59/10, 599/100, 601/100, 61/10 exact), 3 formula cards, 7 callouts incl. the factors-never-terms caution and
+the hedged bar-history note) + 8.2 'Operating on Algebraic Fractions' (`al-operating-on-algebraic-fractions`,
+4,355 words, 8 terms, quiz keys 2/1/3/1/2, 14 exercises L1–L6, 2 figures — the four-operation panel
+(multiply/divide+flip/add-LCD/subtract-bracket) + the LCD collector (x(x−1) and (x−1)(x+1) feeding
+x(x−1)(x+1) at max power) — 2 display equations (the product rule, the cross-vs-LCD twins), 5 illustrations,
+1 four-step derivation (the reciprocal flip from the field definitions, with the R ≠ 0 clause priced),
+1 operation-audit table (rule × bill × pinned exhibit), 3 formula cards, 5 callouts incl. the hidden-exclusion
+insight and the compound-bill law). Verify-first: verify-book3-ch08.ts sections A–E written BEFORE prose
+(648 checks total after F/G): the excluded-value engine (6 fractions, refusals {3},{−3},{1,4},{−3,3},∅,{0}),
+the fundamental-law engine (5 polynomial-identity triples, 49 pointwise agreements, holes {3},{2},{−1},{−2},{0}),
+the term-cancel monster (lawful 10/10 vs illegal 10/10 mismatches), the monomial engine, the exact hole probes,
+the zero-fraction engine ({−3} — the run-82 seed), the product/flip/LCD/sum engines (bills {0,−3}/{0,−2}/{0,±1}/{2},
+the hidden exclusion priced, the wrong flip and the forgotten bracket at 10 mismatches each); E2E e2e-al-81 +
+e2e-al-82 45/45 ×3 viewports each; SVG visual audits clean. Pre-writing catches: the window census cannot see
+the −6 zero of (x−2)(x+6); an x²/x⁵ assertion compared against 0 instead of 1/x³. Authoring-time catches:
+48 HTML entities would have rendered literally (RichText is literal; entities only decode in SVG innerHTML);
+the off-model example `answer` field removed; the Sol.-pill threshold recalibrated to 19; illustration 3's
+CHECK step corrected (2/(−3), not 0). Chapter 8 stands 9,437 words at 2/3; book 26 lessons / 118,805 words;
+7 of 11 chapters complete; min lesson 4,001 words. NEXT: run 82 closes ch. 8 with 8.3 'Fractional Equations
+and Extraneous Roots' + the unit-8 review.
+
+**Run 80 (previous unit ship):**  (2026-11-09, job 516929's v4 hybrid-cadence window)**: **AL ch. 7 'Inequalities' COMPLETE 3/3** —
 7.3 'Compound Inequalities and Applications' (`al-compound-inequalities-and-applications`, 5,605 words, 8 terms,
 quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 figures — the AND/OR panels + the four-interval-shapes strip — 2 display
 equations (the AND/OR set-laws dress, the two-boundary pipeline), 12 illustrations, 1 typed 6-step derivation (the

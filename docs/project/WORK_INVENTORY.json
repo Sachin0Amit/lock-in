@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-09 20:24:52 (Asia/Kolkata)",
+  "generated": "2026-11-09 21:46:22 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,13 +5921,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 199,
-      "totalLines": 92908,
+      "totalLines": 92900,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 64503,
+        "src/data/library (content model + books)": 64495,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16496,6 +16496,98 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "b06bb72e4829cf58d863b03fbd7dca32d23a4575",
+      "short": "b06bb72",
+      "date": "2026-11-09 14:57",
+      "message": "run 80: Elementary Algebra ch. 7 'Inequalities' CLOSES 3/3 — 7.3 'Compound Inequalities and Applications' (5,605 words, quiz 1/2/0/1/1, 14 exercises, the AND/OR panels + the four-interval-shapes strip, the two-boundary-pipeline derivation with the end-swap theorem) + the unit-7 completion review PASSED (7/7 checklist, exam corners 3/3, book snapshot recomputed: 24 lessons / 109,368 words / 7 of 11 chapters complete, every lesson >= 4,000 words); verify-book3-ch07.ts 52,476 checks sections A-K ALL GREEN (AND engine 100 ray-pairs + De Morgan + inclusion-exclusion; OR engine + 15 absorptions + the complement law; the two-boundary inventory 16 between-forms; the two-boundary solving engine 280 forms = 14,000 exact Frac gate equivalences + 280 boundary identities — the gates swap too when p < 0; word problems courier 51 / race 5 / pens 3 / drone 5 pinned both sides); pre-writing catches: the H-iv gate-swap bug, the && vs === precedence trap, the block-scoped grid reference, the frac(-7,2) helper misuse; authored-time catches: twelve odd backslash runs, two figure plans missing their content band rects, five label grazes on the run-79 figures (boxes widened, anchors re-centered, re-audited 0/0 x6); the verifier gained its final exit block; E2E e2e-al-73 45/45 x3 viewports (quiz 5/5 live, KaTeX 323 nodes 0 errors, 0 console errors); logs + WORK_INVENTORY updated (library 107 lessons / 521,413 words; Drive survey rebuilt after sandbox recycle); run 81 opens ch. 8 'Algebraic Fractions'",
+      "filesChanged": 12,
+      "insertions": 1460,
+      "deletions": 55,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 28,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 121,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-al-73.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-73.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch07.ts",
+          "add": 590,
+          "del": 15
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-07.ts",
+          "add": 480,
+          "del": 9
+        }
+      ]
+    },
+    {
+      "sha": "2244d7e70e24ec7ef4c4755855a81629e60d4ece",
+      "short": "2244d7e",
+      "date": "2026-11-09 14:58",
+      "message": "run 80: push verification recorded — remote main = local HEAD b06bb72 (ls-remote via one-time URL)",
+      "filesChanged": 2,
+      "insertions": 7,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -16503,26 +16595,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 28,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 107,
-    "wordsAuthored": 521413,
-    "termsDefined": 827,
-    "quizItems": 535,
-    "exerciseQuestions": 1359,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 109,
+    "wordsAuthored": 530850,
+    "termsDefined": 843,
+    "quizItems": 545,
+    "exerciseQuestions": 1387,
     "blockTotals": {
-      "para": 1532,
-      "callout": 590,
-      "heading": 592,
-      "list": 118,
-      "terms": 108,
-      "equation": 157,
-      "figure": 185,
-      "derivation": 210,
-      "table": 138,
-      "example": 458,
-      "quiz": 107,
-      "exercises": 107,
-      "formula": 305,
+      "para": 1556,
+      "callout": 602,
+      "heading": 601,
+      "list": 123,
+      "terms": 110,
+      "equation": 161,
+      "figure": 189,
+      "derivation": 212,
+      "table": 140,
+      "example": 468,
+      "quiz": 109,
+      "exercises": 109,
+      "formula": 311,
       "algorithm": 25
     }
   }

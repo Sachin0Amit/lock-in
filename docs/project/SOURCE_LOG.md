@@ -6,6 +6,24 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 81 (2026-11-09) — AL ch. 8 OPENS (8.1 + 8.2)
+
+- Zero downloads, zero new keys: the banked keys carried the unit —
+  `hall-knight-elementary-algebra` (the classical fractions chapter: reduction
+  to lowest terms, the factor-cancellation discipline), `ncert-math7-ch2`
+  (the number-fraction ground this chapter generalizes), `khattar-qa-4e`
+  (exam corner: exclusion-hunt and bill-count items, work-rate problems),
+  `cengage-jee-style` (presentation contract). Cross-references carried:
+  FM's fraction laws are the ground contract (fm-equivalent-fractions-
+  simplification, fm-adding-subtracting-fractions, fm-multiplying-dividing-
+  fractions), ANS 9.3's division-by-zero discipline became 8.1's
+  excluded-values center, ANS 7.2's field laws proved the fundamental law
+  and the reciprocal flip, 5.1's nonzero-multiplication rule returned in
+  the flip derivation. No reference working copies to delete (zero-download
+  run). The Drive survey was rebuilt this run after the sandbox recycle
+  (`scripts/rebuild_drive_survey.ts`, 89 entries) to feed
+  `build_work_inventory.ts`.
+
 ## Drive collection
 
 - **Link:** https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1 (owner-supplied 2026-11-03, link-shared)

@@ -337,3 +337,10 @@ server.log
 # pre-write verifier + per-lesson E2E scripts for Elementary Algebra ch. 7 close (whitelisted run 80)
 !/scripts/e2e-al-73.sh
 !/scripts/e2e-al-73.page.js
+
+# pre-write verifier + per-lesson E2E scripts for Elementary Algebra ch. 8 open (whitelisted run 81)
+!/scripts/verify-book3-ch08.ts
+!/scripts/e2e-al-81.sh
+!/scripts/e2e-al-81.page.js
+!/scripts/e2e-al-82.sh
+!/scripts/e2e-al-82.page.js

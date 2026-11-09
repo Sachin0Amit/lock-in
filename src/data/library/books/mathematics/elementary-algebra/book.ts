@@ -6,6 +6,7 @@ import { chapter04 } from './ch-04'
 import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
+import { chapter08 } from './ch-08'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -33,10 +34,14 @@ import { chapter07 } from './ch-07'
  * Chapter 7 'Inequalities' opened at run 79 (7.1 Order and the Solution
  * Set + 7.2 Solving Linear Inequalities) and CLOSED at run 80 (7.3
  * Compound Inequalities and Applications + the unit-7 completion review
- * PASSED — 15,410 words across the chapter): chapter 7 COMPLETE 3/3. The
- * book stands in-progress — 7 complete chapters of 11 (owner cadence:
- * two lessons per run, strictly sequential). Lesson ids use the `al-`
- * prefix (globally unique, stable forever).
+ * PASSED — 15,410 words across the chapter): chapter 7 COMPLETE 3/3.
+ * Chapter 8 'Algebraic Fractions' OPENED at run 81 (8.1 Rational
+ * Expressions: Simplify First — 8.2 Operating on Algebraic Fractions is
+ * this run's second lesson): 8.3 'Fractional Equations and Extraneous
+ * Roots' + the unit-8 review close the chapter at run 82. The book stands
+ * in-progress — 7 complete chapters of 11 (owner cadence: two lessons per
+ * run, strictly sequential). Lesson ids use the `al-` prefix (globally
+ * unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics opened the doorstep of algebra with patterns → formulas and a
@@ -111,20 +116,7 @@ export const elementaryAlgebra: Book = {
     chapter05,
     chapter06,
     chapter07,
-    {
-      number: 8,
-      slug: 'algebraic-fractions',
-      title: 'Algebraic Fractions',
-      summary:
-        'FM’s fraction laws, now carrying letters: rational expressions simplified by factoring with the excluded values kept honest (division by zero excluded — the discipline ANS 9.3 made central), addition and subtraction through the LCD of polynomials, and fractional equations solved with extraneous roots caught by the exclusion check at the end, not ignored.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Rational Expressions: Simplify First',
-        'Operating on Algebraic Fractions',
-        'Fractional Equations and Extraneous Roots',
-      ],
-    },
+    chapter08,
     {
       number: 9,
       slug: 'quadratic-equations',
