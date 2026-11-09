@@ -66,7 +66,8 @@ cross-checks) + the review section; whitelist e2e-al-63.sh/.page.js in .gitignor
 
 **Git:** ship commit (ch-06.ts + book.ts + verify-book3-ch06.ts + 4 E2E scripts + .gitignore whitelist + the
 memory docs), pushed per the protocol together with run 76's commit 5a88b60; remote main verified via one-time-URL
-ls-remote (sha recorded in PROGRESS/RESUME).
+ls-remote = local HEAD 3228129a964aebbdc499b287fee3c4d16370789d (run 76 commit 5a88b60 had
+already been pushed by that run before its context ended).
 
 ---
 
