@@ -4,10 +4,60 @@
  * Practice — shared visual vocabulary: readiness dials and metric bars
  * (the same honest-number discipline as revision's mastery-bits), MCQ
  * option grids and free-response solution bodies shared by the exam and
- * drill runners.
+ * drill runners, and the difficulty-band chips fed by the calibration
+ * engine (data-derived p-values, pooled attempt counts shown honestly).
  */
 import { Check } from 'lucide-react'
 import { RichText } from '@/components/library/math'
+import type { DifficultyBand } from '@/lib/practice/types'
+
+/* ------------------------------------------------------------------ */
+/* Difficulty chips                                                    */
+/* ------------------------------------------------------------------ */
+
+export const BAND_META: Record<
+  DifficultyBand,
+  { label: string; dot: string; text: string }
+> = {
+  warmup: { label: 'Easy', dot: 'bg-emerald-500', text: 'text-emerald-700 dark:text-emerald-300' },
+  standard: { label: 'Medium', dot: 'bg-amber-500', text: 'text-amber-700 dark:text-amber-300' },
+  challenge: { label: 'Hard', dot: 'bg-rose-500', text: 'text-rose-700 dark:text-rose-300' },
+}
+
+/**
+ * Difficulty badge: band dot + label + the 0..100 score, plus the pooled
+ * attempt count ("n=12") or an honest "est." when only the prior backs it.
+ */
+export function DifficultyChip({
+  difficulty,
+  attempts,
+}: {
+  difficulty?: number
+  attempts?: number
+}) {
+  if (typeof difficulty !== 'number') return null
+  const band: DifficultyBand = difficulty <= 35 ? 'warmup' : difficulty <= 65 ? 'standard' : 'challenge'
+  const meta = BAND_META[band]
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center gap-1.5 rounded-md border border-border bg-card px-2 py-0.5 text-[11px] font-medium ${meta.text}`}
+      title={
+        attempts && attempts > 0
+          ? `Calibrated from ${attempts} pooled attempt${attempts === 1 ? '' : 's'} (correct-rate, smoothed toward the level prior)`
+          : 'Prior estimate only — no attempt data on this question yet'
+      }
+    >
+      <span className={`h-2 w-2 rounded-full ${meta.dot}`} aria-hidden />
+      {meta.label}
+      <span className="tabular-nums opacity-70">{difficulty}</span>
+      {typeof attempts === 'number' && attempts > 0 ? (
+        <span className="tabular-nums opacity-60">n={attempts}</span>
+      ) : (
+        <span className="opacity-60">est.</span>
+      )}
+    </span>
+  )
+}
 
 /* ------------------------------------------------------------------ */
 /* Readiness visuals                                                   */
@@ -160,6 +210,15 @@ export function formatClock(totalSecs: number): string {
   const m = Math.floor(s / 60)
   const r = s % 60
   return `${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`
+}
+
+/** HH:MM:SS — the CBT timer format (papers of an hour or more). */
+export function formatHMS(totalSecs: number): string {
+  const s = Math.max(0, Math.round(totalSecs))
+  const h = Math.floor(s / 3600)
+  const m = Math.floor((s % 3600) / 60)
+  const r = s % 60
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`
 }
 
 /** "2h 05m" / "12m" / "45s" for attempt history. */

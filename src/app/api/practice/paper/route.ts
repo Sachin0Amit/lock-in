@@ -4,7 +4,8 @@ import { buildDrillPaper, buildExamPaper, BadInput } from '@/lib/practice/practi
 
 /**
  * POST /api/practice/paper — generate a deterministic practice paper.
- * Body: { presetKey } for a mock exam, or
+ * Body: { presetKey, band? } for a mock exam (band = warmup|standard|
+ * challenge difficulty targeting), or
  *       { drill: { focus: 'auto' | 'book' | 'library', bookId?, count?, seed? } }
  * 'auto' drills read the study ledger server-side and target the weakest
  * chapters. Answers travel with the paper (self-study app, same trust
@@ -18,13 +19,17 @@ export async function POST(req: Request) {
       | {
           presetKey?: string
           seed?: number
+          band?: string
           drill?: { focus?: string; bookId?: string; count?: number; seed?: number }
         }
       | null
     if (!body) return badRequest('JSON body required')
 
     if (typeof body.presetKey === 'string') {
-      const out = await buildExamPaper(undefined, body.presetKey, body.seed)
+      if (body.band !== undefined && body.band !== 'warmup' && body.band !== 'standard' && body.band !== 'challenge') {
+        return badRequest('band must be warmup|standard|challenge')
+      }
+      const out = await buildExamPaper(undefined, body.presetKey, body.seed, body.band)
       return NextResponse.json(out)
     }
     if (body.drill && typeof body.drill === 'object') {

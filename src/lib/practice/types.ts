@@ -16,6 +16,28 @@ export type PracticeKind = 'exam' | 'drill'
 export type MistakeSource = 'quiz' | 'exercise'
 
 /* ------------------------------------------------------------------ */
+/* Difficulty calibration (data-derived)                               */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Paper difficulty bands. Every band draws from the SAME library pool
+ * (chapter-balanced, no repeats); the band only changes WHICH questions
+ * each chapter contributes first — warm-up serves the easiest calibrated
+ * questions, exam-level the hardest (the "JEE-level set").
+ */
+export type DifficultyBand = 'warmup' | 'standard' | 'challenge'
+
+/** A question's calibrated difficulty, derived from pooled attempt data. */
+export interface DifficultyInfo {
+  /** 0..100 — higher = harder (it is 100 − the smoothed p-value) */
+  difficulty: number
+  /** pooled answered attempts behind the estimate (0 = prior only) */
+  attempts: number
+  /** false → prior-only estimate (exercise level or quiz baseline) */
+  dataDriven: boolean
+}
+
+/* ------------------------------------------------------------------ */
 /* Questions & papers                                                  */
 /* ------------------------------------------------------------------ */
 
@@ -59,6 +81,12 @@ export interface PaperMeta {
   questionCount: number
   /** drill auto-focus only: why each chapter was chosen */
   focusChapters?: FocusChapter[]
+  /** exams only: the requested difficulty band (default 'standard') */
+  band?: DifficultyBand
+  /** exams only: rounded mean difficulty of the paper's questions */
+  difficultyMean?: number
+  /** exams only: how many paper questions have real attempt data */
+  difficultyData?: number
 }
 
 export interface ExamPresetView {
@@ -72,6 +100,8 @@ export interface ExamPresetView {
   questionCount: number
   marks: number
   negative: number
+  /** single-section papers: the section's label (e.g. "Mathematics") */
+  sectionLabel?: string
   caveats: string[]
 }
 
@@ -100,6 +130,9 @@ export interface SubmitRequest {
   seed: number
   secs: number
   answers: AnswerOutcome[]
+  /** exams only: the paper's difficulty band, echoed back for the results
+   * header (display-only — scores are computed from the answers alone) */
+  band?: DifficultyBand
 }
 
 export type QuestionOutcome = 'correct' | 'wrong' | 'skipped' | 'self-wrong' | 'self-right'
@@ -107,6 +140,12 @@ export type QuestionOutcome = 'correct' | 'wrong' | 'skipped' | 'self-wrong' | '
 export interface QuestionResult extends PracticeQuestion {
   chosen?: number
   outcome: QuestionOutcome
+  /** calibrated difficulty 0..100 (server-side, pooled attempts) */
+  difficulty?: number
+  /** the difficulty band this question falls in */
+  difficultyBand?: DifficultyBand
+  /** pooled attempts behind the difficulty estimate */
+  difficultyAttempts?: number
 }
 
 export interface ChapterBreakdown {
@@ -135,6 +174,13 @@ export interface SubmitResponse {
   questions: QuestionResult[]
   mistakesAdded: number
   ledgerSignals: number
+  /** difficulty-weighted accuracy over ANSWERED questions (harder
+   * questions weigh more); null when nothing was answered */
+  difficultyAccuracy?: number | null
+  /** rounded mean difficulty of the submitted paper (server-computed) */
+  paperDifficultyMean?: number
+  /** the paper's difficulty band, echoed from the submit request */
+  band?: DifficultyBand
 }
 
 export interface AttemptView {
@@ -206,6 +252,16 @@ export interface ExamReadiness {
   freshness: number
   caveats: string[]
   formatNote: string
+  /** difficulty-weighted readiness: chapters with harder question pools
+   * weigh up to 2× (weight = 1 + mean chapter difficulty / 100) */
+  difficultyReadiness?: number
+  /** rounded mean difficulty of the in-scope question pool (0..100) */
+  difficultyMix?: number
+  /** in-scope questions that have real attempt data behind their rating */
+  difficultyData?: number
+  /** YOUR difficulty-weighted accuracy on attempted in-scope questions
+   * (null when you have answered none of them yet) */
+  weightedAccuracy?: number | null
 }
 
 export interface ReadinessResponse {
@@ -216,6 +272,8 @@ export interface ReadinessResponse {
     freshness: number
     chaptersTotal: number
     chaptersTracked: number
+    /** difficulty-weighted whole-library readiness */
+    difficultyReadiness?: number
   }
   books: BookReadiness[]
   exams: ExamReadiness[]

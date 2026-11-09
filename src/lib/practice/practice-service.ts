@@ -26,14 +26,20 @@ import {
 } from '@/data/exams/presets'
 import { computeRisk, scoreQueueItem, type QueueCandidate } from '@/lib/revision/srs'
 import { markStudy } from '@/lib/revision/ledger-service'
-import { findPracticeQuestions, questionsInScope } from './questions'
+import { allPracticeQuestions, findPracticeQuestions, questionsInScope } from './questions'
 import {
   aggregateReadiness,
+  aggregateReadinessWeighted,
+  bandOfDifficulty,
   chapterBreakdown,
   computeChapterReadiness,
+  difficultyOf,
+  difficultyPrior,
   generatePaper,
   scorePaper,
+  weightedAccuracyOf,
   type ChapterInput,
+  type DifficultyStat,
   type TrackedInput,
 } from './engine'
 import { recordMistakes } from './mistake-service'
@@ -42,6 +48,8 @@ import type {
   AttemptView,
   BookReadiness,
   ChapterReadiness,
+  DifficultyBand,
+  DifficultyInfo,
   ExamPresetView,
   ExamReadiness,
   FocusChapter,
@@ -56,6 +64,73 @@ import type {
 const DRILL_PRESET_KEYS = new Set(['drill:auto', 'drill:library'])
 
 export class BadInput extends Error {}
+
+const BANDS = new Set<DifficultyBand>(['warmup', 'standard', 'challenge'])
+function parseBand(value: unknown): DifficultyBand | undefined {
+  return typeof value === 'string' && BANDS.has(value as DifficultyBand)
+    ? (value as DifficultyBand)
+    : undefined
+}
+
+/* ------------------------------------------------------------------ */
+/* Difficulty calibration — pooled attempt aggregation                 */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Pooled per-question outcomes from EVERY PracticeAttempt on this
+ * install (difficulty is a property of the question, not of the user;
+ * only aggregate correct-rates are pooled, never identities). Skips are
+ * excluded — an unanswered question is not evidence of difficulty.
+ */
+export async function pooledDifficultyStats(): Promise<Map<string, DifficultyStat>> {
+  if (difficultyCache && Date.now() - difficultyCache.at < DIFFICULTY_TTL_MS) {
+    return difficultyCache.value
+  }
+  const rows = await db.practiceAttempt.findMany({ select: { results: true } })
+  const value = new Map<string, DifficultyStat>()
+  for (const row of rows) {
+    let parsed: unknown
+    try {
+      parsed = JSON.parse(row.results)
+    } catch {
+      continue
+    }
+    if (!Array.isArray(parsed)) continue
+    for (const item of parsed) {
+      if (!item || typeof item.questionId !== 'string') continue
+      const answered =
+        typeof item.chosen === 'number' || item.selfRight === true || item.selfWrong === true
+      if (!answered) continue
+      const s = value.get(item.questionId) ?? { attempts: 0, correct: 0 }
+      s.attempts++
+      if (item.correct === true) s.correct++
+      value.set(item.questionId, s)
+    }
+  }
+  difficultyCache = { at: Date.now(), value }
+  return value
+}
+
+const DIFFICULTY_TTL_MS = 15_000
+let difficultyCache: { at: number; value: Map<string, DifficultyStat> } | null = null
+
+/** Test hook — forget the pooled stats cache. */
+export function clearDifficultyCache(): void {
+  difficultyCache = null
+}
+
+/** Calibrated difficulty for a set of questions (data-driven where the
+ * pooled stats exist, prior-only otherwise). */
+function difficultyFor(
+  questions: readonly PracticeQuestion[],
+  stats: ReadonlyMap<string, DifficultyStat>,
+): Map<string, DifficultyInfo> {
+  const out = new Map<string, DifficultyInfo>()
+  for (const q of questions) {
+    out.set(q.id, difficultyOf(stats.get(q.id), difficultyPrior(q.level)))
+  }
+  return out
+}
 
 /* ------------------------------------------------------------------ */
 /* Scope resolution                                                    */
@@ -98,6 +173,7 @@ export function presetView(presetKey: string): ExamPresetView | null {
     questionCount: presetQuestionCount(p),
     marks,
     negative,
+    sectionLabel: p.sections[0]?.label,
     caveats: p.caveats,
   }
 }
@@ -210,18 +286,25 @@ export async function buildExamPaper(
   userId: void,
   presetKey: string,
   seed?: number,
+  band?: DifficultyBand,
 ): Promise<PaperResponse> {
   void userId
   const preset = findExamPreset(presetKey)
   if (!preset) throw new BadInput(`unknown exam preset: ${presetKey}`)
+  const useBand: DifficultyBand = band ?? 'standard'
 
   const scope = resolveScope(preset.scope)
   if (scope.length === 0) throw new BadInput('preset scope resolved to no written chapters')
 
   const questions = questionsInScope(new Set(scope.map((c) => c.key)))
-  const mcqCount = questions.filter((q) => q.kind === 'mcq').length
+  const mcqs = questions.filter((q) => q.kind === 'mcq')
   const wanted = presetQuestionCount(preset)
-  if (mcqCount === 0) throw new BadInput('no MCQ questions available in scope')
+  if (mcqs.length === 0) throw new BadInput('no MCQ questions available in scope')
+
+  /* difficulty targeting: calibrate from pooled attempts (p-value with
+   * shrinkage), then let each chapter contribute easiest/hardest first */
+  const stats = await pooledDifficultyStats()
+  const difficulty = difficultyFor(mcqs, stats)
 
   const useSeed = seed ?? Math.floor(Math.random() * 2 ** 31)
   const paper = generatePaper({
@@ -229,14 +312,22 @@ export async function buildExamPaper(
     count: wanted,
     seed: useSeed,
     mcqOnly: true,
+    difficulty: {
+      byId: new Map([...difficulty.entries()].map(([id, d]) => [id, d.difficulty])),
+      band: useBand,
+    },
   })
 
+  const paperDifficulty = paper.map((q) => difficulty.get(q.id)?.difficulty ?? 50)
   const meta: PaperMeta = {
     seed: useSeed,
     presetKey: preset.key,
     kind: 'exam',
     scopeChapters: scope.length,
     questionCount: paper.length,
+    band: useBand,
+    difficultyMean: Math.round(paperDifficulty.reduce((n, d) => n + d, 0) / Math.max(1, paper.length)),
+    difficultyData: paper.filter((q) => (difficulty.get(q.id)?.attempts ?? 0) > 0).length,
   }
   return { paper, meta, preset: presetView(preset.key) }
 }
@@ -301,6 +392,7 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
   if (typeof req.secs !== 'number' || req.secs < 0 || req.secs > 6 * 3600) {
     throw new BadInput('secs out of range')
   }
+  const echoBand = parseBand(req.band)
 
   const ids = req.answers.map((a) => a.questionId)
   const found = findPracticeQuestions(ids)
@@ -328,6 +420,31 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
     marking,
   )
   const breakdown = chapterBreakdown(results)
+
+  /* difficulty calibration: attach each question's pooled difficulty
+   * (data-driven where attempts exist) and the attempt's weighted acc */
+  const stats = await pooledDifficultyStats()
+  const difficulty = difficultyFor(questions, stats)
+  const enriched = results.map((r) => {
+    const d = difficulty.get(r.id)
+    return {
+      ...r,
+      difficulty: d?.difficulty,
+      difficultyBand: d ? bandOfDifficulty(d.difficulty) : undefined,
+      difficultyAttempts: d?.attempts,
+    }
+  })
+  const difficultyAccuracy = weightedAccuracyOf(
+    enriched
+      .filter((r) => r.outcome !== 'skipped')
+      .map((r) => ({
+        difficulty: r.difficulty ?? 50,
+        correct: r.outcome === 'correct' || r.outcome === 'self-right',
+      })),
+  )
+  const paperDifficultyMean = Math.round(
+    enriched.reduce((n, r) => n + (r.difficulty ?? 50), 0) / Math.max(1, enriched.length),
+  )
 
   /* wrong answers → the Mistake Bank (same stable question keys) */
   const mistakeItems = results
@@ -419,9 +536,12 @@ export async function submitAttempt(userId: string, req: SubmitRequest): Promise
     skippedCount,
     secs: Math.round(req.secs),
     breakdown,
-    questions: results,
+    questions: enriched,
     mistakesAdded,
     ledgerSignals,
+    difficultyAccuracy,
+    paperDifficultyMean,
+    band: echoBand,
   }
 }
 
@@ -524,6 +644,57 @@ export async function getReadiness(userId: string): Promise<ReadinessResponse> {
     )
   }
 
+  /* difficulty calibration: per-question difficulty over the whole pool
+   * (pooled attempts + priors), reduced to per-chapter means for the
+   * readiness weighting, and the user's own difficulty-weighted accuracy */
+  const pool = allPracticeQuestions()
+  const pooledStats = await pooledDifficultyStats()
+  const difficulty = difficultyFor(pool, pooledStats)
+  const chapterDifficulty = new Map<string, number>()
+  const scopeQuestionIds = new Map<string, string[]>()
+  for (const q of pool) {
+    const d = difficulty.get(q.id)?.difficulty ?? 50
+    chapterDifficulty.set(q.chapterKey, (chapterDifficulty.get(q.chapterKey) ?? 0) + d)
+    const ids = scopeQuestionIds.get(q.chapterKey) ?? []
+    ids.push(q.id)
+    scopeQuestionIds.set(q.chapterKey, ids)
+  }
+  for (const [key, sum] of chapterDifficulty) {
+    chapterDifficulty.set(key, Math.round(sum / Math.max(1, scopeQuestionIds.get(key)?.length ?? 1)))
+  }
+
+  const userRows = await db.practiceAttempt.findMany({
+    where: { userId },
+    select: { results: true },
+  })
+  const userOutcomes = new Map<string, boolean>()
+  for (const row of userRows) {
+    let parsed: unknown
+    try {
+      parsed = JSON.parse(row.results)
+    } catch {
+      continue
+    }
+    if (!Array.isArray(parsed)) continue
+    for (const item of parsed) {
+      if (!item || typeof item.questionId !== 'string') continue
+      const answered =
+        typeof item.chosen === 'number' || item.selfRight === true || item.selfWrong === true
+      if (answered) userOutcomes.set(item.questionId, item.correct === true)
+    }
+  }
+
+  /** the user's difficulty-weighted accuracy over in-scope attempted questions */
+  const weightedAccuracyInScope = (questionIds: readonly string[]): number | null => {
+    const items = questionIds
+      .filter((id) => userOutcomes.has(id))
+      .map((id) => ({
+        difficulty: difficulty.get(id)?.difficulty ?? 50,
+        correct: userOutcomes.get(id) === true,
+      }))
+    return weightedAccuracyOf(items)
+  }
+
   const books: BookReadiness[] = CATALOG.books.map((b) => {
     const chapters = b.chapterKeys
       .map((k) => readinessByChapter.get(k))
@@ -539,7 +710,15 @@ export async function getReadiness(userId: string): Promise<ReadinessResponse> {
     }
   })
 
-  const library = aggregateReadiness([...readinessByChapter.values()])
+  const allChapterReadiness = [...readinessByChapter.values()]
+  const library = {
+    ...aggregateReadiness(allChapterReadiness),
+    difficultyReadiness: aggregateReadinessWeighted(allChapterReadiness, (c) =>
+      chapterDifficulty.get(c.key) !== undefined
+        ? 1 + (chapterDifficulty.get(c.key) as number) / 100
+        : 1,
+    ),
+  }
 
   const exams: ExamReadiness[] = EXAM_PRESETS.map((p) => {
     const scope = resolveScope(p.scope)
@@ -547,6 +726,14 @@ export async function getReadiness(userId: string): Promise<ReadinessResponse> {
       .map((c) => readinessByChapter.get(c.key))
       .filter((c): c is ChapterReadiness => !!c)
     const agg = aggregateReadiness(chapters)
+    const inScopeIds = scope.flatMap((c) => scopeQuestionIds.get(c.key) ?? [])
+    const mix =
+      inScopeIds.length > 0
+        ? Math.round(
+            inScopeIds.reduce((n, id) => n + (difficulty.get(id)?.difficulty ?? 50), 0) /
+              inScopeIds.length,
+          )
+        : 0
     return {
       presetKey: p.key,
       name: p.name,
@@ -556,6 +743,14 @@ export async function getReadiness(userId: string): Promise<ReadinessResponse> {
       questionCount: presetQuestionCount(p),
       scopeChapters: chapters.length,
       ...agg,
+      difficultyReadiness: aggregateReadinessWeighted(chapters, (c) =>
+        chapterDifficulty.get(c.key) !== undefined
+          ? 1 + (chapterDifficulty.get(c.key) as number) / 100
+          : 1,
+      ),
+      difficultyMix: mix,
+      difficultyData: inScopeIds.filter((id) => (difficulty.get(id)?.attempts ?? 0) > 0).length,
+      weightedAccuracy: weightedAccuracyInScope(inScopeIds),
       caveats: p.caveats,
       formatNote: p.formatNote,
     }

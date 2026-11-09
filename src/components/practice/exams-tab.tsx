@@ -1,9 +1,9 @@
 'use client'
 
 /**
- * Practice — the Mock Exams tab: preset cards (honest provisional format
- * labels, caveats listed, never silent), attempt history, and the
- * full-screen ExamRunner.
+ * Practice — the Mock Exams tab: difficulty band selector, preset cards
+ * (honest provisional format labels, caveats listed, never silent),
+ * attempt history, and the full-screen CBT ExamRunner.
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import {
@@ -13,14 +13,17 @@ import {
   History,
   Info,
   PlayCircle,
+  SlidersHorizontal,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { formatDuration } from './bits'
 import { ExamRunner } from './exam-runner'
 import { fetchAttempts, fetchReadiness, startExamPaper } from '@/lib/practice/client-api'
+import { DIFFICULTY_BANDS } from '@/lib/practice/engine'
 import type {
   AttemptView,
+  DifficultyBand,
   ExamPresetView,
   ExamReadiness,
   PaperMeta,
@@ -36,6 +39,7 @@ interface Props {
 export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
   const [readiness, setReadiness] = useState<ExamReadiness[] | null>(null)
   const [attempts, setAttempts] = useState<AttemptView[] | null>(null)
+  const [band, setBand] = useState<DifficultyBand>('standard')
   const [running, setRunning] = useState<{
     preset: ExamPresetView
     paper: PracticeQuestion[]
@@ -64,10 +68,10 @@ export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
     }
   }, [])
 
-  const launch = useCallback(async (presetKey: string) => {
+  const launch = useCallback(async (presetKey: string, useBand: DifficultyBand) => {
     setBusy(presetKey)
     setError(null)
-    const res = await startExamPaper(presetKey)
+    const res = await startExamPaper(presetKey, useBand)
     setBusy(null)
     if (!res || res.paper.length === 0) {
       setError(
@@ -119,7 +123,7 @@ export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
         onClose={() => setRunning(null)}
         onFinished={() => void reload()}
         onRestart={() => {
-          void launch(running.preset.key)
+          void launch(running.preset.key, running.meta.band ?? 'standard')
         }}
       />
     )
@@ -139,9 +143,57 @@ export function ExamsTab({ launchPreset, onLaunchConsumed }: Props) {
         </p>
       )}
 
+      {/* difficulty band selector — data-derived calibration */}
+      <section aria-label="Paper difficulty" className="rounded-xl border bg-card p-4 shadow-sm">
+        <div className="mb-3 flex items-center gap-2">
+          <SlidersHorizontal className="h-4 w-4 text-primary" aria-hidden />
+          <h2 className="font-reading text-base font-bold">Paper difficulty</h2>
+        </div>
+        <div
+          role="radiogroup"
+          aria-label="Difficulty band"
+          className="grid gap-1 rounded-lg border bg-muted/40 p-1 sm:grid-cols-3"
+        >
+          {DIFFICULTY_BANDS.map((b) => (
+            <button
+              key={b.key}
+              type="button"
+              role="radio"
+              aria-checked={band === b.key}
+              onClick={() => setBand(b.key)}
+              className={`rounded-md px-3 py-2 text-left transition-colors ${
+                band === b.key
+                  ? 'bg-primary text-primary-foreground shadow-sm'
+                  : 'text-foreground hover:bg-accent'
+              }`}
+            >
+              <span className="block text-sm font-semibold">{b.label}</span>
+              <span
+                className={`block text-[11px] leading-4 ${
+                  band === b.key ? 'text-primary-foreground/80' : 'text-muted-foreground'
+                }`}
+              >
+                {b.hint}
+              </span>
+            </button>
+          ))}
+        </div>
+        <p className="mt-3 text-xs leading-5 text-muted-foreground">
+          Difficulty is calibrated from every attempt saved on this install — the pooled correct-rate
+          per question (a p-value), smoothed toward the exercise level so thin data stays honest.
+          Questions no one has attempted yet fall back to level-based estimates, labelled{' '}
+          <span className="italic">est.</span> everywhere.
+        </p>
+      </section>
+
       <div className="grid gap-4 md:grid-cols-2">
         {(readiness ?? []).map((ex) => (
-          <ExamCard key={ex.presetKey} ex={ex} busy={busy === ex.presetKey} onStart={() => void launch(ex.presetKey)} />
+          <ExamCard
+            key={ex.presetKey}
+            ex={ex}
+            busy={busy === ex.presetKey}
+            onStart={() => void launch(ex.presetKey, band)}
+          />
         ))}
         {readiness === null && <ExamCardSkeletons />}
       </div>
@@ -202,6 +254,18 @@ function ExamCard({
         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
         {ex.formatNote}
       </p>
+      {typeof ex.difficultyMix === 'number' && ex.difficultyMix > 0 && (
+        <p className="mb-1 flex items-start gap-1.5 text-xs leading-5 text-muted-foreground">
+          <SlidersHorizontal className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+          <span>
+            Question pool difficulty <span className="font-semibold text-foreground">{ex.difficultyMix}/100</span>
+            {typeof ex.difficultyData === 'number' && ex.difficultyData > 0 && (
+              <> · {ex.difficultyData} question{ex.difficultyData === 1 ? '' : 's'} calibrated from attempts</>
+            )}
+            .
+          </span>
+        </p>
+      )}
       {ex.caveats.length > 0 && (
         <p className="mb-3 flex items-start gap-1.5 text-xs leading-5 text-amber-700 dark:text-amber-300">
           <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />

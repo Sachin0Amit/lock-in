@@ -12,6 +12,8 @@ import type {
   AnswerOutcome,
   ChapterBreakdown,
   ChapterReadiness,
+  DifficultyBand,
+  DifficultyInfo,
   PracticeQuestion,
   QuestionOutcome,
   QuestionResult,
@@ -44,6 +46,115 @@ export function shuffled<T>(items: readonly T[], rng: () => number): T[] {
 }
 
 /* ------------------------------------------------------------------ */
+/* Difficulty calibration (data-derived, pure)                         */
+/* ------------------------------------------------------------------ */
+
+/** Pooled per-question outcomes feeding the difficulty p-value. */
+export interface DifficultyStat {
+  /** answered attempts (skips excluded — a skip is not evidence) */
+  attempts: number
+  correct: number
+}
+
+/** Bayesian pseudo-counts of the prior (shrinkage strength). */
+const DIFFICULTY_SHRINKAGE = 3
+
+/** Exercise-level ladder priors (L1..L6) — the honest starting guess. */
+const LEVEL_PRIORS: Record<string, number> = {
+  L1: 0.85,
+  L2: 0.75,
+  L3: 0.65,
+  L4: 0.5,
+  L5: 0.4,
+  L6: 0.3,
+}
+/** Quiz MCQs carry no level ladder → mid-leaning-easy baseline. */
+const QUIZ_PRIOR = 0.55
+
+/** Prior correctness probability for a question (its level, or the quiz baseline). */
+export function difficultyPrior(level?: string): number {
+  if (level && LEVEL_PRIORS[level] !== undefined) return LEVEL_PRIORS[level]
+  return QUIZ_PRIOR
+}
+
+/**
+ * Difficulty of one question — the classic p-value difficulty inverted:
+ * difficulty = 100 × (1 − p), where p is the observed correct-rate
+ * smoothed toward the prior with pseudo-counts
+ * (p = (correct + α·prior) / (attempts + α), α = 3). Zero attempts →
+ * the prior exactly (dataDriven=false, honestly labelled in the UI).
+ */
+export function difficultyOf(stat: DifficultyStat | undefined, prior: number): DifficultyInfo {
+  const attempts = Math.max(0, Math.floor(stat?.attempts ?? 0))
+  const correct = Math.max(0, Math.floor(stat?.correct ?? 0))
+  const p = (correct + DIFFICULTY_SHRINKAGE * prior) / (attempts + DIFFICULTY_SHRINKAGE)
+  return {
+    difficulty: Math.round((1 - p) * 100),
+    attempts,
+    dataDriven: attempts > 0,
+  }
+}
+
+/** Band boundaries on the 0..100 difficulty scale. */
+export const DIFFICULTY_BANDS: readonly {
+  key: DifficultyBand
+  label: string
+  hint: string
+  /** inclusive upper bound of the band on the difficulty scale */
+  max: number
+}[] = [
+  { key: 'warmup', label: 'Warm-up', hint: 'easiest calibrated questions first', max: 35 },
+  { key: 'standard', label: 'Standard', hint: 'balanced mix across the pool', max: 65 },
+  { key: 'challenge', label: 'Exam-level', hint: 'hardest questions first — the exam-level set', max: 100 },
+]
+
+/** Which band a 0..100 difficulty score falls into. */
+export function bandOfDifficulty(difficulty: number): DifficultyBand {
+  if (difficulty <= 35) return 'warmup'
+  if (difficulty <= 65) return 'standard'
+  return 'challenge'
+}
+
+/**
+ * Difficulty-weighted accuracy over ANSWERED items: each question weighs
+ * max(1, its difficulty), so a hard question counts up to 100× an easy
+ * one. Returns null when nothing was answered (never a fake 0).
+ */
+export function weightedAccuracyOf(
+  items: readonly { difficulty: number; correct: boolean }[],
+): number | null {
+  if (items.length === 0) return null
+  let weighted = 0
+  let total = 0
+  for (const it of items) {
+    const w = Math.max(1, it.difficulty)
+    total += w
+    if (it.correct) weighted += w
+  }
+  return total > 0 ? Math.round((weighted / total) * 100) : null
+}
+
+/**
+ * Difficulty-weighted mean chapter readiness: chapters whose question
+ * pools are harder weigh more (weight = 1 + difficulty/100, i.e. up to 2×).
+ * Plain components stay unweighted — only the headline is re-weighted.
+ */
+export function aggregateReadinessWeighted(
+  chapters: readonly ChapterReadiness[],
+  weightOf: (c: ChapterReadiness) => number,
+): number {
+  if (chapters.length === 0) return 0
+  let sum = 0
+  let total = 0
+  for (const c of chapters) {
+    const w = Math.max(1, weightOf(c))
+    total += w
+    sum += c.readiness * w
+  }
+  return total > 0 ? Math.round(sum / total) : 0
+}
+
+/* ------------------------------------------------------------------ */
 /* Paper generation                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -53,6 +164,12 @@ export interface GeneratePaperOpts {
   seed: number
   /** exams serve MCQs only; drills may mix in free-response exercises */
   mcqOnly: boolean
+  /** difficulty band targeting (exams): each chapter contributes its
+   * easiest (warmup) or hardest (challenge) questions first */
+  difficulty?: {
+    byId: ReadonlyMap<string, number>
+    band: DifficultyBand
+  }
 }
 
 /**
@@ -62,7 +179,7 @@ export interface GeneratePaperOpts {
  * No question repeats — sampling is always without replacement.
  */
 export function generatePaper(opts: GeneratePaperOpts): PracticeQuestion[] {
-  const { questions, seed, mcqOnly } = opts
+  const { questions, seed, mcqOnly, difficulty } = opts
   const count = Math.max(1, Math.min(opts.count, 200))
   const rng = mulberry32(seed)
 
@@ -76,9 +193,28 @@ export function generatePaper(opts: GeneratePaperOpts): PracticeQuestion[] {
     byChapter.set(q.chapterKey, list)
   }
 
-  /* shuffle each chapter's pool, then shuffle the chapter order */
+  /* per-chapter pools: band-targeted order (easiest / hardest first,
+   * tie-broken by id so the order stays deterministic) or the seeded
+   * shuffle for standard papers; then shuffle the chapter order */
+  const difficultyOfQ = (q: PracticeQuestion) => difficulty?.byId.get(q.id) ?? 50
   const chapterPools: PracticeQuestion[][] = []
-  for (const [, list] of byChapter) chapterPools.push(shuffled(list, rng))
+  for (const [, list] of byChapter) {
+    if (difficulty && difficulty.band === 'warmup') {
+      chapterPools.push(
+        [...list].sort(
+          (a, b) => difficultyOfQ(a) - difficultyOfQ(b) || a.id.localeCompare(b.id),
+        ),
+      )
+    } else if (difficulty && difficulty.band === 'challenge') {
+      chapterPools.push(
+        [...list].sort(
+          (a, b) => difficultyOfQ(b) - difficultyOfQ(a) || a.id.localeCompare(b.id),
+        ),
+      )
+    } else {
+      chapterPools.push(shuffled(list, rng))
+    }
+  }
   const ordered = shuffled(chapterPools, rng)
 
   const picked: PracticeQuestion[] = []

@@ -8,6 +8,7 @@
 import type {
   AnswerOutcome,
   AttemptsResponse,
+  DifficultyBand,
   MistakesResponse,
   MistakeView,
   PaperResponse,
@@ -39,11 +40,14 @@ export function fetchMistakes(): Promise<MistakesResponse | null> {
   return jsonFetch<MistakesResponse>('/api/mistakes')
 }
 
-export function startExamPaper(presetKey: string): Promise<PaperResponse | null> {
+export function startExamPaper(
+  presetKey: string,
+  band?: DifficultyBand,
+): Promise<PaperResponse | null> {
   return jsonFetch<PaperResponse>('/api/practice/paper', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ presetKey }),
+    body: JSON.stringify({ presetKey, band }),
   })
 }
 

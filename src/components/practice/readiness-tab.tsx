@@ -10,7 +10,7 @@
  * paper.
  */
 import { useEffect, useState } from 'react'
-import { AlertTriangle, ChevronRight, Info, PlayCircle } from 'lucide-react'
+import { AlertTriangle, ChevronRight, Info, PlayCircle, SlidersHorizontal } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { MetricBar, ReadinessDial } from './bits'
@@ -42,7 +42,10 @@ export function ReadinessTab({ onStartExam }: Props) {
         <span className="font-semibold text-foreground/80">How readiness is computed — </span>
         per chapter it is coverage (share of lessons in your ledger) × mastery × freshness (100 −
         forgetting risk); books and exams average their chapters. Studying nothing scores exactly 0
-        — the number never flatters you.
+        — the number never flatters you. A second,{' '}
+        <span className="font-semibold text-foreground/80">difficulty-weighted</span> number re-weighs
+        those chapter scores by question-pool difficulty (calibrated from pooled attempts) — harder
+        chapters count up to 2×, the honest way to ask “am I ready where it is hard?”.
       </p>
 
       {/* library headline */}
@@ -53,6 +56,16 @@ export function ReadinessTab({ onStartExam }: Props) {
           <p className="mb-4 text-sm text-muted-foreground">
             {data.library.chaptersTracked} of {data.library.chaptersTotal} chapters tracked in your
             ledger
+            {typeof data.library.difficultyReadiness === 'number' && (
+              <>
+                {' '}·{' '}
+                <SlidersHorizontal className="inline h-3.5 w-3.5 align-[-2px]" aria-hidden />{' '}
+                difficulty-weighted{' '}
+                <span className="font-semibold tabular-nums text-foreground">
+                  {data.library.difficultyReadiness}%
+                </span>
+              </>
+            )}
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             <div className="min-w-[140px] flex-1">
@@ -185,6 +198,38 @@ function ExamReadyCard({ ex, onStart }: { ex: ExamReadiness; onStart: () => void
         <div className="min-w-[110px] flex-1">
           <MetricBar label="Freshness" value={ex.freshness} />
         </div>
+      </div>
+      <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border bg-muted/30 px-4 py-2.5 text-xs text-muted-foreground">
+        <span className="inline-flex items-center gap-1.5">
+          <SlidersHorizontal className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          Difficulty-weighted{' '}
+          <span className="font-semibold tabular-nums text-foreground">
+            {ex.difficultyReadiness ?? ex.readiness}%
+          </span>{' '}
+          ready
+        </span>
+        {typeof ex.difficultyMix === 'number' && ex.difficultyMix > 0 && (
+          <span className="tabular-nums">pool difficulty {ex.difficultyMix}/100</span>
+        )}
+        {typeof ex.difficultyData === 'number' && ex.difficultyData > 0 && (
+          <span className="tabular-nums">{ex.difficultyData} calibrated</span>
+        )}
+        {typeof ex.weightedAccuracy === 'number' && (
+          <span className="tabular-nums">
+            your weighted accuracy{' '}
+            <span
+              className={
+                ex.weightedAccuracy >= 70
+                  ? 'font-semibold text-emerald-700 dark:text-emerald-300'
+                  : ex.weightedAccuracy >= 45
+                    ? 'font-semibold text-amber-700 dark:text-amber-300'
+                    : 'font-semibold text-rose-700 dark:text-rose-300'
+              }
+            >
+              {ex.weightedAccuracy}%
+            </span>
+          </span>
+        )}
       </div>
       {ex.caveats.length > 0 && (
         <p className="mb-3 flex items-start gap-1.5 text-xs leading-5 text-amber-700 dark:text-amber-300">
