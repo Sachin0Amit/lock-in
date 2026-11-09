@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 81: push verification recorded — remote main = local HEAD 70ec333 (ls-remote via one-time URL: refs/heads/main = 70ec333179b172d5f5fbb9d6a4d8b62a26213be1; all unpushed commits on main, including run 81's ship 70ec333, are now backed up on the remote; origin/main tracking ref resynced by anonymous HTTPS fetch)
+
+---
+
 ## 2026-11-09 — RUN 81 (fired 20:50 IST day-window delivery of job 516929's v4 hybrid-cadence window, trace cron-agent-loop-202611092320): AL CH. 8 'ALGEBRAIC FRACTIONS' OPENS 2/3 — 8.1 'Rational Expressions: Simplify First' (al-rational-expressions-simplify-first, 5,082 words, quiz keys 0/1/0/3/1, 14 exercises, two figures — the domain strip + the simplify-first pipeline, the fundamental-law derivation with the nonzero certificates) + 8.2 'Operating on Algebraic Fractions' (al-operating-on-algebraic-fractions, 4,355 words, quiz keys 2/1/3/1/2, 14 exercises, two figures — the four-operation panel + the LCD collector, the reciprocal-flip derivation with the R ≠ 0 clause) — ch. 8 NOT closed this run (8.3 + the unit-8 review are run 82's quota; ch. 9 untouched)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 80 pushed and verified: remote main = local HEAD b06bb72). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 81 = ch. 8 OPENS with 8.1 + 8.2 (NEVER 8.3/the review).
