@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-10 — RUN 82: push verification recorded — remote main = local HEAD 1fdd7d8 (ls-remote via one-time URL: refs/heads/main = 1fdd7d829b48f3b549c5fe6de37a6a7478a5b4ca; all unpushed commits on main, including run 82's ship 1fdd7d8, are now backed up on the remote; origin/main tracking ref resynced by anonymous HTTPS fetch)
+
+---
+
 ## 2026-11-10 — RUN 82 (fired 23:50 IST night-window delivery of job 516929's v4 hybrid cadence, trace 1a1bedcaa50c0cc5-cron-agent-loop-202611100220): AL CH. 8 'ALGEBRAIC FRACTIONS' CLOSES 3/3 — 8.3 'Fractional Equations and Extraneous Roots' (al-fractional-equations-and-extraneous-roots, 5,870 words, quiz keys 1/1/2/3/1, 14 exercises, two figures — the clearing pipeline + the check filter, the clearing-law derivation with its clause, the seven-line clearing-pipeline algorithm, the verdict-ledger table) + THE UNIT-8 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3, book snapshot recomputed: 27 lessons / 124,675 words / 8 of 11 chapters complete, every lesson >= 4,000 words) — the chapter COMPLETE and fully verified at run end; ch. 9 NOT touched
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 81 pushed and verified: remote main = local HEAD 70ec333). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 82 = 8.3 + the unit-8 review (v2 quota: the one remaining lesson + the review; NEVER ch. 9 'Quadratic Equations' — it opens at run 83).
