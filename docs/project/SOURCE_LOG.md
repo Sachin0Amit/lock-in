@@ -2081,3 +2081,27 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   move-licence engines (300 assertions; wrong-move mismatch 1,112/1,200), the whole-number habitats
   ({0..4}/{0..7}/{0..7}) — exhibit/quiz/exercise keys recomputed both sides by verify-book3-ch07.ts
   sections A–G.
+
+### Run 80 — 2026-11-09 (Elementary Algebra ch. 7 'Inequalities' CLOSES 3/3: lesson 7.3 + the unit-7 review)
+
+- Zero downloads, zero new citation keys — the banked keys carried the run, web-check only per the
+  runs-71–79 pattern.
+- `hall-knight-elementary-algebra` — carried (banked run 67): the classical text's treatment of
+  simultaneous conditions on one unknown (the "and"/"or" of the fundamental properties) informs the
+  AND/OR discipline; the between-form sentence habit ("a < x < b" in one breath) is the classical
+  books' own notation. The lesson's engines, exhibits and exercise numbers are original. Zero downloads.
+- `ncert-math11-ch5` — carried (banked run 79): the school canon's compound/between-form solves and
+  their number-line representation inform the four-shapes strip and the two-boundary pipeline framing.
+  Zero downloads.
+- `khattar-qa-4e` — carried: the exam-corner shapes (band-integer counts, largest/smallest-integer in
+  a band, the empty-AND distractor, two-margin speed problems, free-entry age gates, the k-parameter
+  between-form). Zero downloads.
+- `cengage-jee-style` — carried: the presentation contract throughout (illustrations, solution chains,
+  formula cards, exercise bars).
+- Interval-notation history web-checked and HEDGED in 7.3's historical callout: the bracket notation
+  [a, b] / (a, b) has no single inventor on record (the dedicated history threads draw a blank; some
+  European traditions print reversed brackets ]a, b[); the words "open"/"closed" were fixed in the
+  first decades of topology — Fréchet's 1906 thesis already treated the closed interval as the model
+  setting (per G. H. Moore's 2008 survey of the emergence of open/closed sets).
+- Zero working copies held; nothing to delete at chapter close (the zero-downloads discipline of
+  runs 71–80).

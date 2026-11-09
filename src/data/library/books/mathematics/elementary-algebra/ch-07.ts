@@ -8,9 +8,13 @@ import type { Chapter } from '../../../types'
  *                  ch07.ts sections A–F green) 7.2 Solving Linear
  *                  Inequalities (run 79 — quiz keys 0/1/1/2/2, 14
  *                  exercises, two figures, the flip-theorem derivation,
- *                  the pipeline algorithm, sections D–G green); 7.3
- *                  Compound Inequalities and Applications + the unit-7
- *                  completion review close the chapter at run 80.
+ *                  the pipeline algorithm, sections D–G green) 7.3
+ *                  Compound Inequalities and Applications (run 80 — quiz
+ *                  keys 1/2/0/1/1, 14 exercises, two figures, the two-
+ *                  boundary-pipeline derivation, sections H–K green).
+ *                  The unit-7 completion review PASSED at run 80 (7/7
+ *                  checklist, exam corners 3/3, book snapshot recomputed):
+ *                  chapter 7 COMPLETE 3/3.
  *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–78 pattern) — `hall-knight-elementary-
@@ -138,9 +142,9 @@ function solutionShapesSvg(): string {
   ]
   rows.forEach(([label, sub], i) => {
     const y = 84 + i * 54
-    parts.push(`<rect x="30" y="${y}" width="110" height="40" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>`)
-    parts.push(`<text x="85" y="${y + 18}" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${label}</text>`)
-    parts.push(`<text x="85" y="${y + 33}" font-size="8.5" fill="#0f766e" text-anchor="middle">${sub}</text>`)
+    parts.push(`<rect x="30" y="${y}" width="130" height="40" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>`)
+    parts.push(`<text x="95" y="${y + 18}" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${label}</text>`)
+    parts.push(`<text x="95" y="${y + 33}" font-size="8.5" fill="#0f766e" text-anchor="middle">${sub}</text>`)
     // the line for this row
     const ly = y + 20
     parts.push(`<line x1="170" y1="${ly}" x2="670" y2="${ly}" stroke="#d97706" stroke-width="1.3"/>`)
@@ -261,8 +265,116 @@ function pipelineSvg(): string {
   parts.push('<text x="567" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">x ≤ 3 · check 3 / 0 / 4</text>')
   // the check band
   parts.push('<rect x="30" y="284" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
-  parts.push('<rect x="170" y="291" width="380" height="26" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<rect x="140" y="291" width="440" height="26" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
   parts.push('<text x="360" y="308" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">habit — three-point check: boundary −2 ≥ −2 ✓ · inside 7 ≥ −2 ✓ · outside −5 ≥ −2 ✗</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 3 (7.3): the four interval shapes — one pair of boundaries,  */
+/* four bands. Header (30,18,660,44); label rows (30,84,150,40),       */
+/* (30,138,150,40), (30,192,150,40), (30,246,150,40); census chips     */
+/* (560,84,130,40), (560,138,130,40), (560,192,130,40),                */
+/* (560,246,130,40); caption band (30,348,660,24). Geometry pinned in  */
+/* verify-book3-ch07.ts plan73Fig1, audited in J.                      */
+/* ------------------------------------------------------------------ */
+
+function intervalShapesSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four interval shapes between the boundaries −3 and 5, with their window censuses 9, 8, 8 and 7">'
+  )
+  // title band
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="40" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">one pair of boundaries (−3 and 5), four interval shapes</text>')
+  parts.push('<text x="360" y="56" font-size="11" fill="#65a30d" text-anchor="middle">a closed end keeps its boundary point — an open end refuses it</text>')
+  const rows = [
+    { y: 84, label: '−3 ≤ x ≤ 5', ends: 'CLOSED · CLOSED', left: true, right: true, census: '9 window integers' },
+    { y: 138, label: '−3 ≤ x &lt; 5', ends: 'CLOSED · HOLLOW', left: true, right: false, census: '8 window integers' },
+    { y: 192, label: '−3 &lt; x ≤ 5', ends: 'HOLLOW · CLOSED', left: false, right: true, census: '8 window integers' },
+    { y: 246, label: '−3 &lt; x &lt; 5', ends: 'HOLLOW · HOLLOW', left: false, right: false, census: '7 window integers' },
+  ]
+  for (const r of rows) {
+    const cy = r.y + 20
+    parts.push(`<rect x="30" y="${r.y}" width="150" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>`)
+    parts.push(`<text x="105" y="${r.y + 17}" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${r.label}</text>`)
+    parts.push(`<text x="105" y="${r.y + 32}" font-size="9" fill="#0f766e" text-anchor="middle">${r.ends}</text>`)
+    parts.push(`<line x1="205" y1="${cy}" x2="545" y2="${cy}" stroke="#d97706" stroke-width="1.4"/>`)
+    for (const tx of [205, 232.5, 315, 342.5, 370, 397.5, 425, 452.5, 507.5, 535]) {
+      parts.push(`<line x1="${tx}" y1="${cy - 3}" x2="${tx}" y2="${cy + 3}" stroke="#5eead4" stroke-width="1"/>`)
+    }
+    parts.push(`<rect x="260" y="${cy - 9}" width="220" height="18" rx="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>`)
+    parts.push(
+      r.left
+        ? `<circle cx="260" cy="${cy}" r="5.5" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>`
+        : `<circle cx="260" cy="${cy}" r="5.5" fill="#fffdf5" stroke="#16a34a" stroke-width="1.6"/>`
+    )
+    parts.push(
+      r.right
+        ? `<circle cx="480" cy="${cy}" r="5.5" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>`
+        : `<circle cx="480" cy="${cy}" r="5.5" fill="#fffdf5" stroke="#16a34a" stroke-width="1.6"/>`
+    )
+    parts.push(`<text x="260" y="${cy - 15}" font-size="10" fill="#166534" text-anchor="middle">−3</text>`)
+    parts.push(`<text x="480" y="${cy - 15}" font-size="10" fill="#166534" text-anchor="middle">5</text>`)
+    parts.push(`<rect x="560" y="${r.y}" width="130" height="40" rx="8" fill="none" stroke="#0d9488" stroke-width="1.2"/>`)
+    parts.push(`<text x="625" y="${r.y + 24}" font-size="11.5" fill="#0f766e" text-anchor="middle" font-weight="700">${r.census}</text>`)
+  }
+  // caption band
+  parts.push('<rect x="30" y="348" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="364" font-size="11" fill="#166534" text-anchor="middle">the census law: each closed end adds exactly its boundary point — 7 → 8 → 8 → 9 on [−12, 12]</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 4 (7.3): the two joiners — AND closes a band, OR keeps the   */
+/* wings; the De Morgan split 9 + 16 = 25. Header (30,18,660,44); AND  */
+/* panel (30,84,320,180); OR panel (370,84,320,180); chips             */
+/* (30,276,320,26), (370,276,320,26); caption band (30,314,660,24).    */
+/* Geometry pinned in verify-book3-ch07.ts plan73Fig2, audited in J.   */
+/* ------------------------------------------------------------------ */
+
+function andOrPanelsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The AND of two rays closes the band −3 ≤ x ≤ 5 keeping 9 window integers; the OR of the negated rays keeps the 16 outside — 9 + 16 = 25">'
+  )
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="40" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">two ways to join two rays — AND closes a band, OR keeps the wings</text>')
+  parts.push('<text x="360" y="56" font-size="11" fill="#65a30d" text-anchor="middle">the same two boundaries −3 and 5, joined twice — the two answers split the window exactly</text>')
+  // ---- AND panel ----
+  parts.push('<rect x="30" y="84" width="320" height="180" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="190" y="106" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">AND — both gates must open</text>')
+  parts.push('<line x1="55" y1="200" x2="325" y2="200" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<rect x="110" y="191" width="152" height="18" rx="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>')
+  parts.push('<circle cx="110" cy="200" r="5.5" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>')
+  parts.push('<circle cx="262" cy="200" r="5.5" fill="#16a34a" stroke="#166534" stroke-width="1.2"/>')
+  parts.push('<text x="110" y="181" font-size="10" fill="#166534" text-anchor="middle">−3</text>')
+  parts.push('<text x="262" y="181" font-size="10" fill="#166534" text-anchor="middle">5</text>')
+  parts.push('<text x="190" y="148" font-size="11" fill="#65a30d" text-anchor="middle">x ≥ −3 AND x ≤ 5</text>')
+  parts.push('<text x="190" y="232" font-size="11" fill="#0f766e" text-anchor="middle">the band −3 ≤ x ≤ 5</text>')
+  parts.push('<text x="190" y="250" font-size="11" fill="#0f766e" text-anchor="middle">keeps 9 of the 25 window integers</text>')
+  parts.push('<rect x="30" y="276" width="320" height="26" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="190" y="293" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">AND is stingy: the band, the point, or nothing</text>')
+  // ---- OR panel ----
+  parts.push('<rect x="370" y="84" width="320" height="180" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="530" y="106" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">OR — either gate opens</text>')
+  parts.push('<line x1="395" y1="200" x2="665" y2="200" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="395" y1="200" x2="443" y2="200" stroke="#ea580c" stroke-width="3.2"/>')
+  parts.push('<circle cx="450" cy="200" r="5.5" fill="#fffdf5" stroke="#ea580c" stroke-width="1.6"/>')
+  parts.push('<line x1="609" y1="200" x2="665" y2="200" stroke="#ea580c" stroke-width="3.2"/>')
+  parts.push('<circle cx="602" cy="200" r="5.5" fill="#fffdf5" stroke="#ea580c" stroke-width="1.6"/>')
+  parts.push('<text x="450" y="181" font-size="10" fill="#166534" text-anchor="middle">−3</text>')
+  parts.push('<text x="602" y="181" font-size="10" fill="#166534" text-anchor="middle">5</text>')
+  parts.push('<text x="530" y="148" font-size="11" fill="#65a30d" text-anchor="middle">x &lt; −3 OR x &gt; 5</text>')
+  parts.push('<text x="530" y="232" font-size="11" fill="#0f766e" text-anchor="middle">the wings hold 16 integers; the gap −3..5</text>')
+  parts.push('<text x="530" y="250" font-size="11" fill="#0f766e" text-anchor="middle">holds 9 — the band&#8217;s complement</text>')
+  parts.push('<rect x="370" y="276" width="320" height="26" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="530" y="293" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">OR is generous: 9 + 16 = 25 — nothing counted twice</text>')
+  // caption band
+  parts.push('<rect x="30" y="314" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="330" font-size="11" fill="#166534" text-anchor="middle">De Morgan in censuses: NOT the band IS the wings — the verifier priced the 9 + 16 split pointwise over the window</text>')
   parts.push('</svg>')
   return parts.join('')
 }
@@ -273,7 +385,7 @@ export const chapter07: Chapter = {
   title: 'Inequalities',
   summary:
     'Order joins algebra: the real line of ANS ch. 8 as the habitat, linear inequalities solved with every move checked against the order laws — including the multiplication-by-negative flip, proved rather than warned about — and compound inequalities (and/or) handled as intersections and unions of solution sets, cashed in boundary word problems.',
-  status: 'in-progress',
+  status: 'complete',
   lessons: [
     {
       id: 'al-order-and-the-solution-set',
@@ -932,6 +1044,365 @@ export const chapter07: Chapter = {
         ] },
       ],
     },
+    {
+      id: 'al-compound-inequalities-and-applications',
+      number: '7.3',
+      title: 'Compound Inequalities and Applications',
+      concepts: [
+        'compound inequality',
+        'AND = intersection',
+        'OR = union',
+        'the between-form (interval)',
+        'open and closed ends',
+        'the two-boundary pipeline',
+        'the empty AND',
+        "De Morgan's reading",
+      ],
+      objectives: [
+        'join two assertions about one unknown with AND or OR and say exactly which points each joiner keeps',
+        'read and write between-forms, deciding boundary membership from the open/closed ends',
+        'solve any compound of the shape a ≤ px + q ≤ b with the two-boundary pipeline — flip and end-swap included',
+        'solve OR-sentences ray by ray and count the gap honestly',
+        'recognize the empty AND and answer it without inventing a ray',
+        'apply bands and unions to budgets, speed margins and gate problems, pruning to the habitat',
+      ],
+      prerequisites: ['al-order-and-the-solution-set', 'al-solving-linear-inequalities'],
+      sources: ['hall-knight-elementary-algebra', 'ncert-math11-ch5', 'khattar-qa-4e', 'cengage-jee-style'],
+      blocks: [
+        { kind: 'para', text: 'Chapter 7 so far has taught single sentences: one inequality, one boundary, one ray. But life rarely issues one constraint at a time. A race official sets a minimum speed for fear of straggling and a maximum for fear of the wall; a budget says how much you may spend, and a reserve says how much you must keep; an admission gate admits the very young and — quite separately — the very old. Each story is TWO or more inequalities about the same unknown, and the answer is whatever honours them together. Such a sentence is called a compound inequality, and this closing lesson makes the idea exact: the two lawful ways to join assertions (AND and OR), the shorthand the world uses for the commonest compound, the pipeline that solves the two-boundary dress, and the traps — above all the possibility that a compound has NO solution at all.' },
+        { kind: 'para', text: 'The plan is the chapter’s plan, run once more at double width. First the joiners themselves, defined formally and priced on the census window: an AND keeps the points both members admit (the intersection), an OR keeps every point either member admits (the union). Then the between-form — $a < x < b$ and its slack variants — the compact dress for the AND of two opposite rays, with its four shapes and its open and closed ends. Then the two-boundary pipeline: the 7.2 pipeline applied to both gates of a band at once, with the flip examined carefully, because on a band it does not reverse a ray — it SWAPS the ends. Finally the applications, where bands and unions do the work examinations ask of them.' },
+        { kind: 'heading', text: 'Two Claims at Once: AND and OR' },
+        { kind: 'para', text: 'Two assertions about the same unknown can be joined in exactly two ways worth a name. The conjunction — spoken AND, written $\\wedge$ — demands BOTH: a number solves "$P$ and $Q$" only if it solves $P$ and solves $Q$. The disjunction — spoken OR, written $\\vee$ — demands AT LEAST ONE: a number solves "$P$ or $Q$" if it solves $P$, or solves $Q$, or — the case beginners forget — solves both. Neither joiner creates new mathematics: each is a lawful way of combining solution sets that 7.1 and 7.2 already know how to find. The set-language dress states both laws at once:' },
+        { kind: 'terms', items: [
+          { term: 'compound inequality', def: 'two or more inequalities about the same unknown, joined by AND or OR and judged as one sentence — its solution set is built from the members’ solution sets by intersection (AND) or union (OR)' },
+          { term: 'intersection (AND)', def: 'the set of points satisfying BOTH members at once, written $A \\cap B$; on the line, two opposite rays meeting in a band — or in a point, or in nothing' },
+          { term: 'union (OR)', def: 'the set of points satisfying AT LEAST ONE member, written $A \\cup B$; on the line, two rays, possibly with an honest gap between' },
+          { term: 'between-form', def: 'the compound shorthand $a < x < b$ and its slack variants — one sentence carrying both gates; also called an interval' },
+          { term: 'open end', def: 'an end written with a strict sign, whose boundary point is refused — drawn hollow on the line' },
+          { term: 'closed end', def: 'an end written with a slack sign, whose boundary point is kept — drawn filled on the line' },
+          { term: 'empty solution set', def: 'an AND whose rays never meet — $\\{x : x > 2 \\text{ and } x < -1\\} = \\varnothing$; a legitimate verdict, not a mistake' },
+          { term: "De Morgan's reading", def: 'negating a compound swaps the joiner and negates each gate: not ($P$ and $Q$) = (not $P$) or (not $Q$); not ($P$ or $Q$) = (not $P$) and (not $Q$)' },
+        ] },
+        { kind: 'callout', tone: 'definition', title: 'Definition — compound assertions, formally', text: 'A compound inequality is said to be a conjunction (an AND) if its solution set is the intersection of its members’ solution sets: $x$ satisfies $P$ AND $Q$ exactly when $x$ satisfies $P$ and $x$ satisfies $Q$. It is said to be a disjunction (an OR) if its solution set is the union: $x$ satisfies $P$ OR $Q$ exactly when $x$ satisfies at least one of them. The word both carries the AND; the phrase at least one carries the OR — and "at least one" includes "both", the reading beginners most often drop.' },
+        { kind: 'equation', latex: 'x \\in A \\cap B \\;\\Longleftrightarrow\\; x \\in A \\;\\wedge\\; x \\in B, \\qquad x \\in A \\cup B \\;\\Longleftrightarrow\\; x \\in A \\;\\vee\\; x \\in B', note: 'AND = intersection, OR = union — the two lawful joiners of assertions about one unknown' },
+        { kind: 'list', marker: 'roman', items: [
+          '$x \\geq -3$ and $x \\leq 5$ — an AND; the solution is the band of points where both gates stand open.',
+          '$x < -1$ or $x > 3$ — an OR; the solution is two rays, with the stretch from $-1$ to $3$ belonging to neither.',
+          '$2 \\leq 3x - 1 < 8$ — a between-form, the compact AND-dress that names both gates in one breath.',
+        ] },
+        { kind: 'para', text: 'On the census window the joiners become countable. The AND of $x \\geq -3$ (16 window integers) with $x \\leq 5$ (18) keeps the common points: the nine integers from $-3$ through $5$. Behind every such count stands the trading law $|A \\cap B| + |A \\cup B| = |A| + |B|$ — intersections and unions exchange material exactly, nothing created or destroyed — and the verifier priced it over one hundred designed ray-pairs with every combination of open and closed ends: zero failures. Two extreme cases anchor the scale. When two rays touch at one point — $x \\geq 3$ AND $x \\leq 3$ — the AND keeps exactly $\\{3\\}$: a legitimate one-point solution set. When they never meet, the AND keeps nothing at all; that verdict gets its own section below, because it is where the traps live.' },
+        { kind: 'example', title: 'Describe the solution of x ≥ −3 AND x ≤ 5 — and count it on the window [−12, 12]', steps: [
+          'Split: two gates — the right-ray $x \\geq -3$ and the left-ray $x \\leq 5$.',
+          'Join: an AND keeps the common points — every $x$ with $-3 \\leq x \\leq 5$: the band, both ends closed.',
+          'Census: $-3, -2, \\ldots, 4, 5$ — nine window integers; the verifier counted 9.',
+          'Hence the closed band $-3 \\leq x \\leq 5$, nine of the twenty-five window integers.',
+        ] },
+        { kind: 'para', text: 'The OR is the generous joiner: it keeps everything either ray keeps. Two same-side rays collapse into one — "$x \\geq 2$ or $x \\geq 5$" is just the wider ray $x \\geq 2$, since whatever satisfies the stricter satisfies the looser; the verifier checked fifteen such absorption pairs pointwise. Two opposite rays are the interesting case: they can leave a GAP. "$x \\leq -2$ or $x > 3$" keeps eleven integers on the left and nine on the right and nothing between: twenty of the twenty-five window integers, with $-1, 0, 1, 2, 3$ out. Note what the OR did not do: it did not fill the gap. "Or" offers a choice of gates, and the five integers in the gap chose neither.' },
+        { kind: 'list', items: [
+          'AND is stingy: the compound’s census never exceeds either member’s — $-3 \\leq x < 5$ keeps 8 where the ray $x \\geq -3$ alone keeps 16 on the window.',
+          'OR is generous: the compound’s census is at least each member’s — $x \\leq -2$ or $x > 3$ keeps 20, against 11 and 9 for the rays alone.',
+          'The counting law: $|A \\cap B| + |A \\cup B| = |A| + |B|$ exactly — priced over 100 designed ray-pairs, open and closed ends alike.',
+          'Absorption: same-side rays collapse to the wider ray under OR (and to the narrower under AND) — $x \\geq 2$ or $x \\geq 5$ is $x \\geq 2$, pointwise.',
+        ] },
+        { kind: 'example', title: 'Solve 2x − 1 > 5 OR 3x + 4 ≤ −2', steps: [
+          'An OR solves each sentence separately — no coordination needed.',
+          'Left: $2x > 6$, so $x > 3$ (divide by $2 > 0$ — no flip).',
+          'Right: $3x \\leq -6$, so $x \\leq -2$ (divide by $3 > 0$ — no flip).',
+          'Union: $4$ through $12$ (9 integers) plus $-12$ through $-2$ (11) — 20 window integers; the gap $-1$ through $3$ (five) stays out.',
+          'Hence $x \\leq -2$ or $x > 3$ — two rays holding 20 of the 25 window integers.',
+        ] },
+        { kind: 'figure', caption: 'The two joiners at work on the same pair of boundaries −3 and 5: the AND closes the band −3 ≤ x ≤ 5 (9 window integers), while the OR of the negated rays keeps the 16 outside — 9 + 16 = 25, the De Morgan split, priced pointwise by the verifier.', svg: andOrPanelsSvg() },
+        { kind: 'heading', text: 'Between-Forms: the Shorthand of the Band' },
+        { kind: 'para', text: 'The commonest compound in mathematics is the AND of two opposite rays: a lower bound and an upper bound on the same unknown. Writing "$x \\geq -3$ and $x \\leq 5$" every time would be exhausting, so mathematics writes it in one breath — the between-form $-3 \\leq x \\leq 5$, read "x is between −3 and 5, ends included". The dress has exactly four shapes, one for each choice of open or closed ends, and the shapes differ by exactly the boundary points:' },
+        { kind: 'figure', caption: 'The four interval shapes between the boundaries −3 and 5, with their censuses on [−12, 12]: closed both ends 9, one closed end 8, open both ends 7. Each closed end adds exactly its boundary point — the filled dot is that one number of difference.', svg: intervalShapesSvg() },
+        { kind: 'table', caption: 'The four shapes, their ends, and the boundary rule', head: ['the shape', 'left end −3', 'right end 5', 'census on [−12, 12]'], rows: [
+          ['$-3 \\leq x \\leq 5$', 'kept (closed)', 'kept (closed)', '9'],
+          ['$-3 \\leq x < 5$', 'kept (closed)', 'refused (open)', '8'],
+          ['$-3 < x \\leq 5$', 'refused (open)', 'kept (closed)', '8'],
+          ['$-3 < x < 5$', 'refused (open)', 'refused (open)', '7'],
+        ] },
+        { kind: 'para', text: 'The table is the whole law of the band, and it compresses into one sentence: an end is closed exactly when its boundary belongs. The censuses make the law visible — 9, 8, 8, 7, each closed end worth exactly its one point. Membership is a two-sided question, and examinations price both sides: the largest integer in $-3 < x \\leq 5$ is 5, because the closed right end keeps its boundary; slack that one end and the largest drops to 4. The left end, meanwhile, decides the SMALLEST member, not the largest — in both shapes shown the strict left end refuses $-3$, so $-2$ is the smallest integer inside. One sign of difference, one whole answer of difference: the ends are where the marks live.' },
+        { kind: 'example', title: 'Find the largest integer solving −3 < x ≤ 5 — and the largest under the strict right end −3 < x < 5', steps: [
+          'The right end is closed: 5 itself belongs, since $5 \\leq 5$ and $5 > -3$ — the largest integer is 5.',
+          'Slack the right end: $-3 < x < 5$ refuses 5 ($5 < 5$ is false) — the largest drops to 4.',
+          'The left end governs the other tail: both shapes refuse $-3$, so the smallest integer inside is $-2$ in each.',
+          'Hence largest 5 with the closed end; 4 under the strict end — one sign, one answer.',
+        ] },
+        { kind: 'heading', text: 'Solving Compounds: the Two-Boundary Pipeline' },
+        { kind: 'para', text: 'Now the craft question: a compound arrives dressed as $1 \\leq 2x + 1 < 9$ — how does it come solved? The sentence is two inequalities sharing a middle member, and the answer is the 7.2 pipeline applied to BOTH gates at once: whatever lawful move is made on the middle member is made on BOTH outer members too, so the gates stay gates and the conjunction stays a conjunction. For a positive coefficient the two gates solve in the same direction and the band re-forms around them:' },
+        { kind: 'equation', latex: 'a \\;\\leq\\; p\\,x + q \\;\\leq\\; b \\quad\\Longleftrightarrow\\quad \\frac{a - q}{p} \\;\\leq\\; x \\;\\leq\\; \\frac{b - q}{p} \\qquad (p > 0)', note: 'the two-boundary pipeline for a positive coefficient — one shift, one scale, both ends tracked' },
+        { kind: 'derivation', title: 'Theorem — the two-boundary pipeline, and what the flip does to a band', statement: 'For real numbers $a \\leq b$ and $p \\neq 0$: the compound assertion $a \\leq p x + q \\leq b$ is equivalent to the solved band $\\frac{a-q}{p} \\leq x \\leq \\frac{b-q}{p}$ when $p > 0$, and to $\\frac{b-q}{p} \\leq x \\leq \\frac{a-q}{p}$ when $p < 0$ — the ends SWAP. Both gates obey the one-variable laws of 7.1–7.2, applied to the same middle member.', steps: [
+          { label: 'Split the sentence', formula: 'a \\leq p x + q \\quad \\text{and} \\quad p x + q \\leq b', explanation: 'The compound assertion is two ordinary inequalities sharing the middle member. Solve both, keep the conjunction — an AND of two gates.' },
+          { label: 'Shift all three members', formula: 'a - q \\leq p x \\leq b - q', explanation: 'Subtract $q$ from the middle member and from BOTH outer members — the addition law of 7.1, applied twice; adding never flips, whatever the sign of $q$.' },
+          { label: 'Scale, p > 0', formula: '\\frac{a-q}{p} \\leq x \\leq \\frac{b-q}{p}', explanation: 'Divide all three members by $p > 0$ — positive scaling preserves both gates. The band re-forms with the SAME open or closed ends at $\\frac{a-q}{p}$ and $\\frac{b-q}{p}$.' },
+          { label: 'Scale, p < 0', formula: '\\frac{a-q}{p} \\geq x \\quad \\text{and} \\quad x \\geq \\frac{b-q}{p}', explanation: 'Divide by $p < 0$ — THE FLIP strikes BOTH gates. Each gate reverses; reading the band in the ordinary left-to-right order now starts at $\\frac{b-q}{p}$.' },
+          { label: 'Read the solved band', formula: 'p < 0: \\quad \\frac{b-q}{p} \\leq x \\leq \\frac{a-q}{p}', explanation: 'Two reversed gates compose to an exchange of ends — the band still holds exactly the points that satisfy both original gates, only written with its ends swapped. $\\frac{a-q}{p} \\leq \\frac{b-q}{p}$ survives throughout, since dividing the true claim $a \\leq b$ by $p < 0$ flips it to $\\frac{a-q}{p} \\geq \\frac{b-q}{p}$.' },
+          { label: 'Check at a solved boundary', formula: 'p \\cdot \\frac{a-q}{p} + q = a', explanation: 'At the solved boundary the middle member lands EXACTLY on its end: the closed end keeps it ($a \\leq a$ holds), the strict end refuses it ($a < a$ fails). The verifier priced the identity exactly — 280 pipeline forms, every boundary.' },
+        ], result: 'The two-boundary pipeline is the 7.2 pipeline run on both gates at once: shift by $-q$, scale by $1/p$ — preserving for $p > 0$, and for $p < 0$ flipping BOTH gates, which swaps the ENDS of the band rather than reversing a single ray. The verifier priced the theorem exactly: 280 pipeline forms swept pointwise over the window — 14,000 gate equivalences with 280 boundary identities, zero failures.' },
+        { kind: 'para', text: 'The flip deserves its own paragraph, because it changes character on a band. On a single ray, dividing by a negative reverses the ray’s direction. On a band, BOTH gates reverse — and two reversals, read left-to-right, amount to an EXCHANGE of the two ends. The exhibit: $-3 \\leq -2x + 1 \\leq 5$. Shift by $-1$: $-4 \\leq -2x \\leq 4$. Divide by $-2$ — the flip strikes both gates: $2 \\geq x \\geq -2$, read in the ordinary order as $-2 \\leq x \\leq 2$. The ends swapped places, exactly as the solved form predicts: $\\frac{5-1}{-2} = -2$ now stands on the left and $\\frac{-3-1}{-2} = 2$ on the right. The verifier priced this band pointwise — the two sentences agree at every one of the 25 window integers, and the flipped band keeps 5 of them.' },
+        { kind: 'example', title: 'Solve 1 ≤ 2x + 1 < 9 by the two-boundary pipeline', steps: [
+          'Shift: subtract 1 from all three members — $0 \\leq 2x < 8$ (the addition law, no flip).',
+          'Scale: divide by $2 > 0$ — no flip: $0 \\leq x < 4$.',
+          'Check the ends: at $x = 0$ the middle member reads exactly 1 (kept by the closed end); at $x = 4$ it reads 9, refused by the strict end ($9 < 9$ fails).',
+          'Hence $0 \\leq x < 4$ — four window integers, $0$ through $3$.',
+        ] },
+        { kind: 'example', title: 'Solve −3 ≤ −2x + 1 ≤ 5 — the flip at work on a band', steps: [
+          'Shift: subtract 1 from all three members — $-4 \\leq -2x \\leq 4$.',
+          'Scale: divide by $-2 < 0$ — THE FLIP strikes both gates: $2 \\geq x \\geq -2$.',
+          'Read in the ordinary order: $-2 \\leq x \\leq 2$ — the ends swapped, as the theorem says.',
+          'Check: at $x = 2$ the middle member reads $-3$, and the original left gate holds ($-3 \\leq -3$); at $x = -2$ it reads 5, and the right gate holds ($5 \\leq 5$).',
+          'Hence $-2 \\leq x \\leq 2$ — five window integers, $-2$ through $2$.',
+        ] },
+        { kind: 'example', title: 'Solve 1 < (5 − 2x)/3 ≤ 4 — a fraction dress with the end-swap', steps: [
+          'Dress: multiply all three members by $3 > 0$ — no flip: $3 < 5 - 2x \\leq 12$.',
+          'Shift: subtract 5 — $-2 < -2x \\leq 7$.',
+          'Scale: divide by $-2 < 0$ — the flip, both gates: $1 > x \\geq -\\frac{7}{2}$; read in the ordinary order: $-\\frac{7}{2} \\leq x < 1$.',
+          'Check the exact ends: at $x = -\\frac{7}{2}$ the middle member is $\\frac{5+7}{3} = 4$ — kept by the closed end; at $x = 1$ it is $\\frac{3}{3} = 1$, and $1 < 1$ fails — refused.',
+          'Hence $-\\frac{7}{2} \\leq x < 1$ — window integers $-3, -2, -1, 0$.',
+        ] },
+        { kind: 'callout', tone: 'insight', title: 'Insight — one line, cut twice', text: 'Set this lesson beside 5.3 and 6.3 and the arc of the algebra course closes. Chapter 5 taught the three verdicts for one assertion; 6.3 taught that a line cuts the plane in two, and two lines rule regions together. This lesson is the one-dimensional echo: one boundary cuts the line in two (a ray — 7.1), and TWO boundaries cut it in three pieces — two wings and a band. The AND chooses the band, or its single point, or nothing; the OR chooses the wings. The balance of chapter 5 now rules regions two boundaries at a time: the two-boundary pipeline is the 5.2 pipeline run on both gates at once, and the three verdicts of 5.3 return as the shapes a band can take — a proper stretch, a single point ($x \\geq 3$ AND $x \\leq 3$), or the empty set (rays that never meet).' },
+        { kind: 'heading', text: 'OR, Traps and the Empty Band' },
+        { kind: 'para', text: 'An OR-sentence asks less of its solutions, and it is solved by solving each member SEPARATELY — no coordination is needed, since the union does the joining. The pipeline runs twice, once per ray; the answer is whatever the two rays cover, with the gap reported as honest territory rather than smoothed over:' },
+        { kind: 'example', title: 'Solve x − 3 > 2 OR x + 1 < −1', steps: [
+          'Left: $x > 5$ (shift by 3 — no flip). Right: $x < -2$ (shift by $-1$ — adding never flips).',
+          'Union: $6$ through $12$ (7 integers) plus $-12$ through $-3$ (10) — 17 window integers.',
+          'The gap $-2$ through $5$ (eight integers) satisfies NEITHER gate — it belongs to the answer as an honest no.',
+          'Hence $x < -2$ or $x > 5$ — two disconnected rays holding 17 of the 25 window integers.',
+        ] },
+        { kind: 'callout', tone: 'warn', title: 'Caution — the empty AND is a verdict, not a failure', text: 'The most-missed exercise of this lesson: solve $x > 2$ AND $x < -1$. The two rays keep 10 and 11 window integers respectively and share NOTHING — the honest answer is "no solution". The classic wrong answers: reporting one ray alone (that solves half the sentence), averaging the boundaries into $x = 0.5$ (nothing in the problem licenses averaging), or quietly solving the OR instead (20 integers — a different sentence). Contrast the touching pair $x \\geq 3$ AND $x \\leq 3$, which keeps exactly $\\{3\\}$: between never meeting and touching lies the whole difference between the empty set and a point. When an AND comes out empty, say so — the empty set is a full member of the verdict family.' },
+        { kind: 'example', title: 'Does x > 2 AND x < −1 have any solution at all? Compare x ≥ 3 AND x ≤ 3', steps: [
+          'The ray $x > 2$ keeps $3$ through $12$ (10 window integers); the ray $x < -1$ keeps $-12$ through $-2$ (11).',
+          'The sets share nothing — one sits entirely right of 2, the other entirely left of −1: the AND keeps nothing.',
+          'The touching pair: $x = 3$ passes both gates ($3 \\geq 3$ and $3 \\leq 3$) — the AND is exactly $\\{3\\}$; 2 and 4 each fail one gate.',
+          'Hence the first verdict is the empty set — no solution, honestly — while the second is the one-point set $\\{3\\}$.',
+        ] },
+        { kind: 'para', text: 'Negating a compound has its own grammar, and it is the bridge back to single sentences. To fail an AND it suffices to fail one gate — so "not ($P$ and $Q$)" is "(not $P$) or (not $Q$)". To fail an OR, both gates must fail — so "not ($P$ or $Q$)" is "(not $P$) and (not $Q$)". The swap of joiners under negation is De Morgan’s law, and the two-panels figure above priced it in censuses: the band $-3 \\leq x \\leq 5$ keeps 9 window integers, its negation keeps the other 16, and "the other 16" is exactly the OR of the two negated rays $x < -3$ or $x > 5$. Nine plus sixteen is twenty-five — nothing counted twice, nothing left out.' },
+        { kind: 'heading', text: 'Applications: Bands, Budgets and Gates' },
+        { kind: 'para', text: 'Applications write compounds for a living: every margin is a ray, and every real machine lives where several margins agree. The discipline is always the same three steps — model each constraint as its own inequality, solve each (or solve the band directly when the constraints share a middle member), then let the AND or OR assemble the answer and let the habitat prune it to whole numbers:' },
+        { kind: 'example', title: 'A delivery drone must fly between 3 m and 12 m above the ground, and its battery rules add the cap 2h ≤ 15 on its whole-metre altitude h. Which altitudes are legal?', steps: [
+          'Model: the band $3 \\leq h \\leq 12$ and the battery ray $2h \\leq 15$, with $h$ a whole number.',
+          'Solve the battery ray: $h \\leq \\frac{15}{2} = 7.5$ (divide by $2 > 0$ — no flip).',
+          'Join: $3 \\leq h \\leq 7.5$ — the habitat keeps $\\{3, 4, 5, 6, 7\\}$; 7 flies on $14 \\leq 15$, 8 does not ($16 > 15$).',
+          'Hence five legal altitudes, 3 through 7 metres — the ray clipped the band.',
+        ] },
+        { kind: 'example', title: 'A courier’s schedule imposes two margins: the time margin 2v + 30 ≤ 150 and the arrival margin 5v ≥ 50. Which integer speeds v serve both?', steps: [
+          'Model: two rays about one speed — an AND is coming.',
+          'Time margin: $2v \\leq 120$, so $v \\leq 60$ (divide by $2 > 0$).',
+          'Arrival margin: $v \\geq 10$ (divide by $5 > 0$).',
+          'Join: $10 \\leq v \\leq 60$ — the band holds 51 integer speeds on the roster $0$ to $100$; the boundaries land exactly ($2(60) + 30 = 150$, $5(10) = 50$), both kept.',
+          'Hence every whole speed from 10 to 60 — 51 speeds — serves both margins.',
+        ] },
+        { kind: 'example', title: 'You hold ₹500; notebooks cost ₹65 each; you must keep ₹40 for the trip home. How many can you buy? (The 7.2 exhibit, re-read as a compound.)', steps: [
+          'Model as TWO gates: $n \\geq 0$ (a purchase count cannot be negative) and $65n + 40 \\leq 500$ (spend plus reserve within the purse).',
+          'Solve the purse gate: $65n \\leq 460$, so $n \\leq \\frac{460}{65} = \\frac{92}{13}$ (divide by $65 > 0$ — no flip).',
+          'Join: $0 \\leq n \\leq \\frac{92}{13}$ — the habitat keeps $\\{0, 1, \\ldots, 7\\}$: seven notebooks cost $455$, leaving $45 \\geq 40$; eight cost $520 > 500$.',
+          'Hence seven notebooks — the AND of the two gates, pruned by the habitat, with the reserve intact.',
+        ] },
+        { kind: 'example', title: 'A park is free for visitors aged 12 or under, and for visitors aged 65 or over. Of the whole-number ages 0 through 100, how many ages enter free — and which ages are the first refused?', steps: [
+          'Model: an OR of two closed rays — age $\\leq 12$ or age $\\geq 65$.',
+          'Left ray: ages $0$ through $12$ — 13 ages; right ray: ages $65$ through $100$ — 36 ages.',
+          'Union: $13 + 36 = 49$ of the 101 ages — no overlap, nothing to subtract.',
+          'Boundaries: the ends are closed, so 12 enters free and 13 is the first payer; 65 enters free and 64 is the last payer.',
+          'Hence 49 ages enter free; the refused middle 13 through 64 — 52 ages — pay.',
+        ] },
+        { kind: 'para', text: 'From the above discussion, it follows that the chapter’s whole apparatus now serves sentences of any width. One inequality gives a ray (7.1); the pipeline solves it lawfully, flip included (7.2); and compounds — bands with their open and closed ends, unions with their gaps, the honest empty set — assemble many rays into one answer (this lesson). The three verdicts of 5.3 return one last time as the shapes a band can take: a proper stretch, a single point, or nothing at all. The examinations ask for exactly this stack, and the next chapter will put fractions under the same pipeline.' },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — the brackets of the band', text: 'The bracket notation $[a, b]$ for the closed band and $(a, b)$ for the open one has no single inventor on record: notation historians find it settling into early-20th-century analysis textbooks without a documented christening, and some European traditions still print the open band with reversed brackets, $]a, b[$. The WORDS, though, have a birthday. "Open" and "closed" were fixed in the first decades of topology — Fréchet’s 1906 thesis already treated the closed interval as the model setting for the new theorems about limits — and the school habit of writing a band as one sentence, $a < x < b$, is older than either: the classical algebra texts were steering students between two boundaries in one breath long before anyone needed a name for the object between.' },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner — what the examinations ask of this lesson', text: 'Six shapes recur. (1) Read the band: how many integers lie in $a \\leq x < b$ — count the kept end, refuse the strict one ($-3 \\leq x < 5$ keeps 8 on the window). (2) The two-boundary pipeline: $1 \\leq 2x + 1 < 9$ — one shift, one scale, ends checked; a negative coefficient SWAPS the ends ($-3 \\leq -2x + 1 \\leq 5$ gives $-2 \\leq x \\leq 2$). (3) Largest or smallest integer in a band — the closed end keeps its boundary ($-3 < x \\leq 5$: largest 5), the strict end drops it (largest 4). (4) The empty AND distractor: options offering a ray for $x > 2$ AND $x < -1$ — the honest verdict is no solution. (5) OR word problems: free-entry age bands, two-ray unions — boundary membership decides (13 pays, 12 does not; 65 enters, 64 does not). (6) The parameter: $2 \\leq x < k$ keeping exactly three integers forces $k = 5$. Speed habit: solve the gates first, then let the AND or OR do the geometry — never average boundaries.' },
+        { kind: 'formula', name: 'AND = intersection', latex: 'x \\text{ solves } P \\text{ and } Q \\;\\iff\\; x \\in \\{x : P\\} \\cap \\{x : Q\\}', note: 'both gates must open — the census keeps only the common points (the band, the point, or nothing)' },
+        { kind: 'formula', name: 'OR = union', latex: 'x \\text{ solves } P \\text{ or } Q \\;\\iff\\; x \\in \\{x : P\\} \\cup \\{x : Q\\}', note: 'at least one gate — censuses add, minus the overlap; two opposite rays leave an honest gap' },
+        { kind: 'formula', name: 'The two-boundary pipeline', latex: 'a \\leq p x + q \\leq b \\;\\xrightarrow{\\;p > 0\\;}\\; \\tfrac{a-q}{p} \\leq x \\leq \\tfrac{b-q}{p}, \\qquad p < 0: \\text{ the ends swap}', note: 'the 7.2 pipeline run on both gates at once — one shift, one scale, and the flip (if it comes) exchanges the two ends' },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          {
+            q: 'On the window $[-12, 12]$, how many integers solve $-3 \\leq x < 5$?',
+            options: ['7', '8', '9', '25 — every window integer'],
+            answer: 1,
+            explain: 'The compound keeps $-3$ through $4$: eight integers. Seven forgets the closed left end ($-3$ is in, since $\\leq$ keeps it); nine adds the refused right end ($5$ is out, since $<$ refuses it); twenty-five is the whole window — a compound is a band, not everything.',
+          },
+          {
+            q: 'The assertion "$x > 2$ AND $x < -1$" is solved by…',
+            options: ['every $x > 2$', 'every $x < -1$', 'no number at all — the rays never meet', 'exactly $x = 2$'],
+            answer: 2,
+            explain: 'An AND keeps only the common points of its rays: $x > 2$ keeps 10 window integers right of 2, $x < -1$ keeps 11 left of $-1$, and the two sets share nothing — the intersection is empty. Choosing one ray alone solves half the sentence; $x = 2$ fails the strict first gate ($2 > 2$ is false).',
+          },
+          {
+            q: 'Solve $1 \\leq 2x + 1 < 9$.',
+            options: ['$0 \\leq x < 4$', '$1 \\leq x < 5$', '$0 \\leq x \\leq 4$', '$0 < x < 4$'],
+            answer: 0,
+            explain: 'Subtract 1 from all three members ($0 \\leq 2x < 8$), then divide by $2 > 0$ — no flip: $0 \\leq x < 4$. The first distractor never subtracted the 1; the second keeps the right boundary $x = 4$, where $2(4) + 1 = 9$ fails $9 < 9$; the third drops both boundaries — $x = 0$ belongs, since $1 \\leq 1$.',
+          },
+          {
+            q: 'The largest integer solving $-3 < x \\leq 5$ is…',
+            options: ['4', '5', '6', '3'],
+            answer: 1,
+            explain: 'The right end is closed, so 5 stays: $5 \\leq 5$ holds and $5 > -3$ holds. Six fails the closed end ($6 \\leq 5$ is false); four would be the largest only under the STRICT right end $-3 < x < 5$; three is inside the band but not the largest.',
+          },
+          {
+            q: 'On the window $[-12, 12]$, how many integers solve "$x \\leq -2$ OR $x > 3$"?',
+            options: ['18', '20', '22', '25 — every window integer'],
+            answer: 1,
+            explain: 'The left ray keeps $-12$ through $-2$ (11 integers), the right keeps $4$ through $12$ (9), no overlap: 20. Eighteen is the census of the flipped pair $x < -3$ or $x \\geq 4$; twenty-two would need a three-point gap; twenty-five is the OR-means-everything trap — the five integers $-1$ through $3$ satisfy neither gate and stay out.',
+          },
+        ] },
+        { kind: 'exercises', title: 'Exercises 7.3', sets: [
+          { level: 'L1', questions: [
+            {
+              q: 'Solve $x \\geq -2$ AND $x < 4$; write the answer as a between-form and count the window integers it keeps.',
+              solution: [
+                'Split: the AND keeps the points both rays admit — $x \\geq -2$ and $x < 4$.',
+                'Join: the left ray starts at $-2$ (kept), the right refuses 4 — the between-form $-2 \\leq x < 4$.',
+                'Census: $-2, -1, 0, 1, 2, 3$ — six integers on $[-12, 12]$.',
+                'Hence the mixed band $-2 \\leq x < 4$, six window integers.',
+              ],
+              answer: '$-2 \\leq x < 4$ — six window integers.',
+            },
+            {
+              q: 'Solve $x + 1 > 4$ AND $x \\leq 8$.',
+              solution: [
+                'Solve the left gate: $x > 3$ (subtract 1 — no flip).',
+                'Solve the right gate: $x \\leq 8$ — already in solved dress.',
+                'Join: $3 < x \\leq 8$ — the window integers $4, 5, 6, 7, 8$: five.',
+                'Hence the band with the left end open, the right closed.',
+              ],
+              answer: '$3 < x \\leq 8$ — five window integers.',
+            },
+            {
+              q: 'Describe the solution of $x \\leq -2$ OR $x \\geq 5$, and count it on the window $[-12, 12]$.',
+              solution: [
+                'An OR keeps the union: both rays, overlap subtracted once — here there is none.',
+                'Left: $-12$ through $-2$ — 11 integers; right: $5$ through $12$ — 8 integers.',
+                'Union: $11 + 8 = 19$; the gap $-1$ through $4$ (six integers) stays out.',
+                'Hence two disconnected rays holding 19 of the 25 window integers.',
+              ],
+              answer: '$x \\leq -2$ or $x \\geq 5$ — 19 window integers in two rays.',
+            },
+          ] },
+          { level: 'L2', questions: [
+            {
+              q: 'Solve $2 \\leq x + 3 \\leq 7$.',
+              solution: [
+                'Shift: subtract 3 from all three members — $-1 \\leq x \\leq 4$ (the addition law, no flip).',
+                'Boundaries: at $x = -1$ the middle reads exactly 2 (kept); at $x = 4$ it reads exactly 7 (kept).',
+                'Census: $-1, 0, 1, 2, 3, 4$ — six window integers.',
+                'Hence the closed band $-1 \\leq x \\leq 4$.',
+              ],
+              answer: '$-1 \\leq x \\leq 4$ — six window integers.',
+            },
+            {
+              q: 'Solve $-3 < 2x + 1 \\leq 5$.',
+              solution: [
+                'Shift: subtract 1 from all three members — $-4 < 2x \\leq 4$.',
+                'Scale: divide by $2 > 0$ — no flip: $-2 < x \\leq 2$.',
+                'Check: at $x = 2$ the middle reads exactly 5 (kept); at $x = -2$ it reads $-3$, and $-3 < -3$ fails (refused).',
+                'Hence the mixed band $-2 < x \\leq 2$ — window integers $-1, 0, 1, 2$.',
+              ],
+              answer: '$-2 < x \\leq 2$ — four window integers.',
+            },
+            {
+              q: 'Solve $x - 3 > 2$ OR $x + 1 < -1$.',
+              solution: [
+                'An OR solves each ray independently — no joining unless both hold.',
+                'Left: $x > 5$ (shift by 3); right: $x < -2$ (shift by $-1$, no flip).',
+                'Union: $6$ through $12$ (7 integers) plus $-12$ through $-3$ (10) — 17; the gap $-2$ through $5$ (eight) stays out.',
+                'Hence $x < -2$ or $x > 5$, holding 17 of the 25 window integers.',
+              ],
+              answer: '$x < -2$ or $x > 5$ — 17 window integers.',
+            },
+          ] },
+          { level: 'L3', questions: [
+            {
+              q: 'Solve $0 \\leq 3x - 6 < 9$.',
+              solution: [
+                'Shift: add 6 to all three members — $6 \\leq 3x < 15$.',
+                'Scale: divide by $3 > 0$ — no flip: $2 \\leq x < 5$.',
+                'Check: at $x = 2$ the middle reads exactly 0 (kept); at $x = 5$ it reads 9, refused by the strict end.',
+                'Hence the band $2 \\leq x < 5$ — window integers $2, 3, 4$.',
+              ],
+              answer: '$2 \\leq x < 5$ — three window integers.',
+            },
+            {
+              q: 'Solve $1 < \\frac{5 - 2x}{3} \\leq 4$ — watch which end moves.',
+              solution: [
+                'Dress: multiply all three members by $3 > 0$ — no flip: $3 < 5 - 2x \\leq 12$.',
+                'Shift: subtract 5 — $-2 < -2x \\leq 7$.',
+                'Scale: divide by $-2 < 0$ — THE FLIP, both gates: $1 > x \\geq -\\frac{7}{2}$; read in order: $-\\frac{7}{2} \\leq x < 1$ — the ends swapped.',
+                'Check exactly: at $x = -\\frac{7}{2}$ the middle member is $\\frac{5+7}{3} = 4$ (kept); at $x = 1$ it is $1$, and $1 < 1$ fails (refused).',
+                'Hence $-\\frac{7}{2} \\leq x < 1$ — window integers $-3, -2, -1, 0$.',
+              ],
+              answer: '$-\\frac{7}{2} \\leq x < 1$ — four window integers.',
+            },
+            {
+              q: 'Solve $1 \\leq x \\leq 6$ AND $x \\geq 4$.',
+              solution: [
+                'Three gates now: the band $1 \\leq x \\leq 6$ and the ray $x \\geq 4$.',
+                'The AND keeps common points: $4 \\leq x \\leq 6$ — the ray clipped the band.',
+                'Census: $4, 5, 6$; at $x = 3$ the third gate fails ($3 \\geq 4$ is false).',
+                'Hence the shrunken band $4 \\leq x \\leq 6$.',
+              ],
+              answer: '$4 \\leq x \\leq 6$ — three window integers.',
+            },
+          ] },
+          { level: 'L4', questions: [
+            {
+              q: 'For which whole number $k$ does $2 \\leq x < k$ keep exactly three integers?',
+              solution: [
+                'Try the neighbourhood: $k = 4$ keeps $\\{2, 3\\}$ — two; $k = 6$ keeps $\\{2, 3, 4, 5\\}$ — four.',
+                '$k = 5$ keeps $\\{2, 3, 4\\}$ — exactly three, with 4 admitted ($4 < 5$) and 5 refused.',
+                'The open right end must sit just above the last kept integer.',
+                'Hence $k = 5$.',
+              ],
+              answer: '$k = 5$.',
+            },
+            {
+              q: 'A race rule requires $12 \\leq s \\leq 18$ (km/h); the fuel plan caps $s \\leq 16$. Which integer speeds are legal?',
+              solution: [
+                'Two ANDed gates: the band $12 \\leq s \\leq 18$ and the ray $s \\leq 16$.',
+                'Common points: $12 \\leq s \\leq 16$ — the ray clipped the band at 16.',
+                'Census: $12, 13, 14, 15, 16$ — five speeds; 17 fails the fuel gate, 11 fails the race gate.',
+                'Hence five legal speeds, 12 through 16.',
+              ],
+              answer: '$12 \\leq s \\leq 16$ — five integer speeds.',
+            },
+          ] },
+          { level: 'L5', questions: [
+            {
+              q: 'You hold ₹50; pens cost ₹12 each; you must keep ₹10 for the bus. How many pens can you buy?',
+              solution: [
+                'Model: two gates — $n \\geq 0$ (a count cannot be negative) and $12n + 10 \\leq 50$ (spend plus reserve within the purse).',
+                'Solve the purse gate: $12n \\leq 40$, so $n \\leq \\frac{40}{12} = \\frac{10}{3}$ (divide by $12 > 0$ — no flip).',
+                'Join: $0 \\leq n \\leq \\frac{10}{3}$ — the habitat keeps $\\{0, 1, 2, 3\\}$.',
+                'Boundary: three pens cost 36, leaving $14 \\geq 10$ — the reserve survives; four cost 58 — impossible.',
+                'Hence three pens, ₹14 to spare.',
+              ],
+              answer: '3 pens ($0 \\leq n \\leq 10/3$ pruned by the habitat).',
+            },
+            {
+              q: 'A park gate is free for age $\\leq 12$ OR age $\\geq 65$. Who enters free from $\\{10, 13, 64, 65, 70\\}$ — and why is 13 out while 12 would be in?',
+              solution: [
+                'An OR admits anyone either ray keeps: age $\\leq 12$ or age $\\geq 65$.',
+                'Read the five ages: $10 \\leq 12$ — in; 13 fails both ($13 > 12$, $13 < 65$); 64 fails both; $65 \\geq 65$ — in; $70 \\geq 65$ — in.',
+                'Boundary: the first end is closed — 12 would be in ($12 \\leq 12$) and 13 is the first payer; the second end is closed too — 65 enters, 64 pays.',
+                'Hence three of the five enter free: ages 10, 65 and 70.',
+              ],
+              answer: 'Ages 10, 65 and 70 — the closed ends keep 12 and 65; 13 and 64 pay.',
+            },
+          ] },
+          { level: 'L6', questions: [
+            {
+              q: 'State and prove the two-boundary theorem: for $p \\neq 0$, $a \\leq p x + q \\leq b$ is equivalent to $\\frac{a-q}{p} \\leq x \\leq \\frac{b-q}{p}$ when $p > 0$, with the ends SWAPPED when $p < 0$ — and explain why the flip here swaps ends rather than reversing a single ray.',
+              solution: [
+                'Split: the compound assertion is two inequalities sharing the middle member — solve each gate by the 7.2 pipeline.',
+                'Shift: subtract $q$ from all three members (the addition law — adding never flips): $a - q \\leq p x \\leq b - q$.',
+                'Scale, $p > 0$: divide all three members by $p$ — positive scaling preserves both gates: $\\frac{a-q}{p} \\leq x \\leq \\frac{b-q}{p}$ — the band re-forms with the same ends.',
+                'Scale, $p < 0$: the flip strikes BOTH gates — $\\frac{a-q}{p} \\geq x$ and $x \\geq \\frac{b-q}{p}$ — and reading the band left-to-right swaps the ends: $\\frac{b-q}{p} \\leq x \\leq \\frac{a-q}{p}$.',
+                'Why ends, not direction: a single ray has one boundary and one direction, so its flip turns the ray around; a band has two boundaries and BOTH gates reverse — two reversals of the conjunction amount to an exchange of the two ends, and the band still holds exactly the same points.',
+                'Verification: the verifier priced the theorem exactly — 280 pipeline forms (8 signs of $p$, 7 shifts, 5 bands) swept over 25 window points each: 14,000 gate equivalences with 280 boundary identities, zero failures; at the solved left boundary the middle member lands exactly on its (possibly swapped) end.',
+              ],
+              answer: 'The two-boundary pipeline: shift by −q, divide by p — preserving for p > 0; for p < 0 the flip reverses BOTH gates, which swaps the ends of the band rather than reversing one ray.',
+            },
+          ] },
+        ] },
+      ],
+    },
   ],
-  plannedLessons: ['Compound Inequalities and Applications'],
+  plannedLessons: [],
 }

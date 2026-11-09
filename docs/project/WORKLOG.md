@@ -2,6 +2,72 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-09 — RUN 80 (fired 19:44 IST delivery of job 516929's v4 hybrid-cadence window, trace cron-agent-loop-202611092214): AL CH. 7 'INEQUALITIES' CLOSES 3/3 — 7.3 'Compound Inequalities and Applications' (al-compound-inequalities-and-applications, 5,605 words, quiz keys 1/2/0/1/1, 14 exercises, two figures — the AND/OR panels + the four-interval-shapes strip, the two-boundary-pipeline derivation with the end-swap theorem) + THE UNIT-7 COMPLETION REVIEW PASSED (7/7 checklist, exam corners 3/3, book snapshot recomputed: 24 lessons / 109,368 words / 7 of 11 chapters complete, every lesson >= 4,000 words) — the chapter COMPLETE and fully verified at run end; ch. 8 NOT touched
+
+**Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 79 pushed and verified: remote
+main = local HEAD ff7770f). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 80 = 7.3 + the
+unit-7 review (v2 quota: the one remaining lesson + the review; NEVER ch. 8 'Algebraic Fractions').
+
+**Research (zero downloads, zero new keys):** the banked keys carried the run — `hall-knight-elementary-algebra`
+(the classical 'and'/'or' of the fundamental properties; the one-breath between-form habit), `ncert-math11-ch5`
+(the canon's compound solves + number-line representation), `khattar-qa-4e` (band-integer counts, two-margin
+speed problems, free-entry gates, the k-parameter), `cengage-jee-style` (the presentation contract). Interval-
+notation history web-checked and hedged (no single inventor on record; open/closed fixed in early topology —
+Fréchet 1906; G. H. Moore's 2008 survey).
+
+**Verify-first (sections H + I written BEFORE any prose, H2/H3 the quiz + exercise pins, J + K at authoring
+time):** H-i the AND/intersection engine (100 designed ray-pairs x 25 window points — census identities, De
+Morgan AND/OR pointwise, inclusion–exclusion; pinned −3≤x<5 → 8, the point AND {3}, the empty AND x>2 AND x<−1
+→ ∅, x>−1 AND x<2 → {0,1}); H-ii the OR/union engine (100 pairs + 15 absorption pairs — the complement law
+union + gap = 25 pointwise; pinned 20 = 11 + 9 with the 5-point gap, 17, the De Morgan split 9 + 16 = 25, the
+{0}-gap union 24, free-entry 49 = 13 + 36 with the boundary memberships); H-iii the two-boundary inventory (4
+bands x 4 open/closed shapes = 16 between-forms — census identity + pointwise AND + boundary membership =
+closedness; pinned (−3,5) censuses 9/8/8/7 with each closed end worth exactly its point); H-iv the two-boundary
+solving engine (280 pipeline forms = 8 signs x 7 shifts x 5 bands, exact Frac: 14,000 per-gate equivalences +
+280 boundary identities — the GATES SWAP TOO when p < 0: the left gate solves to x ≤ (a−q)/p; the solved left
+boundary lands the middle member on its (possibly swapped) end; pinned −3 ≤ −2x+1 ≤ 5 ⟺ −2 ≤ x ≤ 2 with ends
+(5−1)/(−2) = −2 and (−3−1)/(−2) = 2; OR-solves 22 and 20); H-v the word-problem exhibits (courier 51 speeds
+10 ≤ v ≤ 60, race band 7 → 5 under the fuel cap, pens-with-reserve {0..3} at 46 ≤ 50, drone {3..7} at 14 ≤ 15);
+H2 the 7.3 quiz battery (keys [1,2,0,1,1], every distractor priced); H3 the 14 exercise keys solved and checked
+in AND out (incl. the fraction end-swap −7/2 ≤ x < 1 in exact Frac and the k = 5 parameter); I the two figure
+plans pinned rect-by-rect (plan73Fig1 14 rects incl. the four content bands; plan73Fig2 7 rects incl. the AND
+band).
+
+**Pre-writing catches (the discipline working):** the H-iv gate-swap bug first written as gates-preserving
+(left gate wrongly paired with x ≥ (b−q)/p for p < 0 — the honest theorem: for p < 0 the left gate solves to
+x ≤ (a−q)/p, and the solved left boundary lands the middle member on b, not a); the && vs === precedence trap
+in two pointwise checks (A && B === C && D parses as A && (B === C) && D); the H3 L6 reference to H-iv's
+block-scoped ps/qs/abs; the frac(−7, 2) single-argument helper misuse (caught by inspection pre-run); two
+tautological checks replaced with real complement-law assertions.
+
+**Authored-time catches (all repaired to zero):** TWELVE odd backslash runs — the $\{3\}$-family written
+single (the run-76/77/78 pattern again: \wedge, \vee, five \{...\} sets); the two figure plans missing the
+content band rects (7 vs 6 and 14 vs 10 — plans extended to 14/7 rects with the bands in their own groups);
+and FIVE label grazes flagged by the SVG auditor on the RUN-79 figures under this sandbox's font metrics
+(7.1's five between-form labels 2-3px wider than their 110 boxes; 7.2's three-point-check band text 415px in
+a 380px box) — boxes widened (110 → 130; 380 → 440 at x=140), text anchors re-centered (85 → 95), plans
+updated in lockstep, re-audited **0/0 on all SIX chapter-7 figures**.
+
+**Gates:** verify-book3-ch07.ts finished at **52,476 checks ALL GREEN** (sections A–K; the final exit block
+added — F/G/J failures now exit non-zero, closing the run-79 gap where authored-time failures printed without
+failing). `bun run lint` 0 errors (2 pre-existing warnings); `tsc --noEmit` clean; routes 200 (new lesson +
+book + revise + glossary) / 404 (unknown lesson) with dev started fresh this command; E2E e2e-al-73 **45/45
+x3 viewports** (quiz 5/5 live on keys 1/2/0/1/1; KaTeX 323 nodes, 0 errors; 2 figures + 1 table; 26 Sol. pills
+after expansion; 0 console errors; no overflow at 1280/390); SVG overlap audits **0/0 on all six chapter-7
+figures** after the label fixes; E2E re-run clean after the geometry edits.
+
+**Chapter state:** ch. 7 'Inequalities' **COMPLETE 3/3** (15,410 words: 7.1 5,061 + 7.2 4,744 + 7.3 5,605;
+3 terms blocks / 24 terms / 15 quiz items / 42 exercises / 6 figures / 1 algorithm pipeline / 3 derivations /
+1 table / 9 formula cards); the book stands 7 complete chapters of 11 (24 lessons / 109,368 words — K
+recomputed). ch-07 status complete, plannedLessons emptied, book.ts header updated. WORK_INVENTORY rebuilt
+(library 107 lessons / 521,413 words; Drive survey rebuilt first — sandbox recycle had dropped it). The
+unit-7 review deleted nothing (zero downloads this unit). WORKLOG / PROGRESS / RESUME_POINTER / SOURCE_LOG /
+DETAILED_LOG updated. Next: run 81 = ch. 8 'Algebraic Fractions' OPENS with 8.1 'Rational Expressions:
+Simplify First' + 8.2 'Operating on Algebraic Fractions' (verify-book3-ch08.ts FIRST; never in run 80).
+
+**Push:** protocol push via the one-time-URL form (see the push-verification entry above for the landed sha).
+PAT never written to any file, config or log; origin untouched (SSH remote preserved).
+
 ## 2026-11-09 — RUN 79: push verification recorded — remote main = local HEAD ff7770f (ls-remote via one-time URL: refs/heads/main = ff7770f32f638b8dc18d75e07629e214a2941691; all unpushed commits on main, including run 79's, are now backed up on the remote)
 
 ---

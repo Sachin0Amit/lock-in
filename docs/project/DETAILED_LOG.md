@@ -9,6 +9,34 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
+Maintained through **run 80 (2026-11-09, job 516929's v4 hybrid-cadence window)**: **AL ch. 7 'Inequalities' COMPLETE 3/3** —
+7.3 'Compound Inequalities and Applications' (`al-compound-inequalities-and-applications`, 5,605 words, 8 terms,
+quiz keys 1/2/0/1/1, 14 exercises L1–L6, 2 figures — the AND/OR panels + the four-interval-shapes strip — 2 display
+equations (the AND/OR set-laws dress, the two-boundary pipeline), 12 illustrations, 1 typed 6-step derivation (the
+two-boundary pipeline: split → shift → scale p>0 → scale p<0 with the end-swap → read → boundary check), 1 table
+(the four shapes × ends × censuses 9/8/8/7), 3 formula cards, 5 callouts incl. the hedged interval-notation
+historical note) + the unit-7 completion review PASSED (BOOK_FORMAT checklist 7/7 as executable assertions, exam
+corners 3/3, book snapshot recomputed: 24 lessons / 109,368 words / 7 of 11 chapters complete, every lesson
+>= 4,000 words). Verify-first: verify-book3-ch07.ts sections H–I written BEFORE prose (with the H2/H3 pins) and
+J–K at authoring time — **52,476 checks ALL GREEN** (the AND engine: 100 ray-pairs with De Morgan AND/OR pointwise
+and inclusion–exclusion; the OR engine: 100 pairs + 15 absorptions with the complement law; the two-boundary
+inventory: 16 between-forms with membership = closedness; the two-boundary solving engine: 280 pipeline forms x
+25 points x 2 gates = 14,000 exact Frac equivalences + 280 boundary identities — the gates swap too when p < 0;
+word-problem exhibits courier/race/pens/drone pinned both sides). Pre-writing catches: the H-iv gate-swap bug
+(p < 0 pairs the left gate with x <= (a−q)/p), the && vs === precedence trap, the block-scoped grid reference,
+the frac(−7,2) helper misuse. Authored-time catches: twelve odd backslash runs ($\{3\}$-family written single),
+two figure plans missing their content band rects (extended to 14/7), and five label grazes on the run-79
+figures under this sandbox's font metrics — boxes widened (110 → 130, 380 → 440), anchors re-centered, plans
+updated in lockstep, re-audited 0/0 x6. The verifier gained its final exit block (F/G/J failures now exit
+non-zero). Per-lesson gates green (lint 0 / tsc 0 / routes 200+404; E2E 45/45 x3 viewports on quiz keys
+1/2/0/1/1, KaTeX 323 nodes 0 errors, 0 console errors, 2 figures + 1 table, 26 Sol. pills, mobile 390 exact-fit;
+re-run clean after the geometry edits). The chapter stands 15,410 words / 24 terms / 15 quiz / 42 exercises /
+6 figures / 9 formula cards; the book stands 7 of 11 chapters complete (24 lessons / 109,368 words). Library
+totals rebuilt by build_work_inventory.ts after a rebuild_drive_survey.ts pass (sandbox recycle had dropped the
+gitignored Drive survey; library 107 lessons / 521,413 words — ground truth: WORK_INVENTORY.json). Next:
+run 81 = AL ch. 8 'Algebraic Fractions' OPENS with 8.1 'Rational Expressions: Simplify First' + 8.2 'Operating
+on Algebraic Fractions' (verify-book3-ch08.ts FIRST).
+
 Maintained through **run 78 (2026-11-09, job 516929's v4 hybrid-cadence day window)**: **AL ch. 6 'Simultaneous Linear Equations' COMPLETE 3/3** —
 6.3 'Consistency: the Geometry of Two Lines' (`al-consistency-the-geometry-of-two-lines`, 6,017 words, 8 terms,
 quiz keys 0/1/2/1/3, 14 exercises L1–L6, 2 figures — the three-meetings gallery + the slope machine — 3 display

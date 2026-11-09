@@ -31,9 +31,10 @@ import { chapter07 } from './ch-07'
  * Elimination) and CLOSED at run 78 (6.3 Consistency: the Geometry of Two
  * Lines + the unit-6 completion review PASSED): chapter 6 COMPLETE 3/3.
  * Chapter 7 'Inequalities' opened at run 79 (7.1 Order and the Solution
- * Set + 7.2 Solving Linear Inequalities; 7.3 Compound Inequalities and
- * Applications + the unit-7 review close it at run 80). The book stands
- * in-progress — 6 complete chapters of 11 (owner cadence:
+ * Set + 7.2 Solving Linear Inequalities) and CLOSED at run 80 (7.3
+ * Compound Inequalities and Applications + the unit-7 completion review
+ * PASSED — 15,410 words across the chapter): chapter 7 COMPLETE 3/3. The
+ * book stands in-progress — 7 complete chapters of 11 (owner cadence:
  * two lessons per run, strictly sequential). Lesson ids use the `al-`
  * prefix (globally unique, stable forever).
  *

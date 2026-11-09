@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-09 18:14:09 (Asia/Kolkata)",
+  "generated": "2026-11-09 20:24:52 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,14 +5920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 198,
-      "totalLines": 91498,
+      "srcFilesTracked": 199,
+      "totalLines": 92908,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 63093,
+        "src/data/library (content model + books)": 64503,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16399,33 +16399,130 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "ff7770f32f638b8dc18d75e07629e214a2941691",
+      "short": "ff7770f",
+      "date": "2026-11-09 12:45",
+      "message": "run 79: Elementary Algebra ch. 7 'Inequalities' OPENS 2/3 — 7.1 'Order and the Solution Set' (5,061 words, quiz 0/1/0/2/1, 14 exercises, the trichotomy doors + the solution-shapes strip, the addition-law/transitivity derivation) + 7.2 'Solving Linear Inequalities' (4,744 words, quiz 0/1/1/2/2, 14 exercises, the flip mirror + the pipeline stations, the typed 6-step flip-theorem derivation, the pipeline algorithm); verify-book3-ch07.ts 30,309 pre-write checks + sections F/G ALL GREEN (A-i trichotomy 169 pairs 78/13/78; the order laws 4,394 add/subtract + 2,028 positive-scaling, zero flips; THE FLIP 2,028 exact reversals over k in [-6,-1] with the double-flip 1,521 systems; the add-negative trap 1,014 — adding never flips; the boundary censuses 16/17/8/9/1 with delta exactly 1; the full solution-shape grid 8,112 inequalities shape=direct everywhere; the move-licence engines 300 assertions, wrong-move mismatch 1,112/1,200; the whole-number habitats {0..4}/{0..7}/{0..7}); pre-writing catches: the A-i boolean logic bug, the 50/12 comparator, off-lattice distractors k=9/k=11 -> k=8, the backwards division-flip, the marks m>=52 -> m>=49 ledger fix; E2E e2e-al-71 + e2e-al-72 45/45 x3 viewports each (quiz 5/5 live, KaTeX 310/283 nodes 0 errors, 0 console errors); chapter 9,805 words, book 23 lessons / 103,763 words, 6 of 11 chapters complete + ch. 7 at 2/3; logs + WORK_INVENTORY updated (library 106 lessons / 515,808 words); 7.3 + the unit-7 review close ch. 7 at run 80",
+      "filesChanged": 14,
+      "insertions": 2603,
+      "deletions": 50,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 59,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 7
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 30,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 66,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 115,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-al-71.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-71.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-72.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-72.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch07.ts",
+          "add": 1095,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 8,
+          "del": 18
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-07.ts",
+          "add": 937,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "0519545967cc2d276c705b7d4492a6ac4ddbd10b",
+      "short": "0519545",
+      "date": "2026-11-09 12:46",
+      "message": "run 79: push verification recorded — remote main = local HEAD ff7770f (ls-remote via one-time URL)",
+      "filesChanged": 1,
+      "insertions": 5,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 5,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 27,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 106,
-    "wordsAuthored": 515808,
-    "termsDefined": 819,
-    "quizItems": 530,
-    "exerciseQuestions": 1345,
+    "chaptersWritten": 28,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 107,
+    "wordsAuthored": 521413,
+    "termsDefined": 827,
+    "quizItems": 535,
+    "exerciseQuestions": 1359,
     "blockTotals": {
-      "para": 1519,
-      "callout": 585,
-      "heading": 587,
-      "list": 116,
-      "terms": 107,
-      "equation": 155,
-      "figure": 183,
-      "derivation": 209,
-      "table": 137,
-      "example": 446,
-      "quiz": 106,
-      "exercises": 106,
-      "formula": 302,
+      "para": 1532,
+      "callout": 590,
+      "heading": 592,
+      "list": 118,
+      "terms": 108,
+      "equation": 157,
+      "figure": 185,
+      "derivation": 210,
+      "table": 138,
+      "example": 458,
+      "quiz": 107,
+      "exercises": 107,
+      "formula": 305,
       "algorithm": 25
     }
   }
