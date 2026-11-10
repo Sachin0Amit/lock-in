@@ -19,8 +19,31 @@ import type { Chapter, Lesson } from '../../../types'
  *                 the similar-triangle read, the readout m = −a/b, the
  *                 parallel condition, the fare and Fahrenheit rates, the
  *                 k-hunt k = −2/3 with the honest k = 0 vertical edge).
- *                 10.3 'The Parabola: Quadratic Graphs and Vertices' + the
- *                 unit-10 completion review remain for run 86 — NOT this run.
+ *                 10.3 'The Parabola: Quadratic Graphs and Vertices' (run 86 —
+ *                 quiz keys 0/2/0/2/1, 14 exercises, two figures — the
+ *                 workhorse parabola + the three-verdict strip, the census
+ *                 table priced pointwise, the fold identity 2(x − 7/4)² − 25/8
+ *                 certified by expansion and pointwise, the vertex (7/4, −25/8)
+ *                 priced as minimum by the sign of a, the axis x = 7/4
+ *                 mirror-priced with the twin pairs, the x-intercept verdicts
+ *                 two/touch/none cross-priced against the factorizations, the
+ *                 horizontal-probe hinge Δ_k = Δ + 4ak flipping exactly at the
+ *                 vertex height, the second differences constant 2a with the
+ *                 secant bend −5, −1, 3, 7 — 10.2's steepness bending, the
+ *                 opens-down companion y = −x² + 4x + 5 with vertex (2, 9) a
+ *                 maximum) + THE UNIT-10 COMPLETION REVIEW PASSED — chapter 10
+ *                 COMPLETE 3/3.
+ *
+ * VERIFY-FIRST (2026-11-10, run 86): every number in 10.3 was recomputed by
+ * scripts/verify-book3-ch10.ts sections G (pre-write, before any prose) and
+ * H (authored battery) BEFORE it entered the lesson — 937 checks green at
+ * the pre-write gate. Pre-writing catches: the W×W census of the workhorse
+ * holds exactly 4 integer points, not 5 — (4, 7) sits on the curve but out
+ * the window top; the k-scan levels −3 and −2 lie ABOVE the vertex height
+ * −25/8 = −3.125, so the horizontal lines y = −3 and y = −2 cut the bowl
+ * TWICE (the count flips exactly at the vertex, and a near-miss level still
+ * cuts); the tangent-touch twins read f(1 + t) = t² for every t, so the
+ * touch curve is its own mirror battery.
  *
  * VERIFY-FIRST (2026-11-10, run 85): every number in 10.1 and 10.2 was
  * recomputed by scripts/verify-book3-ch10.ts BEFORE any prose existed —
@@ -713,13 +736,376 @@ const lesson102: Lesson = {
 /* The chapter                                                         */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/* Figure 1 (10.3): the workhorse parabola y = 2x² − 7x + 3. Header    */
+/* (30,18,660,40); fold-identity panel (500,96,180,168); caption band  */
+/* (30,338,660,42). Origin (150,240), 45 px per unit in x, 20 px per   */
+/* unit in y; the curve exits the top at (118, 60) and (339.5, 60)     */
+/* through the vertex (228.75, 302.5) — Bézier control (228.75, 545);  */
+/* axis of symmetry dashed at x = 228.75. Doors (172.5, 240),          */
+/* (285, 240); y-intercept (150, 180); census dots (195, 280),         */
+/* (240, 300), (330, 100); twins (262.5, 280), (217.5, 300). Geometry  */
+/* pinned in verify-book3-ch10.ts plan103Fig1.                         */
+/* ------------------------------------------------------------------ */
+
+function parabolaWorkhorseSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The graph of y = 2x squared minus 7x plus 3: an upward bowl through the doors (1/2, 0) and (3, 0), folding at the vertex (7/4, minus 25/8) on the dashed axis of symmetry x = 7/4, with the y-intercept (0, 3), the census dots and the amber twin pairs">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="44" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the graph of y = 2x² − 7x + 3 — the bowl, its vertex, its axis, its doors and its twins</text>')
+  // ---- axes ----
+  parts.push('<line x1="60" y1="240" x2="455" y2="240" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<polygon points="455,240 447,236 447,244" fill="#16a34a"/>')
+  parts.push('<line x1="150" y1="340" x2="150" y2="65" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<polygon points="150,65 146,73 154,73" fill="#16a34a"/>')
+  parts.push('<text x="462" y="244" font-size="11" fill="#166534">x</text>')
+  parts.push('<text x="144" y="74" font-size="11" fill="#166534" text-anchor="end">y</text>')
+  parts.push('<text x="138" y="256" font-size="10" fill="#65a30d">O</text>')
+  // x ticks (−1, 2, 4 kept clear of the door labels)
+  for (const [px, lab] of [[105, '−1'], [240, '2'], [330, '4']] as [number, string][]) {
+    parts.push(`<line x1="${px}" y1="237" x2="${px}" y2="243" stroke="#16a34a" stroke-width="1"/>`)
+    parts.push(`<text x="${px}" y="256" font-size="10" fill="#65a30d" text-anchor="middle">${lab}</text>`)
+  }
+  // y ticks
+  for (const [py, lab] of [[84, '8'], [124, '6'], [164, '4'], [204, '2'], [284, '−2'], [324, '−4']] as [number, string][]) {
+    parts.push(`<line x1="147" y1="${py}" x2="153" y2="${py}" stroke="#16a34a" stroke-width="1"/>`)
+    parts.push(`<text x="116" y="${py + 4}" font-size="10" fill="#65a30d" text-anchor="end">${lab}</text>`)
+  }
+  // ---- the axis of symmetry (dashed) ----
+  parts.push('<line x1="228.75" y1="66" x2="228.75" y2="334" stroke="#0d9488" stroke-width="1.4" stroke-dasharray="5 4"/>')
+  parts.push('<text x="234" y="78" font-size="10.5" fill="#0f766e">x = 7/4</text>')
+  // ---- the curve (quadratic Bézier through the vertex) ----
+  parts.push('<path d="M 118 60 Q 228.75 545 339.5 60" fill="none" stroke="#16a34a" stroke-width="2.4"/>')
+  parts.push('<text x="352" y="100" font-size="11" fill="#166534">y = 2x² − 7x + 3</text>')
+  // ---- the doors ----
+  parts.push('<circle cx="172.5" cy="240" r="5" fill="#ea580c"/>')
+  parts.push('<text x="166" y="268" font-size="10.5" fill="#d97706" text-anchor="end">(1/2, 0)</text>')
+  parts.push('<circle cx="285" cy="240" r="5" fill="#ea580c"/>')
+  parts.push('<text x="292" y="262" font-size="10.5" fill="#d97706" text-anchor="middle">(3, 0)</text>')
+  // ---- the y-intercept ----
+  parts.push('<circle cx="150" cy="180" r="5" fill="#ea580c"/>')
+  parts.push('<text x="140" y="190" font-size="10.5" fill="#d97706" text-anchor="end">(0, 3)</text>')
+  // ---- the vertex ----
+  parts.push('<circle cx="228.75" cy="302.5" r="6" fill="none" stroke="#ea580c" stroke-width="1.8"/>')
+  parts.push('<circle cx="228.75" cy="302.5" r="3.5" fill="#ea580c"/>')
+  parts.push('<text x="220" y="320" font-size="10.5" fill="#d97706" text-anchor="end">(7/4, −25/8)</text>')
+  // ---- census dots ----
+  parts.push('<circle cx="195" cy="280" r="4" fill="#0d9488"/>')
+  parts.push('<text x="188" y="296" font-size="10" fill="#0f766e" text-anchor="end">(1, −2)</text>')
+  parts.push('<circle cx="240" cy="300" r="4" fill="#0d9488"/>')
+  parts.push('<text x="248" y="314" font-size="10" fill="#0f766e">(2, −3)</text>')
+  parts.push('<circle cx="330" cy="100" r="4" fill="#0d9488"/>')
+  parts.push('<text x="338" y="118" font-size="10" fill="#0f766e">(4, 7)</text>')
+  // ---- the twins (amber, open) ----
+  parts.push('<circle cx="262.5" cy="280" r="4" fill="none" stroke="#d97706" stroke-width="1.6"/>')
+  parts.push('<text x="272" y="292" font-size="10" fill="#d97706">(5/2, −2)</text>')
+  parts.push('<circle cx="217.5" cy="300" r="4" fill="none" stroke="#d97706" stroke-width="1.6"/>')
+  // ---- fold-identity panel ----
+  parts.push('<rect x="500" y="96" width="180" height="168" rx="6" fill="none" stroke="#0d9488" stroke-width="1.2"/>')
+  parts.push('<text x="590" y="118" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">the fold identity</text>')
+  parts.push('<text x="590" y="140" font-size="11.5" fill="#0f766e" text-anchor="middle">y = 2(x − 7/4)² − 25/8</text>')
+  parts.push('<text x="590" y="162" font-size="10.5" fill="#65a30d" text-anchor="middle">vertex (7/4, −25/8)</text>')
+  parts.push('<text x="590" y="178" font-size="10.5" fill="#65a30d" text-anchor="middle">a = 2 &gt; 0 — a minimum</text>')
+  parts.push('<text x="590" y="198" font-size="10.5" fill="#0f766e" text-anchor="middle">Δ = 25 &gt; 0 — two doors</text>')
+  parts.push('<text x="590" y="214" font-size="10.5" fill="#0f766e" text-anchor="middle">(1/2, 0) and (3, 0)</text>')
+  parts.push('<text x="590" y="234" font-size="10.5" fill="#65a30d" text-anchor="middle">axis of symmetry</text>')
+  parts.push('<text x="590" y="250" font-size="10.5" fill="#65a30d" text-anchor="middle">x = 7/4 — the mirror</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="338" width="660" height="42" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="356" font-size="11.5" fill="#0f766e" text-anchor="middle">the workhorse parabola — the vertex (7/4, −25/8) is the fold point, the axis x = 7/4 mirrors every twin</text>')
+  parts.push('<text x="360" y="372" font-size="11.5" fill="#0f766e" text-anchor="middle">the doors (1/2, 0) and (3, 0) are Δ = 25’s two roots drawn; the amber rings are the designed twin pairs</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 2 (10.3): the three-verdict strip — the x-intercept verdicts */
+/* of 9.3 drawn. Header (30,18,660,40); verdict panels (30,76,205,200),*/
+/* (245,76,205,200), (460,76,230,200); caption band (30,292,660,28).   */
+/* Panel axes at y = 230; the two-door bowl Q 135 390 crosses at       */
+/* (108, 230) and (162, 230); the touch bowl Q 347 352 meets at        */
+/* (347, 230) only; the none bowl Q 575 210 floats above. Geometry     */
+/* pinned in verify-book3-ch10.ts plan103Fig2.                         */
+/* ------------------------------------------------------------------ */
+
+function xVerdictsStripSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three small bowls showing the x-intercept verdicts: y = 2x squared minus 7x plus 3 crosses the axis twice, y = x minus 1 squared touches it once, and y = x squared plus 1 never meets it">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="44" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the x-intercept verdicts of 9.3, drawn — two doors, one tangent touch, none</text>')
+  // ---- panel 1: TWO DOORS ----
+  parts.push('<rect x="30" y="76" width="205" height="200" rx="6" fill="none" stroke="#0d9488" stroke-width="1.2"/>')
+  parts.push('<text x="132" y="98" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">1 · TWO DOORS — Δ &gt; 0</text>')
+  parts.push('<text x="132" y="116" font-size="10.5" fill="#0f766e" text-anchor="middle">y = 2x² − 7x + 3</text>')
+  parts.push('<line x1="45" y1="230" x2="220" y2="230" stroke="#16a34a" stroke-width="1.3"/>')
+  parts.push('<path d="M 62 108 Q 135 390 208 108" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<circle cx="108.2" cy="230" r="4.5" fill="#ea580c"/>')
+  parts.push('<text x="108" y="250" font-size="10" fill="#d97706" text-anchor="end">(1/2, 0)</text>')
+  parts.push('<circle cx="161.8" cy="230" r="4.5" fill="#ea580c"/>')
+  parts.push('<text x="160" y="250" font-size="10" fill="#d97706" text-anchor="start">(3, 0)</text>')
+  parts.push('<text x="132" y="266" font-size="10.5" fill="#dc2626" text-anchor="middle">two meets — two roots</text>')
+  // ---- panel 2: TANGENT TOUCH ----
+  parts.push('<rect x="245" y="76" width="205" height="200" rx="6" fill="none" stroke="#0d9488" stroke-width="1.2"/>')
+  parts.push('<text x="347" y="98" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">2 · TANGENT TOUCH — Δ = 0</text>')
+  parts.push('<text x="347" y="116" font-size="10.5" fill="#0f766e" text-anchor="middle">y = (x − 1)²</text>')
+  parts.push('<line x1="260" y1="230" x2="435" y2="230" stroke="#16a34a" stroke-width="1.3"/>')
+  parts.push('<path d="M 277 108 Q 347 352 417 108" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<circle cx="347" cy="230" r="4.5" fill="#ea580c"/>')
+  parts.push('<text x="347" y="248" font-size="10" fill="#d97706" text-anchor="middle">(1, 0)</text>')
+  parts.push('<text x="347" y="266" font-size="10.5" fill="#dc2626" text-anchor="middle">one meet — the vertex rests on the axis</text>')
+  // ---- panel 3: NONE ----
+  parts.push('<rect x="460" y="76" width="230" height="200" rx="6" fill="none" stroke="#0d9488" stroke-width="1.2"/>')
+  parts.push('<text x="575" y="98" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">3 · NONE — Δ &lt; 0</text>')
+  parts.push('<text x="575" y="116" font-size="10.5" fill="#0f766e" text-anchor="middle">y = x² + 1</text>')
+  parts.push('<line x1="475" y1="230" x2="680" y2="230" stroke="#16a34a" stroke-width="1.3"/>')
+  parts.push('<path d="M 492 120 Q 575 210 658 120" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<circle cx="575" cy="165" r="4.5" fill="#ea580c"/>')
+  parts.push('<text x="575" y="200" font-size="10" fill="#d97706" text-anchor="middle">vertex (0, 1) — the bowl floats above</text>')
+  parts.push('<text x="575" y="248" font-size="10.5" fill="#dc2626" text-anchor="middle">no meet — no real roots</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="292" width="660" height="28" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="311" font-size="11.5" fill="#0f766e" text-anchor="middle">Δ &gt; 0 two doors · Δ = 0 one tangent touch · Δ &lt; 0 none — 9.3’s ledger, drawn</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+const lesson103: Lesson = {
+  id: 'al-the-parabola-quadratic-graphs-and-vertices',
+  number: '10.3',
+  title: 'The Parabola: Quadratic Graphs and Vertices',
+  concepts: [
+    'the parabola as the graph of a quadratic',
+    'the table of values and the integer census',
+    'the fold identity — completing the square, drawn',
+    'the vertex and the axis of symmetry',
+    'minimum and maximum values by the sign of a',
+    'the x-intercept verdicts of the discriminant',
+    'horizontal probes meet at most twice',
+    'second differences and the bending slope',
+  ],
+  objectives: [
+    'graph y = ax² + bx + c from its table of values and read the census honestly, including which integer points sit outside a given window',
+    'certify the fold identity y = a(x + b/2a)² − Δ/(4a) by expansion and read the vertex (−b/2a, −Δ/(4a)) straight off it',
+    'decide minimum versus maximum by the sign of a, and prove the extreme value with the gap-is-the-square read',
+    'mirror-price the axis of symmetry x = −b/2a pointwise: f(v + t) = f(v − t), with the twin pairs midpointing on the axis',
+    'count the meets of any horizontal probe y = k by the shifted discriminant Δ + 4ak, flipping exactly at the vertex height',
+    'reconcile the x-intercept verdicts (two doors, one tangent touch, none) with the factorization and the discriminant ledger of chapter 9',
+    'watch 10.2’s steepness theorem bend along the curve through the constant second differences 2a — the honest doorway to calculus',
+  ],
+  prerequisites: [
+    'al-completing-the-square-derived',
+    'al-the-quadratic-formula-and-the-discriminant',
+    'al-the-coordinate-plane-and-linear-graphs',
+    'al-slope-the-steepness-theorem',
+  ],
+  sources: ['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style'],
+  blocks: [
+    { kind: 'para', text: 'Chapter 9 solved the quadratic equation four ways — factoring, completing the square, the formula, and Viète’s relations — and every way ended in NUMBERS: roots, a discriminant, a sum and a product. This lesson gives those numbers a SHAPE. The workhorse is the chapter’s own example: $y = 2x^2 - 7x + 3$, the very polynomial whose roots $\\frac{1}{2}$ and $3$ the formula produced in 9.3. Its graph is a PARABOLA — a smooth bowl that dives to a lowest point and climbs again — and on that bowl every chapter-9 number becomes a visible place: the roots are the doors where the bowl crosses the $x$-axis, the discriminant counts those doors, and the "centre" $\\frac{-b}{2a}$ of 9.3’s completed square turns out to be the bowl’s fold point itself. 10.1 drew the line — the graph of degree 1; this lesson draws the graph of degree 2 and watches the straight story bend.' },
+    { kind: 'para', text: 'The discipline is the one this book always runs. The verifier priced everything BEFORE any prose existed: the table of values pointwise at eight integer inputs, the fold identity by exact expansion and at every census point, the vertex as a certified minimum, the mirror symmetry on five offsets and four twin pairs, the probe counts on a designed level scan. Two catches are worth banking up front. The census window $W \\times W$ holds exactly FOUR integer points of the bowl, not five — $(4, 7)$ sits on the curve but out the window top ($7 > 5$). And the level scan caught its own author: the horizontal line $y = -3$ looks like a near-miss below the doors, but $-3 > -\\frac{25}{8} = -3.125$, so it CUTS the bowl twice — the count flips exactly at the vertex height, and a near-miss level still cuts.' },
+    { kind: 'heading', text: 'The Table of Values and the Census' },
+    { kind: 'para', text: 'Graphing a quadratic starts exactly where 10.1 started with the line: make solutions, plot them, look. For $y = 2x^2 - 7x + 3$ the honest machine is the TABLE OF VALUES — one row per chosen input $x$, each row computing the three terms separately so nothing is done in the head. The verifier built the table for $x = -2$ to $5$ and priced every cell exactly; the resulting eight points already show the bowl: the heights fall from 25 to the bottom near $x = \\frac{7}{4}$ and climb again to 18. Four of the rows happen to land inside the census window $|x| \\le 5$, $|y| \\le 5$ — the fourth-and-halfth catch being that the row $x = 4$ gives height 7, ON the curve but ABOVE the window: a point can be a solution and still not be drawn inside a chosen frame. The census is honest about what it holds and what it does not.' },
+    { kind: 'table', caption: 'The table of values of y = 2x² − 7x + 3, every cell priced exactly by the verifier: the heights fall to the fold near x = 7/4 and climb again', head: ['$x$', '$2x^2$', '$-7x$', '$3$', '$y$', 'on the curve?'], rows: [
+      ['$-2$', '$8$', '$14$', '$3$', '$25$', 'yes — far above any small window'],
+      ['$-1$', '$2$', '$7$', '$3$', '$12$', 'yes — above the window top'],
+      ['$0$', '$0$', '$0$', '$3$', '$3$', 'yes — the y-intercept $(0, 3)$'],
+      ['$1$', '$2$', '$-7$', '$3$', '$-2$', 'yes — inside the window'],
+      ['$2$', '$8$', '$-14$', '$3$', '$-3$', 'yes — inside the window'],
+      ['$3$', '$18$', '$-21$', '$3$', '$0$', 'yes — a door: $(3, 0)$'],
+      ['$4$', '$32$', '$-28$', '$3$', '$7$', 'yes — but $7 > 5$: out the window top'],
+      ['$5$', '$50$', '$-35$', '$3$', '$18$', 'yes — far above again'],
+    ] },
+    { kind: 'figure', caption: 'The workhorse parabola y = 2x² − 7x + 3 — the vertex (7/4, −25/8) is the fold point, the dashed axis x = 7/4 mirrors every twin, the doors (1/2, 0) and (3, 0) are Δ = 25’s two roots drawn, and the amber rings are the designed twin pairs.', svg: parabolaWorkhorseSvg() },
+    { kind: 'terms', items: [
+      { term: 'parabola', def: 'the graph of a quadratic $y = ax^2 + bx + c$ with $a \\neq 0$: a smooth symmetric bowl, opening upward when $a > 0$ and downward when $a < 0$ — never a straight line, and every vertical probe meets it exactly once.' },
+      { term: 'vertex', def: 'the fold point $\\left(-\\frac{b}{2a}, -\\frac{\\Delta}{4a}\\right)$ where the bowl turns: the MINIMUM height when $a > 0$, the MAXIMUM when $a < 0$. The verifier priced the workhorse’s vertex at $\\left(\\frac{7}{4}, -\\frac{25}{8}\\right)$.' },
+      { term: 'axis of symmetry', def: 'the vertical line $x = -\\frac{b}{2a}$ through the vertex: every point of the bowl has a twin at the same height on the other side, and $f\\left(v + t\\right) = f\\left(v - t\\right)$ exactly for every offset $t$.' },
+      { term: 'minimum / maximum value', def: 'the vertex height $-\\frac{\\Delta}{4a}$: the smallest value $ax^2 + bx + c$ ever takes (for $a > 0$) or the largest (for $a < 0$), because the fold identity writes the polynomial as a square plus exactly that constant.' },
+      { term: 'tangent touch', def: 'the Δ = 0 picture: the bowl’s vertex rests exactly ON the $x$-axis, the two doors of Δ > 0 fused into one meet — 9.3’s middle verdict, now visible as a kissing point.' },
+      { term: 'second difference', def: 'the difference OF the differences of consecutive values: constant and equal to $2a$ on any quadratic. A line’s first differences are constant; a parabola’s SECOND ones are — the signature of degree 2, and 10.2’s slope bending by exactly $2a$ per step.' },
+    ] },
+    { kind: 'heading', text: 'The Fold Identity and the Vertex' },
+    { kind: 'para', text: 'Now 9.2’s craft does the drawing. Completing the square on the workhorse: $2x^2 - 7x + 3 = 2\\left(x^2 - \\frac{7}{2}x\\right) + 3 = 2\\left(x - \\frac{7}{4}\\right)^2 + 3 - 2 \\cdot \\frac{49}{16} = 2\\left(x - \\frac{7}{4}\\right)^2 - \\frac{25}{8}$. The verifier certified the fold three ways: the cross term $2 \\cdot 2 \\cdot \\left(-\\frac{7}{4}\\right) = -7$ survives exactly, the constant closes $\\frac{49}{8} - \\frac{25}{8} = \\frac{24}{8} = 3$, and at all eight census inputs the fold form prices the SAME height as the original — no float decided any of it. In general the same move gives the FOLD IDENTITY, the master identity of 9.3 wearing a $y$:' },
+    { kind: 'equation', latex: 'y = ax^2 + bx + c \\;=\\; a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}, \\qquad \\Delta = b^2 - 4ac', note: 'the fold identity — the whole graph is one square (which can only fold) plus one constant (which only lifts); expand it back and the cross term returns bx, the constants return c', },
+    { kind: 'para', text: 'The identity reads the whole geometry off the coefficients. The square term $a\\left(x + \\frac{b}{2a}\\right)^2$ is zero at exactly one input, $x = -\\frac{b}{2a}$ — 9.3’s centre — and positive everywhere else when $a > 0$: so the polynomial’s smallest value is the constant it folds to, $-\\frac{\\Delta}{4a}$, taken AT the centre. The verifier priced the gap pointwise: $f(x) - \\left(-\\frac{25}{8}\\right) = 2\\left(x - \\frac{7}{4}\\right)^2 \\ge 0$ at every census input, zero only at $x = \\frac{7}{4}$. That is the vertex $\\left(\\frac{7}{4}, -\\frac{25}{8}\\right)$, a MINIMUM because $a = 2 > 0$ — the bowl opens upward. Flip the sign of $a$ and every word flips with it: the square contributes $a(x - v)^2 \\le 0$, the vertex is the MAXIMUM, the bowl opens downward. The sign of $a$ is the opening; the vertex is the extreme; the identity is the proof of both at once.' },
+    { kind: 'example', title: 'Graph y = x² + 4x + 7 by completing the square and read its smallest value', steps: [
+      'Half of $\\frac{b}{a} = 4$ is 2: $x^2 + 4x + 7 = (x + 2)^2 + 7 - 4 = (x + 2)^2 + 3$.',
+      'Check the fold by expansion: $(x+2)^2 + 3 = x^2 + 4x + 4 + 3$ — exact.',
+      'The square is never negative, so $y \\ge 3$ always, with equality at $x = -2$: vertex $(-2, 3)$, a minimum.',
+      'Hence the bowl floats entirely above the axis — and the discriminant agrees: $\\Delta = 16 - 28 = -12 < 0$, no doors, exactly as a minimum height of $3 > 0$ demands.',
+    ] },
+    { kind: 'example', title: 'Graph y = −x² + 4x + 5 and read its largest value', steps: [
+      'Here $a = -1 < 0$: the bowl opens DOWN, so the vertex will be a maximum.',
+      'Fold: $-x^2 + 4x + 5 = -(x^2 - 4x) + 5 = -(x - 2)^2 + 4 + 5 = -(x - 2)^2 + 9$.',
+      'The verifier expanded the fold back exactly and priced the vertex $(2, 9)$: the square $-(x-2)^2 \\le 0$, so $y \\le 9$ with equality at $x = 2$ — a maximum of 9.',
+      'The doors: $\\Delta = 16 + 20 = 36 > 0$, roots $-1$ and $5$ — and the readout agrees through the sign of $a$: $-\\frac{\\Delta}{4a} = -\\frac{36}{-4} = 9$. The doors $(-1, 0)$ and $(5, 0)$ midpoint on the axis: $\\frac{-1 + 5}{2} = 2$.',
+    ] },
+    { kind: 'derivation', title: 'The vertex formula, derived from the completed square', statement: 'Claim: for $y = ax^2 + bx + c$ with $a \\neq 0$, the vertex sits at $\\left(-\\frac{b}{2a},\\; -\\frac{\\Delta}{4a}\\right)$ — a minimum if $a > 0$, a maximum if $a < 0$.', steps: [
+      { label: 'Factor out a', formula: 'ax^2 + bx + c = a\\left(x^2 + \\tfrac{b}{a}x\\right) + c', explanation: 'lawful for any $a \\neq 0$ — 9.2’s opening move; the constant $c$ waits outside while the square is built.' },
+      { label: 'Complete the square inside', formula: 'a\\left(x^2 + \\tfrac{b}{a}x\\right) = a\\left(x + \\tfrac{b}{2a}\\right)^2 - \\tfrac{b^2}{4a}', explanation: 'half of $\\frac{b}{a}$ is $\\frac{b}{2a}$; the square adds $\\frac{b^2}{4a^2}$ inside the bracket, so the correction $a \\cdot \\frac{b^2}{4a^2} = \\frac{b^2}{4a}$ is subtracted back.' },
+      { label: 'Rejoin the constant', formula: 'y = a\\left(x + \\tfrac{b}{2a}\\right)^2 + \\tfrac{4ac - b^2}{4a} = a\\left(x + \\tfrac{b}{2a}\\right)^2 - \\tfrac{b^2 - 4ac}{4a}', explanation: 'writing $c = \\frac{4ac}{4a}$ lets the constant join the correction under one denominator — and the numerator is the discriminant up to sign.' },
+      { label: 'Read the constant as the discriminant', formula: '\\tfrac{4ac - b^2}{4a} = -\\tfrac{\\Delta}{4a}', explanation: 'the fold identity, derived and not recited — 9.3’s master identity wearing a $y$.' },
+      { label: 'Now the extreme', formula: 'a\\left(x + \\tfrac{b}{2a}\\right)^2 \\ge 0 \\text{ for } a > 0, \\quad \\le 0 \\text{ for } a < 0', explanation: 'the signed square vanishes exactly when $x = -\\frac{b}{2a}$; if $a > 0$ the right side is minimized there — minimum $-\\frac{\\Delta}{4a}$ — and if $a < 0$ it is maximized there — maximum $-\\frac{\\Delta}{4a}$.' },
+      { label: 'Hence', formula: '\\text{vertex } \\left(-\\tfrac{b}{2a},\\; -\\tfrac{\\Delta}{4a}\\right)', explanation: 'both coordinates at once, the opening decided by nothing but the sign of $a$ — the verifier certified it on the workhorse ($\\frac{7}{4}, -\\frac{25}{8}$), the floating bowl $(0, 1)$, and the down-bowl $(2, 9)$.' },
+    ], result: 'the vertex of y = ax² + bx + c is (−b/2a, −Δ/(4a)) — minimum for a > 0, maximum for a < 0; the fold identity is the proof and the readout in one line' },
+    { kind: 'para', text: 'The formula earns its keep the moment the coefficients are known and the square is tedious. For $y = 3x^2 - 6x + 1$ the readout gives $x = \\frac{6}{6} = 1$ and height $3 - 6 + 1 = -2$: vertex $(1, -2)$, minimum, opening up — and the door question is settled by the discriminant alone, $\\Delta = 36 - 12 = 24 > 0$, two doors, without touching the square. But the derivation is the part to remember, because it explains WHY the readout has the shape it has: $\\frac{-b}{2a}$ is where the square vanishes, and $-\\frac{\\Delta}{4a}$ is what the polynomial collapses to when it does. 9.3’s centre and 9.3’s discriminant were always the vertex’s coordinates in disguise.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — two signs discipline the vertex readout', text: 'The vertex formula is a double negative waiting to happen. For the workhorse, $b = -7$ and $a = 2$, so $-\\frac{b}{2a} = -\\frac{-7}{4} = +\\frac{7}{4}$ — the vertex sits at POSITIVE $\\frac{7}{4}$ even though $b$ is negative. Write the substitution in full every time: $-\\frac{b}{2a}$, then $-\\frac{(-7)}{4}$, then $\\frac{7}{4}$. The same discipline guards the height: $-\\frac{\\Delta}{4a}$ with $\\Delta = 25$, $a = 2$ reads $-\\frac{25}{8}$, negative because a positive discriminant over a positive $a$ must lift the bowl’s bottom BELOW the axis for doors to exist. And when $a < 0$ both reads flip sign together — the down-bowl $y = -x^2 + 4x + 5$ has $-\\frac{b}{2a} = -\\frac{4}{-2} = 2$ and $-\\frac{\\Delta}{4a} = -\\frac{36}{-4} = +9$. One rushed sign and the vertex teleports to the wrong quadrant; the verifier priced all three readouts exactly because this is exactly where quick work dies.' },
+    { kind: 'heading', text: 'The Axis of Symmetry and the Twins' },
+    { kind: 'para', text: 'Look again at the fold: $y = a\\left(x - v\\right)^2 + h$ with $v = -\\frac{b}{2a}$ and $h = -\\frac{\\Delta}{4a}$. The square depends on $x$ only through $(x - v)^2$ — and a square cannot tell $x - v$ from $-(x - v)$. Substitute $v + t$ and $v - t$: both give $(v + t - v)^2 = t^2$ and $(v - t - v)^2 = (-t)^2 = t^2$ — the SAME square, so the SAME height. The verifier mirror-priced the workhorse on five offsets: $f\\left(\\frac{7}{4} + \\frac{1}{4}\\right) = f\\left(\\frac{7}{4} - \\frac{1}{4}\\right) = -2$, and the same exact equality at $t = \\frac{1}{2}, \\frac{3}{4}, \\frac{5}{4}, \\frac{9}{4}$. The bowl is symmetric about the vertical line $x = v$ — the AXIS OF SYMMETRY — and the proof is one line: the fold shows the polynomial depends on $x$ only through the distance $|x - v|$.' },
+    { kind: 'para', text: 'The mirror has a census consequence the figure draws in amber: every height is taken TWICE (or once, at the vertex itself), by twin points symmetric about the axis. The verifier priced four designed pairs: $(0, 3)$ with $\\left(\\frac{7}{2}, 3\\right)$, $(1, -2)$ with $\\left(\\frac{5}{2}, -2\\right)$, $\\left(\\frac{3}{2}, -3\\right)$ with $(2, -3)$, and the doors themselves $\\left(\\frac{1}{2}, 0\\right)$ with $(3, 0)$ — each pair satisfying the curve exactly, each pair’s midpoint landing on $\\frac{7}{4}$ to the last fraction. That last fact is the exam workhorse: the roots of a quadratic SUM to $-\\frac{b}{a}$ (9.4’s Viète readout), so their midpoint is $\\frac{r_1 + r_2}{2} = -\\frac{b}{2a}$ — the axis IS the roots’ midpoint. Graphically: the two doors are mirror twins, and the vertex sits exactly halfway between them, at the bowl’s bottom.' },
+    { kind: 'heading', text: 'The Probe Verdicts: At Most Twice' },
+    { kind: 'para', text: 'Now run 5.3’s verdict machine on the new curve, in both directions. VERTICAL probes first: the line $x = h$ meets the parabola where $y = 2h^2 - 7h + 3$ — one input, one computed output, EXACTLY one meet, for every $h$. The verifier priced eight probes from $x = -2$ to $5$, each landing on a single point. Nothing has changed from the line: a function-style equation in $x$ answers each vertical probe once. The graph-as-solution-set identity of 10.1 survives one degree up: the bowl IS the solution set of $y = 2x^2 - 7x + 3$, point by point — every census point on the curve satisfies the equation, and the equation produces no point off the curve.' },
+    { kind: 'para', text: 'HORIZONTAL probes are where degree 2 changes the verdict machine. The line $y = k$ meets the bowl where $2x^2 - 7x + 3 = k$ — that is, where $2x^2 - 7x + (3 - k) = 0$: a QUADRATIC in $x$, with a discriminant of its own. The verifier computed it exactly: $\\Delta_k = (-7)^2 - 4 \\cdot 2 \\cdot (3 - k) = 49 - 24 + 8k = 25 + 8k$. So the meets are counted by $\\Delta_k$: two when $k > -\\frac{25}{8}$, one when $k = -\\frac{25}{8}$, none when $k < -\\frac{25}{8}$. The hinge is the vertex height. The scan that caught its own author: the levels $k = -5, -4$ pass UNDER the bowl (no meets), the level $k = -\\frac{25}{8}$ grazes the vertex once, but $k = -3$ — which looks like another under-pass — sits at $-3 > -3.125$, ABOVE the hinge, and cuts the bowl TWICE. Levels $0, 3, 5$ all cut twice as well: five of the eight scanned levels are two-meet levels. A quadratic has at most two roots against ANY level — 9.3’s trichotomy, exhaustive, now drawn as the count of crossings.' },
+    { kind: 'equation', latex: 'y = k \\text{ meets } y = ax^2 + bx + c \\quad \\text{as the verdict on } \\;\\Delta_k = \\Delta + 4ak\\; : \\quad \\text{two} \\iff k > -\\tfrac{\\Delta}{4a},\\;\\; \\text{one} \\iff k = -\\tfrac{\\Delta}{4a},\\;\\; \\text{none} \\iff k < -\\tfrac{\\Delta}{4a}', note: 'the shifted discriminant — the meet count flips exactly at the vertex height −Δ/(4a); for a < 0 all three inequalities reverse and the hinge is still the vertex' },
+    { kind: 'figure', caption: 'The three x-intercept verdicts of 9.3, drawn as bowls: y = 2x² − 7x + 3 crosses twice (Δ = 25), y = (x − 1)² rests its vertex on the axis once (Δ = 0), and y = x² + 1 floats clear (Δ = −4).', svg: xVerdictsStripSvg() },
+    { kind: 'callout', tone: 'theorem', title: 'Theorem — the horizontal-probe trichotomy', text: 'Let $a \\neq 0$ and let $h = -\\frac{\\Delta}{4a}$ be the vertex height. For any level $k$, the equation $ax^2 + bx + c = k$ has exactly two real solutions when $k$ is on the far side of $h$ from the opening, exactly one when $k = h$, and none when $k$ is between $h$ and the opening’s far end. Proof: $ax^2 + bx + c - k = 0$ is quadratic with discriminant $\\Delta_k = b^2 - 4a(c - k) = \\Delta + 4ak$ — a linear function of $k$ vanishing exactly at $k = -\\frac{\\Delta}{4a} = h$; the sign of $\\Delta_k$ decides two/one/none by 9.3’s verdict machine, and $\\text{sign}(\\Delta_k) = \\text{sign}(a) \\cdot \\text{sign}(k - h)$, which fixes each case. The verifier priced the trichotomy exhaustively on the workhorse’s level scan: five two-levels, one tangent level, two none-levels, every level in exactly one case.' },
+    { kind: 'para', text: 'With the machine running, 9.3’s ledger becomes a picture, and the figure above draws it as three bowls. The workhorse ($\\Delta = 25 > 0$) crosses the $x$-axis at its two doors $\\left(\\frac{1}{2}, 0\\right)$ and $(3, 0)$ — and the verifier cross-priced those doors against the FACTORIZATION $(2x - 1)(x - 3)$, whose expansion returns the workhorse coefficient for coefficient: the roots of 9.3 and the crossing points of 10.3 are the same objects named by algebra and by geometry. The touch curve $y = (x - 1)^2$ ($\\Delta = 0$) rests its vertex exactly on the axis — one meet, and the mirror battery comes free: $f(1 + t) = t^2 = f(1 - t)$ for every $t$, the bowl its own twin generator. The floating bowl $y = x^2 + 1$ ($\\Delta = -4$) never meets the axis, its minimum height $1$ being exactly the gap the master identity predicted. Three discriminant verdicts, three pictures, one identity explaining all of them: $a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$ shows the square reaching $\\frac{\\Delta}{4a}$ at two inputs, one input, or never, according to the sign of $\\Delta$.' },
+    { kind: 'para', text: 'And 10.2? Its steepness theorem said every secant of a LINE has the same slope. On the bowl that story bends, honestly. The secant slopes between consecutive census points climb: $(0, 3)$ to $(1, -2)$ gives $\\frac{-5}{1} = -5$; $(1, -2)$ to $(2, -3)$ gives $\\frac{-1}{1} = -1$; $(2, -3)$ to $(3, 0)$ gives $\\frac{3}{1} = 3$; $(3, 0)$ to $(4, 7)$ gives $\\frac{7}{1} = 7$. Four different slopes — the curve steepens as it climbs out of the bowl, first rising less and less negatively, then more and more positively. The arithmetic signature: the first differences $-5, -1, 3, 7$ are NOT constant (a line’s would be), but their differences — the SECOND differences — are constant $4, 4, 4 = 2a$. Every quadratic climbs its secants by exactly $2a$ per step. Follow that climb to its limit — steps shrinking toward zero — and the slope settles to a single number at each point: the honest doorway to calculus, which this book leaves exactly where you can see it.' },
+    { kind: 'example', title: 'A rectangle has perimeter 20. Which width maximizes its area?', steps: [
+      'Let the width be $x$; then the length is $10 - x$, so the area is $A = x(10 - x) = -x^2 + 10x$ — a quadratic with $a = -1 < 0$: opens down, so the vertex is a maximum.',
+      'Read the vertex: $-\\frac{b}{2a} = -\\frac{10}{-2} = 5$, and $A(5) = -25 + 50 = 25$.',
+      'Cross-check by the discriminant readout: $\\Delta = 100 - 0 = 100$, so $-\\frac{\\Delta}{4a} = -\\frac{100}{-4} = 25$ — the same maximum.',
+      'Hence the square (width 5, length 5) captures the largest area, 25 — and 9.3’s census maximum returns as a rectangle: among all rectangles of a fixed perimeter, the square is the area champion.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Insight — what the parabola buys, and what it whispers', text: 'The line answered "where?"; the parabola answers "how high, how low, and where exactly does it turn?". Extreme-value questions — best area, best price, greatest height — are vertex questions, and the fold identity settles them with a coefficient read instead of a hunt. The whispers are for later courses: the constant second differences are the discrete shadow of acceleration; the bending secants, taken to shrinking steps, become the tangent slope that calculus will name $2ax + b$; and the horizontal-probe hinge is the precursor of every range question ever asked of a function. None of that is needed now — but the bowl you can draw today is the object those ideas attach to, and every number on it (vertex, axis, doors, twins) has already been priced exactly.' },
+    { kind: 'para', text: 'From the above discussion, the working summary of the lesson:' },
+    { kind: 'list', marker: 'roman', items: [
+      'The graph of $y = ax^2 + bx + c$ ($a \\neq 0$) is a parabola: a symmetric bowl opening upward when $a > 0$ and downward when $a < 0$ — built honestly from a table of values, with the census reported as it is, window and all.',
+      'The fold identity $y = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$ (9.2’s square, 9.3’s master identity wearing a $y$) expands back exactly and prices the whole geometry.',
+      'The vertex is $\\left(-\\frac{b}{2a}, -\\frac{\\Delta}{4a}\\right)$: the minimum for $a > 0$, the maximum for $a < 0$ — proved by the gap $f(x) - \\left(-\\frac{\\Delta}{4a}\\right) = a\\left(x + \\frac{b}{2a}\\right)^2$ being a signed square.',
+      'The axis of symmetry is $x = -\\frac{b}{2a}$: $f(v + t) = f(v - t)$ exactly, twin points share heights, and the two doors midpoint on the axis (Viète’s sum, drawn).',
+      'A vertical probe meets the bowl exactly once; a horizontal probe $y = k$ meets it two, one, or zero times as $\\Delta_k = \\Delta + 4ak$ is positive, zero, or negative — the count flips exactly at the vertex height, and no level ever meets a quadratic more than twice.',
+      'The secant slopes bend by the constant second differences $2a$ — 10.2’s steepness theorem bending along the curve, the honest doorstep of calculus.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — the curve with a name older than its graph', text: 'The parabola was named by Apollonius of Perga (c. 200 BC) in his Conics — παράβολος, "applied alongside", one of three siblings (ellipse, parabola, hyperbola) that the Greeks met as slices of a cone, two thousand years before any coordinate plane. The graph you drew in this lesson had to wait for Descartes and Fermat (10.1’s synthesis, 1637) to exist at all: a curve AS an equation. In between, the curve did physics quietly — Galileo’s Two New Sciences (1638) showed that a projectile flies on a parabola, the first law of motion stated as a shape. And the curve posed the problem that seeded calculus: what is the TANGENT at a point of a parabola? Fermat and Descartes both built methods for it in the 1630s (Descartes’ answer sparked his famous dispute with Fermat), and the method that won — slopes of shrinking secants, exactly this lesson’s bending table — became Newton and Leibniz’s differential calculus. Web-checked against the banked survey of run 66; no content reproduced.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this pays', text: 'The school canon examines this lesson directly: NCERT class 10’s quadratic chapter asks for the graph of a given quadratic and the roots read off it (the doors), and class 11’s functions work asks for vertex, opening and range (the vertex height to +∞ for $a > 0$). The competitive bank (Khattar QA’s quadratic scope, SSC and bank preliminaries, JEE-Main foundations) drills: (1) the vertex readout at speed — vertex of $2x^2 - 7x + 3$ is $\\left(\\frac{7}{4}, -\\frac{25}{8}\\right)$, one substitution each; (2) max/min by the sign of $a$ — "the minimum value of $x^2 + 4x + 7$ is $3$" answered by completing the square, no calculus; (3) the displacement verdict — "for which $k$ does $x^2 - 4x + k$ touch the $x$-axis once?" is $\\Delta = 0$, $k = 4$; (4) range questions — the horizontal-probe hinge read backwards; (5) symmetry shortcuts — the vertex sits at the roots’ midpoint, so the sum of the roots locates the axis without solving (9.4’s $S = -\\frac{b}{a}$ at work). And the examiner’s favourite trap remains the double negative: $-\\frac{b}{2a}$ with $b < 0$ is POSITIVE — write the substitution in full.' },
+    { kind: 'formula', name: 'The fold identity', latex: 'y = ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}, \\qquad \\Delta = b^2 - 4ac', note: '9.2’s completed square and 9.3’s master identity wearing a y — the whole geometry of the parabola in one line' },
+    { kind: 'formula', name: 'The vertex and the axis', latex: '\\text{vertex } \\left(-\\frac{b}{2a},\\; -\\frac{\\Delta}{4a}\\right), \\qquad \\text{axis } x = -\\frac{b}{2a}, \\qquad \\text{opening: } a > 0 \\text{ up (min)}, \\; a < 0 \\text{ down (max)}', note: 'derived from the fold, not recited: the vertex is where the square vanishes, the height is what remains' },
+    { kind: 'formula', name: 'The horizontal-probe hinge', latex: 'y = k \\text{ meets the bowl as } \\Delta_k = \\Delta + 4ak \\text{ reads: two} \\iff k > -\\tfrac{\\Delta}{4a}, \\; \\text{one} \\iff k = -\\tfrac{\\Delta}{4a}, \\; \\text{none} \\iff k < -\\tfrac{\\Delta}{4a}', note: 'the meet count flips exactly at the vertex height; at most two meets against any level — 5.3’s machine, bent by degree 2' },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The vertex of $y = 2x^2 - 7x + 3$ sits at', options: ['$\\left(\\frac{7}{4}, -\\frac{25}{8}\\right)$', '$\\left(-\\frac{7}{4}, \\frac{25}{8}\\right)$', '$\\left(\\frac{7}{4}, \\frac{25}{8}\\right)$', '$\\left(\\frac{3}{2}, -3\\right)$'], answer: 0, explain: 'The readout: $-\\frac{b}{2a} = -\\frac{-7}{4} = \\frac{7}{4}$ (the double negative is the trap) and $-\\frac{\\Delta}{4a} = -\\frac{25}{8}$ with $\\Delta = 49 - 24 = 25$. Option B flips BOTH signs; option C drops the minus on the height — but $a > 0$ means the vertex is BELOW the census, a minimum; option D is the census point $(2, -3)$’s neighbourhood, not the fold — the verifier certified $f(7/4) = -25/8$ and the gap $f(x) + 25/8 = 2(x - 7/4)^2 \\ge 0$ at every census input.' },
+      { q: 'The parabola $y = x^2 - 2x + 1$ meets the $x$-axis', options: ['never', 'at two points', 'at exactly one point — the vertex $(1, 0)$ rests on the axis', 'at $(0, 1)$ and $(2, 0)$'], answer: 2, explain: 'The discriminant: $\\Delta = 4 - 4 = 0$ — 9.3’s middle verdict, the two doors fused into one tangent touch, and the fold $y = (x-1)^2$ shows the square vanishing only at $x = 1$. "Never" is the $\\Delta < 0$ picture ($y = x^2 + 1$’s); "two points" needs $\\Delta > 0$; $(0, 1)$ is the $y$-intercept, not an $x$-meet, and $(2, 0)$ fails substitution: $4 - 4 + 1 = 1 \\neq 0$. The verifier priced the touch and its twins $f(1 + t) = t^2$ exactly.' },
+      { q: '$y = -x^2 + 4x + 5$ opens ___ and its vertex $(2, 9)$ is therefore a ___', options: ['downward; maximum', 'downward; minimum', 'upward; maximum', 'upward; minimum'], answer: 0, explain: '$a = -1 < 0$: the square term $-(x - 2)^2$ is never positive, so $y \\le 9$ with equality at $x = 2$ — the fold $-(x-2)^2 + 9$ prices it exactly. Upward would need $a > 0$; a minimum would need the square POSITIVE away from the vertex ($a > 0$’s picture). The verifier also priced the doors $(-1, 0)$ and $(5, 0)$, midpointing on the axis $x = 2$ — a maximum bowl hanging from its two doors.' },
+      { q: 'The horizontal line $y = k$ meets $y = 2x^2 - 7x + 3$ exactly once when', options: ['$k = 0$', '$k = 3$', '$k = -\\frac{25}{8}$', '$k = \\frac{25}{8}$'], answer: 2, explain: 'The shifted discriminant $\\Delta_k = \\Delta + 4ak = 25 + 8k$ vanishes exactly at $k = -\\frac{25}{8}$ — the vertex height, where the level grazes the bowl’s bottom once. $k = 0$ is the $x$-axis itself: $\\Delta_k = 25 > 0$, the two doors; $k = 3$ passes through the $y$-intercept and cuts twice ($\\Delta_k = 49$); $\\frac{25}{8}$ is far above — also two cuts. The verifier’s scan caught even the plausible-looking $k = -3$: since $-3 > -3.125$, it cuts TWICE — only exactly $-\\frac{25}{8}$ gives one meet.' },
+      { q: 'The axis of symmetry of $y = -x^2 + 4x + 5$ is', options: ['$x = 9$', '$x = 2$', '$x = -2$', '$x = 5$'], answer: 1, explain: 'The axis is $x = -\\frac{b}{2a} = -\\frac{4}{-2} = 2$ — the vertex’s first coordinate, and the doors’ midpoint: $\\frac{-1 + 5}{2} = 2$ (Viète’s sum $S = 4$, halved). $x = 9$ is the vertex HEIGHT (a $y$-value, not an axis); $x = -2$ flips the sign of $\\frac{b}{2a}$; $x = 5$ is one door, not the mirror line — the verifier mirror-priced $f(2 + t) = f(2 - t)$ exactly and midpointed the twin pairs on 2.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 10.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'Build the table of values of $y = x^2 - 2x - 3$ for $x = -1, 0, 1, 2, 3$, and read the axis of symmetry off the equal heights.', solution: [
+          'Row by row: $f(-1) = 1 + 2 - 3 = 0$, $f(0) = -3$, $f(1) = 1 - 2 - 3 = -4$, $f(2) = 4 - 4 - 3 = -3$, $f(3) = 9 - 6 - 3 = 0$.',
+          'Equal heights: $f(-1) = f(3) = 0$ and $f(0) = f(2) = -3$ — twin pairs.',
+          'The axis passes through each pair’s midpoint: $\\frac{-1 + 3}{2} = 1$ and $\\frac{0 + 2}{2} = 1$ — agree.',
+          'Hence the axis of symmetry is $x = 1$, and the vertex (the one unpaired height) sits at $(1, -4)$.',
+        ], answer: 'values 0, −3, −4, −3, 0; the axis is x = 1 (both twin pairs midpoint there), vertex (1, −4).' },
+        { q: 'Read the vertex, the axis and the opening of $y = (x - 2)^2 - 5$, and state the smallest value the expression ever takes.', solution: [
+          'The fold is already done: the square $(x - 2)^2 \\ge 0$ vanishes only at $x = 2$.',
+          'So the vertex is $(2, -5)$, the axis is $x = 2$, and $a = 1 > 0$ says the bowl opens upward.',
+          'The smallest value is the fold’s constant: $-5$, taken at $x = 2$.',
+          'Check the readout against the expansion: $(x-2)^2 - 5 = x^2 - 4x + 4 - 5 = x^2 - 4x - 1$, so $-\\frac{b}{2a} = \\frac{4}{2} = 2$ and $-\\frac{\\Delta}{4a} = -\\frac{16 + 4}{4} = -5$ — agree.',
+        ], answer: 'vertex (2, −5), axis x = 2, opens up, minimum value −5.' },
+        { q: 'State the $y$-intercept and the opening of $y = 3x^2 - 6x + 1$, and decide WITHOUT solving whether it meets the $x$-axis.', solution: [
+          'At $x = 0$: $y = 1$ — the $y$-intercept is $(0, 1)$; the intercept read of 10.1, one degree up.',
+          '$a = 3 > 0$: the bowl opens upward.',
+          'Doors are a discriminant question: $\\Delta = (-6)^2 - 4 \\cdot 3 \\cdot 1 = 36 - 12 = 24 > 0$.',
+          'Hence two doors — no solving needed; and the readout locates the vertex: $x = \\frac{6}{6} = 1$, height $-\\frac{24}{12} = -2$, below the axis, exactly why two doors must exist.',
+        ], answer: 'y-intercept (0, 1); opens upward; Δ = 24 > 0 — two doors, vertex (1, −2).' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'By the vertex readout, find the vertex of $y = x^2 - 6x + 5$, then check it against the doors $(1, 0)$ and $(5, 0)$.', solution: [
+          'Readout: $x = -\\frac{b}{2a} = \\frac{6}{2} = 3$; $\\Delta = 36 - 20 = 16$; height $-\\frac{16}{4} = -4$. Vertex $(3, -4)$, a minimum.',
+          'Door check: the doors’ midpoint is $\\frac{1 + 5}{2} = 3$ — the axis, exactly where the readout put the vertex.',
+          'Height check: $-\\frac{\\Delta}{4a} = -\\frac{16}{4} = -4$, and the fold agrees: $(x - 3)^2 - 4 = x^2 - 6x + 5$, exact.',
+          'Hence the bowl hangs from its two doors through the bottom $(3, -4)$ — all three reads one object.',
+        ], answer: 'vertex (3, −4) — midpointed by the doors (1, 0), (5, 0) and confirmed by the fold (x − 3)² − 4.' },
+        { q: 'Find the vertex of $y = -2x^2 + 8x - 5$ and say what kind of extreme it is.', solution: [
+          '$a = -2 < 0$: opens downward — the vertex will be a MAXIMUM.',
+          'Readout: $x = -\\frac{8}{-4} = 2$; $\\Delta = 64 - 40 = 24$; height $-\\frac{24}{-8} = 3$.',
+          'Vertex $(2, 3)$ — verify by substitution: $-8 + 16 - 5 = 3$, exact.',
+          'Hence the largest value of $-2x^2 + 8x - 5$ is 3, at $x = 2$; every other input prices lower.',
+        ], answer: 'vertex (2, 3), a maximum (a = −2 < 0).' },
+        { q: 'Complete the square on $y = x^2 + 4x + 7$ and state the smallest value the expression ever takes; reconcile with the discriminant.', solution: [
+          'Half of 4 is 2: $x^2 + 4x + 7 = (x + 2)^2 + 7 - 4 = (x + 2)^2 + 3$.',
+          'The verifier expanded the fold back exactly: $(x+2)^2 + 3 = x^2 + 4x + 4 + 3$ — closes.',
+          'The square is $\\ge 0$, so $y \\ge 3$ with equality at $x = -2$: the smallest value is 3, vertex $(-2, 3)$, minimum.',
+          'Reconcile: $\\Delta = 16 - 28 = -12 < 0$ — no doors, which a bowl floating at minimum height $3 > 0$ must show; and $-\\frac{\\Delta}{4a} = \\frac{12}{4} = 3$, the same 3.',
+        ], answer: '(x + 2)² + 3; minimum value 3 at x = −2; Δ = −12 < 0 — no doors, consistent.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'On $y = 2x^2 - 7x + 3$, find the twin of $(1, -2)$ and the twin of $(0, 3)$, and check each twin by substitution.', solution: [
+          'The axis is $x = \\frac{7}{4}$, so a point at $x$ twins to $x’ = \\frac{7}{2} - x$ (twice the axis minus $x$).',
+          'Twin of $x = 1$: $x’ = \\frac{7}{2} - 1 = \\frac{5}{2}$; substitution: $2 \\cdot \\frac{25}{4} - \\frac{35}{2} + 3 = \\frac{25}{2} - \\frac{35}{2} + 3 = -5 + 3 = -2$ — same height, twin $\\left(\\frac{5}{2}, -2\\right)$.',
+          'Twin of $x = 0$: $x’ = \\frac{7}{2}$; substitution: $2 \\cdot \\frac{49}{4} - \\frac{49}{2} + 3 = \\frac{49}{2} - \\frac{49}{2} + 3 = 3$ — twin $\\left(\\frac{7}{2}, 3\\right)$.',
+          'Midpoint checks: $\\frac{1 + 5/2}{2} = \\frac{7}{4}$ and $\\frac{0 + 7/2}{2} = \\frac{7}{4}$ — both pairs midpoint on the axis exactly (the verifier priced all four designed pairs).',
+        ], answer: 'the twins are (5/2, −2) and (7/2, 3); both pairs midpoint on x = 7/4 and satisfy the curve exactly.' },
+        { q: 'Where does the horizontal line $y = 1$ meet $y = 2x^2 - 7x + 3$? Count the meets by discriminant and give their formula read.', solution: [
+          'Set $2x^2 - 7x + 3 = 1$: the meet equation is $2x^2 - 7x + 2 = 0$.',
+          'Shifted discriminant: $\\Delta_1 = 49 - 16 = 33$ — or by the hinge formula $\\Delta + 4a \\cdot 1 = 25 + 8 = 33$, agree.',
+          '$\\Delta_1 = 33 > 0$: two meets (and indeed $1 > -\\frac{25}{8}$, above the hinge).',
+          'Formula read: $x = \\frac{7 \\pm \\sqrt{33}}{4}$ — two irrational meets, priced by 9.3’s formula on the shifted constant.',
+        ], answer: 'two meets at x = (7 ± √33)/4 (Δ₁ = 33 > 0).' },
+        { q: 'Does $y = x^2 + x + 1$ ever meet the $x$-axis? Give the vertex and reconcile with the discriminant.', solution: [
+          'Discriminant first: $\\Delta = 1 - 4 = -3 < 0$ — no real roots, no doors: the bowl never meets the axis.',
+          'Vertex readout: $x = -\\frac{1}{2}$; height $f\\left(-\\frac{1}{2}\\right) = \\frac{1}{4} - \\frac{1}{2} + 1 = \\frac{3}{4}$.',
+          'The minimum height is $\\frac{3}{4} > 0$ — the bowl floats, exactly why no meet is possible.',
+          'Hence the two reads agree: $\\Delta < 0$ and a positive minimum are the same fact said twice (the fold: $\\left(x + \\frac{1}{2}\\right)^2 + \\frac{3}{4}$).',
+        ], answer: 'never — Δ = −3 < 0; vertex (−1/2, 3/4) floats the bowl above the axis.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'For which $k$ does $y = x^2 - 4x + k$ touch the $x$-axis exactly once?', solution: [
+          'A single touch is $\\Delta = 0$: $16 - 4k = 0$.',
+          'So $k = 4$ — the constant that lifts the fold exactly onto the axis.',
+          'Check: $x^2 - 4x + 4 = (x - 2)^2$, vertex $(2, 0)$ resting on the axis — the touch, drawn.',
+          'Hence $k = 4$; any larger $k$ floats the bowl ($\\Delta < 0$), any smaller drops two doors ($\\Delta > 0$) — the hinge walked in $k$.',
+        ], answer: 'k = 4 (then y = (x − 2)², vertex (2, 0) resting on the axis).' },
+        { q: 'Compute the second differences of $y = 3x^2 - 2x + 1$ along $x = 0, 1, 2, 3$, and read $2a$ off them.', solution: [
+          'Values: $f(0) = 1$, $f(1) = 2$, $f(2) = 9$, $f(3) = 22$.',
+          'First differences: $2 - 1 = 1$, $9 - 2 = 7$, $22 - 9 = 13$ — not constant (no line here).',
+          'Second differences: $7 - 1 = 6$, $13 - 7 = 6$ — constant 6.',
+          'Hence $2a = 6$, i.e. $a = 3$ — the leading coefficient read off the table, no formula touched.',
+        ], answer: 'values 1, 2, 9, 22; first differences 1, 7, 13; second differences 6, 6 — 2a = 6, a = 3.' },
+        { q: 'Find the slopes of the three secants of $y = x^2 - 2x - 3$ between the census points $x = 0, 1, 2, 3$, and describe the climb.', solution: [
+          'Values (L1’s table): $f(0) = -3$, $f(1) = -4$, $f(2) = -3$, $f(3) = 0$.',
+          'Secant slopes: $\\frac{-4 - (-3)}{1} = -1$; $\\frac{-3 - (-4)}{1} = 1$; $\\frac{0 - (-3)}{1} = 3$.',
+          'The climb: $-1 \\to 1 \\to 3$ — up by 2 each step.',
+          'Hence the second difference is $2 = 2a$ with $a = 1$ — 10.2’s steepness theorem bending by exactly $2a$ per step, the honest signature of degree 2.',
+        ], answer: 'secant slopes −1, 1, 3 — climbing by 2 = 2a each step.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'A rectangle has perimeter 20. Express its area as a quadratic in the width $x$, find the area-maximizing width by the vertex readout, and state the maximum area.', solution: [
+          'Width $x$, length $10 - x$: the area is $A(x) = x(10 - x) = -x^2 + 10x$ — a quadratic with $a = -1 < 0$, opening down.',
+          'So the vertex is a maximum: $x = -\\frac{b}{2a} = -\\frac{10}{-2} = 5$.',
+          'Height: $A(5) = 25$ — or by the discriminant readout $-\\frac{\\Delta}{4a} = -\\frac{100}{-4} = 25$, agree.',
+          'Hence the maximum area is 25 at width 5, length 5 — the square; and 9.3’s census maximum returns as geometry: among all rectangles of a given perimeter, the square is the champion.',
+        ], answer: 'A(x) = x(10 − x) = −x² + 10x; width 5 (a square); maximum area 25.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove: the horizontal line $y = k$ meets $y = ax^2 + bx + c$ ($a \\neq 0$) exactly twice when $k$ lies beyond the vertex height on the opening’s side, exactly once when $k = -\\frac{\\Delta}{4a}$, and never on the other side — then verify all three verdicts on the workhorse at $k = -4$, $k = -\\frac{25}{8}$ and $k = 5$.', solution: [
+          'The meet equation is $ax^2 + bx + (c - k) = 0$, quadratic in $x$ with discriminant $\\Delta_k = b^2 - 4a(c - k) = \\Delta + 4ak$ — a LINEAR function of $k$, vanishing at $k = -\\frac{\\Delta}{4a}$: the hinge.',
+          '$\\text{sign}(\\Delta_k)$ decides the count by 9.3’s machine: positive — two roots; zero — one; negative — none; and $\\text{sign}(\\Delta_k) = \\text{sign}(a)\\cdot\\text{sign}(k - h)$ with $h = -\\frac{\\Delta}{4a}$, so the cases split exactly at the vertex height (for $a > 0$: two when $k > h$, none when $k < h$; for $a < 0$ both reverse).',
+          'At most twice is now structural: a quadratic cannot have more than two roots against ANY level — the trichotomy is exhaustive on every $k$.',
+          'Workhorse verdicts: $k = -4$ gives $\\Delta_k = 25 - 32 = -7 < 0$ — no meet (the level passes under the bowl, since $-4 < -\\frac{25}{8}$); $k = -\\frac{25}{8}$ gives $\\Delta_k = 0$ — one meet, the vertex itself; $k = 5$ gives $\\Delta_k = 25 + 40 = 65 > 0$ — two meets at $x = \\frac{7 \\pm \\sqrt{65}}{4}$.',
+          'Hence the theorem: the meet count flips exactly at the vertex height, and no horizontal probe ever meets a parabola more than twice.',
+        ], answer: 'Δ_k = Δ + 4ak vanishes exactly at the vertex height −Δ/(4a); workhorse verdicts: none at k = −4, one at k = −25/8, two at k = 5.' },
+      ] },
+    ] },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* The chapter                                                         */
+/* ------------------------------------------------------------------ */
+
 export const chapter10: Chapter = {
   number: 10,
   slug: 'graphs-of-equations',
   title: 'Graphs of Equations',
   summary:
     'Every solution made visible: the coordinate plane built properly (ordered pairs as addresses), linear equations graphed and slope derived as rate — with the parallel condition proved — and the parabola graphed through completing the square, the vertex formula derived, and the graph’s x-intercepts connected to the discriminant’s verdicts of chapter 9.',
-  status: 'in-progress',
-  plannedLessons: ['The Parabola: Quadratic Graphs and Vertices'],
-  lessons: [lesson101, lesson102],
+  status: 'complete',
+  lessons: [lesson101, lesson102, lesson103],
 }

@@ -6,6 +6,30 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 86 (2026-11-10) — AL ch. 10 CLOSES (10.3 + the unit-10 review)
+
+- Zero downloads, zero new keys: the banked keys carried the chapter close —
+  `ncert-math10-ch4-quadratic` (the school canon's quadratic-graphing ground:
+  the parabola drawn from a table of values, the roots read off the graph —
+  10.3's stated ground, now paid), `hall-knight-elementary-algebra` (the
+  classical text's graphical chapters: the quadratic curve and its turning
+  point), `khattar-qa-4e` (the exam corner: vertex readouts at speed, max/min
+  by the sign of a, the displacement k-hunt), `cengage-jee-style` (the
+  presentation contract). Cross-references carried per the pointer: 9.2's
+  completed square and 9.3's centre −b/2a (the fold point DRAWN at last),
+  9.3's discriminant verdicts (the x-intercept counter — two doors, one
+  tangent touch, none — the master identity explains all three), 9.4's Viète
+  sum (the axis as the roots' midpoint), 10.1's graph-as-solution-set
+  identity (the bowl IS the solution set, priced pointwise), 10.2's slope
+  (the secants bend by the constant second differences 2a — the honest
+  calculus doorway), 5.3's verdict machine (the vertical probe's one door
+  kept; the horizontal probe bent honestly to at-most-two). Historical
+  claims web-checked and hedged: Apollonius's naming in the Conics,
+  Galileo's 1638 projectile parabola, the Fermat–Descartes tangent dispute.
+  No reference working copies to delete (zero-download run).
+
+---
+
 ## Run 85 (2026-11-10) — AL ch. 10 OPENS (10.1 + 10.2)
 
 - Zero downloads, zero new keys: the banked keys carried the chapter open —

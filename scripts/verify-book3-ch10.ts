@@ -93,19 +93,61 @@ export {}
  *             with the k = 0 edge honest (x = 2 vertical, undefined slope,
  *             and it MEETS y = 3x + 1 at (2, 7) — vertical is not parallel
  *             to a non-vertical line).
- *   (C) the FIGURE GEOMETRY PLANS of the run's four figures (10.1: the
+ *   (C) the FIGURE GEOMETRY PLANS of the run's six figures (10.1: the
  *       addressing map 720×400; the graph of 3x + 2y = 6 720×400; 10.2:
  *       the steepness theorem 720×400; the two-line verdict strip
- *       720×340), audited in E.
+ *       720×340; 10.3 (run 86): the workhorse parabola 720×400 + the
+ *       three-verdict strip 720×340), audited in E and H.
+ *   (G) the PARABOLA ENGINES for 10.3 "The Parabola: Quadratic Graphs
+ *       and Vertices" (run 86, pre-write — every number below existed
+ *       here before any prose): the workhorse y = 2x² − 7x + 3 (ch. 9's
+ *       own example, Δ = 25) priced pointwise on the census table
+ *       x = −2…5; the W×W window scan (exactly 4 integer points inside
+ *       — (0, 3), (1, −2), (2, −3), (3, 0) — with (4, 7) on the curve
+ *       but out the top: the pre-write catch); the fold identity
+ *       y = 2(x − 7/4)² − 25/8 certified by expansion and pointwise at
+ *       all 8 census x's, with the vertex height read as −Δ/(4a);
+ *       the vertex (7/4, −25/8) priced as MINIMUM by the sign of a,
+ *       the gap f(x) − (−25/8) being exactly the square 2(x − 7/4)²;
+ *       the x-intercept verdicts on the three companions — two doors
+ *       (the workhorse, roots 1/2 and 3 cross-priced against the
+ *       factorization (2x − 1)(x − 3)), one tangent touch ((x − 1)²,
+ *       Δ = 0, twins f(1 + t) = t²), none (x² + 1, Δ = −4, the vertex
+ *       floating one unit above) — 9.3's discriminant ledger, drawn;
+ *       the axis of symmetry x = 7/4 mirror-priced pointwise
+ *       (f(7/4 + t) = f(7/4 − t) exact) with the designed twin pairs
+ *       (0, 3)↔(7/2, 3), (1, −2)↔(5/2, −2), (3/2, −3)↔(2, −3),
+ *       (1/2, 0)↔(3, 0) — each pair satisfying the curve and
+ *       midpricing exactly on the axis;
+ *       the probe engines: every vertical probe x = h meets the curve
+ *       exactly once (the input read), every horizontal probe y = k
+ *       solves 2x² − 7x + (3 − k) = 0 with Δ_k = 25 + 8k — two meets
+ *       iff k > −25/8, one iff k = −25/8 (the tangent level, the
+ *       vertex itself), none iff k < −25/8 — the count flips exactly
+ *       at the vertex height, priced on a designed k-scan (5.3's
+ *       verdict machine, bent honestly: a quadratic has at most two
+ *       roots against any level);
+ *       the second-difference engine: first differences −5, −1, 3, 7
+ *       along the integer census, second differences constant 4 = 2a,
+ *       the secant slopes −5, −1, 3, 7 climbing by exactly 2a per
+ *       step — 10.2's steepness theorem BENDS, the honest doorway to
+ *       calculus;
+ *       the opens-down companion y = −x² + 4x + 5 (a = −1 < 0): fold
+ *       −(x − 2)² + 9, vertex (2, 9) a MAXIMUM, Δ = 36, doors (−1, 0)
+ *       and (5, 0) midpointing on the axis, −Δ/(4a) = 9 through the
+ *       sign of a; and the exam echo x(10 − x) peaking at the square
+ *       25 (9.3's census maximum, now an area).
  *
- * Sections D (authored 10.1) and E (authored 10.2) are appended at
- * authoring time and import the chapter file directly — the same battery
- * as runs 73–84 (structure censuses, quiz keys vs pinned, all 28 chapter
- * exercises re-priced exactly, figure geometry vs plans rect-exact +
+ * Sections D (authored 10.1), E (authored 10.2) and H (authored 10.3)
+ * import the chapter file directly — the same battery as runs 73–84
+ * (structure censuses, quiz keys vs pinned, all 42 chapter exercises
+ * re-priced exactly, figure geometry vs plans rect-exact +
  * pairwise-disjoint groups, citation keys, honest word counts, the
  * odd-run backslash scan, the unicode-escape scan, the raw-$ scan, the
  * al- prefix uniqueness across the whole library, the vivid-palette
- * figure scan).
+ * figure scan). Section F (chapter + library) is flipped at close-of-
+ * chapter time, and section I carries the unit-10 completion review
+ * (the closing pattern of runs 68–84).
  */
 
 let passed = 0
@@ -538,7 +580,7 @@ console.log('[B] 10.2 engines: the slope definition, the steepness theorem, the 
 /* (C) the figure geometry plans                                       */
 /* ------------------------------------------------------------------ */
 
-console.log('[C] figure plans pinned: 10.1 addressing map 720×400 + the graph of 3x+2y=6 720×400; 10.2 steepness theorem 720×400 + two-line verdict strip 720×340')
+console.log('[C] figure plans pinned: 10.1 addressing map 720×400 + the graph of 3x+2y=6 720×400; 10.2 steepness theorem 720×400 + two-line verdict strip 720×340; 10.3 workhorse parabola 720×400 + three-verdict strip 720×340')
 
 const plan101Fig1 = {
   name: 'the addressing map (10.1 fig 1)',
@@ -595,8 +637,35 @@ const plan102Fig2 = {
   ],
 }
 
+const plan103Fig1 = {
+  name: 'the workhorse parabola (10.3 fig 1)',
+  view: [720, 400],
+  chips: [
+    [30, 18, 660, 40],
+    [500, 96, 180, 168],
+    [30, 338, 660, 42],
+  ],
+  groups: [[0, 1, 2]],
+}
+
+const plan103Fig2 = {
+  name: 'the three-verdict strip (10.3 fig 2)',
+  view: [720, 340],
+  chips: [
+    [30, 18, 660, 40],
+    [30, 76, 205, 200],
+    [245, 76, 205, 200],
+    [460, 76, 230, 200],
+    [30, 292, 660, 28],
+  ],
+  groups: [
+    [0, 4],
+    [1, 2, 3],
+  ],
+}
+
 {
-  const plans = [plan101Fig1, plan101Fig2, plan102Fig1, plan102Fig2]
+  const plans = [plan101Fig1, plan101Fig2, plan102Fig1, plan102Fig2, plan103Fig1, plan103Fig2]
   for (const pl of plans) {
     const [w, h] = pl.view
     ok(w === 720 && (h === 400 || h === 340), `C ${pl.name}: viewBox 720×${h} pinned`)
@@ -614,7 +683,217 @@ const plan102Fig2 = {
       }
     }
   }
-  console.log('  C the four plans: viewBox bounds + pairwise-disjoint groups asserted')
+  console.log('  C the six plans: viewBox bounds + pairwise-disjoint groups asserted')
+}
+
+/* ------------------------------------------------------------------ */
+/* (G) the parabola engines of lesson 10.3 (run 86, pre-write — every  */
+/*     number here is pinned BEFORE any prose exists)                  */
+/* ------------------------------------------------------------------ */
+
+console.log('[G] 10.3 engines: the census, the window scan, the fold identity, the vertex, the verdicts, the mirror, the probes, the bend, the down companion')
+
+/** exact quadratic evaluator: ax² + bx + c at x */
+function quadAt(a: Frac, b: Frac, c: Frac, x: Frac): Frac {
+  return fAdd(fAdd(fMul(a, fMul(x, x)), fMul(b, x)), c)
+}
+
+// G-i — the census table: y = 2x² − 7x + 3 priced pointwise at x = −2…5
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  const want: [bigint, bigint][] = [
+    [-2n, 25n],
+    [-1n, 12n],
+    [0n, 3n],
+    [1n, -2n],
+    [2n, -3n],
+    [3n, 0n],
+    [4n, 7n],
+    [5n, 18n],
+  ]
+  for (const [x, y] of want) {
+    const got = quadAt(a, b, c, fr(x))
+    ok(fEq(got, fr(y)), `G-i f(${x}) = ${y} exact on y = 2x² − 7x + 3 (got ${fStr(got)})`)
+    // the by-hand expansion the table will print: 2x² then −7x then +3
+    const t1 = fMul(fr(2n), fr(x * x))
+    const t2 = fMul(fr(-7n), fr(x))
+    ok(fEq(fAdd(fAdd(t1, t2), fr(3n)), fr(y)), `G-i the table row x = ${x}: 2·${x * x} + (−7)·${x} + 3 = ${y} exact`)
+  }
+  console.log('  G-i the census table: 8 rows, each priced two ways (evaluator + printed expansion)')
+}
+
+// G-ii — the W×W window scan: exactly 4 integer points inside
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  const inside: string[] = []
+  for (const wx of W) {
+    const yv = quadAt(a, b, c, fr(wx))
+    if (yv.d === 1n && yv.n >= -5n && yv.n <= 5n) inside.push(`(${wx}, ${yv.n})`)
+  }
+  ok(inside.length === 4, `G-ii exactly 4 integer points of the parabola sit inside W×W (got ${inside.length}: ${inside.join(' ')})`)
+  ok(inside.join(' ') === '(0, 3) (1, -2) (2, -3) (3, 0)', 'G-ii the four inside points are (0, 3), (1, −2), (2, −3), (3, 0)')
+  ok(fEq(quadAt(a, b, c, fr(4n)), fr(7n)) && 7n > 5n, 'G-ii (4, 7) sits on the curve but OUT the window top (y = 7 > 5) — the pre-write catch')
+  console.log('  G-ii the window scan: 4 inside, (4, 7) out the top — priced')
+}
+
+// G-iii — the fold identity certified exactly
+{
+  // 2(x − 7/4)² − 25/8 expands to 2x² − 7x + 49/8 − 25/8 = 2x² − 7x + 24/8
+  const cross = fMul(fr(2n), fMul(fr(2n), fr(-7n, 4n)))
+  ok(fEq(cross, fr(-7n)), 'G-iii the cross term 2·2·(−7/4) = −7 — the linear coefficient survives the fold')
+  const foldedConst = fSub(fMul(fr(2n), fMul(fr(7n, 4n), fr(7n, 4n))), fr(25n, 8n))
+  ok(fEq(foldedConst, fr(3n)), `G-iii the constant 2·(49/16) − 25/8 = 49/8 − 25/8 = ${fStr(foldedConst)} — the identity closes on +3`)
+  for (const x of [-2n, -1n, 0n, 1n, 2n, 3n, 4n, 5n]) {
+    const t = fSub(fr(x), fr(7n, 4n))
+    const fold = fSub(fMul(fr(2n), fMul(t, t)), fr(25n, 8n))
+    ok(fEq(fold, quadAt(fr(2n), fr(-7n), fr(3n), fr(x))), `G-iii at x = ${x} the fold form prices ${fStr(fold)} = f(x) exactly`)
+  }
+  const Delta = fSub(fMul(fr(-7n), fr(-7n)), fMul(fr(4n), fMul(fr(2n), fr(3n))))
+  ok(fEq(Delta, fr(25n)), 'G-iii Δ = (−7)² − 4·2·3 = 49 − 24 = 25 — ch. 9’s own discriminant')
+  ok(fEq(fNeg(fDiv(Delta, fMul(fr(4n), fr(2n)))), fr(-25n, 8n)), 'G-iii −Δ/(4a) = −25/8 — the vertex height IS the fold’s drop (9.3’s master identity wearing a y)')
+  console.log('  G-iii the fold identity: expansion + 8 pointwise certs + the Δ/(4a) readout')
+}
+
+// G-iv — the vertex engine: the minimum priced by the sign of a
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  const vx = fNeg(fDiv(b, fMul(fr(2n), a)))
+  ok(fEq(vx, fr(7n, 4n)), 'G-iv the vertex sits at x = −b/2a = −(−7)/4 = 7/4 — 9.3’s centre, drawn')
+  const vy = quadAt(a, b, c, vx)
+  ok(fEq(vy, fr(-25n, 8n)), 'G-iv the vertex height f(7/4) = −25/8')
+  ok(a.n > 0n, 'G-iv a = 2 > 0 — the bowl opens UP, the vertex is the MINIMUM')
+  for (const x of [-2n, -1n, 0n, 1n, 2n, 3n, 4n, 5n]) {
+    const gap = fSub(quadAt(a, b, c, fr(x)), fr(-25n, 8n))
+    ok(gap.n >= 0n, `G-iv f(${x}) − (−25/8) = ${fStr(gap)} ≥ 0 — no census point beats the vertex height`)
+    const t = fSub(fr(x), fr(7n, 4n))
+    ok(fEq(gap, fMul(fr(2n), fMul(t, t))), `G-iv the gap at x = ${x} IS the square 2(x − 7/4)² — the fold proves the minimum`)
+  }
+  console.log('  G-iv the vertex engine: (7/4, −25/8) minimum, the gap = the square, priced pointwise')
+}
+
+// G-v — the x-intercept verdicts on the three companions, cross-priced vs factorization
+{
+  // TWO doors: the workhorse, Δ = 25 > 0
+  ok(fIsZero(quadAt(fr(2n), fr(-7n), fr(3n), fr(1n, 2n))), 'G-v the door (1/2, 0) satisfies the workhorse')
+  ok(fIsZero(quadAt(fr(2n), fr(-7n), fr(3n), fr(3n))), 'G-v the door (3, 0) satisfies the workhorse')
+  ok(fEq(fAdd(fMul(fr(2n), fr(-3n)), fMul(fr(-1n), fr(1n))), fr(-7n)) && fEq(fMul(fr(-1n), fr(-3n)), fr(3n)), 'G-v (2x − 1)(x − 3) = 2x² − 7x + 3 — the doors are the factorization’s roots, cross-priced')
+  // ONE tangent touch: y = x² − 2x + 1 = (x − 1)², Δ = 0
+  ok(fIsZero(quadAt(fr(1n), fr(-2n), fr(1n), fr(1n))), 'G-v the touch (1, 0) satisfies y = x² − 2x + 1')
+  ok(fIsZero(fSub(fMul(fr(-2n), fr(-2n)), fMul(fr(4n), fr(1n)))), 'G-v Δ = 4 − 4 = 0 — the two doors fused into one tangent touch (9.3’s middle verdict)')
+  for (const t of [fr(1n, 2n), fr(1n), fr(2n)]) {
+    ok(fEq(quadAt(fr(1n), fr(-2n), fr(1n), fAdd(fr(1n), t)), fMul(t, t)), `G-v the touch curve twins: f(1 + ${fStr(t)}) = ${fStr(fMul(t, t))} = f(1 − ${fStr(t)})`)
+  }
+  // NONE: y = x² + 1, Δ = −4
+  ok(fEq(fSub(fr(0n), fMul(fr(4n), fr(1n))), fr(-4n)), 'G-v Δ = 0 − 4 = −4 < 0 — the x-axis probe finds NO meet')
+  ok(fEq(quadAt(fr(1n), fr(0n), fr(1n), fr(0n)), fr(1n)), 'G-v the vertex (0, 1) floats one unit above the axis — the minimum height IS the gap')
+  console.log('  G-v the three verdicts: two doors / one touch / none — each cross-priced with its factorization')
+}
+
+// G-vi — the axis of symmetry mirror-priced pointwise + the designed twin pairs
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  const vx = fr(7n, 4n)
+  for (const t of [fr(1n, 4n), fr(1n, 2n), fr(3n, 4n), fr(5n, 4n), fr(9n, 4n)]) {
+    const right = quadAt(a, b, c, fAdd(vx, t))
+    const left = quadAt(a, b, c, fSub(vx, t))
+    ok(fEq(right, left), `G-vi the mirror: f(7/4 + ${fStr(t)}) = f(7/4 − ${fStr(t)}) = ${fStr(right)} exact`)
+  }
+  const twins: [Frac, Frac, Frac][] = [
+    [fr(0n), fr(7n, 2n), fr(3n)],
+    [fr(1n), fr(5n, 2n), fr(-2n)],
+    [fr(3n, 2n), fr(2n), fr(-3n)],
+    [fr(1n, 2n), fr(3n), fr(0n)],
+  ]
+  for (const [x1, x2, y] of twins) {
+    ok(fEq(quadAt(a, b, c, x1), y) && fEq(quadAt(a, b, c, x2), y), `G-vi both twins of the y = ${fStr(y)} pair price the same height`)
+    ok(fEq(fDiv(fAdd(x1, x2), fr(2n)), vx), `G-vi the pair's midpoint x = ${fStr(fDiv(fAdd(x1, x2), fr(2n)))} = 7/4 — the axis, exact`)
+  }
+  console.log('  G-vi the mirror engine: 5 pointwise mirrors + 4 twin pairs, each midpointing on x = 7/4')
+}
+
+// G-vii — the probes: vertical exactly once; horizontal two/one/none with the hinge at the vertex height
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  for (const h of [-2n, -1n, 0n, 1n, 2n, 3n, 4n, 5n]) {
+    const yv = quadAt(a, b, c, fr(h))
+    ok(yv.d === 1n, `G-vii the vertical probe x = ${h} meets the curve EXACTLY once, at (${h}, ${fStr(yv)}) — the input read`)
+  }
+  // horizontal probes: 2x² − 7x + (3 − k) = 0 has discriminant Δ_k = 25 + 8k
+  const Dk = (k: Frac): Frac => fAdd(fr(25n), fMul(fr(8n), k))
+  ok(fEq(Dk(fr(-4n)), fr(-7n)), 'G-vii k = −4: Δ_k = 25 − 32 = −7 < 0 — no meet (the level passes under the bowl)')
+  ok(fIsZero(Dk(fr(-25n, 8n))), 'G-vii k = −25/8: Δ_k = 0 — exactly one meet, the vertex itself (the tangent level)')
+  ok(fEq(Dk(fr(0n)), fr(25n)), 'G-vii k = 0: Δ_k = 25 > 0 — two meets: the x-intercepts themselves')
+  ok(fEq(Dk(fr(5n)), fr(65n)), 'G-vii k = 5: Δ_k = 65 > 0 — two meets at x = (7 ± √65)/4 (9.3’s formula on the shifted constant)')
+  ok(fEq(fNeg(fDiv(fr(25n), fr(8n))), fr(-25n, 8n)), 'G-vii the hinge: Δ_k > 0 ⟺ 25 + 8k > 0 ⟺ k > −25/8 = the vertex height — the count flips exactly there')
+  // the k-scan: the trichotomy is exhaustive — every level lands in exactly one verdict
+  let two = 0
+  let one = 0
+  let none = 0
+  const levels: Frac[] = [fr(-5n), fr(-4n), fr(-3n), fr(-2n), fr(-25n, 8n), fr(0n), fr(3n), fr(5n)]
+  for (const k of levels) {
+    const d = Dk(k)
+    if (d.n > 0n) two++
+    else if (fIsZero(d)) one++
+    else none++
+  }
+  ok(two === 5 && one === 1 && none === 2, `G-vii the k-scan: ${two} two-meet levels, ${one} tangent level, ${none} none — the trichotomy exhaustive, at most two against ANY level`)
+  console.log('  G-vii the probe engines: 8 vertical one-meets + the Δ_k hinge + the exhaustive k-scan (two/one/none)')
+}
+
+// G-viii — the second-difference engine and the secant bend (10.2's bridge)
+{
+  const a = fr(2n)
+  const b = fr(-7n)
+  const c = fr(3n)
+  const vals: Frac[] = [0n, 1n, 2n, 3n, 4n].map((x) => quadAt(a, b, c, fr(x)))
+  const d1: Frac[] = []
+  for (let i = 0; i < 4; i++) d1.push(fSub(vals[i + 1], vals[i]))
+  const d2: Frac[] = []
+  for (let i = 0; i < 3; i++) d2.push(fSub(d1[i + 1], d1[i]))
+  ok(JSON.stringify(vals.map(fStr)) === JSON.stringify(['3', '-2', '-3', '0', '7']), `G-viii the census values f(0…4) = 3, −2, −3, 0, 7 (got ${vals.map(fStr).join(', ')})`)
+  ok(JSON.stringify(d1.map(fStr)) === JSON.stringify(['-5', '-1', '3', '7']), `G-viii the first differences are −5, −1, 3, 7 (got ${d1.map(fStr).join(', ')}) — a LINE's would be constant`)
+  ok(JSON.stringify(d2.map(fStr)) === JSON.stringify(['4', '4', '4']), `G-viii the second differences are constant ${d2.map(fStr).join(', ')} = 2a — the signature of degree 2`)
+  for (let i = 0; i < 3; i++) {
+    ok(fEq(fSub(d1[i + 1], d1[i]), fMul(fr(2n), a)), `G-viii the secant steepness climbs ${fStr(d1[i])} → ${fStr(d1[i + 1])}: +4 = 2a each step`)
+  }
+  ok(
+    fEq(slopeOf(pt(0n, 3n), pt(1n, -2n)), fr(-5n)) &&
+      fEq(slopeOf(pt(1n, -2n), pt(2n, -3n)), fr(-1n)) &&
+      fEq(slopeOf(pt(2n, -3n), pt(3n, 0n)), fr(3n)) &&
+      fEq(slopeOf(pt(3n, 0n), pt(4n, 7n)), fr(7n)),
+    'G-viii the four secant slopes −5, −1, 3, 7 priced exactly — 10.2’s theorem BENDS along the curve',
+  )
+  console.log('  G-viii the bend engine: constant second difference 4 = 2a, secant climb +4 per step')
+}
+
+// G-ix — the opens-down companion and the max/min read
+{
+  const a = fr(-1n)
+  const b = fr(4n)
+  const c = fr(5n)
+  const vx = fNeg(fDiv(b, fMul(fr(2n), a)))
+  ok(fEq(vx, fr(2n)), 'G-ix the down-bowl’s vertex sits at x = −4/(−2) = 2')
+  ok(fEq(quadAt(a, b, c, vx), fr(9n)), 'G-ix the vertex height f(2) = 9 — a MAXIMUM (a < 0, the bowl opens DOWN)')
+  for (const x of [-1n, 0n, 1n, 2n, 3n, 5n]) {
+    const t = fSub(fr(x), fr(2n))
+    ok(fEq(fAdd(fNeg(fMul(t, t)), fr(9n)), quadAt(a, b, c, fr(x))), `G-ix at x = ${x} the fold −(x − 2)² + 9 prices ${fStr(quadAt(a, b, c, fr(x)))} exactly`)
+  }
+  const D = fSub(fMul(fr(4n), fr(4n)), fMul(fr(4n), fMul(fr(-1n), fr(5n))))
+  ok(fEq(D, fr(36n)), 'G-ix Δ = 16 + 20 = 36 > 0 — two doors even for a down-bowl')
+  ok(fIsZero(quadAt(a, b, c, fr(-1n))) && fIsZero(quadAt(a, b, c, fr(5n))), 'G-ix the doors (−1, 0) and (5, 0) priced; their midpoint (−1 + 5)/2 = 2 is the axis again')
+  ok(fEq(fNeg(fDiv(D, fMul(fr(4n), a))), fr(9n)), 'G-ix −Δ/(4a) = −36/(−4) = 9 — the master identity reads the MAXIMUM through the sign of a')
+  ok(fEq(quadAt(fr(-1n), fr(10n), fr(0n), fr(5n)), fr(25n)), 'G-ix the exam echo: the rectangle area x(10 − x) peaks at 25 when x = 5 — the square, again (9.3’s census maximum, now an area)')
+  console.log('  G-ix the down companion: vertex (2, 9) max, doors −1 and 5, the area echo 25')
 }
 
 /* ------------------------------------------------------------------ */
@@ -628,6 +907,7 @@ const ch10mod: any = await import('../src/data/library/books/mathematics/element
 const chapter10 = ch10mod.chapter10 as any
 const lesson101 = chapter10.lessons[0]
 const lesson102 = chapter10.lessons[1]
+const lesson103 = chapter10.lessons[2]
 
 const fs = await import('node:fs')
 const sourceLog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
@@ -639,7 +919,7 @@ function sectionD(): void {
   ok(lesson101.number === '10.1', 'D the 10.1 number is 10.1')
   ok(lesson101.title === 'The Coordinate Plane and Linear Graphs', 'D the 10.1 title matches the book.ts plan')
   ok(chapter10.number === 10 && chapter10.slug === 'graphs-of-equations', 'D chapter 10 slug graphs-of-equations')
-  ok(chapter10.status === 'in-progress', 'D chapter 10 status in-progress (opening run)')
+  ok(chapter10.status === 'complete', 'D chapter 10 status complete (closing run 86)')
 
   // structure census
   const kinds: Record<string, number> = {}
@@ -930,11 +1210,11 @@ function sectionE(): void {
 /* (F) the chapter + library battery                                   */
 /* ------------------------------------------------------------------ */
 
-console.log('[F] chapter + library: registration, id uniqueness, the promised arcs')
+console.log('[F] chapter CLOSED + library: registration, id uniqueness, the promised arcs, the closing state')
 
 function sectionF(): void {
-  ok(chapter10.lessons.length === 2, 'F chapter 10 carries exactly the two lessons of this run')
-  ok(chapter10.lessons[0].id !== chapter10.lessons[1].id, 'F the two lesson ids differ')
+  ok(chapter10.lessons.length === 3, 'F chapter 10 carries exactly the three lessons of the closed chapter')
+  ok(chapter10.lessons[0].id !== chapter10.lessons[1].id && chapter10.lessons[1].id !== chapter10.lessons[2].id && chapter10.lessons[0].id !== chapter10.lessons[2].id, 'F the three lesson ids differ pairwise')
   // al- prefix + global uniqueness across the whole library
   const seen = new Map<string, string>()
   for (const book of allBooks) {
@@ -951,21 +1231,302 @@ function sectionF(): void {
   // the book registration carries the chapter
   const alg = allBooks.find((b: any) => b.id === 'elementary-algebra')
   ok(!!alg, 'F the elementary-algebra book is registered')
-  ok(alg!.chapters.some((c: any) => c.number === 10 && c.lessons.length === 2), 'F book.ts carries chapter 10 with 2 lessons')
-  // the planned stub for ch. 11 still exists
+  ok(alg!.chapters.some((c: any) => c.number === 10 && c.lessons.length === 3), 'F book.ts carries chapter 10 with 3 lessons')
+  // the planned stub for ch. 11 still exists — NEVER opened this run
   const ch11 = alg!.chapters.find((c: any) => c.number === 11)
-  ok(!!ch11 && (ch11.plannedLessons || []).length === 3 && ch11.lessons.length === 0, 'F chapter 11 remains planned with its 3 titles')
-  // no ch. 11 lessons, no unit-10 review this run
-  ok(!ch10File.includes("number: '10.3'"), 'F no 10.3 in this run (it rides run 86)')
-  ok(alg!.chapters.find((c: any) => c.number === 10)!.lessons.length === 2, 'F the unit-10 review is NOT in this run')
-  // cross-lesson arcs: the promised mentions
+  ok(!!ch11 && (ch11.plannedLessons || []).length === 3 && ch11.lessons.length === 0 && ch11.status === 'planned', 'F chapter 11 remains planned with its 3 titles — never opened in run 86')
+  // the closing state: chapter complete, no planned lessons
+  ok(chapter10.status === 'complete', 'F chapter 10 status flipped to complete')
+  ok(!chapter10.plannedLessons || chapter10.plannedLessons.length === 0, 'F no planned lessons remain in chapter 10')
+  // cross-lesson arcs: the promised mentions across the closed chapter
   ok(ch10File.includes('5.3') && ch10File.includes('6.2') && ch10File.includes('6.3') && ch10File.includes('9.3'), 'F the promised cross-references (5.3, 6.2, 6.3, 9.3) appear in the chapter')
-  console.log('  F the chapter + library battery: registration, uniqueness, arcs — priced')
+  ok(ch10File.includes('9.2') && ch10File.includes('9.4'), 'F the closing arcs add 9.2 (the fold) and 9.4 (Viète) by name')
+  console.log('  F the chapter-close + library battery: 3 lessons, status complete, ch. 11 untouched — priced')
+}
+
+/* ------------------------------------------------------------------ */
+/* (H) the authored lesson 10.3 — structure census, quiz keys, 14      */
+/*     exercises re-priced, figure geometry vs plan, scans             */
+/* ------------------------------------------------------------------ */
+
+console.log('[H] 10.3 authored: identity, structure census, quiz keys [0,2,0,2,1], 14 exercises re-priced, figure plans, scans')
+
+function sectionH(): void {
+  ok(lesson103.id === 'al-the-parabola-quadratic-graphs-and-vertices', 'H the 10.3 id is al-the-parabola-quadratic-graphs-and-vertices')
+  ok(lesson103.number === '10.3', 'H the 10.3 number is 10.3')
+  ok(lesson103.title === 'The Parabola: Quadratic Graphs and Vertices', 'H the 10.3 title matches the book.ts plan')
+
+  const kinds: Record<string, number> = {}
+  for (const b of lesson103.blocks) kinds[b.kind] = (kinds[b.kind] || 0) + 1
+  ok(kinds['para'] === 13, `H 10.3 has 13 paras (got ${kinds['para']})`)
+  ok(kinds['heading'] === 4, `H 10.3 has 4 headings (got ${kinds['heading']})`)
+  ok(kinds['table'] === 1, `H 10.3 has 1 table (got ${kinds['table']})`)
+  ok(kinds['figure'] === 2, `H 10.3 has 2 figures`)
+  ok(kinds['terms'] === 1, 'H 10.3 has 1 terms block')
+  ok(kinds['equation'] === 2, `H 10.3 has 2 equations (got ${kinds['equation']})`)
+  ok(kinds['example'] === 3, `H 10.3 has 3 examples`)
+  ok(kinds['derivation'] === 1, `H 10.3 has 1 derivation (the vertex formula)`)
+  ok(kinds['callout'] === 5, `H 10.3 has 5 callouts (warn, theorem, insight, historical, exam)`)
+  ok(kinds['list'] === 1, 'H 10.3 has 1 summary list')
+  ok(kinds['formula'] === 3, 'H 10.3 has 3 formula cards')
+  ok(kinds['quiz'] === 1 && kinds['exercises'] === 1, 'H 10.3 has 1 quiz + 1 exercise set')
+  const tones103 = lesson103.blocks.filter((b: any) => b.kind === 'callout').map((b: any) => b.tone)
+  for (const t of ['warn', 'theorem', 'insight', 'historical', 'exam']) {
+    ok(tones103.includes(t), `H 10.3 carries the ${t} callout`)
+  }
+  ok(lesson103.concepts.length >= 5 && lesson103.concepts.length <= 8, 'H 10.3 concepts 5–8')
+  ok((lesson103.objectives || []).length >= 5, 'H 10.3 objectives >= 5')
+  ok((lesson103.prerequisites || []).length === 4, 'H 10.3 prerequisites = 4')
+
+  // quiz keys vs pinned [0, 2, 0, 2, 1]
+  const quiz103 = lesson103.blocks.find((b: any) => b.kind === 'quiz')
+  const keys103 = quiz103.items.map((it: any) => it.answer)
+  ok(JSON.stringify(keys103) === JSON.stringify([0, 2, 0, 2, 1]), `H 10.3 quiz keys are [0,2,0,2,1] (got ${JSON.stringify(keys103)})`)
+  ok(quiz103.items.length === 5, 'H 10.3 quiz has 5 items')
+  for (const it of quiz103.items) {
+    ok(it.options.length === 4 && it.explain.length > 80, 'H 10.3 quiz item: 4 options + full explanation')
+  }
+  // quiz distractor prices
+  ok(fEq(fNeg(fDiv(fr(-7n), fMul(fr(2n), fr(2n)))), fr(7n, 4n)) && fEq(fNeg(fDiv(fr(25n), fMul(fr(4n), fr(2n)))), fr(-25n, 8n)), 'H 10.3 quiz Q1: the vertex readout −b/2a = 7/4 and −Δ/4a = −25/8 exact')
+  ok(fIsZero(quadAt(fr(1n), fr(-2n), fr(1n), fr(1n))) && fIsZero(fSub(fMul(fr(-2n), fr(-2n)), fMul(fr(4n), fr(1n)))), 'H 10.3 quiz Q2: the touch (1, 0) and Δ = 0 exact')
+  ok(fEq(quadAt(fr(-1n), fr(4n), fr(5n), fr(2n)), fr(9n)) && fEq(fNeg(fDiv(fr(36n), fMul(fr(4n), fr(-1n)))), fr(9n)), 'H 10.3 quiz Q3: the max vertex (2, 9) both ways')
+  ok(fIsZero(DkOf(fr(-25n, 8n))) && DkOf(fr(0n)).n === 25n && DkOf(fr(3n)).n === 49n, 'H 10.3 quiz Q4: Δ_k = 0 at −25/8, 25 at k = 0, 49 at k = 3 — distractors cut twice')
+  ok(fEq(fNeg(fDiv(fr(4n), fMul(fr(2n), fr(-1n)))), fr(2n)) && fEq(fDiv(fAdd(fr(-1n), fr(5n)), fr(2n)), fr(2n)), 'H 10.3 quiz Q5: the axis −b/2a = 2 = the doors\' midpoint')
+
+  // the 14 exercises re-priced exactly
+  const ex103 = lesson103.blocks.find((b: any) => b.kind === 'exercises')
+  let n103 = 0
+  for (const set of ex103.sets) n103 += set.questions.length
+  ok(n103 === 14, `H 10.3 has 14 exercises (got ${n103})`)
+  ok(JSON.stringify(ex103.sets.map((s: any) => s.questions.length)) === JSON.stringify([3, 3, 3, 3, 1, 1]), 'H 10.3 exercise ladder 3/3/3/3/1/1')
+  // L1-1 the table of x² − 2x − 3 and the axis read
+  ok(JSON.stringify([-1n, 0n, 1n, 2n, 3n].map((x) => fStr(quadAt(fr(1n), fr(-2n), fr(-3n), fr(x))))) === JSON.stringify(['0', '-3', '-4', '-3', '0']), 'H 10.3 L1-1 the five values 0, −3, −4, −3, 0 exact')
+  ok(fEq(fDiv(fAdd(fr(-1n), fr(3n)), fr(2n)), fr(1n)) && fEq(fDiv(fAdd(fr(0n), fr(2n)), fr(2n)), fr(1n)), 'H 10.3 L1-1 both twin pairs midpoint on x = 1')
+  // L1-2 the pre-folded read
+  ok(fEq(fAdd(fAdd(fMul(fr(1n), fMul(fr(2n), fr(2n))), fMul(fr(-4n), fr(2n))), fr(-1n)), fr(-5n)), 'H 10.3 L1-2 (x − 2)² − 5 expands to x² − 4x − 1 and prices f(2) = −5')
+  ok(fEq(fNeg(fDiv(fr(20n), fMul(fr(4n), fr(1n)))), fr(-5n)), 'H 10.3 L1-2 −Δ/4a = −20/4 = −5 exact')
+  // L1-3 the intercept + the door verdict
+  ok(fEq(quadAt(fr(3n), fr(-6n), fr(1n), fr(0n)), fr(1n)) && fEq(fSub(fMul(fr(-6n), fr(-6n)), fMul(fr(4n), fMul(fr(3n), fr(1n)))), fr(24n)), 'H 10.3 L1-3 f(0) = 1 and Δ = 24 > 0 exact')
+  ok(fEq(fNeg(fDiv(fr(24n), fMul(fr(4n), fr(3n)))), fr(-2n)), 'H 10.3 L1-3 the vertex height −24/12 = −2 exact')
+  // L2-1 the readout vs the doors
+  ok(fEq(fNeg(fDiv(fr(-6n), fMul(fr(2n), fr(1n)))), fr(3n)) && fEq(fNeg(fDiv(fr(16n), fMul(fr(4n), fr(1n)))), fr(-4n)), 'H 10.3 L2-1 the readout vertex (3, −4) exact')
+  ok(fEq(fDiv(fAdd(fr(1n), fr(5n)), fr(2n)), fr(3n)) && fIsZero(quadAt(fr(1n), fr(-6n), fr(5n), fr(1n))) && fIsZero(quadAt(fr(1n), fr(-6n), fr(5n), fr(5n))), 'H 10.3 L2-1 the doors midpoint on 3 and both satisfy the curve')
+  ok(fEq(quadAt(fr(1n), fr(-6n), fr(5n), fr(3n)), fr(-4n)) && fEq(fAdd(fMul(fSub(fr(3n), fr(3n)), fSub(fr(3n), fr(3n))), fr(-4n)), fr(-4n)), 'H 10.3 L2-1 the fold (x − 3)² − 4 prices f(3) = −4 — the vertex height, exact')
+  // L2-2 the max readout
+  ok(fEq(fNeg(fDiv(fr(8n), fMul(fr(2n), fr(-2n)))), fr(2n)) && fEq(fNeg(fDiv(fr(24n), fMul(fr(4n), fr(-2n)))), fr(3n)) && fEq(quadAt(fr(-2n), fr(8n), fr(-5n), fr(2n)), fr(3n)), 'H 10.3 L2-2 the vertex (2, 3) priced three ways (readout x, readout height, substitution)')
+  // L2-3 the fold + the reconciliation
+  ok(fEq(fAdd(fMul(fAdd(fr(-2n), fr(2n)), fAdd(fr(-2n), fr(2n))), fr(3n)), fr(3n)), 'H 10.3 L2-3 the fold (x + 2)² + 3 prices f(−2) = 3')
+  ok(fEq(fSub(fMul(fr(4n), fr(4n)), fMul(fr(4n), fr(7n))), fr(-12n)) && fEq(fNeg(fDiv(fr(-12n), fMul(fr(4n), fr(1n)))), fr(3n)), 'H 10.3 L2-3 Δ = −12 < 0 and −Δ/4a = 3 — the same fact said twice')
+  // L3-1 the twins
+  ok(fEq(quadAt(fr(2n), fr(-7n), fr(3n), fr(5n, 2n)), fr(-2n)) && fEq(quadAt(fr(2n), fr(-7n), fr(3n), fr(7n, 2n)), fr(3n)), 'H 10.3 L3-1 the twins (5/2, −2) and (7/2, 3) satisfy the curve exactly')
+  ok(fEq(fDiv(fAdd(fr(1n), fr(5n, 2n)), fr(2n)), fr(7n, 4n)) && fEq(fDiv(fAdd(fr(0n), fr(7n, 2n)), fr(2n)), fr(7n, 4n)), 'H 10.3 L3-1 both twin midpoints land on 7/4')
+  // L3-2 the shifted discriminant
+  ok(fIsZero(quadAt(fr(2n), fr(-7n), fr(2n), fr(0n))) === false && fEq(fSub(fMul(fr(-7n), fr(-7n)), fMul(fr(4n), fMul(fr(2n), fr(2n)))), fr(33n)), 'H 10.3 L3-2 the meet equation 2x² − 7x + 2 has Δ₁ = 33 = 25 + 8')
+  // L3-3 the floating bowl
+  ok(fEq(fSub(fr(1n), fMul(fr(4n), fr(1n))), fr(-3n)) && fEq(quadAt(fr(1n), fr(1n), fr(1n), fr(-1n, 2n)), fr(3n, 4n)), 'H 10.3 L3-3 Δ = −3 and the vertex (−1/2, 3/4) exact')
+  // L4-1 the k-hunt
+  ok(fIsZero(fSub(fr(16n), fMul(fr(4n), fr(4n)))) && fEq(fAdd(fMul(fSub(fr(2n), fr(2n)), fSub(fr(2n), fr(2n))), fr(0n)), fr(0n)), 'H 10.3 L4-1 k = 4 gives Δ = 0 and the touch curve (x − 2)²')
+  // L4-2 the second differences of 3x² − 2x + 1
+  {
+    const vals = [0n, 1n, 2n, 3n].map((x) => quadAt(fr(3n), fr(-2n), fr(1n), fr(x)))
+    ok(JSON.stringify(vals.map(fStr)) === JSON.stringify(['1', '2', '9', '22']), `H 10.3 L4-2 the values 1, 2, 9, 22 (got ${vals.map(fStr).join(', ')})`)
+    ok(fEq(fSub(vals[1], vals[0]), fr(1n)) && fEq(fSub(vals[2], vals[1]), fr(7n)) && fEq(fSub(vals[3], vals[2]), fr(13n)), 'H 10.3 L4-2 the first differences 1, 7, 13 exact')
+    ok(fEq(fSub(fr(7n), fr(1n)), fr(6n)) && fEq(fSub(fr(13n), fr(7n)), fr(6n)), 'H 10.3 L4-2 the second differences 6, 6 = 2a with a = 3')
+  }
+  // L4-3 the secant climb on x² − 2x − 3
+  ok(fEq(slopeOf(pt(0n, -3n), pt(1n, -4n)), fr(-1n)) && fEq(slopeOf(pt(1n, -4n), pt(2n, -3n)), fr(1n)) && fEq(slopeOf(pt(2n, -3n), pt(3n, 0n)), fr(3n)), 'H 10.3 L4-3 the secant slopes −1, 1, 3 exact')
+  ok(fEq(fSub(fr(1n), fMul(fr(-1n), fr(-1n))), fr(0n)) && fEq(fSub(fr(3n), fr(1n)), fr(2n)), 'H 10.3 L4-3 the climb is +2 = 2a per step (a = 1)')
+  // L5-1 the rectangle maximum
+  ok(fEq(fNeg(fDiv(fr(10n), fMul(fr(2n), fr(-1n)))), fr(5n)) && fEq(quadAt(fr(-1n), fr(10n), fr(0n), fr(5n)), fr(25n)), 'H 10.3 L5-1 the vertex x = 5 prices the maximum area 25')
+  ok(fEq(fNeg(fDiv(fr(100n), fMul(fr(4n), fr(-1n)))), fr(25n)), 'H 10.3 L5-1 the discriminant readout −Δ/4a = −100/(−4) = 25 agrees')
+  // L6-1 the three verdicts on the workhorse
+  ok(fEq(DkOf(fr(-4n)), fr(-7n)) && fIsZero(DkOf(fr(-25n, 8n))) && fEq(DkOf(fr(5n)), fr(65n)), 'H 10.3 L6-1 Δ_k = −7 / 0 / 65 at k = −4, −25/8, 5 — none / one / two')
+
+  // figure geometry vs plan
+  const figs103 = lesson103.blocks.filter((b: any) => b.kind === 'figure')
+  ok(figs103.length === 2, 'H 10.3 exactly two figures')
+  checkFigureAgainstPlan(figs103[0].svg, plan103Fig1, 400, 'H 10.3 fig 1')
+  checkFigureAgainstPlan(figs103[1].svg, plan103Fig2, 340, 'H 10.3 fig 2')
+
+  // citations
+  for (const key of lesson103.sources) {
+    ok(sourceLog.includes(key), `H 10.3 citation key ${key} banked in SOURCE_LOG.md`)
+  }
+
+  // honest word count
+  const words103 = countLessonWords(lesson103)
+  ok(words103 >= 4000, `H 10.3 honest word count ${words103} ≥ 4,000`)
+
+  // hygiene scans
+  scanFileHygiene(ch10File, 'H 10.3')
+  ok(!lesson103.title.includes('$'), 'H 10.3 title carries no raw $')
+
+  console.log(`  H 10.3 honest word count: ${words103}`)
+}
+
+/** the shifted discriminant of the workhorse: Δ_k = 25 + 8k */
+function DkOf(k: Frac): Frac {
+  return fAdd(fr(25n), fMul(fr(8n), k))
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) the unit-10 completion review                                   */
+/* ------------------------------------------------------------------ */
+
+console.log('[I] unit-10 completion review: the checklist, exam corners, the closing snapshot')
+
+function sectionI(): void {
+  // 1 — every lesson of the chapter clears the 4,000-word floor
+  const wordCounts = chapter10.lessons.map((l) => countLessonWords(l))
+  for (let i = 0; i < chapter10.lessons.length; i++) {
+    ok(wordCounts[i] >= 4000, `I-1: lesson 10.${i + 1} honest word count ${wordCounts[i]} >= 4000`)
+  }
+  console.log('  I-1 word floors: ' + chapter10.lessons.map((l, i) => '10.' + (i + 1) + '=' + wordCounts[i]).join(', '))
+
+  // 2 — quiz keys match the pinned batteries of D/E/H
+  const pinnedKeys: string[][] = [
+    [2, 1, 1, 2, 2].map(String),
+    [0, 1, 2, 2, 0].map(String),
+    [0, 2, 0, 2, 1].map(String),
+  ]
+  for (let i = 0; i < 3; i++) {
+    const q = chapter10.lessons[i].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => String(it.answer))
+      ok(JSON.stringify(keys) === JSON.stringify(pinnedKeys[i]), `I-2: quiz keys of 10.${i + 1} match the pinned battery`)
+    }
+  }
+
+  // 3 — every exercise carries a chain and a terminal answer; the chapter holds 42
+  let totalExercises = 0
+  let chainFailures = 0
+  for (const l of chapter10.lessons) {
+    for (const b of l.blocks) {
+      if (b.kind === 'exercises') {
+        for (const s of b.sets) {
+          for (const q of s.questions) {
+            totalExercises++
+            if (!(Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer)) chainFailures++
+          }
+        }
+      }
+    }
+  }
+  ok(totalExercises === 42, 'I-3: the chapter holds 42 exercises (got ' + totalExercises + ')')
+  ok(chainFailures === 0, 'I-3: every exercise carries a solution chain + terminal answer (' + chainFailures + ' failures)')
+
+  // 4 — six figures, all viewBoxed, all vivid-palette clean
+  const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+  let figCount = 0
+  let figFailures = 0
+  for (const l of chapter10.lessons) {
+    for (const b of l.blocks) {
+      if (b.kind === 'figure') {
+        figCount++
+        if (!b.svg.includes('viewBox=') || retired.some((h) => b.svg.toLowerCase().includes(h))) figFailures++
+      }
+    }
+  }
+  ok(figCount === 6, 'I-4: the chapter carries 6 figures (got ' + figCount + ')')
+  ok(figFailures === 0, 'I-4: every figure viewBoxed and vivid-palette clean (' + figFailures + ' failures)')
+
+  // 5 — the cross-lesson arcs closed: the chapter speaks with one voice
+  const lessonText = (idx: number): string => {
+    const parts: string[] = []
+    for (const b of chapter10.lessons[idx].blocks) {
+      if (b.kind === 'para' || b.kind === 'heading') parts.push(b.text)
+      if (b.kind === 'callout') parts.push(b.title, b.text)
+      if (b.kind === 'example') parts.push(b.title, ...b.steps.map((s: any) => (typeof s === 'string' ? s : s.explanation || '')))
+      if (b.kind === 'derivation') parts.push(b.title, b.statement, ...b.steps.map((s: any) => s.label + ' ' + (s.formula || '') + ' ' + s.explanation), b.result)
+      if (b.kind === 'terms') for (const t of b.items) parts.push(t.term, t.def)
+      if (b.kind === 'list') parts.push(...b.items)
+      if (b.kind === 'quiz') for (const it of b.items) parts.push(it.q, it.explain)
+      if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) { parts.push(q.q); if (Array.isArray(q.solution)) for (const st of q.solution) parts.push(typeof st === 'string' ? st : st.explanation || ''); parts.push(q.answer) }
+      if (b.kind === 'table') { parts.push(b.caption); for (const r of b.rows) parts.push(...r) }
+    }
+    return parts.join(' ')
+  }
+  const t1 = lessonText(0)
+  const t2 = lessonText(1)
+  const t3 = lessonText(2)
+  ok(t1.includes('5.3') && t1.includes('6.2') && t1.includes('6.3'), 'I-5: 10.1 pays its debts by name — 5.3’s one door, 6.2’s crossing, 6.3’s two points')
+  ok(t2.includes('5.3') && (t2.includes('parallel') || t2.includes('Parallel')), 'I-5: 10.2 draws 5.3’s three verdicts and carries the parallel condition')
+  ok(t3.includes('9.2') && t3.includes('9.3'), 'I-5: 10.3 grows 9.2’s square and 9.3’s centre/discriminant by name')
+  ok(t3.includes('10.1') && t3.includes('10.2'), 'I-5: 10.3 ties the chapter arc — 10.1’s identity and 10.2’s slope both cited')
+  ok(t3.includes('5.3'), 'I-5: 10.3 bends 5.3’s verdict machine honestly')
+  ok(t3.includes('9.4') || t1.includes('9.4') || t2.includes('9.4'), 'I-5: Viète’s sum appears in the chapter (the axis as the roots’ midpoint)')
+
+  // 6 — the citation keys and prerequisites stand on every lesson
+  for (let i = 0; i < 3; i++) {
+    const l = chapter10.lessons[i]
+    ok(
+      JSON.stringify(l.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style']),
+      `I-6: the four citation keys ride 10.${i + 1}`,
+    )
+    ok((l.prerequisites || []).length >= 3, `I-6: 10.${i + 1} carries at least three prerequisites`)
+  }
+
+  // 7 — the exam corners: every lesson maps to the examinations
+  for (let i = 0; i < 3; i++) {
+    const exam = chapter10.lessons[i].blocks.find((b) => b.kind === 'callout' && b.tone === 'exam')
+    ok(!!exam, `I-7: 10.${i + 1} carries an exam corner`)
+  }
+
+  // 8 — the chapter object is COMPLETE: status flipped, plan empty
+  ok(chapter10.status === 'complete', 'I-8: chapter 10 status flipped to complete')
+  ok(!chapter10.plannedLessons || chapter10.plannedLessons.length === 0, 'I-8: no planned lessons remain in chapter 10')
+
+  // 9 — the book snapshot, recomputed from the live data
+  let bookLessons = 0
+  let bookWords = 0
+  let completeChapters = 0
+  let totalChapters = 0
+  let minWords = Infinity
+  const elementaryAlgebra = allBooks.find((b) => b.id === 'elementary-algebra')!
+  for (const c of elementaryAlgebra.chapters) {
+    totalChapters++
+    if (c.status === 'complete') completeChapters++
+    for (const l of c.lessons) {
+      bookLessons++
+      const w = countLessonWords(l)
+      bookWords += w
+      if (w < minWords) minWords = w
+    }
+  }
+  ok(bookLessons === 34, 'I-9: the book stands at 34 lessons (got ' + bookLessons + ')')
+  ok(bookWords > 155500, 'I-9: the book crosses 155,500 words (' + bookWords + ')')
+  ok(minWords >= 4000, 'I-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
+  ok(completeChapters === 10 && totalChapters === 11, 'I-9: 10 of 11 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
+  let libraryLessons = 0
+  let libraryWords = 0
+  for (const b of allBooks) {
+    for (const c of b.chapters) {
+      for (const l of c.lessons) {
+        libraryLessons++
+        libraryWords += countLessonWords(l)
+      }
+    }
+  }
+  ok(libraryLessons === 117, 'I-9: the library stands at 117 lessons (got ' + libraryLessons + ')')
+  console.log('  I-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
+
+  // 10 — the id registry, one final time across the whole library
+  const ids: string[] = []
+  for (const b of allBooks) {
+    for (const c of b.chapters) {
+      for (const l of c.lessons) ids.push(l.id)
+    }
+  }
+  ok(ids.length === new Set(ids).size, 'I-10: all ' + ids.length + ' library ids unique at chapter close')
+
+  console.log('[I] the unit-10 completion review: checklist, exam corners, snapshot — all green')
 }
 
 sectionD()
 sectionE()
 sectionF()
+sectionH()
+sectionI()
 
 console.log('')
 

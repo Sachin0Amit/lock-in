@@ -363,4 +363,6 @@ server.log
 !/scripts/e2e-al-101.page.js
 !/scripts/e2e-al-102.sh
 !/scripts/e2e-al-102.page.js
+!/scripts/e2e-al-103.sh
+!/scripts/e2e-al-103.page.js
 !/scripts/e2e-al-94.page.js

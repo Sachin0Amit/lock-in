@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 12:01:51 (Asia/Kolkata)",
+  "generated": "2026-11-10 13:01:54 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,14 +5920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 201,
-      "totalLines": 95861,
+      "srcFilesTracked": 202,
+      "totalLines": 96973,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 67456,
+        "src/data/library (content model + books)": 68568,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16966,33 +16966,140 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "dec96b3e3298d321537d3df074ae15da13d384c1",
+      "short": "dec96b3",
+      "date": "2026-11-10 06:32",
+      "message": "run 85: Elementary Algebra ch. 10 'Graphs of Equations' OPENS 2/3 — 10.1 'The Coordinate Plane and Linear Graphs' (4,799 words, quiz 2/1/1/2/2, 14 exercises, two figures — the addressing map + the graph of 3x + 2y = 6, ordered pairs as addresses priced on a 10-point census with the no-quadrant axis reads, the intercept doors with the c = 0 collapse handled by the origin walk, THE graph-as-solution-set identity priced both directions with exact determinants on 8 on-line + 4 off-line census points and the whole 11x11 window, the drawn elimination: the crossing (5/2, -3/4) collinear with both door pairs, the doubled pair all-points, the conflicting pair parallel-none) + 10.2 'Slope: the Steepness Theorem' (4,424 words, quiz 0/1/2/2/0, 14 exercises, two figures — the steepness staircase + the two-line verdict strip, the slope defined with the honest vertical refusal (the engine refuses to divide), the steepness theorem priced on all 6 pairwise slopes, the readout m = -a/b cross-priced against the intercept walk, the parallel condition proved both ways with 5.3's three verdicts drawn, the perpendicular doorway -1 banked, the fare 12/km and Fahrenheit 9/5 rates with the -40 meeting, the k-hunt k = -2/3 with the honest k = 0 vertical edge); verify-book3-ch10.ts 814 checks A-F ALL GREEN (pre-write engines A-C = 350 checks before any prose; authored D-F re-priced all 28 exercise anchors, quiz keys vs pinned, figure plans rect-exact, hygiene scans, library id uniqueness); pre-writing catches: the WxW census holds exactly 3 integer solutions (x even, |y| <= 5) not 5, the c = 0 readout cross-check needed the origin-door branch; authoring catches: the L6-1 probe formula coded y2-first and denominator x1-x2 until the verifier refused all 8 reads, distractor pricing via raw sums, census counts 13/12; E2E e2e-al-101/102 45/45 x3 viewports each (quiz 5/5 live, KaTeX 313 nodes 0 errors, 0 console errors); SVG audits 0/0 x4 (3 label collisions fixed); lint 0 errors, tsc clean; chapter 10 at 9,223 words, book 33 lessons / 150,829 words, 9 of 11 chapters complete; logs + WORK_INVENTORY rebuilt (drive survey re-run after sandbox recycle); run 86 closes ch. 10 with 10.3 + the unit-10 review",
+      "filesChanged": 14,
+      "insertions": 2188,
+      "deletions": 54,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 29,
+          "del": 13
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 124,
+          "del": 22
+        },
+        {
+          "path": "scripts/e2e-al-101.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-101.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-102.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-102.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch10.ts",
+          "add": 979,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 8,
+          "del": 17
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-10.ts",
+          "add": 725,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1934bdf21bc04d479cbd816199274ca7bcaa43bf",
+      "short": "1934bdf",
+      "date": "2026-11-10 06:33",
+      "message": "run 85: push verification recorded — remote main = local HEAD dec96b3 (ls-remote via one-time URL)",
+      "filesChanged": 3,
+      "insertions": 20,
+      "deletions": 9,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 7,
+          "del": 6
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 7,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 30,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 116,
-    "wordsAuthored": 562874,
-    "termsDefined": 881,
-    "quizItems": 580,
-    "exerciseQuestions": 1485,
+    "chaptersWritten": 31,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 117,
+    "wordsAuthored": 568242,
+    "termsDefined": 887,
+    "quizItems": 585,
+    "exerciseQuestions": 1499,
     "blockTotals": {
-      "para": 1652,
-      "callout": 635,
-      "heading": 631,
-      "list": 133,
-      "terms": 116,
-      "equation": 173,
-      "figure": 203,
-      "derivation": 218,
-      "table": 146,
-      "example": 504,
-      "quiz": 116,
-      "exercises": 116,
-      "formula": 332,
+      "para": 1665,
+      "callout": 640,
+      "heading": 635,
+      "list": 134,
+      "terms": 117,
+      "equation": 175,
+      "figure": 205,
+      "derivation": 219,
+      "table": 147,
+      "example": 507,
+      "quiz": 117,
+      "exercises": 117,
+      "formula": 335,
       "algorithm": 26
     }
   }
