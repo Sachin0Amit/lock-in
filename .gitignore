@@ -412,3 +412,10 @@ server.log
 !/scripts/ship_full_shelf_planning.py
 # whitelist the topic-inclusion audit gate (guarantee pass, 2026-11-10)
 !/scripts/verify_topic_coverage.ts
+# exception: the TOC-as-lessons pass (2026-11-11, owner directive) — the lesson-level gate + its shared survey machinery
+!/scripts/verify_toc_as_lessons.ts
+!/scripts/lib/
+!/scripts/lib/survey_topics.ts
+# exception: the pass's one-shot tooling (plan patcher + ledger generator; kept for regeneration runs)
+!/scripts/patch_planned_lessons.py
+!/scripts/gen_fold_ledger.py

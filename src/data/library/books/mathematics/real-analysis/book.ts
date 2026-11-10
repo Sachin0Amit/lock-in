@@ -175,6 +175,7 @@ const chapters: Chapter[] = [
       'The Proof-Craft Census',
       'The Book in One Page: Completeness to Uniformity',
       'The Doorsteps: Forms, Measure and Topology',
+      'The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions',
     ],
   },
 ]

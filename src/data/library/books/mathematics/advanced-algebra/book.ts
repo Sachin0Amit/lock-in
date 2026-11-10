@@ -113,6 +113,10 @@ const chapters: Chapter[] = [
       'One-One and Onto: Classifying the Machines',
       'Composition: Machines in Series',
       'Inverse Functions: the Machine Undone',
+      'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog',
+      'Even and Odd Functions and Their Extensions',
+      'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',
+      'The Period Census: Periods of Transformed and Composite Functions',
     ],
   },
   {
@@ -142,6 +146,8 @@ const chapters: Chapter[] = [
       'The Closure Failure That Forces i',
       'Conjugate and Modulus',
       'Negative Discriminants: the Doors Turn Complex',
+      'The Argand Plane: Polar Form and the Argument',
+      'De Moivre, Roots of Unity and the Complex Loci',
     ],
   },
   {
@@ -171,6 +177,7 @@ const chapters: Chapter[] = [
       'Geometric Progressions and the Infinite Tail',
       'Harmonic and Arithmetico-Geometric Progressions',
       'Special Series and the Method of Differences',
+      'Sigma Notation and the Classical Power Sums',
     ],
   },
   {
@@ -182,6 +189,8 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Factorials and the Counting Toolkit',
+      'Circular and Restricted Permutations',
       'The Fundamental Principle of Counting',
       'Permutations: the Arrangement Count',
       'Combinations: the Selection Count',
@@ -228,6 +237,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Exponential Family: Every Real Index',
       'Logarithms: the Inverse Machine',
+      'The Laws of Logarithms and the Change of Base',
       'Logarithmic and Exponential Equations',
       'Logarithm Tables: Characteristic, Mantissa and Antilogarithm',
     ],
@@ -242,6 +252,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Competition Algebra: the Advanced Craft',
+      'Functional Equations: Building Functions from Rules',
       'The Book in One Page: Synthesis',
       'The Doorstep: Limits and the Changing Output',
     ],

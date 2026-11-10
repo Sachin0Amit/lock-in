@@ -1,9 +1,9 @@
 {
   "$schema": "./PROGRESS.schema.json",
   "project": "LockIn Library",
-  "updated": "2026-11-10",
-  "phase": "TOPIC-INCLUSION GUARANTEE PASSED (owner-directed pass, 2026-11-10, same day as the full-shelf planning pass): the machine-checked audit scripts/verify_topic_coverage.ts proves every surveyed Drive TOC topic is included in its respective shelf book (1,876 topic entries, 0 missing — the 53 TOCs routed book-by-book via explicit routing tables, the Khattar aptitude census's commercial family given its own NEW book #28 'Quantitative Aptitude' (11 ch / 39 planned lessons, qa- prefix); DE gained the systems/phase-plane chapter; AA the log-tables lesson (36 planned); Trigonometry the quadrilaterals/regular-polygons lesson (31 planned); ~50 named-topic summary enrichments across the shelf). EXAM_REGISTRY.json researched and filled: 56 examinations (22 Indian + 34 international), 30 researched with mathUnits + per-exam coverage maps + the book-wise rollup — from basic engineering (GATE, FE/NCEES) to the world's competitive exams (JEE, CUET, CAT, SSC, SAT, ACT, AP, IB, A-Level, STEP, MAT, TMUA, Gaokao, Korean CSAT, EJU, GRE, GMAT, Putnam/AMC/IMO/Euclid). Zero lessons written; the shelf is 28 books (3 complete, AA authoring-ready, 24 planned); the run-90 authoring opening (AA 1.1 + 1.2) is unchanged.",
-  "awaiting": "nothing blocking — next run 90 = AA (Advanced Algebra) ch. 1 'Functions as Objects' OPENS with 1.1 + 1.2 exactly as the run-89 pointer set (create scripts/verify-book4-ch01.ts with the 1.1/1.2 engines FIRST; whitelist the verify + e2e-aa-11/12 scripts in .gitignore BEFORE commit; per-unit reference downloads begin at authoring time; run 91 continues ch. 1 with 1.3 + 1.4 + the unit-1 review). The topic-inclusion audit is a standing gate: scripts/verify_topic_coverage.ts (survey coverage + EXAM_REGISTRY checks) must stay green on every future ship.",
+  "updated": "2026-11-11",
+  "phase": "TOC-AS-LESSONS PASS COMPLETE (2026-11-11, owner directive — zero lessons written): every surveyed TOC topic is now a LESSON (1,068), a guided fold (403, ledger + guide), or a reviewed cross-reference (390); the scheduled-task guide docs/project/TOC_LESSON_GUIDE.md binds every fire run; shelf 207 ch / 736 planned lessons; gates: verify_toc_as_lessons 3,883/3,883, blob 576/576, shelf 1,278/1,278, book4 362/362, lint 0 errors, tsc clean",
+  "awaiting": "run 90 opens AA (book #4) chapter 1: lessons 1.1 + 1.2 exactly as before — the pass changed PLANS and the GUIDE only; runs must read docs/project/TOC_LESSON_GUIDE.md pre-flight and honor hosted folds from docs/project/TOC_FOLD_LEDGER.json",
   "platform": {
     "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
     "stack": "Next.js 16 App Router (SSG library routes + dynamic builder routes) · TypeScript · Tailwind 4 · shadcn/ui · zustand(persist v2) · KaTeX · next-themes · framer-motion · cmdk · Prisma/SQLite (Custom Book Builder user data) · pdfjs-dist + poppler/tesseract (syllabus PDF extraction)",
@@ -1296,5 +1296,14 @@
     "corrections": "the AA book.ts JEE note corrected this pass: mathematical induction/reasoning/LPP were removed from JEE Main in the 2024 revision (run 89's unit listing was stale; verified against multiple sources 2026-11-10)",
     "gates": "verify-math-shelf-planning.ts 1204/1204 GREEN (shelf load+statuses, per-book honest census, planned-chapter hygiene, id-prefix reservation over the 120 written ids, survey evidence base); lint 0 errors; tsc clean; routes 200; e2e-math-shelf.sh all green (home 27 books + 23/23 new titles, sampled planned TOCs with correct chips, empty states, 404 integrity, mobile 390 no overflow, 0 console errors everywhere, pixel checks non-blank/no blue cast; VLM visual confirmation of the Geometry book page)",
     "authoring_unchanged": "run 90 opens AA 1.1 + 1.2 exactly as the run-89 pointer set; the 23 planned books follow in backlog order as predecessors complete"
+  },
+  "tocAsLessons20261111": {
+    "directive": "make sure those TOC are written as lessons and make a guide when a scheduled task is on it should what should be included if that TOC does not require separate lesson be elaborate",
+    "gate": "scripts/verify_toc_as_lessons.ts — 3,883/3,883 GREEN (1,861 topics: 1,068 lessons + 403 guided folds + 390 cross-refs, 0 gaps)",
+    "guide": "docs/project/TOC_LESSON_GUIDE.md — the scheduled-task contract (pre-flight checklist; lesson anatomy bar; lesson-worthiness test; seven fold modes with minimum treatments)",
+    "ledger": "docs/project/TOC_FOLD_LEDGER.json — 403 folds, each with a verified host lesson + mode + treatment note",
+    "machinery": "scripts/lib/survey_topics.ts (shared extraction; +6 furniture filters, +2 aliases, re-routes: LP/Lay-geometry→OR, testing-series→RA, hyperbolic→MME, numerical→NA, computation→DM ch.9; Khattar ANS-id misrouting fixed)",
+    "plans": "25 new planned lessons + DM Models-of-Computation chapter (renumbered synthesis to ch. 10); shelf 25 planned books, 207 ch / 736 planned lessons; AA pins 47 / 8,4,5,3,5,6,4,3,5,4",
+    "authoring": "UNCHANGED — run 90 still opens AA 1.1 + 1.2; zero lessons written this pass"
   }
 }

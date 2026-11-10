@@ -162,6 +162,7 @@ const chapters: Chapter[] = [
       'One Definition, Four Curves: Eccentricity',
       'Identifying the General Second-Degree Equation',
       'Tangents and Chords of Contact, Unified',
+      'The Director Circle: One Idea across the Conics',
     ],
   },
   {

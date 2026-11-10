@@ -1,0 +1,3218 @@
+[
+ {
+  "source": "m1-01",
+  "topic": "Logarithm and Its Properties",
+  "book": "advanced-algebra",
+  "host": "The Laws of Logarithms and the Change of Base",
+  "mode": "section",
+  "note": "Named subsection inside The Laws of Logarithms and the Change of Base: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-01",
+  "topic": "Reciprocal of Logarithm",
+  "book": "advanced-algebra",
+  "host": "The Laws of Logarithms and the Change of Base",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Laws of Logarithms and the Change of Base of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-01",
+  "topic": "To Find Antilog of a Number",
+  "book": "advanced-algebra",
+  "host": "Logarithm Tables: Characteristic, Mantissa and Antilogarithm",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Logarithm Tables: Characteristic, Mantissa and Antilogarithm of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Real Polynomial",
+  "book": "advanced-algebra",
+  "host": "How Many Roots: Degree n, n Roots",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside How Many Roots: Degree n, n Roots, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Complex Polynomial",
+  "book": "advanced-algebra",
+  "host": "How Many Roots: Degree n, n Roots",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside How Many Roots: Degree n, n Roots, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Graphical Interpretation of Zero of an Expression",
+  "book": "advanced-algebra",
+  "host": "Quadratic Inequalities and the Sign Diagram",
+  "mode": "section",
+  "note": "Named subsection inside Quadratic Inequalities and the Sign Diagram: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Domain of Equation",
+  "book": "advanced-algebra",
+  "host": "Quadratic Inequalities and the Sign Diagram",
+  "mode": "section",
+  "note": "Named subsection inside Quadratic Inequalities and the Sign Diagram: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Loss of Root",
+  "book": "advanced-algebra",
+  "host": "Transformation of Equations",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside Transformation of Equations."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Condition for Both Common Roots",
+  "book": "advanced-algebra",
+  "host": "Symmetric Reads and Common Roots",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Symmetric Reads and Common Roots of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-02",
+  "topic": "Repeated Roots",
+  "book": "advanced-algebra",
+  "host": "Symmetric Reads and Common Roots",
+  "mode": "section",
+  "note": "Named subsection inside Symmetric Reads and Common Roots: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Complex Numbers",
+  "book": "advanced-algebra",
+  "host": "The Closure Failure That Forces i",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Closure Failure That Forces i opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Imaginary Number",
+  "book": "advanced-algebra",
+  "host": "The Closure Failure That Forces i",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Closure Failure That Forces i, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Complex Number",
+  "book": "advanced-algebra",
+  "host": "The Closure Failure That Forces i",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Closure Failure That Forces i opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Algebraic Operations on Complex Numbers",
+  "book": "advanced-algebra",
+  "host": "The Closure Failure That Forces i",
+  "mode": "section",
+  "note": "Named subsection inside The Closure Failure That Forces i: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Section Formula in Complex Numbers",
+  "book": "advanced-algebra",
+  "host": "The Argand Plane: Polar Form and the Argument",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Argand Plane: Polar Form and the Argument of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Equality of Complex Numbers",
+  "book": "advanced-algebra",
+  "host": "The Closure Failure That Forces i",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Closure Failure That Forces i, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Square Root of Complex Number",
+  "book": "advanced-algebra",
+  "host": "De Moivre, Roots of Unity and the Complex Loci",
+  "mode": "example-family",
+  "note": "At least two worked examples inside De Moivre, Roots of Unity and the Complex Loci of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Properties of Cube Roots of Unity",
+  "book": "advanced-algebra",
+  "host": "De Moivre, Roots of Unity and the Complex Loci",
+  "mode": "section",
+  "note": "Named subsection inside De Moivre, Roots of Unity and the Complex Loci: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Angle between Two Rays",
+  "book": "advanced-algebra",
+  "host": "The Argand Plane: Polar Form and the Argument",
+  "mode": "section",
+  "note": "Named subsection inside The Argand Plane: Polar Form and the Argument: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Equation of Ray",
+  "book": "advanced-algebra",
+  "host": "The Argand Plane: Polar Form and the Argument",
+  "mode": "section",
+  "note": "Named subsection inside The Argand Plane: Polar Form and the Argument: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Condition for Three Points to Represent Equilateral Triangle",
+  "book": "advanced-algebra",
+  "host": "De Moivre, Roots of Unity and the Complex Loci",
+  "mode": "example-family",
+  "note": "At least two worked examples inside De Moivre, Roots of Unity and the Complex Loci of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Equation of Circle whose Diametric End Points are Given",
+  "book": "advanced-algebra",
+  "host": "De Moivre, Roots of Unity and the Complex Loci",
+  "mode": "example-family",
+  "note": "At least two worked examples inside De Moivre, Roots of Unity and the Complex Loci of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-03",
+  "topic": "Properties of nth Roots of Unity",
+  "book": "advanced-algebra",
+  "host": "De Moivre, Roots of Unity and the Complex Loci",
+  "mode": "section",
+  "note": "Named subsection inside De Moivre, Roots of Unity and the Complex Loci: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Sum of Arithmetic Means Inserted between Two Numbers",
+  "book": "advanced-algebra",
+  "host": "Arithmetic Progressions: the Constant Climb",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Arithmetic Progressions: the Constant Climb of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Increasing and Decreasing G.P.",
+  "book": "advanced-algebra",
+  "host": "Geometric Progressions and the Infinite Tail",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Geometric Progressions and the Infinite Tail of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Sum of Squares of First n Natural Numbers",
+  "book": "advanced-algebra",
+  "host": "Sigma Notation and the Classical Power Sums",
+  "mode": "section",
+  "note": "Named subsection inside Sigma Notation and the Classical Power Sums: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Sum of Cubes of First n Natural Numbers",
+  "book": "advanced-algebra",
+  "host": "Sigma Notation and the Classical Power Sums",
+  "mode": "section",
+  "note": "Named subsection inside Sigma Notation and the Classical Power Sums: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Sigma Notation for Independent Variables",
+  "book": "advanced-algebra",
+  "host": "Sigma Notation and the Classical Power Sums",
+  "mode": "section",
+  "note": "Named subsection inside Sigma Notation and the Classical Power Sums: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-05",
+  "topic": "Sigma Notation for Dependent Variables",
+  "book": "advanced-algebra",
+  "host": "Sigma Notation and the Classical Power Sums",
+  "mode": "section",
+  "note": "Named subsection inside Sigma Notation and the Classical Power Sums: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-06",
+  "topic": "Weighted Means",
+  "book": "advanced-algebra",
+  "host": "The Arithmetic-Geometric Mean Inequality",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Arithmetic-Geometric Mean Inequality of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Exponent of Prime in n!",
+  "book": "advanced-algebra",
+  "host": "Factorials and the Counting Toolkit",
+  "mode": "section",
+  "note": "Named subsection inside Factorials and the Counting Toolkit: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Permutation when all Objects are Not Distinct",
+  "book": "advanced-algebra",
+  "host": "Permutations: the Arrangement Count",
+  "mode": "section",
+  "note": "Named subsection inside Permutations: the Arrangement Count: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Permutation Under Restriction",
+  "book": "advanced-algebra",
+  "host": "Circular and Restricted Permutations",
+  "mode": "section",
+  "note": "Named subsection inside Circular and Restricted Permutations: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Properties of nCr",
+  "book": "advanced-algebra",
+  "host": "Factorials and the Counting Toolkit",
+  "mode": "section",
+  "note": "Named subsection inside Factorials and the Counting Toolkit: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Clockwise and Anticlockwise Arrangements",
+  "book": "advanced-algebra",
+  "host": "Circular and Restricted Permutations",
+  "mode": "section",
+  "note": "Named subsection inside Circular and Restricted Permutations: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Selection of Zero or More Objects from n Different Objects",
+  "book": "advanced-algebra",
+  "host": "Combinations: the Selection Count",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Combinations: the Selection Count of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Selection of at Least One Object from n Different Objects",
+  "book": "advanced-algebra",
+  "host": "Combinations: the Selection Count",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Combinations: the Selection Count of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Selection from Identical Objects",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "section",
+  "note": "Named subsection inside Distributions and the Classic Counting Puzzles: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Division and Distribution of Distinct Objects",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "section",
+  "note": "Named subsection inside Distributions and the Classic Counting Puzzles: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Division and Distribution of (m + n) Distinct Objects into Two Groups of Sizes m and n (m ≠ n)",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Division and Distribution of (m + n + p) Distinct Objects into Three Groups of Sizes m, n and p (m ≠ n ≠ p)",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Division and Distribution of Distinct Objects into Groups of Equal Size",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Distribution of Distinct Objects when Group Sizes are not Fixed",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Distribution of Identical Objects",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "section",
+  "note": "Named subsection inside Distributions and the Classic Counting Puzzles: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Distribution of Identical Objects when Empty Groups are not Allowed",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Distribution of Identical Objects when Empty Groups are Allowed",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Number of Integral Solutions Using Series (Multinomial Theorem)",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "section",
+  "note": "Named subsection inside Distributions and the Classic Counting Puzzles: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-07",
+  "topic": "Distribution of Distinct Objects if Empty Groups are not Allowed",
+  "book": "advanced-algebra",
+  "host": "Distributions and the Classic Counting Puzzles",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distributions and the Classic Counting Puzzles of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Binomial Expansion",
+  "book": "advanced-algebra",
+  "host": "The Binomial Theorem, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Binomial Theorem, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Pascal's Triangle",
+  "book": "advanced-algebra",
+  "host": "The Binomial Theorem, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Binomial Theorem, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Some Standard Expansions",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Conjugate Expansions",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Binomial Expansions Using Complex Numbers",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Middle Terms",
+  "book": "advanced-algebra",
+  "host": "The Binomial Theorem, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Binomial Theorem, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Multinomial Expansion",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Binomial Coefficients at Work, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Coefficients of Terms in Binomial Expansion",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "section",
+  "note": "Named subsection inside Binomial Coefficients at Work: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Sum of Coefficients in any Expansion",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Ratio of Consecutive Coefficients/Terms in Binomial Expansion",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Greatest Coefficient/Term in Binomial Expansion",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Series Resulting from Product of Two Expansions",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-08",
+  "topic": "Some Frequently Used Expansions",
+  "book": "advanced-algebra",
+  "host": "Binomial Coefficients at Work",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Binomial Coefficients at Work of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Real Number System and Inequalities",
+  "book": "advanced-algebra",
+  "host": "The Arithmetic-Geometric Mean Inequality",
+  "mode": "review-page",
+  "note": "Carried by the host chapter’s completion review — the host lesson The Arithmetic-Geometric Mean Inequality must name it in its prose."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Domain of Relation",
+  "book": "advanced-algebra",
+  "host": "Relations: the Set-of-Pairs View",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Relations: the Set-of-Pairs View, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Domain, Codomain and Range of Function",
+  "book": "advanced-algebra",
+  "host": "One-One and Onto: Classifying the Machines",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside One-One and Onto: Classifying the Machines, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Function as a Relation between Independent and Dependent Variables",
+  "book": "advanced-algebra",
+  "host": "Relations: the Set-of-Pairs View",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Relations: the Set-of-Pairs View, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Identical Functions",
+  "book": "advanced-algebra",
+  "host": "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Piecewise Functions",
+  "book": "advanced-algebra",
+  "host": "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
+  "mode": "section",
+  "note": "Named subsection inside The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Some More Functions",
+  "book": "advanced-algebra",
+  "host": "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Period of Functions Resulting from Algebraic Operations of Functions",
+  "book": "advanced-algebra",
+  "host": "The Period Census: Periods of Transformed and Composite Functions",
+  "mode": "section",
+  "note": "Named subsection inside The Period Census: Periods of Transformed and Composite Functions: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Injective and Surjective Nature of Composite Function",
+  "book": "advanced-algebra",
+  "host": "One-One and Onto: Classifying the Machines",
+  "mode": "section",
+  "note": "Named subsection inside One-One and Onto: Classifying the Machines: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Vertical Shift",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Horizontal Shift",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Horizontal Stretch or Squeeze",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Vertical Stretch or Squeeze",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "Vertical and Horizontal Flip",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-01",
+  "topic": "The Graph of y = [f(x)] from the Known Graph of y = f(x), where [.] Represents the Greatest Integer Function",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Combining Functions; Shifting and Scaling Graphs",
+  "book": "advanced-algebra",
+  "host": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+  "mode": "section",
+  "note": "Named subsection inside Graph Transformations: Shifts, Stretches, Flips and the GIF Graph: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Natural Logarithms",
+  "book": "advanced-algebra",
+  "host": "Logarithms: the Inverse Machine",
+  "mode": "section",
+  "note": "Named subsection inside Logarithms: the Inverse Machine: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Four Ways to Represent a Function",
+  "book": "advanced-algebra",
+  "host": "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
+  "mode": "section",
+  "note": "Named subsection inside The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-02",
+  "topic": "Trigonometric Identities",
+  "book": "trigonometry",
+  "host": "Compound Angles: the Sum and Difference Formulas",
+  "mode": "section",
+  "note": "Named subsection inside Compound Angles: the Sum and Difference Formulas: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-02",
+  "topic": "Degree Measurement",
+  "book": "trigonometry",
+  "host": "Radian Measure and the Arc",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Radian Measure and the Arc, used at least once in the lesson prose."
+ },
+ {
+  "source": "m1-02",
+  "topic": "Conversion between Radians and Degrees",
+  "book": "trigonometry",
+  "host": "Radian Measure and the Arc",
+  "mode": "section",
+  "note": "Named subsection inside Radian Measure and the Arc: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-02",
+  "topic": "Relation between Radians and Real Numbers",
+  "book": "trigonometry",
+  "host": "Radian Measure and the Arc",
+  "mode": "section",
+  "note": "Named subsection inside Radian Measure and the Arc: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-02",
+  "topic": "n × 90° ± θ when n is Even",
+  "book": "trigonometry",
+  "host": "Allied Angles: the n × 90° ± θ Machine",
+  "mode": "section",
+  "note": "Named subsection inside Allied Angles: the n × 90° ± θ Machine: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-03",
+  "topic": "Some More Results",
+  "book": "trigonometry",
+  "host": "Conditional Identities and Range Hunting",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Conditional Identities and Range Hunting of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-03",
+  "topic": "Some Important Results and Their Applications",
+  "book": "trigonometry",
+  "host": "Conditional Identities and Range Hunting",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Conditional Identities and Range Hunting of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-03",
+  "topic": "Finding Range of Expression Using Trigonometric Substitution",
+  "book": "trigonometry",
+  "host": "Conditional Identities and Range Hunting",
+  "mode": "section",
+  "note": "Named subsection inside Conditional Identities and Range Hunting: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-04",
+  "topic": "Trigonometric Equation sin x = sin α .",
+  "book": "trigonometry",
+  "host": "General Solutions: the sin/cos/tan Families",
+  "mode": "example-family",
+  "note": "At least two worked examples inside General Solutions: the sin/cos/tan Families of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-04",
+  "topic": "Trigonometric Equation cos x = cos α",
+  "book": "trigonometry",
+  "host": "General Solutions: the sin/cos/tan Families",
+  "mode": "example-family",
+  "note": "At least two worked examples inside General Solutions: the sin/cos/tan Families of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-04",
+  "topic": "Trigonometric Equation tan x = tan α",
+  "book": "trigonometry",
+  "host": "General Solutions: the sin/cos/tan Families",
+  "mode": "example-family",
+  "note": "At least two worked examples inside General Solutions: the sin/cos/tan Families of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-04",
+  "topic": "Trigonometric Equation a cos x + b sin x = c",
+  "book": "trigonometry",
+  "host": "a cos x + b sin x: the Shifted Wave",
+  "mode": "example-family",
+  "note": "At least two worked examples inside a cos x + b sin x: the Shifted Wave of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-04",
+  "topic": "Using Maximum/Minimum Value of Function",
+  "book": "trigonometry",
+  "host": "Max–Min, Graphical and Inequality Methods",
+  "mode": "section",
+  "note": "Named subsection inside Max–Min, Graphical and Inequality Methods: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Two Sides and an Angle not Included between Them (SSA)",
+  "book": "trigonometry",
+  "host": "Solutions of Triangles: the Six Cases",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Solutions of Triangles: the Six Cases of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Three Angles (AAA)",
+  "book": "trigonometry",
+  "host": "Solutions of Triangles: the Six Cases",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Solutions of Triangles: the Six Cases of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Circumcircle and Circumcentre",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "section",
+  "note": "Named subsection inside Centres and Circles of a Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Properties of Circumcircle and Circumcentre",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "section",
+  "note": "Named subsection inside Centres and Circles of a Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Incircle and Incentre",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "section",
+  "note": "Named subsection inside Centres and Circles of a Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Length of Tangent from Vertices to the Incircle",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Centres and Circles of a Triangle of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Distance of Incentre from the Vertices of Triangle",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "section",
+  "note": "Named subsection inside Centres and Circles of a Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Different Formulas for Inradius",
+  "book": "trigonometry",
+  "host": "Half-Angle Formulas and the Area of a Triangle",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Half-Angle Formulas and the Area of a Triangle of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Division of Opposite Side by the Internal Angle Bisector",
+  "book": "trigonometry",
+  "host": "Half-Angle Formulas and the Area of a Triangle",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside Half-Angle Formulas and the Area of a Triangle."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Distance of Orthocentre from Vertices and Sides",
+  "book": "trigonometry",
+  "host": "The Orthocentre, Centroid and the Pedal Triangle",
+  "mode": "section",
+  "note": "Named subsection inside The Orthocentre, Centroid and the Pedal Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Distance between Incentre and Excentre",
+  "book": "trigonometry",
+  "host": "The Excircles: Excentres, Exradii and Their Distances",
+  "mode": "section",
+  "note": "Named subsection inside The Excircles: Excentres, Exradii and Their Distances: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m1-05",
+  "topic": "Radii of the Inscribed and the Circumscribed",
+  "book": "trigonometry",
+  "host": "Centres and Circles of a Triangle",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside Centres and Circles of a Triangle."
+ },
+ {
+  "source": "m1-06",
+  "topic": "Height and Distance",
+  "book": "trigonometry",
+  "host": "Elevation, Depression and the Right Setup",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Elevation, Depression and the Right Setup opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m1-07",
+  "topic": "Principal Value of cot^{-1}(cot x)",
+  "book": "trigonometry",
+  "host": "The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x))",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x)) of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-07",
+  "topic": "Principal Value of cosec^{-1}(cosec x)",
+  "book": "trigonometry",
+  "host": "The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x))",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x)) of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-07",
+  "topic": "Principal Value of sec^{-1}(sec x)",
+  "book": "trigonometry",
+  "host": "The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x))",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Principal-Value Discipline: f⁻¹(f(x)) and f(f⁻¹(x)) of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-07",
+  "topic": "Simplifying Expression Using Trigonometric Substitution",
+  "book": "trigonometry",
+  "host": "Relating the Inverses",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Relating the Inverses of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m1-07",
+  "topic": "Complementary Angles",
+  "book": "trigonometry",
+  "host": "Relating the Inverses",
+  "mode": "section",
+  "note": "Named subsection inside Relating the Inverses: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "Applications of algebraic signs to Trigonometry",
+  "book": "trigonometry",
+  "host": "The Unit Circle: Functions of Any Angle",
+  "mode": "section",
+  "note": "Named subsection inside The Unit Circle: Functions of Any Angle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "General expressions for all angles having a given trigonometrical ratio",
+  "book": "trigonometry",
+  "host": "General Solutions: the sin/cos/tan Families",
+  "mode": "section",
+  "note": "Named subsection inside General Solutions: the sin/cos/tan Families: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "Principle of Proportional Parts",
+  "book": "trigonometry",
+  "host": "Solutions of Triangles: the Six Cases",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Solutions of Triangles: the Six Cases, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "Given two sides and the included angle",
+  "book": "trigonometry",
+  "host": "The Cosine and Projection Rules",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Cosine and Projection Rules of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "Centroid and Medians",
+  "book": "trigonometry",
+  "host": "The Orthocentre, Centroid and the Pedal Triangle",
+  "mode": "section",
+  "note": "Named subsection inside The Orthocentre, Centroid and the Pedal Triangle: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-loney-trigonometry",
+  "topic": "Dip of the horizon",
+  "book": "trigonometry",
+  "host": "The Craft Problems",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Craft Problems of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-khattar-qa",
+  "topic": "Trigonometric Ratios",
+  "book": "trigonometry",
+  "host": "Ratios of Acute Angles and the Standard Table",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Ratios of Acute Angles and the Standard Table, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-khattar-qa",
+  "topic": "Heights and Distance",
+  "book": "trigonometry",
+  "host": "Elevation, Depression and the Right Setup",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Elevation, Depression and the Right Setup opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Set Theory and Real Number System",
+  "book": "set-theory",
+  "host": "Membership: the Primitive",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Membership: the Primitive opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Different Types of Sets",
+  "book": "set-theory",
+  "host": "Extension and Specification",
+  "mode": "section",
+  "note": "Named subsection inside Extension and Specification: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Subset",
+  "book": "set-theory",
+  "host": "Extension and Specification",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Extension and Specification, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Proper Subset of a Set",
+  "book": "set-theory",
+  "host": "Extension and Specification",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Extension and Specification, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Universal Set",
+  "book": "set-theory",
+  "host": "Membership: the Primitive",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Membership: the Primitive, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Venn Diagram",
+  "book": "set-theory",
+  "host": "Unions, Intersections, Complements",
+  "mode": "section",
+  "note": "Named subsection inside Unions, Intersections, Complements: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Operation on Sets",
+  "book": "set-theory",
+  "host": "Unions, Intersections, Complements",
+  "mode": "section",
+  "note": "Named subsection inside Unions, Intersections, Complements: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-01",
+  "topic": "Venn Diagrams of Operations of Sets",
+  "book": "set-theory",
+  "host": "Unions, Intersections, Complements",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Unions, Intersections, Complements of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-khattar-qa",
+  "topic": "Set Theory",
+  "book": "set-theory",
+  "host": "Membership: the Primitive",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Membership: the Primitive opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-09",
+  "topic": "Random Experiment",
+  "book": "probability-theory",
+  "host": "Experiments, Sample Spaces, Events",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Experiments, Sample Spaces, Events, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-09",
+  "topic": "Different Types of Events",
+  "book": "probability-theory",
+  "host": "Experiments, Sample Spaces, Events",
+  "mode": "section",
+  "note": "Named subsection inside Experiments, Sample Spaces, Events: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-09",
+  "topic": "Axiomatic Approach to Probability",
+  "book": "probability-theory",
+  "host": "The Axioms and the Classical Ratio",
+  "mode": "section",
+  "note": "Named subsection inside The Axioms and the Classical Ratio: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-09",
+  "topic": "Mathematical or Classical Definition of Probability",
+  "book": "probability-theory",
+  "host": "The Axioms and the Classical Ratio",
+  "mode": "section",
+  "note": "Named subsection inside The Axioms and the Classical Ratio: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-14",
+  "topic": "Multiplication Rule of Probability of More than Two Events",
+  "book": "probability-theory",
+  "host": "The Multiplication Theorem",
+  "mode": "section",
+  "note": "Named subsection inside The Multiplication Theorem: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-14",
+  "topic": "Independent Events",
+  "book": "probability-theory",
+  "host": "Independence, Pairwise and Mutual",
+  "mode": "section",
+  "note": "Named subsection inside Independence, Pairwise and Mutual: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-14",
+  "topic": "Probability Involving Bernoulli Trials",
+  "book": "probability-theory",
+  "host": "Bernoulli and the Binomial",
+  "mode": "section",
+  "note": "Named subsection inside Bernoulli and the Binomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Discrete Probability",
+  "book": "probability-theory",
+  "host": "Experiments, Sample Spaces, Events",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Experiments, Sample Spaces, Events opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "An Introduction to Discrete Probability",
+  "book": "probability-theory",
+  "host": "Experiments, Sample Spaces, Events",
+  "mode": "section",
+  "note": "Named subsection inside Experiments, Sample Spaces, Events: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Probability Theory",
+  "book": "probability-theory",
+  "host": "Experiments, Sample Spaces, Events",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Experiments, Sample Spaces, Events opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-10",
+  "topic": "Mathematical Reasoning",
+  "book": "mathematical-logic",
+  "host": "Statements: the Raw Material",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Statements: the Raw Material opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-10",
+  "topic": "Compound Statement and Basic Logical Connectives",
+  "book": "mathematical-logic",
+  "host": "The Connectives and Their Tables",
+  "mode": "section",
+  "note": "Named subsection inside The Connectives and Their Tables: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-10",
+  "topic": "Logical Equivalence",
+  "book": "mathematical-logic",
+  "host": "The Equivalence Laws",
+  "mode": "section",
+  "note": "Named subsection inside The Equivalence Laws: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-10",
+  "topic": "Converse, Inverse and Contrapositive of Statement",
+  "book": "mathematical-logic",
+  "host": "Conditional, Biconditional and the Contrapositive",
+  "mode": "section",
+  "note": "Named subsection inside Conditional, Biconditional and the Contrapositive: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "The Foundations: Logic and Proofs",
+  "book": "mathematical-logic",
+  "host": "Statements: the Raw Material",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Statements: the Raw Material opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Propositional Logic",
+  "book": "mathematical-logic",
+  "host": "Statements: the Raw Material",
+  "mode": "section",
+  "note": "Named subsection inside Statements: the Raw Material: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Propositional Equivalences",
+  "book": "mathematical-logic",
+  "host": "The Equivalence Laws",
+  "mode": "section",
+  "note": "Named subsection inside The Equivalence Laws: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Nested Quantiﬁers",
+  "book": "mathematical-logic",
+  "host": "The Two Quantifiers and Their Order",
+  "mode": "section",
+  "note": "Named subsection inside The Two Quantifiers and Their Order: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-11",
+  "topic": "Statistics",
+  "book": "statistics",
+  "host": "Populations, Samples and Data Types",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Populations, Samples and Data Types opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m2-11",
+  "topic": "Measures of Central Tendency",
+  "book": "statistics",
+  "host": "The Mean, Ungrouped and Grouped",
+  "mode": "section",
+  "note": "Named subsection inside The Mean, Ungrouped and Grouped: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-11",
+  "topic": "Measures of Dispersion",
+  "book": "statistics",
+  "host": "Range, Quartiles and Box Plots",
+  "mode": "section",
+  "note": "Named subsection inside Range, Quartiles and Box Plots: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m2-12",
+  "topic": "Condition for Three Lines to be Concurrent",
+  "book": "linear-algebra",
+  "host": "Determinants in Coordinate Geometry",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Determinants in Coordinate Geometry of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-12",
+  "topic": "in x and y to Represent Pair of Straight Lines",
+  "book": "linear-algebra",
+  "host": "Determinants in Coordinate Geometry",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Determinants in Coordinate Geometry of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m2-12",
+  "topic": "Integration of Determinant",
+  "book": "linear-algebra",
+  "host": "The Property Arc, Proved",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside The Property Arc, Proved."
+ },
+ {
+  "source": "m2-13",
+  "topic": "Matrix: Definition",
+  "book": "linear-algebra",
+  "host": "What a Matrix Is: the Classification Census",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside What a Matrix Is: the Classification Census, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-13",
+  "topic": "Negative of Matrix",
+  "book": "linear-algebra",
+  "host": "What a Matrix Is: the Classification Census",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside What a Matrix Is: the Classification Census, used at least once in the lesson prose."
+ },
+ {
+  "source": "m2-13",
+  "topic": "Elementary Algebraic Operations on Matrix",
+  "book": "linear-algebra",
+  "host": "The Product and Its Non-Commutativity",
+  "mode": "section",
+  "note": "Named subsection inside The Product and Its Non-Commutativity: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Complex Matrices and Forms. Optional",
+  "book": "linear-algebra",
+  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "mode": "section",
+  "note": "Named subsection inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Elimination Using Matrices",
+  "book": "linear-algebra",
+  "host": "Row Reduction and Echelon Forms",
+  "mode": "section",
+  "note": "Named subsection inside Row Reduction and Echelon Forms: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Transposes and Permutations",
+  "book": "linear-algebra",
+  "host": "Transpose, Trace and the Special Family",
+  "mode": "section",
+  "note": "Named subsection inside Transpose, Trace and the Special Family: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "The Complete Solution to Ax = b",
+  "book": "linear-algebra",
+  "host": "Homogeneous Systems and Rank",
+  "mode": "section",
+  "note": "Named subsection inside Homogeneous Systems and Rank: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Permutations and Cofactors",
+  "book": "linear-algebra",
+  "host": "Expansion: Minors and Cofactors",
+  "mode": "section",
+  "note": "Named subsection inside Expansion: Minors and Cofactors: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Principal Component Analysis (PCA by the SVD)",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "The Search for a Good Basis",
+  "book": "linear-algebra",
+  "host": "Basis and Dimension",
+  "mode": "section",
+  "note": "Named subsection inside Basis and Dimension: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Complex Numbers",
+  "book": "linear-algebra",
+  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Graphs and Networks",
+  "book": "linear-algebra",
+  "host": "The Four Fundamental Subspaces",
+  "mode": "section",
+  "note": "Named subsection inside The Four Fundamental Subspaces: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Markov Matrices, Population, and Economics",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Computer Graphics",
+  "book": "linear-algebra",
+  "host": "The Matrix of a Transformation",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Matrix of a Transformation of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Gaussian Elimination in Practice",
+  "book": "linear-algebra",
+  "host": "Row Reduction and Echelon Forms",
+  "mode": "section",
+  "note": "Named subsection inside Row Reduction and Echelon Forms: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Covariance Matrices and Joint Probabilities",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Complex Numbers",
+  "book": "linear-algebra",
+  "host": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Lists",
+  "book": "linear-algebra",
+  "host": "Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Rⁿ and Subspaces — the scalar field F and the digression on fields (Abstract Algebra’s ground, cross-referenced), sums and direct sums of subspaces, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Finite-Dimensional Vector Spaces",
+  "book": "linear-algebra",
+  "host": "Basis and Dimension",
+  "mode": "section",
+  "note": "Named subsection inside Basis and Dimension: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Algebraic Operations on ℒ(𝑉, 𝑊)",
+  "book": "linear-algebra",
+  "host": "Machines that Respect the Structure",
+  "mode": "section",
+  "note": "Named subsection inside Machines that Respect the Structure: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Existence of Eigenvalues on Complex Vector Spaces",
+  "book": "linear-algebra",
+  "host": "Invariant Subspaces and the Minimal Polynomial",
+  "mode": "section",
+  "note": "Named subsection inside Invariant Subspaces and the Minimal Polynomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Eigenvalues on Odd-Dimensional Real Vector Spaces",
+  "book": "linear-algebra",
+  "host": "Invariant Subspaces and the Minimal Polynomial",
+  "mode": "section",
+  "note": "Named subsection inside Invariant Subspaces and the Minimal Polynomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Upper-Triangular Matrices",
+  "book": "linear-algebra",
+  "host": "Invariant Subspaces and the Minimal Polynomial",
+  "mode": "section",
+  "note": "Named subsection inside Invariant Subspaces and the Minimal Polynomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Diagonal Matrices",
+  "book": "linear-algebra",
+  "host": "Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Diagonalization and Cayley–Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Orthonormal Bases",
+  "book": "linear-algebra",
+  "host": "Gram–Schmidt and Orthogonal Bases",
+  "mode": "section",
+  "note": "Named subsection inside Gram–Schmidt and Orthogonal Bases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Orthonormal Lists and the Gram–Schmidt Procedure",
+  "book": "linear-algebra",
+  "host": "Gram–Schmidt and Orthogonal Bases",
+  "mode": "section",
+  "note": "Named subsection inside Gram–Schmidt and Orthogonal Bases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Orthogonal Complements and Minimization Problems",
+  "book": "linear-algebra",
+  "host": "Projections and Orthogonality",
+  "mode": "section",
+  "note": "Named subsection inside Projections and Orthogonality: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Orthogonal Complements",
+  "book": "linear-algebra",
+  "host": "Projections and Orthogonality",
+  "mode": "section",
+  "note": "Named subsection inside Projections and Orthogonality: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Pseudoinverse",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Powers, Markov Chains and the SVD Named, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Cholesky Factorization",
+  "book": "linear-algebra",
+  "host": "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Singular Value Decomposition",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Singular Values",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Powers, Markov Chains and the SVD Named, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "7F Consequences of Singular Value Decomposition",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Approximation by Linear Maps with Lower-Dimensional Range",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Volume via Singular Values",
+  "book": "linear-algebra",
+  "host": "Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product",
+  "mode": "section",
+  "note": "Named subsection inside Quadratic Forms and the Conics Re-read — Axler’s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Operators on Complex Vector Spaces",
+  "book": "linear-algebra",
+  "host": "Invariant Subspaces and the Minimal Polynomial",
+  "mode": "section",
+  "note": "Named subsection inside Invariant Subspaces and the Minimal Polynomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Generalized Eigenspaces",
+  "book": "linear-algebra",
+  "host": "Generalized Eigenvectors, Nilpotent Operators and Jordan Form",
+  "mode": "section",
+  "note": "Named subsection inside Generalized Eigenvectors, Nilpotent Operators and Jordan Form: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Multiplicity of an Eigenvalue",
+  "book": "linear-algebra",
+  "host": "The Characteristic Polynomial",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Characteristic Polynomial, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Block Diagonal Matrices",
+  "book": "linear-algebra",
+  "host": "Generalized Eigenvectors, Nilpotent Operators and Jordan Form",
+  "mode": "section",
+  "note": "Named subsection inside Generalized Eigenvectors, Nilpotent Operators and Jordan Form: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Consequences of Generalized Eigenspace Decomposition",
+  "book": "linear-algebra",
+  "host": "Generalized Eigenvectors, Nilpotent Operators and Jordan Form",
+  "mode": "section",
+  "note": "Named subsection inside Generalized Eigenvectors, Nilpotent Operators and Jordan Form: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-axler-ladr-4e",
+  "topic": "Trace: A Connection Between Matrices and Operators",
+  "book": "linear-algebra",
+  "host": "The Characteristic Polynomial",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Characteristic Polynomial, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Linear Models in Business, Science, and Engineering",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Powers, Markov Chains and the SVD Named of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Matrix Operations",
+  "book": "linear-algebra",
+  "host": "The Product and Its Non-Commutativity",
+  "mode": "section",
+  "note": "Named subsection inside The Product and Its Non-Commutativity: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Characterizations of Invertible Matrices",
+  "book": "linear-algebra",
+  "host": "Adjoint, Inverse and Elementary Transformations",
+  "mode": "section",
+  "note": "Named subsection inside Adjoint, Inverse and Elementary Transformations: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Partitioned Matrices",
+  "book": "linear-algebra",
+  "host": "The Product and Its Non-Commutativity",
+  "mode": "section",
+  "note": "Named subsection inside The Product and Its Non-Commutativity: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Matrix Factorizations",
+  "book": "linear-algebra",
+  "host": "Homogeneous Systems and Rank",
+  "mode": "section",
+  "note": "Named subsection inside Homogeneous Systems and Rank: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "The Leontief Input–Output Model",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Powers, Markov Chains and the SVD Named of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Applications to Computer Graphics",
+  "book": "linear-algebra",
+  "host": "The Matrix of a Transformation",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Matrix of a Transformation of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Linearly Independent Sets; Bases",
+  "book": "linear-algebra",
+  "host": "Span and Linear Independence",
+  "mode": "section",
+  "note": "Named subsection inside Span and Linear Independence: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Complex Eigenvalues",
+  "book": "linear-algebra",
+  "host": "The Characteristic Polynomial",
+  "mode": "section",
+  "note": "Named subsection inside The Characteristic Polynomial: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Discrete Dynamical Systems",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Orthogonal Sets",
+  "book": "linear-algebra",
+  "host": "Gram–Schmidt and Orthogonal Bases",
+  "mode": "section",
+  "note": "Named subsection inside Gram–Schmidt and Orthogonal Bases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "The Singular Value Decomposition",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Applications to Image Processing and Statistics",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Powers, Markov Chains and the SVD Named of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "The Steady-State Vector and Google’s PageRank",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "section",
+  "note": "Named subsection inside Powers, Markov Chains and the SVD Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Communication Classes",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Powers, Markov Chains and the SVD Named, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Classiﬁcation of States and Periodicity",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Powers, Markov Chains and the SVD Named, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Markov Chains and Baseball Statistics",
+  "book": "linear-algebra",
+  "host": "Powers, Markov Chains and the SVD Named",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Powers, Markov Chains and the SVD Named of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m3-01",
+  "topic": "Rectangular (or Cartesian) Coordinate System",
+  "book": "coordinate-geometry",
+  "host": "Axes, Quadrants and the Address of a Point",
+  "mode": "section",
+  "note": "Named subsection inside Axes, Quadrants and the Address of a Point: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-01",
+  "topic": "Internal Division",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Area of a Polygon",
+  "mode": "section",
+  "note": "Named subsection inside Distance, Section and the Area of a Polygon: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-01",
+  "topic": "External Division",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Area of a Polygon",
+  "mode": "section",
+  "note": "Named subsection inside Distance, Section and the Area of a Polygon: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-01",
+  "topic": "Circumcentre",
+  "book": "coordinate-geometry",
+  "host": "The Centres of a Triangle in Coordinates",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Centres of a Triangle in Coordinates of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m3-01",
+  "topic": "Incentre",
+  "book": "coordinate-geometry",
+  "host": "The Centres of a Triangle in Coordinates",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Centres of a Triangle in Coordinates of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m3-01",
+  "topic": "Coordinate Conversion",
+  "book": "coordinate-geometry",
+  "host": "Polar Coordinates",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Polar Coordinates, used at least once in the lesson prose."
+ },
+ {
+  "source": "m3-02",
+  "topic": "Straight Lines",
+  "book": "coordinate-geometry",
+  "host": "Slope and the Forms of a Line’s Equation",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Slope and the Forms of a Line’s Equation opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m3-04",
+  "topic": "Equation of Circle Having Given End Points of Chord which Subtends Given Angle at the Circumference",
+  "book": "coordinate-geometry",
+  "host": "The Equation of a Circle in All Its Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Equation of a Circle in All Its Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m3-04",
+  "topic": "Equation of Circle Having Given End Points of Diameter",
+  "book": "coordinate-geometry",
+  "host": "The Equation of a Circle in All Its Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Equation of a Circle in All Its Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m3-04",
+  "topic": "Secant of Circle",
+  "book": "coordinate-geometry",
+  "host": "Position, Intersection and the Length of a Tangent",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Position, Intersection and the Length of a Tangent, used at least once in the lesson prose."
+ },
+ {
+  "source": "m3-04",
+  "topic": "Two Circles Touching Externally",
+  "book": "coordinate-geometry",
+  "host": "Two Circles: the Radical Axis and Contact Cases",
+  "mode": "section",
+  "note": "Named subsection inside Two Circles: the Radical Axis and Contact Cases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-04",
+  "topic": "Two Circles Touching Internally",
+  "book": "coordinate-geometry",
+  "host": "Two Circles: the Radical Axis and Contact Cases",
+  "mode": "section",
+  "note": "Named subsection inside Two Circles: the Radical Axis and Contact Cases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-04",
+  "topic": "One Circle Contained in the Other Circle without Touching",
+  "book": "coordinate-geometry",
+  "host": "Two Circles: the Radical Axis and Contact Cases",
+  "mode": "section",
+  "note": "Named subsection inside Two Circles: the Radical Axis and Contact Cases: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-05",
+  "topic": "Other Forms of Parabola",
+  "book": "coordinate-geometry",
+  "host": "Focus, Directrix and the Standard Parabola",
+  "mode": "section",
+  "note": "Named subsection inside Focus, Directrix and the Standard Parabola: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m3-06",
+  "topic": "Conormal Points",
+  "book": "coordinate-geometry",
+  "host": "Tangents and Normals to the Parabola",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Tangents and Normals to the Parabola, used at least once in the lesson prose."
+ },
+ {
+  "source": "m3-07",
+  "topic": "Important Property of Auxiliary Circle",
+  "book": "coordinate-geometry",
+  "host": "The Standard Ellipse and Its Anatomy",
+  "mode": "section",
+  "note": "Named subsection inside The Standard Ellipse and Its Anatomy: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-01",
+  "topic": "Understanding Coordinates of Point in 3D System",
+  "book": "coordinate-geometry",
+  "host": "Points and Planes in Space",
+  "mode": "section",
+  "note": "Named subsection inside Points and Planes in Space: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-01",
+  "topic": "Distance between Two Points Lying on the Same Axis",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Sphere",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distance, Section and the Sphere of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m5-03",
+  "topic": "Physical Interpretation of Scalar Product",
+  "book": "coordinate-geometry",
+  "host": "The Dot Product: Angles and Projections",
+  "mode": "section",
+  "note": "Named subsection inside The Dot Product: Angles and Projections: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-03",
+  "topic": "Geometrical Interpretation of Scalar Product",
+  "book": "coordinate-geometry",
+  "host": "The Dot Product: Angles and Projections",
+  "mode": "section",
+  "note": "Named subsection inside The Dot Product: Angles and Projections: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-03",
+  "topic": "Physical Interpretation of Cross Product as a Moment of Force",
+  "book": "coordinate-geometry",
+  "host": "The Cross Product: Areas and Moments",
+  "mode": "section",
+  "note": "Named subsection inside The Cross Product: Areas and Moments: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-03",
+  "topic": "Geometric Interpretation of Cross Product",
+  "book": "coordinate-geometry",
+  "host": "The Cross Product: Areas and Moments",
+  "mode": "section",
+  "note": "Named subsection inside The Cross Product: Areas and Moments: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-03",
+  "topic": "Volume of Tetrahedron",
+  "book": "coordinate-geometry",
+  "host": "Triple Products and Lagrange’s Identity",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Triple Products and Lagrange’s Identity of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m5-04",
+  "topic": "Intercept Form of a Plane",
+  "book": "coordinate-geometry",
+  "host": "The Plane in All Its Forms",
+  "mode": "section",
+  "note": "Named subsection inside The Plane in All Its Forms: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m5-04",
+  "topic": "Regular Tetrahedron",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Sphere",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distance, Section and the Sphere of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m5-04",
+  "topic": "Angle between any Edge and Face not Containing that Edge of Regular Tetrahedron",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Sphere",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distance, Section and the Sphere of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m5-04",
+  "topic": "Angle between the Two Faces of Regular Tetrahedron",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Sphere",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distance, Section and the Sphere of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m5-04",
+  "topic": "Height of Regular Tetrahedron",
+  "book": "coordinate-geometry",
+  "host": "Distance, Section and the Sphere",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Distance, Section and the Sphere of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-10",
+  "topic": "Isogonal Trajectory",
+  "book": "differential-equations",
+  "host": "Orthogonal Trajectories",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Orthogonal Trajectories, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Graphical Solutions of Autonomous Equations",
+  "book": "differential-equations",
+  "host": "Qualitative Methods for Nonlinear Systems",
+  "mode": "section",
+  "note": "Named subsection inside Qualitative Methods for Nonlinear Systems: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Separable ODEs. Modeling",
+  "book": "differential-equations",
+  "host": "Variable Separable",
+  "mode": "section",
+  "note": "Named subsection inside Variable Separable: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Modeling of Free Oscillations of a Mass–Spring System",
+  "book": "differential-equations",
+  "host": "Free and Damped Oscillation",
+  "mode": "section",
+  "note": "Named subsection inside Free and Damped Oscillation: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Nonhomogeneous ODEs",
+  "book": "differential-equations",
+  "host": "Undetermined Coefficients",
+  "mode": "section",
+  "note": "Named subsection inside Undetermined Coefficients: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Modeling: Forced Oscillations. Resonance",
+  "book": "differential-equations",
+  "host": "Forcing and Resonance",
+  "mode": "section",
+  "note": "Named subsection inside Forcing and Resonance: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Modeling: Electric Circuits",
+  "book": "differential-equations",
+  "host": "The RLC Twin",
+  "mode": "section",
+  "note": "Named subsection inside The RLC Twin: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Nonhomogeneous Linear ODEs",
+  "book": "differential-equations",
+  "host": "Variation of Parameters",
+  "mode": "section",
+  "note": "Named subsection inside Variation of Parameters: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "For Reference: Basics of Matrices and Vectors",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "review-page",
+  "note": "Carried by the host chapter’s completion review — the host lesson Systems of First-Order Equations: the Vector X′ = AX must name it in its prose."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Systems of ODEs as Models in Engineering Applications",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "section",
+  "note": "Named subsection inside Systems of First-Order Equations: the Vector X′ = AX: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Basic Theory of Systems of ODEs. Wronskian",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "section",
+  "note": "Named subsection inside Systems of First-Order Equations: the Vector X′ = AX: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Nonhomogeneous Linear Systems of ODEs",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "section",
+  "note": "Named subsection inside Systems of First-Order Equations: the Vector X′ = AX: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Systems of ODEs",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Systems of First-Order Equations: the Vector X′ = AX opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "For Reference: Second- and Third-Order Determinants",
+  "book": "differential-equations",
+  "host": "Systems of First-Order Equations: the Vector X′ = AX",
+  "mode": "review-page",
+  "note": "Carried by the host chapter’s completion review — the host lesson Systems of First-Order Equations: the Vector X′ = AX must name it in its prose."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Some Applications of Eigenvalue Problems",
+  "book": "differential-equations",
+  "host": "Predator–Prey and Linked Populations",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Predator–Prey and Linked Populations of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Forced Oscillations",
+  "book": "differential-equations",
+  "host": "Forcing and Resonance",
+  "mode": "section",
+  "note": "Named subsection inside Forcing and Resonance: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-02",
+  "topic": "Neighbourhood (NBD) of Real Number",
+  "book": "differential-calculus",
+  "host": "Neighbourhoods and the Limiting Value",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Neighbourhoods and the Limiting Value, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-03",
+  "topic": "Differentiation: Definition",
+  "book": "differential-calculus",
+  "host": "Slopes of Tangents: the First Principles",
+  "mode": "section",
+  "note": "Named subsection inside Slopes of Tangents: the First Principles: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-03",
+  "topic": "Differentiation Using Logarithm",
+  "book": "differential-calculus",
+  "host": "Logarithmic Differentiation and the Determinant Rule",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Logarithmic Differentiation and the Determinant Rule of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-04",
+  "topic": "Continuity of Function Involving Greatest Integer Function",
+  "book": "differential-calculus",
+  "host": "Special Functions and the Intermediate Value Theorem",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Special Functions and the Intermediate Value Theorem of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-04",
+  "topic": "Differentiability: Definition",
+  "book": "differential-calculus",
+  "host": "Differentiability versus Continuity",
+  "mode": "section",
+  "note": "Named subsection inside Differentiability versus Continuity: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-04",
+  "topic": "Reasons for Non-Differentiability",
+  "book": "differential-calculus",
+  "host": "Differentiability versus Continuity",
+  "mode": "section",
+  "note": "Named subsection inside Differentiability versus Continuity: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-05",
+  "topic": "Application of Derivatives",
+  "book": "differential-calculus",
+  "host": "Tangents and Normals in All Their Forms",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Tangents and Normals in All Their Forms opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m4-05",
+  "topic": "Graphical Interpretation of Rolle's Theorem",
+  "book": "differential-calculus",
+  "host": "Rolle’s Theorem",
+  "mode": "section",
+  "note": "Named subsection inside Rolle’s Theorem: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Increasing Function",
+  "book": "differential-calculus",
+  "host": "Monotonic Functions: the First Derivative Test",
+  "mode": "section",
+  "note": "Named subsection inside Monotonic Functions: the First Derivative Test: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Strictly Increasing Function",
+  "book": "differential-calculus",
+  "host": "Monotonic Functions: the First Derivative Test",
+  "mode": "section",
+  "note": "Named subsection inside Monotonic Functions: the First Derivative Test: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Decreasing Function",
+  "book": "differential-calculus",
+  "host": "Monotonic Functions: the First Derivative Test",
+  "mode": "section",
+  "note": "Named subsection inside Monotonic Functions: the First Derivative Test: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Strictly Decreasing Function",
+  "book": "differential-calculus",
+  "host": "Monotonic Functions: the First Derivative Test",
+  "mode": "section",
+  "note": "Named subsection inside Monotonic Functions: the First Derivative Test: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Applications of Monotonicity",
+  "book": "differential-calculus",
+  "host": "Monotonic Functions: the First Derivative Test",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Monotonic Functions: the First Derivative Test of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Identifying Maxima and Minima by Checking",
+  "book": "differential-calculus",
+  "host": "Maxima and Minima: the Complete Tests",
+  "mode": "section",
+  "note": "Named subsection inside Maxima and Minima: the Complete Tests: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Differentiable Function",
+  "book": "differential-calculus",
+  "host": "Differentiability versus Continuity",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Differentiability versus Continuity, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Non-Differentiable Functions",
+  "book": "differential-calculus",
+  "host": "Differentiability versus Continuity",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Differentiability versus Continuity, used at least once in the lesson prose."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Global (Absolute) Maximum and Minimum",
+  "book": "differential-calculus",
+  "host": "Maxima and Minima: the Complete Tests",
+  "mode": "section",
+  "note": "Named subsection inside Maxima and Minima: the Complete Tests: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Applications of Extrema in Curve Tracing and",
+  "book": "differential-calculus",
+  "host": "The Complete Checklist",
+  "mode": "section",
+  "note": "Named subsection inside The Complete Checklist: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Applications of Extrema in Optimization,",
+  "book": "differential-calculus",
+  "host": "Applied Optimization",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Applied Optimization of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-06",
+  "topic": "Applications of Extrema in Solid Geometry",
+  "book": "differential-calculus",
+  "host": "Applied Optimization",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Applied Optimization of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Related Rates",
+  "book": "differential-calculus",
+  "host": "The Derivative as a Rate",
+  "mode": "section",
+  "note": "Named subsection inside The Derivative as a Rate: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Linearization and Differentials",
+  "book": "differential-calculus",
+  "host": "Approximation by Differentials",
+  "mode": "section",
+  "note": "Named subsection inside Approximation by Differentials: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Applications of Derivatives",
+  "book": "differential-calculus",
+  "host": "Tangents and Normals in All Their Forms",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Tangents and Normals in All Their Forms opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Rates of Change in the Natural and Social Sciences",
+  "book": "differential-calculus",
+  "host": "The Derivative as a Rate",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Derivative as a Rate of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Related Rates",
+  "book": "differential-calculus",
+  "host": "The Derivative as a Rate",
+  "mode": "section",
+  "note": "Named subsection inside The Derivative as a Rate: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Maximum and Minimum Values",
+  "book": "differential-calculus",
+  "host": "Maxima and Minima: the Complete Tests",
+  "mode": "section",
+  "note": "Named subsection inside Maxima and Minima: the Complete Tests: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "What Derivatives Tell Us about the Shape of a Graph",
+  "book": "differential-calculus",
+  "host": "The Complete Checklist",
+  "mode": "section",
+  "note": "Named subsection inside The Complete Checklist: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Graphing with Calculus and Technology",
+  "book": "differential-calculus",
+  "host": "Sketching the Families: Polynomial to Trigonometric",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Sketching the Families: Polynomial to Trigonometric of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Applications of Differentiation",
+  "book": "multivariable-calculus",
+  "host": "Critical Points and the Second-Derivative Test",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Critical Points and the Second-Derivative Test opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Indefinite Integration",
+  "book": "integral-calculus",
+  "host": "The Antiderivative and the Constant",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Antiderivative and the Constant opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration as Reverse Process of Differentiation",
+  "book": "integral-calculus",
+  "host": "The Antiderivative and the Constant",
+  "mode": "section",
+  "note": "Named subsection inside The Antiderivative and the Constant: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Commonly Used Functions",
+  "book": "integral-calculus",
+  "host": "The Antiderivative and the Constant",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Antiderivative and the Constant of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Function f(ax + b)",
+  "book": "integral-calculus",
+  "host": "Substitution: the Chain Rule Undone",
+  "mode": "section",
+  "note": "Named subsection inside Substitution: the Chain Rule Undone: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of tan, cot, sec and cosec Functions",
+  "book": "integral-calculus",
+  "host": "Trigonometric Integrals and Standard Substitutions",
+  "mode": "section",
+  "note": "Named subsection inside Trigonometric Integrals and Standard Substitutions: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Function f(g(x))g′(x)",
+  "book": "integral-calculus",
+  "host": "Substitution: the Chain Rule Undone",
+  "mode": "section",
+  "note": "Named subsection inside Substitution: the Chain Rule Undone: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Function which is Reciprocal of Quadratic",
+  "book": "integral-calculus",
+  "host": "Quadratic and Biquadratic Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Quadratic and Biquadratic Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Function in which Linear Function is Divided by Quadratic",
+  "book": "integral-calculus",
+  "host": "Quadratic and Biquadratic Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Quadratic and Biquadratic Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Expressions Involving Biquadratic Function",
+  "book": "integral-calculus",
+  "host": "Quadratic and Biquadratic Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Quadratic and Biquadratic Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration of Function which is Reciprocal of Square Root of Quadratic",
+  "book": "integral-calculus",
+  "host": "Quadratic and Biquadratic Forms",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Quadratic and Biquadratic Forms of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-07",
+  "topic": "Integration by Cancellation",
+  "book": "integral-calculus",
+  "host": "The Antiderivative and the Constant",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Antiderivative and the Constant of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-08",
+  "topic": "Halving The Upper Limit",
+  "book": "integral-calculus",
+  "host": "The Elementary Properties and the Dummy Variable",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Elementary Properties and the Dummy Variable of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "m4-09",
+  "topic": "Graph of Function Intersects x-axis",
+  "book": "integral-calculus",
+  "host": "Areas under and between Curves",
+  "mode": "section",
+  "note": "Named subsection inside Areas under and between Curves: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-09",
+  "topic": "Area Using Integration along y-Axis",
+  "book": "integral-calculus",
+  "host": "Areas under and between Curves",
+  "mode": "section",
+  "note": "Named subsection inside Areas under and between Curves: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "m4-09",
+  "topic": "Area Bounded by Curves in Given Interval",
+  "book": "integral-calculus",
+  "host": "Areas under and between Curves",
+  "mode": "section",
+  "note": "Named subsection inside Areas under and between Curves: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Indefinite Integrals and the Substitution Method",
+  "book": "integral-calculus",
+  "host": "Substitution: the Chain Rule Undone",
+  "mode": "section",
+  "note": "Named subsection inside Substitution: the Chain Rule Undone: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Transcendental Functions",
+  "book": "integral-calculus",
+  "host": "Trigonometric Integrals and Standard Substitutions",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Trigonometric Integrals and Standard Substitutions opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Techniques of Integration",
+  "book": "integral-calculus",
+  "host": "Integration by Parts: the Choice Discipline",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Integration by Parts: the Choice Discipline opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Indefinite Integrals and the Net Change Theorem",
+  "book": "integral-calculus",
+  "host": "The Antiderivative and the Constant",
+  "mode": "section",
+  "note": "Named subsection inside The Antiderivative and the Constant: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Applications of Integration",
+  "book": "integral-calculus",
+  "host": "Areas under and between Curves",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Areas under and between Curves opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Average Value of a Function",
+  "book": "integral-calculus",
+  "host": "The Fundamental Theorems of Calculus",
+  "mode": "example-family",
+  "note": "At least two worked examples inside The Fundamental Theorems of Calculus of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Techniques of Integration",
+  "book": "integral-calculus",
+  "host": "Integration by Parts: the Choice Discipline",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Integration by Parts: the Choice Discipline opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Strategy for Integration",
+  "book": "integral-calculus",
+  "host": "Integration by Parts: the Choice Discipline",
+  "mode": "section",
+  "note": "Named subsection inside Integration by Parts: the Choice Discipline: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Integration Using Tables and Technology",
+  "book": "integral-calculus",
+  "host": "Reduction Formulas and Typical Substitutions",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Reduction Formulas and Typical Substitutions of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Further Applications of Integration",
+  "book": "integral-calculus",
+  "host": "Work, Fluid Forces and Centroids",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Work, Fluid Forces and Centroids opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Numerical Integration",
+  "book": "numerical-analysis",
+  "host": "Trapezoid, Simpson and Their Errors",
+  "mode": "section",
+  "note": "Named subsection inside Trapezoid, Simpson and Their Errors: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Iterative Methods and Preconditioners",
+  "book": "numerical-analysis",
+  "host": "Jacobi, Gauss–Seidel and Diagonal Dominance",
+  "mode": "section",
+  "note": "Named subsection inside Jacobi, Gauss–Seidel and Diagonal Dominance: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Iterative Estimates for Eigenvalues",
+  "book": "numerical-analysis",
+  "host": "The Power Method",
+  "mode": "section",
+  "note": "Named subsection inside The Power Method: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Approximate Integration",
+  "book": "numerical-analysis",
+  "host": "Trapezoid, Simpson and Their Errors",
+  "mode": "section",
+  "note": "Named subsection inside Trapezoid, Simpson and Their Errors: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Tangential and Normal Components of Acceleration",
+  "book": "multivariable-calculus",
+  "host": "Motion in Space: Velocity, Acceleration and Curvature",
+  "mode": "section",
+  "note": "Named subsection inside Motion in Space: Velocity, Acceleration and Curvature: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Multiple Integrals",
+  "book": "multivariable-calculus",
+  "host": "The Double Integral and Iteration",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Double Integral and Iteration opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Double and Iterated Integrals over Rectangles",
+  "book": "multivariable-calculus",
+  "host": "The Double Integral and Iteration",
+  "mode": "section",
+  "note": "Named subsection inside The Double Integral and Iteration: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Line Integrals of Scalar Functions",
+  "book": "multivariable-calculus",
+  "host": "Vector Fields and Line Integrals",
+  "mode": "section",
+  "note": "Named subsection inside Vector Fields and Line Integrals: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "Vector Fields and Line Integrals: Work, Circulation, and Flux",
+  "book": "multivariable-calculus",
+  "host": "Vector Fields and Line Integrals",
+  "mode": "section",
+  "note": "Named subsection inside Vector Fields and Line Integrals: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-thomas-calculus-14e",
+  "topic": "The Divergence Theorem and a Unified Theory",
+  "book": "multivariable-calculus",
+  "host": "Green’s, Stokes’s and Gauss’s Theorems",
+  "mode": "section",
+  "note": "Named subsection inside Green’s, Stokes’s and Gauss’s Theorems: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Applications to Physics and Engineering",
+  "book": "multivariable-calculus",
+  "host": "Mass, Centres and Moments",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Applications to Economics and Biology",
+  "book": "multivariable-calculus",
+  "host": "Mass, Centres and Moments",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Mass, Centres and Moments of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Double Integrals over Rectangles",
+  "book": "multivariable-calculus",
+  "host": "The Double Integral and Iteration",
+  "mode": "section",
+  "note": "Named subsection inside The Double Integral and Iteration: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Triple Integrals",
+  "book": "multivariable-calculus",
+  "host": "Polar, Cylindrical and Spherical",
+  "mode": "section",
+  "note": "Named subsection inside Polar, Cylindrical and Spherical: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Triple Integrals in Cylindrical Coordinates",
+  "book": "multivariable-calculus",
+  "host": "Polar, Cylindrical and Spherical",
+  "mode": "section",
+  "note": "Named subsection inside Polar, Cylindrical and Spherical: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Triple Integrals in Spherical Coordinates",
+  "book": "multivariable-calculus",
+  "host": "Polar, Cylindrical and Spherical",
+  "mode": "section",
+  "note": "Named subsection inside Polar, Cylindrical and Spherical: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Change of Variables in Multiple Integrals",
+  "book": "multivariable-calculus",
+  "host": "Polar, Cylindrical and Spherical",
+  "mode": "section",
+  "note": "Named subsection inside Polar, Cylindrical and Spherical: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Curl and Divergence",
+  "book": "multivariable-calculus",
+  "host": "Green’s, Stokes’s and Gauss’s Theorems",
+  "mode": "section",
+  "note": "Named subsection inside Green’s, Stokes’s and Gauss’s Theorems: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "The Divergence Theorem",
+  "book": "multivariable-calculus",
+  "host": "Green’s, Stokes’s and Gauss’s Theorems",
+  "mode": "section",
+  "note": "Named subsection inside Green’s, Stokes’s and Gauss’s Theorems: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Vector and Scalar Functions and Their Fields. Vector Calculus: Derivatives",
+  "book": "multivariable-calculus",
+  "host": "Vector Fields and Line Integrals",
+  "mode": "section",
+  "note": "Named subsection inside Vector Fields and Line Integrals: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Further Applications of the Divergence Theorem",
+  "book": "multivariable-calculus",
+  "host": "Green’s, Stokes’s and Gauss’s Theorems",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Green’s, Stokes’s and Gauss’s Theorems of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-stewart-et-metric",
+  "topic": "Strategy for Testing Series",
+  "book": "real-analysis",
+  "host": "Ratio, Root and the Alternating Discipline",
+  "mode": "section",
+  "note": "Named subsection inside Ratio, Root and the Alternating Discipline: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Uniform Convergence. Optional",
+  "book": "real-analysis",
+  "host": "Pointwise versus Uniform: the Failures",
+  "mode": "section",
+  "note": "Named subsection inside Pointwise versus Uniform: the Failures: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Real and Complex Number Systems",
+  "book": "real-analysis",
+  "host": "Ordered Fields and the Rational Gap",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Ordered Fields and the Rational Gap opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Real Field",
+  "book": "real-analysis",
+  "host": "The Completeness Axiom and Its Equivalent Forms",
+  "mode": "section",
+  "note": "Named subsection inside The Completeness Axiom and Its Equivalent Forms: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Extended Real Number System",
+  "book": "real-analysis",
+  "host": "The Completeness Axiom and Its Equivalent Forms",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Completeness Axiom and Its Equivalent Forms, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Complex Field",
+  "book": "real-analysis",
+  "host": "Ordered Fields and the Rational Gap",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Ordered Fields and the Rational Gap, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Euclidean Spaces",
+  "book": "real-analysis",
+  "host": "Ordered Fields and the Rational Gap",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Ordered Fields and the Rational Gap, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Finite, Countable, and Uncountable Sets",
+  "book": "real-analysis",
+  "host": "Open and Closed Sets",
+  "mode": "section",
+  "note": "Named subsection inside Open and Closed Sets: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Compact Sets",
+  "book": "real-analysis",
+  "host": "Compactness and Heine–Borel",
+  "mode": "section",
+  "note": "Named subsection inside Compactness and Heine–Borel: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Perfect Sets",
+  "book": "real-analysis",
+  "host": "Open and Closed Sets",
+  "mode": "section",
+  "note": "Named subsection inside Open and Closed Sets: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Connected Sets",
+  "book": "real-analysis",
+  "host": "Connectedness: the Interval Theorem",
+  "mode": "section",
+  "note": "Named subsection inside Connectedness: the Interval Theorem: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Convergent Sequences",
+  "book": "real-analysis",
+  "host": "The ε-Definition and Template Proofs",
+  "mode": "section",
+  "note": "Named subsection inside The ε-Definition and Template Proofs: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Upper and Lower Limits",
+  "book": "real-analysis",
+  "host": "Limsup and Liminf",
+  "mode": "section",
+  "note": "Named subsection inside Limsup and Liminf: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Some Special Sequences",
+  "book": "real-analysis",
+  "host": "Monotone Sequences and Subsequences",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Monotone Sequences and Subsequences of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Summation by Parts",
+  "book": "real-analysis",
+  "host": "Partial Sums and the First Tests",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside Partial Sums and the First Tests."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Absolute Convergence",
+  "book": "real-analysis",
+  "host": "Absolute versus Conditional: Riemann’s Rearrangement",
+  "mode": "section",
+  "note": "Named subsection inside Absolute versus Conditional: Riemann’s Rearrangement: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Integration and Differentiation",
+  "book": "real-analysis",
+  "host": "The Uniform Theorems, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Uniform Theorems, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Rectifiable Curves",
+  "book": "real-analysis",
+  "host": "The Fundamental Theorem, Proved",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Fundamental Theorem, Proved, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Uniform Convergence",
+  "book": "real-analysis",
+  "host": "Pointwise versus Uniform: the Failures",
+  "mode": "section",
+  "note": "Named subsection inside Pointwise versus Uniform: the Failures: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Uniform Convergence and Integration",
+  "book": "real-analysis",
+  "host": "The Uniform Theorems, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Uniform Theorems, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Uniform Convergence and Differentiation",
+  "book": "real-analysis",
+  "host": "The Uniform Theorems, Proved",
+  "mode": "section",
+  "note": "Named subsection inside The Uniform Theorems, Proved: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Algebraic Completeness of the Complex Field",
+  "book": "real-analysis",
+  "host": "The Proof-Craft Census",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Proof-Craft Census, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Contraction Principle",
+  "book": "real-analysis",
+  "host": "Uniform Continuity and Monotone Inverses",
+  "mode": "derivation-annex",
+  "note": "A boxed derivation or callout proving/naming this topic inside Uniform Continuity and Monotone Inverses."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Differentiation of Integrals",
+  "book": "real-analysis",
+  "host": "The Fundamental Theorem, Proved",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Fundamental Theorem, Proved, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Integration of Differential Forms",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Primitive Mappings",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Partitions of Unity",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Change of Variables",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Closed Forms and Exact Forms",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Vector Analysis",
+  "book": "real-analysis",
+  "host": "The Doorsteps: Forms, Measure and Topology",
+  "mode": "section",
+  "note": "Named subsection inside The Doorsteps: Forms, Measure and Topology: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "The Lebesgue Theory",
+  "book": "real-analysis",
+  "host": "The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-rudin-pma-3e",
+  "topic": "Measure Spaces",
+  "book": "real-analysis",
+  "host": "The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions",
+  "mode": "section",
+  "note": "Named subsection inside The Lebesgue Doorstep: Measure, Measurable Functions and Simple Functions: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Differential Operators. Optional",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Toolkit Map",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Toolkit Map, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Laplace Transform. Linearity. First Shifting Theorem (s-Shifting)",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Transform and Its Rules",
+  "mode": "section",
+  "note": "Named subsection inside The Transform and Its Rules: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Transforms of Derivatives and Integrals. ODEs",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Transform and Its Rules",
+  "mode": "section",
+  "note": "Named subsection inside The Transform and Its Rules: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Short Impulses. Dirac’s Delta Function. Partial Fractions",
+  "book": "mathematical-methods-for-engineering",
+  "host": "Steps, Impulses and Initial-Value Problems",
+  "mode": "section",
+  "note": "Named subsection inside Steps, Impulses and Initial-Value Problems: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Differentiation and Integration of Transforms",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Transform and Its Rules",
+  "mode": "section",
+  "note": "Named subsection inside The Transform and Its Rules: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Calculus Review: Functions of Several Variables. Optional",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Problem Families",
+  "mode": "review-page",
+  "note": "Carried by the host chapter’s completion review — the host lesson The Problem Families must name it in its prose."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Calculus Review: Double Integrals. Optional",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Problem Families",
+  "mode": "review-page",
+  "note": "Carried by the host chapter’s completion review — the host lesson The Problem Families must name it in its prose."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Arbitrary Period. Even and Odd Functions. Half-Range Expansions",
+  "book": "mathematical-methods-for-engineering",
+  "host": "Half-Range and Parseval",
+  "mode": "section",
+  "note": "Named subsection inside Half-Range and Parseval: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Fourier Integral",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Fourier Transform and the FFT, Named",
+  "mode": "section",
+  "note": "Named subsection inside The Fourier Transform and the FFT, Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Fourier Cosine and Sine Transforms",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Fourier Transform and the FFT, Named",
+  "mode": "section",
+  "note": "Named subsection inside The Fourier Transform and the FFT, Named: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Modeling: Heat Flow from a Body in Space. Heat Equation",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Modeling Census: wave, heat, Laplace",
+  "mode": "section",
+  "note": "Named subsection inside The Modeling Census: wave, heat, Laplace: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Modeling: Membrane, Two-Dimensional Wave Equation",
+  "book": "mathematical-methods-for-engineering",
+  "host": "The Modeling Census: wave, heat, Laplace",
+  "mode": "section",
+  "note": "Named subsection inside The Modeling Census: wave, heat, Laplace: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Rectangular Membrane. Double Fourier Series",
+  "book": "mathematical-methods-for-engineering",
+  "host": "Separation on the String and the Bar",
+  "mode": "section",
+  "note": "Named subsection inside Separation on the String and the Bar: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Laplacian in Polar Coordinates. Circular Membrane. Fourier–Bessel Series",
+  "book": "mathematical-methods-for-engineering",
+  "host": "Series Solutions: Bessel and Legendre",
+  "mode": "section",
+  "note": "Named subsection inside Series Solutions: Bessel and Legendre: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Laplace’s Equation in Cylindrical and Spherical Coordinates. Potential",
+  "book": "mathematical-methods-for-engineering",
+  "host": "Laplace in the Rectangle and the Disc",
+  "mode": "section",
+  "note": "Named subsection inside Laplace in the Rectangle and the Disc: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Complex Numbers and Their Geometric Representation",
+  "book": "complex-analysis",
+  "host": "The Bank Recalled, the Geometry Deepened",
+  "mode": "section",
+  "note": "Named subsection inside The Bank Recalled, the Geometry Deepened: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-kreyszig-eng-math",
+  "topic": "Singularities and Zeros. Infinity",
+  "book": "complex-analysis",
+  "host": "Laurent Series and the Singularity Census",
+  "mode": "section",
+  "note": "Named subsection inside Laurent Series and the Singularity Census: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Proof Methods and Strategy",
+  "book": "discrete-mathematics",
+  "host": "The Logic Toolkit, Assembled",
+  "mode": "section",
+  "note": "Named subsection inside The Logic Toolkit, Assembled: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Set Operations",
+  "book": "discrete-mathematics",
+  "host": "Sets, Functions and Sequences at Work",
+  "mode": "section",
+  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Sequences and Summations",
+  "book": "discrete-mathematics",
+  "host": "Sets, Functions and Sequences at Work",
+  "mode": "section",
+  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Cardinality of Sets",
+  "book": "discrete-mathematics",
+  "host": "Sets, Functions and Sequences at Work",
+  "mode": "section",
+  "note": "Named subsection inside Sets, Functions and Sequences at Work: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Program Correctness",
+  "book": "discrete-mathematics",
+  "host": "Recursive Algorithms and Their Correctness",
+  "mode": "section",
+  "note": "Named subsection inside Recursive Algorithms and Their Correctness: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Representing Relations",
+  "book": "discrete-mathematics",
+  "host": "Properties and Closures",
+  "mode": "section",
+  "note": "Named subsection inside Properties and Closures: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Planar Graphs",
+  "book": "discrete-mathematics",
+  "host": "Planarity and Coloring: Euler’s Formula at Work",
+  "mode": "section",
+  "note": "Named subsection inside Planarity and Coloring: Euler’s Formula at Work: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Modeling Computation",
+  "book": "discrete-mathematics",
+  "host": "Languages and Grammars",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson Languages and Grammars opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Primes and Greatest Common Divisors",
+  "book": "number-theory",
+  "host": "Divisibility Recalled, Deepened",
+  "mode": "section",
+  "note": "Named subsection inside Divisibility Recalled, Deepened: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Applications of Congruences",
+  "book": "number-theory",
+  "host": "Linear Congruences",
+  "mode": "example-family",
+  "note": "At least two worked examples inside Linear Congruences of exactly this topic type (per TOC_LESSON_GUIDE.md)."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "Cryptography",
+  "book": "number-theory",
+  "host": "Classical Ciphers and Their Cracks",
+  "mode": "section",
+  "note": "Named subsection inside Classical Ciphers and Their Cracks: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-rosen-discrete-8e",
+  "topic": "The Basics of Counting",
+  "book": "combinatorics",
+  "host": "The Bank Recalled: Principles and Formulas",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Bank Recalled: Principles and Formulas opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-strang-intro-la-5e",
+  "topic": "Linear Programming",
+  "book": "optimization-and-operations-research",
+  "host": "Standard Form and Corner Geometry",
+  "mode": "section",
+  "note": "Named subsection inside Standard Form and Corner Geometry: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Constrained Optimization",
+  "book": "optimization-and-operations-research",
+  "host": "KKT, Stated with Meaning",
+  "mode": "section",
+  "note": "Named subsection inside KKT, Stated with Meaning: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Afﬁne Combinations",
+  "book": "optimization-and-operations-research",
+  "host": "Convexity: the Tractable Virtue",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside Convexity: the Tractable Virtue, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Afﬁne Independence",
+  "book": "optimization-and-operations-research",
+  "host": "Convexity: the Tractable Virtue",
+  "mode": "section",
+  "note": "Named subsection inside Convexity: the Tractable Virtue: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Convex Combinations",
+  "book": "optimization-and-operations-research",
+  "host": "Convexity: the Tractable Virtue",
+  "mode": "section",
+  "note": "Named subsection inside Convexity: the Tractable Virtue: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Hyperplanes",
+  "book": "optimization-and-operations-research",
+  "host": "The Graphical Doorstep",
+  "mode": "glossary",
+  "note": "A terms-block entry for this topic inside The Graphical Doorstep, used at least once in the lesson prose."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Polytopes",
+  "book": "optimization-and-operations-research",
+  "host": "Convexity: the Tractable Virtue",
+  "mode": "section",
+  "note": "Named subsection inside Convexity: the Tractable Virtue: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Matrix Games",
+  "book": "optimization-and-operations-research",
+  "host": "Duality and Shadow Prices",
+  "mode": "section",
+  "note": "Named subsection inside Duality and Shadow Prices: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Linear Programming—Geometric Method",
+  "book": "optimization-and-operations-research",
+  "host": "The Graphical Doorstep",
+  "mode": "section",
+  "note": "Named subsection inside The Graphical Doorstep: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-lay-laa-5e",
+  "topic": "Linear Programming—Simplex Method",
+  "book": "optimization-and-operations-research",
+  "host": "The Simplex Method, Built Honestly",
+  "mode": "section",
+  "note": "Named subsection inside The Simplex Method, Built Honestly: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-khattar-qa",
+  "topic": "Data Sufficiency",
+  "book": "quantitative-aptitude",
+  "host": "The Statement–Question Contract",
+  "mode": "chapter-umbrella",
+  "note": "The chapter’s own arc guarantees this topic; the host lesson The Statement–Question Contract opens that arc and the chapter summary names it."
+ },
+ {
+  "source": "root-elementary-algebra-text",
+  "topic": "Elementary Surds",
+  "book": "elementary-algebra",
+  "host": "Powers and the Laws of Exponents",
+  "mode": "section",
+  "note": "Named subsection inside Powers and the Laws of Exponents: formal definition + at least one worked example treating the surveyed topic."
+ },
+ {
+  "source": "root-elementary-algebra-text",
+  "topic": "Scales of Notation",
+  "book": "arithmetic-and-number-systems",
+  "host": "Converting Between Bases",
+  "mode": "section",
+  "note": "Named subsection inside Converting Between Bases: formal definition + at least one worked example treating the surveyed topic."
+ }
+]

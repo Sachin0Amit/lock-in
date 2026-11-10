@@ -5908,3 +5908,56 @@ AA authoring-ready (36 planned), 24 planned (the full-shelf pass's 23 +
 Quantitative Aptitude; 206 chapters / 710 planned lessons across the 25
 planned books). Zero lessons written; the authoring cadence and the
 run-90 opening (AA 1.1 + 1.2) are unchanged.
+
+## The TOC-as-lessons guarantee pass (2026-11-11)
+
+Owner directive: "make sure those TOC are written as lessons and make a guide
+when a scheduled task is on it should [state] what should be included if that
+TOC does not require separate lesson, be elaborate." The blob-level guarantee
+above (every topic somewhere in its routed book's plan blob) is now raised to
+LESSON level, with an explicit, audited disposition for every topic that does
+not warrant its own lesson:
+
+- **The lesson-level gate** — `scripts/verify_toc_as_lessons.ts`, sharing the
+  exact extraction/routing machinery via the new `scripts/lib/survey_topics.ts`
+  (a verbatim extraction of the blob gate's pipeline, plus: 6 more furniture
+  filters for transcription artifacts (cover pages, scan notes, appendix rows,
+  Symbol Index), 2 more aliases (matrices↔matrix, multiplication↔product), and
+  the "arrange them accordingly" re-routes — linear programming & the Lay
+  geometry family → Optimization and Operations Research, series-testing →
+  Real Analysis, hyperbolic functions → Mathematical Methods for Engineering,
+  numerical integration/iteration → Numerical Analysis, computation modelled
+  as its own Discrete Mathematics chapter). One latent blob-gate defect was
+  surfaced and fixed here: the Khattar ledger routed 'Numbers', 'H.C.F. and
+  L.C.M. of Numbers' and 'Binary Number System' to `arithmetic-number-systems`,
+  an id that is NOT on the shelf (the real id is `arithmetic-and-number-systems`);
+  the blob gate silently masked this via its anywhere-search, the lesson gate
+  failed loudly and the routing was corrected.
+- **25 new planned lessons** inserted into the plans (plans only — zero lesson
+  content authored; the two-lesson cadence and the run-90 opening AA 1.1+1.2
+  unchanged): Advanced Algebra +11 (the Function Zoo, Even/Odd + Extensions,
+  Graph Transformations, the Period Census, the Argand Plane, De Moivre/Roots
+  of Unity/Loci, Sigma Notation & the Classical Power Sums, Factorials &
+  the Counting Toolkit, Circular & Restricted Permutations, the Laws of
+  Logarithms, Functional Equations), Linear Algebra +4 (Dual Space, Invariant
+  Subspaces & the Minimal Polynomial, Jordan Form, Inner Products & Norms),
+  Trigonometry +2 (Orthocentre/Centroid/Pedal, the Excircles), Coordinate
+  Geometry +1 (the Director Circle), Multivariable Calculus +1 (Motion in
+  Space), Mathematical Methods for Engineering +2 (Hyperbolic Functions,
+  Sturm–Liouville), Real Analysis +1 (the Lebesgue Doorstep), and Discrete
+  Mathematics' new ch. 9 'Models of Computation' (3 lessons; synthesis
+  renumbered ch. 10) — the shelf now 25 planned books, 207 chapters /
+  736 planned lessons.
+- **The guided fold ledger** — `docs/project/TOC_FOLD_LEDGER.json`: 403
+  surveyed topics that do NOT require their own lesson, each with a host
+  lesson (verified to exist in the routed book), a fold mode and the minimum
+  treatment note. Modes: section / example-family / exercise-thread /
+  glossary / derivation-annex / review-page / chapter-umbrella.
+- **The scheduled-task guide** — `docs/project/TOC_LESSON_GUIDE.md`: the
+  elaborate contract for every fire run — the pre-flight checklist, the lesson
+  anatomy bar, the lesson-worthiness test, the seven fold modes' minimum
+  treatments, the new-topic pipeline and the standing gates.
+
+**Lesson-level census: 1,861 meaningful surveyed topics — 1,068 ARE lessons,
+403 are guided folds into real lessons, 390 are cross-referenced lessons on
+the shelf, 0 gaps. Gate: 3,883/3,883 green.**

@@ -111,6 +111,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Motion in Space: Velocity, Acceleration and Curvature',
       'Vector Fields and Line Integrals',
       'Conservative Fields and Path Independence',
       'Green\u2019s, Stokes\u2019s and Gauss\u2019s Theorems',

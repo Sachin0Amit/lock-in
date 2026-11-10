@@ -142,6 +142,8 @@ const chapters: Chapter[] = [
       'Half-Angle Formulas and the Area of a Triangle',
       'Solutions of Triangles: the Six Cases',
       'Centres and Circles of a Triangle',
+      'The Orthocentre, Centroid and the Pedal Triangle',
+      'The Excircles: Excentres, Exradii and Their Distances',
       'Quadrilaterals and Regular Polygons',
     ],
   },

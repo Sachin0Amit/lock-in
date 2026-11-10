@@ -26,6 +26,14 @@ Research, author, verify and ship a single chapter before touching the
 next; never batch-draft multiple chapters. Books complete chapter by
 chapter. Full workflow: `docs/project/MASTER_PLAN.md` §2.
 
+**The TOC-as-lessons contract (owner directive 2026-11-11):** every lesson
+authored by a scheduled run follows `docs/project/TOC_LESSON_GUIDE.md` — the
+pre-flight checklist (read the pointer → the format contract → consult
+`docs/project/TOC_FOLD_LEDGER.json` for folds hosted by your lesson), the
+lesson anatomy bar, and the seven fold modes' minimum treatments for surveyed
+TOC topics that do not require a separate lesson. Standing gate:
+`bun run scripts/verify_toc_as_lessons.ts`.
+
 **One full chapter per scheduled run** (owner directive 2026-11-06; cadence
 moved hourly → every 2 hours by owner chat directive the same day): every
 not-yet-written lesson of the current chapter plus the unit completion

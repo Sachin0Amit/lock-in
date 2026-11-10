@@ -3,8 +3,10 @@
  * verify-book4-promotion.ts — Advanced Algebra (book #4) research-phase gate.
  *
  * Run 89 (2026-11-10): the book is PROMOTED from the backlog with its full
- * researched TOC (10 chapters / 36 planned lessons, no lessons written yet; the
- * ch. 9 log-tables lesson added by the topic-inclusion guarantee pass, 2026-11-10).
+ * researched TOC (10 chapters / 47 planned lessons — 36 at promotion, grown by
+ * the 2026-11-11 TOC-as-lessons pass: ch. 9 log-tables lesson came earlier via
+ * the topic-inclusion guarantee pass; 11 more lessons arrived lesson-level),
+ * no lessons written yet.
  * This script verifies the promotion BEFORE anything consumes it:
  *   A. structure — book/chapter fields, sequential numbering, unique slugs,
  *      statuses 'planned', every planned lesson non-empty;
@@ -57,7 +59,7 @@ ok(aa.chapters.every((c) => c.status === 'planned'), 'all chapters planned')
 ok(aa.chapters.every((c) => c.lessons.length === 0), 'no lessons written yet (empty shells forbidden as LESSONS; planned TOC is the deliverable)')
 ok(aa.chapters.every((c) => (c.plannedLessons?.length ?? 0) > 0), 'every chapter carries planned lessons')
 const plannedTitles = aa.chapters.flatMap((c) => c.plannedLessons ?? [])
-ok(plannedTitles.length === 36, `36 planned lessons (got ${plannedTitles.length})`)
+ok(plannedTitles.length === 47, `47 planned lessons (got ${plannedTitles.length})`)
 ok(new Set(plannedTitles).size === plannedTitles.length, 'planned lesson titles unique book-wide')
 ok(plannedTitles.every((t) => t.trim().length > 8), 'no stub titles')
 ok(aa.chapters.every((c) => c.summary.length > 120), 'every chapter summary is a real pedagogical paragraph')
@@ -72,7 +74,7 @@ ok(
 )
 // the per-chapter lesson counts match the researched plan
 const perChapter = aa.chapters.map((c) => (c.plannedLessons ?? []).length).join(',')
-ok(perChapter === '4,4,3,3,4,4,4,3,4,3', `per-chapter plan 4,4,3,3,4,4,4,3,4,3 (got ${perChapter})`)
+ok(perChapter === '8,4,5,3,5,6,4,3,5,4', `per-chapter plan 8,4,5,3,5,6,4,3,5,4 (got ${perChapter})`)
 
 /* ------------------------------------------------------------------ */
 /* B. Registry                                                         */
@@ -85,7 +87,7 @@ const stats = libraryStats()
 ok(stats.books === allBooks.length, `libraryStats().books tracks the shelf (${stats.books})`)
 const aaStats = bookStats(aa)
 ok(aaStats.written === 0, '0 written lessons')
-ok(aaStats.planned === 36, `bookStats().planned = 36 (got ${aaStats.planned})`)
+ok(aaStats.planned === 47, `bookStats().planned = 47 (got ${aaStats.planned})`)
 ok(aaStats.words === 0, '0 words (honest counter — nothing authored yet)')
 ok(bookLessons(aa).length === 0, 'bookLessons empty (reader/search pick up nothing yet)')
 

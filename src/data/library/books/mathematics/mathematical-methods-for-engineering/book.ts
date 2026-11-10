@@ -60,6 +60,7 @@ const chapters: Chapter[] = [
       'The Toolkit Map',
       'Why Transforms Work',
       'The Problem Families',
+      'Hyperbolic Functions: cosh, sinh and the Catenary',
     ],
   },
   {
@@ -75,6 +76,7 @@ const chapters: Chapter[] = [
       'Systems and the Matrix Exponential',
       'Series Solutions: Bessel and Legendre',
       'Boundary-Value Problems',
+      'Sturm–Liouville Problems: Eigenfunctions and Orthogonality',
     ],
   },
   {

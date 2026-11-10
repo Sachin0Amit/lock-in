@@ -132,6 +132,7 @@ const chapters: Chapter[] = [
       'Graphs and Their Vocabulary',
       'Representation and Isomorphism',
       'Connectivity, Euler and Hamilton',
+      'Planarity and Coloring: Euler\u2019s Formula at Work',
       'Shortest Paths: Dijkstra Met',
     ],
   },
@@ -165,10 +166,24 @@ const chapters: Chapter[] = [
   },
   {
     number: 9,
+    slug: 'models-of-computation',
+    title: 'Models of Computation',
+    summary:
+      'Rosen\u2019s closing arc given its own room: languages and grammars (phrase-structure grammars, the hierarchy of language types), finite-state machines with output (Mealy machines and their state diagrams), and finite-state machines without output with language recognition (Kleene\u2019s theorem named, regular languages and their limits) — the discrete bridge to the computer-science shelf\u2019s Theory of Computation, with the Turing machine named forward to Mathematical Logic\u2019s computability chapter.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'Languages and Grammars',
+      'Finite-State Machines with Output',
+      'Finite-State Machines without Output and Language Recognition',
+    ],
+  },
+  {
+    number: 10,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:
-      'The closing synthesis: the craft census (which structure, which proof — induction, pigeonhole, or counting), the book in one page (the map from toolkit to circuits), and two doorsteps named honestly: modeling computation (finite automata and grammars — Rosen\u2019s closing chapters, the CS shelf\u2019s Theory of Computation book) and the deeper counting machines (generating functions, P\u00f3lya) that Combinatorics owns.',
+      'The closing synthesis: the craft census (which structure, which proof — induction, pigeonhole, or counting), the book in one page (the map from toolkit to circuits and machines), and the doorsteps named honestly: the theory of computation the CS shelf owns (Turing machines, decidability — Mathematical Logic\u2019s computability chapter carries them) and the deeper counting machines (generating functions, P\u00f3lya) that Combinatorics owns.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

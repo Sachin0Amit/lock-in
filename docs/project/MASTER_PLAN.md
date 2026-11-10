@@ -45,6 +45,26 @@ unchanged. The per-unit workflow (download -> study -> write -> verify ->
 ship) now draws on the survey's recorded Drive ids and TOCs for its
 per-unit downloads.
 
+**Owner directive (2026-11-11, TOC-as-lessons pass — this pass):**
+"make sure those TOC are written as lessons and make a guide when a
+scheduled task is on it should [state] what should be included if that
+TOC does not require separate lesson, be elaborate." Executed: (1) the
+lesson-level gate `scripts/verify_toc_as_lessons.ts` (machinery shared
+verbatim via `scripts/lib/survey_topics.ts`; routing fixed where the
+blob gate had masked a wrong ANS id, and re-arranged per the directive —
+LP/Lay-geometry → Optimization, series-testing → Real Analysis,
+hyperbolic → Methods-for-Engineering, numerical → Numerical Analysis,
+computation → its own DM chapter); (2) 25 new planned lessons inserted
+(plans only; shelf now 207 ch / 736 planned lessons across the 25
+planned books); (3) `docs/project/TOC_FOLD_LEDGER.json` — 403 surveyed
+topics that do not warrant separate lessons, each folded into a real
+host lesson with one of seven audited minimum-treatment modes;
+(4) `docs/project/TOC_LESSON_GUIDE.md` — the elaborate scheduled-task
+guide (pre-flight checklist, lesson anatomy bar, the lesson-worthiness
+test, the fold rules). Lesson-level census: 1,861 topics — 1,068
+lessons + 403 folds + 390 cross-refs, 0 gaps (gate 3,883/3,883). The
+authoring cadence is untouched: run 90 still opens AA 1.1 + 1.2.
+
 **Owner directive (2026-11-10, topic-inclusion guarantee pass — this pass):**
 "make sure that all the topics or TOC of research drive survey must be
 included in their respective books maths of library, make sure to arrange

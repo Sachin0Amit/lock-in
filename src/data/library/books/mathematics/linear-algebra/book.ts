@@ -125,6 +125,7 @@ const chapters: Chapter[] = [
       'Kernel, Range and Rank-Nullity — the null space and injectivity, the range and surjectivity — with invertibility and isomorphisms (Axler\u2019s isomorphic reading of a space)',
       'The Matrix of a Transformation',
       'Composition and Change of Basis',
+      'The Dual Space and the Dual Map',
     ],
   },
   {
@@ -138,6 +139,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Characteristic Polynomial',
       'Diagonalization and Cayley\u2013Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem',
+      'Invariant Subspaces and the Minimal Polynomial',
+      'Generalized Eigenvectors, Nilpotent Operators and Jordan Form',
       'The Symmetric Promise — Axler\u2019s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues',
       'Powers, Markov Chains and the SVD Named',
     ],
@@ -151,6 +154,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Inner Products and Norms: the Geometry Defined',
       'Projections and Orthogonality',
       'Gram\u2013Schmidt and Orthogonal Bases',
       'Least Squares: the Overdetermined Verdict',
