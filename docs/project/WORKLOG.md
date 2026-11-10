@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-10 — RUN 83: push verification recorded — remote main = local HEAD 37ea8ff (ls-remote via one-time URL: HEAD = 37ea8ffe3bc1371448c7fc8eaf23ac956acf99ce; all unpushed commits on main, including run 82's verification commit 439b943 and run 83's ship 37ea8ff, are now backed up on the remote; origin/main tracking ref resynced by anonymous fetch)
+
+---
+
 ## 2026-11-10 — RUN 83 (fired 05:50 IST day-window delivery of job 516929's v4 hybrid cadence, trace 1a1bedcaa50c0cc5-cron-agent-loop-202611100820): AL CH. 9 'QUADRATIC EQUATIONS' OPENS 2/4 — 9.1 'Quadratics and Factoring Solutions' (al-quadratics-and-factoring-solutions, 4,455 words, quiz keys 1/0/2/3/1, 14 exercises, two figures — the factoring pipeline + the verdict strip, the zero-product law PROVED both directions, the forbidden-divide audit, the 8.3 work-rate debt PAID) + 9.2 'Completing the Square, Derived' (al-completing-the-square-derived, 4,109 words, quiz keys 2/1/0/3/2, 14 exercises, two figures — the four-move pipeline + the geometric completion, the completion identity and constant inventory exact, the square verdict, √2's exile reversed, the monic formula seed) — ch. 9 NOT closed this run (9.3 + 9.4 + the unit-9 review are run 84's quota; ch. 10 untouched)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run start (run 82 pushed and verified: remote main = local HEAD 1fdd7d8). No `.figure_upgrade_lock` (sibling disabled). RESUME_POINTER locked run 83 = ch. 9 OPENS with 9.1 + 9.2 (NEVER 9.3/9.4 or the review).
