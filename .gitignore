@@ -355,3 +355,7 @@ server.log
 !/scripts/e2e-al-91.page.js
 !/scripts/e2e-al-92.sh
 !/scripts/e2e-al-92.page.js
+!/scripts/e2e-al-93.sh
+!/scripts/e2e-al-93.page.js
+!/scripts/e2e-al-94.sh
+!/scripts/e2e-al-94.page.js

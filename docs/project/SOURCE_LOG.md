@@ -6,6 +6,23 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 84 (2026-11-10) — AL ch. 9 CLOSES (9.3 + 9.4 + the unit-9 review)
+
+- Zero downloads, zero new keys: the banked keys carried the chapter close —
+  `hall-knight-elementary-algebra` (the classical text derives the formula by
+  completing the square of the general equation and reads the discriminant
+  as the nature-of-roots test), `ncert-math10-ch4-quadratic` (the school
+  canon's "nature of roots" heading — the discriminant verdict and the
+  no-real-roots k-hunts), `khattar-qa-4e` (the exam corner: symmetric
+  functions of the roots, build-the-quadratic items, ratio k-hunts),
+  `cengage-jee-style` (presentation contract). Cross-references carried per
+  the pointer: 9.1's zero-product gate and S/P readout (Viète is the readout
+  proved), 9.2's monic compression (the formula is its general-a
+  descendant), 8.3's cleared pipeline (the formula finishes every cleared
+  quadratic), 5.3's verdict machine (the discriminant is the verdict read
+  straight off the coefficients). No reference working copies to delete
+  (zero-download run).
+
 ## Run 83 (2026-11-10) — AL ch. 9 OPENS (9.1 + 9.2)
 
 - Zero downloads, zero new keys: the banked keys carried the chapter open —

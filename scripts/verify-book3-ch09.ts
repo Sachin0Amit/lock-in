@@ -865,7 +865,7 @@ console.log('[F] 9.1 authored: identity, structure census, quiz keys, figure pla
 
 {
   const lesson = chapter09.lessons[0]
-  ok(chapter09.lessons.length === 2, 'F: chapter 9 carries its authored lessons — 9.1 landed first, 9.2 joined this run (got ' + chapter09.lessons.length + ')')
+  ok(chapter09.lessons.length === 4, 'F: chapter 9 carries its authored lessons — 9.1 first, 9.2 in run 83, 9.3 + 9.4 this run (got ' + chapter09.lessons.length + ')')
   ok(lesson.id === 'al-quadratics-and-factoring-solutions', 'F: lesson id al-quadratics-and-factoring-solutions')
   ok(lesson.number === '9.1', 'F: lesson number 9.1')
   ok(lesson.title === 'Quadratics and Factoring Solutions', 'F: lesson title matches the planned title')
@@ -1070,7 +1070,7 @@ console.log('[G] 9.2 authored: identity, structure census, quiz keys, figure pla
 
 {
   const lesson = chapter09.lessons[1]
-  ok(chapter09.lessons.length === 2, 'G: chapter 9 now carries its two authored lessons — 9.2 landed this run (got ' + chapter09.lessons.length + ')')
+  ok(chapter09.lessons.length === 4, 'G: chapter 9 now carries its four authored lessons — 9.3 and 9.4 landed this run (got ' + chapter09.lessons.length + ')')
   ok(lesson.id === 'al-completing-the-square-derived', 'G: lesson id al-completing-the-square-derived')
   ok(lesson.number === '9.2', 'G: lesson number 9.2')
   ok(lesson.title === 'Completing the Square, Derived', 'G: lesson title matches the planned title')
@@ -1282,7 +1282,1028 @@ console.log('[G] 9.2 authored: identity, structure census, quiz keys, figure pla
   ok(escapes === 0, 'G: no unicode escapes in ch-09.ts source (found ' + escapes + ')')
 }
 
-console.log(`\nverify-book3-ch09 TOTAL (sections A-G): ${passed} passed, ${failed} failed`)
+/* ------------------------------------------------------------------ */
+/* (H) the quadratic-formula + discriminant engines of lesson 9.3      */
+/* (I) the Viète relations engines of lesson 9.4                       */
+/* Both written BEFORE any prose of run 84 (verify-first discipline).  */
+/* ------------------------------------------------------------------ */
+
+console.log('[H] 9.3 engines: the divide, the formula, the discriminant census, the k-hunts, the rectangle verdict, the master identity, the surd splits')
+
+/* H-i — the divide-by-a engine: the general-a quadratic goes monic by a
+   lawful division (a ≠ 0), and the zero set cannot move — pointwise. */
+{
+  const cases: [string, Poly][] = [
+    ['2x² − 7x + 3', P(3, -7, 2)],
+    ['3x² − 6x − 2', P(-2, -6, 3)],
+    ['4x² − 12x + 9', P(9, -12, 4)],
+  ]
+  for (const [name, q] of cases) {
+    const lead = q[q.length - 1]
+    const monic = pScale(q, fDiv(fr(1n), lead))
+    ok(fEq(monic[monic.length - 1], fr(1n)), 'H-i ' + name + ' divides to a monic quadratic')
+    for (const xv of W) {
+      const X = fr(xv)
+      ok(fIsZero(pe(q, X)) === fIsZero(pe(monic, X)), 'H-i the divide preserves the zero set at x = ' + xv + ' (' + name + ')')
+    }
+  }
+  console.log('  H-i the divide: 3 general-a quadratics, 11 census points each — the a ≠ 0 clause licenses the monic form')
+}
+
+/* helper: QF equality (distinctness assertions) */
+function qfEqTest(u: QF, v: QF): boolean {
+  return u.d === v.d && fEq(u.p, v.p) && fEq(u.q, v.q)
+}
+
+/* H-ii — the formula engine: Δ = b² − 4ac, x = (−b ± √Δ)/2a, certified
+   for nine designed triples: four rational, three irrational, two empty. */
+{
+  const triples: [string, Frac, Frac, Frac, Frac][] = [
+    ['2x² − 7x + 3', fr(2n), fr(-7n), fr(3n), fr(25n)],
+    ['x² − 6x + 8', fr(1n), fr(-6n), fr(8n), fr(4n)],
+    ['4x² − 12x + 9', fr(4n), fr(-12n), fr(9n), fr(0n)],
+    ['x² − 5x + 6', fr(1n), fr(-5n), fr(6n), fr(1n)],
+    ['x² − 2x − 4', fr(1n), fr(-2n), fr(-4n), fr(20n)],
+    ['x² + 4x + 1', fr(1n), fr(4n), fr(1n), fr(12n)],
+    ['3x² − 6x − 2', fr(3n), fr(-6n), fr(-2n), fr(60n)],
+    ['x² + 2x + 5', fr(1n), fr(2n), fr(5n), fr(-16n)],
+    ['2x² − 3x + 4', fr(2n), fr(-3n), fr(4n), fr(-23n)],
+  ]
+  for (const [name, a, b, c, dWanted] of triples) {
+    const d = fSub(fMul(b, b), fMul(fr(4n), fMul(a, c)))
+    ok(fEq(d, dWanted), 'H-ii Δ = b² − 4ac = ' + dWanted.n + '/' + dWanted.d + ' exact for ' + name)
+  }
+  const ratCases: [string, Frac, Frac, Frac, Frac[]][] = [
+    ['2x² − 7x + 3', fr(2n), fr(-7n), fr(3n), [fr(1n, 2n), fr(3n)]],
+    ['x² − 6x + 8', fr(1n), fr(-6n), fr(8n), [fr(2n), fr(4n)]],
+    ['4x² − 12x + 9', fr(4n), fr(-12n), fr(9n), [fr(3n, 2n)]],
+    ['x² − 5x + 6', fr(1n), fr(-5n), fr(6n), [fr(2n), fr(3n)]],
+  ]
+  for (const [name, a, b, c, want] of ratCases) {
+    const got = quadRootsRational(a, b, c)
+    ok(got !== null && got.length === want.length && want.every((r) => got!.some((g) => fEq(g, r))), 'H-ii the formula lands exactly the pinned root set for ' + name)
+    for (const r of want) ok(fIsZero(pe([c, b, a], r)), 'H-ii root ' + r.n + '/' + r.d + ' priced in the ORIGINAL ' + name)
+    if (want.length === 2) {
+      ok(quadraticFactorIdentity(a, b, c, want[0], want[1]), 'H-ii the factor identity holds for ' + name + ' — the full real solution set certified')
+    } else {
+      ok(quadraticFactorIdentity(a, b, c, want[0], want[0]), 'H-ii the repeated-root identity (x − r)² · a for ' + name)
+    }
+  }
+  ok(fEq(fDiv(fAdd(fr(7n), fr(5n)), fr(4n)), fr(3n)) && fEq(fDiv(fSub(fr(7n), fr(5n)), fr(4n)), fr(1n, 2n)), 'H-ii the formula line: x = (7 ± 5)/4 → {3, 1/2} for 2x² − 7x + 3')
+  const irrCases: [string, Poly, QF, QF, Frac][] = [
+    ['x² − 2x − 4', P(-4, -2, 1), qf(fr(1n), fr(1n), 5n), qf(fr(1n), fr(-1n), 5n), fr(20n)],
+    ['x² + 4x + 1', P(1, 4, 1), qf(fr(-2n), fr(1n), 3n), qf(fr(-2n), fr(-1n), 3n), fr(12n)],
+    ['3x² − 6x − 2', P(-2, -6, 3), qf(fr(1n), fr(1n, 3n), 15n), qf(fr(1n), fr(-1n, 3n), 15n), fr(60n)],
+  ]
+  for (const [name, poly, r1, r2, d] of irrCases) {
+    ok(d.n > 0n && !isPerfectSquare(d.n), 'H-ii ' + name + ': Δ = ' + d.n + '/' + d.d + ' > 0 but not a rational square — two real IRRATIONAL doors')
+    ok(quadRootsRational(poly[poly.length - 1], poly[1], poly[0]) === null, 'H-ii ' + name + ': quadRootsRational honestly returns null (no rational doors)')
+    ok(qfIsZero(peQF(poly, r1)) && qfIsZero(peQF(poly, r2)), 'H-ii ' + name + ': both formula doors certified exact in their quadratic field')
+    ok(!qfEqTest(r1, r2), 'H-ii ' + name + ': the two doors are genuinely distinct (Δ > 0)')
+  }
+  const negCases: [string, Poly, Frac, Frac, Frac, Frac][] = [
+    ['x² + 2x + 5', P(5, 2, 1), fr(1n), fr(2n), fr(5n), fr(-16n)],
+    ['2x² − 3x + 4', P(4, -3, 2), fr(2n), fr(-3n), fr(4n), fr(-23n)],
+  ]
+  for (const [name, poly, a, b, c, d] of negCases) {
+    ok(d.n < 0n, 'H-ii ' + name + ': Δ = ' + d.n + ' < 0 — the square verdict refuses both doors')
+    ok(quadRootsRational(a, b, c) === null, 'H-ii ' + name + ': no real doors (the engine returns null)')
+    let censusHits = 0
+    for (const xv of W) if (fIsZero(pe(poly, fr(xv)))) censusHits++
+    ok(censusHits === 0, 'H-ii ' + name + ': the census window confirms zero hits (no real roots)')
+  }
+  console.log('  H-ii the formula: 9 designed triples — 4 rational, 3 irrational (QF doors exact), 2 none-real; every root priced in the original')
+}
+
+/* H-iii — the discriminant verdict census: the sign of Δ IS the verdict. */
+{
+  const kFam: [bigint, Frac, string][] = [
+    [0n, fr(4n), 'two'],
+    [1n, fr(0n), 'one'],
+    [2n, fr(-4n), 'none'],
+    [5n, fr(-16n), 'none'],
+  ]
+  for (const [k, d, verdict] of kFam) {
+    const got = quadRootsRational(fr(1n), fr(2n), fr(k))
+    if (verdict === 'two') ok(got !== null && got.length === 2, 'H-iii x² + 2x + 0: Δ = 4 > 0 → two doors ({0, −2})')
+    if (verdict === 'one') ok(got !== null && got.length === 1 && fEq(got[0], fr(-1n)), 'H-iii x² + 2x + 1: Δ = 0 → the single repeated root x = −b/2a = −1')
+    if (verdict === 'none') ok(got === null && d.n < 0n, 'H-iii x² + 2x + ' + k + ': Δ = ' + d.n + ' < 0 → none real')
+  }
+  ok(fEq(fSub(fMul(fr(2n), fr(2n)), fMul(fr(4n), fMul(fr(1n), fr(2n)))), fr(-4n)), 'H-iii the boundary read: Δ(x² + 2x + 2) = 4 − 8 = −4 < 0 — the k > 1 regime is empty')
+  ok(fEq(fDiv(fNeg(fr(-6n)), fMul(fr(2n), fr(1n))), fr(3n)), 'H-iii x² − 6x + 9: −b/2a = 6/2 = 3 — the repeated root read straight off the coefficients')
+  ok(fEq(fDiv(fNeg(fr(-12n)), fMul(fr(2n), fr(4n))), fr(3n, 2n)), 'H-iii 4x² − 12x + 9: −b/2a = 12/8 = 3/2 — the repeated root, counted twice')
+  console.log('  H-iii the census: the k-family walks all three branches; the −b/2a repeated-root read exact')
+}
+
+/* H-iv — the k-hunt engine: design k for a required verdict. */
+{
+  ok(pEq(pMul(P(5, 1), P(5, 1)), P(25, 10, 1)), 'H-iv k = +10: (x + 5)² = x² + 10x + 25 — the repeated root −5')
+  ok(pEq(pMul(P(-5, 1), P(-5, 1)), P(25, -10, 1)), 'H-iv k = −10: (x − 5)² = x² − 10x + 25 — the repeated root 5')
+  ok(fEq(fSub(fMul(fr(10n), fr(10n)), fMul(fr(4n), fr(25n))), fr(0n)), 'H-iv the discriminant read: 10² − 4·25 = 0 (and (−10)² is the same square)')
+  ok(fEq(fSub(fr(16n), fMul(fr(8n), fr(2n))), fr(0n)), 'H-iv the boundary: k = 2 gives Δ = 0 — the repeated root x = −4/4 = −1')
+  ok(quadRootsRational(fr(2n), fr(4n), fr(2n))!.length === 1, 'H-iv k = 2: exactly one door (the collapse)')
+  ok(quadRootsRational(fr(2n), fr(4n), fr(3n)) === null, 'H-iv k = 3: Δ = 16 − 24 = −8 < 0 — no doors')
+  ok(qfIsZero(peQF(pScale(P(1, 4, 2), fr(1n, 2n)), qf(fr(-1n), fr(1n, 2n), 2n))), 'H-iv below the boundary k = 1: roots −1 ± √2/2 certified in ℚ(√2) — two irrational doors')
+  console.log('  H-iv the k-hunts: k = ±10 both expansions exact; the k > 2 no-real-roots regime priced with its boundary collapse')
+}
+
+/* H-v — the rectangle-verdict engine: perimeter 20, the area question
+   answered by the discriminant before any solving. */
+{
+  let maxVal = fr(-1n)
+  let maxAt: bigint | null = null
+  for (const xv of W) {
+    const v = fMul(fr(xv), fSub(fr(10n), fr(xv)))
+    if (maxAt === null || v.n * maxVal.d > maxVal.n * v.d) {
+      maxVal = v
+      maxAt = xv
+    }
+  }
+  ok(maxAt === 5n && fEq(maxVal, fr(25n)), 'H-v the census maximum: x(10 − x) peaks at 25, at x = 5 alone')
+  ok(pEq(pSub(P(25), pMul([fr(0n), fr(1n)], P(10, -1))), pMul(P(5, -1), P(5, -1))), 'H-v the identity: 25 − x(10 − x) = (x − 5)² — the square explains the maximum')
+  ok(fEq(fSub(fMul(fr(-10n), fr(-10n)), fMul(fr(4n), fr(26n))), fr(-4n)), 'H-v area 26: Δ = 100 − 104 = −4 < 0 — the verdict says NO before any solving')
+  ok(pEq(pAdd(pMul(P(5, -1), P(5, -1)), P(1)), P(26, -10, 1)), 'H-v and the completed square: x² − 10x + 26 = (x − 5)² + 1 ≥ 1 — never zero, exact')
+  const a21 = quadRootsRational(fr(1n), fr(-10n), fr(21n))
+  ok(a21 !== null && fEq(a21[0], fr(3n)) && fEq(a21[1], fr(7n)), 'H-v area 21: Δ = 100 − 84 = 16 > 0 → {3, 7} — the same rectangle, read from either side')
+  const a25 = quadRootsRational(fr(1n), fr(-10n), fr(25n))
+  ok(a25 !== null && a25.length === 1 && fEq(a25[0], fr(5n)), 'H-v area 25: Δ = 0 → the single root x = 5 — the square, where the two answers collapse')
+  console.log('  H-v the rectangle verdict: max 25 at x = 5 (the square), 26 impossible (Δ = −4), 21 → {3, 7}, 25 → {5}')
+}
+
+/* H-vi — the master identity: a·(x + b/2a)² − Δ/(4a) ≡ a·x² + b·x + c. */
+{
+  const cases: [string, Poly, Frac, Frac, Frac, Poly, Frac][] = [
+    ['2x² − 7x + 3', P(3, -7, 2), fr(2n), fr(-7n), fr(25n), pMul([fr(-7n, 4n), fr(1n)], [fr(-7n, 4n), fr(1n)]), fr(-25n, 8n)],
+    ['4x² − 12x + 9', P(9, -12, 4), fr(4n), fr(-12n), fr(0n), pMul([fr(-3n, 2n), fr(1n)], [fr(-3n, 2n), fr(1n)]), fr(0n)],
+    ['x² + 2x + 5', P(5, 2, 1), fr(1n), fr(2n), fr(-16n), pMul(P(1, 1), P(1, 1)), fr(4n)],
+    ['2x² − 3x + 4', P(4, -3, 2), fr(2n), fr(-3n), fr(-23n), pMul([fr(-3n, 4n), fr(1n)], [fr(-3n, 4n), fr(1n)]), fr(23n, 8n)],
+  ]
+  for (const [name, orig, a, b, d, sq, shift] of cases) {
+    const rebuilt = pAdd(pScale(sq, a), [shift])
+    ok(pEq(rebuilt, orig), 'H-vi the master identity exact: ' + name + ' = a(x + b/2a)² − Δ/(4a)')
+    ok(fEq(fNeg(fDiv(d, fMul(fr(4n), a))), shift), 'H-vi the shift −Δ/(4a) = ' + shift.n + '/' + shift.d + ' for ' + name + (d.n < 0n ? ' — POSITIVE, the never-zero guarantee' : ''))
+  }
+  console.log('  H-vi the master identity: 4 exhibits exact — Δ = 0 folds to a pure square, Δ < 0 leaves a positive shift')
+}
+
+/* H-vii — the surd-split engine: √n = s·√r with the LARGEST square s² | n. */
+{
+  function splitSurd(n: bigint): [bigint, bigint] {
+    let s = 1n
+    let r = n
+    let i = isqrt(n)
+    while (i >= 2n) {
+      if (n % (i * i) === 0n) {
+        s = i
+        r = n / (i * i)
+        break
+      }
+      i -= 1n
+    }
+    return [s, r]
+  }
+  const cases: [bigint, bigint, bigint][] = [
+    [20n, 2n, 5n],
+    [12n, 2n, 3n],
+    [60n, 2n, 15n],
+    [48n, 4n, 3n],
+    [40n, 2n, 10n],
+    [8n, 2n, 2n],
+    [5n, 1n, 5n],
+    [15n, 1n, 15n],
+    [10n, 1n, 10n],
+  ]
+  for (const [n, s, r] of cases) {
+    const got = splitSurd(n)
+    ok(got[0] === s && got[1] === r, 'H-vii √' + n + ' = ' + s + '·√' + r + ' (largest square ' + s + '² = ' + s * s + ' divides ' + n + ')')
+    ok(s * s * r === n, 'H-vii the split check: ' + s + '² · ' + r + ' = ' + n)
+  }
+  ok(fEq(fDiv(fAdd(fr(2n), fr(splitSurd(20n)[0])), fr(2n)), fr(2n)), 'H-vii the formula-door reading: (2 ± √20)/2 = (2 ± 2√5)/2 = 1 ± √5 — the split lands the 9.3 exhibit')
+  console.log('  H-vii the surd splits: 9 exact splits including √48 = 4√3 (the 9.2 non-monic) and the primes that stay put')
+}
+
+/* H-viii — the 9.3 figure plans (pinned rect-by-rect, audited in J). */
+const plan93Fig1 = {
+  viewBox: '0 0 720 340',
+  rects: [
+    [30, 18, 660, 44],
+    [30, 96, 124, 150],
+    [166, 96, 124, 150],
+    [302, 96, 124, 150],
+    [438, 96, 124, 150],
+    [574, 96, 124, 150],
+    [30, 266, 124, 26],
+    [166, 266, 124, 26],
+    [302, 266, 124, 26],
+    [438, 266, 124, 26],
+    [574, 266, 124, 26],
+    [30, 304, 660, 24],
+  ] as [number, number, number, number][],
+  groups: [
+    [0, 11],
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+  ],
+}
+
+const plan93Fig2 = {
+  viewBox: '0 0 720 340',
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 206, 170],
+    [257, 84, 206, 170],
+    [484, 84, 206, 170],
+    [30, 266, 206, 26],
+    [257, 266, 206, 26],
+    [484, 266, 206, 26],
+    [30, 304, 660, 24],
+  ] as [number, number, number, number][],
+  groups: [
+    [0, 7],
+    [1, 2, 3],
+    [4, 5, 6],
+  ],
+}
+
+/* H-ix — the 9.3 pinned battery: quiz keys and the 14 exercise roots. */
+{
+  const quiz93 = [1, 3, 2, 0, 2]
+  ok(quiz93.length === 5 && quiz93.every((k) => k >= 0 && k <= 3), 'H-ix the 9.3 quiz keys pinned: ' + quiz93.join('/'))
+  ok(fEq(fSub(fMul(fr(-5n), fr(-5n)), fMul(fr(4n), fr(6n))), fr(1n)), 'H-ix L1-1 Δ(x² − 5x + 6) = 25 − 24 = 1 > 0 → two distinct (roots {2, 3})')
+  ok(fEq(fSub(fMul(fr(4n), fr(4n)), fMul(fr(4n), fr(4n))), fr(0n)), 'H-ix L1-2 Δ(x² + 4x + 4) = 16 − 16 = 0 → one repeated (root −2; (x + 2)²)')
+  ok(fEq(fSub(fMul(fr(2n), fr(2n)), fMul(fr(4n), fr(5n))), fr(-16n)), 'H-ix L1-3 Δ(x² + 2x + 5) = 4 − 20 = −16 < 0 → none real')
+  {
+    const got = quadRootsRational(fr(2n), fr(5n), fr(-3n))
+    ok(got !== null && fEq(got[0], fr(-3n)) && fEq(got[1], fr(1n, 2n)), 'H-ix L2-1 2x² + 5x − 3: Δ = 25 + 24 = 49, x = (−5 ± 7)/4 → {−3, 1/2}')
+    const got2 = quadRootsRational(fr(1n), fr(-6n), fr(8n))
+    ok(got2 !== null && fEq(got2[0], fr(2n)) && fEq(got2[1], fr(4n)), 'H-ix L2-2 x² − 6x + 8: Δ = 36 − 32 = 4, x = (6 ± 2)/2 → {2, 4}')
+    const got3 = quadRootsRational(fr(4n), fr(-12n), fr(9n))
+    ok(got3 !== null && got3.length === 1 && fEq(got3[0], fr(3n, 2n)), 'H-ix L2-3 4x² − 12x + 9: Δ = 0 → x = 12/8 = 3/2 counted twice — (2x − 3)²')
+    ok(pEq(pMul(P(-3, 2), P(-3, 2)), P(9, -12, 4)), 'H-ix L2-3 the fold visible: (2x − 3)² = 4x² − 12x + 9')
+  }
+  {
+    ok(qfIsZero(peQF(P(-4, -2, 1), qf(fr(1n), fr(1n), 5n))), 'H-ix L3-1 x² − 2x − 4 → x = 1 ± √5 exact in ℚ(√5)')
+    ok(qfIsZero(peQF(P(1, 4, 1), qf(fr(-2n), fr(1n), 3n))), 'H-ix L3-2 x² + 4x + 1 → x = −2 ± √3 exact in ℚ(√3)')
+    ok(qfIsZero(peQF(P(-2, -6, 3), qf(fr(1n), fr(1n, 3n), 15n))), 'H-ix L3-3 3x² − 6x − 2 → x = 1 ± √15/3 exact in ℚ(√15) — the split √60 = 2√15 at work')
+  }
+  {
+    ok(pEq(pMul(P(5, 1), P(5, 1)), P(25, 10, 1)) && pEq(pMul(P(-5, 1), P(-5, 1)), P(25, -10, 1)), 'H-ix L4-1 x² + kx + 25: k = ±10, the repeated roots −5 and 5')
+    ok(quadRootsRational(fr(2n), fr(4n), fr(2n))!.length === 1 && quadRootsRational(fr(2n), fr(4n), fr(3n)) === null, 'H-ix L4-2 2x² + 4x + k: no real roots ⟺ k > 2, the boundary k = 2 collapses to x = −1')
+    ok(fEq(fSub(fMul(fr(-10n), fr(-10n)), fMul(fr(4n), fr(26n))), fr(-4n)), 'H-ix L4-3 the perimeter-20 rectangle: area 26 → Δ = −4, no such rectangle')
+  }
+  {
+    ok(fEq(fSub(fMul(fr(7n), fr(7n)), fMul(fr(4n), fr(12n))), fr(1n)), 'H-ix L5 p = ±7: Δ = 49 − 48 = 1 = (difference)² for the monic form')
+    const p7 = quadRootsRational(fr(1n), fr(-7n), fr(12n))
+    const pm7 = quadRootsRational(fr(1n), fr(7n), fr(12n))
+    ok(p7 !== null && fEq(p7[0], fr(3n)) && fEq(p7[1], fr(4n)), 'H-ix L5 x² − 7x + 12 → {3, 4} — differing by exactly 1')
+    ok(pm7 !== null && fEq(pm7[0], fr(-4n)) && fEq(pm7[1], fr(-3n)), 'H-ix L5 x² + 7x + 12 → {−4, −3} — the second quadratic, both doors')
+  }
+  {
+    const rebuilt = pAdd(pScale(pMul([fr(-7n, 4n), fr(1n)], [fr(-7n, 4n), fr(1n)]), fr(2n)), [fr(-25n, 8n)])
+    ok(pEq(rebuilt, P(3, -7, 2)), 'H-ix L6 2x² − 7x + 3 = 2(x − 7/4)² − 25/8 exact — the verdict read without solving')
+  }
+  console.log('  H-ix the 9.3 battery: quiz keys + 14 exercise roots all solved and priced BEFORE prose')
+}
+
+/* ------------------------------------------------------------------ */
+/* (I) the Viète relations engines of lesson 9.4                       */
+/* ------------------------------------------------------------------ */
+
+console.log('[I] 9.4 engines: the S/P readout, the rebuild identity, the build engine, the symmetric hunts, the sign map, the difference identity, the k-hunt')
+
+/* I-i — the S/P readout: S = −b/a, P = c/a exact, certified against the
+   priced roots (rational via Frac, irrational via the quadratic fields). */
+{
+  const monicCases: [string, Frac, Frac, Frac, Frac][] = [
+    ['x² − 9x + 20', fr(1n), fr(-9n), fr(20n), fr(9n)],
+    ['x² − 7x', fr(1n), fr(-7n), fr(0n), fr(7n)],
+    ['x² − 6x + 9', fr(1n), fr(-6n), fr(9n), fr(6n)],
+    ['x² + 7x + 12', fr(1n), fr(7n), fr(12n), fr(-7n)],
+  ]
+  for (const [name, a, b, c, sWanted] of monicCases) {
+    const s = fDiv(fNeg(b), a)
+    const p = fDiv(c, a)
+    ok(fEq(s, sWanted), 'I-i ' + name + ': S = −b/a = ' + sWanted.n + '/' + sWanted.d + ' exact')
+    ok(fEq(p, fDiv(c, a)), 'I-i ' + name + ': P = c/a = ' + p.n + '/' + p.d + ' read off the constant')
+  }
+  ok(fEq(fDiv(fNeg(fr(5n)), fr(3n)), fr(-5n, 3n)) && fEq(fDiv(fr(-2n), fr(3n)), fr(-2n, 3n)), 'I-i 3x² + 5x − 2: S = −5/3, P = −2/3 — the divide is part of the readout')
+  ok(fEq(fDiv(fNeg(fr(-7n)), fr(2n)), fr(7n, 2n)) && fEq(fDiv(fr(3n), fr(2n)), fr(3n, 2n)), "I-i 2x² − 7x + 3: S = 7/2, P = 3/2 — 9.3's headline exhibit returns")
+  ok(fEq(fAdd(fr(4n), fr(5n)), fr(9n)) && fEq(fMul(fr(4n), fr(5n)), fr(20n)), 'I-i x² − 9x + 20: roots {4, 5} pass both tests — 4 + 5 = 9 = S, 4 · 5 = 20 = P')
+  ok(fEq(fAdd(fr(1n, 2n), fr(3n)), fr(7n, 2n)) && fEq(fMul(fr(1n, 2n), fr(3n)), fr(3n, 2n)), 'I-i 2x² − 7x + 3: roots {1/2, 3} pass both — the 9.3 formula verdict re-certified by the readout')
+  ok(fEq(fAdd(fr(0n), fr(7n)), fr(7n)) && fIsZero(fMul(fr(0n), fr(7n))), 'I-i x² − 7x: P = 0 ⟺ a zero root — the 9.1 forbidden-divide door returns as a coefficient reading')
+  const al = qf(fr(3n), fr(1n), 5n)
+  const be = qf(fr(3n), fr(-1n), 5n)
+  ok(qfIsZero(peQF(P(4, -6, 1), al)) && qfIsZero(peQF(P(4, -6, 1), be)), 'I-i x² − 6x + 4: the roots 3 ± √5 priced in the original polynomial')
+  const sQF = qfAdd(al, be)
+  const pQF = qfMul(al, be)
+  ok(fEq(sQF.p, fr(6n)) && fIsZero(sQF.q), 'I-i the field sum (3+√5) + (3−√5) = 6 = S exactly — the ± parts annihilate')
+  ok(fEq(pQF.p, fr(4n)) && fIsZero(pQF.q), 'I-i the field product (3+√5)(3−√5) = 9 − 5 = 4 = P exactly')
+  const g1 = qf(fr(2n), fr(1n), 3n)
+  const g2 = qf(fr(2n), fr(-1n), 3n)
+  const pG = qfMul(g1, g2)
+  ok(fEq(pG.p, fr(1n)) && fIsZero(pG.q), 'I-i (2+√3)(2−√3) = 4 − 3 = 1 = P for x² − 4x + 1 — the product read certified in ℚ(√3)')
+  console.log('  I-i the readout: 4 monic + 2 non-monic S/P reads, certified against rational AND irrational roots exactly')
+}
+
+/* I-ii — the rebuild identity: a·(x² − Sx + P) ≡ a·x² + b·x + c, exact. */
+{
+  const cases: [string, Frac, Frac, Frac][] = [
+    ['2x² − 7x + 3', fr(2n), fr(-7n), fr(3n)],
+    ['x² − 2x − 4', fr(1n), fr(-2n), fr(-4n)],
+    ['3x² + 5x − 2', fr(3n), fr(5n), fr(-2n)],
+    ['x² + 2x + 5', fr(1n), fr(2n), fr(5n)],
+  ]
+  for (const [name, a, b, c] of cases) {
+    const S = fDiv(fNeg(b), a)
+    const Pv = fDiv(c, a)
+    const rebuilt = pScale([Pv, fNeg(S), fr(1n)], a)
+    ok(pEq(rebuilt, [c, b, a]), 'I-ii the rebuild exact: ' + name + ' = a·(x² − Sx + P) with S = ' + S.n + '/' + S.d + ', P = ' + Pv.n + '/' + Pv.d)
+  }
+  ok(pEq(pScale(P(-15, -2, 1), fr(2n)), P(-30, -4, 2)), 'I-ii the family: 2·(x² − 2x − 15) = 2x² − 4x − 30 — same roots, new a (the a-family)')
+  for (const xv of W) {
+    const X = fr(xv)
+    ok(fIsZero(pe(P(-15, -2, 1), X)) === fIsZero(pe(pScale(P(-15, -2, 1), fr(2n)), X)), 'I-ii the a-family preserves the zero set at x = ' + xv)
+  }
+  console.log('  I-ii the rebuild: 4 exact identities + the a-family pointwise preservation (infinitely many quadratics, one root set)')
+}
+
+/* I-iii — the build engine: from (S, P) back to the quadratic. */
+{
+  const builds: [string, Frac, Frac, Poly, Frac[] | null][] = [
+    ['S = 2, P = −15', fr(2n), fr(-15n), P(-15, -2, 1), [fr(5n), fr(-3n)]],
+    ['S = −1, P = −6', fr(-1n), fr(-6n), P(-6, 1, 1), [fr(-3n), fr(2n)]],
+    ['S = 0, P = 5', fr(0n), fr(5n), P(5, 0, 1), null],
+  ]
+  for (const [name, S, Pv, quad, roots] of builds) {
+    ok(pEq(quad, pAdd(pScale([fr(0n), fr(-1n)], S), [Pv, fr(0n), fr(1n)])), 'I-iii the build x² − Sx + P exact for ' + name)
+    if (roots) {
+      const got = quadRootsRational(quad[2], quad[1], quad[0])
+      ok(got !== null && got.length === 2 && roots.every((r) => got!.some((g) => fEq(g, r))), 'I-iii ' + name + ' lands the pinned roots exactly')
+      for (const r of roots) ok(fIsZero(pe(quad, r)), 'I-iii the built quadratic priced at root ' + r.n + '/' + r.d)
+    } else {
+      const d = fSub(fMul(quad[1], quad[1]), fMul(fr(4n), fMul(quad[2], quad[0])))
+      ok(d.n < 0n, 'I-iii ' + name + ' → x² + 5: Δ = ' + d.n + ' < 0 — the relations build the quadratic even when no real roots exist')
+      ok(fEq(d, fr(-20n)), 'I-iii and the pinned Δ = −20 for the impossible build')
+    }
+  }
+  const u1 = qf(fr(1n), fr(1n), 2n)
+  const u2 = qf(fr(1n), fr(-1n), 2n)
+  const sB = qfAdd(u1, u2)
+  const pB = qfMul(u1, u2)
+  ok(fEq(sB.p, fr(2n)) && fIsZero(sB.q) && fEq(pB.p, fr(-1n)) && fIsZero(pB.q), "I-iii the irrational build: (1+√2) + (1−√2) = 2, (1+√2)(1−√2) = 1 − 2 = −1 → x² − 2x − 1")
+  ok(pEq(P(-1, -2, 1), pAdd(pScale([fr(0n), fr(-1n)], fr(2n)), [fr(-1n), fr(0n), fr(1n)])), "I-iii and the build x² − 2x − 1 exact — 9.2's exile-reversing answer, now DESIGNED")
+  console.log('  I-iii the build: three rational designs + the irrational design (1 ± √2 → x² − 2x − 1) all exact')
+}
+
+/* I-iv — the symmetric-function hunts: α² + β², 1/α + 1/β, (α−β)²,
+   α³ + β³ — computed by the relations, certified in the field. */
+{
+  const S = fr(6n)
+  const Pv = fr(4n)
+  ok(fEq(fSub(fMul(S, S), fMul(fr(2n), Pv)), fr(28n)), 'I-iv α² + β² = S² − 2P = 36 − 8 = 28')
+  ok(fEq(fDiv(S, Pv), fr(3n, 2n)), 'I-iv 1/α + 1/β = S/P = 6/4 = 3/2')
+  ok(fEq(fSub(fMul(S, S), fMul(fr(4n), Pv)), fr(20n)), 'I-iv (α − β)² = S² − 4P = 36 − 16 = 20')
+  ok(fEq(fSub(fMul(fMul(S, S), S), fMul(fMul(fr(3n), Pv), S)), fr(144n)), 'I-iv α³ + β³ = S³ − 3PS = 216 − 72 = 144')
+  const al = qf(fr(3n), fr(1n), 5n)
+  const be = qf(fr(3n), fr(-1n), 5n)
+  const sqSum = qfAdd(qfMul(al, al), qfMul(be, be))
+  ok(fEq(sqSum.p, fr(28n)) && fIsZero(sqSum.q), 'I-iv the field check: (3+√5)² + (3−√5)² = (14+6√5) + (14−6√5) = 28')
+  const diffSq = qfMul(qfSub(al, be), qfSub(al, be))
+  ok(fEq(diffSq.p, fr(20n)) && fIsZero(diffSq.q), 'I-iv the field check: ((3+√5) − (3−√5))² = (2√5)² = 20')
+  const cubeSum = qfAdd(qfMul(qfMul(al, al), al), qfMul(qfMul(be, be), be))
+  ok(fEq(cubeSum.p, fr(144n)) && fIsZero(cubeSum.q), 'I-iv the field check: (3+√5)³ + (3−√5)³ = (72+32√5) + (72−32√5) = 144')
+  const ra = qf(fr(3n, 4n), fr(-1n, 4n), 5n)
+  const rb = qf(fr(3n, 4n), fr(1n, 4n), 5n)
+  ok(qfIsZero(qfSub(qfMul(al, ra), qf(fr(1n), fr(0n), 5n))), 'I-iv the reciprocal priced: (3+√5)·(3−√5)/4 = 1')
+  const recSum = qfAdd(ra, rb)
+  ok(fEq(recSum.p, fr(3n, 2n)) && fIsZero(recSum.q), 'I-iv the field check: 1/α + 1/β = 3/2 exactly')
+  ok(fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(2n), fr(6n))), fr(13n)), 'I-iv x² − 5x + 6: α² + β² = 25 − 12 = 13 (the roots 2, 3 give 4 + 9)')
+  ok(fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(4n), fr(6n))), fr(1n)), 'I-iv x² − 5x + 6: (α − β)² = 25 − 24 = 1 (3 − 2 = 1)')
+  ok(fEq(fDiv(fr(5n), fr(6n)), fr(5n, 6n)), 'I-iv x² − 5x + 6: 1/α + 1/β = 5/6 (1/2 + 1/3)')
+  console.log('  I-iv the symmetric hunts: four functions of the roots priced by relations AND certified in ℚ(√5)')
+}
+
+/* I-v — the sign map: what S and P reveal about the roots without solving. */
+{
+  ok(fEq(fSub(fMul(fr(-1n), fr(-1n)), fMul(fr(4n), fMul(fr(1n), fr(-6n)))), fr(25n)), 'I-v x² − x − 6: Δ = 1 + 24 = 25 > 0 — forced, because P = −6 < 0')
+  const mixed = quadRootsRational(fr(1n), fr(-1n), fr(-6n))
+  ok(mixed !== null && fEq(mixed[0], fr(-2n)) && fEq(mixed[1], fr(3n)), 'I-v x² − x − 6 → {−2, 3}: opposite signs, both real — the P < 0 promise kept')
+  ok(fEq(fAdd(fr(3n), fr(4n)), fr(7n)) && fEq(fMul(fr(3n), fr(4n)), fr(12n)), 'I-v x² − 7x + 12: S = 7 > 0, P = 12 > 0 → {3, 4}, both positive')
+  ok(fEq(fAdd(fr(-3n), fr(-4n)), fr(-7n)) && fEq(fMul(fr(-3n), fr(-4n)), fr(12n)), 'I-v x² + 7x + 12: S = −7 < 0, P = 12 > 0 → {−3, −4}, both negative')
+  ok(fIsZero(fMul(fr(0n), fr(7n))), 'I-v x² − 7x: P = 0 → the roots 0 and S = 7 — the zero-product door, read off the coefficients')
+  console.log('  I-v the sign map: P < 0 forces Δ > 0 (opposite signs), the P > 0 quadrants, and the P = 0 door')
+}
+
+/* I-vi — the difference identity: (r1 − r2)² = Δ/a². */
+{
+  const cases: [string, Frac, Frac, Frac][] = [
+    ['x² − 7x + 12', fr(1n), fr(1n), fr(1n)],
+    ['2x² − 7x + 3', fr(2n), fr(25n), fr(25n, 4n)],
+    ['x² − 4x + 1', fr(1n), fr(12n), fr(12n)],
+  ]
+  for (const [name, a, d, want] of cases) {
+    ok(fEq(fDiv(d, fMul(a, a)), want), 'I-vi ' + name + ': Δ/a² = ' + want.n + '/' + want.d + ' — the squared gap between the doors')
+  }
+  ok(fEq(fSub(fr(4n), fr(3n)), fr(1n)), 'I-vi x² − 7x + 12: 4 − 3 = 1, and 1² = 1 = Δ')
+  ok(fEq(fSub(fr(3n), fr(1n, 2n)), fr(5n, 2n)), 'I-vi 2x² − 7x + 3: 3 − 1/2 = 5/2, and (5/2)² = 25/4 = Δ/a²')
+  ok(qfIsZero(qfSub(qfMul(qf(fr(0n), fr(2n), 3n), qf(fr(0n), fr(2n), 3n)), qf(fr(12n), fr(0n), 3n))), 'I-vi x² − 4x + 1: the doors differ by 2√3, and (2√3)² = 12 = Δ — exact in ℚ(√3)')
+  console.log('  I-vi the difference identity: three exhibits — the gap between the roots is √Δ/a, irrational gaps included')
+}
+
+/* I-vii — the k-hunt engine: one root twice the other. */
+{
+  ok(fEq(fDiv(fr(4n), fr(3n)), fr(4n, 3n)), 'I-vii the sum read: α + 2α = 3α = 4 → α = 4/3')
+  ok(fEq(fMul(fr(2n), fMul(fr(4n, 3n), fr(4n, 3n))), fr(32n, 9n)), 'I-vii the product read: k = 2α² = 32/9')
+  const got = quadRootsRational(fr(1n), fr(-4n), fr(32n, 9n))
+  ok(got !== null && got.length === 2 && fEq(got[0], fr(4n, 3n)) && fEq(got[1], fr(8n, 3n)), 'I-vii the verdict: x² − 4x + 32/9 → {4/3, 8/3} — and 8/3 = 2 · 4/3 exactly')
+  ok(fEq(fSub(fMul(fr(-4n), fr(-4n)), fMul(fr(4n), fr(32n, 9n))), fr(16n, 9n)), 'I-vii the discriminant: Δ = 16 − 128/9 = 16/9 — the gap (4/3)² matches the difference identity')
+  console.log('  I-vii the k-hunt: the twice-the-other design lands k = 32/9, roots {4/3, 8/3} exact')
+}
+
+/* I-viii — the 9.4 figure plans (pinned rect-by-rect, audited in K). */
+const plan94Fig1 = {
+  viewBox: '0 0 720 340',
+  rects: [
+    [30, 18, 660, 44],
+    [30, 96, 150, 150],
+    [200, 96, 150, 150],
+    [370, 96, 150, 150],
+    [540, 96, 150, 150],
+    [30, 266, 150, 26],
+    [200, 266, 150, 26],
+    [370, 266, 150, 26],
+    [540, 266, 150, 26],
+    [30, 304, 660, 24],
+  ] as [number, number, number, number][],
+  groups: [
+    [0, 9],
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+  ],
+}
+
+const plan94Fig2 = {
+  viewBox: '0 0 720 340',
+  rects: [
+    [30, 18, 660, 44],
+    [30, 84, 206, 170],
+    [257, 84, 206, 170],
+    [484, 84, 206, 170],
+    [30, 266, 206, 26],
+    [257, 266, 206, 26],
+    [484, 266, 206, 26],
+    [30, 304, 660, 24],
+  ] as [number, number, number, number][],
+  groups: [
+    [0, 7],
+    [1, 2, 3],
+    [4, 5, 6],
+  ],
+}
+
+/* I-ix — the 9.4 pinned battery: quiz keys and the 14 exercise anchors. */
+{
+  const quiz94 = [1, 2, 3, 2, 1]
+  ok(quiz94.length === 5 && quiz94.every((k) => k >= 0 && k <= 3), 'I-ix the 9.4 quiz keys pinned: ' + quiz94.join('/'))
+  ok(fEq(fAdd(fr(4n), fr(5n)), fr(9n)) && fEq(fMul(fr(4n), fr(5n)), fr(20n)), 'I-ix L1-1 x² − 9x + 20: S = 9, P = 20, roots {4, 5} pass')
+  ok(fEq(fAdd(fr(1n, 3n), fr(-2n)), fr(-5n, 3n)) && fEq(fMul(fr(1n, 3n), fr(-2n)), fr(-2n, 3n)), 'I-ix L1-2 3x² + 5x − 2: S = −5/3, P = −2/3, roots {1/3, −2} pass')
+  ok(fIsZero(fMul(fr(0n), fr(7n))), 'I-ix L1-3 x² − 7x: S = 7, P = 0 → the roots 0 and 7')
+  ok(fEq(fAdd(fr(3n), fr(3n)), fr(6n)) && fEq(fMul(fr(3n), fr(3n)), fr(9n)), 'I-ix L2-3 x² − 6x + 9: S/2 = 3, (S/2)² = 9 = P — the repeated root certified by the relations alone')
+  {
+    const got = quadRootsRational(fr(1n), fr(-2n), fr(-15n))
+    ok(got !== null && fEq(got[0], fr(-3n)) && fEq(got[1], fr(5n)), 'I-ix L3-1 S = 2, P = −15 → x² − 2x − 15 → {−3, 5}')
+    const got2 = quadRootsRational(fr(1n), fr(1n), fr(-6n))
+    ok(got2 !== null && fEq(got2[0], fr(-3n)) && fEq(got2[1], fr(2n)), 'I-ix L3-2 S = −1, P = −6 → x² + x − 6 → {−3, 2}')
+    ok(fEq(fSub(fMul(fr(0n), fr(0n)), fMul(fr(4n), fr(5n))), fr(-20n)), 'I-ix L3-3 S = 0, P = 5 → x² + 5, Δ = −20 — built but rootless over ℝ')
+  }
+  ok(fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(2n), fr(6n))), fr(13n)), 'I-ix L4-1 α² + β² = 13')
+  ok(fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(4n), fr(6n))), fr(1n)), 'I-ix L4-2 (α − β)² = 1')
+  ok(fEq(fDiv(fr(5n), fr(6n)), fr(5n, 6n)), 'I-ix L4-3 1/α + 1/β = 5/6')
+  ok(fEq(fMul(fr(2n), fMul(fr(4n, 3n), fr(4n, 3n))), fr(32n, 9n)), 'I-ix L5 x² − 4x + k, one root twice the other → k = 32/9, roots {4/3, 8/3}')
+  ok(qfIsZero(qfSub(qfMul(qf(fr(2n), fr(1n), 3n), qf(fr(2n), fr(-1n), 3n)), qf(fr(1n), fr(0n), 3n))), 'I-ix L6 x² − 4x + 1: product (2+√3)(2−√3) = 1 = P; the doors differ by 2√3 and (2√3)² = 12 = Δ')
+  console.log('  I-ix the 9.4 battery: quiz keys + 14 exercise anchors all priced BEFORE prose')
+}
+
+/* ------------------------------------------------------------------ */
+/* (J) the authored lesson 9.3 — appended at authoring time (run 84)   */
+/* ------------------------------------------------------------------ */
+
+console.log('[J] 9.3 authored: identity, structure census, quiz keys, figure plans, scans')
+
+{
+  const lesson = chapter09.lessons[2]
+  ok(lesson.id === 'al-the-quadratic-formula-and-the-discriminant', 'J: lesson id al-the-quadratic-formula-and-the-discriminant')
+  ok(lesson.number === '9.3', 'J: lesson number 9.3')
+  ok(lesson.title === 'The Quadratic Formula and the Discriminant', 'J: lesson title matches the planned title')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-completing-the-square-derived', 'al-quadratics-and-factoring-solutions', 'al-the-three-verdicts-one-none-infinitely-many', 'al-fractional-equations-and-extraneous-roots']),
+    'J: prerequisites are 9.2 + 9.1 + 5.3 verdict machine + 8.3'
+  )
+  ok(
+    JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style']),
+    'J: the four citation keys ride the lesson'
+  )
+  const kinds = lesson.blocks.map((b) => b.kind)
+  const countKind = (k: string) => kinds.filter((x) => x === k).length
+  ok(countKind('para') === 15, `J: fifteen paras (got ${countKind('para')})`)
+  ok(countKind('heading') === 4, `J: four headings (got ${countKind('heading')})`)
+  ok(countKind('equation') === 2, `J: two display equations (got ${countKind('equation')})`)
+  ok(countKind('derivation') === 1, `J: one derivation (the formula theorem)`)
+  ok(countKind('example') === 6, `J: six illustrations (got ${countKind('example')})`)
+  ok(countKind('table') === 1, `J: one table (the discriminant ledger)`)
+  ok(countKind('figure') === 2, `J: two figures (the formula pipeline + the verdict strip)`)
+  ok(countKind('formula') === 3, `J: three formula cards (got ${countKind('formula')})`)
+  ok(countKind('terms') === 1, `J: one terms block`)
+  ok(countKind('list') === 1, `J: one list (the summary)`)
+  ok(countKind('quiz') === 1, `J: one quiz block`)
+  ok(countKind('exercises') === 1, `J: one exercises block`)
+  const tones = lesson.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone).sort().join(',')
+  ok(tones === 'exam,historical,insight,warn', `J: the four callout tones (got ${tones})`)
+  {
+    const terms = lesson.blocks.find((b) => b.kind === 'terms')
+    if (terms && terms.kind === 'terms') ok(terms.items.length === 6, `J: terms block holds 6 entries (got ${terms.items.length})`)
+  }
+  // quiz keys vs the pinned battery
+  {
+    const q = lesson.blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([1, 3, 2, 0, 2]), 'J: quiz keys match the pinned [1, 3, 2, 0, 2] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'J: quiz shape + distractor pricing')
+      ok(q.items[0].options[1] === '$25$', 'J: quiz Q1 option 2 is the pinned discriminant 25 (the key 1)')
+      ok(q.items[2].options[2] === '$1 \\pm \\sqrt{5}$', 'J: quiz Q3 option 3 is the pinned surd doors (the key 2)')
+      ok(q.items[4].options[2]!.includes('no such rectangle'), 'J: quiz Q5 option 3 is the pinned existence refusal (the key 2)')
+    }
+  }
+  // exercises shape + anchors + the roots re-pricing via the engines
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const counts = ex.sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 3, 1, 1]), 'J: exercise set sizes 3/3/3/3/1/1')
+      const all = ex.sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'J: 14 exercises, Cengage chains, terminal answers')
+      ok((all[0].answer || '').includes('$\\Delta = 1 > 0$'), 'J: L1.1 answer carries the pinned Δ = 1 verdict')
+      ok((all[3].answer || '').includes('$x = \\frac{1}{2}$') && (all[3].answer || '').includes('$x = -3$'), 'J: L2.1 answer carries the pinned doors {1/2, −3}')
+      ok((all[8].answer || '').includes('\\frac{\\sqrt{15}}{3}'), 'J: L3.3 answer carries the pinned simplified surd 1 ± √15/3')
+      ok((all[11].answer || '').includes('impossible') && (all[11].answer || '').includes('$3 \\times 7$') && (all[11].answer || '').includes('maximum'), 'J: L4.3 answer carries the three rectangle verdicts')
+      ok((all[12].answer || '').includes('$p = 7$') && (all[12].answer || '').includes('$p = -7$'), 'J: L5 answer carries both pinned p values')
+      // the exercise-set roots re-priced exactly via the engines
+      const quadChecks: [string, Frac, Frac, Frac, Frac[]][] = [
+        ['L1-1', fr(1n), fr(-5n), fr(6n), [fr(2n), fr(3n)]],
+        ['L2-1', fr(2n), fr(5n), fr(-3n), [fr(-3n), fr(1n, 2n)]],
+        ['L2-2', fr(1n), fr(-6n), fr(8n), [fr(2n), fr(4n)]],
+        ['L5-p7', fr(1n), fr(7n), fr(12n), [fr(-4n), fr(-3n)]],
+        ['L5-pm7', fr(1n), fr(-7n), fr(12n), [fr(3n), fr(4n)]],
+      ]
+      for (const [name, a, b, c, roots] of quadChecks) {
+        for (const r of roots) ok(fIsZero(pe([c, b, a], r)), `J: exercise ${name} root ${r.n}/${r.d} re-priced in the original polynomial`)
+        const got = quadRootsRational(a, b, c)
+        ok(got !== null && got.length === roots.length && roots.every((r) => got!.some((g) => fEq(g, r))), `J: exercise ${name} solution set certified complete`)
+      }
+      const l12 = quadRootsRational(fr(1n), fr(4n), fr(4n))
+      ok(l12 !== null && l12.length === 1 && fEq(l12[0], fr(-2n)), 'J: exercise L1-2 (Δ = 0) has the single repeated root −2, priced in the original')
+      const l13 = quadRootsRational(fr(1n), fr(2n), fr(5n))
+      ok(l13 === null, 'J: exercise L1-3 (Δ = −16) honestly empty')
+      const l23 = quadRootsRational(fr(4n), fr(-12n), fr(9n))
+      ok(l23 !== null && l23.length === 1 && fEq(l23[0], fr(3n, 2n)), 'J: exercise L2-3 (Δ = 0) has the single repeated root 3/2')
+      ok(qfIsZero(peQF(P(-4, -2, 1), qf(fr(1n), fr(1n), 5n))), 'J: exercise L3-1 doors 1 ± √5 certified in ℚ(√5)')
+      ok(qfIsZero(peQF(P(1, 4, 1), qf(fr(-2n), fr(1n), 3n))), 'J: exercise L3-2 doors −2 ± √3 certified in ℚ(√3)')
+      ok(qfIsZero(peQF(P(-2, -6, 3), qf(fr(1n), fr(1n, 3n), 15n))), 'J: exercise L3-3 doors 1 ± √15/3 certified in ℚ(√15)')
+      const l6 = quadRootsRational(fr(2n), fr(-7n), fr(3n))
+      ok(l6 !== null && fEq(l6[0], fr(1n, 2n)) && fEq(l6[1], fr(3n)), 'J: exercise L6 doors {1/2, 3} — the master identity read, priced in the original')
+    }
+  }
+  // figure geometry vs the pinned plans
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'J: two figures in 9.3 (the formula pipeline + the verdict strip)')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === plan93Fig1.rects.length, 'J: pipeline rect census ' + r0.length + ' = plan ' + plan93Fig1.rects.length)
+      ok(canon(r0) === canon(plan93Fig1.rects), 'J: pipeline rects match the pinned plan exactly')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === plan93Fig2.rects.length, 'J: verdict strip rect census ' + r1.length + ' = plan ' + plan93Fig2.rects.length)
+      ok(canon(r1) === canon(plan93Fig2.rects), 'J: verdict strip rects match the pinned plan exactly')
+      for (const g of plan93Fig1.groups) {
+        const rs = g.map((i) => plan93Fig1.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: pipeline group [' + g.join(',') + '] pairwise disjoint')
+      }
+      for (const g of plan93Fig2.groups) {
+        const rs = g.map((i) => plan93Fig2.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'J: verdict strip group [' + g.join(',') + '] pairwise disjoint')
+      }
+      ok(figs[0].svg.includes('DIVIDE') && figs[0].svg.includes('COMPLETE') && figs[0].svg.includes('DOORS'), 'J: the pipeline carries the five stations')
+      ok(figs[0].svg.includes('(x − 7/4)² = 25/16') && figs[0].svg.includes('{1/2, 3}'), 'J: the pipeline carries the worked strip and its roots')
+      ok(figs[1].svg.includes('TWO DOORS') && figs[1].svg.includes('ONE, TWICE') && figs[1].svg.includes('NO DOOR'), 'J: the verdict strip carries all three branches')
+      ok(figs[0].svg.includes('viewBox="0 0 720 340"') && figs[1].svg.includes('viewBox="0 0 720 340"'), 'J: the viewBoxes match the plans')
+    }
+  }
+  // retired-palette scan over the authored SVGs
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    let hits = 0
+    for (const f of figs) {
+      if (f.kind !== 'figure') continue
+      for (const h of retired) if (f.svg.toLowerCase().includes(h)) hits++
+    }
+    ok(hits === 0, 'J: no retired palette hexes in the 9.3 figures (found ' + hits + ')')
+  }
+  // raw-$ scan on non-KaTeX titles
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'J: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'J: honest word count ' + words + ' >= 4000')
+    console.log('[J] 9.3 honest word count: ' + words)
+  }
+  // entity-leak scan
+  {
+    let entityHits = 0
+    for (const b of lesson.blocks) {
+      const texts: string[] = []
+      if (b.kind === 'para' || b.kind === 'heading') texts.push(b.text)
+      if (b.kind === 'callout') texts.push(b.title, b.text)
+      if (b.kind === 'terms') for (const t of b.items) texts.push(t.term, t.def)
+      if (b.kind === 'equation' && b.note) texts.push(b.note)
+      if (b.kind === 'derivation') {
+        texts.push(b.title, b.statement, b.result)
+        for (const s of b.steps) texts.push(s.label, s.explanation)
+      }
+      if (b.kind === 'example') texts.push(b.title, ...b.steps)
+      if (b.kind === 'table') texts.push(b.caption || '', ...b.head, ...b.rows.flat())
+      if (b.kind === 'formula') texts.push(b.name, b.note || '')
+      if (b.kind === 'quiz') for (const it of b.items) texts.push(it.q, it.explain)
+      if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) texts.push(q.q, ...(q.solution || []), q.answer || '')
+      for (const t of texts) if (/&#\d+;|&[a-z]+;/.test(t)) entityHits++
+    }
+    ok(entityHits === 0, 'J: no HTML entities in 9.3 prose (found ' + entityHits + ')')
+  }
+  // prerequisite resolution across the library
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'J: all ' + ids.length + ' lesson ids repo-wide unique (with 9.3 added)')
+    ok(ids.includes('al-the-quadratic-formula-and-the-discriminant'), 'J: the new id is registered in the library graph')
+    for (const p of lesson.prerequisites || []) ok(ids.includes(p), 'J: prerequisite ' + p + ' resolves in the library graph')
+  }
+  console.log('[J] the authored 9.3: identity, structure census, quiz keys, figure plans, scans — all green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (K) the authored lesson 9.4 — appended at authoring time (run 84)   */
+/* ------------------------------------------------------------------ */
+
+console.log('[K] 9.4 authored: identity, structure census, quiz keys, figure plans, scans')
+
+{
+  const lesson = chapter09.lessons[3]
+  ok(chapter09.lessons.length === 4, 'K: chapter 9 carries all four authored lessons (got ' + chapter09.lessons.length + ')')
+  ok(lesson.id === 'al-roots-and-coefficients-viete-relations', 'K: lesson id al-roots-and-coefficients-viete-relations')
+  ok(lesson.number === '9.4', 'K: lesson number 9.4')
+  ok(lesson.title === 'Roots and Coefficients: Viète’s Relations', 'K: lesson title matches the planned title')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-the-quadratic-formula-and-the-discriminant', 'al-quadratics-and-factoring-solutions', 'al-completing-the-square-derived', 'al-the-three-verdicts-one-none-infinitely-many']),
+    'K: prerequisites are 9.3 + 9.1 + 9.2 + 5.3'
+  )
+  ok(
+    JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style']),
+    'K: the four citation keys ride the lesson'
+  )
+  const kinds = lesson.blocks.map((b) => b.kind)
+  const countKind = (k: string) => kinds.filter((x) => x === k).length
+  ok(countKind('para') === 15, `K: fifteen paras (got ${countKind('para')})`)
+  ok(countKind('heading') === 3, `K: three headings (got ${countKind('heading')})`)
+  ok(countKind('equation') === 2, `K: two display equations (got ${countKind('equation')})`)
+  ok(countKind('derivation') === 1, `K: one derivation (the Viète theorem)`)
+  ok(countKind('example') === 7, `K: seven illustrations (got ${countKind('example')})`)
+  ok(countKind('table') === 1, `K: one table (the Viète ledger)`)
+  ok(countKind('figure') === 2, `K: two figures (the readout machine + the sign map)`)
+  ok(countKind('formula') === 3, `K: three formula cards (got ${countKind('formula')})`)
+  ok(countKind('terms') === 1, `K: one terms block`)
+  ok(countKind('list') === 1, `K: one list (the summary)`)
+  ok(countKind('quiz') === 1, `K: one quiz block`)
+  ok(countKind('exercises') === 1, `K: one exercises block`)
+  const tones = lesson.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone).sort().join(',')
+  ok(tones === 'exam,historical,insight', `K: the three callout tones (got ${tones})`)
+  {
+    const terms = lesson.blocks.find((b) => b.kind === 'terms')
+    if (terms && terms.kind === 'terms') ok(terms.items.length === 6, `K: terms block holds 6 entries (got ${terms.items.length})`)
+  }
+  // quiz keys vs the pinned battery
+  {
+    const q = lesson.blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([1, 2, 3, 2, 1]), 'K: quiz keys match the pinned [1, 2, 3, 2, 1] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'K: quiz shape + distractor pricing')
+      ok(q.items[0].options[1] === '$-\\frac{5}{3}$', 'K: quiz Q1 option 2 is the pinned sum −5/3 (the key 1)')
+      ok(q.items[2].options[3] === '$28$', 'K: quiz Q3 option 4 is the pinned symmetric read 28 (the key 3)')
+      ok(q.items[4].options[1] === '$x^2 - 2x - 1$', 'K: quiz Q5 option 2 is the pinned rebuild (the key 1)')
+    }
+  }
+  // exercises shape + anchors + the roots re-pricing via the engines
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const counts = ex.sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 3, 1, 1]), 'K: exercise set sizes 3/3/3/3/1/1')
+      const all = ex.sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((q) => Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer), 'K: 14 exercises, Cengage chains, terminal answers')
+      ok((all[0].answer || '').includes('$P = 20$'), 'K: L1.1 answer carries the pinned product 20')
+      ok((all[4].answer || '').includes('Refused') && (all[4].answer || '').includes('$\\frac{1}{2}$'), 'K: L2.2 answer carries the refusal and the true doors')
+      ok((all[12].answer || '').includes('\\frac{32}{9}'), 'K: L5 answer carries the pinned k = 32/9')
+      ok((all[13].answer || '').includes('2\\sqrt{3}'), 'K: L6 answer carries the pinned irrational gap 2√3')
+      // the exercise-set roots re-priced exactly via the engines
+      const quadChecks: [string, Frac, Frac, Frac, Frac[]][] = [
+        ['L1-1', fr(1n), fr(-9n), fr(20n), [fr(4n), fr(5n)]],
+        ['L1-2', fr(3n), fr(5n), fr(-2n), [fr(1n, 3n), fr(-2n)]],
+        ['L1-3', fr(1n), fr(-7n), fr(0n), [fr(0n), fr(7n)]],
+        ['L2-1', fr(1n), fr(-7n), fr(12n), [fr(3n), fr(4n)]],
+        ['L3-1', fr(1n), fr(-2n), fr(-15n), [fr(-3n), fr(5n)]],
+        ['L3-2', fr(1n), fr(1n), fr(-6n), [fr(-3n), fr(2n)]],
+      ]
+      for (const [name, a, b, c, roots] of quadChecks) {
+        for (const r of roots) ok(fIsZero(pe([c, b, a], r)), `K: exercise ${name} root ${r.n}/${r.d} re-priced in the original polynomial`)
+        const got = quadRootsRational(a, b, c)
+        ok(got !== null && got.length === roots.length && roots.every((r) => got!.some((g) => fEq(g, r))), `K: exercise ${name} solution set certified complete`)
+      }
+      const l23 = quadRootsRational(fr(1n), fr(-6n), fr(9n))
+      ok(l23 !== null && l23.length === 1 && fEq(l23[0], fr(3n)), 'K: exercise L2-3 has the single repeated root 3 (S/2 = 3, (S/2)² = 9 = P)')
+      const l33 = fSub(fMul(fr(0n), fr(0n)), fMul(fr(4n), fr(5n)))
+      ok(fEq(l33, fr(-20n)) && quadRootsRational(fr(1n), fr(0n), fr(5n)) === null, 'K: exercise L3-3 build x² + 5 honestly rootless (Δ = −20)')
+      ok(fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(2n), fr(6n))), fr(13n)) && fEq(fSub(fMul(fr(5n), fr(5n)), fMul(fr(4n), fr(6n))), fr(1n)) && fEq(fDiv(fr(5n), fr(6n)), fr(5n, 6n)), 'K: L4 symmetric hunts 13 / 1 / 5⁄6 all exact')
+      const l5 = quadRootsRational(fr(1n), fr(-4n), fr(32n, 9n))
+      ok(l5 !== null && fEq(l5[0], fr(4n, 3n)) && fEq(l5[1], fr(8n, 3n)), 'K: exercise L5 roots {4/3, 8/3} re-priced in x² − 4x + 32/9')
+      ok(qfIsZero(qfSub(qfMul(qf(fr(2n), fr(1n), 3n), qf(fr(2n), fr(-1n), 3n)), qf(fr(1n), fr(0n), 3n))), 'K: exercise L6 field check (2+√3)(2−√3) = 1 = P exact in ℚ(√3)')
+    }
+  }
+  // figure geometry vs the pinned plans
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'K: two figures in 9.4 (the readout machine + the sign map)')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === plan94Fig1.rects.length, 'K: readout rect census ' + r0.length + ' = plan ' + plan94Fig1.rects.length)
+      ok(canon(r0) === canon(plan94Fig1.rects), 'K: readout rects match the pinned plan exactly')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === plan94Fig2.rects.length, 'K: sign map rect census ' + r1.length + ' = plan ' + plan94Fig2.rects.length)
+      ok(canon(r1) === canon(plan94Fig2.rects), 'K: sign map rects match the pinned plan exactly')
+      for (const g of plan94Fig1.groups) {
+        const rs = g.map((i) => plan94Fig1.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'K: readout group [' + g.join(',') + '] pairwise disjoint')
+      }
+      for (const g of plan94Fig2.groups) {
+        const rs = g.map((i) => plan94Fig2.rects[i])
+        ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'K: sign map group [' + g.join(',') + '] pairwise disjoint')
+      }
+      ok(figs[0].svg.includes('STANDARD FORM') && figs[0].svg.includes('READ OFF') && figs[0].svg.includes('CERTIFY') && figs[0].svg.includes('REBUILD'), 'K: the readout carries the four stations')
+      ok(figs[0].svg.includes('7/2') && figs[0].svg.includes('3/2'), 'K: the readout carries the worked S/P strip')
+      ok(figs[1].svg.includes('OPPOSITE SIGNS') && figs[1].svg.includes('both real'), 'K: the sign map carries the P < 0 theorem')
+      ok(figs[0].svg.includes('viewBox="0 0 720 340"') && figs[1].svg.includes('viewBox="0 0 720 340"'), 'K: the viewBoxes match the plans')
+    }
+  }
+  // retired-palette scan over the authored SVGs
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    let hits = 0
+    for (const f of figs) {
+      if (f.kind !== 'figure') continue
+      for (const h of retired) if (f.svg.toLowerCase().includes(h)) hits++
+    }
+    ok(hits === 0, 'K: no retired palette hexes in the 9.4 figures (found ' + hits + ')')
+  }
+  // raw-$ scan on non-KaTeX titles
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'K: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'K: honest word count ' + words + ' >= 4000')
+    console.log('[K] 9.4 honest word count: ' + words)
+  }
+  // entity-leak scan
+  {
+    let entityHits = 0
+    for (const b of lesson.blocks) {
+      const texts: string[] = []
+      if (b.kind === 'para' || b.kind === 'heading') texts.push(b.text)
+      if (b.kind === 'callout') texts.push(b.title, b.text)
+      if (b.kind === 'terms') for (const t of b.items) texts.push(t.term, t.def)
+      if (b.kind === 'equation' && b.note) texts.push(b.note)
+      if (b.kind === 'derivation') {
+        texts.push(b.title, b.statement, b.result)
+        for (const s of b.steps) texts.push(s.label, s.explanation)
+      }
+      if (b.kind === 'example') texts.push(b.title, ...b.steps)
+      if (b.kind === 'table') texts.push(b.caption || '', ...b.head, ...b.rows.flat())
+      if (b.kind === 'formula') texts.push(b.name, b.note || '')
+      if (b.kind === 'quiz') for (const it of b.items) texts.push(it.q, it.explain)
+      if (b.kind === 'exercises') for (const s of b.sets) for (const q of s.questions) texts.push(q.q, ...(q.solution || []), q.answer || '')
+      for (const t of texts) if (/&#\d+;|&[a-z]+;/.test(t)) entityHits++
+    }
+    ok(entityHits === 0, 'K: no HTML entities in 9.4 prose (found ' + entityHits + ')')
+  }
+  // prerequisite resolution across the library
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'K: all ' + ids.length + ' lesson ids repo-wide unique (with 9.4 added)')
+    ok(ids.includes('al-roots-and-coefficients-viete-relations'), 'K: the new id is registered in the library graph')
+    for (const p of lesson.prerequisites || []) ok(ids.includes(p), 'K: prerequisite ' + p + ' resolves in the library graph')
+  }
+  console.log('[K] the authored 9.4: identity, structure census, quiz keys, figure plans, scans — all green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (L) the unit-9 completion review — the chapter-closing battery      */
+/* ------------------------------------------------------------------ */
+
+console.log('[L] unit-9 completion review: the 7-point checklist, exam corners, the book snapshot')
+
+{
+  // 1 — every lesson of the chapter clears the 4,000-word floor
+  const wordCounts = chapter09.lessons.map((l) => countLessonWords(l))
+  for (let i = 0; i < chapter09.lessons.length; i++) {
+    ok(wordCounts[i] >= 4000, `L-1: lesson 9.${i + 1} honest word count ${wordCounts[i]} >= 4000`)
+  }
+  console.log('  L-1 word floors: ' + chapter09.lessons.map((l, i) => '9.' + (i + 1) + '=' + wordCounts[i]).join(', '))
+
+  // 2 — quiz keys match the pinned batteries of sections B/E/H-ix/I-ix
+  const pinnedKeys: string[][] = [
+    [1, 0, 2, 3, 1].map(String),
+    [2, 1, 0, 3, 2].map(String),
+    [1, 3, 2, 0, 2].map(String),
+    [1, 2, 3, 2, 1].map(String),
+  ]
+  for (let i = 0; i < 4; i++) {
+    const q = chapter09.lessons[i].blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => String(it.answer))
+      ok(JSON.stringify(keys) === JSON.stringify(pinnedKeys[i]), `L-2: quiz keys of 9.${i + 1} match the pinned battery`)
+    }
+  }
+
+  // 3 — every exercise carries a Cengage chain and a terminal answer; the chapter holds 56
+  let totalExercises = 0
+  let chainFailures = 0
+  for (const l of chapter09.lessons) {
+    for (const b of l.blocks) {
+      if (b.kind === 'exercises') {
+        for (const s of b.sets) {
+          for (const q of s.questions) {
+            totalExercises++
+            if (!(Array.isArray(q.solution) && q.solution.length >= 2 && !!q.answer)) chainFailures++
+          }
+        }
+      }
+    }
+  }
+  ok(totalExercises === 56, 'L-3: the chapter holds 56 exercises (got ' + totalExercises + ')')
+  ok(chainFailures === 0, 'L-3: every exercise carries a solution chain + terminal answer (' + chainFailures + ' failures)')
+
+  // 4 — eight figures, all viewBoxed, all vivid-palette clean
+  const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+  let figCount = 0
+  let figFailures = 0
+  for (const l of chapter09.lessons) {
+    for (const b of l.blocks) {
+      if (b.kind === 'figure') {
+        figCount++
+        if (!b.svg.includes('viewBox=') || retired.some((h) => b.svg.toLowerCase().includes(h))) figFailures++
+      }
+    }
+  }
+  ok(figCount === 8, 'L-4: the chapter carries 8 figures (got ' + figCount + ')')
+  ok(figFailures === 0, 'L-4: every figure viewBoxed and vivid-palette clean (' + figFailures + ' failures)')
+
+  // 5 — the cross-lesson arcs closed: the chapter speaks with one voice
+  const lessonText = (idx: number): string => {
+    const parts: string[] = []
+    for (const b of chapter09.lessons[idx].blocks) {
+      if (b.kind === 'para' || b.kind === 'heading') parts.push(b.text)
+      if (b.kind === 'callout') parts.push(b.title, b.text)
+      if (b.kind === 'example') parts.push(b.title, ...b.steps)
+      if (b.kind === 'derivation') parts.push(b.title, b.statement, b.result)
+      if (b.kind === 'terms') for (const t of b.items) parts.push(t.term, t.def)
+      if (b.kind === 'list') parts.push(...b.items)
+    }
+    return parts.join(' ')
+  }
+  const t1 = lessonText(0)
+  const t2 = lessonText(1)
+  const t3 = lessonText(2)
+  const t4 = lessonText(3)
+  ok(t1.includes('8.3') && (t1.includes('work-rate') || t1.includes('work rate')), 'L-5: 9.1 pays the 8.3 work-rate debt by name')
+  ok(t2.includes('exile'), 'L-5: 9.2 reverses the ANS ch. 8 exile of √2 by name')
+  ok(t3.includes('verdict machine') && t3.includes('master identity'), 'L-5: 9.3 grows 5.3’s verdict machine and names the master identity')
+  ok(t4.includes('9.1') && t4.includes('9.2') && t4.includes('9.3'), 'L-5: 9.4 ties the arc — 9.1’s seed, 9.2’s answer, 9.3’s formula all cited')
+  ok(t4.includes('difference identity') && (t4.includes('gap') || t4.includes('Gap')), 'L-5: 9.4 carries the difference identity (the Δ/a² bridge)')
+
+  // 6 — the citation keys and prerequisites stand on every lesson
+  for (let i = 0; i < 4; i++) {
+    const l = chapter09.lessons[i]
+    ok(
+      JSON.stringify(l.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style']),
+      `L-6: the four citation keys ride 9.${i + 1}`
+    )
+    ok((l.prerequisites || []).length >= 3, `L-6: 9.${i + 1} carries at least three prerequisites`)
+  }
+
+  // 7 — the exam corners: every lesson maps to the examinations
+  for (let i = 0; i < 4; i++) {
+    const exam = chapter09.lessons[i].blocks.find((b) => b.kind === 'callout' && b.tone === 'exam')
+    ok(!!exam, `L-7: 9.${i + 1} carries an exam corner`)
+  }
+
+  // 8 — the chapter object is COMPLETE: status flipped, plan empty
+  ok(chapter09.status === 'complete', 'L-8: chapter 9 status flipped to complete')
+  ok(!chapter09.plannedLessons || chapter09.plannedLessons.length === 0, 'L-8: no planned lessons remain in chapter 9')
+
+  // 9 — the book snapshot, recomputed from the live data
+  let bookLessons = 0
+  let bookWords = 0
+  let completeChapters = 0
+  let totalChapters = 0
+  let minWords = Infinity
+  const elementaryAlgebra = allBooks.find((b) => b.id === 'elementary-algebra')!
+  for (const c of elementaryAlgebra.chapters) {
+    totalChapters++
+    if (c.status === 'complete') completeChapters++
+    for (const l of c.lessons) {
+      bookLessons++
+      const w = countLessonWords(l)
+      bookWords += w
+      if (w < minWords) minWords = w
+    }
+  }
+  ok(bookLessons === 31, 'L-9: the book stands at 31 lessons (got ' + bookLessons + ')')
+  ok(bookWords > 141000, 'L-9: the book crosses 141,000 words (' + bookWords + ')')
+  ok(minWords >= 4000, 'L-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
+  ok(completeChapters === 9 && totalChapters === 11, 'L-9: 9 of 11 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
+  let libraryLessons = 0
+  let libraryWords = 0
+  for (const b of allBooks) {
+    for (const c of b.chapters) {
+      for (const l of c.lessons) {
+        libraryLessons++
+        libraryWords += countLessonWords(l)
+      }
+    }
+  }
+  ok(libraryLessons === 114, 'L-9: the library stands at 114 lessons (got ' + libraryLessons + ')')
+  console.log('  L-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
+
+  // 10 — the id registry, one final time across the whole library
+  const ids: string[] = []
+  for (const b of allBooks) {
+    for (const c of b.chapters) {
+      for (const l of c.lessons) ids.push(l.id)
+    }
+  }
+  ok(ids.length === new Set(ids).size, 'L-10: all ' + ids.length + ' library ids unique at chapter close')
+
+  console.log('[L] the unit-9 completion review: checklist, exam corners, snapshot — all green')
+}
+
+console.log(`\nverify-book3-ch09 TOTAL (sections A-L): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)

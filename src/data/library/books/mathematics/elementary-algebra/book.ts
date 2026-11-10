@@ -41,11 +41,12 @@ import { chapter09 } from './ch-09'
  * this run's second lesson): 8.3 'Fractional Equations and Extraneous
  * Roots' + the unit-8 review close the chapter at run 82. Chapter 9
  * 'Quadratic Equations' OPENED at run 83 (9.1 Quadratics and Factoring
- * Solutions + 9.2 Completing the Square, Derived): 9.3 'The Quadratic
- * Formula and the Discriminant' + 9.4 'Roots and Coefficients: Viète's
- * Relations' + the unit-9 review close the chapter at a later run. The
- * book stands in-progress — 8 complete chapters of 11 (owner cadence: two
- * lessons per run, strictly sequential). Lesson ids use the `al-` prefix
+ * Solutions + 9.2 Completing the Square, Derived) and CLOSED at run 84
+ * (9.3 The Quadratic Formula and the Discriminant + 9.4 Roots and
+ * Coefficients: Viète's Relations + the unit-9 completion review PASSED):
+ * chapter 9 COMPLETE 4/4. The book stands in-progress — 9 complete
+ * chapters of 11 (owner cadence: two lessons per run, strictly
+ * sequential). Lesson ids use the `al-` prefix
  * (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation

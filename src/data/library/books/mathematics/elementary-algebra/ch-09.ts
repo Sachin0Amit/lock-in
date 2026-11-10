@@ -9,7 +9,15 @@ import type { Chapter, Lesson } from '../../../types'
  *                 authored, E2E e2e-al-91 x3 viewports). 9.2 Completing
  *                 the Square, Derived (run 83 — quiz keys 2/1/0/3/2,
  *                 14 exercises, two figures, sections D-E pre-write +
- *                 G authored, E2E e2e-al-92 x3 viewports).
+ *                 G authored, E2E e2e-al-92 x3 viewports). 9.3 The
+ *                 Quadratic Formula and the Discriminant (run 84 — quiz
+ *                 keys 1/3/2/0/2, 14 exercises, two figures, sections H
+ *                 pre-write + J authored, E2E e2e-al-93 x3 viewports).
+ *                 9.4 Roots and Coefficients: Viète's Relations (run 84 —
+ *                 quiz keys 1/2/3/2/1, 14 exercises, two figures, sections
+ *                 I pre-write + K authored, E2E e2e-al-94 x3 viewports).
+ *                 The unit-9 completion review passed at run 84 (sections
+ *                 L): chapter 9 COMPLETE 4/4.
  *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–82 pattern) — `hall-knight-elementary-
@@ -901,16 +909,708 @@ const lesson92: Lesson = {
   ],
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 3 (9.3): the formula pipeline — five moves, both doors.      */
+/* Header (30,18,660,44); stations (30,96,124,150), (166,96,124,150),  */
+/* (302,96,124,150), (438,96,124,150), (574,96,124,150); chips         */
+/* (30,266,124,26), (166,266,124,26), (302,266,124,26),                */
+/* (438,266,124,26), (574,266,124,26); caption band (30,304,660,24).   */
+/* Geometry pinned in verify-book3-ch09.ts plan93Fig1.                 */
+/* ------------------------------------------------------------------ */
+
+function formulaPipelineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The formula pipeline: divide by a, move the constant, complete the square, fold, open both doors — with the worked strip 2x² − 7x + 3 = 0 landing at {1/2, 3}">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the formula pipeline — five moves from ax² + bx + c = 0 to both doors</text>')
+  // ---- station 1: DIVIDE ----
+  parts.push('<rect x="30" y="96" width="124" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="92" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">1 · DIVIDE</text>')
+  parts.push('<text x="92" y="142" font-size="10" fill="#65a30d" text-anchor="middle">by a — lawful since</text>')
+  parts.push('<text x="92" y="158" font-size="10" fill="#65a30d" text-anchor="middle">a ≠ 0; the zero set</text>')
+  parts.push('<text x="92" y="174" font-size="10" fill="#65a30d" text-anchor="middle">cannot move (the</text>')
+  parts.push('<text x="92" y="190" font-size="10" fill="#65a30d" text-anchor="middle">census priced it</text>')
+  parts.push('<text x="92" y="206" font-size="10" fill="#65a30d" text-anchor="middle">pointwise)</text>')
+  // ---- station 2: MOVE ----
+  parts.push('<rect x="166" y="96" width="124" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="228" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">2 · MOVE</text>')
+  parts.push('<text x="228" y="142" font-size="10" fill="#65a30d" text-anchor="middle">the constant right —</text>')
+  parts.push('<text x="228" y="158" font-size="10" fill="#65a30d" text-anchor="middle">the balance law of</text>')
+  parts.push('<text x="228" y="174" font-size="10" fill="#65a30d" text-anchor="middle">5.1, still lawful</text>')
+  parts.push('<text x="228" y="190" font-size="10" fill="#65a30d" text-anchor="middle">for letters</text>')
+  // ---- station 3: COMPLETE ----
+  parts.push('<rect x="302" y="96" width="124" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="364" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">3 · COMPLETE</text>')
+  parts.push('<text x="364" y="142" font-size="10" fill="#65a30d" text-anchor="middle">add (b/2a)² — half</text>')
+  parts.push('<text x="364" y="158" font-size="10" fill="#65a30d" text-anchor="middle">of b/a, squared:</text>')
+  parts.push('<text x="364" y="174" font-size="10" fill="#65a30d" text-anchor="middle">the 9.2 identity</text>')
+  parts.push('<text x="364" y="190" font-size="10" fill="#65a30d" text-anchor="middle">in general-a dress</text>')
+  // ---- station 4: FOLD ----
+  parts.push('<rect x="438" y="96" width="124" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="500" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">4 · FOLD</text>')
+  parts.push('<text x="500" y="142" font-size="10" fill="#65a30d" text-anchor="middle">(x + b/2a)² =</text>')
+  parts.push('<text x="500" y="158" font-size="10" fill="#65a30d" text-anchor="middle">(b² − 4ac)/4a² —</text>')
+  parts.push('<text x="500" y="174" font-size="10" fill="#65a30d" text-anchor="middle">the square verdict</text>')
+  parts.push('<text x="500" y="190" font-size="10" fill="#65a30d" text-anchor="middle">reads the right side</text>')
+  // ---- station 5: DOORS ----
+  parts.push('<rect x="574" y="96" width="124" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="636" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">5 · DOORS</text>')
+  parts.push('<text x="636" y="142" font-size="10" fill="#65a30d" text-anchor="middle">x = (−b ± √Δ)/2a —</text>')
+  parts.push('<text x="636" y="158" font-size="10" fill="#65a30d" text-anchor="middle">THE formula,</text>')
+  parts.push('<text x="636" y="174" font-size="10" fill="#65a30d" text-anchor="middle">derived, not</text>')
+  parts.push('<text x="636" y="190" font-size="10" fill="#65a30d" text-anchor="middle">memorized</text>')
+  // ---- connectors ----
+  parts.push('<line x1="154" y1="171" x2="166" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="290" y1="171" x2="302" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="426" y1="171" x2="438" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="562" y1="171" x2="574" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  // ---- chips (the worked strip 2x² − 7x + 3 = 0) ----
+  parts.push('<rect x="30" y="266" width="124" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="92" y="283" font-size="10.5" fill="#166534" text-anchor="middle">2x² − 7x + 3 = 0</text>')
+  parts.push('<rect x="166" y="266" width="124" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="228" y="283" font-size="10.5" fill="#166534" text-anchor="middle">x² − 7x/2 + 3/2 = 0</text>')
+  parts.push('<rect x="302" y="266" width="124" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="364" y="283" font-size="10.5" fill="#166534" text-anchor="middle">x² − 7x/2 = −3/2</text>')
+  parts.push('<rect x="438" y="266" width="124" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="500" y="283" font-size="10.5" fill="#166534" text-anchor="middle">(x − 7/4)² = 25/16</text>')
+  parts.push('<rect x="574" y="266" width="124" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="636" y="283" font-size="10" fill="#166534" text-anchor="middle">x = (7 ± 5)/4 → {1/2, 3}</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="304" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">DIVIDE → MOVE → COMPLETE → FOLD → DOORS. The strip runs 2x² − 7x + 3 = 0 to x = (7 ± 5)/4; both roots check in the original equation.</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 4 (9.3): the discriminant verdict strip — three branches.    */
+/* Header (30,18,660,44); panels (30,84,206,170), (257,84,206,170),    */
+/* (484,84,206,170); chips (30,266,206,26), (257,266,206,26),          */
+/* (484,266,206,26); caption band (30,304,660,24). Geometry pinned in  */
+/* verify-book3-ch09.ts plan93Fig2.                                    */
+/* ------------------------------------------------------------------ */
+
+function discriminantVerdictSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The discriminant verdict strip: Δ greater than zero opens two doors, Δ zero opens one door counted twice, Δ below zero opens none — priced on x² − 7x + 12, x² − 6x + 9 and x² + x + 1">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the discriminant verdict — Δ = b² − 4ac reads the doors off the coefficients</text>')
+  // ---- panel 1: Δ > 0 ----
+  parts.push('<rect x="30" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="133" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">Δ &gt; 0 — TWO DOORS</text>')
+  parts.push('<text x="133" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² − 7x + 12:</text>')
+  parts.push('<text x="133" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">Δ = 49 − 48 = 1 &gt; 0</text>')
+  parts.push('<text x="133" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">roots (7 ± 1)/2 = {3, 4}</text>')
+  parts.push('<line x1="50" y1="215" x2="216" y2="215" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<circle cx="149.6" cy="215" r="4" fill="#ea580c"/>')
+  parts.push('<circle cx="182.8" cy="215" r="4" fill="#ea580c"/>')
+  parts.push('<text x="149.6" y="238" font-size="9.5" fill="#d97706" text-anchor="middle">3</text>')
+  parts.push('<text x="182.8" y="238" font-size="9.5" fill="#d97706" text-anchor="middle">4</text>')
+  // ---- panel 2: Δ = 0 ----
+  parts.push('<rect x="257" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">Δ = 0 — ONE, TWICE</text>')
+  parts.push('<text x="360" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² − 6x + 9:</text>')
+  parts.push('<text x="360" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">Δ = 36 − 36 = 0</text>')
+  parts.push('<text x="360" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">root −b/2a = 3, counted twice</text>')
+  parts.push('<line x1="277" y1="215" x2="443" y2="215" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<circle cx="360" cy="215" r="4" fill="#ea580c"/>')
+  parts.push('<text x="360" y="238" font-size="9.5" fill="#d97706" text-anchor="middle">3 — the two answers collapse</text>')
+  // ---- panel 3: Δ < 0 ----
+  parts.push('<rect x="484" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="587" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">Δ &lt; 0 — NO DOOR</text>')
+  parts.push('<text x="587" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² + x + 1:</text>')
+  parts.push('<text x="587" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">Δ = 1 − 4 = −3 &lt; 0</text>')
+  parts.push('<text x="587" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">(x + 1/2)² + 3/4 &gt; 0 always</text>')
+  parts.push('<line x1="504" y1="215" x2="670" y2="215" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<text x="587" y="238" font-size="9.5" fill="#dc2626" text-anchor="middle">the square refuses −3/4 — no hits anywhere</text>')
+  // ---- chips ----
+  parts.push('<rect x="30" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="133" y="283" font-size="10.5" fill="#166534" text-anchor="middle">Δ &gt; 0 → two distinct roots</text>')
+  parts.push('<rect x="257" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="360" y="283" font-size="10.5" fill="#166534" text-anchor="middle">Δ = 0 → one repeated root</text>')
+  parts.push('<rect x="484" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="587" y="283" font-size="10.5" fill="#166534" text-anchor="middle">Δ &lt; 0 → none real</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="304" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">the sign of Δ IS the verdict — 5.3’s verdict machine, now read straight off a, b, c without solving or factoring anything.</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+const lesson93: Lesson = {
+  id: 'al-the-quadratic-formula-and-the-discriminant',
+  number: '9.3',
+  title: 'The Quadratic Formula and the Discriminant',
+  concepts: [
+    'the quadratic formula, derived',
+    'the discriminant Δ = b² − 4ac',
+    'the three-way discriminant verdict',
+    'the repeated root read −b/2a',
+    'quadratic surds and their simplification',
+    'the completed-square master identity',
+    'solving without solving: existence questions',
+  ],
+  objectives: [
+    'derive the quadratic formula from the completed square on the general form a·x² + bx + c = 0, never recite it',
+    'compute the discriminant Δ = b² − 4ac and read the three-way verdict — two distinct, one repeated, none real — straight off its sign',
+    'solve quadratics with the formula, including perfect-square discriminants and repeated roots, and simplify quadratic surds lawfully',
+    'prove the master identity a·x² + bx + c = a(x + b/2a)² − Δ/(4a) and use it to explain why Δ < 0 means never zero',
+    'run k-hunts in one line: repeated roots from Δ = 0, no-real-roots regimes from Δ < 0',
+    'answer existence questions (does such a rectangle exist?) by the discriminant before any solving',
+  ],
+  prerequisites: ['al-completing-the-square-derived', 'al-quadratics-and-factoring-solutions', 'al-the-three-verdicts-one-none-infinitely-many', 'al-fractional-equations-and-extraneous-roots'],
+  sources: ['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 9.2 ended with a seed: for a MONIC quadratic, the whole solution collapsed to one line, $x = -\\frac{b}{2} \\pm \\sqrt{\\frac{b^2}{4} - c}$. What stands between that line and the tool every examination hall recites is a single division. The general quadratic $ax^2 + bx + c = 0$ carries its leading coefficient $a \\neq 0$ — and the a ≠ 0 clause is exactly the license to divide the whole equation by $a$, because division by zero is the one move the field laws forbid (5.1’s forbidden multiplier, now the forbidden divisor). Divide, and the equation goes monic: $x^2 + \\frac{b}{a}x + \\frac{c}{a} = 0$. The verifier divided three designed quadratics by their leading coefficients and re-checked the zero set at all eleven census points — $2x^2 - 7x + 3$ and its monic shadow $x^2 - \\frac{7}{2}x + \\frac{3}{2}$ vanish at exactly the same values of $x$. The lesson of 5.2 repeats one level up: a lawful move on the equation cannot change its answers, and now the monic compression applies verbatim.' },
+    { kind: 'para', text: 'So the quadratic formula is not a new method. It is completing the square, performed ONCE, on letters, with the arithmetic carried through exactly — and then never repeated again. This lesson derives it slowly, reads off its built-in verdict machine (the discriminant), learns to simplify the irrational answers it produces, and then uses it to answer questions that never require solving anything at all. By the end, the three lessons of this chapter click together: factoring when the integers cooperate (9.1), completing the square when they do not (9.2), and the formula always (this lesson).' },
+    { kind: 'heading', text: 'The Quadratic Formula, Derived' },
+    { kind: 'derivation', title: 'Theorem — the quadratic formula', statement: 'For real coefficients with $a \\neq 0$, the equation $ax^2 + bx + c = 0$ holds exactly for $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.', steps: [
+      { label: 'Divide', explanation: 'The clause $a \\neq 0$ licenses dividing every term by $a$: $\\;x^2 + \\frac{b}{a}x + \\frac{c}{a} = 0$ — the monic form, same roots (the verifier priced the preservation pointwise).' },
+      { label: 'Move', explanation: 'The balance law of 5.1 carries the constant right: $\\;x^2 + \\frac{b}{a}x = -\\frac{c}{a}$.' },
+      { label: 'Complete', explanation: 'Half of $\\frac{b}{a}$ is $\\frac{b}{2a}$; add its square to BOTH sides: $\\;x^2 + \\frac{b}{a}x + \\left(\\frac{b}{2a}\\right)^2 = \\frac{b^2}{4a^2} - \\frac{c}{a}$ — the 9.2 identity in general-a dress.' },
+      { label: 'Fold', explanation: 'The left side folds exactly: $\\;\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{b^2 - 4ac}{4a^2}$ — one fraction on the right, its numerator the DISCRIMINANT $\\Delta = b^2 - 4ac$, its denominator the square $(2a)^2$.' },
+      { label: 'Verdict', explanation: 'The square verdict of 9.2 takes over. The denominator $4a^2$ is positive (it is a nonzero square), so everything hangs on the sign of $\\Delta$: if $\\Delta < 0$ the right side is negative and no real $x$ exists; if $\\Delta = 0$ the single door collapses; if $\\Delta > 0$ both doors open.' },
+      { label: 'Doors', explanation: 'For $\\Delta \\geq 0$: $\\;x + \\frac{b}{2a} = \\pm\\frac{\\sqrt{\\Delta}}{2a}$ (the denominator comes out of the root as $2a$ up to sign — and $-\\frac{b}{2a}$ is the shared centre), hence $\\;x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}$. Every letter earned its place.' },
+    ], result: '$ax^2 + bx + c = 0 \\;\\iff\\; x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ — the quadratic formula, derived once and forever.' },
+    { kind: 'equation', latex: 'x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}, \\qquad \\Delta = b^2 - 4ac, \\qquad a \\neq 0', note: 'the quadratic formula in its working dress — the ± carries two doors when Δ > 0, one when Δ = 0, none when Δ < 0' },
+    { kind: 'para', text: 'Read the line slowly once, and it never needs memorizing again. The $-b$ over $2a$ is the axis where the two doors stand — the shared centre $-\\frac{b}{2a}$ that 9.2 already exhibited as the vertex reading. The square root carries $\\Delta = b^2 - 4ac$, the discriminator: everything about the VERDICT lives in its sign, everything about the POSITIONS lives in its size. The $\\pm$ is the honest two-door structure of a square root, the same ± 9.2 defended — dropping the minus door was "half a verdict" there and is half a verdict here. And the $2a$ in the denominator is the scar of the monic division: divide it away mentally and the monic compression of 9.2 reappears.' },
+    { kind: 'example', title: 'Solve 2x² − 7x + 3 = 0 with the formula', steps: [
+      'Already in standard form: $a = 2$, $b = -7$, $c = 3$ — the sign of $b$ rides INTO the formula, never pre-negated.',
+      'Compute, $\\Delta = b^2 - 4ac = (-7)^2 - 4 \\cdot 2 \\cdot 3 = 49 - 24 = 25$.',
+      'So, $x = \\frac{-(-7) \\pm \\sqrt{25}}{2 \\cdot 2} = \\frac{7 \\pm 5}{4}$ — the two doors are $\\frac{12}{4}$ and $\\frac{2}{4}$.',
+      'Hence $x = 3$ or $x = \\frac{1}{2}$; the verifier priced both in the ORIGINAL polynomial: $2(9) - 21 + 3 = 0$ and $2 \\cdot \\frac{1}{4} - \\frac{7}{2} + 3 = 0$.',
+    ] },
+    { kind: 'example', title: 'Solve x² − 6x + 8 = 0 with the formula, then cross-check by factoring', steps: [
+      '$a = 1$, $b = -6$, $c = 8$: $\\Delta = 36 - 32 = 4$, a perfect square — the formula must agree with 9.1’s factoring.',
+      'Doors: $x = \\frac{6 \\pm 2}{2}$, giving $x = 4$ and $x = 2$.',
+      'Check by factoring: $x^2 - 6x + 8 = (x - 2)(x - 4)$ — the same roots, two methods, one verdict.',
+      'The working rule falls out: when $\\Delta$ is a perfect square and the coefficients are integers, factoring would have been FASTER; the formula is the guarantee that solve-ability never depended on that luck.',
+    ] },
+    { kind: 'example', title: 'Solve 4x² − 12x + 9 = 0 and explain the single answer', steps: [
+      '$\\Delta = (-12)^2 - 4 \\cdot 4 \\cdot 9 = 144 - 144 = 0$ — the discriminant vanishes.',
+      'The formula has no choice: $x = \\frac{12 \\pm 0}{8} = \\frac{3}{2}$, one root where the two doors land together.',
+      'The fold shows why: $4x^2 - 12x + 9 = (2x - 3)^2$ — a pure square (the verifier certified the expansion), and a square is zero only when its base is.',
+      'Hence the verdict "one repeated root": $\\frac{3}{2}$ counted twice, exactly 9.1’s collapse now derived from a coefficient reading rather than a factorization.',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'quadratic formula', def: 'the closed-form solution $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ of $ax^2 + bx + c = 0$ ($a \\neq 0$), derived by completing the square on the general form — not a memorized incantation but the 9.2 pipeline with the arithmetic done once, on letters.' },
+      { term: 'discriminant', def: 'the quantity $\\Delta = b^2 - 4ac$ — the insides of the formula’s square root. Its sign discriminates the verdict: $\\Delta > 0$ two distinct real roots, $\\Delta = 0$ one repeated root, $\\Delta < 0$ no real roots.' },
+      { term: 'the three-way discriminant verdict', def: 'the reading of the door count straight off the sign of Δ, without solving or factoring: the quadratic verdict machine of 9.1, now driven by coefficients alone.' },
+      { term: 'repeated root', def: 'when Δ = 0 the two formula doors land on the same number $x = -\\frac{b}{2a}$; the root is counted twice because the quadratic folds into a perfect square $a(x - r)^2$ — the multiplicity 9.1 observed and this lesson derives.' },
+      { term: 'quadratic surd', def: 'an irrational root of the form $p \\pm q\\sqrt{d}$ with $d$ not a perfect square — the honest output of the formula when Δ is positive but not a square. Simplified by extracting the largest square factor of Δ.' },
+      { term: 'the completed-square master identity', def: 'the exact identity $ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$ — the formula’s derivation compressed into one line, and the reason Δ < 0 forces the quadratic to be never zero (a nonzero square plus a positive constant).' },
+    ] },
+    { kind: 'heading', text: 'The Discriminant: the Verdict Read off the Coefficients' },
+    { kind: 'para', text: 'Look again at the derivation’s pivotal line: $\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{\\Delta}{4a^2}$. The left side is a square — never negative, zero only at the fold point. The denominator $4a^2$ is a positive square. So the entire question "does a real $x$ exist?" is a question about the SIGN of $\\Delta = b^2 - 4ac$, and the question "how many doors?" is the same question. This is 5.3’s verdict machine grown to degree 2: the linear machine sorted equations into one, none, infinitely many AFTER a solve; the discriminant sorts quadratics into two, one, none BEFORE any solve — from the coefficients alone.' },
+    { kind: 'table', caption: 'The discriminant ledger, priced by the verifier: the sign of Δ settles the verdict before any solving', head: ['Quadratic', 'Δ = b² − 4ac', 'Sign', 'Verdict', 'The doors'], rows: [
+      ['$2x^2 - 7x + 3$', '$49 - 24 = 25$', 'Δ > 0', 'two distinct', '$x = \\frac{7 \\pm 5}{4} = \\{\\frac{1}{2}, 3\\}$'],
+      ['$x^2 - 6x + 8$', '$36 - 32 = 4$', 'Δ > 0', 'two distinct', '$x = \\frac{6 \\pm 2}{2} = \\{2, 4\\}$'],
+      ['$4x^2 - 12x + 9$', '$144 - 144 = 0$', 'Δ = 0', 'one repeated', '$x = \\frac{12}{8} = \\frac{3}{2}$ twice'],
+      ['$x^2 - 2x - 4$', '$4 + 16 = 20$', 'Δ > 0, not a square', 'two, irrational', '$x = 1 \\pm \\sqrt{5}$'],
+      ['$x^2 + x + 1$', '$1 - 4 = -3$', 'Δ < 0', 'none real', '$(x + \\frac{1}{2})^2 + \\frac{3}{4} > 0$'],
+      ['$x^2 + 2x + 5$', '$4 - 20 = -16$', 'Δ < 0', 'none real', '$(x + 1)^2 + 4 > 0$'],
+    ] },
+    { kind: 'para', text: 'The ledger’s middle rows deserve a second look. $\\Delta > 0$ does not promise rational roots: $x^2 - 2x - 4$ has $\\Delta = 20$, positive but no one’s square, and its doors open onto $1 \\pm \\sqrt{5}$ — real, distinct, and irrational. The verdict "two real roots" and the verdict "factorable over the integers" are DIFFERENT verdicts; 9.1’s not-factorable engine already met the gap, and the discriminant now measures it exactly: the roots are rational precisely when $\\Delta$ is a perfect square (for monic integer quadratics — the honest scope of the schoolroom read).' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — Δ reads STANDARD form', text: 'The discriminant is $b^2 - 4ac$ of the STANDARD form $ax^2 + bx + c = 0$ — coefficients collected left, signs as they sit. The trap: $2x^2 + 5x = -3$ has no constant term on the left YET; read hastily, $c$ looks like $0$ and $\\Delta$ comes out $25$. Collect first: $2x^2 + 5x + 3 = 0$, so $\\Delta = 25 - 24 = 1 > 0$, two doors $x = \\frac{-5 \\pm 1}{4} = \\{-1, -\\frac{1}{2}\\}$ — the verifier priced both. One collection, one Δ, one verdict — never a Δ from the raw ink.' },
+    { kind: 'para', text: 'Why does $\\Delta < 0$ guarantee the quadratic is NEVER zero — not just "the formula refuses"? The master identity answers exactly. Expanding the completed square of the derivation and keeping the remainder gives, for every $x$:' },
+    { kind: 'equation', latex: 'a x^2 + b x + c \\;=\\; a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}', note: 'the completed-square master identity — exact for every x, the verifier certified it on four designed triples' },
+    { kind: 'para', text: 'When $\\Delta < 0$, the shift $-\\frac{\\Delta}{4a}$ is POSITIVE (for $a > 0$; for $a < 0$ both factors flip and the conclusion is unchanged — the verifier ran $2x^2 - 3x + 4$ with $-\\frac{\\Delta}{4a} = \\frac{23}{8} > 0$): a square plus a positive constant can never be zero. When $\\Delta = 0$ the identity is a pure multiple of a square — the repeated-root collapse. When $\\Delta > 0$ the square must cancel a negative shift, which happens at exactly two $x$. One identity, three verdicts, no solving — this is the deepest single line in the chapter.' },
+    { kind: 'para', text: 'The formula also has a GEOMETRY, and it is worth one paragraph because chapter 10 will draw it. Read the doors as $x = -\\frac{b}{2a} \\pm \\frac{\\sqrt{\\Delta}}{2a}$: a CENTRE at $-\\frac{b}{2a}$ — the fold point of the completed square — and a RADIUS $\\frac{\\sqrt{\\Delta}}{2a}$ stepping symmetrically both ways from it. The two roots are as symmetric as two numbers can be: their average is the centre, their gap is $\\frac{\\sqrt{\\Delta}}{a}$ (the verifier priced the gap identity $\\Delta/a^2$ on three exhibits, including the irrational $2\\sqrt{3}$ for $x^2 - 4x + 1$). Every fact about the doors is a fact about the centre and the radius — and in lesson 9.4 the SUM of the roots will read the centre directly off the coefficients, no formula needed.' },
+    { kind: 'example', title: 'Find every k for which x² + kx + 25 = 0 has a repeated root', steps: [
+      'A repeated root means the doors collapse: $\\Delta = k^2 - 4 \\cdot 25 = k^2 - 100 = 0$.',
+      'So, $k^2 = 100$, and $k = 10$ or $k = -10$ — BOTH, because $k$ sits inside a square.',
+      'Check by expansion: $x^2 + 10x + 25 = (x + 5)^2$ (root $-5$) and $x^2 - 10x + 25 = (x - 5)^2$ (root $5$) — the verifier certified both folds.',
+      'The k-hunt that took 9.2 a completion (find $k$ so the square is pure) now takes one discriminant line — that is what "the verdict read off the coefficients" buys.',
+    ] },
+    { kind: 'example', title: 'Find every k for which 2x² + 4x + k = 0 has no real roots', steps: [
+      'No real roots means $\\Delta < 0$: $\\;16 - 8k < 0$.',
+      'Solve the LINEAR inequality (7.2’s craft): $k > 2$.',
+      'The boundary $k = 2$ collapses: $\\Delta = 0$, the single root $x = -\\frac{4}{4} = -1$ — the verifier priced the one-door collapse.',
+      'Below the boundary, $k = 1$: $\\Delta = 8 > 0$, roots $-1 \\pm \\frac{\\sqrt{2}}{2}$ — two irrational doors, certified exact in $\\mathbb{Q}(\\sqrt{2})$. The inequality $k > 2$ is the exact fence between "no doors" and "two doors".',
+    ] },
+    { kind: 'figure', caption: 'The formula pipeline: divide by a, move the constant, complete the square with (b/2a)², fold, and open the doors the sign of Δ licenses. The worked strip runs 2x² − 7x + 3 = 0 to x = (7 ± 5)/4 = {1/2, 3}.', svg: formulaPipelineSvg() },
+    { kind: 'para', text: 'The pipeline’s five stations are the derivation, frozen. Notice what the pipeline does NOT contain: no factoring, no integer hunting, no luck. That is the chapter’s arc completing itself — 9.1 solved when the integers cooperated, 9.2 solved always but freshly each time, and 9.3 solves always with the freshness paid once. In an examination the formula is the DEFAULT; factoring remains a speed optimization to attempt only when the discriminant comes out a perfect square.' },
+    { kind: 'heading', text: 'Simplifying the Answers: Quadratic Surds' },
+    { kind: 'para', text: 'When $\\Delta$ is positive but not a perfect square, the formula’s output is a quadratic surd — and examination answers are expected SIMPLIFIED. The discipline is the one this book has used since the chapter-4 identities: a square factor comes out of the root whole. $\\sqrt{20} = \\sqrt{4 \\cdot 5} = 2\\sqrt{5}$, $\\sqrt{12} = 2\\sqrt{3}$, $\\sqrt{48} = \\sqrt{16 \\cdot 3} = 4\\sqrt{3}$ (the very root inside 9.2’s non-monic solve), $\\sqrt{60} = 2\\sqrt{15}$. The verifier split nine designed roots by hunting the LARGEST square factor each time — largest, because $\\sqrt{48}$ split lazily as $2\\sqrt{12}$ still hides a square; the discipline is "extract until nothing square remains". A surd left unsimplified is not wrong; it is unfinished.' },
+    { kind: 'example', title: 'Solve 3x² − 6x − 2 = 0 and simplify the surd', steps: [
+      '$\\Delta = (-6)^2 - 4 \\cdot 3 \\cdot (-2) = 36 + 24 = 60$ — positive, not a square.',
+      'Split: $60 = 4 \\cdot 15$, so $\\sqrt{60} = 2\\sqrt{15}$ (the largest square factor is 4).',
+      'Doors: $x = \\frac{6 \\pm 2\\sqrt{15}}{6} = 1 \\pm \\frac{\\sqrt{15}}{3}$ — divide EVERYTHING by the 6, numerator included.',
+      'The verifier certified both doors exact in $\\mathbb{Q}(\\sqrt{15})$: substituting $1 + \\frac{\\sqrt{15}}{3}$ into $3x^2 - 6x - 2$ cancels to $0$, term by term.',
+    ] },
+    { kind: 'para', text: 'The division discipline at the last station deserves its own warning, because it is where clean work most often leaks. The door line $x = \\frac{6 \\pm 2\\sqrt{15}}{6}$ divides EVERYTHING by the 6 — the rational part AND the surd coefficient: the answer is $1 \\pm \\frac{\\sqrt{15}}{3}$, not $1 \\pm 2\\sqrt{15}$ (the surd left double-counted) and not $6 \\pm 2\\sqrt{15}$ (nothing divided at all). The verifier met this class before: 9.2’s non-monic solves landed at $1 \\pm \\frac{1}{2}\\sqrt{10}$ and $-1 \\pm \\frac{2}{3}\\sqrt{3}$ — in each, the $2a$ denominator divides both parts, and the same reading in reverse is how the monic check goes: multiply the simplified answer by the discarded $a$ and the original equation must reappear.' },
+    { kind: 'para', text: 'Irrational answers are answers. The long exile of $\\sqrt{2}$ from the solution sets of ANS chapter 8 was reversed in 9.2 ($1 \\pm \\sqrt{2}$ as a legitimate landing) and this lesson makes such landings routine: two of the ledger’s six exhibits have irrational doors. The check discipline survives the irrationality — substitute the surd root into the original equation and watch the radical terms cancel (the verifier does this in exact $\\mathbb{Q}(\\sqrt{d})$ arithmetic, where $\\sqrt{15}$ is carried as the pair rational-part-plus-radical-coefficient). What is NEVER allowed is the float shortcut on a proof: $1.66$ is a shadow of $1 + \\frac{\\sqrt{15}}{3}$, useful for a sanity bound, never for a certificate.' },
+    { kind: 'heading', text: 'The Rectangle Verdict: Solving Without Solving' },
+    { kind: 'para', text: 'Here is the payoff question type that makes the discriminant worth its name. A rectangle has perimeter 20, so if its width is $x$ its length is $10 - x$ and its area is $x(10 - x)$. Can the area be 26? Set up: $x(10 - x) = 26$, standard form $x^2 - 10x + 26 = 0$, and STOP — read the verdict first: $\\Delta = 100 - 104 = -4 < 0$. No real $x$ exists. No such rectangle. The question is answered in one line, without finding any width, because the question was an EXISTENCE question and existence is exactly what the discriminant discriminates. The verifier backed the refusal with the master identity: $x^2 - 10x + 26 = (x - 5)^2 + 1 \\geq 1$ — the area cannot even reach 26, and the square identity shows why 25 is the ceiling.' },
+    { kind: 'para', text: 'Now bend the same rectangle through the other two branches, and watch the verdicts carry MEANING. Area 21: $x^2 - 10x + 21 = 0$, $\\Delta = 16 > 0$, doors $x = 3$ and $x = 7$ — two "answers" that are one rectangle read twice ($3 \\times 7$ and $7 \\times 3$). Area 25: $\\Delta = 0$, the single root $x = 5$ — the square, where the two answers collapse into each other, and the geometric meaning of the repeated root is exactly "width equals length". The verifier confirmed over the whole census that $x(10-x) \\leq 25$ with equality only at $x = 5$ — the discriminant did not just count roots, it found the maximum. Existence, uniqueness, optimality: three different questions, one coefficient reading.' },
+    { kind: 'figure', caption: 'The discriminant verdict strip: Δ > 0 opens two doors, Δ = 0 opens one door counted twice, Δ < 0 opens none — priced on x² − 7x + 12 (Δ = 1), x² − 6x + 9 (Δ = 0) and x² + x + 1 (Δ = −3).', svg: discriminantVerdictSvg() },
+    { kind: 'callout', tone: 'insight', title: 'Insight — the verdict machine, grown up and ahead of its graph', text: 'Chapter 5 sorted linear equations into one, none, infinitely many — but only AFTER solving. Chapter 9’s machine reads the verdict BEFORE any solving: the sign of $\\Delta = b^2 - 4ac$ is the whole story. Two distinct real doors, one door counted twice, or none — and "infinitely many" is impossible because $a \\neq 0$ pins a genuine square term. This is also the chapter’s quiet promise to chapter 10: the parabola $y = ax^2 + bx + c$ crosses the x-axis exactly as many times as $\\Delta$ allows — twice, once (a tangent touch), or never. The discriminant will reappear there as the x-intercept counter; here it already answers existence questions ("is there a rectangle of area 26?") that no amount of graphing answers faster.' },
+    { kind: 'para', text: 'From the above discussion, the working summary of the lesson:' },
+    { kind: 'list', marker: 'roman', items: [
+      'The quadratic formula $x = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}$, $\\Delta = b^2 - 4ac$, is completing the square performed once on $ax^2 + bx + c = 0$ ($a \\neq 0$) — derived, not memorized.',
+      'The sign of Δ IS the verdict: $\\Delta > 0$ two distinct real roots, $\\Delta = 0$ one repeated root ($x = -\\frac{b}{2a}$), $\\Delta < 0$ none real — read before solving.',
+      'Δ comes from STANDARD form: collect first, then read the coefficients.',
+      'Positive but non-square Δ gives irrational doors — simplify surds by extracting the largest square factor (√60 = 2√15), and check surd roots by exact cancellation, never by float.',
+      'The master identity $ax^2 + bx + c = a(x + \\frac{b}{2a})^2 - \\frac{\\Delta}{4a}$ explains all three verdicts at once and turns existence questions ("can the area be 26?") into one-line answers.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — the formula’s long road to one line', text: 'Brahmagupta’s Brāhmasphuṭasiddhānta (628 CE) gave the rule essentially in words: to the absolute number multiplied by four times the square-coefficient, add the square of the middle coefficient; take the root, subtract the middle coefficient, divide by twice the square-coefficient — the quadratic formula for $ax^2 + bx = c$, seven centuries before symbolic algebra. Al-Khwarizmi (c. 825) still split quadratics into rhetorical CASE types precisely because negative coefficients had no standing; the single formula needed the sign laws (FM ch. 7, ANS ch. 7) and the letter symbolism that Viète and Descartes later banked. The name DISCRIMINANT for $b^2 - 4ac$ was coined by James Joseph Sylvester in 1851, the word doing exactly what this lesson does: discriminating the verdict before the solve. Web-checked against the banked survey of run 66; no content reproduced.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this pays', text: 'The competitive bank (Khattar QA’s algebra scope, SSC/bank preliminaries, JEE-Main foundations) drills this lesson under the heading "nature of roots": (1) speed solves — when Δ is a perfect square the formula is as fast as factoring and always lawful; (2) nature items — "discriminate without solving" ($x^2 - 4x + k$ for given $k$) are one-line Δ readings; (3) k-hunts — repeated roots from $\\Delta = 0$ (this lesson’s $k = \\pm 10$ shape) and no-real-roots regimes from $\\Delta < 0$ ($k > 2$), frequently chained with a linear-inequality finish; (4) the difference read — for $x^2 + px + q$ the roots differ by $\\sqrt{p^2 - 4q}$, so "the roots differ by $d$" is the condition $p^2 - 4q = d^2$ (the L5 exercise grows into 9.4’s identity); (5) existence word problems — areas, minimums, fencing — where the discriminant answers can-it-exist before what-is-it. The formula is the most-quoted line in school algebra; the discipline this lesson adds is reading its VERDICT before computing its doors.' },
+    { kind: 'formula', name: 'The quadratic formula', latex: 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\qquad (a \\neq 0)', note: 'completing the square performed once on the general form — the doors of every quadratic, with no luck required' },
+    { kind: 'formula', name: 'The discriminant', latex: '\\Delta = b^2 - 4ac', note: 'the insides of the square root: its sign discriminates the verdict, its size sets the gap between the doors' },
+    { kind: 'formula', name: 'The three-way discriminant verdict', latex: '\\Delta > 0: \\text{ two distinct} \\qquad \\Delta = 0: \\text{ one repeated } \\left(x = -\\tfrac{b}{2a}\\right) \\qquad \\Delta < 0: \\text{ none real}', note: 'the 5.3 verdict machine at degree 2, read off the coefficients before any solving' },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'For $2x^2 - 7x + 3 = 0$, the discriminant $\\Delta = b^2 - 4ac$ is', options: ['$49$', '$25$', '$1$', '$-25$'], answer: 1, explain: '$\\Delta = (-7)^2 - 4 \\cdot 2 \\cdot 3 = 49 - 24 = 25$. The 49 forgets the $-4ac$ term; the 1 would come from $b = 5$ (the wrong middle coefficient); the $-25$ flips the sign of $\\Delta$ itself — $\\Delta$ can be negative only when $4ac > b^2$, not here.' },
+      { q: 'Solving $x^2 - 6x + 8 = 0$ with the formula $x = \\frac{6 \\pm \\sqrt{\\Delta}}{2}$ lands at', options: ['$\\{-2, -4\\}$', '$\\{1, 8\\}$', 'no real roots', '$\\{2, 4\\}$'], answer: 3, explain: '$\\Delta = 36 - 32 = 4$, so $x = \\frac{6 \\pm 2}{2} = \\{4, 2\\}$ — and indeed $(x-2)(x-4) = x^2 - 6x + 8$. The negative pair comes from feeding $-6$ into the $-b$ slot twice; $\\{1, 8\\}$ has product 8 but sum 9; $\\Delta = 4 > 0$ forbids the empty verdict.' },
+      { q: 'The roots of $x^2 - 2x - 4 = 0$ are', options: ['$2 \\pm \\sqrt{5}$', '$-1 \\pm \\sqrt{5}$', '$1 \\pm \\sqrt{5}$', 'no real roots'], answer: 2, explain: '$\\Delta = 4 + 16 = 20 = 4 \\cdot 5$, so $x = \\frac{2 \\pm 2\\sqrt{5}}{2} = 1 \\pm \\sqrt{5}$ — the $2\\sqrt{5}$ must divide too. $2 \\pm \\sqrt{5}$ forgets to halve the surd; $-1 \\pm \\sqrt{5}$ reads $-\\frac{b}{2a}$ with the wrong sign ($-b = 2$, positive); $\\Delta = 20 > 0$ forbids the empty verdict.' },
+      { q: 'For which values of $k$ does $x^2 + kx + 25 = 0$ have a repeated root?', options: ['$k = \\pm 10$', '$k = 10$ only', '$k = \\pm 5$', '$k = 25$'], answer: 0, explain: 'A repeated root needs $\\Delta = k^2 - 100 = 0$, so $k = 10$ AND $k = -10$ — both expand to perfect squares $(x \\mp 5)^2$. "10 only" drops the second square (the $k$ sits inside a square, so its sign washes out); $k = \\pm 5$ gives $\\Delta = -75$, none real; $k = 25$ gives $\\Delta = 525 > 0$, two distinct.' },
+      { q: 'A rectangle of perimeter 20 is asked to have area 26. The discriminant verdict says', options: ['two widths work', 'one width works (the square)', 'no such rectangle — $\\Delta < 0$', 'every width works'], answer: 2, explain: '$x(10 - x) = 26$ standardizes to $x^2 - 10x + 26 = 0$ with $\\Delta = 100 - 104 = -4 < 0$: no real width exists, before any solving. Area 25 is the one-width case ($\\Delta = 0$, the square $x = 5$); area 21 gives the two-width case ($\\{3, 7\\}$, one rectangle read twice); the master identity $(x-5)^2 + 1 \\geq 1$ shows the area never even reaches 26.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 9.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'Compute $\\Delta$ and read the verdict for $x^2 - 5x + 6 = 0$ — before solving.', solution: [
+          'Standard form sits ready: $a = 1$, $b = -5$, $c = 6$.',
+          'So, $\\Delta = (-5)^2 - 4 \\cdot 1 \\cdot 6 = 25 - 24 = 1 > 0$.',
+          'Verdict: two distinct real roots — and since $1$ is a perfect square, they are even rational: $x = \\frac{5 \\pm 1}{2} = \\{2, 3\\}$.',
+        ], answer: '$\\Delta = 1 > 0$: two distinct real roots, $x = 2$ and $x = 3$.' },
+        { q: 'Compute $\\Delta$ and read the verdict for $x^2 + 4x + 4 = 0$ — before solving.', solution: [
+          '$\\Delta = 4^2 - 4 \\cdot 1 \\cdot 4 = 16 - 16 = 0$.',
+          'Verdict: one repeated root, at $x = -\\frac{b}{2a} = -\\frac{4}{2} = -2$.',
+          'Check the fold: $x^2 + 4x + 4 = (x + 2)^2$ — a pure square, zero only at $x = -2$.',
+        ], answer: '$\\Delta = 0$: the repeated root $x = -2$, counted twice.' },
+        { q: 'Compute $\\Delta$ and read the verdict for $x^2 + 2x + 5 = 0$ — before solving.', solution: [
+          '$\\Delta = 2^2 - 4 \\cdot 1 \\cdot 5 = 4 - 20 = -16 < 0$.',
+          'Verdict: no real roots — the formula refuses both doors.',
+          'The master identity shows the never-zero guarantee: $x^2 + 2x + 5 = (x + 1)^2 + 4 \\geq 4$.',
+        ], answer: '$\\Delta = -16 < 0$: no real roots.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Solve $2x^2 + 5x - 3 = 0$ with the formula.', solution: [
+          '$\\Delta = 5^2 - 4 \\cdot 2 \\cdot (-3) = 25 + 24 = 49$ — a perfect square, so the doors are rational.',
+          'Doors: $x = \\frac{-5 \\pm 7}{4}$ — the $-b$ slot carries $-5$ with its sign.',
+          'Hence $x = \\frac{2}{4} = \\frac{1}{2}$ or $x = \\frac{-12}{4} = -3$.',
+          'Check one door in the original: $2 \\cdot \\frac{1}{4} + \\frac{5}{2} - 3 = \\frac{1}{2} + \\frac{5}{2} - 3 = 0$.',
+        ], answer: '$x = \\frac{1}{2}$ and $x = -3$.' },
+        { q: 'Solve $x^2 - 6x + 8 = 0$ with the formula and cross-check by factoring.', solution: [
+          '$\\Delta = 36 - 32 = 4$; doors $x = \\frac{6 \\pm 2}{2}$.',
+          'Hence $x = 4$ or $x = 2$.',
+          'Cross-check: $x^2 - 6x + 8 = (x - 2)(x - 4)$ — the 9.1 readout confirms the sum 6 and product 8.',
+        ], answer: '$x = 2$ and $x = 4$.' },
+        { q: 'Solve $4x^2 - 12x + 9 = 0$ and explain why there is only one answer.', solution: [
+          '$\\Delta = 144 - 144 = 0$ — the discriminant vanishes.',
+          'The formula collapses: $x = \\frac{12}{8} = \\frac{3}{2}$, one root counted twice.',
+          'The fold explains it: $4x^2 - 12x + 9 = (2x - 3)^2$, and $(2x - 3)^2 = 0$ forces $x = \\frac{3}{2}$ alone.',
+        ], answer: '$x = \\frac{3}{2}$ (repeated) — the quadratic is the square $(2x - 3)^2$.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Solve $x^2 - 2x - 4 = 0$ and simplify the surd.', solution: [
+          '$\\Delta = 4 + 16 = 20$ — positive, not a square.',
+          'Split: $20 = 4 \\cdot 5$, so $\\sqrt{20} = 2\\sqrt{5}$.',
+          'Doors: $x = \\frac{2 \\pm 2\\sqrt{5}}{2} = 1 \\pm \\sqrt{5}$ — divide the surd too.',
+          'Field check at $1 + \\sqrt{5}$: $(1 + \\sqrt{5})^2 - 2(1 + \\sqrt{5}) - 4 = 6 + 2\\sqrt{5} - 2 - 2\\sqrt{5} - 4 = 0$ — exact cancellation.',
+        ], answer: '$x = 1 \\pm \\sqrt{5}$.' },
+        { q: 'Solve $x^2 + 4x + 1 = 0$ and simplify the surd.', solution: [
+          '$\\Delta = 16 - 4 = 12$; split $12 = 4 \\cdot 3$, so $\\sqrt{12} = 2\\sqrt{3}$.',
+          'Doors: $x = \\frac{-4 \\pm 2\\sqrt{3}}{2} = -2 \\pm \\sqrt{3}$.',
+          'Field check at $-2 + \\sqrt{3}$: $(-2 + \\sqrt{3})^2 + 4(-2 + \\sqrt{3}) + 1 = 7 - 4\\sqrt{3} - 8 + 4\\sqrt{3} + 1 = 0$.',
+        ], answer: '$x = -2 \\pm \\sqrt{3}$.' },
+        { q: 'Solve $3x^2 - 6x - 2 = 0$ and simplify the surd.', solution: [
+          '$\\Delta = 36 + 24 = 60$; split $60 = 4 \\cdot 15$, so $\\sqrt{60} = 2\\sqrt{15}$.',
+          'Doors: $x = \\frac{6 \\pm 2\\sqrt{15}}{6} = 1 \\pm \\frac{\\sqrt{15}}{3}$.',
+          'Field check at $1 + \\frac{\\sqrt{15}}{3}$: $x^2 = 1 + \\frac{2\\sqrt{15}}{3} + \\frac{5}{3} = \\frac{8}{3} + \\frac{2\\sqrt{15}}{3}$, so $3x^2 = 8 + 2\\sqrt{15}$, and $3x^2 - 6x - 2 = 8 + 2\\sqrt{15} - 6 - 2\\sqrt{15} - 2 = 0$ — exact cancellation.',
+        ], answer: '$x = 1 \\pm \\frac{\\sqrt{15}}{3}$.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find every $k$ for which $x^2 + kx + 25 = 0$ has a repeated root, and name the root in each case.', solution: [
+          'A repeated root needs $\\Delta = k^2 - 100 = 0$, so $k = \\pm 10$.',
+          'For $k = 10$: $x^2 + 10x + 25 = (x + 5)^2$, the repeated root $-5$.',
+          'For $k = -10$: $x^2 - 10x + 25 = (x - 5)^2$, the repeated root $5$.',
+        ], answer: '$k = 10$ (root $-5$) and $k = -10$ (root $5$).' },
+        { q: 'Find every $k$ for which $2x^2 + 4x + k = 0$ has no real roots.', solution: [
+          'No real roots means $\\Delta < 0$: $\\;16 - 8k < 0$.',
+          'Solve the linear inequality: $k > 2$.',
+          'The boundary $k = 2$ collapses to the single root $x = -1$ (priced: $\\Delta = 0$), and $k = 1$ shows the other side with two irrational doors $-1 \\pm \\frac{\\sqrt{2}}{2}$.',
+        ], answer: 'Every $k > 2$.' },
+        { q: 'A rectangle has perimeter 20. Can its area be 26? 21? 25? Answer each with the discriminant, and interpret the three verdicts.', solution: [
+          'Width $x$, length $10 - x$, area $x(10 - x)$: the area-$A$ question is $x^2 - 10x + A = 0$, $\\Delta = 100 - 4A$.',
+          'Area 26: $\\Delta = -4 < 0$ — no real width exists; no such rectangle. The master identity confirms: $x^2 - 10x + 26 = (x - 5)^2 + 1 \\geq 1 > 0$.',
+          'Area 21: $\\Delta = 16 > 0$, doors $x = 3, 7$ — two answers that are ONE rectangle read twice ($3 \\times 7$).',
+          'Area 25: $\\Delta = 0$, the single door $x = 5$ — the square, where width meets length; and $25 - x(10-x) = (x-5)^2$ shows 25 is the exact ceiling.',
+        ], answer: '26: impossible ($\\Delta = -4$); 21: $3 \\times 7$; 25: the square $5 \\times 5$ — the maximum area.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'The roots of $x^2 + px + 12 = 0$ differ by exactly 1. Find both possible values of $p$ and the roots in each case.', solution: [
+          'For a monic quadratic the squared gap between the doors is $\\Delta$ itself: the doors are $\\frac{-p \\pm \\sqrt{p^2 - 48}}{2}$, differing by $\\sqrt{p^2 - 48}$.',
+          'Set $\\sqrt{p^2 - 48} = 1$: $p^2 - 48 = 1$, so $p^2 = 49$ and $p = \\pm 7$.',
+          'For $p = 7$: $x^2 + 7x + 12 = 0$, doors $\\frac{-7 \\pm 1}{2} = \\{-3, -4\\}$ — differing by 1.',
+          'For $p = -7$: $x^2 - 7x + 12 = 0$, doors $\\frac{7 \\pm 1}{2} = \\{4, 3\\}$ — differing by 1 (9.1’s sum-product exhibit, now systematic).',
+        ], answer: '$p = 7$ with roots $\\{-3, -4\\}$, or $p = -7$ with roots $\\{3, 4\\}$.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the completed-square master identity $ax^2 + bx + c = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$, and use it to read the verdict for $2x^2 - 7x + 3$ without solving.', solution: [
+          'Expand the right side: $a\\left(x^2 + \\frac{b}{a}x + \\frac{b^2}{4a^2}\\right) - \\frac{\\Delta}{4a} = ax^2 + bx + \\frac{b^2}{4a} - \\frac{\\Delta}{4a}$.',
+          'Substitute $\\Delta = b^2 - 4ac$: the remainder becomes $\\frac{b^2 - (b^2 - 4ac)}{4a} = \\frac{4ac}{4a} = c$ — the identity closes exactly.',
+          'Apply to $2x^2 - 7x + 3$: $\\Delta = 49 - 24 = 25$, so $2x^2 - 7x + 3 = 2\\left(x - \\frac{7}{4}\\right)^2 - \\frac{25}{8}$ — the verifier certified the expansion term by term.',
+          'Read the verdict: the square is $\\geq 0$, the shift $-\\frac{25}{8}$ is negative, so the expression hits zero exactly when $2\\left(x - \\frac{7}{4}\\right)^2 = \\frac{25}{8}$, i.e. the square equals $\\frac{25}{16}$ — possible, at two $x$; and $\\sqrt{\\frac{25}{16}} = \\frac{5}{4}$ names the doors $x = \\frac{7}{4} \\pm \\frac{5}{4} = \\{3, \\frac{1}{2}\\}$.',
+        ], answer: 'The identity holds exactly; $2x^2 - 7x + 3 = 2(x - \\frac{7}{4})^2 - \\frac{25}{8}$, verdict two doors at $x = \\frac{1}{2}, 3$.' },
+      ] },
+    ] },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 5 (9.4): the Viète readout machine — four stations.          */
+/* Header (30,18,660,44); stations (30,96,150,150), (200,96,150,150),  */
+/* (370,96,150,150), (540,96,150,150); chips (30,266,150,26),          */
+/* (200,266,150,26), (370,266,150,26), (540,266,150,26); caption band  */
+/* (30,304,660,24). Geometry pinned in verify-book3-ch09.ts plan94Fig1.*/
+/* ------------------------------------------------------------------ */
+
+function vieteReadoutSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Viète readout machine: standard form, read off S = −b/a and P = c/a, certify the roots by both tests, rebuild a(x² − Sx + P) — with the worked strip 2x² − 7x + 3 certifying {1/2, 3}">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the Viète readout — the roots’ sum and product, read off the coefficients</text>')
+  // ---- station 1: STANDARD FORM ----
+  parts.push('<rect x="30" y="96" width="150" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="105" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">1 · STANDARD FORM</text>')
+  parts.push('<text x="105" y="142" font-size="10" fill="#65a30d" text-anchor="middle">ax² + bx + c = 0,</text>')
+  parts.push('<text x="105" y="158" font-size="10" fill="#65a30d" text-anchor="middle">a ≠ 0 — every</text>')
+  parts.push('<text x="105" y="174" font-size="10" fill="#65a30d" text-anchor="middle">quadratic carries</text>')
+  parts.push('<text x="105" y="190" font-size="10" fill="#65a30d" text-anchor="middle">its S and P in</text>')
+  parts.push('<text x="105" y="206" font-size="10" fill="#65a30d" text-anchor="middle">plain sight</text>')
+  // ---- station 2: READ OFF ----
+  parts.push('<rect x="200" y="96" width="150" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="275" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">2 · READ OFF</text>')
+  parts.push('<text x="275" y="142" font-size="10" fill="#65a30d" text-anchor="middle">S = −b/a (the sum),</text>')
+  parts.push('<text x="275" y="158" font-size="10" fill="#65a30d" text-anchor="middle">P = c/a (the</text>')
+  parts.push('<text x="275" y="174" font-size="10" fill="#65a30d" text-anchor="middle">product) — no</text>')
+  parts.push('<text x="275" y="190" font-size="10" fill="#65a30d" text-anchor="middle">solving, no</text>')
+  parts.push('<text x="275" y="206" font-size="10" fill="#65a30d" text-anchor="middle">factoring</text>')
+  // ---- station 3: CERTIFY ----
+  parts.push('<rect x="370" y="96" width="150" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="445" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">3 · CERTIFY</text>')
+  parts.push('<text x="445" y="142" font-size="10" fill="#65a30d" text-anchor="middle">claimed roots must</text>')
+  parts.push('<text x="445" y="158" font-size="10" fill="#65a30d" text-anchor="middle">pass BOTH tests:</text>')
+  parts.push('<text x="445" y="174" font-size="10" fill="#65a30d" text-anchor="middle">sum S, product P —</text>')
+  parts.push('<text x="445" y="190" font-size="10" fill="#65a30d" text-anchor="middle">irrational roots</text>')
+  parts.push('<text x="445" y="206" font-size="10" fill="#65a30d" text-anchor="middle">included</text>')
+  // ---- station 4: REBUILD ----
+  parts.push('<rect x="540" y="96" width="150" height="150" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="615" y="120" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">4 · REBUILD</text>')
+  parts.push('<text x="615" y="142" font-size="10" fill="#65a30d" text-anchor="middle">a(x² − Sx + P) ≡</text>')
+  parts.push('<text x="615" y="158" font-size="10" fill="#65a30d" text-anchor="middle">the original —</text>')
+  parts.push('<text x="615" y="174" font-size="10" fill="#65a30d" text-anchor="middle">expand and match,</text>')
+  parts.push('<text x="615" y="190" font-size="10" fill="#65a30d" text-anchor="middle">coefficient by</text>')
+  parts.push('<text x="615" y="206" font-size="10" fill="#65a30d" text-anchor="middle">coefficient</text>')
+  // ---- connectors ----
+  parts.push('<line x1="180" y1="171" x2="200" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="350" y1="171" x2="370" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  parts.push('<line x1="520" y1="171" x2="540" y2="171" stroke="#d97706" stroke-width="1.4"/>')
+  // ---- chips (the worked strip 2x² − 7x + 3) ----
+  parts.push('<rect x="30" y="266" width="150" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="105" y="283" font-size="10.5" fill="#166534" text-anchor="middle">2x² − 7x + 3 = 0</text>')
+  parts.push('<rect x="200" y="266" width="150" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="275" y="283" font-size="10.5" fill="#166534" text-anchor="middle">S = 7/2 · P = 3/2</text>')
+  parts.push('<rect x="370" y="266" width="150" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="445" y="283" font-size="10" fill="#166534" text-anchor="middle">{1/2, 3}: 1/2 + 3 = 7/2; 1/2 · 3 = 3/2</text>')
+  parts.push('<rect x="540" y="266" width="150" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="615" y="283" font-size="10" fill="#166534" text-anchor="middle">rebuild: 2(x² − 7x/2 + 3/2)</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="304" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">STANDARDIZE → READ OFF → CERTIFY → REBUILD. The strip certifies {1/2, 3} with two one-line checks — no solving.</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 6 (9.4): the sign map — three (S, P) regimes. Header         */
+/* (30,18,660,44); panels (30,84,206,170), (257,84,206,170),           */
+/* (484,84,206,170); chips (30,266,206,26), (257,266,206,26),          */
+/* (484,266,206,26); caption band (30,304,660,24). Geometry pinned in  */
+/* verify-book3-ch09.ts plan94Fig2.                                    */
+/* ------------------------------------------------------------------ */
+
+function signMapSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The sign map: P above zero with S above zero gives both roots positive, P above zero with S below zero gives both negative, P below zero forces opposite signs and two real roots — priced on three exhibits">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="46" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the sign map — what S and P reveal before any solving</text>')
+  // ---- panel 1: both positive ----
+  parts.push('<rect x="30" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="133" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">P &gt; 0, S &gt; 0</text>')
+  parts.push('<text x="133" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² − 7x + 12:</text>')
+  parts.push('<text x="133" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">S = 7 &gt; 0, P = 12 &gt; 0</text>')
+  parts.push('<text x="133" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">→ {3, 4} — both positive</text>')
+  parts.push('<text x="133" y="190" font-size="10" fill="#d97706" text-anchor="middle">same sign, both +</text>')
+  parts.push('<text x="133" y="212" font-size="10" fill="#0f766e" text-anchor="middle">P &gt; 0: same sign;</text>')
+  parts.push('<text x="133" y="228" font-size="10" fill="#0f766e" text-anchor="middle">S picks which</text>')
+  // ---- panel 2: both negative ----
+  parts.push('<rect x="257" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">P &gt; 0, S &lt; 0</text>')
+  parts.push('<text x="360" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² + 7x + 12:</text>')
+  parts.push('<text x="360" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">S = −7 &lt; 0, P = 12 &gt; 0</text>')
+  parts.push('<text x="360" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">→ {−3, −4} — both negative</text>')
+  parts.push('<text x="360" y="190" font-size="10" fill="#d97706" text-anchor="middle">same sign, both −</text>')
+  parts.push('<text x="360" y="212" font-size="10" fill="#0f766e" text-anchor="middle">the mirror of the</text>')
+  parts.push('<text x="360" y="228" font-size="10" fill="#0f766e" text-anchor="middle">first panel</text>')
+  // ---- panel 3: opposite signs ----
+  parts.push('<rect x="484" y="84" width="206" height="170" rx="8" fill="none" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<text x="587" y="108" font-size="12.5" fill="#0f766e" text-anchor="middle" font-weight="700">P &lt; 0 — OPPOSITE SIGNS</text>')
+  parts.push('<text x="587" y="132" font-size="10.5" fill="#65a30d" text-anchor="middle">x² − x − 6:</text>')
+  parts.push('<text x="587" y="150" font-size="10.5" fill="#65a30d" text-anchor="middle">P = −6 &lt; 0 → ac &lt; 0</text>')
+  parts.push('<text x="587" y="168" font-size="10.5" fill="#65a30d" text-anchor="middle">→ Δ = b² − 4ac &gt; 0: both real</text>')
+  parts.push('<text x="587" y="186" font-size="10.5" fill="#65a30d" text-anchor="middle">→ {3, −2}</text>')
+  parts.push('<text x="587" y="212" font-size="10" fill="#dc2626" text-anchor="middle">P &lt; 0 forces Δ &gt; 0 —</text>')
+  parts.push('<text x="587" y="228" font-size="10" fill="#dc2626" text-anchor="middle">both real, always</text>')
+  // ---- chips ----
+  parts.push('<rect x="30" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="133" y="283" font-size="10.5" fill="#166534" text-anchor="middle">P &gt; 0, S &gt; 0: both roots +</text>')
+  parts.push('<rect x="257" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="360" y="283" font-size="10.5" fill="#166534" text-anchor="middle">P &gt; 0, S &lt; 0: both roots −</text>')
+  parts.push('<rect x="484" y="266" width="206" height="26" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>')
+  parts.push('<text x="587" y="283" font-size="10.5" fill="#166534" text-anchor="middle">P &lt; 0: mixed signs, Δ &gt; 0 forced</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="304" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">the product tells the sign story, the sum picks the quadrant — and P &lt; 0 is a no-solve proof that both roots are real.</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+const lesson94: Lesson = {
+  id: 'al-roots-and-coefficients-viete-relations',
+  number: '9.4',
+  title: 'Roots and Coefficients: Viète’s Relations',
+  concepts: [
+    'Viète’s relations: S = −b/a, P = c/a',
+    'the no-solve certification of roots',
+    'building quadratics from S and P',
+    'the a-family: infinitely many quadratics, one root set',
+    'symmetric functions of the roots',
+    'the difference identity (r₁ − r₂)² = Δ/a²',
+    'the sign map of the roots',
+  ],
+  objectives: [
+    'prove Viète’s relations S = −b/a and P = c/a from the quadratic formula, and re-prove them by the factor identity',
+    'certify claimed roots — rational, irrational, or repeated — against both relations without solving anything',
+    'build the monic quadratic with prescribed sum S and product P, and explain the a-family of shared-root quadratics',
+    'compute symmetric functions of the roots (α² + β², 1/α + 1/β, (α − β)², α³ + β³) from S and P alone, exactly even for irrational roots',
+    'read the sign map: P < 0 forces opposite real roots, P > 0 with S chooses the quadrant',
+    'run the competition k-hunts — one root twice the other, roots differing by a given gap — as linear reads on S and P',
+  ],
+  prerequisites: ['al-the-quadratic-formula-and-the-discriminant', 'al-quadratics-and-factoring-solutions', 'al-completing-the-square-derived', 'al-the-three-verdicts-one-none-infinitely-many'],
+  sources: ['hall-knight-elementary-algebra', 'ncert-math10-ch4-quadratic', 'khattar-qa-4e', 'cengage-jee-style'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 9.1 planted a seed and promised it a harvest: expanding $(x - r_1)(x - r_2) = x^2 - (r_1 + r_2)x + r_1 r_2$ showed the factored form is a READING device — the coefficient of $x$ is minus the sum of the roots, the constant is their product. That seed grew through 9.2’s completed squares and 9.3’s formula, and this lesson harvests it in general: for EVERY quadratic $ax^2 + bx + c = 0$ ($a \\neq 0$), the roots — whether they are integers, fractions, irrational surds, or a repeated collapse — satisfy' },
+    { kind: 'derivation', title: 'Theorem — Viète’s relations', statement: 'If $r_1$ and $r_2$ are the roots of $ax^2 + bx + c = 0$ with $a \\neq 0$, then $r_1 + r_2 = -\\frac{b}{a}$ and $r_1 r_2 = \\frac{c}{a}$.', steps: [
+      { label: 'Doors', explanation: 'By 9.3’s formula the two roots are $r_1 = \\frac{-b + \\sqrt{\\Delta}}{2a}$ and $r_2 = \\frac{-b - \\sqrt{\\Delta}}{2a}$ (the $\\Delta = 0$ case is the same line with both doors coinciding — the proof survives the collapse).' },
+      { label: 'Sum', explanation: 'Add: the $\\pm\\sqrt{\\Delta}$ parts annihilate — $r_1 + r_2 = \\frac{-2b}{2a} = -\\frac{b}{a}$. The surd never survives the addition; that is why the sum needs no irrational arithmetic at all.' },
+      { label: 'Product', explanation: 'Multiply — a difference of squares: $r_1 r_2 = \\frac{(-b)^2 - (\\sqrt{\\Delta})^2}{(2a)^2} = \\frac{b^2 - \\Delta}{4a^2} = \\frac{b^2 - (b^2 - 4ac)}{4a^2} = \\frac{4ac}{4a^2} = \\frac{c}{a}$.' },
+      { label: 'Cross-proof', explanation: 'The factor identity gives the same reading without the formula: $a(x - r_1)(x - r_2) = a\\left(x^2 - (r_1 + r_2)x + r_1 r_2\\right)$ must EQUAL $ax^2 + bx + c$ coefficient by coefficient (9.1 priced this identity exactly), so $-a(r_1 + r_2) = b$ and $a \\cdot r_1 r_2 = c$.' },
+    ], result: '$S = r_1 + r_2 = -\\frac{b}{a}, \\qquad P = r_1 r_2 = \\frac{c}{a}$ — Viète’s relations: the roots’ sum and product live in the coefficients.' },
+    { kind: 'equation', latex: 'S = -\\frac{b}{a}, \\qquad P = \\frac{c}{a} \\qquad (a \\neq 0)', note: 'Viète’s relations — read off the standard form with one division each; no solving, no factoring, no formula' },
+    { kind: 'para', text: 'Worth pausing on is what the proof DID NOT do: it never solved anything. The sum needed only the $\\pm$ doors to annihilate each other — the symmetry that put them there takes them back; the product needed only the difference-of-squares pattern $(u+v)(u-v) = u^2 - v^2$, the chapter-4 identity wearing its field clothes. Every hard-looking piece of the formula (the surd, the division by $2a$, the sign of $b$) cancels or organizes itself before the answer lands. That is the deepest reason the relations work for EVERY quadratic: they live upstream of the solving, in the algebra of the coefficients themselves — and the $a \\neq 0$ clause quietly licenses the one division each relation carries.' },
+    { kind: 'para', text: 'Two readings make the line usable at sight. MONIC quadratics ($a = 1$) need no division at all: $S = -b$ and $P = c$ — the sum is minus the middle coefficient, the product is the constant. Non-monic quadratics divide once: for $2x^2 - 7x + 3$ the readout is $S = \\frac{7}{2}$, $P = \\frac{3}{2}$ — and the verifier re-certified 9.3’s doors $\\{\\frac{1}{2}, 3\\}$ against both: $\\frac{1}{2} + 3 = \\frac{7}{2}$ and $\\frac{1}{2} \\cdot 3 = \\frac{3}{2}$. The relations are the fastest certificate in the chapter: a claimed root set is WRONG if it fails either test, and it is COMPLETE if it passes both (a quadratic cannot hide a third root — 9.1’s two-door bound).' },
+    { kind: 'para', text: 'The monic shortcut also closes a loop back to 9.1. There, the sum-product hunt asked for two numbers with a given sum and product — find them, and the trinomial factors. This lesson names the machinery: the hunted numbers ARE $S = -b$ and $P = c$, and the factored form $(x - r_1)(x - r_2)$ is the rebuild read backwards. The 9.1 exercises hunted $S$ and $P$ by intuition; the relations make the hunt a formula — and the verify-first engines of this chapter priced the agreement on eight monic exhibits back in run 83, before any of this prose existed. What was a scanning trick in chapter 4 and a reading device in 9.1 is now a theorem with a proof and a field of applications.' },
+    { kind: 'example', title: 'Certify the doors {1/2, 3} for 2x² − 7x + 3 = 0 without solving', steps: [
+      'Read off the standard form: $S = -\\frac{-7}{2} = \\frac{7}{2}$, $P = \\frac{3}{2}$.',
+      'Sum test: $\\frac{1}{2} + 3 = \\frac{7}{2}$ — passes.',
+      'Product test: $\\frac{1}{2} \\cdot 3 = \\frac{3}{2}$ — passes.',
+      'Both tests plus the two-door bound certify the set exactly — the same verdict 9.3 reached by the formula and 9.1 would reach by factoring, now reached with zero arithmetic beyond two one-line checks.',
+    ] },
+    { kind: 'example', title: 'Certify the irrational roots 3 ± √5 of x² − 6x + 4 = 0 — without solving', steps: [
+      'Read: $S = 6$, $P = 4$ (monic).',
+      'Sum in the field: $(3 + \\sqrt{5}) + (3 - \\sqrt{5}) = 6$ — the surd parts annihilate, exactly as the derivation promised.',
+      'Product in the field: $(3 + \\sqrt{5})(3 - \\sqrt{5}) = 9 - 5 = 4$ — a difference of squares, exact.',
+      'Hence $3 \\pm \\sqrt{5}$ is the complete root set — certified WITHOUT ever computing $\\sqrt{20}$ or dividing by $2a$. This is the no-solve dividend: the relations hold in the field, so irrational roots certify as cheaply as integer ones.',
+    ] },
+    { kind: 'example', title: 'Read the roots of x² − 7x = 0 off the relations alone', steps: [
+      'The constant term is $0$, so $P = 0$ — the product of the roots vanishes.',
+      'A product is zero only when a factor is zero (9.1’s law, proved both directions): one root IS $0$.',
+      'The sum then names the other: $S = 7 = 0 + r$, so $r = 7$.',
+      'Hence $\\{0, 7\\}$ — the forbidden-divide audit of 9.1 ($x^2 = 3x \\to \\{0, 3\\}$), returned as a coefficient reading: $P = 0$ is the fingerprint of a zero root.',
+    ] },
+    { kind: 'terms', items: [
+      { term: 'Viète’s relations', def: 'the identities $S = r_1 + r_2 = -\\frac{b}{a}$ and $P = r_1 r_2 = \\frac{c}{a}$ binding the roots of $ax^2 + bx + c = 0$ to its coefficients — proved from the formula and re-proved by the factor identity, valid for irrational and repeated roots included.' },
+      { term: 'the sum S', def: 'minus the middle coefficient over the leading one. For monic quadratics simply $S = -b$ — the fastest read in algebra.' },
+      { term: 'the product P', def: 'the constant term over the leading one. For monic quadratics $P = c$. $P = 0$ fingerprints a zero root; $P < 0$ forces opposite signs and two real roots.' },
+      { term: 'symmetric function', def: 'an expression in the roots that survives swapping them — $\\alpha^2 + \\beta^2$, $\\frac{1}{\\alpha} + \\frac{1}{\\beta}$, $(\\alpha - \\beta)^2$, $\\alpha^3 + \\beta^3$. Every symmetric function is computable from S and P alone, no solving.' },
+      { term: 'the monic rebuild', def: 'given S and P, the unique monic quadratic with those roots: $x^2 - Sx + P$. Scaling by any $a \\neq 0$ gives the a-family — infinitely many quadratics, one root set.' },
+      { term: 'the difference identity', def: '$(r_1 - r_2)^2 = S^2 - 4P = \\frac{\\Delta}{a^2}$ — the squared gap between the roots is the discriminant dressed in relations; the bridge between 9.3’s verdict machine and this lesson’s readout.' },
+    ] },
+    { kind: 'heading', text: 'Building Quadratics from S and P' },
+    { kind: 'para', text: 'The relations run backwards, and the reverse direction is where competitions live. To BUILD a quadratic whose roots behave a prescribed way, translate the behavior into $S$ and $P$, then write the monic rebuild $x^2 - Sx + P$ — its expansion is exactly the $(x - r_1)(x - r_2)$ identity of 9.1 with the roles reversed. The design is honest twice over: the rebuild expands to a genuine quadratic with the prescribed S and P (the verifier certified four rebuilds coefficient by coefficient), and its doors open onto roots that pass both tests. One warning keeps it truthful: S and P determine the MONIC quadratic — multiplying by any $a \\neq 0$ gives $a(x^2 - Sx + P)$, the same roots in a new dress. "Find THE quadratic" in an exam means the monic one unless the examiner says otherwise; the a-family is the honest infinity behind every such answer.' },
+    { kind: 'example', title: 'Build the monic quadratic whose roots sum to 2 and multiply to −15', steps: [
+      'Translate: $S = 2$, $P = -15$.',
+      'Rebuild: $x^2 - Sx + P = x^2 - 2x - 15$.',
+      'Verify by factoring: $(x - 5)(x + 3) = x^2 - 2x - 15$ — roots $5$ and $-3$; check the tests: $5 + (-3) = 2$, $5 \\cdot (-3) = -15$.',
+      'The a-family: $2x^2 - 4x - 30$, $3x^2 - 6x - 45$, … all share the roots $\\{5, -3\\}$ — the verifier priced the zero-set preservation pointwise across the census.',
+    ] },
+    { kind: 'example', title: 'Build the quadratic whose roots are 1 ± √2 — 9.2’s answer, designed', steps: [
+      'Sum in the field: $(1 + \\sqrt{2}) + (1 - \\sqrt{2}) = 2$, so $S = 2$.',
+      'Product in the field: $(1 + \\sqrt{2})(1 - \\sqrt{2}) = 1 - 2 = -1$, so $P = -1$.',
+      'Rebuild: $x^2 - 2x - 1$ — exactly the quadratic whose completing-the-square solve gave $1 \\pm \\sqrt{2}$ in lesson 9.2.',
+      'The direction reverses honestly: 9.2 SOLVED and landed on surds; here the surds are prescribed and the quadratic is DESIGNED. One identity, both directions — and the verifier certified the field product exactly.',
+    ] },
+    { kind: 'example', title: 'Build the quadratic with S = 0 and P = 5 — and read it honestly', steps: [
+      'Rebuild: $x^2 - 0 \\cdot x + 5 = x^2 + 5$.',
+      'Ask the discriminant (9.3): $\\Delta = 0^2 - 20 = -20 < 0$ — no real roots.',
+      'The build is not a failure: $x^2 + 5$ is a genuine quadratic carrying $S = 0$ and $P = 5$ for its COMPLEX roots — but over the reals it has no doors, and 9.3’s verdict machine said so before any search.',
+      'The lesson: the relations BUILD faithfully even where the real line refuses to answer — designing an impossibility is itself an exact act, and the discriminant is the honesty check.',
+    ] },
+    { kind: 'para', text: 'The repeated root has its own relation dress. If the roots coincide at $r$, then $S = 2r$ and $P = r^2$ — so $r = \\frac{S}{2}$ and the consistency demand is $\\left(\\frac{S}{2}\\right)^2 = P$. For $x^2 - 6x + 9$: $\\frac{S}{2} = 3$ and $3^2 = 9 = P$ — the collapse certified by the relations alone, no fold needed. The consistency demand is 9.3’s $\\Delta = 0$ in S/P clothing: $\\left(\\frac{S}{2}\\right)^2 - P = \\frac{S^2 - 4P}{4} = \\frac{\\Delta}{4a^2}$ at $a$-scaled size. One collapse, two descriptions — the chapter’s languages agreeing.' },
+    { kind: 'heading', text: 'Symmetric Functions: the Competition Payoff' },
+    { kind: 'para', text: 'Here is the discipline’s payoff. An expression in the roots is SYMMETRIC when swapping the roots leaves it unchanged — and every symmetric expression is a function of $S$ and $P$ alone, because those two numbers are exactly the symmetric data a quadratic carries. The four workhorses, each verified by the engines in both the relation form and the field form:' },
+    { kind: 'para', text: 'One guard keeps the quartet honest: the reciprocal read $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{S}{P}$ divides by $P$, so it speaks only when $P \\neq 0$ — the same excluded-value discipline that 8.1 nailed onto every rational expression and 5.1 nailed onto every balance move. When $P = 0$ a root is zero (the zero-product door), and $\\frac{1}{\\alpha}$ simply does not exist; the relation is not wrong, it is OUT OF SCOPE, and saying so is the correctness. The other three members divide by nothing but $a$ and the ever-safe $2$ — they stand for every quadratic. Guards named before use, scope checked before divide: the fraction craft of chapter 8, now carried inside a theorem.' },
+    { kind: 'equation', latex: '\\alpha^2 + \\beta^2 = S^2 - 2P, \\qquad \\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{S}{P}, \\qquad (\\alpha - \\beta)^2 = S^2 - 4P, \\qquad \\alpha^3 + \\beta^3 = S^3 - 3PS', note: 'the symmetric-function quartet — P ≠ 0 for the reciprocal read; the last two ride the difference-of-squares and the cube pattern' },
+    { kind: 'para', text: 'Watch them work on $x^2 - 6x + 4$, whose roots $3 \\pm \\sqrt{5}$ are irrational — the point where solving would be slow and the relations are instant. $\\alpha^2 + \\beta^2 = 36 - 8 = 28$: the verifier confirmed $(14 + 6\\sqrt{5}) + (14 - 6\\sqrt{5}) = 28$ in the field, the surds annihilating exactly as promised. $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{6}{4} = \\frac{3}{2}$ — field-checked through the rationalized reciprocals $\\frac{3 \\mp \\sqrt{5}}{4}$. $(\\alpha - \\beta)^2 = 36 - 16 = 20 = (2\\sqrt{5})^2$. $\\alpha^3 + \\beta^3 = 216 - 72 = 144$ — field-checked as $(72 + 32\\sqrt{5}) + (72 - 32\\sqrt{5})$. Four answers, zero solves, every one exact.' },
+    { kind: 'table', caption: 'The Viète ledger, priced by the verifier: sum and product certify every kind of root set — rational, irrational, repeated, and the zero-product door', head: ['Quadratic', 'S', 'P', 'The roots', 'Both tests'], rows: [
+      ['$2x^2 - 7x + 3$', '$\\frac{7}{2}$', '$\\frac{3}{2}$', '$\\{\\frac{1}{2}, 3\\}$', '$\\frac{7}{2}$, $\\frac{3}{2}$ — pass'],
+      ['$x^2 - 6x + 4$', '$6$', '$4$', '$3 \\pm \\sqrt{5}$', '$6$, $9 - 5 = 4$ — pass (in the field)'],
+      ['$x^2 - 6x + 9$', '$6$', '$9$', '$\\{3\\}$ repeated', '$\\frac{S}{2} = 3$, $(\\frac{S}{2})^2 = 9$ — pass'],
+      ['$3x^2 + 5x - 2$', '$-\\frac{5}{3}$', '$-\\frac{2}{3}$', '$\\{\\frac{1}{3}, -2\\}$', '$-\\frac{5}{3}$, $-\\frac{2}{3}$ — pass'],
+      ['$x^2 - 7x$', '$7$', '$0$', '$\\{0, 7\\}$', '$P = 0$ names the zero root'],
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Insight — the sign map: reading the roots’ character before they exist', text: 'The product $P$ tells the sign story by itself. $P < 0$ means $c$ and $a$ disagree in sign, so $ac < 0$ and $\\Delta = b^2 - 4ac > b^2 \\geq 0$ — BOTH roots are real, always, no solving needed, and being a negative product they have OPPOSITE signs: $x^2 - x - 6$ carries $P = -6$ and opens onto $\\{3, -2\\}$. $P > 0$ says same signs, and $S$ picks the quadrant: $S > 0$ both positive ($x^2 - 7x + 12$, the pair $\\{3, 4\\}$), $S < 0$ both negative ($x^2 + 7x + 12$, the pair $\\{-3, -4\\}$). $P = 0$ is the zero-root door. Three regimes, read off two coefficients — the 9.3 verdict machine answered HOW MANY; the sign map answers WHAT KIND.' },
+    { kind: 'para', text: 'The $P < 0$ branch deserves its proof spelled out, because it is the chapter’s cleanest no-solve theorem. If $P = \\frac{c}{a} < 0$, then $c$ and $a$ have opposite signs, so $ac < 0$ and $-4ac > 0$; hence $\\Delta = b^2 - 4ac = b^2 + (-4ac) > b^2 \\geq 0$ — strictly positive, in fact, since $-4ac$ cannot vanish. Two distinct real doors, GUARANTEED, from the sign of one coefficient ratio. And the doors’ signs are forced too: a negative product of two real numbers demands one negative factor, so the roots straddle zero. The verifier priced the whole chain on $x^2 - x - 6$: $P = -6 < 0$, $\\Delta = 25 > 0$ — forced, not computed — and the doors $\\{3, -2\\}$ straddle zero exactly as the map promises.' },
+    { kind: 'figure', caption: 'The Viète readout machine: standardize, read off S = −b/a and P = c/a, certify claimed roots by both tests, and rebuild a(x² − Sx + P) — the strip certifies 9.3’s doors {1/2, 3} with two one-line checks.', svg: vieteReadoutSvg() },
+    { kind: 'para', text: 'The readout machine is also the fastest ERROR CATCHER in the chapter. A student who solves $2x^2 - 7x + 3 = 0$ and reports $\\{\\frac{3}{2}, 2\\}$ fails the sum test instantly ($\\frac{3}{2} + 2 = \\frac{7}{2}$ happens to pass — so run the product: $\\frac{3}{2} \\cdot 2 = 3 \\neq \\frac{3}{2}$, REFUSED). A student who drops the minus door of $x^2 - 2x - 4$ and reports only $1 + \\sqrt{5}$ fails the sum test ($1 + \\sqrt{5} \\neq 2$). The relations catch the two classic blunders — the invented root and the half verdict — in one line each, which is why every exercise in this set asks for the tests, not just the roots.' },
+    { kind: 'heading', text: 'The Gap Between the Roots' },
+    { kind: 'para', text: 'The difference identity also generalizes the ratio hunts. If the roots sit in a fixed ratio $m : n$ (positive integers), name them $m\\alpha$ and $n\\alpha$: the sum reads $(m + n)\\alpha = S$, so $\\alpha = \\frac{S}{m+n}$, and the product names the missing coefficient: $P = mn\\alpha^2 = \\frac{mn\\,S^2}{(m+n)^2}$. The twice-the-other case is $m : n = 1 : 2$; the equal-roots case is $1 : 1$, where $\\alpha = \\frac{S}{2}$ and $P = \\frac{S^2}{4}$ — the repeated-root consistency of the last section, seen as the ratio hunt’s neutral case. One template, every ratio question the examination bank stocks; the exercises work the $1:2$ case end to end.' },
+    { kind: 'example', title: 'The k-hunt: one root of x² − 4x + k = 0 is twice the other', steps: [
+      'Name the roots $\\alpha$ and $2\\alpha$ (which is which does not matter — the relations are symmetric).',
+      'The sum reads $3\\alpha = 4$, so $\\alpha = \\frac{4}{3}$ and the roots are $\\frac{4}{3}$ and $\\frac{8}{3}$.',
+      'The product names $k$: $k = 2\\alpha^2 = 2 \\cdot \\frac{16}{9} = \\frac{32}{9}$.',
+      'Full check: $x^2 - 4x + \\frac{32}{9}$ has $\\Delta = 16 - \\frac{128}{9} = \\frac{16}{9}$, doors $\\frac{4 \\pm \\frac{4}{3}}{2} = \\{\\frac{4}{3}, \\frac{8}{3}\\}$ — and $\\frac{8}{3} = 2 \\cdot \\frac{4}{3}$ exactly; the gap $\\frac{4}{3}$ matches the difference identity $\\sqrt{\\Delta}/a = \\frac{4}{3}$.',
+    ] },
+    { kind: 'para', text: 'That last check deserves its own sentence because it closes the chapter’s circle. The gap between the doors is $r_1 - r_2 = \\frac{\\sqrt{\\Delta}}{a}$ — 9.3’s formula read as a distance — and squaring it gives the relation dress: $(r_1 - r_2)^2 = \\frac{\\Delta}{a^2} = S^2 - 4P$. The verifier priced the identity on three exhibits: $x^2 - 7x + 12$ (gap $1 = \\sqrt{1}$), $2x^2 - 7x + 3$ (gap $\\frac{5}{2}$, squared $\\frac{25}{4} = \\frac{\\Delta}{a^2}$), and $x^2 - 4x + 1$ (gap $2\\sqrt{3}$, squared $12 = \\Delta$ — the irrational gap measured exactly in the field). For a monic quadratic "the roots differ by $d$" is therefore the clean condition $p^2 - 4q = d^2$ — 9.3’s L5 exercise ($p = \\pm 7$), now a theorem instead of a trick.' },
+    { kind: 'figure', caption: 'The sign map: P < 0 forces opposite signs and both-real roots (Δ > 0 for free); P > 0 means same signs with S picking the quadrant; P = 0 is the zero-root door. Three regimes, two coefficients, no solving.', svg: signMapSvg() },
+    { kind: 'para', text: 'And with that, the chapter’s four lessons click into one machine. Chapter 4’s factorization is 9.1’s engine when the integers cooperate; 9.2’s completed square is the method that never refuses and the proof engine behind everything; 9.3’s formula is 9.2 performed once on letters, with the discriminant reading the verdict before the doors; and 9.4’s relations are the formula’s shadow cast back onto the coefficients — sum, product, gap, and sign, all readable without opening a single door. Four methods, one object, zero contradictions: every lesson’s verdicts agree with every other’s, and the verifier priced the agreements exhibit by exhibit. The examination strategy writes itself from the structure: read $S$ and $P$ first, read $\\Delta$ second, and only then choose the cheapest door — factoring when $\\Delta$ is a perfect square, the formula otherwise, and the relations for every question that never needed the roots at all.' },
+    { kind: 'para', text: 'From the above discussion, the working summary of the lesson:' },
+    { kind: 'list', marker: 'roman', items: [
+      'Viète’s relations: $S = -\\frac{b}{a}$, $P = \\frac{c}{a}$ — proved from the formula (the ± annihilates in the sum, the difference of squares in the product) and re-proved by the factor identity.',
+      'Certification without solving: claimed roots must pass BOTH tests; passing both plus the two-door bound is a complete certificate — irrational roots included (the field arithmetic is exact).',
+      'Building: prescribed root behavior translates to $(S, P)$; the monic rebuild $x^2 - Sx + P$ carries it; scaling by $a \\neq 0$ gives the a-family with the same roots.',
+      'Symmetric functions are functions of $(S, P)$ alone: $\\alpha^2 + \\beta^2 = S^2 - 2P$, $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{S}{P}$, $(\\alpha - \\beta)^2 = S^2 - 4P$, $\\alpha^3 + \\beta^3 = S^3 - 3PS$.',
+      'The sign map: $P < 0$ forces opposite real roots ($\\Delta > 0$ for free); $P > 0$ same signs with $S$ picking the quadrant; $P = 0$ the zero root; the gap between roots is $\\sqrt{\\Delta}/a$.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — the lawyer who lettered algebra', text: 'François Viète (1540–1603), a French royal lawyer who broke Spanish ciphers on the side, published In artem analyticem isagoge (1591) — the book that gave algebra its letters: consonants for known quantities, vowels for unknowns, and a program of manipulating symbolic forms by lawful rules rather than words. His root-coefficient relations for quadratics and cubics circulated in that school; the GENERAL statement for polynomials of every degree was published by Albert Girard in 1629, which is why historians credit both — the relations carry Viète’s name because his lettering made them stateable at all. Newton’s symmetric-function identities later grew the quartet of this lesson into a general theory. Web-checked against the banked survey of run 66; no content reproduced.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this pays', text: 'The competitive bank (Khattar QA’s algebra scope, SSC/bank preliminaries, JEE-Main foundations) drills this lesson harder than any other in the chapter, under the heading "roots and coefficients": (1) instant reads — $S$ and $P$ for a given quadratic, one division each; (2) symmetric hunts — $\\alpha^2 + \\beta^2$, $\\frac{1}{\\alpha} + \\frac{1}{\\beta}$, $(\\alpha - \\beta)^2$, $\\alpha^3 + \\beta^3$ computed from $S$ and $P$ without finding the roots, with the reciprocal read guarded by $P \\neq 0$; (3) build items — "form the quadratic whose roots are …", including irrational pairs like $1 \\pm \\sqrt{2}$ where the field product does the work; (4) condition k-hunts — one root twice the other ($3\\alpha = S$, $k = 2\\alpha^2$), roots in a given ratio, roots differing by $d$ ($p^2 - 4q = d^2$ for the monic case); (5) sign-map items — "without solving, state the nature of the roots" answered by $P$ and $S$. The relations are the highest-yield two lines in competitive algebra; every exercise above runs at least one of them.' },
+    { kind: 'formula', name: 'Viète’s relations', latex: 'S = r_1 + r_2 = -\\frac{b}{a}, \\qquad P = r_1 r_2 = \\frac{c}{a}', note: 'the roots’ sum and product read off the standard form — monic shortcuts: S = −b, P = c' },
+    { kind: 'formula', name: 'The symmetric-function quartet', latex: '\\alpha^2 + \\beta^2 = S^2 - 2P, \\quad \\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{S}{P}, \\quad (\\alpha - \\beta)^2 = S^2 - 4P, \\quad \\alpha^3 + \\beta^3 = S^3 - 3PS', note: 'every symmetric expression in the roots is a function of S and P alone — no solving, exact even for irrational roots' },
+    { kind: 'formula', name: 'The difference identity', latex: '(r_1 - r_2)^2 = S^2 - 4P = \\frac{\\Delta}{a^2}', note: 'the squared gap between the doors — 9.3’s discriminant in relation dress; "roots differ by d" ⟺ p² − 4q = d² (monic)' },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The sum $S$ of the roots of $3x^2 + 5x - 2 = 0$ is', options: ['$\\frac{5}{3}$', '$-\\frac{5}{3}$', '$5$', '$-\\frac{2}{3}$'], answer: 1, explain: '$S = -\\frac{b}{a} = -\\frac{5}{3}$ — the minus is part of the readout, and the division by $a = 3$ is not optional. $\\frac{5}{3}$ drops the sign; $5$ forgets the divide; $-\\frac{2}{3}$ is $P$ (the product $\\frac{c}{a}$), not $S$.' },
+      { q: 'The monic quadratic whose roots sum to 5 and multiply to 6 is', options: ['$x^2 + 5x + 6$', '$x^2 - 5x - 6$', '$x^2 - 5x + 6$', '$x^2 + 5x - 6$'], answer: 2, explain: 'The rebuild is $x^2 - Sx + P = x^2 - 5x + 6$ — the minus rides on $S$, the product lands as-is. $x^2 + 5x + 6$ has $S = -5$; $x^2 - 5x - 6$ has $P = -6$; $x^2 + 5x - 6$ has both wrong. (Its roots are $2$ and $3$ — $2 + 3 = 5$, $2 \\cdot 3 = 6$.)' },
+      { q: '$\\alpha, \\beta$ are the roots of $x^2 - 6x + 4$. Without solving, $\\alpha^2 + \\beta^2 =$', options: ['$36$', '$20$', '$44$', '$28$'], answer: 3, explain: '$\\alpha^2 + \\beta^2 = S^2 - 2P = 36 - 8 = 28$. The 36 is $S^2$ alone (forgetting to subtract $2P$); 20 is $(\\alpha - \\beta)^2 = S^2 - 4P$ (the wrong member of the quartet); 44 ADDS $2P$ instead of subtracting.' },
+      { q: 'If the product $P = \\frac{c}{a}$ of a quadratic’s roots is negative, the roots', options: ['are both positive', 'are both negative', 'have opposite signs — and both are real', 'cannot exist'], answer: 2, explain: '$P < 0$ means $ac < 0$, so $\\Delta = b^2 - 4ac > b^2 \\geq 0$: both roots are REAL (forced, no solving), and a negative product with nonzero factors means opposite signs — $x^2 - x - 6$ opens onto $\\{3, -2\\}$. Same-sign pairs force $P > 0$; the roots certainly exist.' },
+      { q: 'The quadratic with roots $1 \\pm \\sqrt{2}$ — lesson 9.2’s answer — is', options: ['$x^2 + 2x - 1$', '$x^2 - 2x - 1$', '$x^2 - 2x + 1$', '$x^2 + x - 1$'], answer: 1, explain: 'The field reads give $S = (1 + \\sqrt{2}) + (1 - \\sqrt{2}) = 2$ and $P = (1 + \\sqrt{2})(1 - \\sqrt{2}) = 1 - 2 = -1$, so the rebuild is $x^2 - 2x - 1$. $x^2 - 2x + 1$ has $P = +1$ (the sign slip in the difference of squares) and factors as $(x-1)^2$; the $+2x$ forms have $S = -2$.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 9.4', sets: [
+      { level: 'L1', questions: [
+        { q: 'Read $S$ and $P$ for $x^2 - 9x + 20 = 0$, then name the roots they certify.', solution: [
+          'Monic: $S = -b = 9$, $P = c = 20$.',
+          'Hunt the integer pair with sum $9$ and product $20$: $4$ and $5$.',
+          'Both tests: $4 + 5 = 9$, $4 \\cdot 5 = 20$ — the set $\\{4, 5\\}$ is certified.',
+        ], answer: '$S = 9$, $P = 20$; the roots are $4$ and $5$.' },
+        { q: 'Read $S$ and $P$ for $3x^2 + 5x - 2 = 0$, then certify the claimed roots $\\{\\frac{1}{3}, -2\\}$.', solution: [
+          'Divide once: $S = -\\frac{5}{3}$, $P = -\\frac{2}{3}$.',
+          'Sum test: $\\frac{1}{3} + (-2) = -\\frac{5}{3}$ — passes.',
+          'Product test: $\\frac{1}{3} \\cdot (-2) = -\\frac{2}{3}$ — passes; the set is certified (the verifier also priced both roots in the original polynomial).',
+        ], answer: '$S = -\\frac{5}{3}$, $P = -\\frac{2}{3}$; the claimed roots pass both tests.' },
+        { q: 'Read $S$ and $P$ for $x^2 - 7x = 0$ and explain what $P = 0$ tells you before any factoring.', solution: [
+          'Monic with $c = 0$: $S = 7$, $P = 0$.',
+          '$P = 0$ means the product of the roots vanishes — so a root IS $0$ (the zero-product law, 9.1).',
+          'The sum names the partner: $7 = 0 + r$, so $r = 7$; the roots are $\\{0, 7\\}$.',
+        ], answer: '$S = 7$, $P = 0$: the fingerprint of a zero root — the roots are $0$ and $7$.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'A student claims the roots of $x^2 - 7x + 12 = 0$ are $\\{3, 4\\}$. Certify or refuse — no solving.', solution: [
+          'Read: $S = 7$, $P = 12$.',
+          'Sum: $3 + 4 = 7$ — passes. Product: $3 \\cdot 4 = 12$ — passes.',
+          'Two doors cannot hide a third root, so the certified set is complete.',
+        ], answer: 'Certified: $\\{3, 4\\}$ passes both tests and the two-door bound.' },
+        { q: 'A student claims the roots of $2x^2 - 7x + 3 = 0$ are $\\{\\frac{3}{2}, 2\\}$. Certify or refuse — no solving.', solution: [
+          'Read: $S = \\frac{7}{2}$, $P = \\frac{3}{2}$.',
+          'Sum: $\\frac{3}{2} + 2 = \\frac{7}{2}$ — passes (the trap: the sum alone is not enough).',
+          'Product: $\\frac{3}{2} \\cdot 2 = 3 \\neq \\frac{3}{2}$ — REFUSED. The true doors are $\\{\\frac{1}{2}, 3\\}$ (9.3’s formula verdict).',
+        ], answer: 'Refused: the product test fails ($3 \\neq \\frac{3}{2}$); the true roots are $\\frac{1}{2}$ and $3$.' },
+        { q: 'Certify the repeated root of $x^2 - 6x + 9 = 0$ using the relations alone.', solution: [
+          'Read: $S = 6$, $P = 9$.',
+          'The repeated-root consistency: $r = \\frac{S}{2} = 3$, and the demand is $(\\frac{S}{2})^2 = P$ — $9 = 9$, passes.',
+          'Hence the root $3$ counted twice — the collapse certified without expanding any square.',
+        ], answer: '$\\frac{S}{2} = 3$ and $(\\frac{S}{2})^2 = 9 = P$: the repeated root $3$, certified.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Build the monic quadratic whose roots sum to 2 and multiply to −15, and name its roots.', solution: [
+          'Rebuild: $x^2 - 2x - 15$.',
+          'Factor to check: $(x - 5)(x + 3)$ — roots $5$ and $-3$.',
+          'Both tests: $5 + (-3) = 2 = S$, $5 \\cdot (-3) = -15 = P$ — the design is certified.',
+        ], answer: '$x^2 - 2x - 15$, roots $5$ and $-3$.' },
+        { q: 'Build the monic quadratic whose roots sum to −1 and multiply to −6.', solution: [
+          'Rebuild: $x^2 + x - 6$.',
+          'Factor to check: $(x + 3)(x - 2)$ — roots $-3$ and $2$.',
+          'Both tests: $-3 + 2 = -1 = S$, $(-3) \\cdot 2 = -6 = P$ — certified.',
+        ], answer: '$x^2 + x - 6$, roots $-3$ and $2$.' },
+        { q: 'Build the monic quadratic with $S = 0$ and $P = 5$, and read the discriminant verdict on it.', solution: [
+          'Rebuild: $x^2 - 0 \\cdot x + 5 = x^2 + 5$.',
+          'Discriminant: $\\Delta = 0 - 20 = -20 < 0$ — no real roots (9.3’s verdict, before any search).',
+          'The build is faithful: $S = 0$ and $P = 5$ hold for its (complex) roots; over the reals the design describes an impossibility — and says so honestly.',
+        ], answer: '$x^2 + 5$; $\\Delta = -20 < 0$ — built, but rootless over the reals.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'For $x^2 - 5x + 6 = 0$ compute $\\alpha^2 + \\beta^2$ without solving, then confirm against the roots $2, 3$.', solution: [
+          'Read: $S = 5$, $P = 6$.',
+          'The relation: $\\alpha^2 + \\beta^2 = S^2 - 2P = 25 - 12 = 13$.',
+          'Confirm at the roots: $2^2 + 3^2 = 4 + 9 = 13$ — the relation and the direct computation agree.',
+        ], answer: '$\\alpha^2 + \\beta^2 = 13$.' },
+        { q: 'For $x^2 - 5x + 6 = 0$ compute $(\\alpha - \\beta)^2$ without solving, and deduce the gap between the roots.', solution: [
+          'The relation: $(\\alpha - \\beta)^2 = S^2 - 4P = 25 - 24 = 1$.',
+          'The gap is the positive root of the square: $|\\alpha - \\beta| = 1$.',
+          'Confirm: $3 - 2 = 1$ — and note $\\sqrt{\\Delta}/a = \\sqrt{1}/1 = 1$, the difference identity agreeing.',
+        ], answer: '$(\\alpha - \\beta)^2 = 1$; the gap between the roots is $1$.' },
+        { q: 'For $x^2 - 5x + 6 = 0$ compute $\\frac{1}{\\alpha} + \\frac{1}{\\beta}$ without solving, and confirm at the roots.', solution: [
+          'The relation (needs $P \\neq 0$ — true here): $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{S}{P} = \\frac{5}{6}$.',
+          'Confirm at the roots: $\\frac{1}{2} + \\frac{1}{3} = \\frac{3 + 2}{6} = \\frac{5}{6}$.',
+          'The mechanics behind the relation: $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{\\alpha + \\beta}{\\alpha\\beta} = \\frac{S}{P}$ — one line of fraction craft (8.1’s union), one line of Viète.',
+        ], answer: '$\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{5}{6}$.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'One root of $x^2 - 4x + k = 0$ is twice the other. Find $k$ and both roots.', solution: [
+          'Name the roots $\\alpha$ and $2\\alpha$: the sum reads $3\\alpha = 4$, so $\\alpha = \\frac{4}{3}$.',
+          'The roots are $\\frac{4}{3}$ and $\\frac{8}{3}$; the product names $k$: $k = 2\\alpha^2 = 2 \\cdot \\frac{16}{9} = \\frac{32}{9}$.',
+          'Full check: $\\Delta = 16 - \\frac{128}{9} = \\frac{16}{9}$, doors $\\frac{4 \\pm \\frac{4}{3}}{2} = \\{\\frac{4}{3}, \\frac{8}{3}\\}$ — and $\\frac{8}{3} = 2 \\cdot \\frac{4}{3}$ exactly.',
+        ], answer: '$k = \\frac{32}{9}$; the roots are $\\frac{4}{3}$ and $\\frac{8}{3}$.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the difference identity $(r_1 - r_2)^2 = S^2 - 4P = \\frac{\\Delta}{a^2}$, and use it to read the gap between the roots of $x^2 - 4x + 1 = 0$ exactly.', solution: [
+          'Subtract the doors of the formula: $r_1 - r_2 = \\frac{-b + \\sqrt{\\Delta}}{2a} - \\frac{-b - \\sqrt{\\Delta}}{2a} = \\frac{2\\sqrt{\\Delta}}{2a} = \\frac{\\sqrt{\\Delta}}{a}$ — the gap is the discriminant’s root, scaled by $a$. Squaring gives the identity; in relation dress, $S^2 - 4P = \\frac{(r_1+r_2)^2 - 4r_1 r_2}{1} = (r_1 - r_2)^2$ by the difference of squares.',
+          'Apply to $x^2 - 4x + 1$: $\\Delta = 12$, so the gap is $\\sqrt{12} = 2\\sqrt{3}$ — irrational, and exact.',
+          'Field check: the doors are $2 \\pm \\sqrt{3}$; their difference is $2\\sqrt{3}$ and $(2\\sqrt{3})^2 = 12 = \\Delta$ — the verifier certified the field arithmetic.',
+          'The systematic read: for a monic $x^2 + px + q$, "the roots differ by $d$" is the condition $p^2 - 4q = d^2$ — 9.3’s $p = \\pm 7$ hunt, now a theorem.',
+        ], answer: '$(r_1 - r_2)^2 = S^2 - 4P = \\frac{\\Delta}{a^2}$; the roots of $x^2 - 4x + 1$ differ by $2\\sqrt{3}$.' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter09: Chapter = {
   number: 9,
   slug: 'quadratic-equations',
   title: 'Quadratic Equations',
   summary:
     'The summit, met four ways: solution by factoring, completing the square DERIVED as the identity working in reverse, the quadratic formula PROVED and its discriminant read as a three-way verdict (two real, one repeated, none real — √2 finally an answer, ANS ch. 8’s exile reversed), and Viète’s roots-and-coefficients relations proved and put to competition work.',
-  status: 'in-progress',
-  lessons: [lesson91, lesson92],
-  plannedLessons: [
-    'The Quadratic Formula and the Discriminant',
-    'Roots and Coefficients: Viète’s Relations',
-  ],
+  status: 'complete',
+  lessons: [lesson91, lesson92, lesson93, lesson94],
 }
