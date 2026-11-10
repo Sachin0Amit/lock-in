@@ -382,3 +382,5 @@ server.log
 !/scripts/ship-run87.py
 # exception: one-shot run-88 memory shipper (2026-11-10, historical record)
 !/scripts/ship-run88.py
+# exception: one-shot run-88 push recorder (2026-11-10, historical record)
+!/scripts/record-run88-push.py
