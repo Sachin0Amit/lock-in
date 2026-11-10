@@ -915,12 +915,13 @@
   "nextRun": "76 = 5.3 'The Three Verdicts: One, None, Infinitely Many' + the unit-5 completion review close ch. 5"
  },
  "lastPush": {
-  "run": 75,
-  "date": "2026-11-08",
-  "shipCommit": "728eddf",
-  "pushed": "f7ce019..728eddf (the run-74 memory commit 2b12f2a rode the same push)",
-  "remoteMainVerified": "728eddf071140b61e4c40fa81c0b0ca8ccec68fd",
-  "method": "one-time-URL ls-remote = local HEAD at verification time; origin/main tracking ref re-synced by anonymous HTTPS fetch; PAT used in-command only, never written to any file/config/log; origin remains the SSH remote"
+  "run": 85,
+  "date": "2026-11-10",
+  "shipCommit": "dec96b3",
+  "pushed": true,
+  "remoteMainVerified": true,
+  "method": "one-time HTTPS URL (SSH unavailable in the sandbox); remote was at run 84's verification commit 119bc8b; this run's push landed dec96b3; ls-remote verified remote main = local HEAD; origin kept as the SSH remote",
+  "sha": "dec96b3e3298d321537d3df074ae15da13d384c1"
  },
  "customBookBuilder": {
   "added": "2026-11-08",
