@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 00:23:01 (Asia/Kolkata)",
+  "generated": "2026-11-10 06:37:50 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,13 +5921,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 200,
-      "totalLines": 94261,
+      "totalLines": 94252,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 65856,
+        "src/data/library (content model + books)": 65847,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -6135,7 +6135,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-09",
+      "surveyed": "2026-11-10",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -16685,6 +16685,88 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "1fdd7d829b48f3b549c5fe6de37a6a7478a5b4ca",
+      "short": "1fdd7d8",
+      "date": "2026-11-09 18:58",
+      "message": "run 82: Elementary Algebra ch. 8 'Algebraic Fractions' CLOSES 3/3 — 8.3 'Fractional Equations and Extraneous Roots' (5,870 words, quiz 1/1/2/3/1, 14 exercises, two figures — the clearing pipeline + the check filter, the clearing-law derivation with its clause, the clearing-pipeline algorithm, the verdict-ledger table) + the unit-8 completion review PASSED (7/7 checklist, exam corners 3/3, book snapshot recomputed: 27 lessons / 124,675 words / 8 of 11 chapters complete, every lesson >= 4,000 words); verify-book3-ch08.ts 961 checks sections A-K ALL GREEN (cross-form engine with the pointwise equivalence at 9 live points and the swapped-cross trap priced; the LCD-clearing + extraneous-root engine: the classic x/(x-3) = 3/(x-3) + 2 -> the only candidate refused -> EMPTY with the 0=0 mechanism priced at the bill point, the two-candidate exhibit -> {0} with one extraneous, the identity verdict -> every x != -3; the zero-fraction filter with the 0/0 trap keeping only {2}; the work-rate/speed exhibits with the HABITAT distinguished from the BILL — the equation TRUE at the habitat-rejected roots -2 and -60); pre-writing catches: two sign errors in the train algebra, the window census blind to -10 and to both train roots (pinned by direct evaluation), an inverted neverZero flag, a Frac-vs-BigInt discriminant compare, a tautological anchor that would have divided by zero, a constant-vs-4x mixup; authoring catches: the algorithm code shape (tsc), five example answer fields folded into the terminal Hence steps, the F/G/J run-81 censuses updated; E2E e2e-al-83 45/45 x3 viewports (quiz 5/5 live, KaTeX 273 nodes 0 errors, 0 console errors); chapter 8 at 15,307 words, book 27 lessons / 124,675 words, 8 of 11 chapters complete; logs + WORK_INVENTORY rebuilt (Drive survey re-run after sandbox recycle); run 83 opens ch. 9 'Quadratic Equations'",
+      "filesChanged": 11,
+      "insertions": 1463,
+      "deletions": 40,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 16,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 23,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 20,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 122,
+          "del": 25
+        },
+        {
+          "path": "scripts/e2e-al-83.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-83.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch08.ts",
+          "add": 630,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-08.ts",
+          "add": 470,
+          "del": 4
+        }
+      ]
+    },
+    {
+      "sha": "439b943e9fe7f4a32aeb5ac5b9f3b3484c1b9dd4",
+      "short": "439b943",
+      "date": "2026-11-09 18:58",
+      "message": "run 82: push verification recorded — remote main = local HEAD 1fdd7d8 (ls-remote via one-time URL)",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -16692,26 +16774,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 29,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 110,
-    "wordsAuthored": 536720,
-    "termsDefined": 851,
-    "quizItems": 550,
-    "exerciseQuestions": 1401,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 112,
+    "wordsAuthored": 545284,
+    "termsDefined": 857,
+    "quizItems": 560,
+    "exerciseQuestions": 1429,
     "blockTotals": {
-      "para": 1569,
-      "callout": 609,
-      "heading": 606,
-      "list": 125,
-      "terms": 111,
-      "equation": 163,
-      "figure": 191,
-      "derivation": 213,
-      "table": 141,
-      "example": 473,
-      "quiz": 110,
-      "exercises": 110,
-      "formula": 314,
+      "para": 1597,
+      "callout": 619,
+      "heading": 616,
+      "list": 129,
+      "terms": 112,
+      "equation": 166,
+      "figure": 195,
+      "derivation": 215,
+      "table": 143,
+      "example": 486,
+      "quiz": 112,
+      "exercises": 112,
+      "formula": 320,
       "algorithm": 26
     }
   }

@@ -9,7 +9,36 @@
 > now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
 > `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
 
-Maintained through **run 82 (2026-11-10, job 516929's v4 hybrid-cadence night window)**: **AL ch. 8 'Algebraic Fractions' CLOSED 3/3** —
+Maintained through **run 83 (2026-11-10, job 516929's v4 hybrid-cadence day window, fired 05:50 IST)**: **AL ch. 9 'Quadratic Equations' OPENED 2/4** —
+9.1 'Quadratics and Factoring Solutions' (`al-quadratics-and-factoring-solutions`, 4,455 words, 6 terms,
+quiz keys 1/0/2/3/1, 14 exercises L1–L6, 2 figures — the factoring pipeline (STANDARD FORM → FACTOR → THE GATE → TWO DOORS with the
+worked strip x² − 7x + 12 = 0 → {3, 4}) + the verdict strip (linear one/none/∞ beside quadratic two/repeated/none, the degree sets the
+door count) — 1 display equation (the standard form with the a ≠ 0 clause), 6 illustrations (x² − 7x + 12 → {3, 4}; x² + 2x − 15 →
+{−5, 3}; the non-monic 2x² − 7x + 6 → {3/2, 2}; 6x² − x − 2 → {2/3, −1/2}; the forbidden-divide audit x² = 3x → {0, 3}; the
+(x − 1)(x + 2) = 4 trap expanded lawfully → {−3, 2}), 1 four-step derivation (the zero-product law PROVED both directions from the
+field laws — the annihilator forward, the reciprocal backward — with the ⟺ priced pointwise on the census and the 3/2 half-integer
+blind spot pinned), 1 verdict-ledger table (four exhibits × factored × roots × verdict), 3 formula cards (the standard form, the
+zero-product law, the sum-product readout), 5 callouts (the x²-ink caution, the verdict-machine insight, the factoring-first
+historical note, the exam corner, the a≠0 clause in the terms) — and the 8.3 work-rate debt PAID: 1/x + 1/(x+3) = 1/2 clears to the
+QUADRATIC x² − x − 6 = (x − 3)(x + 2) = 0 → {−2, 3}, bill {−3, 0} refusing neither, habitat keeping {3}).
+
+9.2 'Completing the Square, Derived' (`al-completing-the-square-derived`, 4,109 words, quiz keys 2/1/0/3/2, 14 exercises L1–L6,
+2 figures — the completing-the-square pipeline (MAKE IT MONIC → MOVE → COMPLETE → DOORS with the worked strip 2x² − 4x − 3 = 0 →
+x = 1 ± √(5/2)) + the geometric completion (the x² square, two x·(a/2) strips, the dashed (a/2)² corner — the literal square,
+priced at x = 5, a = 6: 25 + 30 + 9 = 64 = 8²) — 2 display equations (the completion identity; the square verdict), 7 illustrations
+(x² + 6x − 7 → {1, −7}; x² − 2x − 1 → 1 ± √2 with the ANS-ch.-8 exile reversed; x² + x + 1 → ∅ by the square verdict; x² − 6x + 9 →
+{3} repeated via the k = 0 collapse; 2x² − 4x − 3 → 1 ± √10/2; 3x² + 6x − 1 → −1 ± 2√3/3; the rectangle w(w+4) = 30 →
+w = −2 + √34 ≈ 3.83), 1 five-step derivation (the completion decomposition x² + bx + c = (x + b/2)² + (c − b²/4) with the added
+constant inventoried), 1 constant-inventory table (six exhibits × square × added-removed × remainder), 3 formula cards (the
+completion identity, the monic compression x = −b/2 ± √(b²/4 − c), the square verdict), 5 callouts (the completing-the-square
+definition, the ±-two-doors caution, the reveal insight — 4x² + 4x − 3 = (2x − 1)(2x + 3) found by the square, the al-Khwarizmi
+historical note, the exam corner). Verify-first: verify-book3-ch09.ts sections A–E written BEFORE prose (347 checks), F + G appended
+at authoring time (541 checks total, ALL GREEN — all 28 exercise roots re-priced exactly in the original polynomials or their
+quadratic fields; every figure rect-exact vs the pinned plans). E2E e2e-al-91 + e2e-al-92 45/45 ×3 viewports each (quiz 5/5 live on
+keys 1/0/2/3/1 and 2/1/0/3/2; KaTeX 294/333 nodes 0 errors; Sol. pills 20/21; 0 console errors); SVG overlap audits 0/0 ×4; lint
+0 errors; tsc clean; routes 200. Lesson totals: 8,564 words; the book stands 29 lessons / 133,239 words, 8 of 11 chapters complete.
+
+**Run 82 (previous unit ship):** (2026-11-10, job 516929's v4 hybrid-cadence night window): **AL ch. 8 'Algebraic Fractions' CLOSED 3/3** —
 8.3 'Fractional Equations and Extraneous Roots' (`al-fractional-equations-and-extraneous-roots`, 5,870 words, 8 terms,
 quiz keys 1/1/2/3/1, 14 exercises L1–L6, 2 figures — the clearing pipeline (FACTOR → BILL → MULTIPLY → SOLVE → CHECK with the
 worked classic dying at station 5) + the check filter (candidates in → the compound bill → PASSES to the solution set / REFUSED

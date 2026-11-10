@@ -6,6 +6,25 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 83 (2026-11-10) — AL ch. 9 OPENS (9.1 + 9.2)
+
+- Zero downloads, zero new keys: the banked keys carried the chapter open —
+  `hall-knight-elementary-algebra` (the classical quadratics chapter opened
+  with the factoring method and completed the square before any formula),
+  `ncert-math10-ch4-quadratic` (the school canon's chapter arc: standard
+  form, factoring, completing the square, the formula, the discriminant),
+  `khattar-qa-4e` (the exam corner: factor-speed items, k-hunts, sum-product
+  hunts), `cengage-jee-style` (presentation contract). Cross-references
+  carried per the pointer: 8.3's cleared-equation pipeline lands in a
+  quadratic (the work-rate debt paid in 9.1), 5.3's verdict machine grows
+  into the two/one/none-real strip, ch. 4's factoring toolkit is the engine
+  of station two, ANS ch. 8's √2 exile reversed in 9.2, 5.1's forbidden
+  multiply-by-zero paired with the forbidden divide, 5.2's balance law
+  licenses every station move. No reference working copies to delete
+  (zero-download run). The Drive survey was rebuilt this run after the
+  sandbox recycle (`scripts/rebuild_drive_survey.ts`, 89 entries) to feed
+  `build_work_inventory.ts`.
+
 ## Run 82 (2026-11-10) — AL ch. 8 CLOSES (8.3 + the unit-8 review)
 
 - Zero downloads, zero new keys: the banked keys carried the unit close —

@@ -7,6 +7,7 @@ import { chapter05 } from './ch-05'
 import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
 import { chapter08 } from './ch-08'
+import { chapter09 } from './ch-09'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -38,10 +39,14 @@ import { chapter08 } from './ch-08'
  * Chapter 8 'Algebraic Fractions' OPENED at run 81 (8.1 Rational
  * Expressions: Simplify First — 8.2 Operating on Algebraic Fractions is
  * this run's second lesson): 8.3 'Fractional Equations and Extraneous
- * Roots' + the unit-8 review close the chapter at run 82. The book stands
- * in-progress — 7 complete chapters of 11 (owner cadence: two lessons per
- * run, strictly sequential). Lesson ids use the `al-` prefix (globally
- * unique, stable forever).
+ * Roots' + the unit-8 review close the chapter at run 82. Chapter 9
+ * 'Quadratic Equations' OPENED at run 83 (9.1 Quadratics and Factoring
+ * Solutions + 9.2 Completing the Square, Derived): 9.3 'The Quadratic
+ * Formula and the Discriminant' + 9.4 'Roots and Coefficients: Viète's
+ * Relations' + the unit-9 review close the chapter at a later run. The
+ * book stands in-progress — 8 complete chapters of 11 (owner cadence: two
+ * lessons per run, strictly sequential). Lesson ids use the `al-` prefix
+ * (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics opened the doorstep of algebra with patterns → formulas and a
@@ -117,21 +122,7 @@ export const elementaryAlgebra: Book = {
     chapter06,
     chapter07,
     chapter08,
-    {
-      number: 9,
-      slug: 'quadratic-equations',
-      title: 'Quadratic Equations',
-      summary:
-        'The summit, met four ways: solution by factoring, completing the square DERIVED as the identity working in reverse, the quadratic formula PROVED and its discriminant read as a three-way verdict (two real, one repeated, none real — √2 finally an answer, ANS ch. 8’s exile reversed), and Viète’s roots-and-coefficients relations proved and put to competition work.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Quadratics and Factoring Solutions',
-        'Completing the Square, Derived',
-        'The Quadratic Formula and the Discriminant',
-        'Roots and Coefficients: Viète’s Relations',
-      ],
-    },
+    chapter09,
     {
       number: 10,
       slug: 'graphs-of-equations',
