@@ -6,6 +6,28 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 85 (2026-11-10) — AL ch. 10 OPENS (10.1 + 10.2)
+
+- Zero downloads, zero new keys: the banked keys carried the chapter open —
+  `hall-knight-elementary-algebra` (the classical text's graphical chapters:
+  coordinates as addresses, the straight line graphed from its equation — the
+  addressing map and the intercept doors), `ncert-math10-ch4-quadratic` (the
+  school canon's graphing ground — the parabola's x-intercept story cited
+  ahead for 10.3), `khattar-qa-4e` (the exam corner: slope reads, parallel
+  hunts, rate lines), `cengage-jee-style` (presentation contract).
+  Cross-references carried per the pointer: 9.2's completed square and 9.3's
+  centre −b/2a (the parabola's fold point — named, not yet drawn: the
+  PARABOLA itself is 10.3's, not this run's), 5.3's verdict machine (the
+  vertical probe's one door drawn on lines, the parabola's at-most-two
+  promised), 6.3's two-line geometry (parallel is slope equality, now proved
+  from the coefficients), 6.2's elimination (the crossing (5/2, −3/4) drawn
+  as the teal dot), 7.2's inequality craft (the k-hunt fence). Historical
+  claims web-checked and hedged in both callouts: the Descartes/Fermat shared
+  credit with the fly legend flagged as unattested folklore and Leibniz's
+  1692 "coordinates" noted; the "1 in 20" gradient convention kept and the
+  unrecorded origin of the letter m flagged honestly. No reference working
+  copies to delete (zero-download run).
+
 ## Run 84 (2026-11-10) — AL ch. 9 CLOSES (9.3 + 9.4 + the unit-9 review)
 
 - Zero downloads, zero new keys: the banked keys carried the chapter close —

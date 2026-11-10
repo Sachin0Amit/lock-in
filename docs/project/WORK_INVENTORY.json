@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 10:53:23 (Asia/Kolkata)",
+  "generated": "2026-11-10 12:01:51 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5921,13 +5921,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 201,
-      "totalLines": 95870,
+      "totalLines": 95861,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 67465,
+        "src/data/library (content model + books)": 67456,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -16864,6 +16864,108 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "ceca120663cc31614a1155fa7ef719ae571ef3a4",
+      "short": "ceca120",
+      "date": "2026-11-10 05:24",
+      "message": "run 84: Elementary Algebra ch. 9 'Quadratic Equations' CLOSES 4/4 — 9.3 'The Quadratic Formula and the Discriminant' (4,229 words, quiz 1/3/2/0/2, 14 exercises, two figures — the formula pipeline + the discriminant verdict strip, the formula DERIVED from the completed general square, the master identity a·x²+bx+c = a(x+b/2a)² − Δ/(4a) exact, the three-way discriminant verdict read off the coefficients, the surd split √60 = 2√15, the k-hunts k = ±10 and k > 2, the rectangle verdict: area 26 impossible (Δ = −4), 21 → {3,7}, 25 → the square x = 5 the census max) + 9.4 'Roots and Coefficients: Viète's Relations' (4,138 words, quiz 1/2/3/2/1, 14 exercises, two figures — the Viète readout machine + the sign map, the relations PROVED from the formula (± annihilation, difference of squares) and cross-proved by the factor identity, the irrational build 1 ± √2 → x² − 2x − 1 DESIGNED, the symmetric quartet α²+β² = S²−2P · 1/α+1/β = S/P · (α−β)² = S²−4P · α³+β³ = S³−3PS priced by relations AND in ℚ(√5), the ratio k-hunt k = 32/9 roots {4/3, 8/3}, the difference identity (r₁−r₂)² = Δ/a² with the irrational gap 2√3, the P < 0 no-solve theorem: opposite signs and Δ > 0 forced) + THE UNIT-9 COMPLETION REVIEW PASSED (7-point checklist: word floors 4,455/4,109/4,229/4,138, quiz keys 4/4 vs pinned, 56 exercises chained + answered, 8 figures viewBoxed + vivid, cross-lesson arcs closed — the 8.3 debt, the √2 exile, 5.3's verdict machine, the 9.1/9.2/9.3 citations — exam corners 4/4, status complete); verify-book3-ch09.ts 973 checks sections A–L ALL GREEN (pre-write engines H–I before any prose: the formula engine on 9 designed triples — 4 rational, 3 irrational certified in ℚ(√5)/ℚ(√3)/ℚ(√15), 2 none-real — the discriminant census, the k-hunts, the rectangle verdict, the master identity, the surd splits, the S/P readout with field certification, the rebuild identity + the a-family, the build engine, the symmetric hunts, the sign map, the difference identity, the ratio hunt; authored sections J+K re-priced all 56 chapter exercise roots; L the review); pre-writing catches: the build engine's missing leading coefficient ([Pv] → [Pv, 0, 1]), the k = 1 polynomial 2x²+4x+1 not −3; authoring catches: the L6 square priced 25/16 not 25/8, the chapter-arc para's non-unique anchor removed from 9.1/9.2/9.3, brace escapes normalized (odd runs 0), 9.4 deepened 3,447 → 4,138 words, the fig-1 caption shortened to its band (audit-caught); E2E e2e-al-93/94 45/45 x3 viewports each (quiz 5/5 live, KaTeX 273 nodes 0 errors, 0 console errors); SVG audits 0/0 x4; lint 0 errors, tsc clean; chapter 9 at 16,931 words, book 31 lessons / 141,606 words, 9 of 11 chapters complete; logs + WORK_INVENTORY rebuilt (Drive survey re-run after sandbox recycle); run 85 opens ch. 10 'Graphs of Equations' with 10.1 + 10.2",
+      "filesChanged": 14,
+      "insertions": 2194,
+      "deletions": 45,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 5,
+          "del": 4
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 121,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-al-93.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-93.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-94.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-94.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch09.ts",
+          "add": 1024,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-09.ts",
+          "add": 707,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "119bc8b95172bf3d24431bb843c76c04378f1d87",
+      "short": "119bc8b",
+      "date": "2026-11-10 05:24",
+      "message": "run 84: push verification recorded — remote main = local HEAD ceca120 (ls-remote via one-time URL)",
+      "filesChanged": 2,
+      "insertions": 7,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -16871,26 +16973,26 @@
     "booksPlannedBacklog": 280,
     "booksLive": 3,
     "chaptersWritten": 30,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 114,
-    "wordsAuthored": 553651,
-    "termsDefined": 869,
-    "quizItems": 570,
-    "exerciseQuestions": 1457,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 116,
+    "wordsAuthored": 562874,
+    "termsDefined": 881,
+    "quizItems": 580,
+    "exerciseQuestions": 1485,
     "blockTotals": {
-      "para": 1627,
-      "callout": 626,
-      "heading": 623,
-      "list": 131,
-      "terms": 114,
-      "equation": 170,
-      "figure": 199,
-      "derivation": 217,
-      "table": 145,
-      "example": 499,
-      "quiz": 114,
-      "exercises": 114,
-      "formula": 326,
+      "para": 1652,
+      "callout": 635,
+      "heading": 631,
+      "list": 133,
+      "terms": 116,
+      "equation": 173,
+      "figure": 203,
+      "derivation": 218,
+      "table": 146,
+      "example": 504,
+      "quiz": 116,
+      "exercises": 116,
+      "formula": 332,
       "algorithm": 26
     }
   }

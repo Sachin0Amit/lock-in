@@ -8,6 +8,7 @@ import { chapter06 } from './ch-06'
 import { chapter07 } from './ch-07'
 import { chapter08 } from './ch-08'
 import { chapter09 } from './ch-09'
+import { chapter10 } from './ch-10'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -44,9 +45,12 @@ import { chapter09 } from './ch-09'
  * Solutions + 9.2 Completing the Square, Derived) and CLOSED at run 84
  * (9.3 The Quadratic Formula and the Discriminant + 9.4 Roots and
  * Coefficients: Viète's Relations + the unit-9 completion review PASSED):
- * chapter 9 COMPLETE 4/4. The book stands in-progress — 9 complete
- * chapters of 11 (owner cadence: two lessons per run, strictly
- * sequential). Lesson ids use the `al-` prefix
+ * chapter 9 COMPLETE 4/4. Chapter 10 'Graphs of Equations' OPENED at run 85
+ * (10.1 The Coordinate Plane and Linear Graphs + 10.2 Slope: the
+ * Steepness Theorem): 10.3 'The Parabola: Quadratic Graphs and Vertices'
+ * + the unit-10 review close the chapter at run 86. The book stands
+ * in-progress — 9 complete chapters of 11 (owner cadence: two lessons
+ * per run, strictly sequential). Lesson ids use the `al-` prefix
  * (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
@@ -124,20 +128,7 @@ export const elementaryAlgebra: Book = {
     chapter07,
     chapter08,
     chapter09,
-    {
-      number: 10,
-      slug: 'graphs-of-equations',
-      title: 'Graphs of Equations',
-      summary:
-        'Every solution made visible: the coordinate plane built properly (ordered pairs as addresses), linear equations graphed and slope derived as rate — with the parallel condition proved — and the parabola graphed through completing the square, the vertex formula derived, and the graph’s x-intercepts connected to the discriminant’s verdicts of chapter 9.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'The Coordinate Plane and Linear Graphs',
-        'Slope: the Steepness Theorem',
-        'The Parabola: Quadratic Graphs and Vertices',
-      ],
-    },
+    chapter10,
     {
       number: 11,
       slug: 'the-toolbox-and-the-doorstep',

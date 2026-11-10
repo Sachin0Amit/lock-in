@@ -351,6 +351,7 @@ server.log
 
 # pre-write verifier + per-lesson E2E scripts for Elementary Algebra ch. 9 open (whitelisted run 83)
 !/scripts/verify-book3-ch09.ts
+!/scripts/verify-book3-ch10.ts
 !/scripts/e2e-al-91.sh
 !/scripts/e2e-al-91.page.js
 !/scripts/e2e-al-92.sh
@@ -358,4 +359,8 @@ server.log
 !/scripts/e2e-al-93.sh
 !/scripts/e2e-al-93.page.js
 !/scripts/e2e-al-94.sh
+!/scripts/e2e-al-101.sh
+!/scripts/e2e-al-101.page.js
+!/scripts/e2e-al-102.sh
+!/scripts/e2e-al-102.page.js
 !/scripts/e2e-al-94.page.js
