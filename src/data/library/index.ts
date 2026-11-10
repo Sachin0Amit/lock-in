@@ -26,6 +26,7 @@ import { numericalAnalysis } from './books/mathematics/numerical-analysis/book'
 import { mathematicalMethodsForEngineering } from './books/mathematics/mathematical-methods-for-engineering/book'
 import { optimizationAndOperationsResearch } from './books/mathematics/optimization-and-operations-research/book'
 import { advancedMathematicalFoundations } from './books/mathematics/advanced-mathematical-foundations/book'
+import { quantitativeAptitude } from './books/mathematics/quantitative-aptitude/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -38,10 +39,13 @@ import { countLessonWords } from './types'
  * home, search index, navigation and stats all pick it up automatically.
  *
  * The mathematics shelf is fully planned as of the 2026-11-10 full-shelf
- * planning pass: 27 books — 3 complete, 1 planned-with-authoring-opening
- * (Advanced Algebra) and 23 planned (status 'planned', complete researched
- * chapter/lesson layouts; see docs/research/DRIVE_TOC_SURVEY.md for the
- * reference evidence base). Authoring continues one book at a time.
+ * planning pass (27 books) plus the topic-inclusion guarantee pass
+ * (2026-11-10, same day: the Khattar aptitude census's commercial family
+ * given its own home): 28 books — 3 complete, 1 planned-with-authoring-
+ * opening (Advanced Algebra) and 24 planned (status 'planned', complete
+ * researched chapter/lesson layouts; see docs/research/DRIVE_TOC_SURVEY.md
+ * for the reference evidence base and the topic coverage audit). Authoring
+ * continues one book at a time.
  */
 export const allBooks: Book[] = [
   foundationMathematics,
@@ -71,6 +75,7 @@ export const allBooks: Book[] = [
   mathematicalMethodsForEngineering,
   optimizationAndOperationsResearch,
   advancedMathematicalFoundations,
+  quantitativeAptitude,
 ]
 
 export const allDisciplines: Discipline[] = disciplines

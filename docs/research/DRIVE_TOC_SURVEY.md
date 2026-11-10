@@ -26,7 +26,7 @@ the pipeline ran as bounded chunks inside single invocations).
 
 **Census: 53/53 TOCs extracted — nothing missed.**
 
-The 23 planned shelf books this evidence base informed (ids as registered
+The 24 planned shelf books this evidence base informed (ids as registered
 in `src/data/library/index.ts`): `geometry`, `coordinate-geometry`,
 `trigonometry`, `differential-calculus`, `integral-calculus`,
 `multivariable-calculus`, `differential-equations`, `linear-algebra`,
@@ -34,7 +34,10 @@ in `src/data/library/index.ts`): `geometry`, `coordinate-geometry`,
 `mathematical-logic`, `combinatorics`, `probability-theory`,
 `statistics`, `real-analysis`, `complex-analysis`, `abstract-algebra`,
 `topology`, `numerical-analysis`, `mathematical-methods-for-engineering`,
-`optimization-and-operations-research`, `advanced-mathematical-foundations`.
+`optimization-and-operations-research`, `advanced-mathematical-foundations`,
+and `quantitative-aptitude` (added by the topic-inclusion guarantee pass,
+2026-11-10 — the Khattar aptitude census's commercial family given its
+own home; see the audit section at the end of this file).
 The books whose evidence is web-researched rather than Drive-extracted
 (Number Theory, Set Theory's axiomatic arc, Mathematical Logic beyond the
 module chapter, Combinatorics beyond the AA bank, Complex Analysis's
@@ -58,6 +61,19 @@ headers — summarized in the web-research section below.
 - `MATHS/M4 Calculus` (10) → ch. 01 → AA ch. 1 (cross-ref); ch. 02–06 →
   **Differential Calculus**; ch. 07–09 → **Integral Calculus**; ch. 10 →
   **Differential Equations**.
+- The Khattar aptitude census (40 chapters): the commercial family
+  (Partnership, Profit and Loss, Time and Work, Pipes and Cisterns, Time
+  and Distance, Boats and Streams, Races, Alligation, Problems on Ages,
+  Simple and Compound Interest, Stocks and Debentures, True and Banker's
+  Discount, Series, Clocks and Calendar, Data Sufficiency) → the
+  **Quantitative Aptitude** book (added by the topic-inclusion guarantee
+  pass, 2026-11-10); the theory chapters route to their shelf books
+  (Numbers/HCF-LCM/Binary → ANS, Simplification/Percentage/Average/Ratio
+  → FM, Logarithms/Progression/P&C/Quadratic → AA, Polynomials/Linear
+  Equations → AL, Set Theory → Set Theory, Probability → Probability,
+  Mensuration → Geometry, Trigonometric Ratios/Heights → Trigonometry,
+  Plane/Co-ordinate Geometry → Geometry and Coordinate Geometry, Data
+  Interpretation → Statistics).
 - Root classics: Loney **Trigonometry** (1893 classic, scanned); Thomas'
   Calculus 14e + Stewart ET (the two calculus sequencing poles; their
   multivariable chapters are the **Multivariable Calculus** spine);
@@ -5776,3 +5792,119 @@ The Drive carries no dedicated reference for: Geometry (classical), Number Theor
 - Authoring cadence unchanged: one book at a time (Advanced Algebra opens
   first); per-unit reference downloads follow at authoring time from the
   Drive ids recorded here.
+
+## Topic coverage audit — the guarantee pass (2026-11-10)
+
+> The owner's follow-up directive, verbatim intent: "make sure that all the
+> topics or TOC of research drive survey must be included in their
+> respective books maths of library, make sure to arrange them accordingly
+> and add extra researched topics also if you want or download popular
+> books and use there detailed toc if needed and make sure these books are
+> able to cover all the top exams of the world to maximum level so include
+> everything possible from basic engineering, to competitive exams of the
+> world."
+
+**The gate:** `scripts/verify_topic_coverage.ts` parses THIS file's 53
+transcribed TOCs, routes every topic line to the shelf book that owns it
+(module sources via the survey's own Shelf-book mapping — which already
+resolves the cross-references; the cross-shelf classics and the Khattar
+census via explicit per-topic routing tables INSIDE the script — that
+routing table is the "arrange them accordingly" artifact), then
+token-matches each topic against its book's plan blob (titles +
+summaries + plannedLessons; for the complete books, lesson/heading/
+glossary strings too). **Result: 1,876 topic entries audited — 1,558
+covered in the routed book, 318 covered in a neighbouring book (reviewed
+cross-references, exactly what the no-duplication contract predicts),
+0 topics missing from the entire shelf.** The same run re-checks the
+EXAM_REGISTRY (section I): every researched exam maps to real books.
+
+**What the first audit run found (128 hard gaps) and what was fixed:**
+
+1. **A whole family had no home.** The Khattar census's commercial
+   arithmetic (profit and loss, discounts, simple and compound interest,
+   stocks/shares/debentures, partnership, alligation, problems on ages,
+   time and work, pipes and cisterns, time-speed-distance with trains,
+   boats and streams, races, clocks and calendars, number series, data
+   sufficiency) — FM/ANS cover school arithmetic, the theory books own
+   the concepts, but NO book owned the exam-craft family. **Book #28
+   'Quantitative Aptitude' was created** (11 chapters / 39 planned
+   lessons, `qa-` prefix reserved) with the no-duplication contract
+   written into its header (cross-references FM/ANS/AA/Geometry/
+   Statistics/Logic; DI stays with Statistics; mensuration theory stays
+   with Geometry). This is also the world-exam move: the book is the
+   quantitative register of CAT/SSC CGL/IBPS/SBI/RBI/CDS/CSAT/CA
+   Foundation and the SAT/GRE/GMAT word-problem family — see
+   docs/project/EXAM_REGISTRY.json.
+2. **Genuine topic gaps in existing plans, named and placed** (summary
+   enrichments + new planned lessons, plans only — zero lesson
+   authoring): AA ch. 1 piecewise functions and the stretch/squeeze
+   transformations; ch. 3 De Moivre and the nth roots of unity; ch. 5
+   sigma notation; ch. 6 circular permutations, group distributions,
+   nCr properties; ch. 7 the frequently used expansions; ch. 9 the
+   log-tables family (characteristic, mantissa, antilogarithm — a 4th
+   planned lesson; the book now 36 planned). Trigonometry ch. 5 the
+   sec/cosec/cot principal values; ch. 6 the centres named with their
+   radii (circumcentre R, incentre r, exradii, centroid and medians)
+   and a 6th planned lesson 'Quadrilaterals and Regular Polygons'
+   (Loney ch. XVI; 31 planned); ch. 7 the dip of the horizon. Coordinate
+   Geometry ch. 1 internal/external division, ch. 4 the secant, ch. 10
+   linearly dependent vectors, ch. 11 the scalar product's geometrical
+   interpretation, ch. 12 the regular tetrahedron. Differential Calculus
+   (continuity of the canonical functions, the differentiability
+   definition, global/absolute extrema, linearization, the tangent-and-
+   velocity problems, graphing with calculus and technology). Integral
+   Calculus (tan/cot/sec/cosec antiderivatives, the transcendental
+   census, strategy and tables, curves intersecting at two points,
+   economics/biology applications). Differential Equations gained a
+   genuine chapter — **ch. 6 'Systems, the Phase Plane and the Nonlinear
+   World'** (Kreyszig's systems arc: X' = AX, critical points and
+   stability, qualitative methods, predator-prey; the book now 7 ch /
+   26 planned) plus isogonal trajectories, the nonhomogeneous spine,
+   Dirac's delta. Linear Algebra absorbed the Axler arc in its
+   summaries (fields, direct sums, injectivity/surjectivity, isomorphisms,
+   diagonalizable operators, Gershgorin, the spectral theorem, positive
+   operators, isometries/unitary, polar decomposition, generalized
+   eigenvectors and the Jordan form, the trace, bilinear and alternating
+   forms, the tensor product, norms, orthogonal complements, the
+   pseudoinverse, SVD/PCA, PageRank and Markov-chain classification,
+   hyperplanes and polytopes, image-processing/statistics/computer-
+   graphics/engineering applications). Multivariable Calculus (motion in
+   space, tangential/normal acceleration components, polar-coordinate
+   kinematics, economics/biology). Real Analysis (summation by parts,
+   rectifiable curves, measurable functions, partitions of unity, the
+   contraction principle). Mathematical Methods (differential operators,
+   critical-point stability, the Fourier cosine/sine transforms, Laplace
+   in cylindrical and spherical coordinates, the Laplacian in polar
+   coordinates with the circular membrane and Fourier-Bessel series).
+   Combinatorics (binomial coefficients and identities), Discrete
+   Mathematics (planar graphs, graph coloring, representing relations),
+   Probability (the types of events), Mathematical Logic (nested
+   quantifiers).
+3. **The routing/noise/alias layer** (in the gate script, auditable):
+   publisher furniture filtered (Illustration lines, exercise typology,
+   Summary/Appendix/Bibliography, wrapped remainders); ligature decoding
+   (Rosen's 'Coe\ufb03cients'); Loney's roman numerals and Axler's
+   section labels stripped; genuine synonyms aliased (antilogarithm,
+   arithmetical/geometrical/harmonical, nullspace, L'Hospital...); the
+   Khattar and Hall-&-Knight-Elementary chapters carried as curated
+   ledgers (the H&K contents page is OCR-noisy — 'The Teeobt of
+   Indices' — so its ledger is hand-curated clean from the canonical
+   TOC fragment the survey captured).
+
+**The exam guarantee:** EXAM_REGISTRY.json researched and filled this
+pass — 56 examinations (22 Indian + 34 international), 30 researched
+with mathUnits + per-exam coverage maps (the source links recorded per
+entry: jeeadv.ac.in, gate2026.iitg.ac.in, jam.iitkgp.ac.in,
+cuet.nta.nic.in, ets.org, mba.com, satsuite.collegeboard.org, act.org,
+ibo.org, Pearson/Cambridge specs, maths.ox.ac.uk, the TMUA spec PDF,
+jasso.go.jp, ncees.org FE specs, icai.org, cemc.uwaterloo.ca, MAA
+competition pages); non-mathematics exams honestly marked not-
+applicable; adjacent scope marked with notes. The book-wise rollup
+(coverageMaps in the registry) reads as "which exams each shelf book
+serves". The registry is machine-checked by the same gate.
+
+**The coverage numbers after the pass:** shelf 28 books — 3 complete,
+AA authoring-ready (36 planned), 24 planned (the full-shelf pass's 23 +
+Quantitative Aptitude; 206 chapters / 710 planned lessons across the 25
+planned books). Zero lessons written; the authoring cadence and the
+run-90 opening (AA 1.1 + 1.2) are unchanged.

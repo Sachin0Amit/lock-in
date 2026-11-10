@@ -45,6 +45,31 @@ unchanged. The per-unit workflow (download -> study -> write -> verify ->
 ship) now draws on the survey's recorded Drive ids and TOCs for its
 per-unit downloads.
 
+**Owner directive (2026-11-10, topic-inclusion guarantee pass — this pass):**
+"make sure that all the topics or TOC of research drive survey must be
+included in their respective books maths of library, make sure to arrange
+them accordingly and add extra researched topics also if you want or
+download popular books and use there detailed toc if needed and make sure
+these books are able to cover all the top exams of the world to maximum
+level so include everything possible from basic engineering, to
+competitive exams of the world." Executed: (1) the machine-checked audit
+`scripts/verify_topic_coverage.ts` — every topic line of the 53 surveyed
+TOCs routed to its owning shelf book and token-matched against that
+book's plan (1,876 topic entries; first run surfaced 128 hard gaps); (2)
+gaps fixed in the plans only — the Khattar aptitude census's commercial
+family given its own book (#28 Quantitative Aptitude, 11 ch / 39 planned
+lessons, `qa-`), AA's log-tables lesson, Trigonometry's
+quadrilaterals-and-regular-polygons lesson, Differential Equations' new
+systems/phase-plane chapter, and ~50 named-topic summary enrichments
+across AA/CG/DC/IC/LA/MC/MM/RA/combinatorics/DM/probability/logic; (3)
+EXAM_REGISTRY.json researched and filled — 56 examinations (22 Indian +
+34 international), 30 researched with mathUnits + coverage maps and a
+book-wise rollup, from basic engineering (GATE, FE) to the world's
+competitive exams (JEE, CUET, CAT, SSC, SAT, ACT, AP, IB, A-Level, STEP,
+MAT, TMUA, Gaokao, Korean CSAT, EJU, GRE, GMAT, Putnam/AMC/IMO/Euclid…).
+Zero lessons written; the authoring cadence and the run-90 opening are
+unchanged. Final state: **1,876/1,876 topics included; 0 missing.**
+
 The owner will supply a Google Drive link with a large reference book
 collection. Workflow per unit:
 
@@ -78,6 +103,11 @@ Keep only final textbooks, assets, metadata, project files.
 Before writing any book: research the relevant examinations. Target registry:
 50+ major examinations — ≥10 Indian, ≥20 international, government
 recruitment, university entrance, professional licensing, olympiads.
+**Registry FILLED by the topic-inclusion guarantee pass (2026-11-10):
+56 examinations (22 Indian + 34 international; 30 researched with
+mathUnits + coverage maps; non-math exams honestly marked
+not-applicable); machine-checked by scripts/verify_topic_coverage.ts
+section I — see docs/project/EXAM_REGISTRY.json.**
 
 Indian: JEE Main/Advanced, NEET UG + PG medical, UPSC CSE, GATE, UGC NET,
 CUET UG/PG, CAT, CLAT, NDA/CDS, SSC, banking, state PSCs, VITEEE, …

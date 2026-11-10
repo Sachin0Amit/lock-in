@@ -56,7 +56,7 @@ const chapters: Chapter[] = [
     slug: 'the-indefinite-integral',
     title: 'The Indefinite Integral',
     summary:
-      'The reverse question formalized: the antiderivative and its arbitrary constant, the standard forms, the basic properties, the f(ax + b) pattern, substitution as the chain rule undone, the trigonometric integrals and their standard substitutions, the f(g(x))g\u2032(x) pattern, reciprocals of quadratics, linear-over-quadratic forms and biquadratic expressions — every technique introduced with the derivative it reverses named beside it.',
+      'The reverse question formalized: the antiderivative and its arbitrary constant, the standard forms, the basic properties, the f(ax + b) pattern, substitution as the chain rule undone, the trigonometric integrals and their standard substitutions, the f(g(x))g\u2032(x) pattern, reciprocals of quadratics, linear-over-quadratic forms and biquadratic expressions — every technique introduced with the derivative it reverses named beside it. The antiderivatives of tan, cot, sec and cosec (the logarithm family in disguise) and the transcendental-function census — exponential, logarithmic and inverse-trigonometric integrands — named as the chapter’s own register.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -71,7 +71,7 @@ const chapters: Chapter[] = [
     slug: 'integration-by-parts-and-advanced-craft',
     title: 'Integration by Parts and the Advanced Craft',
     summary:
-      'The remaining engine room: integration by parts with its choice discipline (the ILATE craft), partial fractions (Elementary Algebra\u2019s factorization cashed — every case of the denominator\u2019s factorization met), reduction formulas, and the module\u2019s typical substitutions (the engineered forms exams actually set). The chapter where integration stops being reversal and becomes craft.',
+      'The remaining engine room: integration by parts with its choice discipline (the ILATE craft), partial fractions (Elementary Algebra\u2019s factorization cashed — every case of the denominator\u2019s factorization met), reduction formulas, and the module\u2019s typical substitutions (the engineered forms exams actually set). The chapter where integration stops being reversal and becomes craft. The strategy discipline — which method when, the recognition drill — and integration using tables and computer algebra named honestly as the working engineer’s craft.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -113,7 +113,7 @@ const chapters: Chapter[] = [
     slug: 'areas-and-applications',
     title: 'Areas and Applications',
     summary:
-      'The payoff chapter: areas under curves and between them (two curves meeting at two points or many, integration along the y-axis, variable areas, regions bounded by inequalities, inverse-function areas without inverting), then Thomas\u2019s application family — volumes by cross-sections and cylindrical shells, arc length, surfaces of revolution, work, fluid forces and moments/centroids. Geometry\u2019s mensuration formulas for the cone and sphere are finally EARNED here — the cross-reference the Geometry book promised.',
+      'The payoff chapter: areas under curves and between them (two curves meeting at two points or many, integration along the y-axis, variable areas, regions bounded by inequalities, inverse-function areas without inverting), then Thomas\u2019s application family — volumes by cross-sections and cylindrical shells, arc length, surfaces of revolution, work, fluid forces and moments/centroids. Geometry\u2019s mensuration formulas for the cone and sphere are finally EARNED here — the cross-reference the Geometry book promised. Curves that intersect at two points (and the intersection discipline that fixes the strip before any integral is written), with applications to economics and biology — consumer surplus, producers\u2019s surplus and the growth models — named as the applied register.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

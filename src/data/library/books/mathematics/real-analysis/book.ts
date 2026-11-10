@@ -78,7 +78,7 @@ const chapters: Chapter[] = [
     slug: 'series',
     title: 'Series',
     summary:
-      'The sum of infinitely many things, earned: partial sums and convergence, the non-negative series tests (comparison, ratio, root — each proved from the Cauchy machinery), the alternating-series test with its error bound, absolute versus conditional convergence (Riemann\u2019s rearrangement theorem stated and sketched — the honest shock), and power series (the radius of convergence, term-by-term operations promised their justification in chapter 8).',
+      'The sum of infinitely many things, earned: partial sums and convergence, the non-negative series tests (comparison, ratio, root — each proved from the Cauchy machinery), the alternating-series test with its error bound, absolute versus conditional convergence (Riemann\u2019s rearrangement theorem stated and sketched — the honest shock), and power series (the radius of convergence, term-by-term operations promised their justification in chapter 8). Summation by parts — Abel’s discipline — priced as the alternating-series engine.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -138,7 +138,7 @@ const chapters: Chapter[] = [
     slug: 'the-riemann-integral',
     title: 'The Riemann Integral',
     summary:
-      'Integral Calculus\u2019s fundamental theorem PROVED: partitions, upper and lower Darboux sums, the definition via refinement, the integrability census (continuous \u21d2 integrable, monotone \u21d2 integrable, with the Riemann-function counterexample), the FTC both parts proved (the integral function\u2019s derivative and the evaluation theorem), the substitution theorem stated honestly, and improper integrals — the convergence discipline chapter 3 built, applied to areas.',
+      'Integral Calculus\u2019s fundamental theorem PROVED: partitions, upper and lower Darboux sums, the definition via refinement, the integrability census (continuous \u21d2 integrable, monotone \u21d2 integrable, with the Riemann-function counterexample), the FTC both parts proved (the integral function\u2019s derivative and the evaluation theorem), the substitution theorem stated honestly, and improper integrals — the convergence discipline chapter 3 built, applied to areas. Rectifiable curves and arc length earned in the integral’s own currency.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -168,7 +168,7 @@ const chapters: Chapter[] = [
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:
-      'The closing synthesis: the proof-craft census (the ε-δ templates, the compactness argument, the bisection technique — worked at exam level), the book in one page (the map from the completeness axiom to the uniform theorems), and the doorsteps named honestly: several variables and differential forms (Rudin\u2019s ch. 9–10 \u2192 Multivariable Calculus\u2019s theory), the Lebesgue theory (why the Riemann integral was not enough — the measure doorway), and metric-space topology \u2192 the Topology book.',
+      'The closing synthesis: the proof-craft census (the ε-δ templates, the compactness argument, the bisection technique — worked at exam level), the book in one page (the map from the completeness axiom to the uniform theorems), and the doorsteps named honestly: several variables and differential forms (Rudin\u2019s ch. 9–10 \u2192 Multivariable Calculus\u2019s theory), the Lebesgue theory (why the Riemann integral was not enough — the measure doorway), and metric-space topology \u2192 the Topology book. Lebesgue\u2019s measurable functions named at the measure doorway, partitions of unity named as the several-variable toolkit, and the contraction principle — the fixed-point engine Picard iteration runs on — named as the bridge Differential Equations crosses.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

@@ -111,7 +111,7 @@ const chapters: Chapter[] = [
     slug: 'relations-order-and-equivalence',
     title: 'Relations: Order and Equivalence',
     summary:
-      'Advanced Algebra chapter 1\u2019s set-of-pairs view, deepened: properties of relations (reflexive, symmetric, antisymmetric, transitive), closures, equivalence relations and partitions (the residue classes of Arithmetic and Number Systems revealed as THE canonical example), partial orderings, Hasse diagrams, maximal/minimal elements, and lattices named. The structure that reappears in topology, algebra and computer science alike.',
+      'Advanced Algebra chapter 1\u2019s set-of-pairs view, deepened: properties of relations (reflexive, symmetric, antisymmetric, transitive), closures, equivalence relations and partitions (the residue classes of Arithmetic and Number Systems revealed as THE canonical example), partial orderings, Hasse diagrams, maximal/minimal elements, and lattices named. The structure that reappears in topology, algebra and computer science alike. Representing relations — zero-one matrices and digraphs — the storage craft every database and graph algorithm runs on.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -125,7 +125,7 @@ const chapters: Chapter[] = [
     slug: 'graphs',
     title: 'Graphs: the Mathematics of Connections',
     summary:
-      'Vertices, edges and the models they carry: graph terminology and types, representation (adjacency matrices — Linear Algebra cross-referenced), isomorphism, connectivity, Euler and Hamilton paths (the K\u00f6nigsberg story verified), and shortest paths (Dijkstra\u2019s algorithm met here, owned formally by Operations Research\u2019s network chapter — cross-referenced both ways).',
+      'Vertices, edges and the models they carry: graph terminology and types, representation (adjacency matrices — Linear Algebra cross-referenced), isomorphism, connectivity, Euler and Hamilton paths (the K\u00f6nigsberg story verified), and shortest paths (Dijkstra\u2019s algorithm met here, owned formally by Operations Research\u2019s network chapter — cross-referenced both ways). Planar graphs (Euler\u2019s formula and the non-planarity pair) and graph coloring (the chromatic number, the map-coloring story) — the two classic gates.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

@@ -3,8 +3,9 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Trigonometry — the seventh book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `tr-` prefix
+ * STATUS: PLANNED (full-shelf planning pass, 2026-11-10; enriched by the
+ * topic-inclusion guarantee pass, same day) — 8 chapters /
+ * 31 planned lessons, zero written. Lesson ids will use the `tr-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Geometry measured the triangle
@@ -117,7 +118,7 @@ const chapters: Chapter[] = [
     slug: 'inverse-trigonometric-functions',
     title: 'Inverse Trigonometric Functions',
     summary:
-      'Advanced Algebra\u2019s inverse-machine theory cashed on the periodic family: why no trig function is invertible as-is, the principal-value restrictions, the graphs of all six inverses, the f(f⁻¹(x)) and f⁻¹(f(x)) principal-value discipline, relations among the inverses (negatives, reciprocals, complementary angles), sums and differences expressed as a single inverse, multiple angles, and substitution techniques — the NCERT class 12 arc at JEE depth.',
+      'Advanced Algebra\u2019s inverse-machine theory cashed on the periodic family: why no trig function is invertible as-is, the principal-value restrictions, the graphs of all six inverses, the f(f⁻¹(x)) and f⁻¹(f(x)) principal-value discipline, relations among the inverses (negatives, reciprocals, complementary angles), sums and differences expressed as a single inverse, multiple angles, and substitution techniques — the NCERT class 12 arc at JEE depth. The principal values of sec⁻¹(sec x), cosec⁻¹(cosec x) and cot⁻¹(cot x) — the classic exam discipline the module’s chapter drills — named explicitly.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -132,7 +133,7 @@ const chapters: Chapter[] = [
     slug: 'properties-of-triangles',
     title: 'Properties of Triangles',
     summary:
-      'The triangle fully measured: the sine rule with its radius-of-circumcircle form, Napier\u2019s formula and the m\u2013n theorem, the cosine and projection rules, half-angle formulas, the area in its many forms, the complete solution-of-triangles census (SSS, SAS, ASA, AAS, the ambiguous SSA, AAA), and the triangle\u2019s centres and circles — circumcircle, incircle, excentral, orthocentre and centroid, pedal and orthic triangles — the classic Loney heartland, every formula derived.',
+      'The triangle fully measured: the sine rule with its radius-of-circumcircle form, Napier\u2019s formula and the m\u2013n theorem, the cosine and projection rules, half-angle formulas, the area in its many forms, the complete solution-of-triangles census (SSS, SAS, ASA, AAS, the ambiguous SSA, AAA), and the triangle\u2019s centres and circles — circumcircle, incircle, excentral, orthocentre and centroid, pedal and orthic triangles — the classic Loney heartland, every formula derived. The centres named with their radii — the circumcentre with the circumcircle’s R, the incentre with the incircle’s r, the exradii of the excircles — and the centroid with its medians, the medians’ 2:1 division priced exactly.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -141,6 +142,7 @@ const chapters: Chapter[] = [
       'Half-Angle Formulas and the Area of a Triangle',
       'Solutions of Triangles: the Six Cases',
       'Centres and Circles of a Triangle',
+      'Quadrilaterals and Regular Polygons',
     ],
   },
   {
@@ -148,7 +150,7 @@ const chapters: Chapter[] = [
     slug: 'heights-and-distances',
     title: 'Heights and Distances',
     summary:
-      'The classic application: angles of elevation and depression, towers and objects, two-observation stations, the ambiguous cases, and the craft problems aptitude exams love. Kept honestly with the note that the current JEE Main list no longer names heights and distances — the chapter stands on its fundamentals value and its aptitude-exam reach (Khattar QA ch. 36 owns the speed-work side).',
+      'The classic application: angles of elevation and depression, towers and objects, two-observation stations, the ambiguous cases, and the craft problems aptitude exams love. Kept honestly with the note that the current JEE Main list no longer names heights and distances — the chapter stands on its fundamentals value and its aptitude-exam reach (Khattar QA ch. 36 owns the speed-work side). Loney’s dip of the horizon — the radius-and-height model that ties small angles to the sphere you stand on — banked as the classic closing application.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

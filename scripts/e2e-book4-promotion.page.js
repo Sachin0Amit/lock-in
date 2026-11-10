@@ -8,7 +8,7 @@ r.breadcrumb = !!document.querySelector('nav[aria-label="Breadcrumb"]');
 var titleEl = document.querySelector('h1');
 r.h1 = titleEl ? titleEl.textContent.trim() : '';
 
-/* meta chips: "0 written · 35 planned · 0 words · 0 min" */
+/* meta chips: "0 written · 36 planned · 0 words · 0 min" */
 var metas = Array.prototype.slice.call(document.body.textContent.match(/\d+ written/g) || []);
 r.writtenChip = metas.length > 0 ? metas[0] : null;
 r.plannedChip = (document.body.textContent.match(/\d+ planned/) || [null])[0];

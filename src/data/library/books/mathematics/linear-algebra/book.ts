@@ -59,7 +59,7 @@ const chapters: Chapter[] = [
     slug: 'matrices',
     title: 'Matrices: the Rectangular Numbers',
     summary:
-      'The JEE ground: what a matrix is, the classification census (square, diagonal, symmetric, skew, triangular, identity), addition, subtraction and scalar multiplication, the matrix product with its non-commutativity priced on 2\u00d72 cases, transpose and trace, special matrices, the adjoint, the inverse and its properties, elementary transformations as the practical inversion route, and characteristic roots named — the eigen-idea seeded early, cashed in chapter 6.',
+      'The JEE ground: what a matrix is, the classification census (square, diagonal, symmetric, skew, triangular, identity), addition, subtraction and scalar multiplication, the matrix product with its non-commutativity priced on 2\u00d72 cases, transpose and trace, special matrices, the adjoint, the inverse and its properties, elementary transformations as the practical inversion route, and characteristic roots named — the eigen-idea seeded early, cashed in chapter 6. Matrix arithmetic complete — addition, scalar multiplication and the negative, with the transpose’s first laws — the characterizations of invertible matrices assembled as one table, and the complex matrices (Hermitian, unitary) named forward to chapter 6.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -74,7 +74,7 @@ const chapters: Chapter[] = [
     slug: 'determinants',
     title: 'Determinants',
     summary:
-      'The volume-keeper: expansion by minors and cofactors, the Sarrus rule for 3\u00d73, the full property arc (rows swapped, scaled, added — each proved), the product of determinants, the cofactor determinant, differentiation and integration of determinants, the coordinate-geometry applications (areas, concurrency, the pair-of-lines condition cross-referenced with Coordinate Geometry ch. 3) and Cramer\u2019s rule with its honest limits.',
+      'The volume-keeper: expansion by minors and cofactors, the Sarrus rule for 3\u00d73, the full property arc (rows swapped, scaled, added — each proved), the product of determinants, the cofactor determinant, differentiation and integration of determinants, the coordinate-geometry applications (areas, concurrency, the pair-of-lines condition cross-referenced with Coordinate Geometry ch. 3) and Cramer\u2019s rule with its honest limits. Permutation matrices and the cofactor expansion\u2019s sign story — the two pillars every determinant proof leans on.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -89,7 +89,7 @@ const chapters: Chapter[] = [
     slug: 'systems-of-linear-equations',
     title: 'Systems of Linear Equations',
     summary:
-      'The verdict discipline: systems in two and three unknowns — consistent with a unique solution, consistent with infinitely many, inconsistent — priced by rank and by determinant; row reduction and echelon forms as the general instrument (Strang\u2019s elimination), homogeneous systems and their trivial/non-trivial census, and the matrix-inversion route. The JEE verdicts earned, the university method built underneath them.',
+      'The verdict discipline: systems in two and three unknowns — consistent with a unique solution, consistent with infinitely many, inconsistent — priced by rank and by determinant; row reduction and echelon forms as the general instrument (Strang\u2019s elimination), homogeneous systems and their trivial/non-trivial census, and the matrix-inversion route. The JEE verdicts earned, the university method built underneath them. The nullspace — solving Ax = 0 as a system’s portrait — with Gaussian elimination in practice (operation counts, pivoting) and the matrix factorizations (LU, QR, SVD) named as the modern engineer’s staircase.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -107,7 +107,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
-      'R\u207f and Subspaces',
+      'R\u207f and Subspaces — the scalar field F and the digression on fields (Abstract Algebra\u2019s ground, cross-referenced), sums and direct sums of subspaces',
       'Span and Linear Independence',
       'Basis and Dimension',
     ],
@@ -122,7 +122,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Machines that Respect the Structure',
-      'Kernel, Range and Rank-Nullity',
+      'Kernel, Range and Rank-Nullity — the null space and injectivity, the range and surjectivity — with invertibility and isomorphisms (Axler\u2019s isomorphic reading of a space)',
       'The Matrix of a Transformation',
       'Composition and Change of Basis',
     ],
@@ -132,13 +132,13 @@ const chapters: Chapter[] = [
     slug: 'eigenvalues-and-eigenvectors',
     title: 'Eigenvalues and Eigenvectors',
     summary:
-      'The invariant directions: the characteristic polynomial, eigenvalues and eigenvectors computed across engineered matrices, diagonalization and its conditions, the Cayley\u2013Hamilton theorem proved and used, the symmetric-matrix promise (real eigenvalues, orthogonal eigenvectors — stated with its proof deferred honestly), and the applications census (powers of matrices, Markov chains named forward to Probability, the SVD named at chapter\u2019s end).',
+      'The invariant directions: the characteristic polynomial, eigenvalues and eigenvectors computed across engineered matrices, diagonalization and its conditions, the Cayley\u2013Hamilton theorem proved and used, the symmetric-matrix promise (real eigenvalues, orthogonal eigenvectors — stated with its proof deferred honestly), and the applications census (powers of matrices, Markov chains named forward to Probability, the SVD named at chapter\u2019s end — generalized eigenvectors, nilpotent operators and generalized eigenspaces (the eigenvalue multiplicity), the Jordan form, and the trace: Axler\u2019s capstone reading of matrices as operators). Complex eigenvalues (the rotation block), diagonalization priced honestly, positive definite matrices, Markov matrices for population and economics — the steady-state vector and Google\u2019s PageRank, communication classes, the classification of states and periodicity — and the singular value decomposition (SVD) with principal component analysis (PCA) named, not hand-waved.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Characteristic Polynomial',
-      'Diagonalization and Cayley\u2013Hamilton',
-      'The Symmetric Promise',
+      'Diagonalization and Cayley\u2013Hamilton — diagonalizable operators, the conditions for diagonalizability, commuting operators, and the Gershgorin disk theorem',
+      'The Symmetric Promise — Axler\u2019s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues',
       'Powers, Markov Chains and the SVD Named',
     ],
   },
@@ -147,7 +147,7 @@ const chapters: Chapter[] = [
     slug: 'orthogonality-and-least-squares',
     title: 'Orthogonality and Least Squares',
     summary:
-      'The inner product returns: projections and orthogonality in R\u207f, the Gram\u2013Schmidt process, orthogonal bases and the QR idea, and least squares — the overdetermined systems science actually meets — with the regression tie to Statistics named (the LINE the data draws, derived here, applied there). Strang\u2019s orthogonality arc with Lay\u2019s applications.',
+      'The inner product returns: projections and orthogonality in R\u207f, the Gram\u2013Schmidt process, orthogonal bases and the QR idea, and least squares — the overdetermined systems science actually meets — with the regression tie to Statistics named (the LINE the data draws, derived here, applied there). Strang\u2019s orthogonality arc with Lay\u2019s applications. Orthonormal bases — Gram—Schmidt\u2019s product, vector norms, orthogonal complements and the minimization problems (least squares re-read), and the pseudoinverse — and the search for a good basis (Fourier and wavelet bases named) closing the chapter.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -161,12 +161,12 @@ const chapters: Chapter[] = [
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:
-      'The closing synthesis: the four fundamental subspaces (Strang\u2019s picture of the whole subject in one diagram), the determinant as volume story, symmetric matrices and quadratic forms (the conics of Coordinate Geometry re-read as x\u1d40Ax — Multivariable Calculus\u2019s extrema engine), the craft census for exam-style systems work, and the doorstep: the AXIOMS themselves become the subject — handing off to Abstract Algebra, with Numerical Analysis named as the computational sequel.',
+      'The closing synthesis: the four fundamental subspaces (Strang\u2019s picture of the whole subject in one diagram), the determinant as volume story, symmetric matrices and quadratic forms (the conics of Coordinate Geometry re-read as x\u1d40Ax — Multivariable Calculus\u2019s extrema engine), the craft census for exam-style systems work, and the doorstep: the AXIOMS themselves become the subject — handing off to Abstract Algebra, with Numerical Analysis named as the computational sequel. The geometry of Rⁿ — convex combinations, affine independence, hyperplanes and polytopes (the feasible regions Optimization inherits), covariance matrices and joint probabilities, with applications to image processing and statistics, computer graphics and matrices in engineering — the applied census before the axioms take over.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
       'The Four Fundamental Subspaces',
-      'Quadratic Forms and the Conics Re-read',
+      'Quadratic Forms and the Conics Re-read — Axler\u2019s closing arc: bilinear forms and symmetric bilinear forms, alternating multilinear forms, defining the determinant as the signed volume of an operator — with operators applied to ellipsoids and parallelepipeds (the image-body reading), and the tensor product',
       'The Doorstep: the Axioms Become the Subject',
     ],
   },

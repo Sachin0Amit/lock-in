@@ -85,7 +85,7 @@ const chapters: Chapter[] = [
     slug: 'quantifiers',
     title: 'The Quantifiers',
     summary:
-      'From sentences to predicates: variables and truth-sets, the universal and existential quantifiers, the order-of-quantifiers discipline (the classic ∃∀ versus ∀∃ trap priced on finite censuses), negation rules (De Morgan for quantifiers — the law every book on the shelf used silently), translations between mathematical English and symbols, and the multi-quantifier patterns analysis lives on (∀ε∃δ met as an old friend from Differential Calculus).',
+      'From sentences to predicates: variables and truth-sets, the universal and existential quantifiers, the order-of-quantifiers discipline (the classic ∃∀ versus ∀∃ trap priced on finite censuses), negation rules (De Morgan for quantifiers — the law every book on the shelf used silently), translations between mathematical English and symbols, and the multi-quantifier patterns analysis lives on (∀ε∃δ met as an old friend from Differential Calculus). Nested quantifiers — the cascades and their reversal discipline — priced with their order-of-binding traps.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

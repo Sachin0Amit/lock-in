@@ -82,7 +82,7 @@ const chapters: Chapter[] = [
     slug: 'continuity',
     title: 'Continuity',
     summary:
-      'The promise Advanced Algebra named is kept: continuity at a point and on intervals, the types of discontinuity (removable, jump, infinite), directional continuity, continuity under algebraic operations and composition, and the special cases exams love — greatest integer, signum, functions defined differently on rationals and irrationals. The intermediate value theorem stated with its honest scope: used, with the proof deferred to Real Analysis.',
+      'The promise Advanced Algebra named is kept: continuity at a point and on intervals, the types of discontinuity (removable, jump, infinite), directional continuity, continuity under algebraic operations and composition, and the special cases exams love — greatest integer, signum, functions defined differently on rationals and irrationals. The intermediate value theorem stated with its honest scope: used, with the proof deferred to Real Analysis. The continuity of the specific canonical functions — modulus, greatest-integer, signum, the piecewise bridges — priced one by one, the census every exam draws from.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -97,7 +97,7 @@ const chapters: Chapter[] = [
     slug: 'the-derivative',
     title: 'The Derivative',
     summary:
-      'The book\u2019s engine, built twice: first as the slope of a tangent (with first-principles computation on the standard families), then as the limit of the difference quotient — the derivative AS a function. Differentiability and its entanglement with continuity, the reasons a derivative fails (corners, cusps, jumps, vertical tangents), and differentiability on intervals. Every family the shelf banked is differentiated here: polynomials, radicals, exponentials, logarithms, the trigonometric and inverse trigonometric functions.',
+      'The book\u2019s engine, built twice: first as the slope of a tangent (with first-principles computation on the standard families), then as the limit of the difference quotient — the derivative AS a function. Differentiability and its entanglement with continuity, the reasons a derivative fails (corners, cusps, jumps, vertical tangents), and differentiability on intervals. Every family the shelf banked is differentiated here: polynomials, radicals, exponentials, logarithms, the trigonometric and inverse trigonometric functions. The definition of differentiability — the limit that names the derivative — stated and priced before any rule wears it.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -127,7 +127,7 @@ const chapters: Chapter[] = [
     slug: 'tangents-normals-and-rates',
     title: 'Applications I: Tangents, Normals and Rates',
     summary:
-      'The derivative\u2019s geometric and physical faces: tangent and normal at a point and from external points, the condition for a line to be tangent or normal, the angle between curves and orthogonal intersections, subtangent and subnormal, the derivative as rate measure (the related-rates craft), and approximation by differentials — with each application\u2019s honest domain discipline.',
+      'The derivative\u2019s geometric and physical faces: tangent and normal at a point and from external points, the condition for a line to be tangent or normal, the angle between curves and orthogonal intersections, subtangent and subnormal, the derivative as rate measure (the related-rates craft), and approximation by differentials — with each application\u2019s honest domain discipline. Linearization — the tangent as the working approximation — and the tangent-and-velocity problems that motivated the derivative from the module’s own first pages, closed here as one craft.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -142,7 +142,7 @@ const chapters: Chapter[] = [
     slug: 'monotonicity-and-extrema',
     title: 'Applications II: Monotonicity, Concavity and Extrema',
     summary:
-      'The shape of a function read from its derivatives: increasing and decreasing behaviour (strict and not), monotonicity of composites, range and root-counting by monotonicity, inequalities proved by monotonicity, concavity and points of inflection, and the extremum machinery — first and second derivative tests, the tests that survive discontinuity, and applied optimization at the depth Advanced Algebra\u2019s vertex-form work promised to grow into.',
+      'The shape of a function read from its derivatives: increasing and decreasing behaviour (strict and not), monotonicity of composites, range and root-counting by monotonicity, inequalities proved by monotonicity, concavity and points of inflection, and the extremum machinery — first and second derivative tests, the tests that survive discontinuity, and applied optimization at the depth Advanced Algebra\u2019s vertex-form work promised to grow into. The global (absolute) maximum and minimum — on intervals open, closed and unbounded — priced with the boundary discipline that makes \u201cabsolute\u201d honest.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -172,7 +172,7 @@ const chapters: Chapter[] = [
     slug: 'curve-sketching',
     title: 'Curve Sketching: the Complete Method',
     summary:
-      'Everything assembled into the craft of drawing the honest picture: domain and symmetry, intercepts and asymptotes (the hyperbola\u2019s tangent-at-infinity idea generalized), monotonicity intervals, extrema, concavity and inflection — the complete checklist applied to polynomials, rational functions, the exponential/logarithmic family and the trigonometric family. The chapter Coordinate Geometry\u2019s conic drawings foreshadowed.',
+      'Everything assembled into the craft of drawing the honest picture: domain and symmetry, intercepts and asymptotes (the hyperbola\u2019s tangent-at-infinity idea generalized), monotonicity intervals, extrema, concavity and inflection — the complete checklist applied to polynomials, rational functions, the exponential/logarithmic family and the trigonometric family. The chapter Coordinate Geometry\u2019s conic drawings foreshadowed. Graphing with calculus and technology — the plotted check as an honest verification discipline, never a substitute for the sign analysis.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

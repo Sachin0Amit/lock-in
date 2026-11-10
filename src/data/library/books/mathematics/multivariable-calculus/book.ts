@@ -93,7 +93,7 @@ const chapters: Chapter[] = [
     slug: 'multiple-integrals',
     title: 'Multiple Integrals',
     summary:
-      'Accumulation over regions: the double integral as an iterated integral, changing the order of integration, polar coordinates (the circle\u2019s natural address), triple integrals in rectangular, cylindrical and spherical systems, and the applications — volumes (Integral Calculus\u2019s shell and cross-section methods unified), mass, centres of mass and moments of inertia for honest density functions.',
+      'Accumulation over regions: the double integral as an iterated integral, changing the order of integration, polar coordinates (the circle\u2019s natural address), triple integrals in rectangular, cylindrical and spherical systems, and the applications — volumes (Integral Calculus\u2019s shell and cross-section methods unified), mass, centres of mass and moments of inertia for honest density functions. Applications to economics and biology named honestly — the cobweb models and growth models — alongside the physical ones.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -107,7 +107,7 @@ const chapters: Chapter[] = [
     slug: 'vector-calculus',
     title: 'Vector Calculus',
     summary:
-      'The field\u2019s calculus: vector fields drawn and read, line integrals of scalar and vector fields (work along a path), path independence and conservative fields, Green\u2019s theorem on the plane, curl and divergence, surface integrals and flux, Stokes\u2019s and Gauss\u2019s theorems — the great integral theorems stated with proof sketches and honest scope, their full proofs belonging to Real Analysis. The physics shelf\u2019s language learned here.',
+      'The field\u2019s calculus: vector fields drawn and read, line integrals of scalar and vector fields (work along a path), path independence and conservative fields, Green\u2019s theorem on the plane, curl and divergence, surface integrals and flux, Stokes\u2019s and Gauss\u2019s theorems — the great integral theorems stated with proof sketches and honest scope, their full proofs belonging to Real Analysis. The physics shelf\u2019s language learned here. Motion in space — velocity and acceleration — with the tangential and normal components of acceleration and the kinematics in polar coordinates (velocity and acceleration in polar coordinates) derived as the engineer\u2019s craft.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

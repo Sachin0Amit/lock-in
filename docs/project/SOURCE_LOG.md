@@ -6,6 +6,54 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Topic-inclusion guarantee pass (2026-11-10) — the coverage audit + EXAM_REGISTRY research (owner directive)
+
+- **Zero downloads** (audit-only pass: the survey document IS the extracted
+  evidence; no Drive files needed). The Khattar census's commercial family
+  was routed from its already-extracted TOC (the survey's root-khattar-qa
+  section) into the NEW book #28 'Quantitative Aptitude' — the plan authored
+  from the census + exam research, plans only.
+- **Web-checked this pass (the exam registry research; sources recorded per
+  entry in docs/project/EXAM_REGISTRY.json):** GATE 2026 MA syllabus
+  (gate2026.iitg.ac.in) + the engineering-mathematics sections; GRE
+  quantitative content categories (ets.org); GMAT Focus exam content
+  (mba.com); SAT math domains (satsuite.collegeboard.org); ACT math test
+  (act.org); Pearson Edexcel A-Level Mathematics specification +
+  Cambridge 9709; IB DP mathematics AA/AI SL/HL briefs (ibo.org); AP
+  Calculus AB/BC + AP Statistics topics (apstudents.collegeboard.org via
+  search); Cambridge STEP 2/3 specification; Oxford MAT syllabus
+  (maths.ox.ac.uk); TMUA content specification (uat-wp PDF, Apr 2025);
+  Gaokao mathematics content census; Korean CSAT/Suneung mathematics area
+  (common Math I/II + elective Probability&Statistics/Calculus/Geometry);
+  EJU mathematics syllabus (jasso.go.jp, Course 1/2); CAT quantitative
+  syllabus census; SSC CGL tier-1/2 quantitative aptitude; NDA mathematics
+  syllabus; UPSC CSAT paper-2 scope; UGC NET paper-1 unit 5 + unit 7;
+  CA Foundation paper-3 (icai.org); IIT JAM MA syllabus
+  (jam.iitkgp.ac.in); CUET UG mathematics/applied-mathematics syllabus
+  (cuet.nta.nic.in + the 319 PDF); ISI admission test syllabus page
+  (admission.isical.ac.in); Putnam topic census (math.asu.edu etc.);
+  MAA AMC/AIME/USAMO competition scope; Waterloo CEMC Euclid contest
+  (cemc.uwaterloo.ca); NCEES FE CBT specs (ncees.org, mathematics +
+  probability/statistics sections across disciplines).
+- **New citation keys banked this pass** (the registry's per-entry
+  'researched' fields carry the source note): exam-registry-gate-2026,
+  exam-registry-gre-ets, exam-registry-gmat-focus, exam-registry-sat-cb,
+  exam-registry-act, exam-registry-alevel-pearson-cambridge,
+  exam-registry-ib-dp-math, exam-registry-ap-calculus-stats,
+  exam-registry-step-spec, exam-registry-oxford-mat, exam-registry-tmua,
+  exam-registry-gaokao, exam-registry-korean-csat, exam-registry-eju-jasso,
+  exam-registry-cat-qa, exam-registry-ssc-cgl, exam-registry-nda,
+  exam-registry-upsc-csat, exam-registry-ugcnet-paper1,
+  exam-registry-ca-foundation, exam-registry-iitjam-ma,
+  exam-registry-cuet-ug, exam-registry-isi-admission, exam-registry-putnam,
+  exam-registry-amc-aime-usamo, exam-registry-euclid-cemc,
+  exam-registry-fe-ncees. Carried keys: khattar-qa-4e (the census behind
+  book #28), hall-knight-elementary-algebra (the curated ledger),
+  drive-toc-survey (the audit's evidence base).
+- The coverage audit itself (scripts/verify_topic_coverage.ts) adds no
+  references — it audits the 53 already-banked TOCs against the shelf's
+  own plans.
+
 ## Full-shelf planning pass (2026-11-10) — the 53-source TOC extraction (owner directive)
 
 - Downloaded ONE AT A TIME into temporary-references/pdfs/ and DELETED after

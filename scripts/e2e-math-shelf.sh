@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# e2e-math-shelf.sh — full-shelf planning pass E2E (2026-11-10): the 27-book
+# e2e-math-shelf.sh — full-shelf planning pass E2E (2026-11-10; extended
+# by the topic-inclusion guarantee pass, same day — 28 books incl. QA): the 28-book
 # mathematics shelf renders end-to-end — home shelf census, sampled planned
 # books (Geometry, Coordinate Geometry, Real Analysis, the capstone), the
 # long-synthetic TOC of the biggest book, empty states, 404 integrity,
@@ -13,7 +14,7 @@ TRAP="window.__e2eErrors=[];var _ce=console.error;console.error=function(){windo
 
 agent-browser set viewport 1280 900 >/dev/null 2>&1 || true
 
-echo "== home: the 27-book Mathematics shelf =="
+echo "== home: the 28-book Mathematics shelf =="
 agent-browser open "$BASE/" >/dev/null 2>&1
 agent-browser eval "$TRAP" >/dev/null 2>&1
 agent-browser wait --load networkidle >/dev/null 2>&1 || true
@@ -25,7 +26,7 @@ agent-browser eval "
     var found = 0, missing = [];
     for (var i=0;i<newTitles.length;i++){ if (t.indexOf(newTitles[i])!==-1) found++; else missing.push(newTitles[i]); }
     return JSON.stringify({
-      bookCount: (t.match(/27\s*books?/i) || [null])[0],
+      bookCount: (t.match(/28\s*books?/i) || [null])[0],
       newTitlesFound: found + '/' + newTitles.length,
       missing: missing,
       oldStillThere: t.indexOf('Foundation Mathematics')!==-1 && t.indexOf('Elementary Algebra')!==-1 && t.indexOf('Advanced Algebra')!==-1,
@@ -37,7 +38,7 @@ cat "$OUT/home.json"
 agent-browser screenshot "$OUT/home.png" >/dev/null 2>&1 || true
 
 echo "== sampled planned books: full TOC plans render =="
-for bk in geometry coordinate-geometry real-analysis advanced-mathematical-foundations trigonometry; do
+for bk in geometry coordinate-geometry real-analysis advanced-mathematical-foundations trigonometry quantitative-aptitude advanced-algebra differential-equations; do
   PAGE_JS=$(sed "s/__BOOK_ID__/'$bk'/" /home/z/my-project/scripts/e2e-math-shelf.page.js)
   agent-browser open "$BASE/book/$bk" >/dev/null 2>&1
   agent-browser eval "$TRAP" >/dev/null 2>&1
@@ -75,6 +76,43 @@ agent-browser eval "
   })()
 " > "$OUT/dc-titles.json" 2>&1
 cat "$OUT/dc-titles.json"
+
+echo "== the topic-inclusion guarantee pass spot-checks =="
+agent-browser open "$BASE/book/quantitative-aptitude" >/dev/null 2>&1
+agent-browser eval "$TRAP" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1000 >/dev/null 2>&1 || true
+agent-browser eval "
+  (function(){
+    var t = document.body.textContent;
+    var titles = ['Clocks and Calendars','Data Sufficiency: the Decision Craft','Profit and Loss: Cost, Marked and Selling Price','Races and Games of Skill','The World\u2019s Aptitude Exams: One Arithmetic Family'];
+    var found = titles.filter(function(x){return t.indexOf(x)!==-1;}).length;
+    return JSON.stringify({ qaTitlesFound: found + '/' + titles.length, qaChapters: (t.match(/11 chapters/i) || [null])[0], consoleErrors: (window.__e2eErrors||[]).length });
+  })()
+" > "$OUT/qa-titles.json" 2>&1
+cat "$OUT/qa-titles.json"
+agent-browser open "$BASE/book/advanced-algebra" >/dev/null 2>&1
+agent-browser eval "$TRAP" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1000 >/dev/null 2>&1 || true
+agent-browser eval "
+  (function(){
+    var t = document.body.textContent;
+    return JSON.stringify({ aaPlannedChip: (t.match(/\d+ planned/) || [null])[0], aaLogTables: t.indexOf('Logarithm Tables: Characteristic, Mantissa and Antilogarithm')!==-1, consoleErrors: (window.__e2eErrors||[]).length });
+  })()
+" > "$OUT/aa-check.json" 2>&1
+cat "$OUT/aa-check.json"
+agent-browser open "$BASE/book/differential-equations" >/dev/null 2>&1
+agent-browser eval "$TRAP" >/dev/null 2>&1
+agent-browser wait --load networkidle >/dev/null 2>&1 || true
+agent-browser wait 1000 >/dev/null 2>&1 || true
+agent-browser eval "
+  (function(){
+    var t = document.body.textContent;
+    return JSON.stringify({ deNewChapter: t.indexOf('Systems, the Phase Plane and the Nonlinear World')!==-1, dePredatorPrey: t.indexOf('Predator\u2013Prey and Linked Populations')!==-1, consoleErrors: (window.__e2eErrors||[]).length });
+  })()
+" > "$OUT/de-check.json" 2>&1
+cat "$OUT/de-check.json"
 
 echo "== empty states + 404 integrity on a new book =="
 for p in revise glossary; do

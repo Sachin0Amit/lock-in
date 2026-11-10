@@ -3,7 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (promoted 2026-11-10, run 89) — 10 chapters / 35 planned
+ * STATUS: PLANNED (promoted 2026-11-10, run 89; enriched by the topic-inclusion
+ * guarantee pass, same day) — 10 chapters / 36 planned
  * lessons, zero lessons written yet. Authoring opens at run 90 with chapter 1
  * (lessons 1.1 + 1.2, the two-lessons-per-run cadence); the book flips to
  * 'in-progress' with its first written lesson and to 'complete' only when all
@@ -104,7 +105,7 @@ const chapters: Chapter[] = [
     slug: 'functions-as-objects',
     title: 'Functions as Objects',
     summary:
-      'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. This is the grammar every later chapter speaks.',
+      'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -134,7 +135,7 @@ const chapters: Chapter[] = [
     slug: 'complex-numbers',
     title: 'Complex Numbers: the New Rung',
     summary:
-      'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs.',
+      'Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs. De Moivre’s theorem and the nth roots of unity — the unit circle’s equal spokes — with their properties (primitive roots, the cyclotomic equations) banked as the module’s depth engine.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -162,7 +163,7 @@ const chapters: Chapter[] = [
     slug: 'sequences-and-series',
     title: 'Sequences and Series',
     summary:
-      'Lists with structure become algebra: the arithmetic progression as a constant climb (its nth term, its sum, the means inserted between numbers), the geometric progression as a constant ratio (its sum, and the infinite tail |r| < 1 — the book’s first honest limit, the doorstep Calculus will formalize), then the cousins: the harmonic progression read as reciprocals of a climb, and the arithmetico-geometric progression the JEE syllabus names explicitly. The chapter closes with the special sums Σk, Σk², Σk³ — proved the honest way first (the pairing trick FM 11.2 would recognize), with the method of differences and telescoping as the general craft for series whose terms surrender their middles. The induction certificate for these sums is deliberately deferred to chapter 7, exactly where the classics put it.',
+      'Lists with structure become algebra: the arithmetic progression as a constant climb (its nth term, its sum, the means inserted between numbers), the geometric progression as a constant ratio (its sum, and the infinite tail |r| < 1 — the book’s first honest limit, the doorstep Calculus will formalize), then the cousins: the harmonic progression read as reciprocals of a climb, and the arithmetico-geometric progression the JEE syllabus names explicitly. The chapter closes with the special sums Σk, Σk², Σk³ — proved the honest way first (the pairing trick FM 11.2 would recognize), with the method of differences and telescoping as the general craft for series whose terms surrender their middles. The induction certificate for these sums is deliberately deferred to chapter 7, exactly where the classics put it. Sigma notation for dependent and for independent index variables — the compression every later series argument writes with — named and priced here.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -177,7 +178,7 @@ const chapters: Chapter[] = [
     slug: 'counting-permutations-combinations',
     title: 'Counting: Permutations and Combinations',
     summary:
-      'Algebra’s discrete half: counting as an exact science, the way both the JEE module and Hall & Knight teach it — the fundamental principle first (multiply along a chain of independent choices, add across mutually exclusive alternatives), then the two great counts derived rather than memorized: the permutation as an arrangement (nPr from the chain itself, factorials, arrangements of alike things, the circle), and the combination as a selection (nCr, its symmetry and complement reads, choosing from groups). The chapter closes with the distribution puzzles — words into boxes, people into rooms, at-least and at-most selections — where the two principles interlock and a wrong model is caught by the small-case census. This is the ground Probability inherits, and it is built to be inherited honestly.',
+      'Algebra’s discrete half: counting as an exact science, the way both the JEE module and Hall & Knight teach it — the fundamental principle first (multiply along a chain of independent choices, add across mutually exclusive alternatives), then the two great counts derived rather than memorized: the permutation as an arrangement (nPr from the chain itself, factorials, arrangements of alike things, the circle), and the combination as a selection (nCr, its symmetry and complement reads, choosing from groups). The chapter closes with the distribution puzzles — words into boxes, people into rooms, at-least and at-most selections — where the two principles interlock and a wrong model is caught by the small-case census. Circular permutations — the round table and the necklace — with the clockwise and anticlockwise arrangements priced exactly; the distribution of identical objects and of distinct objects into groups, with and without empty groups allowed; and the properties of nCr (symmetry, absorption, Pascal’s identity) derived, not quoted. This is the ground Probability inherits, and it is built to be inherited honestly.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -192,7 +193,7 @@ const chapters: Chapter[] = [
     slug: 'induction-and-binomial-theorem',
     title: 'Induction and the Binomial Theorem',
     summary:
-      'The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed.',
+      'The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed. The frequently used expansions — (a ± b)², (a ± b)³ and the kin every exam expects by reflex — banked as the chapter’s opening toolkit.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -228,6 +229,7 @@ const chapters: Chapter[] = [
       'The Exponential Family: Every Real Index',
       'Logarithms: the Inverse Machine',
       'Logarithmic and Exponential Equations',
+      'Logarithm Tables: Characteristic, Mantissa and Antilogarithm',
     ],
   },
   {

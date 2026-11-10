@@ -1,8 +1,9 @@
 {
   "target": "50+ major examinations: >=10 Indian, >=20 international; incl. government recruitment, university entrance, professional licensing, olympiads",
-  "status": "skeleton — research not started",
+  "status": "research pass complete (2026-11-10, owner directive: cover the top exams of the world to maximum level, from basic engineering to the world's competitive exams)",
   "updated": "2026-11-10",
-  "howToUse": "One entry per examination. Research from OFFICIAL sources only (syllabus PDFs, conducting-body pages). Fill status research/verified/audited. Then map exams to books/chapters/lessons in coverageMaps.",
+  "howToUse": "One entry per examination. mathUnits carry the mathematics scope researched from official/authoritative sources (research date + source in the 'researched' field). coverageMap lists the shelf books (ids as registered in src/data/library/index.ts) whose planned layouts carry that scope. 'not-applicable' = no mathematics section; 'adjacent' = the shelf serves it as tools or the scope mirrors a researched sibling.",
+  "verification": "scripts/verify_topic_coverage.ts section I re-checks this file: every coverageMap book id exists on the shelf, every math-researched exam carries a coverage map, and the 50+/10-Indian/20-international targets hold.",
   "exams": [
     {
       "id": "jee-main",
@@ -10,7 +11,40 @@
       "region": "India",
       "category": "engineering-entrance",
       "conductor": "NTA",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "units banked run 89 (the 2026 syllabus with the verified 2024 removals of induction/reasoning/LPP/heights-and-distances); NCERT class 11-12 chapters (web-checked 2026-11-10)",
+      "mathSection": "Mathematics (B.E./B.Tech paper, section A+B)",
+      "mathUnits": [
+        "sets/relations/functions (with composition)",
+        "complex numbers and quadratic equations",
+        "matrices and determinants",
+        "permutations and combinations",
+        "binomial theorem",
+        "sequences and series (AM/GM insertion)",
+        "limits/continuity/differentiability, applications of derivatives",
+        "integral calculus (definite + area)",
+        "differential equations",
+        "coordinate geometry (straight lines, circles, conics)",
+        "3D geometry and vectors",
+        "statistics and probability",
+        "trigonometry (identities, equations, inverse functions)"
+      ],
+      "coverageMap": [
+        "foundation-mathematics",
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "advanced-algebra",
+        "geometry",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "linear-algebra",
+        "probability-theory",
+        "statistics",
+        "combinatorics"
+      ]
     },
     {
       "id": "jee-advanced",
@@ -18,7 +52,30 @@
       "region": "India",
       "category": "engineering-entrance",
       "conductor": "IIT (rotating)",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "jeeadv.ac.in 2026 syllabus PDF (8 units); module evidence docs/research/DRIVE_TOC_SURVEY.md (the Cengage M1-M5 census) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics paper 1/2",
+      "mathUnits": [
+        "algebra (theories of quadratic equations, complex numbers incl. cube roots of unity, log, sequences incl. AGP, binomial for any index, P&C",
+        "matrices and probability (determinants, elementary row ops; conditional probability, Bayes, binomial)",
+        "trigonometry (identities, equations, solutions of triangles, inverse functions)",
+        "analytical geometry (2D: lines through two points, angle bisectors, circles, conics incl. homogenization; 3D: distance formulae, direction cosines, planes)",
+        "differential calculus (limits, continuity, differentiability, Rolle/LMVT, tangents, monotonicity, maxima-minima)",
+        "integral calculus (indefinite by parts/partial fractions, definite + properties, areas)",
+        "differential equations (order/degree, variable separable, linear)"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "linear-algebra",
+        "probability-theory",
+        "mathematical-logic",
+        "combinatorics"
+      ]
     },
     {
       "id": "neet-ug",
@@ -26,7 +83,12 @@
       "region": "India",
       "category": "medical-entrance",
       "conductor": "NTA",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — no mathematics section (the biology track's physics/chemistry carry the arithmetic)",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": [],
+      "note": "kept in the registry for completeness; the mathematics shelf has no NEET scope"
     },
     {
       "id": "upsc-cse",
@@ -34,7 +96,21 @@
       "region": "India",
       "category": "civil-service",
       "conductor": "UPSC",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "CSAT paper 2 scope (comprehension, logical reasoning and analytical ability, general mental ability, basic numeracy, data interpretation; basic-numeracy topic census) (web-checked 2026-11-10)",
+      "mathSection": "CSAT Paper 2 (qualifying, 33%)",
+      "mathUnits": [
+        "basic numeracy: HCF/LCM, ratio and proportion, mixture and alligation, time-speed-distance, time and work, averages, percentages",
+        "data interpretation (charts, graphs, tables)",
+        "logical reasoning and general mental ability (number series, codes — Mathematical Logic's ground)"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "foundation-mathematics",
+        "arithmetic-and-number-systems",
+        "statistics",
+        "mathematical-logic"
+      ]
     },
     {
       "id": "gate",
@@ -42,7 +118,28 @@
       "region": "India",
       "category": "pg-entrance-engineering",
       "conductor": "IISc/IITs",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "gate2026.iitg.ac.in MA syllabus PDF + the common engineering-mathematics sections (linear algebra/calculus/differential equations/probability) (web-checked 2026-11-10)",
+      "mathSection": "Engineering Mathematics section (XE-A) + MA paper",
+      "mathUnits": [
+        "linear algebra: matrix algebra, systems of linear equations, eigenvalues/eigenvectors, LU decomposition",
+        "calculus: limits, continuity, partial derivatives, maxima-minima, multiple integrals, line/surface integrals",
+        "differential equations: linear ODEs, initial-value problems, Laplace transforms, PDE basics",
+        "probability and statistics: distributions, expectation, variance, estimation",
+        "numerical methods: roots, integration, ODE solvers"
+      ],
+      "coverageMap": [
+        "linear-algebra",
+        "differential-calculus",
+        "multivariable-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "mathematical-methods-for-engineering",
+        "probability-theory",
+        "statistics",
+        "numerical-analysis"
+      ],
+      "note": "the GATE MA (Mathematics) paper additionally maps the real analysis / abstract algebra / topology / complex analysis spines — the shelf's university pole"
     },
     {
       "id": "ugc-net",
@@ -50,7 +147,19 @@
       "region": "India",
       "category": "pg-fellowship",
       "conductor": "NTA",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "paper 1 units: V mathematical reasoning and aptitude (number series, letter series, codes, relationships), VII data interpretation (web-checked 2026-11-10)",
+      "mathSection": "Paper 1 (teaching/research aptitude, common)",
+      "mathUnits": [
+        "mathematical reasoning: number series, letter series, codes and coding-decoding, relationships",
+        "data interpretation: tables, charts, graphs",
+        "basic arithmetic aptitude"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "mathematical-logic",
+        "statistics"
+      ]
     },
     {
       "id": "cuet-ug",
@@ -58,7 +167,30 @@
       "region": "India",
       "category": "university-entrance",
       "conductor": "NTA",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "cuet.nta.nic.in 2026 syllabus; Mathematics (319/319 Applied Mathematics PDF: algebra/calculus units) (web-checked 2026-11-10)",
+      "mathSection": "Section II Domain: Mathematics / Applied Mathematics",
+      "mathUnits": [
+        "algebra: matrices, determinants, linear equations",
+        "calculus: continuity and differentiability, chain rule, inverse-trig derivatives, integration and applications, differential equations",
+        "numbers/quantification: LCM/HCF, surds, logarithms, sets and relations, functions",
+        "geometry: straight lines, circles, conics",
+        "statistics and probability",
+        "trigonometry",
+        "applied-math register (index numbers, time series, financial math incl. interest and annuities, EMI)"
+      ],
+      "coverageMap": [
+        "linear-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "advanced-algebra",
+        "coordinate-geometry",
+        "trigonometry",
+        "statistics",
+        "probability-theory",
+        "quantitative-aptitude"
+      ]
     },
     {
       "id": "cuet-pg",
@@ -66,7 +198,11 @@
       "region": "India",
       "category": "university-entrance",
       "conductor": "NTA",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — discipline-specific papers; no common mathematics section (the UG exit level is the shelf's CUET scope)",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "cat",
@@ -74,7 +210,28 @@
       "region": "India",
       "category": "management-entrance",
       "conductor": "IIMs",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "the QA syllabus census (arithmetic-dominant: arithmetic, algebra, geometry and mensuration, number system, modern math; 22 questions/40 minutes) (web-checked 2026-11-10)",
+      "mathSection": "Quantitative Ability section",
+      "mathUnits": [
+        "arithmetic: percentages, profit-loss, interest, ratio, time-work, time-speed-distance, mixtures — the commercial family",
+        "algebra: equations, functions, logarithms, progressions, inequalities, maxima-minima",
+        "geometry and mensuration: triangles, circles, polygons, 3D solids",
+        "number system: divisibility, remainders, HCF/LCM, factors",
+        "modern math: P&C, probability, set theory, functions and graphs, number series"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "elementary-algebra",
+        "advanced-algebra",
+        "geometry",
+        "trigonometry",
+        "arithmetic-and-number-systems",
+        "combinatorics",
+        "probability-theory",
+        "set-theory",
+        "statistics"
+      ]
     },
     {
       "id": "clat",
@@ -82,7 +239,19 @@
       "region": "India",
       "category": "law-entrance",
       "conductor": "Consortium of NLUs",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the Quantitative Techniques section is class-10 level arithmetic + data interpretation (the shelf's FM/ANS/QA register)",
+      "mathSection": "Quantitative Techniques section",
+      "mathUnits": [
+        "class-10 arithmetic",
+        "data interpretation"
+      ],
+      "coverageMap": [
+        "foundation-mathematics",
+        "quantitative-aptitude",
+        "statistics"
+      ],
+      "note": "not separately web-checked this pass; the class-10 scope note is recorded honestly"
     },
     {
       "id": "nda",
@@ -90,7 +259,30 @@
       "region": "India",
       "category": "defence-entrance",
       "conductor": "UPSC",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "the official mathematics syllabus census (algebra, matrices and determinants, trigonometry, geometry, calculus, vector algebra, statistics and probability) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics paper (300 marks)",
+      "mathUnits": [
+        "algebra (sets, Venn, relations, complex numbers, quadratics, binomial, log)",
+        "matrices and determinants",
+        "trigonometry (ratios, identities, inverse, heights and distances, properties of triangles)",
+        "analytical geometry (2D and 3D)",
+        "differential calculus + applications",
+        "integral calculus + differential equations",
+        "vector algebra",
+        "statistics and probability"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "linear-algebra",
+        "trigonometry",
+        "coordinate-geometry",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "probability-theory",
+        "statistics"
+      ]
     },
     {
       "id": "cds",
@@ -98,7 +290,24 @@
       "region": "India",
       "category": "defence-entrance",
       "conductor": "UPSC",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the Elementary Mathematics paper mirrors the NDA scope (arithmetic, algebra, trigonometry, geometry, mensuration, statistics); not separately web-checked this pass",
+      "mathSection": "Elementary Mathematics paper",
+      "mathUnits": [
+        "arithmetic",
+        "algebra",
+        "trigonometry",
+        "geometry and mensuration",
+        "statistics"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "elementary-algebra",
+        "advanced-algebra",
+        "trigonometry",
+        "geometry",
+        "statistics"
+      ]
     },
     {
       "id": "ssc-cgl",
@@ -106,7 +315,26 @@
       "region": "India",
       "category": "govt-recruitment",
       "conductor": "SSC",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "the tier-1/tier-2 quantitative aptitude syllabus (computation of whole numbers, decimals, fractions, relationships between numbers, profit and loss, discount...) (web-checked 2026-11-10)",
+      "mathSection": "Quantitative Aptitude (tier 1 + tier 2 paper 1)",
+      "mathUnits": [
+        "computation of whole numbers, decimals, fractions, ratio and proportion, percentage",
+        "profit and loss, discount, interest",
+        "time and work, time-speed-distance, mixtures and alligation",
+        "algebra (equations, surds, polynomials), geometry and mensuration",
+        "trigonometry, number system",
+        "data interpretation"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "foundation-mathematics",
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "geometry",
+        "trigonometry",
+        "statistics"
+      ]
     },
     {
       "id": "ibps-po",
@@ -114,7 +342,21 @@
       "region": "India",
       "category": "banking",
       "conductor": "IBPS",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the banking aptitude census (Khattar QA's stated audience: Bank/LIC/Railways/SSC): simplification, approximation, number series, quadratic equations, arithmetic word problems, data interpretation and data sufficiency",
+      "mathSection": "Quantitative Aptitude section",
+      "mathUnits": [
+        "simplification and approximation",
+        "number series",
+        "quadratic equations",
+        "the arithmetic word-problem family",
+        "data interpretation and sufficiency"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "advanced-algebra",
+        "statistics"
+      ]
     },
     {
       "id": "sbi-po",
@@ -122,7 +364,17 @@
       "region": "India",
       "category": "banking",
       "conductor": "SBI",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the same banking aptitude census as IBPS PO (not separately web-checked this pass)",
+      "mathSection": "Quantitative Aptitude section",
+      "mathUnits": [
+        "the IBPS-family census",
+        "data interpretation"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "statistics"
+      ]
     },
     {
       "id": "state-pscs",
@@ -130,7 +382,19 @@
       "region": "India",
       "category": "civil-service",
       "conductor": "state PSCs",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — aptitude/prelims papers ride the CSAT scope (basic numeracy + data interpretation)",
+      "mathSection": "aptitude papers (varies by state)",
+      "mathUnits": [
+        "basic numeracy",
+        "data interpretation",
+        "reasoning"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "statistics",
+        "mathematical-logic"
+      ]
     },
     {
       "id": "viteee",
@@ -138,15 +402,145 @@
       "region": "India",
       "category": "engineering-entrance",
       "conductor": "VIT",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the NCERT class 11/12 base (the JEE Main units minus the deepest layers); not separately web-checked this pass",
+      "mathSection": "Mathematics section",
+      "mathUnits": [
+        "the JEE Main unit base at NCERT depth"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "probability-theory",
+        "statistics"
+      ]
+    },
+    {
+      "id": "state-cets",
+      "name": "State CETs (WBJEE / MHT-CET / KCET / COMEDK and kin)",
+      "region": "India",
+      "category": "engineering-entrance",
+      "conductor": "state bodies",
+      "status": "adjacent",
+      "researched": "2026-11-10 — the NCERT class 11/12 base with state-specific weightings (the JEE Main units minus the advanced tail); honest note: not separately web-checked this pass",
+      "mathSection": "Mathematics paper",
+      "mathUnits": [
+        "the NCERT 11/12 base",
+        "calculus and coordinate geometry typically heaviest"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "probability-theory",
+        "statistics"
+      ]
+    },
+    {
+      "id": "iit-jam-math",
+      "name": "IIT JAM (Mathematics MA)",
+      "region": "India",
+      "category": "pg-entrance-mathematics",
+      "conductor": "IITs (rotating)",
+      "status": "researched",
+      "researched": "jam.iitkgp.ac.in MA syllabus PDF (real analysis; multivariable calculus and differential equations; linear algebra and algebra) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics (MA) paper",
+      "mathUnits": [
+        "real analysis: sequences and series of real numbers, functions of one real variable (continuity, differentiability, Riemann integration)",
+        "multivariable calculus and differential equations: partial derivatives, maxima-minima, double/triple integrals, vector calculus, linear ODEs",
+        "linear algebra and algebra: finite-dimensional vector spaces, matrices, eigenvalues, Cayley-Hamilton; groups, subgroups, cyclic/Lagrange basics"
+      ],
+      "coverageMap": [
+        "real-analysis",
+        "multivariable-calculus",
+        "differential-equations",
+        "linear-algebra",
+        "abstract-algebra"
+      ]
+    },
+    {
+      "id": "ca-foundation",
+      "name": "CA Foundation (Paper 3: Quantitative Aptitude)",
+      "region": "India",
+      "category": "professional-qualification",
+      "conductor": "ICAI",
+      "status": "researched",
+      "researched": "icai.org Foundation course paper-3 contents (Part A business mathematics, Part B logical reasoning, Part C statistics) (web-checked 2026-11-10)",
+      "mathSection": "Paper 3: Business Mathematics, Logical Reasoning and Statistics",
+      "mathUnits": [
+        "business mathematics: ratio and proportion, indices, logarithms; equations (linear and quadratic); linear inequalities; simple and compound interest, time value of money, annuities, EMI; permutations and combinations, probability, set theory and functions",
+        "logical reasoning: number series, coding and decoding",
+        "statistics: central tendency, dispersion, correlation, probability distributions, index numbers"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "elementary-algebra",
+        "advanced-algebra",
+        "combinatorics",
+        "probability-theory",
+        "statistics",
+        "mathematical-logic"
+      ]
+    },
+    {
+      "id": "isi-admission",
+      "name": "ISI Admission Test (B.Stat / B.Math)",
+      "region": "India",
+      "category": "university-entrance-mathematics",
+      "conductor": "ISI (Kolkata/Bangalore)",
+      "status": "researched",
+      "researched": "admission.isical.ac.in syllabus/sample-questions page — algebra, geometry, trigonometry and calculus at the IIT-plus level, with the CMI entrance sharing this ground (web-checked 2026-11-10)",
+      "mathSection": "Mathematics paper (UGA)",
+      "mathUnits": [
+        "algebra at olympiad-adjacent depth (polynomials, inequalities)",
+        "geometry (synthetic + coordinate)",
+        "trigonometry",
+        "calculus (limits, derivatives, integrals)",
+        "number theory and combinatorics at the serious-problem level"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "geometry",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "number-theory",
+        "combinatorics"
+      ],
+      "note": "the CMI entrance rides the same scope — the olympiad craft census in Combinatorics ch. 6 and Number Theory's harder ground"
     },
     {
       "id": "sat",
-      "name": "SAT",
+      "name": "SAT (digital)",
       "region": "International",
       "category": "university-entrance",
       "conductor": "College Board",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "satsuite.collegeboard.org math section (algebra; advanced math; problem-solving and data analysis; geometry and trigonometry) (web-checked 2026-11-10)",
+      "mathSection": "Math section (two adaptive modules)",
+      "mathUnits": [
+        "algebra (linear equations and systems, linear functions)",
+        "advanced math (nonlinear equations/functions, quadratics, exponentials)",
+        "problem-solving and data analysis (ratios, percentages, statistics, probability)",
+        "geometry and trigonometry"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "geometry",
+        "trigonometry",
+        "statistics",
+        "probability-theory",
+        "quantitative-aptitude"
+      ]
     },
     {
       "id": "act",
@@ -154,47 +548,204 @@
       "region": "International",
       "category": "university-entrance",
       "conductor": "ACT Inc.",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "act.org math-test description (preparing for higher math: algebra, functions, geometry, statistics and probability, number and quantity) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics test (60 questions)",
+      "mathUnits": [
+        "number and quantity (real and complex numbers, vectors, matrices)",
+        "algebra and functions",
+        "geometry (incl. trigonometric ratios)",
+        "statistics and probability",
+        "integration of skills (modeling)"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "linear-algebra",
+        "geometry",
+        "trigonometry",
+        "statistics",
+        "probability-theory"
+      ]
     },
     {
       "id": "ap",
-      "name": "Advanced Placement (subject exams)",
+      "name": "Advanced Placement (Calculus AB/BC, Statistics)",
       "region": "International",
       "category": "school-leaving",
       "conductor": "College Board",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "AP Calculus BC course topics (limits, derivatives, integrals, differential equations, series; parametric/polar/vector) + AP Statistics scope (web-checked 2026-11-10)",
+      "mathSection": "AP Calculus AB/BC; AP Statistics",
+      "mathUnits": [
+        "limits and continuity",
+        "differentiation + applications (motion, optimization)",
+        "integration + applications",
+        "differential equations (incl. logistic)",
+        "series (convergence, Taylor/Maclaurin, radius)",
+        "parametric, polar and vector functions",
+        "statistics: exploratory data analysis, sampling, confidence, tests"
+      ],
+      "coverageMap": [
+        "differential-calculus",
+        "integral-calculus",
+        "multivariable-calculus",
+        "differential-equations",
+        "real-analysis",
+        "statistics"
+      ]
     },
     {
       "id": "ib",
-      "name": "International Baccalaureate (HL/SL)",
+      "name": "International Baccalaureate (AA/AI, SL/HL)",
       "region": "International",
       "category": "school-leaving",
       "conductor": "IBO",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "ibo.org DP mathematics courses (AA and AI, SL/HL subject briefs: number and algebra, functions, geometry and trigonometry, statistics and probability, calculus) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics AA or AI (SL/HL)",
+      "mathUnits": [
+        "number and algebra (exponents, logs, sequences, binomial; AA HL: complex numbers, proof)",
+        "functions (families, transformations, inverses, composition)",
+        "geometry and trigonometry (circle theorems, sine/cosine rules, identities; vectors at HL)",
+        "statistics and probability (descriptive statistics, distributions, hypothesis testing)",
+        "calculus (limits, derivatives, integrals, differential equations, series at AA HL)"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "elementary-algebra",
+        "geometry",
+        "trigonometry",
+        "coordinate-geometry",
+        "statistics",
+        "probability-theory",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "real-analysis"
+      ]
     },
     {
       "id": "a-levels",
-      "name": "Cambridge International A Levels",
+      "name": "Cambridge/Edexcel A-Level Mathematics (and Further)",
       "region": "International",
       "category": "school-leaving",
-      "conductor": "Cambridge",
-      "status": "unresearched"
+      "conductor": "Cambridge/Pearson",
+      "status": "researched",
+      "researched": "Pearson Edexcel A-Level Mathematics specification topic list + Cambridge 9709 pure 2/3 scope (web-checked 2026-11-10)",
+      "mathSection": "Pure Mathematics 1-4 (+ Mechanics, Statistics)",
+      "mathUnits": [
+        "proof, algebra and functions (incl. modulus, partial fractions, composite/inverse, transformations)",
+        "coordinate geometry",
+        "sequences and series",
+        "trigonometry (identities, equations, reciprocal/inverse, double-angle)",
+        "exponentials and logarithms",
+        "differentiation + applications (chain/product/quotient, implicit, parametric)",
+        "integration + applications (substitution, parts, partial fractions, numerical methods, differential equations)",
+        "vectors",
+        "statistics: sampling, distributions, hypothesis testing",
+        "mechanics: kinematics, Newton, moments",
+        "Further pure: complex numbers, matrices, further calculus, polar coordinates, hyperbolics, differential equations"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "coordinate-geometry",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "differential-equations",
+        "linear-algebra",
+        "complex-analysis",
+        "statistics",
+        "probability-theory",
+        "numerical-analysis"
+      ]
     },
     {
       "id": "igcse",
-      "name": "IGCSE",
+      "name": "IGCSE / O-Level Mathematics (Extended)",
       "region": "International",
       "category": "school-leaving",
       "conductor": "Cambridge/Edexcel",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — the pre-A-Level base (number, algebra, geometry, trigonometry, statistics, probability at the Extended level); not separately web-checked this pass",
+      "mathSection": "Mathematics (Extended 0580)",
+      "mathUnits": [
+        "number and arithmetic",
+        "algebra",
+        "geometry and mensuration",
+        "trigonometry",
+        "statistics and probability"
+      ],
+      "coverageMap": [
+        "foundation-mathematics",
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "geometry",
+        "trigonometry",
+        "statistics"
+      ]
     },
     {
       "id": "gaokao",
-      "name": "Gaokao",
+      "name": "Gaokao (national college entrance examination)",
       "region": "China",
       "category": "university-entrance",
       "conductor": "Ministry of Education",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "the standard content census (functions and derivatives, trigonometric functions, sequences, solid geometry, analytic geometry, probability and statistics, inequalities) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics (science/humanities tracks)",
+      "mathUnits": [
+        "sets and logic",
+        "functions (monotonicity, parity, transformations) and derivatives",
+        "trigonometric functions and triangle solutions",
+        "sequences (AP/GP and recursion)",
+        "inequalities (linear, quadratic, AM-GM)",
+        "solid geometry (space lines/planes, vectors)",
+        "analytic geometry (lines, circles, conics at depth)",
+        "counting, probability and statistics",
+        "complex numbers and vectors"
+      ],
+      "coverageMap": [
+        "set-theory",
+        "mathematical-logic",
+        "advanced-algebra",
+        "trigonometry",
+        "coordinate-geometry",
+        "geometry",
+        "differential-calculus",
+        "combinatorics",
+        "probability-theory",
+        "statistics",
+        "linear-algebra"
+      ]
+    },
+    {
+      "id": "korean-csat",
+      "name": "Korean CSAT (Suneung) Mathematics",
+      "region": "Korea",
+      "category": "university-entrance",
+      "conductor": "KICE",
+      "status": "researched",
+      "researched": "the Suneung mathematics area census (common Mathematics I + II; elective: Probability and Statistics / Calculus / Geometry) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics area (30 questions)",
+      "mathUnits": [
+        "Math I: exponentials/logs, trigonometric functions, sequences",
+        "Math II: limits of sequences/continuity, polynomial calculus, limits/derivatives of exponential-log-trig functions",
+        "elective Calculus: integrals, applications",
+        "elective Probability and Statistics: probability, statistics",
+        "elective Geometry: analytic geometry, vectors in space"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "trigonometry",
+        "differential-calculus",
+        "integral-calculus",
+        "coordinate-geometry",
+        "probability-theory",
+        "statistics"
+      ]
     },
     {
       "id": "eju",
@@ -202,23 +753,77 @@
       "region": "Japan",
       "category": "university-entrance",
       "conductor": "JASSO",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "jasso.go.jp mathematics syllabus (Course 1 topics 1-7; Course 2 all 20) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics (Course 1 / Course 2)",
+      "mathUnits": [
+        "Course 1: expressions and calculation, sets and propositions, quadratic functions and graphs, trigonometric ratios, plane/3D geometry",
+        "Course 2 adds: various expressions (complex numbers, polynomials), sequences and series, vectors, the calculus family (differentiation/integration incl. applications and extensions), linear programming, probability and statistics, complex planes"
+      ],
+      "coverageMap": [
+        "set-theory",
+        "mathematical-logic",
+        "advanced-algebra",
+        "trigonometry",
+        "geometry",
+        "coordinate-geometry",
+        "linear-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "optimization-and-operations-research",
+        "probability-theory",
+        "statistics",
+        "complex-analysis"
+      ]
     },
     {
       "id": "gre",
-      "name": "GRE",
+      "name": "GRE General Test",
       "region": "International",
       "category": "pg-entrance",
       "conductor": "ETS",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "ets.org GRE quantitative reasoning content (arithmetic, algebra, geometry, data analysis categories) (web-checked 2026-11-10)",
+      "mathSection": "Quantitative Reasoning (2 sections)",
+      "mathUnits": [
+        "arithmetic: integers, divisibility, factorization, primes, remainders, fractions, ratio, percents",
+        "algebra: expressions, equations, inequalities, functions, graphs, word problems, quadratics, coordinate",
+        "geometry: parallel/perpendicular lines, triangles (incl. special), circles, polygons, 3D solids, area/perimeter/volume",
+        "data analysis: descriptive statistics, counting methods, probability, interpretation of tables/graphs"
+      ],
+      "coverageMap": [
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "advanced-algebra",
+        "geometry",
+        "coordinate-geometry",
+        "statistics",
+        "probability-theory",
+        "combinatorics",
+        "quantitative-aptitude"
+      ]
     },
     {
       "id": "gmat",
-      "name": "GMAT",
+      "name": "GMAT (Focus Edition)",
       "region": "International",
       "category": "management-entrance",
       "conductor": "GMAC",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "mba.com exam content (quantitative reasoning: 21 problem-solving questions on arithmetic and algebra; the two-statement data-sufficiency format lives in the Data Insights section) (web-checked 2026-11-10)",
+      "mathSection": "Quantitative Reasoning + Data Insights",
+      "mathUnits": [
+        "arithmetic (numbers, ratios, percents, rates)",
+        "algebra (equations, inequalities, functions)",
+        "word problems at business register",
+        "data sufficiency (in Data Insights) + graph/table/DS-style reasoning"
+      ],
+      "coverageMap": [
+        "quantitative-aptitude",
+        "elementary-algebra",
+        "advanced-algebra",
+        "statistics"
+      ]
     },
     {
       "id": "lsat",
@@ -226,7 +831,11 @@
       "region": "International",
       "category": "law-entrance",
       "conductor": "LSAC",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — analytical reasoning and logic, not mathematics (no quantitative section)",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "mcat",
@@ -234,7 +843,11 @@
       "region": "International",
       "category": "medical-entrance",
       "conductor": "AAMC",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — no mathematics section (chem/phys/bio carry the arithmetic)",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "ucat",
@@ -242,7 +855,11 @@
       "region": "UK/AU/NZ",
       "category": "medical-entrance",
       "conductor": "UCAT Consortium",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — no mathematics section (verbal/decision/situational reasoning)",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "ielts",
@@ -250,7 +867,11 @@
       "region": "International",
       "category": "language",
       "conductor": "British Council/IDP/Cambridge",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "toefl",
@@ -258,7 +879,11 @@
       "region": "International",
       "category": "language",
       "conductor": "ETS",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "jlpt",
@@ -266,7 +891,11 @@
       "region": "Japan",
       "category": "language",
       "conductor": "JEES",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "goethe",
@@ -274,7 +903,11 @@
       "region": "Germany",
       "category": "language",
       "conductor": "Goethe-Institut",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "delf-dalf",
@@ -282,7 +915,11 @@
       "region": "France",
       "category": "language",
       "conductor": "CIEP",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "dele",
@@ -290,7 +927,11 @@
       "region": "Spain",
       "category": "language",
       "conductor": "Instituto Cervantes",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "hsk",
@@ -298,7 +939,11 @@
       "region": "China",
       "category": "language",
       "conductor": "Chinese Testing International",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "topik",
@@ -306,7 +951,11 @@
       "region": "Korea",
       "category": "language",
       "conductor": "NIIED",
-      "status": "unresearched"
+      "status": "not-applicable",
+      "researched": "2026-11-10 — language examination",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": []
     },
     {
       "id": "imo",
@@ -314,7 +963,205 @@
       "region": "International",
       "category": "olympiad",
       "conductor": "IMO Foundation",
-      "status": "unresearched"
+      "status": "researched",
+      "researched": "the standard subject classification (algebra, combinatorics, geometry, number theory — the L6 problem craft; olympiad arc mapped in the full-shelf planning pass) (web-checked 2026-11-10)",
+      "mathSection": "6-problem, 2-day paper",
+      "mathUnits": [
+        "algebra (functional equations, inequalities, polynomials)",
+        "combinatorics (counting, extremal, Ramsey-style)",
+        "geometry (synthetic, the L1-L6 ladder)",
+        "number theory (divisibility, congruences, orders)"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "combinatorics",
+        "geometry",
+        "number-theory",
+        "real-analysis",
+        "trigonometry",
+        "mathematical-logic"
+      ]
+    },
+    {
+      "id": "amc-aime-usamo",
+      "name": "AMC 10/12 → AIME → USAMO/USAJMO (the MAA ladder)",
+      "region": "USA",
+      "category": "olympiad",
+      "conductor": "MAA",
+      "status": "researched",
+      "researched": "MAA competition census (pre-calculus scope: algebra, geometry, number theory, combinatorics; AIME adds probability; USAMO full proofs across the four) (web-checked 2026-11-10)",
+      "mathSection": "AMC 25-question / AIME 15 / USAMO 2-day proofs",
+      "mathUnits": [
+        "algebra (incl. complex numbers, polynomials)",
+        "geometry (Ptolemy and the classical census)",
+        "number theory",
+        "combinatorics and probability",
+        "USAMO-proof craft"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "geometry",
+        "number-theory",
+        "combinatorics",
+        "probability-theory",
+        "real-analysis"
+      ]
+    },
+    {
+      "id": "putnam",
+      "name": "William Lowell Putnam Mathematical Competition",
+      "region": "USA/Canada",
+      "category": "olympiad",
+      "conductor": "MAA",
+      "status": "researched",
+      "researched": "the Putnam topic census (geometry, algebra, trigonometry, calculus, linear algebra, combinatorics, probability, number theory, complex numbers — undergraduate problem-solving) (web-checked 2026-11-10)",
+      "mathSection": "12-problem, 2-session paper",
+      "mathUnits": [
+        "calculus and real analysis at problem depth",
+        "algebra and linear algebra",
+        "combinatorics and probability",
+        "number theory",
+        "complex numbers and geometry"
+      ],
+      "coverageMap": [
+        "real-analysis",
+        "differential-calculus",
+        "integral-calculus",
+        "linear-algebra",
+        "abstract-algebra",
+        "combinatorics",
+        "probability-theory",
+        "number-theory",
+        "complex-analysis",
+        "geometry"
+      ]
+    },
+    {
+      "id": "euclid",
+      "name": "Euclid Contest (CEMC, Waterloo)",
+      "region": "Canada/International",
+      "category": "olympiad",
+      "conductor": "University of Waterloo CEMC",
+      "status": "researched",
+      "researched": "cemc.uwaterloo.ca contest page (senior secondary: algebra, number theory, geometry, logic at grade-12 depth, short-answer + full-solution) (web-checked 2026-11-10)",
+      "mathSection": "2.5-hour paper",
+      "mathUnits": [
+        "algebra",
+        "number theory",
+        "geometry",
+        "logic and problem-solving craft"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "number-theory",
+        "geometry",
+        "mathematical-logic"
+      ]
+    },
+    {
+      "id": "step",
+      "name": "Cambridge STEP (II and III)",
+      "region": "UK",
+      "category": "university-entrance-mathematics",
+      "conductor": "Cambridge Assessment Admissions",
+      "status": "researched",
+      "researched": "the STEP 2/3 specification census (pure: polynomials, advanced algebra, calculus incl. advanced differentiation/integration, complex numbers, trigonometric identities, series expansions, probability; plus mechanics) (web-checked 2026-11-10)",
+      "mathSection": "3-hour paper each (12 questions)",
+      "mathUnits": [
+        "advanced algebra (incl. inequalities, series, binomial)",
+        "advanced calculus (differentiation/integration at STEP depth)",
+        "complex numbers",
+        "trigonometric identities",
+        "probability",
+        "mechanics"
+      ],
+      "coverageMap": [
+        "advanced-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "complex-analysis",
+        "trigonometry",
+        "probability-theory",
+        "real-analysis"
+      ]
+    },
+    {
+      "id": "oxford-mat",
+      "name": "Oxford MAT (Mathematics Admissions Test)",
+      "region": "UK",
+      "category": "university-entrance-mathematics",
+      "conductor": "University of Oxford",
+      "status": "researched",
+      "researched": "maths.ox.ac.uk MAT syllabus (polynomials, algebra, differentiation, integration, graphs, logarithms and powers, transformations, geometry) (web-checked 2026-11-10)",
+      "mathSection": "2.5-hour paper (multiple-choice + long)",
+      "mathUnits": [
+        "polynomials (quadratic formula, division, factor theorem)",
+        "algebra: simultaneous equations, inequalities, binomial",
+        "differentiation and integration",
+        "graphs and transformations",
+        "logarithms and powers",
+        "geometry (2D/trig)"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "trigonometry",
+        "geometry",
+        "coordinate-geometry"
+      ]
+    },
+    {
+      "id": "tmua",
+      "name": "TMUA (Test of Mathematics for University Admission)",
+      "region": "UK",
+      "category": "university-entrance-mathematics",
+      "conductor": "UAT/Cambridge",
+      "status": "researched",
+      "researched": "the TMUA content specification PDF (A-Level mathematics base + GCSE; two 75-minute papers of 20 MCQ; paper 2 stresses the logic of argument) (web-checked 2026-11-10)",
+      "mathSection": "Paper 1 + Paper 2",
+      "mathUnits": [
+        "A-Level pure base (algebra, functions, calculus, trigonometry, series, exponentials/logs, vectors)",
+        "proof and the logic of argument (paper 2: identifying conclusions, necessary/sufficient conditions)",
+        "GCSE geometry and statistics base"
+      ],
+      "coverageMap": [
+        "elementary-algebra",
+        "advanced-algebra",
+        "differential-calculus",
+        "integral-calculus",
+        "trigonometry",
+        "coordinate-geometry",
+        "mathematical-logic",
+        "statistics"
+      ]
+    },
+    {
+      "id": "fe-ncees",
+      "name": "FE (Fundamentals of Engineering) exam",
+      "region": "USA",
+      "category": "professional-licensing",
+      "conductor": "NCEES",
+      "status": "researched",
+      "researched": "ncees.org FE CBT specs (the mathematics + probability and statistics sections across disciplines: algebra, trig, calculus, linear algebra, differential equations; probability distributions, estimation, regression) (web-checked 2026-11-10)",
+      "mathSection": "Mathematics + Probability and Statistics sections (all discipline specs)",
+      "mathUnits": [
+        "engineering mathematics: algebra, trigonometry, exponential/logarithmic functions, analytic geometry, calculus (single + partial), linear algebra, differential equations, numerical methods",
+        "probability and statistics: distributions, estimation, confidence, regression, curve fitting"
+      ],
+      "coverageMap": [
+        "mathematical-methods-for-engineering",
+        "differential-calculus",
+        "integral-calculus",
+        "multivariable-calculus",
+        "differential-equations",
+        "linear-algebra",
+        "numerical-analysis",
+        "probability-theory",
+        "statistics"
+      ]
     },
     {
       "id": "ipho",
@@ -322,7 +1169,18 @@
       "region": "International",
       "category": "olympiad",
       "conductor": "IPhO",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — physics; the mathematics shelf (calculus, vectors, differential equations) is the tool chest",
+      "mathSection": "-",
+      "mathUnits": [
+        "the calculus/vector shelf as tools"
+      ],
+      "coverageMap": [
+        "differential-calculus",
+        "integral-calculus",
+        "multivariable-calculus",
+        "differential-equations"
+      ]
     },
     {
       "id": "icho",
@@ -330,7 +1188,14 @@
       "region": "International",
       "category": "olympiad",
       "conductor": "IChO",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — chemistry; arithmetic/algebra as tools",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": [
+        "foundation-mathematics",
+        "elementary-algebra"
+      ]
     },
     {
       "id": "ibio",
@@ -338,7 +1203,13 @@
       "region": "International",
       "category": "olympiad",
       "conductor": "IBO",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — biology; statistics as tools",
+      "mathSection": "-",
+      "mathUnits": [],
+      "coverageMap": [
+        "statistics"
+      ]
     },
     {
       "id": "ioi",
@@ -346,7 +1217,17 @@
       "region": "International",
       "category": "olympiad",
       "conductor": "IOI",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — computer science; the Discrete Mathematics + Combinatorics ground is the closest shelf neighbour",
+      "mathSection": "-",
+      "mathUnits": [
+        "algorithmic thinking, graphs, counting"
+      ],
+      "coverageMap": [
+        "discrete-mathematics",
+        "combinatorics",
+        "mathematical-logic"
+      ]
     },
     {
       "id": "ntse-inspire",
@@ -354,9 +1235,431 @@
       "region": "India",
       "category": "olympiad",
       "conductor": "NCERT/DST",
-      "status": "unresearched"
+      "status": "adjacent",
+      "researched": "2026-11-10 — NTSE's MAT/SAT papers carry school-level mathematical aptitude; INSIPRE-SHE rides board marks (no separate math paper)",
+      "mathSection": "MAT/SAT (NTSE)",
+      "mathUnits": [
+        "school-level mathematical aptitude",
+        "NCERT class 10 base"
+      ],
+      "coverageMap": [
+        "foundation-mathematics",
+        "arithmetic-and-number-systems",
+        "elementary-algebra",
+        "geometry",
+        "statistics"
+      ]
     }
   ],
-  "coverageMaps": [],
-  "note": "The 2026-11-10 full-shelf planning pass mapped the mathematics shelf's exam-relevant scope per book (JEE Main units incl. the verified 2024 removals of induction/reasoning/LPP; NCERT class 9-12 chapters; GATE/IIT-JAM university poles; olympiad L6 craft; the Cengage exercise typology census in docs/research/DRIVE_TOC_SURVEY.md). Per-examination research (status fields below) is still its own pending workflow."
+  "coverageMaps": [
+    {
+      "book": "quantitative-aptitude",
+      "serves": [
+        "cat",
+        "ssc-cgl",
+        "ibps-po",
+        "sbi-po",
+        "upsc-cse",
+        "ca-foundation",
+        "cuet-ug",
+        "gre",
+        "gmat",
+        "sat",
+        "clat",
+        "cds",
+        "state-pscs",
+        "ugc-net"
+      ]
+    },
+    {
+      "book": "foundation-mathematics",
+      "serves": [
+        "jee-main",
+        "cuet-ug",
+        "sat",
+        "act",
+        "ssc-cgl",
+        "upsc-cse",
+        "igcse",
+        "ntse-inspire"
+      ]
+    },
+    {
+      "book": "arithmetic-and-number-systems",
+      "serves": [
+        "jee-main",
+        "cat",
+        "gre",
+        "ssc-cgl",
+        "sat",
+        "igcse",
+        "ntse-inspire"
+      ]
+    },
+    {
+      "book": "elementary-algebra",
+      "serves": [
+        "jee-main",
+        "cat",
+        "gre",
+        "sat",
+        "act",
+        "cuet-ug",
+        "nda",
+        "oxford-mat",
+        "tmua",
+        "igcse",
+        "amc-aime-usamo"
+      ]
+    },
+    {
+      "book": "advanced-algebra",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "cat",
+        "gre",
+        "gmat",
+        "sat",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "nda",
+        "cuet-ug",
+        "oxford-mat",
+        "step",
+        "tmua",
+        "imo",
+        "amc-aime-usamo",
+        "putnam",
+        "euclid",
+        "isi-admission"
+      ]
+    },
+    {
+      "book": "geometry",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "cat",
+        "gre",
+        "sat",
+        "act",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "nda",
+        "ssc-cgl",
+        "igcse",
+        "imo",
+        "amc-aime-usamo",
+        "putnam",
+        "euclid",
+        "isi-admission",
+        "oxford-mat"
+      ]
+    },
+    {
+      "book": "coordinate-geometry",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "nda",
+        "a-levels",
+        "ib",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "gre",
+        "oxford-mat",
+        "tmua",
+        "isi-admission"
+      ]
+    },
+    {
+      "book": "trigonometry",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "nda",
+        "a-levels",
+        "ib",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "sat",
+        "act",
+        "step",
+        "tmua",
+        "putnam",
+        "isi-admission",
+        "ssc-cgl",
+        "clat"
+      ]
+    },
+    {
+      "book": "differential-calculus",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gate",
+        "cuet-ug",
+        "nda",
+        "ap",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "oxford-mat",
+        "step",
+        "tmua",
+        "putnam",
+        "fe-ncees"
+      ]
+    },
+    {
+      "book": "integral-calculus",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gate",
+        "cuet-ug",
+        "nda",
+        "ap",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "oxford-mat",
+        "step",
+        "tmua",
+        "putnam",
+        "fe-ncees"
+      ]
+    },
+    {
+      "book": "multivariable-calculus",
+      "serves": [
+        "gate",
+        "iit-jam-math",
+        "fe-ncees",
+        "ipho"
+      ]
+    },
+    {
+      "book": "differential-equations",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gate",
+        "cuet-ug",
+        "nda",
+        "ap",
+        "ib",
+        "a-levels",
+        "iit-jam-math",
+        "fe-ncees",
+        "ipho"
+      ]
+    },
+    {
+      "book": "linear-algebra",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gate",
+        "cuet-ug",
+        "nda",
+        "iit-jam-math",
+        "act",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "putnam",
+        "fe-ncees"
+      ]
+    },
+    {
+      "book": "discrete-mathematics",
+      "serves": [
+        "ioi",
+        "ugc-net",
+        "gaokao"
+      ]
+    },
+    {
+      "book": "number-theory",
+      "serves": [
+        "imo",
+        "amc-aime-usamo",
+        "putnam",
+        "euclid",
+        "isi-admission",
+        "gre"
+      ]
+    },
+    {
+      "book": "set-theory",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gaokao",
+        "eju",
+        "cat",
+        "cuet-ug"
+      ]
+    },
+    {
+      "book": "mathematical-logic",
+      "serves": [
+        "jee-advanced",
+        "ugc-net",
+        "gaokao",
+        "eju",
+        "tmua",
+        "upsc-cse",
+        "state-pscs",
+        "euclid",
+        "ioi"
+      ]
+    },
+    {
+      "book": "combinatorics",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "cat",
+        "gre",
+        "gmat",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "eju",
+        "imo",
+        "amc-aime-usamo",
+        "putnam",
+        "isi-admission",
+        "ioi",
+        "ca-foundation"
+      ]
+    },
+    {
+      "book": "probability-theory",
+      "serves": [
+        "jee-main",
+        "jee-advanced",
+        "gate",
+        "cat",
+        "gre",
+        "sat",
+        "act",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "nda",
+        "cuet-ug",
+        "step",
+        "amc-aime-usamo",
+        "putnam",
+        "fe-ncees",
+        "ca-foundation"
+      ]
+    },
+    {
+      "book": "statistics",
+      "serves": [
+        "jee-main",
+        "gate",
+        "cat",
+        "gre",
+        "sat",
+        "act",
+        "ib",
+        "a-levels",
+        "gaokao",
+        "korean-csat",
+        "eju",
+        "nda",
+        "cuet-ug",
+        "upsc-cse",
+        "ssc-cgl",
+        "ugc-net",
+        "clat",
+        "ca-foundation",
+        "fe-ncees",
+        "ibio"
+      ]
+    },
+    {
+      "book": "real-analysis",
+      "serves": [
+        "iit-jam-math",
+        "putnam",
+        "step",
+        "imo",
+        "ib",
+        "ap"
+      ]
+    },
+    {
+      "book": "complex-analysis",
+      "serves": [
+        "a-levels",
+        "eju",
+        "step",
+        "amc-aime-usamo",
+        "putnam",
+        "iit-jam-math"
+      ]
+    },
+    {
+      "book": "abstract-algebra",
+      "serves": [
+        "iit-jam-math",
+        "putnam"
+      ]
+    },
+    {
+      "book": "topology",
+      "serves": [
+        "iit-jam-math"
+      ]
+    },
+    {
+      "book": "numerical-analysis",
+      "serves": [
+        "gate",
+        "fe-ncees",
+        "a-levels"
+      ]
+    },
+    {
+      "book": "mathematical-methods-for-engineering",
+      "serves": [
+        "gate",
+        "fe-ncees"
+      ]
+    },
+    {
+      "book": "optimization-and-operations-research",
+      "serves": [
+        "eju"
+      ]
+    },
+    {
+      "book": "advanced-mathematical-foundations",
+      "serves": [
+        "iit-jam-math",
+        "putnam",
+        "step",
+        "isi-admission"
+      ]
+    }
+  ],
+  "note": "The topic-inclusion guarantee pass (2026-11-10) researched and filled this registry: the 53-source Drive TOC audit (scripts/verify_topic_coverage.ts, 1876 topic entries, zero hard gaps) guarantees every surveyed topic is included in its respective shelf book; this registry maps the shelf to the world's examinations exam-by-exam, book-by-book."
 }

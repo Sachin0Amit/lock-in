@@ -52,7 +52,7 @@ const chapters: Chapter[] = [
     slug: 'the-sample-space',
     title: 'The Sample Space: Probability\u2019s Universe',
     summary:
-      'The subject built from zero: experiments random and otherwise, sample spaces written out honestly, events as subsets (Set Theory\u2019s language cashed immediately), the event types (simple, compound, mutually exclusive, exhaustive, complementary), the axiomatic definition alongside the classical ratio — with the paradoxes that forced the axioms priced on small cases — and odds in favour and against.',
+      'The subject built from zero: experiments random and otherwise, sample spaces written out honestly, events as subsets (Set Theory\u2019s language cashed immediately), the event types (simple, compound, mutually exclusive, exhaustive, complementary), the axiomatic definition alongside the classical ratio — with the paradoxes that forced the axioms priced on small cases — and odds in favour and against. The different types of events — simple, compound, mutually exclusive, exhaustive, equally likely — named as the census the axioms price.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

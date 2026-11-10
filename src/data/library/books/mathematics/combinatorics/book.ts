@@ -63,7 +63,7 @@ const chapters: Chapter[] = [
     slug: 'the-binomial-machine',
     title: 'The Binomial Machine',
     summary:
-      'The binomial coefficients as objects of study: Pascal\u2019s recurrence proved combinatorially, the identity cascade (Vandermonde, the absorption identity, sums by diagonal and by column, alternating sums — each proved BOTH algebraically and by story), the multinomial coefficients, inclusion-exclusion at full depth (derangements, surjection counts, the Euler phi connection cross-referenced to Number Theory), and counting with repetition (the stars-and-bars census in all its cases).',
+      'The binomial coefficients as objects of study: Pascal\u2019s recurrence proved combinatorially, the identity cascade (Vandermonde, the absorption identity, sums by diagonal and by column, alternating sums — each proved BOTH algebraically and by story), the multinomial coefficients, inclusion-exclusion at full depth (derangements, surjection counts, the Euler phi connection cross-referenced to Number Theory), and counting with repetition (the stars-and-bars census in all its cases). The binomial coefficients and their identities — Vandermonde’s convolution and its kin — derived as THE machine, not a side exhibit.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

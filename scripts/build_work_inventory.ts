@@ -81,8 +81,20 @@ const driveTotalMB = driveFiles.reduce((a, i) => a + parseSizeMB(i.size), 0)
 let examRegistry: any = { status: 'file unreadable', entries: 0 }
 try {
   const reg: any = await Bun.file(`${ROOT}/docs/project/EXAM_REGISTRY.json`).json()
-  const entries = Array.isArray(reg) ? reg.length : Array.isArray(reg.exams) ? reg.exams.length : Object.keys(reg).length
-  examRegistry = { status: 'skeleton created — entry shells only, none researched yet', entries }
+  const exams = Array.isArray(reg.exams) ? reg.exams : []
+  const entries = exams.length
+  const researched = exams.filter((e: any) => e.status === 'researched').length
+  const notApplicable = exams.filter((e: any) => e.status === 'not-applicable').length
+  const adjacent = exams.filter((e: any) => e.status === 'adjacent').length
+  const india = exams.filter((e: any) => e.region === 'India').length
+  const intl = exams.filter((e: any) => e.region !== 'India').length
+  examRegistry = {
+    status: researched > 0
+      ? `research pass complete (2026-11-10 topic-inclusion guarantee pass): ${researched} researched with mathUnits + coverage maps, ${adjacent} adjacent, ${notApplicable} not-applicable`
+      : 'skeleton created — entry shells only, none researched yet',
+    entries, researched, adjacent, notApplicable, india, intl,
+    gate: 'scripts/verify_topic_coverage.ts section I (standing gate — must stay green on every ship)',
+  }
 } catch { /* keep default */ }
 
 /* ------------------------------------------------------------------ */
@@ -296,7 +308,7 @@ const inventory = {
   ],
   content: {
     disciplinesPlanned: 11,
-    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Mathematics is FULLY PLANNED as of the 2026-11-10 full-shelf planning pass (owner directive: all 27 mathematics books live — 3 complete, 24 planned incl. Advanced Algebra and the 23 promoted this pass; 254 titles remain in the backlog).',
+    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Mathematics is FULLY PLANNED as of the 2026-11-10 full-shelf planning pass + topic-inclusion guarantee pass (owner directives: all 28 mathematics books live — 3 complete, 25 planned incl. Advanced Algebra, the 23 promoted, and Quantitative Aptitude; the topic audit scripts/verify_topic_coverage.ts is a standing gate; 254 titles remain in the backlog).',
     booksLive: allLiveBooks.length,
     books: bookRecords,
   },

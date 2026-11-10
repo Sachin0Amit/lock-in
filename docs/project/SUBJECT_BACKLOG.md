@@ -8,19 +8,19 @@ empty shells just to inflate the shelf.
 Order of work: research-first, one book at a time (default: Mathematics
 shelf top-to-bottom, since its first book is already in progress).
 
-## Mathematics (27 books) — THE FULL SHELF IS PLANNED
+## Mathematics (28 books) — THE FULL SHELF IS PLANNED (audited)
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
 2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
 3. Elementary Algebra ← **COMPLETE (run 88, 2026-11-10: 11/11 chapters, 37 lessons, 171,460 words — the book closed with 11.3 'The Function Idea: the Doorstep' + the unit-11 review + the BOOK CLOSE flip; run 89 opens book #4's research phase)**
-4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/35-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2)**
+4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/36-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2; the 36th lesson (ch. 9 log tables) added by the topic-inclusion guarantee pass, 2026-11-10)**
 5–27. The remaining twenty-three books ← **PLANNED (full-shelf planning pass, 2026-11-10, owner directive — every book's research phase executed in one pass: the Drive's mathematics collection downloaded book-by-book, ALL 53 tables of contents extracted (vision-model transcription for the 44 scanned sources), web syllabus audits (NCERT class 9–12 lists, JEE Main 2026 units incl. the 2024 removals, classic university arcs), each book promoted to `src/data/library/books/mathematics/<slug>/book.ts` with its complete researched chapter/lesson layout, status 'planned'; the evidence base is `docs/research/DRIVE_TOC_SURVEY.md`)**:
    5. Geometry (11 ch / 38 lessons, `geo-`)
    6. Coordinate Geometry (13 / 46, `cg-` — M3 + M5 modules)
-   7. Trigonometry (8 / 29, `tr-` — M1 module + Loney)
+   7. Trigonometry (8 / 31, `tr-` — M1 module + Loney; +the quadrilaterals/regular-polygons lesson from the audit pass)
    8. Differential Calculus (9 / 32, `dc-` — M4 ch. 2–6 + Thomas/Stewart)
    9. Integral Calculus (6 / 22, `ic-` — M4 ch. 7–9 + Thomas)
    10. Multivariable Calculus (6 / 20, `mc-` — Thomas/Stewart multivariable)
-   11. Differential Equations (6 / 21, `de-` — M4 ch. 10 + Kreyszig)
+   11. Differential Equations (7 / 26, `de-` — M4 ch. 10 + Kreyszig; +the systems/phase-plane chapter from the audit pass)
    12. Linear Algebra (8 / 28, `la-` — M2 ch. 12–13 + Strang/Axler/Lay)
    13. Discrete Mathematics (9 / 30, `dm-` — Rosen 8e)
    14. Number Theory (10 / 34, `nt-` — Burton arc, web-researched)
@@ -37,11 +37,16 @@ shelf top-to-bottom, since its first book is already in progress).
    25. Mathematical Methods for Engineering (8 / 26, `em-` — Kreyszig)
    26. Optimization and Operations Research (8 / 26, `or-` — Hillier)
    27. Advanced Mathematical Foundations (7 / 22, `af-` — the capstone)
+28. Quantitative Aptitude ← **PLANNED (topic-inclusion guarantee pass, 2026-11-10, owner directive: 'make sure that all the topics or TOC of research drive survey must be included in their respective books... cover all the top exams of the world to maximum level') — the Khattar aptitude census's commercial family (profit and loss, discounts, interest, stocks/shares, partnership, alligation, ages, time-and-work, pipes and cisterns, time-speed-distance with trains/boats/races, clocks and calendars, number series, weighted averages, mensuration at exam speed, data sufficiency) had NO home on the shelf; book #28 created (11 ch / 39 planned lessons, `qa-` prefix reserved, status 'planned') with the no-duplication contract in its header (FM/ANS/AA/Geometry/Statistics/Logic cross-referenced); the world-exam register for CAT/SSC CGL/IBPS/SBI/CSAT/CA Foundation/GMAT/SAT/GRE quant — see docs/project/EXAM_REGISTRY.json)**
 
-**Authoring order is unchanged** (the planning pass wrote zero lessons): one
-book at a time — Advanced Algebra authoring opens run 90; the 23 planned
-books follow in backlog order as each predecessor completes. Lesson-id
-prefixes for all 23 verified unused against the 120 written lesson ids.
+**Authoring order is unchanged** (the planning and audit passes wrote zero
+lessons): one book at a time — Advanced Algebra authoring opens run 90; the
+24 planned books follow in backlog order as each predecessor completes.
+Lesson-id prefixes for all 24 verified unused against the 120 written lesson
+ids. **The topic-inclusion guarantee (2026-11-10): `scripts/verify_topic_coverage.ts`
+audits all 1,876 topic entries of the Drive survey against the shelf — zero
+missing topics; the same gate re-checks EXAM_REGISTRY.json (56 exams, researched
+with coverage maps).**
 
 ## Physics (20)
 Foundation · Mechanics · Properties of Matter · Waves and Oscillations ·

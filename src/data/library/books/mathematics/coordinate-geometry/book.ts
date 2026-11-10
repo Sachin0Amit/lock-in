@@ -53,7 +53,7 @@ const chapters: Chapter[] = [
     slug: 'the-coordinate-system',
     title: 'The Coordinate System and the Locus Idea',
     summary:
-      'Elementary Algebra\u2019s graphs become a precise instrument: the rectangular axes, transformation of axes, the distance formula and the area of a polygon, the section formula (internal and external), the centres of a triangle (centroid, circumcentre, orthocentre, incentre, excentres), slope, polar coordinates, and the locus — the curve as the set of points that satisfy a condition, its equation found by elimination. Every formula proved, not quoted; Geometry\u2019s figures now carry addresses.',
+      'Elementary Algebra\u2019s graphs become a precise instrument: the rectangular axes, transformation of axes, the distance formula and the area of a polygon, the section formula (internal and external), the centres of a triangle (centroid, circumcentre, orthocentre, incentre, excentres), slope, polar coordinates, and the locus — the curve as the set of points that satisfy a condition, its equation found by elimination. Every formula proved, not quoted; Geometry\u2019s figures now carry addresses. The section formula priced once for internal division and once for external — the one machine behind every centre-of-gravity and ratio-point problem.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -98,7 +98,7 @@ const chapters: Chapter[] = [
     slug: 'the-circle',
     title: 'The Circle',
     summary:
-      'Geometry\u2019s most symmetric figure, now computed: centre-radius and general forms, circles touching the axes, three-point circles, the parametric form, position of a point, line\u2013circle intersections, the tangent and normal in all their forms, the pair of tangents, chord of contact, director circle, and the two-circle theory — radical axis, radical centre, and every contact case priced. Geometry\u2019s chapter-6 theorems cross-referenced wherever the algebra leans on them.',
+      'Geometry\u2019s most symmetric figure, now computed: centre-radius and general forms, circles touching the axes, three-point circles, the parametric form, position of a point, line\u2013circle intersections, the tangent and normal in all their forms, the pair of tangents, chord of contact, director circle, and the two-circle theory — radical axis, radical centre, and every contact case priced. Geometry\u2019s chapter-6 theorems cross-referenced wherever the algebra leans on them. The secant of a circle — the chord’s limiting shadow — named so tangent theory never floats free of its parent.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -183,7 +183,7 @@ const chapters: Chapter[] = [
     slug: 'vector-algebra',
     title: 'Vector Algebra: Arrows with Rules',
     summary:
-      'The vector as a quantity with magnitude and direction: position vectors, types, addition (the parallelogram law), components, scalar multiplication, the vector joining two points, the section formula in vectors, the bisector vector, linear combinations, and the honest ground of linear dependence and independence — the idea Linear Algebra will generalize. Drawn as arrows, computed as triples.',
+      'The vector as a quantity with magnitude and direction: position vectors, types, addition (the parallelogram law), components, scalar multiplication, the vector joining two points, the section formula in vectors, the bisector vector, linear combinations, and the honest ground of linear dependence and independence — the idea Linear Algebra will generalize. Drawn as arrows, computed as triples. Linearly dependent and independent vector sets priced on triples with the collinearity/planarity verdicts that follow.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -197,7 +197,7 @@ const chapters: Chapter[] = [
     slug: 'the-products-of-vectors',
     title: 'The Products of Vectors',
     summary:
-      'The three products that make vectors an instrument: the dot product (physical and geometric meaning, properties, angle work and projections), the cross product (area meaning, the moment of force, properties), the scalar triple product (coplanarity and the volume of a tetrahedron) and the vector triple product with Lagrange\u2019s identity. The module\u2019s deepest chapter — and the shelf\u2019s cleanest bridge into physics.',
+      'The three products that make vectors an instrument: the dot product (physical and geometric meaning, properties, angle work and projections), the cross product (area meaning, the moment of force, properties), the scalar triple product (coplanarity and the volume of a tetrahedron) and the vector triple product with Lagrange\u2019s identity. The module\u2019s deepest chapter — and the shelf\u2019s cleanest bridge into physics. The geometrical interpretation of the scalar product — the projected-length reading — derived first, so work, angles and projections share one spine.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -211,7 +211,7 @@ const chapters: Chapter[] = [
     slug: 'lines-and-planes-in-space',
     title: 'Lines and Planes in Space',
     summary:
-      'The JEE unit-5 heartland: equations of a line (through a point along a vector; through two points), the angle between two lines, points on lines, the shortest distance between lines — skew lines included — and every form of the plane\u2019s equation (normal, three-point, through a point parallel to two vectors, intercept), line\u2013plane and plane\u2013plane angles, distances of points from planes, and the family of planes. Chapter 9\u2019s direction cosines and chapter 11\u2019s products doing all the work.',
+      'The JEE unit-5 heartland: equations of a line (through a point along a vector; through two points), the angle between two lines, points on lines, the shortest distance between lines — skew lines included — and every form of the plane\u2019s equation (normal, three-point, through a point parallel to two vectors, intercept), line\u2013plane and plane\u2013plane angles, distances of points from planes, and the family of planes. Chapter 9\u2019s direction cosines and chapter 11\u2019s products doing all the work. The regular tetrahedron — its height, its symmetric product identities — the shelf\u2019s flagship 3D solid, priced exactly.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

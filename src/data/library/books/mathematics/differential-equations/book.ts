@@ -3,8 +3,9 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Differential Equations — the eleventh book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 6 chapters /
- * 22 planned lessons, zero written. Lesson ids will use the `de-` prefix
+ * STATUS: PLANNED (full-shelf planning pass, 2026-11-10; enriched by the
+ * topic-inclusion guarantee pass, same day) — 7 chapters /
+ * 26 planned lessons, zero written. Lesson ids will use the `de-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Integral Calculus's closing
@@ -82,7 +83,7 @@ const chapters: Chapter[] = [
     slug: 'modeling-with-first-order-equations',
     title: 'Modeling with First-Order Equations',
     summary:
-      'The stories become models: exponential growth and decay (Advanced Algebra\u2019s narrative cashed), Newton\u2019s law of cooling, mixing problems, population dynamics with the logistic equation, orthogonal trajectories (the family-perpendicular craft), and existence-and-uniqueness stated honestly — when a first pass at solving is guaranteed to be the only pass.',
+      'The stories become models: exponential growth and decay (Advanced Algebra\u2019s narrative cashed), Newton\u2019s law of cooling, mixing problems, population dynamics with the logistic equation, orthogonal trajectories (the family-perpendicular craft), isogonal trajectories — the constant-angle cousin, the same craft at a tilt — and existence-and-uniqueness stated honestly — when a first pass at solving is guaranteed to be the only pass.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -97,7 +98,7 @@ const chapters: Chapter[] = [
     slug: 'second-order-linear-equations',
     title: 'Second-Order Linear Equations',
     summary:
-      'The engineering heartland: the homogeneous linear equation with constant coefficients and its characteristic equation (the three cases — distinct real, repeated, complex — each derived), the solution-structure theory (superposition and linear independence), nonhomogeneous equations by undetermined coefficients and variation of parameters, and variable-coefficient cases solvable by known tricks. Kreyszig\u2019s arc, taught with every case derived.',
+      'The engineering heartland: the homogeneous linear equation with constant coefficients and its characteristic equation (the three cases — distinct real, repeated, complex — each derived), the solution-structure theory (superposition and linear independence), nonhomogeneous equations by undetermined coefficients and variation of parameters, and variable-coefficient cases solvable by known tricks. Kreyszig\u2019s arc, taught with every case derived. The nonhomogeneous ODEs owned as the chapter’s spine — every method priced on the right-hand side’s census, from polynomials through exponentials and resonant sines to the product forms.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -112,7 +113,7 @@ const chapters: Chapter[] = [
     slug: 'the-spring-and-the-circuit',
     title: 'The Spring and the Circuit',
     summary:
-      'The second-order models that built engineering: the mass-spring system (free, damped, forced oscillation; resonance read honestly), the RLC circuit as its electrical twin, and the theory\u2019s vocabulary — amplitude, phase, transient and steady state — priced on engineered constants so every number is recomputed, per house discipline.',
+      'The second-order models that built engineering: the mass-spring system (free, damped, forced oscillation; resonance read honestly), the RLC circuit as its electrical twin, and the theory\u2019s vocabulary — amplitude, phase, transient and steady state — priced on engineered constants so every number is recomputed, per house discipline. Forcing by short impulses — Dirac\u2019s delta function — named here as the limit idea, cashed formally by the Laplace transform in Mathematical Methods for Engineering.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -123,6 +124,21 @@ const chapters: Chapter[] = [
   },
   {
     number: 6,
+    slug: 'systems-and-the-phase-plane',
+    title: 'Systems, the Phase Plane and the Nonlinear World',
+    summary:
+      'Two equations coupled: systems of first-order ODEs, the vector form X\u2032 = AX and the eigenvalue route to the solution pair; the phase plane — trajectories, critical points, and the stability criteria that classify them (nodes, saddles, spirals, centres); qualitative methods for nonlinear systems (linearization about the critical points, the pendulum read honestly); and the linked-population models — predator\u2013prey systems and their cycles, competition and cooperation — Kreyszig’s systems arc, the ground Mathematical Methods for Engineering generalizes to matrices at engineering speed. The spring chapter’s single second-order equation re-read here as a pair, one state at a time.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'Systems of First-Order Equations: the Vector X\u2032 = AX',
+      'The Phase Plane: Critical Points and their Stability',
+      'Qualitative Methods for Nonlinear Systems',
+      'Predator\u2013Prey and Linked Populations',
+    ],
+  },
+  {
+    number: 7,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:

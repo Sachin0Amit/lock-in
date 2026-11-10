@@ -67,7 +67,7 @@ const chapters: Chapter[] = [
     slug: 'odes-for-engineers',
     title: 'ODEs for Engineers: the Model Shelf',
     summary:
-      'Differential Equations\u2019 shelf recalled at engineer\u2019s speed in one lesson, then the new ground: systems of ODEs and the matrix-exponential solution route (Linear Algebra\u2019s eigen-engine cashed on the spring-circuit family), series solutions and the special functions engineering meets by name (Bessel and Legendre introduced honestly at working depth), and the boundary-value problems the beam and the heat pipe actually pose.',
+      'Differential Equations\u2019 shelf recalled at engineer\u2019s speed in one lesson, then the new ground: systems of ODEs and the matrix-exponential solution route (Linear Algebra\u2019s eigen-engine cashed on the spring-circuit family), series solutions and the special functions engineering meets by name (Bessel and Legendre introduced honestly at working depth), and the boundary-value problems the beam and the heat pipe actually pose. Differential operators named as the compact notation, and the first stability literacy — the phase-plane qualitative methods with the criteria for critical points and stability (the ground Differential Equations’s systems chapter owns; used here at engineering speed).',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -97,7 +97,7 @@ const chapters: Chapter[] = [
     slug: 'fourier-series',
     title: 'Fourier Series: the Periodic World',
     summary:
-      'Trigonometry\u2019s periodic family as an expansion basis: the orthogonality relations PROVED (the integrals that make everything work), the Fourier coefficients derived for engineered periodic signals (with the convergence question stated honestly — Real Analysis\u2019s uniform chapter holding the full story), even and odd shortcuts, half-range expansions, and the parseval identity proved and used (the energy reading), closing with the Fourier transform and the DFT/FFT named with their computational career.',
+      'Trigonometry\u2019s periodic family as an expansion basis: the orthogonality relations PROVED (the integrals that make everything work), the Fourier coefficients derived for engineered periodic signals (with the convergence question stated honestly — Real Analysis\u2019s uniform chapter holding the full story), even and odd shortcuts, half-range expansions, and the parseval identity proved and used (the energy reading), closing with the Fourier transform and the DFT/FFT named with their computational career. The Fourier cosine and sine transforms — the half-line transforms the heat and signal problems live on — named with the table of transforms as the working engineer’s memory.',
     status: 'planned',
     lessons: [],
     plannedLessons: [
@@ -112,7 +112,7 @@ const chapters: Chapter[] = [
     slug: 'partial-differential-equations',
     title: 'The Classic PDEs',
     summary:
-      'The two-variable frontier: what a PDE is (the modeling census — wave, heat, Laplace, each derived from its physics honestly), separation of variables WORKED end-to-end on the vibrating string and the heat bar (the Fourier series of chapter 4 appearing as the natural expansion — the subject\u2019s famous symbiosis), boundary and initial conditions disciplined, d\u2019Alembert\u2019s travelling-wave solution derived, the Laplace equation met in its rectangle and disc (the polar separation and the Bessel preview), and the Sturm\u2013Liouville idea named.',
+      'The two-variable frontier: what a PDE is (the modeling census — wave, heat, Laplace, each derived from its physics honestly), separation of variables WORKED end-to-end on the vibrating string and the heat bar (the Fourier series of chapter 4 appearing as the natural expansion — the subject\u2019s famous symbiosis), boundary and initial conditions disciplined, d\u2019Alembert\u2019s travelling-wave solution derived, the Laplace equation met in its rectangle and disc (the polar separation and the Bessel preview), and the Sturm\u2013Liouville idea named. Laplace\u2019s equation in cylindrical and spherical coordinates — the potential problems of the cylinder and the sphere — and the Laplacian in polar coordinates: the circular membrane and its Fourier–Bessel series, with orthogonal functions and the eigenvalue spine stated at working depth.',
     status: 'planned',
     lessons: [],
     plannedLessons: [

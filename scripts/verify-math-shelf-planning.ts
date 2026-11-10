@@ -1,9 +1,10 @@
 /**
  * verify-math-shelf-planning.ts — the full-shelf planning pass gate
- * (2026-11-10, owner directive). Checks the 23 newly planned books + the
- * 4 earlier books as one shelf:
+ * (2026-11-10, owner directive; extended by the topic-inclusion guarantee
+ * pass, same day: + the Quantitative Aptitude book, the Khattar census's
+ * home). Checks the shelf as one structure:
  *
- *  A. all 27 books load; statuses: 3 complete + 24 planned (AA + 23)
+ *  A. all 28 books load; statuses: 3 complete + 25 planned (AA + 24)
  *  B. per-book chapter + planned-lesson counts printed (the honest census
  *     the docs must match — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
@@ -28,17 +29,17 @@ const ok = (cond: boolean, label: string) => {
   if (cond) { pass++ } else { fail++; console.error(`  FAIL: ${label}`) }
 }
 
-const NEW_PREFIXES = ['geo-', 'cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', 'dm-', 'nt-', 'st-', 'ml-', 'co-', 'pr-', 'stat-', 'ra-', 'ca-', 'ab-', 'top-', 'na-', 'em-', 'or-', 'af-']
-const NEW_IDS = ['geometry', 'coordinate-geometry', 'trigonometry', 'differential-calculus', 'integral-calculus', 'multivariable-calculus', 'differential-equations', 'linear-algebra', 'discrete-mathematics', 'number-theory', 'set-theory', 'mathematical-logic', 'combinatorics', 'probability-theory', 'statistics', 'real-analysis', 'complex-analysis', 'abstract-algebra', 'topology', 'numerical-analysis', 'mathematical-methods-for-engineering', 'optimization-and-operations-research', 'advanced-mathematical-foundations']
+const NEW_PREFIXES = ['geo-', 'cg-', 'tr-', 'dc-', 'ic-', 'mc-', 'de-', 'la-', 'dm-', 'nt-', 'st-', 'ml-', 'co-', 'pr-', 'stat-', 'ra-', 'ca-', 'ab-', 'top-', 'na-', 'em-', 'or-', 'af-', 'qa-']
+const NEW_IDS = ['geometry', 'coordinate-geometry', 'trigonometry', 'differential-calculus', 'integral-calculus', 'multivariable-calculus', 'differential-equations', 'linear-algebra', 'discrete-mathematics', 'number-theory', 'set-theory', 'mathematical-logic', 'combinatorics', 'probability-theory', 'statistics', 'real-analysis', 'complex-analysis', 'abstract-algebra', 'topology', 'numerical-analysis', 'mathematical-methods-for-engineering', 'optimization-and-operations-research', 'advanced-mathematical-foundations', 'quantitative-aptitude']
 
 console.log('== A. shelf load & statuses ==')
-ok(allBooks.length === 27, `27 books (got ${allBooks.length})`)
+ok(allBooks.length === 28, `28 books (got ${allBooks.length})`)
 const math = allBooks.filter((b) => b.discipline === 'mathematics')
-ok(math.length === 27, `27 mathematics books (got ${math.length})`)
+ok(math.length === 28, `28 mathematics books (got ${math.length})`)
 const complete = math.filter((b) => b.status === 'complete')
 const planned = math.filter((b) => b.status === 'planned')
 ok(complete.length === 3, `3 complete (got ${complete.length})`)
-ok(planned.length === 24, `24 planned (got ${planned.length})`)
+ok(planned.length === 25, `25 planned (got ${planned.length})`)
 
 console.log('== B. the honest census (per book) ==')
 const census: Record<string, { chapters: number; plannedLessons: number }> = {}
