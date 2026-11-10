@@ -10,7 +10,7 @@ Every work session appends one entry at the top. Format:
 
 **Zero downloads** (the banked keys carried the run: hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, euclid-elements-ii4, khattar-qa-4e, cengage-jee-style; no reference working copies to delete). **Chapter 11 NOT closed** — 11.3 'The Function Idea: the Doorstep' + the unit-11 review + the BOOK CLOSE ride run 88. **Book stands at 36 lessons / 164,937 words, 10 complete chapters of 11 and the eleventh open 2/3; library 119 lessons.**
 
-**Git:** ship commit 'AL ch.11 opens: word problems pipeline + competition algebra (11.1 + 11.2, run 87)'. **Push:** the PAT was NOT present in this run's turn (the delivery was a plain continuation message with no cron payload embedded) — the push could not be performed; the commit stays local, and per the standing push protocol the next scheduled fire (whose payload re-embeds the PAT) or the owner pushes all unpushed commits on main. Logged here without any token value, as always.
+**Git:** ship commit `aa2dadd` ('AL ch.11 opens: word problems pipeline + competition algebra (11.1 + 11.2, run 87)', 16 files, 2,696 insertions). **Push:** the PAT was NOT present in this run's turn (the delivery was a plain continuation message with no cron payload embedded) — the push could not be performed; `aa2dadd` sits on top of the already-pushed `aaf09bf`/`d5f005b` and stays local, and per the standing push protocol the next scheduled fire (whose payload re-embeds the PAT) or the owner pushes all unpushed commits on main. Logged here without any token value, as always.
 
 ---
 
