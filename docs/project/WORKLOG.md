@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-10 — RUN 89: push verification recorded — remote main = local HEAD eb96f6b (ls-remote via one-time URL: refs/heads/main = eb96f6b3ca951a6be9c7d377f3bd03f410537386; the PAT was present in this run's payload, the push carried this run's ship eb96f6b — remote advanced 0b49515..eb96f6b, run 88's memory commit 0b49515 already sitting on the remote; origin kept as the SSH remote; the PAT never written to any file, config, log or commit — the push output was masked before display; the synced sha recorded in RESUME_POINTER.json lastPush)
+
+---
+
 ## 2026-11-10 — RUN 89 (day window of job 516929's v4 hybrid cadence, fired on a continuation turn carrying the full LOCKIN RUN payload with the PAT re-embedded): **BOOK #4 'ADVANCED ALGEBRA' PROMOTED** — research phase complete (reference survey + syllabus audit + the 10-chapter/35-lesson plan); the fourth spine on the Mathematics shelf; ZERO lesson authoring this run per the one-book-at-a-time separation rule (run 88 closed Elementary Algebra; a closing run never opens the next book — this is the separation rule in action, exactly as the run-66 precedent shaped it)
 
 **Step 0 (tree reconciliation):** `git status --porcelain` clean at run open at the run-88 ship commit `20f6b69` (= remote-verified HEAD per the run-88 push-verification entry); no `.figure_upgrade_lock`, no uncommitted sibling figure changes (the :15 visual job stays disabled at the gateway). Dev server ALIVE at run open (route 200) — but it DIED mid-run (twice; the sandbox reaped it between invocations, and a bare `nohup`/`setsid` restart did not survive either), so the final gates re-adopted the restart-inside-the-same-invocation pattern (server + routes + E2E in one invocation): all green in that single invocation.
