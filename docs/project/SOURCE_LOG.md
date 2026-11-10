@@ -6,6 +6,36 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 88 (2026-11-10) — AL ch. 11 CLOSES + the BOOK CLOSE (11.3 + the unit-11 review)
+
+- Zero downloads, ONE new key banked (web-checked this run):
+  `ncert-math11-ch2-functions` — NCERT Class 11 Mathematics, ch. 2
+  "Relations and Functions" (the official textbook PDF kemh102.pdf at
+  ncert.nic.in was opened this run: the chapter links pairs of objects from
+  two sets, introduces relations, then functions with domain and range —
+  the school canon's function ground that 11.3's doorstep stands on;
+  web-checked 2026-11-10; no content reproduced). The banked keys carried
+  the rest: `hall-knight-elementary-algebra` (the classical text's closing
+  ground — the graphical work of its final chapters read as functions),
+  `khattar-qa-4e` (the exam corner: domain hunts, range reads,
+  composite-value items in the competitive bank), `cengage-jee-style`
+  (the presentation contract). Cross-references carried per the pointer:
+  10.1's vertical probes (the uniqueness read as the vertical-line test),
+  10.2's slope and rates (the linear function's constant climb), 10.3's
+  parabola and fold (the quadratic function and its range), 8.3's bills
+  (the domain's two filters), 11.2's camera (the composition doorstep),
+  9.3's doors (the zeros). Historical claims web-checked and hedged:
+  Leibniz's August 1673 manuscript coining "function" (MacTutor), Euler's
+  f(x) notation first appearing in 1734 in the Commentarii Academiae
+  Scientiarum Petropolitanae (Cajori via MacTutor) with the 1748
+  Introductio in analysin infinitorum making the function analysis's
+  organizing object, Dirichlet's 1837 arbitrary-correspondence definition,
+  and the Babylonian square/cube/reciprocal tables as proto-function
+  tables (MacTutor's function-concept survey). No reference working
+  copies to delete (zero-download run).
+
+---
+
 ## Run 87 (2026-11-10) — AL ch. 11 OPENS (11.1 + 11.2)
 
 - Zero downloads, zero new keys: the banked keys carried the chapter open —

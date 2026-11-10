@@ -373,7 +373,12 @@ server.log
 !/scripts/e2e-al-111.page.js
 !/scripts/e2e-al-112.sh
 !/scripts/e2e-al-112.page.js
+# exception: run-88 AL 11.3 lesson E2E block (quiz keys 2/0/3/1/2 + solutions + audits) — whitelisted BEFORE the commit
+!/scripts/e2e-al-113.sh
+!/scripts/e2e-al-113.page.js
 # exception: one-shot run-87 lesson-11.2 content expander (2026-11-10, historical record)
 !/scripts/expand-112.py
 # exception: one-shot run-87 memory shipper (2026-11-10, historical record)
 !/scripts/ship-run87.py
+# exception: one-shot run-88 memory shipper (2026-11-10, historical record)
+!/scripts/ship-run88.py

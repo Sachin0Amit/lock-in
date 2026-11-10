@@ -27,28 +27,51 @@ import type { Chapter, Lesson } from '../../../types'
  *                  x³+y³+z³−3xyz), the clever substitution collapsing a
  *                  quartic to a quadratic with four real roots, and the
  *                  Brahmagupta–Fibonacci two-squares identity).
- *                  11.3 'The Function Idea: the Doorstep' + the unit-11
- *                  review + the BOOK CLOSE ride run 88 — never in run 87.
+ *                  11.3 'The Function Idea: the Doorstep' (run 88 — quiz
+ *                  keys 2/0/3/1/2, 14 exercises, two figures — the
+ *                  function machine + the probe verdicts strip: the
+ *                  input–output machine priced on 10.3's workhorse, the
+ *                  notation f(x) read honestly with the slot discipline,
+ *                  the domain as 8.3's two filters (the bill, the surd
+ *                  fence, the hole that cancellation never heals), the
+ *                  vertical-probe test derived from 5.3's verdict
+ *                  machine, the linear function as 10.2's rate machine,
+ *                  the range read straight off 10.3's fold, and the
+ *                  composition doorstep where 11.2's camera is named
+ *                  f∘g) + the unit-11 completion review PASSED + THE
+ *                  BOOK CLOSE (the book status 'complete', the handoff
+ *                  note to Advanced Algebra / Coordinate Geometry /
+ *                  Trigonometry / Calculus) — run 88.
  *
- * VERIFY-FIRST (2026-11-10, run 87): every number in 11.1 and 11.2 was
- * recomputed by scripts/verify-book3-ch11.ts BEFORE any prose existed —
- * 235 pre-write checks green at the gate (sections A–C: the pipeline
- * engines across the five families, the identity-bank engines with the
- * polynomial-expansion certificates and the surd arithmetic, the four
- * figure plans pinned rect-exact). Pre-writing catches: the sum-zero
- * triple {1, 2, −3} prices x³+y³+z³−3xyz = 0 (the cubes EQUAL 3xyz, both
- * −18 — the difference is zero, the staple's whole content); quadRoots
- * returns its doors largest-first, so the door checks read the pair
- * unordered; the polynomial engine must STRIP zero coefficients after
- * cancellation or the expansion certificates mis-count their terms.
+ * VERIFY-FIRST (2026-11-10, runs 87+88): every number in 11.1, 11.2 and
+ * 11.3 was recomputed by scripts/verify-book3-ch11.ts BEFORE any prose
+ * existed — the run-88 pre-write gate (sections A–C + G) ran 326 checks
+ * green before a word of 11.3 prose: the machine engines (the workhorse
+ * priced at nine inputs with the zeros as 10.3's doors), the notation
+ * engine (f(x+1) = 2x² − 3x − 2 by symbolic expansion), the domain
+ * engines (the bill, the surd fence, the hole at (3, 6), both filters at
+ * once, the even two-bill cousin), the vertical-probe engines (the line,
+ * the bowl, the circle's two meets at x = 3, the sideways parabola, the
+ * branch fix), the linear engine (the fare climb, the Fahrenheit fixed
+ * points and the −40 meeting), the range engine (the gap argument, the
+ * shifted discriminant, both fold companions) and the composition engine
+ * (order matters, the quartic certified as f∘g with its surd doors,
+ * √(x²) = |x| against (√x)²). Run-87 pre-writing catches on record in
+ * the WORKLOG; run-88 pre-writing catches: the figure-centre check was
+ * first mis-summed (125 + 595 = 720, not 730 — the symmetric-arrows
+ * claim itself caught it) and the (g∘f) certificate had to be built by
+ * the increment-after-square construction, not by squaring alone.
  *
- * References for this unit: the banked keys carry the run (zero downloads,
- * web-check only per the runs-71–86 pattern) — `hall-knight-elementary-
- * algebra` (the classical text's problem chapters and identity drills),
- * `ncert-math8-ch2-linear-equations` (the school canon's word-problem
- * ground for 11.1), `euclid-elements-ii4` (Book II's geometric algebra —
- * 11.2's area reads), `khattar-qa-4e` (the competition corner both lessons
- * examine towards), `cengage-jee-style` (the presentation contract).
+ * References for this unit: the banked keys carry the runs (zero
+ * downloads, web-check only per the runs-71–87 pattern) —
+ * `hall-knight-elementary-algebra` (the classical text's problem
+ * chapters and identity drills), `ncert-math8-ch2-linear-equations`
+ * (the school canon's word-problem ground for 11.1),
+ * `euclid-elements-ii4` (Book II's geometric algebra — 11.2's area
+ * reads), `ncert-math11-ch2-functions` (the class-11 canon's function
+ * ground for 11.3 — domain and range, web-checked at ncert.nic.in),
+ * `khattar-qa-4e` (the competition corner the lessons examine towards),
+ * `cengage-jee-style` (the presentation contract).
  */
 
 /* ------------------------------------------------------------------ */
@@ -713,13 +736,340 @@ const lesson112: Lesson = {
   ],
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 1 (11.3): the function machine — input chip, rule box,       */
+/* output chip. Header (30,18,660,40); input (70,150,110,64); machine  */
+/* (230,110,260,130); output (540,150,110,64); the domain/range note   */
+/* band (30,270,660,46); caption band (30,324,660,28). Geometry        */
+/* pinned in verify-book3-ch11.ts plan113Fig1.                          */
+/* ------------------------------------------------------------------ */
+
+function functionMachineSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The function machine: the input x = 2 enters the rule f of x = 2 x squared minus 7 x plus 3, and the single output f of 2 = minus 3 leaves it; a note band states the domain and the range">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="44" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the function machine — one input in, one output out, every time</text>')
+  // ---- the input chip ----
+  parts.push('<rect x="70" y="150" width="110" height="64" rx="6" fill="#fef3c7" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="125" y="176" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">the input</text>')
+  parts.push('<text x="125" y="200" font-size="16" fill="#166534" text-anchor="middle" font-weight="700">x = 2</text>')
+  // ---- the machine box ----
+  parts.push('<rect x="230" y="110" width="260" height="130" rx="10" fill="#ffedd5" stroke="#16a34a" stroke-width="1.6"/>')
+  parts.push('<text x="360" y="134" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">THE RULE</text>')
+  parts.push('<text x="360" y="160" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">f(x) = 2x² − 7x + 3</text>')
+  parts.push('<text x="360" y="186" font-size="10.5" fill="#65a30d" text-anchor="middle">feed it 2: 2·2² − 7·2 + 3</text>')
+  parts.push('<text x="360" y="204" font-size="10.5" fill="#65a30d" text-anchor="middle">= 8 − 14 + 3</text>')
+  parts.push('<text x="360" y="222" font-size="10.5" fill="#65a30d" text-anchor="middle">= −3</text>')
+  // ---- the output chip ----
+  parts.push('<rect x="540" y="150" width="110" height="64" rx="6" fill="#fef3c7" stroke="#ea580c" stroke-width="1.2"/>')
+  parts.push('<text x="595" y="176" font-size="11" fill="#0f766e" text-anchor="middle" font-weight="700">the output</text>')
+  parts.push('<text x="595" y="200" font-size="16" fill="#166534" text-anchor="middle" font-weight="700">f(2) = −3</text>')
+  // ---- the arrows (50 px each side of the machine, symmetric) ----
+  parts.push('<line x1="180" y1="182" x2="222" y2="182" stroke="#d97706" stroke-width="1.8"/>')
+  parts.push('<polygon points="230,182 221,177 221,187" fill="#d97706"/>')
+  parts.push('<line x1="490" y1="182" x2="532" y2="182" stroke="#d97706" stroke-width="1.8"/>')
+  parts.push('<polygon points="540,182 531,177 531,187" fill="#d97706"/>')
+  // ---- the domain/range note band ----
+  parts.push('<rect x="30" y="270" width="660" height="46" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<text x="360" y="290" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">this rule refuses no real input — the domain is all the reals</text>')
+  parts.push('<text x="360" y="308" font-size="10.5" fill="#166534" text-anchor="middle">and no output ever falls below −25/8 — the range [−25/8, ∞): the vertex of 10.3, priced as the machine’s floor.</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="324" width="660" height="28" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="342" font-size="11" fill="#0f766e" text-anchor="middle">f is the rule’s NAME; f(2) is the OUTPUT — never f times 2</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 2 (11.3): the probe verdicts strip — the bowl passes, the    */
+/* circle and the sideways parabola fail. Header (30,18,660,40);       */
+/* panels (40,80,200,190), (260,80,200,190), (480,80,200,190); the     */
+/* branch-fix verdict band (30,290,660,40); caption band               */
+/* (30,338,660,32). Geometry pinned in verify-book3-ch11.ts            */
+/* plan113Fig2. The circle's probe is the 3:4:5 triangle scaled by     */
+/* 16: offset 48, meets 64 either side of centre, radius 80.           */
+/* ------------------------------------------------------------------ */
+
+function probeVerdictsSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three panels with vertical probes: the parabola answers its probe once and is a function; the circle and the sideways parabola each answer a probe twice and are not functions of x; the verdict band states the branch fix">'
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="44" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the vertical-probe verdicts — one meet = a function, two meets = not</text>')
+  // ---- panel A: the bowl passes ----
+  parts.push('<rect x="40" y="80" width="200" height="190" rx="8" fill="none" stroke="#16a34a" stroke-width="1.4"/>')
+  parts.push('<text x="140" y="100" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">y = 2x² − 7x + 3</text>')
+  parts.push('<path d="M 70 122 Q 140 370 210 122" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<line x1="140" y1="106" x2="140" y2="245" stroke="#0d9488" stroke-width="1.4" stroke-dasharray="4,3"/>')
+  parts.push('<circle cx="140" cy="245" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1"/>')
+  parts.push('<text x="140" y="266" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">ONE meet — a function</text>')
+  // ---- panel B: the circle fails ----
+  parts.push('<rect x="260" y="80" width="200" height="190" rx="8" fill="none" stroke="#16a34a" stroke-width="1.4"/>')
+  parts.push('<text x="360" y="91" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">x² + y² = 25</text>')
+  parts.push('<circle cx="360" cy="176" r="75" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<line x1="405" y1="108" x2="405" y2="244" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4,3"/>')
+  parts.push('<circle cx="405" cy="116" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1"/>')
+  parts.push('<circle cx="405" cy="236" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1"/>')
+  parts.push('<text x="388" y="135" font-size="9.5" fill="#65a30d" text-anchor="end">(3, 4)</text>')
+  parts.push('<text x="388" y="220" font-size="9.5" fill="#65a30d" text-anchor="end">(3, −4)</text>')
+  parts.push('<text x="360" y="266" font-size="10.5" fill="#dc2626" text-anchor="middle" font-weight="700">TWO meets — not a function</text>')
+  // ---- panel C: the sideways parabola fails ----
+  parts.push('<rect x="480" y="80" width="200" height="190" rx="8" fill="none" stroke="#16a34a" stroke-width="1.4"/>')
+  parts.push('<text x="580" y="100" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">x = y²</text>')
+  parts.push('<path d="M 660 105 Q 440 175 660 245" fill="none" stroke="#16a34a" stroke-width="2"/>')
+  parts.push('<line x1="620" y1="100" x2="620" y2="250" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="4,3"/>')
+  parts.push('<circle cx="620" cy="119" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1"/>')
+  parts.push('<circle cx="620" cy="231" r="4.5" fill="#ea580c" stroke="#166534" stroke-width="1"/>')
+  parts.push('<text x="580" y="266" font-size="10.5" fill="#dc2626" text-anchor="middle" font-weight="700">TWO meets — not a function</text>')
+  // ---- the branch-fix verdict band ----
+  parts.push('<rect x="30" y="290" width="660" height="40" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>')
+  parts.push('<text x="360" y="308" font-size="11" fill="#166534" text-anchor="middle">panel A answers every probe once — a function of x. The circle meets probe x = 3 at y = ±4;</text>')
+  parts.push('<text x="360" y="324" font-size="11" fill="#166534" text-anchor="middle">the sideways bowl meets probe x = 4 at y = ±2. The branch fix: y = +√x ALONE passes — each branch is a function; the pair is not.</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="338" width="660" height="32" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
+  parts.push('<text x="360" y="358" font-size="11" fill="#0f766e" text-anchor="middle">the vertical-line test of 10.1, now the definition — 5.3’s one-door verdict, drawn upright</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Lesson 11.3 — the book's last lesson: the function idea             */
+/* ------------------------------------------------------------------ */
+
+const lesson113: Lesson = {
+  id: 'al-the-function-idea-the-doorstep',
+  number: '11.3',
+  title: 'The Function Idea: the Doorstep',
+  concepts: [
+    'the input–output machine',
+    'function notation f(x)',
+    'the domain and its two filters',
+    'the vertical-probe test',
+    'the range from the fold',
+    'composition (f∘g)',
+  ],
+  objectives: [
+    'read a function as a machine — each input accepted at most once, exactly one output delivered — and price the read on 10.3’s workhorse',
+    'use the notation $f(x)$ honestly: $f$ is the rule’s name, $f(2)$ a computed output, $f(x+1)$ a rule run on an expression — never $f$ times $x$',
+    'find a rule’s domain by running 8.3’s two filters — the bill and the surd fence — including the hole that no cancellation heals',
+    'decide from a graph whether it is a function of $x$, by the vertical-probe test of 10.1 read as the definition',
+    'name the families you already own as functions — the linear machine with its constant climb, the quadratic machine with its range read straight off the fold',
+    'compose two functions in the right order, keep the inner domain honest, and recognise 11.2’s camera trick as a composite that solved a quartic',
+  ],
+  prerequisites: ['al-the-coordinate-plane-and-linear-graphs', 'al-slope-the-steepness-theorem', 'al-the-parabola-quadratic-graphs-and-vertices', 'al-fractional-equations-and-extraneous-roots', 'al-competition-algebra-identities-and-substitutions'],
+  sources: ['hall-knight-elementary-algebra', 'ncert-math11-ch2-functions', 'khattar-qa-4e', 'cengage-jee-style'],
+  blocks: [
+    { kind: 'para', text: 'Eleven chapters ago this book began with a letter standing for a number. Look at what the letter became: expressions with structure, equations settled lawfully, systems eliminated, inequalities fenced, fractions carried with their bills, quadratics solved four ways and drawn as bowls. And notice, quietly, that almost every object since chapter 10 has had the same shape — an equation $y = (\\text{rule in } x)$, answering each question of the form “what happens at $x = 2$?” with exactly one number. This final lesson gives that shape its name. A FUNCTION is a rule that accepts inputs and returns outputs, one output per input, no exceptions — and once it is named, the whole book becomes a single story: every line, every parabola, every fare table and every folding identity was a function all along.' },
+    { kind: 'para', text: 'The name is also the door out. Everything after this book — Advanced Algebra, Coordinate Geometry, Trigonometry, Calculus — is written in function language from its first page, and none of it is new machinery: it is the machinery you already own, wearing this one new word. So this lesson’s job is honest naming rather than new building. Run the machines you already have. Learn where each machine refuses to run. Read the graphs you have already drawn as the machines’ portraits. And meet the one genuinely new operation — composition — just far enough to recognise it on the other side of the door. Every number below was priced by the verifier before a word of this prose existed.' },
+    { kind: 'heading', text: 'The Input–Output Machine' },
+    { kind: 'para', text: 'Take 10.3’s workhorse, the bowl $y = 2x^2 - 7x + 3$, and stop drawing it for a moment. Instead FEED it: choose inputs, run the rule, collect outputs. The whole census of 10.3 re-prices as a machine table — input $-2$ returns $2 \\cdot 4 + 14 + 3 = 25$; input $0$ returns $3$; input $1$ returns $-2$; input $2$ returns $-3$; input $\\frac{1}{2}$ returns $0$; input $3$ returns $0$ again; input $4$ returns $7$; input $5$ returns $18$; and input $\\frac{7}{4}$ returns $-\\frac{25}{8}$ — the vertex, now read as the machine’s smallest output. Nothing was computed that 10.3 did not compute. What changed is the DIRECTION of the question: the graph answers “which points satisfy the equation?”, while the machine answers “what does THIS input produce?”.' },
+    { kind: 'example', title: 'Run the machine f(x) = 2x² − 7x + 3 on the inputs −2, 0, 1/2, 3 and 7/4', steps: [
+      'The rule is $f(x) = 2x^2 - 7x + 3$: to evaluate at any input, substitute it for $x$ at every occurrence — the slot discipline — then apply chapter 2’s order of operations.',
+      '$f(-2) = 2 \\cdot (-2)^2 - 7 \\cdot (-2) + 3 = 8 + 14 + 3 = 25$ — the middle term flips sign with the input, exactly as the sign laws promise.',
+      '$f(0) = 3$ (every term carrying an $x$ dies) and $f\\left(\\frac{1}{2}\\right) = \\frac{1}{2} - \\frac{7}{2} + 3 = 0$ — a door of 10.3, now a ZERO of $f$.',
+      '$f(3) = 18 - 21 + 3 = 0$ as well: the same output as at $\\frac{1}{2}$ — a machine may well send two inputs to one output, and this one does.',
+      '$f\\left(\\frac{7}{4}\\right) = -\\frac{25}{8}$: the smallest output the machine ever produces — the vertex read as the machine’s floor.',
+      'Hence the machine’s table: $-2 \\mapsto 25$, $0 \\mapsto 3$, $\\frac{1}{2} \\mapsto 0$, $3 \\mapsto 0$, $\\frac{7}{4} \\mapsto -\\frac{25}{8}$ — five inputs, five outputs, exactly one output per input.',
+    ], },
+    { kind: 'figure', caption: 'The function machine: the input x = 2 enters, the rule computes 2·2² − 7·2 + 3 = −3, and the single output f(2) = −3 leaves. The note band carries the two census questions every machine asks — where may it run (the domain), and which outputs can it produce (the range) — answered here by the workhorse’s all-reals domain and its −25/8 floor.', svg: functionMachineSvg() },
+    { kind: 'para', text: 'Now the formal definition, in the book’s manner. A function is a rule that assigns to each input, chosen from a set of permitted inputs, EXACTLY ONE output. The set of permitted inputs is the function’s DOMAIN; the set of outputs the rule actually produces is its RANGE (its image). The notation writes all three parts at once: $f(x)$ reads “the output of the rule $f$ at the input $x$” — $f$ names the rule, $x$ names the input, and $f(x)$ names the single output that results. The workhorse is one whole function: its domain is all the reals, its range is $\\left[-\\frac{25}{8}, \\infty\\right)$ (10.3’s hinge, read as an output census), and its first notation reads are already priced — $f(-2) = 25$, $f(0) = 3$, $f(2) = -3$. Thus $f$ is the rule; $f(x)$ is its output at $x$; and $f(2) = -3$ is a fully computed number, not a formula.' },
+    { kind: 'callout', tone: 'warn', title: 'Caution — the notation is a slot, not a product', text: 'The most damaging beginner habit is reading $f(x)$ as $f$ MULTIPLIED by $x$. It is not: $f$ is the rule’s NAME and the parentheses are a SLOT waiting to be filled. Two priced consequences. First, $f(2)$ is a number — the workhorse hands back $-3$ — never “twice $f$”. Second, the slot holds the input WHOLE: for the rule $h(x) = 2x^2$, the read $h(x+1)$ squares the entire quantity $x + 1$, giving $2x^2 + 4x + 2$, while $h(x) + 1 = 2x^2 + 1$ adds one AFTER the machine has run — two different answers from one slipped bracket. Fill the slot first, then compute; every substitution you have performed since chapter 5 was secretly this discipline.' },
+    { kind: 'example', title: 'The slot holds expressions: price f(x + 1) for f(x) = 2x² − 7x + 3', steps: [
+      'Substitute the WHOLE input: $f(x+1) = 2(x+1)^2 - 7(x+1) + 3$ — the slot’s $x$ is replaced by the quantity $x + 1$ at every occurrence, brackets intact.',
+      'Expand: $2(x^2 + 2x + 1) - 7x - 7 + 3 = 2x^2 + 4x + 2 - 7x - 7 + 3$.',
+      'Collect: $f(x+1) = 2x^2 - 3x - 2$ — a new rule in its own right, certified by the verifier’s symbolic expansion.',
+      'Cross-check at a number: $f(2 + 1) = f(3) = 0$, and the new rule at $x = 2$ reads $2 \\cdot 4 - 6 - 2 = 0$ — the same point through both lenses.',
+      'Hence $f(x+1) = 2x^2 - 3x - 2$, and the mirror twins survive the shift: $f\\left(\\frac{7}{4} + \\frac{1}{4}\\right) = f(2) = -3 = f\\left(\\frac{3}{2}\\right) = f\\left(\\frac{7}{4} - \\frac{1}{4}\\right)$ — 10.3’s symmetry, carried by the notation.',
+    ], },
+    { kind: 'para', text: 'Why does the definition insist on ONE output per input? Because everything downstream depends on that promise. A machine that might return $-3$ OR $7$ for the input $2$ could not be graphed as a curve, could not be evaluated ahead of time, and could not be trusted to predict — 10.2’s lawful prediction, “the fare at 7 km is ₹134, computed once”, is exactly the one-output discipline wearing money. The twins are the honest flip side of the same coin: MANY inputs may share ONE output. The workhorse sends both $\\frac{1}{2}$ and $3$ to $0$; its whole left arm mirrors its right arm, $f\\left(\\frac{7}{4} + t\\right) = f\\left(\\frac{7}{4} - t\\right)$ for every $t$. One output per input, any number of inputs per output — that asymmetry IS the function idea, and it is why a horizontal probe may meet a bowl twice while a vertical probe never does.' },
+    { kind: 'heading', text: 'The Domain: Where the Rule Refuses' },
+    { kind: 'para', text: 'A rule runs only where it CAN run — and 8.3’s discipline returns as the definition of the machine’s operating range. The DOMAIN of a rule is the set of inputs for which it produces a real number, and in elementary algebra exactly two refusals exist, both old friends: the BILL (a denominator may not vanish — the guard that fired on every fractional equation since chapter 8) and the surd fence (an even root may not carry a negative — the ground 9.3’s surd doors stood on). The verifier priced four machines for the census below. Read the table twice — once down the columns for the shapes, once across the rows for the reads — and notice that every domain statement you will ever meet at this level is one of these two filters, or both at once.' },
+    { kind: 'table', caption: 'Four machines and their refusal censuses (every read priced in verify-book3-ch11.ts section G)', head: ['The rule', 'What it refuses', 'The domain', 'Priced reads'], rows: [
+      ['$f(x) = \\dfrac{1}{x - 2}$', 'the bill: $x - 2 = 0$', 'all reals except $2$', '$f(0) = -\\frac{1}{2}$, $f(4) = \\frac{1}{2}$, $f\\left(\\frac{5}{2}\\right) = 2$'],
+      ['$g(x) = \\sqrt{x - 3}$', 'the surd fence: $x - 3 < 0$', '$x \\geq 3$', '$g(3) = 0$, $g(4) = 1$, $g(7) = 2$, $g(19) = 4$'],
+      ['$h(x) = \\dfrac{x^2 - 9}{x - 3}$', 'the bill at $x = 3$ — even though the numerator vanishes there too', 'all reals except $3$', '$h(0) = 3$, $h(-4) = -1$, $h(5) = 8$'],
+      ['$k(x) = \\dfrac{1}{x^2 - 1}$', 'two bills: $x = 1$ and $x = -1$', 'all reals except $\\pm 1$', '$k(0) = -1$, $k(3) = \\frac{1}{8}$, $k(2) = k(-2) = \\frac{1}{3}$'],
+    ] },
+    { kind: 'para', text: 'The third row deserves its own paragraph, because it is the examination favourite. Away from $x = 3$ the rule $h(x) = \\frac{x^2 - 9}{x - 3}$ simplifies lawfully — factor the numerator, cancel the common factor (4.2’s craft), and $h(x) = x + 3$. But the cancellation is lawful only WHERE THE FACTOR IS NON-ZERO: at $x = 3$ the original reads $\\frac{0}{0}$, which is not a number but a refusal. The simplified line $y = x + 3$ would happily claim the point $(3, 6)$; the machine itself never produces it. The graph is the line with a HOLE punched at $(3, 6)$ — one missing dot, invisible unless you know to look for it, and worth full marks when you state it. Simplifying a rule can shrink its prose but never heals its domain: the bill survives every cancellation, because the domain belongs to the ORIGINAL machine, not to its tidied portrait.' },
+    { kind: 'para', text: 'Both filters can fire in one rule, and then the domain is an intersection. The machine $m(x) = \\frac{\\sqrt{5 - x}}{x - 2}$ carries the surd fence $x \\leq 5$ AND the bill $x \\neq 2$, so its domain is all $x \\leq 5$ with the single point $2$ removed — the verifier priced the reads $m(5) = 0$, $m(1) = -2$ and $m(4) = \\frac{1}{2}$, together with both refusals: $x = 6$ dies on the fence ($5 - 6 < 0$), while $x = 2$ dies on the bill alone, even though its surd is perfectly real ($\\sqrt{3}$) — the bill kills it anyway. And the fourth row of the census hides a symmetry the next book will name properly: $k(-x) = k(x)$, because the square erases the sign — $k(2) = k(-2) = \\frac{1}{3}$ — the even rule, which is 10.3’s mirror-twin property promoted from one graph to a property of the RULE itself.' },
+    { kind: 'callout', tone: 'insight', title: 'Insight — the domain is the honesty ledger', text: 'A function is a promise: give me an input from my domain and I owe you exactly one output. The domain is the ledger of where that promise is solvent. 8.3 taught you to read the bills BEFORE clearing a fractional equation; 7.2 taught you to state the fences a solution must live inside; this lesson merely collects those habits under one permanent name. When an examiner asks for the domain of a rule, they are asking an old question in new words — where does this rule refuse to run? — and in elementary algebra there are only two answers to check: a denominator vanishing, or an even root going negative. State WHICH filter fires and WHERE, and the answer is complete. This is also why the CHECK station of 11.1 never embarrassed you: a machine that knows its own refusals never returns a negative speed or a twelve-year-old mother.' },
+    { kind: 'heading', text: 'The Graph Already Knew: the Vertical-Probe Test' },
+    { kind: 'para', text: 'Now connect the machine to its portrait. In 10.1 you drew an equation’s graph as its solution set and probed the picture vertically: the line $x = h$ meets the graph exactly where the equation holds at $h$. Look at what the probe is DOING — it freezes the input at $h$ and demands the output. A graph is the graph of a function precisely when every vertical probe meets it ONCE: one input, one meet, one output. The bowl passes (10.3 priced eight probes, each landing exactly once). The line $y = 3x + 2$ passes — probes $x = -1, 0, 2$ land at $-1, 2, 8$. But the circle $x^2 + y^2 = 25$ FAILS: the probe $x = 3$ meets it at BOTH $(3, 4)$ and $(3, -4)$ — one input demanding two outputs, and since $9 + 16 = 25$, both claims are arithmetically honest; the failure belongs to the shape, not the arithmetic. The sideways parabola $x = y^2$ fails the same way, its probe $x = 4$ meeting $y = 2$ and $y = -2$.' },
+    { kind: 'figure', caption: 'The probe verdicts strip: the bowl answers its vertical probe once (a function), while the circle at probe x = 3 and the sideways parabola at probe x = 4 each answer twice (not functions of x). The verdict band carries the branch fix — each half of the sideways bowl, such as y = +√x, passes alone; the pair together cannot.', svg: probeVerdictsSvg() },
+    { kind: 'derivation', title: 'The Vertical-Probe Test, Derived from the Verdict Machine', statement: 'A graph in the plane is the graph of a function of $x$ if and only if every vertical probe $x = h$ meets it exactly once.', steps: [
+      { label: 'Freeze the probe', formula: 'x = h \\;\\Longrightarrow\\; \\text{the equation becomes one in } y \\text{ alone}', explanation: 'substituting $x = h$ into any equation in $x$ and $y$ leaves an equation with a single unknown — 5.3’s territory, exactly.' },
+      { label: 'Run the verdict machine', formula: '\\text{one door} \\Rightarrow \\text{one meet}; \\quad \\text{no door} \\Rightarrow \\text{no meet}; \\quad \\text{all } y \\Rightarrow \\text{the whole probe line}', explanation: '5.3’s three verdicts stood upright: the probe equation has exactly one solution, none, or is satisfied identically — the last case being the vertical line itself, which fails maximally.' },
+      { label: 'Price the line', formula: 'y = mx + c \\;\\xrightarrow{\\,x = h\\,}\\; y = mh + c', explanation: 'the variable survives with a non-zero coefficient, so the door is unique for every $h$ — every non-vertical line passes every probe once; the verifier priced $h = -1, 0, 2$ on $y = 3x + 2$.' },
+      { label: 'Price the bowl', formula: 'y = 2h^2 - 7h + 3', explanation: 'again a single computed value per probe — 10.3’s eight probes, one meet each; the equation is degree ONE in $y$, so no probe can ever grow a second door.' },
+      { label: 'Price the circle', formula: 'h^2 + y^2 = 25 \\;\\xrightarrow{\\,x = h\\,}\\; y^2 = 25 - h^2', explanation: 'NOW the probe equation is quadratic in $y$: for $|h| < 5$ it has two doors ($y = \\pm\\sqrt{25 - h^2}$; at $h = 3$ they are $\\pm 4$), for $|h| = 5$ one, for $|h| > 5$ none — a two-meet probe is exactly what “not a function” means.' },
+    ], result: 'the test is 5.3’s verdict machine read upright: a graph is a function’s graph iff every probe equation has exactly one door — lines and parabolas pass, circles and sideways parabolas fail, and the vertical line fails maximally, every $y$ answering at once.' },
+    { kind: 'para', text: 'The failure has a repair worth naming, because it previews the next book’s most useful trick. The sideways parabola $x = y^2$ fails since it carries BOTH branches, $y = \\sqrt{x}$ and $y = -\\sqrt{x}$; each branch ALONE answers every probe once and is a function — the surd fence of the domain table was silently selecting the upper branch all along. $\\sqrt{4} = 2$, never $-2$: the radical sign is itself a function definition, one output per input with the branch chosen inside the symbol. This is the general repair for any failing graph — restrict to a branch, and the branch is a function. What you may NOT do is average the branches or choose per input: the choice must itself be a RULE, fixed before the input arrives, or the machine is not a machine.' },
+    { kind: 'heading', text: 'Lines as Functions: the Rate Machines' },
+    { kind: 'para', text: '10.2’s slopes now receive their permanent name. The linear function $f(x) = mx + c$ is the rate machine: every one-step input climb raises the output by exactly $m$, and the verifier priced the fare engine of 10.2 as a function — $F(d) = 50 + 12d$ reads $F(0) = 50$, $F(3) = 86$, $F(7) = 134$, and the climb $F(d + 1) - F(d) = 12$ holds at $d = 0, 2, 5$ alike. That constancy is 10.2’s steepness theorem restated in machine language: a true RATE is constant along its line, and the one-output discipline plus a constant climb is precisely what lawful prediction means. The intercept $c$ is the output at input $0$ — the flag-fall before the metre starts — and the rate $m$ is how the output answers a unit change of input. Reading a linear function is reading those two numbers, and nothing else.' },
+    { kind: 'example', title: 'The Fahrenheit machine F(C) = (9/5)C + 32 — fixed points, a reverse read, and the meeting', steps: [
+      'The scale conversion of 10.2, now a function: input degrees Celsius, output degrees Fahrenheit — $F(C) = \\frac{9}{5}C + 32$.',
+      'Fixed points: $F(0) = 32$ (freezing) and $F(100) = 212$ (boiling) — the two calibrations the scale was born from.',
+      'A priced read: $F(37) = \\frac{333}{5} + 32 = \\frac{493}{5} = 98.6$ — body heat, exactly.',
+      'A reverse read — the next book’s favourite question: which input outputs $86$? Solve $\\frac{9}{5}C + 32 = 86$: $\\frac{9}{5}C = 54$, so $C = 30$; and the machine confirms it, $F(30) = 86$. Running a machine backwards is 5.2’s balance with a new name.',
+      'And the famous meeting: solve $F(C) = C$ — $\\frac{9}{5}C + 32 = C$ gives $-\\frac{4}{5}C = 32$, so $C = -40$, the one temperature both scales name identically. Check: $F(-40) = -72 + 32 = -40$.',
+    ], },
+    { kind: 'heading', text: 'Parabolas as Functions: the Range from the Fold' },
+    { kind: 'para', text: 'The quadratic function $f(x) = ax^2 + bx + c$ (with $a \\neq 0$) is 10.3’s bowl wearing the new notation — and the notation pays at once, because a machine’s natural second question, after “where may I run?”, is “which outputs can you produce?”. That question is the RANGE, and 10.3’s fold identity answers it in one line. The fold $f(x) = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$ displays every output as a signed square plus a constant; the square term can reach $0$ but never cross its own sign, so the outputs are fenced by the constant exactly as 7.2 fenced solutions. The verifier priced the argument as the GAP: for the workhorse, $f(x) + \\frac{25}{8} = 2\\left(x - \\frac{7}{4}\\right)^2$, which reads $\\frac{49}{8}$ at $x = 0$ and $\\frac{1}{8}$ at $x = 2$ — never negative, and zero only at the vertex input $\\frac{7}{4}$.' },
+    { kind: 'equation', latex: 'f(x) - \\left(-\\tfrac{\\Delta}{4a}\\right) = a\\left(x + \\tfrac{b}{2a}\\right)^2 \\;\\;\\Longrightarrow\\;\\; \\text{range} = \\left[-\\tfrac{\\Delta}{4a}, \\infty\\right) \\text{ for } a > 0, \\quad \\left(-\\infty, -\\tfrac{\\Delta}{4a}\\right] \\text{ for } a < 0', note: 'the gap argument: every output sits a signed square away from the vertex height — 10.3’s horizontal-probe hinge, read as an output census' },
+    { kind: 'para', text: 'Three priced reads settle the pattern. The workhorse: $a = 2 > 0$, vertex height $-\\frac{25}{8}$, so the range is $\\left[-\\frac{25}{8}, \\infty\\right)$ — every level $k \\geq -\\frac{25}{8}$ is met, and the shifted discriminant $\\Delta_k = 25 + 8k$ certifies it: $25$ at $k = 0$ (the two doors), $0$ at the floor itself (the vertex graze), $-7$ at $k = -4$ (no meet), $65$ at $k = 5$ (two meets). The down companion $g(x) = -x^2 + 4x + 5$: the gap $g(x) - 9 = -(x - 2)^2 \\leq 0$, so the range reads $(-\\infty, 9]$ — the peak output $9$ at input $2$, twin reads $g(0) = g(4) = 5$ sitting $4$ below it. The floating bowl $h(x) = x^2 + 1$: the gap $h(x) - 1 = x^2 \\geq 0$ gives the range $[1, \\infty)$ — its discriminant is $-4$, so it never meets the $x$-axis at all, yet $h(0) = 1$ is a perfectly good output: a machine with no zeros still runs. And the zeros themselves are the oldest friends in the book: $f(x) = 0$ is exactly 9.3’s door question — the workhorse’s zeros are $\\frac{1}{2}$ and $3$, delivered by the same quadratic formula as always.' },
+    { kind: 'para', text: 'Notice what just happened, because it is the deepest sentence in the lesson: the range question “which outputs exist?” is exactly 10.3’s horizontal-probe question “which levels are met?” — the hinge $\\Delta_k$ flips at the vertex height, and the range is the set of levels on the met side. Two vocabularies, one fact. The graph’s geometry and the machine’s output census are the same information wearing two costumes, and the function idea is the door between the costumes: a function IS its graph, and its graph IS the machine’s portrait, priced point by point. When a later book asks for the range of a rule you have never seen, you will still answer the way you answered level questions — find what the rule can and cannot reach, then state the fence.' },
+    { kind: 'heading', text: 'The Doorstep: Composition' },
+    { kind: 'para', text: 'One genuinely new operation remains, and you have already performed it. In 11.2 you collapsed the quartic $(x^2 - 3x + 3)^2 - 3(x^2 - 3x + 3) + 2 = 0$ by aiming a camera at the repeated expression — “let $t = x^2 - 3x + 3$”, solve the smaller picture, translate back. That camera move is COMPOSITION: running one machine’s output into another machine’s input. With $g(x) = x^2 - 3x + 3$ and $f(t) = t^2 - 3t + 2$, the quartic is $(f \\circ g)(x) = f(g(x))$, read “$f$ after $g$”: first $g$ runs, then $f$ runs on what $g$ produced. The order is part of the data, and the smallest possible pair prices it: with $f(x) = x^2$ and $g(x) = x + 1$, one assembly gives $f(g(3)) = f(4) = 16$ while the other gives $g(f(3)) = g(9) = 10$ — the same two machines, wired in two orders, two different answers.' },
+    { kind: 'equation', latex: '(f \\circ g)(x) = f(g(x)) = (x + 1)^2 = x^2 + 2x + 1 \\qquad \\text{versus} \\qquad (g \\circ f)(x) = g(f(x)) = x^2 + 1', note: 'square-after-increment against increment-after-square: both expand lawfully (11.2’s certified square), and they differ — composition does not commute, ever' },
+    { kind: 'example', title: 'Re-solve 11.2’s quartic as a composition: (x² − 3x + 3)² − 3(x² − 3x + 3) + 2 = 0', steps: [
+      'Name the machines: $g(x) = x^2 - 3x + 3$ (the camera) and $f(t) = t^2 - 3t + 2$ (the film). The equation is $f(g(x)) = 0$.',
+      'Expand the composite once, to see it whole: $f(g(x)) = x^4 - 6x^3 + 12x^2 - 9x + 2$, certified symbolically by the verifier — through the $x$-lens a quartic, through the $t$-lens a quadratic.',
+      'Solve the outer question first: $f(t) = 0$ at $t = 1$ and $t = 2$ — the doors of $t^2 - 3t + 2$.',
+      'Translate back through the inner machine: $g(x) = 1$ gives $x^2 - 3x + 2 = 0$, so $x = 1, 2$; and $g(x) = 2$ gives $x^2 - 3x + 1 = 0$, so $x = \\frac{3 \\pm \\sqrt{5}}{2}$ — the surd doors, certified surd-exact by the verifier ($g$ reads exactly $2$ at both).',
+      'Hence the four doors $1, 2, \\frac{3 \\pm \\sqrt{5}}{2}$ — 11.2’s answers, delivered by the composition lens: the camera WAS $f \\circ g$ all along, and the “clever substitution” was a change of which machine you were looking at.',
+    ], },
+    { kind: 'para', text: 'Composition carries one more honesty clause, and it is the doorstep itself: a composite runs only where the INNER machine runs, and only where the inner machine’s outputs land inside the OUTER machine’s domain. Price it on the surd pair — $r(x) = \\sqrt{x}$ and $s(x) = x^2$. Then $(r \\circ s)(x) = \\sqrt{x^2} = |x|$: at $x = -5$ it reads $\\sqrt{25} = 5$, the absolute value, never $-5$. But $(s \\circ r)(x) = (\\sqrt{x})^2 = x$ only on $x \\geq 0$: at $x = -5$ the inner machine refuses before the outer one ever turns over. Two assemblies of the same two functions, two different domains — that is the calibre of question the next books ask constantly. And it is where this book stops, deliberately, at the door: Advanced Algebra opens by treating functions themselves as objects — their algebra, their composites, their inverses; Coordinate Geometry reunites functions with their graphs as first citizens; Trigonometry banks the first great function family beyond polynomials; and Calculus asks how the output CHANGES as the input slides — the tangent slopes 10.2 priced discretely, taken to their limit. You already own every number on this doorstep. The next books only push it open.' },
+    { kind: 'terms', items: [
+      { term: 'function', def: 'a rule assigning to each permitted input EXACTLY ONE output. The one-output discipline is what makes evaluation, graphing and lawful prediction possible — many inputs may share an output, never the reverse.' },
+      { term: 'domain', def: 'the set of inputs where the rule runs. In elementary algebra exactly two filters refuse inputs — the BILL (a denominator vanishing) and the surd fence (an even root of a negative) — 8.3’s two filters, now the machine’s operating range; their intersection when both fire.' },
+      { term: 'range (image)', def: 'the set of outputs the machine actually produces. For $f(x) = ax^2 + bx + c$ the fold fences it: $\\left[-\\frac{\\Delta}{4a}, \\infty\\right)$ for $a > 0$, $\\left(-\\infty, -\\frac{\\Delta}{4a}\\right]$ for $a < 0$.' },
+      { term: 'function notation', def: '$f(x)$ — “the output of the rule $f$ at the input $x$”. $f$ is the rule’s name, the parentheses a SLOT: $f(2) = -3$ is a number, and $f(x+1) = 2x^2 - 3x - 2$ a rule run on an expression. Never $f$ times $x$.' },
+      { term: 'zero of a function', def: 'an input $x$ with $f(x) = 0$ — for a quadratic exactly 9.3’s doors: the workhorse’s zeros are $\\frac{1}{2}$ and $3$.' },
+      { term: 'the vertical-probe test', def: 'a graph is a function’s graph iff every vertical probe $x = h$ meets it exactly once — 10.1’s probes plus 5.3’s one-door verdict, stood upright. Circles and sideways parabolas fail; each single branch passes.' },
+      { term: 'composition', def: '$(f \\circ g)(x) = f(g(x))$ — run $g$ first, then $f$ on the output. Order matters ($f(g(3)) = 16 \\neq 10 = g(f(3))$ for square-after-increment), and the composite keeps the INNER machine’s domain.' },
+    ] },
+    { kind: 'list', marker: 'roman', items: [
+      'A function is a one-output-per-input rule; the notation $f(x)$ names the rule, the input and the output in one symbol, and the slot holds expressions whole — $f(x+1) = 2x^2 - 3x - 2$ for the workhorse, certified by expansion.',
+      'The domain is where the rule runs: refuse vanished denominators and negative even roots — $\\frac{1}{x-2}$ refuses $2$, $\\sqrt{x-3}$ accepts exactly $x \\geq 3$, and $\\frac{x^2-9}{x-3}$ keeps its hole at $(3, 6)$ through every cancellation.',
+      'The vertical-probe test reads a graph as a machine: one meet per probe is a function — the circle (probe $x = 3$ meets $y = \\pm 4$) and the sideways parabola fail, and each branch alone, like $y = \\sqrt{x}$, passes.',
+      'The linear function $f(x) = mx + c$ climbs by exactly $m$ per input step — 10.2’s steepness theorem as the machine’s heartbeat; the fare $F(d) = 50 + 12d$ and the Fahrenheit scale are priced examples.',
+      'The quadratic function’s range reads off the fold: $f(x) - \\left(-\\frac{\\Delta}{4a}\\right) = a\\left(x + \\frac{b}{2a}\\right)^2$ fences every output — $\\left[-\\frac{25}{8}, \\infty\\right)$ for the workhorse, $(-\\infty, 9]$ for its down companion, $[1, \\infty)$ for the floating bowl.',
+      'Composition runs machines in series — $(f \\circ g)(x) = f(g(x))$, order matters, the inner domain is kept — and 11.2’s camera was $f \\circ g$ all along, solving a quartic through a quadratic lens.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Historical note — a word coined for curves, grown into the language of science', text: 'Leibniz coined the word “function” in August 1673, in a manuscript on curves — line segments which, in a given figure, “perform some function”. Johann Bernoulli and Euler sharpened the concept through the eighteenth century: Euler’s $f(x)$ notation first appears in 1734, in the Commentarii of the St Petersburg Academy, and his Introductio in analysin infinitorum of 1748 made the function the single organising object of analysis — which is exactly what this lesson did to your book in miniature: everything you learned now files itself under functions. The definition stated here — an arbitrary rule assigning each input one output, no formula required — is Dirichlet’s, from 1837, and it was a liberation: a function may be a table, a graph, a bare correspondence with no expression at all. The oldest shadow of the idea is Babylonian — clay tables of squares, cubes and reciprocals are function tables, four thousand years before the word existed. Web-checked against the standard histories (MacTutor’s function-concept survey); no content reproduced.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner — where this pays', text: 'The school canon examines this lesson at the doorstep of class 11: NCERT’s Relations and Functions chapter opens with exactly this machine definition, domain and range first. The competitive bank (Khattar QA; SSC and bank preliminaries; JEE-Main foundation) drills four fixed shapes: (1) the DOMAIN hunt — “the domain of $\\sqrt{x-3}$” or of $\\frac{1}{x^2 - 1}$” — two filters, stated with the boundary INCLUDED ($x \\geq 3$, not $x > 3$; two bills $\\pm 1$, not one); (2) the RANGE read — “the range of $x^2 + 4x + 7$” answered $[3, \\infty)$ from the fold in one line, no calculus needed; (3) the VALUE chain — given $f(x) = 2x^2 - 7x + 3$, read $f(0)$, $f(2)$, $f(x+1)$, exactly this lesson’s machine table with the slot discipline examined; (4) composite values — $f(g(2))$ against $g(f(2))$ with the order trap priced. The vertical-line test appears on every graph-reading paper as a two-mark classifier. Time discipline: all four shapes are one-move reads once the machine picture is owned — which is the entire point of giving it a name.' },
+    { kind: 'formula', name: 'The function read', latex: 'f(x) = \\text{the output of the rule } f \\text{ at the input } x, \\qquad f \\colon\\; x \\mapsto f(x)', note: 'f is the NAME, the parentheses a SLOT — f(2) = −3 for the workhorse; the slot holds expressions whole: f(x+1) = 2x² − 3x − 2' },
+    { kind: 'formula', name: 'The two domain filters', latex: '\\frac{p(x)}{q(x)}: \\; q(x) \\neq 0 \\qquad \\sqrt{x}: \\; x \\geq 0 \\qquad \\text{domain} = \\text{both filters, intersected}', note: '8.3’s bills and the surd fence — the hole (x²−9)/(x−3) = x + 3 keeps its refusal at x = 3 through every cancellation' },
+    { kind: 'formula', name: 'The linear function', latex: 'f(x) = mx + c \\;\\Longrightarrow\\; f(x + 1) - f(x) = m \\;\\text{ for every } x', note: '10.2’s steepness theorem as a machine property — the fare F(d) = 50 + 12d climbs exactly 12 per kilometre, lawfully predictable' },
+    { kind: 'formula', name: 'The range from the fold', latex: 'f(x) = ax^2 + bx + c \\;\\Longrightarrow\\; \\text{range} = \\left[-\\tfrac{\\Delta}{4a}, \\infty\\right) \\; (a > 0), \\quad \\left(-\\infty, -\\tfrac{\\Delta}{4a}\\right] \\; (a < 0)', note: 'the gap f(x) − (−Δ/4a) = a(x + b/2a)² is a signed square — 10.3’s hinge, read as an output census' },
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'If $f(x) = 2x^2 - 7x + 3$, then $f(2) =$', options: ['$3$', '$-2$', '$-3$', '$25$'], answer: 2, explain: 'Substitute the input whole: $2 \\cdot 2^2 - 7 \\cdot 2 + 3 = 8 - 14 + 3 = -3$. Option A is $f(0)$ — every term carrying an $x$ dies at input $0$; option B is $f(1) = 2 - 7 + 3$; option D is $f(-2) = 8 + 14 + 3$, where the middle term flips sign along with the input. The verifier priced all four machine reads before this prose existed.' },
+      { q: 'The domain of $f(x) = \\dfrac{1}{x - 2}$ is', options: ['all reals except $2$', 'all reals', '$x \\geq 2$ only', '$x > 2$'], answer: 0, explain: 'The bill of 8.3: the denominator vanishes exactly at $x = 2$, and a rule refuses where its bill fires — every other input is priced ($f(0) = -\\frac{1}{2}$, $f(4) = \\frac{1}{2}$, $f(\\frac{5}{2}) = 2$). “All reals” forgets the filter; “$x \\geq 2$” is the SURD fence’s shape pasted onto the wrong filter; “$x > 2$” refuses legal inputs like $0$ and $\\frac{5}{2}$, and drops the boundary $2$ wrongly — the boundary itself is the refused point here, included on neither side.' },
+      { q: 'Which of these graphs fails the vertical-probe test — is NOT the graph of a function of $x$?', options: ['$y = 3x + 2$', '$y = x^2$', '$y = \\sqrt{x}$', '$x = y^2$'], answer: 3, explain: 'The probe $x = 4$ meets $x = y^2$ at BOTH $(4, 2)$ and $(4, -2)$ — one input demanding two outputs, the refusal. The line answers every probe once ($x = -1, 0, 2$ land at $-1, 2, 8$); the bowl carries 10.3’s eight one-meet probes; and $y = \\sqrt{x}$ is the branch fix — the upper half alone, single-valued by the radical’s definition. All the probe verdicts were priced by the verifier.' },
+      { q: 'The fare machine $F(d) = 50 + 12d$ reads $F(7) =$', options: ['$62$', '$134$', '$84$', '$98$'], answer: 1, explain: '$50 + 12 \\cdot 7 = 50 + 84 = 134$. Option A is $F(1)$ — the flag-fall plus one kilometre; option C is the climb $12 \\cdot 7$ WITHOUT the flag-fall, the output’s moving part alone; option D is $F(4)$. The machine’s constant climb $F(d+1) - F(d) = 12$ at $d = 0, 2, 5$ is 10.2’s steepness theorem read as a function property.' },
+      { q: 'The range of $f(x) = x^2 + 1$ is', options: ['all reals', '$[0, \\infty)$', '$[1, \\infty)$', '$(-\\infty, 1]$'], answer: 2, explain: 'The gap argument: $f(x) - 1 = x^2 \\geq 0$, so every output is at least $1$, with $1$ itself produced at $x = 0$ — the floating bowl of 10.3, read as an output census. Option B forgets the lift: $x^2$ alone ranges over $[0, \\infty)$, but this machine adds $1$ AFTER squaring. Option A is the non-constant LINE’s range; option D flips the opening — the down-bowl’s shape, not this one. The discriminant $-4$ agrees: no zeros, yet outputs are perfectly legal.' },
+    ] },
+    { kind: 'exercises', title: 'Exercises 11.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'For $f(x) = 3x - 4$, build the machine table at the inputs $-1, 0, 2$, and state which input returns $2$.', solution: [
+          'Substitute each input whole: $f(-1) = 3(-1) - 4 = -7$, $f(0) = 0 - 4 = -4$, and $f(2) = 6 - 4 = 2$.',
+          'The input returning $2$ is therefore $x = 2$ itself — read straight off the completed table.',
+          'Hence the table: $-1 \\mapsto -7$, $0 \\mapsto -4$, $2 \\mapsto 2$ — one output per input, the linear machine at its simplest.',
+        ], answer: 'f(−1) = −7, f(0) = −4, f(2) = 2; the input 2 returns 2.' },
+        { q: 'For $g(x) = x^2 + 2x$, price the reads $g(3)$, $g(-3)$ and $g\\left(\\frac{1}{2}\\right)$, and observe what the two integer reads disagree about.', solution: [
+          '$g(3) = 9 + 6 = 15$ and $g(-3) = 9 - 6 = 3$: the square agrees on both inputs, the linear term flips — so $g(3) \\neq g(-3)$, unlike the pure square $x^2$, whose twins always agree.',
+          '$g\\left(\\frac{1}{2}\\right) = \\frac{1}{4} + 1 = \\frac{5}{4}$.',
+          'Hence $g(3) = 15$, $g(-3) = 3$, $g\\left(\\frac{1}{2}\\right) = \\frac{5}{4}$ — the added linear term breaks the even rule’s symmetry, which is why the two integer reads disagree.',
+        ], answer: 'g(3) = 15, g(−3) = 3, g(1/2) = 5/4; the linear term breaks the square’s sign-symmetry.' },
+        { q: 'For $h(x) = 2x^2$, compute $h(x + 1)$ and $h(x) + 1$, and explain why the two answers differ.', solution: [
+          'The slot holds the input WHOLE: $h(x+1) = 2(x+1)^2 = 2x^2 + 4x + 2$, expanded by 11.2’s certified square.',
+          'The other read adds AFTER the machine runs: $h(x) + 1 = 2x^2 + 1$.',
+          'The difference $4x + 1$ is exactly the slipped-bracket error the caution box priced: squaring $x + 1$ produces the cross term $4x$ and lifts the constant by $2$, while the post-addition touches neither.',
+          'Hence $h(x+1) = 2x^2 + 4x + 2$ against $h(x) + 1 = 2x^2 + 1$ — fill the slot first, always.',
+        ], answer: 'h(x+1) = 2x² + 4x + 2; h(x) + 1 = 2x² + 1; the bracket discipline.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'State the domain of $f(x) = \\dfrac{x + 1}{x - 5}$, and price $f(0)$ and $f(6)$.', solution: [
+          'The only filter is the bill: the denominator $x - 5$ vanishes exactly at $x = 5$, so the domain is all reals except $5$.',
+          '$f(0) = \\frac{0 + 1}{0 - 5} = -\\frac{1}{5}$, and $f(6) = \\frac{7}{1} = 7$ — both legal reads, on either side of the refused point.',
+          'Hence the domain is $\\mathbb{R} \\setminus \\{5\\}$, with $f(0) = -\\frac{1}{5}$ and $f(6) = 7$ priced exactly.',
+        ], answer: 'all reals except 5; f(0) = −1/5, f(6) = 7.' },
+        { q: 'State the domain of $g(x) = \\sqrt{2x - 6}$, price $g(3)$, $g(5)$ and $g(11)$, and name the inputs $2$ and $0$ correctly.', solution: [
+          'The only filter is the surd fence: the radicand $2x - 6$ must be non-negative, so $x \\geq 3$ — the boundary itself is legal.',
+          '$g(3) = \\sqrt{0} = 0$, $g(5) = \\sqrt{4} = 2$, $g(11) = \\sqrt{16} = 4$ — three priced reads, each a perfect square by design.',
+          'The inputs $2$ and $0$ are REFUSALS, not zeros: their radicands $-2$ and $-6$ are negative, so the rule produces no real output there at all.',
+          'Hence the domain is $x \\geq 3$, with reads $0, 2, 4$ at $3, 5, 11$; and $2, 0$ are refused on the fence.',
+        ], answer: 'domain x ≥ 3; g(3) = 0, g(5) = 2, g(11) = 4; x = 2 and x = 0 are fence refusals.' },
+        { q: 'Simplify $h(x) = \\dfrac{x^2 - 16}{x - 4}$, state the domain of the ORIGINAL rule, and name the hole.', solution: [
+          'Factor the numerator as a difference of squares (11.2’s bank): $x^2 - 16 = (x - 4)(x + 4)$, so away from $x = 4$ the rule reads $h(x) = x + 4$.',
+          'The cancellation is lawful only where $x - 4 \\neq 0$: the ORIGINAL rule keeps the bill at $x = 4$, so its domain is all reals except $4$ — the simplification shrinks the prose, never the domain.',
+          'At $x = 4$ the original reads $\\frac{0}{0}$ — a refusal, not a value; the simplified line would claim the point $(4, 8)$.',
+          'Hence $h(x) = x + 4$ for $x \\neq 4$, the domain is $\\mathbb{R} \\setminus \\{4\\}$, and the graph is the line with a hole at $(4, 8)$ — priced reads include $h(0) = 4$ and $h(5) = 9$.',
+        ], answer: 'h(x) = x + 4 off x = 4; domain all reals except 4; the hole sits at (4, 8).' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'For the workhorse $f(x) = 2x^2 - 7x + 3$: price the minimum output, state the range, and certify the floor with the gap identity.', solution: [
+          'The fold: $f(x) = 2\\left(x - \\frac{7}{4}\\right)^2 - \\frac{25}{8}$ — the signed square vanishes at $x = \\frac{7}{4}$ and never goes negative, so the least output is $-\\frac{25}{8}$.',
+          'The range is therefore $\\left[-\\frac{25}{8}, \\infty\\right)$: every level $k \\geq -\\frac{25}{8}$ is met, no output below the floor exists.',
+          'The gap certificate: $f(x) + \\frac{25}{8} = 2\\left(x - \\frac{7}{4}\\right)^2$, which reads $\\frac{49}{8}$ at $x = 0$ and $\\frac{1}{8}$ at $x = 2$ — a non-negative square times $2$, always.',
+          'Hence the minimum output is $-\\frac{25}{8}$ at input $\\frac{7}{4}$, the range $\\left[-\\frac{25}{8}, \\infty\\right)$, and the gap identity is the proof.',
+        ], answer: 'minimum −25/8 at x = 7/4; range [−25/8, ∞); the gap f(x) + 25/8 = 2(x − 7/4)² ≥ 0 certifies it.' },
+        { q: 'The Fahrenheit machine is $F(C) = \\frac{9}{5}C + 32$. Price $F(37)$, then run the machine backwards: which input outputs $86$?', solution: [
+          'The forward read: $F(37) = \\frac{9}{5} \\cdot 37 + 32 = \\frac{333}{5} + 32 = \\frac{493}{5} = 98.6$ — body heat, priced exactly.',
+          'The reverse read solves $F(C) = 86$: $\\frac{9}{5}C + 32 = 86$ gives $\\frac{9}{5}C = 54$, so $C = 54 \\cdot \\frac{5}{9} = 30$.',
+          'Confirm through the machine: $F(30) = \\frac{9}{5} \\cdot 30 + 32 = 54 + 32 = 86$ — the balance of 5.2 running a function backwards, no new machinery.',
+          'Hence $F(37) = 98.6$ and the input outputting $86$ is $C = 30$.',
+        ], answer: 'F(37) = 98.6; F(C) = 86 at C = 30, confirmed by F(30) = 86.' },
+        { q: 'Does the circle $x^2 + y^2 = 25$ pass the vertical-probe test at $x = 3$? Name both meets, give the one-meet and no-meet probes, and state the fixed branch.', solution: [
+          'At $x = 3$: $9 + y^2 = 25$, so $y^2 = 16$ and $y = \\pm 4$ — the probe meets the circle at BOTH $(3, 4)$ and $(3, -4)$: two meets, so the circle is not a function of $x$.',
+          'The probe $x = 5$ gives $y^2 = 0$ — ONE meet $(5, 0)$, the tangent edge; the probe $x = 6$ gives $y^2 = -11$ — NO meet, the level is beyond the shape.',
+          'The branch fix: keep the upper half, $y = +\\sqrt{25 - x^2}$ — at $x = 3$ it reads $+\\sqrt{16} = 4$, single-valued, and passes every probe once on $-5 \\leq x \\leq 5$.',
+          'Hence the circle fails at $x = 3$ (meets $(3, \\pm 4)$), has one-meet and no-meet probes at $5$ and $6$, and the fixed branch is $y = +\\sqrt{25 - x^2}$.',
+        ], answer: 'fails: (3, 4) and (3, −4); one meet at x = 5, none at x = 6; the branch y = +√(25 − x²) is a function.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'For $f(x) = x^2$ and $g(x) = x + 1$: price $f(g(2))$ and $g(f(2))$, then certify $(f \\circ g)(x)$ and $(g \\circ f)(x)$ by expansion.', solution: [
+          'The values: $f(g(2)) = f(3) = 9$ (increment first, then square), while $g(f(2)) = g(4) = 5$ (square first, then increment) — the same machines, two wirings, two answers.',
+          'The composites: $(f \\circ g)(x) = (x + 1)^2 = x^2 + 2x + 1$ by 11.2’s certified square, and $(g \\circ f)(x) = x^2 + 1$.',
+          'The two polynomials differ (the cross term $2x$ and the differing constants), so composition does not commute — order is part of the data, priced twice over.',
+          'Hence $f(g(2)) = 9$ against $g(f(2)) = 5$, with $(f \\circ g)(x) = x^2 + 2x + 1$ and $(g \\circ f)(x) = x^2 + 1$ certified.',
+        ], answer: 'f(g(2)) = 9, g(f(2)) = 5; (f∘g)(x) = x² + 2x + 1, (g∘f)(x) = x² + 1.' },
+        { q: 'For $k(x) = \\dfrac{1}{x^2 - 1}$: state the domain, price $k(0)$ and $k(3)$, and prove the even read $k(-2) = k(2)$.', solution: [
+          'The bills: $x^2 - 1 = 0$ exactly at $x = \\pm 1$ — two refused points, so the domain is all reals except $\\pm 1$.',
+          'The reads: $k(0) = \\frac{1}{-1} = -1$ and $k(3) = \\frac{1}{9 - 1} = \\frac{1}{8}$, both legal.',
+          'The even read: $k(2) = \\frac{1}{4 - 1} = \\frac{1}{3}$ and $k(-2) = \\frac{1}{4 - 1} = \\frac{1}{3}$ — the square erases the sign, so $k(-x) = k(x)$ for every legal input; the rule is EVEN, the mirror-twin property of 10.3 promoted to a property of the rule.',
+          'Hence the domain excludes $\\pm 1$; $k(0) = -1$, $k(3) = \\frac{1}{8}$, and $k(-2) = k(2) = \\frac{1}{3}$ proves the even read.',
+        ], answer: 'domain all reals except ±1; k(0) = −1, k(3) = 1/8; k(−2) = k(2) = 1/3 since x² is even.' },
+        { q: 'The fare machine is $F(d) = 50 + 12d$ (rupees, $d$ in km). Interpret $50$ and $12$, price $F(3)$ and $F(7)$, and prove the climb $F(d + 1) - F(d)$ is constant.', solution: [
+          'The interpretation: $50$ is the flag-fall — the output at input $0$ — and $12$ is the rate, rupees per kilometre, the slope of 10.2 wearing a machine’s clothes.',
+          'The reads: $F(3) = 50 + 36 = 86$ and $F(7) = 50 + 84 = 134$.',
+          'The climb: $F(d + 1) - F(d) = [50 + 12(d + 1)] - [50 + 12d] = 12$ — the $50$ cancels and the $12$ survives, for EVERY $d$; the verifier priced it at $d = 0, 2, 5$.',
+          'Hence $50$ is the flag-fall and $12$ the per-km rate; $F(3) = 86$, $F(7) = 134$; and the climb is exactly $12$ everywhere — the steepness theorem as a machine property.',
+        ], answer: '50 = flag-fall, 12 = ₹/km; F(3) = 86, F(7) = 134; F(d+1) − F(d) = 12 for every d.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Show that the quartic $(x^2 - 3x + 3)^2 - 3(x^2 - 3x + 3) + 2 = 0$ is the composite equation $f(g(x)) = 0$ for $g(x) = x^2 - 3x + 3$ and $f(t) = t^2 - 3t + 2$; then solve it through the camera and verify one surd door exactly.', solution: [
+          'The composite: $(f \\circ g)(x) = g(x)^2 - 3g(x) + 2$, which expands to $x^4 - 6x^3 + 12x^2 - 9x + 2$ — certified symbolically by the verifier; the original quartic is exactly this expression set to $0$.',
+          'The outer doors: $f(t) = 0$ at $t = 1$ and $t = 2$ (the roots of $t^2 - 3t + 2 = (t - 1)(t - 2)$).',
+          'Translate back: $g(x) = 1$ gives $x^2 - 3x + 2 = 0$, so $x = 1, 2$; and $g(x) = 2$ gives $x^2 - 3x + 1 = 0$, so $x = \\frac{3 \\pm \\sqrt{5}}{2}$.',
+          'The surd verification: at $x = \\frac{3 + \\sqrt{5}}{2}$, exact surd arithmetic gives $g(x) = 2$ precisely, and $f(2) = 0$ — the composite vanishes there, as the verifier certified.',
+          'Hence the quartic is $f \\circ g$ with the four doors $1, 2, \\frac{3 \\pm \\sqrt{5}}{2}$ — 11.2’s camera, now named as composition.',
+        ], answer: 'the quartic is f(g(x)) = 0 with g = x² − 3x + 3, f = t² − 3t + 2; the doors are 1, 2 and (3 ± √5)/2, the surd door verified exactly.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove the range readout: for $f(x) = ax^2 + bx + c$ with $a \\neq 0$, every output satisfies $f(x) \\geq -\\frac{\\Delta}{4a}$ when $a > 0$ and $f(x) \\leq -\\frac{\\Delta}{4a}$ when $a < 0$, with equality at exactly one input. Then verify on $x^2 + 4x + 7$ and $-x^2 + 4x + 5$.', solution: [
+          'The fold of 10.3: $f(x) = a\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{\\Delta}{4a}$, so the gap reads $f(x) - \\left(-\\frac{\\Delta}{4a}\\right) = a\\left(x + \\frac{b}{2a}\\right)^2$ — the claim reduces to the sign of one square times $a$.',
+          'For $a > 0$: the gap is $\\geq 0$ (a square times a positive), with equality exactly when $x = -\\frac{b}{2a}$ — one input, the vertex; so every output is $\\geq -\\frac{\\Delta}{4a}$, the range $\\left[-\\frac{\\Delta}{4a}, \\infty\\right)$. For $a < 0$ the same square flips the inequality, giving the range $\\left(-\\infty, -\\frac{\\Delta}{4a}\\right]$.',
+          'First verification: $x^2 + 4x + 7 = (x + 2)^2 + 3$, so the gap above $3$ is $(x + 2)^2$ — priced $4$ at $x = 0$, $4$ at $x = -4$, and $0$ at the vertex input $-2$: the range is $[3, \\infty)$, the minimum $3$ at $x = -2$.',
+          'Second verification: $-x^2 + 4x + 5 = 9 - (x - 2)^2$, so the gap below $9$ is $-(x - 2)^2$ — priced $-4$ at $x = 0$ and $x = 4$, and $0$ at the peak input $2$: the range is $(-\\infty, 9]$, the maximum $9$ at $x = 2$.',
+          'Hence the range readout is proved from the fold — the signed square is the whole proof — and both designed companions verify it exactly.',
+        ], answer: 'the gap f(x) − (−Δ/4a) = a(x + b/2a)² is a signed square, fencing the outputs; x² + 4x + 7 has range [3, ∞) (gap (x+2)²), −x² + 4x + 5 has range (−∞, 9] (gap −(x−2)²).' },
+      ] },
+    ] },
+  ],
+}
+
 export const chapter11: Chapter = {
   number: 11,
   slug: 'the-toolbox-and-the-doorstep',
   title: 'The Toolbox and the Doorstep',
   summary:
-    'The whole course at work and the door out: word problems solved end-to-end through the five-station pipeline across the canon’s families (mixture, motion, work-rate, age, money, and the inequality fences where problems ask bounds), and competition algebra — the identity bank certified by expansion, the geometric reads, the speed reads, the symmetric ladders, and the clever substitution — as the techniques Khattar and Hall & Knight bank. The function idea (11.3) closes the book at the doorstep to Advanced Algebra and Calculus.',
-  status: 'in-progress',
-  lessons: [lesson111, lesson112],
-  plannedLessons: ['The Function Idea: the Doorstep'],
+    'The whole course at work and the door out: word problems solved end-to-end through the five-station pipeline across the canon’s families (mixture, motion, work-rate, age, money, and the inequality fences where problems ask bounds), competition algebra — the identity bank certified by expansion, the geometric reads, the speed reads, the symmetric ladders, and the clever substitution — and the function idea closing the book at the doorstep to Advanced Algebra and Calculus: the input–output machine, the domain’s two filters, the vertical-probe test, the range from the fold, and composition naming 11.2’s camera.',
+  status: 'complete',
+  lessons: [lesson111, lesson112, lesson113],
 }

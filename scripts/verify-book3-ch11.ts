@@ -4,11 +4,15 @@ import { countLessonWords } from '../src/data/library/types'
 export {}
 
 /**
- * verify-book3-ch11.ts — pre-writing verification for Elementary Algebra
- * (book #3), chapter 11 "The Toolbox and the Doorstep" — lesson 11.1 "Word
- * Problems: the Toolkit at Work" (id al-word-problems-the-toolkit-at-work)
- * and 11.2 "Competition Algebra: Identities and Substitutions" (id
- * al-competition-algebra-identities-and-substitutions).
+ * verify-book3-ch11.ts — verification for Elementary Algebra (book #3),
+ * chapter 11 "The Toolbox and the Doorstep" — lesson 11.1 "Word Problems:
+ * the Toolkit at Work" (id al-word-problems-the-toolkit-at-work), 11.2
+ * "Competition Algebra: Identities and Substitutions" (id
+ * al-competition-algebra-identities-and-substitutions) and — the run-88
+ * closing ride — 11.3 "The Function Idea: the Doorstep" (id
+ * al-the-function-idea-the-doorstep) + the unit-11 completion review +
+ * the BOOK CLOSE.
+ *
  *
  * Created 2026-11-10 (run 87) — every number that will be written into the
  * two lessons of this run is verified here BEFORE any prose exists, per the
@@ -119,12 +123,58 @@ export {}
  *       720×360), self-checked for bounds and disjointness, audited again
  *       rect-exact against the authored SVGs in D/E.
  *
- * Sections D (authored 11.1), E (authored 11.2) and F (chapter + library,
- * the OPENING state — chapter 11 in-progress with exactly two lessons,
- * 'The Function Idea: the Doorstep' still planned, the book NEVER closed in
- * run 87) import the chapter file directly — the same battery as runs
- * 73–86. Run 88 (the closing ride) adds 11.3 + the unit-11 review + the
- * book close.
+ *   (G) the FUNCTION engines for 11.3 (run 88, added BEFORE any 11.3 prose):
+ *       (i)   the MACHINE engine: f(x) = 2x² − 7x + 3 — 10.3's workhorse
+ *             named — priced on the inputs −2, 0, 1, 2, 1/2, 3, 4, 5, 7/4
+ *             (25, 3, −2, −3, 0, 0, 7, 18, −25/8), the zeros = 10.3's doors
+ *             {1/2, 3}, the gap f(x) + 25/8 = 2(x − 7/4)² re-read at 0 and 2;
+ *       (ii)  the NOTATION engine: f(x+1) = 2x² − 3x − 2 certified by
+ *             symbolic expansion and priced at x = 2 against f(3) = 0 —
+ *             the input may be any expression; the mirror twins re-priced;
+ *       (iii) the DOMAIN engines — 8.3's bills keep the rule honest: the
+ *             bill 1/(x−2) refuses exactly 2 (−1/2, 1/2, 2 at 0, 4, 5/2);
+ *             the surd √(x−3) accepts exactly x ≥ 3 (0, 1, 2, 4 at 3, 4, 7,
+ *             19; refuses 0 and 2); the HOLE (x²−9)/(x−3) = x+3 refusing
+ *             3 (3, −1, 8 at 0, −4, 5; the hole at (3, 6)); the combined
+ *             filters √(5−x)/(x−2) refusing x > 5 and x = 2 (0, 2, 3 at
+ *             5, 1, −4); the even two-bill cousin 1/(x²−1) refusing ±1
+ *             (−1, 1/8, 1/3 = 1/3 at 0, 3, ±2 — k(−x) = k(x), the even rule);
+ *       (iv)  the VERTICAL-PROBE engines — 10.1's uniqueness read as a
+ *             function: the line y = 3x+2 answers every probe once
+ *             (−1,−1), (0,2), (2,8); the bowl answers −2, 0, 7/4, 5 once
+ *             each; the circle x²+y² = 25 fails at probe x = 3 (y = ±4,
+ *             two meets; 25 = 9+16) while x = 5 meets once and x = 6
+ *             never; the sideways parabola x = y² fails at x = 4 (y = ±2);
+ *             the branch fix y = √x single-valued;
+ *       (v)   the LINEAR-function engine — 10.2 named f: the fare machine
+ *             F(d) = 50 + 12d (50, 86, 134 at 0, 3, 7) with the constant
+ *             climb F(d+1) − F(d) = 12 at d = 0, 2, 5; the Fahrenheit
+ *             function F(C) = (9/5)C + 32 (32, 212, 493/5 = 98.6 at 0, 100,
+ *             37) and the meeting F(−40) = −40 solved both ways;
+ *       (vi)  the RANGE engine — 10.3's hinge read backwards: the gap
+ *             argument on the workhorse (49/8 and 1/8 = 2(x−7/4)² at 0 and
+ *             2 — range [−25/8, ∞)), the shifted discriminant Δ_k = 25+8k
+ *             at k = 0, −25/8, −4, 5 (25, 0, −7, 65), the down bowl −x²+4x+5
+ *             peaking at 9 (gap −4 at 0 and 4 — range (−∞, 9]), the
+ *             floating bowl x²+1 (range [1, ∞), Δ = −4);
+ *       (vii) the COMPOSITION doorstep — 11.2's camera named honestly:
+ *             f(g(3)) = 16 vs g(f(3)) = 10 for f = square, g = increment;
+ *             (f∘g)(x) = x²+2x+1 and (g∘f)(x) = x²+1 by expansion — order
+ *             matters; the 11.2 quartic IS (f∘g)(x) with g = x²−3x+3,
+ *             f(t) = t²−3t+2, expanding to x⁴−6x³+12x²−9x+2 with the doors
+ *             1 and 2 and the surd doors (3±√5)/2 re-certified surd-exact;
+ *             √(x²) = |x| priced at −5 (+5) against (√x)² = x on x ≥ 0 —
+ *             the composites keep the inner domain.
+ *
+ * Sections D (authored 11.1), E (authored 11.2), H (authored 11.3) and F
+ * (chapter + library) import the chapter file directly. F is REWRITTEN for
+ * run 88 as the CLOSING state: chapter 11 complete 3/3, no planned lessons,
+ * the book status 'complete' — plus the UNIT-11 COMPLETION REVIEW (the
+ * word floors 4,612/4,128/11.3, the quiz keys vs pinned 3/3, 42 exercises
+ * chained, the figures vivid, the arcs closed) and the BOOK CLOSE checks
+ * (all 11 chapters complete, the final snapshot, the handoff named).
+ * PREWRITE=1 runs the pre-write gate only: sections A, B, C, G — the
+ * verify-first discipline, every engine green before a word of 11.3 prose.
  */
 
 let passed = 0
@@ -808,6 +858,171 @@ function sectionB(): void {
 }
 
 /* ------------------------------------------------------------------ */
+/* (G) 11.3 pre-write engines (run 88) — the function idea, priced     */
+/*     BEFORE any prose: the machine, the notation, the domains, the   */
+/*     probes, the linear/range engines, the composition doorstep      */
+/* ------------------------------------------------------------------ */
+
+console.log('[G] 11.3 pre-write engines: the machine, the notation, the domain bills, the vertical probes, the linear and range engines, the composition doorstep')
+
+function sectionG(): void {
+  const fWork = (x: Frac): Frac => quadAt(fr(2n), fr(-7n), fr(3n), x)
+
+  // ---- (i) the MACHINE engine: 10.3's workhorse, named f ----
+  {
+    ok(fEq(fWork(fr(-2n)), fr(25n)), 'G1 the machine reads f(−2) = 25 (8 + 14 + 3)')
+    ok(fEq(fWork(fr(0n)), fr(3n)), 'G1 f(0) = 3 — the intercept read')
+    ok(fEq(fWork(fr(1n)), fr(-2n)), 'G1 f(1) = −2 (2 − 7 + 3)')
+    ok(fEq(fWork(fr(2n)), fr(-3n)), 'G1 f(2) = −3 (8 − 14 + 3)')
+    ok(fEq(fWork(fr(1n, 2n)), fr(0n)), 'G1 f(1/2) = 0 — the door')
+    ok(fEq(fWork(fr(3n)), fr(0n)), 'G1 f(3) = 0 — the other door')
+    ok(fEq(fWork(fr(4n)), fr(7n)), 'G1 f(4) = 7 (32 − 28 + 3)')
+    ok(fEq(fWork(fr(5n)), fr(18n)), 'G1 f(5) = 18 (50 − 35 + 3)')
+    ok(fEq(fWork(fr(7n, 4n)), fr(-25n, 8n)), 'G1 f(7/4) = −25/8 — the vertex read, the minimum')
+    const { roots } = quadRoots(fr(2n), fr(-7n), fr(3n))
+    ok(roots.length === 2 && ((fEq(roots[0], fr(1n, 2n)) && fEq(roots[1], fr(3n))) || (fEq(roots[0], fr(3n)) && fEq(roots[1], fr(1n, 2n)))), 'G1 the zeros {1/2, 3} are exactly 10.3\'s doors (unordered)')
+    const gapAt = (x: Frac): Frac => fAdd(fWork(x), fr(25n, 8n))
+    const sqGap = (x: Frac): Frac => fMul(fr(2n), fMul(fSub(x, fr(7n, 4n)), fSub(x, fr(7n, 4n))))
+    ok(fEq(gapAt(fr(0n)), sqGap(fr(0n))) && fEq(gapAt(fr(2n)), sqGap(fr(2n))), 'G1 the gap f(x) + 25/8 = 2(x − 7/4)² at x = 0 and 2 (49/8 and 1/8)')
+  }
+
+  // ---- (ii) the NOTATION engine: the input may be an expression ----
+  {
+    const fShift = (x: Frac): Frac => quadAt(fr(2n), fr(-3n), fr(-2n), x)
+    ok(fEq(fShift(fr(2n)), fWork(fr(3n))) && fIsZero(fShift(fr(2n))), 'G2 f(x+1) at x = 2 equals f(3) = 0 — the input is the EXPRESSION x + 1')
+    const X = pVar('x')
+    const xp1 = pAdd(X, pTerm(1n, {}))
+    const lhsS = pAdd(pSub(pMul(pTerm(2n, {}), pMul(xp1, xp1)), pMul(pTerm(7n, {}), xp1)), pTerm(3n, {}))
+    const rhsS = pAdd(pSub(pMul(pTerm(2n, {}), pMul(X, X)), pMul(pTerm(3n, {}), X)), pTerm(-2n, {}))
+    ok(pEq(lhsS, rhsS), 'G2 f(x+1) = 2x² − 3x − 2 certified by symbolic expansion')
+    const t14 = fr(1n, 4n)
+    ok(fEq(fWork(fAdd(fr(7n, 4n), t14)), fWork(fSub(fr(7n, 4n), t14))), 'G2 the mirror twins f(7/4 ± 1/4) are equal — the notation carries 10.3\'s symmetry')
+  }
+
+  // ---- (iii) the DOMAIN engines: 8.3's bills keep the rule honest ----
+  {
+    ok(fEq(fDiv(fr(1n), fSub(fr(0n), fr(2n))), fr(-1n, 2n)), 'G3 the bill 1/(x−2) reads −1/2 at x = 0')
+    ok(fEq(fDiv(fr(1n), fSub(fr(4n), fr(2n))), fr(1n, 2n)), 'G3 reads 1/2 at x = 4')
+    ok(fEq(fDiv(fr(1n), fSub(fr(5n, 2n), fr(2n))), fr(2n)), 'G3 reads 2 at x = 5/2')
+    let refused = false
+    try { fDiv(fr(1n), fSub(fr(2n), fr(2n))) } catch { refused = true }
+    ok(refused, 'G3 the bill refuses x = 2 — the guard fires (8.3\'s discipline, now the domain)')
+    const nonNeg = (a: Frac): boolean => !fLt(a, fr(0n))
+    ok(nonNeg(fr(0n)) && fEq(frSqrt(fr(0n))!, fr(0n)), 'G3 √(x−3) at x = 3 reads 0 — accepted at the boundary')
+    ok(fEq(frSqrt(fr(1n))!, fr(1n)), 'G3 reads 1 at x = 4')
+    ok(fEq(frSqrt(fr(4n))!, fr(2n)) && fEq(frSqrt(fr(16n))!, fr(4n)), 'G3 reads 2 at x = 7 and 4 at x = 19')
+    ok(!nonNeg(fSub(fr(0n), fr(3n))) && !nonNeg(fSub(fr(2n), fr(3n))), 'G3 the surd filter refuses x = 0 and x = 2 (negative under the root)')
+    const holeAt = (x: Frac): Frac => fAdd(x, fr(3n))
+    ok(fEq(holeAt(fr(0n)), fr(3n)) && fEq(holeAt(fr(-4n)), fr(-1n)) && fEq(holeAt(fr(5n)), fr(8n)), 'G3 the hole function (x²−9)/(x−3) = x + 3 reads 3, −1, 8 at 0, −4, 5')
+    ok(fIsZero(quadAt(fr(1n), fr(0n), fr(-9n), fr(3n))) && fEq(holeAt(fr(3n)), fr(6n)), 'G3 at x = 3 both numerator and bill vanish: 0/0 — the hole sits at (3, 6), unplotted')
+    const comb = (x: Frac): Frac | null => {
+      if (!nonNeg(fSub(fr(5n), x))) return null
+      if (fIsZero(fSub(x, fr(2n)))) return null
+      const s = frSqrt(fSub(fr(5n), x))
+      return s === null ? null : fDiv(s, fSub(x, fr(2n)))
+    }
+    ok(fEq(comb(fr(5n))!, fr(0n)), 'G3 the combined machine √(5−x)/(x−2) reads 0 at x = 5 (boundary accepted)')
+    ok(fEq(comb(fr(1n))!, fr(-2n)), 'G3 reads −2 at x = 1')
+    ok(fEq(comb(fr(4n))!, fr(1n, 2n)), 'G3 reads 1/2 at x = 4')
+    ok(comb(fr(2n)) === null && nonNeg(fSub(fr(5n), fr(2n))), 'G3 refuses x = 2 on the BILL alone (the surd would be fine: √3)')
+    ok(comb(fr(6n)) === null, 'G3 refuses x = 6 on the surd alone (5 − 6 < 0)')
+    const kOf = (x: Frac): Frac => fDiv(fr(1n), fSub(fMul(x, x), fr(1n)))
+    ok(fEq(kOf(fr(0n)), fr(-1n)) && fEq(kOf(fr(3n)), fr(1n, 8n)) && fEq(kOf(fr(2n)), fr(1n, 3n)), 'G3 the two-bill cousin 1/(x²−1) reads −1, 1/8, 1/3 at 0, 3, 2')
+    ok(fEq(kOf(fr(2n)), kOf(fNeg(fr(2n)))), 'G3 k(−2) = k(2) = 1/3 — the even rule, priced')
+    let kRefP = false
+    try { kOf(fr(1n)) } catch { kRefP = true }
+    let kRefM = false
+    try { kOf(fr(-1n)) } catch { kRefM = true }
+    ok(kRefP && kRefM, 'G3 the two bills x = 1 and x = −1 both refused')
+  }
+
+  // ---- (iv) the VERTICAL-PROBE engines: 10.1's uniqueness, re-read ----
+  {
+    const L = (x: Frac): Frac => fAdd(fMul(fr(3n), x), fr(2n))
+    ok(fEq(L(fr(-1n)), fr(-1n)) && fEq(L(fr(0n)), fr(2n)) && fEq(L(fr(2n)), fr(8n)), 'G4 the line y = 3x+2 answers probes −1, 0, 2 with −1, 2, 8 — one meet each')
+    ok(fEq(fWork(fr(-2n)), fr(25n)) && fEq(fWork(fr(0n)), fr(3n)) && fEq(fWork(fr(5n)), fr(18n)) && fEq(fWork(fr(7n, 4n)), fr(-25n, 8n)), 'G4 the bowl answers −2, 0, 5, 7/4 with 25, 3, 18, −25/8 — one meet each')
+    const circ = (xv: Frac): { n: number; ys: Frac[] } => {
+      const { roots: ys } = quadRoots(fr(1n), fr(0n), fNeg(fSub(fr(25n), fMul(xv, xv))))
+      return { n: ys.length, ys }
+    }
+    ok(circ(fr(3n)).n === 2 && fEq(circ(fr(3n)).ys[0], fr(4n)) && fEq(circ(fr(3n)).ys[1], fr(-4n)) && 9n + 16n === 25n, 'G4 the circle x²+y² = 25 at probe x = 3: y = ±4, TWO meets (9 + 16 = 25)')
+    ok(circ(fr(5n)).n === 1 && fIsZero(circ(fr(5n)).ys[0]), 'G4 probe x = 5: y² = 0 — ONE meet (5, 0), the tangent')
+    ok(circ(fr(6n)).n === 0, 'G4 probe x = 6: 25 − 36 < 0 — NO meet')
+    const side = (xv: Frac): { n: number; ys: Frac[] } => {
+      const { roots: ys } = quadRoots(fr(1n), fr(0n), fNeg(xv))
+      return { n: ys.length, ys }
+    }
+    ok(side(fr(4n)).n === 2 && fEq(side(fr(4n)).ys[0], fr(2n)) && fEq(side(fr(4n)).ys[1], fr(-2n)), 'G4 the sideways parabola x = y² at probe x = 4: y = ±2 — TWO meets, not a function')
+    ok(side(fr(0n)).n === 1 && side(fr(-1n)).n === 0, 'G4 x = y² at probe 0 meets once (the vertex) and at −1 never')
+    ok(fEq(frSqrt(fr(4n))!, fr(2n)) && frSqrt(fr(9n)) !== null && fEq(frSqrt(fr(9n))!, fr(3n)), 'G4 the branch fix y = √x answers 4 and 9 with 2 and 3 — single-valued')
+  }
+
+  // ---- (v) the LINEAR-function engine: 10.2 named f ----
+  {
+    const Ffare = (d: Frac): Frac => fAdd(fr(50n), fMul(fr(12n), d))
+    ok(fEq(Ffare(fr(0n)), fr(50n)) && fEq(Ffare(fr(3n)), fr(86n)) && fEq(Ffare(fr(7n)), fr(134n)), 'G5 the fare machine F(d) = 50 + 12d reads 50, 86, 134 at 0, 3, 7')
+    ok(fEq(fSub(Ffare(fr(1n)), Ffare(fr(0n))), fr(12n)) && fEq(fSub(Ffare(fr(3n)), Ffare(fr(2n))), fr(12n)) && fEq(fSub(Ffare(fr(6n)), Ffare(fr(5n))), fr(12n)), 'G5 the climb F(d+1) − F(d) = 12 at d = 0, 2, 5 — the rate, constant (10.2\'s steepness theorem as a machine)')
+    ok(fEq(Ffare(fr(1n)), fr(62n)) && fEq(Ffare(fr(4n)), fr(98n)), 'G5 the distractor reads F(1) = 62 and F(4) = 98 priced')
+    const FFah = (C: Frac): Frac => fAdd(fMul(fr(9n, 5n), C), fr(32n))
+    ok(fEq(FFah(fr(0n)), fr(32n)) && fEq(FFah(fr(100n)), fr(212n)), 'G5 F(0) = 32 and F(100) = 212 — the fixed points of the scale')
+    ok(fEq(FFah(fr(37n)), fr(493n, 5n)) && fEq(fr(493n, 5n), fr(986n, 10n)), 'G5 F(37) = 493/5 = 98.6 — the body-temperature read')
+    ok(fEq(FFah(fr(-40n)), fr(-40n)), 'G5 F(−40) = −40 — the meeting point of the scales')
+    ok(fEq(fMul(fr(-4n, 5n), fr(-40n)), fr(32n)), 'G5 solved as an equation: C = (9/5)C + 32 gives −(4/5)C = 32, C = −40')
+    ok(fEq(fDiv(fSub(fr(86n), fr(32n)), fr(9n, 5n)), fr(30n)) && fEq(FFah(fr(30n)), fr(86n)), 'G5 the reverse read: F(C) = 86 lands C = 30 exactly, and F(30) = 86 confirms')
+  }
+
+  // ---- (vi) the RANGE engine: 10.3's hinge read backwards ----
+  {
+    ok(fEq(fAdd(fWork(fr(0n)), fr(25n, 8n)), fr(49n, 8n)) && fEq(fAdd(fWork(fr(2n)), fr(25n, 8n)), fr(1n, 8n)), 'G6 the gap above the minimum: 49/8 at x = 0 and 1/8 at x = 2')
+    ok(fEq(fr(49n, 8n), fMul(fr(2n), fMul(fr(-7n, 4n), fr(-7n, 4n)))) && fEq(fr(1n, 8n), fMul(fr(2n), fMul(fr(1n, 4n), fr(1n, 4n)))), 'G6 the gap priced as 2(x − 7/4)²: 2·49/16 = 49/8 and 2·1/16 = 1/8')
+    const dK = (k: Frac): Frac => fAdd(fr(25n), fMul(fr(8n), k))
+    ok(fEq(dK(fr(0n)), fr(25n)), 'G6 the shifted discriminant Δ_k = 25 + 8k at k = 0: 25 — two meets (the doors)')
+    ok(fEq(dK(fr(-25n, 8n)), fr(0n)), 'G6 at k = −25/8: 0 — the vertex graze, the range\'s floor')
+    ok(fEq(dK(fr(-4n)), fr(-7n)), 'G6 at k = −4: −7 — no meet (below the floor)')
+    ok(fEq(dK(fr(5n)), fr(65n)), 'G6 at k = 5: 65 — two meets')
+    const gDown = (x: Frac): Frac => quadAt(fr(-1n), fr(4n), fr(5n), x)
+    ok(fEq(gDown(fr(0n)), fr(5n)) && fEq(gDown(fr(4n)), fr(5n)) && fEq(gDown(fr(2n)), fr(9n)), 'G6 the down bowl −x²+4x+5: g(0) = g(4) = 5, g(2) = 9 — the peak')
+    ok(fEq(fSub(fr(9n), gDown(fr(0n))), fr(4n)) && fEq(fSub(fr(9n), gDown(fr(4n))), fr(4n)), 'G6 the gap below the peak: 9 − 5 = 4 = (x − 2)² at x = 0 and 4 — range (−∞, 9]')
+    const hFloat = (x: Frac): Frac => quadAt(fr(1n), fr(0n), fr(1n), x)
+    ok(fEq(hFloat(fr(0n)), fr(1n)), 'G6 the floating bowl x² + 1: h(0) = 1, the minimum — range [1, ∞)')
+    ok(fEq(fSub(fMul(fr(0n), fr(0n)), fMul(fr(4n), fr(1n))), fr(-4n)), 'G6 Δ(x² + 1) = −4 — the bowl never meets the x-axis, yet h(0) = 1 is a perfectly good output')
+  }
+
+  // ---- (vii) the COMPOSITION doorstep: 11.2's camera, named ----
+  {
+    const sq = (x: Frac): Frac => fMul(x, x)
+    const inc = (x: Frac): Frac => fAdd(x, fr(1n))
+    ok(fEq(sq(inc(fr(3n))), fr(16n)), 'G7 f(g(3)) = f(4) = 16 — square after increment')
+    ok(fEq(inc(sq(fr(3n))), fr(10n)), 'G7 g(f(3)) = g(9) = 10 — increment after square; ORDER MATTERS')
+    ok(fEq(sq(inc(fr(2n))), fr(9n)) && fEq(inc(sq(fr(2n))), fr(5n)), 'G7 the exercise pair: f(g(2)) = 9 and g(f(2)) = 5')
+    const X = pVar('x')
+    const gx = pAdd(X, pTerm(1n, {}))
+    const fg = pAdd(pAdd(pMul(X, X), pMul(pTerm(2n, {}), X)), pTerm(1n, {}))
+    const gf = pAdd(pMul(X, X), pTerm(1n, {}))
+    ok(pEq(pMul(gx, gx), fg), 'G7 (f∘g)(x) = (x+1)² = x² + 2x + 1 by expansion')
+    ok(pEq(pAdd(pMul(X, X), pTerm(1n, {})), gf) && !pEq(fg, gf), 'G7 (g∘f)(x) = x² + 1 — and the two composites DIFFER: order is part of the data')
+    const gq = pAdd(pSub(pMul(X, X), pMul(pTerm(3n, {}), X)), pTerm(3n, {}))
+    const fq = (t: Poly): Poly => pAdd(pSub(pMul(t, t), pMul(pTerm(3n, {}), t)), pTerm(2n, {}))
+    const quartic = fq(gq)
+    const x4 = pMul(pMul(pMul(X, X), X), X)
+    const expect = pAdd(pAdd(pAdd(x4, pMul(pTerm(-6n, {}), pMul(pMul(X, X), X))), pMul(pTerm(12n, {}), pMul(X, X))), pAdd(pMul(pTerm(-9n, {}), X), pTerm(2n, {})))
+    ok(pEq(quartic, expect), 'G7 the 11.2 quartic (x²−3x+3)² − 3(x²−3x+3) + 2 = x⁴ − 6x³ + 12x² − 9x + 2 — a composite f∘g, certified by expansion')
+    ok(fEq(quadAt(fr(1n), fr(-3n), fr(3n), fr(1n)), fr(1n)) && fEq(quadAt(fr(1n), fr(-3n), fr(3n), fr(2n)), fr(1n)), 'G7 the integer doors feed g = 1: g(1) = g(2) = 1')
+    const sPlus = sHalf(sd(3n, 1n, 5n))
+    const gAt = (x: Surd): Surd => sAdd(sSub(sMul(x, x), sMul(sd(3n, 0n, 5n), x)), sd(3n, 0n, 5n))
+    ok(sEq(gAt(sPlus), sd(2n, 0n, 5n)), 'G7 the surd door feeds g = 2: g((3+√5)/2) = 2 exactly')
+    ok(fIsZero(quadAt(fr(1n), fr(-3n), fr(2n), fr(1n))) && fIsZero(quadAt(fr(1n), fr(-3n), fr(2n), fr(2n))), 'G7 and f\'s doors: f(1) = f(2) = 0 — the composite vanishes exactly at the four doors')
+    ok(fEq(frSqrt(fr(25n))!, fr(5n)), 'G7 the composite √(x²) at x = −5 reads √25 = 5 = |−5| — never −5')
+    ok(frSqrt(fNeg(fr(25n))) === null, 'G7 the composite (√x)² at x = −5: the INNER rule refuses (√(−25) is not real) — composites keep the inner domain')
+    const foldGap = (x: Frac): Frac => fSub(quadAt(fr(1n), fr(4n), fr(7n), x), fr(3n))
+    ok(fEq(foldGap(fr(0n)), fr(4n)) && fEq(foldGap(fr(-2n)), fr(0n)) && fEq(foldGap(fr(-4n)), fr(4n)), 'G7 the L6 fold: x²+4x+7 = (x+2)² + 3 — the gap 4 at x = 0 and −4, zero at the vertex −2')
+    const foldDown = (x: Frac): Frac => fSub(fr(9n), quadAt(fr(-1n), fr(4n), fr(5n), x))
+    ok(fEq(foldDown(fr(0n)), fr(4n)) && fEq(foldDown(fr(4n)), fr(4n)) && fEq(foldDown(fr(2n)), fr(0n)), 'G7 the L6 down fold: −x²+4x+5 = 9 − (x−2)² — the gap 4 at 0 and 4, zero at the peak 2')
+  }
+  console.log('  G the function engines: machine, notation, domains, probes, linear, range, composition — all priced exact')
+}
+
+/* ------------------------------------------------------------------ */
 /* (C) the figure geometry plans — pinned before the SVGs are drawn    */
 /* ------------------------------------------------------------------ */
 
@@ -907,28 +1122,75 @@ const plan112Fig2: FigPlan = {
   groups: [[0], [1], [2, 3], [4], [5], [6, 7], [8], [9]],
 }
 
+const plan113Fig1: FigPlan = {
+  name: 'the function machine',
+  view: [720, 360],
+  chips: [
+    [30, 18, 660, 40], // 0 header band
+    [70, 150, 110, 64], // 1 the input chip (x = 2)
+    [230, 110, 260, 130], // 2 the machine box (the rule)
+    [540, 150, 110, 64], // 3 the output chip (f(2) = −3)
+    [30, 270, 660, 46], // 4 the domain/range note band
+    [30, 324, 660, 28], // 5 caption band
+  ],
+  groups: [[0], [1], [2], [3], [4], [5]],
+}
+
+const plan113Fig2: FigPlan = {
+  name: 'the probe verdicts strip',
+  view: [720, 380],
+  chips: [
+    [30, 18, 660, 40], // 0 header band
+    [40, 80, 200, 190], // 1 panel A: the bowl passes (one meet per probe)
+    [260, 80, 200, 190], // 2 panel B: the circle fails (probe x = 3, two meets)
+    [480, 80, 200, 190], // 3 panel C: the sideways parabola fails (x = y²)
+    [30, 290, 660, 40], // 4 the branch-fix verdict band
+    [30, 338, 660, 32], // 5 caption band
+  ],
+  groups: [[0], [1], [2], [3], [4], [5]],
+}
+
 function sectionC(): void {
   selfCheckPlan(plan111Fig1, 'C 11.1 fig 1')
   selfCheckPlan(plan111Fig2, 'C 11.1 fig 2')
   selfCheckPlan(plan112Fig1, 'C 11.2 fig 1')
   selfCheckPlan(plan112Fig2, 'C 11.2 fig 2')
+  selfCheckPlan(plan113Fig1, 'C 11.3 fig 1')
+  selfCheckPlan(plan113Fig2, 'C 11.3 fig 2')
   // the designed geometry of the figures is itself arithmetic — priced here
   ok(533.33 + 66.67 === 600 && 70 + 600 === 670, 'C 11.1 fig 2: the bar splits 533.33 + 66.67 = 600 px = 9 hours at 66.67 px/h')
   ok(533.33 / 66.67 > 7.99 && 533.33 / 66.67 < 8.01, 'C 11.1 fig 2: the fast bar spans 8 of the 9 hourly divisions')
   ok(160 + 100 === 260, 'C 11.2 fig 1: the side splits a = 160 px + b = 100 px = the 260 px square')
   ok(210 + 60 === 270 && 210 - 60 === 150, 'C 11.2 fig 2: a + b = 270 px, a − b = 150 px — the strip\'s two sides priced')
-  console.log('  C the four figure plans pinned: 13 + 7 + 8 + 10 rects, all in-bounds and pairwise disjoint within their rows')
+  // the 11.3 figure geometry priced
+  ok(230 - 180 === 50 && 540 - 490 === 50, 'C 11.3 fig 1: the machine box sits 50 px from the input chip and 50 px from the output chip — symmetric arrows')
+  ok((70 + 110 / 2) + (540 + 55) === 720 && 360 - (70 + 110 / 2) === (540 + 55) - 360, 'C 11.3 fig 1: the input centre 125 and output centre 595 sit 235 px either side of the midline 360')
+  ok(40 + 200 === 240 && 240 + 20 === 260 && 260 + 200 === 460 && 460 + 20 === 480 && 480 + 200 === 680, 'C 11.3 fig 2: the three panels span 40 → 680 with 20-px gutters — 200 px each, equal reads')
+  ok(80 + 190 === 270 && 290 - 270 === 20, 'C 11.3 fig 2: the panels close at 270 and the verdict band clears them by 20 px')
+  console.log('  C the six figure plans pinned: 13 + 7 + 8 + 10 + 6 + 6 rects, all in-bounds and pairwise disjoint within their rows')
 }
 
 /* ------------------------------------------------------------------ */
-/* the run — pre-write gate (A–C), then the authored batteries D/E/F   */
-/* against ch-11.ts when it exists (the single-file discipline of      */
-/* runs 73–86)                                                         */
+/* the run — pre-write gate (A–C + G), then the authored batteries     */
+/* D/E/H/F against ch-11.ts (the single-file discipline of runs 73–87)  */
 /* ------------------------------------------------------------------ */
+
+const PREWRITE = process.env.PREWRITE === '1'
 
 sectionA()
 sectionB()
 sectionC()
+sectionG()
+
+if (PREWRITE) {
+  console.log('')
+  console.log(`RUN 88 PRE-WRITE VERIFICATION (A–C + G): ${passed} passed, ${failed} failed`)
+  if (failures.length) {
+    console.log('FAILURES:')
+    for (const f of failures) console.log('  - ' + f)
+  }
+  process.exit(failed > 0 ? 1 : 0)
+}
 
 let ch11mod: any = null
 try {
@@ -941,6 +1203,7 @@ if (ch11mod) {
   const chapter11 = ch11mod.chapter11 as any
   const lesson111 = chapter11.lessons[0]
   const lesson112 = chapter11.lessons[1]
+  const lesson113 = chapter11.lessons[2]
 
   const fs = await import('node:fs')
   const sourceLog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
@@ -1196,32 +1459,187 @@ if (ch11mod) {
   }
 
   /* ---------------------------------------------------------------- */
-  /* (F) chapter + library — the OPENING state: ch. 11 in-progress    */
-  /*     with exactly two lessons, the doorstep still planned, the     */
-  /*     book NEVER closed in run 87                                   */
+  /* (H) the authored lesson 11.3 — structure census, quiz keys, the  */
+  /*     14 exercises re-priced, figure geometry vs plan, scans       */
   /* ---------------------------------------------------------------- */
 
-  console.log('[F] chapter + library: the OPENING state — chapter 11 in-progress with exactly two lessons, the doorstep still planned, the book never closed in run 87')
+  console.log('[H] 11.3 authored: identity, structure census, quiz keys [2,0,3,1,2], 14 exercises re-priced, figure plans, scans')
+
+  function sectionH(): void {
+    if (!lesson113) {
+      console.log('  H skipped — 11.3 not yet authored (pre-write mode)')
+      return
+    }
+    ok(lesson113.id === 'al-the-function-idea-the-doorstep', 'H the 11.3 id is al-the-function-idea-the-doorstep')
+    ok(lesson113.number === '11.3', 'H the 11.3 number is 11.3')
+    ok(lesson113.title === 'The Function Idea: the Doorstep', 'H the 11.3 title matches the book.ts plan')
+
+    // structure census
+    const kinds: Record<string, number> = {}
+    for (const b of lesson113.blocks) kinds[b.kind] = (kinds[b.kind] || 0) + 1
+    ok(kinds['para'] === 16, `H 11.3 has 16 paras (got ${kinds['para']})`)
+    ok(kinds['heading'] === 6, `H 11.3 has 6 headings (got ${kinds['heading']})`)
+    ok(kinds['table'] === 1, `H 11.3 has 1 table (the domain-refusal census)`)
+    ok(kinds['derivation'] === 1, `H 11.3 has 1 derivation (the vertical-probe uniqueness)`)
+    ok(kinds['equation'] === 2, `H 11.3 has 2 equations (the gap/range read + the composition order)`)
+    ok(kinds['figure'] === 2, `H 11.3 has 2 figures`)
+    ok(kinds['callout'] === 4, `H 11.3 has 4 callouts (warn, insight, historical, exam)`)
+    ok(kinds['example'] === 4, `H 11.3 has 4 examples`)
+    ok(kinds['terms'] === 1, 'H 11.3 has 1 terms block')
+    ok(kinds['list'] === 1, `H 11.3 has 1 summary list`)
+    ok(kinds['formula'] === 4, `H 11.3 has 4 formula cards`)
+    ok(kinds['quiz'] === 1 && kinds['exercises'] === 1, 'H 11.3 has 1 quiz + 1 exercise set')
+    const tones113 = lesson113.blocks.filter((b: any) => b.kind === 'callout').map((b: any) => b.tone)
+    for (const t of ['warn', 'insight', 'historical', 'exam']) {
+      ok(tones113.includes(t), `H 11.3 carries the ${t} callout`)
+    }
+    ok(lesson113.concepts.length >= 5 && lesson113.concepts.length <= 8, 'H 11.3 concepts 5–8')
+    ok((lesson113.objectives || []).length >= 5, 'H 11.3 objectives >= 5')
+    ok((lesson113.prerequisites || []).length === 5, 'H 11.3 prerequisites = 5 (10.1, 10.2, 10.3, 8.3, 11.2)')
+    ok(lesson113.prerequisites.includes('al-the-coordinate-plane-and-linear-graphs') && lesson113.prerequisites.includes('al-slope-the-steepness-theorem') && lesson113.prerequisites.includes('al-the-parabola-quadratic-graphs-and-vertices') && lesson113.prerequisites.includes('al-fractional-equations-and-extraneous-roots') && lesson113.prerequisites.includes('al-competition-algebra-identities-and-substitutions'), 'H 11.3 prerequisites name 10.1/10.2/10.3/8.3/11.2 by id')
+
+    // quiz keys vs pinned [2, 0, 3, 1, 2]
+    const quiz113 = lesson113.blocks.find((b: any) => b.kind === 'quiz')
+    const keys113 = quiz113.items.map((it: any) => it.answer)
+    ok(JSON.stringify(keys113) === JSON.stringify([2, 0, 3, 1, 2]), `H 11.3 quiz keys are [2,0,3,1,2] (got ${JSON.stringify(keys113)})`)
+    ok(quiz113.items.length === 5, 'H 11.3 quiz has 5 items')
+    for (const it of quiz113.items) {
+      ok(it.options.length === 4 && it.explain.length > 80, 'H 11.3 quiz item: 4 options + full explanation')
+    }
+    // quiz distractor prices
+    {
+      const fW = (x: Frac): Frac => quadAt(fr(2n), fr(-7n), fr(3n), x)
+      ok(fEq(fW(fr(2n)), fr(-3n)) && fEq(fW(fr(0n)), fr(3n)) && fEq(fW(fr(1n)), fr(-2n)), 'H 11.3 quiz Q1: f(2) = −3 priced against the distractors f(0) = 3 and f(1) = −2')
+      let refused = false
+      try { fDiv(fr(1n), fSub(fr(2n), fr(2n))) } catch { refused = true }
+      ok(refused, 'H 11.3 quiz Q2: the bill at x = 2 refuses — the domain read priced')
+      const side = (xv: Frac): number => quadRoots(fr(1n), fr(0n), fNeg(xv)).roots.length
+      ok(side(fr(4n)) === 2, 'H 11.3 quiz Q3: x = y² fails at probe 4 with two meets — the non-function priced')
+      ok(fEq(fAdd(fr(50n), fMul(fr(12n), fr(7n))), fr(134n)) && fEq(fAdd(fr(50n), fMul(fr(12n), fr(1n))), fr(62n)) && fEq(fAdd(fr(50n), fMul(fr(12n), fr(4n))), fr(98n)), 'H 11.3 quiz Q4: F(7) = 134 with the distractors F(1) = 62 and F(4) = 98 priced')
+      ok(fEq(quadAt(fr(1n), fr(0n), fr(1n), fr(0n)), fr(1n)) && fEq(fSub(fMul(fr(0n), fr(0n)), fMul(fr(4n), fr(1n))), fr(-4n)), 'H 11.3 quiz Q5: the range of x²+1 is [1, ∞) — h(0) = 1 with Δ = −4 priced')
+    }
+
+    // the 14 exercises re-priced exactly
+    const ex113 = lesson113.blocks.find((b: any) => b.kind === 'exercises')
+    let n113 = 0
+    for (const set of ex113.sets) n113 += set.questions.length
+    ok(n113 === 14, `H 11.3 has 14 exercises (got ${n113})`)
+    ok(JSON.stringify(ex113.sets.map((s: any) => s.questions.length)) === JSON.stringify([3, 3, 3, 3, 1, 1]), 'H 11.3 exercise ladder 3/3/3/3/1/1')
+    {
+      const fW = (x: Frac): Frac => quadAt(fr(2n), fr(-7n), fr(3n), x)
+      // L1 the machine warm-ups
+      const lin = (x: Frac): Frac => fAdd(fMul(fr(3n), x), fr(-4n))
+      ok(fEq(lin(fr(0n)), fr(-4n)) && fEq(lin(fr(2n)), fr(2n)) && fEq(lin(fr(-1n)), fr(-7n)), 'H 11.3 L1-1 f(x) = 3x−4 reads −4, 2, −7 at 0, 2, −1')
+      const quad2 = (x: Frac): Frac => fAdd(fMul(x, x), fMul(fr(2n), x))
+      ok(fEq(quad2(fr(3n)), fr(15n)) && fEq(quad2(fr(-3n)), fr(3n)) && fEq(quad2(fr(1n, 2n)), fr(5n, 4n)), 'H 11.3 L1-2 g(x) = x²+2x reads 15, 3, 5/4 at 3, −3, 1/2')
+      {
+        const X = pVar('x')
+        const xp1 = pAdd(X, pTerm(1n, {}))
+        const lhs = pMul(pTerm(2n, {}), pMul(xp1, xp1))
+        const rhs = pAdd(pAdd(pMul(pTerm(2n, {}), pMul(X, X)), pMul(pTerm(4n, {}), X)), pTerm(2n, {}))
+        ok(pEq(lhs, rhs), 'H 11.3 L1-3 h(x+1) = 2x²+4x+2 by symbolic expansion — the bracket discipline')
+        const hPlus1 = pAdd(pMul(pTerm(2n, {}), pMul(X, X)), pTerm(1n, {}))
+        ok(!pEq(lhs, hPlus1), 'H 11.3 L1-3 and h(x)+1 = 2x²+1 DIFFERS from h(x+1) — the caution priced')
+      }
+      // L2 the domain hunts
+      {
+        const f = (x: Frac): Frac => fDiv(fAdd(x, fr(1n)), fSub(x, fr(5n)))
+        ok(fEq(f(fr(0n)), fr(-1n, 5n)) && fEq(f(fr(6n)), fr(7n)), 'H 11.3 L2-1 (x+1)/(x−5) reads −1/5 and 7 at 0 and 6 — bill at 5')
+        let refused = false
+        try { f(fr(5n)) } catch { refused = true }
+        ok(refused, 'H 11.3 L2-1 the bill at x = 5 refuses')
+        const g = (x: Frac): Frac | null => {
+          if (fLt(fSub(fMul(fr(2n), x), fr(6n)), fr(0n))) return null
+          const s = frSqrt(fSub(fMul(fr(2n), x), fr(6n)))
+          return s === null ? null : s
+        }
+        ok(fEq(g(fr(3n))!, fr(0n)) && fEq(g(fr(5n))!, fr(2n)) && fEq(g(fr(11n))!, fr(4n)), 'H 11.3 L2-2 √(2x−6) reads 0, 2, 4 at 3, 5, 11 — domain x ≥ 3')
+        ok(g(fr(2n)) === null && g(fr(0n)) === null, 'H 11.3 L2-2 refuses 2 and 0 (radicand −2 and −6)')
+        const hole = (x: Frac): Frac => fAdd(x, fr(4n))
+        ok(fEq(hole(fr(0n)), fr(4n)) && fEq(hole(fr(5n)), fr(9n)) && fIsZero(quadAt(fr(1n), fr(0n), fr(-16n), fr(4n))) && fEq(hole(fr(4n)), fr(8n)), 'H 11.3 L2-3 (x²−16)/(x−4) = x+4 with reads 4 and 9 — and the hole at (4, 8)')
+      }
+      // L3 the workhorse range + Fahrenheit + the circle probe
+      ok(fEq(fW(fr(7n, 4n)), fr(-25n, 8n)) && fEq(fAdd(fW(fr(0n)), fr(25n, 8n)), fr(49n, 8n)), 'H 11.3 L3-1 the workhorse minimum −25/8 with the gap 49/8 at x = 0')
+      {
+        const Fa = (C: Frac): Frac => fAdd(fMul(fr(9n, 5n), C), fr(32n))
+        ok(fEq(Fa(fr(37n)), fr(493n, 5n)) && fEq(Fa(fr(-40n)), fr(-40n)), 'H 11.3 L3-2 F(37) = 98.6 and the −40 meeting priced')
+        const circ = (xv: Frac): number => quadRoots(fr(1n), fr(0n), fNeg(fSub(fr(25n), fMul(xv, xv)))).roots.length
+        ok(circ(fr(3n)) === 2 && circ(fr(5n)) === 1 && circ(fr(6n)) === 0, 'H 11.3 L3-3 the circle probe verdicts: two at 3, one at 5, none at 6')
+        ok(fEq(frSqrt(fr(16n))!, fr(4n)), 'H 11.3 L3-3 the branch read y = +√(25−x²) at x = 3 gives +4')
+      }
+      // L4 the composition pair + the even cousin + the fare climb
+      ok(fEq(fMul(fAdd(fr(2n), fr(1n)), fAdd(fr(2n), fr(1n))), fr(9n)) && fEq(fAdd(fMul(fr(2n), fr(2n)), fr(1n)), fr(5n)), 'H 11.3 L4-1 f(g(2)) = 9 and g(f(2)) = 5 priced')
+      {
+        const k = (x: Frac): Frac => fDiv(fr(1n), fSub(fMul(x, x), fr(1n)))
+        ok(fEq(k(fr(0n)), fr(-1n)) && fEq(k(fr(3n)), fr(1n, 8n)) && fEq(k(fr(2n)), k(fNeg(fr(2n)))), 'H 11.3 L4-2 the even cousin −1, 1/8, and k(−2) = k(2) priced')
+        const F = (d: Frac): Frac => fAdd(fr(50n), fMul(fr(12n), d))
+        ok(fEq(F(fr(3n)), fr(86n)) && fEq(F(fr(7n)), fr(134n)) && fEq(fSub(F(fr(1n)), F(fr(0n))), fr(12n)), 'H 11.3 L4-3 the fare 86, 134 and the climb 12 priced')
+      }
+      // L5 the quartic composite
+      {
+        const gq = (x: Frac): Frac => quadAt(fr(1n), fr(-3n), fr(3n), x)
+        const fq = (t: Frac): Frac => quadAt(fr(1n), fr(-3n), fr(2n), t)
+        ok(fIsZero(fq(gq(fr(1n)))) && fIsZero(fq(gq(fr(2n)))), 'H 11.3 L5-1 the composite vanishes at x = 1 and 2 (g = 1, f(1) = 0)')
+        const sPlus = sHalf(sd(3n, 1n, 5n))
+        const gAt = (x: Surd): Surd => sAdd(sSub(sMul(x, x), sMul(sd(3n, 0n, 5n), x)), sd(3n, 0n, 5n))
+        ok(sEq(gAt(sPlus), sd(2n, 0n, 5n)), 'H 11.3 L5-1 the surd door (3+√5)/2 feeds g = 2 (surd-exact)')
+        ok(fIsZero(quadAt(fr(1n), fr(-3n), fr(2n), fr(2n))), 'H 11.3 L5-1 and f(2) = 0 — the quartic\'s four doors recovered through the camera')
+      }
+      // L6 the range theorem
+      {
+        const foldGap = (x: Frac): Frac => fSub(quadAt(fr(1n), fr(4n), fr(7n), x), fr(3n))
+        ok(fEq(foldGap(fr(0n)), fr(4n)) && fEq(foldGap(fr(-2n)), fr(0n)), 'H 11.3 L6-1 x²+4x+7 = (x+2)²+3: the gap 4 at 0, zero at −2 — range [3, ∞)')
+        const foldDown = (x: Frac): Frac => fSub(fr(9n), quadAt(fr(-1n), fr(4n), fr(5n), x))
+        ok(fEq(foldDown(fr(0n)), fr(4n)) && fEq(foldDown(fr(2n)), fr(0n)), 'H 11.3 L6-1 −x²+4x+5 = 9−(x−2)²: the gap 4 at 0, zero at 2 — range (−∞, 9]')
+      }
+    }
+    console.log('  H 11.3 authored battery: identity, census, quiz keys, 14 exercises re-priced, figure plans, scans')
+
+    // figure geometry vs plan (rect-exact)
+    const figs113 = lesson113.blocks.filter((b: any) => b.kind === 'figure')
+    ok(figs113.length === 2, 'H 11.3 exactly two figures')
+    checkFigureAgainstPlan(figs113[0].svg, plan113Fig1, 360, 'H 11.3 fig 1')
+    checkFigureAgainstPlan(figs113[1].svg, plan113Fig2, 380, 'H 11.3 fig 2')
+
+    // citations
+    for (const key of lesson113.sources) {
+      ok(sourceLog.includes(key), `H 11.3 citation key ${key} banked in SOURCE_LOG.md`)
+    }
+
+    // honest word count
+    const words113 = countLessonWords(lesson113)
+    ok(words113 >= 4000, `H 11.3 honest word count ${words113} ≥ 4,000`)
+
+    // scans
+    scanFileHygiene(ch11File, 'H 11.3')
+    ok(!lesson113.title.includes('$'), 'H 11.3 title carries no raw $')
+    console.log(`  H 11.3 honest word count: ${words113}`)
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* (F) chapter + library — the CLOSING state: ch. 11 complete 3/3,  */
+  /*     the unit-11 COMPLETION REVIEW passed, and the BOOK CLOSE     */
+  /* ---------------------------------------------------------------- */
+
+  console.log('[F] chapter + library: the CLOSING state — chapter 11 complete 3/3, the unit-11 completion review, the BOOK CLOSE')
 
   function sectionF(): void {
-    ok(chapter11.lessons.length === 2, 'F chapter 11 carries exactly the two lessons of the opening run')
-    ok(chapter11.lessons[0].id !== chapter11.lessons[1].id, 'F the two lesson ids differ')
-    // the planned doorstep remains — NEVER closed this run
-    ok(JSON.stringify(chapter11.plannedLessons) === JSON.stringify(['The Function Idea: the Doorstep']), 'F exactly one planned lesson remains: The Function Idea: the Doorstep (run 88)')
-    ok(chapter11.status === 'in-progress', 'F chapter 11 status in-progress (an OPENING run never completes it)')
+    ok(chapter11.lessons.length === 3, 'F chapter 11 carries exactly its three lessons — the book\'s last chapter complete')
+    ok(chapter11.lessons[0].id !== chapter11.lessons[1].id && chapter11.lessons[1].id !== chapter11.lessons[2].id, 'F the three lesson ids differ')
+    ok((chapter11.plannedLessons || []).length === 0, 'F NO planned lessons remain — the doorstep was written')
+    ok(chapter11.status === 'complete', 'F chapter 11 status complete — the closing ride landed')
     ok(chapter11.number === 11 && chapter11.slug === 'the-toolbox-and-the-doorstep', 'F chapter 11 slug the-toolbox-and-the-doorstep')
 
-    // the book registration carries the chapter, and the book stays open
+    // the book registration carries the closed chapter
     const alg = allBooks.find((b: any) => b.id === 'elementary-algebra')
     ok(!!alg, 'F the elementary-algebra book is registered')
     const regCh11 = alg!.chapters.find((c: any) => c.number === 11)
-    ok(!!regCh11 && regCh11.lessons.length === 2 && (regCh11.plannedLessons || []).length === 1 && regCh11.status === 'in-progress', 'F book.ts carries chapter 11 with 2 lessons, 1 planned, in-progress')
-    ok(alg!.chapters.length === 11, 'F the book has exactly 11 chapters — no chapter 12 exists, the book is not closed')
-    ok(alg!.status === 'in-progress', 'F the book status stays in-progress — the BOOK CLOSE rides run 88')
-    // every earlier chapter complete
+    ok(!!regCh11 && regCh11.lessons.length === 3 && (regCh11.plannedLessons || []).length === 0 && regCh11.status === 'complete', 'F book.ts carries chapter 11 with 3 lessons, none planned, complete')
+    ok(alg!.chapters.length === 11, 'F the book has exactly 11 chapters — no chapter 12 exists')
     for (const c of alg!.chapters) {
-      if (c.number <= 10) ok(c.status === 'complete', `F chapter ${c.number} remains complete`)
+      ok(c.status === 'complete', `F chapter ${c.number} complete — the whole book, verified chapter by chapter`)
     }
+    ok(alg!.status === 'complete', 'F THE BOOK CLOSE: the elementary-algebra status is complete')
 
     // al- prefix + global uniqueness across the whole library
     const seen = new Map<string, string>()
@@ -1239,27 +1657,58 @@ if (ch11mod) {
       }
     }
 
-    // cross-lesson arcs: the promised mentions
-    ok(ch11File.includes('5.2') && ch11File.includes('6.2') && ch11File.includes('7.2') && ch11File.includes('8.3') && ch11File.includes('9.1'), 'F the promised cross-references (5.2, 6.2, 7.2, 8.3, 9.1) appear in the chapter')
-    ok(ch11File.includes('3.3') && ch11File.includes('4.3') && ch11File.includes('9.4') && ch11File.includes('9.2') && ch11File.includes('9.3'), 'F the closing arcs add 3.3 (the identities), 4.3 (the factorizations), 9.2/9.3 (the quadratic craft) and 9.4 (Viète) by name')
-    ok(ch11File.includes('Ahmes') && ch11File.includes('Euclid') && ch11File.includes('Brahmagupta'), 'F the historical notes carry Ahmes, Euclid and Brahmagupta (web-checked)')
+    // ---- the UNIT-11 COMPLETION REVIEW ----
+    // word floors: 4,612 / 4,128 / 11.3 ≥ 4,000
+    const words111 = countLessonWords(lesson111)
+    const words112 = countLessonWords(lesson112)
+    const words113 = countLessonWords(lesson113)
+    ok(words111 >= 4612, `F unit review: 11.1 word floor 4,612 (got ${words111})`)
+    ok(words112 >= 4128, `F unit review: 11.2 word floor 4,128 (got ${words112})`)
+    ok(words113 >= 4000, `F unit review: 11.3 word floor 4,000 (got ${words113})`)
+    // quiz keys vs pinned — 3/3 lessons
+    const keys111 = lesson111.blocks.find((b: any) => b.kind === 'quiz').items.map((it: any) => it.answer)
+    const keys112 = lesson112.blocks.find((b: any) => b.kind === 'quiz').items.map((it: any) => it.answer)
+    const keys113 = lesson113.blocks.find((b: any) => b.kind === 'quiz').items.map((it: any) => it.answer)
+    ok(JSON.stringify(keys111) === JSON.stringify([2, 3, 1, 0, 2]) && JSON.stringify(keys112) === JSON.stringify([1, 2, 0, 3, 1]) && JSON.stringify(keys113) === JSON.stringify([2, 0, 3, 1, 2]), 'F unit review: quiz keys vs pinned, 3/3 lessons')
+    // 42 exercises chained
+    const countEx = (lesson: any): number => {
+      const ex = lesson.blocks.find((b: any) => b.kind === 'exercises')
+      let n = 0
+      for (const set of ex.sets) n += set.questions.length
+      return n
+    }
+    ok(countEx(lesson111) + countEx(lesson112) + countEx(lesson113) === 42, 'F unit review: 42 exercises chained across the chapter (14 + 14 + 14)')
+    // six figures, all vivid-palette-checked (the retired-hex scans ran in D/E/H)
+    const figs11 = [lesson111, lesson112, lesson113].reduce((n: number, l: any) => n + l.blocks.filter((b: any) => b.kind === 'figure').length, 0)
+    ok(figs11 === 6, 'F unit review: six figures across the chapter, every one palette-audited')
+    // arcs closed
+    ok(ch11File.includes('5.2') && ch11File.includes('6.2') && ch11File.includes('7.2') && ch11File.includes('8.3') && ch11File.includes('9.1'), 'F unit review: 11.1\'s arcs intact (8.3\'s debt paid by name, 5.2/6.2\'s craft, 7.2\'s fences, 9.1\'s factoring)')
+    ok(ch11File.includes('3.3') && ch11File.includes('4.3') && ch11File.includes('9.4') && ch11File.includes('9.3'), 'F unit review: 11.2\'s arcs intact (3.3/4.3/9.4 leaned on, 9.3\'s surd doors carried)')
+    ok(ch11File.includes('10.1') && ch11File.includes('10.2') && ch11File.includes('10.3'), 'F unit review: 11.3 grows 10.1\'s probes, 10.2\'s slope and 10.3\'s parabola into the function idea — the book\'s last arc')
+    ok(ch11File.includes('11.2'), 'F unit review: 11.2\'s camera named as the composition in 11.3')
+    ok(ch11File.includes('Ahmes') && ch11File.includes('Euclid') && ch11File.includes('Brahmagupta'), 'F the run-87 historical notes intact')
+    ok(ch11File.includes('Leibniz') && ch11File.includes('Euler') && ch11File.includes('Dirichlet'), 'F the 11.3 historical note carries Leibniz, Euler and Dirichlet (web-checked)')
 
-    // the opening snapshot: 36 lessons, honest words
+    // the handoff note — the book\'s last paragraph names the next doors
+    ok(ch11File.includes('Advanced Algebra') && ch11File.includes('Coordinate Geometry') && ch11File.includes('Trigonometry') && ch11File.includes('Calculus'), 'F the handoff note names Advanced Algebra, Coordinate Geometry, Trigonometry and Calculus')
+
+    // the closing snapshot
     const bookLessons = alg!.chapters.reduce((n: number, c: any) => n + c.lessons.length, 0)
     const bookWords = alg!.chapters.reduce((n: number, c: any) => n + c.lessons.reduce((m: number, l: any) => m + countLessonWords(l), 0), 0)
-    ok(bookLessons === 36, `F the book stands at 36 lessons (got ${bookLessons})`)
-    ok(bookWords >= 164000, `F the book stands at ≥ 164,000 words (got ${bookWords})`)
-    ok(libLessons === 119, `F the library stands at 119 lessons (got ${libLessons})`)
-    console.log(`  F the opening snapshot: book 36 lessons / ${bookWords} words; library ${libLessons} lessons; ch. 11 in-progress, the doorstep planned`)
+    ok(bookLessons === 37, `F the closing snapshot: the book stands at 37 lessons (got ${bookLessons})`)
+    ok(bookWords >= 168900, `F the closing snapshot: the book stands at ≥ 168,900 words (got ${bookWords})`)
+    ok(libLessons === 120, `F the library stands at 120 lessons (got ${libLessons})`)
+    console.log(`  F THE BOOK CLOSE: book 3 Elementary Algebra COMPLETE — ${bookLessons} lessons / ${bookWords} words; library ${libLessons} lessons; the unit-11 review PASSED`)
   }
 
   sectionD()
   sectionE()
+  sectionH()
   sectionF()
 }
 
 console.log('')
-console.log(`RUN 87 VERIFICATION: ${passed} passed, ${failed} failed`)
+console.log(`RUN 88 VERIFICATION: ${passed} passed, ${failed} failed`)
 if (failures.length) {
   console.log('FAILURES:')
   for (const f of failures) console.log('  - ' + f)

@@ -14,9 +14,11 @@ import { chapter11 } from './ch-11'
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
  *
- * STATUS: IN PROGRESS — research phase complete (2026-11-07, run 66); the
- * full TOC below is the researched chapter plan (11 chapters / 37 lessons).
- * Authoring opened at chapter 1 in run 67 (1.1 + 1.2) and CLOSED it in run
+ * STATUS: COMPLETE (run 88, 2026-11-10) — 11 chapters / 37 lessons,
+ * authored unit by unit across runs 67–88 (two lessons per run, strictly
+ * sequential, every number verifier-priced before prose). The full TOC
+ * below is the researched chapter plan (11 chapters / 37 lessons) — fully
+ * written. Authoring opened at chapter 1 in run 67 (1.1 + 1.2) and CLOSED it in run
  * 68 (1.3 + 1.4 + the unit-1 completion review): chapter 1 COMPLETE 4/4.
  * Chapter 2 opened in run 69 (2.1 + 2.2) and CLOSED in run 70 (2.3 + the
  * unit-2 completion review): chapter 2 COMPLETE 3/3. Chapter 3 'Polynomials'
@@ -55,9 +57,17 @@ import { chapter11 } from './ch-11'
  * Work' + 11.2 'Competition Algebra: Identities and Substitutions' —
  * the five-station pipeline across the canon's five families, the
  * identity bank with the speed reads, the symmetric reads and the
- * clever substitution): 11.3 'The Function Idea: the Doorstep' + the
- * unit-11 review + the BOOK CLOSE ride run 88. The book stands
- * in-progress — 10 complete chapters of 11, the eleventh open
+ * clever substitution) and CLOSED at run 88 (11.3 'The Function Idea:
+ * the Doorstep' + the unit-11 completion review PASSED + THE BOOK
+ * CLOSE — the input-output machine, the domain's two filters, the
+ * vertical-probe test, the range from the fold, the composition
+ * doorstep): chapter 11 COMPLETE 3/3. THE BOOK IS COMPLETE — 11 of 11
+ * chapters, 37 lessons, the status flipped to 'complete' at run 88
+ * with the handoff note named: Advanced Algebra (functions as objects,
+ * composites, inverses), Coordinate Geometry (functions and graphs as
+ * first citizens), Trigonometry (the first great non-polynomial
+ * family) and Calculus (how the output changes as the input slides).
+ * The next book's opening is its own run with its own research phase
  * (owner cadence: two lessons per run, strictly sequential). Lesson
  * ids use the `al-` prefix (globally unique, stable forever).
  *
@@ -124,7 +134,7 @@ export const elementaryAlgebra: Book = {
   level: 'Class 6–10 algebra → the doorway to higher algebra',
   description:
     'The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.',
-  status: 'in-progress',
+  status: 'complete',
   accent: ['#65a30d', '#166534'],
   chapters: [
     chapter01,

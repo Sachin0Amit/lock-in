@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 15:59:17 (Asia/Kolkata)",
+  "generated": "2026-11-10 17:07:49 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5920,14 +5920,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 202,
-      "totalLines": 96968,
+      "srcFilesTracked": 203,
+      "totalLines": 98054,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 68563,
+        "src/data/library (content model + books)": 69649,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -17160,33 +17160,140 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "aa2dadd82812c369b75fac21b1d07a9f2f02eae2",
+      "short": "aa2dadd",
+      "date": "2026-11-10 10:32",
+      "message": "AL ch.11 opens: word problems pipeline + competition algebra (11.1 + 11.2, run 87)",
+      "filesChanged": 16,
+      "insertions": 2696,
+      "deletions": 56,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 6,
+          "del": 5
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 11,
+          "del": 9
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 25,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 110,
+          "del": 23
+        },
+        {
+          "path": "scripts/e2e-al-111.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-111.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-112.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-112.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/expand-112.py",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "scripts/ship-run87.py",
+          "add": 171,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch11.ts",
+          "add": 1268,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 14,
+          "del": 19
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-11.ts",
+          "add": 725,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "3a5aafb125c2f5d57950883b16b2956910353234",
+      "short": "3a5aafb",
+      "date": "2026-11-10 10:32",
+      "message": "run 87: ship commit aa2dadd recorded, push deferred (no PAT in this turn's payload — next fire or owner pushes all unpushed commits on main)",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 280,
     "booksLive": 3,
-    "chaptersWritten": 31,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 119,
-    "wordsAuthored": 576982,
-    "termsDefined": 899,
-    "quizItems": 595,
-    "exerciseQuestions": 1527,
+    "chaptersWritten": 32,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 120,
+    "wordsAuthored": 583505,
+    "termsDefined": 906,
+    "quizItems": 600,
+    "exerciseQuestions": 1541,
     "blockTotals": {
-      "para": 1695,
-      "callout": 648,
-      "heading": 646,
-      "list": 136,
-      "terms": 119,
-      "equation": 179,
-      "figure": 209,
-      "derivation": 221,
-      "table": 149,
-      "example": 514,
-      "quiz": 119,
-      "exercises": 119,
-      "formula": 343,
+      "para": 1711,
+      "callout": 652,
+      "heading": 652,
+      "list": 137,
+      "terms": 120,
+      "equation": 181,
+      "figure": 211,
+      "derivation": 222,
+      "table": 150,
+      "example": 518,
+      "quiz": 120,
+      "exercises": 120,
+      "formula": 347,
       "algorithm": 27
     }
   }
