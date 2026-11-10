@@ -392,3 +392,21 @@ server.log
 !/scripts/ship-run89.py
 !/scripts/detailed-log-run89.py
 !/scripts/pointer-run89.py
+# full-shelf planning pass (2026-11-10, owner directive): Drive TOC extraction pipeline + survey builder (reusable)
+!/scripts/gen_toc_manifest.py
+!/scripts/extract_drive_tocs.sh
+!/scripts/toc_pipeline_chunk.sh
+!/scripts/vlm_extract_toc.sh
+# exception: one-shot VLM poller (2026-11-10, historical record — the background-daemon approach the sandbox reaped)
+!/scripts/vlm_toc_poller.sh
+!/scripts/build_toc_survey.py
+# exception: one-shot root-TOC trimmer incl. the Khattar damage+recovery lesson (2026-11-10, historical record)
+!/scripts/trim_root_tocs.py
+# full-shelf planning pass gate + E2E (committed every ship)
+!/scripts/verify-math-shelf-planning.ts
+!/scripts/e2e-math-shelf.sh
+!/scripts/e2e-math-shelf.page.js
+# exception: one-shot plan-count corrector (2026-11-10, historical record)
+!/scripts/fix_plan_counts.py
+# exception: one-shot full-shelf-planning memory shipper (2026-11-10, historical record)
+!/scripts/ship_full_shelf_planning.py

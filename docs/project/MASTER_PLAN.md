@@ -31,6 +31,20 @@ at the same or higher per-lesson depth; never thinned to fit a run. This
 supersedes the 2026-11-05 two-lessons-per-run interim rule. (Cadence:
 every 2 hours since the owner's same-day chat directive; job 507350.)
 
+**Owner directive (2026-11-10, full-shelf planning pass):** the ENTIRE
+Mathematics shelf's remaining books were planned in one owner-directed
+pass — the Drive's mathematics collection downloaded one book at a time,
+ALL 53 tables of contents extracted (vision-model transcription for the 44
+scanned sources — "nothing can be missed out, not a single TOC"), each
+subject researched (Drive + internet + verified classic arcs), and 23 books
+promoted to complete researched plans (`status: 'planned'` in
+`src/data/library/books/mathematics/*/book.ts`; the evidence base is
+`docs/research/DRIVE_TOC_SURVEY.md`). This was a PLANNING pass only: zero
+lessons were written and the one-unit-at-a-time AUTHORING cadence above is
+unchanged. The per-unit workflow (download -> study -> write -> verify ->
+ship) now draws on the survey's recorded Drive ids and TOCs for its
+per-unit downloads.
+
 The owner will supply a Google Drive link with a large reference book
 collection. Workflow per unit:
 

@@ -3,6 +3,29 @@ import { foundationMathematics } from './books/mathematics/foundation-mathematic
 import { arithmeticNumberSystems } from './books/mathematics/arithmetic-number-systems/book'
 import { elementaryAlgebra } from './books/mathematics/elementary-algebra/book'
 import { advancedAlgebra } from './books/mathematics/advanced-algebra/book'
+import { geometry } from './books/mathematics/geometry/book'
+import { coordinateGeometry } from './books/mathematics/coordinate-geometry/book'
+import { trigonometry } from './books/mathematics/trigonometry/book'
+import { differentialCalculus } from './books/mathematics/differential-calculus/book'
+import { integralCalculus } from './books/mathematics/integral-calculus/book'
+import { multivariableCalculus } from './books/mathematics/multivariable-calculus/book'
+import { differentialEquations } from './books/mathematics/differential-equations/book'
+import { linearAlgebra } from './books/mathematics/linear-algebra/book'
+import { discreteMathematics } from './books/mathematics/discrete-mathematics/book'
+import { numberTheory } from './books/mathematics/number-theory/book'
+import { setTheory } from './books/mathematics/set-theory/book'
+import { mathematicalLogic } from './books/mathematics/mathematical-logic/book'
+import { combinatorics } from './books/mathematics/combinatorics/book'
+import { probabilityTheory } from './books/mathematics/probability-theory/book'
+import { statistics } from './books/mathematics/statistics/book'
+import { realAnalysis } from './books/mathematics/real-analysis/book'
+import { complexAnalysis } from './books/mathematics/complex-analysis/book'
+import { abstractAlgebra } from './books/mathematics/abstract-algebra/book'
+import { topology } from './books/mathematics/topology/book'
+import { numericalAnalysis } from './books/mathematics/numerical-analysis/book'
+import { mathematicalMethodsForEngineering } from './books/mathematics/mathematical-methods-for-engineering/book'
+import { optimizationAndOperationsResearch } from './books/mathematics/optimization-and-operations-research/book'
+import { advancedMathematicalFoundations } from './books/mathematics/advanced-mathematical-foundations/book'
 import type { Book, Chapter, Discipline, DisciplineId, Lesson, Term } from './types'
 import { countLessonWords } from './types'
 
@@ -13,8 +36,42 @@ import { countLessonWords } from './types'
  * book folders. To add a book: create its folder under books/<discipline>/,
  * export a Book from book.ts, import it into `allBooks`, done — the library
  * home, search index, navigation and stats all pick it up automatically.
+ *
+ * The mathematics shelf is fully planned as of the 2026-11-10 full-shelf
+ * planning pass: 27 books — 3 complete, 1 planned-with-authoring-opening
+ * (Advanced Algebra) and 23 planned (status 'planned', complete researched
+ * chapter/lesson layouts; see docs/research/DRIVE_TOC_SURVEY.md for the
+ * reference evidence base). Authoring continues one book at a time.
  */
-export const allBooks: Book[] = [foundationMathematics, arithmeticNumberSystems, elementaryAlgebra, advancedAlgebra]
+export const allBooks: Book[] = [
+  foundationMathematics,
+  arithmeticNumberSystems,
+  elementaryAlgebra,
+  advancedAlgebra,
+  geometry,
+  coordinateGeometry,
+  trigonometry,
+  differentialCalculus,
+  integralCalculus,
+  multivariableCalculus,
+  differentialEquations,
+  linearAlgebra,
+  discreteMathematics,
+  numberTheory,
+  setTheory,
+  mathematicalLogic,
+  combinatorics,
+  probabilityTheory,
+  statistics,
+  realAnalysis,
+  complexAnalysis,
+  abstractAlgebra,
+  topology,
+  numericalAnalysis,
+  mathematicalMethodsForEngineering,
+  optimizationAndOperationsResearch,
+  advancedMathematicalFoundations,
+]
 
 export const allDisciplines: Discipline[] = disciplines
 

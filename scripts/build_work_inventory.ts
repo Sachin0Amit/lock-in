@@ -10,10 +10,7 @@
  *
  * Usage: cd /home/z/my-project && bun run scripts/build_work_inventory.ts
  */
-import { foundationMathematics } from '../src/data/library/books/mathematics/foundation-mathematics/book'
-import { arithmeticNumberSystems } from '../src/data/library/books/mathematics/arithmetic-number-systems/book'
-import { elementaryAlgebra } from '../src/data/library/books/mathematics/elementary-algebra/book'
-import { advancedAlgebra } from '../src/data/library/books/mathematics/advanced-algebra/book'
+import { allBooks } from '../src/data/library'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
@@ -156,7 +153,9 @@ function lessonRecord(l: Lesson) {
   }
 }
 
-const allLiveBooks = [foundationMathematics, arithmeticNumberSystems, elementaryAlgebra, advancedAlgebra]
+// the central registry is the census source (full-shelf planning pass 2026-11-10:
+// all 27 mathematics books — 3 complete + 24 planned)
+const allLiveBooks = allBooks
 const chaptersWritten = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status === 'complete')
 const chaptersStarted = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status !== 'planned')
 function bookRecordOf(book: (typeof allLiveBooks)[number]) {
@@ -297,7 +296,7 @@ const inventory = {
   ],
   content: {
     disciplinesPlanned: 11,
-    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Live books: Foundation Mathematics (base platform), Arithmetic and Number Systems (promoted run 48, 2026-11-05), Elementary Algebra (promoted run 66, 2026-11-07; complete run 88), Advanced Algebra (promoted run 89, 2026-11-10) — 277 titles remain in the backlog.',
+    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Mathematics is FULLY PLANNED as of the 2026-11-10 full-shelf planning pass (owner directive: all 27 mathematics books live — 3 complete, 24 planned incl. Advanced Algebra and the 23 promoted this pass; 254 titles remain in the backlog).',
     booksLive: allLiveBooks.length,
     books: bookRecords,
   },

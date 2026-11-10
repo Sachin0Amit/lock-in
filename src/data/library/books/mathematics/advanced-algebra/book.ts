@@ -74,15 +74,22 @@ import type { Book, Chapter } from '../../../types'
  *   functions → polynomial and rational functions → exponential and
  *   logarithmic functions → sequences, probability and counting) — the
  *   sequencing cross-check for chapters 1, 8, 9, 10;
- *   (c) the competitive-exam scope (JEE Main 2026 mathematics syllabus:
- *   unit 1 sets/relations/functions with composition of functions and
- *   one-one/onto, unit 2 complex numbers and quadratic equations with
- *   modulus, Argand diagram, triangle inequality and roots-coefficients,
- *   unit 4 permutations and combinations, unit 5 mathematical induction,
- *   unit 6 binomial theorem for positive integral index with general and
- *   middle term and coefficient properties, unit 7 sequences and series with
- *   AM/GM insertion, Sn/Sn²/Sn³ and the arithmetico-geometric progression;
- *   Khattar QA for the aptitude side) — maps to chapters 1–9 and 10;
+ *   (c) the competitive-exam scope (JEE Main 2026 mathematics syllabus,
+ *   web-checked again 2026-11-10 during the full-shelf planning pass —
+ *   a correction to this file's run-89 record: mathematical induction,
+ *   mathematical reasoning and linear programming were REMOVED from the
+ *   JEE Main syllabus in the 2024 revision (verified against multiple
+ *   sources), so induction is kept via the module arc (M2 ch. 04), the
+ *   classic arc (Hall & Knight ch. XII) and the school-canon history,
+ *   not via the current JEE list): unit 1 sets/relations/functions with
+ *   composition of functions and one-one/onto, unit 2 algebra — complex
+ *   numbers and quadratic equations with modulus, Argand diagram,
+ *   triangle inequality and roots-coefficients, permutations and
+ *   combinations, binomial theorem for positive integral index with
+ *   general and middle term and coefficient properties, sequences and
+ *   series with AM/GM insertion, Sn/Sn²/Sn³ and the arithmetico-
+ *   geometric progression; Khattar QA for the aptitude side) — maps to
+ *   chapters 1–9 and 10;
  *   (d) the classic stretch (Hall & Knight Higher Algebra) — quadratic
  *   theory at depth, induction, permutations and combinations, the binomial
  *   theorem at any index (the positive-index case is this book's chapter 7;

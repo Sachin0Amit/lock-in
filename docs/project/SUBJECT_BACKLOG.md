@@ -8,34 +8,40 @@ empty shells just to inflate the shelf.
 Order of work: research-first, one book at a time (default: Mathematics
 shelf top-to-bottom, since its first book is already in progress).
 
-## Mathematics (27 books)
+## Mathematics (27 books) — THE FULL SHELF IS PLANNED
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
 2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
 3. Elementary Algebra ← **COMPLETE (run 88, 2026-11-10: 11/11 chapters, 37 lessons, 171,460 words — the book closed with 11.3 'The Function Idea: the Doorstep' + the unit-11 review + the BOOK CLOSE flip; run 89 opens book #4's research phase)**
 4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/35-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2)**
-5. Geometry
-6. Coordinate Geometry
-7. Trigonometry
-8. Calculus I: Differential Calculus
-9. Calculus II: Integral Calculus
-10. Multivariable Calculus
-11. Differential Equations
-12. Linear Algebra
-13. Discrete Mathematics
-14. Number Theory
-15. Set Theory
-16. Mathematical Logic
-17. Combinatorics
-18. Probability Theory
-19. Statistics
-20. Real Analysis
-21. Complex Analysis
-22. Abstract Algebra
-23. Topology
-24. Numerical Analysis
-25. Mathematical Methods for Engineering
-26. Optimization and Operations Research
-27. Advanced Mathematical Foundations
+5–27. The remaining twenty-three books ← **PLANNED (full-shelf planning pass, 2026-11-10, owner directive — every book's research phase executed in one pass: the Drive's mathematics collection downloaded book-by-book, ALL 53 tables of contents extracted (vision-model transcription for the 44 scanned sources), web syllabus audits (NCERT class 9–12 lists, JEE Main 2026 units incl. the 2024 removals, classic university arcs), each book promoted to `src/data/library/books/mathematics/<slug>/book.ts` with its complete researched chapter/lesson layout, status 'planned'; the evidence base is `docs/research/DRIVE_TOC_SURVEY.md`)**:
+   5. Geometry (11 ch / 38 lessons, `geo-`)
+   6. Coordinate Geometry (13 / 46, `cg-` — M3 + M5 modules)
+   7. Trigonometry (8 / 29, `tr-` — M1 module + Loney)
+   8. Differential Calculus (9 / 32, `dc-` — M4 ch. 2–6 + Thomas/Stewart)
+   9. Integral Calculus (6 / 22, `ic-` — M4 ch. 7–9 + Thomas)
+   10. Multivariable Calculus (6 / 20, `mc-` — Thomas/Stewart multivariable)
+   11. Differential Equations (6 / 21, `de-` — M4 ch. 10 + Kreyszig)
+   12. Linear Algebra (8 / 28, `la-` — M2 ch. 12–13 + Strang/Axler/Lay)
+   13. Discrete Mathematics (9 / 30, `dm-` — Rosen 8e)
+   14. Number Theory (10 / 34, `nt-` — Burton arc, web-researched)
+   15. Set Theory (8 / 26, `st-` — Halmos arc)
+   16. Mathematical Logic (7 / 23, `ml-` — M2 ch. 10 + Rosen ch. 1)
+   17. Combinatorics (6 / 21, `co-`)
+   18. Probability Theory (7 / 24, `pr-` — M2 ch. 09/14)
+   19. Statistics (8 / 27, `stat-` — M2 ch. 11 + OpenStax)
+   20. Real Analysis (9 / 30, `ra-` — Rudin, Drive scan)
+   21. Complex Analysis (7 / 23, `ca-` — Churchill arc + Kreyszig)
+   22. Abstract Algebra (8 / 27, `ab-` — Gallian arc)
+   23. Topology (8 / 25, `top-` — Munkres arc)
+   24. Numerical Analysis (7 / 23, `na-` — Burden & Faires + Kreyszig)
+   25. Mathematical Methods for Engineering (8 / 26, `em-` — Kreyszig)
+   26. Optimization and Operations Research (8 / 26, `or-` — Hillier)
+   27. Advanced Mathematical Foundations (7 / 22, `af-` — the capstone)
+
+**Authoring order is unchanged** (the planning pass wrote zero lessons): one
+book at a time — Advanced Algebra authoring opens run 90; the 23 planned
+books follow in backlog order as each predecessor completes. Lesson-id
+prefixes for all 23 verified unused against the 120 written lesson ids.
 
 ## Physics (20)
 Foundation · Mechanics · Properties of Matter · Waves and Oscillations ·

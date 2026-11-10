@@ -6,6 +6,28 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Full-shelf planning pass (2026-11-10) — the 53-source TOC extraction (owner directive)
+
+- Downloaded ONE AT A TIME into temporary-references/pdfs/ and DELETED after
+  extraction (storage law honored; Drive originals untouched): 42 Cengage
+  module chapter PDFs (MATHS M1-M5) + 11 root classics. Digital PDFs ->
+  pdftotext front matter; the 44 scanned sources -> 120-dpi page renders ->
+  vision-model transcription (z-ai vision) with the transcribe-everything
+  prompt (topics, subtopics, exercise types, page numbers). 53/53 TOCs
+  extracted; the durable record is **docs/research/DRIVE_TOC_SURVEY.md**.
+- The Khattar TOC was re-extracted once after a trim heuristic damaged it
+  (the Drive original re-downloaded; recovery clean).
+- Root classics' Drive file ids and the same-arc editions NOT re-downloaded
+  this pass (Anton, Larson x2, Stewart 8e + solutions, Schaum 6e, Strang
+  LAA 4e, Hall & Knight Higher Algebra x2 — banked run 66) are all listed
+  with ids in the survey and temporary-references/inventory.json: they are
+  per-unit download candidates at authoring time.
+- Web-checked this pass (no-Drive subjects): Munkres 2e, Gallian, Burton 7e,
+  Churchill-Brown 9e, Burden & Faires 10e, Hillier & Lieberman, Halmos,
+  OpenStax Precalculus/Introductory Statistics/Calculus arcs; NCERT class
+  9-12 chapter lists; the JEE Main 2026 unit list with the verified 2024
+  removals (induction, mathematical reasoning, LPP, heights-and-distances).
+
 ## Run 89 (2026-11-10) — BOOK #4 PROMOTED: Advanced Algebra (the research phase)
 
 - Zero downloads (survey-only; per-unit downloads follow at authoring time).

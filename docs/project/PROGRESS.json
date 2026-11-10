@@ -2,7 +2,7 @@
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
  "updated": "2026-11-10",
- "phase": "PLATFORM 2026-11-10 (cron cadence v4 hybrid: night hourly 23:50-04:50 IST + day every-3h). BOOK #4 'ADVANCED ALGEBRA' PROMOTED (run 89, 2026-11-10) — the research/promotion run, the run-66 precedent followed exactly, ZERO lesson authoring per the one-book-at-a-time separation rule (run 88 closed Elementary Algebra; a closing run never opens the next book). Research phase complete: (1) reference survey — the Drive survey REBUILT post-recycle (89 entries intact) and the MATHS subfolder machine-listed: the Cengage M2 Algebra module (14 chapter PDFs; 02 Theory of Equations, 03 Complex Numbers, 04 PMI, 05 Progression and Series, 06 Inequalities Involving Means, 07 P&C, 08 Binomial Theorem = the JEE-mains-level arc behind the plan's chapters 2-7; 09-14 belong to other shelf books), Hall & Knight Higher Algebra (banked run 66; the classic stretch, 35-chapter arc re-confirmed), Khattar QA 4e (the aptitude scope). (2) syllabus audit, web-checked 2026-11-10: the NCERT senior arc (class 11 rationalized 14-chapter book — ch. 2 Relations and Functions with composition per CBSE 2025-26, ch. 4 Complex Numbers and Quadratic Equations, ch. 5 Linear Inequalities, ch. 6 P&C, ch. 7 Binomial Theorem, ch. 8 Sequences and Series; PMI + Mathematical Reasoning DROPPED from the textbook — noted honestly, induction kept via JEE unit 5 + the classic/module arcs; class 12 ch. 1 one-one/onto/composition/invertible), OpenStax College Algebra 2e (the modern sequencing cross-check), the JEE Main 2026 syllabus (units 1/2/4/5/6/7 — the competitive scope). (3) THE PLAN: 10 chapters / 35 planned lessons — 1 Functions as Objects (4: the set-of-pairs view, one-one/onto, composition with honest domains, the inverse machine — AL 11.3's handoff honoured as the opening ground), 2 The Quadratic at Depth (4: vertex-form optimization, the sign diagram, symmetric reads and common roots, location of roots), 3 Complex Numbers: the New Rung (3: the closure failure that forces i, conjugate and modulus, negative discriminants), 4 Inequalities: the Classical Engine (3: AM-GM, Cauchy-Schwarz and Engel's form, the triangle inequality), 5 Sequences and Series (4: AP, GP and the infinite tail, harmonic and arithmetico-geometric, special series and the method of differences), 6 Counting: Permutations and Combinations (4), 7 Induction and the Binomial Theorem (4: the domino principle, the theorem proved, the coefficients, applications), 8 The Theory of Equations (3: degree n = n roots, cubics and quartics symmetric functions, transformation of equations), 9 Exponentials and Logarithms (3: every real index, the inverse machine, the equations), 10 The Synthesis and the Doorstep (3). (4) the promotion: src/data/library/books/mathematics/advanced-algebra/book.ts created (status 'planned' per the run-66 precedent — the flip to 'in-progress' lands with the first written lesson at run 90; the pointer's compressed 'in-progress' phrasing was resolved in favour of the precedent and the tested planned-book rendering path), the aa- id prefix reserved (verified unused across all 120 existing lesson ids), rose-crimson accent #be123c/#881337 (distinct from FM amber, ANS teal, AL olive), registered in index.ts (4 books). GATES: verify-book4-promotion.ts 290/290 (A structure, B registry 4 books, C uniqueness vs ALL of FM+ANS+AL incl. the aa- reservation, D 21 cross-reference anchors verified to exist, E the research mapping); lint 0 errors (3 warnings — 2 pre-existing promotion-script class + 1 same-class from the new e2e-book4-promotion.page.js); tsc clean; routes 200 (home/book/revise/glossary) + 404 honest (unknown lesson + unknown book); browser E2E e2e-book4-promotion.sh ALL GREEN (home: the 4th spine on the shelf + '4Books' stat + FM/ANS/AL intact; book page: h1 + breadcrumb + Planned badge + '0 written' + '35 planned' + 10 chapter tiles + ALL 35 planned titles + ZERO lesson links + no overflow at 1280 AND 390; revise/glossary empty states hold; the console-error trap installed on EVERY page — a run-89 harness improvement over run 66 — zero errors everywhere); screenshot pixel checks (86.9%/96.6%/94.8% non-white, 0% blue cast) + VLM visual inspection of the book page, the home shelf and the new card. AUTHORING CATCH: the first subtitle draft (66 chars) clipped the cover's bottom edge — caught by VLM, priced by exact DOM geometry (subtitle bottom 1160 > cover bottom 1153), fixed by shortening to 'Functions as objects — the second course' (41 chars; now 1147 < 1153, clean; the large cover clean at 296 < 410). PRE-EXISTING PLATFORM ISSUE OBSERVED (out of this run's scope, logged for a future platform run): the small home-card covers clip long subtitles — ANS by ~70px, AL by ~7px (BookCover renders title+subtitle inside the fixed aspect-[3/4] box with overflow-hidden; a component-level line-clamp/autosize fix would change shipped books' rendering, so it was NOT touched in the promotion run). Nine citation keys reserved (cengage-m2-algebra, ncert-math11-ch4/5/6/7/8, ncert-math12-ch1, openstax-college-algebra, jee-main-2026-syllabus) + four carried; zero downloads. RUN 90 = AA ch. 1 OPENS with 1.1 'Relations: the Set-of-Pairs View' + 1.2 'One-One and Onto: Classifying the Machines' (verify-book4-ch01.ts written FIRST — the verify-first discipline).",
+ "phase": "FULL MATHEMATICS SHELF PLANNED (owner-directed pass, 2026-11-10): the Drive's mathematics collection downloaded book-by-book with ALL 53 TOCs extracted (44 by vision-model transcription), web syllabus audits, and 23 books promoted to complete researched plans (status 'planned') — the shelf now 27 books: 3 complete (FM/ANS/AL), AA authoring-ready, and 184 chapters / 630 planned lessons across the 23. Zero lessons written; the one-book-at-a-time authoring cadence is unchanged (run 90 opens AA 1.1+1.2). Evidence: docs/research/DRIVE_TOC_SURVEY.md.",
  "awaiting": "nothing blocking - next run 90 = AA (Advanced Algebra) ch. 1 'Functions as Objects' OPENS with 1.1 + 1.2 (create scripts/verify-book4-ch01.ts with the 1.1/1.2 engines FIRST; whitelist the verify + e2e-aa-11/12 scripts in .gitignore BEFORE commit; per-unit reference downloads begin at authoring time; run 91 continues ch. 1 with 1.3 + 1.4 + the unit-1 review)",
  "platform": {
   "status": "working — v3 arrangement & visual overhaul (v2 routed architecture underneath)",
@@ -86,15 +86,24 @@
     "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz items, 534 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
    },
    {
-    "id": "arithmetic-and-number-systems",
+    "id": "arithmetic-number-systems",
     "title": "Arithmetic and Number Systems",
-    "status": "in-progress",
+    "status": "complete",
     "chaptersPlanned": 10,
     "chaptersWritten": 10,
     "lessonsWritten": 34,
-    "termsAvailableForFlashcards": 248,
-    "notes": "IN PROGRESS — 10/10 chapters reached; ch. 10 'The Map of Number Systems' 2/3 (run 64: 10.1 + 10.2, 11,033 words); run 65 = 10.3 + the unit-10 review + the BOOK CLOSE",
-    "chaptersInProgress": 1
+    "termsAvailableForFlashcards": 278,
+    "notes": "COMPLETE (run 65, 2026-11-07) — 10/10 chapters, 34 lessons, 184,361 words. The number-systems spine (division algorithm, primes+FTA, congruences, integers/rationals/irrationals built, numeration history, the map of number systems). Ground truth: WORK_INVENTORY.json (terms: 278, lessons: 34, 184,361 words)."
+   },
+   {
+    "id": "elementary-algebra",
+    "title": "Elementary Algebra",
+    "status": "complete",
+    "chaptersPlanned": 11,
+    "chaptersWritten": 11,
+    "lessonsWritten": 37,
+    "termsAvailableForFlashcards": 270,
+    "notes": "COMPLETE (run 88, 2026-11-10) — 11/11 chapters, 37 lessons, 171,460 words. Letters and structure through quadratics, graphs, word problems, the toolbox and the function doorstep (11.3). Ground truth: WORK_INVENTORY.json (terms: 270, lessons: 37, 171,460 words)."
    },
    {
     "id": "advanced-algebra",
@@ -106,6 +115,236 @@
     "lessonsPlanned": 35,
     "termsAvailableForFlashcards": 0,
     "notes": "PROMOTED (run 89, 2026-11-10) — research phase complete, 10 chapters / 35 planned lessons, zero lessons written. Opening ground = AL 11.3's handoff (composites, inverses, the domains of composites). aa- id prefix reserved. Authoring opens run 90 (1.1 + 1.2)."
+   },
+   {
+    "id": "geometry",
+    "title": "Geometry",
+    "status": "planned",
+    "chaptersPlanned": 11,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 11 ch / 38 planned lessons, `geo-` prefix reserved; research: web-audited school canon + Euclid/Hilbert arcs. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "coordinate-geometry",
+    "title": "Coordinate Geometry",
+    "status": "planned",
+    "chaptersPlanned": 13,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 13 ch / 44 planned lessons, `cg-` prefix reserved; research: M3 + M5 modules (11 chapter PDFs). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "trigonometry",
+    "title": "Trigonometry",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 30 planned lessons, `tr-` prefix reserved; research: M1 module + Loney classic. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "differential-calculus",
+    "title": "Differential Calculus",
+    "status": "planned",
+    "chaptersPlanned": 9,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 9 ch / 36 planned lessons, `dc-` prefix reserved; research: M4 ch. 2-6 + Thomas/Stewart. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "integral-calculus",
+    "title": "Integral Calculus",
+    "status": "planned",
+    "chaptersPlanned": 6,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 6 ch / 20 planned lessons, `ic-` prefix reserved; research: M4 ch. 7-9 + Thomas. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "multivariable-calculus",
+    "title": "Multivariable Calculus",
+    "status": "planned",
+    "chaptersPlanned": 6,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 6 ch / 19 planned lessons, `mc-` prefix reserved; research: Thomas/Stewart multivariable. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "differential-equations",
+    "title": "Differential Equations",
+    "status": "planned",
+    "chaptersPlanned": 6,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 6 ch / 22 planned lessons, `de-` prefix reserved; research: M4 ch. 10 + Kreyszig ch. 1-2. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "linear-algebra",
+    "title": "Linear Algebra",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 28 planned lessons, `la-` prefix reserved; research: M2 ch. 12-13 + Strang/Axler/Lay. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "discrete-mathematics",
+    "title": "Discrete Mathematics",
+    "status": "planned",
+    "chaptersPlanned": 9,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 9 ch / 29 planned lessons, `dm-` prefix reserved; research: Rosen 8e (Drive). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "number-theory",
+    "title": "Number Theory",
+    "status": "planned",
+    "chaptersPlanned": 10,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 10 ch / 31 planned lessons, `nt-` prefix reserved; research: Burton arc (web-checked). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "set-theory",
+    "title": "Set Theory",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 27 planned lessons, `st-` prefix reserved; research: Halmos arc (web-checked). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "mathematical-logic",
+    "title": "Mathematical Logic",
+    "status": "planned",
+    "chaptersPlanned": 7,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 7 ch / 23 planned lessons, `ml-` prefix reserved; research: M2 ch. 10 + Rosen ch. 1. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "combinatorics",
+    "title": "Combinatorics",
+    "status": "planned",
+    "chaptersPlanned": 6,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 6 ch / 20 planned lessons, `co-` prefix reserved; research: Rosen ch. 6/8 + web-checked arcs. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "probability-theory",
+    "title": "Probability Theory",
+    "status": "planned",
+    "chaptersPlanned": 7,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 7 ch / 22 planned lessons, `pr-` prefix reserved; research: M2 ch. 09 + 14. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "statistics",
+    "title": "Statistics",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 30 planned lessons, `stat-` prefix reserved; research: M2 ch. 11 + OpenStax arc. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "real-analysis",
+    "title": "Real Analysis",
+    "status": "planned",
+    "chaptersPlanned": 9,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 9 ch / 34 planned lessons, `ra-` prefix reserved; research: Rudin PMA 3e (Drive scan). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "complex-analysis",
+    "title": "Complex Analysis",
+    "status": "planned",
+    "chaptersPlanned": 7,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 7 ch / 23 planned lessons, `ca-` prefix reserved; research: Churchill arc (web) + Kreyszig. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "abstract-algebra",
+    "title": "Abstract Algebra",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 26 planned lessons, `ab-` prefix reserved; research: Gallian arc (web-checked). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "topology",
+    "title": "Topology",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 26 planned lessons, `top-` prefix reserved; research: Munkres arc (web-checked). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "numerical-analysis",
+    "title": "Numerical Analysis",
+    "status": "planned",
+    "chaptersPlanned": 7,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 7 ch / 24 planned lessons, `na-` prefix reserved; research: Burden & Faires arc + Kreyszig. Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "mathematical-methods-for-engineering",
+    "title": "Mathematical Methods for Engineering",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 28 planned lessons, `em-` prefix reserved; research: Kreyszig (Drive). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "optimization-and-operations-research",
+    "title": "Optimization and Operations Research",
+    "status": "planned",
+    "chaptersPlanned": 8,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 8 ch / 27 planned lessons, `or-` prefix reserved; research: Hillier arc (web-checked). Authoring opens in backlog order after Advanced Algebra completes."
+   },
+   {
+    "id": "advanced-mathematical-foundations",
+    "title": "Advanced Mathematical Foundations",
+    "status": "planned",
+    "chaptersPlanned": 7,
+    "chaptersWritten": 0,
+    "lessonsWritten": 0,
+    "termsAvailableForFlashcards": 0,
+    "notes": "PLANNED (full-shelf pass 2026-11-10) — 7 ch / 23 planned lessons, `af-` prefix reserved; research: the capstone (verified open-problems list). Authoring opens in backlog order after Advanced Algebra completes."
    }
   ],
   "lessonsWritten": 120,
@@ -457,9 +696,9 @@
   "citationKeys": "NEW ncert-math7-gp-ch4 (gegp104) + ncert-math6-ch11 (matchstick charter) + ncert-math7-ch4 (Simple Equations, the balance-method charter); zero downloads"
  },
  "lastCompleted": {
-  "run": 87,
+  "run": "full-shelf planning pass",
   "date": "2026-11-10",
-  "what": "AL ch. 11 OPENED 2/3: 11.1 'Word Problems: the Toolkit at Work' (4,612 words, quiz 2/3/1/0/2, 14 exercises, two figures - the pipeline map + the motion timeline) + 11.2 'Competition Algebra: Identities and Substitutions' (4,128 words, quiz 1/2/0/3/1, 14 exercises, two figures - the (a+b)^2 area proof + the difference-of-squares strip); verify-book3-ch11.ts 684 checks ALL GREEN (237 pre-write); E2E 45/45 x3 each; SVG audits 0/0 x4; book 36 lessons / 164,937 words, 10 complete chapters of 11, the eleventh open; run 88 = 11.3 + the unit-11 review + the BOOK CLOSE"
+  "what": "23 mathematics books promoted to planned status with complete researched chapter/lesson layouts (184 ch / 630 planned lessons); 53/53 Drive TOCs extracted (44 vision-transcribed); DRIVE_TOC_SURVEY.md evidence base committed; verify-math-shelf-planning 1204/1204 + full E2E green; zero lesson authoring — the AA authoring opening (run 90) is unchanged"
  },
  "run55Extras": {
   "fired": "2026-11-05 23:11 IST from job 504365 (the correct two-lesson job; job 498279 idle this window — no ninth fire logged)",
@@ -1014,5 +1253,40 @@
   "nextRun": "run 86 = ch. 10 CLOSES with 10.3 'The Parabola: Quadratic Graphs and Vertices' + the unit-10 completion review"
  },
  "run86Extras": "Run 86 (2026-11-10, day-window delivery of job 516929's v4 hybrid cadence, trace 1a1bedcaa50c0cc5-cron-agent-loop-202611101447): AL ch. 10 'Graphs of Equations' CLOSES 3/3 + the unit-10 completion review PASSED — 10.3 'The Parabola: Quadratic Graphs and Vertices' (al-the-parabola-quadratic-graphs-and-vertices, 5,368 words, quiz keys 0/2/0/2/1, 14 exercises, two figures — the workhorse parabola + the three-verdict strip, the fold identity certified exactly, the vertex as certified minimum, the axis mirror-priced with twin pairs, the verdicts cross-priced vs factorizations, the Δ_k hinge, the secant bend, the down companion + the square-area echo) + THE UNIT-10 COMPLETION REVIEW PASSED. verify-book3-ch10.ts 1,097 checks A-I ALL GREEN; E2E 45/45 x3; SVG audits 0/0 x2; lint 0 errors; tsc clean; book 34 lessons / 156,197 words, 10 of 11 chapters complete; library 117 lessons / 568,242 words; run 87 opens ch. 11 with 11.1 + 11.2.",
- "run87Extras": "Run 87 (2026-11-10, day window, job 516929's v4 hybrid cadence, delivered on a continuation turn of trace cron-agent-loop-202611101447): AL ch. 11 'The Toolbox and the Doorstep' OPENS 2/3 - 11.1 'Word Problems: the Toolkit at Work' (al-word-problems-the-toolkit-at-work, 4,612 words, quiz keys 2/3/1/0/2, 14 exercises, two figures - the pipeline map (five station chips READ/NAME/RELATE/SOLVE/CHECK with the 360-km train threading worked panels and the two-filters note band) + the motion timeline (the 9-hour 40-km/h bar with its orange ninth hour against the 8-hour 45-km/h bar with the dashed ghost hour, both carrying the same 360 km), the five-station pipeline as an algorithm block, the five-family census table, the value balance + the alligation cross DERIVED in a four-step derivation, the train as fractional-equation-grown-quadratic, 8.3's work-rate debt paid with the always-pair check, the age bookkeeping, the money split with the mark-up-then-discount 12.5%-not-15% read, 7.2's fence engine with the honest impossible design) + 11.2 'Competition Algebra: Identities and Substitutions' (al-competition-algebra-identities-and-substitutions, 4,128 words, quiz keys 1/2/0/3/1, 14 exercises, two figures - the (a+b)^2 area proof (a = 160 px, b = 100 px, the middle term 2ab as the two amber panels, the identity band color-coded) + the difference-of-squares strip (a = 210, b = 60 drawn to scale, the L cut into a x (a-b) and (a-b) x b with the block ROTATED to the strip's end, the b^2 corner struck out in red)), the identity bank table (seven rows, certificate column + speed-use column), the identity-vs-equation distinction para, the cube-of-a-sum derivation from the certified square, the speed reads with anchor choice, the cube twins, the symmetric quartet + the x + 1/x ladder with the two-step ladder, the sum-zero staple and the sum-zero square identity, the clever substitution retiring a quartic with four real roots (surd doors certified), the Brahmagupta-Fibonacci two-squares identity with 65's two reads. verify-book3-ch11.ts 684 checks A-F ALL GREEN: sections A-C pre-write 237 checks BEFORE any prose (the pipeline engines across five families, the identity-bank engines with symbolic expansion + substitution certificates, the surd arithmetic for the ladders and the quartic's doors, the four figure plans pinned rect-exact), authored batteries D/E (structure censuses, quiz keys vs pinned, all 28 exercise anchors re-priced, figure geometry rect-exact vs plans, citation keys, word floors, hygiene scans) and F (the OPENING state: ch. 11 in-progress with exactly two lessons, 'The Function Idea: the Doorstep' still planned, the book never closed, 36 lessons / 164,937 words, library 119 lessons, ids unique). Pre-writing catches: the sum-zero triple {1, 2, -3} prices x^3+y^3+z^3 - 3xyz = 0 (the cubes EQUAL 3xyz, both -18 - the difference is zero, which is the staple's whole content); quadRoots returns its doors largest-first so the door checks read the pair unordered; the polynomial engine must STRIP zero coefficients after cancellation or the expansion certificates mis-count their terms. Authoring catches: the example block type takes no answer field (the final Hence-line carries it); the Python expander dropped one escaping level on \\\\frac/\\\\cdot/\\\\{ (six odd backslash runs, caught by the hygiene scan and doubled); 5.2 and 9.1 had to be named verbatim in the SOLVE station for the cross-reference arcs; 11.2's first draft sat at 3,604 words - below the 4,000 floor - and was expanded with verified content (the identity-vs-equation para, the symmetric-quartet example, the sum-zero square identity - its checks added to the engine BEFORE the prose, the verify-first discipline held) to 4,128. E2E e2e-al-111 + e2e-al-112: 45/45 x3 viewports each (quiz 5/5 live on intended keys, KaTeX 148/335 nodes 0 errors, 0 console errors, no overflow, prereq chips 5/4, Sol. pills 17/18); SVG audits 0/0 x4 (two grazes fixed: the (a+b)^2 figure's top 'b' label and the L's top 'a' label sat across the header band's bottom border - both moved inside the figures, clear of every border). Historical notes web-checked: Ahmes and the Rhind papyrus (c. 1550 BCE, the aha problems 24-34), Euclid Book II geometric algebra (Proposition II.4), Brahmagupta-Fibonacci (628 CE / Liber Quadratorum 1225). Zero downloads (banked keys carried the run: hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, euclid-elements-ii4, khattar-qa-4e, cengage-jee-style); chapter 11 NOT closed; run 88 = 11.3 + the unit-11 review + the BOOK CLOSE."
+ "run87Extras": "Run 87 (2026-11-10, day window, job 516929's v4 hybrid cadence, delivered on a continuation turn of trace cron-agent-loop-202611101447): AL ch. 11 'The Toolbox and the Doorstep' OPENS 2/3 - 11.1 'Word Problems: the Toolkit at Work' (al-word-problems-the-toolkit-at-work, 4,612 words, quiz keys 2/3/1/0/2, 14 exercises, two figures - the pipeline map (five station chips READ/NAME/RELATE/SOLVE/CHECK with the 360-km train threading worked panels and the two-filters note band) + the motion timeline (the 9-hour 40-km/h bar with its orange ninth hour against the 8-hour 45-km/h bar with the dashed ghost hour, both carrying the same 360 km), the five-station pipeline as an algorithm block, the five-family census table, the value balance + the alligation cross DERIVED in a four-step derivation, the train as fractional-equation-grown-quadratic, 8.3's work-rate debt paid with the always-pair check, the age bookkeeping, the money split with the mark-up-then-discount 12.5%-not-15% read, 7.2's fence engine with the honest impossible design) + 11.2 'Competition Algebra: Identities and Substitutions' (al-competition-algebra-identities-and-substitutions, 4,128 words, quiz keys 1/2/0/3/1, 14 exercises, two figures - the (a+b)^2 area proof (a = 160 px, b = 100 px, the middle term 2ab as the two amber panels, the identity band color-coded) + the difference-of-squares strip (a = 210, b = 60 drawn to scale, the L cut into a x (a-b) and (a-b) x b with the block ROTATED to the strip's end, the b^2 corner struck out in red)), the identity bank table (seven rows, certificate column + speed-use column), the identity-vs-equation distinction para, the cube-of-a-sum derivation from the certified square, the speed reads with anchor choice, the cube twins, the symmetric quartet + the x + 1/x ladder with the two-step ladder, the sum-zero staple and the sum-zero square identity, the clever substitution retiring a quartic with four real roots (surd doors certified), the Brahmagupta-Fibonacci two-squares identity with 65's two reads. verify-book3-ch11.ts 684 checks A-F ALL GREEN: sections A-C pre-write 237 checks BEFORE any prose (the pipeline engines across five families, the identity-bank engines with symbolic expansion + substitution certificates, the surd arithmetic for the ladders and the quartic's doors, the four figure plans pinned rect-exact), authored batteries D/E (structure censuses, quiz keys vs pinned, all 28 exercise anchors re-priced, figure geometry rect-exact vs plans, citation keys, word floors, hygiene scans) and F (the OPENING state: ch. 11 in-progress with exactly two lessons, 'The Function Idea: the Doorstep' still planned, the book never closed, 36 lessons / 164,937 words, library 119 lessons, ids unique). Pre-writing catches: the sum-zero triple {1, 2, -3} prices x^3+y^3+z^3 - 3xyz = 0 (the cubes EQUAL 3xyz, both -18 - the difference is zero, which is the staple's whole content); quadRoots returns its doors largest-first so the door checks read the pair unordered; the polynomial engine must STRIP zero coefficients after cancellation or the expansion certificates mis-count their terms. Authoring catches: the example block type takes no answer field (the final Hence-line carries it); the Python expander dropped one escaping level on \\\\frac/\\\\cdot/\\\\{ (six odd backslash runs, caught by the hygiene scan and doubled); 5.2 and 9.1 had to be named verbatim in the SOLVE station for the cross-reference arcs; 11.2's first draft sat at 3,604 words - below the 4,000 floor - and was expanded with verified content (the identity-vs-equation para, the symmetric-quartet example, the sum-zero square identity - its checks added to the engine BEFORE the prose, the verify-first discipline held) to 4,128. E2E e2e-al-111 + e2e-al-112: 45/45 x3 viewports each (quiz 5/5 live on intended keys, KaTeX 148/335 nodes 0 errors, 0 console errors, no overflow, prereq chips 5/4, Sol. pills 17/18); SVG audits 0/0 x4 (two grazes fixed: the (a+b)^2 figure's top 'b' label and the L's top 'a' label sat across the header band's bottom border - both moved inside the figures, clear of every border). Historical notes web-checked: Ahmes and the Rhind papyrus (c. 1550 BCE, the aha problems 24-34), Euclid Book II geometric algebra (Proposition II.4), Brahmagupta-Fibonacci (628 CE / Liber Quadratorum 1225). Zero downloads (banked keys carried the run: hall-knight-elementary-algebra, ncert-math8-ch2-linear-equations, euclid-elements-ii4, khattar-qa-4e, cengage-jee-style); chapter 11 NOT closed; run 88 = 11.3 + the unit-11 review + the BOOK CLOSE.",
+ "fullShelfPlanning20261110": {
+  "run": "full-shelf planning pass (owner-directed turn, 2026-11-10 — not a numbered LOCKIN RUN; zero lesson authoring)",
+  "directive": "owner instruction 2026-11-10: download the Drive's mathematics books one by one, extract EVERY table of contents (vision model for the scanned ones — 'nothing can be missed out, not a single TOC'), research each subject (internet included), and create the complete Mathematics-section plan for every book the way Advanced Algebra's was created — plans only, no content",
+  "tocs": "53/53 sources processed one at a time (42 Cengage M-module chapter PDFs M1-M5 + 11 root classics incl. Loney, Thomas 14e, Stewart ET, Kreyszig, Rudin PMA, Rosen 8e, Strang 5e, Axler 4e, Lay 5e, Khattar QA, Hall & Knight Elementary Algebra identified); 44 scanned sources transcribed by the vision model (z-ai vision, 6-16 front pages each); working copies deleted after extraction per the storage law",
+  "evidence": "docs/research/DRIVE_TOC_SURVEY.md (the durable book-wise/theory-wise record: every TOC in full, the source->book mapping, the exam/exercise typology census, the web-research findings)",
+  "books": [
+   "geometry (11 ch / 38 lessons, geo- prefix, web-audited school canon + Euclid/Hilbert arcs)",
+   "coordinate-geometry (13 ch / 44 lessons, cg- prefix, M3 + M5 modules (11 chapter PDFs))",
+   "trigonometry (8 ch / 30 lessons, tr- prefix, M1 module + Loney classic)",
+   "differential-calculus (9 ch / 36 lessons, dc- prefix, M4 ch. 2-6 + Thomas/Stewart)",
+   "integral-calculus (6 ch / 20 lessons, ic- prefix, M4 ch. 7-9 + Thomas)",
+   "multivariable-calculus (6 ch / 19 lessons, mc- prefix, Thomas/Stewart multivariable)",
+   "differential-equations (6 ch / 22 lessons, de- prefix, M4 ch. 10 + Kreyszig ch. 1-2)",
+   "linear-algebra (8 ch / 28 lessons, la- prefix, M2 ch. 12-13 + Strang/Axler/Lay)",
+   "discrete-mathematics (9 ch / 29 lessons, dm- prefix, Rosen 8e (Drive))",
+   "number-theory (10 ch / 31 lessons, nt- prefix, Burton arc (web-checked))",
+   "set-theory (8 ch / 27 lessons, st- prefix, Halmos arc (web-checked))",
+   "mathematical-logic (7 ch / 23 lessons, ml- prefix, M2 ch. 10 + Rosen ch. 1)",
+   "combinatorics (6 ch / 20 lessons, co- prefix, Rosen ch. 6/8 + web-checked arcs)",
+   "probability-theory (7 ch / 22 lessons, pr- prefix, M2 ch. 09 + 14)",
+   "statistics (8 ch / 30 lessons, stat- prefix, M2 ch. 11 + OpenStax arc)",
+   "real-analysis (9 ch / 34 lessons, ra- prefix, Rudin PMA 3e (Drive scan))",
+   "complex-analysis (7 ch / 23 lessons, ca- prefix, Churchill arc (web) + Kreyszig)",
+   "abstract-algebra (8 ch / 26 lessons, ab- prefix, Gallian arc (web-checked))",
+   "topology (8 ch / 26 lessons, top- prefix, Munkres arc (web-checked))",
+   "numerical-analysis (7 ch / 24 lessons, na- prefix, Burden & Faires arc + Kreyszig)",
+   "mathematical-methods-for-engineering (8 ch / 28 lessons, em- prefix, Kreyszig (Drive))",
+   "optimization-and-operations-research (8 ch / 27 lessons, or- prefix, Hillier arc (web-checked))",
+   "advanced-mathematical-foundations (7 ch / 23 lessons, af- prefix, the capstone (verified open-problems list))"
+  ],
+  "totals": "23 books promoted to status 'planned': 184 chapters / 630 planned lessons; mathematics shelf = 27 books (3 complete + 24 planned incl. AA)",
+  "corrections": "the AA book.ts JEE note corrected this pass: mathematical induction/reasoning/LPP were removed from JEE Main in the 2024 revision (run 89's unit listing was stale; verified against multiple sources 2026-11-10)",
+  "gates": "verify-math-shelf-planning.ts 1204/1204 GREEN (shelf load+statuses, per-book honest census, planned-chapter hygiene, id-prefix reservation over the 120 written ids, survey evidence base); lint 0 errors; tsc clean; routes 200; e2e-math-shelf.sh all green (home 27 books + 23/23 new titles, sampled planned TOCs with correct chips, empty states, 404 integrity, mobile 390 no overflow, 0 console errors everywhere, pixel checks non-blank/no blue cast; VLM visual confirmation of the Geometry book page)",
+  "authoring_unchanged": "run 90 opens AA 1.1 + 1.2 exactly as the run-89 pointer set; the 23 planned books follow in backlog order as predecessors complete"
+ }
 }
