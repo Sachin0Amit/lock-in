@@ -6,6 +6,31 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 87 (2026-11-10) — AL ch. 11 OPENS (11.1 + 11.2)
+
+- Zero downloads, zero new keys: the banked keys carried the chapter open —
+  `hall-knight-elementary-algebra` (the classical text's problem chapters
+  and identity drills: the word-problem families, the competition
+  substitutions), `ncert-math8-ch2-linear-equations` (the school canon's
+  word-problem ground for 11.1: age, consecutive-integer and simple motion
+  items), `euclid-elements-ii4` (Book II's geometric algebra — 11.2's two
+  area reads, the cut square and the rearranged L), `khattar-qa-4e` (the
+  competition corner both lessons examine towards: alligation at speed,
+  the symmetric chains, the hidden quadratic), `cengage-jee-style` (the
+  presentation contract). Cross-references carried per the pointer: 8.3's
+  work-rate debt paid in full (the template with the always-pair check and
+  the two filters kept), 5.2/6.2's solving craft named in the SOLVE
+  station, 7.2's inequality fences on the bound questions, 9.1's factoring
+  craft on the grown quadratics; 3.3's identities groundwork, 4.3's
+  factorizations read backward, 9.3's surd doors and 9.4's symmetric reads
+  at competition speed. Historical claims web-checked and hedged: Ahmes
+  and the Rhind papyrus (c. 1550 BCE; the 'aha' problems 24–34), Euclid's
+  Book II Proposition II.4, the Brahmagupta–Fibonacci two-squares identity
+  (628 CE / 1225). No reference working copies to delete (zero-download
+  run).
+
+---
+
 ## Run 86 (2026-11-10) — AL ch. 10 CLOSES (10.3 + the unit-10 review)
 
 - Zero downloads, zero new keys: the banked keys carried the chapter close —

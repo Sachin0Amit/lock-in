@@ -9,6 +9,7 @@ import { chapter07 } from './ch-07'
 import { chapter08 } from './ch-08'
 import { chapter09 } from './ch-09'
 import { chapter10 } from './ch-10'
+import { chapter11 } from './ch-11'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -47,11 +48,18 @@ import { chapter10 } from './ch-10'
  * Coefficients: Viète's Relations + the unit-9 completion review PASSED):
  * chapter 9 COMPLETE 4/4. Chapter 10 'Graphs of Equations' OPENED at run 85
  * (10.1 The Coordinate Plane and Linear Graphs + 10.2 Slope: the
- * Steepness Theorem): 10.3 'The Parabola: Quadratic Graphs and Vertices'
- * + the unit-10 review close the chapter at run 86. The book stands
- * in-progress — 9 complete chapters of 11 (owner cadence: two lessons
- * per run, strictly sequential). Lesson ids use the `al-` prefix
- * (globally unique, stable forever).
+ * Steepness Theorem) and CLOSED at run 86 (10.3 'The Parabola:
+ * Quadratic Graphs and Vertices' + the unit-10 completion review PASSED):
+ * chapter 10 COMPLETE 3/3 (14,591 words). Chapter 11 'The Toolbox and
+ * the Doorstep' OPENED at run 87 (11.1 'Word Problems: the Toolkit at
+ * Work' + 11.2 'Competition Algebra: Identities and Substitutions' —
+ * the five-station pipeline across the canon's five families, the
+ * identity bank with the speed reads, the symmetric reads and the
+ * clever substitution): 11.3 'The Function Idea: the Doorstep' + the
+ * unit-11 review + the BOOK CLOSE ride run 88. The book stands
+ * in-progress — 10 complete chapters of 11, the eleventh open
+ * (owner cadence: two lessons per run, strictly sequential). Lesson
+ * ids use the `al-` prefix (globally unique, stable forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Foundation
  * Mathematics opened the doorstep of algebra with patterns → formulas and a
@@ -129,19 +137,6 @@ export const elementaryAlgebra: Book = {
     chapter08,
     chapter09,
     chapter10,
-    {
-      number: 11,
-      slug: 'the-toolbox-and-the-doorstep',
-      title: 'The Toolbox and the Doorstep',
-      summary:
-        'The whole course at work and the door out: word problems solved end-to-end with the full toolkit (the exam corner of the book), competition algebra — identities, clever substitutions, symmetric tricks — as the techniques Khattar and Hall & Knight bank, and the function idea introduced honestly (input, rule, output; notation; why functions organize everything) as the doorstep to Advanced Algebra and Calculus.',
-      status: 'planned',
-      lessons: [],
-      plannedLessons: [
-        'Word Problems: the Toolkit at Work',
-        'Competition Algebra: Identities and Substitutions',
-        'The Function Idea: the Doorstep',
-      ],
-    },
+    chapter11,
   ],
 }

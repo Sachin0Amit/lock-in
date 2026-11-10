@@ -366,3 +366,14 @@ server.log
 !/scripts/e2e-al-103.sh
 !/scripts/e2e-al-103.page.js
 !/scripts/e2e-al-94.page.js
+# exception: run-87 book-3 chapter-11 pre-write arithmetic verifier (word problems + identities; committed every ship)
+!/scripts/verify-book3-ch11.ts
+# exception: run-87 AL 11.1/11.2 lesson E2E blocks (quiz keys 2/3/1/0/2 and 1/2/0/3/1 + solutions + audits)
+!/scripts/e2e-al-111.sh
+!/scripts/e2e-al-111.page.js
+!/scripts/e2e-al-112.sh
+!/scripts/e2e-al-112.page.js
+# exception: one-shot run-87 lesson-11.2 content expander (2026-11-10, historical record)
+!/scripts/expand-112.py
+# exception: one-shot run-87 memory shipper (2026-11-10, historical record)
+!/scripts/ship-run87.py
