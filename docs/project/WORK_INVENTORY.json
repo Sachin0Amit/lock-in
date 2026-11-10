@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 17:07:49 (Asia/Kolkata)",
+  "generated": "2026-11-10 19:43:21 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -18,8 +18,8 @@
   ],
   "content": {
     "disciplinesPlanned": 11,
-    "backlogPlan": "docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Arithmetic and Number Systems PROMOTED 2026-11-05 (run 48) — 280 titles remain in the backlog.",
-    "booksLive": 3,
+    "backlogPlan": "docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Live books: Foundation Mathematics (base platform), Arithmetic and Number Systems (promoted run 48, 2026-11-05), Elementary Algebra (promoted run 66, 2026-11-07; complete run 88), Advanced Algebra (promoted run 89, 2026-11-10) — 277 titles remain in the backlog.",
+    "booksLive": 4,
     "books": [
       {
         "id": "foundation-mathematics",
@@ -5898,6 +5898,2921 @@
             "words": 17191
           }
         ]
+      },
+      {
+        "id": "elementary-algebra",
+        "title": "Elementary Algebra",
+        "subtitle": "Letters with structure — the first full algebra course",
+        "discipline": "mathematics",
+        "level": "Class 6–10 algebra → the doorway to higher algebra",
+        "description": "The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.",
+        "status": "complete",
+        "chaptersPlanned": 11,
+        "chaptersWritten": 11,
+        "chapters": [
+          {
+            "number": 1,
+            "slug": "letters-and-structure",
+            "title": "Letters and Structure",
+            "summary": "The grammar of algebra, built from the FM doorstep: a letter stops abbreviating one number and starts carrying structure — what an expression is (terms, coefficients, factors), why \"like terms\" may be collected (the distributive law working backwards, proved), how substitution evaluates, and how words become symbols in the exam word-problem grammar. Order of operations is re-derived as the expression tree, not recited.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-from-arithmetic-to-algebra",
+                "number": "1.1",
+                "title": "From Arithmetic to Algebra: What a Letter Does",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4099,
+                "readMins": 20,
+                "concepts": [
+                  "Generalized arithmetic",
+                  "The four roles of a letter",
+                  "The generalizer: laws for every number",
+                  "Substitution: the evaluation contract",
+                  "3a means 3 × a",
+                  "Expression vs equation: name vs sentence",
+                  "The sweep discipline",
+                  "Viète and Descartes: the letter revolution"
+                ],
+                "objectives": [
+                  "say exactly what changes when arithmetic becomes algebra: sentences stop asking \"how much?\" and start claiming \"for every\" — and letters are the machinery that makes the claim",
+                  "classify any letter you meet into one of the four census roles — placeholder, generalizer, position letter, unknown — and name where each was first met (FM 11.2, FM 11.3, ANS 7.2) and where it grows next",
+                  "state the three big laws in letter form and cash each on verified instances, knowing that the letter sentence covers every case while instances only sample it",
+                  "evaluate expressions by substitution under the evaluation contract: replace every letter, honour the structure — and price the three classic traps (3a is 3 × a; a² is not 2a; −a flips the sign)",
+                  "separate an expression (a name) from an equation (a sentence) by spotting the equals sign, and map the three jobs: simplify (rename), evaluate (fold), solve (settle)",
+                  "recount who put letters into algebra — al-Khwārizmī's word algebra, Viète's 1591 system, Descartes' 1637 x, y, z — and why the change was worth a revolution"
+                ],
+                "prerequisites": [
+                  "fm-patterns-to-formulas",
+                  "fm-letter-for-the-unknown",
+                  "ans-the-field-laws-division-joins-the-family"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math6-ch11",
+                  "alkhwarizmi-c825-aljabr",
+                  "viete-1591-isagoge",
+                  "descartes-1637-geometrie",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 5,
+                  "callout": 7,
+                  "table": 2,
+                  "figure": 2,
+                  "derivation": 1,
+                  "list": 1,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-expressions-terms-like-terms",
+                "number": "1.2",
+                "title": "Expressions, Terms and Like Terms",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4075,
+                "readMins": 20,
+                "concepts": [
+                  "Terms, factors, coefficients",
+                  "The sign belongs to the term",
+                  "The expression tree",
+                  "Order of operations re-derived",
+                  "Like terms and the letter part",
+                  "Collection = distributive law backwards",
+                  "The merge-everything trap",
+                  "Simplify: rename by the laws"
+                ],
+                "objectives": [
+                  "take an expression apart by anatomy: name its terms, each term's factors and coefficient, and read the sign as part of the term — then name the family (monomial, binomial, trinomial)",
+                  "draw the expression tree of a flat string and re-derive the order-of-operations conventions from it: brackets are the explicit override, multiplication assembles before addition, left-to-right settles the ties",
+                  "decide like-or-unlike from the letter part alone, with the commutativity rescue for reordered products (3xy and 5yx are like; 3x and 3x² never are)",
+                  "PROVE the collection law ax + bx = (a + b)x from the distributive law — first by the copies argument, then in full generality — and state honestly why unlike terms refuse to merge (the law needs a common factor)",
+                  "simplify expressions by collecting like families and verify value-preservation by substitution: the name changes, the number never",
+                  "price the merge-everything trap numerically: 3x + 5y is 21 at the witness (2, 3) while 8xy would claim 48 — collecting unlike terms is not shorthand, it is error"
+                ],
+                "prerequisites": [
+                  "al-from-arithmetic-to-algebra",
+                  "fm-order-of-operations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math6-ch11",
+                  "openstax-elementary-algebra",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "callout": 6,
+                  "table": 2,
+                  "example": 5,
+                  "list": 2,
+                  "figure": 2,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-evaluating-expressions-substitution-and-formulas",
+                "number": "1.3",
+                "title": "Evaluating Expressions: Substitution and Formulas",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4001,
+                "readMins": 20,
+                "concepts": [
+                  "Substitution at full strength",
+                  "Negatives ride in brackets",
+                  "Formulas as machines",
+                  "The machine table",
+                  "Anchor values",
+                  "Collect first, then fold",
+                  "Reading formulas backwards",
+                  "The unit audit"
+                ],
+                "objectives": [
+                  "substitute at full strength into multi-term expressions, wrapping negatives in brackets so the tree of 1.2 folds exactly as drawn — (−3)² = 9, never −9",
+                  "read a formula as a machine: one fold per input, a table for many inputs, and the honest habit of sanity-checking every output against its units",
+                  "run four anchor-certified machines — the taxi C = 50 + 12k, the temperature pair C = (F − 32) × 5/9 and F = 9C/5 + 32, the triangle A = ½bh, the square perimeter 4s — and FM 11.2's dress Tn = 5n − 1",
+                  "apply the standing speed method of 1.2: collect first, then fold, and know when a one-off substitution does not bother collecting",
+                  "read a formula backwards by arithmetic undoing (which position holds 74?) as FM 11.2 did it — while keeping the general settlement for AL ch. 5",
+                  "use evaluation as a lie detector: (a + b)² = a² + b² fails at EVERY pair in [1..10]², and one substitution kills a false identity on sight"
+                ],
+                "prerequisites": [
+                  "al-expressions-terms-like-terms",
+                  "fm-patterns-to-formulas"
+                ],
+                "sources": [
+                  "openstax-elementary-algebra",
+                  "hall-knight-elementary-algebra",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 19,
+                  "heading": 5,
+                  "example": 6,
+                  "callout": 5,
+                  "equation": 2,
+                  "figure": 2,
+                  "table": 2,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "warn": 2,
+                  "insight": 2,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-translating-words-into-symbols",
+                "number": "1.4",
+                "title": "Translating: Words into Symbols",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4011,
+                "readMins": 20,
+                "concepts": [
+                  "The translation dictionary",
+                  "The order traps: less than, divided by",
+                  "Brackets decide: the two readings",
+                  "The translation pipeline",
+                  "The verb \"is\" draws the equals",
+                  "The consecutive families",
+                  "When English flips lawfully",
+                  "The plausibility check"
+                ],
+                "objectives": [
+                  "use the translation dictionary lawfully: more than, times, of, per, less than, divided by — knowing which entries keep English order (subtraction and division) and which may flip (addition and multiplication)",
+                  "price the order traps numerically: \"5 less than x\" is x − 5 (3 at x = 8), never 5 − x (−3); \"the quotient of n and 3, increased by 1\" is n/3 + 1 (5 at n = 12), never n/(3 + 1) (3)",
+                  "resolve the two-readings trap with brackets: \"twice the sum of x and 3\" is 2(x + 3) = 14 at x = 4 while \"the sum of twice x and 3\" is 2x + 3 = 11 — same words reshuffled, different trees (1.2 cashed)",
+                  "run the four-station translation pipeline — name the unknown, find the \"is\", translate phrase by phrase, plausibility-check — turning stories into lawful sentences",
+                  "write the consecutive families (n, n + 1, n + 2; 2k, 2k + 2; 2k + 1, 2k + 3) and verify their sum laws by sweep",
+                  "check every translation by substitution before trusting it: the candidate that satisfies the sentence survives, the one that fails is caught — the plausibility discipline of an examiner"
+                ],
+                "prerequisites": [
+                  "al-evaluating-expressions-substitution-and-formulas",
+                  "fm-letter-for-the-unknown"
+                ],
+                "sources": [
+                  "ncert-math6-ch11",
+                  "ncert-math7-ch4",
+                  "hall-knight-elementary-algebra",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 5,
+                  "table": 2,
+                  "callout": 3,
+                  "figure": 2,
+                  "list": 1,
+                  "example": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 16186
+          },
+          {
+            "number": 2,
+            "slug": "exponents-and-powers",
+            "title": "Exponents and Powers",
+            "summary": "Powers promoted from shorthand to system: the exponent laws (product, quotient, power-of-a-power) proved from the definition rather than drilled, then the family completed — zero and negative exponents as the same closure repair ANS performed on the number systems, with every old law preserved. Scientific notation and orders of magnitude pay the practical bill.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-powers-and-the-laws-of-exponents",
+                "number": "2.1",
+                "title": "Powers and the Laws of Exponents",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4710,
+                "readMins": 24,
+                "concepts": [
+                  "base and exponent anatomy",
+                  "the repeated-multiplication definition",
+                  "the product law of exponents",
+                  "the quotient law of exponents",
+                  "the power-of-a-power law",
+                  "the sign law for negative bases",
+                  "the exponent as a count of copies",
+                  "the m > n boundary of the quotient law"
+                ],
+                "objectives": [
+                  "read any power correctly — naming its base, its exponent and the copy count it compresses",
+                  "prove the product, quotient and power-of-a-power laws from the definition by counting copies",
+                  "verify each law on chosen numbers before trusting it, and say what the quotient law cannot yet do",
+                  "handle zero, one and negative bases honestly — including the sign law and the bracket trap",
+                  "apply the laws to simplify products, quotients and towers, and evaluate them at chosen values"
+                ],
+                "prerequisites": [
+                  "al-expressions-terms-like-terms",
+                  "fm-numbers-digits-place-value"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch10-exponents",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 5,
+                  "callout": 6,
+                  "equation": 2,
+                  "table": 2,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-zero-and-negative-exponents-another-repair",
+                "number": "2.2",
+                "title": "Zero and Negative Exponents: Another Repair",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4465,
+                "readMins": 22,
+                "concepts": [
+                  "the zero exponent repair",
+                  "negative exponents as reciprocals",
+                  "the permanence principle",
+                  "the extended exponent laws",
+                  "the flip rule across the fraction bar",
+                  "the base-zero boundary",
+                  "the closure-repair discipline",
+                  "the quotient law completed"
+                ],
+                "objectives": [
+                  "say precisely where the exponent family of 2.1 breaks, and why those breaks are diseases not flaws",
+                  "derive x⁰ = 1 from the laws rather than accept it as a convention — and name the two routes that agree",
+                  "derive x⁻ⁿ = 1/xⁿ from the repaired zero exponent, and move factors across a fraction bar both directions",
+                  "verify that every law of 2.1 survives the extension, and evaluate expressions over all integer exponents",
+                  "state the base-zero boundary honestly — which derivations die at zero, and why no repair can save them"
+                ],
+                "prerequisites": [
+                  "al-powers-and-the-laws-of-exponents",
+                  "ans-closure-failures-that-force-extension"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "hankel-1867-permanence",
+                  "peacock-1833-permanence",
+                  "ncert-math8-ch10-exponents"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 6,
+                  "callout": 5,
+                  "derivation": 2,
+                  "equation": 2,
+                  "table": 2,
+                  "example": 3,
+                  "figure": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-scientific-notation-and-orders-of-magnitude",
+                "number": "2.3",
+                "title": "Scientific Notation and Orders of Magnitude",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4014,
+                "readMins": 20,
+                "concepts": [
+                  "the standard form a x 10^k",
+                  "the canonical clause 1 <= a < 10",
+                  "converting large and small numbers",
+                  "computing with the exponent laws",
+                  "renormalization after multiplying",
+                  "significant digits as precision claims",
+                  "orders of magnitude as rungs",
+                  "the two dials of a number"
+                ],
+                "objectives": [
+                  "convert any decimal — grotesquely large or vanishingly small — into the standard form a x 10^k with 1 <= a < 10",
+                  "explain why the standard form is a NAME (unique per number) rather than a choice",
+                  "multiply and divide in standard form using the exponent laws of 2.1 and 2.2, renormalising when the coefficient leaves [1, 10)",
+                  "state what a coefficient claims about precision, and count its significant digits",
+                  "compare numbers by exponent rungs — orders of magnitude — and say what that comparison hides"
+                ],
+                "prerequisites": [
+                  "al-zero-and-negative-exponents-another-repair",
+                  "fm-the-metric-system"
+                ],
+                "sources": [
+                  "ncert-math8-ch10-exponents",
+                  "ncert-phys11-ch2",
+                  "cengage-jee-style",
+                  "archimedes-sand-reckoner"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "callout": 4,
+                  "figure": 2,
+                  "table": 2,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 13189
+          },
+          {
+            "number": 3,
+            "slug": "polynomials",
+            "title": "Polynomials",
+            "summary": "The first algebraic family: what a polynomial is (terms, degree, classification by shape), arithmetic on polynomials — addition, subtraction and the distributive grid of multiplication — the special products (a ± b)² and (a + b)(a − b) PROVED by distribution and then used as identities, and division: long division as ANS’s division algorithm wearing letters, with the remainder theorem proved and the factor theorem glimpsed.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-what-a-polynomial-is-terms-degree-and-family",
+                "number": "3.1",
+                "title": "What a Polynomial Is: Terms, Degree and Family",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4989,
+                "readMins": 25,
+                "concepts": [
+                  "the polynomial family",
+                  "terms, coefficients and letter parts",
+                  "degree of a term",
+                  "degree of a polynomial",
+                  "monomial, binomial, trinomial, multinomial",
+                  "constant, linear, quadratic, cubic",
+                  "evaluating a polynomial",
+                  "the nonnegative-integer exponent boundary"
+                ],
+                "objectives": [
+                  "define a polynomial term-by-term — a coefficient carrying a nonnegative integer power of the letter",
+                  "read the anatomy of any term: coefficient, base letter, degree — and price why the coefficient never counts toward degree",
+                  "classify polynomials by shape (monomial, binomial, trinomial, multinomial) and by degree (constant, linear, quadratic, cubic)",
+                  "run the sieve: say exactly why 1/x, √x and 2^x are not polynomials, and why constants are",
+                  "evaluate a polynomial at any value with the substitution machine, and build its value table",
+                  "collect like terms at family scale and arrange answers in standard form"
+                ],
+                "prerequisites": [
+                  "al-expressions-terms-like-terms",
+                  "al-powers-and-the-laws-of-exponents"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "cengage-jee-style",
+                  "descartes-1637-geometrie"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "callout": 4,
+                  "equation": 1,
+                  "table": 2,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-adding-subtracting-and-multiplying-polynomials",
+                "number": "3.2",
+                "title": "Adding, Subtracting and Multiplying Polynomials",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5013,
+                "readMins": 25,
+                "concepts": [
+                  "closure of the polynomial family",
+                  "addition as like-term collection",
+                  "subtraction distributes the minus",
+                  "the distributive grid",
+                  "the convolution columns",
+                  "leading coefficient and leading term",
+                  "the degree-of-a-product theorem",
+                  "the first special products"
+                ],
+                "objectives": [
+                  "add and subtract polynomials by degree-aligned column work, and prove the pointwise principle (f ± g)(x) = f(x) ± g(x)",
+                  "multiply monomials, monomials by polynomials, and polynomials by polynomials on the distributive grid",
+                  "collect the grid’s products on the convolution diagonal — the coefficient of xᵏ gathers every pair of degrees summing to k",
+                  "prove deg(fg) = deg f + deg g by the leading-coefficient argument, and price the drop cases of deg(f ± g)",
+                  "prove (a + b)² and (a + b)(a − b) by the grid, cashing the cross-term census of chapter 2",
+                  "state the closure theorem — sums, differences and products stay in the family; quotients do not"
+                ],
+                "prerequisites": [
+                  "al-what-a-polynomial-is-terms-degree-and-family",
+                  "al-powers-and-the-laws-of-exponents"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "al-karaji-binomial-triangle",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "table": 1,
+                  "equation": 2,
+                  "callout": 4,
+                  "example": 3,
+                  "figure": 2,
+                  "derivation": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 2
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-special-products-the-identities-proved",
+                "number": "3.3",
+                "title": "Special Products: the Identities, Proved",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4408,
+                "readMins": 22,
+                "concepts": [
+                  "identity: true for every value",
+                  "reading identities in both directions",
+                  "the square of a difference",
+                  "sum and difference of cubes",
+                  "trinomial squares and the middle-term test",
+                  "the middle-term rule for (x+a)(x+b)",
+                  "identity-based shortcut arithmetic",
+                  "the multinomial square"
+                ],
+                "objectives": [
+                  "state what an identity is — a sentence true for EVERY value of the letters — and distinguish identities from equations by testing values",
+                  "read each square identity in both directions: expand the product form, and recognize the expanded form back into its product",
+                  "derive (a − b)² twice — on the grid and by substituting −b into the square of a sum — and draw the corner-cut square that carries it",
+                  "prove the sum and difference of cubes on the grid, cashing the (x − 1)(x² + x + 1) = x³ − 1 teaser of 3.2",
+                  "apply the middle-term test to recognize trinomial squares and to refuse the impostors, and compute squares and products of numbers by identity instead of by column multiplication"
+                ],
+                "prerequisites": [
+                  "al-adding-subtracting-and-multiplying-polynomials",
+                  "al-powers-and-the-laws-of-exponents"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "euclid-elements-ii4",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "callout": 5,
+                  "heading": 4,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 4,
+                  "equation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 3
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-dividing-polynomials-long-division-and-the-remainder-theorem",
+                "number": "3.4",
+                "title": "Dividing Polynomials: Long Division and the Remainder Theorem",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4246,
+                "readMins": 21,
+                "concepts": [
+                  "the division identity f = d·q + r",
+                  "long division on descending powers",
+                  "zero coefficients for missing degrees",
+                  "the index law for division",
+                  "the stop rule: deg r < deg d",
+                  "the remainder theorem r = f(a)",
+                  "the factor theorem glimpsed",
+                  "ascending powers and detached coefficients"
+                ],
+                "objectives": [
+                  "divide monomials by the index law — coefficients divide, exponents subtract — and divide polynomials by monomials term by term",
+                  "run the long-division algorithm on polynomials arranged in descending (or ascending) powers, filling zero coefficients for missing degrees",
+                  "state and prove the division identity f = d·q + r with deg r < deg d, and price why the quotient-remainder pair is unique",
+                  "prove the remainder theorem from the division identity and use it to read remainders off values — evaluate, never divide",
+                  "glimpse the factor theorem — f(a) = 0 forces (x − a) to divide f — as chapter 4’s opening engine"
+                ],
+                "prerequisites": [
+                  "al-adding-subtracting-and-multiplying-polynomials",
+                  "ans-division-with-rest-the-division-algorithm"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "ruffini-synthetic-division",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 5,
+                  "figure": 2,
+                  "example": 4,
+                  "callout": 4,
+                  "equation": 2,
+                  "derivation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 3
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 18656
+          },
+          {
+            "number": 4,
+            "slug": "factorization",
+            "title": "Factorization",
+            "summary": "Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-common-factors-and-grouping",
+                "number": "4.1",
+                "title": "Common Factors and Grouping",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4202,
+                "readMins": 21,
+                "concepts": [
+                  "factoring: multiplication undone",
+                  "the common factor",
+                  "the greatest common factor of terms",
+                  "complete factorization",
+                  "relatively prime terms",
+                  "factor by grouping",
+                  "the regrouping discipline",
+                  "the sum-of-squares boundary"
+                ],
+                "objectives": [
+                  "read the distributive law backwards — ca + cb = c(a + b) as the first factorization",
+                  "compute the GCF of terms: the HCF of the coefficients wearing the shared letters at their lowest powers",
+                  "extract the complete GCF, refuse partial extractions, and price the sign convention on negative leading coefficients",
+                  "factor four-term expressions by grouping — pairing, the distributed minus, and the reorder when the natural pairing hides the match",
+                  "state and use the honest boundary: a sum of squares refuses to factor over the integers, and say exactly why",
+                  "check every factorization by expansion — the identity charter of 3.3 made into a habit"
+                ],
+                "prerequisites": [
+                  "al-adding-subtracting-and-multiplying-polynomials",
+                  "fm-highest-common-factor"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "euclid-elements-book-vii",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 5,
+                  "callout": 6,
+                  "equation": 2,
+                  "table": 1,
+                  "derivation": 2,
+                  "terms": 1,
+                  "example": 4,
+                  "figure": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-factoring-quadratic-trinomials",
+                "number": "4.2",
+                "title": "Factoring Quadratic Trinomials",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4050,
+                "readMins": 20,
+                "concepts": [
+                  "the middle-term hunt",
+                  "the product dial and the sum dial",
+                  "the existence gauge p² − 4q",
+                  "sign pricing of the pair",
+                  "the AC split",
+                  "the folding identity",
+                  "the GCF-first rule",
+                  "check by expansion"
+                ],
+                "objectives": [
+                  "run the middle-term hunt on x² + px + q: find two integers whose product is q and whose sum is p",
+                  "state and prove the gauge — the pair exists over the integers exactly when p² − 4q is a perfect square — and read its three verdicts",
+                  "price the signs of the pair from the signs of p and q before hunting",
+                  "factor ax² + bx + c (a ≠ 1) by the AC split, and close the split with 4.1’s grouping machine",
+                  "extract the GCF first, recognize the 3.3 squares as the hunt’s double case, and refuse honestly when the gauge says no",
+                  "verify every factorization by expansion — the ten-second identity check"
+                ],
+                "prerequisites": [
+                  "al-common-factors-and-grouping",
+                  "al-special-products-the-identities-proved"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch12-factorisation",
+                  "khattar-qa-4e",
+                  "harriot-1631-praxis"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 4,
+                  "callout": 6,
+                  "equation": 2,
+                  "table": 1,
+                  "terms": 1,
+                  "derivation": 2,
+                  "figure": 2,
+                  "example": 3,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 2,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-identities-as-factorizations",
+                "number": "4.3",
+                "title": "The Identities as Factorizations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4007,
+                "readMins": 20,
+                "concepts": [
+                  "reading identities backwards",
+                  "difference of squares recognition",
+                  "perfect squares via the zero gauge",
+                  "sum and difference of cubes",
+                  "the two-step chains",
+                  "recognition order",
+                  "the Sophie Germain surprise",
+                  "honest refusals"
+                ],
+                "objectives": [
+                  "read 3.3’s identity shelf backwards — each identity IS a factorization, and recognition is the art",
+                  "recognize the difference of squares on sight, and refuse its sum-of-squares twin by the 4.1 theorem",
+                  "recognize perfect squares by the middle-term test — the zero gauge of 4.2 wearing its other clothes",
+                  "factor sums and differences of cubes, with the second bracket proved irreducible by the two-letter gauge",
+                  "run the two-step chains (x⁴ − 16, x⁴ − 1, x⁶ − 1) until every factor is irreducible",
+                  "apply the recognition order — GCF, squares and cubes, squares trinomials, the hunt, grouping — and meet the sum of fourth powers that factors after all"
+                ],
+                "prerequisites": [
+                  "al-factoring-quadratic-trinomials",
+                  "al-special-products-the-identities-proved"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math9-ch2-polynomials",
+                  "sophie-germain-identity",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 7,
+                  "terms": 1,
+                  "figure": 2,
+                  "callout": 3,
+                  "derivation": 1,
+                  "example": 4,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-factor-theorem-and-cubics",
+                "number": "4.4",
+                "title": "The Factor Theorem and Cubics",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4026,
+                "readMins": 20,
+                "concepts": [
+                  "the factor theorem",
+                  "evaluate, never divide",
+                  "integer-root candidates",
+                  "the cubic hunting machine",
+                  "the irreducibility verdict",
+                  "repeated roots",
+                  "the two roads agree",
+                  "the zero seed cashed"
+                ],
+                "objectives": [
+                  "state and prove the factor theorem — (x − a) divides f(x) exactly when f(a) = 0 — from the remainder theorem, both directions",
+                  "justify the candidate scan: every integer root of a monic cubic divides its constant term (proved), so the candidates are ± the divisors of d",
+                  "run the cubic hunting machine: list candidates, evaluate (never divide), divide out the found root, and let the 4.2 toolkit finish the quotient",
+                  "price the missing seat (x³ − 7x + 6 written 1, 0, −7, 6) and the repeated roots ((x − 1)²(x + 2))",
+                  "prove and use the irreducibility verdict: a cubic with no integer root is irreducible over the integers — and meet what waits beyond (Cardano)",
+                  "watch the two roads agree — the factor theorem re-deriving 3.3’s cube identities — and cash 3.1’s zero seed that planted this whole chapter"
+                ],
+                "prerequisites": [
+                  "al-identities-as-factorizations",
+                  "al-dividing-polynomials-long-division-and-the-remainder-theorem"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "hall-knight-higher-algebra",
+                  "cardano-1545-ars-magna",
+                  "ncert-math9-ch2-polynomials"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 4,
+                  "callout": 4,
+                  "equation": 1,
+                  "terms": 1,
+                  "derivation": 2,
+                  "example": 4,
+                  "figure": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 16285
+          },
+          {
+            "number": 5,
+            "slug": "linear-equations-one-variable",
+            "title": "Linear Equations in One Variable",
+            "summary": "The balance principle made lawful: an equation as an assertion, the moves that preserve truth justified by the field laws ANS proved, fractional and bracketed forms cleared systematically, and the three-way verdict — one solution, none, or infinitely many — read off the collapsed form 0·x = k, the same solvability discipline ANS 10.1 applied to the number ladder.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-what-an-equation-is-the-balance-principle",
+                "number": "5.1",
+                "title": "What an Equation Is: the Balance Principle",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5027,
+                "readMins": 25,
+                "concepts": [
+                  "the equation as an assertion",
+                  "members and the unknown",
+                  "equations vs identities",
+                  "the balance principle",
+                  "the lawful moves",
+                  "the solution set",
+                  "the check by substitution",
+                  "the three-verdict preview"
+                ],
+                "objectives": [
+                  "read an equation as an assertion to be settled — members, unknown, and the equals sign as the claim",
+                  "sort assertions into identities, conditional equations and contradictions by a census of tested values, cashing 3.3’s identity charter",
+                  "state the balance principle and the four lawful moves, each justified by the field laws ANS 7.2 proved",
+                  "price the unlawful ×0 move that turns a false claim true — the trap the examinations set",
+                  "use the solution-set language: solving means finding the WHOLE set, and the check by substitution confirms it",
+                  "preview the three-way verdict — one, none, infinitely many — that 5.3 prices in full"
+                ],
+                "prerequisites": [
+                  "al-factor-theorem-and-cubics",
+                  "al-special-products-the-identities-proved"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch2-linear-equations",
+                  "recorde-1557-whetstone",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 5,
+                  "list": 2,
+                  "terms": 1,
+                  "table": 1,
+                  "figure": 2,
+                  "callout": 5,
+                  "equation": 2,
+                  "derivation": 2,
+                  "example": 4,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-solving-linear-equations",
+                "number": "5.2",
+                "title": "Solving Linear Equations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4277,
+                "readMins": 21,
+                "concepts": [
+                  "the five-station pipeline",
+                  "clearing fractions with the LCD",
+                  "clearing brackets",
+                  "collecting like terms",
+                  "gathering the unknown",
+                  "dividing by the coefficient",
+                  "the check by substitution",
+                  "the exact fraction answer"
+                ],
+                "objectives": [
+                  "run the five-station pipeline — clear fractions, clear brackets, collect, gather, divide — on any linear equation in one unknown",
+                  "clear numeric fractions by multiplying every term by the LCD, and say WHY the move is lawful (the multiplier is never zero)",
+                  "clear brackets with 3.2’s distributive craft, pricing the distributed-minus trap before it bites",
+                  "collect like terms member-wise, gather the unknown onto one side, and divide by the coefficient — landing on the exact answer, fraction included",
+                  "check every answer by substitution into the ORIGINAL equation, and watch the check catch real errors (the one-sided clearing among them)",
+                  "connect the routine to its history — al-jabr’s restoring and al-muqābala’s confronting — and to its license, the move-equivalence law of 5.1"
+                ],
+                "prerequisites": [
+                  "al-what-an-equation-is-the-balance-principle",
+                  "al-adding-subtracting-and-multiplying-polynomials"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch2-linear-equations",
+                  "alkhwarizmi-c825-aljabr",
+                  "khattar-qa-4e"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "terms": 1,
+                  "heading": 5,
+                  "algorithm": 1,
+                  "figure": 2,
+                  "derivation": 2,
+                  "callout": 6,
+                  "equation": 2,
+                  "example": 4,
+                  "table": 1,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 2,
+                  "definition": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-the-three-verdicts-one-none-infinitely-many",
+                "number": "5.3",
+                "title": "The Three Verdicts: One, None, Infinitely Many",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4720,
+                "readMins": 24,
+                "concepts": [
+                  "the gathered form a·x = k",
+                  "the collapse of the unknown",
+                  "the three verdicts",
+                  "exactly one solution",
+                  "no solution (contradiction)",
+                  "every number (identity)",
+                  "the classification theorem",
+                  "reading the verdict before solving"
+                ],
+                "objectives": [
+                  "gather any linear equation to the form a·x = k by lawful moves and read off which of the three verdicts waits before dividing anything",
+                  "state and prove the classification theorem from the field laws: a ≠ c gives exactly one solution, a = c with k ≠ 0 gives none, a = c with k = 0 gives every number",
+                  "price the two collapse classes apart — the contradiction (1 = 2 the type case) and the identity (0 = 0) — and never mislabel one for the other",
+                  "detect verdicts through 5.2’s stations: brackets, fractions and decimals that collapse after clearing, with the check confirming the collapse in the original",
+                  "cash 3.3’s charter in full: an \"every x\" verdict means the claim was an identity all along, and a \"no solution\" verdict is a complete, honest answer",
+                  "use the k-parameter question — for which k does the equation have none / infinitely many — and name the bridges out (NCERT’s reducible forms, chapter 8’s letter denominators, chapter 11’s word problems)"
+                ],
+                "prerequisites": [
+                  "al-solving-linear-equations",
+                  "al-special-products-the-identities-proved"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch2-linear-equations",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "equation": 2,
+                  "terms": 1,
+                  "heading": 3,
+                  "table": 1,
+                  "figure": 2,
+                  "derivation": 1,
+                  "callout": 6,
+                  "example": 4,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "theorem": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 14024
+          },
+          {
+            "number": 6,
+            "slug": "simultaneous-linear-equations",
+            "title": "Simultaneous Linear Equations",
+            "summary": "Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-equations-in-two-variables",
+                "number": "6.1",
+                "title": "Equations in Two Variables",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4711,
+                "readMins": 24,
+                "concepts": [
+                  "linear equation in two variables",
+                  "solution pair",
+                  "simultaneous system",
+                  "solution set of a system",
+                  "the elimination identities D·x = Dx and D·y = Dy",
+                  "consistent and inconsistent systems",
+                  "standard form a·x + b·y = c",
+                  "the pair census"
+                ],
+                "objectives": [
+                  "test whether a given pair solves an equation, and whether it solves a system",
+                  "parametrize the solution family of one linear equation in two variables",
+                  "read the trichotomy verdict of a system off D, Dx and Dy without solving it",
+                  "produce the unique solution pair from the elimination identities when D ≠ 0",
+                  "translate a two-condition story into a system of two linear equations"
+                ],
+                "prerequisites": [
+                  "al-the-three-verdicts-one-none-infinitely-many",
+                  "al-solving-linear-equations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch3-pair-linear",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 20,
+                  "heading": 5,
+                  "equation": 4,
+                  "terms": 1,
+                  "callout": 6,
+                  "list": 2,
+                  "example": 4,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-substitution-and-elimination",
+                "number": "6.2",
+                "title": "Substitution and Elimination",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4890,
+                "readMins": 24,
+                "concepts": [
+                  "substitution method",
+                  "back-substitution",
+                  "elimination method",
+                  "minimal multipliers",
+                  "the ×k dress strike (fractions and decimals)",
+                  "method choice",
+                  "equivalence of the two methods",
+                  "the double check in the originals"
+                ],
+                "objectives": [
+                  "settle any system with D ≠ 0 by substitution, narrating the five stations",
+                  "settle any system with D ≠ 0 by elimination, choosing minimal multipliers",
+                  "clear fractional and decimal dresses with the ×k strike before either method",
+                  "choose the cheaper method from the shape of the coefficients",
+                  "translate age, cost and mixture stories into systems and settle them end to end"
+                ],
+                "prerequisites": [
+                  "al-equations-in-two-variables",
+                  "al-solving-linear-equations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch3-pair-linear",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "terms": 1,
+                  "heading": 5,
+                  "algorithm": 2,
+                  "example": 10,
+                  "derivation": 1,
+                  "figure": 2,
+                  "equation": 2,
+                  "callout": 5,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-consistency-the-geometry-of-two-lines",
+                "number": "6.3",
+                "title": "Consistency: the Geometry of Two Lines",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6017,
+                "readMins": 30,
+                "concepts": [
+                  "the line dress y = (c − ax)/b",
+                  "slope of a linear equation",
+                  "y-intercept",
+                  "parallel lines",
+                  "coincident lines",
+                  "consistent and inconsistent systems",
+                  "the meeting theorem",
+                  "lattice points and hidden crossings"
+                ],
+                "objectives": [
+                  "dress any linear equation with b ≠ 0 as a line y = m·x + k and read off its slope and y-intercept",
+                  "decide how two lines meet — crossing, parallel, coincident — from slopes and intercepts alone, verticals included",
+                  "re-derive the D-instruments of 6.1 as the slope and intercept tests",
+                  "locate the meeting point by line algebra and recognize it as the Cramer pair of 6.1",
+                  "read the three verdicts of 5.3 as the three ways two lines can meet"
+                ],
+                "prerequisites": [
+                  "al-substitution-and-elimination",
+                  "al-equations-in-two-variables"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch3-pair-linear",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 5,
+                  "equation": 3,
+                  "terms": 1,
+                  "example": 6,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 1,
+                  "callout": 5,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 15618
+          },
+          {
+            "number": 7,
+            "slug": "inequalities",
+            "title": "Inequalities",
+            "summary": "Order joins algebra: the real line of ANS ch. 8 as the habitat, linear inequalities solved with every move checked against the order laws — including the multiplication-by-negative flip, proved rather than warned about — and compound inequalities (and/or) handled as intersections and unions of solution sets, cashed in boundary word problems.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-order-and-the-solution-set",
+                "number": "7.1",
+                "title": "Order and the Solution Set",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5061,
+                "readMins": 25,
+                "concepts": [
+                  "inequality symbols and their reading",
+                  "strict and slack inequalities",
+                  "the real line as the habitat of order",
+                  "the trichotomy law",
+                  "the order laws: add, scale, flip",
+                  "boundary point and open/closed rays",
+                  "solution set of an inequality",
+                  "whole-number habitats"
+                ],
+                "objectives": [
+                  "read the four inequality symbols and translate sentences like \"at least\" and \"no more than\" into them",
+                  "state the trichotomy law and use the sign reading a < b ⟺ b − a > 0",
+                  "apply the order laws — addition, subtraction, positive scaling — with verified instances",
+                  "test whether a number belongs to the solution set of an inequality by substitution",
+                  "describe solution sets as open or closed rays and count them on a census window",
+                  "prune a real-line solution set to a whole-number habitat and answer budget questions"
+                ],
+                "prerequisites": [
+                  "al-the-three-verdicts-one-none-infinitely-many",
+                  "al-what-an-equation-is-the-balance-principle"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math11-ch5",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 5,
+                  "equation": 2,
+                  "terms": 1,
+                  "figure": 2,
+                  "callout": 6,
+                  "list": 3,
+                  "derivation": 1,
+                  "example": 5,
+                  "table": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-solving-linear-inequalities",
+                "number": "7.2",
+                "title": "Solving Linear Inequalities",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4744,
+                "readMins": 24,
+                "concepts": [
+                  "the 5.2 pipeline re-run with a compass",
+                  "the LCD strike for fractional inequalities",
+                  "the flip: multiplying or dividing by a negative",
+                  "the flip theorem, proved from the sign laws",
+                  "the three-point check: boundary, inside, outside",
+                  "parameter families and moving boundaries",
+                  "largest and smallest integer questions",
+                  "equivalent inequalities"
+                ],
+                "objectives": [
+                  "solve any linear inequality in one variable by the five-station pipeline",
+                  "state and prove the flip theorem from the sign reading and the sign laws",
+                  "apply the flip when multiplying or dividing by a negative — and only then",
+                  "clear fractional and decimal dresses with positive LCD strikes",
+                  "run the three-point check: boundary, inside, outside",
+                  "answer parameter, largest-integer and whole-number-habitat questions"
+                ],
+                "prerequisites": [
+                  "al-order-and-the-solution-set",
+                  "al-solving-linear-equations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math11-ch5",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "heading": 5,
+                  "list": 2,
+                  "terms": 1,
+                  "equation": 1,
+                  "derivation": 1,
+                  "figure": 2,
+                  "callout": 5,
+                  "example": 12,
+                  "algorithm": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "definition": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-compound-inequalities-and-applications",
+                "number": "7.3",
+                "title": "Compound Inequalities and Applications",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5605,
+                "readMins": 28,
+                "concepts": [
+                  "compound inequality",
+                  "AND = intersection",
+                  "OR = union",
+                  "the between-form (interval)",
+                  "open and closed ends",
+                  "the two-boundary pipeline",
+                  "the empty AND",
+                  "De Morgan's reading"
+                ],
+                "objectives": [
+                  "join two assertions about one unknown with AND or OR and say exactly which points each joiner keeps",
+                  "read and write between-forms, deciding boundary membership from the open/closed ends",
+                  "solve any compound of the shape a ≤ px + q ≤ b with the two-boundary pipeline — flip and end-swap included",
+                  "solve OR-sentences ray by ray and count the gap honestly",
+                  "recognize the empty AND and answer it without inventing a ray",
+                  "apply bands and unions to budgets, speed margins and gate problems, pruning to the habitat"
+                ],
+                "prerequisites": [
+                  "al-order-and-the-solution-set",
+                  "al-solving-linear-inequalities"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math11-ch5",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 5,
+                  "terms": 1,
+                  "callout": 5,
+                  "equation": 2,
+                  "list": 2,
+                  "example": 12,
+                  "figure": 2,
+                  "table": 1,
+                  "derivation": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 15410
+          },
+          {
+            "number": 8,
+            "slug": "algebraic-fractions",
+            "title": "Algebraic Fractions",
+            "summary": "FM’s fraction laws, now carrying letters: rational expressions simplified by factoring with the excluded values kept honest (division by zero excluded — the discipline ANS 9.3 made central), addition and subtraction through the LCD of polynomials, and fractional equations solved with extraneous roots caught by the exclusion check at the end, not ignored.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-rational-expressions-simplify-first",
+                "number": "8.1",
+                "title": "Rational Expressions: Simplify First",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5082,
+                "readMins": 25,
+                "concepts": [
+                  "rational expression",
+                  "excluded values and the domain bill",
+                  "the fundamental law of fractions",
+                  "cancellation of factors, never terms",
+                  "lowest terms",
+                  "the removable hole",
+                  "monomial quotients and power subtraction",
+                  "the zero-fraction verdict"
+                ],
+                "objectives": [
+                  "recognize a rational expression as a quotient of polynomials and name its numerator and denominator",
+                  "state the domain of any rational expression as the denominator’s nonzero set and bill the excluded values first",
+                  "prove the fundamental law of fractions for polynomials from the field laws and apply it to cancel common FACTORS",
+                  "explain why canceling terms is illegal, with priced counterexamples",
+                  "simplify monomial quotients by dividing coefficients and subtracting powers, with zero excluded",
+                  "carry the bill of excluded values through a simplification and identify the removable hole"
+                ],
+                "prerequisites": [
+                  "fm-equivalent-fractions-simplification",
+                  "al-common-factors-and-grouping",
+                  "al-factoring-quadratic-trinomials"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math7-ch2",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 5,
+                  "equation": 2,
+                  "list": 3,
+                  "terms": 1,
+                  "callout": 7,
+                  "figure": 2,
+                  "derivation": 1,
+                  "table": 1,
+                  "example": 5,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-operating-on-algebraic-fractions",
+                "number": "8.2",
+                "title": "Operating on Algebraic Fractions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4355,
+                "readMins": 22,
+                "concepts": [
+                  "multiplying rational expressions",
+                  "the reciprocal flip and its new bill",
+                  "cross-cancellation before multiplying",
+                  "adding and subtracting like denominators",
+                  "the bracket discipline in subtraction",
+                  "the LCD of polynomials",
+                  "the compound domain bill",
+                  "the hidden exclusion"
+                ],
+                "objectives": [
+                  "multiply rational expressions by the product rule, canceling factors BEFORE multiplying",
+                  "divide by the reciprocal flip and add the divisor-numerator clause R ≠ 0 to the bill",
+                  "add and subtract with like denominators, distributing the bar over a bracketed numerator",
+                  "build the LCD of polynomials as each factor at its maximum power and use it for unlike denominators",
+                  "maintain the compound domain bill across a chain of operations — exclusions only ever grow",
+                  "price the classic traps: the wrong flip, the forgotten bracket, the lost exclusion"
+                ],
+                "prerequisites": [
+                  "al-rational-expressions-simplify-first",
+                  "fm-adding-subtracting-fractions",
+                  "fm-multiplying-dividing-fractions"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math7-ch2",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 11,
+                  "figure": 2,
+                  "terms": 1,
+                  "heading": 4,
+                  "equation": 2,
+                  "example": 5,
+                  "derivation": 1,
+                  "callout": 5,
+                  "table": 1,
+                  "list": 2,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "definition": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              },
+              {
+                "id": "al-fractional-equations-and-extraneous-roots",
+                "number": "8.3",
+                "title": "Fractional Equations and Extraneous Roots",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5870,
+                "readMins": 29,
+                "concepts": [
+                  "fractional equation",
+                  "clearing denominators",
+                  "the compound bill",
+                  "extraneous root",
+                  "cross-multiplication",
+                  "the zero-fraction filter",
+                  "work-rate equation",
+                  "the habitat check"
+                ],
+                "objectives": [
+                  "recognize a fractional equation and state its compound bill before any solving begins",
+                  "clear denominators by multiplying through the LCD and solve the resulting polynomial equation",
+                  "prove the clearing law with its clause: roots are added by clearing, never destroyed",
+                  "catch and discard extraneous roots with the compound-bill check",
+                  "apply the zero-fraction filter to equations of the form P/Q = 0 and the cross form to A/B = C/D",
+                  "build and solve work-rate and speed fractional equations, applying the bill and the habitat as the two distinct filters"
+                ],
+                "prerequisites": [
+                  "al-operating-on-algebraic-fractions",
+                  "al-solving-linear-equations",
+                  "al-factoring-quadratic-trinomials"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math7-ch2",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 5,
+                  "callout": 7,
+                  "list": 2,
+                  "equation": 2,
+                  "derivation": 1,
+                  "example": 5,
+                  "algorithm": 1,
+                  "figure": 2,
+                  "table": 1,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
+              }
+            ],
+            "words": 15307
+          },
+          {
+            "number": 9,
+            "slug": "quadratic-equations",
+            "title": "Quadratic Equations",
+            "summary": "The summit, met four ways: solution by factoring, completing the square DERIVED as the identity working in reverse, the quadratic formula PROVED and its discriminant read as a three-way verdict (two real, one repeated, none real — √2 finally an answer, ANS ch. 8’s exile reversed), and Viète’s roots-and-coefficients relations proved and put to competition work.",
+            "status": "complete",
+            "lessonsWritten": 4,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-quadratics-and-factoring-solutions",
+                "number": "9.1",
+                "title": "Quadratics and Factoring Solutions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4455,
+                "readMins": 22,
+                "concepts": [
+                  "the quadratic equation and the a ≠ 0 clause",
+                  "standard form",
+                  "the zero-product law",
+                  "solution by factoring",
+                  "the sum-product readout",
+                  "the forbidden divide and the lost root",
+                  "the repeated root, counted twice",
+                  "the three verdicts: two, one, none real"
+                ],
+                "objectives": [
+                  "state what makes an equation quadratic — degree 2 with a nonzero leading coefficient — and put any quadratic into standard form lawfully",
+                  "prove the zero-product law in both directions from the field laws and apply it as the engine of solution by factoring",
+                  "solve quadratic equations by factoring with the chapter-4 toolkit, including non-monic forms with fractional roots",
+                  "explain why dividing by the unknown loses a root, with the lost root priced by substitution",
+                  "read the sum S = r₁ + r₂ and product P = r₁·r₂ off a factored quadratic and run the sum-product hunt backwards",
+                  "distinguish the three verdicts — two distinct, one repeated (counted twice), none real — and tell when factoring honestly cannot answer"
+                ],
+                "prerequisites": [
+                  "al-factoring-quadratic-trinomials",
+                  "al-common-factors-and-grouping",
+                  "al-what-an-equation-is-the-balance-principle",
+                  "al-fractional-equations-and-extraneous-roots"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "equation": 1,
+                  "list": 2,
+                  "terms": 1,
+                  "callout": 5,
+                  "derivation": 1,
+                  "figure": 2,
+                  "example": 6,
+                  "table": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-completing-the-square-derived",
+                "number": "9.2",
+                "title": "Completing the Square, Derived",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4109,
+                "readMins": 21,
+                "concepts": [
+                  "the completion identity",
+                  "the added constant (b/2)²",
+                  "the square verdict: u² = k solvable iff k ≥ 0",
+                  "the ± doors of the square root",
+                  "the monic division (a ≠ 0)",
+                  "irrational roots as answers",
+                  "the repeated-root collapse",
+                  "al-Khwarizmi’s geometric completion"
+                ],
+                "objectives": [
+                  "state and prove the completion identity (x + h)² = x² + 2hx + h² and read off the added constant (b/2)² for any monic quadratic",
+                  "decompose any monic quadratic as (x + b/2)² + (c − b²/4) and track the added constant honestly",
+                  "prove and apply the square verdict — u² = k has real solutions exactly when k ≥ 0 — with the ± doors and the k = 0 collapse",
+                  "run the four-station completing-the-square pipeline on any quadratic, monic or not, deriving each move rather than reciting it",
+                  "accept irrational roots as full answers — 1 ± √2 — and read the none-real verdict straight off a negative k",
+                  "connect the method to its geometric origin: the (a/2)² corner that literally completes the square"
+                ],
+                "prerequisites": [
+                  "al-quadratics-and-factoring-solutions",
+                  "al-factoring-quadratic-trinomials",
+                  "al-solving-linear-equations",
+                  "ans-the-diagonal-that-broke-the-rationals"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 5,
+                  "equation": 2,
+                  "list": 2,
+                  "callout": 5,
+                  "derivation": 1,
+                  "table": 1,
+                  "figure": 2,
+                  "example": 7,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 0
+              },
+              {
+                "id": "al-the-quadratic-formula-and-the-discriminant",
+                "number": "9.3",
+                "title": "The Quadratic Formula and the Discriminant",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4229,
+                "readMins": 21,
+                "concepts": [
+                  "the quadratic formula, derived",
+                  "the discriminant Δ = b² − 4ac",
+                  "the three-way discriminant verdict",
+                  "the repeated root read −b/2a",
+                  "quadratic surds and their simplification",
+                  "the completed-square master identity",
+                  "solving without solving: existence questions"
+                ],
+                "objectives": [
+                  "derive the quadratic formula from the completed square on the general form a·x² + bx + c = 0, never recite it",
+                  "compute the discriminant Δ = b² − 4ac and read the three-way verdict — two distinct, one repeated, none real — straight off its sign",
+                  "solve quadratics with the formula, including perfect-square discriminants and repeated roots, and simplify quadratic surds lawfully",
+                  "prove the master identity a·x² + bx + c = a(x + b/2a)² − Δ/(4a) and use it to explain why Δ < 0 means never zero",
+                  "run k-hunts in one line: repeated roots from Δ = 0, no-real-roots regimes from Δ < 0",
+                  "answer existence questions (does such a rectangle exist?) by the discriminant before any solving"
+                ],
+                "prerequisites": [
+                  "al-completing-the-square-derived",
+                  "al-quadratics-and-factoring-solutions",
+                  "al-the-three-verdicts-one-none-infinitely-many",
+                  "al-fractional-equations-and-extraneous-roots"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "heading": 4,
+                  "derivation": 1,
+                  "equation": 2,
+                  "example": 6,
+                  "terms": 1,
+                  "table": 1,
+                  "callout": 4,
+                  "figure": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-roots-and-coefficients-viete-relations",
+                "number": "9.4",
+                "title": "Roots and Coefficients: Viète’s Relations",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4138,
+                "readMins": 21,
+                "concepts": [
+                  "Viète’s relations: S = −b/a, P = c/a",
+                  "the no-solve certification of roots",
+                  "building quadratics from S and P",
+                  "the a-family: infinitely many quadratics, one root set",
+                  "symmetric functions of the roots",
+                  "the difference identity (r₁ − r₂)² = Δ/a²",
+                  "the sign map of the roots"
+                ],
+                "objectives": [
+                  "prove Viète’s relations S = −b/a and P = c/a from the quadratic formula, and re-prove them by the factor identity",
+                  "certify claimed roots — rational, irrational, or repeated — against both relations without solving anything",
+                  "build the monic quadratic with prescribed sum S and product P, and explain the a-family of shared-root quadratics",
+                  "compute symmetric functions of the roots (α² + β², 1/α + 1/β, (α − β)², α³ + β³) from S and P alone, exactly even for irrational roots",
+                  "read the sign map: P < 0 forces opposite real roots, P > 0 with S chooses the quadrant",
+                  "run the competition k-hunts — one root twice the other, roots differing by a given gap — as linear reads on S and P"
+                ],
+                "prerequisites": [
+                  "al-the-quadratic-formula-and-the-discriminant",
+                  "al-quadratics-and-factoring-solutions",
+                  "al-completing-the-square-derived",
+                  "al-the-three-verdicts-one-none-infinitely-many"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 15,
+                  "derivation": 1,
+                  "equation": 2,
+                  "example": 7,
+                  "terms": 1,
+                  "heading": 3,
+                  "table": 1,
+                  "callout": 3,
+                  "figure": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              }
+            ],
+            "words": 16931
+          },
+          {
+            "number": 10,
+            "slug": "graphs-of-equations",
+            "title": "Graphs of Equations",
+            "summary": "Every solution made visible: the coordinate plane built properly (ordered pairs as addresses), linear equations graphed and slope derived as rate — with the parallel condition proved — and the parabola graphed through completing the square, the vertex formula derived, and the graph’s x-intercepts connected to the discriminant’s verdicts of chapter 9.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-the-coordinate-plane-and-linear-graphs",
+                "number": "10.1",
+                "title": "The Coordinate Plane and Linear Graphs",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4799,
+                "readMins": 24,
+                "concepts": [
+                  "ordered pairs as addresses",
+                  "the coordinate plane and its four quadrants",
+                  "the origin and the axes",
+                  "graphing ax + by = c by intercepts",
+                  "the graph-as-solution-set identity",
+                  "horizontal and vertical lines",
+                  "the crossing of two lines as elimination’s answer"
+                ],
+                "objectives": [
+                  "name every point of the plane by exactly one ordered pair and read the four quadrants off the signs of the coordinates",
+                  "graph ax + by = c by its intercepts (c/a, 0) and (0, c/b) — and by a second point when the line runs through the origin",
+                  "prove the graph-as-solution-set identity pointwise on a census: a point satisfies the equation exactly when it lies on the line",
+                  "read the horizontal line y = k and the vertical line x = h as the graphs of one-variable equations",
+                  "see a simultaneous pair’s elimination answer as the visible crossing point of two lines — and the doubled and conflicting pairs as coincident and parallel lines",
+                  "explain what the coordinate plane buys: every equation in two variables becomes a picture, and every picture a question about solutions"
+                ],
+                "prerequisites": [
+                  "al-equations-in-two-variables",
+                  "al-substitution-and-elimination",
+                  "al-consistency-the-geometry-of-two-lines",
+                  "al-the-three-verdicts-one-none-infinitely-many"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 4,
+                  "table": 1,
+                  "figure": 2,
+                  "terms": 1,
+                  "example": 3,
+                  "callout": 4,
+                  "equation": 1,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-slope-the-steepness-theorem",
+                "number": "10.2",
+                "title": "Slope: the Steepness Theorem",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4424,
+                "readMins": 22,
+                "concepts": [
+                  "slope m = rise over run",
+                  "the steepness theorem (point-choice independence)",
+                  "the slope of horizontal and vertical lines",
+                  "the coefficient readout m = −a/b",
+                  "the parallel condition m₁ = m₂",
+                  "the slope-intercept form y = mx + b",
+                  "slope as a rate"
+                ],
+                "objectives": [
+                  "define slope from two points as m = (y₂ − y₁)/(x₂ − x₁) and compute it exactly, signs included",
+                  "prove the steepness theorem: the slope does not depend on which two points of the line you pick — the similar-triangle read",
+                  "read m = −a/b and the y-intercept c/b straight off ax + by = c, and cross-check against the intercept walk",
+                  "distinguish the special slopes: m = 0 on a horizontal line, and UNDEFINED on a vertical line — the zero-division guard kept honest",
+                  "prove the parallel condition for non-vertical lines — parallel exactly when m₁ = m₂ — and read 5.3’s three two-line verdicts off the slopes",
+                  "price a rate (rupees per km, degrees per °C) as a slope and use the rate to predict"
+                ],
+                "prerequisites": [
+                  "al-the-coordinate-plane-and-linear-graphs",
+                  "al-consistency-the-geometry-of-two-lines",
+                  "al-the-three-verdicts-one-none-infinitely-many",
+                  "al-solving-linear-inequalities"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "equation": 2,
+                  "heading": 4,
+                  "derivation": 1,
+                  "figure": 2,
+                  "terms": 1,
+                  "callout": 5,
+                  "example": 2,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "theorem": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-the-parabola-quadratic-graphs-and-vertices",
+                "number": "10.3",
+                "title": "The Parabola: Quadratic Graphs and Vertices",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5368,
+                "readMins": 27,
+                "concepts": [
+                  "the parabola as the graph of a quadratic",
+                  "the table of values and the integer census",
+                  "the fold identity — completing the square, drawn",
+                  "the vertex and the axis of symmetry",
+                  "minimum and maximum values by the sign of a",
+                  "the x-intercept verdicts of the discriminant",
+                  "horizontal probes meet at most twice",
+                  "second differences and the bending slope"
+                ],
+                "objectives": [
+                  "graph y = ax² + bx + c from its table of values and read the census honestly, including which integer points sit outside a given window",
+                  "certify the fold identity y = a(x + b/2a)² − Δ/(4a) by expansion and read the vertex (−b/2a, −Δ/(4a)) straight off it",
+                  "decide minimum versus maximum by the sign of a, and prove the extreme value with the gap-is-the-square read",
+                  "mirror-price the axis of symmetry x = −b/2a pointwise: f(v + t) = f(v − t), with the twin pairs midpointing on the axis",
+                  "count the meets of any horizontal probe y = k by the shifted discriminant Δ + 4ak, flipping exactly at the vertex height",
+                  "reconcile the x-intercept verdicts (two doors, one tangent touch, none) with the factorization and the discriminant ledger of chapter 9",
+                  "watch 10.2’s steepness theorem bend along the curve through the constant second differences 2a — the honest doorway to calculus"
+                ],
+                "prerequisites": [
+                  "al-completing-the-square-derived",
+                  "al-the-quadratic-formula-and-the-discriminant",
+                  "al-the-coordinate-plane-and-linear-graphs",
+                  "al-slope-the-steepness-theorem"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch4-quadratic",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 4,
+                  "table": 1,
+                  "figure": 2,
+                  "terms": 1,
+                  "equation": 2,
+                  "example": 3,
+                  "derivation": 1,
+                  "callout": 5,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "theorem": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              }
+            ],
+            "words": 14591
+          },
+          {
+            "number": 11,
+            "slug": "the-toolbox-and-the-doorstep",
+            "title": "The Toolbox and the Doorstep",
+            "summary": "The whole course at work and the door out: word problems solved end-to-end through the five-station pipeline across the canon’s families (mixture, motion, work-rate, age, money, and the inequality fences where problems ask bounds), competition algebra — the identity bank certified by expansion, the geometric reads, the speed reads, the symmetric ladders, and the clever substitution — and the function idea closing the book at the doorstep to Advanced Algebra and Calculus: the input–output machine, the domain’s two filters, the vertical-probe test, the range from the fold, and composition naming 11.2’s camera.",
+            "status": "complete",
+            "lessonsWritten": 3,
+            "plannedLessons": [],
+            "lessons": [
+              {
+                "id": "al-word-problems-the-toolkit-at-work",
+                "number": "11.1",
+                "title": "Word Problems: the Toolkit at Work",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4612,
+                "readMins": 23,
+                "concepts": [
+                  "the five-station pipeline",
+                  "the value balance of mixtures",
+                  "the alligation cross",
+                  "motion as a fractional equation",
+                  "the work-rate template",
+                  "the two filters: bill and habitat",
+                  "the inequality fence for bounds"
+                ],
+                "objectives": [
+                  "run any word problem through the five stations — READ, NAME, RELATE, SOLVE, CHECK — without skipping a station",
+                  "build the value balance for mixture problems and derive the alligation cross x : q = (p₂ − m) : (m − p₁) from it",
+                  "turn motion stories into equations d = vt, clearing denominators into quadratics when the times are compared",
+                  "deploy 8.3’s work-rate template 1/a + 1/b = 1/t — including the subtracting drain and the 5-days-longer hunt",
+                  "keep age and money problems as clean bookkeeping: one unknown, one conservation law, one check",
+                  "answer bound questions with 7.2’s inequality fences — and report “no score exists” honestly when the fence and the habitat refuse to meet"
+                ],
+                "prerequisites": [
+                  "al-solving-linear-equations",
+                  "al-substitution-and-elimination",
+                  "al-solving-linear-inequalities",
+                  "al-fractional-equations-and-extraneous-roots",
+                  "al-quadratics-and-factoring-solutions"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math8-ch2-linear-equations",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "heading": 6,
+                  "algorithm": 1,
+                  "example": 3,
+                  "figure": 2,
+                  "table": 1,
+                  "equation": 1,
+                  "derivation": 1,
+                  "callout": 4,
+                  "terms": 1,
+                  "list": 1,
+                  "formula": 3,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-competition-algebra-identities-and-substitutions",
+                "number": "11.2",
+                "title": "Competition Algebra: Identities and Substitutions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4128,
+                "readMins": 21,
+                "concepts": [
+                  "the identity bank",
+                  "certification by expansion",
+                  "the geometric read of the identities",
+                  "speed reads",
+                  "the symmetric reads",
+                  "the clever substitution",
+                  "the two-squares identity"
+                ],
+                "objectives": [
+                  "state the identity bank — the squares, the difference of squares, the cubes and their factorizations, the three-variable forms — and certify each by expansion on designed substitutions",
+                  "read the two area proofs: (a + b)² as a cut square and a² − b² as a rearranged L, Euclid’s geometric algebra made modern",
+                  "compute competition arithmetic at speed: 101 × 99, 205² − 195², 998 × 1002, and the cube twins 101³ + 99³ and 103³ − 97³",
+                  "run the symmetric reads of 9.4 at speed: the x + 1/x power ladder and the x + y, xy families, through x³ + y³ and the two-step ladder",
+                  "collapse a repeating expression by the clever substitution, solving a quartic as a quadratic in disguise — including its surd doors",
+                  "deploy the Brahmagupta–Fibonacci two-squares identity and explain why 65 is a sum of two squares in two different ways"
+                ],
+                "prerequisites": [
+                  "al-special-products-the-identities-proved",
+                  "al-identities-as-factorizations",
+                  "al-quadratics-and-factoring-solutions",
+                  "al-roots-and-coefficients-viete-relations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "euclid-elements-ii4",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 5,
+                  "table": 1,
+                  "derivation": 1,
+                  "equation": 3,
+                  "figure": 2,
+                  "callout": 4,
+                  "example": 4,
+                  "terms": 1,
+                  "list": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "historical": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "al-the-function-idea-the-doorstep",
+                "number": "11.3",
+                "title": "The Function Idea: the Doorstep",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 6523,
+                "readMins": 33,
+                "concepts": [
+                  "the input–output machine",
+                  "function notation f(x)",
+                  "the domain and its two filters",
+                  "the vertical-probe test",
+                  "the range from the fold",
+                  "composition (f∘g)"
+                ],
+                "objectives": [
+                  "read a function as a machine — each input accepted at most once, exactly one output delivered — and price the read on 10.3’s workhorse",
+                  "use the notation $f(x)$ honestly: $f$ is the rule’s name, $f(2)$ a computed output, $f(x+1)$ a rule run on an expression — never $f$ times $x$",
+                  "find a rule’s domain by running 8.3’s two filters — the bill and the surd fence — including the hole that no cancellation heals",
+                  "decide from a graph whether it is a function of $x$, by the vertical-probe test of 10.1 read as the definition",
+                  "name the families you already own as functions — the linear machine with its constant climb, the quadratic machine with its range read straight off the fold",
+                  "compose two functions in the right order, keep the inner domain honest, and recognise 11.2’s camera trick as a composite that solved a quartic"
+                ],
+                "prerequisites": [
+                  "al-the-coordinate-plane-and-linear-graphs",
+                  "al-slope-the-steepness-theorem",
+                  "al-the-parabola-quadratic-graphs-and-vertices",
+                  "al-fractional-equations-and-extraneous-roots",
+                  "al-competition-algebra-identities-and-substitutions"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math11-ch2-functions",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 16,
+                  "heading": 6,
+                  "example": 4,
+                  "figure": 2,
+                  "callout": 4,
+                  "table": 1,
+                  "derivation": 1,
+                  "equation": 2,
+                  "terms": 1,
+                  "list": 1,
+                  "formula": 4,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "warn": 1,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 1,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 7
+              }
+            ],
+            "words": 15263
+          }
+        ]
+      },
+      {
+        "id": "advanced-algebra",
+        "title": "Advanced Algebra",
+        "subtitle": "Functions as objects — the second course",
+        "discipline": "mathematics",
+        "level": "Class 11–12 algebra → the doorstep of calculus",
+        "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
+        "status": "planned",
+        "chaptersPlanned": 10,
+        "chaptersWritten": 0,
+        "chapters": [
+          {
+            "number": 1,
+            "slug": "functions-as-objects",
+            "title": "Functions as Objects",
+            "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. This is the grammar every later chapter speaks.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Relations: the Set-of-Pairs View",
+              "One-One and Onto: Classifying the Machines",
+              "Composition: Machines in Series",
+              "Inverse Functions: the Machine Undone"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 2,
+            "slug": "the-quadratic-at-depth",
+            "title": "The Quadratic at Depth",
+            "summary": "Elementary Algebra settled the quadratic equation four ways; this chapter treats the quadratic as a working object. The vertex form becomes an optimization tool — maxima and minima priced without calculus, the range read off the fold and then used on real constraints. The equation grows into the inequality: the sign diagram, the discriminant trichotomy (two sign changes, one touch, constant sign), and the solution sets that AL 7.1–7.3’s linear work promised. Viète returns at competitive depth — symmetric expressions in the roots, common roots, forming equations with given roots — and the chapter closes with the JEE classic: conditions that pin both roots, or exactly one, inside a chosen interval. Every door metaphor AL coined for a root is now located on the line.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Vertex Form at Work: Maxima and Minima",
+              "Quadratic Inequalities and the Sign Diagram",
+              "Symmetric Reads and Common Roots",
+              "Location of Roots: Doors in Intervals"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 3,
+            "slug": "complex-numbers",
+            "title": "Complex Numbers: the New Rung",
+            "summary": "Arithmetic and Number Systems proved the extension-ladder discipline — every new number family born from a closure failure, repaired on purpose. This chapter climbs the most famous rung: x² + 1 = 0 has no real door, so a number i is forced with i² = −1, and the algebra of a + bi is built so the whole field-law family survives (the honest sanity ANS 7.2 banked). The conjugate and modulus arrive as bookkeeping — z z̄ = |z|², division by conjugating, |z| as a distance with the triangle inequality — and the Argand plane is read algebraically (addition as the parallelogram, multiplication as rotation-and-scaling) with the deep geometry left to later books. The payoff: the quadratic formula keeps its promise for every discriminant, and real coefficients are shown to force complex doors in conjugate pairs.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Closure Failure That Forces i",
+              "Conjugate and Modulus",
+              "Negative Discriminants: the Doors Turn Complex"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 4,
+            "slug": "classical-inequalities",
+            "title": "Inequalities: the Classical Engine",
+            "summary": "AL chapter 7 settled order on the line for linear expressions; this chapter builds the classical machinery that competitive exams actually test — maxima and minima without calculus. The arithmetic–geometric mean inequality is proved for two numbers from the square that is never negative, stated honestly beyond, and worked under constraints (the fixed-sum, fixed-product discipline). Cauchy–Schwarz arrives with its Engel (Titu) form, the speed tool for fraction sums. And the absolute value FM priced as distance becomes a bound machine: |f| < g and |f| > g verdicts, the triangle inequality proved, and the |x| + |y| ≥ |x + y| reads that finish the engine. Every result is derived before it is used — the AM–GM equality condition is a theorem about when two numbers coincide, not a memorized footnote.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Arithmetic-Geometric Mean Inequality",
+              "Cauchy-Schwarz and Engel’s Form",
+              "Absolute Value at Depth: the Triangle Inequality"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 5,
+            "slug": "sequences-and-series",
+            "title": "Sequences and Series",
+            "summary": "Lists with structure become algebra: the arithmetic progression as a constant climb (its nth term, its sum, the means inserted between numbers), the geometric progression as a constant ratio (its sum, and the infinite tail |r| < 1 — the book’s first honest limit, the doorstep Calculus will formalize), then the cousins: the harmonic progression read as reciprocals of a climb, and the arithmetico-geometric progression the JEE syllabus names explicitly. The chapter closes with the special sums Σk, Σk², Σk³ — proved the honest way first (the pairing trick FM 11.2 would recognize), with the method of differences and telescoping as the general craft for series whose terms surrender their middles. The induction certificate for these sums is deliberately deferred to chapter 7, exactly where the classics put it.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Arithmetic Progressions: the Constant Climb",
+              "Geometric Progressions and the Infinite Tail",
+              "Harmonic and Arithmetico-Geometric Progressions",
+              "Special Series and the Method of Differences"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 6,
+            "slug": "counting-permutations-combinations",
+            "title": "Counting: Permutations and Combinations",
+            "summary": "Algebra’s discrete half: counting as an exact science, the way both the JEE module and Hall & Knight teach it — the fundamental principle first (multiply along a chain of independent choices, add across mutually exclusive alternatives), then the two great counts derived rather than memorized: the permutation as an arrangement (nPr from the chain itself, factorials, arrangements of alike things, the circle), and the combination as a selection (nCr, its symmetry and complement reads, choosing from groups). The chapter closes with the distribution puzzles — words into boxes, people into rooms, at-least and at-most selections — where the two principles interlock and a wrong model is caught by the small-case census. This is the ground Probability inherits, and it is built to be inherited honestly.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Fundamental Principle of Counting",
+              "Permutations: the Arrangement Count",
+              "Combinations: the Selection Count",
+              "Distributions and the Classic Counting Puzzles"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 7,
+            "slug": "induction-and-binomial-theorem",
+            "title": "Induction and the Binomial Theorem",
+            "summary": "The book’s proof engine and its most-used consequence, in the order the classics teach them. Mathematical induction first — the domino principle: base case, inductive step, and the honest scope note (what induction proves and what it never can), applied to the sum formulas chapter 5 left uncertified, to divisibility statements, and to inequality statements the AM–GM engine guessed. Then the binomial theorem for a positive integral index — Pascal’s triangle read as a counting statement about chapter 6’s selections, the theorem PROVED by induction, the general and middle terms priced exactly. The coefficients become objects of study (their sum, their alternating sum, the term independent of x), and the chapter closes with the applications: (1 + x)ⁿ ≈ 1 + nx for small x, divisibility reads, and coefficient-hunting at exam speed.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Mathematical Induction: the Domino Principle",
+              "The Binomial Theorem, Proved",
+              "Binomial Coefficients at Work",
+              "Binomial Applications and Approximations"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 8,
+            "slug": "theory-of-equations",
+            "title": "The Theory of Equations",
+            "summary": "The polynomial’s deepest algebra — Hall & Knight’s heartland, entered honestly. How many roots a degree-n equation truly has: n over the complex numbers (the fundamental theorem stated, not proved — with the honesty the platform owes its readers), multiplicities counted, and the conjugate-pair law for real coefficients derived from chapter 3’s algebra rather than asserted. Viète generalizes: the symmetric functions of a cubic’s and a quartic’s roots, the sum–sum-of-products–product staircase, and what symmetric reads survive when the roots are not nice. The chapter closes with the transformation craft: build the equation whose roots are the old roots shifted, scaled or inverted — the classic technique that turns hard cubics into transparent ones and reciprocal equations into quadratics in disguise.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "How Many Roots: Degree n, n Roots",
+              "Cubics and Quartics: the Symmetric Functions",
+              "Transformation of Equations"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 9,
+            "slug": "exponentials-and-logarithms",
+            "title": "Exponentials and Logarithms",
+            "summary": "The first great non-polynomial family inside algebra. The exponent laws AL banked on integer and rational indices are extended to every real index — the exponential function aˣ as a machine with a constant percent climb, its shape family, and the growth stories it prices. The logarithm is then defined once and for all as the inverse machine — chapter 1’s theory cashing its first big cheque: domain and range swap, log_a(aˣ) = x, and every log law DERIVED from the exponent law it mirrors instead of memorized. Change of base, the common and natural logarithms, and the chapter closes on equations: same-base discipline, exponent equations that hide quadratics, log equations with their domain discipline enforced (extraneous roots caught, not mourned), and the growth and decay problems that make the family famous.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Exponential Family: Every Real Index",
+              "Logarithms: the Inverse Machine",
+              "Logarithmic and Exponential Equations"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 10,
+            "slug": "the-synthesis-and-the-doorstep",
+            "title": "The Synthesis and the Doorstep",
+            "summary": "The closing synthesis, in the house manner. First the competition craft across all the new families — the substitution game on quadratics and symmetric reads, AM–GM maxima under constraints, series sums priced by difference and telescoping, binomial term hunts, log speed reads — the advanced sequel to AL 11.2. Then the book in one page: the honest map of what was built and what was only opened, the cross-references made good, the formula family gathered. And then the doorstep itself: the infinite tail’s limit met again, the changing output measured discretely along the new families (slopes of aˣ and log taken the honest, finite way AL 10.2 priced for lines), continuity named as a promise — the handoff to Calculus, with Coordinate Geometry (graphs reunited) and Trigonometry (the next family) named as the neighbouring doors.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Competition Algebra: the Advanced Craft",
+              "The Book in One Page: Synthesis",
+              "The Doorstep: Limits and the Changing Output"
+            ],
+            "lessons": [],
+            "words": 0
+          }
+        ]
       }
     ]
   },
@@ -5921,13 +8836,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 203,
-      "totalLines": 98054,
+      "totalLines": 98055,
       "byArea": {
         "src/app (routes, pages)": 1842,
         "other": 10506,
         "src/components/library (reader platform)": 3461,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 69649,
+        "src/data/library (content model + books)": 69650,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -17267,12 +20182,124 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "20f6b69b0d1e597ed65595236045dbfb72cb5170",
+      "short": "20f6b69",
+      "date": "2026-11-10 11:41",
+      "message": "AL ch.11 closes + THE BOOK CLOSES: the function idea doorstep (11.3 + the unit-11 review + the BOOK CLOSE, run 88)",
+      "filesChanged": 14,
+      "insertions": 1423,
+      "deletions": 122,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 17,
+          "del": 1
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 17,
+          "del": 17
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 8,
+          "del": 5
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 30,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 2,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 131,
+          "del": 24
+        },
+        {
+          "path": "scripts/e2e-al-113.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-113.sh",
+          "add": 91,
+          "del": 0
+        },
+        {
+          "path": "scripts/ship-run88.py",
+          "add": 182,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch11.ts",
+          "add": 490,
+          "del": 41
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 17,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-11.ts",
+          "add": 374,
+          "del": 24
+        }
+      ]
+    },
+    {
+      "sha": "0b495151823ed57f475d35fa029a6dbc8df3e75d",
+      "short": "0b49515",
+      "date": "2026-11-10 11:42",
+      "message": "run 88: push verification recorded — remote main = local HEAD 20f6b69 (ls-remote via one-time URL; all unpushed commits including run 87's deferred ships now backed up on the remote)",
+      "filesChanged": 4,
+      "insertions": 68,
+      "deletions": 4,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/record-run88-push.py",
+          "add": 58,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
-    "booksPlannedBacklog": 280,
-    "booksLive": 3,
+    "booksPlannedBacklog": 277,
+    "booksLive": 4,
     "chaptersWritten": 32,
     "chaptersInProgress": 0,
     "lessonsWritten": 120,

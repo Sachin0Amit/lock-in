@@ -12,7 +12,7 @@ shelf top-to-bottom, since its first book is already in progress).
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
 2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
 3. Elementary Algebra ← **COMPLETE (run 88, 2026-11-10: 11/11 chapters, 37 lessons, 171,460 words — the book closed with 11.3 'The Function Idea: the Doorstep' + the unit-11 review + the BOOK CLOSE flip; run 89 opens book #4's research phase)**
-4. Advanced Algebra ← **NEXT (run 89 = the research/promotion run: reference survey + syllabus audit + the researched TOC; chapter 1 opens at run 90 per the two-lessons-per-run cadence)**
+4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/35-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2)**
 5. Geometry
 6. Coordinate Geometry
 7. Trigonometry

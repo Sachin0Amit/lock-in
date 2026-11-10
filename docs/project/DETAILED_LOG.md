@@ -1,13 +1,12 @@
-# DETAILED LOG — everything written and worked on
+Maintained through **run 89 (2026-11-10, job 516929's v4 hybrid-cadence day window, fired on a continuation turn carrying the full LOCKIN RUN payload with the PAT re-embedded)**: **BOOK #4 'ADVANCED ALGEBRA' PROMOTED — the research phase complete (reference survey + syllabus audit + the 10-chapter/35-lesson plan); the fourth spine on the Mathematics shelf; the library stands at 4 books / 120 lessons / 583,505 words / 3 complete books + 1 planned. ZERO lesson authoring this run** (run 88 closed Elementary Algebra; a closing run never opens the next book — the run-66 separation precedent followed exactly).
 
-> **Owner directive (2026-11-03):** *"maintain a log or json of everything you
-> have written or worked on in detail."* This file is the human-readable
-> record; **`WORK_INVENTORY.json`** in this directory is the machine-readable
-> mirror, regenerated from the live chapter data by
-> `bun run scripts/build_work_inventory.ts` (numbers are never hand-typed).
-> **Both are updated at every unit ship and every platform change** — they are
-> now part of MASTER_PLAN §2 step 7. Session-by-session narratives stay in
-> `WORKLOG.md`; live pointers stay in `PROGRESS.json` / `RESUME_POINTER.json`.
+**The research phase.** (1) Reference survey: the Drive survey rebuilt post-recycle (89 entries intact) and the MATHS subfolder machine-listed — the **Cengage M2 Algebra module** (14 chapter PDFs: 01 Set Theory and the Real Number System [ANS-banked ground], 02 Theory of Equations, 03 Complex Numbers, 04 Principle of Mathematical Induction, 05 Progression and Series, 06 Inequalities Involving Means, 07 Permutation and Combination, 08 Binomial Theorem [the module's algebra arc = the plan's chapters 2–7], 09–14 Probability/Reasoning/Statistics/Determinants/Matrices [other shelf books]); Hall & Knight *Higher Algebra* (two Drive copies, banked run 66; the classic stretch, 35-chapter arc re-confirmed by web-check); Khattar QA 4e (the aptitude scope). Zero downloads (survey-only; folder metadata via embeddedfolderview). (2) Syllabus audit, web-checked 2026-11-10: the NCERT senior arc — class 11 is now the rationalized 14-chapter book (ch. 2 Relations and Functions, with composition added per the CBSE 2025-26 syllabus; ch. 4 Complex Numbers and Quadratic Equations; ch. 5 Linear Inequalities; ch. 6 Permutations and Combinations; ch. 7 Binomial Theorem; ch. 8 Sequences and Series; **PMI and Mathematical Reasoning dropped from the textbook** — recorded honestly, induction retained via JEE unit 5 + the M2 module ch. 04 + Hall & Knight ch. XII), class 12 ch. 1 (types of relations, one-one/onto, composition, invertible); OpenStax *College Algebra 2e* (the modern sequencing cross-check: functions → polynomial/rational → exponential & logarithmic → sequences/counting); the **JEE Main 2026 syllabus** units 1/2/4/5/6/7 (the competitive scope, incl. the arithmetico-geometric progression and Sn/Sn²/Sn³ of unit 7, and mathematical induction of unit 5).
+
+**The plan (10 chapters / 35 lessons):** 1 Functions as Objects (4 — relations as sets of pairs, one-one/onto, composition with honest domains, the inverse machine: **AL 11.3's handoff honoured as the opening ground**) · 2 The Quadratic at Depth (4 — vertex-form optimization, the sign diagram, symmetric reads and common roots, location of roots) · 3 Complex Numbers: the New Rung (3 — the closure failure that forces i, conjugate and modulus, negative discriminants) · 4 Inequalities: the Classical Engine (3 — AM–GM, Cauchy-Schwarz and Engel's form, the triangle inequality) · 5 Sequences and Series (4 — AP, GP and the infinite tail, harmonic and arithmetico-geometric, special series and the method of differences) · 6 Counting: Permutations and Combinations (4 — the fundamental principle, the arrangement count, the selection count, distributions and the classic puzzles) · 7 Induction and the Binomial Theorem (4 — the domino principle, the theorem proved, the coefficients at work, applications and approximations) · 8 The Theory of Equations (3 — degree n = n roots, cubics and quartics: the symmetric functions, transformation of equations) · 9 Exponentials and Logarithms (3 — every real index, the inverse machine, the equations) · 10 The Synthesis and the Doorstep (3 — the advanced competition craft, the book in one page, limits and the changing output). **21 FM/ANS/AL cross-reference anchors verified to exist** (15 AL + 3 ANS + 3 FM).
+
+**The promotion + gates.** `src/data/library/books/mathematics/advanced-algebra/book.ts` created — status **'planned'** (the run-66 precedent; flips to 'in-progress' with the first written lesson at run 90), the `aa-` id prefix reserved (verified unused across all 120 existing lesson ids), rose-crimson accent `#be123c/#881337` (distinct from FM's burnt orange, ANS's teal, AL's olive), level 'Class 11–12 algebra → the doorstep of calculus', the full researched TOC as plannedLessons with real pedagogical chapter summaries; registered in `index.ts` → allBooks (4 books). `verify-book4-promotion.ts` **290/290** (A structure incl. the per-chapter plan 4,4,3,3,4,4,4,3,3,3 pinned + the ch.-1 handoff check; B registry 4 books / 0 written / 35 planned / 0 words; C uniqueness vs ALL of FM+ANS+AL + the aa- reservation over 120 prior ids; D the 21 anchors; E the research mapping incl. the honest PMI note). Gates: lint **0 errors** (3 warnings: 2 pre-existing promotion-script class + 1 same-class from the new e2e-book4-promotion.page.js — the shipped book2/book3 precedent); tsc clean; routes 200 (home/book/revise/glossary) + 404 (unknown lesson/book); browser E2E `e2e-book4-promotion.sh` **ALL GREEN** (home: the 4th spine + '4Books' + FM/ANS/AL intact; book page: h1 + breadcrumb + Planned badge + '0 written · 35 planned' + 10 chapter tiles + ALL 35 planned titles + ZERO lesson links + no overflow at 1280 AND 390; revise/glossary empty states; 404s honest; **the console-error trap installed on EVERY page — a run-89 harness improvement — zero errors everywhere**); pixel checks (86.9%/96.6%/94.8% non-white, 0% blue cast) + VLM visual inspection. **Authoring catch:** the first subtitle draft (66 chars) clipped the small cover's bottom edge — caught by VLM, priced by exact DOM geometry (1160 > 1153), shortened to 'Functions as objects — the second course' (41 chars → 1147 < 1153, clean; large cover clean at 296 < 410). **Logging-integrity repairs this run:** (a) `build_work_inventory.ts` had hardcoded `books: [fmRecord, ansRecord]` — Elementary Algebra was silently missing from WORK_INVENTORY.json's content.books across runs 67–88; the array is now derived (`allLiveBooks.map(bookRecordOf)`) and the regenerated inventory reads honest: 4 books / 32 chapters / 120 lessons / 583,505 words / 277 backlog; (b) DETAILED_LOG section 4's Elementary Algebra entry had been a mislabeled copy of the ANS section since run 66 — rewritten this run from the live inventory data; (c) observed, NOT fixed (out of the promotion's scope, queued for a platform run): the small home-card BookCover clips long subtitles — ANS by ~70px, AL by ~7px. **9 citation keys reserved** (cengage-m2-algebra, ncert-math11-ch4/5/6/7/8, ncert-math12-ch1, openstax-college-algebra, jee-main-2026-syllabus) + 4 carried; zero downloads. **Run 90 opens AA ch. 1 with 1.1 'Relations: the Set-of-Pairs View' + 1.2 'One-One and Onto: Classifying the Machines' (verify-book4-ch01.ts written FIRST).**
+
+---
 
 Maintained through **run 88 (2026-11-10, job 516929's v4 hybrid-cadence day window, delivered on a continuation turn carrying the full LOCKIN RUN payload with the PAT re-embedded)**: **AL ch. 11 'The Toolbox and the Doorstep' CLOSES 3/3 + the unit-11 completion review PASSED + THE BOOK CLOSE — BOOK #3 ELEMENTARY ALGEBRA IS COMPLETE: 11/11 chapters, 37 lessons, 171,460 words; the library stands at 120 lessons / 583,505 words / 3 complete books**.
 
@@ -1790,33 +1789,64 @@ downloads (references already logged).
 
 ### Arithmetic and Number Systems — mathematics shelf · **COMPLETE (10/10 chapters, 34 lessons, 184,361 words — closed by run 65)**
 
-### Elementary Algebra — mathematics shelf · **PROMOTED (run 66; 11 chapters / 37 lessons planned — research phase complete; authoring from run 67)**
+### Elementary Algebra — mathematics shelf · **COMPLETE (run 88, 2026-11-10: 11/11 chapters, 37 lessons, 171,460 words — closed by 11.3 'The Function Idea: the Doorstep' + the unit-11 review + THE BOOK CLOSE)**
 
-*Why arithmetic works — and how the number systems were built* · Upper primary →
-first-year university bridge · accent teal · cover auto-generated.
+*Letters with structure — the first full algebra course* · Class 6–10 algebra → the
+doorway to higher algebra · accent olive · cover auto-generated.
 
-The structural sequel to Foundation Mathematics: FM taught the operations; this book
-proves why the operations obey the laws they obey, and how ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ were each
-built to repair a closure failure. Research phase (run 48, 2026-11-05): reference
-survey (Khattar QA 4e ch. 1 + Cengage M2/01 persisted; no downloads) + syllabus audit
-(CAT/IPMAT number-system scope · Beck & Geoghegan *The Art of Proof* · OpenStax
-*Contemporary Mathematics* §4.2 · Cambridge IGCSE CS 0478 §1.1 · NCERT class 6/8 canon)
-+ the chapter plan below. `verify-book2-promotion.ts` 121/121; E2E green. **Authoring
-began at ch. 1, run 49 (two lessons per run); chapter 1 COMPLETE at run 50 with the unit-1
-completion review passed — 3 lessons / 16,921 words / 24 terms / 15 quiz / 36 exercises.**
+The first full algebra course: letters stop being abbreviations and become objects with
+structure. Research phase (run 66, 2026-11-07): reference survey (Hall & Knight's
+*Elementary Algebra for Schools* [the Drive copy, corrected run 67] + *Higher Algebra*
+[two copies] + the Cengage M2 Algebra module + Khattar QA 4e) + syllabus audit (the
+NCERT algebra arc class 6–10 · OpenStax *Elementary Algebra 2e* · the competitive-exam
+scope · the classic stretch · the function doorstep). verify-book3-promotion.ts 218/218;
+E2E green. Authoring ran runs 67–88, two lessons per run, strictly sequential,
+verify-first throughout; the book closed complete at 11/11 chapters / 37 lessons /
+171,460 words. Lesson ids use the `al-` prefix.
+
+| # | Chapter (slug) | Lessons (words) |
+|---|---|---|
+| 1 | Letters and Structure (`letters-and-structure`) — **COMPLETE 4/4** | 1.1 From Arithmetic to Algebra: What a Letter Does (4,099 w) · 1.2 Expressions, Terms and Like Terms (4,075 w) · 1.3 Evaluating Expressions: Substitution and Formulas (4,001 w) · 1.4 Translating: Words into Symbols (4,011 w) |
+| 2 | Exponents and Powers (`exponents-and-powers`) — **COMPLETE 3/3** | 2.1 Powers and the Laws of Exponents (4,710 w) · 2.2 Zero and Negative Exponents: Another Repair (4,465 w) · 2.3 Scientific Notation and Orders of Magnitude (4,014 w) |
+| 3 | Polynomials (`polynomials`) — **COMPLETE 4/4** | 3.1 What a Polynomial Is: Terms, Degree and Family (4,989 w) · 3.2 Adding, Subtracting and Multiplying Polynomials (5,013 w) · 3.3 Special Products: the Identities, Proved (4,408 w) · 3.4 Dividing Polynomials: Long Division and the Remainder Theorem (4,246 w) |
+| 4 | Factorization (`factorization`) — **COMPLETE 4/4** | 4.1 Common Factors and Grouping (4,202 w) · 4.2 Factoring Quadratic Trinomials (4,050 w) · 4.3 The Identities as Factorizations (4,007 w) · 4.4 The Factor Theorem and Cubics (4,026 w) |
+| 5 | Linear Equations in One Variable (`linear-equations-one-variable`) — **COMPLETE 3/3** | 5.1 What an Equation Is: the Balance Principle (5,027 w) · 5.2 Solving Linear Equations (4,277 w) · 5.3 The Three Verdicts: One, None, Infinitely Many (4,720 w) |
+| 6 | Simultaneous Linear Equations (`simultaneous-linear-equations`) — **COMPLETE 3/3** | 6.1 Equations in Two Variables (4,711 w) · 6.2 Substitution and Elimination (4,890 w) · 6.3 Consistency: the Geometry of Two Lines (6,017 w) |
+| 7 | Inequalities (`inequalities`) — **COMPLETE 3/3** | 7.1 Order and the Solution Set (5,061 w) · 7.2 Solving Linear Inequalities (4,744 w) · 7.3 Compound Inequalities and Applications (5,605 w) |
+| 8 | Algebraic Fractions (`algebraic-fractions`) — **COMPLETE 3/3** | 8.1 Rational Expressions: Simplify First (5,082 w) · 8.2 Operating on Algebraic Fractions (4,355 w) · 8.3 Fractional Equations and Extraneous Roots (5,870 w) |
+| 9 | Quadratic Equations (`quadratic-equations`) — **COMPLETE 4/4** | 9.1 Quadratics and Factoring Solutions (4,455 w) · 9.2 Completing the Square, Derived (4,109 w) · 9.3 The Quadratic Formula and the Discriminant (4,229 w) · 9.4 Roots and Coefficients: Viète’s Relations (4,138 w) |
+| 10 | Graphs of Equations (`graphs-of-equations`) — **COMPLETE 3/3** | 10.1 The Coordinate Plane and Linear Graphs (4,799 w) · 10.2 Slope: the Steepness Theorem (4,424 w) · 10.3 The Parabola: Quadratic Graphs and Vertices (5,368 w) |
+| 11 | The Toolbox and the Doorstep (`the-toolbox-and-the-doorstep`) — **COMPLETE 3/3** | 11.1 Word Problems: the Toolkit at Work (4,612 w) · 11.2 Competition Algebra: Identities and Substitutions (4,128 w) · 11.3 The Function Idea: the Doorstep (6,523 w) |
+
+### Advanced Algebra — mathematics shelf · **PROMOTED (run 89, 2026-11-10: research phase complete — 10 chapters / 35 planned lessons; authoring opens run 90)**
+
+*Functions as objects — the second course* · Class 11–12 algebra → the doorstep of
+calculus · accent rose-crimson · cover auto-generated.
+
+The second algebra course, opening exactly on Elementary Algebra 11.3's handoff
+(composites, inverses, the domains of composites). Research phase (run 89, 2026-11-10):
+reference survey (the Drive MATHS subfolder machine-listed — the **Cengage M2 Algebra
+module**'s chapters 02–08 are the JEE-mains-level arc; Hall & Knight *Higher Algebra*
+the classic stretch; Khattar QA 4e the aptitude scope) + syllabus audit (the NCERT
+senior arc class 11 ch. 2/4/5/6/7/8 + class 12 ch. 1, with the honest PMI note ·
+OpenStax *College Algebra 2e* the sequencing cross-check · the JEE Main 2026 syllabus
+units 1/2/4/5/6/7 the competitive scope). verify-book4-promotion.ts 290/290; E2E
+green (planned-book rendering: '0 written · 35 planned', greyed TOC, empty states,
+404s honest, zero console errors). Lesson ids will use the `aa-` prefix (reserved,
+verified unused). 9 citation keys reserved + 4 carried.
 
 | # | Chapter (slug) | Planned lessons |
 |---|---|---|
-| 1 | The Natural Numbers as a System (`natural-numbers-as-a-system`) — **COMPLETE 3/3** (runs 49–50) | 1.1 The Architecture of Counting: Successors and Order (5,010 w) · 1.2 Induction: Proving for Every Number at Once (5,332 w) · 1.3 The Least-Number Principle and Recursion (6,579 w) |
-| 2 | The Division Algorithm and the Structure of Divisibility (`division-algorithm-and-divisibility`) — **COMPLETE 4/4** (runs 51–52; 20,820 words / 32 terms / 20 quiz / 58 exercises) | 2.1 Division with Rest: The Division Algorithm (5,291 w) · 2.2 The Algebra of Divisibility (5,105 w) · 2.3 The Euclidean Algorithm, Proven — and Bézout's Identity (5,755 w) · 2.4 Linear Diophantine Equations (4,669 w) |
-| 3 | Positional Systems and Other Bases (`positional-systems-and-bases`) — **COMPLETE 4/4** (runs 53–54; 19,953 words / 32 terms / 20 quiz / 54 exercises) | 3.1 The Representation Theorem: Every Number Has Exactly One Name (5,398 w) · 3.2 Converting Between Bases (4,987 w) · 3.3 Arithmetic in Other Bases (5,214 w) · 3.4 Binary, Hexadecimal and the Machine (4,354 w) |
-| 4 | Primes and the Fundamental Theorem of Arithmetic (`primes-and-the-fundamental-theorem`) — **COMPLETE 4/4** (runs 55–56, closed in ONE run at 56; 20,839 words / 32 terms / 20 quiz / 55 exercises) | 4.1 The Primes Never End: Euclid's Proof and the Sieve (5,233 w) · 4.2 The Fundamental Theorem of Arithmetic (5,117 w) · 4.3 Divisors from DNA: Divisor Counts and Factorial Zeros (5,285 w) · 4.4 How the Primes Are Distributed (5,204 w) |
-| 5 | Congruences: The Arithmetic of Remainders (`congruences`) | Remainders Become Numbers: Congruence Defined · Why the Divisibility Tests Work · The Unit Digit and Cycles of Powers · Linear Congruences and a Glimpse of Fermat |
-| 6 | Building the Integers (`building-the-integers`) | The Closure Failures That Force Extension · Constructing the Integers from the Naturals · The Laws of Integer Arithmetic |
-| 7 | Building the Rationals (`building-the-rationals`) | From Fractions to the Rational System · The Field Laws: Division Joins the Family · Density and the Decimal Mirror, Proven |
-| 8 | Irrationals and the Real Line (`irrationals-and-the-real-line`) | The Diagonal of the Square: √2 Is Irrational · The Irrationals Are Everywhere · The Real Line: Order, Density and Completeness |
-| 9 | Numeration Through History (`numeration-through-history`) | Tallies, Groupings and Additive Systems · Place Value Before Its Time: Babylon and Mesoamerica · The Indian Decimal Revolution and Zero |
-| 10 | The Map of Number Systems (`the-map-of-number-systems`) | The Great Extension Story · Numbers That Guard Data: Checksums and Casting Out Nines · The Toolkit Synthesis |
+| 1 | Functions as Objects (`functions-as-objects`) — **PLANNED** | Relations: the Set-of-Pairs View · One-One and Onto: Classifying the Machines · Composition: Machines in Series · Inverse Functions: the Machine Undone |
+| 2 | The Quadratic at Depth (`the-quadratic-at-depth`) — **PLANNED** | Vertex Form at Work: Maxima and Minima · Quadratic Inequalities and the Sign Diagram · Symmetric Reads and Common Roots · Location of Roots: Doors in Intervals |
+| 3 | Complex Numbers: the New Rung (`complex-numbers`) — **PLANNED** | The Closure Failure That Forces i · Conjugate and Modulus · Negative Discriminants: the Doors Turn Complex |
+| 4 | Inequalities: the Classical Engine (`classical-inequalities`) — **PLANNED** | The Arithmetic-Geometric Mean Inequality · Cauchy-Schwarz and Engel’s Form · Absolute Value at Depth: the Triangle Inequality |
+| 5 | Sequences and Series (`sequences-and-series`) — **PLANNED** | Arithmetic Progressions: the Constant Climb · Geometric Progressions and the Infinite Tail · Harmonic and Arithmetico-Geometric Progressions · Special Series and the Method of Differences |
+| 6 | Counting: Permutations and Combinations (`counting-permutations-combinations`) — **PLANNED** | The Fundamental Principle of Counting · Permutations: the Arrangement Count · Combinations: the Selection Count · Distributions and the Classic Counting Puzzles |
+| 7 | Induction and the Binomial Theorem (`induction-and-binomial-theorem`) — **PLANNED** | Mathematical Induction: the Domino Principle · The Binomial Theorem, Proved · Binomial Coefficients at Work · Binomial Applications and Approximations |
+| 8 | The Theory of Equations (`theory-of-equations`) — **PLANNED** | How Many Roots: Degree n, n Roots · Cubics and Quartics: the Symmetric Functions · Transformation of Equations |
+| 9 | Exponentials and Logarithms (`exponentials-and-logarithms`) — **PLANNED** | The Exponential Family: Every Real Index · Logarithms: the Inverse Machine · Logarithmic and Exponential Equations |
+| 10 | The Synthesis and the Doorstep (`the-synthesis-and-the-doorstep`) — **PLANNED** | Competition Algebra: the Advanced Craft · The Book in One Page: Synthesis · The Doorstep: Limits and the Changing Output |
 
 ## 5. Engineering work (platform history)
 
@@ -2044,10 +2074,35 @@ before any book may be marked complete (MASTER_PLAN §3).
 | 66 | ship + bookkeeping + memory | 11-07 | **BOOK #3 PROMOTED: Elementary Algebra** — research phase complete (Drive survey: Jacobs' Elementary Algebra + Hall & Knight ×2 + Cengage M2 = Algebra + Khattar QA; web-checked NCERT algebra arc class 6–10 + OpenStax Elementary Algebra 2e); 11-chapter/37-lesson plan; book.ts (planned, al- prefix reserved, olive accent, 16 FM/ANS cross-reference anchors) + index.ts allBooks = 3; verify-book3-promotion.ts 218/218 (one TS2353 caught: book-level plannedLessons removed); e2e-book3-promotion green (3Books shelf, 0 written · 37 planned, 11 tiles, empty states, 404s, 0 console errors; the 3-books matcher fixed to /3\s*books?/i); 9 citation keys reserved; zero downloads — pushed per protocol |
 | 67 | verify-first authoring + ship + bookkeeping | 11-07 | **AL ch. 1 OPENS 2/4: 1.1 'From Arithmetic to Algebra: What a Letter Does' (al-from-arithmetic-to-algebra, 4,229 words) + 1.2 'Expressions, Terms and Like Terms' (al-expressions-terms-like-terms, 4,109 words)** — verify-first with verify-book3-ch01.ts 194 checks ALL GREEN (98 pre-writing; two author typos caught pre-prose: 7·12 for 4·12, (2a+3)×4 = 32 for 52); 1.1: the role census (placeholder/generalizer/position/unknown + the four-hats figure), generalized arithmetic + the sweep discipline (6,859-triple distributive sweep), the evaluation contract + traps priced (3a = 3+a has NO integer solution; a² = 2a only at {0,2}; −a flips), expressions vs equations, the letter-revolution history (al-Khwārizmī → Viète 1591 → Descartes 1637); 1.2: the anatomy (term/factor/coefficient, sign belongs to the term), the expression tree RE-DERIVING FM 2.8's conventions (1,000/1,000 left-fold disagreements; 6÷2×3 = 9; 22 vs 52 re-tree), like terms from the letter part (3xy/5yx commute rescue), the collection law PROVED (copies → distributive backwards → 9,025-check sweep), simplification as renaming (3 Illustrations + the sieve figure), the L6 vanishing-part theorem (b = 0 exactly); the run-66 Jacobs attribution CORRECTED (Hall & Knight's Elementary Algebra for Schools, 1885 — key withdrawn, hall-knight-elementary-algebra banked; book.ts + SOURCE_LOG corrected); 4 new web-checked keys; 2 downloads deleted after E2E; per-lesson gates green twice (lint 0 / tsc 0 / routes 200+404 / E2E 3 viewports quiz 5/5 live on 2/1/3/0/2 + 2/1/0/3/1, KaTeX 198/338, 0 console errors, SVG audits clean, pixels 0% blue + dark 91.9%/92.2%; fig-1 footer overlap fixed pre-ship); ch-01.ts created, book.ts in-progress, plannedLessons 1.3+1.4; inventory: 85 lessons / 420,219 words / 651 terms / 425 quiz / 1,051 exercises — pushed per protocol |
 | 68 | verify-first authoring + chapter close + bookkeeping | 11-07 | **AL ch. 1 CLOSES 4/4: 1.3 'Evaluating Expressions: Substitution and Formulas' (al-evaluating-expressions-substitution-and-formulas, 4,113 words) + 1.4 'Translating: Words into Symbols' (al-translating-words-into-symbols, 4,062 words) + the unit-1 completion review PASSED** — verify-first with verify-book3-ch01.ts 369 checks ALL GREEN (281 pre-writing: the temperature pair computed in exact tenths, the order-trap/bracket-twin censuses, quiz keys pinned pre-prose); 1.3: full-strength substitution (negatives ride in brackets), formulas as machines (the book's FIRST display equations), the machine table + unit audit + the linear constant-step signature, the temperature pair anchor-certified (32/68/98.6/212 ↔ 0/20/37/100, round trips exact), collect-then-fold with the WHY derivation, reading formulas backwards (74 at n = 15; the taxi undo to k = 12) with the undo-is-not-solving boundary, the evaluation lie-detector ((a+b)² ≠ a² + b² 100/100 in [1..10]²), domains honest (C(−1) = 38 nonsense); 1.4: the translation dictionary (flip-safe vs order-locked), the order traps priced (x − 5 = 3 vs 5 − x = −3 at x = 8; n/3 + 1 = 5 at n = 12), the bracket twins as two trees (14 vs 11 at x = 4; 49 vs 29 at n = 5), the four-station translation pipeline certified by 1.3's undo ladder (50 + 12k = 194, k = 12), the consecutive families swept (evens 4k + 2, odds 4(k+1)), English-flips-lawfully via commutativity, the L6 protocol story certified by plausibility (2x + 3 = x + 5, x = 2 unique); one real gates-caught bug: book.ts notes unescaped quotes 500'd the route until fixed; per-lesson gates green twice (lint 0 / tsc 0 / routes 200+404 / E2E 3 viewports quiz 5/5 live on 2/1/2/3/1 + 2/1/3/1/0, KaTeX 233/195, 0 console errors, SVG audits clean, pixels 0% blue + dark 92.4%/92.0%, both figures per lesson visually inspected); ch. 1 flipped COMPLETE 4/4 (16,513 words / 32 terms / 20 quiz / 56 exercises / 8 figures / 8 formula cards), plannedLessons emptied, book stays in-progress (never opened ch. 2); inventory: 87 lessons / 428,231 words / 667 terms / 435 quiz / 1,079 exercises — pushed per protocol |
+| 89 | ship + bookkeeping + memory | 11-10 | **BOOK #4 PROMOTED: Advanced Algebra** — research phase complete (Drive survey rebuilt 89 entries; MATHS subfolder machine-listed: the Cengage M2 Algebra module's 14 chapters; web-checked NCERT class 11/12 arc + OpenStax College Algebra 2e + JEE Main 2026 units 1/2/4/5/6/7 + Hall & Knight's 35-chapter arc); the 10-chapter/35-lesson plan with the AL 11.3 handoff as ch. 1's opening ground; book.ts (planned, aa- prefix reserved, rose-crimson accent, 21 FM/ANS/AL cross-reference anchors verified) + index.ts allBooks = 4; verify-book4-promotion.ts 290/290; e2e-book4-promotion green with the console-error trap on every page; the cover-subtitle clip caught by VLM + DOM geometry and fixed; WORK_INVENTORY books-array drift repaired (book #3 had been missing since run 67) + the DETAILED_LOG AL section rewritten (it had been a mislabeled ANS copy since run 66); 9 citation keys reserved + 4 carried; zero downloads — pushed per protocol |
 Per-commit file-level detail (every path with insertions/deletions) lives in
 `WORK_INVENTORY.json` → `gitHistory`.
 
 ## 8. Current state & what's next
+
+- **CURRENT (run 89, 2026-11-10): BOOK #4 'ADVANCED ALGEBRA' PROMOTED.** Tree was
+  clean at HEAD `20f6b69` (the run-88 ship, remote-verified). The research phase ran
+  in full (reference survey + syllabus audit, web-checked), the 10-chapter/35-lesson
+  plan written into `advanced-algebra/book.ts` (status 'planned', the aa- prefix
+  reserved, 21 cross-reference anchors verified), the book registered as the 4th of
+  allBooks. Gates: verify-book4-promotion.ts 290/290; lint 0 errors; tsc clean;
+  routes 200/404; browser E2E all green with the console-error trap on every page
+  (zero errors); pixel checks + VLM visual inspection; one authoring catch fixed
+  (the cover-subtitle clip). Logging repairs: the WORK_INVENTORY books-array drift
+  (book #3 missing since run 67) and the DETAILED_LOG AL section (a mislabeled ANS
+  copy since run 66). 9 citation keys reserved, 4 carried, zero downloads. The
+  library: 4 books (3 complete + 1 planned) / 120 lessons / 583,505 words.
+- **NEXT (run 90): OPEN AA CHAPTER 1 'FUNCTIONS AS OBJECTS'** — author lessons 1.1
+  'Relations: the Set-of-Pairs View' + 1.2 'One-One and Onto: Classifying the
+  Machines' (two-lesson cadence, strictly sequential). Create
+  scripts/verify-book4-ch01.ts FIRST (the verify-first discipline: the relation
+  engines, the one-one/onto census engines, quiz + exercise keys pinned pre-prose),
+  whitelist it + the e2e-aa-11/12 scripts in .gitignore BEFORE the commit, then
+  author ch-01.ts with the AL 11.3 cross-references carried (never re-teach the
+  machine view). Run 91 closes ch. 1 with 1.3 + 1.4 + the unit-1 review.
+- HEAD: the run-89 ship pushed per protocol (one-time URL; synced sha recorded in
+  WORKLOG.md / RESUME_POINTER.json). The home-card subtitle clipping (ANS ~70px,
+  AL ~7px) is queued for a future platform run.
 
 - **CURRENT (run 50, 2026-11-05): ANS CHAPTER 1 COMPLETE.** Tree was clean
   at HEAD `44e2755` (the run-49 memory commit; the run-49 ship `fa9eb9d`

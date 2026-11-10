@@ -13,6 +13,7 @@
 import { foundationMathematics } from '../src/data/library/books/mathematics/foundation-mathematics/book'
 import { arithmeticNumberSystems } from '../src/data/library/books/mathematics/arithmetic-number-systems/book'
 import { elementaryAlgebra } from '../src/data/library/books/mathematics/elementary-algebra/book'
+import { advancedAlgebra } from '../src/data/library/books/mathematics/advanced-algebra/book'
 import { countLessonWords } from '../src/data/library/types'
 import type { Lesson } from '../src/data/library/types'
 
@@ -155,7 +156,7 @@ function lessonRecord(l: Lesson) {
   }
 }
 
-const allLiveBooks = [foundationMathematics, arithmeticNumberSystems, elementaryAlgebra]
+const allLiveBooks = [foundationMathematics, arithmeticNumberSystems, elementaryAlgebra, advancedAlgebra]
 const chaptersWritten = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status === 'complete')
 const chaptersStarted = allLiveBooks.flatMap((b) => b.chapters).filter((c) => c.status !== 'planned')
 function bookRecordOf(book: (typeof allLiveBooks)[number]) {
@@ -185,8 +186,10 @@ function bookRecordOf(book: (typeof allLiveBooks)[number]) {
     }),
   }
 }
-const fmRecord = bookRecordOf(foundationMathematics)
-const ansRecord = bookRecordOf(arithmeticNumberSystems)
+// run-89 fix: the books array is now derived (never again hand-listed — book #3
+// was silently missing from content.books across runs 67–88; booksLive was
+// correct only because it counts allLiveBooks separately)
+const bookRecords = allLiveBooks.map(bookRecordOf)
 
 /* ------------------------------------------------------------------ */
 /* Codebase statistics                                                 */
@@ -257,7 +260,7 @@ const blockTotals: Record<string, number> = {}
 for (const l of allLessons) for (const b of l.blocks as any[]) blockTotals[b.kind] = (blockTotals[b.kind] || 0) + 1
 const totals = {
   disciplinesPlanned: 11,
-  booksPlannedBacklog: 280,
+  booksPlannedBacklog: 277,
   booksLive: allLiveBooks.length,
   chaptersWritten: chaptersWritten.length,
   chaptersInProgress: chaptersStarted.filter((c) => c.status === 'in-progress').length,
@@ -294,9 +297,9 @@ const inventory = {
   ],
   content: {
     disciplinesPlanned: 11,
-    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Arithmetic and Number Systems PROMOTED 2026-11-05 (run 48) — 280 titles remain in the backlog.',
+    backlogPlan: 'docs/project/SUBJECT_BACKLOG.md — 281 titles listed: Mathematics 27, Physics 20, Chemistry 15, Computer Science 49, Engineering 40 (+ more under investigation), Biology/Botany/Zoology 24, Medical Sciences 14+, Economics-Commerce 23, Humanities 21+, Languages 13, Arts-Music 35. Promotion rule: a backlog book becomes a real book only after its research phase (reference survey + syllabus audit). Live books: Foundation Mathematics (base platform), Arithmetic and Number Systems (promoted run 48, 2026-11-05), Elementary Algebra (promoted run 66, 2026-11-07; complete run 88), Advanced Algebra (promoted run 89, 2026-11-10) — 277 titles remain in the backlog.',
     booksLive: allLiveBooks.length,
-    books: [fmRecord, ansRecord],
+    books: bookRecords,
   },
   engineering: {
     stack: 'Next.js 16 App Router (SSG) · TypeScript · Tailwind 4 · shadcn/ui · zustand (persist v2) · KaTeX · next-themes · framer-motion · cmdk · bun',
@@ -356,7 +359,7 @@ console.log('generated:', inventory.generated)
 console.log('--- totals ---')
 console.log(JSON.stringify(totals, null, 2))
 console.log('--- per book ---')
-for (const b of [fmRecord, ansRecord]) {
+for (const b of bookRecords) {
   console.log(`${b.id} [${b.status}] ${b.chaptersWritten}/${b.chaptersPlanned} chapters written`)
   for (const c of b.chapters) {
     for (const l of c.lessons) {

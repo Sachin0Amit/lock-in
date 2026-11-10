@@ -6,6 +6,86 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Run 89 (2026-11-10) — BOOK #4 PROMOTED: Advanced Algebra (the research phase)
+
+- Zero downloads (survey-only; per-unit downloads follow at authoring time).
+  The Drive survey was REBUILT post-recycle via `scripts/rebuild_drive_survey.ts`
+  (89 entries intact) and the `MATHS` subfolder machine-listed this run:
+  the **Cengage M2 Algebra module** carries 14 chapter PDFs — 01 Set Theory
+  and the Real Number System, 02 Theory of Equations, 03 Complex Numbers,
+  04 Principle of Mathematical Induction, 05 Progression and Series, 06
+  Inequalities Involving Means, 07 Permutation and Combination, 08 Binomial
+  Theorem, 09–14 Probability I/II, Mathematical Reasoning, Statistics,
+  Determinants, Matrices — the module's algebra chapters (02–08) map to the
+  promoted plan's chapters 2–7; 01 is ANS-banked ground and 09–14 belong to
+  other shelf books (Probability, Mathematical Logic, Statistics, Linear
+  Algebra). Nine citation keys RESERVED (web-checked this run; none consumed
+  yet — authoring begins run 90):
+- `cengage-m2-algebra` — the Drive `MATHS` M2 module = the Cengage JEE
+  **Algebra** volume (14 chapter PDFs, machine-listed 2026-11-10; file ids
+  persisted in the rebuilt survey). Reserved as the CONTENT-scope reference
+  for the advanced-algebra ground (its chapters 02–08 are the JEE-mains-level
+  arc the promoted plan's chapters 2–7 follow). The presentation contract
+  remains the separately banked `cengage-jee-style`.
+- `ncert-math11-ch4-complex-numbers` — NCERT Class 11 Mathematics, ch. 4
+  "Complex Numbers and Quadratic Equations" (the current rationalized
+  14-chapter book; chapter list web-checked 2026-11-10).
+- `ncert-math11-ch5-linear-inequalities` — NCERT Class 11 Mathematics, ch. 5
+  "Linear Inequalities" (web-checked 2026-11-10).
+- `ncert-math11-ch6-permutations-combinations` — NCERT Class 11 Mathematics,
+  ch. 6 "Permutations and Combinations" (web-checked 2026-11-10).
+- `ncert-math11-ch7-binomial-theorem` — NCERT Class 11 Mathematics, ch. 7
+  "Binomial Theorem" (web-checked 2026-11-10).
+- `ncert-math11-ch8-sequences-series` — NCERT Class 11 Mathematics, ch. 8
+  "Sequences and Series" (web-checked 2026-11-10).
+- `ncert-math12-ch1-relations-functions` — NCERT Class 12 Mathematics, ch. 1
+  "Relations and Functions" (types of relations — reflexive/symmetric/
+  transitive; one-one/onto functions; composition; invertible functions;
+  web-checked 2026-11-10).
+- `openstax-college-algebra` — OpenStax, *College Algebra 2e* (web-checked
+  2026-11-10: ch. 3 Functions, ch. 5 Polynomial and Rational Functions,
+  ch. 6 Exponential and Logarithmic Functions, ch. 9 Sequences, Probability
+  and Counting Mathematics — the modern sequencing cross-check for the
+  promoted plan's chapters 1, 8, 9, 10). License forbids ingestion;
+  structure reference only.
+- `jee-main-2026-syllabus` — the NTA **JEE (Main) 2026 Mathematics
+  syllabus** (web-checked 2026-11-10 via the official syllabus listing and
+  the SATHEE IIT-Kanpur mirror: unit 1 sets/relations/functions with
+  composition and one-one/onto, unit 2 complex numbers and quadratic
+  equations with modulus, Argand diagram, triangle inequality and
+  roots-coefficients, unit 4 permutations and combinations, unit 5
+  mathematical induction, unit 6 binomial theorem for a positive integral
+  index with general/middle term and coefficient properties, unit 7
+  sequences and series with AM/GM insertion, Sn/Sn²/Sn³ and the
+  arithmetico-geometric progression — the competitive scope of the promoted
+  plan's chapters 1–9).
+- Carried (banked earlier): `hall-knight-higher-algebra` (run 66; the
+  classic stretch — its 35-chapter arc re-confirmed by web-check this run:
+  the progressions, quadratic theory, permutations and combinations ch. XI,
+  mathematical induction ch. XII, the binomial theorem ch. XIII,
+  logarithms, the theory of equations, determinants), `khattar-qa-4e`
+  (run 6; the aptitude-exam scope — logs, surds, series speed work),
+  `cengage-jee-style` (run 14; the presentation contract),
+  `ncert-math11-ch2-functions` (run 88; the school canon's function ground
+  the promoted chapter 1 opens from).
+
+#### Run 89 reference-notes
+- Research facts web-checked this run: the NCERT class 11 book is now the
+  rationalized 14-chapter edition (1 Sets, 2 Relations and Functions, 3
+  Trigonometric Functions, 4 Complex Numbers and Quadratic Equations, 5
+  Linear Inequalities, 6 Permutations and Combinations, 7 Binomial Theorem,
+  8 Sequences and Series, 9–14 the geometry/statistics/probability tail) —
+  **Principle of Mathematical Induction and Mathematical Reasoning were
+  dropped from the textbook** (recorded honestly in the book file header;
+  induction is retained in the plan via JEE unit 5, the M2 module ch. 04
+  and Hall & Knight ch. XII); the CBSE 2025-26 class-11 syllabus moves
+  composition of functions into ch. 2; the NCERT class 12 ch. 1 scope; Hall
+  & Knight's 35-chapter TOC; OpenStax College Algebra 2e's structure; the
+  JEE Main 2026 unit structure. No reference working copies to delete
+  (zero-download run; only folder metadata was pulled via embeddedfolderview).
+
+---
+
 ## Run 88 (2026-11-10) — AL ch. 11 CLOSES + the BOOK CLOSE (11.3 + the unit-11 review)
 
 - Zero downloads, ONE new key banked (web-checked this run):
@@ -231,6 +311,32 @@ step 6).
   verification, per the storage law.
 
 ## Book research phases
+
+- **Book #4 — Advanced Algebra (Mathematics shelf, promoted 2026-11-10,
+  run 89):** research phase COMPLETE — reference survey + syllabus audit +
+  full chapter plan (10 chapters / 35 planned lessons), and the book
+  promoted to `src/data/library/books/mathematics/advanced-algebra/` with
+  `status: 'planned'`. No downloads (survey-only): the Drive `MATHS`
+  subfolder was machine-listed this run — the Cengage **M2 Algebra module**
+  (14 chapter PDFs; its chapters 02–08: Theory of Equations, Complex
+  Numbers, PMI, Progression and Series, Inequalities Involving Means,
+  Permutation and Combination, Binomial Theorem) is the JEE-mains-level
+  content scope; Hall & Knight *Higher Algebra* (banked run 66) is the
+  classic stretch; Khattar QA 4e the aptitude scope. Syllabus audit via the
+  sanctioned internet fallback (web-checked 2026-11-10): (a) the NCERT
+  senior arc — class 11 ch. 2/4/5/6/7/8 of the rationalized 14-chapter
+  book (PMI and Mathematical Reasoning dropped from the textbook, noted
+  honestly; induction retained via JEE unit 5 and the classic/module arcs)
+  + class 12 ch. 1 (one-one/onto, composition, invertible), with the CBSE
+  2025-26 syllabus adding composition to class 11 ch. 2; (b) OpenStax
+  *College Algebra 2e* as the modern sequencing cross-check; (c) the JEE
+  Main 2026 syllabus units 1/2/4/5/6/7 as the competitive scope. Nine
+  citation keys reserved (cengage-m2-algebra + six NCERT chapters +
+  openstax-college-algebra + jee-main-2026-syllabus); four carried. The
+  AL 11.3 handoff (composites, inverses, the domains of composites) is the
+  promoted chapter 1's opening ground. Per-chapter mapping in the book
+  file header. Authoring starts at ch. 1 (run 90; two lessons per run,
+  owner directive 2026-11-06 v2).
 
 - **Book #2 — Arithmetic and Number Systems (Mathematics shelf, promoted
   2026-11-05, run 48):** research phase COMPLETE — reference survey +

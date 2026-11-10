@@ -384,3 +384,11 @@ server.log
 !/scripts/ship-run88.py
 # exception: one-shot run-88 push recorder (2026-11-10, historical record)
 !/scripts/record-run88-push.py
+# exception: run-89 book-#4 promotion gate + E2E block (Advanced Algebra; whitelisted BEFORE the commit)
+!/scripts/verify-book4-promotion.ts
+!/scripts/e2e-book4-promotion.sh
+!/scripts/e2e-book4-promotion.page.js
+# exception: one-shot run-89 memory shippers + pointer updater (2026-11-10, historical record)
+!/scripts/ship-run89.py
+!/scripts/detailed-log-run89.py
+!/scripts/pointer-run89.py
