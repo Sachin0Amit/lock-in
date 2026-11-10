@@ -2,6 +2,10 @@
 
 Every work session appends one entry at the top. Format:
 
+## 2026-11-10 — RUN 84: push verification recorded — remote main = local HEAD ceca120 (ls-remote via one-time URL: HEAD = ceca120663cc31614a1155fa7ef719ae571ef3a4; all unpushed commits on main, including run 84's ship ceca120, are now backed up on the remote; origin/main tracking ref resynced by anonymous HTTPS fetch)
+
+---
+
 ---
 
 ## 2026-11-10 — RUN 84 (fired 10:14 IST day-window delivery of job 516929's v4 hybrid cadence, trace 1a1bedcaa50c0cc5-cron-agent-loop-202611101244): AL CH. 9 'QUADRATIC EQUATIONS' CLOSES 4/4 — 9.3 'The Quadratic Formula and the Discriminant' (al-the-quadratic-formula-and-the-discriminant, 4,229 words, quiz keys 1/3/2/0/2, 14 exercises, two figures — the formula pipeline + the discriminant verdict strip, the formula DERIVED from the general form, the master identity a·x² + bx + c = a(x + b/2a)² − Δ/(4a), the surd splits √60 = 2√15, the rectangle verdict: area 26 impossible / 21 → {3, 7} / 25 → the square) + 9.4 'Roots and Coefficients: Viète's Relations' (al-roots-and-coefficients-viete-relations, 4,138 words, quiz keys 1/2/3/2/1, 14 exercises, two figures — the Viète readout machine + the sign map, the relations PROVED from the formula and cross-proved by the factor identity, the irrational build 1 ± √2 → x² − 2x − 1 designed, the symmetric quartet, the difference identity (r₁ − r₂)² = Δ/a²) + THE UNIT-9 COMPLETION REVIEW PASSED (973 checks sections A–L ALL GREEN, the book snapshot recomputed: 31 lessons / 141,606 words / 9 of 11 chapters complete) — the chapter COMPLETE and fully verified at run end; ch. 10 NOT touched
