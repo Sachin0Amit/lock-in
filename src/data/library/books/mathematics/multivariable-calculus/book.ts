@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * (Calculus III).
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 6 chapters /
- * 19 planned lessons, zero written. Lesson ids will use the `mc-` prefix
+ * 23 planned lessons, zero written. Lesson ids will use the `mc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the dimension-climbing sequel.
@@ -72,6 +72,7 @@ const chapters: Chapter[] = [
       'The Chain Rule for Several Variables',
       'The Gradient and Directional Derivatives',
       'Tangent Planes and Linear Approximation',
+      'Taylor\u2019s Formula for Two Variables',
     ],
   },
   {
@@ -100,6 +101,7 @@ const chapters: Chapter[] = [
       'The Double Integral and Iteration',
       'Polar, Cylindrical and Spherical',
       'Mass, Centres and Moments',
+      'Jacobians and the Change of Variables',
     ],
   },
   {
@@ -113,6 +115,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Motion in Space: Velocity, Acceleration and Curvature',
       'Vector Fields and Line Integrals',
+      'Surfaces, Area and Flux: the Surface Integral',
       'Conservative Fields and Path Independence',
       'Green\u2019s, Stokes\u2019s and Gauss\u2019s Theorems',
     ],

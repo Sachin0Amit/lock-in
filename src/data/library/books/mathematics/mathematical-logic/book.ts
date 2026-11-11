@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Mathematical Logic — the sixteenth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 7 chapters /
- * 23 planned lessons, zero written. Lesson ids will use the `ml-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `ml-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf has reasoned since
@@ -118,6 +118,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Structures, Satisfaction and Models',
       'A Formal Deduction System',
       'Soundness, Proved',
       'Completeness and Compactness, Honestly',
@@ -132,6 +133,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Recursive Functions and Church\u2019s Thesis',
       'Turing Machines',
       'The Halting Problem',
       'The Incompleteness Theorems',

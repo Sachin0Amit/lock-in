@@ -6,6 +6,112 @@ verified; **never** touch Drive originals. Internet research is the
 sanctioned fallback/supplement when the Drive lacks a topic (MASTER_PLAN §2
 step 6).
 
+## Internet-research gap pass (2026-11-11) — 91 planned lessons + 3 chapters added from canonical TOCs (owner directive: "use internet research for each book and think of your own if any lesson is missing add it")
+
+**Zero Drive downloads** — this pass researched each planned book against
+its canonical sources on the open web (TOCs actually opened; the additions
+live in the books' plannedLessons as PLANS only). Every source below was
+opened during the pass; no TOC line was taken from memory.
+
+- **Hall & Knight, *Higher Algebra*** (full text + TOC, archive.org):
+  https://archive.org/details/higheralgebraseq0000henr — ch XIV binomial
+  any-index, ch XV multinomial, ch XVII exponential & log series, ch XXIV
+  recurring series/scale of relation, ch XXII undetermined coefficients,
+  ch XXXIV–XXXV Descartes' rule / reciprocal equations / Cardan–Ferrari,
+  ch XXVI–XXVIII indeterminate incl. Pell. → Advanced Algebra +10 lessons.
+- **Brilliant/Wikipedia inequality canon**: weighted AM-GM
+  (https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means),
+  rearrangement + Jensen + Chebyshev
+  (https://brilliant.org/wiki/rearrangement-inequality/,
+  https://brilliant.org/wiki/jensens-inequality/,
+  https://brilliant.org/wiki/chebyshev-inequality/). → AA ch 4 +3.
+- **NCERT Ganita Prakash/Manjari 6–9** (ncert.nic.in textbook PDFs) +
+  **Common Core geometry standards** (IXL CCSS pages) +
+  ***Challenge and Thrill of Pre-College Mathematics*** (full text:
+  https://archive.org/details/ctpcm) — symmetry/transformations units,
+  power of a point, Ptolemy, Ceva/Menelaus, Stewart, nine-point circle +
+  Euler line, centres of similitude. → Geometry NEW ch 5 + 8 lessons.
+- **S.L. Loney, *Elements of Coordinate Geometry*** (full text:
+  https://archive.org/details/elementsofcoordi00loneuoft) — ch VII
+  rotation/invariants, ch IX orthogonal/coaxal circles, ch X–XII diameters/
+  conjugate diameters/auxiliary circle/normals, ch XIV polar conic, ch XVI
+  families of conics, ch XVII confocals. → Coordinate Geometry +7.
+- **S.L. Loney, *Plane Trigonometry* Part I/II** (archive.org scans) — ch
+  XVII small angles/dip of horizon, ch XIX + Part II ch VII summation of
+  series. → Trigonometry +2.
+- **Arihant *Skills in Mathematics* (Differential/Integral Calculus)** +
+  **Thomas' Calculus 14e** (archive.org) + **OpenStax Calculus**:
+  hyperbolic calculus (Thomas 7.3 / OpenStax 2.9, 6.9), dy/dx of one
+  function w.r.t. another (Arihant DC), piecewise/GIF integrands (Arihant
+  IC), ln-as-integral (Thomas 7.1), polar areas (Thomas 11.5), Taylor two
+  variables (14.9), Jacobians/change of variables (15.8), surface
+  integrals (16.6–16.7). → DC +2, IC +4, MC +3.
+- **M.D. Raisinghania + Boyce–DiPrima (Wiley India TOC) + GATE 2026 MA
+  syllabus PDF** (gate2026.iitg.ac.in): first-order higher degree
+  (Clairaut/Lagrange), higher-order linear ODEs, Cauchy–Euler. → DE +3.
+- **Strang, *Introduction to Linear Algebra* 6e** (math.mit.edu PDF TOC):
+  ch 6.3 positive definite, ch 7 SVD/PCA. → Linear Algebra +2.
+- **Rudin, *Principles of Mathematical Analysis* 3e** (chapter + section
+  TOC via archive.org catalog + the McGill full PDF): ch 6
+  Riemann–Stieltjes, ch 7 equicontinuity/Arzelà–Ascoli/Stone–Weierstrass,
+  ch 9 Inverse (p. 221) + Implicit (p. 223) Function Theorems + Jacobians.
+  → Real Analysis +3.
+- **Brown & Churchill, *Complex Variables and Applications*** (8e/9e TOC
+  via the University of Toronto/FIU full PDFs): Argument Principle +
+  Rouché (ch 7), Schwarz–Christoffel, harmonic/Dirichlet. → CA +3.
+- **Gallian 9e chapter list** (proofwiki book page) + **Dummit & Foote 3e
+  contents** (archive.org catalog): ch 11 finite abelian classification,
+  ch 24 Sylow + conjugacy/class equation, D&F ch 4 group actions, ch 5
+  direct products, ch 8 ED/PID/UFD. → Abstract Algebra +5.
+- **Munkres 2e contents** (the eclass.uoa.gr PDF + Pearson TOC): §48
+  Baire spaces / ch 8. → Topology +1.
+- **Burton, *Elementary Number Theory*** (archive.org catalog contents):
+  ch 11 Fermat conjecture, ch 12 sums of squares. → Number Theory +3
+  (+ Pell via the H&K chapters above).
+- **Halmos, *Naive Set Theory*** (full text: archive.org/details/
+  naivesettheory00halm): §14 order, §22 Schröder–Bernstein. → Set Theory +2.
+- **Brualdi, *Introductory Combinatorics* 5e** (the kashanu.ac.ir PDF TOC):
+  ch 9 SDR/Hall marriage, ch 10 block designs/Steiner/Latin squares. →
+  Combinatorics +2. **Rosen 7e** (the KSU faculty PDF — "bipartite graphs
+  are now covered, including Hall's theorem"): → Discrete Mathematics +2
+  (bipartite matching + topological sorting).
+- **Ross, *A First Course in Probability*** (LoC catdir TOC): ch 6
+  Jointly Distributed Random Variables, ch 7 Properties of Expectation;
+  Poisson process with the exponential. → Probability NEW ch 7 + 1.
+- **Triola, *Elementary Statistics* 13e** (test-bank TOC): ch 13
+  Nonparametric Tests. → Statistics +1.
+- **Burden & Faires 9e** (faculty.ksu.edu.sa PDF TOC): 3.3 Hermite
+  interpolation, 5.6 multistep/Adams, 8.3 Chebyshev polynomials +
+  economization; ch 9 similarity eigen iterations. → Numerical Analysis +4.
+- **Boas, *Mathematical Methods in the Physical Sciences*** (TOC): gamma
+  function, calculus of variations, Green's functions (the latter folded
+  into the BVP lesson at authoring time). → MME +2.
+- **Taha 8e** (unicamp full PDF: ch 13 'Game Theory 520, 13.4.1 Optimal
+  Solution of Two-Person Zero-Sum Games') + **Hillier & Lieberman** (LoC
+  catdir TOC: ch 14 'Game Theory 659', ch 15 'Decision Analysis 680').
+  → OR +2 (game theory, decision analysis).
+- **R.S. Aggarwal, *Quantitative Aptitude*** (full TOC opened from
+  archive.org: §30 P&C, §31 Probability, §10 Logarithms, §34 Heights &
+  Distances) + **Arun Sharma, *How to Prepare for QA for CAT*** (the
+  sushrutkuchik PDF: 'Block VI: Permutations and Combinations, Probability
+  and …', 'chapters on Functions, Inequalities, Quadratic and other
+  Equations and Logarithms', 'Modern Math: set theory, functions,
+  logarithms'). → QA NEW ch 11 (5 lessons).
+- **GATE 2026 XE-A Engineering Mathematics syllabus PDF**
+  (gate2026.iitg.ac.in): the eight units audited against the shelf — all
+  owned or cross-referenced (vector calculus → Multivariable Calculus,
+  linear algebra → Linear Algebra, probability → the two books above).
+- **Polya, *How to Solve It*** + the writing-math canon: → AMF +2
+  (Polya's method; TeX typesetting).
+- **House additions by the agent's own judgment** (marked in the WORKLOG):
+  NT Pell (H&K-verified), logic 'Structures, Satisfaction and Models' +
+  'Recursive Functions' (Enderton/Mendelson canon), RA Arzelà–Ascoli +
+  Stone–Weierstrass (Rudin ch 7 territory), CA Schwarz–Christoffel +
+  harmonic/Dirichlet (B&C ch 10–11), AA-abs prime/maximal ideals (first-
+  course universal), OR decision analysis (Hillier-verified), AMF both.
+  Every such judgment call is source-checkable and listed in the WORKLOG
+  entry for this pass.
+
 ## Topic-inclusion guarantee pass (2026-11-10) — the coverage audit + EXAM_REGISTRY research (owner directive)
 
 - **Zero downloads** (audit-only pass: the survey document IS the extracted

@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10; enriched by the
  * topic-inclusion guarantee pass, same day) — 8 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `tr-` prefix
+ * 35 planned lessons, zero written. Lesson ids will use the `tr-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Geometry measured the triangle
@@ -97,6 +97,7 @@ const chapters: Chapter[] = [
       'Product\u2013Sum Transformations',
       'Multiple Angles and Typical Values',
       'Conditional Identities and Range Hunting',
+      'Summation of Trigonometric Series',
     ],
   },
   {
@@ -159,6 +160,7 @@ const chapters: Chapter[] = [
       'Elevation, Depression and the Right Setup',
       'Two Stations and the Ambiguous Cases',
       'The Craft Problems',
+      'Ratios of Small Angles and the Dip of the Horizon',
     ],
   },
   {

@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * (Calculus II).
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 6 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `ic-` prefix
+ * 24 planned lessons, zero written. Lesson ids will use the `ic-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Differential Calculus ends by
@@ -64,6 +64,7 @@ const chapters: Chapter[] = [
       'Substitution: the Chain Rule Undone',
       'Trigonometric Integrals and Standard Substitutions',
       'Quadratic and Biquadratic Forms',
+      'Hyperbolic Integrals and Inverse Substitutions',
     ],
   },
   {
@@ -92,6 +93,7 @@ const chapters: Chapter[] = [
       'The Limit of a Sum: Riemann\u2019s Idea',
       'The Fundamental Theorems of Calculus',
       'Definite By Parts, and Series by Integration',
+      'The Logarithm Defined as an Integral',
     ],
   },
   {
@@ -106,6 +108,7 @@ const chapters: Chapter[] = [
       'The Elementary Properties and the Dummy Variable',
       'Odd, Even and Periodic Integrands',
       'Leibniz\u2019s Rule: Differentiating under the Integral',
+      'Piecewise Integrands: Modulus, GIF and Signum',
     ],
   },
   {
@@ -118,6 +121,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Areas under and between Curves',
+      'Areas and Lengths in Polar Coordinates',
       'Volumes by Cross-Sections and Shells',
       'Arc Length and Surfaces of Revolution',
       'Work, Fluid Forces and Centroids',

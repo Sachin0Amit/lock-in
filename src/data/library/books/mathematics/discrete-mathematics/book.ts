@@ -3,8 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Discrete Mathematics — the thirteenth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 9 chapters /
- * 29 planned lessons, zero written. Lesson ids will use the `dm-` prefix
+ * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 10 chapters /
+ * 35 planned lessons, zero written. Lesson ids will use the `dm-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the book of finite structures,
@@ -118,6 +118,7 @@ const chapters: Chapter[] = [
       'Properties and Closures',
       'Equivalence Relations and Partitions',
       'Partial Orderings and Hasse Diagrams',
+      'Topological Sorting: Order for the Algorithm',
     ],
   },
   {
@@ -131,6 +132,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Graphs and Their Vocabulary',
       'Representation and Isomorphism',
+      'Bipartite Graphs, Matchings and Hall\u2019s Theorem',
       'Connectivity, Euler and Hamilton',
       'Planarity and Coloring: Euler\u2019s Formula at Work',
       'Shortest Paths: Dijkstra Met',

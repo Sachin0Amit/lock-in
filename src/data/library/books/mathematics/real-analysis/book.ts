@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Real Analysis — the twentieth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 9 chapters /
- * 34 planned lessons, zero written. Lesson ids will use the `ra-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `ra-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf's honesty debt
@@ -131,6 +131,7 @@ const chapters: Chapter[] = [
       'The Mean Value Family, Earned',
       'L\u2019Hospital\u2019s Rule, Proved',
       'Taylor\u2019s Theorem and the Remainder',
+      'The Inverse and Implicit Function Theorems',
     ],
   },
   {
@@ -146,6 +147,7 @@ const chapters: Chapter[] = [
       'The Integrability Census',
       'The Fundamental Theorem, Proved',
       'Improper Integrals',
+      'The Riemann-Stieltjes Integral',
     ],
   },
   {
@@ -159,6 +161,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Pointwise versus Uniform: the Failures',
       'The Uniform Theorems, Proved',
+      'Equicontinuity, Arzel\u00e0-Ascoli and Stone-Weierstrass',
       'Power Series Earned Term by Term',
       'The Gamma Function and the Named Theorems',
     ],

@@ -419,3 +419,7 @@ server.log
 # exception: the pass's one-shot tooling (plan patcher + ledger generator; kept for regeneration runs)
 !/scripts/patch_planned_lessons.py
 !/scripts/gen_fold_ledger.py
+# exception: the internet-research gap pass (2026-11-11, owner directive) — census dumper + snapshot + the plan patcher
+!/scripts/dump_shelf_census.ts
+!/scripts/census_snapshot_2026-11-11.md
+!/scripts/patch_research_lessons.py

@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Set Theory — the fifteenth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 27 planned lessons, zero written. Lesson ids will use the `st-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `st-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): every book on the shelf has USED
@@ -105,6 +105,7 @@ const chapters: Chapter[] = [
       'Countability: the Integers and the Rationals',
       'Cantor\u2019s Diagonal Argument',
       'Power Sets and Cantor\u2019s Theorem',
+      'The Schr\u00f6der-Bernstein Theorem',
       'The Arithmetic of Cardinals',
     ],
   },
@@ -117,6 +118,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Partial Orders, Chains and Bounds',
       'Well-Ordering and Transfinite Induction',
       'Ordinals as Order-Types',
       'Ordinal Arithmetic',

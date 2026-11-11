@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (promoted 2026-11-10, run 89; enriched by the topic-inclusion
- * guarantee pass, same day) — 10 chapters / 36 planned
+ * guarantee pass, same day) — 10 chapters / 57 planned
  * lessons, zero lessons written yet. Authoring opens at run 90 with chapter 1
  * (lessons 1.1 + 1.2, the two-lessons-per-run cadence); the book flips to
  * 'in-progress' with its first written lesson and to 'complete' only when all
@@ -160,7 +160,10 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'The Arithmetic-Geometric Mean Inequality',
+      'The Weighted AM-GM and Its Consequences',
       'Cauchy-Schwarz and Engel’s Form',
+      'The Rearrangement and Chebyshev Inequalities',
+      'Jensen\u2019s Inequality and Convexity',
       'Absolute Value at Depth: the Triangle Inequality',
     ],
   },
@@ -178,6 +181,7 @@ const chapters: Chapter[] = [
       'Harmonic and Arithmetico-Geometric Progressions',
       'Special Series and the Method of Differences',
       'Sigma Notation and the Classical Power Sums',
+      'Recurring Series and the Scale of Relation',
     ],
   },
   {
@@ -208,6 +212,8 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'Mathematical Induction: the Domino Principle',
       'The Binomial Theorem, Proved',
+      'The Binomial Theorem for Any Index',
+      'The Multinomial Theorem',
       'Binomial Coefficients at Work',
       'Binomial Applications and Approximations',
     ],
@@ -222,8 +228,11 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'How Many Roots: Degree n, n Roots',
+      'Descartes\u2019 Rule of Signs',
       'Cubics and Quartics: the Symmetric Functions',
+      'Cardan and Ferrari: the Cubic and Quartic, Solved',
       'Transformation of Equations',
+      'Reciprocal Equations',
     ],
   },
   {
@@ -239,6 +248,7 @@ const chapters: Chapter[] = [
       'Logarithms: the Inverse Machine',
       'The Laws of Logarithms and the Change of Base',
       'Logarithmic and Exponential Equations',
+      'Exponential and Logarithmic Series',
       'Logarithm Tables: Characteristic, Mantissa and Antilogarithm',
     ],
   },

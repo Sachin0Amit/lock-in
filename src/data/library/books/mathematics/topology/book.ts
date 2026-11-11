@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Topology — the twenty-third book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 26 planned lessons, zero written. Lesson ids will use the `top-`
+ * 27 planned lessons, zero written. Lesson ids will use the `top-`
  * prefix (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Real Analysis chapter 4 built
@@ -53,6 +53,7 @@ const chapters: Chapter[] = [
       'The Metric Axioms and the Example Census',
       'Balls, Convergence and Completeness',
       'Continuity in Metric Spaces',
+      'The Baire Category Theorem',
     ],
   },
   {

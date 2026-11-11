@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Coordinate Geometry — the sixth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 13 chapters /
- * 44 planned lessons, zero written. Lesson ids will use the `cg-` prefix
+ * 52 planned lessons, zero written. Lesson ids will use the `cg-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Elementary Algebra chapter 10
@@ -77,6 +77,7 @@ const chapters: Chapter[] = [
       'Angles, Distances and Concurrency',
       'The Family of Lines',
       'Shifting the Axes: Transformation to Origin',
+      'Rotation of Axes and the Invariants',
     ],
   },
   {
@@ -106,6 +107,7 @@ const chapters: Chapter[] = [
       'Position, Intersection and the Length of a Tangent',
       'Tangents, Normals, Chord of Contact',
       'Two Circles: the Radical Axis and Contact Cases',
+      'Orthogonal and Coaxal Systems of Circles',
     ],
   },
   {
@@ -134,6 +136,7 @@ const chapters: Chapter[] = [
       'The Standard Ellipse and Its Anatomy',
       'Parametric Form, Chords and Position',
       'Tangents, Normals and the Reflection Property',
+      'Diameters, Conjugate Diameters and the Auxiliary Circle',
     ],
   },
   {
@@ -163,6 +166,10 @@ const chapters: Chapter[] = [
       'Identifying the General Second-Degree Equation',
       'Tangents and Chords of Contact, Unified',
       'The Director Circle: One Idea across the Conics',
+      'The Normals from a Point: Three and Four',
+      'Pole and Polar, Unified',
+      'The Conic in Polar Form',
+      'Confocal Conics and Families of Conics',
     ],
   },
   {

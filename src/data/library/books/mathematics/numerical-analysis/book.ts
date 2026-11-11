@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Numerical Analysis — the twenty-fourth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 7 chapters /
- * 24 planned lessons, zero written. Lesson ids will use the `na-` prefix
+ * 28 planned lessons, zero written. Lesson ids will use the `na-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf computed exactly;
@@ -85,8 +85,10 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Lagrange and Divided Differences',
+      'Hermite Interpolation and Osculating Forms',
       'The Error Theorem and the Runge Phenomenon',
       'Splines and Least Squares',
+      'Chebyshev Approximation and Economization',
     ],
   },
   {
@@ -117,6 +119,7 @@ const chapters: Chapter[] = [
       'Jacobi, Gauss\u2013Seidel and Diagonal Dominance',
       'The Condition Number\u2019s Price Tag',
       'The Power Method',
+      'Eigenvalues by Similarity: Householder and the QR Iteration',
     ],
   },
   {
@@ -131,6 +134,7 @@ const chapters: Chapter[] = [
       'Euler, Derived and Proved',
       'The Runge\u2013Kutta Family',
       'Stability and Stiffness',
+      'Multistep Methods: the Adams Family',
     ],
   },
   {

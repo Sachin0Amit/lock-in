@@ -3,8 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Probability Theory — the eighteenth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 7 chapters /
- * 22 planned lessons, zero written. Lesson ids will use the `pr-` prefix
+ * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
+ * 29 planned lessons, zero written. Lesson ids will use the `pr-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Advanced Algebra chapter 6
@@ -130,10 +130,28 @@ const chapters: Chapter[] = [
       'Densities: Probability as Area',
       'Uniform and Exponential',
       'The Normal Family and Standardization',
+      'The Poisson Process: the Exponential\u2019s Clock',
     ],
   },
   {
     number: 7,
+    slug: 'jointly-distributed-random-variables',
+    title: 'Jointly Distributed Random Variables',
+    summary:
+      'Ross\u2019s chapter 6\u20137 arc earned in full: joint distributions discrete and continuous (tables and density patches), marginals and conditional distributions, independence of random variables, sums of random variables via the convolution engine, conditional expectation and prediction, covariance and correlation with the Cauchy\u2013Schwarz link and its null cases, moment generating functions as transform identities, and order statistics \u2014 the sample minimum, maximum and range. This is the layer the limit theorems actually need, and the hinge Statistics leans on when the sample begins to speak.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'Joint Distributions: Discrete and Continuous',
+      'Independence of Random Variables and Sums: the Convolution',
+      'Conditional Distributions and Conditional Expectation',
+      'Covariance and Correlation',
+      'Moment Generating Functions',
+      'Order Statistics and the Sample Extremes',
+    ],
+  },
+  {
+    number: 8,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:

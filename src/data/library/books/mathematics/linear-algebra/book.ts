@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Linear Algebra — the twelfth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `la-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `la-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the JEE ground (matrices,
@@ -143,6 +143,7 @@ const chapters: Chapter[] = [
       'Generalized Eigenvectors, Nilpotent Operators and Jordan Form',
       'The Symmetric Promise — Axler\u2019s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues',
       'Powers, Markov Chains and the SVD Named',
+      'The Singular Value Decomposition: Image Processing and PCA',
     ],
   },
   {
@@ -158,6 +159,7 @@ const chapters: Chapter[] = [
       'Projections and Orthogonality',
       'Gram\u2013Schmidt and Orthogonal Bases',
       'Least Squares: the Overdetermined Verdict',
+      'Positive Definite Matrices: the Energy Test',
     ],
   },
   {

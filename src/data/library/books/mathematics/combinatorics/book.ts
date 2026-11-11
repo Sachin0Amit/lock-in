@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Combinatorics — the seventeenth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 6 chapters /
- * 20 planned lessons, zero written. Lesson ids will use the `co-` prefix
+ * 22 planned lessons, zero written. Lesson ids will use the `co-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Advanced Algebra chapter 6
@@ -112,6 +112,8 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Integer Partitions and Ferrers Diagrams',
+      'Transversals and Matching: Hall\u2019s Marriage Theorem',
+      'Combinatorial Designs: Block Designs, Steiner Systems and Latin Squares',
       'Burnside\u2019s Lemma',
       'P\u00f3lya Counting',
     ],

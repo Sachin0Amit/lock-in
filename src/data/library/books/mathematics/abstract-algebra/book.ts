@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Abstract Algebra — the twenty-second book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 26 planned lessons, zero written. Lesson ids will use the `ab-` prefix
+ * 31 planned lessons, zero written. Lesson ids will use the `ab-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf has computed inside
@@ -71,6 +71,7 @@ const chapters: Chapter[] = [
       'The Axioms and the Census',
       'Subgroups and Cyclic Groups',
       'Permutations and the Symmetric Groups',
+      'Conjugacy Classes and the Class Equation',
     ],
   },
   {
@@ -85,6 +86,7 @@ const chapters: Chapter[] = [
       'Cosets and the Partition',
       'Lagrange\u2019s Theorem, Proved',
       'Fermat Re-Proved: the Corollary Cascade',
+      'The Sylow Theorems',
     ],
   },
   {
@@ -99,6 +101,7 @@ const chapters: Chapter[] = [
       'Homomorphisms, Kernel and Image',
       'Normal Subgroups and Factor Groups',
       'The Isomorphism Theorems',
+      'Direct Products and the Finite Abelian Classification',
     ],
   },
   {
@@ -113,6 +116,7 @@ const chapters: Chapter[] = [
       'Ring Axioms and the Census',
       'Domains, Units and Zero Divisors',
       'Ideals and Quotient Rings',
+      'Prime and Maximal Ideals',
     ],
   },
   {
@@ -128,6 +132,7 @@ const chapters: Chapter[] = [
       'Unique Factorization, Re-Proofed',
       'Eisenstein and the Irreducibility Tests',
       'Quotient Rings and Root Fields',
+      'The Hierarchy: Euclidean, Principal, Unique',
     ],
   },
   {

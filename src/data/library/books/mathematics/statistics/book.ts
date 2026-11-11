@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Statistics — the nineteenth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 30 planned lessons, zero written. Lesson ids will use the `stat-`
+ * 31 planned lessons, zero written. Lesson ids will use the `stat-`
  * prefix (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Foundation Mathematics ch. 10
@@ -146,6 +146,7 @@ const chapters: Chapter[] = [
       'z, t and the Two-Sample Craft',
       'The Chi-Square Family',
       'One-Way ANOVA and the Craft Census',
+      'Nonparametric Tests: Sign, Wilcoxon and Rank-Sum',
     ],
   },
   {

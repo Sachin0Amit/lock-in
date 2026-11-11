@@ -3,8 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Geometry — the fifth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 11 chapters /
- * 38 planned lessons, zero written. The research phase for this book was
+ * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 12 chapters /
+ * 50 planned lessons, zero written. The research phase for this book was
  * web-audit based (the Drive's mathematics collection is JEE-centric: its
  * geometry lives inside the M3 Coordinate Geometry module and Khattar's
  * aptitude chapters — no dedicated classical-geometry reference; see
@@ -90,6 +90,8 @@ const chapters: Chapter[] = [
       'The Congruence Criteria: SAS, ASA, AAS, SSS, RHS',
       'Isosceles Triangles: the Classic Consequences',
       'Inequalities in a Triangle: Sides and Angles',
+      'The Cevian Theorems: Ceva and Menelaus',
+      'Stewart\u2019s Theorem and the Median Relation',
     ],
   },
   {
@@ -109,6 +111,21 @@ const chapters: Chapter[] = [
   },
   {
     number: 5,
+    slug: 'transformations-and-symmetry',
+    title: 'Transformations and Symmetry: the Rigid-Motion Idea',
+    summary:
+      'Congruence and similarity earn their machine definitions: translations, reflections and rotations written as functions of the plane \u2014 the rigid motions \u2014 their compositions read as the isometry idea, line and rotational symmetry found as the fixed sets of those motions, and dilations as the scale engines that re-derive similarity. The Common Core\u2019s transformation-first route and NCERT\u2019s symmetry chapters are both honoured: SAS/ASA/SSS are re-read as invariances under motion, and the ground is laid for the homothety reading of centres of similitude in the circle chapter and for the shifting of axes in Coordinate Geometry.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'The Rigid Motions: Slides, Flips and Turns',
+      'Composing Transformations and the Isometry Idea',
+      'Line and Rotational Symmetry',
+      'Dilations, Scale Factors and Similarity Re-Read',
+    ],
+  },
+  {
+    number: 6,
     slug: 'quadrilaterals-and-polygons',
     title: 'Quadrilaterals and Polygons',
     summary:
@@ -122,7 +139,7 @@ const chapters: Chapter[] = [
     ],
   },
   {
-    number: 6,
+    number: 7,
     slug: 'the-circle',
     title: 'The Circle: Chords, Angles and Tangents',
     summary:
@@ -134,10 +151,14 @@ const chapters: Chapter[] = [
       'Angles in a Circle: Centre, Circumference, Segment',
       'Tangents and the Alternate Segment Theorem',
       'Cyclic Quadrilaterals',
+      'Power of a Point',
+      'Ptolemy\u2019s Theorem',
+      'Common Tangents and Centres of Similitude',
+      'The Nine-Point Circle and Euler\u2019s Line',
     ],
   },
   {
-    number: 7,
+    number: 8,
     slug: 'ruler-and-compass-constructions',
     title: 'Ruler-and-Compass Constructions',
     summary:
@@ -148,10 +169,11 @@ const chapters: Chapter[] = [
       'The Compass-and-Straightedge Discipline',
       'Bisectors, Perpendiculars and Standard Triangles',
       'Tangents and Similar Figures by Construction',
+      'Inscribed, Circumscribed and the Regular Polygons',
     ],
   },
   {
-    number: 8,
+    number: 9,
     slug: 'areas-in-geometry',
     title: 'Areas: Heron\u2019s Formula and the Plane Region',
     summary:
@@ -165,7 +187,7 @@ const chapters: Chapter[] = [
     ],
   },
   {
-    number: 9,
+    number: 10,
     slug: 'solids-and-volumes',
     title: 'Surface Areas and Volumes',
     summary:
@@ -173,13 +195,14 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Cross-Sections and Solids of Revolution',
       'Prisms and Cylinders',
       'Pyramids, Cones and Frustums',
       'Spheres, Hemispheres and Combinations of Solids',
     ],
   },
   {
-    number: 10,
+    number: 11,
     slug: 'proof-and-the-postulates',
     title: 'Proof, the Postulates and the Non-Euclidean Door',
     summary:
@@ -193,7 +216,7 @@ const chapters: Chapter[] = [
     ],
   },
   {
-    number: 11,
+    number: 12,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:

@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10; enriched by the
  * topic-inclusion guarantee pass, same day) — 7 chapters /
- * 26 planned lessons, zero written. Lesson ids will use the `de-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `de-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Integral Calculus's closing
@@ -76,6 +76,7 @@ const chapters: Chapter[] = [
       'Homogeneous Equations',
       'Linear Equations and the Integrating Factor',
       'Exact Equations and Bernoulli',
+      'First Order, Higher Degree: Solvable for p, Clairaut and Lagrange',
     ],
   },
   {
@@ -106,6 +107,8 @@ const chapters: Chapter[] = [
       'Superposition and Solution Structure',
       'Undetermined Coefficients',
       'Variation of Parameters',
+      'Higher-Order Linear Equations',
+      'The Cauchy-Euler Equation',
     ],
   },
   {

@@ -45,7 +45,7 @@ unchanged. The per-unit workflow (download -> study -> write -> verify ->
 ship) now draws on the survey's recorded Drive ids and TOCs for its
 per-unit downloads.
 
-**Owner directive (2026-11-11, TOC-as-lessons pass — this pass):**
+**Owner directive (2026-11-11, TOC-as-lessons pass):**
 "make sure those TOC are written as lessons and make a guide when a
 scheduled task is on it should [state] what should be included if that
 TOC does not require separate lesson, be elaborate." Executed: (1) the
@@ -55,7 +55,7 @@ blob gate had masked a wrong ANS id, and re-arranged per the directive —
 LP/Lay-geometry → Optimization, series-testing → Real Analysis,
 hyperbolic → Methods-for-Engineering, numerical → Numerical Analysis,
 computation → its own DM chapter); (2) 25 new planned lessons inserted
-(plans only; shelf now 207 ch / 736 planned lessons across the 25
+(plans only; shelf then 207 ch / 736 planned lessons across the 25
 planned books); (3) `docs/project/TOC_FOLD_LEDGER.json` — 403 surveyed
 topics that do not warrant separate lessons, each folded into a real
 host lesson with one of seven audited minimum-treatment modes;
@@ -64,6 +64,29 @@ guide (pre-flight checklist, lesson anatomy bar, the lesson-worthiness
 test, the fold rules). Lesson-level census: 1,861 topics — 1,068
 lessons + 403 folds + 390 cross-refs, 0 gaps (gate 3,883/3,883). The
 authoring cadence is untouched: run 90 still opens AA 1.1 + 1.2.
+
+**Owner directive (2026-11-11, internet-research gap pass — this pass):**
+"use internet research for each book and think of your own if any
+lesson is missing add it." Executed: every one of the 25 planned books
+researched against its canonical sources on the internet (Hall & Knight
+*Higher Algebra* full TOC from archive.org — the survey had only its
+Elementary sibling; Loney Part I/II; NCERT + Common Core geometry;
+*Challenge and Thrill of Pre-College Mathematics*; Arihant/Cengage JEE
+calculus; Thomas 14e/OpenStax; Raisinghania/Boyce–DiPrima; Strang 6e;
+Rudin PMA ch 6/7/9; Brown & Churchill ch 7; Gallian ch 11/24 +
+Dummit–Foote; Burton ch 10–12; Halmos §14/§22; Brualdi ch 9–10; Rosen
+7e bipartite/Hall; Ross ch 5–7; Triola ch 13; Burden & Faires 3.3/5.6/
+8.3/9; Boas; Taha ch 13 + Hillier ch 14/15; Aggarwal + Arun Sharma;
+Munkres ch 8; Polya — every opened source and URL recorded in
+SOURCE_LOG.md's 'Internet-research gap pass' section). Result: **91 new
+planned lessons + 3 new chapters** (Geometry: 'Transformations and
+Symmetry' ch 5; Probability: 'Jointly Distributed Random Variables'
+ch 7; QA: 'Modern Maths at Aptitude Speed' ch 11) — shelf now **210
+ch / 827 planned lessons** (+ the 3 complete books' 120 written); AA
+pins 47→57; the lesson gate re-run green with tier-1 grown 1,068→1,113
+(24 survey topics released from folds into full lessons). Decisions
+lesson-vs-fold recorded in WORKLOG; plans only, zero lesson authoring —
+run 90 still opens AA 1.1 + 1.2.
 
 **Owner directive (2026-11-10, topic-inclusion guarantee pass — this pass):**
 "make sure that all the topics or TOC of research drive survey must be

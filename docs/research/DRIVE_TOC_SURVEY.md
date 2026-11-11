@@ -5961,3 +5961,24 @@ not warrant its own lesson:
 **Lesson-level census: 1,861 meaningful surveyed topics — 1,068 ARE lessons,
 403 are guided folds into real lessons, 390 are cross-referenced lessons on
 the shelf, 0 gaps. Gate: 3,883/3,883 green.**
+
+## Internet-research gap pass — the post-survey enrichment record (2026-11-11, owner directive; no Drive files)
+
+This document remains the 53-source Drive census (the gates pin it). A
+separate owner directive — "use internet research for each book and think
+of your own if any lesson is missing add it" — ran AFTER the TOC-as-lessons
+pass: every planned book was measured against its canonical sources on the
+open web, and the missing units were added to the plans (91 new planned
+lessons + 3 new chapters; Geometry transformations/symmetry, Probability
+joint distributions, QA modern maths). Every opened URL is recorded in
+docs/project/SOURCE_LOG.md's 'Internet-research gap pass' section —
+including Hall & Knight *Higher Algebra* (archive.org full text: the survey
+above covers only its Elementary sibling), Loney's deeper chapters,
+NCERT/Common Core geometry, *Challenge and Thrill of Pre-College
+Mathematics*, Arihant/Thomas/OpenStax calculus, Raisinghania/Boyce-DiPrima,
+Strang 6e, Rudin PMA, Brown & Churchill, Gallian/Dummit-Foote, Munkres,
+Burton, Halmos, Brualdi, Rosen, Ross, Triola, Burden & Faires, Boas,
+Taha/Hillier, Aggarwal/Arun Sharma, and the GATE XE-A syllabus. The
+lesson-worthiness decisions (lesson vs fold vs cross-reference) follow
+docs/project/TOC_LESSON_GUIDE.md §4 and are recorded in WORKLOG.md's entry
+for this pass. No surveyed source below was altered.

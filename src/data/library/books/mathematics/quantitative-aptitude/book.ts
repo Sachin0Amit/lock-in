@@ -3,8 +3,8 @@ import type { Book, Chapter } from '../../../types'
 /**
  * Quantitative Aptitude — the twenty-eighth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11
- * chapters / 39 planned lessons, zero written. Lesson ids will use the
+ * STATUS: PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 12
+ * chapters / 44 planned lessons, zero written. Lesson ids will use the
  * `qa-` prefix (verified unused across all existing lesson ids; the
  * 'khattar-qa-4e' string in written books is a CITATION key, never a
  * lesson id).
@@ -206,6 +206,22 @@ const chapters: Chapter[] = [
   },
   {
     number: 11,
+    slug: 'modern-maths-at-aptitude-speed',
+    title: 'Modern Maths at Aptitude Speed',
+    summary:
+      'The CAT/SSC \u2018modern maths\u2019 block as its own exam-speed layer, cross-referencing the shelf\u2019s full treatments: set-theory word models and the two- and three-set Venn counting craft every aptitude paper leans on (the theory lives in Set Theory); functions, logarithms and inequalities at solving speed (Advanced Algebra\u2019s chapters own the depth); permutations, combinations and probability compressed into the exam\u2019s sixty-second patterns (Advanced Algebra\u2019s counting chapter and Probability Theory own the proofs); and heights and distances at the right-triangle gallop (Trigonometry\u2019s chapter owns the full discipline). Aggarwal\u2019s and Arun Sharma\u2019s unit censuses are the source of the block\u2019s existence; no duplication \u2014 the shelf books are cited at every turn.',
+    status: 'planned',
+    lessons: [],
+    plannedLessons: [
+      'Set Theory and Venn Diagrams: the Counting Craft',
+      'Functions, Logarithms and Inequalities at Exam Speed',
+      'Permutations and Combinations at Exam Speed',
+      'Probability at Exam Speed',
+      'Heights and Distances at Exam Speed',
+    ],
+  },
+  {
+    number: 12,
     slug: 'the-synthesis-and-the-doorstep',
     title: 'The Synthesis and the Doorstep',
     summary:

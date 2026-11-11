@@ -86,7 +86,7 @@ agent-browser eval "
     return JSON.stringify({
       h1: (document.querySelector('h1')||{}).textContent || '',
       overflowX: document.documentElement.scrollWidth > document.documentElement.clientWidth,
-      plannedChip: (document.body.textContent.match(/35 planned/) || [null])[0],
+      plannedChip: (document.body.textContent.match(/57 planned/) || [null])[0],
       consoleErrors: (window.__e2eErrors || []).length
     });
   })()

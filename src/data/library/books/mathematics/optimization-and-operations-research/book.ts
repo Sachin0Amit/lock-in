@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 27 planned lessons, zero written. Lesson ids will use the `or-` prefix
+ * 29 planned lessons, zero written. Lesson ids will use the `or-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Advanced Algebra chapter 4's
@@ -62,6 +62,7 @@ const chapters: Chapter[] = [
       'The Science of the Decision',
       'The Graphical Doorstep',
       'The Modeling Census',
+      'Decision Analysis: Trees, Payoffs and the Value of Information',
     ],
   },
   {
@@ -149,6 +150,7 @@ const chapters: Chapter[] = [
       'Queueing: Little\u2019s Law',
       'Inventory: EOQ and the Newsvendor',
       'Simulation, Named',
+      'Game Theory: the Two-Person Zero-Sum Duel',
     ],
   },
   {

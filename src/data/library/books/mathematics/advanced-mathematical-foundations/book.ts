@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 7 chapters /
- * 23 planned lessons, zero written. Lesson ids will use the `af-` prefix
+ * 25 planned lessons, zero written. Lesson ids will use the `af-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf\u2019s capstone, in the
@@ -80,6 +80,7 @@ const chapters: Chapter[] = [
     status: 'planned',
     lessons: [],
     plannedLessons: [
+      'Polya\u2019s Method: Understand, Plan, Execute, Look Back',
       'The Olympiad Arsenal',
       'The Putnam-Style Integration',
       'How a Question Becomes a Theorem',
@@ -125,6 +126,7 @@ const chapters: Chapter[] = [
     plannedLessons: [
       'The Three-Pass Read',
       'The Literature\u2019s Anatomy',
+      'Typesetting Mathematics: TeX and the Written Look',
       'Writing Mathematics',
       'The Culture of the Seminar',
     ],

@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * (Calculus I).
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 9 chapters /
- * 36 planned lessons, zero written. Lesson ids will use the `dc-` prefix
+ * 38 planned lessons, zero written. Lesson ids will use the `dc-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Advanced Algebra chapter 10's
@@ -105,6 +105,7 @@ const chapters: Chapter[] = [
       'The Derivative as a Function',
       'Differentiability versus Continuity',
       'The Families Differentiated: Polynomial to Inverse Trig',
+      'The Hyperbolic Family Differentiated',
     ],
   },
   {
@@ -120,6 +121,7 @@ const chapters: Chapter[] = [
       'Implicit and Parametric Differentiation',
       'Logarithmic Differentiation and the Determinant Rule',
       'Higher Order Derivatives and Functional Relations',
+      'Differentiation of One Function with Respect to Another',
     ],
   },
   {

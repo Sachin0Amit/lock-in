@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Complex Analysis — the twenty-first book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 7 chapters /
- * 23 planned lessons, zero written. Lesson ids will use the `ca-` prefix
+ * 26 planned lessons, zero written. Lesson ids will use the `ca-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Advanced Algebra chapter 3
@@ -112,6 +112,7 @@ const chapters: Chapter[] = [
       'Laurent Series and the Singularity Census',
       'The Residue Theorem',
       'Real Integrals through the Plane',
+      'The Argument Principle and Rouch\u00e9\u2019s Theorem',
     ],
   },
   {
@@ -126,6 +127,8 @@ const chapters: Chapter[] = [
       'Conformality, Proved',
       'The Mapping Census: to M\u00f6bius',
       'Potential Problems by Mapping',
+      'The Schwarz-Christoffel Transformation, Named',
+      'Harmonic Functions and the Dirichlet Problem',
     ],
   },
   {

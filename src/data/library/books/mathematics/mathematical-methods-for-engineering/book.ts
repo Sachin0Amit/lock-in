@@ -5,7 +5,7 @@ import type { Book, Chapter } from '../../../types'
  * Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 8 chapters /
- * 28 planned lessons, zero written. Lesson ids will use the `em-` prefix
+ * 32 planned lessons, zero written. Lesson ids will use the `em-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): the shelf's applied collector —
@@ -77,6 +77,7 @@ const chapters: Chapter[] = [
       'Series Solutions: Bessel and Legendre',
       'Boundary-Value Problems',
       'Sturm–Liouville Problems: Eigenfunctions and Orthogonality',
+      'Gamma, Beta and the Error Functions',
     ],
   },
   {
@@ -150,6 +151,7 @@ const chapters: Chapter[] = [
       'The Method-Choice Census',
       'Discretizing the Heat Equation',
       'The Finite-Element Idea, Named',
+      'Calculus of Variations: the Euler-Lagrange Engine',
     ],
   },
   {

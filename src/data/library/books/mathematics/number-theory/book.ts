@@ -4,7 +4,7 @@ import type { Book, Chapter } from '../../../types'
  * Number Theory — the fourteenth book of the Mathematics shelf.
  *
  * STATUS: PLANNED (full-shelf planning pass, 2026-11-10) — 10 chapters /
- * 31 planned lessons, zero written. Lesson ids will use the `nt-` prefix
+ * 34 planned lessons, zero written. Lesson ids will use the `nt-` prefix
  * (verified unused across all existing lesson ids).
  *
  * POSITIONING (no-duplication contract): Arithmetic and Number Systems
@@ -132,6 +132,8 @@ const chapters: Chapter[] = [
       'Residues and Euler\u2019s Criterion',
       'The Legendre Symbol',
       'Gauss\u2019s Lemma and Quadratic Reciprocity',
+      'Sums of Two Squares and Pythagorean Triples',
+      'Fermat\u2019s Last Theorem: the Honest Story',
     ],
   },
   {
@@ -146,6 +148,7 @@ const chapters: Chapter[] = [
       'Finite Continued Fractions and Convergents',
       'Infinite Expansions and \u221a2',
       'Best Rational Approximations',
+      'Pell\u2019s Equation',
     ],
   },
   {

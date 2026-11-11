@@ -12,36 +12,38 @@ shelf top-to-bottom, since its first book is already in progress).
 1. Foundation Mathematics ← **COMPLETE (11/11 chapters, 48 lessons — closed by run 47, 2026-11-05)**
 2. Arithmetic and Number Systems ← **COMPLETE (run 65, 2026-11-07: 10/10 chapters, 34 lessons, 184,361 words — the book closed with 10.3 'The Toolkit Synthesis' + the unit-10 review + the book flip)**
 3. Elementary Algebra ← **COMPLETE (run 88, 2026-11-10: 11/11 chapters, 37 lessons, 171,460 words — the book closed with 11.3 'The Function Idea: the Doorstep' + the unit-11 review + the BOOK CLOSE flip; run 89 opens book #4's research phase)**
-4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/36-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2; the 36th lesson (ch. 9 log tables) added by the topic-inclusion guarantee pass, 2026-11-10)**
+4. Advanced Algebra ← **PROMOTED (run 89, 2026-11-10: research phase complete — reference survey + syllabus audit + the 10-chapter/36-lesson plan; `src/data/library/books/mathematics/advanced-algebra/` status 'planned'; authoring opens run 90 with 1.1 + 1.2; the 36th lesson (ch. 9 log tables) added by the topic-inclusion guarantee pass, 2026-11-10; +11 lessons by the TOC-as-lessons pass and +10 by the internet-research gap pass (Hall & Knight Higher Algebra TOC) → 57 planned, 2026-11-11)**
 5–27. The remaining twenty-three books ← **PLANNED (full-shelf planning pass, 2026-11-10, owner directive — every book's research phase executed in one pass: the Drive's mathematics collection downloaded book-by-book, ALL 53 tables of contents extracted (vision-model transcription for the 44 scanned sources), web syllabus audits (NCERT class 9–12 lists, JEE Main 2026 units incl. the 2024 removals, classic university arcs), each book promoted to `src/data/library/books/mathematics/<slug>/book.ts` with its complete researched chapter/lesson layout, status 'planned'; the evidence base is `docs/research/DRIVE_TOC_SURVEY.md`)**:
-   5. Geometry (11 ch / 38 lessons, `geo-`)
-   6. Coordinate Geometry (13 / 46, `cg-` — M3 + M5 modules)
-   7. Trigonometry (8 / 31, `tr-` — M1 module + Loney; +the quadrilaterals/regular-polygons lesson from the audit pass)
-   8. Differential Calculus (9 / 32, `dc-` — M4 ch. 2–6 + Thomas/Stewart)
-   9. Integral Calculus (6 / 22, `ic-` — M4 ch. 7–9 + Thomas)
-   10. Multivariable Calculus (6 / 20, `mc-` — Thomas/Stewart multivariable)
-   11. Differential Equations (7 / 26, `de-` — M4 ch. 10 + Kreyszig; +the systems/phase-plane chapter from the audit pass)
-   12. Linear Algebra (8 / 28, `la-` — M2 ch. 12–13 + Strang/Axler/Lay)
-   13. Discrete Mathematics (9 / 30, `dm-` — Rosen 8e)
-   14. Number Theory (10 / 34, `nt-` — Burton arc, web-researched)
-   15. Set Theory (8 / 26, `st-` — Halmos arc)
-   16. Mathematical Logic (7 / 23, `ml-` — M2 ch. 10 + Rosen ch. 1)
-   17. Combinatorics (6 / 21, `co-`)
-   18. Probability Theory (7 / 24, `pr-` — M2 ch. 09/14)
-   19. Statistics (8 / 27, `stat-` — M2 ch. 11 + OpenStax)
-   20. Real Analysis (9 / 30, `ra-` — Rudin, Drive scan)
-   21. Complex Analysis (7 / 23, `ca-` — Churchill arc + Kreyszig)
-   22. Abstract Algebra (8 / 27, `ab-` — Gallian arc)
-   23. Topology (8 / 25, `top-` — Munkres arc)
-   24. Numerical Analysis (7 / 23, `na-` — Burden & Faires + Kreyszig)
-   25. Mathematical Methods for Engineering (8 / 26, `em-` — Kreyszig)
-   26. Optimization and Operations Research (8 / 26, `or-` — Hillier)
-   27. Advanced Mathematical Foundations (7 / 22, `af-` — the capstone)
-28. Quantitative Aptitude ← **PLANNED (topic-inclusion guarantee pass, 2026-11-10, owner directive: 'make sure that all the topics or TOC of research drive survey must be included in their respective books... cover all the top exams of the world to maximum level') — the Khattar aptitude census's commercial family (profit and loss, discounts, interest, stocks/shares, partnership, alligation, ages, time-and-work, pipes and cisterns, time-speed-distance with trains/boats/races, clocks and calendars, number series, weighted averages, mensuration at exam speed, data sufficiency) had NO home on the shelf; book #28 created (11 ch / 39 planned lessons, `qa-` prefix reserved, status 'planned') with the no-duplication contract in its header (FM/ANS/AA/Geometry/Statistics/Logic cross-referenced); the world-exam register for CAT/SSC CGL/IBPS/SBI/CSAT/CA Foundation/GMAT/SAT/GRE quant — see docs/project/EXAM_REGISTRY.json)** — and the TOC-as-lessons pass (2026-11-11) grew the
-   whole shelf to 207 ch / 736 planned lessons (25 new planned lessons +
-   DM's 'Models of Computation' chapter) with 403 surveyed topics folded
+   5. Geometry (12 ch / 50 lessons, `geo-` — +the transformations/symmetry chapter, the cevian/Stewart/Ptolemy/power-of-a-point/nine-point lessons from the internet-research pass)
+   6. Coordinate Geometry (13 / 52, `cg-` — M3 + M5 modules; +Loney's rotation/invariants, coaxal circles, diameters, pole-polar, confocal lessons)
+   7. Trigonometry (8 / 35, `tr-` — M1 module + Loney; +summation of series, small angles/dip of horizon)
+   8. Differential Calculus (9 / 38, `dc-` — M4 ch. 2–6 + Thomas/Stewart; +hyperbolic calculus, d/dx of one function w.r.t. another)
+   9. Integral Calculus (6 / 24, `ic-` — M4 ch. 7–9 + Thomas; +piecewise/GIF integrands, ln-as-integral, polar areas, hyperbolic integrals)
+   10. Multivariable Calculus (6 / 23, `mc-` — Thomas/Stewart multivariable; +Jacobians, surface integrals, two-variable Taylor)
+   11. Differential Equations (7 / 29, `de-` — M4 ch. 10 + Kreyszig; +the systems/phase-plane chapter from the audit pass; +Clairaut/Lagrange higher-degree, higher-order, Cauchy-Euler)
+   12. Linear Algebra (8 / 34, `la-` — M2 ch. 12–13 + Strang/Axler/Lay; +SVD/PCA and positive-definite lessons)
+   13. Discrete Mathematics (10 / 35, `dm-` — Rosen 8e; +bipartite matching/Hall and topological sorting)
+   14. Number Theory (10 / 34, `nt-` — Burton arc; +sums of two squares, FLT story, Pell)
+   15. Set Theory (8 / 29, `st-` — Halmos arc; +Schröder-Bernstein, partial orders/chains)
+   16. Mathematical Logic (7 / 25, `ml-` — M2 ch. 10 + Rosen ch. 1; +structures/models, recursive functions)
+   17. Combinatorics (6 / 22, `co-` — +Hall/SDR and block designs/Steiner/Latin squares)
+   18. Probability Theory (8 / 29, `pr-` — M2 ch. 09/14 + Ross; +the jointly-distributed chapter: convolution, covariance, MGF, order statistics; +Poisson process)
+   19. Statistics (8 / 31, `stat-` — M2 ch. 11 + OpenStax; +nonparametric tests)
+   20. Real Analysis (9 / 38, `ra-` — Rudin; +Riemann-Stieltjes, inverse/implicit function theorems, Arzelà-Ascoli/Stone-Weierstrass)
+   21. Complex Analysis (7 / 26, `ca-` — Churchill arc + Kreyszig; +argument principle/Rouché, Schwarz-Christoffel, harmonic/Dirichlet)
+   22. Abstract Algebra (8 / 31, `ab-` — Gallian arc; +Sylow, class equation, finite abelian classification, prime/maximal ideals, ED/PID/UFD hierarchy)
+   23. Topology (8 / 27, `top-` — Munkres arc; +Baire category)
+   24. Numerical Analysis (7 / 28, `na-` — Burden & Faires + Kreyszig; +Hermite, Chebyshev economization, multistep/Adams, Householder/QR eigen)
+   25. Mathematical Methods for Engineering (8 / 32, `em-` — Kreyszig + Boas; +gamma/beta/error functions, calculus of variations)
+   26. Optimization and Operations Research (8 / 29, `or-` — Hillier + Taha; +game theory, decision analysis)
+   27. Advanced Mathematical Foundations (7 / 25, `af-` — the capstone; +Polya's method, TeX typesetting)
+28. Quantitative Aptitude ← **PLANNED (topic-inclusion guarantee pass, 2026-11-10, owner directive: 'make sure that all the topics or TOC of research drive survey must be included in their respective books... cover all the top exams of the world to maximum level') — the Khattar aptitude census's commercial family (profit and loss, discounts, interest, stocks/shares, partnership, alligation, ages, time-and-work, pipes and cisterns, time-speed-distance with trains/boats/races, clocks and calendars, number series, weighted averages, mensuration at exam speed, data sufficiency) had NO home on the shelf; book #28 created (12 ch / 44 planned lessons after the internet-research pass added ch. 11 'Modern Maths at Aptitude Speed' — Venn diagrams, P&C/probability/functions/logarithms/heights-and-distances at exam speed, per the Aggarwal + Arun Sharma censuses, `qa-` prefix reserved, status 'planned') with the no-duplication contract in its header (FM/ANS/AA/Geometry/Statistics/Logic cross-referenced); the world-exam register for CAT/SSC CGL/IBPS/SBI/CSAT/CA Foundation/GMAT/SAT/GRE quant — see docs/project/EXAM_REGISTRY.json)** — and the TOC-as-lessons pass (2026-11-11) plus the internet-research gap pass (2026-11-11, owner directive: 'use internet research for each book and think of your own if any lesson is missing add it') grew the
+   whole shelf to 210 ch / 827 planned lessons (91 new planned lessons + 3 new
+   chapters — geometry transformations, probability joint distributions, QA
+   modern maths; every addition source-backed, see SOURCE_LOG's
+   internet-research-gap section) with 379 surveyed topics folded
    into host lessons per docs/project/TOC_LESSON_GUIDE.md; lesson-level
-   census 1,861 topics — 1,068 lessons + 403 folds + 390 cross-refs, 0 gaps**
+   census 1,861 topics — 1,113 lessons + 379 folds + 369 cross-refs, 0 gaps**
 
 **Authoring order is unchanged** (the planning and audit passes wrote zero
 lessons): one book at a time — Advanced Algebra authoring opens run 90; the
