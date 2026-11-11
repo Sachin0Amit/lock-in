@@ -451,3 +451,13 @@ server.log
 # figure-verification protocol §6 — the audit-queue builder (whitelisted: the
 # dedicated figure-audit job re-runs it every sweep; progress-preserving)
 !/scripts/build_figure_audit_queue.ts
+# figure-audit job 524541 fire 1 tooling (2026-11-11): screenshot+crop pipeline,
+# quota-friendly vision montages, layer-1.5 live-DOM values audit, generic E2E smoke
+!/scripts/figure-audit-fire1.sh
+!/scripts/figure-audit-bboxes.page.js
+!/scripts/figure-audit-montage.py
+!/scripts/figure-audit-vision.sh
+!/scripts/figure-audit-domvalues.sh
+!/scripts/figure-audit-domvalues.page.js
+!/scripts/figure-audit-smoke.sh
+!/scripts/figure-audit-smoke.page.js

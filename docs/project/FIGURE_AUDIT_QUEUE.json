@@ -2,12 +2,12 @@
   "updated": "2026-11-11",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 0,
+  "cursor": 12,
   "stats": {
     "lessonsWithFigures": 125,
     "figureTotal": 221,
-    "done": 5,
-    "pending": 120
+    "done": 17,
+    "pending": 108
   },
   "items": [
     {
@@ -15,84 +15,108 @@
       "bookId": "foundation-mathematics",
       "chapter": 1,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-comparing-ordering-numbers",
       "bookId": "foundation-mathematics",
       "chapter": 1,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-rounding-and-estimating",
       "bookId": "foundation-mathematics",
       "chapter": 1,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-addition-carrying",
       "bookId": "foundation-mathematics",
       "chapter": 2,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1: 2 figs PASS after fix (carry pills moved to receiving columns tens/hundreds/thousands, leaders re-attached birthing->landing; ch-02.ts)"
     },
     {
       "lessonId": "fm-subtraction-borrowing",
       "bookId": "foundation-mathematics",
       "chapter": 2,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-multiplication-repeated-addition",
       "bookId": "foundation-mathematics",
       "chapter": 2,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-division-remainders-zero",
       "bookId": "foundation-mathematics",
       "chapter": 2,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-order-of-operations",
       "bookId": "foundation-mathematics",
       "chapter": 2,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-divisibility-and-its-tests",
       "bookId": "foundation-mathematics",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1: fig PASS after fix (caption+aria six->seven screens to match the 7 drawn boxes; ch-03.ts)"
     },
     {
       "lessonId": "fm-prime-numbers-factorisation",
       "bookId": "foundation-mathematics",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-highest-common-factor",
       "bookId": "foundation-mathematics",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-lowest-common-multiple",
       "bookId": "foundation-mathematics",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "fire 1 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + auditor-vision montage; math cross-read verified)"
     },
     {
       "lessonId": "fm-hcf-lcm-and-how-they-relate",

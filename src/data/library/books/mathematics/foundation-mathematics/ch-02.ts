@@ -170,14 +170,14 @@ export const chapter02: Chapter = {
           svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Column addition of 4589 and 2764 with carry cells above the tens, hundreds and thousands columns">
   <g font-size="13" fill="currentColor" text-anchor="middle">
     <text x="30" y="46" opacity="0.75" text-anchor="start">carries →</text>
-    <rect x="290" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
-    <rect x="430" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
-    <rect x="570" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
-    <text x="320" y="46" font-weight="700" fill="#ea580c">1</text>
-    <text x="460" y="46" font-weight="700" fill="#ea580c">1</text>
-    <text x="600" y="46" font-weight="700" fill="#ea580c">1</text>
-    <line x1="632" y1="41" x2="700" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
-    <text x="655" y="30" font-size="11" opacity="0.75" text-anchor="start">each carry = 1</text>
+    <rect x="185" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <rect x="325" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <rect x="465" y="24" width="60" height="34" rx="17" fill="#ea580c" opacity="0.16" stroke="#ea580c" stroke-width="1.5"/>
+    <text x="215" y="46" font-weight="700" fill="#ea580c">1</text>
+    <text x="355" y="46" font-weight="700" fill="#ea580c">1</text>
+    <text x="495" y="46" font-weight="700" fill="#ea580c">1</text>
+    <line x1="535" y1="41" x2="640" y2="41" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/>
+    <text x="645" y="30" font-size="11" opacity="0.75" text-anchor="start">each carry = 1</text>
     <text x="80" y="120" opacity="0.75" text-anchor="start">4,589</text>
     <text x="80" y="182" opacity="0.75" text-anchor="start">2,764</text>
     <g stroke="currentColor" stroke-width="1.5" opacity="0.5" fill="none">
@@ -193,9 +193,9 @@ export const chapter02: Chapter = {
       <text x="215" y="252">7</text><text x="355" y="252">3</text><text x="495" y="252">5</text><text x="635" y="252">3</text>
     </g>
     <g stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" fill="none" opacity="0.8">
-      <path d="M 640 94 Q 630 70 615 60"/>
-      <path d="M 500 94 Q 490 70 475 60"/>
-      <path d="M 360 94 Q 350 70 335 60"/>
+      <path d="M 640 94 Q 560 76 497 60"/>
+      <path d="M 500 94 Q 420 76 357 60"/>
+      <path d="M 360 94 Q 280 76 217 60"/>
     </g>
     <text x="150" y="282" font-size="12" opacity="0.8" text-anchor="start">column totals 13, 15, 13, 7 → write 3, 5, 3, 7 and carry 1, 1, 1</text>
   </g>

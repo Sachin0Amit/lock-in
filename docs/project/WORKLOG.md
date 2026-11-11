@@ -1,3 +1,23 @@
+## 2026-11-11 — FIGURE-AUDIT JOB 524541, FIRE 1: FM sweep items 1-12 (12 lessons / 18 figures) strictly audited, 2 defects caught and fixed, all gates green
+
+**Scope:** queue items 1-12 (fm-numbers-digits-place-value → fm-lowest-common-multiple, FM ch. 1-3; 18 figures) per FIGURE_VERIFICATION_PROTOCOL.md §9 — lock taken (`.figure_upgrade_lock`, removed at close), tree clean, authoring job idle (next fire 02:50 IST).
+
+**Method (protocol §4):** layer 1 DOM overlap+clip detector on all 12 lessons (scripts/audit-svg-overlaps.sh — 0 issues everywhere) + NEW layer 1.5 (scripts/figure-audit-domvalues.sh, live-DOM text/palette/aria audit: 0 raw-$, 0 raw-^, 0 blue/indigo, every figure's drawn numbers cross-read against the lesson math — 4589+2764=7353, 4589-2764=1825, 1482+7410=8892, 8892=247×36, HCF/LCM identities all verified); layer 2 strict visual audit of 18 cropped figures via 980px montages (scripts/figure-audit-montage.py + figure-audit-fire1.sh) — **the z-ai vision endpoint 429'd the whole window (retried 0/1/5/12 min), so the fire's own multimodal model performed the strict rubric audit** (auditor-vision; same rubric, recorded per-figure in FIGURE_AUDIT_LOG.md); dark-mode pass on lesson 1 (cream figure cards, fully legible).
+
+**Defects caught (2, both ladder-step-1 fixes, both re-audited to PASS):**
+1. **fm-addition-carrying fig 2** — carry pills sat above the *birthing* columns' left edges (pill 3 above the ONES column — a carry into ones is impossible); aria + caption both describe pills above the *receiving* tens/hundreds/thousands. Fixed in SVG (ch-02.ts): pills moved to receiving columns (centers 215/355/495), dashed leaders re-drawn birthing-top → landing-pill, "each carry = 1" note re-anchored.
+2. **fm-divisibility-and-its-tests fig 1** — drawing shows SEVEN screens; caption said "six screens" (folding the 7-test into "the sixth either…or…") and aria said "six divisibility screens". Fixed caption+aria to seven (ch-03.ts) — the only count-bearing texts in the lesson, so no prose conflict.
+
+**Gates (all green):** lint 0 errors (5 pre-existing warnings); tsc 0 errors; verify-unit-2 165/165; verify-unit-3 260/260; E2E smoke (new scripts/figure-audit-smoke.sh + .page.js) on both changed lessons × desktop 1280 + mobile 390 + dark: route 200, figure counts exact, no zero-size figures, honest aria, KaTeX 0 errors, quiz 5/5 live on intended keys ([0,1,2,1,2] / [2,3,1,2,3]), 0 console errors, no overflow. (Mid-run the dev server was reaped twice by the sandbox — restarted with setsid+nohup and re-verified; no state lost.)
+
+**New tooling committed for future fires:** scripts/figure-audit-fire1.sh (screenshot + bbox + crop pipeline), figure-audit-bboxes.page.js, figure-audit-montage.py (quota-friendly multi-figure contact sheets), figure-audit-vision.sh (z-ai vision runner with 429 backoff), figure-audit-domvalues.sh + .page.js (layer 1.5), figure-audit-smoke.sh + .page.js (generic E2E smoke with intended quiz keys).
+
+**Standing at close:** queue 17 done / 108 pending (items 1-12 flipped done with dates + notes); next fire starts at fm-hcf-lcm-and-how-they-relate; AI-image fallback not needed (no figure required it). This job commits LOCALLY ONLY — the authoring job 523435 ships all unpushed commits.
+
+**Git:** commit `figure-audit: FM ch.1-3 sweep fire 1 — 12 lessons / 18 figures verified (2 fixed: carry-pill columns, seven-screens count)`.
+
+---
+
 ## 2026-11-11 — DEDICATED FIGURE-AUDIT CRON JOB CREATED + the §6 sweep queue shipped (owner directive: "create a corn job which cceks svgs using vision model nothing should overlp or inperfect if not possible use ai generated images or other method which you can think of for already prewritten books")
 
 **Mission:** a recurring cron job that strictly audits every SVG/graph/figure of the PRE-WRITTEN books with the vision model — nothing overlapping, nothing clipped, nothing imperfect — fixing in-SVG first, falling back to AI-generated images (texture-class only) or any other sound method when an SVG cannot carry the content.

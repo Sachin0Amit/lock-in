@@ -337,8 +337,8 @@ export const chapter03: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The screening desk. A number enters at the top and passes through six screens, cheapest first. The first three screens read only tail digits (Family 1); the fourth adds the digits (Family 2); the fifth adds them with alternating signs (Family 3); the sixth either splits the divisor into coprime parts (Family 4) or, for the stubborn 7, doubles the units digit and subtracts (Family 5). No screen performs a division — each exploits one hidden structure of place value.',
-          svg: `<svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart of the six divisibility screens, from tail digits through digit sums to the split and the seven test">
+            'The screening desk. A number enters at the top and passes through seven screens, cheapest first. The first three screens read only tail digits (Family 1); the fourth adds the digits (Family 2); the fifth adds them with alternating signs (Family 3); the sixth splits the divisor into coprime parts (Family 4); the seventh, for the stubborn 7, doubles the units digit and subtracts (Family 5). No screen performs a division — each exploits one hidden structure of place value.',
+          svg: `<svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart of the seven divisibility screens, from tail digits through digit sums to the split and the seven test">
   <g font-size="13" fill="currentColor">
     <text x="380" y="26" text-anchor="middle" font-weight="700">the number enters the screening desk</text>
     <line x1="380" y1="36" x2="380" y2="52" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
