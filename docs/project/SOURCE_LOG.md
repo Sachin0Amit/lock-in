@@ -2559,3 +2559,39 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
   setting (per G. H. Moore's 2008 survey of the emergence of open/closed sets).
 - Zero working copies held; nothing to delete at chapter close (the zero-downloads discipline of
   runs 71–80).
+
+### Run 90 — 2026-11-11 (Advanced Algebra OPENS: ch. 1 lessons 1.1 + 1.2; the owner's full research protocol executed)
+
+- **Download ledger**: `M4 Calculus :: 1. Relations and Functions` — Drive file id
+  `1koE8vUUMJHEN582NTiVuwP1nzktn8Xzj` (the id banked in DRIVE_TOC_SURVEY.md's m4-01 entry), 120-page
+  scanned Cengage module PDF, 79 MB → `temporary-references/m4-01-relations-and-functions.pdf`.
+  Kept for the remaining six lessons of chapter 1 (per-unit deletion law — deleted when the unit
+  verifies complete, never before).
+- **Extraction method**: `pdftotext` returns ~0 chars (pure scan, no text layer) → **vision-model
+  transcription** (`z-ai vision`) of printed pp. 1.10–1.25 in three batches (5+5+6 pages; page-offset
+  calibration: printed 1.N = PDF page N+3, VLM-verified on five pages). Transcriptions:
+  `temporary-references/m4scan/tr-book-1.10-1.14.txt`, `tr-book-1.15-1.19.txt`,
+  `tr-book-1.20-1.25.txt` (~53K chars: definitions, Illustrations 1.30–1.67 solution shapes, CAE
+  1.2/1.3/1.4 with answers, figure inventory). Study-never-reproduce honored: the module informed and
+  verified concepts; every roster, witness, illustration number, figure and exercise in lessons 1.1 +
+  1.2 is this book's own.
+- **Accuracy catch on record**: the module's Illustration 1.63 as printed swaps the direction of its
+  onto count (labels it n(A)=3, n(B)=5 while computing 3⁵ − ³C₁·2⁵ + ³C₂·1⁵ = 150 — the arithmetic
+  of a 5-onto-3 count). Our lesson 1.2 teaches the corrected pair in both directions (3→5: ⁵P₃ = 60
+  one-one, 0 onto; 5→3: 0 one-one, 150 onto), brute-force verified in scripts/verify-book4-ch01.ts
+  section F.
+- **Internet research (2026-11-11)**: JEE Main syllabus unit 1 scope verbatim — "Relation, type of
+  relations, equivalence relations; functions: one-one, into and onto functions, composition of
+  functions" (allen.in JEE syllabus listing + vedantu JEE 2026 syllabus page); NCERT class 12 ch. 1
+  arc (empty/universal/reflexive/symmetric/transitive/equivalence + one-one/onto/bijective — byjus +
+  vedantu chapter pages); counting formulas cross-checked (math.stackexchange surjection count via
+  inclusion–exclusion; aakash.ac.in ⁿPₘ injective count; bhanzu bijective n!). All opened and
+  cross-checked; the syllabus line and the counting formulas are the load-bearing facts.
+- **Citation keys used by the lessons**: `cengage-m2-algebra` (the Drive Cengage ground — the studied
+  module is M4; the M2 key covers the Cengage JEE module family the style contract names),
+  `cengage-jee-style` (presentation contract), `ncert-math12-ch1-relations-functions`,
+  `ncert-math11-ch2-functions` (school canon, banked), `openstax-college-algebra` (sequencing
+  cross-check, banked). No new keys needed this run.
+- **The master plan the owner asked for**: `docs/research/AA_CH01_MASTER_PLAN.md` — research record,
+  module→lesson map for all 8 lessons, per-lesson authoring plans, question-type census, audit
+  protocol. Committed with the run.

@@ -1,16 +1,19 @@
 import type { Book, Chapter } from '../../../types'
+import { chapter01 } from './ch-01'
 
 /**
  * Advanced Algebra — the fourth book of the Mathematics shelf.
  *
- * STATUS: PLANNED (promoted 2026-11-10, run 89; enriched by the topic-inclusion
- * guarantee pass, same day) — 10 chapters / 57 planned
- * lessons, zero lessons written yet. Authoring opens at run 90 with chapter 1
- * (lessons 1.1 + 1.2, the two-lessons-per-run cadence); the book flips to
- * 'in-progress' with its first written lesson and to 'complete' only when all
- * 10 chapters and their unit reviews are fully gated. Lesson ids will use the
- * `aa-` prefix (verified unused across all 120 existing lesson ids at
- * promotion time; globally unique, stable forever).
+ * STATUS: IN-PROGRESS (first lessons written run 90, 2026-11-11) —
+ * 10 chapters / 57 planned lessons, of which chapter 1 now carries its first
+ * two written lessons (1.1 Relations: the Set-of-Pairs View + 1.2 One-One
+ * and Onto: Classifying the Machines, ids aa-relations-the-set-of-pairs-
+ * view and aa-one-one-and-onto-classifying-the-machines); the remaining
+ * 55 lessons (6 of chapter 1 + chapters 2–10) stay planned. The book
+ * flips to 'complete' only when all 10 chapters and their unit reviews are
+ * fully gated. Lesson ids use the `aa-` prefix (verified unused across
+ * all 120 existing lesson ids at promotion time; globally unique, stable
+ * forever).
  *
  * POSITIONING (the no-duplication contract, MASTER_PLAN rule 7): Elementary
  * Algebra ended at the function doorstep — the input-output machine, its
@@ -100,25 +103,7 @@ import type { Book, Chapter } from '../../../types'
  *   opens exactly on composites, inverses and the domains of composites.
  */
 const chapters: Chapter[] = [
-  {
-    number: 1,
-    slug: 'functions-as-objects',
-    title: 'Functions as Objects',
-    summary:
-      'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
-    status: 'planned',
-    lessons: [],
-    plannedLessons: [
-      'Relations: the Set-of-Pairs View',
-      'One-One and Onto: Classifying the Machines',
-      'Composition: Machines in Series',
-      'Inverse Functions: the Machine Undone',
-      'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog',
-      'Even and Odd Functions and Their Extensions',
-      'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',
-      'The Period Census: Periods of Transformed and Composite Functions',
-    ],
-  },
+  chapter01,
   {
     number: 2,
     slug: 'the-quadratic-at-depth',
@@ -277,7 +262,7 @@ export const advancedAlgebra: Book = {
   level: 'Class 11–12 algebra → the doorstep of calculus',
   description:
     'The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.',
-  status: 'planned',
+  status: 'in-progress',
   accent: ['#be123c', '#881337'],
   chapters,
 }

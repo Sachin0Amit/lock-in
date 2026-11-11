@@ -1,3 +1,11 @@
+## 2026-11-11 — RUN 90: ADVANCED ALGEBRA OPENS — chapter 1 lessons 1.1 + 1.2 written and fully gated (the owner's full research protocol: Drive download → VLM page transcription → internet research → master plan → verify-first audit → author)
+
+- **Research:** M4-01 Drive module downloaded (120-page scanned PDF, 79 MB; printed 1.N = PDF N+3) · pdftotext empty → z-ai vision transcription of pp. 1.10–1.25 (~53K chars: definitions, Illustrations 1.30–1.67, CAE 1.2/1.3/1.4) · JEE Main unit-1 syllabus line + NCERT class-12 ch-1 arc + counting formulas web-checked · master plan at docs/research/AA_CH01_MASTER_PLAN.md.
+- **1.1 Relations: the Set-of-Pairs View** (5,008 words, quiz [3,2,1,0,2], 14 exercises, 2 figures): the cartesian product as the census of pairings; the relation as a chosen subset; roster/set-builder/arrow displays; domain/range/codomain + the containment law; the 2^pq derivation; inverse-relation swap laws; the type census (identity vs reflexive, symmetric, transitive, the mod-5 and same-parity equivalence classes partitioning, the 1+ab>0 trap); the function promotion (totality + single-valuedness, n^m); Dirichlet 1837 history.
+- **1.2 One-One and Onto: Classifying the Machines** (4,360 words, quiz [1,2,1,0,3], 14 exercises, 2 figures): the contrapositive discipline + the x³+x+1 factorisation derivation (never-negative companion ≥ 1); the horizontal probe (vs the vertical probe); onto by both methods + the codomain-trim discipline; the 2×2 verdict table all cells certified; the pigeonhole verdicts + counting derivations (ⁿPₘ, inclusion–exclusion 150 of 243, n!); restriction re-classifies; the invertibility promise for 1.4.
+- **Gates:** verify-book4-ch01.ts 235 pre-writing checks green BEFORE prose, 347/347 with authored audits · tsc + eslint clean · e2e-aa-1x.sh ×2 lessons ×3 viewports (quiz 5/5 live, 0 console errors; one 390px inline-roster overflow caught and fixed) · VLM PASS ×6 (lessons + figures) · **accuracy catch**: the module's Illustration 1.63 onto-count direction corrected in our lesson, brute-force verified.
+- **Standing:** M4-01 PDF + transcriptions kept in temporary-references/ for lessons 1.3–1.8; run 91 opens 1.3 Composition + 1.4 Inverse Functions; the chapter-authoring cron job recreated with the research→plan→audit→write protocol; push pending (no PAT this turn).
+
 ## 2026-11-11 — FX-02 "GRAPH IT" IMPLEMENTED (owner-directed, single-item approval: "fx 02 implement")
 
 - **The directive:** implement FX-02 — the "Graph it" button from PROPOSED_FEATURES section H (a small plot icon on rendered display equations opens an inline grapher with sliders for the formula's constants, works on any book's equations, complementing the per-book IN tools). Nothing else approved: 67 proposals still await add/skip.
@@ -1891,7 +1899,7 @@ verify-first throughout; the book closed complete at 11/11 chapters / 37 lessons
 | 10 | Graphs of Equations (`graphs-of-equations`) — **COMPLETE 3/3** | 10.1 The Coordinate Plane and Linear Graphs (4,799 w) · 10.2 Slope: the Steepness Theorem (4,424 w) · 10.3 The Parabola: Quadratic Graphs and Vertices (5,368 w) |
 | 11 | The Toolbox and the Doorstep (`the-toolbox-and-the-doorstep`) — **COMPLETE 3/3** | 11.1 Word Problems: the Toolkit at Work (4,612 w) · 11.2 Competition Algebra: Identities and Substitutions (4,128 w) · 11.3 The Function Idea: the Doorstep (6,523 w) |
 
-### Advanced Algebra — mathematics shelf · **PROMOTED (run 89, 2026-11-10: research phase complete — 10 chapters / 35 planned lessons; authoring opens run 90)**
+### Advanced Algebra — mathematics shelf · **IN PROGRESS (run 90 opened it, 2026-11-11: chapter 1 'Functions as Objects' carries 2 of 8 lessons — 9,368 words; 55 lessons remain planned)**
 
 *Functions as objects — the second course* · Class 11–12 algebra → the doorstep of
 calculus · accent rose-crimson · cover auto-generated.
@@ -1908,9 +1916,30 @@ green (planned-book rendering: '0 written · 35 planned', greyed TOC, empty stat
 404s honest, zero console errors). Lesson ids will use the `aa-` prefix (reserved,
 verified unused). 9 citation keys reserved + 4 carried.
 
+9 citation keys reserved + 4 carried.
+
+**Run 90 (2026-11-11) — the authoring opening, with the owner's full research
+protocol:** M4-01 "Relations and Functions" downloaded from the Drive (79 MB
+scan, id 1koE8vUUMJHEN582NTiVuwP1nzktn8Xzj) → pdftotext empty → vision-model
+transcription of printed pp. 1.10–1.25 (three z-ai vision batches, ~53K chars)
++ JEE/NCERT web-checks; the master plan written to
+`docs/research/AA_CH01_MASTER_PLAN.md` (module→lesson map for all 8 lessons,
+per-lesson plans, question-type census, audit protocol). Verify-first honored:
+`scripts/verify-book4-ch01.ts` ran 235 pre-writing checks green BEFORE any
+prose (every roster, witness, count and quiz key pinned; every m,n ≤ 5
+counting formula brute-forced), then 347/347 with the authored audits. Shipped
+lessons 1.1 + 1.2 (headers above); gates: tsc + eslint clean, e2e-aa-1x.sh ×2
+lessons × desktop/mobile/dark (quiz 5/5 live on intended keys, Sol. pills 20,
+KaTeX 246/145 nodes with 0 errors, one 390px roster overflow caught + fixed,
+0 console errors), VLM PASS ×6 (both lessons' three viewports + all four
+figures). **Accuracy catch on record:** the module's Illustration 1.63 as
+printed swaps the direction of its onto count; our lesson 1.2 teaches the
+corrected pair (3→5: ⁵P₃ = 60 one-one, 0 onto; 5→3: 0 one-one, 150 onto),
+brute-force verified. The book flipped to 'in-progress'.
+
 | # | Chapter (slug) | Planned lessons |
 |---|---|---|
-| 1 | Functions as Objects (`functions-as-objects`) — **PLANNED** | Relations: the Set-of-Pairs View · One-One and Onto: Classifying the Machines · Composition: Machines in Series · Inverse Functions: the Machine Undone |
+| 1 | Functions as Objects (`functions-as-objects`) — **IN PROGRESS (2/8, run 90)** | WRITTEN: 1.1 Relations: the Set-of-Pairs View (5,008 words; quiz keys [3,2,1,0,2]; 14 exercises; arrow-diagram + mod-5-class figures) · 1.2 One-One and Onto: Classifying the Machines (4,360 words; quiz keys [1,2,1,0,3]; 14 exercises; horizontal-probe + pigeonhole figures) — PLANNED: Composition: Machines in Series · Inverse Functions: the Machine Undone · The Function Zoo · Even and Odd · Graph Transformations · The Period Census |
 | 2 | The Quadratic at Depth (`the-quadratic-at-depth`) — **PLANNED** | Vertex Form at Work: Maxima and Minima · Quadratic Inequalities and the Sign Diagram · Symmetric Reads and Common Roots · Location of Roots: Doors in Intervals |
 | 3 | Complex Numbers: the New Rung (`complex-numbers`) — **PLANNED** | The Closure Failure That Forces i · Conjugate and Modulus · Negative Discriminants: the Doors Turn Complex |
 | 4 | Inequalities: the Classical Engine (`classical-inequalities`) — **PLANNED** | The Arithmetic-Geometric Mean Inequality · Cauchy-Schwarz and Engel’s Form · Absolute Value at Depth: the Triangle Inequality |

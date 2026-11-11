@@ -438,3 +438,10 @@ server.log
 !/scripts/verify-graphit-census.ts
 !/scripts/e2e-graph-it.sh
 !/scripts/run-graphit-verify.sh
+# run 90 — Advanced Algebra ch. 1 open (owner directive: start authoring the
+# lessons, full research protocol): pre-write verifier (A–G pins + H/I
+# authored audits) and per-lesson e2e scripts for lessons 1.1 + 1.2
+!/scripts/verify-book4-ch01.ts
+!/scripts/e2e-aa-1x.sh
+!/scripts/e2e-aa-11.page.js
+!/scripts/e2e-aa-12.page.js

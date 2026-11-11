@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-10 22:54:14 (Asia/Kolkata)",
+  "generated": "2026-11-11 12:06:15 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -8653,7 +8653,7 @@
         "discipline": "mathematics",
         "level": "Class 11–12 algebra → the doorstep of calculus",
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
-        "status": "planned",
+        "status": "in-progress",
         "chaptersPlanned": 10,
         "chaptersWritten": 0,
         "chapters": [
@@ -8662,11 +8662,9 @@
             "slug": "functions-as-objects",
             "title": "Functions as Objects",
             "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Relations: the Set-of-Pairs View",
-              "One-One and Onto: Classifying the Machines",
               "Composition: Machines in Series",
               "Inverse Functions: the Machine Undone",
               "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
@@ -8674,8 +8672,153 @@
               "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
               "The Period Census: Periods of Transformed and Composite Functions"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "aa-relations-the-set-of-pairs-view",
+                "number": "1.1",
+                "title": "Relations: the Set-of-Pairs View",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5008,
+                "readMins": 25,
+                "concepts": [
+                  "cartesian product as the census of all pairings",
+                  "relation as a chosen subset of A × B",
+                  "roster, set-builder and arrow-diagram displays",
+                  "domain, range and codomain",
+                  "the type census: empty, universal, identity, reflexive",
+                  "symmetric and transitive relations",
+                  "equivalence relations and their classes",
+                  "the function as a total, single-valued relation"
+                ],
+                "objectives": [
+                  "treat a relation as a concrete object — a chosen subset of the cartesian product — and display it as a roster, a set-builder rule or an arrow diagram",
+                  "read the domain, range and codomain off any of the three displays, with the containment law Range ⊆ Codomain proved by inspection",
+                  "count relations with the 2^(pq) law and functions with the n^m law, and keep the two counts apart",
+                  "classify relations as empty, universal, trivial, identity, reflexive, symmetric, transitive — and prove an equivalence by checking all three properties",
+                  "read equivalence classes as the packaging an equivalence imposes, and verify that the classes partition the set",
+                  "state the two extra demands (totality and single-valuedness) that promote a relation into a function, and judge rosters against them"
+                ],
+                "prerequisites": [
+                  "al-the-function-idea-the-doorstep",
+                  "ans-the-algebra-of-divisibility"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math12-ch1-relations-functions",
+                  "ncert-math11-ch2-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 24,
+                  "heading": 9,
+                  "callout": 20,
+                  "list": 2,
+                  "figure": 2,
+                  "terms": 1,
+                  "equation": 5,
+                  "example": 6,
+                  "derivation": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 10,
+                  "insight": 3,
+                  "warn": 3,
+                  "theorem": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 3
+              },
+              {
+                "id": "aa-one-one-and-onto-classifying-the-machines",
+                "number": "1.2",
+                "title": "One-One and Onto: Classifying the Machines",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4360,
+                "readMins": 22,
+                "concepts": [
+                  "one-one (injective) and many-one functions",
+                  "the contrapositive discipline",
+                  "the horizontal probe",
+                  "onto (surjective) and into functions",
+                  "bijective functions",
+                  "the pigeonhole verdicts",
+                  "counting injections, surjections and bijections",
+                  "codomain as a choice"
+                ],
+                "objectives": [
+                  "define one-one and onto symbolically and judge any machine against each verdict with the correct witness discipline",
+                  "run the analytical method — set f(x₁) = f(x₂), factor, decide — and the horizontal probe on graphs",
+                  "settle onto questions by both methods: compare the range with the codomain, or solve x = g(y) and check where it lands",
+                  "fill the 2×2 verdict table with certified examples and read the either-or laws off it",
+                  "apply the finite-set pigeonhole verdicts and count injections (ⁿPₘ), surjections (inclusion–exclusion) and bijections (n!) for small sets",
+                  "trim a codomain honestly to make a machine onto, and re-classify a machine by restricting its domain"
+                ],
+                "prerequisites": [
+                  "aa-relations-the-set-of-pairs-view",
+                  "al-the-parabola-quadratic-graphs-and-vertices"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math12-ch1-relations-functions",
+                  "ncert-math11-ch2-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "heading": 7,
+                  "callout": 11,
+                  "list": 2,
+                  "derivation": 3,
+                  "figure": 2,
+                  "example": 6,
+                  "table": 1,
+                  "equation": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 5
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "insight": 3,
+                  "warn": 2,
+                  "theorem": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 0
+              }
+            ],
+            "words": 9368
           },
           {
             "number": 2,
@@ -8719,7 +8862,10 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "The Arithmetic-Geometric Mean Inequality",
+              "The Weighted AM-GM and Its Consequences",
               "Cauchy-Schwarz and Engel’s Form",
+              "The Rearrangement and Chebyshev Inequalities",
+              "Jensen’s Inequality and Convexity",
               "Absolute Value at Depth: the Triangle Inequality"
             ],
             "lessons": [],
@@ -8737,7 +8883,8 @@
               "Geometric Progressions and the Infinite Tail",
               "Harmonic and Arithmetico-Geometric Progressions",
               "Special Series and the Method of Differences",
-              "Sigma Notation and the Classical Power Sums"
+              "Sigma Notation and the Classical Power Sums",
+              "Recurring Series and the Scale of Relation"
             ],
             "lessons": [],
             "words": 0
@@ -8770,6 +8917,8 @@
             "plannedLessons": [
               "Mathematical Induction: the Domino Principle",
               "The Binomial Theorem, Proved",
+              "The Binomial Theorem for Any Index",
+              "The Multinomial Theorem",
               "Binomial Coefficients at Work",
               "Binomial Applications and Approximations"
             ],
@@ -8785,8 +8934,11 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "How Many Roots: Degree n, n Roots",
+              "Descartes’ Rule of Signs",
               "Cubics and Quartics: the Symmetric Functions",
-              "Transformation of Equations"
+              "Cardan and Ferrari: the Cubic and Quartic, Solved",
+              "Transformation of Equations",
+              "Reciprocal Equations"
             ],
             "lessons": [],
             "words": 0
@@ -8803,6 +8955,7 @@
               "Logarithms: the Inverse Machine",
               "The Laws of Logarithms and the Change of Base",
               "Logarithmic and Exponential Equations",
+              "Exponential and Logarithmic Series",
               "Logarithm Tables: Characteristic, Mantissa and Antilogarithm"
             ],
             "lessons": [],
@@ -8834,7 +8987,7 @@
         "level": "Class 6–10 geometry → the olympiad doorstep",
         "description": "The book where mathematics becomes proof. Foundation Mathematics banked the shapes and their measures; this book rebuilds geometry the way Euclid did — undefined words, postulates, and theorems earned one argument at a time. Congruence and the triangle criteria, similarity and a Pythagoras that is finally proved, the parallelogram family, the circle theorems olympiad problems run on, the ruler-and-compass discipline the rationalized syllabus dropped, Heron’s formula and the solids — every formula either proved or honestly flagged. The book closes on the ideas that broke and rebuilt the subject: equivalents of the parallel postulate, Hilbert’s rigour repair, and the non-Euclidean geometries born from denying Euclid’s fifth. Cross-references Foundation Mathematics throughout; hands off to Coordinate Geometry, Trigonometry and the olympiad ladder.",
         "status": "planned",
-        "chaptersPlanned": 11,
+        "chaptersPlanned": 12,
         "chaptersWritten": 0,
         "chapters": [
           {
@@ -8880,7 +9033,9 @@
               "Congruence: the Idea of Same Shape and Size",
               "The Congruence Criteria: SAS, ASA, AAS, SSS, RHS",
               "Isosceles Triangles: the Classic Consequences",
-              "Inequalities in a Triangle: Sides and Angles"
+              "Inequalities in a Triangle: Sides and Angles",
+              "The Cevian Theorems: Ceva and Menelaus",
+              "Stewart’s Theorem and the Median Relation"
             ],
             "lessons": [],
             "words": 0
@@ -8903,6 +9058,22 @@
           },
           {
             "number": 5,
+            "slug": "transformations-and-symmetry",
+            "title": "Transformations and Symmetry: the Rigid-Motion Idea",
+            "summary": "Congruence and similarity earn their machine definitions: translations, reflections and rotations written as functions of the plane — the rigid motions — their compositions read as the isometry idea, line and rotational symmetry found as the fixed sets of those motions, and dilations as the scale engines that re-derive similarity. The Common Core’s transformation-first route and NCERT’s symmetry chapters are both honoured: SAS/ASA/SSS are re-read as invariances under motion, and the ground is laid for the homothety reading of centres of similitude in the circle chapter and for the shifting of axes in Coordinate Geometry.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "The Rigid Motions: Slides, Flips and Turns",
+              "Composing Transformations and the Isometry Idea",
+              "Line and Rotational Symmetry",
+              "Dilations, Scale Factors and Similarity Re-Read"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 6,
             "slug": "quadrilaterals-and-polygons",
             "title": "Quadrilaterals and Polygons",
             "summary": "The parallelogram family — parallelogram, rectangle, rhombus, square, trapezium — with its diagnoses proved from triangle congruence. The midpoint theorem (and its converse) as the classic consequence, and polygons in general: interior/exterior angle sums, regular polygons, diagonals. The trapezium midsegment closes the chapter as similarity’s first application.",
@@ -8917,7 +9088,7 @@
             "words": 0
           },
           {
-            "number": 6,
+            "number": 7,
             "slug": "the-circle",
             "title": "The Circle: Chords, Angles and Tangents",
             "summary": "The circle read the classical way: chords and arcs, the angle-at-the-centre theorem, angles in the same segment, the cyclic quadrilateral and its opposite angles, tangents and the alternate-segment theorem. Every result proved from congruence and the angle census — the theorems that olympiad geometry actually runs on.",
@@ -8927,13 +9098,17 @@
               "Chords and Arcs: the First Circle Theorems",
               "Angles in a Circle: Centre, Circumference, Segment",
               "Tangents and the Alternate Segment Theorem",
-              "Cyclic Quadrilaterals"
+              "Cyclic Quadrilaterals",
+              "Power of a Point",
+              "Ptolemy’s Theorem",
+              "Common Tangents and Centres of Similitude",
+              "The Nine-Point Circle and Euler’s Line"
             ],
             "lessons": [],
             "words": 0
           },
           {
-            "number": 7,
+            "number": 8,
             "slug": "ruler-and-compass-constructions",
             "title": "Ruler-and-Compass Constructions",
             "summary": "The discipline the rationalized textbook dropped and the classic canon keeps: constructions with unmarked straightedge and collapsing compass — bisectors, perpendiculars, triangles from given parts, tangents to circles, similar figures. Each construction ends with its PROOF that the figure has the required property; the impossible constructions (trisecting a general angle) are named honestly and deferred to the algebra that explains them.",
@@ -8942,13 +9117,14 @@
             "plannedLessons": [
               "The Compass-and-Straightedge Discipline",
               "Bisectors, Perpendiculars and Standard Triangles",
-              "Tangents and Similar Figures by Construction"
+              "Tangents and Similar Figures by Construction",
+              "Inscribed, Circumscribed and the Regular Polygons"
             ],
             "lessons": [],
             "words": 0
           },
           {
-            "number": 8,
+            "number": 9,
             "slug": "areas-in-geometry",
             "title": "Areas: Heron’s Formula and the Plane Region",
             "summary": "Area as a proved quantity: rectangles and parallelograms from the axioms, triangles, and Heron’s formula derived (the algebra of AL and the surd craft it banked doing the work). Then the circle’s regions — sector, segment — with the area and circumference limits met honestly (the first limit in the shelf since Advanced Algebra’s infinite tail, and a doorstep Calculus will formalise). Combinations of plane figures complete the aptitude-exam scope.",
@@ -8963,13 +9139,14 @@
             "words": 0
           },
           {
-            "number": 9,
+            "number": 10,
             "slug": "solids-and-volumes",
             "title": "Surface Areas and Volumes",
             "summary": "The third dimension: prisms and cylinders, pyramids and cones, spheres and hemispheres — each formula either proved by dissection (Cavalieri’s principle stated honestly) or flagged as a fact whose proof belongs to calculus. Frustums and combinations of solids complete the aptitude and board scope; the cone/sphere limit arguments open the door Integral Calculus will walk through.",
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Cross-Sections and Solids of Revolution",
               "Prisms and Cylinders",
               "Pyramids, Cones and Frustums",
               "Spheres, Hemispheres and Combinations of Solids"
@@ -8978,7 +9155,7 @@
             "words": 0
           },
           {
-            "number": 10,
+            "number": 11,
             "slug": "proof-and-the-postulates",
             "title": "Proof, the Postulates and the Non-Euclidean Door",
             "summary": "The chapter the shelf owes its most curious readers: equivalents of the parallel postulate (Playfair’s form, the angle-sum statement), Hilbert’s repair of Euclid’s gaps, the discovery that the fifth postulate cannot be proved — and that denying it builds honest geometries (spherical/elliptic and hyperbolic, with Gauss, Lobachevsky and Bólyai named). History verified, not folklore; the door to differential geometry named.",
@@ -8993,7 +9170,7 @@
             "words": 0
           },
           {
-            "number": 11,
+            "number": 12,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
             "summary": "The closing synthesis in the house manner: competition geometry craft (the auxiliary line, the construction you add, the diagram census — olympiad-style worked problems at graded levels), the book in one page (the theorem map from postulates to volumes), and the doorstep itself: figures acquire addresses — Descartes’s idea — handing off to Coordinate Geometry, with Trigonometry named as the triangle’s measuring instrument.",
@@ -9048,7 +9225,8 @@
               "Slope and the Forms of a Line’s Equation",
               "Angles, Distances and Concurrency",
               "The Family of Lines",
-              "Shifting the Axes: Transformation to Origin"
+              "Shifting the Axes: Transformation to Origin",
+              "Rotation of Axes and the Invariants"
             ],
             "lessons": [],
             "words": 0
@@ -9079,7 +9257,8 @@
               "The Equation of a Circle in All Its Forms",
               "Position, Intersection and the Length of a Tangent",
               "Tangents, Normals, Chord of Contact",
-              "Two Circles: the Radical Axis and Contact Cases"
+              "Two Circles: the Radical Axis and Contact Cases",
+              "Orthogonal and Coaxal Systems of Circles"
             ],
             "lessons": [],
             "words": 0
@@ -9109,7 +9288,8 @@
             "plannedLessons": [
               "The Standard Ellipse and Its Anatomy",
               "Parametric Form, Chords and Position",
-              "Tangents, Normals and the Reflection Property"
+              "Tangents, Normals and the Reflection Property",
+              "Diameters, Conjugate Diameters and the Auxiliary Circle"
             ],
             "lessons": [],
             "words": 0
@@ -9140,7 +9320,11 @@
               "One Definition, Four Curves: Eccentricity",
               "Identifying the General Second-Degree Equation",
               "Tangents and Chords of Contact, Unified",
-              "The Director Circle: One Idea across the Conics"
+              "The Director Circle: One Idea across the Conics",
+              "The Normals from a Point: Three and Four",
+              "Pole and Polar, Unified",
+              "The Conic in Polar Form",
+              "Confocal Conics and Families of Conics"
             ],
             "lessons": [],
             "words": 0
@@ -9277,7 +9461,8 @@
               "a cos x + b sin x: the Shifted Wave",
               "Product–Sum Transformations",
               "Multiple Angles and Typical Values",
-              "Conditional Identities and Range Hunting"
+              "Conditional Identities and Range Hunting",
+              "Summation of Trigonometric Series"
             ],
             "lessons": [],
             "words": 0
@@ -9343,7 +9528,8 @@
             "plannedLessons": [
               "Elevation, Depression and the Right Setup",
               "Two Stations and the Ambiguous Cases",
-              "The Craft Problems"
+              "The Craft Problems",
+              "Ratios of Small Angles and the Dip of the Horizon"
             ],
             "lessons": [],
             "words": 0
@@ -9421,7 +9607,8 @@
               "Slopes of Tangents: the First Principles",
               "The Derivative as a Function",
               "Differentiability versus Continuity",
-              "The Families Differentiated: Polynomial to Inverse Trig"
+              "The Families Differentiated: Polynomial to Inverse Trig",
+              "The Hyperbolic Family Differentiated"
             ],
             "lessons": [],
             "words": 0
@@ -9437,7 +9624,8 @@
               "Sum, Product, Quotient and the Chain Rule",
               "Implicit and Parametric Differentiation",
               "Logarithmic Differentiation and the Determinant Rule",
-              "Higher Order Derivatives and Functional Relations"
+              "Higher Order Derivatives and Functional Relations",
+              "Differentiation of One Function with Respect to Another"
             ],
             "lessons": [],
             "words": 0
@@ -9544,7 +9732,8 @@
               "The Antiderivative and the Constant",
               "Substitution: the Chain Rule Undone",
               "Trigonometric Integrals and Standard Substitutions",
-              "Quadratic and Biquadratic Forms"
+              "Quadratic and Biquadratic Forms",
+              "Hyperbolic Integrals and Inverse Substitutions"
             ],
             "lessons": [],
             "words": 0
@@ -9574,7 +9763,8 @@
             "plannedLessons": [
               "The Limit of a Sum: Riemann’s Idea",
               "The Fundamental Theorems of Calculus",
-              "Definite By Parts, and Series by Integration"
+              "Definite By Parts, and Series by Integration",
+              "The Logarithm Defined as an Integral"
             ],
             "lessons": [],
             "words": 0
@@ -9589,7 +9779,8 @@
             "plannedLessons": [
               "The Elementary Properties and the Dummy Variable",
               "Odd, Even and Periodic Integrands",
-              "Leibniz’s Rule: Differentiating under the Integral"
+              "Leibniz’s Rule: Differentiating under the Integral",
+              "Piecewise Integrands: Modulus, GIF and Signum"
             ],
             "lessons": [],
             "words": 0
@@ -9603,6 +9794,7 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Areas under and between Curves",
+              "Areas and Lengths in Polar Coordinates",
               "Volumes by Cross-Sections and Shells",
               "Arc Length and Surfaces of Revolution",
               "Work, Fluid Forces and Centroids"
@@ -9664,7 +9856,8 @@
               "Partial Derivatives and Their Meaning",
               "The Chain Rule for Several Variables",
               "The Gradient and Directional Derivatives",
-              "Tangent Planes and Linear Approximation"
+              "Tangent Planes and Linear Approximation",
+              "Taylor’s Formula for Two Variables"
             ],
             "lessons": [],
             "words": 0
@@ -9694,7 +9887,8 @@
             "plannedLessons": [
               "The Double Integral and Iteration",
               "Polar, Cylindrical and Spherical",
-              "Mass, Centres and Moments"
+              "Mass, Centres and Moments",
+              "Jacobians and the Change of Variables"
             ],
             "lessons": [],
             "words": 0
@@ -9709,6 +9903,7 @@
             "plannedLessons": [
               "Motion in Space: Velocity, Acceleration and Curvature",
               "Vector Fields and Line Integrals",
+              "Surfaces, Area and Flux: the Surface Integral",
               "Conservative Fields and Path Independence",
               "Green’s, Stokes’s and Gauss’s Theorems"
             ],
@@ -9770,7 +9965,8 @@
               "Variable Separable",
               "Homogeneous Equations",
               "Linear Equations and the Integrating Factor",
-              "Exact Equations and Bernoulli"
+              "Exact Equations and Bernoulli",
+              "First Order, Higher Degree: Solvable for p, Clairaut and Lagrange"
             ],
             "lessons": [],
             "words": 0
@@ -9802,7 +9998,9 @@
               "The Characteristic Equation: Three Cases",
               "Superposition and Solution Structure",
               "Undetermined Coefficients",
-              "Variation of Parameters"
+              "Variation of Parameters",
+              "Higher-Order Linear Equations",
+              "The Cauchy-Euler Equation"
             ],
             "lessons": [],
             "words": 0
@@ -9958,7 +10156,8 @@
               "Invariant Subspaces and the Minimal Polynomial",
               "Generalized Eigenvectors, Nilpotent Operators and Jordan Form",
               "The Symmetric Promise — Axler’s proof-first arc: the self-adjoint (Hermitian) and normal operators, the spectral theorem, positive operators, isometries and unitary operators, the polar decomposition, and the properties of an operator determined by its eigenvalues",
-              "Powers, Markov Chains and the SVD Named"
+              "Powers, Markov Chains and the SVD Named",
+              "The Singular Value Decomposition: Image Processing and PCA"
             ],
             "lessons": [],
             "words": 0
@@ -9974,7 +10173,8 @@
               "Inner Products and Norms: the Geometry Defined",
               "Projections and Orthogonality",
               "Gram–Schmidt and Orthogonal Bases",
-              "Least Squares: the Overdetermined Verdict"
+              "Least Squares: the Overdetermined Verdict",
+              "Positive Definite Matrices: the Energy Test"
             ],
             "lessons": [],
             "words": 0
@@ -10078,7 +10278,8 @@
             "plannedLessons": [
               "Properties and Closures",
               "Equivalence Relations and Partitions",
-              "Partial Orderings and Hasse Diagrams"
+              "Partial Orderings and Hasse Diagrams",
+              "Topological Sorting: Order for the Algorithm"
             ],
             "lessons": [],
             "words": 0
@@ -10093,6 +10294,7 @@
             "plannedLessons": [
               "Graphs and Their Vocabulary",
               "Representation and Isomorphism",
+              "Bipartite Graphs, Matchings and Hall’s Theorem",
               "Connectivity, Euler and Hamilton",
               "Planarity and Coloring: Euler’s Formula at Work",
               "Shortest Paths: Dijkstra Met"
@@ -10259,7 +10461,9 @@
             "plannedLessons": [
               "Residues and Euler’s Criterion",
               "The Legendre Symbol",
-              "Gauss’s Lemma and Quadratic Reciprocity"
+              "Gauss’s Lemma and Quadratic Reciprocity",
+              "Sums of Two Squares and Pythagorean Triples",
+              "Fermat’s Last Theorem: the Honest Story"
             ],
             "lessons": [],
             "words": 0
@@ -10274,7 +10478,8 @@
             "plannedLessons": [
               "Finite Continued Fractions and Convergents",
               "Infinite Expansions and √2",
-              "Best Rational Approximations"
+              "Best Rational Approximations",
+              "Pell’s Equation"
             ],
             "lessons": [],
             "words": 0
@@ -10395,6 +10600,7 @@
               "Countability: the Integers and the Rationals",
               "Cantor’s Diagonal Argument",
               "Power Sets and Cantor’s Theorem",
+              "The Schröder-Bernstein Theorem",
               "The Arithmetic of Cardinals"
             ],
             "lessons": [],
@@ -10408,6 +10614,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Partial Orders, Chains and Bounds",
               "Well-Ordering and Transfinite Induction",
               "Ordinals as Order-Types",
               "Ordinal Arithmetic"
@@ -10543,6 +10750,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Structures, Satisfaction and Models",
               "A Formal Deduction System",
               "Soundness, Proved",
               "Completeness and Compactness, Honestly"
@@ -10558,6 +10766,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Recursive Functions and Church’s Thesis",
               "Turing Machines",
               "The Halting Problem",
               "The Incompleteness Theorems"
@@ -10664,6 +10873,8 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Integer Partitions and Ferrers Diagrams",
+              "Transversals and Matching: Hall’s Marriage Theorem",
+              "Combinatorial Designs: Block Designs, Steiner Systems and Latin Squares",
               "Burnside’s Lemma",
               "Pólya Counting"
             ],
@@ -10695,7 +10906,7 @@
         "level": "Class 11–12 probability → the statistics doorstep",
         "description": "The book that weights the counted universe Advanced Algebra and Combinatorics built. Sample spaces and the axioms beside the classical ratio; conditional probability, the multiplication theorem, and independence with its pairwise/mutual trap; the total probability theorem and Bayes’ engine with the base-rate cascade; random variables with expectation, variance, the expectation algebra and Chebyshev’s bound; the great distributions derived — binomial, geometric, Poisson, hypergeometric — with a recognition census; continuous variables with probability as area (Integral Calculus’s structural debt paid), the exponential and the normal family; and the limit theorems stated honestly with their proofs promised to Real Analysis. Cross-references Advanced Algebra, Combinatorics, Set Theory and Integral Calculus; hands off to Statistics and Operations Research.",
         "status": "planned",
-        "chaptersPlanned": 7,
+        "chaptersPlanned": 8,
         "chaptersWritten": 0,
         "chapters": [
           {
@@ -10784,13 +10995,32 @@
             "plannedLessons": [
               "Densities: Probability as Area",
               "Uniform and Exponential",
-              "The Normal Family and Standardization"
+              "The Normal Family and Standardization",
+              "The Poisson Process: the Exponential’s Clock"
             ],
             "lessons": [],
             "words": 0
           },
           {
             "number": 7,
+            "slug": "jointly-distributed-random-variables",
+            "title": "Jointly Distributed Random Variables",
+            "summary": "Ross’s chapter 6–7 arc earned in full: joint distributions discrete and continuous (tables and density patches), marginals and conditional distributions, independence of random variables, sums of random variables via the convolution engine, conditional expectation and prediction, covariance and correlation with the Cauchy–Schwarz link and its null cases, moment generating functions as transform identities, and order statistics — the sample minimum, maximum and range. This is the layer the limit theorems actually need, and the hinge Statistics leans on when the sample begins to speak.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Joint Distributions: Discrete and Continuous",
+              "Independence of Random Variables and Sums: the Convolution",
+              "Conditional Distributions and Conditional Expectation",
+              "Covariance and Correlation",
+              "Moment Generating Functions",
+              "Order Statistics and the Sample Extremes"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 8,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
             "summary": "The closing synthesis: competition probability at speed (conditional cascades, the complement craft, the ‘at least one’ inversion, distribution recognition under time), the limit theorems stated honestly — the weak law of large numbers and the central limit theorem, with their proofs deferred to Real Analysis as an explicit promise — and the doorstep: the sample arrives and must SPEAK — estimation and testing — handing off to Statistics, with Operations Research’s stochastic models named.",
@@ -10922,7 +11152,8 @@
               "The Logic of the Test",
               "z, t and the Two-Sample Craft",
               "The Chi-Square Family",
-              "One-Way ANOVA and the Craft Census"
+              "One-Way ANOVA and the Craft Census",
+              "Nonparametric Tests: Sign, Wilcoxon and Rank-Sum"
             ],
             "lessons": [],
             "words": 0
@@ -11046,7 +11277,8 @@
               "The Chain Rule, Proved",
               "The Mean Value Family, Earned",
               "L’Hospital’s Rule, Proved",
-              "Taylor’s Theorem and the Remainder"
+              "Taylor’s Theorem and the Remainder",
+              "The Inverse and Implicit Function Theorems"
             ],
             "lessons": [],
             "words": 0
@@ -11062,7 +11294,8 @@
               "Partitions and Darboux Sums",
               "The Integrability Census",
               "The Fundamental Theorem, Proved",
-              "Improper Integrals"
+              "Improper Integrals",
+              "The Riemann-Stieltjes Integral"
             ],
             "lessons": [],
             "words": 0
@@ -11077,6 +11310,7 @@
             "plannedLessons": [
               "Pointwise versus Uniform: the Failures",
               "The Uniform Theorems, Proved",
+              "Equicontinuity, Arzelà-Ascoli and Stone-Weierstrass",
               "Power Series Earned Term by Term",
               "The Gamma Function and the Named Theorems"
             ],
@@ -11184,7 +11418,8 @@
               "Taylor in the Plane and the Radius",
               "Laurent Series and the Singularity Census",
               "The Residue Theorem",
-              "Real Integrals through the Plane"
+              "Real Integrals through the Plane",
+              "The Argument Principle and Rouché’s Theorem"
             ],
             "lessons": [],
             "words": 0
@@ -11199,7 +11434,9 @@
             "plannedLessons": [
               "Conformality, Proved",
               "The Mapping Census: to Möbius",
-              "Potential Problems by Mapping"
+              "Potential Problems by Mapping",
+              "The Schwarz-Christoffel Transformation, Named",
+              "Harmonic Functions and the Dirichlet Problem"
             ],
             "lessons": [],
             "words": 0
@@ -11257,7 +11494,8 @@
             "plannedLessons": [
               "The Axioms and the Census",
               "Subgroups and Cyclic Groups",
-              "Permutations and the Symmetric Groups"
+              "Permutations and the Symmetric Groups",
+              "Conjugacy Classes and the Class Equation"
             ],
             "lessons": [],
             "words": 0
@@ -11272,7 +11510,8 @@
             "plannedLessons": [
               "Cosets and the Partition",
               "Lagrange’s Theorem, Proved",
-              "Fermat Re-Proved: the Corollary Cascade"
+              "Fermat Re-Proved: the Corollary Cascade",
+              "The Sylow Theorems"
             ],
             "lessons": [],
             "words": 0
@@ -11287,7 +11526,8 @@
             "plannedLessons": [
               "Homomorphisms, Kernel and Image",
               "Normal Subgroups and Factor Groups",
-              "The Isomorphism Theorems"
+              "The Isomorphism Theorems",
+              "Direct Products and the Finite Abelian Classification"
             ],
             "lessons": [],
             "words": 0
@@ -11302,7 +11542,8 @@
             "plannedLessons": [
               "Ring Axioms and the Census",
               "Domains, Units and Zero Divisors",
-              "Ideals and Quotient Rings"
+              "Ideals and Quotient Rings",
+              "Prime and Maximal Ideals"
             ],
             "lessons": [],
             "words": 0
@@ -11318,7 +11559,8 @@
               "F[x] as a Euclidean Domain",
               "Unique Factorization, Re-Proofed",
               "Eisenstein and the Irreducibility Tests",
-              "Quotient Rings and Root Fields"
+              "Quotient Rings and Root Fields",
+              "The Hierarchy: Euclidean, Principal, Unique"
             ],
             "lessons": [],
             "words": 0
@@ -11377,7 +11619,8 @@
             "plannedLessons": [
               "The Metric Axioms and the Example Census",
               "Balls, Convergence and Completeness",
-              "Continuity in Metric Spaces"
+              "Continuity in Metric Spaces",
+              "The Baire Category Theorem"
             ],
             "lessons": [],
             "words": 0
@@ -11542,8 +11785,10 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Lagrange and Divided Differences",
+              "Hermite Interpolation and Osculating Forms",
               "The Error Theorem and the Runge Phenomenon",
-              "Splines and Least Squares"
+              "Splines and Least Squares",
+              "Chebyshev Approximation and Economization"
             ],
             "lessons": [],
             "words": 0
@@ -11575,7 +11820,8 @@
               "LU with Pivoting",
               "Jacobi, Gauss–Seidel and Diagonal Dominance",
               "The Condition Number’s Price Tag",
-              "The Power Method"
+              "The Power Method",
+              "Eigenvalues by Similarity: Householder and the QR Iteration"
             ],
             "lessons": [],
             "words": 0
@@ -11590,7 +11836,8 @@
             "plannedLessons": [
               "Euler, Derived and Proved",
               "The Runge–Kutta Family",
-              "Stability and Stiffness"
+              "Stability and Stiffness",
+              "Multistep Methods: the Adams Family"
             ],
             "lessons": [],
             "words": 0
@@ -11651,7 +11898,8 @@
               "Systems and the Matrix Exponential",
               "Series Solutions: Bessel and Legendre",
               "Boundary-Value Problems",
-              "Sturm–Liouville Problems: Eigenfunctions and Orthogonality"
+              "Sturm–Liouville Problems: Eigenfunctions and Orthogonality",
+              "Gamma, Beta and the Error Functions"
             ],
             "lessons": [],
             "words": 0
@@ -11729,7 +11977,8 @@
             "plannedLessons": [
               "The Method-Choice Census",
               "Discretizing the Heat Equation",
-              "The Finite-Element Idea, Named"
+              "The Finite-Element Idea, Named",
+              "Calculus of Variations: the Euler-Lagrange Engine"
             ],
             "lessons": [],
             "words": 0
@@ -11772,7 +12021,8 @@
             "plannedLessons": [
               "The Science of the Decision",
               "The Graphical Doorstep",
-              "The Modeling Census"
+              "The Modeling Census",
+              "Decision Analysis: Trees, Payoffs and the Value of Information"
             ],
             "lessons": [],
             "words": 0
@@ -11865,7 +12115,8 @@
               "Markov Chains at OR Depth",
               "Queueing: Little’s Law",
               "Inventory: EOQ and the Newsvendor",
-              "Simulation, Named"
+              "Simulation, Named",
+              "Game Theory: the Two-Person Zero-Sum Duel"
             ],
             "lessons": [],
             "words": 0
@@ -11936,6 +12187,7 @@
             "status": "planned",
             "lessonsWritten": 0,
             "plannedLessons": [
+              "Polya’s Method: Understand, Plan, Execute, Look Back",
               "The Olympiad Arsenal",
               "The Putnam-Style Integration",
               "How a Question Becomes a Theorem"
@@ -11984,6 +12236,7 @@
             "plannedLessons": [
               "The Three-Pass Read",
               "The Literature’s Anatomy",
+              "Typesetting Mathematics: TeX and the Written Look",
               "Writing Mathematics",
               "The Culture of the Seminar"
             ],
@@ -12015,7 +12268,7 @@
         "level": "Aptitude arithmetic — the exam family from school maths to the world’s competitive tests",
         "description": "The book of the commercial-aptitude family: the model arithmetic the world’s competitive exams actually test. Percentage as the working scale; profit and loss with marked price, successive, true and banker’s discounts; simple and compound interest as the two growth models, depreciation, stocks, shares and debentures; partnership, problems on ages, alligation and mixtures; time and work with pipes and cisterns as rate problems; time, speed and distance with trains, boats and streams and races; weighted averages and the number-series craft; the mensuration census at exam speed (cross-referenced — Geometry owns the derivations, Statistics owns data interpretation); and data sufficiency as a decision discipline cross-referencing Mathematical Logic. Foundation Mathematics and the theory shelf own the concepts; this book owns their exam-craft register, the Khattar census’s missing home. Cross-references the whole shelf; hands off to every book it borrows from.",
         "status": "planned",
-        "chaptersPlanned": 11,
+        "chaptersPlanned": 12,
         "chaptersWritten": 0,
         "chapters": [
           {
@@ -12176,6 +12429,23 @@
           },
           {
             "number": 11,
+            "slug": "modern-maths-at-aptitude-speed",
+            "title": "Modern Maths at Aptitude Speed",
+            "summary": "The CAT/SSC ‘modern maths’ block as its own exam-speed layer, cross-referencing the shelf’s full treatments: set-theory word models and the two- and three-set Venn counting craft every aptitude paper leans on (the theory lives in Set Theory); functions, logarithms and inequalities at solving speed (Advanced Algebra’s chapters own the depth); permutations, combinations and probability compressed into the exam’s sixty-second patterns (Advanced Algebra’s counting chapter and Probability Theory own the proofs); and heights and distances at the right-triangle gallop (Trigonometry’s chapter owns the full discipline). Aggarwal’s and Arun Sharma’s unit censuses are the source of the block’s existence; no duplication — the shelf books are cited at every turn.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Set Theory and Venn Diagrams: the Counting Craft",
+              "Functions, Logarithms and Inequalities at Exam Speed",
+              "Permutations and Combinations at Exam Speed",
+              "Probability at Exam Speed",
+              "Heights and Distances at Exam Speed"
+            ],
+            "lessons": [],
+            "words": 0
+          },
+          {
+            "number": 12,
             "slug": "the-synthesis-and-the-doorstep",
             "title": "The Synthesis and the Doorstep",
             "summary": "The closing synthesis: the craft map — which model answers which question (percentage or ratio? simple or compound? rate-addition or relative speed?) and the recognition drills that move it from conscious to automatic; the book in one page (the model table from simplification to data sufficiency); and the doorstep: aptitude arithmetic is the applied face of the whole mathematics shelf — the models are linear and geometric growth (Algebra and Advanced Algebra), rates (Differential Equations), means (Statistics), and the reader who wants the depth already owns the doors to every one of them.",
@@ -12212,29 +12482,41 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 228,
-      "totalLines": 102813,
+      "srcFilesTracked": 234,
+      "totalLines": 105555,
       "byArea": {
-        "src/app (routes, pages)": 1842,
+        "src/app (routes, pages)": 2109,
         "other": 10506,
-        "src/components/library (reader platform)": 3461,
+        "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 74408,
+        "src/data/library (content model + books)": 74572,
         "src/hooks": 214,
         "src/lib": 6937
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 838
+          "lines": 919
         },
         {
-          "file": "lesson-view.tsx",
-          "lines": 439
+          "file": "latex-plot.ts",
+          "lines": 745
+        },
+        {
+          "file": "highlight-layer.tsx",
+          "lines": 599
         },
         {
           "file": "book-view.tsx",
-          "lines": 396
+          "lines": 482
+        },
+        {
+          "file": "lesson-view.tsx",
+          "lines": 455
+        },
+        {
+          "file": "graph-it.tsx",
+          "lines": 391
         },
         {
           "file": "home-view.tsx",
@@ -12253,8 +12535,16 @@
           "lines": 275
         },
         {
+          "file": "highlight-dom.ts",
+          "lines": 226
+        },
+        {
           "file": "glossary-view.tsx",
           "lines": 156
+        },
+        {
+          "file": "highlight-store.ts",
+          "lines": 148
         },
         {
           "file": "progress-store.ts",
@@ -12262,7 +12552,7 @@
         },
         {
           "file": "math.tsx",
-          "lines": 62
+          "lines": 81
         },
         {
           "file": "on-this-page.tsx",
@@ -12427,7 +12717,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-10",
+      "surveyed": "2026-11-11",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -24242,6 +24532,783 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "24b81b08c27337958753bcdca36e7e09582848ab",
+      "short": "24b81b0",
+      "date": "2026-11-10 17:27",
+      "message": "TOC written as lessons: lesson-level gate green (1,861 surveyed topics = 1,068 lessons + 403 guided folds + 390 cross-refs, 0 gaps); 25 new planned lessons + DM Models-of-Computation chapter; the scheduled-task guide (TOC_LESSON_GUIDE.md) + the 403-entry fold ledger",
+      "filesChanged": 25,
+      "insertions": 5230,
+      "deletions": 26,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/BOOK_FORMAT.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 12,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 12,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 13,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 5,
+          "del": 1
+        },
+        {
+          "path": "docs/project/TOC_FOLD_LEDGER.json",
+          "add": 3218,
+          "del": 0
+        },
+        {
+          "path": "docs/project/TOC_LESSON_GUIDE.md",
+          "add": 220,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 244,
+          "del": 14
+        },
+        {
+          "path": "docs/research/DRIVE_TOC_SURVEY.md",
+          "add": 53,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen_fold_ledger.py",
+          "add": 536,
+          "del": 0
+        },
+        {
+          "path": "scripts/lib/survey_topics.ts",
+          "add": 495,
+          "del": 0
+        },
+        {
+          "path": "scripts/patch_planned_lessons.py",
+          "add": 160,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-promotion.ts",
+          "add": 7,
+          "del": 5
+        },
+        {
+          "path": "scripts/verify_toc_as_lessons.ts",
+          "add": 166,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/coordinate-geometry/book.ts",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/discrete-mathematics/book.ts",
+          "add": 16,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/linear-algebra/book.ts",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/mathematical-methods-for-engineering/book.ts",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/multivariable-calculus/book.ts",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/real-analysis/book.ts",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/trigonometry/book.ts",
+          "add": 2,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "20f0739da11686b635077a3e1a104bd4d0723393",
+      "short": "20f0739",
+      "date": "2026-11-11 02:20",
+      "message": "internet-research gap pass: every planned book web-researched against canonical TOCs — 91 new planned lessons + 3 new chapters (geometry transformations/symmetry, probability jointly-distributed, QA modern-maths-at-aptitude-speed); shelf 210 ch / 827 planned; AA pins 47→57; lesson gate tier-1 1,113 + folds 379 + cross-refs 369, 0 gaps; every opened source URL in SOURCE_LOG (H&K Higher Algebra, Loney deep chapters, NCERT/CCSS/ctpcm, Arihant/Thomas/OpenStax, Raisinghania/Boyce, Strang 6e, Rudin ch 6/7/9, B&C ch 7, Gallian/D&F, Munkres §48, Burton, Halmos, Brualdi, Rosen, Ross, Triola, B&F 9e, Boas, Taha/Hillier, Aggarwal/Arun Sharma, Polya); plans only, zero lesson authoring — run 90 still opens AA 1.1 + 1.2; push pending (no PAT this turn)",
+      "filesChanged": 38,
+      "insertions": 2023,
+      "deletions": 74,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 25,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 106,
+          "del": 0
+        },
+        {
+          "path": "docs/project/SUBJECT_BACKLOG.md",
+          "add": 30,
+          "del": 28
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/research/DRIVE_TOC_SURVEY.md",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "scripts/census_snapshot_2026-11-11.md",
+          "add": 1246,
+          "del": 0
+        },
+        {
+          "path": "scripts/dump_shelf_census.ts",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-book4-promotion.sh",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/patch_research_lessons.py",
+          "add": 367,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-promotion.ts",
+          "add": 10,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/abstract-algebra/book.ts",
+          "add": 6,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 11,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-mathematical-foundations/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/combinatorics/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/complex-analysis/book.ts",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/coordinate-geometry/book.ts",
+          "add": 8,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/differential-calculus/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/differential-equations/book.ts",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/discrete-mathematics/book.ts",
+          "add": 4,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/geometry/book.ts",
+          "add": 31,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/integral-calculus/book.ts",
+          "add": 5,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/linear-algebra/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/mathematical-logic/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/mathematical-methods-for-engineering/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/multivariable-calculus/book.ts",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/number-theory/book.ts",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/numerical-analysis/book.ts",
+          "add": 5,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/optimization-and-operations-research/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/probability-theory/book.ts",
+          "add": 20,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/quantitative-aptitude/book.ts",
+          "add": 18,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/real-analysis/book.ts",
+          "add": 4,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/set-theory/book.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/statistics/book.ts",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/topology/book.ts",
+          "add": 2,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/trigonometry/book.ts",
+          "add": 3,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "e409357a85e3ee7ce69f0967d896a253c05f9840",
+      "short": "e409357",
+      "date": "2026-11-11 03:36",
+      "message": "cover art + feature list: 28/28 AI book covers generated text-free (vision sweep 0 flagged; motif per subject, palette per book accent pair) — public/covers/*.webp assets only, ZERO UI wiring (BookCover untouched); docs/project/PROPOSED_FEATURES.md delivers the 46-item list (CV-01..06 cover wiring, IN-01..28 one flagship interactive per book, DR-01..03 derivation reveal, PR-01..04 answer/hint/mistake upgrades, ST-01..05 reader extras) for the owner's add/skip decision — nothing implemented; zero lesson authoring, run 90 still opens AA 1.1 + 1.2; push pending (no PAT this turn)",
+      "filesChanged": 34,
+      "insertions": 713,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROPOSED_FEATURES.md",
+          "add": 101,
+          "del": 0
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "public/covers/abstract-algebra.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/advanced-algebra.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/advanced-mathematical-foundations.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/arithmetic-and-number-systems.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/combinatorics.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/complex-analysis.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/coordinate-geometry.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/differential-calculus.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/differential-equations.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/discrete-mathematics.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/elementary-algebra.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/foundation-mathematics.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/geometry.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/integral-calculus.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/linear-algebra.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/mathematical-logic.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/mathematical-methods-for-engineering.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/multivariable-calculus.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/number-theory.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/numerical-analysis.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/optimization-and-operations-research.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/probability-theory.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/quantitative-aptitude.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/real-analysis.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/set-theory.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/statistics.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/topology.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "public/covers/trigonometry.webp",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "scripts/gen_covers.py",
+          "add": 466,
+          "del": 0
+        },
+        {
+          "path": "scripts/ship_cover_run.py",
+          "add": 113,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "bc7634e1fa30261346c938e33ca6774be33604de",
+      "short": "bc7634e",
+      "date": "2026-11-11 04:19",
+      "message": "owner-approved features live: CV-01 wired (BookCover renders the 28 AI covers via covers.ts manifest — scrim + CSS typography overlay with per-variant clamped text budgets, gradient fallback; ink-overflow audit 28/28 thumbnails + 28/28 book pages, VLM exact-crop PASS) + the multi-colour highlighter (six colours, selection palette, mark popover recolour/note/copy/erase, footer Highlights panel jump-to+flash+copy-all+clear-all, lockin-highlights persistence, per-RichText-host anchoring threaded through every prose site, MutationObserver repaint; e2e-covers-highlights.sh green incl. collapse/reopen React-safety + dark + mobile) — zero lesson authoring, run 90 still opens AA 1.1 + 1.2; other 44 proposed items await add/skip; push pending (no PAT this turn)",
+      "filesChanged": 17,
+      "insertions": 2442,
+      "deletions": 868,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 29,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROPOSED_FEATURES.md",
+          "add": 27,
+          "del": 20
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 802,
+          "del": 801
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-covers-highlights.page.js",
+          "add": 39,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-covers-highlights.sh",
+          "add": 139,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 132,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 119,
+          "del": 38
+        },
+        {
+          "path": "src/components/library/book-view.tsx",
+          "add": 87,
+          "del": 1
+        },
+        {
+          "path": "src/components/library/highlight-dom.ts",
+          "add": 238,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/highlight-layer.tsx",
+          "add": 560,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/highlight-store.ts",
+          "add": 147,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/lesson-view.tsx",
+          "add": 21,
+          "del": 5
+        },
+        {
+          "path": "src/components/library/math.tsx",
+          "add": 17,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/covers.ts",
+          "add": 54,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "7ffdfedf0d1ccf8293c5d6b4dcb0b2e4fb36024e",
+      "short": "7ffdfed",
+      "date": "2026-11-11 05:04",
+      "message": "palette undo: the colour-chooser itself now carries the undo (owner follow-up directive 2026-11-11: \"where you have addede to choose color ad there only to undo the selected highlite\") — the selection palette gains exactly one control: an eraser button after the six swatches behind a hairline divider, faded-disabled at 40% opacity when the selection carries no highlight, live when it does; one click erases every highlight the selection touches (same-host range intersection via getState(), partial overlaps included) from the prose + lockin-highlights persistence, then clears the selection; overlapping: string[] replaces the never-read existingId, dead selectionMarkId() removed; e2e-covers-highlights.sh extended with the palette-undo phase (enabled over painted mark -> click -> 0 marks + 0 stored; disabled on fresh text; downstream phases unchanged, 0 console errors) + run-undo-verify.sh one-shot gate that asserts the served CSS carries the rules (the dev server's CSS watcher served a stale chunk mid-run — caught by computed-style + VLM crop checks, server restarted, re-verified fresh) — zero lesson authoring, run 90 still opens AA 1.1 + 1.2; other 44 proposed items await add/skip; push pending (no PAT this turn)",
+      "filesChanged": 10,
+      "insertions": 223,
+      "deletions": 23,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 16,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROPOSED_FEATURES.md",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-covers-highlights.sh",
+          "add": 27,
+          "del": 1
+        },
+        {
+          "path": "scripts/run-undo-verify.sh",
+          "add": 67,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/highlight-dom.ts",
+          "add": 0,
+          "del": 13
+        },
+        {
+          "path": "src/components/library/highlight-layer.tsx",
+          "add": 45,
+          "del": 7
+        }
+      ]
+    },
+    {
+      "sha": "c5b3f1598ca8a05f4f0dac245d617203b521f88e",
+      "short": "c5b3f15",
+      "date": "2026-11-11 05:09",
+      "message": "batch-2 feature list: PROPOSED_FEATURES.md 46 -> 70 items (owner directive verbatim: \"list more such features\") — 24 new proposals in seven categories, LIST ONLY, zero implementation (the owner picks add/skip IDs, same workflow as batch 1): F. RD-01..05 reader comfort & focus (focus mode, typography controls, reading ruler, listen-mode TTS with KaTeX spoken as math, notation drawer) · G. GL-01..03 glossary engine (auto-linked terms with hover-cards, term quiz, bilingual EN/HI definitions) · H. FX-01..03 formula mastery (formula SRS on the existing revision ledger, \"Graph it\" button on any display equation, formula trap cards) · I. CH-01..03 chapter & daily challenges (chapter boss quiz, daily warm-up, exam-day OMR mode) · J. AN-01..03 analytics (study dashboard, readiness projection, shelf-wide weakness heat map) · K. AI-01..05 AI study aids (explain-this-step, doubt box, fresh-number twin, deck-from-highlights, mistake post-mortem) · L. EX-01..02 export (colour-coded study-pack PDF from highlights, flashcard CSV/Anki) — programmatic guard: 70 rows, 0 duplicate IDs (batch 1 = 46, batch 2 = 24), every item anchored to a subsystem that really exists, no overlap with the 44 pending batch-1 items — zero lesson authoring, run 90 still opens AA 1.1 + 1.2; 2 of 70 done, 68 await add/skip; push pending (no PAT this turn)",
+      "filesChanged": 4,
+      "insertions": 98,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROPOSED_FEATURES.md",
+          "add": 65,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "f557faeea7d9dcb10165ee84d9ede89365502d12",
+      "short": "f557fae",
+      "date": "2026-11-11 05:51",
+      "message": "fx-02 graph it: the plot icon on display equations + inline constant-slider grapher (owner directive verbatim: \"fx 02 implement\" — first batch-2 approval, PROPOSED_FEATURES H/FX-02) — a small plot icon mounts on every <Math display> site (equation blocks, Remember formula cards, derivation steps, glossary formula sheets) only when the equation honestly parses, opening an inline canvas grapher with a slider per free constant: new pure parser latex-plot.ts with four modes (function y/f(x) heads with chained-equality head-relation plotting, line via symbolic linear-in-y extraction so ax+by=c graphs unsolved, identity both sides drawn to coincide, vertical for x=(c-b)/a solved forms), qquad/quad side-remark split + one trailing (x neq 0) clause dropped pre-parse, Latin+Greek letters (pi excepted) as slider constants default 1 range ±5 cap 8, and a refusal guarantee enforced at tokenizer/parser level (text, iff-family chains, subscripts, frac{dy}{dx} differentials by regex guard, matrices, inequalities, P(x)/Q(x)/d(x) named-function heads, bare expressions -> null -> no icon, never a wrong plot); graph-it.tsx panel on the figure-block paper palette (dark-mode-proof), DPR+ResizeObserver canvas, nice-step grid/axes/ticks, percentile y-auto-fit at mount/reset, asymptote-aware curve sampling, drag-pan, zoom/reset, Escape/X close, LHS/RHS legend chips; globals.css .math-display-wrap + .graphit-* rules — gates: tsc+eslint clean, verify-graphit-census.ts (50+ unit asserts on shelf-verbatim equations + future-book forms + 17-entry refusal list + full-shelf census: 1,326 display latex -> 37 plottable, 3 function / 8 line / 23 identity / 3 vertical, 30 with sliders), e2e-graph-it.sh across three mode-target lessons (parabola 11 wraps/2 icons with slider redraw ink 14365->13700->exactly-14365-after-reset + Escape/X close; two-variables 12/3 line; rational 10 wraps but exactly 1 icon — R(x)=P(x)/Q(x) correctly refused — identity with LHS|RHS chips; 0 console errors), run-graphit-verify.sh one-shot gate (server self-start + served-CSS carries the 3 graphit rules — the stale-CSS-watcher guard stays mandatory + census + e2e + full covers/highlights/palette-undo regression all green) + VLM visual checks light/dark/identity PASS — zero lesson authoring, run 90 still opens AA 1.1 + 1.2; 3 of 70 proposals done, 67 await add/skip; push pending (no PAT this turn)",
+      "filesChanged": 12,
+      "insertions": 1700,
+      "deletions": 4,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/MASTER_PLAN.md",
+          "add": 41,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROPOSED_FEATURES.md",
+          "add": 7,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-graph-it.sh",
+          "add": 125,
+          "del": 0
+        },
+        {
+          "path": "scripts/run-graphit-verify.sh",
+          "add": 71,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-graphit-census.ts",
+          "add": 182,
+          "del": 0
+        },
+        {
+          "path": "src/app/globals.css",
+          "add": 100,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/graph-it.tsx",
+          "add": 390,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/latex-plot.ts",
+          "add": 744,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/math.tsx",
+          "add": 6,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -24249,26 +25316,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 28,
     "chaptersWritten": 32,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 120,
-    "wordsAuthored": 583505,
-    "termsDefined": 906,
-    "quizItems": 600,
-    "exerciseQuestions": 1541,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 122,
+    "wordsAuthored": 592873,
+    "termsDefined": 909,
+    "quizItems": 610,
+    "exerciseQuestions": 1569,
     "blockTotals": {
-      "para": 1711,
-      "callout": 652,
-      "heading": 652,
-      "list": 137,
-      "terms": 120,
-      "equation": 181,
-      "figure": 211,
-      "derivation": 222,
-      "table": 150,
-      "example": 518,
-      "quiz": 120,
-      "exercises": 120,
-      "formula": 347,
+      "para": 1745,
+      "callout": 683,
+      "heading": 668,
+      "list": 141,
+      "terms": 121,
+      "equation": 187,
+      "figure": 215,
+      "derivation": 226,
+      "table": 151,
+      "example": 530,
+      "quiz": 122,
+      "exercises": 122,
+      "formula": 356,
       "algorithm": 27
     }
   }
