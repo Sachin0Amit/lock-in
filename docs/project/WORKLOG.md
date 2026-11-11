@@ -15,7 +15,7 @@
 
 **Gates (all green):** tsc clean; eslint 0 errors (4 pre-existing warnings in old e2e scripts); verify-book4-ch01 **347/347**; e2e-aa-1x.sh ×2 lessons — desktop 1280 + mobile 390 + dark: quiz scored 5/5 live on intended keys, 14 show-solution buttons, Sol. pills 20, KaTeX 246/145 nodes 0 errors, 2 figures each, 0 raw $ in text, no horizontal overflow (one fix during the run: the 12-pair divisibility roster overflowed 390px → split into per-pair math spans), 0 console errors; **VLM visual checks PASS** — both lessons' desktop/mobile/dark screenshots + all four figures zoomed (arrow diagram, class boxes, probe twins, pigeonhole panel).
 
-**Scheduled task:** the chapter-authoring cron job (hybrid cadence v4) was recreated this run with the research→plan→audit→write protocol embedded (the owner's "create one schedule task, job, and proceed").
+**Scheduled task:** the chapter-authoring cron job was recreated as run v5 with the research→plan→audit→write protocol embedded (the owner's "create one schedule task, job, and proceed") — job 523401, three fires per day at 02:50 / 10:50 / 18:50 IST (the gateway now caps a job at 3 daily executions, so the old 12-fire v4 schedule would have wasted 9 fires; at two lessons per fire this is ~6 lessons/day). The old job 516929 (gateway-disabled) was deleted; the push protocol with the PAT lives only in the new job's payload.
 
 **Downloads kept:** temporary-references/m4-01 PDF + transcriptions stay for the remaining six lessons of ch. 1 (deleted only when the UNIT verifies complete, per the storage law). Push pending (no PAT this turn — will ride the next fire turn's payload).
 

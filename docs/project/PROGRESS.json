@@ -1320,7 +1320,7 @@
    "the horizontal-probe twins (x^3+x+1 vs x^2+1)",
    "the pigeonhole verdict + counting panel"
   ],
-  "scheduledTask": "the chapter-authoring cron job recreated with the research->plan->audit->write protocol embedded (owner directive)",
+  "scheduledTask": "chapter-authoring cron job recreated as run v5 (job 523401): research->plan->audit->write protocol embedded; 3 fires/day 02:50/10:50/18:50 IST (gateway daily-execution cap); PAT only in the job payload",
   "downloads": "M4-01 PDF + m4scan transcriptions kept in temporary-references/ for lessons 1.3-1.8 (deleted when the unit completes)",
   "push": "pending — no PAT this turn; the next fire turn pushes all unpushed local commits"
  }
