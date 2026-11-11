@@ -1,3 +1,11 @@
+## 2026-11-11 — AI COVER-ART + FEATURE-PROPOSAL PASS (owner-directed): 28/28 covers generated text-free; the 46-item PROPOSED_FEATURES.md list awaits add/skip
+
+- **The directive:** "creat ai generated image for the books cover and add features or maths interactivity things dont add the features just give the list first then i will tell what to add and what to not."
+- **Covers (created):** scripts/gen_covers.py generates one 864×1152 (3:4) art per shelf book — motif from the book's subject, palette from the book's own accent pair, unified mid-century editorial series style, strictly no text (CSS overlay will carry typography). Vision-sweep verified 0/28 flagged after hunting real leaks (FM ×3 regens: Chinese title → numbered tiles → clean; probability ×3: ace 'A' → coin '$' → clean; linear-algebra + topology regens for motif fidelity). Assets: public/covers/*.webp ×28 (2.8 MB, committed) + download/covers/ PNGs + contact-sheet.png (review, git-ignored). BookCover UI untouched — wiring is proposal CV-01.
+- **Features (list only, nothing implemented):** docs/project/PROPOSED_FEATURES.md — CV-01…06, IN-01…28 (one flagship interactive per book), DR-01…03, PR-01…04, ST-01…05, each with stable IDs for the owner's add/skip reply; already-exists section prevents re-proposing what the site has.
+- **Authoring untouched:** run 90 still opens AA 1.1 + 1.2; approved features queue behind the standing cadence.
+
+---
 ## 2026-11-11 — TOC-AS-LESSONS PASS (owner-directed): every surveyed topic a LESSON, a guided fold, or a reviewed cross-reference — 0 gaps; the scheduled-task guide written
 
 - **The directive:** "make sure those TOC are written as lessons and make a guide when a scheduled task is on it should [state] what should be included if that TOC does not require separate lesson, be elaborate." The blob-level guarantee of the 2026-11-10 pass is raised to LESSON level with an audited disposition for every topic that does not warrant its own lesson.
