@@ -1383,7 +1383,7 @@ function signMapSvg(): string {
   parts.push('<text x="587" y="283" font-size="10.5" fill="#166534" text-anchor="middle">P &lt; 0: mixed signs, Δ &gt; 0 forced</text>')
   // ---- caption band ----
   parts.push('<rect x="30" y="304" width="660" height="24" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
-  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">the product tells the sign story, the sum picks the quadrant; P &lt; 0 proves both roots real, and P = 0 names a zero root</text>')
+  parts.push('<text x="360" y="320" font-size="11" fill="#166534" text-anchor="middle">the product tells the sign story, the sum picks the quadrant — and P &lt; 0 is a no-solve proof that both roots are real.</text>')
   parts.push('</svg>')
   return parts.join('')
 }

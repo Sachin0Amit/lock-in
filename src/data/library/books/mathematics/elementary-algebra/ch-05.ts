@@ -185,19 +185,17 @@ function pipelineSvg(): string {
     parts.push(`<text x="${x + 61}" y="138" font-size="12" fill="#166534" text-anchor="middle" font-weight="700">${title}</text>`)
     parts.push(`<text x="${x + 61}" y="156" font-size="9.5" fill="#0d9488" text-anchor="middle">${sub}</text>`)
   })
-  // arrows between stations — solid chevrons spanning each 8px gap
-  // (figure-audit sweep 2026-11-11: the old 4px path stubs were effectively
-  // invisible; chevrons read as flow at any zoom)
+  // arrows between stations
   for (let i = 0; i < 4; i++) {
     const x1 = 40 + i * 130 + 122
-    parts.push(`<polygon points="${x1 + 8},145 ${x1 + 1},141.5 ${x1 + 1},148.5" fill="#65a30d"/>`)
+    parts.push(`<path d="M ${x1 + 2} 145 L ${x1 + 6} 145" stroke="#65a30d" stroke-width="1.5"/>`)
   }
   // collection band: the running example flows through
   parts.push('<rect x="30" y="220" width="660" height="44" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
   parts.push('<rect x="45" y="227" width="300" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
   parts.push('<text x="195" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">2(x − 1)/3 = (x + 1)/2 + 1</text>')
   parts.push('<rect x="365" y="227" width="300" height="30" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
-  parts.push('<text x="515" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">× 6 → 4x − 4 = 3x + 9 → x = 13</text>')
+  parts.push('<text x="515" y="246" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">×6 → 4x − 4 = 3x + 9 → x = 13</text>')
   // note strip: the check
   parts.push('<rect x="30" y="284" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
   parts.push('<rect x="220" y="291" width="280" height="26" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')

@@ -950,15 +950,15 @@ for (let b = 1; b <= 6; b++)
     ok(3 % 8 === 3 && 30 % 8 === 6 && 60 % 8 === 4 && 40 % 8 === 0, 'P: the 3/8 chain 3→6→4→0 — the 0-state is the sink (division stops)')
     ok(Math.floor(30 / 8) === 3 && Math.floor(60 / 8) === 7 && Math.floor(40 / 8) === 5, 'P: the digit labels 3, 7, 5 on the 3/8 chain — 0.375 terminates')
   }
-  // the density zoom: 0.14 < 1/7 < 0.15, thousandth ticks across the window
+  // the density zoom: 0.14 < 1/7 < 0.15, tenths→hundredths→thousandths
   {
     ok(0.14 < 1 / 7 && 1 / 7 < 0.15, 'P: 1/7 = 0.142857… sits inside (0.14, 0.15) — the first zoom window')
     ok(0.142 < 1 / 7 && 1 / 7 < 0.143, 'P: the second window (0.142, 0.143) narrows on the thousandths')
     ok(0.1428 < 1 / 7 && 1 / 7 < 0.1429, 'P: the third window (0.1428, 0.1429) — each bracket costs one digit of the expansion')
-    // figure ticks: window [0.14, 0.15] with 10 thousandth ticks; 1/7 lands between the 2nd and 3rd
-    const x = (v: number) => Math.round(80 + (v - 0.14) * 40000) // 0.14..0.15 → 80..480 (40 px per thousandth; float-safe)
+    // figure ticks: window [0.14, 0.15] with 10 hundredths ticks; 1/7 lands between the 2nd and 3rd
+    const x = (v: number) => Math.round(80 + (v - 0.14) * 40000) // 0.14..0.15 → 80..480 (40 px per hundredth; float-safe)
     ok(Math.abs(80 + (1 / 7 - 0.14) * 40000 - 194) < 1.5, `P: the 1/7 marker lands at x ≈ ${(80 + (1 / 7 - 0.14) * 40000).toFixed(1)} — between the 0.142 tick (160) and 0.143 tick (200), clear of both`)
-    ok(x(0.142) === 160 && x(0.143) === 200, 'P: the thousandth ticks sit at 40 px spacing — computed, not eyeballed')
+    ok(x(0.142) === 160 && x(0.143) === 200, 'P: the hundredths ticks sit at 40 px spacing — computed, not eyeballed')
   }
 }
 

@@ -216,9 +216,9 @@ export const chapter08: Chapter = {
     )
     .join('\\n  ')}
   ${[
-    { mid: [(DIS_CX + DIS_TIPS.E[0]) / 2, (DIS_CY + DIS_TIPS.E[1]) / 2], dx: 14, dy: 14, t: '1' },
+    { mid: [(DIS_CX + DIS_TIPS.E[0]) / 2, (DIS_CY + DIS_TIPS.E[1]) / 2], dx: 14, dy: 4, t: '1' },
     { mid: [(DIS_CX + DIS_TIPS.S[0]) / 2, (DIS_CY + DIS_TIPS.S[1]) / 2], dx: 5, dy: 16, t: '1' },
-    { mid: [(DIS_CX + DIS_TIPS.W[0]) / 2, (DIS_CY + DIS_TIPS.W[1]) / 2], dx: -14, dy: 14, t: '1' },
+    { mid: [(DIS_CX + DIS_TIPS.W[0]) / 2, (DIS_CY + DIS_TIPS.W[1]) / 2], dx: -14, dy: 4, t: '1' },
     { mid: [(DIS_CX + DIS_TIPS.N[0]) / 2, (DIS_CY + DIS_TIPS.N[1]) / 2], dx: -5, dy: -10, t: '1' },
   ]
     .map(
@@ -243,7 +243,7 @@ export const chapter08: Chapter = {
       return `<text x="${Math.round(mx + ox)}" y="${Math.round(my + oy + 4)}" font-size="13" fill="currentColor" text-anchor="middle" font-style="italic">d</text>`
     })
     .join('\\n  ')}
-  <text x="${DIS_CX + DIS_S + 22}" y="${DIS_CY - DIS_S - 14}" font-size="12" fill="currentColor" opacity="0.75">each hypotenuse = d</text>
+  <text x="${DIS_CX + DIS_S + 22}" y="${DIS_CY - DIS_S - 14}" font-size="12" fill="currentColor" opacity="0.75">hypotenuse ${DIS_HYP} px = d</text>
   <text x="${DIS_CX - DIS_S - 18}" y="${DIS_CY + DIS_S + 26}" font-size="12" fill="currentColor" opacity="0.75">area = 4 × ½ = 2 — and also d²</text>
   <text x="${DIS_CX - DIS_S - 18}" y="${DIS_CY + DIS_S + 44}" font-size="12.5" font-weight="700" fill="#ea580c">so d² = 2</text>
 </svg>`,
@@ -1081,9 +1081,9 @@ export const chapter08: Chapter = {
     return polys.join('\n  ') + '\n  ' + labels.join('\n  ')
   })()}
   <circle cx="255" cy="150" r="2.4" fill="currentColor"/>
+  <text x="255" y="170" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.8">origin</text>
   <text x="480" y="24" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">each outer edge = 1 unit leg</text>
   <text x="480" y="40" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">winding ≈ 351° at √17 — Theodorus’ stop</text>
-  <text x="480" y="56" font-size="11" fill="currentColor" opacity="0.75" text-anchor="end">the centre dot is the origin</text>
 </svg>`,
         },
         { kind: 'heading', text: 'How many are they? The countability conversation' },

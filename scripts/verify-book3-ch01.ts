@@ -598,12 +598,12 @@ const rng = (lo: number, hi: number): number[] => {
     const alIds = ids.filter((i) => i.startsWith('al-'))
     ok(ids.length === new Set(ids).size, 'H: all ' + ids.length + ' lesson ids across the library are unique')
     ok(
-      alIds.length >= 37 &&
+      alIds.length === 4 &&
         alIds[0] === 'al-from-arithmetic-to-algebra' &&
         alIds[1] === 'al-expressions-terms-like-terms' &&
         alIds[2] === 'al-evaluating-expressions-substitution-and-formulas' &&
         alIds[3] === 'al-translating-words-into-symbols',
-      'H: the four run-68 al- ids lead the (now 37+) authored order (got ' + alIds.length + ')'
+      'H: exactly four al- ids in authored order'
     )
   }
 

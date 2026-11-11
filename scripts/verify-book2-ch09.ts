@@ -844,10 +844,7 @@ console.log('(M) figure geometry audits')
     { y: 240, count: '4 digits' },
   ]
   ok(rows.every((r) => r.y > 20 && r.y < H - 20), 'M: fig 9.1-1 rows inside the viewBox')
-  // row 2: 3 lotus + (EMPTY hundreds — no coil glyph survives) + 2 heels + 7 strokes.
-  // figure-audit sweep 2026-11-11: the figure used to DRAW 2 coils, summing
-  // the row to 3,227 against the pinned 3,027; the coil run is now an empty
-  // labelled zone (the hieroglyph system drops empty places).
+  // row 2: 3 lotus + 2 coils + 2 heels + 7 strokes, laid left to right with gaps ≥ 10px
   const glyphs: { x: number; w: number; t: string }[] = []
   let x = 48
   const place = (w: number, t: string) => {
@@ -856,7 +853,8 @@ console.log('(M) figure geometry audits')
   }
   for (let i = 0; i < 3; i++) place(26, 'lotus')
   x += 14
-  x += 72 + 14 // the empty hundreds zone (0 coils — no glyph, label only)
+  for (let i = 0; i < 2; i++) place(26, 'coil')
+  x += 14
   for (let i = 0; i < 2; i++) place(24, 'heel')
   x += 14
   for (let i = 0; i < 7; i++) place(10, 'stroke')

@@ -871,17 +871,17 @@ export const chapter09: Chapter = {
   </g>
   <g stroke="currentColor" stroke-width="1.1" fill="none" stroke-dasharray="5 3">
     <path d="M 116 84 Q 133 93 142 134"/>
-    <path d="M 142 134 Q 144 166 230 184"/>
-    <path d="M 230 184 Q 232 216 318 234"/>
-    <path d="M 318 234 Q 320 266 406 284"/>
-    <path d="M 406 284 Q 408 316 494 334"/>
+    <path d="M 164 134 Q 201 143 230 184"/>
+    <path d="M 252 184 Q 289 193 318 234"/>
+    <path d="M 340 234 Q 377 243 406 284"/>
+    <path d="M 428 284 Q 465 293 494 334"/>
   </g>
   <g font-size="10.5" fill="currentColor" text-anchor="middle">
     <text x="166" y="94">× 10</text>
-    <text x="210" y="152">× 10</text>
-    <text x="295" y="200">× 10</text>
-    <text x="383" y="250">× 10</text>
-    <text x="471" y="300">× 10</text>
+    <text x="254" y="144">× 10</text>
+    <text x="342" y="194">× 10</text>
+    <text x="430" y="244">× 10</text>
+    <text x="518" y="294">× 10</text>
   </g>
   <g font-size="12" fill="currentColor">
     <text x="120" y="66">3.45 km →</text>
@@ -1621,8 +1621,8 @@ export const chapter09: Chapter = {
           kind: 'example',
           title: 'A relay race covers 1.25 km. Express the course in metres, then in centimetres, by chained factors.',
           steps: [
-            'Now, the first identity: $1.25\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 1250\\text{ m}$ \u2014 the km cancels, the count grows ×1000.',
-            'And the second: $1250\\text{ m} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 125{,}000\\text{ cm}$ \u2014 the m cancels, ×100 more.',
+            'Now, the first identity: $1.25\\text{ km} \\times \\frac{1000\\text{ m}}{1\\text{ km}} = 1250\\text{ m}$ \u2014 the km cancels, the count grows \u00d71000.',
+            'And the second: $1250\\text{ m} \\times \\frac{100\\text{ cm}}{1\\text{ m}} = 125{,}000\\text{ cm}$ \u2014 the m cancels, \u00d7100 more.',
             'So the chain in one line: $1.25 \\times 1000 \\times 100 = 125{,}000$ \u2014 five rungs, $\\times 10^5$, the digits 1-2-5 intact.',
             'Hence 1250 m and 125,000 cm \u2014 two identities, one course, the direction test approving both growths.',
           ],
@@ -1821,7 +1821,7 @@ export const chapter09: Chapter = {
                   solution: [
                     'Now, the unit is a square: $1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m} = 100\\text{ cm} \\times 100\\text{ cm}$.',
                     'So the length factor is used twice: $3.5 \\times 100 \\times 100 = 35{,}000\\text{ cm}^2$.',
-                    'And "350" is the fraud — the length factor ×100 used once for a two-length unit.',
+                    'And "350" is the fraud — the length factor \\u00d7100 used once for a two-length unit.',
                     'Hence 35,000 cm² — the factor inherits the exponent.',
                   ],
                   answer: '35,000 cm² (not 350 — the factor squares)',
@@ -1872,7 +1872,7 @@ export const chapter09: Chapter = {
                     'Now, a square unit is the product of two length units: $1\\text{ m}^2 = 1\\text{ m} \\times 1\\text{ m}$.',
                     'So dress each factor: $(100\\text{ cm}) \\times (100\\text{ cm}) = 10^4\\text{ cm}^2$ — the identity used twice because the square contains it twice.',
                     'And one rung down: $1\\text{ cm}^2 = (10\\text{ mm}) \\times (10\\text{ mm}) = 10^2\\text{ mm}^2$.',
-                    'Hence the general rule: the conversion factor of a unit\u2019s $k$-th power is the length factor raised to the $k$ — ×10 once per length, squared for areas, cubed for volumes. The tables never said this; the method derives it.',
+                    'Hence the general rule: the conversion factor of a unit\u2019s $k$-th power is the length factor raised to the $k$ — \\u00d710 once per length, squared for areas, cubed for volumes. The tables never said this; the method derives it.',
                   ],
                   answer: '1 m² = (100 cm)² = 10⁴ cm²; 1 cm² = (10 mm)² = 10² mm²; the factor inherits the exponent',
                 },
