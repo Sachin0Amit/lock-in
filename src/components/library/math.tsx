@@ -30,10 +30,22 @@ export function Math({ tex, display = false }: { tex: string; display?: boolean 
 
 const INLINE_TOKEN = /(\$[^$]+\$)|(\*\*[^*]+\*\*)|(\*[^*]+\*)/g
 
-/** Renders mixed prose / inline-math / bold / italic strings from book data. */
-export function RichText({ text, className }: { text: string; className?: string }) {
+/** Renders mixed prose / inline-math / bold / italic strings from book data.
+ *  `host` (optional) marks this string as a highlight anchor: the reader's
+ *  multi-colour highlighter records and paints character ranges against the
+ *  rendered text of exactly this element (stable because lesson text is
+ *  authored once). Omit it for furniture that never gets highlighted. */
+export function RichText({
+  text,
+  className,
+  host,
+}: {
+  text: string
+  className?: string
+  host?: string
+}) {
   const parts = text.split(INLINE_TOKEN)
-  return (
+  const body = (
     <span className={className}>
       {parts.map((part, i) => {
         if (!part) return null
@@ -58,4 +70,6 @@ export function RichText({ text, className }: { text: string; className?: string
       })}
     </span>
   )
+  if (host === undefined) return body
+  return <span data-hl={host}>{body}</span>
 }

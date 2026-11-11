@@ -9,7 +9,7 @@
  *
  * Keyboard: ← / → previous & next lesson · B bookmark · C mark complete.
  */
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -44,6 +44,7 @@ import { RichText } from './math'
 import { OnThisPage } from './on-this-page'
 import { useProgress } from './progress-store'
 import { ReadingProgress } from './reading-progress'
+import { HighlighterLayer, HighlightsPanel } from './highlight-layer'
 import { useLedgerSync } from '@/components/revision/use-ledger-sync'
 import { formatDate } from '@/components/revision/mastery-bits'
 import type { EntryView } from '@/lib/revision/types'
@@ -57,6 +58,9 @@ export function LessonView({ ref_ }: Props) {
   const { book, chapter, lesson, words, readMins } = ref_
   const { prev, next } = lessonNeighbours(lesson.id)
   const headings = lessonHeadings(lesson)
+  /* the reading pane — the highlighter's whole world: selection palette,
+   * painted marks and the jump-to target all operate inside this root */
+  const bodyRef = useRef<HTMLDivElement>(null)
 
   const completed = useProgress((s) => !!s.completed[lesson.id])
   const bookmarks = useProgress((s) => s.bookmarks)
@@ -241,7 +245,7 @@ export function LessonView({ ref_ }: Props) {
                       instead of leaking raw LaTeX into the objectives box. */}
                   {lesson.objectives.map((o, i) => (
                     <li key={i}>
-                      <RichText text={o} />
+                      <RichText text={o} host={`obj${i}`} />
                     </li>
                   ))}
                 </ul>
@@ -251,10 +255,21 @@ export function LessonView({ ref_ }: Props) {
 
           <Separator className="mb-8" />
 
-          {/* Reading pane — font size driven by persisted scale */}
-          <div className="lesson-body font-reading" style={{ ['--fs' as string]: String(fontScale) }}>
+          {/* Reading pane — font size driven by persisted scale; every prose
+              string inside renders as a highlight anchor host, so the
+              multi-colour highlighter can paint any text a reader selects
+              (owner directive 2026-11-11) */}
+          <div
+            ref={bodyRef}
+            className="lesson-body font-reading"
+            style={{ ['--fs' as string]: String(fontScale) }}
+          >
             <BlockRenderer blocks={lesson.blocks} lessonId={lesson.id} />
           </div>
+
+          {/* highlighter overlays — the selection palette and the
+              existing-mark popover (fixed-position, viewport-anchored) */}
+          <HighlighterLayer lessonId={lesson.id} rootRef={bodyRef} />
 
           {/* Sources */}
           {lesson.sources && lesson.sources.length > 0 && (
@@ -278,8 +293,9 @@ export function LessonView({ ref_ }: Props) {
 
           <Separator className="my-10" />
 
-          {/* Lesson footer: bookmark, completion, font scale */}
+          {/* Lesson footer: highlights, bookmark, completion, font scale */}
           <footer className="space-y-6">
+            <HighlightsPanel lessonId={lesson.id} rootRef={bodyRef} />
             <div className="flex flex-wrap items-center gap-3">
               <Button
                 onClick={handleToggleCompleted}

@@ -45,6 +45,35 @@ unchanged. The per-unit workflow (download -> study -> write -> verify ->
 ship) now draws on the survey's recorded Drive ids and TOCs for its
 per-unit downloads.
 
+**Owner directive (2026-11-11, cover wiring + highlighter — this pass):**
+"wire the cover image and and add feature to hightlight of text with
+diffrent color highliter advanced features" — the owner approved the first
+two items off the PROPOSED_FEATURES list. Executed: (1) **CV-01 DONE** —
+the 28 AI covers are wired into the site: `BookCover`
+(`src/components/library/book-view.tsx`) now renders the generated art
+(`src/data/library/covers.ts` manifest → `public/covers/<bookId>.webp`)
+with the title/subtitle/level/discipline as a CSS typography overlay over a
+legibility scrim (the art stays text-free by design, so titles can never be
+wrong), an accent frame from the book's own palette, per-variant text
+budgets (thumbnail = eyebrow + title; large = full hierarchy, all
+line-clamped), and automatic gradient fallback for any book without art;
+E2E + programmatic ink-overflow audit: 28/28 home thumbnails + 28/28 book
+pages clean. (2) **The highlighter DONE** — the ST-02 highlighting half as
+a full multi-colour highlighter: six colours (yellow/green/blue/pink/
+purple/orange), select-any-text palette, click-a-mark popover (recolour,
+private note, copy quote, erase), a lesson-footer Highlights panel (list
+with jump-to + flash, note editing, erase, copy-all, clear-all with
+confirm), persistence on the device (`lockin-highlights` localStorage,
+zustand persist, bookmarks pattern), and per-RichText-host anchoring
+(`data-hl` in math.tsx threaded through every prose site in blocks.tsx —
+139 hosts in the sample lesson) so quiz answers and collapsible solutions
+can never shift a highlight; a MutationObserver repaints marks when
+collapsible content re-mounts. Verified end-to-end (paint, recolour, note,
+jump, persistence, collapse/reopen repaint, quiz-click React safety,
+clear-all, dark-mode, mobile 390 palette in-viewport, 0 console errors
+throughout). **Zero lesson authoring — run 90 still opens AA 1.1 + 1.2**
+(the remaining 44 proposed items still await the owner's add/skip IDs).
+
 **Owner directive (2026-11-11, TOC-as-lessons pass):**
 "make sure those TOC are written as lessons and make a guide when a
 scheduled task is on it should [state] what should be included if that

@@ -312,3 +312,135 @@
   transform: rotateY(180deg);
   overflow-y: auto;
 }
+
+/* ------------------------------------------------------------------ */
+/* Highlighter — the reader's multi-colour text highlighter            */
+/* (owner directive 2026-11-11: highlight with different colours,       */
+/* advanced: notes, panel, persistence)                                */
+/* ------------------------------------------------------------------ */
+
+/* painted marks: translucent ink over the text; text colour untouched */
+mark.hl-mark {
+  border-radius: 2px;
+  padding: 0.04em 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+mark.hl-mark:hover {
+  box-shadow: 0 0 0 1px oklch(0 0 0 / 0.18);
+}
+
+mark.hl-yellow { background: oklch(0.87 0.16 92 / 0.55); }
+mark.hl-green  { background: oklch(0.87 0.18 145 / 0.50); }
+mark.hl-blue   { background: oklch(0.82 0.15 250 / 0.42); }
+mark.hl-pink   { background: oklch(0.82 0.18 350 / 0.45); }
+mark.hl-purple { background: oklch(0.78 0.17 295 / 0.48); }
+mark.hl-orange { background: oklch(0.82 0.16 55 / 0.50); }
+
+.dark mark.hl-yellow { background: oklch(0.87 0.16 92 / 0.32); }
+.dark mark.hl-green  { background: oklch(0.87 0.18 145 / 0.28); }
+.dark mark.hl-blue   { background: oklch(0.82 0.15 250 / 0.30); }
+.dark mark.hl-pink   { background: oklch(0.82 0.18 350 / 0.30); }
+.dark mark.hl-purple { background: oklch(0.78 0.17 295 / 0.32); }
+.dark mark.hl-orange { background: oklch(0.82 0.16 55 / 0.32); }
+
+/* panel's jump-to pulse */
+@keyframes hl-flash-kf {
+  0%, 100% { box-shadow: none; }
+  25%, 75% { box-shadow: 0 0 0 3px oklch(0.72 0.13 60 / 0.55); }
+}
+mark.hl-flash {
+  animation: hl-flash-kf 1.2s ease-out 2;
+}
+
+/* palette swatches (toolbar + popover) */
+.hl-swatch {
+  display: inline-block;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1px oklch(0 0 0 / 0.08);
+}
+.hl-swatch.hl-yellow { background: #facc15; }
+.hl-swatch.hl-green  { background: #4ade80; }
+.hl-swatch.hl-blue   { background: #60a5fa; }
+.hl-swatch.hl-pink   { background: #f472b6; }
+.hl-swatch.hl-purple { background: #a78bfa; }
+.hl-swatch.hl-orange { background: #fb923c; }
+
+.hl-swatch-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+.hl-swatch-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--ring);
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.12);
+}
+.hl-swatch-btn .hl-swatch {
+  width: 14px;
+  height: 14px;
+}
+
+/* floating toolbar + popover */
+.hl-floating {
+  position: fixed;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  padding: 7px;
+  box-shadow: 0 8px 24px oklch(0 0 0 / 0.18);
+}
+.hl-popover {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-width: 220px;
+  max-width: 300px;
+  padding: 10px 12px;
+}
+
+/* small chip buttons inside the popover / panel */
+.hl-chipbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  transition: color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.hl-chipbtn:hover {
+  color: var(--foreground);
+  border-color: var(--ring);
+}
+.hl-chipbtn.hl-danger:hover {
+  color: oklch(0.62 0.2 25);
+  border-color: oklch(0.62 0.2 25 / 0.5);
+  background: oklch(0.96 0.03 25 / 0.5);
+}
+.dark .hl-chipbtn.hl-danger:hover {
+  color: oklch(0.75 0.18 25);
+  background: oklch(0.3 0.08 25 / 0.4);
+}
+

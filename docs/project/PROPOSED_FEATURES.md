@@ -1,32 +1,39 @@
-# PROPOSED FEATURES — awaiting owner decision (nothing implemented)
+# PROPOSED FEATURES — awaiting owner decision
 
 **Directive (owner chat, 2026-11-11, verbatim):** "creat ai generated image for the books cover and add features or maths interactivity things dont add the features just give the list first then i will tell what to add and what to not."
 
-**Status of this document:** this is the LIST. Nothing below is wired into the site. The AI cover **art assets** were generated this turn (the directive's first half — see "Cover art status" below); every feature that would *use* them (CV-01…CV-06) is a proposal only.
+**Approval (owner chat, 2026-11-11, later turn, verbatim):** "wire the cover image and and add feature to hightlight of text with diffrent color highliter advanced features" — **CV-01 and the highlighter are now IMPLEMENTED** (see "Implemented" below). Everything else on this list is still awaiting the owner's add/skip decision.
 
 **How to decide:** reply with the IDs to add and the IDs to skip, e.g. *"add CV-01, CV-02, IN-06, IN-13, DR-01; skip the rest"* — or *"add all IN"* / *"add nothing yet"*. Approved items will be implemented in run order (they queue behind the standing authoring cadence unless the owner reorders); skipped items stay parked here.
 
 ---
 
-## Cover art status (already DONE this turn — assets only, zero UI wiring)
+## IMPLEMENTED (2026-11-11, the "wire the cover" + highlighter turn)
+
+- **CV-01 — wire the AI covers into the site. DONE.** `BookCover` renders the generated art via the `src/data/library/covers.ts` manifest (book id → `/covers/<id>.webp`) with CSS typography overlaid (title/subtitle/level/discipline; scrim for legibility; accent frame per book), per-variant text budgets (thumbnail: eyebrow + clamped title; large: full clamped hierarchy) and automatic gradient fallback for books without art. Verified: 28/28 thumbnails + 28/28 book pages, programmatic ink-overflow audit clean, VLM layout checks pass, dark + mobile clean.
+- **ST-02 — highlight text …, upgraded to a full multi-colour highlighter. DONE** (the highlighting half + notes): six highlighter colours (yellow/green/blue/pink/purple/orange); select text in any lesson prose (incl. inline KaTeX math, callouts, solution chains, exercise questions) → floating palette; click an existing highlight → popover to recolour / add-edit a private note / copy the quote / erase; lesson-footer **Highlights panel** (count badge, list with jump-to + flash, note editing, erase, copy-all, clear-all with confirm); persistence on the device via `lockin-highlights` (zustand persist, the bookmarks pattern — no account needed); per-RichText-host anchoring so quiz/collapsible interactivity can never shift a highlight; repaint on DOM mutations (collapsible solutions reopening restore their marks); dark-mode variants; mobile 390px tested. New files: `highlight-store.ts`, `highlight-dom.ts`, `highlight-layer.tsx`; `RichText` gained the `host` anchor prop (math.tsx) threaded through every prose call site in blocks.tsx + lesson objectives.
+
+---
+
+## Cover art status (DONE 2026-11-11, assets — now also WIRED, see CV-01 above)
 
 - **28/28 covers generated** by `scripts/gen_covers.py` (z-ai image CLI, 864×1152 = exact 3:4 book-cover portrait, one art per book, motif keyed to the book's own subject, palette from the book's own `accent` pair — the shelf gradient family).
 - **No-text contract, machine-verified:** every cover passed a vision-model sweep (`… check` phase) for text/letters/numbers — 28/28 clean (the art carries no titles; typography will be a CSS overlay so AI-rendered text can never be wrong). Three covers were regenerated until clean; two were regenerated for motif fidelity (linear-algebra, topology) and re-verified.
 - **Locations:** full-quality PNGs for review in `download/covers/` (+ `contact-sheet.png` montage); repo-ready optimized WebP in `public/covers/` (28 files, 2.8 MB total). `download/` is git-ignored, so only the WebP set is committed.
-- **The site is untouched** — `BookCover` still renders the CSS gradient covers. Wiring the art in is item **CV-01** below.
+- **The site's cover rendering is WIRED (CV-01 above, 2026-11-11 approval turn)** — `BookCover` renders the art with the typography overlay; the gradient remains only as the fallback for books without art.
 
 ---
 
 ## A. CV — Cover & shelf visuals (uses the new AI art)
 
-| ID | Feature |
-|---|---|
-| **CV-01** | **Wire the AI covers into the site** — `BookCover` renders the generated art with title/subtitle/level/discipline overlaid as clean CSS typography (the art is text-free by design); automatic fallback to the current gradient for any book without art. |
-| **CV-02** | **Hero shelf visual with real art** — the home-page `ShelfVisual` shows miniature front-facing real covers (spines use the accent gradients), with a subtle hover tilt. |
-| **CV-03** | **Cover lightbox** — click a cover on the book page to view the full artwork enlarged. |
-| **CV-04** | **Social share images** — per-book 1200×630 `og:image` (cover art + typographic title) so shared links preview properly. |
-| **CV-05** | **PDF/print export** — per-chapter print stylesheet with the cover as the title-page art. |
-| **CV-06** | **Cover regeneration studio** — a small admin utility to re-roll any single cover (motif/palette knobs, regenerate-and-compare) without touching the rest. |
+| ID | Feature | Status |
+|---|---|---|
+| **CV-01** | **Wire the AI covers into the site** — `BookCover` renders the generated art with title/subtitle/level/discipline overlaid as clean CSS typography (the art is text-free by design); automatic fallback to the current gradient for any book without art. | **✅ DONE (2026-11-11)** |
+| **CV-02** | **Hero shelf visual with real art** — the home-page `ShelfVisual` shows miniature front-facing real covers (spines use the accent gradients), with a subtle hover tilt. | awaiting decision |
+| **CV-03** | **Cover lightbox** — click a cover on the book page to view the full artwork enlarged. | awaiting decision |
+| **CV-04** | **Social share images** — per-book 1200×630 `og:image` (cover art + typographic title) so shared links preview properly. | awaiting decision |
+| **CV-05** | **PDF/print export** — per-chapter print stylesheet with the cover as the title-page art. | awaiting decision |
+| **CV-06** | **Cover regeneration studio** — a small admin utility to re-roll any single cover (motif/palette knobs, regenerate-and-compare) without touching the rest. | awaiting decision |
 
 ## B. IN — Interactive math tools, one flagship per book (a new `interactive` block type)
 
@@ -82,19 +89,19 @@ All client-side canvas/SVG; no external service. Each embeds in the lessons of i
 
 ## E. ST — Site & reader experience
 
-| ID | Feature |
-|---|---|
-| **ST-01** | **LaTeX-aware search** — type `b^2-4ac` or "sin" in the command palette and formula cards + owning lessons surface directly. |
-| **ST-02** | **Lesson annotations** — highlight text and attach private notes per lesson (persisted like bookmarks). |
-| **ST-03** | **Streaks & XP layer** — daily streak, per-book XP, badges for chapter completions on top of the existing progress store. |
-| **ST-04** | **Keyboard navigation** — j/k next/prev lesson, `/` to search, `b` to bookmark, plus scroll-position resume per lesson. |
-| **ST-05** | **Offline PWA** — service-worker caching so written lessons read offline on the phone. |
+| ID | Feature | Status |
+|---|---|---|
+| **ST-01** | **LaTeX-aware search** — type `b^2-4ac` or "sin" in the command palette and formula cards + owning lessons surface directly. | awaiting decision |
+| **ST-02** | **Lesson annotations** — highlight text and attach private notes per lesson (persisted like bookmarks). | **✅ DONE (2026-11-11)** — implemented as the full multi-colour highlighter with notes (see "IMPLEMENTED" above). |
+| **ST-03** | **Streaks & XP layer** — daily streak, per-book XP, badges for chapter completions on top of the existing progress store. | awaiting decision |
+| **ST-04** | **Keyboard navigation** — j/k next/prev lesson, `/` to search, `b` to bookmark, plus scroll-position resume per lesson. | awaiting decision |
+| **ST-05** | **Offline PWA** — service-worker caching so written lessons read offline on the phone. | awaiting decision |
 
 ---
 
 ## Already on the site (NOT re-proposed — for the owner's reference)
 
-KaTeX typesetting · in-lesson MCQ quizzes with why-wrong explanations · Cengage-style stepped exercise solutions with self-marking into the Mistake Bank · flashcards · auto formula-sheet pages · glossary with mastery tracking · bookmarks + reading progress + resume pointer · SRS revision hub (ledger, knowledge graph, mastery, insights) · practice hub (drills with difficulty bands, exam presets/runner with honest countdown, mistakes tab, readiness) · custom-book builder (PDF upload, TOC matcher, my-books reader with notes) · command palette search · dark mode.
+KaTeX typesetting · in-lesson MCQ quizzes with why-wrong explanations · Cengage-style stepped exercise solutions with self-marking into the Mistake Bank · flashcards · auto formula-sheet pages · glossary with mastery tracking · bookmarks + reading progress + resume pointer · SRS revision hub (ledger, knowledge graph, mastery, insights) · practice hub (drills with difficulty bands, exam presets/runner with honest countdown, mistakes tab, readiness) · custom-book builder (PDF upload, TOC matcher, my-books reader with notes) · command palette search · dark mode · **AI-generated book-cover art with CSS typography overlay (CV-01)** · **the multi-colour highlighter with notes, jump-to list and persistence (ST-02, this turn)**.
 
 ---
 

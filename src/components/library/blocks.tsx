@@ -74,7 +74,17 @@ const CALLOUT_STYLES: Record<CalloutTone, { label: string; box: string; ink: str
   },
 }
 
-function CalloutBlock({ tone, title, text }: { tone: CalloutTone; title: string; text: string }) {
+function CalloutBlock({
+  tone,
+  title,
+  text,
+  hl,
+}: {
+  tone: CalloutTone
+  title: string
+  text: string
+  hl?: string
+}) {
   const s = CALLOUT_STYLES[tone]
   return (
     <aside className={`my-6 rounded-lg border px-5 py-3.5 ${s.box}`}>
@@ -85,7 +95,7 @@ function CalloutBlock({ tone, title, text }: { tone: CalloutTone; title: string;
         <span className="font-reading text-[0.95em] font-semibold text-foreground/90">{title}</span>
       </div>
       <p className="text-[0.95em] leading-7 text-foreground/90">
-        <RichText text={text} />
+        <RichText text={text} host={hl ? `${hl}.tx` : undefined} />
       </p>
     </aside>
   )
@@ -139,7 +149,15 @@ function SolPill() {
   )
 }
 
-function SolutionSteps({ steps, answer }: { steps: string[]; answer?: string }) {
+function SolutionSteps({
+  steps,
+  answer,
+  hl,
+}: {
+  steps: string[]
+  answer?: string
+  hl?: string
+}) {
   return (
     <div className="relative font-reading text-[0.95em] leading-7 text-foreground/90">
       <SolPill />
@@ -149,7 +167,7 @@ function SolutionSteps({ steps, answer }: { steps: string[]; answer?: string }) 
           const body = (
             <>
               {caseLead && <strong className="font-semibold text-foreground">{caseLead} </strong>}
-              <RichText text={text} />
+              <RichText text={text} host={hl ? `${hl}.s${i}` : undefined} />
             </>
           )
           return (
@@ -169,7 +187,7 @@ function SolutionSteps({ steps, answer }: { steps: string[]; answer?: string }) 
               <StepTag tag="∴" />
             </span>
             <span className="min-w-0 leading-7">
-              <RichText text={answer.replace(ANSWER_LABEL, '')} />
+              <RichText text={answer.replace(ANSWER_LABEL, '')} host={hl ? `${hl}.an` : undefined} />
             </span>
           </li>
         )}
@@ -184,7 +202,17 @@ function SolutionSteps({ steps, answer }: { steps: string[]; answer?: string }) 
 /* inline + connective tag column).                                    */
 /* ---------------------------------------------------------------- */
 
-function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no: number }) {
+function ExampleBlock({
+  title,
+  steps,
+  no,
+  hl,
+}: {
+  title: string
+  steps: string[]
+  no: number
+  hl?: string
+}) {
   return (
     <section className="my-7" aria-label={`Illustration ${no}`}>
       <div className="flex items-center gap-3">
@@ -194,10 +222,10 @@ function ExampleBlock({ title, steps, no }: { title: string; steps: string[]; no
         <span className="h-px flex-1 bg-[var(--book-sage-line)]" aria-hidden />
       </div>
       <p className="mt-2.5 rounded-lg bg-[var(--book-sage)] px-5 py-3 font-reading text-[0.98em] font-semibold leading-7 text-foreground/95">
-        <RichText text={title} />
+        <RichText text={title} host={hl ? `${hl}.t` : undefined} />
       </p>
       <div className="mt-4">
-        <SolutionSteps steps={steps} />
+        <SolutionSteps steps={steps} hl={hl} />
       </div>
     </section>
   )
@@ -212,11 +240,13 @@ function DerivationBlock({
   statement,
   steps,
   result,
+  hl,
 }: {
   title: string
   statement: string
   steps: { label: string; formula?: string; explanation: string }[]
   result: string
+  hl?: string
 }) {
   return (
     <section className="my-7">
@@ -225,7 +255,7 @@ function DerivationBlock({
       </h3>
       <div className="mt-3">
         <p className="text-[0.95em] leading-7 text-foreground/90">
-          <RichText text={statement} />
+          <RichText text={statement} host={hl ? `${hl}.st` : undefined} />
         </p>
         <ol className="mt-4 list-none space-y-0 border-l-2 border-[var(--book-green)]/40">
           {steps.map((step, i) => (
@@ -233,7 +263,7 @@ function DerivationBlock({
               <span className="text-sm font-medium text-foreground">{step.label}</span>
               {step.formula && <Math tex={step.formula} display />}
               <p className="text-[0.92em] leading-6 text-muted-foreground">
-                <RichText text={step.explanation} />
+                <RichText text={step.explanation} host={hl ? `${hl}.s${i}` : undefined} />
               </p>
             </li>
           ))}
@@ -243,7 +273,7 @@ function DerivationBlock({
             Result
           </span>
           <span className="text-[0.95em] leading-7 text-foreground">
-            <RichText text={result} />
+            <RichText text={result} host={hl ? `${hl}.res` : undefined} />
           </span>
         </div>
       </div>
@@ -255,7 +285,17 @@ function DerivationBlock({
 /* Formula card                                                      */
 /* ---------------------------------------------------------------- */
 
-function FormulaBlock({ name, latex, note }: { name: string; latex: string; note?: string }) {
+function FormulaBlock({
+  name,
+  latex,
+  note,
+  hl,
+}: {
+  name: string
+  latex: string
+  note?: string
+  hl?: string
+}) {
   return (
     <aside className="my-6 overflow-hidden rounded-lg border border-[var(--book-sage-line)]">
       <div className="flex items-center gap-2 border-b border-[var(--book-sage-line)] bg-[var(--book-sage)] px-4 py-2">
@@ -269,7 +309,7 @@ function FormulaBlock({ name, latex, note }: { name: string; latex: string; note
       </div>
       {note && (
         <p className="border-t border-[var(--book-sage-line)]/60 px-4 py-2.5 text-sm leading-6 text-muted-foreground">
-          <RichText text={note} />
+          <RichText text={note} host={hl ? `${hl}.n` : undefined} />
         </p>
       )}
     </aside>
@@ -284,10 +324,12 @@ function AlgorithmBlock({
   title,
   lines,
   note,
+  hl,
 }: {
   title: string
   lines: { code: string; note?: string }[]
   note?: string
+  hl?: string
 }) {
   return (
     <section className="my-7 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
@@ -305,7 +347,7 @@ function AlgorithmBlock({
               {l.note && (
                 <span className="whitespace-pre-wrap text-muted-foreground" title={l.note}>
                   {'// '}
-                  <RichText text={l.note} />
+                  <RichText text={l.note} host={hl ? `${hl}.l${i}` : undefined} />
                 </span>
               )}
             </li>
@@ -314,7 +356,7 @@ function AlgorithmBlock({
       </div>
       {note && (
         <p className="border-t border-stone-300/70 bg-muted/30 px-5 py-2.5 text-sm leading-6 text-muted-foreground dark:border-stone-700">
-          <RichText text={note} />
+          <RichText text={note} host={hl ? `${hl}.n` : undefined} />
         </p>
       )}
     </section>
@@ -330,11 +372,13 @@ function QuizBlock({
   title,
   lessonId,
   blockIndex,
+  hl,
 }: {
   items: QuizItem[]
   title?: string
   lessonId?: string
   blockIndex?: number
+  hl?: string
 }) {
   const [selected, setSelected] = useState<Record<number, number>>({})
   const recordQuiz = useProgress((s) => s.recordQuiz)
@@ -402,7 +446,7 @@ function QuizBlock({
             <div key={qi} className="px-5 py-4">
               <p className="mb-3 font-medium leading-7">
                 <span className="mr-2 text-primary">{qi + 1}.</span>
-                <RichText text={item.q} />
+                <RichText text={item.q} host={hl ? `${hl}.q${qi}` : undefined} />
               </p>
               <div className="grid gap-2 sm:grid-cols-2">
                 {item.options.map((opt, oi) => {
@@ -426,7 +470,7 @@ function QuizBlock({
                       <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[11px] font-semibold">
                         {answered && isAnswer ? <Check className="h-3 w-3" /> : String.fromCharCode(65 + oi)}
                       </span>
-                      <RichText text={opt} />
+                      <RichText text={opt} host={hl ? `${hl}.q${qi}.o${oi}` : undefined} />
                     </button>
                   )
                 })}
@@ -443,7 +487,7 @@ function QuizBlock({
                     {chosen === item.answer ? 'Correct.' : 'Not quite — here is the reasoning.'}
                   </p>
                   <p className="text-foreground/90">
-                    <RichText text={item.explain} />
+                    <RichText text={item.explain} host={hl ? `${hl}.q${qi}.x` : undefined} />
                   </p>
                   <button
                     type="button"
@@ -500,9 +544,16 @@ function QuizBlock({
  * Now,/So,), terminal ∴ answer line — no step numbers (owner
  * directive 2026-11-03), no boxed Answer row (Cengage prints none).
  * Legacy string solutions stay paragraphs. */
-function SolutionBody({ q }: { q: { solution: string | string[]; answer?: string } }) {
-  if (!Array.isArray(q.solution)) return <RichText text={q.solution} />
-  return <SolutionSteps steps={q.solution} answer={q.answer} />
+function SolutionBody({
+  q,
+  hl,
+}: {
+  q: { solution: string | string[]; answer?: string }
+  hl?: string
+}) {
+  if (!Array.isArray(q.solution))
+    return <RichText text={q.solution} host={hl ? `${hl}.sol` : undefined} />
+  return <SolutionSteps steps={q.solution} answer={q.answer} hl={hl} />
 }
 
 function ExercisesBlock({
@@ -510,6 +561,7 @@ function ExercisesBlock({
   title,
   lessonId,
   blockIndex,
+  hl,
 }: {
   sets: {
     level: keyof typeof LEVEL_LABELS
@@ -518,6 +570,7 @@ function ExercisesBlock({
   title?: string
   lessonId?: string
   blockIndex?: number
+  hl?: string
 }) {
   /* honest self-report per question, keyed `${setIdx}.${qIdx}` — a miss
    * becomes a Mistake Bank card (and "got it" retires one) */
@@ -572,7 +625,7 @@ function ExercisesBlock({
                     <span className="mr-2 font-reading font-bold text-[var(--book-green-ink)]">
                       Q{qi + 1}.
                     </span>
-                    <RichText text={q.q} />
+                    <RichText text={q.q} host={hl ? `${hl}.x${si}.${qi}` : undefined} />
                   </p>
                   <Collapsible>
                     <CollapsibleTrigger className="group mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-[var(--book-green-ink)] hover:underline">
@@ -580,7 +633,7 @@ function ExercisesBlock({
                       Show solution
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-2 rounded-md border-l-2 border-[var(--book-green)]/60 bg-[var(--book-sage)]/50 px-4 py-3 text-sm leading-7 text-foreground/90">
-                      <SolutionBody q={q} />
+                      <SolutionBody q={q} hl={hl ? `${hl}.x${si}.${qi}` : undefined} />
                       {lessonId && blockIndex !== undefined && (
                         <div className="mt-3 border-t border-[var(--book-sage-line)]/60 pt-2.5">
                           {mark ? (
@@ -662,7 +715,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
           case 'para':
             return (
               <p key={i} className="lesson-p">
-                <RichText text={b.text} />
+                <RichText text={b.text} host={`${i}.p`} />
               </p>
             )
           case 'heading':
@@ -672,7 +725,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               </h2>
             )
           case 'callout':
-            return <CalloutBlock key={i} tone={b.tone} title={b.title} text={b.text} />
+            return <CalloutBlock key={i} tone={b.tone} title={b.title} text={b.text} hl={`${i}`} />
           case 'terms':
             return (
               <dl key={i} className="my-6 overflow-hidden rounded-lg border border-stone-300/80 dark:border-stone-700">
@@ -685,7 +738,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                   >
                     <dt className="font-reading text-base font-bold text-[var(--book-green-ink)]">{t.term}</dt>
                     <dd className="text-[0.92em] leading-6 text-foreground/90">
-                      <RichText text={t.def} />
+                      <RichText text={t.def} host={`${i}.t${ti}`} />
                     </dd>
                   </div>
                 ))}
@@ -697,7 +750,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                 <Math tex={b.latex} display />
                 {b.note && (
                   <p className="mx-auto -mt-2 mb-6 max-w-xl text-center text-sm leading-6 text-muted-foreground">
-                    <RichText text={b.note} />
+                    <RichText text={b.note} host={`${i}.n`} />
                   </p>
                 )}
               </div>
@@ -710,6 +763,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                 statement={b.statement}
                 steps={b.steps}
                 result={b.result}
+                hl={`${i}`}
               />
             )
           case 'example':
@@ -719,6 +773,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                 title={b.title}
                 steps={b.steps}
                 no={illustrationNumbers[illustrationCursor++] ?? 0}
+                hl={`${i}`}
               />
             )
           case 'figure': {
@@ -731,7 +786,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                 />
                 <figcaption className="mx-auto mt-2.5 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
                   <span className="font-semibold text-foreground/80">Figure {no}</span> —{' '}
-                  <RichText text={b.caption} />
+                  <RichText text={b.caption} host={`${i}.f`} />
                 </figcaption>
               </figure>
             )
@@ -741,7 +796,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               <figure key={i} className="my-7">
                 {b.caption && (
                   <figcaption className="mb-2 text-center text-sm font-medium text-muted-foreground">
-                    {b.caption}
+                    <RichText text={b.caption} host={`${i}.tb`} />
                   </figcaption>
                 )}
                 <div className="overflow-x-auto rounded-lg border">
@@ -758,7 +813,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                                   : 'text-center font-reading font-semibold text-[var(--book-green-ink)]'
                               }
                             >
-                              <RichText text={h} />
+                              <RichText text={h} host={`${i}.h${hi}`} />
                             </TableHead>
                           ))}
                         </TableRow>
@@ -772,7 +827,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                               key={ci}
                               className={ci === 0 ? 'font-medium' : 'text-center'}
                             >
-                              <RichText text={c} />
+                              <RichText text={c} host={`${i}.r${ri}c${ci}`} />
                             </TableCell>
                           ))}
                         </TableRow>
@@ -796,7 +851,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                         ({ROMAN[ii] ?? ii + 1})
                       </span>
                       <span>
-                        <RichText text={it} />
+                        <RichText text={it} host={`${i}.l${ii}`} />
                       </span>
                     </li>
                   ))}
@@ -807,7 +862,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               <ol key={i} className="lesson-list list-decimal">
                 {b.items.map((it, ii) => (
                   <li key={ii}>
-                    <RichText text={it} />
+                    <RichText text={it} host={`${i}.l${ii}`} />
                   </li>
                 ))}
               </ol>
@@ -815,19 +870,45 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
               <ul key={i} className="lesson-list list-disc">
                 {b.items.map((it, ii) => (
                   <li key={ii}>
-                    <RichText text={it} />
+                    <RichText text={it} host={`${i}.l${ii}`} />
                   </li>
                 ))}
               </ul>
             )
           case 'quiz':
-            return <QuizBlock key={i} items={b.items} title={b.title} lessonId={lessonId} blockIndex={i} />
+            return (
+              <QuizBlock
+                key={i}
+                items={b.items}
+                title={b.title}
+                lessonId={lessonId}
+                blockIndex={i}
+                hl={`${i}`}
+              />
+            )
           case 'exercises':
-            return <ExercisesBlock key={i} sets={b.sets} title={b.title} lessonId={lessonId} blockIndex={i} />
+            return (
+              <ExercisesBlock
+                key={i}
+                sets={b.sets}
+                title={b.title}
+                lessonId={lessonId}
+                blockIndex={i}
+                hl={`${i}`}
+              />
+            )
           case 'formula':
-            return <FormulaBlock key={i} name={b.name} latex={b.latex} note={b.note} />
+            return <FormulaBlock key={i} name={b.name} latex={b.latex} note={b.note} hl={`${i}`} />
           case 'algorithm':
-            return <AlgorithmBlock key={i} title={b.title} lines={b.lines} note={b.note} />
+            return (
+              <AlgorithmBlock
+                key={i}
+                title={b.title}
+                lines={b.lines}
+                note={b.note}
+                hl={`${i}`}
+              />
+            )
           default:
             return null
         }

@@ -423,3 +423,7 @@ server.log
 !/scripts/dump_shelf_census.ts
 !/scripts/census_snapshot_2026-11-11.md
 !/scripts/patch_research_lessons.py
+
+# covers + highlighter runtime gate (owner-approved feature turn, 2026-11-11)
+!/scripts/e2e-covers-highlights.sh
+!/scripts/e2e-covers-highlights.page.js

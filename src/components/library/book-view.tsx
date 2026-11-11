@@ -12,6 +12,7 @@
  *    revision summary button
  */
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   Award,
@@ -38,6 +39,7 @@ import {
   paths,
   type Book,
 } from '@/data/library/index'
+import { coverArtUrl } from '@/data/library/covers'
 import { StatusBadge } from './bits'
 import { useProgress } from './progress-store'
 import { QuickMarkChapter, QuickMarkLesson } from '@/components/revision/quick-mark'
@@ -47,7 +49,91 @@ import type { EntryView } from '@/lib/revision/types'
 /** chapter keys whose device-local guest marks were already moved into the ledger */
 const migratedChapterKeys = new Set<string>()
 
+/**
+ * BookCover — the AI-generated text-free cover art (owner directive
+ * 2026-11-11: "wire the cover image") with the title / subtitle / level /
+ * discipline overlaid as CSS typography (the art carries no text by design,
+ * so AI-rendered titles can never be wrong). Books without generated art
+ * fall back to the classic accent-gradient cover — same geometry, same text
+ * hierarchy, so both branches sit comfortably side by side on the shelves.
+ */
 export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {
+  const discipline = disciplineOf(book)
+  const art = coverArtUrl(book.id)
+
+  /* Typography overlay — a per-variant text budget keeps every cover
+   * composed rather than clipped: the small (card) thumbnail carries the
+   * eyebrow + title only; the large (book page) cover shows the full
+   * hierarchy, each line clamped so no subtitle can ever overflow the
+   * fixed 3:4 art box. */
+  const typeBlock = (
+    <div className="flex flex-col justify-between gap-1.5">
+      <div className="min-w-0">
+        {large && (
+          <p className="truncate font-semibold uppercase leading-normal tracking-[0.16em] text-[11px]">
+            {discipline.title}
+          </p>
+        )}
+        <p
+          className={`font-reading font-bold leading-[1.14] break-words ${
+            large ? 'line-clamp-2 text-[1.55rem]' : 'line-clamp-3 text-[0.82rem]'
+          }`}
+        >
+          {book.title}
+        </p>
+        {book.subtitle && large && (
+          <p className="mt-1 line-clamp-2 max-w-[95%] break-words text-[11px] leading-[1.25]">
+            {book.subtitle}
+          </p>
+        )}
+      </div>
+      {large && (
+        <span className="max-w-full truncate rounded-sm bg-white/15 px-1.5 py-[1px] text-[9px] font-medium leading-normal [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
+          {book.level}
+        </span>
+      )}
+    </div>
+  )
+
+  if (art) {
+    return (
+      <div
+        className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-card shadow-md ${
+          large ? '' : 'max-w-[220px]'
+        }`}
+        aria-hidden
+      >
+        <Image
+          src={art}
+          alt=""
+          fill
+          sizes={large ? '(min-width: 640px) 208px, 192px' : '96px, 120px'}
+          className="object-cover"
+        />
+        {/* legibility scrim — deeper at the base where the type sits */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/15" />
+        {/* thin accent frame ties the art to the book's own palette */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-lg"
+          style={{ boxShadow: `inset 0 0 0 1px ${book.accent[0]}55, inset 0 -3px 0 ${book.accent[0]}` }}
+        />
+        <div
+          className={`relative flex h-full flex-col justify-between ${large ? 'p-5' : 'p-2.5'} text-white`}
+        >
+          <span
+            className={`truncate font-semibold uppercase leading-normal tracking-[0.1em] text-white/85 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] ${
+              large ? 'text-[11px]' : 'text-[7px]'
+            }`}
+          >
+            {discipline.title}
+          </span>
+          {typeBlock}
+        </div>
+      </div>
+    )
+  }
+
+  /* gradient fallback — the pre-art cover, unchanged */
   return (
     <div
       className={`relative flex flex-col justify-between overflow-hidden rounded-lg text-white shadow-md ${
@@ -59,7 +145,7 @@ export function BookCover({ book, large = false }: { book: Book; large?: boolean
       <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/10" />
       <div className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-black/10" />
       <span className={`font-semibold uppercase tracking-widest opacity-90 ${large ? 'text-[11px]' : 'text-[9px]'}`}>
-        {disciplineOf(book).title}
+        {discipline.title}
       </span>
       <div>
         <p className={`font-reading font-bold leading-tight ${large ? 'text-xl' : 'text-sm'}`}>
