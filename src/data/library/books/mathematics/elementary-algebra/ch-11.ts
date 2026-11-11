@@ -775,7 +775,7 @@ function functionMachineSvg(): string {
   // ---- the domain/range note band ----
   parts.push('<rect x="30" y="270" width="660" height="46" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>')
   parts.push('<text x="360" y="290" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">this rule refuses no real input — the domain is all the reals</text>')
-  parts.push('<text x="360" y="308" font-size="10.5" fill="#166534" text-anchor="middle">and no output ever falls below −25/8 — the range [−25/8, ∞): the vertex of 10.3, priced as the machine’s floor.</text>')
+  parts.push('<text x="360" y="308" font-size="10.5" fill="#166534" text-anchor="middle">and no output ever falls below −25/8 — the range [−25/8, ∞): the vertex met in 10.3, priced as the machine’s floor.</text>')
   // ---- caption band ----
   parts.push('<rect x="30" y="324" width="660" height="28" rx="6" fill="none" stroke="#0d9488" stroke-width="1"/>')
   parts.push('<text x="360" y="342" font-size="11" fill="#0f766e" text-anchor="middle">f is the rule’s NAME; f(2) is the OUTPUT — never f times 2</text>')

@@ -88,23 +88,23 @@ function arrowDiagramSvg(): string {
   }
 
   return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arrow diagram of the relation x less than y from set A to set B">
-  <ellipse cx="170" cy="160" rx="115" ry="105" fill="#fef3c7" stroke="#16a34a" stroke-width="2.4"/>
-  <ellipse cx="550" cy="160" rx="115" ry="105" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>
-  <text x="170" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">A (the inputs)</text>
-  <text x="550" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">B (the codomain)</text>
-  ${dot(175, 95, '1', false)}
-  ${dot(112, 200, '4', false)}
-  ${dot(235, 205, '5', false)}
-  ${dot(545, 95, '1', true)}
-  ${dot(487, 205, '2', false)}
-  ${dot(607, 200, '7', false)}
-  ${arrow(175, 95, 487, 205)}
-  ${arrow(175, 95, 607, 200)}
-  ${arrow(112, 200, 607, 200)}
-  ${arrow(235, 205, 607, 200)}
+  <ellipse cx="170" cy="165" rx="125" ry="112" fill="#fef3c7" stroke="#16a34a" stroke-width="2.4"/>
+  <ellipse cx="550" cy="170" rx="120" ry="110" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>
+  <text x="170" y="42" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">A (the inputs)</text>
+  <text x="550" y="42" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">B (the codomain)</text>
+  ${dot(150, 90, '1', false)}
+  ${dot(110, 200, '4', false)}
+  ${dot(240, 232, '5', false)}
+  ${dot(545, 85, '1', true)}
+  ${dot(490, 240, '2', false)}
+  ${dot(610, 170, '7', false)}
+  ${arrow(150, 90, 490, 240)}
+  ${arrow(150, 90, 610, 170)}
+  ${arrow(110, 200, 610, 170)}
+  ${arrow(240, 232, 610, 170)}
   <text x="545" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">never hit</text>
-  <text x="170" y="296" text-anchor="middle" font-size="14" fill="#0f766e">domain = {1, 4, 5} — every input fires</text>
-  <text x="560" y="296" text-anchor="middle" font-size="14" fill="#0f766e">range = {2, 7} ⊆ codomain {1, 2, 7}</text>
+  <text x="170" y="298" text-anchor="middle" font-size="14" fill="#0f766e">domain = {1, 4, 5} — every input fires</text>
+  <text x="560" y="298" text-anchor="middle" font-size="14" fill="#0f766e">range = {2, 7} ⊆ codomain {1, 2, 7}</text>
   <text x="360" y="316" text-anchor="middle" font-size="14" fill="#65a30d">R = {(1,2), (1,7), (4,7), (5,7)} — the arrows ARE the relation</text>
 </svg>`
 }
@@ -124,8 +124,7 @@ function mod5ClassesSvg(): string {
       const items = (vals as string[]).map((v, j) => `<text x="${x + 64}" y="${128 + j * 34}" text-anchor="middle" font-size="19" font-weight="600" fill="#166534">${v}</text>`).join('')
       return (
         `<rect x="${x}" y="66" width="128" height="170" rx="10" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>` +
-        `<rect x="${x}" y="66" width="128" height="40" rx="10" fill="#16a34a"/>` +
-        `<rect x="${x}" y="90" width="128" height="16" fill="#16a34a"/>` +
+        `<path d="M${x},106 L${x},76 Q${x},66 ${x + 10},66 L${x + 118},66 Q${x + 128},66 ${x + 128},76 L${x + 128},106 Z" fill="#16a34a"/>` +
         `<text x="${x + 64}" y="93" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">${label}</text>` +
         items
       )
@@ -410,34 +409,35 @@ const lesson11: Lesson = {
 
 /** 1.2 — the horizontal probe: one-one vs many-one twin graphs */
 function horizontalProbeSvg(): string {
-  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two graphs: a one-one curve cut once by every horizontal probe, and a many-one curve cut twice by the probe y equals 5">
+  return `<svg viewBox="0 0 720 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two graphs: a one-one curve cut once by every horizontal probe, and a many-one curve cut twice by the probe y equals 5">
   <!-- left panel: y = x^3 + x + 1 -->
   <text x="185" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">y = x³ + x + 1 — every probe cuts once</text>
   <line x1="30" y1="160" x2="330" y2="160" stroke="#65a30d" stroke-width="1.4"/>
-  <line x1="180" y1="20" x2="180" y2="260" stroke="#65a30d" stroke-width="1.4"/>
+  <line x1="180" y1="34" x2="180" y2="260" stroke="#65a30d" stroke-width="1.4"/>
   <text x="326" y="176" text-anchor="end" font-size="12" fill="#0f766e">x</text>
-  <text x="188" y="28" font-size="12" fill="#0f766e">y</text>
+  <text x="188" y="46" font-size="12" fill="#0f766e">y</text>
   <polyline points="60,250 90,199 120,170 150,156 180,150 210,144 240,130 270,101 300,50" fill="none" stroke="#16a34a" stroke-width="2.6"/>
   <line x1="40" y1="110" x2="320" y2="110" stroke="#ea580c" stroke-width="2" stroke-dasharray="7 5"/>
   <circle cx="263" cy="110" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
-  <text x="263" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">one cut</text>
+  <text x="205" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">one cut</text>
   <text x="52" y="106" font-size="12" fill="#ea580c">probe y = 5</text>
 
   <!-- right panel: y = x^2 + 1 -->
   <text x="535" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">y = x² + 1 — the probe cuts twice</text>
   <line x1="380" y1="258" x2="680" y2="258" stroke="#65a30d" stroke-width="1.4"/>
-  <line x1="530" y1="20" x2="530" y2="258" stroke="#65a30d" stroke-width="1.4"/>
+  <line x1="530" y1="34" x2="530" y2="258" stroke="#65a30d" stroke-width="1.4"/>
   <text x="676" y="274" text-anchor="end" font-size="12" fill="#0f766e">x</text>
-  <text x="538" y="28" font-size="12" fill="#0f766e">y</text>
+  <text x="538" y="46" font-size="12" fill="#0f766e">y</text>
   <polyline points="380,47 410,113 440,165 470,201 500,223 530,231 560,223 590,201 620,165 650,113 680,47" fill="none" stroke="#16a34a" stroke-width="2.6"/>
   <line x1="390" y1="113" x2="690" y2="113" stroke="#ea580c" stroke-width="2" stroke-dasharray="7 5"/>
   <circle cx="410" cy="113" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
   <circle cx="650" cy="113" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
-  <text x="404" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(−2) = 5</text>
-  <text x="652" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(2) = 5</text>
+  <text x="415" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(−2) = 5</text>
+  <text x="645" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(2) = 5</text>
   <text x="535" y="133" text-anchor="middle" font-size="12" fill="#ea580c">probe y = 5</text>
 
-  <text x="360" y="294" text-anchor="middle" font-size="14" fill="#0f766e">the horizontal probe: a full-width sweep of horizontal lines — at most one cut each means one-one; any double cut means many-one</text>
+  <text x="360" y="298" text-anchor="middle" font-size="14" fill="#0f766e">the horizontal probe: a full-width sweep of horizontal lines —</text>
+  <text x="360" y="318" text-anchor="middle" font-size="14" fill="#0f766e">at most one cut each means one-one; any double cut means many-one</text>
 </svg>`
 }
 
@@ -468,17 +468,17 @@ function pigeonholeCountSvg(): string {
   ${arrow(110, 95, 362, 105, true)}
   ${arrow(110, 160, 362, 118, true)}
   ${arrow(110, 225, 362, 210, false)}
-  <text x="250" y="272" text-anchor="middle" font-size="13" fill="#dc2626">the red pair must share — every 3-into-2 machine is many-one</text>
+  <text x="250" y="276" text-anchor="middle" font-size="13.5" fill="#dc2626">the red pair must share — every 3-into-2 machine is many-one</text>
 
   <rect x="535" y="56" width="178" height="66" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">one-one needs m ≤ n</text>
-  <text x="624" y="98" text-anchor="middle" font-size="13" fill="#65a30d">⁵P₃ = 60 injective</text>
+  <text x="624" y="100" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">⁵P₃ = 60 injective</text>
   <rect x="535" y="140" width="178" height="66" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="162" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">onto needs n ≤ m</text>
-  <text x="624" y="182" text-anchor="middle" font-size="13" fill="#65a30d">150 of 3⁵ = 243 surjective</text>
+  <text x="624" y="184" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">150 of 3⁵ = 243 surjective</text>
   <rect x="535" y="224" width="178" height="60" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="246" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">bijective needs m = n</text>
-  <text x="624" y="266" text-anchor="middle" font-size="13" fill="#65a30d">3! = 6 pairings</text>
+  <text x="624" y="268" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">3! = 6 pairings</text>
 </svg>`
 }
 

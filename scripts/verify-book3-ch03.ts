@@ -1726,7 +1726,9 @@ const PQM = polyD(1, 0, 1).mul(polyD(1, 0, -3)) // (x²+1)(x²−3)
       ok(rm.every((r) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 720 && r.y + r.h <= 360), 'M: remainder map boxes inside viewBox 720x360')
       const stations = rm.filter((r) => (r.w === 170 && r.h === 56) || (r.w === 180 && r.h === 50))
       const bandM = rm.find((r) => r.w === 660 && r.h === 40)
-      const bandBoxes = rm.filter((r) => r.h === 24 && r.w >= 150)
+      // figure-audit sweep 2026-11-11: the verdict box narrowed 150 -> 140 and moved
+      // 540 -> 535 so it no longer sits flush against the band's right border
+      const bandBoxes = rm.filter((r) => r.h === 24 && r.w >= 140)
       ok(stations.length === 4 && !!bandM && bandBoxes.length === 3, 'M: remainder map composition (4 stations + band + 3 boxes)')
       ok(pairwise(stations), 'M: the four stations pairwise disjoint')
       ok(bandBoxes.every((b) => b.y >= 272 && b.y + b.h <= 312), 'M: band boxes inside the verdict band')

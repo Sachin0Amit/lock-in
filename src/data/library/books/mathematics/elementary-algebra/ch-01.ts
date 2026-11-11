@@ -304,7 +304,7 @@ function anchorScaleSvg(): string {
   for (const [f, name, fLabel, cLabel] of anchors) {
     const x = fx(f)
     parts.push(`<circle cx="${x}" cy="150" r="5" fill="none" stroke="#16a34a" stroke-width="2"/>`)
-    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="112" stroke="#d97706" stroke-width="1.2"/>`)
+    parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="128" stroke="#d97706" stroke-width="1.2"/>`)
     parts.push(`<line x1="${x}" y1="150" x2="${x}" y2="188" stroke="#d97706" stroke-width="1.2"/>`)
     parts.push(`<text x="${x}" y="102" font-size="12.5" fill="#166534" text-anchor="middle" font-weight="700">${fLabel}</text>`)
     parts.push(`<text x="${x}" y="120" font-size="11" fill="#0d9488" text-anchor="middle">${name}</text>`)

@@ -891,56 +891,42 @@ export const chapter07: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The mirror map: each pair (a, b) and its seat-swapped partner (b, a) sit symmetric across the diagonal b = a (dashed) — slope 2/3 reflects to 3/2, 1/3 to 3, 1 to itself. Amber dots mark mirrored pairs; the reciprocal law is the geometry: reflecting a ray across the diagonal turns its slope into the reciprocal, and only the diagonal (slope 1) reflects to itself — which is why 1 is its own reciprocal and nothing else is.',
+            'The mirror map: each pair (a, b) and its seat-swapped partner (b, a) sit symmetric across the true diagonal b = a (dashed — one numerator-step per denominator-step in lattice units). The dark dots are the mirrored pairs; the three amber arrows carry each off-diagonal pair across to its swap (slope 2/3 reflects to 3/2, 1/3 to 3); and the single amber dot (1, 1) is the only self-mirror. The reciprocal law is the geometry: reflecting a ray across the diagonal turns its slope into the reciprocal, and only the diagonal (slope 1) reflects to itself — which is why 1 is its own reciprocal and nothing else is.',
           svg: `<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lattice pairs and their seat-swapped mirrors across the diagonal: two thirds reflects to three halves, one third to three, one to itself">
   <defs>
     <marker id="q72-arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 Z" fill="#ea580c"/>
     </marker>
   </defs>
-  <line x1="${80 + 28}" y1="${240 + 28}" x2="${80 + 200}" y2="${240 - 200}" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.6"/>
+  <line x1="80" y1="240" x2="304" y2="64" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.6"/>
   <line x1="60" y1="240" x2="490" y2="240" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
   <line x1="80" y1="260" x2="80" y2="40" stroke="currentColor" stroke-width="1.2" opacity="0.7"/>
-  ${[
-    [2, 3],
-    [3, 2],
-    [1, 3],
-    [3, 1],
-    [1, 4],
-    [4, 1],
-    [1, 1],
-    [2, 1],
-    [1, 2],
-    [4, 3],
-    [3, 4],
-  ]
-    .map(
-      ([a, b]) =>
-        `<circle cx="${80 + 56 * b}" cy="${240 - 44 * a}" r="${a === b ? 5 : 4}" fill="${a === b ? '#ea580c' : 'currentColor'}" opacity="${a === b ? 1 : 0.75}"/>`
-    )
-    .join('\n  ')}
-  ${[
-    { a: 2, b: 3, ma: 3, mb: 2, off: -30 },
-    { a: 1, b: 3, ma: 3, mb: 1, off: -30 },
-    { a: 1, b: 4, ma: 4, mb: 1, off: -30 },
-  ]
-    .map(
-      (m) =>
-        `<path d="M ${80 + 56 * m.b} ${240 - 44 * m.a} Q ${(80 + 56 * m.b + 80 + 56 * m.mb) / 2 + m.off} ${(240 - 44 * m.a + 240 - 44 * m.ma) / 2} ${80 + 56 * m.mb} ${240 - 44 * m.ma}" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>`
-    )
-    .join('\n  ')}
+  <circle cx="248" cy="152" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="192" cy="108" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="248" cy="196" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="136" cy="108" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="304" cy="196" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="136" cy="64" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="136" cy="196" r="5" fill="#ea580c"/>
+  <circle cx="136" cy="152" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="192" cy="196" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="248" cy="64" r="4" fill="currentColor" opacity="0.75"/>
+  <circle cx="304" cy="108" r="4" fill="currentColor" opacity="0.75"/>
+  <path d="M 241.7 147.1 Q 190 130 203 116.7" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>
+  <path d="M 241.7 191 Q 162 152 147 116.7" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>
+  <path d="M 297.7 191 Q 190 130 147 72.7" fill="none" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#q72-arrow)"/>
   <g font-size="12.5" fill="#ea580c" text-anchor="middle">
-    <text x="${80 + 56 * 3 + 22}" y="${240 - 44 * 2 - 2}">3/2</text>
-    <text x="${80 + 56 * 2 - 24}" y="${240 - 44 * 2 + 18}">2/3</text>
-    <text x="${80 + 56 * 1 + 20}" y="${240 - 44 * 4 - 4}">1/4</text>
-    <text x="${80 + 56 * 4 - 20}" y="${240 - 44 * 1 + 14}">4</text>
-    <text x="${80 + 56 * 3 - 26}" y="${240 - 44 * 1 + 4}">3</text>
-    <text x="${80 + 56 * 1 - 24}" y="${240 - 44 * 3 + 4}">1/3</text>
-    <text x="${80 + 56 * 1 - 26}" y="${240 - 44 * 1 + 4}">1</text>
-    <text x="${80 + 56 * 1 + 16}" y="${240 - 44 * 2 + 4}">1/2</text>
-    <text x="${80 + 56 * 2 - 22}" y="${240 - 44 * 1 + 4}">2</text>
-    <text x="${80 + 56 * 3 + 20}" y="${240 - 44 * 4 + 4}">4/3</text>
-    <text x="${80 + 56 * 4 - 22}" y="${240 - 44 * 3 + 4}">3/4</text>
+    <text x="284" y="172">2/3</text>
+    <text x="166" y="74">3/2</text>
+    <text x="270" y="212">1/3</text>
+    <text x="112" y="92">3</text>
+    <text x="326" y="210">1/4</text>
+    <text x="158" y="48">4</text>
+    <text x="136" y="218">1</text>
+    <text x="110" y="138">2</text>
+    <text x="216" y="212">1/2</text>
+    <text x="270" y="50">4/3</text>
+    <text x="328" y="92">3/4</text>
   </g>
   <text x="330" y="120" font-size="12.5" fill="currentColor" opacity="0.8">the diagonal b = a:</text>
   <text x="330" y="136" font-size="12.5" fill="currentColor" opacity="0.8">slope 1 reflects to itself</text>
@@ -1619,8 +1605,8 @@ export const chapter07: Chapter = {
         {
           kind: 'figure',
           caption:
-            'Density zoomed: the window (0.14, 0.15) at forty pixels per hundredth. The tick marks are hundredths; 1/7 = 0.142857… lands between the 0.142 and 0.143 ticks — and every further digit of its expansion re-zooms the window: (0.142, 0.143), then (0.1428, 0.1429), forever. The decimal mirror is the midpoint wedge wearing place-value clothes.',
-          svg: `<svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A zoomed number line from 0.140 to 0.150 with hundredth ticks and the fraction one seventh marked between the 0.142 and 0.143 ticks">
+            'Density zoomed: the window (0.14, 0.15) at forty pixels per thousandth. The tick marks are thousandths; 1/7 = 0.142857… lands between the 0.142 and 0.143 ticks — and every further digit of its expansion re-zooms the window: (0.142, 0.143), then (0.1428, 0.1429), forever. The decimal mirror is the midpoint wedge wearing place-value clothes.',
+          svg: `<svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A zoomed number line from 0.140 to 0.150 with thousandth ticks and the fraction one seventh marked between the 0.142 and 0.143 ticks">
   <line x1="80" y1="70" x2="480" y2="70" stroke="currentColor" stroke-width="1.4"/>
   ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     .map((i) => {
@@ -1635,10 +1621,10 @@ export const chapter07: Chapter = {
         `<text x="${Math.round(80 + (v - 0.14) * 40000)}" y="94" font-size="11.5" text-anchor="middle" fill="currentColor" opacity="0.75">${v.toFixed(3)}</text>`
     )
     .join('\n  ')}
-  <line x1="194" y1="36" x2="194" y2="62" stroke="#ea580c" stroke-width="1.6"/>
+  <line x1="194" y1="36" x2="194" y2="68" stroke="#ea580c" stroke-width="1.6"/>
   <circle cx="194" cy="28" r="4" fill="#ea580c"/>
   <text x="480" y="20" font-size="12.5" font-weight="700" fill="#ea580c" text-anchor="end">1/7 = 0.142857…</text>
-  <text x="80" y="20" font-size="12" fill="currentColor" opacity="0.75">window (0.14, 0.15) — 40 px per hundredth</text>
+  <text x="80" y="20" font-size="12" fill="currentColor" opacity="0.75">window (0.14, 0.15) — 40 px per thousandth</text>
   <text x="480" y="118" font-size="11.5" fill="currentColor" opacity="0.7" text-anchor="end">every added digit re-zooms: (0.142, 0.143) → (0.1428, 0.1429) → …</text>
 </svg>`,
         },

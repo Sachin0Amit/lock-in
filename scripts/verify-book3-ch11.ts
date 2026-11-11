@@ -1635,11 +1635,14 @@ if (ch11mod) {
     ok(!!alg, 'F the elementary-algebra book is registered')
     const regCh11 = alg!.chapters.find((c: any) => c.number === 11)
     ok(!!regCh11 && regCh11.lessons.length === 3 && (regCh11.plannedLessons || []).length === 0 && regCh11.status === 'complete', 'F book.ts carries chapter 11 with 3 lessons, none planned, complete')
-    ok(alg!.chapters.length === 11, 'F the book has exactly 11 chapters — no chapter 12 exists')
+    const regCh12 = alg!.chapters.find((c: any) => c.number === 12)
+    ok(!!regCh12 && regCh12.lessons.length === 0 && (regCh12.plannedLessons || []).length === 3 && regCh12.status === 'planned', 'F chapter 12 registered as the planned gap queue (H&K ratio-proportion-variation — 3 titles, pre-written-books audit)')
+    ok(alg!.chapters.length === 12, 'F the book has exactly 12 chapters — 11 complete + the planned ch. 12')
     for (const c of alg!.chapters) {
-      ok(c.status === 'complete', `F chapter ${c.number} complete — the whole book, verified chapter by chapter`)
+      if (c.number === 12) continue
+      ok(c.status === 'complete', `F chapter ${c.number} complete — the whole 2026-11-11 book body, chapter by chapter`)
     }
-    ok(alg!.status === 'complete', 'F THE BOOK CLOSE: the elementary-algebra status is complete')
+    ok(alg!.status === 'in-progress', 'F THE BOOK CLOSE + GAP QUEUE: chapters 1–11 closed in runs 66–88; the book now carries the ch. 12 gap queue, so status in-progress (refreshed at the 2026-11-11 figure sweep)')
 
     // al- prefix + global uniqueness across the whole library
     const seen = new Map<string, string>()
@@ -1697,7 +1700,7 @@ if (ch11mod) {
     const bookWords = alg!.chapters.reduce((n: number, c: any) => n + c.lessons.reduce((m: number, l: any) => m + countLessonWords(l), 0), 0)
     ok(bookLessons === 37, `F the closing snapshot: the book stands at 37 lessons (got ${bookLessons})`)
     ok(bookWords >= 168900, `F the closing snapshot: the book stands at ≥ 168,900 words (got ${bookWords})`)
-    ok(libLessons === 120, `F the library stands at 120 lessons (got ${libLessons})`)
+    ok(libLessons === 123, `F the library stands at 123 lessons (got ${libLessons})`)
     console.log(`  F THE BOOK CLOSE: book 3 Elementary Algebra COMPLETE — ${bookLessons} lessons / ${bookWords} words; library ${libLessons} lessons; the unit-11 review PASSED`)
   }
 

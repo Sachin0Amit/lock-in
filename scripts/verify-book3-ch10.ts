@@ -1232,9 +1232,9 @@ function sectionF(): void {
   const alg = allBooks.find((b: any) => b.id === 'elementary-algebra')
   ok(!!alg, 'F the elementary-algebra book is registered')
   ok(alg!.chapters.some((c: any) => c.number === 10 && c.lessons.length === 3), 'F book.ts carries chapter 10 with 3 lessons')
-  // the planned stub for ch. 11 still exists — NEVER opened this run
+  // ch. 11 was opened and closed in runs 87–88 (word problems + competition + the book close)
   const ch11 = alg!.chapters.find((c: any) => c.number === 11)
-  ok(!!ch11 && (ch11.plannedLessons || []).length === 3 && ch11.lessons.length === 0 && ch11.status === 'planned', 'F chapter 11 remains planned with its 3 titles — never opened in run 86')
+  ok(!!ch11 && ch11.lessons.length === 3 && ch11.status === 'complete', 'F chapter 11 complete with its 3 lessons (11.1 + 11.2 + 11.3, the unit review folded into 11.3 — runs 87–88)')
   // the closing state: chapter complete, no planned lessons
   ok(chapter10.status === 'complete', 'F chapter 10 status flipped to complete')
   ok(!chapter10.plannedLessons || chapter10.plannedLessons.length === 0, 'F no planned lessons remain in chapter 10')
@@ -1493,10 +1493,10 @@ function sectionI(): void {
       if (w < minWords) minWords = w
     }
   }
-  ok(bookLessons === 34, 'I-9: the book stands at 34 lessons (got ' + bookLessons + ')')
+  ok(bookLessons === 37, 'I-9: the book stands at 37 lessons (got ' + bookLessons + ')')
   ok(bookWords > 155500, 'I-9: the book crosses 155,500 words (' + bookWords + ')')
   ok(minWords >= 4000, 'I-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
-  ok(completeChapters === 10 && totalChapters === 11, 'I-9: 10 of 11 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
+  ok(completeChapters === 11 && totalChapters === 12, 'I-9: 11 of 12 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
   let libraryLessons = 0
   let libraryWords = 0
   for (const b of allBooks) {
@@ -1507,7 +1507,7 @@ function sectionI(): void {
       }
     }
   }
-  ok(libraryLessons === 117, 'I-9: the library stands at 117 lessons (got ' + libraryLessons + ')')
+  ok(libraryLessons === 123, 'I-9: the library stands at 123 lessons (got ' + libraryLessons + ')')
   console.log('  I-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
 
   // 10 — the id registry, one final time across the whole library

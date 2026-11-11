@@ -428,7 +428,8 @@ function remainderMapSvg(): string {
   parts.push('<line x1="430" y1="126" x2="476" y2="116" stroke="#65a30d" stroke-width="1.4"/>')
   parts.push('<line x1="430" y1="152" x2="476" y2="200" stroke="#dc2626" stroke-width="1.4"/>')
   // the evaluation arrow: x = a kills the product term
-  parts.push('<path d="M 345 170 C 345 240, 420 250, 474 216" fill="none" stroke="#65a30d" stroke-width="1.4" stroke-dasharray="6 4"/>')
+  parts.push('<path d="M 345 170 C 345 240, 420 250, 470 218" fill="none" stroke="#65a30d" stroke-width="1.4" stroke-dasharray="6 4"/>')
+  parts.push('<polygon points="478,213 473.4,220.5 469.2,213.7" fill="#65a30d"/>')
   parts.push('<text x="292" y="232" font-size="11" fill="#65a30d" font-weight="700">at x = a :</text>')
   // verdict band
   parts.push('<rect x="30" y="272" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
@@ -436,8 +437,8 @@ function remainderMapSvg(): string {
   parts.push('<text x="150" y="296" font-size="10.5" fill="#166534" text-anchor="middle">f(a) = 0 · q(a) + r</text>')
   parts.push('<rect x="300" y="280" width="180" height="24" rx="5" fill="none" stroke="#0d9488" stroke-width="1"/>')
   parts.push('<text x="390" y="296" font-size="10.5" fill="#166534" text-anchor="middle">the product term DIES at x = a</text>')
-  parts.push('<rect x="540" y="280" width="150" height="24" rx="5" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
-  parts.push('<text x="615" y="296" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">so r = f(a)</text>')
+  parts.push('<rect x="535" y="280" width="140" height="24" rx="5" fill="none" stroke="#16a34a" stroke-width="1.2"/>')
+  parts.push('<text x="605" y="296" font-size="10.5" fill="#166534" text-anchor="middle" font-weight="700">so r = f(a)</text>')
   parts.push('<text x="360" y="340" font-size="11.5" fill="#0d9488" text-anchor="middle">evaluate, never divide — the substitution machine of 1.3, promoted to a theorem</text>')
   return parts.join('')
 }

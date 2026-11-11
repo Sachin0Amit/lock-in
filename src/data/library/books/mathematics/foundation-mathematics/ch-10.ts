@@ -699,7 +699,7 @@ export const chapter10: Chapter = {
         'Which graph for which data',
       ],
       objectives: [
-        'Draw and read a bar chart from a frequency table: equal-width bars in equal steps, the y-axis ruled as honestly as a ruler, the height \u00d7 the scale reading rule',
+        'Draw and read a bar chart from a frequency table: equal-width bars in equal steps, the y-axis ruled as honestly as a ruler, the height × the scale reading rule',
         'Prove the bar-scale law — a bar\u2019s height in axis-steps IS the frequency, so doubling the answers doubles the bar — and choose an honest scale (equal steps covering the data)',
         'Draw and read a line graph for ordered data (a time series): plot the points, join consecutive points, read each segment\u2019s steepness as the change per interval',
         'State the interpolation caution: the segments between measured points are guesses, not measurements — and refuse line graphs for unordered categories',
@@ -1127,8 +1127,8 @@ export const chapter10: Chapter = {
                 {
                   q: 'At a scale of 25 px per student, how tall do the bars for 3 students and for 7 students stand?',
                   solution: [
-                    'Now, the bar-scale law: height = frequency \u00d7 scale.',
-                    'So $3 \u00d7 25 = 75$ px and $7 \u00d7 25 = 175$ px.',
+                    'Now, the bar-scale law: height = frequency × scale.',
+                    'So $3 × 25 = 75$ px and $7 × 25 = 175$ px.',
                     'And the ratio check: $7 \u00f7 3 \\approx 2.33$, and $175 \u00f7 75 \\approx 2.33$ — the bars inherit the frequencies\u2019 ratio. ✓',
                     'Hence 75 px and 175 px — drawing is one multiplication.',
                   ],
@@ -1152,9 +1152,9 @@ export const chapter10: Chapter = {
                 {
                   q: 'A class of 20 has 5 students who prefer chess and 10 who prefer cricket. What central angles do these two slices own?',
                   solution: [
-                    'Now, the central-angle law: $\\theta = (f/N) \u00d7 360°$.',
-                    'So chess: $(5/20) \u00d7 360° = 90°$ — a quarter of the turn.',
-                    'And cricket: $(10/20) \u00d7 360° = 180°$ — half the turn, a full diameter.',
+                    'Now, the central-angle law: $\\theta = (f/N) × 360°$.',
+                    'So chess: $(5/20) × 360° = 90°$ — a quarter of the turn.',
+                    'And cricket: $(10/20) × 360° = 180°$ — half the turn, a full diameter.',
                     'Hence 90° and 180° — a quarter and a half, the fractions you could see coming.',
                   ],
                   answer: '$90°$ (chess) and $180°$ (cricket)',
@@ -1178,7 +1178,7 @@ export const chapter10: Chapter = {
                   q: 'A student reads a bar that tops out exactly on the fourth gridline above zero, where each gridline step is 2 students, and reports "16 students". Diagnose the misread.',
                   solution: [
                     'Now, count the steps: the fourth gridline above zero is 4 steps of 2 = 8 students.',
-                    'So the honest reading is $4 \u00d7 2 = 8$ — the student counted GRIDLINE NUMBERS (or pixels) instead of dividing by the scale.',
+                    'So the honest reading is $4 × 2 = 8$ — the student counted GRIDLINE NUMBERS (or pixels) instead of dividing by the scale.',
                     'And the law\u2019s repair: $f = \\text{height} \u00f7 s$ — the axis label says what one step carries, and the label is not decoration.',
                     'Hence 8 students; "16" came from treating each step as 4 — read the printed scale first, always.',
                   ],
@@ -1187,7 +1187,7 @@ export const chapter10: Chapter = {
                 {
                   q: 'Two pies are drawn: one for 20 answers, one for 100. A slice owns 50% of each. Are the two slices "the same"?',
                   solution: [
-                    'Now, the ANGLES are the same: $(1/2) \u00d7 360° = 180°$ in both pies.',
+                    'Now, the ANGLES are the same: $(1/2) × 360° = 180°$ in both pies.',
                     'So the SHARES are the same — half of each class.',
                     'And the ANSWERS are not: $50\\%$ of 20 is 10 students, but $50\\%$ of 100 is 50 — the same angle sits over very different crowds.',
                     'Hence: slices compare shares within one whole; across different wholes, read the totals first — a pie never volunteers its size.',
@@ -1203,7 +1203,7 @@ export const chapter10: Chapter = {
                   q: 'Twelve friends pick fruits: mango 4, banana 5, guava 3. Compute the three central angles and check they close.',
                   solution: [
                     'Now, the check-sum first: $4 + 5 + 3 = 12$ ✓.',
-                    'So the angles: $(4/12) \u00d7 360° = 120°$, $(5/12) \u00d7 360° = 150°$, $(3/12) \u00d7 360° = 90°$.',
+                    'So the angles: $(4/12) × 360° = 120°$, $(5/12) × 360° = 150°$, $(3/12) × 360° = 90°$.',
                     'And the close: $120 + 150 + 90 = 360°$ ✓ — the slices will tile the circle with no gap.',
                     'Hence 120°/150°/90° — a third, five-twelfths, a quarter of the turn.',
                   ],
@@ -1237,12 +1237,12 @@ export const chapter10: Chapter = {
                 {
                   q: 'A survey of 25 students adds an "other" row with frequency 2. What central angle does "other" own?',
                   solution: [
-                    'Now, the law: $\\theta = (f/N) \u00d7 360°$.',
-                    'So $(2/25) \u00d7 360° = 28.8°$ — a sliver under half a right angle.',
+                    'Now, the law: $\\theta = (f/N) × 360°$.',
+                    'So $(2/25) × 360° = 28.8°$ — a sliver under half a right angle.',
                     'And the honesty note: 10.1\u2019s "other" row earns a real slice here — the roof over the stray answers has its own share of the turn.',
                     'Hence 28.8° — the honesty row, drawn to scale.',
                   ],
-                  answer: '$(2/25) \u00d7 360° = 28.8°$',
+                  answer: '$(2/25) × 360° = 28.8°$',
                 },
               ],
             },
@@ -1250,14 +1250,14 @@ export const chapter10: Chapter = {
               level: 'L6',
               questions: [
                 {
-                  q: 'Prove the central-angle law: if $N$ answers are partitioned into categories with frequencies $f_1, \\ldots, f_k$, then category $i$ owns central angle $\\theta_i = (f_i/N) \u00d7 360°$, and the slices close on a full circle.',
+                  q: 'Prove the central-angle law: if $N$ answers are partitioned into categories with frequencies $f_1, \\ldots, f_k$, then category $i$ owns central angle $\\theta_i = (f_i/N) × 360°$, and the slices close on a full circle.',
                   solution: [
                     'Now, the pie\u2019s promise: the full turn (360°) stands for all $N$ answers — the whole class is the whole circle.',
                     'So the partition gives each answer equal standing: one answer spends $360°/N$ of turn (for $N = 20$: 18°).',
-                    'And a category with $f_i$ answers spends $f_i$ of those equal shares: $\\theta_i = f_i \u00d7 (360°/N) = (f_i/N) \u00d7 360°$ — the relative frequency in degree dress.',
-                    'Hence the close: $\\Sigma \\theta_i = (\\Sigma f_i / N) \u00d7 360° = (N/N) \u00d7 360° = 360°$ by the check-sum law — the slices tile the circle exactly because the rows tile the class. The pie is 10.1\u2019s partition, drawn in ink.',
+                    'And a category with $f_i$ answers spends $f_i$ of those equal shares: $\\theta_i = f_i × (360°/N) = (f_i/N) × 360°$ — the relative frequency in degree dress.',
+                    'Hence the close: $\\Sigma \\theta_i = (\\Sigma f_i / N) × 360° = (N/N) × 360° = 360°$ by the check-sum law — the slices tile the circle exactly because the rows tile the class. The pie is 10.1\u2019s partition, drawn in ink.',
                   ],
-                  answer: '$\\theta_i = (f_i/N) \u00d7 360°$; the slices close on 360° by Σf = N — the partition drawn as angles',
+                  answer: '$\\theta_i = (f_i/N) × 360°$; the slices close on 360° by Σf = N — the partition drawn as angles',
                 },
                 {
                   q: 'A classmate draws a LINE graph with "walk, bus, cycle, car" along the horizontal axis and the frequencies 8, 6, 4, 2 up the vertical. Diagnose the design fault, and say which graph the data demands.',
@@ -1311,7 +1311,7 @@ export const chapter10: Chapter = {
         {
           kind: 'figure',
           caption:
-            'The same two prices, two framings. Left — honest: the axis starts at 0 (steps of 20 up to 60), the bars stand 208 and 224 px, and the eye correctly sees shop B a shade taller. Right — the lie: the axis starts at 50 (the baseline is labelled, but the eye still reads bar heights from where they stand) and the scale is stretched fivefold, so the bars stand 40 and 120 px and B looks three times A. The true ratio is 1.077\u00d7; the visual ratio is 3\u00d7; the exaggeration is 2.79\u00d7. The bars did not lie. The baseline did.',
+            'The same two prices, two framings. Left — honest: the axis starts at 0 (steps of 20 up to 60), the bars stand 208 and 224 px, and the eye correctly sees shop B a shade taller. Right — the lie: the axis starts at 50 (the baseline is labelled, but the eye still reads bar heights from where they stand) and the scale is stretched fivefold, so the bars stand 40 and 120 px and B looks three times A. The true ratio is 1.077×; the visual ratio is 3×; the exaggeration is 2.79×. The bars did not lie. The baseline did.',
           svg: `<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar charts of the same milk prices, Rs 52 and Rs 56: the left panel honest with a zero baseline, the right panel truncated at 50 with a stretched scale so the second bar looks three times the first">
   <text x="390" y="22" font-size="13" fill="currentColor" text-anchor="middle">one carton of milk, two framings \u2014 the bars are honest, the baselines are not twins</text>
   ${(() => {
@@ -1328,20 +1328,20 @@ export const chapter10: Chapter = {
       out += `<text x="${x}" y="${310 - h - 8}" font-size="12" fill="currentColor" font-weight="bold" text-anchor="middle">${v}</text>`;
       out += `<text x="${x}" y="330" font-size="11" fill="currentColor" text-anchor="middle">shop ${v === 52 ? 'A' : 'B'}</text>`;
     });
-    out += `<text x="200" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it right: B is a shade dearer (1.08\u00d7)</text>`;
+    out += `<text x="200" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it right: B is a shade dearer (1.08×)</text>`;
     for (let v = 50; v <= 58; v += 2) {
       const y = 310 - (v - 50) * 20;
       out += `<line x1="420" y1="${y}" x2="740" y2="${y}" stroke="currentColor" stroke-width="${v === 50 ? 1.4 : 0.6}" opacity="${v === 50 ? 1 : 0.45}"/>`;
       out += `<text x="414" y="${y + 4}" font-size="10" fill="currentColor" text-anchor="end">${v}</text>`;
     }
-    out += `<text x="580" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">the lie \u2014 the axis starts at 50, stretched \u00d75</text>`;
+    out += `<text x="580" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">the lie \u2014 the axis starts at 50, stretched ×5</text>`;
     [[520, 52], [640, 56]].forEach(([x, v]) => {
       const h = (v - 50) * 20;
       out += `<rect x="${x - 40}" y="${310 - h}" width="80" height="${h}" fill="none" stroke="currentColor" stroke-width="1.3"/>`;
       out += `<text x="${x}" y="${310 - h - 8}" font-size="12" fill="currentColor" font-weight="bold" text-anchor="middle">${v}</text>`;
       out += `<text x="${x}" y="330" font-size="11" fill="currentColor" text-anchor="middle">shop ${v === 52 ? 'A' : 'B'}</text>`;
     });
-    out += `<text x="580" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it wrong: B looks 3\u00d7 A (truth: 1.08\u00d7 \u2014 exaggeration 2.79\u00d7)</text>`;
+    out += `<text x="580" y="352" font-size="10.5" fill="currentColor" text-anchor="middle" opacity="0.8">the eye reads it wrong: B looks 3× A (truth: 1.08× \u2014 exaggeration 2.79×)</text>`;
     return out;
   })()}
 </svg>`,
@@ -1371,7 +1371,7 @@ export const chapter10: Chapter = {
                 'At $b = 0$ the law returns exactly 1 \u2014 the zero baseline cannot lie. As $b$ creeps toward the smaller value $v_1$, the denominator $v_1 - b$ collapses and the exaggeration explodes: the milk pair ($b = 50$) already suffers $E = \\frac{52 \\times 6}{56 \\times 2} \\approx 2.79$.',
             },
           ],
-          result: '$E = \\dfrac{v_1 (v_2 - b)}{v_2 (v_1 - b)}$ \u2014 the milk lie: visual 3\u00d7, truth 1.077\u00d7, exaggeration 2.79\u00d7; the 7.7% honest gap drawn as a 200% gap.',
+          result: '$E = \\dfrac{v_1 (v_2 - b)}{v_2 (v_1 - b)}$ \u2014 the milk lie: visual 3×, truth 1.077×, exaggeration 2.79×; the 7.7% honest gap drawn as a 200% gap.',
         },
         {
           kind: 'equation',
@@ -1507,7 +1507,7 @@ export const chapter10: Chapter = {
           title: 'Repair the milk chart: re-draw it honestly and verify the exaggeration is gone.',
           steps: [
             'Now, the fault was the baseline at 50 \u2014 the repair is re-basing at 0: the axis runs 0..60 in steps of 20, at 4 px per rupee.',
-            'So the bars stand $52 \u00d7 4 = 208$ px and $56 \u00d7 4 = 224$ px.',
+            'So the bars stand $52 × 4 = 208$ px and $56 × 4 = 224$ px.',
             'And the law certifies the cure: $E = \\frac{52 \\times 56}{56 \\times 52} = 1$ exactly \u2014 the visual ratio $224/208 = 1.077$ equals the true ratio to the last decimal.',
             'Hence the repaired chart: same data, same ink, baseline at zero \u2014 and the eye now sees the 7.7% truth.',
           ],
@@ -1534,7 +1534,7 @@ export const chapter10: Chapter = {
           items: [
             'a graph is an argument made of ink \u2014 auditable by the three laws you already own;',
             'the truncated baseline is the classic lie: the bars show excesses over $b$, not values;',
-            'the exaggeration law $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$: exactly 1 at a zero baseline, exploding as $b$ climbs (the milk pair: 2.79\u00d7);',
+            'the exaggeration law $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$: exactly 1 at a zero baseline, exploding as $b$ climbs (the milk pair: 2.79×);',
             'twin scales preserve within-chart rankings and destroy cross-chart pixel comparisons \u2014 read the axis, not the drama;',
             'the mismatch gallery: no lines through categories, no pies that fail to close on 360\u00b0, no 3-D perspective;',
             'correlation is not causation \u2014 the ice-cream and drowning pair rises on the heat\u2019s back;',
@@ -1568,7 +1568,7 @@ export const chapter10: Chapter = {
             },
             {
               term: 'Exaggeration (of a chart)',
-              def: 'The visual ratio divided by the true ratio: $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$. Exactly 1 for a zero baseline; 2.79\u00d7 for the milk lie.',
+              def: 'The visual ratio divided by the true ratio: $E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$. Exactly 1 for a zero baseline; 2.79× for the milk lie.',
             },
             {
               term: 'Twin scales',
@@ -1668,19 +1668,19 @@ export const chapter10: Chapter = {
                     'Now, the drawn bars stand $(9.1 - 9)s$ and $(10.2 - 9)s$ tall: the visual ratio is $1.2/0.1 = 12$.',
                     'So the eye receives a twelve-fold chasm.',
                     'And the truth is $10.2/9.1 \\approx 1.121$ \u2014 about a 12% edge, not 1100%.',
-                    'Hence: exaggeration $\\approx \\frac{9.1 \\times 1.2}{10.2 \\times 0.1} \\approx 10.7\\u00d7$ \u2014 convicted by one glance at the axis label.',
+                    'Hence: exaggeration $\\approx \\frac{9.1 \\times 1.2}{10.2 \\times 0.1} \\approx 10.7×$ \u2014 convicted by one glance at the axis label.',
                   ],
-                  answer: 'The eye sees 12\u00d7; the truth is 1.12\u00d7 \u2014 an exaggeration of about 10.7\u00d7',
+                  answer: 'The eye sees 12×; the truth is 1.12× \u2014 an exaggeration of about 10.7×',
                 },
                 {
                   q: 'Re-base that chart at zero (scale 10 px per point). How tall do the bars stand, and what does the eye see now?',
                   solution: [
-                    'Now, at a zero baseline the bars are the values themselves: $9.1 \u00d7 10 = 91$ px and $10.2 \u00d7 10 = 102$ px.',
+                    'Now, at a zero baseline the bars are the values themselves: $9.1 × 10 = 91$ px and $10.2 × 10 = 102$ px.',
                     'So the visual ratio is $102/91 \\approx 1.121$ \u2014 exactly the true ratio.',
-                    'And the exaggeration law certifies it: $E = \\frac{9.1 \u00d7 10.2}{10.2 \u00d7 9.1} = 1$.',
+                    'And the exaggeration law certifies it: $E = \\frac{9.1 × 10.2}{10.2 × 9.1} = 1$.',
                     'Hence 91 and 102 px \u2014 the same data, the truth restored by moving the floor.',
                   ],
-                  answer: '$91$ px and $102$ px; the eye now reads the honest 1.12\u00d7',
+                  answer: '$91$ px and $102$ px; the eye now reads the honest 1.12×',
                 },
               ],
             },
@@ -1693,9 +1693,9 @@ export const chapter10: Chapter = {
                     'Now, the drawn heights are the excesses: $(44 - 40) = 4$ and $(48 - 40) = 8$ \u2014 the visual ratio is $2$.',
                     'So the true ratio is $48/44 \\approx 1.091$.',
                     'And the exaggeration: $E = \\frac{44 \\times 8}{48 \\times 4} \\approx 1.83$ \u2014 the 9% truth wearing an 100% costume.',
-                    'Hence: visual 2\u00d7, true 1.09\u00d7, exaggeration 1.83\u00d7.',
+                    'Hence: visual 2×, true 1.09×, exaggeration 1.83×.',
                   ],
-                  answer: 'Visual 2\u00d7; true \u2248 1.09\u00d7; exaggeration \u2248 1.83\u00d7',
+                  answer: 'Visual 2×; true ≈ 1.09×; exaggeration ≈ 1.83×',
                 },
                 {
                   q: 'A pie\u2019s slices read 45%, 35% and 15%. What does the check-sum law convict, and by how much?',
@@ -1730,7 +1730,7 @@ export const chapter10: Chapter = {
                     'And the kind of statement: interpolation \u2014 a straight-line guess (10.2\u2019s caution), honest only when labelled as a guess; growth could have jumped in the last year.',
                     'Hence "13 lakh (interpolated)" \u2014 the guess may stand, but it must wear its label.',
                   ],
-                  answer: 'The line claims \u2248 13 lakh for 2005 \u2014 an interpolation, not a measurement',
+                  answer: 'The line claims ≈ 13 lakh for 2005 \u2014 an interpolation, not a measurement',
                 },
               ],
             },
@@ -1776,7 +1776,7 @@ export const chapter10: Chapter = {
                   q: 'A report shows a country\u2019s exports climbing gently, then a rival report shows the same data "soaring". Both claim equal steps. What single number reconciles the two pictures, and what habit does this teach?',
                   solution: [
                     'Now, if both charts use equal steps, the difference is the scale: the soaring one simply spends more pixels per unit.',
-                    'So the reconciliation is the axis label \u2014 "one gridline = 2 million" versus "one gridline = 20 million" (a \u00d710 stretch, scale-invariance at work).',
+                    'So the reconciliation is the axis label \u2014 "one gridline = 2 million" versus "one gridline = 20 million" (a ×10 stretch, scale-invariance at work).',
                     'And the habit: before comparing drama across charts, read the printed steps \u2014 the pixels shout whatever the scale tells them to.',
                     'Hence: one number \u2014 the scale \u2014 reconciles them; the habit is reading the axis before the shape.',
                   ],
@@ -1792,7 +1792,7 @@ export const chapter10: Chapter = {
                   solution: [
                     'Now, by the bar-scale law the drawn heights are the excesses over the baseline: $(v_1 - b)s$ and $(v_2 - b)s$ \u2014 the eye compares these, giving the visual ratio $(v_2-b)/(v_1-b)$.',
                     'So the exaggeration \u2014 visual over truth \u2014 is $E = \\frac{(v_2-b)/(v_1-b)}{v_2/v_1} = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$ (chapter 3\u2019s compound fractions).',
-                    'And the two certainties: at $b = 0$, $E = \\frac{v_1 v_2}{v_2 v_1} = 1$ exactly \u2014 the zero baseline cannot lie; and as $b$ rises the denominator $v_1 - b$ shrinks toward zero, so $E$ climbs without bound (the milk pair at $b = 50$: $E = \\frac{52 \\u00d7 6}{56 \u00d7 2} \\u2248 2.79$; swept monotonically from $b = 0$ to $51$ in the chapter\u2019s verify script).',
+                    'And the two certainties: at $b = 0$, $E = \\frac{v_1 v_2}{v_2 v_1} = 1$ exactly \u2014 the zero baseline cannot lie; and as $b$ rises the denominator $v_1 - b$ shrinks toward zero, so $E$ climbs without bound (the milk pair at $b = 50$: $E = \\frac{52 × 6}{56 × 2} ≈ 2.79$; swept monotonically from $b = 0$ to $51$ in the chapter\u2019s verify script).',
                     'Hence the law \u2014 and its moral in one line: every step the baseline climbs above zero is a step the lie grows.',
                   ],
                   answer: '$E = \\frac{v_1(v_2-b)}{v_2(v_1-b)}$; $E(0) = 1$ exactly, and $E$ climbs monotonically as $b \\to v_1$',
@@ -1871,7 +1871,7 @@ export const chapter10: Chapter = {
         },
         {
           kind: 'para',
-          text: 'When the total refuses to divide evenly, the mean does not fail — it simply stops being a whole number, and the fraction or decimal is still the honest equal share. The shoe table of 10.1 (five size-4s, eight size-5s, two size-6s) carries the total $4\u00d75 + 5\u00d78 + 6\u00d72 = 72$ over fifteen students, and the mean is $72/15 = 4.8$ — a size nobody wears, and exactly the right answer to the sharing question.',
+          text: 'When the total refuses to divide evenly, the mean does not fail — it simply stops being a whole number, and the fraction or decimal is still the honest equal share. The shoe table of 10.1 (five size-4s, eight size-5s, two size-6s) carries the total $4×5 + 5×8 + 6×2 = 72$ over fifteen students, and the mean is $72/15 = 4.8$ — a size nobody wears, and exactly the right answer to the sharing question.',
         },
         {
           kind: 'equation',
@@ -1880,7 +1880,7 @@ export const chapter10: Chapter = {
         },
         {
           kind: 'para',
-          text: 'The mean listens to **every** value — that is its pride and its danger. Change one mark and the total changes by the same amount, so the mean changes by exactly that amount divided by $N$. Re-score the 87 as a 77: the total walks $540 \u2192 530$, and the mean walks $60 \u2192 530/9 \u2248 58.9$ — a shift of $10/9 \u2248 1.1$. A change of $\\Delta$ in one value moves the mean by $\\Delta/N$. With nine values, no single mark owns the average; with five, one mark owns a fifth of it. Hold that thought — the outlier section is coming.',
+          text: 'The mean listens to **every** value — that is its pride and its danger. Change one mark and the total changes by the same amount, so the mean changes by exactly that amount divided by $N$. Re-score the 87 as a 77: the total walks $540 \u2192 530$, and the mean walks $60 \u2192 530/9 ≈ 58.9$ — a shift of $10/9 ≈ 1.1$. A change of $\\Delta$ in one value moves the mean by $\\Delta/N$. With nine values, no single mark owns the average; with five, one mark owns a fifth of it. Hold that thought — the outlier section is coming.',
         },
         { kind: 'heading', text: 'The mean as a balance point' },
         {
@@ -1980,7 +1980,7 @@ export const chapter10: Chapter = {
         },
         {
           kind: 'para',
-          text: 'The rebuild law also polices a daily fraud: **averaging the averages**. Two sections of a class take the same test — section A: 20 students, mean 60; section B: 30 students, mean 70. The lazy guess is $(60 + 70)/2 = 65$. But the means have forgotten the sizes: A\u2019s total is $20 \u00d7 60 = 1200$ marks, B\u2019s is $30 \u00d7 70 = 2100$, and the honest combined mean is $(1200 + 2100)/50 = 66$. Totals add and counts add; means do not. Illustration 6 works this in full.',
+          text: 'The rebuild law also polices a daily fraud: **averaging the averages**. Two sections of a class take the same test — section A: 20 students, mean 60; section B: 30 students, mean 70. The lazy guess is $(60 + 70)/2 = 65$. But the means have forgotten the sizes: A\u2019s total is $20 × 60 = 1200$ marks, B\u2019s is $30 × 70 = 2100$, and the honest combined mean is $(1200 + 2100)/50 = 66$. Totals add and counts add; means do not. Illustration 6 works this in full.',
         },
         { kind: 'heading', text: 'The median: the middle of the ordered list' },
         {
@@ -2107,7 +2107,7 @@ export const chapter10: Chapter = {
           kind: 'example',
           title: 'From 10.1\u2019s shoe table (size 4: five students; size 5: eight; size 6: two), find the mean, the median and the mode of the fifteen sizes.',
           steps: [
-            'Now, the frequency-table mean: multiply each value by its frequency and add — $\\sum f\\cdot x = 4\u00d75 + 5\u00d78 + 6\u00d72 = 20 + 40 + 12 = 72$ — then divide by the check-summed $N = 15$: $72/15 = 4.8$.',
+            'Now, the frequency-table mean: multiply each value by its frequency and add — $\\sum f\\cdot x = 4×5 + 5×8 + 6×2 = 20 + 40 + 12 = 72$ — then divide by the check-summed $N = 15$: $72/15 = 4.8$.',
             'So the median: position $(15+1)/2 = 8$. The ordered strip runs five 4s, then eight 5s, then two 6s — position 8 holds a 5 (figure 2).',
             'And the mode: the top row is size 5, eight students — more than the other rows together.',
             'Hence mean 4.8, median 5, mode 5 — and the mean is nobody\u2019s size: the equal share need not be a value the crowd contains.',
@@ -2127,7 +2127,7 @@ export const chapter10: Chapter = {
           kind: 'example',
           title: 'The mean of six numbers is 18. Five of them are 12, 15, 20, 17 and 16. Find the sixth.',
           steps: [
-            'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 \u00d7 18 = 108$.',
+            'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 × 18 = 108$.',
             'So the five known values contribute $12 + 15 + 20 + 17 + 16 = 80$.',
             'And the sixth carries the rest: $108 - 80 = 28$.',
             'Hence 28 — the check: $(80 + 28)/6 = 108/6 = 18$ ✓. One unknown value is always recoverable, because the mean confesses the total.',
@@ -2137,9 +2137,9 @@ export const chapter10: Chapter = {
           kind: 'example',
           title: 'Section A has 20 students with mean mark 60; section B has 30 students with mean mark 70. Find the combined mean — and explain why it is not 65.',
           steps: [
-            'Now, the rebuild law twice: A\u2019s total is $20 \u00d7 60 = 1200$; B\u2019s total is $30 \u00d7 70 = 2100$.',
+            'Now, the rebuild law twice: A\u2019s total is $20 × 60 = 1200$; B\u2019s total is $30 × 70 = 2100$.',
             'So the combined mean is the combined total over the combined count: $(1200 + 2100)/(20 + 30) = 3300/50 = 66$.',
-            'And the lazy $(60 + 70)/2 = 65$ fails because it weighs both classes equally — the honest pull is $60 + 10 \u00d7 \\frac{30}{50} = 66$, sixty percent of the way toward the bigger class.',
+            'And the lazy $(60 + 70)/2 = 65$ fails because it weighs both classes equally — the honest pull is $60 + 10 × \\frac{30}{50} = 66$, sixty percent of the way toward the bigger class.',
             'Hence 66: totals add, counts add, means do not.',
           ],
         },
@@ -2345,7 +2345,7 @@ export const chapter10: Chapter = {
                 {
                   q: 'From the shoe table of 10.1 (size 4: five students; size 5: eight; size 6: two), find the mean, the median and the mode of the fifteen sizes.',
                   solution: [
-                    'Now, the frequency-table mean: $\\sum f\\cdot x = 4\u00d75 + 5\u00d78 + 6\u00d72 = 72$, and the check-summed $N = 15$, so the mean is $72/15 = 4.8$.',
+                    'Now, the frequency-table mean: $\\sum f\\cdot x = 4×5 + 5×8 + 6×2 = 72$, and the check-summed $N = 15$, so the mean is $72/15 = 4.8$.',
                     'So the median: position $(15+1)/2 = 8$ in the ordered strip — five 4s, then eight 5s, then two 6s — so position 8 holds a 5.',
                     'And the mode: the top row is size 5 with eight students — more than the other rows combined.',
                     'Hence mean 4.8, median 5, mode 5 — and note the mean 4.8 is nobody\u2019s size: the equal share need not be a data value.',
@@ -2360,7 +2360,7 @@ export const chapter10: Chapter = {
                 {
                   q: 'The mean of six numbers is 18. Five of them are 12, 15, 20, 17 and 16. Find the sixth.',
                   solution: [
-                    'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 \u00d7 18 = 108$.',
+                    'Now, the rebuild law: the total must be $N \\times \\bar{x} = 6 × 18 = 108$.',
                     'So the five known values contribute $12 + 15 + 20 + 17 + 16 = 80$.',
                     'And the sixth carries the rest: $108 - 80 = 28$.',
                     'Hence 28 — the check: $(80 + 28)/6 = 108/6 = 18$ ✓.',
@@ -2387,7 +2387,7 @@ export const chapter10: Chapter = {
                   solution: [
                     'Now, the deviations (mark minus mean): $-25, -15, -8, -2, 0, 0, +8, +15, +27$.',
                     'So the left arm: $25 + 15 + 8 + 2 = 50$ owed; the right arm: $8 + 15 + 27 = 50$ owned.',
-                    'And the balance law says this is no accident: $N\\bar{x} = 9 \u00d7 60 = 540$ = the total, so the deviations MUST cancel — the mean is the one point where they do.',
+                    'And the balance law says this is no accident: $N\\bar{x} = 9 × 60 = 540$ = the total, so the deviations MUST cancel — the mean is the one point where they do.',
                     'Hence $-50 + 50 = 0$: the beam of figure 1 tips neither way.',
                   ],
                   answer: 'Deviations −25, −15, −8, −2, 0, 0, +8, +15, +27; the arms owe and own 50 each — balance',
@@ -2420,9 +2420,9 @@ export const chapter10: Chapter = {
                 {
                   q: 'Section A has 20 students with mean mark 60; section B has 30 students with mean mark 70. Find the combined mean, and explain why it is not 65.',
                   solution: [
-                    'Now, the rebuild law twice: A\u2019s total is $20 \u00d7 60 = 1200$; B\u2019s total is $30 \u00d7 70 = 2100$.',
+                    'Now, the rebuild law twice: A\u2019s total is $20 × 60 = 1200$; B\u2019s total is $30 × 70 = 2100$.',
                     'So the combined mean is $(1200 + 2100)/(20 + 30) = 3300/50 = 66$.',
-                    'And the naive $(60 + 70)/2 = 65$ fails because it weighs both classes equally; the honest pull is $60 + 10 \u00d7 \\frac{30}{50} = 66$ — sixty percent of the way toward the bigger class.',
+                    'And the naive $(60 + 70)/2 = 65$ fails because it weighs both classes equally; the honest pull is $60 + 10 × \\frac{30}{50} = 66$ — sixty percent of the way toward the bigger class.',
                     'Hence 66 — totals add, counts add, means do not.',
                   ],
                   answer: '66 (not 65): the combined mean is 3300/50',
@@ -2438,7 +2438,7 @@ export const chapter10: Chapter = {
                     'Now, multiply the definition by N: $N\\bar{x} = \\text{total}$ — the rebuild law, the total dressed as count times mean.',
                     'So the deviations: $\\sum(x_i - \\bar{x}) = \\text{total} - (\\bar{x} + \\cdots + \\bar{x}) = N\\bar{x} - N\\bar{x} = 0$ — N copies of the mean subtracted from the N copies that rebuild the total.',
                     'And the corollary: the total $= N \\times \\bar{x}$, so ONE unknown value is recoverable — the mean confesses the total.',
-                    'Hence the balance law holds for every dataset (swept over 300 pseudo-random sets in the chapter\u2019s verify script — no exception possible); instance: six numbers, mean 18 — total $6 \u00d7 18 = 108$, five known 80, the sixth 28.',
+                    'Hence the balance law holds for every dataset (swept over 300 pseudo-random sets in the chapter\u2019s verify script — no exception possible); instance: six numbers, mean 18 — total $6 × 18 = 108$, five known 80, the sixth 28.',
                   ],
                   answer: '$\\sum(x_i - \\bar{x}) = 0$; corollary total = N × x̄; the missing value is 28',
                 },

@@ -98,7 +98,7 @@ function addressingMapSvg(): string {
   parts.push('<text x="460" y="210" font-size="13" fill="#0f766e" font-style="italic">x</text>')
   parts.push('<line x1="245" y1="355" x2="245" y2="70" stroke="#0d9488" stroke-width="1.5"/>')
   parts.push('<polygon points="245,62 240,74 250,74" fill="#0d9488"/>')
-  parts.push('<text x="252" y="76" font-size="13" fill="#0f766e" font-style="italic">y</text>')
+  parts.push('<text x="256" y="76" font-size="13" fill="#0f766e" font-style="italic">y</text>')
   // ---- unit ticks ----
   const xt = [271, 297, 323, 349, 375, 219, 193, 167, 141]
   for (const tx of xt) parts.push(`<line x1="${tx}" y1="201" x2="${tx}" y2="209" stroke="#0d9488" stroke-width="1"/>`)
@@ -165,7 +165,7 @@ function graphIdentitySvg(): string {
   // ---- axes ----
   parts.push('<line x1="60" y1="245" x2="470" y2="245" stroke="#0d9488" stroke-width="1.5"/>')
   parts.push('<polygon points="478,245 466,240 466,250" fill="#0d9488"/>')
-  parts.push('<text x="476" y="250" font-size="13" fill="#0f766e" font-style="italic">x</text>')
+  parts.push('<text x="486" y="250" font-size="13" fill="#0f766e" font-style="italic">x</text>')
   parts.push('<line x1="200" y1="330" x2="200" y2="80" stroke="#0d9488" stroke-width="1.5"/>')
   parts.push('<polygon points="200,72 195,84 205,84" fill="#0d9488"/>')
   parts.push('<text x="207" y="76" font-size="13" fill="#0f766e" font-style="italic">y</text>')

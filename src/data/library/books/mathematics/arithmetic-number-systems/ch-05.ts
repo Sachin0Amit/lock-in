@@ -1441,10 +1441,10 @@ export const chapter05: Chapter = {
     <polygon points="575,86 569,92 578,95"/>
   </g>
   <g font-size="19" text-anchor="middle" fill="currentColor" font-weight="bold">
-    <text x="110" y="82">2</text><text x="164" y="137">4</text><text x="110" y="192">8</text><text x="56" y="137">6</text>
-    <text x="265" y="82">3</text><text x="319" y="137">9</text><text x="265" y="192">7</text><text x="211" y="137">1</text>
-    <text x="420" y="82">7</text><text x="474" y="137">9</text><text x="420" y="192">3</text><text x="366" y="137">1</text>
-    <text x="575" y="82">8</text><text x="629" y="137">4</text><text x="575" y="192">2</text><text x="521" y="137">6</text>
+    <text x="110" y="78">2</text><text x="164" y="137">4</text><text x="110" y="192">8</text><text x="56" y="137">6</text>
+    <text x="265" y="78">3</text><text x="319" y="137">9</text><text x="265" y="192">7</text><text x="211" y="137">1</text>
+    <text x="420" y="78">7</text><text x="474" y="137">9</text><text x="420" y="192">3</text><text x="366" y="137">1</text>
+    <text x="575" y="78">8</text><text x="629" y="137">4</text><text x="575" y="192">2</text><text x="521" y="137">6</text>
   </g>
   <g font-size="12" text-anchor="middle" fill="currentColor" opacity="0.7">
     <text x="110" y="214">2 — period 4</text><text x="265" y="214">3 — period 4</text><text x="420" y="214">7 — period 4</text><text x="575" y="214">8 — period 4</text>
@@ -2060,7 +2060,7 @@ export const chapter05: Chapter = {
         {
           kind: 'figure',
           caption:
-            'Two filters, one survivor: the top row marks each number 0–14 by its residue mod 3 (circled where the residue is 2); the bottom row marks residues mod 5 (circled where the residue is 0). The circled columns agree only at x = 5 — and by the theorem they would agree exactly once no matter which residues the two filters demanded. Modulo 15 (= 3·5, coprime), every pair of conditions has its unique meeting point.',
+            'Two filters, one survivor: the TOP row shows each number 0–14’s residue mod 3 (circled where that residue is 2); the MIDDLE row shows the numbers themselves (5 bold — the meeting point); the BOTTOM row shows residues mod 5 (circled where the residue is 0). The circled columns agree only at x = 5 — and by the theorem they would agree exactly once no matter which residues the two filters demanded. Modulo 15 (= 3·5, coprime), every pair of conditions has its unique meeting point.',
           svg: `<svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rows of the numbers zero to fourteen marked with their residues modulo three and modulo five, with the unique agreement at five highlighted">
   <text x="330" y="30" font-size="13" text-anchor="middle" fill="currentColor" opacity="0.85">two filters, one survivor — x ≡ 2 (mod 3) and x ≡ 0 (mod 5) agree only at x = 5 (mod 15)</text>
   <g font-size="11" text-anchor="middle" fill="currentColor" opacity="0.8">
@@ -2078,7 +2078,9 @@ export const chapter05: Chapter = {
   <g fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.85">
     <circle cx="60" cy="180" r="12"/><circle cx="250" cy="180" r="12"/><circle cx="440" cy="180" r="12"/>
   </g>
-  <line x1="250" y1="54" x2="250" y2="198" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.9"/>
+  <g stroke="currentColor" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.9">
+    <line x1="250" y1="54" x2="250" y2="63"/><line x1="250" y1="78" x2="250" y2="122"/><line x1="250" y1="140" x2="250" y2="173"/><line x1="250" y1="188" x2="250" y2="198"/>
+  </g>
   <text x="330" y="222" font-size="12" text-anchor="middle" fill="currentColor" opacity="0.85">both conditions hold only at x = 5 — then again at 20, 35, … : the unique class x ≡ 5 (mod 15)</text>
 </svg>`,
         },

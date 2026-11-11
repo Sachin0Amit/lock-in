@@ -75,7 +75,12 @@ function compressionLadderSvg(): string {
     x += 14
   }
   run('lotus', 3, 26, '3 × 1000')
-  run('coil', 2, 26, '2 × 100')
+  // the empty hundreds place: NO glyph — 3,027 has zero coils, and the
+  // hieroglyph system drops empty places entirely (figure-audit sweep
+  // 2026-11-11: the previously drawn 2 coils summed the row to 3,227)
+  parts.push(`<text x="${x + 26}" y="${y2 + 5}" font-size="11" fill="#0d9488" opacity="0.5" text-anchor="middle">— none —</text>`)
+  parts.push(`<text x="${x + 26}" y="${y2 + 32}" font-size="11" fill="#0d9488" text-anchor="middle">0 × 100</text>`)
+  x += 72 + 14
   run('heel', 2, 24, '2 × 10')
   run('stroke', 7, 10, '7 × 1')
   parts.push(`<text x="48" y="${y2 - 22}" font-size="12" fill="#0d9488">hieroglyphs — a symbol per scale, repeated per digit</text>`)
@@ -130,7 +135,7 @@ function doublingEngineSvg(): string {
     )
     parts.push(`<line x1="104" y1="${r.y - 12}" x2="104" y2="${r.y + 12}" stroke="#5eead4" stroke-width="1.5"/>`)
     parts.push(
-      `<text x="150" y="${r.y + 5}" font-size="14" fill="${picked ? '#0f766e' : '#0d9488'}">2${r.k > 0 ? '^' + r.k : ''} · 23 = ${val}</text>`
+      `<text x="150" y="${r.y + 5}" font-size="14" fill="${picked ? '#0f766e' : '#0d9488'}">2${['⁰', '¹', '²', '³', '⁴'][r.k]} · 23 = ${val}</text>`
     )
     parts.push(
       `<rect x="360" y="${r.y - 10}" width="20" height="20" rx="3" fill="${picked ? '#d97706' : 'none'}" stroke="${picked ? '#d97706' : '#5eead4'}" stroke-width="1.5"/>`

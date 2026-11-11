@@ -2274,10 +2274,10 @@ console.log('[L] unit-9 completion review: the 7-point checklist, exam corners, 
       if (w < minWords) minWords = w
     }
   }
-  ok(bookLessons === 31, 'L-9: the book stands at 31 lessons (got ' + bookLessons + ')')
+  ok(bookLessons === 37, 'L-9: the book stands at 37 lessons (got ' + bookLessons + ')')
   ok(bookWords > 141000, 'L-9: the book crosses 141,000 words (' + bookWords + ')')
   ok(minWords >= 4000, 'L-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
-  ok(completeChapters === 9 && totalChapters === 11, 'L-9: 9 of 11 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
+  ok(completeChapters === 11 && totalChapters === 12, 'L-9: 11 of 12 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
   let libraryLessons = 0
   let libraryWords = 0
   for (const b of allBooks) {
@@ -2288,7 +2288,7 @@ console.log('[L] unit-9 completion review: the 7-point checklist, exam corners, 
       }
     }
   }
-  ok(libraryLessons === 114, 'L-9: the library stands at 114 lessons (got ' + libraryLessons + ')')
+  ok(libraryLessons === 123, 'L-9: the library stands at 123 lessons (got ' + libraryLessons + ')')
   console.log('  L-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
 
   // 10 — the id registry, one final time across the whole library

@@ -1199,7 +1199,7 @@ export const chapter04: Chapter = {
               q: 'The number $360 = 2^3 \u22c5 3^2 \u22c5 5$ has how many divisors?',
               options: ['8 — one per prime-power slot', '24 — $(3+1)(2+1)(1+1)$', '6 — one per factor in the product', '23 — one less than 360/15'],
               answer: 1,
-              explain: 'Each exponent runs independently from 0 to its cap: four choices for the 2-exponent, three for the 3-exponent, two for the 5-exponent — $4 \u00d7 3 \u00d7 2 = 24$. The run’s script enumerated all 24 to confirm. The other answers confuse divisors with prime factors or pad with subtraction.',
+              explain: 'Each exponent runs independently from 0 to its cap: four choices for the 2-exponent, three for the 3-exponent, two for the 5-exponent — $4 × 3 × 2 = 24$. The run’s script enumerated all 24 to confirm. The other answers confuse divisors with prime factors or pad with subtraction.',
             },
             {
               q: 'How many trailing zeros does 25! end in?',
@@ -1209,9 +1209,9 @@ export const chapter04: Chapter = {
             },
             {
               q: '$2^{11} - 1 = 2047$ — prime or composite?',
-              options: ['Prime — all small numbers of the form $2^p - 1$ are', 'Composite — $2047 = 23 \u00d7 89$; the shape proves nothing', 'Composite — $2047 = 3 \u00d7 683$', 'Neither — 2047 is a unit'],
+              options: ['Prime — all small numbers of the form $2^p - 1$ are', 'Composite — $2047 = 23 × 89$; the shape proves nothing', 'Composite — $2047 = 3 × 683$', 'Neither — 2047 is a unit'],
               answer: 1,
-              explain: 'The trial band ($\u230a\u221a2047\u230b = 45$) lands at the ninth trial: $23 \u22c5 89 = 2047$. Small Mersenne look-alikes ($3, 7, 31, 127$) being prime was luck, not law — the fundamental theorem’s court decides by factor list, never by shape. The $3 \u00d7 683$ option fails arithmetic ($3 \u00d7 683 = 2049$), and 2047 is composite, hence neither a unit nor anything else new.',
+              explain: 'The trial band ($\u230a\u221a2047\u230b = 45$) lands at the ninth trial: $23 \u22c5 89 = 2047$. Small Mersenne look-alikes ($3, 7, 31, 127$) being prime was luck, not law — the fundamental theorem’s court decides by factor list, never by shape. The $3 × 683$ option fails arithmetic ($3 × 683 = 2049$), and 2047 is composite, hence neither a unit nor anything else new.',
             },
           ],
         },
@@ -1273,7 +1273,7 @@ export const chapter04: Chapter = {
                     'Split, the DNA: $100 = 2^2 \u22c5 5^2$ — exponents $(2, 2)$.',
                     'Now, the formula: $(2+1)(2+1) = 9$ — nine divisors predicted.',
                     'So, enumerate: $e_2 \u2208 \\{0,1,2\\}$, $e_5 \u2208 \\{0,1,2\\}$ gives $1, 2, 4, 5, 10, 20, 25, 50, 100$ — nine, no duplicates (uniqueness forbidding).',
-                    'Hence $\u03c4(100) = 9$ — the lattice $3 \u00d7 3$ of exponent pairs, counted by the theorem.',
+                    'Hence $\u03c4(100) = 9$ — the lattice $3 × 3$ of exponent pairs, counted by the theorem.',
                   ],
                   answer: 'τ(100) = 9 — 1, 2, 4, 5, 10, 20, 25, 50, 100',
                 },
@@ -1323,7 +1323,7 @@ export const chapter04: Chapter = {
                   q: 'Use the divisor-count formula on $360 = 2^3 \u22c5 3^2 \u22c5 5$, then verify by counting divisors from the exponent lattice.',
                   solution: [
                     'Split, the formula: $(3+1)(2+1)(1+1) = 4 \u22c5 3 \u22c5 2 = 24$.',
-                    'Now, the lattice: the 2-exponent walks $\\{0,1,2,3\\}$, the 3-exponent $\\{0,1,2\\}$, the 5-exponent $\\{0,1\\}$ — $4 \u00d7 3 \u00d7 2$ vectors, each a distinct divisor (uniqueness again).',
+                    'Now, the lattice: the 2-exponent walks $\\{0,1,2,3\\}$, the 3-exponent $\\{0,1,2\\}$, the 5-exponent $\\{0,1\\}$ — $4 × 3 × 2$ vectors, each a distinct divisor (uniqueness again).',
                     'So, spot the corners: $e = (0,0,0)$ gives 1; $(3,2,1)$ gives 360 itself — the lattice spans divisor 1 to divisor n.',
                     'Take the count: twenty-four divisors — $1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360$ — the script counted them all.',
                     'Hence $\u03c4(360) = 24$, formula and enumeration in agreement.',
@@ -1370,7 +1370,7 @@ export const chapter04: Chapter = {
                 {
                   q: 'Find the smallest number with exactly 15 divisors, and compare the two candidate shapes.',
                   solution: [
-                    'Split, the shapes: $15 = 3 \u00d7 5$ or $15 = 15 \u00d7 1$ — so the canonical form is $p^4 q^2$ (exponents 4, 2) or $p^{14}$.',
+                    'Split, the shapes: $15 = 3 × 5$ or $15 = 15 × 1$ — so the canonical form is $p^4 q^2$ (exponents 4, 2) or $p^{14}$.',
                     'Now, minimise shape one: smallest primes in the biggest seats — $2^4 \u22c5 3^2 = 16 \u22c5 9 = 144$.',
                     'So, shape two: $2^{14} = 16384$ — more than a hundred times larger.',
                     'Take the comparison: $144 < 16384$, and the sweep confirms nothing smaller than 144 carries $\u03c4 = 15$.',
@@ -1625,7 +1625,7 @@ export const chapter04: Chapter = {
         },
         {
           kind: 'para',
-          text: 'How common is each family? The engine swept all of $1$ to $600$: **452 deficient, 145 abundant, 3 perfect** ($6$, $28$, $496$). Deficiency is the default; abundance needs a number with enough small prime factors. The smallest abundant number is $12$ — nothing below it oversums — and the early abundant run reads $12, 18, 20, 24, 30, 36, 40, \u22ef$. Abundance is sticky in one direction: *every multiple of 6 beyond 6 is abundant* — swept through 600. The clean reason covers the coprime case instantly: if $\\gcd(k, 6) = 1$ then $\\sigma(6k) = \\sigma(6)\\sigma(k) = 12\\sigma(k) \\ge 12(k + 1) > 12k = 2\u00b76k$, and the mixed cases (like $12$ and $18$ themselves) fall to direct checks — the sweep covers what the clean argument does not.',
+          text: 'How common is each family? The engine swept all of $1$ to $600$: **452 deficient, 145 abundant, 3 perfect** ($6$, $28$, $496$). Deficiency is the default; abundance needs a number with enough small prime factors. The smallest abundant number is $12$ — nothing below it oversums — and the early abundant run reads $12, 18, 20, 24, 30, 36, 40, \u22ef$. Abundance is sticky in one direction: *every multiple of 6 beyond 6 is abundant* — swept through 600. The clean reason covers the coprime case instantly: if $\\gcd(k, 6) = 1$ then $\\sigma(6k) = \\sigma(6)\\sigma(k) = 12\\sigma(k) \\ge 12(k + 1) > 12k = 2·6k$, and the mixed cases (like $12$ and $18$ themselves) fall to direct checks — the sweep covers what the clean argument does not.',
         },
         { kind: 'heading', text: 'HCF × LCM = ab, from the exponents' },
         {
@@ -1636,13 +1636,13 @@ export const chapter04: Chapter = {
           kind: 'derivation',
           title: 'The min–max identity and the product rule',
           statement:
-            'Claim: for $a = \\prod p^{\\alpha_i}$ and $b = \\prod p^{\\beta_i}$ (exponents $\\ge 0$, possibly zero), $\\operatorname{HCF}(a, b) \u00b7 \\operatorname{LCM}(a, b) = ab$.',
+            'Claim: for $a = \\prod p^{\\alpha_i}$ and $b = \\prod p^{\\beta_i}$ (exponents $\\ge 0$, possibly zero), $\\operatorname{HCF}(a, b) · \\operatorname{LCM}(a, b) = ab$.',
           steps: [
             {
               label: 'Read the two DNAs on a common prime list',
               formula: 'a = \\prod p^{\\alpha_i}, \\quad b = \\prod p^{\\beta_i}, \\qquad \\alpha_i, \\beta_i \\ge 0',
               explanation:
-                'Uniqueness (Lesson 4.2) lets both numbers wear their canonical forms on the *same* prime list, padding missing primes with exponent 0 — $8 = 2^3$ becomes $8 = 2^3 \u00b7 3^0$ next to $9 = 2^0 \u00b7 3^2$.',
+                'Uniqueness (Lesson 4.2) lets both numbers wear their canonical forms on the *same* prime list, padding missing primes with exponent 0 — $8 = 2^3$ becomes $8 = 2^3 · 3^0$ next to $9 = 2^0 · 3^2$.',
             },
             {
               label: 'HCF takes minima, LCM takes maxima',
@@ -1658,22 +1658,22 @@ export const chapter04: Chapter = {
             },
             {
               label: 'Conclude the product rule',
-              formula: '\\operatorname{HCF} \u00b7 \\operatorname{LCM} = \\prod p^{\\alpha_i + \\beta_i} = \\left(\\prod p^{\\alpha_i}\\right)\\left(\\prod p^{\\beta_i}\\right) = ab',
+              formula: '\\operatorname{HCF} · \\operatorname{LCM} = \\prod p^{\\alpha_i + \\beta_i} = \\left(\\prod p^{\\alpha_i}\\right)\\left(\\prod p^{\\beta_i}\\right) = ab',
               explanation:
                 'The rule is the exponent identity worn as arithmetic. It holds for exactly two numbers — see the caution below.',
             },
           ],
           result:
-            '$\\operatorname{HCF}(a, b) \u00b7 \\operatorname{LCM}(a, b) = ab$ — proved from the DNA, certified by the engine for every pair $a, b \\le 300$. Instance: $12 = 2^2 \u00b7 3^1$ against $18 = 2^1 \u00b7 3^2$ gives HCF $= 2 \u00b7 3 = 6$, LCM $= 2^2 \u00b7 3^2 = 36$, and $6 \u00b7 36 = 216 = 12 \u00b7 18$.',
+            '$\\operatorname{HCF}(a, b) · \\operatorname{LCM}(a, b) = ab$ — proved from the DNA, certified by the engine for every pair $a, b \\le 300$. Instance: $12 = 2^2 · 3^1$ against $18 = 2^1 · 3^2$ gives HCF $= 2 · 3 = 6$, LCM $= 2^2 · 3^2 = 36$, and $6 · 36 = 216 = 12 · 18$.',
         },
         {
           kind: 'example',
           title: 'The product rule as a finder: HCF 13, LCM 455, one number 65 — find the other',
           steps: [
-            'Split, the rule: $\\operatorname{HCF} \u00b7 \\operatorname{LCM} = ab$, so $b = \\operatorname{HCF} \u00b7 \\operatorname{LCM} / a = 13 \u00b7 455 / 65$.',
-            'Now, the arithmetic: $13 \u00b7 455 = 5915$, and $5915 / 65 = 91$.',
-            'So, verify from the DNA: $65 = 5 \u00b7 13$, $91 = 7 \u00b7 13$ — the common factor is $13$ ✓, the union is $5 \u00b7 7 \u00b7 13 = 455$ ✓.',
-            'Take the check: $65 \u00b7 91 = 5915 = 13 \u00b7 455$ — the product rule closes both ways.',
+            'Split, the rule: $\\operatorname{HCF} · \\operatorname{LCM} = ab$, so $b = \\operatorname{HCF} · \\operatorname{LCM} / a = 13 · 455 / 65$.',
+            'Now, the arithmetic: $13 · 455 = 5915$, and $5915 / 65 = 91$.',
+            'So, verify from the DNA: $65 = 5 · 13$, $91 = 7 · 13$ — the common factor is $13$ ✓, the union is $5 · 7 · 13 = 455$ ✓.',
+            'Take the check: $65 · 91 = 5915 = 13 · 455$ — the product rule closes both ways.',
             'Hence the missing number is **91** — and the verification is the derivation rehearsed on the answer.',
           ],
         },
@@ -1681,7 +1681,7 @@ export const chapter04: Chapter = {
           kind: 'callout',
           tone: 'warn',
           title: 'The rule is a two-number rule',
-          text: 'Adding a third number breaks the pattern, and the smallest example shows it: for $2, 3, 4$ the HCF is $1$ and the LCM is $12$, so HCF $\\times$ LCM $= 12$, but $2 \u00b7 3 \u00b7 4 = 24$. The reason is visible in the exponents: with three numbers, $\\min$ of three exponents plus $\\max$ of three exponents need not equal the sum of all three — for $2, 3, 4$ the prime $2$ has exponents $(1, 0, 2)$: $\\min 0 + \\max 2 = 2 \\ne 3$. No product formula survives for three or more numbers; only the two-number case has the pairing.',
+          text: 'Adding a third number breaks the pattern, and the smallest example shows it: for $2, 3, 4$ the HCF is $1$ and the LCM is $12$, so HCF $\\times$ LCM $= 12$, but $2 · 3 · 4 = 24$. The reason is visible in the exponents: with three numbers, $\\min$ of three exponents plus $\\max$ of three exponents need not equal the sum of all three — for $2, 3, 4$ the prime $2$ has exponents $(1, 0, 2)$: $\\min 0 + \\max 2 = 2 \\ne 3$. No product formula survives for three or more numbers; only the two-number case has the pairing.',
         },
         { kind: 'heading', text: 'The inverted τ problems' },
         {
@@ -1692,7 +1692,7 @@ export const chapter04: Chapter = {
           kind: 'list',
           marker: 'roman',
           items: [
-            '$k = 12$ factors as $12 = 12$ (one prime: shape $p^{11}$), $12 = 6 \u00b7 2$ (shape $p^5 q$), $12 = 4 \u00b7 3$ (shape $p^3 q^2$), $12 = 3 \u00b7 2 \u00b7 2$ (shape $p^2 q r$) — four shapes, no others;',
+            '$k = 12$ factors as $12 = 12$ (one prime: shape $p^{11}$), $12 = 6 · 2$ (shape $p^5 q$), $12 = 4 · 3$ (shape $p^3 q^2$), $12 = 3 · 2 · 2$ (shape $p^2 q r$) — four shapes, no others;',
             'each shape gives a family of numbers, one per choice of primes;',
             'the smallest member puts the **largest exponent on the smallest prime** — big exponents ride small primes;',
             'comparing the best instance of each shape decides the champion.',
@@ -1702,8 +1702,8 @@ export const chapter04: Chapter = {
           kind: 'example',
           title: 'Find the smallest number with exactly 12 divisors',
           steps: [
-            'Split, the shapes: $12 = 12$, $6 \u00b7 2$, $4 \u00b7 3$, $3 \u00b7 2 \u00b7 2$ — shapes $p^{11}$, $p^5 q$, $p^3 q^2$, $p^2 q r$.',
-            'Now, dress each shape minimally: $p^{11} \\to 2^{11} = 2048$; $p^5 q \\to 2^5 \u00b7 3 = 96$; $p^3 q^2 \\to 2^3 \u00b7 3^2 = 72$; $p^2 q r \\to 2^2 \u00b7 3 \u00b7 5 = 60$.',
+            'Split, the shapes: $12 = 12$, $6 · 2$, $4 · 3$, $3 · 2 · 2$ — shapes $p^{11}$, $p^5 q$, $p^3 q^2$, $p^2 q r$.',
+            'Now, dress each shape minimally: $p^{11} \\to 2^{11} = 2048$; $p^5 q \\to 2^5 · 3 = 96$; $p^3 q^2 \\to 2^3 · 3^2 = 72$; $p^2 q r \\to 2^2 · 3 · 5 = 60$.',
             'So, compare: $60 < 72 < 96 < 2048$ — the four-prime shape wins despite carrying the smallest exponents.',
             'Take the sweep: the engine checked every $n < 60$ — none carries twelve divisors (the nearest rivals $48$ with $10$ and $40$ with $8$ confirm the gap).',
             'Hence **60** is the champion: $\\tau(60) = (2+1)(1+1)(1+1) = 12$ — big exponents on small primes, but a wide prime base beats tall towers.',
@@ -1723,7 +1723,7 @@ export const chapter04: Chapter = {
         },
         {
           kind: 'para',
-          text: 'Two habits make the inverted problems safe. First, *enumerate the factorisations of $k$ completely* — missing the pattern $4 \u00b7 3$ in $k = 12$ would miss the eventual champion’s family; the trap is thinking only in two factors. Second, *sweep, don’t trust*: the engine certified each champion as the first occurrence of its divisor count up to 2000, because the “big exponents ride small primes” principle decides between *dressed* shapes but the full minimum needs every small number checked — that is what the sweep is for. The same two habits carry the next section, where the census runs backwards on factorials.',
+          text: 'Two habits make the inverted problems safe. First, *enumerate the factorisations of $k$ completely* — missing the pattern $4 · 3$ in $k = 12$ would miss the eventual champion’s family; the trap is thinking only in two factors. Second, *sweep, don’t trust*: the engine certified each champion as the first occurrence of its divisor count up to 2000, because the “big exponents ride small primes” principle decides between *dressed* shapes but the full minimum needs every small number checked — that is what the sweep is for. The same two habits carry the next section, where the census runs backwards on factorials.',
         },
         { kind: 'heading', text: 'The factorial census, cashed' },
         {
@@ -1736,7 +1736,7 @@ export const chapter04: Chapter = {
           steps: [
             'Split, the engine: zeros $= v_5(n!)$ (the twos never bind — Lesson 4.2’s swept fact), so the question is the smallest $n$ with $v_5(n!) \\ge 100$.',
             'Now, the census at 400: $\\lfloor 400/5 \\rfloor = 80$, $\\lfloor 400/25 \\rfloor = 16$, $\\lfloor 400/125 \\rfloor = 3$ — total $99$. One five short.',
-            'So, walk uphill: $401, 402, 403, 404$ carry no five — $v_5(404!) = 99$ still. Then $405 = 5 \u00b7 81$ donates exactly one five: $v_5(405!) = 81 + 16 + 3 = 100$.',
+            'So, walk uphill: $401, 402, 403, 404$ carry no five — $v_5(404!) = 99$ still. Then $405 = 5 · 81$ donates exactly one five: $v_5(405!) = 81 + 16 + 3 = 100$.',
             'Take the landing: the hundredth five lands *exactly* at 405 — not past it. $405!$ ends in precisely 100 zeros.',
             'Hence the smallest such $n$ is **405** — the sweep confirms no smaller factorial reaches 100, and the census shows why the answer is exact rather than a bound.',
           ],
@@ -1774,7 +1774,7 @@ export const chapter04: Chapter = {
           kind: 'callout',
           tone: 'exam',
           title: 'Where examinations use this',
-          text: 'Five shapes carry nearly all the marks (Khattar QA ch. 1’s divisor scope; CAT/IPMAT/SSC staples). *σ comparisons*: “arrange $n$ by divisor sum” or “show $\\sigma$ of $p^a$” — the series product answers without listing. *Abundant/deficient labels*: classify a given $n$ by $\\sigma$ vs $2n$ — 12 abundant, 15 deficient, 6 perfect are the drill values. *The product rule*: given any three of HCF, LCM, $a$, $b$, find the fourth — $\\operatorname{HCF} \u00b7 \\operatorname{LCM} = ab$ ($6 \u00b7 36 = 12 \u00b7 18$; the $13/455/65 \\to 91$ shape recurs); the trap is applying it to three numbers. *τ-inverted*: “find the smallest $n$ with exactly $k$ divisors” ($k = 12 \\to 60$, $k = 15 \\to 144$, $k = 24 \\to 360$) — the marks live in the complete shape list. *Zero inversions*: “smallest $n$ with $\\ge 100$ zeros” ($405$), “does any $n!$ have exactly 30 zeros” (no — skipped). What exams never ask: to *prove* the geometric identity — but every answer above is that identity running in costume.',
+          text: 'Five shapes carry nearly all the marks (Khattar QA ch. 1’s divisor scope; CAT/IPMAT/SSC staples). *σ comparisons*: “arrange $n$ by divisor sum” or “show $\\sigma$ of $p^a$” — the series product answers without listing. *Abundant/deficient labels*: classify a given $n$ by $\\sigma$ vs $2n$ — 12 abundant, 15 deficient, 6 perfect are the drill values. *The product rule*: given any three of HCF, LCM, $a$, $b$, find the fourth — $\\operatorname{HCF} · \\operatorname{LCM} = ab$ ($6 · 36 = 12 · 18$; the $13/455/65 \\to 91$ shape recurs); the trap is applying it to three numbers. *τ-inverted*: “find the smallest $n$ with exactly $k$ divisors” ($k = 12 \\to 60$, $k = 15 \\to 144$, $k = 24 \\to 360$) — the marks live in the complete shape list. *Zero inversions*: “smallest $n$ with $\\ge 100$ zeros” ($405$), “does any $n!$ have exactly 30 zeros” (no — skipped). What exams never ask: to *prove* the geometric identity — but every answer above is that identity running in costume.',
         },
         {
           kind: 'terms',
@@ -1784,7 +1784,7 @@ export const chapter04: Chapter = {
             { term: 'Abundant number', def: '$\\sigma(n) > 2n$. The smallest is 12; the run begins 12, 18, 20, 24, 30. Every multiple of 6 beyond 6 is abundant (swept to 600; the coprime case is $\\sigma(6k) = 12\\sigma(k) > 12k$).' },
             { term: 'Deficient number', def: '$\\sigma(n) < 2n$ — the default family: 452 of the first 600 numbers. Every prime is deficient ($\\sigma(p) = p + 1$).' },
             { term: 'Amicable pair', def: 'Two numbers, each the sum of the other’s proper divisors: $s(220) = 284$ and $s(284) = 220$ (both $\\sigma = 504$). The Greeks’ pair; Thābit ibn Qurra’s rule (c. 850); al-Fārisī’s workshop.' },
-            { term: 'HCF–LCM product rule', def: '$\\operatorname{HCF}(a,b) \u00b7 \\operatorname{LCM}(a,b) = ab$ — the min–max exponent identity ($\\min + \\max = \\alpha + \\beta$) worn as arithmetic. Two numbers only: $2, 3, 4$ gives $1 \u00b7 12 \u2260 24$.' },
+            { term: 'HCF–LCM product rule', def: '$\\operatorname{HCF}(a,b) · \\operatorname{LCM}(a,b) = ab$ — the min–max exponent identity ($\\min + \\max = \\alpha + \\beta$) worn as arithmetic. Two numbers only: $2, 3, 4$ gives $1 · 12 \u2260 24$.' },
             { term: 'Inverted divisor problem', def: 'Given $\\tau(n) = k$, factor $k$ into $(a_1+1)(a_2+1)\u22ef$, dress each shape with big exponents on small primes, and sweep for the champion: $k = 12 \\to 60$, $k = 15 \\to 144$, $k = 24 \\to 360$.' },
             { term: 'σ-parity theorem', def: '$\\sigma(n)$ is odd exactly when $n$ is a square or twice a square — the odd-prime series are odd iff the exponent is even. Instances: $\\sigma(9) = 13$, $\\sigma(18) = 39$, $\\sigma(36) = 91$ (swept to 600).' },
           ],
@@ -1793,10 +1793,10 @@ export const chapter04: Chapter = {
           kind: 'quiz',
           items: [
             {
-              q: 'The canonical form of 100 is $2^2 \u00b7 5^2$. What is $\\sigma(100)$?',
-              options: ['9 — the count of divisors of 100', '217 — $(1+2+4)(1+5+25) = 7 \u00d7 31$', '31 — the five-side series alone', '150 — 100 plus half of itself'],
+              q: 'The canonical form of 100 is $2^2 · 5^2$. What is $\\sigma(100)$?',
+              options: ['9 — the count of divisors of 100', '217 — $(1+2+4)(1+5+25) = 7 × 31$', '31 — the five-side series alone', '150 — 100 plus half of itself'],
               answer: 1,
-              explain: 'The divisor *sum* multiplies the per-prime geometric series: $7 \u00d7 31 = 217$, confirmed by adding the nine divisors $1 + 2 + 4 + 5 + 10 + 20 + 25 + 50 + 100$. Option one is $\\tau(100) = 9$ — the divisor *count*, a different machine; option three forgets the twos entirely; option four is arithmetic without a licence.',
+              explain: 'The divisor *sum* multiplies the per-prime geometric series: $7 × 31 = 217$, confirmed by adding the nine divisors $1 + 2 + 4 + 5 + 10 + 20 + 25 + 50 + 100$. Option one is $\\tau(100) = 9$ — the divisor *count*, a different machine; option three forgets the twos entirely; option four is arithmetic without a licence.',
             },
             {
               q: 'Which is the smallest abundant number?',
@@ -1808,7 +1808,7 @@ export const chapter04: Chapter = {
               q: 'Two numbers have HCF 6 and LCM 36. One of them is 12. The other is…',
               options: ['18 — HCF · LCM = ab, so b = 216 ÷ 12', '24 — double the HCF, times the LCM’s root', '72 — the LCM itself', '2 — the LCM divided by the HCF'],
               answer: 0,
-              explain: 'The product rule: $6 \u00b7 36 = 216 = 12 \u00b7 b$, so $b = 18$. Check from the DNA: $12 = 2^2 \u00b7 3$, $18 = 2 \u00b7 3^2$ — common part $2 \u00b7 3 = 6$ ✓, union $2^2 \u00b7 3^2 = 36$ ✓. The option 24 fails the check: $24 = 2^3 \u00b7 3$ next to $12 = 2^2 \u00b7 3$ would force LCM $72$, not 36.',
+              explain: 'The product rule: $6 · 36 = 216 = 12 · b$, so $b = 18$. Check from the DNA: $12 = 2^2 · 3$, $18 = 2 · 3^2$ — common part $2 · 3 = 6$ ✓, union $2^2 · 3^2 = 36$ ✓. The option 24 fails the check: $24 = 2^3 · 3$ next to $12 = 2^2 · 3$ would force LCM $72$, not 36.',
             },
             {
               q: 'Does any factorial end in exactly 30 zeros?',
@@ -1820,7 +1820,7 @@ export const chapter04: Chapter = {
               q: 'The smallest number with exactly 12 divisors is…',
               options: ['24 — twelve divisors', '36 — twelve divisors', '60 = 2²·3·5, (2+1)(1+1)(1+1) = 12', '120 — twelve divisors'],
               answer: 2,
-              explain: 'Count, don’t guess: $\\tau(24) = (3+1)(1+1) = 8$; $\\tau(36) = (2+1)(2+1) = 9$; $\\tau(120) = (3+1)(1+1)(1+1) = 16$. For 60 the count is $3 \u00b7 2 \u00b7 2 = 12$ ✓ — and the sweep certifies nothing below 60 reaches twelve (the 12-shapes dress to 2048, 96, 72, 60, and 60 is the least).',
+              explain: 'Count, don’t guess: $\\tau(24) = (3+1)(1+1) = 8$; $\\tau(36) = (2+1)(2+1) = 9$; $\\tau(120) = (3+1)(1+1)(1+1) = 16$. For 60 the count is $3 · 2 · 2 = 12$ ✓ — and the sweep certifies nothing below 60 reaches twelve (the 12-shapes dress to 2048, 96, 72, 60, and 60 is the least).',
             },
           ],
         },
@@ -1843,8 +1843,8 @@ export const chapter04: Chapter = {
                 {
                   q: 'Classify 15 using the canonical form and the σ formula.',
                   solution: [
-                    'Split, the DNA: $15 = 3 \u00b7 5$.',
-                    'Now, the series: $(1 + 3)(1 + 5) = 4 \u00b7 6 = 24$ — $\\sigma(15) = 24$.',
+                    'Split, the DNA: $15 = 3 · 5$.',
+                    'Now, the series: $(1 + 3)(1 + 5) = 4 · 6 = 24$ — $\\sigma(15) = 24$.',
                     'So, the comparison: $2n = 30$, and $24 < 30$.',
                     'Hence 15 is **deficient** — its proper divisors $1, 3, 5$ sum to 9 < 15.',
                   ],
@@ -1853,8 +1853,8 @@ export const chapter04: Chapter = {
                 {
                   q: 'Compute τ(84) from the canonical form and confirm by counting the divisors.',
                   solution: [
-                    'Split, the DNA: $84 = 2^2 \u00b7 3 \u00b7 7$ — exponents $(2, 1, 1)$.',
-                    'Now, the formula: $(2+1)(1+1)(1+1) = 3 \u00b7 2 \u00b7 2 = 12$.',
+                    'Split, the DNA: $84 = 2^2 · 3 · 7$ — exponents $(2, 1, 1)$.',
+                    'Now, the formula: $(2+1)(1+1)(1+1) = 3 · 2 · 2 = 12$.',
                     'So, the enumeration: $1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84$ — count them: twelve.',
                     'Hence $\\tau(84) = 12$ — formula and list in agreement.',
                   ],
@@ -1868,9 +1868,9 @@ export const chapter04: Chapter = {
                 {
                   q: 'Compute σ(72) from the canonical form, then verify by adding the twelve divisors.',
                   solution: [
-                    'Split, the DNA: $72 = 2^3 \u00b7 3^2$.',
+                    'Split, the DNA: $72 = 2^3 · 3^2$.',
                     'Now, the series: $(1 + 2 + 4 + 8) = 15$ on the twos; $(1 + 3 + 9) = 13$ on the threes.',
-                    'So, the product: $15 \u00b7 13 = 195$.',
+                    'So, the product: $15 · 13 = 195$.',
                     'Take the enumeration: $1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72$ — the total: $195$ ✓.',
                     'Hence $\\sigma(72) = 195$ — the lattice figure of this lesson is exactly this computation.',
                   ],
@@ -1879,11 +1879,11 @@ export const chapter04: Chapter = {
                 {
                   q: 'Derive HCF(12, 18) and LCM(12, 18) from the canonical forms, and confirm HCF × LCM = 12 × 18.',
                   solution: [
-                    'Split, the DNAs: $12 = 2^2 \u00b7 3^1$, $18 = 2^1 \u00b7 3^2$.',
-                    'Now, the minima: $2^{\\min(2,1)} \u00b7 3^{\\min(1,2)} = 2 \u00b7 3 = 6$ — the HCF.',
-                    'So, the maxima: $2^{\\max(2,1)} \u00b7 3^{\\max(1,2)} = 2^2 \u00b7 3^2 = 36$ — the LCM.',
-                    'Take the rule: $\\min + \\max = $ the original exponent on each prime, so $6 \u00b7 36 = 216$ and $12 \u00b7 18 = 216$ — equal.',
-                    'Hence $\\operatorname{HCF} \u00b7 \\operatorname{LCM} = ab$: the min–max identity, working.',
+                    'Split, the DNAs: $12 = 2^2 · 3^1$, $18 = 2^1 · 3^2$.',
+                    'Now, the minima: $2^{\\min(2,1)} · 3^{\\min(1,2)} = 2 · 3 = 6$ — the HCF.',
+                    'So, the maxima: $2^{\\max(2,1)} · 3^{\\max(1,2)} = 2^2 · 3^2 = 36$ — the LCM.',
+                    'Take the rule: $\\min + \\max = $ the original exponent on each prime, so $6 · 36 = 216$ and $12 · 18 = 216$ — equal.',
+                    'Hence $\\operatorname{HCF} · \\operatorname{LCM} = ab$: the min–max identity, working.',
                   ],
                   answer: 'HCF = 6, LCM = 36, 6 · 36 = 216 = 12 · 18',
                 },
@@ -1905,9 +1905,9 @@ export const chapter04: Chapter = {
                 {
                   q: 'Show that 496 is perfect: factor it, compute σ(496) from the canonical form, and confirm σ = 2n.',
                   solution: [
-                    'Split, the factoring: $496 = 2 \u00b7 248 = 4 \u00b7 124 = 8 \u00b7 62 = 16 \u00b7 31$ — and 31 is prime, so $496 = 2^4 \u00b7 31$.',
+                    'Split, the factoring: $496 = 2 · 248 = 4 · 124 = 8 · 62 = 16 · 31$ — and 31 is prime, so $496 = 2^4 · 31$.',
                     'Now, the series: $(1 + 2 + 4 + 8 + 16) = 31$ on the twos; $(1 + 31) = 32$ on the 31s.',
-                    'So, $\\sigma(496) = 31 \u00b7 32 = 992$.',
+                    'So, $\\sigma(496) = 31 · 32 = 992$.',
                     'Take the comparison: $2n = 992$ — exact equality. The ten divisors $1, 2, 4, 8, 16, 31, 62, 124, 248, 496$ sum to 992 ✓.',
                     'Hence 496 is **perfect** — the third member of Euclid’s list $6, 28, 496, 8128$, of the shape $2^4(2^5 - 1)$ with $2^5 - 1 = 31$ prime.',
                   ],
@@ -1916,8 +1916,8 @@ export const chapter04: Chapter = {
                 {
                   q: 'Find the smallest number with exactly 8 divisors, comparing every shape.',
                   solution: [
-                    'Split, the shapes of 8: $8 = 8$ (shape $p^7$), $8 = 4 \u00b7 2$ (shape $p^3 q$), $8 = 2 \u00b7 2 \u00b7 2$ (shape $p q r$).',
-                    'Now, dress each minimally: $2^7 = 128$; $2^3 \u00b7 3 = 24$; $2 \u00b7 3 \u00b7 5 = 30$.',
+                    'Split, the shapes of 8: $8 = 8$ (shape $p^7$), $8 = 4 · 2$ (shape $p^3 q$), $8 = 2 · 2 · 2$ (shape $p q r$).',
+                    'Now, dress each minimally: $2^7 = 128$; $2^3 · 3 = 24$; $2 · 3 · 5 = 30$.',
                     'So, compare: $24 < 30 < 128$ — the $p^3 q$ shape wins.',
                     'Take the sweep: the engine checked every $n < 24$ — none carries eight divisors (12 has 6, 16 has 5, 18 has 6).',
                     'Hence **24** is the champion: $\\tau(24) = (3+1)(1+1) = 8$ — three twos and a three beat one tall tower of twos.',
@@ -1942,8 +1942,8 @@ export const chapter04: Chapter = {
                 {
                   q: 'Verify from the canonical forms that 220 and 284 form an amicable pair.',
                   solution: [
-                    'Split, the DNAs: $220 = 2^2 \u00b7 5 \u00b7 11$, $284 = 2^2 \u00b7 71$.',
-                    'Now, the sums: $\\sigma(220) = (1+2+4)(1+5)(1+11) = 7 \u00b7 6 \u00b7 12 = 504$; $\\sigma(284) = (1+2+4)(1+71) = 7 \u00b7 72 = 504$.',
+                    'Split, the DNAs: $220 = 2^2 · 5 · 11$, $284 = 2^2 · 71$.',
+                    'Now, the sums: $\\sigma(220) = (1+2+4)(1+5)(1+11) = 7 · 6 · 12 = 504$; $\\sigma(284) = (1+2+4)(1+71) = 7 · 72 = 504$.',
                     'So, the proper sums: $s(220) = 504 - 220 = 284$ and $s(284) = 504 - 284 = 220$.',
                     'Take the meaning: each number is exactly the sum of the other’s proper divisors — 220’s proper list $1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110$ totals 284.',
                     'Hence $(220, 284)$ is amicable — the pair the Pythagoreans befriended, and the smallest of its kind.',
@@ -1953,10 +1953,10 @@ export const chapter04: Chapter = {
                 {
                   q: 'Two numbers have HCF 13 and LCM 455. One of them is 65. Find the other and verify both conditions.',
                   solution: [
-                    'Split, the rule: $b = \\operatorname{HCF} \u00b7 \\operatorname{LCM} / a = 13 \u00b7 455 / 65$.',
-                    'Now, the arithmetic: $13 \u00b7 455 = 5915$; $5915 / 65 = 91$.',
-                    'So, verify the HCF: $65 = 5 \u00b7 13$, $91 = 7 \u00b7 13$ — the common part is $13$ ✓.',
-                    'Take the LCM: the union is $5 \u00b7 7 \u00b7 13 = 455$ ✓ — and $65 \u00b7 91 = 5915 = 13 \u00b7 455$ closes the product rule.',
+                    'Split, the rule: $b = \\operatorname{HCF} · \\operatorname{LCM} / a = 13 · 455 / 65$.',
+                    'Now, the arithmetic: $13 · 455 = 5915$; $5915 / 65 = 91$.',
+                    'So, verify the HCF: $65 = 5 · 13$, $91 = 7 · 13$ — the common part is $13$ ✓.',
+                    'Take the LCM: the union is $5 · 7 · 13 = 455$ ✓ — and $65 · 91 = 5915 = 13 · 455$ closes the product rule.',
                     'Hence the other number is **91**.',
                   ],
                   answer: '91 (65 = 5·13, 91 = 7·13; HCF 13, LCM 455)',
@@ -1969,11 +1969,11 @@ export const chapter04: Chapter = {
                 {
                   q: 'Find the smallest number with exactly 24 divisors. Enumerate every shape of 24 and dress each.',
                   solution: [
-                    'Split, the shapes: $24 = 24;\\ 12\u00b72;\\ 8\u00b73;\\ 6\u00b74;\\ 6\u00b72\u00b72;\\ 4\u00b73\u00b72;\\ 3\u00b72\u00b72\u00b72$ — seven shapes.',
-                    'Now, dress each with big exponents on small primes: $2^{23}$ (huge); $2^{11} \u00b7 3 = 6144$; $2^7 \u00b7 3^2 = 1152$; $2^5 \u00b7 3^3 = 864$; $2^5 \u00b7 3 \u00b7 5 = 480$; $2^3 \u00b7 3^2 \u00b7 5 = 360$; $2^2 \u00b7 3 \u00b7 5 \u00b7 7 = 420$.',
+                    'Split, the shapes: $24 = 24;\\ 12·2;\\ 8·3;\\ 6·4;\\ 6·2·2;\\ 4·3·2;\\ 3·2·2·2$ — seven shapes.',
+                    'Now, dress each with big exponents on small primes: $2^{23}$ (huge); $2^{11} · 3 = 6144$; $2^7 · 3^2 = 1152$; $2^5 · 3^3 = 864$; $2^5 · 3 · 5 = 480$; $2^3 · 3^2 · 5 = 360$; $2^2 · 3 · 5 · 7 = 420$.',
                     'So, compare the seven: $360 < 420 < 480 < 864 < 1152 < 6144 < 2^{23}$ — the $p^3 q^2 r$ shape wins.',
                     'Take the sweep: the engine certified 360 as the first number with $\\tau = 24$ (the near rivals 420 and 480 also carry 24 but sit larger).',
-                    'Hence the champion is **360** $= 2^3 \u00b7 3^2 \u00b7 5$, $\\tau = 4 \u00b7 3 \u00b7 2 = 24$ — a balanced base beats both towers and wide primes.',
+                    'Hence the champion is **360** $= 2^3 · 3^2 · 5$, $\\tau = 4 · 3 · 2 = 24$ — a balanced base beats both towers and wide primes.',
                   ],
                   answer: '360 = 2³ · 3² · 5 (τ = 4 · 3 · 2 = 24)',
                 },
@@ -1982,7 +1982,7 @@ export const chapter04: Chapter = {
                   solution: [
                     'Split, the prime powers: $\\sigma(p^a) = 1 + p + \u22ef + p^a$ is a sum of $a + 1$ terms.',
                     'Now, the odd primes: every term is odd, so $\\sigma(p^a)$ is odd iff $a + 1$ is odd — iff $a$ is even. The prime 2 differs: $\\sigma(2^a) = 2^{a+1} - 1$ is odd for *every* $a$.',
-                    'So, $\\sigma(n)$, a product of the per-prime sums, is odd iff every odd prime in $n$ carries an even exponent — i.e. $n = 2^a \u00b7 m^2$ with $m$ odd.',
+                    'So, $\\sigma(n)$, a product of the per-prime sums, is odd iff every odd prime in $n$ carries an even exponent — i.e. $n = 2^a · m^2$ with $m$ odd.',
                     'Take the two cases: $a$ even makes $n$ a square; $a$ odd makes $n$ twice a square.',
                     'Hence $\\sigma(n)$ odd $\\Leftrightarrow$ $n$ is a square or twice a square — the engine swept it to 600. Instances: $\\sigma(9) = 13$, $\\sigma(18) = 2\u03c3(9) - \u22ef = 39$ (both odd), $\\sigma(36) = 91$ odd — while $\\sigma(12) = 28$ even, as 12 is neither.',
                   ],
@@ -1997,8 +1997,8 @@ export const chapter04: Chapter = {
                   q: 'Find every pair of consecutive numbers below 600 with σ(n) = σ(n + 1), and verify each pair by the formula.',
                   solution: [
                     'Split, the sweep: the engine computed $\\sigma$ for every $n \\le 600$ and compared neighbours — two pairs survive: $(14, 15)$ and $(206, 207)$.',
-                    'Now, the first pair: $14 = 2 \u00b7 7$ gives $\\sigma = 3 \u00b7 8 = 24$; $15 = 3 \u00b7 5$ gives $\\sigma = 4 \u00b7 6 = 24$ — equal.',
-                    'So, the second pair: $206 = 2 \u00b7 103$ gives $\\sigma = 3 \u00b7 104 = 312$; $207 = 3^2 \u00b7 23$ gives $\\sigma = (1+3+9)(1+23) = 13 \u00b7 24 = 312$ — equal.',
+                    'Now, the first pair: $14 = 2 · 7$ gives $\\sigma = 3 · 8 = 24$; $15 = 3 · 5$ gives $\\sigma = 4 · 6 = 24$ — equal.',
+                    'So, the second pair: $206 = 2 · 103$ gives $\\sigma = 3 · 104 = 312$; $207 = 3^2 · 23$ gives $\\sigma = (1+3+9)(1+23) = 13 · 24 = 312$ — equal.',
                     'Take the structure: neither pair is coincidence — $2p$ and $p^2 q$ families collide often near each other, but only these two land inside 600.',
                     'Hence the consecutive equal-$\\sigma$ pairs below 600 are **(14, 15)** with $\\sigma = 24$ and **(206, 207)** with $\\sigma = 312$ — the sweep decides, the formulas confirm.',
                   ],
@@ -2023,7 +2023,7 @@ export const chapter04: Chapter = {
         {
           kind: 'formula',
           name: 'The product rule',
-          latex: '\\operatorname{HCF}(a, b) \u00b7 \\operatorname{LCM}(a, b) = ab',
+          latex: '\\operatorname{HCF}(a, b) · \\operatorname{LCM}(a, b) = ab',
           note: 'min + max = α + β on every prime. 6·36 = 216 = 12·18; 13·455 = 65·91. Two numbers only — 2, 3, 4 gives 1·12 ≠ 24.',
         },
         {
@@ -2174,7 +2174,7 @@ export const chapter04: Chapter = {
             },
             {
               label: 'Check the p = 3 instance and the neighbours',
-              formula: '3, 5, 7 \\text{ all prime}; \\qquad 5, 7, 9 \\text{ dies at } 9 = 3^2; \\qquad 11, 13, 15 \\text{ dies at } 15 = 3 \\u00b7 5',
+              formula: '3, 5, 7 \\text{ all prime}; \\qquad 5, 7, 9 \\text{ dies at } 9 = 3^2; \\qquad 11, 13, 15 \\text{ dies at } 15 = 3 · 5',
               explanation:
                 'The engine swept every odd $p$ from 5 to 2000 — no ladder survives, exactly as the argument demands.',
             },
@@ -2221,7 +2221,7 @@ export const chapter04: Chapter = {
             'Split, the guarantee: for $n = 1000$, a prime must sit in $(1000, 2000]$ — the sweep finds the window’s first tenant is $1009$.',
             'Now, the smaller windows: $(100, 200)$ opens onto $101$; $(500, 1000)$ onto $503$; $(1500, 3000)$ onto $1511$.',
             'So, the chain view: after 100 the primes crowd in — $101, 103, 107, 109$ — the guarantee is a worst case, almost never the forecast.',
-            'Take the reconciliation: the desert $101! + 2$ through $101! + 101$ is 100 wide — and since $101! + 101 \\ll 2 \u00b7 101!$, the run ends far inside the Bertrand window, with the guaranteed prime lying *beyond* the desert. No contradiction: the construction makes length, the postulate bounds scale.',
+            'Take the reconciliation: the desert $101! + 2$ through $101! + 101$ is 100 wide — and since $101! + 101 \\ll 2 · 101!$, the run ends far inside the Bertrand window, with the guaranteed prime lying *beyond* the desert. No contradiction: the construction makes length, the postulate bounds scale.',
             'Hence the two facts cooperate — deserts of any *length*, but never wider than a *doubling* — and the algorithm above can certify its own termination.',
           ],
         },
@@ -2321,7 +2321,7 @@ export const chapter04: Chapter = {
               q: 'How many twin prime pairs sit below 100?',
               options: ['6 — stopping at (43, 47)-ish pairs', '8 — (3,5), (5,7), (11,13), (17,19), (29,31), (41,43), (59,61), (71,73)', '10 — counting (97, 99) as well', '25 — one pair per prime'],
               answer: 1,
-              explain: 'The gap-2 census below 100 finds exactly eight pairs, ending at $(71, 73)$. Option three fails arithmetic: $99 = 9 \u00b7 11$ is composite, so 97 is no twin. Option one undercounts (it forgets 59 and 71); option twenty-five confuses primes with twin pairs.',
+              explain: 'The gap-2 census below 100 finds exactly eight pairs, ending at $(71, 73)$. Option three fails arithmetic: $99 = 9 · 11$ is composite, so 97 is no twin. Option one undercounts (it forgets 59 and 71); option twenty-five confuses primes with twin pairs.',
             },
             {
               q: 'What exactly does Bertrand’s postulate guarantee for n = 1000?',
@@ -2396,7 +2396,7 @@ export const chapter04: Chapter = {
                     'Split, the sieve run: $\\pi(300) - \\pi(200) = 62 - 46 = 16$ expected.',
                     'Now, the list: $211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293$.',
                     'So, count them: sixteen ✓ — the list and the $\\pi$-difference agree.',
-                    'Take the spot-check: $251$ survives trials to $\\lfloor\\sqrt{251}\\rfloor = 15$ (primes 2, 3, 5, 7, 11, 13); $209 = 11 \u00b7 19$ and $247 = 13 \u00b7 19$ correctly stay out.',
+                    'Take the spot-check: $251$ survives trials to $\\lfloor\\sqrt{251}\\rfloor = 15$ (primes 2, 3, 5, 7, 11, 13); $209 = 11 · 19$ and $247 = 13 · 19$ correctly stay out.',
                     'Hence sixteen primes in 201..300 — census and list locked.',
                   ],
                   answer: '16 primes — 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293',
@@ -2430,7 +2430,7 @@ export const chapter04: Chapter = {
                 {
                   q: 'Find the first occurrence of a gap of 10, and show that the first gap of 14 arrives earlier.',
                   solution: [
-                    'Split, the hunt for 10: scan gaps until one measures 10 — after 139: $139$ prime, $149$ prime, the run 141 ($3 \u00b7 47$), 143 ($11 \u00b7 13$), 145 ($5 \u00b7 29$), 147 ($3 \u00b7 49$) all composite.',
+                    'Split, the hunt for 10: scan gaps until one measures 10 — after 139: $139$ prime, $149$ prime, the run 141 ($3 · 47$), 143 ($11 · 13$), 145 ($5 · 29$), 147 ($3 · 49$) all composite.',
                     'Now, verify firstness: the engine checked every earlier gap — before 139 the widths seen are only 2, 4, 6, 8 and the lone 14 (113 → 127); no gap of exactly 10 opens earlier.',
                     'So, the earlier 14: after 113, the run 115, 117, 119, 121, 123, 125 dies at $127$ — a gap of 14 at position 113, *before* 139.',
                     'Take the moral: first occurrences do not march in size order — 14 beats 10 into the record books.',
@@ -2480,7 +2480,7 @@ export const chapter04: Chapter = {
                     'Split, the divisibility: for $2 \\le k \\le 101$, every prime factor of $k$ is at most 101, and Legendre’s census gives enough copies in $101!$ — so $k \\mid 101!$ for every such $k$ (the engine swept all 100 values).',
                     'Now, the composites: $101! + k = k \\cdot (101!/k + 1)$ — a product of two numbers above 1, for every $k$ in range.',
                     'So, the run: $101!+2, \\dots, 101!+101$ is 100 consecutive composites — deserts of this size exist at any prescribed place.',
-                    'Take the reconciliation: Bertrand guarantees a prime in $(101!, 2 \u00b7 101!)$ — and since $101! + 101 \\ll 101! + 101!$, the run ends far inside the window, with the guaranteed prime sitting beyond it. The construction makes *length*; the postulate bounds *scale*.',
+                    'Take the reconciliation: Bertrand guarantees a prime in $(101!, 2 · 101!)$ — and since $101! + 101 \\ll 101! + 101!$, the run ends far inside the window, with the guaranteed prime sitting beyond it. The construction makes *length*; the postulate bounds *scale*.',
                     'Hence both facts hold together — unbounded deserts, doubling-window guarantees — and the algorithm nextPrime(n) is safe even across deserts.',
                   ],
                   answer: '101!+k = k(101!/k + 1) composite for k = 2…101; the run ends well before 2·101! — no clash with Bertrand',

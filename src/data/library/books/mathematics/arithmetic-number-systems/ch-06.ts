@@ -173,8 +173,8 @@ export const chapter06: Chapter = {
           caption:
             'The wall and the repair. Left of $1$ the successor chain simply stops (axiom (i): $1$ is nobody’s successor), so the naturals carry no zero and no mirrors — counting backwards dies at the wall. The integers extend the line past it: $0$ first, then the mirrors $-1, -2, \\dots$ in which every backwards walk finds a landing. The dashed half is chapter 6.2’s construction; the wall glyph marks the boundary this chapter erases.',
           svg: `<svg viewBox="0 0 520 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from minus five to seven: the natural-number part from one to seven is solid, the extension from minus five to zero is dashed, and a wall glyph stands between zero and one">
-  <line x1="68" y1="130" x2="452" y2="130" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
-  <line x1="68" y1="130" x2="244" y2="130" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.55"/>
+  <line x1="260" y1="130" x2="452" y2="130" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+  <line x1="68" y1="130" x2="228" y2="130" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.55"/>
   <g stroke="currentColor" stroke-width="1.4">
     <line x1="68" y1="124" x2="68" y2="132" opacity="0.6"/><line x1="100" y1="124" x2="100" y2="132" opacity="0.6"/><line x1="132" y1="124" x2="132" y2="132" opacity="0.6"/><line x1="164" y1="124" x2="164" y2="132" opacity="0.6"/><line x1="196" y1="124" x2="196" y2="132" opacity="0.6"/><line x1="228" y1="124" x2="228" y2="132" opacity="0.75"/>
   </g>
