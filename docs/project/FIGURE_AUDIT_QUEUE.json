@@ -2,12 +2,12 @@
   "updated": "2026-11-11",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 12,
+  "cursor": 24,
   "stats": {
     "lessonsWithFigures": 125,
     "figureTotal": 221,
-    "done": 17,
-    "pending": 108
+    "done": 29,
+    "pending": 96
   },
   "items": [
     {
@@ -123,84 +123,108 @@
       "bookId": "foundation-mathematics",
       "chapter": 3,
       "figures": 1,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-idea-of-a-fraction",
       "bookId": "foundation-mathematics",
       "chapter": 4,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-equivalent-fractions-simplification",
       "bookId": "foundation-mathematics",
       "chapter": 4,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-comparing-fractions",
       "bookId": "foundation-mathematics",
       "chapter": 4,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-adding-subtracting-fractions",
       "bookId": "foundation-mathematics",
       "chapter": 4,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-multiplying-dividing-fractions",
       "bookId": "foundation-mathematics",
       "chapter": 4,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-decimal-places-and-the-point",
       "bookId": "foundation-mathematics",
       "chapter": 5,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-decimals-and-fractions-two-ways",
       "bookId": "foundation-mathematics",
       "chapter": 5,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-operating-on-decimals",
       "bookId": "foundation-mathematics",
       "chapter": 5,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-percent-and-its-meaning",
       "bookId": "foundation-mathematics",
       "chapter": 5,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-percentage-change-discounts-simple-interest",
       "bookId": "foundation-mathematics",
       "chapter": 5,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-ratio-as-a-comparison",
       "bookId": "foundation-mathematics",
       "chapter": 6,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-12",
+      "note": "fire 2 (job 524541): all figs PASS strict visual audit (layers: DOM overlap 0 issues + DOM values/palette/aria + z-ai vision strict; math cross-read verified)"
     },
     {
       "lessonId": "fm-rates-and-unit-rates",

@@ -2579,8 +2579,8 @@ export const chapter03: Chapter = {
     <text x="120" y="44" text-anchor="middle" font-weight="700">a 6 by 4 rectangle</text>
     <g fill="none" stroke="currentColor" stroke-width="1.6">
       <rect x="48" y="70" width="144" height="96"/>
-      <path d="M72 70V166 M96 70V166 M120 70V166 M144 70V166 M168 70V166" stroke-width="0.9" opacity="0.5"/>
-      <path d="M48 94H192 M48 118H192 M48 142H192" stroke-width="0.9" opacity="0.5"/>
+      <path d="M96 70V166 M144 70V166" stroke-width="0.9" opacity="0.5"/>
+      <path d="M48 118H192" stroke-width="0.9" opacity="0.5"/>
     </g>
     <text x="120" y="198" text-anchor="middle" font-size="12">tile side 2 — the largest square that fits</text>
     <text x="120" y="218" text-anchor="middle" font-size="12">six 2 by 2 squares (3 across, 2 down)</text>

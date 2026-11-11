@@ -1,3 +1,27 @@
+## 2026-11-12 — FIGURE-AUDIT JOB 524541, FIRE 2: FM sweep items 12-23 (12 lessons / 23 figures) strictly audited, 4 defects caught and fixed, all gates green
+
+**Scope:** queue items 12-23 (fm-hcf-lcm-and-how-they-relate → fm-ratio-as-a-comparison, FM ch. 3-6; 23 figures) per FIGURE_VERIFICATION_PROTOCOL.md §9 — lock taken (`.figure_upgrade_lock`, removed at close), tree clean, authoring job between fires (run 92 owns AA 1.5/1.6, untouched here).
+
+**Method (protocol §4):** layer 1 DOM overlap+clip detector on all 12 lessons (0 issues everywhere) + layer 1.5 (scripts/figure-audit-domvalues.sh — 0 raw-$, 0 raw-^, 0 blue/indigo; every drawn value cross-read against the lesson math, all correct); layer 2 strict VLM audit via z-ai vision on 6 × 900px montages (scripts/figure-audit-montage.py) — **the vision quota RECOVERED this fire** (fire 1 ran entirely on auditor-model vision); dark-mode pass on the run's first lesson.
+
+**Vision false positives caught on evidence (3, dismissed — not shipped as defects):** hcf-lcm right square "3×3/4 cells" (source has 1 vertical + 2 horizontal dividers = 6 cells; targeted high-res re-audit VERDICT PASS); ratio ×2 row "5 dots" (source + own render count = 6 exact); montage-header vs per-lesson figcaption numbering (captions restart per lesson by design). Lesson for future fires: montage downscaling misreads dense geometry — any vision-flagged count/geometry claim gets re-verified at full resolution + against the SVG source before a fix ladder runs.
+
+**Defects caught (4, all ladder-step-1 fixes, all re-audited to PASS):**
+1. **fm-hcf-lcm-and-how-they-relate fig 1** — left 6×4 rectangle drawn as a unit-cell grid (6 cols × 4 rows) while caption/label claim six 2×2 tiles "3 across, 2 down"; tile grouping invisible. Fixed in SVG (ch-03.ts): dividers → 2 verticals + 1 horizontal = exactly six 2×2 tiles.
+2. **fm-multiplying-dividing-fractions fig 2 caption** — "3/4 sits at 550 px" vs "6 × 85 = 510 px" were two unreconcilable frames (screen x vs distance-from-0, the x=40 origin never stated). Fixed caption (ch-04.ts): px apparatus removed, count-based wording ("six eighth-steps from 0"); geometry untouched and verified exact.
+3. **fm-decimal-places-and-the-point fig 1** — in-figure line "one number, seven places…"; 305.274 has six digits and the chart six columns (the prose's separate "seven places" belongs to a different number, 42.357). Fixed (ch-05.ts): "six places".
+4. **fm-operating-on-decimals fig 1** — bottom strip chained equality "4.75 × 10 = 47.5 × 10 = 475" false as written (implies 47.5 = 475). Fixed (ch-05.ts): "4.75 × 10 = 47.5, again × 10 = 475", matching the prose's two-step form.
+
+**Cosmetic nits logged (5, one each = no fix per rubric §2.9):** idea-of-a-fraction "last 1/6" without bracket; multiplying-dividing 3/5 label beside unshaded columns; decimal-zoom leaders to ruler endpoints; point-hops "the point" label offset; percentage-change wrong-ticket arrow landing; ratio part-tags inside cells.
+
+**Gates (all green):** lint 0 errors (5 pre-existing warnings); tsc 0 errors; verify-unit-3 260/260; verify-unit-4 330/330; verify-unit-5 455/455; verify-unit-6 444/444; E2E smoke (scripts/figure-audit-smoke.sh) on all 4 changed lessons × desktop 1280 + mobile 390 + dark: route 200, figure counts exact, no zero-size figures, honest aria, KaTeX 0 errors, quiz 5/5 on intended keys ([2,1,2,3,1] / [1,2,1,0,3] / [1,2,3,1,2] / [2,1,2,0,1]), 0 console errors, no overflow. Known sandbox issue recurred: dev server reaped between tool calls twice — restarted with setsid+nohup inline with the smoke (future fires: run server + smoke in ONE bash call).
+
+**Standing at close:** queue 29 done / 96 pending (items 12-23 flipped done with dates + notes; cursor 24); next fire starts at fm-rates-and-unit-rates (FM ch. 6); AI-image fallback not needed (no figure required it). This job commits LOCALLY ONLY — the authoring job 523435 ships all unpushed commits.
+
+**Git:** commit `figure-audit: FM ch.3-6 sweep fire 2 — 12 lessons / 23 figures verified (4 fixed: tile grouping, px-frame caption, six places, chained equality)`.
+
+---
+
 ## 2026-11-11 — FIGURE-AUDIT JOB 524541, FIRE 1: FM sweep items 1-12 (12 lessons / 18 figures) strictly audited, 2 defects caught and fixed, all gates green
 
 **Scope:** queue items 1-12 (fm-numbers-digits-place-value → fm-lowest-common-multiple, FM ch. 1-3; 18 figures) per FIGURE_VERIFICATION_PROTOCOL.md §9 — lock taken (`.figure_upgrade_lock`, removed at close), tree clean, authoring job idle (next fire 02:50 IST).

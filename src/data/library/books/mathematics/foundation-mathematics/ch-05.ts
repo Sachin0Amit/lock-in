@@ -273,7 +273,7 @@ export const chapter05: Chapter = {
     </g>
     <text x="374" y="262" text-anchor="middle" font-weight="700">305.274 = 300 + 0 + 5 + 0.2 + 0.07 + 0.004</text>
     <text x="374" y="300" text-anchor="middle" font-size="12" opacity="0.85">the ones place is the hinge: the point just marks it</text>
-    <text x="374" y="336" text-anchor="middle" font-size="12" opacity="0.85">one number, seven places, every digit counted in its own column</text>
+    <text x="374" y="336" text-anchor="middle" font-size="12" opacity="0.85">one number, six places, every digit counted in its own column</text>
   </g>
 </svg>`,
         },
@@ -1655,7 +1655,7 @@ export const chapter05: Chapter = {
     <text x="474" y="336">÷ 100: slide two rooms finer</text>
   </g>
   <g font-size="14" fill="currentColor" text-anchor="middle">
-    <text x="170" y="399">4.75 × 10 = 47.5 × 10 = 475</text>
+    <text x="170" y="399">4.75 × 10 = 47.5, again × 10 = 475</text>
     <text x="560" y="399">4.75 ÷ 10 = 0.475</text>
   </g>
 </svg>`,

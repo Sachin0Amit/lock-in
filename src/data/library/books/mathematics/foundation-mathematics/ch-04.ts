@@ -2923,7 +2923,7 @@ export const chapter04: Chapter = {
         {
           kind: 'figure',
           caption:
-            'Division measures. The line is cut into eighths (85 px each); 3/4 sits at 550 px, six eighth-steps from 0. The arc spans exactly those six steps — 6 × 85 = 510 px of the 680 px unit — so 3/4 ÷ 1/8 = 6: six eighths fit in three quarters. The theorem says the same in one flip: 3/4 × 8/1 = 24/4 = 6.',
+            'Division measures. The line is cut into eighths; 3/4 sits six eighth-steps from 0. The arc spans exactly those six steps — so 3/4 ÷ 1/8 = 6: six eighths fit in three quarters. The theorem says the same in one flip: 3/4 × 8/1 = 24/4 = 6.',
           svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Number line from 0 to 1 cut into eighths with an arc spanning the six eighth-steps from 0 to 3/4, naming 3/4 divided by 1/8 as 6">
   <g font-size="13" fill="currentColor">
   <line x1="40" y1="170" x2="720" y2="170" stroke="currentColor" stroke-width="1.5"/>
