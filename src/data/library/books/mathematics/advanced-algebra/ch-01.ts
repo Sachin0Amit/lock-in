@@ -88,23 +88,23 @@ function arrowDiagramSvg(): string {
   }
 
   return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arrow diagram of the relation x less than y from set A to set B">
-  <ellipse cx="170" cy="165" rx="125" ry="112" fill="#fef3c7" stroke="#16a34a" stroke-width="2.4"/>
-  <ellipse cx="550" cy="170" rx="120" ry="110" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>
-  <text x="170" y="42" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">A (the inputs)</text>
-  <text x="550" y="42" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">B (the codomain)</text>
-  ${dot(150, 90, '1', false)}
-  ${dot(110, 200, '4', false)}
-  ${dot(240, 232, '5', false)}
-  ${dot(545, 85, '1', true)}
-  ${dot(490, 240, '2', false)}
-  ${dot(610, 170, '7', false)}
-  ${arrow(150, 90, 490, 240)}
-  ${arrow(150, 90, 610, 170)}
-  ${arrow(110, 200, 610, 170)}
-  ${arrow(240, 232, 610, 170)}
+  <ellipse cx="170" cy="160" rx="115" ry="105" fill="#fef3c7" stroke="#16a34a" stroke-width="2.4"/>
+  <ellipse cx="550" cy="160" rx="115" ry="105" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>
+  <text x="170" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">A (the inputs)</text>
+  <text x="550" y="52" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">B (the codomain)</text>
+  ${dot(175, 95, '1', false)}
+  ${dot(112, 200, '4', false)}
+  ${dot(235, 205, '5', false)}
+  ${dot(545, 95, '1', true)}
+  ${dot(487, 205, '2', false)}
+  ${dot(607, 200, '7', false)}
+  ${arrow(175, 95, 487, 205)}
+  ${arrow(175, 95, 607, 200)}
+  ${arrow(112, 200, 607, 200)}
+  ${arrow(235, 205, 607, 200)}
   <text x="545" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">never hit</text>
-  <text x="170" y="298" text-anchor="middle" font-size="14" fill="#0f766e">domain = {1, 4, 5} — every input fires</text>
-  <text x="560" y="298" text-anchor="middle" font-size="14" fill="#0f766e">range = {2, 7} ⊆ codomain {1, 2, 7}</text>
+  <text x="170" y="296" text-anchor="middle" font-size="14" fill="#0f766e">domain = {1, 4, 5} — every input fires</text>
+  <text x="560" y="296" text-anchor="middle" font-size="14" fill="#0f766e">range = {2, 7} ⊆ codomain {1, 2, 7}</text>
   <text x="360" y="316" text-anchor="middle" font-size="14" fill="#65a30d">R = {(1,2), (1,7), (4,7), (5,7)} — the arrows ARE the relation</text>
 </svg>`
 }
@@ -124,7 +124,8 @@ function mod5ClassesSvg(): string {
       const items = (vals as string[]).map((v, j) => `<text x="${x + 64}" y="${128 + j * 34}" text-anchor="middle" font-size="19" font-weight="600" fill="#166534">${v}</text>`).join('')
       return (
         `<rect x="${x}" y="66" width="128" height="170" rx="10" fill="#ffedd5" stroke="#16a34a" stroke-width="2.4"/>` +
-        `<path d="M${x},106 L${x},76 Q${x},66 ${x + 10},66 L${x + 118},66 Q${x + 128},66 ${x + 128},76 L${x + 128},106 Z" fill="#16a34a"/>` +
+        `<rect x="${x}" y="66" width="128" height="40" rx="10" fill="#16a34a"/>` +
+        `<rect x="${x}" y="90" width="128" height="16" fill="#16a34a"/>` +
         `<text x="${x + 64}" y="93" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">${label}</text>` +
         items
       )
@@ -409,35 +410,34 @@ const lesson11: Lesson = {
 
 /** 1.2 — the horizontal probe: one-one vs many-one twin graphs */
 function horizontalProbeSvg(): string {
-  return `<svg viewBox="0 0 720 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two graphs: a one-one curve cut once by every horizontal probe, and a many-one curve cut twice by the probe y equals 5">
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two graphs: a one-one curve cut once by every horizontal probe, and a many-one curve cut twice by the probe y equals 5">
   <!-- left panel: y = x^3 + x + 1 -->
   <text x="185" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">y = x³ + x + 1 — every probe cuts once</text>
   <line x1="30" y1="160" x2="330" y2="160" stroke="#65a30d" stroke-width="1.4"/>
-  <line x1="180" y1="34" x2="180" y2="260" stroke="#65a30d" stroke-width="1.4"/>
+  <line x1="180" y1="20" x2="180" y2="260" stroke="#65a30d" stroke-width="1.4"/>
   <text x="326" y="176" text-anchor="end" font-size="12" fill="#0f766e">x</text>
-  <text x="188" y="46" font-size="12" fill="#0f766e">y</text>
+  <text x="188" y="28" font-size="12" fill="#0f766e">y</text>
   <polyline points="60,250 90,199 120,170 150,156 180,150 210,144 240,130 270,101 300,50" fill="none" stroke="#16a34a" stroke-width="2.6"/>
   <line x1="40" y1="110" x2="320" y2="110" stroke="#ea580c" stroke-width="2" stroke-dasharray="7 5"/>
   <circle cx="263" cy="110" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
-  <text x="205" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">one cut</text>
+  <text x="263" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">one cut</text>
   <text x="52" y="106" font-size="12" fill="#ea580c">probe y = 5</text>
 
   <!-- right panel: y = x^2 + 1 -->
   <text x="535" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">y = x² + 1 — the probe cuts twice</text>
   <line x1="380" y1="258" x2="680" y2="258" stroke="#65a30d" stroke-width="1.4"/>
-  <line x1="530" y1="34" x2="530" y2="258" stroke="#65a30d" stroke-width="1.4"/>
+  <line x1="530" y1="20" x2="530" y2="258" stroke="#65a30d" stroke-width="1.4"/>
   <text x="676" y="274" text-anchor="end" font-size="12" fill="#0f766e">x</text>
-  <text x="538" y="46" font-size="12" fill="#0f766e">y</text>
+  <text x="538" y="28" font-size="12" fill="#0f766e">y</text>
   <polyline points="380,47 410,113 440,165 470,201 500,223 530,231 560,223 590,201 620,165 650,113 680,47" fill="none" stroke="#16a34a" stroke-width="2.6"/>
   <line x1="390" y1="113" x2="690" y2="113" stroke="#ea580c" stroke-width="2" stroke-dasharray="7 5"/>
   <circle cx="410" cy="113" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
   <circle cx="650" cy="113" r="6" fill="#ea580c" stroke="#fffdf5" stroke-width="2"/>
-  <text x="415" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(−2) = 5</text>
-  <text x="645" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(2) = 5</text>
+  <text x="404" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(−2) = 5</text>
+  <text x="652" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#ea580c">f(2) = 5</text>
   <text x="535" y="133" text-anchor="middle" font-size="12" fill="#ea580c">probe y = 5</text>
 
-  <text x="360" y="298" text-anchor="middle" font-size="14" fill="#0f766e">the horizontal probe: a full-width sweep of horizontal lines —</text>
-  <text x="360" y="318" text-anchor="middle" font-size="14" fill="#0f766e">at most one cut each means one-one; any double cut means many-one</text>
+  <text x="360" y="294" text-anchor="middle" font-size="14" fill="#0f766e">the horizontal probe: a full-width sweep of horizontal lines — at most one cut each means one-one; any double cut means many-one</text>
 </svg>`
 }
 
@@ -468,17 +468,17 @@ function pigeonholeCountSvg(): string {
   ${arrow(110, 95, 362, 105, true)}
   ${arrow(110, 160, 362, 118, true)}
   ${arrow(110, 225, 362, 210, false)}
-  <text x="250" y="276" text-anchor="middle" font-size="13.5" fill="#dc2626">the red pair must share — every 3-into-2 machine is many-one</text>
+  <text x="250" y="272" text-anchor="middle" font-size="13" fill="#dc2626">the red pair must share — every 3-into-2 machine is many-one</text>
 
   <rect x="535" y="56" width="178" height="66" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">one-one needs m ≤ n</text>
-  <text x="624" y="100" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">⁵P₃ = 60 injective</text>
+  <text x="624" y="98" text-anchor="middle" font-size="13" fill="#65a30d">⁵P₃ = 60 injective</text>
   <rect x="535" y="140" width="178" height="66" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="162" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">onto needs n ≤ m</text>
-  <text x="624" y="184" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">150 of 3⁵ = 243 surjective</text>
+  <text x="624" y="182" text-anchor="middle" font-size="13" fill="#65a30d">150 of 3⁵ = 243 surjective</text>
   <rect x="535" y="224" width="178" height="60" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/>
   <text x="624" y="246" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">bijective needs m = n</text>
-  <text x="624" y="268" text-anchor="middle" font-size="14.5" font-weight="700" fill="#65a30d">3! = 6 pairings</text>
+  <text x="624" y="266" text-anchor="middle" font-size="13" fill="#65a30d">3! = 6 pairings</text>
 </svg>`
 }
 
@@ -734,6 +734,677 @@ const lesson12: Lesson = {
 }
 
 /* ------------------------------------------------------------------ */
+/* lesson 1.3 figures                                                  */
+/* ------------------------------------------------------------------ */
+
+/** 1.3 — the three-panel wiring: A --f--> B --g--> C with the composite read */
+function compositeSeriesSvg(): string {
+  const dotA = (y: number, label: string): string =>
+    `<circle cx="130" cy="${y}" r="15" fill="#fef3c7" stroke="#16a34a" stroke-width="2"/><text x="130" y="${y + 5}" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">${label}</text>`
+  const dotB = (y: number, label: string): string =>
+    `<circle cx="360" cy="${y}" r="15" fill="#ffedd5" stroke="#16a34a" stroke-width="2"/><text x="360" y="${y + 5}" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">${label}</text>`
+  const dotC = (y: number, label: string): string =>
+    `<circle cx="590" cy="${y}" r="15" fill="#ffedd5" stroke="#d97706" stroke-width="2"/><text x="590" y="${y + 5}" text-anchor="middle" font-size="13" font-weight="700" fill="#d97706">${label}</text>`
+  const arr = (x1: number, y1: number, x2: number, y2: number, color: string): string => {
+    const mx = x2 - 22 * ((x2 - x1) / Math.hypot(x2 - x1, y2 - y1))
+    const my = y2 - 22 * ((y2 - y1) / Math.hypot(x2 - x1, y2 - y1))
+    return `<line x1="${x1 + 22 * ((x2 - x1) / Math.hypot(x2 - x1, y2 - y1))}" y1="${y1 + 22 * ((y2 - y1) / Math.hypot(x2 - x1, y2 - y1))}" x2="${mx}" y2="${my}" stroke="${color}" stroke-width="2.2" marker-end="url(#arrG)"/><line x1="${x1 + 22 * ((x2 - x1) / Math.hypot(x2 - x1, y2 - y1))}" y1="${y1 + 22 * ((y2 - y1) / Math.hypot(x2 - x1, y2 - y1))}" x2="${mx}" y2="${my}" stroke="${color}" stroke-width="2.2"/>`
+  }
+  return `<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three panels: set A maps by f to set B, then by g to set C; the composite g after f sends each element of A straight to C, reading 10x">
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/></marker>
+    <marker id="arrA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d97706"/></marker>
+    <marker id="arrT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0f766e"/></marker>
+  </defs>
+  <ellipse cx="130" cy="150" rx="86" ry="118" fill="#fef3c7" fill-opacity="0.45" stroke="#16a34a" stroke-width="2.2"/>
+  <ellipse cx="360" cy="150" rx="86" ry="118" fill="#ffedd5" fill-opacity="0.45" stroke="#16a34a" stroke-width="2.2"/>
+  <ellipse cx="590" cy="150" rx="86" ry="118" fill="#ffedd5" fill-opacity="0.45" stroke="#d97706" stroke-width="2.2"/>
+  <text x="130" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">A = {1, 2, 3}</text>
+  <text x="360" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">B = {2, 4, 6, 8}</text>
+  <text x="590" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#d97706">C = {10, 20, 30, 40}</text>
+  ${dotA(96, '1')}
+  ${dotA(152, '2')}
+  ${dotA(208, '3')}
+  ${dotB(96, '2')}
+  ${dotB(152, '4')}
+  ${dotB(208, '6')}
+  ${dotB(264, '8')}
+  ${dotC(96, '10')}
+  ${dotC(152, '20')}
+  ${dotC(208, '30')}
+  ${dotC(264, '40')}
+  ${arr(130, 96, 360, 96, '#16a34a')}
+  ${arr(130, 152, 360, 152, '#16a34a')}
+  ${arr(130, 208, 360, 208, '#16a34a')}
+  <text x="245" y="86" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">f: n ↦ 2n</text>
+  ${arr(360, 96, 590, 96, '#d97706')}
+  ${arr(360, 152, 590, 152, '#d97706')}
+  ${arr(360, 208, 590, 208, '#d97706')}
+  ${arr(360, 264, 590, 264, '#d97706')}
+  <text x="475" y="86" text-anchor="middle" font-size="13" font-weight="700" fill="#d97706">g: e ↦ 5e</text>
+
+  <path d="M 148 100 C 240 320, 480 320, 572 100" fill="none" stroke="#0f766e" stroke-width="2.4" stroke-dasharray="7 4" marker-end="url(#arrT)"/>
+  <path d="M 148 156 C 240 340, 480 340, 572 156" fill="none" stroke="#0f766e" stroke-width="2.4" stroke-dasharray="7 4" marker-end="url(#arrT)"/>
+  <path d="M 148 212 C 240 360, 480 360, 572 212" fill="none" stroke="#0f766e" stroke-width="2.4" stroke-dasharray="7 4" marker-end="url(#arrT)"/>
+  <text x="360" y="352" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f766e">the composite g∘f skips the middle shelf: 1 ↦ 10, 2 ↦ 20, 3 ↦ 30 — indeed (g∘f)(x) = 10x</text>
+  <text x="360" y="372" text-anchor="middle" font-size="11.5" fill="#dc2626">8 ↦ 40: fired by g, but never fed by f — the one unused wiring</text>
+</svg>`
+}
+
+/** 1.3 — the two non-implication wirings: composite outranks g / composite outranks f */
+function verdictInheritanceSvg(): string {
+  const mini = (cx: number, cy: number, label: string, fill: string, stroke: string): string =>
+    `<circle cx="${cx}" cy="${cy}" r="13" fill="${fill}" stroke="${stroke}" stroke-width="1.8"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#166534">${label}</text>`
+  const line = (x1: number, y1: number, x2: number, y2: number, color: string, dash: string): string =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" ${dash ? `stroke-dasharray="${dash}"` : ''} marker-end="url(#arrG2)"/>`
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two wirings prove the non-implications: on the left g after f is one-one and onto even though g is many-one; on the right g after f is onto even though f is not onto">
+  <defs>
+    <marker id="arrG2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#16a34a"/></marker>
+    <marker id="arrA2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#d97706"/></marker>
+  </defs>
+  <rect x="12" y="14" width="344" height="272" rx="12" fill="#fffdf5" stroke="#16a34a" stroke-width="1.6"/>
+  <rect x="364" y="14" width="344" height="272" rx="12" fill="#fffdf5" stroke="#d97706" stroke-width="1.6"/>
+  <text x="184" y="40" text-anchor="middle" font-size="13.5" font-weight="700" fill="#166534">g∘f one-one ⇏ g one-one</text>
+  <text x="536" y="40" text-anchor="middle" font-size="13.5" font-weight="700" fill="#d97706">g∘f onto ⇏ f onto</text>
+  ${mini(60, 96, '1', '#fef3c7', '#16a34a')}
+  ${mini(60, 156, '2', '#fef3c7', '#16a34a')}
+  ${mini(184, 76, '1', '#ffedd5', '#16a34a')}
+  ${mini(184, 126, '2', '#ffedd5', '#16a34a')}
+  ${mini(184, 176, '3', '#ffedd5', '#16a34a')}
+  ${mini(308, 101, '1', '#ffedd5', '#d97706')}
+  ${mini(308, 151, '2', '#ffedd5', '#d97706')}
+  ${line(74, 96, 170, 76, '#16a34a', '')}
+  ${line(74, 156, 170, 176, '#16a34a', '')}
+  <text x="122" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">f: 1↦1, 2↦3</text>
+  ${line(198, 76, 294, 96, '#d97706', '')}
+  ${line(198, 126, 294, 96, '#d97706', '')}
+  ${line(198, 176, 294, 151, '#d97706', '')}
+  <text x="184" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">amber arrows: g(1) = g(2) = 1 — the witness</text>
+  ${line(322, 101, 388, 96, '#16a34a', '6 3')}
+  ${line(322, 151, 388, 156, '#16a34a', '6 3')}
+  <text x="184" y="216" text-anchor="middle" font-size="12" fill="#0f766e">composite: 1↦1, 2↦2 — one-one AND onto {1,2}</text>
+  <text x="184" y="236" text-anchor="middle" font-size="12" fill="#0f766e">while g collapses 1 and 2 — law (iii) at work</text>
+  ${mini(412, 96, '1', '#fef3c7', '#16a34a')}
+  ${mini(412, 156, '2', '#fef3c7', '#16a34a')}
+  ${mini(536, 76, '1', '#ffedd5', '#16a34a')}
+  ${mini(536, 126, '2', '#ffedd5', '#16a34a')}
+  ${mini(536, 176, '3', '#ffedd5', '#16a34a')}
+  ${mini(660, 126, '1', '#ffedd5', '#d97706')}
+  ${line(426, 96, 522, 76, '#16a34a', '')}
+  ${line(426, 156, 522, 176, '#16a34a', '')}
+  <text x="474" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">f: 1↦1, 2↦3</text>
+  <text x="536" y="204" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">target 2: never hit — f NOT onto</text>
+  ${line(550, 76, 646, 121, '#d97706', '')}
+  ${line(550, 126, 646, 126, '#d97706', '')}
+  ${line(550, 176, 646, 131, '#d97706', '')}
+  <text x="598" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">g: constant 1</text>
+  ${line(674, 126, 690, 126, '#16a34a', '6 3')}
+  <circle cx="700" cy="126" r="4" fill="#16a34a"/>
+  <text x="536" y="236" text-anchor="middle" font-size="12" fill="#0f766e">composite: 1↦1, 2↦1 — onto the singleton {1}</text>
+  <text x="536" y="256" text-anchor="middle" font-size="12" fill="#0f766e">while f misses target 2 — law (iv) at work</text>
+  <text x="360" y="316" text-anchor="middle" font-size="13" fill="#65a30d">the composite inherits FORWARD from f and g — never backward to both</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.3                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson13: Lesson = {
+  id: 'aa-composition-machines-in-series',
+  number: '1.3',
+  title: 'Composition: Machines in Series',
+  concepts: [
+    'composition as wiring machines in series',
+    'the wiring condition: range inside the next domain',
+    'the honest domain of a composite',
+    'non-commutativity and the pairs that commute',
+    'associativity and the identity machine',
+    'verdict inheritance through a composite',
+    'counting composite pairs and distinct composites',
+  ],
+  objectives: [
+    'wire two machines in series and compute the composite g∘f both as a formula and as a finite roster',
+    'apply the wiring condition — the range of f must sit inside the domain of g — and read the honest domain of any composite',
+    'decide whether two given machines commute, and exhibit the witness that kills commutativity when it fails',
+    'state and use associativity and the two identity laws for composition',
+    'apply the four verdict-inheritance laws, including their two converse traps, with finite witnesses',
+    'count the pairs (f, g) that build composites and the distinct composites they realize',
+  ],
+  prerequisites: ['aa-one-one-and-onto-classifying-the-machines', 'al-the-function-idea-the-doorstep'],
+  sources: ['cengage-m2-algebra', 'cengage-jee-style', 'ncert-math12-ch1-relations-functions', 'ncert-math11-ch2-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 1.2 left every machine carrying two verdicts — one-one or many-one, onto or into. This lesson stops grading single machines and starts WIRING them: run $f$ first, feed its output straight into $g$, and the pair behaves as one machine. The factory line is the honest picture — a station that presses, then a station that paints, and the conveyor between them carries the part from the one to the other. What emerges is a new function built from two old ones, and with it three questions the examinations love: when may the wiring be closed at all, does the order of the stations matter, and which of the two verdicts survives the trip through the line?' },
+    { kind: 'para', text: 'Everything here runs on the pair-list discipline of lesson 1.1: a function IS its set of pairs, so composing machines is a operation on pair-lists — look up the first machine\u2019s pair, then hand its second entry to the second machine as a first entry. Keep that concrete picture close; the notation is about to get dense enough that the picture is the only thing that keeps it honest.' },
+
+    { kind: 'heading', text: 'Machines in Series: the Composite Defined' },
+    { kind: 'callout', tone: 'definition', title: 'Composite function', text: 'Let $f : A \\to B$ and $g : B \\to C$ be functions. The composite of $g$ after $f$, written $g \\circ f$, is the function from $A$ to $C$ defined by feeding each output of $f$ into $g$: thus, $(g \\circ f)(x) = g(f(x))$ for every $x \\in A$. Read the symbol OUT-IN: the machine nearest the input runs FIRST.' },
+    { kind: 'equation', latex: '(g \\circ f)(x) = g\\bigl(f(x)\\bigr), \\qquad g \\circ f : A \\to C', note: 'the output of f is the input of g — the conveyor carries f(x) from the first station to the second' },
+    { kind: 'para', text: 'The order trap is built into the notation itself, and examinations set it deliberately. In $g \\circ f$ the letter standing NEAR $x$ acts first: $f$ runs, then $g$. The name reads left to right but the action runs right to left — say aloud "g after f" every time the symbol appears, and the trap dies.' },
+    { kind: 'callout', tone: 'warn', title: 'g∘f means “f first, then g”', text: 'Students lose marks by applying $g$ first because $g$ is written first. Freeze the rule: $(g \\circ f)(x) = g(f(x))$ — the INNER machine acts first, the OUTER machine acts second. The composite $f \\circ g$ is a DIFFERENT machine (usually), not a different spelling of the same one.' },
+    { kind: 'example', title: 'f(x) = x + 3 and g(x) = 2x² on ℝ. Build g∘f and f∘g', steps: [
+      'First, $g$ after $f$: feed $x$ into $x + 3$, then square-double the answer — $(g \\circ f)(x) = 2(x + 3)^2$.',
+      'Check one leg numerically: $(g \\circ f)(2) = g(5) = 2 \\cdot 25 = 50$ — the conveyor really carried 5 into the squaring station.',
+      'Now the other order, $f$ after $g$: square-double $x$, then add 3 — $(f \\circ g)(x) = 2x^2 + 3$.',
+      'Check the same leg: $(f \\circ g)(2) = f(8) = 11$ — a different value entirely.',
+      'Hence $g \\circ f = 2(x+3)^2$ and $f \\circ g = 2x^2 + 3$: two different machines, as the two values 50 and 11 witness at $x = 2$ alone.',
+    ] },
+    { kind: 'figure', caption: 'The full conveyor line. Set A = {1, 2, 3} maps by f(n) = 2n into B = {2, 4, 6, 8}; set B maps by g(e) = 5e into C = {10, 20, 30, 40}. The three green arrows are f, the four amber arrows are g, and the dashed teal arcs skip the middle shelf entirely — the composite g∘f sends 1 ↦ 10, 2 ↦ 20, 3 ↦ 30, which is exactly (g∘f)(x) = 10x. Note the honest red read: g fires the arrow 8 ↦ 40, but no f-output ever lands on 8, so that wiring sits unused.', svg: compositeSeriesSvg() },
+    { kind: 'example', title: 'Read the composite off the figure: f: {1,2,3} → {2,4,6,8}, f(n) = 2n; g: {2,4,6,8} → {10,20,30,40}, g(e) = 5e. Compute g∘f completely', steps: [
+      'Follow the conveyor element by element: $(g \\circ f)(1) = g(f(1)) = g(2) = 10$.',
+      'And $(g \\circ f)(2) = g(4) = 20$, while $(g \\circ f)(3) = g(6) = 30$.',
+      'So, the roster of the composite is $\\{(1,10), (2,20), (3,30)\\}$ — the rule collapses to $(g \\circ f)(x) = 10x$: doubling then quintupling multiplies by 10.',
+      'The verdicts ride along: $f$ is one-one and into $B$ (target 8 unhit), $g$ is one-one and onto $C$, and the composite $g \\circ f$ is one-one AND onto $C$ — a bijective relay built from a machine that was not onto.',
+    ] },
+
+    { kind: 'heading', text: 'When May the Wiring Close?' },
+    { kind: 'para', text: 'The composite $g \\circ f$ was introduced with $f : A \\to B$ and $g : B \\to C$ — the second machine\u2019s domain is exactly the first machine\u2019s codomain, so every conveyor load finds a legal station. Real wiring is rarely that tidy: $g$ may be declared on a set that only partly contains the outputs of $f$, and then the line works only for those inputs it can actually feed.' },
+    { kind: 'callout', tone: 'definition', title: 'The wiring condition', text: 'The composite $g \\circ f$ is DEFINED exactly when every output of $f$ is a legal input of $g$: thus, $\\mathrm{Rng}(f) \\subseteq \\mathrm{Dom}(g)$. When the condition fails, the composite still exists on the part of the domain that feeds through — its HONEST DOMAIN is $\\mathrm{Dom}(g \\circ f) = \\{x \\in \\mathrm{Dom}(f) : f(x) \\in \\mathrm{Dom}(g)\\}$.' },
+    { kind: 'equation', latex: '\\mathrm{Dom}(g \\circ f) = \\{x \\in \\mathrm{Dom}(f)\\ :\\ f(x) \\in \\mathrm{Dom}(g)\\}', note: 'the honest domain: keep exactly the inputs whose outputs the second machine accepts — everything else falls off the conveyor' },
+    { kind: 'example', title: 'f is declared on [−2, 3]. Find the honest domain of f(x²), of f(|x|), and of f(2x + 1)', steps: [
+      'The demand is always the same: the INNER value must land in $[-2, 3]$ — that is what “declared on” means.',
+      'For $f(x^2)$: need $-2 \\leq x^2 \\leq 3$. The left inequality is free ($x^2 \\geq 0 \\geq -2$ always); the right one is $|x| \\leq \\sqrt{3}$. Hence the honest domain is $[-\\sqrt{3}, \\sqrt{3}]$.',
+      'For $f(|x|)$: need $-2 \\leq |x| \\leq 3$. The left is free; the right is $|x| \\leq 3$. Hence $[-3, 3]$.',
+      'For $f(2x + 1)$: need $-2 \\leq 2x + 1 \\leq 3$, so $-1.5 \\leq x \\leq 1$. Hence $[-\\tfrac{3}{2}, 1]$.',
+      'Hence three composites of one machine, three different honest domains — the declaration $[-2, 3]$ filters each inner rule by its own reach.',
+    ] },
+
+    { kind: 'heading', text: 'Order Matters: g∘f ≠ f∘g' },
+    { kind: 'para', text: 'The example above already settled the headline: the two orders built $2(x+3)^2$ and $2x^2 + 3$ — different machines. Composition is NOT commutative in general: $g \\circ f$ and $f \\circ g$ disagree whenever one witness input separates them. Two short honest remarks complete the picture.' },
+    { kind: 'list', marker: 'roman', items: [
+      '**The general rule is disagreement.** To prove two composites differ, one input with different outputs is a full proof: for $f(x) = 2x$ and $g(x) = x + 1$, the input $0$ gives $(g \\circ f)(0) = 1$ but $(f \\circ g)(0) = 2$. No enumeration, no algebra — one witness.',
+      '**Some pairs DO commute.** $f(x) = x^2$ and $g(x) = x^3$ compose to $x^6$ in either order — both $(g \\circ f)(x) = (x^2)^3$ and $(f \\circ g)(x) = (x^3)^2$ are the sixth power. The translations $x + k$ and $x + m$ commute too (either order gives $x + k + m$). Commutativity is a special coincidence, never an assumption.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Why “commute” is the right word', text: 'Two machines commute when they can pass each other on the conveyor without changing the result — the same vocabulary as $a \\cdot b = b \\cdot a$ from school arithmetic. The squaring and cubing stations commute because both products land on the sixth power; the doubling and the increment stations do not, because $+$ and $\\times$ refuse to swap. Every claim of commutativity needs its own proof — or its own witness against.' },
+
+    { kind: 'heading', text: 'Three Machines Deep: Associativity and the Identity' },
+    { kind: 'para', text: 'Wire three machines $f : A \\to B$, $g : B \\to C$, $h : C \\to D$ and a natural question appears: does it matter which adjacent pair is bundled first? The relay answer is no — and the proof is one line long because the conveyor has only one direction to run.' },
+    { kind: 'derivation', title: 'Composition is associative', statement: 'Why does $(h \\circ g) \\circ f = h \\circ (g \\circ f)$ hold for every composable triple?', steps: [
+      { label: 'Track one input through the left grouping', formula: '\\bigl((h \\circ g) \\circ f\\bigr)(x) = (h \\circ g)(f(x)) = h\\bigl(g(f(x))\\bigr)', explanation: 'the bundle (h∘g) is itself just “run g, then h” — so the whole expression reduces to the straight relay.' },
+      { label: 'Track the same input through the right grouping', formula: '\\bigl(h \\circ (g \\circ f)\\bigr)(x) = h\\bigl((g \\circ f)(x)\\bigr) = h\\bigl(g(f(x))\\bigr)', explanation: 'bundling (g∘f) first changes the bookkeeping, not the journey: f runs, then g, then h.' },
+      { label: 'Compare', formula: '(h \\circ g) \\circ f = h \\circ (g \\circ f)', explanation: 'the two groupings send every x to the same place — the relay is unambiguous. Parentheses may move; the ORDER of the stations may not. That asymmetry is the whole character of composition.' },
+    ], result: '(h \\circ g) \\circ f = h \\circ (g \\circ f): three-deep composition needs no brackets — only order.' },
+    { kind: 'para', text: 'The identity machine of a set — $I_A(x) = x$, the do-nothing station — behaves in composition the way 0 behaves in addition and 1 behaves in multiplication: it is the neutral element. Run any machine after it or before it and nothing changes: $f \\circ I_A = f$ (the conveyor pauses, then presses) and $I_B \\circ f = f$ (the conveyor presses, then pauses). The identity is the machine every undo machine will be measured against in lesson 1.4.' },
+    { kind: 'equation', latex: 'f \\circ I_A = f \\qquad \\text{and} \\qquad I_B \\circ f = f', note: 'the do-nothing station is neutral on both sides — 0 for addition, 1 for multiplication, I for composition' },
+
+    { kind: 'heading', text: 'What the Verdicts Inherit' },
+    { kind: 'para', text: 'Now the lesson\u2019s deepest question: if you know the verdicts of $f$ and $g$ separately, what can you conclude about $g \\circ f$? Four laws answer it — and the direction of each implication is exactly what examinations test. The proofs are conveyor arguments.' },
+    { kind: 'list', marker: 'roman', items: [
+      '**One-one inherits forward.** If $f$ and $g$ are both one-one, so is $g \\circ f$.',
+      '**Onto inherits forward.** If $f$ and $g$ are both onto, so is $g \\circ f$.',
+      '**From the composite back to the FIRST machine.** If $g \\circ f$ is one-one, then $f$ must be one-one — but $g$ need not be.',
+      '**From the composite back to the LAST machine.** If $g \\circ f$ is onto, then $g$ must be onto — but $f$ need not be.',
+    ] },
+    { kind: 'derivation', title: 'The two forward inheritances, proved on the conveyor', statement: 'Why do one-one and onto both travel forward through a composition?', steps: [
+      { label: 'Law (i): assume g∘f(x₁) = g∘f(x₂)', formula: 'g(f(x_1)) = g(f(x_2)) \\;\\Rightarrow\\; f(x_1) = f(x_2) \\;\\Rightarrow\\; x_1 = x_2', explanation: 'the first arrow is g being one-one (equal outputs force equal inputs), the second is f being one-one. Two clean links, both supplied by the hypotheses.' },
+      { label: 'Law (ii): chase a preimage', formula: 'z \\in C \\;\\Rightarrow\\; \\exists\\, y \\in B : g(y) = z \\;\\Rightarrow\\; \\exists\\, x \\in A : f(x) = y \\;\\Rightarrow\\; (g \\circ f)(x) = z', explanation: 'g onto hands back a preimage y; f onto hands back a preimage x of THAT; the relay carries x all the way to z. Coverage flows through the line.' },
+      { label: 'Read the direction honestly', formula: 'f, g \\text{ one-one} \\Rightarrow g \\circ f \\text{ one-one}; \\quad f, g \\text{ onto} \\Rightarrow g \\circ f \\text{ onto}', explanation: 'both laws run FORWARD only — from the stations to the line. The reverse directions are exactly the traps the next figure wires up.' },
+    ], result: '\\text{(i) and (ii): one-one and onto inherit forward through any composition.}' },
+    { kind: 'figure', caption: 'The two converse traps, wired with finite witnesses. Left: f: {1,2} → {1,2,3} is one-one and g: {1,2,3} → {1,2} collapses g(1) = g(2) = 1 — yet the composite sends 1 ↦ 1 and 2 ↦ 2: one-one AND onto. A many-one station can hide behind a one-one first leg (law iii). Right: f misses target 2 entirely while g is the constant machine onto {1} — and the composite 1 ↦ 1, 2 ↦ 1 IS onto {1}. An unfinished first leg can still feed a covering last leg (law iv).', svg: verdictInheritanceSvg() },
+    { kind: 'callout', tone: 'warn', title: 'The two traps, stated for the exam', text: '“$g \\circ f$ one-one” forces $f$ one-one and NOTHING about $g$; “$g \\circ f$ onto” forces $g$ onto and NOTHING about $f$. Every true/false item of the shape “if $g \\circ f$ is one-one then $g$ is one-one” is FALSE, and the left wiring of the figure above is the standing counterexample: memorize one wiring, kill every trap.' },
+    { kind: 'callout', tone: 'theorem', title: 'The bijective composite splits cleanly', text: 'Combining laws (iii) and (iv): if $g \\circ f$ is BIJECTIVE, then $f$ is one-one and $g$ is onto — no exceptions. The composite cannot outrank that split: a bijective relay needs a waste-free first station and a covering last station, while the middle may still be imperfect. Lesson 1.4 turns this split into the exact test for undoing machines.' },
+    { kind: 'example', title: 'Counting the wirings: A = {1,2}, B = {1,2,3}, C = {1,2}. How many pairs (f, g) build composites, and how many distinct composites can appear?', steps: [
+      'The pair count is the FM choice chain: $f$ is any of $3^2 = 9$ machines $A \\to B$, and $g$ any of $2^3 = 8$ machines $B \\to C$ — so $9 \\cdot 8 = 72$ wiring pairs.',
+      'Each pair produces ONE composite, but different pairs may produce the same composite: the composite is always a machine $A \\to C$, and there are only $2^2 = 4$ of those.',
+      'Enumerate the four: send both inputs to 1; send both to 2; the identity $1 \\mapsto 1, 2 \\mapsto 2$; the swap $1 \\mapsto 2, 2 \\mapsto 1$.',
+      'All four ARE realized — the identity comes from $f = \\mathrm{id}$-into-$B$ with $g$ matching on the used images; the swap from the same trick with crossed targets. Hence 72 pairs funnel onto exactly 4 distinct composites.',
+      'The census law: pairs $= b^a \\cdot c^b$ with distinct composites bounded by $c^a$, and here the bound is attained.',
+    ] },
+
+    { kind: 'terms', items: [
+      { term: 'composite function', def: 'the machine $g \\circ f$ built by running $f$ first and $g$ second: $(g \\circ f)(x) = g(f(x))$ — the conveyor made official' },
+      { term: 'wiring condition', def: '$\\mathrm{Rng}(f) \\subseteq \\mathrm{Dom}(g)$ — the outputs of the first station must all be legal inputs of the second' },
+      { term: 'honest domain', def: '$\\mathrm{Dom}(g \\circ f) = \\{x \\in \\mathrm{Dom}(f) : f(x) \\in \\mathrm{Dom}(g)\\}$ — the inputs that actually survive the trip' },
+      { term: 'commuting machines', def: 'a pair with $g \\circ f = f \\circ g$ — a provable coincidence, never an assumption (powers commute; a doubling and an increment do not)' },
+      { term: 'identity function', def: '$I_A(x) = x$ — the do-nothing station, neutral on both sides of every composition' },
+      { term: 'verdict inheritance', def: 'the four laws moving one-one/onto verdicts between stations and the composite — forward from both, backward only to the nearest machine' },
+    ] },
+
+    { kind: 'heading', text: 'The Road to the Undo Machine' },
+    { kind: 'para', text: 'One bridge remains before lesson 1.4. Among all composites, the one worth naming is the composite that does NOTHING: a machine $g$ running after $f$ that returns every input exactly where it started — $g(f(x)) = x$ for all $x$. Such a $g$ is the UNDO of $f$, and the verdicts of this lesson decide when it can exist at all: the relay must be waste-free (one-one, or the undo would not know which input to return) and covering (onto, or some outputs would have no return ticket). The invertibility test of the next lesson is the bijective verdict wearing work clothes.' },
+    { kind: 'callout', tone: 'exam', title: 'Where this is examined', text: 'The JEE Main syllabus names “composition of functions” verbatim in unit 1, and NCERT Class 12 chapter 1 exercises the same wiring. Expect: compute $g \\circ f$ and $f \\circ g$ on finite rosters and show them different; find the honest domain of $f(g(x))$ from declared intervals; true/false banks on all four inheritance laws (the two converse traps are the most-missed); and the identity-verification items that lesson 1.4 will formalize — across JEE Main/Advanced, CUET and board papers, in single-correct, multi-correct and assertion-reason formats.' },
+    { kind: 'callout', tone: 'historical', title: 'Who drew the first arrows?', text: 'The language this lesson speaks — $f : A \\to B$, arrows between sets, composition read as a journey — was standardized by the Bourbaki group, the collective of mathematicians publishing under a single pseudonym from 1939 whose Éléments de mathématique rebuilt analysis on set-language foundations. The arrow notation made composition look the way it FEELS: a journey through stations. Earlier writers composed functions too (Euler manipulated $f(g(x))$ freely), but Bourbaki fixed the notation every modern textbook, including this one, inherits.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The composite g∘f sends x to', options: ['g(f(x)) — f runs first, g second', 'f(g(x)) — g runs first, f second', 'f(x) · g(x) — the outputs multiply', 'g(f(x)) = f(g(x)) for every pair'], answer: 0, explain: 'The inner machine acts first: $g(f(x))$. Option 2 is the OTHER composite $f \\circ g$; option 3 confuses composition with pointwise multiplication (a different operation entirely); option 4 is the commutativity assumption the lesson kills with the witness $(g \\circ f)(2) = 50$ against $(f \\circ g)(2) = 11$.' },
+      { q: 'f : A → B and g : C → D are declared. The composite g∘f is defined exactly when', options: ['A = C', 'every output of f is a legal input of g — Rng(f) ⊆ Dom(g)', 'B = D', 'f and g are both onto'], answer: 1, explain: 'The conveyor needs every $f$-output accepted by $g$ — that is $\\mathrm{Rng}(f) \\subseteq \\mathrm{Dom}(g)$. Option 1 demands the domains match (too strong, and the wrong side); option 3 confuses codomain with domain; option 4 drags in verdicts that have nothing to do with whether the wiring closes.' },
+      { q: 'f(x) = x + 2 and g(x) = 3x. The value (g∘f)(1) is', options: ['9', '5', '6', '3'], answer: 0, explain: 'Run $f$ first: $f(1) = 3$; then $g$: $g(3) = 9$. The distractors are the standard slips: $5 = (f \\circ g)(1)$ is the swapped order; $6 = f(1) + g(1) = 3 + 3$ sums the outputs; $3 = f(1)$ stops after the first leg.' },
+      { q: 'If g∘f is one-one, which verdict is FORCED?', options: ['g is one-one', 'f is one-one; g may still be many-one', 'both g and f are one-one', 'neither verdict is forced'], answer: 1, explain: 'Law (iii) runs backward only to the FIRST machine: $f$ one-one, $g$ unconstrained. The left wiring of the inheritance figure is the standing counterexample to options 1 and 3 — $g$ collapses 1 and 2 while the composite stays one-one. Option 4 forgets that half the law does hold.' },
+      { q: 'For f : A → B, the composite I_B ∘ f (the identity of B after f) equals', options: ['I_A', 'f', 'f ∘ I_B', 'it is undefined'], answer: 1, explain: '$(I_B \\circ f)(x) = I_B(f(x)) = f(x)$: pausing AFTER the machine changes nothing, so the composite is $f$ itself. Option 1 is the identity of the DOMAIN — a different machine that the OTHER law ($f \\circ I_A = f$) leaves untouched; option 3 composes in the wrong direction ($f \\circ I_B$ would need $B \\subseteq A$ — generally not wired); undefined is wrong because $\\mathrm{Rng}(f) \\subseteq B = \\mathrm{Dom}(I_B)$ — the wiring condition holds by construction.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.3', sets: [
+      { level: 'L1', questions: [
+        { q: 'f: {1,2,3,4} → {1,3,4} is given by f(1) = 3, f(2) = 1, f(3) = 4, f(4) = 1, and g: {1,3,4} → {7,9} by g(1) = 7, g(3) = 7, g(4) = 9. Compute g∘f completely and give its range.', solution: [
+          'Follow the conveyor input by input: $(g \\circ f)(1) = g(f(1)) = g(3) = 7$.',
+          'And $(g \\circ f)(2) = g(1) = 7$, while $(g \\circ f)(3) = g(4) = 9$ and $(g \\circ f)(4) = g(1) = 7$.',
+          'So, the roster is $\\{(1,7), (2,7), (3,9), (4,7)\\}$ — three of four inputs funnel into 7.',
+          'Hence the range is $\\{7, 9\\}$: the composite is many-one (witness $(g \\circ f)(1) = (g \\circ f)(4) = 7$) and onto $\\{7, 9\\}$.',
+        ], answer: 'g∘f = {(1,7), (2,7), (3,9), (4,7)}; range {7, 9}.' },
+        { q: 'For f(x) = x + 1 and g(x) = 3x on ℝ, build g∘f and f∘g, and evaluate both at x = 2.', solution: [
+          'First order: $(g \\circ f)(x) = g(x + 1) = 3(x + 1) = 3x + 3$.',
+          'Second order: $(f \\circ g)(x) = f(3x) = 3x + 1$.',
+          'At $x = 2$: $(g \\circ f)(2) = 9$ and $(f \\circ g)(2) = 7$.',
+          'Hence the two composites differ — one witness at $x = 2$ settles the non-commutativity for this pair.',
+        ], answer: 'g∘f = 3x + 3, f∘g = 3x + 1; at x = 2 they give 9 and 7.' },
+        { q: 'On [0, ∞), let f(x) = x² and g(x) = √x. Show that g∘f and f∘g agree, and name the machine they both equal.', solution: [
+          'For $x \\geq 0$: $(g \\circ f)(x) = g(x^2) = \\sqrt{x^2} = |x| = x$ — the square root returns the input, because the input never went negative.',
+          'And $(f \\circ g)(x) = f(\\sqrt{x}) = (\\sqrt{x})^2 = x$.',
+          'Hence both composites equal $I(x) = x$ on $[0, \\infty)$: the pair commutes, and more — each machine undoes the other.',
+          'That undoing is not a coincidence of this section alone; it is exactly the structure lesson 1.4 names the INVERSE.',
+        ], answer: 'Both composites equal the identity on [0, ∞) — the pair commutes (and anticipates 1.4).' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'f is declared on [−1, 4]. Find the honest domain of f(x²).', solution: [
+          'The inner value must land in the declaration: $-1 \\leq x^2 \\leq 4$.',
+          'The left inequality is free ($x^2 \\geq 0$); the right gives $|x| \\leq 2$.',
+          'Hence the honest domain is $[-2, 2]$ — the inputs whose squares stay inside $[-1, 4]$.',
+        ], answer: '[−2, 2].' },
+        { q: 'f(x) = x for x < 1 and x² for x ≥ 1; g(x) = 2x for x < 2 and x + 2 for x ≥ 2. Build g∘f as a piecewise formula.', solution: [
+          'The branch of $g$ is decided by WHERE $f(x)$ lands relative to 2, not by where $x$ sits.',
+          'For $x < 1$: $f(x) = x < 2$, so $g(f(x)) = 2x$ — the composite opens with $2x$.',
+          'For $1 \\leq x < \\sqrt{2}$: $f(x) = x^2 < 2$, so $g(f(x)) = 2x^2$.',
+          'For $x \\geq \\sqrt{2}$: $f(x) = x^2 \\geq 2$, so $g(f(x)) = x^2 + 2$.',
+          'Hence $g \\circ f = \\{2x,\\ x < 1;\\ 2x^2,\\ 1 \\leq x < \\sqrt{2};\\ x^2 + 2,\\ x \\geq \\sqrt{2}\\}$ — three branches, the middle one born from the composition itself.',
+        ], answer: 'g∘f = {2x, x < 1; 2x², 1 ≤ x < √2; x² + 2, x ≥ √2}.' },
+        { q: 'Show that f(x) = 2x and g(x) = x + 1 do NOT commute, and give the general formulas for both composites.', solution: [
+          'Witness first — the cheapest proof: $(g \\circ f)(0) = g(0) = 1$, but $(f \\circ g)(0) = f(1) = 2$. One input, two answers: done.',
+          'For the record, the formulas: $(g \\circ f)(x) = 2x + 1$ (double, then increment) and $(f \\circ g)(x) = 2(x + 1) = 2x + 2$ (increment, then double).',
+          'The disagreement is permanent — $2x + 1 = 2x + 2$ has no solution — so the witness at 0 was not an accident.',
+          'Hence doubling and incrementing are locked in order: the increment must run second to add 1, and running it first adds 2.',
+        ], answer: 'They do not commute: g∘f = 2x + 1 but f∘g = 2x + 2.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'With f(x) = x + 1, g(x) = 2x, h(x) = x² on ℝ, verify associativity numerically at x = 3 by computing (h∘g)∘f(3) and h∘(g∘f)(3).', solution: [
+          'Left grouping: $(g \\circ f)(3) = g(4) = 8$, then $(h \\circ (g \\circ f))(3) = h(8) = 64$.',
+          'Right grouping: $(h \\circ g)(3) = h(6) = 36$, then $((h \\circ g) \\circ f)(3) = 36 \\circ$? — careful: $((h \\circ g) \\circ f)(3) = (h \\circ g)(f(3)) = (h \\circ g)(4) = h(8) = 64$.',
+          'Hence both groupings give 64 — the relay $3 \\mapsto 4 \\mapsto 8 \\mapsto 64$ is unambiguous.',
+          'The lesson\u2019s derivation proves this for EVERY input; the arithmetic here is the sanity walk, and $x^6 = (2x+2)^2$ at $x = 3$ confirms the closed form $h(g(f(x))) = (2x + 2)^2$.',
+        ], answer: 'Both groupings give 64 — associativity confirmed at x = 3.' },
+        { q: 'A = {1,2}, B = {1,2}, C = {1,2,3}. How many pairs (f, g) build composites, how many DISTINCT composites can appear, and are they all realized?', solution: [
+          'Pair count: $f$ is one of $2^2 = 4$ machines $A \\to B$, $g$ one of $3^2 = 9$ machines $B \\to C$ — $4 \\cdot 9 = 36$ pairs.',
+          'Each composite is a machine $A \\to C$, and there are $3^2 = 9$ of those — so the distinct count is at most 9.',
+          'All 9 are realized: fix $f$ sending $1 \\mapsto 1, 2 \\mapsto 2$ (legal since $A \\subseteq$-copies into $B$), then every choice of $g$ on the used images yields a different composite — and $g$ restricted to $\\{1, 2\\}$ runs over all $9$ maps $A \\to C$.',
+          'Hence 36 pairs funnel onto exactly 9 distinct composites, every one realized.',
+        ], answer: '36 pairs; 9 distinct composites; all realized.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Exam-style (numerical value): n(A) = 2, n(B) = 3, n(C) = 4. How many pairs (f, g) with f : A → B and g : B → C?', solution: [
+          'Chain the independent choices: $f$ is one of $3^2 = 9$ machines, $g$ one of $4^3 = 64$.',
+          'So, the pair count is $9 \\cdot 64 = 576$.',
+          'The distinct composites are machines $A \\to C$: at most $4^2 = 16$ of them — the census bound, whether or not every value is realized here.',
+        ], answer: '576 pairs (and at most 16 distinct composites).' },
+        { q: 'f: {1,2,3} → {1,2,3,4} sends 1↦1, 2↦2, 3↦3; g: {1,2,3,4} → {1,2,3} sends 1↦2, 2↦3, 3↦1, 4↦1. Give the verdicts of f, g, and g∘f, and name the inheritance law your composite verdict illustrates.', solution: [
+          'The verdicts of $f$: one-one (no two inputs share an output) but into — target 4 of $B$ is never hit.',
+          'The verdicts of $g$: many-one ($g(1) = g(4) = 1$) but onto (all of $\\{1,2,3\\}$ is hit).',
+          'The composite: $(g \\circ f)(1) = g(1) = 2$, $(g \\circ f)(2) = g(2) = 3$, $(g \\circ f)(3) = g(3) = 1$ — the cycle $1 \\mapsto 2 \\mapsto 3 \\mapsto 1$: one-one AND onto $\\{1,2,3\\}$.',
+          'Hence a bijective composite from a many-one LAST station — law (iii) in the flesh: $g \\circ f$ one-one forced $f$ one-one and said nothing about $g$.',
+        ], answer: 'f one-one into; g many-one onto; g∘f bijective on {1,2,3} — law (iii) at work.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'f(x) = x + 2 for x < 1 and x² for x ≥ 1; g(x) = x³ for x < 0 and x + 1 for x ≥ 0. Build g∘f as a piecewise formula and give its honest range.', solution: [
+          'The branch of $g$ keys on the SIGN of $f(x)$: $f(x) < 0$ happens only on the first leg, when $x + 2 < 0$, i.e. $x < -2$.',
+          'For $x < -2$: $f(x) = x + 2 < 0$, so $g(f(x)) = (x+2)^3$.',
+          'For $-2 \\leq x < 1$: $f(x) = x + 2 \\geq 0$, so $g(f(x)) = (x + 2) + 1 = x + 3$.',
+          'For $x \\geq 1$: $f(x) = x^2 \\geq 0$, so $g(f(x)) = x^2 + 1$.',
+          'Ranges branch by branch: $(x+2)^3$ on $x < -2$ gives $(-\\infty, 0)$; $x + 3$ on $[-2, 1)$ gives $[1, 4)$; $x^2 + 1$ on $x \\geq 1$ gives $[2, \\infty)$.',
+          'Hence $g \\circ f = \\{(x+2)^3,\\ x < -2;\\ x + 3,\\ -2 \\leq x < 1;\\ x^2 + 1,\\ x \\geq 1\\}$ with honest range $(-\\infty, 0) \\cup [1, \\infty)$ — the strip $[0, 1)$ is fed by no branch.',
+        ], answer: 'g∘f = {(x+2)³, x < −2; x+3, −2 ≤ x < 1; x²+1, x ≥ 1}; range (−∞, 0) ∪ [1, ∞).' },
+        { q: 'For which values of a do f(x) = ax + 1 and g(x) = x + a commute? Then exhibit a pair of affine machines that does NOT commute.', solution: [
+          'Compute both orders: $(g \\circ f)(x) = ax + 1 + a$ and $(f \\circ g)(x) = a(x + a) + 1 = ax + a^2 + 1$.',
+          'They agree for every $x$ exactly when $1 + a = a^2 + 1$, i.e. $a = a^2$, i.e. $a = 0$ or $a = 1$.',
+          'Check the survivors: $a = 0$ gives $f(x) = 1$ (constant — and $g \\circ f = f \\circ g = 1$ ✓); $a = 1$ gives $f = g = x + 1$ (equal machines trivially commute ✓).',
+          'The counterexample: $f(x) = 2x$ and $g(x) = x + 1$ — $(g \\circ f)(x) = 2x + 1$ against $(f \\circ g)(x) = 2x + 2$, disagreeing everywhere.',
+          'Hence only the degenerate scalings commute; a genuine dilation and a genuine translation never do.',
+        ], answer: 'a = 0 or a = 1; the pair 2x and x + 1 does not commute.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Construct functions f : A → B and g : B → C (finite sets) such that g∘f is ONTO while f is NOT onto. Then prove that in ANY such wiring, g must be onto.', solution: [
+          'The construction: $A = \\{1, 2\\}$, $B = \\{1, 2, 3\\}$, $C = \\{1\\}$; let $f(1) = 1$, $f(2) = 3$ (target 2 never hit — $f$ is NOT onto) and $g$ the constant machine $g(1) = g(2) = g(3) = 1$.',
+          'The composite: $(g \\circ f)(1) = 1$ and $(g \\circ f)(2) = 1$ — it maps every input to 1, which is exactly ALL of $C$: onto.',
+          'Now the proof that $g$ is forced: take any $z \\in C$. Since $g \\circ f$ is onto, $z = (g \\circ f)(x) = g(f(x))$ for some $x \\in A$. But then $y = f(x)$ is an element of $B$ with $g(y) = z$ — a preimage of $z$ under $g$ exists for EVERY $z$. Hence $g$ is onto, no matter how $f$ misbehaves.',
+          'The intuition: coverage of the relay can be borrowed from the LAST station alone — a constant $g$ covers a singleton codomain without any help from $f$.',
+        ], answer: 'Constant g onto {1} covers for the not-onto f; the preimage chase proves g is always the onto one.' },
+        { q: 'A = {1,2}, B = {1,2,3}, C = {1,2}. There are 72 wiring pairs (f, g) but only 4 distinct composites. Name the four composites and show each is realized.', solution: [
+          'The four machines $A \\to C$ are: the constant 1 ($1 \\mapsto 1, 2 \\mapsto 1$), the constant 2, the identity ($1 \\mapsto 1, 2 \\mapsto 2$), and the swap ($1 \\mapsto 2, 2 \\mapsto 1$).',
+          'Constant 1: any $f$ with $g$ constant on the used images — e.g. $f(1) = f(2) = 1$, $g(1) = g(2) = g(3) = 1$. Constant 2: the same with the other label.',
+          'Identity: $f = $ the inclusion $1 \\mapsto 1, 2 \\mapsto 2$ (legal — one-one into $B$) with $g(1) = 1$, $g(2) = 2$ (and $g(3)$ free — say 1). The composite reads $1 \\mapsto 1$, $2 \\mapsto 2$.',
+          'Swap: the same inclusion with $g(1) = 2$, $g(2) = 1$: the composite reads $1 \\mapsto 2$, $2 \\mapsto 1$.',
+          'Hence all four composites are realized — 72 pairs, 4 composites, none missed: the census bound of this section is attained.',
+        ], answer: 'The four composites are const-1, const-2, identity and swap — each realized by a suitable (f, g).' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: 'The composite, symbolically', latex: '(g \\circ f)(x) = g\\bigl(f(x)\\bigr), \\qquad \\mathrm{Dom}(g \\circ f) = \\{x \\in \\mathrm{Dom}(f) : f(x) \\in \\mathrm{Dom}(g)\\}', note: 'the inner machine acts first; the honest domain keeps the inputs the second station accepts' },
+    { kind: 'formula', name: 'Composition is associative', latex: '(h \\circ g) \\circ f = h \\circ (g \\circ f)', note: 'the relay is unambiguous — parentheses move, order does not; f∘I = I∘f = f for the matching identity' },
+    { kind: 'formula', name: 'The verdict-inheritance laws', latex: 'f, g \\text{ one-one} \\Rightarrow g \\circ f \\text{ one-one} \\quad\\quad f, g \\text{ onto} \\Rightarrow g \\circ f \\text{ onto} \\quad\\quad g \\circ f \\text{ one-one} \\Rightarrow f \\text{ one-one} \\quad\\quad g \\circ f \\text{ onto} \\Rightarrow g \\text{ onto}', note: 'forward from both stations; backward only to the nearest machine — the two converses are traps' },
+    { kind: 'formula', name: 'Counting the wirings', latex: '\\#\\{(f, g)\\} = b^a \\cdot c^b \\qquad \\#\\{\\text{distinct } g \\circ f\\} \\leq c^a', note: 'pairs multiply (f: b^a choices, g: c^b); the composites they funnel into are machines A → C' },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.4 figures                                                  */
+/* ------------------------------------------------------------------ */
+
+/** 1.4 — the three-panel invertibility verdict: bijective / many-one / into */
+function inverseVerdictSvg(): string {
+  const node = (cx: number, cy: number, label: string, fill: string, stroke: string): string =>
+    `<circle cx="${cx}" cy="${cy}" r="13" fill="${fill}" stroke="${stroke}" stroke-width="1.8"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="11.5" font-weight="700" fill="#166534">${label}</text>`
+  const line = (x1: number, y1: number, x2: number, y2: number, color: string, dash: string): string =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" ${dash ? `stroke-dasharray="${dash}"` : ''} marker-end="url(#ivArr)"/>`
+  const rline = (x1: number, y1: number, x2: number, y2: number): string =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#0f766e" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#ivT)"/>`
+  return `<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three wirings: only the bijective machine is invertible — the many-one wiring has two arrows into one target so the undo cannot answer, and the into wiring leaves a target unhit so the undo has nothing to return">
+  <defs>
+    <marker id="ivArr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#16a34a"/></marker>
+    <marker id="ivT" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#0f766e"/></marker>
+  </defs>
+  <rect x="10" y="16" width="230" height="296" rx="12" fill="#fffdf5" stroke="#16a34a" stroke-width="1.8"/>
+  <rect x="250" y="16" width="230" height="296" rx="12" fill="#fffdf5" stroke="#dc2626" stroke-width="1.8"/>
+  <rect x="490" y="16" width="220" height="296" rx="12" fill="#fffdf5" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="125" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">(i) bijective → invertible</text>
+  <text x="365" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">(ii) many-one → no undo</text>
+  <text x="600" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">(iii) into → no undo</text>
+  ${node(70, 96, '1', '#fef3c7', '#16a34a')}
+  ${node(70, 146, '2', '#fef3c7', '#16a34a')}
+  ${node(180, 96, '6', '#ffedd5', '#16a34a')}
+  ${node(180, 146, '8', '#ffedd5', '#16a34a')}
+  ${line(84, 96, 166, 96, '#16a34a', '')}
+  ${line(84, 146, 166, 146, '#16a34a', '')}
+  ${rline(180, 96, 84, 146)}
+  ${rline(180, 146, 84, 96)}
+  <text x="125" y="200" text-anchor="middle" font-size="11.5" fill="#0f766e">f: 1↦6, 2↦8 — the teal</text>
+  <text x="125" y="218" text-anchor="middle" font-size="11.5" fill="#0f766e">arrows run the line BACKWARDS</text>
+  <text x="125" y="240" text-anchor="middle" font-size="11.5" fill="#166534">f⁻¹: 6↦1, 8↦2 — a legal machine</text>
+  ${node(310, 96, '1', '#fef3c7', '#16a34a')}
+  ${node(310, 146, '2', '#fef3c7', '#16a34a')}
+  ${node(310, 196, '3', '#fef3c7', '#16a34a')}
+  ${node(430, 121, '6', '#ffedd5', '#16a34a')}
+  ${node(430, 176, '8', '#ffedd5', '#16a34a')}
+  ${line(324, 96, 416, 118, '#16a34a', '')}
+  ${line(324, 146, 416, 122, '#16a34a', '')}
+  ${line(324, 196, 416, 174, '#16a34a', '')}
+  <text x="400" y="216" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">two arrows land on 6:</text>
+  <text x="400" y="232" text-anchor="middle" font-size="11" fill="#dc2626">f⁻¹(6) = 1? 2? — no answer</text>
+  <text x="365" y="256" text-anchor="middle" font-size="11.5" fill="#166534">waste kills the undo</text>
+  ${node(548, 96, '1', '#fef3c7', '#16a34a')}
+  ${node(548, 146, '2', '#fef3c7', '#16a34a')}
+  ${node(660, 96, '6', '#ffedd5', '#16a34a')}
+  ${node(660, 146, '8', '#ffedd5', '#16a34a')}
+  ${node(660, 196, '10', '#ffedd5', '#16a34a')}
+  ${line(562, 96, 646, 96, '#16a34a', '')}
+  ${line(562, 146, 646, 146, '#16a34a', '')}
+  <text x="660" y="226" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">10: never hit</text>
+  <text x="604" y="256" text-anchor="middle" font-size="11.5" fill="#166534">f⁻¹(10) has no input to return</text>
+  <text x="360" y="340" text-anchor="middle" font-size="13" fill="#65a30d">the undo machine exists exactly when the relay is waste-free AND covering — the bijective verdict</text>
+</svg>`
+}
+
+/** 1.4 — the y = x mirror: f(x) = 2x + 1 and f⁻¹(x) = (x − 1)/2 */
+function mirrorGraphSvg(): string {
+  const gx = (x: number): number => 300 + x * 52
+  const gy = (y: number): number => 210 - y * 44
+  return `<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coordinate axes with the line y = 2x plus 1 and its inverse y = x minus 1 over 2 drawn as mirror images across the dashed line y equals x; the points 2,5 and 5,2 are marked as swapped partners">
+  <line x1="40" y1="${gy(0)}" x2="690" y2="${gy(0)}" stroke="#166534" stroke-width="1.6"/>
+  <line x1="${gx(0)}" y1="30" x2="${gx(0)}" y2="350" stroke="#166534" stroke-width="1.6"/>
+  <text x="700" y="${gy(0) + 4}" font-size="13" fill="#166534">x</text>
+  <text x="${gx(0) - 20}" y="24" font-size="13" fill="#166534">y</text>
+  <text x="${gx(0) - 16}" y="${gy(0) + 16}" font-size="12" fill="#166534">O</text>
+  <line x1="60" y1="${gy(-4.8)}" x2="680" y2="${gy(4.8)}" stroke="#0f766e" stroke-width="1.6" stroke-dasharray="8 5"/>
+  <text x="640" y="${gy(4.9)}" font-size="12.5" font-weight="700" fill="#0f766e">y = x</text>
+  <line x1="${gx(-3.4)}" y1="${gy(2 * -3.4 + 1)}" x2="${gx(2.4)}" y2="${gy(2 * 2.4 + 1)}" stroke="#16a34a" stroke-width="2.6"/>
+  <text x="${gx(1.9) + 8}" y="${gy(4.6)}" font-size="12.5" font-weight="700" fill="#166534">y = 2x + 1</text>
+  <line x1="${gx(-3.2)}" y1="${gy((-3.2 - 1) / 2)}" x2="${gx(5.4)}" y2="${gy((5.4 - 1) / 2)}" stroke="#d97706" stroke-width="2.6"/>
+  <text x="${gx(3.4) + 6}" y="${gy(1.7)}" font-size="12.5" font-weight="700" fill="#d97706">y = (x−1)/2</text>
+  <circle cx="${gx(2)}" cy="${gy(5)}" r="5" fill="#16a34a"/>
+  <text x="${gx(2) + 10}" y="${gy(5) - 8}" font-size="12" font-weight="700" fill="#166534">(2, 5)</text>
+  <circle cx="${gx(5)}" cy="${gy(2)}" r="5" fill="#d97706"/>
+  <text x="${gx(5) - 52}" y="${gy(2) - 8}" font-size="12" font-weight="700" fill="#d97706">(5, 2)</text>
+  <text x="360" y="366" text-anchor="middle" font-size="13" fill="#65a30d">the graphs mirror across y = x: every (a, b) on f reappears as (b, a) on f⁻¹</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.4                                                          */
+/* ------------------------------------------------------------------ */
+
+const lesson14: Lesson = {
+  id: 'aa-inverse-functions-the-machine-undone',
+  number: '1.4',
+  title: 'Inverse Functions: the Machine Undone',
+  concepts: [
+    'the undo machine and its two identity laws',
+    'existence = one-one AND onto (the bijective verdict)',
+    'the swap law: domain and range trade places',
+    'finding inverses by solving back',
+    'the branch discipline: restriction restores invertibility',
+    'shoes-and-socks: undoing a composite in reverse order',
+    'self-inverse machines and the y = x mirror',
+  ],
+  objectives: [
+    'state the inverse machine through the two identity laws f⁻¹∘f = I_A and f∘f⁻¹ = I_B, and verify candidates against them',
+    'decide invertibility by the bijective verdict alone, killing many-one and into machines with witnesses',
+    'read the swap law — Dom(f⁻¹) = Rng(f), Rng(f⁻¹) = Dom(f) — off any invertible machine',
+    'find inverses of linear, quadratic-branch and Möbius machines by solving back, checking each round trip',
+    'restore invertibility by restriction, keeping the branch choice honest on both half-lines',
+    'apply the shoes-and-socks law (g∘f)⁻¹ = f⁻¹∘g⁻¹ and recognize self-inverse machines',
+  ],
+  prerequisites: ['aa-composition-machines-in-series', 'aa-one-one-and-onto-classifying-the-machines'],
+  sources: ['cengage-m2-algebra', 'cengage-jee-style', 'ncert-math12-ch1-relations-functions', 'ncert-math11-ch2-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Every machine of this chapter has been judged; now one gets UNDONE. Lesson 1.3 named the composite that does nothing — the relay that returns every input exactly where it started — and left it as a promise. This lesson cashes the promise: the undo of $f$, written $f^{-1}$, is itself a function, it exists for exactly the machines lesson 1.2 certified bijective, and when it exists its domain and range trade places with those of $f$. The whole lesson is the two verdicts wearing work clothes.' },
+    { kind: 'para', text: 'The everyday model is a pair of reversible actions: tie and untie, pack and unpack, earn interest and discount interest. One direction never asks whether the other exists — but the mathematics does. Ask it honestly of $f(x) = x^2$: the output 4 was made by BOTH inputs $2$ and $-2$, so the undo does not know which to return. Ask it of $f(x) = x^2$ again as a map into the reals: the target $-1$ was never made, so the undo has nothing to return. Waste and shortfall — the two verdicts — are exactly the two ways an undo dies.' },
+
+    { kind: 'heading', text: 'The Undo Machine and When It Exists' },
+    { kind: 'callout', tone: 'definition', title: 'Inverse function', text: 'Let $f : A \\to B$ be BIJECTIVE. The inverse of $f$ is the function $f^{-1} : B \\to A$ that sends each output back to the unique input that made it: thus, $f^{-1}(y) = x$ exactly when $f(x) = y$. The uniqueness of that $x$ is precisely one-one; its EXISTENCE for every $y$ is precisely onto. Bijective = invertible, and the inverse is itself bijective.' },
+    { kind: 'equation', latex: 'f^{-1}\\bigl(f(x)\\bigr) = x \\quad \\text{for all } x \\in A \\qquad f\\bigl(f^{-1}(y)\\bigr) = y \\quad \\text{for all } y \\in B', note: 'the two identity laws of lesson 1.3 — the undo machine certified on both sides of the relay' },
+    { kind: 'callout', tone: 'warn', title: 'f⁻¹ is an UNDO machine, not a reciprocal', text: 'The notation $f^{-1}(x)$ is NOT the reciprocal $\\tfrac{1}{f(x)}$. For $f(x) = 2x + 1$, the inverse is $\\tfrac{x - 1}{2}$ — not $\\tfrac{1}{2x+1}$. The $-1$ is a badge of DIRECTION (running the machine backwards), borrowed from the exponent language where $a^{-1} = \\tfrac{1}{a}$ happens to be the multiplicative undo. Numerically, $f^{-1}(5)$ asks “which input made 5?”; $\\tfrac{1}{f(5)}$ asks something entirely different.' },
+    { kind: 'example', title: 'Which of these machines on ℤ are invertible? (a) f(x) = x + 7, (b) f(x) = 3x, (c) f(x) = |x|, (d) f(x) = 5 − x', steps: [
+      '(a) $x + 7$ is one-one (distinct inputs, distinct outputs) and onto ℤ (the input $y - 7$ makes any target $y$). Hence invertible, and the undo is $f^{-1}(x) = x - 7$ — check both laws: $(x - 7) + 7 = x$ and $7 - 7 + x = x$.',
+      '(b) $3x$ is one-one but INTO: the target 2 has no integer preimage ($3x = 2$ has no integer door). The undo of 2 would have no input to return — not invertible.',
+      '(c) $|x|$ is many-one: $|-3| = |3| = 6$ — the undo of 6 cannot decide between $-3$ and $3$. Not invertible.',
+      '(d) $5 - x$ is one-one and onto, and watch what the undo does: apply twice, $5 - (5 - x) = x$ — the machine UNDOES ITSELF. So $f^{-1} = f$: a self-inverse machine.',
+      'Hence (a) and (d) are invertible, (b) dies of shortfall (into), (c) dies of waste (many-one) — the two verdicts of lesson 1.2 are the two causes of death.',
+    ] },
+    { kind: 'figure', caption: 'The invertibility verdict in three wirings. Panel (i): a bijective relay (1↦6, 2↦8) — reversing every arrow is legal, and the teal reversed arrows ARE the undo machine f⁻¹. Panel (ii): a many-one wiring — two green arrows land on 6, so the reversed arrow cannot decide between 1 and 2: no undo. Panel (iii): an into wiring — two inputs, three targets, and the target 10 is never hit, so the undo would be asked for an input that never existed: no undo. One picture, both causes of death.', svg: inverseVerdictSvg() },
+    { kind: 'para', text: 'When the undo exists, the sets swap roles automatically. The undo\\u2019s inputs are $f$\\u2019s outputs — its domain is the RANGE of $f$; the undo\\u2019s outputs are $f$\\u2019s inputs — its range is the DOMAIN of $f$. For a bijective machine the range fills the codomain, so the swap reads cleanest in the declaration itself.' },
+    { kind: 'callout', tone: 'definition', title: 'The swap law', text: 'If $f : A \\to B$ is bijective, then $f^{-1} : B \\to A$, and thus: $\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) = B$ and $\\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f) = A$. Domain and range trade places — lesson 1.2\\u2019s closing note (“domain and codomain are part of the machine\\u2019s identity”) is what makes the trade exact.' },
+    { kind: 'equation', latex: '\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) \\qquad \\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f)', note: 'the swap law — the undo walks the same relay in the opposite direction' },
+    { kind: 'para', text: 'One more symmetry completes the definition. Since the undo $f^{-1}$ is itself bijective (one-one and onto, by the same two verdicts in the reverse direction), it HAS an undo — and the undo of the undo is the original machine: $(f^{-1})^{-1} = f$. The roles swap cleanly: each machine is the other\u2019s inverse, and applying the direction badge twice returns the badge to its start. The involution preview of the quiz below lives exactly here — a self-inverse machine is one where $(f^{-1})^{-1} = f$ becomes $f^{-1} = f$, the swap invisible because the machine runs the same both ways.' },
+
+    { kind: 'heading', text: 'Finding the Inverse: the Solve-Back' },
+    { kind: 'para', text: 'To build an undo by hand, write the machine as an equation $y = f(x)$, SOLVE for $x$ — the undo reads the equation backwards — and rename. The solve-back is also the verdict: if the solve produces a unique $x$ for every $y$ in a declared codomain, the machine was bijective onto that codomain and the solved form IS the inverse.' },
+    { kind: 'example', title: 'Invert f(x) = (2x + 1)/3 on ℝ, and verify both identity laws', steps: [
+      'Write $y = \\tfrac{2x + 1}{3}$ and solve back: $3y = 2x + 1$, so $x = \\tfrac{3y - 1}{2}$.',
+      'Hence $f^{-1}(x) = \\tfrac{3x - 1}{2}$ — linear machine in, linear undo out, the slope flipped and the intercept dragged with it.',
+      'Verify law one: $f^{-1}(f(x)) = \\tfrac{3 \\cdot \\tfrac{2x+1}{3} - 1}{2} = \\tfrac{(2x + 1) - 1}{2} = x$ — the return leg lands.',
+      'Verify law two: $f(f^{-1}(x)) = \\tfrac{2 \\cdot \\tfrac{3x-1}{2} + 1}{3} = \\tfrac{(3x - 1) + 1}{3} = x$ — the outward leg lands.',
+      'Hence the pair is certified against the definition itself, not just guessed.',
+    ] },
+    { kind: 'example', title: 'Invert the Möbius machine f(x) = (4x + 3)/(x − 2), x ≠ 2, and find its honest codomain', steps: [
+      'One-one by the cross-product discipline of lesson 1.2: $f(x_1) = f(x_2)$ forces $(4x_1 + 3)(x_2 - 2) = (4x_2 + 3)(x_1 - 2)$, which clears to $11(x_2 - x_1) = 0$ — so $x_1 = x_2$.',
+      'Solve back: $y(x - 2) = 4x + 3$, so $xy - 2y = 4x + 3$, so $x(y - 4) = 2y + 3$, so $x = \\tfrac{2y + 3}{y - 4}$.',
+      'The solve-back works for every $y$ EXCEPT $y = 4$ — there the left side dies and the equation becomes $0 = 11$. Hence the range of $f$ is $\\mathbb{R} \\setminus \\{4\\}$: the machine is onto exactly $\\mathbb{R} \\setminus \\{4\\}$, not onto $\\mathbb{R}$.',
+      'Thus $f : \\mathbb{R} \\setminus \\{2\\} \\to \\mathbb{R} \\setminus \\{4\\}$ is bijective and $f^{-1}(x) = \\tfrac{2x + 3}{x - 4}$ on $\\mathbb{R} \\setminus \\{4\\}$.',
+      'Note the swap law at work: the forbidden INPUT 2 of $f$ becomes the forbidden OUTPUT of $f^{-1}$, and the forbidden input 4 of the undo is the value $f$ never produces.',
+    ] },
+    { kind: 'para', text: 'The Möbius family is worth one more minute, because its anatomy is entirely linear. Any machine $f(x) = \tfrac{px + q}{rx + s}$ composes four elementary moves — scale by $r$, shift, scale by $p$, shift — and its undo is the same four moves run backwards: $f^{-1}(x) = \tfrac{-sx + q}{rx - p}$. The invertibility condition is the determinant $ps - qr \neq 0$: when it vanishes the numerator is a multiple of the denominator and the machine is constant. Our own machine above has $p = 4, q = 3, r = 1, s = -2$: the determinant is $4 \cdot (-2) - 3 \cdot 1 = -11$, and $|-11| = 11$ is EXACTLY the constant the cross-product cleared to in the one-one proof — the algebra was counting the determinant all along.' },
+
+    { kind: 'heading', text: 'The Branch Discipline: Restriction Restores Invertibility' },
+    { kind: 'para', text: 'Lesson 1.2 ended with a promise: a many-one machine can be rescued by RESTRICTION, because domain and codomain are part of the machine\\u2019s identity. That promise is cashed here — restriction is the standard cure for the undo of anything with a fold.' },
+    { kind: 'example', title: 'f(x) = x² − 6x + 10 = (x − 3)² + 1. Find the largest intervals on which f is invertible, and both branch inverses', steps: [
+      'The vertex read: the machine folds at $x = 3$ — decreasing on $(-\\infty, 3]$, increasing on $[3, \\infty)$ — and its range is $[1, \\infty)$ either way.',
+      'On each half-line the fold becomes a monotone march: one-one. So the largest invertible restrictions are $(-\\infty, 3]$ and $[3, \\infty)$, each declared onto $[1, \\infty)$.',
+      'Right branch, solve back: $y = (x - 3)^2 + 1$ gives $x - 3 = \\sqrt{y - 1}$ (the POSITIVE root — this branch lives right of 3), so $f^{-1}(x) = 3 + \\sqrt{x - 1}$ on $[1, \\infty)$.',
+      'Left branch: $x - 3 = -\\sqrt{y - 1}$ (the NEGATIVE root), so $f^{-1}(x) = 3 - \\sqrt{x - 1}$ on $[1, \\infty)$.',
+      'Check a value: $f(5) = (5-3)^2 + 1 = 5$; the right undo returns $3 + \\sqrt{5 - 1} = 5$ ✓, the left undo returns $3 - 2 = 1$ ✓ — each branch knows its own half.',
+      'Hence one machine, two honest undos — the choice of branch is the choice of machine, and the inverse inherits the choice.',
+    ] },
+    { kind: 'example', title: 'Invert the three-branch machine f(x) = {x + 1, x < 0; x² + 1, 0 ≤ x ≤ 3; x + 7, x > 3} : ℝ → ℝ', steps: [
+      'First the verdicts. One-one: the branch ranges are $(-\\infty, 1)$, then $[1, 10]$, then $(10, \\infty)$ — disjoint, so no two branches ever agree on an output, and each branch alone is one-one. Onto: the three ranges tile the whole line — $\\mathbb{R}$ is covered.',
+      'Hence bijective, so the undo exists on all of $\\mathbb{R}$; invert branch by branch.',
+      'Branch one: $y = x + 1$ with $y < 1$ undoes to $x = y - 1$.',
+      'Branch two: $y = x^2 + 1$ with $1 \\leq y \\leq 10$ undoes to $x = \\sqrt{y - 1}$ (the branch\\u2019s inputs live in $[0, 3]$, so the positive root).',
+      'Branch three: $y = x + 7$ with $y > 10$ undoes to $x = y - 7$.',
+      'So, $f^{-1}(y) = \\{y - 1, y < 1; \\sqrt{y - 1}, 1 \\leq y \\leq 10; y - 7, y > 10\\}$ — the seams agree: $f(0) = 1$ and $f^{-1}(1) = 0$; $f(3) = 10$ and $f^{-1}(10) = 3$.',
+    ] },
+    { kind: 'para', text: 'Where do the branch inverses MEET? At the fold\u2019s own output: for the quadratic example above, both undos agree at $y = 1$ (the vertex value), since $3 + \\sqrt{1 - 1} = 3 - \\sqrt{1 - 1} = 3$ — the two half-lines share exactly their endpoint. That shared point is the swap seam, and it is why the branch declarations must be closed on ONE side each ($[3, \\infty)$ and $(-\\infty, 3]$): the vertex input 3 may belong to either branch but never both. The same discipline held in the three-branch machine — the seams $1$ and $10$ were each assigned to exactly one branch, and the hinge checks $f^{-1}(1) = 0$, $f^{-1}(10) = 3$ certified the assignment. Honesty about endpoints is not pedantry; it is what keeps the undo a FUNCTION.' },
+
+    { kind: 'heading', text: 'The Inverse Calculus: Four Properties' },
+    { kind: 'list', marker: 'roman', items: [
+      '**Uniqueness and bijectivity.** A bijective machine has EXACTLY ONE undo, and that undo is itself bijective (its undo is $f$ — the roles swap cleanly).',
+      '**The two-sided characterization.** If $g \\circ f = I_A$ and $f \\circ g = I_B$ both hold, then $g$ is THE inverse of $f$ — no other machine can do the job. One law alone is not enough: $g \\circ f = I_A$ by itself forces $f$ one-one (and $g$ onto), but a machine that only partially undoes is not the inverse.',
+      '**Shoes and socks.** Undoing a composite undoes the LAST machine first: $(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}$. You put socks on then shoes; you take shoes off then socks.',
+      '**The mirror.** The graphs of $f$ and $f^{-1}$ are mirror images across the line $y = x$: the pair $(a, b)$ sits on $f$ exactly when $(b, a)$ sits on $f^{-1}$.',
+    ] },
+    { kind: 'derivation', title: 'Shoes and socks, proved with the characterization', statement: 'Why does undoing the composite run the order backwards: (g∘f)⁻¹ = f⁻¹∘g⁻¹?', steps: [
+      { label: 'Set up the candidate', formula: 'h = f^{-1} \\circ g^{-1} : C \\to A', explanation: 'the claim is that h — undo g, then undo f — is the undo of the composite g∘f: A → B → C.' },
+      { label: 'Compose on the left', formula: 'h \\circ (g \\circ f) = f^{-1} \\circ (g^{-1} \\circ g) \\circ f = f^{-1} \\circ I_B \\circ f = f^{-1} \\circ f = I_A', explanation: 'associativity (lesson 1.3) lets the middle pair meet first — and g⁻¹∘g is exactly the identity by the definition of the undo.' },
+      { label: 'Compose on the right', formula: '(g \\circ f) \\circ h = g \\circ (f \\circ f^{-1}) \\circ g^{-1} = g \\circ I_B \\circ g^{-1} = g \\circ g^{-1} = I_C', explanation: 'the same trick from the other end. Both identity laws hold, so by the two-sided characterization h is THE undo.' },
+    ], result: '(g \\circ f)^{-1} = f^{-1} \\circ g^{-1} — the order of the undo is the REVERSE of the order of the making.' },
+    { kind: 'figure', caption: 'The mirror made concrete with our own pair: f(x) = 2x + 1 (green line) and its undo f⁻¹(x) = (x − 1)/2 (amber line) are reflections of each other across the dashed mirror y = x. The marked partners show why: (2, 5) sits on f because f(2) = 5, and (5, 2) sits on the undo because f⁻¹(5) = 2 — the same two numbers, swapped, on opposite sides of the mirror. Slopes flip and intercepts trade: 2 and +1 become 1/2 and −1/2.', svg: mirrorGraphSvg() },
+    { kind: 'callout', tone: 'insight', title: 'The inverse function is the inverse relation, grown up', text: 'Lesson 1.1 defined $R^{-1}$ for ANY relation by swapping the pairs — no conditions asked. This lesson adds one demand: the swapped pairs must themselves pass the function test (total + single-valued). For a bijective $f$, both tests pass — one-one stops the swapped relation from becoming many-one, onto stops it from falling short. So: $f^{-1}$ EXISTS exactly when the inverse RELATION $R^{-1}$ of $f$\\u2019s pair-set is itself a function. The two chapters of this book\\u2019s first chapter snap together here.' },
+    { kind: 'example', title: 'Verify the shoes-and-socks law on the reals: f(x) = 2x, g(x) = x + 1. Find (g∘f)⁻¹ and f⁻¹∘g⁻¹ and compare', steps: [
+      'The composite: $(g \\circ f)(x) = 2x + 1$ — double, then increment.',
+      'Undo the composite directly: $y = 2x + 1$ gives $x = \\tfrac{y - 1}{2}$, so $(g \\circ f)^{-1}(x) = \\tfrac{x - 1}{2}$.',
+      'Now the socks-then-shoes route: $g^{-1}(x) = x - 1$, then $f^{-1}(x) = \\tfrac{x}{2}$, so $f^{-1}(g^{-1}(x)) = \\tfrac{x - 1}{2}$ — the same machine.',
+      'Hence $(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}$, verified: the increment is undone FIRST (subtract 1), the doubling SECOND (halve).',
+    ] },
+
+    { kind: 'terms', items: [
+      { term: 'inverse function', def: '$f^{-1} : B \\to A$ with $f^{-1}(y) = x \\iff f(x) = y$ — the undo machine, existing exactly when $f$ is bijective' },
+      { term: 'bijective ⇔ invertible', def: 'the one-word verdict that certifies an undo: waste-free AND covering, or the undo dies of waste or of shortfall' },
+      { term: 'the swap law', def: '$\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f)$ and $\\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f)$ — the relay walked backwards trades its ends' },
+      { term: 'solve-back', def: 'write $y = f(x)$, solve for $x$, rename — the inverse falls out; a solve that fails for some $y$ marks the honest codomain' },
+      { term: 'branch discipline', def: 'a folded machine becomes invertible by restricting to a monotone half-line — and each branch owns its own undo' },
+      { term: 'self-inverse machine', def: 'an involution: $f(f(x)) = x$, so $f^{-1} = f$ (the machines $k - x$ and $-x/(x+1)$ both undo themselves)' },
+    ] },
+
+    { kind: 'heading', text: 'The Road Onward' },
+    { kind: 'para', text: 'The chapter\\u2019s grammar is now complete: machines became objects (1.1), were classified (1.2), were wired in series (1.3), and learned to be undone (1.4). What remains is the catalogue — the named machines every later chapter quotes: the modulus, the signum, the greatest-integer floor, and the elementary family. Lesson 1.5 opens the zoo.' },
+    { kind: 'callout', tone: 'exam', title: 'Where this is examined', text: 'The JEE Main unit-1 line “composition of functions” carries the inverse with it, and NCERT Class 12 chapter 1 exercises invertibility explicitly (“show that f is invertible and find f⁻¹”). Expect: existence verdicts on ℤ and ℝ with witness kills; solve-back inverses of linear and Möbius machines with the honest codomain; the branch inverses of folded quadratics (the ±√ choice graded by the branch); the shoes-and-socks order in true/false banks; and self-inverse recognition — across JEE Main/Advanced, CUET, boards and the state CETs.' },
+    { kind: 'callout', tone: 'historical', title: 'Logarithms: the first industrial undo machines', text: 'The undo idea built an industry before it built notation: John Napier\\u2019s logarithm tables (1614) were sold as machines that turn multiplication into addition — and Henry Briggs\\u2019 common tables (1617) made the undo of $10^x$ a working tool for every navigator and astronomer in Europe. Nobody called $\\log$ “the inverse of the exponential” for another two centuries, but that is what the tables were: a precomputed undo, priced by hand, for a machine whose forward direction everyone could run. The exponential–logarithm pair joins this shelf honestly when the Calculus book opens; the undo discipline it will use is the one built here.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The inverse f⁻¹ exists exactly when f is', options: ['one-one', 'onto', 'one-one AND onto (bijective)', 'any function at all'], answer: 2, explain: 'Both verdicts are load-bearing: one-one gives the undo a UNIQUE input to return (many-one leaves it a witness-pair dilemma), onto gives every target an input to return (into leaves targets with nothing). Option 1 or 2 alone certifies only half; option 4 is refuted by $x^2$ and $|x|$ in one stroke.' },
+      { q: 'The symbol f⁻¹(x) means', options: ['1/f(x) — the reciprocal', 'the undo machine — the unique input that made x, renamed', 'the reflection of f in the y-axis', 'the machine x ↦ 1/x declared on ℝ'], answer: 1, explain: '$f^{-1}$ is the DIRECTION badge: run the machine backwards. For $f(x) = 2x + 1$ the undo is $\\tfrac{x-1}{2}$, while the reciprocal $\\tfrac{1}{2x+1}$ is a different machine entirely. Option 3 confuses the mirror in the $y$-axis (a reflection, not an undo); option 4 is the reciprocal MACHINE as its own declaration — also not the undo.' },
+      { q: 'If f : A → B is bijective, the DOMAIN of f⁻¹ is', options: ['B — the whole range of f', 'A', 'A ∪ B', 'the empty set'], answer: 0, explain: 'The swap law: the undo\\u2019s inputs are $f$\\u2019s outputs, and bijectivity makes the range fill $B$ exactly. Option 2 is the undo\\u2019s RANGE (also the domain of $f$); option 3 unions sets that never need unioning; option 4 cannot arise — bijective machines have non-empty pair-sets whenever $A$ is non-empty.' },
+      { q: '(g∘f)⁻¹ equals', options: ['g⁻¹∘f⁻¹', 'f⁻¹∘g⁻¹', '(f∘g)⁻¹', 'g∘f'], answer: 1, explain: 'Shoes and socks: the LAST machine is undone first. Undo $g$ (subtract what it added), then undo $f$ — $f^{-1} \\circ g^{-1}$. Option 1 is the order-preserving guess that the sock law kills; option 3 is a different composite\\u2019s undo; option 4 is not an undo at all.' },
+      { q: 'f(x) = 5 − x on ℝ. The inverse is', options: ['x − 5', '−x − 5', '5 − x — the machine undoes itself', 'f has no inverse'], answer: 2, explain: 'Apply twice: $5 - (5 - x) = x$ — the machine is its own undo, a self-inverse involution. Option 1 is the undo of $x + 5$; option 2 is not any undo here; option 4 is wrong because the machine is visibly one-one (distinct inputs, distinct outputs) and onto $\\mathbb{R}$ (the input $5 - y$ makes any target $y$).' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.4', sets: [
+      { level: 'L1', questions: [
+        { q: 'Invert f(x) = x + 9 on ℝ.', solution: [
+          'Solve back: $y = x + 9$ gives $x = y - 9$.',
+          'Hence $f^{-1}(x) = x - 9$ — the increment undone by the decrement.',
+          'Check: $f^{-1}(f(x)) = (x + 9) - 9 = x$ ✓ and $f(f^{-1}(x)) = (x - 9) + 9 = x$ ✓.',
+        ], answer: 'f⁻¹(x) = x − 9.' },
+        { q: 'Invert f(x) = 5x − 3 on ℝ and verify both identity laws.', solution: [
+          'Solve back: $y = 5x - 3$ gives $x = \\tfrac{y + 3}{5}$, so $f^{-1}(x) = \\tfrac{x + 3}{5}$.',
+          'Law one: $f^{-1}(f(x)) = \\tfrac{(5x - 3) + 3}{5} = x$ ✓.',
+          'Law two: $f(f^{-1}(x)) = 5 \\cdot \\tfrac{x + 3}{5} - 3 = x$ ✓.',
+          'Hence the undo is certified — slope divided, constant reversed.',
+        ], answer: 'f⁻¹(x) = (x + 3)/5.' },
+        { q: 'Show that f(x) = 7 − x is invertible and find its inverse. What do you notice?', solution: [
+          'One-one: $7 - x_1 = 7 - x_2 \\Rightarrow x_1 = x_2$. Onto: the input $7 - y$ makes any target $y$. Hence bijective — invertible.',
+          'Solve back: $y = 7 - x$ gives $x = 7 - y$: the solve-back returns the SAME rule.',
+          'So, $f^{-1}(x) = 7 - x = f(x)$: the machine undoes itself.',
+          'The general shape: every machine $k - x$ is self-inverse, since $k - (k - x) = x$ — the reflection machines of this shape are all involutions.',
+        ], answer: 'f⁻¹(x) = 7 − x — self-inverse.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Invert f(x) = (2x + 1)/3 on ℝ and check the round trip in both directions.', solution: [
+          'Solve back: $y = \\tfrac{2x + 1}{3}$ gives $3y = 2x + 1$, so $x = \\tfrac{3y - 1}{2}$.',
+          'Hence $f^{-1}(x) = \\tfrac{3x - 1}{2}$.',
+          'Outward check: $f(f^{-1}(x)) = \\tfrac{2 \\cdot \\tfrac{3x-1}{2} + 1}{3} = \\tfrac{3x}{3} = x$ ✓.',
+          'Return check: $f^{-1}(f(x)) = \\tfrac{3 \\cdot \\tfrac{2x+1}{3} - 1}{2} = \\tfrac{2x}{2} = x$ ✓.',
+        ], answer: 'f⁻¹(x) = (3x − 1)/2, certified both ways.' },
+        { q: 'On ℤ: is f(x) = x + 5 invertible? Is f(x) = 2x + 2? Give verdicts with witnesses.', solution: [
+          '$x + 5$ is one-one and onto ℤ (the input $y - 5$ makes any target $y$) — invertible with undo $x - 5$.',
+          '$2x + 2$ is one-one (the doubling-increment is injective) but INTO: its outputs are the even integers, so the odd target 1 has no integer preimage — $2x + 2 = 1$ has no integer door.',
+          'Hence $2x + 2$ is not invertible AS DECLARED ℤ → ℤ: the undo of 1 would have no input to return.',
+          'The honest repair: declare $f : \\mathbb{Z} \\to \\{\\text{even integers}\\}$ and the same rule becomes bijective with undo $f^{-1}(x) = \\tfrac{x - 2}{2}$ on the evens.',
+        ], answer: 'x + 5: invertible. 2x + 2: not, as declared — into (odds unhit); invertible only after the codomain is trimmed to the evens.' },
+        { q: 'Show that f(x) = x³ on ℝ is invertible, and check the undo f⁻¹(x) = ∛x at x = 0, ±1, ±8, ±27.', solution: [
+          'One-one: $x_1^3 = x_2^3$ forces $x_1 = x_2$ (the cube is a strict march — negatives map to negatives, positives to positives, and equal cubes have equal bases). Onto: every real $y$ has the real preimage $\\sqrt[3]{y}$. Hence bijective.',
+          'The undo is the cube root: $f^{-1}(x) = \\sqrt[3]{x}$.',
+          'Round trip: $\\sqrt[3]{0} = 0$, $\\sqrt[3]{1} = 1$, $\\sqrt[3]{-1} = -1$, $\\sqrt[3]{8} = 2$, $\\sqrt[3]{-8} = -2$, $\\sqrt[3]{27} = 3$, $\\sqrt[3]{-27} = -3$ — and cubing each root returns its target.',
+          'Hence certified at the census — and the pair even commutes: $(f \\circ f^{-1})(x) = (f^{-1} \\circ f)(x) = x$ everywhere.',
+        ], answer: 'Bijective; f⁻¹(x) = ∛x — verified at {0, ±1, ±8, ±27}.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Invert f(x) = (x + 4)/(x − 6), x ≠ 6, and find the honest codomain.', solution: [
+          'One-one by the cross-product: $f(x_1) = f(x_2)$ forces $(x_1 + 4)(x_2 - 6) = (x_2 + 4)(x_1 - 6)$, which clears to $10(x_2 - x_1) = 0$ — injective.',
+          'Solve back: $y(x - 6) = x + 4$, so $xy - 6y = x + 4$, so $x(y - 1) = 6y + 4$, so $x = \\tfrac{6y + 4}{y - 1}$.',
+          'The solve dies exactly at $y = 1$ — hence the range is $\\mathbb{R} \\setminus \\{1\\}$: the machine is onto $\\mathbb{R} \\setminus \\{1\\}$.',
+          'Thus $f : \\mathbb{R} \\setminus \\{6\\} \\to \\mathbb{R} \\setminus \\{1\\}$ is bijective with $f^{-1}(x) = \\tfrac{6x + 4}{x - 1}$ — and the swap law shows: 6 (forbidden input) becomes a forbidden OUTPUT of the undo; 1 (forbidden output) becomes its forbidden input.',
+        ], answer: 'f⁻¹(x) = (6x + 4)/(x − 1) on ℝ∖{1}; f is onto ℝ∖{1}, not ℝ.' },
+        { q: 'f(x) = x² − 8x + 17. Find the range, the largest invertible intervals, and the branch inverse on the right half-line.', solution: [
+          'Complete the square: $x^2 - 8x + 17 = (x - 4)^2 + 1$ — the vertex read gives range $[1, \\infty)$ with the fold at $x = 4$.',
+          'The largest invertible restrictions: $(-\\infty, 4]$ and $[4, \\infty)$, each declared onto $[1, \\infty)$.',
+          'Right branch, solve back: $y = (x - 4)^2 + 1$ gives $x - 4 = \\sqrt{y - 1}$ (positive root — this branch lives right of 4).',
+          'Hence on $[4, \\infty)$ the undo is $f^{-1}(x) = 4 + \\sqrt{x - 1}$; the left branch would carry $4 - \\sqrt{x - 1}$.',
+          'Check: $f(7) = (7 - 4)^2 + 1 = 10$, and the right undo returns $4 + \\sqrt{10 - 1} = 7$ ✓ — each branch knows its own half.',
+        ], answer: 'Range [1, ∞); intervals (−∞, 4] and [4, ∞); right-branch undo 4 + √(x − 1).' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Exam-style: f : ℝ → [2, ∞), f(x) = x² − 2x + 3. Find the largest intervals on which f⁻¹ exists and both branch inverses.', solution: [
+          'Complete the square: $x^2 - 2x + 3 = (x - 1)^2 + 2$ — the fold sits at $x = 1$ and the declared range $[2, \\infty)$ is filled exactly.',
+          'Largest invertible restrictions: $[1, \\infty)$ and $(-\\infty, 1]$.',
+          'Right branch: $y = (x - 1)^2 + 2$ gives $x - 1 = \\sqrt{y - 2}$ (positive root), so $f^{-1}(x) = 1 + \\sqrt{x - 2}$ on $[2, \\infty)$.',
+          'Left branch: $x - 1 = -\\sqrt{y - 2}$, so $f^{-1}(x) = 1 - \\sqrt{x - 2}$ on $[2, \\infty)$.',
+          'Check both: $f(3) = (3 - 1)^2 + 2 = 6$, and the right undo returns $1 + \\sqrt{6 - 2} = 3$ while the left undo returns $1 - 2 = -1$ ✓ — each branch knows its own half.',
+        ], answer: 'Intervals [1, ∞) and (−∞, 1]; undos 1 ± √(x − 2) respectively.' },
+        { q: 'Invert the hinged machine f(x) = {x + 2, x < 3; 3x − 4, x ≥ 3} : ℝ → ℝ.', solution: [
+          'The branch ranges: $x + 2$ on $x < 3$ gives $(-\\infty, 5)$; $3x - 4$ on $x \\geq 3$ gives $[5, \\infty)$ — disjoint, and together they tile $\\mathbb{R}$.',
+          'Each branch is one-one, and the hinge agrees: $f(3) = 5$ from the second branch, with the first approaching 5 — bijective $\\mathbb{R} \\to \\mathbb{R}$.',
+          'Invert branch by branch: $y = x + 2$ with $y < 5$ undoes to $x = y - 2$; $y = 3x - 4$ with $y \\geq 5$ undoes to $x = \\tfrac{y + 4}{3}$.',
+          'Hence $f^{-1}(y) = \\{y - 2, y < 5; (y + 4)/3, y \\geq 5\\}$ — check the hinge: $f^{-1}(5) = 3$ ✓ and $f(3) = 5$ ✓.',
+        ], answer: 'f⁻¹(y) = {y − 2, y < 5; (y + 4)/3, y ≥ 5}.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'With f(x) = 2x and g(x) = x + 1 on ℝ, verify the shoes-and-socks law by computing (g∘f)⁻¹ directly and as f⁻¹∘g⁻¹.', solution: [
+          'The composite: $(g \\circ f)(x) = 2x + 1$.',
+          'Direct undo: $y = 2x + 1$ gives $x = \\tfrac{y - 1}{2}$, so $(g \\circ f)^{-1}(x) = \\tfrac{x - 1}{2}$.',
+          'The socks-then-shoes route: $g^{-1}(x) = x - 1$ (undo the LAST machine first), then $f^{-1}(x) = \\tfrac{x}{2}$; composed: $f^{-1}(g^{-1}(x)) = \\tfrac{x - 1}{2}$.',
+          'Hence both routes give $\\tfrac{x - 1}{2}$ — the law verified on a concrete pair.',
+        ], answer: '(g∘f)⁻¹(x) = (x − 1)/2 = f⁻¹∘g⁻¹(x) — shoes and socks confirmed.' },
+        { q: 'Show that f(x) = k − x is self-inverse for every k. Then find the value of a for which f(x) = ax/(x + 1) is self-inverse.', solution: [
+          'For $k - x$: apply twice — $k - (k - x) = x$. Hence $f^{-1} = f$ for EVERY $k$: the whole family of reflection machines are involutions.',
+          'For $f(x) = \\tfrac{ax}{x + 1}$ (domain $x \\neq -1$): the self-inverse demand is $f(f(x)) = x$.',
+          'Compute: $f(f(x)) = \\tfrac{a \\cdot \\tfrac{ax}{x+1}}{\\tfrac{ax}{x+1} + 1} = \\tfrac{a^2 x}{ax + x + 1}$.',
+          'Setting $f(f(x)) = x$: $a^2 x = x(ax + x + 1)$, i.e. $a^2 = ax + x + 1$ for ALL $x$ — the $x$-coefficient forces $a = -1$, and then $a^2 = 1$ ✓ consistent.',
+          'Check $a = -1$: $f(x) = \\tfrac{-x}{x + 1}$, and $f(f(x)) = \\tfrac{\\tfrac{x}{x+1}}{\\tfrac{1}{x+1}} = x$ ✓. Hence $a = -1$.',
+        ], answer: 'k − x is self-inverse for every k; a = −1 makes ax/(x + 1) an involution.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove (g∘f)⁻¹ = f⁻¹∘g⁻¹ using the two-sided characterization, and confirm the order on finite sets: A = {1,2,3} --f(n)=2n--> B = {2,4,6} --g(e)=e+1--> C = {3,5,7}.', solution: [
+          'Let $h = f^{-1} \\circ g^{-1}$. By the characterization, it suffices to check both compositions.',
+          'One side: $h \\circ (g \\circ f) = f^{-1} \\circ (g^{-1} \\circ g) \\circ f = f^{-1} \\circ I_B \\circ f = I_A$ — associativity (lesson 1.3) pairs the middle machines first.',
+          'Other side: $(g \\circ f) \\circ h = g \\circ (f \\circ f^{-1}) \\circ g^{-1} = g \\circ I_B \\circ g^{-1} = I_C$. Both laws hold, hence $h$ is THE undo: $(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}$.',
+          'The finite census agrees: the composite sends $1 \\mapsto 3$, $2 \\mapsto 5$, $3 \\mapsto 7$; undoing $g$ first ($-1$) then $f$ ($\\div 2$) returns $3 \\mapsto 2 \\mapsto 1$, $5 \\mapsto 4 \\mapsto 2$, $7 \\mapsto 6 \\mapsto 3$ — every element home.',
+          'Note the order: $g^{-1}$ ran BEFORE $f^{-1}$ — the last machine on the way out is the first machine on the way back.',
+        ], answer: 'Proof by the characterization; the finite relay 3→2→1, 5→4→2, 7→6→3 confirms the reversed order.' },
+        { q: 'Prove that g∘f = I_A forces f one-one. Then exhibit f, g with g∘f = I_A but f∘g ≠ I_B, and conclude the uniqueness clause of the characterization.', solution: [
+          'Suppose $f(x_1) = f(x_2)$. Apply $g$: $g(f(x_1)) = g(f(x_2))$, that is $(g \\circ f)(x_1) = (g \\circ f)(x_2)$. But $g \\circ f = I_A$, so $x_1 = x_2$ — injective, proved.',
+          'The one-sided exhibit: $A = \\{1, 2\\}$, $B = \\{1, 2, 3\\}$; $f(1) = 1$, $f(2) = 2$ (one-one, into) and $g(1) = 1$, $g(2) = 2$, $g(3) = 2$.',
+          'Then $(g \\circ f)(1) = 1$ and $(g \\circ f)(2) = 2$ — the identity on $A$ ✓. But $(f \\circ g)(3) = f(2) = 2 \\neq 3$ — NOT the identity on $B$.',
+          'So one law alone lets $g$ be a partial undo; the second law is what pins it. Hence: if BOTH $g \\circ f = I_A$ and $f \\circ g = I_B$ hold, $g$ is unique — it is $f^{-1}$, because any two machines satisfying both laws must agree with each other (each is the undo of $f$, and the undo, once it exists, is exactly one machine by one-one + onto).',
+        ], answer: 'g∘f = I_A ⇒ f one-one; the exhibit shows f∘g ≠ I_B; both laws together give the unique inverse.' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: 'The inverse, symbolically', latex: 'f^{-1}(y) = x \\iff f(x) = y \\qquad f^{-1} \\text{ exists} \\iff f \\text{ is bijective}', note: 'one-one gives uniqueness of the return, onto gives its existence for every target' },
+    { kind: 'formula', name: 'The two identity laws', latex: 'f^{-1} \\circ f = I_A \\qquad f \\circ f^{-1} = I_B', note: 'the definition of the undo, certified on both sides; conversely both laws together force g = f⁻¹' },
+    { kind: 'formula', name: 'The swap law', latex: '\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) \\qquad \\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f)', note: 'domain and range trade places; forbidden inputs become forbidden outputs' },
+    { kind: 'formula', name: 'Shoes and socks', latex: '(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}', note: 'the last machine is undone first; proved by the two-sided characterization' },
+    { kind: 'formula', name: 'The solve-back recipe', latex: 'y = f(x) \\;\\Rightarrow\\; \\text{solve for } x \\;\\Rightarrow\\; \\text{rename} \\;\\Rightarrow\\; f^{-1}', note: 'a solve that dies at some y marks the honest codomain — the machine is onto exactly where the solve survives' },
+    { kind: 'formula', name: 'The Möbius undo', latex: 'f(x) = \\frac{px + q}{rx + s} \\;\\Rightarrow\\; f^{-1}(x) = \\frac{-sx + q}{rx - p} \\quad (ps - qr \\neq 0)', note: 'the four linear moves run backwards; |ps − qr| is exactly the cross-product constant of the one-one proof' },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -744,10 +1415,8 @@ export const chapter01: Chapter = {
   summary:
     'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
   status: 'in-progress',
-  lessons: [lesson11, lesson12],
+  lessons: [lesson11, lesson12, lesson13, lesson14],
   plannedLessons: [
-    'Composition: Machines in Series',
-    'Inverse Functions: the Machine Undone',
     'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog',
     'Even and Odd Functions and Their Extensions',
     'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',

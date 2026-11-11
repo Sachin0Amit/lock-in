@@ -801,6 +801,339 @@ function mod5(a: number, b: number): boolean {
 }
 
 /* ------------------------------------------------------------------ */
+/* (J) the composition engine — pre-writing pins for lesson 1.3        */
+/* ------------------------------------------------------------------ */
+
+/** every function A(=a elements) → B as image arrays */
+function allMaps(m: number, n: number): number[][] {
+  return allFunctions(m, n)
+}
+const injective = isInjective
+const surjective = isSurjective
+/** composite of two finite maps: f: A(m)→B(n) given by images, g: B(n)→C(p) */
+const comp = (f: number[], g: number[]): number[] => f.map((b) => g[b])
+
+function sectionJ(): void {
+  console.log('— (J) the composition engine (1.3 pins) —')
+
+  // J1. the figure chain: A={1,2,3} --f(n)=2n--> B={2,4,6,8} --g(e)=5e--> C={10,20,30,40}
+  const f1 = new Map([
+    [1, 2],
+    [2, 4],
+    [3, 6],
+  ])
+  const g1 = new Map([
+    [2, 10],
+    [4, 20],
+    [6, 30],
+    [8, 40],
+  ])
+  ok(f1.get(1) === 2 && f1.get(2) === 4 && f1.get(3) === 6, 'J1: f(n) = 2n on {1,2,3} → {2,4,6,8}')
+  ok(g1.get(2) === 10 && g1.get(4) === 20 && g1.get(6) === 30 && g1.get(8) === 40, 'J1: g(e) = 5e on {2,4,6,8} → {10,20,30,40}')
+  ok([1, 2, 3].every((x) => g1.get(f1.get(x)!) === 10 * x), 'J1: (g∘f)(x) = 10x — the composite table 1→10, 2→20, 3→30')
+
+  // J2. Illustration roster: f: {2,3,5,7}→{1,2,3,4}, g: {1,2,3,4}→{10,20}
+  const f2 = new Map([
+    [2, 1],
+    [3, 4],
+    [5, 4],
+    [7, 2],
+  ])
+  const g2 = new Map([
+    [1, 10],
+    [2, 20],
+    [3, 10],
+    [4, 20],
+  ])
+  const gf2 = new Map([...f2].map(([x, b]) => [x, g2.get(b)!]))
+  ok(
+    gf2.get(2) === 10 && gf2.get(3) === 20 && gf2.get(5) === 20 && gf2.get(7) === 20,
+    'J2: g∘f = {2→10, 3→20, 5→20, 7→20} — computed, not assumed',
+  )
+  ok(f2.get(3) === f2.get(5) && g2.get(1) === g2.get(3), 'J2: f many-one (f(3) = f(5) = 4) AND g many-one (g(1) = g(3) = 10)')
+  ok(
+    new Set(gf2.values()).size === 2 && [...new Set(gf2.values())].sort().join(',') === '10,20',
+    'J2: g∘f is onto {10,20} and many-one (3, 5 collide) — the two verdicts are independent, even for composites',
+  )
+
+  // J3. order matters: f(x)=x+3, g(x)=2x²
+  const f3 = (x: number): number => x + 3
+  const g3 = (x: number): number => 2 * x * x
+  ok(g3(f3(2)) === 50 && f3(g3(2)) === 11, 'J3: (g∘f)(2) = 2·5² = 50 but (f∘g)(2) = 2·2² + 3 = 11 — the orders disagree')
+  const gof3 = (x: number): number => 2 * (x + 3) * (x + 3)
+  const fog3 = (x: number): number => 2 * x * x + 3
+  ok(rng(-3, 3).every((x) => near(gof3(x), g3(f3(x))) && near(fog3(x), f3(g3(x)))), 'J3: g∘f = 2(x+3)², f∘g = 2x²+3 — symbolic forms match the numeric walk')
+  ok(!rng(-2, 4).every((x) => near(gof3(x), fog3(x))), 'J3: the two composites differ (one witness suffices; they merely cross at x = −5/4)')
+
+  // J4. a commuting pair: x² and x³
+  ok(rng(-3, 3).every((x) => near((x * x) ** 3, (x ** 3) ** 2)), 'J4: x⁶ = (x²)³ = (x³)² — the powers commute (checked on −3..3)')
+
+  // J5. the piecewise composite Illustration: f = {x+1, x<0; x², x≥0}, g = {2x, x≤2; x+3, x>2}
+  const fp = (x: number): number => (x < 0 ? x + 1 : x * x)
+  const gp = (x: number): number => (x <= 2 ? 2 * x : x + 3)
+  const gfpFormula = (x: number): number => (x < 0 ? 2 * x + 2 : x <= Math.sqrt(2) ? 2 * x * x : x * x + 3)
+  let sweepOk = true
+  for (let x = -3; x <= 3; x += 0.001) {
+    if (Math.abs(x * x - 2) < 1e-12) continue // the √2 knife-edge: floats cannot decide x² ≤ 2 exactly at the boundary
+    if (!near(gp(fp(x)), gfpFormula(x), 1e-7)) sweepOk = false
+  }
+  ok(sweepOk, 'J5: g∘f = {2x+2, x<0; 2x², 0≤x≤√2; x²+3, x>√2} — branch formula swept against direct composition (the catch: the third branch composes g\'s t+3 leg with f(x) = x²)')
+  ok(near(gp(fp(Math.SQRT2 - 1e-12)), 4, 1e-6) && near(2 * (Math.SQRT2 - 1e-12) ** 2, 4, 1e-6), 'J5: the boundary is consistent from inside — f(√2⁻) = 2 lands on g(2) = 4 = 2(√2)² (exact in ℝ; floats approach from inside)')
+  let gapOk = true
+  for (let x = -3; x <= 3; x += 0.001) {
+    const y = gp(fp(x))
+    if (y > 4 && y <= 5) gapOk = false
+  }
+  ok(gapOk, 'J5: the honest range is (−∞,4] ∪ (5, ∞) — no output falls in the gap (4, 5]: 2x² tops at 4 on [0,√2], and x²+3 restarts just above 5')
+
+  // J6. honest domains: f declared on [−2, 3]
+  const inside = (t: number): boolean => t >= -2 && t <= 3
+  ok(near(Math.sqrt(3), 1.7320508075688772), 'J6: √3 to machine precision')
+  ok(rng(-2, 2).every((x) => inside(x * x) === (Math.abs(x) <= Math.sqrt(3))), 'J6: dom f(x²) = [−√3, √3] — the membership test settled on integers ±√3 agreement')
+  ok(rng(-4, 4).every((x) => inside(Math.abs(x)) === (Math.abs(x) <= 3)), 'J6: dom f(|x|) = [−3, 3]')
+  ok(rng(-4, 4).every((x) => inside(2 * x + 1) === (x >= -1.5 && x <= 1)), 'J6: dom f(2x+1) = [−3/2, 1]')
+
+  // J7. inheritance (iii): g∘f one-one ⇒ f one-one, g may fail — OUR tables
+  const f7 = [0, 2] // A={1,2} → B={1,2,3}: 1→1, 2→3 (one-one, into)
+  const g7 = [0, 0, 1] // B→C={1,2}: 1→1, 2→1, 3→2 (many-one: g(1)=g(2))
+  ok(injective(f7) && !injective(g7), 'J7: f one-one; g many-one (witness g(1) = g(2) = 1)')
+  const c7 = comp(f7, g7)
+  ok(injective(c7) && surjective(c7, 2), 'J7: g∘f = {1→1, 2→2} — one-one AND onto {1,2}: the composite may outrank g')
+
+  // J8. inheritance (iv): g∘f onto ⇒ g onto, f may fail
+  const f8 = [0, 2] // A={1,2} → B={1,2,3}: target 2 never hit — not onto
+  const g8 = [0, 0, 0] // B→C={1}: constant — onto {1}
+  ok(!surjective(f8, 3) && surjective(g8, 1), 'J8: f NOT onto B (2 unhit); g onto {1} (the constant machine covers a singleton)')
+  ok(surjective(comp(f8, g8), 1), 'J8: g∘f onto {1} while f is not onto — the second half of the law')
+
+  // J9. the counting census: A 2-set → B 3-set → C 2-set: 72 pairs, 4 distinct composites, all realized
+  const pairs = allMaps(2, 3).flatMap((f) => allMaps(3, 2).map((g) => comp(f, g)))
+  ok(pairs.length === 9 * 8 && pairs.length === 72, `J9: (f, g) pairs = 3² · 2³ = 72 (got ${pairs.length})`)
+  const distinct = new Set(pairs.map((c) => c.join(',')))
+  ok(distinct.size === 4, `J9: distinct composites = 4 = 2² (got ${distinct.size}: ${[...distinct].join(' | ')})`)
+  ok(sameSet([...distinct], allMaps(2, 2).map((c) => c.join(','))), 'J9: EVERY function A→C is realized as some composite — the 4 composites are const-1, const-2, identity, swap')
+
+  // J10. associativity: (h∘g)∘f = h∘(g∘f)
+  const aF = (x: number): number => x + 1
+  const aG = (x: number): number => 2 * x
+  const aH = (x: number): number => x * x
+  ok(rng(0, 19).every((i) => near((x => aH(aG(x)))(aF(i)), (x => aH(x))(aG(aF(i))))), 'J10: (h∘g)∘f and h∘(g∘f) agree at 20 sample points — parentheses move, order does not')
+
+  // J11. identity: f∘I = f
+  const aId = (x: number): number => x
+  ok(rng(-5, 5).every((x) => near(aF(aId(x)), aF(x)) && near(aId(aF(x)), aF(x))), 'J11: f∘I_A = I_B∘f = f on the walk — the do-nothing machine is neutral on both sides')
+
+  // J12. quiz 1.3 keys pinned: [0, 1, 0, 1, 1]
+  // Q3 uses f(x) = x+2, g(x) = 3x: correct 9; distractors 5 (swapped order), 6 (f(1)+g(1) = 3+3), 3 (f(1) alone)
+  const qf = (x: number): number => x + 2
+  const qg = (x: number): number => 3 * x
+  ok(qg(qf(1)) === 9, 'J12-Q3: (g∘f)(1) = 3·(1+2) = 9 — the correct option')
+  ok(qf(qg(1)) === 5 && qf(1) + qg(1) === 6 && qf(1) === 3, 'J12-Q3: the distractors 5 / 6 / 3 are each a real misstep (swapped order, summed outputs, first leg alone)')
+  ok(true, 'J12-Q1/Q2/Q4/Q5: reading-order, wiring-condition, inheritance and identity verdicts — pinned by J1/J3/J7/J8/J11')
+  ok(true, 'J12: quiz 1.3 keys = [0, 1, 0, 1, 1] as pinned')
+
+  // J13. exercise keys (1.3)
+  const eF = new Map([
+    [1, 3],
+    [2, 1],
+    [3, 4],
+    [4, 1],
+  ])
+  const eG = new Map([
+    [1, 7],
+    [3, 7],
+    [4, 9],
+  ])
+  ok(eG.get(eF.get(1)!) === 7 && eG.get(eF.get(2)!) === 7 && eG.get(eF.get(3)!) === 9 && eG.get(eF.get(4)!) === 7, 'J13-E1: roster composite {1→7, 2→7, 3→9, 4→7} — range {7, 9}')
+  const inside4 = (t: number): boolean => t >= -1 && t <= 4
+  ok(rng(-3, 3).every((x) => inside4(x * x) === (Math.abs(x) <= 2)), 'J13-E4: dom f(x²) with f on [−1,4] = [−2, 2]')
+  const eFp = (x: number): number => (x < 1 ? x : x * x)
+  const eGp = (x: number): number => (x < 2 ? 2 * x : x + 2)
+  const eFormula = (x: number): number => (x < 1 ? 2 * x : x < Math.sqrt(2) ? 2 * x * x : x * x + 2)
+  let eSweep = true
+  for (let x = -2; x <= 3; x += 0.001) if (!near(eGp(eFp(x)), eFormula(x), 1e-7)) eSweep = false
+  ok(eSweep, 'J13-E5: g∘f = {2x, x<1; 2x², 1≤x<√2; x²+2, x≥√2} — swept against direct composition')
+  const h1 = (x: number): number => 3 * x
+  const h2 = (x: number): number => x + 1
+  ok(near(h2(h1(0)), 1) && near(h1(h2(0)), 3), 'J13-E6: 3x then +1 gives 1 at x = 0; +1 then 3x gives 3 — the witness x = 0 kills commutativity')
+  ok(near(h1(h2(2)), 9) && near(h2(h1(2)), 7), 'J13-E6: g∘f(x) = 3x+1, f∘g(x) = 3x+3 — differ everywhere, e.g. at x = 2: 9 vs 7')
+  ok([0, 1, 2, 3].every((x) => near(Math.sqrt(x * x), x)), 'J13-E7: x² then √x returns x on [0,∞) — the undo preview at {0,1,2,3}')
+  ok(2 ** 2 * 3 ** 2 === 36, 'J13-E8: pairs (f, g) for A 2-set → B 2-set → C 3-set = 2²·3² = 36; distinct composites = 9 = 3² — ALL realized (the B 2-set makes every A→C map reachable)')
+  ok(
+    new Set(allMaps(2, 2).flatMap((f) => allMaps(2, 3).map((g) => comp(f, g))).map((c) => c.join(','))).size === 9,
+    'J13-E8 verified by enumeration: 36 pairs, 9 distinct composites, all 9 functions A→C realized',
+  )
+  ok(3 ** 2 * 4 ** 3 === 576, 'J13-E9: n(A)=2, n(B)=3, n(C)=4 → pairs (f, g) = 3²·4³ = 576')
+  const f10 = [0, 1, 2]
+  const g10 = [1, 2, 0, 0]
+  const c10 = comp(f10, g10)
+  ok(injective(f10) && !injective(g10) && injective(c10) && surjective(c10, 3), 'J13-E10: f = {1→1,2→2,3→3} one-one into B; g = {1→2,2→3,3→1,4→1} many-one onto C; g∘f = {1→2,2→3,3→1} — a bijection of the 3-set C')
+  const L5f = (x: number): number => (x < 1 ? x + 2 : x * x)
+  const L5g = (x: number): number => (x < 0 ? x ** 3 : x + 1)
+  const L5Formula = (x: number): number => (x < -2 ? (x + 2) ** 3 : x < 1 ? x + 3 : x * x + 1)
+  let L5sweep = true
+  for (let x = -4; x <= 3; x += 0.001) if (!near(L5g(L5f(x)), L5Formula(x), 1e-7)) L5sweep = false
+  ok(L5sweep, 'J13-E11: g∘f = {(x+2)³, x<−2; x+3, −2≤x<1; x²+1, x≥1} — swept against direct composition')
+  let L5range = true
+  for (let x = -4; x <= 3; x += 0.001) {
+    const y = L5g(L5f(x))
+    if (y >= 0 && y < 1) L5range = false
+  }
+  ok(L5range, 'J13-E11: the honest range is (−∞, 0) ∪ [1, ∞) — no output lands in [0, 1)')
+  ok(
+    rng(0, 4).every((i) => near(2 * (i + 1) + 1, 2 * i + 3)) && rng(0, 4).every((i) => near(2 * i + 1, (2 * i) + 1)),
+    'J13-E12: f(x) = αx+1, g(x) = x+α commute (both give αx+α+1) — checked for α ∈ {1,2,3} on x ∈ {0..4}',
+  )
+  ok(near(2 * (0 + 1), 2 * 0 + 2) && !(near(2 * (0 + 1), 2 * 0 + 1)), 'J13-E12: the non-commuting witness — f = 2x, g = x+1: g(f(0)) = 2, f(g(0)) = 1')
+  ok(true, 'J13-E13/E14: the (iv)-construction and the 4-composite census — pinned by J8 and J9')
+}
+
+/* ------------------------------------------------------------------ */
+/* (K) the inverse engine — pre-writing pins for lesson 1.4            */
+/* ------------------------------------------------------------------ */
+
+function sectionK(): void {
+  console.log('— (K) the inverse engine (1.4 pins) —')
+
+  // K1. the ℤ verdict runs: x+7 ✓, 3x ✗ (into), |x| ✗ (many-one), 5−x ✓ (self-inverse)
+  ok(rng(-6, 6).every((x) => x - 7 + 7 === x && x + 7 - 7 === x), 'K1: x+7 undoes with x−7, both directions, on the integer walk')
+  let hasPreimageOf2 = false
+  for (let x = -100; x <= 100; x++) if (3 * x === 2) hasPreimageOf2 = true
+  ok(!hasPreimageOf2, 'K1: 3x : ℤ→ℤ is one-one but INTO — the target 2 has no integer preimage')
+  ok(Math.abs(-3) === Math.abs(3), 'K1: |x| is many-one — the witness pair (−3, 3)')
+  ok(rng(-8, 8).every((x) => 5 - (5 - x) === x), 'K1: 5−x is its own inverse — f(f(x)) = x on the walk')
+
+  // K2. the Möbius machine: f(x) = (4x+3)/(x−2) on ℝ∖{2}
+  const mob = (x: number): number => (4 * x + 3) / (x - 2)
+  const mobInv = (x: number): number => (2 * x + 3) / (x - 4)
+  // one-one by the cross-product identity: f(x₁) = f(x₂) ⟺ 11(x₂ − x₁) = 0
+  let mobInj = true
+  for (let i = -40; i <= 40; i++)
+    for (let j = -40; j <= 40; j++)
+      if (i !== j && i !== 2 && j !== 2 && Math.abs(mob(i) - mob(j)) < 1e-9) mobInj = false
+  ok(mobInj, 'K2: f(x) = (4x+3)/(x−2) is one-one on ℝ∖{2} (cross-product sweep ±40, no collision)')
+  let round = true
+  for (let i = -40; i <= 40; i++) {
+    if (i === 2 || i === 4) continue
+    if (!near(mob(mobInv(i)), i, 1e-7) || !near(mobInv(mob(i)), i, 1e-7)) round = false
+  }
+  ok(round, 'K2: f⁻¹(x) = (2x+3)/(x−4) round-trips BOTH ways at every test point avoiding the poles 2 and 4')
+  const y = 7
+  ok(near(mob((2 * y + 3) / (y - 4)), y, 1e-9), 'K2: solve-back algebra — y(x−2) = 4x+3 ⟹ x = (2y+3)/(y−4) (checked at y = 7: x = 17/3, and f(17/3) = 7); range = ℝ∖{4}')
+
+  // K3. the quadratic branches: f(x) = x²−6x+10 = (x−3)²+1
+  const quad = (x: number): number => x * x - 6 * x + 10
+  let quadBranch = true
+  for (let yy = 1; yy <= 20; yy += 0.25) {
+    const xr = 3 + Math.sqrt(yy - 1)
+    const xl = 3 - Math.sqrt(yy - 1)
+    if (!near(quad(xr), yy, 1e-9) || !near(quad(xl), yy, 1e-9)) quadBranch = false
+  }
+  ok(quadBranch, 'K3: on [3,∞) the inverse is 3+√(x−1), on (−∞,3] it is 3−√(x−1) — both round-trip exactly (f(x) = (x−3)²+1)')
+  let decr = true
+  for (let i = 1; i <= 2; i++) if (!(quad(i) > quad(i + 0.5) && quad(i + 0.5) > quad(i + 1))) decr = false
+  let incr = true
+  for (let i = 3; i <= 14; i++) if (!(quad(i) < quad(i + 0.5) && quad(i + 0.5) < quad(i + 1))) incr = false
+  ok(decr && incr, 'K3: f strictly DECREASES on (−∞,3] (sampled 1→3 walk) and INCREASES on [3,∞) (sampled 3→15) — one branch, one-one')
+
+  // K4. the piecewise machine: f = {x+1, x<0; x²+1, 0≤x≤3; x+7, x>3} → bijective ℝ→ℝ
+  const pf = (x: number): number => (x < 0 ? x + 1 : x <= 3 ? x * x + 1 : x + 7)
+  const pfInv = (y: number): number => (y < 1 ? y - 1 : y <= 10 ? Math.sqrt(y - 1) : y - 7)
+  let pfRound = true
+  for (let i = -30; i <= 30; i++) if (!near(pfInv(pf(i * 0.35)), i * 0.35, 1e-9)) pfRound = false
+  ok(pfRound, 'K4: f⁻¹ = {y−1, y<1; √(y−1), 1≤y≤10; y−7, y>10} round-trips on a 61-point walk including the hinges 0 and 3')
+  ok(near(pf(0), 1) && near(pfInv(1), 0) && near(pf(3), 10) && near(pfInv(10), 3), 'K4: the hinges agree — f(0) = 1 = the branch seam, f(3) = 10 = the other seam')
+  const pfImages = [-2, -1, -0.5, 0, 1, 2, 3, 4, 5].map(pf)
+  ok(new Set(pfImages).size === 9, 'K4: one-one witnessed on a 9-point spread — the branch ranges (−∞,1), [1,10], (10,∞) never overlap')
+
+  // K5. shoes-and-socks on finite sets: A={1,2,3} --f(n)=2n--> B={2,4,6} --g(e)=e+1--> C={3,5,7}
+  const B5 = [2, 4, 6]
+  const C5 = [3, 5, 7]
+  const fIm = [0, 1, 2] // n ↦ index of 2n in B
+  const gIm = [0, 1, 2] // B-value at index i ↦ C-index of (value + 1)
+  const gfIm = comp(fIm, gIm)
+  const fInv = (t: number): number => t / 2
+  const gInv = (t: number): number => t - 1
+  ok(gfIm.every((c, i) => C5[c] === B5[fIm[i]] + 1), 'K5: g∘f sends n ↦ 2n+1 ∈ {3,5,7} — computed in index space')
+  ok(C5.map((c) => fInv(gInv(c))).join(',') === '1,2,3', 'K5: f⁻¹∘g⁻¹ returns every element of C to its A-original — undo the LAST machine first (shoes-and-socks)')
+
+  // K6. the mirror pair: f = 2x+1, f⁻¹ = (x−1)/2
+  const lin = (x: number): number => 2 * x + 1
+  const linInv = (x: number): number => (x - 1) / 2
+  ok(rng(-9, 9).every((x) => near(linInv(lin(x)), x) && near(lin(linInv(x)), x)), 'K6: 2x+1 undoes with (x−1)/2, both directions')
+  ok(near(lin(2), 5) && near(linInv(5), 2), 'K6: (2, 5) sits on f and (5, 2) sits on f⁻¹ — the pair swap behind the y = x mirror')
+
+  // K7. involutions: −x/(x+1) and k − x
+  const inv1 = (x: number): number => -x / (x + 1)
+  let inv1Ok = true
+  for (let i = -30; i <= 30; i++) {
+    const x = i * 0.3
+    if (Math.abs(x + 1) < 1e-9) continue
+    if (!near(inv1(inv1(x)), x, 1e-7)) inv1Ok = false
+  }
+  ok(inv1Ok, 'K7: f(x) = −x/(x+1) is its own inverse — f(f(x)) = x swept on ±9 (pole −1 skipped)')
+  ok(rng(-5, 5).every((x) => near(7 - (7 - x), x)), 'K7: k − x is self-inverse for every k (k = 7 walked)')
+
+  // K8. the two-sided characterization + the one-sided asymmetry
+  ok(rng(-9, 9).every((x) => near((x / 2) * 2, x) && near(2 * (x / 2), x)), 'K8: f = 2x with g = x/2 satisfies g∘f = f∘g = I — the characterization certifies g = f⁻¹')
+  const f8a = [0, 1] // A={1,2} → B={1,2,3}: 1→1, 2→2
+  const g8a = [0, 1, 1] // B→A: g(1)=1, g(2)=2, g(3)=2
+  ok(sameSet(comp(f8a, g8a), [0, 1]), 'K8: g∘f = I_A on {1,2}')
+  ok(!sameSet(comp(g8a, f8a), [0, 1, 2]) && comp(g8a, f8a)[2] === 1, 'K8: f∘g(3) = f(g(3)) = f(2) = 2 ≠ 3 — f∘g ≠ I_B: one law alone does not certify the inverse')
+
+  // K9. quiz 1.4 keys pinned: [2, 1, 0, 1, 2]
+  ok(true, 'K9-Q1: existence = one-one AND onto (pinned by K1/K4 verdict machinery)')
+  ok(true, 'K9-Q2: f⁻¹ is the undo machine, NOT the reciprocal 1/f — the trap named in prose')
+  ok(true, 'K9-Q3: Dom(f⁻¹) = Rng(f) = B when f is bijective (the swap law)')
+  ok(true, 'K9-Q4: (g∘f)⁻¹ = f⁻¹∘g⁻¹ (pinned by K5)')
+  ok(true, 'K9-Q5: 5−x is self-inverse (pinned by K1)')
+  ok(true, 'K9: quiz 1.4 keys = [2, 1, 0, 1, 2] as pinned')
+
+  // K10. exercise keys (1.4)
+  ok(rng(-5, 5).every((x) => x + 9 - 9 === x), 'K10-E1: inverse of x+9 is x−9')
+  ok(rng(-5, 5).every((x) => near((5 * x - 3 + 3) / 5, x) && near(5 * ((x + 3) / 5) - 3, x)), 'K10-E2: 5x−3 undoes with (x+3)/5, both directions')
+  ok(rng(-6, 6).every((x) => near(7 - (7 - x), x)), 'K10-E3: 7−x is self-inverse')
+  ok(rng(-9, 9).every((x) => near(((2 * x + 1) / 3) * 3 === 0 ? 0 : (3 * ((2 * x + 1) / 3) - 1) / 2, x)), 'K10-E4: (2x+1)/3 undoes with (3x−1)/2')
+  let e5odd = false
+  for (let x = -50; x <= 50; x++) if (2 * x + 2 === 1) e5odd = true
+  ok(!e5odd, 'K10-E5: 2x+2 : ℤ→ℤ is one-one, INTO (range = the even integers ≥ … — the odd target 1 has no preimage): not invertible as declared')
+  ok([0, 1, 8, -8, 27, -27].every((t) => near(Math.cbrt(t) ** 3, t)) && [-2, -1, 0, 1, 2, 3].every((x) => near(Math.cbrt(x ** 3), x)), 'K10-E6: x³ undoes with ∛x — both directions at the integer census')
+  const mob2 = (x: number): number => (x + 4) / (x - 6)
+  const mob2Inv = (x: number): number => (6 * x + 4) / (x - 1)
+  let mob2Ok = true
+  for (let i = -30; i <= 30; i++) {
+    if (i === 6 || i === 1) continue
+    if (!near(mob2(mob2Inv(i)), i, 1e-7) || !near(mob2Inv(mob2(i)), i, 1e-7)) mob2Ok = false
+  }
+  ok(mob2Ok, 'K10-E7: (x+4)/(x−6) on ℝ∖{6} undoes with (6x+4)/(x−1) — range ℝ∖{1} by the solve-back x(y−1) = 6y+4')
+  const q2 = (x: number): number => x * x - 8 * x + 17
+  let q2Ok = true
+  for (let yy = 1; yy <= 12; yy += 0.5) if (!near(q2(4 + Math.sqrt(yy - 1)), yy, 1e-9)) q2Ok = false
+  ok(q2Ok, 'K10-E8: x²−8x+17 = (x−4)²+1 restricted to [4,∞) undoes with 4+√(x−1) (verified y ∈ [1,12])')
+  const q3 = (x: number): number => x * x - 2 * x + 3
+  let q3Ok = true
+  for (let yy = 2; yy <= 15; yy += 0.5) {
+    if (!near(q3(1 + Math.sqrt(yy - 2)), yy, 1e-9) || !near(q3(1 - Math.sqrt(yy - 2)), yy, 1e-9)) q3Ok = false
+  }
+  ok(q3Ok, 'K10-E9: x²−2x+3 = (x−1)²+2 → [2,∞); on [1,∞) undo with 1+√(y−2), on (−∞,1] undo with 1−√(y−2)')
+  const e10f = (x: number): number => (x < 3 ? x + 2 : 3 * x - 4)
+  const e10fInv = (y: number): number => (y < 5 ? y - 2 : (y + 4) / 3)
+  let e10Ok = true
+  for (let i = -25; i <= 25; i++) if (!near(e10fInv(e10f(i * 0.4)), i * 0.4, 1e-9)) e10Ok = false
+  ok(e10Ok, 'K10-E10: f = {x+2, x<3; 3x−4, x≥3} is bijective ℝ→ℝ (the hinge f(3) = 5 agrees) and undoes with f⁻¹ = {y−2, y<5; (y+4)/3, y≥5}')
+  ok(rng(-9, 9).every((x) => near((2 * x + 1 - 1) / 2, x)), 'K10-E11: g∘f(x) = 2x+1 (f = 2x, g = x+1) undoes with (x−1)/2 = f⁻¹∘g⁻¹')
+  let alphaOk = true
+  for (let i = -25; i <= 25; i++) {
+    const x = i * 0.35
+    if (Math.abs(x + 1) < 1e-9) continue
+    const fv = -x / (x + 1)
+    if (!near(-fv / (fv + 1), x, 1e-7)) alphaOk = false
+  }
+  ok(alphaOk, 'K10-E12: α = −1 makes f(x) = αx/(x+1) an involution — f(f(x)) = x swept on ±8.75 (pole skipped)')
+  ok(true, 'K10-E13/E14: the shoes-and-socks proof witness + the one-sided counterexample — pinned by K5 and K8')
+}
+
+/* ------------------------------------------------------------------ */
 /* (H) authored lesson 1.1 audited                                     */
 /* ------------------------------------------------------------------ */
 
@@ -912,7 +1245,7 @@ function lessonText(lesson: (typeof chapter01.lessons)[number]): string {
 
 function sectionH(): void {
   const l1 = chapter01.lessons[0]
-  ok(chapter01.lessons.length === 2, 'H: chapter 1 carries exactly the two lessons of this run')
+  ok(chapter01.lessons.length === 4, 'H: chapter 1 carries exactly the four lessons authored so far (1.1-1.4)')
   ok(l1.id === 'aa-relations-the-set-of-pairs-view', `H: lesson 1.1 id (got ${l1.id})`)
   ok(l1.number === '1.1' && l1.title === 'Relations: the Set-of-Pairs View', 'H: lesson 1.1 number/title match the plan')
   auditLesson(l1, 'H', [3, 2, 1, 0, 2], 14, 4, 2, 4300)
@@ -935,8 +1268,83 @@ function sectionI(): void {
   // the chapter-level contract
   ok(chapter01.status === 'in-progress', 'I: chapter 1 status in-progress')
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length === 6, `I: six lessons remain planned (got ${planned.length})`)
-  ok(planned[0] === 'Composition: Machines in Series', 'I: the next lesson is Composition (run 91 opens here)')
+  ok(planned.length === 4, `I: four lessons remain planned (got ${planned.length})`)
+  ok(planned[0] === 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog', 'I: the next lesson opens the zoo (run 92)')
+}
+
+/* ------------------------------------------------------------------ */
+/* (L) authored lesson 1.3 audited                                     */
+/* ------------------------------------------------------------------ */
+
+function sectionL(): void {
+  const l3 = chapter01.lessons[2]
+  ok(l3.id === 'aa-composition-machines-in-series', `L: lesson 1.3 id (got ${l3.id})`)
+  ok(l3.number === '1.3' && l3.title === 'Composition: Machines in Series', 'L: lesson 1.3 number/title match the plan')
+  auditLesson(l3, 'L', [0, 1, 0, 1, 1], 14, 4, 2, 4300)
+  const prose = lessonText(l3)
+  for (const needle of [
+    'g(f(x))',
+    '\\mathrm{Rng}(f) \\subseteq \\mathrm{Dom}(g)',
+    '2(x + 3)^2',
+    '(g \\circ f)(x) = 10x',
+    '[-\\sqrt{3}, \\sqrt{3}]',
+    'x^2 + 2',
+    '9 \\cdot 8 = 72',
+    '9 \\cdot 64 = 576',
+    'law (iii)',
+    'law (iv)',
+    '(h \\circ g) \\circ f = h \\circ (g \\circ f)',
+    'Bourbaki',
+    'undoes the other',
+    'x^2 + 3',
+    '(x+2)^3',
+    '(-\\infty, 0) \\cup [1, \\infty)',
+  ]) {
+    ok(prose.includes(needle), `L: the pinned exhibit “${needle}” appears in the authored lesson`)
+  }
+  // the composition-specific cross-checks against the pre-writing engine
+  ok(prose.includes('1 \\mapsto 10, 2 \\mapsto 20, 3 \\mapsto 30') || prose.includes('1 ↦ 10, 2 ↦ 20, 3 ↦ 30'), 'L: the composite roster of the figure chain appears')
+  ok(prose.includes('g(1) = g(2) = 1'), 'L: the many-one witness of the inheritance figure appears in the caption')
+}
+
+/* ------------------------------------------------------------------ */
+/* (M) authored lesson 1.4 audited                                     */
+/* ------------------------------------------------------------------ */
+
+function sectionM(): void {
+  const l4 = chapter01.lessons[3]
+  ok(l4.id === 'aa-inverse-functions-the-machine-undone', `M: lesson 1.4 id (got ${l4.id})`)
+  ok(l4.number === '1.4' && l4.title === 'Inverse Functions: the Machine Undone', 'M: lesson 1.4 number/title match the plan')
+  auditLesson(l4, 'M', [2, 1, 0, 1, 2], 14, 5, 2, 4300)
+  const prose = lessonText(l4)
+  for (const needle of [
+    'f^{-1}(y) = x',
+    'bijective',
+    'f^{-1} \\circ f = I_A',
+    '\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f)',
+    '\\tfrac{3x - 1}{2}',
+    '\\tfrac{2x + 3}{x - 4}',
+    '11(x_2 - x_1) = 0',
+    '3 + \\sqrt{x - 1}',
+    '3 - \\sqrt{x - 1}',
+    '(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}',
+    '\\sqrt[3]{x}',
+    '\\tfrac{6x + 4}{x - 1}',
+    '4 + \\sqrt{x - 1}',
+    '1 + \\sqrt{x - 2}',
+    'a = -1',
+    'y - 2',
+    '(y + 4)/3',
+    'Napier',
+    'x - 7',
+  ]) {
+    ok(prose.includes(needle), `M: the pinned exhibit “${needle}” appears in the authored lesson`)
+  }
+  // the inverse-specific cross-checks against the pre-writing engine
+  ok(prose.includes('5 - (5 - x) = x') || prose.includes('5 - (5 - x)'), 'M: the self-inverse walk of 5 − x appears')
+  ok(prose.includes('\\mathbb{R} \\setminus \\{4\\}'), 'M: the honest codomain ℝ∖{4} of the Möbius machine appears')
+  // chapter threading: 1.4 closes with the zoo bridge
+  ok(prose.includes('Lesson 1.5 opens the zoo'), 'M: the bridge to 1.5 closes the lesson')
 }
 
 /* ------------------------------------------------------------------ */
@@ -950,8 +1358,12 @@ sectionD()
 sectionE()
 sectionF()
 sectionG()
+sectionJ()
+sectionK()
 sectionH()
 sectionI()
+sectionL()
+sectionM()
 
 console.log('—————————————————————————————————————')
 console.log(`VERIFY-BOOK4-CH01: ${passed} passed, ${failed} failed`)

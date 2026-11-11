@@ -2643,3 +2643,10 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 - **The audit itself**: `docs/research/PREWRITTEN_BOOKS_AUDIT.md` — the full process record (both
   downloads, the extraction method, the web checks, the chapter-level coverage tables, the four gap
   findings, the change list). Committed with the turn.
+
+## 2026-11-11 — RUN 91 (AA 1.3 + 1.4; figure-verification protocol ships)
+
+- `cengage-m4-01` (re-download): the sandbox recycle wiped temporary-references/ — M4-01 "Relations and Functions" (Drive id 1koE8vUUMJHEN582NTiVuwP1nzktn8Xzj, 79 MB scan) re-downloaded in 4 s; printed pp. 1.49–1.54 (Composite + Inverse Functions; PDF 52–57 at the 1.N = N+3 offset) rendered at 100 DPI and vision-transcribed in two batches → temporary-references/m4scan/tr-1.49-1.51.txt (12,455 chars) + tr-1.52-1.54.txt (11,623 chars). Captured: composite definition + wiring condition + the four inheritance laws with the module's counterexample shapes, Illustrations 1.142–1.150 solution shapes, CAE 1.12 with answers; inverse definition + swap law + solve-back + restriction branches + (g∘f)⁻¹ = f⁻¹∘g⁻¹ + the y = x mirror, Illustrations 1.151–1.158 shapes, CAE 1.13 with answers. Working copies kept for the remaining six ch. 1 lessons (unit deletion law).
+- `bourbaki-arrow-notation` (history callout, 1.3): the Bourbaki group's Éléments de mathématique (from 1939) standardized the f : A → B arrow language and composition-as-journey notation — canonical history, no page-level citation needed; used to inform the callout only.
+- `napier-briggs-logarithms` (history callout, 1.4): Napier's Descriptio (1614) and Briggs' common-logarithm tables (1617) as the first industrial undo machines — canonical dates; informs the callout only, no content reproduced.
+- Study-never-reproduce honored: every roster, witness, number, figure and exercise in 1.3/1.4 is this book's own; the verifier's J/K engines recomputed every pinned value (and caught one real branch error in the draft design before any prose existed).

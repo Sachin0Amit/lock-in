@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-11 13:22:21 (Asia/Kolkata)",
+  "generated": "2026-11-11 19:55:29 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -8747,10 +8747,8 @@
             "title": "Functions as Objects",
             "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.",
             "status": "in-progress",
-            "lessonsWritten": 2,
+            "lessonsWritten": 4,
             "plannedLessons": [
-              "Composition: Machines in Series",
-              "Inverse Functions: the Machine Undone",
               "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
               "Even and Odd Functions and Their Extensions",
               "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
@@ -8900,9 +8898,150 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 0
+              },
+              {
+                "id": "aa-composition-machines-in-series",
+                "number": "1.3",
+                "title": "Composition: Machines in Series",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4420,
+                "readMins": 22,
+                "concepts": [
+                  "composition as wiring machines in series",
+                  "the wiring condition: range inside the next domain",
+                  "the honest domain of a composite",
+                  "non-commutativity and the pairs that commute",
+                  "associativity and the identity machine",
+                  "verdict inheritance through a composite",
+                  "counting composite pairs and distinct composites"
+                ],
+                "objectives": [
+                  "wire two machines in series and compute the composite g∘f both as a formula and as a finite roster",
+                  "apply the wiring condition — the range of f must sit inside the domain of g — and read the honest domain of any composite",
+                  "decide whether two given machines commute, and exhibit the witness that kills commutativity when it fails",
+                  "state and use associativity and the two identity laws for composition",
+                  "apply the four verdict-inheritance laws, including their two converse traps, with finite witnesses",
+                  "count the pairs (f, g) that build composites and the distinct composites they realize"
+                ],
+                "prerequisites": [
+                  "aa-one-one-and-onto-classifying-the-machines",
+                  "al-the-function-idea-the-doorstep"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math12-ch1-relations-functions",
+                  "ncert-math11-ch2-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 9,
+                  "heading": 6,
+                  "callout": 8,
+                  "equation": 3,
+                  "example": 4,
+                  "figure": 2,
+                  "list": 2,
+                  "derivation": 2,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 4
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 2,
+                  "insight": 1,
+                  "theorem": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
+              },
+              {
+                "id": "aa-inverse-functions-the-machine-undone",
+                "number": "1.4",
+                "title": "Inverse Functions: the Machine Undone",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4362,
+                "readMins": 22,
+                "concepts": [
+                  "the undo machine and its two identity laws",
+                  "existence = one-one AND onto (the bijective verdict)",
+                  "the swap law: domain and range trade places",
+                  "finding inverses by solving back",
+                  "the branch discipline: restriction restores invertibility",
+                  "shoes-and-socks: undoing a composite in reverse order",
+                  "self-inverse machines and the y = x mirror"
+                ],
+                "objectives": [
+                  "state the inverse machine through the two identity laws f⁻¹∘f = I_A and f∘f⁻¹ = I_B, and verify candidates against them",
+                  "decide invertibility by the bijective verdict alone, killing many-one and into machines with witnesses",
+                  "read the swap law — Dom(f⁻¹) = Rng(f), Rng(f⁻¹) = Dom(f) — off any invertible machine",
+                  "find inverses of linear, quadratic-branch and Möbius machines by solving back, checking each round trip",
+                  "restore invertibility by restriction, keeping the branch choice honest on both half-lines",
+                  "apply the shoes-and-socks law (g∘f)⁻¹ = f⁻¹∘g⁻¹ and recognize self-inverse machines"
+                ],
+                "prerequisites": [
+                  "aa-composition-machines-in-series",
+                  "aa-one-one-and-onto-classifying-the-machines"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math12-ch1-relations-functions",
+                  "ncert-math11-ch2-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 9,
+                  "heading": 5,
+                  "callout": 6,
+                  "equation": 2,
+                  "example": 6,
+                  "figure": 2,
+                  "list": 1,
+                  "derivation": 1,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 6
               }
             ],
-            "words": 9368
+            "words": 18150
           },
           {
             "number": 2,
@@ -12568,13 +12707,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 236,
-      "totalLines": 107020,
+      "totalLines": 107689,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 76037,
+        "src/data/library (content model + books)": 76706,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -25519,18 +25658,43 @@
       ]
     },
     {
-      "sha": "1566dfefcec781cd459dffabcce52bb3e4abdc72",
-      "short": "1566dfe",
-      "date": "2026-11-11 07:28",
-      "message": "5b01cd80-e510-491e-bb73-f204fe314d31",
-      "filesChanged": 11,
-      "insertions": 1552,
-      "deletions": 176,
+      "sha": "1a0a4ab94195478a04072bab552bbe97beb476a2",
+      "short": "1a0a4ab",
+      "date": "2026-11-11 07:55",
+      "message": "pre-written-books audit turn: the AA research protocol applied to the three complete books (owner directive: 'how you did for advanced algeabra do it for pre written 3 books which are already written do all the process and see it neet more topics or any changes if so do so') — research: H&K Elementary Algebra (572 pp., Drive id 13p83Jss...) + Khattar QA 4e (1049 pp., id 12YnlSYX...) downloaded and pdftotext-extracted directly (digital layers; 786 KB + 2.5 MB dumps kept in temporary-references/), NCERT 6/7/8 school-canon + H&K contents (Google Books) + Aryabhata root-extraction (arXiv math/0608793) + Nine Chapters kaifang (MacTutor) + NCERT-8 ch.6 official PDF web-checked; the audit master record docs/research/PREWRITTEN_BOOKS_AUDIT.md; verdicts: FM HEALTHY (no changes), ANS one gap CLOSED THIS TURN, AL three gaps QUEUED; shipped ANS lesson 8.5 'Square and Cube Roots: the Extraction Crafts' (ans-square-and-cube-root-crafts, the 36th lesson — the gnomon census Sigma(2k-1) = n^2 proved by telescope, the 2n between-squares law, the triplet generator (m^2-n^2, 2mn, m^2+n^2) proved, the factor method as the 8.2 parity criterion cashed, the long-division method DERIVED from (10a+b)^2 = 100a^2 + (20a+b)b with the sqrt(2)/sqrt(3)/sqrt(7)/sqrt(5.29)/sqrt(55225) walks every product and remainder pinned, the pairing law sqrt(100x) = 10 sqrt(x), decimal/fraction roots, the cube digit-map injectivity + three-digit strip bracket proved, estimation brackets with computed errors, the Aryabhata 499 CE + Nine Chapters historical callout, 6 terms, 3 formula cards, 18 exercises L1-L6, quiz [1,2,3,1,2]); AL book flipped to in-progress with the gap queue registered as plannedLessons (4.5 'HCF and LCM of Expressions' — H&K XII/XIX + Khattar 26; 6.4 'One Linear, One Quadratic' — H&K XXVI; new chapter 12 'Ratio, Proportion and Variation' with 3 lessons — H&K XXXII + Khattar 7, the componendo family + variation as the algebra of k + continued proportion/mean proportionals); QA ch.2 plan gains 'Price, Consumption, Population and the Inverse Percentage Family'; DRIVE_TOC_SURVEY.md repaired — the H&K contents transcription had missed chapters I-XXI (first contents page misjudged 'not contents'), recovered + chapter-to-shelf map appended; three stale gates refreshed to current reality (verify-book2-promotion 125/125, verify-book3-promotion 94/94, verify-math-shelf-planning 1240/1240 — all three had been failing at HEAD since run 90, stash-verified before touching); gates for 8.5: verify-book2-ch08.ts sections V (447 pre-writing pins: every walk product/remainder/maximality, a generic division-method simulator cross-checked against BigInt isqrt on 8 radicands, cube laws swept) + W (authored audits) = 544/544, tsc clean, eslint 0 errors, e2e-ans-85.sh x desktop 1280 + mobile 390 + dark (quiz 5/5 live, KaTeX 391 nodes 0 errors, 21 Sol. pills, 0 console errors, no overflow), audit-svg-overlaps 0 issues (one decimal-point overlap caught and merged), VLM hero 9/10 + both figures PASS after two clipping catches fixed (gnomon caption split to two lines; panel bottom line split, viewBox 392 -> 414), verify_topic_coverage 576/576; new SOURCE_LOG keys: ncert-class8-squares-cube-roots, aryabhatiya-root-extraction, jiuzhang-kaifang; ANS re-completes at 36 lessons / 189,880 words; shelf 2 complete + 2 in-progress (AL 37 written + 5 queued, AA 2/8 ch.1) + 24 planned, 123 written / 598,392 words; RESUME_POINTER carries the interleave — after AA ch.1 completes, the AL gap queue runs (4.5 -> 6.4 -> 12.1 -> 12.2 -> 12.3) before AA ch.2 opens; docs synced (WORKLOG, PROGRESS, RESUME_POINTER, SOURCE_LOG, DETAILED_LOG, WORK_INVENTORY regenerated); the gateway's mid-turn snapshot commit folded into this one clean commit (its stray 2.4 MB screenshot binary dropped)",
+      "filesChanged": 19,
+      "insertions": 1961,
+      "deletions": 247,
       "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
         {
           "path": "docs/project/SOURCE_LOG.md",
           "add": 48,
           "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 301,
+          "del": 27
         },
         {
           "path": "docs/research/DRIVE_TOC_SURVEY.md",
@@ -25543,19 +25707,34 @@
           "del": 0
         },
         {
-          "path": "full",
-          "add": 0,
-          "del": 0
-        },
-        {
           "path": "scripts/verify-book2-ch08.ts",
           "add": 413,
           "del": 4
         },
         {
-          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
-          "add": 605,
+          "path": "scripts/verify-book2-promotion.ts",
+          "add": 18,
+          "del": 18
+        },
+        {
+          "path": "scripts/verify-book3-promotion.ts",
+          "add": 19,
+          "del": 14
+        },
+        {
+          "path": "scripts/verify-math-shelf-planning.ts",
+          "add": 10,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/book.ts",
+          "add": 9,
           "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 621,
+          "del": 2
         },
         {
           "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
@@ -25583,6 +25762,152 @@
           "del": 0
         }
       ]
+    },
+    {
+      "sha": "0607e178c050083dbdaba8b021065b8b84fbff1d",
+      "short": "0607e17",
+      "date": "2026-11-11 10:13",
+      "message": "b4e31138-7669-49f9-97d9-4cff60dbc0e1",
+      "filesChanged": 27,
+      "insertions": 268,
+      "deletions": 263,
+      "files": [
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "scripts/verify-book2-ch09.ts",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch01.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book3-ch02.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch03.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch05.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch07.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch09.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch10.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "scripts/verify-book3-ch11.ts",
+          "add": 7,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 31,
+          "del": 31
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 62,
+          "del": 62
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 8,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 31,
+          "del": 45
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 7,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-01.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-02.ts",
+          "add": 10,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-03.ts",
+          "add": 4,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-05.ts",
+          "add": 5,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-07.ts",
+          "add": 6,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-09.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-10.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-11.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 12,
+          "del": 12
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 47,
+          "del": 47
+        }
+      ]
     }
   ],
   "totals": {
@@ -25591,25 +25916,25 @@
     "booksLive": 28,
     "chaptersWritten": 32,
     "chaptersInProgress": 1,
-    "lessonsWritten": 123,
-    "wordsAuthored": 598392,
-    "termsDefined": 915,
-    "quizItems": 615,
-    "exerciseQuestions": 1587,
+    "lessonsWritten": 125,
+    "wordsAuthored": 607174,
+    "termsDefined": 927,
+    "quizItems": 625,
+    "exerciseQuestions": 1615,
     "blockTotals": {
-      "para": 1757,
-      "callout": 686,
-      "heading": 674,
-      "list": 141,
-      "terms": 122,
-      "equation": 187,
-      "figure": 217,
-      "derivation": 230,
+      "para": 1775,
+      "callout": 700,
+      "heading": 685,
+      "list": 144,
+      "terms": 124,
+      "equation": 192,
+      "figure": 221,
+      "derivation": 233,
       "table": 151,
-      "example": 533,
-      "quiz": 123,
-      "exercises": 123,
-      "formula": 359,
+      "example": 543,
+      "quiz": 125,
+      "exercises": 125,
+      "formula": 369,
       "algorithm": 27
     }
   }
