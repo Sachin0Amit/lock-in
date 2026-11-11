@@ -479,3 +479,103 @@ mark.hl-flash {
   background: oklch(0.3 0.08 25 / 0.4);
 }
 
+/* ------------------------------------------------------------------ */
+/* FX-02 "Graph it" (owner-approved 2026-11-11) — plot affordance on   */
+/* display equations + the inline grapher. The grapher keeps the       */
+/* figure-block paper aesthetic (fixed light palette) so the canvas    */
+/* ink stays legible in dark mode, exactly like book figures.         */
+/* ------------------------------------------------------------------ */
+
+.math-display-wrap {
+  position: relative;
+}
+
+.graphit-btn {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--muted-foreground);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.12s ease, transform 0.12s ease, border-color 0.12s ease,
+    color 0.12s ease;
+}
+.graphit-btn:hover,
+.graphit-btn:focus-visible {
+  opacity: 1;
+  transform: translateY(-1px);
+  border-color: var(--ring);
+  color: var(--foreground);
+}
+.graphit-btn[aria-expanded='true'] {
+  opacity: 1;
+  border-color: var(--book-green);
+  color: var(--book-green-ink);
+}
+
+.graphit-panel {
+  margin: 0.6rem 0 0.4rem;
+  border: 1px solid #d6d3d1;
+  background: #fffdf5;
+  color: #1c1917;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px oklch(0 0 0 / 0.08);
+  padding: 10px 12px 12px;
+}
+.dark .graphit-panel {
+  border-color: #78716c;
+}
+.graphit-panel canvas {
+  display: block;
+  width: 100%;
+  height: 280px;
+  margin-top: 8px;
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+}
+.graphit-panel canvas:active {
+  cursor: grabbing;
+}
+.graphit-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 9999px;
+  border: 1px solid #d6d3d1;
+  background: #ffffff;
+  padding: 1px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #57534e;
+}
+.graphit-ctl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid #d6d3d1;
+  background: #ffffff;
+  color: #57534e;
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+.graphit-ctl:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+.graphit-slider {
+  accent-color: #0f766e;
+}
+

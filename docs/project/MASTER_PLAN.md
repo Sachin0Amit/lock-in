@@ -100,6 +100,47 @@ anchored to an existing subsystem and duplicate-checked programmatically
 and ST-02 done, 68 proposals now await the owner's add/skip IDs.
 **Zero lesson authoring — run 90 still opens AA 1.1 + 1.2.**
 
+**Owner directive (2026-11-11, FX-02 approval — later still):** "fx 02
+implement" — the first batch-2 item approved, **FX-02 "Graph it" DONE**.
+Every rendered display equation (`<Math display>` — equation blocks,
+"Remember —" formula cards, derivation steps, glossary formula sheets)
+now carries a small plot icon when — and only when — the equation
+honestly parses as a graphable relation; clicking it opens an inline
+canvas grapher with a slider for each free constant. New
+`src/components/library/latex-plot.ts` (pure parser, no React): four
+modes — function (`y = …`, `f(x) = …` heads), line (any two-variable
+relation linear in y, so the shelf's `ax + by = c` forms graph without
+the book solving for y), identity (both sides drawn as two curves that
+visually coincide when the identity holds — the monomial-quotient
+FormulaBlock becomes an overlapping-lines proof), vertical (solved
+forms `x = (c-b)/a`); `\qquad`/`\quad` side-remarks and one trailing
+`(x \neq 0)`-style clause are dropped before parsing; Latin + Greek
+letters (π excepted) become slider constants (default 1, ±5 range);
+the refusal list is enforced at tokenizer/parser level — `\text`,
+`\iff`/`\implies` chains, subscripts, `\frac{dy}{dx}` differentials,
+matrices, inequalities, `P(x)`/`Q(x)`/`d(x)` named-function heads and
+>8 constants all yield null → no icon, never a wrong plot.
+`src/components/library/graph-it.tsx`: canvas grapher on the
+figure-block paper palette (fixed light card, dark-mode-proof), DPR +
+ResizeObserver crisp, nice-step grid/axes/ticks, percentile auto-fit
+y-window at mount/reset, curve sampling with asymptote breaks, drag-pan,
+zoom buttons, reset, Escape/X close; LHS/RHS legend chips in identity
+mode. Census gate (`scripts/verify-graphit-census.ts`): 1,326 display
+latex strings scanned shelf-wide → 37 plottable (3 function / 8 line /
+23 identity / 3 vertical; 30 with sliders), every mathematically wrong
+parse caught by 50+ unit asserts incl. a 17-entry refusal list. Browser
+gate (`scripts/e2e-graph-it.sh` + one-shot
+`scripts/run-graphit-verify.sh`, which also asserts the SERVED CSS
+carries the graphit rules after the palette-undo stale-chunk incident):
+icon counts match the census per lesson (parabola 11 wraps/2 icons,
+two-variables 12/3, rational 10/1 — the `R(x) = P(x)/Q(x)` equation
+correctly carries none), panel + canvas + slider redraw (ink 14365 →
+13700 on slider input, exactly 14365 again after reset), Escape and X
+close, LHS|RHS chips, 0 console errors; full covers + highlights +
+palette-undo regression e2e still green; VLM checks of the open grapher
+in light, dark and identity modes PASS. **Zero lesson authoring — run 90
+still opens AA 1.1 + 1.2; 67 of 70 proposals await add/skip.**
+
 **Owner directive (2026-11-11, TOC-as-lessons pass):**
 "make sure those TOC are written as lessons and make a guide when a
 scheduled task is on it should [state] what should be included if that

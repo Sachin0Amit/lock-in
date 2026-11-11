@@ -8,6 +8,7 @@
  */
 import katex from 'katex'
 import { useMemo } from 'react'
+import { GraphIt } from './graph-it'
 
 export function Math({ tex, display = false }: { tex: string; display?: boolean }) {
   const html = useMemo(
@@ -22,7 +23,11 @@ export function Math({ tex, display = false }: { tex: string; display?: boolean 
     [tex, display],
   )
   return display ? (
-    <div className="math-display" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="math-display-wrap">
+      <div className="math-display" dangerouslySetInnerHTML={{ __html: html }} />
+      {/* FX-02 "Graph it": mounts only when the equation honestly plots */}
+      <GraphIt tex={tex} />
+    </div>
   ) : (
     <span className="math-inline" dangerouslySetInnerHTML={{ __html: html }} />
   )

@@ -431,3 +431,10 @@ server.log
 # the rules (guards against the stale-CSS-watcher incident), runs the e2e,
 # captures both palette states (owner follow-up directive, 2026-11-11)
 !/scripts/run-undo-verify.sh
+# FX-02 "Graph it" gates: offline parser unit asserts + shelf-wide plottable
+# census, browser e2e across the three mode-target lessons, and the one-shot
+# verify (server + served-CSS assert + regression covers/highlights) —
+# owner-approved feature turn, 2026-11-11
+!/scripts/verify-graphit-census.ts
+!/scripts/e2e-graph-it.sh
+!/scripts/run-graphit-verify.sh
