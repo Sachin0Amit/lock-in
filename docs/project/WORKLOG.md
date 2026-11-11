@@ -1,3 +1,16 @@
+## 2026-11-11 — MANUAL SYNC TURN: **PAT wired — all 12 unpushed commits pushed & remote verified; authoring cron job refreshed to v5b (id 523435)** (owner directive: "add this pat to schedules task so it push the changes and commits nicley") — zero lesson authoring this turn
+
+**What this turn did:**
+- The owner supplied the fine-grained PAT (repo-scoped, contents:write) in chat; **validated live** via `git ls-remote` over the one-time HTTPS URL form — remote HEAD resolved `f3f834c` (12 commits behind local).
+- **Pushed ALL 12 unpushed local commits** `f3f834c..a3ff3e8` (topic-inclusion gate + book #28 QA, internet-research gap pass, 28 AI covers, CV-01 cover wiring + multi-colour highlighter, palette-undo, batch-2 70-item feature list, FX-02 graph-it, run 90 AA 1.1+1.2 + master plan, v5 job amendment) — push accepted `f3f834c..a3ff3e8 HEAD -> main`, then **verified by ls-remote: remote HEAD == local HEAD == a3ff3e8**. The entire feature + content backlog that had stacked up "push pending" is now on GitHub.
+- **Authoring cron job refreshed 523401 → 523435 (v5b):** identical cadence (3 fires/day 02:50 / 10:50 / 18:50 IST; next fire 18:50 IST today) and identical research→plan→audit→write + two-lessons-per-run protocol; the PAT is re-embedded and now flagged **"VALIDATED LIVE on 2026-11-11 (12-commit push verified by ls-remote)"**, and the CURRENT STATE snapshot was refreshed so the next fire knows remote is already synced and starts straight into run 91 (1.3 + 1.4) instead of re-pushing. The disabled visual-upgrade job 509356 stays untouched (it never pushes by design — the authoring job pushes all unpushed commits on main each fire).
+- **PAT security protocol honored:** the token lived only inside one-time HTTPS URLs of single git commands (never a remote URL, git config, file, script or log; origin stays the SSH remote; no verbose git flags; outputs scrubbed).
+
+**Standing state (unchanged):** book #4 AA ch. 1 'Functions as Objects' 2/8 lessons written (1.1 + 1.2); RESUME_POINTER nextAction — run 91: lessons 1.3 'Composition: Machines in Series' + 1.4 'Inverse Functions: the Machine Undone' (verify-book4-ch01.ts sections J/K first; module ground pp. 1.49–1.54; M4-01 PDF + transcriptions still in temporary-references/).
+
+**Git:** this sync entry itself then committed and pushed via the same one-time-URL protocol, with the remote re-verified equal to the final local HEAD after the push.
+
+
 ## 2026-11-11 — RUN 90: **ADVANCED ALGEBRA OPENS — chapter 1 "Functions as Objects", lessons 1.1 + 1.2 written, fully gated** (owner directive: "start authoring the lessons… download the drive books… use Vision model, scan the pages… internet research… create a master plan… everything is audited… create one schedule task, job, and proceed")
 
 **The research protocol this run executed (the owner's directive, end to end):**
