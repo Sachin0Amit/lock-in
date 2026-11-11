@@ -1645,15 +1645,15 @@ console.log(`\nverify-book3-ch07 pre-write battery (sections A-E + H-I): ${passe
     // the book snapshot, recomputed
     {
       const lessons = book.chapters.flatMap((c) => c.lessons)
-      ok(lessons.length === 24, 'K: the book stands at 24 lessons (got ' + lessons.length + ')')
+      ok(lessons.length === 37, 'K: the book stands at 37 lessons (got ' + lessons.length + ')')
       const under = lessons.map((l) => countLessonWords(l)).filter((w) => w < 4000).length
       ok(under === 0, 'K: every lesson of the book carries >= 4,000 honest words (under: ' + under + ')')
       const completeChapters = book.chapters.filter((c) => c.status === 'complete').length
-      ok(completeChapters === 7, 'K: 7 of 11 chapters complete (got ' + completeChapters + ')')
+      ok(completeChapters === 11, 'K: 11 of 12 chapters complete, ch. 12 planned (got ' + completeChapters + ')')
       const ch7Words = chapter07.lessons.reduce((n, l) => n + countLessonWords(l), 0)
       const bookWords = lessons.reduce((n, l) => n + countLessonWords(l), 0)
       ok(ch7Words >= 14000, 'K: chapter 7 totals ' + ch7Words + ' words across three lessons')
-      console.log('[K] book snapshot: 24 lessons, ' + bookWords + ' words, 7/11 chapters complete; ch. 7 = ' + ch7Words + ' words (7.1 5,061 + 7.2 4,744 + 7.3 recomputed above)')
+      console.log('[K] book snapshot: 37 lessons, ' + bookWords + ' words, 11/12 chapters complete; ch. 7 = ' + ch7Words + ' words (7.1 5,061 + 7.2 4,744 + 7.3 recomputed above)')
     }
   }
   console.log('[K] the unit-7 completion review: checklist 7/7 + exam corners 3/3 + the book snapshot — ALL GREEN')

@@ -1,0 +1,899 @@
+{
+  "updated": "2026-11-11",
+  "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
+  "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
+  "cursor": 0,
+  "stats": {
+    "lessonsWithFigures": 125,
+    "figureTotal": 221,
+    "done": 5,
+    "pending": 120
+  },
+  "items": [
+    {
+      "lessonId": "fm-numbers-digits-place-value",
+      "bookId": "foundation-mathematics",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-comparing-ordering-numbers",
+      "bookId": "foundation-mathematics",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-rounding-and-estimating",
+      "bookId": "foundation-mathematics",
+      "chapter": 1,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-addition-carrying",
+      "bookId": "foundation-mathematics",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-subtraction-borrowing",
+      "bookId": "foundation-mathematics",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-multiplication-repeated-addition",
+      "bookId": "foundation-mathematics",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-division-remainders-zero",
+      "bookId": "foundation-mathematics",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-order-of-operations",
+      "bookId": "foundation-mathematics",
+      "chapter": 2,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-divisibility-and-its-tests",
+      "bookId": "foundation-mathematics",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-prime-numbers-factorisation",
+      "bookId": "foundation-mathematics",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-highest-common-factor",
+      "bookId": "foundation-mathematics",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-lowest-common-multiple",
+      "bookId": "foundation-mathematics",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-hcf-lcm-and-how-they-relate",
+      "bookId": "foundation-mathematics",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-idea-of-a-fraction",
+      "bookId": "foundation-mathematics",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-equivalent-fractions-simplification",
+      "bookId": "foundation-mathematics",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-comparing-fractions",
+      "bookId": "foundation-mathematics",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-adding-subtracting-fractions",
+      "bookId": "foundation-mathematics",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-multiplying-dividing-fractions",
+      "bookId": "foundation-mathematics",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-decimal-places-and-the-point",
+      "bookId": "foundation-mathematics",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-decimals-and-fractions-two-ways",
+      "bookId": "foundation-mathematics",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-operating-on-decimals",
+      "bookId": "foundation-mathematics",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-percent-and-its-meaning",
+      "bookId": "foundation-mathematics",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-percentage-change-discounts-simple-interest",
+      "bookId": "foundation-mathematics",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-ratio-as-a-comparison",
+      "bookId": "foundation-mathematics",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-rates-and-unit-rates",
+      "bookId": "foundation-mathematics",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-proportion-and-cross-multiplication",
+      "bookId": "foundation-mathematics",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-direct-and-inverse-variation",
+      "bookId": "foundation-mathematics",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-scaling-maps-models-and-recipes",
+      "bookId": "foundation-mathematics",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-negative-numbers-why-they-exist",
+      "bookId": "foundation-mathematics",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-adding-subtracting-integers",
+      "bookId": "foundation-mathematics",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-multiplying-integers-sign-rules",
+      "bookId": "foundation-mathematics",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-absolute-value-as-distance",
+      "bookId": "foundation-mathematics",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-points-lines-and-planes",
+      "bookId": "foundation-mathematics",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-angles-and-their-measurement",
+      "bookId": "foundation-mathematics",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-parallel-lines-and-transversals",
+      "bookId": "foundation-mathematics",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-triangles-and-the-angle-sum",
+      "bookId": "foundation-mathematics",
+      "chapter": 8,
+      "figures": 3,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-perimeter-and-area-rectangles-triangles-circles",
+      "bookId": "foundation-mathematics",
+      "chapter": 8,
+      "figures": 3,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-units-as-agreements",
+      "bookId": "foundation-mathematics",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-the-metric-system",
+      "bookId": "foundation-mathematics",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-converting-units-without-memorising-tables",
+      "bookId": "foundation-mathematics",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-precision-accuracy-and-rounding-in-measurement",
+      "bookId": "foundation-mathematics",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-collecting-and-tallying-data",
+      "bookId": "foundation-mathematics",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-bar-charts-line-graphs-and-pie-charts",
+      "bookId": "foundation-mathematics",
+      "chapter": 10,
+      "figures": 3,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-reading-graphs-critically",
+      "bookId": "foundation-mathematics",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-mean-median-and-mode",
+      "bookId": "foundation-mathematics",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-patterns-and-rules",
+      "bookId": "foundation-mathematics",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-patterns-to-formulas",
+      "bookId": "foundation-mathematics",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "fm-letter-for-the-unknown",
+      "bookId": "foundation-mathematics",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-architecture-of-counting-successors-order",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 1,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-induction-proving-for-every-number",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 1,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-least-number-principle-recursion",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-division-with-rest-the-division-algorithm",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 2,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-algebra-of-divisibility",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 2,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-euclidean-algorithm-proven-bezout-identity",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 2,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-linear-diophantine-equations",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 2,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-representation-theorem-unique-name",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-converting-between-bases",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-arithmetic-in-other-bases",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-binary-hex-machine",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 3,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-primes-never-end-euclid-and-the-sieve",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 4,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-fundamental-theorem-of-arithmetic",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 4,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-divisors-from-dna-divisor-counts",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 4,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-how-the-primes-are-distributed",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 4,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-remainders-become-numbers-congruence-defined",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-why-the-divisibility-tests-work",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 5,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-unit-digit-cycles-of-powers",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 5,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-linear-congruences-glimpse-of-fermat",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 5,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-closure-failures-that-force-extension",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 6,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-constructing-the-integers-from-the-naturals",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 6,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-laws-of-integer-arithmetic",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 6,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-from-fractions-to-the-rational-system",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 7,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-field-laws-division-joins-the-family",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 7,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-density-and-the-decimal-mirror-proven",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-diagonal-that-broke-the-rationals",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-family-of-irrationals",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-how-irrationals-behave",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 8,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-completeness-the-line-without-holes",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 8,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-square-and-cube-root-crafts",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 8,
+      "figures": 2,
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "VLM strict PASS (audit turn: gnomon + division panel, 2 clipping catches fixed)"
+    },
+    {
+      "lessonId": "ans-tallies-groupings-and-additive-systems",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-place-value-before-its-time-babylon-and-mesoamerica",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-indian-decimal-revolution-and-zero",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-great-extension-story",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 10,
+      "figures": 1,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-numbers-that-guard-data-checksums-and-casting-out-nines",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "ans-the-toolkit-synthesis",
+      "bookId": "arithmetic-and-number-systems",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-from-arithmetic-to-algebra",
+      "bookId": "elementary-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-expressions-terms-like-terms",
+      "bookId": "elementary-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-evaluating-expressions-substitution-and-formulas",
+      "bookId": "elementary-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-translating-words-into-symbols",
+      "bookId": "elementary-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-powers-and-the-laws-of-exponents",
+      "bookId": "elementary-algebra",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-zero-and-negative-exponents-another-repair",
+      "bookId": "elementary-algebra",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-scientific-notation-and-orders-of-magnitude",
+      "bookId": "elementary-algebra",
+      "chapter": 2,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-what-a-polynomial-is-terms-degree-and-family",
+      "bookId": "elementary-algebra",
+      "chapter": 3,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-adding-subtracting-and-multiplying-polynomials",
+      "bookId": "elementary-algebra",
+      "chapter": 3,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-special-products-the-identities-proved",
+      "bookId": "elementary-algebra",
+      "chapter": 3,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-dividing-polynomials-long-division-and-the-remainder-theorem",
+      "bookId": "elementary-algebra",
+      "chapter": 3,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-common-factors-and-grouping",
+      "bookId": "elementary-algebra",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-factoring-quadratic-trinomials",
+      "bookId": "elementary-algebra",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-identities-as-factorizations",
+      "bookId": "elementary-algebra",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-factor-theorem-and-cubics",
+      "bookId": "elementary-algebra",
+      "chapter": 4,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-what-an-equation-is-the-balance-principle",
+      "bookId": "elementary-algebra",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-solving-linear-equations",
+      "bookId": "elementary-algebra",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-the-three-verdicts-one-none-infinitely-many",
+      "bookId": "elementary-algebra",
+      "chapter": 5,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-equations-in-two-variables",
+      "bookId": "elementary-algebra",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-substitution-and-elimination",
+      "bookId": "elementary-algebra",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-consistency-the-geometry-of-two-lines",
+      "bookId": "elementary-algebra",
+      "chapter": 6,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-order-and-the-solution-set",
+      "bookId": "elementary-algebra",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-solving-linear-inequalities",
+      "bookId": "elementary-algebra",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-compound-inequalities-and-applications",
+      "bookId": "elementary-algebra",
+      "chapter": 7,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-rational-expressions-simplify-first",
+      "bookId": "elementary-algebra",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-operating-on-algebraic-fractions",
+      "bookId": "elementary-algebra",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-fractional-equations-and-extraneous-roots",
+      "bookId": "elementary-algebra",
+      "chapter": 8,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-quadratics-and-factoring-solutions",
+      "bookId": "elementary-algebra",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-completing-the-square-derived",
+      "bookId": "elementary-algebra",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-the-quadratic-formula-and-the-discriminant",
+      "bookId": "elementary-algebra",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-roots-and-coefficients-viete-relations",
+      "bookId": "elementary-algebra",
+      "chapter": 9,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-the-coordinate-plane-and-linear-graphs",
+      "bookId": "elementary-algebra",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-slope-the-steepness-theorem",
+      "bookId": "elementary-algebra",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-the-parabola-quadratic-graphs-and-vertices",
+      "bookId": "elementary-algebra",
+      "chapter": 10,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-word-problems-the-toolkit-at-work",
+      "bookId": "elementary-algebra",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-competition-algebra-identities-and-substitutions",
+      "bookId": "elementary-algebra",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "al-the-function-idea-the-doorstep",
+      "bookId": "elementary-algebra",
+      "chapter": 11,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "aa-relations-the-set-of-pairs-view",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "VLM strict PASS (run 90: arrow diagram + mod-5 classes)"
+    },
+    {
+      "lessonId": "aa-one-one-and-onto-classifying-the-machines",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "VLM strict PASS (run 90: probe twins + pigeonhole panel)"
+    },
+    {
+      "lessonId": "aa-composition-machines-in-series",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "VLM strict PASS (run 91, 4 passes: conveyor + inheritance wirings)"
+    },
+    {
+      "lessonId": "aa-inverse-functions-the-machine-undone",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "done",
+      "lastAudited": "2026-11-11",
+      "note": "VLM strict PASS (run 91: three-panel verdict rebuilt honestly + mirror)"
+    }
+  ]
+}

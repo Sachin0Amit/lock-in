@@ -1757,9 +1757,9 @@ const plan53Fig2 = {
     ok(!!alBook, 'K snapshot: the elementary-algebra book is registered')
     if (alBook) {
       const bookLessons = alBook.chapters.flatMap((c) => c.lessons)
-      ok(bookLessons.length === 18, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3)')
+      ok(bookLessons.length === 37, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (refreshed 2026-11-11: ch1–11 complete, ch12 planned)')
       const bookWords = alBook.chapters.flatMap((c) => c.lessons).reduce((a, l) => a + countLessonWords(l), 0)
-      ok(bookWords >= 78000, 'K snapshot: the book totals ' + bookWords + ' words across 18 lessons (floor 78,000 — recomputed live)')
+      ok(bookWords >= 78000, 'K snapshot: the book totals ' + bookWords + ' words across 37 lessons (floor 78,000 — recomputed live)')
       const alIds = bookLessons.map((l) => l.id)
       ok(alIds.every((i) => i.startsWith('al-')), 'K snapshot: every book-3 lesson id carries the al- prefix')
     }

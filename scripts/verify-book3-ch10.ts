@@ -1232,16 +1232,16 @@ function sectionF(): void {
   const alg = allBooks.find((b: any) => b.id === 'elementary-algebra')
   ok(!!alg, 'F the elementary-algebra book is registered')
   ok(alg!.chapters.some((c: any) => c.number === 10 && c.lessons.length === 3), 'F book.ts carries chapter 10 with 3 lessons')
-  // the planned stub for ch. 11 still exists — NEVER opened this run
+  // chapter 11 (refreshed 2026-11-11 — authored by runs 87–88 after this run-86 battery was written)
   const ch11 = alg!.chapters.find((c: any) => c.number === 11)
-  ok(!!ch11 && (ch11.plannedLessons || []).length === 3 && ch11.lessons.length === 0 && ch11.status === 'planned', 'F chapter 11 remains planned with its 3 titles — never opened in run 86')
+  ok(!!ch11 && (ch11.plannedLessons || []).length === 0 && ch11.lessons.length === 3 && ch11.status === 'complete', 'F chapter 11 complete with its 3 lessons (refreshed 2026-11-11)')
   // the closing state: chapter complete, no planned lessons
   ok(chapter10.status === 'complete', 'F chapter 10 status flipped to complete')
   ok(!chapter10.plannedLessons || chapter10.plannedLessons.length === 0, 'F no planned lessons remain in chapter 10')
   // cross-lesson arcs: the promised mentions across the closed chapter
   ok(ch10File.includes('5.3') && ch10File.includes('6.2') && ch10File.includes('6.3') && ch10File.includes('9.3'), 'F the promised cross-references (5.3, 6.2, 6.3, 9.3) appear in the chapter')
   ok(ch10File.includes('9.2') && ch10File.includes('9.4'), 'F the closing arcs add 9.2 (the fold) and 9.4 (Viète) by name')
-  console.log('  F the chapter-close + library battery: 3 lessons, status complete, ch. 11 untouched — priced')
+  console.log('  F the chapter-close + library battery: 3 lessons, status complete, ch. 11 complete (refreshed 2026-11-11) — priced')
 }
 
 /* ------------------------------------------------------------------ */
@@ -1493,10 +1493,10 @@ function sectionI(): void {
       if (w < minWords) minWords = w
     }
   }
-  ok(bookLessons === 34, 'I-9: the book stands at 34 lessons (got ' + bookLessons + ')')
+  ok(bookLessons === 37, 'I-9: the book stands at 37 lessons (got ' + bookLessons + ')')
   ok(bookWords > 155500, 'I-9: the book crosses 155,500 words (' + bookWords + ')')
   ok(minWords >= 4000, 'I-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
-  ok(completeChapters === 10 && totalChapters === 11, 'I-9: 10 of 11 chapters complete (got ' + completeChapters + '/' + totalChapters + ')')
+  ok(completeChapters === 11 && totalChapters === 12, 'I-9: 11 of 12 chapters complete, ch. 12 planned (got ' + completeChapters + '/' + totalChapters + ')')
   let libraryLessons = 0
   let libraryWords = 0
   for (const b of allBooks) {
@@ -1507,7 +1507,7 @@ function sectionI(): void {
       }
     }
   }
-  ok(libraryLessons === 117, 'I-9: the library stands at 117 lessons (got ' + libraryLessons + ')')
+  ok(libraryLessons === 125, 'I-9: the library stands at 125 lessons (got ' + libraryLessons + ')')
   console.log('  I-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
 
   // 10 — the id registry, one final time across the whole library

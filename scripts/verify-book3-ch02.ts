@@ -1182,8 +1182,8 @@ function fracPow(x: bigint, k: number): Frac {
   // the book wiring at close
   ok(elementaryAlgebra.chapters[1] === chapter02, 'R: book.ts chapters[1] IS chapter02')
   ok(elementaryAlgebra.chapters[1].status === 'complete', 'R: book.ts reflects chapter 2 complete')
-  ok(elementaryAlgebra.chapters[2].status === 'planned', 'R: chapter 3 never opened this run (still planned)')
-  ok(elementaryAlgebra.status === 'in-progress', 'R: the BOOK stays in-progress (9 chapters remain)')
+  ok(elementaryAlgebra.chapters[2].status === 'complete', 'R: chapter 3 complete (refreshed 2026-11-11 — authored after this run-68 battery was written)')
+  ok(elementaryAlgebra.status === 'in-progress', 'R: the BOOK stays in-progress (reopened 2026-11-11 by the pre-written-books audit: ch. 12 planned)')
 }
 
 /* ------------------------------------------------------------------ */

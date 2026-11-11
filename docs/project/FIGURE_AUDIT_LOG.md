@@ -24,3 +24,9 @@
 
 - 2026-11-11 | ans-square-and-cube-root-crafts | gnomon + division panel | VLM strict | PASS | after two clipping catches fixed (gnomon caption split to two lines; panel bottom line split, viewBox 392 → 414) — the audit-turn record.
 - 2026-11-11 | aa-relations + aa-one-one-and-onto | all four figures | VLM strict | PASS | run-90 record (arrow diagram, mod-5 classes, probe twins, pigeonhole panel).
+
+## 2026-11-11 — the dedicated figure-audit job stands up (owner-directed turn)
+
+- 2026-11-11 | — (queue build) | — | INFO | FIGURE_AUDIT_QUEUE.json built by `scripts/build_figure_audit_queue.ts`: 125 lessons / 221 figures (FM 48/92, ANS 36/47, AL 37/74, AA 4/8), pre-written books first per the owner directive, 5 lessons seeded done from the records above, cursor 0; rebuilds are progress-preserving (statuses never wiped).
+- 2026-11-11 | — (reconciliation) | — | INFO | the gateway snapshot commit dcad9d7 carries the audit turn's DOM-level figure label fixes across FM/ANS/AL (e.g. the AL 1.2 anchor-scale tick shortened y2 128→112) plus escaped-unicode rewrites — those lessons remain PENDING in the queue and get their strict VLM pass in sweep order; nothing is pre-cleared by a DOM-only fix.
+- 2026-11-11 | — (suite health) | — | INFO | the verifier suite refreshed to current reality by the same turn: verify-book3 ch01/ch02/ch05/ch07/ch09/ch10/ch11 ALL GREEN (one dcad9d7 regression — the ch-01 library census check — restored; six stale run-era snapshots refreshed to the post-audit state: AL 37 lessons, 11-of-12 chapters with ch. 12 planned, library 125).

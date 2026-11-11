@@ -15,7 +15,7 @@
 
 | Class | Where it lives | Count (2026-11-11) |
 |---|---|---|
-| Inline SVG diagrams (`kind: 'figure'` blocks, `svg:` string) | `src/data/library/books/**/ch-*.ts` | **217** |
+| Inline SVG diagrams (`kind: 'figure'` blocks, `svg:` string) | `src/data/library/books/**/ch-*.ts` | **221** (live queue 2026-11-11: FM 92 + ANS 47 + AL 74 + AA 8) |
 | AI-generated book-cover art (raster `.webp`) | `public/covers/*.webp` | **28** |
 | FX-02 "graph it" canvases (runtime-rendered from display equations) | `src/components/library/*graph*` | audited indirectly (e2e renders + no-error gate) |
 | KaTeX typeset math | inline | **not** a figure (audited by KaTeX-error gates) |
@@ -107,8 +107,11 @@ Full-library strict audit proceeds as a rotating sweep so the whole shelf is
 covered without a dedicated mega-run:
 - Maintain `docs/project/FIGURE_AUDIT_QUEUE.json`:
   `{ "updated": "…", "cursor": n, "items": [ { "lessonId", "bookId", "figures": k, "status": "pending|done" } ] }`
-  built by walking `kind: 'figure'` blocks per lesson (a ~40-line script; build
-  it in the first sweep fire: `scripts/build_figure_audit_queue.ts`).
+  built by walking `kind: 'figure'` blocks per lesson — **BUILT 2026-11-11** by
+  the owner-directed figure-audit turn: `scripts/build_figure_audit_queue.ts`
+  (re-run any time — it PRESERVES existing statuses, so new lessons join as
+  pending without ever wiping progress; pre-written books ordered first).
+  Current queue: **125 lessons / 221 figures**, 5 done, cursor at FM.
 - **Every fire: audit ALL figures of the lessons it touches (§4) + at least 4
   queue items** (next pending, oldest cursor first; mark `done` with date +
   verdict in `FIGURE_AUDIT_LOG.md`; advance the cursor).
@@ -134,3 +137,28 @@ geometry gates catch collisions, vision catches *wrongness*. The ladder's
 has yet needed the AI-image fallback (§3.3 stands ready for texture-class
 figures). The 2026-11-11 audit turn's record: ANS 8.5 hero 9/10, both figures
 PASS after two clipping catches fixed; AA 1.1/1.2 all four figures PASS.
+
+## 9. The dedicated figure-audit job (owner directive 2026-11-11)
+
+A dedicated cron job — "figure-audit run: strict VLM verification of the
+pre-written books' SVGs" — fires 2×/day (06:40 + 13:40 IST, between the
+authoring job's fires) and owns the §6 sweep. Per fire:
+
+- take the next ~8–12 PENDING queue items (FAIL-OPEN items go FIRST; never
+  start a figure you cannot finish, gate and ship inside the ~2 h window);
+- run the full §4 pipeline (layer 1 DOM gate + layer 2 VLM) on every figure
+  of those lessons, light + dark for the first lesson of the run;
+- apply the §3 ladder on any FAIL — including the AI-image fallback §3.3
+  and any other sound replacement method the auditor judges better;
+- re-audit after every fix; a run never ends with an unrecorded FAIL;
+- update the queue (`bun run scripts/build_figure_audit_queue.ts` —
+  progress-preserving) + append `FIGURE_AUDIT_LOG.md` + one WORKLOG entry;
+- commit LOCALLY ONLY. This job NEVER pushes and never handles credentials
+  or tokens of any kind — the authoring job (523435) pushes ALL unpushed
+  local commits 3×/day, so its commits reach GitHub automatically within
+  hours. It never edits RESUME_POINTER.json / PROGRESS.json /
+  WORK_INVENTORY.json / DETAILED_LOG.md (the authoring job owns those) and
+  never authors lessons — only figures;
+- when the queue is empty: regression mode — re-audit figures touched in
+  the last 7 days (`git log --since` --name-only) + the 3 oldest done items,
+  then a quick idle-pass close.

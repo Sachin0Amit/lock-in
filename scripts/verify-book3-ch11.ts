@@ -1635,11 +1635,15 @@ if (ch11mod) {
     ok(!!alg, 'F the elementary-algebra book is registered')
     const regCh11 = alg!.chapters.find((c: any) => c.number === 11)
     ok(!!regCh11 && regCh11.lessons.length === 3 && (regCh11.plannedLessons || []).length === 0 && regCh11.status === 'complete', 'F book.ts carries chapter 11 with 3 lessons, none planned, complete')
-    ok(alg!.chapters.length === 11, 'F the book has exactly 11 chapters — no chapter 12 exists')
+    ok(alg!.chapters.length === 12, 'F the book has 12 chapters — ch. 12 planned by the 2026-11-11 pre-written-books audit')
     for (const c of alg!.chapters) {
-      ok(c.status === 'complete', `F chapter ${c.number} complete — the whole book, verified chapter by chapter`)
+      if (c.number === 12) {
+        ok(c.status === 'planned' && (c.plannedLessons || []).length === 3 && c.lessons.length === 0, 'F chapter 12 stands planned with its 3 queued gap lessons (2026-11-11 audit)')
+      } else {
+        ok(c.status === 'complete', `F chapter ${c.number} complete — the whole book, verified chapter by chapter`)
+      }
     }
-    ok(alg!.status === 'complete', 'F THE BOOK CLOSE: the elementary-algebra status is complete')
+    ok(alg!.status === 'in-progress', 'F the book stands in-progress — reopened by the 2026-11-11 audit (the ch. 12 gap queue)')
 
     // al- prefix + global uniqueness across the whole library
     const seen = new Map<string, string>()
@@ -1697,8 +1701,8 @@ if (ch11mod) {
     const bookWords = alg!.chapters.reduce((n: number, c: any) => n + c.lessons.reduce((m: number, l: any) => m + countLessonWords(l), 0), 0)
     ok(bookLessons === 37, `F the closing snapshot: the book stands at 37 lessons (got ${bookLessons})`)
     ok(bookWords >= 168900, `F the closing snapshot: the book stands at ≥ 168,900 words (got ${bookWords})`)
-    ok(libLessons === 120, `F the library stands at 120 lessons (got ${libLessons})`)
-    console.log(`  F THE BOOK CLOSE: book 3 Elementary Algebra COMPLETE — ${bookLessons} lessons / ${bookWords} words; library ${libLessons} lessons; the unit-11 review PASSED`)
+    ok(libLessons === 125, `F the library stands at 125 lessons (got ${libLessons})`)
+    console.log(`  F book 3 Elementary Algebra — ${bookLessons} lessons written / ${bookWords} words; library ${libLessons} lessons; ch. 12 planned (audit 2026-11-11); the unit-11 review PASSED`)
   }
 
   sectionD()

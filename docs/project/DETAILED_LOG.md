@@ -1,3 +1,9 @@
+## 2026-11-11 — DEDICATED FIGURE-AUDIT CRON JOB + THE §6 SWEEP QUEUE (owner-directed infrastructure turn; zero lesson content authored)
+
+- **Directive:** "create a corn job which cceks svgs using vision model nothing should overlp or inperfect if not possible use ai generated images or other method which you can think of for already prewritten books".
+- **Shipped:** `scripts/build_figure_audit_queue.ts` + `docs/project/FIGURE_AUDIT_QUEUE.json` (125 lessons / 221 figures — FM 48/92, ANS 36/47, AL 37/74, AA 4/8; pre-written books first; progress-preserving rebuilds; 5 lessons seeded done from the audit log) · `FIGURE_VERIFICATION_PROTOCOL.md` §1/§6 refreshed + new §9 (dedicated-job rules) · `FIGURE_AUDIT_LOG.md` three INFO entries · the verifier suite restored to ALL GREEN (1 dcad9d7 regression fixed — the ch-01 library census — + 6 stale snapshots refreshed: AL 37 lessons, 11-of-12 chapters with ch. 12 planned, library 125) · the dedicated cron job created: 2 fires/day 06:40+13:40 IST, agentTurn runbook embedded, commit-local-only (never pushes — job 523435 ships its commits).
+- Full narrative: WORKLOG.md entry (this date). Authoring cadence untouched: run 92 opens AA 1.5 + 1.6.
+
 ## 2026-11-11 — PRE-WRITTEN-BOOKS AUDIT TURN: the AA research protocol applied to the three complete books — FM healthy, ANS gap closed with new lesson 8.5, AL gap queue registered, stale gates refreshed
 
 - **The directive:** "how you did for advanced algeabra do it for pre written 3 books which are already written do all the process and see it neet more topics or any changes if so do so" — download the sources, extract, research, audit, and close every gap found.
