@@ -10,6 +10,7 @@ import { chapter08 } from './ch-08'
 import { chapter09 } from './ch-09'
 import { chapter10 } from './ch-10'
 import { chapter11 } from './ch-11'
+import { chapter12 } from './ch-12'
 
 /**
  * Elementary Algebra — the third book of the Mathematics shelf.
@@ -125,6 +126,21 @@ import { chapter11 } from './ch-11'
  *   of chapters 3, 4, 9 and the handoff;
  *   (e) the function doorstep (every syllabus ends algebra entering
  *   functions) — chapter 11 closes the book on it.
+ *
+ * PRE-WRITTEN-BOOKS AUDIT (2026-11-11, owner directive: apply the
+ * Advanced Algebra research protocol to the three complete books): the
+ * banked classic H&K *Elementary Algebra for Schools* was re-downloaded
+ * (Drive id 13p83Jss..., 572 pp., chapters I–XXI recovered — see
+ * docs/research/PREWRITTEN_BOOKS_AUDIT.md) and audited chapter-by-chapter
+ * against the book as written. Verdict: the I–XXI spine audits clean.
+ * Three genuine gaps found, all registered now: (a) H&K XII/XIX +
+ * Khattar ch. 26 — HCF and LCM of algebraic expressions — queued as
+ * lesson 4.5; (b) H&K XXVI — simultaneous quadratic equations (one
+ * linear + one quadratic, symmetric systems) — queued as lesson 6.4;
+ * (c) H&K XXXII + Khattar ch. 7 — the algebraic ratio/proportion/
+ * variation layer — queued as the new chapter 12. Status flipped to
+ * 'in-progress' until the gap lessons ship; the audit doc carries the
+ * per-lesson authoring plans and the closure queue.
  */
 export const elementaryAlgebra: Book = {
   id: 'elementary-algebra',
@@ -134,7 +150,7 @@ export const elementaryAlgebra: Book = {
   level: 'Class 6–10 algebra → the doorway to higher algebra',
   description:
     'The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.',
-  status: 'complete',
+  status: 'in-progress',
   accent: ['#65a30d', '#166534'],
   chapters: [
     chapter01,
@@ -148,5 +164,6 @@ export const elementaryAlgebra: Book = {
     chapter09,
     chapter10,
     chapter11,
+    chapter12,
   ],
 }

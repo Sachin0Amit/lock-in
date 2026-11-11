@@ -13,7 +13,15 @@ import { chapter10 } from './ch-10'
 /**
  * Arithmetic and Number Systems — the second book of the Mathematics shelf.
  *
- * STATUS: COMPLETE — 10/10 chapters, closed by run 65 (2026-11-07): the
+ * STATUS: COMPLETE — 10/10 chapters, closed by run 65 (2026-11-07), then
+ * RE-AUDITED and re-completed 2026-11-11 by the pre-written-books audit
+ * turn (owner directive: audit the three written books against their
+ * sources): the audit re-downloaded Khattar QA 4e + the H&K classic,
+ * found the square/cube-root EXTRACTION scope (Khattar ch. 3 +
+ * NCERT-8) on no shelf book, and shipped lesson 8.5 'Square and Cube
+ * Roots: the Extraction Crafts' as chapter 8's computational coda —
+ * 36 written lessons now; see docs/research/PREWRITTEN_BOOKS_AUDIT.md.
+ * Closed by run 65 (2026-11-07): the
  * BOOK CLOSE run wrote 10.3 'The Toolkit Synthesis' (6,158 words — the
  * one-engine thesis: unit digits/last two digits in ℤ/10ℤ and ℤ/100ℤ,
  * Legendre's chain and the digit-sum identity Z(n) = (n − s₅(n))/4,

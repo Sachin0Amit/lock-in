@@ -8,7 +8,22 @@ import type { Chapter } from '../../../types'
  *                  8.2 The Family of Irrationals (run 60)
  *                  8.3 How Irrationals Behave (run 61)
  *                  8.4 Completeness: the Line Without Holes (run 61)
- * CHAPTER COMPLETE (run 61 closed it: 8.3 + 8.4 shipped strictly
+ *                  8.5 Square and Cube Roots: the Extraction Crafts
+ *                  (the pre-written-books audit turn, 2026-11-11 — owner
+ *                  directive: audit the three written books against their
+ *                  sources "and see it neet more topics or any changes if
+ *                  so do so"; the audit found the Khattar ch. 3 + NCERT-8
+ *                  squares/cube-roots extraction scope carried NOWHERE on
+ *                  the shelf and closed the gap with this computational
+ *                  coda: gnomon census, triplet generator, factor method,
+ *                  the long-division method DERIVED from (10a+b)², decimal
+ *                  and fraction roots, cube strip + digit map; verify-first
+ *                  honored — sections V (pins) then W (authored audits)
+ *                  added to verify-book2-ch08.ts, 544/544; sources logged:
+ *                  khattar-qa-4e, ncert-class8-squares-cube-roots,
+ *                  aryabhatiya-root-extraction, jiuzhang-kaifang).
+ * CHAPTER COMPLETE (run 61 closed the theory; 8.5 closed the craft gap;
+ * run 61 closed it: 8.3 + 8.4 shipped strictly
  * sequentially + the unit-8 completion review passed; run 61 was a manual
  * catch-up of job 509354's failed-to-start 21:45 IST fire).
  * References for this unit: Beck & Geoghegan, The Art of Proof (the
@@ -2537,7 +2552,611 @@ export const chapter08: Chapter = {
         },
         {
           kind: 'para',
-          text: 'The chapter closes, and with it the tower. Four systems, four stories: the naturals generated from one successor rule; the integers built as difference-pairs to rescue subtraction; the rationals built as fraction-pairs to rescue division — dense, field-complete, and *still* hollow; and now the reals, completed by Dedekind’s knife so that every cut, every squeeze, every nested chase lands on exactly one number. The diagonal of the unit square, homeless since lesson 8.1, lives at $\\sqrt{2}$ — above every rational whose square is under 2, below every rational whose square is over 2, pinned by an equation it never asked to satisfy. What remains of this book is not more structure but two vistas: how humanity learned to write these numbers down at all (chapter 9’s journey through five numeration systems), and how the tower looks from above — the map of number systems, and the strange guests (√−1 among them) waiting just past the edge of this one.',
+          text: 'The theory of the chapter closes, and with it the tower — one computational coda remains before the vistas. Four systems, four stories: the naturals generated from one successor rule; the integers built as difference-pairs to rescue subtraction; the rationals built as fraction-pairs to rescue division — dense, field-complete, and *still* hollow; and now the reals, completed by Dedekind’s knife so that every cut, every squeeze, every nested chase lands on exactly one number. The diagonal of the unit square, homeless since lesson 8.1, lives at $\\sqrt{2}$ — above every rational whose square is under 2, below every rational whose square is over 2, pinned by an equation it never asked to satisfy. That coda — the crafts that *compute* the roots the tower was built to house — is the next lesson; beyond it, what remains of this book is not more structure but two vistas: how humanity learned to write these numbers down at all (chapter 9’s journey through five numeration systems), and how the tower looks from above — the map of number systems, and the strange guests (√−1 among them) waiting just past the edge of this one.',
+        },
+      ],
+    },
+    {
+      id: 'ans-square-and-cube-root-crafts',
+      number: '8.5',
+      title: 'Square and Cube Roots: the Extraction Crafts',
+      prerequisites: [
+        'ans-completeness-the-line-without-holes',
+        'ans-how-irrationals-behave',
+        'ans-fundamental-theorem-of-arithmetic',
+      ],
+      sources: ['khattar-qa-4e', 'ncert-class8-squares-cube-roots', 'aryabhatiya-root-extraction', 'jiuzhang-kaifang'],
+      concepts: [
+        'The squares census: odd-number sums and the 2n gap law',
+        'Pythagorean triplets generated from m² − n², 2mn, m² + n²',
+        'Square roots by prime factorisation — exponents halved',
+        'The long-division square-root method derived from (10a + b)²',
+        'Pairing digits from the decimal point: 10² = 100',
+        'Square roots of decimals and fractions',
+        'Cube roots by factorisation and the three-digit strip',
+        'The cube last-digit map and estimation brackets',
+      ],
+      objectives: [
+        'Generate the squares census — the gnomon law that odd numbers stack into squares — and use it to count the integers between consecutive squares without listing them',
+        'Extract square roots by prime factorisation (perfect square ⟺ every prime exponent even) and by the long-division method whose engine (10a + b)² = 100a² + (20a + b)b is derived, not recited',
+        'Carry the craft to decimals and fractions by pairing digits from the decimal point outward, and to cube roots by factorisation, the three-digit strip and the last-digit cube map',
+        'Estimate roots with exact brackets whose errors are computed, and meet the aptitude-corner families (smallest multiplier to perfect a square, perfect-square spotting) honestly derived',
+      ],
+      blocks: [
+        {
+          kind: 'para',
+          text: 'Chapter 8 proved that roots *exist*: the diagonal broke the rationals (8.1), the family of irrationals got its census (8.2), the behaviour laws tamed their arithmetic (8.3), and completeness pinned every hole to exactly one number (8.4). What the chapter has not yet done is *compute one*. Nobody hands you $\\sqrt{2}$ on a card; you meet it as "the number whose square is 2", and if you need its digits — for a measurement, a cheque, an examination — some craft must dig them out, digit by digit, without ever guessing. This closing lesson is the crafts chapter: the squares census that recognises perfect squares on sight, the factorisation route that halves prime exponents, the long-division square-root method (derived honestly from the algebra of $(10a+b)^2$), the decimal and fraction extensions, and the cube-root twins — factorisation plus the digit-map shortcut. The standard school carrier of this material is the class-8 "Squares and Square Roots" arc and the aptitude books\' chapter of the same name; the craft itself is far older, and the historical note below will set it in a lineage fifteen centuries deep.',
+        },
+        { kind: 'heading', text: 'The census of squares' },
+        {
+          kind: 'para',
+          text: 'Before extracting roots, learn to *recognise* squares. A perfect square is a whole number that is some other whole number\'s square — $1, 4, 9, 16, 25, \\ldots$ — and the first craft is the pattern of how they grow. Stack unit squares into a growing square block and count what each enlargement adds: the first cell is $1$; growing a $1 \\times 1$ square to $2 \\times 2$ adds an L-shaped gnomon of $3$ cells; growing $2 \\times 2$ to $3 \\times 3$ adds a gnomon of $5$; each enlargement adds the next odd number. The figure below shows the $4 \\times 4$ case assembled from $1 + 3 + 5 + 7$. The odd numbers are the *gnomons* of the squares — and the sum of the first $n$ odd numbers is exactly $n^2$.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The gnomon law: the first n odd numbers sum to n²',
+          statement:
+            'Claim: $1 + 3 + 5 + \\cdots + (2n - 1) = n^2$ — each odd number is the gnomon that grows the $(n-1) \\times (n-1)$ square into the $n \\times n$ square.',
+          steps: [
+            {
+              label: 'Grow the square by one row and one column',
+              formula: 'n^2 - (n-1)^2 = n^2 - (n^2 - 2n + 1) = 2n - 1',
+              explanation:
+                'Expanding $(n-1)^2 = n^2 - 2n + 1$ and subtracting: the difference between consecutive squares is exactly the odd number $2n - 1$. This single difference *is* the gnomon — one new top row of $n$ cells and one new side column of $n-1$ cells beyond the corner cell already counted.',
+            },
+            {
+              label: 'Telescope the climb from 0² to n²',
+              formula: 'n^2 = (1^2 - 0^2) + (2^2 - 1^2) + \\cdots + (n^2 - (n-1)^2)',
+              explanation:
+                'Write $n^2$ as the collapsed telescope of all the one-step differences: every intermediate square cancels, leaving only the first step $1^2 - 0^2 = 1$ and the sum of the gnomons.',
+            },
+            {
+              label: 'Read off the terms',
+              formula: 'n^2 = 1 + 3 + 5 + \\cdots + (2n-1)',
+              explanation:
+                'Each difference $(k^2 - (k-1)^2) = 2k - 1$ is the $(2k{-}1)$-th odd number, so the telescope is precisely the sum of the first $n$ odd numbers. Thus, $1 + 3 + 5 + 7 = 16 = 4^2$, and the walk continues forever: $1 + 3 + 5 + \\cdots + 17 = 81 = 9^2$ (nine terms, since $(17+1)/2 = 9$).',
+            },
+          ],
+          result: '1 + 3 + 5 + \\cdots + (2n - 1) = n^2 — the odd numbers are the gnomons of the squares',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The gnomon staircase: unit cells stacked into a 4 × 4 square, one odd-numbered gnomon at a time. The teal corner is 1; the amber L adds 3; the next teal L adds 5; the last amber L adds 7. The census reads itself off the picture: 1 + 3 + 5 + 7 = 16 = 4².',
+          svg: `<svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A four by four grid of unit squares built from gnomons of one, three, five and seven cells, showing the odd numbers summing to sixteen equals four squared">
+  <g stroke="#0f766e" stroke-width="1.5">
+    ${[
+      { cells: [[0, 0]], fill: 'rgba(15,118,110,0.28)' },
+      { cells: [[1, 0], [0, 1], [1, 1]], fill: 'rgba(180,83,9,0.22)' },
+      { cells: [[2, 0], [2, 1], [2, 2], [0, 2], [1, 2]], fill: 'rgba(15,118,110,0.16)' },
+      { cells: [[3, 0], [3, 1], [3, 2], [3, 3], [0, 3], [1, 3], [2, 3]], fill: 'rgba(180,83,9,0.13)' },
+    ]
+      .flatMap(
+        (g) =>
+          g.cells
+            .map(
+              ([c, r]) =>
+                `<rect x="${90 + c * 40}" y="${40 + r * 40}" width="40" height="40" fill="${g.fill}"/>`
+            )
+            .join('\n    ')
+      )
+      .join('\n    ')}
+  </g>
+  ${[
+    { x: 110, y: 66, t: '1', fill: '#0f766e' },
+    { x: 150, y: 106, t: '+3', fill: '#b45309' },
+    { x: 190, y: 146, t: '+5', fill: '#0f766e' },
+    { x: 230, y: 186, t: '+7', fill: '#b45309' },
+  ]
+    .map(
+      (l) =>
+        `<text x="${l.x}" y="${l.y}" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="600" fill="${l.fill}">${l.t}</text>`
+    )
+    .join('\n  ')}
+  <text x="285" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0f172a">= 16</text>
+  <text x="285" y="86" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0f172a">= 4²</text>
+  <text x="90" y="228" font-family="Georgia, serif" font-size="12.5" fill="#334155">gnomons: each odd number grows the square</text>
+  <text x="90" y="244" font-family="Georgia, serif" font-size="12.5" fill="#334155">by one row and one column</text>
+</svg>`,
+        },
+        {
+          kind: 'para',
+          text: 'The gnomon law pays immediate rent as a *counting* engine. Consecutive squares never touch: between $n^2$ and $(n+1)^2$ the gap is $2n + 1$ wide, and the integers *strictly* between them number $2n + 1 - 1 = 2n$ — never list them, just double. Between $12^2 = 144$ and $13^2 = 169$ lie exactly $2 \\times 12 = 24$ whole numbers; between $20^2 = 400$ and $21^2 = 441$ lie $40$. And the gap law doubles as a *computation* engine: $105^2$ needs no multiplication table — $(100 + 5)^2 = 100^2 + 2 \\cdot 100 \\cdot 5 + 5^2 = 10{,}000 + 1{,}000 + 25 = 11{,}025$, the identity of lesson 1\'s toolkit wearing two-digit clothes.',
+        },
+        {
+          kind: 'example',
+          title: 'Read three census items off the gnomon law — without listing a single number',
+          steps: [
+            'Take "how many whole numbers lie strictly between $15^2$ and $16^2$?" — the gap is $16^2 - 15^2 = 2 \\times 15 + 1 = 31$ wide, and the endpoints are excluded, so the count is $31 - 1 = 30 = 2 \\times 15$. The $2n$ law again: double the smaller root.',
+            'Now, "evaluate $1 + 3 + 5 + \\cdots + 17$" — the last term $17 = 2n - 1$ gives $n = 9$, so the sum is $9^2 = 81$. No adding: the odd count *is* the square\'s side.',
+            'Check the reverse direction: "a sum of consecutive odd numbers from 1 equals 324 — how many terms?" — $324 = 18^2$, so $n = 18$ terms, ending at $2 \\times 18 - 1 = 35$. The law runs both ways, census in, census out.',
+            'Hence the census discipline: whenever consecutive squares appear in a question, the answer is *derived* from $n^2 - (n-1)^2 = 2n - 1$ — the gnomon identity — never from a listing.',
+          ],
+        },
+        { kind: 'heading', text: 'Pythagorean triplets by recipe' },
+        {
+          kind: 'para',
+          text: 'The squares census has a geometric dividend that school and aptitude papers both collect: whole-number right triangles. A *Pythagorean triplet* is a triple of whole numbers $(a, b, c)$ with $a^2 + b^2 = c^2$ — $(3, 4, 5)$ the smallest. Triplets look like luck; they are manufacture. Take any two whole numbers $m > n \\ge 1$ and the recipe $a = m^2 - n^2$, $b = 2mn$, $c = m^2 + n^2$ always delivers one — and the derivation is two lines of the chapter 7 field laws.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The triplet generator: (m² − n²)² + (2mn)² = (m² + n²)²',
+          statement:
+            'Claim: for all whole numbers $m > n \\ge 1$, the triple $\\left(m^2 - n^2,\\; 2mn,\\; m^2 + n^2\\right)$ satisfies the Pythagorean relation.',
+          steps: [
+            {
+              label: 'Square the two legs and add',
+              formula: '(m^2 - n^2)^2 + (2mn)^2 = (m^4 - 2m^2n^2 + n^4) + 4m^2n^2',
+              explanation:
+                'Expand both squares with the $(x - y)^2$ identity of the banked toolkit: the first leg contributes $m^4 - 2m^2n^2 + n^4$, the second $4m^2n^2$.',
+            },
+            {
+              label: 'Fold the middle',
+              formula: 'm^4 + 2m^2n^2 + n^4',
+              explanation:
+                'The two middle terms combine: $-2m^2n^2 + 4m^2n^2 = +2m^2n^2$. The sum is now visibly the expansion of a single square.',
+            },
+            {
+              label: 'Recognise the square of the hypotenuse candidate',
+              formula: '(m^2 + n^2)^2 = m^4 + 2m^2n^2 + n^4 \\;\\checkmark',
+              explanation:
+                'Thus the two legs\' squares sum to exactly $(m^2 + n^2)^2$ — the third member of the recipe is the hypotenuse, always. Sample the recipe: $m = 2, n = 1 \\Rightarrow (3, 4, 5)$; $m = 3, n = 2 \\Rightarrow (5, 12, 13)$; $m = 4, n = 1 \\Rightarrow (8, 15, 17)$; $m = 4, n = 3 \\Rightarrow (7, 24, 25)$; $m = 6, n = 1 \\Rightarrow (12, 35, 37)$. (The geometry of *why* the legs form a right triangle is chapter 8 of Foundation Mathematics and the Geometry book\'s opening arc — this lesson only certifies the arithmetic.)',
+            },
+          ],
+          result: '(m² − n²)² + (2mn)² = (m² + n²)² — the generator always delivers a Pythagorean triplet',
+        },
+        {
+          kind: 'para',
+          text: 'The classic examination demand is "find a triplet with a given leg", and the recipe answers it by factoring: a leg $12$ appears in $(5, 12, 13)$ from $m = 3, n = 2$, in $(12, 16, 20)$ — the $(3, 4, 5)$ family scaled by $4$ — and in $(12, 35, 37)$ from $m = 6, n = 1$. The scaled copies remind us the generator makes *primitive* triplets when $m, n$ share no factor and differ in parity (then no member is even-divisible by $2$ beyond the even leg $2mn$) — the full theory belongs to the Geometry shelf; here it stands as the squares census\' first application.',
+        },
+        { kind: 'heading', text: 'Roots by prime factorisation — the exponent census' },
+        {
+          kind: 'para',
+          text: 'Now the extraction itself. Lesson 8.2 proved the wall — $\\sqrt{n}$ is rational exactly when $n$ is a perfect square, which by the Fundamental Theorem means *every prime exponent of $n$ is even*. That theorem, read as a *computation* rule, is the factor method: factor $n$ into primes; halve the even exponents to read off $\\sqrt{n}$; the odd exponents (if any) mark the squarefree kernel $s$ of 8.2 — the irrational leftover riding outside the root. Take $9{,}801 = 3^4 \\cdot 11^2$: every exponent even, so $9{,}801 = (3^2 \\cdot 11)^2 = 99^2$ and $\\sqrt{9{,}801} = 99$ — recognised, not hunted. Take $7{,}744 = 2^6 \\cdot 11^2 = (2^3 \\cdot 11)^2$: $\\sqrt{7{,}744} = 88$. Take $44{,}100 = 2^2 \\cdot 3^2 \\cdot 5^2 \\cdot 7^2 = (2 \\cdot 3 \\cdot 5 \\cdot 7)^2$: $\\sqrt{44{,}100} = 210$. And the honest failure: $72 = 2^3 \\cdot 3^2$ — the exponent $3$ on the $2$ is odd, so $\\sqrt{72} = \\sqrt{2^2 \\cdot 3^2 \\cdot 2} = 6\\sqrt{2}$, the surd-reduction craft of 8.3 cashed straight from the factorisation.',
+        },
+        {
+          kind: 'formula',
+          name: 'The factor-method law',
+          latex: 'n = p_1^{2e_1} \\cdots p_k^{2e_k} \\cdot s \\;\\Rightarrow\\; \\sqrt{n} = \\left(p_1^{e_1} \\cdots p_k^{e_k}\\right)\\sqrt{s}',
+          note: 'Halve the even exponents, carry the squarefree kernel s outside the root — the 8.2 parity criterion as a compute rule; s = 1 ⟺ n was a perfect square.',
+        },
+        {
+          kind: 'callout',
+          tone: 'insight',
+          title: 'Why factorisation recognises but rarely extracts',
+          text: 'The factor method is perfect for recognising perfect squares (and for the smallest-multiplier family in the exam corner below), but it cannot *dig digits out of an irrational*: √2 has no prime factorisation to halve, because 2 is prime with exponent 1 — the kernel IS the whole number. For non-squares the method stops at the reduced surd, √2 = 1·√2, and the actual digits need the other craft — the division method — which never asks for a factorisation at all. The two crafts are complementary: factorisation classifies, division computes. Both together cover the whole extraction problem, and each is derived, neither memorised.',
+        },
+        { kind: 'heading', text: 'The long-division method — the craft derived' },
+        {
+          kind: 'para',
+          text: 'The workhorse of school arithmetic and aptitude halls answers the extraction problem head-on: given $N$, produce the digits of $\\sqrt{N}$ one at a time, each *proved* maximal by a comparison. Its setup first: mark the radicand\'s digits into *pairs*, starting at the decimal point and working outward — left of the point the integer part pairs from the right (so an odd-count integer part keeps a lone leading digit), right of the point each pair is two fresh digits, padding with zeros as far as accuracy demands. The pairing is not decoration; it is place value squared — one digit step left multiplies a number by $10$, and therefore its *square* by $100$: each new digit of a root advances the radicand by a factor of a hundred, so the root\'s digits are minted two radicand-digits at a time. $\\sqrt{2}$ pairs as $2.\\;00\\;00\\;00\\;00$; $\\sqrt{5.29}$ as $5.\\;29\\;00$; $\\sqrt{0.0144}$ as $0.\\;01\\;44$.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The engine of the division method, derived from (10a + b)²',
+          statement:
+            'Claim: if the root-so-far reads $a$ (an integer in units of the next digit\'s place — so the *next* digit $b$ appends as $10a + b$), then one digit-extraction step is exactly the inequality $(20a + b)\\,b \\le 100r$, with $r$ the current scaled remainder.',
+          steps: [
+            {
+              label: 'Write the target root in place-value form',
+              formula: 'x = 10a + b \\quad (0 \\le b \\le 9)',
+              explanation:
+                'When one more digit of the root is about to be minted, the root-so-far is $a$ *in units of that new digit\'s place* — appending digit $b$ multiplies it by $10$ and adds $b$. The unknown $x$ we are closing in on is exactly of this shape.',
+            },
+            {
+              label: 'Square it and split the square',
+              formula: '(10a + b)^2 = 100a^2 + 20ab + b^2 = 100a^2 + (20a + b)\\,b',
+              explanation:
+                'Expand $(10a + b)^2 = 100a^2 + 20ab + b^2$, then *read the last two terms as one product*: $20ab + b^2 = (20a + b)b$. The doubling is the algebra\'s own — $20a$ is twice the root-so-far (in the new digit\'s units), and the new digit $b$ rides inside the very factor that must be tried.',
+            },
+            {
+              label: 'Translate the subtraction into the trial rule',
+              formula: '100r - (20a + b)\\,b \\ge 0 \\iff (20a + b)\\,b \\le 100r',
+              explanation:
+                'The previous steps have already removed $100a^2$ — the square of everything found so far — from the radicand; the scaled remainder $r$ (two fresh digits brought down, hence the factor $100$) is what $x^2$ still owes. Subtracting $(10a+b)^2 - 100a^2 = (20a+b)b$ from $100r$ must stay non-negative — otherwise $b$ overshot and $(10a+b)^2$ would already exceed the radicand. So: try the largest digit $b$ with $(20a+b)b \\le 100r$; subtract; the new scaled remainder is $100r - (20a+b)b$; repeat. Every arithmetic act in the recipe is now a *derived* consequence of one expansion.',
+            },
+          ],
+          result: 'the trial rule (20a + b)·b ≤ 100r — one expansion of (10a + b)² is the whole algorithm',
+        },
+        {
+          kind: 'example',
+          title: 'Walk √2 through four digits — every product and every remainder on the table',
+          steps: [
+            'Take the radicand paired as $2.\\;00\\;00\\;00\\;00$ — the first pair is the lone digit $2$; root-so-far $a = 0$, scaled remainder $r = 2$.',
+            'Mint the first digit: the largest $b$ with $(20 \\cdot 0 + b)b \\le 2$ is $b = 1$ ($1 \\cdot 1 = 1 \\le 2 < 4 = 2 \\cdot 2$). Subtract: remainder $1$; root-so-far $a = 1$ (the digit $1$ above the pair "2"). Bring down the next pair $00$: the scaled remainder is $100 \\cdot 1 = 100$.',
+            'Mint the second digit: the largest $b$ with $(20 \\cdot 1 + b)b \\le 100$ — the trial divisor $2$ waits for its partner: $24 \\cdot 4 = 96 \\le 100 < 125 = 25 \\cdot 5$, so $b = 4$. Subtract: $100 - 96 = 4$; root-so-far $a = 14$; bring down $00 \\Rightarrow 400$.',
+            'Mint the third digit: $(20 \\cdot 14 + b)b \\le 400$ — trial divisor $28$: $281 \\cdot 1 = 281 \\le 400 < 564 = 282 \\cdot 2$, so $b = 1$. Subtract: $400 - 281 = 119$; $a = 141$; bring down $00 \\Rightarrow 11{,}900$.',
+            'Mint the fourth digit: $(20 \\cdot 141 + b)b \\le 11{,}900$ — trial divisor $282$: $2824 \\cdot 4 = 11{,}296 \\le 11{,}900 < 14{,}125 = 2825 \\cdot 5$, so $b = 4$. Subtract: $11{,}900 - 11{,}296 = 604$; $a = 1414$; bring down $00 \\Rightarrow 60{,}400$.',
+            'Mint the fifth digit and read the answer: $(20 \\cdot 1414 + b)b \\le 60{,}400$ — trial divisor $2828$: $28{,}282 \\cdot 2 = 56{,}564 \\le 60{,}400 < 84{,}849 = 28{,}283 \\cdot 3$, so $b = 2$. The root reads $1.4142$ — with the decimal point placed by the pairing (one integer pair $\\Rightarrow$ one integer digit) — and the remaining scaled remainder $60{,}400 - 56{,}564 = 3{,}836$ certifies $1.4142^2 < 2 < 1.4143^2$ exactly, the 8.1 squeeze bracket *manufactured* rather than guessed.',
+          ],
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The long-division panel for √2: the answer digits ride the top rail (1.4142), the paired radicand (2. 00 00 00 00) sits at the head of the working column, and each minted digit is certified by its trial product — 24·4 = 96, 281·1 = 281, 2824·4 = 11,296, 28282·2 = 56,564 — each the largest that fits, each leaving the printed remainder.',
+          svg: `<svg viewBox="0 0 560 414" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The long division square root layout for the square root of two, showing answer digits one point four one four two on top, the paired radicand two, zero zero, zero zero, zero zero, and the trial products twenty four times four equals ninety six, two hundred eighty one, two thousand eight hundred twenty four times four equals eleven thousand two hundred ninety six, and twenty eight thousand two hundred eighty two times two equals fifty six thousand five hundred sixty four">
+  <rect x="2" y="2" width="556" height="410" fill="#fafaf7" stroke="#d6d3d1" stroke-width="1"/>
+  <line x1="150" y1="14" x2="150" y2="390" stroke="#a8a29e" stroke-width="1"/>
+  <text x="182" y="34" font-family="ui-monospace, Menlo, monospace" font-size="18" font-weight="600" fill="#0f172a">1. 4  1  4  2</text>
+  <text x="86" y="72" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#0f766e">1</text>
+  <text x="196" y="72" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#0f172a">2 .  00   00   00   00</text>
+  <text x="196" y="104" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">1</text>
+  <line x1="180" y1="114" x2="420" y2="114" stroke="#a8a29e" stroke-width="1"/>
+  <text x="196" y="140" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">1 00</text>
+  <text x="86" y="140" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#b45309">24</text>
+  <text x="470" y="140" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#0f766e">24·4 = 96</text>
+  <line x1="180" y1="150" x2="420" y2="150" stroke="#a8a29e" stroke-width="1"/>
+  <text x="196" y="176" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">96</text>
+  <text x="196" y="204" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#0f172a">4 00</text>
+  <text x="86" y="204" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#b45309">281</text>
+  <text x="470" y="204" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#0f766e">281·1 = 281</text>
+  <line x1="180" y1="214" x2="420" y2="214" stroke="#a8a29e" stroke-width="1"/>
+  <text x="196" y="240" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">2 81</text>
+  <text x="196" y="268" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#0f172a">1 19 00</text>
+  <text x="86" y="268" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#b45309">2824</text>
+  <text x="470" y="268" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#0f766e">2824·4 = 11,296</text>
+  <line x1="180" y1="278" x2="420" y2="278" stroke="#a8a29e" stroke-width="1"/>
+  <text x="196" y="304" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">11 296</text>
+  <text x="196" y="332" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#0f172a">6 04 00</text>
+  <text x="72" y="332" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#b45309">28282</text>
+  <text x="470" y="332" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#0f766e">28282·2 = 56,564</text>
+  <line x1="180" y1="342" x2="420" y2="342" stroke="#a8a29e" stroke-width="1"/>
+  <text x="196" y="368" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#334155">56 564</text>
+  <text x="196" y="390" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#57534e">r = 3,836 ···</text>
+  <text x="196" y="406" font-family="ui-monospace, Menlo, monospace" font-size="12.5" fill="#57534e">the bracket certifies 1.4142² &lt; 2 &lt; 1.4143²</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Three more walks — a non-terminating stranger, a terminating decimal, and Āryabhaṭa\'s own integer',
+          steps: [
+            'Take $\\sqrt{7}$ paired $7.\\;00\\;00\\;00$: first digit $2$ ($4 \\le 7 < 9$), remainder $3$, bring down $00 \\Rightarrow 300$; trial divisor $4$: $46 \\cdot 6 = 276 \\le 300 < 329 = 47 \\cdot 7$, so digit $6$, remainder $24$, $a = 26$; bring down $00 \\Rightarrow 2400$; trial divisor $52$: $524 \\cdot 4 = 2096 \\le 2400 < 2625 = 525 \\cdot 5$, so digit $4$, remainder $304$, $a = 264$; bring down $00 \\Rightarrow 30{,}400$; trial divisor $528$: $5285 \\cdot 5 = 26{,}425 \\le 30{,}400 < 31{,}716 = 5286 \\cdot 6$, so digit $5$. Read: $\\sqrt{7} = 2.645\\ldots$, remainder $3{,}975$ keeping the bracket honest.',
+            'Take $\\sqrt{5.29}$ paired $5.\\;29$: first digit $2$ ($4 \\le 5 < 9$), remainder $1$, bring down $29 \\Rightarrow 129$; trial divisor $4$: $43 \\cdot 3 = 129$ — exactly the remainder. Subtract to zero: the division *closes*. So $\\sqrt{5.29} = 2.3$ exactly — a terminating extraction, the decimal twin of a perfect square ($2.3^2 = 5.29$, verified at scale: $23^2 = 529$).',
+            'Take $\\sqrt{55{,}225}$ paired $5\\;52\\;25$ (integer part of five digits pairs $5 | 52 | 25$): first digit $2$ ($4 \\le 5$), remainder $1$, bring down $52 \\Rightarrow 152$; trial divisor $4$: $43 \\cdot 3 = 129 \\le 152 < 176 = 44 \\cdot 4$, digit $3$, remainder $23$, $a = 23$; bring down $25 \\Rightarrow 2325$; trial divisor $46$: $465 \\cdot 5 = 2325$ — exactly again. So $\\sqrt{55{,}225} = 235$, and $235^2 = 55{,}225$ closes the books. This very radicand is the worked example carried by the oldest textbook of the craft — the historical note below tells its story.',
+            'Hence the pattern of walks: non-squares walk forever (each remainder non-zero, minting the next digit — completeness of 8.4 guarantees the walk converges to the irrational it brackets), perfect squares terminate cleanly (a remainder hits exactly zero — the arithmetic *recognises* the perfect square on its own).',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'historical',
+          title: 'A craft fifteen centuries deep',
+          text: 'The digit-by-digit square-root rule is old enough to have been written in verse. Āryabhaṭa\'s Āryabhaṭīya (499 CE, Kusumapura) gives the extraction of square roots digit by digit — mark the places alternately square and non-square from the right, subtract the largest square from the leftmost square place, divide the next place by twice the root-so-far, subtract the quotient\'s square from the next square place — and the cube-root rule alongside it; his commentary tradition walks exactly our 55,225 example to 235. China\'s Nine Chapters on the Mathematical Art (compiled around the turn of the common era) carries the 开方 kaifang "opening the square" algorithm in its fourth chapter, with the cube-root extension — the same pairing, the same maximal-digit trials, run as a division on a counting board. The school layout of this lesson — the panel with the trial divisors doubling in the left column — is the modern descendant of these lineages, and the Babylonian tablet YBC 7289 (chapter 9 will visit it) already carried √2 to six sexagesimal places a thousand years earlier, by methods it does not disclose. When you run the panel, you are doing something humans have done on three continents for at least two millennia.',
+        },
+        { kind: 'heading', text: 'Decimals and fractions — the point carries the pairing' },
+        {
+          kind: 'para',
+          text: 'The pairing rule makes decimals and fractions citizens of the same craft. For a decimal radicand, pair from the point on both sides: $\\sqrt{12.25}$ pairs $12 | 25$ — the integer part $12$ pairs right-to-left, the fractional $25$ is one pair — and the walk mints one digit per pair: $3$ (with $9 \\le 12 < 16$, remainder $3$), then bring down $25 \\Rightarrow 325$, trial divisor $6$: $65 \\cdot 5 = 325$ exactly — so $\\sqrt{12.25} = 3.5$. $\\sqrt{0.0144}$ pairs $0 | 01 | 44$: the leading pair $0$ mints the digit $0$ (the root is less than one), then $01 \\Rightarrow$ digit $1$ with remainder $1$ — wait, run it honestly: pair $01$ gives $r = 1$, largest $b$ with $b \\cdot b \\le 1$ is $b = 1$, remainder $0$; bring down $44 \\Rightarrow r = 44$ wait — the scaled remainder after the second digit is $0 \\cdot 100 + 44 = 44$? No: remainder $0$ brought down with $44$ gives $44$; root-so-far $a = 1$; trial $(20 \\cdot 1 + b)b \\le 44$: $22 \\cdot 2 = 44$ — exactly. So $\\sqrt{0.0144} = 0.12$, terminating. The pairing\'s arithmetic meaning is the *pair-shift law*: $\\sqrt{100x} = 10\\sqrt{x}$ — shift the point two places, shift the root\'s point one.',
+        },
+        {
+          kind: 'para',
+          text: 'Fractions ride the same law in two halves: $\\sqrt{\\tfrac{p}{q}} = \\tfrac{\\sqrt{p}}{\\sqrt{q}}$ — the root of a quotient is the quotient of the roots (square both sides of the claim and it says $p/q = p/q$; the positive square root is unique, so the identity holds). When numerator and denominator are perfect squares the fraction is a rational\'s square: $\\sqrt{\\tfrac{9}{16}} = \\tfrac{3}{4}$, $\\sqrt{\\tfrac{25}{36}} = \\tfrac{5}{6}$. When they are not, the fraction reduces to a surd quotient — $\\sqrt{\\tfrac{12}{25}} = \\tfrac{\\sqrt{12}}{5} = \\tfrac{2\\sqrt{3}}{5}$ — and 8.3\'s rationalisation craft takes over from there. The extraction lesson\'s fraction duty ends at handing a *clean surd or rational* to the behaviour laws of 8.3 — the division between the chapters\' labour is itself the book\'s architecture.',
+        },
+        {
+          kind: 'formula',
+          name: 'The pairing and fraction laws',
+          latex: '\\sqrt{100x} = 10\\sqrt{x}, \\qquad \\sqrt{\\frac{p}{q}} = \\frac{\\sqrt{p}}{\\sqrt{q}} \\;(p, q > 0)',
+          note: 'Two radicand-digits per root-digit (10² = 100) — why the pairing starts at the decimal point; and the root of a quotient is the quotient of the roots, both proved by squaring.',
+        },
+        { kind: 'heading', text: 'Cube roots — factor, strip and map' },
+        {
+          kind: 'para',
+          text: 'Cube roots run the same architecture one dimension up, and the factor method transfers verbatim with exponents *thirded*: a perfect cube has every prime exponent divisible by $3$. $1{,}728 = 2^6 \\cdot 3^3 = (2^2 \\cdot 3)^3 = 12^3$, so $\\sqrt[3]{1{,}728} = 12$; $9{,}261 = 3^3 \\cdot 7^3 = (3 \\cdot 7)^3$, so $\\sqrt[3]{9{,}261} = 21$. Odd powers keep the sign — cubing preserves order — so negative radicands extract honestly: $\\sqrt[3]{-2{,}744} = -14$, since $(-14)^3 = -2{,}744$. And the census of cubes has its own last-digit discipline, worth a derivation because aptitude halls trade on it.',
+        },
+        {
+          kind: 'derivation',
+          title: 'The cube digit-map: the last digit of a cube names the last digit of its root',
+          statement:
+            'Claim: the map $b \\mapsto b^3 \\bmod 10$ (last digit of a cube to last digit of its root) is one-to-one on the digits $0$–$9$ — and the three-digit strip $\\lfloor N / 1000 \\rfloor$ brackets the leading digits of the root.',
+          steps: [
+            {
+              label: 'Tabulate the cubes mod 10',
+              formula: '0,1,8,7,4,5,6,3,2,9',
+              explanation:
+                'Cubing each digit and keeping the last digit: $0^3 \\to 0$, $1 \\to 1$, $2 \\to 8$, $3 \\to 7$ ($27$), $4 \\to 4$ ($64$), $5 \\to 5$, $6 \\to 6$, $7 \\to 3$ ($343$), $8 \\to 2$ ($512$), $9 \\to 9$ ($729$). Ten distinct outputs from ten inputs — the map never collides: the last digit of a perfect cube *names* its root\'s last digit. (The swap pairs $2 \\leftrightarrow 8$ and $3 \\leftrightarrow 7$ are not luck: $(10 - b)^3 = 1000 - 300b + 30b^2 - b^3 \\equiv -b^3 \\pmod{10}$ — complements cube to negatives mod 10.)',
+            },
+            {
+              label: 'Strip three digits, read the bracket',
+              formula: '(10a)^3 \\le (10a + b)^3 < (10(a + 1))^3 \\;\\Rightarrow\\; a^3 \\le \\tfrac{N}{1000} < (a + 1)^3',
+              explanation:
+                'A two-digit root $10a + b$ cubes between $(10a)^3 = 1000a^3$ and $(10a + 10)^3 = 1000(a+1)^3$ (cubing is order-preserving and strict). Divide by $1000$: the leading digits of the radicand (everything except the last three) land in $[a^3, (a+1)^3)$ — a bracket only *one* integer $a$ wide. So: strip the last three digits of the cube, find which cubes bracket the rest — that integer is the leading digit(s) of the root.',
+            },
+            {
+              label: 'Assemble the shortcut',
+              formula: '\\sqrt[3]{N}: \\text{ last digit of } N \\to \\text{ units digit}, \\quad \\lfloor N/1000 \\rfloor \\to \\text{ leading digit(s)}',
+              explanation:
+                'The two half-readings compose to the whole root for perfect cubes of at most two digits\' root — the classic aptitude shortcut, now a *theorem*. Test it on $19{,}683$: last digit $3$ maps to units digit $7$ ($7^3 = 343$ ends in $3$); strip three digits, $19$ — and $2^3 = 8 \\le 19 < 27 = 3^3$ — leading digit $2$. Root: $27$, and indeed $27^3 = 19{,}683$. Or on $148{,}877$: last digit $7$ maps to units $3$ ($3^3 = 27$); strip three, $148$ — $5^3 = 125 \\le 148 < 216 = 6^3$ — leading digit $5$. Root: $53$, and $53^3 = 148{,}877$. Both walks verified digit-by-digit in this lesson\'s verifier.',
+            },
+          ],
+          result: 'b³ mod 10 names the units digit b; the strip ⌊N/1000⌋ ∈ [a³, (a+1)³) names the leading digit',
+        },
+        {
+          kind: 'para',
+          text: 'When the radicand is *not* a perfect cube, the crafts degrade honestly to brackets — and brackets are exact statements, not guesses. $\\sqrt[3]{3000}$: $14^3 = 2{,}744$ and $15^3 = 3{,}375$ bracket it; the distances ($3{,}000 - 2{,}744 = 256$ below, $375$ above) say the root sits nearer $14$. The same honest-bracket discipline runs square roots of non-squares: $\\sqrt{10}$ has $3 < \\sqrt{10} < 4$ from the census, and the hundredth bracket $3.16^2 = 9.9856 < 10 < 10.0489 = 3.17^2$ — with the *errors themselves computed* ($0.0144$ below, $0.0489$ above), the nearer-below verdict $\\sqrt{10} \\approx 3.16$ is a proved statement about position, not a decimal thrown at a wall. This is 8.1\'s squeeze discipline, now with the census and the division method as its suppliers.',
+        },
+        {
+          kind: 'formula',
+          name: 'The cube strip and map',
+          latex: 'b^3 \\bmod 10 \\;\\text{names } b; \\qquad a^3 \\le \\lfloor N/1000 \\rfloor < (a+1)^3',
+          note: 'The last-digit cube map is injective (0,1,8,7,4,5,6,3,2,9); the three-digit strip brackets the root\'s leading digit — together they read a two-digit cube root off a perfect cube at exam speed.',
+        },
+        {
+          kind: 'callout',
+          tone: 'exam',
+          title: 'Where this shows up in examinations',
+          text: 'The extraction families are permanent school-and-aptitude fare — the class-8 arc asks them by name and every recruitment paper banks them (all items below are this book\'s own, style labelled honestly as exam-style). (i) Perfect-square spotting: squares never end in 2, 3, 7 or 8 (sweep the last digits: 0,1,4,5,6,9 only), and a square ending in 0 has an even count of trailing zeros (the 2-and-5 pair up) — so 1,024 is a perfect square (32²) while 2,024 is not (ends in 4 — possible, but 45² = 2,025 brackets it out by one). (ii) The smallest-multiplier family: factor, then repair the odd exponents — 252 = 2²·3²·7 needs exactly one 7: ×7 → 1,764 = 42²; 1,008 = 2⁴·3²·7 → ×7 → 7,056 = 84²; the divisor twin: 1,620 = 2²·3⁴·5 → ÷5 → 324 = 18². (iii) Estimation brackets with a stated accuracy: √10 to the nearest hundredth → 3.16 (the bracket pair 9.9856 / 10.0489 decided by the nearer error). (iv) Cube-root shortcuts: ∛19,683 = 27 and ∛148,877 = 53 read off the digit map + strip in seconds — each shortcut *derived once* above, so you always know when it holds: perfect cubes, roots up to two digits.',
+        },
+        {
+          kind: 'terms',
+          items: [
+            {
+              term: 'Perfect square',
+              def: 'A whole number that is the square of a whole number — by the Fundamental Theorem, one whose every prime exponent is even.',
+            },
+            {
+              term: 'Gnomon',
+              def: 'The L-shaped piece (one row plus one column) that grows an n × n square to an (n+1) × (n+1) square — 2n + 1 cells; hence the sum of the first n odd numbers is n².',
+            },
+            {
+              term: 'Pythagorean triplet',
+              def: 'A triple of whole numbers (a, b, c) with a² + b² = c²; manufactured by the recipe a = m² − n², b = 2mn, c = m² + n².',
+            },
+            {
+              term: 'Trial divisor',
+              def: 'In the division method, the quantity 20a (twice the root-so-far, in the new digit\'s units) to which the candidate digit b is appended before multiplying — (20a + b)·b.',
+            },
+            {
+              term: 'Radicand',
+              def: 'The number under the root sign — the input to any extraction craft.',
+            },
+            {
+              term: 'Perfect cube',
+              def: 'A whole number with every prime exponent divisible by 3; its cube root\'s digits are readable by the last-digit cube map and the three-digit strip.',
+            },
+          ],
+        },
+        {
+          kind: 'exercises',
+          title: 'Exercises',
+          sets: [
+            {
+              level: 'L1',
+              questions: [
+                {
+                  q: 'By the gnomon law, evaluate $1 + 3 + 5 + \\cdots + 17$ — and say how many terms the sum carries.',
+                  solution: [
+                    'The last term $17 = 2n - 1$ solves to $n = 9$ — the sum carries nine terms, and by the gnomon law the sum is exactly $n^2$.',
+                    'So, $1 + 3 + 5 + \\cdots + 17 = 9^2 = 81$ — the odd numbers stacked into a $9 \\times 9$ square, no adding required.',
+                  ],
+                  answer: '81 (nine terms — the 9 × 9 square)',
+                },
+                {
+                  q: 'How many whole numbers lie strictly between $20^2$ and $21^2$?',
+                  solution: [
+                    'The gap between consecutive squares is $21^2 - 20^2 = 2 \\cdot 20 + 1 = 41$ wide.',
+                    'Excluding both endpoints: $41 - 1 = 40 = 2 \\times 20$ integers lie strictly between — the $2n$ law again.',
+                  ],
+                  answer: '40',
+                },
+                {
+                  q: 'Compute $105^2$ by the $(a + b)^2$ identity — no long multiplication.',
+                  solution: [
+                    'Take $105 = 100 + 5$: the identity gives $(100 + 5)^2 = 100^2 + 2 \\cdot 100 \\cdot 5 + 5^2$.',
+                    'So, $105^2 = 10{,}000 + 1{,}000 + 25 = 11{,}025$.',
+                  ],
+                  answer: '11,025',
+                },
+              ],
+            },
+            {
+              level: 'L2',
+              questions: [
+                {
+                  q: 'By prime factorisation, extract $\\sqrt{9801}$.',
+                  solution: [
+                    'Factor: $9{,}801 = 3^4 \\cdot 11^2$ (divide by 3 four times to 11, then 11 twice).',
+                    'Every exponent is even — a perfect square: $\\sqrt{9{,}801} = 3^2 \\cdot 11 = 9 \\cdot 11 = 99$.',
+                  ],
+                  answer: '99',
+                },
+                {
+                  q: 'Extract $\\sqrt{7744}$ by the factor method.',
+                  solution: [
+                    'Factor: $7{,}744 = 2^6 \\cdot 11^2$ (halve repeatedly: $7{,}744 \\to 3{,}872 \\to 1{,}936 \\to 968 \\to 484 = 4 \\cdot 121 = 2^2 \\cdot 11^2$ — collect: $2^6 \\cdot 11^2$).',
+                    'All exponents even: $\\sqrt{7{,}744} = 2^3 \\cdot 11 = 8 \\cdot 11 = 88$.',
+                  ],
+                  answer: '88',
+                },
+                {
+                  q: 'Extract $\\sqrt{44100}$.',
+                  solution: [
+                    'Factor: $44{,}100 = 441 \\cdot 100 = (3^2 \\cdot 7^2) \\cdot (2^2 \\cdot 5^2) = 2^2 \\cdot 3^2 \\cdot 5^2 \\cdot 7^2$.',
+                    'Thus, $\\sqrt{44{,}100} = 2 \\cdot 3 \\cdot 5 \\cdot 7 = 210$ — every prime rides once outside the root.',
+                  ],
+                  answer: '210',
+                },
+              ],
+            },
+            {
+              level: 'L3',
+              questions: [
+                {
+                  q: 'Run the long-division method on $\\sqrt{2}$ to four decimal places — list every trial product.',
+                  solution: [
+                    'Pair $2.\\;00\\;00\\;00\\;00$; first digit $1$ ($1 \\cdot 1 \\le 2$), remainder $1$, bring down $00 \\Rightarrow 100$.',
+                    'Trial divisor $2$: $24 \\cdot 4 = 96 \\le 100 < 125 = 25 \\cdot 5$ — digit $4$; remainder $4$; bring down $\\Rightarrow 400$.',
+                    'Trial divisor $28$: $281 \\cdot 1 = 281 \\le 400 < 564$ — digit $1$; remainder $119$; bring down $\\Rightarrow 11{,}900$.',
+                    'Trial divisor $282$: $2824 \\cdot 4 = 11{,}296 \\le 11{,}900 < 14{,}125$ — digit $4$; remainder $604$; bring down $\\Rightarrow 60{,}400$.',
+                    'Trial divisor $2828$: $28{,}282 \\cdot 2 = 56{,}564 \\le 60{,}400 < 84{,}849$ — digit $2$. So, $\\sqrt{2} = 1.4142$ to four decimal places, remainder $3{,}836$ certifying the bracket $1.4142^2 < 2 < 1.4143^2$.',
+                  ],
+                  answer: '1.4142 (products 96, 281, 11,296, 56,564)',
+                },
+                {
+                  q: 'Extract $\\sqrt{7}$ to three decimal places by the division method.',
+                  solution: [
+                    'Pair $7.\\;00\\;00\\;00$: digit $2$ ($4 \\le 7 < 9$), remainder $3$, bring down $\\Rightarrow 300$.',
+                    'Trial divisor $4$: $46 \\cdot 6 = 276 \\le 300 < 329$ — digit $6$; remainder $24$; bring down $\\Rightarrow 2{,}400$.',
+                    'Trial divisor $52$: $524 \\cdot 4 = 2{,}096 \\le 2{,}400 < 2{,}625$ — digit $4$; remainder $304$; bring down $\\Rightarrow 30{,}400$.',
+                    'Trial divisor $528$: $5285 \\cdot 5 = 26{,}425 \\le 30{,}400 < 31{,}716$ — digit $5$. Thus, $\\sqrt{7} = 2.645$ to three places, remainder $3{,}975$.',
+                  ],
+                  answer: '2.645',
+                },
+                {
+                  q: 'Extract $\\sqrt{5.29}$ by the division method and say why the walk terminates.',
+                  solution: [
+                    'Pair $5.\\;29$: digit $2$ ($4 \\le 5 < 9$), remainder $1$, bring down $29 \\Rightarrow 129$.',
+                    'Trial divisor $4$: $43 \\cdot 3 = 129$ — the product equals the remainder exactly; subtract to zero.',
+                    'Hence, $\\sqrt{5.29} = 2.3$ exactly — a terminating walk, because $5.29 = 2.3^2$ is a perfect square of a decimal ($23^2 = 529$ at scale).',
+                  ],
+                  answer: '2.3 exactly (43·3 = 129 closes the walk)',
+                },
+              ],
+            },
+            {
+              level: 'L4',
+              questions: [
+                {
+                  q: 'Extract $\\sqrt{12.25}$ and $\\sqrt{0.0144}$ — pair from the decimal point.',
+                  solution: [
+                    'Take $12 | 25$: digit $3$ ($9 \\le 12 < 16$), remainder $3$, bring down $25 \\Rightarrow 325$; trial divisor $6$: $65 \\cdot 5 = 325$ exactly. Thus, $\\sqrt{12.25} = 3.5$.',
+                    'Take $0 | 01 | 44$: leading pair $0$ mints digit $0$; pair $01$: digit $1$ ($1 \\cdot 1 \\le 1$), remainder $0$, bring down $44 \\Rightarrow 44$; trial divisor $2$: $22 \\cdot 2 = 44$ exactly. Thus, $\\sqrt{0.0144} = 0.12$ — both walks terminate on perfect squares of decimals ($35^2 = 1{,}225$, $12^2 = 144$ at scale).',
+                  ],
+                  answer: '3.5 and 0.12',
+                },
+                {
+                  q: 'Extract $\\sqrt[3]{9261}$ and $\\sqrt[3]{-2744}$ by prime factorisation.',
+                  solution: [
+                    'Factor $9{,}261 = 3 \\cdot 3{,}087 = 3^2 \\cdot 1{,}029 = 3^3 \\cdot 343 = 3^3 \\cdot 7^3 = (3 \\cdot 7)^3$ — so $\\sqrt[3]{9{,}261} = 21$.',
+                    'Factor $2{,}744 = 2^3 \\cdot 343 = 2^3 \\cdot 7^3 = (2 \\cdot 7)^3 = 14^3$ — and cubing preserves sign, so $\\sqrt[3]{-2{,}744} = -14$.',
+                  ],
+                  answer: '21 and −14',
+                },
+                {
+                  q: 'Evaluate $\\sqrt{\\frac{9}{16}}$ and $\\sqrt{\\frac{25}{36}}$.',
+                  solution: [
+                    'The root of a quotient is the quotient of the roots: $\\sqrt{\\tfrac{9}{16}} = \\tfrac{\\sqrt{9}}{\\sqrt{16}} = \\tfrac{3}{4}$ (square the claim: $\\tfrac{9}{16} = \\tfrac{9}{16}$).',
+                    'Likewise, $\\sqrt{\\tfrac{25}{36}} = \\tfrac{\\sqrt{25}}{\\sqrt{36}} = \\tfrac{5}{6}$ — both fractions of perfect squares, so both roots rational.',
+                  ],
+                  answer: '3/4 and 5/6',
+                },
+              ],
+            },
+            {
+              level: 'L5',
+              questions: [
+                {
+                  q: 'Read $\\sqrt[3]{19683}$ by the digit-map shortcut — show both half-readings.',
+                  solution: [
+                    'Last digit $3$: the cube map (units digits $0,1,8,7,4,5,6,3,2,9$) sends $3 \\leftarrow 7$ — the root\'s units digit is $7$.',
+                    'Strip three digits: $19$; and $2^3 = 8 \\le 19 < 27 = 3^3$ — the leading digit is $2$. So, $\\sqrt[3]{19{,}683} = 27$; certified: $27^3 = 19{,}683$.',
+                  ],
+                  answer: '27',
+                },
+                {
+                  q: 'Find the smallest whole number that must multiply $252$ to make a perfect square — and name the square.',
+                  solution: [
+                    'Factor $252 = 2^2 \\cdot 3^2 \\cdot 7$: the exponent $1$ on $7$ is the lone odd one.',
+                    'Thus, multiply by exactly one $7$: $252 \\cdot 7 = 1{,}764 = 2^2 \\cdot 3^2 \\cdot 7^2 = (2 \\cdot 3 \\cdot 7)^2 = 42^2$ — the smallest such multiplier (any less leaves an odd exponent).',
+                  ],
+                  answer: '7 (252 × 7 = 1,764 = 42²)',
+                },
+                {
+                  q: 'Estimate $\\sqrt{10}$ to the nearest hundredth, showing the bracket and both errors.',
+                  solution: [
+                    'The integer bracket from the census: $3^2 = 9 < 10 < 16 = 4^2$ — so $3 < \\sqrt{10} < 4$.',
+                    'The hundredth bracket: $3.16^2 = 9.9856 < 10 < 10.0489 = 3.17^2$ (squares at scale: $316^2 = 99{,}856$, $317^2 = 100{,}489$).',
+                    'So, $\\sqrt{10} \\approx 3.16$ — nearer below, since $10 - 9.9856 = 0.0144 < 0.0489 = 10.0489 - 10$ — a proved position, not a guess.',
+                  ],
+                  answer: '3.16 (nearer below)',
+                },
+              ],
+            },
+            {
+              level: 'L6',
+              questions: [
+                {
+                  q: 'Derive the engine of the division method from scratch: show $(10a + b)^2 = 100a^2 + (20a + b)b$ and read the digit-extraction rule out of it.',
+                  solution: [
+                    'Expand: $(10a + b)^2 = 100a^2 + 20ab + b^2$; collect the last two terms as one product: $20ab + b^2 = (20a + b)b$. So the identity reads $(10a+b)^2 = 100a^2 + (20a+b)b$.',
+                    'Read the algorithm: the square of the root-so-far, $a$, contributes $100a^2$ — already subtracted in earlier steps (the factor $100$ because one digit step scales by $10$); what the radicand still owes is carried by the scaled remainder $100r$.',
+                    'So, the next digit must keep the running difference non-negative: $(20a + b)b \\le 100r$ — the largest such $b$ is the next digit, the subtraction $100r - (20a+b)b$ refreshes the remainder, and the loop mints the digits forever (or to a zero remainder on a perfect square). Every step of the school recipe is this one expansion.',
+                  ],
+                  answer: 'expand, collect 20ab + b² = (20a+b)b, and impose the non-negativity of the running difference',
+                },
+                {
+                  q: 'Prove the between-squares law: exactly $2n$ integers lie strictly between $n^2$ and $(n+1)^2$.',
+                  solution: [
+                    'The gap width: $(n+1)^2 - n^2 = 2n + 1$ — consecutive integers from $n^2 + 1$ up to $(n+1)^2 - 1$.',
+                    'The count of that inclusive run: $(n+1)^2 - 1 - (n^2 + 1) + 1 = (n+1)^2 - n^2 - 1 = 2n + 1 - 1 = 2n$.',
+                    'Hence, doubling the smaller root counts the run — e.g. $12^2 \\to 13^2$ carries $24$ integers — with no listing, ever.',
+                  ],
+                  answer: '(n+1)² − n² − 1 = 2n',
+                },
+                {
+                  q: 'Prove the cube strip bound: for $N = (10a + b)^3$ with $0 \\le b \\le 9$, one has $a^3 \\le N/1000 < (a+1)^3$.',
+                  solution: [
+                    'Bracket the root first: $10a \\le 10a + b < 10a + 10$ (since $b \\le 9 < 10$) — and cubing is strictly order-preserving on positives (equal inputs give equal cubes; unequal give unequal).',
+                    'Cube the bracket: $(10a)^3 \\le N < (10a + 10)^3$ — that is, $1000a^3 \\le N < 1000(a+1)^3$.',
+                    'Divide by $1000$: $a^3 \\le N/1000 < (a+1)^3$ — so the integer formed by stripping the last three digits of a perfect cube lands in a bracket exactly one integer wide, $[a^3, (a+1)^3)$: the strip reads the root\'s leading digit, and (with the last-digit cube map for the units) the whole two-digit root follows.',
+                  ],
+                  answer: 'cube the 10a ≤ 10a+b < 10(a+1) bracket and divide by 1000',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          kind: 'quiz',
+          items: [
+            {
+              q: 'How many whole numbers lie strictly between $15^2$ and $16^2$?',
+              options: ['29', '30', '31', '32'],
+              answer: 1,
+              explain:
+                'The gap is $16^2 - 15^2 = 2 \\times 15 + 1 = 31$ wide; excluding both endpoints leaves $31 - 1 = 30 = 2n$ integers — the between-squares law. Option 0 forgets to drop an endpoint; option 2 adds one instead; option 3 is the raw gap width without exclusions.',
+            },
+            {
+              q: 'In the long-division method, with root-so-far $a$ and scaled remainder $r$ (two fresh digits just brought down), the next digit $b$ is the largest digit with:',
+              options: [
+                '$(a + b) \\cdot b \\le 10r$',
+                '$(2a + b) \\cdot b \\le 10r$',
+                '$(20a + b) \\cdot b \\le 100r$',
+                '$(20a - b) \\cdot b \\le 100r$',
+              ],
+              answer: 2,
+              explain:
+                'The engine is $(10a+b)^2 = 100a^2 + (20a+b)b$: after the square of the root-so-far is subtracted, the radicand\'s debt sits in the scaled remainder $100r$, and the candidate digit must keep the subtraction non-negative: $(20a+b)b \\le 100r$ — the doubling of $a$ and the factor $100$ are both forced by the algebra ($10a + b$ appends the digit; one digit step scales the radicand by a hundred). Options 0 and 1 lose the place-value factors ($20$ from the append, $100$ from the two brought-down digits); option 4 subtracts the very digit the product needs.',
+            },
+            {
+              q: 'By the cube digit-map shortcut, $\\sqrt[3]{148877}$ equals:',
+              options: ['43', '57', '63', '53'],
+              answer: 3,
+              explain:
+                'Last digit $7$: the cube map sends the units digit $3 \\to 7$ ($3^3 = 27$ ends in $7$; the map is injective). Strip three digits: $148$, and $5^3 = 125 \\le 148 < 216 = 6^3$ — leading digit $5$. Root: $53$, certified by $53^3 = 148{,}877$. The distractors fail the strip ($4^3 = 64$ and $6^3 = 216$ bracket wrongly) or the map ($57$ and $63$ end in the wrong digit for a cube ending in $7$).',
+            },
+            {
+              q: 'The smallest whole number that must multiply $1008$ to make a perfect square is:',
+              options: ['3', '7', '21', '2'],
+              answer: 1,
+              explain:
+                'Factor $1008 = 2^4 \\cdot 3^2 \\cdot 7$: only the $7$ carries an odd exponent, so exactly one more $7$ repairs the census: $1008 \\times 7 = 7056 = 84^2$. Multiplying by $3$ leaves $2^4 3^3 7$ — still odd; by $2$ leaves the $7$ odd; by $21$ overshoots to $21{,}168$ — not even a square ($145^2 < 21{,}168 < 146^2$), and anyway not the *smallest*.',
+            },
+            {
+              q: 'Why are the radicand\'s digits paired outward from the decimal point before the division method runs?',
+              options: [
+                'because a square always has an even number of digits',
+                'because the algorithm halves the radicand, and halving needs pairs',
+                'because each digit step left multiplies the radicand by 10 — and a number\'s square therefore scales by 100, so root digits are minted two radicand-digits at a time',
+                'because the decimal point must sit at an even position for the root to be real',
+              ],
+              answer: 2,
+              explain:
+                'One digit step left multiplies any number by $10$; squaring multiplies by $10^2 = 100$. So each new digit of a root corresponds to a fresh pair of radicand digits — pairing is place value squared ($\\sqrt{100x} = 10\\sqrt{x}$). Option 0 is false ($100$ through $999$ include $121$, $144$, $\\ldots$ with odd digit counts); option 1 describes nothing in the algorithm; option 4 confuses the pairing with reality of the root.',
+            },
+          ],
+        },
+        {
+          kind: 'para',
+          text: 'The chapter closes for real now — theory first (the diagonal, the family, the behaviour, the completed line), then craft: the census that recognises squares, the factorisation that halves and thirds exponents, the division method whose every subtraction is the algebra of $(10a+b)^2$, and the cube shortcuts that read roots off perfect cubes like street numbers. Every craft in this lesson was *derived* — the book\'s standing promise, kept to the last page. The extraction tools now point the book toward its final vistas: chapter 9 asks how humanity ever learned to *write* numbers down — five numeration systems, from tally to decimal zero — and the closing chapter maps the whole tower of systems from above.',
         },
       ],
     },

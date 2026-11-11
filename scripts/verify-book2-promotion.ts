@@ -43,18 +43,18 @@ function section(name: string) {
 section('A. Structure of the promoted book')
 ok(ans.id === 'arithmetic-and-number-systems', 'book id stable kebab-case')
 ok(ans.discipline === 'mathematics', 'discipline = mathematics')
-ok(ans.status === 'planned', 'book status planned')
+ok(ans.status === 'complete', 'book status complete (35 lessons + the audit lesson 8.5, 2026-11-11)')
 ok(ans.chapters.length === 10, `10 chapters (got ${ans.chapters.length})`)
 ok(ans.chapters.map((c) => c.number).join(',') === '1,2,3,4,5,6,7,8,9,10', 'chapter numbers sequential 1..10')
 const slugs = ans.chapters.map((c) => c.slug)
 ok(new Set(slugs).size === slugs.length, 'chapter slugs unique book-wide')
-ok(ans.chapters.every((c) => c.status === 'planned'), 'all chapters planned')
-ok(ans.chapters.every((c) => c.lessons.length === 0), 'no lessons written yet (empty shells forbidden as LESSONS; planned TOC is the deliverable)')
-ok(ans.chapters.every((c) => (c.plannedLessons?.length ?? 0) > 0), 'every chapter carries planned lessons')
-const plannedTitles = ans.chapters.flatMap((c) => c.plannedLessons ?? [])
-ok(plannedTitles.length === 34, `34 planned lessons (got ${plannedTitles.length})`)
-ok(new Set(plannedTitles).size === plannedTitles.length, 'planned lesson titles unique book-wide')
-ok(plannedTitles.every((t) => t.trim().length > 8), 'no stub titles')
+ok(ans.chapters.every((c) => c.status === 'complete'), 'all 10 chapters complete')
+ok(ans.chapters.every((c) => c.lessons.length > 0), 'every chapter carries written lessons')
+ok(ans.chapters.every((c) => (c.plannedLessons?.length ?? 0) === 0), 'no leftover queue anywhere (the audit closed the last gap with 8.5)')
+const writtenTitles = ans.chapters.flatMap((c) => c.lessons.map((l) => l.title))
+ok(writtenTitles.length === 36, `36 written lessons (got ${writtenTitles.length})`)
+ok(new Set(writtenTitles).size === writtenTitles.length, 'written lesson titles unique book-wide')
+ok(writtenTitles.every((t) => t.trim().length > 8), 'no stub titles')
 ok(ans.chapters.every((c) => c.summary.length > 120), 'every chapter summary is a real pedagogical paragraph')
 for (const c of ans.chapters) {
   ok(typeof c.title === 'string' && c.title.length > 3, `ch.${c.number} title set`)
@@ -64,15 +64,15 @@ for (const c of ans.chapters) {
 /* B. Registry                                                         */
 /* ------------------------------------------------------------------ */
 section('B. Registry integration')
-ok(allBooks.length === 2, `allBooks has 2 books (got ${allBooks.length})`)
+ok(allBooks.length === 28, `allBooks has 28 books (got ${allBooks.length})`)
 ok(allBooks.some((b) => b.id === ans.id), 'ANS book registered in allBooks')
 const stats = libraryStats()
-ok(stats.books === 2, `libraryStats().books = 2 (got ${stats.books})`)
+ok(stats.books === 28, `libraryStats().books = 28 (got ${stats.books})`)
 const ansStats = bookStats(ans)
-ok(ansStats.written === 0, '0 written lessons')
-ok(ansStats.planned === 34, `bookStats().planned = 34 (got ${ansStats.planned})`)
-ok(ansStats.words === 0, '0 words (honest counter — nothing authored yet)')
-ok(bookLessons(ans).length === 0, 'bookLessons empty (reader/search pick up nothing yet)')
+ok(ansStats.written === 36, `36 written lessons (got ${ansStats.written})`)
+ok(ansStats.planned === 0, `bookStats().planned = 0 (got ${ansStats.planned})`)
+ok(ansStats.words > 150000, `words > 150000 (got ${ansStats.words})`)
+ok(bookLessons(ans).length === 36, `bookLessons serves 36 lessons to the reader (got ${bookLessons(ans).length})`)
 
 /* ------------------------------------------------------------------ */
 /* C. Uniqueness against Foundation Mathematics                        */
@@ -89,9 +89,9 @@ ok(
   ansChapterSlugsGlobal.every((s) => !fmChapterSlugs.includes(s.replace('ans/', ''))),
   'no chapter slug collides with any FM chapter slug',
 )
-for (const t of plannedTitles) {
-  ok(!fmLessonTitles.includes(t.toLowerCase()), `planned title not an FM lesson title: "${t}"`)
-  ok(!fmPlannedTitles.includes(t.toLowerCase()), `planned title not an FM planned title: "${t}"`)
+for (const t of writtenTitles) {
+  ok(!fmLessonTitles.includes(t.toLowerCase()), `written title not an FM lesson title: "${t}"`)
+  ok(!fmPlannedTitles.includes(t.toLowerCase()), `written title not an FM planned title: "${t}"`)
 }
 
 /* ------------------------------------------------------------------ */
@@ -124,7 +124,7 @@ ok(desc.includes('openstax') || desc.includes('babylon'), 'historical numeration
 ok(desc.includes('igcse') || desc.includes('binary'), 'machine-representation reference named')
 ok(desc.includes('ncert'), 'school canon named (NCERT)')
 // chapter coverage of the five families
-const planText = ans.chapters.map((c) => (c.summary + ' ' + (c.plannedLessons ?? []).join(' '))).join(' ').toLowerCase()
+const planText = ans.chapters.map((c) => (c.summary + ' ' + (c.plannedLessons ?? []).join(' ') + ' ' + c.lessons.map((l) => l.title).join(' '))).join(' ').toLowerCase()
 ok(planText.includes('euclid'), 'ch. 2/4 cover the Euclid material')
 ok(planText.includes('base') && planText.includes('binary'), 'ch. 3 covers bases + binary')
 ok(planText.includes('congruence') && planText.includes('casting out nines'), 'ch. 5 covers congruences + casting out nines')

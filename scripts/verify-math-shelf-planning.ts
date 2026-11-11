@@ -4,7 +4,8 @@
  * pass, same day: + the Quantitative Aptitude book, the Khattar census's
  * home). Checks the shelf as one structure:
  *
- *  A. all 28 books load; statuses: 3 complete + 25 planned (AA + 24)
+ *  A. all 28 books load; statuses: 2 complete (FM, ANS) + 2 in-progress
+ *     (AL — the pre-written-books audit 2026-11-11; AA — run 90) + 24 planned
  *  B. per-book chapter + planned-lesson counts printed (the honest census
  *     the docs must match — mismatches FAIL below)
  *  C. every planned chapter: status 'planned', empty lessons array,
@@ -38,8 +39,10 @@ const math = allBooks.filter((b) => b.discipline === 'mathematics')
 ok(math.length === 28, `28 mathematics books (got ${math.length})`)
 const complete = math.filter((b) => b.status === 'complete')
 const planned = math.filter((b) => b.status === 'planned')
-ok(complete.length === 3, `3 complete (got ${complete.length})`)
-ok(planned.length === 25, `25 planned (got ${planned.length})`)
+const inprog = math.filter((b) => b.status === 'in-progress')
+ok(complete.length === 2, `2 complete FM+ANS (got ${complete.length})`)
+ok(inprog.length === 2, `2 in-progress AL+AA (got ${inprog.length}: ${inprog.map((b) => b.id).join(',')})`)
+ok(planned.length === 24, `24 planned (got ${planned.length})`)
 
 console.log('== B. the honest census (per book) ==')
 const census: Record<string, { chapters: number; plannedLessons: number }> = {}
@@ -80,14 +83,14 @@ ok(writtenSet.size === writtenIds.length, `written lesson ids globally unique ($
 for (const p of NEW_PREFIXES) {
   ok(!writtenIds.some((id) => id.startsWith(p)), `prefix '${p}' unused by written lessons`)
 }
-// existing reserved prefixes stay reserved ('aa-' is reserved by the
-// Advanced Algebra plan but has ZERO written lessons by design — its
-// lessons exist as plannedLessons titles until authoring begins)
+// the 'aa-' prefix belongs to Advanced Algebra and is now IN USE by its
+// written lessons (run 90 opened the book: aa-relations-the-set-of-pairs-view,
+// aa-one-one-and-onto-classifying-the-machines) — the reservation era ended
 for (const p of ['fm-', 'ans-', 'al-']) {
   const count = writtenIds.filter((id) => id.startsWith(p)).length
   ok(count > 0, `existing prefix '${p}' still present (${count})`)
 }
-ok(!writtenIds.some((id) => id.startsWith('aa-')), `prefix 'aa-' unused by written lessons (reserved by the AA plan)`)
+ok(writtenIds.some((id) => id.startsWith('aa-')), `prefix 'aa-' now in use by written AA lessons (${writtenIds.filter((id) => id.startsWith('aa-')).length} lessons)`)  
 
 console.log('== F. book-level hygiene ==')
 const ids = new Set(allBooks.map((b) => b.id))

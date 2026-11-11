@@ -1852,5 +1852,7 @@ export const chapter04: Chapter = {
       ],
     },
   ],
-  plannedLessons: [],
+  plannedLessons: [
+    '4.5 HCF and LCM of Expressions',
+  ],
 }

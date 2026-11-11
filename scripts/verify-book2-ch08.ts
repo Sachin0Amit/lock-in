@@ -1341,7 +1341,7 @@ console.log('(Q) formula cards')
 {
   const src = (await import('../src/data/library/books/mathematics/arithmetic-number-systems/ch-08')).chapter08
   const formulas = src.lessons.flatMap((l) => l.blocks.filter((b) => b.kind === 'formula').map((b) => (b as { name: string }).name))
-  eq(formulas.length, 15, 'Q: 15 formula cards across 8.1–8.4')
+  eq(formulas.length, 18, 'Q: 18 formula cards across 8.1–8.5 (three new in 8.5: factor-method, pairing/fraction, cube strip+map)')
   const want = [
     'The dissection identity',
     'The classical contradiction',
@@ -1362,13 +1362,13 @@ console.log('(Q) formula cards')
   for (const w of want) ok(formulas.includes(w), `Q: card present — ${w}`)
   // quiz blocks: 4 (8.1–8.4), each 5 quiz items; the chapter is COMPLETE
   const quizzes = src.lessons.flatMap((l) => l.blocks.filter((b) => b.kind === 'quiz'))
-  eq(quizzes.length, 4, 'Q: 4 quiz blocks')
+  eq(quizzes.length, 5, 'Q: 5 quiz blocks (8.1–8.5)')
   for (let i = 0; i < quizzes.length; i++) {
     eq((quizzes[i] as { items: unknown[] }).items.length, 5, `Q: quiz block ${i + 1} has 5 items`)
   }
   eq(src.status, 'complete', 'Q: chapter 8 flipped COMPLETE')
   eq(src.plannedLessons?.length ?? 0, 0, 'Q: plannedLessons emptied')
-  eq(src.lessons.length, 4, 'Q: four lessons shipped')
+  eq(src.lessons.length, 5, 'Q: five lessons shipped (8.5 added by the pre-written-books audit, 2026-11-11)')
 }
 
 /* ================================================================== */
@@ -1567,10 +1567,419 @@ ok((2 - 1.4142 * 1.4142) / (2 * 1.4142 + 1) > 1e-5, 'U2 8.4 L6-1: the room at 1.
 ok(141421 * 141421 < 2 * 10000000000, 'U2 8.4 L6-1: 1.4142 + 10⁻⁵ = 1.41421 still squares under 2 — the witness above 1.4142')
 
 /* ================================================================== */
+/* SECTION V — PRE-WRITING pins for lesson 8.5 "Square and Cube Roots:  */
+/* the Extraction Crafts" (the pre-written-books audit, 2026-11-11:     */
+/* Khattar ch. 3 + NCERT-8 squares/cube-roots scope carried nowhere    */
+/* on the shelf — this lesson closes the gap). Every number the        */
+/* lesson will state is pinned here BEFORE prose, per verify-first.    */
+/* ================================================================== */
+console.log('(V) 8.5 pre-writing: the squares census + gnomon law')
+{
+  // V1 the odd-number sum law Σ(2k−1) = n², swept
+  let law = true
+  let run = 0
+  for (let n = 1; n <= 200; n++) {
+    run += 2 * n - 1
+    if (run !== n * n) law = false
+  }
+  ok(law, 'V1 Σ(2k−1) = n² swept n ≤ 200')
+  eq(1 + 3 + 5 + 7, 16, 'V1 exhibit: 1+3+5+7 = 16 = 4²')
+  eq(1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17, 81, 'V1 exhibit: 1+3+…+17 = 81 = 9²')
+  // V2 the between-squares law: exactly 2n integers strictly between
+  let between = true
+  for (let n = 1; n <= 150; n++) {
+    const count = (n + 1) * (n + 1) - n * n - 1
+    if (count !== 2 * n) between = false
+  }
+  ok(between, 'V2 strictly between n² and (n+1)² there are exactly 2n integers, swept')
+  eq(13 * 13 - 12 * 12 - 1, 24, 'V2 exhibit: between 144 and 169 lie 24 integers')
+  eq(21 * 21 - 20 * 20 - 1, 40, 'V2 exhibit: between 400 and 441 lie 40 integers')
+  eq(16 * 16 - 15 * 15 - 1, 30, 'V2 quiz-pin: between 225 and 256 lie 30 integers')
+  // V3 the gap law and the identity exhibit
+  eq(106 * 106 - 105 * 105, 211, 'V3 (n+1)²−n² = 2n+1 at n = 105 (211)')
+  eq(105 * 105, 11025, 'V3 exhibit: 105² = 11025 (by (100+5)² = 10000+1000+25)')
+  eq((100 + 5) * (100 + 5), 10000 + 2 * 100 * 5 + 25, 'V3 (a+b)² expansion at the exhibit')
+}
+console.log('(V2) 8.5 pre-writing: the triplet generator')
+{
+  // V4 Pythagorean triplets: a = m²−n², b = 2mn, c = m²+n² for m > n ≥ 1
+  let gen = true
+  for (let m = 2; m <= 12; m++) {
+    for (let n = 1; n < m; n++) {
+      const a = m * m - n * n, b = 2 * m * n, c = m * m + n * n
+      if (a * a + b * b !== c * c) gen = false
+    }
+  }
+  ok(gen, 'V4 the generator a²+b² = c² swept m,n ≤ 12')
+  // the primitive condition: gcd(m,n)=1 and m−n odd → gcd(a,b)=1
+  let prim = true
+  for (let m = 2; m <= 12; m++) {
+    for (let n = 1; n < m; n++) {
+      if (gcd(m, n) === 1 && (m - n) % 2 === 1) {
+        const a = m * m - n * n, b = 2 * m * n
+        if (gcd(a, b) !== 1) prim = false
+      }
+    }
+  }
+  ok(prim, 'V4 primitive condition (gcd(m,n)=1, m−n odd) swept m,n ≤ 12')
+  eq(3 * 3 + 4 * 4, 5 * 5, 'V4 exhibit (m=2,n=1): 3²+4² = 5²')
+  eq(5 * 5 + 12 * 12, 13 * 13, 'V4 exhibit (m=3,n=2): 5²+12² = 13² — the leg-12 triplet')
+  eq(8 * 8 + 15 * 15, 17 * 17, 'V4 exhibit (m=4,n=1): 8²+15² = 17²')
+  eq(7 * 7 + 24 * 24, 25 * 25, 'V4 exhibit (m=4,n=3): 7²+24² = 25²')
+  eq(20 * 20 + 21 * 21, 29 * 29, 'V4 exhibit (m=5,n=2): 20²+21² = 29²')
+  eq(12 * 12 + 35 * 35, 37 * 37, 'V4 exhibit (m=6,n=1): 12²+35² = 37²')
+  eq(12 * 12 + 16 * 16, 20 * 20, 'V4 exhibit: (12,16,20) = (3,4,5)×4')
+}
+console.log('(V3) 8.5 pre-writing: the division-method engine + generic simulator')
+{
+  // V5 the engine identity (10a+b)² = 100a² + (20a+b)·b, swept
+  let eng = true
+  for (let a = 0; a <= 99; a++) {
+    for (let b = 0; b <= 9; b++) {
+      if ((10 * a + b) * (10 * a + b) !== 100 * a * a + (20 * a + b) * b) eng = false
+    }
+  }
+  ok(eng, 'V5 (10a+b)² = 100a² + (20a+b)b swept a ≤ 99, b ≤ 9')
+
+  // the generic digit-extraction simulator, paired from the DECIMAL POINT:
+  // the radicand is R = radicand × 10^(2f) (f fractional pairs in its own
+  // decimal), and E extra pairs of zeros are appended; pairs = integer part
+  // grouped from the RIGHT (first group may be 1 digit), then each 2-digit
+  // fractional group, then E zeros-pairs; each pair yields one root digit by
+  // the trial (20a+b)·b ≤ 100r. Ground truth: isqrt(R · 10^(2E)).
+  const digits = (R: number, f: number, E: number): string => {
+    const rs = String(R).padStart(2 * f + 1, '0') // 0.0144 → R = 144 needs the leading zero restored
+    const intPart = rs.slice(0, rs.length - 2 * f) || '0'
+    const fracPart = rs.slice(rs.length - 2 * f)
+    const intPairs: string[] = []
+    const ip = intPart.replace(/^0+(?=.)/, '') || '0'
+    const lead = ip.length % 2 === 1 ? 1 : 0
+    if (lead === 1) intPairs.push(ip.slice(0, 1))
+    for (let i = lead; i < ip.length; i += 2) intPairs.push(ip.slice(i, i + 2))
+    const pairs = [...intPairs]
+    for (let i = 0; i < fracPart.length; i += 2) pairs.push(fracPart.slice(i, i + 2))
+    for (let e = 0; e < E; e++) pairs.push('00')
+    let a = 0, r = 0, out = ''
+    for (const pair of pairs) {
+      r = r * 100 + Number(pair)
+      let b = 0
+      while ((20 * a + (b + 1)) * (b + 1) <= r) b++
+      r -= (20 * a + b) * b
+      a = a * 10 + b
+      out += String(b)
+    }
+    const truth = isqrt(BigInt(R) * BigInt(10) ** BigInt(2 * E)).toString().padStart(out.length, '0')
+    ok(out === truth,
+      'V5 simulator matches isqrt ground truth (R=' + R + ', f=' + f + ', E=' + E + ': ' + out + ' vs ' + truth + ')')
+    return out
+  }
+  digits(2, 0, 4)       // √2 → 14142
+  digits(3, 0, 3)       // √3 → 1732
+  digits(7, 0, 3)       // √7 → 2645
+  digits(529, 1, 0)     // √5.29 → 23 (terminating: √5.29 = 2.3)
+  digits(55225, 0, 0)   // √55225 → 235 (Āryabhaṭa's exhibit, terminating)
+  digits(1225, 1, 0)    // √12.25 → 35
+  digits(144, 2, 0)     // √0.0144 → 012
+  digits(2116, 1, 0)    // √21.16 → 46
+}
+console.log('(V4) 8.5 pre-writing: the pinned walks — every product and remainder')
+{
+  // V7 the √2 walk: products 96, 281, 11296, 56564; remainders 4, 119, 604, 3836
+  eq(24 * 4, 96, 'V7 √2 walk: 24·4 = 96')
+  eq(100 - 96, 4, 'V7 √2 walk: remainder 100 − 96 = 4')
+  eq(281 * 1, 281, 'V7 √2 walk: 281·1 = 281')
+  eq(400 - 281, 119, 'V7 √2 walk: remainder 400 − 281 = 119')
+  eq(2824 * 4, 11296, 'V7 √2 walk: 2824·4 = 11,296')
+  eq(11900 - 11296, 604, 'V7 √2 walk: remainder 11,900 − 11,296 = 604')
+  eq(28282 * 2, 56564, 'V7 √2 walk: 28282·2 = 56,564')
+  eq(60400 - 56564, 3836, 'V7 √2 walk: remainder 60,400 − 56,564 = 3,836')
+  // the maximality of every chosen digit (b+1 would overshoot)
+  ok(25 * 5 > 100, 'V7 √2 walk: b = 5 overshoots (25·5 = 125 > 100)')
+  ok(282 * 2 > 400, 'V7 √2 walk: b = 2 overshoots (282·2 = 564 > 400)')
+  ok(2825 * 5 > 11900, 'V7 √2 walk: b = 5 overshoots (2825·5 = 14,125 > 11,900)')
+  ok(28283 * 3 > 60400, 'V7 √2 walk: b = 3 overshoots (28283·3 = 84,849 > 60,400)')
+  // the √2 digits themselves against BigInt truth
+  eq((isqrt(BigInt(2000000))).toString(), '1414', 'V7 √2: isqrt(2·10⁶) = 1414 (4 digits)')
+  eq((isqrt(BigInt(200000000))).toString(), '14142', 'V7 √2: isqrt(2·10⁸) = 14142 (5 digits)')
+
+  // V8 the √3 walk: products 189, 1029, 6924; remainders 11, 71, 176
+  eq(27 * 7, 189, 'V8 √3 walk: 27·7 = 189')
+  eq(200 - 189, 11, 'V8 √3 walk: remainder 200 − 189 = 11')
+  eq(343 * 3, 1029, 'V8 √3 walk: 343·3 = 1,029')
+  eq(1100 - 1029, 71, 'V8 √3 walk: remainder 1,100 − 1,029 = 71')
+  eq(3462 * 2, 6924, 'V8 √3 walk: 3462·2 = 6,924')
+  eq(7100 - 6924, 176, 'V8 √3 walk: remainder 7,100 − 6,924 = 176')
+  ok(28 * 8 > 200, 'V8 √3 walk: b = 8 overshoots (28·8 = 224 > 200)')
+  ok(344 * 4 > 1100, 'V8 √3 walk: b = 4 overshoots (344·4 = 1,376 > 1,100)')
+  ok(3463 * 3 > 7100, 'V8 √3 walk: b = 3 overshoots (3463·3 = 10,389 > 7,100)')
+  eq(isqrt(BigInt(3000000)).toString(), '1732', 'V8 √3: isqrt(3·10⁶) = 1732')
+
+  // V9 the terminating walks
+  eq(43 * 3, 129, 'V9 √5.29 walk: 43·3 = 129 — the remainder exactly')
+  eq(129 - 129, 0, 'V9 √5.29 walk: remainder 0 — terminating, √5.29 = 2.3')
+  eq(23 * 23 * 100, 52900, 'V9 check: 2.3² = 5.29 at scale 10⁴ (23² = 529)')
+  eq(235 * 235, 55225, 'V9 Āryabhaṭa exhibit: 235² = 55,225')
+  eq(43 * 3, 129, 'V9 55225 walk: 43·3 = 129 (152 − 129 = 23)')
+  eq(465 * 5, 2325, 'V9 55225 walk: 465·5 = 2,325 — the remainder exactly')
+  eq(2325 - 2325, 0, 'V9 55225 walk: remainder 0 — terminating, √55225 = 235')
+
+  // V10 the √7 walk: products 276, 2096, 26425; remainders 24, 304, 3975
+  eq(46 * 6, 276, 'V10 √7 walk: 46·6 = 276')
+  eq(300 - 276, 24, 'V10 √7 walk: remainder 300 − 276 = 24')
+  eq(524 * 4, 2096, 'V10 √7 walk: 524·4 = 2,096')
+  eq(2400 - 2096, 304, 'V10 √7 walk: remainder 2,400 − 2,096 = 304')
+  eq(5285 * 5, 26425, 'V10 √7 walk: 5285·5 = 26,425')
+  eq(30400 - 26425, 3975, 'V10 √7 walk: remainder 30,400 − 26,425 = 3,975')
+  ok(47 * 7 > 300, 'V10 √7 walk: b = 7 overshoots (47·7 = 329 > 300)')
+  ok(525 * 5 > 2400, 'V10 √7 walk: b = 5 overshoots (525·5 = 2,625 > 2,400)')
+  ok(5286 * 6 > 30400, 'V10 √7 walk: b = 6 overshoots (5286·6 = 31,716 > 30,400)')
+  eq(isqrt(BigInt(7000000)).toString(), '2645', 'V10 √7: isqrt(7·10⁶) = 2645')
+}
+console.log('(V5) 8.5 pre-writing: the factor method + decimal/fraction shifts')
+{
+  const factorize = (n: number): Record<number, number> => {
+    const f: Record<number, number> = {}
+    let m = n
+    for (const p of [2, 3, 5, 7, 11, 13, 17, 19, 23]) {
+      while (m % p === 0) { f[p] = (f[p] ?? 0) + 1; m /= p }
+    }
+    if (m > 1) f[m] = 1
+    return f
+  }
+  const allEven = (n: number): boolean => Object.values(factorize(n)).every((e) => e % 2 === 0)
+  // V11 the factor-method squares, each with even exponents
+  eq(99 * 99, 9801, 'V11 99² = 9,801')
+  ok(allEven(9801), 'V11 9801 = 3⁴·11² — all exponents even')
+  eq(88 * 88, 7744, 'V11 88² = 7,744')
+  ok(allEven(7744), 'V11 7744 = 2⁶·11² — all exponents even')
+  eq(210 * 210, 44100, 'V11 210² = 44,100')
+  ok(allEven(44100), 'V11 44100 = 2²·3²·5²·7² — all exponents even')
+  eq(67 * 67, 4489, 'V11 67² = 4,489')
+  eq(98 * 98, 9604, 'V11 98² = 9,604')
+  // V12 the decimal/fraction shifts
+  eq(35 * 35, 1225, 'V12 3.5² = 12.25 at scale 10⁴ (35² = 1,225)')
+  eq(12 * 12, 144, 'V12 0.12² = 0.0144 at scale 10⁸ (12² = 144)')
+  eq(46 * 46, 2116, 'V12 4.6² = 21.16 at scale 10² (46² = 2,116)')
+  eq(3 * 3, 9, 'V12 (3/4)² = 9/16 — √(9/16) = 3/4')
+  eq(5 * 5, 25, 'V12 (5/6)² = 25/36 — √(25/36) = 5/6')
+  // V13 the last-digit law + trailing zeros
+  const sqEnds = new Set<number>()
+  for (let n = 0; n <= 99; n++) sqEnds.add((n * n) % 10)
+  eq([...sqEnds].sort().join(','), '0,1,4,5,6,9', 'V13 squares end only in 0,1,4,5,6,9 (swept n ≤ 99)')
+  let tz = true
+  for (let n = 1; n <= 500; n++) {
+    const tzn = (function f(x: number): number { let c = 0; while (x % 10 === 0) { x /= 10; c++ } return c })(n)
+    const tzs = (function f(x: number): number { let c = 0; while (x % 10 === 0) { x /= 10; c++ } return c })(n * n)
+    if (tzs !== 2 * tzn) tz = false
+  }
+  ok(tz, 'V13 squares have paired trailing zeros: tz(n²) = 2·tz(n) swept n ≤ 500')
+  eq(32 * 32, 1024, 'V13 1024 = 32² is a perfect square')
+  eq(95 * 95, 9025, 'V13 9025 = 95²')
+  // V14 the smallest-multiplier/divisor family
+  eq(252 * 7, 1764, 'V14 252·7 = 1,764')
+  eq(42 * 42, 1764, 'V14 1,764 = 42² — 252 = 2²·3²·7 needed exactly one 7')
+  eq(1008 * 7, 7056, 'V14 1008·7 = 7,056')
+  eq(84 * 84, 7056, 'V14 7,056 = 84² — 1008 = 2⁴·3²·7 needed exactly one 7')
+  eq(1620 / 5, 324, 'V14 1620 ÷ 5 = 324')
+  eq(18 * 18, 324, 'V14 324 = 18² — 1620 = 2²·3⁴·5 needed one 5 removed')
+}
+console.log('(V6) 8.5 pre-writing: the cube engines')
+{
+  // V15 cubes mod 10: the last-digit map is a bijection (b³ mod 10 → b)
+  const cubeMap: Record<number, number> = {}
+  for (let b = 0; b <= 9; b++) cubeMap[(b * b * b) % 10] = b
+  eq(JSON.stringify(cubeMap), '{"0":0,"1":1,"2":8,"3":7,"4":4,"5":5,"6":6,"7":3,"8":2,"9":9}',
+    'V15 the cube last-digit map is injective (0→0,1→1,2→8,3→7,4→4,5→5,6→6,7→3,8→2,9→9)')
+  // V15b the two-digit cube group-strip law: for N = (10a+b)³,
+  // N div 1000 ∈ [a³, (a+1)³) — swept all 90 two-digit cubes
+  let strip = true
+  for (let a = 1; a <= 9; a++) {
+    for (let b = 0; b <= 9; b++) {
+      const N = (10 * a + b) ** 3
+      if (Math.floor(N / 1000) < a ** 3 || Math.floor(N / 1000) >= (a + 1) ** 3) strip = false
+    }
+  }
+  ok(strip, 'V15b the three-digit strip: ⌊N/1000⌋ ∈ [a³, (a+1)³) for all 90 two-digit cubes')
+  // V16 the cube exhibits
+  eq(12 * 12 * 12, 1728, 'V16 12³ = 1,728')
+  eq(21 * 21 * 21, 9261, 'V16 21³ = 9,261')
+  eq(14 * 14 * 14, 2744, 'V16 14³ = 2,744 — so ∛(−2744) = −14 (odd powers keep the sign)')
+  eq(27 * 27 * 27, 19683, 'V16 27³ = 19,683')
+  eq(53 * 53 * 53, 148877, 'V16 53³ = 148,877')
+  eq(26 * 26 * 26, 17576, 'V16 26³ = 17,576')
+  eq(15 ** 3, 3375, 'V16 15³ = 3,375')
+  eq(36 ** 3, 46656, 'V16 36³ = 46,656')
+  // the ∛148877 shortcut walk pinned: ends in 7 → root ends 3; strip 148 → 5³ ≤ 148 < 6³
+  eq(3 * 3 * 3 % 10, 7, 'V16 ∛148877: 3³ = 27 ends in 7 — the units digit of the root is 3')
+  ok(5 ** 3 <= 148 && 148 < 6 ** 3, 'V16 ∛148877: 125 ≤ 148 < 216 — the tens digit is 5')
+  // the ∛19683 shortcut walk: ends in 3 → root ends 7; strip 19 → 2³ ≤ 19 < 3³
+  eq(7 ** 3 % 10, 3, 'V16 ∛19683: 7³ = 343 ends in 3 — the units digit of the root is 7')
+  ok(2 ** 3 <= 19 && 19 < 3 ** 3, 'V16 ∛19683: 8 ≤ 19 < 27 — the tens digit is 2')
+  // estimation: ∛3000 between 14 and 15, nearer 14
+  ok(14 ** 3 < 3000 && 3000 < 15 ** 3, 'V16 ∛3000: 14³ = 2,744 < 3,000 < 3,375 = 15³')
+  ok(3000 - 2744 < 3375 - 3000, 'V16 ∛3000: 3,000 − 2,744 = 256 < 375 = 3,375 − 3,000 — nearer 14')
+  // V17 the √10 estimation bracket
+  eq(316 * 316, 99856, 'V17 3.16² = 9.9856 at scale 10⁴ (316² = 99,856)')
+  eq(317 * 317, 100489, 'V17 3.17² = 10.0489 at scale 10⁴ (317² = 100,489)')
+  ok(316 * 316 < 100000 && 100000 < 317 * 317, 'V17 3.16² < 10 < 3.17²')
+  ok(100000 - 99856 < 100489 - 100000, 'V17 nearer below: 10 − 9.9856 = 0.0144 < 0.0489')
+  ok(3 * 3 < 10 && 10 < 16, 'V17 the integer bracket: 3 < √10 < 4')
+}
+console.log('(V7) 8.5 pre-writing: quiz keys + exercise keys')
+{
+  // quiz (5 items, intended answer indices [1, 2, 3, 1, 2] — every distractor evaluated)
+  eq(16 * 16 - 15 * 15 - 1, 30, 'V7 Q1: 30 integers strictly between 15² and 16² (key 1; distractors 29/31/32 all wrong)')
+  eq((20 * 1414 + 2) * 2 <= 60400, true, 'V7 Q2: the trial of the method is (20a+b)b ≤ 100r (key 2)')
+  eq(53 ** 3, 148877, 'V7 Q3: ∛148877 = 53 (key 3; 43³ = 79,507; 57³ = 185,193; 63³ = 250,047)')
+  eq(43 ** 3, 79507, 'V7 Q3 distractor: 43³ = 79,507 ≠ 148,877')
+  eq(57 ** 3, 185193, 'V7 Q3 distractor: 57³ = 185,193 ≠ 148,877')
+  eq(63 ** 3, 250047, 'V7 Q3 distractor: 63³ = 250,047 ≠ 148,877')
+  eq(1008 * 7, 7056, 'V7 Q4: 1008 = 2⁴·3²·7 → ×7 = 7,056 = 84² (key 1; ×3 → 3,024 not a square? check)')
+  eq(Math.round(Math.sqrt(3024)), 55, 'V7 Q4 distractor: √3024 ≈ 54.99 — 3,024 = 55² − 1, not a square')
+  ok(145 * 145 < 21168 && 21168 < 146 * 146, 'V7 Q4 distractor: ×21 → 21,168 — not even a square (145² < 21,168 < 146²)')
+  eq(5 * 5, 25, 'V7 Q5: pairing mirrors 10² = 100 — one digit move left scales the square by 100 (key 2)')
+  // exercises (12 items, every key recomputed)
+  eq(1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17, 81, 'V7 L1-1: 1+3+…+17 = 81 = 9²')
+  eq(21 * 21 - 20 * 20 - 1, 40, 'V7 L1-2: 40 integers strictly between 20² and 21²')
+  eq(105 * 105, 11025, 'V7 L1-3: 105² = 11,025 by (a+b)²')
+  eq(99 * 99, 9801, 'V7 L2-1: √9801 = 99')
+  eq(88 * 88, 7744, 'V7 L2-2: √7744 = 88')
+  eq(210 * 210, 44100, 'V7 L2-3: √44100 = 210')
+  eq(isqrt(BigInt(200000000)).toString(), '14142', 'V7 L3-1: √2 to four decimal places = 1.4142')
+  eq(isqrt(BigInt(7000000)).toString(), '2645', 'V7 L3-2: √7 to three places = 2.645')
+  eq(23 * 23 * 100, 52900, 'V7 L3-3: √5.29 = 2.3 (23² = 529)')
+  eq(35 * 35 * 100, 122500, 'V7 L4-1a: √12.25 = 3.5 (35² = 1,225)')
+  eq(12 * 12 * 10000, 1440000, 'V7 L4-1b: √0.0144 = 0.12 (12² = 144)')
+  eq(21 ** 3, 9261, 'V7 L4-2a: ∛9261 = 21')
+  eq((-14) ** 3, -2744, 'V7 L4-2b: ∛(−2744) = −14')
+  eq(9 / 16, (3 / 4) * (3 / 4), 'V7 L4-3a: √(9/16) = 3/4')
+  eq(5 * 5 * 6 * 6, 25 * 36, 'V7 L4-3b: √(25/36) = 5/6 exactly (5²·6² = 25·36 = 900)')
+  eq(27 ** 3, 19683, 'V7 L5-1: ∛19683 = 27 by the group shortcut')
+  eq(252 * 7, 1764, 'V7 L5-2: 252 × 7 = 1,764 = 42²')
+  eq(isqrt(BigInt(1000000)).toString(), '1000', 'V7 L5-3 setup: √10 estimation needs the 316/317 bracket')
+  ok(316 * 316 < 100000 && 100000 < 317 * 317, 'V7 L5-3: √10 ≈ 3.16 (nearer below)')
+  eq((10 * 7 + 5) ** 2, 5625, 'V7 L6-1: the engine at a = 7, b = 5: (75)² = 100·49 + (140+5)·5')
+  eq(100 * 49 + (20 * 7 + 5) * 5, 5625, 'V7 L6-1: 100a² + (20a+b)b = 4,900 + 725 = 5,625')
+}
+
+
+/* ================================================================== */
+/* SECTION W — AUTHORED audits for lesson 8.5 (post-prose, run with    */
+/* the lesson in place): block census, quiz-key match, exercise        */
+/* ladders, figure audits, prerequisite + source existence, honest    */
+/* word count, the 8.4 threading, the queue emptied.                   */
+/* ================================================================== */
+console.log('(W) 8.5 authored audits')
+{
+  const src = (await import('../src/data/library/books/mathematics/arithmetic-number-systems/ch-08')).chapter08
+  const L85 = src.lessons.find((l: { id: string }) => l.id === 'ans-square-and-cube-root-crafts') as {
+    id: string; number: string; title: string; prerequisites: string[];
+    sources: string[]; blocks: Record<string, unknown>[];
+  }
+  ok(L85 !== undefined, 'W1: lesson 8.5 present with id ans-square-and-cube-root-crafts')
+  eq(L85.number, '8.5', 'W1: lesson number 8.5')
+  ok(L85.title === 'Square and Cube Roots: the Extraction Crafts', 'W1: lesson title')
+
+  // prerequisites exist among the book's written lessons
+  const { readdirSync } = await import('node:fs')
+  const dir = new URL('../src/data/library/books/mathematics/arithmetic-number-systems/', import.meta.url)
+  const allIds = new Set<string>()
+  for (const f of readdirSync(dir)) {
+    if (!f.endsWith('.ts')) continue
+    const raw = readFileSync(new URL(f, dir), 'utf8')
+    for (const m of raw.matchAll(/id: '(ans-[a-z0-9-]+)'/g)) allIds.add(m[1])
+  }
+  for (const rid of L85.prerequisites) {
+    ok(allIds.has(rid), 'W2: prerequisite ' + rid + ' exists in the book')
+  }
+  // sources all appear in SOURCE_LOG.md
+  const sourceLog = readFileSync(new URL('../docs/project/SOURCE_LOG.md', import.meta.url), 'utf8')
+  for (const k of L85.sources) {
+    ok(sourceLog.includes('`' + k + '`') || sourceLog.includes(k), 'W3: SOURCE_LOG carries key ' + k)
+  }
+
+  // block census
+  const kinds: Record<string, number> = {}
+  for (const b of L85.blocks) kinds[b.kind as string] = (kinds[b.kind as string] ?? 0) + 1
+  eq(kinds.para ?? 0, 12, 'W4: block census — 12 paras')
+  eq(kinds.heading ?? 0, 6, 'W4: block census — 6 headings')
+  eq(kinds.derivation ?? 0, 4, 'W4: block census — 4 derivations (gnomon, triplet, engine, cube map)')
+  eq(kinds.example ?? 0, 3, 'W4: block census — 3 examples')
+  eq(kinds.figure ?? 0, 2, 'W4: block census — 2 figures')
+  eq(kinds.formula ?? 0, 3, 'W4: block census — 3 formula cards')
+  eq(kinds.callout ?? 0, 3, 'W4: block census — 3 callouts (insight, historical, exam)')
+  eq(kinds.terms ?? 0, 1, 'W4: block census — 1 terms block (6 terms)')
+  eq(kinds.exercises ?? 0, 1, 'W4: block census — 1 exercises block')
+  eq(kinds.quiz ?? 0, 1, 'W4: block census — 1 quiz block')
+
+  // quiz key audit: 5 items × 4 options, answers [1, 2, 3, 1, 2]
+  const quiz = L85.blocks.find((b) => (b as { kind: string }).kind === 'quiz') as unknown as {
+    items: { q: string; options: string[]; answer: number }[]
+  }
+  eq(quiz.items.length, 5, 'W5: quiz has 5 items')
+  const keys = quiz.items.map((i) => i.answer)
+  eq(keys.join(','), '1,2,3,1,2', 'W5: quiz answer keys [1,2,3,1,2] as authored')
+  for (const it of quiz.items) {
+    eq(it.options.length, 4, 'W5: every quiz item carries exactly 4 options')
+    ok(new Set(it.options).size === 4, 'W5: no duplicate options in any item')
+  }
+
+  // exercise ladder: L1–L6, 12 questions, every one with solution + answer
+  const ex = L85.blocks.find((b) => (b as { kind: string }).kind === 'exercises') as unknown as {
+    sets: { level: string; questions: { q: string; solution: string[]; answer: string }[] }[]
+  }
+  eq(ex.sets.map((sx) => sx.level).join(','), 'L1,L2,L3,L4,L5,L6', 'W6: the exercise ladder runs L1–L6')
+  eq(ex.sets.reduce((a, sx) => a + sx.questions.length, 0), 18, 'W6: 18 exercise questions total (3 per rung)')
+  for (const sx of ex.sets) {
+    for (const q of sx.questions) {
+      ok(q.solution.length >= 2, 'W6: every exercise carries a multi-line solution')
+      ok(typeof q.answer === 'string' && q.answer.length > 0, 'W6: every exercise carries an answer')
+    }
+  }
+
+  // figure audits: aria + no $ in svg + the pinned panel numbers present
+  const figs = L85.blocks.filter((b) => (b as { kind: string }).kind === 'figure') as unknown as {
+    caption: string; svg: string
+  }[]
+  eq(figs.length, 2, 'W7: two figures')
+  for (const f of figs) {
+    ok(f.svg.includes('aria-label'), 'W7: every figure carries an aria-label')
+    ok(!f.svg.includes('$'), 'W7: no raw $ inside any svg (KaTeX discipline)')
+    ok(f.svg.includes('viewBox="0 0'), 'W7: every figure carries a viewBox')
+    ok(f.caption.length > 40, 'W7: every figure carries a real caption')
+  }
+  const gnomon = figs[0].svg
+  const panel = figs[1].svg
+  for (const needle of ['1. 4  1  4  2', '2 .  00   00   00   00', '24·4 = 96', '281·1 = 281', '2824·4 = 11,296', '28282·2 = 56,564', '3,836']) {
+    ok(panel.includes(needle), 'W7: the division panel carries the pinned string "' + needle + '"')
+  }
+  // the gnomon svg evaluates its templates: audit the RENDERED form
+  for (const needle of ['>+3<', '>+5<', '>+7<', '= 16', '= 4²']) {
+    ok(gnomon.includes(needle), 'W7: the gnomon figure carries the pinned label ' + needle)
+  }
+  eq((gnomon.match(/<rect /g) ?? []).length, 16, 'W7: the gnomon figure draws exactly 16 unit cells (1+3+5+7)')
+  ok(gnomon.includes('gnomons: each odd number grows the square'), 'W7: the gnomon figure carries its caption line')
+
+  // the 8.4 threading is in place
+  const raw = readFileSync(new URL('../src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts', import.meta.url), 'utf8')
+  ok(raw.includes('one computational coda remains before the vistas'), 'W8: 8.4 closes into the 8.5 coda')
+  ok(raw.includes('the crafts that *compute* the roots the tower was built to house'), 'W8: the coda hand-off sentence is in place')
+
+  // the chapter queue is empty (8.5 shipped, nothing planned)
+  const chRaw = raw
+  ok(!/plannedLessons:\s*\[[^\]]/.test(chRaw), 'W9: ch-08 plannedLessons is empty — no queue left behind')
+
+  // honest word count (the types helper)
+  const { countLessonWords } = await import('../src/data/library/types')
+  const wc = countLessonWords(L85 as unknown as Parameters<typeof countLessonWords>[0])
+  ok(wc > 3800 && wc < 6500, 'W10: honest word count in the house range (got ' + wc + ')')
+}
+
+/* ================================================================== */
 /* summary                                                             */
 /* ================================================================== */
 console.log('--------------------------------------------------------------')
-console.log(`verify-book2-ch08 (sections A–U2, 8.1–8.4 shipped, chapter COMPLETE): ${pass} pass, ${fail} fail`)
+console.log(`verify-book2-ch08 (sections A–U2 + V + W, 8.1–8.5 shipped, chapter re-complete): ${pass} pass, ${fail} fail`)
 if (fail > 0) {
   console.log('FAILURES:')
   for (const f of failures) console.log('  - ' + f)

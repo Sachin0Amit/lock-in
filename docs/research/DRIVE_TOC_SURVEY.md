@@ -557,58 +557,58 @@ Pages 4–12: [chapter content — Theory of Equations, pages 2.1–2.4, not par
 [cover/title page]
 
 CHAPTER 3
-Complex Numbers	3.1–3.52
-Introduction	3.1
-Imaginary Number	3.1
-Integral Powers of Iota (i)	3.1
-Concept Application Exercise 3.1	3.2
-Complex Number	3.2
-Representation of Complex Numbers	3.2
-Algebraic Operations on Complex Numbers	3.3
-Conjugate of Complex Number	3.4
-Section Formula in Complex Numbers	3.5
-Concept Application Exercise 3.2	3.6
-Equality of Complex Numbers	3.6
-Square Root of Complex Number	3.7
-Concept Application Exercise 3.3	3.9
-Cube Roots of Unity	3.9
-Properties of Cube Roots of Unity	3.9
-Concept Application Exercise 3.4	3.11
-Polar Form of Complex Number	3.11
-Modulus of Complex Number	3.11
-Argument of Complex Number	3.11
-Euler's Form of Complex Number	3.15
-Logarithm of Complex Number	3.15
-Concept Application Exercise 3.5	3.16
-Multiplication and Division of Complex Numbers in Polar Form	3.16
-Concept Application Exercise 3.6	3.18
-De Moivre's Theorem	3.19
-Concept Application Exercise 3.7	3.20
-Important Properties of Modulus	3.20
-Concept Application Exercise 3.8	3.24
-Locus Based on Distance Formula	3.24
-Concept Application Exercise 3.9	3.27
-Angle between Two Lines and Rotation Formula	3.27
-Angle between Two Rays	3.27
-Equation of Ray	3.27
-Equation of Straight Line	3.30
-Condition for Three Points to Represent Equilateral Triangle	3.31
-Equation of Arc	3.32
-Equation of Circle whose Diametric End Points are Given	3.32
-Condition for Four Points to be Concyclic	3.32
-Rotation Formula	3.33
-Concept Application Exercise 3.10	3.34
-The nth Roots of Unity	3.35
-Properties of nth Roots of Unity	3.35
-Concept Application Exercise 3.11	3.37
-Exercises	3.38
-Single Correct Answer Type	3.38
-Multiple Correct Answers Type	3.42
-Linked Comprehension Type	3.45
-Matrix Match Type	3.47
-Numerical Value Type	3.48
-Archives	3.49
-Answers Key	3.52
+Complex Numbers 3.1–3.52
+Introduction    3.1
+Imaginary Number        3.1
+Integral Powers of Iota (i)     3.1
+Concept Application Exercise 3.1        3.2
+Complex Number  3.2
+Representation of Complex Numbers       3.2
+Algebraic Operations on Complex Numbers 3.3
+Conjugate of Complex Number     3.4
+Section Formula in Complex Numbers      3.5
+Concept Application Exercise 3.2        3.6
+Equality of Complex Numbers     3.6
+Square Root of Complex Number   3.7
+Concept Application Exercise 3.3        3.9
+Cube Roots of Unity     3.9
+Properties of Cube Roots of Unity       3.9
+Concept Application Exercise 3.4        3.11
+Polar Form of Complex Number    3.11
+Modulus of Complex Number       3.11
+Argument of Complex Number      3.11
+Euler's Form of Complex Number  3.15
+Logarithm of Complex Number     3.15
+Concept Application Exercise 3.5        3.16
+Multiplication and Division of Complex Numbers in Polar Form    3.16
+Concept Application Exercise 3.6        3.18
+De Moivre's Theorem     3.19
+Concept Application Exercise 3.7        3.20
+Important Properties of Modulus 3.20
+Concept Application Exercise 3.8        3.24
+Locus Based on Distance Formula 3.24
+Concept Application Exercise 3.9        3.27
+Angle between Two Lines and Rotation Formula    3.27
+Angle between Two Rays  3.27
+Equation of Ray 3.27
+Equation of Straight Line       3.30
+Condition for Three Points to Represent Equilateral Triangle    3.31
+Equation of Arc 3.32
+Equation of Circle whose Diametric End Points are Given 3.32
+Condition for Four Points to be Concyclic       3.32
+Rotation Formula        3.33
+Concept Application Exercise 3.10       3.34
+The nth Roots of Unity  3.35
+Properties of nth Roots of Unity        3.35
+Concept Application Exercise 3.11       3.37
+Exercises       3.38
+Single Correct Answer Type      3.38
+Multiple Correct Answers Type   3.42
+Linked Comprehension Type       3.45
+Matrix Match Type       3.47
+Numerical Value Type    3.48
+Archives        3.49
+Answers Key     3.52
 ```
 
 ## m2-04 — M2 Algebra :: 04. Principle of Mathematical Induction
@@ -1021,42 +1021,42 @@ Page 12: [duplicate of page 11]
 ```text
 Algebra
 CHAPTER 13
-Matrices	13.1–13.40
-Knowing Matrices	13.1
-Matrix: Definition	13.1
-Classification of Matrices	13.1
-Negative of Matrix	13.3
-Trace of Matrix	13.3
-Transpose of Matrix	13.3
-Determinant of Square Matrix	13.3
-Concept Application Exercise 13.1	13.4
-Elementary Algebraic Operations on Matrix	13.4
-Addition and Subtraction of Matrices	13.4
-Scalar Multiplication of Matrix	13.5
-Concept Application Exercise 13.2	13.6
-Product of Matrices	13.7
-Concept Application Exercise 13.3	13.10
-Properties of Product of Matrices	13.10
-Special Matrices	13.14
-Concept Application Exercise 13.4	13.16
-Adjoint and Inverse of Matrix	13.16
-Adjoint of Matrix	13.16
-Properties of Adjoint of Matrix	13.17
-Inverse of Matrix	13.18
-Properties of Inverse of Matrix	13.19
-Transformation of Matrix by Elementary Operations	13.21
-Inverse of Matrix Using Elementary Transformations	13.22
-Solution of System of Linear Equations Using Matrix	13.23
-Characteristic Roots and Characteristic Vector of a Square Matrix	13.24
-Concept Application Exercise 13.5	13.25
-Exercises	13.27
-Single Correct Answer Type	13.27
-Multiple Correct Answers Type	13.30
-Linked Comprehension Type	13.33
-Matrix Match Type	13.34
-Numerical Value Type	13.35
-Archives	13.36
-Answers Key	13.39
+Matrices        13.1–13.40
+Knowing Matrices        13.1
+Matrix: Definition      13.1
+Classification of Matrices      13.1
+Negative of Matrix      13.3
+Trace of Matrix 13.3
+Transpose of Matrix     13.3
+Determinant of Square Matrix    13.3
+Concept Application Exercise 13.1       13.4
+Elementary Algebraic Operations on Matrix       13.4
+Addition and Subtraction of Matrices    13.4
+Scalar Multiplication of Matrix 13.5
+Concept Application Exercise 13.2       13.6
+Product of Matrices     13.7
+Concept Application Exercise 13.3       13.10
+Properties of Product of Matrices       13.10
+Special Matrices        13.14
+Concept Application Exercise 13.4       13.16
+Adjoint and Inverse of Matrix   13.16
+Adjoint of Matrix       13.16
+Properties of Adjoint of Matrix 13.17
+Inverse of Matrix       13.18
+Properties of Inverse of Matrix 13.19
+Transformation of Matrix by Elementary Operations       13.21
+Inverse of Matrix Using Elementary Transformations      13.22
+Solution of System of Linear Equations Using Matrix     13.23
+Characteristic Roots and Characteristic Vector of a Square Matrix       13.24
+Concept Application Exercise 13.5       13.25
+Exercises       13.27
+Single Correct Answer Type      13.27
+Multiple Correct Answers Type   13.30
+Linked Comprehension Type       13.33
+Matrix Match Type       13.34
+Numerical Value Type    13.35
+Archives        13.36
+Answers Key     13.39
 
 [Pages 5–10 are chapter body pages (page 13 Matrices content, pp. 13.1–13.4), not table of contents pages.]
 ```
@@ -1238,23 +1238,23 @@ Answers Key    2.38
 Coordinate Geometry
 
 CHAPTER 3
-Pair of Straight Lines	3.1–3.10
-Equation of Pair of Straight Lines	3.1
+Pair of Straight Lines  3.1–3.10
+Equation of Pair of Straight Lines      3.1
     General Equation of the Second Degree in
-    Two Variables	3.1
-Concept Application Exercise 3.1	3.2
-Second-Degree Homogeneous Equation	3.3
-    Angle between Pair of Straight Lines	3.4
+    Two Variables       3.1
+Concept Application Exercise 3.1        3.2
+Second-Degree Homogeneous Equation      3.3
+    Angle between Pair of Straight Lines        3.4
     Equation of Pair of Angle Bisectors of Given
-    Pair of Straight Lines	3.4
-Homogenization of Second Degree Equation	3.5
-Concept Application Exercise 3.2	3.5
-Exercises	3.7
-    Single Correct Answer Type	3.7
-    Multiple Correct Answers Type	3.8
-    Linked Comprehension Type	3.8
-    Numerical Value Type	3.9
-Answers Key	3.9
+    Pair of Straight Lines      3.4
+Homogenization of Second Degree Equation        3.5
+Concept Application Exercise 3.2        3.5
+Exercises       3.7
+    Single Correct Answer Type  3.7
+    Multiple Correct Answers Type       3.8
+    Linked Comprehension Type   3.8
+    Numerical Value Type        3.9
+Answers Key     3.9
 
 [cover/title page]
 
@@ -1644,21 +1644,21 @@ Answers Key — 10.32
 
 CHAPTER 2 — Limits — 2.1 – 2.40
 Limit of a Function — 2.1
-	Neighbourhood (NBD) of Real Number — 2.1
-	Limiting Value of a Function — 2.1
-	Existence of Limit of a Function at x = a — 2.2
+        Neighbourhood (NBD) of Real Number — 2.1
+        Limiting Value of a Function — 2.1
+        Existence of Limit of a Function at x = a — 2.2
 Concept Application Exercise 2.1 — 2.4
 Rules to Find Limit — 2.5
-	Algebra of Limits — 2.5
-	Finding Limit Using Direct Substitution — 2.5
-	Important Concepts — 2.6
-	Sandwich Rule — 2.7
+        Algebra of Limits — 2.5
+        Finding Limit Using Direct Substitution — 2.5
+        Important Concepts — 2.6
+        Sandwich Rule — 2.7
 Concept Application Exercise 2.2 — 2.8
 Limit of Indeterminate Forms — 2.8
-	Indeterminate Forms — 2.8
-	Finding Limits Using Rationalization Method — 2.9
-	Finding Limits at Infinity — 2.10
-	Standard Formula for Limits — 2.13
+        Indeterminate Forms — 2.8
+        Finding Limits Using Rationalization Method — 2.9
+        Finding Limits at Infinity — 2.10
+        Standard Formula for Limits — 2.13
 Concept Application Exercise 2.3 — 2.15
 Limits Using Expansion — 2.15
 Concept Application Exercise 2.4 — 2.17
@@ -1667,17 +1667,17 @@ Concept Application Exercise 2.5 — 2.22
 Exponential and Logarithmic Limits — 2.23
 Concept Application Exercise 2.6 — 2.25
 Limit of indeterminate Form 1^∞ — 2.25
-	Easier Method to Find Limit of the form 1^∞ — 2.26
+        Easier Method to Find Limit of the form 1^∞ — 2.26
 Concept Application Exercise 2.7 — 2.27
 L'Hospital's Rule — 2.27
-	Indeterminate Forms 0^0 and ∞^0 — 2.29
+        Indeterminate Forms 0^0 and ∞^0 — 2.29
 Concept Application Exercise 2.8 — 2.30
 Exercises — 2.31
-	Single Correct Answer Type — 2.31
-	Multiple Correct Answers Type — 2.34
-	Linked Comprehension Type — 2.36
-	Matrix Match Type — 2.37
-	Numerical Value Type — 2.38
+        Single Correct Answer Type — 2.31
+        Multiple Correct Answers Type — 2.34
+        Linked Comprehension Type — 2.36
+        Matrix Match Type — 2.37
+        Numerical Value Type — 2.38
 Archives — 2.39
 Answers Key — 2.40
 
@@ -2089,38 +2089,38 @@ Vectors and 3D Geometry
 
 CHAPTER 2
 
-Introduction to Vectors	2.1–2.52
+Introduction to Vectors 2.1–2.52
 
 Coordinate Axes and
-Coordinate Planes in Three-Dimensional Space	2.1
-    Coordinates of a Point in Space	2.1
-    Distance between Two Points	2.2
-    Section Formula	2.2
-Vector Concept	2.3
-    Definition	2.4
-    Position Vector	2.4
-    Direction Cosines and Direction Ratios	2.4
-    Types of Vectors	2.5
-    Addition of Vectors	2.6
-    Components of a Vector	2.11
-    Multiplication of a Vector by a Scalar	2.14
-    Vector Joining Two Points	2.15
-    Section Formula	2.17
-    Vector Along the Bisector of Given Two Vectors	2.26
-Concept Application Exercise 2.1	2.27
-Linear Combination of Vectors	2.29
-    Linear Combination of Vectors	2.29
-    Linearly Independent Vectors	2.29
-    Linearly Dependent Vectors	2.30
-Concept Application Exercise 2.2	2.41
-Exercises	2.42
-    Single Correct Answer Type	2.42
-    Multiple Correct Answers Type	2.46
-    Linked Comprehension Type	2.47
-    Matrix Match Type	2.49
-    Numerical Value Type	2.49
-Archives	2.50
-Answers Key	2.51
+Coordinate Planes in Three-Dimensional Space    2.1
+    Coordinates of a Point in Space     2.1
+    Distance between Two Points 2.2
+    Section Formula     2.2
+Vector Concept  2.3
+    Definition  2.4
+    Position Vector     2.4
+    Direction Cosines and Direction Ratios      2.4
+    Types of Vectors    2.5
+    Addition of Vectors 2.6
+    Components of a Vector      2.11
+    Multiplication of a Vector by a Scalar      2.14
+    Vector Joining Two Points   2.15
+    Section Formula     2.17
+    Vector Along the Bisector of Given Two Vectors      2.26
+Concept Application Exercise 2.1        2.27
+Linear Combination of Vectors   2.29
+    Linear Combination of Vectors       2.29
+    Linearly Independent Vectors        2.29
+    Linearly Dependent Vectors  2.30
+Concept Application Exercise 2.2        2.41
+Exercises       2.42
+    Single Correct Answer Type  2.42
+    Multiple Correct Answers Type       2.46
+    Linked Comprehension Type   2.47
+    Matrix Match Type   2.49
+    Numerical Value Type        2.49
+Archives        2.50
+Answers Key     2.51
 ```
 
 ## m5-03 — M5 3D Geometry :: 3. Different Products of Vectors
@@ -4919,30 +4919,30 @@ www.in.pearson.com, Email: companysecretary.india@pearson.com
 
 
 
-		Preface to the Fourth Edition           viii   19 Logarithms19.1–19.8
-		Preface to the First Edition            ix     20 Stocks, Shares and Debentures     20.1–20.14
-		Acknowledgement                         x      21 Discount (True and Banker’s)      21.1–21.18
-		Competitive Examinations: An Overview   xi
+                Preface to the Fourth Edition           viii   19 Logarithms19.1–19.8
+                Preface to the First Edition            ix     20 Stocks, Shares and Debentures     20.1–20.14
+                Acknowledgement                         x      21 Discount (True and Banker’s)      21.1–21.18
+                Competitive Examinations: An Overview   xi
                                                  22 Binary Number System               22.1–22.6
                                                  23 Series23.1–23.28
                                                  24 Clocks and Calendar               24.1–24.12
-		1 Numbers1.1–1.28
+                1 Numbers1.1–1.28
                                                  25 Polynomials25.1–25.12
-		2 H.C.F. and L.C.M. of Numbers    2.1–2.18
+                2 H.C.F. and L.C.M. of Numbers    2.1–2.18
                                                  26 H.C.F. and L.C.M. of Polynomials   26.1–26.6
-		3 Square Root and Cube Root       3.1–3.18
+                3 Square Root and Cube Root       3.1–3.18
                                                  27 Linear Equations                  27.1–27.16
-		4 Simplification                  4.1–4.48
+                4 Simplification                  4.1–4.48
                                                  28 Quadratic Equations               28.1–28.28
-		5 Percentage5.1–5.38
+                5 Percentage5.1–5.38
                                                  29 Progression29.1–29.16
-		6 Average6.1–6.32
+                6 Average6.1–6.32
                                                  30 Set Theory                        30.1–30.16
-		7 Ratio and Proportion            7.1–7.34
+                7 Ratio and Proportion            7.1–7.34
                                                  31 Permutations and Combinations     31.1–31.20
-		8 Partnership8.1–8.8
+                8 Partnership8.1–8.8
                                                  32 Probability32.1–32.24
-		9 Profit and Loss                 9.1–9.48
+                9 Profit and Loss                 9.1–9.48
                                                  33 Mensuration I: Area and Perimeter 33.1–33.56
  10 Time and Work, Work and Wages 10.1–10.32
                                                  34 Mensuration II:
@@ -4962,10 +4962,10 @@ Since the publication of last edition of this book, I have received immense supp
 on how this book could be improved. With the aid of all this information, it gives me immense pleasure to present
 a completely updated fourth edition of the book.
     Following are noteworthy inclusion in this edition:
-    1.	The book is updated with latest previous years’ questions asked in various competitive examination with
+    1.  The book is updated with latest previous years’ questions asked in various competitive examination with
         explanatory answers.
-    2.	Alternated solutions have been given for teaching multiple approaches to learner.
-    3.	Solution to each and every question in the book.
+    2.  Alternated solutions have been given for teaching multiple approaches to learner.
+    3.  Solution to each and every question in the book.
     In order to provide a more focused approach, the obsolete previous years’ questions have been deleted in
 every chapter, however the basic structure of the book has been kept intact. In preparing this fourth edition, I am
 greatly indebted to many teachers at various coaching centers as wells students throughout the country who made
@@ -5640,8 +5640,45 @@ Illustration 2: Multiply:
 
 ## root-elementary-algebra-text — Elementary-Algebra_text.pdf (identify)
 - Drive file id: `13p83Jss_D7bSgAXh1juKHKI69oKpBxWL`- Method: pdftotext (digital text layer)- Maps to: IDENTIFIED: Hall & Knight, Elementary Algebra for Schools — the AL book's banked classic (hall-knight-elementary-algebra key)- Shelf book: `elementary-algebra`
+- REPAIRED 2026-11-11 (the pre-written-books audit): the original
+  transcription misjudged the first contents page as "not contents" and
+  so missed H&K chapters I–XXI; the page was re-extracted from the
+  re-downloaded book and is appended below — the chapter arc XXII–XLIV
+  below it is the original capture. Chapter map for the shelf:
+  I–XXI, XXV, XXVIII, XXX, XXXVI → AL (taught/planned);
+  XXVI, XXXII → AL gap lessons (audit findings);
+  XXXIII–XXXV, XXXVII–XXXIX, XLI → AA planned;
+  XL → ANS ch. 3; XLIII → FM 5.5 + QA planned; XLIV → AL 10 + AA ch. 1.
 ```text
-[front-matter page 2: not contents — omitted]
+[front-matter page 8 — the RECOVERED first contents page (chapters I–XXI)]:
+
+CHiP.
+I.   Definitions, Substitutions  . . . . . . . . . . . . . . . . . .  1
+II.  Negative Quantities. Addition of Like Terms . . . . . . . . . . . 11
+III. Addition  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+IV.  Simple Braceets . . . . . . . . . . . . . . . . . . . . . . . .  t%
+V.   Subtraction  . . . . . . . . . . . . . . . . . . . . . . . . .  ~
+VI.  Multiplication . . . . . . . . . . . . . . . . . . . . . . . .  25
+VII. Division  . . . . . . . . . . . . . . . . . . . . . . . . . .  27
+     Miscellaneous Examples I . . . . . . . . . . . . . . . . . . .  40
+VIII. Removal and Insertion of Brackets . . . . . . . . . . . . . . .  48
+IX.  Simple Equations . . . . . . . . . . . . . . . . . . . . . . .  64
+X.   Symbolical Expression . . . . . . . . . . . . . . . . . . . . .  77
+XI.  Problems leading to Simple Equations . . . . . . . . . . . . . .  82
+XII. Highest Common Factor, Lowest Common Multiple of Simple
+     Expressions . . . . . . . . . . . . . . . . . . . . . . . . . .  84
+XIII. Elementary Fractions . . . . . . . . . . . . . . . . . . . . .  88
+XIV. Simultaneous Equations . . . . . . . . . . . . . . . . . . . .  91
+XV.  Problems leading to Simultaneous Equations . . . . . . . . . . .  101
+XVI. Involution . . . . . . . . . . . . . . . . . . . . . . . . . .  106
+XVII. Evolution . . . . . . . . . . . . . . . . . . . . . . . . . .  110
+XVIII. Resolution into Factors . . . . . . . . . . . . . . . . . . .  120
+      Miscellaneous Examples III . . . . . . . . . . . . . . . . . .  136
+XIX. Highest Common Factor . . . . . . . . . . . . . . . . . . . . .  138
+XX.  Fractions . . . . . . . . . . . . . . . . . . . . . . . . . .  146
+XXI. Addition and Subtraction of Fractions . . . . . . . . . . . . . .  164
+
+[front-matter pages 2-7: not contents — omitted]
 
 [front-matter page 3: not contents — omitted]
 

@@ -83,6 +83,7 @@ const chapters: Chapter[] = [
     lessons: [],
     plannedLessons: [
       'Percentage as the Universal Scale',
+      'Price, Consumption, Population and the Inverse Percentage Family',
       'Profit and Loss: Cost, Marked and Selling Price',
       'Successive, True and Banker\u2019s Discounts',
       'Dishonest Dealers: False Weights and Scales',

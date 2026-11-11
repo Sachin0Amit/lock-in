@@ -2595,3 +2595,51 @@ sandbox recycle for the WORK_INVENTORY regeneration (metadata only,
 - **The master plan the owner asked for**: `docs/research/AA_CH01_MASTER_PLAN.md` — research record,
   module→lesson map for all 8 lessons, per-lesson authoring plans, question-type census, audit
   protocol. Committed with the run.
+
+## 2026-11-11 (the pre-written-books audit turn — FM/ANS/AL audited against their sources)
+
+- **Downloaded** `hk-elementary-algebra.pdf` (23 MB, 572 pp., Drive id `13p83Jss_D7bSgAXh1juKHKI69oKpBxWL`)
+  — Hall & Knight, *Elementary Algebra for Schools* — the AL book's banked classic. **Direct text
+  extraction** (digital text layer): full body text to `temporary-references/hk-ea-full.txt` (786 KB);
+  the contents pages recovered chapters I–XXI (the survey's original transcription had skipped the
+  first contents page — repaired in DRIVE_TOC_SURVEY.md this turn). **Kept** for the queued AL gap
+  lessons (4.5 HCF/LCM of expressions, 6.4 one-linear-one-quadratic, ch. 12 ratio-proportion-variation
+  ground: H&K chapters XII/XIX, XXVI, XXXII) per the per-unit deletion law.
+- **Downloaded** `khattar-qa-4e.pdf` (33 MB, 1049 pp., Drive id `12YnlSYX16Hl-Oze9Io7bBN0hZ_2qRcbi`)
+  — Khattar, *Quantitative Aptitude for Competitive Examinations* 4e (Pearson). **Direct text
+  extraction** (digital layer): full text to `temporary-references/khattar-full.txt` (2.5 MB) + chapter
+  section structure via `scripts/extract_khattar_sections.ts`. Audited the chapters routed to the
+  three books (1 Numbers, 2 HCF-LCM, 3 Square/Cube Root, 4 Simplification, 5 Percentage, 6 Average,
+  7 Ratio-Proportion, 22 Binary, 25–28 polynomial/linear/quadratic). **Kept** for the queued gap lessons
+  (Khattar ch. 3 = the new ANS 8.5 ground; ch. 26/7 = the AL gaps).
+- **`ncert-class8-squares-cube-roots`** — NCERT class 8 "Squares and Square Roots" + "Cubes and Cube
+  Roots" chapters (the school canon: squares census — odd-number sums, between-squares counts,
+  pythagorean triplets; square roots by the factor method and the **long-division method** for numbers
+  ≤ 4 digits / ≤ 2 decimal places; cube roots by factorisation and estimation). Web-checked 2026-11-11
+  against the official NCERT textbook PDF (ncert.nic.in/textbook/pdf/hemh105.pdf — ch. 6 pp. 8–20
+  carry the division method) + the byjus/cuemath chapter pages cross-checked. Used for: ANS 8.5 scope
+  verification and the exam-corner typology. Exposition original.
+- **`aryabhatiya-root-extraction`** — Āryabhaṭa's Āryabhaṭīya (499 CE), gaṇitapāda: the earliest known
+  digit-by-digit square- and cube-root extraction rules (mark places alternately square/non-square from
+  the right; subtract the largest square from the leftmost square place; divide the next non-square
+  place by twice the root-so-far; subtract the quotient's square from the next square place — the
+  same algorithm as the school division method). The classic exhibit √55225 = 235 walked in the sources'
+  own worked example. Web-checked 2026-11-11 against Parakh's "A Discussion on Aryabhata's Root
+  extraction methods" (arXiv math/0608793, 2006) + the math10.com Āryabhaṭa history page (with Clark's
+  translation noted). Used for: ANS 8.5's historical callout + the terminating walk exhibit (55225 —
+  a historical fact; our exposition is our own). Exposition original.
+- **`jiuzhang-kaifang`** — the Nine Chapters on the Mathematical Art (九章算術, compiled c. 1st century
+  CE), ch. 4 少广 "small widths": the Chinese 开方 (kaifang) square-root extraction algorithm with the
+  same place-value pairing, and the cube-root extension — the geometric-division lineage of the craft
+  (chapter 9's problems 12–24 extract square and cube roots). Web-checked 2026-11-11 against the
+  Wikipedia Nine Chapters page + the St Andrews MacTutor Nine Chapters history. Used for: ANS 8.5's
+  historical callout (the lineage spans India + China + the modern classroom). Exposition original.
+- **Internet research (2026-11-11, the audit's syllabus leg)**: NCERT class 6/7/8 chapter lists
+  (byjus CBSE syllabus pages + cbseacademic.nic.in + geeksforgeeks notes — the FM school-canon audit);
+  H&K *Elementary Algebra for Schools* contents cross-checked on Google Books (chapters XXXII "Ratio
+  Proportion and Variation" p. 270 + XII "HCF/LCM of Simple Expressions" p. 74 verified). **Citation
+  keys used by ANS 8.5**: `khattar-qa-4e` (48th+ use, the aptitude typology), `ncert-class8-squares-cube-roots`,
+  `aryabhatiya-root-extraction`, `jiuzhang-kaifang` (all three new this turn).
+- **The audit itself**: `docs/research/PREWRITTEN_BOOKS_AUDIT.md` — the full process record (both
+  downloads, the extraction method, the web checks, the chapter-level coverage tables, the four gap
+  findings, the change list). Committed with the turn.

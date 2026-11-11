@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-11 12:06:15 (Asia/Kolkata)",
+  "generated": "2026-11-11 13:22:21 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -5170,7 +5170,7 @@
             "title": "Irrationals and the Real Line",
             "summary": "The diagonal that broke the rationals: √2 proved irrational by the classical contradiction, the family of irrationals grown from the primes, the arithmetic behaviour of irrational + rational sorted into a proved table, and completeness met informally — the no-holes property that makes the real line the stage for all of analysis.",
             "status": "complete",
-            "lessonsWritten": 4,
+            "lessonsWritten": 5,
             "plannedLessons": [],
             "lessons": [
               {
@@ -5378,8 +5378,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5496,
-                "readMins": 27,
+                "words": 5529,
+                "readMins": 28,
                 "concepts": [
                   "The cut: a partition of ℚ into two classes",
                   "Rational cuts produced two ways; irrational cuts produced by nothing",
@@ -5439,9 +5439,74 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "ans-square-and-cube-root-crafts",
+                "number": "8.5",
+                "title": "Square and Cube Roots: the Extraction Crafts",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5486,
+                "readMins": 27,
+                "concepts": [
+                  "The squares census: odd-number sums and the 2n gap law",
+                  "Pythagorean triplets generated from m² − n², 2mn, m² + n²",
+                  "Square roots by prime factorisation — exponents halved",
+                  "The long-division square-root method derived from (10a + b)²",
+                  "Pairing digits from the decimal point: 10² = 100",
+                  "Square roots of decimals and fractions",
+                  "Cube roots by factorisation and the three-digit strip",
+                  "The cube last-digit map and estimation brackets"
+                ],
+                "objectives": [
+                  "Generate the squares census — the gnomon law that odd numbers stack into squares — and use it to count the integers between consecutive squares without listing them",
+                  "Extract square roots by prime factorisation (perfect square ⟺ every prime exponent even) and by the long-division method whose engine (10a + b)² = 100a² + (20a + b)b is derived, not recited",
+                  "Carry the craft to decimals and fractions by pairing digits from the decimal point outward, and to cube roots by factorisation, the three-digit strip and the last-digit cube map",
+                  "Estimate roots with exact brackets whose errors are computed, and meet the aptitude-corner families (smallest multiplier to perfect a square, perfect-square spotting) honestly derived"
+                ],
+                "prerequisites": [
+                  "ans-completeness-the-line-without-holes",
+                  "ans-how-irrationals-behave",
+                  "ans-fundamental-theorem-of-arithmetic"
+                ],
+                "sources": [
+                  "khattar-qa-4e",
+                  "ncert-class8-squares-cube-roots",
+                  "aryabhatiya-root-extraction",
+                  "jiuzhang-kaifang"
+                ],
+                "blockCounts": {
+                  "para": 12,
+                  "heading": 6,
+                  "derivation": 4,
+                  "figure": 2,
+                  "example": 3,
+                  "formula": 3,
+                  "callout": 3,
+                  "terms": 1,
+                  "exercises": 1,
+                  "quiz": 1
+                },
+                "calloutTones": {
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 3,
+                  "L6": 3
+                },
+                "exerciseQuestions": 18,
+                "termsDefined": 6
               }
             ],
-            "words": 20305
+            "words": 25824
           },
           {
             "number": 9,
@@ -5906,8 +5971,8 @@
         "discipline": "mathematics",
         "level": "Class 6–10 algebra → the doorway to higher algebra",
         "description": "The book where arithmetic grows up. Foundation Mathematics opened the doorstep — patterns into formulas, a letter for the unknown; Arithmetic and Number Systems proved the ground the letters stand on. This book opens the door: expressions built and simplified by the laws, the exponent family completed with zero and negative powers, polynomials added, multiplied and divided, factorization as multiplication undone (with the remainder and factor theorems proved, not recited), linear equations settled by lawful balance, simultaneous equations by substitution and elimination, inequalities on the real line, algebraic fractions with their excluded values kept honest, and the quadratic equation finally met four ways — factoring, completing the square (derived), the quadratic formula (proved), and Viète’s roots-and-coefficients relations. Graphs turn every solution into geometry, and the book ends where algebra ends: at the idea of a function. Cross-references Foundation Mathematics and Arithmetic and Number Systems throughout; hands off to Advanced Algebra, Coordinate Geometry and Calculus.",
-        "status": "complete",
-        "chaptersPlanned": 11,
+        "status": "in-progress",
+        "chaptersPlanned": 12,
         "chaptersWritten": 11,
         "chapters": [
           {
@@ -6707,7 +6772,9 @@
             "summary": "Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.",
             "status": "complete",
             "lessonsWritten": 4,
-            "plannedLessons": [],
+            "plannedLessons": [
+              "4.5 HCF and LCM of Expressions"
+            ],
             "lessons": [
               {
                 "id": "al-common-factors-and-grouping",
@@ -7224,7 +7291,9 @@
             "summary": "Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.",
             "status": "complete",
             "lessonsWritten": 3,
-            "plannedLessons": [],
+            "plannedLessons": [
+              "6.4 One Linear, One Quadratic"
+            ],
             "lessons": [
               {
                 "id": "al-equations-in-two-variables",
@@ -8643,6 +8712,21 @@
               }
             ],
             "words": 15263
+          },
+          {
+            "number": 12,
+            "slug": "ratio-proportion-variation",
+            "title": "Ratio, Proportion and Variation",
+            "summary": "The algebraic layer of comparison: ratios as quotient structures wearing letters, the index-law families of duplicate and triplicate ratios, the four proportion theorems derived from one fraction equality, componendo–dividendo as the exam workhorse, continued proportion and the mean proportional, and variation (direct, inverse, joint, combined) as the algebra of the constant k. Foundation Mathematics taught the school layer; this chapter proves it and puts letters on it. Hands its speed craft to Quantitative Aptitude; hands its sequences face to Advanced Algebra.",
+            "status": "planned",
+            "lessonsWritten": 0,
+            "plannedLessons": [
+              "Ratio Laws and the Componendo Family",
+              "Variation: the Algebra of Constants",
+              "Continued Proportion, Mean Proportionals and Applications"
+            ],
+            "lessons": [],
+            "words": 0
           }
         ]
       },
@@ -12296,6 +12380,7 @@
             "lessonsWritten": 0,
             "plannedLessons": [
               "Percentage as the Universal Scale",
+              "Price, Consumption, Population and the Inverse Percentage Family",
               "Profit and Loss: Cost, Marked and Selling Price",
               "Successive, True and Banker’s Discounts",
               "Dishonest Dealers: False Weights and Scales"
@@ -12482,14 +12567,14 @@
       "progress persistence (zustand persist → localStorage) — daily streak REMOVED (owner directive, never reintroduce)"
     ],
     "codebase": {
-      "srcFilesTracked": 234,
-      "totalLines": 105555,
+      "srcFilesTracked": 236,
+      "totalLines": 107020,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 74572,
+        "src/data/library (content model + books)": 76037,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -25309,6 +25394,195 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "0321853f56b0503014598d34691110d22e45d8d4",
+      "short": "0321853",
+      "date": "2026-11-11 06:38",
+      "message": "run 90: Advanced Algebra opens — AA ch.1 'Functions as Objects' lessons 1.1 + 1.2 written and fully gated under the owner's full research protocol (directive: 'start authoring the lessons… download the drive books… use Vision model, scan the pages… internet research… create a master plan… everything is audited… create one schedule task, job, and proceed') — research: M4-01 'Relations and Functions' Drive module downloaded (79 MB pure scan, id 1koE8vUUMJHEN582NTiVuwP1nzktn8Xzj), pdftotext empty so vision-model transcription of printed pp. 1.10-1.25 in three z-ai vision batches (~53K chars: definitions, Illustrations 1.30-1.67, CAE 1.2/1.3/1.4), JEE Main unit-1 syllabus + NCERT class-12 ch-1 arc + counting formulas web-checked, and the master plan written to docs/research/AA_CH01_MASTER_PLAN.md (module→lesson map for all 8 chapter lessons, per-lesson authoring plans, question-type census, audit protocol — the standing reference for every run until ch. 1 completes); verify-first honored: scripts/verify-book4-ch01.ts written BEFORE any prose, 235 pre-writing checks green (sections A-G: relation engines, type-census with the brute-force 5-equivalence-relations-on-a-3-set count, function engines, one-one engines, onto engines, counting engines with every m,n ≤ 5 brute-forced against ⁿPₘ/inclusion–exclusion/n!, pinned quiz + exercise keys), 347/347 with the authored audits H/I (block census, quiz-key match, exercise ladders L1-L6, figure palette/viewBox/aria audits, prerequisite-id + SOURCE_LOG-key existence, pinned-exhibit spot-checks, honest word counts); shipped 1.1 'Relations: the Set-of-Pairs View' (aa-relations-the-set-of-pairs-view, 5,008 words, quiz [3,2,1,0,2], 14 exercises, arrow-diagram + mod-5-class figures: the cartesian product as the census of pairings, the relation as a chosen subset, roster/set-builder/arrow displays, domain/range/codomain + containment law, the 2^pq derivation, inverse-relation swap laws, the type census incl. identity-vs-reflexive and the mod-5/same-parity equivalence classes partitioning, the function promotion by totality + single-valuedness with the n^m count, Dirichlet 1837 history) + 1.2 'One-One and Onto: Classifying the Machines' (aa-one-one-and-onto-classifying-the-machines, 4,360 words, quiz [1,2,1,0,3], 14 exercises, horizontal-probe + pigeonhole figures: contrapositive discipline with the x³+x+1 factorisation derivation, the horizontal probe vs AL's vertical probe, onto by both methods + the codomain-trim discipline, the 2×2 verdict table all cells certified, the pigeonhole verdicts + counting derivations, restriction re-classifies, the invertibility promise for 1.4); accuracy catch on record: the module's Illustration 1.63 as printed swaps the direction of its onto count (labels n(A)=3,n(B)=5 while computing 3⁵−³C₁2⁵+³C₂1⁵=150, the arithmetic of a 5-onto-3 count) — our lesson teaches the corrected pair in both directions (3→5: ⁵P₃=60 one-one, 0 onto; 5→3: 0 one-one, 150 onto), brute-force verified; gates: tsc clean, eslint 0 errors, e2e-aa-1x.sh ×2 lessons × desktop 1280 + mobile 390 + dark (quiz scored 5/5 live on intended keys, 14 show-solutions, Sol. pills 20, KaTeX 246/145 nodes with 0 errors, 2 figures each, one 390px inline-roster overflow caught and fixed by per-pair math spans, 0 console errors), VLM visual checks PASS ×6 (both lessons ×3 viewports + all four figures zoomed), verify_topic_coverage standing gate 576/576; book #4 flipped to 'in-progress' (2 of 8 lessons of ch. 1; 55 remain planned); docs synced (WORKLOG, PROGRESS, RESUME_POINTER, SOURCE_LOG download ledger, WORK_INVENTORY + DETAILED_LOG regenerated); M4-01 PDF + transcriptions kept in temporary-references/ for lessons 1.3-1.8 per the per-unit deletion law; the chapter-authoring cron job recreated with the research→plan→audit→write protocol embedded; run 91 opens 1.3 Composition + 1.4 Inverse Functions; push pending (no PAT this turn — the next fire turn pushes all unpushed local commits)",
+      "filesChanged": 14,
+      "insertions": 4809,
+      "deletions": 1422,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 31,
+          "del": 2
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1310,
+          "del": 1292
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 31,
+          "del": 9
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 36,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 22,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 1158,
+          "del": 91
+        },
+        {
+          "path": "docs/research/AA_CH01_MASTER_PLAN.md",
+          "add": 293,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-11.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-12.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-1x.sh",
+          "add": 94,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 962,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/book.ts",
+          "add": 13,
+          "del": 28
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 757,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "a3ff3e8ea055659793e7c2687d2f6f07562d95d4",
+      "short": "a3ff3e8",
+      "date": "2026-11-11 06:40",
+      "message": "run 90 amendment: the recreated authoring cron job (v5, id 523401) runs 3 fires/day at 02:50/10:50/18:50 IST — the gateway's new daily-execution cap made the old 12-fire hybrid schedule waste 9 fires; research→plan→audit→write protocol + push protocol embedded; old gateway-disabled job 516929 deleted",
+      "filesChanged": 3,
+      "insertions": 3,
+      "deletions": 3,
+      "files": [
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c031010808db8fb0c397f2709254300507dc8df1",
+      "short": "c031010",
+      "date": "2026-11-11 06:55",
+      "message": "manual sync turn: owner PAT wired — all 12 unpushed local commits (f3f834c..a3ff3e8, covers through run 90 + graph-it + highlights + palette-undo) pushed to GitHub and ls-remote-verified == a3ff3e8; authoring cron job refreshed 523401 -> 523435 (v5b: same 3-fire/day 02:50/10:50/18:50 IST cadence, PAT embedded + flagged validated-live, CURRENT STATE snapshot refreshed so the next fire starts straight into run 91); WORKLOG entry records the sync; zero lesson authoring — run 91 still opens AA 1.3 + 1.4",
+      "filesChanged": 1,
+      "insertions": 13,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 13,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1566dfefcec781cd459dffabcce52bb3e4abdc72",
+      "short": "1566dfe",
+      "date": "2026-11-11 07:28",
+      "message": "5b01cd80-e510-491e-bb73-f204fe314d31",
+      "filesChanged": 11,
+      "insertions": 1552,
+      "deletions": 176,
+      "files": [
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "docs/research/DRIVE_TOC_SURVEY.md",
+          "add": 205,
+          "del": 168
+        },
+        {
+          "path": "docs/research/PREWRITTEN_BOOKS_AUDIT.md",
+          "add": 199,
+          "del": 0
+        },
+        {
+          "path": "full",
+          "add": 0,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book2-ch08.ts",
+          "add": 413,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 605,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/book.ts",
+          "add": 18,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-06.ts",
+          "add": 3,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-12.ts",
+          "add": 57,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/quantitative-aptitude/book.ts",
+          "add": 1,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -25317,25 +25591,25 @@
     "booksLive": 28,
     "chaptersWritten": 32,
     "chaptersInProgress": 1,
-    "lessonsWritten": 122,
-    "wordsAuthored": 592873,
-    "termsDefined": 909,
-    "quizItems": 610,
-    "exerciseQuestions": 1569,
+    "lessonsWritten": 123,
+    "wordsAuthored": 598392,
+    "termsDefined": 915,
+    "quizItems": 615,
+    "exerciseQuestions": 1587,
     "blockTotals": {
-      "para": 1745,
-      "callout": 683,
-      "heading": 668,
+      "para": 1757,
+      "callout": 686,
+      "heading": 674,
       "list": 141,
-      "terms": 121,
+      "terms": 122,
       "equation": 187,
-      "figure": 215,
-      "derivation": 226,
+      "figure": 217,
+      "derivation": 230,
       "table": 151,
-      "example": 530,
-      "quiz": 122,
-      "exercises": 122,
-      "formula": 356,
+      "example": 533,
+      "quiz": 123,
+      "exercises": 123,
+      "formula": 359,
       "algorithm": 27
     }
   }

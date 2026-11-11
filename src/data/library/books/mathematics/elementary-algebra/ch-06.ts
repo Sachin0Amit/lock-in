@@ -1358,5 +1358,7 @@ export const chapter06: Chapter = {
       ],
     },
   ],
-  plannedLessons: [],
+  plannedLessons: [
+    '6.4 One Linear, One Quadratic',
+  ],
 }
