@@ -74,6 +74,22 @@ clear-all, dark-mode, mobile 390 palette in-viewport, 0 console errors
 throughout). **Zero lesson authoring — run 90 still opens AA 1.1 + 1.2**
 (the remaining 44 proposed items still await the owner's add/skip IDs).
 
+**Owner directive (2026-11-11, palette-undo follow-up — same day):**
+"where you have addede to choose color ad there only to undo the
+selected highlite" — the colour-chooser itself (the selection palette in
+`highlight-layer.tsx`) now carries the undo as a seventh control: an
+eraser button after the six swatches behind a hairline divider,
+faded-disabled (40% opacity) when the selected text carries no highlight,
+live when it does; one click erases every highlight the selection touches
+(same-host range intersection, partial overlaps included) from both the
+prose and the persisted `lockin-highlights` store, then clears the
+selection. Nothing else was added to the palette. Verified: e2e
+palette-undo phase green (enabled over a painted mark → click → 0 marks +
+0 stored; disabled on fresh text; all downstream highlighter phases
+unchanged, 0 console errors), computed-style ground truth (0.4/1 opacity,
+1px×26px separator) and a VLM zoomed-crop check of both states PASS.
+**Zero lesson authoring — run 90 still opens AA 1.1 + 1.2.**
+
 **Owner directive (2026-11-11, TOC-as-lessons pass):**
 "make sure those TOC are written as lessons and make a guide when a
 scheduled task is on it should [state] what should be included if that

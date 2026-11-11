@@ -87,19 +87,6 @@ export function selectionAnchor(root: HTMLElement | null): SelAnchor | null {
   return { host: startHost.dataset.hl ?? '', start, end, text }
 }
 
-/** does the current selection overlap any painted mark? (used to offer
- *  remove/recolor straight from the selection toolbar) */
-export function selectionMarkId(root: HTMLElement | null): string | null {
-  if (!root || typeof window.getSelection !== 'function') return null
-  const sel = window.getSelection()
-  if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return null
-  const node = sel.anchorNode
-  const el =
-    node && (node.nodeType === Node.TEXT_NODE ? node.parentElement : node instanceof Element ? node : null)
-  const mark = el?.closest('mark[data-hl-id]')
-  return mark instanceof HTMLElement ? mark.dataset.hlId ?? null : null
-}
-
 /* ------------------------------------------------------------------ */
 /* Painting                                                            */
 /* ------------------------------------------------------------------ */

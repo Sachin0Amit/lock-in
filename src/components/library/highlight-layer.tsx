@@ -6,7 +6,9 @@
  *
  * Owner-visible behaviour:
  *  - select text anywhere in the reading pane → a floating palette offers
- *    six highlighter colours; a click paints the selection
+ *    six highlighter colours PLUS an undo button that erases whatever the
+ *    selection itself has highlighted (owner directive 2026-11-11: “where
+ *    you choose the colour, there also undo the selected highlight”)
  *  - click an existing highlight → recolour it, attach/edit a private note,
  *    copy the quote, or erase it
  *  - the footer "Highlights" panel lists every highlight of the lesson with
@@ -22,6 +24,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Check,
   Copy,
+  Eraser,
   Highlighter,
   LocateFixed,
   Pencil,
@@ -41,7 +44,6 @@ import {
   flashMark,
   paintAll,
   selectionAnchor,
-  selectionMarkId,
   type SelAnchor,
 } from './highlight-dom'
 
@@ -67,7 +69,10 @@ interface ToolbarState {
   x: number
   y: number
   anchor: SelAnchor
-  existingId: string | null
+  /** ids of this lesson's highlights intersecting the selection — non-empty
+   *  exactly when the selected text carries a highlight, which is when the
+   *  palette's undo button goes live */
+  overlapping: string[]
   below: boolean
 }
 
@@ -141,18 +146,25 @@ export function HighlighterLayer({
         setToolbar(null)
         return
       }
+      /* which of this lesson's highlights does the selection touch? read the
+       * store via getState() so the freshest highlights are always used
+       * (range intersection on the same host, partial overlaps included) */
+      const now = lessonHighlights(useHighlightStore.getState(), lessonId)
+      const overlapping = Object.values(now)
+        .filter((h) => h.host === anchor.host && h.start < anchor.end && h.end > anchor.start)
+        .map((h) => h.id)
       const rect = sel.getRangeAt(0).getBoundingClientRect()
       setToolbar({
-        x: Math.min(Math.max(rect.left + rect.width / 2, 90), window.innerWidth - 90),
+        x: Math.min(Math.max(rect.left + rect.width / 2, 120), window.innerWidth - 120),
         y: rect.top,
         below: rect.top < 72,
         anchor,
-        existingId: selectionMarkId(rootRef.current),
+        overlapping,
       })
     }
     document.addEventListener('selectionchange', onSelectionChange)
     return () => document.removeEventListener('selectionchange', onSelectionChange)
-  }, [rootRef])
+  }, [rootRef, lessonId])
 
   /* clicking an existing highlight (without selecting) opens its popover */
   useEffect(() => {
@@ -231,11 +243,21 @@ export function HighlighterLayer({
     [add, lessonId, toolbar],
   )
 
+  /* undo — erase every highlight the current selection sits on, straight
+   * from the colour palette (the owner's “undo the selected highlight”) */
+  const undoSelection = useCallback(() => {
+    if (!toolbar || toolbar.overlapping.length === 0) return
+    toolbar.overlapping.forEach((id) => remove(id))
+    const sel = window.getSelection()
+    sel?.removeAllRanges()
+    setToolbar(null)
+  }, [remove, toolbar])
+
   const hl = popover ? hls[popover.id] : undefined
 
   return (
     <>
-      {/* selection palette */}
+      {/* selection palette — six colours + undo for the selected highlight */}
       {toolbar && (
         <div
           className="hl-floating"
@@ -261,6 +283,22 @@ export function HighlighterLayer({
               <span className={`hl-swatch hl-${c.id}`} />
             </button>
           ))}
+          <span className="hl-toolbar-sep" aria-hidden />
+          <button
+            type="button"
+            className="hl-undo-btn"
+            title={
+              toolbar.overlapping.length > 0
+                ? `Undo — erase the highlight${toolbar.overlapping.length > 1 ? 's' : ''} on the selected text`
+                : 'Nothing highlighted in this selection'
+            }
+            aria-label="Undo selected highlight"
+            aria-disabled={toolbar.overlapping.length === 0}
+            disabled={toolbar.overlapping.length === 0}
+            onClick={undoSelection}
+          >
+            <Eraser className="h-3.5 w-3.5" aria-hidden />
+          </button>
         </div>
       )}
 

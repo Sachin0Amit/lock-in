@@ -1,3 +1,12 @@
+## 2026-11-11 — PALETTE-UNDO REFINEMENT (owner-directed): the selection palette itself now carries the undo — eraser button after the six colour swatches
+
+- **The directive:** "where you have addede to choose color ad there only to undo the selected highlite" — undo lives in the same floating palette where the colour is chosen.
+- **What changed:** highlight-layer.tsx — `ToolbarState.overlapping: string[]` (replaces the never-read `existingId`) computed on every selectionchange via anchor range-intersection (same `data-hl` host; partial overlaps count) reading `useHighlightStore.getState()` for freshest state; palette renders `.hl-toolbar-sep` + `.hl-undo-btn` (eraser icon) — disabled at 40% opacity when the selection carries no highlight, live otherwise; click removes every overlapping highlight, clears the selection, closes the toolbar. Dead `selectionMarkId()` removed from highlight-dom.ts. globals.css: `.hl-toolbar-sep` + `.hl-undo-btn` (26×26 tile, danger hover, dark variant); palette x-clamp 90→120. Store/painter/popover/panel untouched.
+- **Gates:** tsc clean; eslint clean; e2e-covers-highlights.sh + new palette-undo phase all green — eraser `disabled:false` over the painted mark, click → marks 0 + stored 0, `disabled:true` on fresh text, all downstream phases unchanged (0 console errors); computed styles: disabled opacity 0.4 / separator 1px×26px / enabled opacity 1; VLM zoomed-crop both states PASS (divider visible, faded-vs-active correct, no clipping). Incident handled: the dev server's CSS watcher served a stale chunk mid-run (functional evals passed against stale CSS — caught by computed-style + VLM checks); server restarted, everything re-verified from a fresh compile; scripts/run-undo-verify.sh committed as the one-shot gate (starts server → asserts served CSS contains the rules → runs e2e → captures both palette states).
+- **Authoring untouched:** run 90 still opens AA 1.1 + 1.2; the other 44 proposed features await add/skip IDs.
+
+---
+
 ## 2026-11-11 — COVER WIRING + MULTI-COLOUR HIGHLIGHTER PASS (owner-directed): CV-01 done — the 28 AI covers live in the UI; ST-02's highlighting half done as the full advanced highlighter
 
 - **The directive:** "wire the cover image and and add feature to hightlight of text with diffrent color highliter advanced features" — the first two PROPOSED_FEATURES approvals.

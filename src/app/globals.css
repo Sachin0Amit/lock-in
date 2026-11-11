@@ -392,6 +392,41 @@ mark.hl-flash {
   height: 14px;
 }
 
+/* palette separator + the undo button beside the swatches — erases the
+ * highlight(s) the selection itself sits on (owner directive 2026-11-11) */
+.hl-toolbar-sep {
+  align-self: stretch;
+  width: 1px;
+  background: var(--border);
+}
+.hl-undo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--muted-foreground);
+  transition: transform 0.12s ease, border-color 0.12s ease,
+    box-shadow 0.12s ease, color 0.12s ease;
+}
+.hl-undo-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: oklch(0.62 0.2 25 / 0.5);
+  color: oklch(0.62 0.2 25);
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.12);
+}
+.hl-undo-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.dark .hl-undo-btn:hover:not(:disabled) {
+  color: oklch(0.75 0.18 25);
+  border-color: oklch(0.75 0.18 25 / 0.5);
+}
+
 /* floating toolbar + popover */
 .hl-floating {
   position: fixed;

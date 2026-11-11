@@ -65,6 +65,32 @@ agent-browser eval "JSON.stringify({
 })" 2>/dev/null | tee "$OUT/lesson-mark.json"
 agent-browser screenshot "$OUT/lesson-highlighted.png" >/dev/null 2>&1 || true
 
+# 3c-un. palette undo — re-select the painted stretch: the palette's eraser
+#     must go live; clicking it erases exactly that highlight (then repaint
+#     yellow so the popover/panel/quiz phases below keep their mark)
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-covers-highlights.page.js)" 2>/dev/null | tee "$OUT/lesson-reselect.json" >/dev/null
+agent-browser wait 300 >/dev/null 2>&1 || true
+agent-browser eval "JSON.stringify({
+  palette: !!document.querySelector('[role=toolbar].hl-floating'),
+  swatches: document.querySelectorAll('[role=toolbar] .hl-swatch-btn').length,
+  undoBtn: (function(){var b=document.querySelector('[role=toolbar] .hl-undo-btn'); return b?{disabled:b.disabled,label:b.getAttribute('aria-label')}:null})()
+})" 2>/dev/null | tee "$OUT/lesson-undo.json"
+agent-browser eval "document.querySelector('[role=toolbar] .hl-undo-btn').click(); 'undid'" >/dev/null 2>&1 || true
+agent-browser wait 500 >/dev/null 2>&1 || true
+agent-browser eval "JSON.stringify({
+  marksNow: document.querySelectorAll('mark.hl-mark').length,
+  storedNow: Object.keys((JSON.parse(localStorage.getItem('lockin-highlights')||'{}').state||{}).byLesson['al-from-arithmetic-to-algebra']||{}).length
+})" 2>/dev/null | tee "$OUT/lesson-undone.json"
+# fresh (unhighlighted) text must show the palette's eraser disabled
+agent-browser eval "var hs=document.querySelectorAll('.lesson-body [data-hl]'); var host=hs[1]||hs[0]; var w=document.createTreeWalker(host,NodeFilter.SHOW_TEXT); var nodes=[]; var len=0; var n; while((n=w.nextNode())){nodes.push({node:n,start:len}); len+=n.data.length;} function loc(o){for(var i=0;i<nodes.length;i++){var t=nodes[i]; if(o>=t.start&&o<=t.start+t.node.data.length) return [t.node,o-t.start];} return null;} var a=loc(4), b=loc(Math.min(20,len-1)); if(a&&b){var r=document.createRange(); r.setStart(a[0],a[1]); r.setEnd(b[0],b[1]); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);} 'selected-fresh'" >/dev/null 2>&1 || true
+agent-browser wait 300 >/dev/null 2>&1 || true
+agent-browser eval "JSON.stringify({undoDisabledOnFresh: (document.querySelector('[role=toolbar] .hl-undo-btn')||{disabled:null}).disabled})" 2>/dev/null | tee "$OUT/lesson-undo-fresh.json"
+# repaint the mark so the remaining phases still have one
+agent-browser eval "$(cat /home/z/my-project/scripts/e2e-covers-highlights.page.js)" >/dev/null 2>&1 || true
+agent-browser wait 300 >/dev/null 2>&1 || true
+agent-browser eval "document.querySelector('[role=toolbar] .hl-swatch-btn').click(); 'repainted'" >/dev/null 2>&1 || true
+agent-browser wait 400 >/dev/null 2>&1 || true
+
 # 3d. click the mark -> popover -> recolour green
 agent-browser eval "document.querySelector('mark.hl-mark').click(); 'clicked-mark'" >/dev/null 2>&1 || true
 agent-browser wait 300 >/dev/null 2>&1 || true
@@ -133,7 +159,7 @@ agent-browser eval "JSON.stringify({
 agent-browser screenshot "$OUT/lesson-final.png" >/dev/null 2>&1 || true
 
 echo "== results =="
-for f in home book lesson-select lesson-palette lesson-mark lesson-popover lesson-recolour lesson-note lesson-solhl lesson-reopen lesson-quiz lesson-cleared; do
+for f in home book lesson-select lesson-palette lesson-mark lesson-undo lesson-undone lesson-undo-fresh lesson-popover lesson-recolour lesson-note lesson-solhl lesson-reopen lesson-quiz lesson-cleared; do
   printf '%-16s %s\n' "$f" "$(cat $OUT/$f.json 2>/dev/null | tr -d '\n' | head -c 220)"
 done
 echo "DONE (screenshots in $OUT)"

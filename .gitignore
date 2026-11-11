@@ -427,3 +427,7 @@ server.log
 # covers + highlighter runtime gate (owner-approved feature turn, 2026-11-11)
 !/scripts/e2e-covers-highlights.sh
 !/scripts/e2e-covers-highlights.page.js
+# palette-undo one-shot gate: starts the server, asserts the served CSS carries
+# the rules (guards against the stale-CSS-watcher incident), runs the e2e,
+# captures both palette states (owner follow-up directive, 2026-11-11)
+!/scripts/run-undo-verify.sh
