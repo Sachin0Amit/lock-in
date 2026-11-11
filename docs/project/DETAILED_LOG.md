@@ -1,3 +1,12 @@
+## 2026-11-11 — BATCH-2 FEATURE LIST (owner-directed, list only): PROPOSED_FEATURES.md 46 → 70 — 24 new proposals across seven new categories (F–L), zero implementation
+
+- **The directive:** "list more such features" — extend the add/skip proposal list.
+- **Added:** F. RD-01..05 (focus mode, typography controls, reading ruler, listen-mode TTS, notation drawer) · G. GL-01..03 (auto-linked glossary terms, term quiz, bilingual definitions) · H. FX-01..03 (formula SRS on the revision ledger, "Graph it" on any display equation, formula trap cards) · I. CH-01..03 (chapter boss quiz, daily warm-up, exam-day OMR mode) · J. AN-01..03 (study analytics, readiness projection, shelf-wide weakness heat map) · K. AI-01..05 (explain-this-step, doubt box, fresh-number twin, deck-from-highlights, mistake post-mortem) · L. EX-01..02 (colour-coded study-pack PDF, flashcard CSV/Anki export).
+- **Guards:** programmatic ID audit — 70 rows, 0 duplicates, batch 1 = 46 / batch 2 = 24; every item anchored to an existing subsystem; no overlap with the 44 pending batch-1 items; header records the directive verbatim + the 68-awaiting count.
+- **Nothing implemented. Authoring untouched:** run 90 still opens AA 1.1 + 1.2; the owner picks add/skip IDs next.
+
+---
+
 ## 2026-11-11 — PALETTE-UNDO REFINEMENT (owner-directed): the selection palette itself now carries the undo — eraser button after the six colour swatches
 
 - **The directive:** "where you have addede to choose color ad there only to undo the selected highlite" — undo lives in the same floating palette where the colour is chosen.

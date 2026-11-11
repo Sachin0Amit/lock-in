@@ -6,6 +6,8 @@
 
 **How to decide:** reply with the IDs to add and the IDs to skip, e.g. *"add CV-01, CV-02, IN-06, IN-13, DR-01; skip the rest"* — or *"add all IN"* / *"add nothing yet"*. Approved items will be implemented in run order (they queue behind the standing authoring cadence unless the owner reorders); skipped items stay parked here.
 
+**Batch 2 (owner chat, 2026-11-11, later still, verbatim):** "list more such features" — sections **F–L below add 24 more proposals** on top of the original 46, under the same decision workflow (2 items done, **68 now awaiting add/skip**). Every batch-2 item was duplicate-checked against the 44 pending batch-1 items and the "already on the site" inventory, and each builds on a subsystem that really exists (highlight store, revision ledger, knowledge graph, mistake bank, exam presets, formula sheets, glossary mastery, flashcards, command palette).
+
 ---
 
 ## IMPLEMENTED (2026-11-11, the "wire the cover" + highlighter turn)
@@ -96,6 +98,69 @@ All client-side canvas/SVG; no external service. Each embeds in the lessons of i
 | **ST-03** | **Streaks & XP layer** — daily streak, per-book XP, badges for chapter completions on top of the existing progress store. | awaiting decision |
 | **ST-04** | **Keyboard navigation** — j/k next/prev lesson, `/` to search, `b` to bookmark, plus scroll-position resume per lesson. | awaiting decision |
 | **ST-05** | **Offline PWA** — service-worker caching so written lessons read offline on the phone. | awaiting decision |
+
+---
+
+## BATCH 2 (added 2026-11-11, the "list more such features" turn — 24 more proposals, all awaiting decision)
+
+## F. RD — Reader comfort & focus
+
+| ID | Feature |
+|---|---|
+| **RD-01** | **Focus mode** — one click (or `F`) strips the chrome to full-screen reading: bigger type, everything else dimmed, lesson footer stays; `Esc` exits. |
+| **RD-02** | **Typography controls** — an "Aa" popover with text-size steps, line-height, page width, and a dyslexia-friendly font toggle; persisted per device (the bookmarks pattern). |
+| **RD-03** | **Reading ruler** — a movable translucent band that dims everything outside the current lines; aimed at the dense pages (`ra-` proofs, `top-` arguments). |
+| **RD-04** | **Listen mode (TTS)** — a play button per lesson; sentences highlight as they are spoken; KaTeX is spoken as math ("the fraction b over 2a", never "b slash 2a"); speed 0.75×–2×. |
+| **RD-05** | **Notation drawer** — a side drawer of every symbol/notation a book uses (∀ ∃ ⊆ ∑ ∫ ‖x‖ ≅ …), grouped by book, each linked to its first-use lesson. |
+
+## G. GL — Glossary engine
+
+| ID | Feature |
+|---|---|
+| **GL-01** | **Auto-linked terms** — every occurrence of a glossary term in lesson prose gets a dotted underline hover-card (definition, book, mastery state, "add to revision"); zero authoring cost, purely automatic. |
+| **GL-02** | **Term quiz mode** — "quiz me" inside the glossary: active-recall flips on definitions, propagating into the existing mastery tracking. |
+| **GL-03** | **Bilingual definitions** — English ↔ Hindi glossary entries for the exam-heavy books (`qa-`, `ans-`, `al-`), one tap to switch. |
+
+## H. FX — Formula mastery
+
+| ID | Feature |
+|---|---|
+| **FX-01** | **Formula SRS** — every book's formula sheet becomes a spaced-repetition deck (recognize → state → derive ladder) sharing the existing revision ledger, so formulas come due exactly like lessons. |
+| **FX-02** | **"Graph it" button** — a small plot icon on rendered display equations opens an inline grapher with sliders for the formula's constants — works on any book's equations, complementing the per-book IN tools. |
+| **FX-03** | **Formula trap cards** — each formula gains "spot the misuse" micro-exercises (wrong use vs right use), auto-fed into the practice hub. |
+
+## I. CH — Chapter & daily challenges
+
+| ID | Feature |
+|---|---|
+| **CH-01** | **Chapter boss quiz** — a mixed quiz auto-built from every lesson in a chapter; passing stamps chapter mastery and feeds the knowledge graph. |
+| **CH-02** | **Daily warm-up** — a 10-minute mixed set auto-composed each day from completed lessons + due revision items; one command-palette action. |
+| **CH-03** | **Exam-day OMR mode** — OMR-style bubble sheet with section timers and negative-marking discipline on top of the existing exam presets (the 56-exam EXAM_REGISTRY). |
+
+## J. AN — Analytics & self-knowledge
+
+| ID | Feature |
+|---|---|
+| **AN-01** | **Study analytics dashboard** — words read, minutes, quiz accuracy, highlights & notes, per book, trended over time. |
+| **AN-02** | **Readiness projection** — the practice hub's readiness scores plotted over time with an honest "exam-ready by `<date>`" pace projection. |
+| **AN-03** | **Shelf-wide weakness heat map** — mistake bank + quiz errors + self-marks melted into one cross-book topic heat map ("you are red in eigenvalues"). |
+
+## K. AI — AI study aids
+
+| ID | Feature |
+|---|---|
+| **AI-01** | **Explain this step** — on any derivation/solution step, a button re-explains that one step in plainer terms, in the lesson's own context. |
+| **AI-02** | **Doubt box** — ask a question about the current lesson; grounded answers citing the lesson's own paragraphs. |
+| **AI-03** | **Fresh-number twin** — regenerate the current exercise with new numbers and a full worked solution (same template, fresh data). |
+| **AI-04** | **Deck from highlights** — auto-draft flashcards from your own highlights and notes of a lesson into a review deck. |
+| **AI-05** | **Mistake post-mortem** — for each mistake in the bank, an auto "why it happened" analysis plus one similar practice item. |
+
+## L. EX — Export & sharing (device-local)
+
+| ID | Feature |
+|---|---|
+| **EX-01** | **Study-pack export** — a lesson's (or book's) highlights + notes as a clean colour-coded PDF study pack (quotes carry their highlight colour). |
+| **EX-02** | **Flashcard export** — any flashcard deck (authored or highlight-generated) as CSV/Anki. |
 
 ---
 
