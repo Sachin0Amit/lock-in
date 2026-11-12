@@ -10,7 +10,9 @@
 
 **Standing:** chapter 1 at 6/8 lessons; run 93 = 1.7 Graph Transformations + 1.8 Period Census, then the unit review closes the chapter. Figure-audit job 524541 continues the shelf sweep (FM first, next fire at fm-rates-and-unit-rates). This job pushes all unpushed commits.
 
-**Git:** commit `run 92: AA 1.5 The Function Zoo + 1.6 Even and Odd — verifier N/O, 4 figures VLM-passed` — pushed, HEAD verified by ls-remote (see sync line).
+**Git:** commit `run 92: AA 1.5 The Function Zoo + 1.6 Even and Odd — verifier N/O, 4 figures VLM-passed` — pushed, HEAD verified by ls-remote 
+
+**Sync:** pushed 61de51b..dcace9d → remote HEAD verified == **dcace9d** (run 92 + both figure-audit fires) by ls-remote; tree clean at close.
 
 ## 2026-11-12 — FIGURE-AUDIT JOB 524541, FIRE 2: FM sweep items 12-23 (12 lessons / 23 figures) strictly audited, 4 defects caught and fixed, all gates green
 
