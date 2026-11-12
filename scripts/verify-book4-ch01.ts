@@ -1265,11 +1265,10 @@ function sectionI(): void {
   for (const needle of ['x^3 + x + 1', 'x_1^2 + x_1x_2 + x_2^2 + 1', 'f(0) = f(-\\tfrac{1}{2}) = 7', '243 - 96 + 3 = 150', '{}^nP_m', '3! = 6', 'p^2 \\leq 3q', '[0, 1)', 'x|x|', 'x − 1)(x − 2)(x − 3)']) {
     ok(prose.includes(needle), `I: the pinned exhibit “${needle}” appears in the authored lesson`)
   }
-  // the chapter-level contract
+  // the chapter-level contract (relaxed run 93: the roster grows past six)
   ok(chapter01.status === 'in-progress', 'I: chapter 1 status in-progress')
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length >= 2, `I: the remaining lessons stay planned (got ${planned.length})`)
-  ok(planned.includes('Graph Transformations: Shifts, Stretches, Flips and the GIF Graph'), 'I: the transformation lesson stays planned (runs 93+)')
+  ok(planned.length >= 1, `I: the remaining obligations stay planned (got ${planned.length})`)
 }
 
 /* ------------------------------------------------------------------ */
@@ -1366,6 +1365,8 @@ sectionL()
 sectionM()
 if (chapter01.lessons.length >= 5) sectionN()
 if (chapter01.lessons.length >= 6) sectionO()
+sectionP()
+sectionQ()
 
 
 /* ------------------------------------------------------------------ */
@@ -1548,11 +1549,10 @@ function sectionO(): void {
   const p0 = 2
   ok(isEven((x) => x ** 2) && p0 !== -p0 && p0 ** 2 === (-p0) ** 2, 'O9: even ⇒ f(x) = f(−x) with x ≠ −x — waste is structural, lesson 1.2\u2019s verdict re-read')
 
-  // O10. the chapter-level contract closes at six lessons
-  ok(chapter01.lessons.length === 6, `O: chapter 1 carries exactly six lessons (got ${chapter01.lessons.length})`)
+  // O10. the chapter-level contract (relaxed run 93: 1.7 and 1.8 join the roster; the exact-8 check moves to Q)
+  ok(chapter01.lessons.length >= 6, `O: chapter 1 carries at least the six lessons through even/odd (got ${chapter01.lessons.length})`)
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length === 2, `O: exactly two lessons remain planned (got ${planned.length})`)
-  ok(planned[0] === 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph', 'O: transformations is the next run\u2019s first lesson')
+  ok(planned.length >= 1, `O: at least the unit-review obligation stays planned (got ${planned.length})`)
 
   // O11. audit the authored lesson
   const l6 = chapter01.lessons[5]
@@ -1573,6 +1573,293 @@ function sectionO(): void {
     'Fourier',
   ]) {
     ok(prose6.includes(needle), `O: the pinned exhibit “${needle}” appears in the authored lesson`)
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (P) pre-writing pins for 1.7 Graph Transformations + authored audit  */
+/* ------------------------------------------------------------------ */
+
+function sectionP(): void {
+  console.log('— (P) graph transformations: pre-writing engines —')
+
+  // P1. vertical shift on the exhibit machine f(x) = |x − 2|
+  const vf = (x: number): number => Math.abs(x - 2)
+  {
+    const g = (x: number): number => vf(x) + 3
+    const h = (x: number): number => vf(x) - 1
+    ok(g(0) === 5 && g(2) === 3 && g(5) === 6, 'P1: f(x)+3 lifts every seat — f(0)=2→5, f(2)=0→3, f(5)=3→6')
+    ok(h(2) === -1, 'P1: f(x)−1 drops the vertex (2,0) → (2,−1)')
+    let lift = true
+    for (let x = -6; x <= 8; x += 0.25) if (Math.abs(g(x) - vf(x) - 3) > 1e-12) lift = false
+    ok(lift, 'P1: g(x) − f(x) = 3 on a 57-seat sweep — the vertical shift is uniform')
+  }
+
+  // P2. horizontal shift — the seat-carry law and the left paradox
+  {
+    const f1 = (x: number): number => vf(x + 1) // = |x − 1|
+    ok(f1(-1) === vf(0) && f1(0) === vf(1) && f1(2) === vf(3), 'P2: f(x+1) at x = −1 carries f(0) — the window slid LEFT one unit')
+    ok(f1(1) === 0, 'P2: the vertex of |x−2| moves (2,0) → (1,0) under y = f(x+1)')
+    const f3 = (x: number): number => vf(x - 3) // = |x − 5|
+    ok(f3(5) === 0, 'P2: the vertex moves (2,0) → (5,0) under y = f(x−3) — minus slides RIGHT')
+  }
+
+  // P3. horizontal stretch/squeeze on p(x) = (x − 3)² + 1 — x-coordinates divide
+  const pf = (x: number): number => (x - 3) * (x - 3) + 1
+  {
+    const p2x = (x: number): number => pf(2 * x)
+    const px3 = (x: number): number => pf(x / 3)
+    ok(p2x(1.5) === 1, 'P3: the vertex seat x = 3 of p lands at 3/2 under p(2x) — squeeze by 2')
+    ok(px3(9) === 1, 'P3: the same vertex seat lands at 9 under p(x/3) — stretch by 3')
+    ok(p2x(0) === pf(0) && px3(0) === pf(0), 'P3: the y-axis seat is fixed by both — heights are carried, seats divide')
+    ok(p2x(-1.5) === pf(-3) && px3(0) === pf(0), 'P3: seat −3 of p is seat −1.5 of p(2x) — the division rule pinned at real seats')
+  }
+
+  // P4. vertical stretch — y-coordinates multiply, the range scales
+  {
+    const two = (x: number): number => 2 * pf(x)
+    const half = (x: number): number => pf(x) / 2
+    ok(two(3) === 2 && half(3) === 0.5, 'P4: 2p multiplies heights — vertex (3,1) → (3,2); p/2 → (3, 1/2)')
+    let min2 = Infinity
+    let minH = Infinity
+    let minP = Infinity
+    for (let x = -4; x <= 10; x += 0.05) {
+      min2 = Math.min(min2, two(x))
+      minH = Math.min(minH, half(x))
+      minP = Math.min(minP, pf(x))
+    }
+    ok(minP === 1 && min2 === 2 && minH === 0.5, 'P4: the whole range scales — [1,∞) → [2,∞) under 2p, [0.5,∞) under p/2 (sweep mins)')
+  }
+
+  // P5. flips: −f over the x-axis, f(−x) over the y-axis, the odd-machine fusion
+  {
+    const negf = (x: number): number => -pf(x)
+    ok(negf(3) === -1, 'P5: −p flips the vertex (3,1) → (3,−1) — opens downward')
+    const mirror = (x: number): number => pf(-x)
+    ok(mirror(-3) === 1, 'P5: p(−x) carries the vertex to (−3,1) — mirror over the y-axis')
+    const oc = (x: number): number => x ** 3 + x // the odd witness from 1.6
+    let oddFixed = true
+    for (let x = -5; x <= 5; x += 0.1) if (Math.abs(-oc(-x) - oc(x)) > 1e-9) oddFixed = false
+    ok(oddFixed, 'P5: on the odd machine x³+x the composed flips −f(−x) redraw the SAME graph — f(−x) = −f(x) made visible')
+    const vneg2 = (x: number): number => vf(-2 * x)
+    ok(vneg2(-1) === 0, 'P5: f(−2x) flips first then squeezes — the vertex of |x−2| lands at (−1,0)')
+  }
+
+  // P6. the modulus family on m(x) = (x−1)(x−3) + the nested walk
+  const mf = (x: number): number => (x - 1) * (x - 3)
+  {
+    const absM = (x: number): number => Math.abs(mf(x))
+    ok(mf(2) === -1 && absM(2) === 1, 'P6: m(2) = −1 reflects up to 1 under |m| — the notch lifts')
+    ok(mf(0) === 3 && absM(0) === 3 && mf(4) === 3 && absM(4) === 3, 'P6: |m| agrees with m where m ≥ 0 — the seats 0 and 4 keep height 3')
+    const mMod = (x: number): number => mf(Math.abs(x))
+    let even = true
+    for (let x = -4; x <= 4; x += 0.05) if (Math.abs(mMod(-x) - mMod(x)) > 1e-12) even = false
+    ok(even, 'P6: m(|x|) is even — the 1.6 verdict, by construction')
+    ok(mMod(-2) === -1 && mMod(-2) === mf(2), 'P6: m(|−2|) = m(2) = −1 — the mirror seat carries the original height')
+    const n1 = (x: number): number => Math.abs(x) - 3
+    const n2 = (x: number): number => Math.abs(n1(x))
+    const n3 = (x: number): number => n2(x) - 2
+    const n4 = (x: number): number => Math.abs(n3(x))
+    ok(n2(0) === 3 && n2(3) === 0 && n2(-3) === 0, 'P6: ||x|−3| has height 3 at 0, zeros at ±3')
+    ok(n3(0) === 1 && n3(3) === -2 && n3(1) === 0 && n3(5) === 0, 'P6: ||x|−3|−2: height 1 at 0, dips to −2 at ±3, zeros at ±1 and ±5')
+    ok(n4(0) === 1 && n4(3) === 2 && n4(1) === 0 && n4(5) === 0 && n4(-3) === 2, 'P6: the final wrap: zeros at ±1, ±5; peaks 2 at ±3; height 1 at 0')
+  }
+
+  // P7. the GIF band engine: [4 − x²] on [−2,2] and [x² − 2] on [−2,2]
+  {
+    const band = (x: number): number => Math.floor(4 - x * x)
+    const r2 = Math.sqrt(2)
+    const r3 = Math.sqrt(3)
+    ok(band(0) === 4, 'P7: [f(0)] = [4] = 4 — the single top seat')
+    ok(band(1) === 3 && band(-1) === 3, 'P7: at |x| = 1, f = 3 → [f] = 3 — the closed end of the 3-rung')
+    ok(band(2) === 0, 'P7: the floor rung: at |x| = 2, f = 0 → [f] = 0')
+    ok(band(0.999) === 3 && band(1.001) === 2, 'P7: the 3→2 rung breaks at |x| = 1 — the left seat keeps 3, the right drops to 2')
+    ok(band(-1.001) === 2 && band(-0.999) === 3, 'P7: mirrored breaks on the negative half')
+    ok(band(r2 - 1e-6) === 2 && band(r2 + 1e-6) === 1, 'P7: the 2→1 rung breaks at |x| = √2 — inside keeps 2, outside drops to 1')
+    ok(band(r3 - 1e-6) === 1 && band(r3 + 1e-6) === 0, 'P7: the 1→0 rung breaks at |x| = √3')
+    ok(band(1.5) === 1 && band(1.9) === 0, 'P7: mid-rung seats: x = 1.5 → f = 1.75 → rung 1; x = 1.9 → f = 0.39 → rung 0')
+    const band2 = (x: number): number => Math.floor(x * x - 2)
+    ok(band2(0) === -2 && band2(0.999) === -2 && band2(1.001) === -1, 'P7: [x²−2] rides −2 on (−1,1), breaks to −1 at |x| = 1')
+    ok(band2(r2 - 1e-6) === -1 && band2(r2 + 1e-6) === 0, 'P7: [x²−2] breaks −1 → 0 at |x| = √2 — the closed end of the 0-rung')
+    ok(band2(r3 - 1e-6) === 0 && band2(r3 + 1e-6) === 1 && band2(2) === 2, 'P7: 0 → 1 at √3; the single seats ±2 take 2')
+  }
+
+  // P8. the pinned quiz + exercise keys for 1.7 (every distractor computed)
+  {
+    ok(Math.floor(2.9) === 2 && Math.floor(2.1) === 2 && Math.floor(3) === 3, 'P8: the band read — every height in [2,3) prints rung 2; the seat 3 prints 3')
+    ok(Math.abs(2 * 1.5 - 3) < 1e-12, 'P8: exercise pin — the vertex of (2x−3)²+1 sits at (3/2, 1)')
+    const g4 = (x: number): number => (x - 4) * (x - 4) + 2
+    ok(g4(2 * 2) === 2 && 2 * g4(4) === 4 && g4(4) - 5 === -3, 'P8: exercise pin — g(2x) vertex (2,2), 2g(x) vertex (4,4), g(x)−5 vertex (4,−3)')
+    const q5 = (x: number): number => x * x - 6 * x + 5
+    const mq = (x: number): number => x * x + 6 * x + 5
+    ok(q5(1) === 0 && q5(5) === 0 && mq(-1) === 0 && mq(-5) === 0 && q5(3) === -4, 'P8: exercise pin — f zeros at 1, 5; f(−x) zeros at −1, −5; −f vertex (3,4) since f(3) = −4')
+    ok(-2 * Math.abs(0 + 2) + 1 === -3 && -2 * Math.abs(-5 + 2) + 1 === -5, 'P8: exercise pin — −2|x+2|+1 reads −3 at x = 0 and −5 at x = −5')
+    const fw = (x: number): number => (x <= 1 ? 2 * x + 2 : 5 - x * x)
+    ok(fw(-2) === -2 && Math.abs(fw(-2)) === 2 && fw(3) === -4 && Math.abs(fw(3)) === 4, 'P8: exercise pin — the piecewise machine: f(−2) = −2 → |f| = 2; f(3) = −4 → |f| = 4')
+    ok(fw(Math.abs(-3)) === fw(3) && Math.abs(fw(Math.abs(-3))) === 4, 'P8: exercise pin — |f(|x|)| at x = −3 equals 4 — both wraps commute on the heights')
+    ok(Math.abs(Math.abs(2 - 2) - 1) === 1, 'P8: exercise pin — ||x−2|−1| takes 1 at the vertex seat 2 and 0 at ±1, ±3')
+  }
+
+  // P9. authored audit (live once lesson 1.7 joins the roster)
+  if (chapter01.lessons.length >= 7) {
+    const l7 = chapter01.lessons[6]
+    ok(l7.id === 'aa-graph-transformations-shifts-stretches-flips-gif', `P: lesson 1.7 id (got ${l7.id})`)
+    ok(l7.number === '1.7' && l7.title === 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph', 'P: lesson 1.7 number/title match the plan')
+    auditLesson(l7, 'P', [0, 1, 1, 1, 0], 12, 6, 2, 4300)
+    const prose7 = lessonText(l7)
+    for (const needle of [
+      '|x-2|',
+      '(x-3)^2+1',
+      'f(x+1)',
+      'f(2x)',
+      'f(-x)',
+      'f(|x|)',
+      '|x| − 3',
+      '4 − x^2',
+      'vertex',
+      'GIF',
+    ]) {
+      ok(prose7.includes(needle), `P: the pinned exhibit “${needle}” appears in the authored lesson`)
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (Q) pre-writing pins for 1.8 The Period Census + authored audit     */
+/* ------------------------------------------------------------------ */
+
+function sectionQ(): void {
+  console.log('— (Q) the period census: pre-writing engines —')
+
+  const frac = (x: number): number => x - Math.floor(x)
+  const PI = Math.PI
+  const gridQ = Array.from({ length: 241 }, (_, i) => -12 + (24 * i) / 240)
+  // periodicity engine with a pole guard (tan-family seats near poles are skipped)
+  const periodic = (f: (x: number) => number, T: number, eps = 1e-6): boolean =>
+    gridQ.every((x) => Math.abs(f(x)) > 50 || Math.abs(f(x + T)) > 50 || Math.abs(f(x + T) - f(x)) < eps)
+
+  // Q1. the elementary census
+  ok(periodic(Math.sin, 2 * PI) && !periodic(Math.sin, PI), 'Q1: sin carries period 2π — π fails (sin(x+π) = −sin x)')
+  ok(periodic(Math.tan, PI), 'Q1: tan carries period π')
+  ok(periodic((x) => frac(x), 1), 'Q1: {x} carries period 1')
+  ok(periodic((x) => Math.abs(Math.sin(x)), PI), 'Q1: |sin x| carries period π')
+  ok(periodic((x) => Math.sin(x) ** 4, PI) && !periodic((x) => Math.sin(x) ** 3, PI), 'Q1: sin⁴x rides π (even power) while sin³x needs 2π (odd power)')
+
+  // Q2. the least-period discipline: no smaller window works
+  {
+    let smallerFails = true
+    for (const T of [0.2, 0.5, 0.75, 0.9]) {
+      const x = 1 - T / 2
+      if (Math.abs(frac(x + T) - frac(x)) < 1e-9) smallerFails = false
+    }
+    ok(smallerFails, 'Q2: every T < 1 fails for {x} — at seat x = 1 − T/2, {x+T} = T/2 while {x} = 1 − T/2')
+    ok(Math.abs(frac(1 / 2) - 0.5) < 1e-12 && frac(1) === 0, 'Q2: {x/2} fails T = 1 at the seat x = 1 — {1/2} = 1/2, {1} = 0; the period is 2')
+    ok(periodic((x) => frac(x / 2), 2) && !periodic((x) => frac(x / 2), 1), 'Q2: {x/2} rides 2 and fails 1 — the stretch law T/|a| on the sawtooth')
+  }
+
+  // Q3. transformed periods: the outer constants never move the window; f(ax) divides it
+  ok(periodic((x) => frac(2 * x), 0.5), 'Q3: {2x} rides period 1/2')
+  ok(periodic((x) => 3 * Math.sin(2 * x + 5), PI), 'Q3: 3 sin(2x+5) keeps period π — amplitude and phase never touch the window')
+  ok(periodic((x) => Math.sin(2 * x) + 7, PI), 'Q3: the +7 lift never touches the period')
+  ok(periodic((x) => Math.sin(3 * x), (2 * PI) / 3) && !periodic((x) => Math.sin(3 * x), PI / 3), 'Q3: sin 3x rides 2π/3 and fails π/3 — the window divided by |a|')
+  ok(periodic((x) => Math.tan(3 * x + 5), PI / 3), 'Q3: tan(3x+5) rides π/3 — the T/|a| law with a phase shift along for free')
+
+  // Q4. composite periods
+  ok(periodic((x) => Math.sin(Math.cos(x)), 2 * PI) && !periodic((x) => Math.sin(Math.cos(x)), PI), 'Q4: sin(cos x) rides 2π — the half-flip survives the relay')
+  ok(periodic((x) => Math.cos(Math.cos(x)), PI), 'Q4: cos(cos x) rides π — the even outer erases the inner half-flip (1.6’s table, cashed)')
+  ok(periodic((x) => Math.cos(Math.sin(x)), PI), 'Q4: cos(sin x) also rides π')
+  const swapSum = (x: number): number => Math.cos(Math.sin(x)) + Math.cos(Math.cos(x))
+  ok(periodic(swapSum, PI / 2, 1e-6) && !periodic(swapSum, PI / 4, 1e-6), 'Q4: cos(sin x) + cos(cos x) rides π/2 — the half-shift SWAPS the two terms')
+  const fourths = (x: number): number => Math.sin(x) ** 4 + Math.cos(x) ** 4
+  ok(gridQ.every((x) => Math.abs(fourths(x) - (0.75 + 0.25 * Math.cos(4 * x))) < 1e-9), 'Q4: the collapse identity — sin⁴x + cos⁴x = 3/4 + cos(4x)/4 on a 241-seat grid')
+  ok(periodic(fourths, PI / 2, 1e-9) && !periodic(fourths, PI / 4, 1e-9), 'Q4: the collapse rides π/2 and fails π/4 — the algebra collapsed before the census ran')
+  ok(periodic((x) => Math.asin(Math.sin(3 * x)), (2 * PI) / 3), 'Q4: sin⁻¹(sin 3x) rides 2π/3 — sin(3x + 2π) = sin(3x) seat-for-seat, so the outputs match')
+  ok(!periodic((x) => Math.asin(Math.sin(x)), PI), 'Q4: sin⁻¹(sin x) fails π — the seat x = π/2 flips sign; the period is 2π')
+
+  // Q5. the algebraic-operations census (the hosted fold)
+  const s1 = (x: number): number => Math.sin((3 * PI * x) / 5) + frac(x / 2)
+  ok(periodic(s1, 10), 'Q5: sin(3πx/5) + {x/2} — periods 10/3 and 2 — the common repeat is the LCM 10')
+  ok(!periodic(s1, 5) && !periodic(s1, 2) && !periodic(s1, 20 / 3), 'Q5: 5, 2 and 20/3 each fail — only whole multiples of both windows align')
+  const s2 = (x: number): number => Math.abs(Math.sin(4 * x)) + Math.cos((3 * x) / 2) ** 2 - Math.tan((2 * x) / 3)
+  ok(periodic(s2, 6 * PI) && !periodic(s2, 3 * PI), 'Q5: |sin4x| + cos²(3x/2) − tan(2x/3) — periods π/4, 2π/3, 3π/2 — LCM 6π (3π fails on the cos² term)')
+  const s3 = (x: number): number => Math.cos(x / Math.sqrt(3)) + Math.sin(x / (2 * Math.sqrt(3)))
+  ok(periodic(s3, 4 * PI * Math.sqrt(3), 1e-6), 'Q5: cos(x/√3) + sin(x/(2√3)) — periods 2π√3 and 4π√3, same surd — LCM 4π√3')
+  ok(!periodic(s3, 2 * PI * Math.sqrt(3), 1e-6), 'Q5: 2π√3 fails — the sin term half-flips')
+  ok(
+    !periodic((x) => Math.sin(x / Math.sqrt(2)) + Math.cos(x / Math.sqrt(3)), 2 * PI * Math.sqrt(6), 1e-3) &&
+      !periodic((x) => Math.sin(x / Math.sqrt(2)) + Math.cos(x / Math.sqrt(3)), 2 * PI * Math.sqrt(2), 1e-3),
+    'Q5: different surds — sin(x/√2) + cos(x/√3) has NO common repeat (2π√6 and 2π√2 both fail)',
+  )
+
+  // Q6. the non-periodicity proofs
+  {
+    let noCandidate = true
+    for (const T of [0.5, 1, 2, 3, 6.5, 8, 12]) {
+      const drift = Math.max(...gridQ.map((x) => Math.abs(x + T + Math.sin(x + T) - x - Math.sin(x))))
+      if (drift < 1e-3) noCandidate = false
+    }
+    ok(noCandidate, 'Q6: x + sin x fails every candidate window — the linear rail never repeats (sin x − sin(x+T) = −2 sin(T/2) cos(x+T/2) is constant only when sin(T/2) = 0, which forces the RHS to 0 ≠ T)')
+    let noCand = true
+    for (const T of [0.5, 1, 2, 3]) {
+      const drift = Math.max(...gridQ.map((x) => Math.abs(frac(x + T) + (x + T) * (x + T) - frac(x) - x * x)))
+      if (drift < 1e-3) noCand = false
+    }
+    ok(noCand, 'Q6: {x} + x² fails every candidate — a period of the sum would make x² = (sum) − ({x}) periodic too, contradiction')
+  }
+
+  // Q7. the ruler figure — the first common repeat of 2 and 10/3 is 10
+  {
+    const isCommon = (c: number): boolean =>
+      Math.abs(c / 2 - Math.round(c / 2)) < 1e-9 && Math.abs(c / (10 / 3) - Math.round(c / (10 / 3))) < 1e-9
+    ok([2, 4, 6, 8, 10 / 3, 20 / 3].every((c) => !isCommon(c)) && isCommon(10), 'Q7: the first common repeat of 2 and 10/3 is 10 — the LCM, made visible on the ruler')
+    ok(Math.abs(3 * (10 / 3) - 10) < 1e-12 && 5 * 2 === 10, 'Q7: 3 repeats of 10/3 and 5 repeats of 2 land together at 10 — both drawn to the tick')
+  }
+
+  // Q8. the pinned quiz + exercise keys for 1.8 (every distractor computed)
+  {
+    ok(periodic((x) => Math.sin(2 * x), PI) && !periodic((x) => Math.sin(2 * x), PI / 2), 'Q8: quiz pin — sin(2x) rides π and fails π/2')
+    ok(periodic((x) => frac(x) + 2, 1), 'Q8: quiz pin — {x} + 2 keeps period 1: the lift never moves the window')
+    ok(periodic((x) => Math.tan((5 * PI * x) / 3), 3 / 5), 'Q8: exercise pin — tan(5πx/3) rides 3/5')
+    ok(periodic((x) => frac(x / 4), 4) && !periodic((x) => frac(x / 4), 2), 'Q8: exercise pin — {x/4} rides 4 and fails 2')
+    const l2 = (x: number): number => Math.sin(2 * x) + Math.cos(3 * x)
+    ok(periodic(l2, 2 * PI) && !periodic(l2, PI), 'Q8: exercise pin — sin2x + cos3x rides 2π (LCM of π and 2π/3) and fails π')
+    ok(periodic((x) => Math.abs(Math.cos(2 * x)), PI / 2), 'Q8: exercise pin — |cos 2x| rides π/2')
+    ok(periodic((x) => Math.asin(Math.sin(2 * x)), PI) && !periodic((x) => Math.asin(Math.sin(2 * x)), PI / 2), 'Q8: exercise pin — sin⁻¹(sin 2x) rides π and fails π/2')
+    const l4 = (x: number): number => Math.sin((PI * x) / 2) + Math.cos((3 * PI * x) / 4) + frac(x)
+    ok(periodic(l4, 8) && !periodic(l4, 4), 'Q8: exercise pin — sin(πx/2) + cos(3πx/4) + {x} rides 8 (LCM of 4, 8/3, 1) and fails 4')
+    const tansum = (x: number): number => Math.tan(x) + 1 / Math.tan(x)
+    ok(gridQ.every((x) => Math.abs(Math.tan(x)) > 50 || Math.abs(Math.tan(x)) < 0.02 || Math.abs(tansum(x) - 2 / Math.sin(2 * x)) < 1e-6), 'Q8: exercise pin — tan x + cot x collapses to 2/sin(2x) on every seat away from both poles, and 2/sin(2x) rides π')
+    ok(periodic((x) => Math.abs(Math.sin(x) - Math.cos(x)), PI) && !periodic((x) => Math.abs(Math.sin(x) - Math.cos(x)), PI / 2), 'Q8: exercise pin — |sin x − cos x| = √2|sin(x − π/4)| rides π and fails π/2')
+    const q5 = (x: number): number => Math.sin((2 * PI * x) / 3) + frac(x / 2)
+    ok(periodic(q5, 6) && !periodic(q5, 3) && !periodic(q5, 2), 'Q8: quiz pin — sin(2πx/3) + {x/2} rides 6 (LCM of 3 and 2); 3 and 2 both fail')
+  }
+
+  // Q9. authored audit + the chapter contract (live once lesson 1.8 joins the roster)
+  if (chapter01.lessons.length >= 8) {
+    const l8 = chapter01.lessons[7]
+    ok(l8.id === 'aa-period-census-periods-of-transformed-and-composite-functions', `Q: lesson 1.8 id (got ${l8.id})`)
+    ok(l8.number === '1.8' && l8.title === 'The Period Census: Periods of Transformed and Composite Functions', 'Q: lesson 1.8 number/title match the plan')
+    auditLesson(l8, 'Q', [1, 1, 2, 1, 0], 12, 6, 2, 4300)
+    const prose8 = lessonText(l8)
+    for (const needle of [
+      'f(x+T) = f(x)',
+      'T/|a|',
+      'principal period',
+      'L.C.M',
+      'non-periodic',
+      'cos(\\cos x)',
+      'sin^4 x + cos^4 x',
+      'x + \\sin x',
+      'sawtooth',
+      'window',
+    ]) {
+      ok(prose8.includes(needle), `Q: the pinned exhibit “${needle}” appears in the authored lesson`)
+    }
+    // the chapter contract: roster complete at eight, the review alone remains
+    ok(chapter01.lessons.length === 8, `Q: the chapter roster completes at eight lessons (got ${chapter01.lessons.length})`)
+    const planned = chapter01.plannedLessons ?? []
+    ok(planned.length === 1 && planned[0] === 'Unit Review: Functions as Objects', `Q: exactly the unit review remains planned (got ${planned.length}: ${planned.join(' | ')})`)
+    ok(chapter01.status === 'in-progress', 'Q: the chapter completes only when the review runs (next run)')
   }
 }
 

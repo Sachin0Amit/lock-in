@@ -1780,7 +1780,7 @@ function extensionMirrorSvg(): string {
   <circle cx="360" cy="150" r="3.4" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
   <circle cx="360" cy="190" r="3.4" fill="#fef3c7" stroke="#0f766e" stroke-width="1.6"/>
   <text x="620" y="72" font-size="11.5" fill="currentColor" text-anchor="middle">f(x) = x + 1 on (0, 3]</text>
-  <text x="96" y="80" font-size="11.5" fill="#b45309" text-anchor="start">even mirror: f_e(x) = f(−x)</text>
+  <text x="96" y="80" font-size="11.5" fill="#d97706" text-anchor="start">even mirror: f_e(x) = f(−x)</text>
   <text x="96" y="272" font-size="11.5" fill="#0f766e" text-anchor="start">odd mirror: f_o(x) = −f(−x)</text>
   <circle cx="273" cy="131" r="3.2" fill="#d97706"/>
   <circle cx="273" cy="209" r="3.2" fill="#0f766e"/><path d="M273 209V172" stroke="#0f766e" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/><path d="M273 131V172" stroke="#d97706" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/>
@@ -2005,6 +2005,383 @@ const lesson16: Lesson = {
 }
 
 /* ------------------------------------------------------------------ */
+/* lesson 1.7 figures — the shift grammar and the GIF staircase         */
+/* ------------------------------------------------------------------ */
+
+function shiftGrammarSvg(): string {
+  // left panel: O = (250, 262), unit 38 px; machines |x-2| (teal), |x-2|+3 (amber), |x-1| (lime)
+  const OX = 250, OY = 262, U = 38
+  const px = (x: number): number => OX + U * x
+  const py = (y: number): number => OY - U * y
+  const arrowUp = `<path d="M${px(2)} ${py(0.25)} V${py(2.75)}" stroke="#d97706" stroke-width="1.6" fill="none"/><path d="M${px(2) - 4} ${py(2.75) + 7} L${px(2)} ${py(2.75)} L${px(2) + 4} ${py(2.75) + 7}" fill="none" stroke="#d97706" stroke-width="1.6"/>`
+  return `<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: the V-shaped machine y = |x − 2| as a solid teal V with vertex (2, 0), its vertical shift y = |x − 2| + 3 as a dashed amber V with vertex (2, 3), and its horizontal shift y = |x − 1| as a dashed lime V with vertex (1, 0); a dashed leader shows the seat x = −1 of the shifted machine carrying the old height f(0) = 2. Right: the direction rule — a constant inside the machine moves the graph along the x-axis, a constant outside moves it along the y-axis">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="250" y="24">the shift grammar on y = |x−2|</text>
+    <text x="565" y="24">the direction rule</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${px(-2.2)} ${OY}H${px(4.6)} M${OX} ${py(5.55)}V${py(-1.3)}"/>
+  </g>
+  <text x="${px(4.6) - 4}" y="${OY + 14}" font-size="11" text-anchor="end" opacity="0.85">x</text>
+  <text x="${OX + 6}" y="${py(5.55) + 10}" font-size="11" opacity="0.85">y</text>
+  <g font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.85">
+    <text x="${px(-2)}" y="${OY + 14}">−2</text>
+    <text x="${px(-1)}" y="${OY + 14}">−1</text>
+    <text x="${OX + 14}" y="${OY + 14}">0</text>
+    <text x="${px(1)}" y="${OY + 14}">1</text>
+    <text x="${px(2)}" y="${OY + 14}">2</text>
+    <text x="${px(4)}" y="${OY + 14}">4</text>
+    <text x="${OX - 8}" y="${py(3) + 4}" text-anchor="end">3</text>
+    <text x="${OX - 8}" y="${py(1) + 4}" text-anchor="end">1</text>
+  </g>
+  <path d="M${px(-2)} ${py(4)} L${px(2)} ${py(0)} L${px(4.5)} ${py(2.5)}" fill="none" stroke="#0d9488" stroke-width="2.6"/>
+  <path d="M${px(-1)} ${py(6)} L${px(2)} ${py(3)} L${px(4.5)} ${py(5.5)}" fill="none" stroke="#d97706" stroke-width="2.4" stroke-dasharray="8 5"/>
+  <path d="M${px(-2)} ${py(3)} L${px(1)} ${py(0)} L${px(4.5)} ${py(3.5)}" fill="none" stroke="#65a30d" stroke-width="2.4" stroke-dasharray="8 5"/>
+  ${arrowUp}
+  <circle cx="${px(2)}" cy="${py(0)}" r="3.4" fill="#0d9488"/>
+  <circle cx="${px(2)}" cy="${py(3)}" r="3.4" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <circle cx="${px(1)}" cy="${py(0)}" r="3.4" fill="#fef3c7" stroke="#65a30d" stroke-width="1.6"/>
+  <g font-size="11" fill="#0d9488">
+    <text x="428" y="140">f(x) = |x−2|, vertex (2, 0)</text>
+  </g>
+  <g font-size="11" fill="#d97706">
+    <text x="428" y="44">f(x) + 3, vertex (2, 3)</text>
+  </g>
+  <g font-size="11" fill="#65a30d">
+    <text x="${px(1) - 2}" y="${py(0) + 34}" text-anchor="start">f(x + 1) = |x−1|, vertex (1, 0)</text>
+  </g>
+  <path d="M${px(0)} ${py(2)} H${px(-1)}" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
+  <circle cx="${px(0)}" cy="${py(2)}" r="2.6" fill="currentColor"/>
+  <circle cx="${px(-1)}" cy="${py(2)}" r="2.6" fill="#fef3c7" stroke="#65a30d" stroke-width="1.4"/>
+  <g font-size="10.5" fill="currentColor" opacity="0.9">
+    <text x="24" y="64">the seat x = −1 now carries</text>
+    <text x="24" y="80">the old height f(0) = 2</text>
+  </g>
+  <rect x="470" y="60" width="190" height="58" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.4"/>
+  <text x="565" y="82" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">constant INSIDE, with x</text>
+  <text x="565" y="98" font-size="10.5" fill="#166534" text-anchor="middle">y = f(x ± a) → moves along the x-axis</text>
+  <path d="M500 106 H630" stroke="#d97706" stroke-width="1.8"/>
+  <path d="M507 102 L500 106 L507 110" fill="none" stroke="#d97706" stroke-width="1.8"/>
+  <path d="M623 102 L630 106 L623 110" fill="none" stroke="#d97706" stroke-width="1.8"/>
+  <rect x="470" y="170" width="190" height="58" rx="8" fill="#ffedd5" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="565" y="192" font-size="11.5" fill="#166534" text-anchor="middle" font-weight="700">constant OUTSIDE, on f(x)</text>
+  <text x="565" y="208" font-size="10.5" fill="#166534" text-anchor="middle">y = f(x) ± a → moves along the y-axis</text>
+  <path d="M565 234 V256" stroke="#0d9488" stroke-width="1.8"/>
+  <path d="M561 241 L565 234 L569 241" fill="none" stroke="#0d9488" stroke-width="1.8"/>
+  <path d="M561 249 L565 256 L569 249" fill="none" stroke="#0d9488" stroke-width="1.8"/>
+  <g font-size="10.5" fill="currentColor" opacity="0.85" text-anchor="middle">
+    <text x="360" y="328">up arrow: the vertex lifts (2, 0) → (2, 3) — outer +3. dashed leader: the height f(0) = 2 walks LEFT to the seat x = −1 — inner +1 works BACKWARDS</text>
+  </g>
+</svg>`
+}
+
+function gifStaircaseSvg(): string {
+  // O = (360, 300); x-unit 120 px per 1.0, y-unit 60 px per 1.0
+  const OX = 360, OY = 300, UX = 120, UY = 60
+  const px = (x: number): number => OX + UX * x
+  const py = (y: number): number => OY - UY * y
+  const r2 = Math.sqrt(2), r3 = Math.sqrt(3)
+  // rung helper: horizontal segment at height n from xa to xb, with end markers
+  const rung = (n: number, xa: number, xb: number, ca: 'open' | 'closed', cb: 'open' | 'closed'): string => {
+    const ya = py(n)
+    const dotA = ca === 'closed' ? `<circle cx="${px(xa)}" cy="${ya}" r="3.2" fill="#ea580c"/>` : `<circle cx="${px(xa)}" cy="${ya}" r="3.2" fill="#fffdf5" stroke="#ea580c" stroke-width="1.5"/>`
+    const dotB = cb === 'closed' ? `<circle cx="${px(xb)}" cy="${ya}" r="3.2" fill="#ea580c"/>` : `<circle cx="${px(xb)}" cy="${ya}" r="3.2" fill="#fffdf5" stroke="#ea580c" stroke-width="1.5"/>`
+    return `<line x1="${px(xa)}" y1="${ya}" x2="${px(xb)}" y2="${ya}" stroke="#ea580c" stroke-width="2.4"/>${dotA}${dotB}`
+  }
+  const guide = (x: number, yTop: number): string => `<path d="M${px(x)} ${py(yTop)} V${OY}" stroke="#d97706" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.65"/>`
+  return `<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The parabola f of x equals four minus x squared on the interval from minus two to two drawn as a solid teal arch from height 0 up to the apex 4, with its greatest-integer staircase drawn in orange: the lone top rung 4 as a single dot at the apex, rung 3 from x equals minus one to one with an open hole at the centre seat, rungs 2, 1 and 0 on ever-wider bands whose ends sit at the square roots of two and three, with dashed amber guides dropping from the band crossings to the x-axis">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="360" y="24">the band method: y = [4 − x²] on [−2, 2]</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${px(-2.25)} ${OY}H${px(2.25)} M${OX} ${py(4.5)}V${py(-0.6)}"/>
+  </g>
+  <text x="${px(2.25) - 2}" y="${OY + 14}" font-size="11" text-anchor="end" opacity="0.85">x</text>
+  <text x="${OX + 7}" y="${py(4.5) + 10}" font-size="11" opacity="0.85">y</text>
+  <g font-size="10.5" fill="currentColor" opacity="0.85" text-anchor="middle">
+    <text x="${px(-2)}" y="${OY + 15}">−2</text>
+    <text x="${px(-r3)}" y="${OY + 15}">−√3</text>
+    <text x="${px(-r2)}" y="${OY + 15}">−√2</text>
+    <text x="${px(-1)}" y="${OY + 15}">−1</text>
+    <text x="${OX + 14}" y="${OY + 15}">0</text>
+    <text x="${px(1)}" y="${OY + 15}">1</text>
+    <text x="${px(r2)}" y="${OY + 15}">√2</text>
+    <text x="${px(r3)}" y="${OY + 15}">√3</text>
+    <text x="${px(2)}" y="${OY + 15}">2</text>
+    <text x="${OX - 9}" y="${py(1) + 4}" text-anchor="end">1</text>
+    <text x="${OX - 9}" y="${py(2) + 4}" text-anchor="end">2</text>
+    <text x="${OX - 9}" y="${py(3) + 4}" text-anchor="end">3</text>
+    <text x="${OX - 60}" y="${py(4) + 4}" text-anchor="end">4</text>
+  </g>
+  ${guide(-1, 3)}${guide(1, 3)}${guide(-r2, 2)}${guide(r2, 2)}${guide(-r3, 1)}${guide(r3, 1)}
+  <path d="M${px(-2)} ${OY} Q${OX} ${OY - 2 * UY * 4} ${px(2)} ${OY}" fill="none" stroke="#0d9488" stroke-width="2.6"/>
+  <circle cx="${OX}" cy="${py(4)}" r="3.6" fill="#16a34a"/>
+  <text x="${OX + 8}" y="${py(4) - 8}" font-size="10.5" fill="#16a34a">the lone 4-seat: [f(0)] = 4</text>
+  ${rung(3, -1, 0, 'closed', 'open')}
+  ${rung(3, 0, 1, 'open', 'closed')}
+  ${rung(2, -r2, -1, 'closed', 'open')}
+  ${rung(2, 1, r2, 'open', 'closed')}
+  ${rung(1, -r3, -r2, 'closed', 'open')}
+  ${rung(1, r2, r3, 'open', 'closed')}
+  ${rung(0, -2, -r3, 'closed', 'open')}
+  ${rung(0, r3, 2, 'open', 'closed')}
+  <g font-size="11" fill="#0d9488">
+    <text x="${px(-2) - 4}" y="${py(2.6)}" text-anchor="end">y = f(x) = 4−x²</text>
+  </g>
+  <g font-size="11" fill="#ea580c">
+    <text x="${px(-2) - 4}" y="${py(1.15)}" text-anchor="end">y = [f(x)]</text>
+  </g>
+  <g font-size="10.5" fill="currentColor" opacity="0.9" text-anchor="middle">
+    <text x="360" y="360">rung 3 owns (−1, 1) minus the seat 0 (its height is exactly 4 there); each crossing of an integer level drops the staircase one rung</text>
+    <text x="360" y="374">closed dot = the seat where f hits the level exactly (kept); open circle = the side f has just left (dropped)</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.7 — graph transformations                                  */
+/* ------------------------------------------------------------------ */
+
+const lesson17: Lesson = {
+  id: 'aa-graph-transformations-shifts-stretches-flips-gif',
+  number: '1.7',
+  title: 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',
+  concepts: [
+    'the direction rule: a constant inside the machine moves the x-axis, a constant outside moves the y-axis',
+    'vertical and horizontal shifts: y = f(x) ± a lifts or drops, y = f(x ± a) slides the window',
+    'stretches and squeezes: y = a·f(x) multiplies heights, y = f(ax) divides seats',
+    'flips: y = −f(x) mirrors over the x-axis, y = f(−x) over the y-axis',
+    'the modulus family: |f(x)| lifts the negatives, f(|x|) mirrors the right half, |y| = f(x) is a relation',
+    'the GIF band method: y = [f(x)] is a staircase of rungs between integer-level crossings',
+    'the anchor law: y = a·f(b(x − h)) + k carries the feature (x₀, y₀) to (h + x₀/b, k + a·y₀)',
+  ],
+  objectives: [
+    'read any edited formula as a concrete move on the graph — and never confuse the two theatres (inside = x-axis, outside = y-axis)',
+    'explain WHY y = f(x + a) slides LEFT: the seat x = x₀ − a carries the old height f(x₀)',
+    'apply the stretch laws with their two paradoxes (a > 1 squeezes horizontally; seats divide, not multiply)',
+    'compose multi-step transformations in order, tracking a single anchor seat through the whole walk',
+    'build the modulus family graphs |f|, f(|x|) and |y| = f(x) from a drawn parent, and say why the last one is a relation',
+    'draw y = [f(x)] by the band method, with the open/closed endpoint discipline and the lone-seat cases',
+  ],
+  prerequisites: ['aa-even-and-odd-functions-and-extensions', 'aa-function-zoo-modulus-signum-gif-elementary-catalog'],
+  sources: ['cengage-m4-01', 'cengage-jee-style', 'ncert-math11-ch2-functions', 'ncert-math12-ch1-relations-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'A machine owns a portrait: its graph, the set of seats $(x, y)$ with $y = f(x)$ — the subset of the plane that lesson 1.1 already made rigorous. This lesson is the GRAMMAR of editing that portrait. One small change to a formula — a plus sign, a multiplier, a minus — is one small move of the whole picture, and the examination hall prices exactly this: “the graph of y = f(x − 1) + 2 is the graph of y = f(x)…” — fill in the move.' },
+    { kind: 'para', text: 'The grammar has one law that surprises every reader the first time, and it deserves the surprise: the two theatres do not answer alike. A constant OUTSIDE the machine — $f(x) + a$ or $a \\cdot f(x)$ — does what it says: plus lifts, times scales, exactly as read. A constant INSIDE the machine — $f(x + a)$, $f(ax)$ — answers BACKWARDS: $f(x + 1)$ slides the picture LEFT, and $f(2x)$ SQUEEZES it toward the y-axis even though 2 feels like “more”. The reason is not a convention to memorise; it is the seat-carry argument this lesson will run three times until it is yours.' },
+    { kind: 'para', text: 'The second reading: every transformation IS a composition — lesson 1.3 coming home. $y = f(x) + a$ is $g \\circ f$ with the outer machine $g(t) = t + a$; $y = a \\cdot f(x)$ is $g(t) = at$ outside; $y = f(x + a)$ is $f \\circ h$ with the INNER machine $h(x) = x + a$ re-routing the input before the parent ever sees it. Once the edit is written as a composition, the direction of every move is forced by WHICH machine was edited — outer edits move outputs (the y-theatre), inner edits move inputs (the x-theatre, backwards).' },
+    { kind: 'para', text: 'The lesson closes with the two special families the syllabus reserves for this ground: the modulus wraps — $|f(x)|$, $f(|x|)$ and the honest relation $|y| = f(x)$ — and the greatest-integer staircase $y = [f(x)]$, drawn from a known parent by the band method. Both families are pure transformation logic: nothing new is computed, everything is MOVED.' },
+
+    { kind: 'heading', text: 'Combining Machines, Then Shifting and Scaling Them' },
+    { kind: 'para', text: 'Two ways exist to build a new machine from old ones, and the graph grammar serves both. The pointwise combinations — $(f + g)(x)$, $(f − g)(x)$, $f \\cdot g$, $f/g$ — mix two PORTRAITS seat by seat: at each x, the new height is the sum, difference, product or quotient of the two old heights. The shift-and-scale family instead keeps ONE machine and edits its formula. The two theatres combine: a question like “sketch $y = 2f(x + 1) − 3$” is a composition walk — inner edit first, outer edits after — and the discipline of this lesson is to make such a walk mechanical.' },
+    { kind: 'equation', latex: 'y = a \\cdot f\\big(b\\,(x - h)\\big) + k \\qquad \\text{carries the feature } (x_0,\\ y_0) \\text{ to } \\left(h + \\frac{x_0}{b},\\ k + a\\,y_0\\right)', note: 'the anchor law — one seat tracked through the whole edit: inner shift h, inner scale b, outer scale a, outer shift k' },
+    { kind: 'para', text: 'The anchor law is the whole lesson in one line, and every section that follows is one row of it. Read it as a seat-carry: the feature that sat at $(x_0, y_0)$ on the parent — a vertex, a zero, an apex — ends at $\\left(h + x_0/b,\\ k + a y_0\\right)$ on the edited machine. Verify it once here, cold: the parabola $p(x) = (x-3)^2+1$ has its vertex at $(3, 1)$; the edit $y = 2p(x+1) − 3$ has $a = 2$, $b = 1$, $h = −1$, $k = −3$, so the vertex must land at $(−1 + 3,\\ −3 + 2 \\cdot 1) = (2, −1)$. Expand to check: $2\\big((x+1-3)^2 + 1\\big) − 3 = 2(x-2)^2 − 1$ — vertex exactly $(2, −1)$. The law holds; the rest of the lesson earns it family by family.' },
+
+    { kind: 'heading', text: 'Vertical Shift: the Outside Plus' },
+    { kind: 'callout', tone: 'definition', title: 'Vertical shift', text: 'The graph of $y = f(x) + a$ (with $a > 0$) is the graph of $y = f(x)$ lifted $a$ units: every seat $(x, y)$ moves to $(x, y + a)$. For $y = f(x) − a$ the picture drops $a$ units: $(x, y) \\to (x, y − a)$. Thus, the DOMAIN is untouched (the same inputs are admissible), the RANGE shifts by the same $a$, and — the pointer lesson 1.8 cashes — the PERIOD of a repeating machine is untouched, because no height was multiplied, only relocated.' },
+    { kind: 'figure', caption: 'The direction rule and both shifts, priced on one machine. The solid teal V is $f(x) = |x-2|$ with vertex $(2, 0)$ and the pinned seats $f(0) = 2$, $f(5) = 3$. The dashed amber V is $y = f(x) + 3$: the vertex lifts to $(2, 3)$ and the up-arrow is the whole move — the shape never bends. The dashed lime V is $y = f(x+1)$: the vertex slides LEFT to $(1, 0)$ even though the edit says “plus one”, and the dashed leader pins the reason — the new seat $x = −1$ now carries the old height $f(0) = 2$. Right: the direction rule box — constants INSIDE the machine move the x-axis, constants OUTSIDE move the y-axis.', svg: shiftGrammarSvg() },
+    { kind: 'example', title: 'Lift and drop the V machine: draw y = f(x) + 3 and y = f(x) − 1 from f(x) = |x−2|, reading three seats on each', steps: [
+      'The parent owns the vertex seat $(2, 0)$, with $f(0) = |0 − 2| = 2$ and $f(5) = 3$ on its arms.',
+      'The lift $y = f(x) + 3$ moves every seat up 3: the vertex becomes $(2, 3)$, the seat checks give $0 \\mapsto 2 + 3 = 5$ and $5 \\mapsto 3 + 3 = 6$ — a uniform $+3$ on every height, which is precisely the definition’s sweep.',
+      'The drop $y = f(x) − 1$ sinks the vertex to $(2, −1)$; the V dips its toe below the x-axis for the first time, so the range changes from $[0, \\infty)$ to $[-1, \\infty)$ — a NEW zero pair appears where the dropped V crosses the axis ($|x − 2| = 1$, so $x = 1$ and $x = 3$).',
+      'Note what the shifts did NOT touch: the vertex x-seat stayed 2 in both (no inside edit), and the V’s slope stayed 1 on both arms — vertical shifts translate; they never bend.',
+    ] },
+
+    { kind: 'heading', text: 'Horizontal Shift: the Inside Plus and the Backwards Answer' },
+    { kind: 'callout', tone: 'definition', title: 'Horizontal shift', text: 'The graph of $y = f(x + a)$ (with $a > 0$) is the graph of $y = f(x)$ slid $a$ units to the LEFT; $y = f(x − a)$ slides it $a$ units to the RIGHT. Thus, the seat that carried the height $f(x_0)$ now sits at $x = x_0 − a$: the new machine’s value at $x_0 − a$ is exactly $f(x_0)$. The RANGE is untouched; the DOMAIN slides with the window; the PERIOD of a repeating machine is untouched — 1.8’s second pointer.' },
+    { kind: 'para', text: 'Why left? Because the edited machine $f(x + 1)$ demands its input EARLIER: to reproduce the old height $f(0)$, the new machine must be fed $x + 1 = 0$, i.e. $x = −1$. The seat carrying that height walked from 0 to −1 — one seat to the left. That is the whole paradox: the picture slides toward the side the input must come FROM. The seat-carry computation is the discipline: pick a height you know, solve $x + a = x_0$, land the seat.' },
+    { kind: 'example', title: 'Slide the V machine: draw y = f(x + 1) and y = f(x − 3) from f(x) = |x−2|, and carry the seat f(0) = 2 to its new home', steps: [
+      'Parent landmarks: vertex $(2, 0)$; the height $f(0) = 2$ sits at the seat $x = 0$.',
+      'For $y = f(x + 1)$: the vertex must satisfy $x + 1 = 2$, so it lands at $(1, 0)$ — the V slid LEFT one unit, and the closed form agrees, $f(x+1) = |x − 1|$.',
+      'Carry the pinned seat: $f(x+1)$ equals 2 when $x + 1 = 0$, i.e. at $x = −1$ — the height $f(0) = 2$ now lives one unit left (the dashed leader in the figure).',
+      'For $y = f(x − 3)$: the vertex lands where $x − 3 = 2$, i.e. at $(5, 0)$ — the V slid RIGHT three units, $f(x−3) = |x − 5|$. Minus slides right, plus slides left: the inside theatre answers backwards, and the seat-carry argument is the reason, not the mnemonic.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The two classic traps', text: 'Trap one: reading $f(x + 1)$ as “the graph moved right by 1”. It moved LEFT — run the seat-carry whenever in doubt. Trap two: the anchor read on FACTORED forms. From $y = f(x − 4)$ every feature moves right by 4; but from an UNFACTORed inside like $f(2x + 6)$ you must first write it as $f\\big(2(x + 3)\\big)$: the inside shift is 3, not 6 — the scale divides the shift. The anchor law’s $h + x_0/b$ row exists precisely to keep this honest.' },
+
+    { kind: 'heading', text: 'Horizontal Stretch or Squeeze: Seats Divide' },
+    { kind: 'callout', tone: 'definition', title: 'Horizontal stretch or squeeze', text: 'The graph of $y = f(ax)$ with $a > 1$ is the graph of $y = f(x)$ squeezed toward the y-axis: every seat $x_0$ moves to $x_0/a$ — the x-coordinates are DIVIDED by $a$. For $0 < a < 1$ the picture stretches away from the y-axis: seats move to $x_0/a > x_0$. Thus, the seat that carried the height $f(x_0)$ now sits at $x_0/a$; the DOMAIN is divided by $a$; the RANGE is untouched; and a repeating machine’s period is divided by $|a|$ — the squeeze that lesson 1.8 prices in full.' },
+    { kind: 'example', title: 'Squeeze and stretch the parabola: p(x) = (x−3)²+1 has vertex (3, 1) — track it under y = p(2x) and y = p(x/3)', steps: [
+      'The parent vertex sits at the seat $x_0 = 3$ with height 1; the height $p(0) = 10$ sits at the seat 0.',
+      'Under $y = p(2x)$: the vertex seat divides — $3/2$ — so the vertex lands at $(3/2,\\ 1)$, and the height-check agrees, $p(2 \\cdot \\tfrac{3}{2}) = p(3) = 1$. The y-axis seat 0 stays put ($0/2 = 0$): the y-axis is the MIRROR of the squeeze, the one fixed wall.',
+      'Under $y = p(x/3)$: the vertex seat lands at $3 \\cdot 3 = 9$, so the vertex is $(9,\\ 1)$ — a stretch AWAY from the y-axis, again with the seat 0 unmoved.',
+      'The paradox, priced: the LARGER inside constant ($2 > 1$) produced the SMALLER picture — squeeze — because seats divide. Heights never change in this theatre: both edited parabolas still bottom out at height 1, and both keep the parent’s range $[1, \\infty)$ exactly.',
+    ] },
+
+    { kind: 'heading', text: 'Vertical Stretch or Squeeze: Heights Multiply' },
+    { kind: 'callout', tone: 'definition', title: 'Vertical stretch or squeeze', text: 'The graph of $y = a\\,f(x)$ with $a > 1$ is the graph of $y = f(x)$ stretched vertically: every seat $(x, y)$ moves to $(x, ay)$ — the y-coordinates are MULTIPLIED by $a$. For $0 < a < 1$ the picture squeezes toward the x-axis. Thus, the DOMAIN is untouched, the RANGE is multiplied by $a$, and the PERIOD of a repeating machine is untouched — heights scale, windows never move.' },
+    { kind: 'example', title: 'Scale the parabola’s heights: from p(x) = (x−3)²+1 (range [1, ∞)) draw y = 2p(x) and y = p(x)/2', steps: [
+      'The vertex $(3, 1)$ is the anchor: under $2p$ it lifts to $(3, 2)$ (heights doubled), under $p/2$ it sinks to $(3, \\tfrac{1}{2})$.',
+      'Ranges scale with the heights: $[1, \\infty) \\to [2, \\infty)$ under $2p$ and $\\to [\\tfrac{1}{2}, \\infty)$ under $p/2$ — a sweep of both machines confirms the minima 2 and 0.5 exactly.',
+      'The x-seat of the vertex never moved (no inside edit), and the parabola’s SHAPE (its width) is unchanged — vertical scaling pulls heights, it does not bend arms: the squeezed parabola is narrower on the page only because the same height is reached sooner.',
+      'For the wave machines of the trigonometry door, this theatre is the AMPLITUDE — the peak height — and lesson 1.8 will say in one line why amplitude never touches the period.',
+    ] },
+    { kind: 'table', caption: 'The transformation census — one row per edit, read against the anchor law', head: ['edit', 'seat move', 'domain', 'range', 'period (if f repeats)'], rows: [
+      ['$y = f(x) + a$', '$(x, y) \\to (x, y + a)$', 'unchanged', 'shifted by $a$', 'unchanged'],
+      ['$y = f(x) − a$', '$(x, y) \\to (x, y − a)$', 'unchanged', 'shifted by $−a$', 'unchanged'],
+      ['$y = f(x + a)$', '$(x, y) \\to (x − a, y)$', 'slides left $a$', 'unchanged', 'unchanged'],
+      ['$y = f(x − a)$', '$(x, y) \\to (x + a, y)$', 'slides right $a$', 'unchanged', 'unchanged'],
+      ['$y = a\\,f(x)$', '$(x, y) \\to (x, ay)$', 'unchanged', 'multiplied by $a$', 'unchanged'],
+      ['$y = f(ax)$', '$(x, y) \\to (x/a, y)$', 'divided by $a$', 'unchanged', 'divided by $|a|$'],
+    ] },
+    { kind: 'para', text: 'Read the census column by column and the two theatres separate cleanly: the domain column moves ONLY for inside edits, the range column ONLY for outer edits, and the period column blinks exactly once — at $f(ax)$, the horizontal squeeze. That single blinking cell is why lesson 1.8 exists: the period census is the one transformation fact that is not simply “unchanged”.' },
+
+    { kind: 'list', marker: 'roman', items: [
+      'outer edits — $y = f(x) \pm a$, $y = a\,f(x)$, $y = -f(x)$ — touch only HEIGHTS: the domain never moves, and the window of a repeat never moves.',
+      'inner edits — $y = f(x \pm a)$, $y = f(ax)$, $y = f(-x)$ — touch only SEATS: the range never moves.',
+      'the single exception that spans both theatres is $y = f(ax)$ on a repeating machine: seats divide, so the period divides — the one blinking cell of the census, and the door lesson 1.8 opens.',
+    ] },
+
+    { kind: 'heading', text: 'Vertical and Horizontal Flip' },
+    { kind: 'callout', tone: 'definition', title: 'The two flips', text: 'The graph of $y = −f(x)$ is the graph of $y = f(x)$ flipped VERTICALLY — reflected over the x-axis, every seat $(x, y) \\to (x, −y)$. The graph of $y = f(−x)$ is the graph flipped HORIZONTALLY — reflected over the y-axis, every seat $(x, y) \\to (−x, y)$. Thus, $−f$ negates outputs and $f(−x)$ pre-negates inputs; both flips preserve the domain–range partnership after the sign correction (the range negates under $−f$, the domain under $f(−x)$).' },
+    { kind: 'example', title: 'Flip the parabola both ways: from p(x) = (x−3)²+1 draw y = −p(x) and y = p(−x), then fuse them on the odd machine x³+x', steps: [
+      'Under $y = −p(x)$: the vertex $(3, 1)$ reflects over the x-axis to $(3, −1)$ and the bowl opens DOWNWARD — outputs negated, range $(-\\infty, -1]$.',
+      'Under $y = p(−x)$: the vertex reflects over the y-axis to $(−3, 1)$ — inputs pre-negated; the closed form agrees, $p(−x) = (−x−3)^2 + 1 = (x+3)^2 + 1$.',
+      'Now fuse: the composed flip $y = −f(−x)$ is the HALF-TURN about the origin (reflect both coordinates), and on an ODD machine the fused flip redraws the SAME picture — for $f(x) = x^3 + x$ (lesson 1.6’s witness), $-f(-x) = f(x)$ seat by seat. This is exactly what $f(-x) = -f(x)$ SAYS, now seen as geometry: odd machines are the graphs fixed by the half-turn.',
+      'Order discipline for signed constants: $y = f(−2x)$ from the V machine $|x − 2|$ flips FIRST — mirror over the y-axis — and then squeezes. The vertex seat 2 mirrors to $−2$ and then DIVIDES by 2, landing at $−1$: the closed form agrees, $f(−2x) = |-2x − 2| = 2|x + 1|$, vertex $(−1, 0)$ — the anchor law with the mirror first, seats $2 \\to −2 \\to −1$.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Outer edits commute; inner edits compose — the anchor law is the arbiter', text: 'The three outer edits ($+k$, $\\times a$, the vertical flip) may be applied in any order — they all act on heights after the parent is done, and height arithmetic commutes. Inside edits do NOT commute so freely: the flip must be priced against the scale ($f(−2x)$ versus $f\\big(2(−x)\\big)$ — the SAME machine, since $-2x = 2(-x)$; but $f(2x + 6)$ and $f(2(x + 3))$ are also the same, while $f(-2x + 6)$ is NOT $f(-2(x+3))$ — factor before you read a shift). The habit that survives every exam: FACTOR the inside to the form $b(x − h)$ first, then run the anchor law row by row.' },
+
+    { kind: 'heading', text: 'The Modulus Family: |f|, f(|x|) and |y| = f(x)' },
+    { kind: 'callout', tone: 'definition', title: 'The modulus wraps', text: 'The graph of $y = |f(x)|$ keeps every seat where $f(x) \\geq 0$ and reflects the seats where $f(x) < 0$ over the x-axis — the negative dips lift into positive bumps. The graph of $y = f(|x|)$ keeps the parent’s right half ($x \\geq 0$) and mirrors it over the y-axis, DISCARDING the parent’s left half. The equation $|y| = f(x)$ keeps the seats where $f(x) \\geq 0$ and adds their x-axis reflections — it is a RELATION, not a machine: one input can own two outputs.' },
+    { kind: 'example', title: 'Wrap the machine m(x) = (x−1)(x−3) on [0, 4]: draw |m|, m(|x|) and read |y| = m(x)', steps: [
+      'The parent: a parabola with zeros at 1 and 3, dipping to $m(2) = -1$ between them, with $m(0) = m(4) = 3$ at the ends.',
+      '$y = |m(x)|$: the dip $-1$ at $x = 2$ reflects UP to height 1 (the notch lifts); the seats outside $[1,3]$ never move because $m \\geq 0$ there — $|m|(0) = 3$ and $|m|(4) = 3$ survive untouched.',
+      '$y = m(|x|)$ on $[-4, 4]$: the right half is the parent; the left half is its y-axis mirror, giving the closed form $m(|x|) = |x|^2 − 4|x| + 3$ with zeros where $|x| = 1$ or $3$ — i.e. at $x = \\pm 1, \\pm 3$, four zeros, and the machine is even BY CONSTRUCTION (the 1.6 verdict as a build). Check the mirror seat: $m(|-2|) = m(2) = -1$ — the mirror of the notch.',
+      '$|y| = m(x)$: meaningful only where $m(x) \\geq 0$, i.e. on $[0, 1] \\cup [3, 4]$ — there each seat splits into the pair $y = \\pm m(x)$; at $x = 0$: $y = \\pm 3$. It fails lesson 1.2’s vertical probe twice on $[0,1]$ — a relation exactly as lesson 1.1 defined it, and the honest label for every “graph” of this shape in the hall.',
+    ] },
+    { kind: 'example', title: 'The nested-modulus walk: build y = |||x| − 3| − 2| from y = |x|, one wrap at a time', steps: [
+      'Stage one, $y = |x| − 3$: the V drops, vertex $(0, −3)$, zeros at $\\pm 3$.',
+      'Stage two, $y = \\big||x| − 3\\big|$: the dropped vertex reflects up to height 3 — a W with zeros at $\\pm 3$ and the peak $3$ at $x = 0$.',
+      'Stage three, $y = \\big||x| − 3\\big| − 2$: the W sinks 2 — zeros where the previous height was 2: $|x| − 3 = \\pm 2$ gives $|x| = 1$ or $5$, so zeros at $x = \\pm 1, \\pm 5$; the dips reach $−2$ at $\\pm 3$; the centre peak sinks to $1$.',
+      'Stage four, the final wrap $\\big|\\,\\big||x| − 3\\big| − 2\\,\\big|$: everything below the axis lifts — the dips at $\\pm 3$ rise to $2$, the zeros stay at $\\pm 1$ and $\\pm 5$, the centre seat keeps height $1$. Final census: FIVE flat turns (zeros at $\\pm 1, \\pm 5$, height 1 at 0) and TWO peaks of 2 at $\\pm 3$ — every one of these seven seats verified in the chapter verifier before this line was written.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Why the family is pure transformation logic', text: 'Nothing new was computed in the walk above: each wrap was ONE move (drop 3, lift the negatives, drop 2, lift the negatives) applied to a picture already drawn. The modulus family teaches the deepest habit of this whole lesson — big formulas decompose into small moves, and the moves apply OUTSIDE-IN as written: $|\\,|x| − 3\\,| − 2|$ wraps the INSIDE first ($|x|$), then walks outward ($−3$, then $|\\cdot|$, then $−2$, then $|\\cdot|$). Read formulas from the inside out and draw as you read.' },
+
+    { kind: 'heading', text: 'The GIF Graph: y = [f(x)] by the Band Method' },
+    { kind: 'callout', tone: 'definition', title: 'The band method', text: 'To draw $y = [f(x)]$ from a known graph of $y = f(x)$: draw the horizontal lines $y = n$ at every integer level the machine reaches. Between two consecutive crossings of these levels, $f(x)$ rides strictly inside one band $[n, n+1)$ — so $[f(x)] = n$ there, a CONSTANT rung. At each crossing the staircase DROPS one rung (f enters the band below); at a seat where $f$ hits the level $n$ exactly, the rung $n$ owns that seat (closed); on the side f has just left, the rung is open.' },
+    { kind: 'derivation', title: 'Why the rung is constant between crossings', statement: 'If $n \\leq f(x) < n+1$ for every x of an interval, then $[f(x)] = n$ throughout that interval — the staircase is flat there.', steps: [
+      { label: 'Unpack the definition', formula: '[t] = n \\iff n \\leq t < n+1', explanation: 'the greatest-integer machine of lesson 1.5: every real number in the half-open band $[n, n+1)$ prints the integer $n$ — the band is the machine’s level set.' },
+      { label: 'Apply it to f(x)', formula: 'n \\leq f(x) < n+1 \\Rightarrow [f(x)] = n', explanation: 'on any stretch of seats where the parent’s heights stay inside the band, the wrapped machine prints the SAME integer at every seat — the rung.' },
+      { label: 'Locate the bands on the graph', formula: 'f(x) = n \\text{ (a level crossing)} \\Rightarrow \\text{the band boundary}', explanation: 'the machine can change bands only by CROSSING a level line $y = n$ — a machine that moves without jumps (the 1.2 continuity note, still unnamed) cannot leave a band without passing its edge, so between crossings the rung cannot change.' },
+      { label: 'Conclude', formula: '\\text{crossings at } x_1 < x_2 \\Rightarrow [f] \\text{ is one rung on } (x_1, x_2)', explanation: 'the staircase drops exactly at the crossings; the seats of crossing keep the UPPER band (f hits the level exactly, so the seat belongs to $[\\,n\\,]$ where $n$ is the value reached); the staircase graph is a union of half-open rungs.' },
+    ], result: 'Between consecutive integer-level crossings the GIF-of-f graph is a flat rung $y = n$; at each crossing it drops; the hitting seat is included (closed), the leaving side is open.' },
+    { kind: 'example', title: 'Draw y = [4 − x²] on [−2, 2] — the full staircase with its seven special seats', steps: [
+      'The parent: a dome from $(\\pm 2, 0)$ to the apex $(0, 4)$, heights riding $0 \\leq f \\leq 4$ — so the staircase can only use the rungs $4, 3, 2, 1, 0$.',
+      'The top rung is LONE: $[f] = 4$ needs $3 \\leq 4 − x^2 < 4$, i.e. $0 < x^2 \\leq 1$ — and the seat $x = 0$ alone reaches $[4] = 4$ (the apex dot); every other seat of $0 < |x| \\leq 1$ prints 3.',
+      'Rung 3 owns $[−1, 1]$ MINUS the seat 0: at $|x| = 1$ the height is exactly 3, so those two seats are CLOSED; at $x = 0$ the rung has its hole (that seat prints 4).',
+      'Rung 2 owns $1 < |x| \\leq \\sqrt{2}$ (open at the 1-side, closed at $\\sqrt 2$ where $f = 2$ exactly); rung 1 owns $\\sqrt{2} < |x| \\leq \\sqrt{3}$; rung 0 owns $\\sqrt{3} < |x| \\leq 2$, closed at the endpoints $\\pm 2$ where $f = 0$ exactly.',
+      'The break discipline, verified to a thousandth: at $|x| = 1$ the left seat prints 3 and the right prints 2 ($0.999 \\to 3$, $1.001 \\to 2$); at $|x| = \\sqrt{2}$: $2 \\to 1$; at $|x| = \\sqrt{3}$: $1 \\to 0$. Every crossing drops one rung, exactly as the derivation promised — the figure draws the whole staircase with its open and closed dots.',
+    ] },
+    { kind: 'figure', caption: 'The band staircase for $y = [4 - x^2]$ on $[-2, 2]$. The teal dome is the parent $f(x) = 4 − x²$ from height 0 at $x = \\pm 2$ to the apex 4. The orange staircase is $[f]$: the lone 4-seat at the apex (the single green dot — only $x = 0$ ever reaches height 4, so only that seat prints 4); rung 3 spans $(-1, 1)$ with a HOLE at the centre seat and closed ends at $x = \\pm 1$; the rungs 2, 1, 0 lie on ever-wider bands with their closed ends at $\\pm\\sqrt{2}, \\pm\\sqrt{3}, \\pm 2$. The dashed amber guides drop from each integer-level crossing to the x-axis — the crossing seats are exactly where the staircase drops.', svg: gifStaircaseSvg() },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner: the staircase families the hall actually asks', text: 'The JEE-arc favourites, all exam-style (none from an official paper): draw $y = [2\\cos x]$ on a period window (the same band method on a wave — five rungs, and the jump seats land at the level crossings $\\cos x = \\frac{1}{2}, 0, -\\frac{1}{2}, -1$); count the solutions of $[x^2] = 4$ (the band $4 \\leq x^2 < 5$ gives $x \\in [-\\sqrt{5}, -2] \\cup [2, \\sqrt{5})$ — every seat of it); and the wrap-order trap: $[|f|]$ versus $|[f]|$ do NOT agree on negative stretches — the witness $t = -1.5$: $[|-1.5|] = [1.5] = 1$ but $|[{-1.5}]| = |-2| = 2$ — the multi-correct questions live exactly there.' },
+    { kind: 'callout', tone: 'historical', title: 'Descartes makes the picture movable (1637)', text: 'The grammar of this lesson needed one invention before it could exist: the COORDINATE pair itself. René Descartes’ *La Géométrie* (1637, Leiden) taught Europe that a curve is not a drawn object but a NUMBER-condition — every seat $(x, y)$ answering a rule. Once a graph was a set of number-pairs, “move the picture” became ARITHMETIC on the pairs: $(x, y) \\to (x, y+3)$ is a lift, $(x, y) \\to (x/2, y)$ a squeeze, before anyone draws anything. Fermat had the same idea in manuscript a decade earlier; the two never quarrelled about it in print — the portrait had simply been waiting for its coordinate frame. Every transformation of this lesson is a Descartes sentence in disguise.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'From the graph of y = f(x), the graph of y = f(x) + 3 is obtained by', options: ['shifting every point 3 units UP', 'shifting every point 3 units DOWN', 'shifting every point 3 units LEFT', 'shifting every point 3 units RIGHT'], answer: 0, explain: 'The constant is OUTSIDE, on the output: every height lifts by 3, seats $(x, y) \\to (x, y+3)$ — the domain column never moves for outer edits. Options 2 and 3 are the inside-theatre answer — they would fit $y = f(x + 3)$ (left) and $y = f(x − 3)$ (right); option 2 confuses the sign of an outer minus: $f(x) − 3$ drops.' },
+      { q: 'From the graph of y = f(x), the graph of y = f(x + 2) is obtained by', options: ['shifting 2 units RIGHT', 'shifting 2 units LEFT', 'shifting 2 units UP', 'shifting 2 units DOWN'], answer: 1, explain: 'Inside plus answers BACKWARDS: the seat carrying the old height $f(x_0)$ must now be fed $x + 2 = x_0$, so it walks to $x_0 − 2$ — two seats LEFT. Option 0 is the classic trap (reading “+2” as rightward); options 2 and 3 belong to the outer theatre $y = f(x) \\pm 2$.' },
+      { q: 'From the graph of y = f(x), the graph of y = f(3x) is obtained by', options: ['multiplying each x-coordinate by 3 — a horizontal stretch AWAY from the y-axis', 'dividing each x-coordinate by 3 — a horizontal squeeze TOWARD the y-axis', 'dividing each y-coordinate by 3 — a vertical squeeze', 'nothing changes — 3 multiplies outputs'], answer: 1, explain: 'Inside scale divides seats: the seat carrying $f(x_0)$ moves to $x_0/3$, so the whole picture compresses toward the y-axis (the one fixed wall, since $0/3 = 0$). Option 0 is the second paradox — the LARGER inside constant makes the SMALLER picture; option 3 confuses the theatres: $y = 3f(x)$ scales heights, and there the domain is untouched.' },
+      { q: 'From the graph of y = f(x), the graph of y = f(−x) is obtained by', options: ['reflecting over the x-axis', 'reflecting over the y-axis', 'a half-turn about the origin', 'shifting left by 1 unit'], answer: 1, explain: 'Pre-negating inputs mirrors every seat $(x, y) \\to (−x, y)$ — the y-axis reflection. Option 1 belongs to $y = −f(x)$; option 2 is the FUSED flip $y = −f(−x)$, which fixes odd machines (for them, $f(−x) = −f(x)$ makes the two single flips produce the same picture); option 4 invents a shift no sign demands.' },
+      { q: 'On a stretch of seats where 2 < f(x) < 3 (strictly), the graph of y = [f(x)] prints', options: ['2', '3', '2 or 3, seat by seat', '2.5 on average'], answer: 0, explain: 'Every height in the OPEN band $(2, 3)$ still lies in the half-open band $[2, 3)$ — the greatest integer prints 2 at every such seat; the rung is constant between crossings, which is the band method’s whole engine. Option 2 forgets that only the SINGLE seat where $f = 3$ EXACTLY prints 3; option 3 invents averaging the greatest-integer machine never does; option 4… option 3’s cousin, equally fictional.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.7', sets: [
+      { level: 'L1', questions: [
+        { q: 'The V machine y = |x − 2| has vertex (2, 0). State the vertex of y = |x − 2| + 4 and of y = |x + 5|, saying which theatre each edit used.', solution: [
+          'For $y = |x − 2| + 4$: the edit is OUTSIDE (an outer $+4$), so heights lift — the vertex moves straight up to $(2, 4)$; the domain is untouched.',
+          'For $y = |x + 5|$: rewrite as $|x − (−5)|$ — an INSIDE edit, so the picture slides. The vertex seat must satisfy $x + 5 = 0$, landing at $(−5, 0)$: the V slid 5 units LEFT.',
+          'Theatre check: the first answer moved the y-coordinate only, the second the x-coordinate only — the direction rule separating the edits before any arithmetic.',
+        ], answer: 'Vertices $(2, 4)$ (outer lift) and $(−5, 0)$ (inner slide, 5 left).' },
+        { q: 'From the graph of y = f(x), describe the single move that produces y = f(x − 3) + 2, and run it on the seat (1, −2).', solution: [
+          'Two edits, both honest: the inside $x − 3$ slides the picture 3 units RIGHT (minus slides right); the outside $+2$ then lifts it 2 units UP.',
+          'Track the anchor $(1, −2)$: the slide carries it to $(4, −2)$ (the seat that fed the old $x = 1$ is now $x = 4$); the lift carries it to $(4, 0)$.',
+          'The anchor law agrees in one line: $a = 1, b = 1, h = 3, k = 2$ moves $(x_0, y_0) \\to (h + x_0, k + y_0) = (4, 0)$.',
+        ], answer: 'Right 3, then up 2; the seat $(1, −2)$ lands at $(4, 0)$.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the vertex of y = (2x − 3)² + 1 by factoring the inside first.', solution: [
+          'Factor the inside: $2x − 3 = 2(x − \\tfrac{3}{2})$ — so the parent square-machine was squeezed by 2 and THEN shifted $\\tfrac{3}{2}$ right.',
+          'The parent vertex $(0, 0)$ of the square divides by 2 (y-axis wall) and then slides: $0 \\to 0 \\to \\tfrac{3}{2}$… carefully, the anchor law: $h + x_0/b = \\tfrac{3}{2} + 0 = \\tfrac{3}{2}$.',
+          'The outside $+1$ lifts: vertex $\\left(\\tfrac{3}{2}, 1\\right)$. Check by substitution: at $x = \\tfrac{3}{2}$, $(2 \\cdot \\tfrac{3}{2} − 3)^2 + 1 = 0 + 1 = 1$.',
+        ], answer: 'Vertex $\\left(\\tfrac{3}{2},\\ 1\\right)$ — the factored form $4\\left(x − \\tfrac{3}{2}\\right)^2 + 1$ says it outright.' },
+        { q: 'Let g(x) = (x − 4)² + 2 (vertex (4, 2)). State the vertex of y = g(2x), y = 2g(x) and y = g(x) − 5.', solution: [
+          '$y = g(2x)$: inside scale divides seats — the vertex seat 4 halves to 2, height kept: $(2, 2)$. Verify: $g(2 \\cdot 2) = g(4) = 2$.',
+          '$y = 2g(x)$: outside scale multiplies heights — $(4, 4)$, since $2 \\cdot g(4) = 4$.',
+          '$y = g(x) − 5$: outer drop — $(4, −3)$, since $g(4) − 5 = −3$; the range sinks from $[2, \\infty)$ to $[−3, \\infty)$.',
+        ], answer: 'Vertices $(2, 2)$, $(4, 4)$ and $(4, −3)$ — one edit, one row of the census each.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Let f(x) = x² − 6x + 5. Find the zeros of y = f(−x) and the vertex of y = −f(x).', solution: [
+          'The parent factors as $(x − 1)(x − 5)$: zeros at 1 and 5, vertex at $\\left(3, f(3)\\right) = (3, −4)$.',
+          '$y = f(−x)$ mirrors over the y-axis: the zeros land at $−1$ and $−5$ (the closed form $x^2 + 6x + 5 = (x+1)(x+5)$ agrees), and the vertex rides to $(−3, −4)$.',
+          '$y = −f(x)$ flips over the x-axis: the vertex $(3, −4)$ lifts to $(3, 4)$, the bowl opens downward, and the zeros at $1, 5$ stay PUT (a zero flips to $−0 = 0$ — zeros are the flip’s fixed seats).',
+        ], answer: 'f(−x) zeros at $−1$ and $−5$; −f has vertex $(3, 4)$, zeros unchanged at 1 and 5.' },
+        { q: 'For m(x) = (x − 1)(x − 3) on [0, 4]: evaluate |m(2)|, m(|−2|), and count the zeros of y = m(|x|) on [−4, 4].', solution: [
+          '$m(2) = (2−1)(2−3) = −1$, so $|m(2)| = 1$ — the notch lifted; the modulus wrap only ever lifts.',
+          '$m(|−2|) = m(2) = −1$: the $|x|$ wrap feeds the parent the mirror input, so the mirror seat carries the original height — the wrap never recomputes anything.',
+          'Zeros of $y = m(|x|)$: the right half keeps the parent’s zeros at 1 and 3; the mirror adds $−1$ and $−3$: FOUR zeros, and the machine is even by construction — its graph is symmetric about the y-axis, the 1.6 verdict drawn.',
+        ], answer: '$|m(2)| = 1$, $m(|−2|) = −1$, and $m(|x|)$ has four zeros at $\\pm 1, \\pm 3$.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'From f(x) = |x − 1|, build y = −2·f(x + 3) + 1: walk the vertex through every edit, then evaluate at x = 0 and x = −5.', solution: [
+          'Inside first: $f(x + 3) = |x + 2|$, vertex slides from $(1, 0)$ to $(−2, 0)$ (the seat feeding the old 1 is now $−2$).',
+          'Outer scale: $−2|x + 2|$ flips over the x-axis and stretches heights — the V becomes an inverted Λ with vertex still $(−2, 0)$, arms falling at slope 2.',
+          'Outer shift: $+1$ lifts the vertex to $(−2, 1)$ — the anchor law: $a = −2, b = 1, h = −3, k = 1$ moves $(1, 0) \\to (−3 + 1,\\ 1 + 0) = (−2, 1)$.',
+          'Evaluations: at $x = 0$: $−2|0 + 2| + 1 = −4 + 1 = −3$; at $x = −5$: $−2|−5 + 2| + 1 = −6 + 1 = −5$. Both seats sit on the left arm, as the inverted Λ demands.',
+        ], answer: 'Vertex walk $(1, 0) \\to (−2, 0) \\to (−2, 0) \\to (−2, 1)$; values $−3$ at $x = 0$ and $−5$ at $x = −5$.' },
+        { q: 'Write the complete rung table of y = [x² − 2] on [−2, 2]: every rung value, its exact seat set, and the open/closed discipline at each break.', solution: [
+          'The parent rides $−2 \\leq x^2 − 2 \\leq 2$ on the domain, crossing every integer level: the bands are $[−2, −1), [−1, 0), [0, 1), [1, 2)$ and the lone top value 2.',
+          'Rung $−2$ owns $x^2 < 1$, i.e. $(−1, 1)$ OPEN at both ends — at $x = \\pm 1$ the height is exactly $−1$, which belongs to the NEXT rung; the seat 0 (height $−2$) is inside, closed by the band’s left end.',
+          'Rung $−1$ owns $1 \\leq |x| < \\sqrt{2}$: $[1, \\sqrt{2})$ and its mirror, closed at $\\pm 1$, open at $\\pm\\sqrt{2}$. Rung 0 owns $\\sqrt{2} \\leq |x| < \\sqrt{3}$; rung 1 owns $\\sqrt{3} \\leq |x| < 2$.',
+          'The value 2 is LONE: at $x = \\pm 2$ the height is exactly 2, so those two seats print 2 — single dots, the staircase’s top.',
+        ], answer: 'Rungs: $−2$ on $(−1,1)$; $−1$ on $[\\pm 1, \\sqrt{2})$; 0 on $[\\pm\\sqrt{2}, \\sqrt{3})$; 1 on $[\\pm\\sqrt{3}, 2)$; and the lone seats $\\pm 2$ printing 2.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Build y = ||x − 2| − 1| from y = |x| in three stages, giving every zero and every turn height.', solution: [
+          'Stage one, $|x − 2|$: the V slides right — vertex $(2, 0)$, zeros at 2 (double: the vertex IS the only zero).',
+          'Stage two, $|x − 2| − 1$: the V drops — vertex $(2, −1)$, zeros where $|x − 2| = 1$: at $x = 1$ and $x = 3$.',
+          'Stage three, the wrap: everything below the axis lifts — the vertex dip $−1$ rises to $+1$ at $x = 2$; the zeros at 1 and 3 survive (height 0 reflects to 0).',
+          'Final census: a W with zeros at 1 and 3, the centre turn at height 1 over the seat 2, arms rising without bound — three turns, two of them on the axis.',
+        ], answer: 'W: zeros at $1$ and $3$, centre turn $(2, 1)$, arms rising — $\\big||x−2|−1\\big| = 1$ at $x = 2$ and $0$ at $x = 1, 3$.' },
+        { q: 'Sketch the relation |y| = x² − 4: its admissible x-stretch, its vertex seats, and the pair of outputs at x = 3. Is it a machine?', solution: [
+          'Meaningful only where $x^2 − 4 \\geq 0$: the seats $x \\leq −2$ or $x \\geq 2$ — the forbidden strip $(−2, 2)$ owns no seats at all.',
+          'On the admissible stretch each x owns TWO outputs, $y = \\pm(x^2 − 4)$: two parabola branches, one above, one below, meeting at the vertex seats $(\\pm 2, 0)$.',
+          'At $x = 3$: $y = \\pm 5$ — the pair, both drawn; the vertical probe of lesson 1.2 (one x, two y’s) fails everywhere except the two vertex seats.',
+          'It is a RELATION, exactly as lesson 1.1 defined the term — a subset of $\\mathbb{R} \\times \\mathbb{R}$ with no single-valuedness — the honest label for every such “sideways V–parabola” the hall sketches.',
+        ], answer: 'Admissible $x \\leq −2$ or $x \\geq 2$; vertex seats $(\\pm 2, 0)$; at $x = 3$ the pair $y = \\pm 5$; a relation, not a machine.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'The piecewise machine f(x) = {2x + 2 for x ≤ 1; 5 − x² for x > 1}. Evaluate f, |f|, f(|x|) and |f(|x|)| at the seats −2, 3, −3 and −0.5, and reconcile the two wraps at x = −3.', solution: [
+          'Parent values: $f(−2) = 2(−2) + 2 = −2$ (the linear branch); $f(3) = 5 − 9 = −4$ (the parabola branch); $f(−0.5) = 2(−0.5) + 2 = 1$.',
+          '$|f|$: the negatives lift — $|f(−2)| = 2$, $|f(3)| = 4$, and $|f(−0.5)| = 1$ is untouched (already positive).',
+          '$f(|x|)$: the mirror input feeds the parent — $f(|−3|) = f(3) = −4$ and $f(|−0.5|) = f(0.5) = 1 = f(0.5)$: the wrap recomputes nothing, it re-ADDRESSES the input.',
+          '$|f(|x|)|$ at $x = −3$: the inner wrap first gives $−4$, the outer wrap lifts it to $4$. The two wraps COMMUTE on this seat — $|f(|−3|)| = |f(3)| = 4 = f(|−3|)$’s modulus — and in fact the two wraps always commute: $|f(|x|)| = |\\,f(|x|)\\,|$ is one machine whichever order you wrap, because the inner wrap only chooses the input and the outer only lifts the output.',
+        ], answer: 'f: $−2, −4, −4, 1$; |f|: $2, 4, 4, 1$; f(|x|) at $−3, −0.5$: $−4, 1$; $|f(|−3|)| = 4$ — the wraps commute.' },
+        { q: 'Write the rung-3 set of y = [4 − x²] on [−2, 2] exactly, as one set built from intervals, and count the seats where the staircase equals 4.', solution: [
+          'Rung 3 asks $3 \\leq 4 − x^2 < 4$, i.e. $0 < x^2 \\leq 1$ — the height must reach 3 but never arrive at 4.',
+          'That is $0 < |x| \\leq 1$: the closed band $[−1, 1]$ with the single seat 0 removed — written $[-1, 1] \\setminus \\{0\\}$, or as unions: $(−1, 0) \\cup (0, 1) \\cup \\{−1, 1\\}$.',
+          'The 4-rung is the LONE apex seat: $4 − x^2 = 4$ only at $x = 0$ — one seat, one dot, the staircase’s top.',
+          'The open/closed discipline reads off the inequalities: $x^2 \\leq 1$ closes $\\pm 1$ (height exactly 3, kept by rung 3); the strict $x^2 > 0$ opens the hole at 0 (that seat has escaped upward to the lone 4).',
+        ], answer: 'Rung-3 set $= [-1, 1] \\setminus \\{0\\}$; the 4-rung owns exactly the one seat $x = 0$.' },
+      ] },
+    ] },
+
+    { kind: 'terms', items: [
+      { term: 'vertical shift', def: 'the edit $y = f(x) \\pm a$: every seat moves $(x, y) \\to (x, y \\pm a)$ — heights relocate, domain untouched, period untouched.' },
+      { term: 'horizontal shift', def: 'the edit $y = f(x \\pm a)$: the window slides — the seat carrying $f(x_0)$ walks to $x_0 \\mp a$ (plus slides left); range untouched, period untouched.' },
+      { term: 'stretch or squeeze', def: 'the height edit $y = a f(x)$ multiplies y-coordinates; the seat edit $y = f(ax)$ DIVIDES x-coordinates — bigger inside constant, smaller picture.' },
+      { term: 'anchor of a feature', def: 'a landmark seat (vertex, zero, apex) of a parent graph — the one seat a transformation walk tracks through every edit via the anchor law.' },
+      { term: 'band (of the GIF method)', def: 'a half-open height strip $[n, n+1)$ between integer levels: everywhere the parent rides inside it, the staircase $y = [f(x)]$ prints the constant rung $n$.' },
+    ] },
+
+    { kind: 'formula', name: 'The shift laws', latex: 'y = f(x) \\pm a:\\ (x, y) \\to (x, y \\pm a) \\qquad y = f(x \\pm a):\\ (x, y) \\to (x \\mp a, y)', note: 'outer plus lifts/drops, inner plus slides LEFT — the seat carrying $f(x_0)$ lands at $x_0 \\mp a$' },
+    { kind: 'formula', name: 'The stretch laws', latex: 'y = a f(x):\\ (x, y) \\to (x,\\ ay) \\qquad y = f(ax):\\ (x, y) \\to \\left(\\frac{x}{a},\\ y\\right)', note: 'heights multiply outside, seats divide inside — the two paradoxes: inner plus goes left, inner times squeezes' },
+    { kind: 'formula', name: 'The flips', latex: 'y = -f(x):\\ (x, y) \\to (x, -y) \\qquad y = f(-x):\\ (x, y) \\to (-x, y) \\qquad y = -f(-x):\\ \\text{half-turn}', note: 'x-axis mirror, y-axis mirror, and the composed half-turn — odd machines are exactly the graphs the half-turn fixes' },
+    { kind: 'formula', name: 'The anchor law', latex: 'y = a\\,f\\big(b(x - h)\\big) + k: \\qquad (x_0,\\ y_0) \\to \\left(h + \\frac{x_0}{b},\\ k + a\\,y_0\\right)', note: 'factor the inside to $b(x-h)$ first — the shift is h, NOT bh; track one landmark seat through the whole walk' },
+    { kind: 'formula', name: 'The modulus trio', latex: '|f(x)| = \\begin{cases} f(x) & f \\geq 0 \\\\ -f(x) & f < 0 \\end{cases} \\qquad f(|x|) \\text{ even} \\qquad |y| = f(x) \\text{ a relation}', note: 'lift the negative dips; mirror the right half (discard the left); keep $f \\geq 0$ and double the outputs — the third is not a machine' },
+    { kind: 'formula', name: 'The band method', latex: 'n \\leq f(x) < n+1 \\Rightarrow [f(x)] = n \\quad \\text{(a constant rung between level crossings)}', note: 'draw the integer level lines; between crossings the staircase is flat; crossings drop one rung — hitting seats closed, leaving sides open' },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -2015,10 +2392,10 @@ export const chapter01: Chapter = {
   summary:
     'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
   status: 'in-progress',
-  lessons: [lesson11, lesson12, lesson13, lesson14, lesson15, lesson16],
+  lessons: [lesson11, lesson12, lesson13, lesson14, lesson15, lesson16, lesson17],
   plannedLessons: [
-    'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',
     'The Period Census: Periods of Transformed and Composite Functions',
+    'Unit Review: Functions as Objects',
   ],
 }
 

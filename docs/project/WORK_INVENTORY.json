@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-12 14:20:28 (Asia/Kolkata)",
+  "generated": "2026-11-12 15:34:32 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -8747,10 +8747,10 @@
             "title": "Functions as Objects",
             "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.",
             "status": "in-progress",
-            "lessonsWritten": 6,
+            "lessonsWritten": 7,
             "plannedLessons": [
-              "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
-              "The Period Census: Periods of Transformed and Composite Functions"
+              "The Period Census: Periods of Transformed and Composite Functions",
+              "Unit Review: Functions as Objects"
             ],
             "lessons": [
               {
@@ -9175,9 +9175,80 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 0
+              },
+              {
+                "id": "aa-graph-transformations-shifts-stretches-flips-gif",
+                "number": "1.7",
+                "title": "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5915,
+                "readMins": 30,
+                "concepts": [
+                  "the direction rule: a constant inside the machine moves the x-axis, a constant outside moves the y-axis",
+                  "vertical and horizontal shifts: y = f(x) ± a lifts or drops, y = f(x ± a) slides the window",
+                  "stretches and squeezes: y = a·f(x) multiplies heights, y = f(ax) divides seats",
+                  "flips: y = −f(x) mirrors over the x-axis, y = f(−x) over the y-axis",
+                  "the modulus family: |f(x)| lifts the negatives, f(|x|) mirrors the right half, |y| = f(x) is a relation",
+                  "the GIF band method: y = [f(x)] is a staircase of rungs between integer-level crossings",
+                  "the anchor law: y = a·f(b(x − h)) + k carries the feature (x₀, y₀) to (h + x₀/b, k + a·y₀)"
+                ],
+                "objectives": [
+                  "read any edited formula as a concrete move on the graph — and never confuse the two theatres (inside = x-axis, outside = y-axis)",
+                  "explain WHY y = f(x + a) slides LEFT: the seat x = x₀ − a carries the old height f(x₀)",
+                  "apply the stretch laws with their two paradoxes (a > 1 squeezes horizontally; seats divide, not multiply)",
+                  "compose multi-step transformations in order, tracking a single anchor seat through the whole walk",
+                  "build the modulus family graphs |f|, f(|x|) and |y| = f(x) from a drawn parent, and say why the last one is a relation",
+                  "draw y = [f(x)] by the band method, with the open/closed endpoint discipline and the lone-seat cases"
+                ],
+                "prerequisites": [
+                  "aa-even-and-odd-functions-and-extensions",
+                  "aa-function-zoo-modulus-signum-gif-elementary-catalog"
+                ],
+                "sources": [
+                  "cengage-m4-01",
+                  "cengage-jee-style",
+                  "ncert-math11-ch2-functions",
+                  "ncert-math12-ch1-relations-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "heading": 8,
+                  "equation": 1,
+                  "callout": 12,
+                  "figure": 2,
+                  "example": 8,
+                  "table": 1,
+                  "list": 1,
+                  "derivation": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "terms": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 7,
+                  "warn": 1,
+                  "insight": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 5
               }
             ],
-            "words": 26958
+            "words": 32873
           },
           {
             "number": 2,
@@ -12843,13 +12914,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 236,
-      "totalLines": 108287,
+      "totalLines": 108664,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 77304,
+        "src/data/library (content model + books)": 77681,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -26480,6 +26551,93 @@
           "del": 2
         }
       ]
+    },
+    {
+      "sha": "dcace9d110f28f8c44b963c110017b3ded6a440a",
+      "short": "dcace9d",
+      "date": "2026-11-12 08:50",
+      "message": "run 92: AA 1.5 The Function Zoo + 1.6 Even and Odd — verifier N/O, 4 figures VLM-passed",
+      "filesChanged": 12,
+      "insertions": 1570,
+      "deletions": 50,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 15,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 14,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 600,
+          "del": 28
+        },
+        {
+          "path": "scripts/e2e-aa-15.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-16.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 214,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 610,
+          "del": 12
+        }
+      ]
+    },
+    {
+      "sha": "467aaf4d723c0cbdba8e5cb29579b72cd4f4c147",
+      "short": "467aaf4",
+      "date": "2026-11-12 08:51",
+      "message": "worklog: run 92 sync record — remote HEAD verified == dcace9d",
+      "filesChanged": 1,
+      "insertions": 3,
+      "deletions": 1,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 3,
+          "del": 1
+        }
+      ]
     }
   ],
   "totals": {
@@ -26488,25 +26646,25 @@
     "booksLive": 28,
     "chaptersWritten": 32,
     "chaptersInProgress": 1,
-    "lessonsWritten": 127,
-    "wordsAuthored": 615964,
-    "termsDefined": 933,
-    "quizItems": 635,
-    "exerciseQuestions": 1639,
+    "lessonsWritten": 128,
+    "wordsAuthored": 621879,
+    "termsDefined": 938,
+    "quizItems": 640,
+    "exerciseQuestions": 1651,
     "blockTotals": {
-      "para": 1793,
-      "callout": 716,
-      "heading": 698,
-      "list": 146,
-      "terms": 125,
-      "equation": 195,
-      "figure": 225,
-      "derivation": 235,
-      "table": 152,
-      "example": 556,
-      "quiz": 127,
-      "exercises": 127,
-      "formula": 381,
+      "para": 1801,
+      "callout": 728,
+      "heading": 706,
+      "list": 147,
+      "terms": 126,
+      "equation": 196,
+      "figure": 227,
+      "derivation": 236,
+      "table": 153,
+      "example": 564,
+      "quiz": 128,
+      "exercises": 128,
+      "formula": 387,
       "algorithm": 27
     }
   }

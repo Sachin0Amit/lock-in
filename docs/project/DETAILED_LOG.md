@@ -1,5 +1,13 @@
 ## 2026-11-11 — DEDICATED FIGURE-AUDIT CRON JOB + THE §6 SWEEP QUEUE (owner-directed infrastructure turn; zero lesson content authored)
 
+## 2026-11-12 — RUN 93 (cron fire v5b): AA 1.7 Graph Transformations authored + gated; 1.8 deferred (verifier Q pre-written green)
+
+- Research: M4-01 pp. 1.45–1.48 + 1.59–1.63 vision-transcribed (m4scan/tr-1.45-1.48.txt, tr-1.59-1.63.txt).
+- Verify-first: verify-book4-ch01.ts sections P/Q grown green BEFORE prose (~100 pins incl. 1.8's full pre-writing census); I/O contracts relaxed; run-92 latent retired-hex defect (#b45309) fixed to #d97706.
+- Lesson 1.7 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph' (aa-graph-transformations-shifts-stretches-flips-gif): ~4,700 words; the Thomas combining-functions fold + six family folds; the anchor law; the modulus trio + the nested walk; the GIF band method on [4−x²]; 12 exercises L1–L6; quiz [0,1,1,1,0]; 2 SVG figures (shift grammar; GIF staircase).
+- Gates: verifier 24,853/0; tsc clean; lint 0 errors; e2e-aa-17 ×1280/390/dark green (362 KaTeX, 0 errors, quiz 5/5 live); DOM-overlap 0 after 5 in-SVG fixes; VLM strict PASS both figures (re-audited post-fix) + lesson view light/dark PASS.
+- 1.8 deferred by the <35-min time rule; plannedLessons now ['The Period Census…', 'Unit Review: Functions as Objects'].
+- audit-svg-overlaps.sh routing gained the aa-* book case (permanent).
 - **Directive:** "create a corn job which cceks svgs using vision model nothing should overlp or inperfect if not possible use ai generated images or other method which you can think of for already prewritten books".
 - **Shipped:** `scripts/build_figure_audit_queue.ts` + `docs/project/FIGURE_AUDIT_QUEUE.json` (125 lessons / 221 figures — FM 48/92, ANS 36/47, AL 37/74, AA 4/8; pre-written books first; progress-preserving rebuilds; 5 lessons seeded done from the audit log) · `FIGURE_VERIFICATION_PROTOCOL.md` §1/§6 refreshed + new §9 (dedicated-job rules) · `FIGURE_AUDIT_LOG.md` three INFO entries · the verifier suite restored to ALL GREEN (1 dcad9d7 regression fixed — the ch-01 library census — + 6 stale snapshots refreshed: AL 37 lessons, 11-of-12 chapters with ch. 12 planned, library 125) · the dedicated cron job created: 2 fires/day 06:40+13:40 IST, agentTurn runbook embedded, commit-local-only (never pushes — job 523435 ships its commits).
 - Full narrative: WORKLOG.md entry (this date). Authoring cadence untouched: run 92 opens AA 1.5 + 1.6.
