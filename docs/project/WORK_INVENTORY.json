@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-11 19:55:29 (Asia/Kolkata)",
+  "generated": "2026-11-12 14:20:28 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -1183,7 +1183,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5172,
+                "words": 5154,
                 "readMins": 26,
                 "concepts": [
                   "Multiplication as 'of'",
@@ -1244,7 +1244,7 @@
                 "termsDefined": 6
               }
             ],
-            "words": 26923
+            "words": 26905
           },
           {
             "number": 5,
@@ -8747,10 +8747,8 @@
             "title": "Functions as Objects",
             "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.",
             "status": "in-progress",
-            "lessonsWritten": 4,
+            "lessonsWritten": 6,
             "plannedLessons": [
-              "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
-              "Even and Odd Functions and Their Extensions",
               "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph",
               "The Period Census: Periods of Transformed and Composite Functions"
             ],
@@ -9039,9 +9037,147 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 6
+              },
+              {
+                "id": "aa-function-zoo-modulus-signum-gif-elementary-catalog",
+                "number": "1.5",
+                "title": "The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4432,
+                "readMins": 22,
+                "concepts": [
+                  "the elementary catalog: six resident machines with their domains and ranges",
+                  "identical functions: the two-gate test (same domain, same value everywhere on it)",
+                  "piecewise functions: different rules on different sub-intervals, switch points owned",
+                  "the modulus and the signum machine: size and sign, separated",
+                  "the greatest integer function: the staircase that lands LEFT",
+                  "the fractional part: period 1 and the pair law",
+                  "max/min machines: the upper and lower envelope of two graphs"
+                ],
+                "objectives": [
+                  "recite the six catalog machines with domain and range on sight, and read any new machine against them",
+                  "apply the two-gate identical test — same domain first, same value at every point of it second — and kill wrong \"same formula\" claims",
+                  "open absolute-value expressions piecewise and evaluate at switch-point neighbours without error",
+                  "compute with the signum machine, including the identities x·sgn(x) = |x| and |x|·sgn(x) = x",
+                  "evaluate and solve with [x] and {x}, using x − 1 < [x] ≤ x and the pair law {x} + {−x}",
+                  "rebuild max/min machines as honest piecewise definitions by intersecting the graphs"
+                ],
+                "prerequisites": [
+                  "aa-inverse-functions-the-machine-undone",
+                  "aa-one-one-and-onto-classifying-the-machines"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math11-ch2-functions",
+                  "ncert-math12-ch1-relations-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 10,
+                  "heading": 8,
+                  "terms": 1,
+                  "figure": 2,
+                  "callout": 9,
+                  "example": 7,
+                  "equation": 2,
+                  "list": 1,
+                  "derivation": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 5,
+                  "warn": 1,
+                  "insight": 2,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 6
+              },
+              {
+                "id": "aa-even-and-odd-functions-and-extensions",
+                "number": "1.6",
+                "title": "Even and Odd Functions and Their Extensions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4376,
+                "readMins": 22,
+                "concepts": [
+                  "even machines: f(−x) = f(x) — mirror symmetry about the y-axis",
+                  "odd machines: f(−x) = −f(x) — half-turn symmetry about the origin",
+                  "the domain gate: parity is only asked on symmetric domains",
+                  "the arithmetic and composition parity table",
+                  "the even + odd split: every machine decomposes, and uniquely",
+                  "why every even machine is many-one — the 1.2 verdict re-read",
+                  "even and odd extensions of half-line machines"
+                ],
+                "objectives": [
+                  "decide even / odd / neither by the f(−x) test, exhibiting witnesses when the verdict is neither",
+                  "demand a symmetric domain before any parity verdict, and say exactly what fails on a half-line",
+                  "read the parity table: sums, products, quotients and compositions inherit parity by rule, not by luck",
+                  "decompose any machine into its even and odd parts and prove the split is unique",
+                  "use the structural laws — odd at 0 forces f(0) = 0; even on a symmetric domain is many-one",
+                  "build the even and odd extension of a machine given only on a half-line, and evaluate both on the mirror"
+                ],
+                "prerequisites": [
+                  "aa-function-zoo-modulus-signum-gif-elementary-catalog",
+                  "aa-one-one-and-onto-classifying-the-machines"
+                ],
+                "sources": [
+                  "cengage-m2-algebra",
+                  "cengage-jee-style",
+                  "ncert-math11-ch2-functions",
+                  "ncert-math12-ch1-relations-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "heading": 5,
+                  "callout": 7,
+                  "figure": 2,
+                  "example": 6,
+                  "table": 1,
+                  "list": 1,
+                  "equation": 1,
+                  "derivation": 1,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 0
               }
             ],
-            "words": 18150
+            "words": 26958
           },
           {
             "number": 2,
@@ -12707,13 +12843,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 236,
-      "totalLines": 107689,
+      "totalLines": 108287,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 76706,
+        "src/data/library (content model + books)": 77304,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -12941,7 +13077,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-11",
+      "surveyed": "2026-11-12",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -25908,6 +26044,442 @@
           "del": 47
         }
       ]
+    },
+    {
+      "sha": "5254ece3b3dc9e4b5fe7401e71baa9825c1399c1",
+      "short": "5254ece",
+      "date": "2026-11-11 14:27",
+      "message": "run 91: AA ch.1 lessons 1.3 'Composition: Machines in Series' + 1.4 'Inverse Functions: the Machine Undone' written and fully gated; the FIGURE VERIFICATION PROTOCOL ships (owner directive)",
+      "filesChanged": 13,
+      "insertions": 1780,
+      "deletions": 80,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 26,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
+          "add": 136,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 363,
+          "del": 38
+        },
+        {
+          "path": "scripts/e2e-aa-13.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-14.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 415,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 703,
+          "del": 34
+        }
+      ]
+    },
+    {
+      "sha": "dcad9d759cb11f0cf367368b700542b929f309c7",
+      "short": "dcad9d7",
+      "date": "2026-11-11 14:28",
+      "message": "f55c52ea-5c36-40bb-89c7-77aed12b4118-cron",
+      "filesChanged": 26,
+      "insertions": 232,
+      "deletions": 237,
+      "files": [
+        {
+          "path": "scripts/verify-book2-ch07.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "scripts/verify-book2-ch09.ts",
+          "add": 3,
+          "del": 5
+        },
+        {
+          "path": "scripts/verify-book3-ch01.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book3-ch02.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch03.ts",
+          "add": 1,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch05.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch07.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch09.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch10.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "scripts/verify-book3-ch11.ts",
+          "add": 4,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-04.ts",
+          "add": 62,
+          "del": 62
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-05.ts",
+          "add": 6,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-06.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-07.ts",
+          "add": 45,
+          "del": 31
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 2,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-01.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-02.ts",
+          "add": 10,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-03.ts",
+          "add": 3,
+          "del": 4
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-05.ts",
+          "add": 3,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-07.ts",
+          "add": 4,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-09.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-10.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-11.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 12,
+          "del": 12
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 47,
+          "del": 47
+        }
+      ]
+    },
+    {
+      "sha": "b55e303918e3ad25a8d5a3c08668ebb61ec81131",
+      "short": "b55e303",
+      "date": "2026-11-11 15:30",
+      "message": "figure-audit: dedicated VLM figure-audit cron job + queue + protocol §9 + verifier suite refreshed",
+      "filesChanged": 14,
+      "insertions": 1109,
+      "deletions": 26,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 899,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
+          "add": 31,
+          "del": 3
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 17,
+          "del": 0
+        },
+        {
+          "path": "scripts/build_figure_audit_queue.ts",
+          "add": 120,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch01.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book3-ch02.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book3-ch05.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "scripts/verify-book3-ch07.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch09.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "scripts/verify-book3-ch10.ts",
+          "add": 6,
+          "del": 6
+        },
+        {
+          "path": "scripts/verify-book3-ch11.ts",
+          "add": 9,
+          "del": 5
+        }
+      ]
+    },
+    {
+      "sha": "61de51b4565ac14dc571d14a4ba432d28802ed5f",
+      "short": "61de51b",
+      "date": "2026-11-11 15:30",
+      "message": "worklog: figure-audit job turn sync record — remote HEAD verified == b55e303, job id 524541",
+      "filesChanged": 1,
+      "insertions": 2,
+      "deletions": 2,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 2,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "1e25e75440c994b3cac19c3a1d5d1bd267bf6970",
+      "short": "1e25e75",
+      "date": "2026-11-11 16:20",
+      "message": "figure-audit: FM ch.1-3 sweep fire 1 — 12 lessons / 18 figures verified (2 fixed: carry-pill columns, seven-screens count)",
+      "filesChanged": 14,
+      "insertions": 453,
+      "deletions": 28,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 30,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 39,
+          "del": 15
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-bboxes.page.js",
+          "add": 31,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-domvalues.page.js",
+          "add": 40,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-domvalues.sh",
+          "add": 40,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-fire1.sh",
+          "add": 51,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-montage.py",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-smoke.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-smoke.sh",
+          "add": 69,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-vision.sh",
+          "add": 27,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-02.ts",
+          "add": 11,
+          "del": 11
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 2,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "f51cb5cd9c681e38479623db5671745df418658f",
+      "short": "f51cb5c",
+      "date": "2026-11-11 17:29",
+      "message": "figure-audit: FM ch.3-6 sweep fire 2 — 12 lessons / 23 figures verified (4 fixed: tile grouping, px-frame caption, six places, chained equality)",
+      "filesChanged": 6,
+      "insertions": 102,
+      "deletions": 20,
+      "files": [
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 34,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 39,
+          "del": 15
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 24,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-04.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-05.ts",
+          "add": 2,
+          "del": 2
+        }
+      ]
     }
   ],
   "totals": {
@@ -25916,25 +26488,25 @@
     "booksLive": 28,
     "chaptersWritten": 32,
     "chaptersInProgress": 1,
-    "lessonsWritten": 125,
-    "wordsAuthored": 607174,
-    "termsDefined": 927,
-    "quizItems": 625,
-    "exerciseQuestions": 1615,
+    "lessonsWritten": 127,
+    "wordsAuthored": 615964,
+    "termsDefined": 933,
+    "quizItems": 635,
+    "exerciseQuestions": 1639,
     "blockTotals": {
-      "para": 1775,
-      "callout": 700,
-      "heading": 685,
-      "list": 144,
-      "terms": 124,
-      "equation": 192,
-      "figure": 221,
-      "derivation": 233,
-      "table": 151,
-      "example": 543,
-      "quiz": 125,
-      "exercises": 125,
-      "formula": 369,
+      "para": 1793,
+      "callout": 716,
+      "heading": 698,
+      "list": 146,
+      "terms": 125,
+      "equation": 195,
+      "figure": 225,
+      "derivation": 235,
+      "table": 152,
+      "example": 556,
+      "quiz": 127,
+      "exercises": 127,
+      "formula": 381,
       "algorithm": 27
     }
   }

@@ -1207,8 +1207,8 @@ const lesson14: Lesson = {
       'Hence (a) and (d) are invertible, (b) dies of shortfall (into), (c) dies of waste (many-one) — the two verdicts of lesson 1.2 are the two causes of death.',
     ] },
     { kind: 'figure', caption: 'The invertibility verdict in three wirings. Panel (i): a bijective relay (1↦6, 2↦8) — reversing every arrow is legal, and the teal reversed arrows ARE the undo machine f⁻¹. Panel (ii): a many-one wiring — two green arrows land on 6, so the reversed arrow cannot decide between 1 and 2: no undo. Panel (iii): an into wiring — two inputs, three targets, and the target 10 is never hit, so the undo would be asked for an input that never existed: no undo. One picture, both causes of death.', svg: inverseVerdictSvg() },
-    { kind: 'para', text: 'When the undo exists, the sets swap roles automatically. The undo\\u2019s inputs are $f$\\u2019s outputs — its domain is the RANGE of $f$; the undo\\u2019s outputs are $f$\\u2019s inputs — its range is the DOMAIN of $f$. For a bijective machine the range fills the codomain, so the swap reads cleanest in the declaration itself.' },
-    { kind: 'callout', tone: 'definition', title: 'The swap law', text: 'If $f : A \\to B$ is bijective, then $f^{-1} : B \\to A$, and thus: $\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) = B$ and $\\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f) = A$. Domain and range trade places — lesson 1.2\\u2019s closing note (“domain and codomain are part of the machine\\u2019s identity”) is what makes the trade exact.' },
+    { kind: 'para', text: 'When the undo exists, the sets swap roles automatically. The undo’s inputs are $f$’s outputs — its domain is the RANGE of $f$; the undo’s outputs are $f$’s inputs — its range is the DOMAIN of $f$. For a bijective machine the range fills the codomain, so the swap reads cleanest in the declaration itself.' },
+    { kind: 'callout', tone: 'definition', title: 'The swap law', text: 'If $f : A \\to B$ is bijective, then $f^{-1} : B \\to A$, and thus: $\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) = B$ and $\\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f) = A$. Domain and range trade places — lesson 1.2’s closing note (“domain and codomain are part of the machine’s identity”) is what makes the trade exact.' },
     { kind: 'equation', latex: '\\mathrm{Dom}(f^{-1}) = \\mathrm{Rng}(f) \\qquad \\mathrm{Rng}(f^{-1}) = \\mathrm{Dom}(f)', note: 'the swap law — the undo walks the same relay in the opposite direction' },
     { kind: 'para', text: 'One more symmetry completes the definition. Since the undo $f^{-1}$ is itself bijective (one-one and onto, by the same two verdicts in the reverse direction), it HAS an undo — and the undo of the undo is the original machine: $(f^{-1})^{-1} = f$. The roles swap cleanly: each machine is the other\u2019s inverse, and applying the direction badge twice returns the badge to its start. The involution preview of the quiz below lives exactly here — a self-inverse machine is one where $(f^{-1})^{-1} = f$ becomes $f^{-1} = f$, the swap invisible because the machine runs the same both ways.' },
 
@@ -1231,7 +1231,7 @@ const lesson14: Lesson = {
     { kind: 'para', text: 'The Möbius family is worth one more minute, because its anatomy is entirely linear. Any machine $f(x) = \tfrac{px + q}{rx + s}$ composes four elementary moves — scale by $r$, shift, scale by $p$, shift — and its undo is the same four moves run backwards: $f^{-1}(x) = \tfrac{-sx + q}{rx - p}$. The invertibility condition is the determinant $ps - qr \neq 0$: when it vanishes the numerator is a multiple of the denominator and the machine is constant. Our own machine above has $p = 4, q = 3, r = 1, s = -2$: the determinant is $4 \cdot (-2) - 3 \cdot 1 = -11$, and $|-11| = 11$ is EXACTLY the constant the cross-product cleared to in the one-one proof — the algebra was counting the determinant all along.' },
 
     { kind: 'heading', text: 'The Branch Discipline: Restriction Restores Invertibility' },
-    { kind: 'para', text: 'Lesson 1.2 ended with a promise: a many-one machine can be rescued by RESTRICTION, because domain and codomain are part of the machine\\u2019s identity. That promise is cashed here — restriction is the standard cure for the undo of anything with a fold.' },
+    { kind: 'para', text: 'Lesson 1.2 ended with a promise: a many-one machine can be rescued by RESTRICTION, because domain and codomain are part of the machine’s identity. That promise is cashed here — restriction is the standard cure for the undo of anything with a fold.' },
     { kind: 'example', title: 'f(x) = x² − 6x + 10 = (x − 3)² + 1. Find the largest intervals on which f is invertible, and both branch inverses', steps: [
       'The vertex read: the machine folds at $x = 3$ — decreasing on $(-\\infty, 3]$, increasing on $[3, \\infty)$ — and its range is $[1, \\infty)$ either way.',
       'On each half-line the fold becomes a monotone march: one-one. So the largest invertible restrictions are $(-\\infty, 3]$ and $[3, \\infty)$, each declared onto $[1, \\infty)$.',
@@ -1244,7 +1244,7 @@ const lesson14: Lesson = {
       'First the verdicts. One-one: the branch ranges are $(-\\infty, 1)$, then $[1, 10]$, then $(10, \\infty)$ — disjoint, so no two branches ever agree on an output, and each branch alone is one-one. Onto: the three ranges tile the whole line — $\\mathbb{R}$ is covered.',
       'Hence bijective, so the undo exists on all of $\\mathbb{R}$; invert branch by branch.',
       'Branch one: $y = x + 1$ with $y < 1$ undoes to $x = y - 1$.',
-      'Branch two: $y = x^2 + 1$ with $1 \\leq y \\leq 10$ undoes to $x = \\sqrt{y - 1}$ (the branch\\u2019s inputs live in $[0, 3]$, so the positive root).',
+      'Branch two: $y = x^2 + 1$ with $1 \\leq y \\leq 10$ undoes to $x = \\sqrt{y - 1}$ (the branch’s inputs live in $[0, 3]$, so the positive root).',
       'Branch three: $y = x + 7$ with $y > 10$ undoes to $x = y - 7$.',
       'So, $f^{-1}(y) = \\{y - 1, y < 1; \\sqrt{y - 1}, 1 \\leq y \\leq 10; y - 7, y > 10\\}$ — the seams agree: $f(0) = 1$ and $f^{-1}(1) = 0$; $f(3) = 10$ and $f^{-1}(10) = 3$.',
     ] },
@@ -1263,7 +1263,7 @@ const lesson14: Lesson = {
       { label: 'Compose on the right', formula: '(g \\circ f) \\circ h = g \\circ (f \\circ f^{-1}) \\circ g^{-1} = g \\circ I_B \\circ g^{-1} = g \\circ g^{-1} = I_C', explanation: 'the same trick from the other end. Both identity laws hold, so by the two-sided characterization h is THE undo.' },
     ], result: '(g \\circ f)^{-1} = f^{-1} \\circ g^{-1} — the order of the undo is the REVERSE of the order of the making.' },
     { kind: 'figure', caption: 'The mirror made concrete with our own pair: f(x) = 2x + 1 (green line) and its undo f⁻¹(x) = (x − 1)/2 (amber line) are reflections of each other across the dashed mirror y = x. The marked partners show why: (2, 5) sits on f because f(2) = 5, and (5, 2) sits on the undo because f⁻¹(5) = 2 — the same two numbers, swapped, on opposite sides of the mirror. Slopes flip and intercepts trade: 2 and +1 become 1/2 and −1/2.', svg: mirrorGraphSvg() },
-    { kind: 'callout', tone: 'insight', title: 'The inverse function is the inverse relation, grown up', text: 'Lesson 1.1 defined $R^{-1}$ for ANY relation by swapping the pairs — no conditions asked. This lesson adds one demand: the swapped pairs must themselves pass the function test (total + single-valued). For a bijective $f$, both tests pass — one-one stops the swapped relation from becoming many-one, onto stops it from falling short. So: $f^{-1}$ EXISTS exactly when the inverse RELATION $R^{-1}$ of $f$\\u2019s pair-set is itself a function. The two chapters of this book\\u2019s first chapter snap together here.' },
+    { kind: 'callout', tone: 'insight', title: 'The inverse function is the inverse relation, grown up', text: 'Lesson 1.1 defined $R^{-1}$ for ANY relation by swapping the pairs — no conditions asked. This lesson adds one demand: the swapped pairs must themselves pass the function test (total + single-valued). For a bijective $f$, both tests pass — one-one stops the swapped relation from becoming many-one, onto stops it from falling short. So: $f^{-1}$ EXISTS exactly when the inverse RELATION $R^{-1}$ of $f$’s pair-set is itself a function. The two chapters of this book’s first chapter snap together here.' },
     { kind: 'example', title: 'Verify the shoes-and-socks law on the reals: f(x) = 2x, g(x) = x + 1. Find (g∘f)⁻¹ and f⁻¹∘g⁻¹ and compare', steps: [
       'The composite: $(g \\circ f)(x) = 2x + 1$ — double, then increment.',
       'Undo the composite directly: $y = 2x + 1$ gives $x = \\tfrac{y - 1}{2}$, so $(g \\circ f)^{-1}(x) = \\tfrac{x - 1}{2}$.',
@@ -1281,15 +1281,15 @@ const lesson14: Lesson = {
     ] },
 
     { kind: 'heading', text: 'The Road Onward' },
-    { kind: 'para', text: 'The chapter\\u2019s grammar is now complete: machines became objects (1.1), were classified (1.2), were wired in series (1.3), and learned to be undone (1.4). What remains is the catalogue — the named machines every later chapter quotes: the modulus, the signum, the greatest-integer floor, and the elementary family. Lesson 1.5 opens the zoo.' },
+    { kind: 'para', text: 'The chapter’s grammar is now complete: machines became objects (1.1), were classified (1.2), were wired in series (1.3), and learned to be undone (1.4). What remains is the catalogue — the named machines every later chapter quotes: the modulus, the signum, the greatest-integer floor, and the elementary family. Lesson 1.5 opens the zoo.' },
     { kind: 'callout', tone: 'exam', title: 'Where this is examined', text: 'The JEE Main unit-1 line “composition of functions” carries the inverse with it, and NCERT Class 12 chapter 1 exercises invertibility explicitly (“show that f is invertible and find f⁻¹”). Expect: existence verdicts on ℤ and ℝ with witness kills; solve-back inverses of linear and Möbius machines with the honest codomain; the branch inverses of folded quadratics (the ±√ choice graded by the branch); the shoes-and-socks order in true/false banks; and self-inverse recognition — across JEE Main/Advanced, CUET, boards and the state CETs.' },
-    { kind: 'callout', tone: 'historical', title: 'Logarithms: the first industrial undo machines', text: 'The undo idea built an industry before it built notation: John Napier\\u2019s logarithm tables (1614) were sold as machines that turn multiplication into addition — and Henry Briggs\\u2019 common tables (1617) made the undo of $10^x$ a working tool for every navigator and astronomer in Europe. Nobody called $\\log$ “the inverse of the exponential” for another two centuries, but that is what the tables were: a precomputed undo, priced by hand, for a machine whose forward direction everyone could run. The exponential–logarithm pair joins this shelf honestly when the Calculus book opens; the undo discipline it will use is the one built here.' },
+    { kind: 'callout', tone: 'historical', title: 'Logarithms: the first industrial undo machines', text: 'The undo idea built an industry before it built notation: John Napier’s logarithm tables (1614) were sold as machines that turn multiplication into addition — and Henry Briggs’ common tables (1617) made the undo of $10^x$ a working tool for every navigator and astronomer in Europe. Nobody called $\\log$ “the inverse of the exponential” for another two centuries, but that is what the tables were: a precomputed undo, priced by hand, for a machine whose forward direction everyone could run. The exponential–logarithm pair joins this shelf honestly when the Calculus book opens; the undo discipline it will use is the one built here.' },
 
     { kind: 'quiz', title: 'Check yourself', items: [
       { q: 'The inverse f⁻¹ exists exactly when f is', options: ['one-one', 'onto', 'one-one AND onto (bijective)', 'any function at all'], answer: 2, explain: 'Both verdicts are load-bearing: one-one gives the undo a UNIQUE input to return (many-one leaves it a witness-pair dilemma), onto gives every target an input to return (into leaves targets with nothing). Option 1 or 2 alone certifies only half; option 4 is refuted by $x^2$ and $|x|$ in one stroke.' },
       { q: 'The symbol f⁻¹(x) means', options: ['1/f(x) — the reciprocal', 'the undo machine — the unique input that made x, renamed', 'the reflection of f in the y-axis', 'the machine x ↦ 1/x declared on ℝ'], answer: 1, explain: '$f^{-1}$ is the DIRECTION badge: run the machine backwards. For $f(x) = 2x + 1$ the undo is $\\tfrac{x-1}{2}$, while the reciprocal $\\tfrac{1}{2x+1}$ is a different machine entirely. Option 3 confuses the mirror in the $y$-axis (a reflection, not an undo); option 4 is the reciprocal MACHINE as its own declaration — also not the undo.' },
-      { q: 'If f : A → B is bijective, the DOMAIN of f⁻¹ is', options: ['B — the whole range of f', 'A', 'A ∪ B', 'the empty set'], answer: 0, explain: 'The swap law: the undo\\u2019s inputs are $f$\\u2019s outputs, and bijectivity makes the range fill $B$ exactly. Option 2 is the undo\\u2019s RANGE (also the domain of $f$); option 3 unions sets that never need unioning; option 4 cannot arise — bijective machines have non-empty pair-sets whenever $A$ is non-empty.' },
-      { q: '(g∘f)⁻¹ equals', options: ['g⁻¹∘f⁻¹', 'f⁻¹∘g⁻¹', '(f∘g)⁻¹', 'g∘f'], answer: 1, explain: 'Shoes and socks: the LAST machine is undone first. Undo $g$ (subtract what it added), then undo $f$ — $f^{-1} \\circ g^{-1}$. Option 1 is the order-preserving guess that the sock law kills; option 3 is a different composite\\u2019s undo; option 4 is not an undo at all.' },
+      { q: 'If f : A → B is bijective, the DOMAIN of f⁻¹ is', options: ['B — the whole range of f', 'A', 'A ∪ B', 'the empty set'], answer: 0, explain: 'The swap law: the undo’s inputs are $f$’s outputs, and bijectivity makes the range fill $B$ exactly. Option 2 is the undo’s RANGE (also the domain of $f$); option 3 unions sets that never need unioning; option 4 cannot arise — bijective machines have non-empty pair-sets whenever $A$ is non-empty.' },
+      { q: '(g∘f)⁻¹ equals', options: ['g⁻¹∘f⁻¹', 'f⁻¹∘g⁻¹', '(f∘g)⁻¹', 'g∘f'], answer: 1, explain: 'Shoes and socks: the LAST machine is undone first. Undo $g$ (subtract what it added), then undo $f$ — $f^{-1} \\circ g^{-1}$. Option 1 is the order-preserving guess that the sock law kills; option 3 is a different composite’s undo; option 4 is not an undo at all.' },
       { q: 'f(x) = 5 − x on ℝ. The inverse is', options: ['x − 5', '−x − 5', '5 − x — the machine undoes itself', 'f has no inverse'], answer: 2, explain: 'Apply twice: $5 - (5 - x) = x$ — the machine is its own undo, a self-inverse involution. Option 1 is the undo of $x + 5$; option 2 is not any undo here; option 4 is wrong because the machine is visibly one-one (distinct inputs, distinct outputs) and onto $\\mathbb{R}$ (the input $5 - y$ makes any target $y$).' },
     ] },
 
@@ -1404,6 +1404,606 @@ const lesson14: Lesson = {
   ],
 }
 
+
+/* ------------------------------------------------------------------ */
+/* figure helpers for lesson 1.5 (the zoo)                             */
+/* ------------------------------------------------------------------ */
+
+function zooCatalogSvg(): string {
+  const C = [60, 180, 300, 420, 540, 660]
+  return `<svg viewBox="0 0 720 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six small graphs side by side: the constant, identity, square, reciprocal, modulus and signum functions, each with its domain and range">
+  <g fill="currentColor" font-size="12" font-weight="700" text-anchor="middle">
+    <text x="${C[0]}" y="22">constant</text>
+    <text x="${C[1]}" y="22">identity</text>
+    <text x="${C[2]}" y="22">square</text>
+    <text x="${C[3]}" y="22">reciprocal</text>
+    <text x="${C[4]}" y="22">modulus</text>
+    <text x="${C[5]}" y="22">signum</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${C[0]-52} 122H${C[0]+52} M${C[0]} 62V196"/>
+    <path d="M${C[1]-52} 122H${C[1]+52} M${C[1]} 62V196"/>
+    <path d="M${C[2]-52} 122H${C[2]+52} M${C[2]} 62V196"/>
+    <path d="M${C[3]-52} 122H${C[3]+52} M${C[3]} 62V196"/>
+    <path d="M${C[4]-52} 122H${C[4]+52} M${C[4]} 62V196"/>
+    <path d="M${C[5]-52} 122H${C[5]+52} M${C[5]} 62V196"/>
+  </g>
+  <path d="M${C[0]-40} 88H${C[0]+40}" stroke="#0f766e" stroke-width="2.4"/>
+  <path d="M${C[1]-40} 176 L${C[1]+40} 68" stroke="#16a34a" stroke-width="2.4"/>
+  <path d="M${C[2]-26} 92 C${C[2]-26} 112 ${C[2]-13} 130 ${C[2]} 130 C${C[2]+13} 130 ${C[2]+26} 112 ${C[2]+26} 92" fill="none" stroke="#ea580c" stroke-width="2.4"/>
+  <path d="M${C[3]+7} 98 C${C[3]+13} 112 ${C[3]+20} 118 ${C[3]+32} 121 M${C[3]-7} 146 C${C[3]-13} 132 ${C[3]-20} 126 ${C[3]-32} 123" fill="none" stroke="#0f766e" stroke-width="2.4"/>
+  <path d="M${C[4]-32} 154 L${C[4]} 122 L${C[4]+32} 154" fill="none" stroke="#16a34a" stroke-width="2.4"/>
+  <path d="M${C[5]+6} 98H${C[5]+40} M${C[5]-40} 146H${C[5]-6}" stroke="#ea580c" stroke-width="2.4"/>
+  <circle cx="${C[5]}" cy="122" r="3" fill="currentColor"/>
+  <circle cx="${C[5]}" cy="98" r="3" fill="#fef3c7" stroke="#ea580c" stroke-width="1.4"/>
+  <circle cx="${C[5]}" cy="146" r="3" fill="#fef3c7" stroke="#ea580c" stroke-width="1.4"/>
+  <g fill="currentColor" font-size="10.5" opacity="0.85" text-anchor="middle">
+    <text x="${C[0]}" y="210">D: ℝ</text>
+    <text x="${C[0]}" y="226">R: {c}</text>
+    <text x="${C[1]}" y="210">D: ℝ</text>
+    <text x="${C[1]}" y="226">R: ℝ</text>
+    <text x="${C[2]}" y="210">D: ℝ</text>
+    <text x="${C[2]}" y="226">R: [0, ∞)</text>
+    <text x="${C[3]}" y="210">D: ℝ − {0}</text>
+    <text x="${C[3]}" y="226">R: ℝ − {0}</text>
+    <text x="${C[4]}" y="210">D: ℝ</text>
+    <text x="${C[4]}" y="226">R: [0, ∞)</text>
+    <text x="${C[5]}" y="210">D: ℝ</text>
+    <text x="${C[5]}" y="226">R: {−1, 0, 1}</text>
+    <text x="360" y="252" font-size="12">six resident machines — the domain column and the range column are the exam's first read</text>
+  </g>
+</svg>`
+}
+
+function gifSawtoothSvg(): string {
+  const SC = 34, Y0 = 160, O1 = 180, O2 = 540
+  const stairs = [-3, -2, -1, 0, 1, 2, 3, 4].map((n) => {
+    const x1 = O1 + SC * n, x2 = O1 + SC * (n + 1), y = Y0 - 26 * n
+    return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#ea580c" stroke-width="2.2"/><circle cx="${x1}" cy="${y}" r="3.2" fill="#ea580c"/><circle cx="${x2}" cy="${y}" r="3.2" fill="#fef3c7" stroke="#ea580c" stroke-width="1.4"/>`
+  }).join('\n  ')
+  const teeth = [-3, -2, -1, 0, 1, 2, 3, 4].map((n) => {
+    const x1 = O2 + SC * n, y1 = Y0, x2 = O2 + SC * (n + 1), y2 = Y0 - 26
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#0f766e" stroke-width="2.2"/><circle cx="${x1}" cy="${y1}" r="3.2" fill="#0f766e"/><circle cx="${x2}" cy="${y2}" r="3.2" fill="#fef3c7" stroke="#0f766e" stroke-width="1.4"/>`
+  }).join('\n  ')
+  const yLabels = [-3, -2, -1, 0, 1, 2, 3, 4].map((n) => `<text x="${O1 - 8}" y="${163 - 26 * n}" font-size="10" text-anchor="end" opacity="0.8">${n}</text>`).join('\n  ')
+  const xLabels = [-3, -2, -1, 0, 1, 2, 3, 4, 5].map((t) => `<text x="${O1 + SC * t}" y="180" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
+  const xLabels2 = [-3, -2, -1, 0, 1, 2, 3, 4, 5].map((t) => `<text x="${O2 + SC * t}" y="180" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
+  return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the staircase graph of the greatest integer function and the sawtooth graph of the fractional part, with the witnesses minus zero point six computed on both">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="${O1}" y="40">the staircase of y = [x]</text>
+    <text x="${O2}" y="40">the sawtooth of y = {x}</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${O1-150} 160H${O1+150} M${O1} 48V272"/>
+    <path d="M${O2-150} 160H${O2+150} M${O2} 48V272"/>
+  </g>
+  <path d="M${O2+SC*(-0.6)} 166V96" stroke="#0f766e" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.7"/>
+  <text x="${O2+SC*(-0.6)+8}" y="92" font-size="11" fill="#0f766e">period 1 — every unit is a rerun</text>
+  ${stairs}
+  ${teeth}
+  ${yLabels}
+  ${xLabels}
+  ${xLabels2}
+  <g fill="currentColor" font-size="11.5">
+    <text x="30" y="236">[−0.6] = −1 — land on the LEFT integer</text>
+    <text x="412" y="118">{−0.6} = 0.4 — the climb already made</text>
+  </g>
+  <path d="M150 232L${O1+SC*(-0.6)+3} 189" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
+  <path d="M480 112L${O2+SC*(-0.6)-4} 146" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="${O1}" y="300">solid dot: the integer belongs to its own stair — open dot: handed to the next</text>
+    <text x="${O2}" y="300">{x + n} = {x}: the fractional part forgets every whole lap</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.5 — the function zoo                                       */
+/* ------------------------------------------------------------------ */
+
+const lesson15: Lesson = {
+  id: 'aa-function-zoo-modulus-signum-gif-elementary-catalog',
+  number: '1.5',
+  title: 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog',
+  concepts: [
+    'the elementary catalog: six resident machines with their domains and ranges',
+    'identical functions: the two-gate test (same domain, same value everywhere on it)',
+    'piecewise functions: different rules on different sub-intervals, switch points owned',
+    'the modulus and the signum machine: size and sign, separated',
+    'the greatest integer function: the staircase that lands LEFT',
+    'the fractional part: period 1 and the pair law',
+    'max/min machines: the upper and lower envelope of two graphs',
+  ],
+  objectives: [
+    'recite the six catalog machines with domain and range on sight, and read any new machine against them',
+    'apply the two-gate identical test — same domain first, same value at every point of it second — and kill wrong "same formula" claims',
+    'open absolute-value expressions piecewise and evaluate at switch-point neighbours without error',
+    'compute with the signum machine, including the identities x·sgn(x) = |x| and |x|·sgn(x) = x',
+    'evaluate and solve with [x] and {x}, using x − 1 < [x] ≤ x and the pair law {x} + {−x}',
+    'rebuild max/min machines as honest piecewise definitions by intersecting the graphs',
+  ],
+  prerequisites: ['aa-inverse-functions-the-machine-undone', 'aa-one-one-and-onto-classifying-the-machines'],
+  sources: ['cengage-m2-algebra', 'cengage-jee-style', 'ncert-math11-ch2-functions', 'ncert-math12-ch1-relations-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Three lessons built the machinery of judgment: machines were counted (1.1), classified (1.2), wired in series and undone (1.3, 1.4). Every one of those verdicts was passed on machines that arrived by formula. This lesson finally walks the ZOO — the small family of resident machines that the whole of algebra keeps in cages and the whole of the examination hall keeps in mind: the constant, the identity, the square, the cubic, the reciprocal, the modulus — and three special residents the syllabus names by pet name, the signum, the greatest integer and the fractional part. None is deep; all are permanent. Every later chapter — graphs, limits, continuity, calculus itself — reads its new creatures against this catalog.' },
+    { kind: 'para', text: 'The plan: first the six parents and their domain-range cards; then the exact meaning of "two machines are the same machine" (the identical test — where a famous trap lives); then piecewise definitions, the honest way machines with a switch are written; then the three specials — size, sign, and the floor — each with its graph, its laws and its worked craft. One discipline runs through everything: a machine is its DOMAIN plus its RULE, and every paradox in the zoo dissolves once both are read.' },
+
+    { kind: 'heading', text: 'The Elementary Catalog: Six Resident Machines' },
+    { kind: 'terms', items: [
+      { term: 'Constant function', def: 'f: ℝ → ℝ, f(x) = c for a fixed constant c. Domain ℝ, range {c} — one output, worn by every input. The horizontal line: a machine that answers nothing about the input.' },
+      { term: 'Identity function', def: 'f: ℝ → ℝ, f(x) = x. Domain ℝ, range ℝ. The 45° line through the origin: the relay that returns every input untouched — the machine that does nothing, and therefore the reference every other machine is measured against (it is its own inverse, lesson 1.4).' },
+      { term: 'Square function', def: 'f: ℝ → ℝ, f(x) = x². Domain ℝ, range [0, ∞). The parabola with vertex at the origin. Many-one on ℝ — the 1.2 verdict — because x and −x share a seat.' },
+      { term: 'Cubic function', def: 'f: ℝ → ℝ, f(x) = x³. Domain ℝ, range ℝ. Odd powers keep the sign: the curve falls left and rises right, one-one and onto — every input a unique seat.' },
+      { term: 'Reciprocal function', def: 'f: ℝ ∖ {0} → ℝ, f(x) = 1/x. Domain ℝ ∖ {0}, range ℝ ∖ {0}. Two branches in opposite quadrants; both axes are approached forever and touched never. The zero that is missing from the domain is also missing from the range.' },
+      { term: 'Modulus function', def: 'f: ℝ → ℝ, f(x) = |x| — the size of x, sign stripped: |x| = x for x ≥ 0 and |x| = −x for x < 0. Domain ℝ, range [0, ∞). The V through the origin; the machine behind every distance statement |a − b|.' },
+    ] },
+    { kind: 'figure', caption: 'The zoo in one picture. Each resident is drawn on its own axes with its domain and range printed under it. Read the range column first — it is the answer to half of every domain-range question: the constant collapses to one seat {c}, the square and the modulus both live in [0, ∞), the reciprocal loses exactly the seat its domain lost, and the signum (the last panel, introduced below) keeps only three seats: −1, 0, 1.', svg: zooCatalogSvg() },
+    { kind: 'para', text: 'Two readings of the card column deserve drilling. First, the DOMAIN is where the rule is legal: $\\sqrt{2x-3}$ inherits its domain from the square root’s veto ($2x - 3 \\geq 0$, so $x \\in [\\tfrac{3}{2}, \\infty)$), and $\\tfrac{1}{x-2}$ from the denominator’s veto ($x \\neq 2$). Second, the RANGE is what the rule can reach: solving back is the general tool — for $y = \\tfrac{1}{x^2+2}$, $x^2 = \\tfrac{1}{y} - 2$ must stay non-negative, which forces $0 < y \\leq \\tfrac{1}{2}$. The catalog machines anchor both readings because their cards are known by heart.' },
+
+    { kind: 'heading', text: 'Identical Functions' },
+    { kind: 'callout', tone: 'definition', title: 'Identical Functions', text: 'Two functions f and g are IDENTICAL when they pass two gates at once: (i) the DOMAIN gate — Dom(f) = Dom(g); and (ii) the VALUE gate — f(x) = g(x) for every x of that common domain. Thus, identical machines are one machine written twice; the test is on the pair (domain, rule), never on the surface spelling.' },
+    { kind: 'para', text: 'The domain gate is the one examinations love to spring. Take $f(x) = x$ and $g(x) = \\tfrac{1}{(1/x)}$: the formula for $g$ simplifies to $x$ — but $g$ is undefined at $x = 0$ while $f$ is not. The domains differ, so the machines are NOT identical on ℝ; they are identical only on the common domain $\\mathbb{R} \\setminus \\{0\\}$. The value gate catches the other trap: $f(x) = x$ and $h(x) = \\sqrt{x^2}$ share the domain ℝ, but $h(-2) = 2 \\neq -2$ — the ranges differ (ℝ against $[0, \\infty)$), so again not identical. Meanwhile $f(x) = |x|$ and $h(x) = \\sqrt{x^2}$ ARE identical: same domain, same value at every point, ranges both $[0, \\infty)$.' },
+    { kind: 'example', title: 'Run the two-gate test on (a) f(x) = x and g(x) = 1/(1/x); (b) f(x) = |x| and g(x) = √(x²)', steps: [
+      '(a) The value gate passes wherever both are defined: for $x \\neq 0$, $\\tfrac{1}{(1/x)} = x$. But the domain gate fails on ℝ: $g$ has no seat at $0$. Hence the machines are identical exactly on $\\mathbb{R} \\setminus \\{0\\}$ — the whole answer must name the domain, or it is wrong.',
+      '(b) Domain gate: both defined on all of ℝ ✓. Value gate: for $x \\geq 0$, $\\sqrt{x^2} = x = |x|$; for $x < 0$, $\\sqrt{x^2} = -x = |x|$ ✓. Ranges agree at $[0, \\infty)$.',
+      'Hence $|x|$ and $\\sqrt{x^2}$ are identical — one machine, two spellings; while $x$ and $\\sqrt{x^2}$ are not, the sign of the input being exactly what the square root forgets.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: '"Same simplified formula" is not a proof of identity', text: 'Simplification can SILENTLY shrink the domain: $\\tfrac{x^2-1}{x-1}$ simplifies to $x + 1$, but the left side has no seat at $x = 1$. The honest statement: identical on $\\mathbb{R} \\setminus \\{1\\}$. Every identity claim in an examination answer should be followed by the domain it was proved on.' },
+
+    { kind: 'heading', text: 'Piecewise Functions' },
+    { kind: 'callout', tone: 'definition', title: 'Piecewise definition', text: 'A function is PIECEWISE-defined when its domain is split into sub-intervals and each sub-interval carries its own rule: thus, f(x) = rule-i(x) for x ∈ I-i, with the sub-intervals I-1, I-2, … partitioning the domain. The value at an input is the value of the ONE rule whose interval owns that input — and every switch point belongs to exactly one branch.' },
+    { kind: 'para', text: 'The shape is everywhere in daily life. An auto-rickshaw in a fixed-zone city charges Rs 30 for any ride up to 2 km, Rs 45 for a ride longer than 2 km but not beyond 5 km, and for rides beyond 5 km the Rs 45 plus Rs 12 for each whole kilometre past five. The fare machine reads', },
+    { kind: 'equation', latex: 'F(t) = \\begin{cases} 30, & 0 < t \\leq 2 \\\\ 45, & 2 < t \\leq 5 \\\\ 45 + 12(t - 5), & t > 5 \\end{cases}', note: 'the fare as a machine of the distance t in km — three rules, three intervals, no overlap and no gap' },
+    { kind: 'para', text: 'Read it at work: $F(1.5) = 30$ (short hop), $F(4) = 45$ (the middle band is FLAT — a 4 km ride costs the same as a 2.1 km ride), $F(8) = 45 + 12 \\times 3 = 81$. Notice what the definition refuses to say: it never prices a 2 km ride by two rules. The switch points $t = 2$ and $t = 5$ each belong to one branch — the $\u201c\\leq\u201d$ owns them — and that discipline is what makes the machine a function at all.' },
+    { kind: 'example', title: 'Open the modulus expressions |x − 2| and |x² − 1| piecewise, and evaluate |x² − 1| at x = −0.5', steps: [
+      'The modulus opens at the point where its inside changes sign. For $|x - 2|$: the inside $x - 2$ is $\u2265 0$ on $[2, \\infty)$ and negative on $(-\\infty, 2)$ — hence $|x - 2| = \\{x - 2,\\ x \\geq 2;\\ 2 - x,\\ x < 2\\}$.',
+      'For $|x^2 - 1|$: the inside factors as $(x-1)(x+1)$, negative exactly between the roots. Hence $|x^2 - 1| = \\{x^2 - 1,\\ x \\leq -1 \\text{ or } x \\geq 1;\\ 1 - x^2,\\ -1 < x < 1\\}$.',
+      'At $x = -0.5$: the input lies in the middle band, so the value is $1 - (-0.5)^2 = 1 - 0.25 = 0.75$ — the piecewise reading picks the rule, the rule computes the number.',
+      'The general craft: set the inside equal to zero, order the roots, test one point in each gap for the sign, and write one rule per gap. Nothing else is involved.',
+    ] },
+
+    { kind: 'heading', text: 'The Modulus: One Machine, Two Faces' },
+    { kind: 'callout', tone: 'insight', title: 'Size and sign can be separated — that is the zoo’s organizing idea', text: 'Every real number x carries two independent quantities: its SIZE $|x|$ and its SIGN. The modulus erases the sign and keeps the size; the signum (next section) keeps the sign and erases the size. Their product rebuilds the number: $|x| \\cdot \\mathrm{sgn}(x) = x$. Many hard identities in later chapters are just this separation, worn by a formula.' },
+    { kind: 'para', text: 'The modulus obeys a short law shelf worth pinning: $|ab| = |a|\\,|b|$ (size multiplies cleanly); $|a|^2 = a^2$ (squaring already kills the sign, so a square root of a square returns the modulus — the identical-functions example); $|a - b|$ is the DISTANCE between $a$ and $b$ on the number line, which is why equations like $|x - 3| = 5$ read "all seats at distance 5 from 3" — $x = 8$ and $x = -2$. And the 1.2 verdict re-read: the modulus is MANY-ONE, since $|-3| = |3| = 6$ — its V-graph double-covers every range seat except 0.' },
+
+    { kind: 'heading', text: 'Signum: the Sign Machine' },
+    { kind: 'callout', tone: 'definition', title: 'Signum function', text: 'The signum of x is sgn(x) = { 1, x > 0; 0, x = 0; −1, x < 0 } — equivalently sgn(x) = |x|/x for x ≠ 0 and sgn(0) = 0. Domain ℝ, range {−1, 0, 1}: the machine reports only which HALF of the line the input lives on (and the origin seat, reported as 0).' },
+    { kind: 'equation', latex: 'x \\cdot \\mathrm{sgn}(x) = |x| \\qquad |x| \\cdot \\mathrm{sgn}(x) = x', note: 'the two reconstruction laws — number = size × sign, verified by opening the cases: x > 0 gives x·1 = x = |x|; x < 0 gives x·(−1) = −x = |x|; x = 0 gives 0 both ways' },
+    { kind: 'example', title: 'Find the range of sgn(x²), and show that sgn(x² − 2x + 3) is the constant machine 1', steps: [
+      'For $\\mathrm{sgn}(x^2)$: the inside $x^2$ is $0$ at $x = 0$ and strictly positive elsewhere. Hence $\\mathrm{sgn}(x^2) = \\{0,\\ x = 0;\\ 1,\\ x \\neq 0\\}$ — the range is $\\{0, 1\\}$.',
+      'For $\\mathrm{sgn}(x^2 - 2x + 3)$: complete the square — $x^2 - 2x + 3 = (x-1)^2 + 2 \\geq 2 > 0$ for every real $x$. The inside never touches 0 and never goes negative.',
+      'Hence $\\mathrm{sgn}(x^2 - 2x + 3) = 1$ for ALL $x$: the composite has collapsed to the constant machine — the range is the single seat $\\{1\\}$.',
+      'The lesson of the pair: sgn of an expression asks ONE question — what is the SIGN of the inside? — and a machine whose inside never changes sign collapses to a constant.',
+    ] },
+
+    { kind: 'heading', text: 'The Greatest Integer Function' },
+    { kind: 'para', text: 'Every real number carries an integral part and a fractional part: $1.23 = 1 + 0.23$, and $-1.76 = -2 + 0.34$ — note that the fractional part STAYS positive even for negative numbers, because $-1.76$ sits between the integers $-2$ and $-1$, and its integral part is the LEFT one. To find the integral part of $x$, stand on $x$ on the number line and look LEFT: the first integer you see is the answer. That integer is the GREATEST among all integers less than or equal to $x$ — hence the name.' },
+    { kind: 'callout', tone: 'definition', title: 'Greatest integer function', text: 'The greatest integer (floor) of x is [x] = the greatest integer n with n ≤ x. Thus, [x] = n exactly when x ∈ [n, n + 1), and the defining squeeze is x − 1 < [x] ≤ x. Domain ℝ, range ℤ. Examples: [1.23] = 1, [2.87] = 2, [−1.76] = −2, [−0.81] = −1, [5] = 5.' },
+    { kind: 'figure', caption: 'The staircase and the sawtooth. Left: y = [x] — a flat stair of height n over each interval [n, n + 1), with a SOLID dot at the left end (the integer belongs to its own stair) and an OPEN dot at the right end (handed to the next stair up). The witness [−0.6] = −1 reads off the stair one below zero. Right: y = {x} — a sawtooth that climbs from 0 to 1 on every unit and resets; the witness {−0.6} = 0.4 is the climb already made inside [−1, 0). The dashed line marks the period: after one unit the whole graph is a rerun.', svg: gifSawtoothSvg() },
+    { kind: 'list', marker: 'roman', items: [
+      '$[x] = n$ (an integer) if and only if $x \\in [n, n+1)$ — the reading that turns every $[x]$ equation into an interval question.',
+      '$x - 1 < [x] \\leq x$ — the squeeze; for integers the left gap closes to equality.',
+      '$[x + n] = [x] + n$ for every integer $n$ — whole laps shift the landing integer by exactly the lap count.',
+      '$[-x] + [x] = 0$ if $x$ is an integer, and $= -1$ otherwise — the pair law (proved below).',
+      '$[x] \\geq n \\Rightarrow x \\geq n$, and $[x] \\leq n \\Rightarrow x < n+1$; e.g. $[x] > 3$ means $[x] \\geq 4$, hence $x \\geq 4$ — the strict/loose flip examiners harvest.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Gauss stamps the brackets (1801)', text: 'The bracket notation $[x]$ for the greatest integer was introduced by Carl Friedrich Gauss in the *Disquisitiones Arithmeticae* (1801) — the same book that fixed the Euclidean algorithm as number theory’s foundation (FM’s Lesson 3.5 tells that story). The floor function thus entered mathematics as a NUMBER-THEORY tool: counting lattice points, stating divisibility ladders, building the prime-counting estimates. Its graph became interesting only later, when analysis began asking what a machine with jumps could look like — and the staircase became the standard first picture of a discontinuous machine.' },
+    { kind: 'derivation', title: 'The pair law: {x} + {−x} is 0 for integers and 1 otherwise', statement: 'Why does the fractional part of x and of −x always rebuild 0 or 1 — never anything else?', steps: [
+      { label: 'Case 1: x an integer', formula: '\\{x\\} = x - [x] = 0 \\quad\\text{and}\\quad \\{-x\\} = -x - [-x] = 0', explanation: 'on an integer the fractional part vanishes on both sides, so the sum is 0.' },
+      { label: 'Case 2: split x off the integers', formula: 'x = [x] + \\{x\\} \\quad 0 < \\{x\\} < 1', explanation: 'strictly inside the unit interval: the fractional part vanishes ONLY on integers, so off them the climb is genuinely in progress.' },
+      { label: 'Negate and regroup', formula: '-x = -[x] - \\{x\\} = (-[x] - 1) + (1 - \\{x\\})', explanation: 'the regrouping borrows 1 from the integral part so the bracket term stays a whole number and the rest is strictly between 0 and 1.' },
+      { label: 'Read off the parts of −x', formula: '[-x] = -[x] - 1 \\quad\\text{and}\\quad \\{-x\\} = 1 - \\{x\\}', explanation: 'the borrow is legal because 0 < 1 − {x} < 1 — a genuine fractional part with its own integral part one below.' },
+      { label: 'Add the pair', formula: '\\{x\\} + \\{-x\\} = \\{x\\} + (1 - \\{x\\}) = 1', explanation: 'the sum is exactly the borrowed 1; witness both cases: {0.6} + {−0.6} = 0.6 + 0.4 = 1, while {3} + {−3} = 0.' },
+    ], result: '{x} + {−x} = 0 on the integers and 1 off them — the pair law, proved by the borrow.' },
+    { kind: 'example', title: 'Find the domain of h(x) = 1/([x]² − 5[x] + 6), where [·] is the greatest integer function', steps: [
+      'The denominator must not vanish: $[x]^2 - 5[x] + 6 = ([x] - 2)([x] - 3)$, so the killers are $[x] = 2$ and $[x] = 3$.',
+      'Translate each into its interval: $[x] = 2 \\iff x \\in [2, 3)$, and $[x] = 3 \\iff x \\in [3, 4)$. Together: $x \\in [2, 4)$.',
+      'Hence the domain is all reals except that band: $(−\\infty, 2) \\cup [4, \\infty)$.',
+      'The craft to keep: an $[x]$-equation is never solved by algebra on x — solve for $[x]$ first, then convert each integer answer to its interval, then handle the endpoints with the bracket discipline.',
+    ] },
+    { kind: 'example', title: 'Solve x² − 3[x] + 2 = 0 over the reals', steps: [
+      'Solve for the bracket: $x^2 = 3[x] - 2$, and since $[x]$ is an integer the right side is $1$ or $4$ when $[x] = 1$ or $[x] = 2$; no other bracket value can balance (for $[x] \\geq 3$ the demand $x^2 \\geq 7$ climbs faster than any consistent $[x]$ allows — the honest check is the interval test that follows).',
+      'Test the candidates with the bracket: $x^2 = 1$ offers $x = 1$ or $x = -1$; $[1] = 1$ ✓ balances, $[-1] = -1 \\neq 1$ ✗ refuses.',
+      '$x^2 = 4$ offers $x = 2$ or $x = -2$; $[2] = 2$ ✓ balances, $[-2] = -2 \\neq 2$ ✗ refuses.',
+      'Hence $x = 1 \\text{ or } x = 2$ — the two surviving seats; every negative candidate died on the bracket, which is the whole discipline of the piece.',
+    ] },
+
+    { kind: 'heading', text: 'The Fractional Part' },
+    { kind: 'callout', tone: 'definition', title: 'Fractional part function', text: 'The fractional part of x is {x} = x − [x]. Thus, {x} ∈ [0, 1) for every real x, {x} = 0 exactly on the integers, and {x} = {x + n} for every integer n — the machine forgets whole laps: period 1. Domain ℝ, range [0, 1).' },
+    { kind: 'para', text: 'The sawtooth is the periodic machine in its purest dress: every unit interval re-runs the same climb. That periodicity is inherited by every composite built on it — $\\log\\{x\\}$, $\\sin\\{x\\}$, $\\tfrac{1}{1+\\{x\\}}$ are all period-1 machines — a fact the period census (lesson 1.8) will price in full. For now, one worked solve shows the {·}/[·] teamwork.' },
+    { kind: 'example', title: 'Solve 2[x] = x + {x} over the reals', steps: [
+      'Split the right side: $x = [x] + \\{x\\}$, so the equation reads $2[x] = [x] + 2\\{x\\}$ — cancel one bracket: $[x] = 2\\{x\\}$.',
+      'The left side is an integer and the right side lives in $[0, 2)$ (since $0 \\leq \\{x\\} < 1$). Hence $[x] = 2\\{x\\}$ with $\\{x\\} = [x]/2$ and $0 \\leq [x] < 2$: the bracket is $0$ or $1$.',
+      '$[x] = 0$ forces $\\{x\\} = 0$, i.e. $x = 0$. Check: $2[0] = 0 = 0 + 0$ ✓.',
+      '$[x] = 1$ forces $\\{x\\} = 1/2$, i.e. $x = 3/2$. Check: $2[1.5] = 2$ and $1.5 + 0.5 = 2$ ✓.',
+      'The solution set is $\\{0, 3/2\\}$ — found by pinning the bracket to the integers its interval allows, then rebuilding x.',
+    ] },
+
+    { kind: 'heading', text: 'Max and Min Machines' },
+    { kind: 'para', text: 'A last zoo resident with a craft all its own: $f(x) = \\max\\{g(x), h(x)\\}$ — at each input, whichever of the two graphs sits HIGHER wins the value. The graph of a max machine is the UPPER ENVELOPE of the two curves; a min machine is the lower envelope. To open one piecewise, find where the curves CROSS (solve $g = h$), test one point between crossings to see which curve is up, and write one rule per band. The envelope idea returns as the standard picture for $|x| = \\max\\{x, -x\\}$ — even the modulus is a max machine in costume.' },
+    { kind: 'example', title: 'Open f(x) = min{x², x + 2} piecewise and evaluate at x = −2, 0, 3', steps: [
+      'Crossings: $x^2 = x + 2$ gives $x^2 - x - 2 = 0$, i.e. $(x-2)(x+1) = 0$ — the curves meet at $x = -1$ and $x = 2$.',
+      'Which is LOWER in between? At $x = 0$: $x^2 = 0$ against $x + 2 = 2$ — the parabola is below. Outside the crossings, test $x = -2$: $4$ against $0$ — the LINE is below; $x = 3$: $9$ against $5$ — the line again.',
+      'Hence $f(x) = \\{x + 2,\\ x < -1;\\ x^2,\\ -1 \\leq x \\leq 2;\\ x + 2,\\ x > 2\\}$ — the lower envelope hugs the line, dips into the parabola’s bowl, and returns to the line.',
+      'Evaluate: $f(-2) = 0$, $f(0) = 0$, $f(3) = 5$ — each by its owning rule.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'The zoo is the vocabulary of everything that follows', text: 'Graph transformations (lesson 1.7) will drag these parent graphs around the plane; the period census (1.8) will read the sawtooth’s period-1 discipline off every composite; continuity will locate exactly where the staircase jumps; and integration will measure areas under these same curves. Every one of those chapters opens by asking: which catalog machine is this, and what is already known about it? The catalog is not a section to skim — it is the shelf the rest of the book draws from.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The value of [−2.7] is', options: ['−2', '−3', '−2.3', '−2.7'], answer: 1, explain: 'Stand on −2.7 and look LEFT: the first integer is −3, and $-2.7 = -3 + 0.3$ shows the split. Option 1 truncates TOWARD zero, which is the rounding reflex, not the greatest-integer law; options 3 and 4 are not integers at all.' },
+      { q: 'The value of {−1.3} is', options: ['−0.3', '0.3', '0.7', '−1.3'], answer: 2, explain: 'The fractional part never goes negative: $\\{-1.3\\} = -1.3 - [-1.3] = -1.3 - (-2) = 0.7$ — the pair law at work ($\\{x\\} + \\{-x\\} = 1$ off the integers). Option 1 is the truncation reflex again; option 2 loses the lap.' },
+      { q: 'For every real x, the product x·sgn(x) equals', options: ['x', '|x|', 'sgn(x)', '1'], answer: 1, explain: 'The reconstruction law: number = size × sign. For $x > 0$: $x \\cdot 1 = x = |x|$; for $x < 0$: $x \\cdot (-1) = -x = |x|$; at 0 both sides are 0. Option 1 forgets the negative half; option 3 is just the sign again.' },
+      { q: 'On ℝ, the machines f(x) = x and g(x) = √(x²) are', options: ['identical — the formulas agree after simplification', 'not identical — the ranges differ (ℝ against [0, ∞))', 'not identical — the domains differ', 'identical only at x = 0'], answer: 1, explain: 'Both domains are all of ℝ, but $g(-2) = 2 \\neq -2$: the square root forgets the sign, so the ranges differ and the value gate fails. Option 1 is exactly the "same simplified formula" trap — simplification never outranks the value gate; option 3 is false (both defined everywhere); option 4 contradicts $x = -2$.' },
+      { q: 'The domain of h(x) = 1/([x]² − 5[x] + 6) is', options: ['(−∞, 2) ∪ [4, ∞)', 'ℝ − {2, 3}', '[2, 4)', '(−∞, 2) ∪ (4, ∞)'], answer: 0, explain: 'The denominator factors as $([x]-2)([x]-3)$, so $[x] = 2$ or $3$ — that is the INTERVAL $[2, 4)$, not the two points $\\{2, 3\\}$: the bracket pins a whole stair, which is the piece every wrong option misses. Option 2 kills two seats instead of a band; option 3 is the excluded band itself; option 4 opens the band wrongly at 2.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.5', sets: [
+      { level: 'L1', questions: [
+        { q: 'Evaluate [4.7], [−0.6], {3.9}, {−3.9} and sgn(−π).', solution: [
+          '$[4.7] = 4$ — land left between 4 and 5. $[-0.6] = -1$ — land left between $-1$ and 0.',
+          '$\\{3.9\\} = 3.9 - 3 = 0.9$. $\\{-3.9\\} = -3.9 - (-4) = 0.1$ — the fractional part stays positive.',
+          '$\\mathrm{sgn}(-\\pi) = -1$ — the input is negative; the machine reports the half, not the size.',
+        ], answer: '[4.7] = 4, [−0.6] = −1, {3.9} = 0.9, {−3.9} = 0.1, sgn(−π) = −1.' },
+        { q: 'Compute x·sgn(x) at x = −9, and open f(x) = |x + 3| piecewise.', solution: [
+          '$(-9) \\cdot \\mathrm{sgn}(-9) = (-9)(-1) = 9 = |-9|$ — the reconstruction law at a negative seat.',
+          '$|x+3|$ switches where $x + 3 = 0$, i.e. at $x = -3$: for $x \\geq -3$ the inside is $\u2265 0$, so $f(x) = x + 3$; for $x < -3$, $f(x) = -(x+3) = -x - 3$.',
+          'Check the switch: $f(-3) = 0$ by either branch — the V’s vertex sits at $x = -3$.',
+        ], answer: 'x·sgn(x) = 9 at x = −9; |x + 3| = {x + 3, x ≥ −3; −x − 3, x < −3}.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the domain and range of f(x) = 1/(x² + 4).', solution: [
+          'Domain: $x^2 + 4 \\geq 4 > 0$ always — no veto, so the domain is $\\mathbb{R}$.',
+          'Range: solve back. $y = \\tfrac{1}{x^2+4}$ gives $x^2 = \\tfrac{1}{y} - 4$, which needs $\\tfrac{1}{y} - 4 \\geq 0$, i.e. $0 < y \\leq \\tfrac{1}{4}$.',
+          'The top is honest: at $x = 0$, $f = \\tfrac{1}{4}$; the bottom 0 is approached as $|x|$ grows, never reached.',
+        ], answer: 'Domain ℝ; range (0, 1/4].' },
+        { q: 'Find the domain of g(x) = √([x] − 2) + √(7 − [x]).', solution: [
+          'Both roots must be legal: $[x] - 2 \\geq 0$ and $7 - [x] \\geq 0$, so $2 \\leq [x] \\leq 7$.',
+          'Translate: $[x] \\geq 2 \\iff x \\geq 2$; $[x] \\leq 7 \\iff x < 8$ (the bracket-7 stair runs to 8, where it flips to 8).',
+          'Hence the domain is $[2, 8)$ — the closed left end comes from $x = 2$ (bracket 2), the open right end from $x = 8$ (bracket 8, too big).',
+        ], answer: 'Domain [2, 8).' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Open f(x) = max{x, 1 − x} piecewise and evaluate at x = 0, 1/2, 2.', solution: [
+          'Crossing: $x = 1 - x$ gives $x = 1/2$. Left of it, test $x = 0$: $\\max\\{0, 1\\} = 1$ — the LINE $1 - x$ is up; right of it, test $x = 2$: $\\max\\{2, -1\\} = 2$ — the line $x$ is up.',
+          'Hence $f(x) = \\{1 - x,\\ x \\leq 1/2;\\ x,\\ x > 1/2\\}$ — the upper envelope is a roof peaking at $x = 1/2$.',
+          'Evaluate: $f(0) = 1$, $f(1/2) = 1/2$ (either rule), $f(2) = 2$.',
+        ], answer: 'max{x, 1 − x} = {1 − x, x ≤ 1/2; x, x > 1/2}; values 1, 1/2, 2.' },
+        { q: 'Find all real x with [x]² − [x] − 6 = 0.', solution: [
+          'Factor in the bracket: $([x] - 3)([x] + 2) = 0$, so $[x] = 3$ or $[x] = -2$.',
+          'Translate each: $[x] = 3 \\iff x \\in [3, 4)$, and $[x] = -2 \\iff x \\in [-2, -1)$.',
+          'Hence $x \\in [3, 4) \\cup [-2, -1)$ — two intervals, not two points; the bracket always owns a whole stair.',
+        ], answer: 'x ∈ [3, 4) ∪ [−2, −1).' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the domain and range of f(x) = log{x}, where {·} is the fractional part.', solution: [
+          'The log needs $\\{x\\} > 0$, and $\\{x\\} = 0$ exactly on the integers — so the domain is $\\mathbb{R}$ minus the integers, $\\mathbb{R} \\setminus \\mathbb{Z}$.',
+          'For $0 < \\{x\\} < 1$, the log runs over all negatives: $-\\infty < \\log\\{x\\} < \\log 1 = 0$.',
+          'Hence the range is $(-\\infty, 0)$ — a period-1 machine whose every unit interval re-runs the same negative sweep.',
+        ], answer: 'Domain ℝ − ℤ; range (−∞, 0).' },
+        { q: 'Find the range of f(x) = 1/(1 + {x}).', solution: [
+          'Since $0 \\leq \\{x\\} < 1$, the denominator satisfies $1 \\leq 1 + \\{x\\} < 2$.',
+          'Invert: $\\tfrac{1}{2} < \\tfrac{1}{1+\\{x\\}} \\leq 1$ — the reciprocal flips the inequalities and keeps the closed end where the denominator is smallest... check: at $\\{x\\} = 0$ (integer $x$), $f = 1$ ✓ attained; as $\\{x\\} \\to 1^{-}$, $f \\to \\tfrac{1}{2}^{+}$, never attained.',
+          'Hence the range is $(1/2, 1]$.',
+        ], answer: 'Range (1/2, 1].' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Solve 3[x] − x = 2{x} over the reals.', solution: [
+          'Split $x = [x] + \\{x\\}$: the equation becomes $3[x] - [x] - \\{x\\} = 2\\{x\\}$, i.e. $2[x] = 3\\{x\\}$.',
+          'The right side lies in $[0, 3)$ and the left is an even integer — so $2[x] = 0$ or $2$, giving $[x] = 0$ or $1$, with $\\{x\\} = 2[x]/3 = 0$ or $2/3$.',
+          'Rebuild: $x = 0$ (check $3[0] - 0 = 0 = 2\\{0\\}$ ✓) and $x = 1 + 2/3 = 5/3$ (check: $3[5/3] - 5/3 = 3 - 5/3 = 4/3$ and $2\\{5/3\\} = 4/3$ ✓).',
+          'Hence the solutions are $x = 0$ and $x = 5/3$.',
+        ], answer: 'x ∈ {0, 5/3}.' },
+        { q: 'Are f(x) = x² and g(x) = x·(x/x) identical on ℝ? On what domain are they identical?', solution: [
+          'Simplify with the domain in view: $\\tfrac{x}{x} = 1$ only where $x \\neq 0$, so $g(x) = x$ with domain $\\mathbb{R} \\setminus \\{0\\}$ — the IDENTITY machine off the origin, not the square.',
+          'Value gate on the common domain: $f(x) = x^2$ against $g(x) = x$ — they differ already at $x = 2$ ($4$ vs $2$).',
+          'Hence NOT identical on any domain where both are defined (except the trivial single seat $x = 1$): the surface spelling $x \\cdot (x/x)$ hides that the machine is the identity off 0. The two-gate test catches it immediately.',
+        ], answer: 'Not identical on ℝ; g is the identity machine on ℝ − {0}, and x² ≠ x off the trivial seat x = 1.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove Hermite’s case-split: [x] + [x + 1/2] = [2x] for every real x.', solution: [
+          'Write $x = [x] + \\{x\\}$ with $t = \\{x\\} \\in [0, 1)$. Two cases split at $t = 1/2$.',
+          'Case $0 \\leq t < 1/2$: $[x + 1/2] = [x]$ (adding $1/2$ does not cross the next integer, since $t + 1/2 < 1$), and $[2x] = [2[x] + 2t] = 2[x]$ (since $2t < 1$). Both sides equal $2[x]$ ✓.',
+          'Case $1/2 \\leq t < 1$: $[x + 1/2] = [x] + 1$ (now $t + 1/2 \\geq 1$ promotes the stair), and $[2x] = [2[x] + 2t] = 2[x] + 1$ (since $1 \\leq 2t < 2$). Both sides equal $2[x] + 1$ ✓.',
+          'The identity holds on both halves of the split — which is exactly the case-discipline of every $[\\cdot]$ proof: split where the fractional part crosses a boundary.',
+        ], answer: '[x] + [x + 1/2] = [2x], proved by the two cases t < 1/2 and t ≥ 1/2.' },
+        { q: 'Prove that sgn(xy) = sgn(x)·sgn(y) for all real x and y.', solution: [
+          'Case grid on the signs of $x$ and $y$ (three cases each, nine cells, three distinct outcomes).',
+          'Both positive: $xy > 0$, LHS 1; RHS $1 \\cdot 1 = 1$ ✓. Both negative: $xy > 0$, LHS 1; RHS $(-1)(-1) = 1$ ✓.',
+          'One positive, one negative: $xy < 0$, LHS $-1$; RHS $1 \\cdot (-1) = -1$ ✓ (either order).',
+          'Either factor zero: $xy = 0$, LHS $0$; RHS $0$ (one factor is $\\mathrm{sgn}(0) = 0$) ✓.',
+          'All nine cells agree — the sign of a product is the product of the signs, the law that powers every sign-scheme of AL’s inequality work.',
+        ], answer: 'sgn(xy) = sgn(x)·sgn(y), verified on the full 3 × 3 case grid.' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: 'The catalog cards', latex: '\\mathrm{const}: \\mathbb{R} \\to \\{c\\} \\quad \\mathrm{id}: \\mathbb{R} \\to \\mathbb{R} \\quad x^2: \\mathbb{R} \\to [0,\\infty) \\quad x^3: \\mathbb{R} \\to \\mathbb{R} \\quad \\tfrac{1}{x}: \\mathbb{R}\\setminus\\{0\\} \\to \\mathbb{R}\\setminus\\{0\\} \\quad |x|: \\mathbb{R} \\to [0,\\infty)', note: 'domain and range of the six residents — the first read of every new machine' },
+    { kind: 'formula', name: 'The identical two-gate test', latex: 'f \\equiv g \\iff \\mathrm{Dom}(f) = \\mathrm{Dom}(g) \\ \\text{and}\\ f(x) = g(x)\\ \\forall x', note: 'domain gate FIRST, value gate second; x vs √(x²) fails the value gate, x vs 1/(1/x) fails the domain gate' },
+    { kind: 'formula', name: 'The modulus laws', latex: '|ab| = |a||b| \\qquad |a|^2 = a^2 \\qquad |a - b| = \\text{distance}(a, b)', note: 'size multiplies cleanly; squares are already sign-free; the modulus of a difference is distance' },
+    { kind: 'formula', name: 'The signum identities', latex: '\\mathrm{sgn}(x) = \\begin{cases} 1, x > 0 \\\\ 0, x = 0 \\\\ -1, x < 0 \\end{cases} \\qquad x \\cdot \\mathrm{sgn}(x) = |x| \\qquad |x| \\cdot \\mathrm{sgn}(x) = x', note: 'sign alone; number = size × sign; sgn collapses any fixed-sign inside to a constant' },
+    { kind: 'formula', name: 'The greatest-integer shelf', latex: '[x] = n \\iff x \\in [n, n+1) \\qquad x - 1 < [x] \\leq x \\qquad [x + n] = [x] + n \\qquad [-x] + [x] = \\begin{cases} 0, x \\in \\mathbb{Z} \\\\ -1, x \\notin \\mathbb{Z} \\end{cases}', note: 'land LEFT; the squeeze pins the stair; whole laps add; the pair law' },
+    { kind: 'formula', name: 'The fractional-part shelf', latex: '\\{x\\} = x - [x] \\in [0, 1) \\qquad \\{x\\} = \\{x + n\\} \\ (\\text{period } 1) \\qquad \\{x\\} + \\{-x\\} = \\begin{cases} 0, x \\in \\mathbb{Z} \\\\ 1, x \\notin \\mathbb{Z} \\end{cases}', note: 'the climb already made; the sawtooth forgets laps; the pair law with 1 in place of −1' },
+  ],
+}
+
+
+/* ------------------------------------------------------------------ */
+/* figure helpers for lesson 1.6 (even and odd)                        */
+/* ------------------------------------------------------------------ */
+
+function mirrorHalfTurnSvg(): string {
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the parabola y equals x squared mirrored about the y axis with a paired point, and the cubic y equals x cubed rotated a half turn about the origin with its paired point">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="180" y="34">EVEN — mirror about the y-axis</text>
+    <text x="540" y="34">ODD — half-turn about the origin</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M40 170H320 M180 60V286"/>
+    <path d="M400 170H680 M540 60V286"/>
+  </g>
+  <path d="M128 90 C128 132 152 162 180 162 C208 162 232 132 232 90" fill="none" stroke="#ea580c" stroke-width="2.6"/>
+  <circle cx="212" cy="106" r="4" fill="#ea580c"/>
+  <circle cx="148" cy="106" r="4" fill="#fef3c7" stroke="#ea580c" stroke-width="1.6"/>
+  <path d="M212 106 L148 106" stroke="#d97706" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M180 104V84" stroke="#d97706" stroke-width="1.1" opacity="0.8"/>
+  <text x="180" y="76" font-size="11" fill="currentColor" opacity="0.85">same height</text>
+  <text x="238" y="102" font-size="11.5" fill="currentColor">x</text>
+  <text x="112" y="102" font-size="11.5" fill="currentColor">−x</text>
+  <path d="M448 252 C480 240 510 210 540 170 C570 130 600 100 632 88" fill="none" stroke="#0f766e" stroke-width="2.6"/>
+  <circle cx="576" cy="112" r="4" fill="#0f766e"/>
+  <circle cx="504" cy="228" r="4" fill="#fef3c7" stroke="#0f766e" stroke-width="1.6"/>
+  <path d="M576 112 L504 228" stroke="#0f766e" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <circle cx="540" cy="170" r="3.4" fill="#0f766e"/>
+  <text x="546" y="164" font-size="11" fill="currentColor" opacity="0.85">through the origin</text>
+  <text x="588" y="106" font-size="11.5" fill="currentColor">(x, y)</text>
+  <text x="452" y="242" font-size="11.5" fill="currentColor">(−x, −y)</text>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="180" y="286">y = x²: the point (x, y) drags (−x, y) with it — f(−x) = f(x)</text>
+    <text x="540" y="286">y = x³: every (x, y) owns (−x, −y) — f(−x) = −f(x)</text>
+  </g>
+</svg>`
+}
+
+function extensionMirrorSvg(): string {
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A straight machine on the positive half line extended to the negative half in two ways: the even mirror at the same height and the odd mirror at the negated height">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="360" y="30">the two mirrors of one half-line machine</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M60 170H660 M360 54V272"/>
+  </g>
+  <path d="M360 150 L620 92" stroke="#16a34a" stroke-width="2.6"/>
+  <path d="M360 150 L100 92" stroke="#d97706" stroke-width="2.6"/>
+  <path d="M360 190 L100 248" stroke="#0f766e" stroke-width="2.6" stroke-dasharray="7 4"/>
+  <circle cx="620" cy="92" r="3.4" fill="#16a34a"/>
+  <circle cx="100" cy="92" r="3.4" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <circle cx="100" cy="248" r="3.4" fill="#fef3c7" stroke="#0f766e" stroke-width="1.6"/>
+  <circle cx="360" cy="150" r="3.4" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="360" cy="190" r="3.4" fill="#fef3c7" stroke="#0f766e" stroke-width="1.6"/>
+  <text x="620" y="72" font-size="11.5" fill="currentColor" text-anchor="middle">f(x) = x + 1 on (0, 3]</text>
+  <text x="96" y="80" font-size="11.5" fill="#b45309" text-anchor="start">even mirror: f_e(x) = f(−x)</text>
+  <text x="96" y="272" font-size="11.5" fill="#0f766e" text-anchor="start">odd mirror: f_o(x) = −f(−x)</text>
+  <circle cx="273" cy="131" r="3.2" fill="#d97706"/>
+  <circle cx="273" cy="209" r="3.2" fill="#0f766e"/><path d="M273 209V172" stroke="#0f766e" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/><path d="M273 131V172" stroke="#d97706" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/>
+  <g fill="currentColor" font-size="11.5">
+    <text x="64" y="112">f_e(−1) = f(1) = 2</text>
+    <text x="64" y="262">f_o(−1) = −f(1) = −2</text>
+  </g>
+  <path d="M170 116L268 128" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
+  <path d="M170 256L266 215" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
+  <text x="352" y="172" font-size="10.5" fill="currentColor" opacity="0.9" text-anchor="end">open hinge (0, 1)</text><path d="M354 168L357 156" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+  <text x="386" y="196" font-size="10.5" fill="currentColor" opacity="0.9">teal lands at (0, −1)</text>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="360" y="294">amber re-runs the heights; teal re-runs them NEGATED — the hinge keeps open seats unless filled by declaration</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.6 — even and odd functions                                 */
+/* ------------------------------------------------------------------ */
+
+const lesson16: Lesson = {
+  id: 'aa-even-and-odd-functions-and-extensions',
+  number: '1.6',
+  title: 'Even and Odd Functions and Their Extensions',
+  concepts: [
+    'even machines: f(−x) = f(x) — mirror symmetry about the y-axis',
+    'odd machines: f(−x) = −f(x) — half-turn symmetry about the origin',
+    'the domain gate: parity is only asked on symmetric domains',
+    'the arithmetic and composition parity table',
+    'the even + odd split: every machine decomposes, and uniquely',
+    'why every even machine is many-one — the 1.2 verdict re-read',
+    'even and odd extensions of half-line machines',
+  ],
+  objectives: [
+    'decide even / odd / neither by the f(−x) test, exhibiting witnesses when the verdict is neither',
+    'demand a symmetric domain before any parity verdict, and say exactly what fails on a half-line',
+    'read the parity table: sums, products, quotients and compositions inherit parity by rule, not by luck',
+    'decompose any machine into its even and odd parts and prove the split is unique',
+    'use the structural laws — odd at 0 forces f(0) = 0; even on a symmetric domain is many-one',
+    'build the even and odd extension of a machine given only on a half-line, and evaluate both on the mirror',
+  ],
+  prerequisites: ['aa-function-zoo-modulus-signum-gif-elementary-catalog', 'aa-one-one-and-onto-classifying-the-machines'],
+  sources: ['cengage-m2-algebra', 'cengage-jee-style', 'ncert-math11-ch2-functions', 'ncert-math12-ch1-relations-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Lesson 1.2 judged machines by their pairing discipline (one-one, onto); lessons 1.3 and 1.4 by their wiring (composition, inversion). This lesson adds a third, purely GEOMETRIC lens: what does the machine look like in the mirror? Some machines are unchanged when every input is flipped to its negative — the mirror copies them faithfully. Some come out negated — the half-turn copies them rotated 180°. Some do neither. The three verdicts — even, odd, neither — are the oldest symmetry classification in algebra, and they answer real examination questions at sight.' },
+    { kind: 'para', text: 'The lens also feeds the earlier ones directly: an even machine on a symmetric domain is AUTOMATICALLY many-one (lesson 1.2’s waste, structural this time), and an odd machine that reaches 0 must pass through the origin. Symmetry is not decoration — it is verdict arithmetic.' },
+    { kind: 'para', text: 'The examination hall asks the verdict in four voices. Direct: “is f(x) = x² sin x even, odd, or neither?” Table-voiced: “the product of an odd and an even machine is ___” (odd). Witness-voiced: “show that f(x) = sin x + cos x is neither, exhibiting the failing pair” — the answer must exhibit BOTH failures, since neither is a two-test verdict. And the structural voice: “if f is odd and defined at 0, what is f(0)?” — the hinge law. All four are one-line consequences of the definitions once the table is proved.' },
+    { kind: 'para', text: 'One more reading earns its keep before the machinery begins: the verdicts are PRESERVED by nothing except what the table says. A sum of two even machines cannot secretly turn odd; a composition cannot flip parity that its outer machine forbids. So parity, once computed, propagates — and whole multi-correct questions (“which of the following are even?”) collapse into a few table rows applied with discipline.' },
+
+    { kind: 'heading', text: 'The Two Symmetry Verdicts' },
+    { kind: 'callout', tone: 'definition', title: 'Even function', text: 'A machine y = f(x) is EVEN when f(-x) = f(x) for every x of its domain — the output refuses to notice the sign of the input. The graph is symmetric about the y-axis: every seat (x, y) is paired with (−x, y) at the same height. Witnesses: x², |x|, cos x, x⁴ − 3x² + 7.' },
+    { kind: 'callout', tone: 'definition', title: 'Odd function', text: 'A machine y = f(x) is ODD when f(-x) = -f(x) for every x of its domain — flipping the input flips the output. The graph is symmetric by HALF-TURN about the origin: every seat (x, y) is paired with (−x, −y), the point diametrically opposite through O. Witnesses: x, x³, sin x, x·|x|.' },
+    { kind: 'figure', caption: 'The two symmetries drawn. Left: the parabola y = x² — the amber dashed leader drags (x, y) across the y-axis to (−x, y) at the SAME height, which is exactly f(−x) = f(x) made visible. Right: the cubic y = x³ — the teal dashed leader runs (x, y) through the origin to the diametrically opposite seat (−x, −y), which is exactly f(−x) = −f(x). The filled origin dot on the right is the half-turn’s hinge: an odd machine defined at 0 owns the seat f(0) = 0.', svg: mirrorHalfTurnSvg() },
+    { kind: 'para', text: 'Both verdicts are checked the same way: compute f(−x), simplify, and compare against f(x) and −f(x). The discipline is in the comparison — a machine that matches NEITHER is neither, and the honest neither-verdict exhibits a witness input where both equations fail (failing one test is not enough).' },
+
+    { kind: 'heading', text: 'The Domain Gate: Symmetry Is Asked Only on Symmetric Ground' },
+    { kind: 'callout', tone: 'warn', title: 'No symmetric domain, no verdict', text: 'The test f(−x) = ±f(x) quantifies over “every x of the domain” — so the DOMAIN must already be symmetric about 0 (x in the domain forces −x in the domain) before the question even makes sense. The machine f(x) = x on [0, ∞) is NOT odd: −x is mostly not even in the domain, so f(−x) is mostly undefined. Parity is a property of the (domain, rule) PAIR — declare the domain first, judge second.' },
+    { kind: 'example', title: 'Decide even / odd / neither: (a) f(x) = x³ + x on ℝ; (b) f(x) = x⁴ − 3x² + 7 on ℝ; (c) f(x) = 2x + 1 on ℝ', steps: [
+      '(a) f(−x) = (−x)³ + (−x) = −x³ − x = −(x³ + x) = −f(x) for every real x — the machine is ODD; the ladder x³ + x is two odd machines added, and odd + odd stays odd.',
+      '(b) f(−x) = (−x)⁴ − 3(−x)² + 7 = x⁴ − 3x² + 7 = f(x) — EVEN; even powers cannot see the sign, and the constant 7 is even company (a constant machine c is even: f(−x) = c = f(x)).',
+      '(c) f(−x) = −2x + 1. Compare: f(−x) ≠ f(x) (−2x + 1 vs 2x + 1) and f(−x) ≠ −f(x) (−2x + 1 vs −2x − 1) — BOTH tests fail, and the honest verdict is NEITHER, with the witness pair f(1) = 3 against f(−1) = −1: neither equal nor opposite.',
+      'The pattern behind the cases: a machine is a SUM of an even part (the even powers + constants) and an odd part (the odd powers); it is even exactly when the odd part vanishes, odd exactly when the even part vanishes, and neither when both survive — which is the next section’s theorem in miniature.',
+    ] },
+
+    { kind: 'heading', text: 'The Parity Arithmetic: Sums, Products, Quotients, Compositions' },
+    { kind: 'table', caption: 'The parity table — what the four algebraic operations inherit from even and odd machines', head: ['operation', 'even ⊕ even', 'even ⊕ odd', 'odd ⊕ odd'], rows: [
+      ['f ± g', 'even', 'neither (in general)', 'odd'],
+      ['f × g', 'even', 'odd', 'even'],
+      ['f / g (g ≠ 0)', 'even', 'odd', 'even'],
+      ['f ∘ g', 'even', 'even (outer even wins)', 'odd'],
+    ] },
+    { kind: 'para', text: 'The table is proved, not memorized — and the proofs are one line each. Product: even × even keeps both signs, so even; even × odd = (sign-blind) × (sign-flip) = sign-flip = odd; odd × odd flips twice = even — the same arithmetic that made (−1)·(−1) = 1. Sum: even + even adds two sign-blind machines = even; odd + odd adds two sign-flips = odd; even + odd mixes and generally dies to neither (x² + x fails both tests — the witness is f(1) = 2 vs f(−1) = 0). Composition: the OUTER machine decides — if f is even, f(g(−x)) = f(g(x)) whatever g does (even kills everything downstream): cos(sin x) and sin(cos x) are BOTH even; if f is odd and g is odd, f(g(−x)) = f(−g(x)) = −f(g(x)) — odd survives the relay: sin(x³) is odd; if f is odd and g is even, the inner even freezes the sign first, so the composite is even.' },
+    { kind: 'list', marker: 'roman', items: [
+      'Sums: $e \pm e = e$ and $o \pm o = o$ — like parities add to themselves; $e + o$ is neither (in general).',
+      'Products: $e \times e = e$, $e \times o = o$, $o \times o = e$ — parity multiplies like signs: even is $+1$, odd is $-1$, and the product’s “sign” is the answer.',
+      'Quotients: $f/g$ inherits exactly what $f \times g$ inherits (dividing by $g$ is multiplying by $1/g$, whose parity matches $g$ when $g$ never vanishes).',
+      'Compositions: the OUTER machine decides — $e \circ$ (anything) $= e$; $o \circ o = o$; $o \circ e = e$ (the inner even freezes the sign before the outer odd could flip).',
+    ] },
+    { kind: 'example', title: 'Use the table at speed: classify x² sin x, x cos x, sin(x³), and cos(sin x)', steps: [
+      'x² sin x: even × odd = ODD — verify directly: (−x)² sin(−x) = x²(−sin x) = −x² sin x ✓.',
+      'x cos x: odd × even = ODD — verify: (−x)cos(−x) = −x cos x ✓.',
+      'sin(x³): odd outer ∘ odd inner = ODD — verify: sin((−x)³) = sin(−x³) = −sin(x³) ✓.',
+      'cos(sin x): even outer ∘ anything = EVEN — verify: cos(sin(−x)) = cos(−sin x) = cos(sin x) ✓. Note sin(cos x) is ALSO even (outer sin is odd, inner cos is even → even), the table’s fourth row doing the work.',
+    ] },
+    { kind: 'example', title: 'Quotient machines: classify x/(x² + 1) and (x² + 1)/x', steps: [
+      'x/(x² + 1): odd over even = ODD by the quotient row. Verify: f(−x) = (−x)/((−x)² + 1) = −x/(x² + 1) = −f(x) ✓.',
+      '(x² + 1)/x: even over odd = ODD — and the closed form agrees, since x + 1/x is odd + odd = odd. Verify: f(−x) = ((−x)² + 1)/(−x) = −(x² + 1)/x = −f(x) ✓.',
+      'Both quotients are odd precisely because ONE sign-flip survives each trip: the numerator’s or the denominator’s, exactly one of the two.',
+    ] },
+    { kind: 'callout', tone: 'insight', title: 'Every even machine on a symmetric domain is many-one — lesson 1.2 re-read', text: 'If f is even and x ≠ 0 is in the domain, then −x is too, and f(x) = f(−x): the pair (x, −x) COLLIDES. Waste is structural — no even machine on symmetric ground can ever be one-one (except the degenerate domain {0}). This is why restoring invertibility in lesson 1.4 always meant cutting the domain DOWN to one mirror half: the restriction x² ↦ [0, ∞) keeps one member of every pair. The symmetry lens and the pairing lens are one lens.' },
+
+    { kind: 'heading', text: 'The Even + Odd Split: Every Machine Decomposes, and Uniquely' },
+    { kind: 'equation', latex: 'f(x) = \\underbrace{\\frac{f(x) + f(-x)}{2}}_{\\text{even part}} + \\underbrace{\\frac{f(x) - f(-x)}{2}}_{\\text{odd part}}', note: 'the machine as even part (f(x) + f(-x))/2 plus odd part (f(x) - f(-x))/2 — rebuild by adding the halves; the even part is sign-blind by construction, the odd part sign-flipping' },
+    { kind: 'para', text: 'The identity is one add-and-subtract trick: write f(x) as half of (f(x) + f(−x)) + half of (f(x) − f(−x)), and check the parities — E(−x) = (f(−x) + f(x))/2 = E(x) ✓ even; O(−x) = (f(−x) − f(x))/2 = −O(x) ✓ odd. So EVERY machine on a symmetric domain splits into an even machine plus an odd machine. What makes the split worth a theorem is that it is FORCED:' },
+    { kind: 'derivation', title: 'Uniqueness of the split: the halves are not a choice', statement: 'If f = E + O with E even and O odd, then E must equal (f(x) + f(−x))/2 — the canonical even part — and O must equal (f(x) − f(−x))/2.', steps: [
+      { label: 'Write the split and its mirror', formula: 'f(x) = E(x) + O(x) \\qquad f(-x) = E(-x) + O(-x) = E(x) - O(x)', explanation: 'the mirror equation uses the parities: E even keeps its value, O odd flips its sign.' },
+      { label: 'Add the two equations', formula: 'f(x) + f(-x) = 2E(x)', explanation: 'the odd parts cancel — O(x) and −O(x) sum to zero — leaving twice the even part.' },
+      { label: 'Subtract the two equations', formula: 'f(x) - f(-x) = 2O(x)', explanation: 'now the even parts cancel, leaving twice the odd part.' },
+      { label: 'Conclude', formula: 'E(x) = \\frac{f(x) + f(-x)}{2} \\qquad O(x) = \\frac{f(x) - f(-x)}{2}', explanation: 'any even+odd split must be THE canonical split — there is exactly one way to cut a machine into its mirror and half-turn parts.' },
+    ], result: 'The decomposition is unique: even part (f(x) + f(−x))/2, odd part (f(x) − f(−x))/2 — computed, never chosen.' },
+    { kind: 'example', title: 'Decompose f(x) = 2ˣ, and decompose the polynomial x³ + 3x² − x + 2', steps: [
+      'For 2ˣ: the even part is (2ˣ + 2⁻ˣ)/2 and the odd part is (2ˣ − 2⁻ˣ)/2 — the hyperbolic cosine and sine shapes under another name; their sum rebuilds 2ˣ exactly.',
+      'For the polynomial: sort by power parity. Even part: 3x² + 2 (even powers + constant); odd part: x³ − x (odd powers).',
+      'Check the split at x = 1 and x = −1: f(1) = 1 + 3 − 1 + 2 = 5 with E(1) = 5 and O(1) = 1³ − 1 = 0; f(−1) = −1 + 3 + 1 + 2 = 5 with E(−1) = 5 and O(−1) = −1 + 1 = 0 — the odd part vanishes at ±1, and the mirror heights agree exactly as evenness demands.',
+      'At x = 2: f(2) = 8 + 12 − 2 + 2 = 20; E(2) = 12 + 2 = 14, O(2) = 8 − 2 = 6; E + O = 20 ✓. The split is arithmetic, not decoration.',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'Two structural laws the verdict hands you for free', text: 'First: an ODD machine defined at 0 passes through the origin — f(−0) = f(0) and f(−0) = −f(0) force f(0) = −f(0), so f(0) = 0. If an odd formula survives at 0 with a nonzero value, the formula (or the domain) is wrong. Second: on a symmetric domain, f(x) = f(−x) pairs make every even machine many-one — so an examination question asking for an even one-one machine on symmetric ground has the empty answer.' },
+
+    { kind: 'heading', text: 'Even and Odd Extensions: Building the Mirror Half' },
+    { kind: 'callout', tone: 'definition', title: 'Extension of a half-line machine', text: 'Let f be defined for 0 < x ≤ L. Its EVEN extension to [−L, L] re-runs the same heights on the mirror: f_e(x) = f(−x) for −L ≤ x < 0. Its ODD extension re-runs them NEGATED: f_o(x) = −f(−x) for −L ≤ x < 0. On the original half both extensions agree with f. Thus, the even extension makes f_e(−x) = f(x); the odd makes f_o(−x) = −f(x).' },
+    { kind: 'figure', caption: 'One machine, two mirrors. The green ray is f(x) = x + 1 on (0, 3]. The amber solid line is the EVEN extension — the same heights re-run on the negative half (f_e(−1) = f(1) = 2), giving a graph symmetric about the y-axis. The teal dashed line is the ODD extension — the heights re-run negated (f_o(−1) = −f(1) = −2), giving a graph symmetric about the origin. The hinge stays honest: the domain is open at 0, so both mirror lines end in open circles — the amber-and-green hinge at (0, 1) and the teal landing at (0, −1); filling f_o(0) = 0 would be a declared choice, exactly as the worked example says. The two mirrors agree with f nowhere except the shared half — they are two different machines built from one.', svg: extensionMirrorSvg() },
+    { kind: 'para', text: 'The extension idea is bigger than an exercise trick — it is how one half-line of knowledge becomes a whole line of it. The modulus is the even extension of the identity machine: extend x ↦ x from [0, ∞) evenly and you get exactly |x| — which is why √(x²) (lesson 1.5’s identical-functions trap) equals |x|: the square root IS the even extension, wearing a formula. Fourier’s half-range expansions (the historical note below) live off the same idea: a machine known only on half the interval is stretched to the whole interval by one of the two mirrors, and WHICH mirror is chosen decides whether the stretched machine is built from cosines or from sines. Extensions turn a symmetry into a construction tool.' },
+    { kind: 'example', title: 'Build both extensions of f(x) = x + 1 on (0, 3], and evaluate at x = −1 and x = −2.5', steps: [
+      'Even extension: for −3 ≤ x < 0, f_e(x) = f(−x) = (−x) + 1 = 1 − x. The piecewise machine: f_e(x) = {x + 1, 0 < x ≤ 3; 1 − x, −3 ≤ x < 0}.',
+      'Odd extension: for −3 ≤ x < 0, f_o(x) = −f(−x) = −((−x) + 1) = x − 1. The piecewise machine: f_o(x) = {x + 1, 0 < x ≤ 3; x − 1, −3 ≤ x < 0}.',
+      'Evaluate: f_e(−1) = 1 − (−1) = 2 = f(1) ✓ (same height); f_e(−2.5) = 3.5. f_o(−1) = −1 − 1 = −2 = −f(1) ✓ (negated); f_o(−2.5) = −3.5.',
+      'The odd extension’s origin: if extended to 0 it must take f_o(0) = 0 — but f(0) was never defined (the half is open), so the odd extension keeps an open seat at the hinge unless the author chooses to fill it with 0. Both choices are honest if declared.',
+    ] },
+    { kind: 'example', title: 'The odd extension of f(x) = x² on [0, 2] is the machine x·|x| on [−2, 2] — verify', steps: [
+      'On the mirror half, f_o(x) = −f(−x) = −(−x)² = −x² for −2 ≤ x < 0, and x² on the original half.',
+      'The compact spelling x·|x| agrees: for x ≥ 0 it reads x·x = x²; for x < 0 it reads x·(−x) = −x².',
+      'Hence the odd extension of the square is ONE closed-form machine, x|x| — odd by the parity table (odd × even), and its graph is the right half of the parabola plus its half-turn mirror.',
+    ] },
+    { kind: 'callout', tone: 'historical', title: 'Fourier heats up the split (1822)', text: 'The even/odd vocabulary earned its permanence in Joseph Fourier’s *Théorie analytique de la chaleur* (1822). Fourier’s great claim: any reasonable machine on a symmetric interval is a SUM of cosines and sines — and the cosines assemble precisely the even part of f while the sines assemble precisely the odd part, with the canonical halves (f(x) + f(−x))/2 and (f(x) − f(−x))/2 delivering the coefficients. The even/odd split of this lesson is the first step of every Fourier series; the extensions are how a machine known only on half a violin string gets stretched to the whole string before it is sung. Analysis kept the algebra; the examination hall kept the verdicts.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The machine f(x) = x³ + x on ℝ is', options: ['even', 'odd', 'neither even nor odd', 'both even and odd'], answer: 1, explain: 'f(−x) = −x³ − x = −f(x) — the flip survives both terms (odd + odd stays odd). Option 1 would need the sign-blind test to pass, which it fails already at x = 1 (f(1) = 2, f(−1) = −2).' },
+      { q: 'A machine whose domain is [0, ∞)', options: ['can be even if the rule satisfies f(−x) = f(x)', 'cannot receive a parity verdict — the domain is not symmetric about 0', 'is automatically odd', 'is automatically neither'], answer: 1, explain: 'The domain gate comes FIRST: for most x in [0, ∞), the point −x is not in the domain, so f(−x) is undefined and the test quantifies over nothing. Options 1 and 3 try to run the test on missing ground; option 4 claims a verdict the ground cannot support.' },
+      { q: 'If f is even and g is odd, the composite f(g(x)) is', options: ['even', 'odd', 'neither', 'it depends on g’s values'], answer: 0, explain: 'The outer machine decides: f even means f(−t) = f(t), so f(g(−x)) = f(−g(x)) = f(g(x)) — the inner’s flip is erased on arrival. The same argument kills every option 2/3 hope: an even outer machine makes the composite even for ANY inner.' },
+      { q: 'An odd machine that is defined at x = 0 must satisfy', options: ['f(0) = 1', 'f(0) = 0', 'no constraint — 0 is arbitrary', 'f(0) = −1'], answer: 1, explain: 'Oddness at the hinge: f(−0) = f(0) (0 is its own negative) and f(−0) = −f(0) (oddness) give f(0) = −f(0), so 2f(0) = 0. The origin is the one seat the half-turn pins exactly.' },
+      { q: 'The ODD extension of f(x) = x + 1 on (0, 3] to the negative half is', options: ['−x + 1', 'x − 1', '−x − 1', 'x + 1'], answer: 1, explain: 'f_o(x) = −f(−x) = −((−x) + 1) = x − 1 for −3 ≤ x < 0. Check at x = −1: f_o(−1) = −2 = −f(1) ✓ — negated, as oddness demands. Option 1 is the EVEN extension; option 3 negates the wrong piece; option 4 is no mirror at all.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.6', sets: [
+      { level: 'L1', questions: [
+        { q: 'Classify f(x) = x⁵ + x³ on ℝ.', solution: [
+          'Compute the flip: f(−x) = (−x)⁵ + (−x)³ = −x⁵ − x³ = −(x⁵ + x³) = −f(x).',
+          'Hence ODD — both terms are odd powers, and odd + odd stays odd by the table.',
+          'Spot-check one seat: f(1) = 2 and f(−1) = −2 — exact opposites, as the verdict promised.',
+        ], answer: 'Odd: f(−x) = −f(x).' },
+        { q: 'Classify f(x) = x⁴ − 3x² + 7 on ℝ.', solution: [
+          'Compute the flip: f(−x) = (−x)⁴ − 3(−x)² + 7 = x⁴ − 3x² + 7 = f(x).',
+          'Hence EVEN — even powers and constants are all sign-blind.',
+          'Spot-check one seat: f(2) = 16 − 12 + 7 = 11 and f(−2) = 11 — identical heights, the mirror at work.',
+        ], answer: 'Even: f(−x) = f(x).' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Classify f(x) = x·|x| on ℝ and sketch the shape in words.', solution: [
+          'Flip: f(−x) = (−x)·|−x| = −x·|x| = −f(x) — ODD (odd × even by the table).',
+          'Shape: for x ≥ 0 it is x² (the right half of the parabola); for x < 0 it is −x² (the half-turn copy, dipping below the axis).',
+          'The origin is owned: f(0) = 0, as every odd machine demands.',
+        ], answer: 'Odd; the half of a parabola plus its half-turn — the odd extension of x².' },
+        { q: 'Classify f(x) = 2x + 1, exhibiting the witness pair.', solution: [
+          'f(−x) = −2x + 1. Against f(x) = 2x + 1: not equal (x = 1 gives 3 vs −1). Against −f(x) = −2x − 1: not equal either (x = 1 gives −1 vs −3).',
+          'Both tests fail — NEITHER, with witness f(1) = 3 and f(−1) = −1: neither the same nor opposite.',
+          'The split explains why: the even part is the constant 1, the odd part is 2x — both survive.',
+        ], answer: 'Neither even nor odd; witness f(1) = 3 vs f(−1) = −1.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Classify x·cos x and sin(x³) using the parity table, verifying each verdict once directly.', solution: [
+          'x·cos x: odd × even = ODD by the product row. Direct: (−x)cos(−x) = (−x)(cos x) = −x cos x ✓.',
+          'sin(x³): odd ∘ odd = ODD by the composition row. Direct: sin((−x)³) = sin(−x³) = −sin(x³) ✓.',
+          'The table predicted both verdicts before any computation — the direct checks are the certification, not the discovery.',
+        ], answer: 'Both odd — table row verified by direct computation.' },
+        { q: 'Classify cos(sin x) and sin(cos x).', solution: [
+          'cos(sin x): even outer (cos) over anything = EVEN — cos(sin(−x)) = cos(−sin x) = cos(sin x) ✓.',
+          'sin(cos x): odd outer over even inner = EVEN (the inner even freezes the sign first) — sin(cos(−x)) = sin(cos x) ✓.',
+          'Moral: the outer machine’s parity decides the composite when it is even; an odd outer inherits the inner’s parity.',
+        ], answer: 'Both even — even outer wins; odd outer inherits.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Decompose f(x) = x³ + 3x² − x + 2 into even and odd parts and verify the split at x = 2 and x = −2.', solution: [
+          'Sort by parity of power: even part E(x) = 3x² + 2; odd part O(x) = x³ − x.',
+          'At x = 2: f(2) = 8 + 12 − 2 + 2 = 20; E(2) = 14, O(2) = 6; 14 + 6 = 20 ✓.',
+          'At x = −2: f(−2) = −8 + 12 + 2 + 2 = 8; E(−2) = 14 (even holds), O(−2) = −6 (odd flips); 14 + (−6) = 8 ✓.',
+          'The canonical formulas agree: E(x) = (f(x) + f(−x))/2 = (20 + 8)/2 = 14 at x = 2 ✓.',
+        ], answer: 'E(x) = 3x² + 2, O(x) = x³ − x; verified 20 = 14 + 6 and 8 = 14 − 6.' },
+        { q: 'An odd machine g is defined at 0 with g(2) = 5. State g(−2) and g(0), with reasons.', solution: [
+          'g(−2) = −g(2) = −5 — oddness flips the value.',
+          'g(0) = 0 — the hinge law: g(−0) = g(0) and g(−0) = −g(0) force 2g(0) = 0.',
+          'Any claimed odd machine with g(0) ≠ 0 contradicts itself at the origin — the seat is pinned, not chosen.',
+        ], answer: 'g(−2) = −5 and g(0) = 0.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Prove that f(x) = log(x + √(1 + x²)) is odd on ℝ.', solution: [
+          'Compute f(−x) = log(−x + √(1 + x²)) and RATIONALIZE the inside: multiply and divide by (x + √(1 + x²)).',
+          'The product ((√(1+x²)) − x)((√(1+x²)) + x) = (1 + x²) − x² = 1 — so −x + √(1+x²) = 1/(x + √(1+x²)).',
+          'Hence f(−x) = log(1/(x + √(1+x²))) = −log(x + √(1+x²)) = −f(x) — ODD.',
+          'The rationalization witness: f(1) = log(1 + √2) ≈ 0.881 and f(−1) = log(√2 − 1) ≈ −0.881 — exact opposites, since (√2 − 1)(√2 + 1) = 1.',
+        ], answer: 'Odd: f(−x) = −f(x) by rationalizing to the reciprocal.' },
+        { q: 'Classify f(x) = sin x + cos x, then exhibit its even and odd parts.', solution: [
+          'f(−x) = −sin x + cos x: neither f(x) nor −f(x) (−sin x + cos x vs sin x + cos x and vs −sin x − cos x both fail at x = π/4) — NEITHER.',
+          'Even part: (f(x) + f(−x))/2 = cos x. Odd part: (f(x) − f(−x))/2 = sin x.',
+          'The split is exactly trigonometric common sense: cos is even, sin is odd, and the machine was their sum all along.',
+        ], answer: 'Neither; even part cos x, odd part sin x.' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Build both extensions of f(x) = x² on [0, 2] to [−2, 2], and show the odd extension is the single machine x·|x|.', solution: [
+          'Even extension: f_e(x) = f(−x) = (−x)² = x² on [−2, 0) — the parabola simply continues; f_e is x² on all of [−2, 2].',
+          'Odd extension: f_o(x) = −f(−x) = −x² on [−2, 0), and x² on [0, 2].',
+          'The compact form: x·|x| reads x² for x ≥ 0 and −x² for x < 0 — exactly f_o. Oddness check: (−x)|−x| = −x|x| ✓.',
+          'The moral: sometimes the mirror half fuses with the original into one closed-form machine — the piecewise and the compact spellings are identical machines (the identical test of lesson 1.5 passes on both gates).',
+        ], answer: 'Even extension x² on [−2, 2]; odd extension −x²/x² piecewise = x·|x|.' },
+        { q: 'Prove the uniqueness of the even + odd split, then decompose f(x) = 2ˣ and name the two halves.', solution: [
+          'Suppose f = E + O with E even, O odd. Mirror: f(−x) = E(−x) + O(−x) = E(x) − O(x).',
+          'Add the two displays: f(x) + f(−x) = 2E(x) — the odd parts cancel; so E(x) = (f(x) + f(−x))/2 is FORCED.',
+          'Subtract: f(x) − f(−x) = 2O(x) — the even parts cancel; O(x) = (f(x) − f(−x))/2 is FORCED.',
+          'For 2ˣ: even part (2ˣ + 2⁻ˣ)/2 (the hyperbolic-cosine shape), odd part (2ˣ − 2⁻ˣ)/2 (the hyperbolic-sine shape); they sum to 2ˣ on every seat.',
+          'No choice was available anywhere in the proof — any other even + odd pair would contradict the algebra above. The split is unique.',
+        ], answer: 'E = (f(x) + f(−x))/2 forced, O = (f(x) − f(−x))/2 forced; 2ˣ = (2ˣ + 2⁻ˣ)/2 + (2ˣ − 2⁻ˣ)/2.' },
+      ] },
+    ] },
+
+    { kind: 'formula', name: 'The two verdicts', latex: '\\text{even: } f(-x) = f(x) \\qquad \\text{odd: } f(-x) = -f(x) \\qquad \\text{neither: both fail (exhibit the witness)}', note: 'compute f(−x), simplify, compare twice — and demand a symmetric domain first' },
+    { kind: 'formula', name: 'The domain gate', latex: 'x \\in D_f \\Rightarrow -x \\in D_f \\quad \\text{(symmetric ground)} \\qquad f \\text{ on } [0,\\infty): \\text{ no verdict}', note: 'parity quantifies over the domain — half-line machines cannot be asked' },
+    { kind: 'formula', name: 'The parity table', latex: 'e \\pm e = e;\\ o \\pm o = o;\\ e \\times o = o;\\ o \\times o = e;\\ e \\circ \\text{anything} = e;\\ o \\circ o = o;\\ o \\circ e = e', note: 'products and sums pair up like signs; composition is decided by the outer machine' },
+    { kind: 'formula', name: 'The canonical split', latex: 'f(x) = \\frac{f(x) + f(-x)}{2} + \\frac{f(x) - f(-x)}{2} \\qquad \\text{unique}', note: 'even part + odd part, forced by add-and-subtract — the first step of every Fourier expansion' },
+    { kind: 'formula', name: 'The structural laws', latex: 'f \\text{ odd, defined at } 0 \\Rightarrow f(0) = 0 \\qquad f \\text{ even (symmetric ground)} \\Rightarrow \\text{many-one}', note: 'the hinge is pinned; the mirror pairs collide — lesson 1.2’s waste, structural' },
+    { kind: 'formula', name: 'The extensions', latex: 'f_e(x) = f(-x),\\ x < 0 \\qquad f_o(x) = -f(-x),\\ x < 0 \\qquad \\text{(both agree with } f \\text{ on the original half)}', note: 'same heights vs negated heights on the mirror; the odd extension of x² is x·|x|' },
+  ],
+}
+
 /* ------------------------------------------------------------------ */
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
@@ -1415,10 +2015,8 @@ export const chapter01: Chapter = {
   summary:
     'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
   status: 'in-progress',
-  lessons: [lesson11, lesson12, lesson13, lesson14],
+  lessons: [lesson11, lesson12, lesson13, lesson14, lesson15, lesson16],
   plannedLessons: [
-    'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog',
-    'Even and Odd Functions and Their Extensions',
     'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph',
     'The Period Census: Periods of Transformed and Composite Functions',
   ],

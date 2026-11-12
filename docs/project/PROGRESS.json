@@ -1,7 +1,7 @@
 {
  "$schema": "./PROGRESS.schema.json",
  "project": "LockIn Library",
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "phase": "RUN 91 (2026-11-11, cron fire v5b): AA ch. 1 lessons 1.3 'Composition: Machines in Series' + 1.4 'Inverse Functions: the Machine Undone' written and fully gated (558/555+ verifier checks incl. the J/K pre-writing engines that caught a real branch error in the draft design; quiz 5/5 live both lessons; VLM strict figure audit with 4 catches fixed in-SVG) — AA ch. 1 now 4/8 lessons (18,150 words). THE FIGURE VERIFICATION PROTOCOL shipped at docs/project/FIGURE_VERIFICATION_PROTOCOL.md (owner directive: strict vision-model cross-verification of every SVG/graph/image, fix-in-SVG ladder, AI-image fallback for texture-class figures only, per-fire sweep quota, sibling-job coordination) with the first audit trail at docs/project/FIGURE_AUDIT_LOG.md. Module ground pp. 1.49-1.54 re-transcribed after the recycle (M4-01 re-downloaded).",
  "awaiting": "run 92 opens AA ch. 1 lessons 1.5 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog' + 1.6 'Even and Odd Functions and Their Extensions' (module ground pp. 1.16-1.18 + 1.36-1.44; grow verify-book4-ch01.ts sections N/O first; M4-01 PDF + m4scan transcriptions in temporary-references/) — then 1.7 + 1.8 + the unit review close AA ch. 1; AFTER AA ch. 1 completes, the AL gap queue runs (4.5 -> 6.4 -> 12.1 -> 12.2 -> 12.3) before AA ch. 2 opens. Every fire also runs the FIGURE_VERIFICATION_PROTOCOL §4 pipeline on touched lessons and clears the §6 sweep quota.",
  "platform": {
@@ -111,10 +111,10 @@
     "status": "in-progress",
     "chaptersPlanned": 10,
     "chaptersWritten": 0,
-    "lessonsWritten": 4,
+    "lessonsWritten": 6,
     "lessonsPlanned": 35,
     "termsAvailableForFlashcards": 3,
-    "notes": "PROMOTED (run 89, 2026-11-10; enriched by the topic-inclusion guarantee pass, same day) — 10 chapters / 36 planned lessons, zero lessons written (the 36th = ch. 9 log tables: characteristic, mantissa, antilogarithm). aa- id prefix reserved. Authoring opens run 90 (1.1 + 1.2)."
+    "notes": "PROMOTED (run 89) — 10 chapters / 36 planned lessons; ch. 1 'Functions as Objects' in progress: 1.1–1.6 written (runs 90–92), 1.7 + 1.8 + unit review remain. aa- id prefix reserved."
    },
    {
     "id": "geometry",

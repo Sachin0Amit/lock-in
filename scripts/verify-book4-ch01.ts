@@ -1245,7 +1245,7 @@ function lessonText(lesson: (typeof chapter01.lessons)[number]): string {
 
 function sectionH(): void {
   const l1 = chapter01.lessons[0]
-  ok(chapter01.lessons.length === 4, 'H: chapter 1 carries exactly the four lessons authored so far (1.1-1.4)')
+  ok(chapter01.lessons.length >= 4, 'H: chapter 1 carries at least the four lessons authored so far (1.1-1.4)')
   ok(l1.id === 'aa-relations-the-set-of-pairs-view', `H: lesson 1.1 id (got ${l1.id})`)
   ok(l1.number === '1.1' && l1.title === 'Relations: the Set-of-Pairs View', 'H: lesson 1.1 number/title match the plan')
   auditLesson(l1, 'H', [3, 2, 1, 0, 2], 14, 4, 2, 4300)
@@ -1268,8 +1268,8 @@ function sectionI(): void {
   // the chapter-level contract
   ok(chapter01.status === 'in-progress', 'I: chapter 1 status in-progress')
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length === 4, `I: four lessons remain planned (got ${planned.length})`)
-  ok(planned[0] === 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog', 'I: the next lesson opens the zoo (run 92)')
+  ok(planned.length >= 2, `I: the remaining lessons stay planned (got ${planned.length})`)
+  ok(planned.includes('Graph Transformations: Shifts, Stretches, Flips and the GIF Graph'), 'I: the transformation lesson stays planned (runs 93+)')
 }
 
 /* ------------------------------------------------------------------ */
@@ -1364,6 +1364,217 @@ sectionH()
 sectionI()
 sectionL()
 sectionM()
+if (chapter01.lessons.length >= 5) sectionN()
+if (chapter01.lessons.length >= 6) sectionO()
+
+
+/* ------------------------------------------------------------------ */
+/* (N) authored lesson 1.5 audited — the function zoo                  */
+/* ------------------------------------------------------------------ */
+
+function sectionN(): void {
+  console.log('— (N) the function zoo (1.5 pins) —')
+
+  // N1. the GIF ground: [x] = floor on the walk; boundary behavior
+  ok(Math.floor(-2.7) === -3 && Math.floor(4.99) === 4 && Math.floor(0) === 0 && Math.floor(-0.81) === -1, 'N1: [−2.7] = −3, [4.99] = 4, [0] = 0, [−0.81] = −1 — the greatest integer lands LEFT')
+  ok(rng(-6, 6).every((x) => Math.floor(x) <= x && x - 1 < Math.floor(x)), 'N1: x − 1 < [x] ≤ x on the integer walk')
+  ok(rng(-6, 6).every((x) => Math.floor(x + 3) === Math.floor(x) + 3), 'N1: [x + n] = [x] + n for integer n (n = 3 on the walk)')
+
+  // N2. the fractional part: {x} = x − [x] ∈ [0, 1), period 1, the ± pair law
+  const fr = (x: number): number => x - Math.floor(x)
+  ok(Math.abs(fr(-3.9) - 0.1) < 1e-9 && Math.abs(fr(1.23) - 0.23) < 1e-9, 'N2: {−3.9} = 0.1 and {1.23} = 0.23 — the fractional part never goes negative (float-tolerant)')
+  ok(rng(-6, 6).every((x) => fr(x) >= 0 && fr(x) < 1), 'N2: {x} ∈ [0, 1) on the walk')
+  ok(rng(-6, 6).every((x) => Math.abs(fr(x + 2) - fr(x)) < 1e-12), 'N2: {x + n} = {x} — period 1 (n = 2 on the walk)')
+  ok(rng(-6, 6).every((x) => { const t = fr(x) + fr(-x); return Number.isInteger(x) ? t === 0 : Math.abs(t - 1) < 1e-9 }), 'N2: {x} + {−x} = 0 for integers, 1 otherwise')
+
+  // N3. solve 2[x] = x + {x}: exactly {0, 3/2} by fine sweep
+  const solsA: number[] = []
+  for (let i = -20000; i <= 24000; i++) {
+    const x = i / 1000
+    if (Math.abs(2 * Math.floor(x) - (x + fr(x))) < 1e-9) solsA.push(x)
+  }
+  ok(solsA.length === 2 && Math.abs(solsA[0]) < 1e-9 && Math.abs(solsA[1] - 1.5) < 1e-9, `N3: 2[x] = x + {x} has exactly the solutions 0 and 3/2 (sweep found ${JSON.stringify(solsA)})`)
+
+  // N4. solve x² − 3[x] + 2 = 0: exactly {1, 2} by fine sweep
+  const solsB: number[] = []
+  for (let i = -8000; i <= 8000; i++) {
+    const x = i / 1000
+    if (Math.abs(x * x - 3 * Math.floor(x) + 2) < 1e-9) solsB.push(x)
+  }
+  ok(solsB.length === 2 && Math.abs(solsB[0] - 1) < 1e-9 && Math.abs(solsB[1] - 2) < 1e-9, `N4: x² − 3[x] + 2 = 0 has exactly the solutions 1 and 2 (sweep found ${JSON.stringify(solsB)})`)
+
+  // N5. domain of 1/([x]² − 5[x] + 6): the excluded band is exactly [2, 4)
+  for (let i = -8000; i <= 10000; i += 3) {
+    const x = i / 1000
+    const dead = Math.floor(x) === 2 || Math.floor(x) === 3
+    const inBand = x >= 2 && x < 4
+    ok(dead === inBand, `N5: denominator zero ⟺ x ∈ [2, 4) (probe x = ${x})`)
+  }
+  ok(true, 'N5: domain of 1/([x]² − 5[x] + 6) = (−∞, 2) ∪ [4, ∞) — swept, not assumed')
+
+  // N6. range of 1/(1 + {x}) = (1/2, 1]
+  let lo = 9, hi = 0
+  for (let i = -5000; i <= 5000; i++) { const v = 1 / (1 + fr(i / 1000)); if (v < lo) lo = v; if (v > hi) hi = v }
+  ok(Math.abs(lo - 0.5) < 1e-3 && Math.abs(hi - 1) < 1e-9, `N6: 1/(1 + {x}) ranges over (1/2, 1] (sweep inf ${lo.toFixed(6)} → 1/2 is the OPEN end, sup ${hi.toFixed(6)})`)
+
+  // N7. max/min pieces: min{x², x+2} switches at −1 and 2; max{x, 1−x} switches at 1/2
+  const minF = (x: number): number => Math.min(x * x, x + 2)
+  const minP = (x: number): number => (x < -1 ? x + 2 : x <= 2 ? x * x : x + 2)
+  ok(rng(-6, 6).every((x) => Math.abs(minF(x) - minP(x)) < 1e-12), 'N7: min{x², x+2} = {x+2, x < −1; x², −1 ≤ x ≤ 2; x+2, x > 2} — sweep matches the piecewise form')
+  const maxF = (x: number): number => Math.max(x, 1 - x)
+  const maxP = (x: number): number => (x <= 0.5 ? 1 - x : x)
+  ok(rng(-6, 6).every((x) => Math.abs(maxF(x) - maxP(x)) < 1e-12), 'N7: max{x, 1−x} = {1−x, x ≤ 1/2; x, x > 1/2} — the ladder crosses at 1/2')
+
+  // N8. the signum identities, zero included
+  const sgn = (x: number): number => (x > 0 ? 1 : x < 0 ? -1 : 0)
+  ok(rng(-6, 6).every((x) => x * sgn(x) === Math.abs(x) && Math.abs(x) * sgn(x) === x && sgn(sgn(x)) === sgn(x)), 'N8: x·sgn(x) = |x|, |x|·sgn(x) = x, sgn is idempotent — on the walk incl. 0')
+  ok(rng(-6, 6).every((x) => (x === 0 ? sgn(x * x) === 0 : sgn(x * x) === 1)), 'N8: sgn(x²) = {0 at 0; 1 elsewhere} — range {0, 1}')
+  ok(rng(-6, 6).every((x) => sgn(x * x - 2 * x + 3) === 1), 'N8: sgn(x² − 2x + 3) = 1 everywhere — (x−1)² + 2 > 0')
+
+  // N9. identical functions: the domain gate and the range gate
+  const domG = (x: number): boolean => x !== 0 && 1 / (1 / x) === x
+  ok(rng(-6, 6).every((x) => domG(x) === (x !== 0)), 'N9: x and 1/(1/x) agree wherever BOTH are defined — x ≠ 0; identical on ℝ ∖ {0} only')
+  ok(0 <= Math.sqrt(2 * 2) && Math.sqrt((-2) * (-2)) === 2, 'N9: √(x²) = |x| — its range is [0, ∞), so it is NOT identical to x on ℝ (range gate)')
+
+  // N10. the Hermite case-split (L6 exercise): [x] + [x + 1/2] = [2x]
+  for (let i = -6000; i <= 6000; i++) {
+    const x = i / 1000
+    ok(Math.floor(x) + Math.floor(x + 0.5) === Math.floor(2 * x), `N10: [x] + [x + 1/2] = [2x] (probe x = ${x})`)
+  }
+
+  // N11. L6 exercise (b): [x]² − [x] − 6 = 0 ⟺ x ∈ [3, 4) ∪ [−2, −1)
+  for (let i = -8000; i <= 10000; i += 3) {
+    const x = i / 1000
+    const n = Math.floor(x)
+    const satisfies = n * n - n - 6 === 0
+    const inSet = (x >= 3 && x < 4) || (x >= -2 && x < -1)
+    ok(satisfies === inSet, `N11: [x]² − [x] − 6 = 0 ⟺ [x] ∈ {3, −2} ⟺ x ∈ [3, 4) ∪ [−2, −1) (probe x = ${x})`)
+  }
+
+  // N12. audit the authored lesson
+  const l5 = chapter01.lessons[4]
+  ok(l5.id === 'aa-function-zoo-modulus-signum-gif-elementary-catalog', `N: lesson 1.5 id (got ${l5.id})`)
+  ok(l5.number === '1.5' && l5.title === 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog', 'N: lesson 1.5 number/title match the plan')
+  auditLesson(l5, 'N', [1, 2, 1, 1, 0], 12, 6, 2, 4300)
+  const prose5 = lessonText(l5)
+  for (const needle of [
+    'greatest integer',
+    'fractional part',
+    'Piecewise Functions',
+    'Identical Functions',
+    'period 1',
+    'x \\cdot \\mathrm{sgn}(x) = |x|',
+    '(−\\infty, 2) \\cup [4, \\infty)',
+    '3/2',
+    'x = 1 \\text{ or } x = 2',
+  ]) {
+    ok(prose5.includes(needle), `N: the pinned exhibit “${needle}” appears in the authored lesson`)
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (O) authored lesson 1.6 audited — even and odd                      */
+/* ------------------------------------------------------------------ */
+
+function sectionO(): void {
+  console.log('— (O) even and odd (1.6 pins) —')
+
+  const grid = Array.from({ length: 61 }, (_, i) => 0.05 * i + 0.017) // 61 asymmetric probes in (0, 3]
+  const isEven = (f: (x: number) => number): boolean => grid.every((x) => Math.abs(f(x) - f(-x)) < 1e-9)
+  const isOdd = (f: (x: number) => number): boolean => grid.every((x) => Math.abs(f(x) + f(-x)) < 1e-9)
+
+  // O1. the verdicts, brute-forced on the probe grid
+  ok(isOdd((x) => x ** 3 + x), 'O1: x³ + x is odd (every probe)')
+  ok(isOdd((x) => x ** 5 + x ** 3), 'O1: x⁵ + x³ is odd')
+  ok(isEven((x) => x ** 4 - 3 * x ** 2 + 7), 'O1: x⁴ − 3x² + 7 is even')
+  ok(isOdd((x) => x * Math.abs(x)), 'O1: x·|x| is odd')
+  ok(isOdd((x) => x ** 2 * Math.sin(x)), 'O1: x² sin x is odd (even × odd = odd)')
+  ok(isOdd((x) => x * Math.cos(x)), 'O1: x cos x is odd (odd × even = odd)')
+  ok(isOdd((x) => Math.sin(x ** 3)), 'O1: sin(x³) is odd (odd ∘ odd = odd)')
+  ok(isEven((x) => Math.cos(Math.sin(x)) && Math.cos(Math.sin(x))), 'O1: cos(sin x) is even (even ∘ anything)')
+  ok(isEven((x) => Math.sin(Math.cos(x))), 'O1: sin(cos x) is even')
+  ok(isEven((x) => x ** 2 / (x ** 2 + 1)), 'O1: x²/(x² + 1) is even')
+  ok(!isEven((x) => Math.sin(x) + Math.cos(x)) && !isOdd((x) => Math.sin(x) + Math.cos(x)), 'O1: sin x + cos x is NEITHER — both tests fail on the grid')
+  ok(!isEven((x) => 2 * x + 1) && !isOdd((x) => 2 * x + 1), 'O1: 2x + 1 is neither — the L2 witness f(1) = 3 vs f(−1) = −1')
+
+  // O2. the neither-witness discipline: exhibit the failing probe
+  const w1 = Math.sin(0.7) + Math.cos(0.7)
+  const w2 = Math.sin(-0.7) + Math.cos(-0.7)
+  ok(Math.abs(w1 - w2) > 1e-6 && Math.abs(w1 + w2) > 1e-6, 'O2: at x = 0.7, f(−x) is neither f(x) nor −f(x) — the honest neither-verdict needs both failures')
+
+  // O3. the decomposition: even part + odd part rebuilds f; parts carry the right parity
+  for (const f of [(x: number) => Math.exp(x), (x: number) => 2 ** x, (x: number) => x ** 3 + 3 * x ** 2 - x + 2]) {
+    const e = (x: number): number => (f(x) + f(-x)) / 2
+    const o = (x: number): number => (f(x) - f(-x)) / 2
+    ok(grid.every((x) => Math.abs(e(x) + o(x) - f(x)) < 1e-9), 'O3: f = e + o rebuilds f exactly')
+    ok(isEven(e) && isOdd(o), 'O3: the split parts carry the claimed parity')
+  }
+  // uniqueness: any even+odd split must equal the canonical one
+  {
+    const f = (x: number): number => 2 ** x
+    const e = (x: number): number => (f(x) + f(-x)) / 2
+    ok(grid.every((x) => Math.abs(e(x) - (2 ** x + 2 ** -x) / 2) < 1e-12), 'O3: the even part of 2ˣ is (2ˣ + 2⁻ˣ)/2 — forced, not chosen')
+  }
+
+  // O4. odd at zero: an odd machine defined at 0 passes through the origin
+  {
+    const g = (x: number): number => (x === 0 ? 0 : x ** 3)
+    ok(g(0) === 0 && isOdd(g), 'O4: f(−0) = f(0) = −f(0) forces f(0) = 0')
+  }
+
+  // O5. the arithmetic table, swept
+  ok(isEven((x) => x ** 2 * (x ** 2 + 1)), 'O5: even × even = even')
+  ok(isEven((x) => x * x ** 3), 'O5: odd × odd = even (x · x³ = x⁴)')
+  ok(isOdd((x) => x ** 2 * x), 'O5: even × odd = odd (x² · x = x³)')
+  ok(!isEven((x) => x ** 2 + x) && !isOdd((x) => x ** 2 + x), 'O5: even + odd = neither (x² + x)')
+
+  // O6. the extensions of f(x) = x + 1 on (0, 3]: even mirror and odd mirror
+  {
+    const f = (x: number): number => x + 1
+    const fe = (x: number): number => (x > 0 ? f(x) : f(-x))
+    const fo = (x: number): number => (x > 0 ? f(x) : -f(-x))
+    ok(fe(-1) === 2 && fe(-2.5) === 3.5 && fe(-3) === 4, 'O6: even extension f_e(−x) = f(x): −1 ↦ 2, −2.5 ↦ 3.5, −3 ↦ 4')
+    ok(fo(-1) === -2 && fo(-2.5) === -3.5, 'O6: odd extension f_o(−x) = −f(x): −1 ↦ −2, −2.5 ↦ −3.5 — the piecewise form x − 1 on [−3, 0)')
+    ok(fo(-2.5) === -2.5 - 1 && fe(-2.5) === 1 - (-2.5), 'O6: the closed forms agree at the probe (odd: x − 1; even: 1 − x)')
+  }
+
+  // O7. the odd extension of x² on [0, 2] is x|x| on [−2, 2]
+  ok(Array.from({ length: 21 }, (_, i) => -2 + i * 0.2).every((x) => Math.abs(x * Math.abs(x) - (x >= 0 ? x * x : -(x * x))) < 1e-12), 'O7: x|x| = x² on [0, 2] and −x² on [−2, 0) — the odd extension of the square')
+
+  // O8. the log-arcsinh family is odd (L5 exercise)
+  ok(grid.every((x) => Math.abs(Math.log(x + Math.sqrt(1 + x * x)) + Math.log(-x + Math.sqrt(1 + x * x))) < 1e-9), 'O8: log(x + √(1+x²)) + log(−x + √(1+x²)) = log 1 = 0 — the machine is odd')
+
+  // O9. every even machine (on a symmetric domain) is many-one: the built-in pair
+  const p0 = 2
+  ok(isEven((x) => x ** 2) && p0 !== -p0 && p0 ** 2 === (-p0) ** 2, 'O9: even ⇒ f(x) = f(−x) with x ≠ −x — waste is structural, lesson 1.2\u2019s verdict re-read')
+
+  // O10. the chapter-level contract closes at six lessons
+  ok(chapter01.lessons.length === 6, `O: chapter 1 carries exactly six lessons (got ${chapter01.lessons.length})`)
+  const planned = chapter01.plannedLessons ?? []
+  ok(planned.length === 2, `O: exactly two lessons remain planned (got ${planned.length})`)
+  ok(planned[0] === 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph', 'O: transformations is the next run\u2019s first lesson')
+
+  // O11. audit the authored lesson
+  const l6 = chapter01.lessons[5]
+  ok(l6.id === 'aa-even-and-odd-functions-and-extensions', `O: lesson 1.6 id (got ${l6.id})`)
+  ok(l6.number === '1.6' && l6.title === 'Even and Odd Functions and Their Extensions', 'O: lesson 1.6 number/title match the plan')
+  auditLesson(l6, 'O', [1, 1, 0, 1, 1], 12, 6, 2, 4300)
+  const prose6 = lessonText(l6)
+  for (const needle of [
+    'f(-x) = f(x)',
+    'f(-x) = -f(x)',
+    'symmetric about the y-axis',
+    'half-turn',
+    '(f(x) + f(-x))/2',
+    'many-one',
+    'x|x|',
+    '1 − x',
+    'x − 1',
+    'Fourier',
+  ]) {
+    ok(prose6.includes(needle), `O: the pinned exhibit “${needle}” appears in the authored lesson`)
+  }
+}
 
 console.log('—————————————————————————————————————')
 console.log(`VERIFY-BOOK4-CH01: ${passed} passed, ${failed} failed`)
