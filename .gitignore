@@ -450,6 +450,10 @@ server.log
 !/scripts/e2e-aa-14.page.js
 !/scripts/e2e-aa-15.page.js
 !/scripts/e2e-aa-16.page.js
+# run 94 — AA 1.8 + unit-review e2e blocks (quiz keys 1/1/2/1/0 and 1/1/0/2/0) + the lesson-view sheet builder
+!/scripts/e2e-aa-18.page.js
+!/scripts/e2e-aa-1R.page.js
+!/scripts/lesson-view-sheet.py
 # figure-verification protocol §6 — the audit-queue builder (whitelisted: the
 # dedicated figure-audit job re-runs it every sweep; progress-preserving)
 !/scripts/build_figure_audit_queue.ts

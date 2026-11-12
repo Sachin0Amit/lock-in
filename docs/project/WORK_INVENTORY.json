@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-12 15:34:32 (Asia/Kolkata)",
+  "generated": "2026-11-13 03:09:15 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -8739,19 +8739,16 @@
         "description": "The book where algebra grows up a second time. Foundation Mathematics opened the doorstep and Arithmetic and Number Systems proved the ground; Elementary Algebra opened the door and ended at the function idea. This book walks through: functions become objects — relations as sets of pairs, machines classified one-one and onto, composed in series with their honest domains, and undone by inverses. The quadratic returns as a working object — optimized, settled as inequalities on the sign diagram, mined for symmetric reads, its roots located in intervals. The extension ladder climbs its most famous rung: complex numbers built from a closure failure, carried by the field laws, and handed back to the quadratic formula so every discriminant is kept. Inequalities become the classical engine (AM–GM, Cauchy–Schwarz, the triangle inequality — proved, not recited). Sequences and series run from the constant climb to the infinite tail; counting becomes the exact science of permutations and combinations; mathematical induction certifies statements for every n at once; the binomial theorem is proved for a positive integral index and worked to its approximation power; the theory of equations counts roots, prices symmetric functions and transforms old roots into new equations; and the exponential and logarithmic family is defined once and for all as inverse machines. Cross-references Foundation Mathematics, Arithmetic and Number Systems and Elementary Algebra throughout; hands off to Coordinate Geometry, Trigonometry, Calculus and Probability.",
         "status": "in-progress",
         "chaptersPlanned": 10,
-        "chaptersWritten": 0,
+        "chaptersWritten": 1,
         "chapters": [
           {
             "number": 1,
             "slug": "functions-as-objects",
             "title": "Functions as Objects",
             "summary": "The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.",
-            "status": "in-progress",
-            "lessonsWritten": 7,
-            "plannedLessons": [
-              "The Period Census: Periods of Transformed and Composite Functions",
-              "Unit Review: Functions as Objects"
-            ],
+            "status": "complete",
+            "lessonsWritten": 9,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "aa-relations-the-set-of-pairs-view",
@@ -9246,9 +9243,147 @@
                 },
                 "exerciseQuestions": 12,
                 "termsDefined": 5
+              },
+              {
+                "id": "aa-period-census-periods-of-transformed-and-composite-functions",
+                "number": "1.8",
+                "title": "The Period Census: Periods of Transformed and Composite Functions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5991,
+                "readMins": 30,
+                "concepts": [
+                  "the periodic law f(x+T) = f(x) at every seat, with the least such window T the principal period",
+                  "the elementary census: the windows of sin x, cos x, tan x, {x}, their powers and their moduli",
+                  "the transformation laws: outer edits keep the window, the inner edit f(ax + b) divides it to T/|a|",
+                  "composite windows: g(f(x)) inherits the inner window unless a smaller k survives the relay",
+                  "the L.C.M. rule for algebraic combinations: L.C.M. of numerators over H.C.F. of denominators, then the smaller-k check",
+                  "irrational windows: a common repeat exists only when the same surd rides both terms",
+                  "the non-periodicity proofs: the linear-rail argument on x + sin x and the subtraction argument on {x} + x²"
+                ],
+                "objectives": [
+                  "define periodicity formally and reject a candidate window by exhibiting a single failing seat — the witness discipline again",
+                  "price any edited machine at sight: af(x), f(x) ± a, f(x ± a) keep the window T while f(ax + b) + c rides T/|a|",
+                  "census composites honestly: why sin(cos x) needs 2π while cos(cos x) rides π, and how the sin⁻¹(sin x) family behaves",
+                  "combine windows by the L.C.M. rule — rationals by L.C.M.(m, r)/H.C.F.(n, s), surds only when the same radical rides both",
+                  "prove non-periodicity two ways: the constant-drift contradiction for x + sin x and the subtraction argument for {x} + x²"
+                ],
+                "prerequisites": [
+                  "aa-graph-transformations-shifts-stretches-flips-gif",
+                  "aa-function-zoo-modulus-signum-gif-elementary-catalog"
+                ],
+                "sources": [
+                  "cengage-m4-01",
+                  "cengage-jee-style",
+                  "ncert-math11-ch2-functions",
+                  "ncert-math12-ch1-relations-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 14,
+                  "heading": 6,
+                  "callout": 8,
+                  "equation": 1,
+                  "derivation": 5,
+                  "table": 1,
+                  "example": 6,
+                  "figure": 2,
+                  "list": 2,
+                  "quiz": 1,
+                  "exercises": 1,
+                  "terms": 1,
+                  "formula": 6
+                },
+                "calloutTones": {
+                  "definition": 2,
+                  "insight": 1,
+                  "theorem": 2,
+                  "warn": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
+              },
+              {
+                "id": "aa-unit-review-functions-as-objects",
+                "number": "1.R",
+                "title": "Unit Review: Functions as Objects",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4410,
+                "readMins": 22,
+                "concepts": [
+                  "the arc of the chapter: the machine became an object — first a set of pairs, then a classified, wired, catalogued, tested, edited and measured object",
+                  "the three standing verdicts: one-one (does it waste inputs), onto (does it cover the codomain), periodic (does it repeat)",
+                  "bijective = one-one + onto = invertible — the promise the inverse lesson cashed",
+                  "the counting census: 2^pq relations, n^m functions, the injection and surjection counts on small sets",
+                  "the grammar of the chapter in one line: relation → function → verdicts → composition → inverse → zoo → parity → transformations → window"
+                ],
+                "objectives": [
+                  "hold the whole chapter in one hand — the wiring of its eight lessons and where each promise was cashed",
+                  "run the full verdict passport on any machine: waste, cover, repetition, and the codomain discipline",
+                  "recall the counting laws, the anchor law, the band method and the window laws without re-deriving them",
+                  "solve mixed exam-style items that price several lessons of the chapter in one question"
+                ],
+                "prerequisites": [
+                  "aa-relations-the-set-of-pairs-view",
+                  "aa-period-census-periods-of-transformed-and-composite-functions"
+                ],
+                "sources": [
+                  "cengage-m4-01",
+                  "cengage-jee-style",
+                  "ncert-math11-ch2-functions",
+                  "ncert-math12-ch1-relations-functions",
+                  "openstax-college-algebra"
+                ],
+                "blockCounts": {
+                  "para": 8,
+                  "heading": 5,
+                  "figure": 2,
+                  "callout": 6,
+                  "derivation": 1,
+                  "equation": 2,
+                  "example": 4,
+                  "formula": 6,
+                  "terms": 1,
+                  "list": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 2,
+                  "L2": 2,
+                  "L3": 2,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 12,
+                "termsDefined": 7
               }
             ],
-            "words": 32873
+            "words": 43274
           },
           {
             "number": 2,
@@ -12914,13 +13049,13 @@
     ],
     "codebase": {
       "srcFilesTracked": 236,
-      "totalLines": 108664,
+      "totalLines": 109305,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
         "src/components/library (reader platform)": 5772,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 77681,
+        "src/data/library (content model + books)": 78322,
         "src/hooks": 214,
         "src/lib": 6937
       },
@@ -26638,33 +26773,115 @@
           "del": 1
         }
       ]
+    },
+    {
+      "sha": "9f2b03c3111d0f4dfb49ae7b97dd2224b3c8d125",
+      "short": "9f2b03c",
+      "date": "2026-11-12 10:05",
+      "message": "run 93: AA 1.7 Graph Transformations — verifier P/Q, GIF band method, VLM-passed figures; 1.8 deferred by the time rule with section Q pre-written green; run-92 latent retired-hex fixed; aa-* routing in the overlap auditor",
+      "filesChanged": 9,
+      "insertions": 890,
+      "deletions": 40,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 183,
+          "del": 25
+        },
+        {
+          "path": "scripts/audit-svg-overlaps.sh",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 294,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 380,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "17a24a4fe4dc33556f1dc373f67bc34b5d660fba",
+      "short": "17a24a4",
+      "date": "2026-11-12 10:05",
+      "message": "worklog: run 93 sync record — remote HEAD verified == 9f2b03c",
+      "filesChanged": 3,
+      "insertions": 814,
+      "deletions": 14,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 162,
+          "del": 8
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 648,
+          "del": 6
+        }
+      ]
     }
   ],
   "totals": {
     "disciplinesPlanned": 11,
     "booksPlannedBacklog": 277,
     "booksLive": 28,
-    "chaptersWritten": 32,
-    "chaptersInProgress": 1,
-    "lessonsWritten": 128,
-    "wordsAuthored": 621879,
-    "termsDefined": 938,
-    "quizItems": 640,
-    "exerciseQuestions": 1651,
+    "chaptersWritten": 33,
+    "chaptersInProgress": 0,
+    "lessonsWritten": 130,
+    "wordsAuthored": 632280,
+    "termsDefined": 952,
+    "quizItems": 650,
+    "exerciseQuestions": 1675,
     "blockTotals": {
-      "para": 1801,
-      "callout": 728,
-      "heading": 706,
-      "list": 147,
-      "terms": 126,
-      "equation": 196,
-      "figure": 227,
-      "derivation": 236,
-      "table": 153,
-      "example": 564,
-      "quiz": 128,
-      "exercises": 128,
-      "formula": 387,
+      "para": 1823,
+      "callout": 742,
+      "heading": 717,
+      "list": 150,
+      "terms": 128,
+      "equation": 199,
+      "figure": 231,
+      "derivation": 242,
+      "table": 154,
+      "example": 574,
+      "quiz": 130,
+      "exercises": 130,
+      "formula": 399,
       "algorithm": 27
     }
   }

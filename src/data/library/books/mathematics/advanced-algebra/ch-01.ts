@@ -2796,7 +2796,7 @@ function chapterArcSvg(): string {
   <path d="M290 116 Q462 172 575 116" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="5 4"/>
   <text x="462" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0d9488">bijective = invertible</text>
   <path d="M285 210 Q197 166 110 210" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="5 4"/>
-  <text x="197" y="188" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0d9488">the window pointer</text>
+  <text x="197" y="176" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0d9488">the window pointer</text>
   <text x="360" y="300" text-anchor="middle" font-size="11.5" fill="#65a30d">follow the amber road: each lesson hands the next its machine — the teal shortcuts mark the promises cashed late</text>
 </svg>`
 }
@@ -2823,7 +2823,6 @@ function verdictLanesSvg(): string {
   ${boxes}
   <path d="M135 204V240" stroke="#0d9488" stroke-width="1.8"/>
   <path d="M360 204V240" stroke="#0d9488" stroke-width="1.8"/>
-  <path d="M585 204V240" stroke="#0d9488" stroke-width="1.8"/>
   <rect x="25" y="240" width="670" height="52" rx="9" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
   <text x="360" y="262" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">bijective = one-one + onto — exactly the invertible machines</text>
   <text x="360" y="282" text-anchor="middle" font-size="11" fill="#0f766e">and the inverse swaps domain and range: dom(f⁻¹) = ran(f), ran(f⁻¹) = dom(f)</text>
