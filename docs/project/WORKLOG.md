@@ -1,3 +1,7 @@
+## 2026-11-12 — RUN 93 SYNC RECORD
+
+Pushed all unpushed local commits (467aaf4 + 9f2b03c — the run 92 worklog sync record and run 93's lesson 1.7) to main via the one-time HTTPS URL form; remote HEAD verified by ls-remote == **9f2b03c** (run 93). Tree clean at close; no lesson in flight (1.8 deferred with verifier section Q pre-written green, research banked — run 94 opens straight into authoring).
+
 ## 2026-11-12 — RUN 93: **AA ch. 1 lesson 1.7 "Graph Transformations: Shifts, Stretches, Flips and the GIF Graph" written, fully gated; 1.8 DEFERRED by the time rule with its verifier already green** (cron fire v5b)
 
 **State note:** run 91 (1.3+1.4) and run 92 (1.5+1.6) had already shipped (commits 5254ece, dcace9d) — the stale payload snapshot predated them; RESUME_POINTER ruled this run = 1.7 + 1.8.

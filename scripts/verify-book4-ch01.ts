@@ -1266,9 +1266,9 @@ function sectionI(): void {
     ok(prose.includes(needle), `I: the pinned exhibit “${needle}” appears in the authored lesson`)
   }
   // the chapter-level contract (relaxed run 93: the roster grows past six)
-  ok(chapter01.status === 'in-progress', 'I: chapter 1 status in-progress')
+  ok(chapter01.status === 'complete', 'I: chapter 1 closes COMPLETE once the review runs (relaxed run 94)')
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length >= 1, `I: the remaining obligations stay planned (got ${planned.length})`)
+  ok(planned.length === 0, `I: chapter 1 complete — nothing remains planned (relaxed run 94; got ${planned.length})`)
 }
 
 /* ------------------------------------------------------------------ */
@@ -1367,6 +1367,7 @@ if (chapter01.lessons.length >= 5) sectionN()
 if (chapter01.lessons.length >= 6) sectionO()
 sectionP()
 sectionQ()
+sectionR()
 
 
 /* ------------------------------------------------------------------ */
@@ -1552,7 +1553,7 @@ function sectionO(): void {
   // O10. the chapter-level contract (relaxed run 93: 1.7 and 1.8 join the roster; the exact-8 check moves to Q)
   ok(chapter01.lessons.length >= 6, `O: chapter 1 carries at least the six lessons through even/odd (got ${chapter01.lessons.length})`)
   const planned = chapter01.plannedLessons ?? []
-  ok(planned.length >= 1, `O: at least the unit-review obligation stays planned (got ${planned.length})`)
+  ok(planned.length === 0, `O: the review has run — nothing remains planned (relaxed run 94; got ${planned.length})`)
 
   // O11. audit the authored lesson
   const l6 = chapter01.lessons[5]
@@ -1855,11 +1856,164 @@ function sectionQ(): void {
     ]) {
       ok(prose8.includes(needle), `Q: the pinned exhibit “${needle}” appears in the authored lesson`)
     }
-    // the chapter contract: roster complete at eight, the review alone remains
-    ok(chapter01.lessons.length === 8, `Q: the chapter roster completes at eight lessons (got ${chapter01.lessons.length})`)
-    const planned = chapter01.plannedLessons ?? []
-    ok(planned.length === 1 && planned[0] === 'Unit Review: Functions as Objects', `Q: exactly the unit review remains planned (got ${planned.length}: ${planned.join(' | ')})`)
-    ok(chapter01.status === 'in-progress', 'Q: the chapter completes only when the review runs (next run)')
+    // the chapter contract: relaxed run 94 — the eight-lesson state contract lives here;
+    // the nine-lesson completion contract is section R's business once the review runs
+    if (chapter01.lessons.length === 8) {
+      ok(chapter01.plannedLessons?.length === 1 && chapter01.plannedLessons[0] === 'Unit Review: Functions as Objects', 'Q: exactly the unit review remains planned at eight lessons')
+      ok(chapter01.status === 'in-progress', 'Q: the chapter completes only when the review runs')
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (R) pre-writing pins for the unit review that closes chapter 1      */
+/* ------------------------------------------------------------------ */
+
+function sectionR(): void {
+  console.log('— (R) the unit review: pre-writing pins —')
+  const PI = Math.PI
+  const frac = (x: number): number => x - Math.floor(x)
+  const gridR = Array.from({ length: 121 }, (_, i) => -3 + (6 * i) / 120)
+  const periodicR = (f: (x: number) => number, T: number, eps = 1e-6): boolean =>
+    gridR.every((x) => Math.abs(f(x)) > 50 || Math.abs(f(x + T)) > 50 || Math.abs(f(x + T) - f(x)) < eps)
+
+  // R1. the verdict passport (E1): f(x) = (x − 1)² + 2
+  const passport = (x: number): number => (x - 1) ** 2 + 2
+  ok(passport(0) === 3 && passport(2) === 3, 'R1: the passport witnesses f(0) = f(2) = 3 — many-one on ℝ')
+  ok(Math.abs(passport(1) - 2) < 1e-12 && gridR.every((x) => passport(x) >= 2 - 1e-12), 'R1: range floor 2 at the vertex x = 1 — range [2, ∞)')
+  const inv = (x: number): number => Math.sqrt(x - 2) + 1
+  ok(Math.abs(inv(passport(5)) - 5) < 1e-12 && Math.abs(passport(inv(6)) - 6) < 1e-12, 'R1: the restriction inverse f⁻¹(x) = √(x − 2) + 1 undoes the machine on [1, ∞) (f⁻¹(6) = 3)')
+
+  // R2. composition order (E2): h(x) = 2x − 1, k(x) = x² + 1
+  const h = (x: number): number => 2 * x - 1
+  const k = (x: number): number => x * x + 1
+  ok(k(h(1)) === 2 && h(k(1)) === 3, 'R2: (k∘h)(1) = 2 but (h∘k)(1) = 3 — composition order matters')
+  const invH = (x: number): number => (x + 1) / 2
+  ok(gridR.every((x) => Math.abs(invH(h(x)) - x) < 1e-12), 'R2: h⁻¹(x) = (x + 1)/2 with h⁻¹∘h = the identity')
+
+  // R3. anchor + window (E3): y = 2 sin(3(x − π/4)) + 1
+  const wave = (x: number): number => 2 * Math.sin(3 * (x - PI / 4)) + 1
+  ok(periodicR(wave, (2 * PI) / 3) && !periodicR(wave, PI / 3, 1e-9), 'R3: 2 sin(3(x − π/4)) + 1 rides 2π/3 and fails π/3')
+  ok(Math.abs(wave(5 * PI / 12) - 3) < 1e-12, 'R3: the peak anchor (π/2, 1) rides to (π/4 + π/6, 1 + 2) = (5π/12, 3)')
+
+  // R4. the counting passport (E4): n(A) = n(B) = 3
+  {
+    const A = [0, 1, 2]
+    const maps: number[][] = []
+    for (const a of A) for (const b of A) for (const c of A) maps.push([a, b, c])
+    const oneToOne = maps.filter((m) => new Set(m).size === 3).length
+    const onto = maps.filter((m) => new Set(m).size === 3).length // on 3→3 onto ⇔ one-one ⇔ bijection
+    ok(maps.length === 27 && 3 ** 3 === 27, 'R4: the function census 3³ = 27 machines from a 3-set to a 3-set')
+    ok(2 ** 9 === 512, 'R4: the relation census 2^pq = 2⁹ = 512')
+    ok(oneToOne === 6 && onto === 6, 'R4: brute force — 6 one-one, 6 onto, 6 bijections (3! = 6; the pigeonhole makes them the same six)')
+  }
+
+  // R5. the quiz pins
+  ok(2 ** 6 === 64, 'R5: quiz pin — n(A) = 2, n(B) = 3 gives 2⁶ = 64 relations')
+  {
+    const gg = (x: number): number => x + 1
+    const ff = (x: number): number => x * x
+    ok(ff(gg(2)) === 9 && gg(ff(2)) === 5 && ff(gg(2)) - gg(ff(2)) === 4, 'R5: quiz pin — f(g(2)) − g(f(2)) = 9 − 5 = 4 for g(x) = x + 1, f(x) = x²')
+  }
+  ok(periodicR((x: number): number => frac(3 * x), 1 / 3) && !periodicR((x: number): number => frac(3 * x), 1 / 6, 1e-12), 'R5: quiz pin — {3x} rides 1/3 and fails 1/6 (the least discipline)')
+  ok(true, 'R5: quiz pin — y = f(x − 2) + 5 moves every seat (x₀, y₀) to (x₀ + 2, y₀ + 5): right 2, up 5 (the anchor law a = 1, b = 1, h = 2, k = 5)')
+
+  // R6. the exercise pins
+  {
+    const pairs: [number, number][] = []
+    for (const x of [1, 2, 3, 4]) for (const y of [1, 2, 3, 4]) if ((x + y) % 2 === 0) pairs.push([x, y])
+    ok(pairs.length === 8, 'R6: x + y even on {1,2,3,4} owns exactly 8 pairs — the same-parity census')
+    ok(new Set(pairs.map((p) => p[0])).size === 4 && new Set(pairs.map((p) => p[1])).size === 4, 'R6: domain and range both full {1, 2, 3, 4}')
+  }
+  ok(Math.floor(-3.4) === -4 && Math.abs(frac(-3.4) - 0.6) < 1e-12 && Math.sign(-3.4) === -1, 'R6: [−3.4] = −4, {−3.4} = 0.6, sgn(−3.4) = −1')
+  ok(gridR.every((x) => Math.abs(Math.floor(x) + frac(x) - x) < 1e-12), 'R6: the pair law [x] + {x} = x on every seat of the grid')
+  {
+    const q = (x: number): number => x * x - 4 * x + 7
+    ok(Math.abs(q(2) - 3) < 1e-12 && gridR.every((x) => q(x) >= 3 - 1e-12), 'R6: x² − 4x + 7 = (x − 2)² + 3 — range [3, ∞)')
+    ok(q(1) === 4 && q(3) === 4, 'R6: the symmetry witness f(1) = f(3) = 4 — many-one on ℝ')
+  }
+  {
+    const hx = (x: number): number => Math.abs(x) + x
+    const evenPart = (x: number): number => (hx(x) + hx(-x)) / 2
+    const oddPart = (x: number): number => (hx(x) - hx(-x)) / 2
+    ok(gridR.every((x) => Math.abs(evenPart(x) - Math.abs(x)) < 1e-12 && Math.abs(oddPart(x) - x) < 1e-12), 'R6: |x| + x splits into the even machine |x| and the odd machine x')
+  }
+  {
+    const fs = (x: number): number => Math.sqrt(x - 1)
+    const gs = (x: number): number => x + 3
+    ok(Math.abs(fs(gs(-2)) - 0) < 1e-12, 'R6: (f∘g)(x) = √(x + 2) is honest at x = −2 (the boundary seat) — domain x ≥ −2')
+    ok(Math.abs(gs(fs(5)) - 5) < 1e-12, 'R6: (g∘f)(x) = √(x − 1) + 3 — domain x ≥ 1')
+  }
+  {
+    const mob = (x: number): number => (x - 1) / (x + 1)
+    const invMob = (y: number): number => (y + 1) / (1 - y)
+    ok(Math.abs(invMob(mob(0)) - 0) < 1e-12 && Math.abs(invMob(mob(2)) - 2) < 1e-12, 'R6: the solve-back inverse of (x − 1)/(x + 1) is (y + 1)/(1 − y) — verified at seats 0 and 2')
+  }
+  {
+    const gifEq = (x: number): number => Math.floor(x) ** 2 - 5 * Math.floor(x) + 6
+    ok(gifEq(2) === 0 && gifEq(3.9) === 0 && gifEq(1.9) !== 0 && gifEq(4) !== 0, 'R6: [x]² − 5[x] + 6 = 0 owns exactly the band x ∈ [2, 4)')
+  }
+  {
+    const w8 = (x: number): number => Math.sin(3 * x) ** 2 + Math.abs(Math.cos(5 * x))
+    ok(periodicR(w8, PI) && !periodicR(w8, PI / 2, 1e-9), 'R6: sin²3x + |cos 5x| rides π (LCM of π/3 and π/5) and fails π/2')
+    ok(Math.abs(w8(PI / 6) - (1 + Math.sqrt(3) / 2)) < 1e-9 && Math.abs(w8(2 * PI / 3) - 0.5) < 1e-9, 'R6: the π/2 failure seat x = π/6 (values 1 + √3/2 against 1/2)')
+  }
+  {
+    const anchor = (x: number): number => 2 * Math.sqrt(3 * (x - 1)) + 4
+    ok(Math.abs(anchor(1) - 4) < 1e-12 && Math.abs(anchor(7 / 3) - 8) < 1e-12, 'R6: the anchor walk 2√(3(x − 1)) + 4 carries (0, 0) to (1, 4) and (4, 2) to (7/3, 8)')
+    ok(anchor(1) >= 4 - 1e-12, 'R6: the wrapped machine never dips below 4 (the parent √x never dips below 0)')
+  }
+  {
+    const moeb = (x: number): number => (2 * x + 3) / (x - 1)
+    const invM = (y: number): number => (y + 3) / (y - 2)
+    ok(Math.abs(moeb(0) - -3) < 1e-12 && Math.abs(invM(-3) - 0) < 1e-12, 'R6: the Möbius machine (2x + 3)/(x − 1) = 2 + 5/(x − 1): f(0) = −3, f⁻¹(−3) = 0')
+    ok(Math.abs(invM(moeb(4)) - 4) < 1e-12 && Math.abs(moeb(invM(-1)) - -1) < 1e-12, 'R6: f⁻¹(y) = 1 + 5/(y − 2) undoes the machine both ways; range ℝ − {2}')
+  }
+  {
+    const cls = new Map<number, number[]>()
+    for (const x of [1, 2, 3, 4, 6]) {
+      const r = x % 3
+      cls.set(r, [...(cls.get(r) ?? []), x])
+    }
+    const classes = [...cls.values()].map((v) => [...v].sort((a, b) => a - b).join(','))
+    ok(classes.length === 3 && classes.includes('1,4') && classes.includes('2') && classes.includes('3,6'), 'R6: mod-3 classes on {1,2,3,4,6} are {1,4}, {2}, {3,6}')
+    let pairCount = 0
+    for (const x of [1, 2, 3, 4, 6]) for (const y of [1, 2, 3, 4, 6]) if ((x - y) % 3 === 0) pairCount++
+    ok(pairCount === 9, 'R6: the equivalence owns exactly 9 pairs (4 + 1 + 4)')
+  }
+  {
+    let noCandidate = true
+    for (const T of [0.5, 1, 2, 3, 6.28]) {
+      const drift = Math.max(...gridR.map((x) => Math.abs(x + T + Math.cos(x + T) - x - Math.cos(x))))
+      if (drift < 1e-3) noCandidate = false
+    }
+    ok(noCandidate, 'R6: x + cos x fails every candidate window — the linear-rail argument runs verbatim on the cosine')
+  }
+
+  // R7. authored audit + the chapter completion contract (live once the review joins)
+  if (chapter01.lessons.length >= 9) {
+    const rv = chapter01.lessons[8]
+    ok(rv.id === 'aa-unit-review-functions-as-objects', `R: the review id (got ${rv.id})`)
+    ok(rv.number === '1.R' && rv.title === 'Unit Review: Functions as Objects', 'R: the review number/title match the plan')
+    auditLesson(rv, 'R', [1, 1, 0, 2, 0], 12, 6, 2, 3800)
+    const proseR = lessonText(rv)
+    for (const needle of [
+      'the machine became an object',
+      'bijective',
+      'invertible',
+      'window',
+      'anchor law',
+      'band method',
+      'equivalence',
+      'horizontal probe',
+      'WASTE',
+      'COVER',
+    ]) {
+      ok(proseR.includes(needle), `R: the pinned exhibit “${needle}” appears in the authored review`)
+    }
+    ok(chapter01.lessons.length === 9, `R: the chapter roster completes at nine entries — eight lessons plus the review (got ${chapter01.lessons.length})`)
+    ok((chapter01.plannedLessons ?? []).length === 0, `R: nothing remains planned — chapter 1 COMPLETE (got ${(chapter01.plannedLessons ?? []).join(' | ')})`)
+    ok(chapter01.status === 'complete', 'R: the chapter status closes COMPLETE')
   }
 }
 

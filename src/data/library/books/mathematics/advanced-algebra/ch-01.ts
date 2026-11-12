@@ -2382,6 +2382,651 @@ const lesson17: Lesson = {
 }
 
 /* ------------------------------------------------------------------ */
+/* 1.8 — the sawtooth squeeze family and the L.C.M. ruler              */
+/* ------------------------------------------------------------------ */
+
+/** 1.8 fig 1 — the stretch law T/|a| priced on the sawtooth family */
+function sawtoothSqueezeSvg(): string {
+  const SC = 34, Y0 = 196, H = 26, INK = '#0f766e'
+  const O1 = 120, O2 = 360, O3 = 595
+  const tooth = (x1: number, x2: number, y1: number, y2: number): string =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${INK}" stroke-width="2.2"/>` +
+    `<circle cx="${x1}" cy="${y1}" r="3.2" fill="${INK}"/>` +
+    `<circle cx="${x2}" cy="${y2}" r="3.2" fill="#fef3c7" stroke="${INK}" stroke-width="1.4"/>`
+  const teeth1 = [-1, 0, 1, 2].map((n) => tooth(O1 + SC * n, O1 + SC * (n + 1), Y0, Y0 - H)).join('\n  ')
+  const teeth2 = [-2, -1, 0, 1, 2, 3, 4, 5].map((k) => tooth(O2 + (SC / 2) * k, O2 + (SC / 2) * (k + 1), Y0, Y0 - H)).join('\n  ')
+  const teeth3 =
+    tooth(O3 - 2 * SC, O3, Y0, Y0 - H) +
+    tooth(O3, O3 + 2 * SC, Y0, Y0 - H)
+  const axes = (O: number, x0: number, x1: number): string =>
+    `<path d="M${x0} ${Y0}H${x1} M${O} 66V200" stroke="#16a34a" stroke-width="1.2" opacity="0.75"/>`
+  const xLabels1 = [-1, 0, 1, 2, 3].map((t) => `<text x="${O1 + SC * t}" y="216" font-size="10" text-anchor="middle" opacity="0.85" fill="currentColor">${t}</text>`).join('')
+  const xLabels2 = [-1, 0, 1, 2, 3].map((t) => `<text x="${O2 + SC * t}" y="216" font-size="10" text-anchor="middle" opacity="0.85" fill="currentColor">${t}</text>`).join('')
+  const halfTicks2 = [-0.5, 0.5, 1.5, 2.5].map((t) => `<path d="M${O2 + SC * t} ${Y0}V${Y0 - 4}" stroke="currentColor" stroke-width="0.9" opacity="0.45"/>`).join('')
+  const xLabels3 = [-2, 0, 1, 2].map((t) => `<text x="${O3 + SC * t}" y="216" font-size="10" text-anchor="middle" opacity="0.85" fill="currentColor">${t}</text>`).join('')
+  const bracket = (x0: number, x1: number, label: string): string => {
+    const y = 234
+    return (
+      `<line x1="${x0 + 9}" y1="${y}" x2="${x1 - 9}" y2="${y}" stroke="#ea580c" stroke-width="2"/>` +
+      `<polygon points="${x0},${y} ${x0 + 10},${y - 4.5} ${x0 + 10},${y + 4.5}" fill="#ea580c"/>` +
+      `<polygon points="${x1},${y} ${x1 - 10},${y - 4.5} ${x1 - 10},${y + 4.5}" fill="#ea580c"/>` +
+      `<text x="${x1 + 10}" y="${y + 4}" font-size="12.5" font-weight="700" fill="#ea580c">${label}</text>`
+    )
+  }
+  const dash = (x: number): string =>
+    `<path d="M${x} ${Y0 - H - 12}V202" stroke="#d97706" stroke-width="1" stroke-dasharray="4 3" opacity="0.8"/>`
+  return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three sawtooth panels: the fractional-part machine repeats every one unit, the machine of the fractional part of two x repeats every half unit, and the machine of the fractional part of x over two repeats every two units - the inner constant divides the window">
+  <g fill="currentColor" font-size="13.5" font-weight="700" text-anchor="middle">
+    <text x="154" y="40">y = {x}</text>
+    <text x="396" y="40">y = {2x}</text>
+    <text x="613" y="40">y = {x/2}</text>
+  </g>
+  ${axes(O1, 84, 232)}
+  ${axes(O2, 324, 468)}
+  ${axes(O3, 523, 703)}
+  ${dash(O1 + SC)}
+  ${dash(O2 + SC / 2)}
+  ${dash(O3 + 2 * SC)}
+  ${teeth1}
+  ${teeth2}
+  ${teeth3}
+  ${xLabels1}
+  ${xLabels2}
+  ${halfTicks2}
+  ${xLabels3}
+  ${bracket(O1, O1 + SC, 'T = 1')}
+  ${bracket(O2, O2 + SC / 2, 'T = 1/2')}
+  ${bracket(O3, O3 + 2 * SC, 'T = 2')}
+  <g fill="currentColor" font-size="11.5" opacity="0.85" text-anchor="middle">
+    <text x="360" y="300">the same sawtooth under inner edits — the window divides by |a|: 1 becomes 1/2 (a = 2) and 2 (a = 1/2)</text>
+  </g>
+</svg>`
+}
+
+/** 1.8 fig 2 — the L.C.M. ruler: the windows 2 and 10/3 meet at 10 */
+function lcmRulerSvg(): string {
+  const X = (v: number): number => 60 + v * 58
+  const tile = (v0: number, v1: number, y: number, fill: string): string =>
+    `<rect x="${X(v0).toFixed(1)}" y="${y}" width="${((v1 - v0) * 58).toFixed(1)}" height="28" fill="${fill}" stroke="#16a34a" stroke-width="1.2"/>`
+  const topTiles = [0, 2, 4, 6, 8].map((v, i) => tile(v, v + 2, 116, i % 2 === 0 ? '#fef3c7' : '#ffedd5')).join('\n  ')
+  const botTiles = [0, 10 / 3, 20 / 3].map((v, i) => tile(v, v + 10 / 3, 196, i % 2 === 0 ? '#fef3c7' : '#ffedd5')).join('\n  ')
+  const topTicks = [0, 2, 4, 6, 8, 10].map((v) => `<path d="M${X(v)} 144V152" stroke="#0d9488" stroke-width="1.4"/>`).join('')
+  const botTicks = [0, 10 / 3, 20 / 3, 10].map((v) => `<path d="M${X(v).toFixed(1)} 224V232" stroke="#0d9488" stroke-width="1.4"/>`).join('')
+  const topLabels = [0, 2, 4, 6, 8].map((v) => `<text x="${X(v)}" y="108" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">${v}</text>`).join('')
+  const botLabels = [10 / 3, 20 / 3].map((v) => `<text x="${X(v).toFixed(1)}" y="246" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">${v === 10 / 3 ? '10/3' : '20/3'}</text>`).join('')
+  const cross = (cx: number, cy: number): string =>
+    `<path d="M${cx - 7} ${cy - 7}L${cx + 7} ${cy + 7} M${cx - 7} ${cy + 7}L${cx + 7} ${cy - 7}" stroke="#dc2626" stroke-width="2.2"/>`
+  return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two tiled rulers: a machine of window 2 repeats at 2, 4, 6, 8 and 10; a machine of window 10/3 repeats at 10/3, 20/3 and 10; the first common repeat is 10, the least common multiple - 20/3 and 8 land on one ruler each and fail as repeats of the sum">
+  <g fill="#0f766e" font-size="12.5" font-weight="700" text-anchor="middle">
+    <text x="350" y="64">the 2-window ruler — repeats land at 2, 4, 6, 8, 10</text>
+    <text x="350" y="186">the 10/3-window ruler — repeats land at 10/3, 20/3, 10</text>
+  </g>
+  ${topTiles}
+  ${botTiles}
+  ${topTicks}
+  ${botTicks}
+  ${topLabels}
+  ${botLabels}
+  <text x="${X(0)}" y="246" font-size="11" text-anchor="middle" fill="currentColor" opacity="0.85">0</text>
+  <text x="${X(10)}" y="108" font-size="12.5" font-weight="700" text-anchor="middle" fill="#ea580c">10</text>
+  <text x="${X(10)}" y="246" font-size="12.5" font-weight="700" text-anchor="middle" fill="#ea580c">10</text>
+  <path d="M${X(10)} 148V192" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <circle cx="${X(10)}" cy="130" r="4.5" fill="#ea580c"/>
+  <circle cx="${X(10)}" cy="210" r="4.5" fill="#ea580c"/>
+  ${cross(X(20 / 3), 130)}
+  ${cross(X(8), 210)}
+  <g fill="#dc2626" font-size="10" font-weight="700" text-anchor="middle">
+    <text x="${X(20 / 3).toFixed(1)}" y="167">20/3 — only the bottom ruler</text>
+    <text x="${X(8)}" y="264">8 — only the top ruler</text>
+  </g>
+  <g fill="currentColor" font-size="11.5" opacity="0.9" text-anchor="middle">
+    <text x="360" y="284">the first common repeat — 3 repeats of 10/3 and 5 repeats of 2 land together at 10</text>
+    <text x="360" y="300">the L.C.M. of the two windows: no smaller positive number is a whole multiple of both</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.8 — The Period Census                                      */
+/* ------------------------------------------------------------------ */
+
+const lesson18: Lesson = {
+  id: 'aa-period-census-periods-of-transformed-and-composite-functions',
+  number: '1.8',
+  title: 'The Period Census: Periods of Transformed and Composite Functions',
+  concepts: [
+    'the periodic law f(x+T) = f(x) at every seat, with the least such window T the principal period',
+    'the elementary census: the windows of sin x, cos x, tan x, {x}, their powers and their moduli',
+    'the transformation laws: outer edits keep the window, the inner edit f(ax + b) divides it to T/|a|',
+    'composite windows: g(f(x)) inherits the inner window unless a smaller k survives the relay',
+    'the L.C.M. rule for algebraic combinations: L.C.M. of numerators over H.C.F. of denominators, then the smaller-k check',
+    'irrational windows: a common repeat exists only when the same surd rides both terms',
+    'the non-periodicity proofs: the linear-rail argument on x + sin x and the subtraction argument on {x} + x²',
+  ],
+  objectives: [
+    'define periodicity formally and reject a candidate window by exhibiting a single failing seat — the witness discipline again',
+    'price any edited machine at sight: af(x), f(x) ± a, f(x ± a) keep the window T while f(ax + b) + c rides T/|a|',
+    'census composites honestly: why sin(cos x) needs 2π while cos(cos x) rides π, and how the sin⁻¹(sin x) family behaves',
+    'combine windows by the L.C.M. rule — rationals by L.C.M.(m, r)/H.C.F.(n, s), surds only when the same radical rides both',
+    'prove non-periodicity two ways: the constant-drift contradiction for x + sin x and the subtraction argument for {x} + x²',
+  ],
+  prerequisites: ['aa-graph-transformations-shifts-stretches-flips-gif', 'aa-function-zoo-modulus-signum-gif-elementary-catalog'],
+  sources: ['cengage-m4-01', 'cengage-jee-style', 'ncert-math11-ch2-functions', 'ncert-math12-ch1-relations-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Two lessons ago the zoo (1.5) caged the resident machines; the last lesson (1.7) taught the grammar of editing them. One column of those tables was named but never priced: the PERIOD. The transformations lesson kept saying "period untouched" for outer edits and quietly promised this lesson would say what a period even is, when it moves, and when it breaks. That debt is now collected. The window of a repeating machine is the single number the examination hall prices most often: it decides how many solutions an equation has on a stretch, how a graph repeats, whether a combination of machines repeats at all.' },
+    { kind: 'para', text: 'One honest boundary first: the trigonometric machines $\\sin x$, $\\cos x$, $\\tan x$ belong, at their root, to the Trigonometry book later on this shelf — the angle ground, the identities, the unit-circle reading. THIS lesson does not develop that ground; it treats the trig machines as known residents of the zoo and measures exactly one property of them as machines: their window. Every window number below is recomputed from the periodic law alone, with the verifier watching — no trigonometric identity is used that the census does not need.' },
+    { kind: 'para', text: 'The census runs in five moves, each a section: the definition and the least-window discipline; the elementary census of the residents; the transformation laws (which edits move the window, which never); composite machines (the relay); and combinations — sums, differences, products, quotients — where the L.C.M. rule and its two famous failure modes live. The lesson closes with the two classic non-periodicity PROOFS, because the hall asks "prove it is NOT periodic" exactly as often as "find the period".' },
+
+    { kind: 'heading', text: 'The Definition: the Least Window' },
+    { kind: 'callout', tone: 'definition', title: 'Periodic function', text: 'A machine $f$ is said to be PERIODIC if there exists a positive real number $T$ such that $f(x + T) = f(x)$ for every seat $x$ of the domain. The LEAST of all such positive numbers is called the PRINCIPAL PERIOD (or simply the period) of $f$. Thus, a periodic machine is one whose every value is repeated after a definite interval — and the graph repeats after an interval of length equal to the period: $f(x) = f(x + T) = f(x + 2T) = f(x + 3T) \\ldots$ for every whole lap.' },
+    { kind: 'equation', latex: 'f(x + T) = f(x) \\quad \\text{at EVERY seat } x, \\qquad T_0 = \\min\\{\\,T > 0 : f(x + T) = f(x)\\ \\forall x\\,\\}', note: 'the periodic law — a candidate window must hold at every seat; the principal period is the least window' },
+    { kind: 'para', text: 'Two disciplines hide in that definition and the whole lesson runs on them. FIRST: the law must hold at EVERY seat — one failing seat rejects a candidate outright. This is the witness discipline of lesson 1.2 returning: to prove a number is NOT a period, exhibit a single seat where $f(x + T) \\neq f(x)$. SECOND: the census always reports the LEAST window. The number $4\\pi$ satisfies the law for $\\sin x$ as well as $2\\pi$ does — a candidate that works but is not least is exactly the trap a multiple-choice hall lays. "The period" of a machine always means the principal period.' },
+    { kind: 'derivation', title: 'Why the window of sin x is 2π — and nothing smaller', statement: 'The principal period of $\\sin x$ is $2\\pi$; no smaller positive number carries the law.', steps: [
+      { label: 'Demand the law at every seat', formula: '\\sin(x + T) = \\sin x \\ \\ \\forall x \\in \\mathbb{R}', explanation: 'a window must satisfy the periodic law at every seat — the interrogation will now pin the candidates.' },
+      { label: 'Interrogate the seat 0', formula: '\\sin(0 + T) = \\sin 0 = 0', explanation: 'putting $x = 0$: every candidate window must be a zero of the sine — so $T = n\\pi$ for whole $n \\geq 1$. Only the multiples of $\\pi$ remain as candidates.' },
+      { label: 'Test the least candidate', formula: '\\sin(x + \\pi) = -\\sin x', explanation: 'the half-lap flips the sign. The seat $x = \\pi/2$ witnesses the failure: $\\sin(3\\pi/2) = -1$ while $\\sin(\\pi/2) = 1$. So $\\pi$ is rejected.' },
+      { label: 'Land the window', formula: '\\sin(x + 2\\pi) = \\sin x', explanation: 'the full lap returns every value of the sine; and between $\\pi$ and $2\\pi$ no candidate is a zero of the sine at all — the interrogation left none standing.' },
+    ], result: 'The principal period of $\\sin x$ is $2\\pi$: the seat-0 interrogation fixed the candidates, the witness seat $\\pi/2$ rejected $\\pi$, and the full lap survived.' },
+    { kind: 'callout', tone: 'insight', title: 'The constant machine: periodic with no fixed period', text: 'Every positive $T$ carries the law for a constant machine ($c = c$ at every seat, shifted or not) — so a constant IS periodic, but it owns no LEAST window: there is no "the" period of $c$. The census table records this honestly: constant machines are periodic with NO fixed period. The lesson never reports a window for them.' },
+    { kind: 'para', text: 'The fractional part — the sawtooth of the zoo — earns its window the same way, and its least-window discipline is the one this lesson will reuse everywhere: every $T < 1$ FAILS for $\\{x\\}$, because at the seat $x = 1 - T/2$ the climb has already started over: $\\{x + T\\} = T/2$ while $\\{x\\} = 1 - T/2$. And the stretched sawtooth $\\{x/2\\}$ shows the discipline at its sharpest: the window is $2$, NOT $1$ — the seat $x = 1$ witnesses the failure of $1$ outright, since $\\{1/2\\} = 1/2$ while $\\{1\\} = 0$. One seat, one rejection: that is the entire method.' },
+
+    { kind: 'heading', text: 'The Elementary Census' },
+    { kind: 'para', text: 'The residents are measured once and forever; every later chapter reads this table without comment. Each row is earned by the two disciplines above — the law checked at every seat, the least candidate surviving — and the verifier recomputes each row numerically before this prose existed.' },
+    { kind: 'table', caption: 'The elementary census — the windows every later chapter assumes', head: ['machine', 'window', 'the reason the row holds'], rows: [
+      ['$\\sin x,\\ \\cos x,\\ \\sec x,\\ \\mathrm{cosec}\\ x$', '$2\\pi$', 'the full lap — the derivation above, and the same circle for the cos; the reciprocal machines inherit it'],
+      ['$\\tan x,\\ \\cot x$', '$\\pi$', 'the half-lap flips the signs of BOTH sin and cos — the ratio returns unchanged'],
+      ['$\\{x\\}$ (fractional part)', '$1$', 'the sawtooth forgets whole laps: $\\{x + n\\} = \\{x\\}$ for every whole $n$'],
+      ['$\\sin^n x,\\ \\cos^n x,\\ \\sec^n x,\\ \\mathrm{cosec}^n x$', '$\\pi$ if $n$ even; $2\\pi$ if $n$ odd', 'even powers absorb the half-flip sign, odd powers keep it — the census illustration below'],
+      ['$\\tan^n x,\\ \\cot^n x$', '$\\pi$ for every $n$', 'the ratio already returns at $\\pi$; powering the value changes nothing about repetition'],
+      ['$|\\sin x|,\\ |\\cos x|,\\ |\\tan x|,\\ |\\sec x|,\\ |\\mathrm{cosec}\\ x|,\\ |\\cot x|$', '$\\pi$', 'the modulus absorbs the half-flip sign — the wrap of lesson 1.5 meeting the half-lap'],
+      ['a constant machine', 'every $T > 0$ works', 'periodic but with NO least window — no fixed period to report'],
+    ] },
+    { kind: 'example', title: 'Read the census rows: why sin⁴x rides π while sin³x needs 2π', steps: [
+      'The half-lap flip is the engine: $\\sin(x + \\pi) = -\\sin x$. An EVEN power absorbs the flip — $\\sin^4(x + \\pi) = (-\\sin x)^4 = \\sin^4 x$ at every seat, so $\\pi$ works for $\\sin^4 x$.',
+      'And $\\pi$ is LEAST for the even row: the half-window $\\pi/2$ fails at the seat $x = 0$ — $\\sin^4(\\pi/2) = 1$ against $\\sin^4 0 = 0$ (the quarter-lap turn feeds the sine the cosine’s values there).',
+      'An ODD power keeps the flip: $\\sin^3(x + \\pi) = -\\sin^3 x$, failing at the seat $x = \\pi/2$ ($-1$ against $1$) — so $\\sin^3 x$ needs the full $2\\pi$, exactly the census row says.',
+      'The modulus row runs the same argument as the even row — $|\\sin(x + \\pi)| = |{-\\sin x}| = |\\sin x|$ — and the tan row is the ratio read: the half-lap flips sin and cos TOGETHER, so $\\tan(x + \\pi) = \\tan x$ for every power $n$.',
+      'Hence, $\\sin^4 x$ rides $\\pi$; $\\sin^3 x$ needs $2\\pi$; $|\\sin x|$ rides $\\pi$; $\\tan^n x$ rides $\\pi$ for every $n$.',
+    ] },
+
+    { kind: 'heading', text: 'Transformed Windows: the Stretch Law T/|a|' },
+    { kind: 'callout', tone: 'theorem', title: 'The transformation laws for windows', text: 'If $f$ rides window $T$, then the edited machines $a\\,f(x)$ (with $a \\neq 0$), $f(x) \\pm a$ and $f(x \\pm a)$ all ride the SAME window $T$. Thus, no outer edit — amplitude, lift, or outer phase — ever moves the window. And the inner edit: $f(ax + b) + c$ (with $a \\neq 0$) rides $T/|a|$: an inside constant DIVIDES the window. For example, $3\\sin(2x + 5)$ keeps the window of $\\sin 2x$, which is $\\pi$; the amplitude 3, the phase 5 and any lift $c$ are decorations the window ignores.' },
+    { kind: 'derivation', title: 'The stretch law derived: why the inside constant divides', statement: 'If $f$ rides window $T$, then $f(ax + b) + c$ rides $T/|a|$ — and the outer edits never move it.', steps: [
+      { label: 'Clear the outer decorations', formula: 'a\\,f,\\ f \\pm c:\\ \\text{the window is untouched}', explanation: 'an outer edit re-addresses the OUTPUT only: $a\\,f(x + T) = a\\,f(x)$ and $f(x + T) \\pm c = f(x) \\pm c$ — the law survives verbatim. The shift $b$ inside is likewise free: it slides the picture (1.7), and a slide never changes the LENGTH of anything.' },
+      { label: 'Name the new window', formula: "f\\big(a(x + T')\\big) = f(ax)", explanation: 'write the edited machine as $f(ax)$ and call its window $T\'$ — its input must walk a full window $T$ of the PARENT: the inside sees $aT\'$, so the demand is $aT\' = T$.' },
+      { label: 'Solve and take the sign out', formula: "T' = T/a \\ \\ (a > 0)", explanation: 'windows are positive, so the sign of $a$ never enters the census: $T/|a|$ in general. The seat-carry read of 1.7 agrees — the seat that fed the parent $x_0$ now sits at $x_0/a$, the whole picture squeezed by $1/|a|$, and the window shrinks exactly as much.' },
+    ], result: 'T(f(ax + b) + c) = T/|a| — outside constants decorate, the inside constant DIVIDES the window.' },
+    { kind: 'para', text: 'This is 1.7’s inside-theatre paradox returning with a number on it: the LARGER the inside constant, the SMALLER the window. The machine $\\{2x\\}$ repeats twice as often as $\\{x\\}$ — its window is $1/2$ — while $\\{x/2\\}$ stretches to window $2$. The figure draws the whole family at once: one sawtooth, three inner constants, windows $1$, $1/2$ and $2$.' },
+    { kind: 'figure', caption: 'The stretch law priced on the sawtooth. Left: $y = \\{x\\}$ — the sawtooth of the zoo, climbing 0 to 1 on every unit, window $T = 1$ (the amber bracket). Middle: $y = \\{2x\\}$ — the SAME sawtooth squeezed: the inner 2 halves every seat distance, so the window divides to $T = 1/2$ — the picture repeats twice as often. Right: $y = \\{x/2\\}$ — the inner division stretches the seats, window $T = 2$. The dashed amber guide marks one full window in each panel: the bracket is wider or narrower exactly as the inner constant demands, and the teeth themselves never change shape — only their spacing.', svg: sawtoothSqueezeSvg() },
+    { kind: 'para', text: 'For example, the census at sight:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**Amplitude and phase are decorations** — $3\\sin(2x + 5)$ rides $\\pi$: the $\\sin 2x$ part owns window $2\\pi/2 = \\pi$, and multiplying by 3 or shifting by 5 never touches it.',
+      '**The lift never moves the window** — $\\sin(2x) + 7$ rides $\\pi$: heights relocated, seats untouched (the 1.7 vertical shift, priced on repetition).',
+      '**The inside constant divides** — $\\{2x\\}$ rides $1/2$: the sawtooth window 1 divided by the inside constant 2 — twice as many teeth per unit, exactly as the middle panel of the figure shows.',
+    ] },
+    { kind: 'example', title: 'Price the edited machines at sight: sin 3x, tan(3x + 5), and the least-window check on each', steps: [
+      'The window of $\\sin 3x$: the parent sine rides $2\\pi$; the inside constant 3 divides it — $2\\pi/3$. Check the least discipline: the half-candidate $\\pi/3$ fails, since $\\sin(3(x + \\pi/3)) = \\sin(3x + \\pi) = -\\sin 3x$ — the half-lap flip again, at every seat.',
+      'The window of $\\tan(3x + 5)$: the tangent rides $\\pi$; inside constant 3 divides — $\\pi/3$. The phase 5 slides the picture and never changes the window length; the half-candidate $\\pi/6$ fails by the tangent’s own half-lap flip.',
+      'The lesson of both runs: the transformation laws answer at SIGHT — outer decorations ignored, the inside constant divided out — and the least-window discipline is the confirmation step the hall demands, one failing seat per rejected candidate.',
+      'Hence, $\\sin 3x$ rides $2\\pi/3$; $\\tan(3x + 5)$ rides $\\pi/3$ — both with the half-candidate rejected by the flip witness.',
+    ] },
+
+    { kind: 'heading', text: 'Composite Windows: the Relay' },
+    { kind: 'para', text: 'Composition wired machines in series (1.3): the inner machine feeds the outer. If the inner $f$ rides window $T$, then the relay transmits it: $(g \\circ f)(x + T) = g(f(x + T)) = g(f(x))$ — the composite repeats whenever the inner does. THE RELAY LAW: the composite inherits the inner window. But the inheritance can SHRINK: the outer machine may not distinguish two inputs that the inner already glues together — and then a SMALLER window than $T$ may survive the relay. The composite’s window is AT MOST the inner’s, and the census must ask whether something smaller works.' },
+    { kind: 'callout', tone: 'theorem', title: 'The relay law', text: 'If the inner machine $f$ rides window $T$, then $g \\circ f$ rides some window dividing $T$ — $T$ itself certainly works, and a smaller $k$ works exactly when $g$ fails to distinguish the values $f$ glues together under the shift $k$. Thus, the composite window is found by inheritance first, then the least-window discipline on the candidates.' },
+    { kind: 'para', text: 'The pair the hall loves prices this in one breath, and 1.6’s even/odd table is the reason. Take the inner $\\cos x$ (window $2\\pi$) and feed it two different outer machines. The outer SINE is ODD — it distinguishes $t$ from $-t$ — so nothing shrinks: $\\sin(\\cos x)$ rides $2\\pi$, and the half-candidate $\\pi$ fails at the seat $x = 0$ ($\\sin(\\cos \\pi) = \\sin(-1)$ against $\\sin(\\cos 0) = \\sin 1$). The outer COSINE is EVEN — $\\cos(-t) = \\cos t$ — so the half-lap flip $\\cos(x + \\pi) = -\\cos x$ is ABSORBED: $\\cos(\\cos(x + \\pi)) = \\cos(-\\cos x) = \\cos(\\cos x)$. The composite $\\cos(\\cos x)$ rides $\\pi$ — the even outer machine HALVED the inherited window.' },
+    { kind: 'example', title: 'The relay, thrice: sin(cos x) needs 2π, cos(cos x) rides π, and the swap sum rides π/2', steps: [
+      'Inheritance: the inner $\\cos x$ rides $2\\pi$, so BOTH composites repeat at $2\\pi$. The census question is only what shrinks.',
+      'The odd outer: $\\sin(\\cos x)$ — the candidate $\\pi$ fails at the seat $x = 0$: the inner half-flip feeds $\\sin$ the value $-1$ against $1$, and the odd outer machine cares. Window $2\\pi$.',
+      'The even outer: $\\cos(\\cos x)$ — the same half-flip feeds $\\cos$ the value $-\\cos x$ against $\\cos x$, and the even outer machine does NOT care: $\\pi$ works. Least? $\\pi/2$ fails at the seat $x = 0$ ($\\cos(\\cos(\\pi/2)) = \\cos 0 = 1$ against $\\cos(\\cos 0) = \\cos 1$). Window $\\pi$.',
+      'The swap sum: $\\cos(\\sin x) + \\cos(\\cos x)$ — each term rides $\\pi$, so $\\pi$ works; but the HALF-shift $\\pi/2$ exchanges the machines’ inner worlds ($\\sin(x + \\pi/2) = \\cos x$, $\\cos(x + \\pi/2) = -\\sin x$), so the first term becomes $\\cos(\\cos x)$ and the second $\\cos(-\\sin x) = \\cos(\\sin x)$ — the terms SWAP, the sum returns: window $\\pi/2$. (The quarter-candidate $\\pi/4$ fails — the swap has no reason to repeat twice.)',
+      'Hence, $\\sin(\\cos x)$ rides $2\\pi$; $\\cos(\\cos x)$ rides $\\pi$; the swap sum rides $\\pi/2$ — the even outer halves, the half-shift swaps.',
+    ] },
+    { kind: 'para', text: 'The inverse-trig family earns its own row, because the hall asks it every year. $\\sin^{-1}(\\sin x)$ — the machine $\\sin^{-1}$ fed the values of $\\sin x$ — rides $2\\pi$: the full lap of the inner returns the inner values exactly, so the outputs match seat for seat. The half-candidate $\\pi$ FAILS, and the seat is instructive: at $x = \\pi/2$, $\\sin^{-1}(\\sin(\\pi/2 + \\pi)) = \\sin^{-1}(-1) = -\\pi/2$ against $\\sin^{-1}(1) = \\pi/2$ — the fold the inverse applies outside $[-\\pi/2, \\pi/2]$ breaks the half-symmetry. The family census: $\\sin^{-1}(\\sin x)$, $\\cos^{-1}(\\cos x)$, $\\sec^{-1}(\\sec x)$, $\\mathrm{cosec}^{-1}(\\mathrm{cosec}\\ x)$ all ride $2\\pi$; $\\tan^{-1}(\\tan x)$ and $\\cot^{-1}(\\cot x)$ ride $\\pi$. And the stretch law still applies inside the relay: $\\sin^{-1}(\\sin 3x)$ rides $2\\pi/3$.' },
+    { kind: 'example', title: 'The collapse census: sin^4 x + cos^4 x is a single wave of window π/2', steps: [
+      'A combination may COLLAPSE before the census runs. Expand the square of the fundamental identity: $(\\sin^2 x + \\cos^2 x)^2 = 1 = \\sin^4 x + \\cos^4 x + 2\\sin^2 x \\cos^2 x$.',
+      'So $\\sin^4 x + \\cos^4 x = 1 - 2\\sin^2 x\\cos^2 x$. The cross term is a wave: $2\\sin^2 x\\cos^2 x = \\tfrac{1}{2}\\sin^2 2x = \\tfrac{1}{2} \\cdot \\tfrac{1 - \\cos 4x}{2} = \\tfrac{1 - \\cos 4x}{4}$.',
+      'Hence the collapse: $\\sin^4 x + \\cos^4 x = \\tfrac{3}{4} + \\tfrac{\\cos 4x}{4}$ — a constant plus ONE wave riding $2\\pi/4 = \\pi/2$. The verifier checked the identity on a 241-seat grid before this prose existed.',
+      'The least discipline: $\\pi/4$ fails on the $\\cos 4x$ term (its own half-lap flip), so the window is exactly $\\pi/2$. The lesson: try the algebra FIRST — a collapsed combination is cheaper to census than a combination.',
+      'Hence, $\\sin^4 x + \\cos^4 x = \\tfrac{3}{4} + \\tfrac{1}{4}\\cos 4x$ — window $\\pi/2$, and $\\pi/4$ fails.',
+    ] },
+
+    { kind: 'heading', text: 'Period of Functions Resulting from Algebraic Operations of Functions' },
+    { kind: 'para', text: 'The last combination: two periodic machines ADDED — or subtracted, multiplied, divided; the window law is the same for every algebraic operation. This section is the fold the book’s TOC owes this lesson, and it opens with the rule and closes with the two ways it fails.' },
+    { kind: 'callout', tone: 'definition', title: 'The L.C.M. rule for algebraic combinations', text: 'Let $f$ ride window $p = m/n$ ($m, n$ whole, coprime) and $g$ ride window $q = r/s$ ($r, s$ whole, coprime) — both POSITIVE RATIONALS. Write $t$ for the L.C.M. of $p$ and $q$: $t = \\text{L.C.M.}(m, r)\\,/\\,\\text{H.C.F.}(n, s)$. Then $t$ is the window of $f + g$ — and of $f - g$, $f \\cdot g$, $f/g$ — PROVIDED no smaller positive $k$ already carries the combination; if such a $k$ exists, IT is the window. Thus, the combination window is the least common repeat of the two part windows, checked against shrinkage.' },
+    { kind: 'derivation', title: 'The L.C.M. rule derived', statement: 'The first common repeat of windows $m/n$ and $r/s$ (lowest terms) is L.C.M.(m, r)/H.C.F.(n, s).', steps: [
+      { label: 'Where a periodic machine repeats', formula: 'f \\text{ repeats exactly at whole multiples of } p', explanation: 'the law $f(x + p) = f(x)$ forces $f(x + 2p) = f(x + 3p) = \\dots$ — the repeats of $f$ are exactly the whole multiples of its window (and the $g$ side likewise for $q$).' },
+      { label: 'What the combination demands', formula: 'c \\text{ carries } f + g \\iff c = k \\cdot \\tfrac{m}{n} = j \\cdot \\tfrac{r}{s}', explanation: 'for the sum to repeat at $c$, BOTH parts must complete whole windows there: $c$ must be a common multiple of the two windows — a whole multiple of $m/n$ AND of $r/s$.' },
+      { label: 'The least common multiple of rationals', formula: '\\operatorname{lcm}\\!\\left(\\tfrac{m}{n}, \\tfrac{r}{s}\\right) = \\tfrac{\\operatorname{lcm}(m, r)}{\\operatorname{hcf}(n, s)}', explanation: 'the numerators must climb to a common whole number — L.C.M.(m, r) — while the denominators may share only what both carry — H.C.F.(n, s). Verified on the ruler pair below: L.C.M.(10, 2)/H.C.F.(3, 1) = 10.' },
+      { label: 'The honesty clause', formula: 'k < t \\text{ may still carry the sum}', explanation: 'the rule hands a CANDIDATE, not a verdict: the parts may interact so that a smaller $k$ already works — the shrinkage mode the caution below prices. Always test the honest candidates below $t$.' },
+    ], result: 'The combination window is the L.C.M. of the part windows — rationals by L.C.M.(m, r)/H.C.F.(n, s) — then the smaller-k check.' },
+    { kind: 'callout', tone: 'warn', title: 'The two failure modes of the L.C.M. rule', text: 'FIRST — shrinkage: the L.C.M. is only an upper candidate. The classic witness: $|\\sin x| + |\\cos x|$, both parts riding $\\pi$, L.C.M. $\\pi$ — yet the sum rides $\\pi/2$, because the half-shift swaps $|\\sin|$ and $|\\cos|$ exactly as the relay swapped $\\cos(\\sin x)$ and $\\cos(\\cos x)$. Always test the half-window (and similar) below the L.C.M. SECOND — irrational windows: the L.C.M. of two IRRATIONAL windows exists only when the SAME surd rides both ($2\\pi\\sqrt{3}$ and $4\\pi\\sqrt{3}$ do; $2\\pi\\sqrt{2}$ and $2\\pi\\sqrt{3}$ never). A rational and an irrational window NEVER share a common repeat — the sum of two perfectly periodic machines can be non-periodic. The L.C.M. arithmetic is for rationals; surds need the same-surd test first.' },
+    { kind: 'example', title: 'The ruler census: the window of sin(3πx/5) + {x/2} is 10 — and 5, 2, 20/3 all fail', steps: [
+      'The part windows, at sight: $\\sin(3\\pi x/5)$ rides $2\\pi/(3\\pi/5) = 10/3$; $\\{x/2\\}$ rides $1/(1/2) = 2$.',
+      'The candidate: L.C.M.(10/3, 2) = L.C.M.(10, 2)/H.C.F.(3, 1) = 10. The figure’s ruler draws exactly this pair.',
+      'Reject the neighbours, one failing seat each: $5$ fails on the sawtooth — the seat $x = 3/2$ has the sum $\\sin \\pi + \\{3/4\\} = 3/4$ while $x = 9/2$ gives $\\sin 3\\pi + \\{9/4\\} = 1/4$. $2$ fails on the sine (not a whole multiple of $10/3$). $20/3$ fails on the sawtooth — $20/3$ divided by 2 is $10/3$, whole laps of sine but only three-and-a-third laps of the sawtooth: mid-climb.',
+      'The first common repeat: at $10$, the sine has completed exactly 3 windows ($3 \\cdot 10/3 = 10$) and the sawtooth exactly 5 ($5 \\cdot 2 = 10$) — both machines land together, and the shrinkage check clears (no smaller $k$ carries both parts).',
+      'Hence, the window of $\\sin(3\\pi x/5) + \\{x/2\\}$ is $10$ — the L.C.M. of $10/3$ and $2$, with every neighbour rejected.',
+    ] },
+    { kind: 'figure', caption: 'The L.C.M. ruler for the windows 2 and 10/3 — the ground of the census illustration. Top ruler: a 2-window machine lands its repeats at 2, 4, 6, 8, 10 — five full tiles by then. Bottom ruler: a 10/3-window machine lands at 10/3, 20/3, 10 — three tiles. The repeats 20/3 and 8 land on ONE ruler only (the red marks): neither is a repeat of the SUM, because the other machine is mid-window there. The first seat where BOTH machines complete whole windows together is 10 — the orange guide — which is exactly what the L.C.M. rule computes: no smaller positive number is a whole multiple of both windows.', svg: lcmRulerSvg() },
+    { kind: 'example', title: 'Surds: when the windows are irrational — the same-surd test', steps: [
+      'Same surd: $\\cos(x/\\sqrt{3}) + \\sin(x/(2\\sqrt{3}))$. Part windows: $2\\pi\\sqrt{3}$ (the $\\sqrt{3}$ cancels in the division $2\\pi/(1/\\sqrt{3})$) and $4\\pi\\sqrt{3}$ — the SAME radical rides both.',
+      'The common repeat: the first machine’s repeats are $2\\pi\\sqrt{3}, 4\\pi\\sqrt{3}, \\ldots$ — and the second machine’s FIRST repeat $4\\pi\\sqrt{3}$ is already on that list: the common repeat is $4\\pi\\sqrt{3}$. The candidate $2\\pi\\sqrt{3}$ fails on the sine part (half-climb: the seat $x = 2\\pi\\sqrt{3}$ witnesses the second term mid-window).',
+      'Different surds: $\\sin(x/\\sqrt{2}) + \\cos(x/\\sqrt{3})$ — windows $2\\pi\\sqrt{2}$ and $2\\pi\\sqrt{3}$. A common repeat $c$ would make $c/(2\\pi\\sqrt{2})$ and $c/(2\\pi\\sqrt{3})$ both whole — dividing one by the other, a RATIONAL number would equal $\\sqrt{3}/\\sqrt{2}$. Contradiction: NO common repeat exists, and the sum is non-periodic although both parts are perfectly periodic.',
+      'Mixed rational and irrational: $\\sin x + \\{x\\}$ — windows $2\\pi$ and $1$: the same contradiction ($2\\pi$ would have to be rational). Non-periodic. The caution’s second mode, priced three ways.',
+      'Hence, same surd: window $4\\pi\\sqrt{3}$. Different surds: non-periodic. Rational with irrational: non-periodic.',
+    ] },
+
+    { kind: 'heading', text: 'Why Some Machines Never Repeat: the Non-Periodicity Proofs' },
+    { kind: 'para', text: 'The census closes with its negative discipline — PROVING a machine has no window at all. Two arguments own the ground, and both are hall standards; each is a proof by contradiction of the kind the whole book trains.' },
+    { kind: 'derivation', title: 'The linear rail: x + sin x never repeats', statement: 'The machine $x + \\sin x$ is non-periodic.', steps: [
+      { label: 'Suppose a window exists', formula: 'T > 0: (x + T) + \\sin(x + T) = x + \\sin x \\ \\ \\forall x', explanation: 'the periodic law for the sum; the rail $x$ and the wave $\\sin x$ must BOTH return — subtract and watch what the law demands.' },
+      { label: 'What the law demands', formula: '\\sin(x + T) - \\sin x = -T \\ \\ \\text{(the same number at every seat)}', explanation: 'the left side must be a CONSTANT in $x$ — the rail contributes a uniform $-T$ drift that the wave part must cancel exactly, seat after seat.' },
+      { label: 'The difference identity', formula: '\\sin(x + T) - \\sin x = 2\\cos\\!\\left(x + \\tfrac{T}{2}\\right)\\sin\\!\\left(\\tfrac{T}{2}\\right)', explanation: 'the difference of two sines factors into a cosine that VARIES with $x$ times a constant.' },
+      { label: 'The contradiction', formula: '\\sin(T/2) = 0 \\Rightarrow \\text{LHS} = 0 \\neq -T', explanation: 'for the product to be constant in $x$, the varying factor must be killed: $\\sin(T/2) = 0$. But then the left side is $0$ at every seat — and the right side is $-T \\neq 0$. No candidate survives.' },
+    ], result: 'No window exists for $x + \\sin x$: a periodic part added to a non-periodic part is ALWAYS non-periodic.' },
+    { kind: 'derivation', title: 'The subtraction argument: {x} + x² never repeats', statement: 'The machine $\\{x\\} + x^2$ is non-periodic.', steps: [
+      { label: 'Suppose the sum rides a window', formula: 'T > 0: \\{x + T\\} + (x + T)^2 = \\{x\\} + x^2 \\ \\ \\forall x', explanation: 'the periodic law applied to the whole sum.' },
+      { label: 'Subtract the periodic part', formula: 'x^2 = \\big(\\{x\\} + x^2\\big) - \\{x\\}', explanation: 'the difference of two machines that both ride window $T$ also rides window $T$ — so $x^2$ itself would be periodic with window $T$.' },
+      { label: 'The square cannot repeat', formula: '(x + T)^2 = x^2 \\Rightarrow 2Tx + T^2 = 0 \\ \\ \\forall x', explanation: 'a linear equation in $x$ holding at EVERY seat — impossible unless $T = 0$, which no window may be. The square grows without bound: no shift returns it.' },
+      { label: 'Conclude', formula: '\\text{contradiction} \\Rightarrow \\text{no window}', explanation: 'the assumed window would make a non-repeating machine repeat — the subtraction argument kills the assumption.' },
+    ], result: 'Periodic + non-periodic is ALWAYS non-periodic — the subtraction argument, priced on $\\{x\\} + x^2$.' },
+    { kind: 'para', text: 'From the above discussion, the census harvest reads:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**Outer edits never move the window** — amplitude, lift and outer phase decorate the picture; the repeat length is untouched.',
+      '**The inside constant divides the window** — $f(ax + b) + c$ rides $T/|a|$: the bigger the inside constant, the oftener the repeat.',
+      '**Composites inherit, and even outer machines can halve** — $\\sin(\\cos x)$ rides $2\\pi$ but $\\cos(\\cos x)$ rides $\\pi$; the swap sum rides $\\pi/2$.',
+      '**Combinations take the L.C.M. of the part windows** — rationals by L.C.M.(m, r)/H.C.F.(n, s) — then the shrinkage check (the $|\\sin x| + |\\cos x|$ halving).',
+      '**Foreign windows never meet** — different surds, or rational against irrational, give NO common repeat: the sum is non-periodic though both parts repeat.',
+      '**Periodic + non-periodic is non-periodic** — the subtraction argument, with $x + \\sin x$ and $\\{x\\} + x^2$ as the canonical witnesses.',
+    ] },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner: how the hall prices the census', text: 'All items exam-style (none from an official paper): the DIRECT census ("the period of $\\tan(5\\pi x/3)$ is…" — a one-line division); the TRAP census ("the period of $\\cos(\\cos x)$ is…" with $2\\pi$ as the working-but-not-least distractor); the L.C.M. census with the shrinkage trap ("the period of $|\\sin x| + |\\cos x|$…" — answer $\\pi/2$, not $\\pi$); the SURD verdict ("is $\\sin(x/\\sqrt{2}) + \\cos(x/\\sqrt{3})$ periodic?" — no, and say why); the multi-correct family ("which of the following are periodic" spanning the whole census); and the proof family ("prove $x + \\sin x$ is not periodic" — the linear rail). The one-line method for every numeric item: part windows at sight, L.C.M. arithmetic, shrinkage check, least-window witness.' },
+    { kind: 'callout', tone: 'historical', title: 'Euler makes repetition a property of the machine (1748)', text: 'Leonhard Euler’s *Introductio in analysin infinitorum* (1748) is where the trigonometric quantities finally stopped being properties of a triangle and became FUNCTIONS — machines, on the same footing as the exponential, with graphs one may shift, squeeze and combine. Once $\\sin x$ was a machine, its window became a NUMBER one could census — and Euler’s own study of recurring phenomena, from vibrating strings to the tides, is where the practical force of "the least window" first showed: two rhythms combine into a rhythm only when their windows share a common repeat. This whole lesson is Euler’s viewpoint with a verifier attached.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'The window of $y = \\sin(2x)$ is', options: ['$2\\pi$', '$\\pi$', '$\\pi/2$', '$4\\pi$'], answer: 1, explain: 'The inner edit divides: $\\sin x$ rides $2\\pi$ and the inside constant 2 squeezes the seats, so the window divides to $2\\pi/2 = \\pi$. The least discipline kills $\\pi/2$: at the seat $x = \\pi/4$, $\\sin(2(x + \\pi/2)) = \\sin(3\\pi/2) = -1$ against $\\sin(2 \\cdot \\pi/4) = \\sin(\\pi/2) = 1$. Option 0 ($2\\pi$) WORKS but is not least — the classic trap; option 3 is a repeat, not the period.' },
+      { q: 'The window of $y = \\{x\\} + 2$ is', options: ['2', '1', '1/2', 'the machine is non-periodic'], answer: 1, explain: 'The $+2$ is an outer lift — heights relocated, seats untouched: the sawtooth keeps its window $1$ ($\\{x + 1\\} + 2 = \\{x\\} + 2$ at every seat). Option 0 doubles nothing; option 2 belongs to the INNER edit $\\{2x\\}$ (window $1/2$) — the two theatres of 1.7; option 3 forgets that an outer lift never breaks repetition (only adding a non-periodic part could).' },
+      { q: 'The window of $y = \\cos(\\cos x)$ is', options: ['$2\\pi$', '$\\pi/2$', '$\\pi$', 'the machine is non-periodic'], answer: 2, explain: 'The relay: the inner cos rides $2\\pi$, so $2\\pi$ works — but the outer cosine is EVEN ($\\cos(-t) = \\cos t$), and the half-lap flip $\\cos(x + \\pi) = -\\cos x$ is absorbed: $\\pi$ works and is least. $\\pi/2$ fails at the seat $x = 0$: $\\cos(\\cos(\\pi/2)) = \\cos 0 = 1$ against $\\cos(\\cos 0) = \\cos 1$. Option 0 works but is not least; the odd outer $\\sin(\\cos x)$ is the machine that truly needs $2\\pi$.' },
+      { q: 'The window of $\\sin(2\\pi x/3) + \\{x/2\\}$ is', options: ['3', '6', '2', '12'], answer: 1, explain: 'Part windows at sight: $\\sin(2\\pi x/3)$ rides $2\\pi/(2\\pi/3) = 3$; $\\{x/2\\}$ rides $1/(1/2) = 2$. The L.C.M. of 3 and 2 is 6 — the first seat where BOTH parts complete whole windows together. Option 0 fails on the sawtooth (3 is not a whole multiple of 2: the seat $x = 3/2$ witnesses the sum $3/4$ against $1/4$ at $x = 9/2$); option 2 fails on the sine (2 is not a multiple of 3); option 4 is a common repeat but NOT the first — the census wants the least.' },
+      { q: 'The machine $x + \\sin x$ is', options: ['non-periodic — the linear rail never returns', 'periodic with window $2\\pi$', 'periodic with window $\\pi$', 'periodic with window $4\\pi$'], answer: 0, explain: 'Suppose a window $T$ worked: then $(x + T) + \\sin(x + T) = x + \\sin x$ at every seat, i.e. $\\sin(x + T) - \\sin x = -T$ — the same number at every $x$. The difference identity rewrites the left side $2\\cos(x + T/2)\\sin(T/2)$, constant in $x$ only if $\\sin(T/2) = 0$ — and then it is $0$, not $-T$. Contradiction. Options 1–3 read the periodic part alone and forget the rail: adding a periodic machine to a non-periodic one NEVER yields a periodic sum.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.8', sets: [
+      { level: 'L1', questions: [
+        { q: 'Find the window of $y = \\{x/4\\}$, and prove the candidate 2 fails with a witness seat.', solution: [
+          'The stretch law: the sawtooth $\\{x\\}$ rides 1; the inside constant is $1/4$, so the window is $1 \\div (1/4) = 4$ — the stretched sawtooth climbs for four whole units before resetting.',
+          'The candidate 2 fails on a single seat: take $x = 2$. Then $f(2) = \\{2/4\\} = \\{1/2\\} = 1/2$, while $f(2 + 2) = f(4) = \\{1\\} = 0$.',
+          'So $f(x + 2) \\neq f(x)$ at $x = 2$: the half-window is mid-climb exactly as the figure\'s third panel shows — the window is 4.',
+        ], answer: 'Window $4$; the seat $x = 2$ witnesses the failure of 2 ($1/2$ against $0$).' },
+        { q: 'State, with reasons, the windows of $\\sin^4 x$ and $\\sin^3 x$.', solution: [
+          'The engine is the half-lap flip: $\\sin(x + \\pi) = -\\sin x$. For the even power: $\\sin^4(x + \\pi) = (-\\sin x)^4 = \\sin^4 x$ at every seat — window $\\pi$ works.',
+          'Least discipline for $\\sin^4 x$: the candidate $\\pi/2$ fails at the seat $x = 0$ — $\\sin^4(\\pi/2) = 1$ while $\\sin^4 0 = 0$. So exactly $\\pi$.',
+          'For the odd power the flip survives: $\\sin^3(x + \\pi) = -\\sin^3 x$, failing at $x = \\pi/2$ ($-1$ against $1$) — so $\\sin^3 x$ needs the full $2\\pi$.',
+        ], answer: '$\\sin^4 x$ rides $\\pi$; $\\sin^3 x$ rides $2\\pi$ — the even/odd power row of the census.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'Find the window of $y = |\\cos 2x|$ and reject the candidate $\\pi/4$ with a witness seat.', solution: [
+          'Two laws stack: the modulus row ($|\\cos|$ rides $\\pi$, the half-flip absorbed) and the stretch law (inside constant 2 divides).',
+          'So the window is $\\pi/2$. The candidate $\\pi/4$ fails at the seat $x = 0$: $|\\cos(2 \\cdot 0)| = 1$ while $|\\cos(2(\\pi/4))| = |\\cos(\\pi/2)| = 0$.',
+          'The general read: window of $|\\cos\\,ax|$ is $\\pi/|a|$ — the modulus row first, the division second.',
+        ], answer: 'Window $\\pi/2$; the seat $x = 0$ rejects $\\pi/4$ ($1$ against $0$).' },
+        { q: 'Find the window of $y = \\sin^{-1}(\\sin 2x)$ and reject the candidate $\\pi/2$ with a witness seat.', solution: [
+          'The family census: $\\sin^{-1}(\\sin x)$ rides $2\\pi$ (the fold outside $[-\\pi/2, \\pi/2]$ breaks every smaller symmetry).',
+          'The stretch law on the inner: the inside constant 2 divides — window $2\\pi/2 = \\pi$.',
+          'The candidate $\\pi/2$ fails at the seat $x = \\pi/4$: $\\sin^{-1}(\\sin(\\pi/2)) = \\pi/2$, but at the shifted seat $x = 3\\pi/4$, $\\sin^{-1}(\\sin(3\\pi/2)) = \\sin^{-1}(-1) = -\\pi/2 \\neq \\pi/2$ — the fold flips the sign, mid-window.',
+        ], answer: 'Window $\\pi$; the fold witness at $x = \\pi/4$ rejects $\\pi/2$ ($\\pi/2$ against $-\\pi/2$).' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'Find the window of $y = \\tan(5\\pi x/3)$.', solution: [
+          'The tangent rides $\\pi$ (the half-lap flips sin and cos together, the ratio returns).',
+          'The inside constant is $5\\pi/3$: the division law gives $\\pi \\div (5\\pi/3) = 3/5$.',
+          'Least discipline: the candidate $3/10$ fails — the tangent\'s own half-lap flip at every seat (the pole guard keeps the verifier away from the poles, and the flip argument is seat-free).',
+        ], answer: 'Window $3/5$.' },
+        { q: 'Find the window of $y = \\sin 2x + \\cos 3x$, and reject the candidate $\\pi$ with a witness seat.', solution: [
+          'Part windows at sight: $\\sin 2x$ rides $2\\pi/2 = \\pi$; $\\cos 3x$ rides $2\\pi/3$.',
+          'The L.C.M. arithmetic on rationals times $\\pi$: L.C.M.($\\pi$, $2\\pi/3$) $= \\pi \\cdot$ L.C.M.(1, 2)/H.C.F.(1, 3) $= 2\\pi$.',
+          'The candidate $\\pi$ fails on the cosine part alone — $\\pi$ divided by $2\\pi/3$ is $3/2$, not whole: the cosine is mid-window at $\\pi$. Witness seat: $x = 0$ gives $\\cos 0 = 1$, while $x = \\pi$ gives $\\cos 3\\pi = -1$.',
+        ], answer: 'Window $2\\pi$; $\\pi$ fails on the $\\cos 3x$ part (the seat $x = 0$ witnesses $1$ against $-1$).' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Find the window of $f(x) = \\sin(\\pi x/2) + \\cos(3\\pi x/4) + \\{x\\}$, rejecting the candidate 4.', solution: [
+          'Part windows: $\\sin(\\pi x/2)$ rides $2\\pi/(\\pi/2) = 4$; $\\cos(3\\pi x/4)$ rides $2\\pi/(3\\pi/4) = 8/3$; $\\{x\\}$ rides $1$.',
+          'The L.C.M. of 4, 8/3 and 1: L.C.M.(4, 8)/H.C.F.(1, 3) $= 8$, and 1 divides 8 — candidate 8.',
+          'The candidate 4 fails on the cosine part: 4 divided by 8/3 is 3/2, not whole — mid-window (the seat $x = 0$: $\\cos 0 = 1$; at $x = 4$: $\\cos 3\\pi = -1$).',
+          'Shrinkage check below 8: no smaller common multiple exists (the arithmetic is exact), so 8 stands.',
+        ], answer: 'Window $8$ — the L.C.M. of $4$, $8/3$ and $1$, with 4 rejected on the cosine part.' },
+        { q: 'Show that $|\\sin x - \\cos x| = \\sqrt{2}\\,|\\sin(x - \\pi/4)|$, and find its window.', solution: [
+          'The collapse: $\\sin x - \\cos x = \\sqrt{2}\\,\\sin(x - \\pi/4)$ (the difference identity $\\sin x \\cos(\\pi/4) - \\cos x \\sin(\\pi/4)$ rearranged) — an amplitude-lifted, phase-shifted sine.',
+          'The modulus absorbs the half-lap flip: the window of $|\\sin| $ is $\\pi$, and the phase shift $-\\pi/4$ slides the picture without touching the window length.',
+          'So the window is $\\pi$. The candidate $\\pi/2$ fails at the seat $x = \\pi/4$: the value there is $|\\sin 0| = 0$, while at $x = 3\\pi/4$ (half-window on) it is $\\sqrt{2}\\,|\\sin(\\pi/2)| = \\sqrt{2}$ — non-zero, so the half-window does not carry the machine.',
+        ], answer: 'Window $\\pi$; the collapse to $\\sqrt{2}|\\sin(x - \\pi/4)|$ prices it at sight.' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Find the window of $\\tan x + \\cot x$ by collapsing it first.', solution: [
+          'Collapse: $\\cot x = 1/\\tan x$, so $\\tan x + \\cot x = \\frac{\\tan^2 x + 1}{\\tan x} = \\frac{\\sec^2 x}{\\tan x} = \\frac{1/\\cos^2 x}{\\sin x/\\cos x} = \\frac{1}{\\sin x \\cos x}$.',
+          'One more step: $\\frac{1}{\\sin x \\cos x} = \\frac{2}{\\sin 2x}$ — the double-angle collapse $2\\sin x\\cos x = \\sin 2x$.',
+          'The census of $2/\\sin 2x$: the denominator rides $2\\pi/2 = \\pi$ (a sine of window $\\pi$ after the stretch law), and the reciprocal keeps the window (the outer machine $t \\mapsto 2/t$ is one-to-one away from its pole — the relay transmits without shrinkage).',
+          'So the window is $\\pi$. The naive L.C.M. of $\\pi$ and $\\pi$ is also $\\pi$ — here they agree, but only because the collapse happened first; the lesson is to try the algebra before the census.',
+        ], answer: 'Window $\\pi$ — via the collapse $\\tan x + \\cot x = 2/\\sin 2x$.' },
+        { q: 'Each term of $\\cos(\\cos x) + \\cos(\\sin x)$ rides $\\pi$. Show the SUM rides $\\pi/2$, and that $\\pi/4$ fails.', solution: [
+          'Each part rides $\\pi$ (the even outer absorbs the inner half-flip — the relay of the lesson). So $\\pi$ works for the sum; the shrinkage question is live.',
+          'The half-shift $\\pi/2$ exchanges the inner worlds: $\\sin(x + \\pi/2) = \\cos x$ and $\\cos(x + \\pi/2) = -\\sin x$. So the first term $\\cos(\\sin x)$ becomes $\\cos(\\cos x)$, and the second $\\cos(\\cos x)$ becomes $\\cos(-\\sin x) = \\cos(\\sin x)$ — the terms SWAP.',
+          'A sum of two swapped terms returns to itself: $f(x + \\pi/2) = f(x)$ at every seat. So $\\pi/2$ works — the L.C.M. rule\'s candidate $\\pi$ was only an upper bound.',
+          'The candidate $\\pi/4$ fails: the quarter-shift has no swap structure (at the seat $x = 0$: $\\cos(\\cos 0) + \\cos(\\sin 0) = \\cos 1 + 1$, while at $x = \\pi/4$ the value is $\\cos(1/\\sqrt2) + \\cos(1/\\sqrt2) = 2\\cos(1/\\sqrt2)$ — different numbers).',
+        ], answer: 'Window $\\pi/2$ — the half-shift swaps the terms; $\\pi/4$ fails (the seat $x = 0$ witnesses).' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'Prove that $x + \\sin x$ is non-periodic (the linear-rail argument).', solution: [
+          'Suppose, for contradiction, a window $T > 0$ exists: $(x + T) + \\sin(x + T) = x + \\sin x$ at every seat $x$.',
+          'Subtract the rail: $\\sin(x + T) - \\sin x = -T$ — the SAME number at every seat. The left side must be constant in $x$.',
+          'The difference identity: $\\sin(x + T) - \\sin x = 2\\cos(x + T/2)\\sin(T/2)$. For this to be independent of $x$, the factor $\\cos(x + T/2)$ must be killed — only $\\sin(T/2) = 0$ can do it.',
+          'But $\\sin(T/2) = 0$ makes the left side $0$ at every seat, while the right side is $-T \\neq 0$ (as $T > 0$). Contradiction — no window exists. The rail grows without bound; no shift ever returns it.',
+        ], answer: 'No window exists: the difference identity forces $0 = -T$, a contradiction.' },
+        { q: 'Prove that $\\{x\\} + x^2$ is non-periodic (the subtraction argument), then state the general law it proves.', solution: [
+          'Suppose the sum rides a window $T > 0$: $\\{x + T\\} + (x + T)^2 = \\{x\\} + x^2$ at every seat.',
+          'Subtract the periodic part: $x^2 = \\big(\\{x\\} + x^2\\big) - \\{x\\}$ — the difference of two machines that both ride window $T$, hence itself riding window $T$ (the difference law: both return at $T$, so does their difference).',
+          'But $x^2$ cannot ride any window: $(x + T)^2 = x^2$ forces $2Tx + T^2 = 0$ at EVERY seat — a linear identity in $x$ with $T > 0$, impossible.',
+          'Contradiction — the sum is non-periodic. The general law: periodic + non-periodic is ALWAYS non-periodic (the subtraction argument transfers the window to the non-periodic part and kills it there).',
+        ], answer: 'Non-periodic — and periodic + non-periodic is always non-periodic.' },
+      ] },
+    ] },
+
+    { kind: 'terms', items: [
+      { term: 'periodic function', def: 'a machine $f$ with a positive window $T$ such that $f(x+T) = f(x)$ at EVERY seat — one failing seat rejects the candidate.' },
+      { term: 'principal period', def: 'the LEAST positive window of a periodic machine — the number the census reports; larger repeats are whole multiples of it.' },
+      { term: 'window', def: 'a positive number $T$ for which the whole graph of the machine returns: after an interval of length $T$ the picture is a rerun.' },
+      { term: 'stretch law', def: 'the inner-edit law: $f(ax + b) + c$ rides $T/|a|$ when $f$ rides $T$ — inside constants DIVIDE the window, outer edits never touch it.' },
+      { term: 'relay window', def: 'the window a composite $g \\circ f$ inherits from its inner machine $f$ — an EVEN outer machine may shrink it further.' },
+      { term: 'common repeat', def: 'the first positive number that is a whole multiple of two part windows at once — the L.C.M. of the windows, where a combination returns.' },
+      { term: 'same-surd rule', def: 'two irrational windows share a common repeat only when the same radical rides both — $2\\pi\\sqrt{3}$ and $4\\pi\\sqrt{3}$ do; $2\\pi\\sqrt{2}$ and $2\\pi\\sqrt{3}$ never.' },
+    ] },
+
+    { kind: 'formula', name: 'The periodic law', latex: 'f(x + T) = f(x)\\ \\ \\forall x \\qquad (T > 0), \\qquad T_0 = \\text{the least such } T', note: 'the law must hold at every seat; the census always reports the principal period' },
+    { kind: 'formula', name: 'The elementary census', latex: 'T(\\sin x) = T(\\cos x) = 2\\pi,\\quad T(\\tan x) = \\pi,\\quad T(\\{x\\}) = 1,\\quad T(|\\sin x|) = \\pi', note: 'even powers ride π, odd powers 2π; tan^n x rides π for every n; constants have no fixed period' },
+    { kind: 'formula', name: 'The transformation laws', latex: 'T\\big(a f(x)\\big) = T\\big(f(x) \\pm b\\big) = T\\big(f(x \\pm b)\\big) = T, \\qquad T\\big(f(ax + b) + c\\big) = \\frac{T}{|a|}', note: 'outer edits never move the window; the inside constant DIVIDES it — bigger inside constant, oftener repeat' },
+    { kind: 'formula', name: 'The relay law', latex: 'T(g \\circ f) \\ \\text{divides}\\ T(f) \\quad \\text{(equality unless the outer machine glues)}', note: 'composites inherit the inner window; an even outer machine can halve it — sin(cos x) rides 2π, cos(cos x) rides π' },
+    { kind: 'formula', name: 'The L.C.M. rule', latex: 'p = \\tfrac{m}{n},\\ q = \\tfrac{r}{s} \\Rightarrow T_{\\text{comb}} = \\tfrac{\\operatorname{L.C.M.}(m,\\ r)}{\\operatorname{H.C.F.}(n,\\ s)} \\ \\text{(then the smaller-}k\\ \\text{check)}', note: 'for sums, differences, products and quotients alike — and the shrinkage trap: |sin x| + |cos x| rides π/2, not π' },
+    { kind: 'formula', name: 'The non-periodic laws', latex: '\\text{periodic} + \\text{non-periodic} \\Rightarrow \\text{non-periodic}; \\qquad \\text{foreign windows} \\Rightarrow \\text{no common repeat}', note: 'the subtraction argument; and L.C.M.s of irrationals exist only for the same surd — rational against irrational never meets' },
+  ],
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 1.R — the chapter arc map and the verdict lanes                     */
+/* ------------------------------------------------------------------ */
+
+/** 1.R fig 1 — the eight moves of the chapter, one wiring diagram */
+function chapterArcSvg(): string {
+  const nodes: [number, number, string, string][] = [
+    [40, 64, '1.1', 'Relations'],
+    [215, 64, '1.2', 'One-one and Onto'],
+    [390, 64, '1.3', 'Composition'],
+    [565, 64, '1.4', 'Inverse'],
+    [565, 210, '1.5', 'The Zoo'],
+    [390, 210, '1.6', 'Even and Odd'],
+    [215, 210, '1.7', 'Transforms'],
+    [40, 210, '1.8', 'Period Census'],
+  ]
+  const W = 140, H = 52
+  const rects = nodes
+    .map(([x, y, num, title], i) =>
+      `<rect x="${x}" y="${y}" width="${W}" height="${H}" rx="9" fill="${i % 2 === 0 ? '#fef3c7' : '#ffedd5'}" stroke="#16a34a" stroke-width="1.6"/>` +
+      `<text x="${x + W / 2}" y="${y + 22}" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">${num}</text>` +
+      `<text x="${x + W / 2}" y="${y + 40}" text-anchor="middle" font-size="11" fill="#0f766e">${title}</text>`,
+    )
+    .join('\n  ')
+  const arrow = (x1: number, y1: number, x2: number, y2: number): string => {
+    const dx = x2 - x1, dy = y2 - y1
+    const len = Math.hypot(dx, dy)
+    const ux = dx / len, uy = dy / len
+    const ex = x2 - ux * 8, ey = y2 - uy * 8
+    return `<line x1="${x1 + ux * 6}" y1="${y1 + uy * 6}" x2="${ex}" y2="${ey}" stroke="#ea580c" stroke-width="2.2"/>` +
+      `<polygon points="${ex},${ey} ${ex - ux * 9 - uy * 4},${ey - uy * 9 + ux * 4} ${ex - ux * 9 + uy * 4},${ey - uy * 9 - ux * 4}" fill="#ea580c"/>`
+  }
+  return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The chapter wiring diagram: eight lesson nodes in two serpentine rows, with amber forward arrows from Relations through One-one and Onto, Composition, Inverse, the Zoo, Even and Odd, Transformations to the Period Census, and dashed teal shortcut arcs for the late-cashed promises">
+  <text x="360" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">the chapter at a glance: eight moves, one object</text>
+  ${rects}
+  ${arrow(180, 90, 215, 90)}
+  ${arrow(355, 90, 390, 90)}
+  ${arrow(530, 90, 565, 90)}
+  ${arrow(635, 116, 635, 210)}
+  ${arrow(565, 236, 530, 236)}
+  ${arrow(390, 236, 355, 236)}
+  ${arrow(215, 236, 180, 236)}
+  <path d="M290 116 Q462 172 575 116" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="462" y="166" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0d9488">bijective = invertible</text>
+  <path d="M285 210 Q197 166 110 210" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="197" y="188" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0d9488">the window pointer</text>
+  <text x="360" y="300" text-anchor="middle" font-size="11.5" fill="#65a30d">follow the amber road: each lesson hands the next its machine — the teal shortcuts mark the promises cashed late</text>
+</svg>`
+}
+
+/** 1.R fig 2 — the verdict lanes: the three questions the chapter asks any machine */
+function verdictLanesSvg(): string {
+  const lanes: [number, string, string, string, string][] = [
+    [25, 'does it WASTE inputs?', 'the one-one verdict: the analytical sweep', 'f(x1) = f(x2), factor, decide', 'or the horizontal probe on the graph'],
+    [250, 'does it COVER the codomain?', 'the onto verdict: find the range', 'or solve x = g(y) and check the seat', 'the codomain is a declared choice'],
+    [475, 'does it REPEAT?', 'the window census at sight', 'inner edits divide: T/|a|', 'sums combine by the L.C.M. rule'],
+  ]
+  const boxes = lanes
+    .map(
+      ([x, head, l1, l2, l3]) =>
+        `<rect x="${x}" y="64" width="220" height="140" rx="9" fill="${head.includes('WASTE') ? '#fef3c7' : head.includes('COVER') ? '#ffedd5' : '#fef3c7'}" stroke="#16a34a" stroke-width="1.6"/>` +
+        `<text x="${x + 110}" y="88" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">${head}</text>` +
+        `<text x="${x + 110}" y="114" text-anchor="middle" font-size="10.5" fill="#0f766e">${l1}</text>` +
+        `<text x="${x + 110}" y="136" text-anchor="middle" font-size="10.5" fill="#0f766e">${l2}</text>` +
+        `<text x="${x + 110}" y="158" text-anchor="middle" font-size="10.5" fill="#0f766e">${l3}</text>`,
+    )
+    .join('\n  ')
+  return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The verdict panel: three question lanes for any arriving machine - does it waste inputs (the one-one verdict by the analytical sweep or the horizontal probe), does it cover the codomain (the onto verdict by finding the range or solving back), and does it repeat (the window census with the stretch law and the L.C.M. rule) - feeding the bottom bar: bijective means one-one plus onto, exactly the invertible machines">
+  <text x="360" y="36" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">when a machine arrives, the chapter asks three questions</text>
+  ${boxes}
+  <path d="M135 204V240" stroke="#0d9488" stroke-width="1.8"/>
+  <path d="M360 204V240" stroke="#0d9488" stroke-width="1.8"/>
+  <path d="M585 204V240" stroke="#0d9488" stroke-width="1.8"/>
+  <rect x="25" y="240" width="670" height="52" rx="9" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="360" y="262" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">bijective = one-one + onto — exactly the invertible machines</text>
+  <text x="360" y="282" text-anchor="middle" font-size="11" fill="#0f766e">and the inverse swaps domain and range: dom(f⁻¹) = ran(f), ran(f⁻¹) = dom(f)</text>
+  <text x="360" y="308" text-anchor="middle" font-size="10.5" fill="#65a30d">waste and cover are independent verdicts — the 2×2 table of lesson 1.2 has all four cells filled</text>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* lesson 1.R — Unit Review: Functions as Objects                      */
+/* ------------------------------------------------------------------ */
+
+const lessonReview: Lesson = {
+  id: 'aa-unit-review-functions-as-objects',
+  number: '1.R',
+  title: 'Unit Review: Functions as Objects',
+  concepts: [
+    'the arc of the chapter: the machine became an object — first a set of pairs, then a classified, wired, catalogued, tested, edited and measured object',
+    'the three standing verdicts: one-one (does it waste inputs), onto (does it cover the codomain), periodic (does it repeat)',
+    'bijective = one-one + onto = invertible — the promise the inverse lesson cashed',
+    'the counting census: 2^pq relations, n^m functions, the injection and surjection counts on small sets',
+    'the grammar of the chapter in one line: relation → function → verdicts → composition → inverse → zoo → parity → transformations → window',
+  ],
+  objectives: [
+    'hold the whole chapter in one hand — the wiring of its eight lessons and where each promise was cashed',
+    'run the full verdict passport on any machine: waste, cover, repetition, and the codomain discipline',
+    'recall the counting laws, the anchor law, the band method and the window laws without re-deriving them',
+    'solve mixed exam-style items that price several lessons of the chapter in one question',
+  ],
+  prerequisites: ['aa-relations-the-set-of-pairs-view', 'aa-period-census-periods-of-transformed-and-composite-functions'],
+  sources: ['cengage-m4-01', 'cengage-jee-style', 'ncert-math11-ch2-functions', 'ncert-math12-ch1-relations-functions', 'openstax-college-algebra'],
+  blocks: [
+    { kind: 'para', text: 'Elementary Algebra ended with a machine: an input, an output, a rule. This chapter made that machine an OBJECT — something a set-builder sentence can hold, a census can count, a verdict can classify, a wire can compose, an undoing can invert, a zoo can catalogue, a mirror can test, an edit can move, and a window can measure. Eight lessons, one idea growing eight organs. The review gathers the organs back into one body.' },
+    { kind: 'para', text: 'A review in this book does two things and refuses a third. It RE-MAPS the chapter — the arc, the promises made early and cashed late, the laws worth carrying forward to chapter 2 (the polynomial chapter speaks this grammar constantly). And it runs a MIXED census: the exercises below deliberately price several lessons in one question, because that is exactly how the examination hall prices a chapter — a single machine arrives, and every verdict the book owns is asked of it in turn. What the review refuses: re-proving what the lessons already proved. Every derivation below is one line of recall with a pointer to its lesson; nothing is re-derived at length.' },
+    { kind: 'para', text: 'The map first, then the toolkit, then the mixed census. Read the wiring diagram once before the exercises and once after: the second reading should look shorter.' },
+
+    { kind: 'heading', text: 'The Arc: Eight Moves, One Object' },
+    { kind: 'para', text: 'The wiring: lesson 1.1 turned the machine into a SET OF PAIRS — a relation as a chosen subset of the cartesian census, with the type taxonomy (empty, universal, identity, reflexive, symmetric, transitive, the equivalence packaging) and the counting law $2^{pq}$; the function was the special relation that is total and single-valued, counted $n^m$. Lesson 1.2 classified it: does it WASTE inputs (one-one, the contrapositive discipline, the horizontal probe, the factorisation argument) and does it COVER the codomain (onto, the two methods, the trim discipline, the pigeonhole verdicts and the finite-set counting engine). Lesson 1.3 wired machines in series — composition, the honest domain, the associativity, the identity — and lesson 1.4 undid the wiring: the inverse machine exists exactly for the bijections, the domain and range swap, and the mirror picture $y = x$.' },
+    { kind: 'para', text: 'Then the anatomy lessons. Lesson 1.5 walked the zoo — modulus, signum, the greatest integer, the fractional part, the envelopes — with the pair law and the two-gate identity test. Lesson 1.6 tested symmetry: even and odd machines, the parity table for every arithmetic and composition, the canonical split, the extensions. Lesson 1.7 taught the editing grammar — the two theatres, the anchor law, the modulus family, the band method for the staircase $[f(x)]$. And lesson 1.8 measured the window: the periodic law, the elementary census, the stretch law $T/|a|$, the relay, the L.C.M. rule with its two failure modes, and the non-periodicity proofs. Two promises crossed the whole arc: BIJECTIVE = INVERTIBLE (made in 1.2, cashed in 1.4) and THE PERIOD POINTER (made in 1.7’s transformation tables, cashed in 1.8).' },
+    { kind: 'figure', caption: 'The chapter wiring diagram. The amber road is the sequential arc — each lesson hands the next its machine: relations supply the pairs, the verdicts classify, composition wires, the inverse unwires, the zoo catalogues, parity tests, transformations edit, the period census measures. The dashed teal shortcuts mark the two promises cashed late: “bijective = invertible” (promised by 1.2’s perfect pairing, delivered by 1.4) and “the window pointer” (1.7’s transformation tables kept saying period untouched, and 1.8 finally priced the window itself). Read it twice: before the exercises as a map, after them as a checklist.', svg: chapterArcSvg() },
+
+    { kind: 'heading', text: 'The Verdict Toolkit' },
+    { kind: 'para', text: 'Strip the chapter to its question-asking core and three verdicts remain, asked of every machine that arrives. The WASTE question (one-one): the analytical sweep — set $f(x_1) = f(x_2)$, factor, decide, with the contrapositive read and the witness discipline (a many-one machine confesses by one pair $f(a) = f(b)$ with $a \\neq b$). The COVER question (onto): find the range, or solve $x = g(y)$ and check the seat lands in the domain — remembering the codomain is a DECLARED choice, so onto/into is a property of the pairing, not the formula. The REPEAT question (the window): the elementary census at sight, the stretch law for inner edits, the L.C.M. rule for sums — with the least-window discipline certifying every answer.' },
+    { kind: 'figure', caption: 'The verdict lanes. When a machine arrives, the chapter asks it three independent questions — waste, cover, repeat — each with its named tests. The first two lanes join at the bottom bar: one-one plus onto is BIJECTION, and bijections are exactly the invertible machines (the review derivation below runs this in three moves). The third lane stands apart: the window is measured on periodic machines, and the honest census reports the least window. The footer line is 1.2’s structural law — waste and cover are independent, all four cells of the verdict table genuinely occur.', svg: verdictLanesSvg() },
+    { kind: 'callout', tone: 'definition', title: 'Bijective — the invertible correspondence', text: 'A machine $f : A \\to B$ is BIJECTIVE when it is one-one and onto: every input owns its output and every output is owned by an input — the perfect pairing. Thus, $f$ bijective $\\iff$ there exists $f^{-1} : B \\to A$ with $f^{-1}\\big(f(x)\\big) = x$ for every $x \\in A$ and $f\\big(f^{-1}(y)\\big) = y$ for every $y \\in B$ — the inverse exists EXACTLY for the bijections, and it swaps the sets: $\\mathrm{dom}(f^{-1}) = \\mathrm{ran}(f)$, $\\mathrm{ran}(f^{-1}) = \\mathrm{dom}(f)$.' },
+    { kind: 'derivation', title: 'Why bijective is exactly invertible (the two demands of undoing)', statement: 'The undoing machine $f^{-1}$ exists if and only if $f$ is one-one and onto — each verdict is one demand the undoing makes.', steps: [
+      { label: 'The undoing must be total', formula: '\\forall y \\in B: f^{-1}(y) \\text{ defined}', explanation: 'every declared output must be undoable — if some $y$ were never hit ($f$ into), the rule “send $y$ back to its input” has nothing to send back. That is exactly the onto demand.' },
+      { label: 'The undoing must be single-valued', formula: 'f(x_1) = f(x_2) \\Rightarrow x_1 = x_2', explanation: 'if two inputs owned the same output, the undoing of that output would be two-headed — a relation, not a machine (lesson 1.1’s own distinction). That is exactly the one-one demand.' },
+      { label: 'Both together read back', formula: 'f^{-1} \\circ f = I_A, \\quad f \\circ f^{-1} = I_B', explanation: 'with both demands met, the undoing is a machine from $B$ to $A$ and the two identities hold — the promise of 1.2, delivered in 1.4, now one line of recall.' },
+    ], result: 'Bijective = one-one + onto = invertible: the undoing makes exactly two demands, and the two verdicts ARE those demands.' },
+    { kind: 'callout', tone: 'theorem', title: 'The counting laws of the chapter', text: 'On finite sets with $n(A) = m$ and $n(B) = n$: the relation census $2^{pq}$ (every subset of the $m \\times n$ pairing grid); the function census $n^m$ (the chain of independent choices); the injection count $\\nPr{n}{m}$ — and $0$ when $m > n$, the pigeonhole; the surjection count by inclusion–exclusion $\\sum (-1)^k\\, {}^nC_k (n-k)^m$; the bijection count $n!$ exactly when $m = n$. All five were brute-force verified for every $(m, n) \\leq 5$ in the chapter’s verifier before any prose existed — the counting engine of lesson 1.2, standing.' },
+    { kind: 'equation', latex: '\\#\\text{relations} = 2^{pq}, \\qquad \\#\\text{machines} = n^m, \\qquad \\#\\text{one-one} = {}^n\\!P_m, \\qquad \\#\\text{bijective} = n!\\ (m = n)', note: 'the chapter’s four census numbers — with the surjection count by inclusion–exclusion carrying the fifth' },
+    { kind: 'equation', latex: 'y = a\\,f\\big(b(x - h)\\big) + k: \\quad (x_0,\\ y_0) \\to \\left(h + \\frac{x_0}{b},\\ k + a\\,y_0\\right), \\qquad T\\big(f(ax + b) + c\\big) = \\frac{T}{|a|}', note: 'the anchor law of 1.7 and the stretch law of 1.8 — one edit grammar priced on seats and on windows' },
+
+    { kind: 'heading', text: 'The Mixed Census (Illustrations)' },
+    { kind: 'example', title: 'A full passport run: f(x) = (x − 1)² + 2 judged on three pairings, then undone', steps: [
+      'The waste: $(x-1)^2$ is symmetric about the seat 1 — the witness pair $f(0) = f(2) = 3$ confesses many-one on $\\mathbb{R}$; the analytical sweep factors $f(x_1) - f(x_2) = (x_1 - x_2)(x_1 + x_2 - 2)$, zero also at $x_1 + x_2 = 2$.',
+      'The cover: the square never goes below 0, so the range is $[2, \\infty)$ — the vertex seat $(1, 2)$ is the floor. Onto iff the declared codomain is $[2, \\infty)$; into against anything larger; the trim discipline of 1.2.',
+      'The restriction cures the waste: on $[1, \\infty)$ the machine climbs without turning — one-one, and onto $[2, \\infty)$: BIJECTIVE, hence invertible, with the solve-back $y = (x-1)^2 + 2 \\Rightarrow x = 1 + \\sqrt{y - 2}$, so $f^{-1}(x) = \\sqrt{x - 2} + 1$ on $[2, \\infty)$.',
+      'The undoing check (the definition above, live): $f^{-1}(6) = \\sqrt{4} + 1 = 3 = f^{-1}\\big(f(3)\\big)$ — the passport stamps: many-one on $\\mathbb{R}$, onto on $[2,\\infty)$, bijective and invertible on the restriction.',
+    ] },
+    { kind: 'example', title: 'Composition order matters: (k∘h)(1) against (h∘k)(1), then one undoing', steps: [
+      'Two small machines: $h(x) = 2x - 1$ and $k(x) = x^2 + 1$. Both compositions are honest on all of $\\mathbb{R}$ — no domain surgery needed (the honest-domain discipline of 1.3, the easy case).',
+      'Feed them through each other at the seat 1: $(k \\circ h)(1) = k(2 \\cdot 1 - 1) = k(1) = 2$, while $(h \\circ k)(1) = h(1^2 + 1) = h(2) = 3$. Different machines, different values — composition is a WIRING, and wiring has an order.',
+      'Undo the inner one: $h$ is bijective on $\\mathbb{R}$ (a climb), so $h^{-1}(x) = (x+1)/2$ — and $h^{-1}\\big(h(x)\\big) = (2x - 1 + 1)/2 = x$ at every seat: the identity machine on the range side, exactly as the derivation above demands.',
+    ] },
+    { kind: 'example', title: 'One edited trig machine, both grammars: y = 2 sin(3(x − π/4)) + 1', steps: [
+      'Read the edits by the anchor law: $a = 2$, $b = 3$, $h = \\pi/4$, $k = 1$ — the parent sine’s peak seat $(\\pi/2,\\ 1)$ rides to $\\big(\\pi/4 + \\pi/6,\\ 1 + 2\\big) = (5\\pi/12,\\ 3)$: the machine tops at height 3 over the seat $5\\pi/12$.',
+      'The window: the parent sine rides $2\\pi$; the inner constant 3 divides it — $2\\pi/3$. The amplitude 2, the lift 1 and the phase $-\\pi/4$ are decorations the window ignores (the stretch law, priced on a trig machine).',
+      'The least discipline: the candidate $\\pi/3$ fails — the half-lap flip $\\sin(3(x + \\pi/3)) = \\sin(3x + \\pi) = -\\sin 3x$ changes sign, and neither the amplitude nor the lift can hide it.',
+      'Both grammars, one line of recall: the anchor law placed the peak seat, the stretch law priced the window — 1.7 and 1.8 answering together, which is what a mixed census item actually pays.',
+    ] },
+    { kind: 'example', title: 'The 3-to-3 counting passport: 512 relations, 27 machines, 6 bijections', steps: [
+      'The pairing grid: $n(A) = n(B) = 3$, so the cartesian census owns $3 \\times 3 = 9$ pairs — and the relation census reads $2^9 = 512$ subsets, every one a legal relation (1.1’s counting law).',
+      'The machine census: each of the 3 inputs chooses among 3 targets independently — $3^3 = 27$ machines (the chain of choices, 1.1 again).',
+      'The verdict census: one-one needs three distinct targets — the pigeonhole says the 3-into-3 case allows it, and the count is $3 \\cdot 2 \\cdot 1 = 6$; onto on equal sizes forces one-one and conversely (the pigeonhole both ways), so the surjections are the SAME six; bijections $= 3! = 6$. The verifier enumerated all 27 and confirmed: 6 one-one, 6 onto, 6 bijective — the same six machines.',
+      'The verdict table’s diagonal: on square pairings the three counting numbers collapse into one — the n! bijections are exactly the perfect pairings, each invertible with its swap.',
+    ] },
+
+    { kind: 'heading', text: 'The Laws Worth Recalling' },
+    { kind: 'para', text: 'The chapter’s must-recall shelf, in the order the later chapters will reach for them — every card is one law a verifier checked before it printed.' },
+    { kind: 'formula', name: 'The two function demands', latex: 'f \\text{ total: } \\forall a \\in A\\ \\exists b: (a, b) \\in f; \\qquad f \\text{ single-valued: } (a,b), (a,b\') \\in f \\Rightarrow b = b\'', note: 'the function is the total and single-valued relation — the n^m count follows by the chain of choices' },
+    { kind: 'formula', name: 'The verdict laws', latex: '\\text{one-one} \\iff f(x_1) = f(x_2) \\Rightarrow x_1 = x_2; \\qquad \\text{onto} \\iff \\mathrm{ran}(f) = \\mathrm{cod}(f); \\qquad \\text{bijective} \\iff \\text{one-one} \\wedge \\text{onto}', note: 'waste and cover are independent — all four cells of the 1.2 verdict table occur; bijective = invertible' },
+    { kind: 'formula', name: 'The inverse swap', latex: 'f^{-1}: B \\to A, \\quad f^{-1} \\circ f = I_A, \\quad f \\circ f^{-1} = I_B, \\qquad (g \\circ f)^{-1} = f^{-1} \\circ g^{-1}', note: 'domain and range trade places; the composite inverts inside-out — 1.4’s two laws' },
+    { kind: 'formula', name: 'The GIF pair law', latex: '[x] + \\{x\\} = x, \\qquad \\{x\\} = x - [x] \\in [0, 1), \\qquad \\{x + n\\} = \\{x\\}', note: 'the staircase and the sawtooth rebuild the line — the fractional part rides window 1' },
+    { kind: 'formula', name: 'The band method', latex: 'n \\leq f(x) < n+1 \\Rightarrow [f(x)] = n \\quad \\text{(the constant rung between level crossings)}', note: 'draw the integer level lines; crossings drop one rung; hitting seats closed, leaving sides open — 1.7’s staircase engine' },
+    { kind: 'formula', name: 'The window laws', latex: 'T\\big(f(ax + b) + c\\big) = \\frac{T}{|a|}, \\qquad T_{\\text{sum}} = \\operatorname{L.C.M.}\\ (\\text{part windows}) \\ \\text{(then the smaller-}k\\ \\text{check)}', note: 'inner constants divide; combinations take the L.C.M. of rational windows — surds only when the same radical rides both' },
+    { kind: 'terms', items: [
+      { term: 'total (machine)', def: 'every input owns a pair — the first demand the function makes of a relation.' },
+      { term: 'single-valued (machine)', def: 'no two pairs share a first entry — the second demand; together they turn a relation into a machine.' },
+      { term: 'witness pair', def: 'the pair $f(a) = f(b)$ with $a \\neq b$ that convicts a machine of being many-one — one seat, one verdict.' },
+      { term: 'honest domain (of a composite)', def: 'the seats where the INNER machine lands inside the outer machine’s domain — composition trims, it never invents.' },
+      { term: 'anchor law', def: 'the one-seat tracking of an edit: $y = a f(b(x-h)) + k$ carries $(x_0, y_0)$ to $(h + x_0/b,\\ k + a y_0)$.' },
+      { term: 'band method', def: 'the staircase engine: between integer-level crossings of the parent, $[f(x)]$ prints one constant rung.' },
+      { term: 'window (principal period)', def: 'the least positive $T$ with $f(x + T) = f(x)$ at every seat — the number the census reports.' },
+    ] },
+
+    { kind: 'heading', text: 'The Traps the Hall Sets' },
+    { kind: 'para', text: 'The chapter’s own caution shelf, compressed to the six traps the examination hall actually sets — each is one lesson’s discipline pointed at one wrong instinct:' },
+    { kind: 'list', marker: 'roman', items: [
+      '**The working-but-not-least window** — $2\\pi$ satisfies the law for $\\cos(\\cos x)$; the answer is $\\pi$. One failing seat rejects every non-least candidate (1.8).',
+      '**The codomain amnesia** — “$x^2$ is onto” says nothing until the codomain is declared; onto is a property of the PAIRING (1.2).',
+      '**The inside-theatre reversal** — $f(x + 2)$ slides LEFT and $f(2x)$ squeezes; the inner edit answers backwards (1.7).',
+      '**The inverse of a many-one machine** — $x^2$ has no undoing on $\\mathbb{R}$; restrict first, then invert (1.4).',
+      '**The L.C.M. without the shrinkage check** — $|\\sin x| + |\\cos x|$ rides $\\pi/2$, not the L.C.M. $\\pi$; always test the half-window (1.8).',
+      '**The periodic-plus-non-periodic read** — $x + \\sin x$ never repeats, whatever its periodic part suggests; the subtraction argument is one line (1.8).',
+    ] },
+    { kind: 'callout', tone: 'warn', title: 'The one warning that carries forward', text: 'Chapter 2 speaks this grammar on POLYNOMIALS: a quadratic is a machine with a symmetry seat (the vertex), many-one on $\\mathbb{R}$ and bijective on a half-line — every trap above reappears there with a formula attached. Carry the verdict toolkit forward intact.' },
+    { kind: 'callout', tone: 'insight', title: 'How the eight lessons interlock', text: 'The interlock is the review’s real lesson: 1.2’s bijective promise is CASHED by 1.4’s undoing; 1.5’s zoo supplies the machines 1.7 edits and 1.8 measures; 1.6’s parity table is the REASON $\\cos(\\cos x)$ halves the window; 1.3’s composition is the FORM of every transformation ($y = f(x) + a$ is an outer machine wired on). Nothing in the chapter stands alone — and neither will chapter 2.' },
+    { kind: 'callout', tone: 'exam', title: 'Exam corner: how a chapter is actually priced', text: 'All exam-style (none from an official paper): the JEE arc prices this ground as verdict questions (classify a machine on a declared pairing — the four-cell answer), codomain-finding (find $A$ so that $f$ is onto — the range discipline), counting questions ($2^{pq}$, $n^m$, the injection count, the bijection count on small sets), equivalence proofs (show $R$ is or is not reflexive/symmetric/transitive, with counterexamples), composition and inverse runs (the honest domain, the solve-back, the swap), the transformation grammar (read an edit at sight; run the anchor law on one seat), the GIF solves (the band method on $[x]^2 - 5[x] + 6 = 0$ style), and the window census (at sight, by the L.C.M. rule, with the surd verdict). The mixed items below price exactly these families, several per item.' },
+    { kind: 'callout', tone: 'historical', title: 'The road to “a function is whatever machine you declare”', text: 'The chapter’s object took two centuries to finalise: Euler’s 1748 *Introductio* made the trigonometric quantities functions — machines on the equal footing of the exponential; then Dirichlet’s 1837 definition (any rule assigning one output to each input of a set, however “arbitrary”) released the machine from formulas altogether. Every verdict this chapter runs — waste, cover, repetition — runs on Dirichlet’s object: the pairing, not the formula. The reviewer should notice that the book’s whole apparatus (pair, verdict, wiring, undoing) is exactly the 19th-century grammar that made modern analysis possible.' },
+
+    { kind: 'quiz', title: 'Check yourself', items: [
+      { q: 'With $n(A) = 2$ and $n(B) = 3$, the number of relations from A to B is', options: ['36', '64', '9', '12'], answer: 1, explain: 'The cartesian census owns $2 \\times 3 = 6$ pairs, and every SUBSET of it is a legal relation — the count is $2^6 = 64$ (the power-set census of 1.1). Option 0 is the pairing count $pq = 6$ squared-ish nonsense ($6^2 = 36$); option 2 is the machine count $3^2 = 9$ — the function census, not the relation census; option 3 invents a sum no law produces.' },
+      { q: 'For a bijective machine f : A → B, the inverse machine f⁻¹ always satisfies', options: ['the domain of f⁻¹ equals the domain of f', 'the domain of f⁻¹ is the range of f', 'f⁻¹ exists whenever f is onto', 'f⁻¹ is many-one whenever f is one-one'], answer: 1, explain: 'The undoing swaps the sets: $\\mathrm{dom}(f^{-1}) = \\mathrm{ran}(f)$ and $\\mathrm{ran}(f^{-1}) = \\mathrm{dom}(f)$ — the outputs of $f$ are exactly the inputs of $f^{-1}$. Option 0 forgets the swap; option 2 is the classic half-demand trap — onto alone leaves a many-one $f$ (e.g. $x^2$ onto $[0,\\infty)$) with no single-valued undoing; option 4 reverses the law (one-one $f$ makes $f^{-1}$ one-one).' },
+      { q: 'With g(x) = x + 1 and f(x) = x², the value of f(g(2)) − g(f(2)) is', options: ['4', '5', '9', '0'], answer: 0, explain: 'Feed the inner machine first: $f(g(2)) = f(3) = 9$, while $g(f(2)) = g(4) = 5$ — the difference is $9 - 5 = 4$. Option 1 is $g(f(2))$ alone; option 2 is $f(g(2))$ alone; option 3 would need the two compositions to agree — and composition ORDER matters, the wiring lesson’s whole point.' },
+      { q: 'The window (principal period) of y = {3x} is', options: ['1', '3', '1/3', 'the machine is non-periodic'], answer: 2, explain: 'The sawtooth $\\{x\\}$ rides window 1; the inner constant 3 DIVIDES it — $1/3$ — the stretch law $T/|a|$. The least discipline certifies: the candidate $1/6$ fails ($\\{3(x + 1/6)\\} = \\{3x + 1/2\\}$ disagrees with $\\{3x\\}$ mid-climb), and 1 is merely three whole laps. Option 0 confuses the lap count with the window; option 1 multiplies where the law divides; option 4 forgets that a sawtooth always repeats.' },
+      { q: 'From the graph of y = f(x), the graph of y = f(x − 2) + 5 is obtained by', options: ['shifting every seat 2 right and 5 up', 'shifting every seat 2 left and 5 up', 'shifting every seat 2 right and 5 down', 'shifting every seat 2 left and 5 down'], answer: 0, explain: 'The anchor law with $h = 2$, $k = 5$: every seat $(x_0, y_0)$ lands at $(x_0 + 2, y_0 + 5)$ — the INSIDE minus slides right (the seat carrying $f(x_0)$ must be fed $x - 2 = x_0$), and the OUTSIDE plus lifts. Option 1 is the inside-theatre reversal trap ($f(x + 2)$ is the left-slider); option 2 mishandles the outer sign ($f(x) - 5$ would drop); option 3 stacks both errors.' },
+    ] },
+
+    { kind: 'exercises', title: 'Exercises 1.R', sets: [
+      { level: 'L1', questions: [
+        { q: 'On A = {1, 2, 3, 4}, write the relation R: “x + y is even” in roster form, count its pairs, and read its domain and range.', solution: [
+          'A sum is even exactly when both entries share parity. The odd seats {1, 3} pair among themselves: $(1,1), (1,3), (3,1), (3,3)$; the even seats {2, 4} likewise: $(2,2), (2,4), (4,2), (4,4)$.',
+          'The census: $8$ pairs — the same-parity relation is the union of two little squares of the pairing grid.',
+          'Every input appears (odd inputs pair with odds, even with evens): domain $= \\{1, 2, 3, 4\\}$, and by the same read range $= \\{1, 2, 3, 4\\}$ — both full.',
+        ], answer: 'R owns 8 pairs; domain and range both $\\{1, 2, 3, 4\\}$.' },
+        { q: 'Evaluate [−3.4], {−3.4} and sgn(−3.4), and confirm the pair law on the seat.', solution: [
+          'The seat $-3.4$ lives between the integers $-4$ and $-3$; the greatest integer not above it is $[-3.4] = -4$ — stand on the seat and look LEFT.',
+          'The fractional part is the climb already made: $\\{-3.4\\} = -3.4 - (-4) = 0.6$ — positive, as the fractional part always is.',
+          'The sign of a negative seat is $-1$: $\\operatorname{sgn}(-3.4) = -1$. The pair law checks itself: $[-3.4] + \\{-3.4\\} = -4 + 0.6 = -3.4$ — the staircase and the sawtooth rebuild the line.',
+        ], answer: '$[-3.4] = -4$, $\\{-3.4\\} = 0.6$, $\\operatorname{sgn}(-3.4) = -1$; the pair law holds.' },
+      ] },
+      { level: 'L2', questions: [
+        { q: 'For f(x) = x² − 4x + 7 on ℝ: find the range, exhibit a witness pair proving many-one, and state a codomain and a restriction that make the machine onto.', solution: [
+          'Complete the square: $x^2 - 4x + 7 = (x - 2)^2 + 3$ — a parabola with vertex $(2, 3)$, arms rising without bound. The range is $[3, \\infty)$.',
+          'The symmetry seat 2 is the witness machine: $f(1) = 1 - 4 + 7 = 4$ and $f(3) = 9 - 12 + 7 = 4$ — the pair $(1, 3)$ convicts many-one on $\\mathbb{R}$.',
+          'The trim discipline: declaring the codomain $[3, \\infty)$ makes $f$ onto (every height from 3 up is attained); and restricting the domain to $x \\geq 2$ (the right arm alone) makes the machine one-one as well — bijective, hence invertible on that arm.',
+        ], answer: 'Range $[3, \\infty)$; witness $f(1) = f(3) = 4$; onto against the codomain $[3, \\infty)$, bijective on $[2, \\infty)$.' },
+        { q: 'Split the machine h(x) = |x| + x into its even part and its odd part, and say what each part is.', solution: [
+          'The canonical split of 1.6: even part $\\frac{h(x) + h(-x)}{2}$, odd part $\\frac{h(x) - h(-x)}{2}$.',
+          'Compute the mirror: $h(-x) = |{-x}| + (-x) = |x| - x$. So the even part is $\\frac{(|x| + x) + (|x| - x)}{2} = |x|$ and the odd part is $\\frac{(|x| + x) - (|x| - x)}{2} = x$.',
+          'The split is pure zoo: the EVEN machine of the pair is the modulus — 1.5’s wrap — and the ODD machine is the identity. The decomposition identity rebuilds $h$ at every seat: $|x| + x$, checked seat-by-seat by the verifier.',
+        ], answer: 'Even part $|x|$, odd part $x$ — the modulus and the identity, the zoo’s two residents.' },
+      ] },
+      { level: 'L3', questions: [
+        { q: 'With f(x) = √(x − 1) and g(x) = x + 3, write (f∘g)(x) and (g∘f)(x) with their honest domains, and evaluate each at the boundary seat.', solution: [
+          'Wire forward: $(f \\circ g)(x) = f(x + 3) = \\sqrt{x + 3 - 1} = \\sqrt{x + 2}$ — the inner machine’s output must land in $[1, \\infty)$, i.e. $x + 3 \\geq 1$: the honest domain is $x \\geq -2$.',
+          'Wire the other way: $(g \\circ f)(x) = \\sqrt{x - 1} + 3$ — honest wherever the inner is: $x \\geq 1$.',
+          'The boundary: at $x = -2$ the first composition sits exactly on its domain edge — $(f \\circ g)(-2) = \\sqrt{0} = 0$, defined and landed; a seat to the LEFT of it has nothing to feed. The two compositions share no seat structure: different domains, different machines — the wiring order again.',
+        ], answer: '$(f \\circ g)(x) = \\sqrt{x + 2}$ on $x \\geq -2$; $(g \\circ f)(x) = \\sqrt{x - 1} + 3$ on $x \\geq 1$.' },
+        { q: 'Find the inverse of f(x) = (x − 1)/(x + 1) on ℝ − {−1}, state its domain, and verify the undoing at the seats 0 and 2.', solution: [
+          'Solve back: write $y = \\frac{x-1}{x+1}$ and free the $x$: $y(x + 1) = x - 1 \\Rightarrow xy + y = x - 1 \\Rightarrow x(y - 1) = -(y + 1) \\Rightarrow x = \\frac{y + 1}{1 - y}$.',
+          'So $f^{-1}(y) = \\frac{y + 1}{1 - y}$, honest wherever the formula lives and lands: domain $\\mathbb{R} - \\{1\\}$ — which is exactly the range of $f$ (the value 1 is never hit: $\\frac{x-1}{x+1} = 1$ would force $-1 = 1$). The swap law reads off the pairing.',
+          'Verify at the pinned seats: $f(0) = -1$ and $f^{-1}(-1) = \\frac{-1 + 1}{1 - (-1)} = 0$ — undone; $f(2) = \\frac{1}{3}$ and $f^{-1}\\!\\left(\\frac{1}{3}\\right) = \\frac{\\frac{1}{3} + 1}{1 - \\frac{1}{3}} = \\frac{4/3}{2/3} = 2$ — undone. The machine is one-one (the sweep factors) — a Möbius climb on each piece.',
+        ], answer: '$f^{-1}(x) = \\frac{x + 1}{1 - x}$ on $\\mathbb{R} - \\{1\\}$; verified at 0 and 2.' },
+      ] },
+      { level: 'L4', questions: [
+        { q: 'Solve [x]² − 5[x] + 6 = 0 over the reals, and state the answer as one interval with its endpoint discipline.', solution: [
+          'The GIF lets the substitution $n = [x]$: the equation reads $n^2 - 5n + 6 = 0$, i.e. $(n - 2)(n - 3) = 0$ — so $[x] \\in \\{2, 3\\}$.',
+          'Unpack each rung by the band discipline: $[x] = 2$ owns the half-open band $x \\in [2, 3)$ (closed at 2 — the integer belongs to its own stair; open at 3 — that seat prints 3). Likewise $[x] = 3$ owns $[3, 4)$.',
+          'The union: $x \\in [2, 4)$ — closed at the left end ($[2] = 2$ solves), open at the right ($[4] = 4$ gives $16 - 20 + 6 = 2 \\neq 0$). One band, two rungs, exact endpoints — the verifier swept the seats around both ends.',
+        ], answer: '$x \\in [2, 4)$ — the union of the $[x] = 2$ and $[x] = 3$ bands.' },
+        { q: 'Find the window of f(x) = sin²(3x) + |cos(5x)|, rejecting the candidate π/2 with a witness seat.', solution: [
+          'Part windows at sight: $\\sin^2$ rides $\\pi$ (the even power absorbs the flip) and the inner 3 divides — $\\pi/3$; $|\\cos|$ rides $\\pi$ and the inner 5 divides — $\\pi/5$.',
+          'The L.C.M. arithmetic: L.C.M.$(\\pi/3, \\pi/5) = \\pi \\cdot$ L.C.M.(1, 1)/H.C.F.(3, 5) $= \\pi$ — candidate $\\pi$.',
+          'Reject the half: at $x = \\pi/6$ the machine reads $\\sin^2(\\pi/2) + |\\cos(5\\pi/6)| = 1 + \\frac{\\sqrt{3}}{2}$; at $x = 2\\pi/3$ (half a window on) it reads $\\sin^2(2\\pi) + |\\cos(10\\pi/3)| = 0 + \\frac{1}{2}$ — different values, the candidate dies.',
+          'Shrinkage check below $\\pi$: no smaller common multiple of $\\pi/3$ and $\\pi/5$ exists (the arithmetic is exact), so the window stands at $\\pi$.',
+        ], answer: 'Window $\\pi$; the seat $x = \\pi/6$ rejects $\\pi/2$ ($1 + \\frac{\\sqrt{3}}{2}$ against $\\frac{1}{2}$).' },
+      ] },
+      { level: 'L5', questions: [
+        { q: 'Build y = 2√(3(x − 1)) + 4 from y = √x by the anchor law: give its domain, and run the two anchor seats (0, 0) and (4, 2) through the walk.', solution: [
+          'Read the edit: $a = 2$, $b = 3$, $h = 1$, $k = 4$ — inner shift 1, inner squeeze 3, outer scale 2, outer lift 4. The anchor law carries $(x_0, y_0)$ to $\\left(1 + \\frac{x_0}{3},\\ 4 + 2y_0\\right)$.',
+          'The domain: the parent lives on $x \\geq 0$; the edited machine demands $3(x - 1) \\geq 0$, i.e. $x \\geq 1$ — the whole picture slid right 1 and squeezed by 3.',
+          'The zero seat: $(0, 0)$ rides to $\\left(1 + 0,\\ 4 + 0\\right) = (1, 4)$ — the parent’s floor lifts to height 4; and indeed $2\\sqrt{3(1 - 1)} + 4 = 4$.',
+          'The seat $(4, 2)$ rides to $\\left(1 + \\frac{4}{3},\\ 4 + 4\\right) = \\left(\\frac{7}{3},\\ 8\\right)$ — check: $2\\sqrt{3\\left(\\frac{7}{3} - 1\\right)} + 4 = 2\\sqrt{4} + 4 = 8$. Two anchors, two verifications, the walk is mechanical.',
+        ], answer: 'Domain $x \\geq 1$; $(0, 0) \\to (1, 4)$ and $(4, 2) \\to (7/3, 8)$, both checked in place.' },
+        { q: 'For f(x) = (2x + 3)/(x − 1) on ℝ − {1}: rewrite it as a shifted reciprocal, find its range, prove it one-one, and produce its inverse with one verification.', solution: [
+          'The rewrite: $\\frac{2x + 3}{x - 1} = \\frac{2(x - 1) + 5}{x - 1} = 2 + \\frac{5}{x - 1}$ — a reciprocal machine slid right 1, lifted 2 and stretched 5 (the zoo’s resident, edited).',
+          'The range: $\\frac{5}{x-1}$ takes every value EXCEPT 0 (a numerator that never vanishes), so $f$ takes every value except 2 — range $\\mathbb{R} - \\{2\\}$, and onto exactly against that declared codomain.',
+          'One-one: the reciprocal $\\frac{5}{x - 1}$ is one-one on each side of its pole (a fall), and the two branches never share a height — the sweep $f(x_1) = f(x_2)$ forces $\\frac{5}{x_1 - 1} = \\frac{5}{x_2 - 1}$, hence $x_1 = x_2$.',
+          'The inverse: $y - 2 = \\frac{5}{x - 1} \\Rightarrow x = 1 + \\frac{5}{y - 2} = \\frac{y + 3}{y - 2}$, honest on $\\mathbb{R} - \\{2\\}$. Verify at the seat 0: $f(0) = -3$, and $f^{-1}(-3) = \\frac{-3 + 3}{-3 - 2} = 0$ — undone; and $(f^{-1})^{-1} = f$, the swap run twice.',
+        ], answer: '$f = 2 + \\frac{5}{x-1}$; range $\\mathbb{R} - \\{2\\}$; one-one; $f^{-1}(y) = \\frac{y + 3}{y - 2}$ (checked at 0).' },
+      ] },
+      { level: 'L6', questions: [
+        { q: 'On A = {1, 2, 3, 4, 6}, show that “x − y is divisible by 3” is an equivalence relation, write its classes, and count its pairs.', solution: [
+          'Reflexive: $x - x = 0$ is divisible by 3. Symmetric: if $3 \\mid (x - y)$ then $3 \\mid (y - x)$ — the sign flip never bothers divisibility. Transitive: $3 \\mid (x - y)$ and $3 \\mid (y - z)$ give $3 \\mid (x - z)$ — the differences add. All three demands hold: equivalence.',
+          'The classes by remainder mod 3: the remainder-1 seats $\\{1, 4\\}$ (both leave 1), the remainder-2 seat $\\{2\\}$ alone (no other seat of A leaves 2), and the remainder-0 seats $\\{3, 6\\}$. Three classes partitioning A.',
+          'The pair count: an equivalence owns exactly the within-class pairs — $2^2 + 1^2 + 2^2 = 9$ pairs. (The verifier enumerated: $(1,1), (1,4), (4,1), (4,4), (2,2), (3,3), (3,6), (6,3), (6,6)$.)',
+          'The packaging read: the classes are the remainders-made-visible — the mod-3 labels that 1.1 introduced with the mod-5 census, now written by the reader without the table.',
+        ], answer: 'Equivalence; classes $\\{1,4\\}, \\{2\\}, \\{3,6\\}$; exactly 9 pairs.' },
+        { q: 'Prove that x + cos x is non-periodic, and name the general law the proof establishes.', solution: [
+          'Suppose a window $T > 0$ exists: $(x + T) + \\cos(x + T) = x + \\cos x$ at every seat — subtract the rail: $\\cos(x + T) - \\cos x = -T$, the SAME number at every seat.',
+          'The difference identity for the cosine: $\\cos(x + T) - \\cos x = -2\\sin\\!\\left(x + \\frac{T}{2}\\right)\\sin\\!\\left(\\frac{T}{2}\\right)$ — a sine wave in $x$ times a constant, constant in $x$ only if $\\sin(T/2) = 0$.',
+          'But $\\sin(T/2) = 0$ makes the left side $0$ at every seat, while the right side is $-T \\neq 0$. Contradiction — no window exists; the verifier swept the candidate windows and every one drifts.',
+          'The general law: PERIODIC + NON-PERIODIC is non-periodic — the subtraction argument transfers any supposed window of the sum onto the non-periodic part and kills it there. The rail dominates; the wave rides on it in vain.',
+        ], answer: 'No window exists; periodic + non-periodic is always non-periodic.' },
+      ] },
+    ] },
+  ],
+}
+
+
+/* ------------------------------------------------------------------ */
 /* chapter assembly                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -2391,11 +3036,8 @@ export const chapter01: Chapter = {
   title: 'Functions as Objects',
   summary:
     'The book opens exactly where Elementary Algebra ended: the input-output machine becomes an object in its own right. First the set-of-pairs view — a relation as a subset of a product, a function as the special relation that is total and single-valued, the ground NCERT class 11–12 calls Relations and Functions and AL 11.3 never needed. Then the machine is classified: one-one, onto, the horizontal probe read at depth and the finite-set pigeonhole verdict. Then machines are wired in series — composition, its honest domain, its associativity, the identity — and finally undone: the inverse machine, when it exists, why existence is exactly one-one plus onto, and how the domain and range swap places. Piecewise-defined functions read honestly as machines with a switch; the transformation grammar — shifts, reflections, and the vertical and the horizontal stretch or squeeze — priced on the parent curves; and the craft of finding a function from a graph or a data table (the module’s problems based on finding function). This is the grammar every later chapter speaks.',
-  status: 'in-progress',
-  lessons: [lesson11, lesson12, lesson13, lesson14, lesson15, lesson16, lesson17],
-  plannedLessons: [
-    'The Period Census: Periods of Transformed and Composite Functions',
-    'Unit Review: Functions as Objects',
-  ],
+  status: 'complete',
+  lessons: [lesson11, lesson12, lesson13, lesson14, lesson15, lesson16, lesson17, lesson18, lessonReview],
+  plannedLessons: [],
 }
 
