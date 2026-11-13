@@ -10,14 +10,13 @@ import type { Chapter } from '../../../types'
  *                  exercises, two figures, sections D–G green); 6.3
  *                  Consistency: the Geometry of Two Lines (run 78 — quiz
  *                  keys 0/1/2/1/3, 14 exercises, two figures, the
- *                  meeting-theorem derivation) + the unit-6 completion
- *                  review PASSED: chapter 6 COMPLETE 3/3 at run 78.
- *
- * STATUS (2026-11-13, content-completeness audit): honestly IN-PROGRESS —
- * the prewritten-books audit (2026-11-11) queued lesson 6.4 "One Linear,
- * One Quadratic" (H&K XXVI) as a real gap, so the chapter's run-78
- * 'complete' claim was retired; status flips back to 'complete' when
- * 6.4 ships (run 95 queue).
+ *                  meeting-theorem derivation); 6.4 One Linear, One
+ *                  Quadratic (run 96 — the prewritten-books audit's gap B
+ *                  closed: the substitution pipeline, the three verdicts,
+ *                  the tangent condition k² = (1+m²)r², the symmetric
+ *                  identity bank, quiz keys 1/2/1/0/1, 14 exercises, two
+ *                  figures, sections L/M green) — the chapter re-COMPLETE
+ *                  4/4 at run 96.
  *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–76 pattern) — `hall-knight-elementary-
@@ -376,16 +375,131 @@ function slopeMachineSvg(): string {
   return parts.join('')
 }
 
+/* ------------------------------------------------------------------ */
+/* Figure 1 (6.4): the three verdicts — the c-slider family against   */
+/* y = x².  viewBox 720×400; plot window x ∈ [−2.5, 3.5],             */
+/* y ∈ [−2.5, 9.5]; px(x) = 60 + (x+2.5)·100, py(y) = 354 − (y+2.5)·25 */
+/* (geometry pinned in verify-book3-ch06.ts plan64Fig1).              */
+/* ------------------------------------------------------------------ */
+
+function threeVerdictsSvg(): string {
+  const px = (x: number): number => 60 + (x + 2.5) * 100
+  const py = (y: number): number => 354 - (y + 2.5) * 25
+  const parts: string[] = []
+  parts.push('<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three parallel lines against the parabola y equals x squared: a secant meeting it twice, a tangent touching once, an outsider missing entirely">')
+  // title band
+  parts.push('<rect x="30" y="12" width="660" height="34" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="34" font-size="14" fill="#166534" text-anchor="middle" font-weight="700">the c-slider family against the parabola y = x² — three verdicts</text>')
+  // axes
+  parts.push('<line x1="310" y1="54" x2="310" y2="354" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<line x1="60" y1="291.5" x2="660" y2="291.5" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<line x1="160" y1="288" x2="160" y2="295" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="360" y1="288" x2="360" y2="295" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="560" y1="288" x2="560" y2="295" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="160" y="306" font-size="10" fill="#0f766e" text-anchor="middle">−2</text>')
+  parts.push('<text x="360" y="306" font-size="10" fill="#0f766e" text-anchor="middle">1</text>')
+  parts.push('<text x="560" y="306" font-size="10" fill="#0f766e" text-anchor="middle">3</text>')
+  parts.push('<line x1="305" y1="266.5" x2="313" y2="266.5" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="305" y1="66.5" x2="313" y2="66.5" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="300" y="270" font-size="10" fill="#0f766e" text-anchor="end">1</text>')
+  parts.push('<text x="300" y="70" font-size="10" fill="#0f766e" text-anchor="end">9</text>')
+  // the parabola y = x²
+  const pts: string[] = []
+  for (let i = 0; i <= 111; i++) {
+    const x = -2.5 + i * 0.05
+    pts.push(px(x).toFixed(1) + ',' + py(x * x).toFixed(1))
+  }
+  parts.push('<polyline points="' + pts.join(' ') + '" fill="none" stroke="#0d9488" stroke-width="2.5"/>')
+  // the c-slider family (all slope 2): secant / tangent / outsider
+  parts.push('<line x1="60" y1="341.5" x2="585" y2="54" stroke="#16a34a" stroke-width="2.5"/>')
+  parts.push('<line x1="185" y1="354" x2="660" y2="141.5" stroke="#ea580c" stroke-width="2.5"/>')
+  parts.push('<line x1="235" y1="354" x2="660" y2="166.5" stroke="#dc2626" stroke-width="2" stroke-dasharray="8 5"/>')
+  // contact dots
+  parts.push('<circle cx="210" cy="266.5" r="5" fill="#16a34a"/>')
+  parts.push('<circle cx="610" cy="66.5" r="5" fill="#16a34a"/>')
+  parts.push('<circle cx="410" cy="266.5" r="5.5" fill="#ea580c"/>')
+  // dot labels
+  parts.push('<text x="204" y="262" font-size="11" fill="#166534" text-anchor="end">(−1, 1)</text>')
+  parts.push('<text x="618" y="70" font-size="11" fill="#166534" text-anchor="start">(3, 9)</text>')
+  parts.push('<text x="396" y="262" font-size="11" fill="#166534" text-anchor="end">(1, 1)</text>')
+  // the three verdict chips
+  parts.push('<rect x="64" y="50" width="176" height="20" rx="5" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="152" y="64" font-size="10" fill="#166534" text-anchor="middle" font-weight="700">y = 2x + 3 · Δ = 16 &gt; 0 · TWO</text>')
+  parts.push('<rect x="64" y="76" width="176" height="20" rx="5" fill="none" stroke="#ea580c" stroke-width="1.5"/>')
+  parts.push('<text x="152" y="90" font-size="10" fill="#166534" text-anchor="middle" font-weight="700">y = 2x − 1 · Δ = 0 · TANGENT</text>')
+  parts.push('<rect x="64" y="102" width="176" height="20" rx="5" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<text x="152" y="116" font-size="10" fill="#166534" text-anchor="middle" font-weight="700">y = 2x − 2 · Δ = −4 &lt; 0 · NONE</text>')
+  // caption band
+  parts.push('<rect x="30" y="362" width="660" height="26" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="379" font-size="10.5" fill="#166534" text-anchor="middle">one line, one quadratic, one discriminant — the reduced equation x² − mx − c = 0 prices every meeting</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
+/* ------------------------------------------------------------------ */
+/* Figure 2 (6.4): the tangent strip — the parallel family            */
+/* 3x + 4y = c against the circle x² + y² = 25.  viewBox 720×460;     */
+/* window x ∈ [−7, 7], y ∈ [−6.5, 6.5], equal scale 30 px/unit;       */
+/* px(x) = 150 + (x+7)·30, py(y) = 420 − (y+6.5)·30; circle centre   */
+/* (360, 225), radius 150 (pinned in verify-book3-ch06.ts            */
+/* plan64Fig2).                                                        */
+/* ------------------------------------------------------------------ */
+
+function tangentStripSvg(): string {
+  const parts: string[] = []
+  parts.push('<svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A circle of radius 5 against three parallel lines 3x + 4y = 20, 25 and 30: the secant cuts twice, the tangent touches once at (3,4), the outsider misses">')
+  // title band
+  parts.push('<rect x="30" y="8" width="660" height="30" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="28" font-size="13.5" fill="#166534" text-anchor="middle" font-weight="700">the tangent strip — the family 3x + 4y = c against the circle x² + y² = 25</text>')
+  // axes (x-axis trimmed to 545 to clear the (24/5, 7/5) label)
+  parts.push('<line x1="360" y1="45" x2="360" y2="420" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<line x1="165" y1="225" x2="545" y2="225" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<line x1="210" y1="221" x2="210" y2="229" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="510" y1="221" x2="510" y2="229" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="195" y="242" font-size="10" fill="#0f766e" text-anchor="middle">−5</text>')
+  parts.push('<text x="525" y="242" font-size="10" fill="#0f766e" text-anchor="middle">5</text>')
+  parts.push('<line x1="355" y1="375" x2="365" y2="375" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<line x1="355" y1="75" x2="365" y2="75" stroke="#d97706" stroke-width="1.5"/>')
+  parts.push('<text x="348" y="388" font-size="10" fill="#0f766e" text-anchor="end">−5</text>')
+  parts.push('<text x="348" y="66" font-size="10" fill="#0f766e" text-anchor="end">5</text>')
+  // the circle
+  parts.push('<circle cx="360" cy="225" r="150" fill="none" stroke="#0d9488" stroke-width="2.5"/>')
+  // the parallel family (all slope −3/4): secant / tangent / outsider
+  parts.push('<line x1="320" y1="45" x2="540" y2="210" stroke="#16a34a" stroke-width="2.5"/>')
+  parts.push('<line x1="370" y1="45" x2="540" y2="172.5" stroke="#ea580c" stroke-width="2.5"/>')
+  parts.push('<line x1="420" y1="45" x2="540" y2="135" stroke="#dc2626" stroke-width="2" stroke-dasharray="8 5"/>')
+  // contact dots
+  parts.push('<circle cx="360" cy="75" r="5" fill="#16a34a"/>')
+  parts.push('<circle cx="504" cy="183" r="5" fill="#16a34a"/>')
+  parts.push('<circle cx="450" cy="105" r="5.5" fill="#ea580c"/>')
+  // dot labels
+  parts.push('<text x="330" y="68" font-size="11" fill="#166534" text-anchor="end">(0, 5)</text>')
+  parts.push('<text x="460" y="94" font-size="11" fill="#166534" text-anchor="start">(3, 4)</text>')
+  parts.push('<text x="556" y="232" font-size="11" fill="#166534" text-anchor="start">(24/5, 7/5)</text>')
+  // the three verdict chips
+  parts.push('<rect x="64" y="56" width="150" height="22" rx="5" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="139" y="71" font-size="9.5" fill="#166534" text-anchor="middle" font-weight="700">3x + 4y = 20 · TWO</text>')
+  parts.push('<rect x="64" y="86" width="150" height="22" rx="5" fill="none" stroke="#ea580c" stroke-width="1.5"/>')
+  parts.push('<text x="139" y="101" font-size="9.5" fill="#166534" text-anchor="middle" font-weight="700">3x + 4y = 25 · TANGENT</text>')
+  parts.push('<rect x="64" y="116" width="150" height="22" rx="5" fill="none" stroke="#dc2626" stroke-width="1.5"/>')
+  parts.push('<text x="139" y="131" font-size="9.5" fill="#166534" text-anchor="middle" font-weight="700">3x + 4y = 30 · NONE</text>')
+  // caption band
+  parts.push('<rect x="30" y="424" width="660" height="26" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="441" font-size="10.5" fill="#166534" text-anchor="middle">the law: k² &lt; (1+m²)r² two · k² = (1+m²)r² tangent · k² &gt; (1+m²)r² none — here c² vs 625</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
 export const chapter06: Chapter = {
   number: 6,
   slug: 'simultaneous-linear-equations',
   title: 'Simultaneous Linear Equations',
   summary:
     'Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.',
-  // honestly 'in-progress': 6.4 is a queued gap (prewritten-books audit
-  // 2026-11-11; see plannedLessons below) — flips back to 'complete' when
-  // lesson 6.4 ships.
-  status: 'in-progress',
+  // 6.4 shipped at run 96 (the 2026-11-11 audit's AL gap B closed —
+  // H&K XXVI ground) — the chapter re-completes at 4 lessons; ch. 12
+  // (ratio-proportion-variation) is the next AL unit per the audit's queue.
+  status: 'complete',
   lessons: [
     {
       id: 'al-equations-in-two-variables',
@@ -1366,9 +1480,276 @@ export const chapter06: Chapter = {
         ] },
       ],
     },
+    {
+      id: 'al-one-linear-one-quadratic',
+      number: '6.4',
+      title: 'One Linear, One Quadratic',
+      concepts: [
+        'mixed system',
+        'solution pair census',
+        'the substitution pipeline',
+        'reduced quadratic',
+        'discriminant verdict',
+        'tangent condition',
+        'symmetric conversion',
+        'extraneous pair',
+      ],
+      objectives: [
+        'settle a one-linear-one-quadratic system by the substitution pipeline, checking every pair in the originals',
+        'read the three verdicts — secant, tangent, outsider — off the reduced discriminant, for a parabola or a circle',
+        'derive and use the tangent condition k² = (1+m²)r²',
+        'convert symmetric systems into sums and products through the identity bank',
+        'settle sum-and-product word problems — rectangles, gardens, number pairs',
+        'detect and discard extraneous pairs produced by squaring a given equation',
+      ],
+      prerequisites: ['al-substitution-and-elimination', 'al-the-quadratic-formula-and-the-discriminant', 'al-roots-and-coefficients-viete-relations'],
+      sources: ['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style'],
+      blocks: [
+        { kind: 'para', text: 'Chapter 6 has settled one world completely: two assertions, both linear, one truth. The census of 6.1, the methods of 6.2, the geometry of 6.3 — every instrument assumed both equations were lines. But the questions that arrive uninvited are rarely so polite. A rectangle is fenced with 14 metres of border and its diagonal measures 5 metres: the border reads $2(x + y) = 14$, a linear assertion, while the diagonal reads $x^2 + y^2 = 25$ by Pythagoras — a quadratic one. A straight track must just graze a circular lake. The sum of two numbers is fixed, and so is the sum of their squares. In every case the system is **mixed**: one equation of the first degree, one of the second.' },
+        { kind: 'para', text: 'The old discipline survives untouched. A pair $(s, t)$ is a solution of the system exactly when it passes BOTH tests — the sieve of 6.1 with one straight panel and one curved. What changes is the census itself. A linear-and-linear system, the chapter proved, has one pair, none, or infinitely many. A linear-and-quadratic system has **at most two**. The reason is already banked in 9.3: substitution collapses the system to a single quadratic in one unknown, and a quadratic owns at most two roots. This lesson prices that collapse honestly — as a theorem, as a geometry, and as an art.' },
+        { kind: 'callout', tone: 'definition', title: 'Definition — mixed system and its solution pairs', text: 'A system of two equations in $x$ and $y$ is called a **mixed system** when one member is linear and the other is of higher degree. A pair $(s, t)$ solves the mixed system when it satisfies BOTH members — the census test of 6.1, unchanged. Thus, for $y = x - 1$ with $x^2 + y^2 = 25$, the pair $(4, 3)$ is a solution because $4 - 3 = 1$ and $4^2 + 3^2 = 25$ are both true sentences, while $(0, -1)$ passes the line ($0 - (-1) = 1$) but fails the circle ($0 + 1 = 1 \\neq 25$) — half the evidence, no solution.' },
+        { kind: 'para', text: 'For example, the mixed systems this lesson will settle include every one of these shapes, and the list is worth reading twice before any machinery is built:' },
+        { kind: 'list', marker: 'roman', items: [
+          'the linear $y = x - 1$ with the circle $x^2 + y^2 = 25$ — two pairs, one in each sign country;',
+          'the linear $x + y = 8$ with the product $xy = 15$ — two pairs, the Viète twins $(3, 5)$ and $(5, 3)$;',
+          'the parabola $y = x^2$ with the line $y = 2x - 2$ — no pair at all: the reduced discriminant is $-4$, and the line misses the curve forever.',
+        ] },
+        { kind: 'heading', text: 'The Substitution Pipeline: Solve the Linear, Feed the Quadratic' },
+        { kind: 'para', text: 'The pipeline is one discipline, never a menu of tricks. Take the LINEAR member — it alone isolates an unknown cleanly — solve it for one variable, and substitute the result INTO the quadratic. The quadratic welcomes the substitution: it is built from squares and products, so a linear expression for $y$ leaves it a quadratic in $x$ alone. That **reduced quadratic** is the whole system compressed into one unknown, and 9.3’s machinery — factor it, complete its square, or quote the formula — prices it completely. Every root of the reduced equation buys back exactly one pair through the linear member; that is the whole method, and the theorem below says it loses nothing.' },
+        { kind: 'derivation', title: 'Theorem — substitution loses nothing', statement: 'For the mixed system with linear member $a x + b y = c$ ($b \\neq 0$) and quadratic member $q(x, y) = 0$: the solution pairs of the system are exactly the pairs $\\left(s, \\tfrac{c - a s}{b}\\right)$ where $s$ runs over the roots of the reduced equation $q\\left(x, \\tfrac{c - a x}{b}\\right) = 0$. When the reduced equation is genuinely quadratic, the system owns exactly as many pairs as it has real roots — two, one, or none.', steps: [
+          { label: 'Isolate the linear member', formula: 'b \\neq 0 \\;\\Longrightarrow\\; y = \\tfrac{c - a x}{b}', explanation: 'Lawfully divide: since $b \\neq 0$, the linear member says $y = \\tfrac{c - a x}{b}$ — 5.2’s balance move, one unknown isolated. This is the only division of the whole pipeline.' },
+          { label: 'The linear member speaks once', formula: 't = \\tfrac{c - a s}{b}', explanation: 'A pair $(s, t)$ satisfies the linear member exactly when $t = \\tfrac{c - a s}{b}$: the whole content of the linear member flows through this one formula — the substitution theorem of 6.2, re-read.' },
+          { label: 'Substitute into the quadratic', formula: 'q\\!\\left(x, \\tfrac{c - a x}{b}\\right) = 0', explanation: 'Such a pair satisfies the quadratic member exactly when $q\\left(s, \\tfrac{c - a s}{b}\\right) = 0$ — a sentence about $s$ alone: the reduced equation.' },
+          { label: 'The converse direction', explanation: 'Every root $s$ of the reduced equation manufactures the pair $\\left(s, \\tfrac{c - a s}{b}\\right)$, and both displayed sentences hold — so it solves the system. Nothing is lost and nothing invented: the correspondence is one-for-one.' },
+          { label: 'The degree audit', explanation: 'Substituting a linear expression for $y$ into a degree-2 expression in $x$ and $y$ leaves degree at most 2 in $x$: the reduced equation is a quadratic (or, in degenerate dresses, a linear or constant sentence — priced honestly below).' },
+          { label: 'Hence the census', explanation: 'Two real roots — two pairs; a double root — one pair, the tangent case; no real root — no pair at all. The verdict vocabulary is 9.3’s discriminant trichotomy, transferred from single equations to systems.' },
+        ], result: 'the mixed system’s pairs are the reduced equation’s roots, one for one — at most two' },
+        { kind: 'example', title: 'Settle y = x − 1 together with x² + y² = 25', steps: [
+          'The linear member is already isolated — feed it straight into the quadratic.',
+          'Substitute: $x^2 + (x - 1)^2 = 25$, and expand honestly: $x^2 + x^2 - 2x + 1 = 25$, so $2x^2 - 2x - 24 = 0$.',
+          'Halve: $x^2 - x - 12 = 0$, which factors as $(x - 4)(x + 3) = 0$ — the roots $x = 4$ and $x = -3$.',
+          'Back-substitute each root through the linear: $y = 4 - 1 = 3$ and $y = -3 - 1 = -4$ — the candidate pairs $(4, 3)$ and $(-3, -4)$.',
+          'Check in BOTH originals: $16 + 9 = 25$ with $4 - 3 = 1$; $9 + 16 = 25$ with $-3 - (-4) = 1$ — four true sentences, two genuine pairs.',
+          'Hence the system owns exactly two pairs — $(4, 3)$ and $(-3, -4)$ — one in each sign country.',
+        ], },
+        { kind: 'example', title: 'A rectangle has perimeter 14 and diagonal 5 — find its sides', steps: [
+          'Name the sides $x$ and $y$. The border gives the linear member $2(x + y) = 14$; Pythagoras on the diagonal gives the quadratic member $x^2 + y^2 = 25$.',
+          'Halve the linear: $x + y = 7$, so $y = 7 - x$ — the pipeline input.',
+          'Substitute: $x^2 + (7 - x)^2 = 25$, so $2x^2 - 14x + 49 = 25$, that is $x^2 - 7x + 12 = 0$.',
+          'Factor: $(x - 3)(x - 4) = 0$ — the roots $3$ and $4$; back-substitution gives the partner $4$ then $3$: the two orders of the same rectangle.',
+          'Check: perimeter $2(3 + 4) = 14$ and diagonal-squared $9 + 16 = 25$ — both true, so the sides are 3 and 4. (Section 4 below does the same system in two lines with the symmetric shortcut.)',
+        ], },
+        { kind: 'callout', tone: 'warn', title: 'Caution — the direction of the pipeline, and the court of originals', text: 'Two reliable ways to waste a page. First, running the pipeline backwards — solving the QUADRATIC for $y$ and substituting into the linear — buries you in surds for no gain: the linear member is the one that isolates cleanly, so solve IT. Second, grading candidate pairs inside the reduced dress: the reduced equation only counts roots, and a root whose manufactured pair fails an original (a sign slip in the back-substitution, say) is a false pair. Every pair is checked in the system AS GIVEN — the habit of 6.2, with its full force here.' },
+        { kind: 'para', text: 'One boundary case deserves honest words. If the linear member is horizontal — $y = k$ — and the quadratic is the product $xy = P$, the reduced equation is $k x = P$: linear, not quadratic, and the system owns exactly one pair, $\\left(\\tfrac{P}{k}, k\\right)$. Push further — $y = 0$ against $xy = 5$ — and the reduced sentence is $0 = 5$, false outright: no pair. And $y = 0$ against $xy = 0$ says $0 = 0$: every $x$ works, infinitely many pairs. The "at most two" census needs the reduced equation genuinely quadratic; the degenerate dresses are settled by inspection, exactly as 5.3’s gathered forms taught. The chapter verifier swept 19,656 mixed systems across three quadratic families — circles, parabolas, products — and every rational-rooted pair checked in both originals: the bijection held everywhere, with the degenerate roads catalogued, not discovered by accident.' },
+        { kind: 'heading', text: 'The Three Verdicts: A Line Against A Parabola' },
+        { kind: 'para', text: 'Geometry pays its debt to the pipeline. Dress the linear member as a line and read the quadratic member as its graph — here the parabola $y = x^2$ of 10.3. A meeting of the two graphs IS a solution pair: the same point satisfies both assertions at once. Substitute the line $y = mx + c$ into the parabola and the meeting question collapses to one quadratic:' },
+        { kind: 'equation', latex: 'x^2 - m x - c = 0, \\qquad \\Delta = m^2 + 4 c \\tag{1}', note: 'the reduced equation of the line $y = mx + c$ against the parabola $y = x^2$ — every meeting is a root, every root a meeting' },
+        { kind: 'para', text: 'The discriminant (1) is the whole verdict instrument. $\\Delta > 0$: two roots, two meetings — the line is a **secant**. $\\Delta = 0$: one double root, one meeting — the line is a **tangent**. $\\Delta < 0$: no real root, no meeting — the line is an **outsider**. Over the grid of slopes $m \\in [-4, 4]$ against intercepts $c \\in [-6, 6]$ the chapter verifier swept all 117 verdicts: 72 secants, 5 tangents, 40 outsiders — and the five tangent posts are exactly the pairs with $m^2 = -4c$, namely $(0, 0)$, $(\\pm 2, -1)$, $(\\pm 4, -4)$. Tangency is not a coincidence to be noticed; it is a post to be computed.' },
+        { kind: 'figure', svg: threeVerdictsSvg(), caption: 'The c-slider family: three parallel lines of slope 2 against $y = x^2$. The secant $y = 2x + 3$ meets at $(-1, 1)$ and $(3, 9)$; the tangent $y = 2x - 1$ touches at $(1, 1)$; the outsider $y = 2x - 2$ misses forever — three verdicts, one discriminant.' },
+        { kind: 'table', caption: 'The verdict table — the c-slider y = 2x + c against y = x², priced by the reduced discriminant', head: ['the line', 'the reduced equation', '$\\Delta$', 'the verdict', 'the meetings'], rows: [
+          ['$y = 2x + 3$', '$x^2 - 2x - 3 = 0$', '16', 'secant — two', '$(-1, 1)$ and $(3, 9)$'],
+          ['$y = 2x - 1$', '$x^2 - 2x + 1 = 0$', '0', 'tangent — one', '$(1, 1)$, a double root'],
+          ['$y = 2x - 2$', '$x^2 - 2x + 2 = 0$', '-4', 'outsider — none', 'no real root, no meeting'],
+        ] },
+        { kind: 'example', title: 'Classify the three lines against y = x² without solving — then settle the secant', steps: [
+          'All three carry slope $2$ — the c-slider family $y = 2x + c$. The reduced equation is $x^2 - 2x - c = 0$ with $\\Delta = 4 + 4c$.',
+          'Now, $c = 3$ gives $\\Delta = 16 > 0$ — a secant, two meetings. $c = -1$ gives $\\Delta = 0$ — the tangent post, one meeting. $c = -2$ gives $\\Delta = -4 < 0$ — an outsider, none.',
+          'Settle the secant: $x^2 - 2x - 3 = 0$ factors as $(x - 3)(x + 1) = 0$, so $x = 3$ or $x = -1$; the parabola prices the partners $y = 9$ and $y = 1$.',
+          'Check both meetings: $9 = 2(3) + 3$ and $9 = 3^2$; $1 = 2(-1) + 3$ and $1 = (-1)^2$ — every sentence true.',
+          'Hence: the secant $y = 2x + 3$ meets the parabola at $(3, 9)$ and $(-1, 1)$; the tangent $y = 2x - 1$ touches at $(1, 1)$; the outsider never meets — and the slider sits at tangency exactly when $c = -1$.',
+        ], },
+        { kind: 'callout', tone: 'insight', title: 'Insight — the discriminant is a distance-to-tangency gauge', text: 'Fix the slope $m$ and slide the intercept $c$: $\\Delta = m^2 + 4c$ grows exactly as fast as $c$ does. The line rises, and the verdicts walk in order — outsider, tangent, secant — with the tangent post at $c = -m^2/4$. Nothing new was computed: 9.3’s discriminant trichotomy simply changed employers, from counting roots of one equation to counting meetings of two. That is the pattern of the whole chapter, and of the next section too: every instrument is an old instrument in new dress.' },
+        { kind: 'heading', text: 'The Tangent Condition: A Line Against A Circle' },
+        { kind: 'para', text: 'The circle $x^2 + y^2 = r^2$ is the second classic quadratic member. Substitute the line $y = mx + k$ and the geometry of 6.3 gains a curved citizen: the reduced equation is $(1 + m^2) x^2 + 2mkx + (k^2 - r^2) = 0$ — genuinely quadratic for every slope whatsoever, since $1 + m^2 \\geq 1 > 0$: no degenerate road exists against a circle. Its discriminant simplifies remarkably, and the simplification IS the law — the tangent condition $k^2 = (1 + m^2) r^2$, derived below.' },
+        { kind: 'derivation', title: 'Theorem — the tangent condition', statement: 'The line $y = mx + k$ meets the circle $x^2 + y^2 = r^2$ ($r > 0$) exactly twice when $k^2 < (1 + m^2) r^2$, exactly once — tangentially — when $k^2 = (1 + m^2) r^2$, and never when $k^2 > (1 + m^2) r^2$. In the tangent case the contact point is the foot of the perpendicular from the centre to the line.', steps: [
+          { label: 'Substitute the line into the circle', formula: 'x^2 + (mx + k)^2 = r^2 \\;\\Longrightarrow\\; (1 + m^2) x^2 + 2mkx + (k^2 - r^2) = 0', explanation: 'A genuine quadratic, since $1 + m^2 \\geq 1 > 0$ whatever the slope — no degenerate road exists against a circle.' },
+          { label: 'Price the discriminant', formula: '\\tfrac{\\Delta}{4} = (1 + m^2) r^2 - k^2', explanation: 'The discriminant is $(2mk)^2 - 4(1 + m^2)(k^2 - r^2)$; divide by 4 and unfold — the $m^2 k^2$ and $k^2$ terms cancel exactly, leaving a comparison of two squares.' },
+          { label: 'Read the three verdicts', explanation: '$k^2 < (1 + m^2) r^2$ — positive discriminant, two contacts, the line is a secant; equality — zero discriminant, one contact, a tangent; $k^2 > (1 + m^2) r^2$ — negative, an outsider.' },
+          { label: 'Locate the tangent contact', formula: 'x = \\tfrac{-mk}{1 + m^2}, \\quad y = \\tfrac{k}{1 + m^2}', explanation: 'In the tangent case the double root is $x = \\tfrac{-mk}{1 + m^2}$, and back-substitution prices the partner $y = \\tfrac{k}{1 + m^2}$ — the foot of the perpendicular dropped from the centre to the line, since $m \\cdot \\tfrac{-mk}{1+m^2} + k = \\tfrac{k}{1+m^2}$ holds memberwise.' },
+          { label: 'The foot is the nearest point', explanation: 'Every other point of the line completes a right triangle with that foot, so it lies strictly farther from the centre than the foot does — and Pythagoras prices the foot-distance at $\\tfrac{|k|}{\\sqrt{1 + m^2}}$.' },
+          { label: 'The geometry corroborates', formula: '\\tfrac{k^2}{1 + m^2} = r^2 \\iff k^2 = (1 + m^2) r^2', explanation: 'Tangency is the borderline: nearest distance exactly $r$. Squaring, $\\tfrac{k^2}{1 + m^2} = r^2$ — which is the condition again. The algebra and the geometry agree, sentence by sentence.' },
+        ], result: 'the tangent condition $k^2 = (1 + m^2) r^2$' },
+        { kind: 'figure', svg: tangentStripSvg(), caption: 'The tangent strip: the parallel family $3x + 4y = c$ against the circle $x^2 + y^2 = 25$. The secant $c = 20$ cuts at $(0, 5)$ and $(24/5, 7/5)$; the tangent $c = 25$ touches at $(3, 4)$ — the 3-4-5 witness; the outsider $c = 30$ misses. In this dress the law reads $c^2$ against 625.' },
+        { kind: 'example', title: 'The family 3x + 4y = c against x² + y² = 25 — read the verdicts, then settle the secant', steps: [
+          'Dress the family: $y = -\\tfrac{3}{4} x + \\tfrac{c}{4}$ — one slope $m = -\\tfrac{3}{4}$, sliding intercept $k = \\tfrac{c}{4}$. The condition compares $k^2 = \\tfrac{c^2}{16}$ against $\\left(1 + \\tfrac{9}{16}\\right) \\cdot 25 = \\tfrac{625}{16}$: multiply through by 16 and the verdict reads $c^2$ against $625$.',
+          'Now, $c = 20$: $400 < 625$ — a secant. $c = 25$: $625 = 625$ — the tangent post. $c = 30$: $900 > 625$ — an outsider. The whole family is priced without solving anything.',
+          'Settle the secant $3x + 4y = 20$: substitute $y = \\tfrac{20 - 3x}{4}$ into the circle, so $16x^2 + (20 - 3x)^2 = 400$.',
+          'Expand: $16x^2 + 400 - 120x + 9x^2 = 400$, so $25x^2 - 120x = 0$ — the constant cancels itself.',
+          'Factor: $5x(5x - 24) = 0$, so $x = 0$ or $x = \\tfrac{24}{5}$; back-substitution prices the partners $5$ and $\\tfrac{7}{5}$ — the contacts $(0, 5)$ and $\\left(\\tfrac{24}{5}, \\tfrac{7}{5}\\right)$.',
+          'Check both: $3(0) + 4(5) = 20$ with $0 + 25 = 25$; $3 \\cdot \\tfrac{24}{5} + 4 \\cdot \\tfrac{7}{5} = \\tfrac{72 + 28}{5} = 20$ with $\\tfrac{576 + 49}{25} = \\tfrac{625}{25} = 25$ — every sentence true.',
+          'The tangent post itself: $3x + 4y = 25$ touches at $(3, 4)$ — the 3-4-5 witness, on the circle ($9 + 16 = 25$) and on the line ($3 \\cdot 3 + 4 \\cdot 4 = 25$) in the same breath.',
+          'Hence the secant contacts are $(0, 5)$ and $\\left(\\tfrac{24}{5}, \\tfrac{7}{5}\\right)$, and the tangent post touches at $(3, 4)$.',
+        ], },
+        { kind: 'para', text: 'The family has a second tangent post: $c = -25$ touches at $(-3, -4)$, the mirror witness — $(-3)^2 + (-4)^2 = 25$ and $3(-3) + 4(-4) = -25$. The condition $c^2 = 625$ is indifferent to sign, and the circle enjoys its tangents on both sides. Any find-the-tangent question has this shape twice over: square the condition and read BOTH posts, or half the answer is silently missing.' },
+        { kind: 'heading', text: 'The Symmetric Shortcut: Sums, Products and the Identity Bank' },
+        { kind: 'para', text: 'Many mixed systems are **symmetric** — swap $x$ and $y$ and the system does not notice ($x + y = 7$ and $x^2 + y^2 = 25$ are both indifferent to the swap). For these, the pipeline is legal but wasteful. The classical art — Hall and Knight teach it as the ruling idea of their chapter — is to convert: stop treating $x$ and $y$ separately, and price the SUM $S = x + y$ and the PRODUCT $P = xy$ instead. The identity bank does the converting; Viète (9.4) does the finishing.' },
+        { kind: 'table', caption: 'The identity bank — every conversion row verified over the integer window in the chapter verifier', head: ['the system hands', 'the identity prices', 'the recovery', 'a verified instance'], rows: [
+          ['$x + y = S$ and $x^2 + y^2 = Q$', '$(x + y)^2 = x^2 + y^2 + 2xy$', '$xy = \\tfrac{S^2 - Q}{2}$', '$S = 7$, $Q = 25$ → $xy = 12$'],
+          ['$x + y = S$ and $xy = P$', 'Viète (9.4)', '$t^2 - St + P = 0$', '$S = 8$, $P = 15$ → $t = 3, 5$'],
+          ['$x - y = D$ and $xy = P$', '$x = t$, $y = t - D$', '$t^2 - Dt - P = 0$', '$D = 2$, $P = 15$ → $t = 5, -3$'],
+          ['$x^2 + y^2 = Q$ and $xy = P$', '$(x + y)^2 = Q + 2P$', 'the ± road (below)', '$Q = 58$, $P = 21$ → four pairs'],
+          ['$x + y = S$ and $x^2 - y^2 = E$', '$x^2 - y^2 = (x + y)(x - y)$', '$x - y = \\tfrac{E}{S}$', '$S = 12$, $E = 24$ → $(7, 5)$'],
+        ] },
+        { kind: 'equation', latex: 't^2 - (x + y)\\, t + xy = 0 \\tag{2}', note: 'the Viète landing: the two numbers are the roots of their own sum-and-product polynomial' },
+        { kind: 'example', title: 'Settle x + y = 8, xy = 15 — both roads, one theorem', steps: [
+          'The Viète road: the numbers are the roots of $t^2 - 8t + 15 = 0$, which factors as $(t - 3)(t - 5) = 0$ — the numbers are 3 and 5, and the pairs read $(3, 5)$ and $(5, 3)$.',
+          'The substitution road: $y = 8 - x$ into $xy = 15$ gives $x(8 - x) = 15$, that is $x^2 - 8x + 15 = 0$ — the SAME reduced equation, dressed in $x$ instead of $t$.',
+          'The two methods are one theorem: the pipeline’s reduced equation IS the Viète polynomial of the symmetric system.',
+          'Check both pairs: $3 + 5 = 8$ with $3 \\cdot 5 = 15$; and with the coordinates swapped, the same sentences — hence the pairs $(3, 5)$ and $(5, 3)$, both orders genuine.',
+        ], },
+        { kind: 'example', title: 'The rectangle of the second Illustration, at symmetric speed', steps: [
+          'The system was $x + y = 7$ with $x^2 + y^2 = 25$, after halving the perimeter.',
+          'The recovery row: $xy = \\tfrac{7^2 - 25}{2} = \\tfrac{49 - 25}{2} = 12$ — the identity hands the product over.',
+          'The Viète landing: $t^2 - 7t + 12 = 0$ factors as $(t - 3)(t - 4) = 0$ — the sides are 3 and 4.',
+          'Check: $3 + 4 = 7$ and $9 + 16 = 25$ — perimeter 14, diagonal 5, exactly as promised. Two lines of work where the pipeline took five.',
+        ], },
+        { kind: 'para', text: 'When NEITHER member is linear, the identity bank manufactures one. Take $x^2 + y^2 = 58$ with $xy = 21$: $(x + y)^2 = 58 + 2 \\cdot 21 = 100$, so $x + y = 10$ or $x + y = -10$ — two linear roads now, each Viète-priced. The $+10$ road: $t^2 - 10t + 21 = (t - 3)(t - 7)$, the pairs $(3, 7)$ and $(7, 3)$. The $-10$ road: $t^2 + 10t + 21 = (t + 3)(t + 7)$, the pairs $(-3, -7)$ and $(-7, -3)$. All four check in both originals — $9 + 49 = 58$ with product 21, in either order and either sign. The ± census is honest work, not double-counting: the squaring genuinely lost the sign, and both recoveries are real.' },
+        { kind: 'callout', tone: 'warn', title: 'Caution — squaring manufactures the mirror branch', text: 'The power that pays in the ± road is the power that betrays in this one. The system GIVES $x + y = 7$ together with $x^2 + y^2 = 25$. A student squares the given linear (to reach the identity), obtains $(x + y)^2 = 49$, and proceeds with BOTH branches. The $-7$ branch’s pairs, $(-3, -4)$ and $(-4, -3)$, pass the circle beautifully — $9 + 16 = 25$ — and even carry $xy = 12$. But they fail the ORIGINAL: their sum is $-7$, not $7$. They are **extraneous pairs**: manufactured by the squaring step, killed by the check. When a step is not reversible — squaring, clearing a denominator — every branch it spawns must be re-admitted through the original’s door. The court of originals, 6.2’s law, now guards systems.' },
+        { kind: 'heading', text: 'The Discipline: The Court of Originals and the Examinations' },
+        { kind: 'example', title: 'Grade the claimed answer: four pairs for x + y = 7, x² + y² = 25', steps: [
+          'The claim cites the ± census: $(3, 4)$, $(4, 3)$, $(-3, -4)$, $(-4, -3)$ — "because $(x + y)^2 = 49$ gives $x + y = \\pm 7$."',
+          'The flaw is upstream: the linear $x + y = 7$ was GIVEN. Squaring it manufactured a mirror branch the original never licensed.',
+          'Grade the first two candidates: $3 + 4 = 7$ with $9 + 16 = 25$, and the same swapped — genuine.',
+          'Grade the mirrors: $(-3) + (-4) = -7 \\neq 7$ — they fail the given linear outright; whatever else they pass, they are extraneous.',
+          'The honest census: exactly two pairs — and the verifier’s windowed census over $[-12, 12]^2$ confirms that no fifth candidate hides anywhere.',
+        ], },
+        { kind: 'para', text: 'The word problems of this lesson wear two dresses. The garden: perimeter 34 metres, diagonal 13 metres — $x + y = 17$ with $x^2 + y^2 = 169$, so $xy = \\tfrac{289 - 169}{2} = 60$ and $t^2 - 17t + 60 = 0$ prices the sides at 5 and 12 metres. Khattar’s examination word problems lean on the same conversion — two numbers with a fixed sum and a fixed product, ages whose sum and product are both narrated, costs that multiply into a bill. The translation layer is 11.1’s five-station pipeline; the settlement layer is this lesson.' },
+        { kind: 'para', text: 'One boundary, stated honestly. General PAIRS of quadratics — the homogeneous art (put $y = mx$ and solve for the ratio first), the artifices (spotting $(x + 2y)^2 + 3(x + 2y) - 40 = 0$ hiding inside a member) — belong to the harder classical theory that Hall and Knight’s chapter continues into, and to later books of this shelf. This lesson owns the mixed systems and the symmetric conversions — which is where the examinations live, and where every harder art returns for its final answers. When the two-quadratic world opens, it will re-use every instrument banked here: the identity bank, the Viète landing, the court of originals.' },
+        { kind: 'callout', tone: 'historical', title: 'Historical note — the chapter that taught the art', text: 'Hall and Knight teach exactly this material as Chapter XXVI of Elementary Algebra for Schools (1885), under the heading Simultaneous Quadratic Equations: the substitution pipeline for one linear with one quadratic, and then the symmetric art — "our object is to solve the proposed equations symmetrically, by finding the values of x + y and xy," in their own words. The tangent art is far older: Apollonius of Perga (c. 200 BCE) devoted his Tangencies to lines just touching circles — the condition $k^2 = (1 + m^2) r^2$ is his theme in algebraic dress, two millennia before Descartes (1637 — 6.3’s wedding of algebra and geometry) made such translations routine.' },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner — the four shapes that recur', text: 'One: straight settlement — a mixed system by the pipeline or the symmetric road (Khattar QA; SSC and bank mains staples). Two: the find-c tangency — "for which c does $3x + 4y = c$ touch $x^2 + y^2 = 25$?" — answered by the condition alone, $c = \\pm 25$, no solving, seconds of work; the same shape against a parabola reads $\\Delta = 0$ instead. Three: the sum-and-product word problem — the rectangle from perimeter and diagonal, numbers from sum and product, the garden of this lesson at L5. Four: the verdict count — "how many times does the line meet the parabola?" — one discriminant, one answer, and the options price the classic misreads (the tangent claimed for a near-miss, the double root counted twice). In every shape the marks live in the discipline: substitute in the right direction, convert before you compute, and check every pair in the originals.' },
+        { kind: 'terms', items: [
+          { term: 'mixed system', def: 'a system of two equations in which one member is linear and the other is of higher degree' },
+          { term: 'reduced equation', def: 'the single quadratic in one unknown produced by substituting the linear member into the quadratic; its roots are the first coordinates of the pairs' },
+          { term: 'discriminant verdict', def: 'the pair-count of a mixed system read off the reduced equation discriminant: two, one, or none' },
+          { term: 'secant', def: 'a line meeting a curve in two points — the positive-discriminant verdict' },
+          { term: 'tangent line', def: 'a line meeting a curve in exactly one point — the zero-discriminant verdict, a double root' },
+          { term: 'outsider', def: 'a line that never meets the curve — the negative-discriminant verdict' },
+          { term: 'symmetric system', def: 'a system unchanged by swapping x and y; it converts into the sum and product of the unknowns' },
+          { term: 'sum-and-product method', def: 'solving a symmetric system through the Viète landing t² − (x+y)t + xy = 0' },
+          { term: 'extraneous pair', def: 'a candidate pair produced by a non-reversible step, such as squaring, that fails the original system when checked' },
+        ] },
+        { kind: 'formula', name: 'The substitution pipeline', latex: 'y = \\tfrac{c - a x}{b} \\;\\longrightarrow\\; q\\!\\left(x, \\tfrac{c - a x}{b}\\right) = 0', note: 'solve the LINEAR member, substitute INTO the quadratic — the reduced equation prices the whole system, root for pair' },
+        { kind: 'formula', name: 'The product recovery', latex: 'xy = \\tfrac{(x + y)^2 - (x^2 + y^2)}{2}', note: 'the identity-bank row that turns a sum and a squares-sum into the product' },
+        { kind: 'formula', name: 'The Viète landing', latex: 't^2 - (x + y)\\, t + xy = 0', note: 'the two numbers are the roots — the 9.4 machine transferred to systems' },
+        { kind: 'formula', name: 'The parabola verdict', latex: '\\Delta = m^2 + 4 c', note: 'line y = mx + c against y = x² — the reduced equation x² − mx − c = 0 decides two, one, or none' },
+        { kind: 'formula', name: 'The tangent condition', latex: 'k^2 = (1 + m^2)\\, r^2', note: 'line y = mx + k against circle x² + y² = r² — equality is tangency, and the contact is the perpendicular foot' },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          { q: 'The system $x + y = 5$, $xy = 6$ has how many solution pairs?', options: ['one: $(2, 3)$ only', 'two: $(2, 3)$ and $(3, 2)$', 'four: $(\\pm 2, \\pm 3)$ in all sign combinations', 'none — a sum and a product cannot both be fixed'], answer: 1, explain: 'Viète prices it: $t^2 - 5t + 6 = (t - 2)(t - 3)$, so the numbers are 2 and 3 — and BOTH orders solve, since the equations only see the sum and the product. Option 0 forgets the mirror pair; option 2 over-generates sign branches (the pair $(-2, -3)$ has sum $-5$, not 5 — the extraneous trap of Section 4); option 3 denies a theorem that just ran.' },
+          { q: 'How many times does the line $y = 2x - 2$ meet the parabola $y = x^2$?', options: ['two times', 'one time — it is tangent', 'never', 'infinitely many times'], answer: 2, explain: 'The reduced equation is $x^2 - 2x + 2 = 0$ with $\\Delta = 4 - 8 = -4 < 0$: no real root, no meeting — the outsider verdict. Option 1 is the classic near-miss read: the tangent post of this slider is $c = -1$ ($\\Delta = 0$ at $y = 2x - 1$), one unit above; option 0 counts roots that do not exist; a line and a parabola can never share more than two points, so option 3 is impossible by the bijection.' },
+          { q: 'For which $c$ does the line $3x + 4y = c$ touch the circle $x^2 + y^2 = 25$ exactly once?', options: ['20', '25', '30', '15'], answer: 1, explain: 'The dress is $y = -\\tfrac{3}{4}x + \\tfrac{c}{4}$, so the condition compares $\\tfrac{c^2}{16}$ with $\\tfrac{625}{16}$: tangency needs $c^2 = 625$, and $25^2 = 625$ exactly. Option 0 is the secant ($400 < 625$ — it cuts at $(0, 5)$ and $(24/5, 7/5)$); option 2 the outsider ($900 > 625$); option 4 another secant ($225 < 625$).' },
+          { q: 'Given $x + y = 7$ and $x^2 + y^2 = 25$, the product $xy$ is', options: ['12', '-12', '24', '49'], answer: 0, explain: 'The recovery row: $xy = \\tfrac{(x+y)^2 - (x^2 + y^2)}{2} = \\tfrac{49 - 25}{2} = 12$. Option 2 is the un-halved $2xy = 24$ — the most common slip on this row; option 1 is a sign error; option 4 quotes the sum’s square, not the product.' },
+          { q: 'Squaring the equation $x + y = 7$ during a solution produces the branch $x + y = -7$. What must happen to the pairs it produces?', options: ['keep them — squaring made them legitimate', 'discard them — they fail the original $x + y = 7$ when checked', 'keep only their first coordinates', 'average them with the $+7$ pairs'], answer: 1, explain: 'The mirror branch’s pairs (for instance $(-3, -4)$) can pass every OTHER sentence in sight — the circle, even the product — but their sum is $-7$, and the original linear says $7$. Squaring is not reversible: branches it spawns must re-enter through the original’s door or be discarded. Options 0, 2 and 3 all launder an extraneous pair into the answer, which is exactly how full-mark solutions lose half their marks.' },
+        ] },
+        { kind: 'exercises', title: 'Exercises 6.4', sets: [
+          { level: 'L1', questions: [
+            { q: 'Settle the system $y = x - 1$, $x^2 + y^2 = 25$ — every pair, checked.', solution: [
+              'The linear member is isolated already: substitute $y = x - 1$ into the circle.',
+              'So $x^2 + (x - 1)^2 = 25$, that is $2x^2 - 2x - 24 = 0$; halve to $x^2 - x - 12 = 0$.',
+              'Factor: $(x - 4)(x + 3) = 0$, so $x = 4$ or $x = -3$.',
+              'Back-substitute: $y = 3$ and $y = -4$ — the candidates $(4, 3)$ and $(-3, -4)$.',
+              'Check in the originals: $16 + 9 = 25$ with $4 - 3 = 1$; $9 + 16 = 25$ with $-3 - (-4) = 1$ — both pairs genuine.',
+            ], answer: '$(4, 3)$ and $(-3, -4)$' },
+            { q: 'Settle $x + y = 8$, $xy = 15$ by the Viète road, then by substitution — and say what you notice.', solution: [
+              'Viète: the numbers are the roots of $t^2 - 8t + 15 = 0 = (t - 3)(t - 5)$, so the pairs are $(3, 5)$ and $(5, 3)$.',
+              'Substitution: $y = 8 - x$ gives $x(8 - x) = 15$, that is $x^2 - 8x + 15 = 0$ — the same reduced equation, letter for letter.',
+              'What you notice: the two roads are one theorem — the pipeline’s reduced equation IS the Viète polynomial of the symmetric system.',
+              'Check: $3 + 5 = 8$ with $3 \\cdot 5 = 15$; the swapped pair passes the same sentences.',
+            ], answer: '$(3, 5)$ and $(5, 3)$ — the two methods share one reduced equation' },
+            { q: 'How many times does the line $y = 2x + 3$ meet the parabola $y = x^2$? Find every meeting.', solution: [
+              'Substitute: $x^2 = 2x + 3$, so $x^2 - 2x - 3 = 0$ with $\\Delta = 4 + 12 = 16 > 0$ — two meetings.',
+              'Factor: $(x - 3)(x + 1) = 0$, so $x = 3$ or $x = -1$; the parabola prices $y = 9$ and $y = 1$.',
+              'The meetings: $(3, 9)$ and $(-1, 1)$.',
+              'Check: $9 = 2(3) + 3$ and $1 = 2(-1) + 3$ — both on the line, both on the curve.',
+            ], answer: 'twice — at $(3, 9)$ and $(-1, 1)$' },
+          ] },
+          { level: 'L2', questions: [
+            { q: 'Settle $x - y = 2$, $xy = 15$.', solution: [
+              'Write $x = t$, so $y = t - 2$; the product reads $t(t - 2) = 15$.',
+              'So $t^2 - 2t - 15 = 0$, which factors as $(t - 5)(t + 3) = 0$ — the roots $5$ and $-3$.',
+              'The pairs: $(5, 3)$ and $(-3, -5)$.',
+              'Check: $5 - 3 = 2$ with $5 \\cdot 3 = 15$; $-3 - (-5) = 2$ with $(-3)(-5) = 15$ — both genuine.',
+            ], answer: '$(5, 3)$ and $(-3, -5)$' },
+            { q: 'Settle $x + y = 7$, $x^2 + y^2 = 25$ by the symmetric conversion.', solution: [
+              'The recovery row: $xy = \\tfrac{(x+y)^2 - (x^2 + y^2)}{2} = \\tfrac{49 - 25}{2} = 12$.',
+              'The Viète landing: $t^2 - 7t + 12 = 0 = (t - 3)(t - 4)$.',
+              'The pairs: $(3, 4)$ and $(4, 3)$.',
+              'Check: $9 + 16 = 25$ with sum $7$, in both orders — genuine.',
+            ], answer: '$(3, 4)$ and $(4, 3)$' },
+            { q: 'A rectangle is fenced with 14 metres of border and its diagonal measures 5 metres. Find its sides.', solution: [
+              'Name the sides $x, y$: the border gives $2(x + y) = 14$; the diagonal gives $x^2 + y^2 = 25$.',
+              'Halve the linear: $x + y = 7$; the recovery prices $xy = \\tfrac{49 - 25}{2} = 12$.',
+              'Viète: $t^2 - 7t + 12 = (t - 3)(t - 4)$ — the sides are 3 and 4.',
+              'Check: $2(3 + 4) = 14$ and $3^2 + 4^2 = 25 = 5^2$ — the fence and the diagonal both agree.',
+            ], answer: 'the sides are 3 m and 4 m' },
+          ] },
+          { level: 'L3', questions: [
+            { q: 'Settle $x^2 + y^2 = 58$, $xy = 21$ — the full ± census.', solution: [
+              'Neither member is linear, so manufacture one: $(x + y)^2 = 58 + 2 \\cdot 21 = 100$, so $x + y = 10$ or $x + y = -10$.',
+              'The $+10$ road: $t^2 - 10t + 21 = (t - 3)(t - 7)$ — the pairs $(3, 7)$ and $(7, 3)$.',
+              'The $-10$ road: $t^2 + 10t + 21 = (t + 3)(t + 7)$ — the pairs $(-3, -7)$ and $(-7, -3)$.',
+              'Check all four: $9 + 49 = 58$ with product 21, in either order and either sign — all genuine.',
+              'Hence four pairs — the sign of the sum was honestly lost by the squaring, and both recoveries are real.',
+            ], answer: '$(3, 7)$, $(7, 3)$, $(-3, -7)$, $(-7, -3)$ — four genuine pairs' },
+            { q: 'Settle $3x + 4y = 20$, $x^2 + y^2 = 25$ — every contact, in exact fractions.', solution: [
+              'The pipeline: $y = \\tfrac{20 - 3x}{4}$ into the circle, so $16x^2 + (20 - 3x)^2 = 400$.',
+              'Expand: $16x^2 + 400 - 120x + 9x^2 = 400$, so $25x^2 - 120x = 0$ — the constant cancels.',
+              'Factor: $5x(5x - 24) = 0$, so $x = 0$ or $x = \\tfrac{24}{5}$; back-substitute to $y = 5$ and $y = \\tfrac{7}{5}$.',
+              'Check: $3(0) + 4(5) = 20$ with $0 + 25 = 25$; $3 \\cdot \\tfrac{24}{5} + 4 \\cdot \\tfrac{7}{5} = \\tfrac{72 + 28}{5} = 20$ with $\\tfrac{576 + 49}{25} = 25$ — both contacts genuine.',
+            ], answer: '$(0, 5)$ and $\\left(\\tfrac{24}{5}, \\tfrac{7}{5}\\right)$' },
+            { q: 'For which values of $c$ does the line $3x + 4y = c$ touch the circle $x^2 + y^2 = 25$ exactly once? Where does each touch land?', solution: [
+              'Dress the family: $y = -\\tfrac{3}{4}x + \\tfrac{c}{4}$ — the condition compares $\\tfrac{c^2}{16}$ against $\\left(1 + \\tfrac{9}{16}\\right) \\cdot 25 = \\tfrac{625}{16}$.',
+              'Tangency needs equality: $c^2 = 625$, so $c = 25$ or $c = -25$ — the two tangent posts of the family.',
+              'At $c = 25$ the contact is $(3, 4)$: on the circle ($9 + 16 = 25$) and on the line ($3 \\cdot 3 + 4 \\cdot 4 = 25$).',
+              'At $c = -25$ the mirror contact is $(-3, -4)$: $(-3)^2 + (-4)^2 = 25$ and $3(-3) + 4(-4) = -25$ — both sentences true.',
+              'Every other $c$ is a secant ($c^2 < 625$) or an outsider ($c^2 > 625$) — the family is completely priced.',
+            ], answer: '$c = 25$ touching at $(3, 4)$, and $c = -25$ touching at $(-3, -4)$' },
+          ] },
+          { level: 'L4', questions: [
+            { q: 'A student reports four pairs for the system $x + y = 7$, $x^2 + y^2 = 25$: $(3, 4)$, $(4, 3)$, $(-3, -4)$, $(-4, -3)$, "because $(x + y)^2 = 49$ gives $x + y = \\pm 7$." Grade the answer.', solution: [
+              'The derivation flaw: the linear $x + y = 7$ was GIVEN — squaring it manufactured the mirror branch $x + y = -7$ that the original never licensed.',
+              'Grade the first two: $3 + 4 = 7$ and $9 + 16 = 25$ — genuine.',
+              'Grade the mirrors: $(-3) + (-4) = -7 \\neq 7$ — they fail the given linear outright; whatever else they pass, they are extraneous.',
+              'The honest census: exactly two pairs — the windowed census over $[-12, 12]^2$ confirms no fifth candidate exists.',
+              'Verdict: half right, and the wrong half is the half that costs marks — the check in the originals is the grading itself.',
+            ], answer: 'two genuine pairs; $(-3, -4)$ and $(-4, -3)$ are extraneous — the squared branch contradicts the given linear' },
+            { q: 'The line $y = 2x + c$ is to touch the parabola $y = x^2$ exactly once. Find $c$ and the contact point.', solution: [
+              'Substitute: $x^2 - 2x - c = 0$ with $\\Delta = 4 + 4c$; tangency needs $\\Delta = 0$, so $c = -1$.',
+              'The double root: $x^2 - 2x + 1 = (x - 1)^2$, so $x = 1$ — one root, one meeting.',
+              'The contact: $y = 1^2 = 1$ (or $y = 2(1) - 1$ — both dresses agree).',
+              'Check: $1 = 2(1) - 1$ and $1 = 1^2$ — the tangent post of the slider is the point $(1, 1)$; slide $c$ above $-1$ and the line cuts twice, below and it never returns.',
+            ], answer: '$c = -1$, touching at $(1, 1)$' },
+          ] },
+          { level: 'L5', questions: [
+            { q: 'A rectangular garden is fenced with 34 metres of border; its diagonal path measures 13 metres. Find the side lengths.', solution: [
+              'Name the sides $x, y$: $2(x + y) = 34$ and $x^2 + y^2 = 169$ — halve the linear to $x + y = 17$.',
+              'The recovery: $xy = \\tfrac{17^2 - 169}{2} = \\tfrac{289 - 169}{2} = 60$.',
+              'Viète: $t^2 - 17t + 60 = (t - 5)(t - 12)$ — the sides are 5 and 12 metres.',
+              'Check: $2(5 + 12) = 34$ and $25 + 144 = 169 = 13^2$ — border and diagonal both agree.',
+            ], answer: 'the sides are 5 m and 12 m' },
+            { q: 'Two numbers have squares-sum 50 and product 7. Find every such pair.', solution: [
+              'Manufacture the linear: $(x + y)^2 = 50 + 14 = 64$, so $x + y = 8$ or $x + y = -8$.',
+              'The $+8$ road: $t^2 - 8t + 7 = (t - 1)(t - 7)$ — the pairs $(1, 7)$ and $(7, 1)$.',
+              'The $-8$ road: $t^2 + 8t + 7 = (t + 1)(t + 7)$ — the pairs $(-1, -7)$ and $(-7, -1)$.',
+              'Check all four: $1 + 49 = 50$ with product 7; and the negatives carry the same squares and the same product — all four genuine.',
+              'Hence four pairs — both signs of the sum are real, exactly as the ± census promises.',
+            ], answer: '$(1, 7)$, $(7, 1)$, $(-1, -7)$, $(-7, -1)$' },
+          ] },
+          { level: 'L6', questions: [
+            { q: 'Prove the tangent condition: the line $y = mx + k$ meets the circle $x^2 + y^2 = r^2$ exactly once if and only if $k^2 = (1 + m^2) r^2$; and show that the contact is the foot of the perpendicular from the centre.', solution: [
+              'Substitute the line into the circle: $x^2 + (mx + k)^2 = r^2$ gathers to $(1 + m^2) x^2 + 2mkx + (k^2 - r^2) = 0$ — genuinely quadratic, since $1 + m^2 \\geq 1 > 0$.',
+              'The discriminant: $(2mk)^2 - 4(1 + m^2)(k^2 - r^2) = 4\\left[(1 + m^2) r^2 - k^2\\right]$ — the $m^2 k^2$ and $k^2$ terms cancel exactly, leaving a difference of two squares.',
+              'Exactly one meeting means exactly one root: the discriminant vanishes, which is $k^2 = (1 + m^2) r^2$. Conversely, that equality forces the double root — the two directions of the iff are the two signs of one number.',
+              'The double root is $x = \\tfrac{-mk}{1 + m^2}$, and back-substitution gives $y = \\tfrac{k}{1 + m^2}$ — a pair that lies on the line memberwise.',
+              'That pair is the foot of the perpendicular from the centre: every other point of the line completes a right triangle with the foot, hence lies strictly farther from the centre.',
+              'Pythagoras prices the foot-distance at $\\tfrac{|k|}{\\sqrt{1 + m^2}}$; in the tangent case it equals $r$ — the nearest distance is exactly the radius, the borderline where meeting turns to touching.',
+            ], answer: 'tangency $\\iff k^2 = (1 + m^2) r^2$, the contact $\\left(\\tfrac{-mk}{1 + m^2}, \\tfrac{k}{1 + m^2}\\right)$ being the perpendicular foot' },
+          ] },
+        ] },
+      ],
+    },
   ],
-  // the queued gap lesson (run 95 authors it and empties this list)
-  plannedLessons: [
-    '6.4 One Linear, One Quadratic',
-  ],
+  // 6.4 shipped at run 96 — the 2026-11-11 audit gap is closed, the
+  // chapter re-completes at 4 lessons; ch. 12 (ratio-proportion-variation)
+  // is the next AL unit per the audit's queue.
+  plannedLessons: [],
 }

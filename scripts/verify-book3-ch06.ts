@@ -933,12 +933,12 @@ const plan62Fig2 = {
 
 {
   const ch06Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-06.ts').text()
-  ok(chapter06.lessons.length === 3, 'F: chapter 6 carries three authored lessons (6.1 + 6.2 + 6.3, closed at run 78)')
+  ok(chapter06.lessons.length === 4, 'F: chapter 6 carries four authored lessons (count-aware re-pin run 96: 6.4 added — 6.1 + 6.2 + 6.3 + 6.4)')
   const lesson = chapter06.lessons[0]
   ok(lesson.id === 'al-equations-in-two-variables', 'F: lesson id al-equations-in-two-variables')
   ok(lesson.number === '6.1', 'F: lesson number 6.1')
   ok(lesson.title === 'Equations in Two Variables', 'F: lesson title matches the planned title')
-  ok(chapter06.status === 'in-progress', 'F: chapter 6 honestly IN-PROGRESS (6.4 "One Linear, One Quadratic" queued by the prewritten-books audit; 6.2 landed at run 77 and the run-78 review closed the 6.1–6.3 arc until the gap was found — 2026-11-13 audit fix)')
+  ok(chapter06.status === 'complete', 'F: chapter 6 COMPLETE again (count-aware re-pin run 96: 6.4 shipped — the 2026-11-11 audit gap B paid; the run-78 closure had been retired in favor of the queued gap, which this run emptied)')
   ok(
     JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-the-three-verdicts-one-none-infinitely-many', 'al-solving-linear-equations']),
     'F: prerequisites are 5.3 + 5.2'
@@ -947,7 +947,7 @@ const plan62Fig2 = {
     JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style']),
     'F: the four citation keys ride the lesson'
   )
-  ok(Array.isArray(chapter06.plannedLessons) && chapter06.plannedLessons!.length === 1 && chapter06.plannedLessons![0] === '6.4 One Linear, One Quadratic', 'F: plannedLessons carries exactly the queued gap 6.4 (run 95 authors it and empties this list)')
+  ok(Array.isArray(chapter06.plannedLessons) && chapter06.plannedLessons!.length === 0, 'F: plannedLessons emptied (count-aware re-pin run 96: 6.4 shipped, the queue the audit built is spent)')
   // block census
   const kinds = lesson.blocks.map((b) => b.kind)
   const countKind = (k: string) => kinds.filter((x) => x === k).length
@@ -1832,7 +1832,7 @@ const plan63Fig2 = {
         return t
       })
       .join(' ')
-    for (const need of ['slope machine', 'line dress', 'meeting point', 'three meetings']) {
+    for (const need of ['slope machine', 'line dress', 'meeting point', 'three meetings', 'reduced equation', 'tangent condition', 'identity bank', 'extraneous pair']) {
       ok(allProse.includes(need), 'K checklist 2: the phrase "' + need + '" lives in the prose, not only in a figure')
     }
   }
@@ -1853,6 +1853,7 @@ const plan63Fig2 = {
       'al-equations-in-two-variables': [0, 2, 1, 2, 1],
       'al-substitution-and-elimination': [0, 0, 2, 1, 2],
       'al-consistency-the-geometry-of-two-lines': [0, 1, 2, 1, 3],
+      'al-one-linear-one-quadratic': [1, 2, 1, 0, 1],
     }
     for (const l of lessons) {
       const q = l.blocks.find((b) => b.kind === 'quiz')
@@ -1885,7 +1886,7 @@ const plan63Fig2 = {
 
   // checklist 7 — lint + render: asserted here as structure; the render
   // gates run as the dev-server + browser E2E battery after this script.
-  ok(chapter06.status === 'in-progress' && chapter06.lessons.length === 3, 'K checklist 7: the chapter is structurally complete for its written 6.1–6.3 arc, with 6.4 honestly queued — status IN-PROGRESS (render gates follow as E2E)')
+  ok(chapter06.status === 'complete' && chapter06.lessons.length === 4 && (chapter06.plannedLessons?.length ?? 1) === 0, 'K checklist 7: the chapter re-closes at run 96 — 6.4 shipped, the 2026-11-11 audit gap B paid, the queue emptied (render gates follow as E2E)')
 
   // the exam-coverage audit — every lesson carries an exam corner
   {
@@ -1897,28 +1898,645 @@ const plan63Fig2 = {
   // the chapter snapshot — honest totals, recomputed live
   {
     const words = lessons.map((l) => countLessonWords(l))
-    ok(words[0] >= 4000 && words[1] >= 4000 && words[2] >= 4000, 'K snapshot: every lesson holds the 4,000-word depth bar (' + words.join(' / ') + ')')
+    ok(words[0] >= 4000 && words[1] >= 4000 && words[2] >= 4000 && words[3] >= 4000, 'K snapshot: every lesson holds the 4,000-word depth bar (' + words.join(' / ') + ')')
     const chapterWords = words.reduce((a, b) => a + b, 0)
-    ok(chapterWords >= 13500, 'K snapshot: chapter 6 totals ' + chapterWords + ' words across 3 lessons (>= 13,500)')
+    ok(chapterWords >= 17900, 'K snapshot: chapter 6 totals ' + chapterWords + ' words across 4 lessons (floor re-pinned 13,500→17,900 at run 96 — 6.4 added)')
     const alBook = allBooks.find((b) => b.id === 'elementary-algebra')
     ok(!!alBook, 'K snapshot: the elementary-algebra book is registered')
     if (alBook) {
       const bookLessons = alBook.chapters.flatMap((c) => c.lessons)
-      ok(bookLessons.length === 37, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3 + ch6 3 + ch7 3 + ch8 3 + ch9 4 + ch10 3 + ch11 3; 4.5 + 6.4 + ch12\'s three are the queued gap queue)')
+      ok(bookLessons.length === 39, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 5 + ch5 3 + ch6 4 + ch7 3 + ch8 3 + ch9 4 + ch10 3 + ch11 3 — count-aware re-pin run 96: 6.4 shipped, so 38→39; ch12\'s three stay queued)')
       const bookWords = bookLessons.reduce((a, l) => a + countLessonWords(l), 0)
-      ok(bookWords >= 92000, 'K snapshot: the book totals ' + bookWords + ' words across 37 lessons (floor 92,000 — recomputed live)')
+      ok(bookWords >= 181000, 'K snapshot: the book totals ' + bookWords + ' words across 39 lessons (floor re-pinned 176,000→181,000 run 96 after 6.4 — recomputed live)')
       const alIds = bookLessons.map((l) => l.id)
       ok(alIds.every((i) => i.startsWith('al-')), 'K snapshot: every book-3 lesson id carries the al- prefix')
     }
   }
-  console.log('[K] the unit-6 completion review: BOOK_FORMAT checklist 7/7, exam corners 3/3, snapshot recomputed')
+  console.log('[K] the unit-6 completion review: BOOK_FORMAT checklist 7/7, exam corners 4/4 (6.4 added at run 96), snapshot recomputed')
+}
+
+/* ------------------------------------------------------------------ */
+/* (L) the 6.4 pre-writing engines — lesson 'One Linear, One           */
+/*     Quadratic' (run 96). The gap the 2026-11-11 prewritten-books    */
+/*     audit queued from H&K ch. XXVI 'Simultaneous Quadratic          */
+/*     Equations' — the substitution pipeline (Art. 207), the          */
+/*     symmetric sum/product art (Art. 204–205), the line-vs-parabola  */
+/*     verdicts and the circle tangent condition. Every number the    */
+/*     lesson will carry is pinned here BEFORE any prose exists.      */
+/* ------------------------------------------------------------------ */
+
+// L-i — the substitution engine for mixed systems (exact; the bijection)
+{
+  const isqrt = (n: bigint): bigint => {
+    if (n < 2n) return n
+    let x = n
+    let y = (x + 1n) / 2n
+    while (y < x) {
+      x = y
+      y = (x + n / x) / 2n
+    }
+    return x
+  }
+  const isSquare = (n: bigint): boolean => {
+    if (n < 0n) return false
+    const r = isqrt(n)
+    return r * r === n
+  }
+  type Red = { a: bigint; b: bigint; c: bigint }
+  const verdictOf = (q: Red): 'two' | 'double' | 'none-real' | 'one-linear' | 'none-constant' | 'all-constant' => {
+    if (q.a !== 0n) {
+      const disc = q.b * q.b - 4n * q.a * q.c
+      if (disc > 0n) return 'two'
+      if (disc === 0n) return 'double'
+      return 'none-real'
+    }
+    if (q.b !== 0n) return 'one-linear'
+    return q.c === 0n ? 'all-constant' : 'none-constant'
+  }
+  const ratRoots = (q: Red): Frac[] | null => {
+    if (q.a === 0n) return q.b === 0n ? [] : [new Frac(-q.c, q.b)]
+    const disc = q.b * q.b - 4n * q.a * q.c
+    if (!isSquare(disc)) return null
+    const rt = isqrt(disc)
+    return [new Frac(-q.b + rt, 2n * q.a), new Frac(-q.b - rt, 2n * q.a)]
+  }
+  // the three quadratic families under a linear a·x + b·y = c (b ≠ 0), substituted exactly:
+  const circleRed = (a: number, b: number, c: number, R: number): Red => ({ a: BigInt(b * b + a * a), b: BigInt(-2 * a * c), c: BigInt(c * c - R * b * b) })
+  const parabRed = (a: number, b: number, c: number, e: number): Red => ({ a: BigInt(b), b: BigInt(a), c: BigInt(b * e - c) })
+  const prodRed = (a: number, b: number, c: number, P: number): Red => ({ a: BigInt(-a), b: BigInt(c), c: BigInt(-b * P) })
+  const yOf = (a: number, b: number, c: number, x: Frac): Frac => Frac.of(c).sub(Frac.of(a).mul(x)).div(Frac.of(b))
+  const census: Record<string, number> = { circle: 0, parabola: 0, product: 0 }
+  const verdicts: Record<string, number> = {}
+  const run = (fam: 'circle' | 'parabola' | 'product', a: number, b: number, c: number, p: number): void => {
+    const q = fam === 'circle' ? circleRed(a, b, c, p) : fam === 'parabola' ? parabRed(a, b, c, p) : prodRed(a, b, c, p)
+    const v = verdictOf(q)
+    verdicts[fam + ':' + v] = (verdicts[fam + ':' + v] || 0) + 1
+    census[fam]++
+    const roots = ratRoots(q)
+    if (roots === null) return
+    const distinct = roots.length === 2 && roots[0].eq(roots[1]) ? [roots[0]] : roots
+    for (const r of distinct) {
+      const y = yOf(a, b, c, r)
+      ok(Frac.of(a).mul(r).add(Frac.of(b).mul(y)).eq(Frac.of(c)), `L-i: pair (${r}, ${y}) satisfies the LINEAR exactly (${fam} family)`)
+      if (fam === 'circle') ok(r.mul(r).add(y.mul(y)).eq(Frac.of(p)), `L-i: pair (${r}, ${y}) satisfies x²+y²=${p} exactly`)
+      else if (fam === 'parabola') ok(y.eq(r.mul(r).add(Frac.of(p))), `L-i: pair (${r}, ${y}) satisfies y=x²+${p} exactly`)
+      else ok(r.mul(y).eq(Frac.of(p)), `L-i: pair (${r}, ${y}) satisfies xy=${p} exactly`)
+    }
+    // the window bijection: every integer solution in [-12..12]² IS one of the produced pairs
+    const window: [number, number][] = []
+    for (const s of rng(-12, 12)) {
+      for (const t of rng(-12, 12)) {
+        const onLine = a * s + b * t === c
+        const onQuad = fam === 'circle' ? s * s + t * t === p : fam === 'parabola' ? t === s * s + p : s * t === p
+        if (onLine && onQuad) window.push([s, t])
+      }
+    }
+    for (const [s, t] of window) {
+      ok(distinct.some((r) => r.eq(Frac.of(s)) && yOf(a, b, c, r).eq(Frac.of(t))), `L-i: window solution (${s}, ${t}) is a reduced-equation root's pair — none invented (${fam})`)
+    }
+    if (v === 'none-real' || v === 'none-constant') ok(window.length === 0, `L-i: verdict ${v} admits no integer pair (${fam})`)
+    if (v === 'two') ok(window.length <= 2 && distinct.length === 2, `L-i: verdict two carries exactly 2 pairs (${fam})`)
+    if (v === 'double' || v === 'one-linear') ok(window.length <= 1 && distinct.length === 1, `L-i: verdict ${v} carries exactly 1 pair (${fam})`)
+  }
+  for (const a of rng(-4, 4)) {
+    for (const b of [-2, -1, 1, 2]) {
+      for (const c of rng(-6, 6)) {
+        for (const R of [10, 13, 16, 25, 29, 34, 41, 50, 58]) run('circle', a, b, c, R)
+        for (const e of [-2, 0, 2]) run('parabola', a, b, c, e)
+        for (const P of rng(-15, 15)) if (P !== 0) run('product', a, b, c, P)
+      }
+    }
+  }
+  console.log(`[L-i] the substitution engine: ${census.circle + census.parabola + census.product} mixed systems swept (circle ${census.circle} / parabola ${census.parabola} / product ${census.product}) — verdicts ${JSON.stringify(verdicts)}; every rational-rooted pair verified in BOTH originals; the window bijection held everywhere`)
+  // the deliberate degenerate witness (the lesson's honesty note): xy = 0 with y = 0
+  {
+    const q = prodRed(0, 1, 0, 0) // y = 0 into xy = 0: 0·x = 0 — every x
+    ok(verdictOf(q) === 'all-constant', 'L-i: xy = 0 with the horizontal y = 0 collapses to 0 = 0 — infinitely many pairs, the degenerate road')
+    let seen = 0
+    for (const s of rng(-12, 12)) if (s * 0 === 0) seen++
+    ok(seen === 25, 'L-i: the degenerate road admits every window x — the at-most-two claim needs the reduced equation genuinely quadratic')
+  }
+}
+
+// L-ii — the three verdicts: y = x² against the c-slider y = mx + c
+{
+  let two = 0
+  let one = 0
+  let none = 0
+  for (const m of rng(-4, 4)) {
+    for (const c of rng(-6, 6)) {
+      const disc = m * m + 4 * c
+      if (disc > 0) two++
+      else if (disc === 0) one++
+      else none++
+    }
+  }
+  ok(two + one + none === 117, `L-ii: the 9×13 grid of (m, c) verdicts partitions 117 systems (two ${two} / tangent ${one} / none ${none})`)
+  // the tangent census: Δ = 0 ⟺ m² = −4c — the five tangent posts of the grid
+  ok(one === 5, `L-ii: exactly five tangent posts on the grid — (0,0), (±2,−1), (±4,−4) (got ${one})`)
+  // the three pinned witnesses of the panel figure
+  {
+    // secant y = 2x + 3: x² − 2x − 3 = 0 → x = 3, −1 → points (3, 9), (−1, 1)
+    const d1 = 2 * 2 + 4 * 3
+    ok(d1 === 16, `L-ii: the secant's Δ = 16 > 0 — two meetings (got ${d1})`)
+    ok(3 * 3 === 9 && 9 === 2 * 3 + 3, 'L-ii: (3, 9) sits on both y = x² and y = 2x + 3')
+    ok(-1 * -1 === 1 && 1 === 2 * -1 + 3, 'L-ii: (−1, 1) sits on both y = x² and y = 2x + 3')
+    let only = 0
+    for (const s of rng(-12, 12)) if (s * s === 2 * s + 3) only++
+    ok(only === 2, 'L-ii: the secant meets the parabola exactly twice over the wide window')
+    // tangent y = 2x − 1: x² − 2x + 1 = (x − 1)² → the single contact (1, 1)
+    const d2 = 2 * 2 - 4
+    ok(d2 === 0, `L-ii: the tangent's Δ = 0 — one meeting (got ${d2})`)
+    ok(1 === 1 * 1 && 1 === 2 * 1 - 1, 'L-ii: (1, 1) is the contact of y = x² and y = 2x − 1')
+    let only2 = 0
+    for (const s of rng(-12, 12)) if (s * s === 2 * s - 1) only2++
+    ok(only2 === 1, 'L-ii: the tangent touches the parabola exactly once over the wide window')
+    // outsider y = 2x − 2: x² − 2x + 2 = 0 → Δ = −4
+    const d3 = 2 * 2 - 8
+    ok(d3 === -4, `L-ii: the outsider's Δ = −4 < 0 — no meeting (got ${d3})`)
+    let only3 = 0
+    for (const s of rng(-12, 12)) if (s * s === 2 * s - 2) only3++
+    ok(only3 === 0, 'L-ii: the outsider never meets the parabola')
+  }
+  console.log(`[L-ii] the line-vs-parabola verdict engine: 117 (m, c) verdicts swept — two ${two} / tangent ${one} / none ${none}; the three panel witnesses (2x+3 / 2x−1 / 2x−2) pinned with window censuses`)
+}
+
+// L-iii — the tangent condition: y = mx + k against x² + y² = r²
+{
+  const onePlusM2 = (m: Frac): Frac => Frac.of(1).add(m.mul(m))
+  const mSet: Frac[] = [Frac.of(0)]
+  for (const den of [4, 2]) {
+    for (const num of [-3, -1, 1, 3]) mSet.push(new Frac(BigInt(num), BigInt(den)))
+  }
+  for (const num of [-3, -2, -1, 1, 2, 3]) mSet.push(Frac.of(num))
+  let combos = 0
+  let secants = 0
+  let tangents = 0
+  let outsiders = 0
+  let footChecks = 0
+  for (const m of mSet) {
+    for (const k of rng(-8, 8)) {
+      for (const r of [3, 4, 5, 6, 7, 8, 10]) {
+        const opm = onePlusM2(m)
+        // the reduced quadratic (1+m²)x² + 2mk·x + (k² − r²) = 0: Δ/4 = (1+m²)r² − k² — the identity, computed both ways
+        const dBy4 = m.mul(m).mul(Frac.of(k)).mul(Frac.of(k)).sub(opm.mul(Frac.of(k * k - r * r)))
+        const dBy4Alt = opm.mul(Frac.of(r * r)).sub(Frac.of(k).mul(Frac.of(k)))
+        ok(dBy4.eq(dBy4Alt), 'L-iii: Δ/4 = (1+m²)r² − k² as an exact algebraic identity')
+        combos++
+        const sign = dBy4Alt.n > 0n ? 1 : dBy4Alt.n === 0n ? 0 : -1
+        if (sign > 0) secants++
+        else if (sign === 0) tangents++
+        else outsiders++
+        if (sign === 0) {
+          // the contact is the foot of the perpendicular from the origin
+          const fx = m.mul(Frac.of(k)).neg().div(opm)
+          const fy = Frac.of(k).div(opm)
+          ok(fx.mul(fx).add(fy.mul(fy)).eq(Frac.of(r * r)), `L-iii: the foot (${fx}, ${fy}) lies ON the circle x²+y²=${r * r} exactly`)
+          ok(m.mul(fx).add(Frac.of(k)).eq(fy), `L-iii: the foot (${fx}, ${fy}) lies ON the line y = ${m}x + ${k} exactly`)
+          footChecks++
+        }
+        // the distance reading: d² = k²/(1+m²); tangent ⟺ d² = r²
+        const d2 = Frac.of(k).mul(Frac.of(k)).div(opm)
+        ok(d2.eq(Frac.of(r * r)) === (sign === 0), 'L-iii: the perpendicular distance test and the Δ test agree exactly')
+      }
+    }
+  }
+  ok(combos === mSet.length * 17 * 7, `L-iii: the (m, k, r) grid swept ${combos} combos (secants ${secants} / tangents ${tangents} / outsiders ${outsiders})`)
+  console.log(`[L-iii] the circle tangent-condition engine: ${combos} combos — ${footChecks} tangent feet verified ON the circle and ON the line exactly; the distance reading agrees everywhere`)
+  // the pinned witnesses: the parallel family 3x + 4y = c against x² + y² = 25
+  {
+    // dress: y = −(3/4)x + c/4 — m = −3/4, k = c/4; the condition becomes c² vs 625
+    const m = new Frac(-3n, 4n)
+    for (const c of rng(-40, 40)) {
+      const k = new Frac(BigInt(c), 4n)
+      const opm = onePlusM2(m) // 25/16
+      const lhs = opm.mul(Frac.of(25)) // 625/16
+      const kc = k.mul(k)
+      const diff = kc.sub(lhs) // exact sign: kc − (1+m²)r², denominators normalised positive
+      const want = diff.n === 0n ? 0 : diff.n < 0n ? 1 : -1
+      const c2 = c * c
+      ok(want === (c2 === 625 ? 0 : c2 < 625 ? 1 : -1), `L-iii: the dress condition c² vs 625 reads the same verdict as k² vs (1+m²)r² for c = ${c}`)
+    }
+    // c = 20: the secant with contacts (0, 5) and (24/5, 7/5)
+    {
+      const y20 = Frac.of(20).sub(Frac.of(3).mul(Frac.of(0))).div(Frac.of(4))
+      ok(y20.eq(Frac.of(5)), 'L-iii: (0, 5) rides 3x + 4y = 20')
+      ok(Frac.of(0).mul(Frac.of(0)).add(Frac.of(5).mul(Frac.of(5))).eq(Frac.of(25)), 'L-iii: (0, 5) rides the circle')
+      const x2 = new Frac(24n, 5n)
+      const y2 = Frac.of(20).sub(Frac.of(3).mul(x2)).div(Frac.of(4))
+      ok(y2.eq(new Frac(7n, 5n)), 'L-iii: (24/5, 7/5) rides 3x + 4y = 20 (y = (20 − 72/5)/4 = 7/5)')
+      ok(x2.mul(x2).add(y2.mul(y2)).eq(Frac.of(25)), 'L-iii: (24/5, 7/5) rides the circle exactly (576/25 + 49/25 = 625/25)')
+    }
+    // c = 25: the tangent at (3, 4)
+    ok(3 * 3 + 4 * 4 === 25, 'L-iii: (3, 4) rides the circle x²+y²=25 (9 + 16 = 25)')
+    ok(3 * 3 + 4 * 4 === 25, 'L-iii: (3, 4) rides the line 3x+4y=25 (9 + 16 = 25) — the 3-4-5 witness serves both')
+    // c = 30: the outsider
+    {
+      let hits = 0
+      for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (3 * s + 4 * t === 30 && s * s + t * t === 25) hits++
+      ok(hits === 0, 'L-iii: 3x + 4y = 30 never meets x² + y² = 25 over the window')
+    }
+    // c = −25: the mirror tangent at (−3, −4)
+    ok(-3 * -3 + -4 * -4 === 25 && 3 * -3 + 4 * -4 === -25, 'L-iii: (−3, −4) is the mirror contact of 3x + 4y = −25')
+  }
+  // cross-check with the L-i circle engine: 3x + 4y = 20 vs x² + y² = 25 solved generically
+  {
+    const q: { a: bigint; b: bigint; c: bigint } = { a: BigInt(4 * 4 + 3 * 3), b: BigInt(-2 * 3 * 20), c: BigInt(20 * 20 - 25 * 16) }
+    ok(q.a === 25n && q.b === -120n && q.c === 0n, 'L-iii: the generic-engine reduced 25x² − 120x = 0 for 3x+4y=20 vs the circle (16x² + (20−3x)² = 400 collapses the constant)')
+    const disc = q.b * q.b - 4n * q.a * q.c
+    ok(disc === 14400n, `L-iii: Δ = 14400 = 120² — two rational contacts x = 0 and x = 24/5 (got ${disc})`)
+  }
+}
+
+
+// L-iv — the symmetric sum/product engine
+{
+  // the identity bank, swept exactly over s, t ∈ [-9..9]
+  let idChecks = 0
+  for (const s of rng(-9, 9)) {
+    for (const t of rng(-9, 9)) {
+      ok((s + t) * (s + t) === s * s + 2 * s * t + t * t, 'L-iv identity: (x+y)² = x² + 2xy + y²')
+      ok((s + t) * (s + t) - (s * s + t * t) === 2 * s * t, 'L-iv identity: (x+y)² − (x²+y²) = 2xy — the product recovery')
+      ok((s - t) * (s - t) === s * s - 2 * s * t + t * t, 'L-iv identity: (x−y)² = x² − 2xy + y²')
+      ok((s + t) * (s - t) === s * s - t * t, 'L-iv identity: (x+y)(x−y) = x² − y²')
+      idChecks++
+    }
+  }
+  ok(idChecks === 361, `L-iv: the identity bank swept ${idChecks} integer pairs × 4 identities`)
+  // the sum/product solver: x + y = S, xy = P → t² − St + P = 0; window bijection
+  const solveSP = (S: number, P: number): [number, number][] => {
+    const disc = S * S - 4 * P
+    if (disc < 0 || !Number.isInteger(Math.sqrt(disc))) return []
+    const r = Math.sqrt(disc)
+    if (!Number.isInteger((S + r) / 2) || !Number.isInteger((S - r) / 2)) return []
+    const t1 = (S + r) / 2
+    const t2 = (S - r) / 2
+    return t1 === t2 ? [[t1, t2]] : [
+      [t1, t2],
+      [t2, t1],
+    ]
+  }
+  let spCount = 0
+  let spSolved = 0
+  for (const S of rng(-12, 12)) {
+    for (const P of rng(-30, 30)) {
+      spCount++
+      const pairs = solveSP(S, P)
+      if (pairs.length > 0) spSolved += pairs.length
+      const window: [number, number][] = []
+      for (const s of rng(-20, 20)) for (const t of rng(-20, 20)) if (s + t === S && s * t === P) window.push([s, t])
+      ok(window.length === pairs.length && window.every(([s, t]) => pairs.some(([u, v]) => u === s && v === t)), `L-iv: x+y=${S}, xy=${P} — the Viète road finds every window pair exactly`)
+    }
+  }
+  ok(spCount === 25 * 61, `L-iv: the (S, P) grid swept ${spCount} systems (${spSolved} pairs produced)`)
+  // the pinned exhibits of the lesson's symmetric arc
+  {
+    // (S, P) = (8, 15): t² − 8t + 15 → t = 3, 5 → pairs (3,5), (5,3)
+    const p = solveSP(8, 15)
+    ok(JSON.stringify(p) === JSON.stringify([[5, 3], [3, 5]]), 'L-iv: x+y=8, xy=15 → (3,5) and (5,3)')
+    // (S, P) = (5, 6) — the quiz witness: t² − 5t + 6 → t = 2, 3
+    const q = solveSP(5, 6)
+    ok(JSON.stringify(q) === JSON.stringify([[3, 2], [2, 3]]), 'L-iv: x+y=5, xy=6 → (2,3) and (3,2)')
+    // (S, Q) = (7, 25): xy = (49 − 25)/2 = 12 → (3,4), (4,3)
+    ok(7 * 7 - 2 * 12 === 25, 'L-iv: the recovery xy = (S² − Q)/2 = 12 prices x²+y² = 49 − 24 = 25 for S = 7')
+    ok(JSON.stringify(solveSP(7, 12)) === JSON.stringify([[4, 3], [3, 4]]), 'L-iv: x+y=7, x²+y²=25 → (3,4) and (4,3)')
+    // (D, P) = (2, 15): x−y=2, xy=15 → t² − 2t − 15 → t = 5, −3 → (5,3), (−3,−5)
+    {
+      const pairs: [number, number][] = []
+      for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s - t === 2 && s * t === 15) pairs.push([s, t])
+      ok(JSON.stringify(pairs) === JSON.stringify([[-3, -5], [5, 3]]), 'L-iv: x−y=2, xy=15 → (5,3) and (−3,−5)')
+    }
+    // (Q, P) = (58, 21): (x+y)² = 100 → ±10 → four genuine pairs
+    {
+      const pairs: [number, number][] = []
+      for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s * s + t * t === 58 && s * t === 21) pairs.push([s, t])
+      ok(JSON.stringify(pairs) === JSON.stringify([[-7, -3], [-3, -7], [3, 7], [7, 3]]), 'L-iv: x²+y²=58, xy=21 → four genuine pairs (3,7)(7,3)(−3,−7)(−7,−3)')
+    }
+    // (Q, P) = (50, 7): (x+y)² = 64 → ±8 → four genuine pairs
+    {
+      const pairs: [number, number][] = []
+      for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s * s + t * t === 50 && s * t === 7) pairs.push([s, t])
+      ok(JSON.stringify(pairs) === JSON.stringify([[-7, -1], [-1, -7], [1, 7], [7, 1]]), 'L-iv: x²+y²=50, xy=7 → four genuine pairs (1,7)(7,1)(−1,−7)(−7,−1)')
+    }
+    // (S, x²−y²) = (12, 24): x−y = 2 → the linear landing (7, 5)
+    ok(12 * 2 === 24, 'L-iv: x+y=12, x²−y²=24 → (x+y)(x−y) = 24 hands x−y = 2')
+    ok(JSON.stringify(solveSP(12, 35)) === JSON.stringify([[7, 5], [5, 7]]), 'L-iv: the landing pair (7,5) prices xy = 35 (7·5), sum 12')
+    // the garden witness: perimeter 34 → S = 17, diagonal 13 → Q = 169 → xy = 60 → sides 5 and 12
+    ok(17 * 17 - 2 * 60 === 169, 'L-iv: the garden S=17, Q=169 recovery xy = (289−169)/2 = 60')
+    ok(JSON.stringify(solveSP(17, 60)) === JSON.stringify([[12, 5], [5, 12]]), 'L-iv: the garden sides are 5 and 12 (5² + 12² = 169 = 13²)')
+    // the extraneous witness: ORIGINAL x+y=7 & x²+y²=25; the −7 branch's pairs pass Q and P but FAIL the original line
+    {
+      const mirror: [number, number][] = [
+        [-3, -4],
+        [-4, -3],
+      ]
+      for (const [s, t] of mirror) {
+        ok(s * s + t * t === 25, `L-iv: the mirror pair (${s}, ${t}) DOES pass the circle x²+y²=25`)
+        ok(s * t === 12, `L-iv: the mirror pair (${s}, ${t}) DOES carry xy = 12`)
+        ok(s + t === -7 && s + t !== 7, `L-iv: the mirror pair (${s}, ${t}) FAILS the ORIGINAL x+y=7 — extraneous, killed by the check`)
+      }
+      const genuine: [number, number][] = []
+      for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s + t === 7 && s * s + t * t === 25) genuine.push([s, t])
+      ok(JSON.stringify(genuine) === JSON.stringify([[3, 4], [4, 3]]), 'L-iv: the honest census of the ORIGINAL system is exactly (3,4) and (4,3)')
+    }
+  }
+  console.log('[L-iv] the symmetric engine: identity bank 361×4 exact; (S,P) grid 1525 systems window-bijection-verified; all exhibits pinned (8,15) (5,6) (7,25) (2,15) (58,21) (50,7) (12,24) the garden (17,169) the extraneous mirror')
+}
+
+// L-v — the pinned exhibits of lesson 6.4: quiz keys + the 14 exercise keys
+{
+  // quiz keys [1, 2, 1, 0, 1] — every distractor priced
+  {
+    const pairs: [number, number][] = []
+    for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s + t === 5 && s * t === 6) pairs.push([s, t])
+    ok(JSON.stringify(pairs) === JSON.stringify([[2, 3], [3, 2]]), 'L-v Q1 key 1: x+y=5, xy=6 has exactly two pairs — the mirror (3,2) also solves')
+  }
+  {
+    const d = 2 * 2 + 4 * -2
+    ok(d === -4, 'L-v Q2 key 2: y=2x−2 vs y=x² carries Δ = −4 < 0 — no meeting')
+  }
+  {
+    const t = 25 * 25
+    ok(t === 625 && 20 * 20 < 625 && 30 * 30 > 625 && 15 * 15 < 625, 'L-v Q3 key 1: c=25 is the unique tangency (c²=625); 20 and 15 are secants, 30 the outsider')
+  }
+  ok(7 * 7 - 25 === 2 * 12, 'L-v Q4 key 0: xy = (49−25)/2 = 12 — the recovery pinned')
+  {
+    const mirror = -3 + -4
+    ok(mirror === -7, 'L-v Q5 key 1: the −7 branch pairs fail the original x+y=7 — discard, the originals are the court')
+  }
+  // the 14 exercise keys, each solved and both-sides-checked
+  // L1.1: y = x−1 with x²+y² = 25 → (4,3), (−3,−4)
+  ok(4 * 4 + 3 * 3 === 25 && 4 - 3 === 1, 'L-v L1.1: (4,3) solves y=x−1 and x²+y²=25')
+  ok(-3 * -3 + -4 * -4 === 25 && -3 - -4 === 1, 'L-v L1.1: (−3,−4) solves y=x−1 and x²+y²=25')
+  // L1.2: x+y=8, xy=15 → (3,5), (5,3) — pinned above in L-iv
+  // L1.3: the verdict count for y=2x+3 vs y=x²: two, at (−1,1) and (3,9)
+  ok(-1 * -1 === 1 && 3 * 3 === 9 && 1 === 2 * -1 + 3 && 9 === 2 * 3 + 3, 'L-v L1.3: the two meetings (−1,1) and (3,9) price the secant')
+  // L2.1: x−y=2, xy=15 → (5,3), (−3,−5) — pinned above
+  // L2.2: x+y=7, x²+y²=25 → (3,4), (4,3) — pinned above
+  // L2.3: the rectangle: 2(x+y)=14, x²+y²=25 → sides 3 and 4
+  ok(2 * (3 + 4) === 14 && 3 * 3 + 4 * 4 === 25, 'L-v L2.3: the rectangle 3×4 carries perimeter 14 and diagonal 5 (squared 25)')
+  // L3.1: x²+y²=58, xy=21 → four pairs — pinned above
+  // L3.2: 3x+4y=20 vs x²+y²=25 → (0,5), (24/5,7/5) — pinned above
+  // L3.3: the tangency c for 3x+4y=c against the circle: c = ±25
+  ok(25 * 25 === 625 && -25 * -25 === 625, 'L-v L3.3: BOTH c = 25 and c = −25 touch the circle — the two tangent posts of the family')
+  // L4.1: the graded four-pair claim — 2 genuine, the mirrors extraneous
+  {
+    let genuine = 0
+    for (const s of rng(-12, 12)) for (const t of rng(-12, 12)) if (s + t === 7 && s * s + t * t === 25) genuine++
+    ok(genuine === 2, 'L-v L4.1: the honest count for x+y=7 & x²+y²=25 is TWO — the graded claim of four is wrong')
+  }
+  // L4.2: y = 2x + c meets y = x² exactly once ⟺ c = −1, contact (1,1)
+  {
+    const d = 2 * 2 + 4 * -1
+    ok(d === 0 && 1 === 1 * 1 && 1 === 2 * 1 - 1, 'L-v L4.2: c = −1, the contact (1,1) — the unique tangent post of the slider')
+  }
+  // L5.1: the garden: perimeter 34, diagonal 13 → 5 m and 12 m — pinned above
+  // L5.2: x²+y²=50, xy=7 → four pairs — pinned above
+  // L6: the tangent-condition derivation — its three load-bearing pins
+  {
+    const m = new Frac(-3n, 4n) // the dress of 3x + 4y = 25: y = −(3/4)x + 25/4
+    const k = new Frac(25n, 4n)
+    const opm = Frac.of(1).add(m.mul(m))
+    const cond = opm.mul(Frac.of(25))
+    ok(k.mul(k).eq(cond), 'L-v L6: the derivation terminal identity k² = (1+m²)r² prices 625/16 = 625/16 for the tangent witness')
+    const fx = m.mul(k).neg().div(opm)
+    const fy = k.div(opm)
+    ok(fx.eq(Frac.of(3)) && fy.eq(Frac.of(4)), 'L-v L6: the contact lands on the foot (3, 4) — the perpendicular reading')
+  }
+  console.log('[L-v] the pinned exhibits: quiz keys [1,2,1,0,1] with distractors priced; the 14 exercise keys solved and both-sides-checked (L1–L6)')
+}
+
+// L-vi — the figure plans for 6.4's two figures (geometry pinned, internally disjoint)
+{
+  // plan64Fig1 — the three-verdict panel: y = x² against the c-slider y = 2x + c
+  //   viewBox 0 0 720 400; plot window x ∈ [−2.5, 3.5], y ∈ [−2.5, 9.5];
+  //   px(x) = 60 + (x + 2.5)·100; py(y) = 354 − (y + 2.5)·25
+  //   secant y=2x+3 from (−2.5, −2) to (3.25, 9.5) — contacts (−1,1) and (3,9)
+  //   tangent y=2x−1 from (−0.75, −2.5) to (3.5, 6) — contact (1,1)
+  //   outsider y=2x−2 from (−0.25, −2.5) to (3.5, 5) — no contact
+  const plan64Fig1 = {
+    viewBox: '0 0 720 400',
+    rects: [
+      [30, 12, 660, 34], // title band
+      [64, 50, 176, 20], // verdict chip: the secant (top-left corner, clear of the parabola's left branch by >12px)
+      [64, 76, 176, 20], // verdict chip: the tangent
+      [64, 102, 176, 20], // verdict chip: the outsider
+      [30, 362, 660, 26], // caption band
+    ] as [number, number, number, number][],
+    groups: [[0, 1, 2, 3, 4]],
+  }
+  // plan64Fig2 — the tangent strip: the circle x²+y²=25 against the parallel family 3x+4y = c
+  //   viewBox 0 0 720 460; plot window x ∈ [−7, 7], y ∈ [−6.5, 6.5], equal scale 30 px/unit
+  //   px(x) = 150 + (x + 7)·30; py(y) = 420 − (y + 6.5)·30; circle centre (360, 225), radius 150
+  //   secant 3x+4y=20 from (−4/3, 6) to (6, 0.5) — contacts (0,5) and (24/5, 7/5)
+  //   tangent 3x+4y=25 from (1/3, 6) to (6, 7/4) — contact (3,4)
+  //   outsider 3x+4y=30 from (2, 6) to (6, 3) — no contact
+  const plan64Fig2 = {
+    viewBox: '0 0 720 460',
+    rects: [
+      [30, 8, 660, 30], // title band
+      [64, 56, 150, 22], // verdict chip: the secant (far-left column, clear of the circle arc by >16px)
+      [64, 86, 150, 22], // verdict chip: the tangent
+      [64, 116, 150, 22], // verdict chip: the outsider
+      [30, 424, 660, 26], // caption band (the law)
+    ] as [number, number, number, number][],
+    groups: [[0, 1, 2, 3, 4]],
+  }
+  const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+    r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+  for (const plan of [plan64Fig1, plan64Fig2]) {
+    for (const g of plan.groups) {
+      const rs = g.map((i) => plan.rects[i])
+      ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'L-vi: plan group [' + g.join(',') + '] pairwise disjoint')
+    }
+    const vb = plan.viewBox.split(' ').map(Number)
+    for (const r of plan.rects) ok(r[0] >= 0 && r[1] >= 0 && r[0] + r[2] <= vb[2] && r[1] + r[3] <= vb[3], `L-vi: rect ${r} inside the viewBox ${plan.viewBox}`)
+  }
+  // the exact geometry pins the authored SVG must carry (checked again in M)
+  {
+    const px = (x: number): number => 60 + (x + 2.5) * 100
+    const py = (y: number): number => 354 - (y + 2.5) * 25
+    ok(px(-1) === 210 && py(1) === 266.5, 'L-vi fig1: the contact (−1,1) lands at pixel (210, 266.5)')
+    ok(px(3) === 610 && py(9) === 66.5, 'L-vi fig1: the contact (3,9) lands at pixel (610, 66.5)')
+    ok(px(1) === 410 && py(1) === 266.5, 'L-vi fig1: the tangency (1,1) lands at pixel (410, 266.5)')
+    ok(px(0) === 310, 'L-vi fig1: the y-axis (the parabola\'s own axis) rides px 310')
+    ok(px(-2.5) === 60 && px(3.5) === 660, 'L-vi fig1: the plot window spans px 60..660')
+    const px2 = (x: number): number => 150 + (x + 7) * 30
+    const py2 = (y: number): number => 420 - (y + 6.5) * 30
+    ok(px2(0) === 360 && py2(0) === 225, 'L-vi fig2: the circle centre lands at pixel (360, 225)')
+    ok(px2(0) === 360 && py2(5) === 75, 'L-vi fig2: the contact (0,5) lands at pixel (360, 75)')
+    ok(Math.abs(px2(24 / 5) - 504) < 0.51 && Math.abs(py2(7 / 5) - 183) < 0.01, 'L-vi fig2: the contact (24/5,7/5) lands at pixel (504, 183)')
+    ok(px2(3) === 450 && py2(4) === 105, 'L-vi fig2: the tangency (3,4) lands at pixel (450, 105)')
+    ok(Math.abs(px2(-4 / 3) - 320) < 0.01 && py2(6) === 45, 'L-vi fig2: the secant left end (−4/3, 6) lands at pixel (320, 45)')
+  }
+  console.log('[L-vi] figure plans for 6.4: geometry pinned (the panel 720×400 + the strip 720×460) and internally disjoint')
+}
+
+/* ------------------------------------------------------------------ */
+/* (M) the authored lesson 6.4 — structure, keys, figures, scans;      */
+/*     the chapter re-closes with the audit gap B paid in full        */
+/* ------------------------------------------------------------------ */
+
+{
+  const ch06Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-06.ts').text()
+  const lesson = chapter06.lessons[3]
+  ok(lesson.id === 'al-one-linear-one-quadratic', 'M: lesson id al-one-linear-one-quadratic')
+  ok(lesson.number === '6.4', 'M: lesson number 6.4')
+  ok(lesson.title === 'One Linear, One Quadratic', 'M: lesson title matches the planned title')
+  ok(
+    JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-substitution-and-elimination', 'al-the-quadratic-formula-and-the-discriminant', 'al-roots-and-coefficients-viete-relations']),
+    'M: prerequisites are 6.2 + 9.3 + 9.4 (the substitution licence, the discriminant, Viète)'
+  )
+  ok(
+    JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style']),
+    'M: the four chapter citation keys ride the lesson'
+  )
+  const kinds = lesson.blocks.map((b) => b.kind)
+  const countKind = (k: string) => kinds.filter((x) => x === k).length
+  ok(countKind('para') === 13, `M: thirteen paras (got ${countKind('para')})`)
+  ok(countKind('heading') === 5, `M: five headings (got ${countKind('heading')})`)
+  ok(countKind('equation') === 2, 'M: two display equations (the reduced equation + the Viète landing)')
+  ok(countKind('derivation') === 2, 'M: two derivations (substitution-loses-nothing + the tangent condition)')
+  ok(countKind('example') === 7, `M: seven illustrations (got ${countKind('example')})`)
+  ok(countKind('figure') === 2, 'M: two figures (the three-verdict panel + the tangent strip)')
+  ok(countKind('table') === 2, 'M: two tables (the verdict table + the identity bank)')
+  ok(countKind('terms') === 1, 'M: one terms block')
+  ok(countKind('formula') === 5, `M: five formula cards (got ${countKind('formula')})`)
+  ok(countKind('list') === 1, 'M: one roman list (the example run)')
+  ok(countKind('quiz') === 1 && countKind('exercises') === 1, 'M: one quiz + one exercises block')
+  const tones = lesson.blocks.filter((b) => b.kind === 'callout').map((b) => (b as { tone: string }).tone).sort().join(',')
+  ok(tones === 'definition,exam,historical,insight,warn,warn', `M: six callouts — definition, insight, warn ×2 (direction + extraneous), historical, exam (got ${tones})`)
+  {
+    const terms = lesson.blocks.find((b) => b.kind === 'terms')
+    if (terms && terms.kind === 'terms') ok(terms.items.length === 9, `M: terms block holds 9 entries (got ${terms.items.length})`)
+  }
+  // quiz keys vs the pinned battery
+  {
+    const q = lesson.blocks.find((b) => b.kind === 'quiz')
+    if (q && q.kind === 'quiz') {
+      const keys = q.items.map((it) => it.answer)
+      ok(JSON.stringify(keys) === JSON.stringify([1, 2, 1, 0, 1]), 'M: quiz keys match the pinned [1, 2, 1, 0, 1] (got ' + JSON.stringify(keys) + ')')
+      ok(q.items.length === 5 && q.items.every((it) => it.options.length === 4 && it.explain.length > 40), 'M: quiz shape + distractor pricing')
+      ok(q.items[0].options[1] === 'two: $(2, 3)$ and $(3, 2)$', 'M: quiz Q1 option 2 is the pinned mirror-pair verdict (the key 1)')
+      ok(q.items[2].options[1] === '25', 'M: quiz Q3 option 2 is the pinned tangent post c = 25 (the key 1)')
+      ok(q.items[4].options[1].includes('discard them'), 'M: quiz Q5 option 2 is the pinned extraneous discipline (the key 1)')
+    }
+  }
+  // exercises shape + anchors
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+    if (ex && ex.kind === 'exercises') {
+      const counts = ex.sets.map((s) => s.questions.length)
+      ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'M: exercise set sizes 3/3/3/2/2/1')
+      const all = ex.sets.flatMap((s) => s.questions)
+      ok(all.length === 14 && all.every((qq) => Array.isArray(qq.solution) && qq.solution.length >= 2 && !!qq.answer), 'M: 14 exercises, Cengage chains, terminal answers')
+      ok((all[0].answer || '').includes('$(4, 3)$ and $(-3, -4)$'), 'M: L1.1 answer carries the pinned circle pairs')
+      ok((all[2].answer || '').includes('twice'), 'M: L1.3 answer carries the pinned two-meetings verdict')
+      ok((all[4].answer || '').includes('$(3, 4)$ and $(4, 3)$'), 'M: L2.2 answer carries the pinned symmetric pairs')
+      ok((all[7].answer || '').includes('\\left(\\tfrac{24}{5}, \\tfrac{7}{5}\\right)'), 'M: L3.2 answer carries the pinned fractional contacts')
+      ok((all[8].answer || '').includes('$c = 25$ touching at $(3, 4)$'), 'M: L3.3 answer carries the pinned two tangent posts')
+      ok((all[11].answer || '').includes('5 m and 12 m'), 'M: L5.1 answer carries the pinned garden sides')
+      ok((all[12].answer || '').includes('$(1, 7)$'), 'M: L5.2 answer carries the pinned four-pair census')
+      ok((all[13].answer || '').includes('k^2 = (1 + m^2) r^2'), 'M: L6 answer carries the tangent-condition theorem')
+    }
+  }
+  // figure geometry vs the pinned plans
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+    ok(figs.length === 2, 'M: two figures in 6.4')
+    const parseRects = (svg: string) =>
+      Array.from(svg.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g))
+        .map((m) => [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4])] as [number, number, number, number])
+        .filter((r) => !(r[0] === 0 && r[1] === 0))
+    const plan64Fig1Rects: [number, number, number, number][] = [
+      [30, 12, 660, 34],
+      [64, 50, 176, 20],
+      [64, 76, 176, 20],
+      [64, 102, 176, 20],
+      [30, 362, 660, 26],
+    ]
+    const plan64Fig2Rects: [number, number, number, number][] = [
+      [30, 8, 660, 30],
+      [64, 56, 150, 22],
+      [64, 86, 150, 22],
+      [64, 116, 150, 22],
+      [30, 424, 660, 26],
+    ]
+    const canon = (rs: [number, number, number, number][]) => rs.map((r) => r.join(',')).sort().join('|')
+    const sep = (r1: [number, number, number, number], r2: [number, number, number, number]) =>
+      r1[0] + r1[2] <= r2[0] || r2[0] + r2[2] <= r1[0] || r1[1] + r1[3] <= r2[1] || r2[1] + r2[3] <= r1[1]
+    if (figs[0].kind === 'figure' && figs[1].kind === 'figure') {
+      const r0 = parseRects(figs[0].svg)
+      ok(r0.length === 5 && canon(r0) === canon(plan64Fig1Rects), 'M: the panel rect census matches the pinned plan exactly (title + 3 chips + caption)')
+      const r1 = parseRects(figs[1].svg)
+      ok(r1.length === 5 && canon(r1) === canon(plan64Fig2Rects), 'M: the strip rect census matches the pinned plan exactly')
+      for (const rs of [plan64Fig1Rects, plan64Fig2Rects]) ok(rs.every((a, i) => rs.every((b, j) => i >= j || sep(a, b))), 'M: plan group pairwise disjoint')
+      ok(figs[0].svg.includes('viewBox="0 0 720 400"') && figs[1].svg.includes('viewBox="0 0 720 460"'), 'M: the viewBoxes match the plans')
+      ok(figs[0].svg.includes('x1="60" y1="341.5" x2="585" y2="54"'), 'M: the secant segment lands on the pinned pixel endpoints')
+      ok(figs[0].svg.includes('cx="610" cy="66.5"') && figs[0].svg.includes('cx="410" cy="266.5"'), 'M: the contact dots land on the pinned pixels (3,9) and (1,1)')
+      ok(figs[0].svg.includes('Δ = 16 &gt; 0 · TWO') && figs[0].svg.includes('Δ = 0 · TANGENT') && figs[0].svg.includes('Δ = −4 &lt; 0 · NONE'), 'M: the three verdict chips carry the pinned discriminant readings')
+      ok(figs[1].svg.includes('cx="360" cy="225" r="150"'), 'M: the circle lands on the pinned centre and radius')
+      ok(figs[1].svg.includes('3x + 4y = 25 · TANGENT') && figs[1].svg.includes('(24/5, 7/5)'), 'M: the strip carries the tangent-post chip and the fractional contact label')
+      ok(figs[1].svg.includes('c² vs 625'), 'M: the caption band carries the dress law c² vs 625')
+    }
+  }
+  // raw-$ scan on non-KaTeX titles + honest word count
+  {
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'M: no raw $ in non-KaTeX titles')
+    const words = countLessonWords(lesson)
+    ok(words >= 4000, 'M: honest word count ' + words + ' >= 4000')
+  }
+  // odd-run backslash scan over the WHOLE chapter file (run-69 hardening)
+  {
+    let oddRuns = 0
+    let i = 0
+    while (i < ch06Src.length) {
+      if (ch06Src[i] === '\\') {
+        let j = i
+        while (j < ch06Src.length && ch06Src[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'M: no odd-length backslash runs in ch-06.ts source (found ' + oddRuns + ')')
+  }
+  // unicode-escape scan
+  {
+    const escapes = (ch06Src.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'M: no unicode escapes in ch-06.ts source (found ' + escapes + ')')
+  }
+  // al- prefix uniqueness across the whole library (6.4 now in)
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'M: all ' + ids.length + ' lesson ids repo-wide unique (with 6.4 added)')
+    ok(ids.includes('al-one-linear-one-quadratic'), 'M: the new id is registered in the library graph')
+  }
+  // the chapter re-closes: the 2026-11-11 audit gap B is paid
+  {
+    ok(chapter06.status === 'complete' && chapter06.lessons.length === 4 && (chapter06.plannedLessons?.length ?? 1) === 0, 'M: the chapter re-closes — status complete, 4 lessons, the gap queue emptied')
+    ok(chapter06.lessons[3].id === 'al-one-linear-one-quadratic', 'M: the closing lesson is 6.4')
+  }
+  console.log('[M] the authored 6.4: identity, block census, quiz keys, exercise anchors, figure plans, scans, the chapter re-close — all green')
 }
 
 /* ------------------------------------------------------------------ */
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 
-console.log(`\nverify-book3-ch06 battery (sections A-K, the chapter CLOSED): ${passed} passed, ${failed} failed`)
+console.log(`\nverify-book3-ch06 battery (sections A-M, the chapter re-CLOSED with 6.4 at run 96 — the audit gap B paid): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)
