@@ -6,6 +6,13 @@
 > like to use use it and add this in docs so fututre corn job can know what to do
 > in such cases"*.
 >
+> Owner directive (2026-11-13 chat), extending the dedicated job: *"make change
+> in that vlm corn job of svg autdit add this also that is chacks lessonas add
+> more svgs diagram or ai genrated images in solution of exercise question of
+> prewritten lessons for better understandig , enrich the topics with more things
+> like more topics , subtopics if any topic is missing or you think it can be
+> included and make changes at last in dcs accordinly"* — codified as §10.
+>
 > This file is the standing protocol every LOCKIN authoring fire follows. It is
 > referenced by `RESUME_POINTER.json` (standing rules) and `WORKLOG.md`; a fire
 > that authors or edits any lesson MUST run §4 (the per-lesson pipeline), and
@@ -138,27 +145,96 @@ has yet needed the AI-image fallback (§3.3 stands ready for texture-class
 figures). The 2026-11-11 audit turn's record: ANS 8.5 hero 9/10, both figures
 PASS after two clipping catches fixed; AA 1.1/1.2 all four figures PASS.
 
-## 9. The dedicated figure-audit job (owner directive 2026-11-11)
+## 9. The dedicated figure-audit job (owner directive 2026-11-11; recreated 2026-11-13)
 
-A dedicated cron job — "figure-audit run: strict VLM verification of the
-pre-written books' SVGs" — fires 2×/day (06:40 + 13:40 IST, between the
-authoring job's fires) and owns the §6 sweep. Per fire:
+A dedicated cron job fires 2×/day (06:40 + 13:40 IST, between the authoring
+job's fires) and owns the §6 sweep. Created 2026-11-11 as job 524541
+("figure-audit run: strict VLM verification of the pre-written books'
+SVGs"); **recreated 2026-11-13 as job 527779** ("figure-audit + enrichment
+run v2") under the owner's §10 directive — audit core kept, two enrichment
+passes added. Per fire:
 
-- take the next ~8–12 PENDING queue items (FAIL-OPEN items go FIRST; never
-  start a figure you cannot finish, gate and ship inside the ~2 h window);
+- take the next ~4–6 PENDING queue items (was 8–12 in the audit-only era;
+  the §10 enrichment passes make each item heavier — FAIL-OPEN items go FIRST;
+  never start a lesson you cannot finish, gate and ship inside the ~2 h window);
 - run the full §4 pipeline (layer 1 DOM gate + layer 2 VLM) on every figure
   of those lessons, light + dark for the first lesson of the run;
 - apply the §3 ladder on any FAIL — including the AI-image fallback §3.3
   and any other sound replacement method the auditor judges better;
 - re-audit after every fix; a run never ends with an unrecorded FAIL;
 - update the queue (`bun run scripts/build_figure_audit_queue.ts` —
-  progress-preserving) + append `FIGURE_AUDIT_LOG.md` + one WORKLOG entry;
+  progress-preserving) + append `FIGURE_AUDIT_LOG.md` + one WORKLOG entry,
+  plus the §10.3 census-doc sync whenever lesson content changed;
 - commit LOCALLY ONLY. This job NEVER pushes and never handles credentials
-  or tokens of any kind — the authoring job (523435) pushes ALL unpushed
-  local commits 3×/day, so its commits reach GitHub automatically within
-  hours. It never edits RESUME_POINTER.json / PROGRESS.json /
-  WORK_INVENTORY.json / DETAILED_LOG.md (the authoring job owns those) and
-  never authors lessons — only figures;
+  or tokens of any kind — the authoring job (523435) pushes at run-end and
+  the dedicated push job (05:35/13:35/21:35 IST) pushes ALL unpushed local
+  commits 3×/day, so its commits reach GitHub automatically within hours.
+  It never edits RESUME_POINTER.json (the authoring job owns the plan) and
+  never authors WHOLE lessons or chapters — figures, §10 solution visual
+  aids and subsection-level enrichment only;
 - when the queue is empty: regression mode — re-audit figures touched in
   the last 7 days (`git log --since` --name-only) + the 3 oldest done items,
-  then a quick idle-pass close.
+  plus one cheap enrichment scan of the oldest lessons, then a quick
+  idle-pass close.
+
+## 10. The enrichment passes (owner directive 2026-11-13)
+
+The dedicated job (§9, job 527779) runs THREE passes per queued lesson, in
+this order. Pass A is the §4 strict audit, unchanged. Two new passes:
+
+### 10.1 Pass B — solution visual aids (exercise-question solutions)
+
+After auditing a lesson's figures, read EVERY exercise question's worked
+solution (and every Illustration `Sol.` chain). Where a diagram genuinely
+aids understanding of THAT solution — a geometry construction, a graph
+read, a number-line walk, a Venn/table/process diagram, an arrow flow, a
+comparison panel — ADD a figure inline in that solution block:
+
+- **SVG first** (the default): house palette §2.7, every drawn value computed
+  from the solution's OWN numbers before drawing, `viewBox` with ≥8px
+  margin, `aria-label`, dark-mode legibility §2.8; then re-run layer 1
+  (overlap) + layer 2 (VLM strict) on the new figure.
+- **AI-generated image only for texture/scene-class content** (§3.3 law,
+  unchanged): text-free generation, SVG `<text>` label overlay, ≤2
+  regenerations, provenance in `SOURCE_LOG.md`. Graphs, diagrams, number
+  lines and charts stay SVG — always.
+- **Discipline**: 0–2 figures per exercise, only where they teach — never
+  decoration. The caption states what THIS diagram shows for THIS solution.
+  Never change the solution's reasoning, steps or answers — the figure
+  embeds with one short accurate caption line. Quiz keys and exercise
+  answers stay untouched unless a REAL arithmetic error is proven (then
+  fix, re-pin the verifier, log as an accuracy catch). Study-never-reproduce:
+  every exhibit is OURS.
+
+### 10.2 Pass C — topic/subtopic enrichment
+
+Check the lesson's coverage against (i) its own headings/title — every named
+promise taught + worked, and for graphable function families SHOWN with a
+figure + worked example (rule A2 of `scripts/audit-content-completeness.ts`);
+(ii) that standing gate on the touched book — 0 errors required; (iii) the
+chapter's canonical arc (NCERT / Hall-&-Knight / Khattar-class canon;
+internet research sanctioned; study-never-reproduce).
+
+A missing or thin subtopic — method variant, special case, classic worked
+pattern, formula family, exam angle — is AUTHORED as a new subsection inside
+the fitting existing lesson, per `BOOK_FORMAT.md` at house depth
+(definition + "Thus," + "For example," runs, an Illustration with a `Sol.`
+chain, an L1–L6 ladder WITH full worked solutions if questions are added,
+figures where the family rule demands, formula cards, exam callout where
+apt). The owner's bar: "sufficiently detailed", not padded. VERIFY-FIRST
+house rule applies: pin every new number in the chapter verifier BEFORE
+writing the prose.
+
+A WHOLE lesson or chapter that is missing is NOT authored here — register
+the gap in `docs/research/PREWRITTEN_BOOKS_AUDIT.md`'s gap section + a
+WORKLOG note; the authoring job queues it via `RESUME_POINTER.json`.
+That division of labour stands.
+
+### 10.3 Doc sync after enrichment (owner: "make changes at last in dcs accordingly")
+
+Whenever lesson content changed, the fire syncs the census docs before
+committing: `bun run scripts/build_work_inventory.ts` (WORK_INVENTORY.json),
+`PROGRESS.json` library counts + `updated` date (recomputed counts ONLY —
+phase/plan/status fields belong to the authoring job), a `DETAILED_LOG.md`
+line, and `SOURCE_LOG.md` provenance for any AI-generated image.
+`RESUME_POINTER.json` is NEVER touched by this job.
