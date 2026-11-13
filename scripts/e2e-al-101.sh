@@ -56,7 +56,7 @@ run_checks () {  # $1 = label
     pass(d.katexNodes>60,'KaTeX nodes > 60 (got '+d.katexNodes+')');
     pass(d.katexErrors===0,'KaTeX errors 0 (got '+d.katexErrors+')');
     pass(d.dollarInText===0,'raw \$ in text 0 (got '+d.dollarInText+')');
-    pass(d.svgCount===2,'2 figures rendered (got '+d.svgCount+')');
+    pass(d.svgCount===3,'3 figures rendered (got '+d.svgCount+') — the walls figure joined the identity section (topic-depth rule)');
     pass(d.rawDollarInSvg===0,'no raw LaTeX in SVG text (got '+d.rawDollarInSvg+')');
     pass(d.tables===1,'1 table in 10.1 (got '+d.tables+')');
     pass(d.termHits>=10,'terms present ('+d.termHits+' hits)');

@@ -216,6 +216,78 @@ function graphIdentitySvg(): string {
   return parts.join('')
 }
 
+/* ------------------------------------------------------------------ */
+/* figure helper for lesson 10.1 — the walls and the vertical probes  */
+/* (topic-depth rule: the Graph-as-Solution-Set Identity section needs */
+/* its own figure — the walls picture the identity's own paras promise) */
+/* ------------------------------------------------------------------ */
+
+function wallProbesSvg(): string {
+  const parts: string[] = []
+  parts.push(
+    '<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the horizontal wall y equals 2 and the vertical wall x equals minus one crossing in the single address minus one comma two, and the line y equals 2x plus 1 pierced exactly once by each of three vertical probes at h equals minus two, zero and three">',
+  )
+  // ---- header ----
+  parts.push('<rect x="30" y="18" width="660" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="1.5"/>')
+  parts.push('<text x="360" y="44" font-size="15" fill="#166534" text-anchor="middle" font-weight="700">the walls and the probes — one-variable equations, drawn upright</text>')
+  // ---- LEFT PANEL: the walls y = 2 and x = −1 (no panel titles — the
+  // header band and the caption band carry the panel naming, and titles at
+  // this height collide with the axis-arrow labels)
+  parts.push('<line x1="60" y1="245" x2="336" y2="245" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<polygon points="344,245 332,240 332,250" fill="#0d9488"/>')
+  parts.push('<text x="352" y="250" font-size="13" fill="#0f766e" font-style="italic">x</text>')
+  parts.push('<line x1="200" y1="80" x2="200" y2="310" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<polygon points="200,72 195,84 205,84" fill="#0d9488"/>')
+  parts.push('<text x="207" y="76" font-size="13" fill="#0f766e" font-style="italic">y</text>')
+  parts.push('<text x="192" y="258" font-size="11" fill="#d97706" text-anchor="end">O</text>')
+  // the horizontal wall y = 2 and the vertical wall x = −1
+  parts.push('<line x1="64" y1="189" x2="336" y2="189" stroke="#16a34a" stroke-width="3"/>')
+  parts.push('<text x="90" y="182" font-size="13" fill="#166534" font-weight="700">y = 2</text>')
+  parts.push('<line x1="172" y1="84" x2="172" y2="308" stroke="#16a34a" stroke-width="3"/>')
+  parts.push('<text x="178" y="96" font-size="13" fill="#166534" font-weight="700">x = −1</text>')
+  // riders and the crossing
+  parts.push('<circle cx="312" cy="189" r="5" fill="#ea580c"/>')
+  parts.push('<text x="312" y="178" font-size="11" fill="#d97706" text-anchor="middle">(4, 2)</text>')
+  parts.push('<circle cx="172" cy="301" r="5" fill="#ea580c"/>')
+  parts.push('<text x="180" y="305" font-size="11" fill="#d97706">(−1, −2)</text>')
+  parts.push('<circle cx="172" cy="189" r="6" fill="#0d9488"/>')
+  parts.push('<text x="182" y="184" font-size="11" fill="#d97706">(−1, 2)</text>')
+  parts.push('<text x="200" y="324" font-size="11.5" fill="#0f766e" text-anchor="middle">two walls cross in exactly ONE address</text>')
+  // ---- RIGHT PANEL: y = 2x + 1 probed at h = −2, 0, 3 ----
+  parts.push('<line x1="384" y1="245" x2="676" y2="245" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<polygon points="684,245 672,240 672,250" fill="#0d9488"/>')
+  parts.push('<text x="692" y="250" font-size="13" fill="#0f766e" font-style="italic">x</text>')
+  parts.push('<line x1="540" y1="80" x2="540" y2="320" stroke="#0d9488" stroke-width="1.5"/>')
+  parts.push('<polygon points="540,72 535,84 545,84" fill="#0d9488"/>')
+  parts.push('<text x="547" y="76" font-size="13" fill="#0f766e" font-style="italic">y</text>')
+  // (no origin label on the right panel — its seat is the h = 0 probe’s own foot)
+  // the line y = 2x + 1 from (−2, −3) to (3, 7)
+  parts.push('<line x1="468" y1="293" x2="648" y2="133" stroke="#16a34a" stroke-width="2.5"/>')
+  parts.push('<text x="620" y="190" font-size="12" fill="#166534" font-weight="700">y = 2x + 1</text>')
+  // the three probes (dashed amber) and their meets (teal dots) — the
+  // h = 0 probe coincides with the y-axis itself, so it is drawn as THICK
+  // amber dashes riding the axis (a thin dash would vanish under it)
+  parts.push('<line x1="468" y1="245" x2="468" y2="293" stroke="#d97706" stroke-width="1.6" stroke-dasharray="6,4"/>')
+  parts.push('<line x1="540" y1="245" x2="540" y2="229" stroke="#d97706" stroke-width="4" stroke-dasharray="6,4"/>')
+  parts.push('<line x1="648" y1="245" x2="648" y2="133" stroke="#d97706" stroke-width="1.6" stroke-dasharray="6,4"/>')
+  parts.push('<circle cx="468" cy="293" r="5" fill="#0d9488"/>')
+  parts.push('<circle cx="540" cy="229" r="5" fill="#0d9488"/>')
+  parts.push('<circle cx="648" cy="133" r="5" fill="#0d9488"/>')
+  parts.push('<text x="440" y="263" font-size="11" fill="#d97706" text-anchor="end">h = −2</text>')
+  parts.push('<text x="532" y="263" font-size="11" fill="#d97706" text-anchor="end">h = 0</text>')
+  parts.push('<text x="656" y="263" font-size="11" fill="#d97706">h = 3</text>')
+  parts.push('<text x="468" y="311" font-size="11" fill="#d97706" text-anchor="middle">(−2, −3)</text>')
+  parts.push('<text x="528" y="225" font-size="11" fill="#d97706" text-anchor="end">(0, 1)</text>')
+  parts.push('<text x="636" y="120" font-size="11" fill="#d97706" text-anchor="end">(3, 7)</text>')
+  parts.push('<text x="560" y="280" font-size="11.5" fill="#0f766e" text-anchor="middle">one meet per probe — 5.3’s one door, drawn</text>')
+  // ---- caption band ----
+  parts.push('<rect x="30" y="338" width="660" height="42" rx="6" fill="none" stroke="#16a34a" stroke-width="1"/>')
+  parts.push('<text x="360" y="354" font-size="11.5" fill="#0f766e" text-anchor="middle">left: y = 2 and x = −1 are solution sets drawn — two walls crossing in the single address (−1, 2);</text>')
+  parts.push('<text x="360" y="371" font-size="11.5" fill="#0f766e" text-anchor="middle">right: each vertical probe meets y = 2x + 1 exactly once — the h = 0 probe rides the y-axis itself.</text>')
+  parts.push('</svg>')
+  return parts.join('')
+}
+
 const lesson101: Lesson = {
   id: 'al-the-coordinate-plane-and-linear-graphs',
   number: '10.1',
@@ -288,6 +360,7 @@ const lesson101: Lesson = {
     { kind: 'para', text: 'The identity deserves a slow read, because it is the bridge of the whole book. From algebra to geometry: every solution you can compute (chapter 5’s balance moves, chapter 6’s elimination) lands on the drawn line — solving has a PICTURE. From geometry to algebra: every point your pencil meets on the line answers the equation — the picture has an ALGEBRA, and you can interrogate it without solving anything. When the next lesson asks "which of these lines is steeper?", it will read the answer off pairs of points, because the identity guarantees those pairs are points OF the equation. When chapter 9’s discriminant promised that the parabola crosses the $x$-axis as many times as $\\Delta$ allows, it was this identity, one degree up, that was being promised.' },
     { kind: 'para', text: 'Two one-variable equations complete the picture, and they are the walls talking. The equation $y = 2$ has solution set "every pair with height 2": the verifier priced $(−3, 2)$, $(0, 2)$, $(4, 2)$ in and $(0, 3)$, $(2, 0)$, $(−2, −2)$ out — its graph is the HORIZONTAL line at height 2. The equation $x = -1$ has solution set "every pair at position $-1$": $(−1, 5)$, $(−1, 0)$, $(−1, −4)$ in, $(−2, 0)$ and $(3, 1)$ out — the VERTICAL line at position $-1$. These are the graphs of one-variable equations read on the two-dimensional paper: a horizontal line is the equation $y = k$ wearing its full solution set, a vertical line is $x = h$. And the grid they build is rigid in the best way: the verifier priced the probes — every horizontal $y = k$ meets every vertical $x = h$ in exactly one point $(h, k)$, no more, no fewer. Addresses exist because that lock never jams.' },
     { kind: 'para', text: 'The vertical probes hide a deeper read that 5.3 already taught you to love. Take any non-vertical line, say $y = 2x + 1$ from next lesson’s family, and probe it with $x = h$: the meet is $(h, 2h + 1)$ — the verifier priced $h = -2, 0, 3$, landing $(-2, -3)$, $(0, 1)$, $(3, 7)$, one meet each, each satisfying the equation exactly. Every vertical probe meets the line EXACTLY once. That is 5.3’s verdict machine — a linear equation in one variable has exactly one solution unless the variable is gone — now standing upright on the plane: the "one door" is the single point where the probe pierces the line. Keep the image; the parabola of 10.3 will bend it beautifully.' },
+    { kind: 'figure', caption: 'The identity’s two supporting pictures. Left: the one-variable equations drawn as walls — $y = 2$ is its whole solution set as a horizontal wall ((4, 2) rides it, (−1, −2) rides the vertical wall $x = -1$), and the two walls cross in exactly ONE address, (−1, 2): the grid lock that makes addresses exist at all. Right: a non-vertical machine, $y = 2x + 1$, probed vertically at $h = -2, 0, 3$ — each probe meets the line exactly once, at (−2, −3), (0, 1), (3, 7); the $h = 0$ probe is the y-axis itself, drawn as the thick amber dashes riding it. That is 5.3’s "one solution unless the variable is gone", now standing upright on the plane as the single point where the probe pierces the line.', svg: wallProbesSvg() },
     { kind: 'heading', text: 'Two Lines: the Crossing Is Elimination’s Answer' },
     { kind: 'para', text: 'Now collect chapter 6’s debt. The pair $3x + 2y = 6$ and $x - 2y = 4$ was solved in 6.2 by elimination: add the equations and the $y$-terms annihilate — $(3x + x) + (2y - 2y) = 4x$, while $6 + 4 = 10$ — so $4x = 10$, $x = \\frac{5}{2}$, and back-substitution gives $y = -\\frac{3}{4}$. The verifier re-priced the answer $\\left(\\frac{5}{2}, -\\frac{3}{4}\\right)$ in both equations exactly, then did something new: it priced the point’s COLLINEARITY with each line’s intercept pair. With $(2, 0)$ and $(0, 3)$: determinant zero. With $(4, 0)$ and $(0, -2)$: determinant zero. The elimination answer lies on BOTH drawn lines — it is their crossing, visible on the paper. The algebra of 6.2 and the geometry of this lesson agree to the last fraction, because both describe the same solution set (the identity, run twice).' },
     { kind: 'example', title: 'Solve the pair 3x + 2y = 6, x − 2y = 4 and point at the answer', steps: [

@@ -599,8 +599,21 @@ const plan101Fig1 = {
   groups: [[0, 1, 2, 3, 4, 5, 6, 7]],
 }
 
+/* the topic-depth figure added by the 2026-11-13 owner audit (the
+ * Graph-as-Solution-Set Identity section needed its own graph): two
+ * rects — header band + caption band, walls on the left, probes right */
+const plan101FigWalls = {
+  name: 'the walls and the probes (10.1 fig 2 — topic-depth addition)',
+  view: [720, 400],
+  chips: [
+    [30, 18, 660, 40],
+    [30, 338, 660, 42],
+  ],
+  groups: [[0, 1]],
+}
+
 const plan101Fig2 = {
-  name: 'the graph of 3x + 2y = 6 (10.1 fig 2)',
+  name: 'the graph of 3x + 2y = 6 (10.1 fig 3 — was fig 2 before the walls figure joined the identity section)',
   view: [720, 400],
   chips: [
     [30, 18, 660, 40],
@@ -927,7 +940,7 @@ function sectionD(): void {
   ok(kinds['para'] === 13, `D 10.1 has 13 paras (got ${kinds['para']})`)
   ok(kinds['heading'] === 4, `D 10.1 has 4 headings (got ${kinds['heading']})`)
   ok(kinds['table'] === 1, `D 10.1 has 1 table (got ${kinds['table']})`)
-  ok(kinds['figure'] === 2, `D 10.1 has 2 figures (got ${kinds['figure']})`)
+  ok(kinds['figure'] === 3, `D 10.1 has 3 figures (got ${kinds['figure']})`)
   ok(kinds['terms'] === 1, `D 10.1 has 1 terms block`)
   ok(kinds['example'] === 3, `D 10.1 has 3 examples`)
   ok(kinds['callout'] === 4, `D 10.1 has 4 callouts (warn, insight, historical, exam)`)
@@ -1015,9 +1028,10 @@ function sectionD(): void {
 
   // figure geometry vs plan (rect-exact)
   const figs101 = lesson101.blocks.filter((b: any) => b.kind === 'figure')
-  ok(figs101.length === 2, 'D 10.1 exactly two figures')
+  ok(figs101.length === 3, 'D 10.1 exactly three figures (the walls figure joined the identity section — topic-depth rule)')
   checkFigureAgainstPlan(figs101[0].svg, plan101Fig1, 400, 'D 10.1 fig 1')
-  checkFigureAgainstPlan(figs101[1].svg, plan101Fig2, 400, 'D 10.1 fig 2')
+  checkFigureAgainstPlan(figs101[1].svg, plan101FigWalls, 400, 'D 10.1 fig 2 (walls and probes)')
+  checkFigureAgainstPlan(figs101[2].svg, plan101Fig2, 400, 'D 10.1 fig 3')
 
   // citations
   for (const key of lesson101.sources) {
@@ -1427,7 +1441,7 @@ function sectionI(): void {
       }
     }
   }
-  ok(figCount === 6, 'I-4: the chapter carries 6 figures (got ' + figCount + ')')
+  ok(figCount === 7, 'I-4: the chapter carries 7 figures (got ' + figCount + ') — the walls figure joined 10.1 (topic-depth rule)')
   ok(figFailures === 0, 'I-4: every figure viewBoxed and vivid-palette clean (' + figFailures + ' failures)')
 
   // 5 — the cross-lesson arcs closed: the chapter speaks with one voice
@@ -1496,7 +1510,7 @@ function sectionI(): void {
   ok(bookLessons === 37, 'I-9: the book stands at 37 lessons (got ' + bookLessons + ')')
   ok(bookWords > 155500, 'I-9: the book crosses 155,500 words (' + bookWords + ')')
   ok(minWords >= 4000, 'I-9: the shortest lesson still clears 4,000 words (' + minWords + ')')
-  ok(completeChapters === 11 && totalChapters === 12, 'I-9: 11 of 12 chapters complete, ch. 12 planned (got ' + completeChapters + '/' + totalChapters + ')')
+  ok(completeChapters === 9 && totalChapters === 12, 'I-9: 9 of 12 chapters complete — ch. 4 and ch. 6 honestly in-progress since the 2026-11-13 owner audit, ch. 12 planned (got ' + completeChapters + '/' + totalChapters + ')')
   let libraryLessons = 0
   let libraryWords = 0
   for (const b of allBooks) {
@@ -1507,7 +1521,7 @@ function sectionI(): void {
       }
     }
   }
-  ok(libraryLessons === 125, 'I-9: the library stands at 125 lessons (got ' + libraryLessons + ')')
+  ok(libraryLessons === 130, 'I-9: the library stands at 130 lessons (got ' + libraryLessons + ') — AA ch.1 closed complete (9 lessons incl. 1.R) by runs 92–94')
   console.log('  I-9 book snapshot: ' + bookLessons + ' lessons / ' + bookWords + ' words / ' + completeChapters + ' of ' + totalChapters + ' chapters; library ' + libraryLessons + ' lessons / ' + libraryWords + ' words')
 
   // 10 — the id registry, one final time across the whole library

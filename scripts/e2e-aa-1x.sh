@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # e2e-aa-1x.sh — per-lesson E2E for Advanced Algebra chapter 1 lessons (run 90):
-# usage: e2e-aa-1x.sh <lesson-slug> <page-js> <katexMin> <tables> <termMin> <tag>
+# usage: e2e-aa-1x.sh <lesson-slug> <page-js> <katexMin> <tables> <termMin> <tag> [svgCount]
 # desktop 1280 + mobile 390 + dark-mode, quiz interactivity + KaTeX +
 # console-error capture + screenshots.
 set -u
@@ -10,6 +10,7 @@ KATEX_MIN="$3"
 TABLES="$4"
 TERM_MIN="$5"
 TAG="$6"
+SVG_COUNT="${7:-2}"
 BASE=http://localhost:3000/book/advanced-algebra/lesson/$SLUG
 OUT=/tmp/e2e-$TAG
 mkdir -p "$OUT"
@@ -61,7 +62,7 @@ run_checks () {  # $1 = label
     pass(d.katexNodes>$KATEX_MIN,'KaTeX nodes > $KATEX_MIN (got '+d.katexNodes+')');
     pass(d.katexErrors===0,'KaTeX errors 0 (got '+d.katexErrors+')');
     pass(d.dollarInText===0,'raw \$ in text 0 (got '+d.dollarInText+')');
-    pass(d.svgCount===2,'2 figures rendered (got '+d.svgCount+')');
+    pass(d.svgCount===$SVG_COUNT,'$SVG_COUNT figures rendered (got '+d.svgCount+')');
     pass(d.rawDollarInSvg===0,'no raw LaTeX in SVG text (got '+d.rawDollarInSvg+')');
     pass(d.tables===$TABLES,'tables count $TABLES (got '+d.tables+')');
     pass(d.termHits>=$TERM_MIN,'terms present ('+d.termHits+' hits)');

@@ -981,6 +981,67 @@ export const chapter10: Chapter = {
           ],
         },
         {
+          kind: 'figure',
+          caption:
+            'One survey — twelve friends, three fruits (mango 4, banana 5, guava 3, the pie of the example) — drawn three ways, and the shape of the data decides which picture is honest. Left: the BAR chart is the right picture for categories — separate kinds get separate bars with gaps between them, and heights compare at a glance (banana wins). Middle: joining the same three values with a LINE is exactly the lie the matching table refuses — the segments claim a change running from mango to banana to guava, but there is no "between" two kinds and no order to climb. Right: the PIE is the honest picture only when the question is shares of the ONE whole — mango 120°, banana 150°, guava 90°, closing on 360° exactly as the check-sum law promises. Same table, three pictures: the data shape, not the drawer, chooses.',
+          svg: `<svg viewBox="0 0 780 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three chart types on one fruit survey: a bar chart of four five and three with gaps between bars, a line graph wrongly joining the unordered categories, and a pie chart with slices of one hundred twenty, one hundred fifty and ninety degrees">
+  <text x="390" y="22" font-size="13" fill="currentColor" text-anchor="middle">one survey, three pictures — the data shape decides which is honest</text>
+  <text x="130" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="700">categories: the BAR is honest</text>
+  <text x="390" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="700">no order: the LINE lies</text>
+  <text x="650" y="44" font-size="12" fill="currentColor" text-anchor="middle" font-weight="700">parts of a whole: the PIE</text>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M30 280H250 M45 70V290"/>
+    <path d="M280 280H500 M295 70V290"/>
+  </g>
+  <rect x="63" y="152" width="34" height="128" fill="#0d9488"/>
+  <rect x="138" y="120" width="34" height="160" fill="#0d9488"/>
+  <rect x="213" y="184" width="34" height="96" fill="#0d9488"/>
+  <g fill="currentColor" font-size="11" text-anchor="middle">
+    <text x="80" y="144">4</text>
+    <text x="155" y="112">5</text>
+    <text x="230" y="176">3</text>
+    <text x="80" y="298">mango</text>
+    <text x="155" y="298">banana</text>
+    <text x="230" y="298">guava</text>
+  </g>
+  <path d="M330 152L390 120L450 184" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+  <circle cx="330" cy="152" r="3.4" fill="#dc2626"/>
+  <circle cx="390" cy="120" r="3.4" fill="#dc2626"/>
+  <circle cx="450" cy="184" r="3.4" fill="#dc2626"/>
+  <g fill="currentColor" font-size="11" text-anchor="middle">
+    <text x="330" y="144">4</text>
+    <text x="390" y="112">5</text>
+    <text x="450" y="176">3</text>
+    <text x="330" y="298">mango</text>
+    <text x="390" y="298">banana</text>
+    <text x="450" y="298">guava</text>
+  </g>
+  <g fill="#dc2626" font-size="11" text-anchor="middle">
+    <text x="390" y="216">no "between" exists</text>
+    <text x="390" y="232">between two kinds</text>
+  </g>
+  <path d="M650 170 L650 92 A78 78 0 0 1 717.5 209 Z" fill="#fcd34d" stroke="#166534" stroke-width="1"/>
+  <path d="M650 170 L717.5 209 A78 78 0 0 1 572 170 Z" fill="#0f766e" stroke="#fffdf5" stroke-width="1"/>
+  <path d="M650 170 L572 170 A78 78 0 0 1 650 92 Z" fill="#ea580c" stroke="#fffdf5" stroke-width="1"/>
+  <g font-size="11" text-anchor="middle">
+    <text x="690" y="150" fill="#166534">120°</text>
+    <text x="638" y="213" fill="#fffdf5">150°</text>
+    <text x="618" y="138" fill="#fffdf5">90°</text>
+  </g>
+  <circle cx="522" cy="281" r="5" fill="#fcd34d" stroke="#166534" stroke-width="1"/>
+  <text x="532" y="285" font-size="11" fill="currentColor">mango 4/12</text>
+  <circle cx="606" cy="281" r="5" fill="#0f766e"/>
+  <text x="616" y="285" font-size="11" fill="currentColor">banana 5/12</text>
+  <circle cx="692" cy="281" r="5" fill="#ea580c"/>
+  <text x="702" y="285" font-size="11" fill="currentColor">guava 3/12</text>
+  <g fill="currentColor" font-size="11.5" opacity="0.85" text-anchor="middle">
+    <text x="130" y="350">bars compare separate kinds — the gaps are the point</text>
+    <text x="390" y="350">segments claim change between kinds — a lie here</text>
+    <text x="650" y="350">slices carry shares — the angles close on 360°</text>
+  </g>
+</svg>`,
+        },
+        {
           kind: 'para',
           text: 'One forward sentence, and 10.3 owns the whole story: everything in this lesson assumed the **honest** drawing — equal steps, labelled axes, the scale declared. Drop any of those and the same table can be made to shout or whisper at will.',
         },

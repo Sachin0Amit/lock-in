@@ -13,6 +13,26 @@
  *     - no two headings in one lesson collapse to the same scrollspy anchor
  *     - every significant word of the LESSON TITLE appears in the lesson body
  *
+ *  A2. Topic depth (owner directive #2, 2026-11-13: "in Advanced Algebra
+ *      chapter 1 ... lesson 1.5 ... I can't see modulus function. Not a lot
+ *      is discussed about it. There is, but where is the graph of it? There
+ *      is signum function, but where is the graph of it? ... Where is example
+ *      on that modulus function? So do such audits on already prewritten
+ *      books or lessons.")
+ *      - a section heading that names a GRAPHABLE function family (modulus,
+ *        signum, greatest integer / GIF, fractional part, piecewise, envelope,
+ *        exponential, logarithm, quadratic/parabola, reciprocal, trig graphs,
+ *        hyperbola/ellipse) must contain BOTH a figure (the family's graph —
+ *        a montage panel in some other survey section does not discharge the
+ *        promise) and worked craft (an example or derivation) INSIDE that
+ *        section
+ *      - any heading whose subject is itself a graph ("Graphs of ...",
+ *        "the graph of ...") must contain a figure
+ *      - every graphable family named in the LESSON TITLE must be shown
+ *        (some figure mentioning it) and worked (some example/derivation
+ *        mentioning it) somewhere in the lesson — WARN when the dedicated
+ *        treatment is missing entirely
+ *
  *  B. Block well-formedness (no empty shells)
  *     - every block of every kind carries its required non-empty fields;
  *       table rows match the header width; quiz answer indices are in range;
@@ -282,6 +302,121 @@ function checkTitleCoverage(lesson: Lesson, where: string) {
 }
 
 /* ------------------------------------------------------------------ */
+/* A2. Topic depth — family-named sections must show the family's      */
+/* graph and be worked on it. The owner's live example: AA 1.5's       */
+/* "The Modulus" and "Signum" sections shipped without their graphs   */
+/* (and the modulus without any worked example) even though the      */
+/* titles promised them.                                              */
+/* ------------------------------------------------------------------ */
+
+/* Families whose canonical object IS the graph. `subject` matches a
+ * heading (or lesson title) that names the family as its subject;
+ * `mentions` matches inline uses of the family (figure captions, svg
+ * text, example titles) anywhere in the lesson. */
+interface Family {
+  label: string
+  subject: RegExp
+  mentions: RegExp
+}
+const FAMILIES: Family[] = [
+  /* NOTE: "modulus" is ambiguous — the congruence modulus (a ≡ b mod n,
+   * a number-theory divisor) is NOT the graphable absolute-value family.
+   * Headings that pair "modulus" with congruence vocabulary are excluded. */
+  { label: 'modulus', subject: /\bmodulus\b|\babsolute[- ]value function\b/i, mentions: /\bmodulus\b|\babsolute value\b/i, guard: /congru|cancel|modulo|residue|divisor|shrinks?|remainders?/i },
+  { label: 'signum', subject: /\bsignum\b|\bsign (function|machine)\b/i, mentions: /\bsignum\b|\bsgn\b/i },
+  { label: 'greatest integer (GIF)', subject: /\bgreatest integer\b|\bGIF\b|\bstep function\b|\bfloor function\b/i, mentions: /\bgreatest integer\b|\bGIF\b|\bsawtooth\b|\bfloor\b|\[\s*x\s*\]/i },
+  { label: 'fractional part', subject: /\bfractional part\b|\bsawtooth\b/i, mentions: /\bfractional part\b|\bsawtooth\b/i },
+  { label: 'exponential', subject: /\bexponential (function|curve|graph|machine|family)s?\b|\bthe exponential\b/i, mentions: /\bexponential\b/i },
+  { label: 'logarithm', subject: /\blogarithmic (function|curve|graph|machine|family)s?\b|\bthe logarithm\b|\blog function\b/i, mentions: /\blogarithm|\blogs?\b/i },
+  { label: 'trigonometric graph', subject: /\b(sine|cosine|tangent) (function|graph|curve|wave|machine)s?\b|\bgraphs? of (the )?(sine|cosine|tangent|sin|cos|tan)\b/i, mentions: /\b(sine|cosine|tangent)\b/i },
+  { label: 'quadratic', subject: /\bquadratic (function|graph|curve)s?\b|\bparabola\b/i, mentions: /\bquadratic\b|\bparabola\b|\bvertex\b/i },
+  { label: 'reciprocal', subject: /\breciprocal (function|graph|curve|machine)s?\b/i, mentions: /\breciprocal\b/i },
+  { label: 'piecewise', subject: /\bpiecewise\b/i, mentions: /\bpiecewise\b/i },
+  { label: 'max/min envelope', subject: /\bmax(imum)? and min(imum)? (functions?|machines?)\b|\benvelope\b/i, mentions: /\benvelope\b|\bmax\s*[{\(]|\bmin\s*[{\(]/i },
+  { label: 'hyperbola/ellipse', subject: /\b(hyperbola|ellipse)\b/i, mentions: /\b(hyperbola|ellipse)\b/i },
+]
+
+interface Family {
+  label: string
+  subject: RegExp
+  mentions: RegExp
+  guard?: RegExp
+}
+
+function familiesIn(text: string): Family[] {
+  return FAMILIES.filter((f) => f.subject.test(text) && !(f.guard && f.guard.test(text)))
+}
+
+function checkTopicDepth(lesson: Lesson, where: string) {
+  const B = lesson.blocks
+  for (let i = 0; i < B.length; i++) {
+    const b = B[i]
+    if (b.kind !== 'heading') continue
+    const fams = familiesIn(b.text)
+    const graphHeaded = /\bgraphs?\b/i.test(b.text) && fams.length === 0
+    if (fams.length === 0 && !graphHeaded) continue
+    let j = i + 1
+    while (j < B.length && B[j].kind !== 'heading') j++
+    const between = B.slice(i + 1, j)
+    const hasFigure = between.some((x) => x.kind === 'figure')
+    const hasWork = between.some((x) => x.kind === 'example' || x.kind === 'derivation')
+    for (const f of fams) {
+      if (!hasFigure) {
+        flag(
+          'ERROR',
+          `${where} block ${i} (heading)`,
+          `topic-depth: section "${b.text}" names the ${f.label} family but shows NO graph of it inside the section`,
+        )
+      }
+      if (!hasWork) {
+        flag(
+          'ERROR',
+          `${where} block ${i} (heading)`,
+          `topic-depth: section "${b.text}" names the ${f.label} family but works NO example (or derivation) on it inside the section`,
+        )
+      }
+    }
+    if (graphHeaded && !hasFigure) {
+      flag(
+        'ERROR',
+        `${where} block ${i} (heading)`,
+        `topic-depth: heading "${b.text}" is itself about graphs but the section contains NO figure`,
+      )
+    }
+  }
+  // lesson-title promises: every graphable family named in the title must
+  // be SHOWN (a figure mentioning it) and WORKED (an example/derivation
+  // mentioning it) somewhere in the lesson
+  for (const f of familiesIn(lesson.title)) {
+    const shown = B.some(
+      (x) => x.kind === 'figure' && f.mentions.test(`${x.caption} ${(x as { svg?: string }).svg ?? ''}`),
+    )
+    const worked = B.some(
+      (x) =>
+        (x.kind === 'example' && f.mentions.test((x as { title: string }).title)) ||
+        (x.kind === 'derivation' &&
+          f.mentions.test(
+            `${(x as { title: string }).title} ${(x as { statement: string }).statement}`,
+          )),
+    )
+    if (!shown) {
+      flag(
+        'WARN',
+        where,
+        `topic-depth: the lesson title names the ${f.label} family but NO figure in the lesson shows it`,
+      )
+    }
+    if (!worked) {
+      flag(
+        'WARN',
+        where,
+        `topic-depth: the lesson title names the ${f.label} family but NO example/derivation in the lesson is worked on it`,
+      )
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* B. Block well-formedness                                            */
 /* ------------------------------------------------------------------ */
 
@@ -535,6 +670,7 @@ function checkChapter(book: Book, ch: Chapter) {
     checkBlocks(l, lwhere)
     scanPlaceholders(l, lwhere)
     checkTitleCoverage(l, lwhere)
+    checkTopicDepth(l, lwhere)
   })
 }
 

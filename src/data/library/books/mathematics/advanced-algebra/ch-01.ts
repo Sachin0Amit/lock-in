@@ -1202,7 +1202,7 @@ const lesson14: Lesson = {
     { kind: 'example', title: 'Which of these machines on ℤ are invertible? (a) f(x) = x + 7, (b) f(x) = 3x, (c) f(x) = |x|, (d) f(x) = 5 − x', steps: [
       '(a) $x + 7$ is one-one (distinct inputs, distinct outputs) and onto ℤ (the input $y - 7$ makes any target $y$). Hence invertible, and the undo is $f^{-1}(x) = x - 7$ — check both laws: $(x - 7) + 7 = x$ and $7 - 7 + x = x$.',
       '(b) $3x$ is one-one but INTO: the target 2 has no integer preimage ($3x = 2$ has no integer door). The undo of 2 would have no input to return — not invertible.',
-      '(c) $|x|$ is many-one: $|-3| = |3| = 6$ — the undo of 6 cannot decide between $-3$ and $3$. Not invertible.',
+      '(c) $|x|$ is many-one: $|-3| = |3| = 3$ — the undo of 3 cannot decide between $-3$ and $3$. Not invertible.',
       '(d) $5 - x$ is one-one and onto, and watch what the undo does: apply twice, $5 - (5 - x) = x$ — the machine UNDOES ITSELF. So $f^{-1} = f$: a self-inverse machine.',
       'Hence (a) and (d) are invertible, (b) dies of shortfall (into), (c) dies of waste (many-one) — the two verdicts of lesson 1.2 are the two causes of death.',
     ] },
@@ -1465,34 +1465,327 @@ function gifSawtoothSvg(): string {
     const x1 = O2 + SC * n, y1 = Y0, x2 = O2 + SC * (n + 1), y2 = Y0 - 26
     return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#0f766e" stroke-width="2.2"/><circle cx="${x1}" cy="${y1}" r="3.2" fill="#0f766e"/><circle cx="${x2}" cy="${y2}" r="3.2" fill="#fef3c7" stroke="#0f766e" stroke-width="1.4"/>`
   }).join('\n  ')
-  const yLabels = [-3, -2, -1, 0, 1, 2, 3, 4].map((n) => `<text x="${O1 - 8}" y="${163 - 26 * n}" font-size="10" text-anchor="end" opacity="0.8">${n}</text>`).join('\n  ')
-  const xLabels = [-3, -2, -1, 0, 1, 2, 3, 4, 5].map((t) => `<text x="${O1 + SC * t}" y="180" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
-  const xLabels2 = [-3, -2, -1, 0, 1, 2, 3, 4, 5].map((t) => `<text x="${O2 + SC * t}" y="180" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
+  // y-axis rail labels — height 0 is the x-axis itself (left unlabelled);
+  // the NEGATIVE rails sit left of their own stair's left end so no stroke
+  // crosses a label (the stairs march down-left exactly through the
+  // default label column — caught by the layer-1 overlap audit)
+  const yLabels = [-3, -2, -1, 1, 2, 3, 4].map((n) => {
+    const x = n < 0 ? O1 + SC * n - 12 : O1 - 8
+    return `<text x="${x}" y="${163 - 26 * n}" font-size="10" text-anchor="end" opacity="0.8">${n}</text>`
+  }).join('\n  ')
+  // x-rail labels — the origin seat is unlabelled (both axes already say it);
+  // row lifted to y=176 so no label touches its stair's solid dot
+  const xLabels = [-3, -2, -1, 1, 2, 3, 4, 5].map((t) => `<text x="${O1 + SC * t}" y="176" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
+  const xLabels2 = [-3, -2, -1, 1, 2, 3, 4, 5].map((t) => `<text x="${O2 + SC * t}" y="176" font-size="10" text-anchor="middle" opacity="0.8">${t}</text>`).join('\n  ')
   return `<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the staircase graph of the greatest integer function and the sawtooth graph of the fractional part, with the witnesses minus zero point six computed on both">
   <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
     <text x="${O1}" y="40">the staircase of y = [x]</text>
     <text x="${O2}" y="40">the sawtooth of y = {x}</text>
   </g>
   <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
-    <path d="M${O1-150} 160H${O1+150} M${O1} 48V272"/>
-    <path d="M${O2-150} 160H${O2+150} M${O2} 48V272"/>
+    <path d="M${O1-150} 160H${O1+150} M${O1} 48V240"/>
+    <path d="M${O2-150} 160H${O2+150} M${O2} 48V160"/>
   </g>
   <path d="M${O2+SC*(-0.6)} 166V96" stroke="#0f766e" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.7"/>
-  <text x="${O2+SC*(-0.6)+8}" y="92" font-size="11" fill="#0f766e">period 1 — every unit is a rerun</text>
+  <text x="${O2+SC*(-0.6)+28}" y="92" font-size="11" fill="#0f766e">period 1 — every unit is a rerun</text>
   ${stairs}
   ${teeth}
   ${yLabels}
   ${xLabels}
   ${xLabels2}
   <g fill="currentColor" font-size="11.5">
-    <text x="30" y="236">[−0.6] = −1 — land on the LEFT integer</text>
-    <text x="412" y="118">{−0.6} = 0.4 — the climb already made</text>
+    <text x="30" y="258">[−0.6] = −1 — land on the LEFT integer</text>
+    <text x="412" y="262">{−0.6} = 0.4 — the climb already made</text>
   </g>
-  <path d="M150 232L${O1+SC*(-0.6)+3} 189" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
-  <path d="M480 112L${O2+SC*(-0.6)-4} 146" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.7"/>
   <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
     <text x="${O1}" y="300">solid dot: the integer belongs to its own stair — open dot: handed to the next</text>
     <text x="${O2}" y="300">{x + n} = {x}: the fractional part forgets every whole lap</text>
+  </g>
+</svg>`
+}
+
+/* ------------------------------------------------------------------ */
+/* figure helpers for lesson 1.5 — the deep-dive graphs (owner audit:   */
+/* every family-named section shows its own graph and is worked)       */
+/* ------------------------------------------------------------------ */
+
+function fareStepsSvg(): string {
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The auto rickshaw fare machine graphed: a flat thirty rupee segment up to two kilometres, a jump to the forty five flat from two to five kilometres, then a climbing ray beyond five kilometres reaching eighty one rupees at eight kilometres">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="360" y="24">the fare machine drawn — three rules, three intervals</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M60 242H690 M92 55V262"/>
+  </g>
+  <g fill="currentColor" font-size="10" opacity="0.85" text-anchor="end">
+    <text x="86" y="186">30</text>
+    <text x="86" y="156">45</text>
+    <text x="86" y="126">60</text>
+    <text x="86" y="66">90</text>
+  </g>
+  <g fill="currentColor" font-size="10" opacity="0.85">
+    <text x="84" y="262" text-anchor="end">0</text>
+    <text x="236" y="262" text-anchor="middle">2</text>
+    <text x="380" y="262" text-anchor="middle">4</text>
+    <text x="452" y="262" text-anchor="middle">5</text>
+    <text x="524" y="262" text-anchor="middle">6</text>
+    <text x="668" y="262" text-anchor="middle">8</text>
+  </g>
+  <line x1="96" y1="182" x2="236" y2="182" stroke="#0f766e" stroke-width="2.4"/>
+  <line x1="240" y1="152" x2="452" y2="152" stroke="#16a34a" stroke-width="2.4"/>
+  <line x1="452" y1="152" x2="668" y2="80" stroke="#ea580c" stroke-width="2.4"/>
+  <circle cx="236" cy="182" r="3.4" fill="#0f766e"/>
+  <circle cx="236" cy="152" r="3.4" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="452" cy="152" r="3.4" fill="#16a34a"/>
+  <path d="M236 182V152" stroke="#16a34a" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.7"/>
+  <circle cx="200" cy="182" r="3.2" fill="#dc2626"/>
+  <circle cx="380" cy="152" r="3.2" fill="#dc2626"/>
+  <circle cx="668" cy="80" r="3.2" fill="#dc2626"/>
+  <path d="M668 80V242" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.6"/>
+  <g fill="currentColor" font-size="11">
+    <text x="96" y="174">Rs 30 — up to 2 km</text>
+    <text x="248" y="140">Rs 45 — rides 2 to 5 km</text>
+    <text x="246" y="172">the jump: 30 → 45</text>
+    <text x="470" y="96">45 + 12(t − 5)</text>
+    <text x="612" y="58" text-anchor="end">F(8) = 81</text>
+    <text x="56" y="46">fare (Rs)</text>
+    <text x="668" y="284">t (km)</text>
+  </g>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="360" y="285">the ≤ owns the seat at t = 2 (solid below, open above); t = 5 glides — both rules print 45</text>
+  </g>
+</svg>`
+}
+
+function modulusFacesSvg(): string {
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the V graph of the absolute value function with the pair minus three and three both printing three, and the shifted V of the absolute value of x minus three cut by the line y equals five at x equals eight and x equals minus two">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="180" y="24">the V of y = |x|</text>
+    <text x="540" y="24">the distance machine: |x − 3| = 5</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M56 206H304 M180 84V232"/>
+    <path d="M416 206H664 M540 84V232"/>
+  </g>
+  <path d="M180 206 L86 112" stroke="#ea580c" stroke-width="2.4" fill="none"/>
+  <path d="M180 206 L274 112" stroke="#ea580c" stroke-width="2.4" fill="none"/>
+  <circle cx="180" cy="206" r="3.4" fill="#ea580c"/>
+  <circle cx="87" cy="113" r="3.2" fill="#dc2626"/>
+  <circle cx="273" cy="113" r="3.2" fill="#dc2626"/>
+  <path d="M87 113H273" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="5 4" opacity="0.6"/>
+  <g fill="currentColor" font-size="11">
+    <text x="87" y="100" text-anchor="middle">(−3, 3)</text>
+    <text x="273" y="100" text-anchor="middle">(3, 3)</text>
+    <text x="190" y="130" text-anchor="start">both print 3</text>
+    <text x="74" y="150" text-anchor="start">y = −x</text>
+    <text x="254" y="150" text-anchor="start">y = x</text>
+    <text x="87" y="226" text-anchor="middle">−3</text>
+    <text x="170" y="226" text-anchor="end">0</text>
+    <text x="273" y="226" text-anchor="middle">3</text>
+    <text x="180" y="250" text-anchor="middle" font-size="11" opacity="0.85">domain ℝ · range [0, ∞)</text>
+    <text x="180" y="278" text-anchor="middle" font-size="11" opacity="0.85">the two branches y = ±x meet at the origin — the V</text>
+  </g>
+  <path d="M582 206 L512 136" stroke="#0f766e" stroke-width="2.4" fill="none"/>
+  <path d="M582 206 L652 136" stroke="#0f766e" stroke-width="2.4" fill="none"/>
+  <path d="M470 136H672" stroke="#d97706" stroke-width="1" stroke-dasharray="6 4" opacity="0.8"/>
+  <circle cx="582" cy="206" r="3.4" fill="#0f766e"/>
+  <circle cx="512" cy="136" r="3.4" fill="#16a34a"/>
+  <circle cx="652" cy="136" r="3.4" fill="#16a34a"/>
+  <path d="M512 136V206 M652 136V206" stroke="#16a34a" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.7"/>
+  <g fill="currentColor" font-size="11">
+    <text x="446" y="140" text-anchor="middle">y = 5</text>
+    <text x="588" y="94" text-anchor="middle">y = |x − 3|</text>
+    <text x="512" y="226" text-anchor="middle">−2</text>
+    <text x="582" y="226" text-anchor="middle">3</text>
+    <text x="652" y="226" text-anchor="middle">8</text>
+    <text x="540" y="250" text-anchor="middle" font-size="11" opacity="0.85">all seats at distance 5 from 3: x = 8 and x = −2</text>
+    <text x="540" y="278" text-anchor="middle" font-size="11" opacity="0.85">the same V with its vertex slid to x = 3</text>
+  </g>
+</svg>`
+}
+
+function signumStepsSvg(): string {
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: the signum graph with flat rays at heights one and minus one, open dots at their starts and a solid dot at the origin, and the identity line showing the product of absolute value and signum rebuilding each number">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="180" y="24">the three-seat graph of sgn(x)</text>
+    <text x="540" y="24">size × sign rebuilds the number</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M56 166H304 M180 70V224"/>
+    <path d="M416 206H664 M540 60V236"/>
+  </g>
+  <path d="M186 136H296" stroke="#16a34a" stroke-width="2.4"/>
+  <path d="M64 196H172" stroke="#ea580c" stroke-width="2.4"/>
+  <circle cx="180" cy="136" r="3.4" fill="#fef3c7" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="180" cy="196" r="3.4" fill="#fef3c7" stroke="#ea580c" stroke-width="1.6"/>
+  <circle cx="180" cy="166" r="3.4" fill="#0f766e"/>
+  <g fill="currentColor" font-size="11">
+    <text x="188" y="128">y = 1 for x &gt; 0</text>
+    <text x="64" y="214">y = −1 for x &lt; 0</text>
+    <text x="192" y="184">sgn(0) = 0</text>
+    <text x="90" y="186" text-anchor="middle">−2</text>
+    <text x="172" y="186" text-anchor="end">0</text>
+    <text x="270" y="186" text-anchor="middle">2</text>
+    <text x="174" y="128" text-anchor="end">1</text>
+    <text x="174" y="214" text-anchor="end">−1</text>
+    <text x="180" y="244" text-anchor="middle" font-size="11" opacity="0.85">range {−1, 0, 1} — the sign, never the size</text>
+    <text x="180" y="278" text-anchor="middle" font-size="11" opacity="0.85">the open dots: neither ray owns the seat x = 0</text>
+  </g>
+  <path d="M486 260 L640 112" stroke="#0f766e" stroke-width="2.4" fill="none"/>
+  <circle cx="492" cy="254" r="3.4" fill="#16a34a"/>
+  <circle cx="588" cy="158" r="3.4" fill="#16a34a"/>
+  <g fill="currentColor" font-size="11">
+    <text x="492" y="276" text-anchor="middle">at −2: |−2| = 2, sgn(−2) = −1</text>
+    <text x="492" y="292" text-anchor="middle">product: 2 × (−1) = −2 = x</text>
+    <text x="598" y="176" text-anchor="start">at 2: 2 × 1 = 2 = x</text>
+    <text x="620" y="60" text-anchor="middle">y = |x|·sgn(x) = x</text>
+    <text x="492" y="234" text-anchor="middle">−2</text>
+    <text x="532" y="234" text-anchor="end">0</text>
+    <text x="588" y="234" text-anchor="middle">2</text>
+  </g>
+</svg>`
+}
+
+function sawtoothWitnessSvg(): string {
+  const T0 = 360, Y0 = 240, XU = 50, YU = 50
+  const teeth = [-3, -2, -1, 0, 1, 2, 3].map((n) => {
+    const x1 = T0 + XU * n, x2 = T0 + XU * (n + 1)
+    return `<line x1="${x1}" y1="${Y0}" x2="${x2}" y2="${Y0 - YU}" stroke="#0f766e" stroke-width="2.2"/><circle cx="${x1}" cy="${Y0}" r="3.2" fill="#0f766e"/><circle cx="${x2}" cy="${Y0 - YU}" r="3.2" fill="#fef3c7" stroke="#0f766e" stroke-width="1.4"/>`
+  }).join('\n  ')
+  const xT = [-2, -1, 0, 1, 2, 3, 4].map((t) => t === 0
+    ? `<text x="350" y="262" font-size="10" text-anchor="end" opacity="0.85">0</text>`
+    : `<text x="${T0 + XU * t}" y="262" font-size="10" text-anchor="middle" opacity="0.85">${t}</text>`).join('')
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The sawtooth graph of the fractional part over seven units: teeth climbing from zero toward one and resetting at every integer, with the witnesses of minus zero point six and zero point six marked and the period of one annotated">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="360" y="24">the sawtooth of y = {x} — the climb already made, never negative</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M120 240H620 M360 104V262"/>
+  </g>
+  ${teeth}
+  ${xT}
+  <g fill="currentColor" font-size="10" text-anchor="end" opacity="0.85">
+    <text x="352" y="190">1</text>
+  </g>
+  <path d="M330 137V214" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.6"/>
+  <path d="M390 157V204" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="330" cy="220" r="3.2" fill="#dc2626"/>
+  <circle cx="390" cy="210" r="3.2" fill="#dc2626"/>
+  <g fill="currentColor" font-size="11">
+    <text x="330" y="128" text-anchor="middle">{−0.6} = 0.4</text>
+    <text x="390" y="148" text-anchor="middle">{0.6} = 0.6</text>
+  </g>
+  <path d="M410 178H460 M410 178V183 M460 178V183" stroke="#d97706" stroke-width="1" opacity="0.8"/>
+  <text x="470" y="180" font-size="11" fill="#d97706">period 1 — every unit a rerun</text>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="360" y="285">the pair law: {0.6} + {−0.6} = 0.6 + 0.4 = 1 — integers print 0, every other pair prints 1</text>
+  </g>
+</svg>`
+}
+
+function envelopeCurvesSvg(): string {
+  const OX = 360, OY = 200, XU = 60, YU = 20
+  const par = (x: number): number => x * x
+  const parPts: string[] = []
+  for (let x = -2.8; x <= 2.801; x += 0.2) {
+    parPts.push(`${(OX + XU * Math.round(x * 5) / 5).toFixed(1)} ${(OY - YU * par(Math.round(x * 5) / 5)).toFixed(1)}`)
+  }
+  const envPts: string[] = []
+  for (let x = -1; x <= 2.001; x += 0.2) {
+    envPts.push(`${(OX + XU * Math.round(x * 5) / 5).toFixed(1)} ${(OY - YU * par(Math.round(x * 5) / 5)).toFixed(1)}`)
+  }
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A parabola and a line crossing twice, with the lower envelope drawn thick between the crossings at minus one and two, and three witness points on the envelope">
+  <g fill="currentColor" font-size="13" font-weight="700" text-anchor="middle">
+    <text x="360" y="24">min{x², x + 2} — the lower envelope of two graphs</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M100 200H640 M360 60V225"/>
+  </g>
+  <line x1="186" y1="218" x2="624" y2="72" stroke="#0f766e" stroke-width="2.2"/>
+  <polyline points="${parPts.join(' ')}" fill="none" stroke="#d97706" stroke-width="2.2"/>
+  <path d="M186 218 L300 180" stroke="#16a34a" stroke-width="3.4" fill="none"/>
+  <polyline points="${envPts.join(' ')}" fill="none" stroke="#16a34a" stroke-width="3.4"/>
+  <path d="M480 120 L624 72" stroke="#16a34a" stroke-width="3.4" fill="none"/>
+  <circle cx="300" cy="180" r="3.6" fill="#16a34a"/>
+  <circle cx="480" cy="120" r="3.6" fill="#16a34a"/>
+  <circle cx="240" cy="200" r="3.2" fill="#dc2626"/>
+  <circle cx="360" cy="200" r="3.2" fill="#dc2626"/>
+  <circle cx="540" cy="100" r="3.2" fill="#dc2626"/>
+  <g fill="currentColor" font-size="11">
+    <text x="540" y="48" text-anchor="start">y = x²</text>
+    <text x="596" y="116" text-anchor="start">y = x + 2</text>
+    <text x="180" y="232" text-anchor="middle">−3</text>
+    <text x="300" y="232" text-anchor="middle">−1</text>
+    <text x="352" y="232" text-anchor="end">0</text>
+    <text x="420" y="232" text-anchor="middle">1</text>
+    <text x="480" y="232" text-anchor="middle">2</text>
+    <text x="540" y="232" text-anchor="middle">3</text>
+    <text x="352" y="104" text-anchor="end">5</text>
+    <text x="352" y="216" text-anchor="end">−1</text>
+  </g>
+  <g fill="currentColor" font-size="11" opacity="0.85" text-anchor="middle">
+    <text x="360" y="262">witnesses: f(−2) = 0 · f(0) = 0 · f(3) = 5 — each by its owning rule</text>
+    <text x="360" y="285">the envelope hugs the line, dips into the bowl, returns to the line</text>
+  </g>
+</svg>`
+}
+
+function modulusWrapsSvg(): string {
+  const C = [105, 285, 465, 645]
+  const m = (t: number): number => (t - 1) * (t - 3)
+  const p1: string[] = []
+  for (let t = 0; t <= 4.001; t += 0.25) p1.push(`${(C[0] - 28 + 14 * t).toFixed(1)} ${(150 - 16 * m(t)).toFixed(1)}`)
+  const p2: string[] = []
+  for (let t = 0; t <= 4.001; t += 0.25) p2.push(`${(C[1] - 28 + 14 * t).toFixed(1)} ${(150 - 16 * Math.abs(m(t))).toFixed(1)}`)
+  const p3: string[] = []
+  for (let s = -4; s <= 4.001; s += 0.25) p3.push(`${(C[2] + 14 * s).toFixed(1)} ${(150 - 16 * m(Math.abs(s))).toFixed(1)}`)
+  const p4u1: string[] = []
+  const p4l1: string[] = []
+  for (let t = 0; t <= 1.001; t += 0.125) {
+    p4u1.push(`${(C[3] - 28 + 14 * t).toFixed(1)} ${(150 - 12 * m(t)).toFixed(1)}`)
+    p4l1.push(`${(C[3] - 28 + 14 * t).toFixed(1)} ${(150 + 12 * m(t)).toFixed(1)}`)
+  }
+  const p4u2: string[] = []
+  const p4l2: string[] = []
+  for (let t = 3; t <= 4.001; t += 0.125) {
+    p4u2.push(`${(C[3] - 28 + 14 * t).toFixed(1)} ${(150 - 12 * m(t)).toFixed(1)}`)
+    p4l2.push(`${(C[3] - 28 + 14 * t).toFixed(1)} ${(150 + 12 * m(t)).toFixed(1)}`)
+  }
+  return `<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four small panels showing the modulus family wraps on m of x equals x minus one times x minus three: the parent parabola with its notch at minus one, the absolute value with the notch reflected up, m of absolute x with the mirrored right half, and the absolute y relation with split seats">
+  <g fill="currentColor" font-size="11.5" font-weight="700" text-anchor="middle">
+    <text x="${C[0]}" y="24">y = m(x)</text>
+    <text x="${C[1]}" y="24">y = |m(x)|</text>
+    <text x="${C[2]}" y="24">y = m(|x|)</text>
+    <text x="635" y="24">|y| = m(x)</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.8" opacity="0.6">
+    <path d="M${C[0] - 40} 150H${C[0] + 45} M${C[0] - 28} 85V190"/>
+    <path d="M${C[1] - 40} 150H${C[1] + 45} M${C[1] - 28} 85V190"/>
+    <path d="M${C[2] - 40} 150H${C[2] + 45} M${C[2]} 85V190"/>
+    <path d="M${C[3] - 40} 150H${C[3] + 45} M${C[3] - 28} 85V190"/>
+  </g>
+  <polyline points="${p1.join(' ')}" fill="none" stroke="#d97706" stroke-width="2.2"/>
+  <circle cx="${C[0] - 14}" cy="150" r="3" fill="#dc2626"/>
+  <circle cx="${C[0] + 14}" cy="150" r="3" fill="#dc2626"/>
+  <circle cx="${C[0]}" cy="166" r="3" fill="#dc2626"/>
+  <polyline points="${p2.join(' ')}" fill="none" stroke="#16a34a" stroke-width="2.2"/>
+  <path d="M${C[1] - 14} 150 L${C[1]} 166 L${C[1] + 14} 150" fill="none" stroke="#d97706" stroke-width="1" stroke-dasharray="4 3" opacity="0.7"/>
+  <circle cx="${C[1]}" cy="134" r="3" fill="#dc2626"/>
+  <polyline points="${p3.join(' ')}" fill="none" stroke="#0f766e" stroke-width="2.2"/>
+  <circle cx="${C[2] - 28}" cy="166" r="3" fill="#dc2626"/>
+  <circle cx="${C[2] + 28}" cy="166" r="3" fill="#dc2626"/>
+  <polyline points="${p4u1.join(' ')}" fill="none" stroke="#ea580c" stroke-width="2.2"/>
+  <polyline points="${p4l1.join(' ')}" fill="none" stroke="#ea580c" stroke-width="2.2"/>
+  <polyline points="${p4u2.join(' ')}" fill="none" stroke="#ea580c" stroke-width="2.2"/>
+  <polyline points="${p4l2.join(' ')}" fill="none" stroke="#ea580c" stroke-width="2.2"/>
+  <circle cx="${C[3] - 28}" cy="114" r="3" fill="#dc2626"/>
+  <circle cx="${C[3] - 28}" cy="186" r="3" fill="#dc2626"/>
+  <g fill="currentColor" font-size="10.5" opacity="0.85" text-anchor="middle">
+    <text x="${C[0]}" y="210">parent: zeros at 1, 3 — notch −1 at 2</text>
+    <text x="${C[1]}" y="210">the dip −1 reflects UP to +1</text>
+    <text x="${C[2]}" y="210">right half mirrored — even by build</text>
+    <text x="635" y="210">seats split — NOT a machine</text>
+    <text x="360" y="240" font-size="11">one parent, m(x) = (x−1)(x−3) on [0, 4], read four ways</text>
   </g>
 </svg>`
 }
@@ -1562,9 +1855,20 @@ const lesson15: Lesson = {
       'The general craft: set the inside equal to zero, order the roots, test one point in each gap for the sign, and write one rule per gap. Nothing else is involved.',
     ] },
 
+    { kind: 'figure', caption: 'The fare machine of the piecewise example, drawn. Three rules own three intervals: every ride up to 2 km sits on the Rs 30 flat (the solid dot at t = 2 — the ≤ branch owns the seat, with the open dot above it showing the 45-rule waiting), rides from 2 to 5 km on the Rs 45 flat, and beyond 5 km climbs the ray 45 + 12(t − 5), witness F(8) = 81. The switch at t = 2 JUMPS (30 → 45); the switch at t = 5 GLIDES (both rules print 45). One interval, one rule: that is what makes the picture a function.', svg: fareStepsSvg() },
+
     { kind: 'heading', text: 'The Modulus: One Machine, Two Faces' },
     { kind: 'callout', tone: 'insight', title: 'Size and sign can be separated — that is the zoo’s organizing idea', text: 'Every real number x carries two independent quantities: its SIZE $|x|$ and its SIGN. The modulus erases the sign and keeps the size; the signum (next section) keeps the sign and erases the size. Their product rebuilds the number: $|x| \\cdot \\mathrm{sgn}(x) = x$. Many hard identities in later chapters are just this separation, worn by a formula.' },
-    { kind: 'para', text: 'The modulus obeys a short law shelf worth pinning: $|ab| = |a|\\,|b|$ (size multiplies cleanly); $|a|^2 = a^2$ (squaring already kills the sign, so a square root of a square returns the modulus — the identical-functions example); $|a - b|$ is the DISTANCE between $a$ and $b$ on the number line, which is why equations like $|x - 3| = 5$ read "all seats at distance 5 from 3" — $x = 8$ and $x = -2$. And the 1.2 verdict re-read: the modulus is MANY-ONE, since $|-3| = |3| = 6$ — its V-graph double-covers every range seat except 0.' },
+    { kind: 'para', text: 'The modulus obeys a short law shelf worth pinning: $|ab| = |a|\\,|b|$ (size multiplies cleanly); $|a|^2 = a^2$ (squaring already kills the sign, so a square root of a square returns the modulus — the identical-functions example); $|a - b|$ is the DISTANCE between $a$ and $b$ on the number line, which is why equations like $|x - 3| = 5$ read "all seats at distance 5 from 3" — $x = 8$ and $x = -2$. And the 1.2 verdict re-read: the modulus is MANY-ONE, since $|-3| = |3| = 3$ — its V-graph double-covers every range seat except 0.' },
+
+    { kind: 'figure', caption: 'The modulus in its two dresses. Left: the V of y = |x| — two straight branches meeting at the origin; the pair −3 and 3 both print 3 (the dashed tie), which is the many-one verdict of lesson 1.2 seen on the graph. Right: the distance machine y = |x − 3| — the same V with its vertex slid to the seat x = 3; the equation |x − 3| = 5 reads as “all seats at distance 5 from 3”, and the dashed height-5 line meets the V exactly at x = 8 and x = −2, the two solutions of the example below. One graph, two readings: size without sign.', svg: modulusFacesSvg() },
+    { kind: 'example', title: 'Solve |x − 3| = 5 by the distance reading, and the inequality |2x − 1| < 3 by the band reading', steps: [
+      'The equation is a distance statement: $|x - 3| = 5$ names every seat at distance 5 from 3 on the number line. Walk 5 both ways from 3: $x = 3 + 5 = 8$ and $x = 3 - 5 = -2$ — exactly the two seats where the height-5 line of the figure meets the shifted V.',
+      'Check each against the machine: $|8 - 3| = |5| = 5$ ✓ and $|-2 - 3| = |-5| = 5$ ✓ — both seats balance, and no others do: the distance reading is exhaustive.',
+      'The inequality is a BAND statement: $|2x - 1| < 3$ says the inside $2x - 1$ lives strictly within distance 3 of the number 0 — the double inequality $-3 < 2x - 1 < 3$.',
+      'Open the band at both ends: add 1 throughout, $-2 < 2x < 4$; halve, $-1 < x < 2$. The strict sign keeps both ends OPEN — the seat $x = -1$ (inside exactly $-3$) and the seat $x = 2$ (inside exactly 3) are refused.',
+      'The craft to keep: a modulus EQUATION reads as two distances from the centre; a modulus INEQUALITY reads as one band around 0 — and the band ends inherit the strictness of the sign.',
+    ] },
 
     { kind: 'heading', text: 'Signum: the Sign Machine' },
     { kind: 'callout', tone: 'definition', title: 'Signum function', text: 'The signum of x is sgn(x) = { 1, x > 0; 0, x = 0; −1, x < 0 } — equivalently sgn(x) = |x|/x for x ≠ 0 and sgn(0) = 0. Domain ℝ, range {−1, 0, 1}: the machine reports only which HALF of the line the input lives on (and the origin seat, reported as 0).' },
@@ -1575,6 +1879,8 @@ const lesson15: Lesson = {
       'Hence $\\mathrm{sgn}(x^2 - 2x + 3) = 1$ for ALL $x$: the composite has collapsed to the constant machine — the range is the single seat $\\{1\\}$.',
       'The lesson of the pair: sgn of an expression asks ONE question — what is the SIGN of the inside? — and a machine whose inside never changes sign collapses to a constant.',
     ] },
+
+    { kind: 'figure', caption: 'The sign machine drawn. Left: the graph of sgn — two flat rays at heights 1 and −1, each starting with an OPEN dot at the axis (the seat x = 0 belongs to neither ray) plus the lone SOLID dot at (0, 0): the whole range is the three seats {−1, 0, 1}, and the machine reports only which half of the line the input lives on, never the size. Right: the reconstruction law as a picture — y = |x|·sgn(x) re-runs the identity line, because size times sign gives back the number: at −2 the factors are 2 and −1, at 2 they are 2 and 1, and both products land on the line y = x (the same law written x·sgn(x) = |x| hands the V instead — the equation block above). Separate the two quantities at the door and every sgn identity becomes a case-check, never a computation.', svg: signumStepsSvg() },
 
     { kind: 'heading', text: 'The Greatest Integer Function' },
     { kind: 'para', text: 'Every real number carries an integral part and a fractional part: $1.23 = 1 + 0.23$, and $-1.76 = -2 + 0.34$ — note that the fractional part STAYS positive even for negative numbers, because $-1.76$ sits between the integers $-2$ and $-1$, and its integral part is the LEFT one. To find the integral part of $x$, stand on $x$ on the number line and look LEFT: the first integer you see is the answer. That integer is the GREATEST among all integers less than or equal to $x$ — hence the name.' },
@@ -1619,6 +1925,8 @@ const lesson15: Lesson = {
       'The solution set is $\\{0, 3/2\\}$ — found by pinning the bracket to the integers its interval allows, then rebuilding x.',
     ] },
 
+    { kind: 'figure', caption: 'The fractional part on its own axes. Each tooth climbs from 0 toward 1 over one unit and hands the height back: {0.6} = 0.6 reads off the climb made inside [0, 1), {−0.6} = 0.4 off the climb already made inside [−1, 0) — and the two climbs are complementary, 0.6 + 0.4 = 1, the pair law of the derivation above. The solid dot at each tooth’s left end says the integer belongs to the NEXT climb at height 0; the open dot at the right end says height 1 is approached forever and never reached. One brace spans a whole tooth: period 1 — after every unit the graph is a rerun, which is why every composite built on {x} will carry period 1 into the census of lesson 1.8.', svg: sawtoothWitnessSvg() },
+
     { kind: 'heading', text: 'Max and Min Machines' },
     { kind: 'para', text: 'A last zoo resident with a craft all its own: $f(x) = \\max\\{g(x), h(x)\\}$ — at each input, whichever of the two graphs sits HIGHER wins the value. The graph of a max machine is the UPPER ENVELOPE of the two curves; a min machine is the lower envelope. To open one piecewise, find where the curves CROSS (solve $g = h$), test one point between crossings to see which curve is up, and write one rule per band. The envelope idea returns as the standard picture for $|x| = \\max\\{x, -x\\}$ — even the modulus is a max machine in costume.' },
     { kind: 'example', title: 'Open f(x) = min{x², x + 2} piecewise and evaluate at x = −2, 0, 3', steps: [
@@ -1627,6 +1935,8 @@ const lesson15: Lesson = {
       'Hence $f(x) = \\{x + 2,\\ x < -1;\\ x^2,\\ -1 \\leq x \\leq 2;\\ x + 2,\\ x > 2\\}$ — the lower envelope hugs the line, dips into the parabola’s bowl, and returns to the line.',
       'Evaluate: $f(-2) = 0$, $f(0) = 0$, $f(3) = 5$ — each by its owning rule.',
     ] },
+    { kind: 'figure', caption: 'The max/min craft drawn on the worked example. The amber parabola x² and the teal line x + 2 cross at x = −1 and x = 2; between the crossings the parabola sits LOWER, outside them the line does — and the thick green curve is f(x) = min{x², x + 2}, the LOWER ENVELOPE: it hugs the line, dips into the bowl between the crossings, and climbs back onto the line. The witnesses read off the owning rule: f(−2) = 0 and f(0) = 0 come from the parabola’s bowl, f(3) = 5 from the line. Ask for max{x², x + 2} instead and the same picture answers with the UPPER envelope — the two arcs the green curve leaves unclaimed.', svg: envelopeCurvesSvg() },
+
     { kind: 'callout', tone: 'insight', title: 'The zoo is the vocabulary of everything that follows', text: 'Graph transformations (lesson 1.7) will drag these parent graphs around the plane; the period census (1.8) will read the sawtooth’s period-1 discipline off every composite; continuity will locate exactly where the staircase jumps; and integration will measure areas under these same curves. Every one of those chapters opens by asking: which catalog machine is this, and what is already known about it? The catalog is not a section to skim — it is the shelf the rest of the book draws from.' },
 
     { kind: 'quiz', title: 'Check yourself', items: [
@@ -2256,6 +2566,8 @@ const lesson17: Lesson = {
     ] },
     { kind: 'callout', tone: 'insight', title: 'Why the family is pure transformation logic', text: 'Nothing new was computed in the walk above: each wrap was ONE move (drop 3, lift the negatives, drop 2, lift the negatives) applied to a picture already drawn. The modulus family teaches the deepest habit of this whole lesson — big formulas decompose into small moves, and the moves apply OUTSIDE-IN as written: $|\\,|x| − 3\\,| − 2|$ wraps the INSIDE first ($|x|$), then walks outward ($−3$, then $|\\cdot|$, then $−2$, then $|\\cdot|$). Read formulas from the inside out and draw as you read.' },
 
+    { kind: 'figure', caption: 'The modulus family on one parent, m(x) = (x−1)(x−3) — the machine of the worked example above. Panel 1: the parent, zeros at 1 and 3, the notch −1 at x = 2. Panel 2: y = |m| — the notch reflects UP to +1; the seats at height 3 (x = 0 and x = 4) never move, because |m| agrees with m wherever m ≥ 0. Panel 3: y = m(|x|) — the parent’s right half kept, the left half its y-axis mirror: zeros at ±1 and ±3, the mirror of the notch at x = −2, an even machine by construction. Panel 4: |y| = m(x) — meaningful only where m ≥ 0, and there every seat SPLITS into the pair y = ±m(x): a relation, not a machine (the 1.2 vertical probe fails twice on [0, 1]). Read the wraps outside-in and draw as you read.', svg: modulusWrapsSvg() },
+
     { kind: 'heading', text: 'The GIF Graph: y = [f(x)] by the Band Method' },
     { kind: 'callout', tone: 'definition', title: 'The band method', text: 'To draw $y = [f(x)]$ from a known graph of $y = f(x)$: draw the horizontal lines $y = n$ at every integer level the machine reaches. Between two consecutive crossings of these levels, $f(x)$ rides strictly inside one band $[n, n+1)$ — so $[f(x)] = n$ there, a CONSTANT rung. At each crossing the staircase DROPS one rung (f enters the band below); at a seat where $f$ hits the level $n$ exactly, the rung $n$ owns that seat (closed); on the side f has just left, the rung is open.' },
     { kind: 'derivation', title: 'Why the rung is constant between crossings', statement: 'If $n \\leq f(x) < n+1$ for every x of an interval, then $[f(x)] = n$ throughout that interval — the staircase is flat there.', steps: [
@@ -2264,14 +2576,14 @@ const lesson17: Lesson = {
       { label: 'Locate the bands on the graph', formula: 'f(x) = n \\text{ (a level crossing)} \\Rightarrow \\text{the band boundary}', explanation: 'the machine can change bands only by CROSSING a level line $y = n$ — a machine that moves without jumps (the 1.2 continuity note, still unnamed) cannot leave a band without passing its edge, so between crossings the rung cannot change.' },
       { label: 'Conclude', formula: '\\text{crossings at } x_1 < x_2 \\Rightarrow [f] \\text{ is one rung on } (x_1, x_2)', explanation: 'the staircase drops exactly at the crossings; the seats of crossing keep the UPPER band (f hits the level exactly, so the seat belongs to $[\\,n\\,]$ where $n$ is the value reached); the staircase graph is a union of half-open rungs.' },
     ], result: 'Between consecutive integer-level crossings the GIF-of-f graph is a flat rung $y = n$; at each crossing it drops; the hitting seat is included (closed), the leaving side is open.' },
-    { kind: 'example', title: 'Draw y = [4 − x²] on [−2, 2] — the full staircase with its seven special seats', steps: [
+    { kind: 'example', title: 'Draw the GIF staircase y = [4 − x²] on [−2, 2] — the greatest integer graph with its seven special seats', steps: [
       'The parent: a dome from $(\\pm 2, 0)$ to the apex $(0, 4)$, heights riding $0 \\leq f \\leq 4$ — so the staircase can only use the rungs $4, 3, 2, 1, 0$.',
       'The top rung is LONE: $[f] = 4$ needs $3 \\leq 4 − x^2 < 4$, i.e. $0 < x^2 \\leq 1$ — and the seat $x = 0$ alone reaches $[4] = 4$ (the apex dot); every other seat of $0 < |x| \\leq 1$ prints 3.',
       'Rung 3 owns $[−1, 1]$ MINUS the seat 0: at $|x| = 1$ the height is exactly 3, so those two seats are CLOSED; at $x = 0$ the rung has its hole (that seat prints 4).',
       'Rung 2 owns $1 < |x| \\leq \\sqrt{2}$ (open at the 1-side, closed at $\\sqrt 2$ where $f = 2$ exactly); rung 1 owns $\\sqrt{2} < |x| \\leq \\sqrt{3}$; rung 0 owns $\\sqrt{3} < |x| \\leq 2$, closed at the endpoints $\\pm 2$ where $f = 0$ exactly.',
       'The break discipline, verified to a thousandth: at $|x| = 1$ the left seat prints 3 and the right prints 2 ($0.999 \\to 3$, $1.001 \\to 2$); at $|x| = \\sqrt{2}$: $2 \\to 1$; at $|x| = \\sqrt{3}$: $1 \\to 0$. Every crossing drops one rung, exactly as the derivation promised — the figure draws the whole staircase with its open and closed dots.',
     ] },
-    { kind: 'figure', caption: 'The band staircase for $y = [4 - x^2]$ on $[-2, 2]$. The teal dome is the parent $f(x) = 4 − x²$ from height 0 at $x = \\pm 2$ to the apex 4. The orange staircase is $[f]$: the lone 4-seat at the apex (the single green dot — only $x = 0$ ever reaches height 4, so only that seat prints 4); rung 3 spans $(-1, 1)$ with a HOLE at the centre seat and closed ends at $x = \\pm 1$; the rungs 2, 1, 0 lie on ever-wider bands with their closed ends at $\\pm\\sqrt{2}, \\pm\\sqrt{3}, \\pm 2$. The dashed amber guides drop from each integer-level crossing to the x-axis — the crossing seats are exactly where the staircase drops.', svg: gifStaircaseSvg() },
+    { kind: 'figure', caption: 'The GIF graph — the band staircase of the greatest integer function: $y = [4 - x^2]$ on $[-2, 2]$. The teal dome is the parent $f(x) = 4 − x²$ from height 0 at $x = \\pm 2$ to the apex 4. The orange staircase is $[f]$: the lone 4-seat at the apex (the single green dot — only $x = 0$ ever reaches height 4, so only that seat prints 4); rung 3 spans $(-1, 1)$ with a HOLE at the centre seat and closed ends at $x = \\pm 1$; the rungs 2, 1, 0 lie on ever-wider bands with their closed ends at $\\pm\\sqrt{2}, \\pm\\sqrt{3}, \\pm 2$. The dashed amber guides drop from each integer-level crossing to the x-axis — the crossing seats are exactly where the staircase drops.', svg: gifStaircaseSvg() },
     { kind: 'callout', tone: 'exam', title: 'Exam corner: the staircase families the hall actually asks', text: 'The JEE-arc favourites, all exam-style (none from an official paper): draw $y = [2\\cos x]$ on a period window (the same band method on a wave — five rungs, and the jump seats land at the level crossings $\\cos x = \\frac{1}{2}, 0, -\\frac{1}{2}, -1$); count the solutions of $[x^2] = 4$ (the band $4 \\leq x^2 < 5$ gives $x \\in [-\\sqrt{5}, -2] \\cup [2, \\sqrt{5})$ — every seat of it); and the wrap-order trap: $[|f|]$ versus $|[f]|$ do NOT agree on negative stretches — the witness $t = -1.5$: $[|-1.5|] = [1.5] = 1$ but $|[{-1.5}]| = |-2| = 2$ — the multi-correct questions live exactly there.' },
     { kind: 'callout', tone: 'historical', title: 'Descartes makes the picture movable (1637)', text: 'The grammar of this lesson needed one invention before it could exist: the COORDINATE pair itself. René Descartes’ *La Géométrie* (1637, Leiden) taught Europe that a curve is not a drawn object but a NUMBER-condition — every seat $(x, y)$ answering a rule. Once a graph was a set of number-pairs, “move the picture” became ARITHMETIC on the pairs: $(x, y) \\to (x, y+3)$ is a lift, $(x, y) \\to (x/2, y)$ a squeeze, before anyone draws anything. Fermat had the same idea in manuscript a decade earlier; the two never quarrelled about it in print — the portrait had simply been waiting for its coordinate frame. Every transformation of this lesson is a Descartes sentence in disguise.' },
 

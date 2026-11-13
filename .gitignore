@@ -453,6 +453,9 @@ server.log
 !/scripts/e2e-aa-14.page.js
 !/scripts/e2e-aa-15.page.js
 !/scripts/e2e-aa-16.page.js
+# topic-depth pass (owner chat directive 2, 2026-11-13): AA 1.7 gets its own
+# e2e block (quiz keys 0/1/1/1/0; 3 figures incl. the new modulus-wraps)
+!/scripts/e2e-aa-17.page.js
 # run 94 — AA 1.8 + unit-review e2e blocks (quiz keys 1/1/2/1/0 and 1/1/0/2/0) + the lesson-view sheet builder
 !/scripts/e2e-aa-18.page.js
 !/scripts/e2e-aa-1R.page.js
@@ -473,3 +476,5 @@ server.log
 # content-completeness audit (owner chat directive 2026-11-13): the standing
 # heading-vs-content / everything-promised-is-written gate for all written lessons
 !/scripts/audit-content-completeness.ts
+# topic-depth pass: layer-2 vision sweep for the nine new/changed figures
+!/scripts/audit-topicdepth-figures.sh

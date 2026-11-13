@@ -1457,7 +1457,7 @@ function sectionN(): void {
   const l5 = chapter01.lessons[4]
   ok(l5.id === 'aa-function-zoo-modulus-signum-gif-elementary-catalog', `N: lesson 1.5 id (got ${l5.id})`)
   ok(l5.number === '1.5' && l5.title === 'The Function Zoo: Modulus, Signum, GIF and the Elementary Catalog', 'N: lesson 1.5 number/title match the plan')
-  auditLesson(l5, 'N', [1, 2, 1, 1, 0], 12, 6, 2, 4300)
+  auditLesson(l5, 'N', [1, 2, 1, 1, 0], 12, 6, 7, 4300)
   const prose5 = lessonText(l5)
   for (const needle of [
     'greatest integer',
@@ -1706,7 +1706,7 @@ function sectionP(): void {
     const l7 = chapter01.lessons[6]
     ok(l7.id === 'aa-graph-transformations-shifts-stretches-flips-gif', `P: lesson 1.7 id (got ${l7.id})`)
     ok(l7.number === '1.7' && l7.title === 'Graph Transformations: Shifts, Stretches, Flips and the GIF Graph', 'P: lesson 1.7 number/title match the plan')
-    auditLesson(l7, 'P', [0, 1, 1, 1, 0], 12, 6, 2, 4300)
+    auditLesson(l7, 'P', [0, 1, 1, 1, 0], 12, 6, 3, 4300)
     const prose7 = lessonText(l7)
     for (const needle of [
       '|x-2|',
