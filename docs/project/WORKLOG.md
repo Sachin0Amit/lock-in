@@ -6175,3 +6175,7 @@ unresearched). Chapters 1.2–1.11 + books 2–27 of mathematics.
 - Deferred: AL 6.4 'One Linear, One Quadratic' — the time rule (4.5 filled the window); RESUME_POINTER carries it as run 96's first lesson, then AL 12.1 if the window allows.
 - Docs: PROGRESS (AL 38 lessons / 175,903 words; totals hand-synced +1/+4,443/+8/+14/+5 — WORK_INVENTORY rebuild DEFERRED to the next ship: the Drive survey chain resets with the sandbox, rebuild_drive_survey.ts runs first), RESUME_POINTER (run 96 plan), SOURCE_LOG (download ledger), DETAILED_LOG.
 - Commit: this one — pushed with the payload PAT via the one-time HTTPS URL (redaction protocol).
+
+## 2026-11-13 — run 95 sync record — remote HEAD verified == a9d85d2
+
+- Content commit a9d85d2 (run 95: AL 4.5 shipped, 6.4 deferred) pushed via the payload PAT's one-time HTTPS URL with the redaction protocol; ls-remote verified remote HEAD == a9d85d2 == local HEAD; tree clean. The e2e screenshot artifact (`full`) and the splice scratch were removed after the push. WORK_INVENTORY rebuild stays deferred to run 96's ship step (rebuild_drive_survey.ts first).
