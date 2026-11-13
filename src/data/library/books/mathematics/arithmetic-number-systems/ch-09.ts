@@ -1342,13 +1342,13 @@ export const chapter09: Chapter = {
               label: 'Cancellation finishes it',
               formula: 'm + m = m \\implies (m + m) - m = m - m \\implies m = 0',
               explanation:
-                'Subtract $m$ from both sides — legal because addition in $\mathbb{Z}$ cancels (chapter 6\'s additive inverses). The conclusion is $n \\cdot 0 = 0$ for every $n$, positive or negative — exactly Brahmagupta\'s 18.33, thirteen centuries early and proved rather than proclaimed.',
+                'Subtract $m$ from both sides — legal because addition in $\\mathbb{Z}$ cancels (chapter 6\'s additive inverses). The conclusion is $n \\cdot 0 = 0$ for every $n$, positive or negative — exactly Brahmagupta\'s 18.33, thirteen centuries early and proved rather than proclaimed.',
             },
           ],
           result:
             'a · 0 = 0 for every number a: the multiplication rule of zero is a theorem of the integer laws (distributivity + cancellation). Brahmagupta\'s verse 18.33 states a consequence, and states it correctly.',
         },
-        { kind: 'para', text: 'The division rules are where the tradition overreached — honestly, and instructively. Verse 18.34 declares "**zero divided by zero is zero**", and verse 18.35 says a positive or negative divided by zero "has that [zero] as its divisor" — a fraction whose denominator is zero, which later Indian algebraists including Bhāskara II (Bījagaṇita, c. 1150) called the **khahara** and read as infinite. The modern verdict, framed by Euler in the eighteenth century, is colder: $0/0$ is **indeterminate**, and division by zero is not an operation in $\mathbb{Q}$ at all. Both verdicts are theorems, and they are worth proving — they are the same multiplication check run twice.' },
+        { kind: 'para', text: 'The division rules are where the tradition overreached — honestly, and instructively. Verse 18.34 declares "**zero divided by zero is zero**", and verse 18.35 says a positive or negative divided by zero "has that [zero] as its divisor" — a fraction whose denominator is zero, which later Indian algebraists including Bhāskara II (Bījagaṇita, c. 1150) called the **khahara** and read as infinite. The modern verdict, framed by Euler in the eighteenth century, is colder: $0/0$ is **indeterminate**, and division by zero is not an operation in $\\mathbb{Q}$ at all. Both verdicts are theorems, and they are worth proving — they are the same multiplication check run twice.' },
         {
           kind: 'derivation',
           title: 'Division by zero is impossible — a two-branch theorem',

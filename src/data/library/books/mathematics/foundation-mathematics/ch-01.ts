@@ -949,7 +949,7 @@ export const chapter01: Chapter = {
                     'Seat-by-seat comparison is exactly lexicographic (dictionary) order on the digit strings, read from the left.',
                     'Every pair of distinct equal-length strings has a leftmost differing position, so comparability holds.',
                     'Transitivity: if $A$ beats $B$ at position $p$ and $B$ beats $C$ at position $q$,',
-                    'then at the first position where $A$ and $C$ differ, careful case analysis on whether that position is above, at, or below $\min(p, q)$ shows $A$ beats $C$ — the domination bound supplies each case.',
+                    'then at the first position where $A$ and $C$ differ, careful case analysis on whether that position is above, at, or below $\\min(p, q)$ shows $A$ beats $C$ — the domination bound supplies each case.',
                     'This is the same argument by which alphabetical order is transitive, and it is why machines can sort millions of keys with a single left-to-right scan per comparison.',
                   ],
                 },

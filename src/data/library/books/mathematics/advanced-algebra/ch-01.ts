@@ -1228,7 +1228,7 @@ const lesson14: Lesson = {
       'Thus $f : \\mathbb{R} \\setminus \\{2\\} \\to \\mathbb{R} \\setminus \\{4\\}$ is bijective and $f^{-1}(x) = \\tfrac{2x + 3}{x - 4}$ on $\\mathbb{R} \\setminus \\{4\\}$.',
       'Note the swap law at work: the forbidden INPUT 2 of $f$ becomes the forbidden OUTPUT of $f^{-1}$, and the forbidden input 4 of the undo is the value $f$ never produces.',
     ] },
-    { kind: 'para', text: 'The Möbius family is worth one more minute, because its anatomy is entirely linear. Any machine $f(x) = \tfrac{px + q}{rx + s}$ composes four elementary moves — scale by $r$, shift, scale by $p$, shift — and its undo is the same four moves run backwards: $f^{-1}(x) = \tfrac{-sx + q}{rx - p}$. The invertibility condition is the determinant $ps - qr \neq 0$: when it vanishes the numerator is a multiple of the denominator and the machine is constant. Our own machine above has $p = 4, q = 3, r = 1, s = -2$: the determinant is $4 \cdot (-2) - 3 \cdot 1 = -11$, and $|-11| = 11$ is EXACTLY the constant the cross-product cleared to in the one-one proof — the algebra was counting the determinant all along.' },
+    { kind: 'para', text: 'The Möbius family is worth one more minute, because its anatomy is entirely linear. Any machine $f(x) = \\tfrac{px + q}{rx + s}$ composes four elementary moves — scale by $r$, shift, scale by $p$, shift — and its undo is the same four moves run backwards: $f^{-1}(x) = \\tfrac{-sx + q}{rx - p}$. The invertibility condition is the determinant $ps - qr \\neq 0$: when it vanishes the numerator is a multiple of the denominator and the machine is constant. Our own machine above has $p = 4, q = 3, r = 1, s = -2$: the determinant is $4 \\cdot (-2) - 3 \\cdot 1 = -11$, and $|-11| = 11$ is EXACTLY the constant the cross-product cleared to in the one-one proof — the algebra was counting the determinant all along.' },
 
     { kind: 'heading', text: 'The Branch Discipline: Restriction Restores Invertibility' },
     { kind: 'para', text: 'Lesson 1.2 ended with a promise: a many-one machine can be rescued by RESTRICTION, because domain and codomain are part of the machine’s identity. That promise is cashed here — restriction is the standard cure for the undo of anything with a fold.' },
@@ -1855,10 +1855,10 @@ const lesson16: Lesson = {
     ] },
     { kind: 'para', text: 'The table is proved, not memorized — and the proofs are one line each. Product: even × even keeps both signs, so even; even × odd = (sign-blind) × (sign-flip) = sign-flip = odd; odd × odd flips twice = even — the same arithmetic that made (−1)·(−1) = 1. Sum: even + even adds two sign-blind machines = even; odd + odd adds two sign-flips = odd; even + odd mixes and generally dies to neither (x² + x fails both tests — the witness is f(1) = 2 vs f(−1) = 0). Composition: the OUTER machine decides — if f is even, f(g(−x)) = f(g(x)) whatever g does (even kills everything downstream): cos(sin x) and sin(cos x) are BOTH even; if f is odd and g is odd, f(g(−x)) = f(−g(x)) = −f(g(x)) — odd survives the relay: sin(x³) is odd; if f is odd and g is even, the inner even freezes the sign first, so the composite is even.' },
     { kind: 'list', marker: 'roman', items: [
-      'Sums: $e \pm e = e$ and $o \pm o = o$ — like parities add to themselves; $e + o$ is neither (in general).',
-      'Products: $e \times e = e$, $e \times o = o$, $o \times o = e$ — parity multiplies like signs: even is $+1$, odd is $-1$, and the product’s “sign” is the answer.',
-      'Quotients: $f/g$ inherits exactly what $f \times g$ inherits (dividing by $g$ is multiplying by $1/g$, whose parity matches $g$ when $g$ never vanishes).',
-      'Compositions: the OUTER machine decides — $e \circ$ (anything) $= e$; $o \circ o = o$; $o \circ e = e$ (the inner even freezes the sign before the outer odd could flip).',
+      'Sums: $e \\pm e = e$ and $o \\pm o = o$ — like parities add to themselves; $e + o$ is neither (in general).',
+      'Products: $e \\times e = e$, $e \\times o = o$, $o \\times o = e$ — parity multiplies like signs: even is $+1$, odd is $-1$, and the product’s “sign” is the answer.',
+      'Quotients: $f/g$ inherits exactly what $f \\times g$ inherits (dividing by $g$ is multiplying by $1/g$, whose parity matches $g$ when $g$ never vanishes).',
+      'Compositions: the OUTER machine decides — $e \\circ$ (anything) $= e$; $o \\circ o = o$; $o \\circ e = e$ (the inner even freezes the sign before the outer odd could flip).',
     ] },
     { kind: 'example', title: 'Use the table at speed: classify x² sin x, x cos x, sin(x³), and cos(sin x)', steps: [
       'x² sin x: even × odd = ODD — verify directly: (−x)² sin(−x) = x²(−sin x) = −x² sin x ✓.',
@@ -2225,8 +2225,8 @@ const lesson17: Lesson = {
     { kind: 'para', text: 'Read the census column by column and the two theatres separate cleanly: the domain column moves ONLY for inside edits, the range column ONLY for outer edits, and the period column blinks exactly once — at $f(ax)$, the horizontal squeeze. That single blinking cell is why lesson 1.8 exists: the period census is the one transformation fact that is not simply “unchanged”.' },
 
     { kind: 'list', marker: 'roman', items: [
-      'outer edits — $y = f(x) \pm a$, $y = a\,f(x)$, $y = -f(x)$ — touch only HEIGHTS: the domain never moves, and the window of a repeat never moves.',
-      'inner edits — $y = f(x \pm a)$, $y = f(ax)$, $y = f(-x)$ — touch only SEATS: the range never moves.',
+      'outer edits — $y = f(x) \\pm a$, $y = a\,f(x)$, $y = -f(x)$ — touch only HEIGHTS: the domain never moves, and the window of a repeat never moves.',
+      'inner edits — $y = f(x \\pm a)$, $y = f(ax)$, $y = f(-x)$ — touch only SEATS: the range never moves.',
       'the single exception that spans both theatres is $y = f(ax)$ on a repeating machine: seats divide, so the period divides — the one blinking cell of the census, and the door lesson 1.8 opens.',
     ] },
 

@@ -1587,7 +1587,7 @@ export const chapter03: Chapter = {
           kind: 'callout',
           tone: 'exam',
           title: 'Where examinations use this',
-          text: 'Competitive-exam papers (CAT/IPMAT and state-level tests; Khattar QA\u2019s ch. 1 base-system scope) ask exactly three shapes: add or subtract in a given base ($24_5 + 13_5$), multiply short names ($45_{12} \\times 3_{12}$), and convert directly between two non-decimal bases — where the in-base division cascade of Illustration 4 is the intended method and the base-ten bridge the time-costing fallback. The classic trap is the digit-band veto in reverse: an answer containing a digit $\ge b$ (a "9" in a base-eight sum) is wrong before any arithmetic is checked. Marking schemes reward the add-back certification; the cast-out-$(b-1)$ check catches slips when time is short.',
+          text: 'Competitive-exam papers (CAT/IPMAT and state-level tests; Khattar QA\u2019s ch. 1 base-system scope) ask exactly three shapes: add or subtract in a given base ($24_5 + 13_5$), multiply short names ($45_{12} \\times 3_{12}$), and convert directly between two non-decimal bases — where the in-base division cascade of Illustration 4 is the intended method and the base-ten bridge the time-costing fallback. The classic trap is the digit-band veto in reverse: an answer containing a digit $\\ge b$ (a "9" in a base-eight sum) is wrong before any arithmetic is checked. Marking schemes reward the add-back certification; the cast-out-$(b-1)$ check catches slips when time is short.',
         },
         {
           kind: 'terms',

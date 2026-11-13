@@ -1484,13 +1484,13 @@ export const chapter08: Chapter = {
             },
             {
               label: 'Contradiction',
-              formula: 'x \\in \\mathbb{Q} \quad \text{(against the hypothesis)}',
+              formula: 'x \\in \\mathbb{Q} \\quad \\text{(against the hypothesis)}',
               explanation:
                 'The irrational $x$ stands exposed as a rational difference. The assumption self-destructs — exactly the shape of the $\\sqrt{2}$ wall of 8.1, now run on an arbitrary $x$.',
             },
             {
               label: 'Collect subtraction too',
-              formula: 'x - q = x + (-q), \quad -q \\in \\mathbb{Q}',
+              formula: 'x - q = x + (-q), \\quad -q \\in \\mathbb{Q}',
               explanation:
                 'Hence $x + q \\notin \\mathbb{Q}$, and subtraction needs no new argument: subtracting a rational is adding its negative, and the negative of a rational is rational.',
             },
@@ -1517,13 +1517,13 @@ export const chapter08: Chapter = {
             },
             {
               label: 'The two division variants',
-              formula: 'x \\div q = x \\cdot \\tfrac{1}{q}; \qquad \\tfrac{r}{x} = s \\Rightarrow x = r \\div s',
+              formula: 'x \\div q = x \\cdot \\tfrac{1}{q}; \\qquad \\tfrac{r}{x} = s \\Rightarrow x = r \\div s',
               explanation:
                 'Hence $qx \\notin \\mathbb{Q}$. Dividing $x$ by $q$ is scaling by the rational $\\tfrac{1}{q}$ — same theorem. And if $\\tfrac{r}{x}$ (rational over irrational, $x \\ne 0$) were rational, then $x = r \\div \\tfrac{r}{x}$ would be a quotient of rationals — rational. Contradiction again.',
             },
             {
               label: 'The one exception',
-              formula: 'q = 0: \quad qx = 0 \\in \\mathbb{Q}',
+              formula: 'q = 0: \\quad qx = 0 \\in \\mathbb{Q}',
               explanation:
                 'Zero is the only rational that cannot divide, so the guard $q \\ne 0$ is not decoration — it is the whole boundary. Zero times anything is zero, the one rational that every irrational can reach.',
             },
@@ -1658,7 +1658,7 @@ export const chapter08: Chapter = {
             },
             {
               label: 'Why the guard matters',
-              formula: 'a^2 = b \\Rightarrow \\sqrt{b} = |a|, \quad a + \\sqrt{b} \\in \\mathbb{Q}',
+              formula: 'a^2 = b \\Rightarrow \\sqrt{b} = |a|, \\quad a + \\sqrt{b} \\in \\mathbb{Q}',
               explanation:
                 'If $a^2 = b$ the "surd" denominator was rational all along (for $a = 2, b = 4$: the denominator is just 4), and the formula would divide by zero. The identity is honest exactly when the denominator was genuinely irrational.',
             },

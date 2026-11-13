@@ -109,6 +109,9 @@ server.log
 !/scripts/e2e-92.page.js
 !/scripts/e2e-93.page.js
 # exception: run-18 figure generator for lesson 4.3 (exact-geometry SVG bars + number line; historical record)
+# exception: figure-audit standing gates — escape-eaten LaTeX scanner + mechanical repair (fire 3, 2026-11-13)
+!/scripts/audit-escape-eaten-latex.py
+!/scripts/fix-escape-eaten-latex.py
 !/scripts/gen-43-figures.py
 # exception: run-19 figure generator for lesson 4.4 (exact-geometry SVG bars + number line; historical record)
 !/scripts/gen-44-figures.py

@@ -724,7 +724,7 @@ export const chapter03: Chapter = {
         { kind: 'heading', text: 'Finding the primes: the sieve of Eratosthenes' },
         {
           kind: 'para',
-          text: 'How do we list all primes below $100$ without testing each number separately? Eratosthenes of Alexandria (the chief librarian who also measured the Earth\'s circumference) saw that the composites can be retired **in bulk**. Keep $2$ — it is prime — and cross out every second number from $4$ onward: $4, 6, 8, \\ldots$, all composite in one sweep. The next surviving number is $3$: nothing smaller divides it, so it is prime; cross out its multiples — but not $6$, which is already gone: start at $3 \\times 3 = 9$. Next survivor $5$ is prime; start crossing at $5 \\times 5 = 25$, since $10, 15, 20$ were retired by $2$\'s or $3$\'s sweep. Next survivor $7$ is prime; start at $7 \\times 7 = 49$. And now the decisive step: the next survivor is $11$, but $11 \\times 11 = 121 > 100$ — there is nothing left to cross. Why? Every composite below $100$ has some prime factor $\le \\sqrt{100} = 10$, and the primes up to $10$ — $2, 3, 5, 7$ — have each done their sweep. The survivors are exactly the primes.',
+          text: 'How do we list all primes below $100$ without testing each number separately? Eratosthenes of Alexandria (the chief librarian who also measured the Earth\'s circumference) saw that the composites can be retired **in bulk**. Keep $2$ — it is prime — and cross out every second number from $4$ onward: $4, 6, 8, \\ldots$, all composite in one sweep. The next surviving number is $3$: nothing smaller divides it, so it is prime; cross out its multiples — but not $6$, which is already gone: start at $3 \\times 3 = 9$. Next survivor $5$ is prime; start crossing at $5 \\times 5 = 25$, since $10, 15, 20$ were retired by $2$\'s or $3$\'s sweep. Next survivor $7$ is prime; start at $7 \\times 7 = 49$. And now the decisive step: the next survivor is $11$, but $11 \\times 11 = 121 > 100$ — there is nothing left to cross. Why? Every composite below $100$ has some prime factor $\\le \\sqrt{100} = 10$, and the primes up to $10$ — $2, 3, 5, 7$ — have each done their sweep. The survivors are exactly the primes.',
         },
         {
           kind: 'algorithm',
@@ -785,7 +785,7 @@ export const chapter03: Chapter = {
         },
         {
           kind: 'para',
-          text: 'Watch the licence retell Lesson 3.1\'s stories. The pairs of $48$ close at $6 \\times 8$ because $\\sqrt{48}$ sits between $6$ and $7$ ($36 < 48 < 49$): every smaller member found — $1, 2, 3, 4, 6$ — is at most $6$, and the search rightly refused to look further. The mosaic maker\'s $47$ needs only $2, 3, 5$: it is odd (retiring $2$), its digit sum $11$ is not divisible by $3$, its tail is $7$ (retiring $5$), and $7$ itself lies beyond $\\sqrt{47}$ — three checks, verdict prime. And the sieve\'s mysterious stop rule is now plain: crossing may stop at $11$ because any composite $\le 100$ would have a factor at or below $\\sqrt{100} = 10$, and those workers already swept.',
+          text: 'Watch the licence retell Lesson 3.1\'s stories. The pairs of $48$ close at $6 \\times 8$ because $\\sqrt{48}$ sits between $6$ and $7$ ($36 < 48 < 49$): every smaller member found — $1, 2, 3, 4, 6$ — is at most $6$, and the search rightly refused to look further. The mosaic maker\'s $47$ needs only $2, 3, 5$: it is odd (retiring $2$), its digit sum $11$ is not divisible by $3$, its tail is $7$ (retiring $5$), and $7$ itself lies beyond $\\sqrt{47}$ — three checks, verdict prime. And the sieve\'s mysterious stop rule is now plain: crossing may stop at $11$ because any composite $\\le 100$ would have a factor at or below $\\sqrt{100} = 10$, and those workers already swept.',
         },
         {
           kind: 'example',
@@ -800,7 +800,7 @@ export const chapter03: Chapter = {
         },
         {
           kind: 'para',
-          text: 'Beware the **false primes** — odd numbers with innocent-looking digit sums that hide a factor just past the cheap screens. The classic is $91$: odd, digit sum $10$, tail $1$ — yet $91 = 7 \\times 13$, and $7 \\le \\sqrt{91}$ is exactly why the licence forces running the $7$-test. Its cousins: $51 = 3 \\times 17$ (digit sum $6$ — the $3$-screen catches this one), $87 = 3 \\times 29$, and the exam favourite $221 = 13 \\times 17$: odd, digit sum $5$, tail $1$, no help from $2, 3, 5, 7, 11$ — but $14^2 = 196 < 221 < 225 = 15^2$ forces testing $13$, and $13$ lands the blow. Meanwhile $97$, the largest two-digit prime, certifies in four moves: primes $\le 9$ are $2, 3, 5, 7$; $97$ is odd, its digit sum is $16$, its tail is $7$, and $97 = 7 \\times 13 + 6$ — four failures, prime. Eyes do not decide primality; the licence does.',
+          text: 'Beware the **false primes** — odd numbers with innocent-looking digit sums that hide a factor just past the cheap screens. The classic is $91$: odd, digit sum $10$, tail $1$ — yet $91 = 7 \\times 13$, and $7 \\le \\sqrt{91}$ is exactly why the licence forces running the $7$-test. Its cousins: $51 = 3 \\times 17$ (digit sum $6$ — the $3$-screen catches this one), $87 = 3 \\times 29$, and the exam favourite $221 = 13 \\times 17$: odd, digit sum $5$, tail $1$, no help from $2, 3, 5, 7, 11$ — but $14^2 = 196 < 221 < 225 = 15^2$ forces testing $13$, and $13$ lands the blow. Meanwhile $97$, the largest two-digit prime, certifies in four moves: primes $\\le 9$ are $2, 3, 5, 7$; $97$ is odd, its digit sum is $16$, its tail is $7$, and $97 = 7 \\times 13 + 6$ — four failures, prime. Eyes do not decide primality; the licence does.',
         },
         {
           kind: 'formula',
@@ -1115,7 +1115,7 @@ export const chapter03: Chapter = {
                     'then $n = 2 \\times (n \\div 2)$ where both factors exceed $1$, so $2$ sits strictly between $1$ and $n$ and divides it: $n$ has at least three factors and is composite.',
                     'Hence no even number above $2$ is prime, and $2$ itself is prime — the only even one.',
                     'For the second claim: the odd numbers begin $1, 3, 5, 7, 9$.',
-                    'Now $1$ is outside the treaty, and $3, 5, 7$ each have exactly two factors (nothing between $1$ and the number divides them — check by the licence: $\sqrt{7} < 3$, so only $2$ needed testing, and they are odd).',
+                    'Now $1$ is outside the treaty, and $3, 5, 7$ each have exactly two factors (nothing between $1$ and the number divides them — check by the licence: $\\sqrt{7} < 3$, so only $2$ needed testing, and they are odd).',
                     'Then $9 = 3 \\times 3$ has the three factors $\{1, 3, 9\}$ — composite, and the first odd number that is.',
                   ],
                 },
@@ -1133,7 +1133,7 @@ export const chapter03: Chapter = {
                     'Fives: $25 = 5^2$, $35 = 5 \\times 7$, $45 = 5 \\times 9$.',
                     'Threes: $21 = 3 \\times 7$, $27 = 3^3$, $33 = 3 \\times 11$, $39 = 3 \\times 13$.',
                     'Sevens: $49 = 7^2$.',
-                    'The survivors each need the licence: $\sqrt{47} < 7$, so $23, 29, 31, 37, 41, 43, 47$ need no test beyond $2, 3, 5$ — odd, digit sums $5, 11, 4, 10, 5, 7, 11$ (none divisible by $3$), and no tail of $0$ or $5$.',
+                    'The survivors each need the licence: $\\sqrt{47} < 7$, so $23, 29, 31, 37, 41, 43, 47$ need no test beyond $2, 3, 5$ — odd, digit sums $5, 11, 4, 10, 5, 7, 11$ (none divisible by $3$), and no tail of $0$ or $5$.',
                     'Seven primes, each certified, none guessed.',
                   ],
                 },
@@ -1149,7 +1149,7 @@ export const chapter03: Chapter = {
                     '$221 = 13 \\times 17$ — **hit**.',
                     'So $221$ is composite, and the trap is that it survives every cheap screen: odd, innocent digit sum, no tail, no $7$-gadget hit, no $11$ verdict.',
                     'The licence is what forces testing $13$ — and $13$ is exactly where the factor hides.',
-                    '(Its partner $17$ sits above $\sqrt{221}$: the pair straddles the root, as the licence promises.)',
+                    '(Its partner $17$ sits above $\\sqrt{221}$: the pair straddles the root, as the licence promises.)',
                   ],
                 },
               ],

@@ -2856,7 +2856,7 @@ export const chapter06: Chapter = {
           kind: 'formula',
           name: 'The area law of scale',
           latex: '\\text{drawing} : \\text{ground} = 1 : n \\;\\Longrightarrow\\; \\text{drawing area} : \\text{ground area} = 1 : n^2',
-          note: 'Areas square the factor — in both directions. Courtyard check: $500^2 = 2{,}50{,}000$. Stamp check ahead: an enlargement at $\times 5$ multiplies area by $5^2 = 25$. The law does not care which way the drawing faces.',
+          note: 'Areas square the factor — in both directions. Courtyard check: $500^2 = 2{,}50{,}000$. Stamp check ahead: an enlargement at $\\times 5$ multiplies area by $5^2 = 25$. The law does not care which way the drawing faces.',
         },
         { kind: 'heading', text: 'One law, two directions' },
         {
@@ -2891,7 +2891,7 @@ export const chapter06: Chapter = {
         {
           kind: 'figure',
           caption:
-            'One law, two directions. Left: the van and its model, both bars drawn at one common scale of $0.8$ px per real-or-model cm — so the picture\'s own ratio $288 : 12 = 24 : 1$ **is** the scale $1 : 24$: every length divides by $24$ going down and multiplies by $24$ coming back. Right: the stamp and its catalogue print at $12.5$ px per cm — the drawn ratio $250 : 50 = 5$ **is** the enlargement $\times 5$. Both panels are honest rulers, not impressions: measure the bars and the stated scales fall out. The factor $m$ of Lesson 6.4, wearing its two dresses.',
+            'One law, two directions. Left: the van and its model, both bars drawn at one common scale of $0.8$ px per real-or-model cm — so the picture\'s own ratio $288 : 12 = 24 : 1$ **is** the scale $1 : 24$: every length divides by $24$ going down and multiplies by $24$ coming back. Right: the stamp and its catalogue print at $12.5$ px per cm — the drawn ratio $250 : 50 = 5$ **is** the enlargement $\\times 5$. Both panels are honest rulers, not impressions: measure the bars and the stated scales fall out. The factor $m$ of Lesson 6.4, wearing its two dresses.',
           svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels of paired bars sharing a left baseline with dashed end guides: left, a long bar for the real van three point six metres and a short bar for its model fifteen centimetres at scale one to twenty four; right, a short bar for a four centimetre stamp and a long bar for its twenty centimetre print at five times size; each panel states its factor m">
   <g font-size="13" fill="currentColor" text-anchor="middle">
     <text x="204" y="36" font-weight="bold">the model van: 1 : 24 (reduction)</text>
@@ -3033,7 +3033,7 @@ export const chapter06: Chapter = {
             },
             {
               term: 'Enlargement',
-              def: 'A scale drawing with $m > 1$ — the bacterium\'s photograph at $50{,}000$ times, the catalogue print at $\times 5$; areas grow by $m^2$.',
+              def: 'A scale drawing with $m > 1$ — the bacterium\'s photograph at $50{,}000$ times, the catalogue print at $\\times 5$; areas grow by $m^2$.',
             },
             {
               term: 'Reduction',

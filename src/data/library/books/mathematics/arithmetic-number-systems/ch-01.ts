@@ -675,15 +675,15 @@ export const chapter01: Chapter = {
             },
             {
               term: 'Weak induction',
-              def: 'This lesson\u2019s principle: the step assumes only $P(k)$. Its stronger cousin assumes all of $P(1), \dots, P(k)$ — met in Lesson 1.3 with the least-number principle.',
+              def: 'This lesson\u2019s principle: the step assumes only $P(k)$. Its stronger cousin assumes all of $P(1), \\dots, P(k)$ — met in Lesson 1.3 with the least-number principle.',
             },
             {
               term: 'Shifted base',
-              def: 'The restarted principle: verifying $P(n_0)$ and the step proves $P(n)$ for every $n \ge n_0$. Instance: "$n \\ge 2$" is provable from the base $n_0 = 2$ — not from $n_0 = 1$.',
+              def: 'The restarted principle: verifying $P(n_0)$ and the step proves $P(n)$ for every $n \\ge n_0$. Instance: "$n \\ge 2$" is provable from the base $n_0 = 2$ — not from $n_0 = 1$.',
             },
             {
               term: 'Euler\u2019s prime-generating polynomial',
-              def: '$f(n) = n^2 + n + 41$: prime for every $n = 0, 1, \dots, 39$ (Euler, 1772), then $f(40) = 1681 = 41^2$ — the monument to "finite checks never prove a for-all".',
+              def: '$f(n) = n^2 + n + 41$: prime for every $n = 0, 1, \\dots, 39$ (Euler, 1772), then $f(40) = 1681 = 41^2$ — the monument to "finite checks never prove a for-all".',
             },
             {
               term: 'No-return lemma',

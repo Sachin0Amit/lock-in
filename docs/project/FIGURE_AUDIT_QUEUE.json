@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-13",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 24,
+  "cursor": 36,
   "stats": {
     "lessonsWithFigures": 125,
     "figureTotal": 221,
-    "done": 29,
-    "pending": 96
+    "done": 41,
+    "pending": 84
   },
   "items": [
     {
@@ -231,84 +231,108 @@
       "bookId": "foundation-mathematics",
       "chapter": 6,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-proportion-and-cross-multiplication",
       "bookId": "foundation-mathematics",
       "chapter": 6,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-direct-and-inverse-variation",
       "bookId": "foundation-mathematics",
       "chapter": 6,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-scaling-maps-models-and-recipes",
       "bookId": "foundation-mathematics",
       "chapter": 6,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-negative-numbers-why-they-exist",
       "bookId": "foundation-mathematics",
       "chapter": 7,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-adding-subtracting-integers",
       "bookId": "foundation-mathematics",
       "chapter": 7,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-multiplying-integers-sign-rules",
       "bookId": "foundation-mathematics",
       "chapter": 7,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-absolute-value-as-distance",
       "bookId": "foundation-mathematics",
       "chapter": 7,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-points-lines-and-planes",
       "bookId": "foundation-mathematics",
       "chapter": 8,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-angles-and-their-measurement",
       "bookId": "foundation-mathematics",
       "chapter": 8,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-parallel-lines-and-transversals",
       "bookId": "foundation-mathematics",
       "chapter": 8,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-triangles-and-the-angle-sum",
       "bookId": "foundation-mathematics",
       "chapter": 8,
       "figures": 3,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "fire 3 (524541, 06:40 IST): layer1 0 issues + layer1.5 CLEAN + VLM strict PASS (light; dark on first lesson); fig1 of scaling carried the library-wide escape-eaten LaTeX repair (\\times) and re-audited PASS"
     },
     {
       "lessonId": "fm-perimeter-and-area-rectangles-triangles-circles",
