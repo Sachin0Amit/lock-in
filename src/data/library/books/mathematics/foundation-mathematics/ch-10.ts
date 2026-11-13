@@ -652,6 +652,43 @@ export const chapter10: Chapter = {
                     'Hence 11 = two gates + 1 leftover — the reading rule applied mid-survey.',
                   ],
                   answer: '11 — two closed gates and one open stroke',
+                  figures: [
+                    {
+                      caption:
+                        'The live row before and after: 8 answers — one gate + three strokes — receives three walkers (strokes 9, 10, 11 in teal). The tenth stroke closes the SECOND gate; the eleventh stands alone: 2 × 5 + 1 = 11, regrouped without a single re-read.',
+                      svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A tally row before and after: one closed gate plus three strokes for 8, then three new strokes arrive making two closed gates plus one open stroke for 11">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">a live tally regroups itself — the walk row, 8 answers, takes three more</text>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="130" y1="75" x2="130" y2="115"/><line x1="142" y1="75" x2="142" y2="115"/><line x1="154" y1="75" x2="154" y2="115"/><line x1="166" y1="75" x2="166" y2="115"/>
+    <line x1="124" y1="118" x2="172" y2="72"/>
+    <line x1="200" y1="75" x2="200" y2="115"/><line x1="212" y1="75" x2="212" y2="115"/><line x1="224" y1="75" x2="224" y2="115"/>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="70" y="98" text-anchor="end">before</text>
+    <text x="258" y="98">= 5 + 3 = 8</text>
+  </g>
+  <g>
+    <path d="M380 122 L380 148" stroke="currentColor" stroke-width="1.4"/>
+    <polygon points="380,154 374,144 386,144" fill="currentColor"/>
+    <text x="398" y="132" font-size="11.5" fill="currentColor">+ three walkers arrive (strokes 9, 10, 11 — teal)</text>
+  </g>
+  <g stroke="currentColor" stroke-width="2">
+    <line x1="130" y1="170" x2="130" y2="210"/><line x1="142" y1="170" x2="142" y2="210"/><line x1="154" y1="170" x2="154" y2="210"/><line x1="166" y1="170" x2="166" y2="210"/>
+    <line x1="124" y1="213" x2="172" y2="167"/>
+    <line x1="200" y1="170" x2="200" y2="210"/><line x1="212" y1="170" x2="212" y2="210"/><line x1="224" y1="170" x2="224" y2="210"/>
+    <line x1="236" y1="170" x2="236" y2="210" stroke="#0d9488"/>
+    <line x1="194" y1="213" x2="242" y2="167" stroke="#0d9488"/>
+    <line x1="270" y1="170" x2="270" y2="210" stroke="#0d9488"/>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="70" y="193" text-anchor="end">after</text>
+    <text x="304" y="193">= 2 × 5 + 1 = 11</text>
+  </g>
+  <text x="380" y="224" font-size="11.5" fill="#0d9488" text-anchor="middle">stroke 10 closes the second gate · stroke 11 stands alone</text>
+  <text x="380" y="242" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">the row regroups mid-survey — no re-reading, no erasing: the gates do the bookkeeping</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -968,6 +1005,66 @@ export const chapter10: Chapter = {
             'Hence the pie: 120°/150°/90° — a third of the turn, five-twelfths, a quarter.',
           ],
         },
+        { kind: 'heading', text: 'The pictograph: one picture stands for many' },
+        {
+          kind: 'para',
+          text: 'The bar chart draws its numbers as heights; the **pictograph** draws them as *pictures you can count* — one repeated symbol per row, every symbol worth the same fixed number of answers, announced by the **key**. The reading law is 9.1’s count-of-units logic wearing icons: value = symbols × k + leftovers, where k is the key. The travel survey at a key of 2 draws walk’s eight answers as four walker symbols, bus’s six as three, cycle’s four as two, car’s two as one — and the check-sum law rides along: cash every symbol once and the rows rebuild N. A pictograph is slower to read than a bar chart and no more accurate — its trade is friendliness: the eye *counts* instead of measuring, and for small whole-number frequencies that is exactly the right speed.',
+        },
+        {
+          kind: 'para',
+          text: 'Two disciplines make the picture honest. First, the **half symbol**: a frequency of 5 at a key of 2 reads as 2½ symbols — one symbol drawn cut in half, worth k/2 = 1 answer. Halves are the finest honest cut: the key is chosen BEFORE drawing, so that every row lands on wholes or halves — the shoe rows 5, 8, 2 suit a key of 2 (2½, 4, 1) but refuse a key of 4 (1¼, 2, ½): a quarter symbol is no one’s convention. Second, every symbol in one chart must be the SAME size, and the key must be printed with the chart — a symbol drawn at double side-length shows four times the ink while claiming only twice the count (the “unequal pictograph square” that 10.3 will convict), and a pictograph without its key is a Rorschach test, not data.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The travel survey as a pictograph at the key “one symbol = 2 students”. Walk draws four walkers (8), bus three buses (6), cycle two cycles (4), car one car (2). Reading is counting: 4 + 3 + 2 + 1 symbols, each cashed at 2 students — (4 + 3 + 2 + 1) × 2 = 20 = N, the check-sum law wearing pictures.',
+          svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A pictograph of the travel survey with four walker symbols for walk 8, three bus symbols for bus 6, two cycle symbols for cycle 4 and one car symbol for car 2, with a key saying one symbol equals 2 students">
+  <text x="300" y="22" font-size="13" fill="currentColor" text-anchor="middle">the travel survey as a pictograph — count the symbols, cash the key</text>
+  <rect x="548" y="34" width="196" height="52" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1"/>
+  <g stroke="currentColor" stroke-width="1.7" fill="none">
+    <circle cx="580" cy="39" r="4" fill="currentColor"/><line x1="580" y1="44" x2="580" y2="54"/><line x1="574" y1="48" x2="586" y2="48"/><line x1="580" y1="54" x2="575" y2="62"/><line x1="580" y1="54" x2="585" y2="62"/>
+    <circle cx="190" cy="97" r="4.5" fill="currentColor"/><line x1="190" y1="102" x2="190" y2="113"/><line x1="184" y1="107" x2="196" y2="107"/><line x1="190" y1="113" x2="185" y2="122"/><line x1="190" y1="113" x2="195" y2="122"/>
+    <circle cx="230" cy="97" r="4.5" fill="currentColor"/><line x1="230" y1="102" x2="230" y2="113"/><line x1="224" y1="107" x2="236" y2="107"/><line x1="230" y1="113" x2="225" y2="122"/><line x1="230" y1="113" x2="235" y2="122"/>
+    <circle cx="270" cy="97" r="4.5" fill="currentColor"/><line x1="270" y1="102" x2="270" y2="113"/><line x1="264" y1="107" x2="276" y2="107"/><line x1="270" y1="113" x2="265" y2="122"/><line x1="270" y1="113" x2="275" y2="122"/>
+    <circle cx="310" cy="97" r="4.5" fill="currentColor"/><line x1="310" y1="102" x2="310" y2="113"/><line x1="304" y1="107" x2="316" y2="107"/><line x1="310" y1="113" x2="305" y2="122"/><line x1="310" y1="113" x2="315" y2="122"/>
+    <rect x="177" y="167" width="26" height="15" rx="2"/><line x1="183" y1="171" x2="183" y2="177"/><line x1="190" y1="171" x2="190" y2="177"/><line x1="197" y1="171" x2="197" y2="177"/><circle cx="183" cy="184" r="2.6"/><circle cx="197" cy="184" r="2.6"/>
+    <rect x="217" y="167" width="26" height="15" rx="2"/><line x1="223" y1="171" x2="223" y2="177"/><line x1="230" y1="171" x2="230" y2="177"/><line x1="237" y1="171" x2="237" y2="177"/><circle cx="223" cy="184" r="2.6"/><circle cx="237" cy="184" r="2.6"/>
+    <rect x="257" y="167" width="26" height="15" rx="2"/><line x1="263" y1="171" x2="263" y2="177"/><line x1="270" y1="171" x2="270" y2="177"/><line x1="277" y1="171" x2="277" y2="177"/><circle cx="263" cy="184" r="2.6"/><circle cx="277" cy="184" r="2.6"/>
+    <circle cx="182" cy="245" r="5.5"/><circle cx="198" cy="245" r="5.5"/><line x1="182" y1="245" x2="190" y2="233"/><line x1="198" y1="245" x2="190" y2="233"/><line x1="190" y1="233" x2="196" y2="230"/>
+    <circle cx="222" cy="245" r="5.5"/><circle cx="238" cy="245" r="5.5"/><line x1="222" y1="245" x2="230" y2="233"/><line x1="238" y1="245" x2="230" y2="233"/><line x1="230" y1="233" x2="236" y2="230"/>
+    <path d="M177 293 L183 285 L197 285 L203 293 L203 302 L177 302 Z"/><line x1="184" y1="289" x2="188" y2="289"/><line x1="192" y1="289" x2="196" y2="289"/><circle cx="183" cy="304" r="2.6"/><circle cx="197" cy="304" r="2.6"/>
+  </g>
+  <g font-size="12.5" fill="currentColor">
+    <text x="120" y="114" text-anchor="end">walk</text>
+    <text x="120" y="179" text-anchor="end">bus</text>
+    <text x="120" y="244" text-anchor="end">cycle</text>
+    <text x="120" y="299" text-anchor="end">car</text>
+    <text x="348" y="114">= 4 × 2 = 8</text>
+    <text x="308" y="179">= 3 × 2 = 6</text>
+    <text x="268" y="244">= 2 × 2 = 4</text>
+    <text x="228" y="299">= 1 × 2 = 2</text>
+  </g>
+  <text x="600" y="56" font-size="11" fill="currentColor">the key: one symbol</text>
+  <text x="600" y="72" font-size="11" fill="currentColor">= 2 students</text>
+  <text x="560" y="308" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">(4 + 3 + 2 + 1) × 2 = 20 = N ✓</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Draw the shoe table (sizes 4: 5 students, 5: 8, 6: 2) as a pictograph with the key “one shoe = 2 students”, and read it back.',
+          steps: [
+            'Now, choose the key before drawing: the rows 5, 8 and 2 must land on wholes or halves — at $k = 2$ they read $2.5$, $4$ and $1$, so the key suits; at $k = 4$ the first row would need a quarter symbol, and no key asks for that.',
+            'So the drawing: size 4 gets two full shoes and one HALF shoe; size 5 gets four full shoes; size 6 gets one full shoe.',
+            'And reading back: 2.5 × 2 = 5, 4 × 2 = 8, 1 × 2 = 2 — the rows rebuild the fifteen, and the half shoe carries exactly one student.',
+            'Hence the pictograph certifies itself the way the table does: every shoe cashed once, none double-counted — the check-sum law, wearing pictures.',
+          ],
+        },
+        {
+          kind: 'callout',
+          tone: 'warn',
+          title: 'Caution — the unequal symbol',
+          text: 'Every symbol in one chart must be drawn the SAME size. Doubling a symbol’s side-length shows four times the ink while claiming only twice the count — the “unequal pictograph square” that 10.3 will convict on sight. And the key is not optional ink: strip it and the reader cannot know whether a row of four symbols means 4 answers, 8, or 40. A pictograph is a frequency table wearing icons — and the key is its frequency column.',
+        },
         { kind: 'heading', text: 'Which graph for which data' },
         {
           kind: 'table',
@@ -1229,6 +1326,55 @@ export const chapter10: Chapter = {
                     'Hence the table: +3/+5/+2/+7/+3, summing to the 20 cm total.',
                   ],
                   answer: '+3, +5, +2, +7, +3 cm — summing to 20 = 28 − 8 ✓',
+                  figures: [
+                    {
+                      caption:
+                        'The sapling’s climb as stair-steps: six measured platforms (8, 11, 16, 18, 25, 28 cm on days 0–10), each riser one change — +3, +5, +2, +7, +3. The five risers stack the whole climb: 3 + 5 + 2 + 7 + 3 = 20 = 28 − 8 — the check-sum idea, wearing slopes.',
+                      svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A staircase of six platforms at heights 8, 11, 16, 18, 25 and 28 centimetres with the five risers labelled plus 3, plus 5, plus 2, plus 7, plus 3, and a brace showing they rebuild the 20-centimetre total">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the sapling’s climb as stair-steps — each riser is a change, the flight is the total</text>
+  <g fill="currentColor" opacity="0.1">
+    <rect x="70" y="202" width="102" height="48"/>
+    <rect x="172" y="184" width="102" height="66"/>
+    <rect x="274" y="154" width="102" height="96"/>
+    <rect x="376" y="142" width="102" height="108"/>
+    <rect x="478" y="100" width="102" height="150"/>
+    <rect x="580" y="82" width="102" height="168"/>
+  </g>
+  <path d="M70 250 L70 202 L172 202 L172 184 L274 184 L274 154 L376 154 L376 142 L478 142 L478 100 L580 100 L580 82 L682 82 L682 250" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="121" y="194">8</text>
+    <text x="223" y="176">11</text>
+    <text x="325" y="146">16</text>
+    <text x="427" y="134">18</text>
+    <text x="529" y="92">25</text>
+    <text x="631" y="74">28</text>
+    <text x="121" y="270">day 0</text>
+    <text x="223" y="270">day 2</text>
+    <text x="325" y="270">day 4</text>
+    <text x="427" y="270">day 6</text>
+    <text x="529" y="270">day 8</text>
+    <text x="631" y="270">day 10</text>
+  </g>
+  <g font-size="11.5" fill="currentColor" text-anchor="middle">
+    <text x="121" y="128">+3</text>
+    <text x="223" y="128">+5</text>
+    <text x="325" y="128">+2</text>
+    <text x="427" y="128">+7</text>
+    <text x="529" y="128">+3</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1" fill="none">
+    <path d="M106 118 L106 108 L136 108 L136 118"/>
+    <path d="M208 118 L208 108 L238 108 L238 118"/>
+    <path d="M310 118 L310 108 L340 108 L340 118"/>
+    <path d="M412 118 L412 108 L442 108 L442 118"/>
+    <path d="M514 118 L514 108 L544 108 L544 118"/>
+  </g>
+  <path d="M70 62 L682 62" stroke="currentColor" stroke-width="0.9" stroke-dasharray="4 3"/>
+  <text x="376" y="54" font-size="12" fill="currentColor" text-anchor="middle">the five risers rebuild the whole climb: 3 + 5 + 2 + 7 + 3 = 20 = 28 − 8</text>
+  <text x="376" y="292" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">1 cm = 6 px throughout — equal scale, honest risers</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1254,6 +1400,36 @@ export const chapter10: Chapter = {
                     'Hence: slices compare shares within one whole; across different wholes, read the totals first — a pie never volunteers its size.',
                   ],
                   answer: 'Same angle (180°), same share (50%), different answers (10 vs 50) — a pie shows shares, never sizes',
+                  figures: [
+                    {
+                      caption:
+                        'Two pies, two wholes, one slice. Both halves own the same half-turn — 180°, a 50% share — but the left class holds 20 answers (the half is 10 students) and the right holds 100 (the half is 50). The drawing cannot tell you which is which: a pie never volunteers its size — read the printed totals first.',
+                      svg: `<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two identical half pies side by side, each with a 180-degree half shaded, labelled class of 20 where the half is 10 students and class of 100 where the half is 50 students">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the same slice on two different wholes — an angle says nothing about a crowd’s size</text>
+  <g>
+    <path d="M210 60 A90 90 0 0 1 210 240 L210 150 Z" fill="#0d9488" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M210 60 A90 90 0 0 0 210 240 L210 150 Z" fill="#fcd34d" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="210" y1="60" x2="210" y2="240" stroke="currentColor" stroke-width="1.4"/>
+    <text x="150" y="118" font-size="12" fill="currentColor" text-anchor="middle">the half:</text>
+    <text x="150" y="136" font-size="12" fill="currentColor" text-anchor="middle">180° = 50%</text>
+  </g>
+  <g>
+    <path d="M550 60 A90 90 0 0 1 550 240 L550 150 Z" fill="#0d9488" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M550 60 A90 90 0 0 0 550 240 L550 150 Z" fill="#fcd34d" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="550" y1="60" x2="550" y2="240" stroke="currentColor" stroke-width="1.4"/>
+    <text x="612" y="118" font-size="12" fill="currentColor" text-anchor="middle">the same half:</text>
+    <text x="612" y="136" font-size="12" fill="currentColor" text-anchor="middle">180° = 50%</text>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="210" y="262">class of 20 → the half is 10 students</text>
+    <text x="550" y="262">class of 100 → the half is 50 students</text>
+  </g>
+  <text x="380" y="118" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">same angle</text>
+  <text x="380" y="136" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">same share</text>
+  <text x="380" y="154" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">very different crowds</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -1782,6 +1958,55 @@ export const chapter10: Chapter = {
                     'Hence: rankings travel; pixels do not \u2014 cross-chart comparisons must return to the printed frequencies.',
                   ],
                   answer: 'The ranking (8 > 6 > 4 > 2) is identical; cross-chart pixel comparisons read the scales, not the data',
+                  figures: [
+                    {
+                      caption:
+                        'One dataset, two scales — the travel bars at 2 px per student (left) and 10 px per student (right). The ranking walk > bus > cycle > car survives both (rescaling never reorders), but the walk bar stands 16 px tall on the left and 80 px on the right: the SAME 8 students. Cross-chart pixel comparisons read the scales, not the data.',
+                      svg: `<svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar charts of the same travel data at scales of 2 and 10 pixels per student, the walk bars highlighted at 16 and 80 pixels with a connecting arc saying they are the same 8 students">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">one dataset, two scales — the ranking travels, the pixels do not</text>
+  <g>
+    <line x1="70" y1="250" x2="350" y2="250" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="92" y="234" width="34" height="16" fill="#0d9488"/>
+    <rect x="162" y="238" width="34" height="12" fill="currentColor" opacity="0.35"/>
+    <rect x="232" y="242" width="34" height="8" fill="currentColor" opacity="0.35"/>
+    <rect x="302" y="246" width="34" height="4" fill="currentColor" opacity="0.35"/>
+    <g font-size="11.5" fill="currentColor" text-anchor="middle">
+      <text x="109" y="228">8</text>
+      <text x="179" y="232">6</text>
+      <text x="249" y="236">4</text>
+      <text x="319" y="240">2</text>
+      <text x="109" y="270">walk</text>
+      <text x="179" y="270">bus</text>
+      <text x="249" y="270">cycle</text>
+      <text x="319" y="270">car</text>
+      <text x="210" y="60">scale: 2 px per student</text>
+      <text x="109" y="212">16 px</text>
+    </g>
+  </g>
+  <g>
+    <line x1="410" y1="250" x2="690" y2="250" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="432" y="170" width="34" height="80" fill="#0d9488"/>
+    <rect x="502" y="190" width="34" height="60" fill="currentColor" opacity="0.35"/>
+    <rect x="572" y="210" width="34" height="40" fill="currentColor" opacity="0.35"/>
+    <rect x="642" y="230" width="34" height="20" fill="currentColor" opacity="0.35"/>
+    <g font-size="11.5" fill="currentColor" text-anchor="middle">
+      <text x="449" y="164">8</text>
+      <text x="519" y="184">6</text>
+      <text x="589" y="204">4</text>
+      <text x="659" y="224">2</text>
+      <text x="449" y="270">walk</text>
+      <text x="519" y="270">bus</text>
+      <text x="589" y="270">cycle</text>
+      <text x="659" y="270">car</text>
+      <text x="550" y="60">scale: 10 px per student</text>
+      <text x="449" y="148">80 px</text>
+    </g>
+  </g>
+  <path d="M128 220 C 240 90 420 90 430 160" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="380" y="282" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">16 px there and 80 px here are the SAME 8 students — return to the printed frequencies before comparing charts</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'A census is taken every ten years: 12 lakh in 2000 and 14 lakh in 2010. A line graph joins the two points. What does the line claim about 2005, and what kind of statement is that?',
@@ -1817,6 +2042,38 @@ export const chapter10: Chapter = {
                     'Hence: "both rise with the heat" \u2014 correlation measured, causation refused, the third variable named.',
                   ],
                   answer: 'Both rise with the temperature \u2014 a real correlation with a third-variable cause, not a causal link between them',
+                  figures: [
+                    {
+                      caption:
+                        'Two climbs, one cause. Ice-cream sales rise 30 → 90 thousand cones; drownings rise 12 → 40 — both fed by the summer heat (the third variable). The direct causal arrow between them is refused: remove the heat and the pair falls together for no reason linking them to each other.',
+                      svg: `<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A sun labelled the summer heat feeding arrows into two rising lines, ice-cream sales rising from 30 to 90 thousand and drownings rising from 12 to 40, with a refused causal arrow between the two line ends">
+  <text x="280" y="22" font-size="13" fill="currentColor" text-anchor="middle">the third variable — one cause, two effects, zero causation between them</text>
+  <circle cx="560" cy="64" r="20" fill="#fcd34d" stroke="#166534" stroke-width="1.4"/>
+  <g stroke="#166534" stroke-width="1.4">
+    <line x1="560" y1="36" x2="560" y2="26"/><line x1="560" y1="102" x2="560" y2="92"/>
+    <line x1="532" y1="64" x2="522" y2="64"/><line x1="588" y1="64" x2="598" y2="64"/>
+    <line x1="540" y1="44" x2="533" y2="37"/><line x1="580" y1="44" x2="587" y2="37"/>
+    <line x1="540" y1="84" x2="533" y2="91"/><line x1="580" y1="84" x2="587" y2="91"/>
+  </g>
+  <text x="560" y="126" font-size="12" fill="currentColor" text-anchor="middle">the summer heat — the third variable</text>
+  <line x1="130" y1="190" x2="350" y2="110" stroke="#0d9488" stroke-width="2.4"/>
+  <line x1="130" y1="225" x2="350" y2="185" stroke="#dc2626" stroke-width="2.4"/>
+  <circle cx="130" cy="190" r="3.4" fill="#0d9488"/><circle cx="350" cy="110" r="3.4" fill="#0d9488"/>
+  <circle cx="130" cy="225" r="3.4" fill="#dc2626"/><circle cx="350" cy="185" r="3.4" fill="#dc2626"/>
+  <text x="196" y="142" font-size="11.5" fill="#0d9488" text-anchor="middle">ice-cream sales: 30 → 90 thousand</text>
+  <text x="200" y="248" font-size="11.5" fill="#dc2626" text-anchor="middle">drownings: 12 → 40</text>
+  <g stroke="currentColor" stroke-width="1.1" fill="none" stroke-dasharray="5 4">
+    <path d="M534 82 L372 116"/>
+    <path d="M534 94 L372 176"/>
+  </g>
+  <polygon points="372,116 382,112 378,122" fill="currentColor"/>
+  <polygon points="372,176 382,172 378,182" fill="currentColor"/>
+  <line x1="350" y1="112" x2="350" y2="183" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="368" y="152" font-size="12" fill="#dc2626" text-anchor="start">✗ causation — refused</text>
+  <text x="280" y="272" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">correlation: real — both climb · causation: refused · the heat raises both; remove it and the pair falls together</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2437,6 +2694,57 @@ export const chapter10: Chapter = {
                     'Hence the mean walked 90 → 50 while the median stood 50 → 50: the shift law says the outlier\u2019s $\\Delta = 200$ moved the mean by $200/5 = 40$ — the whole disagreement was the outlier\u2019s alone.',
                   ],
                   answer: '(i) mean 90, median 50; (ii) mean 50, median 50 — only the mean was dragged',
+                  figures: [
+                    {
+                      caption:
+                        'The five quiz scores twice. As marked (i): 40, 45, 50, 55 and an outlier 260 — the mean flag stands at 90, dragged above four of the five marks, while the median flag sits at 50. Re-marked (ii): the 260 becomes 60 (Δ = 200) and the mean walks down by exactly Δ/N = 40 to 50 — where it lands ON the median flag, which never moved.',
+                      svg: `<svg viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar panels of five quiz scores: on the left 40 45 50 55 and 260 with mean flag at 90 and median flag at 50; on the right the 260 re-marked as 60, the mean flag moved down to 50 where it meets the unmoved median flag">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the outlier drags one average only — the mean walks 40, the median stands</text>
+  <g>
+    <line x1="70" y1="290" x2="390" y2="290" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="90" y="258" width="40" height="32" fill="currentColor" opacity="0.35"/>
+    <rect x="150" y="254" width="40" height="36" fill="currentColor" opacity="0.35"/>
+    <rect x="210" y="250" width="40" height="40" fill="currentColor" opacity="0.35"/>
+    <rect x="270" y="246" width="40" height="44" fill="currentColor" opacity="0.35"/>
+    <rect x="330" y="82" width="40" height="208" fill="#dc2626" opacity="0.75"/>
+    <g font-size="11.5" fill="currentColor" text-anchor="middle">
+      <text x="110" y="252">40</text>
+      <text x="170" y="248">45</text>
+      <text x="230" y="244">50</text>
+      <text x="290" y="240">55</text>
+      <text x="350" y="74">260</text>
+      <text x="230" y="312">(i) the marks as scored</text>
+    </g>
+    <line x1="70" y1="250" x2="390" y2="250" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="84" y="246" font-size="11" fill="currentColor">median 50</text>
+    <line x1="70" y1="218" x2="390" y2="218" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="84" y="214" font-size="11" fill="#dc2626">mean 90</text>
+  </g>
+  <g>
+    <line x1="420" y1="290" x2="690" y2="290" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="430" y="258" width="40" height="32" fill="currentColor" opacity="0.35"/>
+    <rect x="490" y="254" width="40" height="36" fill="currentColor" opacity="0.35"/>
+    <rect x="550" y="250" width="40" height="40" fill="currentColor" opacity="0.35"/>
+    <rect x="610" y="246" width="40" height="44" fill="currentColor" opacity="0.35"/>
+    <rect x="670" y="242" width="40" height="48" fill="#0d9488"/>
+    <g font-size="11.5" fill="currentColor" text-anchor="middle">
+      <text x="450" y="252">40</text>
+      <text x="510" y="248">45</text>
+      <text x="570" y="244">50</text>
+      <text x="630" y="240">55</text>
+      <text x="690" y="236" fill="#0d9488">60</text>
+      <text x="570" y="312">(ii) the 260 re-marked as 60</text>
+    </g>
+    <line x1="420" y1="250" x2="690" y2="250" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="500" y="232" font-size="11" fill="currentColor" text-anchor="middle">mean = median = 50</text>
+  </g>
+  <path d="M354 86 C 480 40 620 110 668 234" fill="none" stroke="#0d9488" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <polygon points="668,236 660,226 672,228" fill="#0d9488"/>
+  <text x="512" y="66" font-size="11.5" fill="#0d9488" text-anchor="middle">the 260 re-marked as 60 (Δ = 200)</text>
+  <text x="380" y="338" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">the mean moved by exactly Δ/N = 200/5 = 40 — the median never heard about it: positions, not values</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2487,6 +2795,37 @@ export const chapter10: Chapter = {
                     'Hence 66 — totals add, counts add, means do not.',
                   ],
                   answer: '66 (not 65): the combined mean is 3300/50',
+                  figures: [
+                    {
+                      caption:
+                        'The two sections on one beam. Section A (20 students, mean 60) and section B (30 students, mean 70) balance at the fulcrum 66 — closer to the heavier crowd. The arms trade places with the counts: 240 : 160 = 30 : 20, and 20 × 240 = 30 × 160 = 4,800 exactly. The naive midpoint 65 (equal arms) is marked and refused: totals add, counts add, means do not.',
+                      svg: `<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A balanced beam with section A of 20 students at mean 60 on the left and section B of 30 students at mean 70 on the right, fulcrum at 66, the naive midpoint 65 marked and crossed, arm lengths 240 and 160 trading places with the counts">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">two sections on one beam — the fulcrum sits at 66, not the midpoint</text>
+  <line x1="90" y1="120" x2="670" y2="120" stroke="currentColor" stroke-width="2.4"/>
+  <polygon points="420,120 402,168 438,168" fill="currentColor" opacity="0.85"/>
+  <rect x="140" y="84" width="80" height="36" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="1.4"/>
+  <text x="180" y="108" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">A</text>
+  <rect x="540" y="84" width="80" height="36" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="1.4"/>
+  <text x="580" y="108" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">B</text>
+  <text x="180" y="70" font-size="11.5" fill="currentColor" text-anchor="middle">section A: 20 students · mean 60</text>
+  <text x="580" y="70" font-size="11.5" fill="currentColor" text-anchor="middle">section B: 30 students · mean 70</text>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="300" y="136">arm 240</text>
+    <text x="500" y="136">arm 160</text>
+  </g>
+  <g stroke="currentColor" stroke-width="0.9">
+    <line x1="180" y1="124" x2="180" y2="128"/><line x1="420" y1="124" x2="420" y2="128"/><line x1="580" y1="124" x2="580" y2="128"/>
+    <line x1="180" y1="128" x2="420" y2="128" stroke-dasharray="3 3"/>
+    <line x1="420" y1="128" x2="580" y2="128" stroke-dasharray="3 3"/>
+  </g>
+  <line x1="380" y1="108" x2="380" y2="132" stroke="#dc2626" stroke-width="2"/>
+  <text x="380" y="98" font-size="12.5" fill="#dc2626" text-anchor="middle">65 — the naive mid ✗</text>
+  <text x="420" y="192" font-size="13" fill="currentColor" text-anchor="middle">the combined mean: (1200 + 2100) ÷ 50 = 3300 ÷ 50 = 66</text>
+  <text x="420" y="212" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.9">arms 240 : 160 = 30 : 20 — and 20 × 240 = 30 × 160 = 4,800</text>
+  <text x="380" y="244" font-size="13" fill="currentColor" text-anchor="middle">totals add, counts add, means do not — 60 + 10 × (30/50) = 66</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },

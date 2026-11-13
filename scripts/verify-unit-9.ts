@@ -1263,8 +1263,56 @@ console.log('=== AO. the significant-figure counts + the nesting instances (9.4)
     'AO12: [6.75, 6.85) \u2282 [6.75, 7.25) \u2282 [6.5, 7.5) — the claims nest as the unit shrinks');
 }
 
+console.log('=== AP. rounding to a COUNT of significant figures (9.4 fire-2 extension) ===');
+{
+  // the digit rule, relocated: count k honest digits from the first non-zero,
+  // then the "next digit" is the digit after the k-th — same leave/bump test.
+  // integer-exact: scale the value to an integer, round at the place of the
+  // k-th significant digit, scale back.
+  const digits = (n: number): number => String(Math.abs(n)).replace('.', '').replace(/e.*/, '').length;
+  const placeOf = (n: number, k: number): number => {
+    const len = digits(n);
+    return Math.pow(10, Math.max(0, len - k));
+  };
+  const sfRound = (n: number, k: number): number => halfUp(n, placeOf(n, k));
+  // 2.71828 → 3 s.f.: 271828 at the hundreds place → 272000 → 2.72.
+  ok(sfRound(271828, 3) === 272000 && near(272000 / 100000, 2.72),
+    'AP1: 2.71828 → 3 s.f. = 2.72 (next digit 8 ≥ 5: bump)');
+  // 0.00456 → 2 s.f.: 456 at the tens place → 460 → 0.0046.
+  ok(sfRound(456, 2) === 460 && near(460 / 100000, 0.0046),
+    'AP2: 0.00456 → 2 s.f. = 0.0046 (leading zeros hold the point, never the count)');
+  // 4,239 → 2 s.f.: 4239 at the hundreds place → 4200 — zeros flood in to hold the place.
+  ok(sfRound(4239, 2) === 4200, 'AP3: 4,239 → 2 s.f. = 4,200 (the trailing zeros are place-holders)');
+  // the half case at the sig-fig boundary: 2.35 → 2 s.f. = 2.4.
+  ok(sfRound(235, 2) === 240 && near(240 / 100, 2.4),
+    'AP4: 2.35 → 2 s.f. = 2.4 — the half-up convention, relocated');
+  // 0.0409 → 2 s.f. = 0.041 (the interior zero counts; next digit 9 bumps).
+  ok(sfRound(409, 2) === 410 && near(410 / 10000, 0.041),
+    'AP5: 0.0409 → 2 s.f. = 0.041');
+  // 996 → 2 s.f. = 1000: the bump crossed a decade — honest dress is 1.0 × 10³.
+  ok(sfRound(996, 2) === 1000,
+    'AP6: 996 → 2 s.f. = 1000 — a decade-crossing bump; the honest dress is 1.0 × 10³');
+  // same digit rule, any scale: 456,000 → 2 s.f. = 460,000.
+  ok(sfRound(456000, 2) === 460000,
+    'AP7: 456,000 → 2 s.f. = 460,000 — scale changes the place, never the rule');
+  // the sweep: sfRound always lands on a multiple of the k-th digit's place,
+  // within half a place of the original (the half-up guarantee, relocated).
+  let sweepCases = 0;
+  let sweepBad = 0;
+  for (let n = 11; n <= 9899; n += 7) {
+    for (let k = 1; k <= 3; k++) {
+      const p = placeOf(n, k);
+      const r = sfRound(n, k);
+      sweepCases++;
+      if (r % p !== 0 || Math.abs(r - n) > p / 2 || r === 0) sweepBad++;
+    }
+  }
+  ok(sweepCases === 4239 && sweepBad === 0,
+    `AP8: the relocated digit rule sweeps ${sweepCases} (value, count) cases — every landing a multiple of the place, within half a place (${sweepBad} violations)`);
+}
+
 console.log('=== AN. 9.4 scope guards (printed) ===');
-console.log('  (i)   no significant-figure ARITHMETIC (multiplying/dividing with sig figs) — class-11 territory; only counting sig figs and the trailing-zero claim.');
+console.log('  (i)   no significant-figure ARITHMETIC (multiplying/dividing with sig figs) — class-11 territory; sig figs are counted, rounded TO a count (fire 2, 2026-11-13), and the trailing-zero claim is read.');
 console.log('  (ii)  no relative/percentage-error formalism beyond the single Everest instance (computed, not a method).');
 console.log('  (iii) no statistics of repeated measurement (means/medians of data = ch. 10\u2019s territory).');
 console.log('  (iv)  no uncertainty algebra, error propagation or calibration theory — the GPE is the only error number defined.');

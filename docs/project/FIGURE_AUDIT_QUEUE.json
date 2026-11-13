@@ -2,12 +2,12 @@
   "updated": "2026-11-13",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 40,
+  "cursor": 45,
   "stats": {
     "lessonsWithFigures": 131,
-    "figureTotal": 243,
-    "done": 46,
-    "pending": 85
+    "figureTotal": 245,
+    "done": 51,
+    "pending": 80
   },
   "items": [
     {
@@ -374,36 +374,46 @@
       "lessonId": "fm-precision-accuracy-and-rounding-in-measurement",
       "bookId": "foundation-mathematics",
       "chapter": 9,
-      "figures": 2,
-      "status": "pending"
+      "figures": 3,
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 2 (v2): 2 body figs PASS + NEW sig-fig-rounding body fig (digit-strip, layer-1 clean); pass B added 3 solution figs (nested interval strips, walls number-line, double-round routes — 2 label collisions FIXED in audit); verify-unit-9 extended 534→542 (AP1-AP8 pins green BEFORE prose); 9.4 sig-fig-rounding subsection authored (2 paras + fig + Illustration)."
     },
     {
       "lessonId": "fm-collecting-and-tallying-data",
       "bookId": "foundation-mathematics",
       "chapter": 10,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + domvalues CLEAN + VLM light+dark); pass B added the live-regroup solution fig (footer collision FIXED + teal stroke-count corrected in audit: strokes 9/10/11 only); scope guards held (no grouped intervals — deliberate)."
     },
     {
       "lessonId": "fm-bar-charts-line-graphs-and-pie-charts",
       "bookId": "foundation-mathematics",
       "chapter": 10,
-      "figures": 4,
-      "status": "pending"
+      "figures": 5,
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 2 (v2): 4 body figs PASS + NEW pictograph body fig (absolute coords after layer-1 CLIP fix on translate-groups); pass B added 3 solution figs (sapling stair-steps, two-pies same-angle, cross-chart scale trap); verify-unit-10 extended 301→311 (AQ pictograph pins green BEFORE prose); 10.2 pictograph subsection authored (key law, half-symbol, unequal-symbol Caution, NCERT-6 fegp104 ground)."
     },
     {
       "lessonId": "fm-reading-graphs-critically",
       "bookId": "foundation-mathematics",
       "chapter": 10,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + VLM light+dark, one pixel-scale nitpick dismissed); pass B added 2 solution figs (cross-chart twin-scales, heat third-variable); no enrichment warranted (scope guards match sources)."
     },
     {
       "lessonId": "fm-mean-median-and-mode",
       "bookId": "foundation-mathematics",
       "chapter": 10,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 2 (v2): both figs PASS (DOM 0 + VLM light+dark); pass B added 2 solution figs (outlier drag before/after — flag overlap FIXED; combined-mean seesaw — summary lines enlarged font 13 after a legibility-rooted misread); no enrichment warranted (rich vs sources)."
     },
     {
       "lessonId": "fm-patterns-and-rules",

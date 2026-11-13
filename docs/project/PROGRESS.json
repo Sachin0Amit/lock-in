@@ -83,7 +83,7 @@
         "chaptersWritten": 11,
         "lessonsWritten": 48,
         "termsAvailableForFlashcards": 357,
-        "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 229,080 words, 357 terms, 240 quiz items, 536 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json. Enrichment fire (2026-11-13, job 527779): 8.5 gained the parallelogram + rhombus subsection (verify-unit-8 BA1–BA6 pins) and solution visual aids landed in 8.5 (4), 9.2 (1), 9.3 (1)."
+        "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 230,689 words, 357 terms, 240 quiz items, 536 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json. Enrichment fire (2026-11-13, job 527779): 8.5 gained the parallelogram + rhombus subsection (verify-unit-8 BA1–BA6 pins) and solution visual aids landed in 8.5 (4), 9.2 (1), 9.3 (1). Enrichment fire 2 (2026-11-13): 9.4 gained the sig-fig-rounding subsection (verify-unit-9 AP1-AP8, 542/0) and 10.2 gained the pictograph subsection (verify-unit-10 AQ1-AQ7, 311/0); ten solution visual aids landed in 9.4 (3), 10.1 (1), 10.2 (3), 10.3 (2), 10.4 (2)."
       },
       {
         "id": "arithmetic-number-systems",
@@ -354,16 +354,16 @@
       }
     ],
     "lessonsWritten": 131,
-    "wordsAuthored": 639299,
+    "wordsAuthored": 640908,
     "termsAvailableForFlashcards": 962,
     "totals": {
       "lessonsWritten": 131,
       "plannedLessons": 955,
-      "words": 639299,
+      "words": 640908,
       "terms": 962,
       "quizItems": 655,
       "exerciseQuestions": 1691,
-      "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed by the figure-audit + enrichment fire (2026-11-13, job 527779): 28 books, 131 written lessons (§10.3 count-only recomputation: FM 48/229,080w/357t/536ex, ANS 36/189,880w/286t, AL 38/176,085w/279t/532ex, AA 9/44,254w/40t); quiz 655, exercise questions 1,691, formulas 402.",
+      "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed by the figure-audit + enrichment fires 1+2 (2026-11-13, job 527779): 28 books, 131 written lessons (§10.3 count-only recomputation: FM 48/230,689w/357t/536ex, ANS 36/189,880w/286t, AL 38/176,085w/279t/532ex, AA 9/44,254w/40t); quiz 655, exercise questions 1,691, formulas 402.",
       "booksLive": 28,
       "chaptersWritten": 32,
       "chaptersInProgress": 0,

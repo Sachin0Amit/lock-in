@@ -2228,6 +2228,76 @@ export const chapter09: Chapter = {
           kind: 'para',
           text: 'Two quiet connections close the loop. First, significant figures are the precision of a reading written on its sleeve: 0.0042 g (two sig figs, last digit in the ten-thousandths place) is a finer claim than 4 g (one sig fig, units place). Second, the last significant digit\u2019s place **is** the unit $u$ of the interval law — so its half-width can be read straight off the page: the claim 0.0042 hides $u = 0.0001$ and a greatest possible error of $0.00005$. Which is the last machine to build.',
         },
+        { kind: 'heading', text: 'Rounding to significant figures: the digit rule, relocated' },
+        {
+          kind: 'para',
+          text: 'The digit rule of rounding answers a question about a *named place* — the tens, the hundredths, whatever the exercise names. But measurements are interrogated by **count**, not by place: “report the reading to two significant figures.” Nothing new is needed — the rule merely relocates. Find the first significant digit (the first non-zero, exactly as the counting rule above runs), walk to the $k$-th one, and the digit **after** it plays the “next digit”: $\\le 4$ leave, $\\ge 5$ bump, ties up. Every digit before the $k$-th survives untouched; every digit after it retires; and zeros flood in to hold the vacated places.',
+        },
+        {
+          kind: 'para',
+          text: 'So $2.71828$ to three significant figures counts $2, 7, 1$ — the next digit is $8$, so the last kept digit bumps: $2.72$. To two, count $2, 7$ — the next digit $1$ says leave: $2.7$. The zeros do their janitorial work in smaller dress: $0.00456$ to two significant figures counts $4, 5$ (the leading zeros never enter the count), the next digit $6$ bumps, and the answer is $0.0046$ — the leading zeros still holding the point, un-counted as ever. A whole number wears the same discipline with its ambiguity on display: $4{,}239$ to two significant figures is $4{,}200$, whose two trailing zeros hold the hundreds and tens places — place-holders, not testimony, exactly as the $4{,}200$ m row predicted. And one bump can cross a decade: $996$ to two significant figures lands on $1{,}000$, whose point-less zeros are all ambiguous — the honest dress is $1.0 \\times 10^3$, two significant figures on the record.',
+        },
+        {
+          kind: 'figure',
+          caption:
+            'The digit rule, relocated. Top: 2.71828 to 3 s.f. — keep 2-7-1, the next digit 8 bumps (2.72); to 2 s.f. — keep 2-7, the next digit 1 leaves (2.7). Bottom: 0.00456 to 2 s.f. — the leading zeros hold the point and never count; keep 4-5, the next digit 6 bumps: 0.0046.',
+          svg: `<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two digit strips showing which digits are counted, which is the deciding next digit and which retire, for 2.71828 rounded to three and two significant figures and 0.00456 to two significant figures">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the count starts at the first honest digit — the test digit walks with it</text>
+  <g font-size="20" fill="currentColor" text-anchor="middle">
+    <text x="140" y="92">2</text>
+    <text x="172" y="92">.</text>
+    <text x="204" y="92">7</text>
+    <text x="236" y="92">1</text>
+    <text x="268" y="92" font-weight="bold">8</text>
+    <text x="300" y="92" opacity="0.4">2</text>
+    <text x="332" y="92" opacity="0.4">8</text>
+  </g>
+  <line x1="288" y1="90" x2="344" y2="90" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <rect x="255" y="74" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <path d="M128 64 L128 52 L248 52 L248 64" fill="none" stroke="currentColor" stroke-width="0.9"/>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="188" y="44">the kept three → 2.72</text>
+    <text x="140" y="108">1st</text>
+    <text x="204" y="108">2nd</text>
+    <text x="236" y="108">3rd</text>
+    <text x="268" y="124">next digit</text>
+    <text x="268" y="138">8 ≥ 5: bump</text>
+    <text x="316" y="116" opacity="0.7">retired</text>
+    <text x="140" y="156" font-size="10.5" opacity="0.8">to 2 s.f. instead: keep 2-7, next digit 1 ≤ 4 — leave → 2.7</text>
+  </g>
+  <g font-size="20" fill="currentColor" text-anchor="middle">
+    <text x="140" y="192" opacity="0.4">0</text>
+    <text x="172" y="192">.</text>
+    <text x="204" y="192" opacity="0.4">0</text>
+    <text x="236" y="192" opacity="0.4">0</text>
+    <text x="268" y="192">4</text>
+    <text x="300" y="192">5</text>
+    <text x="332" y="192" font-weight="bold">6</text>
+  </g>
+  <rect x="319" y="174" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="200" y="212">place-holders</text>
+    <text x="200" y="226">never counted</text>
+    <text x="268" y="216">1st</text>
+    <text x="300" y="216">2nd</text>
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="start">
+    <text x="312" y="212">next digit</text>
+    <text x="312" y="226">6: bump</text>
+  </g>
+  <text x="380" y="266" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">2.71828 → 3 s.f. = 2.72 · → 2 s.f. = 2.7 · 0.00456 → 2 s.f. = 0.0046 — zeros flood in to hold the places</text>
+</svg>`,
+        },
+        {
+          kind: 'example',
+          title: 'Round to the named count: (i) 2.71828 to three and to two significant figures; (ii) 0.00456 to two; (iii) 4,569 to two.',
+          steps: [
+            'Now, (i) to three: count $2$-$7$-$1$ from the first non-zero — the next digit is $8 \\ge 5$, so the last kept digit bumps: $2.72$.',
+            'So to two: count $2$-$7$ — the next digit $1 \\le 4$ says leave: $2.7$; same number, same rule, a different count.',
+            'And (ii): the leading zeros never enter the count — count $4$-$5$, next digit $6 \\ge 5$, bump: $0.0046$, the zeros still holding the point.',
+            'Hence (iii): count $4$-$5$, next digit $6 \\ge 5$, bump: $4{,}600$ — the trailing zeros hold places, and the unambiguous dress is $4.6 \\times 10^3$ if the count must be spoken.',
+          ],
+        },
         { kind: 'heading', text: 'The greatest possible error' },
         {
           kind: 'para',
@@ -2477,6 +2547,50 @@ export const chapter09: Chapter = {
                     'Hence 8 cm (±0.5) → 8.2 cm (±0.05) → 8.25 cm (±0.005): precision climbing by rungs of ten, exactly the 9.2 ladder read as promises.',
                   ],
                   answer: '8 cm (GPE 0.5 cm) < 8.2 cm (GPE 0.05 cm) < 8.25 cm (GPE 0.005 cm) — 8.25 cm is the most precise',
+                  figures: [
+                    {
+                      caption:
+                        'Three claims, three strips — every row drawn the same width, each honestly a ×10 zoom of the last: the claimed interval narrows from $1$ cm ($\\pm 0.5$) to $0.1$ cm ($\\pm 0.05$) to $0.01$ cm ($\\pm 0.005$). The filled wall belongs to the reading; the open wall rounds up to the next.',
+                      svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three measurement claims 8 cm, 8.2 cm and 8.25 cm drawn as three equal-width strips at successively finer zoom, left walls filled and right walls open, widths dividing by ten each row">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">three claims, one pencil — the strip narrows by tens (each row a ×10 zoom)</text>
+  <g font-size="13" fill="currentColor">
+    <text x="84" y="100" text-anchor="end">8 cm</text>
+    <text x="92" y="78" font-size="10.5" opacity="0.75">zoom ×1</text>
+    <line x1="92" y1="95" x2="648" y2="95" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="92" cy="95" r="4.5" fill="currentColor"/>
+    <circle cx="648" cy="95" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="370" y1="88" x2="370" y2="102" stroke="currentColor" stroke-width="1.4"/>
+    <text x="370" y="80" text-anchor="middle">8</text>
+    <text x="92" y="117" text-anchor="middle" font-size="11.5">7.5</text>
+    <text x="648" y="117" text-anchor="middle" font-size="11.5">8.5</text>
+    <text x="658" y="100" font-size="11.5">±0.5 (1 cm)</text>
+
+    <text x="84" y="180" text-anchor="end">8.2 cm</text>
+    <text x="92" y="158" font-size="10.5" opacity="0.75">zoom ×10</text>
+    <line x1="92" y1="175" x2="648" y2="175" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="92" cy="175" r="4.5" fill="currentColor"/>
+    <circle cx="648" cy="175" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="370" y1="168" x2="370" y2="182" stroke="currentColor" stroke-width="1.4"/>
+    <text x="370" y="160" text-anchor="middle">8.2</text>
+    <text x="92" y="197" text-anchor="middle" font-size="11.5">8.15</text>
+    <text x="648" y="197" text-anchor="middle" font-size="11.5">8.25</text>
+    <text x="658" y="180" font-size="11.5">±0.05 (0.1 cm)</text>
+
+    <text x="84" y="260" text-anchor="end">8.25 cm</text>
+    <text x="92" y="238" font-size="10.5" opacity="0.75">zoom ×100</text>
+    <line x1="92" y1="255" x2="648" y2="255" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="92" cy="255" r="4.5" fill="currentColor"/>
+    <circle cx="648" cy="255" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="370" y1="248" x2="370" y2="262" stroke="currentColor" stroke-width="1.4"/>
+    <text x="370" y="240" text-anchor="middle">8.25</text>
+    <text x="92" y="277" text-anchor="middle" font-size="11.5">8.245</text>
+    <text x="648" y="277" text-anchor="middle" font-size="11.5">8.255</text>
+    <text x="658" y="260" font-size="11.5">±0.005 (0.01 cm)</text>
+  </g>
+  <text x="380" y="306" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">the pencil never moved — only the claim narrowed: filled wall in, open wall out, ten times finer each row</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
@@ -2492,6 +2606,43 @@ export const chapter09: Chapter = {
                     'Hence $12.55 \\le t < 12.65$: left wall in, right wall out, every time.',
                   ],
                   answer: '$12.55 \\le t < 12.65$ cm; 12.55 in (half-up), 12.65 out',
+                  figures: [
+                    {
+                      caption:
+                        'The record’s claim as a band on the line — $12.55 \\le t < 12.65$: the left wall is filled (its tie rounds up TO $12.6$, so it belongs), the right wall is open (its tie rounds up to $12.7$, so it is already the next reading’s).',
+                      svg: `<svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A number line from 12.50 to 12.70 with the interval 12.55 to 12.65 shaded, left wall filled and included, right wall open and excluded, 12.6 marked at the centre">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">the rod’s claim: 12.55 ≤ t < 12.65 — one wall in, one wall out</text>
+  <rect x="225" y="138" width="310" height="24" fill="currentColor" opacity="0.08"/>
+  <line x1="70" y1="150" x2="690" y2="150" stroke="currentColor" stroke-width="1.6"/>
+  <g stroke="currentColor" stroke-width="1">
+    <line x1="70" y1="144" x2="70" y2="156"/><line x1="101" y1="146" x2="101" y2="154"/><line x1="132" y1="146" x2="132" y2="154"/><line x1="163" y1="146" x2="163" y2="154"/><line x1="194" y1="146" x2="194" y2="154"/>
+    <line x1="225" y1="140" x2="225" y2="160" stroke-width="1.6"/>
+    <line x1="256" y1="146" x2="256" y2="154"/><line x1="287" y1="146" x2="287" y2="154"/><line x1="318" y1="146" x2="318" y2="154"/><line x1="349" y1="146" x2="349" y2="154"/>
+    <line x1="380" y1="138" x2="380" y2="162" stroke-width="2"/>
+    <line x1="411" y1="146" x2="411" y2="154"/><line x1="442" y1="146" x2="442" y2="154"/><line x1="473" y1="146" x2="473" y2="154"/><line x1="504" y1="146" x2="504" y2="154"/>
+    <line x1="535" y1="140" x2="535" y2="160" stroke-width="1.6"/>
+    <line x1="566" y1="146" x2="566" y2="154"/><line x1="597" y1="146" x2="597" y2="154"/><line x1="628" y1="146" x2="628" y2="154"/><line x1="659" y1="146" x2="659" y2="154"/><line x1="690" y1="144" x2="690" y2="156"/>
+  </g>
+  <circle cx="225" cy="150" r="5" fill="currentColor"/>
+  <circle cx="535" cy="150" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <g font-size="11.5" fill="currentColor">
+    <text x="70" y="176" text-anchor="middle">12.50</text>
+    <text x="225" y="176" text-anchor="middle">12.55</text>
+    <text x="380" y="176" text-anchor="middle">12.60</text>
+    <text x="535" y="176" text-anchor="middle">12.65</text>
+    <text x="690" y="176" text-anchor="middle">12.70</text>
+    <text x="380" y="132" text-anchor="middle">the reading, 12.6</text>
+  </g>
+  <line x1="225" y1="96" x2="225" y2="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="535" y1="96" x2="535" y2="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <g font-size="11.5" fill="currentColor">
+    <text x="225" y="78" text-anchor="middle">12.55 — IN (the tie rounds up to 12.6)</text>
+    <text x="535" y="78" text-anchor="middle">12.65 — OUT (the tie rounds up to 12.7)</text>
+  </g>
+  <text x="380" y="228" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">both half-way ties round UP — each reading owns its left wall and disowns its right, every time</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'A bathroom scale reads to the nearest 0.5 kg and shows 42.0 kg. State its greatest possible error and the interval claimed.',
@@ -2542,6 +2693,42 @@ export const chapter09: Chapter = {
                     'Hence 2.34 is the honest answer — round ONCE, from the original; the trap is procedural, not arithmetical.',
                   ],
                   answer: '(i) 2.34; (ii) 2.35 — the double-rounding fraud; round once from the original',
+                  figures: [
+                    {
+                      caption:
+                        'One number, two routes. Direct: $2.3447 \\to 2$ dp reads the next digit $4$ — leave, $2.34$. Chained: the 3-dp hop bumps to $2.345$, whose manufactured $5$ then wins the half-up tie — $2.35$, a hundredth the original never earned.',
+                      svg: `<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two rounding routes for 2.3447: the direct route to 2 decimal places giving 2.34, and the chained route through 2.345 to 2.35 with the manufactured 5 highlighted">
+  <text x="380" y="22" font-size="13" fill="currentColor" text-anchor="middle">2.3447, two routes — the chain manufactures a digit the original never had</text>
+  <g font-size="12" fill="currentColor">
+    <rect x="70" y="62" width="100" height="36" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <text x="120" y="86" text-anchor="middle" font-size="14">2.3447</text>
+    <text x="225" y="52" text-anchor="middle">2 dp — next digit 4: leave</text>
+    <line x1="178" y1="80" x2="268" y2="80" stroke="currentColor" stroke-width="1.4"/>
+    <polygon points="268,80 258,75 258,85" fill="currentColor"/>
+    <rect x="280" y="62" width="80" height="36" fill="currentColor" opacity="0.08"/>
+    <text x="320" y="86" text-anchor="middle" font-size="14">2.34</text>
+    <text x="320" y="116" text-anchor="middle" font-size="11.5">honest — round ONCE ✓</text>
+
+    <rect x="70" y="152" width="100" height="36" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <text x="120" y="176" text-anchor="middle" font-size="14">2.3447</text>
+    <text x="225" y="142" text-anchor="middle">3 dp — next digit 7: bump</text>
+    <line x1="178" y1="170" x2="268" y2="170" stroke="currentColor" stroke-width="1.4"/>
+    <polygon points="268,170 258,165 258,175" fill="currentColor"/>
+    <rect x="280" y="152" width="80" height="36" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <text x="320" y="176" text-anchor="middle" font-size="14">2.34<tspan fill="#dc2626" font-weight="bold">5</tspan></text>
+    <text x="420" y="142" text-anchor="middle">2 dp — next digit 5: half-up bump</text>
+    <line x1="370" y1="170" x2="458" y2="170" stroke="currentColor" stroke-width="1.4"/>
+    <polygon points="458,170 448,165 448,175" fill="currentColor"/>
+    <rect x="470" y="152" width="80" height="36" fill="none" stroke="#dc2626" stroke-width="1.4"/>
+    <text x="510" y="176" text-anchor="middle" font-size="14">2.35</text>
+    <text x="510" y="116" text-anchor="middle" font-size="11.5" fill="#dc2626">fraud — a hundredth invented ✗</text>
+  </g>
+  <line x1="328" y1="192" x2="328" y2="212" stroke="#dc2626" stroke-width="0.9" stroke-dasharray="3 3"/>
+  <text x="330" y="228" font-size="11.5" fill="#dc2626" text-anchor="middle">the 5 that the original’s 4 had already overruled — sequencing invented it</text>
+  <text x="380" y="252" font-size="12" fill="currentColor" text-anchor="middle" opacity="0.85">2.34 is the answer — round once, from the original; the trap is procedural, not arithmetical</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Round 47,499 to the nearest thousand (i) directly, (ii) by rounding first to the nearest ten and then to the nearest thousand. How far apart are the two answers?',

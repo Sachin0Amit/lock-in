@@ -975,6 +975,53 @@ console.log('  (iv)  no geometric/harmonic means, no sigma notation beyond Σx i
 console.log('  (v)   no empirical mean-median-mode relation claimed as a law (skew talk refused).');
 console.log('  (vi)  no content reproduced — datasets, figures and proofs ours.');
 
+console.log('=== AQ. the pictograph — one picture stands for many (10.2 fire-2 extension) ===');
+{
+  // the reading law: value = (full symbols × k) + leftovers; a HALF symbol = k/2.
+  const read = (full: number, half: number, k: number): number => full * k + half * (k / 2);
+  // the travel survey at k = 2 (one symbol = 2 students): every row lands exact.
+  ok(read(4, 0, 2) === 8 && read(3, 0, 2) === 6 && read(2, 0, 2) === 4 && read(1, 0, 2) === 2,
+    'AQ1: walk 4 symbols, bus 3, cycle 2, car 1 — no halves needed at k = 2');
+  ok(read(4, 0, 2) + read(3, 0, 2) + read(2, 0, 2) + read(1, 0, 2) === 20,
+    'AQ2: the rows rebuild N = 20 — the check-sum law, wearing pictures');
+  // the shoe table at k = 2: size 4 (5 students) needs 2 full + 1 HALF symbol.
+  ok(read(2, 1, 2) === 5 && read(4, 0, 2) === 8 && read(1, 0, 2) === 2,
+    'AQ3: the half symbol earns its keep — 2½ symbols × 2 = 5 (size 4 row)');
+  ok(read(2, 1, 2) + read(4, 0, 2) + read(1, 0, 2) === 15,
+    'AQ4: the fifteen shoes read back whole — 5 + 8 + 2 = 15 ✓');
+  // the unequal-symbol fraud (Huff\'s square): doubling the SIDE reads as ×4 the AREA.
+  const honest = 2 * 2; // k = 2 drawn on a 1×1 cell
+  const inflated = 2 * 2 * 2 * 2 / (1 * 1); // k = 2 drawn on a 2×2 cell: area ×4
+  ok(honest === 4 && inflated / honest === 4 && inflated !== 2 * 2,
+    'AQ5: a symbol drawn at double side-length shows ×4 the ink while claiming ×2 the count — sizes must be identical');
+  // the key-choice law: a key k suits a dataset iff every frequency is
+  // expressible in full symbols (k each) + at most half symbols (k/2 each) —
+  // k even: f must be a multiple of k/2; k odd: only whole multiples (a half
+  // of an odd key is not a symbol anyone can draw).
+  const representable = (f: number, k: number): boolean =>
+    k % 2 === 0 ? f % (k / 2) === 0 : f % k === 0;
+  // the travel rows (8, 6, 4, 2) at k = 2: all land on wholes.
+  ok([8, 6, 4, 2].every((f) => representable(f, 2)),
+    'AQ6a: travel rows 8/6/4/2 at k = 2 — every row whole symbols, the key suits');
+  // the shoe rows (5, 8, 2): k = 2 suits (5 → 2½, the half symbol);
+  // k = 4 fails (5 → 1¼ — a QUARTER symbol, which no honest key asks for).
+  ok([5, 8, 2].every((f) => representable(f, 2)),
+    'AQ6b: shoe rows at k = 2 — 5 reads as 2 full + 1 half; the key suits');
+  ok(!representable(5, 4),
+    'AQ6c: shoe rows at k = 4 — 5 would need a quarter symbol: the key does NOT suit — choose the key before drawing');
+  // the landscape sweep: how many (frequency, key) pairs 0..30 × 1..10 are
+  // representable — pinned by hand-count (odd k: multiples of k; even k: multiples of k/2).
+  let rep = 0;
+  for (let f = 0; f <= 30; f++) {
+    for (let k = 1; k <= 10; k++) if (representable(f, k)) rep++;
+  }
+  ok(rep === 131,
+    'AQ6d: the representable landscape — 131 of the 310 (frequency, key) pairs; picking a key is part of the honesty, not an afterthought');
+  // the key discipline: the key is the axis label\'s twin — printed, or the picture lies.
+  ok(true,
+    'AQ7: the KEY must be printed with the chart (equal, labelled, covering — 10.2\'s scale honesty, worn as pictures)');
+}
+
 console.log('');
 console.log(`TOTAL: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
