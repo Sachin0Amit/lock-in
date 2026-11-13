@@ -13,6 +13,12 @@ import type { Chapter } from '../../../types'
  *                  meeting-theorem derivation) + the unit-6 completion
  *                  review PASSED: chapter 6 COMPLETE 3/3 at run 78.
  *
+ * STATUS (2026-11-13, content-completeness audit): honestly IN-PROGRESS —
+ * the prewritten-books audit (2026-11-11) queued lesson 6.4 "One Linear,
+ * One Quadratic" (H&K XXVI) as a real gap, so the chapter's run-78
+ * 'complete' claim was retired; status flips back to 'complete' when
+ * 6.4 ships (run 95 queue).
+ *
  * References for this unit: the banked keys carry the run (zero downloads,
  * web-check only per the runs-71–76 pattern) — `hall-knight-elementary-
  * algebra` (the classical chapter that NAMED simultaneous linear
@@ -376,7 +382,10 @@ export const chapter06: Chapter = {
   title: 'Simultaneous Linear Equations',
   summary:
     'Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.',
-  status: 'complete',
+  // honestly 'in-progress': 6.4 is a queued gap (prewritten-books audit
+  // 2026-11-11; see plannedLessons below) — flips back to 'complete' when
+  // lesson 6.4 ships.
+  status: 'in-progress',
   lessons: [
     {
       id: 'al-equations-in-two-variables',
@@ -1358,6 +1367,7 @@ export const chapter06: Chapter = {
       ],
     },
   ],
+  // the queued gap lesson (run 95 authors it and empties this list)
   plannedLessons: [
     '6.4 One Linear, One Quadratic',
   ],

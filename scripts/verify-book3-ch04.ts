@@ -738,7 +738,7 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-common-factors-and-grouping', 'F: lesson id al-common-factors-and-grouping (globally unique, al- prefix)')
   ok(lesson.number === '4.1', 'F: lesson number 4.1')
   ok(lesson.title === 'Common Factors and Grouping', 'F: lesson title matches the planned title')
-  ok(chapter04.status === 'complete', 'F: chapter 4 COMPLETE (flipped at the 4.4 ship; 4.1 audited here)')
+  ok(chapter04.status === 'in-progress', 'F: chapter 4 honestly IN-PROGRESS (4.5 queued by the prewritten-books audit; was complete at the 4.4 ship until the gap was found — 2026-11-13 audit fix)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'F: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'F: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -896,7 +896,7 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-factoring-quadratic-trinomials', 'G: lesson id al-factoring-quadratic-trinomials (globally unique, al- prefix)')
   ok(lesson.number === '4.2', 'G: lesson number 4.2')
   ok(lesson.title === 'Factoring Quadratic Trinomials', 'G: lesson title matches the planned title')
-  ok(chapter04.status === 'complete', 'G: chapter 4 COMPLETE (4.2 audited here)')
+  ok(chapter04.status === 'in-progress', 'G: chapter 4 honestly IN-PROGRESS (4.5 queued; 4.2 audited here)')
   ok(Array.isArray(chapter04.plannedLessons) && chapter04.plannedLessons.length >= 0 && !chapter04.plannedLessons.includes('Factoring Quadratic Trinomials'), 'G: plannedLessons no longer carry 4.2 (the run-73 trim; the run-74 trims land in I/K)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'G: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'G: objectives present (got ' + (lesson.objectives || []).length + ')')
@@ -1234,7 +1234,7 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-identities-as-factorizations', 'I: lesson id al-identities-as-factorizations (globally unique, al- prefix)')
   ok(lesson.number === '4.3', 'I: lesson number 4.3')
   ok(lesson.title === 'The Identities as Factorizations', 'I: lesson title matches the planned title')
-  ok(chapter04.status === 'complete', 'I: chapter 4 COMPLETE (4.3 audited here)')
+  ok(chapter04.status === 'in-progress', 'I: chapter 4 honestly IN-PROGRESS (4.5 queued; 4.3 audited here)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'I: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'I: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -1563,8 +1563,8 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-factor-theorem-and-cubics', 'K: lesson id al-factor-theorem-and-cubics (globally unique, al- prefix)')
   ok(lesson.number === '4.4', 'K: lesson number 4.4')
   ok(lesson.title === 'The Factor Theorem and Cubics', 'K: lesson title matches the planned title')
-  ok(chapter04.status === 'complete', 'K: chapter 4 COMPLETE at run 74')
-  ok(JSON.stringify(chapter04.plannedLessons) === JSON.stringify([]), 'K: plannedLessons emptied at ship (got ' + JSON.stringify(chapter04.plannedLessons) + ')')
+  ok(chapter04.status === 'in-progress', 'K: chapter 4 honestly IN-PROGRESS at run 74 + audit 2026-11-13 (4.5 "HCF and LCM of Expressions" queued; flips back to complete when it ships)')
+  ok(JSON.stringify(chapter04.plannedLessons) === JSON.stringify(['4.5 HCF and LCM of Expressions']), 'K: plannedLessons carries exactly the queued gap 4.5 (run 95 authors it and empties this list)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'K: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'K: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(

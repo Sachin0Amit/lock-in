@@ -11,6 +11,12 @@ import type { Chapter } from '../../../types'
  *                  at run 73; 4.3 + 4.4 + the unit-4 review close it at
  *                  run 74.
  *
+ * STATUS (2026-11-13, content-completeness audit): honestly IN-PROGRESS —
+ * the prewritten-books audit (2026-11-11) queued lesson 4.5 "HCF and LCM
+ * of Expressions" (H&K XII/XIX + Khattar 26) as a real gap, so the
+ * chapter's earlier 'complete' claim was retired; status flips back to
+ * 'complete' when 4.5 ships (run 95 queue).
+ *
  * References for this unit: the Drive copy `Elementary-Algebra_text.pdf`
  * is H. S. Hall & S. R. Knight, *Elementary Algebra for Schools*
  * (Macmillan, first edition 1885; this 1942 reprint) — its chapter on
@@ -440,7 +446,10 @@ export const chapter04: Chapter = {
   title: 'Factorization',
   summary:
     'Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.',
-  status: 'complete',
+  // honestly 'in-progress': 4.5 is a queued gap (prewritten-books audit
+  // 2026-11-11; see plannedLessons below) — flips back to 'complete' when
+  // lesson 4.5 ships.
+  status: 'in-progress',
   lessons: [
     {
       id: 'al-common-factors-and-grouping',
@@ -1852,6 +1861,7 @@ export const chapter04: Chapter = {
       ],
     },
   ],
+  // the queued gap lesson (run 95 authors it and empties this list)
   plannedLessons: [
     '4.5 HCF and LCM of Expressions',
   ],

@@ -17,7 +17,7 @@ import type { Chapter } from '../../../types'
  * References for this unit: no new Drive downloads (the collection is
  * exam-oriented, per the run-48 survey); the sanctioned internet fallback
  * carried the 10.2 research — see docs/project/SOURCE_LOG.md. Banked keys
- * reused: beck-geoggegan-art-of-proof (10.1), hankel-1867-permanence,
+ * reused: beck-geoghegan-art-of-proof (10.1), hankel-1867-permanence,
  * peacock-1833-permanence (10.1), dedekind-1872-stetigkeit,
  * cantor-1872-fundamental-sequences (10.1), fibonacci-1202-liber-abaci +
  * gauss-1801-disquisitiones (10.2, casting out nines + congruences). New
@@ -387,7 +387,7 @@ export const chapter10: Chapter = {
         'ans-completeness-the-line-without-holes',
       ],
       sources: [
-        'beck-geoggegan-art-of-proof',
+        'beck-geoghegan-art-of-proof',
         'peacock-1833-permanence',
         'hankel-1867-permanence',
         'dedekind-1872-stetigkeit',

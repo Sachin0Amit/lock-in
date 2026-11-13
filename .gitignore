@@ -467,3 +467,6 @@ server.log
 !/scripts/figure-audit-domvalues.page.js
 !/scripts/figure-audit-smoke.sh
 !/scripts/figure-audit-smoke.page.js
+# content-completeness audit (owner chat directive 2026-11-13): the standing
+# heading-vs-content / everything-promised-is-written gate for all written lessons
+!/scripts/audit-content-completeness.ts

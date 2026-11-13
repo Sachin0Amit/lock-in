@@ -829,7 +829,7 @@ export const chapter09: Chapter = {
             ['kilo-', 'k', '$1000 = 10^3$', 'thousand (Greek)', '$1\\text{ km} = 1000\\text{ m}$'],
             ['hecto-', 'h', '$100 = 10^2$', 'hundred (Greek)', '$1\\text{ hm} = 100\\text{ m}$'],
             ['deca-', 'da', '$10$', 'ten (Greek)', '$1\\text{ dam} = 10\\text{ m}$'],
-            ['— (the unit itself)', '', '$1$', 'the base', '$1\\text{ m}$'],
+            ['— (the unit itself)', '—', '$1$', 'the base', '$1\\text{ m}$'],
             ['deci-', 'd', '$0.1 = 1/10$', 'tenth (Latin)', '$1\\text{ dm} = 0.1\\text{ m}$'],
             ['centi-', 'c', '$0.01 = 1/100$', 'hundredth (Latin)', '$1\\text{ cm} = 0.01\\text{ m}$'],
             ['milli-', 'm', '$0.001 = 1/1000$', 'thousandth (Latin)', '$1\\text{ mm} = 0.001\\text{ m}$'],

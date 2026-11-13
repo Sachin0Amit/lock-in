@@ -938,7 +938,7 @@ const plan62Fig2 = {
   ok(lesson.id === 'al-equations-in-two-variables', 'F: lesson id al-equations-in-two-variables')
   ok(lesson.number === '6.1', 'F: lesson number 6.1')
   ok(lesson.title === 'Equations in Two Variables', 'F: lesson title matches the planned title')
-  ok(chapter06.status === 'complete', 'F: chapter 6 status complete (6.2 landed at run 77; the run-78 review closed the chapter)')
+  ok(chapter06.status === 'in-progress', 'F: chapter 6 honestly IN-PROGRESS (6.4 "One Linear, One Quadratic" queued by the prewritten-books audit; 6.2 landed at run 77 and the run-78 review closed the 6.1–6.3 arc until the gap was found — 2026-11-13 audit fix)')
   ok(
     JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-the-three-verdicts-one-none-infinitely-many', 'al-solving-linear-equations']),
     'F: prerequisites are 5.3 + 5.2'
@@ -947,7 +947,7 @@ const plan62Fig2 = {
     JSON.stringify(lesson.sources) === JSON.stringify(['hall-knight-elementary-algebra', 'ncert-math10-ch3-pair-linear', 'khattar-qa-4e', 'cengage-jee-style']),
     'F: the four citation keys ride the lesson'
   )
-  ok(Array.isArray(chapter06.plannedLessons) && chapter06.plannedLessons!.length === 0, 'F: plannedLessons emptied (the run-78 review completed the chapter)')
+  ok(Array.isArray(chapter06.plannedLessons) && chapter06.plannedLessons!.length === 1 && chapter06.plannedLessons![0] === '6.4 One Linear, One Quadratic', 'F: plannedLessons carries exactly the queued gap 6.4 (run 95 authors it and empties this list)')
   // block census
   const kinds = lesson.blocks.map((b) => b.kind)
   const countKind = (k: string) => kinds.filter((x) => x === k).length
@@ -1885,7 +1885,7 @@ const plan63Fig2 = {
 
   // checklist 7 — lint + render: asserted here as structure; the render
   // gates run as the dev-server + browser E2E battery after this script.
-  ok(chapter06.status === 'complete' && chapter06.lessons.length === 3, 'K checklist 7: the chapter is structurally COMPLETE (render gates follow as E2E)')
+  ok(chapter06.status === 'in-progress' && chapter06.lessons.length === 3, 'K checklist 7: the chapter is structurally complete for its written 6.1–6.3 arc, with 6.4 honestly queued — status IN-PROGRESS (render gates follow as E2E)')
 
   // the exam-coverage audit — every lesson carries an exam corner
   {
@@ -1904,9 +1904,9 @@ const plan63Fig2 = {
     ok(!!alBook, 'K snapshot: the elementary-algebra book is registered')
     if (alBook) {
       const bookLessons = alBook.chapters.flatMap((c) => c.lessons)
-      ok(bookLessons.length === 21, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3 + ch6 3)')
+      ok(bookLessons.length === 37, 'K snapshot: the book stands ' + bookLessons.length + ' written lessons (ch1 4 + ch2 3 + ch3 4 + ch4 4 + ch5 3 + ch6 3 + ch7 3 + ch8 3 + ch9 4 + ch10 3 + ch11 3; 4.5 + 6.4 + ch12\'s three are the queued gap queue)')
       const bookWords = bookLessons.reduce((a, l) => a + countLessonWords(l), 0)
-      ok(bookWords >= 92000, 'K snapshot: the book totals ' + bookWords + ' words across 21 lessons (floor 92,000 — recomputed live)')
+      ok(bookWords >= 92000, 'K snapshot: the book totals ' + bookWords + ' words across 37 lessons (floor 92,000 — recomputed live)')
       const alIds = bookLessons.map((l) => l.id)
       ok(alIds.every((i) => i.startsWith('al-')), 'K snapshot: every book-3 lesson id carries the al- prefix')
     }
