@@ -29,7 +29,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { headingAnchor } from '@/data/library/index'
-import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem } from '@/data/library/types'
+import { LEVEL_LABELS, type Block, type CalloutTone, type QuizItem, type SolutionFigure } from '@/data/library/types'
 import { Math, RichText } from './math'
 import { useProgress } from './progress-store'
 import { useLedgerSync } from '@/components/revision/use-ledger-sync'
@@ -149,6 +149,32 @@ function SolPill() {
   )
 }
 
+/* ---------------------------------------------------------------- */
+/* Solution figures (owner directive 2026-11-13, protocol §10.1):    */
+/* compact diagrams embedded in a worked solution where they genuinely   */
+/* aid THAT solution. Same cream card + house SVG law as body figures   */
+/* but tighter margins, max-w-xl, and no lesson figure numbering — a   */
+/* one-line caption says what THIS diagram shows for THIS solution.    */
+/* ---------------------------------------------------------------- */
+
+function SolutionFigures({ figures }: { figures: SolutionFigure[] }) {
+  return (
+    <div className="mt-3.5 space-y-3">
+      {figures.map((f, i) => (
+        <figure key={i}>
+          <div
+            className="overflow-x-auto rounded-lg border border-stone-300 bg-[#fffdf5] px-3 py-3.5 text-[#1c1917] shadow-sm dark:border-stone-500 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:w-full [&_svg]:max-w-xl"
+            dangerouslySetInnerHTML={{ __html: f.svg }}
+          />
+          <figcaption className="mx-auto mt-1.5 max-w-xl text-center text-[13px] leading-5 text-muted-foreground">
+            <RichText text={f.caption} host={`sf${i}`} />
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  )
+}
+
 function SolutionSteps({
   steps,
   answer,
@@ -205,11 +231,13 @@ function SolutionSteps({
 function ExampleBlock({
   title,
   steps,
+  figures,
   no,
   hl,
 }: {
   title: string
   steps: string[]
+  figures?: SolutionFigure[]
   no: number
   hl?: string
 }) {
@@ -226,6 +254,7 @@ function ExampleBlock({
       </p>
       <div className="mt-4">
         <SolutionSteps steps={steps} hl={hl} />
+        {figures?.length ? <SolutionFigures figures={figures} /> : null}
       </div>
     </section>
   )
@@ -548,12 +577,19 @@ function SolutionBody({
   q,
   hl,
 }: {
-  q: { solution: string | string[]; answer?: string }
+  q: { solution: string | string[]; answer?: string; figures?: SolutionFigure[] }
   hl?: string
 }) {
-  if (!Array.isArray(q.solution))
-    return <RichText text={q.solution} host={hl ? `${hl}.sol` : undefined} />
-  return <SolutionSteps steps={q.solution} answer={q.answer} hl={hl} />
+  return (
+    <>
+      {!Array.isArray(q.solution) ? (
+        <RichText text={q.solution} host={hl ? `${hl}.sol` : undefined} />
+      ) : (
+        <SolutionSteps steps={q.solution} answer={q.answer} hl={hl} />
+      )}
+      {q.figures?.length ? <SolutionFigures figures={q.figures} /> : null}
+    </>
+  )
 }
 
 function ExercisesBlock({
@@ -565,7 +601,7 @@ function ExercisesBlock({
 }: {
   sets: {
     level: keyof typeof LEVEL_LABELS
-    questions: { q: string; solution: string | string[]; answer?: string }[]
+    questions: { q: string; solution: string | string[]; answer?: string; figures?: SolutionFigure[] }[]
   }[]
   title?: string
   lessonId?: string
@@ -576,7 +612,7 @@ function ExercisesBlock({
    * becomes a Mistake Bank card (and "got it" retires one) */
   const [reported, setReported] = useState<Record<string, 'got' | 'missed'>>({})
 
-  const selfReport = (key: string, q: { q: string; solution: string | string[]; answer?: string }, missed: boolean) => {
+  const selfReport = (key: string, q: { q: string; solution: string | string[]; answer?: string; figures?: SolutionFigure[] }, missed: boolean) => {
     if (!lessonId || blockIndex === undefined) return
     setReported((r) => ({ ...r, [key]: missed ? 'missed' : 'got' }))
     reportMistakeOutcome({
@@ -772,6 +808,7 @@ export function BlockRenderer({ blocks, lessonId }: { blocks: Block[]; lessonId?
                 key={i}
                 title={b.title}
                 steps={b.steps}
+                figures={b.figures}
                 no={illustrationNumbers[illustrationCursor++] ?? 0}
                 hl={`${i}`}
               />

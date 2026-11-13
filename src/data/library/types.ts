@@ -142,6 +142,21 @@ export interface QuizItem {
   explain: string
 }
 
+/**
+ * Compact diagram embedded inside a worked solution — the "solution visual
+ * aids" pass of the figure-audit + enrichment job (owner directive
+ * 2026-11-13; FIGURE_VERIFICATION_PROTOCOL.md §10.1). Rendered within the
+ * Cengage Sol. chain, outside the lesson's figure numbering. Discipline:
+ * 0–2 per question, only where the diagram genuinely aids THAT solution;
+ * the reasoning, steps and answers stay untouched.
+ */
+export interface SolutionFigure {
+  /** one short accurate line: what THIS diagram shows for THIS solution */
+  caption: string
+  /** inline SVG (house palette, viewBox with ≥ 8px margin, aria-label) */
+  svg: string
+}
+
 export interface ExerciseQuestion {
   q: string
   /**
@@ -164,6 +179,8 @@ export interface ExerciseQuestion {
    * stripped at display time — write the result itself.
    */
   answer?: string
+  /** optional compact diagrams supporting THIS solution (§10.1) */
+  figures?: SolutionFigure[]
 }
 
 export interface ExerciseSet {
@@ -193,7 +210,7 @@ export type Block =
       steps: DerivationStep[]
       result: string
     }
-  | { kind: 'example'; title: string; steps: string[] }
+  | { kind: 'example'; title: string; steps: string[]; figures?: SolutionFigure[] }
   | { kind: 'figure'; caption: string; svg: string }
   | { kind: 'table'; caption?: string; head: string[]; rows: string[][] }
   | { kind: 'list'; items: string[]; ordered?: boolean; marker?: 'disc' | 'decimal' | 'roman' }
@@ -255,6 +272,7 @@ export function countLessonWords(lesson: Lesson): number {
       case 'example':
         n += words(clean(b.title))
         for (const s of b.steps) n += words(clean(s))
+        for (const f of b.figures ?? []) n += words(clean(f.caption))
         break
       case 'figure':
         n += words(clean(b.caption))
@@ -278,6 +296,7 @@ export function countLessonWords(lesson: Lesson): number {
           for (const q of set.questions) {
             const sol = Array.isArray(q.solution) ? q.solution.join(' ') : q.solution
             n += words(clean(q.q)) + words(clean(sol)) + (q.answer ? words(clean(q.answer)) : 0)
+            for (const f of q.figures ?? []) n += words(clean(f.caption))
           }
         break
       case 'formula':

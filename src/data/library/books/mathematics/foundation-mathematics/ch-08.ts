@@ -3149,6 +3149,124 @@ export const chapter08: Chapter = {
               'Hence the sail covers $60$ m$^2$.',
             ],
           },
+          { kind: 'heading', text: 'Two more fills — the parallelogram and the rhombus' },
+          {
+            kind: 'para',
+            text: 'Two shapes crowd the examination paper right behind the three measured ones: the **parallelogram** — a rectangle whose top edge has been pushed sideways — and the **rhombus**, the parallelogram with all four sides equal. Neither needs a new engine. Push the top edge of a rectangle along itself: the base stays put, the perpendicular height stays put, the outline merely leans. Nothing was added and nothing was removed, so the fill cannot have changed — and the count below pins it.',
+          },
+          {
+            kind: 'derivation',
+            title: 'The area of the parallelogram',
+            statement: 'A parallelogram has base $b$, perpendicular height $h$, and its top edge displaced sideways by the shear $s$ (any size at all).',
+            steps: [
+              {
+                label: 'Cut the overhang',
+                formula: '\\text{a right triangle of legs } s \\text{ and } h',
+                explanation: 'The sheared shape overhangs the $b \\times h$ rectangle on one side by a right triangle; on the far side an identical slot stands empty.',
+              },
+              {
+                label: 'Slide it across',
+                formula: '\\text{fill} = b \\times h - \\tfrac{1}{2} s h + \\tfrac{1}{2} s h',
+                explanation: 'The overhang triangle, translated into the empty slot, fills it exactly — the very same triangle, moved. Translation adds nothing and loses nothing, so the fill is conserved through the slide.',
+              },
+              {
+                label: 'Read the rectangle',
+                formula: 'A = b \\times h',
+                explanation: 'After the slide the parallelogram is the $b \\times h$ rectangle again; the script swept every integer base 1 to 30, height 1 to 20 and shear 0 to $2b$ — the shoelace fill equalled $b \\times h$ every time.',
+              },
+            ],
+            result: 'A parallelogram fills base $\\times$ height — $A = b \\times h$ — the rectangle formula wearing slanted sides. The shear changes the walk and never the fill.',
+          },
+          {
+            kind: 'equation',
+            latex: 'A_{\\text{para}} = b \\times h',
+            note: 'Tag 6. Script-verified by the shoelace sweep (verify-unit-8 BA1) over every base 1 to 30, height 1 to 20, shear 0 to 2b — the slide never touches the fill.',
+          },
+          {
+            kind: 'figure',
+            caption:
+              'Left: the shear — the parallelogram (solid) overhangs its $b \\times h$ rectangle (dashed) by an amber right triangle; translated to the dashed slot on the far side it rebuilds exactly the rectangle, so the fill is $b \\times h$ whatever the lean. Right: the rhombus — its diagonals $d_1$ and $d_2$ cross at right angles (the mark at the centre) and cut four right triangles, each $\\frac{1}{2} \\times \\frac{d_1}{2} \\times \\frac{d_2}{2}$; together they fill $\\frac{1}{2} d_1 d_2$.',
+            svg: `<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels: a parallelogram sheared from its enclosing rectangle with the cut triangle sliding to the far side, and a rhombus with perpendicular diagonals d1 and d2 cutting four right triangles">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the parallelogram and the rhombus — two borrowed fills</text>
+  <polygon points="80,270 360,270 410,150 130,150" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.6"/>
+  <rect x="80" y="150" width="280" height="120" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <polygon points="360,150 410,150 360,270" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1.4"/>
+  <polygon points="80,150 130,150 80,270" fill="none" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M 410 135 Q 265 85 100 135" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
+  <polygon points="100,135 109,131 109,139" fill="#f59e0b"/>
+  <text x="220" y="292" font-size="12" fill="currentColor" text-anchor="middle">base b</text>
+  <text x="56" y="215" font-size="12" fill="currentColor" text-anchor="end">height h</text>
+  <text x="220" y="310" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">(a) the shear</text>
+  <polygon points="460,200 560,140 660,200 560,260" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="460" y1="200" x2="660" y2="200" stroke="currentColor" stroke-width="1.4"/>
+  <line x1="560" y1="140" x2="560" y2="260" stroke="currentColor" stroke-width="1.4"/>
+  <polygon points="560,200 660,200 560,260" fill="#f59e0b" opacity="0.15"/>
+  <path d="M 568 200 L 568 208 L 560 208" fill="none" stroke="currentColor" stroke-width="1"/>
+  <circle cx="560" cy="200" r="2.5" fill="currentColor"/>
+  <line x1="460" y1="205" x2="460" y2="301" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
+  <line x1="660" y1="205" x2="660" y2="301" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
+  <line x1="460" y1="296" x2="660" y2="296" stroke="currentColor" stroke-width="1.1"/>
+  <polygon points="460,296 468,292.6 468,299.4" fill="currentColor"/>
+  <polygon points="660,296 652,292.6 652,299.4" fill="currentColor"/>
+  <text x="560" y="282" font-size="12" fill="currentColor" text-anchor="middle">d₁</text>
+  <line x1="435" y1="140" x2="556" y2="140" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
+  <line x1="435" y1="260" x2="556" y2="260" stroke="currentColor" stroke-width="0.9" opacity="0.6"/>
+  <line x1="440" y1="140" x2="440" y2="260" stroke="currentColor" stroke-width="1.1"/>
+  <polygon points="440,140 443.4,148 436.6,148" fill="currentColor"/>
+  <polygon points="440,260 443.4,252 436.6,252" fill="currentColor"/>
+  <text x="428" y="204" font-size="12" fill="currentColor" text-anchor="end">d₂</text>
+  <text x="560" y="316" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.85">(b) the rhombus</text>
+  <text x="380" y="345" font-size="12.5" fill="currentColor" text-anchor="middle">same base, same height, same fill — A = b × h; diagonals at right angles — A = ½ d₁ d₂</text>
+</svg>`,
+          },
+          {
+            kind: 'para',
+            text: 'The **rhombus** — the diamond — earns its own shortcut from its diagonals. They cross at their midpoints and at right angles, so the diamond falls into four right triangles, each running from the crossing to a corner with legs half a diagonal apiece: $\\frac{d_1}{2}$ and $\\frac{d_2}{2}$. (The perpendicular crossing is drawn true and measured on the figure above; its full proof belongs to the congruence toolkit of the geometry book, so this lesson takes it as the drawing fact, the way the unit square was taken.)',
+          },
+          {
+            kind: 'derivation',
+            title: 'The area of the rhombus',
+            statement: 'A rhombus has perpendicular diagonals $d_1$ and $d_2$, crossing at their midpoints.',
+            steps: [
+              {
+                label: 'Cut by the diagonals',
+                formula: '4 \\text{ right triangles, legs } \\tfrac{d_1}{2} \\text{ and } \\tfrac{d_2}{2}',
+                explanation: 'The crossing halves both diagonals; each triangle spans half of each.',
+              },
+              {
+                label: 'Each is half a box',
+                formula: 'A = 4 \\times \\tfrac{1}{2} \\times \\tfrac{d_1}{2} \\times \\tfrac{d_2}{2}',
+                explanation: 'Every one of the four is a right triangle — half its leg-rectangle, the two-copy engine of tag 3 wearing diagonals.',
+              },
+              {
+                label: 'Collapse',
+                formula: 'A = \\tfrac{1}{2} \\times d_1 \\times d_2',
+                explanation: 'The 4 and the two halves multiply to a single half — the product of the diagonals over two. Swept over every diagonal pair 1 to 40: the collapse is exact.',
+              },
+            ],
+            result: 'The rhombus fills half the product of its diagonals — $A = \\frac{1}{2} d_1 d_2$ — and no side length ever enters. (The side-length question — the walk of a rhombus from its diagonals — waits for the Pythagorean toolkit of a later book; the fill never asks.)',
+          },
+          {
+            kind: 'equation',
+            latex: 'A_{\\text{rhombus}} = \\tfrac{1}{2} \\times d_1 \\times d_2',
+            note: 'Tag 7. The four-triangle collapse certified for every diagonal pair 1 to 40 (verify-unit-8 BA3); the perpendicular crossing is drawn certified — the congruence proof is the geometry book to give.',
+          },
+          {
+            kind: 'example',
+            title: 'A notice board is parallelogram-shaped with base $12$ cm and height $7$ cm; a tile is rhombus-shaped with diagonals $10$ cm and $24$ cm. Find both fills.',
+            steps: [
+              'Now, the board: tag 6 — $A = b \\times h = 12 \\times 7 = 84$ cm$^2$.',
+              'So the tile: tag 7 — $A = \\frac{1}{2} \\times d_1 \\times d_2 = \\frac{1}{2} \\times 10 \\times 24$.',
+              'And $\\frac{1}{2} \\times 240 = 120$ cm$^2$.',
+              'Hence the board fills $84$ cm$^2$ and the tile $120$ cm$^2$.',
+            ],
+          },
+          {
+            kind: 'callout',
+            tone: 'warn',
+            title: 'Caution — the same fraud, slanted edition',
+            text: 'The height of a parallelogram is still the perpendicular drop, never the slanted side: a parallelogram of base $15$ and slant $17$ with height $8$ fills $15 \\times 8 = 120$ cm$^2$, not $15 \\times 17$. And the rhombus side never enters its fill: diagonals $10$ and $24$ fill $\\frac{1}{2} \\times 10 \\times 24 = 120$ cm$^2$ — and read backwards, an area of $120$ with one diagonal $10$ pins the other at $2 \\times 120 \\div 10 = 24$.',
+          },
           { kind: 'heading', text: 'The circle — the walk' },
           {
             kind: 'para',
@@ -3307,6 +3425,29 @@ export const chapter08: Chapter = {
               'And the beading walks the outline only: two sides of $120$, the bottom of $90$, and the arch of length $\\pi r = \\frac{22}{7} \\times 45 \\approx 141.43$ — the $90$-cm diameter itself is glass-to-frame inside, never walked: $120 + 120 + 90 + 141.43 \\approx 471.43$ cm.',
               'Hence about $13{,}982$ cm$^2$ of glass and about $471.4$ cm of beading.',
             ],
+            figures: [
+              {
+                caption:
+                  'The window to scale: the $90 \\times 120$ rectangle with its semicircular arch of radius $45$ cm riding the top edge. The beading (bold outline) walks the two sides, the bottom and the arc — the top edge itself (dashed) is glass-to-frame inside and never walked.',
+                svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A 90 by 120 cm rectangle crowned by a semicircular arch of radius 45 cm, the beading outline bold along the two sides, the bottom and the arc, the top edge dashed as never walked">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the crowned window — walk the outline, price the glass</text>
+  <path d="M 300 140 A 81 81 0 0 1 462 140" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1.8"/>
+  <rect x="300" y="140" width="162" height="216" fill="currentColor" opacity="0.04" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="300" y1="140" x2="462" y2="140" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.55"/>
+  <circle cx="381" cy="140" r="3" fill="currentColor"/>
+  <line x1="381" y1="140" x2="438.3" y2="82.7" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3" opacity="0.7"/>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="262" y="252" text-anchor="end">120</text>
+    <text x="500" y="252" text-anchor="start">120</text>
+    <text x="381" y="374">90</text>
+    <text x="381" y="250">glass ≈ 13,982 cm²</text>
+  </g>
+  <text x="452" y="72" font-size="11" fill="currentColor" text-anchor="start">r = 45</text>
+  <text x="381" y="160" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">top edge — never walked</text>
+  <text x="380" y="392" font-size="12.5" fill="currentColor" text-anchor="middle">beading = 120 + 120 + 90 + πr ≈ 471.4 cm — with 22/7, πr = 141.43</text>
+</svg>`,
+              },
+            ],
           },
           {
             kind: 'callout',
@@ -3334,12 +3475,14 @@ export const chapter08: Chapter = {
               { term: 'Sector', def: 'The region between two radii and the arc they cut from the circle — a slice through the centre.' },
               { term: 'Semicircle dress', def: 'Half a circle: area $\\frac{1}{2}\\pi r^2$, and a boundary walk of $\\pi r + 2r$ (arc plus diameter).' },
               { term: 'Hectare', def: 'A land unit: a $100$ m $\\times$ $100$ m square, $10{,}000$ m$^2$.' },
+              { term: 'Parallelogram', def: 'A quadrilateral with both pairs of opposite sides parallel — a sheared rectangle; its fill is base $\\times$ perpendicular height.' },
+              { term: 'Rhombus', def: 'A parallelogram with all four sides equal; its perpendicular diagonals $d_1$ and $d_2$ fill it to $\\frac{1}{2} d_1 d_2$.' },
               { term: 'Composite figure', def: 'A figure built from measured shapes joined or cut; its fill is the sum (or difference) of the pieces\u2019 fills, and its walk runs only along the outer boundary.' },
             ],
           },
           {
             kind: 'para',
-            text: 'From the above discussion, the whole lesson folds into a pocket. For the rectangle: $P = 2(l + b)$ and $A = l \\times b$. For the triangle: $A = \\frac{1}{2} \\times b \\times h$, any side the base, the height always perpendicular. For the circle: $C = 2\\pi r = \\pi d$ and $A = \\pi r^2 = \\frac{\\pi d^2}{4}$. Units convert with the tile, never the side: $1$ m$^2 = 10^4$ cm$^2$ and $1$ hectare $= 10^4$ m$^2$. And the standing guard: the walk and the fill are different questions — a fixed perimeter pins no area, and the balanced shape always wins.',
+            text: 'From the above discussion, the whole lesson folds into a pocket. For the rectangle: $P = 2(l + b)$ and $A = l \\times b$. For the triangle: $A = \\frac{1}{2} \\times b \\times h$, any side the base, the height always perpendicular. For the parallelogram: $A = b \\times h$ — the shear of the rectangle. For the rhombus: $A = \\frac{1}{2} d_1 d_2$ — its perpendicular diagonals. For the circle: $C = 2\\pi r = \\pi d$ and $A = \\pi r^2 = \\frac{\\pi d^2}{4}$. Units convert with the tile, never the side: $1$ m$^2 = 10^4$ cm$^2$ and $1$ hectare $= 10^4$ m$^2$. And the standing guard: the walk and the fill are different questions — a fixed perimeter pins no area, and the balanced shape always wins.',
           },
           {
             kind: 'quiz',
@@ -3430,6 +3573,16 @@ export const chapter08: Chapter = {
                     ],
                     answer: '$44$ cm',
                   },
+                  {
+                    q: 'A parallelogram has base $15$ cm and height $8$ cm. Find its area — then say what happens to the fill if the top edge slides $6$ cm along, and why.',
+                    solution: [
+                      'Now, tag 6: $A = b \\times h = 15 \\times 8 = 120$ cm$^2$.',
+                      'So the slide is a shear: the base stays $15$, the perpendicular height stays $8$ — the overhang triangle just trades places with the empty slot.',
+                      'And the fill never moves: $120$ cm$^2$ before the slide, $120$ cm$^2$ after (the sweep certified it for every shear).',
+                      'Hence $120$ cm$^2$ — and the slide changes nothing but the lean.',
+                    ],
+                    answer: '$120$ cm$^2$; the shear never changes the fill',
+                  },
                 ],
               },
               {
@@ -3477,6 +3630,16 @@ export const chapter08: Chapter = {
                     ],
                     answer: 'Rs $10{,}320$',
                   },
+                  {
+                    q: 'A rhombus has diagonals $16$ cm and $12$ cm. Find its area; then find the second diagonal of the rhombus whose area is the same $96$ cm$^2$ and whose first diagonal is $16$ cm — and say what you notice.',
+                    solution: [
+                      'Now, tag 7: $A = \\frac{1}{2} \\times 16 \\times 12 = 96$ cm$^2$.',
+                      'So backwards: $96 = \\frac{1}{2} \\times 16 \\times d_2$ gives $d_2 = \\frac{2 \\times 96}{16} = 12$ cm.',
+                      'And the notice: it is the same rhombus read in reverse — the round-trip returns the diagonal it started with.',
+                      'Hence $96$ cm$^2$; the second diagonal $12$ cm — the identity closed.',
+                    ],
+                    answer: '$96$ cm$^2$; the second diagonal is $12$ cm — the same rhombus read backwards',
+                  },
                 ],
               },
               {
@@ -3491,6 +3654,32 @@ export const chapter08: Chapter = {
                       'Hence the $6$ m $\\times$ $6$ m square, area $36$ m$^2$.',
                     ],
                     answer: 'The $6 \\times 6$ square; area $36$ m$^2$',
+                    figures: [
+                      {
+                        caption:
+                          'The wire is $24$ m for every rectangle drawn here — the six whole-metre candidates of the solution, drawn to scale. The fill climbs $11 \\to 20 \\to 27 \\to 32 \\to 35 \\to 36$ as the shape squares off; the balanced $6 \\times 6$ square (tinted) takes the most.',
+                        svg: `<svg viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six rectangles all with perimeter 24 metres drawn to scale, their areas climbing from 11 to 36 as they square off, the 6 by 6 square tinted as the winner">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">one wire, 24 m of walk — six candidates, six fills</text>
+  <line x1="50" y1="120" x2="486" y2="120" stroke="currentColor" stroke-width="1.4"/>
+  <rect x="435" y="78" width="42" height="42" fill="currentColor" opacity="0.10"/>
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="60" y="113" width="77" height="7"/>
+    <rect x="149" y="106" width="70" height="14"/>
+    <rect x="231" y="99" width="63" height="21"/>
+    <rect x="306" y="92" width="56" height="28"/>
+    <rect x="374" y="85" width="49" height="35"/>
+    <rect x="435" y="78" width="42" height="42"/>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="98" y="103">11</text><text x="184" y="96">20</text><text x="262" y="89">27</text><text x="334" y="82">32</text><text x="398" y="75">35</text><text x="456" y="68" font-weight="bold">36</text>
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="98" y="138">11 × 1</text><text x="184" y="138">10 × 2</text><text x="262" y="138">9 × 3</text><text x="334" y="138">8 × 4</text><text x="398" y="138">7 × 5</text><text x="456" y="138">6 × 6</text>
+  </g>
+  <text x="380" y="160" font-size="12.5" fill="currentColor" text-anchor="middle">the areas climb 11 → 36 as the shape squares off — the square wins</text>
+</svg>`,
+                      },
+                    ],
                   },
                   {
                     q: 'An L-shaped corridor is a $12$ m $\\times$ $9$ m rectangle with a $5$ m $\\times$ $4$ m corner removed. Find its floor area, the length of its skirting (the walk along the outline), and the cost of carpeting it at Rs $250$ per m$^2$.',
@@ -3501,6 +3690,34 @@ export const chapter08: Chapter = {
                       'Hence area $88$ m$^2$, skirting $42$ m, carpet Rs $22{,}000$.',
                     ],
                     answer: 'Area $88$ m$^2$; skirting $42$ m; cost Rs $22{,}000$',
+                    figures: [
+                      {
+                        caption:
+                          'The corridor drawn to scale: the $12 \\times 9$ rectangle with its $5 \\times 4$ corner removed (dashed outline). Each outer wall carries its length — the walk runs $12 + 5 + 5 + 4 + 7 + 9 = 42$ m, and the fill is $108 - 20 = 88$ m$^2$.',
+                        svg: `<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An L-shaped corridor of a 12 by 9 metre rectangle with a 5 by 4 corner removed, each of the six outer walls labelled with its length, walk 42 metres, area 88 square metres">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the L-corridor — walk the outline, fill by subtraction</text>
+  <polygon points="200,80 410,80 410,200 560,200 560,350 200,350" fill="currentColor" opacity="0.05"/>
+  <polygon points="410,80 560,80 560,200 410,200" fill="currentColor" opacity="0.06"/>
+  <path d="M 200 350 L 560 350 L 560 200 L 410 200 L 410 80 L 200 80 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="410" y1="80" x2="560" y2="80" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <line x1="560" y1="80" x2="560" y2="200" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <g fill="currentColor">
+    <circle cx="200" cy="350" r="3"/><circle cx="560" cy="350" r="3"/><circle cx="560" cy="200" r="3"/><circle cx="410" cy="200" r="3"/><circle cx="410" cy="80" r="3"/><circle cx="200" cy="80" r="3"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="380" y="370">12 m</text>
+    <text x="485" y="222">5 m</text>
+    <text x="305" y="62">7 m</text>
+  </g>
+  <text x="580" y="278" font-size="12.5" fill="currentColor" text-anchor="start">5 m</text>
+  <text x="398" y="144" font-size="12.5" fill="currentColor" text-anchor="end">4 m</text>
+  <text x="188" y="215" font-size="12.5" fill="currentColor" text-anchor="end">9 m</text>
+  <text x="485" y="144" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">removed: 5 × 4</text>
+  <text x="305" y="265" font-size="12.5" fill="currentColor" text-anchor="middle">88 m² fill</text>
+  <text x="380" y="392" font-size="12.5" fill="currentColor" text-anchor="middle">the six outer walls: 12 + 5 + 5 + 4 + 7 + 9 = 42 m — the fill: 12 × 9 − 5 × 4 = 88 m²</text>
+</svg>`,
+                      },
+                    ],
                   },
                 ],
               },
@@ -3530,6 +3747,44 @@ export const chapter08: Chapter = {
                       'Hence area $6$ square units by all three honest dresses; the fraud refused; the perimeter a separate ledger.',
                     ],
                     answer: '$A = 6$ by all three dresses ($h = 12/5 = 2.4$ to the hypotenuse); $\\frac{1}{2} \\times 4 \\times 5 = 10$ refused; the perimeter $12$ is the walk',
+                    figures: [
+                      {
+                        caption:
+                          'The 3-4-5 triangle three ways, to scale. (a) leg $3$ as base with the other leg $4$ as height; (b) leg $4$ as base with height $3$ — the red $5$ on the slant is NOT a height, and $\\frac{1}{2} \\times 4 \\times 5 = 10$ is the refused fraud; (c) the hypotenuse $5$ as base with the perpendicular drop $h = 12/5 = 2.4$ from the right-angle vertex. Every honest dress fills $6$.',
+                        svg: `<svg viewBox="0 0 760 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three panels of the 3-4-5 right triangle: base 3 height 4, base 4 height 3 with the slant 5 marked red as not a height, and base 5 with altitude 2.4 dropped from the right-angle vertex, each area 6">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the 3-4-5 triangle — three base-height dresses, one area</text>
+  <polygon points="70,230 136,230 70,142" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 70 230 L 80 230 L 80 220" fill="none" stroke="currentColor" stroke-width="1"/>
+  <g font-size="12" fill="currentColor">
+    <text x="103" y="248" text-anchor="middle">base 3</text>
+    <text x="58" y="190" text-anchor="end">4</text>
+    <text x="116" y="178" opacity="0.7">5</text>
+  </g>
+  <text x="103" y="266" font-size="12" fill="currentColor" text-anchor="middle">(a) A = ½ × 3 × 4 = 6</text>
+  <polygon points="330,230 418,230 330,164" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M 330 230 L 340 230 L 340 220" fill="none" stroke="currentColor" stroke-width="1"/>
+  <g font-size="12" fill="currentColor">
+    <text x="374" y="248" text-anchor="middle">base 4</text>
+    <text x="318" y="202" text-anchor="end">3</text>
+    <text x="388" y="186" fill="#dc2626">5</text>
+  </g>
+  <text x="374" y="266" font-size="12" fill="currentColor" text-anchor="middle">(b) A = ½ × 4 × 3 = 6</text>
+  <text x="365" y="284" font-size="11" fill="#dc2626" text-anchor="middle">the red 5 leans — it is not a height; ½ × 4 × 5 refused</text>
+  <polygon points="560,230 670,230 599.6,177.2" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="599.6" y1="177.2" x2="599.6" y2="230" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 3" opacity="0.75"/>
+  <path d="M 599.6 230 L 590 230 L 590 221" fill="none" stroke="currentColor" stroke-width="1" opacity="0.8"/>
+  <circle cx="599.6" cy="230" r="2.5" fill="currentColor"/>
+  <g font-size="12" fill="currentColor">
+    <text x="615" y="248" text-anchor="middle">base 5 (hypotenuse)</text>
+    <text x="556" y="200" text-anchor="end">3</text>
+    <text x="648" y="196">4</text>
+    <text x="625" y="164" text-anchor="middle" font-weight="bold">h = 12/5 = 2.4</text>
+  </g>
+  <text x="625" y="266" font-size="12" fill="currentColor" text-anchor="middle">(c) A = ½ × 5 × 2.4 = 6</text>
+  <text x="380" y="304" font-size="12" fill="currentColor" text-anchor="middle">one triangle, three honest dresses — the perpendicular drop is the only height; A = 6 every time</text>
+</svg>`,
+                      },
+                    ],
                   },
                 ],
               },

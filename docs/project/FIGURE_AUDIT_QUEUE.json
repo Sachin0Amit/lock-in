@@ -2,12 +2,12 @@
   "updated": "2026-11-13",
   "protocol": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
   "order": "pre-written books first (owner directive 2026-11-11), then library registration order",
-  "cursor": 36,
+  "cursor": 40,
   "stats": {
-    "lessonsWithFigures": 125,
-    "figureTotal": 221,
-    "done": 41,
-    "pending": 84
+    "lessonsWithFigures": 131,
+    "figureTotal": 243,
+    "done": 46,
+    "pending": 85
   },
   "items": [
     {
@@ -338,29 +338,37 @@
       "lessonId": "fm-perimeter-and-area-rectangles-triangles-circles",
       "bookId": "foundation-mathematics",
       "chapter": 8,
-      "figures": 3,
-      "status": "pending"
+      "figures": 4,
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 1 (v2): 3 body figs PASS + enrichment pass C added the parallelogram/rhombus body fig (VLM PASS after bracket fix) + 4 solution visual aids (VLM PASS); verify-unit-8 BA pins green"
     },
     {
       "lessonId": "fm-units-as-agreements",
       "bookId": "foundation-mathematics",
       "chapter": 9,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 1: both figs PASS (DOM 0 + domvalues CLEAN + VLM strict); one montage scale-claim DISMISSED on pixel+source evidence (rows all x=167..531 flush); pass B: no solution figures — the two body figs already carry the exercise patterns, decoration refused"
     },
     {
       "lessonId": "fm-the-metric-system",
       "bookId": "foundation-mathematics",
       "chapter": 9,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 1: staircase FIXED (3 layer-1 TEXT/PATH overlaps — hops re-anchored to platform right-ends + takeoff dots) then VLM PASS; rails PASS; pass B added the courier-box solution figure (VLM PASS)"
     },
     {
       "lessonId": "fm-converting-units-without-memorising-tables",
       "bookId": "foundation-mathematics",
       "chapter": 9,
       "figures": 2,
-      "status": "pending"
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 1: both figs PASS; pass B added the return-pipeline solution figure (caption escape-repair: quadruple backslashes halved) — VLM PASS"
     },
     {
       "lessonId": "fm-precision-accuracy-and-rounding-in-measurement",
@@ -380,7 +388,7 @@
       "lessonId": "fm-bar-charts-line-graphs-and-pie-charts",
       "bookId": "foundation-mathematics",
       "chapter": 10,
-      "figures": 3,
+      "figures": 4,
       "status": "pending"
     },
     {
@@ -778,6 +786,15 @@
       "status": "pending"
     },
     {
+      "lessonId": "al-hcf-and-lcm-of-expressions",
+      "bookId": "elementary-algebra",
+      "chapter": 4,
+      "figures": 3,
+      "status": "done",
+      "lastAudited": "2026-11-13",
+      "note": "job 527779 fire 1 (priority insert, run 95 fresh lesson): 3 body figs PASS (DOM 0 + domvalues CLEAN + VLM strict incl the Euclid disloyal-scalar chain); pass B added the three-shelf trap solution figure (VLM PASS)"
+    },
+    {
       "lessonId": "al-what-an-equation-is-the-balance-principle",
       "bookId": "elementary-algebra",
       "chapter": 5,
@@ -893,7 +910,7 @@
       "lessonId": "al-the-coordinate-plane-and-linear-graphs",
       "bookId": "elementary-algebra",
       "chapter": 10,
-      "figures": 2,
+      "figures": 3,
       "status": "pending"
     },
     {
@@ -966,6 +983,41 @@
       "status": "done",
       "lastAudited": "2026-11-11",
       "note": "VLM strict PASS (run 91: three-panel verdict rebuilt honestly + mirror)"
+    },
+    {
+      "lessonId": "aa-function-zoo-modulus-signum-gif-elementary-catalog",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 7,
+      "status": "pending"
+    },
+    {
+      "lessonId": "aa-even-and-odd-functions-and-extensions",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "aa-graph-transformations-shifts-stretches-flips-gif",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 3,
+      "status": "pending"
+    },
+    {
+      "lessonId": "aa-period-census-periods-of-transformed-and-composite-functions",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
+    },
+    {
+      "lessonId": "aa-unit-review-functions-as-objects",
+      "bookId": "advanced-algebra",
+      "chapter": 1,
+      "figures": 2,
+      "status": "pending"
     }
   ]
 }

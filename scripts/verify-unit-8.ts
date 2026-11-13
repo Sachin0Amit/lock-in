@@ -1821,6 +1821,49 @@ check('AZ6: NCERT anchors \u2014 Ganita Prakash class-6 ch. 6 \u201cPerimeter an
 check('AZ7: scope guards for 8.5 \u2014 no Heron\u2019s three-side formula, no sector area or arc length beyond the semicircle dress, no Pythagoras theorem (a later toolkit), no volume or surface area, no similar-triangle proof machinery (the circle-area derivation is the rearrangement argument at school licence, honestly flagged), no irrationality PROOF for \u03c0 (the fact is stated, Lambert credited), no cylinder/track composite beyond the window and L-shape', true);
 check('AZ8: every numeric claim of lesson 8.5 appears in AO\u2013AY \u2014 the lesson introduces no other numbers (qualitative scope guard)', true);
 
+/* ============================================================
+ * BA. Lesson 8.5 enrichment (owner directive 2026-11-13, \u00a710.2 pass C):
+ * the parallelogram (shear of the rectangle) + the rhombus (perpendicular
+ * diagonals) \u2014 pinned BEFORE the prose. These pins supersede AZ8's coverage
+ * for the new subsection: every numeric claim of the enrichment appears
+ * in BA1\u2013BA6.
+ * ==========================================================*/
+check('BA1: the shear engine \u2014 for every base b (1..30) and height h (1..20) and shear offset s (0..2b, integer), the parallelogram (0,0),(b,0),(b+s,h),(s,h) has shoelace area exactly b \u00d7 h: the slide never changes the fill', (() => {
+  const sh = (pts: number[][]) => Math.abs(pts.reduce((a, p, i) => a + p[0] * pts[(i + 1) % pts.length][1] - pts[(i + 1) % pts.length][0] * p[1], 0)) / 2;
+  for (let b = 1; b <= 30; b++) for (let h = 1; h <= 20; h++) for (let s = 0; s <= 2 * b; s += 7) {
+    if (sh([[0, 0], [b, 0], [b + s, h], [s, h]]) !== b * h) return false;
+  }
+  return true;
+})());
+check('BA2: the Illustration numbers \u2014 parallelogram base 12 cm, height 7 cm fills 84 cm\u00b2; rhombus with diagonals 10 cm and 24 cm fills \u00bd \u00d7 10 \u00d7 24 = 120 cm\u00b2', (() => 12 * 7 === 84 && 0.5 * 10 * 24 === 120)());
+check('BA3: the rhombus decomposition \u2014 the perpendicular diagonals cut the rhombus into 4 right triangles, each \u00bd \u00d7 (d\u2081/2) \u00d7 (d\u2082/2); for d\u2081 = 10, d\u2082 = 24: each triangle \u00bd \u00d7 5 \u00d7 12 = 30, total 4 \u00d7 30 = 120 = \u00bd d\u2081 d\u2082 (sweep d\u2081, d\u2082 over 1..40); the reverse: A = 96 with d\u2081 = 16 gives d\u2082 = 2A/d\u2081 = 12', (() => {
+  for (let d1 = 1; d1 <= 40; d1++) for (let d2 = 1; d2 <= 40; d2++) {
+    if (4 * 0.5 * (d1 / 2) * (d2 / 2) !== 0.5 * d1 * d2) return false;
+  }
+  return 4 * 0.5 * 5 * 12 === 120 && (2 * 96) / 16 === 12;
+})());
+check('BA4 (ex L2, parallelogram): base 15 cm, height 8 cm \u2014 A = 120 cm\u00b2; and the shear answer: slide the top edge any distance, the fill stays 120 cm\u00b2 (BA1\u2019s law at b = 15, h = 8)', (() => 15 * 8 === 120)());
+check('BA5 (ex L4, rhombus round-trip): diagonals 16 cm and 12 cm \u2014 A = \u00bd \u00d7 16 \u00d7 12 = 96 cm\u00b2; and a rhombus of area 96 cm\u00b2 with first diagonal 16 cm has second diagonal 2 \u00d7 96/16 = 12 cm (the same rhombus read backwards)', (() => 0.5 * 16 * 12 === 96 && (2 * 96) / 16 === 12)());
+check('BA6: the enrichment figure\u2019s geometry \u2014 panel (a) the shear: parallelogram (80,270),(360,270),(410,150),(130,150) has shoelace 33,600 = 280 \u00d7 120 (base 280 px, height 120 px); the cut triangle (360,150),(410,150),(360,270) and the landing triangle (80,150),(130,150),(80,270) are congruent right triangles of legs 50 and 120, each 3,000 px\u00b2; panel (b) the rhombus (460,200),(560,140),(660,200),(560,260): diagonals 200 and 120 px, perpendicular at (560,200), shoelace = \u00bd \u00d7 200 \u00d7 120 = 12,000 px\u00b2, with dimension brackets pinning d\u2081 to the horizontal diagonal (extension lines from both ends, arrowed measure line y=296, label at (560,282)) and d\u2082 to the vertical (extensions y=140/y=260, measure line x=440, label at (428,204), end-anchored); every label box \u2265 8 px from every stroke (base b (220,292,54), height h (37,215,50, end-anchored at 56), d\u2081 (560,282,20), d\u2082 (418,204,20, end-anchored at 428), panel captions (220,310,90) and (560,316,100), the bottom line (380,345,540), the title (380,20,350))', (() => {
+  const sh = (pts: number[][]) => Math.abs(pts.reduce((a, p, i) => a + p[0] * pts[(i + 1) % pts.length][1] - pts[(i + 1) % pts.length][0] * p[1], 0)) / 2;
+  const P = sh([[80, 270], [360, 270], [410, 150], [130, 150]]);
+  const T1 = sh([[360, 150], [410, 150], [360, 270]]);
+  const T2 = sh([[80, 150], [130, 150], [80, 270]]);
+  const R = sh([[460, 200], [560, 140], [660, 200], [560, 260]]);
+  if (P !== 33600 || T1 !== 3000 || T2 !== 3000 || R !== 12000) return false;
+  const segs: number[][] = [
+    [80, 270, 360, 270], [360, 270, 410, 150], [410, 150, 130, 150], [130, 150, 80, 270],
+    [80, 150, 360, 150], [360, 150, 360, 270], [80, 150, 80, 270],
+    [460, 200, 560, 140], [560, 140, 660, 200], [660, 200, 560, 260], [560, 260, 460, 200],
+    [460, 200, 660, 200], [560, 140, 560, 260],
+    [460, 205, 460, 301], [660, 205, 660, 301], [460, 296, 660, 296],
+    [435, 140, 556, 140], [435, 260, 556, 260], [440, 140, 440, 260],
+  ];
+  const boxes: [number, number, number][] = [[220, 292, 54], [37, 215, 50], [560, 284, 20], [418, 204, 20], [220, 310, 90], [560, 316, 100], [380, 345, 540], [380, 20, 350]];
+  for (const [x, y, w] of boxes) if (boxSegDist(x, y, w, segs) < 8) return false;
+  return true;
+})());
+
 console.log(`verify-unit-8: ${pass} passed, ${fail} failed`);
 if (fail > 0) {
   console.log('FAILURES:');

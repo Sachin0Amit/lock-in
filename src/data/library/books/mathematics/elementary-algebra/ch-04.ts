@@ -2041,7 +2041,42 @@ export const chapter04: Chapter = {
           ] },
           { level: 'L5', questions: [
             { q: 'Find the HCF of $3x^{3} - 10x^{2} + 9x - 2$ and $6x^{3} - 5x^{2} - 2x + 1$.', solution: ['Equal degrees — divide anyway: $3x^{3} - 10x^{2} + 9x - 2 = \\tfrac{1}{2}(6x^{3} - 5x^{2} - 2x + 1) + \\left(-\\tfrac{5}{2}x^{2} + 10x - \\tfrac{5}{2}\\right)$ — quotient $\\tfrac{1}{2}$, remainder $-\\tfrac{5}{2}(3x^{2} - 4x + 1)$.', 'The $-\\tfrac{5}{2}$ is disloyal — reject it; continue with the divisor $3x^{2} - 4x + 1$.', 'Divide the second expression by it: $6x^{3} - 5x^{2} - 2x + 1 = (2x + 1)(3x^{2} - 4x + 1)$, remainder $0$.', 'Hence the HCF is $3x^{2} - 4x + 1$, which factors as $(x-1)(3x-1)$ — a shelf check: the first expression is $(x-2)(3x-1)(x-1)$, the second is $(x-1)(3x-1)(2x+1)$ ✓.'], answer: '$3x^{2} - 4x + 1 = (x-1)(3x-1)$' },
-            { q: 'Find the HCF and the LCM of $x^{2} - 3x + 2$, $x^{2} - 5x + 6$ and $x^{2} - 4x + 3$.', solution: ['Factor all three: $(x-1)(x-2)$, $(x-2)(x-3)$, $(x-1)(x-3)$.', 'HCF: $(x-1)$ misses the second shelf, $(x-2)$ misses the third, $(x-3)$ misses the first — no factor stands on all three shelves, so the HCF is $1$.', 'LCM: the union shelf is $(x-1)(x-2)(x-3)$.', 'Hence the trap closes: pair-wise HCFs are non-trivial ($x-2$, $x-3$, $x-1$) yet the three-way HCF is $1$ — and the master identity was never available for a trio.'], answer: 'HCF $1$; LCM $(x-1)(x-2)(x-3)$' },
+            { q: 'Find the HCF and the LCM of $x^{2} - 3x + 2$, $x^{2} - 5x + 6$ and $x^{2} - 4x + 3$.', solution: ['Factor all three: $(x-1)(x-2)$, $(x-2)(x-3)$, $(x-1)(x-3)$.', 'HCF: $(x-1)$ misses the second shelf, $(x-2)$ misses the third, $(x-3)$ misses the first — no factor stands on all three shelves, so the HCF is $1$.', 'LCM: the union shelf is $(x-1)(x-2)(x-3)$.', 'Hence the trap closes: pair-wise HCFs are non-trivial ($x-2$, $x-3$, $x-1$) yet the three-way HCF is $1$ — and the master identity was never available for a trio.'], answer: 'HCF $1$; LCM $(x-1)(x-2)(x-3)$', figures: [
+              { caption: 'The three shelves of THIS solution, drawn: each crate stands on exactly two of the three shelves — every column has a gap — so no factor survives the three-way census (HCF $1$), while the union shelf collects all three crates. The pair-wise HCFs are the columns themselves: $x-2$ (A and B), $x-3$ (B and C), $x-1$ (A and C).',
+                svg: `<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three factor shelves A, B and C with crates x minus 1, x minus 2 and x minus 3 each standing on exactly two shelves, no crate on all three, so the three-way HCF is 1 and the union shelf is the product of all three">
+  <text x="360" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the three-shelf trap — pair-wise common, three-way alone</text>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="260" y="54">(x−1)</text><text x="400" y="54">(x−2)</text><text x="540" y="54">(x−3)</text>
+    <text x="105" y="107">A: x²−3x+2</text>
+    <text x="105" y="187">B: x²−5x+6</text>
+    <text x="105" y="267">C: x²−4x+3</text>
+  </g>
+  <line x1="215" y1="134" x2="585" y2="134" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+  <line x1="215" y1="214" x2="585" y2="214" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+  <line x1="215" y1="294" x2="585" y2="294" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+  <g fill="currentColor" opacity="0.07" stroke="currentColor" stroke-width="1.5" font-size="12.5">
+    <rect x="215" y="82" width="90" height="36"/><rect x="355" y="82" width="90" height="36"/>
+    <rect x="355" y="162" width="90" height="36"/><rect x="495" y="162" width="90" height="36"/>
+    <rect x="215" y="242" width="90" height="36"/><rect x="495" y="242" width="90" height="36"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="260" y="105">(x−1)</text><text x="400" y="105">(x−2)</text>
+    <text x="400" y="185">(x−2)</text><text x="540" y="185">(x−3)</text>
+    <text x="260" y="265">(x−1)</text><text x="540" y="265">(x−3)</text>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.35">
+    <rect x="495" y="82" width="90" height="36"/>
+    <rect x="215" y="162" width="90" height="36"/>
+    <rect x="355" y="242" width="90" height="36"/>
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle" opacity="0.85">
+    <text x="260" y="320">on A &amp; C — missing B</text>
+    <text x="400" y="320">on A &amp; B — missing C</text>
+    <text x="540" y="320">on B &amp; C — missing A</text>
+  </g>
+  <text x="360" y="375" font-size="12.5" fill="currentColor" text-anchor="middle">no crate stands on all three shelves — the three-way HCF is 1; the union shelf: (x−1)(x−2)(x−3)</text>
+</svg>` },
+            ] },
           ] },
           { level: 'L6', questions: [
             { q: 'The HCF of two expressions is $(x-2)^{2}$ and their LCM is $(x-2)^{2}(x+1)(x-5)$. One of them is $x^{3} - 3x^{2} + 4$. Find the other, and certify both census readings.', solution: ['Recognise the held expression: $x^{3} - 3x^{2} + 4 = (x-2)^{2}(x+1)$ (expand to check: $(x^{2} - 4x + 4)(x+1) = x^{3} - 3x^{2} + 4$ ✓).', 'Hunt: the other $= \\dfrac{\\mathrm{HCF} \\times \\mathrm{LCM}}{\\text{held}} = \\dfrac{(x-2)^{4}(x+1)(x-5)}{(x-2)^{2}(x+1)} = (x-2)^{2}(x-5)$.', 'Expand: $(x^{2} - 4x + 4)(x - 5) = x^{3} - 5x^{2} - 4x^{2} + 20x + 4x - 20 = x^{3} - 9x^{2} + 24x - 20$.', 'Certify the HCF: the pair shares $(x-2)^{2}$ and nothing more ✓. Certify the LCM: the union shelf is $(x-2)^{2}(x+1)(x-5)$ ✓. Both census readings close; hence the other expression is $(x-2)^{2}(x-5)$.'], answer: '$(x-2)^{2}(x-5) = x^{3} - 9x^{2} + 24x - 20$' },

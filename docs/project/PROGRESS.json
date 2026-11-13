@@ -82,8 +82,8 @@
         "chaptersPlanned": 11,
         "chaptersWritten": 11,
         "lessonsWritten": 48,
-        "termsAvailableForFlashcards": 355,
-        "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 227,569 words, 355 terms, 240 quiz items, 534 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json."
+        "termsAvailableForFlashcards": 357,
+        "notes": "COMPLETE (run 47, 2026-11-05) — 11/11 chapters, 48 lessons, 229,080 words, 357 terms, 240 quiz items, 536 exercise questions (ground truth: WORK_INVENTORY.json). STYLE: reader renders all lessons Cengage print-style (run 14) with Cengage solution chains (run 16); the pre-4.2 prose voice-polish queue is fully retired (1.1-1.3, 2.1-2.5, 3.1-3.5, 4.1 done by run 36; queue EMPTY since run 46). Chapters: 1 Numbers and Place Value (3), 2 The Four Operations (5, incl. BODMAS), 3 Factors, Multiples and Primes (5), 4 Fractions (5), 5 Decimals and Percents (5), 6 Ratio, Rate and Proportion (5), 7 Integers (4), 8 Geometry Foundations (5), 9 Measurement (4), 10 Data and Graphs (4), 11 Patterns and the Doorstep of Algebra (3). Run-by-run narrative: WORKLOG.md; detailed record: DETAILED_LOG.md + WORK_INVENTORY.json. Enrichment fire (2026-11-13, job 527779): 8.5 gained the parallelogram + rhombus subsection (verify-unit-8 BA1–BA6 pins) and solution visual aids landed in 8.5 (4), 9.2 (1), 9.3 (1)."
       },
       {
         "id": "arithmetic-number-systems",
@@ -102,8 +102,8 @@
         "chaptersPlanned": 11,
         "chaptersWritten": 11,
         "lessonsWritten": 38,
-        "termsAvailableForFlashcards": 278,
-        "notes": "IN-PROGRESS (run 95, 2026-11-13) — the prewritten-books audit gap queue is closing: 4.5 'HCF and LCM of Expressions' shipped (38 lessons, 175,903 words; 4.5 = 4,443 words, verifier sections L+M 576/0); 6.4 'One Linear, One Quadratic' deferred to the next fire by the time rule; then the new ch. 12 'Ratio, Proportion and Variation' (3 lessons) closes the queue. Ground truth: WORK_INVENTORY.json (rebuild deferred — Drive survey chain reset with the sandbox)."
+        "termsAvailableForFlashcards": 279,
+        "notes": "IN-PROGRESS (run 95, 2026-11-13) — the prewritten-books audit gap queue is closing: 4.5 'HCF and LCM of Expressions' shipped (38 lessons, 176,085 words; 4.5 = 4,443 words, verifier sections L+M 576/0); 6.4 'One Linear, One Quadratic' deferred to the next fire by the time rule; then the new ch. 12 'Ratio, Proportion and Variation' (3 lessons) closes the queue. Ground truth: WORK_INVENTORY.json (rebuild deferred — Drive survey chain reset with the sandbox)."
       },
       {
         "id": "advanced-algebra",
@@ -111,9 +111,9 @@
         "status": "in-progress",
         "chaptersPlanned": 10,
         "chaptersWritten": 0,
-        "lessonsWritten": 6,
+        "lessonsWritten": 9,
         "lessonsPlanned": 35,
-        "termsAvailableForFlashcards": 3,
+        "termsAvailableForFlashcards": 40,
         "notes": "PROMOTED (run 89) — 10 chapters / 36 planned lessons; ch. 1 'Functions as Objects' in progress: 1.1–1.6 written (runs 90–92), 1.7 + 1.8 + unit review remain. aa- id prefix reserved."
       },
       {
@@ -353,17 +353,17 @@
         "notes": "PLANNED (topic-inclusion guarantee pass, 2026-11-10) — 11 ch / 39 planned lessons, `qa-` prefix reserved; research: the Khattar aptitude census (40 chapters, khattar-qa-4e) + the EXAM_REGISTRY exam scope (CAT/SSC CGL/IBPS/SBI/RBI/CSAT/CA Foundation + SAT/GRE/GMAT quant word problems). The commercial-aptitude family's own home; no-duplication contract in the header. Authoring opens in backlog order after Advanced Algebra completes."
       }
     ],
-    "lessonsWritten": 120,
-    "wordsAuthored": 583505,
-    "termsAvailableForFlashcards": 587,
+    "lessonsWritten": 131,
+    "wordsAuthored": 639299,
+    "termsAvailableForFlashcards": 962,
     "totals": {
-      "lessonsWritten": 121,
-      "plannedLessons": 830,
-      "words": 587948,
-      "terms": 914,
-      "quizItems": 605,
-      "exerciseQuestions": 1555,
-      "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed by the topic-inclusion guarantee pass (2026-11-10): 28 books, 120 written lessons, 710 planned lessons (830 lessons+planned in libraryStats' combined counter), 583,505 words [run 95 hand-sync: +1 lesson/+4,443 words/+8 terms/+14 exercises/+5 quiz from 4.5; WORK_INVENTORY rebuild deferred to the next ship — the Drive survey chain resets with the sandbox]",
+      "lessonsWritten": 131,
+      "plannedLessons": 955,
+      "words": 639299,
+      "terms": 962,
+      "quizItems": 655,
+      "exerciseQuestions": 1691,
+      "note": "library-wide ground truth, mirrors libraryStats() and WORK_INVENTORY.json (never hand-typed) — refreshed by the figure-audit + enrichment fire (2026-11-13, job 527779): 28 books, 131 written lessons (§10.3 count-only recomputation: FM 48/229,080w/357t/536ex, ANS 36/189,880w/286t, AL 38/176,085w/279t/532ex, AA 9/44,254w/40t); quiz 655, exercise questions 1,691, formulas 402.",
       "booksLive": 28,
       "chaptersWritten": 32,
       "chaptersInProgress": 0,

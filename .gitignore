@@ -478,3 +478,11 @@ server.log
 !/scripts/audit-content-completeness.ts
 # topic-depth pass: layer-2 vision sweep for the nine new/changed figures
 !/scripts/audit-topicdepth-figures.sh
+# figure-audit + enrichment fire 1 (job 527779): capture/vision prep + solutions-expanded
+# overlap auditor (§10.1) + §10.3 count helpers — whitelisted BEFORE the commit
+!/scripts/figure-audit-capture.sh
+!/scripts/audit-svg-overlaps-expanded.sh
+!/scripts/count-words-fire.ts
+!/scripts/stats-fire.ts
+!/scripts/quiz-ex-fire.ts
+!/scripts/stats-books-fire.ts

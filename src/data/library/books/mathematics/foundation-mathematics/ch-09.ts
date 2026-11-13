@@ -867,14 +867,14 @@ export const chapter09: Chapter = {
     <text x="84" y="102">× 1000</text><text x="172" y="152">× 100</text><text x="260" y="202">× 10</text><text x="348" y="252">× 1</text><text x="436" y="302">× 0.1</text><text x="524" y="352">× 0.01</text><text x="612" y="402">× 0.001</text>
   </g>
   <g fill="currentColor">
-    <circle cx="116" cy="84" r="2.5"/><circle cx="142" cy="134" r="2.5"/><circle cx="230" cy="184" r="2.5"/><circle cx="318" cy="234" r="2.5"/><circle cx="406" cy="284" r="2.5"/><circle cx="494" cy="334" r="2.5"/>
+    <circle cx="116" cy="84" r="2.5"/><circle cx="142" cy="134" r="2.5"/><circle cx="204" cy="134" r="2.5"/><circle cx="230" cy="184" r="2.5"/><circle cx="292" cy="184" r="2.5"/><circle cx="318" cy="234" r="2.5"/><circle cx="380" cy="234" r="2.5"/><circle cx="406" cy="284" r="2.5"/><circle cx="468" cy="284" r="2.5"/><circle cx="494" cy="334" r="2.5"/>
   </g>
   <g stroke="currentColor" stroke-width="1.1" fill="none" stroke-dasharray="5 3">
     <path d="M 116 84 Q 133 93 142 134"/>
-    <path d="M 164 134 Q 201 143 230 184"/>
-    <path d="M 252 184 Q 289 193 318 234"/>
-    <path d="M 340 234 Q 377 243 406 284"/>
-    <path d="M 428 284 Q 465 293 494 334"/>
+    <path d="M 204 134 Q 221 143 230 184"/>
+    <path d="M 292 184 Q 309 193 318 234"/>
+    <path d="M 380 234 Q 397 243 406 284"/>
+    <path d="M 468 284 Q 485 293 494 334"/>
   </g>
   <g font-size="10.5" fill="currentColor" text-anchor="middle">
     <text x="166" y="94">× 10</text>
@@ -1265,6 +1265,28 @@ export const chapter09: Chapter = {
                     'Hence 24,000 cm³ = 24 L — the cm³ and the mL being the same cube under two names.',
                   ],
                   answer: '24,000 cm³ = 24 L',
+                  figures: [
+                    {
+                      caption:
+                        'The courier box to scale: a $40 \\times 30$ cm face with $20$ cm of depth — the three lengths multiply into $24{,}000$ cm$^3$, and the litre bridge ($1$ L $= 1000$ cm$^3$) crosses it to $24$ L.',
+                      svg: `<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An isometric box of 40 by 30 by 20 centimetres with labelled dimensions, volume 24000 cubic centimetres equal to 24 litres">
+  <text x="380" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the courier box — a 40 × 30 × 20 cm brick of volume</text>
+  <polygon points="300,120 460,120 460,240 300,240" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="300,120 460,120 540,40 380,40" fill="currentColor" opacity="0.10" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="460,120 540,40 540,160 460,240" fill="currentColor" opacity="0.06" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="380" y1="40" x2="540" y2="40" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="540" y1="40" x2="540" y2="160" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="460" y1="240" x2="540" y2="160" stroke="currentColor" stroke-width="1.5"/>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="380" y="262">40 cm</text>
+    <text x="288" y="185" text-anchor="end">30 cm</text>
+    <text x="380" y="185">24,000 cm³ = 24 L</text>
+  </g>
+  <text x="548" y="36" font-size="12.5" fill="currentColor" text-anchor="start">20 cm</text>
+  <text x="380" y="302" font-size="12.5" fill="currentColor" text-anchor="middle">40 × 30 × 20 = 24,000 cm³ — and 1 L = 1000 cm³, so 24,000 ÷ 1000 = 24 L</text>
+</svg>`,
+                    },
+                  ],
                 },
                 {
                   q: 'Express (i) 0.85 km in metres; (ii) 475 cm in metres; (iii) 475 cm in millimetres.',
@@ -1810,6 +1832,37 @@ export const chapter09: Chapter = {
                     'Hence 43.2 km/h.',
                   ],
                   answer: '43.2 km/h',
+                  figures: [
+                    {
+                      caption:
+                        'The return pipeline for THIS solution — both factors flipped from the forward machine: $\\frac{3600\\text{ s}}{1\\text{ h}}$ first (the seconds cancel), then $\\frac{1\\text{ km}}{1000\\text{ m}}$ (the metres cancel), collapsing to $\\times 3.6$: the count grows, exactly as the direction test demands.',
+                      svg: `<svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The return pipeline from 12 metres per second through two flipped factors to 43.2 kilometres per hour, stations connected by arrows">
+  <text x="390" y="20" font-size="12.5" fill="currentColor" text-anchor="middle">the return pipeline — m/s dressed back up to km/h, factors flipped</text>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <rect x="40" y="120" width="100" height="56" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+    <text x="90" y="153">12 m/s</text>
+    <rect x="165" y="120" width="140" height="56" fill="currentColor" opacity="0.09" stroke="currentColor" stroke-width="1.5"/>
+    <text x="235" y="144">× 3600 s</text>
+    <text x="235" y="166">1 h</text>
+    <rect x="330" y="120" width="140" height="56" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+    <text x="400" y="153">43,200 m/h</text>
+    <rect x="495" y="120" width="140" height="56" fill="currentColor" opacity="0.09" stroke="currentColor" stroke-width="1.5"/>
+    <text x="565" y="144">× 1 km</text>
+    <text x="565" y="166">1000 m</text>
+    <rect x="655" y="120" width="100" height="56" fill="currentColor" opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+    <text x="705" y="153" font-weight="bold">43.2 km/h</text>
+  </g>
+  <g stroke="currentColor" stroke-width="1.4" fill="currentColor">
+    <line x1="140" y1="148" x2="162" y2="148"/><polygon points="164,148 157,145 157,151" stroke="none"/>
+    <line x1="305" y1="148" x2="327" y2="148"/><polygon points="329,148 322,145 322,151" stroke="none"/>
+    <line x1="470" y1="148" x2="492" y2="148"/><polygon points="494,148 487,145 487,151" stroke="none"/>
+    <line x1="635" y1="148" x2="652" y2="148"/><polygon points="654,148 647,145 647,151" stroke="none"/>
+  </g>
+  <text x="390" y="240" font-size="12.5" fill="currentColor" text-anchor="middle">the collapse: 3600 ÷ 1000 = 3.6, so 12 × 3.6 = 43.2</text>
+  <text x="390" y="264" font-size="11.5" fill="currentColor" text-anchor="middle" opacity="0.8">the direction test: km/h is the bigger-dressed unit — the count grows 12 → 43.2 ✓</text>
+</svg>`,
+                    },
+                  ],
                 },
               ],
             },
