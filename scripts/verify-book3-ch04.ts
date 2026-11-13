@@ -738,7 +738,10 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-common-factors-and-grouping', 'F: lesson id al-common-factors-and-grouping (globally unique, al- prefix)')
   ok(lesson.number === '4.1', 'F: lesson number 4.1')
   ok(lesson.title === 'Common Factors and Grouping', 'F: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'F: chapter 4 honestly IN-PROGRESS (4.5 queued by the prewritten-books audit; was complete at the 4.4 ship until the gap was found — 2026-11-13 audit fix)')
+  ok(
+    chapter04.status === (chapter04.lessons.length >= 5 ? 'complete' : 'in-progress'),
+    'F: chapter 4 status honest (' + chapter04.status + ' with ' + chapter04.lessons.length + ' lessons — complete once the queued 4.5 gap ships)'
+  )
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'F: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'F: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -896,7 +899,10 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-factoring-quadratic-trinomials', 'G: lesson id al-factoring-quadratic-trinomials (globally unique, al- prefix)')
   ok(lesson.number === '4.2', 'G: lesson number 4.2')
   ok(lesson.title === 'Factoring Quadratic Trinomials', 'G: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'G: chapter 4 honestly IN-PROGRESS (4.5 queued; 4.2 audited here)')
+  ok(
+    chapter04.status === (chapter04.lessons.length >= 5 ? 'complete' : 'in-progress'),
+    'G: chapter 4 status honest (' + chapter04.status + ' with ' + chapter04.lessons.length + ' lessons)'
+  )
   ok(Array.isArray(chapter04.plannedLessons) && chapter04.plannedLessons.length >= 0 && !chapter04.plannedLessons.includes('Factoring Quadratic Trinomials'), 'G: plannedLessons no longer carry 4.2 (the run-73 trim; the run-74 trims land in I/K)')
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'G: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'G: objectives present (got ' + (lesson.objectives || []).length + ')')
@@ -1234,7 +1240,10 @@ const isSquare = (n: bigint): boolean => {
   ok(lesson.id === 'al-identities-as-factorizations', 'I: lesson id al-identities-as-factorizations (globally unique, al- prefix)')
   ok(lesson.number === '4.3', 'I: lesson number 4.3')
   ok(lesson.title === 'The Identities as Factorizations', 'I: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'I: chapter 4 honestly IN-PROGRESS (4.5 queued; 4.3 audited here)')
+  ok(
+    chapter04.status === (chapter04.lessons.length >= 5 ? 'complete' : 'in-progress'),
+    'I: chapter 4 status honest (' + chapter04.status + ' with ' + chapter04.lessons.length + ' lessons)'
+  )
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'I: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'I: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -1559,12 +1568,20 @@ const isSquare = (n: bigint): boolean => {
   const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
   const ch04Src = await Bun.file('/home/z/my-project/src/data/library/books/mathematics/elementary-algebra/ch-04.ts').text()
   const lesson: Lesson = chapter04.lessons[3]
-  ok(chapter04.lessons.length === 4, 'K: chapter 4 ships all four lessons (4.1 in F, 4.2 in G, 4.3 in I, 4.4 audited here)')
+  ok(chapter04.lessons.length === (chapter04.lessons.length >= 5 ? 5 : 4), 'K: chapter 4 ships all its lessons (4.1 in F, 4.2 in G, 4.3 in I, 4.4 audited here, 4.5 in M)')
   ok(lesson.id === 'al-factor-theorem-and-cubics', 'K: lesson id al-factor-theorem-and-cubics (globally unique, al- prefix)')
   ok(lesson.number === '4.4', 'K: lesson number 4.4')
   ok(lesson.title === 'The Factor Theorem and Cubics', 'K: lesson title matches the planned title')
-  ok(chapter04.status === 'in-progress', 'K: chapter 4 honestly IN-PROGRESS at run 74 + audit 2026-11-13 (4.5 "HCF and LCM of Expressions" queued; flips back to complete when it ships)')
-  ok(JSON.stringify(chapter04.plannedLessons) === JSON.stringify(['4.5 HCF and LCM of Expressions']), 'K: plannedLessons carries exactly the queued gap 4.5 (run 95 authors it and empties this list)')
+  ok(
+    chapter04.status === (chapter04.lessons.length >= 5 ? 'complete' : 'in-progress'),
+    'K: chapter 4 status honest (complete once the 4.5 gap ships at run 95)'
+  )
+  ok(
+    chapter04.lessons.length === 5
+      ? Array.isArray(chapter04.plannedLessons) && chapter04.plannedLessons.length === 0
+      : JSON.stringify(chapter04.plannedLessons) === JSON.stringify(['4.5 HCF and LCM of Expressions']),
+    'K: plannedLessons honest (empty once 4.5 ships at run 95; carried the gap before)'
+  )
   ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'K: concepts 5-8 (got ' + lesson.concepts.length + ')')
   ok((lesson.objectives || []).length >= 5, 'K: objectives present (got ' + (lesson.objectives || []).length + ')')
   ok(
@@ -1704,6 +1721,10 @@ const isSquare = (n: bigint): boolean => {
   }
 
   /* ---------------- the UNIT-4 COMPLETION REVIEW ---------------- */
+  /* (run 95 note: sections L + M below carry lesson 4.5's pre-writing
+   * engines and authored audits; the review pins here are COUNT-AWARE —
+   * they hold the 4-lesson totals until 4.5 exists, then the 5-lesson
+   * totals, both pinned.) */
   {
     // checklist 1: all math recomputed by script — the battery itself
     ok(passed > 400, 'REVIEW 1/7: all chapter math recomputed by this script before and during authoring (' + passed + ' checks green so far)')
@@ -1718,7 +1739,7 @@ const isSquare = (n: bigint): boolean => {
     ok(chapter04.lessons.every((ls) => ls.blocks.some((b) => b.kind === 'quiz')), 'REVIEW 3/7: every lesson carries exactly the pinned quiz battery (keys re-checked per lesson in F/G/I/K)')
     // checklist 4: exercise solutions complete and numerically verified
     const exAll = chapter04.lessons.map((ls) => ls.blocks.filter((b) => b.kind === 'exercises')[0]).filter((b) => b && b.kind === 'exercises')
-    ok(exAll.length === 4 && exAll.every((b) => b.kind === 'exercises' && b.sets.length === 6 && b.sets.flatMap((s) => s.questions).length === 14), 'REVIEW 4/7: 4 x 14 exercises, all with Cengage chains and both-sides verification (B/D/H/J)')
+    ok(exAll.length === chapter04.lessons.length && exAll.every((b) => b.kind === 'exercises' && b.sets.length === 6 && b.sets.flatMap((s) => s.questions).length === 14), 'REVIEW 4/7: ' + chapter04.lessons.length + ' x 14 exercises, all with Cengage chains and both-sides verification (B/D/H/J/M)')
     // checklist 5: lesson ids globally unique
     const ids: string[] = []
     for (const b of allBooks) for (const c of b.chapters) for (const ls of c.lessons) ids.push(ls.id)
@@ -1731,18 +1752,470 @@ const isSquare = (n: bigint): boolean => {
     ok(true, 'REVIEW 7/7: WORKLOG.md + PROGRESS.json updated at this ship (the run-74 entries)')
     // exam corners: 4/4
     const exams = chapter04.lessons.filter((ls) => ls.blocks.some((b) => b.kind === 'callout' && b.tone === 'exam'))
-    ok(exams.length === 4, 'REVIEW EXAM CORNERS: 4/4 lessons carry an exam corner (got ' + exams.length + ')')
+    ok(exams.length === chapter04.lessons.length, 'REVIEW EXAM CORNERS: ' + chapter04.lessons.length + '/' + chapter04.lessons.length + ' lessons carry an exam corner (got ' + exams.length + ')')
     // the chapter snapshot
     const words = chapter04.lessons.reduce((acc, ls) => acc + countLessonWords(ls), 0)
-    ok(chapter04.lessons.every((ls) => countLessonWords(ls) >= 4000), 'REVIEW SNAPSHOT: per-lesson word counts >= 4000 across all four lessons')
+    ok(chapter04.lessons.every((ls) => countLessonWords(ls) >= 4000), 'REVIEW SNAPSHOT: per-lesson word counts >= 4000 across all ' + chapter04.lessons.length + ' lessons')
     const termsN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'terms').reduce((a, b) => a + (b.kind === 'terms' ? b.items.length : 0), 0), 0)
     const quizN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'quiz').reduce((a, b) => a + (b.kind === 'quiz' ? b.items.length : 0), 0), 0)
     const exN = exAll.reduce((acc, b) => acc + (b.kind === 'exercises' ? b.sets.flatMap((s) => s.questions).length : 0), 0)
     const figN = chapter04.lessons.reduce((acc, ls) => acc + ls.blocks.filter((b) => b.kind === 'figure').length, 0)
-    ok(words >= 16000 && termsN === 32 && quizN === 20 && exN === 56 && figN === 8, 'REVIEW SNAPSHOT: chapter 4 stands ' + words + ' words / ' + termsN + ' terms / ' + quizN + ' quiz / ' + exN + ' exercises / ' + figN + ' figures')
+    const five = chapter04.lessons.length === 5
+    ok(words >= (five ? 20000 : 16000) && termsN === (five ? 40 : 32) && quizN === (five ? 25 : 20) && exN === (five ? 70 : 56) && figN === (five ? 11 : 8), 'REVIEW SNAPSHOT: chapter 4 stands ' + words + ' words / ' + termsN + ' terms / ' + quizN + ' quiz / ' + exN + ' exercises / ' + figN + ' figures (' + (five ? '5-lesson pins, 4.5 shipped' : '4-lesson pins') + ')')
   }
 }
 
+
+/* ------------------------------------------------------------------ */
+/* (L) pre-writing verification for lesson 4.5 — the HCF/LCM-of-       */
+/*     expressions engines (run 95) + every number the lesson pins     */
+/* ------------------------------------------------------------------ */
+
+{
+  const lcmB = (a: bigint, b: bigint): bigint => {
+    if (a === 0n || b === 0n) return 0n
+    return (a < 0n ? -a : a) / gcdB(a, b) * (b < 0n ? -b : b)
+  }
+
+  /* L-1: the monomial HCF/LCM engine — coefficient HCF/LCM, letters at
+   * their LOWEST/HIGHEST powers over the union of letters. */
+  const hcfMono = (ts: LTerm[]): LTerm => {
+    const letters = Array.from(new Set(ts.flatMap((t) => t.letters()))).sort()
+    const e: Record<string, number> = {}
+    for (const k of letters) e[k] = Math.min(...ts.map((t) => t.e[k] ?? 0))
+    return new LTerm(hcfList(ts.map((t) => t.c)), e)
+  }
+  const lcmMono = (ts: LTerm[]): LTerm => {
+    const letters = Array.from(new Set(ts.flatMap((t) => t.letters()))).sort()
+    const e: Record<string, number> = {}
+    for (const k of letters) e[k] = Math.max(...ts.map((t) => t.e[k] ?? 0))
+    return new LTerm(ts.map((t) => t.c).reduce((a, v) => lcmB(a, v)), e)
+  }
+  const monoMul = (a: LTerm, b: LTerm): LTerm => {
+    const e: Record<string, number> = { ...a.e }
+    for (const k of Object.keys(b.e)) e[k] = (e[k] ?? 0) + b.e[k]
+    return new LTerm(a.c * b.c, e)
+  }
+  const monoEq = (a: LTerm, b: LTerm): boolean => {
+    if (a.c !== b.c) return false
+    const ks = Array.from(new Set([...Object.keys(a.e), ...Object.keys(b.e)])).sort()
+    return ks.every((k) => (a.e[k] ?? 0) === (b.e[k] ?? 0))
+  }
+  const monoDivides = (d: LTerm, t: LTerm): boolean => {
+    if (t.c % d.c !== 0n) return false
+    return d.letters().every((k) => (t.e[k] ?? 0) >= d.e[k])
+  }
+  /* L-2: the sweep — 128 monomials (coefs from the 8-set, x/y exps 0..3),
+   * every ordered pair: HCF divides both, LCM is a multiple of both, and
+   * the MASTER IDENTITY HCF x LCM = A x B holds cell-by-cell. */
+  const monoPool: LTerm[] = []
+  for (const c of [2, 3, 4, 6, 8, 9, 12, 18])
+    for (const ex of [0, 1, 2, 3])
+      for (const ey of [0, 1, 2, 3]) monoPool.push(LTerm.of(c, { x: ex, y: ey }))
+  let monoPairs = 0
+  let monoBroken = false
+  for (const A of monoPool) {
+    if (monoBroken) break
+    for (const B of monoPool) {
+      const h = hcfMono([A, B])
+      const l = lcmMono([A, B])
+      if (!(monoDivides(h, A) && monoDivides(h, B) && monoDivides(A, l) && monoDivides(B, l) && monoEq(monoMul(h, l), monoMul(A, B)))) {
+        ok(false, 'L-2: monomial identity fails at ' + A.c + ' / ' + B.c)
+        monoBroken = true
+        break
+      }
+      monoPairs++
+    }
+  }
+  if (!monoBroken) ok(monoPairs === 128 * 128, 'L-2: monomial master-identity sweep green over ' + monoPairs + ' ordered pairs (128 x 128)')
+
+  /* L-3: the pinned monomial exhibits of the lesson (figure 1 +
+   * Illustration 1 + exercises 1-3, 6). */
+  const f1a = LTerm.of(12, { x: 2, y: 3, z: 1 })
+  const f1b = LTerm.of(18, { x: 1, y: 2, w: 1 })
+  ok(monoEq(hcfMono([f1a, f1b]), LTerm.of(6, { x: 1, y: 2 })), 'L-3: HCF(12x^2 y^3 z, 18x y^2 w) = 6xy^2 (figure 1 pin)')
+  ok(monoEq(lcmMono([f1a, f1b]), LTerm.of(36, { x: 2, y: 3, z: 1, w: 1 })), 'L-3: LCM = 36x^2 y^3 zw (figure 1 pin)')
+  ok(monoEq(monoMul(f1a, f1b), LTerm.of(216, { x: 3, y: 5, z: 1, w: 1 })), 'L-3: product = 216x^3 y^5 zw = HCF x LCM (216 = 6 x 36)')
+  const i1a = LTerm.of(15, { a: 3, b: 2, c: 1 })
+  const i1b = LTerm.of(24, { a: 2, b: 4, d: 1 })
+  ok(monoEq(hcfMono([i1a, i1b]), LTerm.of(3, { a: 2, b: 2 })) && monoEq(lcmMono([i1a, i1b]), LTerm.of(120, { a: 3, b: 4, c: 1, d: 1 })) && monoEq(monoMul(i1a, i1b), LTerm.of(360, { a: 5, b: 6, c: 1, d: 1 })), 'L-3: Illustration 1 — 3a^2 b^2 / 120a^3 b^4 cd / product 360a^5 b^6 cd')
+  const e6a = LTerm.of(6, { a: 2, b: 3 })
+  const e6b = LTerm.of(9, { a: 1, b: 2 })
+  ok(monoEq(hcfMono([e6a, e6b]), LTerm.of(3, { a: 1, b: 2 })) && monoEq(lcmMono([e6a, e6b]), LTerm.of(18, { a: 2, b: 3 })) && monoEq(monoMul(e6a, e6b), LTerm.of(54, { a: 3, b: 5 })), 'L-3: exercise 6 — 3ab^2 / 18a^2 b^3 / 54a^3 b^5')
+  const e1a = LTerm.of(8, { a: 2, b: 1 })
+  const e1b = LTerm.of(12, { a: 1, b: 3 })
+  ok(monoEq(hcfMono([e1a, e1b]), LTerm.of(4, { a: 1, b: 1 })) && monoEq(lcmMono([e1a, e1b]), LTerm.of(24, { a: 2, b: 3 })), 'L-3: exercise 1 — HCF 4ab, LCM 24a^2 b^3')
+  const e2a = LTerm.of(6, { x: 2 })
+  const e2b = LTerm.of(10, { x: 1, y: 1 })
+  ok(monoEq(lcmMono([e2a, e2b]), LTerm.of(30, { x: 2, y: 1 })), 'L-3: exercise 2 — LCM 30x^2 y')
+  const e3a = LTerm.of(9, { m: 2, n: 1 })
+  const e3b = LTerm.of(12, { m: 1, n: 2 })
+  ok(monoEq(hcfMono([e3a, e3b]), LTerm.of(3, { m: 1, n: 1 })) && monoEq(lcmMono([e3a, e3b]), LTerm.of(36, { m: 2, n: 2 })), 'L-3: exercise 3 — HCF 3mn, LCM 36m^2 n^2')
+
+  /* L-4: the polynomial factor-census engine (monic linear factors with an
+   * integer constant k; HCF = k-HCF + roots at MIN multiplicity, LCM =
+   * k-LCM + roots at MAX); divisibility + identity verified by expansion. */
+  type FacPoly = { k: bigint; roots: [bigint, number][] }
+  const expandFac = (f: FacPoly): Poly => {
+    let p = polyD(1)
+    for (const [r, m] of f.roots) {
+      const lin = polyD(1, -Number(r))
+      for (let i = 0; i < m; i++) p = p.mul(lin)
+    }
+    return new Poly(p.coefs.map((v) => v * f.k))
+  }
+  const rootMult = (f: FacPoly, r: bigint): number => f.roots.find(([s]) => s === r)?.[1] ?? 0
+  const censusPair = (A: FacPoly, B: FacPoly): { h: FacPoly; l: FacPoly } => {
+    const rs = Array.from(new Set<bigint>([...A.roots.map(([r]) => r), ...B.roots.map(([r]) => r)]))
+    const h: [bigint, number][] = []
+    const l: [bigint, number][] = []
+    for (const r of rs) {
+      const ma = rootMult(A, r)
+      const mb = rootMult(B, r)
+      h.push([r, Math.min(ma, mb)])
+      l.push([r, Math.max(ma, mb)])
+    }
+    return {
+      h: { k: hcfList([A.k, B.k]), roots: h.filter(([, m]) => m > 0) },
+      l: { k: lcmB(A.k, B.k), roots: l.filter(([, m]) => m > 0) },
+    }
+  }
+  const facDivides = (d: FacPoly, t: FacPoly): boolean => {
+    if (d.k === 0n || t.k % d.k !== 0n) return false
+    return d.roots.every(([r, m]) => rootMult(t, r) >= m)
+  }
+  const facQuotient = (t: FacPoly, d: FacPoly): FacPoly => ({
+    k: t.k / d.k,
+    roots: t.roots.map(([r, m]) => [r, m - rootMult(d, r)] as [bigint, number]).filter(([, m]) => m > 0),
+  })
+  const facEq = (a: FacPoly, b: FacPoly): boolean =>
+    a.k === b.k && a.roots.length === b.roots.length && a.roots.every(([r, m]) => rootMult(b, r) === m)
+
+  /* L-5: the census sweep — products of <= 3 monic linear factors over
+   * roots {-3..-1, 1..3} with multiplicity <= 2, ALL ordered pairs. */
+  const facPool: FacPoly[] = []
+  {
+    const poolRoots = [-3, -2, -1, 1, 2, 3]
+    const lists: number[][] = []
+    const rec = (from: number, left: number, cur: number[], used: Record<number, number>): void => {
+      if (left === 0) {
+        lists.push(cur.slice())
+        return
+      }
+      for (let i = from; i < poolRoots.length; i++) {
+        const r = poolRoots[i]
+        if ((used[r] ?? 0) >= 2) continue
+        used[r] = (used[r] ?? 0) + 1
+        cur.push(r)
+        rec(i, left - 1, cur, used)
+        cur.pop()
+        used[r]!--
+      }
+    }
+    for (const size of [1, 2, 3]) rec(0, size, [], {})
+    const seen = new Set<string>()
+    for (const l of lists) {
+      const m = new Map<number, number>()
+      for (const r of l) m.set(r, (m.get(r) ?? 0) + 1)
+      const roots = Array.from(m.entries()).map(([r, c]) => [BigInt(r), c] as [bigint, number]).sort((a, b) => (a[0] < b[0] ? -1 : 1))
+      const key = roots.map(([r, m]) => r.toString() + ':' + m).join(',')
+      if (!seen.has(key)) {
+        seen.add(key)
+        facPool.push({ k: 1n, roots })
+      }
+    }
+  }
+  let facPairs = 0
+  let facBroken = false
+  for (const A of facPool) {
+    if (facBroken) break
+    for (const B of facPool) {
+      const { h, l } = censusPair(A, B)
+      if (!(facDivides(h, A) && facDivides(h, B) && facDivides(A, l) && facDivides(B, l) && arrEq(expandFac(h).mul(expandFac(l)).coefs, expandFac(A).mul(expandFac(B)).coefs))) {
+        ok(false, 'L-5: census identity fails at ' + JSON.stringify(A.roots) + ' / ' + JSON.stringify(B.roots))
+        facBroken = true
+        break
+      }
+      const qa = facQuotient(A, h)
+      const qb = facQuotient(B, h)
+      if (!(arrEq(expandFac(qa).mul(expandFac(h)).coefs, expandFac(A).coefs) && arrEq(expandFac(qb).mul(expandFac(h)).coefs, expandFac(B).coefs))) {
+        ok(false, 'L-5: co-factor reconstruction fails at ' + JSON.stringify(A.roots) + ' / ' + JSON.stringify(B.roots))
+        facBroken = true
+        break
+      }
+      facPairs++
+    }
+  }
+  if (!facBroken) ok(facPairs === facPool.length * facPool.length, 'L-5: polynomial census sweep green over ' + facPairs + ' ordered pairs (' + facPool.length + '-expression pool)')
+
+  /* L-6: the Euclid engine — exact rational long division; every remainder
+   * contains the HCF; disloyal simple factors get rejected; monic output. */
+  class Frac {
+    readonly n: bigint
+    readonly d: bigint
+    constructor(n: bigint, d: bigint) {
+      if (d === 0n) throw new Error('zero denominator')
+      if (d < 0n) {
+        n = -n
+        d = -d
+      }
+      const g = gcdB(n, d)
+      this.n = n / g
+      this.d = d / g
+    }
+  }
+  const fr = (n: bigint, d: bigint = 1n): Frac => new Frac(n, d)
+  const fSub = (a: Frac, b: Frac): Frac => fr(a.n * b.d - b.n * a.d, a.d * b.d)
+  const fMul = (a: Frac, b: Frac): Frac => fr(a.n * b.n, a.d * b.d)
+  const fDiv = (a: Frac, b: Frac): Frac => {
+    if (b.n === 0n) throw new Error('division by zero fraction')
+    return fr(a.n * b.d, a.d * b.n)
+  }
+  const fEq = (a: Frac, b: Frac): boolean => a.n === b.n && a.d === b.d
+  class PolyQ {
+    readonly c: Frac[]
+    constructor(c: Frac[]) {
+      this.c = c
+    }
+  }
+  const pqFromInt = (p: Poly): PolyQ => new PolyQ(p.coefs.map((v) => fr(v)))
+  const pqDeg = (a: PolyQ): number => {
+    for (let i = a.c.length - 1; i >= 0; i--) if (a.c[i].n !== 0n) return i
+    return -1
+  }
+  const pqTrim = (a: PolyQ): PolyQ => {
+    const d = pqDeg(a)
+    return new PolyQ(d < 0 ? [fr(0n)] : a.c.slice(0, d + 1))
+  }
+  const pqDivMod = (a: PolyQ, b: PolyQ): { q: PolyQ; r: PolyQ } => {
+    const ta = pqTrim(a)
+    const tb = pqTrim(b)
+    const db = pqDeg(tb)
+    const dq = pqDeg(ta) - db
+    if (dq < 0) return { q: new PolyQ([fr(0n)]), r: ta }
+    const r = ta.c.slice()
+    const q: Frac[] = new Array(dq + 1).fill(fr(0n))
+    for (let i = dq; i >= 0; i--) {
+      const lead = r[db + i] ?? fr(0n)
+      if (lead.n === 0n) continue
+      const coef = fDiv(lead, tb.c[db])
+      q[i] = coef
+      for (let j = 0; j <= db; j++) r[i + j] = fSub(r[i + j] ?? fr(0n), fMul(coef, tb.c[j]))
+    }
+    return { q: new PolyQ(q), r: pqTrim(new PolyQ(r)) }
+  }
+  const pqMonic = (a: PolyQ): PolyQ => {
+    const t = pqTrim(a)
+    const d = pqDeg(t)
+    if (d < 0) return t
+    const lc = t.c[d]
+    return new PolyQ(t.c.map((v) => fDiv(v, lc)))
+  }
+  const pqEq = (a: PolyQ, b: PolyQ): boolean => {
+    const x = pqTrim(a).c
+    const y = pqTrim(b).c
+    return x.length === y.length && x.every((v, i) => fEq(v, y[i]))
+  }
+  const euclidHcf = (A: PolyQ, B: PolyQ): PolyQ => {
+    let a = pqTrim(A)
+    let b = pqTrim(B)
+    while (pqDeg(b) >= 0) {
+      const r = pqDivMod(a, b).r
+      a = b
+      b = r
+    }
+    return pqMonic(a)
+  }
+  /* L-7: Euclid == census over the whole pool (the strongest cross-check). */
+  let euclidPairs = 0
+  let euclidBroken = false
+  for (const A of facPool) {
+    if (euclidBroken) break
+    for (const B of facPool) {
+      const e = euclidHcf(pqFromInt(expandFac(A)), pqFromInt(expandFac(B)))
+      const c = pqFromInt(expandFac(censusPair(A, B).h))
+      if (!pqEq(e, c)) {
+        ok(false, 'L-7: Euclid vs census disagree at ' + JSON.stringify(A.roots) + ' / ' + JSON.stringify(B.roots))
+        euclidBroken = true
+        break
+      }
+      euclidPairs++
+    }
+  }
+  if (!euclidBroken) ok(euclidPairs === facPool.length * facPool.length, 'L-7: Euclid monic HCF == factor census over ' + euclidPairs + ' ordered pairs')
+
+  /* L-8: the pinned division walks (the remainders the prose prints). */
+  {
+    // walk 1 (Illustration 3 / exercise 10): HCF(x^3-3x+2, x^2-1) = x-1
+    const A1 = pqFromInt(polyD(1, 0, -3, 2))
+    const B1 = pqFromInt(polyD(1, 0, -1))
+    const r1 = pqDivMod(A1, B1).r
+    ok(r1.c.length === 2 && fEq(r1.c[0], fr(2n)) && fEq(r1.c[1], fr(-2n)), 'L-8 walk 1: first remainder = -2x + 2 (loyal x-1, disloyal -2)')
+    const r2 = pqDivMod(B1, pqFromInt(polyD(1, -1))).r
+    ok(pqDeg(r2) < 0, 'L-8 walk 1: x^2 - 1 divided by (x-1) leaves remainder 0; HCF = x - 1')
+    ok(pqEq(euclidHcf(A1, B1), pqFromInt(polyD(1, -1))), 'L-8 walk 1: Euclid monic HCF = x - 1 (census: (x-1)^2(x+2) vs (x-1)(x+1))')
+    // walk 2: exercises 4-5
+    ok(pqEq(euclidHcf(pqFromInt(polyD(1, 0, -4)), pqFromInt(polyD(1, 2))), pqFromInt(polyD(1, 2))), 'L-8: HCF(x^2-4, x+2) = x+2 (exercise 4)')
+    const l51 = censusPair({ k: 1n, roots: [[-1n, 1]] }, { k: 1n, roots: [[-1n, 1], [1n, 1]] })
+    ok(facEq(l51.l, { k: 1n, roots: [[-1n, 1], [1n, 1]] }), 'L-8: LCM(x-1, x^2-1) = x^2-1 — the bigger multiple absorbs (exercise 5)')
+    // walk 3 (exercise 11): LCM by division for (2x^3+3x^2-9x-10, 2x^2+5x+3)
+    const A3 = pqFromInt(polyD(2, 3, -9, -10))
+    const B3 = pqFromInt(polyD(2, 5, 3))
+    const dm3 = pqDivMod(A3, B3)
+    ok(dm3.r.c.length === 2 && fEq(dm3.r.c[0], fr(-7n)) && fEq(dm3.r.c[1], fr(-7n)), 'L-8 walk 3: first remainder = -7x - 7 — disloyal -7 rejected, loyal part x+1')
+    const q3 = pqDivMod(B3, pqFromInt(polyD(1, 1)))
+    ok(pqDeg(q3.r) < 0 && q3.q.c.length === 2 && fEq(q3.q.c[0], fr(3n)) && fEq(q3.q.c[1], fr(2n)), 'L-8 walk 3: (2x^2+5x+3)/(x+1) = 2x+3, remainder 0')
+    ok(pqEq(euclidHcf(A3, B3), pqFromInt(polyD(1, 1))), 'L-8 walk 3: Euclid HCF = x + 1')
+    const lcm3 = polyD(1, 1).mul(polyD(2, 3)).mul(polyD(2, 1, -10))
+    ok(arrEq(lcm3.mul(polyD(1, 1)).coefs, polyD(2, 3, -9, -10).mul(polyD(2, 5, 3)).coefs), 'L-8 walk 3: (x+1)(2x+3)(2x^2+x-10) x (x+1) = A x B — LCM = (x+1)(2x+3)(2x^2+x-10)')
+    // walk 4 (exercise 12): the fractional-disloyal rejection
+    const A4 = pqFromInt(polyD(3, -10, 9, -2))
+    const B4 = pqFromInt(polyD(6, -5, -2, 1))
+    const dm4 = pqDivMod(A4, B4)
+    ok(dm4.q.c.length === 1 && fEq(dm4.q.c[0], fr(1n, 2n)), 'L-8 walk 4: quotient 1/2 (equal degrees)')
+    ok(dm4.r.c.length === 3 && fEq(dm4.r.c[0], fr(-5n, 2n)) && fEq(dm4.r.c[1], fr(10n)) && fEq(dm4.r.c[2], fr(-15n, 2n)), 'L-8 walk 4: remainder = -(5/2)(3x^2 - 4x + 1) — disloyal -5/2 rejected')
+    const dm4b = pqDivMod(B4, pqFromInt(polyD(3, -4, 1)))
+    ok(pqDeg(dm4b.r) < 0 && dm4b.q.c.length === 2 && fEq(dm4b.q.c[0], fr(1n)) && fEq(dm4b.q.c[1], fr(2n)), 'L-8 walk 4: (6x^3-5x^2-2x+1)/(3x^2-4x+1) = 2x+1, remainder 0')
+    ok(pqEq(euclidHcf(A4, B4), pqMonic(pqFromInt(polyD(3, -4, 1)))), 'L-8 walk 4: Euclid monic HCF = monic(3x^2-4x+1)')
+    ok(arrEq(polyD(3, -10, 9, -2).coefs, polyD(1, -2).mul(polyD(3, -1)).mul(polyD(1, -1)).coefs), 'L-8 walk 4: A = (x-2)(3x-1)(x-1) expansion')
+    ok(arrEq(polyD(6, -5, -2, 1).coefs, polyD(1, -1).mul(polyD(3, -1)).mul(polyD(2, 1)).coefs), 'L-8 walk 4: B = (x-1)(3x-1)(2x+1) expansion')
+    // walk 5: HCF(2(x+1), 3(x+1)) = (x+1) — dimensions, not value
+    ok(pqEq(euclidHcf(pqFromInt(polyD(2, 2)), pqFromInt(polyD(3, 3))), pqFromInt(polyD(1, 1))), 'L-8 walk 5: HCF(2x+2, 3x+3) = x+1 — the highest common FACTOR, not the greatest common measure')
+  }
+
+  /* L-9: the trap witnesses the lesson prints. */
+  {
+    const xxx: FacPoly = { k: 1n, roots: [[0n, 1]] }
+    const id3 = censusPair(xxx, xxx)
+    ok(facEq(id3.h, xxx) && facEq(id3.l, xxx), 'L-9: HCF(x, x) = LCM(x, x) = x')
+    ok(expandFac(xxx).mul(expandFac(xxx)).evalAt(2n) !== expandFac({ k: 1n, roots: [[0n, 3]] }).evalAt(2n), 'L-9: the master identity FAILS for three expressions — x, x, x: HCF x LCM = x^2 != x^3 = product')
+    const t1: FacPoly = { k: 1n, roots: [[1n, 1], [2n, 1]] }
+    const t2: FacPoly = { k: 1n, roots: [[2n, 1], [3n, 1]] }
+    const t3: FacPoly = { k: 1n, roots: [[1n, 1], [3n, 1]] }
+    ok(rootMult(censusPair(t1, t2).h, 2n) === 1, 'L-9: pairwise HCFs are x-2, x-3, x-1 — nontrivial in pairs')
+    const h13 = censusPair(censusPair(t1, t2).h, t3)
+    ok(h13.h.roots.length === 0, 'L-9: yet the three-way HCF is 1 — every factor lives in only two of the three (exercise 13)')
+    const l13: FacPoly = { k: 1n, roots: [[1n, 1], [2n, 1], [3n, 1]] }
+    ok(facDivides(t1, l13) && facDivides(t2, l13) && facDivides(t3, l13), 'L-9: LCM(x^2-3x+2, x^2-5x+6, x^2-4x+3) = (x-1)(x-2)(x-3) — divisible by all three')
+    // exercise 9 (with coefficients): 2x(x-1)^2, 4(x-1)(x+1), 6(x-1)^3 — and exercise 14's (x-2) family:
+    const n1: FacPoly = { k: 2n, roots: [[0n, 1], [1n, 2]] }
+    const n2: FacPoly = { k: 4n, roots: [[1n, 1], [-1n, 1]] }
+    const n3: FacPoly = { k: 6n, roots: [[1n, 3]] }
+    const hp = censusPair(censusPair(n1, n2).h, n3)
+    const lp = censusPair(censusPair(n1, n2).l, n3)
+    ok(hp.h.k === 2n && hp.h.roots.length === 1 && hp.h.roots[0][0] === 1n && hp.h.roots[0][1] === 1, 'L-9: HCF of the trio = 2(x-1)')
+    ok(lp.l.k === 12n && rootMult(lp.l, 1n) === 3 && rootMult(lp.l, -1n) === 1 && rootMult(lp.l, 0n) === 1, 'L-9: LCM of the trio = 12 x (x-1)^3 (x+1) x')
+    // exercise 14 (the L6 hunt): HCF (x-2)^2, LCM (x-2)^2(x+1)(x-5), A = x^3-3x^2+4 -> B = (x-2)^2(x-5)
+    const mA: FacPoly = { k: 1n, roots: [[-1n, 2], [2n, 1]] }
+    const mB: FacPoly = { k: 1n, roots: [[-1n, 2], [-3n, 1]] }
+    ok(facEq(censusPair(mA, mB).h, { k: 1n, roots: [[-1n, 2]] }) && facEq(censusPair(mA, mB).l, { k: 1n, roots: [[-1n, 2], [2n, 1], [-3n, 1]] }), 'L-9: the hunt census — HCF (x+1)^2, LCM (x+1)^2(x-2)(x+3) (Illustration 4)')
+    ok(arrEq(expandFac(mA).coefs, polyD(1, 0, -3, -2).coefs), 'L-9: A = (x+1)^2(x-2) = x^3 - 3x - 2')
+    ok(arrEq(expandFac(mB).coefs, polyD(1, 5, 7, 3).coefs), 'L-9: B = (x+1)^2(x+3) = x^3 + 5x^2 + 7x + 3 — Illustration 4 pair (exercise 14 carries the (x-2) family, pinned next)')
+    ok(arrEq(polyD(1, 1).mul(polyD(2, 3)).mul(polyD(2, 1, -10)).mul(polyD(1, 1)).coefs, polyD(2, 3, -9, -10).mul(polyD(2, 5, 3)).coefs), 'L-9: (x+1)(2x+3)(2x^2+x-10) = A x B / (x+1) — the division route to the LCM (exercise 11)')
+    // exercise 14 (the L6 hunt, its own family): HCF (x-2)^2, LCM (x-2)^2(x+1)(x-5), A = x^3-3x^2+4 -> B = (x-2)^2(x-5)
+    {
+      const pA: FacPoly = { k: 1n, roots: [[2n, 2], [-1n, 1]] }
+      const pB: FacPoly = { k: 1n, roots: [[2n, 2], [5n, 1]] }
+      ok(facEq(censusPair(pA, pB).h, { k: 1n, roots: [[2n, 2]] }) && facEq(censusPair(pA, pB).l, { k: 1n, roots: [[2n, 2], [-1n, 1], [5n, 1]] }), 'L-9: exercise 14 census — HCF (x-2)^2, LCM (x-2)^2(x+1)(x-5)')
+      ok(arrEq(expandFac(pA).coefs, polyD(1, -3, 0, 4).coefs), 'L-9: exercise 14 — A = (x-2)^2(x+1) = x^3-3x^2+4')
+      ok(arrEq(expandFac(pB).coefs, polyD(1, -9, 24, -20).coefs), 'L-9: exercise 14 — B = (x-2)^2(x-5) = x^3-9x^2+24x-20')
+    }
+    // figure 2 exhibits: x^2-9 & x^2+5x+6
+    const g2 = censusPair({ k: 1n, roots: [[3n, 1], [-3n, 1]] }, { k: 1n, roots: [[-3n, 1], [-2n, 1]] })
+    ok(facEq(g2.h, { k: 1n, roots: [[-3n, 1]] }) && facEq(g2.l, { k: 1n, roots: [[3n, 1], [-3n, 1], [-2n, 1]] }), 'L-9: figure 2 — HCF(x^2-9, x^2+5x+6) = x+3, LCM = (x-3)(x+3)(x+2)')
+    // Illustration 2: x^3-9x & x^2-x-6
+    const i2 = censusPair({ k: 1n, roots: [[0n, 1], [3n, 1], [-3n, 1]] }, { k: 1n, roots: [[3n, 1], [-2n, 1]] })
+    ok(facEq(i2.h, { k: 1n, roots: [[3n, 1]] }) && facEq(i2.l, { k: 1n, roots: [[0n, 1], [3n, 1], [-3n, 1], [-2n, 1]] }), 'L-9: Illustration 2 — HCF x-3, LCM x(x-3)(x+3)(x+2)')
+    ok(arrEq(polyD(1, 0, -9, 0).coefs, polyD(1, 0).mul(polyD(1, -3)).mul(polyD(1, 3)).coefs), 'L-9: x^3-9x = x(x-3)(x+3) expansion')
+    ok(arrEq(polyD(1, -1, -6).coefs, polyD(1, -3).mul(polyD(1, 2)).coefs), 'L-9: x^2-x-6 = (x-3)(x+2) expansion')
+  }
+
+  /* L-10: quiz + exercise key pins (authored audits in M). */
+  {
+    ok([1, 2, 3, 1, 3].every((k) => k >= 0 && k <= 3), 'L-10: quiz keys [1, 2, 3, 1, 3] in range — needles pinned in M')
+    ok(hcfList([12n, 18n]) === 6n && lcmB(12n, 18n) === 36n, 'L-10: coefficient census 12/18 -> 6/36 (figure 1)')
+    ok(hcfList([15n, 24n]) === 3n && lcmB(15n, 24n) === 120n, 'L-10: coefficient census 15/24 -> 3/120 (Illustration 1)')
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* (M) authored lesson 4.5 — content checks against the written file   */
+/*     (guarded: silent until the lesson exists; then the full battery) */
+/* ------------------------------------------------------------------ */
+
+{
+  if (chapter04.lessons.length === 5) {
+    const sourceLog = await Bun.file('/home/z/my-project/docs/project/SOURCE_LOG.md').text()
+    const lesson: Lesson = chapter04.lessons[4]
+    ok(lesson.id === 'al-hcf-and-lcm-of-expressions', 'M: lesson id al-hcf-and-lcm-of-expressions')
+    ok(lesson.number === '4.5', 'M: lesson number 4.5')
+    ok(lesson.title === 'HCF and LCM of Expressions', 'M: lesson title matches the queued gap title')
+    ok(chapter04.status === 'complete', 'M: chapter 4 back to complete — the audit gap closed by 4.5')
+    ok(
+      JSON.stringify(lesson.prerequisites) === JSON.stringify(['al-common-factors-and-grouping', 'al-dividing-polynomials-long-division-and-the-remainder-theorem']),
+      'M: prerequisites chain to 4.1 (the GCF anatomy) and 3.4 (the division craft)'
+    )
+    for (const key of lesson.sources || []) {
+      ok(sourceLog.includes(key), 'M: source key "' + key + '" exists in SOURCE_LOG.md')
+    }
+    ok(lesson.concepts.length >= 5 && lesson.concepts.length <= 8, 'M: concepts 5-8 (got ' + lesson.concepts.length + ')')
+    ok((lesson.objectives || []).length >= 5, 'M: objectives present (got ' + (lesson.objectives || []).length + ')')
+    ok(lesson.blocks.filter((b) => b.kind === 'derivation').length === 2, 'M: two derivations (the min/max census identity + the remainder-contains-HCF law)')
+    ok(lesson.blocks.filter((b) => b.kind === 'example').length === 4, 'M: four illustrations (monomial pair, polynomial pair, the Euclid walk, the missing-expression hunt)')
+    ok(lesson.blocks.filter((b) => b.kind === 'figure').length === 3, 'M: three figures (power columns, factor shelves, the Euclid chain)')
+    ok(lesson.blocks.filter((b) => b.kind === 'formula').length === 3, 'M: three formula cards')
+    ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'definition').length >= 1, 'M: a definition callout present')
+    ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'theorem').length === 1, 'M: the master-identity theorem callout present')
+    ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'warn').length === 1, 'M: the three-expression caution present')
+    ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'historical').length === 1, 'M: the historical callout present')
+    ok(lesson.blocks.filter((b) => b.kind === 'callout' && b.tone === 'exam').length === 1, 'M: the exam corner present')
+    ok(lesson.blocks.filter((b) => b.kind === 'terms').reduce((a, b) => a + (b.kind === 'terms' ? b.items.length : 0), 0) === 8, 'M: eight terms (glossary + flashcards)')
+    {
+      const quiz = lesson.blocks.find((b) => b.kind === 'quiz')
+      if (quiz && quiz.kind === 'quiz') {
+        const keys = [1, 2, 3, 1, 3]
+        const needles = ['6xy^{2}', 'three expressions', '(x+1)^{2}$', 'disloyal', '(x-3)(x+3)(x+2)']
+        ok(quiz.items.length === 5, 'M: five quiz items')
+        quiz.items.forEach((it, i) => ok(it.answer === keys[i], 'M: quiz Q' + (i + 1) + ' pinned key ' + keys[i]))
+        quiz.items.forEach((it, i) => ok((it.options[it.answer] || '').includes(needles[i]), 'M: quiz Q' + (i + 1) + ' answer carries the intended verdict (needle ' + needles[i] + ')'))
+      }
+    }
+    {
+      const ex = lesson.blocks.find((b) => b.kind === 'exercises')
+      if (ex && ex.kind === 'exercises') {
+        const counts = ex.sets.map((s) => s.questions.length)
+        ok(JSON.stringify(counts) === JSON.stringify([3, 3, 3, 2, 2, 1]), 'M: exercise ladder L1..L6 counts 3/3/3/2/2/1 (got ' + counts.join('/') + ')')
+        ok(ex.sets.every((s) => s.questions.every((q) => Array.isArray(q.solution) && q.solution.length >= 2)), 'M: every exercise carries a Cengage steps chain')
+      }
+    }
+    {
+      const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+      const house = ['#16a34a', '#166534', '#65a30d', '#0d9488', '#d97706', '#ea580c', '#0f766e', '#dc2626', '#fef3c7', '#ffedd5', '#fcd34d', '#5eead4', '#ffffff', '#fffdf5', 'currentColor']
+      const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+      ok(figs.length === 3, 'M: three figure blocks')
+      figs.forEach((f, i) => {
+        if (f.kind !== 'figure') return
+        ok(/aria-label="[^"]+"/.test(f.svg), 'M: figure ' + (i + 1) + ' carries an aria-label')
+        ok(/viewBox="0 0 7[0-9][0-9] [0-9]+"/.test(f.svg), 'M: figure ' + (i + 1) + ' carries a 720-wide viewBox')
+        const hexes = f.svg.match(/#[0-9a-fA-F]{6}/g) || []
+        ok(hexes.every((h) => house.includes(h.toLowerCase())), 'M: figure ' + (i + 1) + ' palette on house law')
+        ok(hexes.every((h) => !retired.includes(h.toLowerCase())), 'M: figure ' + (i + 1) + ' uses no retired muted hexes')
+      })
+    }
+    {
+      const text = lesson.blocks.map((b) => ['text', 'title', 'name', 'caption', 'q', 'statement'].map((k) => (k in b ? String((b as Record<string, unknown>)[k]) : '')).join(' ')).join(' ')
+      const figs = lesson.blocks.filter((b) => b.kind === 'figure')
+      const svgAll = figs.map((f) => (f.kind === 'figure' ? f.svg : '')).join(' ')
+      const pins = ['6xy^{2}', '36x^{2}y^{3}zw', '3a^{2}b^{2}', '120a^{3}b^{4}', '(x-3)(x+3)(x+2)', '3x^{2}-4x+1', 'x^{3}-3x-2', 'x^{3}+5x^{2}+7x+3', 'disloyal']
+      for (const p of pins) ok((text + ' ' + svgAll).includes(p), 'M: pinned exhibit "' + p + '" appears in the lesson')
+      ok(figs.every((f) => f.kind === 'figure' && f.caption.length > 10), 'M: every figure carries a teaching caption')
+    }
+    {
+      const words = countLessonWords(lesson)
+      ok(words >= 4400, 'M: honest word count ' + words + ' >= 4400')
+    }
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /* report                                                              */

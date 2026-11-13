@@ -7,15 +7,12 @@ import type { Chapter } from '../../../types'
  *                  (run 73 — quiz keys 0/1/0/0/2, 14 exercises, two
  *                  figures, verify-book3-ch04.ts sections A–C + F green)
  *                  4.2 Factoring Quadratic Trinomials (run 73 — quiz keys
- *                  2/1/3/1/3, sections D–E + G) — the chapter OPENS 2/4
- *                  at run 73; 4.3 + 4.4 + the unit-4 review close it at
- *                  run 74.
+ *                  2/1/3/1/3, sections D–E + G) — then 4.3 + 4.4 closed the
+ *                  chapter at run 74; 4.5 shipped at run 95 (2026-11-13).
  *
- * STATUS (2026-11-13, content-completeness audit): honestly IN-PROGRESS —
- * the prewritten-books audit (2026-11-11) queued lesson 4.5 "HCF and LCM
- * of Expressions" (H&K XII/XIX + Khattar 26) as a real gap, so the
- * chapter's earlier 'complete' claim was retired; status flips back to
- * 'complete' when 4.5 ships (run 95 queue).
+ * STATUS (2026-11-13, run 95): COMPLETE — the prewritten-books audit's gap
+ * lesson 4.5 "HCF and LCM of Expressions" (H&K ch. XI + XVIII + XX) shipped
+ * with verifier sections L + M green; plannedLessons emptied.
  *
  * References for this unit: the Drive copy `Elementary-Algebra_text.pdf`
  * is H. S. Hall & S. R. Knight, *Elementary Algebra for Schools*
@@ -446,10 +443,10 @@ export const chapter04: Chapter = {
   title: 'Factorization',
   summary:
     'Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.',
-  // honestly 'in-progress': 4.5 is a queued gap (prewritten-books audit
-  // 2026-11-11; see plannedLessons below) — flips back to 'complete' when
-  // lesson 4.5 ships.
-  status: 'in-progress',
+  // 4.5 (the prewritten-books audit's gap lesson) shipped at run 95 —
+  // the chapter is complete again with 5 lessons.
+  status: 'complete',
+  plannedLessons: [],
   lessons: [
     {
       id: 'al-common-factors-and-grouping',
@@ -1860,9 +1857,197 @@ export const chapter04: Chapter = {
         ] },
       ],
     },
-  ],
-  // the queued gap lesson (run 95 authors it and empties this list)
-  plannedLessons: [
-    '4.5 HCF and LCM of Expressions',
+    {
+      id: 'al-hcf-and-lcm-of-expressions',
+      number: '4.5',
+      title: 'HCF and LCM of Expressions',
+      concepts: [
+        'HCF of expressions',
+        'LCM of expressions',
+        'highest dimensions, not greatest value',
+        'the power census: min and max',
+        'the master identity',
+        'the factor-shelf census',
+        'the Euclidean measure for polynomials',
+        'hunting the missing expression',
+      ],
+      objectives: [
+        'define the HCF and LCM of expressions by divisibility and dimensions, not by size',
+        'run the power census on monomials: coefficient HCF/LCM, letters at the lowest and highest powers',
+        'prove and apply the master identity A × B = HCF × LCM, and know exactly where it fails',
+        'extract the HCF and LCM of compound expressions from complete factorisations',
+        'carry out the Euclidean measure for polynomials, rejecting disloyal simple factors',
+        'hunt a missing expression from its HCF, its LCM and its partner',
+      ],
+      prerequisites: ['al-common-factors-and-grouping', 'al-dividing-polynomials-long-division-and-the-remainder-theorem'],
+      sources: ['hall-knight-elementary-algebra', 'khattar-qa-4e', 'cengage-jee-style'],
+      blocks: [
+        { kind: 'para', text: 'Chapter 4 has been a one-way street: take an expression, split it into factors. This lesson walks the street in **both directions at once**. Given two expressions, we ask the twin census questions — what do they **share** (their highest common factor), and what do they **jointly cover** (their lowest common multiple)? FM chapter 3 answered both for bare numbers with the Euclidean measure; FM chapter 2 built HCF and LCM on prime walls. Here the same two questions wear letters, and the answers decide how algebraic fractions reduce, how equations clear their denominators, and how examiners spend a guaranteed mark or two.' },
+        { kind: 'para', text: 'Everything rests on one idea from 4.1: a **complete factorisation** is a full inventory. Once two expressions have each declared their factors — at every power — the HCF and LCM stop being searches and become **readings**: take what the inventories hold in common at the lowest common power, take everything either holds at the highest power. When factorisation stalls, the division craft of 3.4 returns as the Euclidean measure for polynomials, and the census continues by another road.' },
+        { kind: 'heading', text: 'The Highest Common Factor of Expressions' },
+        { kind: 'callout', tone: 'definition', title: 'HCF and LCM of expressions', text: 'The **highest common factor** (HCF) of two or more expressions is the expression of **highest dimensions** which divides each of them without remainder. The **lowest common multiple** (LCM) is the expression of **lowest dimensions** which is divisible by each of them without remainder. "Dimensions" means total degree — not numerical size.' },
+        { kind: 'para', text: 'Thus, $d = \\mathrm{HCF}(A, B)$ means $d \\mid A$ and $d \\mid B$, and no common factor of $A$ and $B$ has larger total degree than $d$. The definition is deliberately about **dimensions**, not value: among the common factors we rank by how much of the expressions they account for, never by how large a number they happen to be. That single word does real work:' },
+        { kind: 'callout', tone: 'insight', title: 'Highest, not greatest', text: 'Both $2(x+1)$ and $3(x+1)$ divide $6(x+1)$, and $6(x+1)$ divides each of $2(x+1)$ and $3(x+1)$ — it is the "largest" common multiple in the arithmetic sense. Yet the HCF of $2(x+1)$ and $3(x+1)$ is $x+1$: the coefficient census is $\\mathrm{HCF}(2, 3) = 1$, because $6(x+1)$ divides neither expression. In arithmetic the greatest common measure of 2 and 3 is 1 wearing a factor both share; in algebra the same reading holds — the HCF is the common factor of **highest dimensions**, with the coefficient taken at its HCF.' },
+        { kind: 'heading', text: 'Monomials: the Power Census' },
+        { kind: 'para', text: 'For monomials the HCF can be written down by inspection, exactly as FM 3 did for numbers. The rule has two columns. The **coefficient column** carries the HCF of the numerical coefficients — the Euclidean measure of FM chapter 3, unchanged. The **letter column** carries every letter the expressions **share**, taken at the **lowest power** it attains in any of them — the GCF-of-terms anatomy of 4.1, now read as a two-expression census. A letter absent from any expression is shared by none, so it contributes nothing to the HCF. The LCM flips both columns: the **LCM of the coefficients**, and **every letter that appears anywhere**, at its **highest power**.' },
+        { kind: 'figure', caption: 'The power census of two monomials — the minimum row builds the HCF, the maximum row builds the LCM', svg: '<svg viewBox="0 0 720 400" role="img" aria-label="The power census of 12 x squared y cubed z and 18 x y squared w: the minimum row over the coefficient and letter powers builds the HCF 6 x y squared, the maximum row builds the LCM 36 x squared y cubed z w"><rect x="0" y="0" width="720" height="400" fill="#fffdf5"/><text x="360" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">The power census of 12x²y³z and 18xy²w</text><rect x="200" y="46" width="160" height="34" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/><text x="280" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#166534">12x²y³z</text><rect x="360" y="46" width="160" height="34" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/><text x="440" y="68" text-anchor="middle" font-size="16" font-weight="700" fill="#166534">18xy²w</text><text x="150" y="106" text-anchor="end" font-size="14" fill="#0d9488">coefficient</text><text x="280" y="106" text-anchor="middle" font-size="15" fill="#65a30d">12</text><text x="440" y="106" text-anchor="middle" font-size="15" fill="#65a30d">18</text><text x="150" y="140" text-anchor="end" font-size="14" fill="#0d9488">x</text><text x="280" y="140" text-anchor="middle" font-size="15" fill="#65a30d">2</text><text x="440" y="140" text-anchor="middle" font-size="15" fill="#65a30d">1</text><text x="150" y="174" text-anchor="end" font-size="14" fill="#0d9488">y</text><text x="280" y="174" text-anchor="middle" font-size="15" fill="#65a30d">3</text><text x="440" y="174" text-anchor="middle" font-size="15" fill="#65a30d">2</text><text x="150" y="208" text-anchor="end" font-size="14" fill="#0d9488">z</text><text x="280" y="208" text-anchor="middle" font-size="15" fill="#65a30d">1</text><text x="440" y="208" text-anchor="middle" font-size="15" fill="#65a30d">0</text><text x="150" y="242" text-anchor="end" font-size="14" fill="#0d9488">w</text><text x="280" y="242" text-anchor="middle" font-size="15" fill="#65a30d">0</text><text x="440" y="242" text-anchor="middle" font-size="15" fill="#65a30d">1</text><line x1="70" y1="88" x2="560" y2="88" stroke="#fcd34d" stroke-width="1"/><line x1="70" y1="122" x2="560" y2="122" stroke="#fcd34d" stroke-width="1"/><line x1="70" y1="156" x2="560" y2="156" stroke="#fcd34d" stroke-width="1"/><line x1="70" y1="190" x2="560" y2="190" stroke="#fcd34d" stroke-width="1"/><line x1="70" y1="224" x2="560" y2="224" stroke="#fcd34d" stroke-width="1"/><line x1="70" y1="258" x2="560" y2="258" stroke="#fcd34d" stroke-width="1"/><rect x="60" y="278" width="600" height="44" rx="10" fill="#fef3c7" stroke="#ea580c" stroke-width="1.5"/><text x="360" y="306" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">minimum row: HCF(12,18) = 6, x at min(2,1) = 1, y at min(3,2) = 2 → 6xy²</text><rect x="60" y="334" width="600" height="44" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="1.5"/><text x="360" y="362" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">maximum row: LCM(12,18) = 36, x², y³, z, w → 36x²y³zw</text></svg>' },
+        { kind: 'para', text: 'Reading the census off the figure: the shared letters are $x$ and $y$, so the HCF is $6xy^{2}$ — one power of $x$ and two of $y$, with $z$ and $w$ excluded because each is missing from one expression. The LCM keeps everything: $36x^{2}y^{3}zw$. The two answers are not independent — their product must rebuild both monomials at once, which is the theorem of the next section. Notice how the census makes the two questions symmetric: the same table answers both, once by reading down its minimum row and once by reading down its maximum row. That symmetry is not an accident — it is the engine of the master identity, and it is why a well-run census never needs to be done twice.' },
+        { kind: 'list', marker: 'roman', items: [
+          'For example, the HCF of $a^{4}b$ and $a^{2}b^{3}$ is $a^{2}b$: $a$ at $\\min(4, 2) = 2$, $b$ at $\\min(1, 3) = 1$.',
+          'The HCF of $9x^{2}y$ and $12xy^{2}$ is $3xy$: $\\mathrm{HCF}(9, 12) = 3$, and each letter at its lowest power.',
+          'The LCM of $4a^{2}$ and $6ab$ is $12a^{2}b$: $\\mathrm{LCM}(4, 6) = 12$, $a$ at $\\max(2, 1) = 2$, $b$ at $\\max(0, 1) = 1$.',
+        ] },
+        { kind: 'example', title: 'Find the HCF and the LCM of $15a^{3}b^{2}c$ and $24a^{2}b^{4}d$, and check the master identity', steps: [
+          'Coefficient census: $\\mathrm{HCF}(15, 24) = 3$ and $\\mathrm{LCM}(15, 24) = 120$.',
+          'Letter census for the HCF: $a$ at $\\min(3, 2) = 2$, $b$ at $\\min(2, 4) = 2$; $c$ and $d$ are not shared.',
+          'So the HCF is $3a^{2}b^{2}$.',
+          'Letter census for the LCM: $a$ at $\\max(3, 2) = 3$, $b$ at $\\max(2, 4) = 4$, and $c$, $d$ both enter.',
+          'So the LCM is $120a^{3}b^{4}cd$.',
+          'Check, both sides: $3a^{2}b^{2} \\cdot 120a^{3}b^{4}cd = 360a^{5}b^{6}cd$, and $15a^{3}b^{2}c \\cdot 24a^{2}b^{4}d = 360a^{5}b^{6}cd$ — the master identity holds.',
+        ] },
+        { kind: 'para', text: 'The closing check is worth doing every time: $3a^{2}b^{2} \\times 120a^{3}b^{4}cd = 360a^{5}b^{6}cd$, while the original product is $15a^{3}b^{2}c \\times 24a^{2}b^{4}d = 360a^{5}b^{6}cd$. Same monomial — the census is certified. Note also what the LCM did with $c$ and $d$: the HCF refused them (unshared), the LCM welcomed them (present somewhere).' },
+        { kind: 'heading', text: 'The Master Identity' },
+        { kind: 'callout', tone: 'theorem', title: 'The master identity (two expressions)', text: 'For any two expressions $A$ and $B$: $A \\times B = \\mathrm{HCF} \\times \\mathrm{LCM}$. Equivalently, the LCM is the product divided by the HCF: $\\mathrm{LCM} = \\dfrac{A \\times B}{\\mathrm{HCF}}$.' },
+        { kind: 'derivation', title: 'Why min + max = sum forces the identity', statement: 'For two expressions, the HCF and the LCM are built from the same power census — one at the minimum, one at the maximum — and the two choices are complementary.', steps: [
+          { label: 'Fix one prime or one letter', formula: 'p^{\\alpha} \\text{ in } A, \\quad p^{\\beta} \\text{ in } B', explanation: 'Look at any single prime factor of the coefficients, or any single letter, and write the powers it reaches in $A$ and in $B$.' },
+          { label: 'The census takes min and max', formula: '\\mathrm{HCF}: p^{\\min(\\alpha,\\beta)}, \\qquad \\mathrm{LCM}: p^{\\max(\\alpha,\\beta)}', explanation: 'The HCF must divide both, so it takes the smaller power; the LCM must be divisible by both, so it takes the larger.' },
+          { label: 'The complementarity', formula: '\\min(\\alpha, \\beta) + \\max(\\alpha, \\beta) = \\alpha + \\beta', explanation: 'Whichever of $\\alpha, \\beta$ is smaller, the two functions together take each exactly once — the minimum picks one, the maximum picks the other.' },
+          { label: 'Reassemble both expressions', formula: '\\mathrm{HCF} \\times \\mathrm{LCM} = A \\times B', explanation: 'Every prime and every letter obeys the same complementary law, and the coefficient census does too (the identity $\\gcd(m,n) \\cdot \\mathrm{lcm}(m,n) = mn$ is the prime-wall reading of FM 2). Multiplying the two census answers therefore rebuilds the product exactly.' },
+        ], result: 'A × B = HCF × LCM for two expressions — the LCM is always A × B ÷ HCF.' },
+        { kind: 'callout', tone: 'warn', title: 'The identity is a TWO-expression law', text: 'For three or more expressions the master identity fails, because $\\min$ and $\\max$ over three powers no longer split a sum three ways. Witness $x$, $x$, $x$: the HCF is $x$, the LCM is $x$, so $\\mathrm{HCF} \\times \\mathrm{LCM} = x^{2}$ — but the product of the three expressions is $x^{3}$. Exam questions set exactly this trap; the identity is offered for pairs only, and the safe habit is to recompute the LCM of three expressions from the census, never from pair-wise identities.' },
+        { kind: 'para', text: 'The census itself extends to three and more expressions without any drama: take the HCF of ALL the coefficients and each letter at its lowest power across every expression for the HCF; take the LCM of all the coefficients and each letter at its highest power anywhere for the LCM. What three expressions take away is only the shortcut — no pair-wise identity chain is licensed, so the safe habit is one direct census over all the shelves. Exercise 9 runs the three-expression census with coefficients, where the HCF of 2, 4 and 6 is 2 while their LCM is 12 — the coefficient column obeying the same min/max law as every letter column, and the whole census staying a reading rather than a hunt.' },
+        { kind: 'para', text: 'The identity also gives the second route to an LCM: find the HCF first, then divide the product by it. In factor form this is the **co-factor reading** — write $A = aF$ and $B = bF$ with $F$ the HCF; then $a$ and $b$ are coprime, and the LCM is $F \\cdot a \\cdot b$, the HCF wearing both co-factors. When the HCF is found by division (below), this route needs no factorisation of $A$ and $B$ at all.' },
+        { kind: 'heading', text: 'The Divisibility Test' },
+        { kind: 'para', text: 'The census also answers the everyday question a reducer faces: does $D$ divide $A$? The shelf test is complete — $D$ divides $A$ exactly when every coefficient and letter power in the census of $D$ is matched or beaten by the census of $A$. Three readings price the test. The coefficient of $D$ must divide the coefficient of $A$ cleanly: 6 divides 12 and 18, but 6 does not divide 9, so $6xy^{2}$ divides $12x^{2}y^{3}z$ and $18xy^{2}w$ yet never divides $9x^{2}y^{2}$. Every letter of $D$ must appear in $A$: the $w$ in any divisor rules out $12x^{2}y^{3}z$ instantly. And every letter power of $D$ must be matched or beaten: $x^{3}$ asks more of $12x^{2}y^{3}z$ than that expression holds. No trial multiplication is ever needed — the census alone decides, which is exactly what makes the HCF the natural first question of fraction reduction.' },
+        { kind: 'list', marker: 'roman', items: [
+          'For example, 6xy² divides 12x²y³z: the coefficient test passes (12 ÷ 6 = 2) and every letter power is matched or beaten.',
+          '6xy² divides 18xy²w as well: 18 ÷ 6 = 3, and the divisor powers are exactly attained — nothing left over, nothing short.',
+          'But 6xy² does not divide 9x²y²: the coefficient test fails first (9 ÷ 6 is not whole), so the divisibility stops at the census.',
+        ] },
+        { kind: 'heading', text: 'Compound Expressions: the Factor-Shelf Census' },
+        { kind: 'para', text: 'For compound expressions the census runs on **complete factorisations**. Factor each expression into its irreducible factors (the whole toolkit of 4.1-4.4: common factors: common factors, grouping, the middle-term hunt, the identities, the factor theorem). Then the HCF is the product of the factors the shelves **hold in common**, each at the **highest power common to all** the shelves; the LCM is the product of the factors that appear on **any** shelf, each at its **highest power anywhere**. Compound factors obey the same min/max law that single letters did — the only new discipline is counting the powers of a whole bracket like $(x+1)^{2}$ correctly.' },
+        { kind: 'figure', caption: 'The factor shelves of two expressions — the shared crate is the HCF, the union shelf is the LCM', svg: '<svg viewBox="0 0 720 400" role="img" aria-label="The factor shelves of x squared minus 9 and x squared plus 5 x plus 6: the shared crate x plus 3 is the HCF and the union shelf (x-3)(x+3)(x+2) is the LCM"><rect x="0" y="0" width="720" height="400" fill="#fffdf5"/><text x="360" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">The factor shelves of x² − 9 and x² + 5x + 6</text><text x="180" y="80" text-anchor="middle" font-size="15" fill="#166534">x² − 9 = (x−3)(x+3)</text><rect x="40" y="92" width="280" height="50" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="1.5"/><rect x="55" y="102" width="110" height="30" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.2"/><text x="110" y="122" text-anchor="middle" font-size="14" fill="#166534">x − 3</text><rect x="185" y="102" width="110" height="30" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.2"/><text x="240" y="122" text-anchor="middle" font-size="14" fill="#166534">x + 3</text><text x="540" y="80" text-anchor="middle" font-size="15" fill="#166534">x² + 5x + 6 = (x+2)(x+3)</text><rect x="400" y="92" width="280" height="50" rx="8" fill="#ffedd5" stroke="#16a34a" stroke-width="1.5"/><rect x="415" y="102" width="110" height="30" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.2"/><text x="470" y="122" text-anchor="middle" font-size="14" fill="#166534">x + 2</text><rect x="545" y="102" width="110" height="30" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="1.2"/><text x="600" y="122" text-anchor="middle" font-size="14" fill="#166534">x + 3</text><rect x="60" y="190" width="600" height="46" rx="10" fill="#fef3c7" stroke="#ea580c" stroke-width="1.5"/><text x="360" y="218" text-anchor="middle" font-size="15" font-weight="700" fill="#166534">HCF — the crate on BOTH shelves: (x + 3)</text><rect x="60" y="252" width="600" height="62" rx="10" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/><text x="360" y="276" text-anchor="middle" font-size="14" fill="#0f766e">LCM — the union shelf, each crate at its highest power:</text><text x="360" y="300" text-anchor="middle" font-size="16" font-weight="700" fill="#0f766e">(x-3)(x+3)(x+2)</text><text x="360" y="348" text-anchor="middle" font-size="14" fill="#0d9488">master identity check: (x² − 9)(x² + 5x + 6) = (x + 3) × (x−3)(x+3)(x+2)</text></svg>' },
+        { kind: 'para', text: 'Reading the shelves: $(x-3)$ lives only on the first, $(x+2)$ only on the second, and $(x+3)$ stands on both. The HCF is the shared crate $(x+3)$ alone; the LCM is the union shelf $(x-3)(x+3)(x+2)$ — and the master identity line under the trays confirms the two readings multiply back to the original product. One caution before the examples: when a compound factor repeats, count it like the census counted letters — at its **highest common power** for the HCF and its **highest power anywhere** for the LCM, never by mere presence.' },
+        { kind: 'example', title: 'Find the HCF and the LCM of $x^{3} - 9x$ and $x^{2} - x - 6$', steps: [
+          'Factor the first completely: $x^{3} - 9x = x(x^{2} - 9) = x(x-3)(x+3)$.',
+          'Factor the second: $x^{2} - x - 6 = (x-3)(x+2)$ — the hunt finds $-3$ and $+2$.',
+          'Shelf census: $(x-3)$ stands on both shelves; $x$ and $(x+3)$ belong to the first alone, $(x+2)$ to the second alone.',
+          'Hence the HCF is $(x-3)$.',
+          'Hence the LCM is $x(x-3)(x+3)(x+2)$.',
+          'Check by the master identity: $(x-3) \\times x(x-3)(x+3)(x+2) = x(x-3)^{2}(x+3)(x+2)$, and $x^{3} - 9x = x(x-3)(x+3)$ times $x^{2} - x - 6 = (x-3)(x+2)$ gives the same product.',
+        ] },
+        { kind: 'heading', text: 'When Factorisation Stalls: the Euclidean Measure' },
+        { kind: 'para', text: 'The shelf census needs complete factorisations, and 4.4 was honest about when those are hard to get. FM chapter 3 faced the same wall for numbers and answered it with the division algorithm of Euclid; the identical machine works for polynomials, with one genuinely new caution. **Divide $A$ by $B$; take the remainder; then divide $B$ by the remainder; repeat until the remainder is $0$.** The last non-zero remainder divides both originals — it is the HCF, up to a numerical factor that carries no algebra.' },
+        { kind: 'derivation', title: 'The remainder law — why the chain preserves the HCF', statement: 'If $A = qB + R$ (division with remainder), then $A$ and $B$ have exactly the same common factors as $B$ and $R$.', steps: [
+          { label: 'Forward reading', formula: 'D \\mid A \\text{ and } D \\mid B \\;\\Rightarrow\\; D \\mid A - qB = R', explanation: 'Any common factor of $A$ and $B$ divides the combination $A - qB$, which is precisely the remainder. So it divides $R$ too.' },
+          { label: 'Backward reading', formula: 'D \\mid B \\text{ and } D \\mid R \\;\\Rightarrow\\; D \\mid qB + R = A', explanation: 'Conversely, any common factor of $B$ and $R$ divides $qB + R$, which is $A$. So it divides $A$ too.' },
+          { label: 'Same factor set', formula: '\\{ \\text{common factors of } (A, B) \\} = \\{ \\text{common factors of } (B, R) \\}', explanation: 'The two sets of common factors are identical — in particular their highest members coincide.' },
+          { label: 'Descend', formula: '\\mathrm{HCF}(A, B) = \\mathrm{HCF}(B, R)', explanation: 'Each division step preserves the HCF while the degrees drop, so the descent must terminate — the last non-zero remainder is the HCF.' },
+        ], result: 'HCF(A, B) = HCF(B, A mod B): every remainder on the road carries the HCF.' },
+        { kind: 'para', text: 'The new caution is the **disloyal factor**. A remainder may carry a numerical factor that neither original expression contains — a scalar that appeared only because of the division. Such a factor cannot be part of the HCF (the HCF must divide $A$ and $B$ themselves), so it is **rejected** before continuing, exactly as the equal-degree walk below rejects the $-2$ and the $-\\tfrac{5}{2}$. The algebra that remains is loyal — it genuinely divides both originals. The same rejection applies to awkward numerical factors that would otherwise make the next division messy: divide them out, keep the algebra.' },
+        { kind: 'para', text: 'The loyalty language deserves one more reading before the figure, because it is the part of the Euclidean measure that arithmetic never needed. When two expressions have the same degree, divide anyway: the quotient may be a bare constant such as one half, and the remainder does all the work. When a remainder arrives wearing a numerical coat — minus two, minus five halves, nine — ask whether that coat divides the ORIGINAL expressions. If it does not, it is disloyal: it entered the remainder only through the division, so it can say nothing about a common factor, and it is rejected before the chain continues. What survives the rejection is the loyal algebra, and the loyal algebra is what descends to the next division. The figure below walks the whole machine on a pair that needs both beats — a rejection and a clean finish.' },
+        { kind: 'figure', caption: 'The Euclidean measure for polynomials — the disloyal −2 is rejected and the loyal x − 1 finishes the job', svg: '<svg viewBox="0 0 720 400" role="img" aria-label="The Euclidean measure for polynomials: dividing x cubed minus 3 x plus 2 by x squared minus 1 leaves remainder minus 2 x plus 2, whose disloyal factor minus 2 is rejected; the loyal x minus 1 divides x squared minus 1 exactly, so the HCF is x minus 1"><rect x="0" y="0" width="720" height="400" fill="#fffdf5"/><text x="360" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">The Euclidean measure: HCF(x³ − 3x + 2, x² − 1)</text><rect x="30" y="56" width="320" height="96" rx="10" fill="#ffedd5" stroke="#16a34a" stroke-width="1.5"/><text x="46" y="80" font-size="14" fill="#166534">divide A by B:</text><text x="46" y="104" font-size="15" font-weight="700" fill="#166534">A = x³ − 3x + 2</text><text x="46" y="128" font-size="15" font-weight="700" fill="#166534">B = x² − 1</text><text x="382" y="106" font-size="22" fill="#d97706">→</text><rect x="420" y="56" width="270" height="96" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/><text x="436" y="80" font-size="14" fill="#166534">quotient x, remainder:</text><text x="436" y="104" font-size="15" font-weight="700" fill="#d97706">−2x + 2 = −2 · (x − 1)</text><text x="436" y="128" font-size="13" fill="#dc2626">−2 is disloyal — reject it, keep x − 1</text><rect x="30" y="176" width="320" height="96" rx="10" fill="#ffedd5" stroke="#16a34a" stroke-width="1.5"/><text x="46" y="200" font-size="14" fill="#166534">now divide B by the loyal part:</text><text x="46" y="224" font-size="15" font-weight="700" fill="#166534">x² − 1 = (x − 1)(x + 1)</text><text x="46" y="248" font-size="15" font-weight="700" fill="#166534">remainder 0 — stop</text><text x="382" y="226" font-size="22" fill="#d97706">→</text><rect x="420" y="184" width="270" height="80" rx="10" fill="#fef3c7" stroke="#ea580c" stroke-width="1.5"/><text x="555" y="216" text-anchor="middle" font-size="18" font-weight="700" fill="#166534">HCF = x − 1</text><text x="555" y="242" text-anchor="middle" font-size="13" fill="#65a30d">the last non-zero remainder, made loyal</text><rect x="30" y="300" width="660" height="66" rx="10" fill="#ffedd5" stroke="#d97706" stroke-width="1.5"/><text x="360" y="328" text-anchor="middle" font-size="14" fill="#166534">the law: every remainder carries the HCF — so the hunt descends</text><text x="360" y="352" text-anchor="middle" font-size="14" fill="#166534">(A, B) → (B, R) → … until 0, rejecting disloyal scalars on the way</text></svg>' },
+        { kind: 'example', title: 'Find the HCF of $x^{3} - 3x + 2$ and $x^{2} - 1$ by the Euclidean measure', steps: [
+          'Divide: $x^{3} - 3x + 2 = x \\cdot (x^{2} - 1) + (-2x + 2)$ — quotient $x$, remainder $-2x + 2$.',
+          'Now, the remainder carries the HCF: $-2x + 2 = -2(x - 1)$. The factor $-2$ is disloyal — neither original contains it — so reject it and keep $x - 1$.',
+          'Divide again: $x^{2} - 1 = (x - 1)(x + 1)$, remainder $0$.',
+          'Hence the last non-zero loyal remainder is the HCF: $\\mathrm{HCF} = x - 1$.',
+          'Check by shelf census: $x^{3} - 3x + 2 = (x-1)^{2}(x+2)$ and $x^{2} - 1 = (x-1)(x+1)$ — the shared crate is $(x-1)$ ✓.',
+        ] },
+        { kind: 'para', text: 'Two remarks before the exercises. First, when the two expressions have the **same degree**, divide anyway — the quotient may be a mere $\\tfrac{1}{2}$, and the remainder does the work; exercise 12 walks exactly this case, where the disloyal factor is the fraction $-\\tfrac{5}{2}$ and the loyal survivor is $3x^{2}-4x+1$. Second, the Euclidean measure finds **only** the HCF; the LCM then comes free from the master identity or the co-factor reading, with no factorisation needed — the route exercise 11 practises.' },
+        { kind: 'heading', text: 'Hunting the Missing Expression' },
+        { kind: 'para', text: 'The master identity turns census data into a **recovery machine**: given the HCF, the LCM, and one of the two expressions, the other is $\\mathrm{HCF} \\times \\mathrm{LCM} \\div$ the one you hold. In factor form the hunt is a pure bookkeeping check — the missing expression must wear the factors of the LCM that the held expression does not already carry, at matching powers. The division craft of 3.4 does the dividing when the expressions are given expanded.' },
+        { kind: 'example', title: 'The HCF of two expressions is $(x+1)^{2}$ and their LCM is $(x+1)^{2}(x-2)(x+3)$; one expression is $(x+1)^{2}(x-2)$. Find the other', steps: [
+          'The hunt: the other expression $= \\dfrac{\\mathrm{HCF} \\times \\mathrm{LCM}}{\\text{held expression}} = \\dfrac{(x+1)^{2} \\cdot (x+1)^{2}(x-2)(x+3)}{(x+1)^{2}(x-2)}$.',
+          'Cancel the shelf: $(x+1)^{2}$ cancels against $(x+1)^{2}$, and $(x-2)$ cancels against $(x-2)$.',
+          'Hence the other expression is $(x+1)^{2}(x+3)$.',
+          'Census check: the held and found expressions share $(x+1)^{2}$ and nothing more — the HCF ✓; their union shelf is $(x+1)^{2}(x-2)(x+3)$ — the LCM ✓.',
+        ] },
+        { kind: 'para', text: 'The hunt always ends the same way: the HCF × LCM product, divided by the expression you hold, hands over its partner — here $(x+1)^{2}(x-2) = x^{3}-3x-2$ hands over $(x+1)^{2}(x+3) = x^{3}+5x^{2}+7x+3$. Two honesty checks before trusting any answer: the pair must reproduce the stated HCF **and** the stated LCM by the shelf census, and the degree of the found expression must match the census — if your answer wears a power of some factor that the LCM does not carry, a cancellation went wrong somewhere.' },
+        { kind: 'heading', text: 'Paying Off: Fractions Reduce and Clear' },
+        { kind: 'para', text: 'This craft is not an end in itself — it is the machinery the algebra of fractions (chapter 8) runs on, and a preview earns its space here. Reducing a fraction means cancelling the HCF of the numerator and the denominator; clearing denominators before adding fractions means building their LCM as the common denominator. Both are the same shelf census pointed at two different jobs, and the worked pair below shows the two readings on one example pair.' },
+        { kind: 'list', marker: 'roman', items: [
+          'Reduce (x² − 9)/(x² + 5x + 6): the shelves share (x + 3), so cancelling the HCF leaves (x − 3)/(x + 2) — an honest reduction by a genuine common factor.',
+          'To add 1/(x² − 9) + 1/(x² + 5x + 6), build the LCM shelf (x − 3)(x + 3)(x + 2) as the common denominator; each fraction then needs exactly the co-factors the census computed — the first needs (x + 2), the second needs (x − 3).',
+          'The master identity prices the work: the product of the two denominators divided by their HCF (x + 3) is precisely the LCM shelf — one division instead of a fresh factorisation.',
+          'The absorption reading returns too: when one denominator already divides the other, the LCM is simply the larger one, and no common-denominator work is needed at all.',
+        ] },
+        { kind: 'callout', tone: 'historical', title: 'The measure of Euclid, algebraised', text: 'The division method is Book VII of the *Elements* of Euclid (c. 300 BCE) running on letters: Proposition 2 finds the greatest common measure of two numbers by continued subtraction, and the remainder law is the engine. Hall and Knight, in *Elementary Algebra for Schools* (1885), algebraised the same machine for compound expressions, with exactly the disloyal-factor caution this lesson keeps — their remark that the highest common factor "is not necessarily the greatest common measure" is the highest-dimensions discipline of the opening of this lesson.' },
+        { kind: 'callout', tone: 'exam', title: 'Exam corner', text: 'JEE Main asks this craft directly — "the LCM of $A$ and $B$ is …, their HCF is …, find the missing expression" is a one-step master-identity score, and the three-expression trap is a favourite assertion/reason item. In the Cengage M-series the shelf census feeds fraction reduction (ch. 8 of this book) and denominator clearing. Board papers (CBSE/ICSE class 9–10) ask the monomial census and short Euclid walks; SSC and bank exams reuse the coefficient column for numeric speed. The mark-earners: state the master identity **for two expressions**, and count compound-factor powers before answering.' },
+        { kind: 'formula', name: 'Monomial census', latex: '\\mathrm{HCF} = \\mathrm{HCF}(\\text{coefs}) \\cdot \\prod p^{\\min}, \\qquad \\mathrm{LCM} = \\mathrm{LCM}(\\text{coefs}) \\cdot \\prod p^{\\max}', note: 'letters shared at lowest powers for the HCF; all letters at highest powers for the LCM' },
+        { kind: 'formula', name: 'The master identity (pairs only)', latex: 'A \\times B = \\mathrm{HCF} \\times \\mathrm{LCM} \\quad\\Rightarrow\\quad \\mathrm{LCM} = \\frac{A \\times B}{\\mathrm{HCF}}', note: 'fails for three or more expressions — recompute from the census' },
+        { kind: 'formula', name: 'The Euclidean measure', latex: '\\mathrm{HCF}(A, B) = \\mathrm{HCF}(B, A \\bmod B) = \\dots = \\text{last non-zero remainder (loyal)}', note: 'reject disloyal simple factors; take the monic/loyal form' },
+        { kind: 'terms', items: [
+          { term: 'Highest common factor (of expressions)', def: 'the expression of highest dimensions dividing each given expression without remainder; the shared factor shelf at the highest common powers' },
+          { term: 'Lowest common multiple (of expressions)', def: 'the expression of lowest dimensions divisible by each given expression; the union factor shelf at the highest powers anywhere' },
+          { term: 'Dimensions', def: 'total degree — the ranking the HCF/LCM definitions use instead of numerical size' },
+          { term: 'Power census', def: 'the coefficient-plus-letter table whose minimum row builds the HCF and maximum row builds the LCM' },
+          { term: 'Master identity', def: 'A × B = HCF × LCM — valid for exactly two expressions' },
+          { term: 'Euclidean measure (for polynomials)', def: 'the division chain HCF(A, B) = HCF(B, A mod B) ending at the last non-zero remainder' },
+          { term: 'Disloyal factor', def: 'a numerical factor of a remainder that neither original expression contains — rejected before continuing the Euclid chain' },
+          { term: 'Co-factors', def: 'writing A = aF, B = bF with F the HCF; a and b are coprime and the LCM is F · a · b' },
+        ] },
+        { kind: 'quiz', title: 'Check yourself', items: [
+          {
+            q: 'The HCF of $12x^{2}y^{3}z$ and $18xy^{2}w$ is',
+            options: ['$3xy^{2}z$', '$6xy^{2}$', '$6x^{2}y^{2}$', '$36x^{2}y^{3}zw$'],
+            answer: 1,
+            explain: 'The coefficient census is HCF(12, 18) = 6; the shared letters are x and y at min(2, 1) = 1 and min(3, 2) = 2, giving $6xy^{2}$. Option 1 carries $z$, which the second expression lacks; option 3 takes $x^{2}$ though the second expression holds only $x^{1}$; option 4 is the LCM, not the HCF.',
+          },
+          {
+            q: 'For which family does the master identity $A \\times B = \\mathrm{HCF} \\times \\mathrm{LCM}$ fail?',
+            options: ['two monomials with overlapping letters', 'two expressions sharing exactly one linear factor', 'three expressions — for instance $x$, $x$, $x$', 'two coprime expressions with HCF 1'],
+            answer: 2,
+            explain: 'min + max = sum splits two powers exactly, so the identity is a pair law. For $x$, $x$, $x$: HCF = x, LCM = x, product = $x^{3}$ — but HCF × LCM = $x^{2}$. Options 1, 2 and 4 are all pairs (coprime pairs give HCF 1 and LCM = product, which holds).',
+          },
+          {
+            q: 'The HCF of $(x+1)^{2}(x-2)$ and $(x+1)^{2}(x+3)$ is',
+            options: ['$x+1$', '$(x-2)(x+3)$', '$(x+1)^{2}(x-2)(x+3)$', '$(x+1)^{2}$'],
+            answer: 3,
+            explain: 'The compound factor $(x+1)$ appears at power 2 on BOTH shelves, so the HCF keeps the highest common power: $(x+1)^{2}$. Option 1 takes the lowest power; option 2 is neither a factor census nor a multiple; option 3 is the LCM.',
+          },
+          {
+            q: 'In the Euclidean measure for polynomials, the HCF is',
+            options: ['the first remainder, taken exactly as it comes', 'the last non-zero remainder with disloyal simple factors rejected', 'the final quotient of the last division', 'always the original divisor'],
+            answer: 1,
+            explain: 'Every remainder carries the HCF, but raw remainders may also carry disloyal scalars (like the −2 in $-2x + 2$) that divide neither original — reject them and take the loyal algebra. Option 3: quotients play no role; option 4 is only true when the very first division already ends the chain.',
+          },
+          {
+            q: 'The LCM of $x^{2} - 9$ and $x^{2} + 5x + 6$ is',
+            options: ['$x^{2} + 5x + 6$', '$(x-3)(x+2)$', '$(x+3)^{2}(x-3)(x+2)$', '$(x-3)(x+3)(x+2)$'],
+            answer: 3,
+            explain: 'Factor: $x^{2} - 9 = (x-3)(x+3)$ and $x^{2} + 5x + 6 = (x+2)(x+3)$. The union shelf at highest powers is $(x-3)(x+3)(x+2)$. Option 1 is missing the factor $(x-3)$ entirely; option 2 drops the shared crate from the union; option 3 doubles $(x+3)$ — the LCM takes the highest power of each factor once.',
+          },
+        ] },
+        { kind: 'exercises', title: 'Practice sets', sets: [
+          { level: 'L1', questions: [
+            { q: 'Find the HCF of $8a^{2}b$ and $12ab^{3}$.', solution: ['Coefficient census: $\\mathrm{HCF}(8, 12) = 4$.', 'Letter census: $a$ at $\\min(2, 1) = 1$, $b$ at $\\min(1, 3) = 1$.', 'Hence the HCF is $4ab$.'], answer: '$4ab$' },
+            { q: 'Find the LCM of $6x^{2}$ and $10xy$.', solution: ['Coefficient census: $\\mathrm{LCM}(6, 10) = 30$.', 'Letter census: $x$ at $\\max(2, 1) = 2$, $y$ at $\\max(0, 1) = 1$.', 'Hence the LCM is $30x^{2}y$.'], answer: '$30x^{2}y$' },
+            { q: 'Find both the HCF and the LCM of $9m^{2}n$ and $12mn^{2}$.', solution: ['HCF: $\\mathrm{HCF}(9, 12) = 3$, letters at their lowest powers $m^{1} n^{1}$ — so $3mn$.', 'LCM: $\\mathrm{LCM}(9, 12) = 36$, letters at their highest powers $m^{2} n^{2}$ — so $36m^{2}n^{2}$.', 'Check: $3mn \\cdot 36m^{2}n^{2} = 108m^{3}n^{3} = 9m^{2}n \\cdot 12mn^{2}$ ✓.'], answer: 'HCF $3mn$; LCM $36m^{2}n^{2}$' },
+          ] },
+          { level: 'L2', questions: [
+            { q: 'Find the HCF of $x^{2} - 4$ and $x + 2$.', solution: ['Factor the first: $x^{2} - 4 = (x-2)(x+2)$.', 'The second is already a factor: $x + 2$.', 'Shelf census: $(x+2)$ stands on both shelves; hence the HCF is $x + 2$.'], answer: '$x + 2$' },
+            { q: 'Find the LCM of $x - 1$ and $x^{2} - 1$.', solution: ['Factor: $x^{2} - 1 = (x-1)(x+1)$.', 'The LCM must be divisible by $(x-1)$ and by $(x-1)(x+1)$ — the larger multiple already absorbs the smaller.', 'Hence the LCM is $(x-1)(x+1) = x^{2} - 1$.'], answer: '$x^{2} - 1$' },
+            { q: 'Verify the master identity for $6a^{2}b^{3}$ and $9ab^{2}$.', solution: ['HCF: $\\mathrm{HCF}(6, 9) = 3$, letters at lowest powers $a^{1}b^{2}$ — so $3ab^{2}$.', 'LCM: $\\mathrm{LCM}(6, 9) = 18$, letters at highest powers $a^{2}b^{3}$ — so $18a^{2}b^{3}$.', 'Both sides: $\\mathrm{HCF} \\times \\mathrm{LCM} = 54a^{3}b^{5}$ and $6a^{2}b^{3} \\cdot 9ab^{2} = 54a^{3}b^{5}$ — the identity holds ✓.'], answer: 'HCF $3ab^{2}$, LCM $18a^{2}b^{3}$, identity verified ($54a^{3}b^{5}$ both sides)' },
+          ] },
+          { level: 'L3', questions: [
+            { q: 'Find the HCF of $x^{3} - 16x$ and $x^{2} - 3x - 4$.', solution: ['Factor the first: $x^{3} - 16x = x(x^{2} - 16) = x(x-4)(x+4)$.', 'Factor the second: $x^{2} - 3x - 4 = (x-4)(x+1)$.', 'Shelf census: $(x-4)$ stands on both shelves; $x$ and $(x+4)$ are first-shelf only, $(x+1)$ second-shelf only.', 'Hence the HCF is $(x-4)$.'], answer: '$x - 4$' },
+            { q: 'Find the LCM of $x^{2} + 3x + 2$ and $x^{2} + 5x + 6$.', solution: ['Factor: $x^{2} + 3x + 2 = (x+1)(x+2)$ and $x^{2} + 5x + 6 = (x+2)(x+3)$.', 'Union shelf at highest powers: $(x+1)$, $(x+2)$, $(x+3)$.', 'Hence the LCM is $(x+1)(x+2)(x+3)$.'], answer: '$(x+1)(x+2)(x+3)$' },
+            { q: 'Find the HCF and the LCM of $2x(x-1)^{2}$, $4(x-1)(x+1)$ and $6(x-1)^{3}$.', solution: ['Coefficient census across three: $\\mathrm{HCF}(2, 4, 6) = 2$, $\\mathrm{LCM}(2, 4, 6) = 12$.', 'Letter census: $(x-1)$ appears at powers $2, 1, 3$ — HCF takes $\\min = 1$, LCM takes $\\max = 3$; $x$ only in the first, $(x+1)$ only in the second.', 'Hence HCF $= 2(x-1)$ and LCM $= 12x(x-1)^{3}(x+1)$.'], answer: 'HCF $2(x-1)$; LCM $12x(x-1)^{3}(x+1)$' },
+          ] },
+          { level: 'L4', questions: [
+            { q: 'Use the Euclidean measure to find the HCF of $x^{3} - 3x + 2$ and $x^{2} - 1$.', solution: ['Divide: $x^{3} - 3x + 2 = x(x^{2} - 1) + (-2x + 2)$ — remainder $-2x + 2$.', 'The remainder is $-2(x-1)$; the $-2$ is disloyal, so keep $(x - 1)$.', 'Divide again: $x^{2} - 1 = (x+1)(x-1)$, remainder $0$.', 'Hence the HCF is $(x - 1)$.'], answer: '$x - 1$' },
+            { q: 'Find the LCM of $2x^{3} + 3x^{2} - 9x - 10$ and $2x^{2} + 5x + 3$ by the division route.', solution: ['Euclid first: dividing the cubic by the quadratic leaves remainder $-7x - 7 = -7(x+1)$ — disloyal $-7$ rejected, loyal part $(x+1)$.', 'Now $(2x^{2} + 5x + 3) \\div (x+1) = 2x + 3$, remainder $0$ — so the HCF is $(x+1)$.', 'Co-factor reading: $(2x^{3} + 3x^{2} - 9x - 10) \\div (x+1) = 2x^{2} + x - 10$ (verify: $2(-1)^{3} + 3(-1)^{2} - 9(-1) - 10 = 0$, and long division confirms).', 'Hence the LCM is $(x+1)(2x+3)(2x^{2} + x - 10)$ — no factorisation of the cubic was ever needed.'], answer: '$(x+1)(2x+3)(2x^{2} + x - 10)$' },
+          ] },
+          { level: 'L5', questions: [
+            { q: 'Find the HCF of $3x^{3} - 10x^{2} + 9x - 2$ and $6x^{3} - 5x^{2} - 2x + 1$.', solution: ['Equal degrees — divide anyway: $3x^{3} - 10x^{2} + 9x - 2 = \\tfrac{1}{2}(6x^{3} - 5x^{2} - 2x + 1) + \\left(-\\tfrac{5}{2}x^{2} + 10x - \\tfrac{5}{2}\\right)$ — quotient $\\tfrac{1}{2}$, remainder $-\\tfrac{5}{2}(3x^{2} - 4x + 1)$.', 'The $-\\tfrac{5}{2}$ is disloyal — reject it; continue with the divisor $3x^{2} - 4x + 1$.', 'Divide the second expression by it: $6x^{3} - 5x^{2} - 2x + 1 = (2x + 1)(3x^{2} - 4x + 1)$, remainder $0$.', 'Hence the HCF is $3x^{2} - 4x + 1$, which factors as $(x-1)(3x-1)$ — a shelf check: the first expression is $(x-2)(3x-1)(x-1)$, the second is $(x-1)(3x-1)(2x+1)$ ✓.'], answer: '$3x^{2} - 4x + 1 = (x-1)(3x-1)$' },
+            { q: 'Find the HCF and the LCM of $x^{2} - 3x + 2$, $x^{2} - 5x + 6$ and $x^{2} - 4x + 3$.', solution: ['Factor all three: $(x-1)(x-2)$, $(x-2)(x-3)$, $(x-1)(x-3)$.', 'HCF: $(x-1)$ misses the second shelf, $(x-2)$ misses the third, $(x-3)$ misses the first — no factor stands on all three shelves, so the HCF is $1$.', 'LCM: the union shelf is $(x-1)(x-2)(x-3)$.', 'Hence the trap closes: pair-wise HCFs are non-trivial ($x-2$, $x-3$, $x-1$) yet the three-way HCF is $1$ — and the master identity was never available for a trio.'], answer: 'HCF $1$; LCM $(x-1)(x-2)(x-3)$' },
+          ] },
+          { level: 'L6', questions: [
+            { q: 'The HCF of two expressions is $(x-2)^{2}$ and their LCM is $(x-2)^{2}(x+1)(x-5)$. One of them is $x^{3} - 3x^{2} + 4$. Find the other, and certify both census readings.', solution: ['Recognise the held expression: $x^{3} - 3x^{2} + 4 = (x-2)^{2}(x+1)$ (expand to check: $(x^{2} - 4x + 4)(x+1) = x^{3} - 3x^{2} + 4$ ✓).', 'Hunt: the other $= \\dfrac{\\mathrm{HCF} \\times \\mathrm{LCM}}{\\text{held}} = \\dfrac{(x-2)^{4}(x+1)(x-5)}{(x-2)^{2}(x+1)} = (x-2)^{2}(x-5)$.', 'Expand: $(x^{2} - 4x + 4)(x - 5) = x^{3} - 5x^{2} - 4x^{2} + 20x + 4x - 20 = x^{3} - 9x^{2} + 24x - 20$.', 'Certify the HCF: the pair shares $(x-2)^{2}$ and nothing more ✓. Certify the LCM: the union shelf is $(x-2)^{2}(x+1)(x-5)$ ✓. Both census readings close; hence the other expression is $(x-2)^{2}(x-5)$.'], answer: '$(x-2)^{2}(x-5) = x^{3} - 9x^{2} + 24x - 20$' },
+          ] },
+        ] },
+      ],
+    },
   ],
 }
