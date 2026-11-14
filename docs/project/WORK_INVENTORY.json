@@ -2,7 +2,7 @@
   "project": "LockIn Library",
   "repo": "github.com/Sachin0Amit/lock-in (origin: git@github.com:Sachin0Amit/lock-in.git)",
   "purpose": "Owner directive (2026-11-03): maintain a detailed log/JSON of everything written or worked on. This file is the machine-readable record; docs/project/DETAILED_LOG.md is the human-readable narrative mirror. UPDATE BOTH at every unit ship and every platform change (MASTER_PLAN §2 step 7). Session-by-session narrative lives in WORKLOG.md.",
-  "generated": "2026-11-13 03:09:15 (Asia/Kolkata)",
+  "generated": "2026-11-14 14:30:05 (Asia/Kolkata)",
   "methodology": {
     "wordCount": "countLessonWords() from src/data/library/types.ts — every human-language string in every block (quiz explanations and exercise solutions included; inline $math$ fragments and KaTeX in equations/derivations excluded)",
     "readingMinutes": "words / 200, rounded up, minimum 1",
@@ -2515,8 +2515,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5998,
-                "readMins": 30,
+                "words": 7187,
+                "readMins": 36,
                 "concepts": [
                   "Perimeter as the walk around",
                   "Area as the fill inside",
@@ -2544,15 +2544,15 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 19,
-                  "heading": 8,
-                  "callout": 9,
+                  "para": 21,
+                  "heading": 9,
+                  "callout": 10,
                   "list": 1,
-                  "derivation": 4,
-                  "equation": 6,
-                  "example": 7,
+                  "derivation": 6,
+                  "equation": 8,
+                  "example": 8,
                   "table": 1,
-                  "figure": 3,
+                  "figure": 4,
                   "terms": 1,
                   "quiz": 1,
                   "exercises": 1
@@ -2560,24 +2560,24 @@
                 "calloutTones": {
                   "definition": 2,
                   "insight": 1,
-                  "warn": 4,
+                  "warn": 5,
                   "exam": 1,
                   "historical": 1
                 },
                 "quizItems": 5,
                 "exercisesByLevel": {
                   "L1": 2,
-                  "L2": 2,
+                  "L2": 3,
                   "L3": 2,
-                  "L4": 2,
+                  "L4": 3,
                   "L5": 2,
                   "L6": 2
                 },
-                "exerciseQuestions": 12,
-                "termsDefined": 12
+                "exerciseQuestions": 14,
+                "termsDefined": 14
               }
             ],
-            "words": 26299
+            "words": 27488
           },
           {
             "number": 9,
@@ -2664,7 +2664,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4529,
+                "words": 4570,
                 "readMins": 23,
                 "concepts": [
                   "The metric system — one decimal family",
@@ -2737,7 +2737,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 3413,
+                "words": 3450,
                 "readMins": 17,
                 "concepts": [
                   "The conversion factor — 1 in disguise",
@@ -2805,8 +2805,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5770,
-                "readMins": 29,
+                "words": 6367,
+                "readMins": 32,
                 "concepts": [
                   "Every measurement is a claim, not a fact",
                   "Precision — the fineness of the unit",
@@ -2836,14 +2836,14 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 17,
-                  "heading": 6,
-                  "figure": 2,
+                  "para": 19,
+                  "heading": 7,
+                  "figure": 3,
                   "table": 3,
                   "callout": 9,
                   "derivation": 2,
                   "equation": 2,
-                  "example": 3,
+                  "example": 4,
                   "list": 1,
                   "formula": 3,
                   "terms": 1,
@@ -2870,7 +2870,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 19213
+            "words": 19888
           },
           {
             "number": 10,
@@ -2888,7 +2888,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4533,
+                "words": 4580,
                 "readMins": 23,
                 "concepts": [
                   "Data — the world’s answers, collected",
@@ -2951,8 +2951,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4331,
-                "readMins": 22,
+                "words": 5187,
+                "readMins": 26,
                 "concepts": [
                   "One table, three pictures",
                   "The bar chart — the tally standing up",
@@ -2979,13 +2979,13 @@
                   "khattar-qa-4e"
                 ],
                 "blockCounts": {
-                  "para": 8,
-                  "heading": 4,
-                  "figure": 3,
-                  "callout": 5,
+                  "para": 10,
+                  "heading": 5,
+                  "figure": 5,
+                  "callout": 6,
                   "derivation": 2,
                   "equation": 2,
-                  "example": 2,
+                  "example": 3,
                   "table": 2,
                   "list": 1,
                   "formula": 3,
@@ -2995,7 +2995,7 @@
                 },
                 "calloutTones": {
                   "definition": 2,
-                  "warn": 1,
+                  "warn": 2,
                   "exam": 1,
                   "historical": 1
                 },
@@ -3018,8 +3018,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4062,
-                "readMins": 20,
+                "words": 4177,
+                "readMins": 21,
                 "concepts": [
                   "A graph is an argument — check it",
                   "The truncated baseline — the classic lie",
@@ -3083,8 +3083,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5783,
-                "readMins": 29,
+                "words": 5924,
+                "readMins": 30,
                 "concepts": [
                   "The mean — the total shared equally",
                   "The balance law — the deviations cancel",
@@ -3145,7 +3145,7 @@
                 "termsDefined": 8
               }
             ],
-            "words": 18709
+            "words": 19868
           },
           {
             "number": 11,
@@ -5775,7 +5775,7 @@
                   "ans-completeness-the-line-without-holes"
                 ],
                 "sources": [
-                  "beck-geoggegan-art-of-proof",
+                  "beck-geoghegan-art-of-proof",
                   "peacock-1833-permanence",
                   "hankel-1867-permanence",
                   "dedekind-1872-stetigkeit",
@@ -6771,10 +6771,8 @@
             "title": "Factorization",
             "summary": "Multiplication undone, systematically: common factors and grouping as the two moves every factorization starts from, quadratic trinomials factored by the middle-term method with its existence justified, the special identities read backwards (difference of squares, perfect squares, sum and difference of cubes), and the factor theorem turning the remainder theorem into a cubic-hunting machine.",
             "status": "complete",
-            "lessonsWritten": 4,
-            "plannedLessons": [
-              "4.5 HCF and LCM of Expressions"
-            ],
+            "lessonsWritten": 5,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "al-common-factors-and-grouping",
@@ -7053,9 +7051,78 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "al-hcf-and-lcm-of-expressions",
+                "number": "4.5",
+                "title": "HCF and LCM of Expressions",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 4504,
+                "readMins": 23,
+                "concepts": [
+                  "HCF of expressions",
+                  "LCM of expressions",
+                  "highest dimensions, not greatest value",
+                  "the power census: min and max",
+                  "the master identity",
+                  "the factor-shelf census",
+                  "the Euclidean measure for polynomials",
+                  "hunting the missing expression"
+                ],
+                "objectives": [
+                  "define the HCF and LCM of expressions by divisibility and dimensions, not by size",
+                  "run the power census on monomials: coefficient HCF/LCM, letters at the lowest and highest powers",
+                  "prove and apply the master identity A × B = HCF × LCM, and know exactly where it fails",
+                  "extract the HCF and LCM of compound expressions from complete factorisations",
+                  "carry out the Euclidean measure for polynomials, rejecting disloyal simple factors",
+                  "hunt a missing expression from its HCF, its LCM and its partner"
+                ],
+                "prerequisites": [
+                  "al-common-factors-and-grouping",
+                  "al-dividing-polynomials-long-division-and-the-remainder-theorem"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 18,
+                  "heading": 8,
+                  "callout": 6,
+                  "figure": 3,
+                  "list": 3,
+                  "example": 4,
+                  "derivation": 2,
+                  "formula": 3,
+                  "terms": 1,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "insight": 1,
+                  "theorem": 1,
+                  "warn": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 8
               }
             ],
-            "words": 16285
+            "words": 20789
           },
           {
             "number": 5,
@@ -7290,10 +7357,8 @@
             "title": "Simultaneous Linear Equations",
             "summary": "Two unknowns, two assertions, one truth: equations in two variables and their solution sets, substitution and elimination as systematic methods with their equivalence shown, and the consistency verdicts — intersecting, parallel, coincident lines — read both algebraically and geometrically. Word problems (age, mixture, cost) become the natural habitat of the method.",
             "status": "complete",
-            "lessonsWritten": 3,
-            "plannedLessons": [
-              "6.4 One Linear, One Quadratic"
-            ],
+            "lessonsWritten": 4,
+            "plannedLessons": [],
             "lessons": [
               {
                 "id": "al-equations-in-two-variables",
@@ -7504,9 +7569,81 @@
                 },
                 "exerciseQuestions": 14,
                 "termsDefined": 8
+              },
+              {
+                "id": "al-one-linear-one-quadratic",
+                "number": "6.4",
+                "title": "One Linear, One Quadratic",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5432,
+                "readMins": 27,
+                "concepts": [
+                  "mixed system",
+                  "solution pair census",
+                  "the substitution pipeline",
+                  "reduced quadratic",
+                  "discriminant verdict",
+                  "tangent condition",
+                  "symmetric conversion",
+                  "extraneous pair"
+                ],
+                "objectives": [
+                  "settle a one-linear-one-quadratic system by the substitution pipeline, checking every pair in the originals",
+                  "read the three verdicts — secant, tangent, outsider — off the reduced discriminant, for a parabola or a circle",
+                  "derive and use the tangent condition k² = (1+m²)r²",
+                  "convert symmetric systems into sums and products through the identity bank",
+                  "settle sum-and-product word problems — rectangles, gardens, number pairs",
+                  "detect and discard extraneous pairs produced by squaring a given equation"
+                ],
+                "prerequisites": [
+                  "al-substitution-and-elimination",
+                  "al-the-quadratic-formula-and-the-discriminant",
+                  "al-roots-and-coefficients-viete-relations"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra",
+                  "ncert-math10-ch3-pair-linear",
+                  "khattar-qa-4e",
+                  "cengage-jee-style"
+                ],
+                "blockCounts": {
+                  "para": 13,
+                  "callout": 6,
+                  "list": 1,
+                  "heading": 5,
+                  "derivation": 2,
+                  "example": 7,
+                  "equation": 2,
+                  "figure": 2,
+                  "table": 2,
+                  "terms": 1,
+                  "formula": 5,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 1,
+                  "warn": 2,
+                  "insight": 1,
+                  "historical": 1,
+                  "exam": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 2,
+                  "L5": 2,
+                  "L6": 1
+                },
+                "exerciseQuestions": 14,
+                "termsDefined": 9
               }
             ],
-            "words": 15618
+            "words": 21050
           },
           {
             "number": 7,
@@ -8275,8 +8412,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4799,
-                "readMins": 24,
+                "words": 4920,
+                "readMins": 25,
                 "concepts": [
                   "ordered pairs as addresses",
                   "the coordinate plane and its four quadrants",
@@ -8310,7 +8447,7 @@
                   "para": 13,
                   "heading": 4,
                   "table": 1,
-                  "figure": 2,
+                  "figure": 3,
                   "terms": 1,
                   "example": 3,
                   "callout": 4,
@@ -8484,7 +8621,7 @@
                 "termsDefined": 6
               }
             ],
-            "words": 14591
+            "words": 14712
           },
           {
             "number": 11,
@@ -8718,15 +8855,149 @@
             "slug": "ratio-proportion-variation",
             "title": "Ratio, Proportion and Variation",
             "summary": "The algebraic layer of comparison: ratios as quotient structures wearing letters, the index-law families of duplicate and triplicate ratios, the four proportion theorems derived from one fraction equality, componendo–dividendo as the exam workhorse, continued proportion and the mean proportional, and variation (direct, inverse, joint, combined) as the algebra of the constant k. Foundation Mathematics taught the school layer; this chapter proves it and puts letters on it. Hands its speed craft to Quantitative Aptitude; hands its sequences face to Advanced Algebra.",
-            "status": "planned",
-            "lessonsWritten": 0,
+            "status": "in-progress",
+            "lessonsWritten": 2,
             "plannedLessons": [
-              "Ratio Laws and the Componendo Family",
-              "Variation: the Algebra of Constants",
               "Continued Proportion, Mean Proportionals and Applications"
             ],
-            "lessons": [],
-            "words": 0
+            "lessons": [
+              {
+                "id": "al-ratio-laws-and-the-componendo-family",
+                "number": "12.1",
+                "title": "Ratio Laws and the Componendo Family",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5188,
+                "readMins": 26,
+                "concepts": [
+                  "ratio as a fraction",
+                  "antecedent and consequent",
+                  "the cross-products licence",
+                  "compound ratio",
+                  "duplicate and triplicate ratio",
+                  "componendo and dividendo",
+                  "continued proportion",
+                  "mean proportional"
+                ],
+                "objectives": [
+                  "treat a ratio as a fraction object wearing letters, with its terms named and its scale-freeness proved",
+                  "build and simplify compound, duplicate, triplicate and sub-duplicate ratios by the index laws",
+                  "derive the cross-products licence ad = bc and use it in both directions",
+                  "derive and apply the five named proportion theorems — invertendo, alternendo, componendo, dividendo and componendo–dividendo — with the witness row 5 : 3 = 10 : 6",
+                  "recover x : y from a sum-and-difference ratio (x + y) : (x − y) = p : q in one line",
+                  "read the continued-proportion ladder a : b = b : c, its mean proportional and its duplicate face"
+                ],
+                "prerequisites": [
+                  "fm-ratio-as-a-comparison",
+                  "fm-proportion-and-cross-multiplication",
+                  "al-powers-and-the-laws-of-exponents"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "callout": 7,
+                  "figure": 2,
+                  "list": 3,
+                  "table": 2,
+                  "example": 6,
+                  "derivation": 2,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "definition": 3,
+                  "warn": 1,
+                  "insight": 1,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 16
+              },
+              {
+                "id": "al-variation-the-algebra-of-constants",
+                "number": "12.2",
+                "title": "Variation: the Algebra of Constants",
+                "authoredOn": "unknown",
+                "authoredInCommit": "unknown",
+                "unit": "unknown",
+                "words": 5817,
+                "readMins": 29,
+                "concepts": [
+                  "direct variation",
+                  "the constant of variation",
+                  "inverse variation and the product invariance",
+                  "joint variation",
+                  "combined variation",
+                  "the k-method",
+                  "percentage scaling",
+                  "transitivity of variation"
+                ],
+                "objectives": [
+                  "read variation as a ratio held constant through change — the licence A ∝ B ⟺ A/B = k — and test data tables with it",
+                  "derive the constant-ratio theorem for direct variation and the product invariance AB = k for inverse variation",
+                  "fix the constant of variation from ONE honest data point, predict with it, and round-trip check every prediction",
+                  "dress joint (z = kxy) and combined (z = kx/y) situations with dimensional checks on k",
+                  "prove the two-condition theorem — A ∝ B at fixed C and A ∝ C at fixed B together force A ∝ BC",
+                  "run percentage scaling at exam speed: if A ∝ B² and B grows by 25%, A grows by exactly 56.25%"
+                ],
+                "prerequisites": [
+                  "fm-direct-and-inverse-variation",
+                  "al-ratio-laws-and-the-componendo-family"
+                ],
+                "sources": [
+                  "hall-knight-elementary-algebra"
+                ],
+                "blockCounts": {
+                  "para": 17,
+                  "heading": 6,
+                  "list": 4,
+                  "callout": 10,
+                  "figure": 2,
+                  "derivation": 2,
+                  "example": 6,
+                  "table": 2,
+                  "terms": 1,
+                  "formula": 6,
+                  "quiz": 1,
+                  "exercises": 1
+                },
+                "calloutTones": {
+                  "insight": 3,
+                  "definition": 3,
+                  "warn": 2,
+                  "exam": 1,
+                  "historical": 1
+                },
+                "quizItems": 5,
+                "exercisesByLevel": {
+                  "L1": 3,
+                  "L2": 3,
+                  "L3": 3,
+                  "L4": 3,
+                  "L5": 2,
+                  "L6": 2
+                },
+                "exerciseQuestions": 16,
+                "termsDefined": 16
+              }
+            ],
+            "words": 11005
           }
         ]
       },
@@ -9042,8 +9313,8 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 4432,
-                "readMins": 22,
+                "words": 5250,
+                "readMins": 26,
                 "concepts": [
                   "the elementary catalog: six resident machines with their domains and ranges",
                   "identical functions: the two-gate test (same domain, same value everywhere on it)",
@@ -9076,9 +9347,9 @@
                   "para": 10,
                   "heading": 8,
                   "terms": 1,
-                  "figure": 2,
+                  "figure": 7,
                   "callout": 9,
-                  "example": 7,
+                  "example": 8,
                   "equation": 2,
                   "list": 1,
                   "derivation": 1,
@@ -9180,7 +9451,7 @@
                 "authoredOn": "unknown",
                 "authoredInCommit": "unknown",
                 "unit": "unknown",
-                "words": 5915,
+                "words": 6077,
                 "readMins": 30,
                 "concepts": [
                   "the direction rule: a constant inside the machine moves the x-axis, a constant outside moves the y-axis",
@@ -9215,7 +9486,7 @@
                   "heading": 8,
                   "equation": 1,
                   "callout": 12,
-                  "figure": 2,
+                  "figure": 3,
                   "example": 8,
                   "table": 1,
                   "list": 1,
@@ -9383,7 +9654,7 @@
                 "termsDefined": 7
               }
             ],
-            "words": 43274
+            "words": 44254
           },
           {
             "number": 2,
@@ -13049,20 +13320,20 @@
     ],
     "codebase": {
       "srcFilesTracked": 236,
-      "totalLines": 109305,
+      "totalLines": 112036,
       "byArea": {
         "src/app (routes, pages)": 2109,
         "other": 10506,
-        "src/components/library (reader platform)": 5772,
+        "src/components/library (reader platform)": 5809,
         "src/components/ui (shadcn primitives)": 5445,
-        "src/data/library (content model + books)": 78322,
+        "src/data/library (content model + books)": 81016,
         "src/hooks": 214,
         "src/lib": 6937
       },
       "libraryComponents": [
         {
           "file": "blocks.tsx",
-          "lines": 919
+          "lines": 956
         },
         {
           "file": "latex-plot.ts",
@@ -13283,7 +13554,7 @@
     "driveCollection": {
       "link": "https://drive.google.com/drive/folders/1NI-VN0d6bUt_wciV6k0UCLN8qiqoCRO1",
       "suppliedByOwner": "2026-11-03 (link-shared, works without login)",
-      "surveyed": "2026-11-12",
+      "surveyed": "2026-11-14",
       "rootFileCount": 85,
       "subfolders": [
         "_DPPs",
@@ -26855,6 +27126,783 @@
           "del": 6
         }
       ]
+    },
+    {
+      "sha": "a5b97dfc79b6aece21b800bc4592f6cbc1465980",
+      "short": "a5b97df",
+      "date": "2026-11-12 21:41",
+      "message": "run 94: AA ch.1 CLOSES COMPLETE — 1.8 Period Census + the unit review gate-audited (prior session's committed work finished: full battery + doc sync); 2 figure fixes (label lift, honest third-lane)",
+      "filesChanged": 11,
+      "insertions": 409,
+      "deletions": 38,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORK_INVENTORY.json",
+          "add": 248,
+          "del": 31
+        },
+        {
+          "path": "scripts/e2e-aa-18.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-1R.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/lesson-view-sheet.py",
+          "add": 23,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 1,
+          "del": 2
+        }
+      ]
+    },
+    {
+      "sha": "333a2c0026c1061a4ec40e7ecda9f9c1e4b20c3c",
+      "short": "333a2c0",
+      "date": "2026-11-12 21:42",
+      "message": "worklog: run 94 sync record — remote HEAD verified == a5b97df",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "73221d6e39a14505eb9f45d2ad6fd9c1089fb0ec",
+      "short": "73221d6",
+      "date": "2026-11-13 01:12",
+      "message": "content-completeness audit (owner chat): all 130 written lessons verified against their headings/titles — 0 errors after 4 fixes: EA ch.4/ch.6 honestly in-progress (queued gaps sat under a Complete badge), the two RED verifiers re-pinned green (471/0 + 13,849,525/0, book snapshot 21->37), ANS 10.1 citation-key typo, FM 9.2 prefix Symbol cell; standing gate scripts/audit-content-completeness.ts added",
+      "filesChanged": 11,
+      "insertions": 753,
+      "deletions": 16,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 18,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-content-completeness.ts",
+          "add": 688,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch04.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "scripts/verify-book3-ch06.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-10.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 11,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-06.ts",
+          "add": 11,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 1,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "822ff490b15cd7d9666d057b70c2b0b73f393fb6",
+      "short": "822ff49",
+      "date": "2026-11-13 01:45",
+      "message": "figure-audit: FM ch.6-9 sweep fire 3 — 12 lessons / 25 figures verified (11 PASS, 1 fixed) + escape-eaten LaTeX class repair: 38 corrupted single-backslash commands doubled across 8 book files (FM/ANS/AA; \\times→TAB+imes figcaption was the live catch)",
+      "filesChanged": 14,
+      "insertions": 177,
+      "deletions": 44,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 40,
+          "del": 16
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-escape-eaten-latex.py",
+          "add": 44,
+          "del": 0
+        },
+        {
+          "path": "scripts/fix-escape-eaten-latex.py",
+          "add": 33,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 7,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-01.ts",
+          "add": 3,
+          "del": 3
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-03.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-08.ts",
+          "add": 5,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/books/mathematics/arithmetic-number-systems/ch-09.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-01.ts",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-03.ts",
+          "add": 6,
+          "del": 6
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-06.ts",
+          "add": 3,
+          "del": 3
+        }
+      ]
+    },
+    {
+      "sha": "b2e8434b3e0c93ad2d978d2513c382d32f960255",
+      "short": "b2e8434",
+      "date": "2026-11-13 03:10",
+      "message": "topic-depth audit (owner chat): every family-named section now shows its graph and is worked — standing rule A2 in audit-content-completeness.ts swept all 130 lessons; 10 real gaps closed with 8 new figures + 1 worked example (AA 1.5 +5: fare machine, modulus V + distance read, signum graph + size×sign rebuild, sawtooth pair-law witnesses, min-envelope; AA 1.7 modulus-wraps quadtych; AL 10.1 walls-and-probes; FM 10.2 chart chooser); gifSawtooth's 15 pre-existing layer-1 overlaps repaired; |−3| = |3| = 6 → 3 in 1.4 + 1.5; two REAL figure defects caught and fixed (FM pie arcs pixel-verified 116/150/86 after the VLM was proven right; AL h=0 probe now rides the y-axis as thick dashes); verifiers re-pinned green with reasons (book4-ch01 25,026/0, book3-ch10 1135/1135 incl. two stale-at-HEAD snapshot pins, unit-10 301/0); e2e 45/0 × 1280/390/dark on aa-15/aa-17/al-101 + fm-102 smoke; all nine new figures VLM PASS",
+      "filesChanged": 14,
+      "insertions": 776,
+      "deletions": 27,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 5,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-content-completeness.ts",
+          "add": 136,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-topicdepth-figures.sh",
+          "add": 79,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-17.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-aa-1x.sh",
+          "add": 3,
+          "del": 2
+        },
+        {
+          "path": "scripts/e2e-al-101.sh",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "scripts/verify-book3-ch10.ts",
+          "add": 21,
+          "del": 7
+        },
+        {
+          "path": "scripts/verify-book4-ch01.ts",
+          "add": 2,
+          "del": 2
+        },
+        {
+          "path": "src/data/library/books/mathematics/advanced-algebra/ch-01.ts",
+          "add": 326,
+          "del": 14
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-10.ts",
+          "add": 73,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 61,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "8c3cf20e79079ba2a0cde659ddaf2feaa1e335dc",
+      "short": "8c3cf20",
+      "date": "2026-11-13 03:30",
+      "message": "worklog: PAT sync record — audit backlog pushed, remote HEAD verified == b2e8434",
+      "filesChanged": 1,
+      "insertions": 6,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 6,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "f636a692976971c6e8baaafa25da514425656a2f",
+      "short": "f636a69",
+      "date": "2026-11-13 04:40",
+      "message": "cron: dedicated PAT push-sync job 527773 created (owner chat directive) — 3 fires/day 05:35/13:35/21:35 IST, sibling-safe, redaction protocol embedded",
+      "filesChanged": 1,
+      "insertions": 7,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 7,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "42fe061287b02229c74636540572bd736cd2e394",
+      "short": "42fe061",
+      "date": "2026-11-13 04:50",
+      "message": "cron: figure-audit job expanded and recreated as 527779 (owner directive) — three passes per lesson: strict VLM audit + SVG/AI diagrams inside exercise-question solutions + missing-subtopic authoring with run-end docs sync; protocol §10 codified, §9 updated",
+      "filesChanged": 2,
+      "insertions": 98,
+      "deletions": 13,
+      "files": [
+        {
+          "path": "docs/project/FIGURE_VERIFICATION_PROTOCOL.md",
+          "add": 89,
+          "del": 13
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 9,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "a9d85d2c42e03d021c5e1d29a2bef65b08a3ee1c",
+      "short": "a9d85d2",
+      "date": "2026-11-13 06:15",
+      "message": "run 95: AL ch.4 gap lesson 4.5 'HCF and LCM of Expressions' written and fully gated — verify-first sections L/M (576/0: monomial+census sweeps, Euclid==census cross-check, pinned walks), e2e 45/0 x3 viewports, overlap 0/3; ch. 4 complete again; 6.4 deferred by the time rule (run 96 opens it)",
+      "filesChanged": 9,
+      "insertions": 2970,
+      "deletions": 2159,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 1309,
+          "del": 1309
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 824,
+          "del": 824
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-45.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-45.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch04.ts",
+          "add": 483,
+          "del": 10
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 201,
+          "del": 16
+        }
+      ]
+    },
+    {
+      "sha": "63c7a16927869a9d933fb918312cd7d7963bb19a",
+      "short": "63c7a16",
+      "date": "2026-11-13 06:15",
+      "message": "worklog: run 95 sync record — remote HEAD verified == a9d85d2",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "fd6430141cc98f07a0ce145a3b9b70c5fbdf8a33",
+      "short": "fd64301",
+      "date": "2026-11-13 06:53",
+      "message": "f11a9682-cf69-46bc-9b37-5132d3830980",
+      "filesChanged": 1,
+      "insertions": 1,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/.figure_upgrade_lock",
+          "add": 1,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "569c2e08b64a9bdf682499e52c1f5b3a6e7f298f",
+      "short": "569c2e0",
+      "date": "2026-11-13 11:13",
+      "message": "figure-audit + enrichment fire 1 (job 527779, owner directive 2026-11-13): three passes live on 5 lessons — 12 body figs (11 PASS + staircase FIXED: 3 layer-1 label/arc overlaps, hops re-anchored); 7 solution visual aids via the new typed SolutionFigure (renderer + captions counted; window beading, six-rectangle climb, L-corridor walk, 3-4-5 dresses + red refusal, courier box, return pipeline [caption backslash repair], three-shelf trap); FM 8.5 parallelogram + rhombus subsection with verify-first BA1-BA6 pins; e2e x1280/390/dark + VLM light+dark all green; queue 46/85 cursor 40; PROGRESS counts recomputed to libraryStats ground truth",
+      "filesChanged": 18,
+      "insertions": 743,
+      "deletions": 44,
+      "files": [
+        {
+          "path": ".gitignore",
+          "add": 8,
+          "del": 0
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 19,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 65,
+          "del": 13
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 16,
+          "del": 16
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/audit-svg-overlaps-expanded.sh",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "scripts/count-words-fire.ts",
+          "add": 35,
+          "del": 0
+        },
+        {
+          "path": "scripts/figure-audit-capture.sh",
+          "add": 68,
+          "del": 0
+        },
+        {
+          "path": "scripts/quiz-ex-fire.ts",
+          "add": 11,
+          "del": 0
+        },
+        {
+          "path": "scripts/stats-books-fire.ts",
+          "add": 7,
+          "del": 0
+        },
+        {
+          "path": "scripts/stats-fire.ts",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-8.ts",
+          "add": 43,
+          "del": 0
+        },
+        {
+          "path": "src/components/library/blocks.tsx",
+          "add": 44,
+          "del": 7
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-04.ts",
+          "add": 36,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-08.ts",
+          "add": 256,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 58,
+          "del": 5
+        },
+        {
+          "path": "src/data/library/types.ts",
+          "add": 20,
+          "del": 1
+        }
+      ]
+    },
+    {
+      "sha": "c6fb495794c924747802dcff7e1b2baf048ee305",
+      "short": "c6fb495",
+      "date": "2026-11-13 12:59",
+      "message": "figure-audit + enrichment fire 2 (job 527779): items 40-44 — 12 body figs PASS; ten solution visual aids (interval strips, walls line, double-round routes, tally regroup, stair-steps, two-pies, twin-scales, heat third-variable, outlier drag, combined-mean seesaw; label collisions + teal stroke-count + legibility fixed in audit); 9.4 sig-fig-rounding + 10.2 pictograph enrichments verify-first (AP1-AP8 542/0 + AQ1-AQ7 311/0 pre-writing); e2e x1280/390/dark + VLM light+dark all green; queue 51/85→80 cursor 45; PROGRESS 640,908 words",
+      "filesChanged": 10,
+      "insertions": 665,
+      "deletions": 17,
+      "files": [
+        {
+          "path": "docs/project/.figure_upgrade_lock",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 1,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_LOG.md",
+          "add": 6,
+          "del": 0
+        },
+        {
+          "path": "docs/project/FIGURE_AUDIT_QUEUE.json",
+          "add": 21,
+          "del": 11
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-10.ts",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-unit-9.ts",
+          "add": 49,
+          "del": 1
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-09.ts",
+          "add": 187,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/foundation-mathematics/ch-10.ts",
+          "add": 339,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "2e3a180becede12c374bd3999b8ef73e1067e65d",
+      "short": "2e3a180",
+      "date": "2026-11-13 13:56",
+      "message": "run 96: AL 6.4 'One Linear, One Quadratic' written and fully gated — the audit gap B (H&K XXVI) closed; verify-book3-ch06 sections L+M (13,875,967/0: 19,656 mixed-system substitution bijection, 117 verdicts, 1,785 tangent-condition combos, symmetric engine + exhibits); two figures (three-verdict panel + tangent strip) overlap 0/2 after 5 tick/label fixes; e2e-al-64 45/45 x3 viewports; ch. 6 re-CLOSED 4/4, AL stands 39 lessons; 12.1 deferred by the time rule (run 97 opens AL ch. 12)",
+      "filesChanged": 12,
+      "insertions": 1290,
+      "deletions": 32,
+      "files": [
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 4,
+          "del": 4
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 1,
+          "del": 1
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 3,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-64.page.js",
+          "add": 47,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-64.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/fix-ch06-escapes.py",
+          "add": 20,
+          "del": 0
+        },
+        {
+          "path": "scripts/fix-ch06-example-answers.py",
+          "add": 21,
+          "del": 0
+        },
+        {
+          "path": "scripts/sync-docs-run96.py",
+          "add": 70,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch06.ts",
+          "add": 629,
+          "del": 11
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-06.ts",
+          "add": 397,
+          "del": 16
+        }
+      ]
+    },
+    {
+      "sha": "51393931081746934bcfb390e1b1c5a25ba85247",
+      "short": "5139393",
+      "date": "2026-11-13 13:57",
+      "message": "worklog: run 96 sync record — remote HEAD verified == 2e3a180",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
+    },
+    {
+      "sha": "1be7790f3390923c3378fd7d560dd70460fca82c",
+      "short": "1be7790",
+      "date": "2026-11-13 18:49",
+      "message": "run 97: AL 12.1 'Ratio Laws and the Componendo Family' written and fully gated — chapter 12 OPENS (1/3); verify-book3-ch12 sections A/B pre-writing 159/0 (4 real arithmetic errors caught pre-prose) + E authored audit 295/0; 2 figures overlap 0/2 + domvalues CLEAN; e2e-al-121 45/45 x3 viewports; VLM fig1+fig2+light+dark PASS; AL stands 40 lessons / 186,705 words; 12.2 deferred by the time rule (run 98 opens it)",
+      "filesChanged": 10,
+      "insertions": 1576,
+      "deletions": 378,
+      "files": [
+        {
+          "path": "docs/project/.figure_upgrade_lock",
+          "add": 0,
+          "del": 1
+        },
+        {
+          "path": "docs/project/DETAILED_LOG.md",
+          "add": 2,
+          "del": 0
+        },
+        {
+          "path": "docs/project/PROGRESS.json",
+          "add": 223,
+          "del": 230
+        },
+        {
+          "path": "docs/project/RESUME_POINTER.json",
+          "add": 131,
+          "del": 131
+        },
+        {
+          "path": "docs/project/SOURCE_LOG.md",
+          "add": 4,
+          "del": 0
+        },
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 10,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-121.page.js",
+          "add": 48,
+          "del": 0
+        },
+        {
+          "path": "scripts/e2e-al-121.sh",
+          "add": 86,
+          "del": 0
+        },
+        {
+          "path": "scripts/verify-book3-ch12.ts",
+          "add": 684,
+          "del": 0
+        },
+        {
+          "path": "src/data/library/books/mathematics/elementary-algebra/ch-12.ts",
+          "add": 388,
+          "del": 16
+        }
+      ]
+    },
+    {
+      "sha": "f593dd8a7dcc0eafb210af247ad7c0c08c37efc2",
+      "short": "f593dd8",
+      "date": "2026-11-13 18:50",
+      "message": "worklog: run 97 sync record — remote HEAD verified == 1be7790",
+      "filesChanged": 1,
+      "insertions": 4,
+      "deletions": 0,
+      "files": [
+        {
+          "path": "docs/project/WORKLOG.md",
+          "add": 4,
+          "del": 0
+        }
+      ]
     }
   ],
   "totals": {
@@ -26862,26 +27910,26 @@
     "booksPlannedBacklog": 277,
     "booksLive": 28,
     "chaptersWritten": 33,
-    "chaptersInProgress": 0,
-    "lessonsWritten": 130,
-    "wordsAuthored": 632280,
-    "termsDefined": 952,
-    "quizItems": 650,
-    "exerciseQuestions": 1675,
+    "chaptersInProgress": 1,
+    "lessonsWritten": 134,
+    "wordsAuthored": 657345,
+    "termsDefined": 1003,
+    "quizItems": 670,
+    "exerciseQuestions": 1737,
     "blockTotals": {
-      "para": 1823,
-      "callout": 742,
-      "heading": 717,
-      "list": 150,
-      "terms": 128,
-      "equation": 199,
-      "figure": 231,
-      "derivation": 242,
-      "table": 154,
-      "example": 574,
-      "quiz": 130,
-      "exercises": 130,
-      "formula": 399,
+      "para": 1894,
+      "callout": 773,
+      "heading": 745,
+      "list": 161,
+      "terms": 132,
+      "equation": 203,
+      "figure": 251,
+      "derivation": 252,
+      "table": 160,
+      "example": 601,
+      "quiz": 134,
+      "exercises": 134,
+      "formula": 419,
       "algorithm": 27
     }
   }

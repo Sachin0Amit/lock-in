@@ -102,6 +102,10 @@ function ok(cond: boolean, msg: string): void {
   }
 }
 
+/** intentional-inequality pin: typed-number parameters defeat TS literal-type
+ *  narrowing, which would otherwise flag the deliberately-unequal constants */
+const neq = (m: number, n: number): boolean => m !== n
+
 const rng = (lo: number, hi: number): number[] => {
   const a: number[] = []
   for (let v = lo; v <= hi; v++) a.push(v)
@@ -502,6 +506,323 @@ function sectionB(): void {
 }
 
 /* ------------------------------------------------------------------ */
+/* (C) the variation engines — 12.2 pre-writing (run 98)               */
+/* ------------------------------------------------------------------ */
+
+function sectionC(): void {
+  console.log('[C] the variation engines — full exact grids')
+
+  // (i) the direct-variation licence: two points lie on ONE direct
+  // variation y = kx exactly when the cross-products agree (the 12.1
+  // licence returning): y1·x2 == y2·x1  ⟺  y1/x1 == y2/x2.
+  {
+    let pairs = 0
+    let consistent = 0
+    for (const x1 of rng(1, 12))
+      for (const y1 of rng(1, 12))
+        for (const x2 of rng(1, 12))
+          for (const y2 of rng(1, 12)) {
+            pairs++
+            const cross = y1 * x2 === y2 * x1
+            const ratio = JSON.stringify(norm(y1, x1)) === JSON.stringify(norm(y2, x2))
+            if (cross !== ratio) ok(false, `C: direct licence disagreement at (${x1},${y1}) vs (${x2},${y2})`)
+            if (cross) consistent++
+          }
+    ok(pairs === 20736, `C: direct licence swept all ${pairs} ordered pairs of [1..12]²`)
+    ok(consistent > 0, `C: ${consistent} pairs share one constant k (the consistent census)`)
+  }
+
+  // (ii) the product-invariance licence: two points lie on ONE inverse
+  // variation xy = k exactly when the products agree: x1·y1 == x2·y2.
+  {
+    let pairs = 0
+    let consistent = 0
+    for (const x1 of rng(1, 12))
+      for (const y1 of rng(1, 12))
+        for (const x2 of rng(1, 12))
+          for (const y2 of rng(1, 12)) {
+            pairs++
+            if (x1 * y1 === x2 * y2) consistent++
+          }
+    ok(pairs === 20736, `C: product licence swept all ${pairs} ordered pairs of [1..12]²`)
+    ok(consistent > 0, `C: ${consistent} pairs share one constant product`)
+    // the k = 48 hyperbola of the pumps exhibit: its integer points
+    {
+      const pts: [number, number][] = []
+      for (const x of rng(1, 14)) if (48 % x === 0) pts.push([x, 48 / x])
+      ok(pts.length === 7, `C: xy = 48 has exactly ${pts.length} integer points with x in [1..14] (found ${pts.map((p) => p.join(',')).join('; ')})`)
+      for (const [x, y] of pts) ok(x * y === 48, `C: hyperbola point (${x},${y}) carries product 48`)
+    }
+  }
+
+  // (iii) the joint-variation engine: z = m·B·C — k-recovery from one
+  // witness triple, prediction and round-trip exact by integers.
+  {
+    for (const m of [1, 2, 3, 5]) {
+      for (const B of rng(1, 8))
+        for (const C of rng(1, 8)) {
+          const z = m * B * C
+          ok(z === m * (B * C), `C: joint witness m=${m} (${B},${C}) → z=${z}, round-trip z/(BC) = ${z / (B * C)}`)
+          // a second point on the same surface: (2B, C) doubles z
+          ok(2 * z === m * (2 * B) * C, `C: joint doubling at m=${m} (${B},${C})`)
+        }
+    }
+  }
+
+  // (iv) the combined-variation engine: z = m·B/C with C | mB for integer
+  // witnesses; prediction round-trips exactly.
+  {
+    for (const m of [2, 3, 6, 12]) {
+      for (const B of rng(1, 9))
+        for (const C of rng(1, 9)) {
+          if ((m * B) % C !== 0) continue
+          const z = (m * B) / C
+          ok(z * C === m * B, `C: combined witness m=${m} (${B},${C}) → z=${z} round-trips`)
+        }
+    }
+  }
+
+  // (v) the two-condition theorem engine (H&K art 311): if A ∝ B at fixed C
+  // and A ∝ C at fixed B then A ∝ BC. The rectangle-splitting identity:
+  // A(B,C)/A(B1,C1) == [A(B,C1)/A(B1,C1)]·[A(B1,C)/A(B1,C1)]  for A = mBC.
+  {
+    const m = 3
+    let combos = 0
+    for (const B of rng(1, 6))
+      for (const B1 of rng(1, 6))
+        for (const C of rng(1, 6))
+          for (const C1 of rng(1, 6)) {
+            combos++
+            const A = m * B * C
+            const Aref = m * B1 * C1
+            const pathC = m * B * C1
+            const pathB = m * B1 * C
+            // A/Aref == (pathC/Aref)·(pathB/Aref)  ⟺  A·Aref == pathC·pathB
+            if (A * Aref !== pathC * pathB)
+              ok(false, `C: two-condition split failed at (${B},${C}) ref (${B1},${C1})`)
+          }
+    ok(combos === 1296, `C: two-condition split verified on all ${combos} combos of [1..6]⁴`)
+    // the affine counterexample: A = mBC + c satisfies NEITHER slice test
+    {
+      const f = (B: number, C: number): number => 3 * B * C + 7
+      const C1 = 2
+      let sliceOK = true
+      for (const B of rng(1, 5)) if (f(B, C1) % B !== 0 || f(B, C1) / B !== f(1, C1)) sliceOK = false
+      ok(!sliceOK, 'C: the affine surface mBC + 7 fails the fixed-C slice — the two conditions are genuinely restrictive')
+    }
+  }
+
+  // (vi) the percentage-scaling engine: A ∝ Bⁿ means B × (sn/sd) ⇒ A × (sn/sd)ⁿ
+  // (n = 1, 2, −1) — every claim an integer cross-product, no division decides anything.
+  {
+    // n = 1: A ∝ B, k = 50: B 10→12 (×6/5) ⇒ A 500→600
+    ok(600 * 5 === 500 * 6, 'C: n=1 scaling ×6/5: 600·5 == 500·6 == 3000')
+    // n = 2: A ∝ B², k = 5: B 4→5 (×5/4) ⇒ A 80→125
+    ok(125 * 16 === 80 * 25, 'C: n=2 scaling ×5/4: 125·16 == 80·25 == 2000')
+    // n = 2 again, integer scale: B 3→9 (×3) ⇒ A 45→405
+    ok(405 * 1 === 45 * 9, 'C: n=2 scaling ×3: 405 == 45·9 == 405')
+    // n = −1: A ∝ 1/C, k = 96: C 6→2 (×1/3) ⇒ A 16→48 (the product licence)
+    ok(16 * 6 === 48 * 2 && 16 * 6 === 96, 'C: n=−1 scaling ÷3: 16·6 == 48·2 == 96')
+    // the 25% headline: (5/4)² = 25/16 and the increase is exactly 9/16 = 56.25%
+    ok(5 * 5 === 25 && 4 * 4 === 16, 'C: (5/4)² = 25/16 exact')
+    ok(25 - 16 === 9, 'C: the 25%→56.25% rise is the fraction 9/16 = 0.5625 exact')
+    ok(9 / 16 === 0.5625, 'C: 9/16 == 0.5625 (the only float in the battery, and it is exact in binary)')
+  }
+
+  // (vii) the transitivity engine: A ∝ B, B ∝ C ⟹ A ∝ C (k1k2 constant).
+  {
+    for (const k1 of rng(1, 5))
+      for (const k2 of rng(1, 5))
+        for (const C of rng(1, 7)) {
+          const B = k2 * C
+          const A = k1 * B
+          ok(A === k1 * k2 * C, `C: transitivity k1=${k1}, k2=${k2}, C=${C}: A = ${A} = k1k2·C`)
+        }
+  }
+
+  // (viii) the powers engine (H&K art 312): A ∝ B ⟹ Aⁿ ∝ Bⁿ for n = 2, 3.
+  {
+    for (const m of rng(1, 6))
+      for (const B of rng(1, 6)) {
+        const A = m * B
+        ok(A * A === m * m * B * B, `C: squares m=${m}, B=${B}: A² = m²B²`)
+        ok(A * A * A === m * m * m * B * B * B, `C: cubes m=${m}, B=${B}: A³ = m³B³`)
+      }
+  }
+
+  console.log('[C] variation engines green')
+}
+
+/* ------------------------------------------------------------------ */
+/* (D) the pinned computations of lesson 12.2 — run 98 pre-writing     */
+/* ------------------------------------------------------------------ */
+
+function sectionD(): void {
+  console.log('[D] pinned computations for 12.2')
+
+  // the uniform-speed direct exhibit: the witness row of y = 7x
+  {
+    const row: [number, number][] = [
+      [2, 14],
+      [4, 28],
+      [6, 42],
+      [9, 63],
+    ]
+    for (const [x, y] of row) ok(y === 7 * x, `D: witness (${x},${y}) sits on y = 7x`)
+    for (let i = 0; i < row.length; i++)
+      for (let j = i + 1; j < row.length; j++) {
+        const [x1, y1] = row[i]
+        const [x2, y2] = row[j]
+        ok(y1 * x2 === y2 * x1, `D: witness pair (${x1},${y1})/(${x2},${y2}) agrees (cross ${y1 * x2})`)
+      }
+    // the bus reading: 42 km in 6 hours → k = 7 km/h; 9 hours → 63 km
+    ok(42 / 6 === 7, 'D: 42 km in 6 h reads k = 7 km/h')
+    ok(7 * 9 === 63 && 63 / 9 === 7, 'D: 9 h predicts 63 km and round-trips (63/9 = 7)')
+  }
+
+  // the k-discipline negative witness: (2,14) and (5,31) disagree
+  ok(14 * 5 === 70 && 31 * 2 === 62 && neq(70, 62), 'D: (2,14) vs (5,31): cross-products 70 ≠ 62 — no single k')
+  // the not-through-origin trap: y = 7x + 3 fails the constant ratio
+  ok(17 * 2 !== 7 * 2 * 2, 'D: y = 7x + 3 at x = 2 gives 17, and 17/2 ≠ 7 (not a variation)')
+  ok(17 * 4 !== 31 * 2 && neq(68, 62), 'D: two points of y = 7x + 3 — (2,17),(4,31) cross 68 ≠ 62 — not direct')
+
+  // the pumps inverse exhibit: 6×8 = 4×12 = 8×6 = 2×24 = 48
+  {
+    const rows: [number, number][] = [
+      [6, 8],
+      [4, 12],
+      [8, 6],
+      [2, 24],
+    ]
+    for (const [p, h] of rows) ok(p * h === 48, `D: pumps (${p},${h}): product 48`)
+    // the prediction round-trips
+    ok(48 % 4 === 0 && 48 / 4 === 12, 'D: 4 pumps → 12 h (48/4)')
+    ok(48 % 8 === 0 && 48 / 8 === 6, 'D: 8 pumps → 6 h (48/8)')
+  }
+
+  // the simple-interest joint exhibit: I = PRT/100 with k = 1/100
+  {
+    ok(6000 * 5 * 2 === 60000 && 60000 / 100 === 600, 'D: ₹6000 at 5% for 2 yr → ₹600')
+    ok(9000 * 6 * 2 === 108000 && 108000 / 100 === 1080, 'D: ₹9000 at 6% for 2 yr → ₹1080')
+    ok(600 * 100 === 6000 * 5 * 2 && 1080 * 100 === 9000 * 6 * 2, 'D: both witnesses carry k = 1/100 exactly')
+  }
+
+  // the uniform-motion combined exhibit: t = d/v with k = 1
+  {
+    ok(3 * 40 === 120, 'D: 120 km at 40 km/h takes 3 h (k = 1)')
+    ok(3 * 60 === 180, 'D: 180 km at 60 km/h takes 3 h (k = 1)')
+  }
+
+  // the joint witness: A = 24 at (B,C) = (3,4) → k = 2; A(5,6) = 60
+  ok(24 === 2 * 3 * 4, 'D: joint witness A = 24 = 2·3·4 (k = 2)')
+  ok(60 === 2 * 5 * 6, 'D: joint prediction A(5,6) = 60 = 2·5·6')
+
+  // the triangle-area joint exhibit: A = ½bh
+  ok(10 * 6 % 2 === 0 && (10 * 6) / 2 === 30, 'D: triangle 10×6 → area 30')
+  ok((15 * 8) / 2 === 60, 'D: triangle 15×8 → area 60 (the quiz Q4 pin)')
+
+  // the percentage witnesses
+  {
+    ok(50 * 10 === 500 && 50 * 12 === 600, 'D: A ∝ B, k = 50: B 10→12 (×6/5) ⇒ A 500→600 (+20%)')
+    ok(5 * 9 === 45 && 5 * 81 === 405, 'D: A ∝ B², k = 5: B 3→9 (×3) ⇒ A 45→405 (×9)')
+    ok(405 / 81 === 5, 'D: the B² round-trip 405/81 = 5')
+    ok(96 / 6 === 16 && 96 / 2 === 48, 'D: A ∝ 1/C, k = 96: C 6→2 (÷3) ⇒ A 16→48 (×3)')
+  }
+
+  // the L1–L3 exercise pins
+  ok(14 % 2 === 0 && 14 / 2 === 7 && 7 * 9 === 63, 'D: L1.1: k = 7 from (2,14); y(9) = 63')
+  ok(2880 % 9 === 0 && 2880 / 9 === 320 && 320 * 15 === 4800, 'D: L1.3: k = ₹320/m from 9 m = ₹2880; 15 m → ₹4800')
+  ok(12 * 4 === 48 && 48 % 16 === 0 && 48 / 16 === 3, 'D: L2.4: k = 48 from (12,4); x = 16 → y = 3')
+  {
+    // L2.5: z = k·x/y with witness (8,4,6) → k = 3; predict (12,9) → 4
+    ok(6 * 4 === 3 * 8, 'D: L2.5 witness z = 6 = 3·8/4 (k = 3)')
+    ok(3 * 12 === 36 && 36 % 9 === 0 && 36 / 9 === 4, 'D: L2.5 prediction z(12,9) = 4')
+  }
+  ok(210 / 3 === 70 && 70 * 5 === 350 && 350 / 5 === 70, 'D: L2.6: s = 70t; 5 h → 350 km round-trips')
+
+  // the L4 percentage pins
+  ok(9 * 9 === 81, 'D: L4.11 doubled base: A ∝ B² triples B ⇒ A ×9')
+  ok(3 * 3 === 9, 'D: L4.12 inverse cut: C ÷3 ⇒ A ×3')
+
+  // quiz keys (pinned BEFORE prose; the authored section F re-checks)
+  // Q1 y ∝ x, (6,42), x = 9 → 63 | Q2 6 pumps 8 h, 4 pumps → 12 h
+  // Q3 A ∝ B², B +25% → A +56.25% | Q4 triangle 15×8 → 60 | Q5 the direct table is (2,14),(4,28),(6,42)
+  ok(42 / 6 === 7 && 7 * 9 === 63, 'D: Q1 key 63 pinned')
+  ok(6 * 8 === 48 && 48 / 4 === 12, 'D: Q2 key 12 hours pinned')
+  ok(25 === 5 * 5 && 16 === 4 * 4 && 9 === 25 - 16, 'D: Q3 key +56.25% = 9/16 pinned')
+  ok((15 * 8) / 2 === 60, 'D: Q4 key 60 pinned')
+  {
+    const a: [number, number][] = [
+      [2, 14],
+      [4, 28],
+      [6, 42],
+    ]
+    let all = true
+    for (const [x, y] of a) if (y !== 7 * x) all = false
+    const b: [number, number][] = [
+      [2, 15],
+      [5, 40],
+      [10, 80],
+    ]
+    // table B carries NO single k: pairwise cross-products disagree
+    // (2,15) vs (5,40): 75 ≠ 80; (5,40) vs (10,80): 400 ≠ 800? 40·10 = 400 vs 80·5 = 400 — equal!
+    // the honest test is against the WHOLE table: 15·5 = 75 vs 40·2 = 80 fails
+    let consistentB = true
+    for (let i = 0; i < b.length; i++)
+      for (let j = i + 1; j < b.length; j++) {
+        const [x1, y1] = b[i]
+        const [x2, y2] = b[j]
+        if (y1 * x2 !== y2 * x1) consistentB = false
+      }
+    ok(all && !consistentB, 'D: Q5 key table A pinned (k = 7 throughout; table B has no single k — 15·5 = 75 ≠ 80 = 40·2)')
+    ok(15 * 5 === 75 && 40 * 2 === 80 && neq(75, 80), 'D: Q5 table B disagreement pinned (75 vs 80)')
+  }
+
+  // the L6.16 powers-theorem use: y ∝ x², y = 18 at x = 3 → k = 2; y(5) = 50
+  ok(18 / 9 === 2 && 2 * 25 === 50, 'D: L6.16: k = 18/9 = 2; y(5) = 2·25 = 50')
+  // the L3.9 rectangle exhibit: 9×4 = 36; area 60 at w = 5 → l = 12
+  ok(9 * 4 === 36 && 60 / 5 === 12 && 12 * 5 === 60, 'D: L3.9: A = lw with k = 1; (9,4) → 36; w = 5, A = 60 → l = 12')
+
+  // quiz Q5 distractor tables C and D: their cross-products disagree too
+  ok(20 * 6 === 120 && 50 * 3 === 150 && neq(120, 150), 'D: Q5 table C pinned (3,20) vs (6,50): 120 ≠ 150')
+  ok(9 * 2 === 18 && 19 * 1 === 19 && neq(18, 19), 'D: Q5 table D pinned (1,9) vs (2,19): 18 ≠ 19 (the 10x − 1 impostor)')
+
+  // figure plans (pinned pre-writing; section F audits the authored SVG)
+  {
+    // fig 1 (y = 7x): px plan — origin (90,300), x-scale 58 px/unit,
+    // y-scale 3.6 px/unit (checked as 36y/10 in integers); points
+    // (2,14)→(206,250), (4,28)→(322,199), (6,42)→(438,149); line ends
+    // (90,300)–(670,48); red trap line y = 7x+3 ends (90,289)–(670,37)
+    const px = (x: number, y: number): [number, number] => [90 + 58 * x, 300 - Math.round(3.6 * y * 10) / 10]
+    const p1 = px(2, 14)
+    const p2 = px(4, 28)
+    const p3 = px(6, 42)
+    ok(p1[0] === 206 && p2[0] === 322 && p3[0] === 438, 'D: fig1 point x-plan 206/322/438')
+    ok(Math.round(p1[1]) === 250 && Math.round(p2[1]) === 199 && Math.round(p3[1]) === 149, 'D: fig1 point y-plan 250/199/149')
+    ok(90 + 58 * 10 === 670 && 300 - (36 * 70) / 10 === 48, 'D: fig1 line ends (90,300)–(670,48)')
+    ok(Math.round(300 - (36 * 3) / 10) === 289 && Math.round(300 - (36 * 73) / 10) === 37, 'D: fig1 trap line y = 7x+3 ends (90,289)–(670,37)')
+    // fig 2 (xy = 48): px plan — origin (80,310), x-scale 45 px/unit,
+    // y-scale 5.5 px/unit; points (4,12)→(260,244), (6,8)→(350,266),
+    // (8,6)→(440,277), (12,4)→(620,288)
+    const q = (x: number, y: number): [number, number] => [80 + 45 * x, Math.round(310 - 5.5 * y)]
+    const q4 = q(4, 12)
+    const q6 = q(6, 8)
+    const q8 = q(8, 6)
+    const q12 = q(12, 4)
+    ok(q4[0] === 260 && Math.round(q4[1]) === 244, 'D: fig2 point (4,12) → (260,244)')
+    ok(q6[0] === 350 && Math.round(q6[1]) === 266, 'D: fig2 point (6,8) → (350,266)')
+    ok(q8[0] === 440 && Math.round(q8[1]) === 277, 'D: fig2 point (8,6) → (440,277)')
+    ok(q12[0] === 620 && Math.round(q12[1]) === 288, 'D: fig2 point (12,4) → (620,288)')
+    // the two area rectangles: (6,8) rect spans x 80..350, y 266..310;
+    // (4,12) rect spans x 80..260, y 244..310
+    ok(80 + 45 * 6 === 350 && 310 - 5.5 * 8 === 266, 'D: fig2 rect (6,8) spans (80,266)–(350,310)')
+    ok(80 + 45 * 4 === 260 && 310 - 5.5 * 12 === 244, 'D: fig2 rect (4,12) spans (80,244)–(260,310)')
+  }
+
+  console.log('[D] pinned computations green')
+}
+
+/* ------------------------------------------------------------------ */
 /* (E) the authored audit — appended at authoring time (run 97)        */
 /* ------------------------------------------------------------------ */
 
@@ -513,19 +834,20 @@ function sectionE(): void {
     'src/data/library/books/mathematics/elementary-algebra/ch-12.ts',
     'utf8',
   )
-  // chapter shape
+  // chapter shape (run-98 count-aware re-pin: 12.2 authored this run, so the
+  // queue is 2 lessons authored + 1 planned; the 12.1-only pins were re-pinned
+  // from 1/2 to 2/1 with this note as the run-96 precedent requires)
   ok(chapter12.number === 12 && chapter12.slug === 'ratio-proportion-variation', 'E: chapter identity')
-  ok(chapter12.status === 'in-progress', 'E: chapter 12 is in-progress after 12.1')
-  ok(chapter12.lessons.length === 1 && chapter12.plannedLessons?.length === 2, 'E: 1 lesson authored, 2 planned remain')
+  ok(chapter12.status === 'in-progress', 'E: chapter 12 is in-progress after 12.1 + 12.2 (12.3 still pending)')
+  ok(chapter12.lessons.length === 2 && chapter12.plannedLessons?.length === 1, 'E: 2 lessons authored, 1 planned remains (re-pinned run 98)')
   ok(
-    JSON.stringify(chapter12.plannedLessons) ===
-      JSON.stringify(['Variation: the Algebra of Constants', 'Continued Proportion, Mean Proportionals and Applications']),
-    'E: the planned queue holds exactly 12.2 and 12.3',
+    JSON.stringify(chapter12.plannedLessons) === JSON.stringify(['Continued Proportion, Mean Proportionals and Applications']),
+    'E: the planned queue holds exactly 12.3 (re-pinned run 98)',
   )
   const lesson = chapter12.lessons[0]
   ok(lesson.id === 'al-ratio-laws-and-the-componendo-family', 'E: the 12.1 id is the audit-registered id')
   ok(lesson.number === '12.1' && lesson.title === 'Ratio Laws and the Componendo Family', 'E: number + title')
-  ok(lesson.sources?.includes('hall-knight-elementary-algebra'), 'E: the banked H&K citation key rides the lesson footer')
+  ok(lesson.sources?.includes('hall-knight-elementary-algebra') ?? false, 'E: the banked H&K citation key rides the lesson footer')
   // prerequisites resolve in the library graph
   {
     const ids = new Set<string>()
@@ -670,14 +992,183 @@ function sectionE(): void {
 }
 
 /* ------------------------------------------------------------------ */
+/* (F) the authored audit of 12.2 — appended at authoring time (run 98) */
+/* ------------------------------------------------------------------ */
+
+function sectionF(): void {
+  console.log('[F] the authored audit of 12.2')
+  const ch12SrcF = fs.readFileSync(
+    'src/data/library/books/mathematics/elementary-algebra/ch-12.ts',
+    'utf8',
+  )
+  const lesson = chapter12.lessons[1]
+  ok(lesson.id === 'al-variation-the-algebra-of-constants', 'F: the 12.2 id is the audit-registered id')
+  ok(lesson.number === '12.2' && lesson.title === 'Variation: the Algebra of Constants', 'F: number + title')
+  ok(lesson.sources?.includes('hall-knight-elementary-algebra') ?? false, 'F: the banked H&K citation key rides the lesson footer')
+  // prerequisites resolve in the library graph (2 chips: the FM variation school + 12.1)
+  {
+    const ids = new Set<string>()
+    for (const b of allBooks) for (const c of b.chapters) for (const l of c.lessons) ids.add(l.id)
+    const prereqs = lesson.prerequisites ?? []
+    ok(prereqs.length === 2, `F: two prerequisites authored (got ${prereqs.length})`)
+    for (const p of prereqs) ok(ids.has(p), `F: prerequisite ${p} resolves to a real lesson`)
+  }
+  // block census
+  {
+    const kinds: Record<string, number> = {}
+    for (const b of lesson.blocks) kinds[b.kind] = (kinds[b.kind] ?? 0) + 1
+    ok((kinds.para ?? 0) >= 10, `F: body paras >= 10 (got ${kinds.para})`)
+    ok((kinds.heading ?? 0) === 6, `F: six theory headings (got ${kinds.heading})`)
+    ok((kinds.figure ?? 0) === 2, `F: exactly 2 figures (got ${kinds.figure})`)
+    ok((kinds.table ?? 0) === 2, `F: exactly 2 tables (got ${kinds.table})`)
+    ok((kinds.derivation ?? 0) === 2, `F: two derivation theorems (got ${kinds.derivation})`)
+    ok((kinds.example ?? 0) === 6, `F: six Illustrations (got ${kinds.example})`)
+    ok((kinds.callout ?? 0) >= 6, `F: six+ callouts (got ${kinds.callout})`)
+    ok((kinds.terms ?? 0) === 1 && (kinds.formula ?? 0) === 6, `F: terms + 6 formula cards (got ${kinds.terms}/${kinds.formula})`)
+    ok((kinds.quiz ?? 0) === 1 && (kinds.exercises ?? 0) === 1, 'F: one quiz + one exercise block')
+  }
+  // quiz keys vs the D-section pins: 63 | 12 hours | 56.25% | 60 | table A
+  {
+    const quiz = lesson.blocks.find((b) => b.kind === 'quiz') as Extract<(typeof lesson.blocks)[number], { kind: 'quiz' }>
+    ok(quiz.items.length === 5, `F: five quiz items (got ${quiz.items.length})`)
+    const keys = quiz.items.map((it) => it.answer)
+    ok(JSON.stringify(keys) === JSON.stringify([0, 1, 2, 0, 0]), `F: quiz keys are [0,1,2,0,0] (got ${JSON.stringify(keys)})`)
+    ok(quiz.items[0].options[0].includes('63'), 'F: Q1 key option carries 63')
+    ok(quiz.items[1].options[1].includes('12 hours'), 'F: Q2 key option carries 12 hours')
+    ok(quiz.items[2].options[2].includes('56.25'), 'F: Q3 key option carries 56.25%')
+    ok(quiz.items[3].options[0].includes('60'), 'F: Q4 key option carries 60')
+    ok(quiz.items[4].options[0].includes('(2, 14)'), 'F: Q5 key option carries the k = 7 table')
+    for (const it of quiz.items) ok(it.explain.length > 60, 'F: every quiz explanation prices the distractors')
+  }
+  // exercises: L1..L6 with 3,3,3,3,2,2 == 16 questions, steps arrays + answers
+  {
+    const ex = lesson.blocks.find((b) => b.kind === 'exercises') as Extract<(typeof lesson.blocks)[number], { kind: 'exercises' }>
+    const sizes = ex.sets.map((s) => s.questions.length)
+    ok(JSON.stringify(ex.sets.map((s) => s.level)) === JSON.stringify(['L1', 'L2', 'L3', 'L4', 'L5', 'L6']), 'F: six graded sets L1..L6')
+    ok(JSON.stringify(sizes) === JSON.stringify([3, 3, 3, 3, 2, 2]), `F: set sizes 3,3,3,3,2,2 == 16 (got ${JSON.stringify(sizes)})`)
+    for (const set of ex.sets)
+      for (const q of set.questions) {
+        ok(Array.isArray(q.solution) && q.solution.length >= 3, 'F: every solution is a steps array of 3+ moves')
+        ok(typeof q.answer === 'string' && q.answer.length > 0, 'F: every question carries a terminal answer')
+      }
+    const answers = ex.sets.flatMap((s) => s.questions.map((q) => q.answer as string))
+    ok(answers[0].includes('k = 7') && answers[0].includes('63'), 'F: L1.1 answer k = 7; y = 63')
+    ok(answers[2].includes('4,800'), 'F: L1.3 answer ₹4,800')
+    ok(answers[3].includes('y = 3'), 'F: L2.4 answer y = 3')
+    ok(answers[8].includes('l = 12'), 'F: L3.3 answer l = 12')
+    ok(answers[12].includes('1,080'), 'F: L5.1 answer ₹1,080')
+    ok(answers[13].includes('3 hours'), 'F: L5.2 answer 3 hours')
+    ok(answers[15].includes('y = 50'), 'F: L6.2 answer y = 50')
+    // the round-trip discipline rides the solution chains
+    const solText = ex.sets.flatMap((s) => s.questions.map((q) => (Array.isArray(q.solution) ? q.solution.join(' ') : '')).join(' ')).join(' ')
+    ok(solText.includes('4800}{15') || solText.includes('4800} = 320') || solText.includes('4800') || solText.includes('4{,}800'), 'F: the fabric round-trip reads in the solution')
+    ok(solText.includes('1080') || solText.includes('1{,}080'), 'F: the interest round-trip reads in the solution')
+  }
+  // figures: plans vs authored SVG
+  {
+    const figs = lesson.blocks.filter((b) => b.kind === 'figure') as Extract<(typeof lesson.blocks)[number], { kind: 'figure' }>[]
+    const allSvg = figs.map((f) => f.svg).join('\n')
+    for (const f of figs) {
+      ok(f.svg.includes('viewBox="0 0 720'), 'F: figure viewBox 720 wide')
+      ok(f.svg.includes('aria-label='), 'F: figure aria-label present')
+      ok(f.svg.trim().startsWith('<svg'), 'F: svg starts at the element')
+    }
+    // fig 1 plan: points (206,250),(322,199),(438,149); line ends (90,300)-(670,48);
+    // trap line (90,289)-(670,37); chips 14/2=7, 28/4=7, 42/6=7; the 17/2 note
+    const f1 = figs[0].svg
+    for (const c of ['cx="206" cy="250"', 'cx="322" cy="199"', 'cx="438" cy="149"']) ok(f1.includes(c), `F: fig1 point at plan ${c}`)
+    ok(f1.includes('x1="90" y1="300" x2="670" y2="48"'), 'F: fig1 line ends at plan')
+    ok(f1.includes('x1="90" y1="289" x2="670" y2="37"'), 'F: fig1 trap line ends at plan')
+    for (const chip of ['14 / 2 = 7', '28 / 4 = 7', '42 / 6 = 7']) ok(f1.includes(chip), `F: fig1 ratio chip ${chip}`)
+    ok(f1.includes('17 / 2 = 8.5'), 'F: fig1 trap note carries the pinned 17/2 = 8.5')
+    ok(f1.includes('y = 7x</text>') && f1.includes('y = 7x + 3</text>'), 'F: fig1 line labels present')
+    // fig 2 plan: rect (6,8) x 80..350 y 266..310; rect (4,12) x 80..260 y 244..310;
+    // dots (260,244),(350,266),(440,277),(620,288); the four product labels
+    const f2 = figs[1].svg
+    ok(f2.includes('<rect x="80" y="266" width="270" height="44"'), 'F: fig2 rect (6,8) at plan')
+    ok(f2.includes('<rect x="80" y="244" width="180" height="66"'), 'F: fig2 rect (4,12) at plan')
+    for (const c of ['cx="260" cy="244"', 'cx="350" cy="266"', 'cx="440" cy="277"', 'cx="620" cy="288"']) ok(f2.includes(c), `F: fig2 dot at plan ${c}`)
+    ok(f2.includes('6 × 8 = 48') && f2.includes('4 × 12 = 48') && f2.includes('8 · 6 = 48') && f2.includes('12 · 4 = 48'), 'F: fig2 carries all four product labels')
+    ok(f2.includes('y = 48 / x'), 'F: fig2 curve label present')
+    ok(f2.includes('<polyline'), 'F: fig2 hyperbola drawn as a polyline')
+    // no raw LaTeX in SVG text
+    const svgTexts = allSvg.match(/<text[^>]*>[^<]*<\/text>/g) ?? []
+    ok(svgTexts.length >= 20, `F: SVG text nodes present (${svgTexts.length})`)
+    ok(!/\$|\\frac|\\times|\\sqrt|\\tag|\\propto/.test(allSvg.match(/<text[^>]*>[^<]*<\/text>/g)?.join(' ') ?? ''), 'F: no raw LaTeX in SVG text nodes')
+    // vivid palette only — no retired hexes
+    const retired = ['#3f6212', '#365314', '#6b7a72', '#b45309', '#9a6b2f', '#4d7c0f', '#1f5c4d', '#123f35', '#7c2d12', '#9a3412', '#fdf8ef', '#f5eddd', '#d8d2c2', '#b9c6bd', '#b9c4bd', '#7c5a2e']
+    for (const h of retired) ok(!allSvg.toLowerCase().includes(h), `F: retired palette hex ${h} absent`)
+    const allowed = ['#16a34a', '#166534', '#65a30d', '#0d9488', '#d97706', '#ea580c', '#0f766e', '#dc2626', '#fef3c7', '#ffedd5', '#fcd34d', '#5eead4', '#ffffff', '#fffdf5']
+    const used = [...new Set((allSvg.match(/#[0-9a-fA-F]{6}/g) ?? []).map((h) => h.toLowerCase()))]
+    for (const h of used) ok(allowed.includes(h), `F: every SVG hex is a vivid-palette hex (found ${h})`)
+    ok(figs[0].caption.includes('origin') && figs[0].caption.includes('7'), 'F: fig1 caption teaches the origin fingerprint')
+    ok(figs[1].caption.includes('48') && figs[1].caption.includes('hyperbola'), 'F: fig2 caption teaches the constant product')
+  }
+  // tables shape
+  {
+    const tabs = lesson.blocks.filter((b) => b.kind === 'table') as Extract<(typeof lesson.blocks)[number], { kind: 'table' }>[]
+    ok(tabs[0].head.length === 4 && tabs[0].rows.length === 4, 'F: table 1 is 4x4 (the pumps trade)')
+    ok(tabs[1].head.length === 4 && tabs[1].rows.length === 4, 'F: table 2 is 4x4 (the four dresses)')
+    ok(tabs[1].rows.some((r) => r[0] === 'joint' && r[3].includes('1/100')), 'F: the joint-dress row carries k = 1/100')
+  }
+  // honesty scans (the run-96/97 battery)
+  {
+    const words = countLessonWords(lesson)
+    ok(words >= 4500, 'F: honest word count ' + words + ' >= 4500')
+    let rawTitleDollars = 0
+    for (const b of lesson.blocks) {
+      if (b.kind === 'callout' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'example' && b.title.includes('$')) rawTitleDollars++
+      if (b.kind === 'table' && b.caption && b.caption.includes('$')) rawTitleDollars++
+      if (b.kind === 'formula' && b.name.includes('$')) rawTitleDollars++
+      if (b.kind === 'derivation' && b.title.includes('$')) rawTitleDollars++
+    }
+    ok(rawTitleDollars === 0, 'F: no raw $ in non-KaTeX titles')
+    let oddRuns = 0
+    let i = 0
+    while (i < ch12SrcF.length) {
+      if (ch12SrcF[i] === '\\') {
+        let j = i
+        while (j < ch12SrcF.length && ch12SrcF[j] === '\\') j++
+        if ((j - i) % 2 === 1) oddRuns++
+        i = j
+      } else i++
+    }
+    ok(oddRuns === 0, 'F: no odd-length backslash runs in ch-12.ts source (found ' + oddRuns + ')')
+    const escapes = (ch12SrcF.match(/\\u[0-9a-fA-F]{4}/g) || []).length
+    ok(escapes === 0, 'F: no unicode escapes in ch-12.ts source (found ' + escapes + ')')
+  }
+  // al- prefix uniqueness across the whole library (12.2 now in)
+  {
+    const ids: string[] = []
+    for (const b of allBooks) {
+      for (const c of b.chapters) {
+        for (const l of c.lessons) ids.push(l.id)
+      }
+    }
+    ok(ids.length === new Set(ids).size, 'F: all ' + ids.length + ' lesson ids repo-wide unique (with 12.2 added)')
+    ok(ids.includes('al-variation-the-algebra-of-constants'), 'F: the new id is registered in the library graph')
+  }
+  // the citation key exists in the source log
+  {
+    const srcLog = fs.readFileSync('docs/project/SOURCE_LOG.md', 'utf8')
+    ok(srcLog.includes('hall-knight-elementary-algebra'), 'F: the H&K citation key exists in SOURCE_LOG.md')
+  }
+  console.log('[F] authored audit green')
+}
+
+/* ------------------------------------------------------------------ */
 /* report                                                              */
 /* ------------------------------------------------------------------ */
 
 sectionA()
 sectionB()
+sectionC()
+sectionD()
 sectionE()
+sectionF()
 
-console.log(`\nverify-book3-ch12 battery (sections A-B pre-writing + E authored audit, 12.1 at run 97): ${passed} passed, ${failed} failed`)
+console.log(`\nverify-book3-ch12 battery (A-B pre-writing 12.1 + C-D pre-writing 12.2 + E-F authored audits, run 98): ${passed} passed, ${failed} failed`)
 if (failed > 0) {
   console.log(failures.map((f) => '  - ' + f).join('\n'))
   process.exit(1)
